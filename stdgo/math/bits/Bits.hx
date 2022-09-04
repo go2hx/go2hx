@@ -39,8 +39,17 @@ var _divideError:stdgo.Error = {
 };
 
 final _uintSize:GoUnTypedInt = (32 : GoUnTypedInt);
+
+/**
+	// UintSize is the size of a uint in bits.
+**/
 final uintSize:GoUnTypedInt = (32 : GoUnTypedInt);
+
+/**
+	// See http://supertech.csail.mit.edu/papers/debruijn.pdf
+**/
 final _deBruijn32:GoUnTypedInt = (125613361 : GoUnTypedInt);
+
 final _deBruijn64:GoUnTypedInt = ("285870213051353865" : GoUnTypedInt);
 final _m0:GoUnTypedInt = ("6148914691236517205" : GoUnTypedInt);
 final _m1:GoUnTypedInt = ("3689348814741910323" : GoUnTypedInt);

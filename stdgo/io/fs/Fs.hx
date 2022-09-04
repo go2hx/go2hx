@@ -10,26 +10,174 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
+/**
+	// Generic file system errors.
+	// Errors returned by file systems can be tested against these errors
+	// using errors.Is.
+**/
 var errInvalid:stdgo.Error = _errInvalid();
+
+/**
+	// Generic file system errors.
+	// Errors returned by file systems can be tested against these errors
+	// using errors.Is.
+**/
 var errPermission:stdgo.Error = _errPermission();
+
+/**
+	// Generic file system errors.
+	// Errors returned by file systems can be tested against these errors
+	// using errors.Is.
+**/
 var errExist:stdgo.Error = _errExist();
+
+/**
+	// Generic file system errors.
+	// Errors returned by file systems can be tested against these errors
+	// using errors.Is.
+**/
 var errNotExist:stdgo.Error = _errNotExist();
+
+/**
+	// Generic file system errors.
+	// Errors returned by file systems can be tested against these errors
+	// using errors.Is.
+**/
 var errClosed:stdgo.Error = _errClosed();
+
+/**
+	// SkipDir is used as a return value from WalkDirFuncs to indicate that
+	// the directory named in the call is to be skipped. It is not returned
+	// as an error by any function.
+**/
 var skipDir:stdgo.Error = stdgo.errors.Errors.new_((Go.str("skip this directory") : GoString));
+
+/**
+	// The single letters are the abbreviations
+	// used by the String method's formatting.
+**/
 final modeDir:FileMode = (524288 : FileMode);
+
+/**
+	// The defined file mode bits are the most significant bits of the FileMode.
+	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
+	// The values of these bits should be considered part of the public API and
+	// may be used in wire protocols or disk representations: they must not be
+	// changed, although new bits might be added.
+**/
 final modeAppend:FileMode = (524288 : FileMode);
+
+/**
+	// The defined file mode bits are the most significant bits of the FileMode.
+	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
+	// The values of these bits should be considered part of the public API and
+	// may be used in wire protocols or disk representations: they must not be
+	// changed, although new bits might be added.
+**/
 final modeExclusive:FileMode = (524288 : FileMode);
+
+/**
+	// The defined file mode bits are the most significant bits of the FileMode.
+	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
+	// The values of these bits should be considered part of the public API and
+	// may be used in wire protocols or disk representations: they must not be
+	// changed, although new bits might be added.
+**/
 final modeTemporary:FileMode = (524288 : FileMode);
+
+/**
+	// The defined file mode bits are the most significant bits of the FileMode.
+	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
+	// The values of these bits should be considered part of the public API and
+	// may be used in wire protocols or disk representations: they must not be
+	// changed, although new bits might be added.
+**/
 final modeSymlink:FileMode = (524288 : FileMode);
+
+/**
+	// The defined file mode bits are the most significant bits of the FileMode.
+	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
+	// The values of these bits should be considered part of the public API and
+	// may be used in wire protocols or disk representations: they must not be
+	// changed, although new bits might be added.
+**/
 final modeDevice:FileMode = (524288 : FileMode);
+
+/**
+	// The defined file mode bits are the most significant bits of the FileMode.
+	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
+	// The values of these bits should be considered part of the public API and
+	// may be used in wire protocols or disk representations: they must not be
+	// changed, although new bits might be added.
+**/
 final modeNamedPipe:FileMode = (524288 : FileMode);
+
+/**
+	// The defined file mode bits are the most significant bits of the FileMode.
+	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
+	// The values of these bits should be considered part of the public API and
+	// may be used in wire protocols or disk representations: they must not be
+	// changed, although new bits might be added.
+**/
 final modeSocket:FileMode = (524288 : FileMode);
+
+/**
+	// The defined file mode bits are the most significant bits of the FileMode.
+	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
+	// The values of these bits should be considered part of the public API and
+	// may be used in wire protocols or disk representations: they must not be
+	// changed, although new bits might be added.
+**/
 final modeSetuid:FileMode = (524288 : FileMode);
+
+/**
+	// The defined file mode bits are the most significant bits of the FileMode.
+	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
+	// The values of these bits should be considered part of the public API and
+	// may be used in wire protocols or disk representations: they must not be
+	// changed, although new bits might be added.
+**/
 final modeSetgid:FileMode = (524288 : FileMode);
+
+/**
+	// The defined file mode bits are the most significant bits of the FileMode.
+	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
+	// The values of these bits should be considered part of the public API and
+	// may be used in wire protocols or disk representations: they must not be
+	// changed, although new bits might be added.
+**/
 final modeCharDevice:FileMode = (524288 : FileMode);
+
+/**
+	// The defined file mode bits are the most significant bits of the FileMode.
+	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
+	// The values of these bits should be considered part of the public API and
+	// may be used in wire protocols or disk representations: they must not be
+	// changed, although new bits might be added.
+**/
 final modeSticky:FileMode = (524288 : FileMode);
+
+/**
+	// The defined file mode bits are the most significant bits of the FileMode.
+	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
+	// The values of these bits should be considered part of the public API and
+	// may be used in wire protocols or disk representations: they must not be
+	// changed, although new bits might be added.
+**/
 final modeIrregular:FileMode = (524288 : FileMode);
+
+/**
+	// Mask for the type bits. For regular files, none will be set.
+**/
 final modeType:FileMode = ("2401763328" : FileMode);
+
+/**
+	// The defined file mode bits are the most significant bits of the FileMode.
+	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
+	// The values of these bits should be considered part of the public API and
+	// may be used in wire protocols or disk representations: they must not be
+	// changed, although new bits might be added.
+**/
 final modePerm:FileMode = (511 : FileMode);
 
 /**
@@ -39,59 +187,207 @@ final modePerm:FileMode = (511 : FileMode);
 **/
 private var __go2hxdoc__package:Bool;
 
+/**
+	// An FS provides access to a hierarchical file system.
+	//
+	// The FS interface is the minimum implementation required of the file system.
+	// A file system may implement additional interfaces,
+	// such as ReadFileFS, to provide additional or optimized functionality.
+**/
 typedef FS = StructType & {
+	/**
+		// Open opens the named file.
+		//
+		// When Open returns an error, it should be of type *PathError
+		// with the Op field set to "open", the Path field set to name,
+		// and the Err field describing the problem.
+		//
+		// Open should reject attempts to open names that do not satisfy
+		// ValidPath(name), returning a *PathError with Err set to
+		// ErrInvalid or ErrNotExist.
+	**/
 	public function open(_name:GoString):{var _0:File; var _1:Error;};
 };
 
+/**
+	// A File provides access to a single file.
+	// The File interface is the minimum implementation required of the file.
+	// Directory files should also implement ReadDirFile.
+	// A file may implement io.ReaderAt or io.Seeker as optimizations.
+**/
 typedef File = StructType & {
 	public function stat():{var _0:FileInfo; var _1:Error;};
 	public function read(_0:Slice<GoByte>):{var _0:GoInt; var _1:Error;};
 	public function close():Error;
 };
 
+/**
+	// A DirEntry is an entry read from a directory
+	// (using the ReadDir function or a ReadDirFile's ReadDir method).
+**/
 typedef DirEntry = StructType & {
+	/**
+		// Name returns the name of the file (or subdirectory) described by the entry.
+		// This name is only the final element of the path (the base name), not the entire path.
+		// For example, Name would return "hello.go" not "home/gopher/hello.go".
+	**/
 	public function name():GoString;
+
+	/**
+		// IsDir reports whether the entry describes a directory.
+	**/
 	public function isDir():Bool;
+
+	/**
+		// Type returns the type bits for the entry.
+		// The type bits are a subset of the usual FileMode bits, those returned by the FileMode.Type method.
+	**/
 	public function type():FileMode;
+
+	/**
+		// Info returns the FileInfo for the file or subdirectory described by the entry.
+		// The returned FileInfo may be from the time of the original directory read
+		// or from the time of the call to Info. If the file has been removed or renamed
+		// since the directory read, Info may return an error satisfying errors.Is(err, ErrNotExist).
+		// If the entry denotes a symbolic link, Info reports the information about the link itself,
+		// not the link's target.
+	**/
 	public function info():{var _0:FileInfo; var _1:Error;};
 };
 
+/**
+	// A ReadDirFile is a directory file whose entries can be read with the ReadDir method.
+	// Every directory file should implement this interface.
+	// (It is permissible for any file to implement this interface,
+	// but if so ReadDir should return an error for non-directories.)
+**/
 typedef ReadDirFile = StructType & {
 	> File,
+
+	/**
+		// ReadDir reads the contents of the directory and returns
+		// a slice of up to n DirEntry values in directory order.
+		// Subsequent calls on the same file will yield further DirEntry values.
+		//
+		// If n > 0, ReadDir returns at most n DirEntry structures.
+		// In this case, if ReadDir returns an empty slice, it will return
+		// a non-nil error explaining why.
+		// At the end of a directory, the error is io.EOF.
+		// (ReadDir must return io.EOF itself, not an error wrapping io.EOF.)
+		//
+		// If n <= 0, ReadDir returns all the DirEntry values from the directory
+		// in a single slice. In this case, if ReadDir succeeds (reads all the way
+		// to the end of the directory), it returns the slice and a nil error.
+		// If it encounters an error before the end of the directory,
+		// ReadDir returns the DirEntry list read until that point and a non-nil error.
+	**/
 	public function readDir(_n:GoInt):{var _0:Slice<DirEntry>; var _1:Error;};
 };
 
+/**
+	// A FileInfo describes a file and is returned by Stat.
+**/
 typedef FileInfo = StructType & {
+	/**
+		// base name of the file
+	**/
 	public function name():GoString;
+
+	/**
+		// length in bytes for regular files; system-dependent for others
+	**/
 	public function size():GoInt64;
+
+	/**
+		// file mode bits
+	**/
 	public function mode():FileMode;
+
+	/**
+		// modification time
+	**/
 	public function modTime():stdgo.time.Time.Time;
+
+	/**
+		// abbreviation for Mode().IsDir()
+	**/
 	public function isDir():Bool;
+
+	/**
+		// underlying data source (can return nil)
+	**/
 	public function sys():AnyInterface;
 };
 
+/**
+	// A GlobFS is a file system with a Glob method.
+**/
 typedef GlobFS = StructType & {
 	> FS,
+
+	/**
+		// Glob returns the names of all files matching pattern,
+		// providing an implementation of the top-level
+		// Glob function.
+	**/
 	public function glob(_pattern:GoString):{var _0:Slice<GoString>; var _1:Error;};
 };
 
+/**
+	// ReadDirFS is the interface implemented by a file system
+	// that provides an optimized implementation of ReadDir.
+**/
 typedef ReadDirFS = StructType & {
 	> FS,
+
+	/**
+		// ReadDir reads the named directory
+		// and returns a list of directory entries sorted by filename.
+	**/
 	public function readDir(_name:GoString):{var _0:Slice<DirEntry>; var _1:Error;};
 };
 
+/**
+	// ReadFileFS is the interface implemented by a file system
+	// that provides an optimized implementation of ReadFile.
+**/
 typedef ReadFileFS = StructType & {
 	> FS,
+
+	/**
+		// ReadFile reads the named file and returns its contents.
+		// A successful call returns a nil error, not io.EOF.
+		// (Because ReadFile reads the whole file, the expected EOF
+		// from the final Read is not treated as an error to be reported.)
+		//
+		// The caller is permitted to modify the returned byte slice.
+		// This method should return a copy of the underlying data.
+	**/
 	public function readFile(_name:GoString):{var _0:Slice<GoByte>; var _1:Error;};
 };
 
+/**
+	// A StatFS is a file system with a Stat method.
+**/
 typedef StatFS = StructType & {
 	> FS,
+
+	/**
+		// Stat returns a FileInfo describing the file.
+		// If there is an error, it should be of type *PathError.
+	**/
 	public function stat(_name:GoString):{var _0:FileInfo; var _1:Error;};
 };
 
+/**
+	// A SubFS is a file system with a Sub method.
+**/
 typedef SubFS = StructType & {
 	> FS,
+
+	/**
+		// Sub returns an FS corresponding to the subtree rooted at dir.
+	**/
 	public function sub(_dir:GoString):{var _0:FS; var _1:Error;};
 };
 
@@ -99,6 +395,9 @@ typedef SubFS = StructType & {
 	public function timeout():Bool;
 };
 
+/**
+	// PathError records an error and the operation and file path that caused it.
+**/
 @:structInit @:using(stdgo.io.fs.Fs.PathError_static_extension) class PathError {
 	public var op:GoString = "";
 	public var path:GoString = "";
@@ -121,6 +420,9 @@ typedef SubFS = StructType & {
 	}
 }
 
+/**
+	// dirInfo is a DirEntry based on a FileInfo.
+**/
 @:structInit @:using(stdgo.io.fs.Fs.T_dirInfo_static_extension) private class T_dirInfo {
 	public var _fileInfo:FileInfo = (null : FileInfo);
 
@@ -172,7 +474,61 @@ typedef SubFS = StructType & {
 	}
 }
 
+/**
+	// A FileMode represents a file's mode and permission bits.
+	// The bits have the same definition on all systems, so that
+	// information about files can be moved from one system
+	// to another portably. Not all bits apply to all systems.
+	// The only required bit is ModeDir for directories.
+**/
 @:named @:using(stdgo.io.fs.Fs.FileMode_static_extension) typedef FileMode = GoUInt32;
+
+/**
+	// WalkDirFunc is the type of the function called by WalkDir to visit
+	// each file or directory.
+	//
+	// The path argument contains the argument to WalkDir as a prefix.
+	// That is, if WalkDir is called with root argument "dir" and finds a file
+	// named "a" in that directory, the walk function will be called with
+	// argument "dir/a".
+	//
+	// The d argument is the fs.DirEntry for the named path.
+	//
+	// The error result returned by the function controls how WalkDir
+	// continues. If the function returns the special value SkipDir, WalkDir
+	// skips the current directory (path if d.IsDir() is true, otherwise
+	// path's parent directory). Otherwise, if the function returns a non-nil
+	// error, WalkDir stops entirely and returns that error.
+	//
+	// The err argument reports an error related to path, signaling that
+	// WalkDir will not walk into that directory. The function can decide how
+	// to handle that error; as described earlier, returning the error will
+	// cause WalkDir to stop walking the entire tree.
+	//
+	// WalkDir calls the function with a non-nil err argument in two cases.
+	//
+	// First, if the initial fs.Stat on the root directory fails, WalkDir
+	// calls the function with path set to root, d set to nil, and err set to
+	// the error from fs.Stat.
+	//
+	// Second, if a directory's ReadDir method fails, WalkDir calls the
+	// function with path set to the directory's path, d set to an
+	// fs.DirEntry describing the directory, and err set to the error from
+	// ReadDir. In this second case, the function is called twice with the
+	// path of the directory: the first call is before the directory read is
+	// attempted and has err set to nil, giving the function a chance to
+	// return SkipDir and avoid the ReadDir entirely. The second call is
+	// after a failed ReadDir and reports the error from ReadDir.
+	// (If ReadDir succeeds, there is no second call.)
+	//
+	// The differences between WalkDirFunc compared to filepath.WalkFunc are:
+	//
+	//   - The second argument has type fs.DirEntry instead of fs.FileInfo.
+	//   - The function is called before reading a directory, to allow SkipDir
+	//     to bypass the directory read entirely.
+	//   - If a directory read fails, the function is called a second time
+	//     for that directory to report the error.
+**/
 @:named typedef WalkDirFunc = (GoString, DirEntry, stdgo.Error) -> stdgo.Error;
 
 /**

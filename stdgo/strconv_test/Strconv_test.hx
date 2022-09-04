@@ -2536,7 +2536,12 @@ var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 
 @:local typedef T__struct_4 = {
 	public var _in:GoString;
+
+	/**
+		// one of:
+	**/
 	public var _want:GoString;
+
 	public var _wantErr:stdgo.Error;
 };
 
@@ -2547,7 +2552,14 @@ var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 };
 
 @:local typedef T__struct_6 = {
+	/**
+		// Input error
+	**/
 	public var _err:stdgo.Error;
+
+	/**
+		// Function name wanted
+	**/
 	public var _want:GoString;
 };
 

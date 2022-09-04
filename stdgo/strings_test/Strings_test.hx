@@ -1375,6 +1375,9 @@ var _stringSink:GoString = ("" : GoString);
 	}
 }
 
+/**
+	// Test case for any function which accepts and returns a single string.
+**/
 @:structInit class StringTest {
 	public var _in:GoString = "";
 	public var _out:GoString = "";

@@ -10,7 +10,11 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
+/**
+	// ErrTimeout is a fake timeout error.
+**/
 var errTimeout:stdgo.Error = (null : stdgo.Error);
+
 var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>);
 
 /**

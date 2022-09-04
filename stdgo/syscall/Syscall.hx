@@ -10,7 +10,13 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
+/**
+	// envs is provided by the runtime. elements are expected to
+	// be of the form "key=value". An empty string means deleted
+	// (or a duplicate to be ignored).
+**/
 var _envs:Slice<GoString> = (null : Slice<GoString>);
+
 var _jsProcess:stdgo.syscall.js.Js.Value = ({} : stdgo.syscall.js.Js.Value);
 var _jsFS:stdgo.syscall.js.Js.Value = ({} : stdgo.syscall.js.Js.Value);
 var _constants:stdgo.syscall.js.Js.Value = ({} : stdgo.syscall.js.Js.Value);
@@ -23,16 +29,49 @@ var _nodeAPPEND:GoInt = (0 : GoInt);
 var _nodeEXCL:GoInt = (0 : GoInt);
 var _files:GoMap<GoInt, Ref<T_jsFile>> = (null : GoMap<GoInt, Ref<T_jsFile>>);
 var _signals:GoArray<GoString> = new GoArray<GoString>(...[for (i in 0...0) ("" : GoString)]);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 var _errorstr:GoArray<GoString> = new GoArray<GoString>(...[for (i in 0...2054) ("" : GoString)]);
+
+/**
+	// Do the interface allocations only once for common
+	// Errno values.
+**/
 var _errEAGAIN:Error = (null : stdgo.Error);
+
+/**
+	// Do the interface allocations only once for common
+	// Errno values.
+**/
 var _errEINVAL:Error = (null : stdgo.Error);
+
+/**
+	// Do the interface allocations only once for common
+	// Errno values.
+**/
 var _errENOENT:Error = (null : stdgo.Error);
+
 var _errnoByCode:GoMap<GoString, Errno> = (null : GoMap<GoString, Errno>);
 final _asanenabled = null;
 final _isBigEndian = null;
+
+/**
+	// envOnce guards initialization by copyenv, which populates env.
+**/
 var _envOnce:stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
+
+/**
+	// envLock guards env and envs.
+**/
 var _envLock:stdgo.sync.Sync.RWMutex = ({} : stdgo.sync.Sync.RWMutex);
+
+/**
+	// env maps from an environment variable to its first occurrence in envs.
+**/
 var _env:GoMap<GoString, GoInt> = (null : GoMap<GoString, GoInt>);
+
 var _filesMu:stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
 final _msanenabled = null;
 final af_UNSPEC:GoUnTypedInt = (0 : GoUnTypedInt);
@@ -52,10 +91,28 @@ final _0:GoUnTypedInt = (0 : GoUnTypedInt);
 final ipv6_V6ONLY = null;
 final somaxconn = null;
 final so_ERROR = null;
+
+/**
+	// Misc constants expected by package net but not supported.
+**/
 final _1:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// Misc constants expected by package net but not supported.
+**/
 final f_DUPFD_CLOEXEC = null;
+
+/**
+	// Misc constants expected by package net but not supported.
+**/
 final sys_FCNTL:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// Single-word zero for use when we need a valid pointer to 0 bytes.
+	// See mksyscall.pl.
+**/
 var __zero:GoUIntptr = (0 : GoUIntptr);
+
 final _direntSize:GoUnTypedInt = (0 : GoUnTypedInt);
 final pathMax:GoUnTypedInt = (0 : GoUnTypedInt);
 final _2:Signal = ((0 : GoInt) : Signal);
@@ -133,211 +190,1365 @@ final s_IWOTH:GoUnTypedInt = (0 : GoUnTypedInt);
 final s_IXOTH:GoUnTypedInt = (0 : GoUnTypedInt);
 var forkLock:stdgo.sync.Sync.RWMutex = ({} : stdgo.sync.Sync.RWMutex);
 final implementsGetwd = null;
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_null:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_nameservice:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_dup:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_dup2:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_open:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_close:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_read:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_write:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_lseek:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_stat:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_fstat:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_chmod:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_isatty:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_brk:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_mmap:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_munmap:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_getdents:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_mprotect:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_list_mappings:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_exit:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_getpid:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_sched_yield:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_sysconf:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_gettimeofday:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_clock:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_nanosleep:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_clock_getres:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_clock_gettime:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_mkdir:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_rmdir:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_chdir:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_getcwd:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_unlink:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_imc_makeboundsock:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_imc_accept:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_imc_connect:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_imc_sendmsg:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_imc_recvmsg:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_imc_mem_obj_create:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_imc_socketpair:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_mutex_create:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_mutex_lock:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_mutex_trylock:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_mutex_unlock:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_cond_create:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_cond_wait:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_cond_signal:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_cond_broadcast:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_cond_timed_wait_abs:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_thread_create:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_thread_exit:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_tls_init:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_thread_nice:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_tls_get:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_second_tls_set:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_second_tls_get:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_exception_handler:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_exception_stack:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_exception_clear_flag:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_sem_create:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_sem_wait:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_sem_post:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_sem_get_value:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_dyncode_create:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_dyncode_modify:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_dyncode_delete:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_test_infoleak:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_test_crash:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_test_syscall_1:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_test_syscall_2:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_futex_wait_abs:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_futex_wake:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_pread:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_pwrite:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_truncate:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_lstat:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_link:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_rename:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_symlink:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_access:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_readlink:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_utimes:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// These were originally used by Nacl, then later also used by
+	// js/wasm. Now that they're only used by js/wasm, these numbers are
+	// just arbitrary.
+	//
+	// TODO: delete? replace with something meaningful?
+**/
 final _sys_get_random_bytes:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// native_client/src/trusted/service_runtime/include/sys/errno.h
+	// The errors are mainly copied from Linux.
+**/
 final eperm:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enoent:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final esrch:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final eintr:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final eio:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enxio:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final e2big:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enoexec:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final ebadf:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final echild:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final eagain:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enomem:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final eacces:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final efault:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final ebusy:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final eexist:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final exdev:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enodev:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enotdir:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final eisdir:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final einval:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enfile:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final emfile:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enotty:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final efbig:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enospc:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final espipe:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final erofs:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final emlink:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final epipe:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enametoolong:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enosys:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final edquot:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final edom:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final erange:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final edeadlk:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enolck:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enotempty:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final eloop:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enomsg:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final eidrm:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final echrng:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final el2nsync:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final el3hlt:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final el3rst:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final elnrng:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final eunatch:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enocsi:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final el2hlt:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final ebade:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final ebadr:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final exfull:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enoano:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final ebadrqc:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final ebadslt:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final edeadlock:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final ebfont:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enostr:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enodata:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final etime:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enosr:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enonet:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enopkg:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final eremote:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enolink:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final eadv:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final esrmnt:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final ecomm:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final eproto:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final emultihop:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final edotdot:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final ebadmsg:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final eoverflow:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enotuniq:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final ebadfd:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final eremchg:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final elibacc:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final elibbad:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final elibscn:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final elibmax:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final elibexec:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final eilseq:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final eusers:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enotsock:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final edestaddrreq:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final emsgsize:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final eprototype:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enoprotoopt:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final eprotonosupport:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final esocktnosupport:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final eopnotsupp:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final epfnosupport:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final eafnosupport:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final eaddrinuse:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final eaddrnotavail:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enetdown:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enetunreach:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enetreset:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final econnaborted:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final econnreset:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enobufs:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final eisconn:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enotconn:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final eshutdown:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final etoomanyrefs:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final etimedout:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final econnrefused:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final ehostdown:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final ehostunreach:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final ealready:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final einprogress:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final estale:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enotsup:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enomedium:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final ecanceled:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final elbin:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final eftype:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enmfile:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final eproclim:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final enoshare:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final ecaseclash:Errno = ((0 : GoUIntptr) : Errno);
+
+/**
+	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+**/
 final ewouldblock:Errno = ((0 : GoUIntptr) : Errno);
+
 final _faketime = null;
 
 /**
@@ -365,20 +1576,56 @@ final _faketime = null;
 **/
 private var __go2hxdoc__package:Bool;
 
+/**
+	// A RawConn is a raw network connection.
+**/
 typedef RawConn = StructType & {
+	/**
+		// Control invokes f on the underlying connection's file
+		// descriptor or handle.
+		// The file descriptor fd is guaranteed to remain valid while
+		// f executes but not after f returns.
+	**/
 	public function control(_f:(_fd:GoUIntptr) -> Void):Error;
+
+	/**
+		// Read invokes f on the underlying connection's file
+		// descriptor or handle; f is expected to try to read from the
+		// file descriptor.
+		// If f returns true, Read returns. Otherwise Read blocks
+		// waiting for the connection to be ready for reading and
+		// tries again repeatedly.
+		// The file descriptor is guaranteed to remain valid while f
+		// executes but not after f returns.
+	**/
 	public function read(_f:(_fd:GoUIntptr) -> Bool):Error;
+
+	/**
+		// Write is like Read but for writing.
+	**/
 	public function write(_f:(_fd:GoUIntptr) -> Bool):Error;
 };
 
+/**
+	// Conn is implemented by some types in the net and os packages to provide
+	// access to the underlying file descriptor or handle.
+**/
 typedef Conn = StructType & {
+	/**
+		// SyscallConn returns a raw network connection.
+	**/
 	public function syscallConn():{var _0:RawConn; var _1:Error;};
 };
 
 @:structInit private class T_jsFile {
 	public var _path:GoString = "";
 	public var _entries:Slice<GoString> = (null : Slice<GoString>);
+
+	/**
+		// entries[:dirIdx] have already been returned in ReadDirent
+	**/
 	public var _dirIdx:GoInt = 0;
+
 	public var _pos:GoInt64 = 0;
 	public var _seeked:Bool = false;
 
@@ -541,6 +1788,9 @@ typedef Conn = StructType & {
 	}
 }
 
+/**
+	// XXX made up
+**/
 @:structInit class Rusage {
 	public var utime:Timeval = ({} : Timeval);
 	public var stime:Timeval = ({} : Timeval);
@@ -560,6 +1810,9 @@ typedef Conn = StructType & {
 	}
 }
 
+/**
+	// XXX made up
+**/
 @:structInit class ProcAttr {
 	public var dir:GoString = "";
 	public var env:Slice<GoString> = (null : Slice<GoString>);
@@ -649,8 +1902,31 @@ typedef Conn = StructType & {
 }
 
 @:follow typedef Sockaddr = AnyInterface;
+
+/**
+	// An Errno is an unsigned number describing an error condition.
+	// It implements the error interface. The zero Errno is by convention
+	// a non-error, so code to convert from Errno to error should use:
+	//
+	//	err = nil
+	//	if errno != 0 {
+	//		err = errno
+	//	}
+	//
+	// Errno values can be tested against error values from the os package
+	// using errors.Is. For example:
+	//
+	//	_, _, err := syscall.Syscall(...)
+	//	if errors.Is(err, fs.ErrNotExist) ...
+**/
 @:named @:using(stdgo.syscall.Syscall.Errno_static_extension) typedef Errno = GoUIntptr;
+
+/**
+	// A Signal is a number describing a process signal.
+	// It implements the os.Signal interface.
+**/
 @:named @:using(stdgo.syscall.Syscall.Signal_static_extension) typedef Signal = GoInt;
+
 @:named @:using(stdgo.syscall.Syscall.WaitStatus_static_extension) typedef WaitStatus = GoUInt32;
 
 function _asanRead(_addr:stdgo.unsafe.Unsafe.UnsafePointer, _len:GoInt):Void

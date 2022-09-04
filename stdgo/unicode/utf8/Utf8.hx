@@ -10,6 +10,9 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
+/**
+	// first is information about the first byte in a UTF-8 sequence.
+**/
 var _first:GoArray<GoUInt8> = (new GoArray<GoUInt8>((240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8),
 	(240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8),
 	(240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8),
@@ -40,6 +43,9 @@ var _first:GoArray<GoUInt8> = (new GoArray<GoUInt8>((240 : GoUInt8), (240 : GoUI
 	(241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8),
 	(241 : GoUInt8), (241 : GoUInt8)) : GoArray<GoUInt8>);
 
+/**
+	// acceptRanges has size 16 to avoid bounds checks in the code that uses it.
+**/
 var _acceptRanges:GoArray<T_acceptRange> = {
 	var s:GoArray<T_acceptRange> = new GoArray<T_acceptRange>(...[for (i in 0...16) ({} : T_acceptRange)]);
 	s[0] = (new T_acceptRange((128 : GoUInt8), (191 : GoUInt8)) : T_acceptRange);
@@ -50,12 +56,36 @@ var _acceptRanges:GoArray<T_acceptRange> = {
 	s;
 };
 
+/**
+	// Numbers fundamental to the encoding.
+**/
 final runeError:GoInt32 = ("\uFFFD".code : GoInt32);
+
+/**
+	// Numbers fundamental to the encoding.
+**/
 final runeSelf:GoUnTypedInt = (128 : GoUnTypedInt);
+
+/**
+	// Numbers fundamental to the encoding.
+**/
 final maxRune:GoInt32 = ("\u{0010FFFF}".code : GoInt32);
+
+/**
+	// Numbers fundamental to the encoding.
+**/
 final utfmax:GoUnTypedInt = (4 : GoUnTypedInt);
+
+/**
+	// Code points in the surrogate range are not valid for UTF-8.
+**/
 final _surrogateMin:GoUnTypedInt = (55296 : GoUnTypedInt);
+
+/**
+	// Code points in the surrogate range are not valid for UTF-8.
+**/
 final _surrogateMax:GoUnTypedInt = (57343 : GoUnTypedInt);
+
 final _t1:GoUnTypedInt = (0 : GoUnTypedInt);
 final _tx:GoUnTypedInt = (128 : GoUnTypedInt);
 final _t2:GoUnTypedInt = (192 : GoUnTypedInt);
@@ -69,9 +99,22 @@ final _mask4:GoUnTypedInt = (7 : GoUnTypedInt);
 final _rune1Max:GoUnTypedInt = (127 : GoUnTypedInt);
 final _rune2Max:GoUnTypedInt = (2047 : GoUnTypedInt);
 final _rune3Max:GoUnTypedInt = (65535 : GoUnTypedInt);
+
+/**
+	// The default lowest and highest continuation byte.
+**/
 final _locb:GoUnTypedInt = (128 : GoUnTypedInt);
+
 final _hicb:GoUnTypedInt = (191 : GoUnTypedInt);
+
+/**
+	// These names of these constants are chosen to give nice alignment in the
+	// table below. The first nibble is an index into acceptRanges or F for
+	// special one-byte cases. The second nibble is the Rune length or the
+	// Status for the special one-byte case.
+**/
 final _xx:GoUnTypedInt = (241 : GoUnTypedInt);
+
 final _as:GoUnTypedInt = (240 : GoUnTypedInt);
 final _s1:GoUnTypedInt = (2 : GoUnTypedInt);
 final _s2:GoUnTypedInt = (19 : GoUnTypedInt);
@@ -88,8 +131,19 @@ final _s7:GoUnTypedInt = (68 : GoUnTypedInt);
 **/
 private var __go2hxdoc__package:Bool;
 
+/**
+	// acceptRange gives the range of valid values for the second byte in a UTF-8
+	// sequence.
+**/
 @:structInit private class T_acceptRange {
+	/**
+		// lowest value for second byte.
+	**/
 	public var _lo:GoUInt8 = 0;
+
+	/**
+		// highest value for second byte.
+	**/
 	public var _hi:GoUInt8 = 0;
 
 	public function new(?_lo:GoUInt8, ?_hi:GoUInt8) {

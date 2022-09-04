@@ -10,6 +10,9 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
+/**
+	// std0x records the std values for "01", "02", ..., "06".
+**/
 var _std0x:GoArray<GoInt> = (new GoArray<GoInt>((260 : GoInt), (265 : GoInt), (526 : GoInt), (528 : GoInt), (530 : GoInt), (276 : GoInt)) : GoArray<GoInt>);
 
 var _longDayNames:Slice<GoString> = (new Slice<GoString>(0, 0, (Go.str("Sunday") : GoString), (Go.str("Monday") : GoString), (Go.str("Tuesday") : GoString),
@@ -27,7 +30,11 @@ var _longMonthNames:Slice<GoString> = (new Slice<GoString>(0, 0, (Go.str("Januar
 	(Go.str("August") : GoString), (Go.str("September") : GoString), (Go.str("October") : GoString), (Go.str("November") : GoString),
 	(Go.str("December") : GoString)) : Slice<GoString>);
 
+/**
+	// Never printed, just needs to be non-nil for return by atoi.
+**/
 var _atoiError:stdgo.Error = stdgo.errors.Errors.new_((Go.str("time: invalid number") : GoString));
+
 var _errBad:stdgo.Error = stdgo.errors.Errors.new_((Go.str("bad value for field") : GoString));
 var _errLeadingInt:stdgo.Error = stdgo.errors.Errors.new_((Go.str("time: bad [0-9]*") : GoString));
 
@@ -58,13 +65,46 @@ var _unitMap:GoMap<GoString, GoUInt64> = {
 	x;
 };
 
+/**
+	// daysBefore[m] counts the number of days in a non-leap year
+	// before month m begins. There is an entry for m=12, counting
+	// the number of days before January of next year (365).
+**/
 var _daysBefore:GoArray<GoInt32> = (new GoArray<GoInt32>((0 : GoInt32), (31 : GoInt32), (59 : GoInt32), (90 : GoInt32), (120 : GoInt32), (151 : GoInt32),
 	(181 : GoInt32), (212 : GoInt32), (243 : GoInt32), (273 : GoInt32), (304 : GoInt32), (334 : GoInt32), (365 : GoInt32)) : GoArray<GoInt32>);
 
+/**
+	// Monotonic times are reported as offsets from startNano.
+	// We initialize startNano to runtimeNano() - 1 so that on systems where
+	// monotonic time resolution is fairly low (e.g. Windows 2008
+	// which appears to have a default resolution of 15ms),
+	// we avoid ever reporting a monotonic time of 0.
+	// (Callers may want to use 0 as "time not set".)
+**/
 var _startNano:GoInt64 = _runtimeNano() - (1 : GoInt64);
+
+/**
+	// utcLoc is separate so that get can refer to &utcLoc
+	// and ensure that it never returns a nil *Location,
+	// even if a badly behaved client has changed UTC.
+**/
 var _utcLoc:Location = ({_name: (Go.str("UTC") : GoString)} : Location);
+
+/**
+	// UTC represents Universal Coordinated Time (UTC).
+**/
 var utc:Location = _utcLoc;
+
+/**
+	// Local represents the system's local time zone.
+	// On Unix systems, Local consults the TZ environment
+	// variable to find the time zone to use. No TZ means
+	// use the system default /etc/localtime.
+	// TZ="" means use UTC.
+	// TZ="foo" means use file foo in the system timezone directory.
+**/
 var local:Location = _localLoc;
+
 var _errLocation:stdgo.Error = stdgo.errors.Errors.new_((Go.str("time: invalid location name") : GoString));
 
 var _platformZoneSources:Slice<GoString> = (new Slice<GoString>(0, 0, (Go.str("/usr/share/zoneinfo/") : GoString),
@@ -123,6 +163,9 @@ var tzsetOffset:GoString -> {
 	var _2:Bool;
 } = _tzsetOffset;
 
+/**
+	// StdChunkNames maps from nextStdChunk results to the matched strings.
+**/
 var stdChunkNames:GoMap<GoInt, GoString> = {
 	final x = new stdgo.GoMap.GoObjectMap<GoInt,
 		GoString>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(int_kind),
@@ -203,22 +246,1452 @@ final ruleJulian:RuleKind = ((0 : T_ruleKind) : RuleKind);
 final ruleDOY:RuleKind = ((1 : T_ruleKind) : RuleKind);
 final ruleMonthWeekDay:RuleKind = ((2 : T_ruleKind) : RuleKind);
 final unixToInternal:GoInt64 = ("62135596800" : GoInt64);
+
+/**
+	// These are predefined layouts for use in Time.Format and time.Parse.
+	// The reference time used in these layouts is the specific time stamp:
+	//
+	//	01/02 03:04:05PM '06 -0700
+	//
+	// (January 2, 15:04:05, 2006, in time zone seven hours west of GMT).
+	// That value is recorded as the constant named Layout, listed below. As a Unix
+	// time, this is 1136239445. Since MST is GMT-0700, the reference would be
+	// printed by the Unix date command as:
+	//
+	//	Mon Jan 2 15:04:05 MST 2006
+	//
+	// It is a regrettable historic error that the date uses the American convention
+	// of putting the numerical month before the day.
+	//
+	// The example for Time.Format demonstrates the working of the layout string
+	// in detail and is a good reference.
+	//
+	// Note that the RFC822, RFC850, and RFC1123 formats should be applied
+	// only to local times. Applying them to UTC times will use "UTC" as the
+	// time zone abbreviation, while strictly speaking those RFCs require the
+	// use of "GMT" in that case.
+	// In general RFC1123Z should be used instead of RFC1123 for servers
+	// that insist on that format, and RFC3339 should be preferred for new protocols.
+	// RFC3339, RFC822, RFC822Z, RFC1123, and RFC1123Z are useful for formatting;
+	// when used with time.Parse they do not accept all the time formats
+	// permitted by the RFCs and they do accept time formats not formally defined.
+	// The RFC3339Nano format removes trailing zeros from the seconds field
+	// and thus may not sort correctly once formatted.
+	//
+	// Most programs can use one of the defined constants as the layout passed to
+	// Format or Parse. The rest of this comment can be ignored unless you are
+	// creating a custom layout string.
+	//
+	// To define your own format, write down what the reference time would look like
+	// formatted your way; see the values of constants like ANSIC, StampMicro or
+	// Kitchen for examples. The model is to demonstrate what the reference time
+	// looks like so that the Format and Parse methods can apply the same
+	// transformation to a general time value.
+	//
+	// Here is a summary of the components of a layout string. Each element shows by
+	// example the formatting of an element of the reference time. Only these values
+	// are recognized. Text in the layout string that is not recognized as part of
+	// the reference time is echoed verbatim during Format and expected to appear
+	// verbatim in the input to Parse.
+	//
+	//	Year: "2006" "06"
+	//	Month: "Jan" "January" "01" "1"
+	//	Day of the week: "Mon" "Monday"
+	//	Day of the month: "2" "_2" "02"
+	//	Day of the year: "__2" "002"
+	//	Hour: "15" "3" "03" (PM or AM)
+	//	Minute: "4" "04"
+	//	Second: "5" "05"
+	//	AM/PM mark: "PM"
+	//
+	// Numeric time zone offsets format as follows:
+	//
+	//	"-0700"     ±hhmm
+	//	"-07:00"    ±hh:mm
+	//	"-07"       ±hh
+	//	"-070000"   ±hhmmss
+	//	"-07:00:00" ±hh:mm:ss
+	//
+	// Replacing the sign in the format with a Z triggers
+	// the ISO 8601 behavior of printing Z instead of an
+	// offset for the UTC zone. Thus:
+	//
+	//	"Z0700"      Z or ±hhmm
+	//	"Z07:00"     Z or ±hh:mm
+	//	"Z07"        Z or ±hh
+	//	"Z070000"    Z or ±hhmmss
+	//	"Z07:00:00"  Z or ±hh:mm:ss
+	//
+	// Within the format string, the underscores in "_2" and "__2" represent spaces
+	// that may be replaced by digits if the following number has multiple digits,
+	// for compatibility with fixed-width Unix time formats. A leading zero represents
+	// a zero-padded value.
+	//
+	// The formats __2 and 002 are space-padded and zero-padded
+	// three-character day of year; there is no unpadded day of year format.
+	//
+	// A comma or decimal point followed by one or more zeros represents
+	// a fractional second, printed to the given number of decimal places.
+	// A comma or decimal point followed by one or more nines represents
+	// a fractional second, printed to the given number of decimal places, with
+	// trailing zeros removed.
+	// For example "15:04:05,000" or "15:04:05.000" formats or parses with
+	// millisecond precision.
+	//
+	// Some valid layouts are invalid time values for time.Parse, due to formats
+	// such as _ for space padding and Z for zone information.
+**/
 final layout:GoString = (Go.str("01/02 03:04:05PM \'06 -0700") : GoString);
+
+/**
+	// These are predefined layouts for use in Time.Format and time.Parse.
+	// The reference time used in these layouts is the specific time stamp:
+	//
+	//	01/02 03:04:05PM '06 -0700
+	//
+	// (January 2, 15:04:05, 2006, in time zone seven hours west of GMT).
+	// That value is recorded as the constant named Layout, listed below. As a Unix
+	// time, this is 1136239445. Since MST is GMT-0700, the reference would be
+	// printed by the Unix date command as:
+	//
+	//	Mon Jan 2 15:04:05 MST 2006
+	//
+	// It is a regrettable historic error that the date uses the American convention
+	// of putting the numerical month before the day.
+	//
+	// The example for Time.Format demonstrates the working of the layout string
+	// in detail and is a good reference.
+	//
+	// Note that the RFC822, RFC850, and RFC1123 formats should be applied
+	// only to local times. Applying them to UTC times will use "UTC" as the
+	// time zone abbreviation, while strictly speaking those RFCs require the
+	// use of "GMT" in that case.
+	// In general RFC1123Z should be used instead of RFC1123 for servers
+	// that insist on that format, and RFC3339 should be preferred for new protocols.
+	// RFC3339, RFC822, RFC822Z, RFC1123, and RFC1123Z are useful for formatting;
+	// when used with time.Parse they do not accept all the time formats
+	// permitted by the RFCs and they do accept time formats not formally defined.
+	// The RFC3339Nano format removes trailing zeros from the seconds field
+	// and thus may not sort correctly once formatted.
+	//
+	// Most programs can use one of the defined constants as the layout passed to
+	// Format or Parse. The rest of this comment can be ignored unless you are
+	// creating a custom layout string.
+	//
+	// To define your own format, write down what the reference time would look like
+	// formatted your way; see the values of constants like ANSIC, StampMicro or
+	// Kitchen for examples. The model is to demonstrate what the reference time
+	// looks like so that the Format and Parse methods can apply the same
+	// transformation to a general time value.
+	//
+	// Here is a summary of the components of a layout string. Each element shows by
+	// example the formatting of an element of the reference time. Only these values
+	// are recognized. Text in the layout string that is not recognized as part of
+	// the reference time is echoed verbatim during Format and expected to appear
+	// verbatim in the input to Parse.
+	//
+	//	Year: "2006" "06"
+	//	Month: "Jan" "January" "01" "1"
+	//	Day of the week: "Mon" "Monday"
+	//	Day of the month: "2" "_2" "02"
+	//	Day of the year: "__2" "002"
+	//	Hour: "15" "3" "03" (PM or AM)
+	//	Minute: "4" "04"
+	//	Second: "5" "05"
+	//	AM/PM mark: "PM"
+	//
+	// Numeric time zone offsets format as follows:
+	//
+	//	"-0700"     ±hhmm
+	//	"-07:00"    ±hh:mm
+	//	"-07"       ±hh
+	//	"-070000"   ±hhmmss
+	//	"-07:00:00" ±hh:mm:ss
+	//
+	// Replacing the sign in the format with a Z triggers
+	// the ISO 8601 behavior of printing Z instead of an
+	// offset for the UTC zone. Thus:
+	//
+	//	"Z0700"      Z or ±hhmm
+	//	"Z07:00"     Z or ±hh:mm
+	//	"Z07"        Z or ±hh
+	//	"Z070000"    Z or ±hhmmss
+	//	"Z07:00:00"  Z or ±hh:mm:ss
+	//
+	// Within the format string, the underscores in "_2" and "__2" represent spaces
+	// that may be replaced by digits if the following number has multiple digits,
+	// for compatibility with fixed-width Unix time formats. A leading zero represents
+	// a zero-padded value.
+	//
+	// The formats __2 and 002 are space-padded and zero-padded
+	// three-character day of year; there is no unpadded day of year format.
+	//
+	// A comma or decimal point followed by one or more zeros represents
+	// a fractional second, printed to the given number of decimal places.
+	// A comma or decimal point followed by one or more nines represents
+	// a fractional second, printed to the given number of decimal places, with
+	// trailing zeros removed.
+	// For example "15:04:05,000" or "15:04:05.000" formats or parses with
+	// millisecond precision.
+	//
+	// Some valid layouts are invalid time values for time.Parse, due to formats
+	// such as _ for space padding and Z for zone information.
+**/
 final ansic:GoString = (Go.str("Mon Jan _2 15:04:05 2006") : GoString);
+
+/**
+	// These are predefined layouts for use in Time.Format and time.Parse.
+	// The reference time used in these layouts is the specific time stamp:
+	//
+	//	01/02 03:04:05PM '06 -0700
+	//
+	// (January 2, 15:04:05, 2006, in time zone seven hours west of GMT).
+	// That value is recorded as the constant named Layout, listed below. As a Unix
+	// time, this is 1136239445. Since MST is GMT-0700, the reference would be
+	// printed by the Unix date command as:
+	//
+	//	Mon Jan 2 15:04:05 MST 2006
+	//
+	// It is a regrettable historic error that the date uses the American convention
+	// of putting the numerical month before the day.
+	//
+	// The example for Time.Format demonstrates the working of the layout string
+	// in detail and is a good reference.
+	//
+	// Note that the RFC822, RFC850, and RFC1123 formats should be applied
+	// only to local times. Applying them to UTC times will use "UTC" as the
+	// time zone abbreviation, while strictly speaking those RFCs require the
+	// use of "GMT" in that case.
+	// In general RFC1123Z should be used instead of RFC1123 for servers
+	// that insist on that format, and RFC3339 should be preferred for new protocols.
+	// RFC3339, RFC822, RFC822Z, RFC1123, and RFC1123Z are useful for formatting;
+	// when used with time.Parse they do not accept all the time formats
+	// permitted by the RFCs and they do accept time formats not formally defined.
+	// The RFC3339Nano format removes trailing zeros from the seconds field
+	// and thus may not sort correctly once formatted.
+	//
+	// Most programs can use one of the defined constants as the layout passed to
+	// Format or Parse. The rest of this comment can be ignored unless you are
+	// creating a custom layout string.
+	//
+	// To define your own format, write down what the reference time would look like
+	// formatted your way; see the values of constants like ANSIC, StampMicro or
+	// Kitchen for examples. The model is to demonstrate what the reference time
+	// looks like so that the Format and Parse methods can apply the same
+	// transformation to a general time value.
+	//
+	// Here is a summary of the components of a layout string. Each element shows by
+	// example the formatting of an element of the reference time. Only these values
+	// are recognized. Text in the layout string that is not recognized as part of
+	// the reference time is echoed verbatim during Format and expected to appear
+	// verbatim in the input to Parse.
+	//
+	//	Year: "2006" "06"
+	//	Month: "Jan" "January" "01" "1"
+	//	Day of the week: "Mon" "Monday"
+	//	Day of the month: "2" "_2" "02"
+	//	Day of the year: "__2" "002"
+	//	Hour: "15" "3" "03" (PM or AM)
+	//	Minute: "4" "04"
+	//	Second: "5" "05"
+	//	AM/PM mark: "PM"
+	//
+	// Numeric time zone offsets format as follows:
+	//
+	//	"-0700"     ±hhmm
+	//	"-07:00"    ±hh:mm
+	//	"-07"       ±hh
+	//	"-070000"   ±hhmmss
+	//	"-07:00:00" ±hh:mm:ss
+	//
+	// Replacing the sign in the format with a Z triggers
+	// the ISO 8601 behavior of printing Z instead of an
+	// offset for the UTC zone. Thus:
+	//
+	//	"Z0700"      Z or ±hhmm
+	//	"Z07:00"     Z or ±hh:mm
+	//	"Z07"        Z or ±hh
+	//	"Z070000"    Z or ±hhmmss
+	//	"Z07:00:00"  Z or ±hh:mm:ss
+	//
+	// Within the format string, the underscores in "_2" and "__2" represent spaces
+	// that may be replaced by digits if the following number has multiple digits,
+	// for compatibility with fixed-width Unix time formats. A leading zero represents
+	// a zero-padded value.
+	//
+	// The formats __2 and 002 are space-padded and zero-padded
+	// three-character day of year; there is no unpadded day of year format.
+	//
+	// A comma or decimal point followed by one or more zeros represents
+	// a fractional second, printed to the given number of decimal places.
+	// A comma or decimal point followed by one or more nines represents
+	// a fractional second, printed to the given number of decimal places, with
+	// trailing zeros removed.
+	// For example "15:04:05,000" or "15:04:05.000" formats or parses with
+	// millisecond precision.
+	//
+	// Some valid layouts are invalid time values for time.Parse, due to formats
+	// such as _ for space padding and Z for zone information.
+**/
 final unixDate:GoString = (Go.str("Mon Jan _2 15:04:05 MST 2006") : GoString);
+
+/**
+	// These are predefined layouts for use in Time.Format and time.Parse.
+	// The reference time used in these layouts is the specific time stamp:
+	//
+	//	01/02 03:04:05PM '06 -0700
+	//
+	// (January 2, 15:04:05, 2006, in time zone seven hours west of GMT).
+	// That value is recorded as the constant named Layout, listed below. As a Unix
+	// time, this is 1136239445. Since MST is GMT-0700, the reference would be
+	// printed by the Unix date command as:
+	//
+	//	Mon Jan 2 15:04:05 MST 2006
+	//
+	// It is a regrettable historic error that the date uses the American convention
+	// of putting the numerical month before the day.
+	//
+	// The example for Time.Format demonstrates the working of the layout string
+	// in detail and is a good reference.
+	//
+	// Note that the RFC822, RFC850, and RFC1123 formats should be applied
+	// only to local times. Applying them to UTC times will use "UTC" as the
+	// time zone abbreviation, while strictly speaking those RFCs require the
+	// use of "GMT" in that case.
+	// In general RFC1123Z should be used instead of RFC1123 for servers
+	// that insist on that format, and RFC3339 should be preferred for new protocols.
+	// RFC3339, RFC822, RFC822Z, RFC1123, and RFC1123Z are useful for formatting;
+	// when used with time.Parse they do not accept all the time formats
+	// permitted by the RFCs and they do accept time formats not formally defined.
+	// The RFC3339Nano format removes trailing zeros from the seconds field
+	// and thus may not sort correctly once formatted.
+	//
+	// Most programs can use one of the defined constants as the layout passed to
+	// Format or Parse. The rest of this comment can be ignored unless you are
+	// creating a custom layout string.
+	//
+	// To define your own format, write down what the reference time would look like
+	// formatted your way; see the values of constants like ANSIC, StampMicro or
+	// Kitchen for examples. The model is to demonstrate what the reference time
+	// looks like so that the Format and Parse methods can apply the same
+	// transformation to a general time value.
+	//
+	// Here is a summary of the components of a layout string. Each element shows by
+	// example the formatting of an element of the reference time. Only these values
+	// are recognized. Text in the layout string that is not recognized as part of
+	// the reference time is echoed verbatim during Format and expected to appear
+	// verbatim in the input to Parse.
+	//
+	//	Year: "2006" "06"
+	//	Month: "Jan" "January" "01" "1"
+	//	Day of the week: "Mon" "Monday"
+	//	Day of the month: "2" "_2" "02"
+	//	Day of the year: "__2" "002"
+	//	Hour: "15" "3" "03" (PM or AM)
+	//	Minute: "4" "04"
+	//	Second: "5" "05"
+	//	AM/PM mark: "PM"
+	//
+	// Numeric time zone offsets format as follows:
+	//
+	//	"-0700"     ±hhmm
+	//	"-07:00"    ±hh:mm
+	//	"-07"       ±hh
+	//	"-070000"   ±hhmmss
+	//	"-07:00:00" ±hh:mm:ss
+	//
+	// Replacing the sign in the format with a Z triggers
+	// the ISO 8601 behavior of printing Z instead of an
+	// offset for the UTC zone. Thus:
+	//
+	//	"Z0700"      Z or ±hhmm
+	//	"Z07:00"     Z or ±hh:mm
+	//	"Z07"        Z or ±hh
+	//	"Z070000"    Z or ±hhmmss
+	//	"Z07:00:00"  Z or ±hh:mm:ss
+	//
+	// Within the format string, the underscores in "_2" and "__2" represent spaces
+	// that may be replaced by digits if the following number has multiple digits,
+	// for compatibility with fixed-width Unix time formats. A leading zero represents
+	// a zero-padded value.
+	//
+	// The formats __2 and 002 are space-padded and zero-padded
+	// three-character day of year; there is no unpadded day of year format.
+	//
+	// A comma or decimal point followed by one or more zeros represents
+	// a fractional second, printed to the given number of decimal places.
+	// A comma or decimal point followed by one or more nines represents
+	// a fractional second, printed to the given number of decimal places, with
+	// trailing zeros removed.
+	// For example "15:04:05,000" or "15:04:05.000" formats or parses with
+	// millisecond precision.
+	//
+	// Some valid layouts are invalid time values for time.Parse, due to formats
+	// such as _ for space padding and Z for zone information.
+**/
 final rubyDate:GoString = (Go.str("Mon Jan 02 15:04:05 -0700 2006") : GoString);
+
+/**
+	// These are predefined layouts for use in Time.Format and time.Parse.
+	// The reference time used in these layouts is the specific time stamp:
+	//
+	//	01/02 03:04:05PM '06 -0700
+	//
+	// (January 2, 15:04:05, 2006, in time zone seven hours west of GMT).
+	// That value is recorded as the constant named Layout, listed below. As a Unix
+	// time, this is 1136239445. Since MST is GMT-0700, the reference would be
+	// printed by the Unix date command as:
+	//
+	//	Mon Jan 2 15:04:05 MST 2006
+	//
+	// It is a regrettable historic error that the date uses the American convention
+	// of putting the numerical month before the day.
+	//
+	// The example for Time.Format demonstrates the working of the layout string
+	// in detail and is a good reference.
+	//
+	// Note that the RFC822, RFC850, and RFC1123 formats should be applied
+	// only to local times. Applying them to UTC times will use "UTC" as the
+	// time zone abbreviation, while strictly speaking those RFCs require the
+	// use of "GMT" in that case.
+	// In general RFC1123Z should be used instead of RFC1123 for servers
+	// that insist on that format, and RFC3339 should be preferred for new protocols.
+	// RFC3339, RFC822, RFC822Z, RFC1123, and RFC1123Z are useful for formatting;
+	// when used with time.Parse they do not accept all the time formats
+	// permitted by the RFCs and they do accept time formats not formally defined.
+	// The RFC3339Nano format removes trailing zeros from the seconds field
+	// and thus may not sort correctly once formatted.
+	//
+	// Most programs can use one of the defined constants as the layout passed to
+	// Format or Parse. The rest of this comment can be ignored unless you are
+	// creating a custom layout string.
+	//
+	// To define your own format, write down what the reference time would look like
+	// formatted your way; see the values of constants like ANSIC, StampMicro or
+	// Kitchen for examples. The model is to demonstrate what the reference time
+	// looks like so that the Format and Parse methods can apply the same
+	// transformation to a general time value.
+	//
+	// Here is a summary of the components of a layout string. Each element shows by
+	// example the formatting of an element of the reference time. Only these values
+	// are recognized. Text in the layout string that is not recognized as part of
+	// the reference time is echoed verbatim during Format and expected to appear
+	// verbatim in the input to Parse.
+	//
+	//	Year: "2006" "06"
+	//	Month: "Jan" "January" "01" "1"
+	//	Day of the week: "Mon" "Monday"
+	//	Day of the month: "2" "_2" "02"
+	//	Day of the year: "__2" "002"
+	//	Hour: "15" "3" "03" (PM or AM)
+	//	Minute: "4" "04"
+	//	Second: "5" "05"
+	//	AM/PM mark: "PM"
+	//
+	// Numeric time zone offsets format as follows:
+	//
+	//	"-0700"     ±hhmm
+	//	"-07:00"    ±hh:mm
+	//	"-07"       ±hh
+	//	"-070000"   ±hhmmss
+	//	"-07:00:00" ±hh:mm:ss
+	//
+	// Replacing the sign in the format with a Z triggers
+	// the ISO 8601 behavior of printing Z instead of an
+	// offset for the UTC zone. Thus:
+	//
+	//	"Z0700"      Z or ±hhmm
+	//	"Z07:00"     Z or ±hh:mm
+	//	"Z07"        Z or ±hh
+	//	"Z070000"    Z or ±hhmmss
+	//	"Z07:00:00"  Z or ±hh:mm:ss
+	//
+	// Within the format string, the underscores in "_2" and "__2" represent spaces
+	// that may be replaced by digits if the following number has multiple digits,
+	// for compatibility with fixed-width Unix time formats. A leading zero represents
+	// a zero-padded value.
+	//
+	// The formats __2 and 002 are space-padded and zero-padded
+	// three-character day of year; there is no unpadded day of year format.
+	//
+	// A comma or decimal point followed by one or more zeros represents
+	// a fractional second, printed to the given number of decimal places.
+	// A comma or decimal point followed by one or more nines represents
+	// a fractional second, printed to the given number of decimal places, with
+	// trailing zeros removed.
+	// For example "15:04:05,000" or "15:04:05.000" formats or parses with
+	// millisecond precision.
+	//
+	// Some valid layouts are invalid time values for time.Parse, due to formats
+	// such as _ for space padding and Z for zone information.
+**/
 final rfc822:GoString = (Go.str("02 Jan 06 15:04 MST") : GoString);
+
+/**
+	// These are predefined layouts for use in Time.Format and time.Parse.
+	// The reference time used in these layouts is the specific time stamp:
+	//
+	//	01/02 03:04:05PM '06 -0700
+	//
+	// (January 2, 15:04:05, 2006, in time zone seven hours west of GMT).
+	// That value is recorded as the constant named Layout, listed below. As a Unix
+	// time, this is 1136239445. Since MST is GMT-0700, the reference would be
+	// printed by the Unix date command as:
+	//
+	//	Mon Jan 2 15:04:05 MST 2006
+	//
+	// It is a regrettable historic error that the date uses the American convention
+	// of putting the numerical month before the day.
+	//
+	// The example for Time.Format demonstrates the working of the layout string
+	// in detail and is a good reference.
+	//
+	// Note that the RFC822, RFC850, and RFC1123 formats should be applied
+	// only to local times. Applying them to UTC times will use "UTC" as the
+	// time zone abbreviation, while strictly speaking those RFCs require the
+	// use of "GMT" in that case.
+	// In general RFC1123Z should be used instead of RFC1123 for servers
+	// that insist on that format, and RFC3339 should be preferred for new protocols.
+	// RFC3339, RFC822, RFC822Z, RFC1123, and RFC1123Z are useful for formatting;
+	// when used with time.Parse they do not accept all the time formats
+	// permitted by the RFCs and they do accept time formats not formally defined.
+	// The RFC3339Nano format removes trailing zeros from the seconds field
+	// and thus may not sort correctly once formatted.
+	//
+	// Most programs can use one of the defined constants as the layout passed to
+	// Format or Parse. The rest of this comment can be ignored unless you are
+	// creating a custom layout string.
+	//
+	// To define your own format, write down what the reference time would look like
+	// formatted your way; see the values of constants like ANSIC, StampMicro or
+	// Kitchen for examples. The model is to demonstrate what the reference time
+	// looks like so that the Format and Parse methods can apply the same
+	// transformation to a general time value.
+	//
+	// Here is a summary of the components of a layout string. Each element shows by
+	// example the formatting of an element of the reference time. Only these values
+	// are recognized. Text in the layout string that is not recognized as part of
+	// the reference time is echoed verbatim during Format and expected to appear
+	// verbatim in the input to Parse.
+	//
+	//	Year: "2006" "06"
+	//	Month: "Jan" "January" "01" "1"
+	//	Day of the week: "Mon" "Monday"
+	//	Day of the month: "2" "_2" "02"
+	//	Day of the year: "__2" "002"
+	//	Hour: "15" "3" "03" (PM or AM)
+	//	Minute: "4" "04"
+	//	Second: "5" "05"
+	//	AM/PM mark: "PM"
+	//
+	// Numeric time zone offsets format as follows:
+	//
+	//	"-0700"     ±hhmm
+	//	"-07:00"    ±hh:mm
+	//	"-07"       ±hh
+	//	"-070000"   ±hhmmss
+	//	"-07:00:00" ±hh:mm:ss
+	//
+	// Replacing the sign in the format with a Z triggers
+	// the ISO 8601 behavior of printing Z instead of an
+	// offset for the UTC zone. Thus:
+	//
+	//	"Z0700"      Z or ±hhmm
+	//	"Z07:00"     Z or ±hh:mm
+	//	"Z07"        Z or ±hh
+	//	"Z070000"    Z or ±hhmmss
+	//	"Z07:00:00"  Z or ±hh:mm:ss
+	//
+	// Within the format string, the underscores in "_2" and "__2" represent spaces
+	// that may be replaced by digits if the following number has multiple digits,
+	// for compatibility with fixed-width Unix time formats. A leading zero represents
+	// a zero-padded value.
+	//
+	// The formats __2 and 002 are space-padded and zero-padded
+	// three-character day of year; there is no unpadded day of year format.
+	//
+	// A comma or decimal point followed by one or more zeros represents
+	// a fractional second, printed to the given number of decimal places.
+	// A comma or decimal point followed by one or more nines represents
+	// a fractional second, printed to the given number of decimal places, with
+	// trailing zeros removed.
+	// For example "15:04:05,000" or "15:04:05.000" formats or parses with
+	// millisecond precision.
+	//
+	// Some valid layouts are invalid time values for time.Parse, due to formats
+	// such as _ for space padding and Z for zone information.
+**/
 final rfc822z:GoString = (Go.str("02 Jan 06 15:04 -0700") : GoString);
+
+/**
+	// These are predefined layouts for use in Time.Format and time.Parse.
+	// The reference time used in these layouts is the specific time stamp:
+	//
+	//	01/02 03:04:05PM '06 -0700
+	//
+	// (January 2, 15:04:05, 2006, in time zone seven hours west of GMT).
+	// That value is recorded as the constant named Layout, listed below. As a Unix
+	// time, this is 1136239445. Since MST is GMT-0700, the reference would be
+	// printed by the Unix date command as:
+	//
+	//	Mon Jan 2 15:04:05 MST 2006
+	//
+	// It is a regrettable historic error that the date uses the American convention
+	// of putting the numerical month before the day.
+	//
+	// The example for Time.Format demonstrates the working of the layout string
+	// in detail and is a good reference.
+	//
+	// Note that the RFC822, RFC850, and RFC1123 formats should be applied
+	// only to local times. Applying them to UTC times will use "UTC" as the
+	// time zone abbreviation, while strictly speaking those RFCs require the
+	// use of "GMT" in that case.
+	// In general RFC1123Z should be used instead of RFC1123 for servers
+	// that insist on that format, and RFC3339 should be preferred for new protocols.
+	// RFC3339, RFC822, RFC822Z, RFC1123, and RFC1123Z are useful for formatting;
+	// when used with time.Parse they do not accept all the time formats
+	// permitted by the RFCs and they do accept time formats not formally defined.
+	// The RFC3339Nano format removes trailing zeros from the seconds field
+	// and thus may not sort correctly once formatted.
+	//
+	// Most programs can use one of the defined constants as the layout passed to
+	// Format or Parse. The rest of this comment can be ignored unless you are
+	// creating a custom layout string.
+	//
+	// To define your own format, write down what the reference time would look like
+	// formatted your way; see the values of constants like ANSIC, StampMicro or
+	// Kitchen for examples. The model is to demonstrate what the reference time
+	// looks like so that the Format and Parse methods can apply the same
+	// transformation to a general time value.
+	//
+	// Here is a summary of the components of a layout string. Each element shows by
+	// example the formatting of an element of the reference time. Only these values
+	// are recognized. Text in the layout string that is not recognized as part of
+	// the reference time is echoed verbatim during Format and expected to appear
+	// verbatim in the input to Parse.
+	//
+	//	Year: "2006" "06"
+	//	Month: "Jan" "January" "01" "1"
+	//	Day of the week: "Mon" "Monday"
+	//	Day of the month: "2" "_2" "02"
+	//	Day of the year: "__2" "002"
+	//	Hour: "15" "3" "03" (PM or AM)
+	//	Minute: "4" "04"
+	//	Second: "5" "05"
+	//	AM/PM mark: "PM"
+	//
+	// Numeric time zone offsets format as follows:
+	//
+	//	"-0700"     ±hhmm
+	//	"-07:00"    ±hh:mm
+	//	"-07"       ±hh
+	//	"-070000"   ±hhmmss
+	//	"-07:00:00" ±hh:mm:ss
+	//
+	// Replacing the sign in the format with a Z triggers
+	// the ISO 8601 behavior of printing Z instead of an
+	// offset for the UTC zone. Thus:
+	//
+	//	"Z0700"      Z or ±hhmm
+	//	"Z07:00"     Z or ±hh:mm
+	//	"Z07"        Z or ±hh
+	//	"Z070000"    Z or ±hhmmss
+	//	"Z07:00:00"  Z or ±hh:mm:ss
+	//
+	// Within the format string, the underscores in "_2" and "__2" represent spaces
+	// that may be replaced by digits if the following number has multiple digits,
+	// for compatibility with fixed-width Unix time formats. A leading zero represents
+	// a zero-padded value.
+	//
+	// The formats __2 and 002 are space-padded and zero-padded
+	// three-character day of year; there is no unpadded day of year format.
+	//
+	// A comma or decimal point followed by one or more zeros represents
+	// a fractional second, printed to the given number of decimal places.
+	// A comma or decimal point followed by one or more nines represents
+	// a fractional second, printed to the given number of decimal places, with
+	// trailing zeros removed.
+	// For example "15:04:05,000" or "15:04:05.000" formats or parses with
+	// millisecond precision.
+	//
+	// Some valid layouts are invalid time values for time.Parse, due to formats
+	// such as _ for space padding and Z for zone information.
+**/
 final rfc850:GoString = (Go.str("Monday, 02-Jan-06 15:04:05 MST") : GoString);
+
+/**
+	// These are predefined layouts for use in Time.Format and time.Parse.
+	// The reference time used in these layouts is the specific time stamp:
+	//
+	//	01/02 03:04:05PM '06 -0700
+	//
+	// (January 2, 15:04:05, 2006, in time zone seven hours west of GMT).
+	// That value is recorded as the constant named Layout, listed below. As a Unix
+	// time, this is 1136239445. Since MST is GMT-0700, the reference would be
+	// printed by the Unix date command as:
+	//
+	//	Mon Jan 2 15:04:05 MST 2006
+	//
+	// It is a regrettable historic error that the date uses the American convention
+	// of putting the numerical month before the day.
+	//
+	// The example for Time.Format demonstrates the working of the layout string
+	// in detail and is a good reference.
+	//
+	// Note that the RFC822, RFC850, and RFC1123 formats should be applied
+	// only to local times. Applying them to UTC times will use "UTC" as the
+	// time zone abbreviation, while strictly speaking those RFCs require the
+	// use of "GMT" in that case.
+	// In general RFC1123Z should be used instead of RFC1123 for servers
+	// that insist on that format, and RFC3339 should be preferred for new protocols.
+	// RFC3339, RFC822, RFC822Z, RFC1123, and RFC1123Z are useful for formatting;
+	// when used with time.Parse they do not accept all the time formats
+	// permitted by the RFCs and they do accept time formats not formally defined.
+	// The RFC3339Nano format removes trailing zeros from the seconds field
+	// and thus may not sort correctly once formatted.
+	//
+	// Most programs can use one of the defined constants as the layout passed to
+	// Format or Parse. The rest of this comment can be ignored unless you are
+	// creating a custom layout string.
+	//
+	// To define your own format, write down what the reference time would look like
+	// formatted your way; see the values of constants like ANSIC, StampMicro or
+	// Kitchen for examples. The model is to demonstrate what the reference time
+	// looks like so that the Format and Parse methods can apply the same
+	// transformation to a general time value.
+	//
+	// Here is a summary of the components of a layout string. Each element shows by
+	// example the formatting of an element of the reference time. Only these values
+	// are recognized. Text in the layout string that is not recognized as part of
+	// the reference time is echoed verbatim during Format and expected to appear
+	// verbatim in the input to Parse.
+	//
+	//	Year: "2006" "06"
+	//	Month: "Jan" "January" "01" "1"
+	//	Day of the week: "Mon" "Monday"
+	//	Day of the month: "2" "_2" "02"
+	//	Day of the year: "__2" "002"
+	//	Hour: "15" "3" "03" (PM or AM)
+	//	Minute: "4" "04"
+	//	Second: "5" "05"
+	//	AM/PM mark: "PM"
+	//
+	// Numeric time zone offsets format as follows:
+	//
+	//	"-0700"     ±hhmm
+	//	"-07:00"    ±hh:mm
+	//	"-07"       ±hh
+	//	"-070000"   ±hhmmss
+	//	"-07:00:00" ±hh:mm:ss
+	//
+	// Replacing the sign in the format with a Z triggers
+	// the ISO 8601 behavior of printing Z instead of an
+	// offset for the UTC zone. Thus:
+	//
+	//	"Z0700"      Z or ±hhmm
+	//	"Z07:00"     Z or ±hh:mm
+	//	"Z07"        Z or ±hh
+	//	"Z070000"    Z or ±hhmmss
+	//	"Z07:00:00"  Z or ±hh:mm:ss
+	//
+	// Within the format string, the underscores in "_2" and "__2" represent spaces
+	// that may be replaced by digits if the following number has multiple digits,
+	// for compatibility with fixed-width Unix time formats. A leading zero represents
+	// a zero-padded value.
+	//
+	// The formats __2 and 002 are space-padded and zero-padded
+	// three-character day of year; there is no unpadded day of year format.
+	//
+	// A comma or decimal point followed by one or more zeros represents
+	// a fractional second, printed to the given number of decimal places.
+	// A comma or decimal point followed by one or more nines represents
+	// a fractional second, printed to the given number of decimal places, with
+	// trailing zeros removed.
+	// For example "15:04:05,000" or "15:04:05.000" formats or parses with
+	// millisecond precision.
+	//
+	// Some valid layouts are invalid time values for time.Parse, due to formats
+	// such as _ for space padding and Z for zone information.
+**/
 final rfc1123:GoString = (Go.str("Mon, 02 Jan 2006 15:04:05 MST") : GoString);
+
+/**
+	// These are predefined layouts for use in Time.Format and time.Parse.
+	// The reference time used in these layouts is the specific time stamp:
+	//
+	//	01/02 03:04:05PM '06 -0700
+	//
+	// (January 2, 15:04:05, 2006, in time zone seven hours west of GMT).
+	// That value is recorded as the constant named Layout, listed below. As a Unix
+	// time, this is 1136239445. Since MST is GMT-0700, the reference would be
+	// printed by the Unix date command as:
+	//
+	//	Mon Jan 2 15:04:05 MST 2006
+	//
+	// It is a regrettable historic error that the date uses the American convention
+	// of putting the numerical month before the day.
+	//
+	// The example for Time.Format demonstrates the working of the layout string
+	// in detail and is a good reference.
+	//
+	// Note that the RFC822, RFC850, and RFC1123 formats should be applied
+	// only to local times. Applying them to UTC times will use "UTC" as the
+	// time zone abbreviation, while strictly speaking those RFCs require the
+	// use of "GMT" in that case.
+	// In general RFC1123Z should be used instead of RFC1123 for servers
+	// that insist on that format, and RFC3339 should be preferred for new protocols.
+	// RFC3339, RFC822, RFC822Z, RFC1123, and RFC1123Z are useful for formatting;
+	// when used with time.Parse they do not accept all the time formats
+	// permitted by the RFCs and they do accept time formats not formally defined.
+	// The RFC3339Nano format removes trailing zeros from the seconds field
+	// and thus may not sort correctly once formatted.
+	//
+	// Most programs can use one of the defined constants as the layout passed to
+	// Format or Parse. The rest of this comment can be ignored unless you are
+	// creating a custom layout string.
+	//
+	// To define your own format, write down what the reference time would look like
+	// formatted your way; see the values of constants like ANSIC, StampMicro or
+	// Kitchen for examples. The model is to demonstrate what the reference time
+	// looks like so that the Format and Parse methods can apply the same
+	// transformation to a general time value.
+	//
+	// Here is a summary of the components of a layout string. Each element shows by
+	// example the formatting of an element of the reference time. Only these values
+	// are recognized. Text in the layout string that is not recognized as part of
+	// the reference time is echoed verbatim during Format and expected to appear
+	// verbatim in the input to Parse.
+	//
+	//	Year: "2006" "06"
+	//	Month: "Jan" "January" "01" "1"
+	//	Day of the week: "Mon" "Monday"
+	//	Day of the month: "2" "_2" "02"
+	//	Day of the year: "__2" "002"
+	//	Hour: "15" "3" "03" (PM or AM)
+	//	Minute: "4" "04"
+	//	Second: "5" "05"
+	//	AM/PM mark: "PM"
+	//
+	// Numeric time zone offsets format as follows:
+	//
+	//	"-0700"     ±hhmm
+	//	"-07:00"    ±hh:mm
+	//	"-07"       ±hh
+	//	"-070000"   ±hhmmss
+	//	"-07:00:00" ±hh:mm:ss
+	//
+	// Replacing the sign in the format with a Z triggers
+	// the ISO 8601 behavior of printing Z instead of an
+	// offset for the UTC zone. Thus:
+	//
+	//	"Z0700"      Z or ±hhmm
+	//	"Z07:00"     Z or ±hh:mm
+	//	"Z07"        Z or ±hh
+	//	"Z070000"    Z or ±hhmmss
+	//	"Z07:00:00"  Z or ±hh:mm:ss
+	//
+	// Within the format string, the underscores in "_2" and "__2" represent spaces
+	// that may be replaced by digits if the following number has multiple digits,
+	// for compatibility with fixed-width Unix time formats. A leading zero represents
+	// a zero-padded value.
+	//
+	// The formats __2 and 002 are space-padded and zero-padded
+	// three-character day of year; there is no unpadded day of year format.
+	//
+	// A comma or decimal point followed by one or more zeros represents
+	// a fractional second, printed to the given number of decimal places.
+	// A comma or decimal point followed by one or more nines represents
+	// a fractional second, printed to the given number of decimal places, with
+	// trailing zeros removed.
+	// For example "15:04:05,000" or "15:04:05.000" formats or parses with
+	// millisecond precision.
+	//
+	// Some valid layouts are invalid time values for time.Parse, due to formats
+	// such as _ for space padding and Z for zone information.
+**/
 final rfc1123z:GoString = (Go.str("Mon, 02 Jan 2006 15:04:05 -0700") : GoString);
+
+/**
+	// These are predefined layouts for use in Time.Format and time.Parse.
+	// The reference time used in these layouts is the specific time stamp:
+	//
+	//	01/02 03:04:05PM '06 -0700
+	//
+	// (January 2, 15:04:05, 2006, in time zone seven hours west of GMT).
+	// That value is recorded as the constant named Layout, listed below. As a Unix
+	// time, this is 1136239445. Since MST is GMT-0700, the reference would be
+	// printed by the Unix date command as:
+	//
+	//	Mon Jan 2 15:04:05 MST 2006
+	//
+	// It is a regrettable historic error that the date uses the American convention
+	// of putting the numerical month before the day.
+	//
+	// The example for Time.Format demonstrates the working of the layout string
+	// in detail and is a good reference.
+	//
+	// Note that the RFC822, RFC850, and RFC1123 formats should be applied
+	// only to local times. Applying them to UTC times will use "UTC" as the
+	// time zone abbreviation, while strictly speaking those RFCs require the
+	// use of "GMT" in that case.
+	// In general RFC1123Z should be used instead of RFC1123 for servers
+	// that insist on that format, and RFC3339 should be preferred for new protocols.
+	// RFC3339, RFC822, RFC822Z, RFC1123, and RFC1123Z are useful for formatting;
+	// when used with time.Parse they do not accept all the time formats
+	// permitted by the RFCs and they do accept time formats not formally defined.
+	// The RFC3339Nano format removes trailing zeros from the seconds field
+	// and thus may not sort correctly once formatted.
+	//
+	// Most programs can use one of the defined constants as the layout passed to
+	// Format or Parse. The rest of this comment can be ignored unless you are
+	// creating a custom layout string.
+	//
+	// To define your own format, write down what the reference time would look like
+	// formatted your way; see the values of constants like ANSIC, StampMicro or
+	// Kitchen for examples. The model is to demonstrate what the reference time
+	// looks like so that the Format and Parse methods can apply the same
+	// transformation to a general time value.
+	//
+	// Here is a summary of the components of a layout string. Each element shows by
+	// example the formatting of an element of the reference time. Only these values
+	// are recognized. Text in the layout string that is not recognized as part of
+	// the reference time is echoed verbatim during Format and expected to appear
+	// verbatim in the input to Parse.
+	//
+	//	Year: "2006" "06"
+	//	Month: "Jan" "January" "01" "1"
+	//	Day of the week: "Mon" "Monday"
+	//	Day of the month: "2" "_2" "02"
+	//	Day of the year: "__2" "002"
+	//	Hour: "15" "3" "03" (PM or AM)
+	//	Minute: "4" "04"
+	//	Second: "5" "05"
+	//	AM/PM mark: "PM"
+	//
+	// Numeric time zone offsets format as follows:
+	//
+	//	"-0700"     ±hhmm
+	//	"-07:00"    ±hh:mm
+	//	"-07"       ±hh
+	//	"-070000"   ±hhmmss
+	//	"-07:00:00" ±hh:mm:ss
+	//
+	// Replacing the sign in the format with a Z triggers
+	// the ISO 8601 behavior of printing Z instead of an
+	// offset for the UTC zone. Thus:
+	//
+	//	"Z0700"      Z or ±hhmm
+	//	"Z07:00"     Z or ±hh:mm
+	//	"Z07"        Z or ±hh
+	//	"Z070000"    Z or ±hhmmss
+	//	"Z07:00:00"  Z or ±hh:mm:ss
+	//
+	// Within the format string, the underscores in "_2" and "__2" represent spaces
+	// that may be replaced by digits if the following number has multiple digits,
+	// for compatibility with fixed-width Unix time formats. A leading zero represents
+	// a zero-padded value.
+	//
+	// The formats __2 and 002 are space-padded and zero-padded
+	// three-character day of year; there is no unpadded day of year format.
+	//
+	// A comma or decimal point followed by one or more zeros represents
+	// a fractional second, printed to the given number of decimal places.
+	// A comma or decimal point followed by one or more nines represents
+	// a fractional second, printed to the given number of decimal places, with
+	// trailing zeros removed.
+	// For example "15:04:05,000" or "15:04:05.000" formats or parses with
+	// millisecond precision.
+	//
+	// Some valid layouts are invalid time values for time.Parse, due to formats
+	// such as _ for space padding and Z for zone information.
+**/
 final rfc3339:GoString = (Go.str("2006-01-02T15:04:05Z07:00") : GoString);
+
+/**
+	// These are predefined layouts for use in Time.Format and time.Parse.
+	// The reference time used in these layouts is the specific time stamp:
+	//
+	//	01/02 03:04:05PM '06 -0700
+	//
+	// (January 2, 15:04:05, 2006, in time zone seven hours west of GMT).
+	// That value is recorded as the constant named Layout, listed below. As a Unix
+	// time, this is 1136239445. Since MST is GMT-0700, the reference would be
+	// printed by the Unix date command as:
+	//
+	//	Mon Jan 2 15:04:05 MST 2006
+	//
+	// It is a regrettable historic error that the date uses the American convention
+	// of putting the numerical month before the day.
+	//
+	// The example for Time.Format demonstrates the working of the layout string
+	// in detail and is a good reference.
+	//
+	// Note that the RFC822, RFC850, and RFC1123 formats should be applied
+	// only to local times. Applying them to UTC times will use "UTC" as the
+	// time zone abbreviation, while strictly speaking those RFCs require the
+	// use of "GMT" in that case.
+	// In general RFC1123Z should be used instead of RFC1123 for servers
+	// that insist on that format, and RFC3339 should be preferred for new protocols.
+	// RFC3339, RFC822, RFC822Z, RFC1123, and RFC1123Z are useful for formatting;
+	// when used with time.Parse they do not accept all the time formats
+	// permitted by the RFCs and they do accept time formats not formally defined.
+	// The RFC3339Nano format removes trailing zeros from the seconds field
+	// and thus may not sort correctly once formatted.
+	//
+	// Most programs can use one of the defined constants as the layout passed to
+	// Format or Parse. The rest of this comment can be ignored unless you are
+	// creating a custom layout string.
+	//
+	// To define your own format, write down what the reference time would look like
+	// formatted your way; see the values of constants like ANSIC, StampMicro or
+	// Kitchen for examples. The model is to demonstrate what the reference time
+	// looks like so that the Format and Parse methods can apply the same
+	// transformation to a general time value.
+	//
+	// Here is a summary of the components of a layout string. Each element shows by
+	// example the formatting of an element of the reference time. Only these values
+	// are recognized. Text in the layout string that is not recognized as part of
+	// the reference time is echoed verbatim during Format and expected to appear
+	// verbatim in the input to Parse.
+	//
+	//	Year: "2006" "06"
+	//	Month: "Jan" "January" "01" "1"
+	//	Day of the week: "Mon" "Monday"
+	//	Day of the month: "2" "_2" "02"
+	//	Day of the year: "__2" "002"
+	//	Hour: "15" "3" "03" (PM or AM)
+	//	Minute: "4" "04"
+	//	Second: "5" "05"
+	//	AM/PM mark: "PM"
+	//
+	// Numeric time zone offsets format as follows:
+	//
+	//	"-0700"     ±hhmm
+	//	"-07:00"    ±hh:mm
+	//	"-07"       ±hh
+	//	"-070000"   ±hhmmss
+	//	"-07:00:00" ±hh:mm:ss
+	//
+	// Replacing the sign in the format with a Z triggers
+	// the ISO 8601 behavior of printing Z instead of an
+	// offset for the UTC zone. Thus:
+	//
+	//	"Z0700"      Z or ±hhmm
+	//	"Z07:00"     Z or ±hh:mm
+	//	"Z07"        Z or ±hh
+	//	"Z070000"    Z or ±hhmmss
+	//	"Z07:00:00"  Z or ±hh:mm:ss
+	//
+	// Within the format string, the underscores in "_2" and "__2" represent spaces
+	// that may be replaced by digits if the following number has multiple digits,
+	// for compatibility with fixed-width Unix time formats. A leading zero represents
+	// a zero-padded value.
+	//
+	// The formats __2 and 002 are space-padded and zero-padded
+	// three-character day of year; there is no unpadded day of year format.
+	//
+	// A comma or decimal point followed by one or more zeros represents
+	// a fractional second, printed to the given number of decimal places.
+	// A comma or decimal point followed by one or more nines represents
+	// a fractional second, printed to the given number of decimal places, with
+	// trailing zeros removed.
+	// For example "15:04:05,000" or "15:04:05.000" formats or parses with
+	// millisecond precision.
+	//
+	// Some valid layouts are invalid time values for time.Parse, due to formats
+	// such as _ for space padding and Z for zone information.
+**/
 final rfc3339nano:GoString = (Go.str("2006-01-02T15:04:05.999999999Z07:00") : GoString);
+
+/**
+	// These are predefined layouts for use in Time.Format and time.Parse.
+	// The reference time used in these layouts is the specific time stamp:
+	//
+	//	01/02 03:04:05PM '06 -0700
+	//
+	// (January 2, 15:04:05, 2006, in time zone seven hours west of GMT).
+	// That value is recorded as the constant named Layout, listed below. As a Unix
+	// time, this is 1136239445. Since MST is GMT-0700, the reference would be
+	// printed by the Unix date command as:
+	//
+	//	Mon Jan 2 15:04:05 MST 2006
+	//
+	// It is a regrettable historic error that the date uses the American convention
+	// of putting the numerical month before the day.
+	//
+	// The example for Time.Format demonstrates the working of the layout string
+	// in detail and is a good reference.
+	//
+	// Note that the RFC822, RFC850, and RFC1123 formats should be applied
+	// only to local times. Applying them to UTC times will use "UTC" as the
+	// time zone abbreviation, while strictly speaking those RFCs require the
+	// use of "GMT" in that case.
+	// In general RFC1123Z should be used instead of RFC1123 for servers
+	// that insist on that format, and RFC3339 should be preferred for new protocols.
+	// RFC3339, RFC822, RFC822Z, RFC1123, and RFC1123Z are useful for formatting;
+	// when used with time.Parse they do not accept all the time formats
+	// permitted by the RFCs and they do accept time formats not formally defined.
+	// The RFC3339Nano format removes trailing zeros from the seconds field
+	// and thus may not sort correctly once formatted.
+	//
+	// Most programs can use one of the defined constants as the layout passed to
+	// Format or Parse. The rest of this comment can be ignored unless you are
+	// creating a custom layout string.
+	//
+	// To define your own format, write down what the reference time would look like
+	// formatted your way; see the values of constants like ANSIC, StampMicro or
+	// Kitchen for examples. The model is to demonstrate what the reference time
+	// looks like so that the Format and Parse methods can apply the same
+	// transformation to a general time value.
+	//
+	// Here is a summary of the components of a layout string. Each element shows by
+	// example the formatting of an element of the reference time. Only these values
+	// are recognized. Text in the layout string that is not recognized as part of
+	// the reference time is echoed verbatim during Format and expected to appear
+	// verbatim in the input to Parse.
+	//
+	//	Year: "2006" "06"
+	//	Month: "Jan" "January" "01" "1"
+	//	Day of the week: "Mon" "Monday"
+	//	Day of the month: "2" "_2" "02"
+	//	Day of the year: "__2" "002"
+	//	Hour: "15" "3" "03" (PM or AM)
+	//	Minute: "4" "04"
+	//	Second: "5" "05"
+	//	AM/PM mark: "PM"
+	//
+	// Numeric time zone offsets format as follows:
+	//
+	//	"-0700"     ±hhmm
+	//	"-07:00"    ±hh:mm
+	//	"-07"       ±hh
+	//	"-070000"   ±hhmmss
+	//	"-07:00:00" ±hh:mm:ss
+	//
+	// Replacing the sign in the format with a Z triggers
+	// the ISO 8601 behavior of printing Z instead of an
+	// offset for the UTC zone. Thus:
+	//
+	//	"Z0700"      Z or ±hhmm
+	//	"Z07:00"     Z or ±hh:mm
+	//	"Z07"        Z or ±hh
+	//	"Z070000"    Z or ±hhmmss
+	//	"Z07:00:00"  Z or ±hh:mm:ss
+	//
+	// Within the format string, the underscores in "_2" and "__2" represent spaces
+	// that may be replaced by digits if the following number has multiple digits,
+	// for compatibility with fixed-width Unix time formats. A leading zero represents
+	// a zero-padded value.
+	//
+	// The formats __2 and 002 are space-padded and zero-padded
+	// three-character day of year; there is no unpadded day of year format.
+	//
+	// A comma or decimal point followed by one or more zeros represents
+	// a fractional second, printed to the given number of decimal places.
+	// A comma or decimal point followed by one or more nines represents
+	// a fractional second, printed to the given number of decimal places, with
+	// trailing zeros removed.
+	// For example "15:04:05,000" or "15:04:05.000" formats or parses with
+	// millisecond precision.
+	//
+	// Some valid layouts are invalid time values for time.Parse, due to formats
+	// such as _ for space padding and Z for zone information.
+**/
 final kitchen:GoString = (Go.str("3:04PM") : GoString);
+
+/**
+	// Handy time stamps.
+**/
 final stamp:GoString = (Go.str("Jan _2 15:04:05") : GoString);
+
+/**
+	// These are predefined layouts for use in Time.Format and time.Parse.
+	// The reference time used in these layouts is the specific time stamp:
+	//
+	//	01/02 03:04:05PM '06 -0700
+	//
+	// (January 2, 15:04:05, 2006, in time zone seven hours west of GMT).
+	// That value is recorded as the constant named Layout, listed below. As a Unix
+	// time, this is 1136239445. Since MST is GMT-0700, the reference would be
+	// printed by the Unix date command as:
+	//
+	//	Mon Jan 2 15:04:05 MST 2006
+	//
+	// It is a regrettable historic error that the date uses the American convention
+	// of putting the numerical month before the day.
+	//
+	// The example for Time.Format demonstrates the working of the layout string
+	// in detail and is a good reference.
+	//
+	// Note that the RFC822, RFC850, and RFC1123 formats should be applied
+	// only to local times. Applying them to UTC times will use "UTC" as the
+	// time zone abbreviation, while strictly speaking those RFCs require the
+	// use of "GMT" in that case.
+	// In general RFC1123Z should be used instead of RFC1123 for servers
+	// that insist on that format, and RFC3339 should be preferred for new protocols.
+	// RFC3339, RFC822, RFC822Z, RFC1123, and RFC1123Z are useful for formatting;
+	// when used with time.Parse they do not accept all the time formats
+	// permitted by the RFCs and they do accept time formats not formally defined.
+	// The RFC3339Nano format removes trailing zeros from the seconds field
+	// and thus may not sort correctly once formatted.
+	//
+	// Most programs can use one of the defined constants as the layout passed to
+	// Format or Parse. The rest of this comment can be ignored unless you are
+	// creating a custom layout string.
+	//
+	// To define your own format, write down what the reference time would look like
+	// formatted your way; see the values of constants like ANSIC, StampMicro or
+	// Kitchen for examples. The model is to demonstrate what the reference time
+	// looks like so that the Format and Parse methods can apply the same
+	// transformation to a general time value.
+	//
+	// Here is a summary of the components of a layout string. Each element shows by
+	// example the formatting of an element of the reference time. Only these values
+	// are recognized. Text in the layout string that is not recognized as part of
+	// the reference time is echoed verbatim during Format and expected to appear
+	// verbatim in the input to Parse.
+	//
+	//	Year: "2006" "06"
+	//	Month: "Jan" "January" "01" "1"
+	//	Day of the week: "Mon" "Monday"
+	//	Day of the month: "2" "_2" "02"
+	//	Day of the year: "__2" "002"
+	//	Hour: "15" "3" "03" (PM or AM)
+	//	Minute: "4" "04"
+	//	Second: "5" "05"
+	//	AM/PM mark: "PM"
+	//
+	// Numeric time zone offsets format as follows:
+	//
+	//	"-0700"     ±hhmm
+	//	"-07:00"    ±hh:mm
+	//	"-07"       ±hh
+	//	"-070000"   ±hhmmss
+	//	"-07:00:00" ±hh:mm:ss
+	//
+	// Replacing the sign in the format with a Z triggers
+	// the ISO 8601 behavior of printing Z instead of an
+	// offset for the UTC zone. Thus:
+	//
+	//	"Z0700"      Z or ±hhmm
+	//	"Z07:00"     Z or ±hh:mm
+	//	"Z07"        Z or ±hh
+	//	"Z070000"    Z or ±hhmmss
+	//	"Z07:00:00"  Z or ±hh:mm:ss
+	//
+	// Within the format string, the underscores in "_2" and "__2" represent spaces
+	// that may be replaced by digits if the following number has multiple digits,
+	// for compatibility with fixed-width Unix time formats. A leading zero represents
+	// a zero-padded value.
+	//
+	// The formats __2 and 002 are space-padded and zero-padded
+	// three-character day of year; there is no unpadded day of year format.
+	//
+	// A comma or decimal point followed by one or more zeros represents
+	// a fractional second, printed to the given number of decimal places.
+	// A comma or decimal point followed by one or more nines represents
+	// a fractional second, printed to the given number of decimal places, with
+	// trailing zeros removed.
+	// For example "15:04:05,000" or "15:04:05.000" formats or parses with
+	// millisecond precision.
+	//
+	// Some valid layouts are invalid time values for time.Parse, due to formats
+	// such as _ for space padding and Z for zone information.
+**/
 final stampMilli:GoString = (Go.str("Jan _2 15:04:05.000") : GoString);
+
+/**
+	// These are predefined layouts for use in Time.Format and time.Parse.
+	// The reference time used in these layouts is the specific time stamp:
+	//
+	//	01/02 03:04:05PM '06 -0700
+	//
+	// (January 2, 15:04:05, 2006, in time zone seven hours west of GMT).
+	// That value is recorded as the constant named Layout, listed below. As a Unix
+	// time, this is 1136239445. Since MST is GMT-0700, the reference would be
+	// printed by the Unix date command as:
+	//
+	//	Mon Jan 2 15:04:05 MST 2006
+	//
+	// It is a regrettable historic error that the date uses the American convention
+	// of putting the numerical month before the day.
+	//
+	// The example for Time.Format demonstrates the working of the layout string
+	// in detail and is a good reference.
+	//
+	// Note that the RFC822, RFC850, and RFC1123 formats should be applied
+	// only to local times. Applying them to UTC times will use "UTC" as the
+	// time zone abbreviation, while strictly speaking those RFCs require the
+	// use of "GMT" in that case.
+	// In general RFC1123Z should be used instead of RFC1123 for servers
+	// that insist on that format, and RFC3339 should be preferred for new protocols.
+	// RFC3339, RFC822, RFC822Z, RFC1123, and RFC1123Z are useful for formatting;
+	// when used with time.Parse they do not accept all the time formats
+	// permitted by the RFCs and they do accept time formats not formally defined.
+	// The RFC3339Nano format removes trailing zeros from the seconds field
+	// and thus may not sort correctly once formatted.
+	//
+	// Most programs can use one of the defined constants as the layout passed to
+	// Format or Parse. The rest of this comment can be ignored unless you are
+	// creating a custom layout string.
+	//
+	// To define your own format, write down what the reference time would look like
+	// formatted your way; see the values of constants like ANSIC, StampMicro or
+	// Kitchen for examples. The model is to demonstrate what the reference time
+	// looks like so that the Format and Parse methods can apply the same
+	// transformation to a general time value.
+	//
+	// Here is a summary of the components of a layout string. Each element shows by
+	// example the formatting of an element of the reference time. Only these values
+	// are recognized. Text in the layout string that is not recognized as part of
+	// the reference time is echoed verbatim during Format and expected to appear
+	// verbatim in the input to Parse.
+	//
+	//	Year: "2006" "06"
+	//	Month: "Jan" "January" "01" "1"
+	//	Day of the week: "Mon" "Monday"
+	//	Day of the month: "2" "_2" "02"
+	//	Day of the year: "__2" "002"
+	//	Hour: "15" "3" "03" (PM or AM)
+	//	Minute: "4" "04"
+	//	Second: "5" "05"
+	//	AM/PM mark: "PM"
+	//
+	// Numeric time zone offsets format as follows:
+	//
+	//	"-0700"     ±hhmm
+	//	"-07:00"    ±hh:mm
+	//	"-07"       ±hh
+	//	"-070000"   ±hhmmss
+	//	"-07:00:00" ±hh:mm:ss
+	//
+	// Replacing the sign in the format with a Z triggers
+	// the ISO 8601 behavior of printing Z instead of an
+	// offset for the UTC zone. Thus:
+	//
+	//	"Z0700"      Z or ±hhmm
+	//	"Z07:00"     Z or ±hh:mm
+	//	"Z07"        Z or ±hh
+	//	"Z070000"    Z or ±hhmmss
+	//	"Z07:00:00"  Z or ±hh:mm:ss
+	//
+	// Within the format string, the underscores in "_2" and "__2" represent spaces
+	// that may be replaced by digits if the following number has multiple digits,
+	// for compatibility with fixed-width Unix time formats. A leading zero represents
+	// a zero-padded value.
+	//
+	// The formats __2 and 002 are space-padded and zero-padded
+	// three-character day of year; there is no unpadded day of year format.
+	//
+	// A comma or decimal point followed by one or more zeros represents
+	// a fractional second, printed to the given number of decimal places.
+	// A comma or decimal point followed by one or more nines represents
+	// a fractional second, printed to the given number of decimal places, with
+	// trailing zeros removed.
+	// For example "15:04:05,000" or "15:04:05.000" formats or parses with
+	// millisecond precision.
+	//
+	// Some valid layouts are invalid time values for time.Parse, due to formats
+	// such as _ for space padding and Z for zone information.
+**/
 final stampMicro:GoString = (Go.str("Jan _2 15:04:05.000000") : GoString);
+
+/**
+	// These are predefined layouts for use in Time.Format and time.Parse.
+	// The reference time used in these layouts is the specific time stamp:
+	//
+	//	01/02 03:04:05PM '06 -0700
+	//
+	// (January 2, 15:04:05, 2006, in time zone seven hours west of GMT).
+	// That value is recorded as the constant named Layout, listed below. As a Unix
+	// time, this is 1136239445. Since MST is GMT-0700, the reference would be
+	// printed by the Unix date command as:
+	//
+	//	Mon Jan 2 15:04:05 MST 2006
+	//
+	// It is a regrettable historic error that the date uses the American convention
+	// of putting the numerical month before the day.
+	//
+	// The example for Time.Format demonstrates the working of the layout string
+	// in detail and is a good reference.
+	//
+	// Note that the RFC822, RFC850, and RFC1123 formats should be applied
+	// only to local times. Applying them to UTC times will use "UTC" as the
+	// time zone abbreviation, while strictly speaking those RFCs require the
+	// use of "GMT" in that case.
+	// In general RFC1123Z should be used instead of RFC1123 for servers
+	// that insist on that format, and RFC3339 should be preferred for new protocols.
+	// RFC3339, RFC822, RFC822Z, RFC1123, and RFC1123Z are useful for formatting;
+	// when used with time.Parse they do not accept all the time formats
+	// permitted by the RFCs and they do accept time formats not formally defined.
+	// The RFC3339Nano format removes trailing zeros from the seconds field
+	// and thus may not sort correctly once formatted.
+	//
+	// Most programs can use one of the defined constants as the layout passed to
+	// Format or Parse. The rest of this comment can be ignored unless you are
+	// creating a custom layout string.
+	//
+	// To define your own format, write down what the reference time would look like
+	// formatted your way; see the values of constants like ANSIC, StampMicro or
+	// Kitchen for examples. The model is to demonstrate what the reference time
+	// looks like so that the Format and Parse methods can apply the same
+	// transformation to a general time value.
+	//
+	// Here is a summary of the components of a layout string. Each element shows by
+	// example the formatting of an element of the reference time. Only these values
+	// are recognized. Text in the layout string that is not recognized as part of
+	// the reference time is echoed verbatim during Format and expected to appear
+	// verbatim in the input to Parse.
+	//
+	//	Year: "2006" "06"
+	//	Month: "Jan" "January" "01" "1"
+	//	Day of the week: "Mon" "Monday"
+	//	Day of the month: "2" "_2" "02"
+	//	Day of the year: "__2" "002"
+	//	Hour: "15" "3" "03" (PM or AM)
+	//	Minute: "4" "04"
+	//	Second: "5" "05"
+	//	AM/PM mark: "PM"
+	//
+	// Numeric time zone offsets format as follows:
+	//
+	//	"-0700"     ±hhmm
+	//	"-07:00"    ±hh:mm
+	//	"-07"       ±hh
+	//	"-070000"   ±hhmmss
+	//	"-07:00:00" ±hh:mm:ss
+	//
+	// Replacing the sign in the format with a Z triggers
+	// the ISO 8601 behavior of printing Z instead of an
+	// offset for the UTC zone. Thus:
+	//
+	//	"Z0700"      Z or ±hhmm
+	//	"Z07:00"     Z or ±hh:mm
+	//	"Z07"        Z or ±hh
+	//	"Z070000"    Z or ±hhmmss
+	//	"Z07:00:00"  Z or ±hh:mm:ss
+	//
+	// Within the format string, the underscores in "_2" and "__2" represent spaces
+	// that may be replaced by digits if the following number has multiple digits,
+	// for compatibility with fixed-width Unix time formats. A leading zero represents
+	// a zero-padded value.
+	//
+	// The formats __2 and 002 are space-padded and zero-padded
+	// three-character day of year; there is no unpadded day of year format.
+	//
+	// A comma or decimal point followed by one or more zeros represents
+	// a fractional second, printed to the given number of decimal places.
+	// A comma or decimal point followed by one or more nines represents
+	// a fractional second, printed to the given number of decimal places, with
+	// trailing zeros removed.
+	// For example "15:04:05,000" or "15:04:05.000" formats or parses with
+	// millisecond precision.
+	//
+	// Some valid layouts are invalid time values for time.Parse, due to formats
+	// such as _ for space padding and Z for zone information.
+**/
 final stampNano:GoString = (Go.str("Jan _2 15:04:05.000000000") : GoString);
+
 final _0:GoUnTypedInt = (0 : GoUnTypedInt);
 final _stdLongMonth:GoUnTypedInt = (267 : GoUnTypedInt);
 final _stdMonth = (267 : GoUnTypedInt);
@@ -260,9 +1733,25 @@ final _stdNeedClock:GoUnTypedInt = (512 : GoUnTypedInt);
 final _stdArgShift:GoUnTypedInt = (16 : GoUnTypedInt);
 final _stdSeparatorShift:GoUnTypedInt = (28 : GoUnTypedInt);
 final _stdMask:GoUnTypedInt = (65535 : GoUnTypedInt);
+
+/**
+	// These are borrowed from unicode/utf8 and strconv and replicate behavior in
+	// that package, since we can't take a dependency on either.
+**/
 final _lowerhex:GoString = (Go.str("0123456789abcdef") : GoString);
+
+/**
+	// These are borrowed from unicode/utf8 and strconv and replicate behavior in
+	// that package, since we can't take a dependency on either.
+**/
 final _runeSelf:GoUnTypedInt = (128 : GoUnTypedInt);
+
+/**
+	// These are borrowed from unicode/utf8 and strconv and replicate behavior in
+	// that package, since we can't take a dependency on either.
+**/
 final _runeError:GoInt32 = ("\uFFFD".code : GoInt32);
+
 final _hasMonotonic:GoUnTypedInt = (0 : GoUnTypedInt);
 final _maxWall:GoInt64 = ("68043243391" : GoInt64);
 final _minWall:GoInt64 = ("59453308800" : GoInt64);
@@ -287,21 +1776,128 @@ final wednesday:Weekday = (6 : Weekday);
 final thursday:Weekday = (6 : Weekday);
 final friday:Weekday = (6 : Weekday);
 final saturday:Weekday = (6 : Weekday);
+
+/**
+	// The unsigned zero year for internal calculations.
+	// Must be 1 mod 400, and times before it will not compute correctly,
+	// but otherwise can be changed at will.
+**/
 final _absoluteZeroYear:GoUnTypedInt = ("-292277022399" : GoUnTypedInt);
+
+/**
+	// The year of the zero Time.
+	// Assumed by the unixToInternal computation below.
+**/
 final _internalYear:GoUnTypedInt = (1 : GoUnTypedInt);
+
+/**
+	// Offsets to convert between internal and absolute or Unix times.
+**/
 final _absoluteToInternal:GoInt64 = ("-9223371966579724800" : GoInt64);
+
 final _internalToAbsolute:GoInt64 = ("9223371966579724800" : GoInt64);
 final _unixToInternal:GoInt64 = ("62135596800" : GoInt64);
 final _internalToUnix:GoInt64 = ("-62135596800" : GoInt64);
 final _wallToInternal:GoInt64 = ("59453308800" : GoInt64);
 final _minDuration:Duration = ("-9223372036854775808" : Duration);
 final _maxDuration:Duration = ("9223372036854775807" : Duration);
+
+/**
+	// Common durations. There is no definition for units of Day or larger
+	// to avoid confusion across daylight savings time zone transitions.
+	//
+	// To count the number of units in a Duration, divide:
+	//
+	//	second := time.Second
+	//	fmt.Print(int64(second/time.Millisecond)) // prints 1000
+	//
+	// To convert an integer number of units to a Duration, multiply:
+	//
+	//	seconds := 10
+	//	fmt.Print(time.Duration(seconds)*time.Second) // prints 10s
+**/
 final nanosecond:Duration = (1 : Duration);
+
+/**
+	// Common durations. There is no definition for units of Day or larger
+	// to avoid confusion across daylight savings time zone transitions.
+	//
+	// To count the number of units in a Duration, divide:
+	//
+	//	second := time.Second
+	//	fmt.Print(int64(second/time.Millisecond)) // prints 1000
+	//
+	// To convert an integer number of units to a Duration, multiply:
+	//
+	//	seconds := 10
+	//	fmt.Print(time.Duration(seconds)*time.Second) // prints 10s
+**/
 final microsecond:Duration = (1000 : Duration);
+
+/**
+	// Common durations. There is no definition for units of Day or larger
+	// to avoid confusion across daylight savings time zone transitions.
+	//
+	// To count the number of units in a Duration, divide:
+	//
+	//	second := time.Second
+	//	fmt.Print(int64(second/time.Millisecond)) // prints 1000
+	//
+	// To convert an integer number of units to a Duration, multiply:
+	//
+	//	seconds := 10
+	//	fmt.Print(time.Duration(seconds)*time.Second) // prints 10s
+**/
 final millisecond:Duration = (1000000 : Duration);
+
+/**
+	// Common durations. There is no definition for units of Day or larger
+	// to avoid confusion across daylight savings time zone transitions.
+	//
+	// To count the number of units in a Duration, divide:
+	//
+	//	second := time.Second
+	//	fmt.Print(int64(second/time.Millisecond)) // prints 1000
+	//
+	// To convert an integer number of units to a Duration, multiply:
+	//
+	//	seconds := 10
+	//	fmt.Print(time.Duration(seconds)*time.Second) // prints 10s
+**/
 final second:Duration = (1000000000 : Duration);
+
+/**
+	// Common durations. There is no definition for units of Day or larger
+	// to avoid confusion across daylight savings time zone transitions.
+	//
+	// To count the number of units in a Duration, divide:
+	//
+	//	second := time.Second
+	//	fmt.Print(int64(second/time.Millisecond)) // prints 1000
+	//
+	// To convert an integer number of units to a Duration, multiply:
+	//
+	//	seconds := 10
+	//	fmt.Print(time.Duration(seconds)*time.Second) // prints 10s
+**/
 final minute:Duration = ("60000000000" : Duration);
+
+/**
+	// Common durations. There is no definition for units of Day or larger
+	// to avoid confusion across daylight savings time zone transitions.
+	//
+	// To count the number of units in a Duration, divide:
+	//
+	//	second := time.Second
+	//	fmt.Print(int64(second/time.Millisecond)) // prints 1000
+	//
+	// To convert an integer number of units to a Duration, multiply:
+	//
+	//	seconds := 10
+	//	fmt.Print(time.Duration(seconds)*time.Second) // prints 10s
+**/
 final hour:Duration = ("3600000000000" : Duration);
+
 final _secondsPerMinute:GoUnTypedInt = (60 : GoUnTypedInt);
 final _secondsPerHour:GoUnTypedInt = (3600 : GoUnTypedInt);
 final _secondsPerDay:GoUnTypedInt = (86400 : GoUnTypedInt);
@@ -311,9 +1907,25 @@ final _daysPer100Years:GoUnTypedInt = (36524 : GoUnTypedInt);
 final _daysPer4Years:GoUnTypedInt = (1461 : GoUnTypedInt);
 final _timeBinaryVersionV1:GoByte = (2 : GoUInt8);
 final _timeBinaryVersionV2:GoUInt8 = (2 : GoUInt8);
+
+/**
+	// alpha and omega are the beginning and end of time for zone
+	// transitions.
+**/
 final _alpha:GoUnTypedInt = ("-9223372036854775808" : GoUnTypedInt);
+
+/**
+	// alpha and omega are the beginning and end of time for zone
+	// transitions.
+**/
 final _omega:GoUnTypedInt = ("9223372036854775807" : GoUnTypedInt);
+
+/**
+	// localLoc is separate so that initLocal can initialize
+	// it even if a client has changed Local.
+**/
 var _localLoc:Location = ({} : Location);
+
 var _localOnce:stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
 final _ruleJulian:T_ruleKind = (2 : T_ruleKind);
 final _ruleDOY:T_ruleKind = (2 : T_ruleKind);
@@ -323,16 +1935,44 @@ var _zoneinfoOnce:stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
 final _smallsString:GoString = (Go.str("00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899") : GoString);
 final _digits:GoString = (Go.str("0123456789") : GoString);
 
+/**
+	// loadFromEmbeddedTZData is used to load a specific tzdata file
+	// from tzdata information embedded in the binary itself.
+	// This is set when the time/tzdata package is imported,
+	// via registerLoadFromEmbeddedTzdata.
+**/
 var _loadFromEmbeddedTZData:(_zipname:GoString) -> {
 	var _0:GoString;
 	var _1:Error;
 } = null;
 
+/**
+	// maxFileSize is the max permitted size of files read by readFile.
+	// As reference, the zoneinfo.zip distributed by Go is ~350 KB,
+	// so 10MB is overkill.
+**/
 final _maxFileSize:GoUnTypedInt = (10485760 : GoUnTypedInt);
+
+/**
+	// Copies of io.Seek* constants to avoid importing "io":
+**/
 final _seekStart:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// Copies of io.Seek* constants to avoid importing "io":
+**/
 final _seekCurrent:GoUnTypedInt = (1 : GoUnTypedInt);
+
+/**
+	// Copies of io.Seek* constants to avoid importing "io":
+**/
 final _seekEnd:GoUnTypedInt = (2 : GoUnTypedInt);
 
+/**
+	// loadTzinfoFromTzdata returns the time zone information of the time zone
+	// with the given name, from a tzdata database file as they are typically
+	// found on android.
+**/
 var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 	var _0:Slice<GoByte>;
 	var _1:Error;
@@ -444,6 +2084,9 @@ private var __go2hxdoc__package:Bool;
 	}
 }
 
+/**
+	// ParseError describes a problem parsing a time string.
+**/
 @:structInit @:using(stdgo.time.Time.ParseError_static_extension) class ParseError {
 	public var layout:GoString = "";
 	public var value:GoString = "";
@@ -472,11 +2115,20 @@ private var __go2hxdoc__package:Bool;
 	}
 }
 
+/**
+	// Interface to timers implemented in package runtime.
+	// Must be in sync with ../runtime/time.go:/^type timer
+**/
 @:structInit private class T_runtimeTimer {
 	public var _pp:GoUIntptr = 0;
 	public var _when:GoInt64 = 0;
 	public var _period:GoInt64 = 0;
+
+	/**
+		// NOTE: must not be closure
+	**/
 	public var _f:(AnyInterface, GoUIntptr) -> Void = null;
+
 	public var _arg:AnyInterface = (null : AnyInterface);
 	public var _seq:GoUIntptr = 0;
 	public var _nextwhen:GoInt64 = 0;
@@ -510,6 +2162,12 @@ private var __go2hxdoc__package:Bool;
 	}
 }
 
+/**
+	// The Timer type represents a single event.
+	// When the Timer expires, the current time will be sent on C,
+	// unless the Timer was created by AfterFunc.
+	// A Timer must be created with NewTimer or AfterFunc.
+**/
 @:structInit @:using(stdgo.time.Time.Timer_static_extension) class Timer {
 	public var c:Chan<Time> = (null : Chan<Time>);
 	public var _r:T_runtimeTimer = ({} : T_runtimeTimer);
@@ -529,8 +2187,16 @@ private var __go2hxdoc__package:Bool;
 	}
 }
 
+/**
+	// A Ticker holds a channel that delivers “ticks” of a clock
+	// at intervals.
+**/
 @:structInit @:using(stdgo.time.Time.Ticker_static_extension) class Ticker {
+	/**
+		// The channel on which the ticks are delivered.
+	**/
 	public var c:Chan<Time> = (null : Chan<Time>);
+
 	public var _r:T_runtimeTimer = ({} : T_runtimeTimer);
 
 	public function new(?c:Chan<Time>, ?_r:T_runtimeTimer) {
@@ -548,9 +2214,76 @@ private var __go2hxdoc__package:Bool;
 	}
 }
 
+/**
+	// A Time represents an instant in time with nanosecond precision.
+	//
+	// Programs using times should typically store and pass them as values,
+	// not pointers. That is, time variables and struct fields should be of
+	// type time.Time, not *time.Time.
+	//
+	// A Time value can be used by multiple goroutines simultaneously except
+	// that the methods GobDecode, UnmarshalBinary, UnmarshalJSON and
+	// UnmarshalText are not concurrency-safe.
+	//
+	// Time instants can be compared using the Before, After, and Equal methods.
+	// The Sub method subtracts two instants, producing a Duration.
+	// The Add method adds a Time and a Duration, producing a Time.
+	//
+	// The zero value of type Time is January 1, year 1, 00:00:00.000000000 UTC.
+	// As this time is unlikely to come up in practice, the IsZero method gives
+	// a simple way of detecting a time that has not been initialized explicitly.
+	//
+	// Each Time has associated with it a Location, consulted when computing the
+	// presentation form of the time, such as in the Format, Hour, and Year methods.
+	// The methods Local, UTC, and In return a Time with a specific location.
+	// Changing the location in this way changes only the presentation; it does not
+	// change the instant in time being denoted and therefore does not affect the
+	// computations described in earlier paragraphs.
+	//
+	// Representations of a Time value saved by the GobEncode, MarshalBinary,
+	// MarshalJSON, and MarshalText methods store the Time.Location's offset, but not
+	// the location name. They therefore lose information about Daylight Saving Time.
+	//
+	// In addition to the required “wall clock” reading, a Time may contain an optional
+	// reading of the current process's monotonic clock, to provide additional precision
+	// for comparison or subtraction.
+	// See the “Monotonic Clocks” section in the package documentation for details.
+	//
+	// Note that the Go == operator compares not just the time instant but also the
+	// Location and the monotonic clock reading. Therefore, Time values should not
+	// be used as map or database keys without first guaranteeing that the
+	// identical Location has been set for all values, which can be achieved
+	// through use of the UTC or Local method, and that the monotonic clock reading
+	// has been stripped by setting t = t.Round(0). In general, prefer t.Equal(u)
+	// to t == u, since t.Equal uses the most accurate comparison available and
+	// correctly handles the case when only one of its arguments has a monotonic
+	// clock reading.
+**/
 @:structInit @:using(stdgo.time.Time.Time_static_extension) class Time {
+	/**
+		// wall and ext encode the wall time seconds, wall time nanoseconds,
+		// and optional monotonic clock reading in nanoseconds.
+		//
+		// From high to low bit position, wall encodes a 1-bit flag (hasMonotonic),
+		// a 33-bit seconds field, and a 30-bit wall time nanoseconds field.
+		// The nanoseconds field is in the range [0, 999999999].
+		// If the hasMonotonic bit is 0, then the 33-bit field must be zero
+		// and the full signed 64-bit wall seconds since Jan 1 year 1 is stored in ext.
+		// If the hasMonotonic bit is 1, then the 33-bit field holds a 33-bit
+		// unsigned wall seconds since Jan 1 year 1885, and ext holds a
+		// signed 64-bit monotonic clock reading, nanoseconds since process start.
+	**/
 	public var _wall:GoUInt64 = 0;
+
 	public var _ext:GoInt64 = 0;
+
+	/**
+		// loc specifies the Location that should be used to
+		// determine the minute, hour, month, day, and year
+		// that correspond to this Time.
+		// The nil location means UTC.
+		// All UTC times are represented with loc==nil, never loc==&utcLoc.
+	**/
 	public var _loc:Ref<Location> = (null : Location);
 
 	public function new(?_wall:GoUInt64, ?_ext:GoInt64, ?_loc:Ref<Location>) {
@@ -570,12 +2303,39 @@ private var __go2hxdoc__package:Bool;
 	}
 }
 
+/**
+	// A Location maps time instants to the zone in use at that time.
+	// Typically, the Location represents the collection of time offsets
+	// in use in a geographical area. For many Locations the time offset varies
+	// depending on whether daylight savings time is in use at the time instant.
+**/
 @:structInit @:using(stdgo.time.Time.Location_static_extension) class Location {
 	public var _name:GoString = "";
 	public var _zone:Slice<T_zone> = (null : Slice<T_zone>);
 	public var _tx:Slice<T_zoneTrans> = (null : Slice<T_zoneTrans>);
+
+	/**
+		// The tzdata information can be followed by a string that describes
+		// how to handle DST transitions not recorded in zoneTrans.
+		// The format is the TZ environment variable without a colon; see
+		// https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap08.html.
+		// Example string, for America/Los_Angeles: PST8PDT,M3.2.0,M11.1.0
+	**/
 	public var _extend:GoString = "";
+
+	/**
+		// Most lookups will be for the current time.
+		// To avoid the binary search through tx, keep a
+		// static one-element cache that gives the correct
+		// zone for the time when the Location was created.
+		// if cacheStart <= t < cacheEnd,
+		// lookup can return cacheZone.
+		// The units for cacheStart and cacheEnd are seconds
+		// since January 1, 1970 UTC, to match the argument
+		// to lookup.
+	**/
 	public var _cacheStart:GoInt64 = 0;
+
 	public var _cacheEnd:GoInt64 = 0;
 	public var _cacheZone:Ref<T_zone> = (null : T_zone);
 
@@ -605,9 +2365,23 @@ private var __go2hxdoc__package:Bool;
 	}
 }
 
+/**
+	// A zone represents a single time zone such as CET.
+**/
 @:structInit private class T_zone {
+	/**
+		// abbreviated name, "CET"
+	**/
 	public var _name:GoString = "";
+
+	/**
+		// seconds east of UTC
+	**/
 	public var _offset:GoInt = 0;
+
+	/**
+		// is this zone Daylight Savings Time?
+	**/
 	public var _isDST:Bool = false;
 
 	public function new(?_name:GoString, ?_offset:GoInt, ?_isDST:Bool) {
@@ -627,10 +2401,25 @@ private var __go2hxdoc__package:Bool;
 	}
 }
 
+/**
+	// A zoneTrans represents a single time zone transition.
+**/
 @:structInit private class T_zoneTrans {
+	/**
+		// transition time, in seconds since 1970 GMT
+	**/
 	public var _when:GoInt64 = 0;
+
+	/**
+		// the index of the zone that goes into effect at that time
+	**/
 	public var _index:GoUInt8 = 0;
+
+	/**
+		// ignored - no idea what these mean
+	**/
 	public var _isstd:Bool = false;
+
 	public var _isutc:Bool = false;
 
 	public function new(?_when:GoInt64, ?_index:GoUInt8, ?_isstd:Bool, ?_isutc:Bool) {
@@ -652,11 +2441,18 @@ private var __go2hxdoc__package:Bool;
 	}
 }
 
+/**
+	// rule is a rule read from a tzset string.
+**/
 @:structInit private class T_rule {
 	public var _kind:T_ruleKind = ((0 : GoInt) : T_ruleKind);
 	public var _day:GoInt = 0;
 	public var _week:GoInt = 0;
 	public var _mon:GoInt = 0;
+
+	/**
+		// transition time
+	**/
 	public var _time:GoInt = 0;
 
 	public function new(?_kind:T_ruleKind, ?_day:GoInt, ?_week:GoInt, ?_mon:GoInt, ?_time:GoInt) {
@@ -680,6 +2476,9 @@ private var __go2hxdoc__package:Bool;
 	}
 }
 
+/**
+	// Simple I/O interface to binary blob of data.
+**/
 @:structInit @:using(stdgo.time.Time.T_dataIO_static_extension) private class T_dataIO {
 	public var _p:Slice<GoUInt8> = (null : Slice<GoUInt8>);
 	public var _error:Bool = false;
@@ -700,10 +2499,29 @@ private var __go2hxdoc__package:Bool;
 }
 
 @:named typedef RuleKind = GoInt;
+
+/**
+	// A Month specifies a month of the year (January = 1, ...).
+**/
 @:named @:using(stdgo.time.Time.Month_static_extension) typedef Month = GoInt;
+
+/**
+	// A Weekday specifies a day of the week (Sunday = 0, ...).
+**/
 @:named @:using(stdgo.time.Time.Weekday_static_extension) typedef Weekday = GoInt;
+
+/**
+	// A Duration represents the elapsed time between two instants
+	// as an int64 nanosecond count. The representation limits the
+	// largest representable duration to approximately 290 years.
+**/
 @:named @:using(stdgo.time.Time.Duration_static_extension) typedef Duration = GoInt64;
+
+/**
+	// ruleKind is the kinds of rules that can be seen in a tzset string.
+**/
 @:named typedef T_ruleKind = GoInt;
+
 @:named @:using(stdgo.time.Time.T_fileSizeError_static_extension) typedef T_fileSizeError = GoString;
 
 function resetLocalOnceForTest():Void {

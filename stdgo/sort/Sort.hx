@@ -21,12 +21,46 @@ final _decreasingHint:T_sortedHint = (2 : T_sortedHint);
 **/
 private var __go2hxdoc__package:Bool;
 
+/**
+	// An implementation of Interface can be sorted by the routines in this package.
+	// The methods refer to elements of the underlying collection by integer index.
+**/
 typedef Interface = StructType & {
+	/**
+		// Len is the number of elements in the collection.
+	**/
 	public function len():GoInt;
+
+	/**
+		// Less reports whether the element with index i
+		// must sort before the element with index j.
+		//
+		// If both Less(i, j) and Less(j, i) are false,
+		// then the elements at index i and j are considered equal.
+		// Sort may place equal elements in any order in the final result,
+		// while Stable preserves the original input order of equal elements.
+		//
+		// Less must describe a transitive ordering:
+		//  - if both Less(i, j) and Less(j, k) are true, then Less(i, k) must be true as well.
+		//  - if both Less(i, j) and Less(j, k) are false, then Less(i, k) must be false as well.
+		//
+		// Note that floating-point comparison (the < operator on float32 or float64 values)
+		// is not a transitive ordering when not-a-number (NaN) values are involved.
+		// See Float64Slice.Less for a correct implementation for floating-point values.
+	**/
 	public function less(_i:GoInt, _j:GoInt):Bool;
+
+	/**
+		// Swap swaps the elements with indexes i and j.
+	**/
 	public function swap(_i:GoInt, _j:GoInt):Void;
 };
 
+/**
+	// lessSwap is a pair of Less and Swap function for use with the
+	// auto-generated func-optimized variant of sort.go in
+	// zfuncversion.go.
+**/
 @:structInit private class T_lessSwap {
 	public var less:(GoInt, GoInt) -> Bool = null;
 	public var swap:(GoInt, GoInt) -> Void = null;
@@ -47,6 +81,10 @@ typedef Interface = StructType & {
 }
 
 @:structInit @:using(stdgo.sort.Sort.T_reverse_static_extension) private class T_reverse {
+	/**
+		// This embedded Interface permits Reverse to use the methods of
+		// another Interface implementation.
+	**/
 	@:embedded
 	public var interface_:Interface = (null : Interface);
 
@@ -72,9 +110,26 @@ typedef Interface = StructType & {
 }
 
 @:named typedef T_sortedHint = GoInt;
+
+/**
+	// xorshift paper: https://www.jstatsoft.org/article/view/v008i14/xorshift.pdf
+**/
 @:named @:using(stdgo.sort.Sort.T_xorshift_static_extension) typedef T_xorshift = GoUInt64;
+
+/**
+	// IntSlice attaches the methods of Interface to []int, sorting in increasing order.
+**/
 @:named @:using(stdgo.sort.Sort.IntSlice_static_extension) typedef IntSlice = Slice<GoInt>;
+
+/**
+	// Float64Slice implements Interface for a []float64, sorting in increasing order,
+	// with not-a-number (NaN) values ordered before other values.
+**/
 @:named @:using(stdgo.sort.Sort.Float64Slice_static_extension) typedef Float64Slice = Slice<GoFloat64>;
+
+/**
+	// StringSlice attaches the methods of Interface to []string, sorting in increasing order.
+**/
 @:named @:using(stdgo.sort.Sort.StringSlice_static_extension) typedef StringSlice = Slice<GoString>;
 
 function heapsort(_data:Interface):Void {

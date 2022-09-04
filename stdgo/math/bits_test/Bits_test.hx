@@ -11,14 +11,29 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
+/**
+	// Exported (global) variable serving as input for some
+	// of the benchmarks to ensure side-effect free calls
+	// are not optimized away.
+**/
 var input:GoUInt64 = ("285870213051353865" : GoUInt64);
+
+/**
+	// Exported (global) variable to store function results
+	// during benchmarking to ensure side-effect free calls
+	// are not optimized away.
+**/
 var output:GoInt = (0 : GoInt);
+
 final __M:GoUnTypedInt = ("4294967295" : GoUnTypedInt);
 final __M32:GoUnTypedInt = ("4294967295" : GoUnTypedInt);
 final __M64:GoUnTypedInt = (0 : GoUnTypedInt);
 final _divZeroError:GoString = (Go.str("runtime error: integer divide by zero") : GoString);
 final _overflowError:GoString = (Go.str("runtime error: integer overflow") : GoString);
 
+/**
+	// tab contains results for all uint8 values
+**/
 var _tab:GoArray<T_entry> = new GoArray<T_entry>(...[
 	for (i in 0...256) ({
 		_nlz:(0 : GoInt), _ntz:(0 : GoInt), _pop:(0 : GoInt)

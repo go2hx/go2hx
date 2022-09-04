@@ -11,22 +11,121 @@ import stdgo.GoMap;
 import stdgo.Chan;
 
 var _dirBufPool:stdgo.sync.Sync.Pool = ({} : stdgo.sync.Sync.Pool);
+
+/**
+	// ErrInvalid indicates an invalid argument.
+	// Methods on File will return this error when the receiver is nil.
+**/
 var errInvalid:stdgo.Error = (null : stdgo.Error);
+
+/**
+	// Portable analogs of some common system call errors.
+	//
+	// Errors returned from this package may be tested against these errors
+	// with errors.Is.
+**/
 var errPermission:stdgo.Error = (null : stdgo.Error);
+
+/**
+	// Portable analogs of some common system call errors.
+	//
+	// Errors returned from this package may be tested against these errors
+	// with errors.Is.
+**/
 var errExist:stdgo.Error = (null : stdgo.Error);
+
+/**
+	// Portable analogs of some common system call errors.
+	//
+	// Errors returned from this package may be tested against these errors
+	// with errors.Is.
+**/
 var errNotExist:stdgo.Error = (null : stdgo.Error);
+
+/**
+	// Portable analogs of some common system call errors.
+	//
+	// Errors returned from this package may be tested against these errors
+	// with errors.Is.
+**/
 var errClosed:stdgo.Error = (null : stdgo.Error);
+
+/**
+	// Portable analogs of some common system call errors.
+	//
+	// Errors returned from this package may be tested against these errors
+	// with errors.Is.
+**/
 var errNoDeadline:stdgo.Error = (null : stdgo.Error);
+
+/**
+	// Portable analogs of some common system call errors.
+	//
+	// Errors returned from this package may be tested against these errors
+	// with errors.Is.
+**/
 var errDeadlineExceeded:stdgo.Error = (null : stdgo.Error);
+
+/**
+	// ErrProcessDone indicates a Process has finished.
+**/
 var errProcessDone:stdgo.Error = (null : stdgo.Error);
+
+/**
+	// The only signal values guaranteed to be present in the os package on all
+	// systems are os.Interrupt (send the process an interrupt) and os.Kill (force
+	// the process to exit). On Windows, sending os.Interrupt to a process with
+	// os.Process.Signal is not implemented; it will return an error instead of
+	// sending a signal.
+**/
 var interrupt:Signal = (null : Signal);
+
+/**
+	// The only signal values guaranteed to be present in the os package on all
+	// systems are os.Interrupt (send the process an interrupt) and os.Kill (force
+	// the process to exit). On Windows, sending os.Interrupt to a process with
+	// os.Process.Signal is not implemented; it will return an error instead of
+	// sending a signal.
+**/
 var kill:Signal = (null : Signal);
+
 var _errWriteAtInAppendMode:stdgo.Error = (null : stdgo.Error);
+
+/**
+	// Stdin, Stdout, and Stderr are open Files pointing to the standard input,
+	// standard output, and standard error file descriptors.
+	//
+	// Note that the Go runtime writes to standard error for panics and crashes;
+	// closing Stderr may cause those messages to go elsewhere, perhaps
+	// to a file opened later.
+**/
 var stdin:Ref<File> = (null : File);
+
+/**
+	// Stdin, Stdout, and Stderr are open Files pointing to the standard input,
+	// standard output, and standard error file descriptors.
+	//
+	// Note that the Go runtime writes to standard error for panics and crashes;
+	// closing Stderr may cause those messages to go elsewhere, perhaps
+	// to a file opened later.
+**/
 var stdout:Ref<File> = (null : File);
+
+/**
+	// Stdin, Stdout, and Stderr are open Files pointing to the standard input,
+	// standard output, and standard error file descriptors.
+	//
+	// Note that the Go runtime writes to standard error for panics and crashes;
+	// closing Stderr may cause those messages to go elsewhere, perhaps
+	// to a file opened later.
+**/
 var stderr:Ref<File> = (null : File);
+
 var _errPatternHasSeparator:stdgo.Error = (null : stdgo.Error);
 
+/**
+	// lstat is overridden in tests.
+**/
 var _lstat:GoString -> {
 	var _0:stdgo.io.fs.Fs.FileInfo;
 	var _1:stdgo.Error;
@@ -54,46 +153,247 @@ var splitPath:GoString -> {
 final _readdirName:T_readdirMode = ((0 : GoInt) : T_readdirMode);
 final _readdirDirEntry:T_readdirMode = ((0 : GoInt) : T_readdirMode);
 final _readdirFileInfo:T_readdirMode = ((0 : GoInt) : T_readdirMode);
+
+/**
+	// testingForceReadDirLstat forces ReadDir to call Lstat, for testing that code path.
+	// This can be difficult to provoke on some Unix systems otherwise.
+**/
 var _testingForceReadDirLstat:Bool = false;
+
+/**
+	// More than 5760 to work around https://golang.org/issue/24015.
+**/
 final _blockSize:GoUnTypedInt = (0 : GoUnTypedInt);
+
 final _isBigEndian = null;
+
+/**
+	// Exactly one of O_RDONLY, O_WRONLY, or O_RDWR must be specified.
+**/
 final o_RDONLY:GoInt = (0 : GoInt);
+
+/**
+	// Flags to OpenFile wrapping those of the underlying system. Not all
+	// flags may be implemented on a given system.
+**/
 final o_WRONLY:GoInt = (0 : GoInt);
+
+/**
+	// Flags to OpenFile wrapping those of the underlying system. Not all
+	// flags may be implemented on a given system.
+**/
 final o_RDWR:GoInt = (0 : GoInt);
+
+/**
+	// The remaining values may be or'ed in to control behavior.
+**/
 final o_APPEND:GoInt = (0 : GoInt);
+
+/**
+	// Flags to OpenFile wrapping those of the underlying system. Not all
+	// flags may be implemented on a given system.
+**/
 final o_CREATE:GoInt = (0 : GoInt);
+
+/**
+	// Flags to OpenFile wrapping those of the underlying system. Not all
+	// flags may be implemented on a given system.
+**/
 final o_EXCL:GoInt = (0 : GoInt);
+
+/**
+	// Flags to OpenFile wrapping those of the underlying system. Not all
+	// flags may be implemented on a given system.
+**/
 final o_SYNC:GoInt = (0 : GoInt);
+
+/**
+	// Flags to OpenFile wrapping those of the underlying system. Not all
+	// flags may be implemented on a given system.
+**/
 final o_TRUNC:GoInt = (0 : GoInt);
+
+/**
+	// Seek whence values.
+	//
+	// Deprecated: Use io.SeekStart, io.SeekCurrent, and io.SeekEnd.
+**/
 final seek_SET:GoInt = (0 : GoInt);
+
+/**
+	// Seek whence values.
+	//
+	// Deprecated: Use io.SeekStart, io.SeekCurrent, and io.SeekEnd.
+**/
 final seek_CUR:GoInt = (0 : GoInt);
+
+/**
+	// Seek whence values.
+	//
+	// Deprecated: Use io.SeekStart, io.SeekCurrent, and io.SeekEnd.
+**/
 final seek_END:GoInt = (0 : GoInt);
+
 final _kindNewFile:T_newFileKind = ((0 : GoInt) : T_newFileKind);
 final _kindOpenFile:T_newFileKind = ((0 : GoInt) : T_newFileKind);
 final _kindPipe:T_newFileKind = ((0 : GoInt) : T_newFileKind);
 final _kindNonBlock:T_newFileKind = ((0 : GoInt) : T_newFileKind);
+
+/**
+	// DevNull is the name of the operating system's “null device.”
+	// On Unix-like systems, it is "/dev/null"; on Windows, "NUL".
+**/
 final devNull:GoString = ("" : GoString);
+
 var _getwdCache:T__struct_0 = ({mutex: ({} : stdgo.sync.Sync.Mutex), _dir: ("" : GoString)} : T__struct_0);
 final pathSeparator:GoInt32 = (0 : GoInt32);
 final pathListSeparator:GoInt32 = (0 : GoInt32);
+
+/**
+	// Args hold the command-line arguments, starting with the program name.
+**/
 var args:Slice<GoString> = (null : Slice<GoString>);
+
+/**
+	// According to sticky(8), neither open(2) nor mkdir(2) will create
+	// a file with the sticky bit set.
+**/
 final _supportsCreateWithStickyBit = null;
+
 final _hex:GoString = ("" : GoString);
+
+/**
+	// supportsCloseOnExec reports whether the platform supports the
+	// O_CLOEXEC flag.
+**/
 final _supportsCloseOnExec = null;
+
+/**
+	// The single letters are the abbreviations
+	// used by the String method's formatting.
+**/
 final modeDir:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
+
+/**
+	// The defined file mode bits are the most significant bits of the FileMode.
+	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
+	// The values of these bits should be considered part of the public API and
+	// may be used in wire protocols or disk representations: they must not be
+	// changed, although new bits might be added.
+**/
 final modeAppend:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
+
+/**
+	// The defined file mode bits are the most significant bits of the FileMode.
+	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
+	// The values of these bits should be considered part of the public API and
+	// may be used in wire protocols or disk representations: they must not be
+	// changed, although new bits might be added.
+**/
 final modeExclusive:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
+
+/**
+	// The defined file mode bits are the most significant bits of the FileMode.
+	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
+	// The values of these bits should be considered part of the public API and
+	// may be used in wire protocols or disk representations: they must not be
+	// changed, although new bits might be added.
+**/
 final modeTemporary:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
+
+/**
+	// The defined file mode bits are the most significant bits of the FileMode.
+	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
+	// The values of these bits should be considered part of the public API and
+	// may be used in wire protocols or disk representations: they must not be
+	// changed, although new bits might be added.
+**/
 final modeSymlink:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
+
+/**
+	// The defined file mode bits are the most significant bits of the FileMode.
+	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
+	// The values of these bits should be considered part of the public API and
+	// may be used in wire protocols or disk representations: they must not be
+	// changed, although new bits might be added.
+**/
 final modeDevice:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
+
+/**
+	// The defined file mode bits are the most significant bits of the FileMode.
+	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
+	// The values of these bits should be considered part of the public API and
+	// may be used in wire protocols or disk representations: they must not be
+	// changed, although new bits might be added.
+**/
 final modeNamedPipe:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
+
+/**
+	// The defined file mode bits are the most significant bits of the FileMode.
+	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
+	// The values of these bits should be considered part of the public API and
+	// may be used in wire protocols or disk representations: they must not be
+	// changed, although new bits might be added.
+**/
 final modeSocket:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
+
+/**
+	// The defined file mode bits are the most significant bits of the FileMode.
+	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
+	// The values of these bits should be considered part of the public API and
+	// may be used in wire protocols or disk representations: they must not be
+	// changed, although new bits might be added.
+**/
 final modeSetuid:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
+
+/**
+	// The defined file mode bits are the most significant bits of the FileMode.
+	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
+	// The values of these bits should be considered part of the public API and
+	// may be used in wire protocols or disk representations: they must not be
+	// changed, although new bits might be added.
+**/
 final modeSetgid:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
+
+/**
+	// The defined file mode bits are the most significant bits of the FileMode.
+	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
+	// The values of these bits should be considered part of the public API and
+	// may be used in wire protocols or disk representations: they must not be
+	// changed, although new bits might be added.
+**/
 final modeCharDevice:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
+
+/**
+	// The defined file mode bits are the most significant bits of the FileMode.
+	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
+	// The values of these bits should be considered part of the public API and
+	// may be used in wire protocols or disk representations: they must not be
+	// changed, although new bits might be added.
+**/
 final modeSticky:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
+
+/**
+	// The defined file mode bits are the most significant bits of the FileMode.
+	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
+	// The values of these bits should be considered part of the public API and
+	// may be used in wire protocols or disk representations: they must not be
+	// changed, although new bits might be added.
+**/
 final modeIrregular:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
+
+/**
+	// Mask for the type bits. For regular files, none will be set.
+**/
 final modeType:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
+
+/**
+	// The defined file mode bits are the most significant bits of the FileMode.
+	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
+	// The values of these bits should be considered part of the public API and
+	// may be used in wire protocols or disk representations: they must not be
+	// changed, although new bits might be added.
+**/
 final modePerm:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
 
 /**
@@ -139,14 +439,37 @@ typedef T_timeout = StructType & {
 	public function timeout():Bool;
 };
 
+/**
+	// A Signal represents an operating system signal.
+	// The usual underlying implementation is operating system-dependent:
+	// on Unix it is syscall.Signal.
+**/
 typedef Signal = StructType & {
 	public function string():GoString;
+
+	/**
+		// to distinguish from other Stringers
+	**/
 	public function signal():Void;
 };
 
+/**
+	// Auxiliary information if the File describes a directory
+**/
 @:structInit @:using(stdgo.os.Os.T_dirInfo_static_extension) private class T_dirInfo {
+	/**
+		// buffer for directory I/O
+	**/
 	public var _buf:Ref<Slice<GoUInt8>> = null;
+
+	/**
+		// length of buf; return value from Getdirentries
+	**/
 	public var _nbuf:GoInt = 0;
+
+	/**
+		// location of next record in buf.
+	**/
 	public var _bufp:GoInt = 0;
 
 	public function new(?_buf:Ref<Slice<GoUInt8>>, ?_nbuf:GoInt, ?_bufp:GoInt) {
@@ -166,6 +489,9 @@ typedef Signal = StructType & {
 	}
 }
 
+/**
+	// SyscallError records an error from a specific system call.
+**/
 @:structInit @:using(stdgo.os.Os.SyscallError_static_extension) class SyscallError {
 	public var syscall:GoString = "";
 	public var err:stdgo.Error = (null : stdgo.Error);
@@ -185,10 +511,25 @@ typedef Signal = StructType & {
 	}
 }
 
+/**
+	// Process stores the information about a process created by StartProcess.
+**/
 @:structInit @:using(stdgo.os.Os.Process_static_extension) class Process {
 	public var pid:GoInt = 0;
+
+	/**
+		// handle is accessed atomically on Windows
+	**/
 	public var _handle:GoUIntptr = 0;
+
+	/**
+		// process has been successfully waited on, non zero if true
+	**/
 	public var _isdone:GoUInt32 = 0;
+
+	/**
+		// avoid race between wait and signal
+	**/
 	public var _sigMu:stdgo.sync.Sync.RWMutex = ({} : stdgo.sync.Sync.RWMutex);
 
 	public function new(?pid:GoInt, ?_handle:GoUIntptr, ?_isdone:GoUInt32, ?_sigMu:stdgo.sync.Sync.RWMutex) {
@@ -210,10 +551,42 @@ typedef Signal = StructType & {
 	}
 }
 
+/**
+	// ProcAttr holds the attributes that will be applied to a new process
+	// started by StartProcess.
+**/
 @:structInit class ProcAttr {
+	/**
+		// If Dir is non-empty, the child changes into the directory before
+		// creating the process.
+	**/
 	public var dir:GoString = "";
+
+	/**
+		// If Env is non-nil, it gives the environment variables for the
+		// new process in the form returned by Environ.
+		// If it is nil, the result of Environ will be used.
+	**/
 	public var env:Slice<GoString> = (null : Slice<GoString>);
+
+	/**
+		// Files specifies the open files inherited by the new process. The
+		// first three entries correspond to standard input, standard output, and
+		// standard error. An implementation may support additional entries,
+		// depending on the underlying operating system. A nil entry corresponds
+		// to that file being closed when the process starts.
+		// On Unix systems, StartProcess will change these File values
+		// to blocking mode, which means that SetDeadline will stop working
+		// and calling Close will not interrupt a Read or Write.
+	**/
 	public var files:Slice<Ref<File>> = (null : Slice<Ref<File>>);
+
+	/**
+		// Operating system-specific process creation attributes.
+		// Note that setting this field means that your program
+		// may not execute properly or even compile on some
+		// operating systems.
+	**/
 	public var sys:Ref<stdgo.syscall.Syscall.SysProcAttr> = (null : stdgo.syscall.Syscall.SysProcAttr);
 
 	public function new(?dir:GoString, ?env:Slice<GoString>, ?files:Slice<Ref<File>>, ?sys:Ref<stdgo.syscall.Syscall.SysProcAttr>) {
@@ -235,9 +608,20 @@ typedef Signal = StructType & {
 	}
 }
 
+/**
+	// ProcessState stores information about a process, as reported by Wait.
+**/
 @:structInit @:using(stdgo.os.Os.ProcessState_static_extension) class ProcessState {
+	/**
+		// The process's id.
+	**/
 	public var _pid:GoInt = 0;
+
+	/**
+		// System-dependent status info.
+	**/
 	public var _status:stdgo.syscall.Syscall.WaitStatus = ((0 : GoUInt32) : stdgo.syscall.Syscall.WaitStatus);
+
 	public var _rusage:Ref<stdgo.syscall.Syscall.Rusage> = (null : stdgo.syscall.Syscall.Rusage);
 
 	public function new(?_pid:GoInt, ?_status:stdgo.syscall.Syscall.WaitStatus, ?_rusage:Ref<stdgo.syscall.Syscall.Rusage>) {
@@ -257,6 +641,10 @@ typedef Signal = StructType & {
 	}
 }
 
+/**
+	// LinkError records an error during a link or symlink or rename
+	// system call and the paths that caused it.
+**/
 @:structInit @:using(stdgo.os.Os.LinkError_static_extension) class LinkError {
 	public var op:GoString = "";
 	public var old:GoString = "";
@@ -303,12 +691,34 @@ typedef Signal = StructType & {
 	}
 }
 
+/**
+	// file is the real representation of *File.
+	// The extra level of indirection ensures that no clients of os
+	// can overwrite this data, which could cause the finalizer
+	// to close the wrong file descriptor.
+**/
 @:structInit @:using(stdgo.os.Os.T_file_static_extension) private class T_file {
 	public var _pfd:stdgo.internal.poll.Poll.FD = ({} : stdgo.internal.poll.Poll.FD);
 	public var _name:GoString = "";
+
+	/**
+		// nil unless directory being read
+	**/
 	public var _dirinfo:Ref<T_dirInfo> = (null : T_dirInfo);
+
+	/**
+		// whether we set nonblocking mode
+	**/
 	public var _nonblock:Bool = false;
+
+	/**
+		// whether this is stdout or stderr
+	**/
 	public var _stdoutOrErr:Bool = false;
+
+	/**
+		// whether file is opened for appending
+	**/
 	public var _appendMode:Bool = false;
 
 	public function new(?_pfd:stdgo.internal.poll.Poll.FD, ?_name:GoString, ?_dirinfo:Ref<T_dirInfo>, ?_nonblock:Bool, ?_stdoutOrErr:Bool, ?_appendMode:Bool) {
@@ -359,6 +769,9 @@ typedef Signal = StructType & {
 	}
 }
 
+/**
+	// rawConn implements syscall.RawConn.
+**/
 @:structInit @:using(stdgo.os.Os.T_rawConn_static_extension) private class T_rawConn {
 	public var _file:Ref<File> = (null : File);
 
@@ -375,7 +788,13 @@ typedef Signal = StructType & {
 	}
 }
 
+/**
+	// File represents an open file descriptor.
+**/
 @:structInit @:using(stdgo.os.Os.File_static_extension) class File {
+	/**
+		// os specific
+	**/
 	@:embedded
 	public var _file:Ref<T_file> = (null : T_file);
 
@@ -396,6 +815,9 @@ typedef Signal = StructType & {
 	}
 }
 
+/**
+	// A fileStat is the implementation of FileInfo returned by Stat and Lstat.
+**/
 @:structInit @:using(stdgo.os.Os.T_fileStat_static_extension) private class T_fileStat {
 	public var _name:GoString = "";
 	public var _size:GoInt64 = 0;
@@ -431,12 +853,38 @@ typedef Signal = StructType & {
 };
 
 @:named typedef T_readdirMode = GoInt;
+
+/**
+	// A DirEntry is an entry read from a directory
+	// (using the ReadDir function or a File's ReadDir method).
+**/
 @:follow typedef DirEntry = stdgo.io.fs.Fs.DirEntry;
+
+/**
+	// PathError records an error and the operation and file path that caused it.
+**/
 @:follow typedef PathError = stdgo.io.fs.Fs.PathError;
+
 @:follow typedef T_syscallErrorType = stdgo.syscall.Syscall.Errno;
 @:named @:using(stdgo.os.Os.T_dirFS_static_extension) typedef T_dirFS = GoString;
+
+/**
+	// newFileKind describes the kind of file to newFile.
+**/
 @:named typedef T_newFileKind = GoInt;
+
+/**
+	// A FileInfo describes a file and is returned by Stat and Lstat.
+**/
 @:follow typedef FileInfo = stdgo.io.fs.Fs.FileInfo;
+
+/**
+	// A FileMode represents a file's mode and permission bits.
+	// The bits have the same definition on all systems, so that
+	// information about files can be moved from one system
+	// to another portably. Not all bits apply to all systems.
+	// The only required bit is ModeDir for directories.
+**/
 @:follow typedef FileMode = stdgo.io.fs.Fs.FileMode;
 
 /**

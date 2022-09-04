@@ -78,6 +78,9 @@ private var __go2hxdoc__package:Bool;
 	public function as(_0:AnyInterface):Bool;
 };
 
+/**
+	// errorString is a trivial implementation of error.
+**/
 @:structInit @:using(stdgo.errors.Errors.T_errorString_static_extension) private class T_errorString {
 	public var _s:GoString = "";
 

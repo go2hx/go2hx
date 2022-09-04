@@ -259,6 +259,9 @@ final __NMode = (6 : GoUnTypedInt);
 	}
 }
 
+/**
+	// A Planet defines the properties of a solar system object.
+**/
 @:structInit class Planet {
 	public var _name:GoString = "";
 	public var _mass:stdgo.sort_test.Sort_test.T_earthMass = ((0 : GoFloat64) : stdgo.sort_test.Sort_test.T_earthMass);
@@ -281,8 +284,15 @@ final __NMode = (6 : GoUnTypedInt);
 	}
 }
 
+/**
+	// planetSorter joins a By function and a slice of Planets to be sorted.
+**/
 @:structInit @:using(stdgo.sort_test.Sort_test.T_planetSorter_static_extension) private class T_planetSorter {
 	public var _planets:Slice<stdgo.sort_test.Sort_test.Planet> = (null : Slice<stdgo.sort_test.Sort_test.Planet>);
+
+	/**
+		// Closure used in the Less method.
+	**/
 	public var _by:(Ref<stdgo.sort_test.Sort_test.Planet>, Ref<stdgo.sort_test.Sort_test.Planet>) -> Bool = null;
 
 	public function new(?_planets:Slice<stdgo.sort_test.Sort_test.Planet>,
@@ -301,6 +311,9 @@ final __NMode = (6 : GoUnTypedInt);
 	}
 }
 
+/**
+	// A Change is a record of source code changes, recording user, language, and delta size.
+**/
 @:structInit class Change {
 	public var _user:GoString = "";
 	public var _language:GoString = "";
@@ -323,6 +336,9 @@ final __NMode = (6 : GoUnTypedInt);
 	}
 }
 
+/**
+	// multiSorter implements the Sort interface, sorting the changes within.
+**/
 @:structInit @:using(stdgo.sort_test.Sort_test.T_multiSorter_static_extension) private class T_multiSorter {
 	public var _changes:Slice<stdgo.sort_test.Sort_test.Change> = (null : Slice<stdgo.sort_test.Sort_test.Change>);
 	public var _less:Slice<stdgo.sort_test.Sort_test.T_lessFunc> = (null : Slice<stdgo.sort_test.Sort_test.T_lessFunc>);
@@ -361,6 +377,10 @@ final __NMode = (6 : GoUnTypedInt);
 	}
 }
 
+/**
+	// ByName implements sort.Interface by providing Less and using the Len and
+	// Swap methods of the embedded Organs value.
+**/
 @:structInit @:using(stdgo.sort_test.Sort_test.ByName_static_extension) class ByName {
 	@:embedded
 	public var organs:stdgo.sort_test.Sort_test.Organs = new stdgo.sort_test.Sort_test.Organs(0, 0);
@@ -386,6 +406,10 @@ final __NMode = (6 : GoUnTypedInt);
 	}
 }
 
+/**
+	// ByWeight implements sort.Interface by providing Less and using the Len and
+	// Swap methods of the embedded Organs value.
+**/
 @:structInit @:using(stdgo.sort_test.Sort_test.ByWeight_static_extension) class ByWeight {
 	@:embedded
 	public var organs:stdgo.sort_test.Sort_test.Organs = new stdgo.sort_test.Sort_test.Organs(0, 0);
@@ -431,7 +455,12 @@ final __NMode = (6 : GoUnTypedInt);
 	public var _desc:GoString = "";
 	public var _t:Ref<stdgo.testing.Testing.T> = (null : stdgo.testing.Testing.T);
 	public var _data:Slice<GoInt> = (null : Slice<GoInt>);
+
+	/**
+		// number of swaps allowed
+	**/
 	public var _maxswap:GoInt = 0;
+
 	public var _ncmp:GoInt = 0;
 	public var _nswap:GoInt = 0;
 
@@ -458,13 +487,41 @@ final __NMode = (6 : GoUnTypedInt);
 	}
 }
 
+/**
+	// This is based on the "antiquicksort" implementation by M. Douglas McIlroy.
+	// See https://www.cs.dartmouth.edu/~doug/mdmspe.pdf for more info.
+**/
 @:structInit @:using(stdgo.sort_test.Sort_test.T_adversaryTestingData_static_extension) private class T_adversaryTestingData {
 	public var _t:Ref<stdgo.testing.Testing.T> = (null : stdgo.testing.Testing.T);
+
+	/**
+		// item values, initialized to special gas value and changed by Less
+	**/
 	public var _data:Slice<GoInt> = (null : Slice<GoInt>);
+
+	/**
+		// number of comparisons allowed
+	**/
 	public var _maxcmp:GoInt = 0;
+
+	/**
+		// number of comparisons (calls to Less)
+	**/
 	public var _ncmp:GoInt = 0;
+
+	/**
+		// number of elements that have been set to non-gas values
+	**/
 	public var _nsolid:GoInt = 0;
+
+	/**
+		// guess at current pivot
+	**/
 	public var _candidate:GoInt = 0;
+
+	/**
+		// special value for unset elements, higher than everything else
+	**/
 	public var _gas:GoInt = 0;
 
 	public function new(?_t:Ref<stdgo.testing.Testing.T>, ?_data:Slice<GoInt>, ?_maxcmp:GoInt, ?_ncmp:GoInt, ?_nsolid:GoInt, ?_candidate:GoInt, ?_gas:GoInt) {
@@ -522,10 +579,22 @@ final __NMode = (6 : GoUnTypedInt);
 	public var _b:GoInt;
 };
 
+/**
+	// ByAge implements sort.Interface for []Person based on
+	// the Age field.
+**/
 @:named @:using(stdgo.sort_test.Sort_test.ByAge_static_extension) typedef ByAge = Slice<stdgo.sort_test.Sort_test.Person>;
+
+/**
+	// A couple of type definitions to make the units clear.
+**/
 @:named typedef T_earthMass = GoFloat64;
+
 @:named typedef T_au = GoFloat64;
 
+/**
+	// By is the type of a "less" function that defines the ordering of its Planet arguments.
+**/
 @:named @:using(stdgo.sort_test.Sort_test.By_static_extension) typedef By = (Ref<stdgo.sort_test.Sort_test.Planet>,
 	Ref<stdgo.sort_test.Sort_test.Planet>) -> Bool;
 

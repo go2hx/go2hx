@@ -1073,6 +1073,10 @@ final _space:GoString = (Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000") : GoSt
 	}
 }
 
+/**
+	// Test case for any function which accepts and returns a byte slice.
+	// For ease of creation, we write the input byte slice as a string.
+**/
 @:structInit class StringTest {
 	public var _in:GoString = "";
 	public var _out:Slice<GoUInt8> = (null : Slice<GoUInt8>);

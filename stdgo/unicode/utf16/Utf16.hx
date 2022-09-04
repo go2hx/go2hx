@@ -10,11 +10,26 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
+/**
+	// Extra names for constants so we can validate them during testing.
+**/
 final maxRune:GoInt32 = (1114111 : GoInt32);
+
+/**
+	// Extra names for constants so we can validate them during testing.
+**/
 final replacementChar:GoInt32 = (65533 : GoInt32);
+
 final _replacementChar:GoInt32 = ("\uFFFD".code : GoInt32);
 final _maxRune:GoInt32 = ("\u{0010FFFF}".code : GoInt32);
+
+/**
+	// 0xd800-0xdc00 encodes the high 10 bits of a pair.
+	// 0xdc00-0xe000 encodes the low 10 bits of a pair.
+	// the value is those 20 bits plus 0x10000.
+**/
 final _surr1:GoUnTypedInt = (55296 : GoUnTypedInt);
+
 final _surr2:GoUnTypedInt = (56320 : GoUnTypedInt);
 final _surr3:GoUnTypedInt = (57344 : GoUnTypedInt);
 final _surrSelf:GoUnTypedInt = (65536 : GoUnTypedInt);

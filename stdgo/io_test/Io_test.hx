@@ -31,11 +31,22 @@ typedef T_closer = StructType & {
 	> stdgo.fmt.Fmt.Stringer,
 };
 
+/**
+	// A version of bytes.Buffer without ReadFrom and WriteTo
+**/
 @:structInit @:using(stdgo.io_test.Io_test.Buffer_static_extension) class Buffer {
 	@:embedded
 	public var buffer:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
+
+	/**
+		// conflicts with and hides bytes.Buffer's ReaderFrom.
+	**/
 	@:embedded
 	public var readerFrom:ReaderFrom = (null : ReaderFrom);
+
+	/**
+		// conflicts with and hides bytes.Buffer's WriterTo.
+	**/
 	@:embedded
 	public var writerTo:WriterTo = (null : WriterTo);
 
@@ -148,6 +159,9 @@ typedef T_closer = StructType & {
 	}
 }
 
+/**
+	// Version of bytes.Buffer that checks whether WriteTo was called or not
+**/
 @:structInit @:using(stdgo.io_test.Io_test.T_writeToChecker_static_extension) private class T_writeToChecker {
 	@:embedded
 	public var buffer:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
@@ -323,6 +337,10 @@ typedef T_closer = StructType & {
 	}
 }
 
+/**
+	// A version of bytes.Buffer that returns n > 0, err on Read
+	// when the input is exhausted.
+**/
 @:structInit @:using(stdgo.io_test.Io_test.T_dataAndErrorBuffer_static_extension) private class T_dataAndErrorBuffer {
 	public var _err:stdgo.Error = (null : stdgo.Error);
 	@:embedded
@@ -439,6 +457,10 @@ typedef T_closer = StructType & {
 	}
 }
 
+/**
+	// largeWriter returns an invalid count that is larger than the number
+	// of bytes provided (issue 39978).
+**/
 @:structInit @:using(stdgo.io_test.Io_test.T_largeWriter_static_extension) private class T_largeWriter {
 	public var _err:stdgo.Error = (null : stdgo.Error);
 
@@ -548,16 +570,26 @@ typedef T_closer = StructType & {
 
 @:local typedef T__struct_6 = {};
 
+/**
+	// writerFunc is a Writer implemented by the underlying func.
+**/
 @:named @:using(stdgo.io_test.Io_test.T_writerFunc_static_extension) typedef T_writerFunc = Slice<GoUInt8> -> {
 	var _0:GoInt;
 	var _1:stdgo.Error;
 };
 
+/**
+	// readerFunc is a Reader implemented by the underlying func.
+**/
 @:named @:using(stdgo.io_test.Io_test.T_readerFunc_static_extension) typedef T_readerFunc = Slice<GoUInt8> -> {
 	var _0:GoInt;
 	var _1:stdgo.Error;
 };
 
+/**
+	// byteAndEOFReader is a Reader which reads one byte (the underlying
+	// byte) and EOF at once in its Read call.
+**/
 @:named @:using(stdgo.io_test.Io_test.T_byteAndEOFReader_static_extension) typedef T_byteAndEOFReader = GoUInt8;
 
 function exampleCopy():Void {

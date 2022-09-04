@@ -17,6 +17,13 @@ var _vf:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (4.9790119248836735 : GoF
 	(-5.010603618271075 : GoFloat64), (9.636293707198417 : GoFloat64), (2.9263772392439646 : GoFloat64), (5.229083431459307 : GoFloat64),
 	(2.7279399104360103 : GoFloat64), (1.825308091680855 : GoFloat64), (-8.685924768575601 : GoFloat64)) : Slice<GoFloat64>);
 
+/**
+	// The expected results below were computed by the high precision calculators
+	// at https://keisan.casio.com/.  More exact input values (array vf[], above)
+	// were obtained by printing them with "%.26f".  The answers were calculated
+	// to 26 digits (by using the "Digit number" drop-down control of each
+	// calculator).
+**/
 var _acos:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (1.0496193546107222 : GoFloat64), (0.6858401281366443 : GoFloat64), (1.598487871457716 : GoFloat64),
 	(2.095619936147586 : GoFloat64), (0.2705300846782414 : GoFloat64), (1.2738121680361776 : GoFloat64), (1.0205369421140629 : GoFloat64),
 	(1.2945003481781245 : GoFloat64), (1.387236434537445 : GoFloat64), (2.6231510803970464 : GoFloat64)) : Slice<GoFloat64>);
@@ -66,6 +73,9 @@ var _cos:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.2634752140995199 : Go
 	(0.2938141150061715 : GoFloat64), (-0.9777138189897924 : GoFloat64), (-0.9769304134430322 : GoFloat64), (0.4940088096948647 : GoFloat64),
 	(-0.9156586902101893 : GoFloat64), (-0.25177293138931034 : GoFloat64), (-0.7392413515956766 : GoFloat64)) : Slice<GoFloat64>);
 
+/**
+	// Results for 100000 * Pi + vf[i]
+**/
 var _cosLarge:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.26347521411855596 : GoFloat64), (0.1148551260555431 : GoFloat64),
 	(0.961912973266489 : GoFloat64), (0.2938141149955612 : GoFloat64), (-0.9777138189880162 : GoFloat64), (-0.9769304134451476 : GoFloat64),
 	(0.4940088097314977 : GoFloat64), (-0.9156586902175179 : GoFloat64), (-0.251772931436787 : GoFloat64),
@@ -230,6 +240,9 @@ var _sin:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-0.9646661658600928 : G
 	(-0.8694568971167362 : GoFloat64), (0.4019566681155578 : GoFloat64), (0.96778633541688 : GoFloat64),
 	(-0.6734405869050345 : GoFloat64)) : Slice<GoFloat64>);
 
+/**
+	// Results for 100000 * Pi + vf[i]
+**/
 var _sinLarge:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-0.9646661658548936 : GoFloat64), (0.9933822527198507 : GoFloat64),
 	(-0.273355870362469 : GoFloat64), (0.9558625768536894 : GoFloat64), (-0.2099421066862689 : GoFloat64), (0.213557878070309 : GoFloat64),
 	(-0.8694568970959221 : GoFloat64), (0.40195666809886327 : GoFloat64), (0.9677863354045287 : GoFloat64),
@@ -248,6 +261,9 @@ var _tan:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-3.6613165650402277 : G
 	(-1.760002817872368 : GoFloat64), (-0.4389808914752818 : GoFloat64), (-3.8438855602011306 : GoFloat64),
 	(0.9109887933776851 : GoFloat64)) : Slice<GoFloat64>);
 
+/**
+	// Results for 100000 * Pi + vf[i]
+**/
 var _tanLarge:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-3.6613165647559653 : GoFloat64), (8.649002328720254 : GoFloat64),
 	(-0.28417941951047826 : GoFloat64), (3.253290186103312 : GoFloat64), (0.21472756404688 : GoFloat64), (-0.21860091070068807 : GoFloat64),
 	(-1.7600028176997227 : GoFloat64), (-0.43898089145353614 : GoFloat64), (-3.843885559427235 : GoFloat64),
@@ -281,6 +297,9 @@ var _yM3:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-0.1403598442109485 : G
 	(-0.206150264009007 : GoFloat64), (0.6478428468756833 : GoFloat64), (1.3503631555901938 : GoFloat64),
 	(0.14618697565799568 : GoFloat64)) : Slice<GoFloat64>);
 
+/**
+	// arguments and expected results for special cases
+**/
 var _vfacosSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-3.141592653589793 : GoFloat64), (1 : GoFloat64), (3.141592653589793 : GoFloat64),
 	naN()) : Slice<GoFloat64>);
 
@@ -887,6 +906,11 @@ var _ldexpBC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (5e-324 : GoFloat64)
 var _logbBC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-1022 : GoFloat64), (-1023 : GoFloat64), (-1074 : GoFloat64), (1023 : GoFloat64),
 	(-1022 : GoFloat64), (-1023 : GoFloat64), (-1074 : GoFloat64), (1023 : GoFloat64)) : Slice<GoFloat64>);
 
+/**
+	// Test cases were generated with Berkeley TestFloat-3e/testfloat_gen.
+	// http://www.jhauser.us/arithmetic/TestFloat.html.
+	// The default rounding mode is selected (nearest/even), and exception flags are ignored.
+**/
 var _fmaC:Slice<T__struct_0> = (new Slice<T__struct_0>(0, 0, ({
 	_x: (-3.999999999999087 : GoFloat64),
 	_y: (-1.1123914289620494e-16 : GoFloat64),
@@ -1111,10 +1135,19 @@ var _roundUint64:GoUInt64 = (5 : GoUInt64);
 var _roundFloat32:GoFloat32 = (-2.5 : GoFloat32);
 var _roundUint32:GoUInt32 = (5 : GoUInt32);
 
+/**
+	// Inputs to test trig_reduce
+**/
 var _trigHuge:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (2.68435456e+08 : GoFloat64), (5.36870912e+08 : GoFloat64), (1.073741824e+09 : GoFloat64),
 	(3.4359738368e+10 : GoFloat64), (1.329227995784916e+36 : GoFloat64), (1.7668470647783843e+72 : GoFloat64), (3.1217485503159922e+144 : GoFloat64),
 	(1.8919697882131776e+69 : GoFloat64), (2.514859209672214e+105 : GoFloat64), (1.7976931348623157e+308 : GoFloat64)) : Slice<GoFloat64>);
 
+/**
+	// Results for trigHuge[i] calculated with https://github.com/robpike/ivy
+	// using 4096 bits of working precision.   Values requiring less than
+	// 102 decimal digits (1 << 120, 1 << 240, 1 << 480, 1234567891234567 << 180)
+	// were confirmed via https://keisan.casio.com/
+**/
 var _cosHuge:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-0.16556897949057875 : GoFloat64), (-0.9451738260608966 : GoFloat64),
 	(0.7867071229411882 : GoFloat64), (-0.764663012496353 : GoFloat64), (-0.9258790228548379 : GoFloat64), (0.9360104259335379 : GoFloat64),
 	(-0.2828277764019379 : GoFloat64), (-0.14616431394103618 : GoFloat64), (-0.7945605821067141 : GoFloat64),
@@ -1130,10 +1163,38 @@ var _tanHuge:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (5.956418979396394 :
 	(-3.391359650547799 : GoFloat64), (-6.76813854009065 : GoFloat64), (0.7641769501660493 : GoFloat64),
 	(-0.00496201587444489 : GoFloat64)) : Slice<GoFloat64>);
 
+/**
+	// arguments and expected results for boundary cases
+**/
 final smallestNormalFloat64:GoUnTypedFloat = (2.2250738585072014e-308 : GoUnTypedFloat);
+
+/**
+	// arguments and expected results for boundary cases
+**/
 final largestSubnormalFloat64:GoUnTypedFloat = (2.225073858507201e-308 : GoUnTypedFloat);
+
+/**
+	// Global exported variables are used to store the
+	// return values of functions measured in the benchmarks.
+	// Storing the results in these variables prevents the compiler
+	// from completely optimizing the benchmarked functions away.
+**/
 var globalI:GoInt = (0 : GoInt);
+
+/**
+	// Global exported variables are used to store the
+	// return values of functions measured in the benchmarks.
+	// Storing the results in these variables prevents the compiler
+	// from completely optimizing the benchmarked functions away.
+**/
 var globalB:Bool = false;
+
+/**
+	// Global exported variables are used to store the
+	// return values of functions measured in the benchmarks.
+	// Storing the results in these variables prevents the compiler
+	// from completely optimizing the benchmarked functions away.
+**/
 var globalF:GoFloat64 = (0 : GoFloat64);
 
 @:structInit private class T_fi {

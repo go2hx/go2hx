@@ -341,7 +341,12 @@ var _sysValue:GoInt = (0 : GoInt);
 
 @:structInit class Node {
 	public var _name:GoString = "";
+
+	/**
+		// nil if the entry is a file
+	**/
 	public var _entries:Slice<Ref<stdgo.io.fs_test.Fs_test.Node>> = (null : Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>);
+
 	public var _mark:GoInt = 0;
 
 	public function new(?_name:GoString, ?_entries:Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>, ?_mark:GoInt) {

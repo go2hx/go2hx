@@ -241,6 +241,9 @@ var _fn:GoArray<GoFloat32> = (new GoArray<GoFloat32>((1 : GoFloat32), (0.9635997
 	(0.015167298 : GoFloat32), (0.011839478 : GoFloat32), (0.008624485 : GoFloat32), (0.005548995 : GoFloat32),
 	(0.0026696292 : GoFloat32)) : GoArray<GoFloat32>);
 
+/**
+	// rngCooked used for seeding. See gen_cooked.go for details.
+**/
 var _rngCooked:GoArray<GoInt64> = (new GoArray<GoInt64>(("-4181792142133755926" : GoInt64), ("-4576982950128230565" : GoInt64),
 	("1395769623340756751" : GoInt64), ("5333664234075297259" : GoInt64), ("-6347679516498800754" : GoInt64), ("9033628115061424579" : GoInt64),
 	("7143218595135194537" : GoInt64), ("4812947590706362721" : GoInt64), ("7937252194349799378" : GoInt64), ("5307299880338848416" : GoInt64),
@@ -414,7 +417,12 @@ var _globalRand:Ref<Rand> = new_({
 
 final _re:GoUnTypedFloat = (7.69711747013105 : GoUnTypedFloat);
 final _rn:GoUnTypedFloat = (3.442619855899 : GoUnTypedFloat);
+
+/**
+	// Type assert that globalRand's source is a lockedSource whose src is a *rngSource.
+**/
 var _1:T_rngSource = ((_globalRand._src.__underlying__().value : Dynamic) : T_lockedSource)._src;
+
 final _rngLen:GoUnTypedInt = (607 : GoUnTypedInt);
 final _rngTap:GoUnTypedInt = (273 : GoUnTypedInt);
 final _rngMax:GoUnTypedInt = (0 : GoUnTypedInt);
@@ -438,20 +446,51 @@ final _int32max:GoUnTypedInt = (2147483647 : GoUnTypedInt);
 **/
 private var __go2hxdoc__package:Bool;
 
+/**
+	// A Source represents a source of uniformly-distributed
+	// pseudo-random int64 values in the range [0, 1<<63).
+**/
 typedef Source = StructType & {
 	public function int63():GoInt64;
 	public function seed(_seed:GoInt64):Void;
 };
 
+/**
+	// A Source64 is a Source that can also generate
+	// uniformly-distributed pseudo-random uint64 values in
+	// the range [0, 1<<64) directly.
+	// If a Rand r's underlying Source s implements Source64,
+	// then r.Uint64 returns the result of one call to s.Uint64
+	// instead of making two calls to s.Int63.
+**/
 typedef Source64 = StructType & {
 	> Source,
 	public function uint64():GoUInt64;
 };
 
+/**
+	// A Rand is a source of random numbers.
+**/
 @:structInit @:using(stdgo.math.rand.Rand.Rand_static_extension) class Rand {
 	public var _src:Source = (null : Source);
+
+	/**
+		// non-nil if src is source64
+	**/
 	public var _s64:Source64 = (null : Source64);
+
+	/**
+		// readVal contains remainder of 63-bit integer used for bytes
+		// generation during most recent Read call.
+		// It is saved so next Read call can start where the previous
+		// one finished.
+	**/
 	public var _readVal:GoInt64 = 0;
+
+	/**
+		// readPos indicates the number of low-order bytes of readVal
+		// that are still valid.
+	**/
 	public var _readPos:GoInt8 = 0;
 
 	public function new(?_src:Source, ?_s64:Source64, ?_readVal:GoInt64, ?_readPos:GoInt8) {
@@ -493,8 +532,19 @@ typedef Source64 = StructType & {
 }
 
 @:structInit @:using(stdgo.math.rand.Rand.T_rngSource_static_extension) private class T_rngSource {
+	/**
+		// index into vec
+	**/
 	public var _tap:GoInt = 0;
+
+	/**
+		// index into vec
+	**/
 	public var _feed:GoInt = 0;
+
+	/**
+		// current feedback register
+	**/
 	public var _vec:GoArray<GoInt64> = new GoArray<GoInt64>(...[for (i in 0...607) (0 : GoInt64)]);
 
 	public function new(?_tap:GoInt, ?_feed:GoInt, ?_vec:GoArray<GoInt64>) {
@@ -514,6 +564,9 @@ typedef Source64 = StructType & {
 	}
 }
 
+/**
+	// A Zipf generates Zipf distributed variates.
+**/
 @:structInit @:using(stdgo.math.rand.Rand.Zipf_static_extension) class Zipf {
 	public var _r:Ref<Rand> = (null : Rand);
 	public var _imax:GoFloat64 = 0;

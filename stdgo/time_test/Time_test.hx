@@ -218,6 +218,9 @@ var _parseTests:Slice<stdgo.time_test.Time_test.ParseTest> = (new Slice<stdgo.ti
 	(new stdgo.time_test.Time_test.ParseTest((Go.str() : GoString), (Go.str("200600204 15:04:05") : GoString), (Go.str("201003504 21:00:57") : GoString),
 		false, false, (1 : GoInt), (0 : GoInt)) : stdgo.time_test.Time_test.ParseTest)) : Slice<stdgo.time_test.Time_test.ParseTest>);
 
+/**
+	// All parsed with ANSIC.
+**/
 var _dayOutOfRangeTests:Slice<T__struct_1> = (new Slice<T__struct_1>(0, 0,
 	({_date: (Go.str("Thu Jan 99 21:00:57 2010") : GoString), _ok: false} : T__struct_1),
 	({_date: (Go.str("Thu Jan 31 21:00:57 2010") : GoString), _ok: true} : T__struct_1),
@@ -606,6 +609,10 @@ var _isoWeekTests:Slice<stdgo.time_test.Time_test.ISOWeekTest> = (new Slice<stdg
 	(new stdgo.time_test.Time_test.ISOWeekTest((2040 : GoInt), (1 : GoInt), (1 : GoInt), (2039 : GoInt),
 		(52 : GoInt)) : stdgo.time_test.Time_test.ISOWeekTest)) : Slice<stdgo.time_test.Time_test.ISOWeekTest>);
 
+/**
+	// Test YearDay in several different scenarios
+	// and corner cases
+**/
 var _yearDayTests:Slice<stdgo.time_test.Time_test.YearDayTest> = (new Slice<stdgo.time_test.Time_test.YearDayTest>(0, 0,
 	(new stdgo.time_test.Time_test.YearDayTest((2007 : GoInt), (1 : GoInt), (1 : GoInt), (1 : GoInt)) : stdgo.time_test.Time_test.YearDayTest),
 	(new stdgo.time_test.Time_test.YearDayTest((2007 : GoInt), (1 : GoInt), (15 : GoInt), (15 : GoInt)) : stdgo.time_test.Time_test.YearDayTest),
@@ -659,6 +666,9 @@ var _yearDayTests:Slice<stdgo.time_test.Time_test.YearDayTest> = (new Slice<stdg
 	(new stdgo.time_test.Time_test.YearDayTest((1582 : GoInt), (10 : GoInt), (15 : GoInt),
 		(288 : GoInt)) : stdgo.time_test.Time_test.YearDayTest)) : Slice<stdgo.time_test.Time_test.YearDayTest>);
 
+/**
+	// Check to see if YearDay is location sensitive
+**/
 var _yearDayLocations:Slice<Ref<Location>> = (new Slice<Ref<Location>>(0, 0, fixedZone((Go.str("UTC-8") : GoString), (-28800 : GoInt)),
 	fixedZone((Go.str("UTC-4") : GoString), (-14400 : GoInt)), utc, fixedZone((Go.str("UTC+4") : GoString), (14400 : GoInt)),
 	fixedZone((Go.str("UTC+8") : GoString), (28800 : GoInt))) : Slice<Ref<Location>>);
@@ -866,6 +876,12 @@ var _dateTests:Slice<T__struct_11> = (new Slice<T__struct_11>(0, 0, ({
 	_unix: (1321631795 : GoInt64)
 	} : T__struct_11)) : Slice<T__struct_11>);
 
+/**
+	// Several ways of getting from
+	// Fri Nov 18 7:56:35 PST 2011
+	// to
+	// Thu Mar 19 7:56:35 PST 2016
+**/
 var _addDateTests:Slice<T__struct_12> = (new Slice<T__struct_12>(0, 0, ({_years: (4 : GoInt), _months: (4 : GoInt), _days: (1 : GoInt)} : T__struct_12),
 	({_years: (3 : GoInt), _months: (16 : GoInt), _days: (1 : GoInt)} : T__struct_12),
 	({_years: (3 : GoInt), _months: (15 : GoInt), _days: (30 : GoInt)} : T__struct_12),
@@ -1390,8 +1406,28 @@ var _slimTests:Slice<T__struct_30> = (new Slice<T__struct_30>(0, 0, ({
 	} : T__struct_30)) : Slice<T__struct_30>);
 
 var _c:Chan<GoInt> = (null : Chan<GoInt>);
+
+/**
+	// Go runtime uses different Windows timers for time.Now and sleeping.
+	// These can tick at different frequencies and can arrive out of sync.
+	// The effect can be seen, for example, as time.Sleep(100ms) is actually
+	// shorter then 100ms when measured as difference between time.Now before and
+	// after time.Sleep call. This was observed on Windows XP SP3 (windows/386).
+	// windowsInaccuracy is to ignore such errors.
+**/
 final _windowsInaccuracy:Duration = (17000000 : Duration);
+
+/**
+	// The time routines provide no way to get absolute time
+	// (seconds since zero), but we need it to compute the right
+	// answer for bizarre roundings like "to the nearest 3 ns".
+	// Compute as t - year1 = (t - 1970) + (1970 - 2001) + (2001 - 1).
+	// t - 1970 is returned by Unix and Nanosecond.
+	// 1970 - 2001 is -(31*365+8)*86400 = -978307200 seconds.
+	// 2001 - 1 is 2000*365.2425*86400 = 63113904000 seconds.
+**/
 final _unixToZero:GoUnTypedInt = ("62135596800" : GoUnTypedInt);
+
 var _t:Time = ({} : Time);
 var _u:GoInt64 = (0 : GoInt64);
 final _minDuration:Duration = ("-9223372036854775808" : Duration);
@@ -1442,9 +1478,25 @@ final _maxDuration:Duration = ("9223372036854775807" : Duration);
 	public var _name:GoString = "";
 	public var _format:GoString = "";
 	public var _value:GoString = "";
+
+	/**
+		// contains a time zone
+	**/
 	public var _hasTZ:Bool = false;
+
+	/**
+		// contains a weekday
+	**/
 	public var _hasWD:Bool = false;
+
+	/**
+		// sign of year, -1 indicates the year is not present in the format
+	**/
 	public var _yearSign:GoInt = 0;
+
+	/**
+		// number of digits of fractional second
+	**/
 	public var _fracDigits:GoInt = 0;
 
 	public function new(?_name:GoString, ?_format:GoString, ?_value:GoString, ?_hasTZ:Bool, ?_hasWD:Bool, ?_yearSign:GoInt, ?_fracDigits:GoInt) {
@@ -1497,6 +1549,10 @@ final _maxDuration:Duration = ("9223372036854775807" : Duration);
 @:structInit class ParseErrorTest {
 	public var _format:GoString = "";
 	public var _value:GoString = "";
+
+	/**
+		// must appear within the error
+	**/
 	public var _expect:GoString = "";
 
 	public function new(?_format:GoString, ?_value:GoString, ?_expect:GoString) {
@@ -1557,15 +1613,36 @@ final _maxDuration:Duration = ("9223372036854775807" : Duration);
 	}
 }
 
+/**
+	// parsedTime is the struct representing a parsed time value.
+**/
 @:structInit private class T_parsedTime {
 	public var year:GoInt = 0;
 	public var month:Month = ((0 : GoInt) : Month);
 	public var day:GoInt = 0;
+
+	/**
+		// 15:04:05 is 15, 4, 5.
+	**/
 	public var hour:GoInt = 0;
+
+	/**
+		// Fractional second.
+	**/
 	public var minute:GoInt = 0;
+
 	public var second:GoInt = 0;
+
+	/**
+		// seconds east of UTC, e.g. -7*60*60 for -0700
+	**/
 	public var nanosecond:GoInt = 0;
+
+	/**
+		// e.g., "MST"
+	**/
 	public var weekday:Weekday = ((0 : GoInt) : Weekday);
+
 	public var zoneOffset:GoInt = 0;
 	public var zone:GoString = "";
 
@@ -1621,10 +1698,26 @@ final _maxDuration:Duration = ("9223372036854775807" : Duration);
 }
 
 @:structInit class ISOWeekTest {
+	/**
+		// year
+	**/
 	public var _year:GoInt = 0;
+
+	/**
+		// month and day
+	**/
 	public var _month:GoInt = 0;
+
+	/**
+		// expected year
+	**/
 	public var _day:GoInt = 0;
+
+	/**
+		// expected week
+	**/
 	public var _yex:GoInt = 0;
+
 	public var _wex:GoInt = 0;
 
 	public function new(?_year:GoInt, ?_month:GoInt, ?_day:GoInt, ?_yex:GoInt, ?_wex:GoInt) {
@@ -1713,6 +1806,10 @@ final _maxDuration:Duration = ("9223372036854775807" : Duration);
 	public var _sum:GoFloat64;
 	public var _max:Duration;
 	public var _count:GoInt64;
+
+	/**
+		// cache line padding
+	**/
 	public var _0:GoArray<GoInt64>;
 };
 

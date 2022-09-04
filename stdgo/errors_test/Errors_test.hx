@@ -16,6 +16,9 @@ var _poserPathErr:Ref<stdgo.io.fs.Fs.PathError> = ({op: (Go.str("poser") : GoStr
 	public function timeout():Bool;
 };
 
+/**
+	// MyError is an error implementation that includes a time and message.
+**/
 @:structInit @:using(stdgo.errors_test.Errors_test.MyError_static_extension) class MyError {
 	public var when:stdgo.time.Time.Time = ({} : stdgo.time.Time.Time);
 	public var what:GoString = "";
@@ -115,6 +118,10 @@ var _poserPathErr:Ref<stdgo.io.fs.Fs.PathError> = ({op: (Go.str("poser") : GoStr
 	public var _err:stdgo.Error;
 	public var _target:AnyInterface;
 	public var _match:Bool;
+
+	/**
+		// value of target on match
+	**/
 	public var _want:AnyInterface;
 };
 

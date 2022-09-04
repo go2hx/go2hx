@@ -21,6 +21,15 @@ var _asciiSpace:GoArray<GoUInt8> = {
 	s;
 };
 
+/**
+	// countCutOff controls the ratio of a string length to a number of replacements
+	// at which (*byteStringReplacer).Replace switches algorithms.
+	// For strings with higher ration of length to replacements than that value,
+	// we call Count, for each replacement from toReplace.
+	// For strings, with a lower ratio we use simple loop, because of Count overhead.
+	// countCutOff is an empirically determined overhead multiplier.
+	// TODO(tocarip) revisit once we have register-based abi/mid-stack inlining.
+**/
 final _countCutOff:GoUnTypedInt = (8 : GoUnTypedInt);
 
 /**
@@ -30,13 +39,25 @@ final _countCutOff:GoUnTypedInt = (8 : GoUnTypedInt);
 **/
 private var __go2hxdoc__package:Bool;
 
+/**
+	// replacer is the interface that a replacement algorithm needs to implement.
+**/
 typedef T_replacer = StructType & {
 	public function replace(_s:GoString):GoString;
 	public function writeString(_w:stdgo.io.Io.Writer, _s:GoString):{var _0:GoInt; var _1:Error;};
 };
 
+/**
+	// A Builder is used to efficiently build a string using Write methods.
+	// It minimizes memory copying. The zero value is ready to use.
+	// Do not copy a non-zero Builder.
+**/
 @:structInit @:using(stdgo.strings.Strings.Builder_static_extension) class Builder {
+	/**
+		// of receiver, to detect copies by value
+	**/
 	public var _addr:Ref<Builder> = (null : Builder);
+
 	public var _buf:Slice<GoUInt8> = (null : Slice<GoUInt8>);
 
 	public function new(?_addr:Ref<Builder>, ?_buf:Slice<GoUInt8>) {
@@ -54,9 +75,23 @@ typedef T_replacer = StructType & {
 	}
 }
 
+/**
+	// A Reader implements the io.Reader, io.ReaderAt, io.ByteReader, io.ByteScanner,
+	// io.RuneReader, io.RuneScanner, io.Seeker, and io.WriterTo interfaces by reading
+	// from a string.
+	// The zero value for Reader operates like a Reader of an empty string.
+**/
 @:structInit @:using(stdgo.strings.Strings.Reader_static_extension) class Reader {
 	public var _s:GoString = "";
+
+	/**
+		// current reading index
+	**/
 	public var _i:GoInt64 = 0;
+
+	/**
+		// index of previous rune; or < 0
+	**/
 	public var _prevRune:GoInt = 0;
 
 	public function new(?_s:GoString, ?_i:GoInt64, ?_prevRune:GoInt) {
@@ -76,8 +111,16 @@ typedef T_replacer = StructType & {
 	}
 }
 
+/**
+	// Replacer replaces a list of strings with replacements.
+	// It is safe for concurrent use by multiple goroutines.
+**/
 @:structInit @:using(stdgo.strings.Strings.Replacer_static_extension) class Replacer {
+	/**
+		// guards buildOnce method
+	**/
 	public var _once:stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
+
 	public var _r:T_replacer = (null : T_replacer);
 	public var _oldnew:Slice<GoString> = (null : Slice<GoString>);
 
@@ -98,11 +141,59 @@ typedef T_replacer = StructType & {
 	}
 }
 
+/**
+	// trieNode is a node in a lookup trie for prioritized key/value pairs. Keys
+	// and values may be empty. For example, the trie containing keys "ax", "ay",
+	// "bcbc", "x" and "xy" could have eight nodes:
+	//
+	//	n0  -
+	//	n1  a-
+	//	n2  .x+
+	//	n3  .y+
+	//	n4  b-
+	//	n5  .cbc+
+	//	n6  x+
+	//	n7  .y+
+	//
+	// n0 is the root node, and its children are n1, n4 and n6; n1's children are
+	// n2 and n3; n4's child is n5; n6's child is n7. Nodes n0, n1 and n4 (marked
+	// with a trailing "-") are partial keys, and nodes n2, n3, n5, n6 and n7
+	// (marked with a trailing "+") are complete keys.
+**/
 @:structInit @:using(stdgo.strings.Strings.T_trieNode_static_extension) private class T_trieNode {
+	/**
+		// value is the value of the trie node's key/value pair. It is empty if
+		// this node is not a complete key.
+	**/
 	public var _value:GoString = "";
+
+	/**
+		// priority is the priority (higher is more important) of the trie node's
+		// key/value pair; keys are not necessarily matched shortest- or longest-
+		// first. Priority is positive if this node is a complete key, and zero
+		// otherwise. In the example above, positive/zero priorities are marked
+		// with a trailing "+" or "-".
+	**/
 	public var _priority:GoInt = 0;
+
+	/**
+		// prefix is the difference in keys between this trie node and the next.
+		// In the example above, node n4 has prefix "cbc" and n4's next node is n5.
+		// Node n5 has no children and so has zero prefix, next and table fields.
+	**/
 	public var _prefix:GoString = "";
+
 	public var _next:Ref<T_trieNode> = (null : T_trieNode);
+
+	/**
+		// table is a lookup table indexed by the next byte in the key, after
+		// remapping that byte through genericReplacer.mapping to create a dense
+		// index. In the example above, the keys only use 'a', 'b', 'c', 'x' and
+		// 'y', which remap to 0, 1, 2, 3 and 4. All other bytes remap to 5, and
+		// genericReplacer.tableSize will be 5. Node n0's table will be
+		// []*trieNode{ 0:n1, 1:n4, 3:n6 }, where the 0, 1 and 3 are the remapped
+		// 'a', 'b' and 'x'.
+	**/
 	public var _table:Slice<Ref<T_trieNode>> = (null : Slice<Ref<T_trieNode>>);
 
 	public function new(?_value:GoString, ?_priority:GoInt, ?_prefix:GoString, ?_next:Ref<T_trieNode>, ?_table:Slice<Ref<T_trieNode>>) {
@@ -126,9 +217,22 @@ typedef T_replacer = StructType & {
 	}
 }
 
+/**
+	// genericReplacer is the fully generic algorithm.
+	// It's used as a fallback when nothing faster can be used.
+**/
 @:structInit @:using(stdgo.strings.Strings.T_genericReplacer_static_extension) private class T_genericReplacer {
 	public var _root:T_trieNode = ({} : T_trieNode);
+
+	/**
+		// tableSize is the size of a trie node's lookup table. It is the number
+		// of unique key bytes.
+	**/
 	public var _tableSize:GoInt = 0;
+
+	/**
+		// mapping maps from key bytes to a dense index for trieNode.table.
+	**/
 	public var _mapping:GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0...256) (0 : GoUInt8)]);
 
 	public function new(?_root:T_trieNode, ?_tableSize:GoInt, ?_mapping:GoArray<GoUInt8>) {
@@ -164,8 +268,16 @@ typedef T_replacer = StructType & {
 	}
 }
 
+/**
+	// singleStringReplacer is the implementation that's used when there is only
+	// one string to replace (and that string has more than one byte).
+**/
 @:structInit @:using(stdgo.strings.Strings.T_singleStringReplacer_static_extension) private class T_singleStringReplacer {
 	public var _finder:Ref<T_stringFinder> = (null : T_stringFinder);
+
+	/**
+		// value is the new string that replaces that pattern when it's found.
+	**/
 	public var _value:GoString = "";
 
 	public function new(?_finder:Ref<T_stringFinder>, ?_value:GoString) {
@@ -183,8 +295,22 @@ typedef T_replacer = StructType & {
 	}
 }
 
+/**
+	// byteStringReplacer is the implementation that's used when all the
+	// "old" values are single ASCII bytes but the "new" values vary in size.
+**/
 @:structInit @:using(stdgo.strings.Strings.T_byteStringReplacer_static_extension) private class T_byteStringReplacer {
+	/**
+		// replacements contains replacement byte slices indexed by old byte.
+		// A nil []byte means that the old byte should not be replaced.
+	**/
 	public var _replacements:GoArray<Slice<GoUInt8>> = new GoArray<Slice<GoUInt8>>(...[for (i in 0...256) (null : Slice<GoUInt8>)]);
+
+	/**
+		// toReplace keeps a list of bytes to replace. Depending on length of toReplace
+		// and length of target string it may be faster to use Count, or a plain loop.
+		// We store single byte as a string, because Count takes a string.
+	**/
 	public var _toReplace:Slice<GoString> = (null : Slice<GoString>);
 
 	public function new(?_replacements:GoArray<Slice<GoUInt8>>, ?_toReplace:Slice<GoString>) {
@@ -202,9 +328,52 @@ typedef T_replacer = StructType & {
 	}
 }
 
+/**
+	// stringFinder efficiently finds strings in a source text. It's implemented
+	// using the Boyer-Moore string search algorithm:
+	// https://en.wikipedia.org/wiki/Boyer-Moore_string_search_algorithm
+	// https://www.cs.utexas.edu/~moore/publications/fstrpos.pdf (note: this aged
+	// document uses 1-based indexing)
+**/
 @:structInit @:using(stdgo.strings.Strings.T_stringFinder_static_extension) private class T_stringFinder {
+	/**
+		// pattern is the string that we are searching for in the text.
+	**/
 	public var _pattern:GoString = "";
+
+	/**
+		// badCharSkip[b] contains the distance between the last byte of pattern
+		// and the rightmost occurrence of b in pattern. If b is not in pattern,
+		// badCharSkip[b] is len(pattern).
+		//
+		// Whenever a mismatch is found with byte b in the text, we can safely
+		// shift the matching frame at least badCharSkip[b] until the next time
+		// the matching char could be in alignment.
+	**/
 	public var _badCharSkip:GoArray<GoInt> = new GoArray<GoInt>(...[for (i in 0...256) (0 : GoInt)]);
+
+	/**
+		// goodSuffixSkip[i] defines how far we can shift the matching frame given
+		// that the suffix pattern[i+1:] matches, but the byte pattern[i] does
+		// not. There are two cases to consider:
+		//
+		// 1. The matched suffix occurs elsewhere in pattern (with a different
+		// byte preceding it that we might possibly match). In this case, we can
+		// shift the matching frame to align with the next suffix chunk. For
+		// example, the pattern "mississi" has the suffix "issi" next occurring
+		// (in right-to-left order) at index 1, so goodSuffixSkip[3] ==
+		// shift+len(suffix) == 3+4 == 7.
+		//
+		// 2. If the matched suffix does not occur elsewhere in pattern, then the
+		// matching frame may share part of its prefix with the end of the
+		// matching suffix. In this case, goodSuffixSkip[i] will contain how far
+		// to shift the frame to align this portion of the prefix to the
+		// suffix. For example, in the pattern "abcxxxabc", when the first
+		// mismatch from the back is found to be in position 3, the matching
+		// suffix "xxabc" is not found elsewhere in the pattern. However, its
+		// rightmost "abc" (at position 6) is a prefix of the whole pattern, so
+		// goodSuffixSkip[3] == shift+len(suffix) == 6+5 == 11.
+	**/
 	public var _goodSuffixSkip:Slice<GoInt> = (null : Slice<GoInt>);
 
 	public function new(?_pattern:GoString, ?_badCharSkip:GoArray<GoInt>, ?_goodSuffixSkip:Slice<GoInt>) {
@@ -225,7 +394,24 @@ typedef T_replacer = StructType & {
 }
 
 @:named @:using(stdgo.strings.Strings.T_appendSliceWriter_static_extension) typedef T_appendSliceWriter = Slice<GoUInt8>;
+
+/**
+	// byteReplacer is the implementation that's used when all the "old"
+	// and "new" values are single ASCII bytes.
+	// The array contains replacement bytes indexed by old byte.
+**/
 @:named @:using(stdgo.strings.Strings.T_byteReplacer_static_extension) typedef T_byteReplacer = GoArray<GoUInt8>;
+
+/**
+	// asciiSet is a 32-byte value, where each bit represents the presence of a
+	// given ASCII character in the set. The 128-bits of the lower 16 bytes,
+	// starting with the least-significant bit of the lowest word to the
+	// most-significant bit of the highest word, map to the full range of all
+	// 128 ASCII characters. The 128-bits of the upper 16 bytes will be zeroed,
+	// ensuring that any non-ASCII character will be reported as not in the set.
+	// This allocates a total of 32 bytes even though the upper half
+	// is unused to avoid bounds checks in asciiSet.contains.
+**/
 @:named @:using(stdgo.strings.Strings.T_asciiSet_static_extension) typedef T_asciiSet = GoArray<GoUInt32>;
 
 /**
@@ -853,6 +1039,10 @@ function fields(_s:GoString):Slice<GoString> {
 	return _a;
 }
 
+/**
+	// A span is used to record a slice of s of the form s[start:end].
+	// The start index is inclusive and the end index is exclusive.
+**/
 @:structInit private class T_span_fieldsFunc_0 {
 	public var _start:GoInt = 0;
 	public var _end:GoInt = 0;

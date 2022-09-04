@@ -24,8 +24,17 @@ var _objectConstructor:Value = ({} : Value);
 var _arrayConstructor:Value = ({} : Value);
 var jsgo:Value = ({} : Value);
 var _funcsMu:stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
+
+/**
+	// nanHead are the upper 32 bits of a ref which are set if the value is not encoded as an IEEE 754 number (see above).
+**/
 final _nanHead:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// the type flags need to be in sync with wasm_exec.js
+**/
 final _typeFlagNone:GoUnTypedInt = (0 : GoUnTypedInt);
+
 final _typeFlagObject = null;
 final _typeFlagString = null;
 final _typeFlagSymbol = null;
@@ -48,9 +57,16 @@ final typeFunction:Type = ((0 : GoInt) : Type);
 **/
 private var __go2hxdoc__package:Bool;
 
+/**
+	// Func is a wrapped Go function to be called by JavaScript.
+**/
 @:structInit @:using(stdgo.syscall.js.Js.Func_static_extension) class Func {
+	/**
+		// the JavaScript function that invokes the Go function
+	**/
 	@:embedded
 	public var value:Value = ({} : Value);
+
 	public var _id:GoUInt32 = 0;
 
 	public function new(?value:Value, ?_id:GoUInt32) {
@@ -156,9 +172,24 @@ private var __go2hxdoc__package:Bool;
 	}
 }
 
+/**
+	// Value represents a JavaScript value. The zero value is the JavaScript value "undefined".
+	// Values can be checked for equality with the Equal method.
+**/
 @:structInit @:using(stdgo.syscall.js.Js.Value_static_extension) class Value {
+	/**
+		// uncomparable; to make == not compile
+	**/
 	public var _0:GoArray<() -> Void> = new GoArray<() -> Void>(...[for (i in 0...0) null]);
+
+	/**
+		// identifies a JavaScript value, see ref type
+	**/
 	public var _ref:T_ref = ((0 : GoUInt64) : T_ref);
+
+	/**
+		// used to trigger the finalizer when the Value is not referenced any more
+	**/
 	public var _gcPtr:Pointer<T_ref> = (null : Pointer<T_ref>);
 
 	public function new(?_0:GoArray<() -> Void>, ?_ref:T_ref, ?_gcPtr:Pointer<T_ref>) {
@@ -178,7 +209,13 @@ private var __go2hxdoc__package:Bool;
 	}
 }
 
+/**
+	// Error wraps a JavaScript error.
+**/
 @:structInit @:using(stdgo.syscall.js.Js.T_error_static_extension) class T_error {
+	/**
+		// Value is the underlying JavaScript error value.
+	**/
 	@:embedded
 	public var value:Value = ({} : Value);
 
@@ -283,6 +320,11 @@ private var __go2hxdoc__package:Bool;
 	}
 }
 
+/**
+	// A ValueError occurs when a Value method is invoked on
+	// a Value that does not support it. Such cases are documented
+	// in the description of each method.
+**/
 @:structInit @:using(stdgo.syscall.js.Js.ValueError_static_extension) class ValueError {
 	public var method:GoString = "";
 	public var type:Type = ((0 : GoInt) : Type);
@@ -302,7 +344,19 @@ private var __go2hxdoc__package:Bool;
 	}
 }
 
+/**
+	// ref is used to identify a JavaScript value, since the value itself can not be passed to WebAssembly.
+	//
+	// The JavaScript value "undefined" is represented by the value 0.
+	// A JavaScript number (64-bit float, except 0 and NaN) is represented by its IEEE 754 binary representation.
+	// All other values are represented as an IEEE 754 binary representation of NaN with bits 0-31 used as
+	// an ID and bits 32-34 used to differentiate between string, symbol, function and object.
+**/
 @:named typedef T_ref = GoUInt64;
+
+/**
+	// Type represents the JavaScript type of a Value.
+**/
 @:named @:using(stdgo.syscall.js.Js.Type_static_extension) typedef Type = GoInt;
 
 /**

@@ -10,15 +10,53 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
+/**
+	// ErrShortWrite means that a write accepted fewer bytes than requested
+	// but failed to return an explicit error.
+**/
 var errShortWrite:stdgo.Error = stdgo.errors.Errors.new_((Go.str("short write") : GoString));
+
+/**
+	// errInvalidWrite means that a write returned an impossible count.
+**/
 var _errInvalidWrite:stdgo.Error = stdgo.errors.Errors.new_((Go.str("invalid write result") : GoString));
+
+/**
+	// ErrShortBuffer means that a read required a longer buffer than was provided.
+**/
 var errShortBuffer:stdgo.Error = stdgo.errors.Errors.new_((Go.str("short buffer") : GoString));
+
+/**
+	// EOF is the error returned by Read when no more input is available.
+	// (Read must return EOF itself, not an error wrapping EOF,
+	// because callers will test for EOF using ==.)
+	// Functions should return EOF only to signal a graceful end of input.
+	// If the EOF occurs unexpectedly in a structured data stream,
+	// the appropriate error is either ErrUnexpectedEOF or some other error
+	// giving more detail.
+**/
 var eof:stdgo.Error = stdgo.errors.Errors.new_((Go.str("EOF") : GoString));
+
+/**
+	// ErrUnexpectedEOF means that EOF was encountered in the
+	// middle of reading a fixed-size block or data structure.
+**/
 var errUnexpectedEOF:stdgo.Error = stdgo.errors.Errors.new_((Go.str("unexpected EOF") : GoString));
+
+/**
+	// ErrNoProgress is returned by some clients of a Reader when
+	// many calls to Read have failed to return any data or error,
+	// usually the sign of a broken Reader implementation.
+**/
 var errNoProgress:stdgo.Error = stdgo.errors.Errors.new_((Go.str("multiple Read calls return no data or error") : GoString));
+
 var _errWhence:stdgo.Error = stdgo.errors.Errors.new_((Go.str("Seek: invalid whence") : GoString));
 var _errOffset:stdgo.Error = stdgo.errors.Errors.new_((Go.str("Seek: invalid offset") : GoString));
 
+/**
+	// Discard is a Writer on which all Write calls succeed
+	// without doing anything.
+**/
 var discard:Writer = {
 	final __self__ = new T_discard_asInterface((new T_discard() : T_discard));
 	__self__.readFrom = #if !macro function(_r_:Reader):{var _0:GoInt64; var _1:stdgo.Error;}
@@ -37,12 +75,35 @@ var _blackHolePool:stdgo.sync.Sync.Pool = ({
 	}
 } : stdgo.sync.Sync.Pool);
 
+/**
+	// ErrClosedPipe is the error used for read or write operations on a closed pipe.
+**/
 var errClosedPipe:stdgo.Error = stdgo.errors.Errors.new_((Go.str("io: read/write on closed pipe") : GoString));
+
+/**
+	// exported for test
+**/
 var errInvalidWrite:stdgo.Error = _errInvalidWrite;
+
+/**
+	// Seek whence values.
+**/
 final seekStart:GoUnTypedInt = (0 : GoUnTypedInt);
+
+/**
+	// Seek whence values.
+**/
 final seekCurrent:GoUnTypedInt = (1 : GoUnTypedInt);
+
+/**
+	// Seek whence values.
+**/
 final seekEnd:GoUnTypedInt = (2 : GoUnTypedInt);
 
+/**
+	// discard implements ReaderFrom as an optimization so Copy to
+	// io.Discard can avoid doing unnecessary work.
+**/
 var _3:ReaderFrom = {
 	final __self__ = new T_discard_asInterface((new T_discard() : T_discard));
 	__self__.readFrom = #if !macro function(_r_:Reader):{var _0:GoInt64; var _1:stdgo.Error;}
@@ -86,109 +147,318 @@ var _5:StringWriter = {
 **/
 private var __go2hxdoc__package:Bool;
 
+/**
+	// Reader is the interface that wraps the basic Read method.
+	//
+	// Read reads up to len(p) bytes into p. It returns the number of bytes
+	// read (0 <= n <= len(p)) and any error encountered. Even if Read
+	// returns n < len(p), it may use all of p as scratch space during the call.
+	// If some data is available but not len(p) bytes, Read conventionally
+	// returns what is available instead of waiting for more.
+	//
+	// When Read encounters an error or end-of-file condition after
+	// successfully reading n > 0 bytes, it returns the number of
+	// bytes read. It may return the (non-nil) error from the same call
+	// or return the error (and n == 0) from a subsequent call.
+	// An instance of this general case is that a Reader returning
+	// a non-zero number of bytes at the end of the input stream may
+	// return either err == EOF or err == nil. The next Read should
+	// return 0, EOF.
+	//
+	// Callers should always process the n > 0 bytes returned before
+	// considering the error err. Doing so correctly handles I/O errors
+	// that happen after reading some bytes and also both of the
+	// allowed EOF behaviors.
+	//
+	// Implementations of Read are discouraged from returning a
+	// zero byte count with a nil error, except when len(p) == 0.
+	// Callers should treat a return of 0 and nil as indicating that
+	// nothing happened; in particular it does not indicate EOF.
+	//
+	// Implementations must not retain p.
+**/
 typedef Reader = StructType & {
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;};
 };
 
+/**
+	// Writer is the interface that wraps the basic Write method.
+	//
+	// Write writes len(p) bytes from p to the underlying data stream.
+	// It returns the number of bytes written from p (0 <= n <= len(p))
+	// and any error encountered that caused the write to stop early.
+	// Write must return a non-nil error if it returns n < len(p).
+	// Write must not modify the slice data, even temporarily.
+	//
+	// Implementations must not retain p.
+**/
 typedef Writer = StructType & {
 	public function write(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;};
 };
 
+/**
+	// Closer is the interface that wraps the basic Close method.
+	//
+	// The behavior of Close after the first call is undefined.
+	// Specific implementations may document their own behavior.
+**/
 typedef Closer = StructType & {
 	public function close():Error;
 };
 
+/**
+	// Seeker is the interface that wraps the basic Seek method.
+	//
+	// Seek sets the offset for the next Read or Write to offset,
+	// interpreted according to whence:
+	// SeekStart means relative to the start of the file,
+	// SeekCurrent means relative to the current offset, and
+	// SeekEnd means relative to the end
+	// (for example, offset = -2 specifies the penultimate byte of the file).
+	// Seek returns the new offset relative to the start of the
+	// file or an error, if any.
+	//
+	// Seeking to an offset before the start of the file is an error.
+	// Seeking to any positive offset may be allowed, but if the new offset exceeds
+	// the size of the underlying object the behavior of subsequent I/O operations
+	// is implementation-dependent.
+**/
 typedef Seeker = StructType & {
 	public function seek(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:Error;};
 };
 
+/**
+	// ReadWriter is the interface that groups the basic Read and Write methods.
+**/
 typedef ReadWriter = StructType & {
 	> Reader,
 	> Writer,
 };
 
+/**
+	// ReadCloser is the interface that groups the basic Read and Close methods.
+**/
 typedef ReadCloser = StructType & {
 	> Reader,
 	> Closer,
 };
 
+/**
+	// WriteCloser is the interface that groups the basic Write and Close methods.
+**/
 typedef WriteCloser = StructType & {
 	> Writer,
 	> Closer,
 };
 
+/**
+	// ReadWriteCloser is the interface that groups the basic Read, Write and Close methods.
+**/
 typedef ReadWriteCloser = StructType & {
 	> Reader,
 	> Writer,
 	> Closer,
 };
 
+/**
+	// ReadSeeker is the interface that groups the basic Read and Seek methods.
+**/
 typedef ReadSeeker = StructType & {
 	> Reader,
 	> Seeker,
 };
 
+/**
+	// ReadSeekCloser is the interface that groups the basic Read, Seek and Close
+	// methods.
+**/
 typedef ReadSeekCloser = StructType & {
 	> Reader,
 	> Seeker,
 	> Closer,
 };
 
+/**
+	// WriteSeeker is the interface that groups the basic Write and Seek methods.
+**/
 typedef WriteSeeker = StructType & {
 	> Writer,
 	> Seeker,
 };
 
+/**
+	// ReadWriteSeeker is the interface that groups the basic Read, Write and Seek methods.
+**/
 typedef ReadWriteSeeker = StructType & {
 	> Reader,
 	> Writer,
 	> Seeker,
 };
 
+/**
+	// ReaderFrom is the interface that wraps the ReadFrom method.
+	//
+	// ReadFrom reads data from r until EOF or error.
+	// The return value n is the number of bytes read.
+	// Any error except EOF encountered during the read is also returned.
+	//
+	// The Copy function uses ReaderFrom if available.
+**/
 typedef ReaderFrom = StructType & {
 	public function readFrom(_r:Reader):{var _0:GoInt64; var _1:Error;};
 };
 
+/**
+	// WriterTo is the interface that wraps the WriteTo method.
+	//
+	// WriteTo writes data to w until there's no more data to write or
+	// when an error occurs. The return value n is the number of bytes
+	// written. Any error encountered during the write is also returned.
+	//
+	// The Copy function uses WriterTo if available.
+**/
 typedef WriterTo = StructType & {
 	public function writeTo(_w:Writer):{var _0:GoInt64; var _1:Error;};
 };
 
+/**
+	// ReaderAt is the interface that wraps the basic ReadAt method.
+	//
+	// ReadAt reads len(p) bytes into p starting at offset off in the
+	// underlying input source. It returns the number of bytes
+	// read (0 <= n <= len(p)) and any error encountered.
+	//
+	// When ReadAt returns n < len(p), it returns a non-nil error
+	// explaining why more bytes were not returned. In this respect,
+	// ReadAt is stricter than Read.
+	//
+	// Even if ReadAt returns n < len(p), it may use all of p as scratch
+	// space during the call. If some data is available but not len(p) bytes,
+	// ReadAt blocks until either all the data is available or an error occurs.
+	// In this respect ReadAt is different from Read.
+	//
+	// If the n = len(p) bytes returned by ReadAt are at the end of the
+	// input source, ReadAt may return either err == EOF or err == nil.
+	//
+	// If ReadAt is reading from an input source with a seek offset,
+	// ReadAt should not affect nor be affected by the underlying
+	// seek offset.
+	//
+	// Clients of ReadAt can execute parallel ReadAt calls on the
+	// same input source.
+	//
+	// Implementations must not retain p.
+**/
 typedef ReaderAt = StructType & {
 	public function readAt(_p:Slice<GoByte>, _off:GoInt64):{var _0:GoInt; var _1:Error;};
 };
 
+/**
+	// WriterAt is the interface that wraps the basic WriteAt method.
+	//
+	// WriteAt writes len(p) bytes from p to the underlying data stream
+	// at offset off. It returns the number of bytes written from p (0 <= n <= len(p))
+	// and any error encountered that caused the write to stop early.
+	// WriteAt must return a non-nil error if it returns n < len(p).
+	//
+	// If WriteAt is writing to a destination with a seek offset,
+	// WriteAt should not affect nor be affected by the underlying
+	// seek offset.
+	//
+	// Clients of WriteAt can execute parallel WriteAt calls on the same
+	// destination if the ranges do not overlap.
+	//
+	// Implementations must not retain p.
+**/
 typedef WriterAt = StructType & {
 	public function writeAt(_p:Slice<GoByte>, _off:GoInt64):{var _0:GoInt; var _1:Error;};
 };
 
+/**
+	// ByteReader is the interface that wraps the ReadByte method.
+	//
+	// ReadByte reads and returns the next byte from the input or
+	// any error encountered. If ReadByte returns an error, no input
+	// byte was consumed, and the returned byte value is undefined.
+	//
+	// ReadByte provides an efficient interface for byte-at-time
+	// processing. A Reader that does not implement  ByteReader
+	// can be wrapped using bufio.NewReader to add this method.
+**/
 typedef ByteReader = StructType & {
 	public function readByte():{var _0:GoByte; var _1:Error;};
 };
 
+/**
+	// ByteScanner is the interface that adds the UnreadByte method to the
+	// basic ReadByte method.
+	//
+	// UnreadByte causes the next call to ReadByte to return the last byte read.
+	// If the last operation was not a successful call to ReadByte, UnreadByte may
+	// return an error, unread the last byte read (or the byte prior to the
+	// last-unread byte), or (in implementations that support the Seeker interface)
+	// seek to one byte before the current offset.
+**/
 typedef ByteScanner = StructType & {
 	> ByteReader,
 	public function unreadByte():Error;
 };
 
+/**
+	// ByteWriter is the interface that wraps the WriteByte method.
+**/
 typedef ByteWriter = StructType & {
 	public function writeByte(_c:GoByte):Error;
 };
 
+/**
+	// RuneReader is the interface that wraps the ReadRune method.
+	//
+	// ReadRune reads a single encoded Unicode character
+	// and returns the rune and its size in bytes. If no character is
+	// available, err will be set.
+**/
 typedef RuneReader = StructType & {
 	public function readRune():{var _0:GoRune; var _1:GoInt; var _2:Error;};
 };
 
+/**
+	// RuneScanner is the interface that adds the UnreadRune method to the
+	// basic ReadRune method.
+	//
+	// UnreadRune causes the next call to ReadRune to return the last rune read.
+	// If the last operation was not a successful call to ReadRune, UnreadRune may
+	// return an error, unread the last rune read (or the rune prior to the
+	// last-unread rune), or (in implementations that support the Seeker interface)
+	// seek to the start of the rune before the current offset.
+**/
 typedef RuneScanner = StructType & {
 	> RuneReader,
 	public function unreadRune():Error;
 };
 
+/**
+	// StringWriter is the interface that wraps the WriteString method.
+**/
 typedef StringWriter = StructType & {
 	public function writeString(_s:GoString):{var _0:GoInt; var _1:Error;};
 };
 
+/**
+	// A LimitedReader reads from R but limits the amount of
+	// data returned to just N bytes. Each call to Read
+	// updates N to reflect the new amount remaining.
+	// Read returns EOF when N <= 0 or when the underlying R returns EOF.
+**/
 @:structInit @:using(stdgo.io.Io.LimitedReader_static_extension) class LimitedReader {
+	/**
+		// underlying reader
+	**/
 	public var r:Reader = (null : Reader);
+
+	/**
+		// max bytes remaining
+	**/
 	public var n:GoInt64 = 0;
 
 	public function new(?r:Reader, ?n:GoInt64) {
@@ -206,6 +476,10 @@ typedef StringWriter = StructType & {
 	}
 }
 
+/**
+	// SectionReader implements Read, Seek, and ReadAt on a section
+	// of an underlying ReaderAt.
+**/
 @:structInit @:using(stdgo.io.Io.SectionReader_static_extension) class SectionReader {
 	public var _r:ReaderAt = (null : ReaderAt);
 	public var _base:GoInt64 = 0;
@@ -346,9 +620,16 @@ typedef StringWriter = StructType & {
 	}
 }
 
+/**
+	// onceError is an object that will only store an error once.
+**/
 @:structInit @:using(stdgo.io.Io.T_onceError_static_extension) private class T_onceError {
+	/**
+		// guards following
+	**/
 	@:embedded
 	public var mutex:stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
+
 	public var _err:stdgo.Error = (null : stdgo.Error);
 
 	public function new(?mutex:stdgo.sync.Sync.Mutex, ?_err:stdgo.Error) {
@@ -386,11 +667,23 @@ typedef StringWriter = StructType & {
 	}
 }
 
+/**
+	// A pipe is the shared pipe structure underlying PipeReader and PipeWriter.
+**/
 @:structInit @:using(stdgo.io.Io.T_pipe_static_extension) private class T_pipe {
+	/**
+		// Serializes Write operations
+	**/
 	public var _wrMu:stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
+
 	public var _wrCh:Chan<Slice<GoUInt8>> = (null : Chan<Slice<GoUInt8>>);
 	public var _rdCh:Chan<GoInt> = (null : Chan<GoInt>);
+
+	/**
+		// Protects closing done
+	**/
 	public var _once:stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
+
 	public var _done:Chan<T_discard> = (null : Chan<T_discard>);
 	public var _rerr:T_onceError = ({} : T_onceError);
 	public var _werr:T_onceError = ({} : T_onceError);
@@ -421,6 +714,9 @@ typedef StringWriter = StructType & {
 	}
 }
 
+/**
+	// A PipeReader is the read half of a pipe.
+**/
 @:structInit @:using(stdgo.io.Io.PipeReader_static_extension) class PipeReader {
 	public var _p:Ref<T_pipe> = (null : T_pipe);
 
@@ -437,6 +733,9 @@ typedef StringWriter = StructType & {
 	}
 }
 
+/**
+	// A PipeWriter is the write half of a pipe.
+**/
 @:structInit @:using(stdgo.io.Io.PipeWriter_static_extension) class PipeWriter {
 	public var _p:Ref<T_pipe> = (null : T_pipe);
 

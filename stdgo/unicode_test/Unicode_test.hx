@@ -46,6 +46,9 @@ var _letterTest:Slice<GoInt32> = (new Slice<GoInt32>(0, 0, (65 : GoInt32), (97 :
 var _notletterTest:Slice<GoInt32> = (new Slice<GoInt32>(0, 0, (32 : GoInt32), (53 : GoInt32), (885 : GoInt32), (1561 : GoInt32), (1792 : GoInt32),
 	(6277 : GoInt32), (65534 : GoInt32), (131071 : GoInt32), (1114111 : GoInt32)) : Slice<GoInt32>);
 
+/**
+	// Contains all the special cased Latin-1 chars.
+**/
 var _spaceTest:Slice<GoInt32> = (new Slice<GoInt32>(0, 0, (9 : GoInt32), (10 : GoInt32), (11 : GoInt32), (12 : GoInt32), (13 : GoInt32), (32 : GoInt32),
 	(133 : GoInt32), (160 : GoInt32), (8192 : GoInt32), (12288 : GoInt32)) : Slice<GoInt32>);
 

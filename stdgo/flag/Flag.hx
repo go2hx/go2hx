@@ -10,19 +10,62 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
+/**
+	// ErrHelp is the error returned if the -help or -h flag is invoked
+	// but no such flag is defined.
+**/
 var errHelp:stdgo.Error = stdgo.errors.Errors.new_((Go.str("flag: help requested") : GoString));
+
+/**
+	// errParse is returned by Set if a flag's value fails to parse, such as with an invalid integer for Int.
+	// It then gets wrapped through failf to provide more information.
+**/
 var _errParse:stdgo.Error = stdgo.errors.Errors.new_((Go.str("parse error") : GoString));
+
+/**
+	// errRange is returned by Set if a flag's value is out of range.
+	// It then gets wrapped through failf to provide more information.
+**/
 var _errRange:stdgo.Error = stdgo.errors.Errors.new_((Go.str("value out of range") : GoString));
+
+/**
+	// CommandLine is the default set of command-line flags, parsed from os.Args.
+	// The top-level functions such as BoolVar, Arg, and so on are wrappers for the
+	// methods of CommandLine.
+**/
 var commandLine:Ref<FlagSet> = newFlagSet(stdgo.os.Os.args[(0 : GoInt)], (1 : ErrorHandling));
 
+/**
+	// Usage prints a usage message documenting all defined command-line flags
+	// to CommandLine's output, which by default is os.Stderr.
+	// It is called when an error occurs while parsing flags.
+	// The function is a variable that may be changed to point to a custom function.
+	// By default it prints a simple header and calls PrintDefaults; for details about the
+	// format of the output and how to control it, see the documentation for PrintDefaults.
+	// Custom usage functions may choose to exit the program; by default exiting
+	// happens anyway as the command line's error handling strategy is set to
+	// ExitOnError.
+**/
 var usage:() -> Void = function():Void {
 	stdgo.fmt.Fmt.fprintf(commandLine.output(), (Go.str("Usage of %s:\n") : GoString), Go.toInterface(stdgo.os.Os.args[(0 : GoInt)]));
 	printDefaults();
 };
 
 var defaultUsage:() -> Void = usage;
+
+/**
+	// These constants cause FlagSet.Parse to behave as described if the parse fails.
+**/
 final continueOnError:ErrorHandling = (2 : ErrorHandling);
+
+/**
+	// These constants cause FlagSet.Parse to behave as described if the parse fails.
+**/
 final exitOnError:ErrorHandling = (2 : ErrorHandling);
+
+/**
+	// These constants cause FlagSet.Parse to behave as described if the parse fails.
+**/
 final panicOnError:ErrorHandling = (2 : ErrorHandling);
 
 /**
@@ -107,21 +150,46 @@ final panicOnError:ErrorHandling = (2 : ErrorHandling);
 **/
 private var __go2hxdoc__package:Bool;
 
+/**
+	// optional interface to indicate boolean flags that can be
+	// supplied without "=value" text
+**/
 typedef T_boolFlag = StructType & {
 	> Value,
 	public function isBoolFlag():Bool;
 };
 
+/**
+	// Value is the interface to the dynamic value stored in a flag.
+	// (The default value is represented as a string.)
+	//
+	// If a Value has an IsBoolFlag() bool method returning true,
+	// the command-line parser makes -name equivalent to -name=true
+	// rather than using the next command-line argument.
+	//
+	// Set is called once, in command line order, for each flag present.
+	// The flag package may call the String method with a zero-valued receiver,
+	// such as a nil pointer.
+**/
 typedef Value = StructType & {
 	public function string():GoString;
 	public function set(_0:GoString):Error;
 };
 
+/**
+	// Getter is an interface that allows the contents of a Value to be retrieved.
+	// It wraps the Value interface, rather than being part of it, because it
+	// appeared after Go 1 and its compatibility rules. All Value types provided
+	// by this package satisfy the Getter interface, except the type used by Func.
+**/
 typedef Getter = StructType & {
 	> Value,
 	public function get():AnyInterface;
 };
 
+/**
+	// -- encoding.TextUnmarshaler Value
+**/
 @:structInit @:using(stdgo.flag.Flag.T_textValue_static_extension) private class T_textValue {
 	public var _p:stdgo.encoding.Encoding.TextUnmarshaler = (null : stdgo.encoding.Encoding.TextUnmarshaler);
 
@@ -138,14 +206,38 @@ typedef Getter = StructType & {
 	}
 }
 
+/**
+	// A FlagSet represents a set of defined flags. The zero value of a FlagSet
+	// has no name and has ContinueOnError error handling.
+	//
+	// Flag names must be unique within a FlagSet. An attempt to define a flag whose
+	// name is already in use will cause a panic.
+**/
 @:structInit @:using(stdgo.flag.Flag.FlagSet_static_extension) class FlagSet {
+	/**
+		// Usage is the function called when an error occurs while parsing flags.
+		// The field is a function (not a method) that may be changed to point to
+		// a custom error handler. What happens after Usage is called depends
+		// on the ErrorHandling setting; for the command line, this defaults
+		// to ExitOnError, which exits the program after calling Usage.
+	**/
 	public var usage:() -> Void = null;
+
 	public var _name:GoString = "";
 	public var _parsed:Bool = false;
 	public var _actual:GoMap<GoString, Ref<Flag>> = (null : GoMap<GoString, Ref<Flag>>);
 	public var _formal:GoMap<GoString, Ref<Flag>> = (null : GoMap<GoString, Ref<Flag>>);
+
+	/**
+		// arguments after flags
+	**/
 	public var _args:Slice<GoString> = (null : Slice<GoString>);
+
 	public var _errorHandling:ErrorHandling = ((0 : GoInt) : ErrorHandling);
+
+	/**
+		// nil means stderr; use Output() accessor
+	**/
 	public var _output:stdgo.io.Io.Writer = (null : stdgo.io.Io.Writer);
 
 	public function new(?usage:() -> Void, ?_name:GoString, ?_parsed:Bool, ?_actual:GoMap<GoString, Ref<Flag>>, ?_formal:GoMap<GoString, Ref<Flag>>,
@@ -176,10 +268,28 @@ typedef Getter = StructType & {
 	}
 }
 
+/**
+	// A Flag represents the state of a flag.
+**/
 @:structInit class Flag {
+	/**
+		// name as it appears on command line
+	**/
 	public var name:GoString = "";
+
+	/**
+		// help message
+	**/
 	public var usage:GoString = "";
+
+	/**
+		// value as set
+	**/
 	public var value:Value = (null : Value);
+
+	/**
+		// default value (as text); for usage message
+	**/
 	public var defValue:GoString = "";
 
 	public function new(?name:GoString, ?usage:GoString, ?value:Value, ?defValue:GoString) {
@@ -201,15 +311,54 @@ typedef Getter = StructType & {
 	}
 }
 
+/**
+	// -- bool Value
+**/
 @:named @:using(stdgo.flag.Flag.T_boolValue_static_extension) typedef T_boolValue = Bool;
+
+/**
+	// -- int Value
+**/
 @:named @:using(stdgo.flag.Flag.T_intValue_static_extension) typedef T_intValue = GoInt;
+
+/**
+	// -- int64 Value
+**/
 @:named @:using(stdgo.flag.Flag.T_int64Value_static_extension) typedef T_int64Value = GoInt64;
+
+/**
+	// -- uint Value
+**/
 @:named @:using(stdgo.flag.Flag.T_uintValue_static_extension) typedef T_uintValue = GoUInt;
+
+/**
+	// -- uint64 Value
+**/
 @:named @:using(stdgo.flag.Flag.T_uint64Value_static_extension) typedef T_uint64Value = GoUInt64;
+
+/**
+	// -- string Value
+**/
 @:named @:using(stdgo.flag.Flag.T_stringValue_static_extension) typedef T_stringValue = GoString;
+
+/**
+	// -- float64 Value
+**/
 @:named @:using(stdgo.flag.Flag.T_float64Value_static_extension) typedef T_float64Value = GoFloat64;
+
+/**
+	// -- time.Duration Value
+**/
 @:named @:using(stdgo.flag.Flag.T_durationValue_static_extension) typedef T_durationValue = stdgo.time.Time.Duration;
+
+/**
+	// -- func Value
+**/
 @:named @:using(stdgo.flag.Flag.T_funcValue_static_extension) typedef T_funcValue = GoString->stdgo.Error;
+
+/**
+	// ErrorHandling defines how FlagSet.Parse behaves if the parse fails.
+**/
 @:named typedef ErrorHandling = GoInt;
 
 /**

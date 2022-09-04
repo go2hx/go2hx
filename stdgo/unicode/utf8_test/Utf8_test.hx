@@ -132,6 +132,11 @@ var _validrunetests:Slice<stdgo.unicode.utf8_test.Utf8_test.ValidRuneTest> = (ne
 var _ascii100000:GoString = stdgo.strings.Strings.repeat((Go.str("0123456789") : GoString), (10000 : GoInt));
 var _longStringMostlyASCII:GoString = ("" : GoString);
 var _longStringJapanese:GoString = ("" : GoString);
+
+/**
+	// boolSink is used to reference the return value of benchmarked
+	// functions to avoid dead code elimination.
+**/
 var _boolSink:Bool = false;
 
 @:structInit class Utf8Map {

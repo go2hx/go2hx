@@ -176,6 +176,9 @@ final _testExecutableDeletion:GoString = ("" : GoString);
 	public var _wantSuffix:GoString;
 };
 
+/**
+	// For TestRawConnReadWrite.
+**/
 @:follow typedef T_syscallDescriptor = GoInt;
 
 /**

@@ -18,10 +18,28 @@ var _3:stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
 **/
 private var __go2hxdoc__package:Bool;
 
+/**
+	// A MapFile describes a single file in a MapFS.
+**/
 @:structInit class MapFile {
+	/**
+		// file content
+	**/
 	public var data:Slice<GoUInt8> = (null : Slice<GoUInt8>);
+
+	/**
+		// FileInfo.Mode
+	**/
 	public var mode:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
+
+	/**
+		// FileInfo.ModTime
+	**/
 	public var modTime:stdgo.time.Time.Time = ({} : stdgo.time.Time.Time);
+
+	/**
+		// FileInfo.Sys
+	**/
 	public var sys:AnyInterface = (null : AnyInterface);
 
 	public function new(?data:Slice<GoUInt8>, ?mode:stdgo.io.fs.Fs.FileMode, ?modTime:stdgo.time.Time.Time, ?sys:AnyInterface) {
@@ -43,6 +61,14 @@ private var __go2hxdoc__package:Bool;
 	}
 }
 
+/**
+	// fsOnly is a wrapper that hides all but the fs.FS methods,
+	// to avoid an infinite recursion when implementing special
+	// methods in terms of helpers that would use them.
+	// (In general, implementing these methods using the package fs helpers
+	// is redundant and unnecessary, but having the methods may make
+	// MapFS exercise more code paths when used in tests.)
+**/
 @:structInit @:using(stdgo.testing.fstest.Fstest.T_fsOnly_static_extension) private class T_fsOnly {
 	@:embedded
 	public var fs:stdgo.io.fs.Fs.FS = (null : stdgo.io.fs.Fs.FS);
@@ -101,6 +127,9 @@ private var __go2hxdoc__package:Bool;
 	}
 }
 
+/**
+	// A mapFileInfo implements fs.FileInfo and fs.DirEntry for a given map file.
+**/
 @:structInit @:using(stdgo.testing.fstest.Fstest.T_mapFileInfo_static_extension) private class T_mapFileInfo {
 	public var _name:GoString = "";
 	public var _f:Ref<MapFile> = (null : MapFile);
@@ -120,6 +149,9 @@ private var __go2hxdoc__package:Bool;
 	}
 }
 
+/**
+	// An openMapFile is a regular (non-directory) fs.File open for reading.
+**/
 @:structInit @:using(stdgo.testing.fstest.Fstest.T_openMapFile_static_extension) private class T_openMapFile {
 	public var _path:GoString = "";
 	@:embedded
@@ -175,6 +207,9 @@ private var __go2hxdoc__package:Bool;
 	}
 }
 
+/**
+	// A mapDir is a directory fs.File (so also an fs.ReadDirFile) open for reading.
+**/
 @:structInit @:using(stdgo.testing.fstest.Fstest.T_mapDir_static_extension) private class T_mapDir {
 	public var _path:GoString = "";
 	@:embedded
@@ -233,6 +268,9 @@ private var __go2hxdoc__package:Bool;
 	}
 }
 
+/**
+	// An fsTester holds state for running the test.
+**/
 @:structInit @:using(stdgo.testing.fstest.Fstest.T_fsTester_static_extension) private class T_fsTester {
 	public var _fsys:stdgo.io.fs.Fs.FS = (null : stdgo.io.fs.Fs.FS);
 	public var _errText:Slice<GoUInt8> = (null : Slice<GoUInt8>);
@@ -258,6 +296,25 @@ private var __go2hxdoc__package:Bool;
 	}
 }
 
+/**
+	// A MapFS is a simple in-memory file system for use in tests,
+	// represented as a map from path names (arguments to Open)
+	// to information about the files or directories they represent.
+	//
+	// The map need not include parent directories for files contained
+	// in the map; those will be synthesized if needed.
+	// But a directory can still be included by setting the MapFile.Mode's ModeDir bit;
+	// this may be necessary for detailed control over the directory's FileInfo
+	// or to create an empty directory.
+	//
+	// File system operations read directly from the map,
+	// so that the file system can be changed by editing the map as needed.
+	// An implication is that file system operations must not run concurrently
+	// with changes to the map, which would be a race.
+	// Another implication is that opening or reading a directory requires
+	// iterating over the entire map, so a MapFS should typically be used with not more
+	// than a few hundred entries or directory reads.
+**/
 @:named @:using(stdgo.testing.fstest.Fstest.MapFS_static_extension) typedef MapFS = GoMap<GoString, Ref<MapFile>>;
 
 function testMapFS(_t:stdgo.testing.Testing.T):Void

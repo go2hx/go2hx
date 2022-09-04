@@ -10,7 +10,11 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
+/**
+	// ErrTooLarge is passed to panic if memory cannot be allocated to store data in a buffer.
+**/
 var errTooLarge:stdgo.Error = stdgo.errors.Errors.new_((Go.str("bytes.Buffer: too large") : GoString));
+
 var _errNegativeRead:stdgo.Error = stdgo.errors.Errors.new_((Go.str("bytes.Buffer: reader returned negative count from Read") : GoString));
 var _errUnreadByte:stdgo.Error = stdgo.errors.Errors.new_((Go.str("bytes.Buffer: UnreadByte: previous operation was not a successful read") : GoString));
 
@@ -25,15 +29,60 @@ var _asciiSpace:GoArray<GoUInt8> = {
 	s;
 };
 
+/**
+	// Export func for testing
+**/
 var indexBytePortable:(Slice<GoUInt8>, GoUInt8) -> GoInt = _indexBytePortable;
+
+/**
+	// smallBufferSize is an initial allocation minimal capacity.
+**/
 final _smallBufferSize:GoUnTypedInt = (64 : GoUnTypedInt);
+
+/**
+	// Don't use iota for these, as the values need to correspond with the
+	// names and comments, which is easier to see when being explicit.
+**/
 final _opRead:T_readOp = (-1 : T_readOp);
+
+/**
+	// Don't use iota for these, as the values need to correspond with the
+	// names and comments, which is easier to see when being explicit.
+**/
 final _opInvalid:T_readOp = (0 : T_readOp);
+
+/**
+	// Don't use iota for these, as the values need to correspond with the
+	// names and comments, which is easier to see when being explicit.
+**/
 final _opReadRune1:T_readOp = (1 : T_readOp);
+
+/**
+	// Don't use iota for these, as the values need to correspond with the
+	// names and comments, which is easier to see when being explicit.
+**/
 final _opReadRune2:T_readOp = (2 : T_readOp);
+
+/**
+	// Don't use iota for these, as the values need to correspond with the
+	// names and comments, which is easier to see when being explicit.
+**/
 final _opReadRune3:T_readOp = (3 : T_readOp);
+
+/**
+	// Don't use iota for these, as the values need to correspond with the
+	// names and comments, which is easier to see when being explicit.
+**/
 final _opReadRune4:T_readOp = (4 : T_readOp);
+
 final _maxInt:GoInt = ((2147483647 : GoUInt) : GoInt);
+
+/**
+	// MinRead is the minimum slice size passed to a Read call by
+	// Buffer.ReadFrom. As long as the Buffer has at least MinRead bytes beyond
+	// what is required to hold the contents of r, ReadFrom will not grow the
+	// underlying buffer.
+**/
 final minRead:GoUnTypedInt = (512 : GoUnTypedInt);
 
 /**
@@ -42,9 +91,24 @@ final minRead:GoUnTypedInt = (512 : GoUnTypedInt);
 **/
 private var __go2hxdoc__package:Bool;
 
+/**
+	// A Buffer is a variable-sized buffer of bytes with Read and Write methods.
+	// The zero value for Buffer is an empty buffer ready to use.
+**/
 @:structInit @:using(stdgo.bytes.Bytes.Buffer_static_extension) class Buffer {
+	/**
+		// contents are the bytes buf[off : len(buf)]
+	**/
 	public var _buf:Slice<GoUInt8> = (null : Slice<GoUInt8>);
+
+	/**
+		// read at &buf[off], write at &buf[len(buf)]
+	**/
 	public var _off:GoInt = 0;
+
+	/**
+		// last read operation, so that Unread* can work correctly.
+	**/
 	public var _lastRead:T_readOp = ((0 : GoInt8) : T_readOp);
 
 	public function new(?_buf:Slice<GoUInt8>, ?_off:GoInt, ?_lastRead:T_readOp) {
@@ -64,9 +128,24 @@ private var __go2hxdoc__package:Bool;
 	}
 }
 
+/**
+	// A Reader implements the io.Reader, io.ReaderAt, io.WriterTo, io.Seeker,
+	// io.ByteScanner, and io.RuneScanner interfaces by reading from
+	// a byte slice.
+	// Unlike a Buffer, a Reader is read-only and supports seeking.
+	// The zero value for Reader operates like a Reader of an empty slice.
+**/
 @:structInit @:using(stdgo.bytes.Bytes.Reader_static_extension) class Reader {
 	public var _s:Slice<GoUInt8> = (null : Slice<GoUInt8>);
+
+	/**
+		// current reading index
+	**/
 	public var _i:GoInt64 = 0;
+
+	/**
+		// index of previous rune; or < 0
+	**/
 	public var _prevRune:GoInt = 0;
 
 	public function new(?_s:Slice<GoUInt8>, ?_i:GoInt64, ?_prevRune:GoInt) {
@@ -86,7 +165,24 @@ private var __go2hxdoc__package:Bool;
 	}
 }
 
+/**
+	// The readOp constants describe the last action performed on
+	// the buffer, so that UnreadRune and UnreadByte can check for
+	// invalid usage. opReadRuneX constants are chosen such that
+	// converted to int they correspond to the rune size that was read.
+**/
 @:named typedef T_readOp = GoInt8;
+
+/**
+	// asciiSet is a 32-byte value, where each bit represents the presence of a
+	// given ASCII character in the set. The 128-bits of the lower 16 bytes,
+	// starting with the least-significant bit of the lowest word to the
+	// most-significant bit of the highest word, map to the full range of all
+	// 128 ASCII characters. The 128-bits of the upper 16 bytes will be zeroed,
+	// ensuring that any non-ASCII character will be reported as not in the set.
+	// This allocates a total of 32 bytes even though the upper half
+	// is unused to avoid bounds checks in asciiSet.contains.
+**/
 @:named @:using(stdgo.bytes.Bytes.T_asciiSet_static_extension) typedef T_asciiSet = GoArray<GoUInt32>;
 
 /**
@@ -698,6 +794,10 @@ function fields(_s:Slice<GoByte>):Slice<Slice<GoByte>> {
 	return _a;
 }
 
+/**
+	// A span is used to record a slice of s of the form s[start:end].
+	// The start index is inclusive and the end index is exclusive.
+**/
 @:structInit private class T_span_fieldsFunc_0 {
 	public var _start:GoInt = 0;
 	public var _end:GoInt = 0;

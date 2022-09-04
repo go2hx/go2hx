@@ -10,6 +10,9 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
+/**
+	// ErrBadPattern indicates a pattern was malformed.
+**/
 var errBadPattern:stdgo.Error = stdgo.errors.Errors.new_((Go.str("syntax error in pattern") : GoString));
 
 /**
@@ -23,6 +26,12 @@ var errBadPattern:stdgo.Error = stdgo.errors.Errors.new_((Go.str("syntax error i
 **/
 private var __go2hxdoc__package:Bool;
 
+/**
+	// A lazybuf is a lazily constructed path buffer.
+	// It supports append, reading previously appended bytes,
+	// and retrieving the final string. It does not allocate a buffer
+	// to hold the output until that output diverges from s.
+**/
 @:structInit @:using(stdgo.path.Path.T_lazybuf_static_extension) private class T_lazybuf {
 	public var _s:GoString = "";
 	public var _buf:Slice<GoUInt8> = (null : Slice<GoUInt8>);

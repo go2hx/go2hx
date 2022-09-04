@@ -414,7 +414,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 					pack: [],
 					kind: TDClass(),
 					fields: [],
-					isExtern: def.isExtern,
+					isExtern: false,
 					meta: [{name: ":keep", pos: null},],
 				};
 				final wrapperName = def.name + "_asInterface";
@@ -429,7 +429,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 
 					var __self__:$ct;
 				};
-				wrapper.isExtern = true; // def.isExtern;
+				wrapper.isExtern = def.isExtern;
 				wrapper.params = def.params;
 				final fieldExtension = [info.global.filePath, staticExtensionName];
 				final globalPath = getGlobalPath(info);
@@ -5712,7 +5712,7 @@ private function typeSpec(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 				name: name,
 				pos: null,
 				pack: [],
-				isExtern: true,
+				isExtern: isTitle(spec.name.name),
 				doc: getDoc(spec),
 				meta: [{name: ":follow", pos: null}],
 				fields: [],

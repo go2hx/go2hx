@@ -1,4 +1,4 @@
-{"stdgo": [
+[
     "archive/tar",
     "archive/zip",
     "bytes",
@@ -159,4 +159,4 @@
     "internal/oserror",
     "internal/reflectlite",
     "internal/poll"
-]}
+]

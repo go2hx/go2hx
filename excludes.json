@@ -1,4 +1,4 @@
-{"excludes": [
+[
     "reflect",
     "internal",
     "internal/reflectlite",
@@ -53,4 +53,4 @@
     "database/sql/driver",
     "time/tzdata",
     "internal/poll"
-]}
+]

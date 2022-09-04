@@ -241,7 +241,7 @@ private function testGo():Array<TestData> { // go tests
 }
 
 private function testStd():Array<TestData> { // standard library package tests
-	final list:Array<String> = Json.parse(File.getContent("tests.json")).tests;
+	final list:Array<String> = Json.parse(File.getContent("tests.json"));
 	final tests:Array<TestData> = [];
 	for (name in list) {
 		tests.push({

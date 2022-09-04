@@ -27,10 +27,6 @@ import (
 	"golang.org/x/tools/go/types/typeutil"
 )
 
-type stdgoListType struct {
-	Stdgo []string `json:"stdgo"`
-}
-
 type dataType struct {
 	Args     []string                 `json:"args"`
 	Pkgs     []packageType            `json:"pkgs"`
@@ -48,9 +44,6 @@ type fileType struct {
 	Location string                   `json:"location"`
 	Decls    []map[string]interface{} `json:"decls"`
 	Doc      map[string]interface{}   `json:"doc"`
-}
-type excludesType struct {
-	Excludes []string `json:"excludes"`
 }
 
 type interfaceType struct {
@@ -85,7 +78,7 @@ var hashMap map[uint32]map[string]interface{}
 var testBool = false
 var externBool = false
 
-func compile(params []string, excludesData excludesType, index string, debug bool) []byte {
+func compile(params []string, excludesData []string, index string, debug bool) []byte {
 	args := []string{}
 	testBool = false
 	externBool = false
@@ -123,9 +116,9 @@ func compile(params []string, excludesData excludesType, index string, debug boo
 	methodCache = typeutil.MethodSetCache{}
 	//typeHasher = typeutil.MakeHasher()
 	typeMap = typeutil.Map{}
-	excludes = make(map[string]bool, len(excludesData.Excludes))
+	excludes = make(map[string]bool, len(excludesData))
 	hashMap = make(map[uint32]map[string]interface{})
-	for _, exclude := range excludesData.Excludes {
+	for _, exclude := range excludesData {
 		excludes[exclude] = true
 	}
 	if len(initial) > 0 {
@@ -186,20 +179,20 @@ func main() {
 	cfg.Env = append(os.Environ(), "GOOS=js", "GOARCH=wasm", "CGO_ENABLED=0")
 	args := os.Args
 	port := args[len(args)-1]
-	var excludesData excludesType
-	var stdgoDataList stdgoListType
+	var excludesData []string
 	var err error
 	err = json.Unmarshal(excludesBytes, &excludesData)
 	if err != nil {
 		panic(err.Error())
 	}
-	err = json.Unmarshal(stdgoListBytes, &stdgoDataList)
+	list2 := make([]string, 150)
+	err = json.Unmarshal(stdgoListBytes, &list2)
 	if err != nil {
 		panic(err.Error())
 	}
-	stdgoList = make(map[string]bool, len(stdgoDataList.Stdgo))
-	for _, stdgo := range stdgoDataList.Stdgo {
-		stdgoList[stdgo] = true
+	stdgoList = make(map[string]bool, len(list2))
+	for _, s := range list2 {
+		stdgoList[s] = true
 	}
 	_, err = strconv.Atoi(port)
 	if err != nil { // not set to a port, test compile
@@ -1169,10 +1162,10 @@ func parseField(field *ast.Field) map[string]interface{} {
 		tag = field.Tag.Value
 	}
 	return map[string]interface{}{
-		"doc":   parseCommentGroup(field.Doc),
+		"doc":     parseCommentGroup(field.Doc),
 		"comment": parseCommentGroup(field.Comment),
-		"names": names,
-		"type":  parseData(field.Type),
-		"tag":   tag,
+		"names":   names,
+		"type":    parseData(field.Type),
+		"tag":     tag,
 	}
 }

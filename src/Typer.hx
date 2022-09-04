@@ -5,8 +5,8 @@ import shared.Util;
 import stdgo.reflect.Reflect;
 import sys.io.File;
 
-var stdgoList:Array<String> = stdgoList = haxe.Json.parse(File.getContent("./stdgo.json")).stdgo;
-var excludesList:Array<String> = haxe.Json.parse(File.getContent("./excludes.json")).excludes;
+var stdgoList:Array<String> = stdgoList = haxe.Json.parse(File.getContent("./stdgo.json"));
+var excludesList:Array<String> = haxe.Json.parse(File.getContent("./excludes.json"));
 var externs:Bool = false;
 
 final reserved = [

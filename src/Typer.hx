@@ -5468,11 +5468,13 @@ private function typeFieldListMethods(list:Ast.FieldList, info:Info):Array<Field
 		var params = typeFieldListArgs(expr.params, info);
 		if (ret == null || params == null)
 			continue;
+		final doc = getDoc(field) + getComment(field);
 		for (n in field.names) {
 			var name = n.name;
 			fields.push({
 				name: nameIdent(name, true, false, info),
 				pos: null,
+				doc: doc,
 				access: [APublic], // typeAccess(n.name, true),
 				kind: FFun({
 					args: params,
@@ -5485,10 +5487,12 @@ private function typeFieldListMethods(list:Ast.FieldList, info:Info):Array<Field
 }
 
 // can also be used for ObjectFields
-private function typeFields(list:Array<FieldType>, info:Info, access:Array<Access> = null, defaultBool:Bool):Array<Field> {
+private function typeFields(list:Array<FieldType>, info:Info, access:Array<Access>, defaultBool:Bool, ?docs:Array<Ast.CommentGroup>,
+		?comments:Array<Ast.CommentGroup>):Array<Field> {
 	var fields:Array<Field> = [];
 	var blankCounter = 0;
-	for (field in list) {
+	for (i in 0...list.length) {
+		final field = list[i];
 		final ct = toComplexType(field.type, info);
 		var name = field.name;
 		var meta:Metadata = [];
@@ -5497,10 +5501,12 @@ private function typeFields(list:Array<FieldType>, info:Info, access:Array<Acces
 		}
 		if (field.tag != "")
 			meta.push({name: ":tag", pos: null, params: [makeString(field.tag)]});
+		var doc:String = getDoc({doc: docs == null ? null : docs[i]}) + getComment({comment: comments == null ? null : comments[i]});
 		fields.push({
 			name: nameIdent(name, false, false, info),
 			pos: null,
 			meta: meta,
+			doc: doc,
 			access: access == null ? typeAccess(name, true) : access,
 			kind: FVar(toComplexType(field.type, info), defaultBool ? defaultValue(field.type, info, false) : null)
 		});
@@ -5520,12 +5526,16 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 			default: throw "unknown embedded: " + type.id;
 		}
 	}
+	final docs = [];
+	final comments = [];
 	for (field in list.list) {
 		var type = typeof(field.type, info, false);
 		var tag = "";
 		if (field.tag != "") {
 			tag = field.tag;
 		}
+		docs.push(field.doc);
+		comments.push(field.comment);
 		if (field.names.length == 0) {
 			// embedded
 			var name:String = getName(field.type);
@@ -5549,7 +5559,7 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 			}
 		}
 	}
-	return typeFields(fieldList, info, access, defaultBool);
+	return typeFields(fieldList, info, access, defaultBool, docs, comments);
 }
 
 private function addAbstractToField(ct:ComplexType, wrapperType:TypePath):Field {

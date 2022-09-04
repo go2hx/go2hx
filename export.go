@@ -613,6 +613,17 @@ func parseFile(file *ast.File, path string) fileType {
 	for _, decl := range file.Decls {
 		switch d := decl.(type) {
 		case *ast.GenDecl:
+			for _, spec := range d.Specs {
+				switch spec := spec.(type) {
+				case *ast.TypeSpec:
+					spec.Doc = d.Doc
+				case *ast.ValueSpec:
+					if spec.Doc == nil {
+						spec.Doc = d.Doc
+					}
+				default:
+				}
+			}
 			switch d.Tok {
 			case token.CONST:
 				obj := parseData(decl)
@@ -659,7 +670,7 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 				"names":  parseIdents(obj.Names),
 				"type":   parseData(obj.Type),
 				"values": values,
-				"doc":    parseData(obj.Comment),
+				"doc":    parseCommentGroup(obj.Doc),
 			}
 		case *ast.TypeSpec:
 			named := checker.ObjectOf(obj.Name)
@@ -1152,8 +1163,7 @@ func parseField(field *ast.Field) map[string]interface{} {
 	names := make([]map[string]interface{}, len(field.Names))
 	for i, name := range field.Names {
 		names[i] = map[string]interface{}{
-			"id": "Ident",
-
+			"id":   "Ident",
 			"name": name.Name,
 		}
 	}

@@ -138,7 +138,7 @@ var _log:T_testLog = new T_testLog();
 		return {_0: false, _1: ((null : stdgo.Error))};
 }
 
-class TestDeps_wrapper {
+class TestDeps_asInterface {
 	@:keep
 	public var snapshotCoverage:() -> Void = null;
 	@:keep

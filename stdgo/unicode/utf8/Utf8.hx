@@ -81,6 +81,13 @@ final _s5:GoUnTypedInt = (52 : GoUnTypedInt);
 final _s6:GoUnTypedInt = (4 : GoUnTypedInt);
 final _s7:GoUnTypedInt = (68 : GoUnTypedInt);
 
+/**
+	// Package utf8 implements functions and constants to support text encoded in
+	// UTF-8. It includes functions to translate between runes and UTF-8 byte sequences.
+	// See https://en.wikipedia.org/wiki/UTF-8
+**/
+private var __go2hxdoc__package:Bool;
+
 @:structInit private class T_acceptRange {
 	public var _lo:GoUInt8 = 0;
 	public var _hi:GoUInt8 = 0;

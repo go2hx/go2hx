@@ -36,6 +36,12 @@ final _opReadRune4:T_readOp = (4 : T_readOp);
 final _maxInt:GoInt = ((2147483647 : GoUInt) : GoInt);
 final minRead:GoUnTypedInt = (512 : GoUnTypedInt);
 
+/**
+	// Package bytes implements functions for the manipulation of byte slices.
+	// It is analogous to the facilities of the strings package.
+**/
+private var __go2hxdoc__package:Bool;
+
 @:structInit @:using(stdgo.bytes.Bytes.Buffer_static_extension) class Buffer {
 	public var _buf:Slice<GoUInt8> = (null : Slice<GoUInt8>);
 	public var _off:GoInt = 0;

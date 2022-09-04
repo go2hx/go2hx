@@ -13,6 +13,11 @@ import stdgo.Chan;
 var errTimeout:stdgo.Error = (null : stdgo.Error);
 var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>);
 
+/**
+	// Package iotest implements Readers and Writers useful mainly for testing.
+**/
+private var __go2hxdoc__package:Bool;
+
 @:structInit @:using(stdgo.testing.iotest.Iotest.T_writeLogger_static_extension) private class T_writeLogger {
 	public var _prefix:GoString = "";
 	public var _w:stdgo.io.Io.Writer = (null : stdgo.io.Io.Writer);

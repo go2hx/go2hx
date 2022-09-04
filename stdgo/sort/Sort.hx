@@ -16,6 +16,11 @@ final _unknownHint:T_sortedHint = (2 : T_sortedHint);
 final _increasingHint:T_sortedHint = (2 : T_sortedHint);
 final _decreasingHint:T_sortedHint = (2 : T_sortedHint);
 
+/**
+	// Package sort provides primitives for sorting slices and user-defined collections.
+**/
+private var __go2hxdoc__package:Bool;
+
 typedef Interface = StructType & {
 	public function len():GoInt;
 	public function less(_i:GoInt, _j:GoInt):Bool;

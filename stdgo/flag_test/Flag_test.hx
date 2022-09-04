@@ -19,6 +19,11 @@ var _gopherType:GoString = ("" : GoString);
 var _intervalFlag:T_interval = new stdgo.flag_test.Flag_test.T_interval(0, 0);
 final _defaultOutput:GoString = ("  -A\tfor bootstrapping, allow \'any\' type\n  -Alongflagname\n    \tdisable bounds checking\n  -C\ta boolean defaulting to true (default true)\n  -D path\n    \tset relative path for local imports\n  -E string\n    \tissue 23543 (default \"0\")\n  -F number\n    \ta non-zero number (default 2.7)\n  -G float\n    \ta float that defaults to zero\n  -M string\n    \ta multiline\n    \thelp\n    \tstring\n  -N int\n    \ta non-zero int (default 27)\n  -O\ta flag\n    \tmultiline help string (default true)\n  -V list\n    \ta list of strings (default [a b])\n  -Z int\n    \tan int that defaults to zero\n  -ZP0 value\n    \ta flag whose String method panics when it is zero\n  -ZP1 value\n    \ta flag whose String method panics when it is zero\n  -maxT timeout\n    \tset timeout for dial\n\npanic calling String method on zero flag_test.zeroPanicker for flag ZP0: panic!\npanic calling String method on zero flag_test.zeroPanicker for flag ZP1: panic!\n" : GoString);
 
+/**
+	// These examples demonstrate more intricate uses of the flag package.
+**/
+private var __go2hxdoc__package:Bool;
+
 @:structInit @:using(stdgo.flag_test.Flag_test.URLValue_static_extension) class URLValue {
 	public var url:Ref<stdgo.net.url.Url.URL> = (null : stdgo.net.url.Url.URL);
 

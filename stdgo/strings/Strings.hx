@@ -23,6 +23,13 @@ var _asciiSpace:GoArray<GoUInt8> = {
 
 final _countCutOff:GoUnTypedInt = (8 : GoUnTypedInt);
 
+/**
+	// Package strings implements simple functions to manipulate UTF-8 encoded strings.
+	//
+	// For information about UTF-8 strings in Go, see https://blog.golang.org/strings.
+**/
+private var __go2hxdoc__package:Bool;
+
 typedef T_replacer = StructType & {
 	public function replace(_s:GoString):GoString;
 	public function writeString(_w:stdgo.io.Io.Writer, _s:GoString):{var _0:GoInt; var _1:Error;};

@@ -13,6 +13,11 @@ import stdgo.Chan;
 var _2:stdgo.io.fs.Fs.FS = (null : stdgo.io.fs.Fs.FS);
 var _3:stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
 
+/**
+	// Package fstest implements support for testing implementations and users of file systems.
+**/
+private var __go2hxdoc__package:Bool;
+
 @:structInit class MapFile {
 	public var data:Slice<GoUInt8> = (null : Slice<GoUInt8>);
 	public var mode:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);

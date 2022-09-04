@@ -32,6 +32,13 @@ final modeIrregular:FileMode = (524288 : FileMode);
 final modeType:FileMode = ("2401763328" : FileMode);
 final modePerm:FileMode = (511 : FileMode);
 
+/**
+	// Package fs defines basic interfaces to a file system.
+	// A file system can be provided by the host operating system
+	// but also by other packages.
+**/
+private var __go2hxdoc__package:Bool;
+
 typedef FS = StructType & {
 	public function open(_name:GoString):{var _0:File; var _1:Error;};
 };

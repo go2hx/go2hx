@@ -391,6 +391,13 @@ final _haveArchTanh = false;
 final _reduceThreshold:GoUnTypedInt = (536870912 : GoUnTypedInt);
 
 /**
+	// Package math provides basic constants and mathematical functions.
+	//
+	// This package does not guarantee bit-identical results across architectures.
+**/
+private var __go2hxdoc__package:Bool;
+
+/**
 	// Abs returns the absolute value of x.
 	//
 	// Special cases are:

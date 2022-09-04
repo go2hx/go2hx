@@ -20,6 +20,11 @@ final _surr3:GoUnTypedInt = (57344 : GoUnTypedInt);
 final _surrSelf:GoUnTypedInt = (65536 : GoUnTypedInt);
 
 /**
+	// Package utf16 implements encoding and decoding of UTF-16 sequences.
+**/
+private var __go2hxdoc__package:Bool;
+
+/**
 	// IsSurrogate reports whether the specified Unicode code point
 	// can appear in a surrogate pair.
 **/

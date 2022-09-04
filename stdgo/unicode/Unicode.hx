@@ -7425,6 +7425,12 @@ final upperLower:GoInt32 = (1114112 : GoInt32);
 final _linearMax:GoUnTypedInt = (18 : GoUnTypedInt);
 final version:GoString = (Go.str("13.0.0") : GoString);
 
+/**
+	// Package unicode provides data and functions to test some properties of
+	// Unicode code points.
+**/
+private var __go2hxdoc__package:Bool;
+
 @:structInit class RangeTable {
 	public var r16:Slice<Range16> = (null : Slice<Range16>);
 	public var r32:Slice<Range32> = (null : Slice<Range32>);

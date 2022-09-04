@@ -174,7 +174,8 @@ private function completeProcess(code:Int, proc:Process, task:TaskData, command:
 			suites[task.data.type].buildError(task);
 		}
 	}
-	trace("runsLeft: " + runsLeft);
+	if (runsLeft % 10 == 0)
+		trace("runsLeft: " + runsLeft);
 	if (--runsLeft <= 0) {
 		trace(processPool.pool.map(p -> p.command));
 		close();
@@ -271,13 +272,15 @@ private function close() {
 		return count + " " + (Std.int(count / total * 10000) / 100) + "%";
 	}
 	for (type => suite in suites) {
+		final output:Array<String> = FileSystem.exists('tests/$type.json') ? Json.parse(File.getContent('tests/$type.json')) : [];
+		final input:Array<String> = [];
 		log('--> $type');
-		log('      correct: ' + calc(suite.correctCount, suite.count));
-		log('      success: ' + calc(suite.successCount, suite.count));
-		log('  build error: ' + calc(suite.buildErrorCount, suite.count));
-		log('runtime error: ' + calc(suite.runtimeErrorCount, suite.count));
+		log('      correct output: ' + calc(suite.correctCount, suite.count));
+		log('             success: ' + calc(suite.successCount, suite.count));
+		log('         build error: ' + calc(suite.buildErrorCount, suite.count));
+		log('       runtime error: ' + calc(suite.runtimeErrorCount, suite.count));
 		suite.dataList.sort((a, b) -> a.task.data.name > b.task.data.name ? 1 : -1); // sort test list by name
-		log(' test results:');
+		log('        test results:');
 		final testData:Map<String, String> = [];
 		final testFailingCount:Map<String, Int> = [];
 		for (data in suite.dataList) {
@@ -285,8 +288,13 @@ private function close() {
 				testFailingCount[data.task.data.name] = 0;
 			if (!testData.exists(data.task.data.name))
 				testData[data.task.data.name] = "";
-			if (!data.passing)
+			if (!data.passing) {
 				testFailingCount[data.task.data.name]++;
+			} else {
+				final fullname = data.task.target + "|" + data.task.data.name;
+				input.push(fullname);
+				output.remove(fullname);
+			}
 			testData[data.task.data.name] += "\n    " + (data.passing ? "[x]" : "[ ]") + " " + data.task.target + " "
 				+ StringTools.lpad(data.task.command, " ", 60);
 		}
@@ -298,6 +306,13 @@ private function close() {
 				log('[ ] $name$str');
 			}
 		}
+		if (output.length > 0) {
+			log('         regression results: ');
+			for (obj in output)
+				log(obj);
+			Sys.exit(1);
+		}
+		File.saveContent('tests/$type.json', Json.stringify(input));
 	}
 	logOutput.close();
 	Main.close();

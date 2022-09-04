@@ -103,7 +103,7 @@ abstract GoString(Bytes) from Bytes to Bytes {
 
 	@:to public function __toSliceRune__():Slice<GoRune> {
 		var bytes = __toSliceByte__();
-		var runes = new Slice<GoRune>(bytes.length, bytes.length);
+		var runes = new Slice<GoRune>(0, 0);
 		#if nolinkstd
 		trace("std not linked");
 		return [];

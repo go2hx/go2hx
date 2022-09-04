@@ -273,7 +273,7 @@ class T {
 		failNow(); // replace fail to failnow
 	}
 
-	public function fail() // marks the function as failed byt continues the execution
+	public function fail() // marks the function as failed but continues the execution
 		failBool = true;
 
 	public function failNow() { // FailNow marks the function as having failed and stops its execution by calling runtime.Goexit
@@ -355,7 +355,7 @@ class M {
 				if (e.message != "__fail__") {
 					stdgo.fmt.Fmt.println(e.details());
 				}
-				Sys.exit(0);
+				Sys.exit(1);
 				error = true;
 			}
 			final dstr = Sys.time() - stamp; // duration

@@ -13,6 +13,8 @@ import haxe.macro.Type.ClassField;
 import haxe.macro.TypeTools;
 
 class Go {
+	public static var recover_exception:stdgo.StdGoTypes.AnyInterface = null;
+
 	public static macro function map(exprs:Array<Expr>) {
 		var keyType = null;
 		var valueType = null;

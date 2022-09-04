@@ -863,23 +863,22 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 		var catchBlock:Array<Expr> = [
 			macro if (!(__exception__.native is AnyInterfaceData))
 				throw __exception__,
-			macro __recover_exception__ = __exception__.native
+			macro Go.recover_exception = __exception__.native
 		];
 		switch e.expr {
 			case EBlock(exprs):
 				final last = exprs.pop();
-				exprs.push(macro if (__recover_exception__ != null)
-					throw __recover_exception__);
+				exprs.push(macro if (Go.recover_exception != null)
+					throw Go.recover_exception);
 				exprs.push(last);
 				catchBlock = catchBlock.concat(exprs);
 			default:
-				catchBlock = catchBlock.concat([macro __recover_exception__ != null ?throw __recover_exception__:$e]);
+				catchBlock = catchBlock.concat([macro Go.recover_exception != null ?throw Go.recover_exception:$e]);
 		}
 		exprs.unshift(macro var __deferstack__:Array<Void->Void> = []);
 		exprs.push(typeDeferReturn(info, true));
 		exprs.push(ret);
 		// recover
-		exprs.unshift(macro var __recover_exception__:AnyInterface = null);
 		var pos = 2 + info.returnNames.length;
 		var trydef = macro try
 			$b{exprs.slice(pos)} catch (__exception__)
@@ -887,8 +886,6 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 		// don't include recover and defer stack
 		exprs = exprs.slice(0, pos);
 		exprs.push(trydef);
-	} else if (info.recoverBool && isFunc) {
-		exprs.unshift(macro var __recover_exception__:AnyInterface = null);
 	}
 	return EBlock(exprs);
 }
@@ -2925,8 +2922,8 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					case "recover":
 						info.recoverBool = true;
 						return returnExpr(macro({
-							final r = __recover_exception__;
-							__recover_exception__ = null;
+							final r = Go.recover_exception;
+							Go.recover_exception = null;
 							r;
 						}));
 					case "append":
@@ -6166,7 +6163,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 				access.push(APrivate);
 			if (constant)
 				access.push(AFinal);
-			
+
 			values.push({
 				name: name,
 				pos: null,

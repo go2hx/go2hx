@@ -6164,6 +6164,8 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 			var access = []; // typeAccess(value.names[i]);
 			if (constant)
 				access.push(AFinal);
+			if (!isTitle(value.names[i].name))
+				access.push(APrivate);
 			values.push({
 				name: name,
 				pos: null,

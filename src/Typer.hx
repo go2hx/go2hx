@@ -6162,10 +6162,11 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 			var name = nameIdent(value.names[i].name, false, true, info);
 			var doc:String = getComment(value) + getDoc(value); // + getSource(value, info);
 			var access = []; // typeAccess(value.names[i]);
-			if (constant)
-				access.push(AFinal);
 			if (!isTitle(value.names[i].name))
 				access.push(APrivate);
+			if (constant)
+				access.push(AFinal);
+			
 			values.push({
 				name: name,
 				pos: null,

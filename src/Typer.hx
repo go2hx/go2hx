@@ -186,7 +186,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 					pos: null,
 					fields: [],
 					doc: pkgDoc,
-					kind: TDField(FVar(TPath({name: "Bool", pack: []}))),
+					kind: TDField(FVar(TPath({name: "Bool", pack: []})), [APrivate]),
 				});
 			var declFuncs:Array<Ast.FuncDecl> = [];
 			var declGens:Array<Ast.GenDecl> = [];
@@ -6435,7 +6435,7 @@ typedef PackageType = {
 		path:String,
 		location:String,
 		decls:Array<Dynamic>,
-		doc:Ast.CommentGroup
+		doc:Ast.CommentGroup,
 	}>
 }; // filepath of export.json also stored here
 

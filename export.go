@@ -615,7 +615,7 @@ func parsePkg(pkg *packages.Package) packageType {
 func parseFile(file *ast.File, path string) fileType {
 	data := fileType{}
 	data.Location = path
-	data.Doc = parseData(file.Doc)
+	data.Doc = parseCommentGroup(file.Doc)
 	data.Path = path
 	for _, decl := range file.Decls {
 		switch d := decl.(type) {
@@ -687,8 +687,8 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 				"name":    parseData(obj.Name),
 				"type":    parseData(obj.Type),
 				"params":  params,
-				"doc":     parseData(obj.Doc),
-				"comment": parseData(obj.Comment),
+				"doc":     parseCommentGroup(obj.Doc),
+				"comment": parseCommentGroup(obj.Comment),
 				"methods": methods,
 			}
 		case *ast.ImportSpec:
@@ -698,8 +698,8 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 			}
 			data[i] = map[string]interface{}{
 				"id":      "ImportSpec",
-				"doc":     parseData(obj.Doc),
-				"comment": parseData(obj.Comment),
+				"doc":     parseCommentGroup(obj.Doc),
+				"comment": parseCommentGroup(obj.Comment),
 				"path":    obj.Path.Value,
 				"name":    name,
 			}
@@ -1003,19 +1003,7 @@ func parseData(node interface{}) map[string]interface{} {
 				list[i] = value[i].Text
 			}
 		case *ast.CommentGroup:
-			var list []string
-			if value == nil {
-				list = []string{}
-			} else {
-				list = make([]string, len(value.List))
-				for i := 0; i < len(list); i++ {
-					list[i] = value.List[i].Text
-				}
-			}
-			data[field.Name] = map[string]interface{}{
-				"id":   "CommentGroup",
-				"list": list,
-			}
+			data[field.Name] = parseCommentGroup(value)
 		default:
 			panic("unknown parse data value: " + reflect.TypeOf(value).String())
 		}
@@ -1054,6 +1042,21 @@ func parseData(node interface{}) map[string]interface{} {
 	default:
 	}
 	return data
+}
+func parseCommentGroup(value *ast.CommentGroup) map[string]interface{} {
+	var list []string
+	if value == nil {
+		list = []string{}
+	} else {
+		list = make([]string, len(value.List))
+		for i := 0; i < len(list); i++ {
+			list[i] = value.List[i].Text
+		}
+	}
+	return map[string]interface{}{
+		"id":   "CommentGroup",
+		"list": list,
+	}
 }
 func parseIdents(value []*ast.Ident) []map[string]interface{} {
 	list := make([]map[string]interface{}, len(value))
@@ -1166,10 +1169,10 @@ func parseField(field *ast.Field) map[string]interface{} {
 		tag = field.Tag.Value
 	}
 	return map[string]interface{}{
-		"doc":   parseData(field.Doc),
+		"doc":   parseCommentGroup(field.Doc),
+		"comment": parseCommentGroup(field.Comment),
 		"names": names,
 		"type":  parseData(field.Type),
 		"tag":   tag,
-		//"comment": parseData(field.Comment)
 	}
 }

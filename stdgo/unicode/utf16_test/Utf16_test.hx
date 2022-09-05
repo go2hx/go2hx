@@ -11,7 +11,7 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-var _encodeTests:Slice<stdgo.unicode.utf16_test.Utf16_test.T_encodeTest> = (new Slice<stdgo.unicode.utf16_test.Utf16_test.T_encodeTest>(0, 0,
+private var _encodeTests:Slice<stdgo.unicode.utf16_test.Utf16_test.T_encodeTest> = (new Slice<stdgo.unicode.utf16_test.Utf16_test.T_encodeTest>(0, 0,
 	(new stdgo.unicode.utf16_test.Utf16_test.T_encodeTest((new Slice<GoInt32>(0, 0, (1 : GoInt32), (2 : GoInt32), (3 : GoInt32),
 		(4 : GoInt32)) : Slice<GoInt32>),
 		(new Slice<GoUInt16>(0, 0, (1 : GoUInt16), (2 : GoUInt16), (3 : GoUInt16),
@@ -26,7 +26,7 @@ var _encodeTests:Slice<stdgo.unicode.utf16_test.Utf16_test.T_encodeTest> = (new 
 			(57344 : GoUInt16), (65533 : GoUInt16),
 			(65533 : GoUInt16)) : Slice<GoUInt16>)) : stdgo.unicode.utf16_test.Utf16_test.T_encodeTest)) : Slice<stdgo.unicode.utf16_test.Utf16_test.T_encodeTest>);
 
-var _decodeTests:Slice<stdgo.unicode.utf16_test.Utf16_test.T_decodeTest> = (new Slice<stdgo.unicode.utf16_test.Utf16_test.T_decodeTest>(0, 0,
+private var _decodeTests:Slice<stdgo.unicode.utf16_test.Utf16_test.T_decodeTest> = (new Slice<stdgo.unicode.utf16_test.Utf16_test.T_decodeTest>(0, 0,
 	(new stdgo.unicode.utf16_test.Utf16_test.T_decodeTest((new Slice<GoUInt16>(0, 0, (1 : GoUInt16), (2 : GoUInt16), (3 : GoUInt16),
 		(4 : GoUInt16)) : Slice<GoUInt16>),
 		(new Slice<GoInt32>(0, 0, (1 : GoInt32), (2 : GoInt32), (3 : GoInt32),
@@ -41,14 +41,14 @@ var _decodeTests:Slice<stdgo.unicode.utf16_test.Utf16_test.T_decodeTest> = (new 
 		(new Slice<GoInt32>(0, 0,
 			(65533 : GoInt32)) : Slice<GoInt32>)) : stdgo.unicode.utf16_test.Utf16_test.T_decodeTest)) : Slice<stdgo.unicode.utf16_test.Utf16_test.T_decodeTest>);
 
-var _decodeRuneTests:Slice<T__struct_0> = (new Slice<T__struct_0>(0, 0,
+private var _decodeRuneTests:Slice<T__struct_0> = (new Slice<T__struct_0>(0, 0,
 	({_r1: (55296 : GoInt32), _r2: (56320 : GoInt32), _want: (65536 : GoInt32)} : T__struct_0),
 	({_r1: (55296 : GoInt32), _r2: (56321 : GoInt32), _want: (65537 : GoInt32)} : T__struct_0),
 	({_r1: (55304 : GoInt32), _r2: (57157 : GoInt32), _want: (74565 : GoInt32)} : T__struct_0),
 	({_r1: (56319 : GoInt32), _r2: (57343 : GoInt32), _want: (1114111 : GoInt32)} : T__struct_0),
 	({_r1: (55296 : GoInt32), _r2: ("a".code : GoInt32), _want: (65533 : GoInt32)} : T__struct_0)) : Slice<T__struct_0>);
 
-var _surrogateTests:Slice<T__struct_1> = (new Slice<T__struct_1>(0, 0, ({_r: ("\u007A".code : GoInt32), _want: false} : T__struct_1),
+private var _surrogateTests:Slice<T__struct_1> = (new Slice<T__struct_1>(0, 0, ({_r: ("\u007A".code : GoInt32), _want: false} : T__struct_1),
 	({_r: ("\u6C34".code : GoInt32), _want: false} : T__struct_1), ({_r: ("\uFEFF".code : GoInt32), _want: false} : T__struct_1),
 	({_r: ("\u{00010000}".code : GoInt32), _want: false} : T__struct_1), ({_r: ("\u{0001D11E}".code : GoInt32), _want: false} : T__struct_1),
 	({_r: ("\u{0010FFFD}".code : GoInt32), _want: false} : T__struct_1), ({_r: ((55295 : GoInt32) : GoRune), _want: false} : T__struct_1),

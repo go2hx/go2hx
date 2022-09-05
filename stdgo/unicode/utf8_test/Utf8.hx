@@ -10,7 +10,7 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-var _tests:Slice<stdgo.testing.Testing.InternalTest> = (new Slice<stdgo.testing.Testing.InternalTest>(0, 0,
+private var _tests:Slice<stdgo.testing.Testing.InternalTest> = (new Slice<stdgo.testing.Testing.InternalTest>(0, 0,
 	(new stdgo.testing.Testing.InternalTest((Go.str("TestConstants") : GoString),
 		stdgo.unicode.utf8_test.Utf8_test.testConstants) : stdgo.testing.Testing.InternalTest),
 	(new stdgo.testing.Testing.InternalTest((Go.str("TestFullRune") : GoString),
@@ -40,7 +40,7 @@ var _tests:Slice<stdgo.testing.Testing.InternalTest> = (new Slice<stdgo.testing.
 	(new stdgo.testing.Testing.InternalTest((Go.str("TestValidRune") : GoString),
 		stdgo.unicode.utf8_test.Utf8_test.testValidRune) : stdgo.testing.Testing.InternalTest)) : Slice<stdgo.testing.Testing.InternalTest>);
 
-var _benchmarks:Slice<stdgo.testing.Testing.InternalBenchmark> = (new Slice<stdgo.testing.Testing.InternalBenchmark>(0, 0,
+private var _benchmarks:Slice<stdgo.testing.Testing.InternalBenchmark> = (new Slice<stdgo.testing.Testing.InternalBenchmark>(0, 0,
 	(new stdgo.testing.Testing.InternalBenchmark((Go.str("BenchmarkRuneCountTenASCIIChars") : GoString),
 		stdgo.unicode.utf8_test.Utf8_test.benchmarkRuneCountTenASCIIChars) : stdgo.testing.Testing.InternalBenchmark),
 	(new stdgo.testing.Testing.InternalBenchmark((Go.str("BenchmarkRuneCountTenJapaneseChars") : GoString),
@@ -84,10 +84,10 @@ var _benchmarks:Slice<stdgo.testing.Testing.InternalBenchmark> = (new Slice<stdg
 	(new stdgo.testing.Testing.InternalBenchmark((Go.str("BenchmarkFullRune") : GoString),
 		stdgo.unicode.utf8_test.Utf8_test.benchmarkFullRune) : stdgo.testing.Testing.InternalBenchmark)) : Slice<stdgo.testing.Testing.InternalBenchmark>);
 
-var _fuzzTargets:Slice<stdgo.testing.Testing.InternalFuzzTarget> = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(0,
+private var _fuzzTargets:Slice<stdgo.testing.Testing.InternalFuzzTarget> = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(0,
 	0) : Slice<stdgo.testing.Testing.InternalFuzzTarget>);
 
-var _examples:Slice<stdgo.testing.Testing.InternalExample> = (new Slice<stdgo.testing.Testing.InternalExample>(0, 0,
+private var _examples:Slice<stdgo.testing.Testing.InternalExample> = (new Slice<stdgo.testing.Testing.InternalExample>(0, 0,
 	(new stdgo.testing.Testing.InternalExample((Go.str("ExampleDecodeLastRune") : GoString), stdgo.unicode.utf8_test.Utf8_test.exampleDecodeLastRune,
 		(Go.str("界 3\n世 3\n  1\n, 1\no 1\nl 1\nl 1\ne 1\nH 1\n") : GoString), false) : stdgo.testing.Testing.InternalExample),
 	(new stdgo.testing.Testing.InternalExample((Go.str("ExampleDecodeLastRuneInString") : GoString),

@@ -14,7 +14,7 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-var _readBytesTests:Slice<T__struct_0> = (new Slice<T__struct_0>(0, 0, ({
+private var _readBytesTests:Slice<T__struct_0> = (new Slice<T__struct_0>(0, 0, ({
 	_buffer: (Go.str() : GoString),
 	_delim: (0 : GoUInt8),
 	_expected: (new Slice<GoString>(0, 0, (Go.str() : GoString)) : Slice<GoString>),
@@ -52,12 +52,12 @@ var _readBytesTests:Slice<T__struct_0> = (new Slice<T__struct_0>(0, 0, ({
 	_err: stdgo.io.Io.eof
 	} : T__struct_0)) : Slice<T__struct_0>);
 
-var _abcd:GoString = (Go.str("abcd") : GoString);
-var _faces:GoString = (Go.str("☺☻☹") : GoString);
-var _commas:GoString = (Go.str("1,2,3,4") : GoString);
-var _dots:GoString = (Go.str("1....2....3....4") : GoString);
+private var _abcd:GoString = (Go.str("abcd") : GoString);
+private var _faces:GoString = (Go.str("☺☻☹") : GoString);
+private var _commas:GoString = (Go.str("1,2,3,4") : GoString);
+private var _dots:GoString = (Go.str("1....2....3....4") : GoString);
 
-var _indexTests:Slice<stdgo.bytes_test.Bytes_test.BinOpTest> = (new Slice<stdgo.bytes_test.Bytes_test.BinOpTest>(0, 0,
+private var _indexTests:Slice<stdgo.bytes_test.Bytes_test.BinOpTest> = (new Slice<stdgo.bytes_test.Bytes_test.BinOpTest>(0, 0,
 	(new stdgo.bytes_test.Bytes_test.BinOpTest((Go.str() : GoString), (Go.str() : GoString), (0 : GoInt)) : stdgo.bytes_test.Bytes_test.BinOpTest),
 	(new stdgo.bytes_test.Bytes_test.BinOpTest((Go.str() : GoString), (Go.str("a") : GoString), (-1 : GoInt)) : stdgo.bytes_test.Bytes_test.BinOpTest),
 	(new stdgo.bytes_test.Bytes_test.BinOpTest((Go.str() : GoString), (Go.str("foo") : GoString), (-1 : GoInt)) : stdgo.bytes_test.Bytes_test.BinOpTest),
@@ -155,7 +155,7 @@ var _indexTests:Slice<stdgo.bytes_test.Bytes_test.BinOpTest> = (new Slice<stdgo.
 		(Go.str("0000000000000000000000000000000000000000000000000000000000000000001") : GoString),
 		(5 : GoInt)) : stdgo.bytes_test.Bytes_test.BinOpTest)) : Slice<stdgo.bytes_test.Bytes_test.BinOpTest>);
 
-var _lastIndexTests:Slice<stdgo.bytes_test.Bytes_test.BinOpTest> = (new Slice<stdgo.bytes_test.Bytes_test.BinOpTest>(0, 0,
+private var _lastIndexTests:Slice<stdgo.bytes_test.Bytes_test.BinOpTest> = (new Slice<stdgo.bytes_test.Bytes_test.BinOpTest>(0, 0,
 	(new stdgo.bytes_test.Bytes_test.BinOpTest((Go.str() : GoString), (Go.str() : GoString), (0 : GoInt)) : stdgo.bytes_test.Bytes_test.BinOpTest),
 	(new stdgo.bytes_test.Bytes_test.BinOpTest((Go.str() : GoString), (Go.str("a") : GoString), (-1 : GoInt)) : stdgo.bytes_test.Bytes_test.BinOpTest),
 	(new stdgo.bytes_test.Bytes_test.BinOpTest((Go.str() : GoString), (Go.str("foo") : GoString), (-1 : GoInt)) : stdgo.bytes_test.Bytes_test.BinOpTest),
@@ -175,7 +175,7 @@ var _lastIndexTests:Slice<stdgo.bytes_test.Bytes_test.BinOpTest> = (new Slice<st
 	(new stdgo.bytes_test.Bytes_test.BinOpTest((Go.str("abcABCabc") : GoString), (Go.str("a") : GoString),
 		(6 : GoInt)) : stdgo.bytes_test.Bytes_test.BinOpTest)) : Slice<stdgo.bytes_test.Bytes_test.BinOpTest>);
 
-var _indexAnyTests:Slice<stdgo.bytes_test.Bytes_test.BinOpTest> = (new Slice<stdgo.bytes_test.Bytes_test.BinOpTest>(0, 0,
+private var _indexAnyTests:Slice<stdgo.bytes_test.Bytes_test.BinOpTest> = (new Slice<stdgo.bytes_test.Bytes_test.BinOpTest>(0, 0,
 	(new stdgo.bytes_test.Bytes_test.BinOpTest((Go.str() : GoString), (Go.str() : GoString), (-1 : GoInt)) : stdgo.bytes_test.Bytes_test.BinOpTest),
 	(new stdgo.bytes_test.Bytes_test.BinOpTest((Go.str() : GoString), (Go.str("a") : GoString), (-1 : GoInt)) : stdgo.bytes_test.Bytes_test.BinOpTest),
 	(new stdgo.bytes_test.Bytes_test.BinOpTest((Go.str() : GoString), (Go.str("abc") : GoString), (-1 : GoInt)) : stdgo.bytes_test.Bytes_test.BinOpTest),
@@ -200,7 +200,7 @@ var _indexAnyTests:Slice<stdgo.bytes_test.Bytes_test.BinOpTest> = (new Slice<std
 	(new stdgo.bytes_test.Bytes_test.BinOpTest((Go.str("0123456", 207, 128, "abc") : GoString), (Go.str(207, "b", 128) : GoString),
 		(10 : GoInt)) : stdgo.bytes_test.Bytes_test.BinOpTest)) : Slice<stdgo.bytes_test.Bytes_test.BinOpTest>);
 
-var _lastIndexAnyTests:Slice<stdgo.bytes_test.Bytes_test.BinOpTest> = (new Slice<stdgo.bytes_test.Bytes_test.BinOpTest>(0, 0,
+private var _lastIndexAnyTests:Slice<stdgo.bytes_test.Bytes_test.BinOpTest> = (new Slice<stdgo.bytes_test.Bytes_test.BinOpTest>(0, 0,
 	(new stdgo.bytes_test.Bytes_test.BinOpTest((Go.str() : GoString), (Go.str() : GoString), (-1 : GoInt)) : stdgo.bytes_test.Bytes_test.BinOpTest),
 	(new stdgo.bytes_test.Bytes_test.BinOpTest((Go.str() : GoString), (Go.str("a") : GoString), (-1 : GoInt)) : stdgo.bytes_test.Bytes_test.BinOpTest),
 	(new stdgo.bytes_test.Bytes_test.BinOpTest((Go.str() : GoString), (Go.str("abc") : GoString), (-1 : GoInt)) : stdgo.bytes_test.Bytes_test.BinOpTest),
@@ -225,10 +225,12 @@ var _lastIndexAnyTests:Slice<stdgo.bytes_test.Bytes_test.BinOpTest> = (new Slice
 	(new stdgo.bytes_test.Bytes_test.BinOpTest((Go.str("0123456", 207, 128, "abc") : GoString), (Go.str(207, "b", 128) : GoString),
 		(10 : GoInt)) : stdgo.bytes_test.Bytes_test.BinOpTest)) : Slice<stdgo.bytes_test.Bytes_test.BinOpTest>);
 
-var _indexSizes:Slice<GoInt> = (new Slice<GoInt>(0, 0, (10 : GoInt), (32 : GoInt), (4096 : GoInt), (4194304 : GoInt), (67108864 : GoInt)) : Slice<GoInt>);
-var _isRaceBuilder:Bool = stdgo.strings.Strings.hasSuffix(stdgo.internal.testenv.Testenv.builder(), (Go.str("-race") : GoString));
+private var _indexSizes:Slice<GoInt> = (new Slice<GoInt>(0, 0, (10 : GoInt), (32 : GoInt), (4096 : GoInt), (4194304 : GoInt),
+	(67108864 : GoInt)) : Slice<GoInt>);
 
-var _splittests:Slice<stdgo.bytes_test.Bytes_test.SplitTest> = (new Slice<stdgo.bytes_test.Bytes_test.SplitTest>(0, 0,
+private var _isRaceBuilder:Bool = stdgo.strings.Strings.hasSuffix(stdgo.internal.testenv.Testenv.builder(), (Go.str("-race") : GoString));
+
+private var _splittests:Slice<stdgo.bytes_test.Bytes_test.SplitTest> = (new Slice<stdgo.bytes_test.Bytes_test.SplitTest>(0, 0,
 	(new stdgo.bytes_test.Bytes_test.SplitTest((Go.str() : GoString), (Go.str() : GoString), (-1 : GoInt),
 		(new Slice<GoString>(0, 0) : Slice<GoString>)) : stdgo.bytes_test.Bytes_test.SplitTest),
 	(new stdgo.bytes_test.Bytes_test.SplitTest(_abcd, (Go.str("a") : GoString), (0 : GoInt),
@@ -269,7 +271,7 @@ var _splittests:Slice<stdgo.bytes_test.Bytes_test.SplitTest> = (new Slice<stdgo.
 		(new Slice<GoString>(0, 0, (Go.str("b") : GoString),
 			(Go.str() : GoString)) : Slice<GoString>)) : stdgo.bytes_test.Bytes_test.SplitTest)) : Slice<stdgo.bytes_test.Bytes_test.SplitTest>);
 
-var _splitaftertests:Slice<stdgo.bytes_test.Bytes_test.SplitTest> = (new Slice<stdgo.bytes_test.Bytes_test.SplitTest>(0, 0,
+private var _splitaftertests:Slice<stdgo.bytes_test.Bytes_test.SplitTest> = (new Slice<stdgo.bytes_test.Bytes_test.SplitTest>(0, 0,
 	(new stdgo.bytes_test.Bytes_test.SplitTest(_abcd, (Go.str("a") : GoString), (-1 : GoInt),
 		(new Slice<GoString>(0, 0, (Go.str("a") : GoString), (Go.str("bcd") : GoString)) : Slice<GoString>)) : stdgo.bytes_test.Bytes_test.SplitTest),
 	(new stdgo.bytes_test.Bytes_test.SplitTest(_abcd, (Go.str("z") : GoString), (-1 : GoInt),
@@ -304,7 +306,7 @@ var _splitaftertests:Slice<stdgo.bytes_test.Bytes_test.SplitTest> = (new Slice<s
 		(new Slice<GoString>(0, 0, (Go.str("1") : GoString), (Go.str("2") : GoString),
 			(Go.str("3") : GoString)) : Slice<GoString>)) : stdgo.bytes_test.Bytes_test.SplitTest)) : Slice<stdgo.bytes_test.Bytes_test.SplitTest>);
 
-var _fieldstests:Slice<stdgo.bytes_test.Bytes_test.FieldsTest> = (new Slice<stdgo.bytes_test.Bytes_test.FieldsTest>(0, 0,
+private var _fieldstests:Slice<stdgo.bytes_test.Bytes_test.FieldsTest> = (new Slice<stdgo.bytes_test.Bytes_test.FieldsTest>(0, 0,
 	(new stdgo.bytes_test.Bytes_test.FieldsTest((Go.str() : GoString),
 		(new Slice<GoString>(0, 0) : Slice<GoString>)) : stdgo.bytes_test.Bytes_test.FieldsTest),
 	(new stdgo.bytes_test.Bytes_test.FieldsTest((Go.str(" ") : GoString),
@@ -332,7 +334,7 @@ var _fieldstests:Slice<stdgo.bytes_test.Bytes_test.FieldsTest> = (new Slice<stdg
 	(new stdgo.bytes_test.Bytes_test.FieldsTest(_faces,
 		(new Slice<GoString>(0, 0, _faces) : Slice<GoString>)) : stdgo.bytes_test.Bytes_test.FieldsTest)) : Slice<stdgo.bytes_test.Bytes_test.FieldsTest>);
 
-var _upperTests:Slice<stdgo.bytes_test.Bytes_test.StringTest> = (new Slice<stdgo.bytes_test.Bytes_test.StringTest>(0, 0,
+private var _upperTests:Slice<stdgo.bytes_test.Bytes_test.StringTest> = (new Slice<stdgo.bytes_test.Bytes_test.StringTest>(0, 0,
 	(new stdgo.bytes_test.Bytes_test.StringTest((Go.str() : GoString), ((Go.str() : GoString) : Slice<GoByte>)) : stdgo.bytes_test.Bytes_test.StringTest),
 	(new stdgo.bytes_test.Bytes_test.StringTest((Go.str("ONLYUPPER") : GoString),
 		((Go.str("ONLYUPPER") : GoString) : Slice<GoByte>)) : stdgo.bytes_test.Bytes_test.StringTest),
@@ -351,7 +353,7 @@ var _upperTests:Slice<stdgo.bytes_test.Bytes_test.StringTest> = (new Slice<stdgo
 	(new stdgo.bytes_test.Bytes_test.StringTest((Go.str("a\u0080\u{0010FFFF}") : GoString),
 		((Go.str("A\u0080\u{0010FFFF}") : GoString) : Slice<GoByte>)) : stdgo.bytes_test.Bytes_test.StringTest)) : Slice<stdgo.bytes_test.Bytes_test.StringTest>);
 
-var _lowerTests:Slice<stdgo.bytes_test.Bytes_test.StringTest> = (new Slice<stdgo.bytes_test.Bytes_test.StringTest>(0, 0,
+private var _lowerTests:Slice<stdgo.bytes_test.Bytes_test.StringTest> = (new Slice<stdgo.bytes_test.Bytes_test.StringTest>(0, 0,
 	(new stdgo.bytes_test.Bytes_test.StringTest((Go.str() : GoString), ((Go.str() : GoString) : Slice<GoByte>)) : stdgo.bytes_test.Bytes_test.StringTest),
 	(new stdgo.bytes_test.Bytes_test.StringTest((Go.str("abc") : GoString),
 		((Go.str("abc") : GoString) : Slice<GoByte>)) : stdgo.bytes_test.Bytes_test.StringTest),
@@ -368,7 +370,7 @@ var _lowerTests:Slice<stdgo.bytes_test.Bytes_test.StringTest> = (new Slice<stdgo
 	(new stdgo.bytes_test.Bytes_test.StringTest((Go.str("A\u0080\u{0010FFFF}") : GoString),
 		((Go.str("a\u0080\u{0010FFFF}") : GoString) : Slice<GoByte>)) : stdgo.bytes_test.Bytes_test.StringTest)) : Slice<stdgo.bytes_test.Bytes_test.StringTest>);
 
-var _trimSpaceTests:Slice<stdgo.bytes_test.Bytes_test.StringTest> = (new Slice<stdgo.bytes_test.Bytes_test.StringTest>(0, 0,
+private var _trimSpaceTests:Slice<stdgo.bytes_test.Bytes_test.StringTest> = (new Slice<stdgo.bytes_test.Bytes_test.StringTest>(0, 0,
 	(new stdgo.bytes_test.Bytes_test.StringTest((Go.str() : GoString), (null : Slice<GoUInt8>)) : stdgo.bytes_test.Bytes_test.StringTest),
 	(new stdgo.bytes_test.Bytes_test.StringTest((Go.str("  a") : GoString),
 		((Go.str("a") : GoString) : Slice<GoByte>)) : stdgo.bytes_test.Bytes_test.StringTest),
@@ -406,7 +408,7 @@ var _trimSpaceTests:Slice<stdgo.bytes_test.Bytes_test.StringTest> = (new Slice<s
 	(new stdgo.bytes_test.Bytes_test.StringTest((Go.str("x ☺ ") : GoString),
 		((Go.str("x ☺") : GoString) : Slice<GoByte>)) : stdgo.bytes_test.Bytes_test.StringTest)) : Slice<stdgo.bytes_test.Bytes_test.StringTest>);
 
-var _toValidUTF8Tests:Slice<T__struct_3> = (new Slice<T__struct_3>(0, 0,
+private var _toValidUTF8Tests:Slice<T__struct_3> = (new Slice<T__struct_3>(0, 0,
 	({_in: (Go.str() : GoString), _repl: (Go.str("\uFFFD") : GoString), _out: (Go.str() : GoString)} : T__struct_3),
 	({_in: (Go.str("abc") : GoString), _repl: (Go.str("\uFFFD") : GoString), _out: (Go.str("abc") : GoString)} : T__struct_3),
 	({_in: (Go.str("\uFDDD") : GoString), _repl: (Go.str("\uFFFD") : GoString), _out: (Go.str("\uFDDD") : GoString)} : T__struct_3),
@@ -453,7 +455,7 @@ var runesTests:Slice<stdgo.bytes_test.Bytes_test.RunesTest> = (new Slice<stdgo.b
 		(new Slice<GoInt32>(0, 0, (97 : GoInt32), (98 : GoInt32), (65533 : GoInt32), (99 : GoInt32)) : Slice<GoInt32>),
 		true) : stdgo.bytes_test.Bytes_test.RunesTest)) : Slice<stdgo.bytes_test.Bytes_test.RunesTest>);
 
-var _trimTests:Slice<stdgo.bytes_test.Bytes_test.TrimTest> = (new Slice<stdgo.bytes_test.Bytes_test.TrimTest>(0, 0,
+private var _trimTests:Slice<stdgo.bytes_test.Bytes_test.TrimTest> = (new Slice<stdgo.bytes_test.Bytes_test.TrimTest>(0, 0,
 	(new stdgo.bytes_test.Bytes_test.TrimTest((Go.str("Trim") : GoString), (Go.str("abba") : GoString), (Go.str("a") : GoString),
 		(Go.str("bb") : GoString)) : stdgo.bytes_test.Bytes_test.TrimTest),
 	(new stdgo.bytes_test.Bytes_test.TrimTest((Go.str("Trim") : GoString), (Go.str("abba") : GoString), (Go.str("ab") : GoString),
@@ -513,7 +515,7 @@ var _trimTests:Slice<stdgo.bytes_test.Bytes_test.TrimTest> = (new Slice<stdgo.by
 	(new stdgo.bytes_test.Bytes_test.TrimTest((Go.str("TrimSuffix") : GoString), (Go.str("aabb") : GoString), (Go.str("b") : GoString),
 		(Go.str("aab") : GoString)) : stdgo.bytes_test.Bytes_test.TrimTest)) : Slice<stdgo.bytes_test.Bytes_test.TrimTest>);
 
-var _trimNilTests:Slice<stdgo.bytes_test.Bytes_test.TrimNilTest> = (new Slice<stdgo.bytes_test.Bytes_test.TrimNilTest>(0, 0,
+private var _trimNilTests:Slice<stdgo.bytes_test.Bytes_test.TrimNilTest> = (new Slice<stdgo.bytes_test.Bytes_test.TrimNilTest>(0, 0,
 	(new stdgo.bytes_test.Bytes_test.TrimNilTest((Go.str("Trim") : GoString), (null : Slice<GoUInt8>), (Go.str() : GoString),
 		(null : Slice<GoUInt8>)) : stdgo.bytes_test.Bytes_test.TrimNilTest),
 	(new stdgo.bytes_test.Bytes_test.TrimNilTest((Go.str("Trim") : GoString), (new Slice<GoUInt8>(0, 0) : Slice<GoUInt8>), (Go.str() : GoString),
@@ -579,20 +581,20 @@ var _trimNilTests:Slice<stdgo.bytes_test.Bytes_test.TrimNilTest> = (new Slice<st
 	(new stdgo.bytes_test.Bytes_test.TrimNilTest((Go.str("TrimSuffix") : GoString), ((Go.str("☺") : GoString) : Slice<GoByte>), (Go.str("☺") : GoString),
 		(new Slice<GoUInt8>(0, 0) : Slice<GoUInt8>)) : stdgo.bytes_test.Bytes_test.TrimNilTest)) : Slice<stdgo.bytes_test.Bytes_test.TrimNilTest>);
 
-var _isSpace:stdgo.bytes_test.Bytes_test.T_predicate = (new stdgo.bytes_test.Bytes_test.T_predicate(stdgo.unicode.Unicode.isSpace,
+private var _isSpace:stdgo.bytes_test.Bytes_test.T_predicate = (new stdgo.bytes_test.Bytes_test.T_predicate(stdgo.unicode.Unicode.isSpace,
 	(Go.str("IsSpace") : GoString)) : stdgo.bytes_test.Bytes_test.T_predicate);
 
-var _isDigit:stdgo.bytes_test.Bytes_test.T_predicate = (new stdgo.bytes_test.Bytes_test.T_predicate(stdgo.unicode.Unicode.isDigit,
+private var _isDigit:stdgo.bytes_test.Bytes_test.T_predicate = (new stdgo.bytes_test.Bytes_test.T_predicate(stdgo.unicode.Unicode.isDigit,
 	(Go.str("IsDigit") : GoString)) : stdgo.bytes_test.Bytes_test.T_predicate);
 
-var _isUpper:stdgo.bytes_test.Bytes_test.T_predicate = (new stdgo.bytes_test.Bytes_test.T_predicate(stdgo.unicode.Unicode.isUpper,
+private var _isUpper:stdgo.bytes_test.Bytes_test.T_predicate = (new stdgo.bytes_test.Bytes_test.T_predicate(stdgo.unicode.Unicode.isUpper,
 	(Go.str("IsUpper") : GoString)) : stdgo.bytes_test.Bytes_test.T_predicate);
 
-var _isValidRune:stdgo.bytes_test.Bytes_test.T_predicate = (new stdgo.bytes_test.Bytes_test.T_predicate(function(_r:GoRune):Bool {
+private var _isValidRune:stdgo.bytes_test.Bytes_test.T_predicate = (new stdgo.bytes_test.Bytes_test.T_predicate(function(_r:GoRune):Bool {
 	return _r != (65533 : GoInt32);
 }, (Go.str("IsValidRune") : GoString)) : stdgo.bytes_test.Bytes_test.T_predicate);
 
-var _trimFuncTests:Slice<stdgo.bytes_test.Bytes_test.TrimFuncTest> = (new Slice<stdgo.bytes_test.Bytes_test.TrimFuncTest>(0, 0,
+private var _trimFuncTests:Slice<stdgo.bytes_test.Bytes_test.TrimFuncTest> = (new Slice<stdgo.bytes_test.Bytes_test.TrimFuncTest>(0, 0,
 	(new stdgo.bytes_test.Bytes_test.TrimFuncTest((_isSpace == null ? null : _isSpace.__copy__()),
 		(Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000 hello \t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000") : GoString),
 		((Go.str("hello") : GoString) : Slice<GoByte>), ((Go.str("hello \t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000") : GoString) : Slice<GoByte>),
@@ -628,7 +630,7 @@ var _trimFuncTests:Slice<stdgo.bytes_test.Bytes_test.TrimFuncTest> = (new Slice<
 		(null : Slice<GoUInt8>),
 		((Go.str() : GoString) : Slice<GoByte>)) : stdgo.bytes_test.Bytes_test.TrimFuncTest)) : Slice<stdgo.bytes_test.Bytes_test.TrimFuncTest>);
 
-var _indexFuncTests:Slice<stdgo.bytes_test.Bytes_test.IndexFuncTest> = (new Slice<stdgo.bytes_test.Bytes_test.IndexFuncTest>(0, 0,
+private var _indexFuncTests:Slice<stdgo.bytes_test.Bytes_test.IndexFuncTest> = (new Slice<stdgo.bytes_test.Bytes_test.IndexFuncTest>(0, 0,
 	(new stdgo.bytes_test.Bytes_test.IndexFuncTest((Go.str() : GoString), (_isValidRune == null ? null : _isValidRune.__copy__()), (-1 : GoInt),
 		(-1 : GoInt)) : stdgo.bytes_test.Bytes_test.IndexFuncTest),
 	(new stdgo.bytes_test.Bytes_test.IndexFuncTest((Go.str("abc") : GoString), (_isDigit == null ? null : _isDigit.__copy__()), (-1 : GoInt),
@@ -756,7 +758,7 @@ var equalFoldTests:Slice<T__struct_6> = (new Slice<T__struct_6>(0, 0,
 	({_s: (Go.str("abcdefghijkz") : GoString), _t: (Go.str("abcdefghij\u212Ay") : GoString), _out: false} : T__struct_6),
 	({_s: (Go.str("abcdefghijKz") : GoString), _t: (Go.str("abcdefghij\u212Ay") : GoString), _out: false} : T__struct_6)) : Slice<T__struct_6>);
 
-var _cutTests:Slice<T__struct_7> = (new Slice<T__struct_7>(0, 0, ({
+private var _cutTests:Slice<T__struct_7> = (new Slice<T__struct_7>(0, 0, ({
 	_s: (Go.str("abc") : GoString),
 	_sep: (Go.str("b") : GoString),
 	_before: (Go.str("a") : GoString),
@@ -806,7 +808,7 @@ var _cutTests:Slice<T__struct_7> = (new Slice<T__struct_7>(0, 0, ({
 	_found: true
 	} : T__struct_7)) : Slice<T__struct_7>);
 
-var _containsTests:Slice<T__struct_8> = (new Slice<T__struct_8>(0, 0,
+private var _containsTests:Slice<T__struct_8> = (new Slice<T__struct_8>(0, 0,
 	({_b: ((Go.str("hello") : GoString) : Slice<GoByte>), _subslice: ((Go.str("hel") : GoString) : Slice<GoByte>), _want: true} : T__struct_8),
 	({_b: ((Go.str("日本語") : GoString) : Slice<GoByte>), _subslice: ((Go.str("日本") : GoString) : Slice<GoByte>), _want: true} : T__struct_8),
 	({_b: ((Go.str("hello") : GoString) : Slice<GoByte>), _subslice: ((Go.str("Hello, world") : GoString) : Slice<GoByte>), _want: false} : T__struct_8),
@@ -836,7 +838,7 @@ var containsRuneTests:Slice<T__struct_10> = (new Slice<T__struct_10>(0, 0,
 	({_b: ((Go.str("a☺b☻c☹d") : GoString) : Slice<GoByte>), _r: ("☻".code : GoInt32), _expected: true} : T__struct_10),
 	({_b: ((Go.str("aRegExp*") : GoString) : Slice<GoByte>), _r: ("*".code : GoInt32), _expected: true} : T__struct_10)) : Slice<T__struct_10>);
 
-var _makeFieldsInput:() -> Slice<GoUInt8> = function():Slice<GoByte> {
+private var _makeFieldsInput:() -> Slice<GoUInt8> = function():Slice<GoByte> {
 	var _x = new Slice<GoUInt8>((1048576 : GoInt).toBasic(), 0, ...[for (i in 0...(1048576 : GoInt).toBasic()) (0 : GoUInt8)]);
 	for (_i => _ in _x) {
 		{
@@ -867,7 +869,7 @@ var _makeFieldsInput:() -> Slice<GoUInt8> = function():Slice<GoByte> {
 	return _x;
 };
 
-var _makeFieldsInputASCII:() -> Slice<GoUInt8> = function():Slice<GoByte> {
+private var _makeFieldsInputASCII:() -> Slice<GoUInt8> = function():Slice<GoByte> {
 	var _x = new Slice<GoUInt8>((1048576 : GoInt).toBasic(), 0, ...[for (i in 0...(1048576 : GoInt).toBasic()) (0 : GoUInt8)]);
 	for (_i => _ in _x) {
 		if (stdgo.math.rand.Rand.intn((10 : GoInt)) == (0 : GoInt)) {
@@ -879,12 +881,13 @@ var _makeFieldsInputASCII:() -> Slice<GoUInt8> = function():Slice<GoByte> {
 	return _x;
 };
 
-var _bytesdata:Slice<T__struct_11> = (new Slice<T__struct_11>(0, 0, ({_name: (Go.str("ASCII") : GoString), _data: _makeFieldsInputASCII()} : T__struct_11),
+private var _bytesdata:Slice<T__struct_11> = (new Slice<T__struct_11>(0, 0,
+	({_name: (Go.str("ASCII") : GoString), _data: _makeFieldsInputASCII()} : T__struct_11),
 	({_name: (Go.str("Mixed") : GoString), _data: _makeFieldsInput()} : T__struct_11)) : Slice<T__struct_11>);
 
-var _benchInputHard:Slice<GoUInt8> = _makeBenchInputHard();
+private var _benchInputHard:Slice<GoUInt8> = _makeBenchInputHard();
 
-var _compareTests:Slice<T__struct_1> = (new Slice<T__struct_1>(0, 0,
+private var _compareTests:Slice<T__struct_1> = (new Slice<T__struct_1>(0, 0,
 	({_a: ((Go.str() : GoString) : Slice<GoByte>), _b: ((Go.str() : GoString) : Slice<GoByte>), _i: (0 : GoInt)} : T__struct_1),
 	({_a: ((Go.str("a") : GoString) : Slice<GoByte>), _b: ((Go.str() : GoString) : Slice<GoByte>), _i: (1 : GoInt)} : T__struct_1),
 	({_a: ((Go.str() : GoString) : Slice<GoByte>), _b: ((Go.str("a") : GoString) : Slice<GoByte>), _i: (-1 : GoInt)} : T__struct_1),
@@ -975,10 +978,10 @@ var unreadRuneErrorTests:Slice<T__struct_15> = (new Slice<T__struct_15>(0, 0, ({
 	} : T__struct_15)) : Slice<T__struct_15>);
 
 final n:GoUnTypedInt = (10000 : GoUnTypedInt);
-var _testString:GoString = ("" : GoString);
-var _testBytes:Slice<GoByte> = (null : Slice<GoUInt8>);
-var _bmbuf:Slice<GoByte> = (null : Slice<GoUInt8>);
-final _space:GoString = (Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000") : GoString);
+private var _testString:GoString = ("" : GoString);
+private var _testBytes:Slice<GoByte> = (null : Slice<GoUInt8>);
+private var _bmbuf:Slice<GoByte> = (null : Slice<GoUInt8>);
+private final _space:GoString = (Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000") : GoString);
 
 @:structInit @:using(stdgo.bytes_test.Bytes_test.T_negativeReader_static_extension) private class T_negativeReader {
 	public function new() {}
@@ -1755,10 +1758,9 @@ function testReadFrom(_t:stdgo.testing.Testing.T):Void {
 	// it is "grown" before a Read that panics
 **/
 function testReadFromPanicReader(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _buf:Buffer = ({} : Buffer);
 	try {
-		var _buf:Buffer = ({} : Buffer);
 		var __tmp__ = _buf.readFrom({
 			final __self__ = new stdgo.bytes_test.Bytes_test.T_panicReader_asInterface((new stdgo.bytes_test.Bytes_test.T_panicReader() : stdgo.bytes_test.Bytes_test.T_panicReader));
 			__self__.read = #if !macro function(__0:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
@@ -1775,10 +1777,9 @@ function testReadFromPanicReader(_t:stdgo.testing.Testing.T):Void {
 		var _buf2:Buffer = ({} : Buffer);
 		__deferstack__.unshift(() -> {
 			var a = function():Void {
-				var __recover_exception__:AnyInterface = null;
 				({
-					final r = __recover_exception__;
-					__recover_exception__ = null;
+					final r = Go.recover_exception;
+					Go.recover_exception = null;
 					r;
 				});
 				_check(_t, (Go.str("TestReadFromPanicReader (2)") : GoString), _buf2, (Go.str() : GoString));
@@ -1798,66 +1799,64 @@ function testReadFromPanicReader(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function testReadFromNegativeReader(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _b:Buffer = ({} : Buffer);
 	try {
-		var _b:Buffer = ({} : Buffer);
 		__deferstack__.unshift(() -> {
 			var a = function():Void {
-				var __recover_exception__:AnyInterface = null;
 				if (({
-					final r = __recover_exception__;
-					__recover_exception__ = null;
+					final r = Go.recover_exception;
+					Go.recover_exception = null;
 					r;
 				}) == null) {
 					var _err:AnyInterface = ({
-						final r = __recover_exception__;
-						__recover_exception__ = null;
+						final r = Go.recover_exception;
+						Go.recover_exception = null;
 						r;
 					}) == null ? null : ({
-						final r = __recover_exception__;
-						__recover_exception__ = null;
+						final r = Go.recover_exception;
+						Go.recover_exception = null;
 						r;
 					}).__underlying__();
 					_t.fatal(Go.toInterface((Go.str("bytes.Buffer.ReadFrom didn\'t panic") : GoString)));
 				} else if (Go.assertable(({
-					final r = __recover_exception__;
-					__recover_exception__ = null;
+					final r = Go.recover_exception;
+					Go.recover_exception = null;
 					r;
 				} : Error))) {
 					var _err:stdgo.Error = ({
-						final r = __recover_exception__;
-						__recover_exception__ = null;
+						final r = Go.recover_exception;
+						Go.recover_exception = null;
 						r;
 					}) == null ? null : ({
-						final r = __recover_exception__;
-						__recover_exception__ = null;
+						final r = Go.recover_exception;
+						Go.recover_exception = null;
 						r;
 					}).__underlying__() == null ? null : ({
-						final r = __recover_exception__;
-						__recover_exception__ = null;
+						final r = Go.recover_exception;
+						Go.recover_exception = null;
 						r;
 					}) == null ? null : ({
-						final r = __recover_exception__;
-						__recover_exception__ = null;
+						final r = Go.recover_exception;
+						Go.recover_exception = null;
 						r;
 					}).__underlying__().value;
 					var _wantError:GoString = (Go.str("bytes.Buffer: reader returned negative count from Read") : GoString);
@@ -1866,12 +1865,12 @@ function testReadFromNegativeReader(_t:stdgo.testing.Testing.T):Void {
 					};
 				} else {
 					var _err:AnyInterface = ({
-						final r = __recover_exception__;
-						__recover_exception__ = null;
+						final r = Go.recover_exception;
+						Go.recover_exception = null;
 						r;
 					}) == null ? null : ({
-						final r = __recover_exception__;
-						__recover_exception__ = null;
+						final r = Go.recover_exception;
+						Go.recover_exception = null;
 						r;
 					}).__underlying__();
 					_t.fatalf((Go.str("unexpected panic value: %#v") : GoString), Go.toInterface(_err));
@@ -1892,19 +1891,19 @@ function testReadFromNegativeReader(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -2199,25 +2198,23 @@ function testGrow(_t:stdgo.testing.Testing.T):Void {
 }
 
 function testGrowOverflow(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
-	try {
-		__deferstack__.unshift(() -> {
-			var a = function():Void {
-				var __recover_exception__:AnyInterface = null;
-				{
-					var _err:AnyInterface = Go.toInterface(({
-						final r = __recover_exception__;
-						__recover_exception__ = null;
-						r;
-					}));
-					if (_err != errTooLarge) {
-						_t.errorf((Go.str("after too-large Grow, recover() = %v; want %v") : GoString), Go.toInterface(_err), Go.toInterface(errTooLarge));
-					};
+	__deferstack__.unshift(() -> {
+		var a = function():Void {
+			{
+				var _err:AnyInterface = Go.toInterface(({
+					final r = Go.recover_exception;
+					Go.recover_exception = null;
+					r;
+				}));
+				if (_err != errTooLarge) {
+					_t.errorf((Go.str("after too-large Grow, recover() = %v; want %v") : GoString), Go.toInterface(_err), Go.toInterface(errTooLarge));
 				};
 			};
-			a();
-		});
+		};
+		a();
+	});
+	try {
 		var _buf = newBuffer(new Slice<GoUInt8>((1 : GoInt).toBasic(), 0, ...[for (i in 0...(1 : GoInt).toBasic()) (0 : GoUInt8)]));
 		var _maxInt:GoInt = ((2147483647 : GoUInt) : GoInt);
 		_buf.grow((2147483647 : GoInt));
@@ -2228,19 +2225,19 @@ function testGrowOverflow(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -3500,32 +3497,30 @@ function testRepeat(_t:stdgo.testing.Testing.T):Void {
 }
 
 function _repeat(_b:Slice<GoByte>, _count:GoInt):Error {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
 	var _err:Error = (null : stdgo.Error);
-	try {
-		__deferstack__.unshift(() -> {
-			var a = function():Void {
-				var __recover_exception__:AnyInterface = null;
-				{
-					var _r:AnyInterface = Go.toInterface(({
-						final r = __recover_exception__;
-						__recover_exception__ = null;
-						r;
-					}));
-					if (_r != null) {
-						if (Go.assertable((_r : Error))) {
-							var _v:stdgo.Error = _r == null ? null : _r.__underlying__() == null ? null : _r == null ? null : _r.__underlying__().value;
-							_err = _v;
-						} else {
-							var _v:AnyInterface = _r == null ? null : _r.__underlying__();
-							_err = stdgo.fmt.Fmt.errorf((Go.str("%s") : GoString), Go.toInterface(_v));
-						};
+	__deferstack__.unshift(() -> {
+		var a = function():Void {
+			{
+				var _r:AnyInterface = Go.toInterface(({
+					final r = Go.recover_exception;
+					Go.recover_exception = null;
+					r;
+				}));
+				if (_r != null) {
+					if (Go.assertable((_r : Error))) {
+						var _v:stdgo.Error = _r == null ? null : _r.__underlying__() == null ? null : _r == null ? null : _r.__underlying__().value;
+						_err = _v;
+					} else {
+						var _v:AnyInterface = _r == null ? null : _r.__underlying__();
+						_err = stdgo.fmt.Fmt.errorf((Go.str("%s") : GoString), Go.toInterface(_v));
 					};
 				};
 			};
-			a();
-		});
+		};
+		a();
+	});
+	try {
 		repeat(_b, _count);
 		{
 			for (defer in __deferstack__) {
@@ -3540,19 +3535,19 @@ function _repeat(_b:Slice<GoByte>, _count:GoInt):Error {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return _err;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return _err;
 	};
 }
@@ -3829,25 +3824,23 @@ function testCut(_t:stdgo.testing.Testing.T):Void {
 }
 
 function testBufferGrowNegative(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
-	try {
-		__deferstack__.unshift(() -> {
-			var a = function():Void {
-				var __recover_exception__:AnyInterface = null;
-				{
-					var _err:AnyInterface = Go.toInterface(({
-						final r = __recover_exception__;
-						__recover_exception__ = null;
-						r;
-					}));
-					if (_err == null) {
-						_t.fatal(Go.toInterface((Go.str("Grow(-1) should have panicked") : GoString)));
-					};
+	__deferstack__.unshift(() -> {
+		var a = function():Void {
+			{
+				var _err:AnyInterface = Go.toInterface(({
+					final r = Go.recover_exception;
+					Go.recover_exception = null;
+					r;
+				}));
+				if (_err == null) {
+					_t.fatal(Go.toInterface((Go.str("Grow(-1) should have panicked") : GoString)));
 				};
 			};
-			a();
-		});
+		};
+		a();
+	});
+	try {
 		var _b:Buffer = ({} : Buffer);
 		_b.grow((-1 : GoInt));
 		for (defer in __deferstack__) {
@@ -3857,43 +3850,41 @@ function testBufferGrowNegative(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function testBufferTruncateNegative(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
-	try {
-		__deferstack__.unshift(() -> {
-			var a = function():Void {
-				var __recover_exception__:AnyInterface = null;
-				{
-					var _err:AnyInterface = Go.toInterface(({
-						final r = __recover_exception__;
-						__recover_exception__ = null;
-						r;
-					}));
-					if (_err == null) {
-						_t.fatal(Go.toInterface((Go.str("Truncate(-1) should have panicked") : GoString)));
-					};
+	__deferstack__.unshift(() -> {
+		var a = function():Void {
+			{
+				var _err:AnyInterface = Go.toInterface(({
+					final r = Go.recover_exception;
+					Go.recover_exception = null;
+					r;
+				}));
+				if (_err == null) {
+					_t.fatal(Go.toInterface((Go.str("Truncate(-1) should have panicked") : GoString)));
 				};
 			};
-			a();
-		});
+		};
+		a();
+	});
+	try {
 		var _b:Buffer = ({} : Buffer);
 		_b.truncate((-1 : GoInt));
 		for (defer in __deferstack__) {
@@ -3903,43 +3894,41 @@ function testBufferTruncateNegative(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function testBufferTruncateOutOfRange(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
-	try {
-		__deferstack__.unshift(() -> {
-			var a = function():Void {
-				var __recover_exception__:AnyInterface = null;
-				{
-					var _err:AnyInterface = Go.toInterface(({
-						final r = __recover_exception__;
-						__recover_exception__ = null;
-						r;
-					}));
-					if (_err == null) {
-						_t.fatal(Go.toInterface((Go.str("Truncate(20) should have panicked") : GoString)));
-					};
+	__deferstack__.unshift(() -> {
+		var a = function():Void {
+			{
+				var _err:AnyInterface = Go.toInterface(({
+					final r = Go.recover_exception;
+					Go.recover_exception = null;
+					r;
+				}));
+				if (_err == null) {
+					_t.fatal(Go.toInterface((Go.str("Truncate(20) should have panicked") : GoString)));
 				};
 			};
-			a();
-		});
+		};
+		a();
+	});
+	try {
 		var _b:Buffer = ({} : Buffer);
 		_b.write(new Slice<GoUInt8>((10 : GoInt).toBasic(), 0, ...[for (i in 0...(10 : GoInt).toBasic()) (0 : GoUInt8)]));
 		_b.truncate((20 : GoInt));
@@ -3950,19 +3939,19 @@ function testBufferTruncateOutOfRange(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -5449,10 +5438,9 @@ function testReaderAtConcurrent(_t:stdgo.testing.Testing.T):Void {
 			_wg.add((1 : GoInt));
 			Go.routine(() -> {
 				var a = function(_i:GoInt):Void {
-					var __recover_exception__:AnyInterface = null;
 					var __deferstack__:Array<Void->Void> = [];
+					__deferstack__.unshift(() -> _wg.done());
 					try {
-						__deferstack__.unshift(() -> _wg.done());
 						var _buf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0...1) (0 : GoUInt8)]);
 						_r.readAt((_buf.__slice__(0) : Slice<GoUInt8>), (_i : GoInt64));
 						for (defer in __deferstack__) {
@@ -5462,19 +5450,19 @@ function testReaderAtConcurrent(_t:stdgo.testing.Testing.T):Void {
 							for (defer in __deferstack__) {
 								defer();
 							};
-							if (__recover_exception__ != null)
-								throw __recover_exception__;
+							if (Go.recover_exception != null)
+								throw Go.recover_exception;
 							return;
 						};
 					} catch (__exception__) {
 						if (!(__exception__.native is AnyInterfaceData))
 							throw __exception__;
-						__recover_exception__ = __exception__.native;
+						Go.recover_exception = __exception__.native;
 						for (defer in __deferstack__) {
 							defer();
 						};
-						if (__recover_exception__ != null)
-							throw __recover_exception__;
+						if (Go.recover_exception != null)
+							throw Go.recover_exception;
 						return;
 					};
 				};
@@ -5494,10 +5482,9 @@ function testEmptyReaderConcurrent(_t:stdgo.testing.Testing.T):Void {
 			_wg.add((2 : GoInt));
 			Go.routine(() -> {
 				var a = function():Void {
-					var __recover_exception__:AnyInterface = null;
 					var __deferstack__:Array<Void->Void> = [];
+					__deferstack__.unshift(() -> _wg.done());
 					try {
-						__deferstack__.unshift(() -> _wg.done());
 						var _buf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0...1) (0 : GoUInt8)]);
 						_r.read((_buf.__slice__(0) : Slice<GoUInt8>));
 						for (defer in __deferstack__) {
@@ -5507,19 +5494,19 @@ function testEmptyReaderConcurrent(_t:stdgo.testing.Testing.T):Void {
 							for (defer in __deferstack__) {
 								defer();
 							};
-							if (__recover_exception__ != null)
-								throw __recover_exception__;
+							if (Go.recover_exception != null)
+								throw Go.recover_exception;
 							return;
 						};
 					} catch (__exception__) {
 						if (!(__exception__.native is AnyInterfaceData))
 							throw __exception__;
-						__recover_exception__ = __exception__.native;
+						Go.recover_exception = __exception__.native;
 						for (defer in __deferstack__) {
 							defer();
 						};
-						if (__recover_exception__ != null)
-							throw __recover_exception__;
+						if (Go.recover_exception != null)
+							throw Go.recover_exception;
 						return;
 					};
 				};
@@ -5527,10 +5514,9 @@ function testEmptyReaderConcurrent(_t:stdgo.testing.Testing.T):Void {
 			});
 			Go.routine(() -> {
 				var a = function():Void {
-					var __recover_exception__:AnyInterface = null;
 					var __deferstack__:Array<Void->Void> = [];
+					__deferstack__.unshift(() -> _wg.done());
 					try {
-						__deferstack__.unshift(() -> _wg.done());
 						_r.read((null : Slice<GoUInt8>));
 						for (defer in __deferstack__) {
 							defer();
@@ -5539,19 +5525,19 @@ function testEmptyReaderConcurrent(_t:stdgo.testing.Testing.T):Void {
 							for (defer in __deferstack__) {
 								defer();
 							};
-							if (__recover_exception__ != null)
-								throw __recover_exception__;
+							if (Go.recover_exception != null)
+								throw Go.recover_exception;
 							return;
 						};
 					} catch (__exception__) {
 						if (!(__exception__.native is AnyInterfaceData))
 							throw __exception__;
-						__recover_exception__ = __exception__.native;
+						Go.recover_exception = __exception__.native;
 						for (defer in __deferstack__) {
 							defer();
 						};
-						if (__recover_exception__ != null)
-							throw __recover_exception__;
+						if (Go.recover_exception != null)
+							throw Go.recover_exception;
 						return;
 					};
 				};
@@ -6062,7 +6048,7 @@ function testReaderZero(_t:stdgo.testing.Testing.T):Void {
 	}
 }
 
-class T_negativeReader_asInterface {
+private class T_negativeReader_asInterface {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -6088,7 +6074,7 @@ class T_negativeReader_asInterface {
 	}
 }
 
-class T_panicReader_asInterface {
+private class T_panicReader_asInterface {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -6110,7 +6096,7 @@ class T_panicReader_asInterface {
 		return __self__.read(__0);
 }
 
-class T_justReader_testReaderCopyNothing_1_asInterface {
+private class T_justReader_testReaderCopyNothing_1_asInterface {
 	@:embedded
 	public var read:Slice<GoUInt8> -> {
 		var _0:GoInt;
@@ -6132,7 +6118,7 @@ class T_justReader_testReaderCopyNothing_1_asInterface {
 		return __self__.write(__0);
 }
 
-class T_justWriter_testReaderCopyNothing_2_asInterface {
+private class T_justWriter_testReaderCopyNothing_2_asInterface {
 	@:embedded
 	public var write:Slice<GoUInt8> -> {
 		var _0:GoInt;

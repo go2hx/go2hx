@@ -13,7 +13,7 @@ import stdgo.Chan;
 /**
 	// first is information about the first byte in a UTF-8 sequence.
 **/
-var _first:GoArray<GoUInt8> = (new GoArray<GoUInt8>((240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8),
+private var _first:GoArray<GoUInt8> = (new GoArray<GoUInt8>((240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8),
 	(240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8),
 	(240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8),
 	(240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8),
@@ -27,26 +27,26 @@ var _first:GoArray<GoUInt8> = (new GoArray<GoUInt8>((240 : GoUInt8), (240 : GoUI
 	(240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8),
 	(240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8),
 	(240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8),
-	(240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8),
+	(240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8),
 	(241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8),
 	(241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8),
 	(241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8),
 	(241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8),
 	(241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8),
 	(241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8),
-	(241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (2 : GoUInt8),
+	(241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8),
 	(2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8),
 	(2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8),
-	(2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8), (19 : GoUInt8),
-	(3 : GoUInt8), (3 : GoUInt8), (3 : GoUInt8), (3 : GoUInt8), (3 : GoUInt8), (3 : GoUInt8), (3 : GoUInt8), (3 : GoUInt8), (3 : GoUInt8), (3 : GoUInt8),
-	(3 : GoUInt8), (3 : GoUInt8), (35 : GoUInt8), (3 : GoUInt8), (3 : GoUInt8), (52 : GoUInt8), (4 : GoUInt8), (4 : GoUInt8), (4 : GoUInt8), (68 : GoUInt8),
-	(241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8),
-	(241 : GoUInt8), (241 : GoUInt8)) : GoArray<GoUInt8>);
+	(2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8), (2 : GoUInt8),
+	(19 : GoUInt8), (3 : GoUInt8), (3 : GoUInt8), (3 : GoUInt8), (3 : GoUInt8), (3 : GoUInt8), (3 : GoUInt8), (3 : GoUInt8), (3 : GoUInt8), (3 : GoUInt8),
+	(3 : GoUInt8), (3 : GoUInt8), (3 : GoUInt8), (35 : GoUInt8), (3 : GoUInt8), (3 : GoUInt8), (52 : GoUInt8), (4 : GoUInt8), (4 : GoUInt8), (4 : GoUInt8),
+	(68 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8),
+	(241 : GoUInt8), (241 : GoUInt8), (241 : GoUInt8)) : GoArray<GoUInt8>);
 
 /**
 	// acceptRanges has size 16 to avoid bounds checks in the code that uses it.
 **/
-var _acceptRanges:GoArray<T_acceptRange> = {
+private var _acceptRanges:GoArray<T_acceptRange> = {
 	var s:GoArray<T_acceptRange> = new GoArray<T_acceptRange>(...[for (i in 0...16) ({} : T_acceptRange)]);
 	s[0] = (new T_acceptRange((128 : GoUInt8), (191 : GoUInt8)) : T_acceptRange);
 	s[1] = (new T_acceptRange((160 : GoUInt8), (191 : GoUInt8)) : T_acceptRange);
@@ -79,33 +79,33 @@ final utfmax:GoUnTypedInt = (4 : GoUnTypedInt);
 /**
 	// Code points in the surrogate range are not valid for UTF-8.
 **/
-final _surrogateMin:GoUnTypedInt = (55296 : GoUnTypedInt);
+private final _surrogateMin:GoUnTypedInt = (55296 : GoUnTypedInt);
 
 /**
 	// Code points in the surrogate range are not valid for UTF-8.
 **/
-final _surrogateMax:GoUnTypedInt = (57343 : GoUnTypedInt);
+private final _surrogateMax:GoUnTypedInt = (57343 : GoUnTypedInt);
 
-final _t1:GoUnTypedInt = (0 : GoUnTypedInt);
-final _tx:GoUnTypedInt = (128 : GoUnTypedInt);
-final _t2:GoUnTypedInt = (192 : GoUnTypedInt);
-final _t3:GoUnTypedInt = (224 : GoUnTypedInt);
-final _t4:GoUnTypedInt = (240 : GoUnTypedInt);
-final _t5:GoUnTypedInt = (248 : GoUnTypedInt);
-final _maskx:GoUnTypedInt = (63 : GoUnTypedInt);
-final _mask2:GoUnTypedInt = (31 : GoUnTypedInt);
-final _mask3:GoUnTypedInt = (15 : GoUnTypedInt);
-final _mask4:GoUnTypedInt = (7 : GoUnTypedInt);
-final _rune1Max:GoUnTypedInt = (127 : GoUnTypedInt);
-final _rune2Max:GoUnTypedInt = (2047 : GoUnTypedInt);
-final _rune3Max:GoUnTypedInt = (65535 : GoUnTypedInt);
+private final _t1:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _tx:GoUnTypedInt = (128 : GoUnTypedInt);
+private final _t2:GoUnTypedInt = (192 : GoUnTypedInt);
+private final _t3:GoUnTypedInt = (224 : GoUnTypedInt);
+private final _t4:GoUnTypedInt = (240 : GoUnTypedInt);
+private final _t5:GoUnTypedInt = (248 : GoUnTypedInt);
+private final _maskx:GoUnTypedInt = (63 : GoUnTypedInt);
+private final _mask2:GoUnTypedInt = (31 : GoUnTypedInt);
+private final _mask3:GoUnTypedInt = (15 : GoUnTypedInt);
+private final _mask4:GoUnTypedInt = (7 : GoUnTypedInt);
+private final _rune1Max:GoUnTypedInt = (127 : GoUnTypedInt);
+private final _rune2Max:GoUnTypedInt = (2047 : GoUnTypedInt);
+private final _rune3Max:GoUnTypedInt = (65535 : GoUnTypedInt);
 
 /**
 	// The default lowest and highest continuation byte.
 **/
-final _locb:GoUnTypedInt = (128 : GoUnTypedInt);
+private final _locb:GoUnTypedInt = (128 : GoUnTypedInt);
 
-final _hicb:GoUnTypedInt = (191 : GoUnTypedInt);
+private final _hicb:GoUnTypedInt = (191 : GoUnTypedInt);
 
 /**
 	// These names of these constants are chosen to give nice alignment in the
@@ -113,16 +113,16 @@ final _hicb:GoUnTypedInt = (191 : GoUnTypedInt);
 	// special one-byte cases. The second nibble is the Rune length or the
 	// Status for the special one-byte case.
 **/
-final _xx:GoUnTypedInt = (241 : GoUnTypedInt);
+private final _xx:GoUnTypedInt = (241 : GoUnTypedInt);
 
-final _as:GoUnTypedInt = (240 : GoUnTypedInt);
-final _s1:GoUnTypedInt = (2 : GoUnTypedInt);
-final _s2:GoUnTypedInt = (19 : GoUnTypedInt);
-final _s3:GoUnTypedInt = (3 : GoUnTypedInt);
-final _s4:GoUnTypedInt = (35 : GoUnTypedInt);
-final _s5:GoUnTypedInt = (52 : GoUnTypedInt);
-final _s6:GoUnTypedInt = (4 : GoUnTypedInt);
-final _s7:GoUnTypedInt = (68 : GoUnTypedInt);
+private final _as:GoUnTypedInt = (240 : GoUnTypedInt);
+private final _s1:GoUnTypedInt = (2 : GoUnTypedInt);
+private final _s2:GoUnTypedInt = (19 : GoUnTypedInt);
+private final _s3:GoUnTypedInt = (3 : GoUnTypedInt);
+private final _s4:GoUnTypedInt = (35 : GoUnTypedInt);
+private final _s5:GoUnTypedInt = (52 : GoUnTypedInt);
+private final _s6:GoUnTypedInt = (4 : GoUnTypedInt);
+private final _s7:GoUnTypedInt = (68 : GoUnTypedInt);
 
 /**
 	// Package utf8 implements functions and constants to support text encoded in

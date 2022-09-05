@@ -19,7 +19,7 @@ var errShortWrite:stdgo.Error = stdgo.errors.Errors.new_((Go.str("short write") 
 /**
 	// errInvalidWrite means that a write returned an impossible count.
 **/
-var _errInvalidWrite:stdgo.Error = stdgo.errors.Errors.new_((Go.str("invalid write result") : GoString));
+private var _errInvalidWrite:stdgo.Error = stdgo.errors.Errors.new_((Go.str("invalid write result") : GoString));
 
 /**
 	// ErrShortBuffer means that a read required a longer buffer than was provided.
@@ -50,8 +50,8 @@ var errUnexpectedEOF:stdgo.Error = stdgo.errors.Errors.new_((Go.str("unexpected 
 **/
 var errNoProgress:stdgo.Error = stdgo.errors.Errors.new_((Go.str("multiple Read calls return no data or error") : GoString));
 
-var _errWhence:stdgo.Error = stdgo.errors.Errors.new_((Go.str("Seek: invalid whence") : GoString));
-var _errOffset:stdgo.Error = stdgo.errors.Errors.new_((Go.str("Seek: invalid offset") : GoString));
+private var _errWhence:stdgo.Error = stdgo.errors.Errors.new_((Go.str("Seek: invalid whence") : GoString));
+private var _errOffset:stdgo.Error = stdgo.errors.Errors.new_((Go.str("Seek: invalid offset") : GoString));
 
 /**
 	// Discard is a Writer on which all Write calls succeed
@@ -68,7 +68,7 @@ var discard:Writer = {
 	__self__;
 };
 
-var _blackHolePool:stdgo.sync.Sync.Pool = ({
+private var _blackHolePool:stdgo.sync.Sync.Pool = ({
 	new_: function():AnyInterface {
 		var _b = new Slice<GoUInt8>((8192 : GoInt).toBasic(), 0, ...[for (i in 0...(8192 : GoInt).toBasic()) (0 : GoUInt8)]);
 		return Go.toInterface(_b);
@@ -104,7 +104,7 @@ final seekEnd:GoUnTypedInt = (2 : GoUnTypedInt);
 	// discard implements ReaderFrom as an optimization so Copy to
 	// io.Discard can avoid doing unnecessary work.
 **/
-var _3:ReaderFrom = {
+private var _3:ReaderFrom = {
 	final __self__ = new T_discard_asInterface((new T_discard() : T_discard));
 	__self__.readFrom = #if !macro function(_r_:Reader):{var _0:GoInt64; var _1:stdgo.Error;}
 		return (new T_discard() : T_discard).readFrom(_r_) #else null #end;
@@ -115,7 +115,7 @@ var _3:ReaderFrom = {
 	__self__;
 };
 
-var _4:WriterTo = {
+private var _4:WriterTo = {
 	final __self__ = new T_multiReader_asInterface((null : T_multiReader));
 	__self__.read = #if !macro function(_p_:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
 		return (null : T_multiReader).read(_p_) #else null #end;
@@ -126,7 +126,7 @@ var _4:WriterTo = {
 	__self__;
 };
 
-var _5:StringWriter = {
+private var _5:StringWriter = {
 	final __self__ = new T_multiWriter_asInterface((null : T_multiWriter));
 	__self__.write = #if !macro function(_p_:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
 		return (null : T_multiWriter).write(_p_) #else null #end;
@@ -1143,7 +1143,7 @@ function pipe():{var _0:PipeReader; var _1:PipeWriter;} {
 	return {_0: (new PipeReader(_p) : PipeReader), _1: (new PipeWriter(_p) : PipeWriter)};
 }
 
-@:keep class LimitedReader_static_extension {
+@:keep private class LimitedReader_static_extension {
 	@:keep
 	static public function read(_l:LimitedReader, _p:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
 		var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
@@ -1179,7 +1179,7 @@ class LimitedReader_asInterface {
 	var __self__:LimitedReader;
 }
 
-@:keep class SectionReader_static_extension {
+@:keep private class SectionReader_static_extension {
 	/**
 		// Size returns the size of the section in bytes.
 	**/
@@ -1306,7 +1306,7 @@ class SectionReader_asInterface {
 	}
 }
 
-class T_teeReader_asInterface {
+private class T_teeReader_asInterface {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -1356,7 +1356,7 @@ class T_teeReader_asInterface {
 	}
 }
 
-class T_discard_asInterface {
+private class T_discard_asInterface {
 	@:keep
 	public var readFrom:Reader -> {
 		var _0:GoInt64;
@@ -1393,7 +1393,7 @@ class T_discard_asInterface {
 		return __self__.read(_p_);
 }
 
-class T_nopCloser_asInterface {
+private class T_nopCloser_asInterface {
 	@:keep
 	public var close:() -> Error = null;
 	@:embedded
@@ -1428,7 +1428,7 @@ class T_nopCloser_asInterface {
 		return __self__.read(_p_);
 }
 
-class T_nopCloserWriterTo_asInterface {
+private class T_nopCloserWriterTo_asInterface {
 	@:keep
 	public var writeTo:Writer -> {
 		var _0:GoInt64;
@@ -1458,7 +1458,7 @@ class T_nopCloserWriterTo_asInterface {
 	}
 }
 
-class T_eofReader_asInterface {
+private class T_eofReader_asInterface {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -1559,7 +1559,7 @@ class T_eofReader_asInterface {
 	}
 }
 
-class T_multiReader_asInterface {
+private class T_multiReader_asInterface {
 	@:keep
 	public var _writeToWithBuffer:(Writer, Slice<GoByte>) -> {
 		var _0:GoInt64;
@@ -1646,7 +1646,7 @@ class T_multiReader_asInterface {
 	}
 }
 
-class T_multiWriter_asInterface {
+private class T_multiWriter_asInterface {
 	@:keep
 	public var writeString:GoString -> {
 		var _0:GoInt;
@@ -1670,11 +1670,10 @@ class T_multiWriter_asInterface {
 @:keep private class T_onceError_static_extension {
 	@:keep
 	static public function load(_a:T_onceError):Error {
-		var __recover_exception__:AnyInterface = null;
 		var __deferstack__:Array<Void->Void> = [];
 		_a.lock();
+		__deferstack__.unshift(() -> _a.unlock());
 		try {
-			__deferstack__.unshift(() -> _a.unlock());
 			{
 				for (defer in __deferstack__) {
 					defer();
@@ -1688,29 +1687,28 @@ class T_multiWriter_asInterface {
 				for (defer in __deferstack__) {
 					defer();
 				};
-				if (__recover_exception__ != null)
-					throw __recover_exception__;
+				if (Go.recover_exception != null)
+					throw Go.recover_exception;
 				return (null : stdgo.Error);
 			};
 		} catch (__exception__) {
 			if (!(__exception__.native is AnyInterfaceData))
 				throw __exception__;
-			__recover_exception__ = __exception__.native;
+			Go.recover_exception = __exception__.native;
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return (null : stdgo.Error);
 		};
 	}
 
 	@:keep
 	static public function store(_a:T_onceError, _err:Error):Void {
-		var __recover_exception__:AnyInterface = null;
 		var __deferstack__:Array<Void->Void> = [];
+		_a.lock();
 		try {
-			_a.lock();
 			__deferstack__.unshift(() -> _a.unlock());
 			if (_a._err != null) {
 				{
@@ -1728,19 +1726,19 @@ class T_multiWriter_asInterface {
 				for (defer in __deferstack__) {
 					defer();
 				};
-				if (__recover_exception__ != null)
-					throw __recover_exception__;
+				if (Go.recover_exception != null)
+					throw Go.recover_exception;
 				return;
 			};
 		} catch (__exception__) {
 			if (!(__exception__.native is AnyInterfaceData))
 				throw __exception__;
-			__recover_exception__ = __exception__.native;
+			Go.recover_exception = __exception__.native;
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	}
@@ -1766,7 +1764,7 @@ class T_multiWriter_asInterface {
 		__self__.lock();
 }
 
-class T_onceError_asInterface {
+private class T_onceError_asInterface {
 	@:keep
 	public var load:() -> Error = null;
 	@:keep
@@ -1837,7 +1835,6 @@ class T_onceError_asInterface {
 
 	@:keep
 	static public function _write(_p:T_pipe, _b:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
-		var __recover_exception__:AnyInterface = null;
 		var __deferstack__:Array<Void->Void> = [];
 		var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
 		Go.select([
@@ -1849,27 +1846,27 @@ class T_onceError_asInterface {
 				__deferstack__.unshift(() -> _p._wrMu.unlock());
 			}
 		]);
-		try {
-			{
-				var _once:Bool = true;
-				Go.cfor(_once || (_b.length > (0 : GoInt)), _once = false, {
-					Go.select([
-						_p._done.__get__() => {
-							{
-								for (defer in __deferstack__) {
-									defer();
-								};
-								return {_0: _n, _1: _p._writeCloseError()};
+		{
+			var _once:Bool = true;
+			Go.cfor(_once || (_b.length > (0 : GoInt)), _once = false, {
+				Go.select([
+					_p._done.__get__() => {
+						{
+							for (defer in __deferstack__) {
+								defer();
 							};
-						},
-						_p._wrCh.__send__(_b) => {
-							var _nw:GoInt = _p._rdCh.__get__();
-							_b = (_b.__slice__(_nw) : Slice<GoUInt8>);
-							_n = _n + (_nw);
-						}
-					]);
-				});
-			};
+							return {_0: _n, _1: _p._writeCloseError()};
+						};
+					},
+					_p._wrCh.__send__(_b) => {
+						var _nw:GoInt = _p._rdCh.__get__();
+						_b = (_b.__slice__(_nw) : Slice<GoUInt8>);
+						_n = _n + (_nw);
+					}
+				]);
+			});
+		};
+		try {
 			{
 				for (defer in __deferstack__) {
 					defer();
@@ -1883,19 +1880,19 @@ class T_onceError_asInterface {
 				for (defer in __deferstack__) {
 					defer();
 				};
-				if (__recover_exception__ != null)
-					throw __recover_exception__;
+				if (Go.recover_exception != null)
+					throw Go.recover_exception;
 				return {_0: _n, _1: _err};
 			};
 		} catch (__exception__) {
 			if (!(__exception__.native is AnyInterfaceData))
 				throw __exception__;
-			__recover_exception__ = __exception__.native;
+			Go.recover_exception = __exception__.native;
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return {_0: _n, _1: _err};
 		};
 	}
@@ -1938,7 +1935,7 @@ class T_onceError_asInterface {
 	}
 }
 
-class T_pipe_asInterface {
+private class T_pipe_asInterface {
 	/**
 		// writeCloseError is considered internal to the pipe type.
 	**/
@@ -1975,7 +1972,7 @@ class T_pipe_asInterface {
 	var __self__:T_pipe;
 }
 
-@:keep class PipeReader_static_extension {
+@:keep private class PipeReader_static_extension {
 	/**
 		// CloseWithError closes the reader; subsequent writes
 		// to the write half of the pipe will return the error err.
@@ -2051,7 +2048,7 @@ class PipeReader_asInterface {
 	var __self__:PipeReader;
 }
 
-@:keep class PipeWriter_static_extension {
+@:keep private class PipeWriter_static_extension {
 	/**
 		// CloseWithError closes the writer; subsequent reads from the
 		// read half of the pipe will return no bytes and the error err,

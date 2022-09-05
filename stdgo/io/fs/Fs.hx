@@ -746,7 +746,6 @@ function _hasMeta(_path:GoString):Bool {
 	// on the returned file.
 **/
 function readDir(_fsys:FS, _name:GoString):{var _0:Slice<DirEntry>; var _1:Error;} {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
 	{
 		var __tmp__ = try {
@@ -761,10 +760,10 @@ function readDir(_fsys:FS, _name:GoString):{var _0:Slice<DirEntry>; var _1:Error
 	var __tmp__ = _fsys.open(_name),
 		_file:File = __tmp__._0,
 		_err:stdgo.Error = __tmp__._1;
+	if (_err != null) {
+		return {_0: (null : Slice<DirEntry>), _1: _err};
+	};
 	try {
-		if (_err != null) {
-			return {_0: (null : Slice<DirEntry>), _1: _err};
-		};
 		__deferstack__.unshift(() -> _file.close());
 		var __tmp__ = try {
 			{value: ((_file.__underlying__().value : Dynamic) : ReadDirFile), ok: true};
@@ -811,19 +810,19 @@ function readDir(_fsys:FS, _name:GoString):{var _0:Slice<DirEntry>; var _1:Error
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return {_0: (null : Slice<DirEntry>), _1: (null : stdgo.Error)};
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return {_0: (null : Slice<DirEntry>), _1: (null : stdgo.Error)};
 	};
 }
@@ -858,7 +857,6 @@ function fileInfoToDirEntry(_info:FileInfo):DirEntry {
 	// on the returned file.
 **/
 function readFile(_fsys:FS, _name:GoString):{var _0:Slice<GoByte>; var _1:Error;} {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
 	{
 		var __tmp__ = try {
@@ -873,10 +871,10 @@ function readFile(_fsys:FS, _name:GoString):{var _0:Slice<GoByte>; var _1:Error;
 	var __tmp__ = _fsys.open(_name),
 		_file:File = __tmp__._0,
 		_err:stdgo.Error = __tmp__._1;
+	if (_err != null) {
+		return {_0: (null : Slice<GoUInt8>), _1: _err};
+	};
 	try {
-		if (_err != null) {
-			return {_0: (null : Slice<GoUInt8>), _1: _err};
-		};
 		__deferstack__.unshift(() -> _file.close());
 		var _size:GoInt = (0 : GoInt);
 		{
@@ -919,19 +917,19 @@ function readFile(_fsys:FS, _name:GoString):{var _0:Slice<GoByte>; var _1:Error;
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return {_0: (null : Slice<GoUInt8>), _1: (null : stdgo.Error)};
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return {_0: (null : Slice<GoUInt8>), _1: (null : stdgo.Error)};
 	};
 }
@@ -943,7 +941,6 @@ function readFile(_fsys:FS, _name:GoString):{var _0:Slice<GoByte>; var _1:Error;
 	// Otherwise, Stat opens the file to stat it.
 **/
 function stat(_fsys:FS, _name:GoString):{var _0:FileInfo; var _1:Error;} {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
 	{
 		var __tmp__ = try {
@@ -958,10 +955,10 @@ function stat(_fsys:FS, _name:GoString):{var _0:FileInfo; var _1:Error;} {
 	var __tmp__ = _fsys.open(_name),
 		_file:File = __tmp__._0,
 		_err:stdgo.Error = __tmp__._1;
+	if (_err != null) {
+		return {_0: (null : FileInfo), _1: _err};
+	};
 	try {
-		if (_err != null) {
-			return {_0: (null : FileInfo), _1: _err};
-		};
 		__deferstack__.unshift(() -> _file.close());
 		{
 			for (defer in __deferstack__) {
@@ -976,19 +973,19 @@ function stat(_fsys:FS, _name:GoString):{var _0:FileInfo; var _1:Error;} {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return {_0: (null : FileInfo), _1: (null : stdgo.Error)};
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return {_0: (null : FileInfo), _1: (null : stdgo.Error)};
 	};
 }
@@ -1140,7 +1137,7 @@ function walkDir(_fsys:FS, _root:GoString, _fn:WalkDirFunc):Error {
 	return _err;
 }
 
-@:keep class PathError_static_extension {
+@:keep private class PathError_static_extension {
 	/**
 		// Timeout reports whether this error represents a timeout.
 	**/
@@ -1208,7 +1205,7 @@ class PathError_asInterface {
 	}
 }
 
-class T_dirInfo_asInterface {
+private class T_dirInfo_asInterface {
 	@:keep
 	public var name:() -> GoString = null;
 	@:keep
@@ -1427,7 +1424,7 @@ class T_dirInfo_asInterface {
 	}
 }
 
-class T_subFS_asInterface {
+private class T_subFS_asInterface {
 	@:keep
 	public var sub:GoString -> {
 		var _0:FS;
@@ -1509,7 +1506,7 @@ class T_subFS_asInterface {
 	}
 }
 
-class T_statDirEntry_asInterface {
+private class T_statDirEntry_asInterface {
 	@:keep
 	public var info:() -> {
 		var _0:FileInfo;

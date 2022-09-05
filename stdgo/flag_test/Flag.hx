@@ -10,7 +10,7 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-var _tests:Slice<stdgo.testing.Testing.InternalTest> = (new Slice<stdgo.testing.Testing.InternalTest>(0, 0,
+private var _tests:Slice<stdgo.testing.Testing.InternalTest> = (new Slice<stdgo.testing.Testing.InternalTest>(0, 0,
 	(new stdgo.testing.Testing.InternalTest((Go.str("TestEverything") : GoString),
 		stdgo.flag_test.Flag_test.testEverything) : stdgo.testing.Testing.InternalTest),
 	(new stdgo.testing.Testing.InternalTest((Go.str("TestGet") : GoString), stdgo.flag_test.Flag_test.testGet) : stdgo.testing.Testing.InternalTest),
@@ -48,13 +48,13 @@ var _tests:Slice<stdgo.testing.Testing.InternalTest> = (new Slice<stdgo.testing.
 	(new stdgo.testing.Testing.InternalTest((Go.str("TestRedefinedFlags") : GoString),
 		stdgo.flag_test.Flag_test.testRedefinedFlags) : stdgo.testing.Testing.InternalTest)) : Slice<stdgo.testing.Testing.InternalTest>);
 
-var _benchmarks:Slice<stdgo.testing.Testing.InternalBenchmark> = (new Slice<stdgo.testing.Testing.InternalBenchmark>(0,
+private var _benchmarks:Slice<stdgo.testing.Testing.InternalBenchmark> = (new Slice<stdgo.testing.Testing.InternalBenchmark>(0,
 	0) : Slice<stdgo.testing.Testing.InternalBenchmark>);
 
-var _fuzzTargets:Slice<stdgo.testing.Testing.InternalFuzzTarget> = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(0,
+private var _fuzzTargets:Slice<stdgo.testing.Testing.InternalFuzzTarget> = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(0,
 	0) : Slice<stdgo.testing.Testing.InternalFuzzTarget>);
 
-var _examples:Slice<stdgo.testing.Testing.InternalExample> = (new Slice<stdgo.testing.Testing.InternalExample>(0, 0,
+private var _examples:Slice<stdgo.testing.Testing.InternalExample> = (new Slice<stdgo.testing.Testing.InternalExample>(0, 0,
 	(new stdgo.testing.Testing.InternalExample((Go.str("ExampleFunc") : GoString), stdgo.flag_test.Flag_test.exampleFunc,
 		(Go.str("{ip: 127.0.0.1, loopback: true}\n\ninvalid value \"256.0.0.1\" for flag -ip: could not parse IP\nUsage of ExampleFunc:\n  -ip IP address\n    \tIP address to parse\n{ip: <nil>, loopback: false}\n") : GoString),
 		false) : stdgo.testing.Testing.InternalExample),

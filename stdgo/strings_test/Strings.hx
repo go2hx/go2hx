@@ -10,7 +10,7 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-var _tests:Slice<stdgo.testing.Testing.InternalTest> = (new Slice<stdgo.testing.Testing.InternalTest>(0, 0,
+private var _tests:Slice<stdgo.testing.Testing.InternalTest> = (new Slice<stdgo.testing.Testing.InternalTest>(0, 0,
 	(new stdgo.testing.Testing.InternalTest((Go.str("TestBuilder") : GoString),
 		stdgo.strings_test.Strings_test.testBuilder) : stdgo.testing.Testing.InternalTest),
 	(new stdgo.testing.Testing.InternalTest((Go.str("TestBuilderString") : GoString),
@@ -132,7 +132,7 @@ var _tests:Slice<stdgo.testing.Testing.InternalTest> = (new Slice<stdgo.testing.
 	(new stdgo.testing.Testing.InternalTest((Go.str("TestCut") : GoString),
 		stdgo.strings_test.Strings_test.testCut) : stdgo.testing.Testing.InternalTest)) : Slice<stdgo.testing.Testing.InternalTest>);
 
-var _benchmarks:Slice<stdgo.testing.Testing.InternalBenchmark> = (new Slice<stdgo.testing.Testing.InternalBenchmark>(0, 0,
+private var _benchmarks:Slice<stdgo.testing.Testing.InternalBenchmark> = (new Slice<stdgo.testing.Testing.InternalBenchmark>(0, 0,
 	(new stdgo.testing.Testing.InternalBenchmark((Go.str("BenchmarkBuildString_Builder") : GoString),
 		stdgo.strings_test.Strings_test.benchmarkBuildString_Builder) : stdgo.testing.Testing.InternalBenchmark),
 	(new stdgo.testing.Testing.InternalBenchmark((Go.str("BenchmarkBuildString_ByteBuffer") : GoString),
@@ -260,10 +260,10 @@ var _benchmarks:Slice<stdgo.testing.Testing.InternalBenchmark> = (new Slice<stdg
 	(new stdgo.testing.Testing.InternalBenchmark((Go.str("BenchmarkReplaceAll") : GoString),
 		stdgo.strings_test.Strings_test.benchmarkReplaceAll) : stdgo.testing.Testing.InternalBenchmark)) : Slice<stdgo.testing.Testing.InternalBenchmark>);
 
-var _fuzzTargets:Slice<stdgo.testing.Testing.InternalFuzzTarget> = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(0,
+private var _fuzzTargets:Slice<stdgo.testing.Testing.InternalFuzzTarget> = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(0,
 	0) : Slice<stdgo.testing.Testing.InternalFuzzTarget>);
 
-var _examples:Slice<stdgo.testing.Testing.InternalExample> = (new Slice<stdgo.testing.Testing.InternalExample>(0, 0,
+private var _examples:Slice<stdgo.testing.Testing.InternalExample> = (new Slice<stdgo.testing.Testing.InternalExample>(0, 0,
 	(new stdgo.testing.Testing.InternalExample((Go.str("ExampleBuilder") : GoString), stdgo.strings_test.Strings_test.exampleBuilder,
 		(Go.str("3...2...1...ignition\n") : GoString), false) : stdgo.testing.Testing.InternalExample),
 	(new stdgo.testing.Testing.InternalExample((Go.str("ExampleCompare") : GoString), stdgo.strings_test.Strings_test.exampleCompare,

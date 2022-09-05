@@ -12,7 +12,7 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-var _matchTests:Slice<stdgo.path_test.Path_test.MatchTest> = (new Slice<stdgo.path_test.Path_test.MatchTest>(0, 0,
+private var _matchTests:Slice<stdgo.path_test.Path_test.MatchTest> = (new Slice<stdgo.path_test.Path_test.MatchTest>(0, 0,
 	(new stdgo.path_test.Path_test.MatchTest((Go.str("abc") : GoString), (Go.str("abc") : GoString), true,
 		(null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest),
 	(new stdgo.path_test.Path_test.MatchTest((Go.str("*") : GoString), (Go.str("abc") : GoString), true,
@@ -121,7 +121,7 @@ var _matchTests:Slice<stdgo.path_test.Path_test.MatchTest> = (new Slice<stdgo.pa
 	(new stdgo.path_test.Path_test.MatchTest((Go.str("*x") : GoString), (Go.str("xxx") : GoString), true,
 		(null : stdgo.Error)) : stdgo.path_test.Path_test.MatchTest)) : Slice<stdgo.path_test.Path_test.MatchTest>);
 
-var _cleantests:Slice<stdgo.path_test.Path_test.PathTest> = (new Slice<stdgo.path_test.Path_test.PathTest>(0, 0,
+private var _cleantests:Slice<stdgo.path_test.Path_test.PathTest> = (new Slice<stdgo.path_test.Path_test.PathTest>(0, 0,
 	(new stdgo.path_test.Path_test.PathTest((Go.str() : GoString), (Go.str(".") : GoString)) : stdgo.path_test.Path_test.PathTest),
 	(new stdgo.path_test.Path_test.PathTest((Go.str("abc") : GoString), (Go.str("abc") : GoString)) : stdgo.path_test.Path_test.PathTest),
 	(new stdgo.path_test.Path_test.PathTest((Go.str("abc/def") : GoString), (Go.str("abc/def") : GoString)) : stdgo.path_test.Path_test.PathTest),
@@ -163,7 +163,7 @@ var _cleantests:Slice<stdgo.path_test.Path_test.PathTest> = (new Slice<stdgo.pat
 	(new stdgo.path_test.Path_test.PathTest((Go.str("abc/../../././../def") : GoString),
 		(Go.str("../../def") : GoString)) : stdgo.path_test.Path_test.PathTest)) : Slice<stdgo.path_test.Path_test.PathTest>);
 
-var _splittests:Slice<stdgo.path_test.Path_test.SplitTest> = (new Slice<stdgo.path_test.Path_test.SplitTest>(0, 0,
+private var _splittests:Slice<stdgo.path_test.Path_test.SplitTest> = (new Slice<stdgo.path_test.Path_test.SplitTest>(0, 0,
 	(new stdgo.path_test.Path_test.SplitTest((Go.str("a/b") : GoString), (Go.str("a/") : GoString),
 		(Go.str("b") : GoString)) : stdgo.path_test.Path_test.SplitTest),
 	(new stdgo.path_test.Path_test.SplitTest((Go.str("a/b/") : GoString), (Go.str("a/b/") : GoString),
@@ -174,7 +174,7 @@ var _splittests:Slice<stdgo.path_test.Path_test.SplitTest> = (new Slice<stdgo.pa
 	(new stdgo.path_test.Path_test.SplitTest((Go.str("/") : GoString), (Go.str("/") : GoString),
 		(Go.str() : GoString)) : stdgo.path_test.Path_test.SplitTest)) : Slice<stdgo.path_test.Path_test.SplitTest>);
 
-var _jointests:Slice<stdgo.path_test.Path_test.JoinTest> = (new Slice<stdgo.path_test.Path_test.JoinTest>(0, 0,
+private var _jointests:Slice<stdgo.path_test.Path_test.JoinTest> = (new Slice<stdgo.path_test.Path_test.JoinTest>(0, 0,
 	(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(0, 0) : Slice<GoString>), (Go.str() : GoString)) : stdgo.path_test.Path_test.JoinTest),
 	(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(0, 0, (Go.str() : GoString)) : Slice<GoString>),
 		(Go.str() : GoString)) : stdgo.path_test.Path_test.JoinTest),
@@ -197,7 +197,7 @@ var _jointests:Slice<stdgo.path_test.Path_test.JoinTest> = (new Slice<stdgo.path
 	(new stdgo.path_test.Path_test.JoinTest((new Slice<GoString>(0, 0, (Go.str() : GoString), (Go.str() : GoString)) : Slice<GoString>),
 		(Go.str() : GoString)) : stdgo.path_test.Path_test.JoinTest)) : Slice<stdgo.path_test.Path_test.JoinTest>);
 
-var _exttests:Slice<stdgo.path_test.Path_test.ExtTest> = (new Slice<stdgo.path_test.Path_test.ExtTest>(0, 0,
+private var _exttests:Slice<stdgo.path_test.Path_test.ExtTest> = (new Slice<stdgo.path_test.Path_test.ExtTest>(0, 0,
 	(new stdgo.path_test.Path_test.ExtTest((Go.str("path.go") : GoString), (Go.str(".go") : GoString)) : stdgo.path_test.Path_test.ExtTest),
 	(new stdgo.path_test.Path_test.ExtTest((Go.str("path.pb.go") : GoString), (Go.str(".go") : GoString)) : stdgo.path_test.Path_test.ExtTest),
 	(new stdgo.path_test.Path_test.ExtTest((Go.str("a.dir/b") : GoString), (Go.str() : GoString)) : stdgo.path_test.Path_test.ExtTest),
@@ -205,7 +205,7 @@ var _exttests:Slice<stdgo.path_test.Path_test.ExtTest> = (new Slice<stdgo.path_t
 	(new stdgo.path_test.Path_test.ExtTest((Go.str("a.dir/") : GoString),
 		(Go.str() : GoString)) : stdgo.path_test.Path_test.ExtTest)) : Slice<stdgo.path_test.Path_test.ExtTest>);
 
-var _basetests:Slice<stdgo.path_test.Path_test.PathTest> = (new Slice<stdgo.path_test.Path_test.PathTest>(0, 0,
+private var _basetests:Slice<stdgo.path_test.Path_test.PathTest> = (new Slice<stdgo.path_test.Path_test.PathTest>(0, 0,
 	(new stdgo.path_test.Path_test.PathTest((Go.str() : GoString), (Go.str(".") : GoString)) : stdgo.path_test.Path_test.PathTest),
 	(new stdgo.path_test.Path_test.PathTest((Go.str(".") : GoString), (Go.str(".") : GoString)) : stdgo.path_test.Path_test.PathTest),
 	(new stdgo.path_test.Path_test.PathTest((Go.str("/.") : GoString), (Go.str(".") : GoString)) : stdgo.path_test.Path_test.PathTest),
@@ -219,7 +219,7 @@ var _basetests:Slice<stdgo.path_test.Path_test.PathTest> = (new Slice<stdgo.path
 	(new stdgo.path_test.Path_test.PathTest((Go.str("a/b/c.x") : GoString),
 		(Go.str("c.x") : GoString)) : stdgo.path_test.Path_test.PathTest)) : Slice<stdgo.path_test.Path_test.PathTest>);
 
-var _dirtests:Slice<stdgo.path_test.Path_test.PathTest> = (new Slice<stdgo.path_test.Path_test.PathTest>(0, 0,
+private var _dirtests:Slice<stdgo.path_test.Path_test.PathTest> = (new Slice<stdgo.path_test.Path_test.PathTest>(0, 0,
 	(new stdgo.path_test.Path_test.PathTest((Go.str() : GoString), (Go.str(".") : GoString)) : stdgo.path_test.Path_test.PathTest),
 	(new stdgo.path_test.Path_test.PathTest((Go.str(".") : GoString), (Go.str(".") : GoString)) : stdgo.path_test.Path_test.PathTest),
 	(new stdgo.path_test.Path_test.PathTest((Go.str("/.") : GoString), (Go.str("/") : GoString)) : stdgo.path_test.Path_test.PathTest),
@@ -235,7 +235,7 @@ var _dirtests:Slice<stdgo.path_test.Path_test.PathTest> = (new Slice<stdgo.path_
 	(new stdgo.path_test.Path_test.PathTest((Go.str("a/b/c.x") : GoString),
 		(Go.str("a/b") : GoString)) : stdgo.path_test.Path_test.PathTest)) : Slice<stdgo.path_test.Path_test.PathTest>);
 
-var _isAbsTests:Slice<stdgo.path_test.Path_test.IsAbsTest> = (new Slice<stdgo.path_test.Path_test.IsAbsTest>(0, 0,
+private var _isAbsTests:Slice<stdgo.path_test.Path_test.IsAbsTest> = (new Slice<stdgo.path_test.Path_test.IsAbsTest>(0, 0,
 	(new stdgo.path_test.Path_test.IsAbsTest((Go.str() : GoString), false) : stdgo.path_test.Path_test.IsAbsTest),
 	(new stdgo.path_test.Path_test.IsAbsTest((Go.str("/") : GoString), true) : stdgo.path_test.Path_test.IsAbsTest),
 	(new stdgo.path_test.Path_test.IsAbsTest((Go.str("/usr/bin/gcc") : GoString), true) : stdgo.path_test.Path_test.IsAbsTest),

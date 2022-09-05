@@ -10,8 +10,8 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-var _2:stdgo.io.fs.Fs.FS = (null : stdgo.io.fs.Fs.FS);
-var _3:stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
+private var _2:stdgo.io.fs.Fs.FS = (null : stdgo.io.fs.Fs.FS);
+private var _3:stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
 
 /**
 	// Package fstest implements support for testing implementations and users of file systems.
@@ -377,7 +377,7 @@ function testDash(_t:stdgo.testing.Testing.T):Void
 		return __self__.open(_pattern);
 }
 
-class T_fsOnly_asInterface {
+private class T_fsOnly_asInterface {
 	@:embedded
 	public var open:GoString -> {
 		var _0:stdgo.io.fs.Fs.File;
@@ -419,7 +419,7 @@ class T_fsOnly_asInterface {
 		return __self__.glob(_pattern);
 }
 
-class T_noSub_asInterface {
+private class T_noSub_asInterface {
 	@:keep
 	public var sub:() -> Void = null;
 	@:embedded
@@ -491,7 +491,7 @@ class T_noSub_asInterface {
 		throw "testing.fstest.name is not yet implemented";
 }
 
-class T_mapFileInfo_asInterface {
+private class T_mapFileInfo_asInterface {
 	@:keep
 	public var info:() -> {
 		var _0:stdgo.io.fs.Fs.FileInfo;
@@ -575,7 +575,7 @@ class T_mapFileInfo_asInterface {
 		return __self__.info();
 }
 
-class T_openMapFile_asInterface {
+private class T_openMapFile_asInterface {
 	@:keep
 	public var readAt:(Slice<GoByte>, GoInt64) -> {
 		var _0:GoInt;
@@ -677,7 +677,7 @@ class T_openMapFile_asInterface {
 		return __self__.info();
 }
 
-class T_mapDir_asInterface {
+private class T_mapDir_asInterface {
 	@:keep
 	public var readDir:GoInt -> {
 		var _0:Slice<stdgo.io.fs.Fs.DirEntry>;
@@ -794,7 +794,7 @@ class T_mapDir_asInterface {
 		throw "testing.fstest._errorf is not yet implemented";
 }
 
-class T_fsTester_asInterface {
+private class T_fsTester_asInterface {
 	/**
 		// checkBadPath checks that various invalid forms of file's name cannot be opened using open.
 	**/

@@ -17,7 +17,7 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-var _isValidPathTests:Slice<T__struct_0> = (new Slice<T__struct_0>(0, 0, ({_name: (Go.str(".") : GoString), _ok: true} : T__struct_0),
+private var _isValidPathTests:Slice<T__struct_0> = (new Slice<T__struct_0>(0, 0, ({_name: (Go.str(".") : GoString), _ok: true} : T__struct_0),
 	({_name: (Go.str("x") : GoString), _ok: true} : T__struct_0), ({_name: (Go.str("x/y") : GoString), _ok: true} : T__struct_0),
 	({_name: (Go.str() : GoString), _ok: false} : T__struct_0), ({_name: (Go.str("..") : GoString), _ok: false} : T__struct_0),
 	({_name: (Go.str("/") : GoString), _ok: false} : T__struct_0), ({_name: (Go.str("x/") : GoString), _ok: false} : T__struct_0),
@@ -30,7 +30,7 @@ var _isValidPathTests:Slice<T__struct_0> = (new Slice<T__struct_0>(0, 0, ({_name
 	({_name: ("x\\" : GoString), _ok: true} : T__struct_0), ({_name: ("x\\y" : GoString), _ok: true} : T__struct_0),
 	({_name: ("x:y" : GoString), _ok: true} : T__struct_0), ({_name: ("\\x" : GoString), _ok: true} : T__struct_0)) : Slice<T__struct_0>);
 
-var _globTests:Slice<T__struct_1> = (new Slice<T__struct_1>(0, 0,
+private var _globTests:Slice<T__struct_1> = (new Slice<T__struct_1>(0, 0,
 	({_fs: stdgo.os.Os.dirFS((Go.str(".") : GoString)), _pattern: (Go.str("glob.go") : GoString), _result: (Go.str("glob.go") : GoString)} : T__struct_1),
 	({_fs: stdgo.os.Os.dirFS((Go.str(".") : GoString)), _pattern: (Go.str("gl?b.go") : GoString), _result: (Go.str("glob.go") : GoString)} : T__struct_1),
 	({_fs: stdgo.os.Os.dirFS((Go.str(".") : GoString)), _pattern: ("gl\\ob.go" : GoString), _result: (Go.str("glob.go") : GoString)} : T__struct_1),
@@ -38,7 +38,7 @@ var _globTests:Slice<T__struct_1> = (new Slice<T__struct_1>(0, 0,
 	({_fs: stdgo.os.Os.dirFS((Go.str("..") : GoString)), _pattern: (Go.str("*/glob.go") : GoString),
 		_result: (Go.str("fs/glob.go") : GoString)} : T__struct_1)) : Slice<T__struct_1>);
 
-var _testFsys:stdgo.testing.fstest.Fstest.MapFS = {
+private var _testFsys:stdgo.testing.fstest.Fstest.MapFS = {
 	final x = new stdgo.GoMap.GoObjectMap<GoString,
 		Ref<stdgo.testing.fstest.Fstest.MapFile>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.named("stdgo.testing.fstest.Fstest.MapFS", [],
 		stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind),
@@ -206,12 +206,12 @@ var _testFsys:stdgo.testing.fstest.Fstest.MapFS = {
 	x;
 };
 
-var _tree:Ref<stdgo.io.fs_test.Fs_test.Node> = (new stdgo.io.fs_test.Fs_test.Node((Go.str("testdata") : GoString),
+private var _tree:Ref<stdgo.io.fs_test.Fs_test.Node> = (new stdgo.io.fs_test.Fs_test.Node((Go.str("testdata") : GoString),
 	(new Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>(0, 0, @:invalid_compositelit null, @:invalid_compositelit null, @:invalid_compositelit null,
 		@:invalid_compositelit null) : Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>),
 	(0 : GoInt)) : stdgo.io.fs_test.Fs_test.Node);
 
-var _sysValue:GoInt = (0 : GoInt);
+private var _sysValue:GoInt = (0 : GoInt);
 
 @:structInit @:using(stdgo.io.fs_test.Fs_test.T_globOnly_static_extension) private class T_globOnly {
 	@:embedded
@@ -1634,10 +1634,9 @@ function _mark(_entry:DirEntry, _err:Error, _errors:Slice<Error>, _clear:Bool):E
 }
 
 function testWalkDir(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _tmpDir:GoString = _t.tempDir();
 	try {
-		var _tmpDir:GoString = _t.tempDir();
 		var __tmp__ = stdgo.os.Os.getwd(),
 			_origDir:GoString = __tmp__._0,
 			_err:stdgo.Error = __tmp__._1;
@@ -1675,28 +1674,27 @@ function testWalkDir(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function testIssue51617(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _dir:GoString = _t.tempDir();
 	try {
-		var _dir:GoString = _t.tempDir();
 		for (_0 => _sub in (new Slice<GoString>(0, 0, (Go.str("a") : GoString),
 			stdgo.path.filepath.Filepath.join((Go.str("a") : GoString), (Go.str("bad") : GoString)),
 			stdgo.path.filepath.Filepath.join((Go.str("a") : GoString), (Go.str("next") : GoString))) : Slice<GoString>)) {
@@ -1744,19 +1742,19 @@ function testIssue51617(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -1772,7 +1770,7 @@ function testIssue51617(_t:stdgo.testing.Testing.T):Void {
 		return __self__.glob(_name);
 }
 
-class T_globOnly_asInterface {
+private class T_globOnly_asInterface {
 	@:keep
 	public var open:GoString -> {
 		var _0:File;
@@ -1804,7 +1802,7 @@ class T_globOnly_asInterface {
 		return __self__.readDir(_name);
 }
 
-class T_readDirOnly_asInterface {
+private class T_readDirOnly_asInterface {
 	@:keep
 	public var open:GoString -> {
 		var _0:File;
@@ -1836,7 +1834,7 @@ class T_readDirOnly_asInterface {
 		return __self__.readFile(_name);
 }
 
-class T_readFileOnly_asInterface {
+private class T_readFileOnly_asInterface {
 	@:keep
 	public var open:GoString -> {
 		var _0:File;
@@ -1863,7 +1861,7 @@ class T_readFileOnly_asInterface {
 		return __self__.open(_name);
 }
 
-class T_openOnly_asInterface {
+private class T_openOnly_asInterface {
 	@:embedded
 	public var open:GoString -> {
 		var _0:File;
@@ -1890,7 +1888,7 @@ class T_openOnly_asInterface {
 		return __self__.stat(_name);
 }
 
-class T_statOnly_asInterface {
+private class T_statOnly_asInterface {
 	@:keep
 	public var open:GoString -> {
 		var _0:File;
@@ -1922,7 +1920,7 @@ class T_statOnly_asInterface {
 		return __self__.sub(_name);
 }
 
-class T_subOnly_asInterface {
+private class T_subOnly_asInterface {
 	@:keep
 	public var open:GoString -> {
 		var _0:File;

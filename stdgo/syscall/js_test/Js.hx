@@ -10,10 +10,10 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-var _tests:Slice<stdgo.testing.Testing.InternalTest> = (null : Slice<stdgo.testing.Testing.InternalTest>);
-var _benchmarks:Slice<stdgo.testing.Testing.InternalBenchmark> = (null : Slice<stdgo.testing.Testing.InternalBenchmark>);
-var _fuzzTargets:Slice<stdgo.testing.Testing.InternalFuzzTarget> = (null : Slice<stdgo.testing.Testing.InternalFuzzTarget>);
-var _examples:Slice<stdgo.testing.Testing.InternalExample> = (null : Slice<stdgo.testing.Testing.InternalExample>);
+private var _tests:Slice<stdgo.testing.Testing.InternalTest> = (null : Slice<stdgo.testing.Testing.InternalTest>);
+private var _benchmarks:Slice<stdgo.testing.Testing.InternalBenchmark> = (null : Slice<stdgo.testing.Testing.InternalBenchmark>);
+private var _fuzzTargets:Slice<stdgo.testing.Testing.InternalFuzzTarget> = (null : Slice<stdgo.testing.Testing.InternalFuzzTarget>);
+private var _examples:Slice<stdgo.testing.Testing.InternalExample> = (null : Slice<stdgo.testing.Testing.InternalExample>);
 
 function main():Void {
 	var _m = stdgo.testing.Testing.mainStart({

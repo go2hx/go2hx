@@ -15,7 +15,7 @@ import stdgo.Chan;
 **/
 var errTimeout:stdgo.Error = (null : stdgo.Error);
 
-var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>);
+private var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>);
 
 /**
 	// Package iotest implements Readers and Writers useful mainly for testing.
@@ -336,7 +336,7 @@ function testTruncateWriter(_t:stdgo.testing.Testing.T):Void
 		throw "testing.iotest.write is not yet implemented";
 }
 
-class T_writeLogger_asInterface {
+private class T_writeLogger_asInterface {
 	@:keep
 	public var write:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -358,7 +358,7 @@ class T_writeLogger_asInterface {
 		throw "testing.iotest.read is not yet implemented";
 }
 
-class T_readLogger_asInterface {
+private class T_readLogger_asInterface {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -380,7 +380,7 @@ class T_readLogger_asInterface {
 		throw "testing.iotest.write is not yet implemented";
 }
 
-class T_errWriter_asInterface {
+private class T_errWriter_asInterface {
 	@:keep
 	public var write:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -402,7 +402,7 @@ class T_errWriter_asInterface {
 		throw "testing.iotest.read is not yet implemented";
 }
 
-class T_oneByteReader_asInterface {
+private class T_oneByteReader_asInterface {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -424,7 +424,7 @@ class T_oneByteReader_asInterface {
 		throw "testing.iotest.read is not yet implemented";
 }
 
-class T_halfReader_asInterface {
+private class T_halfReader_asInterface {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -446,7 +446,7 @@ class T_halfReader_asInterface {
 		throw "testing.iotest.read is not yet implemented";
 }
 
-class T_dataErrReader_asInterface {
+private class T_dataErrReader_asInterface {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -468,7 +468,7 @@ class T_dataErrReader_asInterface {
 		throw "testing.iotest.read is not yet implemented";
 }
 
-class T_timeoutReader_asInterface {
+private class T_timeoutReader_asInterface {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -490,7 +490,7 @@ class T_timeoutReader_asInterface {
 		throw "testing.iotest.read is not yet implemented";
 }
 
-class T_errReader_asInterface {
+private class T_errReader_asInterface {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -512,7 +512,7 @@ class T_errReader_asInterface {
 		throw "testing.iotest.read is not yet implemented";
 }
 
-class T_smallByteReader_asInterface {
+private class T_smallByteReader_asInterface {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -534,7 +534,7 @@ class T_smallByteReader_asInterface {
 		throw "testing.iotest.write is not yet implemented";
 }
 
-class T_truncateWriter_asInterface {
+private class T_truncateWriter_asInterface {
 	@:keep
 	public var write:Slice<GoByte> -> {
 		var _0:GoInt;

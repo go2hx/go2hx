@@ -10,35 +10,36 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-var _deBruijn32tab:GoArray<GoUInt8> = (new GoArray<GoUInt8>((0 : GoUInt8), (1 : GoUInt8), (28 : GoUInt8), (2 : GoUInt8), (29 : GoUInt8), (14 : GoUInt8),
-	(24 : GoUInt8), (3 : GoUInt8), (30 : GoUInt8), (22 : GoUInt8), (20 : GoUInt8), (15 : GoUInt8), (25 : GoUInt8), (17 : GoUInt8), (4 : GoUInt8),
-	(8 : GoUInt8), (31 : GoUInt8), (27 : GoUInt8), (13 : GoUInt8), (23 : GoUInt8), (21 : GoUInt8), (19 : GoUInt8), (16 : GoUInt8), (7 : GoUInt8),
-	(26 : GoUInt8), (12 : GoUInt8), (18 : GoUInt8), (6 : GoUInt8), (11 : GoUInt8), (5 : GoUInt8), (10 : GoUInt8), (9 : GoUInt8)) : GoArray<GoUInt8>);
+private var _deBruijn32tab:GoArray<GoUInt8> = (new GoArray<GoUInt8>((0 : GoUInt8), (1 : GoUInt8), (28 : GoUInt8), (2 : GoUInt8), (29 : GoUInt8),
+	(14 : GoUInt8), (24 : GoUInt8), (3 : GoUInt8), (30 : GoUInt8), (22 : GoUInt8), (20 : GoUInt8), (15 : GoUInt8), (25 : GoUInt8), (17 : GoUInt8),
+	(4 : GoUInt8), (8 : GoUInt8), (31 : GoUInt8), (27 : GoUInt8), (13 : GoUInt8), (23 : GoUInt8), (21 : GoUInt8), (19 : GoUInt8), (16 : GoUInt8),
+	(7 : GoUInt8), (26 : GoUInt8), (12 : GoUInt8), (18 : GoUInt8), (6 : GoUInt8), (11 : GoUInt8), (5 : GoUInt8), (10 : GoUInt8),
+	(9 : GoUInt8)) : GoArray<GoUInt8>);
 
-var _deBruijn64tab:GoArray<GoUInt8> = (new GoArray<GoUInt8>((0 : GoUInt8), (1 : GoUInt8), (56 : GoUInt8), (2 : GoUInt8), (57 : GoUInt8), (49 : GoUInt8),
-	(28 : GoUInt8), (3 : GoUInt8), (61 : GoUInt8), (58 : GoUInt8), (42 : GoUInt8), (50 : GoUInt8), (38 : GoUInt8), (29 : GoUInt8), (17 : GoUInt8),
-	(4 : GoUInt8), (62 : GoUInt8), (47 : GoUInt8), (59 : GoUInt8), (36 : GoUInt8), (45 : GoUInt8), (43 : GoUInt8), (51 : GoUInt8), (22 : GoUInt8),
-	(53 : GoUInt8), (39 : GoUInt8), (33 : GoUInt8), (30 : GoUInt8), (24 : GoUInt8), (18 : GoUInt8), (12 : GoUInt8), (5 : GoUInt8), (63 : GoUInt8),
-	(55 : GoUInt8), (48 : GoUInt8), (27 : GoUInt8), (60 : GoUInt8), (41 : GoUInt8), (37 : GoUInt8), (16 : GoUInt8), (46 : GoUInt8), (35 : GoUInt8),
-	(44 : GoUInt8), (21 : GoUInt8), (52 : GoUInt8), (32 : GoUInt8), (23 : GoUInt8), (11 : GoUInt8), (54 : GoUInt8), (26 : GoUInt8), (40 : GoUInt8),
-	(15 : GoUInt8), (34 : GoUInt8), (20 : GoUInt8), (31 : GoUInt8), (10 : GoUInt8), (25 : GoUInt8), (14 : GoUInt8), (19 : GoUInt8), (9 : GoUInt8),
-	(13 : GoUInt8), (8 : GoUInt8), (7 : GoUInt8), (6 : GoUInt8)) : GoArray<GoUInt8>);
+private var _deBruijn64tab:GoArray<GoUInt8> = (new GoArray<GoUInt8>((0 : GoUInt8), (1 : GoUInt8), (56 : GoUInt8), (2 : GoUInt8), (57 : GoUInt8),
+	(49 : GoUInt8), (28 : GoUInt8), (3 : GoUInt8), (61 : GoUInt8), (58 : GoUInt8), (42 : GoUInt8), (50 : GoUInt8), (38 : GoUInt8), (29 : GoUInt8),
+	(17 : GoUInt8), (4 : GoUInt8), (62 : GoUInt8), (47 : GoUInt8), (59 : GoUInt8), (36 : GoUInt8), (45 : GoUInt8), (43 : GoUInt8), (51 : GoUInt8),
+	(22 : GoUInt8), (53 : GoUInt8), (39 : GoUInt8), (33 : GoUInt8), (30 : GoUInt8), (24 : GoUInt8), (18 : GoUInt8), (12 : GoUInt8), (5 : GoUInt8),
+	(63 : GoUInt8), (55 : GoUInt8), (48 : GoUInt8), (27 : GoUInt8), (60 : GoUInt8), (41 : GoUInt8), (37 : GoUInt8), (16 : GoUInt8), (46 : GoUInt8),
+	(35 : GoUInt8), (44 : GoUInt8), (21 : GoUInt8), (52 : GoUInt8), (32 : GoUInt8), (23 : GoUInt8), (11 : GoUInt8), (54 : GoUInt8), (26 : GoUInt8),
+	(40 : GoUInt8), (15 : GoUInt8), (34 : GoUInt8), (20 : GoUInt8), (31 : GoUInt8), (10 : GoUInt8), (25 : GoUInt8), (14 : GoUInt8), (19 : GoUInt8),
+	(9 : GoUInt8), (13 : GoUInt8), (8 : GoUInt8), (7 : GoUInt8), (6 : GoUInt8)) : GoArray<GoUInt8>);
 
-var _overflowError:stdgo.Error = {
+private var _overflowError:stdgo.Error = {
 	final __self__ = new T_errorString_asInterface((Go.str("integer overflow") : T_errorString));
 	__self__.error = #if !macro function():GoString return (Go.str("integer overflow") : T_errorString).error() #else null #end;
 	__self__.runtimeError = #if !macro function():Void(Go.str("integer overflow"):T_errorString).runtimeError() #else null #end;
 	__self__;
 };
 
-var _divideError:stdgo.Error = {
+private var _divideError:stdgo.Error = {
 	final __self__ = new T_errorString_asInterface((Go.str("integer divide by zero") : T_errorString));
 	__self__.error = #if !macro function():GoString return (Go.str("integer divide by zero") : T_errorString).error() #else null #end;
 	__self__.runtimeError = #if !macro function():Void(Go.str("integer divide by zero"):T_errorString).runtimeError() #else null #end;
 	__self__;
 };
 
-final _uintSize:GoUnTypedInt = (32 : GoUnTypedInt);
+private final _uintSize:GoUnTypedInt = (32 : GoUnTypedInt);
 
 /**
 	// UintSize is the size of a uint in bits.
@@ -48,41 +49,41 @@ final uintSize:GoUnTypedInt = (32 : GoUnTypedInt);
 /**
 	// See http://supertech.csail.mit.edu/papers/debruijn.pdf
 **/
-final _deBruijn32:GoUnTypedInt = (125613361 : GoUnTypedInt);
+private final _deBruijn32:GoUnTypedInt = (125613361 : GoUnTypedInt);
 
-final _deBruijn64:GoUnTypedInt = ("285870213051353865" : GoUnTypedInt);
-final _m0:GoUnTypedInt = ("6148914691236517205" : GoUnTypedInt);
-final _m1:GoUnTypedInt = ("3689348814741910323" : GoUnTypedInt);
-final _m2:GoUnTypedInt = ("1085102592571150095" : GoUnTypedInt);
-final _m3:GoUnTypedInt = ("71777214294589695" : GoUnTypedInt);
-final _m4:GoUnTypedInt = ("281470681808895" : GoUnTypedInt);
+private final _deBruijn64:GoUnTypedInt = ("285870213051353865" : GoUnTypedInt);
+private final _m0:GoUnTypedInt = ("6148914691236517205" : GoUnTypedInt);
+private final _m1:GoUnTypedInt = ("3689348814741910323" : GoUnTypedInt);
+private final _m2:GoUnTypedInt = ("1085102592571150095" : GoUnTypedInt);
+private final _m3:GoUnTypedInt = ("71777214294589695" : GoUnTypedInt);
+private final _m4:GoUnTypedInt = ("281470681808895" : GoUnTypedInt);
 
-final _ntz8tab:GoString = (Go.str("\x08", 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 5, 0, 1, 0, 2, 0, 1, 0,
-	3, 0, 1, 0, 2, 0, 1, 0, 4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 6, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1,
-	0, 2, 0, 1, 0, 5, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, "\x07", 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2,
-	0, 1, 0, 4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 5, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0,
-	6, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 5, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 4, 0, 1,
-	0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0) : GoString);
+private final _ntz8tab:GoString = (Go.str("\x08", 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 5, 0, 1, 0, 2,
+	0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 6, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 4, 0, 1, 0, 2, 0, 1, 0,
+	3, 0, 1, 0, 2, 0, 1, 0, 5, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, "\x07", 0, 1, 0, 2, 0, 1, 0, 3, 0,
+	1, 0, 2, 0, 1, 0, 4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 5, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2,
+	0, 1, 0, 6, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 5, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0,
+	4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0) : GoString);
 
-final _pop8tab:GoString = (Go.str(0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4, 1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5, 1, 2, 2, 3, 2, 3, 3, 4, 2,
-	3, 3, 4, 3, 4, 4, 5, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5,
-	4, 5, 5, 6, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, "\x07", 1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4,
-	4, 5, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, "\x07",
-	2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, "\x07", 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, "\x07",
-	4, 5, 5, 6, 5, 6, 6, "\x07", 5, 6, 6, "\x07", 6, "\x07\x07\x08") : GoString);
+private final _pop8tab:GoString = (Go.str(0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4, 1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5, 1, 2, 2, 3, 2, 3, 3,
+	4, 2, 3, 3, 4, 3, 4, 4, 5, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4,
+	4, 5, 4, 5, 5, 6, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, "\x07", 1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4,
+	3, 4, 4, 5, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6,
+	"\x07", 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, "\x07", 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6,
+	"\x07", 4, 5, 5, 6, 5, 6, 6, "\x07", 5, 6, 6, "\x07", 6, "\x07\x07\x08") : GoString);
 
-final _rev8tab:GoString = (Go.str(0, 128, "@", 192, " ", 160, "`", 224, 16, 144, "P", 208, "0", 176, "p", 240, "\x08", 136, "H", 200, "(", 168, "h", 232, 24,
-	152, "X", 216, "8", 184, "x", 248, 4, 132, "D", 196, "$$", 164, "d", 228, 20, 148, "T", 212, "4", 180, "t", 244, "\x0C", 140, "L", 204, ",", 172, "l",
-	236, 28, 156, "\\", 220, "<", 188, "|", 252, 2, 130, "B", 194, "\"", 162, "b", 226, 18, 146, "R", 210, "2", 178, "r", 242, "\n", 138, "J", 202, "*", 170,
-	"j", 234, 26, 154, "Z", 218, ":", 186, "z", 250, 6, 134, "F", 198, "&", 166, "f", 230, 22, 150, "V", 214, "6", 182, "v", 246, 14, 142, "N", 206, ".", 174,
-	"n", 238, 30, 158, "^", 222, ">", 190, "~", 254, 1, 129, "A", 193, "!", 161, "a", 225, 17, 145, "Q", 209, "1", 177, "q", 241, "\t", 137, "I", 201, ")",
-	169, "i", 233, 25, 153, "Y", 217, "9", 185, "y", 249, 5, 133, "E", 197, "%", 165, "e", 229, 21, 149, "U", 213, "5", 181, "u", 245, "\r", 141, "M", 205,
-	"-", 173, "m", 237, 29, 157, "]", 221, "=", 189, "}", 253, 3, 131, "C", 195, "#", 163, "c", 227, 19, 147, "S", 211, "3", 179, "s", 243, "\x0B", 139, "K",
-	203, "+", 171, "k", 235, 27, 155, "[", 219, ";", 187, "{", 251, "\x07", 135, "G", 199, "\'", 167, "g", 231, 23, 151, "W", 215, "7", 183, "w", 247, 15,
-	143, "O", 207, "/", 175, "o", 239, 31, 159, "_", 223, "?", 191, 127, 255) : GoString);
+private final _rev8tab:GoString = (Go.str(0, 128, "@", 192, " ", 160, "`", 224, 16, 144, "P", 208, "0", 176, "p", 240, "\x08", 136, "H", 200, "(", 168, "h",
+	232, 24, 152, "X", 216, "8", 184, "x", 248, 4, 132, "D", 196, "$$", 164, "d", 228, 20, 148, "T", 212, "4", 180, "t", 244, "\x0C", 140, "L", 204, ",", 172,
+	"l", 236, 28, 156, "\\", 220, "<", 188, "|", 252, 2, 130, "B", 194, "\"", 162, "b", 226, 18, 146, "R", 210, "2", 178, "r", 242, "\n", 138, "J", 202, "*",
+	170, "j", 234, 26, 154, "Z", 218, ":", 186, "z", 250, 6, 134, "F", 198, "&", 166, "f", 230, 22, 150, "V", 214, "6", 182, "v", 246, 14, 142, "N", 206, ".",
+	174, "n", 238, 30, 158, "^", 222, ">", 190, "~", 254, 1, 129, "A", 193, "!", 161, "a", 225, 17, 145, "Q", 209, "1", 177, "q", 241, "\t", 137, "I", 201,
+	")", 169, "i", 233, 25, 153, "Y", 217, "9", 185, "y", 249, 5, 133, "E", 197, "%", 165, "e", 229, 21, 149, "U", 213, "5", 181, "u", 245, "\r", 141, "M",
+	205, "-", 173, "m", 237, 29, 157, "]", 221, "=", 189, "}", 253, 3, 131, "C", 195, "#", 163, "c", 227, 19, 147, "S", 211, "3", 179, "s", 243, "\x0B", 139,
+	"K", 203, "+", 171, "k", 235, 27, 155, "[", 219, ";", 187, "{", 251, "\x07", 135, "G", 199, "\'", 167, "g", 231, 23, 151, "W", 215, "7", 183, "w", 247,
+	15, 143, "O", 207, "/", 175, "o", 239, 31, 159, "_", 223, "?", 191, 127, 255) : GoString);
 
-final _len8tab:GoString = (Go.str(0, 1, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6,
-	6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
+private final _len8tab:GoString = (Go.str(0, 1, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6,
+	6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
 	"\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08") : GoString);
 
 final deBruijn64:GoUnTypedInt = ("285870213051353865" : GoUnTypedInt);
@@ -812,7 +813,7 @@ function rem64(_hi:GoUInt64, _lo:GoUInt64, _y:GoUInt64):GoUInt64 {
 	static public function runtimeError(_e:T_errorString):Void {}
 }
 
-class T_errorString_asInterface {
+private class T_errorString_asInterface {
 	@:keep
 	public var error:() -> GoString = null;
 	@:keep

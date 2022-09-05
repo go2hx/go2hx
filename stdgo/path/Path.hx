@@ -575,7 +575,7 @@ function dir(_path:GoString):GoString {
 	}
 }
 
-class T_lazybuf_asInterface {
+private class T_lazybuf_asInterface {
 	@:keep
 	public var _string:() -> GoString = null;
 	@:keep

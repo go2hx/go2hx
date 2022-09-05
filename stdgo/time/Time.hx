@@ -13,19 +13,21 @@ import stdgo.Chan;
 /**
 	// std0x records the std values for "01", "02", ..., "06".
 **/
-var _std0x:GoArray<GoInt> = (new GoArray<GoInt>((260 : GoInt), (265 : GoInt), (526 : GoInt), (528 : GoInt), (530 : GoInt), (276 : GoInt)) : GoArray<GoInt>);
+private var _std0x:GoArray<GoInt> = (new GoArray<GoInt>((260 : GoInt), (265 : GoInt), (526 : GoInt), (528 : GoInt), (530 : GoInt),
+	(276 : GoInt)) : GoArray<GoInt>);
 
-var _longDayNames:Slice<GoString> = (new Slice<GoString>(0, 0, (Go.str("Sunday") : GoString), (Go.str("Monday") : GoString), (Go.str("Tuesday") : GoString),
-	(Go.str("Wednesday") : GoString), (Go.str("Thursday") : GoString), (Go.str("Friday") : GoString), (Go.str("Saturday") : GoString)) : Slice<GoString>);
+private var _longDayNames:Slice<GoString> = (new Slice<GoString>(0, 0, (Go.str("Sunday") : GoString), (Go.str("Monday") : GoString),
+	(Go.str("Tuesday") : GoString), (Go.str("Wednesday") : GoString), (Go.str("Thursday") : GoString), (Go.str("Friday") : GoString),
+	(Go.str("Saturday") : GoString)) : Slice<GoString>);
 
-var _shortDayNames:Slice<GoString> = (new Slice<GoString>(0, 0, (Go.str("Sun") : GoString), (Go.str("Mon") : GoString), (Go.str("Tue") : GoString),
+private var _shortDayNames:Slice<GoString> = (new Slice<GoString>(0, 0, (Go.str("Sun") : GoString), (Go.str("Mon") : GoString), (Go.str("Tue") : GoString),
 	(Go.str("Wed") : GoString), (Go.str("Thu") : GoString), (Go.str("Fri") : GoString), (Go.str("Sat") : GoString)) : Slice<GoString>);
 
-var _shortMonthNames:Slice<GoString> = (new Slice<GoString>(0, 0, (Go.str("Jan") : GoString), (Go.str("Feb") : GoString), (Go.str("Mar") : GoString),
+private var _shortMonthNames:Slice<GoString> = (new Slice<GoString>(0, 0, (Go.str("Jan") : GoString), (Go.str("Feb") : GoString), (Go.str("Mar") : GoString),
 	(Go.str("Apr") : GoString), (Go.str("May") : GoString), (Go.str("Jun") : GoString), (Go.str("Jul") : GoString), (Go.str("Aug") : GoString),
 	(Go.str("Sep") : GoString), (Go.str("Oct") : GoString), (Go.str("Nov") : GoString), (Go.str("Dec") : GoString)) : Slice<GoString>);
 
-var _longMonthNames:Slice<GoString> = (new Slice<GoString>(0, 0, (Go.str("January") : GoString), (Go.str("February") : GoString),
+private var _longMonthNames:Slice<GoString> = (new Slice<GoString>(0, 0, (Go.str("January") : GoString), (Go.str("February") : GoString),
 	(Go.str("March") : GoString), (Go.str("April") : GoString), (Go.str("May") : GoString), (Go.str("June") : GoString), (Go.str("July") : GoString),
 	(Go.str("August") : GoString), (Go.str("September") : GoString), (Go.str("October") : GoString), (Go.str("November") : GoString),
 	(Go.str("December") : GoString)) : Slice<GoString>);
@@ -33,12 +35,12 @@ var _longMonthNames:Slice<GoString> = (new Slice<GoString>(0, 0, (Go.str("Januar
 /**
 	// Never printed, just needs to be non-nil for return by atoi.
 **/
-var _atoiError:stdgo.Error = stdgo.errors.Errors.new_((Go.str("time: invalid number") : GoString));
+private var _atoiError:stdgo.Error = stdgo.errors.Errors.new_((Go.str("time: invalid number") : GoString));
 
-var _errBad:stdgo.Error = stdgo.errors.Errors.new_((Go.str("bad value for field") : GoString));
-var _errLeadingInt:stdgo.Error = stdgo.errors.Errors.new_((Go.str("time: bad [0-9]*") : GoString));
+private var _errBad:stdgo.Error = stdgo.errors.Errors.new_((Go.str("bad value for field") : GoString));
+private var _errLeadingInt:stdgo.Error = stdgo.errors.Errors.new_((Go.str("time: bad [0-9]*") : GoString));
 
-var _unitMap:GoMap<GoString, GoUInt64> = {
+private var _unitMap:GoMap<GoString, GoUInt64> = {
 	final x = new stdgo.GoMap.GoObjectMap<GoString,
 		GoUInt64>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind),
 			stdgo.reflect.Reflect.GoType.basic(uint64_kind))));
@@ -70,8 +72,9 @@ var _unitMap:GoMap<GoString, GoUInt64> = {
 	// before month m begins. There is an entry for m=12, counting
 	// the number of days before January of next year (365).
 **/
-var _daysBefore:GoArray<GoInt32> = (new GoArray<GoInt32>((0 : GoInt32), (31 : GoInt32), (59 : GoInt32), (90 : GoInt32), (120 : GoInt32), (151 : GoInt32),
-	(181 : GoInt32), (212 : GoInt32), (243 : GoInt32), (273 : GoInt32), (304 : GoInt32), (334 : GoInt32), (365 : GoInt32)) : GoArray<GoInt32>);
+private var _daysBefore:GoArray<GoInt32> = (new GoArray<GoInt32>((0 : GoInt32), (31 : GoInt32), (59 : GoInt32), (90 : GoInt32), (120 : GoInt32),
+	(151 : GoInt32), (181 : GoInt32), (212 : GoInt32), (243 : GoInt32), (273 : GoInt32), (304 : GoInt32), (334 : GoInt32),
+	(365 : GoInt32)) : GoArray<GoInt32>);
 
 /**
 	// Monotonic times are reported as offsets from startNano.
@@ -81,14 +84,14 @@ var _daysBefore:GoArray<GoInt32> = (new GoArray<GoInt32>((0 : GoInt32), (31 : Go
 	// we avoid ever reporting a monotonic time of 0.
 	// (Callers may want to use 0 as "time not set".)
 **/
-var _startNano:GoInt64 = _runtimeNano() - (1 : GoInt64);
+private var _startNano:GoInt64 = _runtimeNano() - (1 : GoInt64);
 
 /**
 	// utcLoc is separate so that get can refer to &utcLoc
 	// and ensure that it never returns a nil *Location,
 	// even if a badly behaved client has changed UTC.
 **/
-var _utcLoc:Location = ({_name: (Go.str("UTC") : GoString)} : Location);
+private var _utcLoc:Location = ({_name: (Go.str("UTC") : GoString)} : Location);
 
 /**
 	// UTC represents Universal Coordinated Time (UTC).
@@ -105,12 +108,12 @@ var utc:Location = _utcLoc;
 **/
 var local:Location = _localLoc;
 
-var _errLocation:stdgo.Error = stdgo.errors.Errors.new_((Go.str("time: invalid location name") : GoString));
+private var _errLocation:stdgo.Error = stdgo.errors.Errors.new_((Go.str("time: invalid location name") : GoString));
 
-var _platformZoneSources:Slice<GoString> = (new Slice<GoString>(0, 0, (Go.str("/usr/share/zoneinfo/") : GoString),
+private var _platformZoneSources:Slice<GoString> = (new Slice<GoString>(0, 0, (Go.str("/usr/share/zoneinfo/") : GoString),
 	(Go.str("/usr/share/lib/zoneinfo/") : GoString), (Go.str("/usr/lib/locale/TZ/") : GoString)) : Slice<GoString>);
 
-var _badData:stdgo.Error = stdgo.errors.Errors.new_((Go.str("malformed time zone information") : GoString));
+private var _badData:stdgo.Error = stdgo.errors.Errors.new_((Go.str("malformed time zone information") : GoString));
 
 var gorootZoneSource:GoString -> {
 	var _0:GoString;
@@ -235,7 +238,7 @@ var stdChunkNames:GoMap<GoInt, GoString> = {
 };
 
 var quote:GoString->GoString = _quote;
-var _origPlatformZoneSources:Slice<GoString> = _platformZoneSources;
+private var _origPlatformZoneSources:Slice<GoString> = _platformZoneSources;
 var disablePlatformSources:() -> (() -> Void) = _disablePlatformSources;
 var interrupt:() -> Void = _interrupt;
 var daysIn:(Month, GoInt) -> GoInt = _daysIn;
@@ -1692,71 +1695,71 @@ final stampMicro:GoString = (Go.str("Jan _2 15:04:05.000000") : GoString);
 **/
 final stampNano:GoString = (Go.str("Jan _2 15:04:05.000000000") : GoString);
 
-final _0:GoUnTypedInt = (0 : GoUnTypedInt);
-final _stdLongMonth:GoUnTypedInt = (267 : GoUnTypedInt);
-final _stdMonth = (267 : GoUnTypedInt);
-final _stdNumMonth = (267 : GoUnTypedInt);
-final _stdZeroMonth = (267 : GoUnTypedInt);
-final _stdLongWeekDay = (267 : GoUnTypedInt);
-final _stdWeekDay = (267 : GoUnTypedInt);
-final _stdDay = (267 : GoUnTypedInt);
-final _stdUnderDay = (267 : GoUnTypedInt);
-final _stdZeroDay = (267 : GoUnTypedInt);
-final _stdUnderYearDay = (267 : GoUnTypedInt);
-final _stdZeroYearDay = (267 : GoUnTypedInt);
-final _stdHour:GoUnTypedInt = (530 : GoUnTypedInt);
-final _stdHour12 = (530 : GoUnTypedInt);
-final _stdZeroHour12 = (530 : GoUnTypedInt);
-final _stdMinute = (530 : GoUnTypedInt);
-final _stdZeroMinute = (530 : GoUnTypedInt);
-final _stdSecond = (530 : GoUnTypedInt);
-final _stdZeroSecond = (530 : GoUnTypedInt);
-final _stdLongYear:GoUnTypedInt = (276 : GoUnTypedInt);
-final _stdYear = (276 : GoUnTypedInt);
-final _stdPM:GoUnTypedInt = (534 : GoUnTypedInt);
-final _stdpm = (534 : GoUnTypedInt);
-final _stdTZ:GoUnTypedInt = (35 : GoUnTypedInt);
-final _stdISO8601TZ = (35 : GoUnTypedInt);
-final _stdISO8601SecondsTZ = (35 : GoUnTypedInt);
-final _stdISO8601ShortTZ = (35 : GoUnTypedInt);
-final _stdISO8601ColonTZ = (35 : GoUnTypedInt);
-final _stdISO8601ColonSecondsTZ = (35 : GoUnTypedInt);
-final _stdNumTZ = (35 : GoUnTypedInt);
-final _stdNumSecondsTz = (35 : GoUnTypedInt);
-final _stdNumShortTZ = (35 : GoUnTypedInt);
-final _stdNumColonTZ = (35 : GoUnTypedInt);
-final _stdNumColonSecondsTZ = (35 : GoUnTypedInt);
-final _stdFracSecond0 = (35 : GoUnTypedInt);
-final _stdFracSecond9 = (35 : GoUnTypedInt);
-final _stdNeedDate:GoUnTypedInt = (256 : GoUnTypedInt);
-final _stdNeedClock:GoUnTypedInt = (512 : GoUnTypedInt);
-final _stdArgShift:GoUnTypedInt = (16 : GoUnTypedInt);
-final _stdSeparatorShift:GoUnTypedInt = (28 : GoUnTypedInt);
-final _stdMask:GoUnTypedInt = (65535 : GoUnTypedInt);
+private final _0:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _stdLongMonth:GoUnTypedInt = (267 : GoUnTypedInt);
+private final _stdMonth = (267 : GoUnTypedInt);
+private final _stdNumMonth = (267 : GoUnTypedInt);
+private final _stdZeroMonth = (267 : GoUnTypedInt);
+private final _stdLongWeekDay = (267 : GoUnTypedInt);
+private final _stdWeekDay = (267 : GoUnTypedInt);
+private final _stdDay = (267 : GoUnTypedInt);
+private final _stdUnderDay = (267 : GoUnTypedInt);
+private final _stdZeroDay = (267 : GoUnTypedInt);
+private final _stdUnderYearDay = (267 : GoUnTypedInt);
+private final _stdZeroYearDay = (267 : GoUnTypedInt);
+private final _stdHour:GoUnTypedInt = (530 : GoUnTypedInt);
+private final _stdHour12 = (530 : GoUnTypedInt);
+private final _stdZeroHour12 = (530 : GoUnTypedInt);
+private final _stdMinute = (530 : GoUnTypedInt);
+private final _stdZeroMinute = (530 : GoUnTypedInt);
+private final _stdSecond = (530 : GoUnTypedInt);
+private final _stdZeroSecond = (530 : GoUnTypedInt);
+private final _stdLongYear:GoUnTypedInt = (276 : GoUnTypedInt);
+private final _stdYear = (276 : GoUnTypedInt);
+private final _stdPM:GoUnTypedInt = (534 : GoUnTypedInt);
+private final _stdpm = (534 : GoUnTypedInt);
+private final _stdTZ:GoUnTypedInt = (35 : GoUnTypedInt);
+private final _stdISO8601TZ = (35 : GoUnTypedInt);
+private final _stdISO8601SecondsTZ = (35 : GoUnTypedInt);
+private final _stdISO8601ShortTZ = (35 : GoUnTypedInt);
+private final _stdISO8601ColonTZ = (35 : GoUnTypedInt);
+private final _stdISO8601ColonSecondsTZ = (35 : GoUnTypedInt);
+private final _stdNumTZ = (35 : GoUnTypedInt);
+private final _stdNumSecondsTz = (35 : GoUnTypedInt);
+private final _stdNumShortTZ = (35 : GoUnTypedInt);
+private final _stdNumColonTZ = (35 : GoUnTypedInt);
+private final _stdNumColonSecondsTZ = (35 : GoUnTypedInt);
+private final _stdFracSecond0 = (35 : GoUnTypedInt);
+private final _stdFracSecond9 = (35 : GoUnTypedInt);
+private final _stdNeedDate:GoUnTypedInt = (256 : GoUnTypedInt);
+private final _stdNeedClock:GoUnTypedInt = (512 : GoUnTypedInt);
+private final _stdArgShift:GoUnTypedInt = (16 : GoUnTypedInt);
+private final _stdSeparatorShift:GoUnTypedInt = (28 : GoUnTypedInt);
+private final _stdMask:GoUnTypedInt = (65535 : GoUnTypedInt);
 
 /**
 	// These are borrowed from unicode/utf8 and strconv and replicate behavior in
 	// that package, since we can't take a dependency on either.
 **/
-final _lowerhex:GoString = (Go.str("0123456789abcdef") : GoString);
+private final _lowerhex:GoString = (Go.str("0123456789abcdef") : GoString);
 
 /**
 	// These are borrowed from unicode/utf8 and strconv and replicate behavior in
 	// that package, since we can't take a dependency on either.
 **/
-final _runeSelf:GoUnTypedInt = (128 : GoUnTypedInt);
+private final _runeSelf:GoUnTypedInt = (128 : GoUnTypedInt);
 
 /**
 	// These are borrowed from unicode/utf8 and strconv and replicate behavior in
 	// that package, since we can't take a dependency on either.
 **/
-final _runeError:GoInt32 = ("\uFFFD".code : GoInt32);
+private final _runeError:GoInt32 = ("\uFFFD".code : GoInt32);
 
-final _hasMonotonic:GoUnTypedInt = (0 : GoUnTypedInt);
-final _maxWall:GoInt64 = ("68043243391" : GoInt64);
-final _minWall:GoInt64 = ("59453308800" : GoInt64);
-final _nsecMask:GoUnTypedInt = (1073741823 : GoUnTypedInt);
-final _nsecShift:GoUnTypedInt = (30 : GoUnTypedInt);
+private final _hasMonotonic:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _maxWall:GoInt64 = ("68043243391" : GoInt64);
+private final _minWall:GoInt64 = ("59453308800" : GoInt64);
+private final _nsecMask:GoUnTypedInt = (1073741823 : GoUnTypedInt);
+private final _nsecShift:GoUnTypedInt = (30 : GoUnTypedInt);
 final january:Month = (12 : Month);
 final february:Month = (12 : Month);
 final march:Month = (12 : Month);
@@ -1782,25 +1785,25 @@ final saturday:Weekday = (6 : Weekday);
 	// Must be 1 mod 400, and times before it will not compute correctly,
 	// but otherwise can be changed at will.
 **/
-final _absoluteZeroYear:GoUnTypedInt = ("-292277022399" : GoUnTypedInt);
+private final _absoluteZeroYear:GoUnTypedInt = ("-292277022399" : GoUnTypedInt);
 
 /**
 	// The year of the zero Time.
 	// Assumed by the unixToInternal computation below.
 **/
-final _internalYear:GoUnTypedInt = (1 : GoUnTypedInt);
+private final _internalYear:GoUnTypedInt = (1 : GoUnTypedInt);
 
 /**
 	// Offsets to convert between internal and absolute or Unix times.
 **/
-final _absoluteToInternal:GoInt64 = ("-9223371966579724800" : GoInt64);
+private final _absoluteToInternal:GoInt64 = ("-9223371966579724800" : GoInt64);
 
-final _internalToAbsolute:GoInt64 = ("9223371966579724800" : GoInt64);
-final _unixToInternal:GoInt64 = ("62135596800" : GoInt64);
-final _internalToUnix:GoInt64 = ("-62135596800" : GoInt64);
-final _wallToInternal:GoInt64 = ("59453308800" : GoInt64);
-final _minDuration:Duration = ("-9223372036854775808" : Duration);
-final _maxDuration:Duration = ("9223372036854775807" : Duration);
+private final _internalToAbsolute:GoInt64 = ("9223371966579724800" : GoInt64);
+private final _unixToInternal:GoInt64 = ("62135596800" : GoInt64);
+private final _internalToUnix:GoInt64 = ("-62135596800" : GoInt64);
+private final _wallToInternal:GoInt64 = ("59453308800" : GoInt64);
+private final _minDuration:Duration = ("-9223372036854775808" : Duration);
+private final _maxDuration:Duration = ("9223372036854775807" : Duration);
 
 /**
 	// Common durations. There is no definition for units of Day or larger
@@ -1898,42 +1901,42 @@ final minute:Duration = ("60000000000" : Duration);
 **/
 final hour:Duration = ("3600000000000" : Duration);
 
-final _secondsPerMinute:GoUnTypedInt = (60 : GoUnTypedInt);
-final _secondsPerHour:GoUnTypedInt = (3600 : GoUnTypedInt);
-final _secondsPerDay:GoUnTypedInt = (86400 : GoUnTypedInt);
-final _secondsPerWeek:GoUnTypedInt = (604800 : GoUnTypedInt);
-final _daysPer400Years:GoUnTypedInt = (146097 : GoUnTypedInt);
-final _daysPer100Years:GoUnTypedInt = (36524 : GoUnTypedInt);
-final _daysPer4Years:GoUnTypedInt = (1461 : GoUnTypedInt);
-final _timeBinaryVersionV1:GoByte = (2 : GoUInt8);
-final _timeBinaryVersionV2:GoUInt8 = (2 : GoUInt8);
+private final _secondsPerMinute:GoUnTypedInt = (60 : GoUnTypedInt);
+private final _secondsPerHour:GoUnTypedInt = (3600 : GoUnTypedInt);
+private final _secondsPerDay:GoUnTypedInt = (86400 : GoUnTypedInt);
+private final _secondsPerWeek:GoUnTypedInt = (604800 : GoUnTypedInt);
+private final _daysPer400Years:GoUnTypedInt = (146097 : GoUnTypedInt);
+private final _daysPer100Years:GoUnTypedInt = (36524 : GoUnTypedInt);
+private final _daysPer4Years:GoUnTypedInt = (1461 : GoUnTypedInt);
+private final _timeBinaryVersionV1:GoByte = (2 : GoUInt8);
+private final _timeBinaryVersionV2:GoUInt8 = (2 : GoUInt8);
 
 /**
 	// alpha and omega are the beginning and end of time for zone
 	// transitions.
 **/
-final _alpha:GoUnTypedInt = ("-9223372036854775808" : GoUnTypedInt);
+private final _alpha:GoUnTypedInt = ("-9223372036854775808" : GoUnTypedInt);
 
 /**
 	// alpha and omega are the beginning and end of time for zone
 	// transitions.
 **/
-final _omega:GoUnTypedInt = ("9223372036854775807" : GoUnTypedInt);
+private final _omega:GoUnTypedInt = ("9223372036854775807" : GoUnTypedInt);
 
 /**
 	// localLoc is separate so that initLocal can initialize
 	// it even if a client has changed Local.
 **/
-var _localLoc:Location = ({} : Location);
+private var _localLoc:Location = ({} : Location);
 
-var _localOnce:stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
-final _ruleJulian:T_ruleKind = (2 : T_ruleKind);
-final _ruleDOY:T_ruleKind = (2 : T_ruleKind);
-final _ruleMonthWeekDay:T_ruleKind = (2 : T_ruleKind);
-var _zoneinfo:Pointer<GoString> = (null : Pointer<GoString>);
-var _zoneinfoOnce:stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
-final _smallsString:GoString = (Go.str("00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899") : GoString);
-final _digits:GoString = (Go.str("0123456789") : GoString);
+private var _localOnce:stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
+private final _ruleJulian:T_ruleKind = (2 : T_ruleKind);
+private final _ruleDOY:T_ruleKind = (2 : T_ruleKind);
+private final _ruleMonthWeekDay:T_ruleKind = (2 : T_ruleKind);
+private var _zoneinfo:Pointer<GoString> = (null : Pointer<GoString>);
+private var _zoneinfoOnce:stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
+private final _smallsString:GoString = (Go.str("00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899") : GoString);
+private final _digits:GoString = (Go.str("0123456789") : GoString);
 
 /**
 	// loadFromEmbeddedTZData is used to load a specific tzdata file
@@ -1941,7 +1944,7 @@ final _digits:GoString = (Go.str("0123456789") : GoString);
 	// This is set when the time/tzdata package is imported,
 	// via registerLoadFromEmbeddedTzdata.
 **/
-var _loadFromEmbeddedTZData:(_zipname:GoString) -> {
+private var _loadFromEmbeddedTZData:(_zipname:GoString) -> {
 	var _0:GoString;
 	var _1:Error;
 } = null;
@@ -1951,29 +1954,29 @@ var _loadFromEmbeddedTZData:(_zipname:GoString) -> {
 	// As reference, the zoneinfo.zip distributed by Go is ~350 KB,
 	// so 10MB is overkill.
 **/
-final _maxFileSize:GoUnTypedInt = (10485760 : GoUnTypedInt);
+private final _maxFileSize:GoUnTypedInt = (10485760 : GoUnTypedInt);
 
 /**
 	// Copies of io.Seek* constants to avoid importing "io":
 **/
-final _seekStart:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _seekStart:GoUnTypedInt = (0 : GoUnTypedInt);
 
 /**
 	// Copies of io.Seek* constants to avoid importing "io":
 **/
-final _seekCurrent:GoUnTypedInt = (1 : GoUnTypedInt);
+private final _seekCurrent:GoUnTypedInt = (1 : GoUnTypedInt);
 
 /**
 	// Copies of io.Seek* constants to avoid importing "io":
 **/
-final _seekEnd:GoUnTypedInt = (2 : GoUnTypedInt);
+private final _seekEnd:GoUnTypedInt = (2 : GoUnTypedInt);
 
 /**
 	// loadTzinfoFromTzdata returns the time zone information of the time zone
 	// with the given name, from a tzdata database file as they are typically
 	// found on android.
 **/
-var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
+private var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 	var _0:Slice<GoByte>;
 	var _1:Error;
 } = null;
@@ -4003,15 +4006,14 @@ function _empty(_arg:AnyInterface, _seq:GoUIntptr):Void {}
 	// unexported data structures.
 **/
 function checkRuntimeTimerPeriodOverflow():Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _r = ({
+		_when: _runtimeNano(),
+		_period: ("9223372036854775807" : GoInt64),
+		_f: _empty,
+		_arg: (null : AnyInterface)
+	} : T_runtimeTimer);
 	try {
-		var _r = ({
-			_when: _runtimeNano(),
-			_period: ("9223372036854775807" : GoInt64),
-			_f: _empty,
-			_arg: (null : AnyInterface)
-		} : T_runtimeTimer);
 		_startTimer(_r);
 		{
 			var _a0 = _r;
@@ -4025,19 +4027,19 @@ function checkRuntimeTimerPeriodOverflow():Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -5676,7 +5678,6 @@ function _get2(_b:Slice<GoByte>):GoInt {
 	// in the given uncompressed zip file.
 **/
 function _loadTzinfoFromZip(_zipfile:GoString, _name:GoString):{var _0:Slice<GoByte>; var _1:Error;} {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
 	var __tmp__ = _open(_zipfile),
 		_fd:GoUIntptr = __tmp__._0,
@@ -5684,11 +5685,11 @@ function _loadTzinfoFromZip(_zipfile:GoString, _name:GoString):{var _0:Slice<GoB
 	if (_err != null) {
 		return {_0: (null : Slice<GoUInt8>), _1: _err};
 	};
+	{
+		var _a0 = _fd;
+		__deferstack__.unshift(() -> _closefd(_a0));
+	};
 	try {
-		{
-			var _a0 = _fd;
-			__deferstack__.unshift(() -> _closefd(_a0));
-		};
 		var _zecheader:GoUnTypedInt = (101010256 : GoUnTypedInt),
 			_zcheader:GoUnTypedInt = (33639248 : GoUnTypedInt),
 			_ztailsize:GoUnTypedInt = (22 : GoUnTypedInt),
@@ -5808,19 +5809,19 @@ function _loadTzinfoFromZip(_zipfile:GoString, _name:GoString):{var _0:Slice<GoB
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return {_0: (null : Slice<GoUInt8>), _1: (null : stdgo.Error)};
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return {_0: (null : Slice<GoUInt8>), _1: (null : stdgo.Error)};
 	};
 }
@@ -5926,7 +5927,6 @@ function _loadLocation(_name:GoString, _sources:Slice<GoString>):{var _0:Locatio
 	// It returns an error if name exceeds maxFileSize bytes.
 **/
 function _readFile(_name:GoString):{var _0:Slice<GoByte>; var _1:Error;} {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
 	var __tmp__ = _open(_name),
 		_f:GoUIntptr = __tmp__._0,
@@ -5934,11 +5934,11 @@ function _readFile(_name:GoString):{var _0:Slice<GoByte>; var _1:Error;} {
 	if (_err != null) {
 		return {_0: (null : Slice<GoUInt8>), _1: _err};
 	};
+	{
+		var _a0 = _f;
+		__deferstack__.unshift(() -> _closefd(_a0));
+	};
 	try {
-		{
-			var _a0 = _f;
-			__deferstack__.unshift(() -> _closefd(_a0));
-		};
 		var _buf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0...4096) (0 : GoUInt8)]),
 			_ret:Slice<GoByte> = (null : Slice<GoUInt8>),
 			_n:GoInt = (0 : GoInt);
@@ -5983,19 +5983,19 @@ function _readFile(_name:GoString):{var _0:Slice<GoByte>; var _1:Error;} {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return {_0: (null : Slice<GoUInt8>), _1: (null : stdgo.Error)};
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return {_0: (null : Slice<GoUInt8>), _1: (null : stdgo.Error)};
 	};
 }
@@ -6009,7 +6009,7 @@ function _readFile(_name:GoString):{var _0:Slice<GoByte>; var _1:Error;} {
 	true;
 };
 
-@:keep class ParseError_static_extension {
+@:keep private class ParseError_static_extension {
 	/**
 		// Error returns the string representation of a ParseError.
 	**/
@@ -6042,7 +6042,7 @@ class ParseError_asInterface {
 	var __self__:ParseError;
 }
 
-@:keep class Timer_static_extension {
+@:keep private class Timer_static_extension {
 	/**
 		// Reset changes the timer to expire after duration d.
 		// It returns true if the timer had been active, false if the timer had
@@ -6197,7 +6197,7 @@ class Timer_asInterface {
 	var __self__:Timer;
 }
 
-@:keep class Ticker_static_extension {
+@:keep private class Ticker_static_extension {
 	/**
 		// Reset stops a ticker and resets its period to the specified duration.
 		// The next tick will arrive after the new period elapses. The duration d
@@ -6251,7 +6251,7 @@ class Ticker_asInterface {
 	var __self__:Ticker;
 }
 
-@:keep class Time_static_extension {
+@:keep private class Time_static_extension {
 	/**
 		// Round returns the result of rounding t to the nearest multiple of d (since the zero time).
 		// The rounding behavior for halfway values is to round up.
@@ -7881,7 +7881,7 @@ class Time_asInterface {
 	var __self__:Time;
 }
 
-@:keep class Location_static_extension {
+@:keep private class Location_static_extension {
 	/**
 		// lookupName returns information about the time zone with
 		// the given name (such as "EST") at the given pseudo-Unix time
@@ -8250,7 +8250,7 @@ class Location_asInterface {
 	}
 }
 
-class T_dataIO_asInterface {
+private class T_dataIO_asInterface {
 	/**
 		// read returns the read of the data in the buffer.
 	**/
@@ -8623,7 +8623,7 @@ class Duration_asInterface {
 	}
 }
 
-class T_fileSizeError_asInterface {
+private class T_fileSizeError_asInterface {
 	@:keep
 	public var error:() -> GoString = null;
 

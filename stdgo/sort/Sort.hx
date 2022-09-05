@@ -10,11 +10,11 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-var _reflectValueOf:AnyInterface->stdgo.internal.reflectlite.Reflectlite.Value = stdgo.internal.reflectlite.Reflectlite.valueOf;
-var _reflectSwapper:AnyInterface -> ((GoInt, GoInt) -> Void) = stdgo.internal.reflectlite.Reflectlite.swapper;
-final _unknownHint:T_sortedHint = (2 : T_sortedHint);
-final _increasingHint:T_sortedHint = (2 : T_sortedHint);
-final _decreasingHint:T_sortedHint = (2 : T_sortedHint);
+private var _reflectValueOf:AnyInterface->stdgo.internal.reflectlite.Reflectlite.Value = stdgo.internal.reflectlite.Reflectlite.valueOf;
+private var _reflectSwapper:AnyInterface -> ((GoInt, GoInt) -> Void) = stdgo.internal.reflectlite.Reflectlite.swapper;
+private final _unknownHint:T_sortedHint = (2 : T_sortedHint);
+private final _increasingHint:T_sortedHint = (2 : T_sortedHint);
+private final _decreasingHint:T_sortedHint = (2 : T_sortedHint);
 
 /**
 	// Package sort provides primitives for sorting slices and user-defined collections.
@@ -1490,7 +1490,7 @@ function _rotate(_data:Interface, _a:GoInt, _m:GoInt, _b:GoInt):Void {
 		return __self__.len();
 }
 
-class T_reverse_asInterface {
+private class T_reverse_asInterface {
 	/**
 		// Less returns the opposite of the embedded implementation's Less method.
 	**/
@@ -1522,7 +1522,7 @@ class T_reverse_asInterface {
 	}
 }
 
-class T_xorshift_asInterface {
+private class T_xorshift_asInterface {
 	@:keep
 	@:pointer
 	public var next:() -> GoUInt64 = null;

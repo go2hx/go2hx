@@ -18,20 +18,20 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-var _expandTests:Slice<T__struct_1> = (null : Slice<T__struct_1>);
-var _isExistTests:Slice<stdgo.os_test.Os_test.T_isExistTest> = (null : Slice<stdgo.os_test.Os_test.T_isExistTest>);
-var _isPermissionTests:Slice<stdgo.os_test.Os_test.T_isPermissionTest> = (null : Slice<stdgo.os_test.Os_test.T_isPermissionTest>);
-var _dot:Slice<GoString> = (null : Slice<GoString>);
-var _sysdir:Ref<stdgo.os_test.Os_test.T_sysDir> = (null : stdgo.os_test.Os_test.T_sysDir);
-var _sfdir:GoString = ("" : GoString);
-var _sfname:GoString = ("" : GoString);
-var _openErrorTests:Slice<stdgo.os_test.Os_test.T_openErrorTest> = (null : Slice<stdgo.os_test.Os_test.T_openErrorTest>);
-var _testLargeWrite:Pointer<Bool> = (null : Pointer<Bool>);
-var _nilFileMethodTests:Slice<T__struct_3> = (null : Slice<T__struct_3>);
-var _isReadonlyError:stdgo.Error->Bool = null;
-var _global:AnyInterface = (null : AnyInterface);
-final _executable_EnvVar:GoString = ("" : GoString);
-final _testExecutableDeletion:GoString = ("" : GoString);
+private var _expandTests:Slice<T__struct_1> = (null : Slice<T__struct_1>);
+private var _isExistTests:Slice<stdgo.os_test.Os_test.T_isExistTest> = (null : Slice<stdgo.os_test.Os_test.T_isExistTest>);
+private var _isPermissionTests:Slice<stdgo.os_test.Os_test.T_isPermissionTest> = (null : Slice<stdgo.os_test.Os_test.T_isPermissionTest>);
+private var _dot:Slice<GoString> = (null : Slice<GoString>);
+private var _sysdir:Ref<stdgo.os_test.Os_test.T_sysDir> = (null : stdgo.os_test.Os_test.T_sysDir);
+private var _sfdir:GoString = ("" : GoString);
+private var _sfname:GoString = ("" : GoString);
+private var _openErrorTests:Slice<stdgo.os_test.Os_test.T_openErrorTest> = (null : Slice<stdgo.os_test.Os_test.T_openErrorTest>);
+private var _testLargeWrite:Pointer<Bool> = (null : Pointer<Bool>);
+private var _nilFileMethodTests:Slice<T__struct_3> = (null : Slice<T__struct_3>);
+private var _isReadonlyError:stdgo.Error->Bool = null;
+private var _global:AnyInterface = (null : AnyInterface);
+private final _executable_EnvVar:GoString = ("" : GoString);
+private final _testExecutableDeletion:GoString = ("" : GoString);
 
 @:structInit private class T_isExistTest {
 	public var _err:stdgo.Error = (null : stdgo.Error);
@@ -288,10 +288,9 @@ function testUnsetenv(_t:stdgo.testing.Testing.T):Void {
 }
 
 function testClearenv(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _testKey:GoString = (Go.str("GO_TEST_CLEARENV") : GoString);
 	try {
-		var _testKey:GoString = (Go.str("GO_TEST_CLEARENV") : GoString);
 		var _testValue:GoString = (Go.str("1") : GoString);
 		{
 			var _a0 = environ();
@@ -344,28 +343,27 @@ function testClearenv(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function testLookupEnv(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _smallpox:GoString = (Go.str("SMALLPOX") : GoString);
 	try {
-		var _smallpox:GoString = (Go.str("SMALLPOX") : GoString);
 		var __tmp__ = lookupEnv((Go.str("SMALLPOX") : GoString)),
 			_value:GoString = __tmp__._0,
 			_ok:Bool = __tmp__._1;
@@ -394,19 +392,19 @@ function testLookupEnv(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -449,12 +447,11 @@ function testEnvironConsistency(_t:stdgo.testing.Testing.T):Void {
 }
 
 function testErrIsExist(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var __tmp__ = stdgo.os.Os.createTemp((Go.str() : GoString), (Go.str("_Go_ErrIsExist") : GoString)),
+		_f:Ref<File> = __tmp__._0,
+		_err:stdgo.Error = __tmp__._1;
 	try {
-		var __tmp__ = stdgo.os.Os.createTemp((Go.str() : GoString), (Go.str("_Go_ErrIsExist") : GoString)),
-			_f:Ref<File> = __tmp__._0,
-			_err:stdgo.Error = __tmp__._1;
 		if (_err != null) {
 			_t.fatalf((Go.str("open ErrIsExist tempfile: %s") : GoString), Go.toInterface(_err));
 			return;
@@ -496,19 +493,19 @@ function testErrIsExist(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -635,12 +632,11 @@ function testIsPermission(_t:stdgo.testing.Testing.T):Void {
 }
 
 function testErrPathNUL(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var __tmp__ = stdgo.os.Os.createTemp((Go.str() : GoString), (Go.str("_Go_ErrPathNUL", 0) : GoString)),
+		_f:Ref<File> = __tmp__._0,
+		_err:stdgo.Error = __tmp__._1;
 	try {
-		var __tmp__ = stdgo.os.Os.createTemp((Go.str() : GoString), (Go.str("_Go_ErrPathNUL", 0) : GoString)),
-			_f:Ref<File> = __tmp__._0,
-			_err:stdgo.Error = __tmp__._1;
 		if (_err == null) {
 			_f.close();
 			_t.fatal(Go.toInterface((Go.str("TempFile should have failed") : GoString)));
@@ -681,19 +677,19 @@ function testErrPathNUL(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -876,10 +872,9 @@ function exampleGetenv():Void {
 }
 
 function exampleUnsetenv():Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	stdgo.os.Os.setenv((Go.str("TMPDIR") : GoString), (Go.str("/my/tmp") : GoString));
 	try {
-		stdgo.os.Os.setenv((Go.str("TMPDIR") : GoString), (Go.str("/my/tmp") : GoString));
 		{
 			var _a0 = (Go.str("TMPDIR") : GoString);
 			__deferstack__.unshift(() -> stdgo.os.Os.unsetenv(_a0));
@@ -891,19 +886,19 @@ function exampleUnsetenv():Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -921,12 +916,11 @@ function exampleReadDir():Void {
 }
 
 function exampleMkdirTemp():Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var __tmp__ = stdgo.os.Os.mkdirTemp((Go.str() : GoString), (Go.str("example") : GoString)),
+		_dir:GoString = __tmp__._0,
+		_err:stdgo.Error = __tmp__._1;
 	try {
-		var __tmp__ = stdgo.os.Os.mkdirTemp((Go.str() : GoString), (Go.str("example") : GoString)),
-			_dir:GoString = __tmp__._0,
-			_err:stdgo.Error = __tmp__._1;
 		if (_err != null) {
 			stdgo.log.Log.fatal(Go.toInterface(_err));
 		};
@@ -948,30 +942,29 @@ function exampleMkdirTemp():Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function exampleMkdirTemp_suffix():Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var __tmp__ = stdgo.os.Os.mkdirTemp((Go.str() : GoString), (Go.str("*-logs") : GoString)),
+		_logsDir:GoString = __tmp__._0,
+		_err:stdgo.Error = __tmp__._1;
 	try {
-		var __tmp__ = stdgo.os.Os.mkdirTemp((Go.str() : GoString), (Go.str("*-logs") : GoString)),
-			_logsDir:GoString = __tmp__._0,
-			_err:stdgo.Error = __tmp__._1;
 		if (_err != null) {
 			stdgo.log.Log.fatal(Go.toInterface(_err));
 		};
@@ -1001,30 +994,29 @@ function exampleMkdirTemp_suffix():Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function exampleCreateTemp():Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var __tmp__ = stdgo.os.Os.createTemp((Go.str() : GoString), (Go.str("example") : GoString)),
+		_f:Ref<File> = __tmp__._0,
+		_err:stdgo.Error = __tmp__._1;
 	try {
-		var __tmp__ = stdgo.os.Os.createTemp((Go.str() : GoString), (Go.str("example") : GoString)),
-			_f:Ref<File> = __tmp__._0,
-			_err:stdgo.Error = __tmp__._1;
 		if (_err != null) {
 			stdgo.log.Log.fatal(Go.toInterface(_err));
 		};
@@ -1053,30 +1045,29 @@ function exampleCreateTemp():Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function exampleCreateTemp_suffix():Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var __tmp__ = stdgo.os.Os.createTemp((Go.str() : GoString), (Go.str("example.*.txt") : GoString)),
+		_f:Ref<File> = __tmp__._0,
+		_err:stdgo.Error = __tmp__._1;
 	try {
-		var __tmp__ = stdgo.os.Os.createTemp((Go.str() : GoString), (Go.str("example.*.txt") : GoString)),
-			_f:Ref<File> = __tmp__._0,
-			_err:stdgo.Error = __tmp__._1;
 		if (_err != null) {
 			stdgo.log.Log.fatal(Go.toInterface(_err));
 		};
@@ -1106,19 +1097,19 @@ function exampleCreateTemp_suffix():Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -1441,15 +1432,14 @@ function testMain(_m:stdgo.testing.Testing.M):Void {
 }
 
 function _size(_name:GoString, _t:stdgo.testing.Testing.T):GoInt64 {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
 	var __tmp__ = open(_name),
 		_file:Ref<File> = __tmp__._0,
 		_err:stdgo.Error = __tmp__._1;
+	if (_err != null) {
+		_t.fatal(Go.toInterface((Go.str("open failed:") : GoString)), Go.toInterface(_err));
+	};
 	try {
-		if (_err != null) {
-			_t.fatal(Go.toInterface((Go.str("open failed:") : GoString)), Go.toInterface(_err));
-		};
 		__deferstack__.unshift(() -> {
 			var a = function():Void {
 				{
@@ -1542,19 +1532,19 @@ function _size(_name:GoString, _t:stdgo.testing.Testing.T):GoInt64 {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return (0 : GoInt64);
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return (0 : GoInt64);
 	};
 }
@@ -1622,10 +1612,9 @@ function testStat(_t:stdgo.testing.Testing.T):Void {
 }
 
 function testStatError(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	__deferstack__.unshift(() -> _chtmpdir(_t)());
 	try {
-		__deferstack__.unshift(() -> _chtmpdir(_t)());
 		var _path:GoString = (Go.str("no-such-file") : GoString);
 		var __tmp__ = stat(_path),
 			_fi:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
@@ -1716,64 +1705,63 @@ function testStatError(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function testStatSymlinkLoop(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	stdgo.internal.testenv.Testenv.mustHaveSymlink({
+		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
+		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
+		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
+			return _t.deadline() #else null #end;
+		__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
+		__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
+		__self__.fail = #if !macro function():Void _t.fail() #else null #end;
+		__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
+		__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
+		__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
+		__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
+		__self__.helper = #if !macro function():Void _t.helper() #else null #end;
+		__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
+		__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
+		__self__.name = #if !macro function():GoString return _t.name() #else null #end;
+		__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
+		__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
+		__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
+		__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
+		__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
+		__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
+		__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
+		__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
+		__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
+		__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
+		__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
+				_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
+		__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
+		__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
+		__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
+		__self__._private = #if !macro function():Void _t._private() #else null #end;
+		__self__._report = #if !macro function():Void _t._report() #else null #end;
+		__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
+		__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
+		__self__;
+	});
 	try {
-		stdgo.internal.testenv.Testenv.mustHaveSymlink({
-			final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
-			__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
-			__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
-				return _t.deadline() #else null #end;
-			__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
-			__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
-			__self__.fail = #if !macro function():Void _t.fail() #else null #end;
-			__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
-			__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
-			__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
-			__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
-			__self__.helper = #if !macro function():Void _t.helper() #else null #end;
-			__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
-			__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
-			__self__.name = #if !macro function():GoString return _t.name() #else null #end;
-			__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
-			__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
-			__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
-			__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
-			__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
-			__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
-			__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
-			__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
-			__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
-			__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
-			__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
-					_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
-			__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
-			__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
-			__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
-			__self__._private = #if !macro function():Void _t._private() #else null #end;
-			__self__._report = #if !macro function():Void _t._report() #else null #end;
-			__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
-			__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
-			__self__;
-		});
 		__deferstack__.unshift(() -> _chtmpdir(_t)());
 		var _err:stdgo.Error = stdgo.os.Os.symlink((Go.str("x") : GoString), (Go.str("y") : GoString));
 		if (_err != null) {
@@ -1812,28 +1800,27 @@ function testStatSymlinkLoop(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function testFstat(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _path:GoString = (_sfdir + (Go.str("/") : GoString)) + _sfname;
 	try {
-		var _path:GoString = (_sfdir + (Go.str("/") : GoString)) + _sfname;
 		var __tmp__ = open(_path),
 			_file:Ref<File> = __tmp__._0,
 			_err1:stdgo.Error = __tmp__._1;
@@ -1863,19 +1850,19 @@ function testFstat(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -1903,10 +1890,9 @@ function testLstat(_t:stdgo.testing.Testing.T):Void {
 	// Read with length 0 should not return EOF.
 **/
 function testRead0(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _path:GoString = (_sfdir + (Go.str("/") : GoString)) + _sfname;
 	try {
-		var _path:GoString = (_sfdir + (Go.str("/") : GoString)) + _sfname;
 		var __tmp__ = open(_path),
 			_f:Ref<File> = __tmp__._0,
 			_err:stdgo.Error = __tmp__._1;
@@ -1937,19 +1923,19 @@ function testRead0(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -1985,12 +1971,11 @@ function testReadClosed(_t:stdgo.testing.Testing.T):Void {
 }
 
 function _testReaddirnames(_dir:GoString, _contents:Slice<GoString>, _t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var __tmp__ = open(_dir),
+		_file:Ref<File> = __tmp__._0,
+		_err:stdgo.Error = __tmp__._1;
 	try {
-		var __tmp__ = open(_dir),
-			_file:Ref<File> = __tmp__._0,
-			_err:stdgo.Error = __tmp__._1;
 		if (_err != null) {
 			_t.fatalf((Go.str("open %q failed: %v") : GoString), Go.toInterface(_dir), Go.toInterface(_err));
 		};
@@ -2029,30 +2014,29 @@ function _testReaddirnames(_dir:GoString, _contents:Slice<GoString>, _t:stdgo.te
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function _testReaddir(_dir:GoString, _contents:Slice<GoString>, _t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var __tmp__ = open(_dir),
+		_file:Ref<File> = __tmp__._0,
+		_err:stdgo.Error = __tmp__._1;
 	try {
-		var __tmp__ = open(_dir),
-			_file:Ref<File> = __tmp__._0,
-			_err:stdgo.Error = __tmp__._1;
 		if (_err != null) {
 			_t.fatalf((Go.str("open %q failed: %v") : GoString), Go.toInterface(_dir), Go.toInterface(_err));
 		};
@@ -2091,30 +2075,29 @@ function _testReaddir(_dir:GoString, _contents:Slice<GoString>, _t:stdgo.testing
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function _testReadDir(_dir:GoString, _contents:Slice<GoString>, _t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var __tmp__ = open(_dir),
+		_file:Ref<File> = __tmp__._0,
+		_err:stdgo.Error = __tmp__._1;
 	try {
-		var __tmp__ = open(_dir),
-			_file:Ref<File> = __tmp__._0,
-			_err:stdgo.Error = __tmp__._1;
 		if (_err != null) {
 			_t.fatalf((Go.str("open %q failed: %v") : GoString), Go.toInterface(_dir), Go.toInterface(_err));
 		};
@@ -2191,19 +2174,19 @@ function _testReadDir(_dir:GoString, _contents:Slice<GoString>, _t:stdgo.testing
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -2394,10 +2377,9 @@ function _smallReaddirnames(_file:File, _length:GoInt, _t:stdgo.testing.Testing.
 	// as reading it all at once.
 **/
 function testReaddirnamesOneAtATime(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _dir:GoString = (Go.str("/usr/bin") : GoString);
 	try {
-		var _dir:GoString = (Go.str("/usr/bin") : GoString);
 		if ((Go.str("js") : GoString) == ((Go.str("android") : GoString))) {
 			_dir = (Go.str("/system/bin") : GoString);
 		} else if ((Go.str("js") : GoString) == ((Go.str("ios") : GoString))) {
@@ -2449,19 +2431,19 @@ function testReaddirnamesOneAtATime(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -2571,12 +2553,11 @@ function _touch(_t:stdgo.testing.Testing.T, _name:GoString):Void {
 }
 
 function testReaddirStatFailures(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	if ((Go.str("js") : GoString) == ((Go.str("windows") : GoString)) || (Go.str("js") : GoString) == ((Go.str("plan9") : GoString))) {
+		_t.skipf((Go.str("skipping test on %v") : GoString), Go.toInterface((Go.str("js") : GoString)));
+	};
 	try {
-		if ((Go.str("js") : GoString) == ((Go.str("windows") : GoString)) || (Go.str("js") : GoString) == ((Go.str("plan9") : GoString))) {
-			_t.skipf((Go.str("skipping test on %v") : GoString), Go.toInterface((Go.str("js") : GoString)));
-		};
 		var _dir:GoString = _t.tempDir();
 		_touch(_t, stdgo.path.filepath.Filepath.join(_dir, (Go.str("good1") : GoString)));
 		_touch(_t, stdgo.path.filepath.Filepath.join(_dir, (Go.str("x") : GoString)));
@@ -2598,14 +2579,13 @@ function testReaddirStatFailures(_t:stdgo.testing.Testing.T):Void {
 			var _0:Slice<stdgo.io.fs.Fs.FileInfo>;
 			var _1:stdgo.Error;
 		} = function():{var _0:Slice<FileInfo>; var _1:Error;} {
-			var __recover_exception__:AnyInterface = null;
 			var __deferstack__:Array<Void->Void> = [];
 			var __tmp__ = open(_dir), _d:Ref<File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
 			if (_err != null) {
 				_t.fatal(Go.toInterface(_err));
 			};
+			__deferstack__.unshift(() -> _d.close());
 			try {
-				__deferstack__.unshift(() -> _d.close());
 				{
 					for (defer in __deferstack__) {
 						defer();
@@ -2619,19 +2599,19 @@ function testReaddirStatFailures(_t:stdgo.testing.Testing.T):Void {
 					for (defer in __deferstack__) {
 						defer();
 					};
-					if (__recover_exception__ != null)
-						throw __recover_exception__;
+					if (Go.recover_exception != null)
+						throw Go.recover_exception;
 					return {_0: (null : Slice<stdgo.io.fs.Fs.FileInfo>), _1: (null : stdgo.Error)};
 				};
 			} catch (__exception__) {
 				if (!(__exception__.native is AnyInterfaceData))
 					throw __exception__;
-				__recover_exception__ = __exception__.native;
+				Go.recover_exception = __exception__.native;
 				for (defer in __deferstack__) {
 					defer();
 				};
-				if (__recover_exception__ != null)
-					throw __recover_exception__;
+				if (Go.recover_exception != null)
+					throw Go.recover_exception;
 				return {_0: (null : Slice<stdgo.io.fs.Fs.FileInfo>), _1: (null : stdgo.Error)};
 			};
 		};
@@ -2681,19 +2661,19 @@ function testReaddirStatFailures(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -2702,12 +2682,11 @@ function testReaddirStatFailures(_t:stdgo.testing.Testing.T):Void {
 	// Readdir on a regular file should fail.
 **/
 function testReaddirOfFile(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var __tmp__ = stdgo.os.Os.createTemp((Go.str() : GoString), (Go.str("_Go_ReaddirOfFile") : GoString)),
+		_f:Ref<File> = __tmp__._0,
+		_err:stdgo.Error = __tmp__._1;
 	try {
-		var __tmp__ = stdgo.os.Os.createTemp((Go.str() : GoString), (Go.str("_Go_ReaddirOfFile") : GoString)),
-			_f:Ref<File> = __tmp__._0,
-			_err:stdgo.Error = __tmp__._1;
 		if (_err != null) {
 			_t.fatal(Go.toInterface(_err));
 		};
@@ -2744,64 +2723,63 @@ function testReaddirOfFile(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function testHardLink(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	stdgo.internal.testenv.Testenv.mustHaveLink({
+		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
+		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
+		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
+			return _t.deadline() #else null #end;
+		__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
+		__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
+		__self__.fail = #if !macro function():Void _t.fail() #else null #end;
+		__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
+		__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
+		__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
+		__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
+		__self__.helper = #if !macro function():Void _t.helper() #else null #end;
+		__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
+		__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
+		__self__.name = #if !macro function():GoString return _t.name() #else null #end;
+		__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
+		__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
+		__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
+		__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
+		__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
+		__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
+		__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
+		__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
+		__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
+		__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
+		__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
+				_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
+		__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
+		__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
+		__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
+		__self__._private = #if !macro function():Void _t._private() #else null #end;
+		__self__._report = #if !macro function():Void _t._report() #else null #end;
+		__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
+		__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
+		__self__;
+	});
 	try {
-		stdgo.internal.testenv.Testenv.mustHaveLink({
-			final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
-			__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
-			__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
-				return _t.deadline() #else null #end;
-			__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
-			__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
-			__self__.fail = #if !macro function():Void _t.fail() #else null #end;
-			__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
-			__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
-			__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
-			__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
-			__self__.helper = #if !macro function():Void _t.helper() #else null #end;
-			__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
-			__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
-			__self__.name = #if !macro function():GoString return _t.name() #else null #end;
-			__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
-			__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
-			__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
-			__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
-			__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
-			__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
-			__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
-			__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
-			__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
-			__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
-			__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
-					_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
-			__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
-			__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
-			__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
-			__self__._private = #if !macro function():Void _t._private() #else null #end;
-			__self__._report = #if !macro function():Void _t._report() #else null #end;
-			__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
-			__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
-			__self__;
-		});
 		__deferstack__.unshift(() -> _chtmpdir(_t)());
 		var _from:GoString = (Go.str("hardlinktestfrom") : GoString),
 			_to:GoString = (Go.str("hardlinktestto") : GoString);
@@ -2882,19 +2860,19 @@ function testHardLink(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -2934,46 +2912,45 @@ function _chtmpdir(_t:stdgo.testing.Testing.T):() -> Void {
 }
 
 function testSymlink(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	stdgo.internal.testenv.Testenv.mustHaveSymlink({
+		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
+		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
+		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
+			return _t.deadline() #else null #end;
+		__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
+		__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
+		__self__.fail = #if !macro function():Void _t.fail() #else null #end;
+		__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
+		__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
+		__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
+		__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
+		__self__.helper = #if !macro function():Void _t.helper() #else null #end;
+		__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
+		__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
+		__self__.name = #if !macro function():GoString return _t.name() #else null #end;
+		__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
+		__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
+		__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
+		__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
+		__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
+		__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
+		__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
+		__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
+		__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
+		__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
+		__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
+				_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
+		__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
+		__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
+		__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
+		__self__._private = #if !macro function():Void _t._private() #else null #end;
+		__self__._report = #if !macro function():Void _t._report() #else null #end;
+		__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
+		__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
+		__self__;
+	});
 	try {
-		stdgo.internal.testenv.Testenv.mustHaveSymlink({
-			final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
-			__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
-			__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
-				return _t.deadline() #else null #end;
-			__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
-			__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
-			__self__.fail = #if !macro function():Void _t.fail() #else null #end;
-			__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
-			__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
-			__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
-			__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
-			__self__.helper = #if !macro function():Void _t.helper() #else null #end;
-			__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
-			__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
-			__self__.name = #if !macro function():GoString return _t.name() #else null #end;
-			__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
-			__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
-			__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
-			__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
-			__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
-			__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
-			__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
-			__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
-			__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
-			__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
-			__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
-					_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
-			__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
-			__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
-			__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
-			__self__._private = #if !macro function():Void _t._private() #else null #end;
-			__self__._report = #if !macro function():Void _t._report() #else null #end;
-			__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
-			__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
-			__self__;
-		});
 		__deferstack__.unshift(() -> _chtmpdir(_t)());
 		var _from:GoString = (Go.str("symlinktestfrom") : GoString),
 			_to:GoString = (Go.str("symlinktestto") : GoString);
@@ -3089,64 +3066,63 @@ function testSymlink(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function testLongSymlink(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	stdgo.internal.testenv.Testenv.mustHaveSymlink({
+		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
+		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
+		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
+			return _t.deadline() #else null #end;
+		__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
+		__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
+		__self__.fail = #if !macro function():Void _t.fail() #else null #end;
+		__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
+		__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
+		__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
+		__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
+		__self__.helper = #if !macro function():Void _t.helper() #else null #end;
+		__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
+		__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
+		__self__.name = #if !macro function():GoString return _t.name() #else null #end;
+		__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
+		__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
+		__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
+		__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
+		__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
+		__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
+		__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
+		__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
+		__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
+		__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
+		__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
+				_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
+		__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
+		__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
+		__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
+		__self__._private = #if !macro function():Void _t._private() #else null #end;
+		__self__._report = #if !macro function():Void _t._report() #else null #end;
+		__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
+		__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
+		__self__;
+	});
 	try {
-		stdgo.internal.testenv.Testenv.mustHaveSymlink({
-			final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
-			__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
-			__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
-				return _t.deadline() #else null #end;
-			__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
-			__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
-			__self__.fail = #if !macro function():Void _t.fail() #else null #end;
-			__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
-			__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
-			__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
-			__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
-			__self__.helper = #if !macro function():Void _t.helper() #else null #end;
-			__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
-			__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
-			__self__.name = #if !macro function():GoString return _t.name() #else null #end;
-			__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
-			__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
-			__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
-			__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
-			__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
-			__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
-			__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
-			__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
-			__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
-			__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
-			__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
-					_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
-			__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
-			__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
-			__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
-			__self__._private = #if !macro function():Void _t._private() #else null #end;
-			__self__._report = #if !macro function():Void _t._report() #else null #end;
-			__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
-			__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
-			__self__;
-		});
 		__deferstack__.unshift(() -> _chtmpdir(_t)());
 		var _s:GoString = (Go.str("0123456789abcdef") : GoString);
 		_s = (((((((((((((_s + _s) + _s) + _s) + _s) + _s) + _s) + _s) + _s) + _s) + _s) + _s) + _s) + _s) + _s;
@@ -3171,28 +3147,27 @@ function testLongSymlink(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function testRename(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	__deferstack__.unshift(() -> _chtmpdir(_t)());
 	try {
-		__deferstack__.unshift(() -> _chtmpdir(_t)());
 		var _from:GoString = (Go.str("renamefrom") : GoString),
 			_to:GoString = (Go.str("renameto") : GoString);
 		var __tmp__ = create(_from),
@@ -3225,28 +3200,27 @@ function testRename(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function testRenameOverwriteDest(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	__deferstack__.unshift(() -> _chtmpdir(_t)());
 	try {
-		__deferstack__.unshift(() -> _chtmpdir(_t)());
 		var _from:GoString = (Go.str("renamefrom") : GoString),
 			_to:GoString = (Go.str("renameto") : GoString);
 		var _toData = ((Go.str("to") : GoString) : Slice<GoByte>);
@@ -3289,28 +3263,27 @@ function testRenameOverwriteDest(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function testRenameFailed(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	__deferstack__.unshift(() -> _chtmpdir(_t)());
 	try {
-		__deferstack__.unshift(() -> _chtmpdir(_t)());
 		var _from:GoString = (Go.str("renamefrom") : GoString),
 			_to:GoString = (Go.str("renameto") : GoString);
 		var _err:stdgo.Error = rename(_from, _to);
@@ -3343,28 +3316,27 @@ function testRenameFailed(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function testRenameNotExisting(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	__deferstack__.unshift(() -> _chtmpdir(_t)());
 	try {
-		__deferstack__.unshift(() -> _chtmpdir(_t)());
 		var _from:GoString = (Go.str("doesnt-exist") : GoString),
 			_to:GoString = (Go.str("dest") : GoString);
 		mkdir(_to, (511 : stdgo.io.fs.Fs.FileMode));
@@ -3382,28 +3354,27 @@ function testRenameNotExisting(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function testRenameToDirFailed(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	__deferstack__.unshift(() -> _chtmpdir(_t)());
 	try {
-		__deferstack__.unshift(() -> _chtmpdir(_t)());
 		var _from:GoString = (Go.str("renamefrom") : GoString),
 			_to:GoString = (Go.str("renameto") : GoString);
 		mkdir(_from, (511 : stdgo.io.fs.Fs.FileMode));
@@ -3438,19 +3409,19 @@ function testRenameToDirFailed(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -3475,10 +3446,9 @@ function testRenameCaseDifference(_pt:stdgo.testing.Testing.T):Void {
 		} : T__struct_2)) : Slice<T__struct_2>);
 	for (_0 => _test in _tests) {
 		_pt.run(_test._name, function(_t:stdgo.testing.Testing.T):Void {
-			var __recover_exception__:AnyInterface = null;
 			var __deferstack__:Array<Void->Void> = [];
+			__deferstack__.unshift(() -> _chtmpdir(_t)());
 			try {
-				__deferstack__.unshift(() -> _chtmpdir(_t)());
 				{
 					var _err:stdgo.Error = _test._create();
 					if (_err != null) {
@@ -3531,19 +3501,19 @@ function testRenameCaseDifference(_pt:stdgo.testing.Testing.T):Void {
 					for (defer in __deferstack__) {
 						defer();
 					};
-					if (__recover_exception__ != null)
-						throw __recover_exception__;
+					if (Go.recover_exception != null)
+						throw Go.recover_exception;
 					return;
 				};
 			} catch (__exception__) {
 				if (!(__exception__.native is AnyInterfaceData))
 					throw __exception__;
-				__recover_exception__ = __exception__.native;
+				Go.recover_exception = __exception__.native;
 				for (defer in __deferstack__) {
 					defer();
 				};
-				if (__recover_exception__ != null)
-					throw __recover_exception__;
+				if (Go.recover_exception != null)
+					throw Go.recover_exception;
 				return;
 			};
 		});
@@ -3551,13 +3521,12 @@ function testRenameCaseDifference(_pt:stdgo.testing.Testing.T):Void {
 }
 
 function _exec(_t:stdgo.testing.Testing.T, _dir:GoString, _cmd:GoString, _args:Slice<GoString>, _expect:GoString):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var __tmp__ = pipe(),
+		_r:Ref<File> = __tmp__._0,
+		_w:Ref<File> = __tmp__._1,
+		_err:stdgo.Error = __tmp__._2;
 	try {
-		var __tmp__ = pipe(),
-			_r:Ref<File> = __tmp__._0,
-			_w:Ref<File> = __tmp__._1,
-			_err:stdgo.Error = __tmp__._2;
 		if (_err != null) {
 			_t.fatalf((Go.str("Pipe: %v") : GoString), Go.toInterface(_err));
 		};
@@ -3697,19 +3666,19 @@ function _exec(_t:stdgo.testing.Testing.T, _dir:GoString, _cmd:GoString, _args:S
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -3819,10 +3788,9 @@ function _checkMode(_t:stdgo.testing.Testing.T, _path:GoString, _mode:FileMode):
 }
 
 function testChmod(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _f = _newFile((Go.str("TestChmod") : GoString), _t);
 	try {
-		var _f = _newFile((Go.str("TestChmod") : GoString), _t);
 		{
 			var _a0 = _f.name();
 			__deferstack__.unshift(() -> remove(_a0));
@@ -3873,19 +3841,19 @@ function testChmod(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -3904,10 +3872,9 @@ function _checkSize(_t:stdgo.testing.Testing.T, _f:File, _size:GoInt64):Void {
 }
 
 function testFTruncate(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _f = _newFile((Go.str("TestFTruncate") : GoString), _t);
 	try {
-		var _f = _newFile((Go.str("TestFTruncate") : GoString), _t);
 		{
 			var _a0 = _f.name();
 			__deferstack__.unshift(() -> remove(_a0));
@@ -3935,28 +3902,27 @@ function testFTruncate(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function testTruncate(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _f = _newFile((Go.str("TestTruncate") : GoString), _t);
 	try {
-		var _f = _newFile((Go.str("TestTruncate") : GoString), _t);
 		{
 			var _a0 = _f.name();
 			__deferstack__.unshift(() -> remove(_a0));
@@ -3984,19 +3950,19 @@ function testTruncate(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -4008,10 +3974,9 @@ function testTruncate(_t:stdgo.testing.Testing.T):Void {
 	// NFS servers (Issue 848).
 **/
 function testChtimes(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _f = _newFile((Go.str("TestChtimes") : GoString), _t);
 	try {
-		var _f = _newFile((Go.str("TestChtimes") : GoString), _t);
 		{
 			var _a0 = _f.name();
 			__deferstack__.unshift(() -> remove(_a0));
@@ -4026,19 +3991,19 @@ function testChtimes(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -4050,10 +4015,9 @@ function testChtimes(_t:stdgo.testing.Testing.T):Void {
 	// NFS servers (Issue 848).
 **/
 function testChtimesDir(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _name:GoString = _newDir((Go.str("TestChtimes") : GoString), _t);
 	try {
-		var _name:GoString = _newDir((Go.str("TestChtimes") : GoString), _t);
 		{
 			var _a0 = _name;
 			__deferstack__.unshift(() -> removeAll(_a0));
@@ -4066,19 +4030,19 @@ function testChtimesDir(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -4586,12 +4550,11 @@ function _testChtimes(_t:stdgo.testing.Testing.T, _name:GoString):Void {
 }
 
 function testFileChdir(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	if (false) {
+		return;
+	};
 	try {
-		if (false) {
-			return;
-		};
 		var __tmp__ = getwd(),
 			_wd:GoString = __tmp__._0,
 			_err:stdgo.Error = __tmp__._1;
@@ -4637,19 +4600,19 @@ function testFileChdir(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -4809,10 +4772,9 @@ function testChdirAndGetwd(_t:stdgo.testing.Testing.T):Void {
 	// Test that Chdir+Getwd is program-wide.
 **/
 function testProgWideChdir(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var n:GoUnTypedInt = (10 : GoUnTypedInt);
 	try {
-		var n:GoUnTypedInt = (10 : GoUnTypedInt);
 		var errPwd:GoString = (Go.str("Error!") : GoString);
 		var _c = new Chan<Bool>(0, () -> false);
 		var _cpwd = new Chan<GoString>((10 : GoInt).toBasic(), () -> ("" : GoString));
@@ -4904,19 +4866,19 @@ function testProgWideChdir(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -4944,10 +4906,9 @@ function testProgWideChdir(_t:stdgo.testing.Testing.T):Void {
 }
 
 function testSeek(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _f = _newFile((Go.str("TestSeek") : GoString), _t);
 	try {
-		var _f = _newFile((Go.str("TestSeek") : GoString), _t);
 		{
 			var _a0 = _f.name();
 			__deferstack__.unshift(() -> remove(_a0));
@@ -5071,19 +5032,19 @@ function testSeek(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -5191,16 +5152,15 @@ function testOpenNoName(_t:stdgo.testing.Testing.T):Void {
 }
 
 function _runBinHostname(_t:stdgo.testing.Testing.T):GoString {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
 	var __tmp__ = pipe(),
 		_r:Ref<File> = __tmp__._0,
 		_w:Ref<File> = __tmp__._1,
 		_err:stdgo.Error = __tmp__._2;
+	if (_err != null) {
+		_t.fatal(Go.toInterface(_err));
+	};
 	try {
-		if (_err != null) {
-			_t.fatal(Go.toInterface(_err));
-		};
 		__deferstack__.unshift(() -> _r.close());
 		var __tmp__ = stdgo.os.exec.Exec.lookPath((Go.str("hostname") : GoString)),
 			_path:GoString = __tmp__._0,
@@ -5362,19 +5322,19 @@ function _runBinHostname(_t:stdgo.testing.Testing.T):GoString {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return ("" : GoString);
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return ("" : GoString);
 	};
 }
@@ -5462,10 +5422,9 @@ function testHostname(_t:stdgo.testing.Testing.T):Void {
 }
 
 function testReadAt(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _f = _newFile((Go.str("TestReadAt") : GoString), _t);
 	try {
-		var _f = _newFile((Go.str("TestReadAt") : GoString), _t);
 		{
 			var _a0 = _f.name();
 			__deferstack__.unshift(() -> remove(_a0));
@@ -5554,19 +5513,19 @@ function testReadAt(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -5578,10 +5537,9 @@ function testReadAt(_t:stdgo.testing.Testing.T):Void {
 	// calling pread on a file.
 **/
 function testReadAtOffset(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _f = _newFile((Go.str("TestReadAtOffset") : GoString), _t);
 	try {
-		var _f = _newFile((Go.str("TestReadAtOffset") : GoString), _t);
 		{
 			var _a0 = _f.name();
 			__deferstack__.unshift(() -> remove(_a0));
@@ -5682,19 +5640,19 @@ function testReadAtOffset(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -5703,10 +5661,9 @@ function testReadAtOffset(_t:stdgo.testing.Testing.T):Void {
 	// Verify that ReadAt doesn't allow negative offset.
 **/
 function testReadAtNegativeOffset(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _f = _newFile((Go.str("TestReadAtNegativeOffset") : GoString), _t);
 	try {
-		var _f = _newFile((Go.str("TestReadAtNegativeOffset") : GoString), _t);
 		{
 			var _a0 = _f.name();
 			__deferstack__.unshift(() -> remove(_a0));
@@ -5795,28 +5752,27 @@ function testReadAtNegativeOffset(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function testWriteAt(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _f = _newFile((Go.str("TestWriteAt") : GoString), _t);
 	try {
-		var _f = _newFile((Go.str("TestWriteAt") : GoString), _t);
 		{
 			var _a0 = _f.name();
 			__deferstack__.unshift(() -> remove(_a0));
@@ -5911,19 +5867,19 @@ function testWriteAt(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -5932,10 +5888,9 @@ function testWriteAt(_t:stdgo.testing.Testing.T):Void {
 	// Verify that WriteAt doesn't allow negative offset.
 **/
 function testWriteAtNegativeOffset(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _f = _newFile((Go.str("TestWriteAtNegativeOffset") : GoString), _t);
 	try {
-		var _f = _newFile((Go.str("TestWriteAtNegativeOffset") : GoString), _t);
 		{
 			var _a0 = _f.name();
 			__deferstack__.unshift(() -> remove(_a0));
@@ -5956,19 +5911,19 @@ function testWriteAtNegativeOffset(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -5977,10 +5932,9 @@ function testWriteAtNegativeOffset(_t:stdgo.testing.Testing.T):Void {
 	// Verify that WriteAt doesn't work in append mode.
 **/
 function testWriteAtInAppendMode(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	__deferstack__.unshift(() -> _chtmpdir(_t)());
 	try {
-		__deferstack__.unshift(() -> _chtmpdir(_t)());
 		var __tmp__ = openFile((Go.str("write_at_in_append_mode.txt") : GoString), (1088 : GoInt), (438 : stdgo.io.fs.Fs.FileMode)),
 			_f:Ref<File> = __tmp__._0,
 			_err:stdgo.Error = __tmp__._1;
@@ -6002,19 +5956,19 @@ function testWriteAtInAppendMode(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -6105,10 +6059,9 @@ function _writeFile(_t:stdgo.testing.Testing.T, _fname:GoString, _flag:GoInt, _t
 }
 
 function testAppend(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	__deferstack__.unshift(() -> _chtmpdir(_t)());
 	try {
-		__deferstack__.unshift(() -> _chtmpdir(_t)());
 		var _f:GoString = (Go.str("append.txt") : GoString);
 		var _s:GoString = _writeFile(_t, (Go.str("append.txt") : GoString), (578 : GoInt), (Go.str("new") : GoString));
 		if (_s != (Go.str("new") : GoString)) {
@@ -6145,19 +6098,19 @@ function testAppend(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -6192,10 +6145,9 @@ function testNilProcessStateString(_t:stdgo.testing.Testing.T):Void {
 }
 
 function testSameFile(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	__deferstack__.unshift(() -> _chtmpdir(_t)());
 	try {
-		__deferstack__.unshift(() -> _chtmpdir(_t)());
 		var __tmp__ = create((Go.str("a") : GoString)),
 			_fa:Ref<File> = __tmp__._0,
 			_err:stdgo.Error = __tmp__._1;
@@ -6241,19 +6193,19 @@ function testSameFile(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -6309,12 +6261,11 @@ function _testDevNullFileInfo(_t:stdgo.testing.Testing.T, _statname:GoString, _d
 }
 
 function _testDevNullFile(_t:stdgo.testing.Testing.T, _devNullName:GoString, _ignoreCase:Bool):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var __tmp__ = open(_devNullName),
+		_f:Ref<File> = __tmp__._0,
+		_err:stdgo.Error = __tmp__._1;
 	try {
-		var __tmp__ = open(_devNullName),
-			_f:Ref<File> = __tmp__._0,
-			_err:stdgo.Error = __tmp__._1;
 		if (_err != null) {
 			_t.fatalf((Go.str("Open(%s): %v") : GoString), Go.toInterface(_devNullName), Go.toInterface(_err));
 		};
@@ -6342,19 +6293,19 @@ function _testDevNullFile(_t:stdgo.testing.Testing.T, _devNullName:GoString, _ig
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -6516,46 +6467,45 @@ function testStatStdin(_t:stdgo.testing.Testing.T):Void {
 }
 
 function testStatRelativeSymlink(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	stdgo.internal.testenv.Testenv.mustHaveSymlink({
+		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
+		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
+		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
+			return _t.deadline() #else null #end;
+		__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
+		__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
+		__self__.fail = #if !macro function():Void _t.fail() #else null #end;
+		__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
+		__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
+		__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
+		__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
+		__self__.helper = #if !macro function():Void _t.helper() #else null #end;
+		__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
+		__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
+		__self__.name = #if !macro function():GoString return _t.name() #else null #end;
+		__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
+		__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
+		__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
+		__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
+		__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
+		__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
+		__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
+		__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
+		__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
+		__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
+		__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
+				_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
+		__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
+		__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
+		__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
+		__self__._private = #if !macro function():Void _t._private() #else null #end;
+		__self__._report = #if !macro function():Void _t._report() #else null #end;
+		__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
+		__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
+		__self__;
+	});
 	try {
-		stdgo.internal.testenv.Testenv.mustHaveSymlink({
-			final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
-			__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
-			__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
-				return _t.deadline() #else null #end;
-			__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
-			__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
-			__self__.fail = #if !macro function():Void _t.fail() #else null #end;
-			__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
-			__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
-			__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
-			__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
-			__self__.helper = #if !macro function():Void _t.helper() #else null #end;
-			__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
-			__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
-			__self__.name = #if !macro function():GoString return _t.name() #else null #end;
-			__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
-			__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
-			__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
-			__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
-			__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
-			__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
-			__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
-			__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
-			__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
-			__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
-			__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
-					_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
-			__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
-			__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
-			__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
-			__self__._private = #if !macro function():Void _t._private() #else null #end;
-			__self__._report = #if !macro function():Void _t._report() #else null #end;
-			__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
-			__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
-			__self__;
-		});
 		var _tmpdir:GoString = _t.tempDir();
 		var _target:GoString = stdgo.path.filepath.Filepath.join(_tmpdir, (Go.str("target") : GoString));
 		var __tmp__ = create(_target),
@@ -6608,28 +6558,27 @@ function testStatRelativeSymlink(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function testReadAtEOF(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _f = _newFile((Go.str("TestReadAtEOF") : GoString), _t);
 	try {
-		var _f = _newFile((Go.str("TestReadAtEOF") : GoString), _t);
 		{
 			var _a0 = _f.name();
 			__deferstack__.unshift(() -> remove(_a0));
@@ -6650,28 +6599,27 @@ function testReadAtEOF(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function testLongPath(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _tmpdir:GoString = _newDir((Go.str("TestLongPath") : GoString), _t);
 	try {
-		var _tmpdir:GoString = _newDir((Go.str("TestLongPath") : GoString), _t);
 		{
 			var _a0 = _tmpdir;
 			__deferstack__.unshift(() -> {
@@ -6777,64 +6725,63 @@ function testLongPath(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function _testKillProcess(_t:stdgo.testing.Testing.T, _processKiller:(_p:Process) -> Void):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	stdgo.internal.testenv.Testenv.mustHaveExec({
+		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
+		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
+		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
+			return _t.deadline() #else null #end;
+		__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
+		__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
+		__self__.fail = #if !macro function():Void _t.fail() #else null #end;
+		__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
+		__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
+		__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
+		__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
+		__self__.helper = #if !macro function():Void _t.helper() #else null #end;
+		__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
+		__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
+		__self__.name = #if !macro function():GoString return _t.name() #else null #end;
+		__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
+		__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
+		__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
+		__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
+		__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
+		__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
+		__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
+		__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
+		__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
+		__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
+		__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
+				_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
+		__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
+		__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
+		__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
+		__self__._private = #if !macro function():Void _t._private() #else null #end;
+		__self__._report = #if !macro function():Void _t._report() #else null #end;
+		__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
+		__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
+		__self__;
+	});
 	try {
-		stdgo.internal.testenv.Testenv.mustHaveExec({
-			final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
-			__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
-			__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
-				return _t.deadline() #else null #end;
-			__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
-			__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
-			__self__.fail = #if !macro function():Void _t.fail() #else null #end;
-			__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
-			__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
-			__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
-			__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
-			__self__.helper = #if !macro function():Void _t.helper() #else null #end;
-			__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
-			__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
-			__self__.name = #if !macro function():GoString return _t.name() #else null #end;
-			__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
-			__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
-			__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
-			__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
-			__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
-			__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
-			__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
-			__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
-			__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
-			__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
-			__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
-					_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
-			__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
-			__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
-			__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
-			__self__._private = #if !macro function():Void _t._private() #else null #end;
-			__self__._report = #if !macro function():Void _t._report() #else null #end;
-			__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
-			__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
-			__self__;
-		});
 		_t.parallel();
 		var _cmd = stdgo.os.exec.Exec.command(args[(0 : GoInt)]);
 		_cmd.env = (stdgo.os.Os.environ().__append__((Go.str("GO_OS_TEST_DRAIN_STDIN=1") : GoString)));
@@ -6875,19 +6822,19 @@ function _testKillProcess(_t:stdgo.testing.Testing.T, _processKiller:(_p:Process
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -7014,12 +6961,11 @@ function _mkdirTree(_t:stdgo.testing.Testing.T, _root:GoString, _level:GoInt, _m
 	// As long as it gets removed, we should be happy.
 **/
 function testRemoveAllRace(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	if (false) {
+		_t.skip(Go.toInterface((Go.str("skipping on windows") : GoString)));
+	};
 	try {
-		if (false) {
-			_t.skip(Go.toInterface((Go.str("skipping on windows") : GoString)));
-		};
 		if (false) {
 			stdgo.internal.testenv.Testenv.skipFlaky({
 				final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
@@ -7079,10 +7025,9 @@ function testRemoveAllRace(_t:stdgo.testing.Testing.T):Void {
 				_wg.add((1 : GoInt));
 				Go.routine(() -> {
 					var a = function():Void {
-						var __recover_exception__:AnyInterface = null;
 						var __deferstack__:Array<Void->Void> = [];
+						__deferstack__.unshift(() -> _wg.done());
 						try {
-							__deferstack__.unshift(() -> _wg.done());
 							_hold.__get__();
 							var _err:stdgo.Error = removeAll(_root);
 							if (_err != null) {
@@ -7095,19 +7040,19 @@ function testRemoveAllRace(_t:stdgo.testing.Testing.T):Void {
 								for (defer in __deferstack__) {
 									defer();
 								};
-								if (__recover_exception__ != null)
-									throw __recover_exception__;
+								if (Go.recover_exception != null)
+									throw Go.recover_exception;
 								return;
 							};
 						} catch (__exception__) {
 							if (!(__exception__.native is AnyInterfaceData))
 								throw __exception__;
-							__recover_exception__ = __exception__.native;
+							Go.recover_exception = __exception__.native;
 							for (defer in __deferstack__) {
 								defer();
 							};
-							if (__recover_exception__ != null)
-								throw __recover_exception__;
+							if (Go.recover_exception != null)
+								throw Go.recover_exception;
 							return;
 						};
 					};
@@ -7125,19 +7070,19 @@ function testRemoveAllRace(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -7146,19 +7091,17 @@ function testRemoveAllRace(_t:stdgo.testing.Testing.T):Void {
 	// Test that reading from a pipe doesn't use up a thread.
 **/
 function testPipeThreads(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	if ((Go.str("js") : GoString) == ((Go.str("illumos") : GoString)) || (Go.str("js") : GoString) == ((Go.str("solaris") : GoString))) {
+		_t.skip(Go.toInterface((Go.str("skipping on Solaris and illumos; issue 19111") : GoString)));
+	} else if ((Go.str("js") : GoString) == ((Go.str("windows") : GoString))) {
+		_t.skip(Go.toInterface((Go.str("skipping on Windows; issue 19098") : GoString)));
+	} else if ((Go.str("js") : GoString) == ((Go.str("plan9") : GoString))) {
+		_t.skip(Go.toInterface((Go.str("skipping on Plan 9; does not support runtime poller") : GoString)));
+	} else if ((Go.str("js") : GoString) == ((Go.str("js") : GoString))) {
+		_t.skip(Go.toInterface((Go.str("skipping on js; no support for os.Pipe") : GoString)));
+	};
 	try {
-		if ((Go.str("js") : GoString) == ((Go.str("illumos") : GoString))
-			|| (Go.str("js") : GoString) == ((Go.str("solaris") : GoString))) {
-			_t.skip(Go.toInterface((Go.str("skipping on Solaris and illumos; issue 19111") : GoString)));
-		} else if ((Go.str("js") : GoString) == ((Go.str("windows") : GoString))) {
-			_t.skip(Go.toInterface((Go.str("skipping on Windows; issue 19098") : GoString)));
-		} else if ((Go.str("js") : GoString) == ((Go.str("plan9") : GoString))) {
-			_t.skip(Go.toInterface((Go.str("skipping on Plan 9; does not support runtime poller") : GoString)));
-		} else if ((Go.str("js") : GoString) == ((Go.str("js") : GoString))) {
-			_t.skip(Go.toInterface((Go.str("skipping on js; no support for os.Pipe") : GoString)));
-		};
 		var _threads:GoInt = (100 : GoInt);
 		if (false) {
 			_threads = (50 : GoInt);
@@ -7250,19 +7193,19 @@ function testPipeThreads(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -7688,12 +7631,11 @@ function testReadFileProc(_t:stdgo.testing.Testing.T):Void {
 }
 
 function testWriteStringAlloc(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	if (true) {
+		_t.skip(Go.toInterface((Go.str("js allocates a lot during File.WriteString") : GoString)));
+	};
 	try {
-		if (true) {
-			_t.skip(Go.toInterface((Go.str("js allocates a lot during File.WriteString") : GoString)));
-		};
 		var _d:GoString = _t.tempDir();
 		var __tmp__ = create(stdgo.path.filepath.Filepath.join(_d, (Go.str("whiteboard.txt") : GoString))),
 			_f:Ref<File> = __tmp__._0,
@@ -7715,19 +7657,19 @@ function testWriteStringAlloc(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -7750,10 +7692,9 @@ function _checkUidGid(_t:stdgo.testing.Testing.T, _path:GoString, _uid:GoInt, _g
 }
 
 function testChown(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _f = _newFile((Go.str("TestChown") : GoString), _t);
 	try {
-		var _f = _newFile((Go.str("TestChown") : GoString), _t);
 		{
 			var _a0 = _f.name();
 			__deferstack__.unshift(() -> remove(_a0));
@@ -7805,28 +7746,27 @@ function testChown(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function testFileChown(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _f = _newFile((Go.str("TestFileChown") : GoString), _t);
 	try {
-		var _f = _newFile((Go.str("TestFileChown") : GoString), _t);
 		{
 			var _a0 = _f.name();
 			__deferstack__.unshift(() -> remove(_a0));
@@ -7878,28 +7818,27 @@ function testFileChown(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function testLchown(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _f = _newFile((Go.str("TestLchown") : GoString), _t);
 	try {
-		var _f = _newFile((Go.str("TestLchown") : GoString), _t);
 		{
 			var _a0 = _f.name();
 			__deferstack__.unshift(() -> remove(_a0));
@@ -7969,19 +7908,19 @@ function testLchown(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -7990,13 +7929,12 @@ function testLchown(_t:stdgo.testing.Testing.T):Void {
 	// Issue 16919: Readdir must return a non-empty slice or an error.
 **/
 function testReaddirRemoveRace(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _oldStat:GoString -> {
+		var _0:stdgo.io.fs.Fs.FileInfo;
+		var _1:stdgo.Error;
+	} = lstatP;
 	try {
-		var _oldStat:GoString -> {
-			var _0:stdgo.io.fs.Fs.FileInfo;
-			var _1:stdgo.Error;
-		} = lstatP;
 		__deferstack__.unshift(() -> {
 			var a = function():Void {
 				lstatP = _oldStat;
@@ -8056,19 +7994,19 @@ function testReaddirRemoveRace(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -8077,10 +8015,9 @@ function testReaddirRemoveRace(_t:stdgo.testing.Testing.T):Void {
 	// Issue 23120: respect umask when doing Mkdir with the sticky bit
 **/
 function testMkdirStickyUmask(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _umask:GoUnTypedInt = (63 : GoUnTypedInt);
 	try {
-		var _umask:GoUnTypedInt = (63 : GoUnTypedInt);
 		var _dir:GoString = _newDir((Go.str("TestMkdirStickyUmask") : GoString), _t);
 		{
 			var _a0 = _dir;
@@ -8126,19 +8063,19 @@ function testMkdirStickyUmask(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -8147,12 +8084,11 @@ function testMkdirStickyUmask(_t:stdgo.testing.Testing.T):Void {
 	// See also issues: 22939, 24331
 **/
 function _newFileTest(_t:stdgo.testing.Testing.T, _blocking:Bool):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	if (true) {
+		_t.skipf((Go.str("syscall.Pipe is not available on %s.") : GoString), Go.toInterface((Go.str("js") : GoString)));
+	};
 	try {
-		if (true) {
-			_t.skipf((Go.str("syscall.Pipe is not available on %s.") : GoString), Go.toInterface((Go.str("js") : GoString)));
-		};
 		var _p = new Slice<GoInt>((2 : GoInt).toBasic(), 0, ...[for (i in 0...(2 : GoInt).toBasic()) (0 : GoInt)]);
 		{
 			var _err:stdgo.Error = stdgo.syscall.Syscall.pipe(_p);
@@ -8212,19 +8148,19 @@ function _newFileTest(_t:stdgo.testing.Testing.T, _blocking:Bool):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -8270,10 +8206,9 @@ function testSplitPath(_t:stdgo.testing.Testing.T):Void {
 }
 
 function testMkdirAll(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _tmpDir:GoString = tempDir();
 	try {
-		var _tmpDir:GoString = tempDir();
 		var _path:GoString = _tmpDir + (Go.str("/_TestMkdirAll_/dir/./dir2") : GoString);
 		var _err:stdgo.Error = mkdirAll(_path, (511 : stdgo.io.fs.Fs.FileMode));
 		if (_err != null) {
@@ -8346,19 +8281,19 @@ function testMkdirAll(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -8482,12 +8417,11 @@ function testReadFile(_t:stdgo.testing.Testing.T):Void {
 }
 
 function testWriteFile(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var __tmp__ = createTemp((Go.str() : GoString), (Go.str("ioutil-test") : GoString)),
+		_f:Ref<File> = __tmp__._0,
+		_err:stdgo.Error = __tmp__._1;
 	try {
-		var __tmp__ = createTemp((Go.str() : GoString), (Go.str("ioutil-test") : GoString)),
-			_f:Ref<File> = __tmp__._0,
-			_err:stdgo.Error = __tmp__._1;
 		if (_err != null) {
 			_t.fatal(Go.toInterface(_err));
 		};
@@ -8519,30 +8453,29 @@ function testWriteFile(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function testReadOnlyWriteFile(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	if (getuid() == (0 : GoInt)) {
+		_t.skipf((Go.str("Root can write to read-only files anyway, so skip the read-only test.") : GoString));
+	};
 	try {
-		if (getuid() == (0 : GoInt)) {
-			_t.skipf((Go.str("Root can write to read-only files anyway, so skip the read-only test.") : GoString));
-		};
 		var __tmp__ = mkdirTemp((Go.str() : GoString), _t.name()),
 			_tempDir:GoString = __tmp__._0,
 			_err:stdgo.Error = __tmp__._1;
@@ -8580,19 +8513,19 @@ function testReadOnlyWriteFile(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -8831,30 +8764,29 @@ function testRemoveAllLarge(_t:stdgo.testing.Testing.T):Void {
 }
 
 function testRemoveAllLongPath(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
-	try {
-		{
-			var __switchIndex__ = -1;
-			while (true) {
-				if ((Go.str("js") : GoString) == ((Go.str("aix") : GoString))
-					|| (Go.str("js") : GoString) == ((Go.str("darwin") : GoString))
-						|| (Go.str("js") : GoString) == ((Go.str("ios") : GoString))
-							|| (Go.str("js") : GoString) == ((Go.str("dragonfly") : GoString))
-								|| (Go.str("js") : GoString) == ((Go.str("freebsd") : GoString))
-									|| (Go.str("js") : GoString) == ((Go.str("linux") : GoString))
-										|| (Go.str("js") : GoString) == ((Go.str("netbsd") : GoString))
-											|| (Go.str("js") : GoString) == ((Go.str("openbsd") : GoString))
-												|| (Go.str("js") : GoString) == ((Go.str("illumos") : GoString))
-													|| (Go.str("js") : GoString) == ((Go.str("solaris") : GoString))) {
-					break;
-					break;
-				} else {
-					_t.skip(Go.toInterface((Go.str("skipping for not implemented platforms") : GoString)));
-				};
+	{
+		var __switchIndex__ = -1;
+		while (true) {
+			if ((Go.str("js") : GoString) == ((Go.str("aix") : GoString))
+				|| (Go.str("js") : GoString) == ((Go.str("darwin") : GoString))
+					|| (Go.str("js") : GoString) == ((Go.str("ios") : GoString))
+						|| (Go.str("js") : GoString) == ((Go.str("dragonfly") : GoString))
+							|| (Go.str("js") : GoString) == ((Go.str("freebsd") : GoString))
+								|| (Go.str("js") : GoString) == ((Go.str("linux") : GoString))
+									|| (Go.str("js") : GoString) == ((Go.str("netbsd") : GoString))
+										|| (Go.str("js") : GoString) == ((Go.str("openbsd") : GoString))
+											|| (Go.str("js") : GoString) == ((Go.str("illumos") : GoString))
+												|| (Go.str("js") : GoString) == ((Go.str("solaris") : GoString))) {
 				break;
+				break;
+			} else {
+				_t.skip(Go.toInterface((Go.str("skipping for not implemented platforms") : GoString)));
 			};
+			break;
 		};
+	};
+	try {
 		var __tmp__ = getwd(),
 			_prevDir:GoString = __tmp__._0,
 			_err:stdgo.Error = __tmp__._1;
@@ -8904,30 +8836,29 @@ function testRemoveAllLongPath(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function testRemoveAllDot(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var __tmp__ = getwd(),
+		_prevDir:GoString = __tmp__._0,
+		_err:stdgo.Error = __tmp__._1;
 	try {
-		var __tmp__ = getwd(),
-			_prevDir:GoString = __tmp__._0,
-			_err:stdgo.Error = __tmp__._1;
 		if (_err != null) {
 			_t.fatalf((Go.str("Could not get wd: %s") : GoString), Go.toInterface(_err));
 		};
@@ -8960,19 +8891,19 @@ function testRemoveAllDot(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -9010,10 +8941,9 @@ function testRemoveAllDotDot(_t:stdgo.testing.Testing.T):Void {
 	// Issue #29178.
 **/
 function testRemoveReadOnlyDir(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	_t.parallel();
 	try {
-		_t.parallel();
 		var _tempDir:GoString = _t.tempDir();
 		var _subdir:GoString = stdgo.path.filepath.Filepath.join(_tempDir, (Go.str("x") : GoString));
 		{
@@ -9048,19 +8978,19 @@ function testRemoveReadOnlyDir(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -9069,12 +8999,11 @@ function testRemoveReadOnlyDir(_t:stdgo.testing.Testing.T):Void {
 	// Issue #29983.
 **/
 function testRemoveAllButReadOnlyAndPathError(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	if ((Go.str("js") : GoString) == ((Go.str("js") : GoString)) || (Go.str("js") : GoString) == ((Go.str("windows") : GoString))) {
+		_t.skipf((Go.str("skipping test on %s") : GoString), Go.toInterface((Go.str("js") : GoString)));
+	};
 	try {
-		if ((Go.str("js") : GoString) == ((Go.str("js") : GoString)) || (Go.str("js") : GoString) == ((Go.str("windows") : GoString))) {
-			_t.skipf((Go.str("skipping test on %s") : GoString), Go.toInterface((Go.str("js") : GoString)));
-		};
 		if (getuid() == (0 : GoInt)) {
 			_t.skip(Go.toInterface((Go.str("skipping test when running as root") : GoString)));
 		};
@@ -9159,19 +9088,19 @@ function testRemoveAllButReadOnlyAndPathError(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -9210,12 +9139,11 @@ function testRemoveUnreadableDir(_t:stdgo.testing.Testing.T):Void {
 	// Issue 29921
 **/
 function testRemoveAllWithMoreErrorThanReqSize(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	if (stdgo.testing.Testing.short()) {
+		_t.skip(Go.toInterface((Go.str("skipping in short mode") : GoString)));
+	};
 	try {
-		if (stdgo.testing.Testing.short()) {
-			_t.skip(Go.toInterface((Go.str("skipping in short mode") : GoString)));
-		};
 		var _tmpDir:GoString = _t.tempDir();
 		var _path:GoString = stdgo.path.filepath.Filepath.join(_tmpDir, (Go.str("_TestRemoveAllWithMoreErrorThanReqSize_") : GoString));
 		{
@@ -9289,19 +9217,19 @@ function testRemoveAllWithMoreErrorThanReqSize(_t:stdgo.testing.Testing.T):Void 
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -9336,12 +9264,11 @@ function testOpenFileLimit(_t:stdgo.testing.Testing.T):Void {
 function _testStatAndLstat(_t:stdgo.testing.Testing.T, _path:GoString, _isLink:Bool,
 		_statCheck:(stdgo.testing.Testing.T, GoString, stdgo.io.fs.Fs.FileInfo) -> Void,
 		_lstatCheck:(stdgo.testing.Testing.T, GoString, stdgo.io.fs.Fs.FileInfo) -> Void):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var __tmp__ = stdgo.os.Os.stat(_path),
+		_sfi:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
+		_err:stdgo.Error = __tmp__._1;
 	try {
-		var __tmp__ = stdgo.os.Os.stat(_path),
-			_sfi:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
-			_err:stdgo.Error = __tmp__._1;
 		if (_err != null) {
 			_t.error(Go.toInterface(_err));
 			return;
@@ -9460,19 +9387,19 @@ function _testStatAndLstat(_t:stdgo.testing.Testing.T, _path:GoString, _isLink:B
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -9780,12 +9707,11 @@ function testSymlinkWithTrailingSlash(_t:stdgo.testing.Testing.T):Void {
 }
 
 function testCreateTemp(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var __tmp__ = mkdirTemp((Go.str() : GoString), (Go.str("TestCreateTempBadDir") : GoString)),
+		_dir:GoString = __tmp__._0,
+		_err:stdgo.Error = __tmp__._1;
 	try {
-		var __tmp__ = mkdirTemp((Go.str() : GoString), (Go.str("TestCreateTempBadDir") : GoString)),
-			_dir:GoString = __tmp__._0,
-			_err:stdgo.Error = __tmp__._1;
 		if (_err != null) {
 			_t.fatal(Go.toInterface(_err));
 		};
@@ -9807,32 +9733,31 @@ function testCreateTemp(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function testCreateTempPattern(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _tests = (new Slice<T__struct_6>(0, 0,
+		({_pattern: (Go.str("tempfile_test") : GoString), _prefix: (Go.str("tempfile_test") : GoString), _suffix: (Go.str() : GoString)} : T__struct_6),
+		({_pattern: (Go.str("tempfile_test*") : GoString), _prefix: (Go.str("tempfile_test") : GoString), _suffix: (Go.str() : GoString)} : T__struct_6),
+		({_pattern: (Go.str("tempfile_test*xyz") : GoString), _prefix: (Go.str("tempfile_test") : GoString),
+			_suffix: (Go.str("xyz") : GoString)} : T__struct_6)) : Slice<T__struct_6>);
 	try {
-		var _tests = (new Slice<T__struct_6>(0, 0,
-			({_pattern: (Go.str("tempfile_test") : GoString), _prefix: (Go.str("tempfile_test") : GoString), _suffix: (Go.str() : GoString)} : T__struct_6),
-			({_pattern: (Go.str("tempfile_test*") : GoString), _prefix: (Go.str("tempfile_test") : GoString), _suffix: (Go.str() : GoString)} : T__struct_6),
-			({_pattern: (Go.str("tempfile_test*xyz") : GoString), _prefix: (Go.str("tempfile_test") : GoString),
-				_suffix: (Go.str("xyz") : GoString)} : T__struct_6)) : Slice<T__struct_6>);
 		for (_0 => _test in _tests) {
 			var __tmp__ = createTemp((Go.str() : GoString), _test._pattern),
 				_f:Ref<File> = __tmp__._0,
@@ -9859,30 +9784,29 @@ function testCreateTempPattern(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function testCreateTempBadPattern(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var __tmp__ = mkdirTemp((Go.str() : GoString), _t.name()),
+		_tmpDir:GoString = __tmp__._0,
+		_err:stdgo.Error = __tmp__._1;
 	try {
-		var __tmp__ = mkdirTemp((Go.str() : GoString), _t.name()),
-			_tmpDir:GoString = __tmp__._0,
-			_err:stdgo.Error = __tmp__._1;
 		if (_err != null) {
 			_t.fatal(Go.toInterface(_err));
 		};
@@ -9900,12 +9824,11 @@ function testCreateTempBadPattern(_t:stdgo.testing.Testing.T):Void {
 			({_pattern: (Go.str("tempfile_test*foo/") : GoString), _wantErr: true} : T__struct_7)) : Slice<T__struct_7>);
 		for (_0 => _tt in _tests) {
 			_t.run(_tt._pattern, function(_t:stdgo.testing.Testing.T):Void {
-				var __recover_exception__:AnyInterface = null;
 				var __deferstack__:Array<Void->Void> = [];
+				var __tmp__ = createTemp(_tmpDir, _tt._pattern),
+					_tmpfile:Ref<File> = __tmp__._0,
+					_err:stdgo.Error = __tmp__._1;
 				try {
-					var __tmp__ = createTemp(_tmpDir, _tt._pattern),
-						_tmpfile:Ref<File> = __tmp__._0,
-						_err:stdgo.Error = __tmp__._1;
 					if (_tmpfile != null) {
 						__deferstack__.unshift(() -> _tmpfile.close());
 					};
@@ -9927,19 +9850,19 @@ function testCreateTempBadPattern(_t:stdgo.testing.Testing.T):Void {
 						for (defer in __deferstack__) {
 							defer();
 						};
-						if (__recover_exception__ != null)
-							throw __recover_exception__;
+						if (Go.recover_exception != null)
+							throw Go.recover_exception;
 						return;
 					};
 				} catch (__exception__) {
 					if (!(__exception__.native is AnyInterfaceData))
 						throw __exception__;
-					__recover_exception__ = __exception__.native;
+					Go.recover_exception = __exception__.native;
 					for (defer in __deferstack__) {
 						defer();
 					};
-					if (__recover_exception__ != null)
-						throw __recover_exception__;
+					if (Go.recover_exception != null)
+						throw Go.recover_exception;
 					return;
 				};
 			});
@@ -9951,19 +9874,19 @@ function testCreateTempBadPattern(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -9983,10 +9906,9 @@ function testMkdirTemp(_t:stdgo.testing.Testing.T):Void {
 			_wantSuffix: (Go.str("xyz") : GoString)} : T__struct_8)) : Slice<T__struct_8>);
 	var _dir:GoString = stdgo.path.filepath.Filepath.clean(tempDir());
 	var _runTestMkdirTemp = function(_t:stdgo.testing.Testing.T, _pattern:GoString, _wantRePat:GoString):Void {
-		var __recover_exception__:AnyInterface = null;
 		var __deferstack__:Array<Void->Void> = [];
+		var __tmp__ = mkdirTemp(_dir, _pattern), _name:GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
 		try {
-			var __tmp__ = mkdirTemp(_dir, _pattern), _name:GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
 			if ((_name == (Go.str() : GoString)) || (_err != null)) {
 				_t.fatalf((Go.str("MkdirTemp(dir, `tempfile_test`) = %v, %v") : GoString), Go.toInterface(_name), Go.toInterface(_err));
 			};
@@ -10006,19 +9928,19 @@ function testMkdirTemp(_t:stdgo.testing.Testing.T):Void {
 				for (defer in __deferstack__) {
 					defer();
 				};
-				if (__recover_exception__ != null)
-					throw __recover_exception__;
+				if (Go.recover_exception != null)
+					throw Go.recover_exception;
 				return;
 			};
 		} catch (__exception__) {
 			if (!(__exception__.native is AnyInterfaceData))
 				throw __exception__;
-			__recover_exception__ = __exception__.native;
+			Go.recover_exception = __exception__.native;
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	};
@@ -10044,12 +9966,11 @@ function testMkdirTemp(_t:stdgo.testing.Testing.T):Void {
 	// exist (or that it's empty and TempDir doesn't exist)
 **/
 function testMkdirTempBadDir(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var __tmp__ = mkdirTemp((Go.str() : GoString), (Go.str("MkdirTempBadDir") : GoString)),
+		_dir:GoString = __tmp__._0,
+		_err:stdgo.Error = __tmp__._1;
 	try {
-		var __tmp__ = mkdirTemp((Go.str() : GoString), (Go.str("MkdirTempBadDir") : GoString)),
-			_dir:GoString = __tmp__._0,
-			_err:stdgo.Error = __tmp__._1;
 		if (_err != null) {
 			_t.fatal(Go.toInterface(_err));
 		};
@@ -10080,30 +10001,29 @@ function testMkdirTempBadDir(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function testMkdirTempBadPattern(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var __tmp__ = mkdirTemp((Go.str() : GoString), _t.name()),
+		_tmpDir:GoString = __tmp__._0,
+		_err:stdgo.Error = __tmp__._1;
 	try {
-		var __tmp__ = mkdirTemp((Go.str() : GoString), _t.name()),
-			_tmpDir:GoString = __tmp__._0,
-			_err:stdgo.Error = __tmp__._1;
 		if (_err != null) {
 			_t.fatal(Go.toInterface(_err));
 		};
@@ -10144,19 +10064,19 @@ function testMkdirTempBadPattern(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -10479,7 +10399,7 @@ function testMkdirTempBadPattern(_t:stdgo.testing.Testing.T):Void {
 		return __self__.error();
 }
 
-class T_myErrorIs_asInterface {
+private class T_myErrorIs_asInterface {
 	@:keep
 	public var is_:Error->Bool = null;
 	@:embedded

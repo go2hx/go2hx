@@ -10,7 +10,7 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-var _tests:Slice<stdgo.testing.Testing.InternalTest> = (new Slice<stdgo.testing.Testing.InternalTest>(0, 0,
+private var _tests:Slice<stdgo.testing.Testing.InternalTest> = (new Slice<stdgo.testing.Testing.InternalTest>(0, 0,
 	(new stdgo.testing.Testing.InternalTest((Go.str("TestParseBool") : GoString),
 		stdgo.strconv_test.Strconv_test.testParseBool) : stdgo.testing.Testing.InternalTest),
 	(new stdgo.testing.Testing.InternalTest((Go.str("TestFormatBool") : GoString),
@@ -115,7 +115,7 @@ var _tests:Slice<stdgo.testing.Testing.InternalTest> = (new Slice<stdgo.testing.
 	(new stdgo.testing.Testing.InternalTest((Go.str("TestErrorPrefixes") : GoString),
 		stdgo.strconv_test.Strconv_test.testErrorPrefixes) : stdgo.testing.Testing.InternalTest)) : Slice<stdgo.testing.Testing.InternalTest>);
 
-var _benchmarks:Slice<stdgo.testing.Testing.InternalBenchmark> = (new Slice<stdgo.testing.Testing.InternalBenchmark>(0, 0,
+private var _benchmarks:Slice<stdgo.testing.Testing.InternalBenchmark> = (new Slice<stdgo.testing.Testing.InternalBenchmark>(0, 0,
 	(new stdgo.testing.Testing.InternalBenchmark((Go.str("BenchmarkAtof64Decimal") : GoString),
 		stdgo.strconv_test.Strconv_test.benchmarkAtof64Decimal) : stdgo.testing.Testing.InternalBenchmark),
 	(new stdgo.testing.Testing.InternalBenchmark((Go.str("BenchmarkAtof64Float") : GoString),
@@ -175,10 +175,10 @@ var _benchmarks:Slice<stdgo.testing.Testing.InternalBenchmark> = (new Slice<stdg
 	(new stdgo.testing.Testing.InternalBenchmark((Go.str("BenchmarkUnquoteHard") : GoString),
 		stdgo.strconv_test.Strconv_test.benchmarkUnquoteHard) : stdgo.testing.Testing.InternalBenchmark)) : Slice<stdgo.testing.Testing.InternalBenchmark>);
 
-var _fuzzTargets:Slice<stdgo.testing.Testing.InternalFuzzTarget> = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(0,
+private var _fuzzTargets:Slice<stdgo.testing.Testing.InternalFuzzTarget> = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(0,
 	0) : Slice<stdgo.testing.Testing.InternalFuzzTarget>);
 
-var _examples:Slice<stdgo.testing.Testing.InternalExample> = (new Slice<stdgo.testing.Testing.InternalExample>(0, 0,
+private var _examples:Slice<stdgo.testing.Testing.InternalExample> = (new Slice<stdgo.testing.Testing.InternalExample>(0, 0,
 	(new stdgo.testing.Testing.InternalExample((Go.str("ExampleAppendBool") : GoString), stdgo.strconv_test.Strconv_test.exampleAppendBool,
 		(Go.str("bool:true\n") : GoString), false) : stdgo.testing.Testing.InternalExample),
 	(new stdgo.testing.Testing.InternalExample((Go.str("ExampleAppendFloat") : GoString), stdgo.strconv_test.Strconv_test.exampleAppendFloat,

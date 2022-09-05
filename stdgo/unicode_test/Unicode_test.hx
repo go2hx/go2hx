@@ -14,7 +14,7 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-var _testDigit:Slice<GoInt32> = (new Slice<GoInt32>(0, 0, (48 : GoInt32), (57 : GoInt32), (1633 : GoInt32), (1777 : GoInt32), (1993 : GoInt32),
+private var _testDigit:Slice<GoInt32> = (new Slice<GoInt32>(0, 0, (48 : GoInt32), (57 : GoInt32), (1633 : GoInt32), (1777 : GoInt32), (1993 : GoInt32),
 	(2406 : GoInt32), (2543 : GoInt32), (2662 : GoInt32), (2799 : GoInt32), (2918 : GoInt32), (2927 : GoInt32), (3046 : GoInt32), (3055 : GoInt32),
 	(3174 : GoInt32), (3311 : GoInt32), (3430 : GoInt32), (3439 : GoInt32), (3664 : GoInt32), (3673 : GoInt32), (3792 : GoInt32), (3801 : GoInt32),
 	(3872 : GoInt32), (3881 : GoInt32), (4160 : GoInt32), (4169 : GoInt32), (4240 : GoInt32), (4241 : GoInt32), (4249 : GoInt32), (6112 : GoInt32),
@@ -23,36 +23,36 @@ var _testDigit:Slice<GoInt32> = (new Slice<GoInt32>(0, 0, (48 : GoInt32), (57 : 
 	(42537 : GoInt32), (43216 : GoInt32), (43225 : GoInt32), (43264 : GoInt32), (43273 : GoInt32), (43600 : GoInt32), (43609 : GoInt32), (65296 : GoInt32),
 	(65305 : GoInt32), (66721 : GoInt32), (120782 : GoInt32)) : Slice<GoInt32>);
 
-var _testLetter:Slice<GoInt32> = (new Slice<GoInt32>(0, 0, (65 : GoInt32), (97 : GoInt32), (170 : GoInt32), (186 : GoInt32), (200 : GoInt32), (219 : GoInt32),
-	(249 : GoInt32), (748 : GoInt32), (1333 : GoInt32), (1766 : GoInt32), (2365 : GoInt32), (2581 : GoInt32), (2969 : GoInt32), (3520 : GoInt32),
-	(3805 : GoInt32), (4096 : GoInt32), (4608 : GoInt32), (4882 : GoInt32), (5121 : GoInt32), (6277 : GoInt32), (11264 : GoInt32), (43008 : GoInt32),
-	(63744 : GoInt32), (64048 : GoInt32), (65498 : GoInt32), (65500 : GoInt32), (65536 : GoInt32), (66304 : GoInt32), (66560 : GoInt32), (131072 : GoInt32),
-	(194560 : GoInt32), (195101 : GoInt32)) : Slice<GoInt32>);
+private var _testLetter:Slice<GoInt32> = (new Slice<GoInt32>(0, 0, (65 : GoInt32), (97 : GoInt32), (170 : GoInt32), (186 : GoInt32), (200 : GoInt32),
+	(219 : GoInt32), (249 : GoInt32), (748 : GoInt32), (1333 : GoInt32), (1766 : GoInt32), (2365 : GoInt32), (2581 : GoInt32), (2969 : GoInt32),
+	(3520 : GoInt32), (3805 : GoInt32), (4096 : GoInt32), (4608 : GoInt32), (4882 : GoInt32), (5121 : GoInt32), (6277 : GoInt32), (11264 : GoInt32),
+	(43008 : GoInt32), (63744 : GoInt32), (64048 : GoInt32), (65498 : GoInt32), (65500 : GoInt32), (65536 : GoInt32), (66304 : GoInt32), (66560 : GoInt32),
+	(131072 : GoInt32), (194560 : GoInt32), (195101 : GoInt32)) : Slice<GoInt32>);
 
-var _upperTest:Slice<GoInt32> = (new Slice<GoInt32>(0, 0, (65 : GoInt32), (192 : GoInt32), (216 : GoInt32), (256 : GoInt32), (313 : GoInt32), (330 : GoInt32),
-	(376 : GoInt32), (385 : GoInt32), (886 : GoInt32), (975 : GoInt32), (5053 : GoInt32), (7978 : GoInt32), (8450 : GoInt32), (11264 : GoInt32),
-	(11280 : GoInt32), (11296 : GoInt32), (42576 : GoInt32), (42786 : GoInt32), (65338 : GoInt32), (66560 : GoInt32), (119808 : GoInt32),
+private var _upperTest:Slice<GoInt32> = (new Slice<GoInt32>(0, 0, (65 : GoInt32), (192 : GoInt32), (216 : GoInt32), (256 : GoInt32), (313 : GoInt32),
+	(330 : GoInt32), (376 : GoInt32), (385 : GoInt32), (886 : GoInt32), (975 : GoInt32), (5053 : GoInt32), (7978 : GoInt32), (8450 : GoInt32),
+	(11264 : GoInt32), (11280 : GoInt32), (11296 : GoInt32), (42576 : GoInt32), (42786 : GoInt32), (65338 : GoInt32), (66560 : GoInt32), (119808 : GoInt32),
 	(120778 : GoInt32)) : Slice<GoInt32>);
 
-var _notupperTest:Slice<GoInt32> = (new Slice<GoInt32>(0, 0, (64 : GoInt32), (91 : GoInt32), (97 : GoInt32), (389 : GoInt32), (432 : GoInt32),
+private var _notupperTest:Slice<GoInt32> = (new Slice<GoInt32>(0, 0, (64 : GoInt32), (91 : GoInt32), (97 : GoInt32), (389 : GoInt32), (432 : GoInt32),
 	(887 : GoInt32), (903 : GoInt32), (8528 : GoInt32), (43901 : GoInt32), (65535 : GoInt32), (65536 : GoInt32)) : Slice<GoInt32>);
 
-var _letterTest:Slice<GoInt32> = (new Slice<GoInt32>(0, 0, (65 : GoInt32), (97 : GoInt32), (170 : GoInt32), (186 : GoInt32), (200 : GoInt32), (219 : GoInt32),
-	(249 : GoInt32), (748 : GoInt32), (1333 : GoInt32), (1568 : GoInt32), (1766 : GoInt32), (2365 : GoInt32), (2581 : GoInt32), (2969 : GoInt32),
-	(3520 : GoInt32), (3805 : GoInt32), (4096 : GoInt32), (4608 : GoInt32), (4882 : GoInt32), (5121 : GoInt32), (11264 : GoInt32), (43008 : GoInt32),
-	(63744 : GoInt32), (64048 : GoInt32), (65498 : GoInt32), (65500 : GoInt32), (65536 : GoInt32), (66304 : GoInt32), (66560 : GoInt32), (131072 : GoInt32),
-	(194560 : GoInt32), (195101 : GoInt32)) : Slice<GoInt32>);
+private var _letterTest:Slice<GoInt32> = (new Slice<GoInt32>(0, 0, (65 : GoInt32), (97 : GoInt32), (170 : GoInt32), (186 : GoInt32), (200 : GoInt32),
+	(219 : GoInt32), (249 : GoInt32), (748 : GoInt32), (1333 : GoInt32), (1568 : GoInt32), (1766 : GoInt32), (2365 : GoInt32), (2581 : GoInt32),
+	(2969 : GoInt32), (3520 : GoInt32), (3805 : GoInt32), (4096 : GoInt32), (4608 : GoInt32), (4882 : GoInt32), (5121 : GoInt32), (11264 : GoInt32),
+	(43008 : GoInt32), (63744 : GoInt32), (64048 : GoInt32), (65498 : GoInt32), (65500 : GoInt32), (65536 : GoInt32), (66304 : GoInt32), (66560 : GoInt32),
+	(131072 : GoInt32), (194560 : GoInt32), (195101 : GoInt32)) : Slice<GoInt32>);
 
-var _notletterTest:Slice<GoInt32> = (new Slice<GoInt32>(0, 0, (32 : GoInt32), (53 : GoInt32), (885 : GoInt32), (1561 : GoInt32), (1792 : GoInt32),
+private var _notletterTest:Slice<GoInt32> = (new Slice<GoInt32>(0, 0, (32 : GoInt32), (53 : GoInt32), (885 : GoInt32), (1561 : GoInt32), (1792 : GoInt32),
 	(6277 : GoInt32), (65534 : GoInt32), (131071 : GoInt32), (1114111 : GoInt32)) : Slice<GoInt32>);
 
 /**
 	// Contains all the special cased Latin-1 chars.
 **/
-var _spaceTest:Slice<GoInt32> = (new Slice<GoInt32>(0, 0, (9 : GoInt32), (10 : GoInt32), (11 : GoInt32), (12 : GoInt32), (13 : GoInt32), (32 : GoInt32),
-	(133 : GoInt32), (160 : GoInt32), (8192 : GoInt32), (12288 : GoInt32)) : Slice<GoInt32>);
+private var _spaceTest:Slice<GoInt32> = (new Slice<GoInt32>(0, 0, (9 : GoInt32), (10 : GoInt32), (11 : GoInt32), (12 : GoInt32), (13 : GoInt32),
+	(32 : GoInt32), (133 : GoInt32), (160 : GoInt32), (8192 : GoInt32), (12288 : GoInt32)) : Slice<GoInt32>);
 
-var _caseTest:Slice<stdgo.unicode_test.Unicode_test.T_caseT> = (new Slice<stdgo.unicode_test.Unicode_test.T_caseT>(0, 0,
+private var _caseTest:Slice<stdgo.unicode_test.Unicode_test.T_caseT> = (new Slice<stdgo.unicode_test.Unicode_test.T_caseT>(0, 0,
 	(new stdgo.unicode_test.Unicode_test.T_caseT((-1 : GoInt), ("\n".code : GoInt32), (65533 : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
 	(new stdgo.unicode_test.Unicode_test.T_caseT((0 : GoInt), (-1 : GoInt32), (-1 : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
 	(new stdgo.unicode_test.Unicode_test.T_caseT((0 : GoInt), (1073741824 : GoInt32), (1073741824 : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
@@ -132,14 +132,14 @@ var _caseTest:Slice<stdgo.unicode_test.Unicode_test.T_caseT> = (new Slice<stdgo.
 	(new stdgo.unicode_test.Unicode_test.T_caseT((0 : GoInt), (837 : GoInt32),
 		(921 : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT)) : Slice<stdgo.unicode_test.Unicode_test.T_caseT>);
 
-var _simpleFoldTests:Slice<GoString> = (new Slice<GoString>(0, 0, (Go.str("Aa") : GoString), (Go.str("δΔ") : GoString), (Go.str("KkK") : GoString),
+private var _simpleFoldTests:Slice<GoString> = (new Slice<GoString>(0, 0, (Go.str("Aa") : GoString), (Go.str("δΔ") : GoString), (Go.str("KkK") : GoString),
 	(Go.str("Ssſ") : GoString), (Go.str("ρϱΡ") : GoString), (Go.str("ͅΙιι") : GoString), (Go.str("İ") : GoString), (Go.str("ı") : GoString),
 	(Go.str("\u13b0\uab80") : GoString)) : Slice<GoString>);
 
-var _calibrate:Pointer<Bool> = stdgo.flag.Flag.bool_((Go.str("calibrate") : GoString), false,
+private var _calibrate:Pointer<Bool> = stdgo.flag.Flag.bool_((Go.str("calibrate") : GoString), false,
 	(Go.str("compute crossover for linear vs. binary search") : GoString));
 
-var _inCategoryTest:Slice<stdgo.unicode_test.Unicode_test.T> = (new Slice<stdgo.unicode_test.Unicode_test.T>(0, 0,
+private var _inCategoryTest:Slice<stdgo.unicode_test.Unicode_test.T> = (new Slice<stdgo.unicode_test.Unicode_test.T>(0, 0,
 	(new stdgo.unicode_test.Unicode_test.T((129 : GoInt32), (Go.str("Cc") : GoString)) : stdgo.unicode_test.Unicode_test.T),
 	(new stdgo.unicode_test.Unicode_test.T((8203 : GoInt32), (Go.str("Cf") : GoString)) : stdgo.unicode_test.Unicode_test.T),
 	(new stdgo.unicode_test.Unicode_test.T((983040 : GoInt32), (Go.str("Co") : GoString)) : stdgo.unicode_test.Unicode_test.T),
@@ -178,7 +178,7 @@ var _inCategoryTest:Slice<stdgo.unicode_test.Unicode_test.T> = (new Slice<stdgo.
 	(new stdgo.unicode_test.Unicode_test.T((160 : GoInt32),
 		(Go.str("Z") : GoString)) : stdgo.unicode_test.Unicode_test.T)) : Slice<stdgo.unicode_test.Unicode_test.T>);
 
-var _inPropTest:Slice<stdgo.unicode_test.Unicode_test.T> = (new Slice<stdgo.unicode_test.Unicode_test.T>(0, 0,
+private var _inPropTest:Slice<stdgo.unicode_test.Unicode_test.T> = (new Slice<stdgo.unicode_test.Unicode_test.T>(0, 0,
 	(new stdgo.unicode_test.Unicode_test.T((70 : GoInt32), (Go.str("ASCII_Hex_Digit") : GoString)) : stdgo.unicode_test.Unicode_test.T),
 	(new stdgo.unicode_test.Unicode_test.T((8207 : GoInt32), (Go.str("Bidi_Control") : GoString)) : stdgo.unicode_test.Unicode_test.T),
 	(new stdgo.unicode_test.Unicode_test.T((8722 : GoInt32), (Go.str("Dash") : GoString)) : stdgo.unicode_test.Unicode_test.T),

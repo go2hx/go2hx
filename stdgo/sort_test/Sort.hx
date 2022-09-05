@@ -10,7 +10,7 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-var _tests:Slice<stdgo.testing.Testing.InternalTest> = (new Slice<stdgo.testing.Testing.InternalTest>(0, 0,
+private var _tests:Slice<stdgo.testing.Testing.InternalTest> = (new Slice<stdgo.testing.Testing.InternalTest>(0, 0,
 	(new stdgo.testing.Testing.InternalTest((Go.str("TestSearch") : GoString), stdgo.sort_test.Sort_test.testSearch) : stdgo.testing.Testing.InternalTest),
 	(new stdgo.testing.Testing.InternalTest((Go.str("TestFind") : GoString), stdgo.sort_test.Sort_test.testFind) : stdgo.testing.Testing.InternalTest),
 	(new stdgo.testing.Testing.InternalTest((Go.str("TestSearchEfficiency") : GoString),
@@ -58,7 +58,7 @@ var _tests:Slice<stdgo.testing.Testing.InternalTest> = (new Slice<stdgo.testing.
 	(new stdgo.testing.Testing.InternalTest((Go.str("TestCountSortOps") : GoString),
 		stdgo.sort_test.Sort_test.testCountSortOps) : stdgo.testing.Testing.InternalTest)) : Slice<stdgo.testing.Testing.InternalTest>);
 
-var _benchmarks:Slice<stdgo.testing.Testing.InternalBenchmark> = (new Slice<stdgo.testing.Testing.InternalBenchmark>(0, 0,
+private var _benchmarks:Slice<stdgo.testing.Testing.InternalBenchmark> = (new Slice<stdgo.testing.Testing.InternalBenchmark>(0, 0,
 	(new stdgo.testing.Testing.InternalBenchmark((Go.str("BenchmarkSearchWrappers") : GoString),
 		stdgo.sort_test.Sort_test.benchmarkSearchWrappers) : stdgo.testing.Testing.InternalBenchmark),
 	(new stdgo.testing.Testing.InternalBenchmark((Go.str("BenchmarkSortString1K") : GoString),
@@ -98,10 +98,10 @@ var _benchmarks:Slice<stdgo.testing.Testing.InternalBenchmark> = (new Slice<stdg
 	(new stdgo.testing.Testing.InternalBenchmark((Go.str("BenchmarkStable1e6") : GoString),
 		stdgo.sort_test.Sort_test.benchmarkStable1e6) : stdgo.testing.Testing.InternalBenchmark)) : Slice<stdgo.testing.Testing.InternalBenchmark>);
 
-var _fuzzTargets:Slice<stdgo.testing.Testing.InternalFuzzTarget> = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(0,
+private var _fuzzTargets:Slice<stdgo.testing.Testing.InternalFuzzTarget> = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(0,
 	0) : Slice<stdgo.testing.Testing.InternalFuzzTarget>);
 
-var _examples:Slice<stdgo.testing.Testing.InternalExample> = (new Slice<stdgo.testing.Testing.InternalExample>(0, 0,
+private var _examples:Slice<stdgo.testing.Testing.InternalExample> = (new Slice<stdgo.testing.Testing.InternalExample>(0, 0,
 	(new stdgo.testing.Testing.InternalExample((Go.str("Example") : GoString), stdgo.sort_test.Sort_test.example,
 		(Go.str("[Bob: 31 John: 42 Michael: 17 Jenny: 26]\n[Michael: 17 Jenny: 26 Bob: 31 John: 42]\n[John: 42 Bob: 31 Jenny: 26 Michael: 17]\n") : GoString),
 		false) : stdgo.testing.Testing.InternalExample),

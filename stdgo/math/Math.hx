@@ -10,250 +10,258 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-var __gamP:GoArray<GoFloat64> = (new GoArray<GoFloat64>((0.00016011952247675185 : GoFloat64), (0.0011913514700658638 : GoFloat64),
+private var __gamP:GoArray<GoFloat64> = (new GoArray<GoFloat64>((0.00016011952247675185 : GoFloat64), (0.0011913514700658638 : GoFloat64),
 	(0.010421379756176158 : GoFloat64), (0.04763678004571372 : GoFloat64), (0.20744822764843598 : GoFloat64), (0.4942148268014971 : GoFloat64),
 	(1 : GoFloat64)) : GoArray<GoFloat64>);
 
-var __gamQ:GoArray<GoFloat64> = (new GoArray<GoFloat64>((-2.3158187332412014e-05 : GoFloat64), (0.0005396055804933034 : GoFloat64),
+private var __gamQ:GoArray<GoFloat64> = (new GoArray<GoFloat64>((-2.3158187332412014e-05 : GoFloat64), (0.0005396055804933034 : GoFloat64),
 	(-0.004456419138517973 : GoFloat64), (0.011813978522206043 : GoFloat64), (0.035823639860549865 : GoFloat64), (-0.23459179571824335 : GoFloat64),
 	(0.0714304917030273 : GoFloat64), (1 : GoFloat64)) : GoArray<GoFloat64>);
 
-var __gamS:GoArray<GoFloat64> = (new GoArray<GoFloat64>((0.0007873113957930937 : GoFloat64), (-0.00022954996161337813 : GoFloat64),
+private var __gamS:GoArray<GoFloat64> = (new GoArray<GoFloat64>((0.0007873113957930937 : GoFloat64), (-0.00022954996161337813 : GoFloat64),
 	(-0.0026813261780578124 : GoFloat64), (0.0034722222160545866 : GoFloat64), (0.08333333333334822 : GoFloat64)) : GoArray<GoFloat64>);
 
 /**
 	// for x in [inf, 8]=1/[0,0.125]
 **/
-var _p0R8:GoArray<GoFloat64> = (new GoArray<GoFloat64>((0 : GoFloat64), (-0.07031249999999004 : GoFloat64), (-8.081670412753498 : GoFloat64),
+private var _p0R8:GoArray<GoFloat64> = (new GoArray<GoFloat64>((0 : GoFloat64), (-0.07031249999999004 : GoFloat64), (-8.081670412753498 : GoFloat64),
 	(-257.06310567970485 : GoFloat64), (-2485.216410094288 : GoFloat64), (-5253.043804907295 : GoFloat64)) : GoArray<GoFloat64>);
 
-var _p0S8:GoArray<GoFloat64> = (new GoArray<GoFloat64>((116.53436461966818 : GoFloat64), (3833.7447536412183 : GoFloat64), (40597.857264847255 : GoFloat64),
-	(116752.97256437592 : GoFloat64), (47627.728414673096 : GoFloat64)) : GoArray<GoFloat64>);
+private var _p0S8:GoArray<GoFloat64> = (new GoArray<GoFloat64>((116.53436461966818 : GoFloat64), (3833.7447536412183 : GoFloat64),
+	(40597.857264847255 : GoFloat64), (116752.97256437592 : GoFloat64), (47627.728414673096 : GoFloat64)) : GoArray<GoFloat64>);
 
 /**
 	// for x in [8,4.5454]=1/[0.125,0.22001]
 **/
-var _p0R5:GoArray<GoFloat64> = (new GoArray<GoFloat64>((-1.141254646918945e-11 : GoFloat64), (-0.07031249408735993 : GoFloat64),
+private var _p0R5:GoArray<GoFloat64> = (new GoArray<GoFloat64>((-1.141254646918945e-11 : GoFloat64), (-0.07031249408735993 : GoFloat64),
 	(-4.159610644705878 : GoFloat64), (-67.67476522651673 : GoFloat64), (-331.23129964917297 : GoFloat64),
 	(-346.4333883656049 : GoFloat64)) : GoArray<GoFloat64>);
 
-var _p0S5:GoArray<GoFloat64> = (new GoArray<GoFloat64>((60.753938269230034 : GoFloat64), (1051.2523059570458 : GoFloat64), (5978.970943338558 : GoFloat64),
-	(9625.445143577745 : GoFloat64), (2406.058159229391 : GoFloat64)) : GoArray<GoFloat64>);
+private var _p0S5:GoArray<GoFloat64> = (new GoArray<GoFloat64>((60.753938269230034 : GoFloat64), (1051.2523059570458 : GoFloat64),
+	(5978.970943338558 : GoFloat64), (9625.445143577745 : GoFloat64), (2406.058159229391 : GoFloat64)) : GoArray<GoFloat64>);
 
 /**
 	// for x in [4.547,2.8571]=1/[0.2199,0.35001]
 **/
-var _p0R3:GoArray<GoFloat64> = (new GoArray<GoFloat64>((-2.547046017719519e-09 : GoFloat64), (-0.07031196163814817 : GoFloat64),
+private var _p0R3:GoArray<GoFloat64> = (new GoArray<GoFloat64>((-2.547046017719519e-09 : GoFloat64), (-0.07031196163814817 : GoFloat64),
 	(-2.409032215495296 : GoFloat64), (-21.96597747348831 : GoFloat64), (-58.07917047017376 : GoFloat64),
 	(-31.44794705948885 : GoFloat64)) : GoArray<GoFloat64>);
 
-var _p0S3:GoArray<GoFloat64> = (new GoArray<GoFloat64>((35.85603380552097 : GoFloat64), (361.51398305030386 : GoFloat64), (1193.6078379211153 : GoFloat64),
-	(1127.9967985690741 : GoFloat64), (173.58093081333575 : GoFloat64)) : GoArray<GoFloat64>);
+private var _p0S3:GoArray<GoFloat64> = (new GoArray<GoFloat64>((35.85603380552097 : GoFloat64), (361.51398305030386 : GoFloat64),
+	(1193.6078379211153 : GoFloat64), (1127.9967985690741 : GoFloat64), (173.58093081333575 : GoFloat64)) : GoArray<GoFloat64>);
 
 /**
 	// for x in [2.8570,2]=1/[0.3499,0.5]
 **/
-var _p0R2:GoArray<GoFloat64> = (new GoArray<GoFloat64>((-8.875343330325264e-08 : GoFloat64), (-0.07030309954836247 : GoFloat64),
+private var _p0R2:GoArray<GoFloat64> = (new GoArray<GoFloat64>((-8.875343330325264e-08 : GoFloat64), (-0.07030309954836247 : GoFloat64),
 	(-1.4507384678095299 : GoFloat64), (-7.635696138235278 : GoFloat64), (-11.193166886035675 : GoFloat64),
 	(-3.2336457935133534 : GoFloat64)) : GoArray<GoFloat64>);
 
-var _p0S2:GoArray<GoFloat64> = (new GoArray<GoFloat64>((22.22029975320888 : GoFloat64), (136.2067942182152 : GoFloat64), (270.4702786580835 : GoFloat64),
-	(153.87539420832033 : GoFloat64), (14.65761769482562 : GoFloat64)) : GoArray<GoFloat64>);
+private var _p0S2:GoArray<GoFloat64> = (new GoArray<GoFloat64>((22.22029975320888 : GoFloat64), (136.2067942182152 : GoFloat64),
+	(270.4702786580835 : GoFloat64), (153.87539420832033 : GoFloat64), (14.65761769482562 : GoFloat64)) : GoArray<GoFloat64>);
 
 /**
 	// for x in [inf, 8]=1/[0,0.125]
 **/
-var _q0R8:GoArray<GoFloat64> = (new GoArray<GoFloat64>((0 : GoFloat64), (0.0732421874999935 : GoFloat64), (11.76820646822527 : GoFloat64),
+private var _q0R8:GoArray<GoFloat64> = (new GoArray<GoFloat64>((0 : GoFloat64), (0.0732421874999935 : GoFloat64), (11.76820646822527 : GoFloat64),
 	(557.6733802564019 : GoFloat64), (8859.197207564686 : GoFloat64), (37014.62677768878 : GoFloat64)) : GoArray<GoFloat64>);
 
-var _q0S8:GoArray<GoFloat64> = (new GoArray<GoFloat64>((163.77602689568982 : GoFloat64), (8098.344946564498 : GoFloat64), (142538.29141912048 : GoFloat64),
-	(803309.2571195144 : GoFloat64), (840501.5798190605 : GoFloat64), (-343899.2935378666 : GoFloat64)) : GoArray<GoFloat64>);
+private var _q0S8:GoArray<GoFloat64> = (new GoArray<GoFloat64>((163.77602689568982 : GoFloat64), (8098.344946564498 : GoFloat64),
+	(142538.29141912048 : GoFloat64), (803309.2571195144 : GoFloat64), (840501.5798190605 : GoFloat64),
+	(-343899.2935378666 : GoFloat64)) : GoArray<GoFloat64>);
 
 /**
 	// for x in [8,4.5454]=1/[0.125,0.22001]
 **/
-var _q0R5:GoArray<GoFloat64> = (new GoArray<GoFloat64>((1.8408596359451553e-11 : GoFloat64), (0.07324217666126848 : GoFloat64),
+private var _q0R5:GoArray<GoFloat64> = (new GoArray<GoFloat64>((1.8408596359451553e-11 : GoFloat64), (0.07324217666126848 : GoFloat64),
 	(5.8356350896205695 : GoFloat64), (135.11157728644983 : GoFloat64), (1027.243765961641 : GoFloat64),
 	(1989.9778586460538 : GoFloat64)) : GoArray<GoFloat64>);
 
-var _q0S5:GoArray<GoFloat64> = (new GoArray<GoFloat64>((82.77661022365378 : GoFloat64), (2077.81416421393 : GoFloat64), (18847.28877857181 : GoFloat64),
-	(56751.11228949473 : GoFloat64), (35976.75384251145 : GoFloat64), (-5354.342756019448 : GoFloat64)) : GoArray<GoFloat64>);
+private var _q0S5:GoArray<GoFloat64> = (new GoArray<GoFloat64>((82.77661022365378 : GoFloat64), (2077.81416421393 : GoFloat64),
+	(18847.28877857181 : GoFloat64), (56751.11228949473 : GoFloat64), (35976.75384251145 : GoFloat64), (-5354.342756019448 : GoFloat64)) : GoArray<GoFloat64>);
 
 /**
 	// for x in [4.547,2.8571]=1/[0.2199,0.35001]
 **/
-var _q0R3:GoArray<GoFloat64> = (new GoArray<GoFloat64>((4.377410140897386e-09 : GoFloat64), (0.07324111800429114 : GoFloat64),
+private var _q0R3:GoArray<GoFloat64> = (new GoArray<GoFloat64>((4.377410140897386e-09 : GoFloat64), (0.07324111800429114 : GoFloat64),
 	(3.344231375161707 : GoFloat64), (42.621844074541265 : GoFloat64), (170.8080913405656 : GoFloat64),
 	(166.73394869665117 : GoFloat64)) : GoArray<GoFloat64>);
 
-var _q0S3:GoArray<GoFloat64> = (new GoArray<GoFloat64>((48.75887297245872 : GoFloat64), (709.689221056606 : GoFloat64), (3704.1482262011136 : GoFloat64),
-	(6460.425167525689 : GoFloat64), (2516.3336892036896 : GoFloat64), (-149.2474518361564 : GoFloat64)) : GoArray<GoFloat64>);
+private var _q0S3:GoArray<GoFloat64> = (new GoArray<GoFloat64>((48.75887297245872 : GoFloat64), (709.689221056606 : GoFloat64),
+	(3704.1482262011136 : GoFloat64), (6460.425167525689 : GoFloat64), (2516.3336892036896 : GoFloat64),
+	(-149.2474518361564 : GoFloat64)) : GoArray<GoFloat64>);
 
 /**
 	// for x in [2.8570,2]=1/[0.3499,0.5]
 **/
-var _q0R2:GoArray<GoFloat64> = (new GoArray<GoFloat64>((1.5044444488698327e-07 : GoFloat64), (0.07322342659630793 : GoFloat64),
+private var _q0R2:GoArray<GoFloat64> = (new GoArray<GoFloat64>((1.5044444488698327e-07 : GoFloat64), (0.07322342659630793 : GoFloat64),
 	(1.99819174093816 : GoFloat64), (14.495602934788574 : GoFloat64), (31.666231750478154 : GoFloat64),
 	(16.252707571092927 : GoFloat64)) : GoArray<GoFloat64>);
 
-var _q0S2:GoArray<GoFloat64> = (new GoArray<GoFloat64>((30.36558483552192 : GoFloat64), (269.34811860804984 : GoFloat64), (844.7837575953201 : GoFloat64),
-	(882.9358451124886 : GoFloat64), (212.66638851179883 : GoFloat64), (-5.3109549388266695 : GoFloat64)) : GoArray<GoFloat64>);
+private var _q0S2:GoArray<GoFloat64> = (new GoArray<GoFloat64>((30.36558483552192 : GoFloat64), (269.34811860804984 : GoFloat64),
+	(844.7837575953201 : GoFloat64), (882.9358451124886 : GoFloat64), (212.66638851179883 : GoFloat64),
+	(-5.3109549388266695 : GoFloat64)) : GoArray<GoFloat64>);
 
 /**
 	// for x in [inf, 8]=1/[0,0.125]
 **/
-var _p1R8:GoArray<GoFloat64> = (new GoArray<GoFloat64>((0 : GoFloat64), (0.11718749999998865 : GoFloat64), (13.239480659307358 : GoFloat64),
+private var _p1R8:GoArray<GoFloat64> = (new GoArray<GoFloat64>((0 : GoFloat64), (0.11718749999998865 : GoFloat64), (13.239480659307358 : GoFloat64),
 	(412.05185430737856 : GoFloat64), (3874.7453891396053 : GoFloat64), (7914.479540318917 : GoFloat64)) : GoArray<GoFloat64>);
 
-var _p1S8:GoArray<GoFloat64> = (new GoArray<GoFloat64>((114.20737037567841 : GoFloat64), (3650.9308342085346 : GoFloat64), (36956.206026903346 : GoFloat64),
-	(97602.79359349508 : GoFloat64), (30804.27206278888 : GoFloat64)) : GoArray<GoFloat64>);
+private var _p1S8:GoArray<GoFloat64> = (new GoArray<GoFloat64>((114.20737037567841 : GoFloat64), (3650.9308342085346 : GoFloat64),
+	(36956.206026903346 : GoFloat64), (97602.79359349508 : GoFloat64), (30804.27206278888 : GoFloat64)) : GoArray<GoFloat64>);
 
 /**
 	// for x in [8,4.5454] = 1/[0.125,0.22001]
 **/
-var _p1R5:GoArray<GoFloat64> = (new GoArray<GoFloat64>((1.3199051955624352e-11 : GoFloat64), (0.1171874931906141 : GoFloat64),
+private var _p1R5:GoArray<GoFloat64> = (new GoArray<GoFloat64>((1.3199051955624352e-11 : GoFloat64), (0.1171874931906141 : GoFloat64),
 	(6.802751278684329 : GoFloat64), (108.30818299018911 : GoFloat64), (517.6361395331998 : GoFloat64), (528.7152013633375 : GoFloat64)) : GoArray<GoFloat64>);
 
-var _p1S5:GoArray<GoFloat64> = (new GoArray<GoFloat64>((59.28059872211313 : GoFloat64), (991.4014187336144 : GoFloat64), (5353.26695291488 : GoFloat64),
-	(7844.690317495512 : GoFloat64), (1504.0468881036106 : GoFloat64)) : GoArray<GoFloat64>);
+private var _p1S5:GoArray<GoFloat64> = (new GoArray<GoFloat64>((59.28059872211313 : GoFloat64), (991.4014187336144 : GoFloat64),
+	(5353.26695291488 : GoFloat64), (7844.690317495512 : GoFloat64), (1504.0468881036106 : GoFloat64)) : GoArray<GoFloat64>);
 
 /**
 	// for x in[4.5453,2.8571] = 1/[0.2199,0.35001]
 **/
-var _p1R3:GoArray<GoFloat64> = (new GoArray<GoFloat64>((3.025039161373736e-09 : GoFloat64), (0.11718686556725359 : GoFloat64),
+private var _p1R3:GoArray<GoFloat64> = (new GoArray<GoFloat64>((3.025039161373736e-09 : GoFloat64), (0.11718686556725359 : GoFloat64),
 	(3.9329775003331564 : GoFloat64), (35.11940355916369 : GoFloat64), (91.05501107507813 : GoFloat64), (48.55906851973649 : GoFloat64)) : GoArray<GoFloat64>);
 
-var _p1S3:GoArray<GoFloat64> = (new GoArray<GoFloat64>((34.79130950012515 : GoFloat64), (336.76245874782575 : GoFloat64), (1046.8713997577513 : GoFloat64),
-	(890.8113463982564 : GoFloat64), (103.78793243963928 : GoFloat64)) : GoArray<GoFloat64>);
+private var _p1S3:GoArray<GoFloat64> = (new GoArray<GoFloat64>((34.79130950012515 : GoFloat64), (336.76245874782575 : GoFloat64),
+	(1046.8713997577513 : GoFloat64), (890.8113463982564 : GoFloat64), (103.78793243963928 : GoFloat64)) : GoArray<GoFloat64>);
 
 /**
 	// for x in [2.8570,2] = 1/[0.3499,0.5]
 **/
-var _p1R2:GoArray<GoFloat64> = (new GoArray<GoFloat64>((1.0771083010687374e-07 : GoFloat64), (0.11717621946268335 : GoFloat64),
+private var _p1R2:GoArray<GoFloat64> = (new GoArray<GoFloat64>((1.0771083010687374e-07 : GoFloat64), (0.11717621946268335 : GoFloat64),
 	(2.368514966676088 : GoFloat64), (12.242610914826123 : GoFloat64), (17.693971127168773 : GoFloat64),
 	(5.073523125888185 : GoFloat64)) : GoArray<GoFloat64>);
 
-var _p1S2:GoArray<GoFloat64> = (new GoArray<GoFloat64>((21.43648593638214 : GoFloat64), (125.29022716840275 : GoFloat64), (232.2764690571628 : GoFloat64),
-	(117.6793732871471 : GoFloat64), (8.364638933716183 : GoFloat64)) : GoArray<GoFloat64>);
+private var _p1S2:GoArray<GoFloat64> = (new GoArray<GoFloat64>((21.43648593638214 : GoFloat64), (125.29022716840275 : GoFloat64),
+	(232.2764690571628 : GoFloat64), (117.6793732871471 : GoFloat64), (8.364638933716183 : GoFloat64)) : GoArray<GoFloat64>);
 
 /**
 	// for x in [inf, 8] = 1/[0,0.125]
 **/
-var _q1R8:GoArray<GoFloat64> = (new GoArray<GoFloat64>((0 : GoFloat64), (-0.10253906249999271 : GoFloat64), (-16.271753454459 : GoFloat64),
+private var _q1R8:GoArray<GoFloat64> = (new GoArray<GoFloat64>((0 : GoFloat64), (-0.10253906249999271 : GoFloat64), (-16.271753454459 : GoFloat64),
 	(-759.6017225139501 : GoFloat64), (-11849.806670242959 : GoFloat64), (-48438.512428575035 : GoFloat64)) : GoArray<GoFloat64>);
 
-var _q1S8:GoArray<GoFloat64> = (new GoArray<GoFloat64>((161.3953697007229 : GoFloat64), (7825.385999233485 : GoFloat64), (133875.33628724958 : GoFloat64),
-	(719657.7236832409 : GoFloat64), (666601.2326177764 : GoFloat64), (-294490.26430383464 : GoFloat64)) : GoArray<GoFloat64>);
+private var _q1S8:GoArray<GoFloat64> = (new GoArray<GoFloat64>((161.3953697007229 : GoFloat64), (7825.385999233485 : GoFloat64),
+	(133875.33628724958 : GoFloat64), (719657.7236832409 : GoFloat64), (666601.2326177764 : GoFloat64),
+	(-294490.26430383464 : GoFloat64)) : GoArray<GoFloat64>);
 
 /**
 	// for x in [8,4.5454] = 1/[0.125,0.22001]
 **/
-var _q1R5:GoArray<GoFloat64> = (new GoArray<GoFloat64>((-2.089799311417641e-11 : GoFloat64), (-0.10253905024137543 : GoFloat64),
+private var _q1R5:GoArray<GoFloat64> = (new GoArray<GoFloat64>((-2.089799311417641e-11 : GoFloat64), (-0.10253905024137543 : GoFloat64),
 	(-8.05644828123936 : GoFloat64), (-183.66960747488838 : GoFloat64), (-1373.1937606550816 : GoFloat64),
 	(-2612.4444045321566 : GoFloat64)) : GoArray<GoFloat64>);
 
-var _q1S5:GoArray<GoFloat64> = (new GoArray<GoFloat64>((81.27655013843358 : GoFloat64), (1991.7987346048596 : GoFloat64), (17468.48519249089 : GoFloat64),
-	(49851.42709103523 : GoFloat64), (27948.075163891812 : GoFloat64), (-4719.183547951285 : GoFloat64)) : GoArray<GoFloat64>);
+private var _q1S5:GoArray<GoFloat64> = (new GoArray<GoFloat64>((81.27655013843358 : GoFloat64), (1991.7987346048596 : GoFloat64),
+	(17468.48519249089 : GoFloat64), (49851.42709103523 : GoFloat64), (27948.075163891812 : GoFloat64),
+	(-4719.183547951285 : GoFloat64)) : GoArray<GoFloat64>);
 
 /**
 	// for x in [4.5454,2.8571] = 1/[0.2199,0.35001] ???
 **/
-var _q1R3:GoArray<GoFloat64> = (new GoArray<GoFloat64>((-5.078312264617666e-09 : GoFloat64), (-0.10253782982083709 : GoFloat64),
+private var _q1R3:GoArray<GoFloat64> = (new GoArray<GoFloat64>((-5.078312264617666e-09 : GoFloat64), (-0.10253782982083709 : GoFloat64),
 	(-4.610115811394734 : GoFloat64), (-57.847221656278364 : GoFloat64), (-228.2445407376317 : GoFloat64),
 	(-219.21012847890933 : GoFloat64)) : GoArray<GoFloat64>);
 
-var _q1S3:GoArray<GoFloat64> = (new GoArray<GoFloat64>((47.66515503237295 : GoFloat64), (673.8651126766997 : GoFloat64), (3380.1528667952634 : GoFloat64),
-	(5547.729097207228 : GoFloat64), (1903.119193388108 : GoFloat64), (-135.20119144430734 : GoFloat64)) : GoArray<GoFloat64>);
+private var _q1S3:GoArray<GoFloat64> = (new GoArray<GoFloat64>((47.66515503237295 : GoFloat64), (673.8651126766997 : GoFloat64),
+	(3380.1528667952634 : GoFloat64), (5547.729097207228 : GoFloat64), (1903.119193388108 : GoFloat64),
+	(-135.20119144430734 : GoFloat64)) : GoArray<GoFloat64>);
 
 /**
 	// for x in [2.8570,2] = 1/[0.3499,0.5]
 **/
-var _q1R2:GoArray<GoFloat64> = (new GoArray<GoFloat64>((-1.7838172751095887e-07 : GoFloat64), (-0.10251704260798555 : GoFloat64),
+private var _q1R2:GoArray<GoFloat64> = (new GoArray<GoFloat64>((-1.7838172751095887e-07 : GoFloat64), (-0.10251704260798555 : GoFloat64),
 	(-2.7522056827818746 : GoFloat64), (-19.663616264370372 : GoFloat64), (-42.32531333728305 : GoFloat64),
 	(-21.371921170370406 : GoFloat64)) : GoArray<GoFloat64>);
 
-var _q1S2:GoArray<GoFloat64> = (new GoArray<GoFloat64>((29.533362906052385 : GoFloat64), (252.98154998219053 : GoFloat64), (757.5028348686454 : GoFloat64),
-	(739.3932053204672 : GoFloat64), (155.94900333666612 : GoFloat64), (-4.959498988226282 : GoFloat64)) : GoArray<GoFloat64>);
+private var _q1S2:GoArray<GoFloat64> = (new GoArray<GoFloat64>((29.533362906052385 : GoFloat64), (252.98154998219053 : GoFloat64),
+	(757.5028348686454 : GoFloat64), (739.3932053204672 : GoFloat64), (155.94900333666612 : GoFloat64),
+	(-4.959498988226282 : GoFloat64)) : GoArray<GoFloat64>);
 
-var __lgamA:GoArray<GoFloat64> = (new GoArray<GoFloat64>((0.07721566490153287 : GoFloat64), (0.3224670334241136 : GoFloat64),
+private var __lgamA:GoArray<GoFloat64> = (new GoArray<GoFloat64>((0.07721566490153287 : GoFloat64), (0.3224670334241136 : GoFloat64),
 	(0.06735230105312927 : GoFloat64), (0.020580808432516733 : GoFloat64), (0.007385550860814029 : GoFloat64), (0.0028905138367341563 : GoFloat64),
 	(0.0011927076318336207 : GoFloat64), (0.0005100697921535113 : GoFloat64), (0.00022086279071390839 : GoFloat64), (0.00010801156724758394 : GoFloat64),
 	(2.5214456545125733e-05 : GoFloat64), (4.4864094961891516e-05 : GoFloat64)) : GoArray<GoFloat64>);
 
-var __lgamR:GoArray<GoFloat64> = (new GoArray<GoFloat64>((1 : GoFloat64), (1.3920053346762105 : GoFloat64), (0.7219355475671381 : GoFloat64),
+private var __lgamR:GoArray<GoFloat64> = (new GoArray<GoFloat64>((1 : GoFloat64), (1.3920053346762105 : GoFloat64), (0.7219355475671381 : GoFloat64),
 	(0.17193386563280308 : GoFloat64), (0.01864591917156529 : GoFloat64), (0.0007779424963818936 : GoFloat64),
 	(7.326684307446256e-06 : GoFloat64)) : GoArray<GoFloat64>);
 
-var __lgamS:GoArray<GoFloat64> = (new GoArray<GoFloat64>((-0.07721566490153287 : GoFloat64), (0.21498241596060885 : GoFloat64),
+private var __lgamS:GoArray<GoFloat64> = (new GoArray<GoFloat64>((-0.07721566490153287 : GoFloat64), (0.21498241596060885 : GoFloat64),
 	(0.325778796408931 : GoFloat64), (0.14635047265246445 : GoFloat64), (0.02664227030336386 : GoFloat64), (0.0018402845140733772 : GoFloat64),
 	(3.194753265841009e-05 : GoFloat64)) : GoArray<GoFloat64>);
 
-var __lgamT:GoArray<GoFloat64> = (new GoArray<GoFloat64>((0.48383612272381005 : GoFloat64), (-0.1475877229945939 : GoFloat64),
+private var __lgamT:GoArray<GoFloat64> = (new GoArray<GoFloat64>((0.48383612272381005 : GoFloat64), (-0.1475877229945939 : GoFloat64),
 	(0.06462494023913339 : GoFloat64), (-0.032788541075985965 : GoFloat64), (0.01797067508118204 : GoFloat64), (-0.010314224129834144 : GoFloat64),
 	(0.006100538702462913 : GoFloat64), (-0.0036845201678113826 : GoFloat64), (0.0022596478090061247 : GoFloat64), (-0.0014034646998923284 : GoFloat64),
 	(0.000881081882437654 : GoFloat64), (-0.0005385953053567405 : GoFloat64), (0.00031563207090362595 : GoFloat64), (-0.00031275416837512086 : GoFloat64),
 	(0.0003355291926355191 : GoFloat64)) : GoArray<GoFloat64>);
 
-var __lgamU:GoArray<GoFloat64> = (new GoArray<GoFloat64>((-0.07721566490153287 : GoFloat64), (0.6328270640250934 : GoFloat64),
+private var __lgamU:GoArray<GoFloat64> = (new GoArray<GoFloat64>((-0.07721566490153287 : GoFloat64), (0.6328270640250934 : GoFloat64),
 	(1.4549225013723477 : GoFloat64), (0.9777175279633727 : GoFloat64), (0.22896372806469245 : GoFloat64),
 	(0.013381091853678766 : GoFloat64)) : GoArray<GoFloat64>);
 
-var __lgamV:GoArray<GoFloat64> = (new GoArray<GoFloat64>((1 : GoFloat64), (2.4559779371304113 : GoFloat64), (2.128489763798934 : GoFloat64),
+private var __lgamV:GoArray<GoFloat64> = (new GoArray<GoFloat64>((1 : GoFloat64), (2.4559779371304113 : GoFloat64), (2.128489763798934 : GoFloat64),
 	(0.7692851504566728 : GoFloat64), (0.10422264559336913 : GoFloat64), (0.003217092422824239 : GoFloat64)) : GoArray<GoFloat64>);
 
-var __lgamW:GoArray<GoFloat64> = (new GoArray<GoFloat64>((0.4189385332046727 : GoFloat64), (0.08333333333333297 : GoFloat64),
+private var __lgamW:GoArray<GoFloat64> = (new GoArray<GoFloat64>((0.4189385332046727 : GoFloat64), (0.08333333333333297 : GoFloat64),
 	(-0.0027777777772877554 : GoFloat64), (0.0007936505586430196 : GoFloat64), (-0.00059518755745034 : GoFloat64), (0.0008363399189962821 : GoFloat64),
 	(-0.0016309293409657527 : GoFloat64)) : GoArray<GoFloat64>);
 
 /**
 	// pow10tab stores the pre-computed values 10**i for i < 32.
 **/
-var _pow10tab:GoArray<GoFloat64> = (new GoArray<GoFloat64>((1 : GoFloat64), (10 : GoFloat64), (100 : GoFloat64), (1000 : GoFloat64), (10000 : GoFloat64),
-	(100000 : GoFloat64), (1e+06 : GoFloat64), (1e+07 : GoFloat64), (1e+08 : GoFloat64), (1e+09 : GoFloat64), (1e+10 : GoFloat64), (1e+11 : GoFloat64),
-	(1e+12 : GoFloat64), (1e+13 : GoFloat64), (1e+14 : GoFloat64), (1e+15 : GoFloat64), (1e+16 : GoFloat64), (1e+17 : GoFloat64), (1e+18 : GoFloat64),
-	(1e+19 : GoFloat64), (1e+20 : GoFloat64), (1e+21 : GoFloat64), (1e+22 : GoFloat64), (1e+23 : GoFloat64), (1e+24 : GoFloat64), (1e+25 : GoFloat64),
-	(1e+26 : GoFloat64), (1e+27 : GoFloat64), (1e+28 : GoFloat64), (1e+29 : GoFloat64), (1e+30 : GoFloat64), (1e+31 : GoFloat64)) : GoArray<GoFloat64>);
+private var _pow10tab:GoArray<GoFloat64> = (new GoArray<GoFloat64>((1 : GoFloat64), (10 : GoFloat64), (100 : GoFloat64), (1000 : GoFloat64),
+	(10000 : GoFloat64), (100000 : GoFloat64), (1e+06 : GoFloat64), (1e+07 : GoFloat64), (1e+08 : GoFloat64), (1e+09 : GoFloat64), (1e+10 : GoFloat64),
+	(1e+11 : GoFloat64), (1e+12 : GoFloat64), (1e+13 : GoFloat64), (1e+14 : GoFloat64), (1e+15 : GoFloat64), (1e+16 : GoFloat64), (1e+17 : GoFloat64),
+	(1e+18 : GoFloat64), (1e+19 : GoFloat64), (1e+20 : GoFloat64), (1e+21 : GoFloat64), (1e+22 : GoFloat64), (1e+23 : GoFloat64), (1e+24 : GoFloat64),
+	(1e+25 : GoFloat64), (1e+26 : GoFloat64), (1e+27 : GoFloat64), (1e+28 : GoFloat64), (1e+29 : GoFloat64), (1e+30 : GoFloat64),
+	(1e+31 : GoFloat64)) : GoArray<GoFloat64>);
 
 /**
 	// pow10postab32 stores the pre-computed value for 10**(i*32) at index i.
 **/
-var _pow10postab32:GoArray<GoFloat64> = (new GoArray<GoFloat64>((1 : GoFloat64), (1e+32 : GoFloat64), (1e+64 : GoFloat64), (1e+96 : GoFloat64),
+private var _pow10postab32:GoArray<GoFloat64> = (new GoArray<GoFloat64>((1 : GoFloat64), (1e+32 : GoFloat64), (1e+64 : GoFloat64), (1e+96 : GoFloat64),
 	(1e+128 : GoFloat64), (1e+160 : GoFloat64), (1e+192 : GoFloat64), (1e+224 : GoFloat64), (1e+256 : GoFloat64), (1e+288 : GoFloat64)) : GoArray<GoFloat64>);
 
 /**
 	// pow10negtab32 stores the pre-computed value for 10**(-i*32) at index i.
 **/
-var _pow10negtab32:GoArray<GoFloat64> = (new GoArray<GoFloat64>((1 : GoFloat64), (1e-32 : GoFloat64), (1e-64 : GoFloat64), (1e-96 : GoFloat64),
+private var _pow10negtab32:GoArray<GoFloat64> = (new GoArray<GoFloat64>((1 : GoFloat64), (1e-32 : GoFloat64), (1e-64 : GoFloat64), (1e-96 : GoFloat64),
 	(1e-128 : GoFloat64), (1e-160 : GoFloat64), (1e-192 : GoFloat64), (1e-224 : GoFloat64), (1e-256 : GoFloat64), (1e-288 : GoFloat64),
 	(1e-320 : GoFloat64)) : GoArray<GoFloat64>);
 
 /**
 	// sin coefficients
 **/
-var __sin:GoArray<GoFloat64> = (new GoArray<GoFloat64>((1.5896230157654656e-10 : GoFloat64), (-2.5050747762857807e-08 : GoFloat64),
+private var __sin:GoArray<GoFloat64> = (new GoArray<GoFloat64>((1.5896230157654656e-10 : GoFloat64), (-2.5050747762857807e-08 : GoFloat64),
 	(2.7557313621385722e-06 : GoFloat64), (-0.0001984126982958954 : GoFloat64), (0.008333333333322118 : GoFloat64),
 	(-0.1666666666666663 : GoFloat64)) : GoArray<GoFloat64>);
 
 /**
 	// cos coefficients
 **/
-var __cos:GoArray<GoFloat64> = (new GoArray<GoFloat64>((-1.1358536521387682e-11 : GoFloat64), (2.087570084197473e-09 : GoFloat64),
+private var __cos:GoArray<GoFloat64> = (new GoArray<GoFloat64>((-1.1358536521387682e-11 : GoFloat64), (2.087570084197473e-09 : GoFloat64),
 	(-2.755731417929674e-07 : GoFloat64), (2.4801587288851704e-05 : GoFloat64), (-0.0013888888888873056 : GoFloat64),
 	(0.041666666666666595 : GoFloat64)) : GoArray<GoFloat64>);
 
 /**
 	// tan coefficients
 **/
-var __tanP:GoArray<GoFloat64> = (new GoArray<GoFloat64>((-13093.693918138379 : GoFloat64), (1.1535166483858742e+06 : GoFloat64),
+private var __tanP:GoArray<GoFloat64> = (new GoArray<GoFloat64>((-13093.693918138379 : GoFloat64), (1.1535166483858742e+06 : GoFloat64),
 	(-1.7956525197648488e+07 : GoFloat64)) : GoArray<GoFloat64>);
 
-var __tanQ:GoArray<GoFloat64> = (new GoArray<GoFloat64>((1 : GoFloat64), (13681.296347069296 : GoFloat64), (-1.3208923444021097e+06 : GoFloat64),
+private var __tanQ:GoArray<GoFloat64> = (new GoArray<GoFloat64>((1 : GoFloat64), (13681.296347069296 : GoFloat64), (-1.3208923444021097e+06 : GoFloat64),
 	(2.500838018233579e+07 : GoFloat64), (-5.3869575592945464e+07 : GoFloat64)) : GoArray<GoFloat64>);
 
-var _tanhP:GoArray<GoFloat64> = (new GoArray<GoFloat64>((-0.9643991794250523 : GoFloat64), (-99.28772310019185 : GoFloat64),
+private var _tanhP:GoArray<GoFloat64> = (new GoArray<GoFloat64>((-0.9643991794250523 : GoFloat64), (-99.28772310019185 : GoFloat64),
 	(-1614.6876844170845 : GoFloat64)) : GoArray<GoFloat64>);
 
-var _tanhQ:GoArray<GoFloat64> = (new GoArray<GoFloat64>((112.81167849163293 : GoFloat64), (2235.4883906010045 : GoFloat64),
+private var _tanhQ:GoArray<GoFloat64> = (new GoArray<GoFloat64>((112.81167849163293 : GoFloat64), (2235.4883906010045 : GoFloat64),
 	(4844.063053251255 : GoFloat64)) : GoArray<GoFloat64>);
 
 /**
@@ -262,7 +270,7 @@ var _tanhQ:GoArray<GoFloat64> = (new GoArray<GoFloat64>((112.81167849163293 : Go
 	// 19 64-bit digits and the leading one bit give 1217 bits
 	// of precision to handle the largest possible float64 exponent.
 **/
-var _mPi4:GoArray<GoUInt64> = (new GoArray<GoUInt64>((1 : GoUInt64), ("5040379952546458195" : GoUInt64), ("17892431488136887169" : GoUInt64),
+private var _mPi4:GoArray<GoUInt64> = (new GoArray<GoUInt64>((1 : GoUInt64), ("5040379952546458195" : GoUInt64), ("17892431488136887169" : GoUInt64),
 	("13169980181085364355" : GoUInt64), ("18204331823439776451" : GoUInt64), ("7946843935494350272" : GoUInt64), ("905889640498799673" : GoUInt64),
 	("18175356263134875261" : GoUInt64), ("15061281708168349961" : GoUInt64), ("15220161563773041794" : GoUInt64), ("8296664548579374057" : GoUInt64),
 	("4109744767560208502" : GoUInt64), ("4607516669194743839" : GoUInt64), ("16023283104648321598" : GoUInt64), ("15739233654134936430" : GoUInt64),
@@ -283,15 +291,15 @@ var trigReduce:GoFloat64 -> {
 	var _1:GoFloat64;
 } = _trigReduce;
 
-final _uvnan:GoUnTypedInt = ("9221120237041090561" : GoUnTypedInt);
-final _uvinf:GoUnTypedInt = ("9218868437227405312" : GoUnTypedInt);
-final _uvneginf:GoUnTypedInt = ("18442240474082181120" : GoUnTypedInt);
-final _uvone:GoUnTypedInt = ("4607182418800017408" : GoUnTypedInt);
-final _mask:GoUnTypedInt = (2047 : GoUnTypedInt);
-final _shift:GoUnTypedInt = (52 : GoUnTypedInt);
-final _bias:GoUnTypedInt = (1023 : GoUnTypedInt);
-final _signMask:GoUnTypedInt = (0 : GoUnTypedInt);
-final _fracMask:GoUnTypedInt = ("4503599627370495" : GoUnTypedInt);
+private final _uvnan:GoUnTypedInt = ("9221120237041090561" : GoUnTypedInt);
+private final _uvinf:GoUnTypedInt = ("9218868437227405312" : GoUnTypedInt);
+private final _uvneginf:GoUnTypedInt = ("18442240474082181120" : GoUnTypedInt);
+private final _uvone:GoUnTypedInt = ("4607182418800017408" : GoUnTypedInt);
+private final _mask:GoUnTypedInt = (2047 : GoUnTypedInt);
+private final _shift:GoUnTypedInt = (52 : GoUnTypedInt);
+private final _bias:GoUnTypedInt = (1023 : GoUnTypedInt);
+private final _signMask:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _fracMask:GoUnTypedInt = ("4503599627370495" : GoUnTypedInt);
 
 /**
 	// Mathematical constants.
@@ -379,7 +387,7 @@ final smallestNonzeroFloat64:GoUnTypedFloat = (5e-324 : GoUnTypedFloat);
 /**
 	// Integer limit values.
 **/
-final _intSize:GoUnTypedInt = (32 : GoUnTypedInt);
+private final _intSize:GoUnTypedInt = (32 : GoUnTypedInt);
 
 /**
 	// Integer limit values.
@@ -456,182 +464,182 @@ final maxUint32:GoUnTypedInt = ("4294967295" : GoUnTypedInt);
 **/
 final maxUint64:GoUnTypedInt = (0 : GoUnTypedInt);
 
-final _haveArchMax = false;
-final _haveArchMin = false;
-final _erx:GoUnTypedFloat = (0.8450629115104675 : GoUnTypedFloat);
+private final _haveArchMax = false;
+private final _haveArchMin = false;
+private final _erx:GoUnTypedFloat = (0.8450629115104675 : GoUnTypedFloat);
 
 /**
 	// Coefficients for approximation to  erf in [0, 0.84375]
 **/
-final _efx:GoUnTypedFloat = (0.1283791670955126 : GoUnTypedFloat);
+private final _efx:GoUnTypedFloat = (0.1283791670955126 : GoUnTypedFloat);
 
-final _efx8:GoUnTypedFloat = (1.0270333367641007 : GoUnTypedFloat);
-final _pp0:GoUnTypedFloat = (0.12837916709551256 : GoUnTypedFloat);
-final _pp1:GoUnTypedFloat = (-0.3250421072470015 : GoUnTypedFloat);
-final _pp2:GoUnTypedFloat = (-0.02848174957559851 : GoUnTypedFloat);
-final _pp3:GoUnTypedFloat = (-0.005770270296489442 : GoUnTypedFloat);
-final _pp4:GoUnTypedFloat = (-2.3763016656650163e-05 : GoUnTypedFloat);
-final _qq1:GoUnTypedFloat = (0.39791722395915535 : GoUnTypedFloat);
-final _qq2:GoUnTypedFloat = (0.0650222499887673 : GoUnTypedFloat);
-final _qq3:GoUnTypedFloat = (0.005081306281875766 : GoUnTypedFloat);
-final _qq4:GoUnTypedFloat = (0.00013249473800432164 : GoUnTypedFloat);
-final _qq5:GoUnTypedFloat = (-3.960228278775368e-06 : GoUnTypedFloat);
+private final _efx8:GoUnTypedFloat = (1.0270333367641007 : GoUnTypedFloat);
+private final _pp0:GoUnTypedFloat = (0.12837916709551256 : GoUnTypedFloat);
+private final _pp1:GoUnTypedFloat = (-0.3250421072470015 : GoUnTypedFloat);
+private final _pp2:GoUnTypedFloat = (-0.02848174957559851 : GoUnTypedFloat);
+private final _pp3:GoUnTypedFloat = (-0.005770270296489442 : GoUnTypedFloat);
+private final _pp4:GoUnTypedFloat = (-2.3763016656650163e-05 : GoUnTypedFloat);
+private final _qq1:GoUnTypedFloat = (0.39791722395915535 : GoUnTypedFloat);
+private final _qq2:GoUnTypedFloat = (0.0650222499887673 : GoUnTypedFloat);
+private final _qq3:GoUnTypedFloat = (0.005081306281875766 : GoUnTypedFloat);
+private final _qq4:GoUnTypedFloat = (0.00013249473800432164 : GoUnTypedFloat);
+private final _qq5:GoUnTypedFloat = (-3.960228278775368e-06 : GoUnTypedFloat);
 
 /**
 	// Coefficients for approximation to  erf  in [0.84375, 1.25]
 **/
-final _pa0:GoUnTypedFloat = (-0.0023621185607526594 : GoUnTypedFloat);
+private final _pa0:GoUnTypedFloat = (-0.0023621185607526594 : GoUnTypedFloat);
 
-final _pa1:GoUnTypedFloat = (0.41485611868374833 : GoUnTypedFloat);
-final _pa2:GoUnTypedFloat = (-0.3722078760357013 : GoUnTypedFloat);
-final _pa3:GoUnTypedFloat = (0.31834661990116175 : GoUnTypedFloat);
-final _pa4:GoUnTypedFloat = (-0.11089469428239668 : GoUnTypedFloat);
-final _pa5:GoUnTypedFloat = (0.035478304325618236 : GoUnTypedFloat);
-final _pa6:GoUnTypedFloat = (-0.002166375594868791 : GoUnTypedFloat);
-final _qa1:GoUnTypedFloat = (0.10642088040084423 : GoUnTypedFloat);
-final _qa2:GoUnTypedFloat = (0.540397917702171 : GoUnTypedFloat);
-final _qa3:GoUnTypedFloat = (0.07182865441419627 : GoUnTypedFloat);
-final _qa4:GoUnTypedFloat = (0.12617121980876164 : GoUnTypedFloat);
-final _qa5:GoUnTypedFloat = (0.01363708391202905 : GoUnTypedFloat);
-final _qa6:GoUnTypedFloat = (0.011984499846799107 : GoUnTypedFloat);
+private final _pa1:GoUnTypedFloat = (0.41485611868374833 : GoUnTypedFloat);
+private final _pa2:GoUnTypedFloat = (-0.3722078760357013 : GoUnTypedFloat);
+private final _pa3:GoUnTypedFloat = (0.31834661990116175 : GoUnTypedFloat);
+private final _pa4:GoUnTypedFloat = (-0.11089469428239668 : GoUnTypedFloat);
+private final _pa5:GoUnTypedFloat = (0.035478304325618236 : GoUnTypedFloat);
+private final _pa6:GoUnTypedFloat = (-0.002166375594868791 : GoUnTypedFloat);
+private final _qa1:GoUnTypedFloat = (0.10642088040084423 : GoUnTypedFloat);
+private final _qa2:GoUnTypedFloat = (0.540397917702171 : GoUnTypedFloat);
+private final _qa3:GoUnTypedFloat = (0.07182865441419627 : GoUnTypedFloat);
+private final _qa4:GoUnTypedFloat = (0.12617121980876164 : GoUnTypedFloat);
+private final _qa5:GoUnTypedFloat = (0.01363708391202905 : GoUnTypedFloat);
+private final _qa6:GoUnTypedFloat = (0.011984499846799107 : GoUnTypedFloat);
 
 /**
 	// Coefficients for approximation to  erfc in [1.25, 1/0.35]
 **/
-final _ra0:GoUnTypedFloat = (-0.009864944034847148 : GoUnTypedFloat);
+private final _ra0:GoUnTypedFloat = (-0.009864944034847148 : GoUnTypedFloat);
 
-final _ra1:GoUnTypedFloat = (-0.6938585727071818 : GoUnTypedFloat);
-final _ra2:GoUnTypedFloat = (-10.558626225323291 : GoUnTypedFloat);
-final _ra3:GoUnTypedFloat = (-62.375332450326006 : GoUnTypedFloat);
-final _ra4:GoUnTypedFloat = (-162.39666946257347 : GoUnTypedFloat);
-final _ra5:GoUnTypedFloat = (-184.60509290671104 : GoUnTypedFloat);
-final _ra6:GoUnTypedFloat = (-81.2874355063066 : GoUnTypedFloat);
-final _ra7:GoUnTypedFloat = (-9.814329344169145 : GoUnTypedFloat);
-final _sa1:GoUnTypedFloat = (19.651271667439257 : GoUnTypedFloat);
-final _sa2:GoUnTypedFloat = (137.65775414351904 : GoUnTypedFloat);
-final _sa3:GoUnTypedFloat = (434.56587747522923 : GoUnTypedFloat);
-final _sa4:GoUnTypedFloat = (645.3872717332679 : GoUnTypedFloat);
-final _sa5:GoUnTypedFloat = (429.00814002756783 : GoUnTypedFloat);
-final _sa6:GoUnTypedFloat = (108.63500554177944 : GoUnTypedFloat);
-final _sa7:GoUnTypedFloat = (6.570249770319282 : GoUnTypedFloat);
-final _sa8:GoUnTypedFloat = (-0.0604244152148581 : GoUnTypedFloat);
+private final _ra1:GoUnTypedFloat = (-0.6938585727071818 : GoUnTypedFloat);
+private final _ra2:GoUnTypedFloat = (-10.558626225323291 : GoUnTypedFloat);
+private final _ra3:GoUnTypedFloat = (-62.375332450326006 : GoUnTypedFloat);
+private final _ra4:GoUnTypedFloat = (-162.39666946257347 : GoUnTypedFloat);
+private final _ra5:GoUnTypedFloat = (-184.60509290671104 : GoUnTypedFloat);
+private final _ra6:GoUnTypedFloat = (-81.2874355063066 : GoUnTypedFloat);
+private final _ra7:GoUnTypedFloat = (-9.814329344169145 : GoUnTypedFloat);
+private final _sa1:GoUnTypedFloat = (19.651271667439257 : GoUnTypedFloat);
+private final _sa2:GoUnTypedFloat = (137.65775414351904 : GoUnTypedFloat);
+private final _sa3:GoUnTypedFloat = (434.56587747522923 : GoUnTypedFloat);
+private final _sa4:GoUnTypedFloat = (645.3872717332679 : GoUnTypedFloat);
+private final _sa5:GoUnTypedFloat = (429.00814002756783 : GoUnTypedFloat);
+private final _sa6:GoUnTypedFloat = (108.63500554177944 : GoUnTypedFloat);
+private final _sa7:GoUnTypedFloat = (6.570249770319282 : GoUnTypedFloat);
+private final _sa8:GoUnTypedFloat = (-0.0604244152148581 : GoUnTypedFloat);
 
 /**
 	// Coefficients for approximation to  erfc in [1/.35, 28]
 **/
-final _rb0:GoUnTypedFloat = (-0.0098649429247001 : GoUnTypedFloat);
+private final _rb0:GoUnTypedFloat = (-0.0098649429247001 : GoUnTypedFloat);
 
-final _rb1:GoUnTypedFloat = (-0.799283237680523 : GoUnTypedFloat);
-final _rb2:GoUnTypedFloat = (-17.757954917754752 : GoUnTypedFloat);
-final _rb3:GoUnTypedFloat = (-160.63638485582192 : GoUnTypedFloat);
-final _rb4:GoUnTypedFloat = (-637.5664433683896 : GoUnTypedFloat);
-final _rb5:GoUnTypedFloat = (-1025.0951316110772 : GoUnTypedFloat);
-final _rb6:GoUnTypedFloat = (-483.5191916086514 : GoUnTypedFloat);
-final _sb1:GoUnTypedFloat = (30.33806074348246 : GoUnTypedFloat);
-final _sb2:GoUnTypedFloat = (325.7925129965739 : GoUnTypedFloat);
-final _sb3:GoUnTypedFloat = (1536.729586084437 : GoUnTypedFloat);
-final _sb4:GoUnTypedFloat = (3199.8582195085955 : GoUnTypedFloat);
-final _sb5:GoUnTypedFloat = (2553.0504064331644 : GoUnTypedFloat);
-final _sb6:GoUnTypedFloat = (474.52854120695537 : GoUnTypedFloat);
-final _sb7:GoUnTypedFloat = (-22.44095244658582 : GoUnTypedFloat);
+private final _rb1:GoUnTypedFloat = (-0.799283237680523 : GoUnTypedFloat);
+private final _rb2:GoUnTypedFloat = (-17.757954917754752 : GoUnTypedFloat);
+private final _rb3:GoUnTypedFloat = (-160.63638485582192 : GoUnTypedFloat);
+private final _rb4:GoUnTypedFloat = (-637.5664433683896 : GoUnTypedFloat);
+private final _rb5:GoUnTypedFloat = (-1025.0951316110772 : GoUnTypedFloat);
+private final _rb6:GoUnTypedFloat = (-483.5191916086514 : GoUnTypedFloat);
+private final _sb1:GoUnTypedFloat = (30.33806074348246 : GoUnTypedFloat);
+private final _sb2:GoUnTypedFloat = (325.7925129965739 : GoUnTypedFloat);
+private final _sb3:GoUnTypedFloat = (1536.729586084437 : GoUnTypedFloat);
+private final _sb4:GoUnTypedFloat = (3199.8582195085955 : GoUnTypedFloat);
+private final _sb5:GoUnTypedFloat = (2553.0504064331644 : GoUnTypedFloat);
+private final _sb6:GoUnTypedFloat = (474.52854120695537 : GoUnTypedFloat);
+private final _sb7:GoUnTypedFloat = (-22.44095244658582 : GoUnTypedFloat);
 
 /**
 	// Coefficients for approximation to erf in |x| <= 0.85
 **/
-final _a0:GoUnTypedFloat = (1.1975323115670913 : GoUnTypedFloat);
+private final _a0:GoUnTypedFloat = (1.1975323115670913 : GoUnTypedFloat);
 
-final _a1:GoUnTypedFloat = (47.07268811238398 : GoUnTypedFloat);
-final _a2:GoUnTypedFloat = (697.062665343896 : GoUnTypedFloat);
-final _a3:GoUnTypedFloat = (4854.886889384388 : GoUnTypedFloat);
-final _a4:GoUnTypedFloat = (16235.862515167575 : GoUnTypedFloat);
-final _a5:GoUnTypedFloat = (23782.041382114385 : GoUnTypedFloat);
-final _a6:GoUnTypedFloat = (11819.493347062295 : GoUnTypedFloat);
-final _a7:GoUnTypedFloat = (887.0940696254552 : GoUnTypedFloat);
-final _b0:GoUnTypedFloat = (1 : GoUnTypedFloat);
-final _b1:GoUnTypedFloat = (42.31333070160091 : GoUnTypedFloat);
-final _b2:GoUnTypedFloat = (687.1870074920579 : GoUnTypedFloat);
-final _b3:GoUnTypedFloat = (5394.196021424751 : GoUnTypedFloat);
-final _b4:GoUnTypedFloat = (21213.794301586597 : GoUnTypedFloat);
-final _b5:GoUnTypedFloat = (39307.89580009271 : GoUnTypedFloat);
-final _b6:GoUnTypedFloat = (28729.085735721943 : GoUnTypedFloat);
-final _b7:GoUnTypedFloat = (5226.495278852854 : GoUnTypedFloat);
+private final _a1:GoUnTypedFloat = (47.07268811238398 : GoUnTypedFloat);
+private final _a2:GoUnTypedFloat = (697.062665343896 : GoUnTypedFloat);
+private final _a3:GoUnTypedFloat = (4854.886889384388 : GoUnTypedFloat);
+private final _a4:GoUnTypedFloat = (16235.862515167575 : GoUnTypedFloat);
+private final _a5:GoUnTypedFloat = (23782.041382114385 : GoUnTypedFloat);
+private final _a6:GoUnTypedFloat = (11819.493347062295 : GoUnTypedFloat);
+private final _a7:GoUnTypedFloat = (887.0940696254552 : GoUnTypedFloat);
+private final _b0:GoUnTypedFloat = (1 : GoUnTypedFloat);
+private final _b1:GoUnTypedFloat = (42.31333070160091 : GoUnTypedFloat);
+private final _b2:GoUnTypedFloat = (687.1870074920579 : GoUnTypedFloat);
+private final _b3:GoUnTypedFloat = (5394.196021424751 : GoUnTypedFloat);
+private final _b4:GoUnTypedFloat = (21213.794301586597 : GoUnTypedFloat);
+private final _b5:GoUnTypedFloat = (39307.89580009271 : GoUnTypedFloat);
+private final _b6:GoUnTypedFloat = (28729.085735721943 : GoUnTypedFloat);
+private final _b7:GoUnTypedFloat = (5226.495278852854 : GoUnTypedFloat);
 
 /**
 	// Coefficients for approximation to erf in 0.85 < |x| <= 1-2*exp(-25)
 **/
-final _c0:GoUnTypedFloat = (1.4234371107496835 : GoUnTypedFloat);
+private final _c0:GoUnTypedFloat = (1.4234371107496835 : GoUnTypedFloat);
 
-final _c1:GoUnTypedFloat = (4.630337846156546 : GoUnTypedFloat);
-final _c2:GoUnTypedFloat = (5.769497221460691 : GoUnTypedFloat);
-final _c3:GoUnTypedFloat = (3.6478483247632045 : GoUnTypedFloat);
-final _c4:GoUnTypedFloat = (1.2704582524523684 : GoUnTypedFloat);
-final _c5:GoUnTypedFloat = (0.2417807251774506 : GoUnTypedFloat);
-final _c6:GoUnTypedFloat = (0.022723844989269184 : GoUnTypedFloat);
-final _c7:GoUnTypedFloat = (0.0007745450142783414 : GoUnTypedFloat);
-final _d0:GoUnTypedFloat = (1.4142135623730951 : GoUnTypedFloat);
-final _d1:GoUnTypedFloat = (2.9036514445419948 : GoUnTypedFloat);
-final _d2:GoUnTypedFloat = (2.3707661626024534 : GoUnTypedFloat);
-final _d3:GoUnTypedFloat = (0.9754783200178743 : GoUnTypedFloat);
-final _d4:GoUnTypedFloat = (0.2094506521051275 : GoUnTypedFloat);
-final _d5:GoUnTypedFloat = (0.021494160384252878 : GoUnTypedFloat);
-final _d6:GoUnTypedFloat = (0.0007744145906515771 : GoUnTypedFloat);
-final _d7:GoUnTypedFloat = (1.4859850019840355e-09 : GoUnTypedFloat);
+private final _c1:GoUnTypedFloat = (4.630337846156546 : GoUnTypedFloat);
+private final _c2:GoUnTypedFloat = (5.769497221460691 : GoUnTypedFloat);
+private final _c3:GoUnTypedFloat = (3.6478483247632045 : GoUnTypedFloat);
+private final _c4:GoUnTypedFloat = (1.2704582524523684 : GoUnTypedFloat);
+private final _c5:GoUnTypedFloat = (0.2417807251774506 : GoUnTypedFloat);
+private final _c6:GoUnTypedFloat = (0.022723844989269184 : GoUnTypedFloat);
+private final _c7:GoUnTypedFloat = (0.0007745450142783414 : GoUnTypedFloat);
+private final _d0:GoUnTypedFloat = (1.4142135623730951 : GoUnTypedFloat);
+private final _d1:GoUnTypedFloat = (2.9036514445419948 : GoUnTypedFloat);
+private final _d2:GoUnTypedFloat = (2.3707661626024534 : GoUnTypedFloat);
+private final _d3:GoUnTypedFloat = (0.9754783200178743 : GoUnTypedFloat);
+private final _d4:GoUnTypedFloat = (0.2094506521051275 : GoUnTypedFloat);
+private final _d5:GoUnTypedFloat = (0.021494160384252878 : GoUnTypedFloat);
+private final _d6:GoUnTypedFloat = (0.0007744145906515771 : GoUnTypedFloat);
+private final _d7:GoUnTypedFloat = (1.4859850019840355e-09 : GoUnTypedFloat);
 
 /**
 	// Coefficients for approximation to erf in 1-2*exp(-25) < |x| < 1
 **/
-final _e0:GoUnTypedFloat = (6.657904643501103 : GoUnTypedFloat);
+private final _e0:GoUnTypedFloat = (6.657904643501103 : GoUnTypedFloat);
 
-final _e1:GoUnTypedFloat = (5.463784911164114 : GoUnTypedFloat);
-final _e2:GoUnTypedFloat = (1.7848265399172913 : GoUnTypedFloat);
-final _e3:GoUnTypedFloat = (0.29656057182850487 : GoUnTypedFloat);
-final _e4:GoUnTypedFloat = (0.026532189526576124 : GoUnTypedFloat);
-final _e5:GoUnTypedFloat = (0.0012426609473880784 : GoUnTypedFloat);
-final _e6:GoUnTypedFloat = (2.7115555687434876e-05 : GoUnTypedFloat);
-final _e7:GoUnTypedFloat = (2.0103343992922881e-07 : GoUnTypedFloat);
-final _f0:GoUnTypedFloat = (1.4142135623730951 : GoUnTypedFloat);
-final _f1:GoUnTypedFloat = (0.8482908416595164 : GoUnTypedFloat);
-final _f2:GoUnTypedFloat = (0.19364809469506591 : GoUnTypedFloat);
-final _f3:GoUnTypedFloat = (0.02103693768272069 : GoUnTypedFloat);
-final _f4:GoUnTypedFloat = (0.0011128009970788597 : GoUnTypedFloat);
-final _f5:GoUnTypedFloat = (2.6110884050805935e-05 : GoUnTypedFloat);
-final _f6:GoUnTypedFloat = (2.010321207683943e-07 : GoUnTypedFloat);
-final _f7:GoUnTypedFloat = (2.8910246058729655e-15 : GoUnTypedFloat);
-final _haveArchExp2 = false;
-final _haveArchExp = false;
+private final _e1:GoUnTypedFloat = (5.463784911164114 : GoUnTypedFloat);
+private final _e2:GoUnTypedFloat = (1.7848265399172913 : GoUnTypedFloat);
+private final _e3:GoUnTypedFloat = (0.29656057182850487 : GoUnTypedFloat);
+private final _e4:GoUnTypedFloat = (0.026532189526576124 : GoUnTypedFloat);
+private final _e5:GoUnTypedFloat = (0.0012426609473880784 : GoUnTypedFloat);
+private final _e6:GoUnTypedFloat = (2.7115555687434876e-05 : GoUnTypedFloat);
+private final _e7:GoUnTypedFloat = (2.0103343992922881e-07 : GoUnTypedFloat);
+private final _f0:GoUnTypedFloat = (1.4142135623730951 : GoUnTypedFloat);
+private final _f1:GoUnTypedFloat = (0.8482908416595164 : GoUnTypedFloat);
+private final _f2:GoUnTypedFloat = (0.19364809469506591 : GoUnTypedFloat);
+private final _f3:GoUnTypedFloat = (0.02103693768272069 : GoUnTypedFloat);
+private final _f4:GoUnTypedFloat = (0.0011128009970788597 : GoUnTypedFloat);
+private final _f5:GoUnTypedFloat = (2.6110884050805935e-05 : GoUnTypedFloat);
+private final _f6:GoUnTypedFloat = (2.010321207683943e-07 : GoUnTypedFloat);
+private final _f7:GoUnTypedFloat = (2.8910246058729655e-15 : GoUnTypedFloat);
+private final _haveArchExp2 = false;
+private final _haveArchExp = false;
 final reduceThreshold:GoUnTypedInt = (536870912 : GoUnTypedInt);
-final _haveArchFloor = true;
-final _haveArchCeil = true;
-final _haveArchTrunc = true;
-final _haveArchHypot = false;
-final _haveArchLog = false;
-final _haveArchModf = false;
-final _haveArchSqrt = true;
-final _haveArchAcos = false;
-final _haveArchAcosh = false;
-final _haveArchAsin = false;
-final _haveArchAsinh = false;
-final _haveArchAtan = false;
-final _haveArchAtan2 = false;
-final _haveArchAtanh = false;
-final _haveArchCbrt = false;
-final _haveArchCos = false;
-final _haveArchCosh = false;
-final _haveArchErf = false;
-final _haveArchErfc = false;
-final _haveArchExpm1 = false;
-final _haveArchFrexp = false;
-final _haveArchLdexp = false;
-final _haveArchLog10 = false;
-final _haveArchLog2 = false;
-final _haveArchLog1p = false;
-final _haveArchMod = false;
-final _haveArchPow = false;
-final _haveArchRemainder = false;
-final _haveArchSin = false;
-final _haveArchSinh = false;
-final _haveArchTan = false;
-final _haveArchTanh = false;
+private final _haveArchFloor = true;
+private final _haveArchCeil = true;
+private final _haveArchTrunc = true;
+private final _haveArchHypot = false;
+private final _haveArchLog = false;
+private final _haveArchModf = false;
+private final _haveArchSqrt = true;
+private final _haveArchAcos = false;
+private final _haveArchAcosh = false;
+private final _haveArchAsin = false;
+private final _haveArchAsinh = false;
+private final _haveArchAtan = false;
+private final _haveArchAtan2 = false;
+private final _haveArchAtanh = false;
+private final _haveArchCbrt = false;
+private final _haveArchCos = false;
+private final _haveArchCosh = false;
+private final _haveArchErf = false;
+private final _haveArchErfc = false;
+private final _haveArchExpm1 = false;
+private final _haveArchFrexp = false;
+private final _haveArchLdexp = false;
+private final _haveArchLog10 = false;
+private final _haveArchLog2 = false;
+private final _haveArchLog1p = false;
+private final _haveArchMod = false;
+private final _haveArchPow = false;
+private final _haveArchRemainder = false;
+private final _haveArchSin = false;
+private final _haveArchSinh = false;
+private final _haveArchTan = false;
+private final _haveArchTanh = false;
 
 /**
 	// reduceThreshold is the maximum value of x where the reduction using Pi/4
@@ -646,7 +654,7 @@ final _haveArchTanh = false;
 	// So, conservatively we can take x < 1<<29.
 	// Above this threshold Payne-Hanek range reduction must be used.
 **/
-final _reduceThreshold:GoUnTypedInt = (536870912 : GoUnTypedInt);
+private final _reduceThreshold:GoUnTypedInt = (536870912 : GoUnTypedInt);
 
 /**
 	// Package math provides basic constants and mathematical functions.

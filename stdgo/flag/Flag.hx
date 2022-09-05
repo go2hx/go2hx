@@ -20,13 +20,13 @@ var errHelp:stdgo.Error = stdgo.errors.Errors.new_((Go.str("flag: help requested
 	// errParse is returned by Set if a flag's value fails to parse, such as with an invalid integer for Int.
 	// It then gets wrapped through failf to provide more information.
 **/
-var _errParse:stdgo.Error = stdgo.errors.Errors.new_((Go.str("parse error") : GoString));
+private var _errParse:stdgo.Error = stdgo.errors.Errors.new_((Go.str("parse error") : GoString));
 
 /**
 	// errRange is returned by Set if a flag's value is out of range.
 	// It then gets wrapped through failf to provide more information.
 **/
-var _errRange:stdgo.Error = stdgo.errors.Errors.new_((Go.str("value out of range") : GoString));
+private var _errRange:stdgo.Error = stdgo.errors.Errors.new_((Go.str("value out of range") : GoString));
 
 /**
 	// CommandLine is the default set of command-line flags, parsed from os.Args.
@@ -502,12 +502,11 @@ function set(_name:GoString, _value:GoString):Error {
 	// value for a flag.
 **/
 function _isZeroValue(_flag:Flag, _value:GoString):{var _0:Bool; var _1:Error;} {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
 	var _ok:Bool = false, _err:Error = (null : stdgo.Error);
 	var _typ:stdgo.reflect.Reflect.Type = stdgo.reflect.Reflect.typeOf(Go.toInterface(_flag.value));
+	var _z:stdgo.reflect.Reflect.Value = ({} : stdgo.reflect.Reflect.Value);
 	try {
-		var _z:stdgo.reflect.Reflect.Value = ({} : stdgo.reflect.Reflect.Value);
 		if (_typ.kind() == (22 : stdgo.reflect.Reflect.Kind)) {
 			_z = (stdgo.reflect.Reflect.new_(_typ.elem()) == null ? null : stdgo.reflect.Reflect.new_(_typ.elem()).__copy__());
 		} else {
@@ -515,11 +514,10 @@ function _isZeroValue(_flag:Flag, _value:GoString):{var _0:Bool; var _1:Error;} 
 		};
 		__deferstack__.unshift(() -> {
 			var a = function():Void {
-				var __recover_exception__:AnyInterface = null;
 				{
 					var _e:AnyInterface = Go.toInterface(({
-						final r = __recover_exception__;
-						__recover_exception__ = null;
+						final r = Go.recover_exception;
+						Go.recover_exception = null;
 						r;
 					}));
 					if (_e != null) {
@@ -546,19 +544,19 @@ function _isZeroValue(_flag:Flag, _value:GoString):{var _0:Bool; var _1:Error;} 
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return {_0: _ok, _1: _err};
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return {_0: _ok, _1: _err};
 	};
 }
@@ -985,7 +983,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
 	}
 }
 
-class T_textValue_asInterface {
+private class T_textValue_asInterface {
 	@:keep
 	public var string:() -> GoString = null;
 	@:keep
@@ -1002,7 +1000,7 @@ class T_textValue_asInterface {
 	var __self__:T_textValue;
 }
 
-@:keep class FlagSet_static_extension {
+@:keep private class FlagSet_static_extension {
 	/**
 		// Init sets the name and error handling property for a flag set.
 		// By default, the zero FlagSet uses an empty name and the
@@ -2233,7 +2231,7 @@ class FlagSet_asInterface {
 	}
 }
 
-class T_boolValue_asInterface {
+private class T_boolValue_asInterface {
 	@:keep
 	@:pointer
 	public var isBoolFlag:() -> Bool = null;
@@ -2283,7 +2281,7 @@ class T_boolValue_asInterface {
 	}
 }
 
-class T_intValue_asInterface {
+private class T_intValue_asInterface {
 	@:keep
 	@:pointer
 	public var string:() -> GoString = null;
@@ -2330,7 +2328,7 @@ class T_intValue_asInterface {
 	}
 }
 
-class T_int64Value_asInterface {
+private class T_int64Value_asInterface {
 	@:keep
 	@:pointer
 	public var string:() -> GoString = null;
@@ -2377,7 +2375,7 @@ class T_int64Value_asInterface {
 	}
 }
 
-class T_uintValue_asInterface {
+private class T_uintValue_asInterface {
 	@:keep
 	@:pointer
 	public var string:() -> GoString = null;
@@ -2424,7 +2422,7 @@ class T_uintValue_asInterface {
 	}
 }
 
-class T_uint64Value_asInterface {
+private class T_uint64Value_asInterface {
 	@:keep
 	@:pointer
 	public var string:() -> GoString = null;
@@ -2465,7 +2463,7 @@ class T_uint64Value_asInterface {
 	}
 }
 
-class T_stringValue_asInterface {
+private class T_stringValue_asInterface {
 	@:keep
 	@:pointer
 	public var string:() -> GoString = null;
@@ -2512,7 +2510,7 @@ class T_stringValue_asInterface {
 	}
 }
 
-class T_float64Value_asInterface {
+private class T_float64Value_asInterface {
 	@:keep
 	@:pointer
 	public var string:() -> GoString = null;
@@ -2575,7 +2573,7 @@ class T_float64Value_asInterface {
 	}
 }
 
-class T_durationValue_asInterface {
+private class T_durationValue_asInterface {
 	@:keep
 	@:pointer
 	public var string:() -> GoString = null;
@@ -2607,7 +2605,7 @@ class T_durationValue_asInterface {
 	}
 }
 
-class T_funcValue_asInterface {
+private class T_funcValue_asInterface {
 	@:keep
 	public var string:() -> GoString = null;
 	@:keep

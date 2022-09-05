@@ -10,7 +10,7 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-var _dirBufPool:stdgo.sync.Sync.Pool = ({} : stdgo.sync.Sync.Pool);
+private var _dirBufPool:stdgo.sync.Sync.Pool = ({} : stdgo.sync.Sync.Pool);
 
 /**
 	// ErrInvalid indicates an invalid argument.
@@ -89,7 +89,7 @@ var interrupt:Signal = (null : Signal);
 **/
 var kill:Signal = (null : Signal);
 
-var _errWriteAtInAppendMode:stdgo.Error = (null : stdgo.Error);
+private var _errWriteAtInAppendMode:stdgo.Error = (null : stdgo.Error);
 
 /**
 	// Stdin, Stdout, and Stderr are open Files pointing to the standard input,
@@ -121,12 +121,12 @@ var stdout:Ref<File> = (null : File);
 **/
 var stderr:Ref<File> = (null : File);
 
-var _errPatternHasSeparator:stdgo.Error = (null : stdgo.Error);
+private var _errPatternHasSeparator:stdgo.Error = (null : stdgo.Error);
 
 /**
 	// lstat is overridden in tests.
 **/
-var _lstat:GoString -> {
+private var _lstat:GoString -> {
 	var _0:stdgo.io.fs.Fs.FileInfo;
 	var _1:stdgo.Error;
 } = null;
@@ -150,22 +150,22 @@ var splitPath:GoString -> {
 	var _1:GoString;
 } = null;
 
-final _readdirName:T_readdirMode = ((0 : GoInt) : T_readdirMode);
-final _readdirDirEntry:T_readdirMode = ((0 : GoInt) : T_readdirMode);
-final _readdirFileInfo:T_readdirMode = ((0 : GoInt) : T_readdirMode);
+private final _readdirName:T_readdirMode = ((0 : GoInt) : T_readdirMode);
+private final _readdirDirEntry:T_readdirMode = ((0 : GoInt) : T_readdirMode);
+private final _readdirFileInfo:T_readdirMode = ((0 : GoInt) : T_readdirMode);
 
 /**
 	// testingForceReadDirLstat forces ReadDir to call Lstat, for testing that code path.
 	// This can be difficult to provoke on some Unix systems otherwise.
 **/
-var _testingForceReadDirLstat:Bool = false;
+private var _testingForceReadDirLstat:Bool = false;
 
 /**
 	// More than 5760 to work around https://golang.org/issue/24015.
 **/
-final _blockSize:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _blockSize:GoUnTypedInt = (0 : GoUnTypedInt);
 
-final _isBigEndian = null;
+private final _isBigEndian = null;
 
 /**
 	// Exactly one of O_RDONLY, O_WRONLY, or O_RDWR must be specified.
@@ -234,10 +234,10 @@ final seek_CUR:GoInt = (0 : GoInt);
 **/
 final seek_END:GoInt = (0 : GoInt);
 
-final _kindNewFile:T_newFileKind = ((0 : GoInt) : T_newFileKind);
-final _kindOpenFile:T_newFileKind = ((0 : GoInt) : T_newFileKind);
-final _kindPipe:T_newFileKind = ((0 : GoInt) : T_newFileKind);
-final _kindNonBlock:T_newFileKind = ((0 : GoInt) : T_newFileKind);
+private final _kindNewFile:T_newFileKind = ((0 : GoInt) : T_newFileKind);
+private final _kindOpenFile:T_newFileKind = ((0 : GoInt) : T_newFileKind);
+private final _kindPipe:T_newFileKind = ((0 : GoInt) : T_newFileKind);
+private final _kindNonBlock:T_newFileKind = ((0 : GoInt) : T_newFileKind);
 
 /**
 	// DevNull is the name of the operating system's “null device.”
@@ -245,7 +245,7 @@ final _kindNonBlock:T_newFileKind = ((0 : GoInt) : T_newFileKind);
 **/
 final devNull:GoString = ("" : GoString);
 
-var _getwdCache:T__struct_0 = ({mutex: ({} : stdgo.sync.Sync.Mutex), _dir: ("" : GoString)} : T__struct_0);
+private var _getwdCache:T__struct_0 = ({mutex: ({} : stdgo.sync.Sync.Mutex), _dir: ("" : GoString)} : T__struct_0);
 final pathSeparator:GoInt32 = (0 : GoInt32);
 final pathListSeparator:GoInt32 = (0 : GoInt32);
 
@@ -258,15 +258,15 @@ var args:Slice<GoString> = (null : Slice<GoString>);
 	// According to sticky(8), neither open(2) nor mkdir(2) will create
 	// a file with the sticky bit set.
 **/
-final _supportsCreateWithStickyBit = null;
+private final _supportsCreateWithStickyBit = null;
 
-final _hex:GoString = ("" : GoString);
+private final _hex:GoString = ("" : GoString);
 
 /**
 	// supportsCloseOnExec reports whether the platform supports the
 	// O_CLOEXEC flag.
 **/
-final _supportsCloseOnExec = null;
+private final _supportsCloseOnExec = null;
 
 /**
 	// The single letters are the abbreviations
@@ -1793,7 +1793,7 @@ function _sameFile(_fs1:T_fileStat, _fs2:T_fileStat):Bool
 		throw "os._close is not yet implemented";
 }
 
-class T_dirInfo_asInterface {
+private class T_dirInfo_asInterface {
 	@:keep
 	public var _close:() -> Void = null;
 
@@ -1806,7 +1806,7 @@ class T_dirInfo_asInterface {
 	var __self__:T_dirInfo;
 }
 
-@:keep class SyscallError_static_extension {
+@:keep private class SyscallError_static_extension {
 	/**
 		// Timeout reports whether this error represents a timeout.
 	**/
@@ -1844,7 +1844,7 @@ class SyscallError_asInterface {
 	var __self__:SyscallError;
 }
 
-@:keep class Process_static_extension {
+@:keep private class Process_static_extension {
 	/**
 		// blockUntilWaitable attempts to block until a call to p.Wait will
 		// succeed immediately, and reports whether it has done so.
@@ -1998,7 +1998,7 @@ class Process_asInterface {
 	var __self__:Process;
 }
 
-@:keep class ProcessState_static_extension {
+@:keep private class ProcessState_static_extension {
 	@:keep
 	static public function _systemTime(_p:ProcessState):stdgo.time.Time.Duration
 		throw "os._systemTime is not yet implemented";
@@ -2178,7 +2178,7 @@ class ProcessState_asInterface {
 	var __self__:ProcessState;
 }
 
-@:keep class LinkError_static_extension {
+@:keep private class LinkError_static_extension {
 	@:keep
 	static public function unwrap(_e:LinkError):Error
 		throw "os.unwrap is not yet implemented";
@@ -2209,7 +2209,7 @@ class LinkError_asInterface {
 		return __self__.write(_b);
 }
 
-class T_onlyWriter_asInterface {
+private class T_onlyWriter_asInterface {
 	@:embedded
 	public var write:Slice<GoUInt8> -> {
 		var _0:GoInt;
@@ -2231,7 +2231,7 @@ class T_onlyWriter_asInterface {
 		throw "os._close is not yet implemented";
 }
 
-class T_file_asInterface {
+private class T_file_asInterface {
 	@:keep
 	public var _close:() -> Error = null;
 
@@ -2262,7 +2262,7 @@ class T_file_asInterface {
 		throw "os.name is not yet implemented";
 }
 
-class T_unixDirent_asInterface {
+private class T_unixDirent_asInterface {
 	@:keep
 	public var info:() -> {
 		var _0:FileInfo;
@@ -2298,7 +2298,7 @@ class T_unixDirent_asInterface {
 		throw "os.control is not yet implemented";
 }
 
-class T_rawConn_asInterface {
+private class T_rawConn_asInterface {
 	@:keep
 	public var write:(GoUIntptr->Bool) -> Error = null;
 	@:keep
@@ -2315,7 +2315,7 @@ class T_rawConn_asInterface {
 	var __self__:T_rawConn;
 }
 
-@:keep class File_static_extension {
+@:keep private class File_static_extension {
 	/**
 		// Stat returns the FileInfo structure describing file.
 		// If there is an error, it will be of type *PathError.
@@ -3137,7 +3137,7 @@ class File_asInterface {
 		throw "os.name is not yet implemented";
 }
 
-class T_fileStat_asInterface {
+private class T_fileStat_asInterface {
 	@:keep
 	public var sys:() -> AnyInterface = null;
 	@:keep
@@ -3170,7 +3170,7 @@ class T_fileStat_asInterface {
 		throw "os.open is not yet implemented";
 }
 
-class T_dirFS_asInterface {
+private class T_dirFS_asInterface {
 	@:keep
 	public var stat:GoString -> {
 		var _0:stdgo.io.fs.Fs.FileInfo;

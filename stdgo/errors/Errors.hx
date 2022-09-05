@@ -10,7 +10,7 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-var _errorType:stdgo.internal.reflectlite.Reflectlite.Type = stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface(((null : stdgo.Error) : Error)))
+private var _errorType:stdgo.internal.reflectlite.Reflectlite.Type = stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface(((null : stdgo.Error) : Error)))
 	.elem();
 
 /**
@@ -233,7 +233,7 @@ function as(_err:Error, _target:AnyInterface):Bool {
 	}
 }
 
-class T_errorString_asInterface {
+private class T_errorString_asInterface {
 	@:keep
 	public var error:() -> GoString = null;
 

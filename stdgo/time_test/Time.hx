@@ -10,7 +10,7 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-var _tests:Slice<stdgo.testing.Testing.InternalTest> = (new Slice<stdgo.testing.Testing.InternalTest>(0, 0,
+private var _tests:Slice<stdgo.testing.Testing.InternalTest> = (new Slice<stdgo.testing.Testing.InternalTest>(0, 0,
 	(new stdgo.testing.Testing.InternalTest((Go.str("TestNextStdChunk") : GoString),
 		stdgo.time_test.Time_test.testNextStdChunk) : stdgo.testing.Testing.InternalTest),
 	(new stdgo.testing.Testing.InternalTest((Go.str("TestRFC3339Conversion") : GoString),
@@ -239,7 +239,7 @@ var _tests:Slice<stdgo.testing.Testing.InternalTest> = (new Slice<stdgo.testing.
 	(new stdgo.testing.Testing.InternalTest((Go.str("TestTzsetRule") : GoString),
 		stdgo.time_test.Time_test.testTzsetRule) : stdgo.testing.Testing.InternalTest)) : Slice<stdgo.testing.Testing.InternalTest>);
 
-var _benchmarks:Slice<stdgo.testing.Testing.InternalBenchmark> = (new Slice<stdgo.testing.Testing.InternalBenchmark>(0, 0,
+private var _benchmarks:Slice<stdgo.testing.Testing.InternalBenchmark> = (new Slice<stdgo.testing.Testing.InternalBenchmark>(0, 0,
 	(new stdgo.testing.Testing.InternalBenchmark((Go.str("BenchmarkAfterFunc") : GoString),
 		stdgo.time_test.Time_test.benchmarkAfterFunc) : stdgo.testing.Testing.InternalBenchmark),
 	(new stdgo.testing.Testing.InternalBenchmark((Go.str("BenchmarkAfter") : GoString),
@@ -295,10 +295,10 @@ var _benchmarks:Slice<stdgo.testing.Testing.InternalBenchmark> = (new Slice<stdg
 	(new stdgo.testing.Testing.InternalBenchmark((Go.str("BenchmarkISOWeek") : GoString),
 		stdgo.time_test.Time_test.benchmarkISOWeek) : stdgo.testing.Testing.InternalBenchmark)) : Slice<stdgo.testing.Testing.InternalBenchmark>);
 
-var _fuzzTargets:Slice<stdgo.testing.Testing.InternalFuzzTarget> = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(0,
+private var _fuzzTargets:Slice<stdgo.testing.Testing.InternalFuzzTarget> = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(0,
 	0) : Slice<stdgo.testing.Testing.InternalFuzzTarget>);
 
-var _examples:Slice<stdgo.testing.Testing.InternalExample> = (new Slice<stdgo.testing.Testing.InternalExample>(0, 0,
+private var _examples:Slice<stdgo.testing.Testing.InternalExample> = (new Slice<stdgo.testing.Testing.InternalExample>(0, 0,
 	(new stdgo.testing.Testing.InternalExample((Go.str("ExampleDuration_Round") : GoString), stdgo.time_test.Time_test.exampleDuration_Round,
 		(Go.str("d.Round(   1ns) = 1h15m30.918273645s\nd.Round(   1µs) = 1h15m30.918274s\nd.Round(   1ms) = 1h15m30.918s\nd.Round(    1s) = 1h15m31s\nd.Round(    2s) = 1h15m30s\nd.Round(  1m0s) = 1h16m0s\nd.Round( 10m0s) = 1h20m0s\nd.Round(1h0m0s) = 1h0m0s\n") : GoString),
 		false) : stdgo.testing.Testing.InternalExample),

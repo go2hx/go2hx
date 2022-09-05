@@ -21,7 +21,7 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-var _atobtests:Slice<stdgo.strconv_test.Strconv_test.T_atobTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_atobTest>(0, 0,
+private var _atobtests:Slice<stdgo.strconv_test.Strconv_test.T_atobTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_atobTest>(0, 0,
 	(new stdgo.strconv_test.Strconv_test.T_atobTest((Go.str() : GoString), false, errSyntax) : stdgo.strconv_test.Strconv_test.T_atobTest),
 	(new stdgo.strconv_test.Strconv_test.T_atobTest((Go.str("asdf") : GoString), false, errSyntax) : stdgo.strconv_test.Strconv_test.T_atobTest),
 	(new stdgo.strconv_test.Strconv_test.T_atobTest((Go.str("0") : GoString), false, (null : stdgo.Error)) : stdgo.strconv_test.Strconv_test.T_atobTest),
@@ -38,7 +38,7 @@ var _atobtests:Slice<stdgo.strconv_test.Strconv_test.T_atobTest> = (new Slice<st
 	(new stdgo.strconv_test.Strconv_test.T_atobTest((Go.str("True") : GoString), true,
 		(null : stdgo.Error)) : stdgo.strconv_test.Strconv_test.T_atobTest)) : Slice<stdgo.strconv_test.Strconv_test.T_atobTest>);
 
-var _boolString:GoMap<Bool, GoString> = {
+private var _boolString:GoMap<Bool, GoString> = {
 	final x = new stdgo.GoMap.GoObjectMap<Bool,
 		GoString>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(bool_kind),
 			stdgo.reflect.Reflect.GoType.basic(string_kind))));
@@ -47,22 +47,22 @@ var _boolString:GoMap<Bool, GoString> = {
 	x;
 };
 
-var _appendBoolTests:Slice<stdgo.strconv_test.Strconv_test.T_appendBoolTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_appendBoolTest>(0, 0,
+private var _appendBoolTests:Slice<stdgo.strconv_test.Strconv_test.T_appendBoolTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_appendBoolTest>(0, 0,
 	(new stdgo.strconv_test.Strconv_test.T_appendBoolTest(true, ((Go.str("foo ") : GoString) : Slice<GoByte>),
 		((Go.str("foo true") : GoString) : Slice<GoByte>)) : stdgo.strconv_test.Strconv_test.T_appendBoolTest),
 	(new stdgo.strconv_test.Strconv_test.T_appendBoolTest(false, ((Go.str("foo ") : GoString) : Slice<GoByte>),
 		((Go.str("foo false") : GoString) : Slice<GoByte>)) : stdgo.strconv_test.Strconv_test.T_appendBoolTest)) : Slice<stdgo.strconv_test.Strconv_test.T_appendBoolTest>);
 
-var _infp0:GoComplex128 = new GoComplex128(stdgo.math.Math.inf((1 : GoInt)), (0 : GoFloat64));
-var _infm0:GoComplex128 = new GoComplex128(stdgo.math.Math.inf((-1 : GoInt)), (0 : GoFloat64));
-var _inf0p:GoComplex128 = new GoComplex128((0 : GoFloat64), stdgo.math.Math.inf((1 : GoInt)));
-var _inf0m:GoComplex128 = new GoComplex128((0 : GoFloat64), stdgo.math.Math.inf((-1 : GoInt)));
-var _infpp:GoComplex128 = new GoComplex128(stdgo.math.Math.inf((1 : GoInt)), stdgo.math.Math.inf((1 : GoInt)));
-var _infpm:GoComplex128 = new GoComplex128(stdgo.math.Math.inf((1 : GoInt)), stdgo.math.Math.inf((-1 : GoInt)));
-var _infmp:GoComplex128 = new GoComplex128(stdgo.math.Math.inf((-1 : GoInt)), stdgo.math.Math.inf((1 : GoInt)));
-var _infmm:GoComplex128 = new GoComplex128(stdgo.math.Math.inf((-1 : GoInt)), stdgo.math.Math.inf((-1 : GoInt)));
+private var _infp0:GoComplex128 = new GoComplex128(stdgo.math.Math.inf((1 : GoInt)), (0 : GoFloat64));
+private var _infm0:GoComplex128 = new GoComplex128(stdgo.math.Math.inf((-1 : GoInt)), (0 : GoFloat64));
+private var _inf0p:GoComplex128 = new GoComplex128((0 : GoFloat64), stdgo.math.Math.inf((1 : GoInt)));
+private var _inf0m:GoComplex128 = new GoComplex128((0 : GoFloat64), stdgo.math.Math.inf((-1 : GoInt)));
+private var _infpp:GoComplex128 = new GoComplex128(stdgo.math.Math.inf((1 : GoInt)), stdgo.math.Math.inf((1 : GoInt)));
+private var _infpm:GoComplex128 = new GoComplex128(stdgo.math.Math.inf((1 : GoInt)), stdgo.math.Math.inf((-1 : GoInt)));
+private var _infmp:GoComplex128 = new GoComplex128(stdgo.math.Math.inf((-1 : GoInt)), stdgo.math.Math.inf((1 : GoInt)));
+private var _infmm:GoComplex128 = new GoComplex128(stdgo.math.Math.inf((-1 : GoInt)), stdgo.math.Math.inf((-1 : GoInt)));
 
-var _atoftests:Slice<stdgo.strconv_test.Strconv_test.T_atofTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_atofTest>(0, 0,
+private var _atoftests:Slice<stdgo.strconv_test.Strconv_test.T_atofTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_atofTest>(0, 0,
 	(new stdgo.strconv_test.Strconv_test.T_atofTest((Go.str() : GoString), (Go.str("0") : GoString), errSyntax) : stdgo.strconv_test.Strconv_test.T_atofTest),
 	(new stdgo.strconv_test.Strconv_test.T_atofTest((Go.str("1") : GoString), (Go.str("1") : GoString),
 		(null : stdgo.Error)) : stdgo.strconv_test.Strconv_test.T_atofTest),
@@ -591,7 +591,7 @@ var _atoftests:Slice<stdgo.strconv_test.Strconv_test.T_atofTest> = (new Slice<st
 	(new stdgo.strconv_test.Strconv_test.T_atofTest((Go.str("1e1000x") : GoString), (Go.str("0") : GoString),
 		errSyntax) : stdgo.strconv_test.Strconv_test.T_atofTest)) : Slice<stdgo.strconv_test.Strconv_test.T_atofTest>);
 
-var _atof32tests:Slice<stdgo.strconv_test.Strconv_test.T_atofTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_atofTest>(0, 0,
+private var _atof32tests:Slice<stdgo.strconv_test.Strconv_test.T_atofTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_atofTest>(0, 0,
 	(new stdgo.strconv_test.Strconv_test.T_atofTest((Go.str("0x1p-100") : GoString), (Go.str("7.888609e-31") : GoString),
 		(null : stdgo.Error)) : stdgo.strconv_test.Strconv_test.T_atofTest),
 	(new stdgo.strconv_test.Strconv_test.T_atofTest((Go.str("0x1p100") : GoString), (Go.str("1.2676506e+30") : GoString),
@@ -705,11 +705,11 @@ var _atof32tests:Slice<stdgo.strconv_test.Strconv_test.T_atofTest> = (new Slice<
 	(new stdgo.strconv_test.Strconv_test.T_atofTest((Go.str("4951760157141521099596496896") : GoString), (Go.str("4.9517602e+27") : GoString),
 		(null : stdgo.Error)) : stdgo.strconv_test.Strconv_test.T_atofTest)) : Slice<stdgo.strconv_test.Strconv_test.T_atofTest>);
 
-var _roundTripCases:Slice<T__struct_0> = (new Slice<T__struct_0>(0, 0,
+private var _roundTripCases:Slice<T__struct_0> = (new Slice<T__struct_0>(0, 0,
 	({_f: (4.87402195346389e+27 : GoFloat64), _s: (Go.str("4.87402195346389e+27") : GoString)} : T__struct_0),
 	({_f: (4.8740219534638903e+27 : GoFloat64), _s: (Go.str("4.8740219534638903e+27") : GoString)} : T__struct_0)) : Slice<T__struct_0>);
 
-var _parseUint64Tests:Slice<stdgo.strconv_test.Strconv_test.T_parseUint64Test> = (new Slice<stdgo.strconv_test.Strconv_test.T_parseUint64Test>(0, 0,
+private var _parseUint64Tests:Slice<stdgo.strconv_test.Strconv_test.T_parseUint64Test> = (new Slice<stdgo.strconv_test.Strconv_test.T_parseUint64Test>(0, 0,
 	(new stdgo.strconv_test.Strconv_test.T_parseUint64Test((Go.str() : GoString), (0 : GoUInt64),
 		errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64Test),
 	(new stdgo.strconv_test.Strconv_test.T_parseUint64Test((Go.str("0") : GoString), (0 : GoUInt64),
@@ -745,7 +745,7 @@ var _parseUint64Tests:Slice<stdgo.strconv_test.Strconv_test.T_parseUint64Test> =
 	(new stdgo.strconv_test.Strconv_test.T_parseUint64Test((Go.str("+1") : GoString), (0 : GoUInt64),
 		errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64Test)) : Slice<stdgo.strconv_test.Strconv_test.T_parseUint64Test>);
 
-var _parseUint64BaseTests:Slice<stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest>(0,
+private var _parseUint64BaseTests:Slice<stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest>(0,
 	0,
 	(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest((Go.str() : GoString), (0 : GoInt), (0 : GoUInt64),
 		errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest),
@@ -898,7 +898,7 @@ var _parseUint64BaseTests:Slice<stdgo.strconv_test.Strconv_test.T_parseUint64Bas
 	(new stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest((Go.str("101_") : GoString), (2 : GoInt), (0 : GoUInt64),
 		errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest)) : Slice<stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest>);
 
-var _parseInt64Tests:Slice<stdgo.strconv_test.Strconv_test.T_parseInt64Test> = (new Slice<stdgo.strconv_test.Strconv_test.T_parseInt64Test>(0, 0,
+private var _parseInt64Tests:Slice<stdgo.strconv_test.Strconv_test.T_parseInt64Test> = (new Slice<stdgo.strconv_test.Strconv_test.T_parseInt64Test>(0, 0,
 	(new stdgo.strconv_test.Strconv_test.T_parseInt64Test((Go.str() : GoString), (0 : GoInt64), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
 	(new stdgo.strconv_test.Strconv_test.T_parseInt64Test((Go.str("0") : GoString), (0 : GoInt64),
 		(null : stdgo.Error)) : stdgo.strconv_test.Strconv_test.T_parseInt64Test),
@@ -947,7 +947,8 @@ var _parseInt64Tests:Slice<stdgo.strconv_test.Strconv_test.T_parseInt64Test> = (
 	(new stdgo.strconv_test.Strconv_test.T_parseInt64Test((Go.str("12345_") : GoString), (0 : GoInt64),
 		errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64Test)) : Slice<stdgo.strconv_test.Strconv_test.T_parseInt64Test>);
 
-var _parseInt64BaseTests:Slice<stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest>(0, 0,
+private var _parseInt64BaseTests:Slice<stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest>(0,
+	0,
 	(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest((Go.str() : GoString), (0 : GoInt), (0 : GoInt64),
 		errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest),
 	(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest((Go.str("0") : GoString), (0 : GoInt), (0 : GoInt64),
@@ -1069,7 +1070,7 @@ var _parseInt64BaseTests:Slice<stdgo.strconv_test.Strconv_test.T_parseInt64BaseT
 	(new stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest((Go.str("0x-f") : GoString), (0 : GoInt), (0 : GoInt64),
 		errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest)) : Slice<stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest>);
 
-var _parseUint32Tests:Slice<stdgo.strconv_test.Strconv_test.T_parseUint32Test> = (new Slice<stdgo.strconv_test.Strconv_test.T_parseUint32Test>(0, 0,
+private var _parseUint32Tests:Slice<stdgo.strconv_test.Strconv_test.T_parseUint32Test> = (new Slice<stdgo.strconv_test.Strconv_test.T_parseUint32Test>(0, 0,
 	(new stdgo.strconv_test.Strconv_test.T_parseUint32Test((Go.str() : GoString), (0 : GoUInt32),
 		errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint32Test),
 	(new stdgo.strconv_test.Strconv_test.T_parseUint32Test((Go.str("0") : GoString), (0 : GoUInt32),
@@ -1099,7 +1100,7 @@ var _parseUint32Tests:Slice<stdgo.strconv_test.Strconv_test.T_parseUint32Test> =
 	(new stdgo.strconv_test.Strconv_test.T_parseUint32Test((Go.str("12345_") : GoString), (0 : GoUInt32),
 		errSyntax) : stdgo.strconv_test.Strconv_test.T_parseUint32Test)) : Slice<stdgo.strconv_test.Strconv_test.T_parseUint32Test>);
 
-var _parseInt32Tests:Slice<stdgo.strconv_test.Strconv_test.T_parseInt32Test> = (new Slice<stdgo.strconv_test.Strconv_test.T_parseInt32Test>(0, 0,
+private var _parseInt32Tests:Slice<stdgo.strconv_test.Strconv_test.T_parseInt32Test> = (new Slice<stdgo.strconv_test.Strconv_test.T_parseInt32Test>(0, 0,
 	(new stdgo.strconv_test.Strconv_test.T_parseInt32Test((Go.str() : GoString), (0 : GoInt32), errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt32Test),
 	(new stdgo.strconv_test.Strconv_test.T_parseInt32Test((Go.str("0") : GoString), (0 : GoInt32),
 		(null : stdgo.Error)) : stdgo.strconv_test.Strconv_test.T_parseInt32Test),
@@ -1148,7 +1149,7 @@ var _parseInt32Tests:Slice<stdgo.strconv_test.Strconv_test.T_parseInt32Test> = (
 	(new stdgo.strconv_test.Strconv_test.T_parseInt32Test((Go.str("12345_") : GoString), (0 : GoInt32),
 		errSyntax) : stdgo.strconv_test.Strconv_test.T_parseInt32Test)) : Slice<stdgo.strconv_test.Strconv_test.T_parseInt32Test>);
 
-var _numErrorTests:Slice<stdgo.strconv_test.Strconv_test.T_numErrorTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_numErrorTest>(0, 0,
+private var _numErrorTests:Slice<stdgo.strconv_test.Strconv_test.T_numErrorTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_numErrorTest>(0, 0,
 	(new stdgo.strconv_test.Strconv_test.T_numErrorTest((Go.str("0") : GoString),
 		("strconv.ParseFloat: parsing \"0\": failed" : GoString)) : stdgo.strconv_test.Strconv_test.T_numErrorTest),
 	(new stdgo.strconv_test.Strconv_test.T_numErrorTest((Go.str("`") : GoString),
@@ -1156,14 +1157,14 @@ var _numErrorTests:Slice<stdgo.strconv_test.Strconv_test.T_numErrorTest> = (new 
 	(new stdgo.strconv_test.Strconv_test.T_numErrorTest((Go.str("1", 0, ".2") : GoString),
 		("strconv.ParseFloat: parsing \"1\\x00.2\": failed" : GoString)) : stdgo.strconv_test.Strconv_test.T_numErrorTest)) : Slice<stdgo.strconv_test.Strconv_test.T_numErrorTest>);
 
-var _parseBitSizeTests:Slice<stdgo.strconv_test.Strconv_test.T_parseErrorTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_parseErrorTest>(0, 0,
+private var _parseBitSizeTests:Slice<stdgo.strconv_test.Strconv_test.T_parseErrorTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_parseErrorTest>(0, 0,
 	(new stdgo.strconv_test.Strconv_test.T_parseErrorTest((-1 : GoInt), _bitSizeErrStub) : stdgo.strconv_test.Strconv_test.T_parseErrorTest),
 	(new stdgo.strconv_test.Strconv_test.T_parseErrorTest((0 : GoInt), _noErrStub) : stdgo.strconv_test.Strconv_test.T_parseErrorTest),
 	(new stdgo.strconv_test.Strconv_test.T_parseErrorTest((64 : GoInt), _noErrStub) : stdgo.strconv_test.Strconv_test.T_parseErrorTest),
 	(new stdgo.strconv_test.Strconv_test.T_parseErrorTest((65 : GoInt),
 		_bitSizeErrStub) : stdgo.strconv_test.Strconv_test.T_parseErrorTest)) : Slice<stdgo.strconv_test.Strconv_test.T_parseErrorTest>);
 
-var _parseBaseTests:Slice<stdgo.strconv_test.Strconv_test.T_parseErrorTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_parseErrorTest>(0, 0,
+private var _parseBaseTests:Slice<stdgo.strconv_test.Strconv_test.T_parseErrorTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_parseErrorTest>(0, 0,
 	(new stdgo.strconv_test.Strconv_test.T_parseErrorTest((-1 : GoInt), _baseErrStub) : stdgo.strconv_test.Strconv_test.T_parseErrorTest),
 	(new stdgo.strconv_test.Strconv_test.T_parseErrorTest((0 : GoInt), _noErrStub) : stdgo.strconv_test.Strconv_test.T_parseErrorTest),
 	(new stdgo.strconv_test.Strconv_test.T_parseErrorTest((1 : GoInt), _baseErrStub) : stdgo.strconv_test.Strconv_test.T_parseErrorTest),
@@ -1172,7 +1173,7 @@ var _parseBaseTests:Slice<stdgo.strconv_test.Strconv_test.T_parseErrorTest> = (n
 	(new stdgo.strconv_test.Strconv_test.T_parseErrorTest((37 : GoInt),
 		_baseErrStub) : stdgo.strconv_test.Strconv_test.T_parseErrorTest)) : Slice<stdgo.strconv_test.Strconv_test.T_parseErrorTest>);
 
-var _shifttests:Slice<stdgo.strconv_test.Strconv_test.T_shiftTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_shiftTest>(0, 0,
+private var _shifttests:Slice<stdgo.strconv_test.Strconv_test.T_shiftTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_shiftTest>(0, 0,
 	(new stdgo.strconv_test.Strconv_test.T_shiftTest((0 : GoUInt64), (-100 : GoInt), (Go.str("0") : GoString)) : stdgo.strconv_test.Strconv_test.T_shiftTest),
 	(new stdgo.strconv_test.Strconv_test.T_shiftTest((0 : GoUInt64), (100 : GoInt), (Go.str("0") : GoString)) : stdgo.strconv_test.Strconv_test.T_shiftTest),
 	(new stdgo.strconv_test.Strconv_test.T_shiftTest((1 : GoUInt64), (100 : GoInt),
@@ -1188,7 +1189,7 @@ var _shifttests:Slice<stdgo.strconv_test.Strconv_test.T_shiftTest> = (new Slice<
 	(new stdgo.strconv_test.Strconv_test.T_shiftTest((1953125 : GoUInt64), (9 : GoInt),
 		(Go.str("1000000000") : GoString)) : stdgo.strconv_test.Strconv_test.T_shiftTest)) : Slice<stdgo.strconv_test.Strconv_test.T_shiftTest>);
 
-var _roundtests:Slice<stdgo.strconv_test.Strconv_test.T_roundTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_roundTest>(0, 0,
+private var _roundtests:Slice<stdgo.strconv_test.Strconv_test.T_roundTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_roundTest>(0, 0,
 	(new stdgo.strconv_test.Strconv_test.T_roundTest((0 : GoUInt64), (4 : GoInt), (Go.str("0") : GoString), (Go.str("0") : GoString),
 		(Go.str("0") : GoString), (0 : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundTest),
 	(new stdgo.strconv_test.Strconv_test.T_roundTest((12344999 : GoUInt64), (4 : GoInt), (Go.str("12340000") : GoString), (Go.str("12340000") : GoString),
@@ -1217,7 +1218,7 @@ var _roundtests:Slice<stdgo.strconv_test.Strconv_test.T_roundTest> = (new Slice<
 		(Go.str("13000000") : GoString),
 		(13000000 : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundTest)) : Slice<stdgo.strconv_test.Strconv_test.T_roundTest>);
 
-var _roundinttests:Slice<stdgo.strconv_test.Strconv_test.T_roundIntTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_roundIntTest>(0, 0,
+private var _roundinttests:Slice<stdgo.strconv_test.Strconv_test.T_roundIntTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_roundIntTest>(0, 0,
 	(new stdgo.strconv_test.Strconv_test.T_roundIntTest((0 : GoUInt64), (100 : GoInt), (0 : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundIntTest),
 	(new stdgo.strconv_test.Strconv_test.T_roundIntTest((512 : GoUInt64), (-8 : GoInt), (2 : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundIntTest),
 	(new stdgo.strconv_test.Strconv_test.T_roundIntTest((513 : GoUInt64), (-8 : GoInt), (2 : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundIntTest),
@@ -1231,7 +1232,7 @@ var _roundinttests:Slice<stdgo.strconv_test.Strconv_test.T_roundIntTest> = (new 
 	(new stdgo.strconv_test.Strconv_test.T_roundIntTest((1000 : GoUInt64), (0 : GoInt),
 		(1000 : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundIntTest)) : Slice<stdgo.strconv_test.Strconv_test.T_roundIntTest>);
 
-var _ftoatests:Slice<stdgo.strconv_test.Strconv_test.T_ftoaTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_ftoaTest>(0, 0,
+private var _ftoatests:Slice<stdgo.strconv_test.Strconv_test.T_ftoaTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_ftoaTest>(0, 0,
 	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1 : GoFloat64), ("e".code : GoUInt8), (5 : GoInt),
 		(Go.str("1.00000e+00") : GoString)) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
 	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1 : GoFloat64), ("f".code : GoUInt8), (5 : GoInt),
@@ -1459,7 +1460,7 @@ var _ftoatests:Slice<stdgo.strconv_test.Strconv_test.T_ftoaTest> = (new Slice<st
 	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((3.999969482421875 : GoFloat64), ("x".code : GoUInt8), (0 : GoInt),
 		(Go.str("0x1p+02") : GoString)) : stdgo.strconv_test.Strconv_test.T_ftoaTest)) : Slice<stdgo.strconv_test.Strconv_test.T_ftoaTest>);
 
-var _ftoaBenches:Slice<T__struct_2> = (new Slice<T__struct_2>(0, 0, ({
+private var _ftoaBenches:Slice<T__struct_2> = (new Slice<T__struct_2>(0, 0, ({
 	_name: (Go.str("Decimal") : GoString),
 	_float: (33909 : GoFloat64),
 	_fmt: ("g".code : GoUInt8),
@@ -1617,7 +1618,7 @@ var _ftoaBenches:Slice<T__struct_2> = (new Slice<T__struct_2>(0, 0, ({
 	_bitSize: (64 : GoInt)
 	} : T__struct_2)) : Slice<T__struct_2>);
 
-var _itob64tests:Slice<stdgo.strconv_test.Strconv_test.T_itob64Test> = (new Slice<stdgo.strconv_test.Strconv_test.T_itob64Test>(0, 0,
+private var _itob64tests:Slice<stdgo.strconv_test.Strconv_test.T_itob64Test> = (new Slice<stdgo.strconv_test.Strconv_test.T_itob64Test>(0, 0,
 	(new stdgo.strconv_test.Strconv_test.T_itob64Test((0 : GoInt64), (10 : GoInt), (Go.str("0") : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
 	(new stdgo.strconv_test.Strconv_test.T_itob64Test((1 : GoInt64), (10 : GoInt), (Go.str("1") : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
 	(new stdgo.strconv_test.Strconv_test.T_itob64Test((-1 : GoInt64), (10 : GoInt), (Go.str("-1") : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test),
@@ -1684,7 +1685,7 @@ var _itob64tests:Slice<stdgo.strconv_test.Strconv_test.T_itob64Test> = (new Slic
 	(new stdgo.strconv_test.Strconv_test.T_itob64Test(("38493362624" : GoInt64), (36 : GoInt),
 		(Go.str("holycow") : GoString)) : stdgo.strconv_test.Strconv_test.T_itob64Test)) : Slice<stdgo.strconv_test.Strconv_test.T_itob64Test>);
 
-var _uitob64tests:Slice<stdgo.strconv_test.Strconv_test.T_uitob64Test> = (new Slice<stdgo.strconv_test.Strconv_test.T_uitob64Test>(0, 0,
+private var _uitob64tests:Slice<stdgo.strconv_test.Strconv_test.T_uitob64Test> = (new Slice<stdgo.strconv_test.Strconv_test.T_uitob64Test>(0, 0,
 	(new stdgo.strconv_test.Strconv_test.T_uitob64Test(("9223372036854775807" : GoUInt64), (10 : GoInt),
 		(Go.str("9223372036854775807") : GoString)) : stdgo.strconv_test.Strconv_test.T_uitob64Test),
 	(new stdgo.strconv_test.Strconv_test.T_uitob64Test(("9223372036854775808" : GoUInt64), (10 : GoInt),
@@ -1698,7 +1699,7 @@ var _uitob64tests:Slice<stdgo.strconv_test.Strconv_test.T_uitob64Test> = (new Sl
 	(new stdgo.strconv_test.Strconv_test.T_uitob64Test(("18446744073709551615" : GoUInt64), (2 : GoInt),
 		(Go.str("1111111111111111111111111111111111111111111111111111111111111111") : GoString)) : stdgo.strconv_test.Strconv_test.T_uitob64Test)) : Slice<stdgo.strconv_test.Strconv_test.T_uitob64Test>);
 
-var _varlenUints:Slice<T__struct_3> = (new Slice<T__struct_3>(0, 0, ({_in: (1 : GoUInt64), _out: (Go.str("1") : GoString)} : T__struct_3),
+private var _varlenUints:Slice<T__struct_3> = (new Slice<T__struct_3>(0, 0, ({_in: (1 : GoUInt64), _out: (Go.str("1") : GoString)} : T__struct_3),
 	({_in: (12 : GoUInt64), _out: (Go.str("12") : GoString)} : T__struct_3), ({_in: (123 : GoUInt64), _out: (Go.str("123") : GoString)} : T__struct_3),
 	({_in: (1234 : GoUInt64), _out: (Go.str("1234") : GoString)} : T__struct_3),
 	({_in: (12345 : GoUInt64), _out: (Go.str("12345") : GoString)} : T__struct_3),
@@ -1718,7 +1719,7 @@ var _varlenUints:Slice<T__struct_3> = (new Slice<T__struct_3>(0, 0, ({_in: (1 : 
 	({_in: ("1234567890123456789" : GoUInt64), _out: (Go.str("1234567890123456789") : GoString)} : T__struct_3),
 	({_in: ("12345678901234567890" : GoUInt64), _out: (Go.str("12345678901234567890") : GoString)} : T__struct_3)) : Slice<T__struct_3>);
 
-var _quotetests:Slice<stdgo.strconv_test.Strconv_test.T_quoteTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_quoteTest>(0, 0,
+private var _quotetests:Slice<stdgo.strconv_test.Strconv_test.T_quoteTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_quoteTest>(0, 0,
 	(new stdgo.strconv_test.Strconv_test.T_quoteTest((Go.str("\x07\x08\x0C\r\n\t\x0B") : GoString), ("\"\\a\\b\\f\\r\\n\\t\\v\"" : GoString),
 		("\"\\a\\b\\f\\r\\n\\t\\v\"" : GoString), ("\"\\a\\b\\f\\r\\n\\t\\v\"" : GoString)) : stdgo.strconv_test.Strconv_test.T_quoteTest),
 	(new stdgo.strconv_test.Strconv_test.T_quoteTest((Go.str("\\") : GoString), ("\"\\\\\"" : GoString), ("\"\\\\\"" : GoString),
@@ -1736,7 +1737,7 @@ var _quotetests:Slice<stdgo.strconv_test.Strconv_test.T_quoteTest> = (new Slice<
 	(new stdgo.strconv_test.Strconv_test.T_quoteTest((Go.str(127) : GoString), ("\"\\x7f\"" : GoString), ("\"\\x7f\"" : GoString),
 		("\"\\x7f\"" : GoString)) : stdgo.strconv_test.Strconv_test.T_quoteTest)) : Slice<stdgo.strconv_test.Strconv_test.T_quoteTest>);
 
-var _quoterunetests:Slice<stdgo.strconv_test.Strconv_test.T_quoteRuneTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_quoteRuneTest>(0, 0,
+private var _quoterunetests:Slice<stdgo.strconv_test.Strconv_test.T_quoteRuneTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_quoteRuneTest>(0, 0,
 	(new stdgo.strconv_test.Strconv_test.T_quoteRuneTest(("a".code : GoInt32), ("\'a\'" : GoString), ("\'a\'" : GoString),
 		("\'a\'" : GoString)) : stdgo.strconv_test.Strconv_test.T_quoteRuneTest),
 	(new stdgo.strconv_test.Strconv_test.T_quoteRuneTest(("\x07".code : GoInt32), ("\'\\a\'" : GoString), ("\'\\a\'" : GoString),
@@ -1764,8 +1765,8 @@ var _quoterunetests:Slice<stdgo.strconv_test.Strconv_test.T_quoteRuneTest> = (ne
 	(new stdgo.strconv_test.Strconv_test.T_quoteRuneTest(("\u3000".code : GoInt32), ("\'\\u3000\'" : GoString), ("\'\\u3000\'" : GoString),
 		(Go.str("\'\u3000\'") : GoString)) : stdgo.strconv_test.Strconv_test.T_quoteRuneTest)) : Slice<stdgo.strconv_test.Strconv_test.T_quoteRuneTest>);
 
-var _canbackquotetests:Slice<stdgo.strconv_test.Strconv_test.T_canBackquoteTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_canBackquoteTest>(0, 0,
-	(new stdgo.strconv_test.Strconv_test.T_canBackquoteTest((Go.str("`") : GoString), false) : stdgo.strconv_test.Strconv_test.T_canBackquoteTest),
+private var _canbackquotetests:Slice<stdgo.strconv_test.Strconv_test.T_canBackquoteTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_canBackquoteTest>(0,
+	0, (new stdgo.strconv_test.Strconv_test.T_canBackquoteTest((Go.str("`") : GoString), false) : stdgo.strconv_test.Strconv_test.T_canBackquoteTest),
 	(new stdgo.strconv_test.Strconv_test.T_canBackquoteTest((((0 : GoInt32) : GoRune) : GoString),
 		false) : stdgo.strconv_test.Strconv_test.T_canBackquoteTest),
 	(new stdgo.strconv_test.Strconv_test.T_canBackquoteTest((((1 : GoInt32) : GoRune) : GoString),
@@ -1846,7 +1847,7 @@ var _canbackquotetests:Slice<stdgo.strconv_test.Strconv_test.T_canBackquoteTest>
 	(new stdgo.strconv_test.Strconv_test.T_canBackquoteTest((Go.str("a\ufeffz") : GoString),
 		false) : stdgo.strconv_test.Strconv_test.T_canBackquoteTest)) : Slice<stdgo.strconv_test.Strconv_test.T_canBackquoteTest>);
 
-var _unquotetests:Slice<stdgo.strconv_test.Strconv_test.T_unQuoteTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_unQuoteTest>(0, 0,
+private var _unquotetests:Slice<stdgo.strconv_test.Strconv_test.T_unQuoteTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_unQuoteTest>(0, 0,
 	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(("\"\"" : GoString), (Go.str() : GoString)) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
 	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(("\"a\"" : GoString), (Go.str("a") : GoString)) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
 	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(("\"abc\"" : GoString), (Go.str("abc") : GoString)) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
@@ -1893,18 +1894,18 @@ var _unquotetests:Slice<stdgo.strconv_test.Strconv_test.T_unQuoteTest> = (new Sl
 	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest((Go.str("`a\rb`") : GoString),
 		(Go.str("ab") : GoString)) : stdgo.strconv_test.Strconv_test.T_unQuoteTest)) : Slice<stdgo.strconv_test.Strconv_test.T_unQuoteTest>);
 
-var _misquoted:Slice<GoString> = (new Slice<GoString>(0, 0, ("" : GoString), ("\"" : GoString), ("\"a" : GoString), ("\"\'" : GoString), ("b\"" : GoString),
-	("\"\\\"" : GoString), ("\"\\9\"" : GoString), ("\"\\19\"" : GoString), ("\"\\129\"" : GoString), ("\'\\\'" : GoString), ("\'\\9\'" : GoString),
-	("\'\\19\'" : GoString), ("\'\\129\'" : GoString), ("\'ab\'" : GoString), ("\"\\x1!\"" : GoString), ("\"\\U12345678\"" : GoString),
-	("\"\\z\"" : GoString), (Go.str("`") : GoString), (Go.str("`xxx") : GoString), (Go.str("``x\r") : GoString), (Go.str("`\"") : GoString),
-	("\"\\\'\"" : GoString), ("\'\\\"\'" : GoString), (Go.str("\"\n\"") : GoString), (Go.str("\"\\n\n\"") : GoString), (Go.str("\'\n\'") : GoString),
-	("\"\\udead\"" : GoString), ("\"\\ud83d\\ude4f\"" : GoString)) : Slice<GoString>);
+private var _misquoted:Slice<GoString> = (new Slice<GoString>(0, 0, ("" : GoString), ("\"" : GoString), ("\"a" : GoString), ("\"\'" : GoString),
+	("b\"" : GoString), ("\"\\\"" : GoString), ("\"\\9\"" : GoString), ("\"\\19\"" : GoString), ("\"\\129\"" : GoString), ("\'\\\'" : GoString),
+	("\'\\9\'" : GoString), ("\'\\19\'" : GoString), ("\'\\129\'" : GoString), ("\'ab\'" : GoString), ("\"\\x1!\"" : GoString),
+	("\"\\U12345678\"" : GoString), ("\"\\z\"" : GoString), (Go.str("`") : GoString), (Go.str("`xxx") : GoString), (Go.str("``x\r") : GoString),
+	(Go.str("`\"") : GoString), ("\"\\\'\"" : GoString), ("\'\\\"\'" : GoString), (Go.str("\"\n\"") : GoString), (Go.str("\"\\n\n\"") : GoString),
+	(Go.str("\'\n\'") : GoString), ("\"\\udead\"" : GoString), ("\"\\ud83d\\ude4f\"" : GoString)) : Slice<GoString>);
 
-var _nextToOne:GoString = ((Go.str("1.00000000000000011102230246251565404236316680908203125") : GoString)
+private var _nextToOne:GoString = ((Go.str("1.00000000000000011102230246251565404236316680908203125") : GoString)
 	+ stdgo.strings.Strings.repeat((Go.str("0") : GoString), (10000 : GoInt)))
 	+ (Go.str("1") : GoString);
 
-var _mallocTest:Slice<T__struct_5> = (new Slice<T__struct_5>(0, 0, ({
+private var _mallocTest:Slice<T__struct_5> = (new Slice<T__struct_5>(0, 0, ({
 	_count: (0 : GoInt),
 	_desc: ("AppendInt(localBuf[:0], 123, 10)" : GoString),
 	_fn: function():Void {
@@ -1962,17 +1963,17 @@ var _mallocTest:Slice<T__struct_5> = (new Slice<T__struct_5>(0, 0, ({
 	}
 	} : T__struct_5)) : Slice<T__struct_5>);
 
-var _atofOnce:stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
-var _atofRandomTests:Slice<T_atofSimpleTest> = (null : Slice<stdgo.strconv_test.Strconv_test.T_atofSimpleTest>);
-var _benchmarksRandomBits:GoArray<GoString> = new GoArray<GoString>(...[for (i in 0...1024) ("" : GoString)]);
-var _benchmarksRandomNormal:GoArray<GoString> = new GoArray<GoString>(...[for (i in 0...1024) ("" : GoString)]);
-final _below1e23:GoUnTypedInt = ("99999999999999974834176.000000" : GoUnTypedInt);
-final _above1e23:GoUnTypedInt = ("100000000000000008388608.000000" : GoUnTypedInt);
+private var _atofOnce:stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
+private var _atofRandomTests:Slice<T_atofSimpleTest> = (null : Slice<stdgo.strconv_test.Strconv_test.T_atofSimpleTest>);
+private var _benchmarksRandomBits:GoArray<GoString> = new GoArray<GoString>(...[for (i in 0...1024) ("" : GoString)]);
+private var _benchmarksRandomNormal:GoArray<GoString> = new GoArray<GoString>(...[for (i in 0...1024) ("" : GoString)]);
+private final _below1e23:GoUnTypedInt = ("99999999999999974834176.000000" : GoUnTypedInt);
+private final _above1e23:GoUnTypedInt = ("100000000000000008388608.000000" : GoUnTypedInt);
 var benchSink:GoInt = (0 : GoInt);
-var _benchQuoteBuf:Slice<GoByte> = (null : Slice<GoUInt8>);
-var _benchQuoteRuneBuf:Slice<GoByte> = (null : Slice<GoUInt8>);
-var _globalBuf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0...64) (0 : GoUInt8)]);
-var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
+private var _benchQuoteBuf:Slice<GoByte> = (null : Slice<GoUInt8>);
+private var _benchQuoteRuneBuf:Slice<GoByte> = (null : Slice<GoUInt8>);
+private var _globalBuf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0...64) (0 : GoUInt8)]);
+private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 
 @:structInit private class T_atobTest {
 	public var _in:GoString = "";
@@ -3723,25 +3724,23 @@ function testFormatComplex(_t:stdgo.testing.Testing.T):Void {
 }
 
 function testFormatComplexInvalidBitSize(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
-	try {
-		__deferstack__.unshift(() -> {
-			var a = function():Void {
-				var __recover_exception__:AnyInterface = null;
-				{
-					var _r:AnyInterface = Go.toInterface(({
-						final r = __recover_exception__;
-						__recover_exception__ = null;
-						r;
-					}));
-					if (_r == null) {
-						_t.fatalf((Go.str("expected panic due to invalid bitSize") : GoString));
-					};
+	__deferstack__.unshift(() -> {
+		var a = function():Void {
+			{
+				var _r:AnyInterface = Go.toInterface(({
+					final r = Go.recover_exception;
+					Go.recover_exception = null;
+					r;
+				}));
+				if (_r == null) {
+					_t.fatalf((Go.str("expected panic due to invalid bitSize") : GoString));
 				};
 			};
-			a();
-		});
+		};
+		a();
+	});
+	try {
 		formatComplex(((1 : GoFloat64) + new GoComplex128(2, 0)), ("g".code : GoUInt8), (-1 : GoInt), (100 : GoInt));
 		for (defer in __deferstack__) {
 			defer();
@@ -3750,19 +3749,19 @@ function testFormatComplexInvalidBitSize(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -4308,12 +4307,11 @@ function _myatof32(_s:GoString):{var _0:GoFloat32; var _1:Bool;} {
 }
 
 function testFp(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var __tmp__ = stdgo.os.Os.open((Go.str("testdata/testfp.txt") : GoString)),
+		_f:Ref<stdgo.os.Os.File> = __tmp__._0,
+		_err:stdgo.Error = __tmp__._1;
 	try {
-		var __tmp__ = stdgo.os.Os.open((Go.str("testdata/testfp.txt") : GoString)),
-			_f:Ref<stdgo.os.Os.File> = __tmp__._0,
-			_err:stdgo.Error = __tmp__._1;
 		if (_err != null) {
 			_t.fatal(Go.toInterface((Go.str("testfp: open testdata/testfp.txt:") : GoString)), Go.toInterface(_err));
 		};
@@ -4442,19 +4440,19 @@ function testFp(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -4562,25 +4560,23 @@ function testFtoaRandom(_t:stdgo.testing.Testing.T):Void {
 }
 
 function testFormatFloatInvalidBitSize(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
-	try {
-		__deferstack__.unshift(() -> {
-			var a = function():Void {
-				var __recover_exception__:AnyInterface = null;
-				{
-					var _r:AnyInterface = Go.toInterface(({
-						final r = __recover_exception__;
-						__recover_exception__ = null;
-						r;
-					}));
-					if (_r == null) {
-						_t.fatalf((Go.str("expected panic due to invalid bitSize") : GoString));
-					};
+	__deferstack__.unshift(() -> {
+		var a = function():Void {
+			{
+				var _r:AnyInterface = Go.toInterface(({
+					final r = Go.recover_exception;
+					Go.recover_exception = null;
+					r;
+				}));
+				if (_r == null) {
+					_t.fatalf((Go.str("expected panic due to invalid bitSize") : GoString));
 				};
 			};
-			a();
-		});
+		};
+		a();
+	});
+	try {
 		formatFloat((3.14 : GoFloat64), ("g".code : GoUInt8), (-1 : GoInt), (100 : GoInt));
 		for (defer in __deferstack__) {
 			defer();
@@ -4589,19 +4585,19 @@ function testFormatFloatInvalidBitSize(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }

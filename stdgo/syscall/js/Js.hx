@@ -10,35 +10,35 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-var _funcs:GoMap<GoUInt32, (Value, Slice<Value>) -> AnyInterface> = (null : GoMap<GoUInt32, (Value, Slice<Value>) -> AnyInterface>);
-var _nextFuncID:GoUInt32 = (0 : GoUInt32);
-var _valueUndefined:Value = ({} : Value);
-var _valueNaN:Value = ({} : Value);
-var _valueZero:Value = ({} : Value);
-var _valueNull:Value = ({} : Value);
-var _valueTrue:Value = ({} : Value);
-var _valueFalse:Value = ({} : Value);
-var _valueGlobal:Value = ({} : Value);
-var _jsGo:Value = ({} : Value);
-var _objectConstructor:Value = ({} : Value);
-var _arrayConstructor:Value = ({} : Value);
+private var _funcs:GoMap<GoUInt32, (Value, Slice<Value>) -> AnyInterface> = (null : GoMap<GoUInt32, (Value, Slice<Value>) -> AnyInterface>);
+private var _nextFuncID:GoUInt32 = (0 : GoUInt32);
+private var _valueUndefined:Value = ({} : Value);
+private var _valueNaN:Value = ({} : Value);
+private var _valueZero:Value = ({} : Value);
+private var _valueNull:Value = ({} : Value);
+private var _valueTrue:Value = ({} : Value);
+private var _valueFalse:Value = ({} : Value);
+private var _valueGlobal:Value = ({} : Value);
+private var _jsGo:Value = ({} : Value);
+private var _objectConstructor:Value = ({} : Value);
+private var _arrayConstructor:Value = ({} : Value);
 var jsgo:Value = ({} : Value);
-var _funcsMu:stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
+private var _funcsMu:stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
 
 /**
 	// nanHead are the upper 32 bits of a ref which are set if the value is not encoded as an IEEE 754 number (see above).
 **/
-final _nanHead:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _nanHead:GoUnTypedInt = (0 : GoUnTypedInt);
 
 /**
 	// the type flags need to be in sync with wasm_exec.js
 **/
-final _typeFlagNone:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _typeFlagNone:GoUnTypedInt = (0 : GoUnTypedInt);
 
-final _typeFlagObject = null;
-final _typeFlagString = null;
-final _typeFlagSymbol = null;
-final _typeFlagFunction = null;
+private final _typeFlagObject = null;
+private final _typeFlagString = null;
+private final _typeFlagSymbol = null;
+private final _typeFlagFunction = null;
 final typeUndefined:Type = ((0 : GoInt) : Type);
 final typeNull:Type = ((0 : GoInt) : Type);
 final typeBoolean:Type = ((0 : GoInt) : Type);
@@ -507,7 +507,7 @@ function copyBytesToJS(_dst:Value, _src:Slice<GoByte>):GoInt
 function _copyBytesToJS(_dst:T_ref, _src:Slice<GoByte>):{var _0:GoInt; var _1:Bool;}
 	throw "syscall.js._copyBytesToJS is not yet implemented";
 
-@:keep class Func_static_extension {
+@:keep private class Func_static_extension {
 	/**
 		// Release frees up resources allocated for the function.
 		// The function must not be invoked after calling Release.
@@ -669,7 +669,7 @@ class Func_asInterface {
 	var __self__:Func;
 }
 
-@:keep class Value_static_extension {
+@:keep private class Value_static_extension {
 	/**
 		// InstanceOf reports whether v is an instance of type t according to JavaScript's instanceof operator.
 	**/
@@ -996,7 +996,7 @@ class Value_asInterface {
 	var __self__:Value;
 }
 
-@:keep class T_error_static_extension {
+@:keep private class T_error_static_extension {
 	/**
 		// Error implements the error interface.
 	**/
@@ -1154,7 +1154,7 @@ class T_error_asInterface {
 	var __self__:T_error;
 }
 
-@:keep class ValueError_static_extension {
+@:keep private class ValueError_static_extension {
 	@:keep
 	static public function error(_e:ValueError):GoString
 		throw "syscall.js.error is not yet implemented";

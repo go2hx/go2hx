@@ -13,7 +13,7 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-var _pipeTests:Slice<stdgo.io_test.Io_test.T_pipeTest> = (new Slice<stdgo.io_test.Io_test.T_pipeTest>(0, 0,
+private var _pipeTests:Slice<stdgo.io_test.Io_test.T_pipeTest> = (new Slice<stdgo.io_test.Io_test.T_pipeTest>(0, 0,
 	(new stdgo.io_test.Io_test.T_pipeTest(true, (null : stdgo.Error), false) : stdgo.io_test.Io_test.T_pipeTest),
 	(new stdgo.io_test.Io_test.T_pipeTest(true, (null : stdgo.Error), true) : stdgo.io_test.Io_test.T_pipeTest),
 	(new stdgo.io_test.Io_test.T_pipeTest(true, errShortWrite, true) : stdgo.io_test.Io_test.T_pipeTest),
@@ -6460,7 +6460,7 @@ function _sortBytesInGroups(_b:Slice<GoByte>, _n:GoInt):Slice<GoByte> {
 	return stdgo.bytes.Bytes.join(_groups, (null : Slice<GoUInt8>));
 }
 
-@:keep class Buffer_static_extension {
+@:keep private class Buffer_static_extension {
 	@:embedded
 	public static function _tryGrowByReslice(__self__:Buffer, _pid:GoInt):{var _0:GoInt; var _1:Bool;}
 		return __self__._tryGrowByReslice(_pid);
@@ -6746,7 +6746,7 @@ class Buffer_asInterface {
 		return __self__.bytes();
 }
 
-class T_writeToChecker_asInterface {
+private class T_writeToChecker_asInterface {
 	@:keep
 	public var writeTo:Writer -> {
 		var _0:GoInt64;
@@ -6851,7 +6851,7 @@ class T_writeToChecker_asInterface {
 	}
 }
 
-class T_zeroErrReader_asInterface {
+private class T_zeroErrReader_asInterface {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -6874,7 +6874,7 @@ class T_zeroErrReader_asInterface {
 	}
 }
 
-class T_errWriter_asInterface {
+private class T_errWriter_asInterface {
 	@:keep
 	public var write:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -6898,7 +6898,7 @@ class T_errWriter_asInterface {
 	}
 }
 
-class T_noReadFrom_asInterface {
+private class T_noReadFrom_asInterface {
 	@:keep
 	public var write:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -6921,7 +6921,7 @@ class T_noReadFrom_asInterface {
 	}
 }
 
-class T_wantedAndErrReader_asInterface {
+private class T_wantedAndErrReader_asInterface {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -7049,7 +7049,7 @@ class T_wantedAndErrReader_asInterface {
 		return __self__.bytes();
 }
 
-class T_dataAndErrorBuffer_asInterface {
+private class T_dataAndErrorBuffer_asInterface {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -7154,7 +7154,7 @@ class T_dataAndErrorBuffer_asInterface {
 	}
 }
 
-class T_largeWriter_asInterface {
+private class T_largeWriter_asInterface {
 	@:keep
 	public var write:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -7185,7 +7185,7 @@ class T_largeWriter_asInterface {
 	}
 }
 
-class T_writeStringChecker_asInterface {
+private class T_writeStringChecker_asInterface {
 	@:keep
 	public var write:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -7214,7 +7214,7 @@ class T_writeStringChecker_asInterface {
 	}
 }
 
-class T_pipeTest_asInterface {
+private class T_pipeTest_asInterface {
 	@:keep
 	public var string:() -> GoString = null;
 
@@ -7234,7 +7234,7 @@ class T_pipeTest_asInterface {
 	}
 }
 
-class T_writerFunc_asInterface {
+private class T_writerFunc_asInterface {
 	@:keep
 	public var write:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -7257,7 +7257,7 @@ class T_writerFunc_asInterface {
 	}
 }
 
-class T_readerFunc_asInterface {
+private class T_readerFunc_asInterface {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -7285,7 +7285,7 @@ class T_readerFunc_asInterface {
 	}
 }
 
-class T_byteAndEOFReader_asInterface {
+private class T_byteAndEOFReader_asInterface {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -7307,7 +7307,7 @@ class T_byteAndEOFReader_asInterface {
 		return __self__.write(_p);
 }
 
-class T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0_asInterface {
+private class T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0_asInterface {
 	@:embedded
 	public var write:Slice<GoUInt8> -> {
 		var _0:GoInt;
@@ -7329,7 +7329,7 @@ class T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0_asInterface {
 		return __self__.error();
 }
 
-class T_testError1_testPipeCloseError_0_asInterface {
+private class T_testError1_testPipeCloseError_0_asInterface {
 	@:embedded
 	public var error:() -> GoString = null;
 
@@ -7348,7 +7348,7 @@ class T_testError1_testPipeCloseError_0_asInterface {
 		return __self__.error();
 }
 
-class T_testError2_testPipeCloseError_1_asInterface {
+private class T_testError2_testPipeCloseError_1_asInterface {
 	@:embedded
 	public var error:() -> GoString = null;
 

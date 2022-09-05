@@ -13,9 +13,9 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-var _vf:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (4.9790119248836735 : GoFloat64), (7.738872474578105 : GoFloat64), (-0.2768800571920016 : GoFloat64),
-	(-5.010603618271075 : GoFloat64), (9.636293707198417 : GoFloat64), (2.9263772392439646 : GoFloat64), (5.229083431459307 : GoFloat64),
-	(2.7279399104360103 : GoFloat64), (1.825308091680855 : GoFloat64), (-8.685924768575601 : GoFloat64)) : Slice<GoFloat64>);
+private var _vf:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (4.9790119248836735 : GoFloat64), (7.738872474578105 : GoFloat64),
+	(-0.2768800571920016 : GoFloat64), (-5.010603618271075 : GoFloat64), (9.636293707198417 : GoFloat64), (2.9263772392439646 : GoFloat64),
+	(5.229083431459307 : GoFloat64), (2.7279399104360103 : GoFloat64), (1.825308091680855 : GoFloat64), (-8.685924768575601 : GoFloat64)) : Slice<GoFloat64>);
 
 /**
 	// The expected results below were computed by the high precision calculators
@@ -24,113 +24,118 @@ var _vf:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (4.9790119248836735 : GoF
 	// to 26 digits (by using the "Digit number" drop-down control of each
 	// calculator).
 **/
-var _acos:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (1.0496193546107222 : GoFloat64), (0.6858401281366443 : GoFloat64), (1.598487871457716 : GoFloat64),
-	(2.095619936147586 : GoFloat64), (0.2705300846782414 : GoFloat64), (1.2738121680361776 : GoFloat64), (1.0205369421140629 : GoFloat64),
-	(1.2945003481781245 : GoFloat64), (1.387236434537445 : GoFloat64), (2.6231510803970464 : GoFloat64)) : Slice<GoFloat64>);
+private var _acos:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (1.0496193546107222 : GoFloat64), (0.6858401281366443 : GoFloat64),
+	(1.598487871457716 : GoFloat64), (2.095619936147586 : GoFloat64), (0.2705300846782414 : GoFloat64), (1.2738121680361776 : GoFloat64),
+	(1.0205369421140629 : GoFloat64), (1.2945003481781245 : GoFloat64), (1.387236434537445 : GoFloat64), (2.6231510803970464 : GoFloat64)) : Slice<GoFloat64>);
 
-var _acosh:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (2.474334700415901 : GoFloat64), (2.857638534429277 : GoFloat64), (0.7279696150298106 : GoFloat64),
-	(2.479679441883145 : GoFloat64), (3.055202074230606 : GoFloat64), (2.0442385926885867 : GoFloat64), (2.5158701513104513 : GoFloat64),
-	(1.9905083928241163 : GoFloat64), (1.6988625798424035 : GoFloat64), (2.9611454842470386 : GoFloat64)) : Slice<GoFloat64>);
+private var _acosh:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (2.474334700415901 : GoFloat64), (2.857638534429277 : GoFloat64),
+	(0.7279696150298106 : GoFloat64), (2.479679441883145 : GoFloat64), (3.055202074230606 : GoFloat64), (2.0442385926885867 : GoFloat64),
+	(2.5158701513104513 : GoFloat64), (1.9905083928241163 : GoFloat64), (1.6988625798424035 : GoFloat64),
+	(2.9611454842470386 : GoFloat64)) : Slice<GoFloat64>);
 
-var _asin:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.5211769721841744 : GoFloat64), (0.8849561986582524 : GoFloat64),
+private var _asin:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.5211769721841744 : GoFloat64), (0.8849561986582524 : GoFloat64),
 	(-0.027691544662819412 : GoFloat64), (-0.5248236093526893 : GoFloat64), (1.3002662421166553 : GoFloat64), (0.29698415875871903 : GoFloat64),
 	(0.5502593846808337 : GoFloat64), (0.276295978616772 : GoFloat64), (0.18355989225745148 : GoFloat64),
 	(-1.0523547536021498 : GoFloat64)) : Slice<GoFloat64>);
 
-var _asinh:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (2.3083139124923524 : GoFloat64), (2.743551594301594 : GoFloat64),
+private var _asinh:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (2.3083139124923524 : GoFloat64), (2.743551594301594 : GoFloat64),
 	(-0.2734590853488009 : GoFloat64), (-2.314515764471834 : GoFloat64), (2.9613652154015058 : GoFloat64), (1.7949041616585821 : GoFloat64),
 	(2.3564032905983505 : GoFloat64), (1.7287118790768439 : GoFloat64), (1.3626658083714827 : GoFloat64),
 	(-2.8581483626513915 : GoFloat64)) : Slice<GoFloat64>);
 
-var _atan:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (1.3725902621296215 : GoFloat64), (1.442290609645298 : GoFloat64),
+private var _atan:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (1.3725902621296215 : GoFloat64), (1.442290609645298 : GoFloat64),
 	(-0.27011324359471756 : GoFloat64), (-1.373807768454338 : GoFloat64), (1.4673921193587667 : GoFloat64), (1.2415173565870168 : GoFloat64),
 	(1.3818396865615168 : GoFloat64), (1.219430584463967 : GoFloat64), (1.0696031952318783 : GoFloat64),
 	(-1.4561721938838086 : GoFloat64)) : Slice<GoFloat64>);
 
-var _atanh:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.5465116371225194 : GoFloat64), (1.0299474112843112 : GoFloat64),
+private var _atanh:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.5465116371225194 : GoFloat64), (1.0299474112843112 : GoFloat64),
 	(-0.027695084420740135 : GoFloat64), (-0.5507209611920719 : GoFloat64), (1.9943940993171843 : GoFloat64), (0.3014486045780897 : GoFloat64),
 	(0.5803342720694219 : GoFloat64), (0.27987997499441514 : GoFloat64), (0.18459947964298795 : GoFloat64),
 	(-1.3273186910532646 : GoFloat64)) : Slice<GoFloat64>);
 
-var _atan2:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (1.1088291730037005 : GoFloat64), (0.9121818318871581 : GoFloat64),
+private var _atan2:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (1.1088291730037005 : GoFloat64), (0.9121818318871581 : GoFloat64),
 	(1.5984772603216204 : GoFloat64), (2.0352918654092087 : GoFloat64), (0.8039181913904472 : GoFloat64), (1.2861075249894662 : GoFloat64),
 	(1.0889904479131696 : GoFloat64), (1.3044821793397925 : GoFloat64), (1.3902530903455392 : GoFloat64),
 	(2.2859857424479144 : GoFloat64)) : Slice<GoFloat64>);
 
-var _cbrt:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (1.7075799841925094 : GoFloat64), (1.9779982212970353 : GoFloat64),
+private var _cbrt:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (1.7075799841925094 : GoFloat64), (1.9779982212970353 : GoFloat64),
 	(-0.6517742901777991 : GoFloat64), (-1.711183888654402 : GoFloat64), (2.1279920909827936 : GoFloat64), (1.430353677046074 : GoFloat64),
 	(1.7357021059106155 : GoFloat64), (1.397263346255433 : GoFloat64), (1.2221149580905388 : GoFloat64), (-2.055600373050007 : GoFloat64)) : Slice<GoFloat64>);
 
-var _ceil:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (5 : GoFloat64), (8 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (-5 : GoFloat64),
-	(10 : GoFloat64), (3 : GoFloat64), (6 : GoFloat64), (3 : GoFloat64), (2 : GoFloat64), (-8 : GoFloat64)) : Slice<GoFloat64>);
+private var _ceil:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (5 : GoFloat64), (8 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)),
+	(-5 : GoFloat64), (10 : GoFloat64), (3 : GoFloat64), (6 : GoFloat64), (3 : GoFloat64), (2 : GoFloat64), (-8 : GoFloat64)) : Slice<GoFloat64>);
 
-var _copysign:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-4.9790119248836735 : GoFloat64), (-7.738872474578105 : GoFloat64),
+private var _copysign:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-4.9790119248836735 : GoFloat64), (-7.738872474578105 : GoFloat64),
 	(-0.2768800571920016 : GoFloat64), (-5.010603618271075 : GoFloat64), (-9.636293707198417 : GoFloat64), (-2.9263772392439646 : GoFloat64),
 	(-5.229083431459307 : GoFloat64), (-2.7279399104360103 : GoFloat64), (-1.825308091680855 : GoFloat64),
 	(-8.685924768575601 : GoFloat64)) : Slice<GoFloat64>);
 
-var _cos:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.2634752140995199 : GoFloat64), (0.11485512608482198 : GoFloat64), (0.9619129732564077 : GoFloat64),
-	(0.2938141150061715 : GoFloat64), (-0.9777138189897924 : GoFloat64), (-0.9769304134430322 : GoFloat64), (0.4940088096948647 : GoFloat64),
-	(-0.9156586902101893 : GoFloat64), (-0.25177293138931034 : GoFloat64), (-0.7392413515956766 : GoFloat64)) : Slice<GoFloat64>);
+private var _cos:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.2634752140995199 : GoFloat64), (0.11485512608482198 : GoFloat64),
+	(0.9619129732564077 : GoFloat64), (0.2938141150061715 : GoFloat64), (-0.9777138189897924 : GoFloat64), (-0.9769304134430322 : GoFloat64),
+	(0.4940088096948647 : GoFloat64), (-0.9156586902101893 : GoFloat64), (-0.25177293138931034 : GoFloat64),
+	(-0.7392413515956766 : GoFloat64)) : Slice<GoFloat64>);
 
 /**
 	// Results for 100000 * Pi + vf[i]
 **/
-var _cosLarge:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.26347521411855596 : GoFloat64), (0.1148551260555431 : GoFloat64),
+private var _cosLarge:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.26347521411855596 : GoFloat64), (0.1148551260555431 : GoFloat64),
 	(0.961912973266489 : GoFloat64), (0.2938141149955612 : GoFloat64), (-0.9777138189880162 : GoFloat64), (-0.9769304134451476 : GoFloat64),
 	(0.4940088097314977 : GoFloat64), (-0.9156586902175179 : GoFloat64), (-0.251772931436787 : GoFloat64),
 	(-0.739241351571731 : GoFloat64)) : Slice<GoFloat64>);
 
-var _cosh:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (72.66879694221284 : GoFloat64), (1147.9413465659254 : GoFloat64), (1.038576790876642 : GoFloat64),
-	(75.00095778965805 : GoFloat64), (7655.246669605358 : GoFloat64), (9.356749175832126 : GoFloat64), (93.31351599270606 : GoFloat64),
-	(7.683343099462465 : GoFloat64), (3.182937162515072 : GoFloat64), (2959.505926191619 : GoFloat64)) : Slice<GoFloat64>);
+private var _cosh:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (72.66879694221284 : GoFloat64), (1147.9413465659254 : GoFloat64),
+	(1.038576790876642 : GoFloat64), (75.00095778965805 : GoFloat64), (7655.246669605358 : GoFloat64), (9.356749175832126 : GoFloat64),
+	(93.31351599270606 : GoFloat64), (7.683343099462465 : GoFloat64), (3.182937162515072 : GoFloat64), (2959.505926191619 : GoFloat64)) : Slice<GoFloat64>);
 
-var _erf:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.5186535481773871 : GoFloat64), (0.726238758341373 : GoFloat64), (-0.0312345868828131 : GoFloat64),
-	(-0.521431211102533 : GoFloat64), (0.827047426713129 : GoFloat64), (0.32101767558376376 : GoFloat64), (0.5403990312223246 : GoFloat64),
-	(0.30034702916738587 : GoFloat64), (0.2036992441788224 : GoFloat64), (-0.7806938696800922 : GoFloat64)) : Slice<GoFloat64>);
+private var _erf:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.5186535481773871 : GoFloat64), (0.726238758341373 : GoFloat64),
+	(-0.0312345868828131 : GoFloat64), (-0.521431211102533 : GoFloat64), (0.827047426713129 : GoFloat64), (0.32101767558376376 : GoFloat64),
+	(0.5403990312223246 : GoFloat64), (0.30034702916738587 : GoFloat64), (0.2036992441788224 : GoFloat64),
+	(-0.7806938696800922 : GoFloat64)) : Slice<GoFloat64>);
 
-var _erfc:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.481346451822613 : GoFloat64), (0.27376124165862703 : GoFloat64), (1.031234586882813 : GoFloat64),
-	(1.521431211102533 : GoFloat64), (0.17295257328687097 : GoFloat64), (0.6789823244162362 : GoFloat64), (0.4596009687776754 : GoFloat64),
-	(0.6996529708326141 : GoFloat64), (0.7963007558211775 : GoFloat64), (1.7806938696800922 : GoFloat64)) : Slice<GoFloat64>);
+private var _erfc:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.481346451822613 : GoFloat64), (0.27376124165862703 : GoFloat64),
+	(1.031234586882813 : GoFloat64), (1.521431211102533 : GoFloat64), (0.17295257328687097 : GoFloat64), (0.6789823244162362 : GoFloat64),
+	(0.4596009687776754 : GoFloat64), (0.6996529708326141 : GoFloat64), (0.7963007558211775 : GoFloat64),
+	(1.7806938696800922 : GoFloat64)) : Slice<GoFloat64>);
 
-var _erfinv:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.47460376733580334 : GoFloat64), (0.8559054432692111 : GoFloat64),
+private var _erfinv:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.47460376733580334 : GoFloat64), (0.8559054432692111 : GoFloat64),
 	(-0.024542783057170732 : GoFloat64), (-0.47811668351897335 : GoFloat64), (1.479804430319471 : GoFloat64), (0.2654485787128896 : GoFloat64),
 	(0.502744453422152 : GoFloat64), (0.24667035327076278 : GoFloat64), (0.16320114651030054 : GoFloat64),
 	(-1.066723346421969 : GoFloat64)) : Slice<GoFloat64>);
 
-var _exp:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (145.33071302642136 : GoFloat64), (2295.882257569445 : GoFloat64), (0.7581454257485166 : GoFloat64),
-	(0.006666877842179101 : GoFloat64), (15310.493273896034 : GoFloat64), (18.65990751799933 : GoFloat64), (186.62167355098714 : GoFloat64),
-	(15.301332413189378 : GoFloat64), (6.204706343064688 : GoFloat64), (0.00016894712385826522 : GoFloat64)) : Slice<GoFloat64>);
+private var _exp:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (145.33071302642136 : GoFloat64), (2295.882257569445 : GoFloat64),
+	(0.7581454257485166 : GoFloat64), (0.006666877842179101 : GoFloat64), (15310.493273896034 : GoFloat64), (18.65990751799933 : GoFloat64),
+	(186.62167355098714 : GoFloat64), (15.301332413189378 : GoFloat64), (6.204706343064688 : GoFloat64),
+	(0.00016894712385826522 : GoFloat64)) : Slice<GoFloat64>);
 
-var _expm1:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.05105047796122957 : GoFloat64), (0.08046199708567343 : GoFloat64),
+private var _expm1:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.05105047796122957 : GoFloat64), (0.08046199708567343 : GoFloat64),
 	(-0.00276497097889164 : GoFloat64), (-0.048871434888875354 : GoFloat64), (0.10115864277221467 : GoFloat64), (0.02969616407795911 : GoFloat64),
 	(0.053682144879448924 : GoFloat64), (0.02765488851131274 : GoFloat64), (0.01842068661871399 : GoFloat64),
 	(-0.0831938708635538 : GoFloat64)) : Slice<GoFloat64>);
 
-var _expm1Large:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (4.2031418113550844e+21 : GoFloat64), (4.0690789717473863e+33 : GoFloat64),
+private var _expm1Large:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (4.2031418113550844e+21 : GoFloat64), (4.0690789717473863e+33 : GoFloat64),
 	(-0.9372627915981363 : GoFloat64), (-1 : GoFloat64), (7.077694784145933e+41 : GoFloat64), (5.117936223839153e+12 : GoFloat64),
 	(5.124137759001189e+22 : GoFloat64), (7.03546003972584e+11 : GoFloat64), (8.456921800389698e+07 : GoFloat64), (-1 : GoFloat64)) : Slice<GoFloat64>);
 
-var _exp2:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (31.53783946328629 : GoFloat64), (213.61549283756233 : GoFloat64), (0.8253740256218556 : GoFloat64),
-	(0.031021158628740296 : GoFloat64), (795.8174411025219 : GoFloat64), (7.6019905892596356 : GoFloat64), (37.5068820483881 : GoFloat64),
-	(6.625089343917356 : GoFloat64), (3.543826790024394 : GoFloat64), (0.0024281533133513303 : GoFloat64)) : Slice<GoFloat64>);
+private var _exp2:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (31.53783946328629 : GoFloat64), (213.61549283756233 : GoFloat64),
+	(0.8253740256218556 : GoFloat64), (0.031021158628740296 : GoFloat64), (795.8174411025219 : GoFloat64), (7.6019905892596356 : GoFloat64),
+	(37.5068820483881 : GoFloat64), (6.625089343917356 : GoFloat64), (3.543826790024394 : GoFloat64), (0.0024281533133513303 : GoFloat64)) : Slice<GoFloat64>);
 
-var _fabs:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (4.9790119248836735 : GoFloat64), (7.738872474578105 : GoFloat64), (0.2768800571920016 : GoFloat64),
-	(5.010603618271075 : GoFloat64), (9.636293707198417 : GoFloat64), (2.9263772392439646 : GoFloat64), (5.229083431459307 : GoFloat64),
-	(2.7279399104360103 : GoFloat64), (1.825308091680855 : GoFloat64), (8.685924768575601 : GoFloat64)) : Slice<GoFloat64>);
+private var _fabs:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (4.9790119248836735 : GoFloat64), (7.738872474578105 : GoFloat64),
+	(0.2768800571920016 : GoFloat64), (5.010603618271075 : GoFloat64), (9.636293707198417 : GoFloat64), (2.9263772392439646 : GoFloat64),
+	(5.229083431459307 : GoFloat64), (2.7279399104360103 : GoFloat64), (1.825308091680855 : GoFloat64), (8.685924768575601 : GoFloat64)) : Slice<GoFloat64>);
 
-var _fdim:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (4.9790119248836735 : GoFloat64), (7.738872474578105 : GoFloat64), (0 : GoFloat64), (0 : GoFloat64),
-	(9.636293707198417 : GoFloat64), (2.9263772392439646 : GoFloat64), (5.229083431459307 : GoFloat64), (2.7279399104360103 : GoFloat64),
+private var _fdim:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (4.9790119248836735 : GoFloat64), (7.738872474578105 : GoFloat64), (0 : GoFloat64),
+	(0 : GoFloat64), (9.636293707198417 : GoFloat64), (2.9263772392439646 : GoFloat64), (5.229083431459307 : GoFloat64), (2.7279399104360103 : GoFloat64),
 	(1.825308091680855 : GoFloat64), (0 : GoFloat64)) : Slice<GoFloat64>);
 
-var _floor:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (4 : GoFloat64), (7 : GoFloat64), (-1 : GoFloat64), (-6 : GoFloat64), (9 : GoFloat64),
+private var _floor:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (4 : GoFloat64), (7 : GoFloat64), (-1 : GoFloat64), (-6 : GoFloat64), (9 : GoFloat64),
 	(2 : GoFloat64), (5 : GoFloat64), (2 : GoFloat64), (1 : GoFloat64), (-9 : GoFloat64)) : Slice<GoFloat64>);
 
-var _fmod:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.041976150232653 : GoFloat64), (2.2611275254218954 : GoFloat64),
+private var _fmod:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.041976150232653 : GoFloat64), (2.2611275254218954 : GoFloat64),
 	(0.032317941087942614 : GoFloat64), (4.989396381728925 : GoFloat64), (0.3637062928015826 : GoFloat64), (1.220868282268106 : GoFloat64),
 	(4.770916568540693 : GoFloat64), (1.8161802686919692 : GoFloat64), (0.8734595415957247 : GoFloat64), (1.3140752314243986 : GoFloat64)) : Slice<GoFloat64>);
 
-var _frexp:Slice<stdgo.math_test.Math_test.T_fi> = (new Slice<stdgo.math_test.Math_test.T_fi>(0, 0,
+private var _frexp:Slice<stdgo.math_test.Math_test.T_fi> = (new Slice<stdgo.math_test.Math_test.T_fi>(0, 0,
 	(new stdgo.math_test.Math_test.T_fi((0.6223764906104592 : GoFloat64), (3 : GoInt)) : stdgo.math_test.Math_test.T_fi),
 	(new stdgo.math_test.Math_test.T_fi((0.9673590593222631 : GoFloat64), (3 : GoInt)) : stdgo.math_test.Math_test.T_fi),
 	(new stdgo.math_test.Math_test.T_fi((-0.5537601143840032 : GoFloat64), (-1 : GoInt)) : stdgo.math_test.Math_test.T_fi),
@@ -143,31 +148,32 @@ var _frexp:Slice<stdgo.math_test.Math_test.T_fi> = (new Slice<stdgo.math_test.Ma
 	(new stdgo.math_test.Math_test.T_fi((-0.5428702980359751 : GoFloat64),
 		(4 : GoInt)) : stdgo.math_test.Math_test.T_fi)) : Slice<stdgo.math_test.Math_test.T_fi>);
 
-var _gamma:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (23.254348370739965 : GoFloat64), (2991.153837155317 : GoFloat64), (-4.561154336726758 : GoFloat64),
-	(0.7719403468842639 : GoFloat64), (161118.76618855417 : GoFloat64), (1.8706575145216422 : GoFloat64), (34.0827874472575 : GoFloat64),
-	(1.5797339514489521 : GoFloat64), (0.938345865983546 : GoFloat64), (-2.0939959029231484e-05 : GoFloat64)) : Slice<GoFloat64>);
+private var _gamma:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (23.254348370739965 : GoFloat64), (2991.153837155317 : GoFloat64),
+	(-4.561154336726758 : GoFloat64), (0.7719403468842639 : GoFloat64), (161118.76618855417 : GoFloat64), (1.8706575145216422 : GoFloat64),
+	(34.0827874472575 : GoFloat64), (1.5797339514489521 : GoFloat64), (0.938345865983546 : GoFloat64),
+	(-2.0939959029231484e-05 : GoFloat64)) : Slice<GoFloat64>);
 
-var _j0:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-0.18444682230601672 : GoFloat64), (0.22735366890633196 : GoFloat64),
+private var _j0:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-0.18444682230601672 : GoFloat64), (0.22735366890633196 : GoFloat64),
 	(0.9809259936157051 : GoFloat64), (-0.17411701314262265 : GoFloat64), (-0.21389448451144144 : GoFloat64), (-0.23409058489280388 : GoFloat64),
 	(-0.10029099691890912 : GoFloat64), (-0.15466726714884327 : GoFloat64), (0.32526501876534203 : GoFloat64),
 	(-0.008722184844094073 : GoFloat64)) : Slice<GoFloat64>);
 
-var _j1:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-0.32515263952952034 : GoFloat64), (0.18935817114305156 : GoFloat64),
+private var _j1:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-0.32515263952952034 : GoFloat64), (0.18935817114305156 : GoFloat64),
 	(-0.13711761352467242 : GoFloat64), (0.3287486536269617 : GoFloat64), (0.13133899188830978 : GoFloat64), (0.3660243417832987 : GoFloat64),
 	(-0.3443676927184817 : GoFloat64), (0.43294813966407736 : GoFloat64), (0.5818135053195479 : GoFloat64),
 	(-0.27030574577733035 : GoFloat64)) : Slice<GoFloat64>);
 
-var _j2:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.0538375189201378 : GoFloat64), (-0.17841678003393208 : GoFloat64),
+private var _j2:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.0538375189201378 : GoFloat64), (-0.17841678003393208 : GoFloat64),
 	(0.009521746934916465 : GoFloat64), (0.04289583554709874 : GoFloat64), (0.24115371837854493 : GoFloat64), (0.484245853239452 : GoFloat64),
 	(-0.031421452206186334 : GoFloat64), (0.47208491847451245 : GoFloat64), (0.3122312022520957 : GoFloat64),
 	(0.07096213118930231 : GoFloat64)) : Slice<GoFloat64>);
 
-var _jM3:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-0.3684042080996403 : GoFloat64), (0.28157665936340887 : GoFloat64),
+private var _jM3:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-0.3684042080996403 : GoFloat64), (0.28157665936340887 : GoFloat64),
 	(0.00044010054808419485 : GoFloat64), (0.3629926999056814 : GoFloat64), (0.031236721988254553 : GoFloat64), (-0.2958805510589624 : GoFloat64),
 	(-0.3203317769653323 : GoFloat64), (-0.2592737332129663 : GoFloat64), (-0.10241334641061485 : GoFloat64),
 	(-0.23762660886100206 : GoFloat64)) : Slice<GoFloat64>);
 
-var _lgamma:Slice<stdgo.math_test.Math_test.T_fi> = (new Slice<stdgo.math_test.Math_test.T_fi>(0, 0,
+private var _lgamma:Slice<stdgo.math_test.Math_test.T_fi> = (new Slice<stdgo.math_test.Math_test.T_fi>(0, 0,
 	(new stdgo.math_test.Math_test.T_fi((3.1464921412445457 : GoFloat64), (1 : GoInt)) : stdgo.math_test.Math_test.T_fi),
 	(new stdgo.math_test.Math_test.T_fi((8.003414490659127 : GoFloat64), (1 : GoInt)) : stdgo.math_test.Math_test.T_fi),
 	(new stdgo.math_test.Math_test.T_fi((1.5175757355097796 : GoFloat64), (-1 : GoInt)) : stdgo.math_test.Math_test.T_fi),
@@ -180,28 +186,30 @@ var _lgamma:Slice<stdgo.math_test.Math_test.T_fi> = (new Slice<stdgo.math_test.M
 	(new stdgo.math_test.Math_test.T_fi((-10.773851309103001 : GoFloat64),
 		(-1 : GoInt)) : stdgo.math_test.Math_test.T_fi)) : Slice<stdgo.math_test.Math_test.T_fi>);
 
-var _log:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (1.605231462693063 : GoFloat64), (2.046256001870877 : GoFloat64), (-1.2841708730962658 : GoFloat64),
-	(1.6115563905281545 : GoFloat64), (2.265536564487202 : GoFloat64), (1.073765220891838 : GoFloat64), (1.6542360106073546 : GoFloat64),
-	(1.0035467127723465 : GoFloat64), (0.6017487901457805 : GoFloat64), (2.1617038728473528 : GoFloat64)) : Slice<GoFloat64>);
+private var _log:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (1.605231462693063 : GoFloat64), (2.046256001870877 : GoFloat64),
+	(-1.2841708730962658 : GoFloat64), (1.6115563905281545 : GoFloat64), (2.265536564487202 : GoFloat64), (1.073765220891838 : GoFloat64),
+	(1.6542360106073546 : GoFloat64), (1.0035467127723465 : GoFloat64), (0.6017487901457805 : GoFloat64),
+	(2.1617038728473528 : GoFloat64)) : Slice<GoFloat64>);
 
-var _logb:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (2 : GoFloat64), (2 : GoFloat64), (-2 : GoFloat64), (2 : GoFloat64), (3 : GoFloat64),
+private var _logb:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (2 : GoFloat64), (2 : GoFloat64), (-2 : GoFloat64), (2 : GoFloat64), (3 : GoFloat64),
 	(1 : GoFloat64), (2 : GoFloat64), (1 : GoFloat64), (0 : GoFloat64), (3 : GoFloat64)) : Slice<GoFloat64>);
 
-var _log10:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.6971431664250829 : GoFloat64), (0.8886776901739321 : GoFloat64),
+private var _log10:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.6971431664250829 : GoFloat64), (0.8886776901739321 : GoFloat64),
 	(-0.5577083240065893 : GoFloat64), (0.6998900476822995 : GoFloat64), (0.9839100285068423 : GoFloat64), (0.4663303102929515 : GoFloat64),
 	(0.7184255711724233 : GoFloat64), (0.4358347996891777 : GoFloat64), (0.26133617905227036 : GoFloat64),
 	(0.938816063486494 : GoFloat64)) : Slice<GoFloat64>);
 
-var _log1p:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.04859025775979779 : GoFloat64), (0.07454026596522587 : GoFloat64),
+private var _log1p:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.04859025775979779 : GoFloat64), (0.07454026596522587 : GoFloat64),
 	(-0.0027726407903942672 : GoFloat64), (-0.05140491765162765 : GoFloat64), (0.09199828067225863 : GoFloat64), (0.02884376257659335 : GoFloat64),
 	(0.05096953458186371 : GoFloat64), (0.026913947602193237 : GoFloat64), (0.01808849323963077 : GoFloat64),
 	(-0.09086524563158899 : GoFloat64)) : Slice<GoFloat64>);
 
-var _log2:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (2.315859470706219 : GoFloat64), (2.9521233862883918 : GoFloat64), (-1.852666950270033 : GoFloat64),
-	(2.3249844127278863 : GoFloat64), (3.268478366538305 : GoFloat64), (1.5491157592596971 : GoFloat64), (2.3865580889631732 : GoFloat64),
-	(1.4478118658170853 : GoFloat64), (0.8681399954042511 : GoFloat64), (3.1186794572273424 : GoFloat64)) : Slice<GoFloat64>);
+private var _log2:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (2.315859470706219 : GoFloat64), (2.9521233862883918 : GoFloat64),
+	(-1.852666950270033 : GoFloat64), (2.3249844127278863 : GoFloat64), (3.268478366538305 : GoFloat64), (1.5491157592596971 : GoFloat64),
+	(2.3865580889631732 : GoFloat64), (1.4478118658170853 : GoFloat64), (0.8681399954042511 : GoFloat64),
+	(3.1186794572273424 : GoFloat64)) : Slice<GoFloat64>);
 
-var _modf:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
+private var _modf:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
 	(new GoArray<GoFloat64>((4 : GoFloat64), (0.9790119248836735 : GoFloat64)) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>((7 : GoFloat64), (0.7388724745781046 : GoFloat64)) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>(copysign((0 : GoFloat64), (-1 : GoFloat64)), (-0.2768800571920016 : GoFloat64)) : GoArray<GoFloat64>),
@@ -213,29 +221,30 @@ var _modf:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
 	(new GoArray<GoFloat64>((1 : GoFloat64), (0.8253080916808551 : GoFloat64)) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>((-8 : GoFloat64), (-0.6859247685756014 : GoFloat64)) : GoArray<GoFloat64>)) : Slice<GoArray<GoFloat64>>);
 
-var _nextafter32:Slice<GoFloat32> = (new Slice<GoFloat32>(0, 0, (4.979012489318848 : GoFloat32), (7.73887300491333 : GoFloat32),
+private var _nextafter32:Slice<GoFloat32> = (new Slice<GoFloat32>(0, 0, (4.979012489318848 : GoFloat32), (7.73887300491333 : GoFloat32),
 	(-0.27688002586364746 : GoFloat32), (-5.010602951049805 : GoFloat32), (9.6362943649292 : GoFloat32), (2.926377534866333 : GoFloat32),
 	(5.229084014892578 : GoFloat32), (2.727940082550049 : GoFloat32), (1.825308203697205 : GoFloat32), (-8.68592357635498 : GoFloat32)) : Slice<GoFloat32>);
 
-var _nextafter64:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (4.979011924883674 : GoFloat64), (7.7388724745781055 : GoFloat64),
+private var _nextafter64:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (4.979011924883674 : GoFloat64), (7.7388724745781055 : GoFloat64),
 	(-0.27688005719200154 : GoFloat64), (-5.010603618271074 : GoFloat64), (9.63629370719842 : GoFloat64), (2.926377239243965 : GoFloat64),
 	(5.2290834314593075 : GoFloat64), (2.7279399104360107 : GoFloat64), (1.8253080916808553 : GoFloat64), (-8.6859247685756 : GoFloat64)) : Slice<GoFloat64>);
 
-var _pow:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (95282.23263164841 : GoFloat64), (5.48115993529999e+07 : GoFloat64), (0.528591217158944 : GoFloat64),
-	(9.758799195728648e-06 : GoFloat64), (4.328064329346045e+09 : GoFloat64), (844.0676180503455 : GoFloat64), (169466.33276191194 : GoFloat64),
-	(534.4904014755194 : GoFloat64), (66.88182138451415 : GoFloat64), (2.0609869004248745e-09 : GoFloat64)) : Slice<GoFloat64>);
+private var _pow:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (95282.23263164841 : GoFloat64), (5.48115993529999e+07 : GoFloat64),
+	(0.528591217158944 : GoFloat64), (9.758799195728648e-06 : GoFloat64), (4.328064329346045e+09 : GoFloat64), (844.0676180503455 : GoFloat64),
+	(169466.33276191194 : GoFloat64), (534.4904014755194 : GoFloat64), (66.88182138451415 : GoFloat64),
+	(2.0609869004248745e-09 : GoFloat64)) : Slice<GoFloat64>);
 
-var _remainder:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.041976150232653 : GoFloat64), (2.2611275254218954 : GoFloat64),
+private var _remainder:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.041976150232653 : GoFloat64), (2.2611275254218954 : GoFloat64),
 	(0.032317941087942614 : GoFloat64), (-0.021207236542149843 : GoFloat64), (0.3637062928015826 : GoFloat64), (1.220868282268106 : GoFloat64),
 	(-0.4581668629186133 : GoFloat64), (-0.911759641744041 : GoFloat64), (0.8734595415957247 : GoFloat64),
 	(1.3140752314243986 : GoFloat64)) : Slice<GoFloat64>);
 
-var _round:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (5 : GoFloat64), (8 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (-5 : GoFloat64),
-	(10 : GoFloat64), (3 : GoFloat64), (5 : GoFloat64), (3 : GoFloat64), (2 : GoFloat64), (-9 : GoFloat64)) : Slice<GoFloat64>);
+private var _round:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (5 : GoFloat64), (8 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)),
+	(-5 : GoFloat64), (10 : GoFloat64), (3 : GoFloat64), (5 : GoFloat64), (3 : GoFloat64), (2 : GoFloat64), (-9 : GoFloat64)) : Slice<GoFloat64>);
 
-var _signbit:Slice<Bool> = (new Slice<Bool>(0, 0, false, false, true, true, false, false, false, false, false, true) : Slice<Bool>);
+private var _signbit:Slice<Bool> = (new Slice<Bool>(0, 0, false, false, true, true, false, false, false, false, false, true) : Slice<Bool>);
 
-var _sin:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-0.9646661658600928 : GoFloat64), (0.9933822527164654 : GoFloat64),
+private var _sin:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-0.9646661658600928 : GoFloat64), (0.9933822527164654 : GoFloat64),
 	(-0.27335587039794396 : GoFloat64), (0.955862576850428 : GoFloat64), (-0.20994210667799693 : GoFloat64), (0.21355787807998605 : GoFloat64),
 	(-0.8694568971167362 : GoFloat64), (0.4019566681155578 : GoFloat64), (0.96778633541688 : GoFloat64),
 	(-0.6734405869050345 : GoFloat64)) : Slice<GoFloat64>);
@@ -243,20 +252,20 @@ var _sin:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-0.9646661658600928 : G
 /**
 	// Results for 100000 * Pi + vf[i]
 **/
-var _sinLarge:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-0.9646661658548936 : GoFloat64), (0.9933822527198507 : GoFloat64),
+private var _sinLarge:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-0.9646661658548936 : GoFloat64), (0.9933822527198507 : GoFloat64),
 	(-0.273355870362469 : GoFloat64), (0.9558625768536894 : GoFloat64), (-0.2099421066862689 : GoFloat64), (0.213557878070309 : GoFloat64),
 	(-0.8694568970959221 : GoFloat64), (0.40195666809886327 : GoFloat64), (0.9677863354045287 : GoFloat64),
 	(-0.6734405869313197 : GoFloat64)) : Slice<GoFloat64>);
 
-var _sinh:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (72.66191608420853 : GoFloat64), (1147.9409110035194 : GoFloat64),
+private var _sinh:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (72.66191608420853 : GoFloat64), (1147.9409110035194 : GoFloat64),
 	(-0.28043136512812517 : GoFloat64), (-74.99429091181587 : GoFloat64), (7655.246604290676 : GoFloat64), (9.303158342167201 : GoFloat64),
 	(93.3081575582811 : GoFloat64), (7.617989313726914 : GoFloat64), (3.0217691805496156 : GoFloat64), (-2959.505757244495 : GoFloat64)) : Slice<GoFloat64>);
 
-var _sqrt:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (2.2313699659365485 : GoFloat64), (2.7818829009464263 : GoFloat64), (0.5261939349631479 : GoFloat64),
-	(2.238437762876394 : GoFloat64), (3.104238023605538 : GoFloat64), (1.7106657298385224 : GoFloat64), (2.286718922705479 : GoFloat64),
-	(1.651647635071116 : GoFloat64), (1.3510396336454586 : GoFloat64), (2.947189299752495 : GoFloat64)) : Slice<GoFloat64>);
+private var _sqrt:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (2.2313699659365485 : GoFloat64), (2.7818829009464263 : GoFloat64),
+	(0.5261939349631479 : GoFloat64), (2.238437762876394 : GoFloat64), (3.104238023605538 : GoFloat64), (1.7106657298385224 : GoFloat64),
+	(2.286718922705479 : GoFloat64), (1.651647635071116 : GoFloat64), (1.3510396336454586 : GoFloat64), (2.947189299752495 : GoFloat64)) : Slice<GoFloat64>);
 
-var _tan:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-3.6613165650402277 : GoFloat64), (8.649002326485975 : GoFloat64),
+private var _tan:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-3.6613165650402277 : GoFloat64), (8.649002326485975 : GoFloat64),
 	(-0.28417941955033615 : GoFloat64), (3.2532901859747287 : GoFloat64), (0.21472756403802937 : GoFloat64), (-0.218600910711067 : GoFloat64),
 	(-1.760002817872368 : GoFloat64), (-0.4389808914752818 : GoFloat64), (-3.8438855602011306 : GoFloat64),
 	(0.9109887933776851 : GoFloat64)) : Slice<GoFloat64>);
@@ -264,35 +273,35 @@ var _tan:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-3.6613165650402277 : G
 /**
 	// Results for 100000 * Pi + vf[i]
 **/
-var _tanLarge:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-3.6613165647559653 : GoFloat64), (8.649002328720254 : GoFloat64),
+private var _tanLarge:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-3.6613165647559653 : GoFloat64), (8.649002328720254 : GoFloat64),
 	(-0.28417941951047826 : GoFloat64), (3.253290186103312 : GoFloat64), (0.21472756404688 : GoFloat64), (-0.21860091070068807 : GoFloat64),
 	(-1.7600028176997227 : GoFloat64), (-0.43898089145353614 : GoFloat64), (-3.843885559427235 : GoFloat64),
 	(0.910988793442751 : GoFloat64)) : Slice<GoFloat64>);
 
-var _tanh:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.9999053120693634 : GoFloat64), (0.9999996205708529 : GoFloat64),
+private var _tanh:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.9999053120693634 : GoFloat64), (0.9999996205708529 : GoFloat64),
 	(-0.2700150509731868 : GoFloat64), (-0.9999111094306172 : GoFloat64), (0.9999999914679847 : GoFloat64), (0.9942724943612523 : GoFloat64),
 	(0.9999425760098314 : GoFloat64), (0.9914940950977288 : GoFloat64), (0.9493650129623968 : GoFloat64),
 	(-0.9999999429137403 : GoFloat64)) : Slice<GoFloat64>);
 
-var _trunc:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (4 : GoFloat64), (7 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (-5 : GoFloat64),
-	(9 : GoFloat64), (2 : GoFloat64), (5 : GoFloat64), (2 : GoFloat64), (1 : GoFloat64), (-8 : GoFloat64)) : Slice<GoFloat64>);
+private var _trunc:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (4 : GoFloat64), (7 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)),
+	(-5 : GoFloat64), (9 : GoFloat64), (2 : GoFloat64), (5 : GoFloat64), (2 : GoFloat64), (1 : GoFloat64), (-8 : GoFloat64)) : Slice<GoFloat64>);
 
-var _y0:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-0.30533991537807886 : GoFloat64), (0.17437227649515233 : GoFloat64),
+private var _y0:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-0.30533991537807886 : GoFloat64), (0.17437227649515233 : GoFloat64),
 	(-0.8622178126367883 : GoFloat64), (-0.3100664880987498 : GoFloat64), (0.14222006493009823 : GoFloat64), (0.4000004067997901 : GoFloat64),
 	(-0.3334074975309935 : GoFloat64), (0.45399790746668955 : GoFloat64), (0.4829000411249776 : GoFloat64),
 	(0.27036697826604755 : GoFloat64)) : Slice<GoFloat64>);
 
-var _y1:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.1549421373745792 : GoFloat64), (-0.21659551420811451 : GoFloat64),
+private var _y1:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.1549421373745792 : GoFloat64), (-0.21659551420811451 : GoFloat64),
 	(-2.4644949631241895 : GoFloat64), (0.14427404895418364 : GoFloat64), (0.22153799605189847 : GoFloat64), (0.3038800915160754 : GoFloat64),
 	(0.06911076424523624 : GoFloat64), (0.23801164178099143 : GoFloat64), (-0.2084949297945976 : GoFloat64),
 	(0.02425031797932323 : GoFloat64)) : Slice<GoFloat64>);
 
-var _y2:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.3675780219390304 : GoFloat64), (-0.23034826393250118 : GoFloat64),
+private var _y2:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0.3675780219390304 : GoFloat64), (-0.23034826393250118 : GoFloat64),
 	(-16.939677983817727 : GoFloat64), (0.36765398052305215 : GoFloat64), (-0.09624014717678045 : GoFloat64), (-0.19231693561848512 : GoFloat64),
 	(0.35984072054267885 : GoFloat64), (-0.279498725229974 : GoFloat64), (-0.7113490692587463 : GoFloat64),
 	(-0.2647831587821263 : GoFloat64)) : Slice<GoFloat64>);
 
-var _yM3:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-0.1403598442109485 : GoFloat64), (-0.09753513961779207 : GoFloat64),
+private var _yM3:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-0.1403598442109485 : GoFloat64), (-0.09753513961779207 : GoFloat64),
 	(242.2577599455558 : GoFloat64), (-0.14922670148028186 : GoFloat64), (0.2614870262915592 : GoFloat64), (0.5667538359389518 : GoFloat64),
 	(-0.206150264009007 : GoFloat64), (0.6478428468756833 : GoFloat64), (1.3503631555901938 : GoFloat64),
 	(0.14618697565799568 : GoFloat64)) : Slice<GoFloat64>);
@@ -300,42 +309,42 @@ var _yM3:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-0.1403598442109485 : G
 /**
 	// arguments and expected results for special cases
 **/
-var _vfacosSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-3.141592653589793 : GoFloat64), (1 : GoFloat64), (3.141592653589793 : GoFloat64),
+private var _vfacosSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-3.141592653589793 : GoFloat64), (1 : GoFloat64), (3.141592653589793 : GoFloat64),
 	naN()) : Slice<GoFloat64>);
 
-var _acosSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), (0 : GoFloat64), naN(), naN()) : Slice<GoFloat64>);
+private var _acosSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), (0 : GoFloat64), naN(), naN()) : Slice<GoFloat64>);
 
-var _vfacoshSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (0.5 : GoFloat64), (1 : GoFloat64), inf((1 : GoInt)),
+private var _vfacoshSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (0.5 : GoFloat64), (1 : GoFloat64), inf((1 : GoInt)),
 	naN()) : Slice<GoFloat64>);
 
-var _acoshSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), naN(), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _acoshSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), naN(), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 
-var _vfasinSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-3.141592653589793 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
-	(3.141592653589793 : GoFloat64), naN()) : Slice<GoFloat64>);
+private var _vfasinSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-3.141592653589793 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)),
+	(0 : GoFloat64), (3.141592653589793 : GoFloat64), naN()) : Slice<GoFloat64>);
 
-var _asinSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), naN(),
+private var _asinSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), naN(),
 	naN()) : Slice<GoFloat64>);
 
-var _vfasinhSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
+private var _vfasinhSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
 	inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 
-var _asinhSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)),
-	naN()) : Slice<GoFloat64>);
-
-var _vfatanSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
+private var _asinhSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
 	inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 
-var _atanSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-1.5707963267948966 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
-	(1.5707963267948966 : GoFloat64), naN()) : Slice<GoFloat64>);
+private var _vfatanSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
+	inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 
-var _vfatanhSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (-3.141592653589793 : GoFloat64), (-1 : GoFloat64),
+private var _atanSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-1.5707963267948966 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)),
+	(0 : GoFloat64), (1.5707963267948966 : GoFloat64), naN()) : Slice<GoFloat64>);
+
+private var _vfatanhSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (-3.141592653589793 : GoFloat64), (-1 : GoFloat64),
 	copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), (1 : GoFloat64), (3.141592653589793 : GoFloat64), inf((1 : GoInt)),
 	naN()) : Slice<GoFloat64>);
 
-var _atanhSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), naN(), inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
-	inf((1 : GoInt)), naN(), naN(), naN()) : Slice<GoFloat64>);
+private var _atanhSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), naN(), inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)),
+	(0 : GoFloat64), inf((1 : GoInt)), naN(), naN(), naN()) : Slice<GoFloat64>);
 
-var _vfatan2SC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
+private var _vfatan2SC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
 	(new GoArray<GoFloat64>(inf((-1 : GoInt)), inf((-1 : GoInt))) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>(inf((-1 : GoInt)), (-3.141592653589793 : GoFloat64)) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>(inf((-1 : GoInt)), (0 : GoFloat64)) : GoArray<GoFloat64>),
@@ -372,7 +381,7 @@ var _vfatan2SC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
 	(new GoArray<GoFloat64>(inf((1 : GoInt)), inf((1 : GoInt))) : GoArray<GoFloat64>), (new GoArray<GoFloat64>(inf((1 : GoInt)), naN()) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>(naN(), naN()) : GoArray<GoFloat64>)) : Slice<GoArray<GoFloat64>>);
 
-var _atan2SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-2.356194490192345 : GoFloat64), (-1.5707963267948966 : GoFloat64),
+private var _atan2SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-2.356194490192345 : GoFloat64), (-1.5707963267948966 : GoFloat64),
 	(-1.5707963267948966 : GoFloat64), (-1.5707963267948966 : GoFloat64), (-0.7853981633974483 : GoFloat64), naN(), (-3.141592653589793 : GoFloat64),
 	(-1.5707963267948966 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), naN(), (-3.141592653589793 : GoFloat64), (-3.141592653589793 : GoFloat64),
 	(-3.141592653589793 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), copysign((0 : GoFloat64), (-1 : GoFloat64)),
@@ -381,74 +390,80 @@ var _atan2SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-2.356194490192345 
 	(0 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), naN(), (2.356194490192345 : GoFloat64), (1.5707963267948966 : GoFloat64),
 	(1.5707963267948966 : GoFloat64), (1.5707963267948966 : GoFloat64), (0.7853981633974483 : GoFloat64), naN(), naN()) : Slice<GoFloat64>);
 
-var _vfcbrtSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
+private var _vfcbrtSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
 	inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 
-var _cbrtSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)),
+private var _cbrtSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
+	inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+
+private var _vfceilSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
+	inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+
+private var _ceilSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
+	inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+
+private var _vfcopysignSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _copysignSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), inf((-1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _vfcosSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _cosSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), naN(), naN()) : Slice<GoFloat64>);
+
+private var _vfcoshSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
+	inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+
+private var _coshSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((1 : GoInt)), (1 : GoFloat64), (1 : GoFloat64), inf((1 : GoInt)),
 	naN()) : Slice<GoFloat64>);
 
-var _vfceilSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
-	inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _vferfSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
+	inf((1 : GoInt)), naN(), (-1000 : GoFloat64), (1000 : GoFloat64)) : Slice<GoFloat64>);
 
-var _ceilSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)),
-	naN()) : Slice<GoFloat64>);
+private var _erfSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-1 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
+	(1 : GoFloat64), naN(), (-1 : GoFloat64), (1 : GoFloat64)) : Slice<GoFloat64>);
 
-var _vfcopysignSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
-var _copysignSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), inf((-1 : GoInt)), naN()) : Slice<GoFloat64>);
-var _vfcosSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
-var _cosSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), naN(), naN()) : Slice<GoFloat64>);
-
-var _vfcoshSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
-	inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
-
-var _coshSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((1 : GoInt)), (1 : GoFloat64), (1 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
-
-var _vferfSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)),
-	naN(), (-1000 : GoFloat64), (1000 : GoFloat64)) : Slice<GoFloat64>);
-
-var _erfSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-1 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), (1 : GoFloat64),
-	naN(), (-1 : GoFloat64), (1 : GoFloat64)) : Slice<GoFloat64>);
-
-var _vferfcSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), inf((1 : GoInt)), naN(), (-1000 : GoFloat64),
+private var _vferfcSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), inf((1 : GoInt)), naN(), (-1000 : GoFloat64),
 	(1000 : GoFloat64)) : Slice<GoFloat64>);
 
-var _erfcSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (2 : GoFloat64), (0 : GoFloat64), naN(), (2 : GoFloat64), (0 : GoFloat64)) : Slice<GoFloat64>);
+private var _erfcSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (2 : GoFloat64), (0 : GoFloat64), naN(), (2 : GoFloat64),
+	(0 : GoFloat64)) : Slice<GoFloat64>);
 
-var _vferfinvSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (1 : GoFloat64), (-1 : GoFloat64), (0 : GoFloat64), inf((-1 : GoInt)), inf((1 : GoInt)),
+private var _vferfinvSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (1 : GoFloat64), (-1 : GoFloat64), (0 : GoFloat64), inf((-1 : GoInt)),
+	inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+
+private var _erfinvSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((1 : GoInt)), inf((-1 : GoInt)), (0 : GoFloat64), naN(), naN(),
 	naN()) : Slice<GoFloat64>);
 
-var _erfinvSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((1 : GoInt)), inf((-1 : GoInt)), (0 : GoFloat64), naN(), naN(), naN()) : Slice<GoFloat64>);
+private var _vferfcinvSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0 : GoFloat64), (2 : GoFloat64), (1 : GoFloat64), inf((1 : GoInt)),
+	inf((-1 : GoInt)), naN()) : Slice<GoFloat64>);
 
-var _vferfcinvSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0 : GoFloat64), (2 : GoFloat64), (1 : GoFloat64), inf((1 : GoInt)), inf((-1 : GoInt)),
+private var _erfcinvSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((1 : GoInt)), inf((-1 : GoInt)), (0 : GoFloat64), naN(), naN(),
 	naN()) : Slice<GoFloat64>);
 
-var _erfcinvSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((1 : GoInt)), inf((-1 : GoInt)), (0 : GoFloat64), naN(), naN(), naN()) : Slice<GoFloat64>);
-
-var _vfexpSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (-2000 : GoFloat64), (2000 : GoFloat64), inf((1 : GoInt)), naN(),
+private var _vfexpSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (-2000 : GoFloat64), (2000 : GoFloat64), inf((1 : GoInt)), naN(),
 	(709.7827128933841 : GoFloat64), (1.48852223e+09 : GoFloat64), (1.4885222e+09 : GoFloat64), (1 : GoFloat64), (3.725290298461915e-09 : GoFloat64),
 	(-740 : GoFloat64)) : Slice<GoFloat64>);
 
-var _expSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0 : GoFloat64), (0 : GoFloat64), inf((1 : GoInt)), inf((1 : GoInt)), naN(), inf((1 : GoInt)),
-	inf((1 : GoInt)), inf((1 : GoInt)), (2.718281828459045 : GoFloat64), (1.0000000037252903 : GoFloat64), (4.2e-322 : GoFloat64)) : Slice<GoFloat64>);
+private var _expSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0 : GoFloat64), (0 : GoFloat64), inf((1 : GoInt)), inf((1 : GoInt)), naN(),
+	inf((1 : GoInt)), inf((1 : GoInt)), inf((1 : GoInt)), (2.718281828459045 : GoFloat64), (1.0000000037252903 : GoFloat64),
+	(4.2e-322 : GoFloat64)) : Slice<GoFloat64>);
 
-var _vfexp2SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (-2000 : GoFloat64), (2000 : GoFloat64), inf((1 : GoInt)), naN(),
+private var _vfexp2SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (-2000 : GoFloat64), (2000 : GoFloat64), inf((1 : GoInt)), naN(),
 	(1024 : GoFloat64), (-1073.99999999999 : GoFloat64), (3.725290298461915e-09 : GoFloat64)) : Slice<GoFloat64>);
 
-var _exp2SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0 : GoFloat64), (0 : GoFloat64), inf((1 : GoInt)), inf((1 : GoInt)), naN(), inf((1 : GoInt)),
-	(5e-324 : GoFloat64), (1.0000000025821745 : GoFloat64)) : Slice<GoFloat64>);
+private var _exp2SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0 : GoFloat64), (0 : GoFloat64), inf((1 : GoInt)), inf((1 : GoInt)), naN(),
+	inf((1 : GoInt)), (5e-324 : GoFloat64), (1.0000000025821745 : GoFloat64)) : Slice<GoFloat64>);
 
-var _vfexpm1SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (-710 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)),
+private var _vfexpm1SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (-710 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)),
 	(0 : GoFloat64), (710 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 
-var _expm1SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-1 : GoFloat64), (-1 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
-	inf((1 : GoInt)), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _expm1SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-1 : GoFloat64), (-1 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)),
+	(0 : GoFloat64), inf((1 : GoInt)), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 
-var _vffabsSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
+private var _vffabsSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
 	inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 
-var _fabsSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((1 : GoInt)), (0 : GoFloat64), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _fabsSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((1 : GoInt)), (0 : GoFloat64), (0 : GoFloat64), inf((1 : GoInt)),
+	naN()) : Slice<GoFloat64>);
 
-var _vffdimSC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
+private var _vffdimSC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
 	(new GoArray<GoFloat64>(inf((-1 : GoInt)), inf((-1 : GoInt))) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>(inf((-1 : GoInt)), inf((1 : GoInt))) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>(inf((-1 : GoInt)), naN()) : GoArray<GoFloat64>),
@@ -463,9 +478,9 @@ var _vffdimSC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
 	(new GoArray<GoFloat64>(naN(), (0 : GoFloat64)) : GoArray<GoFloat64>), (new GoArray<GoFloat64>(naN(), inf((1 : GoInt))) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>(naN(), naN()) : GoArray<GoFloat64>)) : Slice<GoArray<GoFloat64>>);
 
-var _nan:GoFloat64 = float64frombits(("18444492273895866368" : GoUInt64));
+private var _nan:GoFloat64 = float64frombits(("18444492273895866368" : GoUInt64));
 
-var _vffdim2SC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
+private var _vffdim2SC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
 	(new GoArray<GoFloat64>(inf((-1 : GoInt)), inf((-1 : GoInt))) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>(inf((-1 : GoInt)), inf((1 : GoInt))) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>(inf((-1 : GoInt)), _nan) : GoArray<GoFloat64>),
@@ -480,18 +495,18 @@ var _vffdim2SC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
 	(new GoArray<GoFloat64>(_nan, (0 : GoFloat64)) : GoArray<GoFloat64>), (new GoArray<GoFloat64>(_nan, inf((1 : GoInt))) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>(_nan, _nan) : GoArray<GoFloat64>)) : Slice<GoArray<GoFloat64>>);
 
-var _fdimSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), (0 : GoFloat64), naN(), (0 : GoFloat64), (0 : GoFloat64), (0 : GoFloat64), (0 : GoFloat64),
-	inf((1 : GoInt)), naN(), naN(), naN(), naN(), naN(), naN(), naN()) : Slice<GoFloat64>);
+private var _fdimSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), (0 : GoFloat64), naN(), (0 : GoFloat64), (0 : GoFloat64), (0 : GoFloat64),
+	(0 : GoFloat64), inf((1 : GoInt)), naN(), naN(), naN(), naN(), naN(), naN(), naN()) : Slice<GoFloat64>);
 
-var _fmaxSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), inf((1 : GoInt)), naN(), copysign((0 : GoFloat64), (-1 : GoFloat64)),
+private var _fmaxSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), inf((1 : GoInt)), naN(), copysign((0 : GoFloat64), (-1 : GoFloat64)),
 	(0 : GoFloat64), (0 : GoFloat64), (0 : GoFloat64), inf((1 : GoInt)), inf((1 : GoInt)), inf((1 : GoInt)), naN(), naN(), naN(), inf((1 : GoInt)),
 	naN()) : Slice<GoFloat64>);
 
-var _fminSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), inf((-1 : GoInt)), inf((-1 : GoInt)),
+private var _fminSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), inf((-1 : GoInt)), inf((-1 : GoInt)),
 	copysign((0 : GoFloat64), (-1 : GoFloat64)), copysign((0 : GoFloat64), (-1 : GoFloat64)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
 	inf((-1 : GoInt)), inf((1 : GoInt)), naN(), inf((-1 : GoInt)), naN(), naN(), naN(), naN()) : Slice<GoFloat64>);
 
-var _vffmodSC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
+private var _vffmodSC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
 	(new GoArray<GoFloat64>(inf((-1 : GoInt)), inf((-1 : GoInt))) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>(inf((-1 : GoInt)), (-3.141592653589793 : GoFloat64)) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>(inf((-1 : GoInt)), (0 : GoFloat64)) : GoArray<GoFloat64>),
@@ -525,22 +540,22 @@ var _vffmodSC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
 	(new GoArray<GoFloat64>(naN(), inf((1 : GoInt))) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>(naN(), naN()) : GoArray<GoFloat64>)) : Slice<GoArray<GoFloat64>>);
 
-var _fmodSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), naN(), naN(), naN(), naN(), naN(), (-3.141592653589793 : GoFloat64), naN(),
+private var _fmodSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), naN(), naN(), naN(), naN(), naN(), (-3.141592653589793 : GoFloat64), naN(),
 	(-3.141592653589793 : GoFloat64), naN(), copysign((0 : GoFloat64), (-1 : GoFloat64)), naN(), copysign((0 : GoFloat64), (-1 : GoFloat64)), naN(),
 	(0 : GoFloat64), naN(), (0 : GoFloat64), naN(), (3.141592653589793 : GoFloat64), naN(), (3.141592653589793 : GoFloat64), naN(), naN(), naN(), naN(),
 	naN(), naN(), naN(), naN(), naN(), naN(), naN(), naN(), naN()) : Slice<GoFloat64>);
 
-var _vffrexpSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
+private var _vffrexpSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
 	inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 
-var _frexpSC:Slice<stdgo.math_test.Math_test.T_fi> = (new Slice<stdgo.math_test.Math_test.T_fi>(0, 0,
+private var _frexpSC:Slice<stdgo.math_test.Math_test.T_fi> = (new Slice<stdgo.math_test.Math_test.T_fi>(0, 0,
 	(new stdgo.math_test.Math_test.T_fi(inf((-1 : GoInt)), (0 : GoInt)) : stdgo.math_test.Math_test.T_fi),
 	(new stdgo.math_test.Math_test.T_fi(copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoInt)) : stdgo.math_test.Math_test.T_fi),
 	(new stdgo.math_test.Math_test.T_fi((0 : GoFloat64), (0 : GoInt)) : stdgo.math_test.Math_test.T_fi),
 	(new stdgo.math_test.Math_test.T_fi(inf((1 : GoInt)), (0 : GoInt)) : stdgo.math_test.Math_test.T_fi),
 	(new stdgo.math_test.Math_test.T_fi(naN(), (0 : GoInt)) : stdgo.math_test.Math_test.T_fi)) : Slice<stdgo.math_test.Math_test.T_fi>);
 
-var _vfgamma:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
+private var _vfgamma:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
 	(new GoArray<GoFloat64>(inf((1 : GoInt)), inf((1 : GoInt))) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>(inf((-1 : GoInt)), naN()) : GoArray<GoFloat64>), (new GoArray<GoFloat64>((0 : GoFloat64), inf((1 : GoInt))) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>(copysign((0 : GoFloat64), (-1 : GoFloat64)), inf((-1 : GoInt))) : GoArray<GoFloat64>),
@@ -609,7 +624,7 @@ var _vfgamma:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
 	(new GoArray<GoFloat64>((-63.349078729022985 : GoFloat64), (4.177797167776188e-88 : GoFloat64)) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>((-127.45117632943295 : GoFloat64), (1.183111089623681e-214 : GoFloat64)) : GoArray<GoFloat64>)) : Slice<GoArray<GoFloat64>>);
 
-var _vfhypotSC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
+private var _vfhypotSC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
 	(new GoArray<GoFloat64>(inf((-1 : GoInt)), inf((-1 : GoInt))) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>(inf((-1 : GoInt)), (0 : GoFloat64)) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>(inf((-1 : GoInt)), inf((1 : GoInt))) : GoArray<GoFloat64>),
@@ -627,18 +642,20 @@ var _vfhypotSC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
 	(new GoArray<GoFloat64>(naN(), inf((1 : GoInt))) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>(naN(), naN()) : GoArray<GoFloat64>)) : Slice<GoArray<GoFloat64>>);
 
-var _hypotSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((1 : GoInt)), inf((1 : GoInt)), inf((1 : GoInt)), inf((1 : GoInt)), (0 : GoFloat64),
+private var _hypotSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((1 : GoInt)), inf((1 : GoInt)), inf((1 : GoInt)), inf((1 : GoInt)), (0 : GoFloat64),
 	(0 : GoFloat64), (0 : GoFloat64), (0 : GoFloat64), inf((1 : GoInt)), inf((1 : GoInt)), naN(), inf((1 : GoInt)), inf((1 : GoInt)), inf((1 : GoInt)),
 	inf((1 : GoInt)), inf((1 : GoInt)), naN(), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 
-var _ilogbSC:Slice<GoInt> = (new Slice<GoInt>(0, 0, (2147483647 : GoInt), (-2147483648 : GoInt), (2147483647 : GoInt), (2147483647 : GoInt)) : Slice<GoInt>);
-var _vfj0SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
-var _j0SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0 : GoFloat64), (1 : GoFloat64), (0 : GoFloat64), naN()) : Slice<GoFloat64>);
-var _j1SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0 : GoFloat64), (0 : GoFloat64), (0 : GoFloat64), naN()) : Slice<GoFloat64>);
-var _j2SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0 : GoFloat64), (0 : GoFloat64), (0 : GoFloat64), naN()) : Slice<GoFloat64>);
-var _jM3SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0 : GoFloat64), (0 : GoFloat64), (0 : GoFloat64), naN()) : Slice<GoFloat64>);
+private var _ilogbSC:Slice<GoInt> = (new Slice<GoInt>(0, 0, (2147483647 : GoInt), (-2147483648 : GoInt), (2147483647 : GoInt),
+	(2147483647 : GoInt)) : Slice<GoInt>);
 
-var _vfldexpSC:Slice<stdgo.math_test.Math_test.T_fi> = (new Slice<stdgo.math_test.Math_test.T_fi>(0, 0,
+private var _vfj0SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _j0SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0 : GoFloat64), (1 : GoFloat64), (0 : GoFloat64), naN()) : Slice<GoFloat64>);
+private var _j1SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0 : GoFloat64), (0 : GoFloat64), (0 : GoFloat64), naN()) : Slice<GoFloat64>);
+private var _j2SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0 : GoFloat64), (0 : GoFloat64), (0 : GoFloat64), naN()) : Slice<GoFloat64>);
+private var _jM3SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0 : GoFloat64), (0 : GoFloat64), (0 : GoFloat64), naN()) : Slice<GoFloat64>);
+
+private var _vfldexpSC:Slice<stdgo.math_test.Math_test.T_fi> = (new Slice<stdgo.math_test.Math_test.T_fi>(0, 0,
 	(new stdgo.math_test.Math_test.T_fi((0 : GoFloat64), (0 : GoInt)) : stdgo.math_test.Math_test.T_fi),
 	(new stdgo.math_test.Math_test.T_fi((0 : GoFloat64), (-1075 : GoInt)) : stdgo.math_test.Math_test.T_fi),
 	(new stdgo.math_test.Math_test.T_fi((0 : GoFloat64), (1024 : GoInt)) : stdgo.math_test.Math_test.T_fi),
@@ -653,14 +670,14 @@ var _vfldexpSC:Slice<stdgo.math_test.Math_test.T_fi> = (new Slice<stdgo.math_tes
 	(new stdgo.math_test.Math_test.T_fi((10 : GoFloat64), (16777216 : GoInt)) : stdgo.math_test.Math_test.T_fi),
 	(new stdgo.math_test.Math_test.T_fi((10 : GoFloat64), (-16777216 : GoInt)) : stdgo.math_test.Math_test.T_fi)) : Slice<stdgo.math_test.Math_test.T_fi>);
 
-var _ldexpSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0 : GoFloat64), (0 : GoFloat64), (0 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)),
-	copysign((0 : GoFloat64), (-1 : GoFloat64)), copysign((0 : GoFloat64), (-1 : GoFloat64)), inf((1 : GoInt)), inf((1 : GoInt)), inf((-1 : GoInt)),
-	inf((-1 : GoInt)), naN(), inf((1 : GoInt)), (0 : GoFloat64)) : Slice<GoFloat64>);
+private var _ldexpSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0 : GoFloat64), (0 : GoFloat64), (0 : GoFloat64),
+	copysign((0 : GoFloat64), (-1 : GoFloat64)), copysign((0 : GoFloat64), (-1 : GoFloat64)), copysign((0 : GoFloat64), (-1 : GoFloat64)), inf((1 : GoInt)),
+	inf((1 : GoInt)), inf((-1 : GoInt)), inf((-1 : GoInt)), naN(), inf((1 : GoInt)), (0 : GoFloat64)) : Slice<GoFloat64>);
 
-var _vflgammaSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (-3 : GoFloat64), (0 : GoFloat64), (1 : GoFloat64), (2 : GoFloat64),
+private var _vflgammaSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (-3 : GoFloat64), (0 : GoFloat64), (1 : GoFloat64), (2 : GoFloat64),
 	inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 
-var _lgammaSC:Slice<stdgo.math_test.Math_test.T_fi> = (new Slice<stdgo.math_test.Math_test.T_fi>(0, 0,
+private var _lgammaSC:Slice<stdgo.math_test.Math_test.T_fi> = (new Slice<stdgo.math_test.Math_test.T_fi>(0, 0,
 	(new stdgo.math_test.Math_test.T_fi(inf((-1 : GoInt)), (1 : GoInt)) : stdgo.math_test.Math_test.T_fi),
 	(new stdgo.math_test.Math_test.T_fi(inf((1 : GoInt)), (1 : GoInt)) : stdgo.math_test.Math_test.T_fi),
 	(new stdgo.math_test.Math_test.T_fi(inf((1 : GoInt)), (1 : GoInt)) : stdgo.math_test.Math_test.T_fi),
@@ -669,30 +686,30 @@ var _lgammaSC:Slice<stdgo.math_test.Math_test.T_fi> = (new Slice<stdgo.math_test
 	(new stdgo.math_test.Math_test.T_fi(inf((1 : GoInt)), (1 : GoInt)) : stdgo.math_test.Math_test.T_fi),
 	(new stdgo.math_test.Math_test.T_fi(naN(), (1 : GoInt)) : stdgo.math_test.Math_test.T_fi)) : Slice<stdgo.math_test.Math_test.T_fi>);
 
-var _vflogSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (-3.141592653589793 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)),
-	(0 : GoFloat64), (1 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _vflogSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (-3.141592653589793 : GoFloat64),
+	copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), (1 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 
-var _logSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), naN(), inf((-1 : GoInt)), inf((-1 : GoInt)), (0 : GoFloat64), inf((1 : GoInt)),
+private var _logSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), naN(), inf((-1 : GoInt)), inf((-1 : GoInt)), (0 : GoFloat64), inf((1 : GoInt)),
 	naN()) : Slice<GoFloat64>);
 
-var _vflogbSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
-var _logbSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((1 : GoInt)), inf((-1 : GoInt)), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _vflogbSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (0 : GoFloat64), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+private var _logbSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((1 : GoInt)), inf((-1 : GoInt)), inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 
-var _vflog1pSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (-3.141592653589793 : GoFloat64), (-1 : GoFloat64),
+private var _vflog1pSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (-3.141592653589793 : GoFloat64), (-1 : GoFloat64),
 	copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN(), (4.503599627370496e+15 : GoFloat64)) : Slice<GoFloat64>);
 
-var _log1pSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), naN(), inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
-	inf((1 : GoInt)), naN(), (36.04365338911715 : GoFloat64)) : Slice<GoFloat64>);
+private var _log1pSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), naN(), inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)),
+	(0 : GoFloat64), inf((1 : GoInt)), naN(), (36.04365338911715 : GoFloat64)) : Slice<GoFloat64>);
 
-var _vfmodfSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), inf((1 : GoInt)),
+private var _vfmodfSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), inf((1 : GoInt)),
 	naN()) : Slice<GoFloat64>);
 
-var _modfSC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0, (new GoArray<GoFloat64>(inf((-1 : GoInt)), naN()) : GoArray<GoFloat64>),
+private var _modfSC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0, (new GoArray<GoFloat64>(inf((-1 : GoInt)), naN()) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>(copysign((0 : GoFloat64), (-1 : GoFloat64)), copysign((0 : GoFloat64), (-1 : GoFloat64))) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>(inf((1 : GoInt)), naN()) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>(naN(), naN()) : GoArray<GoFloat64>)) : Slice<GoArray<GoFloat64>>);
 
-var _vfnextafter32SC:Slice<GoArray<GoFloat32>> = (new Slice<GoArray<GoFloat32>>(0, 0,
+private var _vfnextafter32SC:Slice<GoArray<GoFloat32>> = (new Slice<GoArray<GoFloat32>>(0, 0,
 	(new GoArray<GoFloat32>((0 : GoFloat32), (0 : GoFloat32)) : GoArray<GoFloat32>),
 	(new GoArray<GoFloat32>((0 : GoFloat32), (copysign((0 : GoFloat64), (-1 : GoFloat64)) : GoFloat32)) : GoArray<GoFloat32>),
 	(new GoArray<GoFloat32>((0 : GoFloat32), (-1 : GoFloat32)) : GoArray<GoFloat32>),
@@ -705,11 +722,12 @@ var _vfnextafter32SC:Slice<GoArray<GoFloat32>> = (new Slice<GoArray<GoFloat32>>(
 	(new GoArray<GoFloat32>((naN() : GoFloat32), (0 : GoFloat32)) : GoArray<GoFloat32>),
 	(new GoArray<GoFloat32>((naN() : GoFloat32), (naN() : GoFloat32)) : GoArray<GoFloat32>)) : Slice<GoArray<GoFloat32>>);
 
-var _nextafter32SC:Slice<GoFloat32> = (new Slice<GoFloat32>(0, 0, (0 : GoFloat32), (0 : GoFloat32), (-1.401298464324817e-45 : GoFloat32), (naN() : GoFloat32),
-	(1.401298464e-45 : GoFloat32), (copysign((0 : GoFloat64), (-1 : GoFloat64)) : GoFloat32), (copysign((0 : GoFloat64), (-1 : GoFloat64)) : GoFloat32),
-	(-1.401298464324817e-45 : GoFloat32), (naN() : GoFloat32), (naN() : GoFloat32)) : Slice<GoFloat32>);
+private var _nextafter32SC:Slice<GoFloat32> = (new Slice<GoFloat32>(0, 0, (0 : GoFloat32), (0 : GoFloat32), (-1.401298464324817e-45 : GoFloat32),
+	(naN() : GoFloat32), (1.401298464e-45 : GoFloat32), (copysign((0 : GoFloat64), (-1 : GoFloat64)) : GoFloat32),
+	(copysign((0 : GoFloat64), (-1 : GoFloat64)) : GoFloat32), (-1.401298464324817e-45 : GoFloat32), (naN() : GoFloat32),
+	(naN() : GoFloat32)) : Slice<GoFloat32>);
 
-var _vfnextafter64SC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
+private var _vfnextafter64SC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
 	(new GoArray<GoFloat64>((0 : GoFloat64), (0 : GoFloat64)) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>((0 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64))) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>((0 : GoFloat64), (-1 : GoFloat64)) : GoArray<GoFloat64>), (new GoArray<GoFloat64>((0 : GoFloat64), naN()) : GoArray<GoFloat64>),
@@ -720,10 +738,11 @@ var _vfnextafter64SC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(
 	(new GoArray<GoFloat64>(naN(), (0 : GoFloat64)) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>(naN(), naN()) : GoArray<GoFloat64>)) : Slice<GoArray<GoFloat64>>);
 
-var _nextafter64SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0 : GoFloat64), (0 : GoFloat64), (-5e-324 : GoFloat64), naN(), (5e-324 : GoFloat64),
-	copysign((0 : GoFloat64), (-1 : GoFloat64)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (-5e-324 : GoFloat64), naN(), naN()) : Slice<GoFloat64>);
+private var _nextafter64SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0 : GoFloat64), (0 : GoFloat64), (-5e-324 : GoFloat64), naN(),
+	(5e-324 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (-5e-324 : GoFloat64), naN(),
+	naN()) : Slice<GoFloat64>);
 
-var _vfpowSC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
+private var _vfpowSC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
 	(new GoArray<GoFloat64>(inf((-1 : GoInt)), (-3.141592653589793 : GoFloat64)) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>(inf((-1 : GoInt)), (-3 : GoFloat64)) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>(inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64))) : GoArray<GoFloat64>),
@@ -792,24 +811,25 @@ var _vfpowSC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
 	(new GoArray<GoFloat64>(nextafter((-1 : GoFloat64), (-2 : GoFloat64)),
 		(9.223372036854776e+18 : GoFloat64)) : GoArray<GoFloat64>)) : Slice<GoArray<GoFloat64>>);
 
-var _powSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (1 : GoFloat64), (1 : GoFloat64),
-	inf((-1 : GoInt)), inf((-1 : GoInt)), inf((1 : GoInt)), inf((1 : GoInt)), naN(), (0 : GoFloat64), naN(), (1 : GoFloat64), (1 : GoFloat64),
-	(-3.141592653589793 : GoFloat64), naN(), inf((1 : GoInt)), naN(), (1 : GoFloat64), (1 : GoFloat64), naN(), inf((1 : GoInt)), (0 : GoFloat64),
-	inf((1 : GoInt)), inf((1 : GoInt)), inf((1 : GoInt)), inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), (0 : GoFloat64),
-	(0 : GoFloat64), inf((1 : GoInt)), inf((1 : GoInt)), inf((1 : GoInt)), (1 : GoFloat64), (1 : GoFloat64), (0 : GoFloat64), (0 : GoFloat64),
-	(0 : GoFloat64), naN(), inf((1 : GoInt)), (0 : GoFloat64), (1 : GoFloat64), (1 : GoFloat64), (1 : GoFloat64), (0 : GoFloat64), (1 : GoFloat64),
-	(1 : GoFloat64), (3.141592653589793 : GoFloat64), inf((1 : GoInt)), naN(), (0 : GoFloat64), (1 : GoFloat64), (1 : GoFloat64), inf((1 : GoInt)),
-	inf((1 : GoInt)), naN(), naN(), (1 : GoFloat64), (1 : GoFloat64), naN(), naN(), naN(), inf((1 : GoInt)), (0 : GoFloat64), inf((-1 : GoInt)),
-	(0 : GoFloat64), inf((1 : GoInt)), inf((1 : GoInt)), (0 : GoFloat64), (0 : GoFloat64), inf((1 : GoInt))) : Slice<GoFloat64>);
+private var _powSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (1 : GoFloat64),
+	(1 : GoFloat64), inf((-1 : GoInt)), inf((-1 : GoInt)), inf((1 : GoInt)), inf((1 : GoInt)), naN(), (0 : GoFloat64), naN(), (1 : GoFloat64),
+	(1 : GoFloat64), (-3.141592653589793 : GoFloat64), naN(), inf((1 : GoInt)), naN(), (1 : GoFloat64), (1 : GoFloat64), naN(), inf((1 : GoInt)),
+	(0 : GoFloat64), inf((1 : GoInt)), inf((1 : GoInt)), inf((1 : GoInt)), inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
+	(0 : GoFloat64), (0 : GoFloat64), inf((1 : GoInt)), inf((1 : GoInt)), inf((1 : GoInt)), (1 : GoFloat64), (1 : GoFloat64), (0 : GoFloat64),
+	(0 : GoFloat64), (0 : GoFloat64), naN(), inf((1 : GoInt)), (0 : GoFloat64), (1 : GoFloat64), (1 : GoFloat64), (1 : GoFloat64), (0 : GoFloat64),
+	(1 : GoFloat64), (1 : GoFloat64), (3.141592653589793 : GoFloat64), inf((1 : GoInt)), naN(), (0 : GoFloat64), (1 : GoFloat64), (1 : GoFloat64),
+	inf((1 : GoInt)), inf((1 : GoInt)), naN(), naN(), (1 : GoFloat64), (1 : GoFloat64), naN(), naN(), naN(), inf((1 : GoInt)), (0 : GoFloat64),
+	inf((-1 : GoInt)), (0 : GoFloat64), inf((1 : GoInt)), inf((1 : GoInt)), (0 : GoFloat64), (0 : GoFloat64), inf((1 : GoInt))) : Slice<GoFloat64>);
 
-var _vfpow10SC:Slice<GoInt> = (new Slice<GoInt>(0, 0, (-2147483648 : GoInt), (-324 : GoInt), (-323 : GoInt), (-50 : GoInt), (-22 : GoInt), (-1 : GoInt),
-	(0 : GoInt), (1 : GoInt), (22 : GoInt), (50 : GoInt), (100 : GoInt), (200 : GoInt), (308 : GoInt), (309 : GoInt), (2147483647 : GoInt)) : Slice<GoInt>);
+private var _vfpow10SC:Slice<GoInt> = (new Slice<GoInt>(0, 0, (-2147483648 : GoInt), (-324 : GoInt), (-323 : GoInt), (-50 : GoInt), (-22 : GoInt),
+	(-1 : GoInt), (0 : GoInt), (1 : GoInt), (22 : GoInt), (50 : GoInt), (100 : GoInt), (200 : GoInt), (308 : GoInt), (309 : GoInt),
+	(2147483647 : GoInt)) : Slice<GoInt>);
 
-var _pow10SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0 : GoFloat64), (0 : GoFloat64), (1e-323 : GoFloat64), (1e-50 : GoFloat64), (1e-22 : GoFloat64),
-	(0.1 : GoFloat64), (1 : GoFloat64), (10 : GoFloat64), (1e+22 : GoFloat64), (1e+50 : GoFloat64), (1e+100 : GoFloat64), (1e+200 : GoFloat64),
-	(1e+308 : GoFloat64), inf((1 : GoInt)), inf((1 : GoInt))) : Slice<GoFloat64>);
+private var _pow10SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (0 : GoFloat64), (0 : GoFloat64), (1e-323 : GoFloat64), (1e-50 : GoFloat64),
+	(1e-22 : GoFloat64), (0.1 : GoFloat64), (1 : GoFloat64), (10 : GoFloat64), (1e+22 : GoFloat64), (1e+50 : GoFloat64), (1e+100 : GoFloat64),
+	(1e+200 : GoFloat64), (1e+308 : GoFloat64), inf((1 : GoInt)), inf((1 : GoInt))) : Slice<GoFloat64>);
 
-var _vfroundSC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
+private var _vfroundSC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
 	(new GoArray<GoFloat64>((0 : GoFloat64), (0 : GoFloat64)) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>((1.390671161567e-309 : GoFloat64), (0 : GoFloat64)) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>((0.49999999999999994 : GoFloat64), (0 : GoFloat64)) : GoArray<GoFloat64>),
@@ -823,7 +843,7 @@ var _vfroundSC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
 	(new GoArray<GoFloat64>((4.5035996273704955e+15 : GoFloat64), ("4503599627370496" : GoFloat64)) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>(("4503599627370497" : GoFloat64), ("4503599627370497" : GoFloat64)) : GoArray<GoFloat64>)) : Slice<GoArray<GoFloat64>>);
 
-var _vfroundEvenSC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
+private var _vfroundEvenSC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
 	(new GoArray<GoFloat64>((0 : GoFloat64), (0 : GoFloat64)) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>((1.390671161567e-309 : GoFloat64), (0 : GoFloat64)) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>((0.49999999999999994 : GoFloat64), (0 : GoFloat64)) : GoArray<GoFloat64>),
@@ -837,46 +857,48 @@ var _vfroundEvenSC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0,
 	(new GoArray<GoFloat64>((4.5035996273704955e+15 : GoFloat64), ("4503599627370496" : GoFloat64)) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>(("4503599627370497" : GoFloat64), ("4503599627370497" : GoFloat64)) : GoArray<GoFloat64>)) : Slice<GoArray<GoFloat64>>);
 
-var _vfsignbitSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
+private var _vfsignbitSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
 	inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 
-var _signbitSC:Slice<Bool> = (new Slice<Bool>(0, 0, true, true, false, false, false) : Slice<Bool>);
+private var _signbitSC:Slice<Bool> = (new Slice<Bool>(0, 0, true, true, false, false, false) : Slice<Bool>);
 
-var _vfsinSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)),
-	naN()) : Slice<GoFloat64>);
-
-var _sinSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), naN(),
-	naN()) : Slice<GoFloat64>);
-
-var _vfsinhSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
+private var _vfsinSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
 	inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 
-var _sinhSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)),
+private var _sinSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), naN(),
 	naN()) : Slice<GoFloat64>);
 
-var _vfsqrtSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (-3.141592653589793 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)),
-	(0 : GoFloat64), inf((1 : GoInt)), naN(), float64frombits((2 : GoUInt64))) : Slice<GoFloat64>);
-
-var _sqrtSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), naN(), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)),
-	naN(), (3.1434555694052576e-162 : GoFloat64)) : Slice<GoFloat64>);
-
-var _vftanhSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
+private var _vfsinhSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
 	inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 
-var _tanhSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-1 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), (1 : GoFloat64),
-	naN()) : Slice<GoFloat64>);
+private var _sinhSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
+	inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
 
-var _vfy0SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (0 : GoFloat64), inf((1 : GoInt)), naN(), (-1 : GoFloat64)) : Slice<GoFloat64>);
-var _y0SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), inf((-1 : GoInt)), (0 : GoFloat64), naN(), naN()) : Slice<GoFloat64>);
-var _y1SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), inf((-1 : GoInt)), (0 : GoFloat64), naN(), naN()) : Slice<GoFloat64>);
-var _y2SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), inf((-1 : GoInt)), (0 : GoFloat64), naN(), naN()) : Slice<GoFloat64>);
-var _yM3SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), inf((1 : GoInt)), (0 : GoFloat64), naN(), naN()) : Slice<GoFloat64>);
+private var _vfsqrtSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (-3.141592653589793 : GoFloat64),
+	copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64), inf((1 : GoInt)), naN(), float64frombits((2 : GoUInt64))) : Slice<GoFloat64>);
 
-var _vffrexpBC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (2.2250738585072014e-308 : GoFloat64), (2.225073858507201e-308 : GoFloat64),
+private var _sqrtSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), naN(), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
+	inf((1 : GoInt)), naN(), (3.1434555694052576e-162 : GoFloat64)) : Slice<GoFloat64>);
+
+private var _vftanhSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
+	inf((1 : GoInt)), naN()) : Slice<GoFloat64>);
+
+private var _tanhSC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-1 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), (0 : GoFloat64),
+	(1 : GoFloat64), naN()) : Slice<GoFloat64>);
+
+private var _vfy0SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, inf((-1 : GoInt)), (0 : GoFloat64), inf((1 : GoInt)), naN(),
+	(-1 : GoFloat64)) : Slice<GoFloat64>);
+
+private var _y0SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), inf((-1 : GoInt)), (0 : GoFloat64), naN(), naN()) : Slice<GoFloat64>);
+private var _y1SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), inf((-1 : GoInt)), (0 : GoFloat64), naN(), naN()) : Slice<GoFloat64>);
+private var _y2SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), inf((-1 : GoInt)), (0 : GoFloat64), naN(), naN()) : Slice<GoFloat64>);
+private var _yM3SC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, naN(), inf((1 : GoInt)), (0 : GoFloat64), naN(), naN()) : Slice<GoFloat64>);
+
+private var _vffrexpBC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (2.2250738585072014e-308 : GoFloat64), (2.225073858507201e-308 : GoFloat64),
 	(5e-324 : GoFloat64), (1.7976931348623157e+308 : GoFloat64), (-2.2250738585072014e-308 : GoFloat64), (-2.225073858507201e-308 : GoFloat64),
 	(-5e-324 : GoFloat64), (-1.7976931348623157e+308 : GoFloat64)) : Slice<GoFloat64>);
 
-var _frexpBC:Slice<stdgo.math_test.Math_test.T_fi> = (new Slice<stdgo.math_test.Math_test.T_fi>(0, 0,
+private var _frexpBC:Slice<stdgo.math_test.Math_test.T_fi> = (new Slice<stdgo.math_test.Math_test.T_fi>(0, 0,
 	(new stdgo.math_test.Math_test.T_fi((0.5 : GoFloat64), (-1021 : GoInt)) : stdgo.math_test.Math_test.T_fi),
 	(new stdgo.math_test.Math_test.T_fi((0.9999999999999998 : GoFloat64), (-1022 : GoInt)) : stdgo.math_test.Math_test.T_fi),
 	(new stdgo.math_test.Math_test.T_fi((0.5 : GoFloat64), (-1073 : GoInt)) : stdgo.math_test.Math_test.T_fi),
@@ -887,7 +909,7 @@ var _frexpBC:Slice<stdgo.math_test.Math_test.T_fi> = (new Slice<stdgo.math_test.
 	(new stdgo.math_test.Math_test.T_fi((-0.9999999999999999 : GoFloat64),
 		(1024 : GoInt)) : stdgo.math_test.Math_test.T_fi)) : Slice<stdgo.math_test.Math_test.T_fi>);
 
-var _vfldexpBC:Slice<stdgo.math_test.Math_test.T_fi> = (new Slice<stdgo.math_test.Math_test.T_fi>(0, 0,
+private var _vfldexpBC:Slice<stdgo.math_test.Math_test.T_fi> = (new Slice<stdgo.math_test.Math_test.T_fi>(0, 0,
 	(new stdgo.math_test.Math_test.T_fi((2.2250738585072014e-308 : GoFloat64), (-52 : GoInt)) : stdgo.math_test.Math_test.T_fi),
 	(new stdgo.math_test.Math_test.T_fi((2.225073858507201e-308 : GoFloat64), (-51 : GoInt)) : stdgo.math_test.Math_test.T_fi),
 	(new stdgo.math_test.Math_test.T_fi((5e-324 : GoFloat64), (1074 : GoInt)) : stdgo.math_test.Math_test.T_fi),
@@ -899,11 +921,11 @@ var _vfldexpBC:Slice<stdgo.math_test.Math_test.T_fi> = (new Slice<stdgo.math_tes
 	(new stdgo.math_test.Math_test.T_fi((1.0000000000000002 : GoFloat64), (-1075 : GoInt)) : stdgo.math_test.Math_test.T_fi),
 	(new stdgo.math_test.Math_test.T_fi((1 : GoFloat64), (-1075 : GoInt)) : stdgo.math_test.Math_test.T_fi)) : Slice<stdgo.math_test.Math_test.T_fi>);
 
-var _ldexpBC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (5e-324 : GoFloat64), (1e-323 : GoFloat64), (1 : GoFloat64), (1e-323 : GoFloat64),
+private var _ldexpBC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (5e-324 : GoFloat64), (1e-323 : GoFloat64), (1 : GoFloat64), (1e-323 : GoFloat64),
 	(0 : GoFloat64), copysign((0 : GoFloat64), (-1 : GoFloat64)), inf((1 : GoInt)), inf((-1 : GoInt)), (5e-324 : GoFloat64),
 	(0 : GoFloat64)) : Slice<GoFloat64>);
 
-var _logbBC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-1022 : GoFloat64), (-1023 : GoFloat64), (-1074 : GoFloat64), (1023 : GoFloat64),
+private var _logbBC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-1022 : GoFloat64), (-1023 : GoFloat64), (-1074 : GoFloat64), (1023 : GoFloat64),
 	(-1022 : GoFloat64), (-1023 : GoFloat64), (-1074 : GoFloat64), (1023 : GoFloat64)) : Slice<GoFloat64>);
 
 /**
@@ -911,7 +933,7 @@ var _logbBC:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-1022 : GoFloat64), 
 	// http://www.jhauser.us/arithmetic/TestFloat.html.
 	// The default rounding mode is selected (nearest/even), and exception flags are ignored.
 **/
-var _fmaC:Slice<T__struct_0> = (new Slice<T__struct_0>(0, 0, ({
+private var _fmaC:Slice<T__struct_0> = (new Slice<T__struct_0>(0, 0, ({
 	_x: (-3.999999999999087 : GoFloat64),
 	_y: (-1.1123914289620494e-16 : GoFloat64),
 	_z: (-7.999877929687506 : GoFloat64),
@@ -1108,13 +1130,14 @@ var _fmaC:Slice<T__struct_0> = (new Slice<T__struct_0>(0, 0, ({
 	_want: (-2.2211612130544025e-308 : GoFloat64)
 	} : T__struct_0)) : Slice<T__struct_0>);
 
-var _sqrt32:Slice<GoFloat32> = (new Slice<GoFloat32>(0, 0, (0 : GoFloat32), (copysign((0 : GoFloat64), (-1 : GoFloat64)) : GoFloat32), (naN() : GoFloat32),
-	(inf((1 : GoInt)) : GoFloat32), (inf((-1 : GoInt)) : GoFloat32), (1 : GoFloat32), (2 : GoFloat32), (-2 : GoFloat32), (4.9790119248836735 : GoFloat32),
-	(7.738872474578105 : GoFloat32), (-0.27688005566596985 : GoFloat32), (-5.010603427886963 : GoFloat32)) : Slice<GoFloat32>);
+private var _sqrt32:Slice<GoFloat32> = (new Slice<GoFloat32>(0, 0, (0 : GoFloat32), (copysign((0 : GoFloat64), (-1 : GoFloat64)) : GoFloat32),
+	(naN() : GoFloat32), (inf((1 : GoInt)) : GoFloat32), (inf((-1 : GoInt)) : GoFloat32), (1 : GoFloat32), (2 : GoFloat32), (-2 : GoFloat32),
+	(4.9790119248836735 : GoFloat32), (7.738872474578105 : GoFloat32), (-0.27688005566596985 : GoFloat32),
+	(-5.010603427886963 : GoFloat32)) : Slice<GoFloat32>);
 
 var portableFMA:(GoFloat64, GoFloat64, GoFloat64) -> GoFloat64 = fma;
 
-var _floatTests:Slice<stdgo.math_test.Math_test.T_floatTest> = (new Slice<stdgo.math_test.Math_test.T_floatTest>(0, 0,
+private var _floatTests:Slice<stdgo.math_test.Math_test.T_floatTest> = (new Slice<stdgo.math_test.Math_test.T_floatTest>(0, 0,
 	(new stdgo.math_test.Math_test.T_floatTest(Go.toInterface((1.7976931348623157e+308 : GoFloat64)), (Go.str("MaxFloat64") : GoString),
 		(Go.str("1.7976931348623157e+308") : GoString)) : stdgo.math_test.Math_test.T_floatTest),
 	(new stdgo.math_test.Math_test.T_floatTest(Go.toInterface((5e-324 : GoFloat64)), (Go.str("SmallestNonzeroFloat64") : GoString),
@@ -1124,23 +1147,24 @@ var _floatTests:Slice<stdgo.math_test.Math_test.T_floatTest> = (new Slice<stdgo.
 	(new stdgo.math_test.Math_test.T_floatTest(Go.toInterface((1.401298464324817e-45 : GoFloat32)), (Go.str("SmallestNonzeroFloat32") : GoString),
 		(Go.str("1e-45") : GoString)) : stdgo.math_test.Math_test.T_floatTest)) : Slice<stdgo.math_test.Math_test.T_floatTest>);
 
-var _indirectSqrt:GoFloat64->GoFloat64 = sqrt;
-var _copysignNeg:GoFloat64 = (-1 : GoFloat64);
-var _absPos:GoFloat64 = (0.5 : GoFloat64);
-var _pow10pos:GoInt = (300 : GoInt);
-var _pow10neg:GoInt = (-300 : GoInt);
-var _roundNeg:GoFloat64 = (-2.5 : GoFloat64);
-var _signbitPos:GoFloat64 = (2.5 : GoFloat64);
-var _roundUint64:GoUInt64 = (5 : GoUInt64);
-var _roundFloat32:GoFloat32 = (-2.5 : GoFloat32);
-var _roundUint32:GoUInt32 = (5 : GoUInt32);
+private var _indirectSqrt:GoFloat64->GoFloat64 = sqrt;
+private var _copysignNeg:GoFloat64 = (-1 : GoFloat64);
+private var _absPos:GoFloat64 = (0.5 : GoFloat64);
+private var _pow10pos:GoInt = (300 : GoInt);
+private var _pow10neg:GoInt = (-300 : GoInt);
+private var _roundNeg:GoFloat64 = (-2.5 : GoFloat64);
+private var _signbitPos:GoFloat64 = (2.5 : GoFloat64);
+private var _roundUint64:GoUInt64 = (5 : GoUInt64);
+private var _roundFloat32:GoFloat32 = (-2.5 : GoFloat32);
+private var _roundUint32:GoUInt32 = (5 : GoUInt32);
 
 /**
 	// Inputs to test trig_reduce
 **/
-var _trigHuge:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (2.68435456e+08 : GoFloat64), (5.36870912e+08 : GoFloat64), (1.073741824e+09 : GoFloat64),
-	(3.4359738368e+10 : GoFloat64), (1.329227995784916e+36 : GoFloat64), (1.7668470647783843e+72 : GoFloat64), (3.1217485503159922e+144 : GoFloat64),
-	(1.8919697882131776e+69 : GoFloat64), (2.514859209672214e+105 : GoFloat64), (1.7976931348623157e+308 : GoFloat64)) : Slice<GoFloat64>);
+private var _trigHuge:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (2.68435456e+08 : GoFloat64), (5.36870912e+08 : GoFloat64),
+	(1.073741824e+09 : GoFloat64), (3.4359738368e+10 : GoFloat64), (1.329227995784916e+36 : GoFloat64), (1.7668470647783843e+72 : GoFloat64),
+	(3.1217485503159922e+144 : GoFloat64), (1.8919697882131776e+69 : GoFloat64), (2.514859209672214e+105 : GoFloat64),
+	(1.7976931348623157e+308 : GoFloat64)) : Slice<GoFloat64>);
 
 /**
 	// Results for trigHuge[i] calculated with https://github.com/robpike/ivy
@@ -1148,17 +1172,17 @@ var _trigHuge:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (2.68435456e+08 : G
 	// 102 decimal digits (1 << 120, 1 << 240, 1 << 480, 1234567891234567 << 180)
 	// were confirmed via https://keisan.casio.com/
 **/
-var _cosHuge:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-0.16556897949057875 : GoFloat64), (-0.9451738260608966 : GoFloat64),
+private var _cosHuge:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-0.16556897949057875 : GoFloat64), (-0.9451738260608966 : GoFloat64),
 	(0.7867071229411882 : GoFloat64), (-0.764663012496353 : GoFloat64), (-0.9258790228548379 : GoFloat64), (0.9360104259335379 : GoFloat64),
 	(-0.2828277764019379 : GoFloat64), (-0.14616431394103618 : GoFloat64), (-0.7945605821067141 : GoFloat64),
 	(-0.9999876894265599 : GoFloat64)) : Slice<GoFloat64>);
 
-var _sinHuge:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-0.9861982118369756 : GoFloat64), (0.3265676630185633 : GoFloat64),
+private var _sinHuge:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (-0.9861982118369756 : GoFloat64), (0.3265676630185633 : GoFloat64),
 	(-0.6173264150460421 : GoFloat64), (-0.6444303510232912 : GoFloat64), (0.377820109360752 : GoFloat64), (-0.35197227524865776 : GoFloat64),
 	(0.9591707089436872 : GoFloat64), (0.9892603263702362 : GoFloat64), (-0.6071848823564695 : GoFloat64),
 	(0.00496195478918406 : GoFloat64)) : Slice<GoFloat64>);
 
-var _tanHuge:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (5.956418979396394 : GoFloat64), (-0.3455106923343039 : GoFloat64),
+private var _tanHuge:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (5.956418979396394 : GoFloat64), (-0.3455106923343039 : GoFloat64),
 	(-0.7846966133192004 : GoFloat64), (0.8427638587087598 : GoFloat64), (-0.40806638884180424 : GoFloat64), (-0.37603456702698074 : GoFloat64),
 	(-3.391359650547799 : GoFloat64), (-6.76813854009065 : GoFloat64), (0.7641769501660493 : GoFloat64),
 	(-0.00496201587444489 : GoFloat64)) : Slice<GoFloat64>);

@@ -10,7 +10,7 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-var _poserPathErr:Ref<stdgo.io.fs.Fs.PathError> = ({op: (Go.str("poser") : GoString)} : stdgo.io.fs.Fs.PathError);
+private var _poserPathErr:Ref<stdgo.io.fs.Fs.PathError> = ({op: (Go.str("poser") : GoString)} : stdgo.io.fs.Fs.PathError);
 
 @:local typedef T__interface_3 = StructType & {
 	public function timeout():Bool;
@@ -584,20 +584,18 @@ function testAsValidation(_t:stdgo.testing.Testing.T):Void {
 	var _err:stdgo.Error = stdgo.errors.Errors.new_((Go.str("error") : GoString));
 	for (_0 => _tc in _testCases) {
 		_t.run(stdgo.fmt.Fmt.sprintf((Go.str("%T(%v)") : GoString), Go.toInterface(_tc), Go.toInterface(_tc)), function(_t:stdgo.testing.Testing.T):Void {
-			var __recover_exception__:AnyInterface = null;
 			var __deferstack__:Array<Void->Void> = [];
+			__deferstack__.unshift(() -> {
+				var a = function():Void {
+					({
+						final r = Go.recover_exception;
+						Go.recover_exception = null;
+						r;
+					});
+				};
+				a();
+			});
 			try {
-				__deferstack__.unshift(() -> {
-					var a = function():Void {
-						var __recover_exception__:AnyInterface = null;
-						({
-							final r = __recover_exception__;
-							__recover_exception__ = null;
-							r;
-						});
-					};
-					a();
-				});
 				if (stdgo.errors.Errors.as(_err, Go.toInterface(_tc))) {
 					_t.errorf((Go.str("As(err, %T(%v)) = true, want false") : GoString), Go.toInterface(_tc), Go.toInterface(_tc));
 					{
@@ -615,19 +613,19 @@ function testAsValidation(_t:stdgo.testing.Testing.T):Void {
 					for (defer in __deferstack__) {
 						defer();
 					};
-					if (__recover_exception__ != null)
-						throw __recover_exception__;
+					if (Go.recover_exception != null)
+						throw Go.recover_exception;
 					return;
 				};
 			} catch (__exception__) {
 				if (!(__exception__.native is AnyInterfaceData))
 					throw __exception__;
-				__recover_exception__ = __exception__.native;
+				Go.recover_exception = __exception__.native;
 				for (defer in __deferstack__) {
 					defer();
 				};
-				if (__recover_exception__ != null)
-					throw __recover_exception__;
+				if (Go.recover_exception != null)
+					throw Go.recover_exception;
 				return;
 			};
 		});
@@ -735,7 +733,7 @@ function exampleUnwrap():Void {
 	stdgo.fmt.Fmt.println(stdgo.errors.Errors.unwrap(_err2));
 }
 
-@:keep class MyError_static_extension {
+@:keep private class MyError_static_extension {
 	@:keep
 	static public function error(_e:MyError):GoString {
 		return stdgo.fmt.Fmt.sprintf((Go.str("%v: %v") : GoString), Go.toInterface({
@@ -876,7 +874,7 @@ class MyError_asInterface {
 	}
 }
 
-class T_poser_asInterface {
+private class T_poser_asInterface {
 	@:keep
 	public var as:AnyInterface->Bool = null;
 	@:keep
@@ -900,7 +898,7 @@ class T_poser_asInterface {
 	}
 }
 
-class T_errorT_asInterface {
+private class T_errorT_asInterface {
 	@:keep
 	public var error:() -> GoString = null;
 
@@ -925,7 +923,7 @@ class T_errorT_asInterface {
 	}
 }
 
-class T_wrapped_asInterface {
+private class T_wrapped_asInterface {
 	@:keep
 	public var unwrap:() -> Error = null;
 	@:keep
@@ -957,7 +955,7 @@ class T_wrapped_asInterface {
 	}
 }
 
-class T_errorUncomparable_asInterface {
+private class T_errorUncomparable_asInterface {
 	@:keep
 	public var is_:Error->Bool = null;
 	@:keep

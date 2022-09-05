@@ -10,8 +10,8 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-var _dummys:Value = ({} : Value);
-var _copyTests:Slice<T__struct_1> = (null : Slice<T__struct_1>);
+private var _dummys:Value = ({} : Value);
+private var _copyTests:Slice<T__struct_1> = (null : Slice<T__struct_1>);
 @:local typedef T__struct_0 = {};
 
 @:local typedef T__struct_1 = {
@@ -783,10 +783,9 @@ function testZeroValue(_t:stdgo.testing.Testing.T):Void {
 }
 
 function testFuncOf(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _c = new Chan<T__struct_0>(0, () -> ({} : T__struct_0));
 	try {
-		var _c = new Chan<T__struct_0>(0, () -> ({} : T__struct_0));
 		var _cb:Func = (stdgo.syscall.js.Js.funcOf(function(_this:Value, _args:Slice<Value>):AnyInterface {
 			{
 				var _got:GoInt = _args[(0 : GoInt)].int();
@@ -842,30 +841,28 @@ function testFuncOf(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function testInvokeFunction(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _called:Bool = false;
 	try {
-		var _called:Bool = false;
 		var _cb:Func = (stdgo.syscall.js.Js.funcOf(function(_this:Value, _args:Slice<Value>):AnyInterface {
-			var __recover_exception__:AnyInterface = null;
 			var __deferstack__:Array<Void->Void> = [];
 			var _cb2:Func = (stdgo.syscall.js.Js.funcOf(function(_this:Value, _args:Slice<Value>):AnyInterface {
 				_called = true;
@@ -874,8 +871,8 @@ function testInvokeFunction(_t:stdgo.testing.Testing.T):Void {
 				_called = true;
 				return Go.toInterface((42 : GoInt));
 			}).__copy__());
+			__deferstack__.unshift(() -> _cb2.release());
 			try {
-				__deferstack__.unshift(() -> _cb2.release());
 				{
 					for (defer in __deferstack__) {
 						defer();
@@ -915,23 +912,22 @@ function testInvokeFunction(_t:stdgo.testing.Testing.T):Void {
 					for (defer in __deferstack__) {
 						defer();
 					};
-					if (__recover_exception__ != null)
-						throw __recover_exception__;
+					if (Go.recover_exception != null)
+						throw Go.recover_exception;
 					return (null : AnyInterface);
 				};
 			} catch (__exception__) {
 				if (!(__exception__.native is AnyInterfaceData))
 					throw __exception__;
-				__recover_exception__ = __exception__.native;
+				Go.recover_exception = __exception__.native;
 				for (defer in __deferstack__) {
 					defer();
 				};
-				if (__recover_exception__ != null)
-					throw __recover_exception__;
+				if (Go.recover_exception != null)
+					throw Go.recover_exception;
 				return (null : AnyInterface);
 			};
 		}) == null ? null : stdgo.syscall.js.Js.funcOf(function(_this:Value, _args:Slice<Value>):AnyInterface {
-			var __recover_exception__:AnyInterface = null;
 			var __deferstack__:Array<Void->Void> = [];
 			var _cb2:Func = (stdgo.syscall.js.Js.funcOf(function(_this:Value, _args:Slice<Value>):AnyInterface {
 				_called = true;
@@ -940,8 +936,8 @@ function testInvokeFunction(_t:stdgo.testing.Testing.T):Void {
 				_called = true;
 				return Go.toInterface((42 : GoInt));
 			}).__copy__());
+			__deferstack__.unshift(() -> _cb2.release());
 			try {
-				__deferstack__.unshift(() -> _cb2.release());
 				{
 					for (defer in __deferstack__) {
 						defer();
@@ -981,19 +977,19 @@ function testInvokeFunction(_t:stdgo.testing.Testing.T):Void {
 					for (defer in __deferstack__) {
 						defer();
 					};
-					if (__recover_exception__ != null)
-						throw __recover_exception__;
+					if (Go.recover_exception != null)
+						throw Go.recover_exception;
 					return (null : AnyInterface);
 				};
 			} catch (__exception__) {
 				if (!(__exception__.native is AnyInterfaceData))
 					throw __exception__;
-				__recover_exception__ = __exception__.native;
+				Go.recover_exception = __exception__.native;
 				for (defer in __deferstack__) {
 					defer();
 				};
-				if (__recover_exception__ != null)
-					throw __recover_exception__;
+				if (Go.recover_exception != null)
+					throw Go.recover_exception;
 				return (null : AnyInterface);
 			};
 		}).__copy__());
@@ -1014,19 +1010,19 @@ function testInvokeFunction(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -1270,30 +1266,28 @@ function testTruthy(_t:stdgo.testing.Testing.T):Void {
 }
 
 function _expectValueError(_t:stdgo.testing.Testing.T, _fn:() -> Void):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
-	try {
-		__deferstack__.unshift(() -> {
-			var a = function():Void {
-				var __recover_exception__:AnyInterface = null;
-				var _err:AnyInterface = Go.toInterface(({
-					final r = __recover_exception__;
-					__recover_exception__ = null;
-					r;
-				}));
-				{
-					var __tmp__ = try {
-						{value: ((_err.value : Dynamic).__t__ : ValueError), ok: true};
-					} catch (_) {
-						{value: (null : ValueError), ok: false};
-					}, _0 = __tmp__.value, _ok = __tmp__.ok;
-					if (!_ok) {
-						_t.errorf((Go.str("expected *js.ValueError, got %T") : GoString), Go.toInterface(_err));
-					};
+	__deferstack__.unshift(() -> {
+		var a = function():Void {
+			var _err:AnyInterface = Go.toInterface(({
+				final r = Go.recover_exception;
+				Go.recover_exception = null;
+				r;
+			}));
+			{
+				var __tmp__ = try {
+					{value: ((_err.value : Dynamic).__t__ : ValueError), ok: true};
+				} catch (_) {
+					{value: (null : ValueError), ok: false};
+				}, _0 = __tmp__.value, _ok = __tmp__.ok;
+				if (!_ok) {
+					_t.errorf((Go.str("expected *js.ValueError, got %T") : GoString), Go.toInterface(_err));
 				};
 			};
-			a();
-		});
+		};
+		a();
+	});
+	try {
 		_fn();
 		for (defer in __deferstack__) {
 			defer();
@@ -1302,41 +1296,39 @@ function _expectValueError(_t:stdgo.testing.Testing.T, _fn:() -> Void):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
 
 function _expectPanic(_t:stdgo.testing.Testing.T, _fn:() -> Void):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
-	try {
-		__deferstack__.unshift(() -> {
-			var a = function():Void {
-				var __recover_exception__:AnyInterface = null;
-				var _err:AnyInterface = Go.toInterface(({
-					final r = __recover_exception__;
-					__recover_exception__ = null;
-					r;
-				}));
-				if (_err == null) {
-					_t.errorf((Go.str("expected panic") : GoString));
-				};
+	__deferstack__.unshift(() -> {
+		var a = function():Void {
+			var _err:AnyInterface = Go.toInterface(({
+				final r = Go.recover_exception;
+				Go.recover_exception = null;
+				r;
+			}));
+			if (_err == null) {
+				_t.errorf((Go.str("expected panic") : GoString));
 			};
-			a();
-		});
+		};
+		a();
+	});
+	try {
 		_fn();
 		for (defer in __deferstack__) {
 			defer();
@@ -1345,19 +1337,19 @@ function _expectPanic(_t:stdgo.testing.Testing.T, _fn:() -> Void):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -1540,64 +1532,63 @@ function benchmarkDOM(_b:stdgo.testing.Testing.B):Void {
 }
 
 function testGlobal(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _ident:Func = (stdgo.syscall.js.Js.funcOf(function(_this:Value, _args:Slice<Value>):AnyInterface {
+		return Go.toInterface({
+			final __self__ = new Value_asInterface(_args[(0 : GoInt)]);
+			__self__.bool_ = #if !macro function():Bool return _args[(0 : GoInt)].bool_() #else null #end;
+			__self__.call = #if !macro function(_m:GoString, _args_:Slice<AnyInterface>):Value return _args[(0 : GoInt)].call(_m, _args_) #else null #end;
+			__self__.delete = #if !macro function(_p:GoString):Void _args[(0 : GoInt)].delete(_p) #else null #end;
+			__self__.equal = #if !macro function(__0:Value):Bool return _args[(0 : GoInt)].equal(__0) #else null #end;
+			__self__.float = #if !macro function():GoFloat64 return _args[(0 : GoInt)].float() #else null #end;
+			__self__.get = #if !macro function(_p:GoString):Value return _args[(0 : GoInt)].get(_p) #else null #end;
+			__self__.index = #if !macro function(_i:GoInt):Value return _args[(0 : GoInt)].index(_i) #else null #end;
+			__self__.instanceOf = #if !macro function(__0:Value):Bool return _args[(0 : GoInt)].instanceOf(__0) #else null #end;
+			__self__.int = #if !macro function():GoInt return _args[(0 : GoInt)].int() #else null #end;
+			__self__.invoke = #if !macro function(_args__:Slice<AnyInterface>):Value return _args[(0 : GoInt)].invoke(_args__) #else null #end;
+			__self__.isNaN = #if !macro function():Bool return _args[(0 : GoInt)].isNaN() #else null #end;
+			__self__.isNull = #if !macro function():Bool return _args[(0 : GoInt)].isNull() #else null #end;
+			__self__.isUndefined = #if !macro function():Bool return _args[(0 : GoInt)].isUndefined() #else null #end;
+			__self__.length_ = #if !macro function():GoInt return _args[(0 : GoInt)].length_() #else null #end;
+			__self__.new_ = #if !macro function(_args___:Slice<AnyInterface>):Value return _args[(0 : GoInt)].new_(_args___) #else null #end;
+			__self__.set = #if !macro function(_p:GoString, _x:AnyInterface):Void _args[(0 : GoInt)].set(_p, _x) #else null #end;
+			__self__.setIndex = #if !macro function(_i:GoInt, _x:AnyInterface):Void _args[(0 : GoInt)].setIndex(_i, _x) #else null #end;
+			__self__.string = #if !macro function():GoString return _args[(0 : GoInt)].string() #else null #end;
+			__self__.truthy = #if !macro function():Bool return _args[(0 : GoInt)].truthy() #else null #end;
+			__self__.type = #if !macro function():Type return _args[(0 : GoInt)].type() #else null #end;
+			__self__._float = #if !macro function(_p:GoString):GoFloat64 return _args[(0 : GoInt)]._float(_p) #else null #end;
+			__self__._isNumber = #if !macro function():Bool return _args[(0 : GoInt)]._isNumber() #else null #end;
+			__self__;
+		});
+	}) == null ? null : stdgo.syscall.js.Js.funcOf(function(_this:Value, _args:Slice<Value>):AnyInterface {
+		return Go.toInterface({
+			final __self__ = new Value_asInterface(_args[(0 : GoInt)]);
+			__self__.bool_ = #if !macro function():Bool return _args[(0 : GoInt)].bool_() #else null #end;
+			__self__.call = #if !macro function(_m:GoString, _args_:Slice<AnyInterface>):Value return _args[(0 : GoInt)].call(_m, _args_) #else null #end;
+			__self__.delete = #if !macro function(_p:GoString):Void _args[(0 : GoInt)].delete(_p) #else null #end;
+			__self__.equal = #if !macro function(__0:Value):Bool return _args[(0 : GoInt)].equal(__0) #else null #end;
+			__self__.float = #if !macro function():GoFloat64 return _args[(0 : GoInt)].float() #else null #end;
+			__self__.get = #if !macro function(_p:GoString):Value return _args[(0 : GoInt)].get(_p) #else null #end;
+			__self__.index = #if !macro function(_i:GoInt):Value return _args[(0 : GoInt)].index(_i) #else null #end;
+			__self__.instanceOf = #if !macro function(__0:Value):Bool return _args[(0 : GoInt)].instanceOf(__0) #else null #end;
+			__self__.int = #if !macro function():GoInt return _args[(0 : GoInt)].int() #else null #end;
+			__self__.invoke = #if !macro function(_args__:Slice<AnyInterface>):Value return _args[(0 : GoInt)].invoke(_args__) #else null #end;
+			__self__.isNaN = #if !macro function():Bool return _args[(0 : GoInt)].isNaN() #else null #end;
+			__self__.isNull = #if !macro function():Bool return _args[(0 : GoInt)].isNull() #else null #end;
+			__self__.isUndefined = #if !macro function():Bool return _args[(0 : GoInt)].isUndefined() #else null #end;
+			__self__.length_ = #if !macro function():GoInt return _args[(0 : GoInt)].length_() #else null #end;
+			__self__.new_ = #if !macro function(_args___:Slice<AnyInterface>):Value return _args[(0 : GoInt)].new_(_args___) #else null #end;
+			__self__.set = #if !macro function(_p:GoString, _x:AnyInterface):Void _args[(0 : GoInt)].set(_p, _x) #else null #end;
+			__self__.setIndex = #if !macro function(_i:GoInt, _x:AnyInterface):Void _args[(0 : GoInt)].setIndex(_i, _x) #else null #end;
+			__self__.string = #if !macro function():GoString return _args[(0 : GoInt)].string() #else null #end;
+			__self__.truthy = #if !macro function():Bool return _args[(0 : GoInt)].truthy() #else null #end;
+			__self__.type = #if !macro function():Type return _args[(0 : GoInt)].type() #else null #end;
+			__self__._float = #if !macro function(_p:GoString):GoFloat64 return _args[(0 : GoInt)]._float(_p) #else null #end;
+			__self__._isNumber = #if !macro function():Bool return _args[(0 : GoInt)]._isNumber() #else null #end;
+			__self__;
+		});
+	}).__copy__());
 	try {
-		var _ident:Func = (stdgo.syscall.js.Js.funcOf(function(_this:Value, _args:Slice<Value>):AnyInterface {
-			return Go.toInterface({
-				final __self__ = new Value_asInterface(_args[(0 : GoInt)]);
-				__self__.bool_ = #if !macro function():Bool return _args[(0 : GoInt)].bool_() #else null #end;
-				__self__.call = #if !macro function(_m:GoString, _args_:Slice<AnyInterface>):Value return _args[(0 : GoInt)].call(_m, _args_) #else null #end;
-				__self__.delete = #if !macro function(_p:GoString):Void _args[(0 : GoInt)].delete(_p) #else null #end;
-				__self__.equal = #if !macro function(__0:Value):Bool return _args[(0 : GoInt)].equal(__0) #else null #end;
-				__self__.float = #if !macro function():GoFloat64 return _args[(0 : GoInt)].float() #else null #end;
-				__self__.get = #if !macro function(_p:GoString):Value return _args[(0 : GoInt)].get(_p) #else null #end;
-				__self__.index = #if !macro function(_i:GoInt):Value return _args[(0 : GoInt)].index(_i) #else null #end;
-				__self__.instanceOf = #if !macro function(__0:Value):Bool return _args[(0 : GoInt)].instanceOf(__0) #else null #end;
-				__self__.int = #if !macro function():GoInt return _args[(0 : GoInt)].int() #else null #end;
-				__self__.invoke = #if !macro function(_args__:Slice<AnyInterface>):Value return _args[(0 : GoInt)].invoke(_args__) #else null #end;
-				__self__.isNaN = #if !macro function():Bool return _args[(0 : GoInt)].isNaN() #else null #end;
-				__self__.isNull = #if !macro function():Bool return _args[(0 : GoInt)].isNull() #else null #end;
-				__self__.isUndefined = #if !macro function():Bool return _args[(0 : GoInt)].isUndefined() #else null #end;
-				__self__.length_ = #if !macro function():GoInt return _args[(0 : GoInt)].length_() #else null #end;
-				__self__.new_ = #if !macro function(_args___:Slice<AnyInterface>):Value return _args[(0 : GoInt)].new_(_args___) #else null #end;
-				__self__.set = #if !macro function(_p:GoString, _x:AnyInterface):Void _args[(0 : GoInt)].set(_p, _x) #else null #end;
-				__self__.setIndex = #if !macro function(_i:GoInt, _x:AnyInterface):Void _args[(0 : GoInt)].setIndex(_i, _x) #else null #end;
-				__self__.string = #if !macro function():GoString return _args[(0 : GoInt)].string() #else null #end;
-				__self__.truthy = #if !macro function():Bool return _args[(0 : GoInt)].truthy() #else null #end;
-				__self__.type = #if !macro function():Type return _args[(0 : GoInt)].type() #else null #end;
-				__self__._float = #if !macro function(_p:GoString):GoFloat64 return _args[(0 : GoInt)]._float(_p) #else null #end;
-				__self__._isNumber = #if !macro function():Bool return _args[(0 : GoInt)]._isNumber() #else null #end;
-				__self__;
-			});
-		}) == null ? null : stdgo.syscall.js.Js.funcOf(function(_this:Value, _args:Slice<Value>):AnyInterface {
-			return Go.toInterface({
-				final __self__ = new Value_asInterface(_args[(0 : GoInt)]);
-				__self__.bool_ = #if !macro function():Bool return _args[(0 : GoInt)].bool_() #else null #end;
-				__self__.call = #if !macro function(_m:GoString, _args_:Slice<AnyInterface>):Value return _args[(0 : GoInt)].call(_m, _args_) #else null #end;
-				__self__.delete = #if !macro function(_p:GoString):Void _args[(0 : GoInt)].delete(_p) #else null #end;
-				__self__.equal = #if !macro function(__0:Value):Bool return _args[(0 : GoInt)].equal(__0) #else null #end;
-				__self__.float = #if !macro function():GoFloat64 return _args[(0 : GoInt)].float() #else null #end;
-				__self__.get = #if !macro function(_p:GoString):Value return _args[(0 : GoInt)].get(_p) #else null #end;
-				__self__.index = #if !macro function(_i:GoInt):Value return _args[(0 : GoInt)].index(_i) #else null #end;
-				__self__.instanceOf = #if !macro function(__0:Value):Bool return _args[(0 : GoInt)].instanceOf(__0) #else null #end;
-				__self__.int = #if !macro function():GoInt return _args[(0 : GoInt)].int() #else null #end;
-				__self__.invoke = #if !macro function(_args__:Slice<AnyInterface>):Value return _args[(0 : GoInt)].invoke(_args__) #else null #end;
-				__self__.isNaN = #if !macro function():Bool return _args[(0 : GoInt)].isNaN() #else null #end;
-				__self__.isNull = #if !macro function():Bool return _args[(0 : GoInt)].isNull() #else null #end;
-				__self__.isUndefined = #if !macro function():Bool return _args[(0 : GoInt)].isUndefined() #else null #end;
-				__self__.length_ = #if !macro function():GoInt return _args[(0 : GoInt)].length_() #else null #end;
-				__self__.new_ = #if !macro function(_args___:Slice<AnyInterface>):Value return _args[(0 : GoInt)].new_(_args___) #else null #end;
-				__self__.set = #if !macro function(_p:GoString, _x:AnyInterface):Void _args[(0 : GoInt)].set(_p, _x) #else null #end;
-				__self__.setIndex = #if !macro function(_i:GoInt, _x:AnyInterface):Void _args[(0 : GoInt)].setIndex(_i, _x) #else null #end;
-				__self__.string = #if !macro function():GoString return _args[(0 : GoInt)].string() #else null #end;
-				__self__.truthy = #if !macro function():Bool return _args[(0 : GoInt)].truthy() #else null #end;
-				__self__.type = #if !macro function():Type return _args[(0 : GoInt)].type() #else null #end;
-				__self__._float = #if !macro function(_p:GoString):GoFloat64 return _args[(0 : GoInt)]._float(_p) #else null #end;
-				__self__._isNumber = #if !macro function():Bool return _args[(0 : GoInt)]._isNumber() #else null #end;
-				__self__;
-			});
-		}).__copy__());
 		__deferstack__.unshift(() -> _ident.release());
 		{
 			var _got:Value = (_ident.invoke(Go.toInterface({
@@ -1715,19 +1706,19 @@ function testGlobal(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }

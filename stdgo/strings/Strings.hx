@@ -10,7 +10,7 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-var _asciiSpace:GoArray<GoUInt8> = {
+private var _asciiSpace:GoArray<GoUInt8> = {
 	var s:GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0...256) 0]);
 	s[0] = (1 : GoUInt8);
 	s[1] = (1 : GoUInt8);
@@ -30,7 +30,7 @@ var _asciiSpace:GoArray<GoUInt8> = {
 	// countCutOff is an empirically determined overhead multiplier.
 	// TODO(tocarip) revisit once we have register-based abi/mid-stack inlining.
 **/
-final _countCutOff:GoUnTypedInt = (8 : GoUnTypedInt);
+private final _countCutOff:GoUnTypedInt = (8 : GoUnTypedInt);
 
 /**
 	// Package strings implements simple functions to manipulate UTF-8 encoded strings.
@@ -1942,7 +1942,7 @@ function cut(_s:GoString, _sep:GoString):{var _0:GoString; var _1:GoString; var 
 	return {_0: _s, _1: (Go.str() : GoString), _2: false};
 }
 
-@:keep class Builder_static_extension {
+@:keep private class Builder_static_extension {
 	/**
 		// WriteString appends the contents of s to b's buffer.
 		// It returns the length of s and a nil error.
@@ -2156,7 +2156,7 @@ class Builder_asInterface {
 	var __self__:Builder;
 }
 
-@:keep class Reader_static_extension {
+@:keep private class Reader_static_extension {
 	/**
 		// Reset resets the Reader to be reading from s.
 	**/
@@ -2447,7 +2447,7 @@ class Reader_asInterface {
 	var __self__:Reader;
 }
 
-@:keep class Replacer_static_extension {
+@:keep private class Replacer_static_extension {
 	/**
 		// WriteString writes s to w with all replacements performed.
 	**/
@@ -2653,7 +2653,7 @@ class Replacer_asInterface {
 	}
 }
 
-class T_trieNode_asInterface {
+private class T_trieNode_asInterface {
 	@:keep
 	public var _add:(GoString, GoString, GoInt, T_genericReplacer) -> Void = null;
 
@@ -2800,7 +2800,7 @@ class T_trieNode_asInterface {
 	}
 }
 
-class T_genericReplacer_asInterface {
+private class T_genericReplacer_asInterface {
 	@:keep
 	public var writeString:(stdgo.io.Io.Writer, GoString) -> {
 		var _0:GoInt;
@@ -2833,7 +2833,7 @@ class T_genericReplacer_asInterface {
 	}
 }
 
-class T_stringWriter_asInterface {
+private class T_stringWriter_asInterface {
 	@:keep
 	public var writeString:GoString -> {
 		var _0:GoInt;
@@ -2912,7 +2912,7 @@ class T_stringWriter_asInterface {
 	}
 }
 
-class T_singleStringReplacer_asInterface {
+private class T_singleStringReplacer_asInterface {
 	@:keep
 	public var writeString:(stdgo.io.Io.Writer, GoString) -> {
 		var _0:GoInt;
@@ -3021,7 +3021,7 @@ class T_singleStringReplacer_asInterface {
 	}
 }
 
-class T_byteStringReplacer_asInterface {
+private class T_byteStringReplacer_asInterface {
 	@:keep
 	public var writeString:(stdgo.io.Io.Writer, GoString) -> {
 		var _0:GoInt;
@@ -3062,7 +3062,7 @@ class T_byteStringReplacer_asInterface {
 	}
 }
 
-class T_stringFinder_asInterface {
+private class T_stringFinder_asInterface {
 	/**
 		// next returns the index in text of the first occurrence of the pattern. If
 		// the pattern is not found, it returns -1.
@@ -3099,7 +3099,7 @@ class T_stringFinder_asInterface {
 	}
 }
 
-class T_appendSliceWriter_asInterface {
+private class T_appendSliceWriter_asInterface {
 	/**
 		// WriteString writes to the buffer without string->[]byte->string allocations.
 	**/
@@ -3175,7 +3175,7 @@ class T_appendSliceWriter_asInterface {
 	}
 }
 
-class T_byteReplacer_asInterface {
+private class T_byteReplacer_asInterface {
 	@:keep
 	public var writeString:(stdgo.io.Io.Writer, GoString) -> {
 		var _0:GoInt;
@@ -3203,7 +3203,7 @@ class T_byteReplacer_asInterface {
 	}
 }
 
-class T_asciiSet_asInterface {
+private class T_asciiSet_asInterface {
 	/**
 		// contains reports whether c is inside the set.
 	**/

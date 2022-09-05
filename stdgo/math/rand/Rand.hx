@@ -10,7 +10,7 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-var _ke:GoArray<GoUInt32> = (new GoArray<GoUInt32>(("3801129273" : GoUInt32), (0 : GoUInt32), ("2615860924" : GoUInt32), ("3279400049" : GoUInt32),
+private var _ke:GoArray<GoUInt32> = (new GoArray<GoUInt32>(("3801129273" : GoUInt32), (0 : GoUInt32), ("2615860924" : GoUInt32), ("3279400049" : GoUInt32),
 	("3571300752" : GoUInt32), ("3733536696" : GoUInt32), ("3836274812" : GoUInt32), ("3906990442" : GoUInt32), ("3958562475" : GoUInt32),
 	("3997804264" : GoUInt32), ("4028649213" : GoUInt32), ("4053523342" : GoUInt32), ("4074002619" : GoUInt32), ("4091154507" : GoUInt32),
 	("4105727352" : GoUInt32), ("4118261130" : GoUInt32), ("4129155133" : GoUInt32), ("4138710916" : GoUInt32), ("4147160435" : GoUInt32),
@@ -63,7 +63,7 @@ var _ke:GoArray<GoUInt32> = (new GoArray<GoUInt32>(("3801129273" : GoUInt32), (0
 	("4169789475" : GoUInt32), ("4155865042" : GoUInt32), ("4137444620" : GoUInt32), ("4111806704" : GoUInt32), ("4073393724" : GoUInt32),
 	("4008685917" : GoUInt32), ("3873074895" : GoUInt32)) : GoArray<GoUInt32>);
 
-var _we:GoArray<GoFloat32> = (new GoArray<GoFloat32>((2.0249555e-09 : GoFloat32), (1.486674e-11 : GoFloat32), (2.4409617e-11 : GoFloat32),
+private var _we:GoArray<GoFloat32> = (new GoArray<GoFloat32>((2.0249555e-09 : GoFloat32), (1.486674e-11 : GoFloat32), (2.4409617e-11 : GoFloat32),
 	(3.1968806e-11 : GoFloat32), (3.844677e-11 : GoFloat32), (4.4228204e-11 : GoFloat32), (4.9516443e-11 : GoFloat32), (5.443359e-11 : GoFloat32),
 	(5.905944e-11 : GoFloat32), (6.344942e-11 : GoFloat32), (6.7643814e-11 : GoFloat32), (7.1672945e-11 : GoFloat32), (7.556032e-11 : GoFloat32),
 	(7.932458e-11 : GoFloat32), (8.298079e-11 : GoFloat32), (8.654132e-11 : GoFloat32), (9.0016515e-11 : GoFloat32), (9.3415074e-11 : GoFloat32),
@@ -116,7 +116,7 @@ var _we:GoArray<GoFloat32> = (new GoArray<GoFloat32>((2.0249555e-09 : GoFloat32)
 	(1.2393786e-09 : GoFloat32), (1.276585e-09 : GoFloat32), (1.3193139e-09 : GoFloat32), (1.3695435e-09 : GoFloat32), (1.4305498e-09 : GoFloat32),
 	(1.508365e-09 : GoFloat32), (1.6160854e-09 : GoFloat32), (1.7921248e-09 : GoFloat32)) : GoArray<GoFloat32>);
 
-var _fe:GoArray<GoFloat32> = (new GoArray<GoFloat32>((1 : GoFloat32), (0.9381437 : GoFloat32), (0.90046996 : GoFloat32), (0.87170434 : GoFloat32),
+private var _fe:GoArray<GoFloat32> = (new GoArray<GoFloat32>((1 : GoFloat32), (0.9381437 : GoFloat32), (0.90046996 : GoFloat32), (0.87170434 : GoFloat32),
 	(0.8477855 : GoFloat32), (0.8269933 : GoFloat32), (0.8084217 : GoFloat32), (0.7915276 : GoFloat32), (0.77595687 : GoFloat32), (0.7614634 : GoFloat32),
 	(0.7478686 : GoFloat32), (0.7350381 : GoFloat32), (0.72286767 : GoFloat32), (0.71127474 : GoFloat32), (0.70019263 : GoFloat32), (0.6895665 : GoFloat32),
 	(0.67935055 : GoFloat32), (0.6695063 : GoFloat32), (0.66000086 : GoFloat32), (0.65080583 : GoFloat32), (0.6418967 : GoFloat32), (0.63325197 : GoFloat32),
@@ -165,7 +165,7 @@ var _fe:GoArray<GoFloat32> = (new GoArray<GoFloat32>((1 : GoFloat32), (0.9381437
 	(0.004157295 : GoFloat32), (0.0034602648 : GoFloat32), (0.0027887989 : GoFloat32), (0.0021459677 : GoFloat32), (0.0015362998 : GoFloat32),
 	(0.0009672693 : GoFloat32), (0.00045413437 : GoFloat32)) : GoArray<GoFloat32>);
 
-var _kn:GoArray<GoUInt32> = (new GoArray<GoUInt32>((1991057938 : GoUInt32), (0 : GoUInt32), (1611602771 : GoUInt32), (1826899878 : GoUInt32),
+private var _kn:GoArray<GoUInt32> = (new GoArray<GoUInt32>((1991057938 : GoUInt32), (0 : GoUInt32), (1611602771 : GoUInt32), (1826899878 : GoUInt32),
 	(1918584482 : GoUInt32), (1969227037 : GoUInt32), (2001281515 : GoUInt32), (2023368125 : GoUInt32), (2039498179 : GoUInt32), (2051788381 : GoUInt32),
 	(2061460127 : GoUInt32), (2069267110 : GoUInt32), (2075699398 : GoUInt32), (2081089314 : GoUInt32), (2085670119 : GoUInt32), (2089610331 : GoUInt32),
 	(2093034710 : GoUInt32), (2096037586 : GoUInt32), (2098691595 : GoUInt32), (2101053571 : GoUInt32), (2103168620 : GoUInt32), (2105072996 : GoUInt32),
@@ -188,7 +188,7 @@ var _kn:GoArray<GoUInt32> = (new GoArray<GoUInt32>((1991057938 : GoUInt32), (0 :
 	(2112989789 : GoUInt32), (2110753906 : GoUInt32), (2108037662 : GoUInt32), (2104664315 : GoUInt32), (2100355223 : GoUInt32), (2094642347 : GoUInt32),
 	(2086670106 : GoUInt32), (2074676188 : GoUInt32), (2054300022 : GoUInt32), (2010539237 : GoUInt32)) : GoArray<GoUInt32>);
 
-var _wn:GoArray<GoFloat32> = (new GoArray<GoFloat32>((1.7290405e-09 : GoFloat32), (1.2680929e-10 : GoFloat32), (1.6897518e-10 : GoFloat32),
+private var _wn:GoArray<GoFloat32> = (new GoArray<GoFloat32>((1.7290405e-09 : GoFloat32), (1.2680929e-10 : GoFloat32), (1.6897518e-10 : GoFloat32),
 	(1.9862688e-10 : GoFloat32), (2.2232431e-10 : GoFloat32), (2.4244937e-10 : GoFloat32), (2.601613e-10 : GoFloat32), (2.7611988e-10 : GoFloat32),
 	(2.9073963e-10 : GoFloat32), (3.042997e-10 : GoFloat32), (3.1699796e-10 : GoFloat32), (3.289802e-10 : GoFloat32), (3.4035738e-10 : GoFloat32),
 	(3.5121603e-10 : GoFloat32), (3.616251e-10 : GoFloat32), (3.7164058e-10 : GoFloat32), (3.8130857e-10 : GoFloat32), (3.9066758e-10 : GoFloat32),
@@ -216,7 +216,7 @@ var _wn:GoArray<GoFloat32> = (new GoArray<GoFloat32>((1.7290405e-09 : GoFloat32)
 	(1.347784e-09 : GoFloat32), (1.3870636e-09 : GoFloat32), (1.4357403e-09 : GoFloat32), (1.5008659e-09 : GoFloat32),
 	(1.6030948e-09 : GoFloat32)) : GoArray<GoFloat32>);
 
-var _fn:GoArray<GoFloat32> = (new GoArray<GoFloat32>((1 : GoFloat32), (0.9635997 : GoFloat32), (0.9362827 : GoFloat32), (0.9130436 : GoFloat32),
+private var _fn:GoArray<GoFloat32> = (new GoArray<GoFloat32>((1 : GoFloat32), (0.9635997 : GoFloat32), (0.9362827 : GoFloat32), (0.9130436 : GoFloat32),
 	(0.89228165 : GoFloat32), (0.87324303 : GoFloat32), (0.8555006 : GoFloat32), (0.8387836 : GoFloat32), (0.8229072 : GoFloat32), (0.8077383 : GoFloat32),
 	(0.793177 : GoFloat32), (0.7791461 : GoFloat32), (0.7655842 : GoFloat32), (0.7524416 : GoFloat32), (0.73967725 : GoFloat32), (0.7272569 : GoFloat32),
 	(0.7151515 : GoFloat32), (0.7033361 : GoFloat32), (0.69178915 : GoFloat32), (0.68049186 : GoFloat32), (0.6694277 : GoFloat32), (0.658582 : GoFloat32),
@@ -244,7 +244,7 @@ var _fn:GoArray<GoFloat32> = (new GoArray<GoFloat32>((1 : GoFloat32), (0.9635997
 /**
 	// rngCooked used for seeding. See gen_cooked.go for details.
 **/
-var _rngCooked:GoArray<GoInt64> = (new GoArray<GoInt64>(("-4181792142133755926" : GoInt64), ("-4576982950128230565" : GoInt64),
+private var _rngCooked:GoArray<GoInt64> = (new GoArray<GoInt64>(("-4181792142133755926" : GoInt64), ("-4576982950128230565" : GoInt64),
 	("1395769623340756751" : GoInt64), ("5333664234075297259" : GoInt64), ("-6347679516498800754" : GoInt64), ("9033628115061424579" : GoInt64),
 	("7143218595135194537" : GoInt64), ("4812947590706362721" : GoInt64), ("7937252194349799378" : GoInt64), ("5307299880338848416" : GoInt64),
 	("8209348851763925077" : GoInt64), ("-7107630437535961764" : GoInt64), ("4593015457530856296" : GoInt64), ("8140875735541888011" : GoInt64),
@@ -398,7 +398,7 @@ var _rngCooked:GoArray<GoInt64> = (new GoArray<GoInt64>(("-4181792142133755926" 
 	("-6278469401177312761" : GoInt64), ("-2171292963361310674" : GoInt64), ("8382142935188824023" : GoInt64), ("9103922860780351547" : GoInt64),
 	("4152330101494654406" : GoInt64)) : GoArray<GoInt64>);
 
-var _globalRand:Ref<Rand> = new_({
+private var _globalRand:Ref<Rand> = new_({
 	final __self__ = new T_lockedSource_asInterface(({_src: ((newSource((1 : GoInt64)).__underlying__().value : Dynamic) : T_rngSource)} : T_lockedSource));
 	__self__.int63 = #if !macro function():GoInt64 return ({_src: ((newSource((1 : GoInt64)).__underlying__()
 		.value : Dynamic) : T_rngSource)} : T_lockedSource).int63() #else null #end;
@@ -415,19 +415,19 @@ var _globalRand:Ref<Rand> = new_({
 	__self__;
 });
 
-final _re:GoUnTypedFloat = (7.69711747013105 : GoUnTypedFloat);
-final _rn:GoUnTypedFloat = (3.442619855899 : GoUnTypedFloat);
+private final _re:GoUnTypedFloat = (7.69711747013105 : GoUnTypedFloat);
+private final _rn:GoUnTypedFloat = (3.442619855899 : GoUnTypedFloat);
 
 /**
 	// Type assert that globalRand's source is a lockedSource whose src is a *rngSource.
 **/
-var _1:T_rngSource = ((_globalRand._src.__underlying__().value : Dynamic) : T_lockedSource)._src;
+private var _1:T_rngSource = ((_globalRand._src.__underlying__().value : Dynamic) : T_lockedSource)._src;
 
-final _rngLen:GoUnTypedInt = (607 : GoUnTypedInt);
-final _rngTap:GoUnTypedInt = (273 : GoUnTypedInt);
-final _rngMax:GoUnTypedInt = (0 : GoUnTypedInt);
-final _rngMask:GoUnTypedInt = ("9223372036854775807" : GoUnTypedInt);
-final _int32max:GoUnTypedInt = (2147483647 : GoUnTypedInt);
+private final _rngLen:GoUnTypedInt = (607 : GoUnTypedInt);
+private final _rngTap:GoUnTypedInt = (273 : GoUnTypedInt);
+private final _rngMax:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _rngMask:GoUnTypedInt = ("9223372036854775807" : GoUnTypedInt);
+private final _int32max:GoUnTypedInt = (2147483647 : GoUnTypedInt);
 
 /**
 	// Package rand implements pseudo-random number generators unsuitable for
@@ -893,7 +893,7 @@ function newZipf(_r:Rand, _s:GoFloat64, _v:GoFloat64, _imax:GoUInt64):Zipf {
 	return _z;
 }
 
-@:keep class Rand_static_extension {
+@:keep private class Rand_static_extension {
 	/**
 		// Read generates len(p) random bytes and writes them into p. It
 		// always returns len(p) and a nil error.
@@ -1399,7 +1399,7 @@ class Rand_asInterface {
 	}
 }
 
-class T_lockedSource_asInterface {
+private class T_lockedSource_asInterface {
 	/**
 		// read implements Read for a lockedSource without a race condition.
 	**/
@@ -1492,7 +1492,7 @@ class T_lockedSource_asInterface {
 	}
 }
 
-class T_rngSource_asInterface {
+private class T_rngSource_asInterface {
 	/**
 		// Uint64 returns a non-negative pseudo-random 64-bit integer as an uint64.
 	**/
@@ -1520,7 +1520,7 @@ class T_rngSource_asInterface {
 	var __self__:T_rngSource;
 }
 
-@:keep class Zipf_static_extension {
+@:keep private class Zipf_static_extension {
 	/**
 		// Uint64 returns a value drawn from the Zipf distribution described
 		// by the Zipf object.

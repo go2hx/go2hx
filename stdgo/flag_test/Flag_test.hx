@@ -14,20 +14,20 @@ import stdgo.Chan;
 /**
 	// Example 1: A single string flag called "species" with default value "gopher".
 **/
-var _species:Pointer<GoString> = stdgo.flag.Flag.string((Go.str("species") : GoString), (Go.str("gopher") : GoString),
+private var _species:Pointer<GoString> = stdgo.flag.Flag.string((Go.str("species") : GoString), (Go.str("gopher") : GoString),
 	(Go.str("the species we are studying") : GoString));
 
-var _u:Ref<stdgo.net.url.Url.URL> = (new stdgo.net.url.Url.URL() : stdgo.net.url.Url.URL);
+private var _u:Ref<stdgo.net.url.Url.URL> = (new stdgo.net.url.Url.URL() : stdgo.net.url.Url.URL);
 
 /**
 	// Example 2: Two flags sharing a variable, so we can have a shorthand.
 	// The order of initialization is undefined, so make sure both use the
 	// same default value. They must be set up with an init function.
 **/
-var _gopherType:GoString = ("" : GoString);
+private var _gopherType:GoString = ("" : GoString);
 
-var _intervalFlag:T_interval = new stdgo.flag_test.Flag_test.T_interval(0, 0);
-final _defaultOutput:GoString = ("  -A\tfor bootstrapping, allow \'any\' type\n  -Alongflagname\n    \tdisable bounds checking\n  -C\ta boolean defaulting to true (default true)\n  -D path\n    \tset relative path for local imports\n  -E string\n    \tissue 23543 (default \"0\")\n  -F number\n    \ta non-zero number (default 2.7)\n  -G float\n    \ta float that defaults to zero\n  -M string\n    \ta multiline\n    \thelp\n    \tstring\n  -N int\n    \ta non-zero int (default 27)\n  -O\ta flag\n    \tmultiline help string (default true)\n  -V list\n    \ta list of strings (default [a b])\n  -Z int\n    \tan int that defaults to zero\n  -ZP0 value\n    \ta flag whose String method panics when it is zero\n  -ZP1 value\n    \ta flag whose String method panics when it is zero\n  -maxT timeout\n    \tset timeout for dial\n\npanic calling String method on zero flag_test.zeroPanicker for flag ZP0: panic!\npanic calling String method on zero flag_test.zeroPanicker for flag ZP1: panic!\n" : GoString);
+private var _intervalFlag:T_interval = new stdgo.flag_test.Flag_test.T_interval(0, 0);
+private final _defaultOutput:GoString = ("  -A\tfor bootstrapping, allow \'any\' type\n  -Alongflagname\n    \tdisable bounds checking\n  -C\ta boolean defaulting to true (default true)\n  -D path\n    \tset relative path for local imports\n  -E string\n    \tissue 23543 (default \"0\")\n  -F number\n    \ta non-zero number (default 2.7)\n  -G float\n    \ta float that defaults to zero\n  -M string\n    \ta multiline\n    \thelp\n    \tstring\n  -N int\n    \ta non-zero int (default 27)\n  -O\ta flag\n    \tmultiline help string (default true)\n  -V list\n    \ta list of strings (default [a b])\n  -Z int\n    \tan int that defaults to zero\n  -ZP0 value\n    \ta flag whose String method panics when it is zero\n  -ZP1 value\n    \ta flag whose String method panics when it is zero\n  -maxT timeout\n    \tset timeout for dial\n\npanic calling String method on zero flag_test.zeroPanicker for flag ZP0: panic!\npanic calling String method on zero flag_test.zeroPanicker for flag ZP1: panic!\n" : GoString);
 
 /**
 	// These examples demonstrate more intricate uses of the flag package.
@@ -927,12 +927,11 @@ function testSetOutput(_t:stdgo.testing.Testing.T):Void {
 	// superseded by FlagSet.
 **/
 function testChangingArgs(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	resetForTesting(function():Void {
+		_t.fatal(Go.toInterface((Go.str("bad parse") : GoString)));
+	});
 	try {
-		resetForTesting(function():Void {
-			_t.fatal(Go.toInterface((Go.str("bad parse") : GoString)));
-		});
 		var _oldArgs = stdgo.os.Os.args;
 		__deferstack__.unshift(() -> {
 			var a = function():Void {
@@ -966,19 +965,19 @@ function testChangingArgs(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -1148,10 +1147,9 @@ function testIntFlagOverflow(_t:stdgo.testing.Testing.T):Void {
 	// Issue 20998: Usage should respect CommandLine.output.
 **/
 function testUsageOutput(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	resetForTesting(defaultUsage);
 	try {
-		resetForTesting(defaultUsage);
 		var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
 		commandLine.setOutput({
 			final __self__ = new stdgo.bytes.Bytes.Buffer_asInterface(_buf);
@@ -1221,19 +1219,19 @@ function testUsageOutput(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -1517,48 +1515,46 @@ function testExitCode(_t:stdgo.testing.Testing.T):Void {
 }
 
 function _mustPanic(_t:stdgo.testing.Testing.T, _testName:GoString, _expected:GoString, _f:() -> Void):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	_t.helper();
 	try {
-		_t.helper();
 		__deferstack__.unshift(() -> {
 			var a = function():Void {
-				var __recover_exception__:AnyInterface = null;
 				if (({
-					final r = __recover_exception__;
-					__recover_exception__ = null;
+					final r = Go.recover_exception;
+					Go.recover_exception = null;
 					r;
 				}) == null) {
 					var _msg:AnyInterface = ({
-						final r = __recover_exception__;
-						__recover_exception__ = null;
+						final r = Go.recover_exception;
+						Go.recover_exception = null;
 						r;
 					}) == null ? null : ({
-						final r = __recover_exception__;
-						__recover_exception__ = null;
+						final r = Go.recover_exception;
+						Go.recover_exception = null;
 						r;
 					}).__underlying__();
 					_t.errorf((Go.str("%s\n: expected panic(%q), but did not panic") : GoString), Go.toInterface(_testName), Go.toInterface(_expected));
 				} else if (Go.assertable(({
-					final r = __recover_exception__;
-					__recover_exception__ = null;
+					final r = Go.recover_exception;
+					Go.recover_exception = null;
 					r;
 				} : GoString))) {
 					var _msg:GoString = ({
-						final r = __recover_exception__;
-						__recover_exception__ = null;
+						final r = Go.recover_exception;
+						Go.recover_exception = null;
 						r;
 					}) == null ? null : ({
-						final r = __recover_exception__;
-						__recover_exception__ = null;
+						final r = Go.recover_exception;
+						Go.recover_exception = null;
 						r;
 					}).__underlying__() == null ? null : ({
-						final r = __recover_exception__;
-						__recover_exception__ = null;
+						final r = Go.recover_exception;
+						Go.recover_exception = null;
 						r;
 					}) == null ? null : ({
-						final r = __recover_exception__;
-						__recover_exception__ = null;
+						final r = Go.recover_exception;
+						Go.recover_exception = null;
 						r;
 					}).__underlying__().value;
 					if (_msg != _expected) {
@@ -1567,12 +1563,12 @@ function _mustPanic(_t:stdgo.testing.Testing.T, _testName:GoString, _expected:Go
 					};
 				} else {
 					var _msg:AnyInterface = ({
-						final r = __recover_exception__;
-						__recover_exception__ = null;
+						final r = Go.recover_exception;
+						Go.recover_exception = null;
 						r;
 					}) == null ? null : ({
-						final r = __recover_exception__;
-						__recover_exception__ = null;
+						final r = Go.recover_exception;
+						Go.recover_exception = null;
 						r;
 					}).__underlying__();
 					_t.errorf((Go.str("%s\n: expected panic(%q), but got panic(%T%v)") : GoString), Go.toInterface(_testName), Go.toInterface(_expected),
@@ -1589,19 +1585,19 @@ function _mustPanic(_t:stdgo.testing.Testing.T, _testName:GoString, _expected:Go
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -1766,7 +1762,7 @@ function testRedefinedFlags(_t:stdgo.testing.Testing.T):Void {
 	true;
 };
 
-@:keep class URLValue_static_extension {
+@:keep private class URLValue_static_extension {
 	@:keep
 	static public function set(_v:URLValue, _s:GoString):Error {
 		{
@@ -1839,7 +1835,7 @@ class URLValue_asInterface {
 	}
 }
 
-class T_boolFlagVar_asInterface {
+private class T_boolFlagVar_asInterface {
 	@:keep
 	public var isBoolFlag:() -> Bool = null;
 	@:keep
@@ -1872,7 +1868,7 @@ class T_boolFlagVar_asInterface {
 	}
 }
 
-class T_zeroPanicker_asInterface {
+private class T_zeroPanicker_asInterface {
 	@:keep
 	public var string:() -> GoString = null;
 	@:keep
@@ -1920,7 +1916,7 @@ class T_zeroPanicker_asInterface {
 	}
 }
 
-class T_interval_asInterface {
+private class T_interval_asInterface {
 	/**
 		// Set is the method to set the flag value, part of the flag.Value interface.
 		// Set's argument is a string to be parsed to set the flag.
@@ -1958,7 +1954,7 @@ class T_interval_asInterface {
 	}
 }
 
-class T_flagVar_asInterface {
+private class T_flagVar_asInterface {
 	@:keep
 	public var set:GoString->Error = null;
 	@:keep

@@ -15,10 +15,10 @@ import stdgo.Chan;
 **/
 var errTooLarge:stdgo.Error = stdgo.errors.Errors.new_((Go.str("bytes.Buffer: too large") : GoString));
 
-var _errNegativeRead:stdgo.Error = stdgo.errors.Errors.new_((Go.str("bytes.Buffer: reader returned negative count from Read") : GoString));
-var _errUnreadByte:stdgo.Error = stdgo.errors.Errors.new_((Go.str("bytes.Buffer: UnreadByte: previous operation was not a successful read") : GoString));
+private var _errNegativeRead:stdgo.Error = stdgo.errors.Errors.new_((Go.str("bytes.Buffer: reader returned negative count from Read") : GoString));
+private var _errUnreadByte:stdgo.Error = stdgo.errors.Errors.new_((Go.str("bytes.Buffer: UnreadByte: previous operation was not a successful read") : GoString));
 
-var _asciiSpace:GoArray<GoUInt8> = {
+private var _asciiSpace:GoArray<GoUInt8> = {
 	var s:GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0...256) 0]);
 	s[0] = (1 : GoUInt8);
 	s[1] = (1 : GoUInt8);
@@ -37,45 +37,45 @@ var indexBytePortable:(Slice<GoUInt8>, GoUInt8) -> GoInt = _indexBytePortable;
 /**
 	// smallBufferSize is an initial allocation minimal capacity.
 **/
-final _smallBufferSize:GoUnTypedInt = (64 : GoUnTypedInt);
+private final _smallBufferSize:GoUnTypedInt = (64 : GoUnTypedInt);
 
 /**
 	// Don't use iota for these, as the values need to correspond with the
 	// names and comments, which is easier to see when being explicit.
 **/
-final _opRead:T_readOp = (-1 : T_readOp);
+private final _opRead:T_readOp = (-1 : T_readOp);
 
 /**
 	// Don't use iota for these, as the values need to correspond with the
 	// names and comments, which is easier to see when being explicit.
 **/
-final _opInvalid:T_readOp = (0 : T_readOp);
+private final _opInvalid:T_readOp = (0 : T_readOp);
 
 /**
 	// Don't use iota for these, as the values need to correspond with the
 	// names and comments, which is easier to see when being explicit.
 **/
-final _opReadRune1:T_readOp = (1 : T_readOp);
+private final _opReadRune1:T_readOp = (1 : T_readOp);
 
 /**
 	// Don't use iota for these, as the values need to correspond with the
 	// names and comments, which is easier to see when being explicit.
 **/
-final _opReadRune2:T_readOp = (2 : T_readOp);
+private final _opReadRune2:T_readOp = (2 : T_readOp);
 
 /**
 	// Don't use iota for these, as the values need to correspond with the
 	// names and comments, which is easier to see when being explicit.
 **/
-final _opReadRune3:T_readOp = (3 : T_readOp);
+private final _opReadRune3:T_readOp = (3 : T_readOp);
 
 /**
 	// Don't use iota for these, as the values need to correspond with the
 	// names and comments, which is easier to see when being explicit.
 **/
-final _opReadRune4:T_readOp = (4 : T_readOp);
+private final _opReadRune4:T_readOp = (4 : T_readOp);
 
-final _maxInt:GoInt = ((2147483647 : GoUInt) : GoInt);
+private final _maxInt:GoInt = ((2147483647 : GoUInt) : GoInt);
 
 /**
 	// MinRead is the minimum slice size passed to a Read call by
@@ -190,14 +190,12 @@ private var __go2hxdoc__package:Bool;
 	// If the allocation fails, it panics with ErrTooLarge.
 **/
 function _growSlice(_b:Slice<GoByte>, _n:GoInt):Slice<GoByte> {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
 	__deferstack__.unshift(() -> {
 		var a = function():Void {
-			var __recover_exception__:AnyInterface = null;
 			if (({
-				final r = __recover_exception__;
-				__recover_exception__ = null;
+				final r = Go.recover_exception;
+				Go.recover_exception = null;
 				r;
 			}) != null) {
 				throw Go.toInterface(errTooLarge);
@@ -205,8 +203,8 @@ function _growSlice(_b:Slice<GoByte>, _n:GoInt):Slice<GoByte> {
 		};
 		a();
 	});
+	var _c:GoInt = (_b.length) + _n;
 	try {
-		var _c:GoInt = (_b.length) + _n;
 		if (_c < ((2 : GoInt) * _b.capacity)) {
 			_c = (2 : GoInt) * _b.capacity;
 		};
@@ -226,19 +224,19 @@ function _growSlice(_b:Slice<GoByte>, _n:GoInt):Slice<GoByte> {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return (null : Slice<GoUInt8>);
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return (null : Slice<GoUInt8>);
 	};
 }
@@ -1754,7 +1752,7 @@ function newReader(_b:Slice<GoByte>):Reader {
 	return (new Reader(_b, (0 : GoInt64), (-1 : GoInt)) : Reader);
 }
 
-@:keep class Buffer_static_extension {
+@:keep private class Buffer_static_extension {
 	/**
 		// ReadString reads until the first occurrence of delim in the input,
 		// returning a string containing the data up to and including the delimiter.
@@ -2497,7 +2495,7 @@ class Buffer_asInterface {
 	var __self__:Buffer;
 }
 
-@:keep class Reader_static_extension {
+@:keep private class Reader_static_extension {
 	/**
 		// Reset resets the Reader to be reading from b.
 	**/
@@ -2796,7 +2794,7 @@ class Reader_asInterface {
 	}
 }
 
-class T_asciiSet_asInterface {
+private class T_asciiSet_asInterface {
 	/**
 		// contains reports whether c is inside the set.
 	**/

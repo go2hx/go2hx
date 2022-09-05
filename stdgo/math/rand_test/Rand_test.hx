@@ -22,13 +22,13 @@ var _ke = __tmp__1._1;
 var _we = __tmp__1._2;
 var _fe = __tmp__1._3;
 
-var _testSeeds:Slice<GoInt64> = (new Slice<GoInt64>(0, 0, (1 : GoInt64), (1754801282 : GoInt64), (1698661970 : GoInt64),
+private var _testSeeds:Slice<GoInt64> = (new Slice<GoInt64>(0, 0, (1 : GoInt64), (1754801282 : GoInt64), (1698661970 : GoInt64),
 	(1550503961 : GoInt64)) : Slice<GoInt64>);
 
-var _printgolden:Pointer<Bool> = stdgo.flag.Flag.bool_((Go.str("printgolden") : GoString), false,
+private var _printgolden:Pointer<Bool> = stdgo.flag.Flag.bool_((Go.str("printgolden") : GoString), false,
 	(Go.str("print golden results for regression test") : GoString));
 
-var _regressGolden:Slice<AnyInterface> = (new Slice<AnyInterface>(0, 0, Go.toInterface((4.668112973579268 : GoFloat64)),
+private var _regressGolden:Slice<AnyInterface> = (new Slice<AnyInterface>(0, 0, Go.toInterface((4.668112973579268 : GoFloat64)),
 	Go.toInterface((0.1601593871172866 : GoFloat64)), Go.toInterface((3.0465834105636 : GoFloat64)), Go.toInterface((0.06385839451671879 : GoFloat64)),
 	Go.toInterface((1.8578917487258961 : GoFloat64)), Go.toInterface((0.784676123472182 : GoFloat64)), Go.toInterface((0.11225477361256932 : GoFloat64)),
 	Go.toInterface((0.20173283329802255 : GoFloat64)), Go.toInterface((0.3468619496201105 : GoFloat64)), Go.toInterface((0.35601103454384536 : GoFloat64)),
@@ -174,7 +174,7 @@ var _regressGolden:Slice<AnyInterface> = (new Slice<AnyInterface>(0, 0, Go.toInt
 	Go.toInterface(("161231572858529631" : GoUInt64)), Go.toInterface(("16482847956365694147" : GoUInt64)),
 	Go.toInterface(("16596477517051940556" : GoUInt64))) : Slice<AnyInterface>);
 
-final _numTestSamples:GoUnTypedInt = (10000 : GoUnTypedInt);
+private final _numTestSamples:GoUnTypedInt = (10000 : GoUnTypedInt);
 var __tmp__0 = getNormalDistributionParameters();
 var __tmp__1 = getExponentialDistributionParameters();
 
@@ -225,10 +225,9 @@ function example():Void {
 	// The use of the global functions is the same, without the receiver.
 **/
 function example_rand():Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _r = stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource((99 : GoInt64)));
 	try {
-		var _r = stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource((99 : GoInt64)));
 		var _w = stdgo.text.tabwriter.Tabwriter.newWriter({
 			final __self__ = new stdgo.os.Os.File_asInterface(stdgo.os.Os.stdout);
 			__self__.chdir = #if !macro function():stdgo.Error return stdgo.os.Os.stdout.chdir() #else null #end;
@@ -352,19 +351,19 @@ function example_rand():Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -422,11 +421,10 @@ function exampleIntn():Void {
 	// where the race detector is likely to detect issues.
 **/
 function testConcurrent(_t:stdgo.testing.Testing.T):Void {
-	var __recover_exception__:AnyInterface = null;
 	var __deferstack__:Array<Void->Void> = [];
+	var _numRoutines:GoUnTypedInt = (10 : GoUnTypedInt),
+		_numCycles:GoUnTypedInt = (10 : GoUnTypedInt);
 	try {
-		var _numRoutines:GoUnTypedInt = (10 : GoUnTypedInt),
-			_numCycles:GoUnTypedInt = (10 : GoUnTypedInt);
 		var _wg:stdgo.sync.Sync.WaitGroup = ({} : stdgo.sync.Sync.WaitGroup);
 		__deferstack__.unshift(() -> _wg.wait_());
 		_wg.add((10 : GoInt));
@@ -435,10 +433,9 @@ function testConcurrent(_t:stdgo.testing.Testing.T):Void {
 			Go.cfor(_i < (10:GoInt), _i++, {
 				Go.routine(() -> {
 					var a = function(_i:GoInt):Void {
-						var __recover_exception__:AnyInterface = null;
 						var __deferstack__:Array<Void->Void> = [];
+						__deferstack__.unshift(() -> _wg.done());
 						try {
-							__deferstack__.unshift(() -> _wg.done());
 							var _buf = new Slice<GoUInt8>((997 : GoInt).toBasic(), 0, ...[for (i in 0...(997 : GoInt).toBasic()) (0 : GoUInt8)]);
 							{
 								var _j:GoInt = (0 : GoInt);
@@ -470,19 +467,19 @@ function testConcurrent(_t:stdgo.testing.Testing.T):Void {
 								for (defer in __deferstack__) {
 									defer();
 								};
-								if (__recover_exception__ != null)
-									throw __recover_exception__;
+								if (Go.recover_exception != null)
+									throw Go.recover_exception;
 								return;
 							};
 						} catch (__exception__) {
 							if (!(__exception__.native is AnyInterfaceData))
 								throw __exception__;
-							__recover_exception__ = __exception__.native;
+							Go.recover_exception = __exception__.native;
 							for (defer in __deferstack__) {
 								defer();
 							};
-							if (__recover_exception__ != null)
-								throw __recover_exception__;
+							if (Go.recover_exception != null)
+								throw Go.recover_exception;
 							return;
 						};
 					};
@@ -497,19 +494,19 @@ function testConcurrent(_t:stdgo.testing.Testing.T):Void {
 			for (defer in __deferstack__) {
 				defer();
 			};
-			if (__recover_exception__ != null)
-				throw __recover_exception__;
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
 			return;
 		};
 	} catch (__exception__) {
 		if (!(__exception__.native is AnyInterfaceData))
 			throw __exception__;
-		__recover_exception__ = __exception__.native;
+		Go.recover_exception = __exception__.native;
 		for (defer in __deferstack__) {
 			defer();
 		};
-		if (__recover_exception__ != null)
-			throw __recover_exception__;
+		if (Go.recover_exception != null)
+			throw Go.recover_exception;
 		return;
 	};
 }
@@ -1368,7 +1365,7 @@ function testRegress(_t:stdgo.testing.Testing.T):Void {
 	}
 }
 
-class T_statsResults_asInterface {
+private class T_statsResults_asInterface {
 	/**
 		// checkSimilarDistribution returns success if the mean and stddev of the
 		// two statsResults are similar.

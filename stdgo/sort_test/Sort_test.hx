@@ -839,12 +839,14 @@ function exampleStrings():Void {
 }
 
 function example_sortWrapper():Void {
-	var _s = (new Slice<Ref>(0, 0, new Ref((Go.str("brain") : GoString), (1340 : stdgo.sort_test.Sort_test.Grams)),
-		(new Ref((Go.str("heart") : GoString), (290 : stdgo.sort_test.Sort_test.Grams)) : Ref),
-		(new Ref((Go.str("liver") : GoString), (1494 : stdgo.sort_test.Sort_test.Grams)) : Ref),
-		(new Ref((Go.str("pancreas") : GoString), (131 : stdgo.sort_test.Sort_test.Grams)) : Ref),
-		(new Ref((Go.str("prostate") : GoString), (62 : stdgo.sort_test.Sort_test.Grams)) : Ref),
-		(new Ref((Go.str("spleen") : GoString), (162 : stdgo.sort_test.Sort_test.Grams)) : Ref)) : Slice<Ref>);
+	var _s = (new Slice<Ref<stdgo.sort_test.Sort_test.Organ>>(0, 0,
+		(new stdgo.sort_test.Sort_test.Organ((Go.str("brain") : GoString), (1340 : stdgo.sort_test.Sort_test.Grams)) : stdgo.sort_test.Sort_test.Organ),
+		(new stdgo.sort_test.Sort_test.Organ((Go.str("heart") : GoString), (290 : stdgo.sort_test.Sort_test.Grams)) : stdgo.sort_test.Sort_test.Organ),
+		(new stdgo.sort_test.Sort_test.Organ((Go.str("liver") : GoString), (1494 : stdgo.sort_test.Sort_test.Grams)) : stdgo.sort_test.Sort_test.Organ),
+		(new stdgo.sort_test.Sort_test.Organ((Go.str("pancreas") : GoString), (131 : stdgo.sort_test.Sort_test.Grams)) : stdgo.sort_test.Sort_test.Organ),
+		(new stdgo.sort_test.Sort_test.Organ((Go.str("prostate") : GoString), (62 : stdgo.sort_test.Sort_test.Grams)) : stdgo.sort_test.Sort_test.Organ),
+		(new stdgo.sort_test.Sort_test.Organ((Go.str("spleen") : GoString),
+			(162 : stdgo.sort_test.Sort_test.Grams)) : stdgo.sort_test.Sort_test.Organ)) : Slice<Ref<stdgo.sort_test.Sort_test.Organ>>);
 	stdgo.sort.Sort.sort({
 		final __self__ = new stdgo.sort_test.Sort_test.ByWeight_asInterface((new stdgo.sort_test.Sort_test.ByWeight(_s) : stdgo.sort_test.Sort_test.ByWeight));
 		__self__.len = #if !macro function():GoInt return (new stdgo.sort_test.Sort_test.ByWeight(_s) : stdgo.sort_test.Sort_test.ByWeight)

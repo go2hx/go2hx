@@ -2499,10 +2499,12 @@ function _pzero(_x:GoFloat64):GoFloat64 {
 		_q = _p0S2;
 	};
 	var _z:GoFloat64 = (1 : GoFloat64) / (_x * _x);
-	var _r:GoFloat64 = _p[(0 : GoInt)]
-		+ (_z * (_p[(1 : GoInt)] + (_z * (_p[(2 : GoInt)] + (_z * (_p[(3 : GoInt)] + (_z * (_p[(4 : GoInt)] + (_z * _p[(5 : GoInt)])))))))));
+	var _r:GoFloat64 = _p[@:invalid_index 0]
+		+ (_z * (_p[@:invalid_index 0]
+			+ (_z * (_p[@:invalid_index 0] + (_z * (_p[@:invalid_index 0] + (_z * (_p[@:invalid_index 0] + (_z * _p[@:invalid_index 0])))))))));
 	var _s:GoFloat64 = (1 : GoFloat64)
-		+ (_z * (_q[(0 : GoInt)] + (_z * (_q[(1 : GoInt)] + (_z * (_q[(2 : GoInt)] + (_z * (_q[(3 : GoInt)] + (_z * _q[(4 : GoInt)])))))))));
+		+ (_z * (_q[@:invalid_index 0]
+			+ (_z * (_q[@:invalid_index 0] + (_z * (_q[@:invalid_index 0] + (_z * (_q[@:invalid_index 0] + (_z * _q[@:invalid_index 0])))))))));
 	return (1 : GoFloat64) + (_r / _s);
 }
 
@@ -2522,11 +2524,13 @@ function _qzero(_x:GoFloat64):GoFloat64 {
 		_q = _q0S2;
 	};
 	var _z:GoFloat64 = (1 : GoFloat64) / (_x * _x);
-	var _r:GoFloat64 = _p[(0 : GoInt)]
-		+ (_z * (_p[(1 : GoInt)] + (_z * (_p[(2 : GoInt)] + (_z * (_p[(3 : GoInt)] + (_z * (_p[(4 : GoInt)] + (_z * _p[(5 : GoInt)])))))))));
+	var _r:GoFloat64 = _p[@:invalid_index 0]
+		+ (_z * (_p[@:invalid_index 0]
+			+ (_z * (_p[@:invalid_index 0] + (_z * (_p[@:invalid_index 0] + (_z * (_p[@:invalid_index 0] + (_z * _p[@:invalid_index 0])))))))));
 	var _s:GoFloat64 = (1 : GoFloat64)
-		+ (_z * (_q[(0 : GoInt)]
-			+ (_z * (_q[(1 : GoInt)] + (_z * (_q[(2 : GoInt)] + (_z * (_q[(3 : GoInt)] + (_z * (_q[(4 : GoInt)] + (_z * _q[(5 : GoInt)])))))))))));
+		+ (_z * (_q[@:invalid_index 0]
+			+ (_z * (_q[@:invalid_index 0]
+				+ (_z * (_q[@:invalid_index 0] + (_z * (_q[@:invalid_index 0] + (_z * (_q[@:invalid_index 0] + (_z * _q[@:invalid_index 0])))))))))));
 	return ((-0.125 : GoFloat64) + (_r / _s)) / _x;
 }
 
@@ -2692,10 +2696,12 @@ function _pone(_x:GoFloat64):GoFloat64 {
 		_q = _p1S2;
 	};
 	var _z:GoFloat64 = (1 : GoFloat64) / (_x * _x);
-	var _r:GoFloat64 = _p[(0 : GoInt)]
-		+ (_z * (_p[(1 : GoInt)] + (_z * (_p[(2 : GoInt)] + (_z * (_p[(3 : GoInt)] + (_z * (_p[(4 : GoInt)] + (_z * _p[(5 : GoInt)])))))))));
+	var _r:GoFloat64 = _p[@:invalid_index 0]
+		+ (_z * (_p[@:invalid_index 0]
+			+ (_z * (_p[@:invalid_index 0] + (_z * (_p[@:invalid_index 0] + (_z * (_p[@:invalid_index 0] + (_z * _p[@:invalid_index 0])))))))));
 	var _s:GoFloat64 = (1 : GoFloat64)
-		+ (_z * (_q[(0 : GoInt)] + (_z * (_q[(1 : GoInt)] + (_z * (_q[(2 : GoInt)] + (_z * (_q[(3 : GoInt)] + (_z * _q[(4 : GoInt)])))))))));
+		+ (_z * (_q[@:invalid_index 0]
+			+ (_z * (_q[@:invalid_index 0] + (_z * (_q[@:invalid_index 0] + (_z * (_q[@:invalid_index 0] + (_z * _q[@:invalid_index 0])))))))));
 	return (1 : GoFloat64) + (_r / _s);
 }
 
@@ -2715,11 +2721,13 @@ function _qone(_x:GoFloat64):GoFloat64 {
 		_q = _q1S2;
 	};
 	var _z:GoFloat64 = (1 : GoFloat64) / (_x * _x);
-	var _r:GoFloat64 = _p[(0 : GoInt)]
-		+ (_z * (_p[(1 : GoInt)] + (_z * (_p[(2 : GoInt)] + (_z * (_p[(3 : GoInt)] + (_z * (_p[(4 : GoInt)] + (_z * _p[(5 : GoInt)])))))))));
+	var _r:GoFloat64 = _p[@:invalid_index 0]
+		+ (_z * (_p[@:invalid_index 0]
+			+ (_z * (_p[@:invalid_index 0] + (_z * (_p[@:invalid_index 0] + (_z * (_p[@:invalid_index 0] + (_z * _p[@:invalid_index 0])))))))));
 	var _s:GoFloat64 = (1 : GoFloat64)
-		+ (_z * (_q[(0 : GoInt)]
-			+ (_z * (_q[(1 : GoInt)] + (_z * (_q[(2 : GoInt)] + (_z * (_q[(3 : GoInt)] + (_z * (_q[(4 : GoInt)] + (_z * _q[(5 : GoInt)])))))))))));
+		+ (_z * (_q[@:invalid_index 0]
+			+ (_z * (_q[@:invalid_index 0]
+				+ (_z * (_q[@:invalid_index 0] + (_z * (_q[@:invalid_index 0] + (_z * (_q[@:invalid_index 0] + (_z * _q[@:invalid_index 0])))))))))));
 	return ((0.375 : GoFloat64) + (_r / _s)) / _x;
 }
 

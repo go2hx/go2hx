@@ -7354,9 +7354,9 @@ class Ticker_asInterface {
 		_buf = (_buf.__append__(...(Go.str(", ") : GoString).__toArray__()));
 		{
 			var _loc = _t.location();
-			if (Go.toInterface(_loc) == Go.toInterface(stdgo.time.Time.utc) || _loc == null) {
+			if (_loc == (stdgo.time.Time.utc) || _loc == null) {
 				_buf = (_buf.__append__(...(Go.str("time.UTC") : GoString).__toArray__()));
-			} else if (Go.toInterface(_loc) == Go.toInterface(stdgo.time.Time.local)) {
+			} else if (_loc == (stdgo.time.Time.local)) {
 				_buf = (_buf.__append__(...(Go.str("time.Local") : GoString).__toArray__()));
 			} else {
 				_buf = (_buf.__append__(...("time.Location(" : GoString).__toArray__()));

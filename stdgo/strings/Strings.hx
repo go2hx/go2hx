@@ -3140,7 +3140,7 @@ private class T_appendSliceWriter_asInterface {
 			var _ncopy:GoInt = Go.copySlice(_buf, _s);
 			_s = (_s.__slice__(_ncopy) : GoString);
 			for (_i => _b in (_buf.__slice__(0, _ncopy) : Slice<GoUInt8>)) {
-				_buf[_i] = _r[_b];
+				_buf[_i] = _r[@:invalid_index 0];
 			};
 			var __tmp__ = _w.write((_buf.__slice__(0, _ncopy) : Slice<GoUInt8>)),
 				_wn:GoInt = __tmp__._0,
@@ -3160,11 +3160,11 @@ private class T_appendSliceWriter_asInterface {
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_i < (_s.length), _i++, {
 				var _b:GoUInt8 = _s[_i];
-				if (_r[_b] != _b) {
+				if (_r[@:invalid_index 0] != _b) {
 					if (_buf == null) {
 						_buf = (_s : Slice<GoByte>);
 					};
-					_buf[_i] = _r[_b];
+					_buf[_i] = _r[@:invalid_index 0];
 				};
 			});
 		};
@@ -3199,7 +3199,7 @@ private class T_byteReplacer_asInterface {
 	**/
 	@:keep
 	static public function _contains(_as:T_asciiSet, _c:GoByte):Bool {
-		return (_as[_c / (32 : GoUInt8)] & ((1 : GoUInt32) << (_c % (32 : GoUInt8)))) != (0 : GoUInt32);
+		return (_as[@:invalid_index 0] & ((1 : GoUInt32) << (_c % (32 : GoUInt8)))) != (0 : GoUInt32);
 	}
 }
 

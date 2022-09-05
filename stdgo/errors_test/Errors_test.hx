@@ -835,11 +835,7 @@ class MyError_asInterface {
 		if (Go.assertable((_err : T_poser))) {
 			var _x:Ref<Ref<stdgo.errors_test.Errors_test.T_poser>> = _err == null ? null : _err.__underlying__() == null ? null : _err == null ? null : _err.__underlying__()
 				.value;
-			{
-				var __tmp__ = _p;
-				_x._msg = __tmp__._msg;
-				_x._f = __tmp__._f;
-			};
+			_x = _p;
 		} else if (Go.assertable((_err : T_errorT))) {
 			var _x:Ref<stdgo.errors_test.Errors_test.T_errorT> = _err == null ? null : _err.__underlying__() == null ? null : _err == null ? null : _err.__underlying__()
 				.value;
@@ -850,12 +846,7 @@ class MyError_asInterface {
 		} else if (Go.assertable((_err : stdgo.io.fs.Fs.PathError))) {
 			var _x:Ref<Ref<stdgo.io.fs.Fs.PathError>> = _err == null ? null : _err.__underlying__() == null ? null : _err == null ? null : _err.__underlying__()
 				.value;
-			{
-				var __tmp__ = _poserPathErr;
-				_x.op = __tmp__.op;
-				_x.path = __tmp__.path;
-				_x.err = __tmp__.err;
-			};
+			_x = _poserPathErr;
 		} else {
 			var _x:AnyInterface = _err == null ? null : _err.__underlying__();
 			return false;

@@ -2790,7 +2790,7 @@ class Reader_asInterface {
 	**/
 	@:keep
 	static public function _contains(_as:T_asciiSet, _c:GoByte):Bool {
-		return (_as[_c / (32 : GoUInt8)] & ((1 : GoUInt32) << (_c % (32 : GoUInt8)))) != (0 : GoUInt32);
+		return (_as[@:invalid_index 0] & ((1 : GoUInt32) << (_c % (32 : GoUInt8)))) != (0 : GoUInt32);
 	}
 }
 

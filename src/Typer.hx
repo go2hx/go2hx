@@ -5620,6 +5620,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 			}
 			td.meta = meta;
 			td.doc = getDoc(spec);
+			td.isExtern = isTitle(spec.name.name);
 			td.kind = TDClass(superClass);
 			return td;
 		case interfaceType(empty, _):
@@ -5631,10 +5632,14 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 					pos: null,
 					pack: [],
 					params: params,
+					isExtern: isTitle(spec.name.name),
 					fields: [],
 					doc: getDoc(spec),
 					meta: meta,
-					kind: TDAlias(TPath({pack: [], name: "AnyInterface"})),
+					kind: TDAlias(TPath({
+						pack: [],
+						name: "AnyInterface"
+					})),
 				};
 			}
 			final meta:Metadata = [];
@@ -5646,6 +5651,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				params: params,
 				pack: [],
 				doc: getDoc(spec),
+				isExtern: isTitle(spec.name.name),
 				fields: [],
 				meta: meta,
 				kind: TDAlias(ct)
@@ -5663,6 +5669,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 		pos: null,
 		pack: [],
 		fields: [],
+		isExtern: isTitle(spec.name.name),
 		doc: getDoc(spec),
 		params: params,
 		meta: meta,

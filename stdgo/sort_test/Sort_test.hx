@@ -2779,8 +2779,14 @@ class Organs_asInterface {
 	@:keep
 	static public function swap(_d:T_intPairs, _i:GoInt, _j:GoInt):Void {
 		{
-			final __tmp__0 = (_d[_j] == null ? null : _d[_j].__copy__());
-			final __tmp__1 = (_d[_i] == null ? null : _d[_i].__copy__());
+			final __tmp__0 = {
+				final x = _d[_j];
+				({_a: x._a, _b: x._b} : T__struct_4);
+			};
+			final __tmp__1 = {
+				final x = _d[_i];
+				({_a: x._a, _b: x._b} : T__struct_4);
+			};
 			_d[_i] = __tmp__0;
 			_d[_j] = __tmp__1;
 		};

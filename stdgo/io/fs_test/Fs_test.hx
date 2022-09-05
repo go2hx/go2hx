@@ -910,7 +910,10 @@ function testFileInfoToDirEntry(_t:stdgo.testing.Testing.T):Void {
 	var _tests = (new Slice<T__struct_2>(0, 0, ({_path: ("" : GoString), _wantMode: ((0 : GoUInt32) : FileMode), _wantDir: false} : T__struct_2),
 		({_path: ("" : GoString), _wantMode: ((0 : GoUInt32) : FileMode), _wantDir: false} : T__struct_2)) : Slice<T__struct_2>);
 	for (_0 => _test in _tests) {
-		var _test:T__struct_2 = (_test == null ? null : _test.__copy__());
+		var _test:T__struct_2 = {
+			final x = _test;
+			({_path: x._path, _wantMode: x._wantMode, _wantDir: x._wantDir} : T__struct_2);
+		};
 		_t.run(_test._path, function(_t:stdgo.testing.Testing.T):Void {
 			var __tmp__ = stat({
 				final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_testFs);

@@ -1768,12 +1768,27 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
 					final x = $y;
 					$decl;
 				};
-			case named(_, _, type):
+			case named(path, _, type):
 				switch getUnderlying(type) {
 					case pointer(_), basic(_), signature(_, _, _, _), sliceType(_), mapType(_), chanType(_):
 						return y;
 					case invalidType:
 						return y;
+					case structType(fields) if (path.indexOf("_struct_") != -1):
+						final decl = toExpr(EObjectDecl([
+							for (field in fields) {
+								final name = nameIdent(field.name, false, false, info);
+								{
+									field: name,
+									expr: passByCopy(field.type, macro x.$name, info),
+								}
+							}
+						]));
+						final ct = toComplexType(fromType, info);
+						return macro {
+							final x = $y;
+							($decl : $ct);
+						};
 					default:
 				}
 				// trace(printer.printExpr(y), type);
@@ -4014,7 +4029,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 	var type = typeof(expr.type, info, false);
 	// var ct = typeExprType(expr.type, info);
 	var ct = toComplexType(type, info);
-	final e = compositeLit(type, ct, expr, info);
+	final e = compositeLit(getUnderlying(type), ct, expr, info);
 	// trace(printer.printExpr({expr: e, pos: null}));
 	return e;
 }
@@ -4043,11 +4058,14 @@ private function hasTypeParam(ct:ComplexType):Bool {
 
 function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:Info):ExprDef {
 	var keyValueBool:Bool = hasKeyValueExpr(expr.elts);
-	final underlying = getUnderlying(type);
+	final underlying = type;
 	if (isInvalid(underlying)) {
 		return (macro @:invalid_compositelit null).expr;
 	}
 	switch underlying {
+		case refType(elem):
+			final e = toExpr(compositeLit(getUnderlying(elem), complexTypeElem(ct), expr, info));
+			return e.expr;
 		case pointer(elem):
 			final e = toExpr(compositeLit(elem, complexTypeElem(ct), expr, info));
 			return (macro Go.pointer($e)).expr;
@@ -4146,8 +4164,11 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 			function run(elt:Ast.Expr) {
 				if (elt.id == "CompositeLit") {
 					if (elt.type == null) {
-						// trace("elem: " + elem.get());
-						return {index: index, expr: toExpr(compositeLit(elem.get(), complexTypeElem(ct), elt, info))};
+						final elem = elem.get();
+						// trace("ct: " + printer.printComplexType(complexTypeElem(ct)));
+						// trace(elem);
+						final e = toExpr(compositeLit(elem, complexTypeElem(ct), elt, info));
+						return {index: index, expr: e};
 					}
 				}
 				return {index: index, expr: typeExpr(elt, info)};

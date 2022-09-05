@@ -1700,8 +1700,6 @@ private function namedUnderlying(obj:AnyInterface):AnyInterface {
 
 function getUnderlying(gt:GoType, once:Bool = false) {
 	return switch gt {
-		case refType(type):
-			getUnderlying(type, once);
 		case named(_, _, type):
 			if (once) {
 				type;

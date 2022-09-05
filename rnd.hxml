@@ -3,15 +3,17 @@
 -main RunRnd
 #--interp
 -D debug
+-D nolinkstd
 extraParams.hxml
 -D watch.run=hl rnd.hl
 -D no-deprecation-warnings
 -D watch.excludes=golibs
-
--lib hxnodejs
 -dce full
---js rnd.js
---cmd node rnd.js
+-D go2hx_compiler
+#-lib hxnodejs
+#--js rnd.js
+#--cmd node rnd.js
 
 #-hl rnd.hl
 #--cmd hl rnd.hl
+--interp

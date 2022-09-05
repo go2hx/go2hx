@@ -1768,10 +1768,25 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
 					final x = $y;
 					$decl;
 				};
-			case named(_, _, type):
+			case named(path, _, type):
 				switch getUnderlying(type) {
 					case pointer(_), basic(_), signature(_, _, _, _), sliceType(_), mapType(_), chanType(_):
 						return y;
+					case structType(fields) if (path.indexOf("_struct_") != -1):
+						final decl = toExpr(EObjectDecl([
+							for (field in fields) {
+								final name = nameIdent(field.name, false, false, info);
+								{
+									field: name,
+									expr: passByCopy(field.type, macro x.$name, info),
+								}
+							}
+						]));
+						final ct = toComplexType(fromType, info);
+						return macro {
+							final x = $y;
+							($decl : $ct);
+						};
 					case invalidType:
 						return y;
 					default:

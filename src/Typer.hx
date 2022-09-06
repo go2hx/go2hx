@@ -179,15 +179,6 @@ function main(data:DataType, instance:Main.InstanceData) {
 			info.localUnderlyingNames.clear();
 			info.data = data;
 			final pkgDoc = getDoc(file);
-			if (pkgDoc != "")
-				data.defs.push({
-					name: "__go2hxdoc__package",
-					pack: [],
-					pos: null,
-					fields: [],
-					doc: pkgDoc,
-					kind: TDField(FVar(TPath({name: "Bool", pack: []})), [APrivate]),
-				});
 			var declFuncs:Array<Ast.FuncDecl> = [];
 			var declGens:Array<Ast.GenDecl> = [];
 			for (decl in file.decls) {
@@ -334,6 +325,16 @@ function main(data:DataType, instance:Main.InstanceData) {
 				});
 			}
 			data.imports = data.imports.concat(defaultImports);
+
+			if (pkgDoc != "")
+				data.defs.unshift({
+					name: "__go2hxdoc__package",
+					pack: [],
+					pos: null,
+					fields: [],
+					doc: pkgDoc,
+					kind: TDField(FVar(TPath({name: "Bool", pack: []})), [APrivate]),
+				});
 			// add file to module
 			module.files.push(data);
 		}
@@ -1174,9 +1175,6 @@ private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTyp
 				default:
 			}
 		}
-		return macro(($e.__underlying__().value : Dynamic) : $ct);
-	}
-	if (isInterface(fromType) && isInterface(toType)) {
 		return macro(($e.__underlying__().value : Dynamic) : $ct);
 	}
 	if (isStruct(fromType) && isStruct(toType)) {

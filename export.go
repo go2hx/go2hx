@@ -666,11 +666,12 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 				values[j] = parseData(obj.Values[j])
 			}
 			data[i] = map[string]interface{}{
-				"id":     "ValueSpec",
-				"names":  parseIdents(obj.Names),
-				"type":   parseData(obj.Type),
-				"values": values,
-				"doc":    parseCommentGroup(obj.Doc),
+				"id":      "ValueSpec",
+				"names":   parseIdents(obj.Names),
+				"type":    parseData(obj.Type),
+				"values":  values,
+				"doc":     parseCommentGroup(obj.Doc),
+				"comment": parseCommentGroup(obj.Comment),
 			}
 		case *ast.TypeSpec:
 			named := checker.ObjectOf(obj.Name)

@@ -116,8 +116,6 @@ class Printer extends haxe.macro.Printer {
 			externBool = true;
 		}
 		switch t.kind {
-			case TDAlias(td):
-				return super.printTypeDefinition(t, printPackage);
 			case TDField(kind, access):
 				return super.printTypeDefinition(t, printPackage);
 			case TDAbstract(tthis, from, to):

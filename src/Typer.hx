@@ -425,7 +425,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 						this.__self__ = __self__;
 
 					public function __underlying__()
-						return Go.toInterface(this);
+						return Go.toInterface(__self__);
 
 					var __self__:$ct;
 				};

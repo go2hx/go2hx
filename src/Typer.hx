@@ -2663,6 +2663,11 @@ private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
 	x = obj.x;
 	t = obj.t;
 	switch t {
+		case refType(e):
+			t = e;
+		default:
+	}
+	switch t {
 		case arrayType(_, _), sliceType(_), basic(untyped_string_kind), basic(string_kind):
 			index = assignTranslate(typeof(expr.index, info, false), basic(int_kind), index, info);
 		case mapType(_.get() => indexType, _):
@@ -2674,7 +2679,6 @@ private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
 			}
 			return (macro @:define("!macro") Go.typeFunction($x)).expr;
 		default:
-			trace(t);
 			index = macro @:invalid_index 0;
 	}
 	final e = macro $x[$index];

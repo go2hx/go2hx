@@ -4654,7 +4654,12 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef { //
 			}
 		default:
 	}
-	final e = checkType(e, typeExprType(expr.type, info), typeof(expr.x, info, false), t, info);
+	final ct = typeExprType(expr.type, info);
+	final fromType = typeof(expr.x, info, false);
+	if (isInterface(fromType) && isInterface(t)) {
+		return (macro(($e.__underlying__().value : Dynamic) : $ct)).expr;
+	}
+	final e = checkType(e, ct, fromType, t, info);
 	return e.expr;
 }
 

@@ -216,6 +216,13 @@ final list = [
 	"math:_archTrunc" => macro return trunc(_x),
 	"math:_cos" => macro return cos(_x),
 	"math:_sin" => macro return sin(_x),
+	// stdgo/os
+	"os:open" => macro {
+		if (!sys.FileSystem.exists(_name))
+			return {_0: null, _1: stdgo.errors.Errors.new_("os can not open: " + _name)};
+		throw "os.open is not yet implemented";
+		return {_0: null, _1: null};
+	},
 	// stdgo/math_test
 	"math_test:testFloatMinMax" => macro trace("testFloatMinMax not implemented: fmt formatter"),
 	"math:testGamma" => macro @:define("interp") {

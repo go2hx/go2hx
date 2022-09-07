@@ -6213,7 +6213,9 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 private function getComment(value:{comment:Ast.CommentGroup}):String {
 	if (value.comment == null || value.comment.list == null)
 		return "";
-	return value.comment.list.join("\n");
+	var source = value.comment.list.join("\n");
+	source = sanatizeComment(source);
+	return source;
 }
 
 private function getDoc(value:{doc:Ast.CommentGroup}):String {

@@ -600,15 +600,20 @@ private function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Arr
 		fieldCallArgs.unshift(macro __self__);
 		e = macro $e.value;
 	}
-	final fieldFuncArgs = fieldArgs.map(arg -> arg.type);
-	// trace(func.params);
+	var e = macro @:define("!macro") $e.$funcName($a{fieldCallArgs});
+	if (!isVoid(fieldRet))
+		e = macro return $e;
 	final field:Field = {
 		name: funcName,
 		access: [APublic],
 		meta: meta.copy(),
 		pos: pos,
 		doc: doc,
-		kind: FVar(TFunction(fieldFuncArgs, fieldRet), macro null),
+		kind: FFun({
+			args: fieldArgs,
+			ret: fieldRet,
+			expr: e,
+		})
 	};
 	wrapper.fields.unshift(field);
 	staticExtension.fields.unshift(staticField);
@@ -1949,49 +1954,7 @@ private function wrapper(t:GoType, y:Expr, info:Info):Expr {
 			final dt = defaultValue(t, info);
 			if (selfPointer)
 				y = macro $y == null ? null : $y;
-			var exprs = [macro final __self__ = new $p($y)];
-			final info = info.copy();
-			info.restricted = [];
-			for (method in methods) {
-				final methodName = nameIdent(method.name, false, false, info);
-				final recv = method.recv.get();
-				switch method.type.get() {
-					case signature(variadic, _.get() => params, _.get() => results, _):
-						final methodArgs = [];
-						final ret:ComplexType = getReturn(results, info);
-						final args = params.map(param -> switch param {
-							case _var(name, type):
-								({
-									name: nameIdent(name, true, false, info, true),
-									type: toComplexType(type, info),
-								} : FunctionArg);
-							default:
-								throw "unknown param type: " + param;
-						});
-						final callArgs = args.map(arg -> macro $i{arg.name});
-						final recv = replaceInvalidType(recv, type);
-						if (isPointer(recv)) {
-							if (!selfPointer) {
-								callArgs.unshift(macro Go.pointer($y));
-							} else {
-								callArgs.unshift(y);
-							}
-						}
-						var e = macro $self.$methodName($a{callArgs});
-						if (!isVoid(ret))
-							e = macro return $e;
-						final f = toExpr(EFunction(FAnonymous, {
-							expr: e,
-							args: args,
-							ret: ret,
-						}));
-						exprs.push(macro __self__.$methodName = @:define("!macro") $f);
-					default:
-				}
-			}
-			info.restricted = [];
-			exprs.push(macro __self__);
-			return macro $b{exprs};
+			return macro new $p($y);
 		default:
 	}
 	return y;

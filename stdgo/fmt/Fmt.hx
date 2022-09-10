@@ -5,12 +5,12 @@ import haxe.Rest;
 import haxe.io.BufferInput;
 import haxe.macro.Expr;
 import stdgo.Error;
-import stdgo.StdGoTypes.AnyInterface;
-import stdgo.StdGoTypes.GoByte;
-import stdgo.StdGoTypes.GoInt;
-import stdgo.StdGoTypes.GoRune;
-import stdgo.StdGoTypes.StructType;
+import stdgo.StdGoTypes;
+#if !macro
 import stdgo.io.Io.Writer;
+#else
+typedef Writer = Dynamic;
+#end
 
 typedef Formatter = StructType & {
 	public function format(_f:State, _verb:GoRune):Void;

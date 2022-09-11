@@ -174,6 +174,8 @@ private function completeProcess(code:Int, proc:Process, task:TaskData, command:
 			suites[task.data.type].buildError(task);
 		}
 	}
+	if (task.target == "interp")
+		runsLeft--;
 	if (runsLeft % 10 == 0)
 		trace("runsLeft: " + runsLeft);
 	if (--runsLeft <= 0) {

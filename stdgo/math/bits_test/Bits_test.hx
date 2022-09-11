@@ -40,18 +40,18 @@ private var _tab:GoArray<T_entry> = new GoArray<T_entry>(...[
 	} : T_entry)
 ]);
 
-@:follow typedef T_entry = {
+@:follow private typedef T_entry = {
 	var _nlz:GoInt;
 	var _ntz:GoInt;
 	var _pop:GoInt;
 };
 
-@:local typedef T__struct_0 = {
+@:local private typedef T__struct_0 = {
 	public var _x:GoUInt64;
 	public var _r:GoUInt64;
 };
 
-@:local typedef T__struct_1 = {
+@:local private typedef T__struct_1 = {
 	public var _x:GoUInt;
 	public var _y:GoUInt;
 	public var _c:GoUInt;
@@ -59,7 +59,7 @@ private var _tab:GoArray<T_entry> = new GoArray<T_entry>(...[
 	public var _cout:GoUInt;
 };
 
-@:local typedef T__struct_2 = {
+@:local private typedef T__struct_2 = {
 	public var _x:GoUInt32;
 	public var _y:GoUInt32;
 	public var _c:GoUInt32;
@@ -67,7 +67,7 @@ private var _tab:GoArray<T_entry> = new GoArray<T_entry>(...[
 	public var _cout:GoUInt32;
 };
 
-@:local typedef T__struct_3 = {
+@:local private typedef T__struct_3 = {
 	public var _x:GoUInt64;
 	public var _y:GoUInt64;
 	public var _c:GoUInt64;
@@ -75,7 +75,7 @@ private var _tab:GoArray<T_entry> = new GoArray<T_entry>(...[
 	public var _cout:GoUInt64;
 };
 
-@:local typedef T__struct_4 = {
+@:local private typedef T__struct_4 = {
 	public var _x:GoUInt;
 	public var _y:GoUInt;
 	public var _hi:GoUInt;
@@ -83,7 +83,7 @@ private var _tab:GoArray<T_entry> = new GoArray<T_entry>(...[
 	public var _r:GoUInt;
 };
 
-@:local typedef T__struct_5 = {
+@:local private typedef T__struct_5 = {
 	public var _x:GoUInt32;
 	public var _y:GoUInt32;
 	public var _hi:GoUInt32;
@@ -91,7 +91,7 @@ private var _tab:GoArray<T_entry> = new GoArray<T_entry>(...[
 	public var _r:GoUInt32;
 };
 
-@:local typedef T__struct_6 = {
+@:local private typedef T__struct_6 = {
 	public var _x:GoUInt64;
 	public var _y:GoUInt64;
 	public var _hi:GoUInt64;
@@ -99,7 +99,7 @@ private var _tab:GoArray<T_entry> = new GoArray<T_entry>(...[
 	public var _r:GoUInt64;
 };
 
-@:local typedef T__struct_7 = {
+@:local private typedef T__struct_7 = {
 	public var _hi:GoUInt64;
 	public var _lo:GoUInt64;
 	public var _y:GoUInt64;

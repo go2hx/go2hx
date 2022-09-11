@@ -11,6 +11,12 @@ import stdgo.GoMap;
 import stdgo.Chan;
 
 /**
+	// Package bytes implements functions for the manipulation of byte slices.
+	// It is analogous to the facilities of the strings package.
+**/
+private var __go2hxdoc__package:Bool;
+
+/**
 	// ErrTooLarge is passed to panic if memory cannot be allocated to store data in a buffer.
 **/
 var errTooLarge:stdgo.Error = stdgo.errors.Errors.new_((Go.str("bytes.Buffer: too large") : GoString));
@@ -40,37 +46,37 @@ var indexBytePortable:(Slice<GoUInt8>, GoUInt8) -> GoInt = _indexBytePortable;
 private final _smallBufferSize:GoUnTypedInt = (64 : GoUnTypedInt);
 
 /**
-	// Don't use iota for these, as the values need to correspond with the
+	// Any other read operation.// Don't use iota for these, as the values need to correspond with the
 	// names and comments, which is easier to see when being explicit.
 **/
 private final _opRead:T_readOp = (-1 : T_readOp);
 
 /**
-	// Don't use iota for these, as the values need to correspond with the
+	// Non-read operation.// Don't use iota for these, as the values need to correspond with the
 	// names and comments, which is easier to see when being explicit.
 **/
 private final _opInvalid:T_readOp = (0 : T_readOp);
 
 /**
-	// Don't use iota for these, as the values need to correspond with the
+	// Read rune of size 1.// Don't use iota for these, as the values need to correspond with the
 	// names and comments, which is easier to see when being explicit.
 **/
 private final _opReadRune1:T_readOp = (1 : T_readOp);
 
 /**
-	// Don't use iota for these, as the values need to correspond with the
+	// Read rune of size 2.// Don't use iota for these, as the values need to correspond with the
 	// names and comments, which is easier to see when being explicit.
 **/
 private final _opReadRune2:T_readOp = (2 : T_readOp);
 
 /**
-	// Don't use iota for these, as the values need to correspond with the
+	// Read rune of size 3.// Don't use iota for these, as the values need to correspond with the
 	// names and comments, which is easier to see when being explicit.
 **/
 private final _opReadRune3:T_readOp = (3 : T_readOp);
 
 /**
-	// Don't use iota for these, as the values need to correspond with the
+	// Read rune of size 4.// Don't use iota for these, as the values need to correspond with the
 	// names and comments, which is easier to see when being explicit.
 **/
 private final _opReadRune4:T_readOp = (4 : T_readOp);
@@ -84,12 +90,6 @@ private final _maxInt:GoInt = ((2147483647 : GoUInt) : GoInt);
 	// underlying buffer.
 **/
 final minRead:GoUnTypedInt = (512 : GoUnTypedInt);
-
-/**
-	// Package bytes implements functions for the manipulation of byte slices.
-	// It is analogous to the facilities of the strings package.
-**/
-private var __go2hxdoc__package:Bool;
 
 /**
 	// A Buffer is a variable-sized buffer of bytes with Read and Write methods.
@@ -171,7 +171,7 @@ private var __go2hxdoc__package:Bool;
 	// invalid usage. opReadRuneX constants are chosen such that
 	// converted to int they correspond to the rune size that was read.
 **/
-@:named typedef T_readOp = GoInt8;
+@:named private typedef T_readOp = GoInt8;
 
 /**
 	// asciiSet is a 32-byte value, where each bit represents the presence of a
@@ -183,7 +183,7 @@ private var __go2hxdoc__package:Bool;
 	// This allocates a total of 32 bytes even though the upper half
 	// is unused to avoid bounds checks in asciiSet.contains.
 **/
-@:named @:using(stdgo.bytes.Bytes.T_asciiSet_static_extension) typedef T_asciiSet = GoArray<GoUInt32>;
+@:named @:using(stdgo.bytes.Bytes.T_asciiSet_static_extension) private typedef T_asciiSet = GoArray<GoUInt32>;
 
 /**
 	// growSlice grows b by n, preserving the original content of b.
@@ -1752,6 +1752,258 @@ function newReader(_b:Slice<GoByte>):Reader {
 	return (new Reader(_b, (0 : GoInt64), (-1 : GoInt)) : Reader);
 }
 
+class Buffer_asInterface {
+	/**
+		// ReadString reads until the first occurrence of delim in the input,
+		// returning a string containing the data up to and including the delimiter.
+		// If ReadString encounters an error before finding a delimiter,
+		// it returns the data read before the error and the error itself (often io.EOF).
+		// ReadString returns err != nil if and only if the returned data does not end
+		// in delim.
+	**/
+	@:keep
+	public function readString(_delim:GoByte):{var _0:GoString; var _1:Error;}
+		return __self__.readString(_delim);
+
+	/**
+		// readSlice is like ReadBytes but returns a reference to internal buffer data.
+	**/
+	@:keep
+	public function _readSlice(_delim:GoByte):{var _0:Slice<GoByte>; var _1:Error;}
+		return __self__._readSlice(_delim);
+
+	/**
+		// ReadBytes reads until the first occurrence of delim in the input,
+		// returning a slice containing the data up to and including the delimiter.
+		// If ReadBytes encounters an error before finding a delimiter,
+		// it returns the data read before the error and the error itself (often io.EOF).
+		// ReadBytes returns err != nil if and only if the returned data does not end in
+		// delim.
+	**/
+	@:keep
+	public function readBytes(_delim:GoByte):{var _0:Slice<GoByte>; var _1:Error;}
+		return __self__.readBytes(_delim);
+
+	/**
+		// UnreadByte unreads the last byte returned by the most recent successful
+		// read operation that read at least one byte. If a write has happened since
+		// the last read, if the last read returned an error, or if the read read zero
+		// bytes, UnreadByte returns an error.
+	**/
+	@:keep
+	public function unreadByte():Error
+		return __self__.unreadByte();
+
+	/**
+		// UnreadRune unreads the last rune returned by ReadRune.
+		// If the most recent read or write operation on the buffer was
+		// not a successful ReadRune, UnreadRune returns an error.  (In this regard
+		// it is stricter than UnreadByte, which will unread the last byte
+		// from any read operation.)
+	**/
+	@:keep
+	public function unreadRune():Error
+		return __self__.unreadRune();
+
+	/**
+		// ReadRune reads and returns the next UTF-8-encoded
+		// Unicode code point from the buffer.
+		// If no bytes are available, the error returned is io.EOF.
+		// If the bytes are an erroneous UTF-8 encoding, it
+		// consumes one byte and returns U+FFFD, 1.
+	**/
+	@:keep
+	public function readRune():{var _0:GoRune; var _1:GoInt; var _2:Error;}
+		return __self__.readRune();
+
+	/**
+		// ReadByte reads and returns the next byte from the buffer.
+		// If no byte is available, it returns error io.EOF.
+	**/
+	@:keep
+	public function readByte():{var _0:GoByte; var _1:Error;}
+		return __self__.readByte();
+
+	/**
+		// Next returns a slice containing the next n bytes from the buffer,
+		// advancing the buffer as if the bytes had been returned by Read.
+		// If there are fewer than n bytes in the buffer, Next returns the entire buffer.
+		// The slice is only valid until the next call to a read or write method.
+	**/
+	@:keep
+	public function next(_n:GoInt):Slice<GoByte>
+		return __self__.next(_n);
+
+	/**
+		// Read reads the next len(p) bytes from the buffer or until the buffer
+		// is drained. The return value n is the number of bytes read. If the
+		// buffer has no data to return, err is io.EOF (unless len(p) is zero);
+		// otherwise it is nil.
+	**/
+	@:keep
+	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
+		return __self__.read(_p);
+
+	/**
+		// WriteRune appends the UTF-8 encoding of Unicode code point r to the
+		// buffer, returning its length and an error, which is always nil but is
+		// included to match bufio.Writer's WriteRune. The buffer is grown as needed;
+		// if it becomes too large, WriteRune will panic with ErrTooLarge.
+	**/
+	@:keep
+	public function writeRune(_r:GoRune):{var _0:GoInt; var _1:Error;}
+		return __self__.writeRune(_r);
+
+	/**
+		// WriteByte appends the byte c to the buffer, growing the buffer as needed.
+		// The returned error is always nil, but is included to match bufio.Writer's
+		// WriteByte. If the buffer becomes too large, WriteByte will panic with
+		// ErrTooLarge.
+	**/
+	@:keep
+	public function writeByte(_c:GoByte):Error
+		return __self__.writeByte(_c);
+
+	/**
+		// WriteTo writes data to w until the buffer is drained or an error occurs.
+		// The return value n is the number of bytes written; it always fits into an
+		// int, but it is int64 to match the io.WriterTo interface. Any error
+		// encountered during the write is also returned.
+	**/
+	@:keep
+	public function writeTo(_w:stdgo.io.Io.Writer):{var _0:GoInt64; var _1:Error;}
+		return __self__.writeTo(_w);
+
+	/**
+		// ReadFrom reads data from r until EOF and appends it to the buffer, growing
+		// the buffer as needed. The return value n is the number of bytes read. Any
+		// error except io.EOF encountered during the read is also returned. If the
+		// buffer becomes too large, ReadFrom will panic with ErrTooLarge.
+	**/
+	@:keep
+	public function readFrom(_r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:Error;}
+		return __self__.readFrom(_r);
+
+	/**
+		// WriteString appends the contents of s to the buffer, growing the buffer as
+		// needed. The return value n is the length of s; err is always nil. If the
+		// buffer becomes too large, WriteString will panic with ErrTooLarge.
+	**/
+	@:keep
+	public function writeString(_s:GoString):{var _0:GoInt; var _1:Error;}
+		return __self__.writeString(_s);
+
+	/**
+		// Write appends the contents of p to the buffer, growing the buffer as
+		// needed. The return value n is the length of p; err is always nil. If the
+		// buffer becomes too large, Write will panic with ErrTooLarge.
+	**/
+	@:keep
+	public function write(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
+		return __self__.write(_p);
+
+	/**
+		// Grow grows the buffer's capacity, if necessary, to guarantee space for
+		// another n bytes. After Grow(n), at least n bytes can be written to the
+		// buffer without another allocation.
+		// If n is negative, Grow will panic.
+		// If the buffer can't grow it will panic with ErrTooLarge.
+	**/
+	@:keep
+	public function grow(_n:GoInt):Void
+		__self__.grow(_n);
+
+	/**
+		// grow grows the buffer to guarantee space for n more bytes.
+		// It returns the index where bytes should be written.
+		// If the buffer can't grow it will panic with ErrTooLarge.
+	**/
+	@:keep
+	public function _grow(_n:GoInt):GoInt
+		return __self__._grow(_n);
+
+	/**
+		// tryGrowByReslice is a inlineable version of grow for the fast-case where the
+		// internal buffer only needs to be resliced.
+		// It returns the index where bytes should be written and whether it succeeded.
+	**/
+	@:keep
+	public function _tryGrowByReslice(_n:GoInt):{var _0:GoInt; var _1:Bool;}
+		return __self__._tryGrowByReslice(_n);
+
+	/**
+		// Reset resets the buffer to be empty,
+		// but it retains the underlying storage for use by future writes.
+		// Reset is the same as Truncate(0).
+	**/
+	@:keep
+	public function reset():Void
+		__self__.reset();
+
+	/**
+		// Truncate discards all but the first n unread bytes from the buffer
+		// but continues to use the same allocated storage.
+		// It panics if n is negative or greater than the length of the buffer.
+	**/
+	@:keep
+	public function truncate(_n:GoInt):Void
+		__self__.truncate(_n);
+
+	/**
+		// Cap returns the capacity of the buffer's underlying byte slice, that is, the
+		// total space allocated for the buffer's data.
+	**/
+	@:keep
+	public function cap():GoInt
+		return __self__.cap();
+
+	/**
+		// Len returns the number of bytes of the unread portion of the buffer;
+		// b.Len() == len(b.Bytes()).
+	**/
+	@:keep
+	public function len():GoInt
+		return __self__.len();
+
+	/**
+		// empty reports whether the unread portion of the buffer is empty.
+	**/
+	@:keep
+	public function _empty():Bool
+		return __self__._empty();
+
+	/**
+		// String returns the contents of the unread portion of the buffer
+		// as a string. If the Buffer is a nil pointer, it returns "<nil>".
+		//
+		// To build strings more efficiently, see the strings.Builder type.
+	**/
+	@:keep
+	public function string():GoString
+		return __self__.string();
+
+	/**
+		// Bytes returns a slice of length b.Len() holding the unread portion of the buffer.
+		// The slice is valid for use only until the next buffer modification (that is,
+		// only until the next call to a method like Read, Write, Reset, or Truncate).
+		// The slice aliases the buffer content at least until the next buffer modification,
+		// so immediate changes to the slice will affect the result of future reads.
+	**/
+	@:keep
+	public function bytes():Slice<GoByte>
+		return __self__.bytes();
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
+
+	public function __underlying__()
+		return Go.toInterface(__self__);
+
+	var __self__:Buffer;
+}
+
 @:keep private class Buffer_static_extension {
 	/**
 		// ReadString reads until the first occurrence of delim in the input,
@@ -2233,266 +2485,96 @@ function newReader(_b:Slice<GoByte>):Reader {
 	}
 }
 
-class Buffer_asInterface {
+class Reader_asInterface {
 	/**
-		// ReadString reads until the first occurrence of delim in the input,
-		// returning a string containing the data up to and including the delimiter.
-		// If ReadString encounters an error before finding a delimiter,
-		// it returns the data read before the error and the error itself (often io.EOF).
-		// ReadString returns err != nil if and only if the returned data does not end
-		// in delim.
+		// Reset resets the Reader to be reading from b.
 	**/
 	@:keep
-	public var readString:GoByte -> {
-		var _0:GoString;
-		var _1:Error;
-	} = null;
+	public function reset(_b:Slice<GoByte>):Void
+		__self__.reset(_b);
 
 	/**
-		// readSlice is like ReadBytes but returns a reference to internal buffer data.
+		// WriteTo implements the io.WriterTo interface.
 	**/
 	@:keep
-	public var _readSlice:GoByte -> {
-		var _0:Slice<GoByte>;
-		var _1:Error;
-	} = null;
+	public function writeTo(_w:stdgo.io.Io.Writer):{var _0:GoInt64; var _1:Error;}
+		return __self__.writeTo(_w);
 
 	/**
-		// ReadBytes reads until the first occurrence of delim in the input,
-		// returning a slice containing the data up to and including the delimiter.
-		// If ReadBytes encounters an error before finding a delimiter,
-		// it returns the data read before the error and the error itself (often io.EOF).
-		// ReadBytes returns err != nil if and only if the returned data does not end in
-		// delim.
+		// Seek implements the io.Seeker interface.
 	**/
 	@:keep
-	public var readBytes:GoByte -> {
-		var _0:Slice<GoByte>;
-		var _1:Error;
-	} = null;
+	public function seek(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:Error;}
+		return __self__.seek(_offset, _whence);
 
 	/**
-		// UnreadByte unreads the last byte returned by the most recent successful
-		// read operation that read at least one byte. If a write has happened since
-		// the last read, if the last read returned an error, or if the read read zero
-		// bytes, UnreadByte returns an error.
+		// UnreadRune complements ReadRune in implementing the io.RuneScanner interface.
 	**/
 	@:keep
-	public var unreadByte:() -> Error = null;
+	public function unreadRune():Error
+		return __self__.unreadRune();
 
 	/**
-		// UnreadRune unreads the last rune returned by ReadRune.
-		// If the most recent read or write operation on the buffer was
-		// not a successful ReadRune, UnreadRune returns an error.  (In this regard
-		// it is stricter than UnreadByte, which will unread the last byte
-		// from any read operation.)
+		// ReadRune implements the io.RuneReader interface.
 	**/
 	@:keep
-	public var unreadRune:() -> Error = null;
+	public function readRune():{var _0:GoRune; var _1:GoInt; var _2:Error;}
+		return __self__.readRune();
 
 	/**
-		// ReadRune reads and returns the next UTF-8-encoded
-		// Unicode code point from the buffer.
-		// If no bytes are available, the error returned is io.EOF.
-		// If the bytes are an erroneous UTF-8 encoding, it
-		// consumes one byte and returns U+FFFD, 1.
+		// UnreadByte complements ReadByte in implementing the io.ByteScanner interface.
 	**/
 	@:keep
-	public var readRune:() -> {
-		var _0:GoRune;
-		var _1:GoInt;
-		var _2:Error;
-	} = null;
+	public function unreadByte():Error
+		return __self__.unreadByte();
 
 	/**
-		// ReadByte reads and returns the next byte from the buffer.
-		// If no byte is available, it returns error io.EOF.
+		// ReadByte implements the io.ByteReader interface.
 	**/
 	@:keep
-	public var readByte:() -> {
-		var _0:GoByte;
-		var _1:Error;
-	} = null;
+	public function readByte():{var _0:GoByte; var _1:Error;}
+		return __self__.readByte();
 
 	/**
-		// Next returns a slice containing the next n bytes from the buffer,
-		// advancing the buffer as if the bytes had been returned by Read.
-		// If there are fewer than n bytes in the buffer, Next returns the entire buffer.
-		// The slice is only valid until the next call to a read or write method.
+		// ReadAt implements the io.ReaderAt interface.
 	**/
 	@:keep
-	public var next:GoInt->Slice<GoByte> = null;
+	public function readAt(_b:Slice<GoByte>, _off:GoInt64):{var _0:GoInt; var _1:Error;}
+		return __self__.readAt(_b, _off);
 
 	/**
-		// Read reads the next len(p) bytes from the buffer or until the buffer
-		// is drained. The return value n is the number of bytes read. If the
-		// buffer has no data to return, err is io.EOF (unless len(p) is zero);
-		// otherwise it is nil.
+		// Read implements the io.Reader interface.
 	**/
 	@:keep
-	public var read:Slice<GoByte> -> {
-		var _0:GoInt;
-		var _1:Error;
-	} = null;
+	public function read(_b:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
+		return __self__.read(_b);
 
 	/**
-		// WriteRune appends the UTF-8 encoding of Unicode code point r to the
-		// buffer, returning its length and an error, which is always nil but is
-		// included to match bufio.Writer's WriteRune. The buffer is grown as needed;
-		// if it becomes too large, WriteRune will panic with ErrTooLarge.
+		// Size returns the original length of the underlying byte slice.
+		// Size is the number of bytes available for reading via ReadAt.
+		// The result is unaffected by any method calls except Reset.
 	**/
 	@:keep
-	public var writeRune:GoRune -> {
-		var _0:GoInt;
-		var _1:Error;
-	} = null;
+	public function size():GoInt64
+		return __self__.size();
 
 	/**
-		// WriteByte appends the byte c to the buffer, growing the buffer as needed.
-		// The returned error is always nil, but is included to match bufio.Writer's
-		// WriteByte. If the buffer becomes too large, WriteByte will panic with
-		// ErrTooLarge.
+		// Len returns the number of bytes of the unread portion of the
+		// slice.
 	**/
 	@:keep
-	public var writeByte:GoByte->Error = null;
+	public function len():GoInt
+		return __self__.len();
 
-	/**
-		// WriteTo writes data to w until the buffer is drained or an error occurs.
-		// The return value n is the number of bytes written; it always fits into an
-		// int, but it is int64 to match the io.WriterTo interface. Any error
-		// encountered during the write is also returned.
-	**/
-	@:keep
-	public var writeTo:stdgo.io.Io.Writer -> {
-		var _0:GoInt64;
-		var _1:Error;
-	} = null;
-
-	/**
-		// ReadFrom reads data from r until EOF and appends it to the buffer, growing
-		// the buffer as needed. The return value n is the number of bytes read. Any
-		// error except io.EOF encountered during the read is also returned. If the
-		// buffer becomes too large, ReadFrom will panic with ErrTooLarge.
-	**/
-	@:keep
-	public var readFrom:stdgo.io.Io.Reader -> {
-		var _0:GoInt64;
-		var _1:Error;
-	} = null;
-
-	/**
-		// WriteString appends the contents of s to the buffer, growing the buffer as
-		// needed. The return value n is the length of s; err is always nil. If the
-		// buffer becomes too large, WriteString will panic with ErrTooLarge.
-	**/
-	@:keep
-	public var writeString:GoString -> {
-		var _0:GoInt;
-		var _1:Error;
-	} = null;
-
-	/**
-		// Write appends the contents of p to the buffer, growing the buffer as
-		// needed. The return value n is the length of p; err is always nil. If the
-		// buffer becomes too large, Write will panic with ErrTooLarge.
-	**/
-	@:keep
-	public var write:Slice<GoByte> -> {
-		var _0:GoInt;
-		var _1:Error;
-	} = null;
-
-	/**
-		// Grow grows the buffer's capacity, if necessary, to guarantee space for
-		// another n bytes. After Grow(n), at least n bytes can be written to the
-		// buffer without another allocation.
-		// If n is negative, Grow will panic.
-		// If the buffer can't grow it will panic with ErrTooLarge.
-	**/
-	@:keep
-	public var grow:GoInt->Void = null;
-
-	/**
-		// grow grows the buffer to guarantee space for n more bytes.
-		// It returns the index where bytes should be written.
-		// If the buffer can't grow it will panic with ErrTooLarge.
-	**/
-	@:keep
-	public var _grow:GoInt->GoInt = null;
-
-	/**
-		// tryGrowByReslice is a inlineable version of grow for the fast-case where the
-		// internal buffer only needs to be resliced.
-		// It returns the index where bytes should be written and whether it succeeded.
-	**/
-	@:keep
-	public var _tryGrowByReslice:GoInt -> {
-		var _0:GoInt;
-		var _1:Bool;
-	} = null;
-
-	/**
-		// Reset resets the buffer to be empty,
-		// but it retains the underlying storage for use by future writes.
-		// Reset is the same as Truncate(0).
-	**/
-	@:keep
-	public var reset:() -> Void = null;
-
-	/**
-		// Truncate discards all but the first n unread bytes from the buffer
-		// but continues to use the same allocated storage.
-		// It panics if n is negative or greater than the length of the buffer.
-	**/
-	@:keep
-	public var truncate:GoInt->Void = null;
-
-	/**
-		// Cap returns the capacity of the buffer's underlying byte slice, that is, the
-		// total space allocated for the buffer's data.
-	**/
-	@:keep
-	public var cap:() -> GoInt = null;
-
-	/**
-		// Len returns the number of bytes of the unread portion of the buffer;
-		// b.Len() == len(b.Bytes()).
-	**/
-	@:keep
-	public var len:() -> GoInt = null;
-
-	/**
-		// empty reports whether the unread portion of the buffer is empty.
-	**/
-	@:keep
-	public var _empty:() -> Bool = null;
-
-	/**
-		// String returns the contents of the unread portion of the buffer
-		// as a string. If the Buffer is a nil pointer, it returns "<nil>".
-		//
-		// To build strings more efficiently, see the strings.Builder type.
-	**/
-	@:keep
-	public var string:() -> GoString = null;
-
-	/**
-		// Bytes returns a slice of length b.Len() holding the unread portion of the buffer.
-		// The slice is valid for use only until the next buffer modification (that is,
-		// only until the next call to a method like Read, Write, Reset, or Truncate).
-		// The slice aliases the buffer content at least until the next buffer modification,
-		// so immediate changes to the slice will affect the result of future reads.
-	**/
-	@:keep
-	public var bytes:() -> Slice<GoByte> = null;
-
-	public function new(__self__)
-		this.__self__ = __self__;
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:Buffer;
+	var __self__:Reader;
 }
 
 @:keep private class Reader_static_extension {
@@ -2686,102 +2768,23 @@ class Buffer_asInterface {
 	}
 }
 
-class Reader_asInterface {
+private class T_asciiSet_asInterface {
 	/**
-		// Reset resets the Reader to be reading from b.
+		// contains reports whether c is inside the set.
 	**/
 	@:keep
-	public var reset:Slice<GoByte>->Void = null;
+	public function _contains(_c:GoByte):Bool
+		return __self__._contains(_c);
 
-	/**
-		// WriteTo implements the io.WriterTo interface.
-	**/
-	@:keep
-	public var writeTo:stdgo.io.Io.Writer -> {
-		var _0:GoInt64;
-		var _1:Error;
-	} = null;
-
-	/**
-		// Seek implements the io.Seeker interface.
-	**/
-	@:keep
-	public var seek:(GoInt64, GoInt) -> {
-		var _0:GoInt64;
-		var _1:Error;
-	} = null;
-
-	/**
-		// UnreadRune complements ReadRune in implementing the io.RuneScanner interface.
-	**/
-	@:keep
-	public var unreadRune:() -> Error = null;
-
-	/**
-		// ReadRune implements the io.RuneReader interface.
-	**/
-	@:keep
-	public var readRune:() -> {
-		var _0:GoRune;
-		var _1:GoInt;
-		var _2:Error;
-	} = null;
-
-	/**
-		// UnreadByte complements ReadByte in implementing the io.ByteScanner interface.
-	**/
-	@:keep
-	public var unreadByte:() -> Error = null;
-
-	/**
-		// ReadByte implements the io.ByteReader interface.
-	**/
-	@:keep
-	public var readByte:() -> {
-		var _0:GoByte;
-		var _1:Error;
-	} = null;
-
-	/**
-		// ReadAt implements the io.ReaderAt interface.
-	**/
-	@:keep
-	public var readAt:(Slice<GoByte>, GoInt64) -> {
-		var _0:GoInt;
-		var _1:Error;
-	} = null;
-
-	/**
-		// Read implements the io.Reader interface.
-	**/
-	@:keep
-	public var read:Slice<GoByte> -> {
-		var _0:GoInt;
-		var _1:Error;
-	} = null;
-
-	/**
-		// Size returns the original length of the underlying byte slice.
-		// Size is the number of bytes available for reading via ReadAt.
-		// The result is unaffected by any method calls except Reset.
-	**/
-	@:keep
-	public var size:() -> GoInt64 = null;
-
-	/**
-		// Len returns the number of bytes of the unread portion of the
-		// slice.
-	**/
-	@:keep
-	public var len:() -> GoInt = null;
-
-	public function new(__self__)
-		this.__self__ = __self__;
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:Reader;
+	var __self__:T_asciiSet;
 }
 
 @:keep private class T_asciiSet_static_extension {
@@ -2792,20 +2795,4 @@ class Reader_asInterface {
 	static public function _contains(_as:T_asciiSet, _c:GoByte):Bool {
 		return (_as[@:invalid_index 0] & ((1 : GoUInt32) << (_c % (32 : GoUInt8)))) != (0 : GoUInt32);
 	}
-}
-
-private class T_asciiSet_asInterface {
-	/**
-		// contains reports whether c is inside the set.
-	**/
-	@:keep
-	public var _contains:GoByte->Bool = null;
-
-	public function new(__self__)
-		this.__self__ = __self__;
-
-	public function __underlying__()
-		return Go.toInterface(this);
-
-	var __self__:T_asciiSet;
 }

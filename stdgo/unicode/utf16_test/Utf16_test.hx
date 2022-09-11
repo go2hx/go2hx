@@ -93,13 +93,13 @@ private var _surrogateTests:Slice<T__struct_1> = (new Slice<T__struct_1>(0, 0, (
 	}
 }
 
-@:local typedef T__struct_0 = {
+@:local private typedef T__struct_0 = {
 	public var _r1:GoInt32;
 	public var _r2:GoInt32;
 	public var _want:GoInt32;
 };
 
-@:local typedef T__struct_1 = {
+@:local private typedef T__struct_1 = {
 	public var _r:GoInt32;
 	public var _want:Bool;
 };

@@ -10,6 +10,12 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
+/**
+	// Package bits implements bit counting and manipulation
+	// functions for the predeclared unsigned integer types.
+**/
+private var __go2hxdoc__package:Bool;
+
 private var _deBruijn32tab:GoArray<GoUInt8> = (new GoArray<GoUInt8>((0 : GoUInt8), (1 : GoUInt8), (28 : GoUInt8), (2 : GoUInt8), (29 : GoUInt8),
 	(14 : GoUInt8), (24 : GoUInt8), (3 : GoUInt8), (30 : GoUInt8), (22 : GoUInt8), (20 : GoUInt8), (15 : GoUInt8), (25 : GoUInt8), (17 : GoUInt8),
 	(4 : GoUInt8), (8 : GoUInt8), (31 : GoUInt8), (27 : GoUInt8), (13 : GoUInt8), (23 : GoUInt8), (21 : GoUInt8), (19 : GoUInt8), (16 : GoUInt8),
@@ -25,20 +31,12 @@ private var _deBruijn64tab:GoArray<GoUInt8> = (new GoArray<GoUInt8>((0 : GoUInt8
 	(40 : GoUInt8), (15 : GoUInt8), (34 : GoUInt8), (20 : GoUInt8), (31 : GoUInt8), (10 : GoUInt8), (25 : GoUInt8), (14 : GoUInt8), (19 : GoUInt8),
 	(9 : GoUInt8), (13 : GoUInt8), (8 : GoUInt8), (7 : GoUInt8), (6 : GoUInt8)) : GoArray<GoUInt8>);
 
-private var _overflowError:stdgo.Error = {
-	final __self__ = new T_errorString_asInterface((Go.str("integer overflow") : T_errorString));
-	__self__.error = #if !macro function():GoString return (Go.str("integer overflow") : T_errorString).error() #else null #end;
-	__self__.runtimeError = #if !macro function():Void(Go.str("integer overflow"):T_errorString).runtimeError() #else null #end;
-	__self__;
-};
+private var _overflowError:stdgo.Error = Go.asInterface((Go.str("integer overflow") : T_errorString));
+private var _divideError:stdgo.Error = Go.asInterface((Go.str("integer divide by zero") : T_errorString));
 
-private var _divideError:stdgo.Error = {
-	final __self__ = new T_errorString_asInterface((Go.str("integer divide by zero") : T_errorString));
-	__self__.error = #if !macro function():GoString return (Go.str("integer divide by zero") : T_errorString).error() #else null #end;
-	__self__.runtimeError = #if !macro function():Void(Go.str("integer divide by zero"):T_errorString).runtimeError() #else null #end;
-	__self__;
-};
-
+/**
+	// 32 or 64
+**/
 private final _uintSize:GoUnTypedInt = (32 : GoUnTypedInt);
 
 /**
@@ -52,10 +50,27 @@ final uintSize:GoUnTypedInt = (32 : GoUnTypedInt);
 private final _deBruijn32:GoUnTypedInt = (125613361 : GoUnTypedInt);
 
 private final _deBruijn64:GoUnTypedInt = ("285870213051353865" : GoUnTypedInt);
+
+/**
+	// 01010101 ...
+**/
 private final _m0:GoUnTypedInt = ("6148914691236517205" : GoUnTypedInt);
+
+/**
+	// 00110011 ...
+**/
 private final _m1:GoUnTypedInt = ("3689348814741910323" : GoUnTypedInt);
+
+/**
+	// 00001111 ...
+**/
 private final _m2:GoUnTypedInt = ("1085102592571150095" : GoUnTypedInt);
+
+/**
+	// etc.
+**/
 private final _m3:GoUnTypedInt = ("71777214294589695" : GoUnTypedInt);
+
 private final _m4:GoUnTypedInt = ("281470681808895" : GoUnTypedInt);
 
 private final _ntz8tab:GoString = (Go.str("\x08", 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 5, 0, 1, 0, 2,
@@ -87,14 +102,7 @@ private final _len8tab:GoString = (Go.str(0, 1, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4,
 	"\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08") : GoString);
 
 final deBruijn64:GoUnTypedInt = ("285870213051353865" : GoUnTypedInt);
-
-/**
-	// Package bits implements bit counting and manipulation
-	// functions for the predeclared unsigned integer types.
-**/
-private var __go2hxdoc__package:Bool;
-
-@:named @:using(stdgo.math.bits.Bits.T_errorString_static_extension) typedef T_errorString = GoString;
+@:named @:using(stdgo.math.bits.Bits.T_errorString_static_extension) private typedef T_errorString = GoString;
 
 /**
 	// LeadingZeros returns the number of leading zero bits in x; the result is UintSize for x == 0.
@@ -803,6 +811,26 @@ function rem64(_hi:GoUInt64, _lo:GoUInt64, _y:GoUInt64):GoUInt64 {
 	return _rem;
 }
 
+private class T_errorString_asInterface {
+	@:keep
+	public function error():GoString
+		return __self__.error();
+
+	@:keep
+	public function runtimeError():Void
+		__self__.runtimeError();
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
+
+	public function __underlying__()
+		return Go.toInterface(__self__);
+
+	var __self__:T_errorString;
+}
+
 @:keep private class T_errorString_static_extension {
 	@:keep
 	static public function error(_e:T_errorString):GoString {
@@ -811,19 +839,4 @@ function rem64(_hi:GoUInt64, _lo:GoUInt64, _y:GoUInt64):GoUInt64 {
 
 	@:keep
 	static public function runtimeError(_e:T_errorString):Void {}
-}
-
-private class T_errorString_asInterface {
-	@:keep
-	public var error:() -> GoString = null;
-	@:keep
-	public var runtimeError:() -> Void = null;
-
-	public function new(__self__)
-		this.__self__ = __self__;
-
-	public function __underlying__()
-		return Go.toInterface(this);
-
-	var __self__:T_errorString;
 }

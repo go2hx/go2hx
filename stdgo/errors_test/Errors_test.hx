@@ -12,7 +12,7 @@ import stdgo.Chan;
 
 private var _poserPathErr:Ref<stdgo.io.fs.Fs.PathError> = ({op: (Go.str("poser") : GoString)} : stdgo.io.fs.Fs.PathError);
 
-@:local typedef T__interface_3 = StructType & {
+@:local private typedef T__interface_3 = StructType & {
 	public function timeout():Bool;
 };
 
@@ -108,13 +108,13 @@ private var _poserPathErr:Ref<stdgo.io.fs.Fs.PathError> = ({op: (Go.str("poser")
 	}
 }
 
-@:local typedef T__struct_0 = {
+@:local private typedef T__struct_0 = {
 	public var _err:stdgo.Error;
 	public var _target:stdgo.Error;
 	public var _match:Bool;
 };
 
-@:local typedef T__struct_1 = {
+@:local private typedef T__struct_1 = {
 	public var _err:stdgo.Error;
 	public var _target:AnyInterface;
 	public var _match:Bool;
@@ -125,7 +125,7 @@ private var _poserPathErr:Ref<stdgo.io.fs.Fs.PathError> = ({op: (Go.str("poser")
 	public var _want:AnyInterface;
 };
 
-@:local typedef T__struct_2 = {
+@:local private typedef T__struct_2 = {
 	public var _err:stdgo.Error;
 	public var _want:stdgo.Error;
 };
@@ -172,21 +172,12 @@ function exampleNew_errorf():Void {
 }
 
 function _oops():Error {
-	return {
-		final __self__ = new stdgo.errors_test.Errors_test.MyError_asInterface((new stdgo.errors_test.Errors_test.MyError((stdgo.time.Time.date((1989 : GoInt),
-			(3 : stdgo.time.Time.Month), (15 : GoInt), (22 : GoInt), (30 : GoInt), (0 : GoInt), (0 : GoInt),
-			stdgo.time.Time.utc) == null ? null : stdgo.time.Time.date((1989 : GoInt), (3 : stdgo.time.Time.Month), (15 : GoInt), (22 : GoInt), (30 : GoInt),
-				(0 : GoInt), (0 : GoInt), stdgo.time.Time.utc)
-			.__copy__()),
-			(Go.str("the file system has gone away") : GoString)) : stdgo.errors_test.Errors_test.MyError));
-		__self__.error = #if !macro function():GoString return (new stdgo.errors_test.Errors_test.MyError((stdgo.time.Time.date((1989 : GoInt),
-			(3 : stdgo.time.Time.Month), (15 : GoInt), (22 : GoInt), (30 : GoInt), (0 : GoInt), (0 : GoInt),
-			stdgo.time.Time.utc) == null ? null : stdgo.time.Time.date((1989 : GoInt), (3 : stdgo.time.Time.Month), (15 : GoInt), (22 : GoInt), (30 : GoInt),
-				(0 : GoInt), (0 : GoInt), stdgo.time.Time.utc)
-			.__copy__()),
-			(Go.str("the file system has gone away") : GoString)) : stdgo.errors_test.Errors_test.MyError).error() #else null #end;
-		__self__;
-	};
+	return Go.asInterface((new stdgo.errors_test.Errors_test.MyError((stdgo.time.Time.date((1989 : GoInt), (3 : stdgo.time.Time.Month), (15 : GoInt),
+		(22 : GoInt), (30 : GoInt), (0 : GoInt), (0 : GoInt),
+		stdgo.time.Time.utc) == null ? null : stdgo.time.Time.date((1989 : GoInt), (3 : stdgo.time.Time.Month), (15 : GoInt), (22 : GoInt), (30 : GoInt),
+			(0 : GoInt), (0 : GoInt), stdgo.time.Time.utc)
+		.__copy__()),
+		(Go.str("the file system has gone away") : GoString)) : stdgo.errors_test.Errors_test.MyError));
 }
 
 function example():Void {
@@ -202,198 +193,38 @@ function testIs(_t:stdgo.testing.Testing.T):Void {
 	var _err1:stdgo.Error = stdgo.errors.Errors.new_((Go.str("1") : GoString));
 	var _erra:stdgo.errors_test.Errors_test.T_wrapped = (new stdgo.errors_test.Errors_test.T_wrapped((Go.str("wrap 2") : GoString),
 		_err1) : stdgo.errors_test.Errors_test.T_wrapped);
-	var _errb:stdgo.errors_test.Errors_test.T_wrapped = (new stdgo.errors_test.Errors_test.T_wrapped((Go.str("wrap 3") : GoString), {
-		final __self__ = new stdgo.errors_test.Errors_test.T_wrapped_asInterface(_erra);
-		__self__.error = #if !macro function():GoString return _erra.error() #else null #end;
-		__self__.unwrap = #if !macro function():stdgo.Error return _erra.unwrap() #else null #end;
-		__self__;
-	}) : stdgo.errors_test.Errors_test.T_wrapped);
+	var _errb:stdgo.errors_test.Errors_test.T_wrapped = (new stdgo.errors_test.Errors_test.T_wrapped((Go.str("wrap 3") : GoString),
+		Go.asInterface(_erra)) : stdgo.errors_test.Errors_test.T_wrapped);
 	var _err3:stdgo.Error = stdgo.errors.Errors.new_((Go.str("3") : GoString));
 	var _poser = (new stdgo.errors_test.Errors_test.T_poser((Go.str("either 1 or 3") : GoString), function(_err:Error):Bool {
 		return (_err == _err1) || (_err == _err3);
 	}) : stdgo.errors_test.Errors_test.T_poser);
 	var _testCases = (new Slice<T__struct_0>(0, 0, ({_err: (null : stdgo.Error), _target: (null : stdgo.Error), _match: true} : T__struct_0),
-		({_err: _err1, _target: (null : stdgo.Error), _match: false} : T__struct_0), ({_err: _err1, _target: _err1, _match: true} : T__struct_0), ({
-			_err: {
-				final __self__ = new stdgo.errors_test.Errors_test.T_wrapped_asInterface(_erra);
-				__self__.error = #if !macro function():GoString return _erra.error() #else null #end;
-				__self__.unwrap = #if !macro function():stdgo.Error return _erra.unwrap() #else null #end;
-				__self__;
-			},
-			_target: _err1,
-			_match: true
-		} : T__struct_0), ({
-			_err: {
-				final __self__ = new stdgo.errors_test.Errors_test.T_wrapped_asInterface(_errb);
-				__self__.error = #if !macro function():GoString return _errb.error() #else null #end;
-				__self__.unwrap = #if !macro function():stdgo.Error return _errb.unwrap() #else null #end;
-				__self__;
-			},
-			_target: _err1,
-			_match: true
-		} : T__struct_0), ({_err: _err1, _target: _err3, _match: false} : T__struct_0), ({
-			_err: {
-				final __self__ = new stdgo.errors_test.Errors_test.T_wrapped_asInterface(_erra);
-				__self__.error = #if !macro function():GoString return _erra.error() #else null #end;
-				__self__.unwrap = #if !macro function():stdgo.Error return _erra.unwrap() #else null #end;
-				__self__;
-			},
-			_target: _err3,
-			_match: false
-		} : T__struct_0), ({
-			_err: {
-				final __self__ = new stdgo.errors_test.Errors_test.T_wrapped_asInterface(_errb);
-				__self__.error = #if !macro function():GoString return _errb.error() #else null #end;
-				__self__.unwrap = #if !macro function():stdgo.Error return _errb.unwrap() #else null #end;
-				__self__;
-			},
-			_target: _err3,
-			_match: false
-		} : T__struct_0), ({
-			_err: {
-				final __self__ = new stdgo.errors_test.Errors_test.T_poser_asInterface(_poser);
-				__self__.as = #if !macro function(_i:AnyInterface):Bool return _poser.as(_i) #else null #end;
-				__self__.error = #if !macro function():GoString return _poser.error() #else null #end;
-				__self__.is_ = #if !macro function(__0:stdgo.Error):Bool return _poser.is_(__0) #else null #end;
-				__self__;
-			},
-			_target: _err1,
-			_match: true
-		} : T__struct_0), ({
-			_err: {
-				final __self__ = new stdgo.errors_test.Errors_test.T_poser_asInterface(_poser);
-				__self__.as = #if !macro function(_i:AnyInterface):Bool return _poser.as(_i) #else null #end;
-				__self__.error = #if !macro function():GoString return _poser.error() #else null #end;
-				__self__.is_ = #if !macro function(__0:stdgo.Error):Bool return _poser.is_(__0) #else null #end;
-				__self__;
-			},
-			_target: _err3,
-			_match: true
-		} : T__struct_0), ({
-			_err: {
-				final __self__ = new stdgo.errors_test.Errors_test.T_poser_asInterface(_poser);
-				__self__.as = #if !macro function(_i:AnyInterface):Bool return _poser.as(_i) #else null #end;
-				__self__.error = #if !macro function():GoString return _poser.error() #else null #end;
-				__self__.is_ = #if !macro function(__0:stdgo.Error):Bool return _poser.is_(__0) #else null #end;
-				__self__;
-			},
-			_target: {
-				final __self__ = new stdgo.errors_test.Errors_test.T_wrapped_asInterface(_erra);
-				__self__.error = #if !macro function():GoString return _erra.error() #else null #end;
-				__self__.unwrap = #if !macro function():stdgo.Error return _erra.unwrap() #else null #end;
-				__self__;
-			},
-			_match: false
-		} : T__struct_0), ({
-			_err: {
-				final __self__ = new stdgo.errors_test.Errors_test.T_poser_asInterface(_poser);
-				__self__.as = #if !macro function(_i:AnyInterface):Bool return _poser.as(_i) #else null #end;
-				__self__.error = #if !macro function():GoString return _poser.error() #else null #end;
-				__self__.is_ = #if !macro function(__0:stdgo.Error):Bool return _poser.is_(__0) #else null #end;
-				__self__;
-			},
-			_target: {
-				final __self__ = new stdgo.errors_test.Errors_test.T_wrapped_asInterface(_errb);
-				__self__.error = #if !macro function():GoString return _errb.error() #else null #end;
-				__self__.unwrap = #if !macro function():stdgo.Error return _errb.unwrap() #else null #end;
-				__self__;
-			},
-			_match: false
-		} : T__struct_0), ({
-			_err: {
-				final __self__ = new stdgo.errors_test.Errors_test.T_errorUncomparable_asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable));
-				__self__.error = #if !macro function():GoString return
-					(new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable).error() #else null #end;
-				__self__.is_ = #if !macro function(__0:stdgo.Error):Bool return
-					(new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable).is_(__0) #else null #end;
-				__self__;
-			},
-			_target: {
-				final __self__ = new stdgo.errors_test.Errors_test.T_errorUncomparable_asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable));
-				__self__.error = #if !macro function():GoString return
-					(new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable).error() #else null #end;
-				__self__.is_ = #if !macro function(__0:stdgo.Error):Bool return
-					(new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable).is_(__0) #else null #end;
-				__self__;
-			},
-			_match: true
-		} : T__struct_0), ({
-			_err: {
-				final __self__ = new stdgo.errors_test.Errors_test.T_errorUncomparable_asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable));
-				__self__.error = #if !macro function():GoString return
-					(new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable).error() #else null #end;
-				__self__.is_ = #if !macro function(__0:stdgo.Error):Bool return
-					(new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable).is_(__0) #else null #end;
-				__self__;
-			},
-			_target: {
-				final __self__ = new stdgo.errors_test.Errors_test.T_errorUncomparable_asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable));
-				__self__.error = #if !macro function():GoString return
-					(new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable).error() #else null #end;
-				__self__.is_ = #if !macro function(__0:stdgo.Error):Bool return
-					(new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable).is_(__0) #else null #end;
-				__self__;
-			},
-			_match: false
-		} : T__struct_0), ({
-			_err: {
-				final __self__ = new stdgo.errors_test.Errors_test.T_errorUncomparable_asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable));
-				__self__.error = #if !macro function():GoString return
-					(new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable).error() #else null #end;
-				__self__.is_ = #if !macro function(__0:stdgo.Error):Bool return
-					(new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable).is_(__0) #else null #end;
-				__self__;
-			},
-			_target: {
-				final __self__ = new stdgo.errors_test.Errors_test.T_errorUncomparable_asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable));
-				__self__.error = #if !macro function():GoString return
-					(new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable).error() #else null #end;
-				__self__.is_ = #if !macro function(__0:stdgo.Error):Bool return
-					(new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable).is_(__0) #else null #end;
-				__self__;
-			},
-			_match: true
-		} : T__struct_0), ({
-			_err: {
-				final __self__ = new stdgo.errors_test.Errors_test.T_errorUncomparable_asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable));
-				__self__.error = #if !macro function():GoString return
-					(new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable).error() #else null #end;
-				__self__.is_ = #if !macro function(__0:stdgo.Error):Bool return
-					(new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable).is_(__0) #else null #end;
-				__self__;
-			},
-			_target: {
-				final __self__ = new stdgo.errors_test.Errors_test.T_errorUncomparable_asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable));
-				__self__.error = #if !macro function():GoString return
-					(new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable).error() #else null #end;
-				__self__.is_ = #if !macro function(__0:stdgo.Error):Bool return
-					(new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable).is_(__0) #else null #end;
-				__self__;
-			},
-			_match: false
-		} : T__struct_0), ({
-			_err: {
-				final __self__ = new stdgo.errors_test.Errors_test.T_errorUncomparable_asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable));
-				__self__.error = #if !macro function():GoString return
-					(new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable).error() #else null #end;
-				__self__.is_ = #if !macro function(__0:stdgo.Error):Bool return
-					(new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable).is_(__0) #else null #end;
-				__self__;
-			},
-			_target: _err1,
-			_match: false
-		} : T__struct_0), ({
-			_err: {
-				final __self__ = new stdgo.errors_test.Errors_test.T_errorUncomparable_asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable));
-				__self__.error = #if !macro function():GoString return
-					(new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable).error() #else null #end;
-				__self__.is_ = #if !macro function(__0:stdgo.Error):Bool return
-					(new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable).is_(__0) #else null #end;
-				__self__;
-			},
-			_target: _err1,
-			_match: false
-		} : T__struct_0)) : Slice<T__struct_0>);
+		({_err: _err1, _target: (null : stdgo.Error), _match: false} : T__struct_0), ({_err: _err1, _target: _err1, _match: true} : T__struct_0),
+		({_err: Go.asInterface(_erra), _target: _err1, _match: true} : T__struct_0),
+		({_err: Go.asInterface(_errb), _target: _err1, _match: true} : T__struct_0), ({_err: _err1, _target: _err3, _match: false} : T__struct_0),
+		({_err: Go.asInterface(_erra), _target: _err3, _match: false} : T__struct_0),
+		({_err: Go.asInterface(_errb), _target: _err3, _match: false} : T__struct_0),
+		({_err: Go.asInterface(_poser), _target: _err1, _match: true} : T__struct_0),
+		({_err: Go.asInterface(_poser), _target: _err3, _match: true} : T__struct_0),
+		({_err: Go.asInterface(_poser), _target: Go.asInterface(_erra), _match: false} : T__struct_0),
+		({_err: Go.asInterface(_poser), _target: Go.asInterface(_errb), _match: false} : T__struct_0),
+		({_err: Go.asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)),
+			_target: Go.asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)),
+			_match: true} : T__struct_0),
+		({_err: Go.asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)),
+			_target: Go.asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)),
+			_match: false} : T__struct_0),
+		({_err: Go.asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)),
+			_target: Go.asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)),
+			_match: true} : T__struct_0),
+		({_err: Go.asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)),
+			_target: Go.asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)),
+			_match: false} : T__struct_0),
+		({_err: Go.asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)), _target: _err1,
+			_match: false} : T__struct_0),
+		({_err: Go.asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)), _target: _err1,
+			_match: false} : T__struct_0)) : Slice<T__struct_0>);
 	for (_0 => _tc in _testCases) {
 		_t.run((Go.str() : GoString), function(_t:stdgo.testing.Testing.T):Void {
 			{
@@ -422,108 +253,39 @@ function testAs(_t:stdgo.testing.Testing.T):Void {
 		_match: false,
 		_want: (null : AnyInterface)
 	} : T__struct_1), ({
-		_err: {
-			final __self__ = new stdgo.errors_test.Errors_test.T_wrapped_asInterface((new stdgo.errors_test.Errors_test.T_wrapped((Go.str("pitied the fool") : GoString),
-				{
-				final __self__ = new stdgo.errors_test.Errors_test.T_errorT_asInterface((new stdgo.errors_test.Errors_test.T_errorT((Go.str("T") : GoString)) : stdgo.errors_test.Errors_test.T_errorT));
-				__self__.error = #if !macro function():GoString return
-						(new stdgo.errors_test.Errors_test.T_errorT((Go.str("T") : GoString)) : stdgo.errors_test.Errors_test.T_errorT)
-							.error() #else null #end;
-				__self__;
-			}) : stdgo.errors_test.Errors_test.T_wrapped));
-			__self__.error = #if !macro function():GoString return (new stdgo.errors_test.Errors_test.T_wrapped((Go.str("pitied the fool") : GoString), {
-				final __self__ = new stdgo.errors_test.Errors_test.T_errorT_asInterface((new stdgo.errors_test.Errors_test.T_errorT((Go.str("T") : GoString)) : stdgo.errors_test.Errors_test.T_errorT));
-				__self__.error = #if !macro function():GoString return
-					(new stdgo.errors_test.Errors_test.T_errorT((Go.str("T") : GoString)) : stdgo.errors_test.Errors_test.T_errorT).error() #else null #end;
-				__self__;
-			}) : stdgo.errors_test.Errors_test.T_wrapped).error() #else null #end;
-			__self__.unwrap = #if !macro function():stdgo.Error return (new stdgo.errors_test.Errors_test.T_wrapped((Go.str("pitied the fool") : GoString), {
-				final __self__ = new stdgo.errors_test.Errors_test.T_errorT_asInterface((new stdgo.errors_test.Errors_test.T_errorT((Go.str("T") : GoString)) : stdgo.errors_test.Errors_test.T_errorT));
-				__self__.error = #if !macro function():GoString return
-					(new stdgo.errors_test.Errors_test.T_errorT((Go.str("T") : GoString)) : stdgo.errors_test.Errors_test.T_errorT).error() #else null #end;
-				__self__;
-			}) : stdgo.errors_test.Errors_test.T_wrapped).unwrap() #else null #end;
-			__self__;
-		},
+		_err: Go.asInterface((new stdgo.errors_test.Errors_test.T_wrapped((Go.str("pitied the fool") : GoString),
+			Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT((Go.str("T") : GoString)) : stdgo.errors_test.Errors_test.T_errorT))) : stdgo.errors_test.Errors_test.T_wrapped)),
 		_target: Go.toInterface(_errT),
 		_match: true,
-		_want: Go.toInterface({
-			final __self__ = new stdgo.errors_test.Errors_test.T_errorT_asInterface((new stdgo.errors_test.Errors_test.T_errorT((Go.str("T") : GoString)) : stdgo.errors_test.Errors_test.T_errorT));
-			__self__.error = #if !macro function():GoString return
-				(new stdgo.errors_test.Errors_test.T_errorT((Go.str("T") : GoString)) : stdgo.errors_test.Errors_test.T_errorT).error() #else null #end;
-			__self__;
-		})
+		_want: Go.toInterface(Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT((Go.str("T") : GoString)) : stdgo.errors_test.Errors_test.T_errorT)))
 		} : T__struct_1), ({
 		_err: _errF,
 		_target: Go.toInterface(_errP),
 		_match: true,
 		_want: Go.toInterface(_errF)
 		} : T__struct_1), ({
-		_err: {
-			final __self__ = new stdgo.errors_test.Errors_test.T_errorT_asInterface((new stdgo.errors_test.Errors_test.T_errorT() : stdgo.errors_test.Errors_test.T_errorT));
-			__self__.error = #if !macro function():GoString return (new stdgo.errors_test.Errors_test.T_errorT() : stdgo.errors_test.Errors_test.T_errorT)
-				.error() #else null #end;
-			__self__;
-		},
+		_err: Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT() : stdgo.errors_test.Errors_test.T_errorT)),
 		_target: Go.toInterface(_errP),
 		_match: false,
 		_want: (null : AnyInterface)
 		} : T__struct_1), ({
-		_err: {
-			final __self__ = new stdgo.errors_test.Errors_test.T_wrapped_asInterface((new stdgo.errors_test.Errors_test.T_wrapped((Go.str("wrapped") : GoString),
-				(null : stdgo.Error)) : stdgo.errors_test.Errors_test.T_wrapped));
-			__self__.error = #if !macro function():GoString return (new stdgo.errors_test.Errors_test.T_wrapped((Go.str("wrapped") : GoString),
-				(null : stdgo.Error)) : stdgo.errors_test.Errors_test.T_wrapped).error() #else null #end;
-			__self__.unwrap = #if !macro function():stdgo.Error return (new stdgo.errors_test.Errors_test.T_wrapped((Go.str("wrapped") : GoString),
-				(null : stdgo.Error)) : stdgo.errors_test.Errors_test.T_wrapped).unwrap() #else null #end;
-			__self__;
-		},
+		_err: Go.asInterface((new stdgo.errors_test.Errors_test.T_wrapped((Go.str("wrapped") : GoString),
+			(null : stdgo.Error)) : stdgo.errors_test.Errors_test.T_wrapped)),
 		_target: Go.toInterface(_errT),
 		_match: false,
 		_want: (null : AnyInterface)
 		} : T__struct_1), ({
-		_err: {
-			final __self__ = new stdgo.errors_test.Errors_test.T_poser_asInterface((new stdgo.errors_test.Errors_test.T_poser((Go.str("error") : GoString),
-				null) : stdgo.errors_test.Errors_test.T_poser));
-			__self__.as = #if !macro function(_i:AnyInterface):Bool return (new stdgo.errors_test.Errors_test.T_poser((Go.str("error") : GoString),
-				null) : stdgo.errors_test.Errors_test.T_poser).as(_i) #else null #end;
-			__self__.error = #if !macro function():GoString return (new stdgo.errors_test.Errors_test.T_poser((Go.str("error") : GoString),
-				null) : stdgo.errors_test.Errors_test.T_poser).error() #else null #end;
-			__self__.is_ = #if !macro function(__0:stdgo.Error):Bool return (new stdgo.errors_test.Errors_test.T_poser((Go.str("error") : GoString),
-				null) : stdgo.errors_test.Errors_test.T_poser).is_(__0) #else null #end;
-			__self__;
-		},
+		_err: Go.asInterface((new stdgo.errors_test.Errors_test.T_poser((Go.str("error") : GoString), null) : stdgo.errors_test.Errors_test.T_poser)),
 		_target: Go.toInterface(_errT),
 		_match: true,
-		_want: Go.toInterface({
-			final __self__ = new stdgo.errors_test.Errors_test.T_errorT_asInterface((new stdgo.errors_test.Errors_test.T_errorT((Go.str("poser") : GoString)) : stdgo.errors_test.Errors_test.T_errorT));
-			__self__.error = #if !macro function():GoString return
-				(new stdgo.errors_test.Errors_test.T_errorT((Go.str("poser") : GoString)) : stdgo.errors_test.Errors_test.T_errorT).error() #else null #end;
-			__self__;
-		})
+		_want: Go.toInterface(Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT((Go.str("poser") : GoString)) : stdgo.errors_test.Errors_test.T_errorT)))
 		} : T__struct_1), ({
-		_err: {
-			final __self__ = new stdgo.errors_test.Errors_test.T_poser_asInterface((new stdgo.errors_test.Errors_test.T_poser((Go.str("path") : GoString),
-				null) : stdgo.errors_test.Errors_test.T_poser));
-			__self__.as = #if !macro function(_i:AnyInterface):Bool return (new stdgo.errors_test.Errors_test.T_poser((Go.str("path") : GoString),
-				null) : stdgo.errors_test.Errors_test.T_poser).as(_i) #else null #end;
-			__self__.error = #if !macro function():GoString return (new stdgo.errors_test.Errors_test.T_poser((Go.str("path") : GoString),
-				null) : stdgo.errors_test.Errors_test.T_poser).error() #else null #end;
-			__self__.is_ = #if !macro function(__0:stdgo.Error):Bool return (new stdgo.errors_test.Errors_test.T_poser((Go.str("path") : GoString),
-				null) : stdgo.errors_test.Errors_test.T_poser).is_(__0) #else null #end;
-			__self__;
-		},
+		_err: Go.asInterface((new stdgo.errors_test.Errors_test.T_poser((Go.str("path") : GoString), null) : stdgo.errors_test.Errors_test.T_poser)),
 		_target: Go.toInterface(_errP),
 		_match: true,
 		_want: Go.toInterface(_poserPathErr)
 		} : T__struct_1), ({
-		_err: {
-			final __self__ = new stdgo.errors_test.Errors_test.T_poser_asInterface(_poserErr);
-			__self__.as = #if !macro function(_i:AnyInterface):Bool return _poserErr.as(_i) #else null #end;
-			__self__.error = #if !macro function():GoString return _poserErr.error() #else null #end;
-			__self__.is_ = #if !macro function(__0:stdgo.Error):Bool return _poserErr.is_(__0) #else null #end;
-			__self__;
-		},
+		_err: Go.asInterface(_poserErr),
 		_target: Go.toInterface(_p),
 		_match: true,
 		_want: Go.toInterface(_poserErr)
@@ -538,15 +300,8 @@ function testAs(_t:stdgo.testing.Testing.T):Void {
 		_match: true,
 		_want: Go.toInterface(_errF)
 		} : T__struct_1), ({
-		_err: {
-			final __self__ = new stdgo.errors_test.Errors_test.T_wrapped_asInterface((new stdgo.errors_test.Errors_test.T_wrapped((Go.str("path error") : GoString),
-				_errF) : stdgo.errors_test.Errors_test.T_wrapped));
-			__self__.error = #if !macro function():GoString return (new stdgo.errors_test.Errors_test.T_wrapped((Go.str("path error") : GoString),
-				_errF) : stdgo.errors_test.Errors_test.T_wrapped).error() #else null #end;
-			__self__.unwrap = #if !macro function():stdgo.Error return (new stdgo.errors_test.Errors_test.T_wrapped((Go.str("path error") : GoString),
-				_errF) : stdgo.errors_test.Errors_test.T_wrapped).unwrap() #else null #end;
-			__self__;
-		},
+		_err: Go.asInterface((new stdgo.errors_test.Errors_test.T_wrapped((Go.str("path error") : GoString),
+			_errF) : stdgo.errors_test.Errors_test.T_wrapped)),
 		_target: Go.toInterface(_timeout),
 		_match: true,
 		_want: Go.toInterface(_errF)
@@ -636,55 +391,12 @@ function testUnwrap(_t:stdgo.testing.Testing.T):Void {
 	var _err1:stdgo.Error = stdgo.errors.Errors.new_((Go.str("1") : GoString));
 	var _erra:stdgo.errors_test.Errors_test.T_wrapped = (new stdgo.errors_test.Errors_test.T_wrapped((Go.str("wrap 2") : GoString),
 		_err1) : stdgo.errors_test.Errors_test.T_wrapped);
-	var _testCases = (new Slice<T__struct_2>(0, 0, ({_err: (null : stdgo.Error), _want: (null : stdgo.Error)} : T__struct_2), ({
-		_err: {
-			final __self__ = new stdgo.errors_test.Errors_test.T_wrapped_asInterface((new stdgo.errors_test.Errors_test.T_wrapped((Go.str("wrapped") : GoString),
-				(null : stdgo.Error)) : stdgo.errors_test.Errors_test.T_wrapped));
-			__self__.error = #if !macro function():GoString return (new stdgo.errors_test.Errors_test.T_wrapped((Go.str("wrapped") : GoString),
-				(null : stdgo.Error)) : stdgo.errors_test.Errors_test.T_wrapped).error() #else null #end;
-			__self__.unwrap = #if !macro function():stdgo.Error return (new stdgo.errors_test.Errors_test.T_wrapped((Go.str("wrapped") : GoString),
-				(null : stdgo.Error)) : stdgo.errors_test.Errors_test.T_wrapped).unwrap() #else null #end;
-			__self__;
-		},
-		_want: (null : stdgo.Error)
-	} : T__struct_2), ({_err: _err1, _want: (null : stdgo.Error)} : T__struct_2), ({
-		_err: {
-			final __self__ = new stdgo.errors_test.Errors_test.T_wrapped_asInterface(_erra);
-			__self__.error = #if !macro function():GoString return _erra.error() #else null #end;
-			__self__.unwrap = #if !macro function():stdgo.Error return _erra.unwrap() #else null #end;
-			__self__;
-		},
-		_want: _err1
-		} : T__struct_2), ({
-		_err: {
-			final __self__ = new stdgo.errors_test.Errors_test.T_wrapped_asInterface((new stdgo.errors_test.Errors_test.T_wrapped((Go.str("wrap 3") : GoString),
-				{
-				final __self__ = new stdgo.errors_test.Errors_test.T_wrapped_asInterface(_erra);
-				__self__.error = #if !macro function():GoString return _erra.error() #else null #end;
-				__self__.unwrap = #if !macro function():stdgo.Error return _erra.unwrap() #else null #end;
-				__self__;
-			}) : stdgo.errors_test.Errors_test.T_wrapped));
-			__self__.error = #if !macro function():GoString return (new stdgo.errors_test.Errors_test.T_wrapped((Go.str("wrap 3") : GoString), {
-				final __self__ = new stdgo.errors_test.Errors_test.T_wrapped_asInterface(_erra);
-				__self__.error = #if !macro function():GoString return _erra.error() #else null #end;
-				__self__.unwrap = #if !macro function():stdgo.Error return _erra.unwrap() #else null #end;
-				__self__;
-			}) : stdgo.errors_test.Errors_test.T_wrapped).error() #else null #end;
-			__self__.unwrap = #if !macro function():stdgo.Error return (new stdgo.errors_test.Errors_test.T_wrapped((Go.str("wrap 3") : GoString), {
-				final __self__ = new stdgo.errors_test.Errors_test.T_wrapped_asInterface(_erra);
-				__self__.error = #if !macro function():GoString return _erra.error() #else null #end;
-				__self__.unwrap = #if !macro function():stdgo.Error return _erra.unwrap() #else null #end;
-				__self__;
-			}) : stdgo.errors_test.Errors_test.T_wrapped).unwrap() #else null #end;
-			__self__;
-		},
-		_want: {
-			final __self__ = new stdgo.errors_test.Errors_test.T_wrapped_asInterface(_erra);
-			__self__.error = #if !macro function():GoString return _erra.error() #else null #end;
-			__self__.unwrap = #if !macro function():stdgo.Error return _erra.unwrap() #else null #end;
-			__self__;
-		}
-		} : T__struct_2)) : Slice<T__struct_2>);
+	var _testCases = (new Slice<T__struct_2>(0, 0, ({_err: (null : stdgo.Error), _want: (null : stdgo.Error)} : T__struct_2),
+		({_err: Go.asInterface((new stdgo.errors_test.Errors_test.T_wrapped((Go.str("wrapped") : GoString),
+			(null : stdgo.Error)) : stdgo.errors_test.Errors_test.T_wrapped)), _want: (null : stdgo.Error)} : T__struct_2),
+		({_err: _err1, _want: (null : stdgo.Error)} : T__struct_2), ({_err: Go.asInterface(_erra), _want: _err1} : T__struct_2),
+		({_err: Go.asInterface((new stdgo.errors_test.Errors_test.T_wrapped((Go.str("wrap 3") : GoString),
+			Go.asInterface(_erra)) : stdgo.errors_test.Errors_test.T_wrapped)), _want: Go.asInterface(_erra)} : T__struct_2)) : Slice<T__struct_2>);
 	for (_0 => _tc in _testCases) {
 		{
 			var _got:stdgo.Error = stdgo.errors.Errors.unwrap(_tc._err);
@@ -733,100 +445,51 @@ function exampleUnwrap():Void {
 	stdgo.fmt.Fmt.println(stdgo.errors.Errors.unwrap(_err2));
 }
 
+class MyError_asInterface {
+	@:keep
+	public function error():GoString
+		return __self__.error();
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
+
+	public function __underlying__()
+		return Go.toInterface(__self__);
+
+	var __self__:MyError;
+}
+
 @:keep private class MyError_static_extension {
 	@:keep
 	static public function error(_e:MyError):GoString {
-		return stdgo.fmt.Fmt.sprintf((Go.str("%v: %v") : GoString), Go.toInterface({
-			final __self__ = new stdgo.time.Time.Time_asInterface(_e.when);
-			__self__.add = #if !macro function(_d:stdgo.time.Time.Duration):stdgo.time.Time.Time return _e.when.add(_d) #else null #end;
-			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-					_days:GoInt):stdgo.time.Time.Time return _e.when.addDate(_years, _months, _days) #else null #end;
-			__self__.after = #if !macro function(__0:stdgo.time.Time.Time):Bool return _e.when.after(__0) #else null #end;
-			__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-					_layout:GoString):Slice<GoUInt8> return _e.when.appendFormat(_b, _layout) #else null #end;
-			__self__.before = #if !macro function(__0:stdgo.time.Time.Time):Bool return _e.when.before(__0) #else null #end;
-			__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-				return _e.when.clock() #else null #end;
-			__self__.date = #if !macro function():{var _0:GoInt; var _1:stdgo.time.Time.Month; var _2:GoInt;}
-				return _e.when.date() #else null #end;
-			__self__.day = #if !macro function():GoInt return _e.when.day() #else null #end;
-			__self__.equal = #if !macro function(__0:stdgo.time.Time.Time):Bool return _e.when.equal(__0) #else null #end;
-			__self__.format = #if !macro function(_text:GoString):GoString return _e.when.format(_text) #else null #end;
-			__self__.goString = #if !macro function():GoString return _e.when.goString() #else null #end;
-			__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _e.when.gobDecode(__0) #else null #end;
-			__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _e.when.gobEncode() #else null #end;
-			__self__.hour = #if !macro function():GoInt return _e.when.hour() #else null #end;
-			__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-				return _e.when.isoweek() #else null #end;
-			__self__.in_ = #if !macro function(_loc:Ref<stdgo.time.Time.Location>):stdgo.time.Time.Time return _e.when.in_(_loc) #else null #end;
-			__self__.isDST = #if !macro function():Bool return _e.when.isDST() #else null #end;
-			__self__.isZero = #if !macro function():Bool return _e.when.isZero() #else null #end;
-			__self__.local = #if !macro function():stdgo.time.Time.Time return _e.when.local() #else null #end;
-			__self__.location = #if !macro function():Ref<stdgo.time.Time.Location> return _e.when.location() #else null #end;
-			__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _e.when.marshalBinary() #else null #end;
-			__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _e.when.marshalJSON() #else null #end;
-			__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _e.when.marshalText() #else null #end;
-			__self__.minute = #if !macro function():GoInt return _e.when.minute() #else null #end;
-			__self__.month = #if !macro function():stdgo.time.Time.Month return _e.when.month() #else null #end;
-			__self__.nanosecond = #if !macro function():GoInt return _e.when.nanosecond() #else null #end;
-			__self__.round = #if !macro function(_d:stdgo.time.Time.Duration):stdgo.time.Time.Time return _e.when.round(_d) #else null #end;
-			__self__.second = #if !macro function():GoInt return _e.when.second() #else null #end;
-			__self__.string = #if !macro function():GoString return _e.when.string() #else null #end;
-			__self__.sub = #if !macro function(__0:stdgo.time.Time.Time):stdgo.time.Time.Duration return _e.when.sub(__0) #else null #end;
-			__self__.truncate = #if !macro function(_d:stdgo.time.Time.Duration):stdgo.time.Time.Time return _e.when.truncate(_d) #else null #end;
-			__self__.utc = #if !macro function():stdgo.time.Time.Time return _e.when.utc() #else null #end;
-			__self__.unix = #if !macro function():GoInt64 return _e.when.unix() #else null #end;
-			__self__.unixMicro = #if !macro function():GoInt64 return _e.when.unixMicro() #else null #end;
-			__self__.unixMilli = #if !macro function():GoInt64 return _e.when.unixMilli() #else null #end;
-			__self__.unixNano = #if !macro function():GoInt64 return _e.when.unixNano() #else null #end;
-			__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _e.when.unmarshalBinary(__0) #else null #end;
-			__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _e.when.unmarshalJSON(__0) #else null #end;
-			__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _e.when.unmarshalText(__0) #else null #end;
-			__self__.weekday = #if !macro function():stdgo.time.Time.Weekday return _e.when.weekday() #else null #end;
-			__self__.year = #if !macro function():GoInt return _e.when.year() #else null #end;
-			__self__.yearDay = #if !macro function():GoInt return _e.when.yearDay() #else null #end;
-			__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-				return _e.when.zone() #else null #end;
-			__self__.zoneBounds = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:stdgo.time.Time.Time;}
-				return _e.when.zoneBounds() #else null #end;
-			__self__._abs = #if !macro function():GoUInt64 return _e.when._abs() #else null #end;
-			__self__._addSec = #if !macro function(__0:GoInt64):Void _e.when._addSec(__0) #else null #end;
-			__self__._date = #if !macro function(__0:Bool):{
-				var _0:GoInt;
-				var _1:stdgo.time.Time.Month;
-				var _2:GoInt;
-				var _3:GoInt;
-			}
-				return _e.when._date(__0) #else null #end;
-			__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-				return _e.when._locabs() #else null #end;
-			__self__._mono = #if !macro function():GoInt64 return _e.when._mono() #else null #end;
-			__self__._nsec = #if !macro function():GoInt32 return _e.when._nsec() #else null #end;
-			__self__._sec = #if !macro function():GoInt64 return _e.when._sec() #else null #end;
-			__self__._setLoc = #if !macro function(_loc:Ref<stdgo.time.Time.Location>):Void _e.when._setLoc(_loc) #else null #end;
-			__self__._setMono = #if !macro function(__0:GoInt64):Void _e.when._setMono(__0) #else null #end;
-			__self__._stripMono = #if !macro function():Void _e.when._stripMono() #else null #end;
-			__self__._unixSec = #if !macro function():GoInt64 return _e.when._unixSec() #else null #end;
-			__self__;
-		}), Go.toInterface(_e.what));
+		return stdgo.fmt.Fmt.sprintf((Go.str("%v: %v") : GoString), Go.toInterface(Go.asInterface(_e.when)), Go.toInterface(_e.what));
 	}
 }
 
-class MyError_asInterface {
+private class T_poser_asInterface {
 	@:keep
-	public var error:() -> GoString = null;
+	public function as(_err:AnyInterface):Bool
+		return __self__.as(_err);
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	@:keep
+	public function is_(_err:Error):Bool
+		return __self__.is_(_err);
+
+	@:keep
+	public function error():GoString
+		return __self__.error();
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:MyError;
+	var __self__:T_poser;
 }
 
 @:keep private class T_poser_static_extension {
@@ -865,21 +528,20 @@ class MyError_asInterface {
 	}
 }
 
-private class T_poser_asInterface {
+private class T_errorT_asInterface {
 	@:keep
-	public var as:AnyInterface->Bool = null;
-	@:keep
-	public var is_:Error->Bool = null;
-	@:keep
-	public var error:() -> GoString = null;
+	public function error():GoString
+		return __self__.error();
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:T_poser;
+	var __self__:T_errorT;
 }
 
 @:keep private class T_errorT_static_extension {
@@ -889,17 +551,24 @@ private class T_poser_asInterface {
 	}
 }
 
-private class T_errorT_asInterface {
+private class T_wrapped_asInterface {
 	@:keep
-	public var error:() -> GoString = null;
+	public function unwrap():Error
+		return __self__.unwrap();
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	@:keep
+	public function error():GoString
+		return __self__.error();
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:T_errorT;
+	var __self__:T_wrapped;
 }
 
 @:keep private class T_wrapped_static_extension {
@@ -914,19 +583,24 @@ private class T_errorT_asInterface {
 	}
 }
 
-private class T_wrapped_asInterface {
+private class T_errorUncomparable_asInterface {
 	@:keep
-	public var unwrap:() -> Error = null;
-	@:keep
-	public var error:() -> GoString = null;
+	public function is_(_target:Error):Bool
+		return __self__.is_(_target);
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	@:keep
+	public function error():GoString
+		return __self__.error();
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:T_wrapped;
+	var __self__:T_errorUncomparable;
 }
 
 @:keep private class T_errorUncomparable_static_extension {
@@ -944,19 +618,4 @@ private class T_wrapped_asInterface {
 	static public function error(_:T_errorUncomparable):GoString {
 		return (Go.str("uncomparable error") : GoString);
 	}
-}
-
-private class T_errorUncomparable_asInterface {
-	@:keep
-	public var is_:Error->Bool = null;
-	@:keep
-	public var error:() -> GoString = null;
-
-	public function new(__self__)
-		this.__self__ = __self__;
-
-	public function __underlying__()
-		return Go.toInterface(this);
-
-	var __self__:T_errorUncomparable;
 }

@@ -11,6 +11,31 @@ import stdgo.GoMap;
 import stdgo.Chan;
 
 /**
+	// Package syscall contains an interface to the low-level operating system
+	// primitives. The details vary depending on the underlying system, and
+	// by default, godoc will display the syscall documentation for the current
+	// system. If you want godoc to display syscall documentation for another
+	// system, set $GOOS and $GOARCH to the desired system. For example, if
+	// you want to view documentation for freebsd/arm on linux/amd64, set $GOOS
+	// to freebsd and $GOARCH to arm.
+	// The primary use of syscall is inside other packages that provide a more
+	// portable interface to the system, such as "os", "time" and "net".  Use
+	// those packages rather than this one if you can.
+	// For details of the functions and data types in this package consult
+	// the manuals for the appropriate operating system.
+	// These calls return err == nil to indicate success; otherwise
+	// err is an operating system error describing the failure.
+	// On most systems, that error has type syscall.Errno.
+	//
+	// Deprecated: this package is locked down. Callers should use the
+	// corresponding package in the golang.org/x/sys repository instead.
+	// That is also where updates required by new systems or versions
+	// should be applied. See https://golang.org/s/go1.4-syscall for more
+	// information.
+**/
+private var __go2hxdoc__package:Bool;
+
+/**
 	// envs is provided by the runtime. elements are expected to
 	// be of the form "key=value". An empty string means deleted
 	// (or a duplicate to be ignored).
@@ -103,7 +128,7 @@ private final _1:GoUnTypedInt = (0 : GoUnTypedInt);
 final f_DUPFD_CLOEXEC = null;
 
 /**
-	// Misc constants expected by package net but not supported.
+	// unsupported// Misc constants expected by package net but not supported.
 **/
 final sys_FCNTL:GoUnTypedInt = (0 : GoUnTypedInt);
 
@@ -939,408 +964,408 @@ private final _sys_utimes:GoUnTypedInt = (0 : GoUnTypedInt);
 private final _sys_get_random_bytes:GoUnTypedInt = (0 : GoUnTypedInt);
 
 /**
-	// native_client/src/trusted/service_runtime/include/sys/errno.h
+	/|* Operation not permitted *|/// native_client/src/trusted/service_runtime/include/sys/errno.h
 	// The errors are mainly copied from Linux.
 **/
 final eperm:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* No such file or directory *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enoent:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* No such process *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final esrch:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Interrupted system call *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final eintr:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* I/O error *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final eio:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* No such device or address *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enxio:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Argument list too long *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final e2big:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Exec format error *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enoexec:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Bad file number *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final ebadf:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* No child processes *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final echild:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Try again *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final eagain:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Out of memory *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enomem:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Permission denied *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final eacces:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Bad address *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final efault:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Device or resource busy *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final ebusy:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* File exists *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final eexist:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Cross-device link *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final exdev:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* No such device *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enodev:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Not a directory *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enotdir:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Is a directory *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final eisdir:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Invalid argument *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final einval:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* File table overflow *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enfile:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Too many open files *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final emfile:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Not a typewriter *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enotty:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* File too large *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final efbig:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* No space left on device *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enospc:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Illegal seek *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final espipe:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Read-only file system *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final erofs:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Too many links *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final emlink:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Broken pipe *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final epipe:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* File name too long *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enametoolong:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Function not implemented *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enosys:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Quota exceeded *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final edquot:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Math arg out of domain of func *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final edom:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Math result not representable *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final erange:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Deadlock condition *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final edeadlk:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* No record locks available *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enolck:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Directory not empty *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enotempty:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Too many symbolic links *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final eloop:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* No message of desired type *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enomsg:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Identifier removed *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final eidrm:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Channel number out of range *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final echrng:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Level 2 not synchronized *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final el2nsync:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Level 3 halted *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final el3hlt:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Level 3 reset *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final el3rst:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Link number out of range *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final elnrng:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Protocol driver not attached *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final eunatch:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* No CSI structure available *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enocsi:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Level 2 halted *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final el2hlt:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Invalid exchange *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final ebade:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Invalid request descriptor *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final ebadr:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Exchange full *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final exfull:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* No anode *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enoano:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Invalid request code *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final ebadrqc:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Invalid slot *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final ebadslt:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* File locking deadlock error *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final edeadlock:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Bad font file fmt *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final ebfont:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Device not a stream *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enostr:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* No data (for no delay io) *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enodata:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Timer expired *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final etime:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Out of streams resources *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enosr:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Machine is not on the network *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enonet:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Package not installed *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enopkg:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* The object is remote *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final eremote:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* The link has been severed *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enolink:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Advertise error *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final eadv:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Srmount error *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final esrmnt:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Communication error on send *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final ecomm:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Protocol error *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final eproto:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Multihop attempted *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final emultihop:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Cross mount point (not really error) *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final edotdot:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Trying to read unreadable message *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final ebadmsg:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Value too large for defined data type *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final eoverflow:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Given log. name not unique *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enotuniq:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* f.d. invalid for this operation *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final ebadfd:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Remote address changed *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final eremchg:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Can't access a needed shared lib *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final elibacc:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Accessing a corrupted shared lib *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final elibbad:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* .lib section in a.out corrupted *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final elibscn:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Attempting to link in too many libs *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final elibmax:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Attempting to exec a shared library *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final elibexec:Errno = ((0 : GoUIntptr) : Errno);
 
@@ -1355,72 +1380,72 @@ final eilseq:Errno = ((0 : GoUIntptr) : Errno);
 final eusers:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Socket operation on non-socket *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enotsock:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Destination address required *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final edestaddrreq:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Message too long *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final emsgsize:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Protocol wrong type for socket *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final eprototype:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Protocol not available *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enoprotoopt:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Unknown protocol *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final eprotonosupport:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Socket type not supported *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final esocktnosupport:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Operation not supported on transport endpoint *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final eopnotsupp:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Protocol family not supported *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final epfnosupport:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Address family not supported by protocol family *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final eafnosupport:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Address already in use *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final eaddrinuse:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Address not available *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final eaddrnotavail:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Network interface is not configured *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enetdown:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Network is unreachable *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enetunreach:Errno = ((0 : GoUIntptr) : Errno);
 
@@ -1430,32 +1455,32 @@ final enetunreach:Errno = ((0 : GoUIntptr) : Errno);
 final enetreset:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Connection aborted *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final econnaborted:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Connection reset by peer *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final econnreset:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* No buffer space available *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enobufs:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Socket is already connected *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final eisconn:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Socket is not connected *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enotconn:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Can't send after socket shutdown *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final eshutdown:Errno = ((0 : GoUIntptr) : Errno);
 
@@ -1465,32 +1490,32 @@ final eshutdown:Errno = ((0 : GoUIntptr) : Errno);
 final etoomanyrefs:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Connection timed out *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final etimedout:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Connection refused *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final econnrefused:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Host is down *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final ehostdown:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Host is unreachable *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final ehostunreach:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Socket already connected *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final ealready:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Connection already in progress *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final einprogress:Errno = ((0 : GoUIntptr) : Errno);
 
@@ -1500,32 +1525,32 @@ final einprogress:Errno = ((0 : GoUIntptr) : Errno);
 final estale:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Not supported *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enotsup:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* No medium (in tape drive) *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enomedium:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Operation canceled. *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final ecanceled:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Inode is remote (not really error) *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final elbin:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Inappropriate file type or format *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final eftype:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* No more files *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enmfile:Errno = ((0 : GoUIntptr) : Errno);
 
@@ -1535,46 +1560,21 @@ final enmfile:Errno = ((0 : GoUIntptr) : Errno);
 final eproclim:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* No such host or network path *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final enoshare:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Filename exists with different case *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final ecaseclash:Errno = ((0 : GoUIntptr) : Errno);
 
 /**
-	// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
+	/|* Operation would block *|/// TODO: Auto-generate some day. (Hard-coded in binaries so not likely to change.)
 **/
 final ewouldblock:Errno = ((0 : GoUIntptr) : Errno);
 
 private final _faketime = null;
-
-/**
-	// Package syscall contains an interface to the low-level operating system
-	// primitives. The details vary depending on the underlying system, and
-	// by default, godoc will display the syscall documentation for the current
-	// system. If you want godoc to display syscall documentation for another
-	// system, set $GOOS and $GOARCH to the desired system. For example, if
-	// you want to view documentation for freebsd/arm on linux/amd64, set $GOOS
-	// to freebsd and $GOARCH to arm.
-	// The primary use of syscall is inside other packages that provide a more
-	// portable interface to the system, such as "os", "time" and "net".  Use
-	// those packages rather than this one if you can.
-	// For details of the functions and data types in this package consult
-	// the manuals for the appropriate operating system.
-	// These calls return err == nil to indicate success; otherwise
-	// err is an operating system error describing the failure.
-	// On most systems, that error has type syscall.Errno.
-	//
-	// Deprecated: this package is locked down. Callers should use the
-	// corresponding package in the golang.org/x/sys repository instead.
-	// That is also where updates required by new systems or versions
-	// should be applied. See https://golang.org/s/go1.4-syscall for more
-	// information.
-**/
-private var __go2hxdoc__package:Bool;
 
 /**
 	// A RawConn is a raw network connection.
@@ -2329,6 +2329,32 @@ function timevalToNsec(_tv:Timeval):GoInt64
 function nsecToTimeval(_nsec:GoInt64):Timeval
 	throw "syscall.nsecToTimeval is not yet implemented";
 
+class Timespec_asInterface {
+	/**
+		// Nano returns the time stored in ts as nanoseconds.
+	**/
+	@:keep
+	public function nano():GoInt64
+		return __self__.nano();
+
+	/**
+		// Unix returns the time stored in ts as seconds plus nanoseconds.
+	**/
+	@:keep
+	public function unix():{var _0:GoInt64; var _1:GoInt64;}
+		return __self__.unix();
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
+
+	public function __underlying__()
+		return Go.toInterface(__self__);
+
+	var __self__:Timespec;
+}
+
 @:keep private class Timespec_static_extension {
 	/**
 		// Nano returns the time stored in ts as nanoseconds.
@@ -2345,29 +2371,30 @@ function nsecToTimeval(_nsec:GoInt64):Timeval
 		throw "syscall.unix is not yet implemented";
 }
 
-class Timespec_asInterface {
+class Timeval_asInterface {
 	/**
-		// Nano returns the time stored in ts as nanoseconds.
+		// Nano returns the time stored in tv as nanoseconds.
 	**/
 	@:keep
-	public var nano:() -> GoInt64 = null;
+	public function nano():GoInt64
+		return __self__.nano();
 
 	/**
-		// Unix returns the time stored in ts as seconds plus nanoseconds.
+		// Unix returns the time stored in tv as seconds plus nanoseconds.
 	**/
 	@:keep
-	public var unix:() -> {
-		var _0:GoInt64;
-		var _1:GoInt64;
-	} = null;
+	public function unix():{var _0:GoInt64; var _1:GoInt64;}
+		return __self__.unix();
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:Timespec;
+	var __self__:Timeval;
 }
 
 @:keep private class Timeval_static_extension {
@@ -2386,29 +2413,32 @@ class Timespec_asInterface {
 		throw "syscall.unix is not yet implemented";
 }
 
-class Timeval_asInterface {
-	/**
-		// Nano returns the time stored in tv as nanoseconds.
-	**/
+class Errno_asInterface {
 	@:keep
-	public var nano:() -> GoInt64 = null;
+	public function timeout():Bool
+		return __self__.timeout();
 
-	/**
-		// Unix returns the time stored in tv as seconds plus nanoseconds.
-	**/
 	@:keep
-	public var unix:() -> {
-		var _0:GoInt64;
-		var _1:GoInt64;
-	} = null;
+	public function temporary():Bool
+		return __self__.temporary();
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	@:keep
+	public function is_(_target:Error):Bool
+		return __self__.is_(_target);
+
+	@:keep
+	public function error():GoString
+		return __self__.error();
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:Timeval;
+	var __self__:Errno;
 }
 
 @:keep private class Errno_static_extension {
@@ -2429,23 +2459,24 @@ class Timeval_asInterface {
 		throw "syscall.error is not yet implemented";
 }
 
-class Errno_asInterface {
+class Signal_asInterface {
 	@:keep
-	public var timeout:() -> Bool = null;
-	@:keep
-	public var temporary:() -> Bool = null;
-	@:keep
-	public var is_:Error->Bool = null;
-	@:keep
-	public var error:() -> GoString = null;
+	public function string():GoString
+		return __self__.string();
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	@:keep
+	public function signal():Void
+		__self__.signal();
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:Errno;
+	var __self__:Signal;
 }
 
 @:keep private class Signal_static_extension {
@@ -2458,19 +2489,52 @@ class Errno_asInterface {
 		throw "syscall.signal is not yet implemented";
 }
 
-class Signal_asInterface {
+class WaitStatus_asInterface {
 	@:keep
-	public var string:() -> GoString = null;
-	@:keep
-	public var signal:() -> Void = null;
+	public function trapCause():GoInt
+		return __self__.trapCause();
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	@:keep
+	public function stopSignal():Signal
+		return __self__.stopSignal();
+
+	@:keep
+	public function continued():Bool
+		return __self__.continued();
+
+	@:keep
+	public function stopped():Bool
+		return __self__.stopped();
+
+	@:keep
+	public function coreDump():Bool
+		return __self__.coreDump();
+
+	@:keep
+	public function signal():Signal
+		return __self__.signal();
+
+	@:keep
+	public function signaled():Bool
+		return __self__.signaled();
+
+	@:keep
+	public function exitStatus():GoInt
+		return __self__.exitStatus();
+
+	@:keep
+	public function exited():Bool
+		return __self__.exited();
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:Signal;
+	var __self__:WaitStatus;
 }
 
 @:keep private class WaitStatus_static_extension {
@@ -2509,33 +2573,4 @@ class Signal_asInterface {
 	@:keep
 	static public function exited(_w:WaitStatus):Bool
 		throw "syscall.exited is not yet implemented";
-}
-
-class WaitStatus_asInterface {
-	@:keep
-	public var trapCause:() -> GoInt = null;
-	@:keep
-	public var stopSignal:() -> Signal = null;
-	@:keep
-	public var continued:() -> Bool = null;
-	@:keep
-	public var stopped:() -> Bool = null;
-	@:keep
-	public var coreDump:() -> Bool = null;
-	@:keep
-	public var signal:() -> Signal = null;
-	@:keep
-	public var signaled:() -> Bool = null;
-	@:keep
-	public var exitStatus:() -> GoInt = null;
-	@:keep
-	public var exited:() -> Bool = null;
-
-	public function new(__self__)
-		this.__self__ = __self__;
-
-	public function __underlying__()
-		return Go.toInterface(this);
-
-	var __self__:WaitStatus;
 }

@@ -11,6 +11,13 @@ import stdgo.GoMap;
 import stdgo.Chan;
 
 /**
+	// Package utf8 implements functions and constants to support text encoded in
+	// UTF-8. It includes functions to translate between runes and UTF-8 byte sequences.
+	// See https://en.wikipedia.org/wiki/UTF-8
+**/
+private var __go2hxdoc__package:Bool;
+
+/**
 	// first is information about the first byte in a UTF-8 sequence.
 **/
 private var _first:GoArray<GoUInt8> = (new GoArray<GoUInt8>((240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8), (240 : GoUInt8),
@@ -57,22 +64,22 @@ private var _acceptRanges:GoArray<T_acceptRange> = {
 };
 
 /**
-	// Numbers fundamental to the encoding.
+	// the "error" Rune or "Unicode replacement character"// Numbers fundamental to the encoding.
 **/
 final runeError:GoInt32 = ("\uFFFD".code : GoInt32);
 
 /**
-	// Numbers fundamental to the encoding.
+	// characters below RuneSelf are represented as themselves in a single byte.// Numbers fundamental to the encoding.
 **/
 final runeSelf:GoUnTypedInt = (128 : GoUnTypedInt);
 
 /**
-	// Numbers fundamental to the encoding.
+	// Maximum valid Unicode code point.// Numbers fundamental to the encoding.
 **/
 final maxRune:GoInt32 = ("\u{0010FFFF}".code : GoInt32);
 
 /**
-	// Numbers fundamental to the encoding.
+	// maximum number of bytes of a UTF-8 encoded Unicode character.// Numbers fundamental to the encoding.
 **/
 final utfmax:GoUnTypedInt = (4 : GoUnTypedInt);
 
@@ -108,28 +115,52 @@ private final _locb:GoUnTypedInt = (128 : GoUnTypedInt);
 private final _hicb:GoUnTypedInt = (191 : GoUnTypedInt);
 
 /**
-	// These names of these constants are chosen to give nice alignment in the
+	// invalid: size 1// These names of these constants are chosen to give nice alignment in the
 	// table below. The first nibble is an index into acceptRanges or F for
 	// special one-byte cases. The second nibble is the Rune length or the
 	// Status for the special one-byte case.
 **/
 private final _xx:GoUnTypedInt = (241 : GoUnTypedInt);
 
+/**
+	// ASCII: size 1
+**/
 private final _as:GoUnTypedInt = (240 : GoUnTypedInt);
-private final _s1:GoUnTypedInt = (2 : GoUnTypedInt);
-private final _s2:GoUnTypedInt = (19 : GoUnTypedInt);
-private final _s3:GoUnTypedInt = (3 : GoUnTypedInt);
-private final _s4:GoUnTypedInt = (35 : GoUnTypedInt);
-private final _s5:GoUnTypedInt = (52 : GoUnTypedInt);
-private final _s6:GoUnTypedInt = (4 : GoUnTypedInt);
-private final _s7:GoUnTypedInt = (68 : GoUnTypedInt);
 
 /**
-	// Package utf8 implements functions and constants to support text encoded in
-	// UTF-8. It includes functions to translate between runes and UTF-8 byte sequences.
-	// See https://en.wikipedia.org/wiki/UTF-8
+	// accept 0, size 2
 **/
-private var __go2hxdoc__package:Bool;
+private final _s1:GoUnTypedInt = (2 : GoUnTypedInt);
+
+/**
+	// accept 1, size 3
+**/
+private final _s2:GoUnTypedInt = (19 : GoUnTypedInt);
+
+/**
+	// accept 0, size 3
+**/
+private final _s3:GoUnTypedInt = (3 : GoUnTypedInt);
+
+/**
+	// accept 2, size 3
+**/
+private final _s4:GoUnTypedInt = (35 : GoUnTypedInt);
+
+/**
+	// accept 3, size 4
+**/
+private final _s5:GoUnTypedInt = (52 : GoUnTypedInt);
+
+/**
+	// accept 0, size 4
+**/
+private final _s6:GoUnTypedInt = (4 : GoUnTypedInt);
+
+/**
+	// accept 4, size 4
+**/
+private final _s7:GoUnTypedInt = (68 : GoUnTypedInt);
 
 /**
 	// acceptRange gives the range of valid values for the second byte in a UTF-8

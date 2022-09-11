@@ -11,11 +11,6 @@ import stdgo.GoMap;
 import stdgo.Chan;
 
 /**
-	// ErrBadPattern indicates a pattern was malformed.
-**/
-var errBadPattern:stdgo.Error = stdgo.errors.Errors.new_((Go.str("syntax error in pattern") : GoString));
-
-/**
 	// Package path implements utility routines for manipulating slash-separated
 	// paths.
 	//
@@ -25,6 +20,11 @@ var errBadPattern:stdgo.Error = stdgo.errors.Errors.new_((Go.str("syntax error i
 	// operating system paths, use the path/filepath package.
 **/
 private var __go2hxdoc__package:Bool;
+
+/**
+	// ErrBadPattern indicates a pattern was malformed.
+**/
+var errBadPattern:stdgo.Error = stdgo.errors.Errors.new_((Go.str("syntax error in pattern") : GoString));
 
 /**
 	// A lazybuf is a lazily constructed path buffer.
@@ -543,6 +543,30 @@ function dir(_path:GoString):GoString {
 	return clean(_dir);
 }
 
+private class T_lazybuf_asInterface {
+	@:keep
+	public function _string():GoString
+		return __self__._string();
+
+	@:keep
+	public function _append(_c:GoByte):Void
+		__self__._append(_c);
+
+	@:keep
+	public function _index(_i:GoInt):GoByte
+		return __self__._index(_i);
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
+
+	public function __underlying__()
+		return Go.toInterface(__self__);
+
+	var __self__:T_lazybuf;
+}
+
 @:keep private class T_lazybuf_static_extension {
 	@:keep
 	static public function _string(_b:T_lazybuf):GoString {
@@ -573,21 +597,4 @@ function dir(_path:GoString):GoString {
 		};
 		return _b._s[_i];
 	}
-}
-
-private class T_lazybuf_asInterface {
-	@:keep
-	public var _string:() -> GoString = null;
-	@:keep
-	public var _append:GoByte->Void = null;
-	@:keep
-	public var _index:GoInt->GoByte = null;
-
-	public function new(__self__)
-		this.__self__ = __self__;
-
-	public function __underlying__()
-		return Go.toInterface(this);
-
-	var __self__:T_lazybuf;
 }

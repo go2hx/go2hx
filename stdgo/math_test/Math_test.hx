@@ -478,6 +478,9 @@ private var _vffdimSC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>
 	(new GoArray<GoFloat64>(naN(), (0 : GoFloat64)) : GoArray<GoFloat64>), (new GoArray<GoFloat64>(naN(), inf((1 : GoInt))) : GoArray<GoFloat64>),
 	(new GoArray<GoFloat64>(naN(), naN()) : GoArray<GoFloat64>)) : Slice<GoArray<GoFloat64>>);
 
+/**
+	// SSE2 DIVSD 0/0
+**/
 private var _nan:GoFloat64 = float64frombits(("18444492273895866368" : GoUInt64));
 
 private var _vffdim2SC:Slice<GoArray<GoFloat64>> = (new Slice<GoArray<GoFloat64>>(0, 0,
@@ -1135,6 +1138,9 @@ private var _sqrt32:Slice<GoFloat32> = (new Slice<GoFloat32>(0, 0, (0 : GoFloat3
 	(4.9790119248836735 : GoFloat32), (7.738872474578105 : GoFloat32), (-0.27688005566596985 : GoFloat32),
 	(-5.010603427886963 : GoFloat32)) : Slice<GoFloat32>);
 
+/**
+	// hide call from compiler intrinsic; falls back to portable code
+**/
 var portableFMA:(GoFloat64, GoFloat64, GoFloat64) -> GoFloat64 = fma;
 
 private var _floatTests:Slice<stdgo.math_test.Math_test.T_floatTest> = (new Slice<stdgo.math_test.Math_test.T_floatTest>(0, 0,
@@ -1188,7 +1194,7 @@ private var _tanHuge:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (5.956418979
 	(-0.00496201587444489 : GoFloat64)) : Slice<GoFloat64>);
 
 /**
-	// arguments and expected results for boundary cases
+	// 2**-1022// arguments and expected results for boundary cases
 **/
 final smallestNormalFloat64:GoUnTypedFloat = (2.2250738585072014e-308 : GoUnTypedFloat);
 
@@ -1262,7 +1268,7 @@ var globalF:GoFloat64 = (0 : GoFloat64);
 	}
 }
 
-@:local typedef T__struct_0 = {
+@:local private typedef T__struct_0 = {
 	public var _x:GoFloat64;
 	public var _y:GoFloat64;
 	public var _z:GoFloat64;

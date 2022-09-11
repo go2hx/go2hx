@@ -10,6 +10,12 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
+/**
+	// Package unicode provides data and functions to test some properties of
+	// Unicode code points.
+**/
+private var __go2hxdoc__package:Bool;
+
 private var __TurkishCase:SpecialCase = (new SpecialCase(0, 0,
 	(new CaseRange((73 : GoUInt32), (73 : GoUInt32), (new GoArray<GoInt32>((0 : GoInt32), (232 : GoInt32), (0 : GoInt32)) : T_d)) : CaseRange),
 	(new CaseRange((105 : GoUInt32), (105 : GoUInt32), (new GoArray<GoInt32>((199 : GoInt32), (0 : GoInt32), (199 : GoInt32)) : T_d)) : CaseRange),
@@ -3430,37 +3436,37 @@ private var __Zs:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16
 	(new Range16((12288 : GoUInt16), (12288 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>), latinOffset: (1 : GoInt)} : RangeTable);
 
 /**
-	// These variables have type *RangeTable.
+	// Cc is the set of Unicode characters in category Cc (Other, control).// These variables have type *RangeTable.
 **/
 var cc:Ref<RangeTable> = __Cc;
 
 /**
-	// These variables have type *RangeTable.
+	// Cf is the set of Unicode characters in category Cf (Other, format).// These variables have type *RangeTable.
 **/
 var cf:Ref<RangeTable> = __Cf;
 
 /**
-	// These variables have type *RangeTable.
+	// Co is the set of Unicode characters in category Co (Other, private use).// These variables have type *RangeTable.
 **/
 var co:Ref<RangeTable> = __Co;
 
 /**
-	// These variables have type *RangeTable.
+	// Cs is the set of Unicode characters in category Cs (Other, surrogate).// These variables have type *RangeTable.
 **/
 var cs:Ref<RangeTable> = __Cs;
 
 /**
-	// These variables have type *RangeTable.
+	// Digit is the set of Unicode characters with the "decimal digit" property.// These variables have type *RangeTable.
 **/
 var digit:Ref<RangeTable> = __Nd;
 
 /**
-	// These variables have type *RangeTable.
+	// Nd is the set of Unicode characters in category Nd (Number, decimal digit).// These variables have type *RangeTable.
 **/
 var nd:Ref<RangeTable> = __Nd;
 
 /**
-	// These variables have type *RangeTable.
+	// Letter/L is the set of Unicode letters, category L.// These variables have type *RangeTable.
 **/
 var letter:Ref<RangeTable> = __L;
 
@@ -3470,27 +3476,27 @@ var letter:Ref<RangeTable> = __L;
 var l:Ref<RangeTable> = __L;
 
 /**
-	// These variables have type *RangeTable.
+	// Lm is the set of Unicode characters in category Lm (Letter, modifier).// These variables have type *RangeTable.
 **/
 var lm:Ref<RangeTable> = __Lm;
 
 /**
-	// These variables have type *RangeTable.
+	// Lo is the set of Unicode characters in category Lo (Letter, other).// These variables have type *RangeTable.
 **/
 var lo:Ref<RangeTable> = __Lo;
 
 /**
-	// These variables have type *RangeTable.
+	// Lower is the set of Unicode lower case letters.// These variables have type *RangeTable.
 **/
 var lower:Ref<RangeTable> = __Ll;
 
 /**
-	// These variables have type *RangeTable.
+	// Ll is the set of Unicode characters in category Ll (Letter, lowercase).// These variables have type *RangeTable.
 **/
 var ll:Ref<RangeTable> = __Ll;
 
 /**
-	// These variables have type *RangeTable.
+	// Mark/M is the set of Unicode mark characters, category M.// These variables have type *RangeTable.
 **/
 var mark:Ref<RangeTable> = __M;
 
@@ -3500,32 +3506,32 @@ var mark:Ref<RangeTable> = __M;
 var m:Ref<RangeTable> = __M;
 
 /**
-	// These variables have type *RangeTable.
+	// Mc is the set of Unicode characters in category Mc (Mark, spacing combining).// These variables have type *RangeTable.
 **/
 var mc:Ref<RangeTable> = __Mc;
 
 /**
-	// These variables have type *RangeTable.
+	// Me is the set of Unicode characters in category Me (Mark, enclosing).// These variables have type *RangeTable.
 **/
 var me:Ref<RangeTable> = __Me;
 
 /**
-	// These variables have type *RangeTable.
+	// Mn is the set of Unicode characters in category Mn (Mark, nonspacing).// These variables have type *RangeTable.
 **/
 var mn:Ref<RangeTable> = __Mn;
 
 /**
-	// These variables have type *RangeTable.
+	// Nl is the set of Unicode characters in category Nl (Number, letter).// These variables have type *RangeTable.
 **/
 var nl:Ref<RangeTable> = __Nl;
 
 /**
-	// These variables have type *RangeTable.
+	// No is the set of Unicode characters in category No (Number, other).// These variables have type *RangeTable.
 **/
 var no:Ref<RangeTable> = __No;
 
 /**
-	// These variables have type *RangeTable.
+	// Number/N is the set of Unicode number characters, category N.// These variables have type *RangeTable.
 **/
 var number:Ref<RangeTable> = __N;
 
@@ -3535,7 +3541,7 @@ var number:Ref<RangeTable> = __N;
 var n:Ref<RangeTable> = __N;
 
 /**
-	// These variables have type *RangeTable.
+	// Other/C is the set of Unicode control and special characters, category C.// These variables have type *RangeTable.
 **/
 var other:Ref<RangeTable> = __C;
 
@@ -3545,42 +3551,42 @@ var other:Ref<RangeTable> = __C;
 var c:Ref<RangeTable> = __C;
 
 /**
-	// These variables have type *RangeTable.
+	// Pc is the set of Unicode characters in category Pc (Punctuation, connector).// These variables have type *RangeTable.
 **/
 var pc:Ref<RangeTable> = __Pc;
 
 /**
-	// These variables have type *RangeTable.
+	// Pd is the set of Unicode characters in category Pd (Punctuation, dash).// These variables have type *RangeTable.
 **/
 var pd:Ref<RangeTable> = __Pd;
 
 /**
-	// These variables have type *RangeTable.
+	// Pe is the set of Unicode characters in category Pe (Punctuation, close).// These variables have type *RangeTable.
 **/
 var pe:Ref<RangeTable> = __Pe;
 
 /**
-	// These variables have type *RangeTable.
+	// Pf is the set of Unicode characters in category Pf (Punctuation, final quote).// These variables have type *RangeTable.
 **/
 var pf:Ref<RangeTable> = __Pf;
 
 /**
-	// These variables have type *RangeTable.
+	// Pi is the set of Unicode characters in category Pi (Punctuation, initial quote).// These variables have type *RangeTable.
 **/
 var pi:Ref<RangeTable> = __Pi;
 
 /**
-	// These variables have type *RangeTable.
+	// Po is the set of Unicode characters in category Po (Punctuation, other).// These variables have type *RangeTable.
 **/
 var po:Ref<RangeTable> = __Po;
 
 /**
-	// These variables have type *RangeTable.
+	// Ps is the set of Unicode characters in category Ps (Punctuation, open).// These variables have type *RangeTable.
 **/
 var ps:Ref<RangeTable> = __Ps;
 
 /**
-	// These variables have type *RangeTable.
+	// Punct/P is the set of Unicode punctuation characters, category P.// These variables have type *RangeTable.
 **/
 var punct:Ref<RangeTable> = __P;
 
@@ -3590,27 +3596,27 @@ var punct:Ref<RangeTable> = __P;
 var p:Ref<RangeTable> = __P;
 
 /**
-	// These variables have type *RangeTable.
+	// Sc is the set of Unicode characters in category Sc (Symbol, currency).// These variables have type *RangeTable.
 **/
 var sc:Ref<RangeTable> = __Sc;
 
 /**
-	// These variables have type *RangeTable.
+	// Sk is the set of Unicode characters in category Sk (Symbol, modifier).// These variables have type *RangeTable.
 **/
 var sk:Ref<RangeTable> = __Sk;
 
 /**
-	// These variables have type *RangeTable.
+	// Sm is the set of Unicode characters in category Sm (Symbol, math).// These variables have type *RangeTable.
 **/
 var sm:Ref<RangeTable> = __Sm;
 
 /**
-	// These variables have type *RangeTable.
+	// So is the set of Unicode characters in category So (Symbol, other).// These variables have type *RangeTable.
 **/
 var so:Ref<RangeTable> = __So;
 
 /**
-	// These variables have type *RangeTable.
+	// Space/Z is the set of Unicode space characters, category Z.// These variables have type *RangeTable.
 **/
 var space:Ref<RangeTable> = __Z;
 
@@ -3620,7 +3626,7 @@ var space:Ref<RangeTable> = __Z;
 var z:Ref<RangeTable> = __Z;
 
 /**
-	// These variables have type *RangeTable.
+	// Symbol/S is the set of Unicode symbol characters, category S.// These variables have type *RangeTable.
 **/
 var symbol:Ref<RangeTable> = __S;
 
@@ -3636,37 +3642,37 @@ var s:Ref<RangeTable> = __S;
 var printRanges:Slice<Ref<RangeTable>> = (new Slice<Ref<RangeTable>>(0, 0, l, m, n, p, s) : Slice<Ref<RangeTable>>);
 
 /**
-	// These variables have type *RangeTable.
+	// Title is the set of Unicode title case letters.// These variables have type *RangeTable.
 **/
 var title:Ref<RangeTable> = __Lt;
 
 /**
-	// These variables have type *RangeTable.
+	// Lt is the set of Unicode characters in category Lt (Letter, titlecase).// These variables have type *RangeTable.
 **/
 var lt:Ref<RangeTable> = __Lt;
 
 /**
-	// These variables have type *RangeTable.
+	// Upper is the set of Unicode upper case letters.// These variables have type *RangeTable.
 **/
 var upper:Ref<RangeTable> = __Lu;
 
 /**
-	// These variables have type *RangeTable.
+	// Lu is the set of Unicode characters in category Lu (Letter, uppercase).// These variables have type *RangeTable.
 **/
 var lu:Ref<RangeTable> = __Lu;
 
 /**
-	// These variables have type *RangeTable.
+	// Zl is the set of Unicode characters in category Zl (Separator, line).// These variables have type *RangeTable.
 **/
 var zl:Ref<RangeTable> = __Zl;
 
 /**
-	// These variables have type *RangeTable.
+	// Zp is the set of Unicode characters in category Zp (Separator, paragraph).// These variables have type *RangeTable.
 **/
 var zp:Ref<RangeTable> = __Zp;
 
 /**
-	// These variables have type *RangeTable.
+	// Zs is the set of Unicode characters in category Zs (Separator, space).// These variables have type *RangeTable.
 **/
 var zs:Ref<RangeTable> = __Zs;
 
@@ -4956,782 +4962,782 @@ private var __Zanabazar_Square:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
 		(new Range32((72192 : GoUInt32), (72263 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
 
 /**
-	// These variables have type *RangeTable.
+	// Adlam is the set of Unicode characters in script Adlam.// These variables have type *RangeTable.
 **/
 var adlam:Ref<RangeTable> = __Adlam;
 
 /**
-	// These variables have type *RangeTable.
+	// Ahom is the set of Unicode characters in script Ahom.// These variables have type *RangeTable.
 **/
 var ahom:Ref<RangeTable> = __Ahom;
 
 /**
-	// These variables have type *RangeTable.
+	// Anatolian_Hieroglyphs is the set of Unicode characters in script Anatolian_Hieroglyphs.// These variables have type *RangeTable.
 **/
 var anatolian_Hieroglyphs:Ref<RangeTable> = __Anatolian_Hieroglyphs;
 
 /**
-	// These variables have type *RangeTable.
+	// Arabic is the set of Unicode characters in script Arabic.// These variables have type *RangeTable.
 **/
 var arabic:Ref<RangeTable> = __Arabic;
 
 /**
-	// These variables have type *RangeTable.
+	// Armenian is the set of Unicode characters in script Armenian.// These variables have type *RangeTable.
 **/
 var armenian:Ref<RangeTable> = __Armenian;
 
 /**
-	// These variables have type *RangeTable.
+	// Avestan is the set of Unicode characters in script Avestan.// These variables have type *RangeTable.
 **/
 var avestan:Ref<RangeTable> = __Avestan;
 
 /**
-	// These variables have type *RangeTable.
+	// Balinese is the set of Unicode characters in script Balinese.// These variables have type *RangeTable.
 **/
 var balinese:Ref<RangeTable> = __Balinese;
 
 /**
-	// These variables have type *RangeTable.
+	// Bamum is the set of Unicode characters in script Bamum.// These variables have type *RangeTable.
 **/
 var bamum:Ref<RangeTable> = __Bamum;
 
 /**
-	// These variables have type *RangeTable.
+	// Bassa_Vah is the set of Unicode characters in script Bassa_Vah.// These variables have type *RangeTable.
 **/
 var bassa_Vah:Ref<RangeTable> = __Bassa_Vah;
 
 /**
-	// These variables have type *RangeTable.
+	// Batak is the set of Unicode characters in script Batak.// These variables have type *RangeTable.
 **/
 var batak:Ref<RangeTable> = __Batak;
 
 /**
-	// These variables have type *RangeTable.
+	// Bengali is the set of Unicode characters in script Bengali.// These variables have type *RangeTable.
 **/
 var bengali:Ref<RangeTable> = __Bengali;
 
 /**
-	// These variables have type *RangeTable.
+	// Bhaiksuki is the set of Unicode characters in script Bhaiksuki.// These variables have type *RangeTable.
 **/
 var bhaiksuki:Ref<RangeTable> = __Bhaiksuki;
 
 /**
-	// These variables have type *RangeTable.
+	// Bopomofo is the set of Unicode characters in script Bopomofo.// These variables have type *RangeTable.
 **/
 var bopomofo:Ref<RangeTable> = __Bopomofo;
 
 /**
-	// These variables have type *RangeTable.
+	// Brahmi is the set of Unicode characters in script Brahmi.// These variables have type *RangeTable.
 **/
 var brahmi:Ref<RangeTable> = __Brahmi;
 
 /**
-	// These variables have type *RangeTable.
+	// Braille is the set of Unicode characters in script Braille.// These variables have type *RangeTable.
 **/
 var braille:Ref<RangeTable> = __Braille;
 
 /**
-	// These variables have type *RangeTable.
+	// Buginese is the set of Unicode characters in script Buginese.// These variables have type *RangeTable.
 **/
 var buginese:Ref<RangeTable> = __Buginese;
 
 /**
-	// These variables have type *RangeTable.
+	// Buhid is the set of Unicode characters in script Buhid.// These variables have type *RangeTable.
 **/
 var buhid:Ref<RangeTable> = __Buhid;
 
 /**
-	// These variables have type *RangeTable.
+	// Canadian_Aboriginal is the set of Unicode characters in script Canadian_Aboriginal.// These variables have type *RangeTable.
 **/
 var canadian_Aboriginal:Ref<RangeTable> = __Canadian_Aboriginal;
 
 /**
-	// These variables have type *RangeTable.
+	// Carian is the set of Unicode characters in script Carian.// These variables have type *RangeTable.
 **/
 var carian:Ref<RangeTable> = __Carian;
 
 /**
-	// These variables have type *RangeTable.
+	// Caucasian_Albanian is the set of Unicode characters in script Caucasian_Albanian.// These variables have type *RangeTable.
 **/
 var caucasian_Albanian:Ref<RangeTable> = __Caucasian_Albanian;
 
 /**
-	// These variables have type *RangeTable.
+	// Chakma is the set of Unicode characters in script Chakma.// These variables have type *RangeTable.
 **/
 var chakma:Ref<RangeTable> = __Chakma;
 
 /**
-	// These variables have type *RangeTable.
+	// Cham is the set of Unicode characters in script Cham.// These variables have type *RangeTable.
 **/
 var cham:Ref<RangeTable> = __Cham;
 
 /**
-	// These variables have type *RangeTable.
+	// Cherokee is the set of Unicode characters in script Cherokee.// These variables have type *RangeTable.
 **/
 var cherokee:Ref<RangeTable> = __Cherokee;
 
 /**
-	// These variables have type *RangeTable.
+	// Chorasmian is the set of Unicode characters in script Chorasmian.// These variables have type *RangeTable.
 **/
 var chorasmian:Ref<RangeTable> = __Chorasmian;
 
 /**
-	// These variables have type *RangeTable.
+	// Common is the set of Unicode characters in script Common.// These variables have type *RangeTable.
 **/
 var common:Ref<RangeTable> = __Common;
 
 /**
-	// These variables have type *RangeTable.
+	// Coptic is the set of Unicode characters in script Coptic.// These variables have type *RangeTable.
 **/
 var coptic:Ref<RangeTable> = __Coptic;
 
 /**
-	// These variables have type *RangeTable.
+	// Cuneiform is the set of Unicode characters in script Cuneiform.// These variables have type *RangeTable.
 **/
 var cuneiform:Ref<RangeTable> = __Cuneiform;
 
 /**
-	// These variables have type *RangeTable.
+	// Cypriot is the set of Unicode characters in script Cypriot.// These variables have type *RangeTable.
 **/
 var cypriot:Ref<RangeTable> = __Cypriot;
 
 /**
-	// These variables have type *RangeTable.
+	// Cyrillic is the set of Unicode characters in script Cyrillic.// These variables have type *RangeTable.
 **/
 var cyrillic:Ref<RangeTable> = __Cyrillic;
 
 /**
-	// These variables have type *RangeTable.
+	// Deseret is the set of Unicode characters in script Deseret.// These variables have type *RangeTable.
 **/
 var deseret:Ref<RangeTable> = __Deseret;
 
 /**
-	// These variables have type *RangeTable.
+	// Devanagari is the set of Unicode characters in script Devanagari.// These variables have type *RangeTable.
 **/
 var devanagari:Ref<RangeTable> = __Devanagari;
 
 /**
-	// These variables have type *RangeTable.
+	// Dives_Akuru is the set of Unicode characters in script Dives_Akuru.// These variables have type *RangeTable.
 **/
 var dives_Akuru:Ref<RangeTable> = __Dives_Akuru;
 
 /**
-	// These variables have type *RangeTable.
+	// Dogra is the set of Unicode characters in script Dogra.// These variables have type *RangeTable.
 **/
 var dogra:Ref<RangeTable> = __Dogra;
 
 /**
-	// These variables have type *RangeTable.
+	// Duployan is the set of Unicode characters in script Duployan.// These variables have type *RangeTable.
 **/
 var duployan:Ref<RangeTable> = __Duployan;
 
 /**
-	// These variables have type *RangeTable.
+	// Egyptian_Hieroglyphs is the set of Unicode characters in script Egyptian_Hieroglyphs.// These variables have type *RangeTable.
 **/
 var egyptian_Hieroglyphs:Ref<RangeTable> = __Egyptian_Hieroglyphs;
 
 /**
-	// These variables have type *RangeTable.
+	// Elbasan is the set of Unicode characters in script Elbasan.// These variables have type *RangeTable.
 **/
 var elbasan:Ref<RangeTable> = __Elbasan;
 
 /**
-	// These variables have type *RangeTable.
+	// Elymaic is the set of Unicode characters in script Elymaic.// These variables have type *RangeTable.
 **/
 var elymaic:Ref<RangeTable> = __Elymaic;
 
 /**
-	// These variables have type *RangeTable.
+	// Ethiopic is the set of Unicode characters in script Ethiopic.// These variables have type *RangeTable.
 **/
 var ethiopic:Ref<RangeTable> = __Ethiopic;
 
 /**
-	// These variables have type *RangeTable.
+	// Georgian is the set of Unicode characters in script Georgian.// These variables have type *RangeTable.
 **/
 var georgian:Ref<RangeTable> = __Georgian;
 
 /**
-	// These variables have type *RangeTable.
+	// Glagolitic is the set of Unicode characters in script Glagolitic.// These variables have type *RangeTable.
 **/
 var glagolitic:Ref<RangeTable> = __Glagolitic;
 
 /**
-	// These variables have type *RangeTable.
+	// Gothic is the set of Unicode characters in script Gothic.// These variables have type *RangeTable.
 **/
 var gothic:Ref<RangeTable> = __Gothic;
 
 /**
-	// These variables have type *RangeTable.
+	// Grantha is the set of Unicode characters in script Grantha.// These variables have type *RangeTable.
 **/
 var grantha:Ref<RangeTable> = __Grantha;
 
 /**
-	// These variables have type *RangeTable.
+	// Greek is the set of Unicode characters in script Greek.// These variables have type *RangeTable.
 **/
 var greek:Ref<RangeTable> = __Greek;
 
 /**
-	// These variables have type *RangeTable.
+	// Gujarati is the set of Unicode characters in script Gujarati.// These variables have type *RangeTable.
 **/
 var gujarati:Ref<RangeTable> = __Gujarati;
 
 /**
-	// These variables have type *RangeTable.
+	// Gunjala_Gondi is the set of Unicode characters in script Gunjala_Gondi.// These variables have type *RangeTable.
 **/
 var gunjala_Gondi:Ref<RangeTable> = __Gunjala_Gondi;
 
 /**
-	// These variables have type *RangeTable.
+	// Gurmukhi is the set of Unicode characters in script Gurmukhi.// These variables have type *RangeTable.
 **/
 var gurmukhi:Ref<RangeTable> = __Gurmukhi;
 
 /**
-	// These variables have type *RangeTable.
+	// Han is the set of Unicode characters in script Han.// These variables have type *RangeTable.
 **/
 var han:Ref<RangeTable> = __Han;
 
 /**
-	// These variables have type *RangeTable.
+	// Hangul is the set of Unicode characters in script Hangul.// These variables have type *RangeTable.
 **/
 var hangul:Ref<RangeTable> = __Hangul;
 
 /**
-	// These variables have type *RangeTable.
+	// Hanifi_Rohingya is the set of Unicode characters in script Hanifi_Rohingya.// These variables have type *RangeTable.
 **/
 var hanifi_Rohingya:Ref<RangeTable> = __Hanifi_Rohingya;
 
 /**
-	// These variables have type *RangeTable.
+	// Hanunoo is the set of Unicode characters in script Hanunoo.// These variables have type *RangeTable.
 **/
 var hanunoo:Ref<RangeTable> = __Hanunoo;
 
 /**
-	// These variables have type *RangeTable.
+	// Hatran is the set of Unicode characters in script Hatran.// These variables have type *RangeTable.
 **/
 var hatran:Ref<RangeTable> = __Hatran;
 
 /**
-	// These variables have type *RangeTable.
+	// Hebrew is the set of Unicode characters in script Hebrew.// These variables have type *RangeTable.
 **/
 var hebrew:Ref<RangeTable> = __Hebrew;
 
 /**
-	// These variables have type *RangeTable.
+	// Hiragana is the set of Unicode characters in script Hiragana.// These variables have type *RangeTable.
 **/
 var hiragana:Ref<RangeTable> = __Hiragana;
 
 /**
-	// These variables have type *RangeTable.
+	// Imperial_Aramaic is the set of Unicode characters in script Imperial_Aramaic.// These variables have type *RangeTable.
 **/
 var imperial_Aramaic:Ref<RangeTable> = __Imperial_Aramaic;
 
 /**
-	// These variables have type *RangeTable.
+	// Inherited is the set of Unicode characters in script Inherited.// These variables have type *RangeTable.
 **/
 var inherited:Ref<RangeTable> = __Inherited;
 
 /**
-	// These variables have type *RangeTable.
+	// Inscriptional_Pahlavi is the set of Unicode characters in script Inscriptional_Pahlavi.// These variables have type *RangeTable.
 **/
 var inscriptional_Pahlavi:Ref<RangeTable> = __Inscriptional_Pahlavi;
 
 /**
-	// These variables have type *RangeTable.
+	// Inscriptional_Parthian is the set of Unicode characters in script Inscriptional_Parthian.// These variables have type *RangeTable.
 **/
 var inscriptional_Parthian:Ref<RangeTable> = __Inscriptional_Parthian;
 
 /**
-	// These variables have type *RangeTable.
+	// Javanese is the set of Unicode characters in script Javanese.// These variables have type *RangeTable.
 **/
 var javanese:Ref<RangeTable> = __Javanese;
 
 /**
-	// These variables have type *RangeTable.
+	// Kaithi is the set of Unicode characters in script Kaithi.// These variables have type *RangeTable.
 **/
 var kaithi:Ref<RangeTable> = __Kaithi;
 
 /**
-	// These variables have type *RangeTable.
+	// Kannada is the set of Unicode characters in script Kannada.// These variables have type *RangeTable.
 **/
 var kannada:Ref<RangeTable> = __Kannada;
 
 /**
-	// These variables have type *RangeTable.
+	// Katakana is the set of Unicode characters in script Katakana.// These variables have type *RangeTable.
 **/
 var katakana:Ref<RangeTable> = __Katakana;
 
 /**
-	// These variables have type *RangeTable.
+	// Kayah_Li is the set of Unicode characters in script Kayah_Li.// These variables have type *RangeTable.
 **/
 var kayah_Li:Ref<RangeTable> = __Kayah_Li;
 
 /**
-	// These variables have type *RangeTable.
+	// Kharoshthi is the set of Unicode characters in script Kharoshthi.// These variables have type *RangeTable.
 **/
 var kharoshthi:Ref<RangeTable> = __Kharoshthi;
 
 /**
-	// These variables have type *RangeTable.
+	// Khitan_Small_Script is the set of Unicode characters in script Khitan_Small_Script.// These variables have type *RangeTable.
 **/
 var khitan_Small_Script:Ref<RangeTable> = __Khitan_Small_Script;
 
 /**
-	// These variables have type *RangeTable.
+	// Khmer is the set of Unicode characters in script Khmer.// These variables have type *RangeTable.
 **/
 var khmer:Ref<RangeTable> = __Khmer;
 
 /**
-	// These variables have type *RangeTable.
+	// Khojki is the set of Unicode characters in script Khojki.// These variables have type *RangeTable.
 **/
 var khojki:Ref<RangeTable> = __Khojki;
 
 /**
-	// These variables have type *RangeTable.
+	// Khudawadi is the set of Unicode characters in script Khudawadi.// These variables have type *RangeTable.
 **/
 var khudawadi:Ref<RangeTable> = __Khudawadi;
 
 /**
-	// These variables have type *RangeTable.
+	// Lao is the set of Unicode characters in script Lao.// These variables have type *RangeTable.
 **/
 var lao:Ref<RangeTable> = __Lao;
 
 /**
-	// These variables have type *RangeTable.
+	// Latin is the set of Unicode characters in script Latin.// These variables have type *RangeTable.
 **/
 var latin:Ref<RangeTable> = __Latin;
 
 /**
-	// These variables have type *RangeTable.
+	// Lepcha is the set of Unicode characters in script Lepcha.// These variables have type *RangeTable.
 **/
 var lepcha:Ref<RangeTable> = __Lepcha;
 
 /**
-	// These variables have type *RangeTable.
+	// Limbu is the set of Unicode characters in script Limbu.// These variables have type *RangeTable.
 **/
 var limbu:Ref<RangeTable> = __Limbu;
 
 /**
-	// These variables have type *RangeTable.
+	// Linear_A is the set of Unicode characters in script Linear_A.// These variables have type *RangeTable.
 **/
 var linear_A:Ref<RangeTable> = __Linear_A;
 
 /**
-	// These variables have type *RangeTable.
+	// Linear_B is the set of Unicode characters in script Linear_B.// These variables have type *RangeTable.
 **/
 var linear_B:Ref<RangeTable> = __Linear_B;
 
 /**
-	// These variables have type *RangeTable.
+	// Lisu is the set of Unicode characters in script Lisu.// These variables have type *RangeTable.
 **/
 var lisu:Ref<RangeTable> = __Lisu;
 
 /**
-	// These variables have type *RangeTable.
+	// Lycian is the set of Unicode characters in script Lycian.// These variables have type *RangeTable.
 **/
 var lycian:Ref<RangeTable> = __Lycian;
 
 /**
-	// These variables have type *RangeTable.
+	// Lydian is the set of Unicode characters in script Lydian.// These variables have type *RangeTable.
 **/
 var lydian:Ref<RangeTable> = __Lydian;
 
 /**
-	// These variables have type *RangeTable.
+	// Mahajani is the set of Unicode characters in script Mahajani.// These variables have type *RangeTable.
 **/
 var mahajani:Ref<RangeTable> = __Mahajani;
 
 /**
-	// These variables have type *RangeTable.
+	// Makasar is the set of Unicode characters in script Makasar.// These variables have type *RangeTable.
 **/
 var makasar:Ref<RangeTable> = __Makasar;
 
 /**
-	// These variables have type *RangeTable.
+	// Malayalam is the set of Unicode characters in script Malayalam.// These variables have type *RangeTable.
 **/
 var malayalam:Ref<RangeTable> = __Malayalam;
 
 /**
-	// These variables have type *RangeTable.
+	// Mandaic is the set of Unicode characters in script Mandaic.// These variables have type *RangeTable.
 **/
 var mandaic:Ref<RangeTable> = __Mandaic;
 
 /**
-	// These variables have type *RangeTable.
+	// Manichaean is the set of Unicode characters in script Manichaean.// These variables have type *RangeTable.
 **/
 var manichaean:Ref<RangeTable> = __Manichaean;
 
 /**
-	// These variables have type *RangeTable.
+	// Marchen is the set of Unicode characters in script Marchen.// These variables have type *RangeTable.
 **/
 var marchen:Ref<RangeTable> = __Marchen;
 
 /**
-	// These variables have type *RangeTable.
+	// Masaram_Gondi is the set of Unicode characters in script Masaram_Gondi.// These variables have type *RangeTable.
 **/
 var masaram_Gondi:Ref<RangeTable> = __Masaram_Gondi;
 
 /**
-	// These variables have type *RangeTable.
+	// Medefaidrin is the set of Unicode characters in script Medefaidrin.// These variables have type *RangeTable.
 **/
 var medefaidrin:Ref<RangeTable> = __Medefaidrin;
 
 /**
-	// These variables have type *RangeTable.
+	// Meetei_Mayek is the set of Unicode characters in script Meetei_Mayek.// These variables have type *RangeTable.
 **/
 var meetei_Mayek:Ref<RangeTable> = __Meetei_Mayek;
 
 /**
-	// These variables have type *RangeTable.
+	// Mende_Kikakui is the set of Unicode characters in script Mende_Kikakui.// These variables have type *RangeTable.
 **/
 var mende_Kikakui:Ref<RangeTable> = __Mende_Kikakui;
 
 /**
-	// These variables have type *RangeTable.
+	// Meroitic_Cursive is the set of Unicode characters in script Meroitic_Cursive.// These variables have type *RangeTable.
 **/
 var meroitic_Cursive:Ref<RangeTable> = __Meroitic_Cursive;
 
 /**
-	// These variables have type *RangeTable.
+	// Meroitic_Hieroglyphs is the set of Unicode characters in script Meroitic_Hieroglyphs.// These variables have type *RangeTable.
 **/
 var meroitic_Hieroglyphs:Ref<RangeTable> = __Meroitic_Hieroglyphs;
 
 /**
-	// These variables have type *RangeTable.
+	// Miao is the set of Unicode characters in script Miao.// These variables have type *RangeTable.
 **/
 var miao:Ref<RangeTable> = __Miao;
 
 /**
-	// These variables have type *RangeTable.
+	// Modi is the set of Unicode characters in script Modi.// These variables have type *RangeTable.
 **/
 var modi:Ref<RangeTable> = __Modi;
 
 /**
-	// These variables have type *RangeTable.
+	// Mongolian is the set of Unicode characters in script Mongolian.// These variables have type *RangeTable.
 **/
 var mongolian:Ref<RangeTable> = __Mongolian;
 
 /**
-	// These variables have type *RangeTable.
+	// Mro is the set of Unicode characters in script Mro.// These variables have type *RangeTable.
 **/
 var mro:Ref<RangeTable> = __Mro;
 
 /**
-	// These variables have type *RangeTable.
+	// Multani is the set of Unicode characters in script Multani.// These variables have type *RangeTable.
 **/
 var multani:Ref<RangeTable> = __Multani;
 
 /**
-	// These variables have type *RangeTable.
+	// Myanmar is the set of Unicode characters in script Myanmar.// These variables have type *RangeTable.
 **/
 var myanmar:Ref<RangeTable> = __Myanmar;
 
 /**
-	// These variables have type *RangeTable.
+	// Nabataean is the set of Unicode characters in script Nabataean.// These variables have type *RangeTable.
 **/
 var nabataean:Ref<RangeTable> = __Nabataean;
 
 /**
-	// These variables have type *RangeTable.
+	// Nandinagari is the set of Unicode characters in script Nandinagari.// These variables have type *RangeTable.
 **/
 var nandinagari:Ref<RangeTable> = __Nandinagari;
 
 /**
-	// These variables have type *RangeTable.
+	// New_Tai_Lue is the set of Unicode characters in script New_Tai_Lue.// These variables have type *RangeTable.
 **/
 var new_Tai_Lue:Ref<RangeTable> = __New_Tai_Lue;
 
 /**
-	// These variables have type *RangeTable.
+	// Newa is the set of Unicode characters in script Newa.// These variables have type *RangeTable.
 **/
 var newa:Ref<RangeTable> = __Newa;
 
 /**
-	// These variables have type *RangeTable.
+	// Nko is the set of Unicode characters in script Nko.// These variables have type *RangeTable.
 **/
 var nko:Ref<RangeTable> = __Nko;
 
 /**
-	// These variables have type *RangeTable.
+	// Nushu is the set of Unicode characters in script Nushu.// These variables have type *RangeTable.
 **/
 var nushu:Ref<RangeTable> = __Nushu;
 
 /**
-	// These variables have type *RangeTable.
+	// Nyiakeng_Puachue_Hmong is the set of Unicode characters in script Nyiakeng_Puachue_Hmong.// These variables have type *RangeTable.
 **/
 var nyiakeng_Puachue_Hmong:Ref<RangeTable> = __Nyiakeng_Puachue_Hmong;
 
 /**
-	// These variables have type *RangeTable.
+	// Ogham is the set of Unicode characters in script Ogham.// These variables have type *RangeTable.
 **/
 var ogham:Ref<RangeTable> = __Ogham;
 
 /**
-	// These variables have type *RangeTable.
+	// Ol_Chiki is the set of Unicode characters in script Ol_Chiki.// These variables have type *RangeTable.
 **/
 var ol_Chiki:Ref<RangeTable> = __Ol_Chiki;
 
 /**
-	// These variables have type *RangeTable.
+	// Old_Hungarian is the set of Unicode characters in script Old_Hungarian.// These variables have type *RangeTable.
 **/
 var old_Hungarian:Ref<RangeTable> = __Old_Hungarian;
 
 /**
-	// These variables have type *RangeTable.
+	// Old_Italic is the set of Unicode characters in script Old_Italic.// These variables have type *RangeTable.
 **/
 var old_Italic:Ref<RangeTable> = __Old_Italic;
 
 /**
-	// These variables have type *RangeTable.
+	// Old_North_Arabian is the set of Unicode characters in script Old_North_Arabian.// These variables have type *RangeTable.
 **/
 var old_North_Arabian:Ref<RangeTable> = __Old_North_Arabian;
 
 /**
-	// These variables have type *RangeTable.
+	// Old_Permic is the set of Unicode characters in script Old_Permic.// These variables have type *RangeTable.
 **/
 var old_Permic:Ref<RangeTable> = __Old_Permic;
 
 /**
-	// These variables have type *RangeTable.
+	// Old_Persian is the set of Unicode characters in script Old_Persian.// These variables have type *RangeTable.
 **/
 var old_Persian:Ref<RangeTable> = __Old_Persian;
 
 /**
-	// These variables have type *RangeTable.
+	// Old_Sogdian is the set of Unicode characters in script Old_Sogdian.// These variables have type *RangeTable.
 **/
 var old_Sogdian:Ref<RangeTable> = __Old_Sogdian;
 
 /**
-	// These variables have type *RangeTable.
+	// Old_South_Arabian is the set of Unicode characters in script Old_South_Arabian.// These variables have type *RangeTable.
 **/
 var old_South_Arabian:Ref<RangeTable> = __Old_South_Arabian;
 
 /**
-	// These variables have type *RangeTable.
+	// Old_Turkic is the set of Unicode characters in script Old_Turkic.// These variables have type *RangeTable.
 **/
 var old_Turkic:Ref<RangeTable> = __Old_Turkic;
 
 /**
-	// These variables have type *RangeTable.
+	// Oriya is the set of Unicode characters in script Oriya.// These variables have type *RangeTable.
 **/
 var oriya:Ref<RangeTable> = __Oriya;
 
 /**
-	// These variables have type *RangeTable.
+	// Osage is the set of Unicode characters in script Osage.// These variables have type *RangeTable.
 **/
 var osage:Ref<RangeTable> = __Osage;
 
 /**
-	// These variables have type *RangeTable.
+	// Osmanya is the set of Unicode characters in script Osmanya.// These variables have type *RangeTable.
 **/
 var osmanya:Ref<RangeTable> = __Osmanya;
 
 /**
-	// These variables have type *RangeTable.
+	// Pahawh_Hmong is the set of Unicode characters in script Pahawh_Hmong.// These variables have type *RangeTable.
 **/
 var pahawh_Hmong:Ref<RangeTable> = __Pahawh_Hmong;
 
 /**
-	// These variables have type *RangeTable.
+	// Palmyrene is the set of Unicode characters in script Palmyrene.// These variables have type *RangeTable.
 **/
 var palmyrene:Ref<RangeTable> = __Palmyrene;
 
 /**
-	// These variables have type *RangeTable.
+	// Pau_Cin_Hau is the set of Unicode characters in script Pau_Cin_Hau.// These variables have type *RangeTable.
 **/
 var pau_Cin_Hau:Ref<RangeTable> = __Pau_Cin_Hau;
 
 /**
-	// These variables have type *RangeTable.
+	// Phags_Pa is the set of Unicode characters in script Phags_Pa.// These variables have type *RangeTable.
 **/
 var phags_Pa:Ref<RangeTable> = __Phags_Pa;
 
 /**
-	// These variables have type *RangeTable.
+	// Phoenician is the set of Unicode characters in script Phoenician.// These variables have type *RangeTable.
 **/
 var phoenician:Ref<RangeTable> = __Phoenician;
 
 /**
-	// These variables have type *RangeTable.
+	// Psalter_Pahlavi is the set of Unicode characters in script Psalter_Pahlavi.// These variables have type *RangeTable.
 **/
 var psalter_Pahlavi:Ref<RangeTable> = __Psalter_Pahlavi;
 
 /**
-	// These variables have type *RangeTable.
+	// Rejang is the set of Unicode characters in script Rejang.// These variables have type *RangeTable.
 **/
 var rejang:Ref<RangeTable> = __Rejang;
 
 /**
-	// These variables have type *RangeTable.
+	// Runic is the set of Unicode characters in script Runic.// These variables have type *RangeTable.
 **/
 var runic:Ref<RangeTable> = __Runic;
 
 /**
-	// These variables have type *RangeTable.
+	// Samaritan is the set of Unicode characters in script Samaritan.// These variables have type *RangeTable.
 **/
 var samaritan:Ref<RangeTable> = __Samaritan;
 
 /**
-	// These variables have type *RangeTable.
+	// Saurashtra is the set of Unicode characters in script Saurashtra.// These variables have type *RangeTable.
 **/
 var saurashtra:Ref<RangeTable> = __Saurashtra;
 
 /**
-	// These variables have type *RangeTable.
+	// Sharada is the set of Unicode characters in script Sharada.// These variables have type *RangeTable.
 **/
 var sharada:Ref<RangeTable> = __Sharada;
 
 /**
-	// These variables have type *RangeTable.
+	// Shavian is the set of Unicode characters in script Shavian.// These variables have type *RangeTable.
 **/
 var shavian:Ref<RangeTable> = __Shavian;
 
 /**
-	// These variables have type *RangeTable.
+	// Siddham is the set of Unicode characters in script Siddham.// These variables have type *RangeTable.
 **/
 var siddham:Ref<RangeTable> = __Siddham;
 
 /**
-	// These variables have type *RangeTable.
+	// SignWriting is the set of Unicode characters in script SignWriting.// These variables have type *RangeTable.
 **/
 var signWriting:Ref<RangeTable> = __SignWriting;
 
 /**
-	// These variables have type *RangeTable.
+	// Sinhala is the set of Unicode characters in script Sinhala.// These variables have type *RangeTable.
 **/
 var sinhala:Ref<RangeTable> = __Sinhala;
 
 /**
-	// These variables have type *RangeTable.
+	// Sogdian is the set of Unicode characters in script Sogdian.// These variables have type *RangeTable.
 **/
 var sogdian:Ref<RangeTable> = __Sogdian;
 
 /**
-	// These variables have type *RangeTable.
+	// Sora_Sompeng is the set of Unicode characters in script Sora_Sompeng.// These variables have type *RangeTable.
 **/
 var sora_Sompeng:Ref<RangeTable> = __Sora_Sompeng;
 
 /**
-	// These variables have type *RangeTable.
+	// Soyombo is the set of Unicode characters in script Soyombo.// These variables have type *RangeTable.
 **/
 var soyombo:Ref<RangeTable> = __Soyombo;
 
 /**
-	// These variables have type *RangeTable.
+	// Sundanese is the set of Unicode characters in script Sundanese.// These variables have type *RangeTable.
 **/
 var sundanese:Ref<RangeTable> = __Sundanese;
 
 /**
-	// These variables have type *RangeTable.
+	// Syloti_Nagri is the set of Unicode characters in script Syloti_Nagri.// These variables have type *RangeTable.
 **/
 var syloti_Nagri:Ref<RangeTable> = __Syloti_Nagri;
 
 /**
-	// These variables have type *RangeTable.
+	// Syriac is the set of Unicode characters in script Syriac.// These variables have type *RangeTable.
 **/
 var syriac:Ref<RangeTable> = __Syriac;
 
 /**
-	// These variables have type *RangeTable.
+	// Tagalog is the set of Unicode characters in script Tagalog.// These variables have type *RangeTable.
 **/
 var tagalog:Ref<RangeTable> = __Tagalog;
 
 /**
-	// These variables have type *RangeTable.
+	// Tagbanwa is the set of Unicode characters in script Tagbanwa.// These variables have type *RangeTable.
 **/
 var tagbanwa:Ref<RangeTable> = __Tagbanwa;
 
 /**
-	// These variables have type *RangeTable.
+	// Tai_Le is the set of Unicode characters in script Tai_Le.// These variables have type *RangeTable.
 **/
 var tai_Le:Ref<RangeTable> = __Tai_Le;
 
 /**
-	// These variables have type *RangeTable.
+	// Tai_Tham is the set of Unicode characters in script Tai_Tham.// These variables have type *RangeTable.
 **/
 var tai_Tham:Ref<RangeTable> = __Tai_Tham;
 
 /**
-	// These variables have type *RangeTable.
+	// Tai_Viet is the set of Unicode characters in script Tai_Viet.// These variables have type *RangeTable.
 **/
 var tai_Viet:Ref<RangeTable> = __Tai_Viet;
 
 /**
-	// These variables have type *RangeTable.
+	// Takri is the set of Unicode characters in script Takri.// These variables have type *RangeTable.
 **/
 var takri:Ref<RangeTable> = __Takri;
 
 /**
-	// These variables have type *RangeTable.
+	// Tamil is the set of Unicode characters in script Tamil.// These variables have type *RangeTable.
 **/
 var tamil:Ref<RangeTable> = __Tamil;
 
 /**
-	// These variables have type *RangeTable.
+	// Tangut is the set of Unicode characters in script Tangut.// These variables have type *RangeTable.
 **/
 var tangut:Ref<RangeTable> = __Tangut;
 
 /**
-	// These variables have type *RangeTable.
+	// Telugu is the set of Unicode characters in script Telugu.// These variables have type *RangeTable.
 **/
 var telugu:Ref<RangeTable> = __Telugu;
 
 /**
-	// These variables have type *RangeTable.
+	// Thaana is the set of Unicode characters in script Thaana.// These variables have type *RangeTable.
 **/
 var thaana:Ref<RangeTable> = __Thaana;
 
 /**
-	// These variables have type *RangeTable.
+	// Thai is the set of Unicode characters in script Thai.// These variables have type *RangeTable.
 **/
 var thai:Ref<RangeTable> = __Thai;
 
 /**
-	// These variables have type *RangeTable.
+	// Tibetan is the set of Unicode characters in script Tibetan.// These variables have type *RangeTable.
 **/
 var tibetan:Ref<RangeTable> = __Tibetan;
 
 /**
-	// These variables have type *RangeTable.
+	// Tifinagh is the set of Unicode characters in script Tifinagh.// These variables have type *RangeTable.
 **/
 var tifinagh:Ref<RangeTable> = __Tifinagh;
 
 /**
-	// These variables have type *RangeTable.
+	// Tirhuta is the set of Unicode characters in script Tirhuta.// These variables have type *RangeTable.
 **/
 var tirhuta:Ref<RangeTable> = __Tirhuta;
 
 /**
-	// These variables have type *RangeTable.
+	// Ugaritic is the set of Unicode characters in script Ugaritic.// These variables have type *RangeTable.
 **/
 var ugaritic:Ref<RangeTable> = __Ugaritic;
 
 /**
-	// These variables have type *RangeTable.
+	// Vai is the set of Unicode characters in script Vai.// These variables have type *RangeTable.
 **/
 var vai:Ref<RangeTable> = __Vai;
 
 /**
-	// These variables have type *RangeTable.
+	// Wancho is the set of Unicode characters in script Wancho.// These variables have type *RangeTable.
 **/
 var wancho:Ref<RangeTable> = __Wancho;
 
 /**
-	// These variables have type *RangeTable.
+	// Warang_Citi is the set of Unicode characters in script Warang_Citi.// These variables have type *RangeTable.
 **/
 var warang_Citi:Ref<RangeTable> = __Warang_Citi;
 
 /**
-	// These variables have type *RangeTable.
+	// Yezidi is the set of Unicode characters in script Yezidi.// These variables have type *RangeTable.
 **/
 var yezidi:Ref<RangeTable> = __Yezidi;
 
 /**
-	// These variables have type *RangeTable.
+	// Yi is the set of Unicode characters in script Yi.// These variables have type *RangeTable.
 **/
 var yi:Ref<RangeTable> = __Yi;
 
 /**
-	// These variables have type *RangeTable.
+	// Zanabazar_Square is the set of Unicode characters in script Zanabazar_Square.// These variables have type *RangeTable.
 **/
 var zanabazar_Square:Ref<RangeTable> = __Zanabazar_Square;
 
@@ -6948,177 +6954,177 @@ private var __White_Space:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (ne
 	(new Range16((12288 : GoUInt16), (12288 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>), latinOffset: (2 : GoInt)} : RangeTable);
 
 /**
-	// These variables have type *RangeTable.
+	// ASCII_Hex_Digit is the set of Unicode characters with property ASCII_Hex_Digit.// These variables have type *RangeTable.
 **/
 var ascii_Hex_Digit:Ref<RangeTable> = __ASCII_Hex_Digit;
 
 /**
-	// These variables have type *RangeTable.
+	// Bidi_Control is the set of Unicode characters with property Bidi_Control.// These variables have type *RangeTable.
 **/
 var bidi_Control:Ref<RangeTable> = __Bidi_Control;
 
 /**
-	// These variables have type *RangeTable.
+	// Dash is the set of Unicode characters with property Dash.// These variables have type *RangeTable.
 **/
 var dash:Ref<RangeTable> = __Dash;
 
 /**
-	// These variables have type *RangeTable.
+	// Deprecated is the set of Unicode characters with property Deprecated.// These variables have type *RangeTable.
 **/
 var deprecated:Ref<RangeTable> = __Deprecated;
 
 /**
-	// These variables have type *RangeTable.
+	// Diacritic is the set of Unicode characters with property Diacritic.// These variables have type *RangeTable.
 **/
 var diacritic:Ref<RangeTable> = __Diacritic;
 
 /**
-	// These variables have type *RangeTable.
+	// Extender is the set of Unicode characters with property Extender.// These variables have type *RangeTable.
 **/
 var extender:Ref<RangeTable> = __Extender;
 
 /**
-	// These variables have type *RangeTable.
+	// Hex_Digit is the set of Unicode characters with property Hex_Digit.// These variables have type *RangeTable.
 **/
 var hex_Digit:Ref<RangeTable> = __Hex_Digit;
 
 /**
-	// These variables have type *RangeTable.
+	// Hyphen is the set of Unicode characters with property Hyphen.// These variables have type *RangeTable.
 **/
 var hyphen:Ref<RangeTable> = __Hyphen;
 
 /**
-	// These variables have type *RangeTable.
+	// IDS_Binary_Operator is the set of Unicode characters with property IDS_Binary_Operator.// These variables have type *RangeTable.
 **/
 var ids_Binary_Operator:Ref<RangeTable> = __IDS_Binary_Operator;
 
 /**
-	// These variables have type *RangeTable.
+	// IDS_Trinary_Operator is the set of Unicode characters with property IDS_Trinary_Operator.// These variables have type *RangeTable.
 **/
 var ids_Trinary_Operator:Ref<RangeTable> = __IDS_Trinary_Operator;
 
 /**
-	// These variables have type *RangeTable.
+	// Ideographic is the set of Unicode characters with property Ideographic.// These variables have type *RangeTable.
 **/
 var ideographic:Ref<RangeTable> = __Ideographic;
 
 /**
-	// These variables have type *RangeTable.
+	// Join_Control is the set of Unicode characters with property Join_Control.// These variables have type *RangeTable.
 **/
 var join_Control:Ref<RangeTable> = __Join_Control;
 
 /**
-	// These variables have type *RangeTable.
+	// Logical_Order_Exception is the set of Unicode characters with property Logical_Order_Exception.// These variables have type *RangeTable.
 **/
 var logical_Order_Exception:Ref<RangeTable> = __Logical_Order_Exception;
 
 /**
-	// These variables have type *RangeTable.
+	// Noncharacter_Code_Point is the set of Unicode characters with property Noncharacter_Code_Point.// These variables have type *RangeTable.
 **/
 var noncharacter_Code_Point:Ref<RangeTable> = __Noncharacter_Code_Point;
 
 /**
-	// These variables have type *RangeTable.
+	// Other_Alphabetic is the set of Unicode characters with property Other_Alphabetic.// These variables have type *RangeTable.
 **/
 var other_Alphabetic:Ref<RangeTable> = __Other_Alphabetic;
 
 /**
-	// These variables have type *RangeTable.
+	// Other_Default_Ignorable_Code_Point is the set of Unicode characters with property Other_Default_Ignorable_Code_Point.// These variables have type *RangeTable.
 **/
 var other_Default_Ignorable_Code_Point:Ref<RangeTable> = __Other_Default_Ignorable_Code_Point;
 
 /**
-	// These variables have type *RangeTable.
+	// Other_Grapheme_Extend is the set of Unicode characters with property Other_Grapheme_Extend.// These variables have type *RangeTable.
 **/
 var other_Grapheme_Extend:Ref<RangeTable> = __Other_Grapheme_Extend;
 
 /**
-	// These variables have type *RangeTable.
+	// Other_ID_Continue is the set of Unicode characters with property Other_ID_Continue.// These variables have type *RangeTable.
 **/
 var other_ID_Continue:Ref<RangeTable> = __Other_ID_Continue;
 
 /**
-	// These variables have type *RangeTable.
+	// Other_ID_Start is the set of Unicode characters with property Other_ID_Start.// These variables have type *RangeTable.
 **/
 var other_ID_Start:Ref<RangeTable> = __Other_ID_Start;
 
 /**
-	// These variables have type *RangeTable.
+	// Other_Lowercase is the set of Unicode characters with property Other_Lowercase.// These variables have type *RangeTable.
 **/
 var other_Lowercase:Ref<RangeTable> = __Other_Lowercase;
 
 /**
-	// These variables have type *RangeTable.
+	// Other_Math is the set of Unicode characters with property Other_Math.// These variables have type *RangeTable.
 **/
 var other_Math:Ref<RangeTable> = __Other_Math;
 
 /**
-	// These variables have type *RangeTable.
+	// Other_Uppercase is the set of Unicode characters with property Other_Uppercase.// These variables have type *RangeTable.
 **/
 var other_Uppercase:Ref<RangeTable> = __Other_Uppercase;
 
 /**
-	// These variables have type *RangeTable.
+	// Pattern_Syntax is the set of Unicode characters with property Pattern_Syntax.// These variables have type *RangeTable.
 **/
 var pattern_Syntax:Ref<RangeTable> = __Pattern_Syntax;
 
 /**
-	// These variables have type *RangeTable.
+	// Pattern_White_Space is the set of Unicode characters with property Pattern_White_Space.// These variables have type *RangeTable.
 **/
 var pattern_White_Space:Ref<RangeTable> = __Pattern_White_Space;
 
 /**
-	// These variables have type *RangeTable.
+	// Prepended_Concatenation_Mark is the set of Unicode characters with property Prepended_Concatenation_Mark.// These variables have type *RangeTable.
 **/
 var prepended_Concatenation_Mark:Ref<RangeTable> = __Prepended_Concatenation_Mark;
 
 /**
-	// These variables have type *RangeTable.
+	// Quotation_Mark is the set of Unicode characters with property Quotation_Mark.// These variables have type *RangeTable.
 **/
 var quotation_Mark:Ref<RangeTable> = __Quotation_Mark;
 
 /**
-	// These variables have type *RangeTable.
+	// Radical is the set of Unicode characters with property Radical.// These variables have type *RangeTable.
 **/
 var radical:Ref<RangeTable> = __Radical;
 
 /**
-	// These variables have type *RangeTable.
+	// Regional_Indicator is the set of Unicode characters with property Regional_Indicator.// These variables have type *RangeTable.
 **/
 var regional_Indicator:Ref<RangeTable> = __Regional_Indicator;
 
 /**
-	// These variables have type *RangeTable.
+	// STerm is an alias for Sentence_Terminal.// These variables have type *RangeTable.
 **/
 var sterm:Ref<RangeTable> = __Sentence_Terminal;
 
 /**
-	// These variables have type *RangeTable.
+	// Sentence_Terminal is the set of Unicode characters with property Sentence_Terminal.// These variables have type *RangeTable.
 **/
 var sentence_Terminal:Ref<RangeTable> = __Sentence_Terminal;
 
 /**
-	// These variables have type *RangeTable.
+	// Soft_Dotted is the set of Unicode characters with property Soft_Dotted.// These variables have type *RangeTable.
 **/
 var soft_Dotted:Ref<RangeTable> = __Soft_Dotted;
 
 /**
-	// These variables have type *RangeTable.
+	// Terminal_Punctuation is the set of Unicode characters with property Terminal_Punctuation.// These variables have type *RangeTable.
 **/
 var terminal_Punctuation:Ref<RangeTable> = __Terminal_Punctuation;
 
 /**
-	// These variables have type *RangeTable.
+	// Unified_Ideograph is the set of Unicode characters with property Unified_Ideograph.// These variables have type *RangeTable.
 **/
 var unified_Ideograph:Ref<RangeTable> = __Unified_Ideograph;
 
 /**
-	// These variables have type *RangeTable.
+	// Variation_Selector is the set of Unicode characters with property Variation_Selector.// These variables have type *RangeTable.
 **/
 var variation_Selector:Ref<RangeTable> = __Variation_Selector;
 
 /**
-	// These variables have type *RangeTable.
+	// White_Space is the set of Unicode characters with property White_Space.// These variables have type *RangeTable.
 **/
 var white_Space:Ref<RangeTable> = __White_Space;
 
@@ -8393,52 +8399,52 @@ var foldScript:GoMap<GoString, Ref<RangeTable>> = {
 };
 
 /**
-	// Bit masks for each code point under U+0100, for fast lookup.
+	// a control character.// Bit masks for each code point under U+0100, for fast lookup.
 **/
 private final _pC:GoUnTypedInt = (128 : GoUnTypedInt);
 
 /**
-	// Bit masks for each code point under U+0100, for fast lookup.
+	// a punctuation character.// Bit masks for each code point under U+0100, for fast lookup.
 **/
 private final _pP = (128 : GoUnTypedInt);
 
 /**
-	// Bit masks for each code point under U+0100, for fast lookup.
+	// a numeral.// Bit masks for each code point under U+0100, for fast lookup.
 **/
 private final _pN = (128 : GoUnTypedInt);
 
 /**
-	// Bit masks for each code point under U+0100, for fast lookup.
+	// a symbolic character.// Bit masks for each code point under U+0100, for fast lookup.
 **/
 private final _pS = (128 : GoUnTypedInt);
 
 /**
-	// Bit masks for each code point under U+0100, for fast lookup.
+	// a spacing character.// Bit masks for each code point under U+0100, for fast lookup.
 **/
 private final _pZ = (128 : GoUnTypedInt);
 
 /**
-	// Bit masks for each code point under U+0100, for fast lookup.
+	// an upper-case letter.// Bit masks for each code point under U+0100, for fast lookup.
 **/
 private final _pLu = (128 : GoUnTypedInt);
 
 /**
-	// Bit masks for each code point under U+0100, for fast lookup.
+	// a lower-case letter.// Bit masks for each code point under U+0100, for fast lookup.
 **/
 private final _pLl = (128 : GoUnTypedInt);
 
 /**
-	// Bit masks for each code point under U+0100, for fast lookup.
+	// a printable character according to Go's definition.// Bit masks for each code point under U+0100, for fast lookup.
 **/
 private final _pp = (128 : GoUnTypedInt);
 
 /**
-	// Bit masks for each code point under U+0100, for fast lookup.
+	// a graphical character according to the Unicode definition.// Bit masks for each code point under U+0100, for fast lookup.
 **/
 private final _pg:GoUnTypedInt = (144 : GoUnTypedInt);
 
 /**
-	// Bit masks for each code point under U+0100, for fast lookup.
+	// a letter that is neither upper nor lower case.// Bit masks for each code point under U+0100, for fast lookup.
 **/
 private final _pLo:GoUnTypedInt = (96 : GoUnTypedInt);
 
@@ -8447,9 +8453,24 @@ private final _pLo:GoUnTypedInt = (96 : GoUnTypedInt);
 **/
 private final _pLmask:GoUnTypedInt = (96 : GoUnTypedInt);
 
+/**
+	// Maximum valid Unicode code point.
+**/
 final maxRune:GoInt32 = ("\u{0010FFFF}".code : GoInt32);
+
+/**
+	// Represents invalid code points.
+**/
 final replacementChar:GoInt32 = ("\uFFFD".code : GoInt32);
+
+/**
+	// maximum ASCII value.
+**/
 final maxASCII:GoInt32 = ("\u007F".code : GoInt32);
+
+/**
+	// maximum Latin-1 value.
+**/
 final maxLatin1:GoInt32 = ("\u00FF".code : GoInt32);
 
 /**
@@ -8473,7 +8494,7 @@ final titleCase = (2 : GoUnTypedInt);
 final maxCase = (2 : GoUnTypedInt);
 
 /**
-	// If the Delta field of a CaseRange is UpperLower, it means
+	// (Cannot be a valid delta.)// If the Delta field of a CaseRange is UpperLower, it means
 	// this CaseRange represents a sequence of the form (say)
 	// Upper Lower Upper Lower.
 **/
@@ -8489,12 +8510,6 @@ private final _linearMax:GoUnTypedInt = (18 : GoUnTypedInt);
 	// Version is the Unicode edition from which the tables are derived.
 **/
 final version:GoString = (Go.str("13.0.0") : GoString);
-
-/**
-	// Package unicode provides data and functions to test some properties of
-	// Unicode code points.
-**/
-private var __go2hxdoc__package:Bool;
 
 /**
 	// RangeTable defines a set of Unicode code points by listing the ranges of
@@ -8649,7 +8664,7 @@ private var __go2hxdoc__package:Bool;
 **/
 @:named @:using(stdgo.unicode.Unicode.SpecialCase_static_extension) typedef SpecialCase = Slice<CaseRange>;
 
-@:named typedef T_d = GoArray<GoInt32>;
+@:named private typedef T_d = GoArray<GoInt32>;
 
 /**
 	// IsDigit reports whether the rune is a decimal digit.
@@ -9050,6 +9065,39 @@ function simpleFold(_r:GoRune):GoRune {
 	return toUpper(_r);
 }
 
+class SpecialCase_asInterface {
+	/**
+		// ToLower maps the rune to lower case giving priority to the special mapping.
+	**/
+	@:keep
+	public function toLower(_r:GoRune):GoRune
+		return __self__.toLower(_r);
+
+	/**
+		// ToTitle maps the rune to title case giving priority to the special mapping.
+	**/
+	@:keep
+	public function toTitle(_r:GoRune):GoRune
+		return __self__.toTitle(_r);
+
+	/**
+		// ToUpper maps the rune to upper case giving priority to the special mapping.
+	**/
+	@:keep
+	public function toUpper(_r:GoRune):GoRune
+		return __self__.toUpper(_r);
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
+
+	public function __underlying__()
+		return Go.toInterface(__self__);
+
+	var __self__:SpecialCase;
+}
+
 @:keep private class SpecialCase_static_extension {
 	/**
 		// ToLower maps the rune to lower case giving priority to the special mapping.
@@ -9092,32 +9140,4 @@ function simpleFold(_r:GoRune):GoRune {
 		};
 		return _r1;
 	}
-}
-
-class SpecialCase_asInterface {
-	/**
-		// ToLower maps the rune to lower case giving priority to the special mapping.
-	**/
-	@:keep
-	public var toLower:GoRune->GoRune = null;
-
-	/**
-		// ToTitle maps the rune to title case giving priority to the special mapping.
-	**/
-	@:keep
-	public var toTitle:GoRune->GoRune = null;
-
-	/**
-		// ToUpper maps the rune to upper case giving priority to the special mapping.
-	**/
-	@:keep
-	public var toUpper:GoRune->GoRune = null;
-
-	public function new(__self__)
-		this.__self__ = __self__;
-
-	public function __underlying__()
-		return Go.toInterface(this);
-
-	var __self__:SpecialCase;
 }

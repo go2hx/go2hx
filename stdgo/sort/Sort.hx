@@ -10,16 +10,16 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
+/**
+	// Package sort provides primitives for sorting slices and user-defined collections.
+**/
+private var __go2hxdoc__package:Bool;
+
 private var _reflectValueOf:AnyInterface->stdgo.internal.reflectlite.Reflectlite.Value = stdgo.internal.reflectlite.Reflectlite.valueOf;
 private var _reflectSwapper:AnyInterface -> ((GoInt, GoInt) -> Void) = stdgo.internal.reflectlite.Reflectlite.swapper;
 private final _unknownHint:T_sortedHint = (2 : T_sortedHint);
 private final _increasingHint:T_sortedHint = (2 : T_sortedHint);
 private final _decreasingHint:T_sortedHint = (2 : T_sortedHint);
-
-/**
-	// Package sort provides primitives for sorting slices and user-defined collections.
-**/
-private var __go2hxdoc__package:Bool;
 
 /**
 	// An implementation of Interface can be sorted by the routines in this package.
@@ -109,12 +109,12 @@ typedef Interface = StructType & {
 	}
 }
 
-@:named typedef T_sortedHint = GoInt;
+@:named private typedef T_sortedHint = GoInt;
 
 /**
 	// xorshift paper: https://www.jstatsoft.org/article/view/v008i14/xorshift.pdf
 **/
-@:named @:using(stdgo.sort.Sort.T_xorshift_static_extension) typedef T_xorshift = GoUInt64;
+@:named @:using(stdgo.sort.Sort.T_xorshift_static_extension) private typedef T_xorshift = GoUInt64;
 
 /**
 	// IntSlice attaches the methods of Interface to []int, sorting in increasing order.
@@ -357,13 +357,7 @@ function _nextPowerOfTwo(_length:GoInt):GoUInt {
 	// Reverse returns the reverse order for data.
 **/
 function reverse(_data:Interface):Interface {
-	return {
-		final __self__ = new T_reverse_asInterface((new T_reverse(_data) : T_reverse));
-		__self__.len = #if !macro function():GoInt return (new T_reverse(_data) : T_reverse).len() #else null #end;
-		__self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return (new T_reverse(_data) : T_reverse).less(_i_, _j_) #else null #end;
-		__self__.swap = #if !macro function(_i__:GoInt, _j__:GoInt):Void(new T_reverse(_data):T_reverse).swap(_i__, _j__) #else null #end;
-		__self__;
-	};
+	return Go.asInterface((new T_reverse(_data) : T_reverse));
 }
 
 /**
@@ -393,15 +387,7 @@ function _isNaN(_f:GoFloat64):Bool {
 	// Ints sorts a slice of ints in increasing order.
 **/
 function ints(_x:Slice<GoInt>):Void {
-	sort({
-		final __self__ = new IntSlice_asInterface((_x : IntSlice));
-		__self__.len = #if !macro function():GoInt return (_x : IntSlice).len() #else null #end;
-		__self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return (_x : IntSlice).less(_i_, _j_) #else null #end;
-		__self__.search = #if !macro function(__0:GoInt):GoInt return (_x : IntSlice).search(__0) #else null #end;
-		__self__.sort = #if !macro function():Void(_x:IntSlice).sort() #else null #end;
-		__self__.swap = #if !macro function(_i__:GoInt, _j__:GoInt):Void(_x:IntSlice).swap(_i__, _j__) #else null #end;
-		__self__;
-	});
+	sort(Go.asInterface((_x : IntSlice)));
 }
 
 /**
@@ -409,45 +395,21 @@ function ints(_x:Slice<GoInt>):Void {
 	// Not-a-number (NaN) values are ordered before other values.
 **/
 function float64s(_x:Slice<GoFloat64>):Void {
-	sort({
-		final __self__ = new Float64Slice_asInterface((_x : Float64Slice));
-		__self__.len = #if !macro function():GoInt return (_x : Float64Slice).len() #else null #end;
-		__self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return (_x : Float64Slice).less(_i_, _j_) #else null #end;
-		__self__.search = #if !macro function(_x_:GoFloat64):GoInt return (_x : Float64Slice).search(_x_) #else null #end;
-		__self__.sort = #if !macro function():Void(_x:Float64Slice).sort() #else null #end;
-		__self__.swap = #if !macro function(_i__:GoInt, _j__:GoInt):Void(_x:Float64Slice).swap(_i__, _j__) #else null #end;
-		__self__;
-	});
+	sort(Go.asInterface((_x : Float64Slice)));
 }
 
 /**
 	// Strings sorts a slice of strings in increasing order.
 **/
 function strings(_x:Slice<GoString>):Void {
-	sort({
-		final __self__ = new StringSlice_asInterface((_x : StringSlice));
-		__self__.len = #if !macro function():GoInt return (_x : StringSlice).len() #else null #end;
-		__self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return (_x : StringSlice).less(_i_, _j_) #else null #end;
-		__self__.search = #if !macro function(_x_:GoString):GoInt return (_x : StringSlice).search(_x_) #else null #end;
-		__self__.sort = #if !macro function():Void(_x:StringSlice).sort() #else null #end;
-		__self__.swap = #if !macro function(_i__:GoInt, _j__:GoInt):Void(_x:StringSlice).swap(_i__, _j__) #else null #end;
-		__self__;
-	});
+	sort(Go.asInterface((_x : StringSlice)));
 }
 
 /**
 	// IntsAreSorted reports whether the slice x is sorted in increasing order.
 **/
 function intsAreSorted(_x:Slice<GoInt>):Bool {
-	return isSorted({
-		final __self__ = new IntSlice_asInterface((_x : IntSlice));
-		__self__.len = #if !macro function():GoInt return (_x : IntSlice).len() #else null #end;
-		__self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return (_x : IntSlice).less(_i_, _j_) #else null #end;
-		__self__.search = #if !macro function(__0:GoInt):GoInt return (_x : IntSlice).search(__0) #else null #end;
-		__self__.sort = #if !macro function():Void(_x:IntSlice).sort() #else null #end;
-		__self__.swap = #if !macro function(_i__:GoInt, _j__:GoInt):Void(_x:IntSlice).swap(_i__, _j__) #else null #end;
-		__self__;
-	});
+	return isSorted(Go.asInterface((_x : IntSlice)));
 }
 
 /**
@@ -455,30 +417,14 @@ function intsAreSorted(_x:Slice<GoInt>):Bool {
 	// with not-a-number (NaN) values before any other values.
 **/
 function float64sAreSorted(_x:Slice<GoFloat64>):Bool {
-	return isSorted({
-		final __self__ = new Float64Slice_asInterface((_x : Float64Slice));
-		__self__.len = #if !macro function():GoInt return (_x : Float64Slice).len() #else null #end;
-		__self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return (_x : Float64Slice).less(_i_, _j_) #else null #end;
-		__self__.search = #if !macro function(_x_:GoFloat64):GoInt return (_x : Float64Slice).search(_x_) #else null #end;
-		__self__.sort = #if !macro function():Void(_x:Float64Slice).sort() #else null #end;
-		__self__.swap = #if !macro function(_i__:GoInt, _j__:GoInt):Void(_x:Float64Slice).swap(_i__, _j__) #else null #end;
-		__self__;
-	});
+	return isSorted(Go.asInterface((_x : Float64Slice)));
 }
 
 /**
 	// StringsAreSorted reports whether the slice x is sorted in increasing order.
 **/
 function stringsAreSorted(_x:Slice<GoString>):Bool {
-	return isSorted({
-		final __self__ = new StringSlice_asInterface((_x : StringSlice));
-		__self__.len = #if !macro function():GoInt return (_x : StringSlice).len() #else null #end;
-		__self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return (_x : StringSlice).less(_i_, _j_) #else null #end;
-		__self__.search = #if !macro function(_x_:GoString):GoInt return (_x : StringSlice).search(_x_) #else null #end;
-		__self__.sort = #if !macro function():Void(_x:StringSlice).sort() #else null #end;
-		__self__.swap = #if !macro function(_i__:GoInt, _j__:GoInt):Void(_x:StringSlice).swap(_i__, _j__) #else null #end;
-		__self__;
-	});
+	return isSorted(Go.asInterface((_x : StringSlice)));
 }
 
 /**
@@ -1472,6 +1418,33 @@ function _rotate(_data:Interface, _a:GoInt, _m:GoInt, _b:GoInt):Void {
 	_swapRange(_data, _m - _i, _m, _i);
 }
 
+private class T_reverse_asInterface {
+	/**
+		// Less returns the opposite of the embedded implementation's Less method.
+	**/
+	@:keep
+	public function less(_i:GoInt, _j:GoInt):Bool
+		return __self__.less(_i, _j);
+
+	@:embedded
+	public function swap(_i_:GoInt, _j_:GoInt):Void
+		__self__.swap(_i_, _j_);
+
+	@:embedded
+	public function len():GoInt
+		return __self__.len();
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
+
+	public function __underlying__()
+		return Go.toInterface(__self__);
+
+	var __self__:T_reverse;
+}
+
 @:keep private class T_reverse_static_extension {
 	/**
 		// Less returns the opposite of the embedded implementation's Less method.
@@ -1490,25 +1463,21 @@ function _rotate(_data:Interface, _a:GoInt, _m:GoInt, _b:GoInt):Void {
 		return __self__.len();
 }
 
-private class T_reverse_asInterface {
-	/**
-		// Less returns the opposite of the embedded implementation's Less method.
-	**/
+@:pointer private class T_xorshift_asInterface {
 	@:keep
-	public var less:(GoInt, GoInt) -> Bool = null;
+	@:pointer
+	public function next():GoUInt64
+		return __self__.value.next(__self__);
 
-	@:embedded
-	public var swap:(GoInt, GoInt) -> Void = null;
-	@:embedded
-	public var len:() -> GoInt = null;
-
-	public function new(__self__)
-		this.__self__ = __self__;
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__.value);
 
-	var __self__:T_reverse;
+	var __self__:Pointer<T_xorshift>;
 }
 
 @:keep private class T_xorshift_static_extension {
@@ -1522,18 +1491,42 @@ private class T_reverse_asInterface {
 	}
 }
 
-private class T_xorshift_asInterface {
+class IntSlice_asInterface {
+	/**
+		// Sort is a convenience method: x.Sort() calls Sort(x).
+	**/
 	@:keep
-	@:pointer
-	public var next:() -> GoUInt64 = null;
+	public function sort():Void
+		__self__.sort();
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	@:keep
+	public function swap(_i:GoInt, _j:GoInt):Void
+		__self__.swap(_i, _j);
+
+	@:keep
+	public function less(_i:GoInt, _j:GoInt):Bool
+		return __self__.less(_i, _j);
+
+	@:keep
+	public function len():GoInt
+		return __self__.len();
+
+	/**
+		// Search returns the result of applying SearchInts to the receiver and x.
+	**/
+	@:keep
+	public function search(_x:GoInt):GoInt
+		return __self__.search(_x);
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__.value);
+		return Go.toInterface(__self__);
 
-	var __self__:Pointer<T_xorshift>;
+	var __self__:IntSlice;
 }
 
 @:keep private class IntSlice_static_extension {
@@ -1542,15 +1535,7 @@ private class T_xorshift_asInterface {
 	**/
 	@:keep
 	static public function sort(_x:IntSlice):Void {
-		stdgo.sort.Sort.sort({
-			final __self__ = new IntSlice_asInterface(_x);
-			__self__.len = #if !macro function():GoInt return _x.len() #else null #end;
-			__self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return _x.less(_i_, _j_) #else null #end;
-			__self__.search = #if !macro function(__0:GoInt):GoInt return _x.search(__0) #else null #end;
-			__self__.sort = #if !macro function():Void _x.sort() #else null #end;
-			__self__.swap = #if !macro function(_i__:GoInt, _j__:GoInt):Void _x.swap(_i__, _j__) #else null #end;
-			__self__;
-		});
+		stdgo.sort.Sort.sort(Go.asInterface(_x));
 	}
 
 	@:keep
@@ -1582,33 +1567,50 @@ private class T_xorshift_asInterface {
 	}
 }
 
-class IntSlice_asInterface {
+class Float64Slice_asInterface {
 	/**
 		// Sort is a convenience method: x.Sort() calls Sort(x).
 	**/
 	@:keep
-	public var sort:() -> Void = null;
+	public function sort():Void
+		__self__.sort();
 
 	@:keep
-	public var swap:(GoInt, GoInt) -> Void = null;
-	@:keep
-	public var less:(GoInt, GoInt) -> Bool = null;
-	@:keep
-	public var len:() -> GoInt = null;
+	public function swap(_i:GoInt, _j:GoInt):Void
+		__self__.swap(_i, _j);
 
 	/**
-		// Search returns the result of applying SearchInts to the receiver and x.
+		// Less reports whether x[i] should be ordered before x[j], as required by the sort Interface.
+		// Note that floating-point comparison by itself is not a transitive relation: it does not
+		// report a consistent ordering for not-a-number (NaN) values.
+		// This implementation of Less places NaN values before any others, by using:
+		//
+		//	x[i] < x[j] || (math.IsNaN(x[i]) && !math.IsNaN(x[j]))
 	**/
 	@:keep
-	public var search:GoInt->GoInt = null;
+	public function less(_i:GoInt, _j:GoInt):Bool
+		return __self__.less(_i, _j);
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	@:keep
+	public function len():GoInt
+		return __self__.len();
+
+	/**
+		// Search returns the result of applying SearchFloat64s to the receiver and x.
+	**/
+	@:keep
+	public function search(_x:GoFloat64):GoInt
+		return __self__.search(_x);
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:IntSlice;
+	var __self__:Float64Slice;
 }
 
 @:keep private class Float64Slice_static_extension {
@@ -1617,15 +1619,7 @@ class IntSlice_asInterface {
 	**/
 	@:keep
 	static public function sort(_x:Float64Slice):Void {
-		stdgo.sort.Sort.sort({
-			final __self__ = new Float64Slice_asInterface(_x);
-			__self__.len = #if !macro function():GoInt return _x.len() #else null #end;
-			__self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return _x.less(_i_, _j_) #else null #end;
-			__self__.search = #if !macro function(_x_:GoFloat64):GoInt return _x.search(_x_) #else null #end;
-			__self__.sort = #if !macro function():Void _x.sort() #else null #end;
-			__self__.swap = #if !macro function(_i__:GoInt, _j__:GoInt):Void _x.swap(_i__, _j__) #else null #end;
-			__self__;
-		});
+		stdgo.sort.Sort.sort(Go.asInterface(_x));
 	}
 
 	@:keep
@@ -1665,43 +1659,42 @@ class IntSlice_asInterface {
 	}
 }
 
-class Float64Slice_asInterface {
+class StringSlice_asInterface {
 	/**
 		// Sort is a convenience method: x.Sort() calls Sort(x).
 	**/
 	@:keep
-	public var sort:() -> Void = null;
+	public function sort():Void
+		__self__.sort();
 
 	@:keep
-	public var swap:(GoInt, GoInt) -> Void = null;
+	public function swap(_i:GoInt, _j:GoInt):Void
+		__self__.swap(_i, _j);
+
+	@:keep
+	public function less(_i:GoInt, _j:GoInt):Bool
+		return __self__.less(_i, _j);
+
+	@:keep
+	public function len():GoInt
+		return __self__.len();
 
 	/**
-		// Less reports whether x[i] should be ordered before x[j], as required by the sort Interface.
-		// Note that floating-point comparison by itself is not a transitive relation: it does not
-		// report a consistent ordering for not-a-number (NaN) values.
-		// This implementation of Less places NaN values before any others, by using:
-		//
-		//	x[i] < x[j] || (math.IsNaN(x[i]) && !math.IsNaN(x[j]))
+		// Search returns the result of applying SearchStrings to the receiver and x.
 	**/
 	@:keep
-	public var less:(GoInt, GoInt) -> Bool = null;
+	public function search(_x:GoString):GoInt
+		return __self__.search(_x);
 
-	@:keep
-	public var len:() -> GoInt = null;
-
-	/**
-		// Search returns the result of applying SearchFloat64s to the receiver and x.
-	**/
-	@:keep
-	public var search:GoFloat64->GoInt = null;
-
-	public function new(__self__)
-		this.__self__ = __self__;
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:Float64Slice;
+	var __self__:StringSlice;
 }
 
 @:keep private class StringSlice_static_extension {
@@ -1710,15 +1703,7 @@ class Float64Slice_asInterface {
 	**/
 	@:keep
 	static public function sort(_x:StringSlice):Void {
-		stdgo.sort.Sort.sort({
-			final __self__ = new StringSlice_asInterface(_x);
-			__self__.len = #if !macro function():GoInt return _x.len() #else null #end;
-			__self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return _x.less(_i_, _j_) #else null #end;
-			__self__.search = #if !macro function(_x_:GoString):GoInt return _x.search(_x_) #else null #end;
-			__self__.sort = #if !macro function():Void _x.sort() #else null #end;
-			__self__.swap = #if !macro function(_i__:GoInt, _j__:GoInt):Void _x.swap(_i__, _j__) #else null #end;
-			__self__;
-		});
+		stdgo.sort.Sort.sort(Go.asInterface(_x));
 	}
 
 	@:keep
@@ -1748,33 +1733,4 @@ class Float64Slice_asInterface {
 	static public function search(_p:StringSlice, _x:GoString):GoInt {
 		return searchStrings(_p, _x);
 	}
-}
-
-class StringSlice_asInterface {
-	/**
-		// Sort is a convenience method: x.Sort() calls Sort(x).
-	**/
-	@:keep
-	public var sort:() -> Void = null;
-
-	@:keep
-	public var swap:(GoInt, GoInt) -> Void = null;
-	@:keep
-	public var less:(GoInt, GoInt) -> Bool = null;
-	@:keep
-	public var len:() -> GoInt = null;
-
-	/**
-		// Search returns the result of applying SearchStrings to the receiver and x.
-	**/
-	@:keep
-	public var search:GoString->GoInt = null;
-
-	public function new(__self__)
-		this.__self__ = __self__;
-
-	public function __underlying__()
-		return Go.toInterface(this);
-
-	var __self__:StringSlice;
 }

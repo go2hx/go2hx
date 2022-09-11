@@ -11,6 +11,11 @@ import stdgo.GoMap;
 import stdgo.Chan;
 
 /**
+	// Package utf16 implements encoding and decoding of UTF-16 sequences.
+**/
+private var __go2hxdoc__package:Bool;
+
+/**
 	// Extra names for constants so we can validate them during testing.
 **/
 final maxRune:GoInt32 = (1114111 : GoInt32);
@@ -20,7 +25,14 @@ final maxRune:GoInt32 = (1114111 : GoInt32);
 **/
 final replacementChar:GoInt32 = (65533 : GoInt32);
 
+/**
+	// Unicode replacement character
+**/
 private final _replacementChar:GoInt32 = ("\uFFFD".code : GoInt32);
+
+/**
+	// Maximum valid Unicode code point.
+**/
 private final _maxRune:GoInt32 = ("\u{0010FFFF}".code : GoInt32);
 
 /**
@@ -33,11 +45,6 @@ private final _surr1:GoUnTypedInt = (55296 : GoUnTypedInt);
 private final _surr2:GoUnTypedInt = (56320 : GoUnTypedInt);
 private final _surr3:GoUnTypedInt = (57344 : GoUnTypedInt);
 private final _surrSelf:GoUnTypedInt = (65536 : GoUnTypedInt);
-
-/**
-	// Package utf16 implements encoding and decoding of UTF-16 sequences.
-**/
-private var __go2hxdoc__package:Bool;
 
 /**
 	// IsSurrogate reports whether the specified Unicode code point

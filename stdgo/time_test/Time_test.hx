@@ -1773,43 +1773,43 @@ private final _maxDuration:Duration = ("9223372036854775807" : Duration);
 	}
 }
 
-@:local typedef T__struct_0 = {
+@:local private typedef T__struct_0 = {
 	public var _in:Time;
 	public var _want:GoString;
 };
 
-@:local typedef T__struct_1 = {
+@:local private typedef T__struct_1 = {
 	public var _date:GoString;
 	public var _ok:Bool;
 };
 
-@:local typedef T__struct_2 = {
+@:local private typedef T__struct_2 = {
 	public var _format:GoString;
 	public var _value:GoString;
 	public var _valueElemPrefix:GoString;
 };
 
-@:local typedef T__struct_3 = {
+@:local private typedef T__struct_3 = {
 	public var _value:GoString;
 	public var _ok:Bool;
 };
 
-@:local typedef T__struct_4 = {
+@:local private typedef T__struct_4 = {
 	public var _s:GoString;
 	public var _want:GoString;
 };
 
-@:local typedef T__struct_5 = {
+@:local private typedef T__struct_5 = {
 	public var _s:GoString;
 	public var _want:GoInt;
 };
 
-@:local typedef T__struct_6 = {
+@:local private typedef T__struct_6 = {
 	public var _mono:GoInt64;
 	public var _want:GoString;
 };
 
-@:local typedef T__struct_7 = {
+@:local private typedef T__struct_7 = {
 	public var _sum:GoFloat64;
 	public var _max:Duration;
 	public var _count:GoInt64;
@@ -1820,22 +1820,22 @@ private final _maxDuration:Duration = ("9223372036854775807" : Duration);
 	public var _0:GoArray<GoInt64>;
 };
 
-@:local typedef T__struct_8 = {
+@:local private typedef T__struct_8 = {
 	public var _count:GoInt;
 	public var _delta:Duration;
 };
 
-@:local typedef T__struct_9 = {
+@:local private typedef T__struct_9 = {
 	public var _t:Time;
 	public var _d:Duration;
 };
 
-@:local typedef T__struct_10 = {
+@:local private typedef T__struct_10 = {
 	public var _str:GoString;
 	public var _d:Duration;
 };
 
-@:local typedef T__struct_11 = {
+@:local private typedef T__struct_11 = {
 	public var _year:GoInt;
 	public var _month:GoInt;
 	public var _day:GoInt;
@@ -1847,105 +1847,105 @@ private final _maxDuration:Duration = ("9223372036854775807" : Duration);
 	public var _unix:GoInt64;
 };
 
-@:local typedef T__struct_12 = {
+@:local private typedef T__struct_12 = {
 	public var _years:GoInt;
 	public var _months:GoInt;
 	public var _days:GoInt;
 };
 
-@:local typedef T__struct_13 = {
+@:local private typedef T__struct_13 = {
 	public var _year:GoInt;
 	public var _month:GoInt;
 	public var _di:GoInt;
 };
 
-@:local typedef T__struct_14 = {
+@:local private typedef T__struct_14 = {
 	public var _bytes:Slice<GoUInt8>;
 	public var _want:GoString;
 };
 
-@:local typedef T__struct_15 = {
+@:local private typedef T__struct_15 = {
 	public var _time:Time;
 	public var _want:GoString;
 };
 
-@:local typedef T__struct_16 = {
+@:local private typedef T__struct_16 = {
 	public var _time:Time;
 	public var _json:GoString;
 };
 
-@:local typedef T__struct_17 = {
+@:local private typedef T__struct_17 = {
 	public var _in:GoString;
 	public var _want:Duration;
 };
 
-@:local typedef T__struct_18 = {
+@:local private typedef T__struct_18 = {
 	public var _in:GoString;
 	public var _expect:GoString;
 };
 
-@:local typedef T__struct_19 = {
+@:local private typedef T__struct_19 = {
 	public var _count:GoInt;
 	public var _desc:GoString;
 	public var _fn:() -> Void;
 };
 
-@:local typedef T__struct_20 = {
+@:local private typedef T__struct_20 = {
 	public var _t:Time;
 	public var _u:Time;
 	public var _d:Duration;
 };
 
-@:local typedef T__struct_21 = {
+@:local private typedef T__struct_21 = {
 	public var _d:Duration;
 	public var _want:GoInt64;
 };
 
-@:local typedef T__struct_22 = {
+@:local private typedef T__struct_22 = {
 	public var _d:Duration;
 	public var _want:GoFloat64;
 };
 
-@:local typedef T__struct_23 = {
+@:local private typedef T__struct_23 = {
 	public var _d:Duration;
 	public var _m:Duration;
 	public var _want:Duration;
 };
 
-@:local typedef T__struct_24 = {
+@:local private typedef T__struct_24 = {
 	public var _d:Duration;
 	public var _want:Duration;
 };
 
-@:local typedef T__struct_25 = {
+@:local private typedef T__struct_25 = {
 	public var _name:GoString;
 	public var _f:(Time, Time) -> Bool;
 };
 
-@:local typedef T__struct_26 = {
+@:local private typedef T__struct_26 = {
 	public var _time:Time;
 	public var _want:Bool;
 };
 
-@:local typedef T__struct_27 = {
+@:local private typedef T__struct_27 = {
 	public var _give:Time;
 	public var _want:Time;
 };
 
-@:local typedef T__struct_28 = {
+@:local private typedef T__struct_28 = {
 	public var _giveTime:Time;
 	public var _wantStart:Time;
 	public var _wantEnd:Time;
 };
 
-@:local typedef T__struct_29 = {
+@:local private typedef T__struct_29 = {
 	public var _zone:GoString;
 	public var _unix:GoInt64;
 	public var _want1:GoString;
 	public var _want2:GoString;
 };
 
-@:local typedef T__struct_30 = {
+@:local private typedef T__struct_30 = {
 	public var _zoneName:GoString;
 	public var _fileName:GoString;
 	public var _date:Ref<Location>->Time;
@@ -1953,7 +1953,7 @@ private final _maxDuration:Duration = ("9223372036854775807" : Duration);
 	public var _wantOffset:GoInt;
 };
 
-@:local typedef T__struct_31 = {
+@:local private typedef T__struct_31 = {
 	public var _inStr:GoString;
 	public var _inEnd:GoInt64;
 	public var _inSec:GoInt64;
@@ -1965,21 +1965,21 @@ private final _maxDuration:Duration = ("9223372036854775807" : Duration);
 	public var _ok:Bool;
 };
 
-@:local typedef T__struct_32 = {
+@:local private typedef T__struct_32 = {
 	public var _in:GoString;
 	public var _name:GoString;
 	public var _out:GoString;
 	public var _ok:Bool;
 };
 
-@:local typedef T__struct_33 = {
+@:local private typedef T__struct_33 = {
 	public var _in:GoString;
 	public var _off:GoInt;
 	public var _out:GoString;
 	public var _ok:Bool;
 };
 
-@:local typedef T__struct_34 = {
+@:local private typedef T__struct_34 = {
 	public var _in:GoString;
 	public var _r:Rule;
 	public var _out:GoString;
@@ -1992,20 +1992,7 @@ function exampleDuration():Void {
 	var _t0:Time = (stdgo.time.Time.now() == null ? null : stdgo.time.Time.now().__copy__());
 	_expensiveCall();
 	var _t1:Time = (stdgo.time.Time.now() == null ? null : stdgo.time.Time.now().__copy__());
-	stdgo.fmt.Fmt.printf((Go.str("The call took %v to run.\n") : GoString), Go.toInterface({
-		final __self__ = new Duration_asInterface(_t1.sub((_t0 == null ? null : _t0.__copy__())));
-		__self__.abs = #if !macro function():Duration return _t1.sub((_t0 == null ? null : _t0.__copy__())).abs() #else null #end;
-		__self__.hours = #if !macro function():GoFloat64 return _t1.sub((_t0 == null ? null : _t0.__copy__())).hours() #else null #end;
-		__self__.microseconds = #if !macro function():GoInt64 return _t1.sub((_t0 == null ? null : _t0.__copy__())).microseconds() #else null #end;
-		__self__.milliseconds = #if !macro function():GoInt64 return _t1.sub((_t0 == null ? null : _t0.__copy__())).milliseconds() #else null #end;
-		__self__.minutes = #if !macro function():GoFloat64 return _t1.sub((_t0 == null ? null : _t0.__copy__())).minutes() #else null #end;
-		__self__.nanoseconds = #if !macro function():GoInt64 return _t1.sub((_t0 == null ? null : _t0.__copy__())).nanoseconds() #else null #end;
-		__self__.round = #if !macro function(_d:Duration):Duration return _t1.sub((_t0 == null ? null : _t0.__copy__())).round(_d) #else null #end;
-		__self__.seconds = #if !macro function():GoFloat64 return _t1.sub((_t0 == null ? null : _t0.__copy__())).seconds() #else null #end;
-		__self__.string = #if !macro function():GoString return _t1.sub((_t0 == null ? null : _t0.__copy__())).string() #else null #end;
-		__self__.truncate = #if !macro function(_d:Duration):Duration return _t1.sub((_t0 == null ? null : _t0.__copy__())).truncate(_d) #else null #end;
-		__self__;
-	}));
+	stdgo.fmt.Fmt.printf((Go.str("The call took %v to run.\n") : GoString), Go.toInterface(Go.asInterface(_t1.sub((_t0 == null ? null : _t0.__copy__())))));
 }
 
 function exampleDuration_Round():Void {
@@ -2018,20 +2005,8 @@ function exampleDuration_Round():Void {
 	var _round = (new Slice<Duration>(0, 0, (1 : Duration), (1000 : Duration), (1000000 : Duration), (1000000000 : Duration), (2000000000 : Duration),
 		("60000000000" : Duration), ("600000000000" : Duration), ("3600000000000" : Duration)) : Slice<Duration>);
 	for (_0 => _r in _round) {
-		stdgo.fmt.Fmt.printf((Go.str("d.Round(%6s) = %s\n") : GoString), Go.toInterface({
-			final __self__ = new Duration_asInterface(_r);
-			__self__.abs = #if !macro function():Duration return _r.abs() #else null #end;
-			__self__.hours = #if !macro function():GoFloat64 return _r.hours() #else null #end;
-			__self__.microseconds = #if !macro function():GoInt64 return _r.microseconds() #else null #end;
-			__self__.milliseconds = #if !macro function():GoInt64 return _r.milliseconds() #else null #end;
-			__self__.minutes = #if !macro function():GoFloat64 return _r.minutes() #else null #end;
-			__self__.nanoseconds = #if !macro function():GoInt64 return _r.nanoseconds() #else null #end;
-			__self__.round = #if !macro function(_d_:Duration):Duration return _r.round(_d_) #else null #end;
-			__self__.seconds = #if !macro function():GoFloat64 return _r.seconds() #else null #end;
-			__self__.string = #if !macro function():GoString return _r.string() #else null #end;
-			__self__.truncate = #if !macro function(_d__:Duration):Duration return _r.truncate(_d__) #else null #end;
-			__self__;
-		}), Go.toInterface((_d.round(_r).string() : GoString)));
+		stdgo.fmt.Fmt.printf((Go.str("d.Round(%6s) = %s\n") : GoString), Go.toInterface(Go.asInterface(_r)),
+			Go.toInterface((_d.round(_r).string() : GoString)));
 	};
 }
 
@@ -2050,20 +2025,8 @@ function exampleDuration_Truncate():Void {
 	var _trunc = (new Slice<Duration>(0, 0, (1 : Duration), (1000 : Duration), (1000000 : Duration), (1000000000 : Duration), (2000000000 : Duration),
 		("60000000000" : Duration), ("600000000000" : Duration), ("3600000000000" : Duration)) : Slice<Duration>);
 	for (_0 => _t in _trunc) {
-		stdgo.fmt.Fmt.printf((Go.str("d.Truncate(%6s) = %s\n") : GoString), Go.toInterface({
-			final __self__ = new Duration_asInterface(_t);
-			__self__.abs = #if !macro function():Duration return _t.abs() #else null #end;
-			__self__.hours = #if !macro function():GoFloat64 return _t.hours() #else null #end;
-			__self__.microseconds = #if !macro function():GoInt64 return _t.microseconds() #else null #end;
-			__self__.milliseconds = #if !macro function():GoInt64 return _t.milliseconds() #else null #end;
-			__self__.minutes = #if !macro function():GoFloat64 return _t.minutes() #else null #end;
-			__self__.nanoseconds = #if !macro function():GoInt64 return _t.nanoseconds() #else null #end;
-			__self__.round = #if !macro function(_d_:Duration):Duration return _t.round(_d_) #else null #end;
-			__self__.seconds = #if !macro function():GoFloat64 return _t.seconds() #else null #end;
-			__self__.string = #if !macro function():GoString return _t.string() #else null #end;
-			__self__.truncate = #if !macro function(_d__:Duration):Duration return _t.truncate(_d__) #else null #end;
-			__self__;
-		}), Go.toInterface((_d.truncate(_t).string() : GoString)));
+		stdgo.fmt.Fmt.printf((Go.str("d.Truncate(%6s) = %s\n") : GoString), Go.toInterface(Go.asInterface(_t)),
+			Go.toInterface((_d.truncate(_t).string() : GoString)));
 	};
 }
 
@@ -2082,48 +2045,10 @@ function exampleParseDuration():Void {
 		_3:stdgo.Error = __tmp__._1;
 	stdgo.fmt.Fmt.println(_hours);
 	stdgo.fmt.Fmt.println(_complex);
-	stdgo.fmt.Fmt.printf((Go.str("There are %.0f seconds in %v.\n") : GoString), Go.toInterface(_complex.seconds()), Go.toInterface({
-		final __self__ = new Duration_asInterface(_complex);
-		__self__.abs = #if !macro function():Duration return _complex.abs() #else null #end;
-		__self__.hours = #if !macro function():GoFloat64 return _complex.hours() #else null #end;
-		__self__.microseconds = #if !macro function():GoInt64 return _complex.microseconds() #else null #end;
-		__self__.milliseconds = #if !macro function():GoInt64 return _complex.milliseconds() #else null #end;
-		__self__.minutes = #if !macro function():GoFloat64 return _complex.minutes() #else null #end;
-		__self__.nanoseconds = #if !macro function():GoInt64 return _complex.nanoseconds() #else null #end;
-		__self__.round = #if !macro function(_d:Duration):Duration return _complex.round(_d) #else null #end;
-		__self__.seconds = #if !macro function():GoFloat64 return _complex.seconds() #else null #end;
-		__self__.string = #if !macro function():GoString return _complex.string() #else null #end;
-		__self__.truncate = #if !macro function(_d:Duration):Duration return _complex.truncate(_d) #else null #end;
-		__self__;
-	}));
-	stdgo.fmt.Fmt.printf((Go.str("There are %d nanoseconds in %v.\n") : GoString), Go.toInterface(_micro.nanoseconds()), Go.toInterface({
-		final __self__ = new Duration_asInterface(_micro);
-		__self__.abs = #if !macro function():Duration return _micro.abs() #else null #end;
-		__self__.hours = #if !macro function():GoFloat64 return _micro.hours() #else null #end;
-		__self__.microseconds = #if !macro function():GoInt64 return _micro.microseconds() #else null #end;
-		__self__.milliseconds = #if !macro function():GoInt64 return _micro.milliseconds() #else null #end;
-		__self__.minutes = #if !macro function():GoFloat64 return _micro.minutes() #else null #end;
-		__self__.nanoseconds = #if !macro function():GoInt64 return _micro.nanoseconds() #else null #end;
-		__self__.round = #if !macro function(_d:Duration):Duration return _micro.round(_d) #else null #end;
-		__self__.seconds = #if !macro function():GoFloat64 return _micro.seconds() #else null #end;
-		__self__.string = #if !macro function():GoString return _micro.string() #else null #end;
-		__self__.truncate = #if !macro function(_d:Duration):Duration return _micro.truncate(_d) #else null #end;
-		__self__;
-	}));
-	stdgo.fmt.Fmt.printf((Go.str("There are %6.2e seconds in %v.\n") : GoString), Go.toInterface(_micro2.seconds()), Go.toInterface({
-		final __self__ = new Duration_asInterface(_micro);
-		__self__.abs = #if !macro function():Duration return _micro.abs() #else null #end;
-		__self__.hours = #if !macro function():GoFloat64 return _micro.hours() #else null #end;
-		__self__.microseconds = #if !macro function():GoInt64 return _micro.microseconds() #else null #end;
-		__self__.milliseconds = #if !macro function():GoInt64 return _micro.milliseconds() #else null #end;
-		__self__.minutes = #if !macro function():GoFloat64 return _micro.minutes() #else null #end;
-		__self__.nanoseconds = #if !macro function():GoInt64 return _micro.nanoseconds() #else null #end;
-		__self__.round = #if !macro function(_d:Duration):Duration return _micro.round(_d) #else null #end;
-		__self__.seconds = #if !macro function():GoFloat64 return _micro.seconds() #else null #end;
-		__self__.string = #if !macro function():GoString return _micro.string() #else null #end;
-		__self__.truncate = #if !macro function(_d:Duration):Duration return _micro.truncate(_d) #else null #end;
-		__self__;
-	}));
+	stdgo.fmt.Fmt.printf((Go.str("There are %.0f seconds in %v.\n") : GoString), Go.toInterface(_complex.seconds()), Go.toInterface(Go.asInterface(_complex)));
+	stdgo.fmt.Fmt.printf((Go.str("There are %d nanoseconds in %v.\n") : GoString), Go.toInterface(_micro.nanoseconds()),
+		Go.toInterface(Go.asInterface(_micro)));
+	stdgo.fmt.Fmt.printf((Go.str("There are %6.2e seconds in %v.\n") : GoString), Go.toInterface(_micro2.seconds()), Go.toInterface(Go.asInterface(_micro)));
 }
 
 function exampleDuration_Hours():Void {
@@ -2192,82 +2117,7 @@ function _statusUpdate():GoString {
 function exampleTick():Void {
 	var _c = stdgo.time.Time.tick(("5000000000" : Duration));
 	for (_next => _ in _c) {
-		stdgo.fmt.Fmt.printf((Go.str("%v %s\n") : GoString), Go.toInterface({
-			final __self__ = new Time_asInterface(_next);
-			__self__.add = #if !macro function(_d:Duration):Time return _next.add(_d) #else null #end;
-			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _next.addDate(_years, _months, _days) #else null #end;
-			__self__.after = #if !macro function(__0:Time):Bool return _next.after(__0) #else null #end;
-			__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-					_layout:GoString):Slice<GoUInt8> return _next.appendFormat(_b, _layout) #else null #end;
-			__self__.before = #if !macro function(__0:Time):Bool return _next.before(__0) #else null #end;
-			__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-				return _next.clock() #else null #end;
-			__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-				return _next.date() #else null #end;
-			__self__.day = #if !macro function():GoInt return _next.day() #else null #end;
-			__self__.equal = #if !macro function(__0:Time):Bool return _next.equal(__0) #else null #end;
-			__self__.format = #if !macro function(__0:GoString):GoString return _next.format(__0) #else null #end;
-			__self__.goString = #if !macro function():GoString return _next.goString() #else null #end;
-			__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _next.gobDecode(__0) #else null #end;
-			__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _next.gobEncode() #else null #end;
-			__self__.hour = #if !macro function():GoInt return _next.hour() #else null #end;
-			__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-				return _next.isoweek() #else null #end;
-			__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _next.in_(__0) #else null #end;
-			__self__.isDST = #if !macro function():Bool return _next.isDST() #else null #end;
-			__self__.isZero = #if !macro function():Bool return _next.isZero() #else null #end;
-			__self__.local = #if !macro function():Time return _next.local() #else null #end;
-			__self__.location = #if !macro function():Ref<Location> return _next.location() #else null #end;
-			__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _next.marshalBinary() #else null #end;
-			__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _next.marshalJSON() #else null #end;
-			__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _next.marshalText() #else null #end;
-			__self__.minute = #if !macro function():GoInt return _next.minute() #else null #end;
-			__self__.month = #if !macro function():Month return _next.month() #else null #end;
-			__self__.nanosecond = #if !macro function():GoInt return _next.nanosecond() #else null #end;
-			__self__.round = #if !macro function(_d:Duration):Time return _next.round(_d) #else null #end;
-			__self__.second = #if !macro function():GoInt return _next.second() #else null #end;
-			__self__.string = #if !macro function():GoString return _next.string() #else null #end;
-			__self__.sub = #if !macro function(__0:Time):Duration return _next.sub(__0) #else null #end;
-			__self__.truncate = #if !macro function(_d:Duration):Time return _next.truncate(_d) #else null #end;
-			__self__.utc = #if !macro function():Time return _next.utc() #else null #end;
-			__self__.unix = #if !macro function():GoInt64 return _next.unix() #else null #end;
-			__self__.unixMicro = #if !macro function():GoInt64 return _next.unixMicro() #else null #end;
-			__self__.unixMilli = #if !macro function():GoInt64 return _next.unixMilli() #else null #end;
-			__self__.unixNano = #if !macro function():GoInt64 return _next.unixNano() #else null #end;
-			__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _next.unmarshalBinary(__0) #else null #end;
-			__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _next.unmarshalJSON(__0) #else null #end;
-			__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _next.unmarshalText(__0) #else null #end;
-			__self__.weekday = #if !macro function():Weekday return _next.weekday() #else null #end;
-			__self__.year = #if !macro function():GoInt return _next.year() #else null #end;
-			__self__.yearDay = #if !macro function():GoInt return _next.yearDay() #else null #end;
-			__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-				return _next.zone() #else null #end;
-			__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-				return _next.zoneBounds() #else null #end;
-			__self__._abs = #if !macro function():GoUInt64 return _next._abs() #else null #end;
-			__self__._addSec = #if !macro function(_sec:GoInt64):Void _next._addSec(_sec) #else null #end;
-			__self__._date = #if !macro function(__0:Bool):{
-				var _0:GoInt;
-				var _1:Month;
-				var _2:GoInt;
-				var _3:GoInt;
-			}
-				return _next._date(__0) #else null #end;
-			__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-				return _next._locabs() #else null #end;
-			__self__._mono = #if !macro function():GoInt64 return _next._mono() #else null #end;
-			__self__._nsec = #if !macro function():GoInt32 return _next._nsec() #else null #end;
-			__self__._sec = #if !macro function():GoInt64 return _next._sec() #else null #end;
-			__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _next._setLoc(__0) #else null #end;
-			__self__._setMono = #if !macro function(_sec:GoInt64):Void _next._setMono(_sec) #else null #end;
-			__self__._stripMono = #if !macro function():Void _next._stripMono() #else null #end;
-			__self__._unixSec = #if !macro function():GoInt64 return _next._unixSec() #else null #end;
-			__self__;
-		}), Go.toInterface(_statusUpdate()));
+		stdgo.fmt.Fmt.printf((Go.str("%v %s\n") : GoString), Go.toInterface(Go.asInterface(_next)), Go.toInterface(_statusUpdate()));
 	};
 }
 
@@ -2286,83 +2136,7 @@ function exampleDate():Void {
 		stdgo.time.Time.utc) == null ? null : stdgo.time.Time.date((2009 : GoInt), (11 : Month), (10 : GoInt), (23 : GoInt), (0 : GoInt), (0 : GoInt),
 			(0 : GoInt), stdgo.time.Time.utc)
 		.__copy__());
-	stdgo.fmt.Fmt.printf((Go.str("Go launched at %s\n") : GoString), Go.toInterface({
-		final __self__ = new Time_asInterface(_t.local());
-		__self__.add = #if !macro function(_d:Duration):Time return _t.local().add(_d) #else null #end;
-		__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _t.local()
-			.addDate(_years, _months, _days) #else null #end;
-		__self__.after = #if !macro function(__0:Time):Bool return _t.local().after(__0) #else null #end;
-		__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-				_layout:GoString):Slice<GoUInt8> return _t.local().appendFormat(_b, _layout) #else null #end;
-		__self__.before = #if !macro function(__0:Time):Bool return _t.local().before(__0) #else null #end;
-		__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-			return _t.local().clock() #else null #end;
-		__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-			return _t.local().date() #else null #end;
-		__self__.day = #if !macro function():GoInt return _t.local().day() #else null #end;
-		__self__.equal = #if !macro function(__0:Time):Bool return _t.local().equal(__0) #else null #end;
-		__self__.format = #if !macro function(__0:GoString):GoString return _t.local().format(__0) #else null #end;
-		__self__.goString = #if !macro function():GoString return _t.local().goString() #else null #end;
-		__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t.local().gobDecode(__0) #else null #end;
-		__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _t.local().gobEncode() #else null #end;
-		__self__.hour = #if !macro function():GoInt return _t.local().hour() #else null #end;
-		__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-			return _t.local().isoweek() #else null #end;
-		__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _t.local().in_(__0) #else null #end;
-		__self__.isDST = #if !macro function():Bool return _t.local().isDST() #else null #end;
-		__self__.isZero = #if !macro function():Bool return _t.local().isZero() #else null #end;
-		__self__.local = #if !macro function():Time return _t.local().local() #else null #end;
-		__self__.location = #if !macro function():Ref<Location> return _t.local().location() #else null #end;
-		__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _t.local().marshalBinary() #else null #end;
-		__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _t.local().marshalJSON() #else null #end;
-		__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _t.local().marshalText() #else null #end;
-		__self__.minute = #if !macro function():GoInt return _t.local().minute() #else null #end;
-		__self__.month = #if !macro function():Month return _t.local().month() #else null #end;
-		__self__.nanosecond = #if !macro function():GoInt return _t.local().nanosecond() #else null #end;
-		__self__.round = #if !macro function(_d:Duration):Time return _t.local().round(_d) #else null #end;
-		__self__.second = #if !macro function():GoInt return _t.local().second() #else null #end;
-		__self__.string = #if !macro function():GoString return _t.local().string() #else null #end;
-		__self__.sub = #if !macro function(__0:Time):Duration return _t.local().sub(__0) #else null #end;
-		__self__.truncate = #if !macro function(_d:Duration):Time return _t.local().truncate(_d) #else null #end;
-		__self__.utc = #if !macro function():Time return _t.local().utc() #else null #end;
-		__self__.unix = #if !macro function():GoInt64 return _t.local().unix() #else null #end;
-		__self__.unixMicro = #if !macro function():GoInt64 return _t.local().unixMicro() #else null #end;
-		__self__.unixMilli = #if !macro function():GoInt64 return _t.local().unixMilli() #else null #end;
-		__self__.unixNano = #if !macro function():GoInt64 return _t.local().unixNano() #else null #end;
-		__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t.local().unmarshalBinary(__0) #else null #end;
-		__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t.local().unmarshalJSON(__0) #else null #end;
-		__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t.local().unmarshalText(__0) #else null #end;
-		__self__.weekday = #if !macro function():Weekday return _t.local().weekday() #else null #end;
-		__self__.year = #if !macro function():GoInt return _t.local().year() #else null #end;
-		__self__.yearDay = #if !macro function():GoInt return _t.local().yearDay() #else null #end;
-		__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-			return _t.local().zone() #else null #end;
-		__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-			return _t.local().zoneBounds() #else null #end;
-		__self__._abs = #if !macro function():GoUInt64 return _t.local()._abs() #else null #end;
-		__self__._addSec = #if !macro function(_sec:GoInt64):Void _t.local()._addSec(_sec) #else null #end;
-		__self__._date = #if !macro function(__0:Bool):{
-			var _0:GoInt;
-			var _1:Month;
-			var _2:GoInt;
-			var _3:GoInt;
-		}
-			return _t.local()._date(__0) #else null #end;
-		__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-			return _t.local()._locabs() #else null #end;
-		__self__._mono = #if !macro function():GoInt64 return _t.local()._mono() #else null #end;
-		__self__._nsec = #if !macro function():GoInt32 return _t.local()._nsec() #else null #end;
-		__self__._sec = #if !macro function():GoInt64 return _t.local()._sec() #else null #end;
-		__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _t.local()._setLoc(__0) #else null #end;
-		__self__._setMono = #if !macro function(_sec:GoInt64):Void _t.local()._setMono(_sec) #else null #end;
-		__self__._stripMono = #if !macro function():Void _t.local()._stripMono() #else null #end;
-		__self__._unixSec = #if !macro function():GoInt64 return _t.local()._unixSec() #else null #end;
-		__self__;
-	}));
+	stdgo.fmt.Fmt.printf((Go.str("Go launched at %s\n") : GoString), Go.toInterface(Go.asInterface(_t.local())));
 }
 
 function exampleNewTicker():Void {
@@ -2607,20 +2381,7 @@ function exampleTime_Round():Void {
 	var _round = (new Slice<Duration>(0, 0, (1 : Duration), (1000 : Duration), (1000000 : Duration), (1000000000 : Duration), (2000000000 : Duration),
 		("60000000000" : Duration), ("600000000000" : Duration), ("3600000000000" : Duration)) : Slice<Duration>);
 	for (_0 => _d in _round) {
-		stdgo.fmt.Fmt.printf((Go.str("t.Round(%6s) = %s\n") : GoString), Go.toInterface({
-			final __self__ = new Duration_asInterface(_d);
-			__self__.abs = #if !macro function():Duration return _d.abs() #else null #end;
-			__self__.hours = #if !macro function():GoFloat64 return _d.hours() #else null #end;
-			__self__.microseconds = #if !macro function():GoInt64 return _d.microseconds() #else null #end;
-			__self__.milliseconds = #if !macro function():GoInt64 return _d.milliseconds() #else null #end;
-			__self__.minutes = #if !macro function():GoFloat64 return _d.minutes() #else null #end;
-			__self__.nanoseconds = #if !macro function():GoInt64 return _d.nanoseconds() #else null #end;
-			__self__.round = #if !macro function(_d:Duration):Duration return _d.round(_d) #else null #end;
-			__self__.seconds = #if !macro function():GoFloat64 return _d.seconds() #else null #end;
-			__self__.string = #if !macro function():GoString return _d.string() #else null #end;
-			__self__.truncate = #if !macro function(_d:Duration):Duration return _d.truncate(_d) #else null #end;
-			__self__;
-		}),
+		stdgo.fmt.Fmt.printf((Go.str("t.Round(%6s) = %s\n") : GoString), Go.toInterface(Go.asInterface(_d)),
 			Go.toInterface(_t.round(_d).format((Go.str("15:04:05.999999999") : GoString))));
 	};
 }
@@ -2632,20 +2393,7 @@ function exampleTime_Truncate():Void {
 	var _trunc = (new Slice<Duration>(0, 0, (1 : Duration), (1000 : Duration), (1000000 : Duration), (1000000000 : Duration), (2000000000 : Duration),
 		("60000000000" : Duration), ("600000000000" : Duration)) : Slice<Duration>);
 	for (_1 => _d in _trunc) {
-		stdgo.fmt.Fmt.printf((Go.str("t.Truncate(%5s) = %s\n") : GoString), Go.toInterface({
-			final __self__ = new Duration_asInterface(_d);
-			__self__.abs = #if !macro function():Duration return _d.abs() #else null #end;
-			__self__.hours = #if !macro function():GoFloat64 return _d.hours() #else null #end;
-			__self__.microseconds = #if !macro function():GoInt64 return _d.microseconds() #else null #end;
-			__self__.milliseconds = #if !macro function():GoInt64 return _d.milliseconds() #else null #end;
-			__self__.minutes = #if !macro function():GoFloat64 return _d.minutes() #else null #end;
-			__self__.nanoseconds = #if !macro function():GoInt64 return _d.nanoseconds() #else null #end;
-			__self__.round = #if !macro function(_d:Duration):Duration return _d.round(_d) #else null #end;
-			__self__.seconds = #if !macro function():GoFloat64 return _d.seconds() #else null #end;
-			__self__.string = #if !macro function():GoString return _d.string() #else null #end;
-			__self__.truncate = #if !macro function(_d:Duration):Duration return _d.truncate(_d) #else null #end;
-			__self__;
-		}),
+		stdgo.fmt.Fmt.printf((Go.str("t.Truncate(%5s) = %s\n") : GoString), Go.toInterface(Go.asInterface(_d)),
 			Go.toInterface(_t.truncate(_d).format((Go.str("15:04:05.999999999") : GoString))));
 	};
 	var _midnight:Time = (stdgo.time.Time.date(_t.year(), _t.month(), _t.day(), (0 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt),
@@ -2693,390 +2441,11 @@ function exampleTime_Add():Void {
 	var _afterTenMinutes:Time = (_start.add(("600000000000" : Duration)) == null ? null : _start.add(("600000000000" : Duration)).__copy__());
 	var _afterTenHours:Time = (_start.add(("36000000000000" : Duration)) == null ? null : _start.add(("36000000000000" : Duration)).__copy__());
 	var _afterTenDays:Time = (_start.add(("864000000000000" : Duration)) == null ? null : _start.add(("864000000000000" : Duration)).__copy__());
-	stdgo.fmt.Fmt.printf((Go.str("start = %v\n") : GoString), Go.toInterface({
-		final __self__ = new Time_asInterface(_start);
-		__self__.add = #if !macro function(_d:Duration):Time return _start.add(_d) #else null #end;
-		__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _start.addDate(_years, _months, _days) #else null #end;
-		__self__.after = #if !macro function(__0:Time):Bool return _start.after(__0) #else null #end;
-		__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>, _layout:GoString):Slice<GoUInt8> return _start.appendFormat(_b,
-			_layout) #else null #end;
-		__self__.before = #if !macro function(__0:Time):Bool return _start.before(__0) #else null #end;
-		__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-			return _start.clock() #else null #end;
-		__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-			return _start.date() #else null #end;
-		__self__.day = #if !macro function():GoInt return _start.day() #else null #end;
-		__self__.equal = #if !macro function(__0:Time):Bool return _start.equal(__0) #else null #end;
-		__self__.format = #if !macro function(__0:GoString):GoString return _start.format(__0) #else null #end;
-		__self__.goString = #if !macro function():GoString return _start.goString() #else null #end;
-		__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _start.gobDecode(__0) #else null #end;
-		__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _start.gobEncode() #else null #end;
-		__self__.hour = #if !macro function():GoInt return _start.hour() #else null #end;
-		__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-			return _start.isoweek() #else null #end;
-		__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _start.in_(__0) #else null #end;
-		__self__.isDST = #if !macro function():Bool return _start.isDST() #else null #end;
-		__self__.isZero = #if !macro function():Bool return _start.isZero() #else null #end;
-		__self__.local = #if !macro function():Time return _start.local() #else null #end;
-		__self__.location = #if !macro function():Ref<Location> return _start.location() #else null #end;
-		__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _start.marshalBinary() #else null #end;
-		__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _start.marshalJSON() #else null #end;
-		__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _start.marshalText() #else null #end;
-		__self__.minute = #if !macro function():GoInt return _start.minute() #else null #end;
-		__self__.month = #if !macro function():Month return _start.month() #else null #end;
-		__self__.nanosecond = #if !macro function():GoInt return _start.nanosecond() #else null #end;
-		__self__.round = #if !macro function(_d:Duration):Time return _start.round(_d) #else null #end;
-		__self__.second = #if !macro function():GoInt return _start.second() #else null #end;
-		__self__.string = #if !macro function():GoString return _start.string() #else null #end;
-		__self__.sub = #if !macro function(__0:Time):Duration return _start.sub(__0) #else null #end;
-		__self__.truncate = #if !macro function(_d:Duration):Time return _start.truncate(_d) #else null #end;
-		__self__.utc = #if !macro function():Time return _start.utc() #else null #end;
-		__self__.unix = #if !macro function():GoInt64 return _start.unix() #else null #end;
-		__self__.unixMicro = #if !macro function():GoInt64 return _start.unixMicro() #else null #end;
-		__self__.unixMilli = #if !macro function():GoInt64 return _start.unixMilli() #else null #end;
-		__self__.unixNano = #if !macro function():GoInt64 return _start.unixNano() #else null #end;
-		__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _start.unmarshalBinary(__0) #else null #end;
-		__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _start.unmarshalJSON(__0) #else null #end;
-		__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _start.unmarshalText(__0) #else null #end;
-		__self__.weekday = #if !macro function():Weekday return _start.weekday() #else null #end;
-		__self__.year = #if !macro function():GoInt return _start.year() #else null #end;
-		__self__.yearDay = #if !macro function():GoInt return _start.yearDay() #else null #end;
-		__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-			return _start.zone() #else null #end;
-		__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-			return _start.zoneBounds() #else null #end;
-		__self__._abs = #if !macro function():GoUInt64 return _start._abs() #else null #end;
-		__self__._addSec = #if !macro function(_sec:GoInt64):Void _start._addSec(_sec) #else null #end;
-		__self__._date = #if !macro function(__0:Bool):{
-			var _0:GoInt;
-			var _1:Month;
-			var _2:GoInt;
-			var _3:GoInt;
-		}
-			return _start._date(__0) #else null #end;
-		__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-			return _start._locabs() #else null #end;
-		__self__._mono = #if !macro function():GoInt64 return _start._mono() #else null #end;
-		__self__._nsec = #if !macro function():GoInt32 return _start._nsec() #else null #end;
-		__self__._sec = #if !macro function():GoInt64 return _start._sec() #else null #end;
-		__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _start._setLoc(__0) #else null #end;
-		__self__._setMono = #if !macro function(_sec:GoInt64):Void _start._setMono(_sec) #else null #end;
-		__self__._stripMono = #if !macro function():Void _start._stripMono() #else null #end;
-		__self__._unixSec = #if !macro function():GoInt64 return _start._unixSec() #else null #end;
-		__self__;
-	}));
-	stdgo.fmt.Fmt.printf((Go.str("start.Add(time.Second * 10) = %v\n") : GoString), Go.toInterface({
-		final __self__ = new Time_asInterface(_afterTenSeconds);
-		__self__.add = #if !macro function(_d:Duration):Time return _afterTenSeconds.add(_d) #else null #end;
-		__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-				_days:GoInt):Time return _afterTenSeconds.addDate(_years, _months, _days) #else null #end;
-		__self__.after = #if !macro function(__0:Time):Bool return _afterTenSeconds.after(__0) #else null #end;
-		__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-				_layout:GoString):Slice<GoUInt8> return _afterTenSeconds.appendFormat(_b, _layout) #else null #end;
-		__self__.before = #if !macro function(__0:Time):Bool return _afterTenSeconds.before(__0) #else null #end;
-		__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-			return _afterTenSeconds.clock() #else null #end;
-		__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-			return _afterTenSeconds.date() #else null #end;
-		__self__.day = #if !macro function():GoInt return _afterTenSeconds.day() #else null #end;
-		__self__.equal = #if !macro function(__0:Time):Bool return _afterTenSeconds.equal(__0) #else null #end;
-		__self__.format = #if !macro function(__0:GoString):GoString return _afterTenSeconds.format(__0) #else null #end;
-		__self__.goString = #if !macro function():GoString return _afterTenSeconds.goString() #else null #end;
-		__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _afterTenSeconds.gobDecode(__0) #else null #end;
-		__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _afterTenSeconds.gobEncode() #else null #end;
-		__self__.hour = #if !macro function():GoInt return _afterTenSeconds.hour() #else null #end;
-		__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-			return _afterTenSeconds.isoweek() #else null #end;
-		__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _afterTenSeconds.in_(__0) #else null #end;
-		__self__.isDST = #if !macro function():Bool return _afterTenSeconds.isDST() #else null #end;
-		__self__.isZero = #if !macro function():Bool return _afterTenSeconds.isZero() #else null #end;
-		__self__.local = #if !macro function():Time return _afterTenSeconds.local() #else null #end;
-		__self__.location = #if !macro function():Ref<Location> return _afterTenSeconds.location() #else null #end;
-		__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _afterTenSeconds.marshalBinary() #else null #end;
-		__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _afterTenSeconds.marshalJSON() #else null #end;
-		__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _afterTenSeconds.marshalText() #else null #end;
-		__self__.minute = #if !macro function():GoInt return _afterTenSeconds.minute() #else null #end;
-		__self__.month = #if !macro function():Month return _afterTenSeconds.month() #else null #end;
-		__self__.nanosecond = #if !macro function():GoInt return _afterTenSeconds.nanosecond() #else null #end;
-		__self__.round = #if !macro function(_d:Duration):Time return _afterTenSeconds.round(_d) #else null #end;
-		__self__.second = #if !macro function():GoInt return _afterTenSeconds.second() #else null #end;
-		__self__.string = #if !macro function():GoString return _afterTenSeconds.string() #else null #end;
-		__self__.sub = #if !macro function(__0:Time):Duration return _afterTenSeconds.sub(__0) #else null #end;
-		__self__.truncate = #if !macro function(_d:Duration):Time return _afterTenSeconds.truncate(_d) #else null #end;
-		__self__.utc = #if !macro function():Time return _afterTenSeconds.utc() #else null #end;
-		__self__.unix = #if !macro function():GoInt64 return _afterTenSeconds.unix() #else null #end;
-		__self__.unixMicro = #if !macro function():GoInt64 return _afterTenSeconds.unixMicro() #else null #end;
-		__self__.unixMilli = #if !macro function():GoInt64 return _afterTenSeconds.unixMilli() #else null #end;
-		__self__.unixNano = #if !macro function():GoInt64 return _afterTenSeconds.unixNano() #else null #end;
-		__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _afterTenSeconds.unmarshalBinary(__0) #else null #end;
-		__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _afterTenSeconds.unmarshalJSON(__0) #else null #end;
-		__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _afterTenSeconds.unmarshalText(__0) #else null #end;
-		__self__.weekday = #if !macro function():Weekday return _afterTenSeconds.weekday() #else null #end;
-		__self__.year = #if !macro function():GoInt return _afterTenSeconds.year() #else null #end;
-		__self__.yearDay = #if !macro function():GoInt return _afterTenSeconds.yearDay() #else null #end;
-		__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-			return _afterTenSeconds.zone() #else null #end;
-		__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-			return _afterTenSeconds.zoneBounds() #else null #end;
-		__self__._abs = #if !macro function():GoUInt64 return _afterTenSeconds._abs() #else null #end;
-		__self__._addSec = #if !macro function(_sec:GoInt64):Void _afterTenSeconds._addSec(_sec) #else null #end;
-		__self__._date = #if !macro function(__0:Bool):{
-			var _0:GoInt;
-			var _1:Month;
-			var _2:GoInt;
-			var _3:GoInt;
-		}
-			return _afterTenSeconds._date(__0) #else null #end;
-		__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-			return _afterTenSeconds._locabs() #else null #end;
-		__self__._mono = #if !macro function():GoInt64 return _afterTenSeconds._mono() #else null #end;
-		__self__._nsec = #if !macro function():GoInt32 return _afterTenSeconds._nsec() #else null #end;
-		__self__._sec = #if !macro function():GoInt64 return _afterTenSeconds._sec() #else null #end;
-		__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _afterTenSeconds._setLoc(__0) #else null #end;
-		__self__._setMono = #if !macro function(_sec:GoInt64):Void _afterTenSeconds._setMono(_sec) #else null #end;
-		__self__._stripMono = #if !macro function():Void _afterTenSeconds._stripMono() #else null #end;
-		__self__._unixSec = #if !macro function():GoInt64 return _afterTenSeconds._unixSec() #else null #end;
-		__self__;
-	}));
-	stdgo.fmt.Fmt.printf((Go.str("start.Add(time.Minute * 10) = %v\n") : GoString), Go.toInterface({
-		final __self__ = new Time_asInterface(_afterTenMinutes);
-		__self__.add = #if !macro function(_d:Duration):Time return _afterTenMinutes.add(_d) #else null #end;
-		__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-				_days:GoInt):Time return _afterTenMinutes.addDate(_years, _months, _days) #else null #end;
-		__self__.after = #if !macro function(__0:Time):Bool return _afterTenMinutes.after(__0) #else null #end;
-		__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-				_layout:GoString):Slice<GoUInt8> return _afterTenMinutes.appendFormat(_b, _layout) #else null #end;
-		__self__.before = #if !macro function(__0:Time):Bool return _afterTenMinutes.before(__0) #else null #end;
-		__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-			return _afterTenMinutes.clock() #else null #end;
-		__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-			return _afterTenMinutes.date() #else null #end;
-		__self__.day = #if !macro function():GoInt return _afterTenMinutes.day() #else null #end;
-		__self__.equal = #if !macro function(__0:Time):Bool return _afterTenMinutes.equal(__0) #else null #end;
-		__self__.format = #if !macro function(__0:GoString):GoString return _afterTenMinutes.format(__0) #else null #end;
-		__self__.goString = #if !macro function():GoString return _afterTenMinutes.goString() #else null #end;
-		__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _afterTenMinutes.gobDecode(__0) #else null #end;
-		__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _afterTenMinutes.gobEncode() #else null #end;
-		__self__.hour = #if !macro function():GoInt return _afterTenMinutes.hour() #else null #end;
-		__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-			return _afterTenMinutes.isoweek() #else null #end;
-		__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _afterTenMinutes.in_(__0) #else null #end;
-		__self__.isDST = #if !macro function():Bool return _afterTenMinutes.isDST() #else null #end;
-		__self__.isZero = #if !macro function():Bool return _afterTenMinutes.isZero() #else null #end;
-		__self__.local = #if !macro function():Time return _afterTenMinutes.local() #else null #end;
-		__self__.location = #if !macro function():Ref<Location> return _afterTenMinutes.location() #else null #end;
-		__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _afterTenMinutes.marshalBinary() #else null #end;
-		__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _afterTenMinutes.marshalJSON() #else null #end;
-		__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _afterTenMinutes.marshalText() #else null #end;
-		__self__.minute = #if !macro function():GoInt return _afterTenMinutes.minute() #else null #end;
-		__self__.month = #if !macro function():Month return _afterTenMinutes.month() #else null #end;
-		__self__.nanosecond = #if !macro function():GoInt return _afterTenMinutes.nanosecond() #else null #end;
-		__self__.round = #if !macro function(_d:Duration):Time return _afterTenMinutes.round(_d) #else null #end;
-		__self__.second = #if !macro function():GoInt return _afterTenMinutes.second() #else null #end;
-		__self__.string = #if !macro function():GoString return _afterTenMinutes.string() #else null #end;
-		__self__.sub = #if !macro function(__0:Time):Duration return _afterTenMinutes.sub(__0) #else null #end;
-		__self__.truncate = #if !macro function(_d:Duration):Time return _afterTenMinutes.truncate(_d) #else null #end;
-		__self__.utc = #if !macro function():Time return _afterTenMinutes.utc() #else null #end;
-		__self__.unix = #if !macro function():GoInt64 return _afterTenMinutes.unix() #else null #end;
-		__self__.unixMicro = #if !macro function():GoInt64 return _afterTenMinutes.unixMicro() #else null #end;
-		__self__.unixMilli = #if !macro function():GoInt64 return _afterTenMinutes.unixMilli() #else null #end;
-		__self__.unixNano = #if !macro function():GoInt64 return _afterTenMinutes.unixNano() #else null #end;
-		__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _afterTenMinutes.unmarshalBinary(__0) #else null #end;
-		__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _afterTenMinutes.unmarshalJSON(__0) #else null #end;
-		__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _afterTenMinutes.unmarshalText(__0) #else null #end;
-		__self__.weekday = #if !macro function():Weekday return _afterTenMinutes.weekday() #else null #end;
-		__self__.year = #if !macro function():GoInt return _afterTenMinutes.year() #else null #end;
-		__self__.yearDay = #if !macro function():GoInt return _afterTenMinutes.yearDay() #else null #end;
-		__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-			return _afterTenMinutes.zone() #else null #end;
-		__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-			return _afterTenMinutes.zoneBounds() #else null #end;
-		__self__._abs = #if !macro function():GoUInt64 return _afterTenMinutes._abs() #else null #end;
-		__self__._addSec = #if !macro function(_sec:GoInt64):Void _afterTenMinutes._addSec(_sec) #else null #end;
-		__self__._date = #if !macro function(__0:Bool):{
-			var _0:GoInt;
-			var _1:Month;
-			var _2:GoInt;
-			var _3:GoInt;
-		}
-			return _afterTenMinutes._date(__0) #else null #end;
-		__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-			return _afterTenMinutes._locabs() #else null #end;
-		__self__._mono = #if !macro function():GoInt64 return _afterTenMinutes._mono() #else null #end;
-		__self__._nsec = #if !macro function():GoInt32 return _afterTenMinutes._nsec() #else null #end;
-		__self__._sec = #if !macro function():GoInt64 return _afterTenMinutes._sec() #else null #end;
-		__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _afterTenMinutes._setLoc(__0) #else null #end;
-		__self__._setMono = #if !macro function(_sec:GoInt64):Void _afterTenMinutes._setMono(_sec) #else null #end;
-		__self__._stripMono = #if !macro function():Void _afterTenMinutes._stripMono() #else null #end;
-		__self__._unixSec = #if !macro function():GoInt64 return _afterTenMinutes._unixSec() #else null #end;
-		__self__;
-	}));
-	stdgo.fmt.Fmt.printf((Go.str("start.Add(time.Hour * 10) = %v\n") : GoString), Go.toInterface({
-		final __self__ = new Time_asInterface(_afterTenHours);
-		__self__.add = #if !macro function(_d:Duration):Time return _afterTenHours.add(_d) #else null #end;
-		__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-				_days:GoInt):Time return _afterTenHours.addDate(_years, _months, _days) #else null #end;
-		__self__.after = #if !macro function(__0:Time):Bool return _afterTenHours.after(__0) #else null #end;
-		__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-				_layout:GoString):Slice<GoUInt8> return _afterTenHours.appendFormat(_b, _layout) #else null #end;
-		__self__.before = #if !macro function(__0:Time):Bool return _afterTenHours.before(__0) #else null #end;
-		__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-			return _afterTenHours.clock() #else null #end;
-		__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-			return _afterTenHours.date() #else null #end;
-		__self__.day = #if !macro function():GoInt return _afterTenHours.day() #else null #end;
-		__self__.equal = #if !macro function(__0:Time):Bool return _afterTenHours.equal(__0) #else null #end;
-		__self__.format = #if !macro function(__0:GoString):GoString return _afterTenHours.format(__0) #else null #end;
-		__self__.goString = #if !macro function():GoString return _afterTenHours.goString() #else null #end;
-		__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _afterTenHours.gobDecode(__0) #else null #end;
-		__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _afterTenHours.gobEncode() #else null #end;
-		__self__.hour = #if !macro function():GoInt return _afterTenHours.hour() #else null #end;
-		__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-			return _afterTenHours.isoweek() #else null #end;
-		__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _afterTenHours.in_(__0) #else null #end;
-		__self__.isDST = #if !macro function():Bool return _afterTenHours.isDST() #else null #end;
-		__self__.isZero = #if !macro function():Bool return _afterTenHours.isZero() #else null #end;
-		__self__.local = #if !macro function():Time return _afterTenHours.local() #else null #end;
-		__self__.location = #if !macro function():Ref<Location> return _afterTenHours.location() #else null #end;
-		__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _afterTenHours.marshalBinary() #else null #end;
-		__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _afterTenHours.marshalJSON() #else null #end;
-		__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _afterTenHours.marshalText() #else null #end;
-		__self__.minute = #if !macro function():GoInt return _afterTenHours.minute() #else null #end;
-		__self__.month = #if !macro function():Month return _afterTenHours.month() #else null #end;
-		__self__.nanosecond = #if !macro function():GoInt return _afterTenHours.nanosecond() #else null #end;
-		__self__.round = #if !macro function(_d:Duration):Time return _afterTenHours.round(_d) #else null #end;
-		__self__.second = #if !macro function():GoInt return _afterTenHours.second() #else null #end;
-		__self__.string = #if !macro function():GoString return _afterTenHours.string() #else null #end;
-		__self__.sub = #if !macro function(__0:Time):Duration return _afterTenHours.sub(__0) #else null #end;
-		__self__.truncate = #if !macro function(_d:Duration):Time return _afterTenHours.truncate(_d) #else null #end;
-		__self__.utc = #if !macro function():Time return _afterTenHours.utc() #else null #end;
-		__self__.unix = #if !macro function():GoInt64 return _afterTenHours.unix() #else null #end;
-		__self__.unixMicro = #if !macro function():GoInt64 return _afterTenHours.unixMicro() #else null #end;
-		__self__.unixMilli = #if !macro function():GoInt64 return _afterTenHours.unixMilli() #else null #end;
-		__self__.unixNano = #if !macro function():GoInt64 return _afterTenHours.unixNano() #else null #end;
-		__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _afterTenHours.unmarshalBinary(__0) #else null #end;
-		__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _afterTenHours.unmarshalJSON(__0) #else null #end;
-		__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _afterTenHours.unmarshalText(__0) #else null #end;
-		__self__.weekday = #if !macro function():Weekday return _afterTenHours.weekday() #else null #end;
-		__self__.year = #if !macro function():GoInt return _afterTenHours.year() #else null #end;
-		__self__.yearDay = #if !macro function():GoInt return _afterTenHours.yearDay() #else null #end;
-		__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-			return _afterTenHours.zone() #else null #end;
-		__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-			return _afterTenHours.zoneBounds() #else null #end;
-		__self__._abs = #if !macro function():GoUInt64 return _afterTenHours._abs() #else null #end;
-		__self__._addSec = #if !macro function(_sec:GoInt64):Void _afterTenHours._addSec(_sec) #else null #end;
-		__self__._date = #if !macro function(__0:Bool):{
-			var _0:GoInt;
-			var _1:Month;
-			var _2:GoInt;
-			var _3:GoInt;
-		}
-			return _afterTenHours._date(__0) #else null #end;
-		__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-			return _afterTenHours._locabs() #else null #end;
-		__self__._mono = #if !macro function():GoInt64 return _afterTenHours._mono() #else null #end;
-		__self__._nsec = #if !macro function():GoInt32 return _afterTenHours._nsec() #else null #end;
-		__self__._sec = #if !macro function():GoInt64 return _afterTenHours._sec() #else null #end;
-		__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _afterTenHours._setLoc(__0) #else null #end;
-		__self__._setMono = #if !macro function(_sec:GoInt64):Void _afterTenHours._setMono(_sec) #else null #end;
-		__self__._stripMono = #if !macro function():Void _afterTenHours._stripMono() #else null #end;
-		__self__._unixSec = #if !macro function():GoInt64 return _afterTenHours._unixSec() #else null #end;
-		__self__;
-	}));
-	stdgo.fmt.Fmt.printf((Go.str("start.Add(time.Hour * 24 * 10) = %v\n") : GoString), Go.toInterface({
-		final __self__ = new Time_asInterface(_afterTenDays);
-		__self__.add = #if !macro function(_d:Duration):Time return _afterTenDays.add(_d) #else null #end;
-		__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-				_days:GoInt):Time return _afterTenDays.addDate(_years, _months, _days) #else null #end;
-		__self__.after = #if !macro function(__0:Time):Bool return _afterTenDays.after(__0) #else null #end;
-		__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-				_layout:GoString):Slice<GoUInt8> return _afterTenDays.appendFormat(_b, _layout) #else null #end;
-		__self__.before = #if !macro function(__0:Time):Bool return _afterTenDays.before(__0) #else null #end;
-		__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-			return _afterTenDays.clock() #else null #end;
-		__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-			return _afterTenDays.date() #else null #end;
-		__self__.day = #if !macro function():GoInt return _afterTenDays.day() #else null #end;
-		__self__.equal = #if !macro function(__0:Time):Bool return _afterTenDays.equal(__0) #else null #end;
-		__self__.format = #if !macro function(__0:GoString):GoString return _afterTenDays.format(__0) #else null #end;
-		__self__.goString = #if !macro function():GoString return _afterTenDays.goString() #else null #end;
-		__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _afterTenDays.gobDecode(__0) #else null #end;
-		__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _afterTenDays.gobEncode() #else null #end;
-		__self__.hour = #if !macro function():GoInt return _afterTenDays.hour() #else null #end;
-		__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-			return _afterTenDays.isoweek() #else null #end;
-		__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _afterTenDays.in_(__0) #else null #end;
-		__self__.isDST = #if !macro function():Bool return _afterTenDays.isDST() #else null #end;
-		__self__.isZero = #if !macro function():Bool return _afterTenDays.isZero() #else null #end;
-		__self__.local = #if !macro function():Time return _afterTenDays.local() #else null #end;
-		__self__.location = #if !macro function():Ref<Location> return _afterTenDays.location() #else null #end;
-		__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _afterTenDays.marshalBinary() #else null #end;
-		__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _afterTenDays.marshalJSON() #else null #end;
-		__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _afterTenDays.marshalText() #else null #end;
-		__self__.minute = #if !macro function():GoInt return _afterTenDays.minute() #else null #end;
-		__self__.month = #if !macro function():Month return _afterTenDays.month() #else null #end;
-		__self__.nanosecond = #if !macro function():GoInt return _afterTenDays.nanosecond() #else null #end;
-		__self__.round = #if !macro function(_d:Duration):Time return _afterTenDays.round(_d) #else null #end;
-		__self__.second = #if !macro function():GoInt return _afterTenDays.second() #else null #end;
-		__self__.string = #if !macro function():GoString return _afterTenDays.string() #else null #end;
-		__self__.sub = #if !macro function(__0:Time):Duration return _afterTenDays.sub(__0) #else null #end;
-		__self__.truncate = #if !macro function(_d:Duration):Time return _afterTenDays.truncate(_d) #else null #end;
-		__self__.utc = #if !macro function():Time return _afterTenDays.utc() #else null #end;
-		__self__.unix = #if !macro function():GoInt64 return _afterTenDays.unix() #else null #end;
-		__self__.unixMicro = #if !macro function():GoInt64 return _afterTenDays.unixMicro() #else null #end;
-		__self__.unixMilli = #if !macro function():GoInt64 return _afterTenDays.unixMilli() #else null #end;
-		__self__.unixNano = #if !macro function():GoInt64 return _afterTenDays.unixNano() #else null #end;
-		__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _afterTenDays.unmarshalBinary(__0) #else null #end;
-		__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _afterTenDays.unmarshalJSON(__0) #else null #end;
-		__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _afterTenDays.unmarshalText(__0) #else null #end;
-		__self__.weekday = #if !macro function():Weekday return _afterTenDays.weekday() #else null #end;
-		__self__.year = #if !macro function():GoInt return _afterTenDays.year() #else null #end;
-		__self__.yearDay = #if !macro function():GoInt return _afterTenDays.yearDay() #else null #end;
-		__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-			return _afterTenDays.zone() #else null #end;
-		__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-			return _afterTenDays.zoneBounds() #else null #end;
-		__self__._abs = #if !macro function():GoUInt64 return _afterTenDays._abs() #else null #end;
-		__self__._addSec = #if !macro function(_sec:GoInt64):Void _afterTenDays._addSec(_sec) #else null #end;
-		__self__._date = #if !macro function(__0:Bool):{
-			var _0:GoInt;
-			var _1:Month;
-			var _2:GoInt;
-			var _3:GoInt;
-		}
-			return _afterTenDays._date(__0) #else null #end;
-		__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-			return _afterTenDays._locabs() #else null #end;
-		__self__._mono = #if !macro function():GoInt64 return _afterTenDays._mono() #else null #end;
-		__self__._nsec = #if !macro function():GoInt32 return _afterTenDays._nsec() #else null #end;
-		__self__._sec = #if !macro function():GoInt64 return _afterTenDays._sec() #else null #end;
-		__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _afterTenDays._setLoc(__0) #else null #end;
-		__self__._setMono = #if !macro function(_sec:GoInt64):Void _afterTenDays._setMono(_sec) #else null #end;
-		__self__._stripMono = #if !macro function():Void _afterTenDays._stripMono() #else null #end;
-		__self__._unixSec = #if !macro function():GoInt64 return _afterTenDays._unixSec() #else null #end;
-		__self__;
-	}));
+	stdgo.fmt.Fmt.printf((Go.str("start = %v\n") : GoString), Go.toInterface(Go.asInterface(_start)));
+	stdgo.fmt.Fmt.printf((Go.str("start.Add(time.Second * 10) = %v\n") : GoString), Go.toInterface(Go.asInterface(_afterTenSeconds)));
+	stdgo.fmt.Fmt.printf((Go.str("start.Add(time.Minute * 10) = %v\n") : GoString), Go.toInterface(Go.asInterface(_afterTenMinutes)));
+	stdgo.fmt.Fmt.printf((Go.str("start.Add(time.Hour * 10) = %v\n") : GoString), Go.toInterface(Go.asInterface(_afterTenHours)));
+	stdgo.fmt.Fmt.printf((Go.str("start.Add(time.Hour * 24 * 10) = %v\n") : GoString), Go.toInterface(Go.asInterface(_afterTenDays)));
 }
 
 function exampleTime_AddDate():Void {
@@ -3090,237 +2459,9 @@ function exampleTime_AddDate():Void {
 		(0 : GoInt)) == null ? null : _start.addDate((0 : GoInt), (1 : GoInt), (0 : GoInt)).__copy__());
 	var _oneYearLater:Time = (_start.addDate((1 : GoInt), (0 : GoInt),
 		(0 : GoInt)) == null ? null : _start.addDate((1 : GoInt), (0 : GoInt), (0 : GoInt)).__copy__());
-	stdgo.fmt.Fmt.printf((Go.str("oneDayLater: start.AddDate(0, 0, 1) = %v\n") : GoString), Go.toInterface({
-		final __self__ = new Time_asInterface(_oneDayLater);
-		__self__.add = #if !macro function(_d:Duration):Time return _oneDayLater.add(_d) #else null #end;
-		__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-				_days:GoInt):Time return _oneDayLater.addDate(_years, _months, _days) #else null #end;
-		__self__.after = #if !macro function(__0:Time):Bool return _oneDayLater.after(__0) #else null #end;
-		__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-				_layout:GoString):Slice<GoUInt8> return _oneDayLater.appendFormat(_b, _layout) #else null #end;
-		__self__.before = #if !macro function(__0:Time):Bool return _oneDayLater.before(__0) #else null #end;
-		__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-			return _oneDayLater.clock() #else null #end;
-		__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-			return _oneDayLater.date() #else null #end;
-		__self__.day = #if !macro function():GoInt return _oneDayLater.day() #else null #end;
-		__self__.equal = #if !macro function(__0:Time):Bool return _oneDayLater.equal(__0) #else null #end;
-		__self__.format = #if !macro function(__0:GoString):GoString return _oneDayLater.format(__0) #else null #end;
-		__self__.goString = #if !macro function():GoString return _oneDayLater.goString() #else null #end;
-		__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _oneDayLater.gobDecode(__0) #else null #end;
-		__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _oneDayLater.gobEncode() #else null #end;
-		__self__.hour = #if !macro function():GoInt return _oneDayLater.hour() #else null #end;
-		__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-			return _oneDayLater.isoweek() #else null #end;
-		__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _oneDayLater.in_(__0) #else null #end;
-		__self__.isDST = #if !macro function():Bool return _oneDayLater.isDST() #else null #end;
-		__self__.isZero = #if !macro function():Bool return _oneDayLater.isZero() #else null #end;
-		__self__.local = #if !macro function():Time return _oneDayLater.local() #else null #end;
-		__self__.location = #if !macro function():Ref<Location> return _oneDayLater.location() #else null #end;
-		__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _oneDayLater.marshalBinary() #else null #end;
-		__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _oneDayLater.marshalJSON() #else null #end;
-		__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _oneDayLater.marshalText() #else null #end;
-		__self__.minute = #if !macro function():GoInt return _oneDayLater.minute() #else null #end;
-		__self__.month = #if !macro function():Month return _oneDayLater.month() #else null #end;
-		__self__.nanosecond = #if !macro function():GoInt return _oneDayLater.nanosecond() #else null #end;
-		__self__.round = #if !macro function(_d:Duration):Time return _oneDayLater.round(_d) #else null #end;
-		__self__.second = #if !macro function():GoInt return _oneDayLater.second() #else null #end;
-		__self__.string = #if !macro function():GoString return _oneDayLater.string() #else null #end;
-		__self__.sub = #if !macro function(__0:Time):Duration return _oneDayLater.sub(__0) #else null #end;
-		__self__.truncate = #if !macro function(_d:Duration):Time return _oneDayLater.truncate(_d) #else null #end;
-		__self__.utc = #if !macro function():Time return _oneDayLater.utc() #else null #end;
-		__self__.unix = #if !macro function():GoInt64 return _oneDayLater.unix() #else null #end;
-		__self__.unixMicro = #if !macro function():GoInt64 return _oneDayLater.unixMicro() #else null #end;
-		__self__.unixMilli = #if !macro function():GoInt64 return _oneDayLater.unixMilli() #else null #end;
-		__self__.unixNano = #if !macro function():GoInt64 return _oneDayLater.unixNano() #else null #end;
-		__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _oneDayLater.unmarshalBinary(__0) #else null #end;
-		__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _oneDayLater.unmarshalJSON(__0) #else null #end;
-		__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _oneDayLater.unmarshalText(__0) #else null #end;
-		__self__.weekday = #if !macro function():Weekday return _oneDayLater.weekday() #else null #end;
-		__self__.year = #if !macro function():GoInt return _oneDayLater.year() #else null #end;
-		__self__.yearDay = #if !macro function():GoInt return _oneDayLater.yearDay() #else null #end;
-		__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-			return _oneDayLater.zone() #else null #end;
-		__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-			return _oneDayLater.zoneBounds() #else null #end;
-		__self__._abs = #if !macro function():GoUInt64 return _oneDayLater._abs() #else null #end;
-		__self__._addSec = #if !macro function(_sec:GoInt64):Void _oneDayLater._addSec(_sec) #else null #end;
-		__self__._date = #if !macro function(__0:Bool):{
-			var _0:GoInt;
-			var _1:Month;
-			var _2:GoInt;
-			var _3:GoInt;
-		}
-			return _oneDayLater._date(__0) #else null #end;
-		__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-			return _oneDayLater._locabs() #else null #end;
-		__self__._mono = #if !macro function():GoInt64 return _oneDayLater._mono() #else null #end;
-		__self__._nsec = #if !macro function():GoInt32 return _oneDayLater._nsec() #else null #end;
-		__self__._sec = #if !macro function():GoInt64 return _oneDayLater._sec() #else null #end;
-		__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _oneDayLater._setLoc(__0) #else null #end;
-		__self__._setMono = #if !macro function(_sec:GoInt64):Void _oneDayLater._setMono(_sec) #else null #end;
-		__self__._stripMono = #if !macro function():Void _oneDayLater._stripMono() #else null #end;
-		__self__._unixSec = #if !macro function():GoInt64 return _oneDayLater._unixSec() #else null #end;
-		__self__;
-	}));
-	stdgo.fmt.Fmt.printf((Go.str("oneMonthLater: start.AddDate(0, 1, 0) = %v\n") : GoString), Go.toInterface({
-		final __self__ = new Time_asInterface(_oneMonthLater);
-		__self__.add = #if !macro function(_d:Duration):Time return _oneMonthLater.add(_d) #else null #end;
-		__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-				_days:GoInt):Time return _oneMonthLater.addDate(_years, _months, _days) #else null #end;
-		__self__.after = #if !macro function(__0:Time):Bool return _oneMonthLater.after(__0) #else null #end;
-		__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-				_layout:GoString):Slice<GoUInt8> return _oneMonthLater.appendFormat(_b, _layout) #else null #end;
-		__self__.before = #if !macro function(__0:Time):Bool return _oneMonthLater.before(__0) #else null #end;
-		__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-			return _oneMonthLater.clock() #else null #end;
-		__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-			return _oneMonthLater.date() #else null #end;
-		__self__.day = #if !macro function():GoInt return _oneMonthLater.day() #else null #end;
-		__self__.equal = #if !macro function(__0:Time):Bool return _oneMonthLater.equal(__0) #else null #end;
-		__self__.format = #if !macro function(__0:GoString):GoString return _oneMonthLater.format(__0) #else null #end;
-		__self__.goString = #if !macro function():GoString return _oneMonthLater.goString() #else null #end;
-		__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _oneMonthLater.gobDecode(__0) #else null #end;
-		__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _oneMonthLater.gobEncode() #else null #end;
-		__self__.hour = #if !macro function():GoInt return _oneMonthLater.hour() #else null #end;
-		__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-			return _oneMonthLater.isoweek() #else null #end;
-		__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _oneMonthLater.in_(__0) #else null #end;
-		__self__.isDST = #if !macro function():Bool return _oneMonthLater.isDST() #else null #end;
-		__self__.isZero = #if !macro function():Bool return _oneMonthLater.isZero() #else null #end;
-		__self__.local = #if !macro function():Time return _oneMonthLater.local() #else null #end;
-		__self__.location = #if !macro function():Ref<Location> return _oneMonthLater.location() #else null #end;
-		__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _oneMonthLater.marshalBinary() #else null #end;
-		__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _oneMonthLater.marshalJSON() #else null #end;
-		__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _oneMonthLater.marshalText() #else null #end;
-		__self__.minute = #if !macro function():GoInt return _oneMonthLater.minute() #else null #end;
-		__self__.month = #if !macro function():Month return _oneMonthLater.month() #else null #end;
-		__self__.nanosecond = #if !macro function():GoInt return _oneMonthLater.nanosecond() #else null #end;
-		__self__.round = #if !macro function(_d:Duration):Time return _oneMonthLater.round(_d) #else null #end;
-		__self__.second = #if !macro function():GoInt return _oneMonthLater.second() #else null #end;
-		__self__.string = #if !macro function():GoString return _oneMonthLater.string() #else null #end;
-		__self__.sub = #if !macro function(__0:Time):Duration return _oneMonthLater.sub(__0) #else null #end;
-		__self__.truncate = #if !macro function(_d:Duration):Time return _oneMonthLater.truncate(_d) #else null #end;
-		__self__.utc = #if !macro function():Time return _oneMonthLater.utc() #else null #end;
-		__self__.unix = #if !macro function():GoInt64 return _oneMonthLater.unix() #else null #end;
-		__self__.unixMicro = #if !macro function():GoInt64 return _oneMonthLater.unixMicro() #else null #end;
-		__self__.unixMilli = #if !macro function():GoInt64 return _oneMonthLater.unixMilli() #else null #end;
-		__self__.unixNano = #if !macro function():GoInt64 return _oneMonthLater.unixNano() #else null #end;
-		__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _oneMonthLater.unmarshalBinary(__0) #else null #end;
-		__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _oneMonthLater.unmarshalJSON(__0) #else null #end;
-		__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _oneMonthLater.unmarshalText(__0) #else null #end;
-		__self__.weekday = #if !macro function():Weekday return _oneMonthLater.weekday() #else null #end;
-		__self__.year = #if !macro function():GoInt return _oneMonthLater.year() #else null #end;
-		__self__.yearDay = #if !macro function():GoInt return _oneMonthLater.yearDay() #else null #end;
-		__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-			return _oneMonthLater.zone() #else null #end;
-		__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-			return _oneMonthLater.zoneBounds() #else null #end;
-		__self__._abs = #if !macro function():GoUInt64 return _oneMonthLater._abs() #else null #end;
-		__self__._addSec = #if !macro function(_sec:GoInt64):Void _oneMonthLater._addSec(_sec) #else null #end;
-		__self__._date = #if !macro function(__0:Bool):{
-			var _0:GoInt;
-			var _1:Month;
-			var _2:GoInt;
-			var _3:GoInt;
-		}
-			return _oneMonthLater._date(__0) #else null #end;
-		__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-			return _oneMonthLater._locabs() #else null #end;
-		__self__._mono = #if !macro function():GoInt64 return _oneMonthLater._mono() #else null #end;
-		__self__._nsec = #if !macro function():GoInt32 return _oneMonthLater._nsec() #else null #end;
-		__self__._sec = #if !macro function():GoInt64 return _oneMonthLater._sec() #else null #end;
-		__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _oneMonthLater._setLoc(__0) #else null #end;
-		__self__._setMono = #if !macro function(_sec:GoInt64):Void _oneMonthLater._setMono(_sec) #else null #end;
-		__self__._stripMono = #if !macro function():Void _oneMonthLater._stripMono() #else null #end;
-		__self__._unixSec = #if !macro function():GoInt64 return _oneMonthLater._unixSec() #else null #end;
-		__self__;
-	}));
-	stdgo.fmt.Fmt.printf((Go.str("oneYearLater: start.AddDate(1, 0, 0) = %v\n") : GoString), Go.toInterface({
-		final __self__ = new Time_asInterface(_oneYearLater);
-		__self__.add = #if !macro function(_d:Duration):Time return _oneYearLater.add(_d) #else null #end;
-		__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-				_days:GoInt):Time return _oneYearLater.addDate(_years, _months, _days) #else null #end;
-		__self__.after = #if !macro function(__0:Time):Bool return _oneYearLater.after(__0) #else null #end;
-		__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-				_layout:GoString):Slice<GoUInt8> return _oneYearLater.appendFormat(_b, _layout) #else null #end;
-		__self__.before = #if !macro function(__0:Time):Bool return _oneYearLater.before(__0) #else null #end;
-		__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-			return _oneYearLater.clock() #else null #end;
-		__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-			return _oneYearLater.date() #else null #end;
-		__self__.day = #if !macro function():GoInt return _oneYearLater.day() #else null #end;
-		__self__.equal = #if !macro function(__0:Time):Bool return _oneYearLater.equal(__0) #else null #end;
-		__self__.format = #if !macro function(__0:GoString):GoString return _oneYearLater.format(__0) #else null #end;
-		__self__.goString = #if !macro function():GoString return _oneYearLater.goString() #else null #end;
-		__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _oneYearLater.gobDecode(__0) #else null #end;
-		__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _oneYearLater.gobEncode() #else null #end;
-		__self__.hour = #if !macro function():GoInt return _oneYearLater.hour() #else null #end;
-		__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-			return _oneYearLater.isoweek() #else null #end;
-		__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _oneYearLater.in_(__0) #else null #end;
-		__self__.isDST = #if !macro function():Bool return _oneYearLater.isDST() #else null #end;
-		__self__.isZero = #if !macro function():Bool return _oneYearLater.isZero() #else null #end;
-		__self__.local = #if !macro function():Time return _oneYearLater.local() #else null #end;
-		__self__.location = #if !macro function():Ref<Location> return _oneYearLater.location() #else null #end;
-		__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _oneYearLater.marshalBinary() #else null #end;
-		__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _oneYearLater.marshalJSON() #else null #end;
-		__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _oneYearLater.marshalText() #else null #end;
-		__self__.minute = #if !macro function():GoInt return _oneYearLater.minute() #else null #end;
-		__self__.month = #if !macro function():Month return _oneYearLater.month() #else null #end;
-		__self__.nanosecond = #if !macro function():GoInt return _oneYearLater.nanosecond() #else null #end;
-		__self__.round = #if !macro function(_d:Duration):Time return _oneYearLater.round(_d) #else null #end;
-		__self__.second = #if !macro function():GoInt return _oneYearLater.second() #else null #end;
-		__self__.string = #if !macro function():GoString return _oneYearLater.string() #else null #end;
-		__self__.sub = #if !macro function(__0:Time):Duration return _oneYearLater.sub(__0) #else null #end;
-		__self__.truncate = #if !macro function(_d:Duration):Time return _oneYearLater.truncate(_d) #else null #end;
-		__self__.utc = #if !macro function():Time return _oneYearLater.utc() #else null #end;
-		__self__.unix = #if !macro function():GoInt64 return _oneYearLater.unix() #else null #end;
-		__self__.unixMicro = #if !macro function():GoInt64 return _oneYearLater.unixMicro() #else null #end;
-		__self__.unixMilli = #if !macro function():GoInt64 return _oneYearLater.unixMilli() #else null #end;
-		__self__.unixNano = #if !macro function():GoInt64 return _oneYearLater.unixNano() #else null #end;
-		__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _oneYearLater.unmarshalBinary(__0) #else null #end;
-		__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _oneYearLater.unmarshalJSON(__0) #else null #end;
-		__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _oneYearLater.unmarshalText(__0) #else null #end;
-		__self__.weekday = #if !macro function():Weekday return _oneYearLater.weekday() #else null #end;
-		__self__.year = #if !macro function():GoInt return _oneYearLater.year() #else null #end;
-		__self__.yearDay = #if !macro function():GoInt return _oneYearLater.yearDay() #else null #end;
-		__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-			return _oneYearLater.zone() #else null #end;
-		__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-			return _oneYearLater.zoneBounds() #else null #end;
-		__self__._abs = #if !macro function():GoUInt64 return _oneYearLater._abs() #else null #end;
-		__self__._addSec = #if !macro function(_sec:GoInt64):Void _oneYearLater._addSec(_sec) #else null #end;
-		__self__._date = #if !macro function(__0:Bool):{
-			var _0:GoInt;
-			var _1:Month;
-			var _2:GoInt;
-			var _3:GoInt;
-		}
-			return _oneYearLater._date(__0) #else null #end;
-		__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-			return _oneYearLater._locabs() #else null #end;
-		__self__._mono = #if !macro function():GoInt64 return _oneYearLater._mono() #else null #end;
-		__self__._nsec = #if !macro function():GoInt32 return _oneYearLater._nsec() #else null #end;
-		__self__._sec = #if !macro function():GoInt64 return _oneYearLater._sec() #else null #end;
-		__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _oneYearLater._setLoc(__0) #else null #end;
-		__self__._setMono = #if !macro function(_sec:GoInt64):Void _oneYearLater._setMono(_sec) #else null #end;
-		__self__._stripMono = #if !macro function():Void _oneYearLater._stripMono() #else null #end;
-		__self__._unixSec = #if !macro function():GoInt64 return _oneYearLater._unixSec() #else null #end;
-		__self__;
-	}));
+	stdgo.fmt.Fmt.printf((Go.str("oneDayLater: start.AddDate(0, 0, 1) = %v\n") : GoString), Go.toInterface(Go.asInterface(_oneDayLater)));
+	stdgo.fmt.Fmt.printf((Go.str("oneMonthLater: start.AddDate(0, 1, 0) = %v\n") : GoString), Go.toInterface(Go.asInterface(_oneMonthLater)));
+	stdgo.fmt.Fmt.printf((Go.str("oneYearLater: start.AddDate(1, 0, 0) = %v\n") : GoString), Go.toInterface(Go.asInterface(_oneYearLater)));
 }
 
 function exampleTime_After():Void {
@@ -3363,11 +2504,7 @@ function exampleTime_Date():Void {
 		_month:Month = __tmp__._1,
 		_day:GoInt = __tmp__._2;
 	stdgo.fmt.Fmt.printf((Go.str("year = %v\n") : GoString), Go.toInterface(_year));
-	stdgo.fmt.Fmt.printf((Go.str("month = %v\n") : GoString), Go.toInterface({
-		final __self__ = new Month_asInterface(_month);
-		__self__.string = #if !macro function():GoString return _month.string() #else null #end;
-		__self__;
-	}));
+	stdgo.fmt.Fmt.printf((Go.str("month = %v\n") : GoString), Go.toInterface(Go.asInterface(_month)));
 	stdgo.fmt.Fmt.printf((Go.str("day = %v\n") : GoString), Go.toInterface(_day));
 }
 
@@ -3422,20 +2559,7 @@ function exampleTime_Sub():Void {
 			(0 : GoInt), stdgo.time.Time.utc)
 		.__copy__());
 	var _difference:Duration = _end.sub((_start == null ? null : _start.__copy__()));
-	stdgo.fmt.Fmt.printf((Go.str("difference = %v\n") : GoString), Go.toInterface({
-		final __self__ = new Duration_asInterface(_difference);
-		__self__.abs = #if !macro function():Duration return _difference.abs() #else null #end;
-		__self__.hours = #if !macro function():GoFloat64 return _difference.hours() #else null #end;
-		__self__.microseconds = #if !macro function():GoInt64 return _difference.microseconds() #else null #end;
-		__self__.milliseconds = #if !macro function():GoInt64 return _difference.milliseconds() #else null #end;
-		__self__.minutes = #if !macro function():GoFloat64 return _difference.minutes() #else null #end;
-		__self__.nanoseconds = #if !macro function():GoInt64 return _difference.nanoseconds() #else null #end;
-		__self__.round = #if !macro function(_d:Duration):Duration return _difference.round(_d) #else null #end;
-		__self__.seconds = #if !macro function():GoFloat64 return _difference.seconds() #else null #end;
-		__self__.string = #if !macro function():GoString return _difference.string() #else null #end;
-		__self__.truncate = #if !macro function(_d:Duration):Duration return _difference.truncate(_d) #else null #end;
-		__self__;
-	}));
+	stdgo.fmt.Fmt.printf((Go.str("difference = %v\n") : GoString), Go.toInterface(Go.asInterface(_difference)));
 }
 
 function exampleTime_AppendFormat():Void {
@@ -3511,83 +2635,8 @@ function testFormat(_t:stdgo.testing.Testing.T):Void {
 function testGoString(_t:stdgo.testing.Testing.T):Void {
 	for (_0 => _tt in _goStringTests) {
 		if (_tt._in.goString() != _tt._want) {
-			_t.errorf((Go.str("GoString (%q): got %q want %q") : GoString), Go.toInterface({
-				final __self__ = new Time_asInterface(_tt._in);
-				__self__.add = #if !macro function(_d:Duration):Time return _tt._in.add(_d) #else null #end;
-				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-						_days:GoInt):Time return _tt._in.addDate(_years, _months, _days) #else null #end;
-				__self__.after = #if !macro function(__0:Time):Bool return _tt._in.after(__0) #else null #end;
-				__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-						_layout:GoString):Slice<GoUInt8> return _tt._in.appendFormat(_b, _layout) #else null #end;
-				__self__.before = #if !macro function(__0:Time):Bool return _tt._in.before(__0) #else null #end;
-				__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-					return _tt._in.clock() #else null #end;
-				__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-					return _tt._in.date() #else null #end;
-				__self__.day = #if !macro function():GoInt return _tt._in.day() #else null #end;
-				__self__.equal = #if !macro function(__0:Time):Bool return _tt._in.equal(__0) #else null #end;
-				__self__.format = #if !macro function(__0:GoString):GoString return _tt._in.format(__0) #else null #end;
-				__self__.goString = #if !macro function():GoString return _tt._in.goString() #else null #end;
-				__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._in.gobDecode(__0) #else null #end;
-				__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _tt._in.gobEncode() #else null #end;
-				__self__.hour = #if !macro function():GoInt return _tt._in.hour() #else null #end;
-				__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-					return _tt._in.isoweek() #else null #end;
-				__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _tt._in.in_(__0) #else null #end;
-				__self__.isDST = #if !macro function():Bool return _tt._in.isDST() #else null #end;
-				__self__.isZero = #if !macro function():Bool return _tt._in.isZero() #else null #end;
-				__self__.local = #if !macro function():Time return _tt._in.local() #else null #end;
-				__self__.location = #if !macro function():Ref<Location> return _tt._in.location() #else null #end;
-				__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _tt._in.marshalBinary() #else null #end;
-				__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _tt._in.marshalJSON() #else null #end;
-				__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _tt._in.marshalText() #else null #end;
-				__self__.minute = #if !macro function():GoInt return _tt._in.minute() #else null #end;
-				__self__.month = #if !macro function():Month return _tt._in.month() #else null #end;
-				__self__.nanosecond = #if !macro function():GoInt return _tt._in.nanosecond() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Time return _tt._in.round(_d) #else null #end;
-				__self__.second = #if !macro function():GoInt return _tt._in.second() #else null #end;
-				__self__.string = #if !macro function():GoString return _tt._in.string() #else null #end;
-				__self__.sub = #if !macro function(__0:Time):Duration return _tt._in.sub(__0) #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Time return _tt._in.truncate(_d) #else null #end;
-				__self__.utc = #if !macro function():Time return _tt._in.utc() #else null #end;
-				__self__.unix = #if !macro function():GoInt64 return _tt._in.unix() #else null #end;
-				__self__.unixMicro = #if !macro function():GoInt64 return _tt._in.unixMicro() #else null #end;
-				__self__.unixMilli = #if !macro function():GoInt64 return _tt._in.unixMilli() #else null #end;
-				__self__.unixNano = #if !macro function():GoInt64 return _tt._in.unixNano() #else null #end;
-				__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._in.unmarshalBinary(__0) #else null #end;
-				__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._in.unmarshalJSON(__0) #else null #end;
-				__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._in.unmarshalText(__0) #else null #end;
-				__self__.weekday = #if !macro function():Weekday return _tt._in.weekday() #else null #end;
-				__self__.year = #if !macro function():GoInt return _tt._in.year() #else null #end;
-				__self__.yearDay = #if !macro function():GoInt return _tt._in.yearDay() #else null #end;
-				__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-					return _tt._in.zone() #else null #end;
-				__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-					return _tt._in.zoneBounds() #else null #end;
-				__self__._abs = #if !macro function():GoUInt64 return _tt._in._abs() #else null #end;
-				__self__._addSec = #if !macro function(_sec:GoInt64):Void _tt._in._addSec(_sec) #else null #end;
-				__self__._date = #if !macro function(__0:Bool):{
-					var _0:GoInt;
-					var _1:Month;
-					var _2:GoInt;
-					var _3:GoInt;
-				}
-					return _tt._in._date(__0) #else null #end;
-				__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-					return _tt._in._locabs() #else null #end;
-				__self__._mono = #if !macro function():GoInt64 return _tt._in._mono() #else null #end;
-				__self__._nsec = #if !macro function():GoInt32 return _tt._in._nsec() #else null #end;
-				__self__._sec = #if !macro function():GoInt64 return _tt._in._sec() #else null #end;
-				__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _tt._in._setLoc(__0) #else null #end;
-				__self__._setMono = #if !macro function(_sec:GoInt64):Void _tt._in._setMono(_sec) #else null #end;
-				__self__._stripMono = #if !macro function():Void _tt._in._stripMono() #else null #end;
-				__self__._unixSec = #if !macro function():GoInt64 return _tt._in._unixSec() #else null #end;
-				__self__;
-			}), Go.toInterface(_tt._in.goString()), Go.toInterface(_tt._want));
+			_t.errorf((Go.str("GoString (%q): got %q want %q") : GoString), Go.toInterface(Go.asInterface(_tt._in)), Go.toInterface(_tt._in.goString()),
+				Go.toInterface(_tt._want));
 		};
 	};
 }
@@ -3695,159 +2744,8 @@ function testParseInLocation(_t:stdgo.testing.Testing.T):Void {
 			_baghdad) == null ? null : date((2013 : GoInt), (2 : Month), (1 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt),
 				_baghdad).__copy__());
 		if (_t1 != _t2) {
-			_t.fatalf((Go.str("ParseInLocation(Feb 01 2013 AST, Baghdad) = %v, want %v") : GoString), Go.toInterface({
-				final __self__ = new Time_asInterface(_t1);
-				__self__.add = #if !macro function(_d:Duration):Time return _t1.add(_d) #else null #end;
-				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-						_days:GoInt):Time return _t1.addDate(_years, _months, _days) #else null #end;
-				__self__.after = #if !macro function(__0:Time):Bool return _t1.after(__0) #else null #end;
-				__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-						_layout:GoString):Slice<GoUInt8> return _t1.appendFormat(_b, _layout) #else null #end;
-				__self__.before = #if !macro function(__0:Time):Bool return _t1.before(__0) #else null #end;
-				__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-					return _t1.clock() #else null #end;
-				__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-					return _t1.date() #else null #end;
-				__self__.day = #if !macro function():GoInt return _t1.day() #else null #end;
-				__self__.equal = #if !macro function(__0:Time):Bool return _t1.equal(__0) #else null #end;
-				__self__.format = #if !macro function(__0:GoString):GoString return _t1.format(__0) #else null #end;
-				__self__.goString = #if !macro function():GoString return _t1.goString() #else null #end;
-				__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.gobDecode(__0) #else null #end;
-				__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t1.gobEncode() #else null #end;
-				__self__.hour = #if !macro function():GoInt return _t1.hour() #else null #end;
-				__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-					return _t1.isoweek() #else null #end;
-				__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _t1.in_(__0) #else null #end;
-				__self__.isDST = #if !macro function():Bool return _t1.isDST() #else null #end;
-				__self__.isZero = #if !macro function():Bool return _t1.isZero() #else null #end;
-				__self__.local = #if !macro function():Time return _t1.local() #else null #end;
-				__self__.location = #if !macro function():Ref<Location> return _t1.location() #else null #end;
-				__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t1.marshalBinary() #else null #end;
-				__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t1.marshalJSON() #else null #end;
-				__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t1.marshalText() #else null #end;
-				__self__.minute = #if !macro function():GoInt return _t1.minute() #else null #end;
-				__self__.month = #if !macro function():Month return _t1.month() #else null #end;
-				__self__.nanosecond = #if !macro function():GoInt return _t1.nanosecond() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Time return _t1.round(_d) #else null #end;
-				__self__.second = #if !macro function():GoInt return _t1.second() #else null #end;
-				__self__.string = #if !macro function():GoString return _t1.string() #else null #end;
-				__self__.sub = #if !macro function(__0:Time):Duration return _t1.sub(__0) #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Time return _t1.truncate(_d) #else null #end;
-				__self__.utc = #if !macro function():Time return _t1.utc() #else null #end;
-				__self__.unix = #if !macro function():GoInt64 return _t1.unix() #else null #end;
-				__self__.unixMicro = #if !macro function():GoInt64 return _t1.unixMicro() #else null #end;
-				__self__.unixMilli = #if !macro function():GoInt64 return _t1.unixMilli() #else null #end;
-				__self__.unixNano = #if !macro function():GoInt64 return _t1.unixNano() #else null #end;
-				__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalBinary(__0) #else null #end;
-				__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalJSON(__0) #else null #end;
-				__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalText(__0) #else null #end;
-				__self__.weekday = #if !macro function():Weekday return _t1.weekday() #else null #end;
-				__self__.year = #if !macro function():GoInt return _t1.year() #else null #end;
-				__self__.yearDay = #if !macro function():GoInt return _t1.yearDay() #else null #end;
-				__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-					return _t1.zone() #else null #end;
-				__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-					return _t1.zoneBounds() #else null #end;
-				__self__._abs = #if !macro function():GoUInt64 return _t1._abs() #else null #end;
-				__self__._addSec = #if !macro function(_sec:GoInt64):Void _t1._addSec(_sec) #else null #end;
-				__self__._date = #if !macro function(__0:Bool):{
-					var _0:GoInt;
-					var _1:Month;
-					var _2:GoInt;
-					var _3:GoInt;
-				}
-					return _t1._date(__0) #else null #end;
-				__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-					return _t1._locabs() #else null #end;
-				__self__._mono = #if !macro function():GoInt64 return _t1._mono() #else null #end;
-				__self__._nsec = #if !macro function():GoInt32 return _t1._nsec() #else null #end;
-				__self__._sec = #if !macro function():GoInt64 return _t1._sec() #else null #end;
-				__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _t1._setLoc(__0) #else null #end;
-				__self__._setMono = #if !macro function(_sec:GoInt64):Void _t1._setMono(_sec) #else null #end;
-				__self__._stripMono = #if !macro function():Void _t1._stripMono() #else null #end;
-				__self__._unixSec = #if !macro function():GoInt64 return _t1._unixSec() #else null #end;
-				__self__;
-			}), Go.toInterface({
-				final __self__ = new Time_asInterface(_t2);
-				__self__.add = #if !macro function(_d:Duration):Time return _t2.add(_d) #else null #end;
-				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-						_days:GoInt):Time return _t2.addDate(_years, _months, _days) #else null #end;
-				__self__.after = #if !macro function(__0:Time):Bool return _t2.after(__0) #else null #end;
-				__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-						_layout:GoString):Slice<GoUInt8> return _t2.appendFormat(_b, _layout) #else null #end;
-				__self__.before = #if !macro function(__0:Time):Bool return _t2.before(__0) #else null #end;
-				__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-					return _t2.clock() #else null #end;
-				__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-					return _t2.date() #else null #end;
-				__self__.day = #if !macro function():GoInt return _t2.day() #else null #end;
-				__self__.equal = #if !macro function(__0:Time):Bool return _t2.equal(__0) #else null #end;
-				__self__.format = #if !macro function(__0:GoString):GoString return _t2.format(__0) #else null #end;
-				__self__.goString = #if !macro function():GoString return _t2.goString() #else null #end;
-				__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.gobDecode(__0) #else null #end;
-				__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t2.gobEncode() #else null #end;
-				__self__.hour = #if !macro function():GoInt return _t2.hour() #else null #end;
-				__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-					return _t2.isoweek() #else null #end;
-				__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _t2.in_(__0) #else null #end;
-				__self__.isDST = #if !macro function():Bool return _t2.isDST() #else null #end;
-				__self__.isZero = #if !macro function():Bool return _t2.isZero() #else null #end;
-				__self__.local = #if !macro function():Time return _t2.local() #else null #end;
-				__self__.location = #if !macro function():Ref<Location> return _t2.location() #else null #end;
-				__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t2.marshalBinary() #else null #end;
-				__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t2.marshalJSON() #else null #end;
-				__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t2.marshalText() #else null #end;
-				__self__.minute = #if !macro function():GoInt return _t2.minute() #else null #end;
-				__self__.month = #if !macro function():Month return _t2.month() #else null #end;
-				__self__.nanosecond = #if !macro function():GoInt return _t2.nanosecond() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Time return _t2.round(_d) #else null #end;
-				__self__.second = #if !macro function():GoInt return _t2.second() #else null #end;
-				__self__.string = #if !macro function():GoString return _t2.string() #else null #end;
-				__self__.sub = #if !macro function(__0:Time):Duration return _t2.sub(__0) #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Time return _t2.truncate(_d) #else null #end;
-				__self__.utc = #if !macro function():Time return _t2.utc() #else null #end;
-				__self__.unix = #if !macro function():GoInt64 return _t2.unix() #else null #end;
-				__self__.unixMicro = #if !macro function():GoInt64 return _t2.unixMicro() #else null #end;
-				__self__.unixMilli = #if !macro function():GoInt64 return _t2.unixMilli() #else null #end;
-				__self__.unixNano = #if !macro function():GoInt64 return _t2.unixNano() #else null #end;
-				__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.unmarshalBinary(__0) #else null #end;
-				__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.unmarshalJSON(__0) #else null #end;
-				__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.unmarshalText(__0) #else null #end;
-				__self__.weekday = #if !macro function():Weekday return _t2.weekday() #else null #end;
-				__self__.year = #if !macro function():GoInt return _t2.year() #else null #end;
-				__self__.yearDay = #if !macro function():GoInt return _t2.yearDay() #else null #end;
-				__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-					return _t2.zone() #else null #end;
-				__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-					return _t2.zoneBounds() #else null #end;
-				__self__._abs = #if !macro function():GoUInt64 return _t2._abs() #else null #end;
-				__self__._addSec = #if !macro function(_sec:GoInt64):Void _t2._addSec(_sec) #else null #end;
-				__self__._date = #if !macro function(__0:Bool):{
-					var _0:GoInt;
-					var _1:Month;
-					var _2:GoInt;
-					var _3:GoInt;
-				}
-					return _t2._date(__0) #else null #end;
-				__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-					return _t2._locabs() #else null #end;
-				__self__._mono = #if !macro function():GoInt64 return _t2._mono() #else null #end;
-				__self__._nsec = #if !macro function():GoInt32 return _t2._nsec() #else null #end;
-				__self__._sec = #if !macro function():GoInt64 return _t2._sec() #else null #end;
-				__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _t2._setLoc(__0) #else null #end;
-				__self__._setMono = #if !macro function(_sec:GoInt64):Void _t2._setMono(_sec) #else null #end;
-				__self__._stripMono = #if !macro function():Void _t2._stripMono() #else null #end;
-				__self__._unixSec = #if !macro function():GoInt64 return _t2._unixSec() #else null #end;
-				__self__;
-			}));
+			_t.fatalf((Go.str("ParseInLocation(Feb 01 2013 AST, Baghdad) = %v, want %v") : GoString), Go.toInterface(Go.asInterface(_t1)),
+				Go.toInterface(Go.asInterface(_t2)));
 		};
 		if (_offset != (10800 : GoInt)) {
 			_t.fatalf((Go.str("ParseInLocation(Feb 01 2013 AST, Baghdad).Zone = _, %d, want _, %d") : GoString), Go.toInterface(_offset),
@@ -3872,157 +2770,8 @@ function testParseInLocation(_t:stdgo.testing.Testing.T):Void {
 		_blancSablon) == null ? null : date((2013 : GoInt), (2 : Month), (1 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt),
 			_blancSablon).__copy__());
 	if (_t1 != _t2) {
-		_t.fatalf((Go.str("ParseInLocation(Feb 01 2013 AST, Blanc-Sablon) = %v, want %v") : GoString), Go.toInterface({
-			final __self__ = new Time_asInterface(_t1);
-			__self__.add = #if !macro function(_d:Duration):Time return _t1.add(_d) #else null #end;
-			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _t1.addDate(_years, _months, _days) #else null #end;
-			__self__.after = #if !macro function(__0:Time):Bool return _t1.after(__0) #else null #end;
-			__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-					_layout:GoString):Slice<GoUInt8> return _t1.appendFormat(_b, _layout) #else null #end;
-			__self__.before = #if !macro function(__0:Time):Bool return _t1.before(__0) #else null #end;
-			__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-				return _t1.clock() #else null #end;
-			__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-				return _t1.date() #else null #end;
-			__self__.day = #if !macro function():GoInt return _t1.day() #else null #end;
-			__self__.equal = #if !macro function(__0:Time):Bool return _t1.equal(__0) #else null #end;
-			__self__.format = #if !macro function(__0:GoString):GoString return _t1.format(__0) #else null #end;
-			__self__.goString = #if !macro function():GoString return _t1.goString() #else null #end;
-			__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.gobDecode(__0) #else null #end;
-			__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t1.gobEncode() #else null #end;
-			__self__.hour = #if !macro function():GoInt return _t1.hour() #else null #end;
-			__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-				return _t1.isoweek() #else null #end;
-			__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _t1.in_(__0) #else null #end;
-			__self__.isDST = #if !macro function():Bool return _t1.isDST() #else null #end;
-			__self__.isZero = #if !macro function():Bool return _t1.isZero() #else null #end;
-			__self__.local = #if !macro function():Time return _t1.local() #else null #end;
-			__self__.location = #if !macro function():Ref<Location> return _t1.location() #else null #end;
-			__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t1.marshalBinary() #else null #end;
-			__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t1.marshalJSON() #else null #end;
-			__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t1.marshalText() #else null #end;
-			__self__.minute = #if !macro function():GoInt return _t1.minute() #else null #end;
-			__self__.month = #if !macro function():Month return _t1.month() #else null #end;
-			__self__.nanosecond = #if !macro function():GoInt return _t1.nanosecond() #else null #end;
-			__self__.round = #if !macro function(_d:Duration):Time return _t1.round(_d) #else null #end;
-			__self__.second = #if !macro function():GoInt return _t1.second() #else null #end;
-			__self__.string = #if !macro function():GoString return _t1.string() #else null #end;
-			__self__.sub = #if !macro function(__0:Time):Duration return _t1.sub(__0) #else null #end;
-			__self__.truncate = #if !macro function(_d:Duration):Time return _t1.truncate(_d) #else null #end;
-			__self__.utc = #if !macro function():Time return _t1.utc() #else null #end;
-			__self__.unix = #if !macro function():GoInt64 return _t1.unix() #else null #end;
-			__self__.unixMicro = #if !macro function():GoInt64 return _t1.unixMicro() #else null #end;
-			__self__.unixMilli = #if !macro function():GoInt64 return _t1.unixMilli() #else null #end;
-			__self__.unixNano = #if !macro function():GoInt64 return _t1.unixNano() #else null #end;
-			__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalBinary(__0) #else null #end;
-			__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalJSON(__0) #else null #end;
-			__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalText(__0) #else null #end;
-			__self__.weekday = #if !macro function():Weekday return _t1.weekday() #else null #end;
-			__self__.year = #if !macro function():GoInt return _t1.year() #else null #end;
-			__self__.yearDay = #if !macro function():GoInt return _t1.yearDay() #else null #end;
-			__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-				return _t1.zone() #else null #end;
-			__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-				return _t1.zoneBounds() #else null #end;
-			__self__._abs = #if !macro function():GoUInt64 return _t1._abs() #else null #end;
-			__self__._addSec = #if !macro function(_sec:GoInt64):Void _t1._addSec(_sec) #else null #end;
-			__self__._date = #if !macro function(__0:Bool):{
-				var _0:GoInt;
-				var _1:Month;
-				var _2:GoInt;
-				var _3:GoInt;
-			}
-				return _t1._date(__0) #else null #end;
-			__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-				return _t1._locabs() #else null #end;
-			__self__._mono = #if !macro function():GoInt64 return _t1._mono() #else null #end;
-			__self__._nsec = #if !macro function():GoInt32 return _t1._nsec() #else null #end;
-			__self__._sec = #if !macro function():GoInt64 return _t1._sec() #else null #end;
-			__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _t1._setLoc(__0) #else null #end;
-			__self__._setMono = #if !macro function(_sec:GoInt64):Void _t1._setMono(_sec) #else null #end;
-			__self__._stripMono = #if !macro function():Void _t1._stripMono() #else null #end;
-			__self__._unixSec = #if !macro function():GoInt64 return _t1._unixSec() #else null #end;
-			__self__;
-		}), Go.toInterface({
-			final __self__ = new Time_asInterface(_t2);
-			__self__.add = #if !macro function(_d:Duration):Time return _t2.add(_d) #else null #end;
-			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _t2.addDate(_years, _months, _days) #else null #end;
-			__self__.after = #if !macro function(__0:Time):Bool return _t2.after(__0) #else null #end;
-			__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-					_layout:GoString):Slice<GoUInt8> return _t2.appendFormat(_b, _layout) #else null #end;
-			__self__.before = #if !macro function(__0:Time):Bool return _t2.before(__0) #else null #end;
-			__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-				return _t2.clock() #else null #end;
-			__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-				return _t2.date() #else null #end;
-			__self__.day = #if !macro function():GoInt return _t2.day() #else null #end;
-			__self__.equal = #if !macro function(__0:Time):Bool return _t2.equal(__0) #else null #end;
-			__self__.format = #if !macro function(__0:GoString):GoString return _t2.format(__0) #else null #end;
-			__self__.goString = #if !macro function():GoString return _t2.goString() #else null #end;
-			__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.gobDecode(__0) #else null #end;
-			__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t2.gobEncode() #else null #end;
-			__self__.hour = #if !macro function():GoInt return _t2.hour() #else null #end;
-			__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-				return _t2.isoweek() #else null #end;
-			__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _t2.in_(__0) #else null #end;
-			__self__.isDST = #if !macro function():Bool return _t2.isDST() #else null #end;
-			__self__.isZero = #if !macro function():Bool return _t2.isZero() #else null #end;
-			__self__.local = #if !macro function():Time return _t2.local() #else null #end;
-			__self__.location = #if !macro function():Ref<Location> return _t2.location() #else null #end;
-			__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t2.marshalBinary() #else null #end;
-			__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t2.marshalJSON() #else null #end;
-			__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t2.marshalText() #else null #end;
-			__self__.minute = #if !macro function():GoInt return _t2.minute() #else null #end;
-			__self__.month = #if !macro function():Month return _t2.month() #else null #end;
-			__self__.nanosecond = #if !macro function():GoInt return _t2.nanosecond() #else null #end;
-			__self__.round = #if !macro function(_d:Duration):Time return _t2.round(_d) #else null #end;
-			__self__.second = #if !macro function():GoInt return _t2.second() #else null #end;
-			__self__.string = #if !macro function():GoString return _t2.string() #else null #end;
-			__self__.sub = #if !macro function(__0:Time):Duration return _t2.sub(__0) #else null #end;
-			__self__.truncate = #if !macro function(_d:Duration):Time return _t2.truncate(_d) #else null #end;
-			__self__.utc = #if !macro function():Time return _t2.utc() #else null #end;
-			__self__.unix = #if !macro function():GoInt64 return _t2.unix() #else null #end;
-			__self__.unixMicro = #if !macro function():GoInt64 return _t2.unixMicro() #else null #end;
-			__self__.unixMilli = #if !macro function():GoInt64 return _t2.unixMilli() #else null #end;
-			__self__.unixNano = #if !macro function():GoInt64 return _t2.unixNano() #else null #end;
-			__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.unmarshalBinary(__0) #else null #end;
-			__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.unmarshalJSON(__0) #else null #end;
-			__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.unmarshalText(__0) #else null #end;
-			__self__.weekday = #if !macro function():Weekday return _t2.weekday() #else null #end;
-			__self__.year = #if !macro function():GoInt return _t2.year() #else null #end;
-			__self__.yearDay = #if !macro function():GoInt return _t2.yearDay() #else null #end;
-			__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-				return _t2.zone() #else null #end;
-			__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-				return _t2.zoneBounds() #else null #end;
-			__self__._abs = #if !macro function():GoUInt64 return _t2._abs() #else null #end;
-			__self__._addSec = #if !macro function(_sec:GoInt64):Void _t2._addSec(_sec) #else null #end;
-			__self__._date = #if !macro function(__0:Bool):{
-				var _0:GoInt;
-				var _1:Month;
-				var _2:GoInt;
-				var _3:GoInt;
-			}
-				return _t2._date(__0) #else null #end;
-			__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-				return _t2._locabs() #else null #end;
-			__self__._mono = #if !macro function():GoInt64 return _t2._mono() #else null #end;
-			__self__._nsec = #if !macro function():GoInt32 return _t2._nsec() #else null #end;
-			__self__._sec = #if !macro function():GoInt64 return _t2._sec() #else null #end;
-			__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _t2._setLoc(__0) #else null #end;
-			__self__._setMono = #if !macro function(_sec:GoInt64):Void _t2._setMono(_sec) #else null #end;
-			__self__._stripMono = #if !macro function():Void _t2._stripMono() #else null #end;
-			__self__._unixSec = #if !macro function():GoInt64 return _t2._unixSec() #else null #end;
-			__self__;
-		}));
+		_t.fatalf((Go.str("ParseInLocation(Feb 01 2013 AST, Blanc-Sablon) = %v, want %v") : GoString), Go.toInterface(Go.asInterface(_t1)),
+			Go.toInterface(Go.asInterface(_t2)));
 	};
 	{
 		var __tmp__ = _t1.zone();
@@ -4090,15 +2839,8 @@ function _checkTime(_time:Time, _test:ParseTest, _t:stdgo.testing.Testing.T):Voi
 		_t.errorf((Go.str("%s: bad year: %d not %d") : GoString), Go.toInterface(_test._name), Go.toInterface(_time.year()), Go.toInterface((2010 : GoInt)));
 	};
 	if (_time.month() != (2 : Month)) {
-		_t.errorf((Go.str("%s: bad month: %s not %s") : GoString), Go.toInterface(_test._name), Go.toInterface({
-			final __self__ = new Month_asInterface(_time.month());
-			__self__.string = #if !macro function():GoString return _time.month().string() #else null #end;
-			__self__;
-		}), Go.toInterface({
-			final __self__ = new Month_asInterface((2 : Month));
-			__self__.string = #if !macro function():GoString return (2 : Month).string() #else null #end;
-			__self__;
-		}));
+		_t.errorf((Go.str("%s: bad month: %s not %s") : GoString), Go.toInterface(_test._name), Go.toInterface(Go.asInterface(_time.month())),
+			Go.toInterface(Go.asInterface((2 : Month))));
 	};
 	if (_time.day() != (4 : GoInt)) {
 		_t.errorf((Go.str("%s: bad day: %d not %d") : GoString), Go.toInterface(_test._name), Go.toInterface(_time.day()), Go.toInterface((4 : GoInt)));
@@ -4132,15 +2874,8 @@ function _checkTime(_time:Time, _test:ParseTest, _t:stdgo.testing.Testing.T):Voi
 			Go.toInterface((-28800 : GoInt)));
 	};
 	if (_test._hasWD && (_time.weekday() != (4 : Weekday))) {
-		_t.errorf((Go.str("%s: bad weekday: %s not %s") : GoString), Go.toInterface(_test._name), Go.toInterface({
-			final __self__ = new Weekday_asInterface(_time.weekday());
-			__self__.string = #if !macro function():GoString return _time.weekday().string() #else null #end;
-			__self__;
-		}), Go.toInterface({
-			final __self__ = new Weekday_asInterface((4 : Weekday));
-			__self__.string = #if !macro function():GoString return (4 : Weekday).string() #else null #end;
-			__self__;
-		}));
+		_t.errorf((Go.str("%s: bad weekday: %s not %s") : GoString), Go.toInterface(_test._name), Go.toInterface(Go.asInterface(_time.weekday())),
+			Go.toInterface(Go.asInterface((4 : Weekday))));
 	};
 }
 
@@ -4158,159 +2893,8 @@ function testFormatAndParse(_t:stdgo.testing.Testing.T):Void {
 			return false;
 		};
 		if ((_t1.unix() != _t2.unix()) || (_t1.nanosecond() != _t2.nanosecond())) {
-			_t.errorf((Go.str("FormatAndParse %d: %q(%d) %q(%d)") : GoString), Go.toInterface(_sec), Go.toInterface({
-				final __self__ = new Time_asInterface(_t1);
-				__self__.add = #if !macro function(_d:Duration):Time return _t1.add(_d) #else null #end;
-				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-						_days:GoInt):Time return _t1.addDate(_years, _months, _days) #else null #end;
-				__self__.after = #if !macro function(__0:Time):Bool return _t1.after(__0) #else null #end;
-				__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-						_layout:GoString):Slice<GoUInt8> return _t1.appendFormat(_b, _layout) #else null #end;
-				__self__.before = #if !macro function(__0:Time):Bool return _t1.before(__0) #else null #end;
-				__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-					return _t1.clock() #else null #end;
-				__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-					return _t1.date() #else null #end;
-				__self__.day = #if !macro function():GoInt return _t1.day() #else null #end;
-				__self__.equal = #if !macro function(__0:Time):Bool return _t1.equal(__0) #else null #end;
-				__self__.format = #if !macro function(__0:GoString):GoString return _t1.format(__0) #else null #end;
-				__self__.goString = #if !macro function():GoString return _t1.goString() #else null #end;
-				__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.gobDecode(__0) #else null #end;
-				__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t1.gobEncode() #else null #end;
-				__self__.hour = #if !macro function():GoInt return _t1.hour() #else null #end;
-				__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-					return _t1.isoweek() #else null #end;
-				__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _t1.in_(__0) #else null #end;
-				__self__.isDST = #if !macro function():Bool return _t1.isDST() #else null #end;
-				__self__.isZero = #if !macro function():Bool return _t1.isZero() #else null #end;
-				__self__.local = #if !macro function():Time return _t1.local() #else null #end;
-				__self__.location = #if !macro function():Ref<Location> return _t1.location() #else null #end;
-				__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t1.marshalBinary() #else null #end;
-				__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t1.marshalJSON() #else null #end;
-				__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t1.marshalText() #else null #end;
-				__self__.minute = #if !macro function():GoInt return _t1.minute() #else null #end;
-				__self__.month = #if !macro function():Month return _t1.month() #else null #end;
-				__self__.nanosecond = #if !macro function():GoInt return _t1.nanosecond() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Time return _t1.round(_d) #else null #end;
-				__self__.second = #if !macro function():GoInt return _t1.second() #else null #end;
-				__self__.string = #if !macro function():GoString return _t1.string() #else null #end;
-				__self__.sub = #if !macro function(__0:Time):Duration return _t1.sub(__0) #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Time return _t1.truncate(_d) #else null #end;
-				__self__.utc = #if !macro function():Time return _t1.utc() #else null #end;
-				__self__.unix = #if !macro function():GoInt64 return _t1.unix() #else null #end;
-				__self__.unixMicro = #if !macro function():GoInt64 return _t1.unixMicro() #else null #end;
-				__self__.unixMilli = #if !macro function():GoInt64 return _t1.unixMilli() #else null #end;
-				__self__.unixNano = #if !macro function():GoInt64 return _t1.unixNano() #else null #end;
-				__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalBinary(__0) #else null #end;
-				__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalJSON(__0) #else null #end;
-				__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalText(__0) #else null #end;
-				__self__.weekday = #if !macro function():Weekday return _t1.weekday() #else null #end;
-				__self__.year = #if !macro function():GoInt return _t1.year() #else null #end;
-				__self__.yearDay = #if !macro function():GoInt return _t1.yearDay() #else null #end;
-				__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-					return _t1.zone() #else null #end;
-				__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-					return _t1.zoneBounds() #else null #end;
-				__self__._abs = #if !macro function():GoUInt64 return _t1._abs() #else null #end;
-				__self__._addSec = #if !macro function(_sec_:GoInt64):Void _t1._addSec(_sec_) #else null #end;
-				__self__._date = #if !macro function(__0:Bool):{
-					var _0:GoInt;
-					var _1:Month;
-					var _2:GoInt;
-					var _3:GoInt;
-				}
-					return _t1._date(__0) #else null #end;
-				__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-					return _t1._locabs() #else null #end;
-				__self__._mono = #if !macro function():GoInt64 return _t1._mono() #else null #end;
-				__self__._nsec = #if !macro function():GoInt32 return _t1._nsec() #else null #end;
-				__self__._sec = #if !macro function():GoInt64 return _t1._sec() #else null #end;
-				__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _t1._setLoc(__0) #else null #end;
-				__self__._setMono = #if !macro function(_sec__:GoInt64):Void _t1._setMono(_sec__) #else null #end;
-				__self__._stripMono = #if !macro function():Void _t1._stripMono() #else null #end;
-				__self__._unixSec = #if !macro function():GoInt64 return _t1._unixSec() #else null #end;
-				__self__;
-			}), Go.toInterface(_t1.unix()), Go.toInterface({
-				final __self__ = new Time_asInterface(_t2);
-				__self__.add = #if !macro function(_d:Duration):Time return _t2.add(_d) #else null #end;
-				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-						_days:GoInt):Time return _t2.addDate(_years, _months, _days) #else null #end;
-				__self__.after = #if !macro function(__0:Time):Bool return _t2.after(__0) #else null #end;
-				__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-						_layout:GoString):Slice<GoUInt8> return _t2.appendFormat(_b, _layout) #else null #end;
-				__self__.before = #if !macro function(__0:Time):Bool return _t2.before(__0) #else null #end;
-				__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-					return _t2.clock() #else null #end;
-				__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-					return _t2.date() #else null #end;
-				__self__.day = #if !macro function():GoInt return _t2.day() #else null #end;
-				__self__.equal = #if !macro function(__0:Time):Bool return _t2.equal(__0) #else null #end;
-				__self__.format = #if !macro function(__0:GoString):GoString return _t2.format(__0) #else null #end;
-				__self__.goString = #if !macro function():GoString return _t2.goString() #else null #end;
-				__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.gobDecode(__0) #else null #end;
-				__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t2.gobEncode() #else null #end;
-				__self__.hour = #if !macro function():GoInt return _t2.hour() #else null #end;
-				__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-					return _t2.isoweek() #else null #end;
-				__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _t2.in_(__0) #else null #end;
-				__self__.isDST = #if !macro function():Bool return _t2.isDST() #else null #end;
-				__self__.isZero = #if !macro function():Bool return _t2.isZero() #else null #end;
-				__self__.local = #if !macro function():Time return _t2.local() #else null #end;
-				__self__.location = #if !macro function():Ref<Location> return _t2.location() #else null #end;
-				__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t2.marshalBinary() #else null #end;
-				__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t2.marshalJSON() #else null #end;
-				__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t2.marshalText() #else null #end;
-				__self__.minute = #if !macro function():GoInt return _t2.minute() #else null #end;
-				__self__.month = #if !macro function():Month return _t2.month() #else null #end;
-				__self__.nanosecond = #if !macro function():GoInt return _t2.nanosecond() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Time return _t2.round(_d) #else null #end;
-				__self__.second = #if !macro function():GoInt return _t2.second() #else null #end;
-				__self__.string = #if !macro function():GoString return _t2.string() #else null #end;
-				__self__.sub = #if !macro function(__0:Time):Duration return _t2.sub(__0) #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Time return _t2.truncate(_d) #else null #end;
-				__self__.utc = #if !macro function():Time return _t2.utc() #else null #end;
-				__self__.unix = #if !macro function():GoInt64 return _t2.unix() #else null #end;
-				__self__.unixMicro = #if !macro function():GoInt64 return _t2.unixMicro() #else null #end;
-				__self__.unixMilli = #if !macro function():GoInt64 return _t2.unixMilli() #else null #end;
-				__self__.unixNano = #if !macro function():GoInt64 return _t2.unixNano() #else null #end;
-				__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.unmarshalBinary(__0) #else null #end;
-				__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.unmarshalJSON(__0) #else null #end;
-				__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.unmarshalText(__0) #else null #end;
-				__self__.weekday = #if !macro function():Weekday return _t2.weekday() #else null #end;
-				__self__.year = #if !macro function():GoInt return _t2.year() #else null #end;
-				__self__.yearDay = #if !macro function():GoInt return _t2.yearDay() #else null #end;
-				__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-					return _t2.zone() #else null #end;
-				__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-					return _t2.zoneBounds() #else null #end;
-				__self__._abs = #if !macro function():GoUInt64 return _t2._abs() #else null #end;
-				__self__._addSec = #if !macro function(_sec_:GoInt64):Void _t2._addSec(_sec_) #else null #end;
-				__self__._date = #if !macro function(__0:Bool):{
-					var _0:GoInt;
-					var _1:Month;
-					var _2:GoInt;
-					var _3:GoInt;
-				}
-					return _t2._date(__0) #else null #end;
-				__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-					return _t2._locabs() #else null #end;
-				__self__._mono = #if !macro function():GoInt64 return _t2._mono() #else null #end;
-				__self__._nsec = #if !macro function():GoInt32 return _t2._nsec() #else null #end;
-				__self__._sec = #if !macro function():GoInt64 return _t2._sec() #else null #end;
-				__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _t2._setLoc(__0) #else null #end;
-				__self__._setMono = #if !macro function(_sec__:GoInt64):Void _t2._setMono(_sec__) #else null #end;
-				__self__._stripMono = #if !macro function():Void _t2._stripMono() #else null #end;
-				__self__._unixSec = #if !macro function():GoInt64 return _t2._unixSec() #else null #end;
-				__self__;
-			}), Go.toInterface(_t2.unix()));
+			_t.errorf((Go.str("FormatAndParse %d: %q(%d) %q(%d)") : GoString), Go.toInterface(_sec), Go.toInterface(Go.asInterface(_t1)),
+				Go.toInterface(_t1.unix()), Go.toInterface(Go.asInterface(_t2)), Go.toInterface(_t2.unix()));
 			return false;
 		};
 		return true;
@@ -4516,11 +3100,7 @@ function testUnderscoreTwoThousand(_t:stdgo.testing.Testing.T):Void {
 			_m:Month = __tmp__._1,
 			_d:GoInt = __tmp__._2;
 		if (((_y != (2015 : GoInt)) || (_m != (6 : Month))) || (_d != (18 : GoInt))) {
-			_t.errorf((Go.str("Incorrect y/m/d, got %d/%d/%d") : GoString), Go.toInterface(_y), Go.toInterface({
-				final __self__ = new Month_asInterface(_m);
-				__self__.string = #if !macro function():GoString return _m.string() #else null #end;
-				__self__;
-			}), Go.toInterface(_d));
+			_t.errorf((Go.str("Incorrect y/m/d, got %d/%d/%d") : GoString), Go.toInterface(_y), Go.toInterface(Go.asInterface(_m)), Go.toInterface(_d));
 		};
 	};
 	{
@@ -4768,20 +3348,7 @@ function testMonotonicAdd(_t:stdgo.testing.Testing.T):Void {
 	sleep((100000000 : Duration));
 	var _d:Duration = until((_tn1 == null ? null : _tn1.__copy__()));
 	if (_d < ("3540000000000":Duration)) {
-		_t.errorf((Go.str("Until(Now().Add(1*Hour)) = %v, wanted at least 59m") : GoString), Go.toInterface({
-			final __self__ = new Duration_asInterface(_d);
-			__self__.abs = #if !macro function():Duration return _d.abs() #else null #end;
-			__self__.hours = #if !macro function():GoFloat64 return _d.hours() #else null #end;
-			__self__.microseconds = #if !macro function():GoInt64 return _d.microseconds() #else null #end;
-			__self__.milliseconds = #if !macro function():GoInt64 return _d.milliseconds() #else null #end;
-			__self__.minutes = #if !macro function():GoFloat64 return _d.minutes() #else null #end;
-			__self__.nanoseconds = #if !macro function():GoInt64 return _d.nanoseconds() #else null #end;
-			__self__.round = #if !macro function(_d_:Duration):Duration return _d.round(_d_) #else null #end;
-			__self__.seconds = #if !macro function():GoFloat64 return _d.seconds() #else null #end;
-			__self__.string = #if !macro function():GoString return _d.string() #else null #end;
-			__self__.truncate = #if !macro function(_d__:Duration):Duration return _d.truncate(_d__) #else null #end;
-			__self__;
-		}));
+		_t.errorf((Go.str("Until(Now().Add(1*Hour)) = %v, wanted at least 59m") : GoString), Go.toInterface(Go.asInterface(_d)));
 	};
 	var _now:Time = (now() == null ? null : now().__copy__());
 	if (_now.after((_tn1 == null ? null : _tn1.__copy__()))) {
@@ -4821,33 +3388,8 @@ function testMonotonicSub(_t:stdgo.testing.Testing.T):Void {
 		Duration) -> Void = function(_txs:GoString, _tys:GoString, _tx:Time, _txw:Time, _ty:Time, _tyw:Time, _d:Duration, _dw:Duration):Void {
 			var _check:(GoString, Duration, Duration) -> Void = function(_expr:GoString, _d:Duration, _want:Duration):Void {
 				if (_d != _want) {
-					_t.errorf((Go.str("%s = %v, want %v") : GoString), Go.toInterface(_expr), Go.toInterface({
-						final __self__ = new Duration_asInterface(_d);
-						__self__.abs = #if !macro function():Duration return _d.abs() #else null #end;
-						__self__.hours = #if !macro function():GoFloat64 return _d.hours() #else null #end;
-						__self__.microseconds = #if !macro function():GoInt64 return _d.microseconds() #else null #end;
-						__self__.milliseconds = #if !macro function():GoInt64 return _d.milliseconds() #else null #end;
-						__self__.minutes = #if !macro function():GoFloat64 return _d.minutes() #else null #end;
-						__self__.nanoseconds = #if !macro function():GoInt64 return _d.nanoseconds() #else null #end;
-						__self__.round = #if !macro function(_d_:Duration):Duration return _d.round(_d_) #else null #end;
-						__self__.seconds = #if !macro function():GoFloat64 return _d.seconds() #else null #end;
-						__self__.string = #if !macro function():GoString return _d.string() #else null #end;
-						__self__.truncate = #if !macro function(_d__:Duration):Duration return _d.truncate(_d__) #else null #end;
-						__self__;
-					}), Go.toInterface({
-						final __self__ = new Duration_asInterface(_want);
-						__self__.abs = #if !macro function():Duration return _want.abs() #else null #end;
-						__self__.hours = #if !macro function():GoFloat64 return _want.hours() #else null #end;
-						__self__.microseconds = #if !macro function():GoInt64 return _want.microseconds() #else null #end;
-						__self__.milliseconds = #if !macro function():GoInt64 return _want.milliseconds() #else null #end;
-						__self__.minutes = #if !macro function():GoFloat64 return _want.minutes() #else null #end;
-						__self__.nanoseconds = #if !macro function():GoInt64 return _want.nanoseconds() #else null #end;
-						__self__.round = #if !macro function(_d_:Duration):Duration return _want.round(_d_) #else null #end;
-						__self__.seconds = #if !macro function():GoFloat64 return _want.seconds() #else null #end;
-						__self__.string = #if !macro function():GoString return _want.string() #else null #end;
-						__self__.truncate = #if !macro function(_d__:Duration):Duration return _want.truncate(_d__) #else null #end;
-						__self__;
-					}));
+					_t.errorf((Go.str("%s = %v, want %v") : GoString), Go.toInterface(_expr), Go.toInterface(Go.asInterface(_d)),
+						Go.toInterface(Go.asInterface(_want)));
 				};
 			};
 			_check(((_txs + (Go.str(".Sub(") : GoString)) + _tys) + (Go.str(")") : GoString), _tx.sub((_ty == null ? null : _ty.__copy__())), _d);
@@ -4929,38 +3471,12 @@ function testMonotonicOverflow(_t:stdgo.testing.Testing.T):Void {
 	var _t1:Time = (now().add(("-30000000000" : Duration)) == null ? null : now().add(("-30000000000" : Duration)).__copy__());
 	var _d:Duration = until((_t1 == null ? null : _t1.__copy__()));
 	if ((_d < ("-35000000000":Duration)) || (("-30000000000" : Duration) < _d)) {
-		_t.errorf((Go.str("Until(Now().Add(-30s)) = %v, want roughly -30s (-35s to -30s)") : GoString), Go.toInterface({
-			final __self__ = new Duration_asInterface(_d);
-			__self__.abs = #if !macro function():Duration return _d.abs() #else null #end;
-			__self__.hours = #if !macro function():GoFloat64 return _d.hours() #else null #end;
-			__self__.microseconds = #if !macro function():GoInt64 return _d.microseconds() #else null #end;
-			__self__.milliseconds = #if !macro function():GoInt64 return _d.milliseconds() #else null #end;
-			__self__.minutes = #if !macro function():GoFloat64 return _d.minutes() #else null #end;
-			__self__.nanoseconds = #if !macro function():GoInt64 return _d.nanoseconds() #else null #end;
-			__self__.round = #if !macro function(_d_:Duration):Duration return _d.round(_d_) #else null #end;
-			__self__.seconds = #if !macro function():GoFloat64 return _d.seconds() #else null #end;
-			__self__.string = #if !macro function():GoString return _d.string() #else null #end;
-			__self__.truncate = #if !macro function(_d__:Duration):Duration return _d.truncate(_d__) #else null #end;
-			__self__;
-		}));
+		_t.errorf((Go.str("Until(Now().Add(-30s)) = %v, want roughly -30s (-35s to -30s)") : GoString), Go.toInterface(Go.asInterface(_d)));
 	};
 	_t1 = (now().add(("30000000000" : Duration)) == null ? null : now().add(("30000000000" : Duration)).__copy__());
 	_d = until((_t1 == null ? null : _t1.__copy__()));
 	if ((_d < ("25000000000":Duration)) || (("30000000000" : Duration) < _d)) {
-		_t.errorf((Go.str("Until(Now().Add(-30s)) = %v, want roughly 30s (25s to 30s)") : GoString), Go.toInterface({
-			final __self__ = new Duration_asInterface(_d);
-			__self__.abs = #if !macro function():Duration return _d.abs() #else null #end;
-			__self__.hours = #if !macro function():GoFloat64 return _d.hours() #else null #end;
-			__self__.microseconds = #if !macro function():GoInt64 return _d.microseconds() #else null #end;
-			__self__.milliseconds = #if !macro function():GoInt64 return _d.milliseconds() #else null #end;
-			__self__.minutes = #if !macro function():GoFloat64 return _d.minutes() #else null #end;
-			__self__.nanoseconds = #if !macro function():GoInt64 return _d.nanoseconds() #else null #end;
-			__self__.round = #if !macro function(_d_:Duration):Duration return _d.round(_d_) #else null #end;
-			__self__.seconds = #if !macro function():GoFloat64 return _d.seconds() #else null #end;
-			__self__.string = #if !macro function():GoString return _d.string() #else null #end;
-			__self__.truncate = #if !macro function(_d__:Duration):Duration return _d.truncate(_d__) #else null #end;
-			__self__;
-		}));
+		_t.errorf((Go.str("Until(Now().Add(-30s)) = %v, want roughly 30s (25s to 30s)") : GoString), Go.toInterface(Go.asInterface(_d)));
 	};
 	var _t0:Time = (now() == null ? null : now().__copy__());
 	_t1 = (_t0.add(("9223372036854775807" : Duration)) == null ? null : _t0.add(("9223372036854775807" : Duration)).__copy__());
@@ -4971,716 +3487,33 @@ function testMonotonicOverflow(_t:stdgo.testing.Testing.T):Void {
 	var _t2:Time = (_t1.add(("-9223372036854775807" : Duration)) == null ? null : _t1.add(("-9223372036854775807" : Duration)).__copy__());
 	_d = since((_t2 == null ? null : _t2.__copy__()));
 	if ((_d < ("-10000000000":Duration)) || (("10000000000" : Duration) < _d)) {
-		_t.errorf((Go.str("Since(Now().Add(max).Add(-max)) = %v, want [-10s, 10s]") : GoString), Go.toInterface({
-			final __self__ = new Duration_asInterface(_d);
-			__self__.abs = #if !macro function():Duration return _d.abs() #else null #end;
-			__self__.hours = #if !macro function():GoFloat64 return _d.hours() #else null #end;
-			__self__.microseconds = #if !macro function():GoInt64 return _d.microseconds() #else null #end;
-			__self__.milliseconds = #if !macro function():GoInt64 return _d.milliseconds() #else null #end;
-			__self__.minutes = #if !macro function():GoFloat64 return _d.minutes() #else null #end;
-			__self__.nanoseconds = #if !macro function():GoInt64 return _d.nanoseconds() #else null #end;
-			__self__.round = #if !macro function(_d_:Duration):Duration return _d.round(_d_) #else null #end;
-			__self__.seconds = #if !macro function():GoFloat64 return _d.seconds() #else null #end;
-			__self__.string = #if !macro function():GoString return _d.string() #else null #end;
-			__self__.truncate = #if !macro function(_d__:Duration):Duration return _d.truncate(_d__) #else null #end;
-			__self__;
-		}));
+		_t.errorf((Go.str("Since(Now().Add(max).Add(-max)) = %v, want [-10s, 10s]") : GoString), Go.toInterface(Go.asInterface(_d)));
 	};
 	_t0 = (now() == null ? null : now().__copy__());
 	_t1 = (_t0.add(("3600000000000" : Duration)) == null ? null : _t0.add(("3600000000000" : Duration)).__copy__());
 	sleep((100000000 : Duration));
 	_t2 = (now().add(("-5000000000" : Duration)) == null ? null : now().add(("-5000000000" : Duration)).__copy__());
 	if (!_t1.after((_t2 == null ? null : _t2.__copy__()))) {
-		_t.errorf((Go.str("Now().Add(1*Hour).After(Now().Add(-5*Second)) = false, want true\nt1=%v\nt2=%v") : GoString), Go.toInterface({
-			final __self__ = new Time_asInterface(_t1);
-			__self__.add = #if !macro function(_d_:Duration):Time return _t1.add(_d_) #else null #end;
-			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _t1.addDate(_years, _months, _days) #else null #end;
-			__self__.after = #if !macro function(__0:Time):Bool return _t1.after(__0) #else null #end;
-			__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-					_layout:GoString):Slice<GoUInt8> return _t1.appendFormat(_b, _layout) #else null #end;
-			__self__.before = #if !macro function(__0:Time):Bool return _t1.before(__0) #else null #end;
-			__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-				return _t1.clock() #else null #end;
-			__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-				return _t1.date() #else null #end;
-			__self__.day = #if !macro function():GoInt return _t1.day() #else null #end;
-			__self__.equal = #if !macro function(__0:Time):Bool return _t1.equal(__0) #else null #end;
-			__self__.format = #if !macro function(__0:GoString):GoString return _t1.format(__0) #else null #end;
-			__self__.goString = #if !macro function():GoString return _t1.goString() #else null #end;
-			__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.gobDecode(__0) #else null #end;
-			__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t1.gobEncode() #else null #end;
-			__self__.hour = #if !macro function():GoInt return _t1.hour() #else null #end;
-			__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-				return _t1.isoweek() #else null #end;
-			__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _t1.in_(__0) #else null #end;
-			__self__.isDST = #if !macro function():Bool return _t1.isDST() #else null #end;
-			__self__.isZero = #if !macro function():Bool return _t1.isZero() #else null #end;
-			__self__.local = #if !macro function():Time return _t1.local() #else null #end;
-			__self__.location = #if !macro function():Ref<Location> return _t1.location() #else null #end;
-			__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t1.marshalBinary() #else null #end;
-			__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t1.marshalJSON() #else null #end;
-			__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t1.marshalText() #else null #end;
-			__self__.minute = #if !macro function():GoInt return _t1.minute() #else null #end;
-			__self__.month = #if !macro function():Month return _t1.month() #else null #end;
-			__self__.nanosecond = #if !macro function():GoInt return _t1.nanosecond() #else null #end;
-			__self__.round = #if !macro function(_d__:Duration):Time return _t1.round(_d__) #else null #end;
-			__self__.second = #if !macro function():GoInt return _t1.second() #else null #end;
-			__self__.string = #if !macro function():GoString return _t1.string() #else null #end;
-			__self__.sub = #if !macro function(__0:Time):Duration return _t1.sub(__0) #else null #end;
-			__self__.truncate = #if !macro function(_d___:Duration):Time return _t1.truncate(_d___) #else null #end;
-			__self__.utc = #if !macro function():Time return _t1.utc() #else null #end;
-			__self__.unix = #if !macro function():GoInt64 return _t1.unix() #else null #end;
-			__self__.unixMicro = #if !macro function():GoInt64 return _t1.unixMicro() #else null #end;
-			__self__.unixMilli = #if !macro function():GoInt64 return _t1.unixMilli() #else null #end;
-			__self__.unixNano = #if !macro function():GoInt64 return _t1.unixNano() #else null #end;
-			__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalBinary(__0) #else null #end;
-			__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalJSON(__0) #else null #end;
-			__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalText(__0) #else null #end;
-			__self__.weekday = #if !macro function():Weekday return _t1.weekday() #else null #end;
-			__self__.year = #if !macro function():GoInt return _t1.year() #else null #end;
-			__self__.yearDay = #if !macro function():GoInt return _t1.yearDay() #else null #end;
-			__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-				return _t1.zone() #else null #end;
-			__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-				return _t1.zoneBounds() #else null #end;
-			__self__._abs = #if !macro function():GoUInt64 return _t1._abs() #else null #end;
-			__self__._addSec = #if !macro function(_sec:GoInt64):Void _t1._addSec(_sec) #else null #end;
-			__self__._date = #if !macro function(__0:Bool):{
-				var _0:GoInt;
-				var _1:Month;
-				var _2:GoInt;
-				var _3:GoInt;
-			}
-				return _t1._date(__0) #else null #end;
-			__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-				return _t1._locabs() #else null #end;
-			__self__._mono = #if !macro function():GoInt64 return _t1._mono() #else null #end;
-			__self__._nsec = #if !macro function():GoInt32 return _t1._nsec() #else null #end;
-			__self__._sec = #if !macro function():GoInt64 return _t1._sec() #else null #end;
-			__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _t1._setLoc(__0) #else null #end;
-			__self__._setMono = #if !macro function(_sec:GoInt64):Void _t1._setMono(_sec) #else null #end;
-			__self__._stripMono = #if !macro function():Void _t1._stripMono() #else null #end;
-			__self__._unixSec = #if !macro function():GoInt64 return _t1._unixSec() #else null #end;
-			__self__;
-		}), Go.toInterface({
-			final __self__ = new Time_asInterface(_t2);
-			__self__.add = #if !macro function(_d_:Duration):Time return _t2.add(_d_) #else null #end;
-			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _t2.addDate(_years, _months, _days) #else null #end;
-			__self__.after = #if !macro function(__0:Time):Bool return _t2.after(__0) #else null #end;
-			__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-					_layout:GoString):Slice<GoUInt8> return _t2.appendFormat(_b, _layout) #else null #end;
-			__self__.before = #if !macro function(__0:Time):Bool return _t2.before(__0) #else null #end;
-			__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-				return _t2.clock() #else null #end;
-			__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-				return _t2.date() #else null #end;
-			__self__.day = #if !macro function():GoInt return _t2.day() #else null #end;
-			__self__.equal = #if !macro function(__0:Time):Bool return _t2.equal(__0) #else null #end;
-			__self__.format = #if !macro function(__0:GoString):GoString return _t2.format(__0) #else null #end;
-			__self__.goString = #if !macro function():GoString return _t2.goString() #else null #end;
-			__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.gobDecode(__0) #else null #end;
-			__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t2.gobEncode() #else null #end;
-			__self__.hour = #if !macro function():GoInt return _t2.hour() #else null #end;
-			__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-				return _t2.isoweek() #else null #end;
-			__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _t2.in_(__0) #else null #end;
-			__self__.isDST = #if !macro function():Bool return _t2.isDST() #else null #end;
-			__self__.isZero = #if !macro function():Bool return _t2.isZero() #else null #end;
-			__self__.local = #if !macro function():Time return _t2.local() #else null #end;
-			__self__.location = #if !macro function():Ref<Location> return _t2.location() #else null #end;
-			__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t2.marshalBinary() #else null #end;
-			__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t2.marshalJSON() #else null #end;
-			__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t2.marshalText() #else null #end;
-			__self__.minute = #if !macro function():GoInt return _t2.minute() #else null #end;
-			__self__.month = #if !macro function():Month return _t2.month() #else null #end;
-			__self__.nanosecond = #if !macro function():GoInt return _t2.nanosecond() #else null #end;
-			__self__.round = #if !macro function(_d__:Duration):Time return _t2.round(_d__) #else null #end;
-			__self__.second = #if !macro function():GoInt return _t2.second() #else null #end;
-			__self__.string = #if !macro function():GoString return _t2.string() #else null #end;
-			__self__.sub = #if !macro function(__0:Time):Duration return _t2.sub(__0) #else null #end;
-			__self__.truncate = #if !macro function(_d___:Duration):Time return _t2.truncate(_d___) #else null #end;
-			__self__.utc = #if !macro function():Time return _t2.utc() #else null #end;
-			__self__.unix = #if !macro function():GoInt64 return _t2.unix() #else null #end;
-			__self__.unixMicro = #if !macro function():GoInt64 return _t2.unixMicro() #else null #end;
-			__self__.unixMilli = #if !macro function():GoInt64 return _t2.unixMilli() #else null #end;
-			__self__.unixNano = #if !macro function():GoInt64 return _t2.unixNano() #else null #end;
-			__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.unmarshalBinary(__0) #else null #end;
-			__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.unmarshalJSON(__0) #else null #end;
-			__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.unmarshalText(__0) #else null #end;
-			__self__.weekday = #if !macro function():Weekday return _t2.weekday() #else null #end;
-			__self__.year = #if !macro function():GoInt return _t2.year() #else null #end;
-			__self__.yearDay = #if !macro function():GoInt return _t2.yearDay() #else null #end;
-			__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-				return _t2.zone() #else null #end;
-			__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-				return _t2.zoneBounds() #else null #end;
-			__self__._abs = #if !macro function():GoUInt64 return _t2._abs() #else null #end;
-			__self__._addSec = #if !macro function(_sec:GoInt64):Void _t2._addSec(_sec) #else null #end;
-			__self__._date = #if !macro function(__0:Bool):{
-				var _0:GoInt;
-				var _1:Month;
-				var _2:GoInt;
-				var _3:GoInt;
-			}
-				return _t2._date(__0) #else null #end;
-			__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-				return _t2._locabs() #else null #end;
-			__self__._mono = #if !macro function():GoInt64 return _t2._mono() #else null #end;
-			__self__._nsec = #if !macro function():GoInt32 return _t2._nsec() #else null #end;
-			__self__._sec = #if !macro function():GoInt64 return _t2._sec() #else null #end;
-			__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _t2._setLoc(__0) #else null #end;
-			__self__._setMono = #if !macro function(_sec:GoInt64):Void _t2._setMono(_sec) #else null #end;
-			__self__._stripMono = #if !macro function():Void _t2._stripMono() #else null #end;
-			__self__._unixSec = #if !macro function():GoInt64 return _t2._unixSec() #else null #end;
-			__self__;
-		}));
+		_t.errorf((Go.str("Now().Add(1*Hour).After(Now().Add(-5*Second)) = false, want true\nt1=%v\nt2=%v") : GoString), Go.toInterface(Go.asInterface(_t1)),
+			Go.toInterface(Go.asInterface(_t2)));
 	};
 	if (_t2.after((_t1 == null ? null : _t1.__copy__()))) {
-		_t.errorf((Go.str("Now().Add(-5*Second).After(Now().Add(1*Hour)) = true, want false\nt1=%v\nt2=%v") : GoString), Go.toInterface({
-			final __self__ = new Time_asInterface(_t1);
-			__self__.add = #if !macro function(_d_:Duration):Time return _t1.add(_d_) #else null #end;
-			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _t1.addDate(_years, _months, _days) #else null #end;
-			__self__.after = #if !macro function(__0:Time):Bool return _t1.after(__0) #else null #end;
-			__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-					_layout:GoString):Slice<GoUInt8> return _t1.appendFormat(_b, _layout) #else null #end;
-			__self__.before = #if !macro function(__0:Time):Bool return _t1.before(__0) #else null #end;
-			__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-				return _t1.clock() #else null #end;
-			__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-				return _t1.date() #else null #end;
-			__self__.day = #if !macro function():GoInt return _t1.day() #else null #end;
-			__self__.equal = #if !macro function(__0:Time):Bool return _t1.equal(__0) #else null #end;
-			__self__.format = #if !macro function(__0:GoString):GoString return _t1.format(__0) #else null #end;
-			__self__.goString = #if !macro function():GoString return _t1.goString() #else null #end;
-			__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.gobDecode(__0) #else null #end;
-			__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t1.gobEncode() #else null #end;
-			__self__.hour = #if !macro function():GoInt return _t1.hour() #else null #end;
-			__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-				return _t1.isoweek() #else null #end;
-			__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _t1.in_(__0) #else null #end;
-			__self__.isDST = #if !macro function():Bool return _t1.isDST() #else null #end;
-			__self__.isZero = #if !macro function():Bool return _t1.isZero() #else null #end;
-			__self__.local = #if !macro function():Time return _t1.local() #else null #end;
-			__self__.location = #if !macro function():Ref<Location> return _t1.location() #else null #end;
-			__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t1.marshalBinary() #else null #end;
-			__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t1.marshalJSON() #else null #end;
-			__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t1.marshalText() #else null #end;
-			__self__.minute = #if !macro function():GoInt return _t1.minute() #else null #end;
-			__self__.month = #if !macro function():Month return _t1.month() #else null #end;
-			__self__.nanosecond = #if !macro function():GoInt return _t1.nanosecond() #else null #end;
-			__self__.round = #if !macro function(_d__:Duration):Time return _t1.round(_d__) #else null #end;
-			__self__.second = #if !macro function():GoInt return _t1.second() #else null #end;
-			__self__.string = #if !macro function():GoString return _t1.string() #else null #end;
-			__self__.sub = #if !macro function(__0:Time):Duration return _t1.sub(__0) #else null #end;
-			__self__.truncate = #if !macro function(_d___:Duration):Time return _t1.truncate(_d___) #else null #end;
-			__self__.utc = #if !macro function():Time return _t1.utc() #else null #end;
-			__self__.unix = #if !macro function():GoInt64 return _t1.unix() #else null #end;
-			__self__.unixMicro = #if !macro function():GoInt64 return _t1.unixMicro() #else null #end;
-			__self__.unixMilli = #if !macro function():GoInt64 return _t1.unixMilli() #else null #end;
-			__self__.unixNano = #if !macro function():GoInt64 return _t1.unixNano() #else null #end;
-			__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalBinary(__0) #else null #end;
-			__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalJSON(__0) #else null #end;
-			__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalText(__0) #else null #end;
-			__self__.weekday = #if !macro function():Weekday return _t1.weekday() #else null #end;
-			__self__.year = #if !macro function():GoInt return _t1.year() #else null #end;
-			__self__.yearDay = #if !macro function():GoInt return _t1.yearDay() #else null #end;
-			__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-				return _t1.zone() #else null #end;
-			__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-				return _t1.zoneBounds() #else null #end;
-			__self__._abs = #if !macro function():GoUInt64 return _t1._abs() #else null #end;
-			__self__._addSec = #if !macro function(_sec:GoInt64):Void _t1._addSec(_sec) #else null #end;
-			__self__._date = #if !macro function(__0:Bool):{
-				var _0:GoInt;
-				var _1:Month;
-				var _2:GoInt;
-				var _3:GoInt;
-			}
-				return _t1._date(__0) #else null #end;
-			__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-				return _t1._locabs() #else null #end;
-			__self__._mono = #if !macro function():GoInt64 return _t1._mono() #else null #end;
-			__self__._nsec = #if !macro function():GoInt32 return _t1._nsec() #else null #end;
-			__self__._sec = #if !macro function():GoInt64 return _t1._sec() #else null #end;
-			__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _t1._setLoc(__0) #else null #end;
-			__self__._setMono = #if !macro function(_sec:GoInt64):Void _t1._setMono(_sec) #else null #end;
-			__self__._stripMono = #if !macro function():Void _t1._stripMono() #else null #end;
-			__self__._unixSec = #if !macro function():GoInt64 return _t1._unixSec() #else null #end;
-			__self__;
-		}), Go.toInterface({
-			final __self__ = new Time_asInterface(_t2);
-			__self__.add = #if !macro function(_d_:Duration):Time return _t2.add(_d_) #else null #end;
-			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _t2.addDate(_years, _months, _days) #else null #end;
-			__self__.after = #if !macro function(__0:Time):Bool return _t2.after(__0) #else null #end;
-			__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-					_layout:GoString):Slice<GoUInt8> return _t2.appendFormat(_b, _layout) #else null #end;
-			__self__.before = #if !macro function(__0:Time):Bool return _t2.before(__0) #else null #end;
-			__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-				return _t2.clock() #else null #end;
-			__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-				return _t2.date() #else null #end;
-			__self__.day = #if !macro function():GoInt return _t2.day() #else null #end;
-			__self__.equal = #if !macro function(__0:Time):Bool return _t2.equal(__0) #else null #end;
-			__self__.format = #if !macro function(__0:GoString):GoString return _t2.format(__0) #else null #end;
-			__self__.goString = #if !macro function():GoString return _t2.goString() #else null #end;
-			__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.gobDecode(__0) #else null #end;
-			__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t2.gobEncode() #else null #end;
-			__self__.hour = #if !macro function():GoInt return _t2.hour() #else null #end;
-			__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-				return _t2.isoweek() #else null #end;
-			__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _t2.in_(__0) #else null #end;
-			__self__.isDST = #if !macro function():Bool return _t2.isDST() #else null #end;
-			__self__.isZero = #if !macro function():Bool return _t2.isZero() #else null #end;
-			__self__.local = #if !macro function():Time return _t2.local() #else null #end;
-			__self__.location = #if !macro function():Ref<Location> return _t2.location() #else null #end;
-			__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t2.marshalBinary() #else null #end;
-			__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t2.marshalJSON() #else null #end;
-			__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t2.marshalText() #else null #end;
-			__self__.minute = #if !macro function():GoInt return _t2.minute() #else null #end;
-			__self__.month = #if !macro function():Month return _t2.month() #else null #end;
-			__self__.nanosecond = #if !macro function():GoInt return _t2.nanosecond() #else null #end;
-			__self__.round = #if !macro function(_d__:Duration):Time return _t2.round(_d__) #else null #end;
-			__self__.second = #if !macro function():GoInt return _t2.second() #else null #end;
-			__self__.string = #if !macro function():GoString return _t2.string() #else null #end;
-			__self__.sub = #if !macro function(__0:Time):Duration return _t2.sub(__0) #else null #end;
-			__self__.truncate = #if !macro function(_d___:Duration):Time return _t2.truncate(_d___) #else null #end;
-			__self__.utc = #if !macro function():Time return _t2.utc() #else null #end;
-			__self__.unix = #if !macro function():GoInt64 return _t2.unix() #else null #end;
-			__self__.unixMicro = #if !macro function():GoInt64 return _t2.unixMicro() #else null #end;
-			__self__.unixMilli = #if !macro function():GoInt64 return _t2.unixMilli() #else null #end;
-			__self__.unixNano = #if !macro function():GoInt64 return _t2.unixNano() #else null #end;
-			__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.unmarshalBinary(__0) #else null #end;
-			__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.unmarshalJSON(__0) #else null #end;
-			__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.unmarshalText(__0) #else null #end;
-			__self__.weekday = #if !macro function():Weekday return _t2.weekday() #else null #end;
-			__self__.year = #if !macro function():GoInt return _t2.year() #else null #end;
-			__self__.yearDay = #if !macro function():GoInt return _t2.yearDay() #else null #end;
-			__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-				return _t2.zone() #else null #end;
-			__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-				return _t2.zoneBounds() #else null #end;
-			__self__._abs = #if !macro function():GoUInt64 return _t2._abs() #else null #end;
-			__self__._addSec = #if !macro function(_sec:GoInt64):Void _t2._addSec(_sec) #else null #end;
-			__self__._date = #if !macro function(__0:Bool):{
-				var _0:GoInt;
-				var _1:Month;
-				var _2:GoInt;
-				var _3:GoInt;
-			}
-				return _t2._date(__0) #else null #end;
-			__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-				return _t2._locabs() #else null #end;
-			__self__._mono = #if !macro function():GoInt64 return _t2._mono() #else null #end;
-			__self__._nsec = #if !macro function():GoInt32 return _t2._nsec() #else null #end;
-			__self__._sec = #if !macro function():GoInt64 return _t2._sec() #else null #end;
-			__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _t2._setLoc(__0) #else null #end;
-			__self__._setMono = #if !macro function(_sec:GoInt64):Void _t2._setMono(_sec) #else null #end;
-			__self__._stripMono = #if !macro function():Void _t2._stripMono() #else null #end;
-			__self__._unixSec = #if !macro function():GoInt64 return _t2._unixSec() #else null #end;
-			__self__;
-		}));
+		_t.errorf((Go.str("Now().Add(-5*Second).After(Now().Add(1*Hour)) = true, want false\nt1=%v\nt2=%v") : GoString), Go.toInterface(Go.asInterface(_t1)),
+			Go.toInterface(Go.asInterface(_t2)));
 	};
 	if (_t1.before((_t2 == null ? null : _t2.__copy__()))) {
-		_t.errorf((Go.str("Now().Add(1*Hour).Before(Now().Add(-5*Second)) = true, want false\nt1=%v\nt2=%v") : GoString), Go.toInterface({
-			final __self__ = new Time_asInterface(_t1);
-			__self__.add = #if !macro function(_d_:Duration):Time return _t1.add(_d_) #else null #end;
-			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _t1.addDate(_years, _months, _days) #else null #end;
-			__self__.after = #if !macro function(__0:Time):Bool return _t1.after(__0) #else null #end;
-			__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-					_layout:GoString):Slice<GoUInt8> return _t1.appendFormat(_b, _layout) #else null #end;
-			__self__.before = #if !macro function(__0:Time):Bool return _t1.before(__0) #else null #end;
-			__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-				return _t1.clock() #else null #end;
-			__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-				return _t1.date() #else null #end;
-			__self__.day = #if !macro function():GoInt return _t1.day() #else null #end;
-			__self__.equal = #if !macro function(__0:Time):Bool return _t1.equal(__0) #else null #end;
-			__self__.format = #if !macro function(__0:GoString):GoString return _t1.format(__0) #else null #end;
-			__self__.goString = #if !macro function():GoString return _t1.goString() #else null #end;
-			__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.gobDecode(__0) #else null #end;
-			__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t1.gobEncode() #else null #end;
-			__self__.hour = #if !macro function():GoInt return _t1.hour() #else null #end;
-			__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-				return _t1.isoweek() #else null #end;
-			__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _t1.in_(__0) #else null #end;
-			__self__.isDST = #if !macro function():Bool return _t1.isDST() #else null #end;
-			__self__.isZero = #if !macro function():Bool return _t1.isZero() #else null #end;
-			__self__.local = #if !macro function():Time return _t1.local() #else null #end;
-			__self__.location = #if !macro function():Ref<Location> return _t1.location() #else null #end;
-			__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t1.marshalBinary() #else null #end;
-			__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t1.marshalJSON() #else null #end;
-			__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t1.marshalText() #else null #end;
-			__self__.minute = #if !macro function():GoInt return _t1.minute() #else null #end;
-			__self__.month = #if !macro function():Month return _t1.month() #else null #end;
-			__self__.nanosecond = #if !macro function():GoInt return _t1.nanosecond() #else null #end;
-			__self__.round = #if !macro function(_d__:Duration):Time return _t1.round(_d__) #else null #end;
-			__self__.second = #if !macro function():GoInt return _t1.second() #else null #end;
-			__self__.string = #if !macro function():GoString return _t1.string() #else null #end;
-			__self__.sub = #if !macro function(__0:Time):Duration return _t1.sub(__0) #else null #end;
-			__self__.truncate = #if !macro function(_d___:Duration):Time return _t1.truncate(_d___) #else null #end;
-			__self__.utc = #if !macro function():Time return _t1.utc() #else null #end;
-			__self__.unix = #if !macro function():GoInt64 return _t1.unix() #else null #end;
-			__self__.unixMicro = #if !macro function():GoInt64 return _t1.unixMicro() #else null #end;
-			__self__.unixMilli = #if !macro function():GoInt64 return _t1.unixMilli() #else null #end;
-			__self__.unixNano = #if !macro function():GoInt64 return _t1.unixNano() #else null #end;
-			__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalBinary(__0) #else null #end;
-			__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalJSON(__0) #else null #end;
-			__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalText(__0) #else null #end;
-			__self__.weekday = #if !macro function():Weekday return _t1.weekday() #else null #end;
-			__self__.year = #if !macro function():GoInt return _t1.year() #else null #end;
-			__self__.yearDay = #if !macro function():GoInt return _t1.yearDay() #else null #end;
-			__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-				return _t1.zone() #else null #end;
-			__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-				return _t1.zoneBounds() #else null #end;
-			__self__._abs = #if !macro function():GoUInt64 return _t1._abs() #else null #end;
-			__self__._addSec = #if !macro function(_sec:GoInt64):Void _t1._addSec(_sec) #else null #end;
-			__self__._date = #if !macro function(__0:Bool):{
-				var _0:GoInt;
-				var _1:Month;
-				var _2:GoInt;
-				var _3:GoInt;
-			}
-				return _t1._date(__0) #else null #end;
-			__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-				return _t1._locabs() #else null #end;
-			__self__._mono = #if !macro function():GoInt64 return _t1._mono() #else null #end;
-			__self__._nsec = #if !macro function():GoInt32 return _t1._nsec() #else null #end;
-			__self__._sec = #if !macro function():GoInt64 return _t1._sec() #else null #end;
-			__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _t1._setLoc(__0) #else null #end;
-			__self__._setMono = #if !macro function(_sec:GoInt64):Void _t1._setMono(_sec) #else null #end;
-			__self__._stripMono = #if !macro function():Void _t1._stripMono() #else null #end;
-			__self__._unixSec = #if !macro function():GoInt64 return _t1._unixSec() #else null #end;
-			__self__;
-		}), Go.toInterface({
-			final __self__ = new Time_asInterface(_t2);
-			__self__.add = #if !macro function(_d_:Duration):Time return _t2.add(_d_) #else null #end;
-			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _t2.addDate(_years, _months, _days) #else null #end;
-			__self__.after = #if !macro function(__0:Time):Bool return _t2.after(__0) #else null #end;
-			__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-					_layout:GoString):Slice<GoUInt8> return _t2.appendFormat(_b, _layout) #else null #end;
-			__self__.before = #if !macro function(__0:Time):Bool return _t2.before(__0) #else null #end;
-			__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-				return _t2.clock() #else null #end;
-			__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-				return _t2.date() #else null #end;
-			__self__.day = #if !macro function():GoInt return _t2.day() #else null #end;
-			__self__.equal = #if !macro function(__0:Time):Bool return _t2.equal(__0) #else null #end;
-			__self__.format = #if !macro function(__0:GoString):GoString return _t2.format(__0) #else null #end;
-			__self__.goString = #if !macro function():GoString return _t2.goString() #else null #end;
-			__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.gobDecode(__0) #else null #end;
-			__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t2.gobEncode() #else null #end;
-			__self__.hour = #if !macro function():GoInt return _t2.hour() #else null #end;
-			__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-				return _t2.isoweek() #else null #end;
-			__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _t2.in_(__0) #else null #end;
-			__self__.isDST = #if !macro function():Bool return _t2.isDST() #else null #end;
-			__self__.isZero = #if !macro function():Bool return _t2.isZero() #else null #end;
-			__self__.local = #if !macro function():Time return _t2.local() #else null #end;
-			__self__.location = #if !macro function():Ref<Location> return _t2.location() #else null #end;
-			__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t2.marshalBinary() #else null #end;
-			__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t2.marshalJSON() #else null #end;
-			__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t2.marshalText() #else null #end;
-			__self__.minute = #if !macro function():GoInt return _t2.minute() #else null #end;
-			__self__.month = #if !macro function():Month return _t2.month() #else null #end;
-			__self__.nanosecond = #if !macro function():GoInt return _t2.nanosecond() #else null #end;
-			__self__.round = #if !macro function(_d__:Duration):Time return _t2.round(_d__) #else null #end;
-			__self__.second = #if !macro function():GoInt return _t2.second() #else null #end;
-			__self__.string = #if !macro function():GoString return _t2.string() #else null #end;
-			__self__.sub = #if !macro function(__0:Time):Duration return _t2.sub(__0) #else null #end;
-			__self__.truncate = #if !macro function(_d___:Duration):Time return _t2.truncate(_d___) #else null #end;
-			__self__.utc = #if !macro function():Time return _t2.utc() #else null #end;
-			__self__.unix = #if !macro function():GoInt64 return _t2.unix() #else null #end;
-			__self__.unixMicro = #if !macro function():GoInt64 return _t2.unixMicro() #else null #end;
-			__self__.unixMilli = #if !macro function():GoInt64 return _t2.unixMilli() #else null #end;
-			__self__.unixNano = #if !macro function():GoInt64 return _t2.unixNano() #else null #end;
-			__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.unmarshalBinary(__0) #else null #end;
-			__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.unmarshalJSON(__0) #else null #end;
-			__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.unmarshalText(__0) #else null #end;
-			__self__.weekday = #if !macro function():Weekday return _t2.weekday() #else null #end;
-			__self__.year = #if !macro function():GoInt return _t2.year() #else null #end;
-			__self__.yearDay = #if !macro function():GoInt return _t2.yearDay() #else null #end;
-			__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-				return _t2.zone() #else null #end;
-			__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-				return _t2.zoneBounds() #else null #end;
-			__self__._abs = #if !macro function():GoUInt64 return _t2._abs() #else null #end;
-			__self__._addSec = #if !macro function(_sec:GoInt64):Void _t2._addSec(_sec) #else null #end;
-			__self__._date = #if !macro function(__0:Bool):{
-				var _0:GoInt;
-				var _1:Month;
-				var _2:GoInt;
-				var _3:GoInt;
-			}
-				return _t2._date(__0) #else null #end;
-			__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-				return _t2._locabs() #else null #end;
-			__self__._mono = #if !macro function():GoInt64 return _t2._mono() #else null #end;
-			__self__._nsec = #if !macro function():GoInt32 return _t2._nsec() #else null #end;
-			__self__._sec = #if !macro function():GoInt64 return _t2._sec() #else null #end;
-			__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _t2._setLoc(__0) #else null #end;
-			__self__._setMono = #if !macro function(_sec:GoInt64):Void _t2._setMono(_sec) #else null #end;
-			__self__._stripMono = #if !macro function():Void _t2._stripMono() #else null #end;
-			__self__._unixSec = #if !macro function():GoInt64 return _t2._unixSec() #else null #end;
-			__self__;
-		}));
+		_t.errorf((Go.str("Now().Add(1*Hour).Before(Now().Add(-5*Second)) = true, want false\nt1=%v\nt2=%v") : GoString), Go.toInterface(Go.asInterface(_t1)),
+			Go.toInterface(Go.asInterface(_t2)));
 	};
 	if (!_t2.before((_t1 == null ? null : _t1.__copy__()))) {
-		_t.errorf((Go.str("Now().Add(-5*Second).Before(Now().Add(1*Hour)) = false, want true\nt1=%v\nt2=%v") : GoString), Go.toInterface({
-			final __self__ = new Time_asInterface(_t1);
-			__self__.add = #if !macro function(_d_:Duration):Time return _t1.add(_d_) #else null #end;
-			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _t1.addDate(_years, _months, _days) #else null #end;
-			__self__.after = #if !macro function(__0:Time):Bool return _t1.after(__0) #else null #end;
-			__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-					_layout:GoString):Slice<GoUInt8> return _t1.appendFormat(_b, _layout) #else null #end;
-			__self__.before = #if !macro function(__0:Time):Bool return _t1.before(__0) #else null #end;
-			__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-				return _t1.clock() #else null #end;
-			__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-				return _t1.date() #else null #end;
-			__self__.day = #if !macro function():GoInt return _t1.day() #else null #end;
-			__self__.equal = #if !macro function(__0:Time):Bool return _t1.equal(__0) #else null #end;
-			__self__.format = #if !macro function(__0:GoString):GoString return _t1.format(__0) #else null #end;
-			__self__.goString = #if !macro function():GoString return _t1.goString() #else null #end;
-			__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.gobDecode(__0) #else null #end;
-			__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t1.gobEncode() #else null #end;
-			__self__.hour = #if !macro function():GoInt return _t1.hour() #else null #end;
-			__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-				return _t1.isoweek() #else null #end;
-			__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _t1.in_(__0) #else null #end;
-			__self__.isDST = #if !macro function():Bool return _t1.isDST() #else null #end;
-			__self__.isZero = #if !macro function():Bool return _t1.isZero() #else null #end;
-			__self__.local = #if !macro function():Time return _t1.local() #else null #end;
-			__self__.location = #if !macro function():Ref<Location> return _t1.location() #else null #end;
-			__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t1.marshalBinary() #else null #end;
-			__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t1.marshalJSON() #else null #end;
-			__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t1.marshalText() #else null #end;
-			__self__.minute = #if !macro function():GoInt return _t1.minute() #else null #end;
-			__self__.month = #if !macro function():Month return _t1.month() #else null #end;
-			__self__.nanosecond = #if !macro function():GoInt return _t1.nanosecond() #else null #end;
-			__self__.round = #if !macro function(_d__:Duration):Time return _t1.round(_d__) #else null #end;
-			__self__.second = #if !macro function():GoInt return _t1.second() #else null #end;
-			__self__.string = #if !macro function():GoString return _t1.string() #else null #end;
-			__self__.sub = #if !macro function(__0:Time):Duration return _t1.sub(__0) #else null #end;
-			__self__.truncate = #if !macro function(_d___:Duration):Time return _t1.truncate(_d___) #else null #end;
-			__self__.utc = #if !macro function():Time return _t1.utc() #else null #end;
-			__self__.unix = #if !macro function():GoInt64 return _t1.unix() #else null #end;
-			__self__.unixMicro = #if !macro function():GoInt64 return _t1.unixMicro() #else null #end;
-			__self__.unixMilli = #if !macro function():GoInt64 return _t1.unixMilli() #else null #end;
-			__self__.unixNano = #if !macro function():GoInt64 return _t1.unixNano() #else null #end;
-			__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalBinary(__0) #else null #end;
-			__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalJSON(__0) #else null #end;
-			__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalText(__0) #else null #end;
-			__self__.weekday = #if !macro function():Weekday return _t1.weekday() #else null #end;
-			__self__.year = #if !macro function():GoInt return _t1.year() #else null #end;
-			__self__.yearDay = #if !macro function():GoInt return _t1.yearDay() #else null #end;
-			__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-				return _t1.zone() #else null #end;
-			__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-				return _t1.zoneBounds() #else null #end;
-			__self__._abs = #if !macro function():GoUInt64 return _t1._abs() #else null #end;
-			__self__._addSec = #if !macro function(_sec:GoInt64):Void _t1._addSec(_sec) #else null #end;
-			__self__._date = #if !macro function(__0:Bool):{
-				var _0:GoInt;
-				var _1:Month;
-				var _2:GoInt;
-				var _3:GoInt;
-			}
-				return _t1._date(__0) #else null #end;
-			__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-				return _t1._locabs() #else null #end;
-			__self__._mono = #if !macro function():GoInt64 return _t1._mono() #else null #end;
-			__self__._nsec = #if !macro function():GoInt32 return _t1._nsec() #else null #end;
-			__self__._sec = #if !macro function():GoInt64 return _t1._sec() #else null #end;
-			__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _t1._setLoc(__0) #else null #end;
-			__self__._setMono = #if !macro function(_sec:GoInt64):Void _t1._setMono(_sec) #else null #end;
-			__self__._stripMono = #if !macro function():Void _t1._stripMono() #else null #end;
-			__self__._unixSec = #if !macro function():GoInt64 return _t1._unixSec() #else null #end;
-			__self__;
-		}), Go.toInterface({
-			final __self__ = new Time_asInterface(_t2);
-			__self__.add = #if !macro function(_d_:Duration):Time return _t2.add(_d_) #else null #end;
-			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _t2.addDate(_years, _months, _days) #else null #end;
-			__self__.after = #if !macro function(__0:Time):Bool return _t2.after(__0) #else null #end;
-			__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-					_layout:GoString):Slice<GoUInt8> return _t2.appendFormat(_b, _layout) #else null #end;
-			__self__.before = #if !macro function(__0:Time):Bool return _t2.before(__0) #else null #end;
-			__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-				return _t2.clock() #else null #end;
-			__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-				return _t2.date() #else null #end;
-			__self__.day = #if !macro function():GoInt return _t2.day() #else null #end;
-			__self__.equal = #if !macro function(__0:Time):Bool return _t2.equal(__0) #else null #end;
-			__self__.format = #if !macro function(__0:GoString):GoString return _t2.format(__0) #else null #end;
-			__self__.goString = #if !macro function():GoString return _t2.goString() #else null #end;
-			__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.gobDecode(__0) #else null #end;
-			__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t2.gobEncode() #else null #end;
-			__self__.hour = #if !macro function():GoInt return _t2.hour() #else null #end;
-			__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-				return _t2.isoweek() #else null #end;
-			__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _t2.in_(__0) #else null #end;
-			__self__.isDST = #if !macro function():Bool return _t2.isDST() #else null #end;
-			__self__.isZero = #if !macro function():Bool return _t2.isZero() #else null #end;
-			__self__.local = #if !macro function():Time return _t2.local() #else null #end;
-			__self__.location = #if !macro function():Ref<Location> return _t2.location() #else null #end;
-			__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t2.marshalBinary() #else null #end;
-			__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t2.marshalJSON() #else null #end;
-			__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t2.marshalText() #else null #end;
-			__self__.minute = #if !macro function():GoInt return _t2.minute() #else null #end;
-			__self__.month = #if !macro function():Month return _t2.month() #else null #end;
-			__self__.nanosecond = #if !macro function():GoInt return _t2.nanosecond() #else null #end;
-			__self__.round = #if !macro function(_d__:Duration):Time return _t2.round(_d__) #else null #end;
-			__self__.second = #if !macro function():GoInt return _t2.second() #else null #end;
-			__self__.string = #if !macro function():GoString return _t2.string() #else null #end;
-			__self__.sub = #if !macro function(__0:Time):Duration return _t2.sub(__0) #else null #end;
-			__self__.truncate = #if !macro function(_d___:Duration):Time return _t2.truncate(_d___) #else null #end;
-			__self__.utc = #if !macro function():Time return _t2.utc() #else null #end;
-			__self__.unix = #if !macro function():GoInt64 return _t2.unix() #else null #end;
-			__self__.unixMicro = #if !macro function():GoInt64 return _t2.unixMicro() #else null #end;
-			__self__.unixMilli = #if !macro function():GoInt64 return _t2.unixMilli() #else null #end;
-			__self__.unixNano = #if !macro function():GoInt64 return _t2.unixNano() #else null #end;
-			__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.unmarshalBinary(__0) #else null #end;
-			__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.unmarshalJSON(__0) #else null #end;
-			__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.unmarshalText(__0) #else null #end;
-			__self__.weekday = #if !macro function():Weekday return _t2.weekday() #else null #end;
-			__self__.year = #if !macro function():GoInt return _t2.year() #else null #end;
-			__self__.yearDay = #if !macro function():GoInt return _t2.yearDay() #else null #end;
-			__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-				return _t2.zone() #else null #end;
-			__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-				return _t2.zoneBounds() #else null #end;
-			__self__._abs = #if !macro function():GoUInt64 return _t2._abs() #else null #end;
-			__self__._addSec = #if !macro function(_sec:GoInt64):Void _t2._addSec(_sec) #else null #end;
-			__self__._date = #if !macro function(__0:Bool):{
-				var _0:GoInt;
-				var _1:Month;
-				var _2:GoInt;
-				var _3:GoInt;
-			}
-				return _t2._date(__0) #else null #end;
-			__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-				return _t2._locabs() #else null #end;
-			__self__._mono = #if !macro function():GoInt64 return _t2._mono() #else null #end;
-			__self__._nsec = #if !macro function():GoInt32 return _t2._nsec() #else null #end;
-			__self__._sec = #if !macro function():GoInt64 return _t2._sec() #else null #end;
-			__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _t2._setLoc(__0) #else null #end;
-			__self__._setMono = #if !macro function(_sec:GoInt64):Void _t2._setMono(_sec) #else null #end;
-			__self__._stripMono = #if !macro function():Void _t2._stripMono() #else null #end;
-			__self__._unixSec = #if !macro function():GoInt64 return _t2._unixSec() #else null #end;
-			__self__;
-		}));
+		_t.errorf((Go.str("Now().Add(-5*Second).Before(Now().Add(1*Hour)) = false, want true\nt1=%v\nt2=%v") : GoString), Go.toInterface(Go.asInterface(_t1)),
+			Go.toInterface(Go.asInterface(_t2)));
 	};
 }
 
 function testMonotonicString(_t:stdgo.testing.Testing.T):Void {
 	var _t1:Time = (now() == null ? null : now().__copy__());
-	_t.logf((Go.str("Now() = %v") : GoString), Go.toInterface({
-		final __self__ = new Time_asInterface(_t1);
-		__self__.add = #if !macro function(_d:Duration):Time return _t1.add(_d) #else null #end;
-		__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _t1.addDate(_years, _months, _days) #else null #end;
-		__self__.after = #if !macro function(__0:Time):Bool return _t1.after(__0) #else null #end;
-		__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>, _layout:GoString):Slice<GoUInt8> return _t1.appendFormat(_b, _layout) #else null #end;
-		__self__.before = #if !macro function(__0:Time):Bool return _t1.before(__0) #else null #end;
-		__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-			return _t1.clock() #else null #end;
-		__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-			return _t1.date() #else null #end;
-		__self__.day = #if !macro function():GoInt return _t1.day() #else null #end;
-		__self__.equal = #if !macro function(__0:Time):Bool return _t1.equal(__0) #else null #end;
-		__self__.format = #if !macro function(__0:GoString):GoString return _t1.format(__0) #else null #end;
-		__self__.goString = #if !macro function():GoString return _t1.goString() #else null #end;
-		__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.gobDecode(__0) #else null #end;
-		__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _t1.gobEncode() #else null #end;
-		__self__.hour = #if !macro function():GoInt return _t1.hour() #else null #end;
-		__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-			return _t1.isoweek() #else null #end;
-		__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _t1.in_(__0) #else null #end;
-		__self__.isDST = #if !macro function():Bool return _t1.isDST() #else null #end;
-		__self__.isZero = #if !macro function():Bool return _t1.isZero() #else null #end;
-		__self__.local = #if !macro function():Time return _t1.local() #else null #end;
-		__self__.location = #if !macro function():Ref<Location> return _t1.location() #else null #end;
-		__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _t1.marshalBinary() #else null #end;
-		__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _t1.marshalJSON() #else null #end;
-		__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _t1.marshalText() #else null #end;
-		__self__.minute = #if !macro function():GoInt return _t1.minute() #else null #end;
-		__self__.month = #if !macro function():Month return _t1.month() #else null #end;
-		__self__.nanosecond = #if !macro function():GoInt return _t1.nanosecond() #else null #end;
-		__self__.round = #if !macro function(_d:Duration):Time return _t1.round(_d) #else null #end;
-		__self__.second = #if !macro function():GoInt return _t1.second() #else null #end;
-		__self__.string = #if !macro function():GoString return _t1.string() #else null #end;
-		__self__.sub = #if !macro function(__0:Time):Duration return _t1.sub(__0) #else null #end;
-		__self__.truncate = #if !macro function(_d:Duration):Time return _t1.truncate(_d) #else null #end;
-		__self__.utc = #if !macro function():Time return _t1.utc() #else null #end;
-		__self__.unix = #if !macro function():GoInt64 return _t1.unix() #else null #end;
-		__self__.unixMicro = #if !macro function():GoInt64 return _t1.unixMicro() #else null #end;
-		__self__.unixMilli = #if !macro function():GoInt64 return _t1.unixMilli() #else null #end;
-		__self__.unixNano = #if !macro function():GoInt64 return _t1.unixNano() #else null #end;
-		__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalBinary(__0) #else null #end;
-		__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalJSON(__0) #else null #end;
-		__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalText(__0) #else null #end;
-		__self__.weekday = #if !macro function():Weekday return _t1.weekday() #else null #end;
-		__self__.year = #if !macro function():GoInt return _t1.year() #else null #end;
-		__self__.yearDay = #if !macro function():GoInt return _t1.yearDay() #else null #end;
-		__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-			return _t1.zone() #else null #end;
-		__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-			return _t1.zoneBounds() #else null #end;
-		__self__._abs = #if !macro function():GoUInt64 return _t1._abs() #else null #end;
-		__self__._addSec = #if !macro function(_sec:GoInt64):Void _t1._addSec(_sec) #else null #end;
-		__self__._date = #if !macro function(__0:Bool):{
-			var _0:GoInt;
-			var _1:Month;
-			var _2:GoInt;
-			var _3:GoInt;
-		}
-			return _t1._date(__0) #else null #end;
-		__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-			return _t1._locabs() #else null #end;
-		__self__._mono = #if !macro function():GoInt64 return _t1._mono() #else null #end;
-		__self__._nsec = #if !macro function():GoInt32 return _t1._nsec() #else null #end;
-		__self__._sec = #if !macro function():GoInt64 return _t1._sec() #else null #end;
-		__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _t1._setLoc(__0) #else null #end;
-		__self__._setMono = #if !macro function(_sec:GoInt64):Void _t1._setMono(_sec) #else null #end;
-		__self__._stripMono = #if !macro function():Void _t1._stripMono() #else null #end;
-		__self__._unixSec = #if !macro function():GoInt64 return _t1._unixSec() #else null #end;
-		__self__;
-	}));
+	_t.logf((Go.str("Now() = %v") : GoString), Go.toInterface(Go.asInterface(_t1)));
 	for (_0 => _tt in _monotonicStringTests) {
 		var _t1:Time = (now() == null ? null : now().__copy__());
 		setMono(_t1, _tt._mono);
@@ -5709,33 +3542,8 @@ function testSleep(_t:stdgo.testing.Testing.T):Void {
 	};
 	var _duration:Duration = now().sub((_start == null ? null : _start.__copy__()));
 	if (_duration < _delayadj) {
-		_t.fatalf((Go.str("Sleep(%s) slept for only %s") : GoString), Go.toInterface({
-			final __self__ = new Duration_asInterface((100000000 : Duration));
-			__self__.abs = #if !macro function():Duration return (100000000 : Duration).abs() #else null #end;
-			__self__.hours = #if !macro function():GoFloat64 return (100000000 : Duration).hours() #else null #end;
-			__self__.microseconds = #if !macro function():GoInt64 return (100000000 : Duration).microseconds() #else null #end;
-			__self__.milliseconds = #if !macro function():GoInt64 return (100000000 : Duration).milliseconds() #else null #end;
-			__self__.minutes = #if !macro function():GoFloat64 return (100000000 : Duration).minutes() #else null #end;
-			__self__.nanoseconds = #if !macro function():GoInt64 return (100000000 : Duration).nanoseconds() #else null #end;
-			__self__.round = #if !macro function(_d:Duration):Duration return (100000000 : Duration).round(_d) #else null #end;
-			__self__.seconds = #if !macro function():GoFloat64 return (100000000 : Duration).seconds() #else null #end;
-			__self__.string = #if !macro function():GoString return (100000000 : Duration).string() #else null #end;
-			__self__.truncate = #if !macro function(_d:Duration):Duration return (100000000 : Duration).truncate(_d) #else null #end;
-			__self__;
-		}), Go.toInterface({
-			final __self__ = new Duration_asInterface(_duration);
-			__self__.abs = #if !macro function():Duration return _duration.abs() #else null #end;
-			__self__.hours = #if !macro function():GoFloat64 return _duration.hours() #else null #end;
-			__self__.microseconds = #if !macro function():GoInt64 return _duration.microseconds() #else null #end;
-			__self__.milliseconds = #if !macro function():GoInt64 return _duration.milliseconds() #else null #end;
-			__self__.minutes = #if !macro function():GoFloat64 return _duration.minutes() #else null #end;
-			__self__.nanoseconds = #if !macro function():GoInt64 return _duration.nanoseconds() #else null #end;
-			__self__.round = #if !macro function(_d:Duration):Duration return _duration.round(_d) #else null #end;
-			__self__.seconds = #if !macro function():GoFloat64 return _duration.seconds() #else null #end;
-			__self__.string = #if !macro function():GoString return _duration.string() #else null #end;
-			__self__.truncate = #if !macro function(_d:Duration):Duration return _duration.truncate(_d) #else null #end;
-			__self__;
-		}));
+		_t.fatalf((Go.str("Sleep(%s) slept for only %s") : GoString), Go.toInterface(Go.asInterface((100000000 : Duration))),
+			Go.toInterface(Go.asInterface(_duration)));
 	};
 }
 
@@ -5956,204 +3764,15 @@ function testAfter(_t:stdgo.testing.Testing.T):Void {
 	{
 		var _duration:Duration = now().sub((_start == null ? null : _start.__copy__()));
 		if (_duration < _delayadj) {
-			_t.fatalf((Go.str("After(%s) slept for only %d ns") : GoString), Go.toInterface({
-				final __self__ = new Duration_asInterface((100000000 : Duration));
-				__self__.abs = #if !macro function():Duration return (100000000 : Duration).abs() #else null #end;
-				__self__.hours = #if !macro function():GoFloat64 return (100000000 : Duration).hours() #else null #end;
-				__self__.microseconds = #if !macro function():GoInt64 return (100000000 : Duration).microseconds() #else null #end;
-				__self__.milliseconds = #if !macro function():GoInt64 return (100000000 : Duration).milliseconds() #else null #end;
-				__self__.minutes = #if !macro function():GoFloat64 return (100000000 : Duration).minutes() #else null #end;
-				__self__.nanoseconds = #if !macro function():GoInt64 return (100000000 : Duration).nanoseconds() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Duration return (100000000 : Duration).round(_d) #else null #end;
-				__self__.seconds = #if !macro function():GoFloat64 return (100000000 : Duration).seconds() #else null #end;
-				__self__.string = #if !macro function():GoString return (100000000 : Duration).string() #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Duration return (100000000 : Duration).truncate(_d) #else null #end;
-				__self__;
-			}), Go.toInterface({
-				final __self__ = new Duration_asInterface(_duration);
-				__self__.abs = #if !macro function():Duration return _duration.abs() #else null #end;
-				__self__.hours = #if !macro function():GoFloat64 return _duration.hours() #else null #end;
-				__self__.microseconds = #if !macro function():GoInt64 return _duration.microseconds() #else null #end;
-				__self__.milliseconds = #if !macro function():GoInt64 return _duration.milliseconds() #else null #end;
-				__self__.minutes = #if !macro function():GoFloat64 return _duration.minutes() #else null #end;
-				__self__.nanoseconds = #if !macro function():GoInt64 return _duration.nanoseconds() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Duration return _duration.round(_d) #else null #end;
-				__self__.seconds = #if !macro function():GoFloat64 return _duration.seconds() #else null #end;
-				__self__.string = #if !macro function():GoString return _duration.string() #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Duration return _duration.truncate(_d) #else null #end;
-				__self__;
-			}));
+			_t.fatalf((Go.str("After(%s) slept for only %d ns") : GoString), Go.toInterface(Go.asInterface((100000000 : Duration))),
+				Go.toInterface(Go.asInterface(_duration)));
 		};
 	};
 	{
 		var _min:Time = (_start.add(_delayadj) == null ? null : _start.add(_delayadj).__copy__());
 		if (_end.before((_min == null ? null : _min.__copy__()))) {
-			_t.fatalf((Go.str("After(%s) expect >= %s, got %s") : GoString), Go.toInterface({
-				final __self__ = new Duration_asInterface((100000000 : Duration));
-				__self__.abs = #if !macro function():Duration return (100000000 : Duration).abs() #else null #end;
-				__self__.hours = #if !macro function():GoFloat64 return (100000000 : Duration).hours() #else null #end;
-				__self__.microseconds = #if !macro function():GoInt64 return (100000000 : Duration).microseconds() #else null #end;
-				__self__.milliseconds = #if !macro function():GoInt64 return (100000000 : Duration).milliseconds() #else null #end;
-				__self__.minutes = #if !macro function():GoFloat64 return (100000000 : Duration).minutes() #else null #end;
-				__self__.nanoseconds = #if !macro function():GoInt64 return (100000000 : Duration).nanoseconds() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Duration return (100000000 : Duration).round(_d) #else null #end;
-				__self__.seconds = #if !macro function():GoFloat64 return (100000000 : Duration).seconds() #else null #end;
-				__self__.string = #if !macro function():GoString return (100000000 : Duration).string() #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Duration return (100000000 : Duration).truncate(_d) #else null #end;
-				__self__;
-			}), Go.toInterface({
-				final __self__ = new Time_asInterface(_min);
-				__self__.add = #if !macro function(_d:Duration):Time return _min.add(_d) #else null #end;
-				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-						_days:GoInt):Time return _min.addDate(_years, _months, _days) #else null #end;
-				__self__.after = #if !macro function(__0:Time):Bool return _min.after(__0) #else null #end;
-				__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-						_layout:GoString):Slice<GoUInt8> return _min.appendFormat(_b, _layout) #else null #end;
-				__self__.before = #if !macro function(__0:Time):Bool return _min.before(__0) #else null #end;
-				__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-					return _min.clock() #else null #end;
-				__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-					return _min.date() #else null #end;
-				__self__.day = #if !macro function():GoInt return _min.day() #else null #end;
-				__self__.equal = #if !macro function(__0:Time):Bool return _min.equal(__0) #else null #end;
-				__self__.format = #if !macro function(__0:GoString):GoString return _min.format(__0) #else null #end;
-				__self__.goString = #if !macro function():GoString return _min.goString() #else null #end;
-				__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _min.gobDecode(__0) #else null #end;
-				__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _min.gobEncode() #else null #end;
-				__self__.hour = #if !macro function():GoInt return _min.hour() #else null #end;
-				__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-					return _min.isoweek() #else null #end;
-				__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _min.in_(__0) #else null #end;
-				__self__.isDST = #if !macro function():Bool return _min.isDST() #else null #end;
-				__self__.isZero = #if !macro function():Bool return _min.isZero() #else null #end;
-				__self__.local = #if !macro function():Time return _min.local() #else null #end;
-				__self__.location = #if !macro function():Ref<Location> return _min.location() #else null #end;
-				__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _min.marshalBinary() #else null #end;
-				__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _min.marshalJSON() #else null #end;
-				__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _min.marshalText() #else null #end;
-				__self__.minute = #if !macro function():GoInt return _min.minute() #else null #end;
-				__self__.month = #if !macro function():Month return _min.month() #else null #end;
-				__self__.nanosecond = #if !macro function():GoInt return _min.nanosecond() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Time return _min.round(_d) #else null #end;
-				__self__.second = #if !macro function():GoInt return _min.second() #else null #end;
-				__self__.string = #if !macro function():GoString return _min.string() #else null #end;
-				__self__.sub = #if !macro function(__0:Time):Duration return _min.sub(__0) #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Time return _min.truncate(_d) #else null #end;
-				__self__.utc = #if !macro function():Time return _min.utc() #else null #end;
-				__self__.unix = #if !macro function():GoInt64 return _min.unix() #else null #end;
-				__self__.unixMicro = #if !macro function():GoInt64 return _min.unixMicro() #else null #end;
-				__self__.unixMilli = #if !macro function():GoInt64 return _min.unixMilli() #else null #end;
-				__self__.unixNano = #if !macro function():GoInt64 return _min.unixNano() #else null #end;
-				__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _min.unmarshalBinary(__0) #else null #end;
-				__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _min.unmarshalJSON(__0) #else null #end;
-				__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _min.unmarshalText(__0) #else null #end;
-				__self__.weekday = #if !macro function():Weekday return _min.weekday() #else null #end;
-				__self__.year = #if !macro function():GoInt return _min.year() #else null #end;
-				__self__.yearDay = #if !macro function():GoInt return _min.yearDay() #else null #end;
-				__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-					return _min.zone() #else null #end;
-				__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-					return _min.zoneBounds() #else null #end;
-				__self__._abs = #if !macro function():GoUInt64 return _min._abs() #else null #end;
-				__self__._addSec = #if !macro function(_sec:GoInt64):Void _min._addSec(_sec) #else null #end;
-				__self__._date = #if !macro function(__0:Bool):{
-					var _0:GoInt;
-					var _1:Month;
-					var _2:GoInt;
-					var _3:GoInt;
-				}
-					return _min._date(__0) #else null #end;
-				__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-					return _min._locabs() #else null #end;
-				__self__._mono = #if !macro function():GoInt64 return _min._mono() #else null #end;
-				__self__._nsec = #if !macro function():GoInt32 return _min._nsec() #else null #end;
-				__self__._sec = #if !macro function():GoInt64 return _min._sec() #else null #end;
-				__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _min._setLoc(__0) #else null #end;
-				__self__._setMono = #if !macro function(_sec:GoInt64):Void _min._setMono(_sec) #else null #end;
-				__self__._stripMono = #if !macro function():Void _min._stripMono() #else null #end;
-				__self__._unixSec = #if !macro function():GoInt64 return _min._unixSec() #else null #end;
-				__self__;
-			}), Go.toInterface({
-				final __self__ = new Time_asInterface(_end);
-				__self__.add = #if !macro function(_d:Duration):Time return _end.add(_d) #else null #end;
-				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-						_days:GoInt):Time return _end.addDate(_years, _months, _days) #else null #end;
-				__self__.after = #if !macro function(__0:Time):Bool return _end.after(__0) #else null #end;
-				__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-						_layout:GoString):Slice<GoUInt8> return _end.appendFormat(_b, _layout) #else null #end;
-				__self__.before = #if !macro function(__0:Time):Bool return _end.before(__0) #else null #end;
-				__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-					return _end.clock() #else null #end;
-				__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-					return _end.date() #else null #end;
-				__self__.day = #if !macro function():GoInt return _end.day() #else null #end;
-				__self__.equal = #if !macro function(__0:Time):Bool return _end.equal(__0) #else null #end;
-				__self__.format = #if !macro function(__0:GoString):GoString return _end.format(__0) #else null #end;
-				__self__.goString = #if !macro function():GoString return _end.goString() #else null #end;
-				__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _end.gobDecode(__0) #else null #end;
-				__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _end.gobEncode() #else null #end;
-				__self__.hour = #if !macro function():GoInt return _end.hour() #else null #end;
-				__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-					return _end.isoweek() #else null #end;
-				__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _end.in_(__0) #else null #end;
-				__self__.isDST = #if !macro function():Bool return _end.isDST() #else null #end;
-				__self__.isZero = #if !macro function():Bool return _end.isZero() #else null #end;
-				__self__.local = #if !macro function():Time return _end.local() #else null #end;
-				__self__.location = #if !macro function():Ref<Location> return _end.location() #else null #end;
-				__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _end.marshalBinary() #else null #end;
-				__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _end.marshalJSON() #else null #end;
-				__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _end.marshalText() #else null #end;
-				__self__.minute = #if !macro function():GoInt return _end.minute() #else null #end;
-				__self__.month = #if !macro function():Month return _end.month() #else null #end;
-				__self__.nanosecond = #if !macro function():GoInt return _end.nanosecond() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Time return _end.round(_d) #else null #end;
-				__self__.second = #if !macro function():GoInt return _end.second() #else null #end;
-				__self__.string = #if !macro function():GoString return _end.string() #else null #end;
-				__self__.sub = #if !macro function(__0:Time):Duration return _end.sub(__0) #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Time return _end.truncate(_d) #else null #end;
-				__self__.utc = #if !macro function():Time return _end.utc() #else null #end;
-				__self__.unix = #if !macro function():GoInt64 return _end.unix() #else null #end;
-				__self__.unixMicro = #if !macro function():GoInt64 return _end.unixMicro() #else null #end;
-				__self__.unixMilli = #if !macro function():GoInt64 return _end.unixMilli() #else null #end;
-				__self__.unixNano = #if !macro function():GoInt64 return _end.unixNano() #else null #end;
-				__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _end.unmarshalBinary(__0) #else null #end;
-				__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _end.unmarshalJSON(__0) #else null #end;
-				__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _end.unmarshalText(__0) #else null #end;
-				__self__.weekday = #if !macro function():Weekday return _end.weekday() #else null #end;
-				__self__.year = #if !macro function():GoInt return _end.year() #else null #end;
-				__self__.yearDay = #if !macro function():GoInt return _end.yearDay() #else null #end;
-				__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-					return _end.zone() #else null #end;
-				__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-					return _end.zoneBounds() #else null #end;
-				__self__._abs = #if !macro function():GoUInt64 return _end._abs() #else null #end;
-				__self__._addSec = #if !macro function(_sec:GoInt64):Void _end._addSec(_sec) #else null #end;
-				__self__._date = #if !macro function(__0:Bool):{
-					var _0:GoInt;
-					var _1:Month;
-					var _2:GoInt;
-					var _3:GoInt;
-				}
-					return _end._date(__0) #else null #end;
-				__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-					return _end._locabs() #else null #end;
-				__self__._mono = #if !macro function():GoInt64 return _end._mono() #else null #end;
-				__self__._nsec = #if !macro function():GoInt32 return _end._nsec() #else null #end;
-				__self__._sec = #if !macro function():GoInt64 return _end._sec() #else null #end;
-				__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _end._setLoc(__0) #else null #end;
-				__self__._setMono = #if !macro function(_sec:GoInt64):Void _end._setMono(_sec) #else null #end;
-				__self__._stripMono = #if !macro function():Void _end._stripMono() #else null #end;
-				__self__._unixSec = #if !macro function():GoInt64 return _end._unixSec() #else null #end;
-				__self__;
-			}));
+			_t.fatalf((Go.str("After(%s) expect >= %s, got %s") : GoString), Go.toInterface(Go.asInterface((100000000 : Duration))),
+				Go.toInterface(Go.asInterface(_min)), Go.toInterface(Go.asInterface(_end)));
 		};
 	};
 }
@@ -6175,88 +3794,12 @@ function testAfterTick(_t:stdgo.testing.Testing.T):Void {
 	var _d:Duration = _t1.sub((_t0 == null ? null : _t0.__copy__()));
 	var _target:Duration = delta * (10 : Duration);
 	if (_d < ((_target * (9 : Duration)) / (10 : Duration))) {
-		_t.fatalf((Go.str("%d ticks of %s too fast: took %s, expected %s") : GoString), Go.toInterface((10 : GoInt)), Go.toInterface({
-			final __self__ = new Duration_asInterface(delta);
-			__self__.abs = #if !macro function():Duration return delta.abs() #else null #end;
-			__self__.hours = #if !macro function():GoFloat64 return delta.hours() #else null #end;
-			__self__.microseconds = #if !macro function():GoInt64 return delta.microseconds() #else null #end;
-			__self__.milliseconds = #if !macro function():GoInt64 return delta.milliseconds() #else null #end;
-			__self__.minutes = #if !macro function():GoFloat64 return delta.minutes() #else null #end;
-			__self__.nanoseconds = #if !macro function():GoInt64 return delta.nanoseconds() #else null #end;
-			__self__.round = #if !macro function(_d_:Duration):Duration return delta.round(_d_) #else null #end;
-			__self__.seconds = #if !macro function():GoFloat64 return delta.seconds() #else null #end;
-			__self__.string = #if !macro function():GoString return delta.string() #else null #end;
-			__self__.truncate = #if !macro function(_d__:Duration):Duration return delta.truncate(_d__) #else null #end;
-			__self__;
-		}), Go.toInterface({
-			final __self__ = new Duration_asInterface(_d);
-			__self__.abs = #if !macro function():Duration return _d.abs() #else null #end;
-			__self__.hours = #if !macro function():GoFloat64 return _d.hours() #else null #end;
-			__self__.microseconds = #if !macro function():GoInt64 return _d.microseconds() #else null #end;
-			__self__.milliseconds = #if !macro function():GoInt64 return _d.milliseconds() #else null #end;
-			__self__.minutes = #if !macro function():GoFloat64 return _d.minutes() #else null #end;
-			__self__.nanoseconds = #if !macro function():GoInt64 return _d.nanoseconds() #else null #end;
-			__self__.round = #if !macro function(_d_:Duration):Duration return _d.round(_d_) #else null #end;
-			__self__.seconds = #if !macro function():GoFloat64 return _d.seconds() #else null #end;
-			__self__.string = #if !macro function():GoString return _d.string() #else null #end;
-			__self__.truncate = #if !macro function(_d__:Duration):Duration return _d.truncate(_d__) #else null #end;
-			__self__;
-		}), Go.toInterface({
-			final __self__ = new Duration_asInterface(_target);
-			__self__.abs = #if !macro function():Duration return _target.abs() #else null #end;
-			__self__.hours = #if !macro function():GoFloat64 return _target.hours() #else null #end;
-			__self__.microseconds = #if !macro function():GoInt64 return _target.microseconds() #else null #end;
-			__self__.milliseconds = #if !macro function():GoInt64 return _target.milliseconds() #else null #end;
-			__self__.minutes = #if !macro function():GoFloat64 return _target.minutes() #else null #end;
-			__self__.nanoseconds = #if !macro function():GoInt64 return _target.nanoseconds() #else null #end;
-			__self__.round = #if !macro function(_d_:Duration):Duration return _target.round(_d_) #else null #end;
-			__self__.seconds = #if !macro function():GoFloat64 return _target.seconds() #else null #end;
-			__self__.string = #if !macro function():GoString return _target.string() #else null #end;
-			__self__.truncate = #if !macro function(_d__:Duration):Duration return _target.truncate(_d__) #else null #end;
-			__self__;
-		}));
+		_t.fatalf((Go.str("%d ticks of %s too fast: took %s, expected %s") : GoString), Go.toInterface((10 : GoInt)), Go.toInterface(Go.asInterface(delta)),
+			Go.toInterface(Go.asInterface(_d)), Go.toInterface(Go.asInterface(_target)));
 	};
 	if (!stdgo.testing.Testing.short() && (_d > ((_target * (30 : Duration)) / (10 : Duration)))) {
-		_t.fatalf((Go.str("%d ticks of %s too slow: took %s, expected %s") : GoString), Go.toInterface((10 : GoInt)), Go.toInterface({
-			final __self__ = new Duration_asInterface(delta);
-			__self__.abs = #if !macro function():Duration return delta.abs() #else null #end;
-			__self__.hours = #if !macro function():GoFloat64 return delta.hours() #else null #end;
-			__self__.microseconds = #if !macro function():GoInt64 return delta.microseconds() #else null #end;
-			__self__.milliseconds = #if !macro function():GoInt64 return delta.milliseconds() #else null #end;
-			__self__.minutes = #if !macro function():GoFloat64 return delta.minutes() #else null #end;
-			__self__.nanoseconds = #if !macro function():GoInt64 return delta.nanoseconds() #else null #end;
-			__self__.round = #if !macro function(_d_:Duration):Duration return delta.round(_d_) #else null #end;
-			__self__.seconds = #if !macro function():GoFloat64 return delta.seconds() #else null #end;
-			__self__.string = #if !macro function():GoString return delta.string() #else null #end;
-			__self__.truncate = #if !macro function(_d__:Duration):Duration return delta.truncate(_d__) #else null #end;
-			__self__;
-		}), Go.toInterface({
-			final __self__ = new Duration_asInterface(_d);
-			__self__.abs = #if !macro function():Duration return _d.abs() #else null #end;
-			__self__.hours = #if !macro function():GoFloat64 return _d.hours() #else null #end;
-			__self__.microseconds = #if !macro function():GoInt64 return _d.microseconds() #else null #end;
-			__self__.milliseconds = #if !macro function():GoInt64 return _d.milliseconds() #else null #end;
-			__self__.minutes = #if !macro function():GoFloat64 return _d.minutes() #else null #end;
-			__self__.nanoseconds = #if !macro function():GoInt64 return _d.nanoseconds() #else null #end;
-			__self__.round = #if !macro function(_d_:Duration):Duration return _d.round(_d_) #else null #end;
-			__self__.seconds = #if !macro function():GoFloat64 return _d.seconds() #else null #end;
-			__self__.string = #if !macro function():GoString return _d.string() #else null #end;
-			__self__.truncate = #if !macro function(_d__:Duration):Duration return _d.truncate(_d__) #else null #end;
-			__self__;
-		}), Go.toInterface({
-			final __self__ = new Duration_asInterface(_target);
-			__self__.abs = #if !macro function():Duration return _target.abs() #else null #end;
-			__self__.hours = #if !macro function():GoFloat64 return _target.hours() #else null #end;
-			__self__.microseconds = #if !macro function():GoInt64 return _target.microseconds() #else null #end;
-			__self__.milliseconds = #if !macro function():GoInt64 return _target.milliseconds() #else null #end;
-			__self__.minutes = #if !macro function():GoFloat64 return _target.minutes() #else null #end;
-			__self__.nanoseconds = #if !macro function():GoInt64 return _target.nanoseconds() #else null #end;
-			__self__.round = #if !macro function(_d_:Duration):Duration return _target.round(_d_) #else null #end;
-			__self__.seconds = #if !macro function():GoFloat64 return _target.seconds() #else null #end;
-			__self__.string = #if !macro function():GoString return _target.string() #else null #end;
-			__self__.truncate = #if !macro function(_d__:Duration):Duration return _target.truncate(_d__) #else null #end;
-			__self__;
-		}));
+		_t.fatalf((Go.str("%d ticks of %s too slow: took %s, expected %s") : GoString), Go.toInterface((10 : GoInt)), Go.toInterface(Go.asInterface(delta)),
+			Go.toInterface(Go.asInterface(_d)), Go.toInterface(Go.asInterface(_target)));
 	};
 }
 
@@ -6359,59 +3902,9 @@ function _testAfterQueuing(_delta:Duration):Error {
 		var _dt:Duration = _t.sub((_t0 == null ? null : _t0.__copy__()));
 		var _target:Duration = (_order[_i] : Duration) * _delta;
 		if ((_dt < (_target - (_delta / (2 : Duration)))) || (_dt > (_target + (_delta * (10 : Duration))))) {
-			return stdgo.fmt.Fmt.errorf((Go.str("After(%s) arrived at %s, expected [%s,%s]") : GoString), Go.toInterface({
-				final __self__ = new Duration_asInterface(_target);
-				__self__.abs = #if !macro function():Duration return _target.abs() #else null #end;
-				__self__.hours = #if !macro function():GoFloat64 return _target.hours() #else null #end;
-				__self__.microseconds = #if !macro function():GoInt64 return _target.microseconds() #else null #end;
-				__self__.milliseconds = #if !macro function():GoInt64 return _target.milliseconds() #else null #end;
-				__self__.minutes = #if !macro function():GoFloat64 return _target.minutes() #else null #end;
-				__self__.nanoseconds = #if !macro function():GoInt64 return _target.nanoseconds() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Duration return _target.round(_d) #else null #end;
-				__self__.seconds = #if !macro function():GoFloat64 return _target.seconds() #else null #end;
-				__self__.string = #if !macro function():GoString return _target.string() #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Duration return _target.truncate(_d) #else null #end;
-				__self__;
-			}), Go.toInterface({
-				final __self__ = new Duration_asInterface(_dt);
-				__self__.abs = #if !macro function():Duration return _dt.abs() #else null #end;
-				__self__.hours = #if !macro function():GoFloat64 return _dt.hours() #else null #end;
-				__self__.microseconds = #if !macro function():GoInt64 return _dt.microseconds() #else null #end;
-				__self__.milliseconds = #if !macro function():GoInt64 return _dt.milliseconds() #else null #end;
-				__self__.minutes = #if !macro function():GoFloat64 return _dt.minutes() #else null #end;
-				__self__.nanoseconds = #if !macro function():GoInt64 return _dt.nanoseconds() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Duration return _dt.round(_d) #else null #end;
-				__self__.seconds = #if !macro function():GoFloat64 return _dt.seconds() #else null #end;
-				__self__.string = #if !macro function():GoString return _dt.string() #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Duration return _dt.truncate(_d) #else null #end;
-				__self__;
-			}), Go.toInterface({
-				final __self__ = new Duration_asInterface(_target - (_delta / (2 : Duration)));
-				__self__.abs = #if !macro function():Duration return _target - (_delta / (2 : Duration)).abs() #else null #end;
-				__self__.hours = #if !macro function():GoFloat64 return _target - (_delta / (2 : Duration)).hours() #else null #end;
-				__self__.microseconds = #if !macro function():GoInt64 return _target - (_delta / (2 : Duration)).microseconds() #else null #end;
-				__self__.milliseconds = #if !macro function():GoInt64 return _target - (_delta / (2 : Duration)).milliseconds() #else null #end;
-				__self__.minutes = #if !macro function():GoFloat64 return _target - (_delta / (2 : Duration)).minutes() #else null #end;
-				__self__.nanoseconds = #if !macro function():GoInt64 return _target - (_delta / (2 : Duration)).nanoseconds() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Duration return _target - (_delta / (2 : Duration)).round(_d) #else null #end;
-				__self__.seconds = #if !macro function():GoFloat64 return _target - (_delta / (2 : Duration)).seconds() #else null #end;
-				__self__.string = #if !macro function():GoString return _target - (_delta / (2 : Duration)).string() #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Duration return _target - (_delta / (2 : Duration)).truncate(_d) #else null #end;
-				__self__;
-			}), Go.toInterface({
-				final __self__ = new Duration_asInterface(_target + (_delta * (10 : Duration)));
-				__self__.abs = #if !macro function():Duration return _target + (_delta * (10 : Duration)).abs() #else null #end;
-				__self__.hours = #if !macro function():GoFloat64 return _target + (_delta * (10 : Duration)).hours() #else null #end;
-				__self__.microseconds = #if !macro function():GoInt64 return _target + (_delta * (10 : Duration)).microseconds() #else null #end;
-				__self__.milliseconds = #if !macro function():GoInt64 return _target + (_delta * (10 : Duration)).milliseconds() #else null #end;
-				__self__.minutes = #if !macro function():GoFloat64 return _target + (_delta * (10 : Duration)).minutes() #else null #end;
-				__self__.nanoseconds = #if !macro function():GoInt64 return _target + (_delta * (10 : Duration)).nanoseconds() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Duration return _target + (_delta * (10 : Duration)).round(_d) #else null #end;
-				__self__.seconds = #if !macro function():GoFloat64 return _target + (_delta * (10 : Duration)).seconds() #else null #end;
-				__self__.string = #if !macro function():GoString return _target + (_delta * (10 : Duration)).string() #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Duration return _target + (_delta * (10 : Duration)).truncate(_d) #else null #end;
-				__self__;
-			}));
+			return stdgo.fmt.Fmt.errorf((Go.str("After(%s) arrived at %s, expected [%s,%s]") : GoString), Go.toInterface(Go.asInterface(_target)),
+				Go.toInterface(Go.asInterface(_dt)), Go.toInterface(Go.asInterface(_target - (_delta / (2 : Duration)))),
+				Go.toInterface(Go.asInterface(_target + (_delta * (10 : Duration)))));
 		};
 	};
 	return (null : stdgo.Error);
@@ -6526,20 +4019,7 @@ function testReset(_t:stdgo.testing.Testing.T):Void {
 	for (_0 => _d in _tries) {
 		_err = _testReset(_d);
 		if (_err == null) {
-			_t.logf((Go.str("passed using duration %v") : GoString), Go.toInterface({
-				final __self__ = new Duration_asInterface(_d);
-				__self__.abs = #if !macro function():Duration return _d.abs() #else null #end;
-				__self__.hours = #if !macro function():GoFloat64 return _d.hours() #else null #end;
-				__self__.microseconds = #if !macro function():GoInt64 return _d.microseconds() #else null #end;
-				__self__.milliseconds = #if !macro function():GoInt64 return _d.milliseconds() #else null #end;
-				__self__.minutes = #if !macro function():GoFloat64 return _d.minutes() #else null #end;
-				__self__.nanoseconds = #if !macro function():GoInt64 return _d.nanoseconds() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Duration return _d.round(_d) #else null #end;
-				__self__.seconds = #if !macro function():GoFloat64 return _d.seconds() #else null #end;
-				__self__.string = #if !macro function():GoString return _d.string() #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Duration return _d.truncate(_d) #else null #end;
-				__self__;
-			}));
+			_t.logf((Go.str("passed using duration %v") : GoString), Go.toInterface(Go.asInterface(_d)));
 			return;
 		};
 	};
@@ -6733,20 +4213,8 @@ function testZeroTimer(_t:stdgo.testing.Testing.T):Void {
 			{
 				var _diff:Duration = since((_s == null ? null : _s.__copy__()));
 				if (_diff > (2000000000 : Duration)) {
-					_t.errorf((Go.str("Expected time to get value from Timer channel in less than 2 sec, took %v") : GoString), Go.toInterface({
-						final __self__ = new Duration_asInterface(_diff);
-						__self__.abs = #if !macro function():Duration return _diff.abs() #else null #end;
-						__self__.hours = #if !macro function():GoFloat64 return _diff.hours() #else null #end;
-						__self__.microseconds = #if !macro function():GoInt64 return _diff.microseconds() #else null #end;
-						__self__.milliseconds = #if !macro function():GoInt64 return _diff.milliseconds() #else null #end;
-						__self__.minutes = #if !macro function():GoFloat64 return _diff.minutes() #else null #end;
-						__self__.nanoseconds = #if !macro function():GoInt64 return _diff.nanoseconds() #else null #end;
-						__self__.round = #if !macro function(_d:Duration):Duration return _diff.round(_d) #else null #end;
-						__self__.seconds = #if !macro function():GoFloat64 return _diff.seconds() #else null #end;
-						__self__.string = #if !macro function():GoString return _diff.string() #else null #end;
-						__self__.truncate = #if !macro function(_d:Duration):Duration return _diff.truncate(_d) #else null #end;
-						__self__;
-					}));
+					_t.errorf((Go.str("Expected time to get value from Timer channel in less than 2 sec, took %v") : GoString),
+						Go.toInterface(Go.asInterface(_diff)));
 				};
 			};
 		});
@@ -6760,43 +4228,7 @@ function testZeroTimer(_t:stdgo.testing.Testing.T):Void {
 function testTimerModifiedEarlier(_t:stdgo.testing.Testing.T):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	if (false) {
-		stdgo.internal.testenv.Testenv.skipFlaky({
-			final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
-			__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
-			__self__.deadline = #if !macro function():{var _0:Time; var _1:Bool;}
-				return _t.deadline() #else null #end;
-			__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
-			__self__.errorf = #if !macro function(_m:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_m, _args) #else null #end;
-			__self__.fail = #if !macro function():Void _t.fail() #else null #end;
-			__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
-			__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
-			__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
-			__self__.fatalf = #if !macro function(_m:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_m, _args) #else null #end;
-			__self__.helper = #if !macro function():Void _t.helper() #else null #end;
-			__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
-			__self__.logf = #if !macro function(_m:GoString, _args:Slice<AnyInterface>):Void _t.logf(_m, _args) #else null #end;
-			__self__.name = #if !macro function():GoString return _t.name() #else null #end;
-			__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
-			__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
-			__self__.setenv = #if !macro function(_name:GoString, _source:GoString):Void _t.setenv(_name, _source) #else null #end;
-			__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
-			__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
-			__self__.skipf = #if !macro function(_m:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_m, _args) #else null #end;
-			__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
-			__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
-			__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
-			__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
-			__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
-					_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
-			__self__._frameSkip = #if !macro function(__0:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(__0) #else null #end;
-			__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
-			__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
-			__self__._private = #if !macro function():Void _t._private() #else null #end;
-			__self__._report = #if !macro function():Void _t._report() #else null #end;
-			__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
-			__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
-			__self__;
-		}, (50470 : GoInt));
+		stdgo.internal.testenv.Testenv.skipFlaky(Go.asInterface(_t), (50470 : GoInt));
 	};
 	try {
 		var _past:Duration = until((unix((0 : GoInt64), (0 : GoInt64)) == null ? null : unix((0 : GoInt64), (0 : GoInt64)).__copy__()));
@@ -6826,20 +4258,7 @@ function testTimerModifiedEarlier(_t:stdgo.testing.Testing.T):Void {
 						{
 							var _since:Duration = since((_now == null ? null : _now.__copy__()));
 							if (_since > ("8000000000" : Duration)) {
-								_t.errorf((Go.str("timer took too long (%v)") : GoString), Go.toInterface({
-									final __self__ = new Duration_asInterface(_since);
-									__self__.abs = #if !macro function():Duration return _since.abs() #else null #end;
-									__self__.hours = #if !macro function():GoFloat64 return _since.hours() #else null #end;
-									__self__.microseconds = #if !macro function():GoInt64 return _since.microseconds() #else null #end;
-									__self__.milliseconds = #if !macro function():GoInt64 return _since.milliseconds() #else null #end;
-									__self__.minutes = #if !macro function():GoFloat64 return _since.minutes() #else null #end;
-									__self__.nanoseconds = #if !macro function():GoInt64 return _since.nanoseconds() #else null #end;
-									__self__.round = #if !macro function(_d:Duration):Duration return _since.round(_d) #else null #end;
-									__self__.seconds = #if !macro function():GoFloat64 return _since.seconds() #else null #end;
-									__self__.string = #if !macro function():GoString return _since.string() #else null #end;
-									__self__.truncate = #if !macro function(_d:Duration):Duration return _since.truncate(_d) #else null #end;
-									__self__;
-								}));
+								_t.errorf((Go.str("timer took too long (%v)") : GoString), Go.toInterface(Go.asInterface(_since)));
 								_fail++;
 							};
 						};
@@ -6920,20 +4339,7 @@ function testAdjustTimers(_t:stdgo.testing.Testing.T):Void {
 			_timer.c.__get__();
 			var _dur:Duration = since((_now == null ? null : _now.__copy__()));
 			if (_dur > (750000000 : Duration)) {
-				_t.errorf((Go.str("timer %d took %v to complete") : GoString), Go.toInterface(_i), Go.toInterface({
-					final __self__ = new Duration_asInterface(_dur);
-					__self__.abs = #if !macro function():Duration return _dur.abs() #else null #end;
-					__self__.hours = #if !macro function():GoFloat64 return _dur.hours() #else null #end;
-					__self__.microseconds = #if !macro function():GoInt64 return _dur.microseconds() #else null #end;
-					__self__.milliseconds = #if !macro function():GoInt64 return _dur.milliseconds() #else null #end;
-					__self__.minutes = #if !macro function():GoFloat64 return _dur.minutes() #else null #end;
-					__self__.nanoseconds = #if !macro function():GoInt64 return _dur.nanoseconds() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Duration return _dur.round(_d) #else null #end;
-					__self__.seconds = #if !macro function():GoFloat64 return _dur.seconds() #else null #end;
-					__self__.string = #if !macro function():GoString return _dur.string() #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Duration return _dur.truncate(_d) #else null #end;
-					__self__;
-				}));
+				_t.errorf((Go.str("timer %d took %v to complete") : GoString), Go.toInterface(_i), Go.toInterface(Go.asInterface(_dur)));
 			};
 		} else if (_state == ((10 : GoInt))) {
 			_indices[_ii] = _indices[(_indices.length) - (1 : GoInt)];
@@ -7021,20 +4427,7 @@ function benchmarkStaggeredTickerLatency(_b:stdgo.testing.Testing.B):Void {
 	};
 	var _delay:Duration = (3000000 : Duration);
 	for (_0 => _dur in (new Slice<Duration>(0, 0, (300000 : Duration), (2000000 : Duration)) : Slice<Duration>)) {
-		_b.run(stdgo.fmt.Fmt.sprintf((Go.str("work-dur=%s") : GoString), Go.toInterface({
-			final __self__ = new Duration_asInterface(_dur);
-			__self__.abs = #if !macro function():Duration return _dur.abs() #else null #end;
-			__self__.hours = #if !macro function():GoFloat64 return _dur.hours() #else null #end;
-			__self__.microseconds = #if !macro function():GoInt64 return _dur.microseconds() #else null #end;
-			__self__.milliseconds = #if !macro function():GoInt64 return _dur.milliseconds() #else null #end;
-			__self__.minutes = #if !macro function():GoFloat64 return _dur.minutes() #else null #end;
-			__self__.nanoseconds = #if !macro function():GoInt64 return _dur.nanoseconds() #else null #end;
-			__self__.round = #if !macro function(_d:Duration):Duration return _dur.round(_d) #else null #end;
-			__self__.seconds = #if !macro function():GoFloat64 return _dur.seconds() #else null #end;
-			__self__.string = #if !macro function():GoString return _dur.string() #else null #end;
-			__self__.truncate = #if !macro function(_d:Duration):Duration return _dur.truncate(_d) #else null #end;
-			__self__;
-		})), function(_b:stdgo.testing.Testing.B):Void {
+		_b.run(stdgo.fmt.Fmt.sprintf((Go.str("work-dur=%s") : GoString), Go.toInterface(Go.asInterface(_dur))), function(_b:stdgo.testing.Testing.B):Void {
 			{
 				var _tickersPerP:GoInt = (1 : GoInt);
 				Go.cfor(_tickersPerP < (((3000000 : Duration) / _dur : GoInt) + (1 : GoInt)), _tickersPerP++, {
@@ -7195,72 +4588,9 @@ function testTicker(_t:stdgo.testing.Testing.T):Void {
 		var _slop:Duration = (_target * (3 : Duration)) / (10 : Duration);
 		if ((_dt < (_target - _slop)) || (_dt > (_target + _slop))) {
 			_errs = (_errs.__append__(stdgo.fmt.Fmt.sprintf((Go.str("%d %s ticks then %d %s ticks took %s, expected [%s,%s]") : GoString),
-				Go.toInterface(_count / (2 : GoInt)), Go.toInterface({
-					final __self__ = new Duration_asInterface(_delta);
-					__self__.abs = #if !macro function():Duration return _delta.abs() #else null #end;
-					__self__.hours = #if !macro function():GoFloat64 return _delta.hours() #else null #end;
-					__self__.microseconds = #if !macro function():GoInt64 return _delta.microseconds() #else null #end;
-					__self__.milliseconds = #if !macro function():GoInt64 return _delta.milliseconds() #else null #end;
-					__self__.minutes = #if !macro function():GoFloat64 return _delta.minutes() #else null #end;
-					__self__.nanoseconds = #if !macro function():GoInt64 return _delta.nanoseconds() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Duration return _delta.round(_d) #else null #end;
-					__self__.seconds = #if !macro function():GoFloat64 return _delta.seconds() #else null #end;
-					__self__.string = #if !macro function():GoString return _delta.string() #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Duration return _delta.truncate(_d) #else null #end;
-					__self__;
-				}), Go.toInterface(_count / (2 : GoInt)), Go.toInterface({
-					final __self__ = new Duration_asInterface(_delta * (2 : Duration));
-					__self__.abs = #if !macro function():Duration return _delta * (2 : Duration).abs() #else null #end;
-					__self__.hours = #if !macro function():GoFloat64 return _delta * (2 : Duration).hours() #else null #end;
-					__self__.microseconds = #if !macro function():GoInt64 return _delta * (2 : Duration).microseconds() #else null #end;
-					__self__.milliseconds = #if !macro function():GoInt64 return _delta * (2 : Duration).milliseconds() #else null #end;
-					__self__.minutes = #if !macro function():GoFloat64 return _delta * (2 : Duration).minutes() #else null #end;
-					__self__.nanoseconds = #if !macro function():GoInt64 return _delta * (2 : Duration).nanoseconds() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Duration return _delta * (2 : Duration).round(_d) #else null #end;
-					__self__.seconds = #if !macro function():GoFloat64 return _delta * (2 : Duration).seconds() #else null #end;
-					__self__.string = #if !macro function():GoString return _delta * (2 : Duration).string() #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Duration return _delta * (2 : Duration).truncate(_d) #else null #end;
-					__self__;
-				}), Go.toInterface({
-					final __self__ = new Duration_asInterface(_dt);
-					__self__.abs = #if !macro function():Duration return _dt.abs() #else null #end;
-					__self__.hours = #if !macro function():GoFloat64 return _dt.hours() #else null #end;
-					__self__.microseconds = #if !macro function():GoInt64 return _dt.microseconds() #else null #end;
-					__self__.milliseconds = #if !macro function():GoInt64 return _dt.milliseconds() #else null #end;
-					__self__.minutes = #if !macro function():GoFloat64 return _dt.minutes() #else null #end;
-					__self__.nanoseconds = #if !macro function():GoInt64 return _dt.nanoseconds() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Duration return _dt.round(_d) #else null #end;
-					__self__.seconds = #if !macro function():GoFloat64 return _dt.seconds() #else null #end;
-					__self__.string = #if !macro function():GoString return _dt.string() #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Duration return _dt.truncate(_d) #else null #end;
-					__self__;
-				}), Go.toInterface({
-					final __self__ = new Duration_asInterface(_target - _slop);
-					__self__.abs = #if !macro function():Duration return _target - _slop.abs() #else null #end;
-					__self__.hours = #if !macro function():GoFloat64 return _target - _slop.hours() #else null #end;
-					__self__.microseconds = #if !macro function():GoInt64 return _target - _slop.microseconds() #else null #end;
-					__self__.milliseconds = #if !macro function():GoInt64 return _target - _slop.milliseconds() #else null #end;
-					__self__.minutes = #if !macro function():GoFloat64 return _target - _slop.minutes() #else null #end;
-					__self__.nanoseconds = #if !macro function():GoInt64 return _target - _slop.nanoseconds() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Duration return _target - _slop.round(_d) #else null #end;
-					__self__.seconds = #if !macro function():GoFloat64 return _target - _slop.seconds() #else null #end;
-					__self__.string = #if !macro function():GoString return _target - _slop.string() #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Duration return _target - _slop.truncate(_d) #else null #end;
-					__self__;
-				}), Go.toInterface({
-					final __self__ = new Duration_asInterface(_target + _slop);
-					__self__.abs = #if !macro function():Duration return _target + _slop.abs() #else null #end;
-					__self__.hours = #if !macro function():GoFloat64 return _target + _slop.hours() #else null #end;
-					__self__.microseconds = #if !macro function():GoInt64 return _target + _slop.microseconds() #else null #end;
-					__self__.milliseconds = #if !macro function():GoInt64 return _target + _slop.milliseconds() #else null #end;
-					__self__.minutes = #if !macro function():GoFloat64 return _target + _slop.minutes() #else null #end;
-					__self__.nanoseconds = #if !macro function():GoInt64 return _target + _slop.nanoseconds() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Duration return _target + _slop.round(_d) #else null #end;
-					__self__.seconds = #if !macro function():GoFloat64 return _target + _slop.seconds() #else null #end;
-					__self__.string = #if !macro function():GoString return _target + _slop.string() #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Duration return _target + _slop.truncate(_d) #else null #end;
-					__self__;
-				}))));
+				Go.toInterface(_count / (2 : GoInt)), Go.toInterface(Go.asInterface(_delta)), Go.toInterface(_count / (2 : GoInt)),
+				Go.toInterface(Go.asInterface(_delta * (2 : Duration))), Go.toInterface(Go.asInterface(_dt)), Go.toInterface(Go.asInterface(_target - _slop)),
+				Go.toInterface(Go.asInterface(_target + _slop)))));
 			if (_dt > (_target + _slop)) {
 				sleep((500000000 : Duration));
 			};
@@ -7510,83 +4840,7 @@ function testSecondsToUTC(_t:stdgo.testing.Testing.T):Void {
 			_t.errorf((Go.str("SecondsToUTC(%d).Seconds() = %d") : GoString), Go.toInterface(_sec), Go.toInterface(_newsec));
 		};
 		if (!_same((_tm == null ? null : _tm.__copy__()), _golden)) {
-			_t.errorf((Go.str("SecondsToUTC(%d):  // %#v") : GoString), Go.toInterface(_sec), Go.toInterface({
-				final __self__ = new Time_asInterface(_tm);
-				__self__.add = #if !macro function(_d:Duration):Time return _tm.add(_d) #else null #end;
-				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-						_days:GoInt):Time return _tm.addDate(_years, _months, _days) #else null #end;
-				__self__.after = #if !macro function(__0:Time):Bool return _tm.after(__0) #else null #end;
-				__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-						_layout:GoString):Slice<GoUInt8> return _tm.appendFormat(_b, _layout) #else null #end;
-				__self__.before = #if !macro function(__0:Time):Bool return _tm.before(__0) #else null #end;
-				__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-					return _tm.clock() #else null #end;
-				__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-					return _tm.date() #else null #end;
-				__self__.day = #if !macro function():GoInt return _tm.day() #else null #end;
-				__self__.equal = #if !macro function(__0:Time):Bool return _tm.equal(__0) #else null #end;
-				__self__.format = #if !macro function(__0:GoString):GoString return _tm.format(__0) #else null #end;
-				__self__.goString = #if !macro function():GoString return _tm.goString() #else null #end;
-				__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tm.gobDecode(__0) #else null #end;
-				__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _tm.gobEncode() #else null #end;
-				__self__.hour = #if !macro function():GoInt return _tm.hour() #else null #end;
-				__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-					return _tm.isoweek() #else null #end;
-				__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _tm.in_(__0) #else null #end;
-				__self__.isDST = #if !macro function():Bool return _tm.isDST() #else null #end;
-				__self__.isZero = #if !macro function():Bool return _tm.isZero() #else null #end;
-				__self__.local = #if !macro function():Time return _tm.local() #else null #end;
-				__self__.location = #if !macro function():Ref<Location> return _tm.location() #else null #end;
-				__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _tm.marshalBinary() #else null #end;
-				__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _tm.marshalJSON() #else null #end;
-				__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _tm.marshalText() #else null #end;
-				__self__.minute = #if !macro function():GoInt return _tm.minute() #else null #end;
-				__self__.month = #if !macro function():Month return _tm.month() #else null #end;
-				__self__.nanosecond = #if !macro function():GoInt return _tm.nanosecond() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Time return _tm.round(_d) #else null #end;
-				__self__.second = #if !macro function():GoInt return _tm.second() #else null #end;
-				__self__.string = #if !macro function():GoString return _tm.string() #else null #end;
-				__self__.sub = #if !macro function(__0:Time):Duration return _tm.sub(__0) #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Time return _tm.truncate(_d) #else null #end;
-				__self__.utc = #if !macro function():Time return _tm.utc() #else null #end;
-				__self__.unix = #if !macro function():GoInt64 return _tm.unix() #else null #end;
-				__self__.unixMicro = #if !macro function():GoInt64 return _tm.unixMicro() #else null #end;
-				__self__.unixMilli = #if !macro function():GoInt64 return _tm.unixMilli() #else null #end;
-				__self__.unixNano = #if !macro function():GoInt64 return _tm.unixNano() #else null #end;
-				__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tm.unmarshalBinary(__0) #else null #end;
-				__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tm.unmarshalJSON(__0) #else null #end;
-				__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tm.unmarshalText(__0) #else null #end;
-				__self__.weekday = #if !macro function():Weekday return _tm.weekday() #else null #end;
-				__self__.year = #if !macro function():GoInt return _tm.year() #else null #end;
-				__self__.yearDay = #if !macro function():GoInt return _tm.yearDay() #else null #end;
-				__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-					return _tm.zone() #else null #end;
-				__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-					return _tm.zoneBounds() #else null #end;
-				__self__._abs = #if !macro function():GoUInt64 return _tm._abs() #else null #end;
-				__self__._addSec = #if !macro function(_sec_:GoInt64):Void _tm._addSec(_sec_) #else null #end;
-				__self__._date = #if !macro function(__0:Bool):{
-					var _0:GoInt;
-					var _1:Month;
-					var _2:GoInt;
-					var _3:GoInt;
-				}
-					return _tm._date(__0) #else null #end;
-				__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-					return _tm._locabs() #else null #end;
-				__self__._mono = #if !macro function():GoInt64 return _tm._mono() #else null #end;
-				__self__._nsec = #if !macro function():GoInt32 return _tm._nsec() #else null #end;
-				__self__._sec = #if !macro function():GoInt64 return _tm._sec() #else null #end;
-				__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _tm._setLoc(__0) #else null #end;
-				__self__._setMono = #if !macro function(_sec__:GoInt64):Void _tm._setMono(_sec__) #else null #end;
-				__self__._stripMono = #if !macro function():Void _tm._stripMono() #else null #end;
-				__self__._unixSec = #if !macro function():GoInt64 return _tm._unixSec() #else null #end;
-				__self__;
-			}));
+			_t.errorf((Go.str("SecondsToUTC(%d):  // %#v") : GoString), Go.toInterface(_sec), Go.toInterface(Go.asInterface(_tm)));
 			_t.errorf((Go.str("  want=%+v") : GoString), Go.toInterface(_golden));
 			_t.errorf((Go.str("  have=%v") : GoString), Go.toInterface(_tm.format((Go.str("2006-01-02T15:04:05Z07:00 MST") : GoString))));
 		};
@@ -7779,97 +5033,8 @@ function testTruncateRound(_t:stdgo.testing.Testing.T):Void {
 			var _trunc:Time = (_t0.truncate(_d) == null ? null : _t0.truncate(_d).__copy__());
 			if (_trunc != _t1) {
 				_t.errorf((Go.str("Time.Truncate(%s, %s) = %s, want %s\n%v trunc %v =\n%v want\n%v") : GoString),
-					Go.toInterface(_t0.format((Go.str("2006-01-02T15:04:05.999999999Z07:00") : GoString))), Go.toInterface({
-						final __self__ = new Duration_asInterface(_d);
-						__self__.abs = #if !macro function():Duration return _d.abs() #else null #end;
-						__self__.hours = #if !macro function():GoFloat64 return _d.hours() #else null #end;
-						__self__.microseconds = #if !macro function():GoInt64 return _d.microseconds() #else null #end;
-						__self__.milliseconds = #if !macro function():GoInt64 return _d.milliseconds() #else null #end;
-						__self__.minutes = #if !macro function():GoFloat64 return _d.minutes() #else null #end;
-						__self__.nanoseconds = #if !macro function():GoInt64 return _d.nanoseconds() #else null #end;
-						__self__.round = #if !macro function(_d_:Duration):Duration return _d.round(_d_) #else null #end;
-						__self__.seconds = #if !macro function():GoFloat64 return _d.seconds() #else null #end;
-						__self__.string = #if !macro function():GoString return _d.string() #else null #end;
-						__self__.truncate = #if !macro function(_d__:Duration):Duration return _d.truncate(_d__) #else null #end;
-						__self__;
-					}), Go.toInterface({
-						final __self__ = new Time_asInterface(_trunc);
-						__self__.add = #if !macro function(_d_:Duration):Time return _trunc.add(_d_) #else null #end;
-						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-								_days:GoInt):Time return _trunc.addDate(_years, _months, _days) #else null #end;
-						__self__.after = #if !macro function(__0:Time):Bool return _trunc.after(__0) #else null #end;
-						__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-								_layout:GoString):Slice<GoUInt8> return _trunc.appendFormat(_b, _layout) #else null #end;
-						__self__.before = #if !macro function(__0:Time):Bool return _trunc.before(__0) #else null #end;
-						__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-							return _trunc.clock() #else null #end;
-						__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-							return _trunc.date() #else null #end;
-						__self__.day = #if !macro function():GoInt return _trunc.day() #else null #end;
-						__self__.equal = #if !macro function(__0:Time):Bool return _trunc.equal(__0) #else null #end;
-						__self__.format = #if !macro function(__0:GoString):GoString return _trunc.format(__0) #else null #end;
-						__self__.goString = #if !macro function():GoString return _trunc.goString() #else null #end;
-						__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _trunc.gobDecode(__0) #else null #end;
-						__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _trunc.gobEncode() #else null #end;
-						__self__.hour = #if !macro function():GoInt return _trunc.hour() #else null #end;
-						__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-							return _trunc.isoweek() #else null #end;
-						__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _trunc.in_(__0) #else null #end;
-						__self__.isDST = #if !macro function():Bool return _trunc.isDST() #else null #end;
-						__self__.isZero = #if !macro function():Bool return _trunc.isZero() #else null #end;
-						__self__.local = #if !macro function():Time return _trunc.local() #else null #end;
-						__self__.location = #if !macro function():Ref<Location> return _trunc.location() #else null #end;
-						__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _trunc.marshalBinary() #else null #end;
-						__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _trunc.marshalJSON() #else null #end;
-						__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _trunc.marshalText() #else null #end;
-						__self__.minute = #if !macro function():GoInt return _trunc.minute() #else null #end;
-						__self__.month = #if !macro function():Month return _trunc.month() #else null #end;
-						__self__.nanosecond = #if !macro function():GoInt return _trunc.nanosecond() #else null #end;
-						__self__.round = #if !macro function(_d__:Duration):Time return _trunc.round(_d__) #else null #end;
-						__self__.second = #if !macro function():GoInt return _trunc.second() #else null #end;
-						__self__.string = #if !macro function():GoString return _trunc.string() #else null #end;
-						__self__.sub = #if !macro function(__0:Time):Duration return _trunc.sub(__0) #else null #end;
-						__self__.truncate = #if !macro function(_d___:Duration):Time return _trunc.truncate(_d___) #else null #end;
-						__self__.utc = #if !macro function():Time return _trunc.utc() #else null #end;
-						__self__.unix = #if !macro function():GoInt64 return _trunc.unix() #else null #end;
-						__self__.unixMicro = #if !macro function():GoInt64 return _trunc.unixMicro() #else null #end;
-						__self__.unixMilli = #if !macro function():GoInt64 return _trunc.unixMilli() #else null #end;
-						__self__.unixNano = #if !macro function():GoInt64 return _trunc.unixNano() #else null #end;
-						__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _trunc.unmarshalBinary(__0) #else null #end;
-						__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _trunc.unmarshalJSON(__0) #else null #end;
-						__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _trunc.unmarshalText(__0) #else null #end;
-						__self__.weekday = #if !macro function():Weekday return _trunc.weekday() #else null #end;
-						__self__.year = #if !macro function():GoInt return _trunc.year() #else null #end;
-						__self__.yearDay = #if !macro function():GoInt return _trunc.yearDay() #else null #end;
-						__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-							return _trunc.zone() #else null #end;
-						__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-							return _trunc.zoneBounds() #else null #end;
-						__self__._abs = #if !macro function():GoUInt64 return _trunc._abs() #else null #end;
-						__self__._addSec = #if !macro function(_sec_:GoInt64):Void _trunc._addSec(_sec_) #else null #end;
-						__self__._date = #if !macro function(__0:Bool):{
-							var _0:GoInt;
-							var _1:Month;
-							var _2:GoInt;
-							var _3:GoInt;
-						}
-							return _trunc._date(__0) #else null #end;
-						__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-							return _trunc._locabs() #else null #end;
-						__self__._mono = #if !macro function():GoInt64 return _trunc._mono() #else null #end;
-						__self__._nsec = #if !macro function():GoInt32 return _trunc._nsec() #else null #end;
-						__self__._sec = #if !macro function():GoInt64 return _trunc._sec() #else null #end;
-						__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _trunc._setLoc(__0) #else null #end;
-						__self__._setMono = #if !macro function(_sec__:GoInt64):Void _trunc._setMono(_sec__) #else null #end;
-						__self__._stripMono = #if !macro function():Void _trunc._stripMono() #else null #end;
-						__self__._unixSec = #if !macro function():GoInt64 return _trunc._unixSec() #else null #end;
-						__self__;
-					}),
-					Go.toInterface(_t1.format((Go.str("2006-01-02T15:04:05.999999999Z07:00") : GoString))),
+					Go.toInterface(_t0.format((Go.str("2006-01-02T15:04:05.999999999Z07:00") : GoString))), Go.toInterface(Go.asInterface(_d)),
+					Go.toInterface(Go.asInterface(_trunc)), Go.toInterface(_t1.format((Go.str("2006-01-02T15:04:05.999999999Z07:00") : GoString))),
 					Go.toInterface(_absString((_t0 == null ? null : _t0.__copy__()))), Go.toInterface((_d : GoInt64)),
 					Go.toInterface(_absString((_trunc == null ? null : _trunc.__copy__()))),
 					Go.toInterface(_absString((_t1 == null ? null : _t1.__copy__()))));
@@ -7883,97 +5048,8 @@ function testTruncateRound(_t:stdgo.testing.Testing.T):Void {
 			var _rnd:Time = (_t0.round(_d) == null ? null : _t0.round(_d).__copy__());
 			if (_rnd != _t1) {
 				_t.errorf((Go.str("Time.Round(%s, %s) = %s, want %s\n%v round %v =\n%v want\n%v") : GoString),
-					Go.toInterface(_t0.format((Go.str("2006-01-02T15:04:05.999999999Z07:00") : GoString))), Go.toInterface({
-						final __self__ = new Duration_asInterface(_d);
-						__self__.abs = #if !macro function():Duration return _d.abs() #else null #end;
-						__self__.hours = #if !macro function():GoFloat64 return _d.hours() #else null #end;
-						__self__.microseconds = #if !macro function():GoInt64 return _d.microseconds() #else null #end;
-						__self__.milliseconds = #if !macro function():GoInt64 return _d.milliseconds() #else null #end;
-						__self__.minutes = #if !macro function():GoFloat64 return _d.minutes() #else null #end;
-						__self__.nanoseconds = #if !macro function():GoInt64 return _d.nanoseconds() #else null #end;
-						__self__.round = #if !macro function(_d_:Duration):Duration return _d.round(_d_) #else null #end;
-						__self__.seconds = #if !macro function():GoFloat64 return _d.seconds() #else null #end;
-						__self__.string = #if !macro function():GoString return _d.string() #else null #end;
-						__self__.truncate = #if !macro function(_d__:Duration):Duration return _d.truncate(_d__) #else null #end;
-						__self__;
-					}), Go.toInterface({
-						final __self__ = new Time_asInterface(_rnd);
-						__self__.add = #if !macro function(_d_:Duration):Time return _rnd.add(_d_) #else null #end;
-						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-								_days:GoInt):Time return _rnd.addDate(_years, _months, _days) #else null #end;
-						__self__.after = #if !macro function(__0:Time):Bool return _rnd.after(__0) #else null #end;
-						__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-								_layout:GoString):Slice<GoUInt8> return _rnd.appendFormat(_b, _layout) #else null #end;
-						__self__.before = #if !macro function(__0:Time):Bool return _rnd.before(__0) #else null #end;
-						__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-							return _rnd.clock() #else null #end;
-						__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-							return _rnd.date() #else null #end;
-						__self__.day = #if !macro function():GoInt return _rnd.day() #else null #end;
-						__self__.equal = #if !macro function(__0:Time):Bool return _rnd.equal(__0) #else null #end;
-						__self__.format = #if !macro function(__0:GoString):GoString return _rnd.format(__0) #else null #end;
-						__self__.goString = #if !macro function():GoString return _rnd.goString() #else null #end;
-						__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _rnd.gobDecode(__0) #else null #end;
-						__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _rnd.gobEncode() #else null #end;
-						__self__.hour = #if !macro function():GoInt return _rnd.hour() #else null #end;
-						__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-							return _rnd.isoweek() #else null #end;
-						__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _rnd.in_(__0) #else null #end;
-						__self__.isDST = #if !macro function():Bool return _rnd.isDST() #else null #end;
-						__self__.isZero = #if !macro function():Bool return _rnd.isZero() #else null #end;
-						__self__.local = #if !macro function():Time return _rnd.local() #else null #end;
-						__self__.location = #if !macro function():Ref<Location> return _rnd.location() #else null #end;
-						__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _rnd.marshalBinary() #else null #end;
-						__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _rnd.marshalJSON() #else null #end;
-						__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _rnd.marshalText() #else null #end;
-						__self__.minute = #if !macro function():GoInt return _rnd.minute() #else null #end;
-						__self__.month = #if !macro function():Month return _rnd.month() #else null #end;
-						__self__.nanosecond = #if !macro function():GoInt return _rnd.nanosecond() #else null #end;
-						__self__.round = #if !macro function(_d__:Duration):Time return _rnd.round(_d__) #else null #end;
-						__self__.second = #if !macro function():GoInt return _rnd.second() #else null #end;
-						__self__.string = #if !macro function():GoString return _rnd.string() #else null #end;
-						__self__.sub = #if !macro function(__0:Time):Duration return _rnd.sub(__0) #else null #end;
-						__self__.truncate = #if !macro function(_d___:Duration):Time return _rnd.truncate(_d___) #else null #end;
-						__self__.utc = #if !macro function():Time return _rnd.utc() #else null #end;
-						__self__.unix = #if !macro function():GoInt64 return _rnd.unix() #else null #end;
-						__self__.unixMicro = #if !macro function():GoInt64 return _rnd.unixMicro() #else null #end;
-						__self__.unixMilli = #if !macro function():GoInt64 return _rnd.unixMilli() #else null #end;
-						__self__.unixNano = #if !macro function():GoInt64 return _rnd.unixNano() #else null #end;
-						__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _rnd.unmarshalBinary(__0) #else null #end;
-						__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _rnd.unmarshalJSON(__0) #else null #end;
-						__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _rnd.unmarshalText(__0) #else null #end;
-						__self__.weekday = #if !macro function():Weekday return _rnd.weekday() #else null #end;
-						__self__.year = #if !macro function():GoInt return _rnd.year() #else null #end;
-						__self__.yearDay = #if !macro function():GoInt return _rnd.yearDay() #else null #end;
-						__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-							return _rnd.zone() #else null #end;
-						__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-							return _rnd.zoneBounds() #else null #end;
-						__self__._abs = #if !macro function():GoUInt64 return _rnd._abs() #else null #end;
-						__self__._addSec = #if !macro function(_sec_:GoInt64):Void _rnd._addSec(_sec_) #else null #end;
-						__self__._date = #if !macro function(__0:Bool):{
-							var _0:GoInt;
-							var _1:Month;
-							var _2:GoInt;
-							var _3:GoInt;
-						}
-							return _rnd._date(__0) #else null #end;
-						__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-							return _rnd._locabs() #else null #end;
-						__self__._mono = #if !macro function():GoInt64 return _rnd._mono() #else null #end;
-						__self__._nsec = #if !macro function():GoInt32 return _rnd._nsec() #else null #end;
-						__self__._sec = #if !macro function():GoInt64 return _rnd._sec() #else null #end;
-						__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _rnd._setLoc(__0) #else null #end;
-						__self__._setMono = #if !macro function(_sec__:GoInt64):Void _rnd._setMono(_sec__) #else null #end;
-						__self__._stripMono = #if !macro function():Void _rnd._stripMono() #else null #end;
-						__self__._unixSec = #if !macro function():GoInt64 return _rnd._unixSec() #else null #end;
-						__self__;
-					}),
-					Go.toInterface(_t1.format((Go.str("2006-01-02T15:04:05.999999999Z07:00") : GoString))),
+					Go.toInterface(_t0.format((Go.str("2006-01-02T15:04:05.999999999Z07:00") : GoString))), Go.toInterface(Go.asInterface(_d)),
+					Go.toInterface(Go.asInterface(_rnd)), Go.toInterface(_t1.format((Go.str("2006-01-02T15:04:05.999999999Z07:00") : GoString))),
 					Go.toInterface(_absString((_t0 == null ? null : _t0.__copy__()))), Go.toInterface((_d : GoInt64)),
 					Go.toInterface(_absString((_rnd == null ? null : _rnd.__copy__()))), Go.toInterface(_absString((_t1 == null ? null : _t1.__copy__()))));
 				return false;
@@ -8102,159 +5178,8 @@ function testYearDay(_t:stdgo.testing.Testing.T):Void {
 				continue;
 			};
 			if (!_dt1.equal((_dt == null ? null : _dt.__copy__()))) {
-				_t.errorf(("Parse(\"2006-01-02 002 -0700\", %q) = %v, want %v" : GoString), Go.toInterface(_f), Go.toInterface({
-					final __self__ = new Time_asInterface(_dt1);
-					__self__.add = #if !macro function(_d:Duration):Time return _dt1.add(_d) #else null #end;
-					__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-							_days:GoInt):Time return _dt1.addDate(_years, _months, _days) #else null #end;
-					__self__.after = #if !macro function(__0:Time):Bool return _dt1.after(__0) #else null #end;
-					__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-							_layout:GoString):Slice<GoUInt8> return _dt1.appendFormat(_b, _layout) #else null #end;
-					__self__.before = #if !macro function(__0:Time):Bool return _dt1.before(__0) #else null #end;
-					__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-						return _dt1.clock() #else null #end;
-					__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-						return _dt1.date() #else null #end;
-					__self__.day = #if !macro function():GoInt return _dt1.day() #else null #end;
-					__self__.equal = #if !macro function(__0:Time):Bool return _dt1.equal(__0) #else null #end;
-					__self__.format = #if !macro function(__0:GoString):GoString return _dt1.format(__0) #else null #end;
-					__self__.goString = #if !macro function():GoString return _dt1.goString() #else null #end;
-					__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _dt1.gobDecode(__0) #else null #end;
-					__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _dt1.gobEncode() #else null #end;
-					__self__.hour = #if !macro function():GoInt return _dt1.hour() #else null #end;
-					__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-						return _dt1.isoweek() #else null #end;
-					__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _dt1.in_(__0) #else null #end;
-					__self__.isDST = #if !macro function():Bool return _dt1.isDST() #else null #end;
-					__self__.isZero = #if !macro function():Bool return _dt1.isZero() #else null #end;
-					__self__.local = #if !macro function():Time return _dt1.local() #else null #end;
-					__self__.location = #if !macro function():Ref<Location> return _dt1.location() #else null #end;
-					__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _dt1.marshalBinary() #else null #end;
-					__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _dt1.marshalJSON() #else null #end;
-					__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _dt1.marshalText() #else null #end;
-					__self__.minute = #if !macro function():GoInt return _dt1.minute() #else null #end;
-					__self__.month = #if !macro function():Month return _dt1.month() #else null #end;
-					__self__.nanosecond = #if !macro function():GoInt return _dt1.nanosecond() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Time return _dt1.round(_d) #else null #end;
-					__self__.second = #if !macro function():GoInt return _dt1.second() #else null #end;
-					__self__.string = #if !macro function():GoString return _dt1.string() #else null #end;
-					__self__.sub = #if !macro function(__0:Time):Duration return _dt1.sub(__0) #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Time return _dt1.truncate(_d) #else null #end;
-					__self__.utc = #if !macro function():Time return _dt1.utc() #else null #end;
-					__self__.unix = #if !macro function():GoInt64 return _dt1.unix() #else null #end;
-					__self__.unixMicro = #if !macro function():GoInt64 return _dt1.unixMicro() #else null #end;
-					__self__.unixMilli = #if !macro function():GoInt64 return _dt1.unixMilli() #else null #end;
-					__self__.unixNano = #if !macro function():GoInt64 return _dt1.unixNano() #else null #end;
-					__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _dt1.unmarshalBinary(__0) #else null #end;
-					__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _dt1.unmarshalJSON(__0) #else null #end;
-					__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _dt1.unmarshalText(__0) #else null #end;
-					__self__.weekday = #if !macro function():Weekday return _dt1.weekday() #else null #end;
-					__self__.year = #if !macro function():GoInt return _dt1.year() #else null #end;
-					__self__.yearDay = #if !macro function():GoInt return _dt1.yearDay() #else null #end;
-					__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-						return _dt1.zone() #else null #end;
-					__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-						return _dt1.zoneBounds() #else null #end;
-					__self__._abs = #if !macro function():GoUInt64 return _dt1._abs() #else null #end;
-					__self__._addSec = #if !macro function(_sec:GoInt64):Void _dt1._addSec(_sec) #else null #end;
-					__self__._date = #if !macro function(__0:Bool):{
-						var _0:GoInt;
-						var _1:Month;
-						var _2:GoInt;
-						var _3:GoInt;
-					}
-						return _dt1._date(__0) #else null #end;
-					__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-						return _dt1._locabs() #else null #end;
-					__self__._mono = #if !macro function():GoInt64 return _dt1._mono() #else null #end;
-					__self__._nsec = #if !macro function():GoInt32 return _dt1._nsec() #else null #end;
-					__self__._sec = #if !macro function():GoInt64 return _dt1._sec() #else null #end;
-					__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _dt1._setLoc(__0) #else null #end;
-					__self__._setMono = #if !macro function(_sec:GoInt64):Void _dt1._setMono(_sec) #else null #end;
-					__self__._stripMono = #if !macro function():Void _dt1._stripMono() #else null #end;
-					__self__._unixSec = #if !macro function():GoInt64 return _dt1._unixSec() #else null #end;
-					__self__;
-				}), Go.toInterface({
-					final __self__ = new Time_asInterface(_dt);
-					__self__.add = #if !macro function(_d:Duration):Time return _dt.add(_d) #else null #end;
-					__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-							_days:GoInt):Time return _dt.addDate(_years, _months, _days) #else null #end;
-					__self__.after = #if !macro function(__0:Time):Bool return _dt.after(__0) #else null #end;
-					__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-							_layout:GoString):Slice<GoUInt8> return _dt.appendFormat(_b, _layout) #else null #end;
-					__self__.before = #if !macro function(__0:Time):Bool return _dt.before(__0) #else null #end;
-					__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-						return _dt.clock() #else null #end;
-					__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-						return _dt.date() #else null #end;
-					__self__.day = #if !macro function():GoInt return _dt.day() #else null #end;
-					__self__.equal = #if !macro function(__0:Time):Bool return _dt.equal(__0) #else null #end;
-					__self__.format = #if !macro function(__0:GoString):GoString return _dt.format(__0) #else null #end;
-					__self__.goString = #if !macro function():GoString return _dt.goString() #else null #end;
-					__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _dt.gobDecode(__0) #else null #end;
-					__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _dt.gobEncode() #else null #end;
-					__self__.hour = #if !macro function():GoInt return _dt.hour() #else null #end;
-					__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-						return _dt.isoweek() #else null #end;
-					__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _dt.in_(__0) #else null #end;
-					__self__.isDST = #if !macro function():Bool return _dt.isDST() #else null #end;
-					__self__.isZero = #if !macro function():Bool return _dt.isZero() #else null #end;
-					__self__.local = #if !macro function():Time return _dt.local() #else null #end;
-					__self__.location = #if !macro function():Ref<Location> return _dt.location() #else null #end;
-					__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _dt.marshalBinary() #else null #end;
-					__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _dt.marshalJSON() #else null #end;
-					__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _dt.marshalText() #else null #end;
-					__self__.minute = #if !macro function():GoInt return _dt.minute() #else null #end;
-					__self__.month = #if !macro function():Month return _dt.month() #else null #end;
-					__self__.nanosecond = #if !macro function():GoInt return _dt.nanosecond() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Time return _dt.round(_d) #else null #end;
-					__self__.second = #if !macro function():GoInt return _dt.second() #else null #end;
-					__self__.string = #if !macro function():GoString return _dt.string() #else null #end;
-					__self__.sub = #if !macro function(__0:Time):Duration return _dt.sub(__0) #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Time return _dt.truncate(_d) #else null #end;
-					__self__.utc = #if !macro function():Time return _dt.utc() #else null #end;
-					__self__.unix = #if !macro function():GoInt64 return _dt.unix() #else null #end;
-					__self__.unixMicro = #if !macro function():GoInt64 return _dt.unixMicro() #else null #end;
-					__self__.unixMilli = #if !macro function():GoInt64 return _dt.unixMilli() #else null #end;
-					__self__.unixNano = #if !macro function():GoInt64 return _dt.unixNano() #else null #end;
-					__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _dt.unmarshalBinary(__0) #else null #end;
-					__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _dt.unmarshalJSON(__0) #else null #end;
-					__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _dt.unmarshalText(__0) #else null #end;
-					__self__.weekday = #if !macro function():Weekday return _dt.weekday() #else null #end;
-					__self__.year = #if !macro function():GoInt return _dt.year() #else null #end;
-					__self__.yearDay = #if !macro function():GoInt return _dt.yearDay() #else null #end;
-					__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-						return _dt.zone() #else null #end;
-					__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-						return _dt.zoneBounds() #else null #end;
-					__self__._abs = #if !macro function():GoUInt64 return _dt._abs() #else null #end;
-					__self__._addSec = #if !macro function(_sec:GoInt64):Void _dt._addSec(_sec) #else null #end;
-					__self__._date = #if !macro function(__0:Bool):{
-						var _0:GoInt;
-						var _1:Month;
-						var _2:GoInt;
-						var _3:GoInt;
-					}
-						return _dt._date(__0) #else null #end;
-					__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-						return _dt._locabs() #else null #end;
-					__self__._mono = #if !macro function():GoInt64 return _dt._mono() #else null #end;
-					__self__._nsec = #if !macro function():GoInt32 return _dt._nsec() #else null #end;
-					__self__._sec = #if !macro function():GoInt64 return _dt._sec() #else null #end;
-					__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _dt._setLoc(__0) #else null #end;
-					__self__._setMono = #if !macro function(_sec:GoInt64):Void _dt._setMono(_sec) #else null #end;
-					__self__._stripMono = #if !macro function():Void _dt._stripMono() #else null #end;
-					__self__._unixSec = #if !macro function():GoInt64 return _dt._unixSec() #else null #end;
-					__self__;
-				}));
+				_t.errorf(("Parse(\"2006-01-02 002 -0700\", %q) = %v, want %v" : GoString), Go.toInterface(_f), Go.toInterface(Go.asInterface(_dt1)),
+					Go.toInterface(Go.asInterface(_dt)));
 			};
 		};
 	};
@@ -8289,159 +5214,7 @@ function testDate(_t:stdgo.testing.Testing.T):Void {
 		if (!_time.equal((_want == null ? null : _want.__copy__()))) {
 			_t.errorf((Go.str("Date(%d, %d, %d, %d, %d, %d, %d, %s) = %v, want %v") : GoString), Go.toInterface(_tt._year), Go.toInterface(_tt._month),
 				Go.toInterface(_tt._day), Go.toInterface(_tt._hour), Go.toInterface(_tt._min), Go.toInterface(_tt._sec), Go.toInterface(_tt._nsec),
-				Go.toInterface(_tt._z), Go.toInterface({
-					final __self__ = new Time_asInterface(_time);
-					__self__.add = #if !macro function(_d:Duration):Time return _time.add(_d) #else null #end;
-					__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-							_days:GoInt):Time return _time.addDate(_years, _months, _days) #else null #end;
-					__self__.after = #if !macro function(__0:Time):Bool return _time.after(__0) #else null #end;
-					__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-							_layout:GoString):Slice<GoUInt8> return _time.appendFormat(_b, _layout) #else null #end;
-					__self__.before = #if !macro function(__0:Time):Bool return _time.before(__0) #else null #end;
-					__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-						return _time.clock() #else null #end;
-					__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-						return _time.date() #else null #end;
-					__self__.day = #if !macro function():GoInt return _time.day() #else null #end;
-					__self__.equal = #if !macro function(__0:Time):Bool return _time.equal(__0) #else null #end;
-					__self__.format = #if !macro function(__0:GoString):GoString return _time.format(__0) #else null #end;
-					__self__.goString = #if !macro function():GoString return _time.goString() #else null #end;
-					__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _time.gobDecode(__0) #else null #end;
-					__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _time.gobEncode() #else null #end;
-					__self__.hour = #if !macro function():GoInt return _time.hour() #else null #end;
-					__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-						return _time.isoweek() #else null #end;
-					__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _time.in_(__0) #else null #end;
-					__self__.isDST = #if !macro function():Bool return _time.isDST() #else null #end;
-					__self__.isZero = #if !macro function():Bool return _time.isZero() #else null #end;
-					__self__.local = #if !macro function():Time return _time.local() #else null #end;
-					__self__.location = #if !macro function():Ref<Location> return _time.location() #else null #end;
-					__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _time.marshalBinary() #else null #end;
-					__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _time.marshalJSON() #else null #end;
-					__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _time.marshalText() #else null #end;
-					__self__.minute = #if !macro function():GoInt return _time.minute() #else null #end;
-					__self__.month = #if !macro function():Month return _time.month() #else null #end;
-					__self__.nanosecond = #if !macro function():GoInt return _time.nanosecond() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Time return _time.round(_d) #else null #end;
-					__self__.second = #if !macro function():GoInt return _time.second() #else null #end;
-					__self__.string = #if !macro function():GoString return _time.string() #else null #end;
-					__self__.sub = #if !macro function(__0:Time):Duration return _time.sub(__0) #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Time return _time.truncate(_d) #else null #end;
-					__self__.utc = #if !macro function():Time return _time.utc() #else null #end;
-					__self__.unix = #if !macro function():GoInt64 return _time.unix() #else null #end;
-					__self__.unixMicro = #if !macro function():GoInt64 return _time.unixMicro() #else null #end;
-					__self__.unixMilli = #if !macro function():GoInt64 return _time.unixMilli() #else null #end;
-					__self__.unixNano = #if !macro function():GoInt64 return _time.unixNano() #else null #end;
-					__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _time.unmarshalBinary(__0) #else null #end;
-					__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _time.unmarshalJSON(__0) #else null #end;
-					__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _time.unmarshalText(__0) #else null #end;
-					__self__.weekday = #if !macro function():Weekday return _time.weekday() #else null #end;
-					__self__.year = #if !macro function():GoInt return _time.year() #else null #end;
-					__self__.yearDay = #if !macro function():GoInt return _time.yearDay() #else null #end;
-					__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-						return _time.zone() #else null #end;
-					__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-						return _time.zoneBounds() #else null #end;
-					__self__._abs = #if !macro function():GoUInt64 return _time._abs() #else null #end;
-					__self__._addSec = #if !macro function(_sec:GoInt64):Void _time._addSec(_sec) #else null #end;
-					__self__._date = #if !macro function(__0:Bool):{
-						var _0:GoInt;
-						var _1:Month;
-						var _2:GoInt;
-						var _3:GoInt;
-					}
-						return _time._date(__0) #else null #end;
-					__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-						return _time._locabs() #else null #end;
-					__self__._mono = #if !macro function():GoInt64 return _time._mono() #else null #end;
-					__self__._nsec = #if !macro function():GoInt32 return _time._nsec() #else null #end;
-					__self__._sec = #if !macro function():GoInt64 return _time._sec() #else null #end;
-					__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _time._setLoc(__0) #else null #end;
-					__self__._setMono = #if !macro function(_sec:GoInt64):Void _time._setMono(_sec) #else null #end;
-					__self__._stripMono = #if !macro function():Void _time._stripMono() #else null #end;
-					__self__._unixSec = #if !macro function():GoInt64 return _time._unixSec() #else null #end;
-					__self__;
-				}), Go.toInterface({
-					final __self__ = new Time_asInterface(_want);
-					__self__.add = #if !macro function(_d:Duration):Time return _want.add(_d) #else null #end;
-					__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-							_days:GoInt):Time return _want.addDate(_years, _months, _days) #else null #end;
-					__self__.after = #if !macro function(__0:Time):Bool return _want.after(__0) #else null #end;
-					__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-							_layout:GoString):Slice<GoUInt8> return _want.appendFormat(_b, _layout) #else null #end;
-					__self__.before = #if !macro function(__0:Time):Bool return _want.before(__0) #else null #end;
-					__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-						return _want.clock() #else null #end;
-					__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-						return _want.date() #else null #end;
-					__self__.day = #if !macro function():GoInt return _want.day() #else null #end;
-					__self__.equal = #if !macro function(__0:Time):Bool return _want.equal(__0) #else null #end;
-					__self__.format = #if !macro function(__0:GoString):GoString return _want.format(__0) #else null #end;
-					__self__.goString = #if !macro function():GoString return _want.goString() #else null #end;
-					__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _want.gobDecode(__0) #else null #end;
-					__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _want.gobEncode() #else null #end;
-					__self__.hour = #if !macro function():GoInt return _want.hour() #else null #end;
-					__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-						return _want.isoweek() #else null #end;
-					__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _want.in_(__0) #else null #end;
-					__self__.isDST = #if !macro function():Bool return _want.isDST() #else null #end;
-					__self__.isZero = #if !macro function():Bool return _want.isZero() #else null #end;
-					__self__.local = #if !macro function():Time return _want.local() #else null #end;
-					__self__.location = #if !macro function():Ref<Location> return _want.location() #else null #end;
-					__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _want.marshalBinary() #else null #end;
-					__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _want.marshalJSON() #else null #end;
-					__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _want.marshalText() #else null #end;
-					__self__.minute = #if !macro function():GoInt return _want.minute() #else null #end;
-					__self__.month = #if !macro function():Month return _want.month() #else null #end;
-					__self__.nanosecond = #if !macro function():GoInt return _want.nanosecond() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Time return _want.round(_d) #else null #end;
-					__self__.second = #if !macro function():GoInt return _want.second() #else null #end;
-					__self__.string = #if !macro function():GoString return _want.string() #else null #end;
-					__self__.sub = #if !macro function(__0:Time):Duration return _want.sub(__0) #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Time return _want.truncate(_d) #else null #end;
-					__self__.utc = #if !macro function():Time return _want.utc() #else null #end;
-					__self__.unix = #if !macro function():GoInt64 return _want.unix() #else null #end;
-					__self__.unixMicro = #if !macro function():GoInt64 return _want.unixMicro() #else null #end;
-					__self__.unixMilli = #if !macro function():GoInt64 return _want.unixMilli() #else null #end;
-					__self__.unixNano = #if !macro function():GoInt64 return _want.unixNano() #else null #end;
-					__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _want.unmarshalBinary(__0) #else null #end;
-					__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _want.unmarshalJSON(__0) #else null #end;
-					__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _want.unmarshalText(__0) #else null #end;
-					__self__.weekday = #if !macro function():Weekday return _want.weekday() #else null #end;
-					__self__.year = #if !macro function():GoInt return _want.year() #else null #end;
-					__self__.yearDay = #if !macro function():GoInt return _want.yearDay() #else null #end;
-					__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-						return _want.zone() #else null #end;
-					__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-						return _want.zoneBounds() #else null #end;
-					__self__._abs = #if !macro function():GoUInt64 return _want._abs() #else null #end;
-					__self__._addSec = #if !macro function(_sec:GoInt64):Void _want._addSec(_sec) #else null #end;
-					__self__._date = #if !macro function(__0:Bool):{
-						var _0:GoInt;
-						var _1:Month;
-						var _2:GoInt;
-						var _3:GoInt;
-					}
-						return _want._date(__0) #else null #end;
-					__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-						return _want._locabs() #else null #end;
-					__self__._mono = #if !macro function():GoInt64 return _want._mono() #else null #end;
-					__self__._nsec = #if !macro function():GoInt32 return _want._nsec() #else null #end;
-					__self__._sec = #if !macro function():GoInt64 return _want._sec() #else null #end;
-					__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _want._setLoc(__0) #else null #end;
-					__self__._setMono = #if !macro function(_sec:GoInt64):Void _want._setMono(_sec) #else null #end;
-					__self__._stripMono = #if !macro function():Void _want._stripMono() #else null #end;
-					__self__._unixSec = #if !macro function():GoInt64 return _want._unixSec() #else null #end;
-					__self__;
-				}));
+				Go.toInterface(_tt._z), Go.toInterface(Go.asInterface(_time)), Go.toInterface(Go.asInterface(_want)));
 		};
 	};
 }
@@ -8455,159 +5228,7 @@ function testAddDate(_t:stdgo.testing.Testing.T):Void {
 		var _time:Time = (_t0.addDate(_at._years, _at._months, _at._days) == null ? null : _t0.addDate(_at._years, _at._months, _at._days).__copy__());
 		if (!_time.equal((_t1 == null ? null : _t1.__copy__()))) {
 			_t.errorf((Go.str("AddDate(%d, %d, %d) = %v, want %v") : GoString), Go.toInterface(_at._years), Go.toInterface(_at._months),
-				Go.toInterface(_at._days), Go.toInterface({
-					final __self__ = new Time_asInterface(_time);
-					__self__.add = #if !macro function(_d:Duration):Time return _time.add(_d) #else null #end;
-					__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-							_days:GoInt):Time return _time.addDate(_years, _months, _days) #else null #end;
-					__self__.after = #if !macro function(__0:Time):Bool return _time.after(__0) #else null #end;
-					__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-							_layout:GoString):Slice<GoUInt8> return _time.appendFormat(_b, _layout) #else null #end;
-					__self__.before = #if !macro function(__0:Time):Bool return _time.before(__0) #else null #end;
-					__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-						return _time.clock() #else null #end;
-					__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-						return _time.date() #else null #end;
-					__self__.day = #if !macro function():GoInt return _time.day() #else null #end;
-					__self__.equal = #if !macro function(__0:Time):Bool return _time.equal(__0) #else null #end;
-					__self__.format = #if !macro function(__0:GoString):GoString return _time.format(__0) #else null #end;
-					__self__.goString = #if !macro function():GoString return _time.goString() #else null #end;
-					__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _time.gobDecode(__0) #else null #end;
-					__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _time.gobEncode() #else null #end;
-					__self__.hour = #if !macro function():GoInt return _time.hour() #else null #end;
-					__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-						return _time.isoweek() #else null #end;
-					__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _time.in_(__0) #else null #end;
-					__self__.isDST = #if !macro function():Bool return _time.isDST() #else null #end;
-					__self__.isZero = #if !macro function():Bool return _time.isZero() #else null #end;
-					__self__.local = #if !macro function():Time return _time.local() #else null #end;
-					__self__.location = #if !macro function():Ref<Location> return _time.location() #else null #end;
-					__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _time.marshalBinary() #else null #end;
-					__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _time.marshalJSON() #else null #end;
-					__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _time.marshalText() #else null #end;
-					__self__.minute = #if !macro function():GoInt return _time.minute() #else null #end;
-					__self__.month = #if !macro function():Month return _time.month() #else null #end;
-					__self__.nanosecond = #if !macro function():GoInt return _time.nanosecond() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Time return _time.round(_d) #else null #end;
-					__self__.second = #if !macro function():GoInt return _time.second() #else null #end;
-					__self__.string = #if !macro function():GoString return _time.string() #else null #end;
-					__self__.sub = #if !macro function(__0:Time):Duration return _time.sub(__0) #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Time return _time.truncate(_d) #else null #end;
-					__self__.utc = #if !macro function():Time return _time.utc() #else null #end;
-					__self__.unix = #if !macro function():GoInt64 return _time.unix() #else null #end;
-					__self__.unixMicro = #if !macro function():GoInt64 return _time.unixMicro() #else null #end;
-					__self__.unixMilli = #if !macro function():GoInt64 return _time.unixMilli() #else null #end;
-					__self__.unixNano = #if !macro function():GoInt64 return _time.unixNano() #else null #end;
-					__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _time.unmarshalBinary(__0) #else null #end;
-					__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _time.unmarshalJSON(__0) #else null #end;
-					__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _time.unmarshalText(__0) #else null #end;
-					__self__.weekday = #if !macro function():Weekday return _time.weekday() #else null #end;
-					__self__.year = #if !macro function():GoInt return _time.year() #else null #end;
-					__self__.yearDay = #if !macro function():GoInt return _time.yearDay() #else null #end;
-					__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-						return _time.zone() #else null #end;
-					__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-						return _time.zoneBounds() #else null #end;
-					__self__._abs = #if !macro function():GoUInt64 return _time._abs() #else null #end;
-					__self__._addSec = #if !macro function(_sec:GoInt64):Void _time._addSec(_sec) #else null #end;
-					__self__._date = #if !macro function(__0:Bool):{
-						var _0:GoInt;
-						var _1:Month;
-						var _2:GoInt;
-						var _3:GoInt;
-					}
-						return _time._date(__0) #else null #end;
-					__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-						return _time._locabs() #else null #end;
-					__self__._mono = #if !macro function():GoInt64 return _time._mono() #else null #end;
-					__self__._nsec = #if !macro function():GoInt32 return _time._nsec() #else null #end;
-					__self__._sec = #if !macro function():GoInt64 return _time._sec() #else null #end;
-					__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _time._setLoc(__0) #else null #end;
-					__self__._setMono = #if !macro function(_sec:GoInt64):Void _time._setMono(_sec) #else null #end;
-					__self__._stripMono = #if !macro function():Void _time._stripMono() #else null #end;
-					__self__._unixSec = #if !macro function():GoInt64 return _time._unixSec() #else null #end;
-					__self__;
-				}), Go.toInterface({
-					final __self__ = new Time_asInterface(_t1);
-					__self__.add = #if !macro function(_d:Duration):Time return _t1.add(_d) #else null #end;
-					__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-							_days:GoInt):Time return _t1.addDate(_years, _months, _days) #else null #end;
-					__self__.after = #if !macro function(__0:Time):Bool return _t1.after(__0) #else null #end;
-					__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-							_layout:GoString):Slice<GoUInt8> return _t1.appendFormat(_b, _layout) #else null #end;
-					__self__.before = #if !macro function(__0:Time):Bool return _t1.before(__0) #else null #end;
-					__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-						return _t1.clock() #else null #end;
-					__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-						return _t1.date() #else null #end;
-					__self__.day = #if !macro function():GoInt return _t1.day() #else null #end;
-					__self__.equal = #if !macro function(__0:Time):Bool return _t1.equal(__0) #else null #end;
-					__self__.format = #if !macro function(__0:GoString):GoString return _t1.format(__0) #else null #end;
-					__self__.goString = #if !macro function():GoString return _t1.goString() #else null #end;
-					__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.gobDecode(__0) #else null #end;
-					__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _t1.gobEncode() #else null #end;
-					__self__.hour = #if !macro function():GoInt return _t1.hour() #else null #end;
-					__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-						return _t1.isoweek() #else null #end;
-					__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _t1.in_(__0) #else null #end;
-					__self__.isDST = #if !macro function():Bool return _t1.isDST() #else null #end;
-					__self__.isZero = #if !macro function():Bool return _t1.isZero() #else null #end;
-					__self__.local = #if !macro function():Time return _t1.local() #else null #end;
-					__self__.location = #if !macro function():Ref<Location> return _t1.location() #else null #end;
-					__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _t1.marshalBinary() #else null #end;
-					__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _t1.marshalJSON() #else null #end;
-					__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _t1.marshalText() #else null #end;
-					__self__.minute = #if !macro function():GoInt return _t1.minute() #else null #end;
-					__self__.month = #if !macro function():Month return _t1.month() #else null #end;
-					__self__.nanosecond = #if !macro function():GoInt return _t1.nanosecond() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Time return _t1.round(_d) #else null #end;
-					__self__.second = #if !macro function():GoInt return _t1.second() #else null #end;
-					__self__.string = #if !macro function():GoString return _t1.string() #else null #end;
-					__self__.sub = #if !macro function(__0:Time):Duration return _t1.sub(__0) #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Time return _t1.truncate(_d) #else null #end;
-					__self__.utc = #if !macro function():Time return _t1.utc() #else null #end;
-					__self__.unix = #if !macro function():GoInt64 return _t1.unix() #else null #end;
-					__self__.unixMicro = #if !macro function():GoInt64 return _t1.unixMicro() #else null #end;
-					__self__.unixMilli = #if !macro function():GoInt64 return _t1.unixMilli() #else null #end;
-					__self__.unixNano = #if !macro function():GoInt64 return _t1.unixNano() #else null #end;
-					__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalBinary(__0) #else null #end;
-					__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalJSON(__0) #else null #end;
-					__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalText(__0) #else null #end;
-					__self__.weekday = #if !macro function():Weekday return _t1.weekday() #else null #end;
-					__self__.year = #if !macro function():GoInt return _t1.year() #else null #end;
-					__self__.yearDay = #if !macro function():GoInt return _t1.yearDay() #else null #end;
-					__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-						return _t1.zone() #else null #end;
-					__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-						return _t1.zoneBounds() #else null #end;
-					__self__._abs = #if !macro function():GoUInt64 return _t1._abs() #else null #end;
-					__self__._addSec = #if !macro function(_sec:GoInt64):Void _t1._addSec(_sec) #else null #end;
-					__self__._date = #if !macro function(__0:Bool):{
-						var _0:GoInt;
-						var _1:Month;
-						var _2:GoInt;
-						var _3:GoInt;
-					}
-						return _t1._date(__0) #else null #end;
-					__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-						return _t1._locabs() #else null #end;
-					__self__._mono = #if !macro function():GoInt64 return _t1._mono() #else null #end;
-					__self__._nsec = #if !macro function():GoInt32 return _t1._nsec() #else null #end;
-					__self__._sec = #if !macro function():GoInt64 return _t1._sec() #else null #end;
-					__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _t1._setLoc(__0) #else null #end;
-					__self__._setMono = #if !macro function(_sec:GoInt64):Void _t1._setMono(_sec) #else null #end;
-					__self__._stripMono = #if !macro function():Void _t1._stripMono() #else null #end;
-					__self__._unixSec = #if !macro function():GoInt64 return _t1._unixSec() #else null #end;
-					__self__;
-				}));
+				Go.toInterface(_at._days), Go.toInterface(Go.asInterface(_time)), Go.toInterface(Go.asInterface(_t1)));
 		};
 	};
 }
@@ -8646,404 +5267,20 @@ function _equalTimeAndZone(_a:Time, _b:Time):Bool {
 
 function testTimeGob(_t:stdgo.testing.Testing.T):Void {
 	var _b:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-	var _enc = stdgo.encoding.gob.Gob.newEncoder({
-		final __self__ = new stdgo.bytes.Bytes.Buffer_asInterface(_b);
-		__self__.bytes = #if !macro function():Slice<GoUInt8> return _b.bytes() #else null #end;
-		__self__.cap = #if !macro function():GoInt return _b.cap() #else null #end;
-		__self__.grow = #if !macro function(__0:GoInt):Void _b.grow(__0) #else null #end;
-		__self__.len = #if !macro function():GoInt return _b.len() #else null #end;
-		__self__.next = #if !macro function(__0:GoInt):Slice<GoUInt8> return _b.next(__0) #else null #end;
-		__self__.read = #if !macro function(__0:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-			return _b.read(__0) #else null #end;
-		__self__.readByte = #if !macro function():{var _0:GoUInt8; var _1:stdgo.Error;}
-			return _b.readByte() #else null #end;
-		__self__.readBytes = #if !macro function(__0:GoUInt8):{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _b.readBytes(__0) #else null #end;
-		__self__.readFrom = #if !macro function(_r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:stdgo.Error;}
-			return _b.readFrom(_r) #else null #end;
-		__self__.readRune = #if !macro function():{var _0:GoInt32; var _1:GoInt; var _2:stdgo.Error;}
-			return _b.readRune() #else null #end;
-		__self__.readString = #if !macro function(__0:GoUInt8):{var _0:GoString; var _1:stdgo.Error;}
-			return _b.readString(__0) #else null #end;
-		__self__.reset = #if !macro function():Void _b.reset() #else null #end;
-		__self__.string = #if !macro function():GoString return _b.string() #else null #end;
-		__self__.truncate = #if !macro function(__0:GoInt):Void _b.truncate(__0) #else null #end;
-		__self__.unreadByte = #if !macro function():stdgo.Error return _b.unreadByte() #else null #end;
-		__self__.unreadRune = #if !macro function():stdgo.Error return _b.unreadRune() #else null #end;
-		__self__.write = #if !macro function(__0:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-			return _b.write(__0) #else null #end;
-		__self__.writeByte = #if !macro function(__0:GoUInt8):stdgo.Error return _b.writeByte(__0) #else null #end;
-		__self__.writeRune = #if !macro function(_new:GoInt32):{var _0:GoInt; var _1:stdgo.Error;}
-			return _b.writeRune(_new) #else null #end;
-		__self__.writeString = #if !macro function(__0:GoString):{var _0:GoInt; var _1:stdgo.Error;}
-			return _b.writeString(__0) #else null #end;
-		__self__.writeTo = #if !macro function(_w:stdgo.io.Io.Writer):{var _0:GoInt64; var _1:stdgo.Error;}
-			return _b.writeTo(_w) #else null #end;
-		__self__._empty = #if !macro function():Bool return _b._empty() #else null #end;
-		__self__._grow = #if !macro function(__0:GoInt):GoInt return _b._grow(__0) #else null #end;
-		__self__._readSlice = #if !macro function(__0:GoUInt8):{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _b._readSlice(__0) #else null #end;
-		__self__._tryGrowByReslice = #if !macro function(__0:GoInt):{var _0:GoInt; var _1:Bool;}
-			return _b._tryGrowByReslice(__0) #else null #end;
-		__self__;
-	});
-	var _dec = stdgo.encoding.gob.Gob.newDecoder({
-		final __self__ = new stdgo.bytes.Bytes.Buffer_asInterface(_b);
-		__self__.bytes = #if !macro function():Slice<GoUInt8> return _b.bytes() #else null #end;
-		__self__.cap = #if !macro function():GoInt return _b.cap() #else null #end;
-		__self__.grow = #if !macro function(__0:GoInt):Void _b.grow(__0) #else null #end;
-		__self__.len = #if !macro function():GoInt return _b.len() #else null #end;
-		__self__.next = #if !macro function(__0:GoInt):Slice<GoUInt8> return _b.next(__0) #else null #end;
-		__self__.read = #if !macro function(__0:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-			return _b.read(__0) #else null #end;
-		__self__.readByte = #if !macro function():{var _0:GoUInt8; var _1:stdgo.Error;}
-			return _b.readByte() #else null #end;
-		__self__.readBytes = #if !macro function(__0:GoUInt8):{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _b.readBytes(__0) #else null #end;
-		__self__.readFrom = #if !macro function(_r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:stdgo.Error;}
-			return _b.readFrom(_r) #else null #end;
-		__self__.readRune = #if !macro function():{var _0:GoInt32; var _1:GoInt; var _2:stdgo.Error;}
-			return _b.readRune() #else null #end;
-		__self__.readString = #if !macro function(__0:GoUInt8):{var _0:GoString; var _1:stdgo.Error;}
-			return _b.readString(__0) #else null #end;
-		__self__.reset = #if !macro function():Void _b.reset() #else null #end;
-		__self__.string = #if !macro function():GoString return _b.string() #else null #end;
-		__self__.truncate = #if !macro function(__0:GoInt):Void _b.truncate(__0) #else null #end;
-		__self__.unreadByte = #if !macro function():stdgo.Error return _b.unreadByte() #else null #end;
-		__self__.unreadRune = #if !macro function():stdgo.Error return _b.unreadRune() #else null #end;
-		__self__.write = #if !macro function(__0:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-			return _b.write(__0) #else null #end;
-		__self__.writeByte = #if !macro function(__0:GoUInt8):stdgo.Error return _b.writeByte(__0) #else null #end;
-		__self__.writeRune = #if !macro function(_new:GoInt32):{var _0:GoInt; var _1:stdgo.Error;}
-			return _b.writeRune(_new) #else null #end;
-		__self__.writeString = #if !macro function(__0:GoString):{var _0:GoInt; var _1:stdgo.Error;}
-			return _b.writeString(__0) #else null #end;
-		__self__.writeTo = #if !macro function(_w:stdgo.io.Io.Writer):{var _0:GoInt64; var _1:stdgo.Error;}
-			return _b.writeTo(_w) #else null #end;
-		__self__._empty = #if !macro function():Bool return _b._empty() #else null #end;
-		__self__._grow = #if !macro function(__0:GoInt):GoInt return _b._grow(__0) #else null #end;
-		__self__._readSlice = #if !macro function(__0:GoUInt8):{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-			return _b._readSlice(__0) #else null #end;
-		__self__._tryGrowByReslice = #if !macro function(__0:GoInt):{var _0:GoInt; var _1:Bool;}
-			return _b._tryGrowByReslice(__0) #else null #end;
-		__self__;
-	});
+	var _enc = stdgo.encoding.gob.Gob.newEncoder(Go.asInterface(_b));
+	var _dec = stdgo.encoding.gob.Gob.newDecoder(Go.asInterface(_b));
 	for (_0 => _tt in _gobTests) {
 		var _gobtt:Time = ({} : Time);
 		{
 			var _err:stdgo.Error = _enc.encode(Go.toInterface(_tt));
 			if (_err != null) {
-				_t.errorf((Go.str("%v gob Encode error = %q, want nil") : GoString), Go.toInterface({
-					final __self__ = new Time_asInterface(_tt);
-					__self__.add = #if !macro function(_d:Duration):Time return _tt.add(_d) #else null #end;
-					__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-							_days:GoInt):Time return _tt.addDate(_years, _months, _days) #else null #end;
-					__self__.after = #if !macro function(__0:Time):Bool return _tt.after(__0) #else null #end;
-					__self__.appendFormat = #if !macro function(_b_:Slice<GoUInt8>,
-							_layout:GoString):Slice<GoUInt8> return _tt.appendFormat(_b_, _layout) #else null #end;
-					__self__.before = #if !macro function(__0:Time):Bool return _tt.before(__0) #else null #end;
-					__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-						return _tt.clock() #else null #end;
-					__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-						return _tt.date() #else null #end;
-					__self__.day = #if !macro function():GoInt return _tt.day() #else null #end;
-					__self__.equal = #if !macro function(__0:Time):Bool return _tt.equal(__0) #else null #end;
-					__self__.format = #if !macro function(__0:GoString):GoString return _tt.format(__0) #else null #end;
-					__self__.goString = #if !macro function():GoString return _tt.goString() #else null #end;
-					__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt.gobDecode(__0) #else null #end;
-					__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _tt.gobEncode() #else null #end;
-					__self__.hour = #if !macro function():GoInt return _tt.hour() #else null #end;
-					__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-						return _tt.isoweek() #else null #end;
-					__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _tt.in_(__0) #else null #end;
-					__self__.isDST = #if !macro function():Bool return _tt.isDST() #else null #end;
-					__self__.isZero = #if !macro function():Bool return _tt.isZero() #else null #end;
-					__self__.local = #if !macro function():Time return _tt.local() #else null #end;
-					__self__.location = #if !macro function():Ref<Location> return _tt.location() #else null #end;
-					__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _tt.marshalBinary() #else null #end;
-					__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _tt.marshalJSON() #else null #end;
-					__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _tt.marshalText() #else null #end;
-					__self__.minute = #if !macro function():GoInt return _tt.minute() #else null #end;
-					__self__.month = #if !macro function():Month return _tt.month() #else null #end;
-					__self__.nanosecond = #if !macro function():GoInt return _tt.nanosecond() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Time return _tt.round(_d) #else null #end;
-					__self__.second = #if !macro function():GoInt return _tt.second() #else null #end;
-					__self__.string = #if !macro function():GoString return _tt.string() #else null #end;
-					__self__.sub = #if !macro function(__0:Time):Duration return _tt.sub(__0) #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Time return _tt.truncate(_d) #else null #end;
-					__self__.utc = #if !macro function():Time return _tt.utc() #else null #end;
-					__self__.unix = #if !macro function():GoInt64 return _tt.unix() #else null #end;
-					__self__.unixMicro = #if !macro function():GoInt64 return _tt.unixMicro() #else null #end;
-					__self__.unixMilli = #if !macro function():GoInt64 return _tt.unixMilli() #else null #end;
-					__self__.unixNano = #if !macro function():GoInt64 return _tt.unixNano() #else null #end;
-					__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt.unmarshalBinary(__0) #else null #end;
-					__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt.unmarshalJSON(__0) #else null #end;
-					__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt.unmarshalText(__0) #else null #end;
-					__self__.weekday = #if !macro function():Weekday return _tt.weekday() #else null #end;
-					__self__.year = #if !macro function():GoInt return _tt.year() #else null #end;
-					__self__.yearDay = #if !macro function():GoInt return _tt.yearDay() #else null #end;
-					__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-						return _tt.zone() #else null #end;
-					__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-						return _tt.zoneBounds() #else null #end;
-					__self__._abs = #if !macro function():GoUInt64 return _tt._abs() #else null #end;
-					__self__._addSec = #if !macro function(_sec:GoInt64):Void _tt._addSec(_sec) #else null #end;
-					__self__._date = #if !macro function(__0:Bool):{
-						var _0:GoInt;
-						var _1:Month;
-						var _2:GoInt;
-						var _3:GoInt;
-					}
-						return _tt._date(__0) #else null #end;
-					__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-						return _tt._locabs() #else null #end;
-					__self__._mono = #if !macro function():GoInt64 return _tt._mono() #else null #end;
-					__self__._nsec = #if !macro function():GoInt32 return _tt._nsec() #else null #end;
-					__self__._sec = #if !macro function():GoInt64 return _tt._sec() #else null #end;
-					__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _tt._setLoc(__0) #else null #end;
-					__self__._setMono = #if !macro function(_sec:GoInt64):Void _tt._setMono(_sec) #else null #end;
-					__self__._stripMono = #if !macro function():Void _tt._stripMono() #else null #end;
-					__self__._unixSec = #if !macro function():GoInt64 return _tt._unixSec() #else null #end;
-					__self__;
-				}), Go.toInterface(_err));
+				_t.errorf((Go.str("%v gob Encode error = %q, want nil") : GoString), Go.toInterface(Go.asInterface(_tt)), Go.toInterface(_err));
 			} else {
 				var _err:stdgo.Error = _dec.decode(Go.toInterface(_gobtt));
 				if (_err != null) {
-					_t.errorf((Go.str("%v gob Decode error = %q, want nil") : GoString), Go.toInterface({
-						final __self__ = new Time_asInterface(_tt);
-						__self__.add = #if !macro function(_d:Duration):Time return _tt.add(_d) #else null #end;
-						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-								_days:GoInt):Time return _tt.addDate(_years, _months, _days) #else null #end;
-						__self__.after = #if !macro function(__0:Time):Bool return _tt.after(__0) #else null #end;
-						__self__.appendFormat = #if !macro function(_b_:Slice<GoUInt8>,
-								_layout:GoString):Slice<GoUInt8> return _tt.appendFormat(_b_, _layout) #else null #end;
-						__self__.before = #if !macro function(__0:Time):Bool return _tt.before(__0) #else null #end;
-						__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-							return _tt.clock() #else null #end;
-						__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-							return _tt.date() #else null #end;
-						__self__.day = #if !macro function():GoInt return _tt.day() #else null #end;
-						__self__.equal = #if !macro function(__0:Time):Bool return _tt.equal(__0) #else null #end;
-						__self__.format = #if !macro function(__0:GoString):GoString return _tt.format(__0) #else null #end;
-						__self__.goString = #if !macro function():GoString return _tt.goString() #else null #end;
-						__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt.gobDecode(__0) #else null #end;
-						__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _tt.gobEncode() #else null #end;
-						__self__.hour = #if !macro function():GoInt return _tt.hour() #else null #end;
-						__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-							return _tt.isoweek() #else null #end;
-						__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _tt.in_(__0) #else null #end;
-						__self__.isDST = #if !macro function():Bool return _tt.isDST() #else null #end;
-						__self__.isZero = #if !macro function():Bool return _tt.isZero() #else null #end;
-						__self__.local = #if !macro function():Time return _tt.local() #else null #end;
-						__self__.location = #if !macro function():Ref<Location> return _tt.location() #else null #end;
-						__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _tt.marshalBinary() #else null #end;
-						__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _tt.marshalJSON() #else null #end;
-						__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _tt.marshalText() #else null #end;
-						__self__.minute = #if !macro function():GoInt return _tt.minute() #else null #end;
-						__self__.month = #if !macro function():Month return _tt.month() #else null #end;
-						__self__.nanosecond = #if !macro function():GoInt return _tt.nanosecond() #else null #end;
-						__self__.round = #if !macro function(_d:Duration):Time return _tt.round(_d) #else null #end;
-						__self__.second = #if !macro function():GoInt return _tt.second() #else null #end;
-						__self__.string = #if !macro function():GoString return _tt.string() #else null #end;
-						__self__.sub = #if !macro function(__0:Time):Duration return _tt.sub(__0) #else null #end;
-						__self__.truncate = #if !macro function(_d:Duration):Time return _tt.truncate(_d) #else null #end;
-						__self__.utc = #if !macro function():Time return _tt.utc() #else null #end;
-						__self__.unix = #if !macro function():GoInt64 return _tt.unix() #else null #end;
-						__self__.unixMicro = #if !macro function():GoInt64 return _tt.unixMicro() #else null #end;
-						__self__.unixMilli = #if !macro function():GoInt64 return _tt.unixMilli() #else null #end;
-						__self__.unixNano = #if !macro function():GoInt64 return _tt.unixNano() #else null #end;
-						__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt.unmarshalBinary(__0) #else null #end;
-						__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt.unmarshalJSON(__0) #else null #end;
-						__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt.unmarshalText(__0) #else null #end;
-						__self__.weekday = #if !macro function():Weekday return _tt.weekday() #else null #end;
-						__self__.year = #if !macro function():GoInt return _tt.year() #else null #end;
-						__self__.yearDay = #if !macro function():GoInt return _tt.yearDay() #else null #end;
-						__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-							return _tt.zone() #else null #end;
-						__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-							return _tt.zoneBounds() #else null #end;
-						__self__._abs = #if !macro function():GoUInt64 return _tt._abs() #else null #end;
-						__self__._addSec = #if !macro function(_sec:GoInt64):Void _tt._addSec(_sec) #else null #end;
-						__self__._date = #if !macro function(__0:Bool):{
-							var _0:GoInt;
-							var _1:Month;
-							var _2:GoInt;
-							var _3:GoInt;
-						}
-							return _tt._date(__0) #else null #end;
-						__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-							return _tt._locabs() #else null #end;
-						__self__._mono = #if !macro function():GoInt64 return _tt._mono() #else null #end;
-						__self__._nsec = #if !macro function():GoInt32 return _tt._nsec() #else null #end;
-						__self__._sec = #if !macro function():GoInt64 return _tt._sec() #else null #end;
-						__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _tt._setLoc(__0) #else null #end;
-						__self__._setMono = #if !macro function(_sec:GoInt64):Void _tt._setMono(_sec) #else null #end;
-						__self__._stripMono = #if !macro function():Void _tt._stripMono() #else null #end;
-						__self__._unixSec = #if !macro function():GoInt64 return _tt._unixSec() #else null #end;
-						__self__;
-					}), Go.toInterface(_err));
+					_t.errorf((Go.str("%v gob Decode error = %q, want nil") : GoString), Go.toInterface(Go.asInterface(_tt)), Go.toInterface(_err));
 				} else if (!_equalTimeAndZone((_gobtt == null ? null : _gobtt.__copy__()), (_tt == null ? null : _tt.__copy__()))) {
-					_t.errorf((Go.str("Decoded time = %v, want %v") : GoString), Go.toInterface({
-						final __self__ = new Time_asInterface(_gobtt);
-						__self__.add = #if !macro function(_d:Duration):Time return _gobtt.add(_d) #else null #end;
-						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-								_days:GoInt):Time return _gobtt.addDate(_years, _months, _days) #else null #end;
-						__self__.after = #if !macro function(__0:Time):Bool return _gobtt.after(__0) #else null #end;
-						__self__.appendFormat = #if !macro function(_b_:Slice<GoUInt8>,
-								_layout:GoString):Slice<GoUInt8> return _gobtt.appendFormat(_b_, _layout) #else null #end;
-						__self__.before = #if !macro function(__0:Time):Bool return _gobtt.before(__0) #else null #end;
-						__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-							return _gobtt.clock() #else null #end;
-						__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-							return _gobtt.date() #else null #end;
-						__self__.day = #if !macro function():GoInt return _gobtt.day() #else null #end;
-						__self__.equal = #if !macro function(__0:Time):Bool return _gobtt.equal(__0) #else null #end;
-						__self__.format = #if !macro function(__0:GoString):GoString return _gobtt.format(__0) #else null #end;
-						__self__.goString = #if !macro function():GoString return _gobtt.goString() #else null #end;
-						__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _gobtt.gobDecode(__0) #else null #end;
-						__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _gobtt.gobEncode() #else null #end;
-						__self__.hour = #if !macro function():GoInt return _gobtt.hour() #else null #end;
-						__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-							return _gobtt.isoweek() #else null #end;
-						__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _gobtt.in_(__0) #else null #end;
-						__self__.isDST = #if !macro function():Bool return _gobtt.isDST() #else null #end;
-						__self__.isZero = #if !macro function():Bool return _gobtt.isZero() #else null #end;
-						__self__.local = #if !macro function():Time return _gobtt.local() #else null #end;
-						__self__.location = #if !macro function():Ref<Location> return _gobtt.location() #else null #end;
-						__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _gobtt.marshalBinary() #else null #end;
-						__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _gobtt.marshalJSON() #else null #end;
-						__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _gobtt.marshalText() #else null #end;
-						__self__.minute = #if !macro function():GoInt return _gobtt.minute() #else null #end;
-						__self__.month = #if !macro function():Month return _gobtt.month() #else null #end;
-						__self__.nanosecond = #if !macro function():GoInt return _gobtt.nanosecond() #else null #end;
-						__self__.round = #if !macro function(_d:Duration):Time return _gobtt.round(_d) #else null #end;
-						__self__.second = #if !macro function():GoInt return _gobtt.second() #else null #end;
-						__self__.string = #if !macro function():GoString return _gobtt.string() #else null #end;
-						__self__.sub = #if !macro function(__0:Time):Duration return _gobtt.sub(__0) #else null #end;
-						__self__.truncate = #if !macro function(_d:Duration):Time return _gobtt.truncate(_d) #else null #end;
-						__self__.utc = #if !macro function():Time return _gobtt.utc() #else null #end;
-						__self__.unix = #if !macro function():GoInt64 return _gobtt.unix() #else null #end;
-						__self__.unixMicro = #if !macro function():GoInt64 return _gobtt.unixMicro() #else null #end;
-						__self__.unixMilli = #if !macro function():GoInt64 return _gobtt.unixMilli() #else null #end;
-						__self__.unixNano = #if !macro function():GoInt64 return _gobtt.unixNano() #else null #end;
-						__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _gobtt.unmarshalBinary(__0) #else null #end;
-						__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _gobtt.unmarshalJSON(__0) #else null #end;
-						__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _gobtt.unmarshalText(__0) #else null #end;
-						__self__.weekday = #if !macro function():Weekday return _gobtt.weekday() #else null #end;
-						__self__.year = #if !macro function():GoInt return _gobtt.year() #else null #end;
-						__self__.yearDay = #if !macro function():GoInt return _gobtt.yearDay() #else null #end;
-						__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-							return _gobtt.zone() #else null #end;
-						__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-							return _gobtt.zoneBounds() #else null #end;
-						__self__._abs = #if !macro function():GoUInt64 return _gobtt._abs() #else null #end;
-						__self__._addSec = #if !macro function(_sec:GoInt64):Void _gobtt._addSec(_sec) #else null #end;
-						__self__._date = #if !macro function(__0:Bool):{
-							var _0:GoInt;
-							var _1:Month;
-							var _2:GoInt;
-							var _3:GoInt;
-						}
-							return _gobtt._date(__0) #else null #end;
-						__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-							return _gobtt._locabs() #else null #end;
-						__self__._mono = #if !macro function():GoInt64 return _gobtt._mono() #else null #end;
-						__self__._nsec = #if !macro function():GoInt32 return _gobtt._nsec() #else null #end;
-						__self__._sec = #if !macro function():GoInt64 return _gobtt._sec() #else null #end;
-						__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _gobtt._setLoc(__0) #else null #end;
-						__self__._setMono = #if !macro function(_sec:GoInt64):Void _gobtt._setMono(_sec) #else null #end;
-						__self__._stripMono = #if !macro function():Void _gobtt._stripMono() #else null #end;
-						__self__._unixSec = #if !macro function():GoInt64 return _gobtt._unixSec() #else null #end;
-						__self__;
-					}), Go.toInterface({
-						final __self__ = new Time_asInterface(_tt);
-						__self__.add = #if !macro function(_d:Duration):Time return _tt.add(_d) #else null #end;
-						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-								_days:GoInt):Time return _tt.addDate(_years, _months, _days) #else null #end;
-						__self__.after = #if !macro function(__0:Time):Bool return _tt.after(__0) #else null #end;
-						__self__.appendFormat = #if !macro function(_b_:Slice<GoUInt8>,
-								_layout:GoString):Slice<GoUInt8> return _tt.appendFormat(_b_, _layout) #else null #end;
-						__self__.before = #if !macro function(__0:Time):Bool return _tt.before(__0) #else null #end;
-						__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-							return _tt.clock() #else null #end;
-						__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-							return _tt.date() #else null #end;
-						__self__.day = #if !macro function():GoInt return _tt.day() #else null #end;
-						__self__.equal = #if !macro function(__0:Time):Bool return _tt.equal(__0) #else null #end;
-						__self__.format = #if !macro function(__0:GoString):GoString return _tt.format(__0) #else null #end;
-						__self__.goString = #if !macro function():GoString return _tt.goString() #else null #end;
-						__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt.gobDecode(__0) #else null #end;
-						__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _tt.gobEncode() #else null #end;
-						__self__.hour = #if !macro function():GoInt return _tt.hour() #else null #end;
-						__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-							return _tt.isoweek() #else null #end;
-						__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _tt.in_(__0) #else null #end;
-						__self__.isDST = #if !macro function():Bool return _tt.isDST() #else null #end;
-						__self__.isZero = #if !macro function():Bool return _tt.isZero() #else null #end;
-						__self__.local = #if !macro function():Time return _tt.local() #else null #end;
-						__self__.location = #if !macro function():Ref<Location> return _tt.location() #else null #end;
-						__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _tt.marshalBinary() #else null #end;
-						__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _tt.marshalJSON() #else null #end;
-						__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _tt.marshalText() #else null #end;
-						__self__.minute = #if !macro function():GoInt return _tt.minute() #else null #end;
-						__self__.month = #if !macro function():Month return _tt.month() #else null #end;
-						__self__.nanosecond = #if !macro function():GoInt return _tt.nanosecond() #else null #end;
-						__self__.round = #if !macro function(_d:Duration):Time return _tt.round(_d) #else null #end;
-						__self__.second = #if !macro function():GoInt return _tt.second() #else null #end;
-						__self__.string = #if !macro function():GoString return _tt.string() #else null #end;
-						__self__.sub = #if !macro function(__0:Time):Duration return _tt.sub(__0) #else null #end;
-						__self__.truncate = #if !macro function(_d:Duration):Time return _tt.truncate(_d) #else null #end;
-						__self__.utc = #if !macro function():Time return _tt.utc() #else null #end;
-						__self__.unix = #if !macro function():GoInt64 return _tt.unix() #else null #end;
-						__self__.unixMicro = #if !macro function():GoInt64 return _tt.unixMicro() #else null #end;
-						__self__.unixMilli = #if !macro function():GoInt64 return _tt.unixMilli() #else null #end;
-						__self__.unixNano = #if !macro function():GoInt64 return _tt.unixNano() #else null #end;
-						__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt.unmarshalBinary(__0) #else null #end;
-						__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt.unmarshalJSON(__0) #else null #end;
-						__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt.unmarshalText(__0) #else null #end;
-						__self__.weekday = #if !macro function():Weekday return _tt.weekday() #else null #end;
-						__self__.year = #if !macro function():GoInt return _tt.year() #else null #end;
-						__self__.yearDay = #if !macro function():GoInt return _tt.yearDay() #else null #end;
-						__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-							return _tt.zone() #else null #end;
-						__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-							return _tt.zoneBounds() #else null #end;
-						__self__._abs = #if !macro function():GoUInt64 return _tt._abs() #else null #end;
-						__self__._addSec = #if !macro function(_sec:GoInt64):Void _tt._addSec(_sec) #else null #end;
-						__self__._date = #if !macro function(__0:Bool):{
-							var _0:GoInt;
-							var _1:Month;
-							var _2:GoInt;
-							var _3:GoInt;
-						}
-							return _tt._date(__0) #else null #end;
-						__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-							return _tt._locabs() #else null #end;
-						__self__._mono = #if !macro function():GoInt64 return _tt._mono() #else null #end;
-						__self__._nsec = #if !macro function():GoInt32 return _tt._nsec() #else null #end;
-						__self__._sec = #if !macro function():GoInt64 return _tt._sec() #else null #end;
-						__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _tt._setLoc(__0) #else null #end;
-						__self__._setMono = #if !macro function(_sec:GoInt64):Void _tt._setMono(_sec) #else null #end;
-						__self__._stripMono = #if !macro function():Void _tt._stripMono() #else null #end;
-						__self__._unixSec = #if !macro function():GoInt64 return _tt._unixSec() #else null #end;
-						__self__;
-					}));
+					_t.errorf((Go.str("Decoded time = %v, want %v") : GoString), Go.toInterface(Go.asInterface(_gobtt)), Go.toInterface(Go.asInterface(_tt)));
 				};
 			};
 		};
@@ -9073,166 +5310,16 @@ function testNotGobEncodableTime(_t:stdgo.testing.Testing.T):Void {
 			_1:Slice<GoUInt8> = __tmp__._0,
 			_err:stdgo.Error = __tmp__._1;
 		if ((_err == null) || (_err.error() != _tt._want)) {
-			_t.errorf((Go.str("%v GobEncode error = %v, want %v") : GoString), Go.toInterface({
-				final __self__ = new Time_asInterface(_tt._time);
-				__self__.add = #if !macro function(_d:Duration):Time return _tt._time.add(_d) #else null #end;
-				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-						_days:GoInt):Time return _tt._time.addDate(_years, _months, _days) #else null #end;
-				__self__.after = #if !macro function(__0:Time):Bool return _tt._time.after(__0) #else null #end;
-				__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-						_layout:GoString):Slice<GoUInt8> return _tt._time.appendFormat(_b, _layout) #else null #end;
-				__self__.before = #if !macro function(__0:Time):Bool return _tt._time.before(__0) #else null #end;
-				__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-					return _tt._time.clock() #else null #end;
-				__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-					return _tt._time.date() #else null #end;
-				__self__.day = #if !macro function():GoInt return _tt._time.day() #else null #end;
-				__self__.equal = #if !macro function(__0:Time):Bool return _tt._time.equal(__0) #else null #end;
-				__self__.format = #if !macro function(__0:GoString):GoString return _tt._time.format(__0) #else null #end;
-				__self__.goString = #if !macro function():GoString return _tt._time.goString() #else null #end;
-				__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.gobDecode(__0) #else null #end;
-				__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _tt._time.gobEncode() #else null #end;
-				__self__.hour = #if !macro function():GoInt return _tt._time.hour() #else null #end;
-				__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-					return _tt._time.isoweek() #else null #end;
-				__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _tt._time.in_(__0) #else null #end;
-				__self__.isDST = #if !macro function():Bool return _tt._time.isDST() #else null #end;
-				__self__.isZero = #if !macro function():Bool return _tt._time.isZero() #else null #end;
-				__self__.local = #if !macro function():Time return _tt._time.local() #else null #end;
-				__self__.location = #if !macro function():Ref<Location> return _tt._time.location() #else null #end;
-				__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _tt._time.marshalBinary() #else null #end;
-				__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _tt._time.marshalJSON() #else null #end;
-				__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _tt._time.marshalText() #else null #end;
-				__self__.minute = #if !macro function():GoInt return _tt._time.minute() #else null #end;
-				__self__.month = #if !macro function():Month return _tt._time.month() #else null #end;
-				__self__.nanosecond = #if !macro function():GoInt return _tt._time.nanosecond() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Time return _tt._time.round(_d) #else null #end;
-				__self__.second = #if !macro function():GoInt return _tt._time.second() #else null #end;
-				__self__.string = #if !macro function():GoString return _tt._time.string() #else null #end;
-				__self__.sub = #if !macro function(__0:Time):Duration return _tt._time.sub(__0) #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Time return _tt._time.truncate(_d) #else null #end;
-				__self__.utc = #if !macro function():Time return _tt._time.utc() #else null #end;
-				__self__.unix = #if !macro function():GoInt64 return _tt._time.unix() #else null #end;
-				__self__.unixMicro = #if !macro function():GoInt64 return _tt._time.unixMicro() #else null #end;
-				__self__.unixMilli = #if !macro function():GoInt64 return _tt._time.unixMilli() #else null #end;
-				__self__.unixNano = #if !macro function():GoInt64 return _tt._time.unixNano() #else null #end;
-				__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.unmarshalBinary(__0) #else null #end;
-				__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.unmarshalJSON(__0) #else null #end;
-				__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.unmarshalText(__0) #else null #end;
-				__self__.weekday = #if !macro function():Weekday return _tt._time.weekday() #else null #end;
-				__self__.year = #if !macro function():GoInt return _tt._time.year() #else null #end;
-				__self__.yearDay = #if !macro function():GoInt return _tt._time.yearDay() #else null #end;
-				__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-					return _tt._time.zone() #else null #end;
-				__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-					return _tt._time.zoneBounds() #else null #end;
-				__self__._abs = #if !macro function():GoUInt64 return _tt._time._abs() #else null #end;
-				__self__._addSec = #if !macro function(_sec:GoInt64):Void _tt._time._addSec(_sec) #else null #end;
-				__self__._date = #if !macro function(__0:Bool):{
-					var _0:GoInt;
-					var _1:Month;
-					var _2:GoInt;
-					var _3:GoInt;
-				}
-					return _tt._time._date(__0) #else null #end;
-				__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-					return _tt._time._locabs() #else null #end;
-				__self__._mono = #if !macro function():GoInt64 return _tt._time._mono() #else null #end;
-				__self__._nsec = #if !macro function():GoInt32 return _tt._time._nsec() #else null #end;
-				__self__._sec = #if !macro function():GoInt64 return _tt._time._sec() #else null #end;
-				__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _tt._time._setLoc(__0) #else null #end;
-				__self__._setMono = #if !macro function(_sec:GoInt64):Void _tt._time._setMono(_sec) #else null #end;
-				__self__._stripMono = #if !macro function():Void _tt._time._stripMono() #else null #end;
-				__self__._unixSec = #if !macro function():GoInt64 return _tt._time._unixSec() #else null #end;
-				__self__;
-			}), Go.toInterface(_err), Go.toInterface(_tt._want));
+			_t.errorf((Go.str("%v GobEncode error = %v, want %v") : GoString), Go.toInterface(Go.asInterface(_tt._time)), Go.toInterface(_err),
+				Go.toInterface(_tt._want));
 		};
 		{
 			var __tmp__ = _tt._time.marshalBinary();
 			_err = __tmp__._1;
 		};
 		if ((_err == null) || (_err.error() != _tt._want)) {
-			_t.errorf((Go.str("%v MarshalBinary error = %v, want %v") : GoString), Go.toInterface({
-				final __self__ = new Time_asInterface(_tt._time);
-				__self__.add = #if !macro function(_d:Duration):Time return _tt._time.add(_d) #else null #end;
-				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-						_days:GoInt):Time return _tt._time.addDate(_years, _months, _days) #else null #end;
-				__self__.after = #if !macro function(__0:Time):Bool return _tt._time.after(__0) #else null #end;
-				__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-						_layout:GoString):Slice<GoUInt8> return _tt._time.appendFormat(_b, _layout) #else null #end;
-				__self__.before = #if !macro function(__0:Time):Bool return _tt._time.before(__0) #else null #end;
-				__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-					return _tt._time.clock() #else null #end;
-				__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-					return _tt._time.date() #else null #end;
-				__self__.day = #if !macro function():GoInt return _tt._time.day() #else null #end;
-				__self__.equal = #if !macro function(__0:Time):Bool return _tt._time.equal(__0) #else null #end;
-				__self__.format = #if !macro function(__0:GoString):GoString return _tt._time.format(__0) #else null #end;
-				__self__.goString = #if !macro function():GoString return _tt._time.goString() #else null #end;
-				__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.gobDecode(__0) #else null #end;
-				__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _tt._time.gobEncode() #else null #end;
-				__self__.hour = #if !macro function():GoInt return _tt._time.hour() #else null #end;
-				__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-					return _tt._time.isoweek() #else null #end;
-				__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _tt._time.in_(__0) #else null #end;
-				__self__.isDST = #if !macro function():Bool return _tt._time.isDST() #else null #end;
-				__self__.isZero = #if !macro function():Bool return _tt._time.isZero() #else null #end;
-				__self__.local = #if !macro function():Time return _tt._time.local() #else null #end;
-				__self__.location = #if !macro function():Ref<Location> return _tt._time.location() #else null #end;
-				__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _tt._time.marshalBinary() #else null #end;
-				__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _tt._time.marshalJSON() #else null #end;
-				__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _tt._time.marshalText() #else null #end;
-				__self__.minute = #if !macro function():GoInt return _tt._time.minute() #else null #end;
-				__self__.month = #if !macro function():Month return _tt._time.month() #else null #end;
-				__self__.nanosecond = #if !macro function():GoInt return _tt._time.nanosecond() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Time return _tt._time.round(_d) #else null #end;
-				__self__.second = #if !macro function():GoInt return _tt._time.second() #else null #end;
-				__self__.string = #if !macro function():GoString return _tt._time.string() #else null #end;
-				__self__.sub = #if !macro function(__0:Time):Duration return _tt._time.sub(__0) #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Time return _tt._time.truncate(_d) #else null #end;
-				__self__.utc = #if !macro function():Time return _tt._time.utc() #else null #end;
-				__self__.unix = #if !macro function():GoInt64 return _tt._time.unix() #else null #end;
-				__self__.unixMicro = #if !macro function():GoInt64 return _tt._time.unixMicro() #else null #end;
-				__self__.unixMilli = #if !macro function():GoInt64 return _tt._time.unixMilli() #else null #end;
-				__self__.unixNano = #if !macro function():GoInt64 return _tt._time.unixNano() #else null #end;
-				__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.unmarshalBinary(__0) #else null #end;
-				__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.unmarshalJSON(__0) #else null #end;
-				__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.unmarshalText(__0) #else null #end;
-				__self__.weekday = #if !macro function():Weekday return _tt._time.weekday() #else null #end;
-				__self__.year = #if !macro function():GoInt return _tt._time.year() #else null #end;
-				__self__.yearDay = #if !macro function():GoInt return _tt._time.yearDay() #else null #end;
-				__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-					return _tt._time.zone() #else null #end;
-				__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-					return _tt._time.zoneBounds() #else null #end;
-				__self__._abs = #if !macro function():GoUInt64 return _tt._time._abs() #else null #end;
-				__self__._addSec = #if !macro function(_sec:GoInt64):Void _tt._time._addSec(_sec) #else null #end;
-				__self__._date = #if !macro function(__0:Bool):{
-					var _0:GoInt;
-					var _1:Month;
-					var _2:GoInt;
-					var _3:GoInt;
-				}
-					return _tt._time._date(__0) #else null #end;
-				__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-					return _tt._time._locabs() #else null #end;
-				__self__._mono = #if !macro function():GoInt64 return _tt._time._mono() #else null #end;
-				__self__._nsec = #if !macro function():GoInt32 return _tt._time._nsec() #else null #end;
-				__self__._sec = #if !macro function():GoInt64 return _tt._time._sec() #else null #end;
-				__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _tt._time._setLoc(__0) #else null #end;
-				__self__._setMono = #if !macro function(_sec:GoInt64):Void _tt._time._setMono(_sec) #else null #end;
-				__self__._stripMono = #if !macro function():Void _tt._time._stripMono() #else null #end;
-				__self__._unixSec = #if !macro function():GoInt64 return _tt._time._unixSec() #else null #end;
-				__self__;
-			}), Go.toInterface(_err), Go.toInterface(_tt._want));
+			_t.errorf((Go.str("%v MarshalBinary error = %v, want %v") : GoString), Go.toInterface(Go.asInterface(_tt._time)), Go.toInterface(_err),
+				Go.toInterface(_tt._want));
 		};
 	};
 }
@@ -9241,473 +5328,21 @@ function testTimeJSON(_t:stdgo.testing.Testing.T):Void {
 	for (_0 => _tt in _jsonTests) {
 		var _jsonTime:Time = ({} : Time);
 		{
-			var __tmp__ = stdgo.encoding.json.Json.marshal(Go.toInterface({
-				final __self__ = new Time_asInterface(_tt._time);
-				__self__.add = #if !macro function(_d:Duration):Time return _tt._time.add(_d) #else null #end;
-				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-						_days:GoInt):Time return _tt._time.addDate(_years, _months, _days) #else null #end;
-				__self__.after = #if !macro function(__0:Time):Bool return _tt._time.after(__0) #else null #end;
-				__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-						_layout:GoString):Slice<GoUInt8> return _tt._time.appendFormat(_b, _layout) #else null #end;
-				__self__.before = #if !macro function(__0:Time):Bool return _tt._time.before(__0) #else null #end;
-				__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-					return _tt._time.clock() #else null #end;
-				__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-					return _tt._time.date() #else null #end;
-				__self__.day = #if !macro function():GoInt return _tt._time.day() #else null #end;
-				__self__.equal = #if !macro function(__0:Time):Bool return _tt._time.equal(__0) #else null #end;
-				__self__.format = #if !macro function(__0:GoString):GoString return _tt._time.format(__0) #else null #end;
-				__self__.goString = #if !macro function():GoString return _tt._time.goString() #else null #end;
-				__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.gobDecode(__0) #else null #end;
-				__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _tt._time.gobEncode() #else null #end;
-				__self__.hour = #if !macro function():GoInt return _tt._time.hour() #else null #end;
-				__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-					return _tt._time.isoweek() #else null #end;
-				__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _tt._time.in_(__0) #else null #end;
-				__self__.isDST = #if !macro function():Bool return _tt._time.isDST() #else null #end;
-				__self__.isZero = #if !macro function():Bool return _tt._time.isZero() #else null #end;
-				__self__.local = #if !macro function():Time return _tt._time.local() #else null #end;
-				__self__.location = #if !macro function():Ref<Location> return _tt._time.location() #else null #end;
-				__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _tt._time.marshalBinary() #else null #end;
-				__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _tt._time.marshalJSON() #else null #end;
-				__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _tt._time.marshalText() #else null #end;
-				__self__.minute = #if !macro function():GoInt return _tt._time.minute() #else null #end;
-				__self__.month = #if !macro function():Month return _tt._time.month() #else null #end;
-				__self__.nanosecond = #if !macro function():GoInt return _tt._time.nanosecond() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Time return _tt._time.round(_d) #else null #end;
-				__self__.second = #if !macro function():GoInt return _tt._time.second() #else null #end;
-				__self__.string = #if !macro function():GoString return _tt._time.string() #else null #end;
-				__self__.sub = #if !macro function(__0:Time):Duration return _tt._time.sub(__0) #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Time return _tt._time.truncate(_d) #else null #end;
-				__self__.utc = #if !macro function():Time return _tt._time.utc() #else null #end;
-				__self__.unix = #if !macro function():GoInt64 return _tt._time.unix() #else null #end;
-				__self__.unixMicro = #if !macro function():GoInt64 return _tt._time.unixMicro() #else null #end;
-				__self__.unixMilli = #if !macro function():GoInt64 return _tt._time.unixMilli() #else null #end;
-				__self__.unixNano = #if !macro function():GoInt64 return _tt._time.unixNano() #else null #end;
-				__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.unmarshalBinary(__0) #else null #end;
-				__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.unmarshalJSON(__0) #else null #end;
-				__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.unmarshalText(__0) #else null #end;
-				__self__.weekday = #if !macro function():Weekday return _tt._time.weekday() #else null #end;
-				__self__.year = #if !macro function():GoInt return _tt._time.year() #else null #end;
-				__self__.yearDay = #if !macro function():GoInt return _tt._time.yearDay() #else null #end;
-				__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-					return _tt._time.zone() #else null #end;
-				__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-					return _tt._time.zoneBounds() #else null #end;
-				__self__._abs = #if !macro function():GoUInt64 return _tt._time._abs() #else null #end;
-				__self__._addSec = #if !macro function(_sec:GoInt64):Void _tt._time._addSec(_sec) #else null #end;
-				__self__._date = #if !macro function(__0:Bool):{
-					var _0:GoInt;
-					var _1:Month;
-					var _2:GoInt;
-					var _3:GoInt;
-				}
-					return _tt._time._date(__0) #else null #end;
-				__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-					return _tt._time._locabs() #else null #end;
-				__self__._mono = #if !macro function():GoInt64 return _tt._time._mono() #else null #end;
-				__self__._nsec = #if !macro function():GoInt32 return _tt._time._nsec() #else null #end;
-				__self__._sec = #if !macro function():GoInt64 return _tt._time._sec() #else null #end;
-				__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _tt._time._setLoc(__0) #else null #end;
-				__self__._setMono = #if !macro function(_sec:GoInt64):Void _tt._time._setMono(_sec) #else null #end;
-				__self__._stripMono = #if !macro function():Void _tt._time._stripMono() #else null #end;
-				__self__._unixSec = #if !macro function():GoInt64 return _tt._time._unixSec() #else null #end;
-				__self__;
-			})), _jsonBytes:Slice<GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+			var __tmp__ = stdgo.encoding.json.Json.marshal(Go.toInterface(Go.asInterface(_tt._time))),
+				_jsonBytes:Slice<GoUInt8> = __tmp__._0,
+				_err:stdgo.Error = __tmp__._1;
 			if (_err != null) {
-				_t.errorf((Go.str("%v json.Marshal error = %v, want nil") : GoString), Go.toInterface({
-					final __self__ = new Time_asInterface(_tt._time);
-					__self__.add = #if !macro function(_d:Duration):Time return _tt._time.add(_d) #else null #end;
-					__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-							_days:GoInt):Time return _tt._time.addDate(_years, _months, _days) #else null #end;
-					__self__.after = #if !macro function(__0:Time):Bool return _tt._time.after(__0) #else null #end;
-					__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-							_layout:GoString):Slice<GoUInt8> return _tt._time.appendFormat(_b, _layout) #else null #end;
-					__self__.before = #if !macro function(__0:Time):Bool return _tt._time.before(__0) #else null #end;
-					__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-						return _tt._time.clock() #else null #end;
-					__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-						return _tt._time.date() #else null #end;
-					__self__.day = #if !macro function():GoInt return _tt._time.day() #else null #end;
-					__self__.equal = #if !macro function(__0:Time):Bool return _tt._time.equal(__0) #else null #end;
-					__self__.format = #if !macro function(__0:GoString):GoString return _tt._time.format(__0) #else null #end;
-					__self__.goString = #if !macro function():GoString return _tt._time.goString() #else null #end;
-					__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.gobDecode(__0) #else null #end;
-					__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _tt._time.gobEncode() #else null #end;
-					__self__.hour = #if !macro function():GoInt return _tt._time.hour() #else null #end;
-					__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-						return _tt._time.isoweek() #else null #end;
-					__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _tt._time.in_(__0) #else null #end;
-					__self__.isDST = #if !macro function():Bool return _tt._time.isDST() #else null #end;
-					__self__.isZero = #if !macro function():Bool return _tt._time.isZero() #else null #end;
-					__self__.local = #if !macro function():Time return _tt._time.local() #else null #end;
-					__self__.location = #if !macro function():Ref<Location> return _tt._time.location() #else null #end;
-					__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _tt._time.marshalBinary() #else null #end;
-					__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _tt._time.marshalJSON() #else null #end;
-					__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _tt._time.marshalText() #else null #end;
-					__self__.minute = #if !macro function():GoInt return _tt._time.minute() #else null #end;
-					__self__.month = #if !macro function():Month return _tt._time.month() #else null #end;
-					__self__.nanosecond = #if !macro function():GoInt return _tt._time.nanosecond() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Time return _tt._time.round(_d) #else null #end;
-					__self__.second = #if !macro function():GoInt return _tt._time.second() #else null #end;
-					__self__.string = #if !macro function():GoString return _tt._time.string() #else null #end;
-					__self__.sub = #if !macro function(__0:Time):Duration return _tt._time.sub(__0) #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Time return _tt._time.truncate(_d) #else null #end;
-					__self__.utc = #if !macro function():Time return _tt._time.utc() #else null #end;
-					__self__.unix = #if !macro function():GoInt64 return _tt._time.unix() #else null #end;
-					__self__.unixMicro = #if !macro function():GoInt64 return _tt._time.unixMicro() #else null #end;
-					__self__.unixMilli = #if !macro function():GoInt64 return _tt._time.unixMilli() #else null #end;
-					__self__.unixNano = #if !macro function():GoInt64 return _tt._time.unixNano() #else null #end;
-					__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.unmarshalBinary(__0) #else null #end;
-					__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.unmarshalJSON(__0) #else null #end;
-					__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.unmarshalText(__0) #else null #end;
-					__self__.weekday = #if !macro function():Weekday return _tt._time.weekday() #else null #end;
-					__self__.year = #if !macro function():GoInt return _tt._time.year() #else null #end;
-					__self__.yearDay = #if !macro function():GoInt return _tt._time.yearDay() #else null #end;
-					__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-						return _tt._time.zone() #else null #end;
-					__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-						return _tt._time.zoneBounds() #else null #end;
-					__self__._abs = #if !macro function():GoUInt64 return _tt._time._abs() #else null #end;
-					__self__._addSec = #if !macro function(_sec:GoInt64):Void _tt._time._addSec(_sec) #else null #end;
-					__self__._date = #if !macro function(__0:Bool):{
-						var _0:GoInt;
-						var _1:Month;
-						var _2:GoInt;
-						var _3:GoInt;
-					}
-						return _tt._time._date(__0) #else null #end;
-					__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-						return _tt._time._locabs() #else null #end;
-					__self__._mono = #if !macro function():GoInt64 return _tt._time._mono() #else null #end;
-					__self__._nsec = #if !macro function():GoInt32 return _tt._time._nsec() #else null #end;
-					__self__._sec = #if !macro function():GoInt64 return _tt._time._sec() #else null #end;
-					__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _tt._time._setLoc(__0) #else null #end;
-					__self__._setMono = #if !macro function(_sec:GoInt64):Void _tt._time._setMono(_sec) #else null #end;
-					__self__._stripMono = #if !macro function():Void _tt._time._stripMono() #else null #end;
-					__self__._unixSec = #if !macro function():GoInt64 return _tt._time._unixSec() #else null #end;
-					__self__;
-				}), Go.toInterface(_err));
+				_t.errorf((Go.str("%v json.Marshal error = %v, want nil") : GoString), Go.toInterface(Go.asInterface(_tt._time)), Go.toInterface(_err));
 			} else if ((_jsonBytes : GoString) != _tt._json) {
-				_t.errorf((Go.str("%v JSON = %#q, want %#q") : GoString), Go.toInterface({
-					final __self__ = new Time_asInterface(_tt._time);
-					__self__.add = #if !macro function(_d:Duration):Time return _tt._time.add(_d) #else null #end;
-					__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-							_days:GoInt):Time return _tt._time.addDate(_years, _months, _days) #else null #end;
-					__self__.after = #if !macro function(__0:Time):Bool return _tt._time.after(__0) #else null #end;
-					__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-							_layout:GoString):Slice<GoUInt8> return _tt._time.appendFormat(_b, _layout) #else null #end;
-					__self__.before = #if !macro function(__0:Time):Bool return _tt._time.before(__0) #else null #end;
-					__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-						return _tt._time.clock() #else null #end;
-					__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-						return _tt._time.date() #else null #end;
-					__self__.day = #if !macro function():GoInt return _tt._time.day() #else null #end;
-					__self__.equal = #if !macro function(__0:Time):Bool return _tt._time.equal(__0) #else null #end;
-					__self__.format = #if !macro function(__0:GoString):GoString return _tt._time.format(__0) #else null #end;
-					__self__.goString = #if !macro function():GoString return _tt._time.goString() #else null #end;
-					__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.gobDecode(__0) #else null #end;
-					__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _tt._time.gobEncode() #else null #end;
-					__self__.hour = #if !macro function():GoInt return _tt._time.hour() #else null #end;
-					__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-						return _tt._time.isoweek() #else null #end;
-					__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _tt._time.in_(__0) #else null #end;
-					__self__.isDST = #if !macro function():Bool return _tt._time.isDST() #else null #end;
-					__self__.isZero = #if !macro function():Bool return _tt._time.isZero() #else null #end;
-					__self__.local = #if !macro function():Time return _tt._time.local() #else null #end;
-					__self__.location = #if !macro function():Ref<Location> return _tt._time.location() #else null #end;
-					__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _tt._time.marshalBinary() #else null #end;
-					__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _tt._time.marshalJSON() #else null #end;
-					__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _tt._time.marshalText() #else null #end;
-					__self__.minute = #if !macro function():GoInt return _tt._time.minute() #else null #end;
-					__self__.month = #if !macro function():Month return _tt._time.month() #else null #end;
-					__self__.nanosecond = #if !macro function():GoInt return _tt._time.nanosecond() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Time return _tt._time.round(_d) #else null #end;
-					__self__.second = #if !macro function():GoInt return _tt._time.second() #else null #end;
-					__self__.string = #if !macro function():GoString return _tt._time.string() #else null #end;
-					__self__.sub = #if !macro function(__0:Time):Duration return _tt._time.sub(__0) #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Time return _tt._time.truncate(_d) #else null #end;
-					__self__.utc = #if !macro function():Time return _tt._time.utc() #else null #end;
-					__self__.unix = #if !macro function():GoInt64 return _tt._time.unix() #else null #end;
-					__self__.unixMicro = #if !macro function():GoInt64 return _tt._time.unixMicro() #else null #end;
-					__self__.unixMilli = #if !macro function():GoInt64 return _tt._time.unixMilli() #else null #end;
-					__self__.unixNano = #if !macro function():GoInt64 return _tt._time.unixNano() #else null #end;
-					__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.unmarshalBinary(__0) #else null #end;
-					__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.unmarshalJSON(__0) #else null #end;
-					__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.unmarshalText(__0) #else null #end;
-					__self__.weekday = #if !macro function():Weekday return _tt._time.weekday() #else null #end;
-					__self__.year = #if !macro function():GoInt return _tt._time.year() #else null #end;
-					__self__.yearDay = #if !macro function():GoInt return _tt._time.yearDay() #else null #end;
-					__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-						return _tt._time.zone() #else null #end;
-					__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-						return _tt._time.zoneBounds() #else null #end;
-					__self__._abs = #if !macro function():GoUInt64 return _tt._time._abs() #else null #end;
-					__self__._addSec = #if !macro function(_sec:GoInt64):Void _tt._time._addSec(_sec) #else null #end;
-					__self__._date = #if !macro function(__0:Bool):{
-						var _0:GoInt;
-						var _1:Month;
-						var _2:GoInt;
-						var _3:GoInt;
-					}
-						return _tt._time._date(__0) #else null #end;
-					__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-						return _tt._time._locabs() #else null #end;
-					__self__._mono = #if !macro function():GoInt64 return _tt._time._mono() #else null #end;
-					__self__._nsec = #if !macro function():GoInt32 return _tt._time._nsec() #else null #end;
-					__self__._sec = #if !macro function():GoInt64 return _tt._time._sec() #else null #end;
-					__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _tt._time._setLoc(__0) #else null #end;
-					__self__._setMono = #if !macro function(_sec:GoInt64):Void _tt._time._setMono(_sec) #else null #end;
-					__self__._stripMono = #if !macro function():Void _tt._time._stripMono() #else null #end;
-					__self__._unixSec = #if !macro function():GoInt64 return _tt._time._unixSec() #else null #end;
-					__self__;
-				}), Go.toInterface((_jsonBytes : GoString)), Go.toInterface(_tt._json));
+				_t.errorf((Go.str("%v JSON = %#q, want %#q") : GoString), Go.toInterface(Go.asInterface(_tt._time)), Go.toInterface((_jsonBytes : GoString)),
+					Go.toInterface(_tt._json));
 			} else {
 				_err = stdgo.encoding.json.Json.unmarshal(_jsonBytes, Go.toInterface(_jsonTime));
 				if (_err != null) {
-					_t.errorf((Go.str("%v json.Unmarshal error = %v, want nil") : GoString), Go.toInterface({
-						final __self__ = new Time_asInterface(_tt._time);
-						__self__.add = #if !macro function(_d:Duration):Time return _tt._time.add(_d) #else null #end;
-						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-								_days:GoInt):Time return _tt._time.addDate(_years, _months, _days) #else null #end;
-						__self__.after = #if !macro function(__0:Time):Bool return _tt._time.after(__0) #else null #end;
-						__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-								_layout:GoString):Slice<GoUInt8> return _tt._time.appendFormat(_b, _layout) #else null #end;
-						__self__.before = #if !macro function(__0:Time):Bool return _tt._time.before(__0) #else null #end;
-						__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-							return _tt._time.clock() #else null #end;
-						__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-							return _tt._time.date() #else null #end;
-						__self__.day = #if !macro function():GoInt return _tt._time.day() #else null #end;
-						__self__.equal = #if !macro function(__0:Time):Bool return _tt._time.equal(__0) #else null #end;
-						__self__.format = #if !macro function(__0:GoString):GoString return _tt._time.format(__0) #else null #end;
-						__self__.goString = #if !macro function():GoString return _tt._time.goString() #else null #end;
-						__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.gobDecode(__0) #else null #end;
-						__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _tt._time.gobEncode() #else null #end;
-						__self__.hour = #if !macro function():GoInt return _tt._time.hour() #else null #end;
-						__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-							return _tt._time.isoweek() #else null #end;
-						__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _tt._time.in_(__0) #else null #end;
-						__self__.isDST = #if !macro function():Bool return _tt._time.isDST() #else null #end;
-						__self__.isZero = #if !macro function():Bool return _tt._time.isZero() #else null #end;
-						__self__.local = #if !macro function():Time return _tt._time.local() #else null #end;
-						__self__.location = #if !macro function():Ref<Location> return _tt._time.location() #else null #end;
-						__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _tt._time.marshalBinary() #else null #end;
-						__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _tt._time.marshalJSON() #else null #end;
-						__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _tt._time.marshalText() #else null #end;
-						__self__.minute = #if !macro function():GoInt return _tt._time.minute() #else null #end;
-						__self__.month = #if !macro function():Month return _tt._time.month() #else null #end;
-						__self__.nanosecond = #if !macro function():GoInt return _tt._time.nanosecond() #else null #end;
-						__self__.round = #if !macro function(_d:Duration):Time return _tt._time.round(_d) #else null #end;
-						__self__.second = #if !macro function():GoInt return _tt._time.second() #else null #end;
-						__self__.string = #if !macro function():GoString return _tt._time.string() #else null #end;
-						__self__.sub = #if !macro function(__0:Time):Duration return _tt._time.sub(__0) #else null #end;
-						__self__.truncate = #if !macro function(_d:Duration):Time return _tt._time.truncate(_d) #else null #end;
-						__self__.utc = #if !macro function():Time return _tt._time.utc() #else null #end;
-						__self__.unix = #if !macro function():GoInt64 return _tt._time.unix() #else null #end;
-						__self__.unixMicro = #if !macro function():GoInt64 return _tt._time.unixMicro() #else null #end;
-						__self__.unixMilli = #if !macro function():GoInt64 return _tt._time.unixMilli() #else null #end;
-						__self__.unixNano = #if !macro function():GoInt64 return _tt._time.unixNano() #else null #end;
-						__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.unmarshalBinary(__0) #else null #end;
-						__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.unmarshalJSON(__0) #else null #end;
-						__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.unmarshalText(__0) #else null #end;
-						__self__.weekday = #if !macro function():Weekday return _tt._time.weekday() #else null #end;
-						__self__.year = #if !macro function():GoInt return _tt._time.year() #else null #end;
-						__self__.yearDay = #if !macro function():GoInt return _tt._time.yearDay() #else null #end;
-						__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-							return _tt._time.zone() #else null #end;
-						__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-							return _tt._time.zoneBounds() #else null #end;
-						__self__._abs = #if !macro function():GoUInt64 return _tt._time._abs() #else null #end;
-						__self__._addSec = #if !macro function(_sec:GoInt64):Void _tt._time._addSec(_sec) #else null #end;
-						__self__._date = #if !macro function(__0:Bool):{
-							var _0:GoInt;
-							var _1:Month;
-							var _2:GoInt;
-							var _3:GoInt;
-						}
-							return _tt._time._date(__0) #else null #end;
-						__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-							return _tt._time._locabs() #else null #end;
-						__self__._mono = #if !macro function():GoInt64 return _tt._time._mono() #else null #end;
-						__self__._nsec = #if !macro function():GoInt32 return _tt._time._nsec() #else null #end;
-						__self__._sec = #if !macro function():GoInt64 return _tt._time._sec() #else null #end;
-						__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _tt._time._setLoc(__0) #else null #end;
-						__self__._setMono = #if !macro function(_sec:GoInt64):Void _tt._time._setMono(_sec) #else null #end;
-						__self__._stripMono = #if !macro function():Void _tt._time._stripMono() #else null #end;
-						__self__._unixSec = #if !macro function():GoInt64 return _tt._time._unixSec() #else null #end;
-						__self__;
-					}), Go.toInterface(_err));
+					_t.errorf((Go.str("%v json.Unmarshal error = %v, want nil") : GoString), Go.toInterface(Go.asInterface(_tt._time)), Go.toInterface(_err));
 				} else if (!_equalTimeAndZone((_jsonTime == null ? null : _jsonTime.__copy__()), (_tt._time == null ? null : _tt._time.__copy__()))) {
-					_t.errorf((Go.str("Unmarshaled time = %v, want %v") : GoString), Go.toInterface({
-						final __self__ = new Time_asInterface(_jsonTime);
-						__self__.add = #if !macro function(_d:Duration):Time return _jsonTime.add(_d) #else null #end;
-						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-								_days:GoInt):Time return _jsonTime.addDate(_years, _months, _days) #else null #end;
-						__self__.after = #if !macro function(__0:Time):Bool return _jsonTime.after(__0) #else null #end;
-						__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-								_layout:GoString):Slice<GoUInt8> return _jsonTime.appendFormat(_b, _layout) #else null #end;
-						__self__.before = #if !macro function(__0:Time):Bool return _jsonTime.before(__0) #else null #end;
-						__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-							return _jsonTime.clock() #else null #end;
-						__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-							return _jsonTime.date() #else null #end;
-						__self__.day = #if !macro function():GoInt return _jsonTime.day() #else null #end;
-						__self__.equal = #if !macro function(__0:Time):Bool return _jsonTime.equal(__0) #else null #end;
-						__self__.format = #if !macro function(__0:GoString):GoString return _jsonTime.format(__0) #else null #end;
-						__self__.goString = #if !macro function():GoString return _jsonTime.goString() #else null #end;
-						__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _jsonTime.gobDecode(__0) #else null #end;
-						__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _jsonTime.gobEncode() #else null #end;
-						__self__.hour = #if !macro function():GoInt return _jsonTime.hour() #else null #end;
-						__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-							return _jsonTime.isoweek() #else null #end;
-						__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _jsonTime.in_(__0) #else null #end;
-						__self__.isDST = #if !macro function():Bool return _jsonTime.isDST() #else null #end;
-						__self__.isZero = #if !macro function():Bool return _jsonTime.isZero() #else null #end;
-						__self__.local = #if !macro function():Time return _jsonTime.local() #else null #end;
-						__self__.location = #if !macro function():Ref<Location> return _jsonTime.location() #else null #end;
-						__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _jsonTime.marshalBinary() #else null #end;
-						__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _jsonTime.marshalJSON() #else null #end;
-						__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _jsonTime.marshalText() #else null #end;
-						__self__.minute = #if !macro function():GoInt return _jsonTime.minute() #else null #end;
-						__self__.month = #if !macro function():Month return _jsonTime.month() #else null #end;
-						__self__.nanosecond = #if !macro function():GoInt return _jsonTime.nanosecond() #else null #end;
-						__self__.round = #if !macro function(_d:Duration):Time return _jsonTime.round(_d) #else null #end;
-						__self__.second = #if !macro function():GoInt return _jsonTime.second() #else null #end;
-						__self__.string = #if !macro function():GoString return _jsonTime.string() #else null #end;
-						__self__.sub = #if !macro function(__0:Time):Duration return _jsonTime.sub(__0) #else null #end;
-						__self__.truncate = #if !macro function(_d:Duration):Time return _jsonTime.truncate(_d) #else null #end;
-						__self__.utc = #if !macro function():Time return _jsonTime.utc() #else null #end;
-						__self__.unix = #if !macro function():GoInt64 return _jsonTime.unix() #else null #end;
-						__self__.unixMicro = #if !macro function():GoInt64 return _jsonTime.unixMicro() #else null #end;
-						__self__.unixMilli = #if !macro function():GoInt64 return _jsonTime.unixMilli() #else null #end;
-						__self__.unixNano = #if !macro function():GoInt64 return _jsonTime.unixNano() #else null #end;
-						__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _jsonTime.unmarshalBinary(__0) #else null #end;
-						__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _jsonTime.unmarshalJSON(__0) #else null #end;
-						__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _jsonTime.unmarshalText(__0) #else null #end;
-						__self__.weekday = #if !macro function():Weekday return _jsonTime.weekday() #else null #end;
-						__self__.year = #if !macro function():GoInt return _jsonTime.year() #else null #end;
-						__self__.yearDay = #if !macro function():GoInt return _jsonTime.yearDay() #else null #end;
-						__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-							return _jsonTime.zone() #else null #end;
-						__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-							return _jsonTime.zoneBounds() #else null #end;
-						__self__._abs = #if !macro function():GoUInt64 return _jsonTime._abs() #else null #end;
-						__self__._addSec = #if !macro function(_sec:GoInt64):Void _jsonTime._addSec(_sec) #else null #end;
-						__self__._date = #if !macro function(__0:Bool):{
-							var _0:GoInt;
-							var _1:Month;
-							var _2:GoInt;
-							var _3:GoInt;
-						}
-							return _jsonTime._date(__0) #else null #end;
-						__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-							return _jsonTime._locabs() #else null #end;
-						__self__._mono = #if !macro function():GoInt64 return _jsonTime._mono() #else null #end;
-						__self__._nsec = #if !macro function():GoInt32 return _jsonTime._nsec() #else null #end;
-						__self__._sec = #if !macro function():GoInt64 return _jsonTime._sec() #else null #end;
-						__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _jsonTime._setLoc(__0) #else null #end;
-						__self__._setMono = #if !macro function(_sec:GoInt64):Void _jsonTime._setMono(_sec) #else null #end;
-						__self__._stripMono = #if !macro function():Void _jsonTime._stripMono() #else null #end;
-						__self__._unixSec = #if !macro function():GoInt64 return _jsonTime._unixSec() #else null #end;
-						__self__;
-					}), Go.toInterface({
-						final __self__ = new Time_asInterface(_tt._time);
-						__self__.add = #if !macro function(_d:Duration):Time return _tt._time.add(_d) #else null #end;
-						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-								_days:GoInt):Time return _tt._time.addDate(_years, _months, _days) #else null #end;
-						__self__.after = #if !macro function(__0:Time):Bool return _tt._time.after(__0) #else null #end;
-						__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-								_layout:GoString):Slice<GoUInt8> return _tt._time.appendFormat(_b, _layout) #else null #end;
-						__self__.before = #if !macro function(__0:Time):Bool return _tt._time.before(__0) #else null #end;
-						__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-							return _tt._time.clock() #else null #end;
-						__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-							return _tt._time.date() #else null #end;
-						__self__.day = #if !macro function():GoInt return _tt._time.day() #else null #end;
-						__self__.equal = #if !macro function(__0:Time):Bool return _tt._time.equal(__0) #else null #end;
-						__self__.format = #if !macro function(__0:GoString):GoString return _tt._time.format(__0) #else null #end;
-						__self__.goString = #if !macro function():GoString return _tt._time.goString() #else null #end;
-						__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.gobDecode(__0) #else null #end;
-						__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _tt._time.gobEncode() #else null #end;
-						__self__.hour = #if !macro function():GoInt return _tt._time.hour() #else null #end;
-						__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-							return _tt._time.isoweek() #else null #end;
-						__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _tt._time.in_(__0) #else null #end;
-						__self__.isDST = #if !macro function():Bool return _tt._time.isDST() #else null #end;
-						__self__.isZero = #if !macro function():Bool return _tt._time.isZero() #else null #end;
-						__self__.local = #if !macro function():Time return _tt._time.local() #else null #end;
-						__self__.location = #if !macro function():Ref<Location> return _tt._time.location() #else null #end;
-						__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _tt._time.marshalBinary() #else null #end;
-						__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _tt._time.marshalJSON() #else null #end;
-						__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _tt._time.marshalText() #else null #end;
-						__self__.minute = #if !macro function():GoInt return _tt._time.minute() #else null #end;
-						__self__.month = #if !macro function():Month return _tt._time.month() #else null #end;
-						__self__.nanosecond = #if !macro function():GoInt return _tt._time.nanosecond() #else null #end;
-						__self__.round = #if !macro function(_d:Duration):Time return _tt._time.round(_d) #else null #end;
-						__self__.second = #if !macro function():GoInt return _tt._time.second() #else null #end;
-						__self__.string = #if !macro function():GoString return _tt._time.string() #else null #end;
-						__self__.sub = #if !macro function(__0:Time):Duration return _tt._time.sub(__0) #else null #end;
-						__self__.truncate = #if !macro function(_d:Duration):Time return _tt._time.truncate(_d) #else null #end;
-						__self__.utc = #if !macro function():Time return _tt._time.utc() #else null #end;
-						__self__.unix = #if !macro function():GoInt64 return _tt._time.unix() #else null #end;
-						__self__.unixMicro = #if !macro function():GoInt64 return _tt._time.unixMicro() #else null #end;
-						__self__.unixMilli = #if !macro function():GoInt64 return _tt._time.unixMilli() #else null #end;
-						__self__.unixNano = #if !macro function():GoInt64 return _tt._time.unixNano() #else null #end;
-						__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.unmarshalBinary(__0) #else null #end;
-						__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.unmarshalJSON(__0) #else null #end;
-						__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.unmarshalText(__0) #else null #end;
-						__self__.weekday = #if !macro function():Weekday return _tt._time.weekday() #else null #end;
-						__self__.year = #if !macro function():GoInt return _tt._time.year() #else null #end;
-						__self__.yearDay = #if !macro function():GoInt return _tt._time.yearDay() #else null #end;
-						__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-							return _tt._time.zone() #else null #end;
-						__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-							return _tt._time.zoneBounds() #else null #end;
-						__self__._abs = #if !macro function():GoUInt64 return _tt._time._abs() #else null #end;
-						__self__._addSec = #if !macro function(_sec:GoInt64):Void _tt._time._addSec(_sec) #else null #end;
-						__self__._date = #if !macro function(__0:Bool):{
-							var _0:GoInt;
-							var _1:Month;
-							var _2:GoInt;
-							var _3:GoInt;
-						}
-							return _tt._time._date(__0) #else null #end;
-						__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-							return _tt._time._locabs() #else null #end;
-						__self__._mono = #if !macro function():GoInt64 return _tt._time._mono() #else null #end;
-						__self__._nsec = #if !macro function():GoInt32 return _tt._time._nsec() #else null #end;
-						__self__._sec = #if !macro function():GoInt64 return _tt._time._sec() #else null #end;
-						__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _tt._time._setLoc(__0) #else null #end;
-						__self__._setMono = #if !macro function(_sec:GoInt64):Void _tt._time._setMono(_sec) #else null #end;
-						__self__._stripMono = #if !macro function():Void _tt._time._stripMono() #else null #end;
-						__self__._unixSec = #if !macro function():GoInt64 return _tt._time._unixSec() #else null #end;
-						__self__;
-					}));
+					_t.errorf((Go.str("Unmarshaled time = %v, want %v") : GoString), Go.toInterface(Go.asInterface(_jsonTime)),
+						Go.toInterface(Go.asInterface(_tt._time)));
 				};
 			};
 		};
@@ -9733,83 +5368,8 @@ function testNotJSONEncodableTime(_t:stdgo.testing.Testing.T):Void {
 			_1:Slice<GoUInt8> = __tmp__._0,
 			_err:stdgo.Error = __tmp__._1;
 		if ((_err == null) || (_err.error() != _tt._want)) {
-			_t.errorf((Go.str("%v MarshalJSON error = %v, want %v") : GoString), Go.toInterface({
-				final __self__ = new Time_asInterface(_tt._time);
-				__self__.add = #if !macro function(_d:Duration):Time return _tt._time.add(_d) #else null #end;
-				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-						_days:GoInt):Time return _tt._time.addDate(_years, _months, _days) #else null #end;
-				__self__.after = #if !macro function(__0:Time):Bool return _tt._time.after(__0) #else null #end;
-				__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-						_layout:GoString):Slice<GoUInt8> return _tt._time.appendFormat(_b, _layout) #else null #end;
-				__self__.before = #if !macro function(__0:Time):Bool return _tt._time.before(__0) #else null #end;
-				__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-					return _tt._time.clock() #else null #end;
-				__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-					return _tt._time.date() #else null #end;
-				__self__.day = #if !macro function():GoInt return _tt._time.day() #else null #end;
-				__self__.equal = #if !macro function(__0:Time):Bool return _tt._time.equal(__0) #else null #end;
-				__self__.format = #if !macro function(__0:GoString):GoString return _tt._time.format(__0) #else null #end;
-				__self__.goString = #if !macro function():GoString return _tt._time.goString() #else null #end;
-				__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.gobDecode(__0) #else null #end;
-				__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _tt._time.gobEncode() #else null #end;
-				__self__.hour = #if !macro function():GoInt return _tt._time.hour() #else null #end;
-				__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-					return _tt._time.isoweek() #else null #end;
-				__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _tt._time.in_(__0) #else null #end;
-				__self__.isDST = #if !macro function():Bool return _tt._time.isDST() #else null #end;
-				__self__.isZero = #if !macro function():Bool return _tt._time.isZero() #else null #end;
-				__self__.local = #if !macro function():Time return _tt._time.local() #else null #end;
-				__self__.location = #if !macro function():Ref<Location> return _tt._time.location() #else null #end;
-				__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _tt._time.marshalBinary() #else null #end;
-				__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _tt._time.marshalJSON() #else null #end;
-				__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _tt._time.marshalText() #else null #end;
-				__self__.minute = #if !macro function():GoInt return _tt._time.minute() #else null #end;
-				__self__.month = #if !macro function():Month return _tt._time.month() #else null #end;
-				__self__.nanosecond = #if !macro function():GoInt return _tt._time.nanosecond() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Time return _tt._time.round(_d) #else null #end;
-				__self__.second = #if !macro function():GoInt return _tt._time.second() #else null #end;
-				__self__.string = #if !macro function():GoString return _tt._time.string() #else null #end;
-				__self__.sub = #if !macro function(__0:Time):Duration return _tt._time.sub(__0) #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Time return _tt._time.truncate(_d) #else null #end;
-				__self__.utc = #if !macro function():Time return _tt._time.utc() #else null #end;
-				__self__.unix = #if !macro function():GoInt64 return _tt._time.unix() #else null #end;
-				__self__.unixMicro = #if !macro function():GoInt64 return _tt._time.unixMicro() #else null #end;
-				__self__.unixMilli = #if !macro function():GoInt64 return _tt._time.unixMilli() #else null #end;
-				__self__.unixNano = #if !macro function():GoInt64 return _tt._time.unixNano() #else null #end;
-				__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.unmarshalBinary(__0) #else null #end;
-				__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.unmarshalJSON(__0) #else null #end;
-				__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._time.unmarshalText(__0) #else null #end;
-				__self__.weekday = #if !macro function():Weekday return _tt._time.weekday() #else null #end;
-				__self__.year = #if !macro function():GoInt return _tt._time.year() #else null #end;
-				__self__.yearDay = #if !macro function():GoInt return _tt._time.yearDay() #else null #end;
-				__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-					return _tt._time.zone() #else null #end;
-				__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-					return _tt._time.zoneBounds() #else null #end;
-				__self__._abs = #if !macro function():GoUInt64 return _tt._time._abs() #else null #end;
-				__self__._addSec = #if !macro function(_sec:GoInt64):Void _tt._time._addSec(_sec) #else null #end;
-				__self__._date = #if !macro function(__0:Bool):{
-					var _0:GoInt;
-					var _1:Month;
-					var _2:GoInt;
-					var _3:GoInt;
-				}
-					return _tt._time._date(__0) #else null #end;
-				__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-					return _tt._time._locabs() #else null #end;
-				__self__._mono = #if !macro function():GoInt64 return _tt._time._mono() #else null #end;
-				__self__._nsec = #if !macro function():GoInt32 return _tt._time._nsec() #else null #end;
-				__self__._sec = #if !macro function():GoInt64 return _tt._time._sec() #else null #end;
-				__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _tt._time._setLoc(__0) #else null #end;
-				__self__._setMono = #if !macro function(_sec:GoInt64):Void _tt._time._setMono(_sec) #else null #end;
-				__self__._stripMono = #if !macro function():Void _tt._time._stripMono() #else null #end;
-				__self__._unixSec = #if !macro function():GoInt64 return _tt._time._unixSec() #else null #end;
-				__self__;
-			}), Go.toInterface(_err), Go.toInterface(_tt._want));
+			_t.errorf((Go.str("%v MarshalJSON error = %v, want %v") : GoString), Go.toInterface(Go.asInterface(_tt._time)), Go.toInterface(_err),
+				Go.toInterface(_tt._want));
 		};
 	};
 }
@@ -9820,33 +5380,8 @@ function testParseDuration(_t:stdgo.testing.Testing.T):Void {
 			_d:Duration = __tmp__._0,
 			_err:stdgo.Error = __tmp__._1;
 		if ((_err != null) || (_d != _tc._want)) {
-			_t.errorf((Go.str("ParseDuration(%q) = %v, %v, want %v, nil") : GoString), Go.toInterface(_tc._in), Go.toInterface({
-				final __self__ = new Duration_asInterface(_d);
-				__self__.abs = #if !macro function():Duration return _d.abs() #else null #end;
-				__self__.hours = #if !macro function():GoFloat64 return _d.hours() #else null #end;
-				__self__.microseconds = #if !macro function():GoInt64 return _d.microseconds() #else null #end;
-				__self__.milliseconds = #if !macro function():GoInt64 return _d.milliseconds() #else null #end;
-				__self__.minutes = #if !macro function():GoFloat64 return _d.minutes() #else null #end;
-				__self__.nanoseconds = #if !macro function():GoInt64 return _d.nanoseconds() #else null #end;
-				__self__.round = #if !macro function(_d_:Duration):Duration return _d.round(_d_) #else null #end;
-				__self__.seconds = #if !macro function():GoFloat64 return _d.seconds() #else null #end;
-				__self__.string = #if !macro function():GoString return _d.string() #else null #end;
-				__self__.truncate = #if !macro function(_d__:Duration):Duration return _d.truncate(_d__) #else null #end;
-				__self__;
-			}), Go.toInterface(_err), Go.toInterface({
-				final __self__ = new Duration_asInterface(_tc._want);
-				__self__.abs = #if !macro function():Duration return _tc._want.abs() #else null #end;
-				__self__.hours = #if !macro function():GoFloat64 return _tc._want.hours() #else null #end;
-				__self__.microseconds = #if !macro function():GoInt64 return _tc._want.microseconds() #else null #end;
-				__self__.milliseconds = #if !macro function():GoInt64 return _tc._want.milliseconds() #else null #end;
-				__self__.minutes = #if !macro function():GoFloat64 return _tc._want.minutes() #else null #end;
-				__self__.nanoseconds = #if !macro function():GoInt64 return _tc._want.nanoseconds() #else null #end;
-				__self__.round = #if !macro function(_d_:Duration):Duration return _tc._want.round(_d_) #else null #end;
-				__self__.seconds = #if !macro function():GoFloat64 return _tc._want.seconds() #else null #end;
-				__self__.string = #if !macro function():GoString return _tc._want.string() #else null #end;
-				__self__.truncate = #if !macro function(_d__:Duration):Duration return _tc._want.truncate(_d__) #else null #end;
-				__self__;
-			}));
+			_t.errorf((Go.str("ParseDuration(%q) = %v, %v, want %v, nil") : GoString), Go.toInterface(_tc._in), Go.toInterface(Go.asInterface(_d)),
+				Go.toInterface(_err), Go.toInterface(Go.asInterface(_tc._want)));
 		};
 	};
 }
@@ -9871,66 +5406,16 @@ function testParseDurationRoundTrip(_t:stdgo.testing.Testing.T):Void {
 		_max1:Duration = __tmp__._0,
 		_err:stdgo.Error = __tmp__._1;
 	if ((_err != null) || (_max0 != _max1)) {
-		_t.errorf((Go.str("round-trip failed: %d => %q => %d, %v") : GoString), Go.toInterface({
-			final __self__ = new Duration_asInterface(_max0);
-			__self__.abs = #if !macro function():Duration return _max0.abs() #else null #end;
-			__self__.hours = #if !macro function():GoFloat64 return _max0.hours() #else null #end;
-			__self__.microseconds = #if !macro function():GoInt64 return _max0.microseconds() #else null #end;
-			__self__.milliseconds = #if !macro function():GoInt64 return _max0.milliseconds() #else null #end;
-			__self__.minutes = #if !macro function():GoFloat64 return _max0.minutes() #else null #end;
-			__self__.nanoseconds = #if !macro function():GoInt64 return _max0.nanoseconds() #else null #end;
-			__self__.round = #if !macro function(_d:Duration):Duration return _max0.round(_d) #else null #end;
-			__self__.seconds = #if !macro function():GoFloat64 return _max0.seconds() #else null #end;
-			__self__.string = #if !macro function():GoString return _max0.string() #else null #end;
-			__self__.truncate = #if !macro function(_d:Duration):Duration return _max0.truncate(_d) #else null #end;
-			__self__;
-		}), Go.toInterface((_max0.string() : GoString)), Go.toInterface({
-			final __self__ = new Duration_asInterface(_max1);
-			__self__.abs = #if !macro function():Duration return _max1.abs() #else null #end;
-			__self__.hours = #if !macro function():GoFloat64 return _max1.hours() #else null #end;
-			__self__.microseconds = #if !macro function():GoInt64 return _max1.microseconds() #else null #end;
-			__self__.milliseconds = #if !macro function():GoInt64 return _max1.milliseconds() #else null #end;
-			__self__.minutes = #if !macro function():GoFloat64 return _max1.minutes() #else null #end;
-			__self__.nanoseconds = #if !macro function():GoInt64 return _max1.nanoseconds() #else null #end;
-			__self__.round = #if !macro function(_d:Duration):Duration return _max1.round(_d) #else null #end;
-			__self__.seconds = #if !macro function():GoFloat64 return _max1.seconds() #else null #end;
-			__self__.string = #if !macro function():GoString return _max1.string() #else null #end;
-			__self__.truncate = #if !macro function(_d:Duration):Duration return _max1.truncate(_d) #else null #end;
-			__self__;
-		}), Go.toInterface(_err));
+		_t.errorf((Go.str("round-trip failed: %d => %q => %d, %v") : GoString), Go.toInterface(Go.asInterface(_max0)),
+			Go.toInterface((_max0.string() : GoString)), Go.toInterface(Go.asInterface(_max1)), Go.toInterface(_err));
 	};
 	var _min0:Duration = ("-9223372036854775808" : Duration);
 	var __tmp__ = parseDuration((_min0.string() : GoString)),
 		_min1:Duration = __tmp__._0,
 		_err:stdgo.Error = __tmp__._1;
 	if ((_err != null) || (_min0 != _min1)) {
-		_t.errorf((Go.str("round-trip failed: %d => %q => %d, %v") : GoString), Go.toInterface({
-			final __self__ = new Duration_asInterface(_min0);
-			__self__.abs = #if !macro function():Duration return _min0.abs() #else null #end;
-			__self__.hours = #if !macro function():GoFloat64 return _min0.hours() #else null #end;
-			__self__.microseconds = #if !macro function():GoInt64 return _min0.microseconds() #else null #end;
-			__self__.milliseconds = #if !macro function():GoInt64 return _min0.milliseconds() #else null #end;
-			__self__.minutes = #if !macro function():GoFloat64 return _min0.minutes() #else null #end;
-			__self__.nanoseconds = #if !macro function():GoInt64 return _min0.nanoseconds() #else null #end;
-			__self__.round = #if !macro function(_d:Duration):Duration return _min0.round(_d) #else null #end;
-			__self__.seconds = #if !macro function():GoFloat64 return _min0.seconds() #else null #end;
-			__self__.string = #if !macro function():GoString return _min0.string() #else null #end;
-			__self__.truncate = #if !macro function(_d:Duration):Duration return _min0.truncate(_d) #else null #end;
-			__self__;
-		}), Go.toInterface((_min0.string() : GoString)), Go.toInterface({
-			final __self__ = new Duration_asInterface(_min1);
-			__self__.abs = #if !macro function():Duration return _min1.abs() #else null #end;
-			__self__.hours = #if !macro function():GoFloat64 return _min1.hours() #else null #end;
-			__self__.microseconds = #if !macro function():GoInt64 return _min1.microseconds() #else null #end;
-			__self__.milliseconds = #if !macro function():GoInt64 return _min1.milliseconds() #else null #end;
-			__self__.minutes = #if !macro function():GoFloat64 return _min1.minutes() #else null #end;
-			__self__.nanoseconds = #if !macro function():GoInt64 return _min1.nanoseconds() #else null #end;
-			__self__.round = #if !macro function(_d:Duration):Duration return _min1.round(_d) #else null #end;
-			__self__.seconds = #if !macro function():GoFloat64 return _min1.seconds() #else null #end;
-			__self__.string = #if !macro function():GoString return _min1.string() #else null #end;
-			__self__.truncate = #if !macro function(_d:Duration):Duration return _min1.truncate(_d) #else null #end;
-			__self__;
-		}), Go.toInterface(_err));
+		_t.errorf((Go.str("round-trip failed: %d => %q => %d, %v") : GoString), Go.toInterface(Go.asInterface(_min0)),
+			Go.toInterface((_min0.string() : GoString)), Go.toInterface(Go.asInterface(_min1)), Go.toInterface(_err));
 	};
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -9941,33 +5426,8 @@ function testParseDurationRoundTrip(_t:stdgo.testing.Testing.T):Void {
 				_d1:Duration = __tmp__._0,
 				_err:stdgo.Error = __tmp__._1;
 			if ((_err != null) || (_d0 != _d1)) {
-				_t.errorf((Go.str("round-trip failed: %d => %q => %d, %v") : GoString), Go.toInterface({
-					final __self__ = new Duration_asInterface(_d0);
-					__self__.abs = #if !macro function():Duration return _d0.abs() #else null #end;
-					__self__.hours = #if !macro function():GoFloat64 return _d0.hours() #else null #end;
-					__self__.microseconds = #if !macro function():GoInt64 return _d0.microseconds() #else null #end;
-					__self__.milliseconds = #if !macro function():GoInt64 return _d0.milliseconds() #else null #end;
-					__self__.minutes = #if !macro function():GoFloat64 return _d0.minutes() #else null #end;
-					__self__.nanoseconds = #if !macro function():GoInt64 return _d0.nanoseconds() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Duration return _d0.round(_d) #else null #end;
-					__self__.seconds = #if !macro function():GoFloat64 return _d0.seconds() #else null #end;
-					__self__.string = #if !macro function():GoString return _d0.string() #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Duration return _d0.truncate(_d) #else null #end;
-					__self__;
-				}), Go.toInterface(_s), Go.toInterface({
-					final __self__ = new Duration_asInterface(_d1);
-					__self__.abs = #if !macro function():Duration return _d1.abs() #else null #end;
-					__self__.hours = #if !macro function():GoFloat64 return _d1.hours() #else null #end;
-					__self__.microseconds = #if !macro function():GoInt64 return _d1.microseconds() #else null #end;
-					__self__.milliseconds = #if !macro function():GoInt64 return _d1.milliseconds() #else null #end;
-					__self__.minutes = #if !macro function():GoFloat64 return _d1.minutes() #else null #end;
-					__self__.nanoseconds = #if !macro function():GoInt64 return _d1.nanoseconds() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Duration return _d1.round(_d) #else null #end;
-					__self__.seconds = #if !macro function():GoFloat64 return _d1.seconds() #else null #end;
-					__self__.string = #if !macro function():GoString return _d1.string() #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Duration return _d1.truncate(_d) #else null #end;
-					__self__;
-				}), Go.toInterface(_err));
+				_t.errorf((Go.str("round-trip failed: %d => %q => %d, %v") : GoString), Go.toInterface(Go.asInterface(_d0)), Go.toInterface(_s),
+					Go.toInterface(Go.asInterface(_d1)), Go.toInterface(_err));
 			};
 		});
 	};
@@ -10026,185 +5486,8 @@ function testSub(_t:stdgo.testing.Testing.T):Void {
 	for (_i => _st in _subTests) {
 		var _got:Duration = _st._t.sub((_st._u == null ? null : _st._u.__copy__()));
 		if (_got != _st._d) {
-			_t.errorf((Go.str("#%d: Sub(%v, %v): got %v; want %v") : GoString), Go.toInterface(_i), Go.toInterface({
-				final __self__ = new Time_asInterface(_st._t);
-				__self__.add = #if !macro function(_d:Duration):Time return _st._t.add(_d) #else null #end;
-				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-						_days:GoInt):Time return _st._t.addDate(_years, _months, _days) #else null #end;
-				__self__.after = #if !macro function(__0:Time):Bool return _st._t.after(__0) #else null #end;
-				__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-						_layout:GoString):Slice<GoUInt8> return _st._t.appendFormat(_b, _layout) #else null #end;
-				__self__.before = #if !macro function(__0:Time):Bool return _st._t.before(__0) #else null #end;
-				__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-					return _st._t.clock() #else null #end;
-				__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-					return _st._t.date() #else null #end;
-				__self__.day = #if !macro function():GoInt return _st._t.day() #else null #end;
-				__self__.equal = #if !macro function(__0:Time):Bool return _st._t.equal(__0) #else null #end;
-				__self__.format = #if !macro function(__0:GoString):GoString return _st._t.format(__0) #else null #end;
-				__self__.goString = #if !macro function():GoString return _st._t.goString() #else null #end;
-				__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _st._t.gobDecode(__0) #else null #end;
-				__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _st._t.gobEncode() #else null #end;
-				__self__.hour = #if !macro function():GoInt return _st._t.hour() #else null #end;
-				__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-					return _st._t.isoweek() #else null #end;
-				__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _st._t.in_(__0) #else null #end;
-				__self__.isDST = #if !macro function():Bool return _st._t.isDST() #else null #end;
-				__self__.isZero = #if !macro function():Bool return _st._t.isZero() #else null #end;
-				__self__.local = #if !macro function():Time return _st._t.local() #else null #end;
-				__self__.location = #if !macro function():Ref<Location> return _st._t.location() #else null #end;
-				__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _st._t.marshalBinary() #else null #end;
-				__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _st._t.marshalJSON() #else null #end;
-				__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _st._t.marshalText() #else null #end;
-				__self__.minute = #if !macro function():GoInt return _st._t.minute() #else null #end;
-				__self__.month = #if !macro function():Month return _st._t.month() #else null #end;
-				__self__.nanosecond = #if !macro function():GoInt return _st._t.nanosecond() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Time return _st._t.round(_d) #else null #end;
-				__self__.second = #if !macro function():GoInt return _st._t.second() #else null #end;
-				__self__.string = #if !macro function():GoString return _st._t.string() #else null #end;
-				__self__.sub = #if !macro function(__0:Time):Duration return _st._t.sub(__0) #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Time return _st._t.truncate(_d) #else null #end;
-				__self__.utc = #if !macro function():Time return _st._t.utc() #else null #end;
-				__self__.unix = #if !macro function():GoInt64 return _st._t.unix() #else null #end;
-				__self__.unixMicro = #if !macro function():GoInt64 return _st._t.unixMicro() #else null #end;
-				__self__.unixMilli = #if !macro function():GoInt64 return _st._t.unixMilli() #else null #end;
-				__self__.unixNano = #if !macro function():GoInt64 return _st._t.unixNano() #else null #end;
-				__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _st._t.unmarshalBinary(__0) #else null #end;
-				__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _st._t.unmarshalJSON(__0) #else null #end;
-				__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _st._t.unmarshalText(__0) #else null #end;
-				__self__.weekday = #if !macro function():Weekday return _st._t.weekday() #else null #end;
-				__self__.year = #if !macro function():GoInt return _st._t.year() #else null #end;
-				__self__.yearDay = #if !macro function():GoInt return _st._t.yearDay() #else null #end;
-				__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-					return _st._t.zone() #else null #end;
-				__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-					return _st._t.zoneBounds() #else null #end;
-				__self__._abs = #if !macro function():GoUInt64 return _st._t._abs() #else null #end;
-				__self__._addSec = #if !macro function(_sec:GoInt64):Void _st._t._addSec(_sec) #else null #end;
-				__self__._date = #if !macro function(__0:Bool):{
-					var _0:GoInt;
-					var _1:Month;
-					var _2:GoInt;
-					var _3:GoInt;
-				}
-					return _st._t._date(__0) #else null #end;
-				__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-					return _st._t._locabs() #else null #end;
-				__self__._mono = #if !macro function():GoInt64 return _st._t._mono() #else null #end;
-				__self__._nsec = #if !macro function():GoInt32 return _st._t._nsec() #else null #end;
-				__self__._sec = #if !macro function():GoInt64 return _st._t._sec() #else null #end;
-				__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _st._t._setLoc(__0) #else null #end;
-				__self__._setMono = #if !macro function(_sec:GoInt64):Void _st._t._setMono(_sec) #else null #end;
-				__self__._stripMono = #if !macro function():Void _st._t._stripMono() #else null #end;
-				__self__._unixSec = #if !macro function():GoInt64 return _st._t._unixSec() #else null #end;
-				__self__;
-			}), Go.toInterface({
-				final __self__ = new Time_asInterface(_st._u);
-				__self__.add = #if !macro function(_d:Duration):Time return _st._u.add(_d) #else null #end;
-				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-						_days:GoInt):Time return _st._u.addDate(_years, _months, _days) #else null #end;
-				__self__.after = #if !macro function(__0:Time):Bool return _st._u.after(__0) #else null #end;
-				__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-						_layout:GoString):Slice<GoUInt8> return _st._u.appendFormat(_b, _layout) #else null #end;
-				__self__.before = #if !macro function(__0:Time):Bool return _st._u.before(__0) #else null #end;
-				__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-					return _st._u.clock() #else null #end;
-				__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-					return _st._u.date() #else null #end;
-				__self__.day = #if !macro function():GoInt return _st._u.day() #else null #end;
-				__self__.equal = #if !macro function(__0:Time):Bool return _st._u.equal(__0) #else null #end;
-				__self__.format = #if !macro function(__0:GoString):GoString return _st._u.format(__0) #else null #end;
-				__self__.goString = #if !macro function():GoString return _st._u.goString() #else null #end;
-				__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _st._u.gobDecode(__0) #else null #end;
-				__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _st._u.gobEncode() #else null #end;
-				__self__.hour = #if !macro function():GoInt return _st._u.hour() #else null #end;
-				__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-					return _st._u.isoweek() #else null #end;
-				__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _st._u.in_(__0) #else null #end;
-				__self__.isDST = #if !macro function():Bool return _st._u.isDST() #else null #end;
-				__self__.isZero = #if !macro function():Bool return _st._u.isZero() #else null #end;
-				__self__.local = #if !macro function():Time return _st._u.local() #else null #end;
-				__self__.location = #if !macro function():Ref<Location> return _st._u.location() #else null #end;
-				__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _st._u.marshalBinary() #else null #end;
-				__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _st._u.marshalJSON() #else null #end;
-				__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _st._u.marshalText() #else null #end;
-				__self__.minute = #if !macro function():GoInt return _st._u.minute() #else null #end;
-				__self__.month = #if !macro function():Month return _st._u.month() #else null #end;
-				__self__.nanosecond = #if !macro function():GoInt return _st._u.nanosecond() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Time return _st._u.round(_d) #else null #end;
-				__self__.second = #if !macro function():GoInt return _st._u.second() #else null #end;
-				__self__.string = #if !macro function():GoString return _st._u.string() #else null #end;
-				__self__.sub = #if !macro function(__0:Time):Duration return _st._u.sub(__0) #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Time return _st._u.truncate(_d) #else null #end;
-				__self__.utc = #if !macro function():Time return _st._u.utc() #else null #end;
-				__self__.unix = #if !macro function():GoInt64 return _st._u.unix() #else null #end;
-				__self__.unixMicro = #if !macro function():GoInt64 return _st._u.unixMicro() #else null #end;
-				__self__.unixMilli = #if !macro function():GoInt64 return _st._u.unixMilli() #else null #end;
-				__self__.unixNano = #if !macro function():GoInt64 return _st._u.unixNano() #else null #end;
-				__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _st._u.unmarshalBinary(__0) #else null #end;
-				__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _st._u.unmarshalJSON(__0) #else null #end;
-				__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _st._u.unmarshalText(__0) #else null #end;
-				__self__.weekday = #if !macro function():Weekday return _st._u.weekday() #else null #end;
-				__self__.year = #if !macro function():GoInt return _st._u.year() #else null #end;
-				__self__.yearDay = #if !macro function():GoInt return _st._u.yearDay() #else null #end;
-				__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-					return _st._u.zone() #else null #end;
-				__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-					return _st._u.zoneBounds() #else null #end;
-				__self__._abs = #if !macro function():GoUInt64 return _st._u._abs() #else null #end;
-				__self__._addSec = #if !macro function(_sec:GoInt64):Void _st._u._addSec(_sec) #else null #end;
-				__self__._date = #if !macro function(__0:Bool):{
-					var _0:GoInt;
-					var _1:Month;
-					var _2:GoInt;
-					var _3:GoInt;
-				}
-					return _st._u._date(__0) #else null #end;
-				__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-					return _st._u._locabs() #else null #end;
-				__self__._mono = #if !macro function():GoInt64 return _st._u._mono() #else null #end;
-				__self__._nsec = #if !macro function():GoInt32 return _st._u._nsec() #else null #end;
-				__self__._sec = #if !macro function():GoInt64 return _st._u._sec() #else null #end;
-				__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _st._u._setLoc(__0) #else null #end;
-				__self__._setMono = #if !macro function(_sec:GoInt64):Void _st._u._setMono(_sec) #else null #end;
-				__self__._stripMono = #if !macro function():Void _st._u._stripMono() #else null #end;
-				__self__._unixSec = #if !macro function():GoInt64 return _st._u._unixSec() #else null #end;
-				__self__;
-			}), Go.toInterface({
-				final __self__ = new Duration_asInterface(_got);
-				__self__.abs = #if !macro function():Duration return _got.abs() #else null #end;
-				__self__.hours = #if !macro function():GoFloat64 return _got.hours() #else null #end;
-				__self__.microseconds = #if !macro function():GoInt64 return _got.microseconds() #else null #end;
-				__self__.milliseconds = #if !macro function():GoInt64 return _got.milliseconds() #else null #end;
-				__self__.minutes = #if !macro function():GoFloat64 return _got.minutes() #else null #end;
-				__self__.nanoseconds = #if !macro function():GoInt64 return _got.nanoseconds() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Duration return _got.round(_d) #else null #end;
-				__self__.seconds = #if !macro function():GoFloat64 return _got.seconds() #else null #end;
-				__self__.string = #if !macro function():GoString return _got.string() #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Duration return _got.truncate(_d) #else null #end;
-				__self__;
-			}), Go.toInterface({
-				final __self__ = new Duration_asInterface(_st._d);
-				__self__.abs = #if !macro function():Duration return _st._d.abs() #else null #end;
-				__self__.hours = #if !macro function():GoFloat64 return _st._d.hours() #else null #end;
-				__self__.microseconds = #if !macro function():GoInt64 return _st._d.microseconds() #else null #end;
-				__self__.milliseconds = #if !macro function():GoInt64 return _st._d.milliseconds() #else null #end;
-				__self__.minutes = #if !macro function():GoFloat64 return _st._d.minutes() #else null #end;
-				__self__.nanoseconds = #if !macro function():GoInt64 return _st._d.nanoseconds() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Duration return _st._d.round(_d) #else null #end;
-				__self__.seconds = #if !macro function():GoFloat64 return _st._d.seconds() #else null #end;
-				__self__.string = #if !macro function():GoString return _st._d.string() #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Duration return _st._d.truncate(_d) #else null #end;
-				__self__;
-			}));
+			_t.errorf((Go.str("#%d: Sub(%v, %v): got %v; want %v") : GoString), Go.toInterface(_i), Go.toInterface(Go.asInterface(_st._t)),
+				Go.toInterface(Go.asInterface(_st._u)), Go.toInterface(Go.asInterface(_got)), Go.toInterface(Go.asInterface(_st._d)));
 		};
 	};
 }
@@ -10214,20 +5497,8 @@ function testDurationNanoseconds(_t:stdgo.testing.Testing.T):Void {
 		{
 			var _got:GoInt64 = _tt._d.nanoseconds();
 			if (_got != _tt._want) {
-				_t.errorf((Go.str("Duration(%s).Nanoseconds() = %d; want: %d") : GoString), Go.toInterface({
-					final __self__ = new Duration_asInterface(_tt._d);
-					__self__.abs = #if !macro function():Duration return _tt._d.abs() #else null #end;
-					__self__.hours = #if !macro function():GoFloat64 return _tt._d.hours() #else null #end;
-					__self__.microseconds = #if !macro function():GoInt64 return _tt._d.microseconds() #else null #end;
-					__self__.milliseconds = #if !macro function():GoInt64 return _tt._d.milliseconds() #else null #end;
-					__self__.minutes = #if !macro function():GoFloat64 return _tt._d.minutes() #else null #end;
-					__self__.nanoseconds = #if !macro function():GoInt64 return _tt._d.nanoseconds() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Duration return _tt._d.round(_d) #else null #end;
-					__self__.seconds = #if !macro function():GoFloat64 return _tt._d.seconds() #else null #end;
-					__self__.string = #if !macro function():GoString return _tt._d.string() #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Duration return _tt._d.truncate(_d) #else null #end;
-					__self__;
-				}), Go.toInterface(_got), Go.toInterface(_tt._want));
+				_t.errorf((Go.str("Duration(%s).Nanoseconds() = %d; want: %d") : GoString), Go.toInterface(Go.asInterface(_tt._d)), Go.toInterface(_got),
+					Go.toInterface(_tt._want));
 			};
 		};
 	};
@@ -10238,20 +5509,8 @@ function testDurationMicroseconds(_t:stdgo.testing.Testing.T):Void {
 		{
 			var _got:GoInt64 = _tt._d.microseconds();
 			if (_got != _tt._want) {
-				_t.errorf((Go.str("Duration(%s).Microseconds() = %d; want: %d") : GoString), Go.toInterface({
-					final __self__ = new Duration_asInterface(_tt._d);
-					__self__.abs = #if !macro function():Duration return _tt._d.abs() #else null #end;
-					__self__.hours = #if !macro function():GoFloat64 return _tt._d.hours() #else null #end;
-					__self__.microseconds = #if !macro function():GoInt64 return _tt._d.microseconds() #else null #end;
-					__self__.milliseconds = #if !macro function():GoInt64 return _tt._d.milliseconds() #else null #end;
-					__self__.minutes = #if !macro function():GoFloat64 return _tt._d.minutes() #else null #end;
-					__self__.nanoseconds = #if !macro function():GoInt64 return _tt._d.nanoseconds() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Duration return _tt._d.round(_d) #else null #end;
-					__self__.seconds = #if !macro function():GoFloat64 return _tt._d.seconds() #else null #end;
-					__self__.string = #if !macro function():GoString return _tt._d.string() #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Duration return _tt._d.truncate(_d) #else null #end;
-					__self__;
-				}), Go.toInterface(_got), Go.toInterface(_tt._want));
+				_t.errorf((Go.str("Duration(%s).Microseconds() = %d; want: %d") : GoString), Go.toInterface(Go.asInterface(_tt._d)), Go.toInterface(_got),
+					Go.toInterface(_tt._want));
 			};
 		};
 	};
@@ -10262,20 +5521,8 @@ function testDurationMilliseconds(_t:stdgo.testing.Testing.T):Void {
 		{
 			var _got:GoInt64 = _tt._d.milliseconds();
 			if (_got != _tt._want) {
-				_t.errorf((Go.str("Duration(%s).Milliseconds() = %d; want: %d") : GoString), Go.toInterface({
-					final __self__ = new Duration_asInterface(_tt._d);
-					__self__.abs = #if !macro function():Duration return _tt._d.abs() #else null #end;
-					__self__.hours = #if !macro function():GoFloat64 return _tt._d.hours() #else null #end;
-					__self__.microseconds = #if !macro function():GoInt64 return _tt._d.microseconds() #else null #end;
-					__self__.milliseconds = #if !macro function():GoInt64 return _tt._d.milliseconds() #else null #end;
-					__self__.minutes = #if !macro function():GoFloat64 return _tt._d.minutes() #else null #end;
-					__self__.nanoseconds = #if !macro function():GoInt64 return _tt._d.nanoseconds() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Duration return _tt._d.round(_d) #else null #end;
-					__self__.seconds = #if !macro function():GoFloat64 return _tt._d.seconds() #else null #end;
-					__self__.string = #if !macro function():GoString return _tt._d.string() #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Duration return _tt._d.truncate(_d) #else null #end;
-					__self__;
-				}), Go.toInterface(_got), Go.toInterface(_tt._want));
+				_t.errorf((Go.str("Duration(%s).Milliseconds() = %d; want: %d") : GoString), Go.toInterface(Go.asInterface(_tt._d)), Go.toInterface(_got),
+					Go.toInterface(_tt._want));
 			};
 		};
 	};
@@ -10286,20 +5533,8 @@ function testDurationSeconds(_t:stdgo.testing.Testing.T):Void {
 		{
 			var _got:GoFloat64 = _tt._d.seconds();
 			if (_got != _tt._want) {
-				_t.errorf((Go.str("Duration(%s).Seconds() = %g; want: %g") : GoString), Go.toInterface({
-					final __self__ = new Duration_asInterface(_tt._d);
-					__self__.abs = #if !macro function():Duration return _tt._d.abs() #else null #end;
-					__self__.hours = #if !macro function():GoFloat64 return _tt._d.hours() #else null #end;
-					__self__.microseconds = #if !macro function():GoInt64 return _tt._d.microseconds() #else null #end;
-					__self__.milliseconds = #if !macro function():GoInt64 return _tt._d.milliseconds() #else null #end;
-					__self__.minutes = #if !macro function():GoFloat64 return _tt._d.minutes() #else null #end;
-					__self__.nanoseconds = #if !macro function():GoInt64 return _tt._d.nanoseconds() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Duration return _tt._d.round(_d) #else null #end;
-					__self__.seconds = #if !macro function():GoFloat64 return _tt._d.seconds() #else null #end;
-					__self__.string = #if !macro function():GoString return _tt._d.string() #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Duration return _tt._d.truncate(_d) #else null #end;
-					__self__;
-				}), Go.toInterface(_got), Go.toInterface(_tt._want));
+				_t.errorf((Go.str("Duration(%s).Seconds() = %g; want: %g") : GoString), Go.toInterface(Go.asInterface(_tt._d)), Go.toInterface(_got),
+					Go.toInterface(_tt._want));
 			};
 		};
 	};
@@ -10310,20 +5545,8 @@ function testDurationMinutes(_t:stdgo.testing.Testing.T):Void {
 		{
 			var _got:GoFloat64 = _tt._d.minutes();
 			if (_got != _tt._want) {
-				_t.errorf((Go.str("Duration(%s).Minutes() = %g; want: %g") : GoString), Go.toInterface({
-					final __self__ = new Duration_asInterface(_tt._d);
-					__self__.abs = #if !macro function():Duration return _tt._d.abs() #else null #end;
-					__self__.hours = #if !macro function():GoFloat64 return _tt._d.hours() #else null #end;
-					__self__.microseconds = #if !macro function():GoInt64 return _tt._d.microseconds() #else null #end;
-					__self__.milliseconds = #if !macro function():GoInt64 return _tt._d.milliseconds() #else null #end;
-					__self__.minutes = #if !macro function():GoFloat64 return _tt._d.minutes() #else null #end;
-					__self__.nanoseconds = #if !macro function():GoInt64 return _tt._d.nanoseconds() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Duration return _tt._d.round(_d) #else null #end;
-					__self__.seconds = #if !macro function():GoFloat64 return _tt._d.seconds() #else null #end;
-					__self__.string = #if !macro function():GoString return _tt._d.string() #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Duration return _tt._d.truncate(_d) #else null #end;
-					__self__;
-				}), Go.toInterface(_got), Go.toInterface(_tt._want));
+				_t.errorf((Go.str("Duration(%s).Minutes() = %g; want: %g") : GoString), Go.toInterface(Go.asInterface(_tt._d)), Go.toInterface(_got),
+					Go.toInterface(_tt._want));
 			};
 		};
 	};
@@ -10334,20 +5557,8 @@ function testDurationHours(_t:stdgo.testing.Testing.T):Void {
 		{
 			var _got:GoFloat64 = _tt._d.hours();
 			if (_got != _tt._want) {
-				_t.errorf((Go.str("Duration(%s).Hours() = %g; want: %g") : GoString), Go.toInterface({
-					final __self__ = new Duration_asInterface(_tt._d);
-					__self__.abs = #if !macro function():Duration return _tt._d.abs() #else null #end;
-					__self__.hours = #if !macro function():GoFloat64 return _tt._d.hours() #else null #end;
-					__self__.microseconds = #if !macro function():GoInt64 return _tt._d.microseconds() #else null #end;
-					__self__.milliseconds = #if !macro function():GoInt64 return _tt._d.milliseconds() #else null #end;
-					__self__.minutes = #if !macro function():GoFloat64 return _tt._d.minutes() #else null #end;
-					__self__.nanoseconds = #if !macro function():GoInt64 return _tt._d.nanoseconds() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Duration return _tt._d.round(_d) #else null #end;
-					__self__.seconds = #if !macro function():GoFloat64 return _tt._d.seconds() #else null #end;
-					__self__.string = #if !macro function():GoString return _tt._d.string() #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Duration return _tt._d.truncate(_d) #else null #end;
-					__self__;
-				}), Go.toInterface(_got), Go.toInterface(_tt._want));
+				_t.errorf((Go.str("Duration(%s).Hours() = %g; want: %g") : GoString), Go.toInterface(Go.asInterface(_tt._d)), Go.toInterface(_got),
+					Go.toInterface(_tt._want));
 			};
 		};
 	};
@@ -10358,59 +5569,8 @@ function testDurationTruncate(_t:stdgo.testing.Testing.T):Void {
 		{
 			var _got:Duration = _tt._d.truncate(_tt._m);
 			if (_got != _tt._want) {
-				_t.errorf((Go.str("Duration(%s).Truncate(%s) = %s; want: %s") : GoString), Go.toInterface({
-					final __self__ = new Duration_asInterface(_tt._d);
-					__self__.abs = #if !macro function():Duration return _tt._d.abs() #else null #end;
-					__self__.hours = #if !macro function():GoFloat64 return _tt._d.hours() #else null #end;
-					__self__.microseconds = #if !macro function():GoInt64 return _tt._d.microseconds() #else null #end;
-					__self__.milliseconds = #if !macro function():GoInt64 return _tt._d.milliseconds() #else null #end;
-					__self__.minutes = #if !macro function():GoFloat64 return _tt._d.minutes() #else null #end;
-					__self__.nanoseconds = #if !macro function():GoInt64 return _tt._d.nanoseconds() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Duration return _tt._d.round(_d) #else null #end;
-					__self__.seconds = #if !macro function():GoFloat64 return _tt._d.seconds() #else null #end;
-					__self__.string = #if !macro function():GoString return _tt._d.string() #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Duration return _tt._d.truncate(_d) #else null #end;
-					__self__;
-				}), Go.toInterface({
-					final __self__ = new Duration_asInterface(_tt._m);
-					__self__.abs = #if !macro function():Duration return _tt._m.abs() #else null #end;
-					__self__.hours = #if !macro function():GoFloat64 return _tt._m.hours() #else null #end;
-					__self__.microseconds = #if !macro function():GoInt64 return _tt._m.microseconds() #else null #end;
-					__self__.milliseconds = #if !macro function():GoInt64 return _tt._m.milliseconds() #else null #end;
-					__self__.minutes = #if !macro function():GoFloat64 return _tt._m.minutes() #else null #end;
-					__self__.nanoseconds = #if !macro function():GoInt64 return _tt._m.nanoseconds() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Duration return _tt._m.round(_d) #else null #end;
-					__self__.seconds = #if !macro function():GoFloat64 return _tt._m.seconds() #else null #end;
-					__self__.string = #if !macro function():GoString return _tt._m.string() #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Duration return _tt._m.truncate(_d) #else null #end;
-					__self__;
-				}), Go.toInterface({
-					final __self__ = new Duration_asInterface(_got);
-					__self__.abs = #if !macro function():Duration return _got.abs() #else null #end;
-					__self__.hours = #if !macro function():GoFloat64 return _got.hours() #else null #end;
-					__self__.microseconds = #if !macro function():GoInt64 return _got.microseconds() #else null #end;
-					__self__.milliseconds = #if !macro function():GoInt64 return _got.milliseconds() #else null #end;
-					__self__.minutes = #if !macro function():GoFloat64 return _got.minutes() #else null #end;
-					__self__.nanoseconds = #if !macro function():GoInt64 return _got.nanoseconds() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Duration return _got.round(_d) #else null #end;
-					__self__.seconds = #if !macro function():GoFloat64 return _got.seconds() #else null #end;
-					__self__.string = #if !macro function():GoString return _got.string() #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Duration return _got.truncate(_d) #else null #end;
-					__self__;
-				}), Go.toInterface({
-					final __self__ = new Duration_asInterface(_tt._want);
-					__self__.abs = #if !macro function():Duration return _tt._want.abs() #else null #end;
-					__self__.hours = #if !macro function():GoFloat64 return _tt._want.hours() #else null #end;
-					__self__.microseconds = #if !macro function():GoInt64 return _tt._want.microseconds() #else null #end;
-					__self__.milliseconds = #if !macro function():GoInt64 return _tt._want.milliseconds() #else null #end;
-					__self__.minutes = #if !macro function():GoFloat64 return _tt._want.minutes() #else null #end;
-					__self__.nanoseconds = #if !macro function():GoInt64 return _tt._want.nanoseconds() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Duration return _tt._want.round(_d) #else null #end;
-					__self__.seconds = #if !macro function():GoFloat64 return _tt._want.seconds() #else null #end;
-					__self__.string = #if !macro function():GoString return _tt._want.string() #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Duration return _tt._want.truncate(_d) #else null #end;
-					__self__;
-				}));
+				_t.errorf((Go.str("Duration(%s).Truncate(%s) = %s; want: %s") : GoString), Go.toInterface(Go.asInterface(_tt._d)),
+					Go.toInterface(Go.asInterface(_tt._m)), Go.toInterface(Go.asInterface(_got)), Go.toInterface(Go.asInterface(_tt._want)));
 			};
 		};
 	};
@@ -10421,59 +5581,8 @@ function testDurationRound(_t:stdgo.testing.Testing.T):Void {
 		{
 			var _got:Duration = _tt._d.round(_tt._m);
 			if (_got != _tt._want) {
-				_t.errorf((Go.str("Duration(%s).Round(%s) = %s; want: %s") : GoString), Go.toInterface({
-					final __self__ = new Duration_asInterface(_tt._d);
-					__self__.abs = #if !macro function():Duration return _tt._d.abs() #else null #end;
-					__self__.hours = #if !macro function():GoFloat64 return _tt._d.hours() #else null #end;
-					__self__.microseconds = #if !macro function():GoInt64 return _tt._d.microseconds() #else null #end;
-					__self__.milliseconds = #if !macro function():GoInt64 return _tt._d.milliseconds() #else null #end;
-					__self__.minutes = #if !macro function():GoFloat64 return _tt._d.minutes() #else null #end;
-					__self__.nanoseconds = #if !macro function():GoInt64 return _tt._d.nanoseconds() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Duration return _tt._d.round(_d) #else null #end;
-					__self__.seconds = #if !macro function():GoFloat64 return _tt._d.seconds() #else null #end;
-					__self__.string = #if !macro function():GoString return _tt._d.string() #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Duration return _tt._d.truncate(_d) #else null #end;
-					__self__;
-				}), Go.toInterface({
-					final __self__ = new Duration_asInterface(_tt._m);
-					__self__.abs = #if !macro function():Duration return _tt._m.abs() #else null #end;
-					__self__.hours = #if !macro function():GoFloat64 return _tt._m.hours() #else null #end;
-					__self__.microseconds = #if !macro function():GoInt64 return _tt._m.microseconds() #else null #end;
-					__self__.milliseconds = #if !macro function():GoInt64 return _tt._m.milliseconds() #else null #end;
-					__self__.minutes = #if !macro function():GoFloat64 return _tt._m.minutes() #else null #end;
-					__self__.nanoseconds = #if !macro function():GoInt64 return _tt._m.nanoseconds() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Duration return _tt._m.round(_d) #else null #end;
-					__self__.seconds = #if !macro function():GoFloat64 return _tt._m.seconds() #else null #end;
-					__self__.string = #if !macro function():GoString return _tt._m.string() #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Duration return _tt._m.truncate(_d) #else null #end;
-					__self__;
-				}), Go.toInterface({
-					final __self__ = new Duration_asInterface(_got);
-					__self__.abs = #if !macro function():Duration return _got.abs() #else null #end;
-					__self__.hours = #if !macro function():GoFloat64 return _got.hours() #else null #end;
-					__self__.microseconds = #if !macro function():GoInt64 return _got.microseconds() #else null #end;
-					__self__.milliseconds = #if !macro function():GoInt64 return _got.milliseconds() #else null #end;
-					__self__.minutes = #if !macro function():GoFloat64 return _got.minutes() #else null #end;
-					__self__.nanoseconds = #if !macro function():GoInt64 return _got.nanoseconds() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Duration return _got.round(_d) #else null #end;
-					__self__.seconds = #if !macro function():GoFloat64 return _got.seconds() #else null #end;
-					__self__.string = #if !macro function():GoString return _got.string() #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Duration return _got.truncate(_d) #else null #end;
-					__self__;
-				}), Go.toInterface({
-					final __self__ = new Duration_asInterface(_tt._want);
-					__self__.abs = #if !macro function():Duration return _tt._want.abs() #else null #end;
-					__self__.hours = #if !macro function():GoFloat64 return _tt._want.hours() #else null #end;
-					__self__.microseconds = #if !macro function():GoInt64 return _tt._want.microseconds() #else null #end;
-					__self__.milliseconds = #if !macro function():GoInt64 return _tt._want.milliseconds() #else null #end;
-					__self__.minutes = #if !macro function():GoFloat64 return _tt._want.minutes() #else null #end;
-					__self__.nanoseconds = #if !macro function():GoInt64 return _tt._want.nanoseconds() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Duration return _tt._want.round(_d) #else null #end;
-					__self__.seconds = #if !macro function():GoFloat64 return _tt._want.seconds() #else null #end;
-					__self__.string = #if !macro function():GoString return _tt._want.string() #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Duration return _tt._want.truncate(_d) #else null #end;
-					__self__;
-				}));
+				_t.errorf((Go.str("Duration(%s).Round(%s) = %s; want: %s") : GoString), Go.toInterface(Go.asInterface(_tt._d)),
+					Go.toInterface(Go.asInterface(_tt._m)), Go.toInterface(Go.asInterface(_got)), Go.toInterface(Go.asInterface(_tt._want)));
 			};
 		};
 	};
@@ -10484,46 +5593,8 @@ function testDurationAbs(_t:stdgo.testing.Testing.T):Void {
 		{
 			var _got:Duration = _tt._d.abs();
 			if (_got != _tt._want) {
-				_t.errorf((Go.str("Duration(%s).Abs() = %s; want: %s") : GoString), Go.toInterface({
-					final __self__ = new Duration_asInterface(_tt._d);
-					__self__.abs = #if !macro function():Duration return _tt._d.abs() #else null #end;
-					__self__.hours = #if !macro function():GoFloat64 return _tt._d.hours() #else null #end;
-					__self__.microseconds = #if !macro function():GoInt64 return _tt._d.microseconds() #else null #end;
-					__self__.milliseconds = #if !macro function():GoInt64 return _tt._d.milliseconds() #else null #end;
-					__self__.minutes = #if !macro function():GoFloat64 return _tt._d.minutes() #else null #end;
-					__self__.nanoseconds = #if !macro function():GoInt64 return _tt._d.nanoseconds() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Duration return _tt._d.round(_d) #else null #end;
-					__self__.seconds = #if !macro function():GoFloat64 return _tt._d.seconds() #else null #end;
-					__self__.string = #if !macro function():GoString return _tt._d.string() #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Duration return _tt._d.truncate(_d) #else null #end;
-					__self__;
-				}), Go.toInterface({
-					final __self__ = new Duration_asInterface(_got);
-					__self__.abs = #if !macro function():Duration return _got.abs() #else null #end;
-					__self__.hours = #if !macro function():GoFloat64 return _got.hours() #else null #end;
-					__self__.microseconds = #if !macro function():GoInt64 return _got.microseconds() #else null #end;
-					__self__.milliseconds = #if !macro function():GoInt64 return _got.milliseconds() #else null #end;
-					__self__.minutes = #if !macro function():GoFloat64 return _got.minutes() #else null #end;
-					__self__.nanoseconds = #if !macro function():GoInt64 return _got.nanoseconds() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Duration return _got.round(_d) #else null #end;
-					__self__.seconds = #if !macro function():GoFloat64 return _got.seconds() #else null #end;
-					__self__.string = #if !macro function():GoString return _got.string() #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Duration return _got.truncate(_d) #else null #end;
-					__self__;
-				}), Go.toInterface({
-					final __self__ = new Duration_asInterface(_tt._want);
-					__self__.abs = #if !macro function():Duration return _tt._want.abs() #else null #end;
-					__self__.hours = #if !macro function():GoFloat64 return _tt._want.hours() #else null #end;
-					__self__.microseconds = #if !macro function():GoInt64 return _tt._want.microseconds() #else null #end;
-					__self__.milliseconds = #if !macro function():GoInt64 return _tt._want.milliseconds() #else null #end;
-					__self__.minutes = #if !macro function():GoFloat64 return _tt._want.minutes() #else null #end;
-					__self__.nanoseconds = #if !macro function():GoInt64 return _tt._want.nanoseconds() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Duration return _tt._want.round(_d) #else null #end;
-					__self__.seconds = #if !macro function():GoFloat64 return _tt._want.seconds() #else null #end;
-					__self__.string = #if !macro function():GoString return _tt._want.string() #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Duration return _tt._want.truncate(_d) #else null #end;
-					__self__;
-				}));
+				_t.errorf((Go.str("Duration(%s).Abs() = %s; want: %s") : GoString), Go.toInterface(Go.asInterface(_tt._d)),
+					Go.toInterface(Go.asInterface(_got)), Go.toInterface(Go.asInterface(_tt._want)));
 			};
 		};
 	};
@@ -10700,157 +5771,7 @@ function testMarshalBinaryZeroTime(_t:stdgo.testing.Testing.T):Void {
 		};
 	};
 	if (_t1 != _t0) {
-		_t.errorf((Go.str("t0=%#v\nt1=%#v\nwant identical structures") : GoString), Go.toInterface({
-			final __self__ = new Time_asInterface(_t0);
-			__self__.add = #if !macro function(_d:Duration):Time return _t0.add(_d) #else null #end;
-			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _t0.addDate(_years, _months, _days) #else null #end;
-			__self__.after = #if !macro function(__0:Time):Bool return _t0.after(__0) #else null #end;
-			__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-					_layout:GoString):Slice<GoUInt8> return _t0.appendFormat(_b, _layout) #else null #end;
-			__self__.before = #if !macro function(__0:Time):Bool return _t0.before(__0) #else null #end;
-			__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-				return _t0.clock() #else null #end;
-			__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-				return _t0.date() #else null #end;
-			__self__.day = #if !macro function():GoInt return _t0.day() #else null #end;
-			__self__.equal = #if !macro function(__0:Time):Bool return _t0.equal(__0) #else null #end;
-			__self__.format = #if !macro function(__0:GoString):GoString return _t0.format(__0) #else null #end;
-			__self__.goString = #if !macro function():GoString return _t0.goString() #else null #end;
-			__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t0.gobDecode(__0) #else null #end;
-			__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t0.gobEncode() #else null #end;
-			__self__.hour = #if !macro function():GoInt return _t0.hour() #else null #end;
-			__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-				return _t0.isoweek() #else null #end;
-			__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _t0.in_(__0) #else null #end;
-			__self__.isDST = #if !macro function():Bool return _t0.isDST() #else null #end;
-			__self__.isZero = #if !macro function():Bool return _t0.isZero() #else null #end;
-			__self__.local = #if !macro function():Time return _t0.local() #else null #end;
-			__self__.location = #if !macro function():Ref<Location> return _t0.location() #else null #end;
-			__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t0.marshalBinary() #else null #end;
-			__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t0.marshalJSON() #else null #end;
-			__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t0.marshalText() #else null #end;
-			__self__.minute = #if !macro function():GoInt return _t0.minute() #else null #end;
-			__self__.month = #if !macro function():Month return _t0.month() #else null #end;
-			__self__.nanosecond = #if !macro function():GoInt return _t0.nanosecond() #else null #end;
-			__self__.round = #if !macro function(_d:Duration):Time return _t0.round(_d) #else null #end;
-			__self__.second = #if !macro function():GoInt return _t0.second() #else null #end;
-			__self__.string = #if !macro function():GoString return _t0.string() #else null #end;
-			__self__.sub = #if !macro function(__0:Time):Duration return _t0.sub(__0) #else null #end;
-			__self__.truncate = #if !macro function(_d:Duration):Time return _t0.truncate(_d) #else null #end;
-			__self__.utc = #if !macro function():Time return _t0.utc() #else null #end;
-			__self__.unix = #if !macro function():GoInt64 return _t0.unix() #else null #end;
-			__self__.unixMicro = #if !macro function():GoInt64 return _t0.unixMicro() #else null #end;
-			__self__.unixMilli = #if !macro function():GoInt64 return _t0.unixMilli() #else null #end;
-			__self__.unixNano = #if !macro function():GoInt64 return _t0.unixNano() #else null #end;
-			__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t0.unmarshalBinary(__0) #else null #end;
-			__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t0.unmarshalJSON(__0) #else null #end;
-			__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t0.unmarshalText(__0) #else null #end;
-			__self__.weekday = #if !macro function():Weekday return _t0.weekday() #else null #end;
-			__self__.year = #if !macro function():GoInt return _t0.year() #else null #end;
-			__self__.yearDay = #if !macro function():GoInt return _t0.yearDay() #else null #end;
-			__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-				return _t0.zone() #else null #end;
-			__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-				return _t0.zoneBounds() #else null #end;
-			__self__._abs = #if !macro function():GoUInt64 return _t0._abs() #else null #end;
-			__self__._addSec = #if !macro function(_sec:GoInt64):Void _t0._addSec(_sec) #else null #end;
-			__self__._date = #if !macro function(__0:Bool):{
-				var _0:GoInt;
-				var _1:Month;
-				var _2:GoInt;
-				var _3:GoInt;
-			}
-				return _t0._date(__0) #else null #end;
-			__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-				return _t0._locabs() #else null #end;
-			__self__._mono = #if !macro function():GoInt64 return _t0._mono() #else null #end;
-			__self__._nsec = #if !macro function():GoInt32 return _t0._nsec() #else null #end;
-			__self__._sec = #if !macro function():GoInt64 return _t0._sec() #else null #end;
-			__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _t0._setLoc(__0) #else null #end;
-			__self__._setMono = #if !macro function(_sec:GoInt64):Void _t0._setMono(_sec) #else null #end;
-			__self__._stripMono = #if !macro function():Void _t0._stripMono() #else null #end;
-			__self__._unixSec = #if !macro function():GoInt64 return _t0._unixSec() #else null #end;
-			__self__;
-		}), Go.toInterface({
-			final __self__ = new Time_asInterface(_t1);
-			__self__.add = #if !macro function(_d:Duration):Time return _t1.add(_d) #else null #end;
-			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _t1.addDate(_years, _months, _days) #else null #end;
-			__self__.after = #if !macro function(__0:Time):Bool return _t1.after(__0) #else null #end;
-			__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-					_layout:GoString):Slice<GoUInt8> return _t1.appendFormat(_b, _layout) #else null #end;
-			__self__.before = #if !macro function(__0:Time):Bool return _t1.before(__0) #else null #end;
-			__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-				return _t1.clock() #else null #end;
-			__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-				return _t1.date() #else null #end;
-			__self__.day = #if !macro function():GoInt return _t1.day() #else null #end;
-			__self__.equal = #if !macro function(__0:Time):Bool return _t1.equal(__0) #else null #end;
-			__self__.format = #if !macro function(__0:GoString):GoString return _t1.format(__0) #else null #end;
-			__self__.goString = #if !macro function():GoString return _t1.goString() #else null #end;
-			__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.gobDecode(__0) #else null #end;
-			__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t1.gobEncode() #else null #end;
-			__self__.hour = #if !macro function():GoInt return _t1.hour() #else null #end;
-			__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-				return _t1.isoweek() #else null #end;
-			__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _t1.in_(__0) #else null #end;
-			__self__.isDST = #if !macro function():Bool return _t1.isDST() #else null #end;
-			__self__.isZero = #if !macro function():Bool return _t1.isZero() #else null #end;
-			__self__.local = #if !macro function():Time return _t1.local() #else null #end;
-			__self__.location = #if !macro function():Ref<Location> return _t1.location() #else null #end;
-			__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t1.marshalBinary() #else null #end;
-			__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t1.marshalJSON() #else null #end;
-			__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _t1.marshalText() #else null #end;
-			__self__.minute = #if !macro function():GoInt return _t1.minute() #else null #end;
-			__self__.month = #if !macro function():Month return _t1.month() #else null #end;
-			__self__.nanosecond = #if !macro function():GoInt return _t1.nanosecond() #else null #end;
-			__self__.round = #if !macro function(_d:Duration):Time return _t1.round(_d) #else null #end;
-			__self__.second = #if !macro function():GoInt return _t1.second() #else null #end;
-			__self__.string = #if !macro function():GoString return _t1.string() #else null #end;
-			__self__.sub = #if !macro function(__0:Time):Duration return _t1.sub(__0) #else null #end;
-			__self__.truncate = #if !macro function(_d:Duration):Time return _t1.truncate(_d) #else null #end;
-			__self__.utc = #if !macro function():Time return _t1.utc() #else null #end;
-			__self__.unix = #if !macro function():GoInt64 return _t1.unix() #else null #end;
-			__self__.unixMicro = #if !macro function():GoInt64 return _t1.unixMicro() #else null #end;
-			__self__.unixMilli = #if !macro function():GoInt64 return _t1.unixMilli() #else null #end;
-			__self__.unixNano = #if !macro function():GoInt64 return _t1.unixNano() #else null #end;
-			__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalBinary(__0) #else null #end;
-			__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalJSON(__0) #else null #end;
-			__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalText(__0) #else null #end;
-			__self__.weekday = #if !macro function():Weekday return _t1.weekday() #else null #end;
-			__self__.year = #if !macro function():GoInt return _t1.year() #else null #end;
-			__self__.yearDay = #if !macro function():GoInt return _t1.yearDay() #else null #end;
-			__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-				return _t1.zone() #else null #end;
-			__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-				return _t1.zoneBounds() #else null #end;
-			__self__._abs = #if !macro function():GoUInt64 return _t1._abs() #else null #end;
-			__self__._addSec = #if !macro function(_sec:GoInt64):Void _t1._addSec(_sec) #else null #end;
-			__self__._date = #if !macro function(__0:Bool):{
-				var _0:GoInt;
-				var _1:Month;
-				var _2:GoInt;
-				var _3:GoInt;
-			}
-				return _t1._date(__0) #else null #end;
-			__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-				return _t1._locabs() #else null #end;
-			__self__._mono = #if !macro function():GoInt64 return _t1._mono() #else null #end;
-			__self__._nsec = #if !macro function():GoInt32 return _t1._nsec() #else null #end;
-			__self__._sec = #if !macro function():GoInt64 return _t1._sec() #else null #end;
-			__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _t1._setLoc(__0) #else null #end;
-			__self__._setMono = #if !macro function(_sec:GoInt64):Void _t1._setMono(_sec) #else null #end;
-			__self__._stripMono = #if !macro function():Void _t1._stripMono() #else null #end;
-			__self__._unixSec = #if !macro function():GoInt64 return _t1._unixSec() #else null #end;
-			__self__;
-		}));
+		_t.errorf((Go.str("t0=%#v\nt1=%#v\nwant identical structures") : GoString), Go.toInterface(Go.asInterface(_t0)), Go.toInterface(Go.asInterface(_t1)));
 	};
 }
 
@@ -10881,314 +5802,12 @@ function testMarshalBinaryVersion2(_t:stdgo.testing.Testing.T):Void {
 	};
 	if (!(_t0.equal((_t1 == null ? null : _t1.__copy__())) && _t1.equal((_t2 == null ? null : _t2.__copy__())))) {
 		if (!_t0.equal((_t1 == null ? null : _t1.__copy__()))) {
-			_t.errorf((Go.str("The result t1: %+v after Marshal is not matched original t0: %+v") : GoString), Go.toInterface({
-				final __self__ = new Time_asInterface(_t1);
-				__self__.add = #if !macro function(_d:Duration):Time return _t1.add(_d) #else null #end;
-				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-						_days:GoInt):Time return _t1.addDate(_years, _months, _days) #else null #end;
-				__self__.after = #if !macro function(__0:Time):Bool return _t1.after(__0) #else null #end;
-				__self__.appendFormat = #if !macro function(_b_:Slice<GoUInt8>,
-						_layout:GoString):Slice<GoUInt8> return _t1.appendFormat(_b_, _layout) #else null #end;
-				__self__.before = #if !macro function(__0:Time):Bool return _t1.before(__0) #else null #end;
-				__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-					return _t1.clock() #else null #end;
-				__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-					return _t1.date() #else null #end;
-				__self__.day = #if !macro function():GoInt return _t1.day() #else null #end;
-				__self__.equal = #if !macro function(__0:Time):Bool return _t1.equal(__0) #else null #end;
-				__self__.format = #if !macro function(__0:GoString):GoString return _t1.format(__0) #else null #end;
-				__self__.goString = #if !macro function():GoString return _t1.goString() #else null #end;
-				__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.gobDecode(__0) #else null #end;
-				__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t1.gobEncode() #else null #end;
-				__self__.hour = #if !macro function():GoInt return _t1.hour() #else null #end;
-				__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-					return _t1.isoweek() #else null #end;
-				__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _t1.in_(__0) #else null #end;
-				__self__.isDST = #if !macro function():Bool return _t1.isDST() #else null #end;
-				__self__.isZero = #if !macro function():Bool return _t1.isZero() #else null #end;
-				__self__.local = #if !macro function():Time return _t1.local() #else null #end;
-				__self__.location = #if !macro function():Ref<Location> return _t1.location() #else null #end;
-				__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t1.marshalBinary() #else null #end;
-				__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t1.marshalJSON() #else null #end;
-				__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t1.marshalText() #else null #end;
-				__self__.minute = #if !macro function():GoInt return _t1.minute() #else null #end;
-				__self__.month = #if !macro function():Month return _t1.month() #else null #end;
-				__self__.nanosecond = #if !macro function():GoInt return _t1.nanosecond() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Time return _t1.round(_d) #else null #end;
-				__self__.second = #if !macro function():GoInt return _t1.second() #else null #end;
-				__self__.string = #if !macro function():GoString return _t1.string() #else null #end;
-				__self__.sub = #if !macro function(__0:Time):Duration return _t1.sub(__0) #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Time return _t1.truncate(_d) #else null #end;
-				__self__.utc = #if !macro function():Time return _t1.utc() #else null #end;
-				__self__.unix = #if !macro function():GoInt64 return _t1.unix() #else null #end;
-				__self__.unixMicro = #if !macro function():GoInt64 return _t1.unixMicro() #else null #end;
-				__self__.unixMilli = #if !macro function():GoInt64 return _t1.unixMilli() #else null #end;
-				__self__.unixNano = #if !macro function():GoInt64 return _t1.unixNano() #else null #end;
-				__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalBinary(__0) #else null #end;
-				__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalJSON(__0) #else null #end;
-				__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalText(__0) #else null #end;
-				__self__.weekday = #if !macro function():Weekday return _t1.weekday() #else null #end;
-				__self__.year = #if !macro function():GoInt return _t1.year() #else null #end;
-				__self__.yearDay = #if !macro function():GoInt return _t1.yearDay() #else null #end;
-				__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-					return _t1.zone() #else null #end;
-				__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-					return _t1.zoneBounds() #else null #end;
-				__self__._abs = #if !macro function():GoUInt64 return _t1._abs() #else null #end;
-				__self__._addSec = #if !macro function(_sec:GoInt64):Void _t1._addSec(_sec) #else null #end;
-				__self__._date = #if !macro function(__0:Bool):{
-					var _0:GoInt;
-					var _1:Month;
-					var _2:GoInt;
-					var _3:GoInt;
-				}
-					return _t1._date(__0) #else null #end;
-				__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-					return _t1._locabs() #else null #end;
-				__self__._mono = #if !macro function():GoInt64 return _t1._mono() #else null #end;
-				__self__._nsec = #if !macro function():GoInt32 return _t1._nsec() #else null #end;
-				__self__._sec = #if !macro function():GoInt64 return _t1._sec() #else null #end;
-				__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _t1._setLoc(__0) #else null #end;
-				__self__._setMono = #if !macro function(_sec:GoInt64):Void _t1._setMono(_sec) #else null #end;
-				__self__._stripMono = #if !macro function():Void _t1._stripMono() #else null #end;
-				__self__._unixSec = #if !macro function():GoInt64 return _t1._unixSec() #else null #end;
-				__self__;
-			}), Go.toInterface({
-				final __self__ = new Time_asInterface(_t0);
-				__self__.add = #if !macro function(_d:Duration):Time return _t0.add(_d) #else null #end;
-				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-						_days:GoInt):Time return _t0.addDate(_years, _months, _days) #else null #end;
-				__self__.after = #if !macro function(__0:Time):Bool return _t0.after(__0) #else null #end;
-				__self__.appendFormat = #if !macro function(_b_:Slice<GoUInt8>,
-						_layout:GoString):Slice<GoUInt8> return _t0.appendFormat(_b_, _layout) #else null #end;
-				__self__.before = #if !macro function(__0:Time):Bool return _t0.before(__0) #else null #end;
-				__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-					return _t0.clock() #else null #end;
-				__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-					return _t0.date() #else null #end;
-				__self__.day = #if !macro function():GoInt return _t0.day() #else null #end;
-				__self__.equal = #if !macro function(__0:Time):Bool return _t0.equal(__0) #else null #end;
-				__self__.format = #if !macro function(__0:GoString):GoString return _t0.format(__0) #else null #end;
-				__self__.goString = #if !macro function():GoString return _t0.goString() #else null #end;
-				__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t0.gobDecode(__0) #else null #end;
-				__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t0.gobEncode() #else null #end;
-				__self__.hour = #if !macro function():GoInt return _t0.hour() #else null #end;
-				__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-					return _t0.isoweek() #else null #end;
-				__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _t0.in_(__0) #else null #end;
-				__self__.isDST = #if !macro function():Bool return _t0.isDST() #else null #end;
-				__self__.isZero = #if !macro function():Bool return _t0.isZero() #else null #end;
-				__self__.local = #if !macro function():Time return _t0.local() #else null #end;
-				__self__.location = #if !macro function():Ref<Location> return _t0.location() #else null #end;
-				__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t0.marshalBinary() #else null #end;
-				__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t0.marshalJSON() #else null #end;
-				__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t0.marshalText() #else null #end;
-				__self__.minute = #if !macro function():GoInt return _t0.minute() #else null #end;
-				__self__.month = #if !macro function():Month return _t0.month() #else null #end;
-				__self__.nanosecond = #if !macro function():GoInt return _t0.nanosecond() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Time return _t0.round(_d) #else null #end;
-				__self__.second = #if !macro function():GoInt return _t0.second() #else null #end;
-				__self__.string = #if !macro function():GoString return _t0.string() #else null #end;
-				__self__.sub = #if !macro function(__0:Time):Duration return _t0.sub(__0) #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Time return _t0.truncate(_d) #else null #end;
-				__self__.utc = #if !macro function():Time return _t0.utc() #else null #end;
-				__self__.unix = #if !macro function():GoInt64 return _t0.unix() #else null #end;
-				__self__.unixMicro = #if !macro function():GoInt64 return _t0.unixMicro() #else null #end;
-				__self__.unixMilli = #if !macro function():GoInt64 return _t0.unixMilli() #else null #end;
-				__self__.unixNano = #if !macro function():GoInt64 return _t0.unixNano() #else null #end;
-				__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t0.unmarshalBinary(__0) #else null #end;
-				__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t0.unmarshalJSON(__0) #else null #end;
-				__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t0.unmarshalText(__0) #else null #end;
-				__self__.weekday = #if !macro function():Weekday return _t0.weekday() #else null #end;
-				__self__.year = #if !macro function():GoInt return _t0.year() #else null #end;
-				__self__.yearDay = #if !macro function():GoInt return _t0.yearDay() #else null #end;
-				__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-					return _t0.zone() #else null #end;
-				__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-					return _t0.zoneBounds() #else null #end;
-				__self__._abs = #if !macro function():GoUInt64 return _t0._abs() #else null #end;
-				__self__._addSec = #if !macro function(_sec:GoInt64):Void _t0._addSec(_sec) #else null #end;
-				__self__._date = #if !macro function(__0:Bool):{
-					var _0:GoInt;
-					var _1:Month;
-					var _2:GoInt;
-					var _3:GoInt;
-				}
-					return _t0._date(__0) #else null #end;
-				__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-					return _t0._locabs() #else null #end;
-				__self__._mono = #if !macro function():GoInt64 return _t0._mono() #else null #end;
-				__self__._nsec = #if !macro function():GoInt32 return _t0._nsec() #else null #end;
-				__self__._sec = #if !macro function():GoInt64 return _t0._sec() #else null #end;
-				__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _t0._setLoc(__0) #else null #end;
-				__self__._setMono = #if !macro function(_sec:GoInt64):Void _t0._setMono(_sec) #else null #end;
-				__self__._stripMono = #if !macro function():Void _t0._stripMono() #else null #end;
-				__self__._unixSec = #if !macro function():GoInt64 return _t0._unixSec() #else null #end;
-				__self__;
-			}));
+			_t.errorf((Go.str("The result t1: %+v after Marshal is not matched original t0: %+v") : GoString), Go.toInterface(Go.asInterface(_t1)),
+				Go.toInterface(Go.asInterface(_t0)));
 		};
 		if (!_t1.equal((_t2 == null ? null : _t2.__copy__()))) {
-			_t.errorf((Go.str("The result t2: %+v after Unmarshal is not matched original t1: %+v") : GoString), Go.toInterface({
-				final __self__ = new Time_asInterface(_t2);
-				__self__.add = #if !macro function(_d:Duration):Time return _t2.add(_d) #else null #end;
-				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-						_days:GoInt):Time return _t2.addDate(_years, _months, _days) #else null #end;
-				__self__.after = #if !macro function(__0:Time):Bool return _t2.after(__0) #else null #end;
-				__self__.appendFormat = #if !macro function(_b_:Slice<GoUInt8>,
-						_layout:GoString):Slice<GoUInt8> return _t2.appendFormat(_b_, _layout) #else null #end;
-				__self__.before = #if !macro function(__0:Time):Bool return _t2.before(__0) #else null #end;
-				__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-					return _t2.clock() #else null #end;
-				__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-					return _t2.date() #else null #end;
-				__self__.day = #if !macro function():GoInt return _t2.day() #else null #end;
-				__self__.equal = #if !macro function(__0:Time):Bool return _t2.equal(__0) #else null #end;
-				__self__.format = #if !macro function(__0:GoString):GoString return _t2.format(__0) #else null #end;
-				__self__.goString = #if !macro function():GoString return _t2.goString() #else null #end;
-				__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.gobDecode(__0) #else null #end;
-				__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t2.gobEncode() #else null #end;
-				__self__.hour = #if !macro function():GoInt return _t2.hour() #else null #end;
-				__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-					return _t2.isoweek() #else null #end;
-				__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _t2.in_(__0) #else null #end;
-				__self__.isDST = #if !macro function():Bool return _t2.isDST() #else null #end;
-				__self__.isZero = #if !macro function():Bool return _t2.isZero() #else null #end;
-				__self__.local = #if !macro function():Time return _t2.local() #else null #end;
-				__self__.location = #if !macro function():Ref<Location> return _t2.location() #else null #end;
-				__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t2.marshalBinary() #else null #end;
-				__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t2.marshalJSON() #else null #end;
-				__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t2.marshalText() #else null #end;
-				__self__.minute = #if !macro function():GoInt return _t2.minute() #else null #end;
-				__self__.month = #if !macro function():Month return _t2.month() #else null #end;
-				__self__.nanosecond = #if !macro function():GoInt return _t2.nanosecond() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Time return _t2.round(_d) #else null #end;
-				__self__.second = #if !macro function():GoInt return _t2.second() #else null #end;
-				__self__.string = #if !macro function():GoString return _t2.string() #else null #end;
-				__self__.sub = #if !macro function(__0:Time):Duration return _t2.sub(__0) #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Time return _t2.truncate(_d) #else null #end;
-				__self__.utc = #if !macro function():Time return _t2.utc() #else null #end;
-				__self__.unix = #if !macro function():GoInt64 return _t2.unix() #else null #end;
-				__self__.unixMicro = #if !macro function():GoInt64 return _t2.unixMicro() #else null #end;
-				__self__.unixMilli = #if !macro function():GoInt64 return _t2.unixMilli() #else null #end;
-				__self__.unixNano = #if !macro function():GoInt64 return _t2.unixNano() #else null #end;
-				__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.unmarshalBinary(__0) #else null #end;
-				__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.unmarshalJSON(__0) #else null #end;
-				__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t2.unmarshalText(__0) #else null #end;
-				__self__.weekday = #if !macro function():Weekday return _t2.weekday() #else null #end;
-				__self__.year = #if !macro function():GoInt return _t2.year() #else null #end;
-				__self__.yearDay = #if !macro function():GoInt return _t2.yearDay() #else null #end;
-				__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-					return _t2.zone() #else null #end;
-				__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-					return _t2.zoneBounds() #else null #end;
-				__self__._abs = #if !macro function():GoUInt64 return _t2._abs() #else null #end;
-				__self__._addSec = #if !macro function(_sec:GoInt64):Void _t2._addSec(_sec) #else null #end;
-				__self__._date = #if !macro function(__0:Bool):{
-					var _0:GoInt;
-					var _1:Month;
-					var _2:GoInt;
-					var _3:GoInt;
-				}
-					return _t2._date(__0) #else null #end;
-				__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-					return _t2._locabs() #else null #end;
-				__self__._mono = #if !macro function():GoInt64 return _t2._mono() #else null #end;
-				__self__._nsec = #if !macro function():GoInt32 return _t2._nsec() #else null #end;
-				__self__._sec = #if !macro function():GoInt64 return _t2._sec() #else null #end;
-				__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _t2._setLoc(__0) #else null #end;
-				__self__._setMono = #if !macro function(_sec:GoInt64):Void _t2._setMono(_sec) #else null #end;
-				__self__._stripMono = #if !macro function():Void _t2._stripMono() #else null #end;
-				__self__._unixSec = #if !macro function():GoInt64 return _t2._unixSec() #else null #end;
-				__self__;
-			}), Go.toInterface({
-				final __self__ = new Time_asInterface(_t1);
-				__self__.add = #if !macro function(_d:Duration):Time return _t1.add(_d) #else null #end;
-				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-						_days:GoInt):Time return _t1.addDate(_years, _months, _days) #else null #end;
-				__self__.after = #if !macro function(__0:Time):Bool return _t1.after(__0) #else null #end;
-				__self__.appendFormat = #if !macro function(_b_:Slice<GoUInt8>,
-						_layout:GoString):Slice<GoUInt8> return _t1.appendFormat(_b_, _layout) #else null #end;
-				__self__.before = #if !macro function(__0:Time):Bool return _t1.before(__0) #else null #end;
-				__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-					return _t1.clock() #else null #end;
-				__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-					return _t1.date() #else null #end;
-				__self__.day = #if !macro function():GoInt return _t1.day() #else null #end;
-				__self__.equal = #if !macro function(__0:Time):Bool return _t1.equal(__0) #else null #end;
-				__self__.format = #if !macro function(__0:GoString):GoString return _t1.format(__0) #else null #end;
-				__self__.goString = #if !macro function():GoString return _t1.goString() #else null #end;
-				__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.gobDecode(__0) #else null #end;
-				__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t1.gobEncode() #else null #end;
-				__self__.hour = #if !macro function():GoInt return _t1.hour() #else null #end;
-				__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-					return _t1.isoweek() #else null #end;
-				__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _t1.in_(__0) #else null #end;
-				__self__.isDST = #if !macro function():Bool return _t1.isDST() #else null #end;
-				__self__.isZero = #if !macro function():Bool return _t1.isZero() #else null #end;
-				__self__.local = #if !macro function():Time return _t1.local() #else null #end;
-				__self__.location = #if !macro function():Ref<Location> return _t1.location() #else null #end;
-				__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t1.marshalBinary() #else null #end;
-				__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t1.marshalJSON() #else null #end;
-				__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _t1.marshalText() #else null #end;
-				__self__.minute = #if !macro function():GoInt return _t1.minute() #else null #end;
-				__self__.month = #if !macro function():Month return _t1.month() #else null #end;
-				__self__.nanosecond = #if !macro function():GoInt return _t1.nanosecond() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Time return _t1.round(_d) #else null #end;
-				__self__.second = #if !macro function():GoInt return _t1.second() #else null #end;
-				__self__.string = #if !macro function():GoString return _t1.string() #else null #end;
-				__self__.sub = #if !macro function(__0:Time):Duration return _t1.sub(__0) #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Time return _t1.truncate(_d) #else null #end;
-				__self__.utc = #if !macro function():Time return _t1.utc() #else null #end;
-				__self__.unix = #if !macro function():GoInt64 return _t1.unix() #else null #end;
-				__self__.unixMicro = #if !macro function():GoInt64 return _t1.unixMicro() #else null #end;
-				__self__.unixMilli = #if !macro function():GoInt64 return _t1.unixMilli() #else null #end;
-				__self__.unixNano = #if !macro function():GoInt64 return _t1.unixNano() #else null #end;
-				__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalBinary(__0) #else null #end;
-				__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalJSON(__0) #else null #end;
-				__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _t1.unmarshalText(__0) #else null #end;
-				__self__.weekday = #if !macro function():Weekday return _t1.weekday() #else null #end;
-				__self__.year = #if !macro function():GoInt return _t1.year() #else null #end;
-				__self__.yearDay = #if !macro function():GoInt return _t1.yearDay() #else null #end;
-				__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-					return _t1.zone() #else null #end;
-				__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-					return _t1.zoneBounds() #else null #end;
-				__self__._abs = #if !macro function():GoUInt64 return _t1._abs() #else null #end;
-				__self__._addSec = #if !macro function(_sec:GoInt64):Void _t1._addSec(_sec) #else null #end;
-				__self__._date = #if !macro function(__0:Bool):{
-					var _0:GoInt;
-					var _1:Month;
-					var _2:GoInt;
-					var _3:GoInt;
-				}
-					return _t1._date(__0) #else null #end;
-				__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-					return _t1._locabs() #else null #end;
-				__self__._mono = #if !macro function():GoInt64 return _t1._mono() #else null #end;
-				__self__._nsec = #if !macro function():GoInt32 return _t1._nsec() #else null #end;
-				__self__._sec = #if !macro function():GoInt64 return _t1._sec() #else null #end;
-				__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _t1._setLoc(__0) #else null #end;
-				__self__._setMono = #if !macro function(_sec:GoInt64):Void _t1._setMono(_sec) #else null #end;
-				__self__._stripMono = #if !macro function():Void _t1._stripMono() #else null #end;
-				__self__._unixSec = #if !macro function():GoInt64 return _t1._unixSec() #else null #end;
-				__self__;
-			}));
+			_t.errorf((Go.str("The result t2: %+v after Unmarshal is not matched original t1: %+v") : GoString), Go.toInterface(Go.asInterface(_t2)),
+				Go.toInterface(Go.asInterface(_t1)));
 		};
 	};
 }
@@ -11617,159 +6236,8 @@ function testZoneBounds(_t:stdgo.testing.Testing.T):Void {
 				_start:Time = __tmp__._0,
 				_end:Time = __tmp__._1;
 			if (!(_start.isZero() && _end.isZero())) {
-				_t.errorf((Go.str("ZoneBounds of %+v expects two zero Time, got:\n  start=%v\n  end=%v") : GoString), Go.toInterface(_golden), Go.toInterface({
-					final __self__ = new Time_asInterface(_start);
-					__self__.add = #if !macro function(_d:Duration):Time return _start.add(_d) #else null #end;
-					__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-							_days:GoInt):Time return _start.addDate(_years, _months, _days) #else null #end;
-					__self__.after = #if !macro function(__0:Time):Bool return _start.after(__0) #else null #end;
-					__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-							_layout:GoString):Slice<GoUInt8> return _start.appendFormat(_b, _layout) #else null #end;
-					__self__.before = #if !macro function(__0:Time):Bool return _start.before(__0) #else null #end;
-					__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-						return _start.clock() #else null #end;
-					__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-						return _start.date() #else null #end;
-					__self__.day = #if !macro function():GoInt return _start.day() #else null #end;
-					__self__.equal = #if !macro function(__0:Time):Bool return _start.equal(__0) #else null #end;
-					__self__.format = #if !macro function(__0:GoString):GoString return _start.format(__0) #else null #end;
-					__self__.goString = #if !macro function():GoString return _start.goString() #else null #end;
-					__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _start.gobDecode(__0) #else null #end;
-					__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _start.gobEncode() #else null #end;
-					__self__.hour = #if !macro function():GoInt return _start.hour() #else null #end;
-					__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-						return _start.isoweek() #else null #end;
-					__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _start.in_(__0) #else null #end;
-					__self__.isDST = #if !macro function():Bool return _start.isDST() #else null #end;
-					__self__.isZero = #if !macro function():Bool return _start.isZero() #else null #end;
-					__self__.local = #if !macro function():Time return _start.local() #else null #end;
-					__self__.location = #if !macro function():Ref<Location> return _start.location() #else null #end;
-					__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _start.marshalBinary() #else null #end;
-					__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _start.marshalJSON() #else null #end;
-					__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _start.marshalText() #else null #end;
-					__self__.minute = #if !macro function():GoInt return _start.minute() #else null #end;
-					__self__.month = #if !macro function():Month return _start.month() #else null #end;
-					__self__.nanosecond = #if !macro function():GoInt return _start.nanosecond() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Time return _start.round(_d) #else null #end;
-					__self__.second = #if !macro function():GoInt return _start.second() #else null #end;
-					__self__.string = #if !macro function():GoString return _start.string() #else null #end;
-					__self__.sub = #if !macro function(__0:Time):Duration return _start.sub(__0) #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Time return _start.truncate(_d) #else null #end;
-					__self__.utc = #if !macro function():Time return _start.utc() #else null #end;
-					__self__.unix = #if !macro function():GoInt64 return _start.unix() #else null #end;
-					__self__.unixMicro = #if !macro function():GoInt64 return _start.unixMicro() #else null #end;
-					__self__.unixMilli = #if !macro function():GoInt64 return _start.unixMilli() #else null #end;
-					__self__.unixNano = #if !macro function():GoInt64 return _start.unixNano() #else null #end;
-					__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _start.unmarshalBinary(__0) #else null #end;
-					__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _start.unmarshalJSON(__0) #else null #end;
-					__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _start.unmarshalText(__0) #else null #end;
-					__self__.weekday = #if !macro function():Weekday return _start.weekday() #else null #end;
-					__self__.year = #if !macro function():GoInt return _start.year() #else null #end;
-					__self__.yearDay = #if !macro function():GoInt return _start.yearDay() #else null #end;
-					__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-						return _start.zone() #else null #end;
-					__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-						return _start.zoneBounds() #else null #end;
-					__self__._abs = #if !macro function():GoUInt64 return _start._abs() #else null #end;
-					__self__._addSec = #if !macro function(_sec_:GoInt64):Void _start._addSec(_sec_) #else null #end;
-					__self__._date = #if !macro function(__0:Bool):{
-						var _0:GoInt;
-						var _1:Month;
-						var _2:GoInt;
-						var _3:GoInt;
-					}
-						return _start._date(__0) #else null #end;
-					__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-						return _start._locabs() #else null #end;
-					__self__._mono = #if !macro function():GoInt64 return _start._mono() #else null #end;
-					__self__._nsec = #if !macro function():GoInt32 return _start._nsec() #else null #end;
-					__self__._sec = #if !macro function():GoInt64 return _start._sec() #else null #end;
-					__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _start._setLoc(__0) #else null #end;
-					__self__._setMono = #if !macro function(_sec__:GoInt64):Void _start._setMono(_sec__) #else null #end;
-					__self__._stripMono = #if !macro function():Void _start._stripMono() #else null #end;
-					__self__._unixSec = #if !macro function():GoInt64 return _start._unixSec() #else null #end;
-					__self__;
-				}), Go.toInterface({
-					final __self__ = new Time_asInterface(_end);
-					__self__.add = #if !macro function(_d:Duration):Time return _end.add(_d) #else null #end;
-					__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-							_days:GoInt):Time return _end.addDate(_years, _months, _days) #else null #end;
-					__self__.after = #if !macro function(__0:Time):Bool return _end.after(__0) #else null #end;
-					__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-							_layout:GoString):Slice<GoUInt8> return _end.appendFormat(_b, _layout) #else null #end;
-					__self__.before = #if !macro function(__0:Time):Bool return _end.before(__0) #else null #end;
-					__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-						return _end.clock() #else null #end;
-					__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-						return _end.date() #else null #end;
-					__self__.day = #if !macro function():GoInt return _end.day() #else null #end;
-					__self__.equal = #if !macro function(__0:Time):Bool return _end.equal(__0) #else null #end;
-					__self__.format = #if !macro function(__0:GoString):GoString return _end.format(__0) #else null #end;
-					__self__.goString = #if !macro function():GoString return _end.goString() #else null #end;
-					__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _end.gobDecode(__0) #else null #end;
-					__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _end.gobEncode() #else null #end;
-					__self__.hour = #if !macro function():GoInt return _end.hour() #else null #end;
-					__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-						return _end.isoweek() #else null #end;
-					__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _end.in_(__0) #else null #end;
-					__self__.isDST = #if !macro function():Bool return _end.isDST() #else null #end;
-					__self__.isZero = #if !macro function():Bool return _end.isZero() #else null #end;
-					__self__.local = #if !macro function():Time return _end.local() #else null #end;
-					__self__.location = #if !macro function():Ref<Location> return _end.location() #else null #end;
-					__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _end.marshalBinary() #else null #end;
-					__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _end.marshalJSON() #else null #end;
-					__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _end.marshalText() #else null #end;
-					__self__.minute = #if !macro function():GoInt return _end.minute() #else null #end;
-					__self__.month = #if !macro function():Month return _end.month() #else null #end;
-					__self__.nanosecond = #if !macro function():GoInt return _end.nanosecond() #else null #end;
-					__self__.round = #if !macro function(_d:Duration):Time return _end.round(_d) #else null #end;
-					__self__.second = #if !macro function():GoInt return _end.second() #else null #end;
-					__self__.string = #if !macro function():GoString return _end.string() #else null #end;
-					__self__.sub = #if !macro function(__0:Time):Duration return _end.sub(__0) #else null #end;
-					__self__.truncate = #if !macro function(_d:Duration):Time return _end.truncate(_d) #else null #end;
-					__self__.utc = #if !macro function():Time return _end.utc() #else null #end;
-					__self__.unix = #if !macro function():GoInt64 return _end.unix() #else null #end;
-					__self__.unixMicro = #if !macro function():GoInt64 return _end.unixMicro() #else null #end;
-					__self__.unixMilli = #if !macro function():GoInt64 return _end.unixMilli() #else null #end;
-					__self__.unixNano = #if !macro function():GoInt64 return _end.unixNano() #else null #end;
-					__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _end.unmarshalBinary(__0) #else null #end;
-					__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _end.unmarshalJSON(__0) #else null #end;
-					__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _end.unmarshalText(__0) #else null #end;
-					__self__.weekday = #if !macro function():Weekday return _end.weekday() #else null #end;
-					__self__.year = #if !macro function():GoInt return _end.year() #else null #end;
-					__self__.yearDay = #if !macro function():GoInt return _end.yearDay() #else null #end;
-					__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-						return _end.zone() #else null #end;
-					__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-						return _end.zoneBounds() #else null #end;
-					__self__._abs = #if !macro function():GoUInt64 return _end._abs() #else null #end;
-					__self__._addSec = #if !macro function(_sec_:GoInt64):Void _end._addSec(_sec_) #else null #end;
-					__self__._date = #if !macro function(__0:Bool):{
-						var _0:GoInt;
-						var _1:Month;
-						var _2:GoInt;
-						var _3:GoInt;
-					}
-						return _end._date(__0) #else null #end;
-					__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-						return _end._locabs() #else null #end;
-					__self__._mono = #if !macro function():GoInt64 return _end._mono() #else null #end;
-					__self__._nsec = #if !macro function():GoInt32 return _end._nsec() #else null #end;
-					__self__._sec = #if !macro function():GoInt64 return _end._sec() #else null #end;
-					__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _end._setLoc(__0) #else null #end;
-					__self__._setMono = #if !macro function(_sec__:GoInt64):Void _end._setMono(_sec__) #else null #end;
-					__self__._stripMono = #if !macro function():Void _end._stripMono() #else null #end;
-					__self__._unixSec = #if !macro function():GoInt64 return _end._unixSec() #else null #end;
-					__self__;
-				}));
+				_t.errorf((Go.str("ZoneBounds of %+v expects two zero Time, got:\n  start=%v\n  end=%v") : GoString), Go.toInterface(_golden),
+					Go.toInterface(Go.asInterface(_start)), Go.toInterface(Go.asInterface(_end)));
 			};
 		};
 		var _beginTime:Time = (date((-2147483648 : GoInt), (1 : Month), (1 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt),
@@ -11778,235 +6246,8 @@ function testZoneBounds(_t:stdgo.testing.Testing.T):Void {
 			_start:Time = __tmp__._0,
 			_end:Time = __tmp__._1;
 		if (!_start.isZero() || _end.isZero()) {
-			_t.errorf((Go.str("ZoneBounds of %v expects start is zero Time, got:\n  start=%v\n  end=%v") : GoString), Go.toInterface({
-				final __self__ = new Time_asInterface(_beginTime);
-				__self__.add = #if !macro function(_d:Duration):Time return _beginTime.add(_d) #else null #end;
-				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-						_days:GoInt):Time return _beginTime.addDate(_years, _months, _days) #else null #end;
-				__self__.after = #if !macro function(__0:Time):Bool return _beginTime.after(__0) #else null #end;
-				__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-						_layout:GoString):Slice<GoUInt8> return _beginTime.appendFormat(_b, _layout) #else null #end;
-				__self__.before = #if !macro function(__0:Time):Bool return _beginTime.before(__0) #else null #end;
-				__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-					return _beginTime.clock() #else null #end;
-				__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-					return _beginTime.date() #else null #end;
-				__self__.day = #if !macro function():GoInt return _beginTime.day() #else null #end;
-				__self__.equal = #if !macro function(__0:Time):Bool return _beginTime.equal(__0) #else null #end;
-				__self__.format = #if !macro function(__0:GoString):GoString return _beginTime.format(__0) #else null #end;
-				__self__.goString = #if !macro function():GoString return _beginTime.goString() #else null #end;
-				__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _beginTime.gobDecode(__0) #else null #end;
-				__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _beginTime.gobEncode() #else null #end;
-				__self__.hour = #if !macro function():GoInt return _beginTime.hour() #else null #end;
-				__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-					return _beginTime.isoweek() #else null #end;
-				__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _beginTime.in_(__0) #else null #end;
-				__self__.isDST = #if !macro function():Bool return _beginTime.isDST() #else null #end;
-				__self__.isZero = #if !macro function():Bool return _beginTime.isZero() #else null #end;
-				__self__.local = #if !macro function():Time return _beginTime.local() #else null #end;
-				__self__.location = #if !macro function():Ref<Location> return _beginTime.location() #else null #end;
-				__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _beginTime.marshalBinary() #else null #end;
-				__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _beginTime.marshalJSON() #else null #end;
-				__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _beginTime.marshalText() #else null #end;
-				__self__.minute = #if !macro function():GoInt return _beginTime.minute() #else null #end;
-				__self__.month = #if !macro function():Month return _beginTime.month() #else null #end;
-				__self__.nanosecond = #if !macro function():GoInt return _beginTime.nanosecond() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Time return _beginTime.round(_d) #else null #end;
-				__self__.second = #if !macro function():GoInt return _beginTime.second() #else null #end;
-				__self__.string = #if !macro function():GoString return _beginTime.string() #else null #end;
-				__self__.sub = #if !macro function(__0:Time):Duration return _beginTime.sub(__0) #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Time return _beginTime.truncate(_d) #else null #end;
-				__self__.utc = #if !macro function():Time return _beginTime.utc() #else null #end;
-				__self__.unix = #if !macro function():GoInt64 return _beginTime.unix() #else null #end;
-				__self__.unixMicro = #if !macro function():GoInt64 return _beginTime.unixMicro() #else null #end;
-				__self__.unixMilli = #if !macro function():GoInt64 return _beginTime.unixMilli() #else null #end;
-				__self__.unixNano = #if !macro function():GoInt64 return _beginTime.unixNano() #else null #end;
-				__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _beginTime.unmarshalBinary(__0) #else null #end;
-				__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _beginTime.unmarshalJSON(__0) #else null #end;
-				__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _beginTime.unmarshalText(__0) #else null #end;
-				__self__.weekday = #if !macro function():Weekday return _beginTime.weekday() #else null #end;
-				__self__.year = #if !macro function():GoInt return _beginTime.year() #else null #end;
-				__self__.yearDay = #if !macro function():GoInt return _beginTime.yearDay() #else null #end;
-				__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-					return _beginTime.zone() #else null #end;
-				__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-					return _beginTime.zoneBounds() #else null #end;
-				__self__._abs = #if !macro function():GoUInt64 return _beginTime._abs() #else null #end;
-				__self__._addSec = #if !macro function(_sec_:GoInt64):Void _beginTime._addSec(_sec_) #else null #end;
-				__self__._date = #if !macro function(__0:Bool):{
-					var _0:GoInt;
-					var _1:Month;
-					var _2:GoInt;
-					var _3:GoInt;
-				}
-					return _beginTime._date(__0) #else null #end;
-				__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-					return _beginTime._locabs() #else null #end;
-				__self__._mono = #if !macro function():GoInt64 return _beginTime._mono() #else null #end;
-				__self__._nsec = #if !macro function():GoInt32 return _beginTime._nsec() #else null #end;
-				__self__._sec = #if !macro function():GoInt64 return _beginTime._sec() #else null #end;
-				__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _beginTime._setLoc(__0) #else null #end;
-				__self__._setMono = #if !macro function(_sec__:GoInt64):Void _beginTime._setMono(_sec__) #else null #end;
-				__self__._stripMono = #if !macro function():Void _beginTime._stripMono() #else null #end;
-				__self__._unixSec = #if !macro function():GoInt64 return _beginTime._unixSec() #else null #end;
-				__self__;
-			}), Go.toInterface({
-				final __self__ = new Time_asInterface(_start);
-				__self__.add = #if !macro function(_d:Duration):Time return _start.add(_d) #else null #end;
-				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-						_days:GoInt):Time return _start.addDate(_years, _months, _days) #else null #end;
-				__self__.after = #if !macro function(__0:Time):Bool return _start.after(__0) #else null #end;
-				__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-						_layout:GoString):Slice<GoUInt8> return _start.appendFormat(_b, _layout) #else null #end;
-				__self__.before = #if !macro function(__0:Time):Bool return _start.before(__0) #else null #end;
-				__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-					return _start.clock() #else null #end;
-				__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-					return _start.date() #else null #end;
-				__self__.day = #if !macro function():GoInt return _start.day() #else null #end;
-				__self__.equal = #if !macro function(__0:Time):Bool return _start.equal(__0) #else null #end;
-				__self__.format = #if !macro function(__0:GoString):GoString return _start.format(__0) #else null #end;
-				__self__.goString = #if !macro function():GoString return _start.goString() #else null #end;
-				__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _start.gobDecode(__0) #else null #end;
-				__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _start.gobEncode() #else null #end;
-				__self__.hour = #if !macro function():GoInt return _start.hour() #else null #end;
-				__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-					return _start.isoweek() #else null #end;
-				__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _start.in_(__0) #else null #end;
-				__self__.isDST = #if !macro function():Bool return _start.isDST() #else null #end;
-				__self__.isZero = #if !macro function():Bool return _start.isZero() #else null #end;
-				__self__.local = #if !macro function():Time return _start.local() #else null #end;
-				__self__.location = #if !macro function():Ref<Location> return _start.location() #else null #end;
-				__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _start.marshalBinary() #else null #end;
-				__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _start.marshalJSON() #else null #end;
-				__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _start.marshalText() #else null #end;
-				__self__.minute = #if !macro function():GoInt return _start.minute() #else null #end;
-				__self__.month = #if !macro function():Month return _start.month() #else null #end;
-				__self__.nanosecond = #if !macro function():GoInt return _start.nanosecond() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Time return _start.round(_d) #else null #end;
-				__self__.second = #if !macro function():GoInt return _start.second() #else null #end;
-				__self__.string = #if !macro function():GoString return _start.string() #else null #end;
-				__self__.sub = #if !macro function(__0:Time):Duration return _start.sub(__0) #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Time return _start.truncate(_d) #else null #end;
-				__self__.utc = #if !macro function():Time return _start.utc() #else null #end;
-				__self__.unix = #if !macro function():GoInt64 return _start.unix() #else null #end;
-				__self__.unixMicro = #if !macro function():GoInt64 return _start.unixMicro() #else null #end;
-				__self__.unixMilli = #if !macro function():GoInt64 return _start.unixMilli() #else null #end;
-				__self__.unixNano = #if !macro function():GoInt64 return _start.unixNano() #else null #end;
-				__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _start.unmarshalBinary(__0) #else null #end;
-				__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _start.unmarshalJSON(__0) #else null #end;
-				__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _start.unmarshalText(__0) #else null #end;
-				__self__.weekday = #if !macro function():Weekday return _start.weekday() #else null #end;
-				__self__.year = #if !macro function():GoInt return _start.year() #else null #end;
-				__self__.yearDay = #if !macro function():GoInt return _start.yearDay() #else null #end;
-				__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-					return _start.zone() #else null #end;
-				__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-					return _start.zoneBounds() #else null #end;
-				__self__._abs = #if !macro function():GoUInt64 return _start._abs() #else null #end;
-				__self__._addSec = #if !macro function(_sec_:GoInt64):Void _start._addSec(_sec_) #else null #end;
-				__self__._date = #if !macro function(__0:Bool):{
-					var _0:GoInt;
-					var _1:Month;
-					var _2:GoInt;
-					var _3:GoInt;
-				}
-					return _start._date(__0) #else null #end;
-				__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-					return _start._locabs() #else null #end;
-				__self__._mono = #if !macro function():GoInt64 return _start._mono() #else null #end;
-				__self__._nsec = #if !macro function():GoInt32 return _start._nsec() #else null #end;
-				__self__._sec = #if !macro function():GoInt64 return _start._sec() #else null #end;
-				__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _start._setLoc(__0) #else null #end;
-				__self__._setMono = #if !macro function(_sec__:GoInt64):Void _start._setMono(_sec__) #else null #end;
-				__self__._stripMono = #if !macro function():Void _start._stripMono() #else null #end;
-				__self__._unixSec = #if !macro function():GoInt64 return _start._unixSec() #else null #end;
-				__self__;
-			}), Go.toInterface({
-				final __self__ = new Time_asInterface(_end);
-				__self__.add = #if !macro function(_d:Duration):Time return _end.add(_d) #else null #end;
-				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-						_days:GoInt):Time return _end.addDate(_years, _months, _days) #else null #end;
-				__self__.after = #if !macro function(__0:Time):Bool return _end.after(__0) #else null #end;
-				__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-						_layout:GoString):Slice<GoUInt8> return _end.appendFormat(_b, _layout) #else null #end;
-				__self__.before = #if !macro function(__0:Time):Bool return _end.before(__0) #else null #end;
-				__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-					return _end.clock() #else null #end;
-				__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-					return _end.date() #else null #end;
-				__self__.day = #if !macro function():GoInt return _end.day() #else null #end;
-				__self__.equal = #if !macro function(__0:Time):Bool return _end.equal(__0) #else null #end;
-				__self__.format = #if !macro function(__0:GoString):GoString return _end.format(__0) #else null #end;
-				__self__.goString = #if !macro function():GoString return _end.goString() #else null #end;
-				__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _end.gobDecode(__0) #else null #end;
-				__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _end.gobEncode() #else null #end;
-				__self__.hour = #if !macro function():GoInt return _end.hour() #else null #end;
-				__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-					return _end.isoweek() #else null #end;
-				__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _end.in_(__0) #else null #end;
-				__self__.isDST = #if !macro function():Bool return _end.isDST() #else null #end;
-				__self__.isZero = #if !macro function():Bool return _end.isZero() #else null #end;
-				__self__.local = #if !macro function():Time return _end.local() #else null #end;
-				__self__.location = #if !macro function():Ref<Location> return _end.location() #else null #end;
-				__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _end.marshalBinary() #else null #end;
-				__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _end.marshalJSON() #else null #end;
-				__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _end.marshalText() #else null #end;
-				__self__.minute = #if !macro function():GoInt return _end.minute() #else null #end;
-				__self__.month = #if !macro function():Month return _end.month() #else null #end;
-				__self__.nanosecond = #if !macro function():GoInt return _end.nanosecond() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Time return _end.round(_d) #else null #end;
-				__self__.second = #if !macro function():GoInt return _end.second() #else null #end;
-				__self__.string = #if !macro function():GoString return _end.string() #else null #end;
-				__self__.sub = #if !macro function(__0:Time):Duration return _end.sub(__0) #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Time return _end.truncate(_d) #else null #end;
-				__self__.utc = #if !macro function():Time return _end.utc() #else null #end;
-				__self__.unix = #if !macro function():GoInt64 return _end.unix() #else null #end;
-				__self__.unixMicro = #if !macro function():GoInt64 return _end.unixMicro() #else null #end;
-				__self__.unixMilli = #if !macro function():GoInt64 return _end.unixMilli() #else null #end;
-				__self__.unixNano = #if !macro function():GoInt64 return _end.unixNano() #else null #end;
-				__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _end.unmarshalBinary(__0) #else null #end;
-				__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _end.unmarshalJSON(__0) #else null #end;
-				__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _end.unmarshalText(__0) #else null #end;
-				__self__.weekday = #if !macro function():Weekday return _end.weekday() #else null #end;
-				__self__.year = #if !macro function():GoInt return _end.year() #else null #end;
-				__self__.yearDay = #if !macro function():GoInt return _end.yearDay() #else null #end;
-				__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-					return _end.zone() #else null #end;
-				__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-					return _end.zoneBounds() #else null #end;
-				__self__._abs = #if !macro function():GoUInt64 return _end._abs() #else null #end;
-				__self__._addSec = #if !macro function(_sec_:GoInt64):Void _end._addSec(_sec_) #else null #end;
-				__self__._date = #if !macro function(__0:Bool):{
-					var _0:GoInt;
-					var _1:Month;
-					var _2:GoInt;
-					var _3:GoInt;
-				}
-					return _end._date(__0) #else null #end;
-				__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-					return _end._locabs() #else null #end;
-				__self__._mono = #if !macro function():GoInt64 return _end._mono() #else null #end;
-				__self__._nsec = #if !macro function():GoInt32 return _end._nsec() #else null #end;
-				__self__._sec = #if !macro function():GoInt64 return _end._sec() #else null #end;
-				__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _end._setLoc(__0) #else null #end;
-				__self__._setMono = #if !macro function(_sec__:GoInt64):Void _end._setMono(_sec__) #else null #end;
-				__self__._stripMono = #if !macro function():Void _end._stripMono() #else null #end;
-				__self__._unixSec = #if !macro function():GoInt64 return _end._unixSec() #else null #end;
-				__self__;
-			}));
+			_t.errorf((Go.str("ZoneBounds of %v expects start is zero Time, got:\n  start=%v\n  end=%v") : GoString),
+				Go.toInterface(Go.asInterface(_beginTime)), Go.toInterface(Go.asInterface(_start)), Go.toInterface(Go.asInterface(_end)));
 		};
 		var _foreverTime:Time = (date((2147483647 : GoInt), (1 : Month), (1 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt),
 			_loc) == null ? null : date((2147483647 : GoInt), (1 : Month), (1 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt), _loc).__copy__());
@@ -12016,235 +6257,8 @@ function testZoneBounds(_t:stdgo.testing.Testing.T):Void {
 			_end = (__tmp__._1 == null ? null : __tmp__._1.__copy__());
 		};
 		if (_start.isZero() || !_end.isZero()) {
-			_t.errorf((Go.str("ZoneBounds of %v expects end is zero Time, got:\n  start=%v\n  end=%v") : GoString), Go.toInterface({
-				final __self__ = new Time_asInterface(_foreverTime);
-				__self__.add = #if !macro function(_d:Duration):Time return _foreverTime.add(_d) #else null #end;
-				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-						_days:GoInt):Time return _foreverTime.addDate(_years, _months, _days) #else null #end;
-				__self__.after = #if !macro function(__0:Time):Bool return _foreverTime.after(__0) #else null #end;
-				__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-						_layout:GoString):Slice<GoUInt8> return _foreverTime.appendFormat(_b, _layout) #else null #end;
-				__self__.before = #if !macro function(__0:Time):Bool return _foreverTime.before(__0) #else null #end;
-				__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-					return _foreverTime.clock() #else null #end;
-				__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-					return _foreverTime.date() #else null #end;
-				__self__.day = #if !macro function():GoInt return _foreverTime.day() #else null #end;
-				__self__.equal = #if !macro function(__0:Time):Bool return _foreverTime.equal(__0) #else null #end;
-				__self__.format = #if !macro function(__0:GoString):GoString return _foreverTime.format(__0) #else null #end;
-				__self__.goString = #if !macro function():GoString return _foreverTime.goString() #else null #end;
-				__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _foreverTime.gobDecode(__0) #else null #end;
-				__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _foreverTime.gobEncode() #else null #end;
-				__self__.hour = #if !macro function():GoInt return _foreverTime.hour() #else null #end;
-				__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-					return _foreverTime.isoweek() #else null #end;
-				__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _foreverTime.in_(__0) #else null #end;
-				__self__.isDST = #if !macro function():Bool return _foreverTime.isDST() #else null #end;
-				__self__.isZero = #if !macro function():Bool return _foreverTime.isZero() #else null #end;
-				__self__.local = #if !macro function():Time return _foreverTime.local() #else null #end;
-				__self__.location = #if !macro function():Ref<Location> return _foreverTime.location() #else null #end;
-				__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _foreverTime.marshalBinary() #else null #end;
-				__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _foreverTime.marshalJSON() #else null #end;
-				__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _foreverTime.marshalText() #else null #end;
-				__self__.minute = #if !macro function():GoInt return _foreverTime.minute() #else null #end;
-				__self__.month = #if !macro function():Month return _foreverTime.month() #else null #end;
-				__self__.nanosecond = #if !macro function():GoInt return _foreverTime.nanosecond() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Time return _foreverTime.round(_d) #else null #end;
-				__self__.second = #if !macro function():GoInt return _foreverTime.second() #else null #end;
-				__self__.string = #if !macro function():GoString return _foreverTime.string() #else null #end;
-				__self__.sub = #if !macro function(__0:Time):Duration return _foreverTime.sub(__0) #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Time return _foreverTime.truncate(_d) #else null #end;
-				__self__.utc = #if !macro function():Time return _foreverTime.utc() #else null #end;
-				__self__.unix = #if !macro function():GoInt64 return _foreverTime.unix() #else null #end;
-				__self__.unixMicro = #if !macro function():GoInt64 return _foreverTime.unixMicro() #else null #end;
-				__self__.unixMilli = #if !macro function():GoInt64 return _foreverTime.unixMilli() #else null #end;
-				__self__.unixNano = #if !macro function():GoInt64 return _foreverTime.unixNano() #else null #end;
-				__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _foreverTime.unmarshalBinary(__0) #else null #end;
-				__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _foreverTime.unmarshalJSON(__0) #else null #end;
-				__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _foreverTime.unmarshalText(__0) #else null #end;
-				__self__.weekday = #if !macro function():Weekday return _foreverTime.weekday() #else null #end;
-				__self__.year = #if !macro function():GoInt return _foreverTime.year() #else null #end;
-				__self__.yearDay = #if !macro function():GoInt return _foreverTime.yearDay() #else null #end;
-				__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-					return _foreverTime.zone() #else null #end;
-				__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-					return _foreverTime.zoneBounds() #else null #end;
-				__self__._abs = #if !macro function():GoUInt64 return _foreverTime._abs() #else null #end;
-				__self__._addSec = #if !macro function(_sec_:GoInt64):Void _foreverTime._addSec(_sec_) #else null #end;
-				__self__._date = #if !macro function(__0:Bool):{
-					var _0:GoInt;
-					var _1:Month;
-					var _2:GoInt;
-					var _3:GoInt;
-				}
-					return _foreverTime._date(__0) #else null #end;
-				__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-					return _foreverTime._locabs() #else null #end;
-				__self__._mono = #if !macro function():GoInt64 return _foreverTime._mono() #else null #end;
-				__self__._nsec = #if !macro function():GoInt32 return _foreverTime._nsec() #else null #end;
-				__self__._sec = #if !macro function():GoInt64 return _foreverTime._sec() #else null #end;
-				__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _foreverTime._setLoc(__0) #else null #end;
-				__self__._setMono = #if !macro function(_sec__:GoInt64):Void _foreverTime._setMono(_sec__) #else null #end;
-				__self__._stripMono = #if !macro function():Void _foreverTime._stripMono() #else null #end;
-				__self__._unixSec = #if !macro function():GoInt64 return _foreverTime._unixSec() #else null #end;
-				__self__;
-			}), Go.toInterface({
-				final __self__ = new Time_asInterface(_start);
-				__self__.add = #if !macro function(_d:Duration):Time return _start.add(_d) #else null #end;
-				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-						_days:GoInt):Time return _start.addDate(_years, _months, _days) #else null #end;
-				__self__.after = #if !macro function(__0:Time):Bool return _start.after(__0) #else null #end;
-				__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-						_layout:GoString):Slice<GoUInt8> return _start.appendFormat(_b, _layout) #else null #end;
-				__self__.before = #if !macro function(__0:Time):Bool return _start.before(__0) #else null #end;
-				__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-					return _start.clock() #else null #end;
-				__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-					return _start.date() #else null #end;
-				__self__.day = #if !macro function():GoInt return _start.day() #else null #end;
-				__self__.equal = #if !macro function(__0:Time):Bool return _start.equal(__0) #else null #end;
-				__self__.format = #if !macro function(__0:GoString):GoString return _start.format(__0) #else null #end;
-				__self__.goString = #if !macro function():GoString return _start.goString() #else null #end;
-				__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _start.gobDecode(__0) #else null #end;
-				__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _start.gobEncode() #else null #end;
-				__self__.hour = #if !macro function():GoInt return _start.hour() #else null #end;
-				__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-					return _start.isoweek() #else null #end;
-				__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _start.in_(__0) #else null #end;
-				__self__.isDST = #if !macro function():Bool return _start.isDST() #else null #end;
-				__self__.isZero = #if !macro function():Bool return _start.isZero() #else null #end;
-				__self__.local = #if !macro function():Time return _start.local() #else null #end;
-				__self__.location = #if !macro function():Ref<Location> return _start.location() #else null #end;
-				__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _start.marshalBinary() #else null #end;
-				__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _start.marshalJSON() #else null #end;
-				__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _start.marshalText() #else null #end;
-				__self__.minute = #if !macro function():GoInt return _start.minute() #else null #end;
-				__self__.month = #if !macro function():Month return _start.month() #else null #end;
-				__self__.nanosecond = #if !macro function():GoInt return _start.nanosecond() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Time return _start.round(_d) #else null #end;
-				__self__.second = #if !macro function():GoInt return _start.second() #else null #end;
-				__self__.string = #if !macro function():GoString return _start.string() #else null #end;
-				__self__.sub = #if !macro function(__0:Time):Duration return _start.sub(__0) #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Time return _start.truncate(_d) #else null #end;
-				__self__.utc = #if !macro function():Time return _start.utc() #else null #end;
-				__self__.unix = #if !macro function():GoInt64 return _start.unix() #else null #end;
-				__self__.unixMicro = #if !macro function():GoInt64 return _start.unixMicro() #else null #end;
-				__self__.unixMilli = #if !macro function():GoInt64 return _start.unixMilli() #else null #end;
-				__self__.unixNano = #if !macro function():GoInt64 return _start.unixNano() #else null #end;
-				__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _start.unmarshalBinary(__0) #else null #end;
-				__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _start.unmarshalJSON(__0) #else null #end;
-				__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _start.unmarshalText(__0) #else null #end;
-				__self__.weekday = #if !macro function():Weekday return _start.weekday() #else null #end;
-				__self__.year = #if !macro function():GoInt return _start.year() #else null #end;
-				__self__.yearDay = #if !macro function():GoInt return _start.yearDay() #else null #end;
-				__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-					return _start.zone() #else null #end;
-				__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-					return _start.zoneBounds() #else null #end;
-				__self__._abs = #if !macro function():GoUInt64 return _start._abs() #else null #end;
-				__self__._addSec = #if !macro function(_sec_:GoInt64):Void _start._addSec(_sec_) #else null #end;
-				__self__._date = #if !macro function(__0:Bool):{
-					var _0:GoInt;
-					var _1:Month;
-					var _2:GoInt;
-					var _3:GoInt;
-				}
-					return _start._date(__0) #else null #end;
-				__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-					return _start._locabs() #else null #end;
-				__self__._mono = #if !macro function():GoInt64 return _start._mono() #else null #end;
-				__self__._nsec = #if !macro function():GoInt32 return _start._nsec() #else null #end;
-				__self__._sec = #if !macro function():GoInt64 return _start._sec() #else null #end;
-				__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _start._setLoc(__0) #else null #end;
-				__self__._setMono = #if !macro function(_sec__:GoInt64):Void _start._setMono(_sec__) #else null #end;
-				__self__._stripMono = #if !macro function():Void _start._stripMono() #else null #end;
-				__self__._unixSec = #if !macro function():GoInt64 return _start._unixSec() #else null #end;
-				__self__;
-			}), Go.toInterface({
-				final __self__ = new Time_asInterface(_end);
-				__self__.add = #if !macro function(_d:Duration):Time return _end.add(_d) #else null #end;
-				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-						_days:GoInt):Time return _end.addDate(_years, _months, _days) #else null #end;
-				__self__.after = #if !macro function(__0:Time):Bool return _end.after(__0) #else null #end;
-				__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-						_layout:GoString):Slice<GoUInt8> return _end.appendFormat(_b, _layout) #else null #end;
-				__self__.before = #if !macro function(__0:Time):Bool return _end.before(__0) #else null #end;
-				__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-					return _end.clock() #else null #end;
-				__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-					return _end.date() #else null #end;
-				__self__.day = #if !macro function():GoInt return _end.day() #else null #end;
-				__self__.equal = #if !macro function(__0:Time):Bool return _end.equal(__0) #else null #end;
-				__self__.format = #if !macro function(__0:GoString):GoString return _end.format(__0) #else null #end;
-				__self__.goString = #if !macro function():GoString return _end.goString() #else null #end;
-				__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _end.gobDecode(__0) #else null #end;
-				__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _end.gobEncode() #else null #end;
-				__self__.hour = #if !macro function():GoInt return _end.hour() #else null #end;
-				__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-					return _end.isoweek() #else null #end;
-				__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _end.in_(__0) #else null #end;
-				__self__.isDST = #if !macro function():Bool return _end.isDST() #else null #end;
-				__self__.isZero = #if !macro function():Bool return _end.isZero() #else null #end;
-				__self__.local = #if !macro function():Time return _end.local() #else null #end;
-				__self__.location = #if !macro function():Ref<Location> return _end.location() #else null #end;
-				__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _end.marshalBinary() #else null #end;
-				__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _end.marshalJSON() #else null #end;
-				__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _end.marshalText() #else null #end;
-				__self__.minute = #if !macro function():GoInt return _end.minute() #else null #end;
-				__self__.month = #if !macro function():Month return _end.month() #else null #end;
-				__self__.nanosecond = #if !macro function():GoInt return _end.nanosecond() #else null #end;
-				__self__.round = #if !macro function(_d:Duration):Time return _end.round(_d) #else null #end;
-				__self__.second = #if !macro function():GoInt return _end.second() #else null #end;
-				__self__.string = #if !macro function():GoString return _end.string() #else null #end;
-				__self__.sub = #if !macro function(__0:Time):Duration return _end.sub(__0) #else null #end;
-				__self__.truncate = #if !macro function(_d:Duration):Time return _end.truncate(_d) #else null #end;
-				__self__.utc = #if !macro function():Time return _end.utc() #else null #end;
-				__self__.unix = #if !macro function():GoInt64 return _end.unix() #else null #end;
-				__self__.unixMicro = #if !macro function():GoInt64 return _end.unixMicro() #else null #end;
-				__self__.unixMilli = #if !macro function():GoInt64 return _end.unixMilli() #else null #end;
-				__self__.unixNano = #if !macro function():GoInt64 return _end.unixNano() #else null #end;
-				__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _end.unmarshalBinary(__0) #else null #end;
-				__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _end.unmarshalJSON(__0) #else null #end;
-				__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _end.unmarshalText(__0) #else null #end;
-				__self__.weekday = #if !macro function():Weekday return _end.weekday() #else null #end;
-				__self__.year = #if !macro function():GoInt return _end.year() #else null #end;
-				__self__.yearDay = #if !macro function():GoInt return _end.yearDay() #else null #end;
-				__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-					return _end.zone() #else null #end;
-				__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-					return _end.zoneBounds() #else null #end;
-				__self__._abs = #if !macro function():GoUInt64 return _end._abs() #else null #end;
-				__self__._addSec = #if !macro function(_sec_:GoInt64):Void _end._addSec(_sec_) #else null #end;
-				__self__._date = #if !macro function(__0:Bool):{
-					var _0:GoInt;
-					var _1:Month;
-					var _2:GoInt;
-					var _3:GoInt;
-				}
-					return _end._date(__0) #else null #end;
-				__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-					return _end._locabs() #else null #end;
-				__self__._mono = #if !macro function():GoInt64 return _end._mono() #else null #end;
-				__self__._nsec = #if !macro function():GoInt32 return _end._nsec() #else null #end;
-				__self__._sec = #if !macro function():GoInt64 return _end._sec() #else null #end;
-				__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _end._setLoc(__0) #else null #end;
-				__self__._setMono = #if !macro function(_sec__:GoInt64):Void _end._setMono(_sec__) #else null #end;
-				__self__._stripMono = #if !macro function():Void _end._stripMono() #else null #end;
-				__self__._unixSec = #if !macro function():GoInt64 return _end._unixSec() #else null #end;
-				__self__;
-			}));
+			_t.errorf((Go.str("ZoneBounds of %v expects end is zero Time, got:\n  start=%v\n  end=%v") : GoString),
+				Go.toInterface(Go.asInterface(_foreverTime)), Go.toInterface(Go.asInterface(_start)), Go.toInterface(Go.asInterface(_end)));
 		};
 		var _boundOne:Time = (date((1990 : GoInt), (9 : Month), (16 : GoInt), (1 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt),
 			_loc) == null ? null : date((1990 : GoInt), (9 : Month), (16 : GoInt), (1 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt), _loc).__copy__());
@@ -12320,389 +6334,8 @@ function testZoneBounds(_t:stdgo.testing.Testing.T):Void {
 			if (!_start.equal((_tt._wantStart == null ? null : _tt._wantStart.__copy__()))
 				|| !_end.equal((_tt._wantEnd == null ? null : _tt._wantEnd.__copy__()))) {
 				_t.errorf((Go.str("#%d:: ZoneBounds of %v expects right bounds:\n  got start=%v\n  want start=%v\n  got end=%v\n  want end=%v") : GoString),
-					Go.toInterface(_i), Go.toInterface({
-						final __self__ = new Time_asInterface(_tt._giveTime);
-						__self__.add = #if !macro function(_d:Duration):Time return _tt._giveTime.add(_d) #else null #end;
-						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-								_days:GoInt):Time return _tt._giveTime.addDate(_years, _months, _days) #else null #end;
-						__self__.after = #if !macro function(__0:Time):Bool return _tt._giveTime.after(__0) #else null #end;
-						__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-								_layout:GoString):Slice<GoUInt8> return _tt._giveTime.appendFormat(_b, _layout) #else null #end;
-						__self__.before = #if !macro function(__0:Time):Bool return _tt._giveTime.before(__0) #else null #end;
-						__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-							return _tt._giveTime.clock() #else null #end;
-						__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-							return _tt._giveTime.date() #else null #end;
-						__self__.day = #if !macro function():GoInt return _tt._giveTime.day() #else null #end;
-						__self__.equal = #if !macro function(__0:Time):Bool return _tt._giveTime.equal(__0) #else null #end;
-						__self__.format = #if !macro function(__0:GoString):GoString return _tt._giveTime.format(__0) #else null #end;
-						__self__.goString = #if !macro function():GoString return _tt._giveTime.goString() #else null #end;
-						__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._giveTime.gobDecode(__0) #else null #end;
-						__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _tt._giveTime.gobEncode() #else null #end;
-						__self__.hour = #if !macro function():GoInt return _tt._giveTime.hour() #else null #end;
-						__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-							return _tt._giveTime.isoweek() #else null #end;
-						__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _tt._giveTime.in_(__0) #else null #end;
-						__self__.isDST = #if !macro function():Bool return _tt._giveTime.isDST() #else null #end;
-						__self__.isZero = #if !macro function():Bool return _tt._giveTime.isZero() #else null #end;
-						__self__.local = #if !macro function():Time return _tt._giveTime.local() #else null #end;
-						__self__.location = #if !macro function():Ref<Location> return _tt._giveTime.location() #else null #end;
-						__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _tt._giveTime.marshalBinary() #else null #end;
-						__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _tt._giveTime.marshalJSON() #else null #end;
-						__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _tt._giveTime.marshalText() #else null #end;
-						__self__.minute = #if !macro function():GoInt return _tt._giveTime.minute() #else null #end;
-						__self__.month = #if !macro function():Month return _tt._giveTime.month() #else null #end;
-						__self__.nanosecond = #if !macro function():GoInt return _tt._giveTime.nanosecond() #else null #end;
-						__self__.round = #if !macro function(_d:Duration):Time return _tt._giveTime.round(_d) #else null #end;
-						__self__.second = #if !macro function():GoInt return _tt._giveTime.second() #else null #end;
-						__self__.string = #if !macro function():GoString return _tt._giveTime.string() #else null #end;
-						__self__.sub = #if !macro function(__0:Time):Duration return _tt._giveTime.sub(__0) #else null #end;
-						__self__.truncate = #if !macro function(_d:Duration):Time return _tt._giveTime.truncate(_d) #else null #end;
-						__self__.utc = #if !macro function():Time return _tt._giveTime.utc() #else null #end;
-						__self__.unix = #if !macro function():GoInt64 return _tt._giveTime.unix() #else null #end;
-						__self__.unixMicro = #if !macro function():GoInt64 return _tt._giveTime.unixMicro() #else null #end;
-						__self__.unixMilli = #if !macro function():GoInt64 return _tt._giveTime.unixMilli() #else null #end;
-						__self__.unixNano = #if !macro function():GoInt64 return _tt._giveTime.unixNano() #else null #end;
-						__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return
-							_tt._giveTime.unmarshalBinary(__0) #else null #end;
-						__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._giveTime.unmarshalJSON(__0) #else null #end;
-						__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._giveTime.unmarshalText(__0) #else null #end;
-						__self__.weekday = #if !macro function():Weekday return _tt._giveTime.weekday() #else null #end;
-						__self__.year = #if !macro function():GoInt return _tt._giveTime.year() #else null #end;
-						__self__.yearDay = #if !macro function():GoInt return _tt._giveTime.yearDay() #else null #end;
-						__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-							return _tt._giveTime.zone() #else null #end;
-						__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-							return _tt._giveTime.zoneBounds() #else null #end;
-						__self__._abs = #if !macro function():GoUInt64 return _tt._giveTime._abs() #else null #end;
-						__self__._addSec = #if !macro function(_sec_:GoInt64):Void _tt._giveTime._addSec(_sec_) #else null #end;
-						__self__._date = #if !macro function(__0:Bool):{
-							var _0:GoInt;
-							var _1:Month;
-							var _2:GoInt;
-							var _3:GoInt;
-						}
-							return _tt._giveTime._date(__0) #else null #end;
-						__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-							return _tt._giveTime._locabs() #else null #end;
-						__self__._mono = #if !macro function():GoInt64 return _tt._giveTime._mono() #else null #end;
-						__self__._nsec = #if !macro function():GoInt32 return _tt._giveTime._nsec() #else null #end;
-						__self__._sec = #if !macro function():GoInt64 return _tt._giveTime._sec() #else null #end;
-						__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _tt._giveTime._setLoc(__0) #else null #end;
-						__self__._setMono = #if !macro function(_sec__:GoInt64):Void _tt._giveTime._setMono(_sec__) #else null #end;
-						__self__._stripMono = #if !macro function():Void _tt._giveTime._stripMono() #else null #end;
-						__self__._unixSec = #if !macro function():GoInt64 return _tt._giveTime._unixSec() #else null #end;
-						__self__;
-					}), Go.toInterface({
-						final __self__ = new Time_asInterface(_start);
-						__self__.add = #if !macro function(_d:Duration):Time return _start.add(_d) #else null #end;
-						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-								_days:GoInt):Time return _start.addDate(_years, _months, _days) #else null #end;
-						__self__.after = #if !macro function(__0:Time):Bool return _start.after(__0) #else null #end;
-						__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-								_layout:GoString):Slice<GoUInt8> return _start.appendFormat(_b, _layout) #else null #end;
-						__self__.before = #if !macro function(__0:Time):Bool return _start.before(__0) #else null #end;
-						__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-							return _start.clock() #else null #end;
-						__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-							return _start.date() #else null #end;
-						__self__.day = #if !macro function():GoInt return _start.day() #else null #end;
-						__self__.equal = #if !macro function(__0:Time):Bool return _start.equal(__0) #else null #end;
-						__self__.format = #if !macro function(__0:GoString):GoString return _start.format(__0) #else null #end;
-						__self__.goString = #if !macro function():GoString return _start.goString() #else null #end;
-						__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _start.gobDecode(__0) #else null #end;
-						__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _start.gobEncode() #else null #end;
-						__self__.hour = #if !macro function():GoInt return _start.hour() #else null #end;
-						__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-							return _start.isoweek() #else null #end;
-						__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _start.in_(__0) #else null #end;
-						__self__.isDST = #if !macro function():Bool return _start.isDST() #else null #end;
-						__self__.isZero = #if !macro function():Bool return _start.isZero() #else null #end;
-						__self__.local = #if !macro function():Time return _start.local() #else null #end;
-						__self__.location = #if !macro function():Ref<Location> return _start.location() #else null #end;
-						__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _start.marshalBinary() #else null #end;
-						__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _start.marshalJSON() #else null #end;
-						__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _start.marshalText() #else null #end;
-						__self__.minute = #if !macro function():GoInt return _start.minute() #else null #end;
-						__self__.month = #if !macro function():Month return _start.month() #else null #end;
-						__self__.nanosecond = #if !macro function():GoInt return _start.nanosecond() #else null #end;
-						__self__.round = #if !macro function(_d:Duration):Time return _start.round(_d) #else null #end;
-						__self__.second = #if !macro function():GoInt return _start.second() #else null #end;
-						__self__.string = #if !macro function():GoString return _start.string() #else null #end;
-						__self__.sub = #if !macro function(__0:Time):Duration return _start.sub(__0) #else null #end;
-						__self__.truncate = #if !macro function(_d:Duration):Time return _start.truncate(_d) #else null #end;
-						__self__.utc = #if !macro function():Time return _start.utc() #else null #end;
-						__self__.unix = #if !macro function():GoInt64 return _start.unix() #else null #end;
-						__self__.unixMicro = #if !macro function():GoInt64 return _start.unixMicro() #else null #end;
-						__self__.unixMilli = #if !macro function():GoInt64 return _start.unixMilli() #else null #end;
-						__self__.unixNano = #if !macro function():GoInt64 return _start.unixNano() #else null #end;
-						__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _start.unmarshalBinary(__0) #else null #end;
-						__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _start.unmarshalJSON(__0) #else null #end;
-						__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _start.unmarshalText(__0) #else null #end;
-						__self__.weekday = #if !macro function():Weekday return _start.weekday() #else null #end;
-						__self__.year = #if !macro function():GoInt return _start.year() #else null #end;
-						__self__.yearDay = #if !macro function():GoInt return _start.yearDay() #else null #end;
-						__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-							return _start.zone() #else null #end;
-						__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-							return _start.zoneBounds() #else null #end;
-						__self__._abs = #if !macro function():GoUInt64 return _start._abs() #else null #end;
-						__self__._addSec = #if !macro function(_sec_:GoInt64):Void _start._addSec(_sec_) #else null #end;
-						__self__._date = #if !macro function(__0:Bool):{
-							var _0:GoInt;
-							var _1:Month;
-							var _2:GoInt;
-							var _3:GoInt;
-						}
-							return _start._date(__0) #else null #end;
-						__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-							return _start._locabs() #else null #end;
-						__self__._mono = #if !macro function():GoInt64 return _start._mono() #else null #end;
-						__self__._nsec = #if !macro function():GoInt32 return _start._nsec() #else null #end;
-						__self__._sec = #if !macro function():GoInt64 return _start._sec() #else null #end;
-						__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _start._setLoc(__0) #else null #end;
-						__self__._setMono = #if !macro function(_sec__:GoInt64):Void _start._setMono(_sec__) #else null #end;
-						__self__._stripMono = #if !macro function():Void _start._stripMono() #else null #end;
-						__self__._unixSec = #if !macro function():GoInt64 return _start._unixSec() #else null #end;
-						__self__;
-					}), Go.toInterface({
-						final __self__ = new Time_asInterface(_tt._wantStart);
-						__self__.add = #if !macro function(_d:Duration):Time return _tt._wantStart.add(_d) #else null #end;
-						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-								_days:GoInt):Time return _tt._wantStart.addDate(_years, _months, _days) #else null #end;
-						__self__.after = #if !macro function(__0:Time):Bool return _tt._wantStart.after(__0) #else null #end;
-						__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-								_layout:GoString):Slice<GoUInt8> return _tt._wantStart.appendFormat(_b, _layout) #else null #end;
-						__self__.before = #if !macro function(__0:Time):Bool return _tt._wantStart.before(__0) #else null #end;
-						__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-							return _tt._wantStart.clock() #else null #end;
-						__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-							return _tt._wantStart.date() #else null #end;
-						__self__.day = #if !macro function():GoInt return _tt._wantStart.day() #else null #end;
-						__self__.equal = #if !macro function(__0:Time):Bool return _tt._wantStart.equal(__0) #else null #end;
-						__self__.format = #if !macro function(__0:GoString):GoString return _tt._wantStart.format(__0) #else null #end;
-						__self__.goString = #if !macro function():GoString return _tt._wantStart.goString() #else null #end;
-						__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._wantStart.gobDecode(__0) #else null #end;
-						__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _tt._wantStart.gobEncode() #else null #end;
-						__self__.hour = #if !macro function():GoInt return _tt._wantStart.hour() #else null #end;
-						__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-							return _tt._wantStart.isoweek() #else null #end;
-						__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _tt._wantStart.in_(__0) #else null #end;
-						__self__.isDST = #if !macro function():Bool return _tt._wantStart.isDST() #else null #end;
-						__self__.isZero = #if !macro function():Bool return _tt._wantStart.isZero() #else null #end;
-						__self__.local = #if !macro function():Time return _tt._wantStart.local() #else null #end;
-						__self__.location = #if !macro function():Ref<Location> return _tt._wantStart.location() #else null #end;
-						__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _tt._wantStart.marshalBinary() #else null #end;
-						__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _tt._wantStart.marshalJSON() #else null #end;
-						__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _tt._wantStart.marshalText() #else null #end;
-						__self__.minute = #if !macro function():GoInt return _tt._wantStart.minute() #else null #end;
-						__self__.month = #if !macro function():Month return _tt._wantStart.month() #else null #end;
-						__self__.nanosecond = #if !macro function():GoInt return _tt._wantStart.nanosecond() #else null #end;
-						__self__.round = #if !macro function(_d:Duration):Time return _tt._wantStart.round(_d) #else null #end;
-						__self__.second = #if !macro function():GoInt return _tt._wantStart.second() #else null #end;
-						__self__.string = #if !macro function():GoString return _tt._wantStart.string() #else null #end;
-						__self__.sub = #if !macro function(__0:Time):Duration return _tt._wantStart.sub(__0) #else null #end;
-						__self__.truncate = #if !macro function(_d:Duration):Time return _tt._wantStart.truncate(_d) #else null #end;
-						__self__.utc = #if !macro function():Time return _tt._wantStart.utc() #else null #end;
-						__self__.unix = #if !macro function():GoInt64 return _tt._wantStart.unix() #else null #end;
-						__self__.unixMicro = #if !macro function():GoInt64 return _tt._wantStart.unixMicro() #else null #end;
-						__self__.unixMilli = #if !macro function():GoInt64 return _tt._wantStart.unixMilli() #else null #end;
-						__self__.unixNano = #if !macro function():GoInt64 return _tt._wantStart.unixNano() #else null #end;
-						__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return
-							_tt._wantStart.unmarshalBinary(__0) #else null #end;
-						__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._wantStart.unmarshalJSON(__0) #else null #end;
-						__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._wantStart.unmarshalText(__0) #else null #end;
-						__self__.weekday = #if !macro function():Weekday return _tt._wantStart.weekday() #else null #end;
-						__self__.year = #if !macro function():GoInt return _tt._wantStart.year() #else null #end;
-						__self__.yearDay = #if !macro function():GoInt return _tt._wantStart.yearDay() #else null #end;
-						__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-							return _tt._wantStart.zone() #else null #end;
-						__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-							return _tt._wantStart.zoneBounds() #else null #end;
-						__self__._abs = #if !macro function():GoUInt64 return _tt._wantStart._abs() #else null #end;
-						__self__._addSec = #if !macro function(_sec_:GoInt64):Void _tt._wantStart._addSec(_sec_) #else null #end;
-						__self__._date = #if !macro function(__0:Bool):{
-							var _0:GoInt;
-							var _1:Month;
-							var _2:GoInt;
-							var _3:GoInt;
-						}
-							return _tt._wantStart._date(__0) #else null #end;
-						__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-							return _tt._wantStart._locabs() #else null #end;
-						__self__._mono = #if !macro function():GoInt64 return _tt._wantStart._mono() #else null #end;
-						__self__._nsec = #if !macro function():GoInt32 return _tt._wantStart._nsec() #else null #end;
-						__self__._sec = #if !macro function():GoInt64 return _tt._wantStart._sec() #else null #end;
-						__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _tt._wantStart._setLoc(__0) #else null #end;
-						__self__._setMono = #if !macro function(_sec__:GoInt64):Void _tt._wantStart._setMono(_sec__) #else null #end;
-						__self__._stripMono = #if !macro function():Void _tt._wantStart._stripMono() #else null #end;
-						__self__._unixSec = #if !macro function():GoInt64 return _tt._wantStart._unixSec() #else null #end;
-						__self__;
-					}), Go.toInterface({
-						final __self__ = new Time_asInterface(_end);
-						__self__.add = #if !macro function(_d:Duration):Time return _end.add(_d) #else null #end;
-						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-								_days:GoInt):Time return _end.addDate(_years, _months, _days) #else null #end;
-						__self__.after = #if !macro function(__0:Time):Bool return _end.after(__0) #else null #end;
-						__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-								_layout:GoString):Slice<GoUInt8> return _end.appendFormat(_b, _layout) #else null #end;
-						__self__.before = #if !macro function(__0:Time):Bool return _end.before(__0) #else null #end;
-						__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-							return _end.clock() #else null #end;
-						__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-							return _end.date() #else null #end;
-						__self__.day = #if !macro function():GoInt return _end.day() #else null #end;
-						__self__.equal = #if !macro function(__0:Time):Bool return _end.equal(__0) #else null #end;
-						__self__.format = #if !macro function(__0:GoString):GoString return _end.format(__0) #else null #end;
-						__self__.goString = #if !macro function():GoString return _end.goString() #else null #end;
-						__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _end.gobDecode(__0) #else null #end;
-						__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _end.gobEncode() #else null #end;
-						__self__.hour = #if !macro function():GoInt return _end.hour() #else null #end;
-						__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-							return _end.isoweek() #else null #end;
-						__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _end.in_(__0) #else null #end;
-						__self__.isDST = #if !macro function():Bool return _end.isDST() #else null #end;
-						__self__.isZero = #if !macro function():Bool return _end.isZero() #else null #end;
-						__self__.local = #if !macro function():Time return _end.local() #else null #end;
-						__self__.location = #if !macro function():Ref<Location> return _end.location() #else null #end;
-						__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _end.marshalBinary() #else null #end;
-						__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _end.marshalJSON() #else null #end;
-						__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _end.marshalText() #else null #end;
-						__self__.minute = #if !macro function():GoInt return _end.minute() #else null #end;
-						__self__.month = #if !macro function():Month return _end.month() #else null #end;
-						__self__.nanosecond = #if !macro function():GoInt return _end.nanosecond() #else null #end;
-						__self__.round = #if !macro function(_d:Duration):Time return _end.round(_d) #else null #end;
-						__self__.second = #if !macro function():GoInt return _end.second() #else null #end;
-						__self__.string = #if !macro function():GoString return _end.string() #else null #end;
-						__self__.sub = #if !macro function(__0:Time):Duration return _end.sub(__0) #else null #end;
-						__self__.truncate = #if !macro function(_d:Duration):Time return _end.truncate(_d) #else null #end;
-						__self__.utc = #if !macro function():Time return _end.utc() #else null #end;
-						__self__.unix = #if !macro function():GoInt64 return _end.unix() #else null #end;
-						__self__.unixMicro = #if !macro function():GoInt64 return _end.unixMicro() #else null #end;
-						__self__.unixMilli = #if !macro function():GoInt64 return _end.unixMilli() #else null #end;
-						__self__.unixNano = #if !macro function():GoInt64 return _end.unixNano() #else null #end;
-						__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _end.unmarshalBinary(__0) #else null #end;
-						__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _end.unmarshalJSON(__0) #else null #end;
-						__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _end.unmarshalText(__0) #else null #end;
-						__self__.weekday = #if !macro function():Weekday return _end.weekday() #else null #end;
-						__self__.year = #if !macro function():GoInt return _end.year() #else null #end;
-						__self__.yearDay = #if !macro function():GoInt return _end.yearDay() #else null #end;
-						__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-							return _end.zone() #else null #end;
-						__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-							return _end.zoneBounds() #else null #end;
-						__self__._abs = #if !macro function():GoUInt64 return _end._abs() #else null #end;
-						__self__._addSec = #if !macro function(_sec_:GoInt64):Void _end._addSec(_sec_) #else null #end;
-						__self__._date = #if !macro function(__0:Bool):{
-							var _0:GoInt;
-							var _1:Month;
-							var _2:GoInt;
-							var _3:GoInt;
-						}
-							return _end._date(__0) #else null #end;
-						__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-							return _end._locabs() #else null #end;
-						__self__._mono = #if !macro function():GoInt64 return _end._mono() #else null #end;
-						__self__._nsec = #if !macro function():GoInt32 return _end._nsec() #else null #end;
-						__self__._sec = #if !macro function():GoInt64 return _end._sec() #else null #end;
-						__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _end._setLoc(__0) #else null #end;
-						__self__._setMono = #if !macro function(_sec__:GoInt64):Void _end._setMono(_sec__) #else null #end;
-						__self__._stripMono = #if !macro function():Void _end._stripMono() #else null #end;
-						__self__._unixSec = #if !macro function():GoInt64 return _end._unixSec() #else null #end;
-						__self__;
-					}), Go.toInterface({
-						final __self__ = new Time_asInterface(_tt._wantEnd);
-						__self__.add = #if !macro function(_d:Duration):Time return _tt._wantEnd.add(_d) #else null #end;
-						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-								_days:GoInt):Time return _tt._wantEnd.addDate(_years, _months, _days) #else null #end;
-						__self__.after = #if !macro function(__0:Time):Bool return _tt._wantEnd.after(__0) #else null #end;
-						__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-								_layout:GoString):Slice<GoUInt8> return _tt._wantEnd.appendFormat(_b, _layout) #else null #end;
-						__self__.before = #if !macro function(__0:Time):Bool return _tt._wantEnd.before(__0) #else null #end;
-						__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-							return _tt._wantEnd.clock() #else null #end;
-						__self__.date = #if !macro function():{var _0:GoInt; var _1:Month; var _2:GoInt;}
-							return _tt._wantEnd.date() #else null #end;
-						__self__.day = #if !macro function():GoInt return _tt._wantEnd.day() #else null #end;
-						__self__.equal = #if !macro function(__0:Time):Bool return _tt._wantEnd.equal(__0) #else null #end;
-						__self__.format = #if !macro function(__0:GoString):GoString return _tt._wantEnd.format(__0) #else null #end;
-						__self__.goString = #if !macro function():GoString return _tt._wantEnd.goString() #else null #end;
-						__self__.gobDecode = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._wantEnd.gobDecode(__0) #else null #end;
-						__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _tt._wantEnd.gobEncode() #else null #end;
-						__self__.hour = #if !macro function():GoInt return _tt._wantEnd.hour() #else null #end;
-						__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-							return _tt._wantEnd.isoweek() #else null #end;
-						__self__.in_ = #if !macro function(__0:Ref<Location>):Time return _tt._wantEnd.in_(__0) #else null #end;
-						__self__.isDST = #if !macro function():Bool return _tt._wantEnd.isDST() #else null #end;
-						__self__.isZero = #if !macro function():Bool return _tt._wantEnd.isZero() #else null #end;
-						__self__.local = #if !macro function():Time return _tt._wantEnd.local() #else null #end;
-						__self__.location = #if !macro function():Ref<Location> return _tt._wantEnd.location() #else null #end;
-						__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _tt._wantEnd.marshalBinary() #else null #end;
-						__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _tt._wantEnd.marshalJSON() #else null #end;
-						__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _tt._wantEnd.marshalText() #else null #end;
-						__self__.minute = #if !macro function():GoInt return _tt._wantEnd.minute() #else null #end;
-						__self__.month = #if !macro function():Month return _tt._wantEnd.month() #else null #end;
-						__self__.nanosecond = #if !macro function():GoInt return _tt._wantEnd.nanosecond() #else null #end;
-						__self__.round = #if !macro function(_d:Duration):Time return _tt._wantEnd.round(_d) #else null #end;
-						__self__.second = #if !macro function():GoInt return _tt._wantEnd.second() #else null #end;
-						__self__.string = #if !macro function():GoString return _tt._wantEnd.string() #else null #end;
-						__self__.sub = #if !macro function(__0:Time):Duration return _tt._wantEnd.sub(__0) #else null #end;
-						__self__.truncate = #if !macro function(_d:Duration):Time return _tt._wantEnd.truncate(_d) #else null #end;
-						__self__.utc = #if !macro function():Time return _tt._wantEnd.utc() #else null #end;
-						__self__.unix = #if !macro function():GoInt64 return _tt._wantEnd.unix() #else null #end;
-						__self__.unixMicro = #if !macro function():GoInt64 return _tt._wantEnd.unixMicro() #else null #end;
-						__self__.unixMilli = #if !macro function():GoInt64 return _tt._wantEnd.unixMilli() #else null #end;
-						__self__.unixNano = #if !macro function():GoInt64 return _tt._wantEnd.unixNano() #else null #end;
-						__self__.unmarshalBinary = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._wantEnd.unmarshalBinary(__0) #else null #end;
-						__self__.unmarshalJSON = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._wantEnd.unmarshalJSON(__0) #else null #end;
-						__self__.unmarshalText = #if !macro function(__0:Slice<GoUInt8>):stdgo.Error return _tt._wantEnd.unmarshalText(__0) #else null #end;
-						__self__.weekday = #if !macro function():Weekday return _tt._wantEnd.weekday() #else null #end;
-						__self__.year = #if !macro function():GoInt return _tt._wantEnd.year() #else null #end;
-						__self__.yearDay = #if !macro function():GoInt return _tt._wantEnd.yearDay() #else null #end;
-						__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-							return _tt._wantEnd.zone() #else null #end;
-						__self__.zoneBounds = #if !macro function():{var _0:Time; var _1:Time;}
-							return _tt._wantEnd.zoneBounds() #else null #end;
-						__self__._abs = #if !macro function():GoUInt64 return _tt._wantEnd._abs() #else null #end;
-						__self__._addSec = #if !macro function(_sec_:GoInt64):Void _tt._wantEnd._addSec(_sec_) #else null #end;
-						__self__._date = #if !macro function(__0:Bool):{
-							var _0:GoInt;
-							var _1:Month;
-							var _2:GoInt;
-							var _3:GoInt;
-						}
-							return _tt._wantEnd._date(__0) #else null #end;
-						__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-							return _tt._wantEnd._locabs() #else null #end;
-						__self__._mono = #if !macro function():GoInt64 return _tt._wantEnd._mono() #else null #end;
-						__self__._nsec = #if !macro function():GoInt32 return _tt._wantEnd._nsec() #else null #end;
-						__self__._sec = #if !macro function():GoInt64 return _tt._wantEnd._sec() #else null #end;
-						__self__._setLoc = #if !macro function(__0:Ref<Location>):Void _tt._wantEnd._setLoc(__0) #else null #end;
-						__self__._setMono = #if !macro function(_sec__:GoInt64):Void _tt._wantEnd._setMono(_sec__) #else null #end;
-						__self__._stripMono = #if !macro function():Void _tt._wantEnd._stripMono() #else null #end;
-						__self__._unixSec = #if !macro function():GoInt64 return _tt._wantEnd._unixSec() #else null #end;
-						__self__;
-					}));
+					Go.toInterface(_i), Go.toInterface(Go.asInterface(_tt._giveTime)), Go.toInterface(Go.asInterface(_start)),
+					Go.toInterface(Go.asInterface(_tt._wantStart)), Go.toInterface(Go.asInterface(_end)), Go.toInterface(Go.asInterface(_tt._wantEnd)));
 			};
 		};
 		for (defer in __deferstack__) {
@@ -12856,11 +6489,7 @@ function _equal(_t:stdgo.testing.Testing.T, _f1:stdgo.reflect.Reflect.Value, _f2
 		|| _f1.type().kind() == ((12 : stdgo.reflect.Reflect.Kind))) {
 		return _f1.uint() == _f2.uint();
 	} else {
-		_t.errorf((Go.str("test internal error: unsupported kind %v") : GoString), Go.toInterface({
-			final __self__ = new stdgo.reflect.Reflect.Kind_asInterface(_f1.type().kind());
-			__self__.string = #if !macro function():GoString return _f1.type().kind().string() #else null #end;
-			__self__;
-		}));
+		_t.errorf((Go.str("test internal error: unsupported kind %v") : GoString), Go.toInterface(Go.asInterface(_f1.type().kind())));
 		return true;
 	};
 }
@@ -13053,43 +6682,7 @@ function testLoadLocationFromTZData(_t:stdgo.testing.Testing.T):Void {
 		if (_err != null) {
 			_t.fatal(Go.toInterface(_err));
 		};
-		var __tmp__ = stdgo.time.Time.gorootZoneSource(stdgo.internal.testenv.Testenv.goroot({
-			final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
-			__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
-			__self__.deadline = #if !macro function():{var _0:Time; var _1:Bool;}
-				return _t.deadline() #else null #end;
-			__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
-			__self__.errorf = #if !macro function(_m:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_m, _args) #else null #end;
-			__self__.fail = #if !macro function():Void _t.fail() #else null #end;
-			__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
-			__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
-			__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
-			__self__.fatalf = #if !macro function(_m:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_m, _args) #else null #end;
-			__self__.helper = #if !macro function():Void _t.helper() #else null #end;
-			__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
-			__self__.logf = #if !macro function(_m:GoString, _args:Slice<AnyInterface>):Void _t.logf(_m, _args) #else null #end;
-			__self__.name = #if !macro function():GoString return _t.name() #else null #end;
-			__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
-			__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
-			__self__.setenv = #if !macro function(_name:GoString, _source:GoString):Void _t.setenv(_name, _source) #else null #end;
-			__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
-			__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
-			__self__.skipf = #if !macro function(_m:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_m, _args) #else null #end;
-			__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
-			__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
-			__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
-			__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
-			__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
-					_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
-			__self__._frameSkip = #if !macro function(__0:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(__0) #else null #end;
-			__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
-			__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
-			__self__._private = #if !macro function():Void _t._private() #else null #end;
-			__self__._report = #if !macro function():Void _t._report() #else null #end;
-			__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
-			__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
-			__self__;
-		})),
+		var __tmp__ = stdgo.time.Time.gorootZoneSource(stdgo.internal.testenv.Testenv.goroot(Go.asInterface(_t))),
 			_gorootSource:GoString = __tmp__._0,
 			_ok:Bool = __tmp__._1;
 		if (!_ok) {

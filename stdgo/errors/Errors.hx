@@ -10,9 +10,6 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-private var _errorType:stdgo.internal.reflectlite.Reflectlite.Type = stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface(((null : stdgo.Error) : Error)))
-	.elem();
-
 /**
 	// Package errors implements functions to manipulate errors.
 	//
@@ -66,15 +63,18 @@ private var _errorType:stdgo.internal.reflectlite.Reflectlite.Type = stdgo.inter
 **/
 private var __go2hxdoc__package:Bool;
 
-@:local typedef T__interface_0 = StructType & {
+private var _errorType:stdgo.internal.reflectlite.Reflectlite.Type = stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface(((null : stdgo.Error) : Error)))
+	.elem();
+
+@:local private typedef T__interface_0 = StructType & {
 	public function unwrap():Error;
 };
 
-@:local typedef T__interface_1 = StructType & {
+@:local private typedef T__interface_1 = StructType & {
 	public function is_(_0:Error):Bool;
 };
 
-@:local typedef T__interface_2 = StructType & {
+@:local private typedef T__interface_2 = StructType & {
 	public function as(_0:AnyInterface):Bool;
 };
 
@@ -102,11 +102,7 @@ private var __go2hxdoc__package:Bool;
 	// Each call to New returns a distinct error value even if the text is identical.
 **/
 function new_(_text:GoString):Error {
-	return {
-		final __self__ = new T_errorString_asInterface((new T_errorString(_text) : T_errorString));
-		__self__.error = #if !macro function():GoString return (new T_errorString(_text) : T_errorString).error() #else null #end;
-		__self__;
-	};
+	return Go.asInterface((new T_errorString(_text) : T_errorString));
 }
 
 /**
@@ -226,22 +222,25 @@ function as(_err:Error, _target:AnyInterface):Bool {
 	return false;
 }
 
+private class T_errorString_asInterface {
+	@:keep
+	public function error():GoString
+		return __self__.error();
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
+
+	public function __underlying__()
+		return Go.toInterface(__self__);
+
+	var __self__:T_errorString;
+}
+
 @:keep private class T_errorString_static_extension {
 	@:keep
 	static public function error(_e:T_errorString):GoString {
 		return _e._s;
 	}
-}
-
-private class T_errorString_asInterface {
-	@:keep
-	public var error:() -> GoString = null;
-
-	public function new(__self__)
-		this.__self__ = __self__;
-
-	public function __underlying__()
-		return Go.toInterface(this);
-
-	var __self__:T_errorString;
 }

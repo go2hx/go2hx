@@ -10,16 +10,55 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
+/**
+	// Package os provides a platform-independent interface to operating system
+	// functionality. The design is Unix-like, although the error handling is
+	// Go-like; failing calls return values of type error rather than error numbers.
+	// Often, more information is available within the error. For example,
+	// if a call that takes a file name fails, such as Open or Stat, the error
+	// will include the failing file name when printed and will be of type
+	// *PathError, which may be unpacked for more information.
+	//
+	// The os interface is intended to be uniform across all operating systems.
+	// Features not generally available appear in the system-specific package syscall.
+	//
+	// Here is a simple example, opening a file and reading some of it.
+	//
+	//	file, err := os.Open("file.go") // For read access.
+	//	if err != nil {
+	//		log.Fatal(err)
+	//	}
+	//
+	// If the open fails, the error string will be self-explanatory, like
+	//
+	//	open file.go: no such file or directory
+	//
+	// The file's data can then be read into a slice of bytes. Read and
+	// Write take their byte counts from the length of the argument slice.
+	//
+	//	data := make([]byte, 100)
+	//	count, err := file.Read(data)
+	//	if err != nil {
+	//		log.Fatal(err)
+	//	}
+	//	fmt.Printf("read %d bytes: %q\n", count, data[:count])
+	//
+	// Note: The maximum number of concurrent operations on a File may be limited by
+	// the OS or the system. The number should be high, but exceeding it may degrade
+	// performance or cause other issues.
+**/
+private var __go2hxdoc__package:Bool;
+
 private var _dirBufPool:stdgo.sync.Sync.Pool = ({} : stdgo.sync.Sync.Pool);
 
 /**
-	// ErrInvalid indicates an invalid argument.
+	// "invalid argument"// ErrInvalid indicates an invalid argument.
 	// Methods on File will return this error when the receiver is nil.
 **/
 var errInvalid:stdgo.Error = (null : stdgo.Error);
 
 /**
-	// Portable analogs of some common system call errors.
+	// "permission denied"// Portable analogs of some common system call errors.
 	//
 	// Errors returned from this package may be tested against these errors
 	// with errors.Is.
@@ -27,7 +66,7 @@ var errInvalid:stdgo.Error = (null : stdgo.Error);
 var errPermission:stdgo.Error = (null : stdgo.Error);
 
 /**
-	// Portable analogs of some common system call errors.
+	// "file already exists"// Portable analogs of some common system call errors.
 	//
 	// Errors returned from this package may be tested against these errors
 	// with errors.Is.
@@ -35,7 +74,7 @@ var errPermission:stdgo.Error = (null : stdgo.Error);
 var errExist:stdgo.Error = (null : stdgo.Error);
 
 /**
-	// Portable analogs of some common system call errors.
+	// "file does not exist"// Portable analogs of some common system call errors.
 	//
 	// Errors returned from this package may be tested against these errors
 	// with errors.Is.
@@ -43,7 +82,7 @@ var errExist:stdgo.Error = (null : stdgo.Error);
 var errNotExist:stdgo.Error = (null : stdgo.Error);
 
 /**
-	// Portable analogs of some common system call errors.
+	// "file already closed"// Portable analogs of some common system call errors.
 	//
 	// Errors returned from this package may be tested against these errors
 	// with errors.Is.
@@ -51,7 +90,7 @@ var errNotExist:stdgo.Error = (null : stdgo.Error);
 var errClosed:stdgo.Error = (null : stdgo.Error);
 
 /**
-	// Portable analogs of some common system call errors.
+	// "file type does not support deadline"// Portable analogs of some common system call errors.
 	//
 	// Errors returned from this package may be tested against these errors
 	// with errors.Is.
@@ -59,7 +98,7 @@ var errClosed:stdgo.Error = (null : stdgo.Error);
 var errNoDeadline:stdgo.Error = (null : stdgo.Error);
 
 /**
-	// Portable analogs of some common system call errors.
+	// "i/o timeout"// Portable analogs of some common system call errors.
 	//
 	// Errors returned from this package may be tested against these errors
 	// with errors.Is.
@@ -168,67 +207,67 @@ private final _blockSize:GoUnTypedInt = (0 : GoUnTypedInt);
 private final _isBigEndian = null;
 
 /**
-	// Exactly one of O_RDONLY, O_WRONLY, or O_RDWR must be specified.
+	// open the file read-only.// Exactly one of O_RDONLY, O_WRONLY, or O_RDWR must be specified.
 **/
 final o_RDONLY:GoInt = (0 : GoInt);
 
 /**
-	// Flags to OpenFile wrapping those of the underlying system. Not all
+	// open the file write-only.// Flags to OpenFile wrapping those of the underlying system. Not all
 	// flags may be implemented on a given system.
 **/
 final o_WRONLY:GoInt = (0 : GoInt);
 
 /**
-	// Flags to OpenFile wrapping those of the underlying system. Not all
+	// open the file read-write.// Flags to OpenFile wrapping those of the underlying system. Not all
 	// flags may be implemented on a given system.
 **/
 final o_RDWR:GoInt = (0 : GoInt);
 
 /**
-	// The remaining values may be or'ed in to control behavior.
+	// append data to the file when writing.// The remaining values may be or'ed in to control behavior.
 **/
 final o_APPEND:GoInt = (0 : GoInt);
 
 /**
-	// Flags to OpenFile wrapping those of the underlying system. Not all
+	// create a new file if none exists.// Flags to OpenFile wrapping those of the underlying system. Not all
 	// flags may be implemented on a given system.
 **/
 final o_CREATE:GoInt = (0 : GoInt);
 
 /**
-	// Flags to OpenFile wrapping those of the underlying system. Not all
+	// used with O_CREATE, file must not exist.// Flags to OpenFile wrapping those of the underlying system. Not all
 	// flags may be implemented on a given system.
 **/
 final o_EXCL:GoInt = (0 : GoInt);
 
 /**
-	// Flags to OpenFile wrapping those of the underlying system. Not all
+	// open for synchronous I/O.// Flags to OpenFile wrapping those of the underlying system. Not all
 	// flags may be implemented on a given system.
 **/
 final o_SYNC:GoInt = (0 : GoInt);
 
 /**
-	// Flags to OpenFile wrapping those of the underlying system. Not all
+	// truncate regular writable file when opened.// Flags to OpenFile wrapping those of the underlying system. Not all
 	// flags may be implemented on a given system.
 **/
 final o_TRUNC:GoInt = (0 : GoInt);
 
 /**
-	// Seek whence values.
+	// seek relative to the origin of the file// Seek whence values.
 	//
 	// Deprecated: Use io.SeekStart, io.SeekCurrent, and io.SeekEnd.
 **/
 final seek_SET:GoInt = (0 : GoInt);
 
 /**
-	// Seek whence values.
+	// seek relative to the current offset// Seek whence values.
 	//
 	// Deprecated: Use io.SeekStart, io.SeekCurrent, and io.SeekEnd.
 **/
 final seek_CUR:GoInt = (0 : GoInt);
 
 /**
-	// Seek whence values.
+	// seek relative to the end// Seek whence values.
 	//
 	// Deprecated: Use io.SeekStart, io.SeekCurrent, and io.SeekEnd.
 **/
@@ -246,7 +285,15 @@ private final _kindNonBlock:T_newFileKind = ((0 : GoInt) : T_newFileKind);
 final devNull:GoString = ("" : GoString);
 
 private var _getwdCache:T__struct_0 = ({mutex: ({} : stdgo.sync.Sync.Mutex), _dir: ("" : GoString)} : T__struct_0);
+
+/**
+	// OS-specific path separator
+**/
 final pathSeparator:GoInt32 = (0 : GoInt32);
+
+/**
+	// OS-specific path list separator
+**/
 final pathListSeparator:GoInt32 = (0 : GoInt32);
 
 /**
@@ -269,13 +316,13 @@ private final _hex:GoString = ("" : GoString);
 private final _supportsCloseOnExec = null;
 
 /**
-	// The single letters are the abbreviations
+	// d: is a directory// The single letters are the abbreviations
 	// used by the String method's formatting.
 **/
 final modeDir:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
 
 /**
-	// The defined file mode bits are the most significant bits of the FileMode.
+	// a: append-only// The defined file mode bits are the most significant bits of the FileMode.
 	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
 	// The values of these bits should be considered part of the public API and
 	// may be used in wire protocols or disk representations: they must not be
@@ -284,7 +331,7 @@ final modeDir:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMod
 final modeAppend:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
 
 /**
-	// The defined file mode bits are the most significant bits of the FileMode.
+	// l: exclusive use// The defined file mode bits are the most significant bits of the FileMode.
 	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
 	// The values of these bits should be considered part of the public API and
 	// may be used in wire protocols or disk representations: they must not be
@@ -293,7 +340,7 @@ final modeAppend:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.File
 final modeExclusive:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
 
 /**
-	// The defined file mode bits are the most significant bits of the FileMode.
+	// T: temporary file; Plan 9 only// The defined file mode bits are the most significant bits of the FileMode.
 	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
 	// The values of these bits should be considered part of the public API and
 	// may be used in wire protocols or disk representations: they must not be
@@ -302,7 +349,7 @@ final modeExclusive:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.F
 final modeTemporary:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
 
 /**
-	// The defined file mode bits are the most significant bits of the FileMode.
+	// L: symbolic link// The defined file mode bits are the most significant bits of the FileMode.
 	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
 	// The values of these bits should be considered part of the public API and
 	// may be used in wire protocols or disk representations: they must not be
@@ -311,7 +358,7 @@ final modeTemporary:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.F
 final modeSymlink:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
 
 /**
-	// The defined file mode bits are the most significant bits of the FileMode.
+	// D: device file// The defined file mode bits are the most significant bits of the FileMode.
 	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
 	// The values of these bits should be considered part of the public API and
 	// may be used in wire protocols or disk representations: they must not be
@@ -320,7 +367,7 @@ final modeSymlink:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.Fil
 final modeDevice:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
 
 /**
-	// The defined file mode bits are the most significant bits of the FileMode.
+	// p: named pipe (FIFO)// The defined file mode bits are the most significant bits of the FileMode.
 	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
 	// The values of these bits should be considered part of the public API and
 	// may be used in wire protocols or disk representations: they must not be
@@ -329,7 +376,7 @@ final modeDevice:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.File
 final modeNamedPipe:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
 
 /**
-	// The defined file mode bits are the most significant bits of the FileMode.
+	// S: Unix domain socket// The defined file mode bits are the most significant bits of the FileMode.
 	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
 	// The values of these bits should be considered part of the public API and
 	// may be used in wire protocols or disk representations: they must not be
@@ -338,7 +385,7 @@ final modeNamedPipe:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.F
 final modeSocket:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
 
 /**
-	// The defined file mode bits are the most significant bits of the FileMode.
+	// u: setuid// The defined file mode bits are the most significant bits of the FileMode.
 	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
 	// The values of these bits should be considered part of the public API and
 	// may be used in wire protocols or disk representations: they must not be
@@ -347,7 +394,7 @@ final modeSocket:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.File
 final modeSetuid:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
 
 /**
-	// The defined file mode bits are the most significant bits of the FileMode.
+	// g: setgid// The defined file mode bits are the most significant bits of the FileMode.
 	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
 	// The values of these bits should be considered part of the public API and
 	// may be used in wire protocols or disk representations: they must not be
@@ -356,7 +403,7 @@ final modeSetuid:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.File
 final modeSetgid:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
 
 /**
-	// The defined file mode bits are the most significant bits of the FileMode.
+	// c: Unix character device, when ModeDevice is set// The defined file mode bits are the most significant bits of the FileMode.
 	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
 	// The values of these bits should be considered part of the public API and
 	// may be used in wire protocols or disk representations: they must not be
@@ -365,7 +412,7 @@ final modeSetgid:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.File
 final modeCharDevice:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
 
 /**
-	// The defined file mode bits are the most significant bits of the FileMode.
+	// t: sticky// The defined file mode bits are the most significant bits of the FileMode.
 	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
 	// The values of these bits should be considered part of the public API and
 	// may be used in wire protocols or disk representations: they must not be
@@ -374,7 +421,7 @@ final modeCharDevice:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.
 final modeSticky:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
 
 /**
-	// The defined file mode bits are the most significant bits of the FileMode.
+	// ?: non-regular file; nothing else is known about this file// The defined file mode bits are the most significant bits of the FileMode.
 	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
 	// The values of these bits should be considered part of the public API and
 	// may be used in wire protocols or disk representations: they must not be
@@ -388,7 +435,7 @@ final modeIrregular:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.F
 final modeType:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
 
 /**
-	// The defined file mode bits are the most significant bits of the FileMode.
+	// Unix permission bits, 0o777// The defined file mode bits are the most significant bits of the FileMode.
 	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
 	// The values of these bits should be considered part of the public API and
 	// may be used in wire protocols or disk representations: they must not be
@@ -396,46 +443,7 @@ final modeType:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMo
 **/
 final modePerm:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
 
-/**
-	// Package os provides a platform-independent interface to operating system
-	// functionality. The design is Unix-like, although the error handling is
-	// Go-like; failing calls return values of type error rather than error numbers.
-	// Often, more information is available within the error. For example,
-	// if a call that takes a file name fails, such as Open or Stat, the error
-	// will include the failing file name when printed and will be of type
-	// *PathError, which may be unpacked for more information.
-	//
-	// The os interface is intended to be uniform across all operating systems.
-	// Features not generally available appear in the system-specific package syscall.
-	//
-	// Here is a simple example, opening a file and reading some of it.
-	//
-	//	file, err := os.Open("file.go") // For read access.
-	//	if err != nil {
-	//		log.Fatal(err)
-	//	}
-	//
-	// If the open fails, the error string will be self-explanatory, like
-	//
-	//	open file.go: no such file or directory
-	//
-	// The file's data can then be read into a slice of bytes. Read and
-	// Write take their byte counts from the length of the argument slice.
-	//
-	//	data := make([]byte, 100)
-	//	count, err := file.Read(data)
-	//	if err != nil {
-	//		log.Fatal(err)
-	//	}
-	//	fmt.Printf("read %d bytes: %q\n", count, data[:count])
-	//
-	// Note: The maximum number of concurrent operations on a File may be limited by
-	// the OS or the system. The number should be high, but exceeding it may degrade
-	// performance or cause other issues.
-**/
-private var __go2hxdoc__package:Bool;
-
-typedef T_timeout = StructType & {
+private typedef T_timeout = StructType & {
 	public function timeout():Bool;
 };
 
@@ -846,13 +854,13 @@ typedef Signal = StructType & {
 	}
 }
 
-@:local typedef T__struct_0 = {
+@:local private typedef T__struct_0 = {
 	@:embedded
 	public var mutex:stdgo.sync.Sync.Mutex;
 	public var _dir:GoString;
 };
 
-@:named typedef T_readdirMode = GoInt;
+@:named private typedef T_readdirMode = GoInt;
 
 /**
 	// A DirEntry is an entry read from a directory
@@ -865,13 +873,13 @@ typedef Signal = StructType & {
 **/
 @:follow typedef PathError = stdgo.io.fs.Fs.PathError;
 
-@:follow typedef T_syscallErrorType = stdgo.syscall.Syscall.Errno;
-@:named @:using(stdgo.os.Os.T_dirFS_static_extension) typedef T_dirFS = GoString;
+@:follow private typedef T_syscallErrorType = stdgo.syscall.Syscall.Errno;
+@:named @:using(stdgo.os.Os.T_dirFS_static_extension) private typedef T_dirFS = GoString;
 
 /**
 	// newFileKind describes the kind of file to newFile.
 **/
-@:named typedef T_newFileKind = GoInt;
+@:named private typedef T_newFileKind = GoInt;
 
 /**
 	// A FileInfo describes a file and is returned by Stat and Lstat.
@@ -1195,8 +1203,12 @@ function chdir(_dir:GoString):Error
 	// descriptor has mode O_RDONLY.
 	// If there is an error, it will be of type *PathError.
 **/
-function open(_name:GoString):{var _0:File; var _1:Error;}
+function open(_name:GoString):{var _0:File; var _1:Error;} {
+	if (!sys.FileSystem.exists(_name))
+		return {_0: null, _1: stdgo.errors.Errors.new_("os can not open: " + _name)};
 	throw "os.open is not yet implemented";
+	return {_0: null, _1: null};
+}
 
 /**
 	// Create creates or truncates the named file. If the file already exists,
@@ -1787,23 +1799,53 @@ function _sameFile(_fs1:T_fileStat, _fs2:T_fileStat):Bool
 	true;
 };
 
+private class T_dirInfo_asInterface {
+	@:keep
+	public function _close():Void
+		__self__._close();
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
+
+	public function __underlying__()
+		return Go.toInterface(__self__);
+
+	var __self__:T_dirInfo;
+}
+
 @:keep private class T_dirInfo_static_extension {
 	@:keep
 	static public function _close(_d:T_dirInfo):Void
 		throw "os._close is not yet implemented";
 }
 
-private class T_dirInfo_asInterface {
+class SyscallError_asInterface {
+	/**
+		// Timeout reports whether this error represents a timeout.
+	**/
 	@:keep
-	public var _close:() -> Void = null;
+	public function timeout():Bool
+		return __self__.timeout();
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	@:keep
+	public function unwrap():Error
+		return __self__.unwrap();
+
+	@:keep
+	public function error():GoString
+		return __self__.error();
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:T_dirInfo;
+	var __self__:SyscallError;
 }
 
 @:keep private class SyscallError_static_extension {
@@ -1823,25 +1865,90 @@ private class T_dirInfo_asInterface {
 		throw "os.error is not yet implemented";
 }
 
-class SyscallError_asInterface {
+class Process_asInterface {
 	/**
-		// Timeout reports whether this error represents a timeout.
+		// blockUntilWaitable attempts to block until a call to p.Wait will
+		// succeed immediately, and reports whether it has done so.
+		// It does not actually call p.Wait.
+		// This version is used on systems that do not implement waitid,
+		// or where we have not implemented it yet. Note that this is racy:
+		// a call to Process.Signal can in an extremely unlikely case send a
+		// signal to the wrong process, see issue #13987.
 	**/
 	@:keep
-	public var timeout:() -> Bool = null;
+	public function _blockUntilWaitable():{var _0:Bool; var _1:Error;}
+		return __self__._blockUntilWaitable();
 
 	@:keep
-	public var unwrap:() -> Error = null;
-	@:keep
-	public var error:() -> GoString = null;
+	public function _release():Error
+		return __self__._release();
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	@:keep
+	public function _signal(_sig:Signal):Error
+		return __self__._signal(_sig);
+
+	@:keep
+	public function _wait():{var _0:ProcessState; var _1:Error;}
+		return __self__._wait();
+
+	@:keep
+	public function _kill():Error
+		return __self__._kill();
+
+	/**
+		// Signal sends a signal to the Process.
+		// Sending Interrupt on Windows is not implemented.
+	**/
+	@:keep
+	public function signal(_sig:Signal):Error
+		return __self__.signal(_sig);
+
+	/**
+		// Wait waits for the Process to exit, and then returns a
+		// ProcessState describing its status and an error, if any.
+		// Wait releases any resources associated with the Process.
+		// On most operating systems, the Process must be a child
+		// of the current process or an error will be returned.
+	**/
+	@:keep
+	public function wait_():{var _0:ProcessState; var _1:Error;}
+		return __self__.wait_();
+
+	/**
+		// Kill causes the Process to exit immediately. Kill does not wait until
+		// the Process has actually exited. This only kills the Process itself,
+		// not any other processes it may have started.
+	**/
+	@:keep
+	public function kill():Error
+		return __self__.kill();
+
+	/**
+		// Release releases any resources associated with the Process p,
+		// rendering it unusable in the future.
+		// Release only needs to be called if Wait is not.
+	**/
+	@:keep
+	public function release():Error
+		return __self__.release();
+
+	@:keep
+	public function _done():Bool
+		return __self__._done();
+
+	@:keep
+	public function _setDone():Void
+		__self__._setDone();
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:SyscallError;
+	var __self__:Process;
 }
 
 @:keep private class Process_static_extension {
@@ -1920,82 +2027,110 @@ class SyscallError_asInterface {
 		throw "os._setDone is not yet implemented";
 }
 
-class Process_asInterface {
-	/**
-		// blockUntilWaitable attempts to block until a call to p.Wait will
-		// succeed immediately, and reports whether it has done so.
-		// It does not actually call p.Wait.
-		// This version is used on systems that do not implement waitid,
-		// or where we have not implemented it yet. Note that this is racy:
-		// a call to Process.Signal can in an extremely unlikely case send a
-		// signal to the wrong process, see issue #13987.
-	**/
+class ProcessState_asInterface {
 	@:keep
-	public var _blockUntilWaitable:() -> {
-		var _0:Bool;
-		var _1:Error;
-	} = null;
+	public function _systemTime():stdgo.time.Time.Duration
+		return __self__._systemTime();
 
 	@:keep
-	public var _release:() -> Error = null;
-	@:keep
-	public var _signal:Signal->Error = null;
-	@:keep
-	public var _wait:() -> {
-		var _0:ProcessState;
-		var _1:Error;
-	} = null;
-	@:keep
-	public var _kill:() -> Error = null;
+	public function _userTime():stdgo.time.Time.Duration
+		return __self__._userTime();
 
 	/**
-		// Signal sends a signal to the Process.
-		// Sending Interrupt on Windows is not implemented.
+		// ExitCode returns the exit code of the exited process, or -1
+		// if the process hasn't exited or was terminated by a signal.
 	**/
 	@:keep
-	public var signal:Signal->Error = null;
+	public function exitCode():GoInt
+		return __self__.exitCode();
+
+	@:keep
+	public function string():GoString
+		return __self__.string();
+
+	@:keep
+	public function _sysUsage():AnyInterface
+		return __self__._sysUsage();
+
+	@:keep
+	public function _sys():AnyInterface
+		return __self__._sys();
+
+	@:keep
+	public function _success():Bool
+		return __self__._success();
+
+	@:keep
+	public function _exited():Bool
+		return __self__._exited();
 
 	/**
-		// Wait waits for the Process to exit, and then returns a
-		// ProcessState describing its status and an error, if any.
-		// Wait releases any resources associated with the Process.
-		// On most operating systems, the Process must be a child
-		// of the current process or an error will be returned.
+		// Pid returns the process id of the exited process.
 	**/
 	@:keep
-	public var wait_:() -> {
-		var _0:ProcessState;
-		var _1:Error;
-	} = null;
+	public function pid():GoInt
+		return __self__.pid();
 
 	/**
-		// Kill causes the Process to exit immediately. Kill does not wait until
-		// the Process has actually exited. This only kills the Process itself,
-		// not any other processes it may have started.
+		// SysUsage returns system-dependent resource usage information about
+		// the exited process. Convert it to the appropriate underlying
+		// type, such as *syscall.Rusage on Unix, to access its contents.
+		// (On Unix, *syscall.Rusage matches struct rusage as defined in the
+		// getrusage(2) manual page.)
 	**/
 	@:keep
-	public var kill:() -> Error = null;
+	public function sysUsage():AnyInterface
+		return __self__.sysUsage();
 
 	/**
-		// Release releases any resources associated with the Process p,
-		// rendering it unusable in the future.
-		// Release only needs to be called if Wait is not.
+		// Sys returns system-dependent exit information about
+		// the process. Convert it to the appropriate underlying
+		// type, such as syscall.WaitStatus on Unix, to access its contents.
 	**/
 	@:keep
-	public var release:() -> Error = null;
+	public function sys():AnyInterface
+		return __self__.sys();
 
+	/**
+		// Success reports whether the program exited successfully,
+		// such as with exit status 0 on Unix.
+	**/
 	@:keep
-	public var _done:() -> Bool = null;
-	@:keep
-	public var _setDone:() -> Void = null;
+	public function success():Bool
+		return __self__.success();
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	/**
+		// Exited reports whether the program has exited.
+		// On Unix systems this reports true if the program exited due to calling exit,
+		// but false if the program terminated due to a signal.
+	**/
+	@:keep
+	public function exited():Bool
+		return __self__.exited();
+
+	/**
+		// SystemTime returns the system CPU time of the exited process and its children.
+	**/
+	@:keep
+	public function systemTime():stdgo.time.Time.Duration
+		return __self__.systemTime();
+
+	/**
+		// UserTime returns the user CPU time of the exited process and its children.
+	**/
+	@:keep
+	public function userTime():stdgo.time.Time.Duration
+		return __self__.userTime();
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:Process;
+	var __self__:ProcessState;
 }
 
 @:keep private class ProcessState_static_extension {
@@ -2094,88 +2229,24 @@ class Process_asInterface {
 		throw "os.userTime is not yet implemented";
 }
 
-class ProcessState_asInterface {
+class LinkError_asInterface {
 	@:keep
-	public var _systemTime:() -> stdgo.time.Time.Duration = null;
-	@:keep
-	public var _userTime:() -> stdgo.time.Time.Duration = null;
-
-	/**
-		// ExitCode returns the exit code of the exited process, or -1
-		// if the process hasn't exited or was terminated by a signal.
-	**/
-	@:keep
-	public var exitCode:() -> GoInt = null;
+	public function unwrap():Error
+		return __self__.unwrap();
 
 	@:keep
-	public var string:() -> GoString = null;
-	@:keep
-	public var _sysUsage:() -> AnyInterface = null;
-	@:keep
-	public var _sys:() -> AnyInterface = null;
-	@:keep
-	public var _success:() -> Bool = null;
-	@:keep
-	public var _exited:() -> Bool = null;
+	public function error():GoString
+		return __self__.error();
 
-	/**
-		// Pid returns the process id of the exited process.
-	**/
-	@:keep
-	public var pid:() -> GoInt = null;
-
-	/**
-		// SysUsage returns system-dependent resource usage information about
-		// the exited process. Convert it to the appropriate underlying
-		// type, such as *syscall.Rusage on Unix, to access its contents.
-		// (On Unix, *syscall.Rusage matches struct rusage as defined in the
-		// getrusage(2) manual page.)
-	**/
-	@:keep
-	public var sysUsage:() -> AnyInterface = null;
-
-	/**
-		// Sys returns system-dependent exit information about
-		// the process. Convert it to the appropriate underlying
-		// type, such as syscall.WaitStatus on Unix, to access its contents.
-	**/
-	@:keep
-	public var sys:() -> AnyInterface = null;
-
-	/**
-		// Success reports whether the program exited successfully,
-		// such as with exit status 0 on Unix.
-	**/
-	@:keep
-	public var success:() -> Bool = null;
-
-	/**
-		// Exited reports whether the program has exited.
-		// On Unix systems this reports true if the program exited due to calling exit,
-		// but false if the program terminated due to a signal.
-	**/
-	@:keep
-	public var exited:() -> Bool = null;
-
-	/**
-		// SystemTime returns the system CPU time of the exited process and its children.
-	**/
-	@:keep
-	public var systemTime:() -> stdgo.time.Time.Duration = null;
-
-	/**
-		// UserTime returns the user CPU time of the exited process and its children.
-	**/
-	@:keep
-	public var userTime:() -> stdgo.time.Time.Duration = null;
-
-	public function new(__self__)
-		this.__self__ = __self__;
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:ProcessState;
+	var __self__:LinkError;
 }
 
 @:keep private class LinkError_static_extension {
@@ -2188,19 +2259,20 @@ class ProcessState_asInterface {
 		throw "os.error is not yet implemented";
 }
 
-class LinkError_asInterface {
-	@:keep
-	public var unwrap:() -> Error = null;
-	@:keep
-	public var error:() -> GoString = null;
+private class T_onlyWriter_asInterface {
+	@:embedded
+	public function write(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
+		return __self__.write(_b);
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:LinkError;
+	var __self__:T_onlyWriter;
 }
 
 @:keep private class T_onlyWriter_static_extension {
@@ -2209,20 +2281,20 @@ class LinkError_asInterface {
 		return __self__.write(_b);
 }
 
-private class T_onlyWriter_asInterface {
-	@:embedded
-	public var write:Slice<GoUInt8> -> {
-		var _0:GoInt;
-		var _1:stdgo.Error;
-	} = null;
+private class T_file_asInterface {
+	@:keep
+	public function _close():Error
+		return __self__._close();
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:T_onlyWriter;
+	var __self__:T_file;
 }
 
 @:keep private class T_file_static_extension {
@@ -2231,17 +2303,32 @@ private class T_onlyWriter_asInterface {
 		throw "os._close is not yet implemented";
 }
 
-private class T_file_asInterface {
+private class T_unixDirent_asInterface {
 	@:keep
-	public var _close:() -> Error = null;
+	public function info():{var _0:FileInfo; var _1:Error;}
+		return __self__.info();
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	@:keep
+	public function type():FileMode
+		return __self__.type();
+
+	@:keep
+	public function isDir():Bool
+		return __self__.isDir();
+
+	@:keep
+	public function name():GoString
+		return __self__.name();
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:T_file;
+	var __self__:T_unixDirent;
 }
 
 @:keep private class T_unixDirent_static_extension {
@@ -2262,26 +2349,28 @@ private class T_file_asInterface {
 		throw "os.name is not yet implemented";
 }
 
-private class T_unixDirent_asInterface {
+private class T_rawConn_asInterface {
 	@:keep
-	public var info:() -> {
-		var _0:FileInfo;
-		var _1:Error;
-	} = null;
-	@:keep
-	public var type:() -> FileMode = null;
-	@:keep
-	public var isDir:() -> Bool = null;
-	@:keep
-	public var name:() -> GoString = null;
+	public function write(_f:GoUIntptr->Bool):Error
+		return __self__.write(_f);
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	@:keep
+	public function read(_f:GoUIntptr->Bool):Error
+		return __self__.read(_f);
+
+	@:keep
+	public function control(_f:GoUIntptr->Void):Error
+		return __self__.control(_f);
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:T_unixDirent;
+	var __self__:T_rawConn;
 }
 
 @:keep private class T_rawConn_static_extension {
@@ -2298,21 +2387,399 @@ private class T_unixDirent_asInterface {
 		throw "os.control is not yet implemented";
 }
 
-private class T_rawConn_asInterface {
+class File_asInterface {
+	/**
+		// Stat returns the FileInfo structure describing file.
+		// If there is an error, it will be of type *PathError.
+	**/
 	@:keep
-	public var write:(GoUIntptr->Bool) -> Error = null;
-	@:keep
-	public var read:(GoUIntptr->Bool) -> Error = null;
-	@:keep
-	public var control:(GoUIntptr->Void) -> Error = null;
+	public function stat():{var _0:FileInfo; var _1:Error;}
+		return __self__.stat();
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	@:keep
+	public function _readFrom(_r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:Bool; var _2:Error;}
+		return __self__._readFrom(_r);
+
+	/**
+		// seek sets the offset for the next Read or Write on file to offset, interpreted
+		// according to whence: 0 means relative to the origin of the file, 1 means
+		// relative to the current offset, and 2 means relative to the end.
+		// It returns the new offset and an error, if any.
+	**/
+	@:keep
+	public function _seek(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:Error;}
+		return __self__._seek(_offset, _whence);
+
+	/**
+		// Fd returns the integer Unix file descriptor referencing the open file.
+		// If f is closed, the file descriptor becomes invalid.
+		// If f is garbage collected, a finalizer may close the file descriptor,
+		// making it invalid; see runtime.SetFinalizer for more information on when
+		// a finalizer might be run. On Unix systems this will cause the SetDeadline
+		// methods to stop working.
+		// Because file descriptors can be reused, the returned file descriptor may
+		// only be closed through the Close method of f, or by its finalizer during
+		// garbage collection. Otherwise, during garbage collection the finalizer
+		// may close an unrelated file descriptor with the same (reused) number.
+		//
+		// As an alternative, see the f.SyscallConn method.
+	**/
+	@:keep
+	public function fd():GoUIntptr
+		return __self__.fd();
+
+	/**
+		// checkValid checks whether f is valid for use.
+		// If not, it returns an appropriate error, perhaps incorporating the operation name op.
+	**/
+	@:keep
+	public function _checkValid(_op:GoString):Error
+		return __self__._checkValid(_op);
+
+	/**
+		// setWriteDeadline sets the write deadline.
+	**/
+	@:keep
+	public function _setWriteDeadline(_t:stdgo.time.Time.Time):Error
+		return __self__._setWriteDeadline(_t);
+
+	/**
+		// setReadDeadline sets the read deadline.
+	**/
+	@:keep
+	public function _setReadDeadline(_t:stdgo.time.Time.Time):Error
+		return __self__._setReadDeadline(_t);
+
+	/**
+		// setDeadline sets the read and write deadline.
+	**/
+	@:keep
+	public function _setDeadline(_t:stdgo.time.Time.Time):Error
+		return __self__._setDeadline(_t);
+
+	/**
+		// Chdir changes the current working directory to the file,
+		// which must be a directory.
+		// If there is an error, it will be of type *PathError.
+	**/
+	@:keep
+	public function chdir():Error
+		return __self__.chdir();
+
+	/**
+		// Sync commits the current contents of the file to stable storage.
+		// Typically, this means flushing the file system's in-memory copy
+		// of recently written data to disk.
+	**/
+	@:keep
+	public function sync():Error
+		return __self__.sync();
+
+	/**
+		// Truncate changes the size of the file.
+		// It does not change the I/O offset.
+		// If there is an error, it will be of type *PathError.
+	**/
+	@:keep
+	public function truncate(_size:GoInt64):Error
+		return __self__.truncate(_size);
+
+	/**
+		// Chown changes the numeric uid and gid of the named file.
+		// If there is an error, it will be of type *PathError.
+		//
+		// On Windows, it always returns the syscall.EWINDOWS error, wrapped
+		// in *PathError.
+	**/
+	@:keep
+	public function chown(_uid:GoInt, _gid:GoInt):Error
+		return __self__.chown(_uid, _gid);
+
+	/**
+		// See docs in file.go:(*File).Chmod.
+	**/
+	@:keep
+	public function _chmod(_mode:FileMode):Error
+		return __self__._chmod(_mode);
+
+	/**
+		// pwrite writes len(b) bytes to the File starting at byte offset off.
+		// It returns the number of bytes written and an error, if any.
+	**/
+	@:keep
+	public function _pwrite(_b:Slice<GoByte>, _off:GoInt64):{var _0:GoInt; var _1:Error;}
+		return __self__._pwrite(_b, _off);
+
+	/**
+		// write writes len(b) bytes to the File.
+		// It returns the number of bytes written and an error, if any.
+	**/
+	@:keep
+	public function _write(_b:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
+		return __self__._write(_b);
+
+	/**
+		// pread reads len(b) bytes from the File starting at byte offset off.
+		// It returns the number of bytes read and the error, if any.
+		// EOF is signaled by a zero count with err set to nil.
+	**/
+	@:keep
+	public function _pread(_b:Slice<GoByte>, _off:GoInt64):{var _0:GoInt; var _1:Error;}
+		return __self__._pread(_b, _off);
+
+	/**
+		// read reads up to len(b) bytes from the File.
+		// It returns the number of bytes read and an error, if any.
+	**/
+	@:keep
+	public function _read(_b:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
+		return __self__._read(_b);
+
+	/**
+		// Close closes the File, rendering it unusable for I/O.
+		// On files that support SetDeadline, any pending I/O operations will
+		// be canceled and return immediately with an ErrClosed error.
+		// Close will return an error if it has already been called.
+	**/
+	@:keep
+	public function close():Error
+		return __self__.close();
+
+	/**
+		// SyscallConn returns a raw file.
+		// This implements the syscall.Conn interface.
+	**/
+	@:keep
+	public function syscallConn():{var _0:stdgo.syscall.Syscall.RawConn; var _1:Error;}
+		return __self__.syscallConn();
+
+	/**
+		// SetWriteDeadline sets the deadline for any future Write calls and any
+		// currently-blocked Write call.
+		// Even if Write times out, it may return n > 0, indicating that
+		// some of the data was successfully written.
+		// A zero value for t means Write will not time out.
+		// Not all files support setting deadlines; see SetDeadline.
+	**/
+	@:keep
+	public function setWriteDeadline(_t:stdgo.time.Time.Time):Error
+		return __self__.setWriteDeadline(_t);
+
+	/**
+		// SetReadDeadline sets the deadline for future Read calls and any
+		// currently-blocked Read call.
+		// A zero value for t means Read will not time out.
+		// Not all files support setting deadlines; see SetDeadline.
+	**/
+	@:keep
+	public function setReadDeadline(_t:stdgo.time.Time.Time):Error
+		return __self__.setReadDeadline(_t);
+
+	/**
+		// SetDeadline sets the read and write deadlines for a File.
+		// It is equivalent to calling both SetReadDeadline and SetWriteDeadline.
+		//
+		// Only some kinds of files support setting a deadline. Calls to SetDeadline
+		// for files that do not support deadlines will return ErrNoDeadline.
+		// On most systems ordinary files do not support deadlines, but pipes do.
+		//
+		// A deadline is an absolute time after which I/O operations fail with an
+		// error instead of blocking. The deadline applies to all future and pending
+		// I/O, not just the immediately following call to Read or Write.
+		// After a deadline has been exceeded, the connection can be refreshed
+		// by setting a deadline in the future.
+		//
+		// If the deadline is exceeded a call to Read or Write or to other I/O
+		// methods will return an error that wraps ErrDeadlineExceeded.
+		// This can be tested using errors.Is(err, os.ErrDeadlineExceeded).
+		// That error implements the Timeout method, and calling the Timeout
+		// method will return true, but there are other possible errors for which
+		// the Timeout will return true even if the deadline has not been exceeded.
+		//
+		// An idle timeout can be implemented by repeatedly extending
+		// the deadline after successful Read or Write calls.
+		//
+		// A zero value for t means I/O operations will not time out.
+	**/
+	@:keep
+	public function setDeadline(_t:stdgo.time.Time.Time):Error
+		return __self__.setDeadline(_t);
+
+	/**
+		// Chmod changes the mode of the file to mode.
+		// If there is an error, it will be of type *PathError.
+	**/
+	@:keep
+	public function chmod(_mode:FileMode):Error
+		return __self__.chmod(_mode);
+
+	/**
+		// wrapErr wraps an error that occurred during an operation on an open file.
+		// It passes io.EOF through unchanged, otherwise converts
+		// poll.ErrFileClosing to ErrClosed and wraps the error in a PathError.
+	**/
+	@:keep
+	public function _wrapErr(_op:GoString, _err:Error):Error
+		return __self__._wrapErr(_op, _err);
+
+	/**
+		// WriteString is like Write, but writes the contents of string s rather than
+		// a slice of bytes.
+	**/
+	@:keep
+	public function writeString(_s:GoString):{var _0:GoInt; var _1:Error;}
+		return __self__.writeString(_s);
+
+	/**
+		// Seek sets the offset for the next Read or Write on file to offset, interpreted
+		// according to whence: 0 means relative to the origin of the file, 1 means
+		// relative to the current offset, and 2 means relative to the end.
+		// It returns the new offset and an error, if any.
+		// The behavior of Seek on a file opened with O_APPEND is not specified.
+		//
+		// If f is a directory, the behavior of Seek varies by operating
+		// system; you can seek to the beginning of the directory on Unix-like
+		// operating systems, but not on Windows.
+	**/
+	@:keep
+	public function seek(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:Error;}
+		return __self__.seek(_offset, _whence);
+
+	/**
+		// WriteAt writes len(b) bytes to the File starting at byte offset off.
+		// It returns the number of bytes written and an error, if any.
+		// WriteAt returns a non-nil error when n != len(b).
+		//
+		// If file was opened with the O_APPEND flag, WriteAt returns an error.
+	**/
+	@:keep
+	public function writeAt(_b:Slice<GoByte>, _off:GoInt64):{var _0:GoInt; var _1:Error;}
+		return __self__.writeAt(_b, _off);
+
+	/**
+		// Write writes len(b) bytes from b to the File.
+		// It returns the number of bytes written and an error, if any.
+		// Write returns a non-nil error when n != len(b).
+	**/
+	@:keep
+	public function write(_b:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
+		return __self__.write(_b);
+
+	/**
+		// ReadFrom implements io.ReaderFrom.
+	**/
+	@:keep
+	public function readFrom(_r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:Error;}
+		return __self__.readFrom(_r);
+
+	/**
+		// ReadAt reads len(b) bytes from the File starting at byte offset off.
+		// It returns the number of bytes read and the error, if any.
+		// ReadAt always returns a non-nil error when n < len(b).
+		// At end of file, that error is io.EOF.
+	**/
+	@:keep
+	public function readAt(_b:Slice<GoByte>, _off:GoInt64):{var _0:GoInt; var _1:Error;}
+		return __self__.readAt(_b, _off);
+
+	/**
+		// Read reads up to len(b) bytes from the File and stores them in b.
+		// It returns the number of bytes read and any error encountered.
+		// At end of file, Read returns 0, io.EOF.
+	**/
+	@:keep
+	public function read(_b:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
+		return __self__.read(_b);
+
+	/**
+		// Name returns the name of the file as presented to Open.
+	**/
+	@:keep
+	public function name():GoString
+		return __self__.name();
+
+	@:keep
+	public function _readdir(_n:GoInt, _mode:T_readdirMode):{
+		var _0:Slice<GoString>;
+		var _1:Slice<DirEntry>;
+		var _2:Slice<FileInfo>;
+		var _3:Error;
+	}
+		return __self__._readdir(_n, _mode);
+
+	/**
+		// ReadDir reads the contents of the directory associated with the file f
+		// and returns a slice of DirEntry values in directory order.
+		// Subsequent calls on the same file will yield later DirEntry records in the directory.
+		//
+		// If n > 0, ReadDir returns at most n DirEntry records.
+		// In this case, if ReadDir returns an empty slice, it will return an error explaining why.
+		// At the end of a directory, the error is io.EOF.
+		//
+		// If n <= 0, ReadDir returns all the DirEntry records remaining in the directory.
+		// When it succeeds, it returns a nil error (not io.EOF).
+	**/
+	@:keep
+	public function readDir(_n:GoInt):{var _0:Slice<DirEntry>; var _1:Error;}
+		return __self__.readDir(_n);
+
+	/**
+		// Readdirnames reads the contents of the directory associated with file
+		// and returns a slice of up to n names of files in the directory,
+		// in directory order. Subsequent calls on the same file will yield
+		// further names.
+		//
+		// If n > 0, Readdirnames returns at most n names. In this case, if
+		// Readdirnames returns an empty slice, it will return a non-nil error
+		// explaining why. At the end of a directory, the error is io.EOF.
+		//
+		// If n <= 0, Readdirnames returns all the names from the directory in
+		// a single slice. In this case, if Readdirnames succeeds (reads all
+		// the way to the end of the directory), it returns the slice and a
+		// nil error. If it encounters an error before the end of the
+		// directory, Readdirnames returns the names read until that point and
+		// a non-nil error.
+	**/
+	@:keep
+	public function readdirnames(_n:GoInt):{var _0:Slice<GoString>; var _1:Error;}
+		return __self__.readdirnames(_n);
+
+	/**
+		// Readdir reads the contents of the directory associated with file and
+		// returns a slice of up to n FileInfo values, as would be returned
+		// by Lstat, in directory order. Subsequent calls on the same file will yield
+		// further FileInfos.
+		//
+		// If n > 0, Readdir returns at most n FileInfo structures. In this case, if
+		// Readdir returns an empty slice, it will return a non-nil error
+		// explaining why. At the end of a directory, the error is io.EOF.
+		//
+		// If n <= 0, Readdir returns all the FileInfo from the directory in
+		// a single slice. In this case, if Readdir succeeds (reads all
+		// the way to the end of the directory), it returns the slice and a
+		// nil error. If it encounters an error before the end of the
+		// directory, Readdir returns the FileInfo read until that point
+		// and a non-nil error.
+		//
+		// Most clients are better served by the more efficient ReadDir method.
+	**/
+	@:keep
+	public function readdir(_n:GoInt):{var _0:Slice<FileInfo>; var _1:Error;}
+		return __self__.readdir(_n);
+
+	@:embedded
+	public function _close():stdgo.Error
+		return __self__._close();
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:T_rawConn;
+	var __self__:File;
 }
 
 @:keep private class File_static_extension {
@@ -2700,415 +3167,40 @@ private class T_rawConn_asInterface {
 		return __self__._close();
 }
 
-class File_asInterface {
-	/**
-		// Stat returns the FileInfo structure describing file.
-		// If there is an error, it will be of type *PathError.
-	**/
+private class T_fileStat_asInterface {
 	@:keep
-	public var stat:() -> {
-		var _0:FileInfo;
-		var _1:Error;
-	} = null;
+	public function sys():AnyInterface
+		return __self__.sys();
 
 	@:keep
-	public var _readFrom:stdgo.io.Io.Reader -> {
-		var _0:GoInt64;
-		var _1:Bool;
-		var _2:Error;
-	} = null;
-
-	/**
-		// seek sets the offset for the next Read or Write on file to offset, interpreted
-		// according to whence: 0 means relative to the origin of the file, 1 means
-		// relative to the current offset, and 2 means relative to the end.
-		// It returns the new offset and an error, if any.
-	**/
-	@:keep
-	public var _seek:(GoInt64, GoInt) -> {
-		var _0:GoInt64;
-		var _1:Error;
-	} = null;
-
-	/**
-		// Fd returns the integer Unix file descriptor referencing the open file.
-		// If f is closed, the file descriptor becomes invalid.
-		// If f is garbage collected, a finalizer may close the file descriptor,
-		// making it invalid; see runtime.SetFinalizer for more information on when
-		// a finalizer might be run. On Unix systems this will cause the SetDeadline
-		// methods to stop working.
-		// Because file descriptors can be reused, the returned file descriptor may
-		// only be closed through the Close method of f, or by its finalizer during
-		// garbage collection. Otherwise, during garbage collection the finalizer
-		// may close an unrelated file descriptor with the same (reused) number.
-		//
-		// As an alternative, see the f.SyscallConn method.
-	**/
-	@:keep
-	public var fd:() -> GoUIntptr = null;
-
-	/**
-		// checkValid checks whether f is valid for use.
-		// If not, it returns an appropriate error, perhaps incorporating the operation name op.
-	**/
-	@:keep
-	public var _checkValid:GoString->Error = null;
-
-	/**
-		// setWriteDeadline sets the write deadline.
-	**/
-	@:keep
-	public var _setWriteDeadline:stdgo.time.Time.Time->Error = null;
-
-	/**
-		// setReadDeadline sets the read deadline.
-	**/
-	@:keep
-	public var _setReadDeadline:stdgo.time.Time.Time->Error = null;
-
-	/**
-		// setDeadline sets the read and write deadline.
-	**/
-	@:keep
-	public var _setDeadline:stdgo.time.Time.Time->Error = null;
-
-	/**
-		// Chdir changes the current working directory to the file,
-		// which must be a directory.
-		// If there is an error, it will be of type *PathError.
-	**/
-	@:keep
-	public var chdir:() -> Error = null;
-
-	/**
-		// Sync commits the current contents of the file to stable storage.
-		// Typically, this means flushing the file system's in-memory copy
-		// of recently written data to disk.
-	**/
-	@:keep
-	public var sync:() -> Error = null;
-
-	/**
-		// Truncate changes the size of the file.
-		// It does not change the I/O offset.
-		// If there is an error, it will be of type *PathError.
-	**/
-	@:keep
-	public var truncate:GoInt64->Error = null;
-
-	/**
-		// Chown changes the numeric uid and gid of the named file.
-		// If there is an error, it will be of type *PathError.
-		//
-		// On Windows, it always returns the syscall.EWINDOWS error, wrapped
-		// in *PathError.
-	**/
-	@:keep
-	public var chown:(GoInt, GoInt) -> Error = null;
-
-	/**
-		// See docs in file.go:(*File).Chmod.
-	**/
-	@:keep
-	public var _chmod:FileMode->Error = null;
-
-	/**
-		// pwrite writes len(b) bytes to the File starting at byte offset off.
-		// It returns the number of bytes written and an error, if any.
-	**/
-	@:keep
-	public var _pwrite:(Slice<GoByte>, GoInt64) -> {
-		var _0:GoInt;
-		var _1:Error;
-	} = null;
-
-	/**
-		// write writes len(b) bytes to the File.
-		// It returns the number of bytes written and an error, if any.
-	**/
-	@:keep
-	public var _write:Slice<GoByte> -> {
-		var _0:GoInt;
-		var _1:Error;
-	} = null;
-
-	/**
-		// pread reads len(b) bytes from the File starting at byte offset off.
-		// It returns the number of bytes read and the error, if any.
-		// EOF is signaled by a zero count with err set to nil.
-	**/
-	@:keep
-	public var _pread:(Slice<GoByte>, GoInt64) -> {
-		var _0:GoInt;
-		var _1:Error;
-	} = null;
-
-	/**
-		// read reads up to len(b) bytes from the File.
-		// It returns the number of bytes read and an error, if any.
-	**/
-	@:keep
-	public var _read:Slice<GoByte> -> {
-		var _0:GoInt;
-		var _1:Error;
-	} = null;
-
-	/**
-		// Close closes the File, rendering it unusable for I/O.
-		// On files that support SetDeadline, any pending I/O operations will
-		// be canceled and return immediately with an ErrClosed error.
-		// Close will return an error if it has already been called.
-	**/
-	@:keep
-	public var close:() -> Error = null;
-
-	/**
-		// SyscallConn returns a raw file.
-		// This implements the syscall.Conn interface.
-	**/
-	@:keep
-	public var syscallConn:() -> {
-		var _0:stdgo.syscall.Syscall.RawConn;
-		var _1:Error;
-	} = null;
-
-	/**
-		// SetWriteDeadline sets the deadline for any future Write calls and any
-		// currently-blocked Write call.
-		// Even if Write times out, it may return n > 0, indicating that
-		// some of the data was successfully written.
-		// A zero value for t means Write will not time out.
-		// Not all files support setting deadlines; see SetDeadline.
-	**/
-	@:keep
-	public var setWriteDeadline:stdgo.time.Time.Time->Error = null;
-
-	/**
-		// SetReadDeadline sets the deadline for future Read calls and any
-		// currently-blocked Read call.
-		// A zero value for t means Read will not time out.
-		// Not all files support setting deadlines; see SetDeadline.
-	**/
-	@:keep
-	public var setReadDeadline:stdgo.time.Time.Time->Error = null;
-
-	/**
-		// SetDeadline sets the read and write deadlines for a File.
-		// It is equivalent to calling both SetReadDeadline and SetWriteDeadline.
-		//
-		// Only some kinds of files support setting a deadline. Calls to SetDeadline
-		// for files that do not support deadlines will return ErrNoDeadline.
-		// On most systems ordinary files do not support deadlines, but pipes do.
-		//
-		// A deadline is an absolute time after which I/O operations fail with an
-		// error instead of blocking. The deadline applies to all future and pending
-		// I/O, not just the immediately following call to Read or Write.
-		// After a deadline has been exceeded, the connection can be refreshed
-		// by setting a deadline in the future.
-		//
-		// If the deadline is exceeded a call to Read or Write or to other I/O
-		// methods will return an error that wraps ErrDeadlineExceeded.
-		// This can be tested using errors.Is(err, os.ErrDeadlineExceeded).
-		// That error implements the Timeout method, and calling the Timeout
-		// method will return true, but there are other possible errors for which
-		// the Timeout will return true even if the deadline has not been exceeded.
-		//
-		// An idle timeout can be implemented by repeatedly extending
-		// the deadline after successful Read or Write calls.
-		//
-		// A zero value for t means I/O operations will not time out.
-	**/
-	@:keep
-	public var setDeadline:stdgo.time.Time.Time->Error = null;
-
-	/**
-		// Chmod changes the mode of the file to mode.
-		// If there is an error, it will be of type *PathError.
-	**/
-	@:keep
-	public var chmod:FileMode->Error = null;
-
-	/**
-		// wrapErr wraps an error that occurred during an operation on an open file.
-		// It passes io.EOF through unchanged, otherwise converts
-		// poll.ErrFileClosing to ErrClosed and wraps the error in a PathError.
-	**/
-	@:keep
-	public var _wrapErr:(GoString, Error) -> Error = null;
-
-	/**
-		// WriteString is like Write, but writes the contents of string s rather than
-		// a slice of bytes.
-	**/
-	@:keep
-	public var writeString:GoString -> {
-		var _0:GoInt;
-		var _1:Error;
-	} = null;
-
-	/**
-		// Seek sets the offset for the next Read or Write on file to offset, interpreted
-		// according to whence: 0 means relative to the origin of the file, 1 means
-		// relative to the current offset, and 2 means relative to the end.
-		// It returns the new offset and an error, if any.
-		// The behavior of Seek on a file opened with O_APPEND is not specified.
-		//
-		// If f is a directory, the behavior of Seek varies by operating
-		// system; you can seek to the beginning of the directory on Unix-like
-		// operating systems, but not on Windows.
-	**/
-	@:keep
-	public var seek:(GoInt64, GoInt) -> {
-		var _0:GoInt64;
-		var _1:Error;
-	} = null;
-
-	/**
-		// WriteAt writes len(b) bytes to the File starting at byte offset off.
-		// It returns the number of bytes written and an error, if any.
-		// WriteAt returns a non-nil error when n != len(b).
-		//
-		// If file was opened with the O_APPEND flag, WriteAt returns an error.
-	**/
-	@:keep
-	public var writeAt:(Slice<GoByte>, GoInt64) -> {
-		var _0:GoInt;
-		var _1:Error;
-	} = null;
-
-	/**
-		// Write writes len(b) bytes from b to the File.
-		// It returns the number of bytes written and an error, if any.
-		// Write returns a non-nil error when n != len(b).
-	**/
-	@:keep
-	public var write:Slice<GoByte> -> {
-		var _0:GoInt;
-		var _1:Error;
-	} = null;
-
-	/**
-		// ReadFrom implements io.ReaderFrom.
-	**/
-	@:keep
-	public var readFrom:stdgo.io.Io.Reader -> {
-		var _0:GoInt64;
-		var _1:Error;
-	} = null;
-
-	/**
-		// ReadAt reads len(b) bytes from the File starting at byte offset off.
-		// It returns the number of bytes read and the error, if any.
-		// ReadAt always returns a non-nil error when n < len(b).
-		// At end of file, that error is io.EOF.
-	**/
-	@:keep
-	public var readAt:(Slice<GoByte>, GoInt64) -> {
-		var _0:GoInt;
-		var _1:Error;
-	} = null;
-
-	/**
-		// Read reads up to len(b) bytes from the File and stores them in b.
-		// It returns the number of bytes read and any error encountered.
-		// At end of file, Read returns 0, io.EOF.
-	**/
-	@:keep
-	public var read:Slice<GoByte> -> {
-		var _0:GoInt;
-		var _1:Error;
-	} = null;
-
-	/**
-		// Name returns the name of the file as presented to Open.
-	**/
-	@:keep
-	public var name:() -> GoString = null;
+	public function modTime():stdgo.time.Time.Time
+		return __self__.modTime();
 
 	@:keep
-	public var _readdir:(GoInt, T_readdirMode) -> {
-		var _0:Slice<GoString>;
-		var _1:Slice<DirEntry>;
-		var _2:Slice<FileInfo>;
-		var _3:Error;
-	} = null;
+	public function mode():FileMode
+		return __self__.mode();
 
-	/**
-		// ReadDir reads the contents of the directory associated with the file f
-		// and returns a slice of DirEntry values in directory order.
-		// Subsequent calls on the same file will yield later DirEntry records in the directory.
-		//
-		// If n > 0, ReadDir returns at most n DirEntry records.
-		// In this case, if ReadDir returns an empty slice, it will return an error explaining why.
-		// At the end of a directory, the error is io.EOF.
-		//
-		// If n <= 0, ReadDir returns all the DirEntry records remaining in the directory.
-		// When it succeeds, it returns a nil error (not io.EOF).
-	**/
 	@:keep
-	public var readDir:GoInt -> {
-		var _0:Slice<DirEntry>;
-		var _1:Error;
-	} = null;
+	public function size():GoInt64
+		return __self__.size();
 
-	/**
-		// Readdirnames reads the contents of the directory associated with file
-		// and returns a slice of up to n names of files in the directory,
-		// in directory order. Subsequent calls on the same file will yield
-		// further names.
-		//
-		// If n > 0, Readdirnames returns at most n names. In this case, if
-		// Readdirnames returns an empty slice, it will return a non-nil error
-		// explaining why. At the end of a directory, the error is io.EOF.
-		//
-		// If n <= 0, Readdirnames returns all the names from the directory in
-		// a single slice. In this case, if Readdirnames succeeds (reads all
-		// the way to the end of the directory), it returns the slice and a
-		// nil error. If it encounters an error before the end of the
-		// directory, Readdirnames returns the names read until that point and
-		// a non-nil error.
-	**/
 	@:keep
-	public var readdirnames:GoInt -> {
-		var _0:Slice<GoString>;
-		var _1:Error;
-	} = null;
+	public function isDir():Bool
+		return __self__.isDir();
 
-	/**
-		// Readdir reads the contents of the directory associated with file and
-		// returns a slice of up to n FileInfo values, as would be returned
-		// by Lstat, in directory order. Subsequent calls on the same file will yield
-		// further FileInfos.
-		//
-		// If n > 0, Readdir returns at most n FileInfo structures. In this case, if
-		// Readdir returns an empty slice, it will return a non-nil error
-		// explaining why. At the end of a directory, the error is io.EOF.
-		//
-		// If n <= 0, Readdir returns all the FileInfo from the directory in
-		// a single slice. In this case, if Readdir succeeds (reads all
-		// the way to the end of the directory), it returns the slice and a
-		// nil error. If it encounters an error before the end of the
-		// directory, Readdir returns the FileInfo read until that point
-		// and a non-nil error.
-		//
-		// Most clients are better served by the more efficient ReadDir method.
-	**/
 	@:keep
-	public var readdir:GoInt -> {
-		var _0:Slice<FileInfo>;
-		var _1:Error;
-	} = null;
+	public function name():GoString
+		return __self__.name();
 
-	@:embedded
-	public var _close:() -> stdgo.Error = null;
-
-	public function new(__self__)
-		this.__self__ = __self__;
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:File;
+	var __self__:T_fileStat;
 }
 
 @:keep private class T_fileStat_static_extension {
@@ -3137,27 +3229,24 @@ class File_asInterface {
 		throw "os.name is not yet implemented";
 }
 
-private class T_fileStat_asInterface {
+private class T_dirFS_asInterface {
 	@:keep
-	public var sys:() -> AnyInterface = null;
-	@:keep
-	public var modTime:() -> stdgo.time.Time.Time = null;
-	@:keep
-	public var mode:() -> FileMode = null;
-	@:keep
-	public var size:() -> GoInt64 = null;
-	@:keep
-	public var isDir:() -> Bool = null;
-	@:keep
-	public var name:() -> GoString = null;
+	public function stat(_name:GoString):{var _0:stdgo.io.fs.Fs.FileInfo; var _1:Error;}
+		return __self__.stat(_name);
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	@:keep
+	public function open(_name:GoString):{var _0:stdgo.io.fs.Fs.File; var _1:Error;}
+		return __self__.open(_name);
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:T_fileStat;
+	var __self__:T_dirFS;
 }
 
 @:keep private class T_dirFS_static_extension {
@@ -3168,25 +3257,4 @@ private class T_fileStat_asInterface {
 	@:keep
 	static public function open(_dir:T_dirFS, _name:GoString):{var _0:stdgo.io.fs.Fs.File; var _1:Error;}
 		throw "os.open is not yet implemented";
-}
-
-private class T_dirFS_asInterface {
-	@:keep
-	public var stat:GoString -> {
-		var _0:stdgo.io.fs.Fs.FileInfo;
-		var _1:Error;
-	} = null;
-	@:keep
-	public var open:GoString -> {
-		var _0:stdgo.io.fs.Fs.File;
-		var _1:Error;
-	} = null;
-
-	public function new(__self__)
-		this.__self__ = __self__;
-
-	public function __underlying__()
-		return Go.toInterface(this);
-
-	var __self__:T_dirFS;
 }

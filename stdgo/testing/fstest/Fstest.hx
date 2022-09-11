@@ -10,13 +10,13 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-private var _2:stdgo.io.fs.Fs.FS = (null : stdgo.io.fs.Fs.FS);
-private var _3:stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
-
 /**
 	// Package fstest implements support for testing implementations and users of file systems.
 **/
 private var __go2hxdoc__package:Bool;
+
+private var _2:stdgo.io.fs.Fs.FS = (null : stdgo.io.fs.Fs.FS);
+private var _3:stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
 
 /**
 	// A MapFile describes a single file in a MapFS.
@@ -371,26 +371,62 @@ function testSymlink(_t:stdgo.testing.Testing.T):Void
 function testDash(_t:stdgo.testing.Testing.T):Void
 	throw "testing.fstest.testDash is not yet implemented";
 
+private class T_fsOnly_asInterface {
+	@:embedded
+	public function open(_pattern:GoString):{var _0:stdgo.io.fs.Fs.File; var _1:stdgo.Error;}
+		return __self__.open(_pattern);
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
+
+	public function __underlying__()
+		return Go.toInterface(__self__);
+
+	var __self__:T_fsOnly;
+}
+
 @:keep private class T_fsOnly_static_extension {
 	@:embedded
 	public static function open(__self__:T_fsOnly, _pattern:GoString):{var _0:stdgo.io.fs.Fs.File; var _1:stdgo.Error;}
 		return __self__.open(_pattern);
 }
 
-private class T_fsOnly_asInterface {
-	@:embedded
-	public var open:GoString -> {
-		var _0:stdgo.io.fs.Fs.File;
-		var _1:stdgo.Error;
-	} = null;
+private class T_noSub_asInterface {
+	@:keep
+	public function sub():Void
+		__self__.sub();
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	@:embedded
+	public function stat(_pattern:GoString):{var _0:stdgo.io.fs.Fs.FileInfo; var _1:stdgo.Error;}
+		return __self__.stat(_pattern);
+
+	@:embedded
+	public function readFile(_pattern:GoString):{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
+		return __self__.readFile(_pattern);
+
+	@:embedded
+	public function readDir(_pattern:GoString):{var _0:Slice<stdgo.io.fs.Fs.DirEntry>; var _1:stdgo.Error;}
+		return __self__.readDir(_pattern);
+
+	@:embedded
+	public function open(_pattern:GoString):{var _0:stdgo.io.fs.Fs.File; var _1:stdgo.Error;}
+		return __self__.open(_pattern);
+
+	@:embedded
+	public function glob(_pattern:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
+		return __self__.glob(_pattern);
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:T_fsOnly;
+	var __self__:T_noSub;
 }
 
 @:keep private class T_noSub_static_extension {
@@ -419,42 +455,48 @@ private class T_fsOnly_asInterface {
 		return __self__.glob(_pattern);
 }
 
-private class T_noSub_asInterface {
+private class T_mapFileInfo_asInterface {
 	@:keep
-	public var sub:() -> Void = null;
-	@:embedded
-	public var stat:GoString -> {
-		var _0:stdgo.io.fs.Fs.FileInfo;
-		var _1:stdgo.Error;
-	} = null;
-	@:embedded
-	public var readFile:GoString -> {
-		var _0:Slice<GoUInt8>;
-		var _1:stdgo.Error;
-	} = null;
-	@:embedded
-	public var readDir:GoString -> {
-		var _0:Slice<stdgo.io.fs.Fs.DirEntry>;
-		var _1:stdgo.Error;
-	} = null;
-	@:embedded
-	public var open:GoString -> {
-		var _0:stdgo.io.fs.Fs.File;
-		var _1:stdgo.Error;
-	} = null;
-	@:embedded
-	public var glob:GoString -> {
-		var _0:Slice<GoString>;
-		var _1:stdgo.Error;
-	} = null;
+	public function info():{var _0:stdgo.io.fs.Fs.FileInfo; var _1:Error;}
+		return __self__.info();
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	@:keep
+	public function sys():AnyInterface
+		return __self__.sys();
+
+	@:keep
+	public function isDir():Bool
+		return __self__.isDir();
+
+	@:keep
+	public function modTime():stdgo.time.Time.Time
+		return __self__.modTime();
+
+	@:keep
+	public function type():stdgo.io.fs.Fs.FileMode
+		return __self__.type();
+
+	@:keep
+	public function mode():stdgo.io.fs.Fs.FileMode
+		return __self__.mode();
+
+	@:keep
+	public function size():GoInt64
+		return __self__.size();
+
+	@:keep
+	public function name():GoString
+		return __self__.name();
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:T_noSub;
+	var __self__:T_mapFileInfo;
 }
 
 @:keep private class T_mapFileInfo_static_extension {
@@ -491,34 +533,68 @@ private class T_noSub_asInterface {
 		throw "testing.fstest.name is not yet implemented";
 }
 
-private class T_mapFileInfo_asInterface {
+private class T_openMapFile_asInterface {
 	@:keep
-	public var info:() -> {
-		var _0:stdgo.io.fs.Fs.FileInfo;
-		var _1:Error;
-	} = null;
-	@:keep
-	public var sys:() -> AnyInterface = null;
-	@:keep
-	public var isDir:() -> Bool = null;
-	@:keep
-	public var modTime:() -> stdgo.time.Time.Time = null;
-	@:keep
-	public var type:() -> stdgo.io.fs.Fs.FileMode = null;
-	@:keep
-	public var mode:() -> stdgo.io.fs.Fs.FileMode = null;
-	@:keep
-	public var size:() -> GoInt64 = null;
-	@:keep
-	public var name:() -> GoString = null;
+	public function readAt(_b:Slice<GoByte>, _offset:GoInt64):{var _0:GoInt; var _1:Error;}
+		return __self__.readAt(_b, _offset);
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	@:keep
+	public function seek(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:Error;}
+		return __self__.seek(_offset, _whence);
+
+	@:keep
+	public function read(_b:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
+		return __self__.read(_b);
+
+	@:keep
+	public function close():Error
+		return __self__.close();
+
+	@:keep
+	public function stat():{var _0:stdgo.io.fs.Fs.FileInfo; var _1:Error;}
+		return __self__.stat();
+
+	@:embedded
+	public function type():stdgo.io.fs.Fs.FileMode
+		return __self__.type();
+
+	@:embedded
+	public function sys():AnyInterface
+		return __self__.sys();
+
+	@:embedded
+	public function size():GoInt64
+		return __self__.size();
+
+	@:embedded
+	public function name():GoString
+		return __self__.name();
+
+	@:embedded
+	public function mode():stdgo.io.fs.Fs.FileMode
+		return __self__.mode();
+
+	@:embedded
+	public function modTime():stdgo.time.Time.Time
+		return __self__.modTime();
+
+	@:embedded
+	public function isDir():Bool
+		return __self__.isDir();
+
+	@:embedded
+	public function info():{var _0:stdgo.io.fs.Fs.FileInfo; var _1:stdgo.Error;}
+		return __self__.info();
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:T_mapFileInfo;
+	var __self__:T_openMapFile;
 }
 
 @:keep private class T_openMapFile_static_extension {
@@ -575,56 +651,64 @@ private class T_mapFileInfo_asInterface {
 		return __self__.info();
 }
 
-private class T_openMapFile_asInterface {
+private class T_mapDir_asInterface {
 	@:keep
-	public var readAt:(Slice<GoByte>, GoInt64) -> {
-		var _0:GoInt;
-		var _1:Error;
-	} = null;
-	@:keep
-	public var seek:(GoInt64, GoInt) -> {
-		var _0:GoInt64;
-		var _1:Error;
-	} = null;
-	@:keep
-	public var read:Slice<GoByte> -> {
-		var _0:GoInt;
-		var _1:Error;
-	} = null;
-	@:keep
-	public var close:() -> Error = null;
-	@:keep
-	public var stat:() -> {
-		var _0:stdgo.io.fs.Fs.FileInfo;
-		var _1:Error;
-	} = null;
-	@:embedded
-	public var type:() -> stdgo.io.fs.Fs.FileMode = null;
-	@:embedded
-	public var sys:() -> AnyInterface = null;
-	@:embedded
-	public var size:() -> GoInt64 = null;
-	@:embedded
-	public var name:() -> GoString = null;
-	@:embedded
-	public var mode:() -> stdgo.io.fs.Fs.FileMode = null;
-	@:embedded
-	public var modTime:() -> stdgo.time.Time.Time = null;
-	@:embedded
-	public var isDir:() -> Bool = null;
-	@:embedded
-	public var info:() -> {
-		var _0:stdgo.io.fs.Fs.FileInfo;
-		var _1:stdgo.Error;
-	} = null;
+	public function readDir(_count:GoInt):{var _0:Slice<stdgo.io.fs.Fs.DirEntry>; var _1:Error;}
+		return __self__.readDir(_count);
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	@:keep
+	public function read(_b:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
+		return __self__.read(_b);
+
+	@:keep
+	public function close():Error
+		return __self__.close();
+
+	@:keep
+	public function stat():{var _0:stdgo.io.fs.Fs.FileInfo; var _1:Error;}
+		return __self__.stat();
+
+	@:embedded
+	public function type():stdgo.io.fs.Fs.FileMode
+		return __self__.type();
+
+	@:embedded
+	public function sys():AnyInterface
+		return __self__.sys();
+
+	@:embedded
+	public function size():GoInt64
+		return __self__.size();
+
+	@:embedded
+	public function name():GoString
+		return __self__.name();
+
+	@:embedded
+	public function mode():stdgo.io.fs.Fs.FileMode
+		return __self__.mode();
+
+	@:embedded
+	public function modTime():stdgo.time.Time.Time
+		return __self__.modTime();
+
+	@:embedded
+	public function isDir():Bool
+		return __self__.isDir();
+
+	@:embedded
+	public function info():{var _0:stdgo.io.fs.Fs.FileInfo; var _1:stdgo.Error;}
+		return __self__.info();
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:T_openMapFile;
+	var __self__:T_mapDir;
 }
 
 @:keep private class T_mapDir_static_extension {
@@ -677,51 +761,83 @@ private class T_openMapFile_asInterface {
 		return __self__.info();
 }
 
-private class T_mapDir_asInterface {
+private class T_fsTester_asInterface {
+	/**
+		// checkBadPath checks that various invalid forms of file's name cannot be opened using open.
+	**/
 	@:keep
-	public var readDir:GoInt -> {
-		var _0:Slice<stdgo.io.fs.Fs.DirEntry>;
-		var _1:Error;
-	} = null;
-	@:keep
-	public var read:Slice<GoByte> -> {
-		var _0:GoInt;
-		var _1:Error;
-	} = null;
-	@:keep
-	public var close:() -> Error = null;
-	@:keep
-	public var stat:() -> {
-		var _0:stdgo.io.fs.Fs.FileInfo;
-		var _1:Error;
-	} = null;
-	@:embedded
-	public var type:() -> stdgo.io.fs.Fs.FileMode = null;
-	@:embedded
-	public var sys:() -> AnyInterface = null;
-	@:embedded
-	public var size:() -> GoInt64 = null;
-	@:embedded
-	public var name:() -> GoString = null;
-	@:embedded
-	public var mode:() -> stdgo.io.fs.Fs.FileMode = null;
-	@:embedded
-	public var modTime:() -> stdgo.time.Time.Time = null;
-	@:embedded
-	public var isDir:() -> Bool = null;
-	@:embedded
-	public var info:() -> {
-		var _0:stdgo.io.fs.Fs.FileInfo;
-		var _1:stdgo.Error;
-	} = null;
+	public function _checkBadPath(_file:GoString, _desc:GoString, _open:GoString->Error):Void
+		__self__._checkBadPath(_file, _desc, _open);
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	/**
+		// checkBadPath checks that various invalid forms of file's name cannot be opened using t.fsys.Open.
+	**/
+	@:keep
+	public function _checkOpen(_file:GoString):Void
+		__self__._checkOpen(_file);
+
+	@:keep
+	public function _checkFileRead(_file:GoString, _desc:GoString, _data1:Slice<GoByte>, _data2:Slice<GoByte>):Void
+		__self__._checkFileRead(_file, _desc, _data1, _data2);
+
+	/**
+		// checkFile checks that basic file reading works correctly.
+	**/
+	@:keep
+	public function _checkFile(_file:GoString):Void
+		__self__._checkFile(_file);
+
+	/**
+		// checkDirList checks that two directory lists contain the same files and file info.
+		// The order of the lists need not match.
+	**/
+	@:keep
+	public function _checkDirList(_dir:GoString, _desc:GoString, _list1:Slice<stdgo.io.fs.Fs.DirEntry>, _list2:Slice<stdgo.io.fs.Fs.DirEntry>):Void
+		__self__._checkDirList(_dir, _desc, _list1, _list2);
+
+	/**
+		// checkStat checks that a direct stat of path matches entry,
+		// which was found in the parent's directory listing.
+	**/
+	@:keep
+	public function _checkStat(_path:GoString, _entry:stdgo.io.fs.Fs.DirEntry):Void
+		__self__._checkStat(_path, _entry);
+
+	/**
+		// checkGlob checks that various glob patterns work if the file system implements GlobFS.
+	**/
+	@:keep
+	public function _checkGlob(_dir:GoString, _list:Slice<stdgo.io.fs.Fs.DirEntry>):Void
+		__self__._checkGlob(_dir, _list);
+
+	/**
+		// checkDir checks the directory dir, which is expected to exist
+		// (it is either the root or was found in a directory listing with IsDir true).
+	**/
+	@:keep
+	public function _checkDir(_dir:GoString):Void
+		__self__._checkDir(_dir);
+
+	@:keep
+	public function _openDir(_dir:GoString):stdgo.io.fs.Fs.ReadDirFile
+		return __self__._openDir(_dir);
+
+	/**
+		// errorf adds an error line to errText.
+	**/
+	@:keep
+	public function _errorf(_format:GoString, _args:haxe.Rest<AnyInterface>):Void
+		__self__._errorf(_format, ..._args);
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:T_mapDir;
+	var __self__:T_fsTester;
 }
 
 @:keep private class T_fsTester_static_extension {
@@ -794,71 +910,43 @@ private class T_mapDir_asInterface {
 		throw "testing.fstest._errorf is not yet implemented";
 }
 
-private class T_fsTester_asInterface {
-	/**
-		// checkBadPath checks that various invalid forms of file's name cannot be opened using open.
-	**/
+class MapFS_asInterface {
 	@:keep
-	public var _checkBadPath:(GoString, GoString, GoString->Error) -> Void = null;
+	public function sub(_dir:GoString):{var _0:stdgo.io.fs.Fs.FS; var _1:Error;}
+		return __self__.sub(_dir);
+
+	@:keep
+	public function glob(_pattern:GoString):{var _0:Slice<GoString>; var _1:Error;}
+		return __self__.glob(_pattern);
+
+	@:keep
+	public function readDir(_name:GoString):{var _0:Slice<stdgo.io.fs.Fs.DirEntry>; var _1:Error;}
+		return __self__.readDir(_name);
+
+	@:keep
+	public function stat(_name:GoString):{var _0:stdgo.io.fs.Fs.FileInfo; var _1:Error;}
+		return __self__.stat(_name);
+
+	@:keep
+	public function readFile(_name:GoString):{var _0:Slice<GoByte>; var _1:Error;}
+		return __self__.readFile(_name);
 
 	/**
-		// checkBadPath checks that various invalid forms of file's name cannot be opened using t.fsys.Open.
+		// Open opens the named file.
 	**/
 	@:keep
-	public var _checkOpen:GoString->Void = null;
+	public function open(_name:GoString):{var _0:stdgo.io.fs.Fs.File; var _1:Error;}
+		return __self__.open(_name);
 
-	@:keep
-	public var _checkFileRead:(GoString, GoString, Slice<GoByte>, Slice<GoByte>) -> Void = null;
-
-	/**
-		// checkFile checks that basic file reading works correctly.
-	**/
-	@:keep
-	public var _checkFile:GoString->Void = null;
-
-	/**
-		// checkDirList checks that two directory lists contain the same files and file info.
-		// The order of the lists need not match.
-	**/
-	@:keep
-	public var _checkDirList:(GoString, GoString, Slice<stdgo.io.fs.Fs.DirEntry>, Slice<stdgo.io.fs.Fs.DirEntry>) -> Void = null;
-
-	/**
-		// checkStat checks that a direct stat of path matches entry,
-		// which was found in the parent's directory listing.
-	**/
-	@:keep
-	public var _checkStat:(GoString, stdgo.io.fs.Fs.DirEntry) -> Void = null;
-
-	/**
-		// checkGlob checks that various glob patterns work if the file system implements GlobFS.
-	**/
-	@:keep
-	public var _checkGlob:(GoString, Slice<stdgo.io.fs.Fs.DirEntry>) -> Void = null;
-
-	/**
-		// checkDir checks the directory dir, which is expected to exist
-		// (it is either the root or was found in a directory listing with IsDir true).
-	**/
-	@:keep
-	public var _checkDir:GoString->Void = null;
-
-	@:keep
-	public var _openDir:GoString->stdgo.io.fs.Fs.ReadDirFile = null;
-
-	/**
-		// errorf adds an error line to errText.
-	**/
-	@:keep
-	public var _errorf:(GoString, haxe.Rest<AnyInterface>) -> Void = null;
-
-	public function new(__self__)
-		this.__self__ = __self__;
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:T_fsTester;
+	var __self__:MapFS;
 }
 
 @:keep private class MapFS_static_extension {
@@ -888,49 +976,4 @@ private class T_fsTester_asInterface {
 	@:keep
 	static public function open(_fsys:MapFS, _name:GoString):{var _0:stdgo.io.fs.Fs.File; var _1:Error;}
 		throw "testing.fstest.open is not yet implemented";
-}
-
-class MapFS_asInterface {
-	@:keep
-	public var sub:GoString -> {
-		var _0:stdgo.io.fs.Fs.FS;
-		var _1:Error;
-	} = null;
-	@:keep
-	public var glob:GoString -> {
-		var _0:Slice<GoString>;
-		var _1:Error;
-	} = null;
-	@:keep
-	public var readDir:GoString -> {
-		var _0:Slice<stdgo.io.fs.Fs.DirEntry>;
-		var _1:Error;
-	} = null;
-	@:keep
-	public var stat:GoString -> {
-		var _0:stdgo.io.fs.Fs.FileInfo;
-		var _1:Error;
-	} = null;
-	@:keep
-	public var readFile:GoString -> {
-		var _0:Slice<GoByte>;
-		var _1:Error;
-	} = null;
-
-	/**
-		// Open opens the named file.
-	**/
-	@:keep
-	public var open:GoString -> {
-		var _0:stdgo.io.fs.Fs.File;
-		var _1:Error;
-	} = null;
-
-	public function new(__self__)
-		this.__self__ = __self__;
-
-	public function __underlying__()
-		return Go.toInterface(this);
-
-	var __self__:MapFS;
 }

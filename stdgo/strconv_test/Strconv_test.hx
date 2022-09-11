@@ -1969,10 +1969,19 @@ private var _benchmarksRandomBits:GoArray<GoString> = new GoArray<GoString>(...[
 private var _benchmarksRandomNormal:GoArray<GoString> = new GoArray<GoString>(...[for (i in 0...1024) ("" : GoString)]);
 private final _below1e23:GoUnTypedInt = ("99999999999999974834176.000000" : GoUnTypedInt);
 private final _above1e23:GoUnTypedInt = ("100000000000000008388608.000000" : GoUnTypedInt);
+
+/**
+	// make sure compiler cannot optimize away benchmarks
+**/
 var benchSink:GoInt = (0 : GoInt);
+
 private var _benchQuoteBuf:Slice<GoByte> = (null : Slice<GoUInt8>);
 private var _benchQuoteRuneBuf:Slice<GoByte> = (null : Slice<GoUInt8>);
 private var _globalBuf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0...64) (0 : GoUInt8)]);
+
+/**
+	// Will be allocated to 1MB of random data by TestCountMallocs.
+**/
 private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 
 @:structInit private class T_atobTest {
@@ -2509,12 +2518,12 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 	}
 }
 
-@:local typedef T__struct_0 = {
+@:local private typedef T__struct_0 = {
 	public var _f:GoFloat64;
 	public var _s:GoString;
 };
 
-@:local typedef T__struct_1 = {
+@:local private typedef T__struct_1 = {
 	public var _c:GoComplex128;
 	public var _fmt:GoUInt8;
 	public var _prec:GoInt;
@@ -2522,7 +2531,7 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 	public var _out:GoString;
 };
 
-@:local typedef T__struct_2 = {
+@:local private typedef T__struct_2 = {
 	public var _name:GoString;
 	public var _float:GoFloat64;
 	public var _fmt:GoUInt8;
@@ -2530,12 +2539,12 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 	public var _bitSize:GoInt;
 };
 
-@:local typedef T__struct_3 = {
+@:local private typedef T__struct_3 = {
 	public var _in:GoUInt64;
 	public var _out:GoString;
 };
 
-@:local typedef T__struct_4 = {
+@:local private typedef T__struct_4 = {
 	public var _in:GoString;
 
 	/**
@@ -2546,13 +2555,13 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 	public var _wantErr:stdgo.Error;
 };
 
-@:local typedef T__struct_5 = {
+@:local private typedef T__struct_5 = {
 	public var _count:GoInt;
 	public var _desc:GoString;
 	public var _fn:() -> Void;
 };
 
-@:local typedef T__struct_6 = {
+@:local private typedef T__struct_6 = {
 	/**
 		// Input error
 	**/
@@ -2853,14 +2862,7 @@ function testParseComplex(_t:stdgo.testing.Testing.T):Void {
 	for (_i => _ in _tests) {
 		var _test = _tests[_i];
 		if (_test._err != null) {
-			_test._err = {
-				final __self__ = new NumError_asInterface(({func: (Go.str("ParseComplex") : GoString), num: _test._in, err: _test._err} : NumError));
-				__self__.error = #if !macro function():GoString return ({func: (Go.str("ParseComplex") : GoString), num: _test._in,
-					err: _test._err} : NumError).error() #else null #end;
-				__self__.unwrap = #if !macro function():stdgo.Error return ({func: (Go.str("ParseComplex") : GoString), num: _test._in,
-					err: _test._err} : NumError).unwrap() #else null #end;
-				__self__;
-			};
+			_test._err = Go.asInterface(({func: (Go.str("ParseComplex") : GoString), num: _test._in, err: _test._err} : NumError));
 		};
 		var __tmp__ = parseComplex(_test._in, (128 : GoInt)),
 			_got:GoComplex128 = __tmp__._0,
@@ -2919,27 +2921,13 @@ function _initAtofOnce():Void {
 	for (_i => _ in _atoftests) {
 		var _test = _atoftests[_i];
 		if (_test._err != null) {
-			_test._err = {
-				final __self__ = new NumError_asInterface((new NumError((Go.str("ParseFloat") : GoString), _test._in, _test._err) : NumError));
-				__self__.error = #if !macro function():GoString return (new NumError((Go.str("ParseFloat") : GoString), _test._in,
-					_test._err) : NumError).error() #else null #end;
-				__self__.unwrap = #if !macro function():stdgo.Error return (new NumError((Go.str("ParseFloat") : GoString), _test._in,
-					_test._err) : NumError).unwrap() #else null #end;
-				__self__;
-			};
+			_test._err = Go.asInterface((new NumError((Go.str("ParseFloat") : GoString), _test._in, _test._err) : NumError));
 		};
 	};
 	for (_i => _ in _atof32tests) {
 		var _test = _atof32tests[_i];
 		if (_test._err != null) {
-			_test._err = {
-				final __self__ = new NumError_asInterface((new NumError((Go.str("ParseFloat") : GoString), _test._in, _test._err) : NumError));
-				__self__.error = #if !macro function():GoString return (new NumError((Go.str("ParseFloat") : GoString), _test._in,
-					_test._err) : NumError).error() #else null #end;
-				__self__.unwrap = #if !macro function():stdgo.Error return (new NumError((Go.str("ParseFloat") : GoString), _test._in,
-					_test._err) : NumError).unwrap() #else null #end;
-				__self__;
-			};
+			_test._err = Go.asInterface((new NumError((Go.str("ParseFloat") : GoString), _test._in, _test._err) : NumError));
 		};
 	};
 	stdgo.math.rand.Rand.seed(stdgo.time.Time.now().unixNano());
@@ -3431,15 +3419,8 @@ function testAtoi(_t:stdgo.testing.Testing.T):Void {
 				_err:stdgo.Error = __tmp__._1;
 			var _testErr:Error = (null : stdgo.Error);
 			if (_test._err != null) {
-				_testErr = {
-					final __self__ = new NumError_asInterface((new NumError((Go.str("Atoi") : GoString), _test._in,
-						((_test._err.__underlying__().value : Dynamic) : NumError).err) : NumError));
-					__self__.error = #if !macro function():GoString return (new NumError((Go.str("Atoi") : GoString), _test._in,
-						((_test._err.__underlying__().value : Dynamic) : NumError).err) : NumError).error() #else null #end;
-					__self__.unwrap = #if !macro function():stdgo.Error return (new NumError((Go.str("Atoi") : GoString), _test._in,
-						((_test._err.__underlying__().value : Dynamic) : NumError).err) : NumError).unwrap() #else null #end;
-					__self__;
-				};
+				_testErr = Go.asInterface((new NumError((Go.str("Atoi") : GoString), _test._in,
+					((_test._err.__underlying__().value : Dynamic) : NumError).err) : NumError));
 			};
 			if (((_test._out : GoInt) != _out) || !stdgo.reflect.Reflect.deepEqual(Go.toInterface(_testErr), Go.toInterface(_err))) {
 				_t.errorf((Go.str("Atoi(%q) = %v, %v want %v, %v") : GoString), Go.toInterface(_test._in), Go.toInterface(_out), Go.toInterface(_err),
@@ -3454,15 +3435,8 @@ function testAtoi(_t:stdgo.testing.Testing.T):Void {
 				_err:stdgo.Error = __tmp__._1;
 			var _testErr:Error = (null : stdgo.Error);
 			if (_test._err != null) {
-				_testErr = {
-					final __self__ = new NumError_asInterface((new NumError((Go.str("Atoi") : GoString), _test._in,
-						((_test._err.__underlying__().value : Dynamic) : NumError).err) : NumError));
-					__self__.error = #if !macro function():GoString return (new NumError((Go.str("Atoi") : GoString), _test._in,
-						((_test._err.__underlying__().value : Dynamic) : NumError).err) : NumError).error() #else null #end;
-					__self__.unwrap = #if !macro function():stdgo.Error return (new NumError((Go.str("Atoi") : GoString), _test._in,
-						((_test._err.__underlying__().value : Dynamic) : NumError).err) : NumError).unwrap() #else null #end;
-					__self__;
-				};
+				_testErr = Go.asInterface((new NumError((Go.str("Atoi") : GoString), _test._in,
+					((_test._err.__underlying__().value : Dynamic) : NumError).err) : NumError));
 			};
 			if ((_test._out != (_out : GoInt64)) || !stdgo.reflect.Reflect.deepEqual(Go.toInterface(_testErr), Go.toInterface(_err))) {
 				_t.errorf((Go.str("Atoi(%q) = %v, %v want %v, %v") : GoString), Go.toInterface(_test._in), Go.toInterface(_out), Go.toInterface(_err),
@@ -3473,21 +3447,11 @@ function testAtoi(_t:stdgo.testing.Testing.T):Void {
 }
 
 function _bitSizeErrStub(_name:GoString, _bitSize:GoInt):Error {
-	return {
-		final __self__ = new NumError_asInterface(bitSizeError(_name, (Go.str("0") : GoString), _bitSize));
-		__self__.error = #if !macro function():GoString return bitSizeError(_name, (Go.str("0") : GoString), _bitSize).error() #else null #end;
-		__self__.unwrap = #if !macro function():stdgo.Error return bitSizeError(_name, (Go.str("0") : GoString), _bitSize).unwrap() #else null #end;
-		__self__;
-	};
+	return Go.asInterface(bitSizeError(_name, (Go.str("0") : GoString), _bitSize));
 }
 
 function _baseErrStub(_name:GoString, _base:GoInt):Error {
-	return {
-		final __self__ = new NumError_asInterface(baseError(_name, (Go.str("0") : GoString), _base));
-		__self__.error = #if !macro function():GoString return baseError(_name, (Go.str("0") : GoString), _base).error() #else null #end;
-		__self__.unwrap = #if !macro function():stdgo.Error return baseError(_name, (Go.str("0") : GoString), _base).unwrap() #else null #end;
-		__self__;
-	};
+	return Go.asInterface(baseError(_name, (Go.str("0") : GoString), _base));
 }
 
 function _noErrStub(_name:GoString, _arg:GoInt):Error {
@@ -3575,12 +3539,7 @@ function testNumError(_t:stdgo.testing.Testing.T):Void {
 
 function testNumErrorUnwrap(_t:stdgo.testing.Testing.T):Void {
 	var _err = ({err: errSyntax} : NumError);
-	if (!stdgo.errors.Errors.is_({
-		final __self__ = new NumError_asInterface(_err);
-		__self__.error = #if !macro function():GoString return _err.error() #else null #end;
-		__self__.unwrap = #if !macro function():stdgo.Error return _err.unwrap() #else null #end;
-		__self__;
-	}, errSyntax)) {
+	if (!stdgo.errors.Errors.is_(Go.asInterface(_err), errSyntax)) {
 		_t.error(Go.toInterface((Go.str("errors.Is failed, wanted success") : GoString)));
 	};
 }
@@ -4316,71 +4275,7 @@ function testFp(_t:stdgo.testing.Testing.T):Void {
 			_t.fatal(Go.toInterface((Go.str("testfp: open testdata/testfp.txt:") : GoString)), Go.toInterface(_err));
 		};
 		__deferstack__.unshift(() -> _f.close());
-		var _s = stdgo.bufio.Bufio.newScanner({
-			final __self__ = new stdgo.os.Os.File_asInterface(_f);
-			__self__.chdir = #if !macro function():stdgo.Error return _f.chdir() #else null #end;
-			__self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _f.chmod(_mode) #else null #end;
-			__self__.chown = #if !macro function(_a:GoInt, _b:GoInt):stdgo.Error return _f.chown(_a, _b) #else null #end;
-			__self__.close = #if !macro function():stdgo.Error return _f.close() #else null #end;
-			__self__.fd = #if !macro function():GoUIntptr return _f.fd() #else null #end;
-			__self__.name = #if !macro function():GoString return _f.name() #else null #end;
-			__self__.read = #if !macro function(__0:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.read(__0) #else null #end;
-			__self__.readAt = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.readAt(_b, _off) #else null #end;
-			__self__.readDir = #if !macro function(__0:GoInt):{var _0:Slice<stdgo.io.fs.Fs.DirEntry>; var _1:stdgo.Error;}
-				return _f.readDir(__0) #else null #end;
-			__self__.readFrom = #if !macro function(_r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _f.readFrom(_r) #else null #end;
-			__self__.readdir = #if !macro function(__0:GoInt):{var _0:Slice<stdgo.io.fs.Fs.FileInfo>; var _1:stdgo.Error;}
-				return _f.readdir(__0) #else null #end;
-			__self__.readdirnames = #if !macro function(__0:GoInt):{var _0:Slice<GoString>; var _1:stdgo.Error;}
-				return _f.readdirnames(__0) #else null #end;
-			__self__.seek = #if !macro function(_i:GoInt64, _base:GoInt):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _f.seek(_i, _base) #else null #end;
-			__self__.setDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f.setDeadline(__0) #else null #end;
-			__self__.setReadDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f.setReadDeadline(__0) #else null #end;
-			__self__.setWriteDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f.setWriteDeadline(__0) #else null #end;
-			__self__.stat = #if !macro function():{var _0:stdgo.io.fs.Fs.FileInfo; var _1:stdgo.Error;}
-				return _f.stat() #else null #end;
-			__self__.sync = #if !macro function():stdgo.Error return _f.sync() #else null #end;
-			__self__.syscallConn = #if !macro function():{var _0:stdgo.syscall.Syscall.RawConn; var _1:stdgo.Error;}
-				return _f.syscallConn() #else null #end;
-			__self__.truncate = #if !macro function(__0:GoInt64):stdgo.Error return _f.truncate(__0) #else null #end;
-			__self__.write = #if !macro function(__0:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.write(__0) #else null #end;
-			__self__.writeAt = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.writeAt(_b, _off) #else null #end;
-			__self__.writeString = #if !macro function(_str:GoString):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.writeString(_str) #else null #end;
-			__self__._checkValid = #if !macro function(_str:GoString):stdgo.Error return _f._checkValid(_str) #else null #end;
-			__self__._chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _f._chmod(_mode) #else null #end;
-			__self__._close = #if !macro function():stdgo.Error return _f._close() #else null #end;
-			__self__._pread = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f._pread(_b, _off) #else null #end;
-			__self__._pwrite = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f._pwrite(_b, _off) #else null #end;
-			__self__._read = #if !macro function(__0:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f._read(__0) #else null #end;
-			__self__._readFrom = #if !macro function(_r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:Bool; var _2:stdgo.Error;}
-				return _f._readFrom(_r) #else null #end;
-			__self__._readdir = #if !macro function(_n:GoInt, _mode:stdgo.os.Os.T_readdirMode):{
-				var _0:Slice<GoString>;
-				var _1:Slice<stdgo.io.fs.Fs.DirEntry>;
-				var _2:Slice<stdgo.io.fs.Fs.FileInfo>;
-				var _3:stdgo.Error;
-			}
-				return _f._readdir(_n, _mode) #else null #end;
-			__self__._seek = #if !macro function(_i:GoInt64, _base:GoInt):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _f._seek(_i, _base) #else null #end;
-			__self__._setDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f._setDeadline(__0) #else null #end;
-			__self__._setReadDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f._setReadDeadline(__0) #else null #end;
-			__self__._setWriteDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f._setWriteDeadline(__0) #else null #end;
-			__self__._wrapErr = #if !macro function(__0:GoString, __1:stdgo.Error):stdgo.Error return _f._wrapErr(__0, __1) #else null #end;
-			__self__._write = #if !macro function(__0:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f._write(__0) #else null #end;
-			__self__;
-		});
+		var _s = stdgo.bufio.Bufio.newScanner(Go.asInterface(_f));
 		{
 			var _lineno:GoInt = (1 : GoInt);
 			Go.cfor(_s.scan(), _lineno++, {
@@ -5146,67 +5041,37 @@ function testErrorPrefixes(_t:stdgo.testing.Testing.T):Void {
 		for (_i => _ in _parseUint64Tests) {
 			var _test = _parseUint64Tests[_i];
 			if (_test._err != null) {
-				_test._err = {
-					final __self__ = new NumError_asInterface((new NumError((Go.str("ParseUint") : GoString), _test._in, _test._err) : NumError));
-					__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-					__self__.unwrap = #if !macro function():stdgo.Error throw "__return__" #else null #end;
-					__self__;
-				};
+				_test._err = Go.asInterface((new NumError((Go.str("ParseUint") : GoString), _test._in, _test._err) : NumError));
 			};
 		};
 		for (_i => _ in _parseUint64BaseTests) {
 			var _test = _parseUint64BaseTests[_i];
 			if (_test._err != null) {
-				_test._err = {
-					final __self__ = new NumError_asInterface((new NumError((Go.str("ParseUint") : GoString), _test._in, _test._err) : NumError));
-					__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-					__self__.unwrap = #if !macro function():stdgo.Error throw "__return__" #else null #end;
-					__self__;
-				};
+				_test._err = Go.asInterface((new NumError((Go.str("ParseUint") : GoString), _test._in, _test._err) : NumError));
 			};
 		};
 		for (_i => _ in _parseInt64Tests) {
 			var _test = _parseInt64Tests[_i];
 			if (_test._err != null) {
-				_test._err = {
-					final __self__ = new NumError_asInterface((new NumError((Go.str("ParseInt") : GoString), _test._in, _test._err) : NumError));
-					__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-					__self__.unwrap = #if !macro function():stdgo.Error throw "__return__" #else null #end;
-					__self__;
-				};
+				_test._err = Go.asInterface((new NumError((Go.str("ParseInt") : GoString), _test._in, _test._err) : NumError));
 			};
 		};
 		for (_i => _ in _parseInt64BaseTests) {
 			var _test = _parseInt64BaseTests[_i];
 			if (_test._err != null) {
-				_test._err = {
-					final __self__ = new NumError_asInterface((new NumError((Go.str("ParseInt") : GoString), _test._in, _test._err) : NumError));
-					__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-					__self__.unwrap = #if !macro function():stdgo.Error throw "__return__" #else null #end;
-					__self__;
-				};
+				_test._err = Go.asInterface((new NumError((Go.str("ParseInt") : GoString), _test._in, _test._err) : NumError));
 			};
 		};
 		for (_i => _ in _parseUint32Tests) {
 			var _test = _parseUint32Tests[_i];
 			if (_test._err != null) {
-				_test._err = {
-					final __self__ = new NumError_asInterface((new NumError((Go.str("ParseUint") : GoString), _test._in, _test._err) : NumError));
-					__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-					__self__.unwrap = #if !macro function():stdgo.Error throw "__return__" #else null #end;
-					__self__;
-				};
+				_test._err = Go.asInterface((new NumError((Go.str("ParseUint") : GoString), _test._in, _test._err) : NumError));
 			};
 		};
 		for (_i => _ in _parseInt32Tests) {
 			var _test = _parseInt32Tests[_i];
 			if (_test._err != null) {
-				_test._err = {
-					final __self__ = new NumError_asInterface((new NumError((Go.str("ParseInt") : GoString), _test._in, _test._err) : NumError));
-					__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-					__self__.unwrap = #if !macro function():stdgo.Error throw "__return__" #else null #end;
-					__self__;
-				};
+				_test._err = Go.asInterface((new NumError((Go.str("ParseInt") : GoString), _test._in, _test._err) : NumError));
 			};
 		};
 	} catch (__exception__)

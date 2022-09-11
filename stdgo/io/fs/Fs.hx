@@ -11,35 +11,42 @@ import stdgo.GoMap;
 import stdgo.Chan;
 
 /**
-	// Generic file system errors.
+	// Package fs defines basic interfaces to a file system.
+	// A file system can be provided by the host operating system
+	// but also by other packages.
+**/
+private var __go2hxdoc__package:Bool;
+
+/**
+	// "invalid argument"// Generic file system errors.
 	// Errors returned by file systems can be tested against these errors
 	// using errors.Is.
 **/
 var errInvalid:stdgo.Error = _errInvalid();
 
 /**
-	// Generic file system errors.
+	// "permission denied"// Generic file system errors.
 	// Errors returned by file systems can be tested against these errors
 	// using errors.Is.
 **/
 var errPermission:stdgo.Error = _errPermission();
 
 /**
-	// Generic file system errors.
+	// "file already exists"// Generic file system errors.
 	// Errors returned by file systems can be tested against these errors
 	// using errors.Is.
 **/
 var errExist:stdgo.Error = _errExist();
 
 /**
-	// Generic file system errors.
+	// "file does not exist"// Generic file system errors.
 	// Errors returned by file systems can be tested against these errors
 	// using errors.Is.
 **/
 var errNotExist:stdgo.Error = _errNotExist();
 
 /**
-	// Generic file system errors.
+	// "file already closed"// Generic file system errors.
 	// Errors returned by file systems can be tested against these errors
 	// using errors.Is.
 **/
@@ -53,13 +60,13 @@ var errClosed:stdgo.Error = _errClosed();
 var skipDir:stdgo.Error = stdgo.errors.Errors.new_((Go.str("skip this directory") : GoString));
 
 /**
-	// The single letters are the abbreviations
+	// d: is a directory// The single letters are the abbreviations
 	// used by the String method's formatting.
 **/
 final modeDir:FileMode = (524288 : FileMode);
 
 /**
-	// The defined file mode bits are the most significant bits of the FileMode.
+	// a: append-only// The defined file mode bits are the most significant bits of the FileMode.
 	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
 	// The values of these bits should be considered part of the public API and
 	// may be used in wire protocols or disk representations: they must not be
@@ -68,7 +75,7 @@ final modeDir:FileMode = (524288 : FileMode);
 final modeAppend:FileMode = (524288 : FileMode);
 
 /**
-	// The defined file mode bits are the most significant bits of the FileMode.
+	// l: exclusive use// The defined file mode bits are the most significant bits of the FileMode.
 	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
 	// The values of these bits should be considered part of the public API and
 	// may be used in wire protocols or disk representations: they must not be
@@ -77,7 +84,7 @@ final modeAppend:FileMode = (524288 : FileMode);
 final modeExclusive:FileMode = (524288 : FileMode);
 
 /**
-	// The defined file mode bits are the most significant bits of the FileMode.
+	// T: temporary file; Plan 9 only// The defined file mode bits are the most significant bits of the FileMode.
 	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
 	// The values of these bits should be considered part of the public API and
 	// may be used in wire protocols or disk representations: they must not be
@@ -86,7 +93,7 @@ final modeExclusive:FileMode = (524288 : FileMode);
 final modeTemporary:FileMode = (524288 : FileMode);
 
 /**
-	// The defined file mode bits are the most significant bits of the FileMode.
+	// L: symbolic link// The defined file mode bits are the most significant bits of the FileMode.
 	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
 	// The values of these bits should be considered part of the public API and
 	// may be used in wire protocols or disk representations: they must not be
@@ -95,7 +102,7 @@ final modeTemporary:FileMode = (524288 : FileMode);
 final modeSymlink:FileMode = (524288 : FileMode);
 
 /**
-	// The defined file mode bits are the most significant bits of the FileMode.
+	// D: device file// The defined file mode bits are the most significant bits of the FileMode.
 	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
 	// The values of these bits should be considered part of the public API and
 	// may be used in wire protocols or disk representations: they must not be
@@ -104,7 +111,7 @@ final modeSymlink:FileMode = (524288 : FileMode);
 final modeDevice:FileMode = (524288 : FileMode);
 
 /**
-	// The defined file mode bits are the most significant bits of the FileMode.
+	// p: named pipe (FIFO)// The defined file mode bits are the most significant bits of the FileMode.
 	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
 	// The values of these bits should be considered part of the public API and
 	// may be used in wire protocols or disk representations: they must not be
@@ -113,7 +120,7 @@ final modeDevice:FileMode = (524288 : FileMode);
 final modeNamedPipe:FileMode = (524288 : FileMode);
 
 /**
-	// The defined file mode bits are the most significant bits of the FileMode.
+	// S: Unix domain socket// The defined file mode bits are the most significant bits of the FileMode.
 	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
 	// The values of these bits should be considered part of the public API and
 	// may be used in wire protocols or disk representations: they must not be
@@ -122,7 +129,7 @@ final modeNamedPipe:FileMode = (524288 : FileMode);
 final modeSocket:FileMode = (524288 : FileMode);
 
 /**
-	// The defined file mode bits are the most significant bits of the FileMode.
+	// u: setuid// The defined file mode bits are the most significant bits of the FileMode.
 	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
 	// The values of these bits should be considered part of the public API and
 	// may be used in wire protocols or disk representations: they must not be
@@ -131,7 +138,7 @@ final modeSocket:FileMode = (524288 : FileMode);
 final modeSetuid:FileMode = (524288 : FileMode);
 
 /**
-	// The defined file mode bits are the most significant bits of the FileMode.
+	// g: setgid// The defined file mode bits are the most significant bits of the FileMode.
 	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
 	// The values of these bits should be considered part of the public API and
 	// may be used in wire protocols or disk representations: they must not be
@@ -140,7 +147,7 @@ final modeSetuid:FileMode = (524288 : FileMode);
 final modeSetgid:FileMode = (524288 : FileMode);
 
 /**
-	// The defined file mode bits are the most significant bits of the FileMode.
+	// c: Unix character device, when ModeDevice is set// The defined file mode bits are the most significant bits of the FileMode.
 	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
 	// The values of these bits should be considered part of the public API and
 	// may be used in wire protocols or disk representations: they must not be
@@ -149,7 +156,7 @@ final modeSetgid:FileMode = (524288 : FileMode);
 final modeCharDevice:FileMode = (524288 : FileMode);
 
 /**
-	// The defined file mode bits are the most significant bits of the FileMode.
+	// t: sticky// The defined file mode bits are the most significant bits of the FileMode.
 	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
 	// The values of these bits should be considered part of the public API and
 	// may be used in wire protocols or disk representations: they must not be
@@ -158,7 +165,7 @@ final modeCharDevice:FileMode = (524288 : FileMode);
 final modeSticky:FileMode = (524288 : FileMode);
 
 /**
-	// The defined file mode bits are the most significant bits of the FileMode.
+	// ?: non-regular file; nothing else is known about this file// The defined file mode bits are the most significant bits of the FileMode.
 	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
 	// The values of these bits should be considered part of the public API and
 	// may be used in wire protocols or disk representations: they must not be
@@ -172,20 +179,13 @@ final modeIrregular:FileMode = (524288 : FileMode);
 final modeType:FileMode = ("2401763328" : FileMode);
 
 /**
-	// The defined file mode bits are the most significant bits of the FileMode.
+	// Unix permission bits// The defined file mode bits are the most significant bits of the FileMode.
 	// The nine least-significant bits are the standard Unix rwxrwxrwx permissions.
 	// The values of these bits should be considered part of the public API and
 	// may be used in wire protocols or disk representations: they must not be
 	// changed, although new bits might be added.
 **/
 final modePerm:FileMode = (511 : FileMode);
-
-/**
-	// Package fs defines basic interfaces to a file system.
-	// A file system can be provided by the host operating system
-	// but also by other packages.
-**/
-private var __go2hxdoc__package:Bool;
 
 /**
 	// An FS provides access to a hierarchical file system.
@@ -391,7 +391,7 @@ typedef SubFS = StructType & {
 	public function sub(_dir:GoString):{var _0:FS; var _1:Error;};
 };
 
-@:local typedef T__interface_0 = StructType & {
+@:local private typedef T__interface_0 = StructType & {
 	public function timeout():Bool;
 };
 
@@ -775,20 +775,8 @@ function readDir(_fsys:FS, _name:GoString):{var _0:Slice<DirEntry>; var _1:Error
 				for (defer in __deferstack__) {
 					defer();
 				};
-				return {
-					_0: (null : Slice<DirEntry>),
-					_1: {
-						final __self__ = new PathError_asInterface(({op: (Go.str("readdir") : GoString), path: _name,
-							err: stdgo.errors.Errors.new_((Go.str("not implemented") : GoString))} : PathError));
-						__self__.error = #if !macro function():GoString return ({op: (Go.str("readdir") : GoString), path: _name,
-							err: stdgo.errors.Errors.new_((Go.str("not implemented") : GoString))} : PathError).error() #else null #end;
-						__self__.timeout = #if !macro function():Bool return ({op: (Go.str("readdir") : GoString), path: _name,
-							err: stdgo.errors.Errors.new_((Go.str("not implemented") : GoString))} : PathError).timeout() #else null #end;
-						__self__.unwrap = #if !macro function():stdgo.Error return ({op: (Go.str("readdir") : GoString), path: _name,
-							err: stdgo.errors.Errors.new_((Go.str("not implemented") : GoString))} : PathError).unwrap() #else null #end;
-						__self__;
-					}
-				};
+				return {_0: (null : Slice<DirEntry>), _1: Go.asInterface(({op: (Go.str("readdir") : GoString), path: _name,
+					err: stdgo.errors.Errors.new_((Go.str("not implemented") : GoString))} : PathError))};
 			};
 		};
 		var __tmp__ = _dir.readDir((-1 : GoInt)),
@@ -835,15 +823,7 @@ function fileInfoToDirEntry(_info:FileInfo):DirEntry {
 	if (_info == null) {
 		return (null : DirEntry);
 	};
-	return {
-		final __self__ = new T_dirInfo_asInterface(({_fileInfo: _info} : T_dirInfo));
-		__self__.info = #if !macro function():{var _0:FileInfo; var _1:stdgo.Error;}
-			return ({_fileInfo: _info} : T_dirInfo).info() #else null #end;
-		__self__.isDir = #if !macro function():Bool return ({_fileInfo: _info} : T_dirInfo).isDir() #else null #end;
-		__self__.name = #if !macro function():GoString return ({_fileInfo: _info} : T_dirInfo).name() #else null #end;
-		__self__.type = #if !macro function():FileMode return ({_fileInfo: _info} : T_dirInfo).type() #else null #end;
-		__self__;
-	};
+	return Go.asInterface(({_fileInfo: _info} : T_dirInfo));
 }
 
 /**
@@ -1008,20 +988,8 @@ function stat(_fsys:FS, _name:GoString):{var _0:FileInfo; var _1:Error;} {
 **/
 function sub(_fsys:FS, _dir:GoString):{var _0:FS; var _1:Error;} {
 	if (!validPath(_dir)) {
-		return {
-			_0: (null : FS),
-			_1: {
-				final __self__ = new PathError_asInterface(({op: (Go.str("sub") : GoString), path: _dir,
-					err: stdgo.errors.Errors.new_((Go.str("invalid name") : GoString))} : PathError));
-				__self__.error = #if !macro function():GoString return ({op: (Go.str("sub") : GoString), path: _dir,
-					err: stdgo.errors.Errors.new_((Go.str("invalid name") : GoString))} : PathError).error() #else null #end;
-				__self__.timeout = #if !macro function():Bool return ({op: (Go.str("sub") : GoString), path: _dir,
-					err: stdgo.errors.Errors.new_((Go.str("invalid name") : GoString))} : PathError).timeout() #else null #end;
-				__self__.unwrap = #if !macro function():stdgo.Error return ({op: (Go.str("sub") : GoString), path: _dir,
-					err: stdgo.errors.Errors.new_((Go.str("invalid name") : GoString))} : PathError).unwrap() #else null #end;
-				__self__;
-			}
-		};
+		return {_0: (null : FS), _1: Go.asInterface(({op: (Go.str("sub") : GoString), path: _dir,
+			err: stdgo.errors.Errors.new_((Go.str("invalid name") : GoString))} : PathError))};
 	};
 	if (_dir == (Go.str(".") : GoString)) {
 		return {_0: _fsys, _1: (null : stdgo.Error)};
@@ -1036,28 +1004,7 @@ function sub(_fsys:FS, _dir:GoString):{var _0:FS; var _1:Error;} {
 			return _fsys.sub(_dir);
 		};
 	};
-	return {
-		_0: {
-			final __self__ = new T_subFS_asInterface((new T_subFS(_fsys, _dir) : T_subFS));
-			__self__.glob = #if !macro function(_name_:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
-				return (new T_subFS(_fsys, _dir) : T_subFS).glob(_name_) #else null #end;
-			__self__.open = #if !macro function(_name__:GoString):{var _0:File; var _1:stdgo.Error;}
-				return (new T_subFS(_fsys, _dir) : T_subFS).open(_name__) #else null #end;
-			__self__.readDir = #if !macro function(_name___:GoString):{var _0:Slice<DirEntry>; var _1:stdgo.Error;}
-				return (new T_subFS(_fsys, _dir) : T_subFS).readDir(_name___) #else null #end;
-			__self__.readFile = #if !macro function(_name____:GoString):{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return (new T_subFS(_fsys, _dir) : T_subFS).readFile(_name____) #else null #end;
-			__self__.sub = #if !macro function(_name_____:GoString):{var _0:FS; var _1:stdgo.Error;}
-				return (new T_subFS(_fsys, _dir) : T_subFS).sub(_name_____) #else null #end;
-			__self__._fixErr = #if !macro function(__0:stdgo.Error):stdgo.Error return (new T_subFS(_fsys, _dir) : T_subFS)._fixErr(__0) #else null #end;
-			__self__._fullName = #if !macro function(_pattern_:GoString, _name______:GoString):{var _0:GoString; var _1:stdgo.Error;}
-				return (new T_subFS(_fsys, _dir) : T_subFS)._fullName(_pattern_, _name______) #else null #end;
-			__self__._shorten = #if !macro function(_name_______:GoString):{var _0:GoString; var _1:Bool;}
-				return (new T_subFS(_fsys, _dir) : T_subFS)._shorten(_name_______) #else null #end;
-			__self__;
-		},
-		_1: (null : stdgo.Error)
-	};
+	return {_0: Go.asInterface((new T_subFS(_fsys, _dir) : T_subFS)), _1: (null : stdgo.Error)};
 }
 
 /**
@@ -1121,20 +1068,39 @@ function walkDir(_fsys:FS, _root:GoString, _fn:WalkDirFunc):Error {
 	if (_err != null) {
 		_err = _fn(_root, (null : DirEntry), _err);
 	} else {
-		_err = _walkDir(_fsys, _root, {
-			final __self__ = new T_statDirEntry_asInterface((new T_statDirEntry(_info) : T_statDirEntry));
-			__self__.info = #if !macro function():{var _0:FileInfo; var _1:stdgo.Error;}
-				return (new T_statDirEntry(_info) : T_statDirEntry).info() #else null #end;
-			__self__.isDir = #if !macro function():Bool return (new T_statDirEntry(_info) : T_statDirEntry).isDir() #else null #end;
-			__self__.name = #if !macro function():GoString return (new T_statDirEntry(_info) : T_statDirEntry).name() #else null #end;
-			__self__.type = #if !macro function():FileMode return (new T_statDirEntry(_info) : T_statDirEntry).type() #else null #end;
-			__self__;
-		}, _fn);
+		_err = _walkDir(_fsys, _root, Go.asInterface((new T_statDirEntry(_info) : T_statDirEntry)), _fn);
 	};
 	if (_err == skipDir) {
 		return (null : stdgo.Error);
 	};
 	return _err;
+}
+
+class PathError_asInterface {
+	/**
+		// Timeout reports whether this error represents a timeout.
+	**/
+	@:keep
+	public function timeout():Bool
+		return __self__.timeout();
+
+	@:keep
+	public function unwrap():Error
+		return __self__.unwrap();
+
+	@:keep
+	public function error():GoString
+		return __self__.error();
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
+
+	public function __underlying__()
+		return Go.toInterface(__self__);
+
+	var __self__:PathError;
 }
 
 @:keep private class PathError_static_extension {
@@ -1162,25 +1128,32 @@ function walkDir(_fsys:FS, _root:GoString, _fn:WalkDirFunc):Error {
 	}
 }
 
-class PathError_asInterface {
-	/**
-		// Timeout reports whether this error represents a timeout.
-	**/
+private class T_dirInfo_asInterface {
 	@:keep
-	public var timeout:() -> Bool = null;
+	public function name():GoString
+		return __self__.name();
 
 	@:keep
-	public var unwrap:() -> Error = null;
-	@:keep
-	public var error:() -> GoString = null;
+	public function info():{var _0:FileInfo; var _1:Error;}
+		return __self__.info();
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	@:keep
+	public function type():FileMode
+		return __self__.type();
+
+	@:keep
+	public function isDir():Bool
+		return __self__.isDir();
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:PathError;
+	var __self__:T_dirInfo;
 }
 
 @:keep private class T_dirInfo_static_extension {
@@ -1205,54 +1178,64 @@ class PathError_asInterface {
 	}
 }
 
-private class T_dirInfo_asInterface {
+private class T_subFS_asInterface {
 	@:keep
-	public var name:() -> GoString = null;
-	@:keep
-	public var info:() -> {
-		var _0:FileInfo;
-		var _1:Error;
-	} = null;
-	@:keep
-	public var type:() -> FileMode = null;
-	@:keep
-	public var isDir:() -> Bool = null;
+	public function sub(_dir:GoString):{var _0:FS; var _1:Error;}
+		return __self__.sub(_dir);
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	@:keep
+	public function glob(_pattern:GoString):{var _0:Slice<GoString>; var _1:Error;}
+		return __self__.glob(_pattern);
+
+	@:keep
+	public function readFile(_name:GoString):{var _0:Slice<GoByte>; var _1:Error;}
+		return __self__.readFile(_name);
+
+	@:keep
+	public function readDir(_name:GoString):{var _0:Slice<DirEntry>; var _1:Error;}
+		return __self__.readDir(_name);
+
+	@:keep
+	public function open(_name:GoString):{var _0:File; var _1:Error;}
+		return __self__.open(_name);
+
+	/**
+		// fixErr shortens any reported names in PathErrors by stripping f.dir.
+	**/
+	@:keep
+	public function _fixErr(_err:Error):Error
+		return __self__._fixErr(_err);
+
+	/**
+		// shorten maps name, which should start with f.dir, back to the suffix after f.dir.
+	**/
+	@:keep
+	public function _shorten(_name:GoString):{var _0:GoString; var _1:Bool;}
+		return __self__._shorten(_name);
+
+	/**
+		// fullName maps name to the fully-qualified name dir/name.
+	**/
+	@:keep
+	public function _fullName(_op:GoString, _name:GoString):{var _0:GoString; var _1:Error;}
+		return __self__._fullName(_op, _name);
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:T_dirInfo;
+	var __self__:T_subFS;
 }
 
 @:keep private class T_subFS_static_extension {
 	@:keep
 	static public function sub(_f:T_subFS, _dir:GoString):{var _0:FS; var _1:Error;} {
 		if (_dir == (Go.str(".") : GoString)) {
-			return {
-				_0: {
-					final __self__ = new T_subFS_asInterface(_f);
-					__self__.glob = #if !macro function(_name_:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
-						return _f.glob(_name_) #else null #end;
-					__self__.open = #if !macro function(_name__:GoString):{var _0:File; var _1:stdgo.Error;}
-						return _f.open(_name__) #else null #end;
-					__self__.readDir = #if !macro function(_name___:GoString):{var _0:Slice<DirEntry>; var _1:stdgo.Error;}
-						return _f.readDir(_name___) #else null #end;
-					__self__.readFile = #if !macro function(_name____:GoString):{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-						return _f.readFile(_name____) #else null #end;
-					__self__.sub = #if !macro function(_name_____:GoString):{var _0:FS; var _1:stdgo.Error;}
-						return _f.sub(_name_____) #else null #end;
-					__self__._fixErr = #if !macro function(__0:stdgo.Error):stdgo.Error return _f._fixErr(__0) #else null #end;
-					__self__._fullName = #if !macro function(_pattern_:GoString, _name______:GoString):{var _0:GoString; var _1:stdgo.Error;}
-						return _f._fullName(_pattern_, _name______) #else null #end;
-					__self__._shorten = #if !macro function(_name_______:GoString):{var _0:GoString; var _1:Bool;}
-						return _f._shorten(_name_______) #else null #end;
-					__self__;
-				},
-				_1: (null : stdgo.Error)
-			};
+			return {_0: Go.asInterface(_f), _1: (null : stdgo.Error)};
 		};
 		var __tmp__ = _f._fullName((Go.str("sub") : GoString), _dir),
 			_full:GoString = __tmp__._0,
@@ -1260,29 +1243,7 @@ private class T_dirInfo_asInterface {
 		if (_err != null) {
 			return {_0: (null : FS), _1: _err};
 		};
-		return {
-			_0: {
-				final __self__ = new T_subFS_asInterface((new T_subFS(_f._fsys, _full) : T_subFS));
-				__self__.glob = #if !macro function(_name_:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
-					return (new T_subFS(_f._fsys, _full) : T_subFS).glob(_name_) #else null #end;
-				__self__.open = #if !macro function(_name__:GoString):{var _0:File; var _1:stdgo.Error;}
-					return (new T_subFS(_f._fsys, _full) : T_subFS).open(_name__) #else null #end;
-				__self__.readDir = #if !macro function(_name___:GoString):{var _0:Slice<DirEntry>; var _1:stdgo.Error;}
-					return (new T_subFS(_f._fsys, _full) : T_subFS).readDir(_name___) #else null #end;
-				__self__.readFile = #if !macro function(_name____:GoString):{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return (new T_subFS(_f._fsys, _full) : T_subFS).readFile(_name____) #else null #end;
-				__self__.sub = #if !macro function(_name_____:GoString):{var _0:FS; var _1:stdgo.Error;}
-					return (new T_subFS(_f._fsys, _full) : T_subFS).sub(_name_____) #else null #end;
-				__self__._fixErr = #if !macro function(__0:stdgo.Error):stdgo.Error return (new T_subFS(_f._fsys,
-					_full) : T_subFS)._fixErr(__0) #else null #end;
-				__self__._fullName = #if !macro function(_pattern_:GoString, _name______:GoString):{var _0:GoString; var _1:stdgo.Error;}
-					return (new T_subFS(_f._fsys, _full) : T_subFS)._fullName(_pattern_, _name______) #else null #end;
-				__self__._shorten = #if !macro function(_name_______:GoString):{var _0:GoString; var _1:Bool;}
-					return (new T_subFS(_f._fsys, _full) : T_subFS)._shorten(_name_______) #else null #end;
-				__self__;
-			},
-			_1: (null : stdgo.Error)
-		};
+		return {_0: Go.asInterface((new T_subFS(_f._fsys, _full) : T_subFS)), _1: (null : stdgo.Error)};
 	}
 
 	@:keep
@@ -1405,83 +1366,39 @@ private class T_dirInfo_asInterface {
 	@:keep
 	static public function _fullName(_f:T_subFS, _op:GoString, _name:GoString):{var _0:GoString; var _1:Error;} {
 		if (!validPath(_name)) {
-			return {
-				_0: (Go.str() : GoString),
-				_1: {
-					final __self__ = new PathError_asInterface(({op: _op, path: _name,
-						err: stdgo.errors.Errors.new_((Go.str("invalid name") : GoString))} : PathError));
-					__self__.error = #if !macro function():GoString return ({op: _op, path: _name,
-						err: stdgo.errors.Errors.new_((Go.str("invalid name") : GoString))} : PathError).error() #else null #end;
-					__self__.timeout = #if !macro function():Bool return ({op: _op, path: _name,
-						err: stdgo.errors.Errors.new_((Go.str("invalid name") : GoString))} : PathError).timeout() #else null #end;
-					__self__.unwrap = #if !macro function():stdgo.Error return ({op: _op, path: _name,
-						err: stdgo.errors.Errors.new_((Go.str("invalid name") : GoString))} : PathError).unwrap() #else null #end;
-					__self__;
-				}
-			};
+			return {_0: (Go.str() : GoString), _1: Go.asInterface(({op: _op, path: _name,
+				err: stdgo.errors.Errors.new_((Go.str("invalid name") : GoString))} : PathError))};
 		};
 		return {_0: stdgo.path.Path.join(_f._dir, _name), _1: (null : stdgo.Error)};
 	}
 }
 
-private class T_subFS_asInterface {
+private class T_statDirEntry_asInterface {
 	@:keep
-	public var sub:GoString -> {
-		var _0:FS;
-		var _1:Error;
-	} = null;
-	@:keep
-	public var glob:GoString -> {
-		var _0:Slice<GoString>;
-		var _1:Error;
-	} = null;
-	@:keep
-	public var readFile:GoString -> {
-		var _0:Slice<GoByte>;
-		var _1:Error;
-	} = null;
-	@:keep
-	public var readDir:GoString -> {
-		var _0:Slice<DirEntry>;
-		var _1:Error;
-	} = null;
-	@:keep
-	public var open:GoString -> {
-		var _0:File;
-		var _1:Error;
-	} = null;
+	public function info():{var _0:FileInfo; var _1:Error;}
+		return __self__.info();
 
-	/**
-		// fixErr shortens any reported names in PathErrors by stripping f.dir.
-	**/
 	@:keep
-	public var _fixErr:Error->Error = null;
+	public function type():FileMode
+		return __self__.type();
 
-	/**
-		// shorten maps name, which should start with f.dir, back to the suffix after f.dir.
-	**/
 	@:keep
-	public var _shorten:GoString -> {
-		var _0:GoString;
-		var _1:Bool;
-	} = null;
+	public function isDir():Bool
+		return __self__.isDir();
 
-	/**
-		// fullName maps name to the fully-qualified name dir/name.
-	**/
 	@:keep
-	public var _fullName:(GoString, GoString) -> {
-		var _0:GoString;
-		var _1:Error;
-	} = null;
+	public function name():GoString
+		return __self__.name();
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:T_subFS;
+	var __self__:T_statDirEntry;
 }
 
 @:keep private class T_statDirEntry_static_extension {
@@ -1506,26 +1423,50 @@ private class T_subFS_asInterface {
 	}
 }
 
-private class T_statDirEntry_asInterface {
+class FileMode_asInterface {
+	/**
+		// Type returns type bits in m (m & ModeType).
+	**/
 	@:keep
-	public var info:() -> {
-		var _0:FileInfo;
-		var _1:Error;
-	} = null;
-	@:keep
-	public var type:() -> FileMode = null;
-	@:keep
-	public var isDir:() -> Bool = null;
-	@:keep
-	public var name:() -> GoString = null;
+	public function type():FileMode
+		return __self__.type();
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	/**
+		// Perm returns the Unix permission bits in m (m & ModePerm).
+	**/
+	@:keep
+	public function perm():FileMode
+		return __self__.perm();
+
+	/**
+		// IsRegular reports whether m describes a regular file.
+		// That is, it tests that no mode type bits are set.
+	**/
+	@:keep
+	public function isRegular():Bool
+		return __self__.isRegular();
+
+	/**
+		// IsDir reports whether m describes a directory.
+		// That is, it tests for the ModeDir bit being set in m.
+	**/
+	@:keep
+	public function isDir():Bool
+		return __self__.isDir();
+
+	@:keep
+	public function string():GoString
+		return __self__.string();
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:T_statDirEntry;
+	var __self__:FileMode;
 }
 
 @:keep private class FileMode_static_extension {
@@ -1589,43 +1530,4 @@ private class T_statDirEntry_asInterface {
 		};
 		return ((_buf.__slice__(0, _w) : Slice<GoUInt8>) : GoString);
 	}
-}
-
-class FileMode_asInterface {
-	/**
-		// Type returns type bits in m (m & ModeType).
-	**/
-	@:keep
-	public var type:() -> FileMode = null;
-
-	/**
-		// Perm returns the Unix permission bits in m (m & ModePerm).
-	**/
-	@:keep
-	public var perm:() -> FileMode = null;
-
-	/**
-		// IsRegular reports whether m describes a regular file.
-		// That is, it tests that no mode type bits are set.
-	**/
-	@:keep
-	public var isRegular:() -> Bool = null;
-
-	/**
-		// IsDir reports whether m describes a directory.
-		// That is, it tests for the ModeDir bit being set in m.
-	**/
-	@:keep
-	public var isDir:() -> Bool = null;
-
-	@:keep
-	public var string:() -> GoString = null;
-
-	public function new(__self__)
-		this.__self__ = __self__;
-
-	public function __underlying__()
-		return Go.toInterface(this);
-
-	var __self__:FileMode;
 }

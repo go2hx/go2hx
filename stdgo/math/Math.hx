@@ -10,6 +10,13 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
+/**
+	// Package math provides basic constants and mathematical functions.
+	//
+	// This package does not guarantee bit-identical results across architectures.
+**/
+private var __go2hxdoc__package:Bool;
+
 private var __gamP:GoArray<GoFloat64> = (new GoArray<GoFloat64>((0.00016011952247675185 : GoFloat64), (0.0011913514700658638 : GoFloat64),
 	(0.010421379756176158 : GoFloat64), (0.04763678004571372 : GoFloat64), (0.20744822764843598 : GoFloat64), (0.4942148268014971 : GoFloat64),
 	(1 : GoFloat64)) : GoArray<GoFloat64>);
@@ -302,42 +309,42 @@ private final _signMask:GoUnTypedInt = (0 : GoUnTypedInt);
 private final _fracMask:GoUnTypedInt = ("4503599627370495" : GoUnTypedInt);
 
 /**
-	// Mathematical constants.
+	// https://oeis.org/A001113// Mathematical constants.
 **/
 final e:GoUnTypedFloat = (2.718281828459045 : GoUnTypedFloat);
 
 /**
-	// Mathematical constants.
+	// https://oeis.org/A000796// Mathematical constants.
 **/
 final pi:GoUnTypedFloat = (3.141592653589793 : GoUnTypedFloat);
 
 /**
-	// Mathematical constants.
+	// https://oeis.org/A001622// Mathematical constants.
 **/
 final phi:GoUnTypedFloat = (1.618033988749895 : GoUnTypedFloat);
 
 /**
-	// Mathematical constants.
+	// https://oeis.org/A002193// Mathematical constants.
 **/
 final sqrt2:GoUnTypedFloat = (1.4142135623730951 : GoUnTypedFloat);
 
 /**
-	// Mathematical constants.
+	// https://oeis.org/A019774// Mathematical constants.
 **/
 final sqrtE:GoUnTypedFloat = (1.6487212707001282 : GoUnTypedFloat);
 
 /**
-	// Mathematical constants.
+	// https://oeis.org/A002161// Mathematical constants.
 **/
 final sqrtPi:GoUnTypedFloat = (1.772453850905516 : GoUnTypedFloat);
 
 /**
-	// Mathematical constants.
+	// https://oeis.org/A139339// Mathematical constants.
 **/
 final sqrtPhi:GoUnTypedFloat = (1.272019649514069 : GoUnTypedFloat);
 
 /**
-	// Mathematical constants.
+	// https://oeis.org/A002162// Mathematical constants.
 **/
 final ln2:GoUnTypedFloat = (0.6931471805599453 : GoUnTypedFloat);
 
@@ -347,7 +354,7 @@ final ln2:GoUnTypedFloat = (0.6931471805599453 : GoUnTypedFloat);
 final log2E:GoUnTypedFloat = (1.4426950408889634 : GoUnTypedFloat);
 
 /**
-	// Mathematical constants.
+	// https://oeis.org/A002392// Mathematical constants.
 **/
 final ln10:GoUnTypedFloat = (2.302585092994046 : GoUnTypedFloat);
 
@@ -357,35 +364,35 @@ final ln10:GoUnTypedFloat = (2.302585092994046 : GoUnTypedFloat);
 final log10E:GoUnTypedFloat = (0.4342944819032518 : GoUnTypedFloat);
 
 /**
-	// Floating-point limit values.
+	// 3.40282346638528859811704183484516925440e+38// Floating-point limit values.
 	// Max is the largest finite value representable by the type.
 	// SmallestNonzero is the smallest positive, non-zero value representable by the type.
 **/
 final maxFloat32:GoUnTypedFloat = (3.4028234663852886e+38 : GoUnTypedFloat);
 
 /**
-	// Floating-point limit values.
+	// 1.401298464324817070923729583289916131280e-45// Floating-point limit values.
 	// Max is the largest finite value representable by the type.
 	// SmallestNonzero is the smallest positive, non-zero value representable by the type.
 **/
 final smallestNonzeroFloat32:GoUnTypedFloat = (1.401298464324817e-45 : GoUnTypedFloat);
 
 /**
-	// Floating-point limit values.
+	// 1.79769313486231570814527423731704356798070e+308// Floating-point limit values.
 	// Max is the largest finite value representable by the type.
 	// SmallestNonzero is the smallest positive, non-zero value representable by the type.
 **/
 final maxFloat64:GoUnTypedFloat = (1.7976931348623157e+308 : GoUnTypedFloat);
 
 /**
-	// Floating-point limit values.
+	// 4.9406564584124654417656879286822137236505980e-324// Floating-point limit values.
 	// Max is the largest finite value representable by the type.
 	// SmallestNonzero is the smallest positive, non-zero value representable by the type.
 **/
 final smallestNonzeroFloat64:GoUnTypedFloat = (5e-324 : GoUnTypedFloat);
 
 /**
-	// Integer limit values.
+	// 32 or 64// Integer limit values.
 **/
 private final _intSize:GoUnTypedInt = (32 : GoUnTypedInt);
 
@@ -466,81 +473,285 @@ final maxUint64:GoUnTypedInt = (0 : GoUnTypedInt);
 
 private final _haveArchMax = false;
 private final _haveArchMin = false;
+
+/**
+	// 0x3FEB0AC160000000
+**/
 private final _erx:GoUnTypedFloat = (0.8450629115104675 : GoUnTypedFloat);
 
 /**
-	// Coefficients for approximation to  erf in [0, 0.84375]
+	// 0x3FC06EBA8214DB69// Coefficients for approximation to  erf in [0, 0.84375]
 **/
 private final _efx:GoUnTypedFloat = (0.1283791670955126 : GoUnTypedFloat);
 
+/**
+	// 0x3FF06EBA8214DB69
+**/
 private final _efx8:GoUnTypedFloat = (1.0270333367641007 : GoUnTypedFloat);
+
+/**
+	// 0x3FC06EBA8214DB68
+**/
 private final _pp0:GoUnTypedFloat = (0.12837916709551256 : GoUnTypedFloat);
+
+/**
+	// 0xBFD4CD7D691CB913
+**/
 private final _pp1:GoUnTypedFloat = (-0.3250421072470015 : GoUnTypedFloat);
+
+/**
+	// 0xBF9D2A51DBD7194F
+**/
 private final _pp2:GoUnTypedFloat = (-0.02848174957559851 : GoUnTypedFloat);
+
+/**
+	// 0xBF77A291236668E4
+**/
 private final _pp3:GoUnTypedFloat = (-0.005770270296489442 : GoUnTypedFloat);
+
+/**
+	// 0xBEF8EAD6120016AC
+**/
 private final _pp4:GoUnTypedFloat = (-2.3763016656650163e-05 : GoUnTypedFloat);
+
+/**
+	// 0x3FD97779CDDADC09
+**/
 private final _qq1:GoUnTypedFloat = (0.39791722395915535 : GoUnTypedFloat);
+
+/**
+	// 0x3FB0A54C5536CEBA
+**/
 private final _qq2:GoUnTypedFloat = (0.0650222499887673 : GoUnTypedFloat);
+
+/**
+	// 0x3F74D022C4D36B0F
+**/
 private final _qq3:GoUnTypedFloat = (0.005081306281875766 : GoUnTypedFloat);
+
+/**
+	// 0x3F215DC9221C1A10
+**/
 private final _qq4:GoUnTypedFloat = (0.00013249473800432164 : GoUnTypedFloat);
+
+/**
+	// 0xBED09C4342A26120
+**/
 private final _qq5:GoUnTypedFloat = (-3.960228278775368e-06 : GoUnTypedFloat);
 
 /**
-	// Coefficients for approximation to  erf  in [0.84375, 1.25]
+	// 0xBF6359B8BEF77538// Coefficients for approximation to  erf  in [0.84375, 1.25]
 **/
 private final _pa0:GoUnTypedFloat = (-0.0023621185607526594 : GoUnTypedFloat);
 
+/**
+	// 0x3FDA8D00AD92B34D
+**/
 private final _pa1:GoUnTypedFloat = (0.41485611868374833 : GoUnTypedFloat);
+
+/**
+	// 0xBFD7D240FBB8C3F1
+**/
 private final _pa2:GoUnTypedFloat = (-0.3722078760357013 : GoUnTypedFloat);
+
+/**
+	// 0x3FD45FCA805120E4
+**/
 private final _pa3:GoUnTypedFloat = (0.31834661990116175 : GoUnTypedFloat);
+
+/**
+	// 0xBFBC63983D3E28EC
+**/
 private final _pa4:GoUnTypedFloat = (-0.11089469428239668 : GoUnTypedFloat);
+
+/**
+	// 0x3FA22A36599795EB
+**/
 private final _pa5:GoUnTypedFloat = (0.035478304325618236 : GoUnTypedFloat);
+
+/**
+	// 0xBF61BF380A96073F
+**/
 private final _pa6:GoUnTypedFloat = (-0.002166375594868791 : GoUnTypedFloat);
+
+/**
+	// 0x3FBB3E6618EEE323
+**/
 private final _qa1:GoUnTypedFloat = (0.10642088040084423 : GoUnTypedFloat);
+
+/**
+	// 0x3FE14AF092EB6F33
+**/
 private final _qa2:GoUnTypedFloat = (0.540397917702171 : GoUnTypedFloat);
+
+/**
+	// 0x3FB2635CD99FE9A7
+**/
 private final _qa3:GoUnTypedFloat = (0.07182865441419627 : GoUnTypedFloat);
+
+/**
+	// 0x3FC02660E763351F
+**/
 private final _qa4:GoUnTypedFloat = (0.12617121980876164 : GoUnTypedFloat);
+
+/**
+	// 0x3F8BEDC26B51DD1C
+**/
 private final _qa5:GoUnTypedFloat = (0.01363708391202905 : GoUnTypedFloat);
+
+/**
+	// 0x3F888B545735151D
+**/
 private final _qa6:GoUnTypedFloat = (0.011984499846799107 : GoUnTypedFloat);
 
 /**
-	// Coefficients for approximation to  erfc in [1.25, 1/0.35]
+	// 0xBF843412600D6435// Coefficients for approximation to  erfc in [1.25, 1/0.35]
 **/
 private final _ra0:GoUnTypedFloat = (-0.009864944034847148 : GoUnTypedFloat);
 
+/**
+	// 0xBFE63416E4BA7360
+**/
 private final _ra1:GoUnTypedFloat = (-0.6938585727071818 : GoUnTypedFloat);
+
+/**
+	// 0xC0251E0441B0E726
+**/
 private final _ra2:GoUnTypedFloat = (-10.558626225323291 : GoUnTypedFloat);
+
+/**
+	// 0xC04F300AE4CBA38D
+**/
 private final _ra3:GoUnTypedFloat = (-62.375332450326006 : GoUnTypedFloat);
+
+/**
+	// 0xC0644CB184282266
+**/
 private final _ra4:GoUnTypedFloat = (-162.39666946257347 : GoUnTypedFloat);
+
+/**
+	// 0xC067135CEBCCABB2
+**/
 private final _ra5:GoUnTypedFloat = (-184.60509290671104 : GoUnTypedFloat);
+
+/**
+	// 0xC054526557E4D2F2
+**/
 private final _ra6:GoUnTypedFloat = (-81.2874355063066 : GoUnTypedFloat);
+
+/**
+	// 0xC023A0EFC69AC25C
+**/
 private final _ra7:GoUnTypedFloat = (-9.814329344169145 : GoUnTypedFloat);
+
+/**
+	// 0x4033A6B9BD707687
+**/
 private final _sa1:GoUnTypedFloat = (19.651271667439257 : GoUnTypedFloat);
+
+/**
+	// 0x4061350C526AE721
+**/
 private final _sa2:GoUnTypedFloat = (137.65775414351904 : GoUnTypedFloat);
+
+/**
+	// 0x407B290DD58A1A71
+**/
 private final _sa3:GoUnTypedFloat = (434.56587747522923 : GoUnTypedFloat);
+
+/**
+	// 0x40842B1921EC2868
+**/
 private final _sa4:GoUnTypedFloat = (645.3872717332679 : GoUnTypedFloat);
+
+/**
+	// 0x407AD02157700314
+**/
 private final _sa5:GoUnTypedFloat = (429.00814002756783 : GoUnTypedFloat);
+
+/**
+	// 0x405B28A3EE48AE2C
+**/
 private final _sa6:GoUnTypedFloat = (108.63500554177944 : GoUnTypedFloat);
+
+/**
+	// 0x401A47EF8E484A93
+**/
 private final _sa7:GoUnTypedFloat = (6.570249770319282 : GoUnTypedFloat);
+
+/**
+	// 0xBFAEEFF2EE749A62
+**/
 private final _sa8:GoUnTypedFloat = (-0.0604244152148581 : GoUnTypedFloat);
 
 /**
-	// Coefficients for approximation to  erfc in [1/.35, 28]
+	// 0xBF84341239E86F4A// Coefficients for approximation to  erfc in [1/.35, 28]
 **/
 private final _rb0:GoUnTypedFloat = (-0.0098649429247001 : GoUnTypedFloat);
 
+/**
+	// 0xBFE993BA70C285DE
+**/
 private final _rb1:GoUnTypedFloat = (-0.799283237680523 : GoUnTypedFloat);
+
+/**
+	// 0xC031C209555F995A
+**/
 private final _rb2:GoUnTypedFloat = (-17.757954917754752 : GoUnTypedFloat);
+
+/**
+	// 0xC064145D43C5ED98
+**/
 private final _rb3:GoUnTypedFloat = (-160.63638485582192 : GoUnTypedFloat);
+
+/**
+	// 0xC083EC881375F228
+**/
 private final _rb4:GoUnTypedFloat = (-637.5664433683896 : GoUnTypedFloat);
+
+/**
+	// 0xC09004616A2E5992
+**/
 private final _rb5:GoUnTypedFloat = (-1025.0951316110772 : GoUnTypedFloat);
+
+/**
+	// 0xC07E384E9BDC383F
+**/
 private final _rb6:GoUnTypedFloat = (-483.5191916086514 : GoUnTypedFloat);
+
+/**
+	// 0x403E568B261D5190
+**/
 private final _sb1:GoUnTypedFloat = (30.33806074348246 : GoUnTypedFloat);
+
+/**
+	// 0x40745CAE221B9F0A
+**/
 private final _sb2:GoUnTypedFloat = (325.7925129965739 : GoUnTypedFloat);
+
+/**
+	// 0x409802EB189D5118
+**/
 private final _sb3:GoUnTypedFloat = (1536.729586084437 : GoUnTypedFloat);
+
+/**
+	// 0x40A8FFB7688C246A
+**/
 private final _sb4:GoUnTypedFloat = (3199.8582195085955 : GoUnTypedFloat);
+
+/**
+	// 0x40A3F219CEDF3BE6
+**/
 private final _sb5:GoUnTypedFloat = (2553.0504064331644 : GoUnTypedFloat);
+
+/**
+	// 0x407DA874E79FE763
+**/
 private final _sb6:GoUnTypedFloat = (474.52854120695537 : GoUnTypedFloat);
+
+/**
+	// 0xC03670E242712D62
+**/
 private final _sb7:GoUnTypedFloat = (-22.44095244658582 : GoUnTypedFloat);
 
 /**
@@ -655,13 +866,6 @@ private final _haveArchTanh = false;
 	// Above this threshold Payne-Hanek range reduction must be used.
 **/
 private final _reduceThreshold:GoUnTypedInt = (536870912 : GoUnTypedInt);
-
-/**
-	// Package math provides basic constants and mathematical functions.
-	//
-	// This package does not guarantee bit-identical results across architectures.
-**/
-private var __go2hxdoc__package:Bool;
 
 /**
 	// Abs returns the absolute value of x.
@@ -2499,12 +2703,10 @@ function _pzero(_x:GoFloat64):GoFloat64 {
 		_q = _p0S2;
 	};
 	var _z:GoFloat64 = (1 : GoFloat64) / (_x * _x);
-	var _r:GoFloat64 = _p[@:invalid_index 0]
-		+ (_z * (_p[@:invalid_index 0]
-			+ (_z * (_p[@:invalid_index 0] + (_z * (_p[@:invalid_index 0] + (_z * (_p[@:invalid_index 0] + (_z * _p[@:invalid_index 0])))))))));
+	var _r:GoFloat64 = _p[(0 : GoInt)]
+		+ (_z * (_p[(1 : GoInt)] + (_z * (_p[(2 : GoInt)] + (_z * (_p[(3 : GoInt)] + (_z * (_p[(4 : GoInt)] + (_z * _p[(5 : GoInt)])))))))));
 	var _s:GoFloat64 = (1 : GoFloat64)
-		+ (_z * (_q[@:invalid_index 0]
-			+ (_z * (_q[@:invalid_index 0] + (_z * (_q[@:invalid_index 0] + (_z * (_q[@:invalid_index 0] + (_z * _q[@:invalid_index 0])))))))));
+		+ (_z * (_q[(0 : GoInt)] + (_z * (_q[(1 : GoInt)] + (_z * (_q[(2 : GoInt)] + (_z * (_q[(3 : GoInt)] + (_z * _q[(4 : GoInt)])))))))));
 	return (1 : GoFloat64) + (_r / _s);
 }
 
@@ -2524,13 +2726,11 @@ function _qzero(_x:GoFloat64):GoFloat64 {
 		_q = _q0S2;
 	};
 	var _z:GoFloat64 = (1 : GoFloat64) / (_x * _x);
-	var _r:GoFloat64 = _p[@:invalid_index 0]
-		+ (_z * (_p[@:invalid_index 0]
-			+ (_z * (_p[@:invalid_index 0] + (_z * (_p[@:invalid_index 0] + (_z * (_p[@:invalid_index 0] + (_z * _p[@:invalid_index 0])))))))));
+	var _r:GoFloat64 = _p[(0 : GoInt)]
+		+ (_z * (_p[(1 : GoInt)] + (_z * (_p[(2 : GoInt)] + (_z * (_p[(3 : GoInt)] + (_z * (_p[(4 : GoInt)] + (_z * _p[(5 : GoInt)])))))))));
 	var _s:GoFloat64 = (1 : GoFloat64)
-		+ (_z * (_q[@:invalid_index 0]
-			+ (_z * (_q[@:invalid_index 0]
-				+ (_z * (_q[@:invalid_index 0] + (_z * (_q[@:invalid_index 0] + (_z * (_q[@:invalid_index 0] + (_z * _q[@:invalid_index 0])))))))))));
+		+ (_z * (_q[(0 : GoInt)]
+			+ (_z * (_q[(1 : GoInt)] + (_z * (_q[(2 : GoInt)] + (_z * (_q[(3 : GoInt)] + (_z * (_q[(4 : GoInt)] + (_z * _q[(5 : GoInt)])))))))))));
 	return ((-0.125 : GoFloat64) + (_r / _s)) / _x;
 }
 
@@ -2696,12 +2896,10 @@ function _pone(_x:GoFloat64):GoFloat64 {
 		_q = _p1S2;
 	};
 	var _z:GoFloat64 = (1 : GoFloat64) / (_x * _x);
-	var _r:GoFloat64 = _p[@:invalid_index 0]
-		+ (_z * (_p[@:invalid_index 0]
-			+ (_z * (_p[@:invalid_index 0] + (_z * (_p[@:invalid_index 0] + (_z * (_p[@:invalid_index 0] + (_z * _p[@:invalid_index 0])))))))));
+	var _r:GoFloat64 = _p[(0 : GoInt)]
+		+ (_z * (_p[(1 : GoInt)] + (_z * (_p[(2 : GoInt)] + (_z * (_p[(3 : GoInt)] + (_z * (_p[(4 : GoInt)] + (_z * _p[(5 : GoInt)])))))))));
 	var _s:GoFloat64 = (1 : GoFloat64)
-		+ (_z * (_q[@:invalid_index 0]
-			+ (_z * (_q[@:invalid_index 0] + (_z * (_q[@:invalid_index 0] + (_z * (_q[@:invalid_index 0] + (_z * _q[@:invalid_index 0])))))))));
+		+ (_z * (_q[(0 : GoInt)] + (_z * (_q[(1 : GoInt)] + (_z * (_q[(2 : GoInt)] + (_z * (_q[(3 : GoInt)] + (_z * _q[(4 : GoInt)])))))))));
 	return (1 : GoFloat64) + (_r / _s);
 }
 
@@ -2721,13 +2919,11 @@ function _qone(_x:GoFloat64):GoFloat64 {
 		_q = _q1S2;
 	};
 	var _z:GoFloat64 = (1 : GoFloat64) / (_x * _x);
-	var _r:GoFloat64 = _p[@:invalid_index 0]
-		+ (_z * (_p[@:invalid_index 0]
-			+ (_z * (_p[@:invalid_index 0] + (_z * (_p[@:invalid_index 0] + (_z * (_p[@:invalid_index 0] + (_z * _p[@:invalid_index 0])))))))));
+	var _r:GoFloat64 = _p[(0 : GoInt)]
+		+ (_z * (_p[(1 : GoInt)] + (_z * (_p[(2 : GoInt)] + (_z * (_p[(3 : GoInt)] + (_z * (_p[(4 : GoInt)] + (_z * _p[(5 : GoInt)])))))))));
 	var _s:GoFloat64 = (1 : GoFloat64)
-		+ (_z * (_q[@:invalid_index 0]
-			+ (_z * (_q[@:invalid_index 0]
-				+ (_z * (_q[@:invalid_index 0] + (_z * (_q[@:invalid_index 0] + (_z * (_q[@:invalid_index 0] + (_z * _q[@:invalid_index 0])))))))))));
+		+ (_z * (_q[(0 : GoInt)]
+			+ (_z * (_q[(1 : GoInt)] + (_z * (_q[(2 : GoInt)] + (_z * (_q[(3 : GoInt)] + (_z * (_q[(4 : GoInt)] + (_z * _q[(5 : GoInt)])))))))))));
 	return ((0.375 : GoFloat64) + (_r / _s)) / _x;
 }
 

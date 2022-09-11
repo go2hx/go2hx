@@ -130,7 +130,15 @@ private var _validrunetests:Slice<stdgo.unicode.utf8_test.Utf8_test.ValidRuneTes
 		false) : stdgo.unicode.utf8_test.Utf8_test.ValidRuneTest)) : Slice<stdgo.unicode.utf8_test.Utf8_test.ValidRuneTest>);
 
 private var _ascii100000:GoString = stdgo.strings.Strings.repeat((Go.str("0123456789") : GoString), (10000 : GoInt));
+
+/**
+	// ~100KB, ~97% ASCII
+**/
 private var _longStringMostlyASCII:GoString = ("" : GoString);
+
+/**
+	// ~100KB, non-ASCII
+**/
 private var _longStringJapanese:GoString = ("" : GoString);
 
 /**
@@ -234,7 +242,7 @@ private var _boolSink:Bool = false;
 	}
 }
 
-@:local typedef T__struct_0 = {
+@:local private typedef T__struct_0 = {
 	public var _name:GoString;
 	public var _data:Slice<GoUInt8>;
 };

@@ -10,6 +10,15 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
+/**
+	// Package js gives access to the WebAssembly host environment when using the js/wasm architecture.
+	// Its API is based on JavaScript semantics.
+	//
+	// This package is EXPERIMENTAL. Its current scope is only to allow tests to run, but not yet to provide a
+	// comprehensive API for users. It is exempt from the Go compatibility promise.
+**/
+private var __go2hxdoc__package:Bool;
+
 private var _funcs:GoMap<GoUInt32, (Value, Slice<Value>) -> AnyInterface> = (null : GoMap<GoUInt32, (Value, Slice<Value>) -> AnyInterface>);
 private var _nextFuncID:GoUInt32 = (0 : GoUInt32);
 private var _valueUndefined:Value = ({} : Value);
@@ -19,7 +28,12 @@ private var _valueNull:Value = ({} : Value);
 private var _valueTrue:Value = ({} : Value);
 private var _valueFalse:Value = ({} : Value);
 private var _valueGlobal:Value = ({} : Value);
+
+/**
+	// instance of the Go class in JavaScript
+**/
 private var _jsGo:Value = ({} : Value);
+
 private var _objectConstructor:Value = ({} : Value);
 private var _arrayConstructor:Value = ({} : Value);
 var jsgo:Value = ({} : Value);
@@ -47,15 +61,6 @@ final typeString:Type = ((0 : GoInt) : Type);
 final typeSymbol:Type = ((0 : GoInt) : Type);
 final typeObject:Type = ((0 : GoInt) : Type);
 final typeFunction:Type = ((0 : GoInt) : Type);
-
-/**
-	// Package js gives access to the WebAssembly host environment when using the js/wasm architecture.
-	// Its API is based on JavaScript semantics.
-	//
-	// This package is EXPERIMENTAL. Its current scope is only to allow tests to run, but not yet to provide a
-	// comprehensive API for users. It is exempt from the Go compatibility promise.
-**/
-private var __go2hxdoc__package:Bool;
 
 /**
 	// Func is a wrapped Go function to be called by JavaScript.
@@ -352,7 +357,7 @@ private var __go2hxdoc__package:Bool;
 	// All other values are represented as an IEEE 754 binary representation of NaN with bits 0-31 used as
 	// an ID and bits 32-34 used to differentiate between string, symbol, function and object.
 **/
-@:named typedef T_ref = GoUInt64;
+@:named private typedef T_ref = GoUInt64;
 
 /**
 	// Type represents the JavaScript type of a Value.
@@ -507,6 +512,115 @@ function copyBytesToJS(_dst:Value, _src:Slice<GoByte>):GoInt
 function _copyBytesToJS(_dst:T_ref, _src:Slice<GoByte>):{var _0:GoInt; var _1:Bool;}
 	throw "syscall.js._copyBytesToJS is not yet implemented";
 
+class Func_asInterface {
+	/**
+		// Release frees up resources allocated for the function.
+		// The function must not be invoked after calling Release.
+		// It is allowed to call Release while the function is still running.
+	**/
+	@:keep
+	public function release():Void
+		__self__.release();
+
+	@:embedded
+	public function _isNumber():Bool
+		return __self__._isNumber();
+
+	@:embedded
+	public function _float(_p:GoString):GoFloat64
+		return __self__._float(_p);
+
+	@:embedded
+	public function type():Type
+		return __self__.type();
+
+	@:embedded
+	public function truthy():Bool
+		return __self__.truthy();
+
+	@:embedded
+	public function string():GoString
+		return __self__.string();
+
+	@:embedded
+	public function setIndex(_i:GoInt, _x:AnyInterface):Void
+		__self__.setIndex(_i, _x);
+
+	@:embedded
+	public function set(_p:GoString, _x:AnyInterface):Void
+		__self__.set(_p, _x);
+
+	@:embedded
+	public function new_(_args:haxe.Rest<AnyInterface>):Value
+		return __self__.new_(..._args);
+
+	@:embedded
+	public function length_():GoInt
+		return __self__.length_();
+
+	@:embedded
+	public function isUndefined():Bool
+		return __self__.isUndefined();
+
+	@:embedded
+	public function isNull():Bool
+		return __self__.isNull();
+
+	@:embedded
+	public function isNaN():Bool
+		return __self__.isNaN();
+
+	@:embedded
+	public function invoke(_args:haxe.Rest<AnyInterface>):Value
+		return __self__.invoke(..._args);
+
+	@:embedded
+	public function int():GoInt
+		return __self__.int();
+
+	@:embedded
+	public function instanceOf(__0:Value):Bool
+		return __self__.instanceOf(__0);
+
+	@:embedded
+	public function index(_i:GoInt):Value
+		return __self__.index(_i);
+
+	@:embedded
+	public function get(_p:GoString):Value
+		return __self__.get(_p);
+
+	@:embedded
+	public function float():GoFloat64
+		return __self__.float();
+
+	@:embedded
+	public function equal(__0:Value):Bool
+		return __self__.equal(__0);
+
+	@:embedded
+	public function delete(_p:GoString):Void
+		__self__.delete(_p);
+
+	@:embedded
+	public function call(_m:GoString, _args:haxe.Rest<AnyInterface>):Value
+		return __self__.call(_m, ..._args);
+
+	@:embedded
+	public function bool_():Bool
+		return __self__.bool_();
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
+
+	public function __underlying__()
+		return Go.toInterface(__self__);
+
+	var __self__:Func;
+}
+
 @:keep private class Func_static_extension {
 	/**
 		// Release frees up resources allocated for the function.
@@ -606,67 +720,185 @@ function _copyBytesToJS(_dst:T_ref, _src:Slice<GoByte>):{var _0:GoInt; var _1:Bo
 		return __self__.bool_();
 }
 
-class Func_asInterface {
+class Value_asInterface {
 	/**
-		// Release frees up resources allocated for the function.
-		// The function must not be invoked after calling Release.
-		// It is allowed to call Release while the function is still running.
+		// InstanceOf reports whether v is an instance of type t according to JavaScript's instanceof operator.
 	**/
 	@:keep
-	public var release:() -> Void = null;
+	public function instanceOf(_t:Value):Bool
+		return __self__.instanceOf(_t);
 
-	@:embedded
-	public var _isNumber:() -> Bool = null;
-	@:embedded
-	public var _float:GoString->GoFloat64 = null;
-	@:embedded
-	public var type:() -> Type = null;
-	@:embedded
-	public var truthy:() -> Bool = null;
-	@:embedded
-	public var string:() -> GoString = null;
-	@:embedded
-	public var setIndex:(GoInt, AnyInterface) -> Void = null;
-	@:embedded
-	public var set:(GoString, AnyInterface) -> Void = null;
-	@:embedded
-	public var new_:haxe.Rest<AnyInterface>->Value = null;
-	@:embedded
-	public var length_:() -> GoInt = null;
-	@:embedded
-	public var isUndefined:() -> Bool = null;
-	@:embedded
-	public var isNull:() -> Bool = null;
-	@:embedded
-	public var isNaN:() -> Bool = null;
-	@:embedded
-	public var invoke:haxe.Rest<AnyInterface>->Value = null;
-	@:embedded
-	public var int:() -> GoInt = null;
-	@:embedded
-	public var instanceOf:Value->Bool = null;
-	@:embedded
-	public var index:GoInt->Value = null;
-	@:embedded
-	public var get:GoString->Value = null;
-	@:embedded
-	public var float:() -> GoFloat64 = null;
-	@:embedded
-	public var equal:Value->Bool = null;
-	@:embedded
-	public var delete:GoString->Void = null;
-	@:embedded
-	public var call:(GoString, haxe.Rest<AnyInterface>) -> Value = null;
-	@:embedded
-	public var bool_:() -> Bool = null;
+	/**
+		// String returns the value v as a string.
+		// String is a special case because of Go's String method convention. Unlike the other getters,
+		// it does not panic if v's Type is not TypeString. Instead, it returns a string of the form "<T>"
+		// or "<T: V>" where T is v's type and V is a string representation of v's value.
+	**/
+	@:keep
+	public function string():GoString
+		return __self__.string();
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	/**
+		// Truthy returns the JavaScript "truthiness" of the value v. In JavaScript,
+		// false, 0, "", null, undefined, and NaN are "falsy", and everything else is
+		// "truthy". See https://developer.mozilla.org/en-US/docs/Glossary/Truthy.
+	**/
+	@:keep
+	public function truthy():Bool
+		return __self__.truthy();
+
+	/**
+		// Bool returns the value v as a bool.
+		// It panics if v is not a JavaScript boolean.
+	**/
+	@:keep
+	public function bool_():Bool
+		return __self__.bool_();
+
+	/**
+		// Int returns the value v truncated to an int.
+		// It panics if v is not a JavaScript number.
+	**/
+	@:keep
+	public function int():GoInt
+		return __self__.int();
+
+	/**
+		// Float returns the value v as a float64.
+		// It panics if v is not a JavaScript number.
+	**/
+	@:keep
+	public function float():GoFloat64
+		return __self__.float();
+
+	@:keep
+	public function _float(_method:GoString):GoFloat64
+		return __self__._float(_method);
+
+	@:keep
+	public function _isNumber():Bool
+		return __self__._isNumber();
+
+	/**
+		// New uses JavaScript's "new" operator with value v as constructor and the given arguments.
+		// It panics if v is not a JavaScript function.
+		// The arguments get mapped to JavaScript values according to the ValueOf function.
+	**/
+	@:keep
+	public function new_(_args:haxe.Rest<AnyInterface>):Value
+		return __self__.new_(..._args);
+
+	/**
+		// Invoke does a JavaScript call of the value v with the given arguments.
+		// It panics if v is not a JavaScript function.
+		// The arguments get mapped to JavaScript values according to the ValueOf function.
+	**/
+	@:keep
+	public function invoke(_args:haxe.Rest<AnyInterface>):Value
+		return __self__.invoke(..._args);
+
+	/**
+		// Call does a JavaScript call to the method m of value v with the given arguments.
+		// It panics if v has no method m.
+		// The arguments get mapped to JavaScript values according to the ValueOf function.
+	**/
+	@:keep
+	public function call(_m:GoString, _args:haxe.Rest<AnyInterface>):Value
+		return __self__.call(_m, ..._args);
+
+	/**
+		// Length returns the JavaScript property "length" of v.
+		// It panics if v is not a JavaScript object.
+	**/
+	@:keep
+	public function length_():GoInt
+		return __self__.length_();
+
+	/**
+		// SetIndex sets the JavaScript index i of value v to ValueOf(x).
+		// It panics if v is not a JavaScript object.
+	**/
+	@:keep
+	public function setIndex(_i:GoInt, _x:AnyInterface):Void
+		__self__.setIndex(_i, _x);
+
+	/**
+		// Index returns JavaScript index i of value v.
+		// It panics if v is not a JavaScript object.
+	**/
+	@:keep
+	public function index(_i:GoInt):Value
+		return __self__.index(_i);
+
+	/**
+		// Delete deletes the JavaScript property p of value v.
+		// It panics if v is not a JavaScript object.
+	**/
+	@:keep
+	public function delete(_p:GoString):Void
+		__self__.delete(_p);
+
+	/**
+		// Set sets the JavaScript property p of value v to ValueOf(x).
+		// It panics if v is not a JavaScript object.
+	**/
+	@:keep
+	public function set(_p:GoString, _x:AnyInterface):Void
+		__self__.set(_p, _x);
+
+	/**
+		// Get returns the JavaScript property p of value v.
+		// It panics if v is not a JavaScript object.
+	**/
+	@:keep
+	public function get(_p:GoString):Value
+		return __self__.get(_p);
+
+	/**
+		// Type returns the JavaScript type of the value v. It is similar to JavaScript's typeof operator,
+		// except that it returns TypeNull instead of TypeObject for null.
+	**/
+	@:keep
+	public function type():Type
+		return __self__.type();
+
+	/**
+		// IsNaN reports whether v is the JavaScript value "NaN".
+	**/
+	@:keep
+	public function isNaN():Bool
+		return __self__.isNaN();
+
+	/**
+		// IsNull reports whether v is the JavaScript value "null".
+	**/
+	@:keep
+	public function isNull():Bool
+		return __self__.isNull();
+
+	/**
+		// IsUndefined reports whether v is the JavaScript value "undefined".
+	**/
+	@:keep
+	public function isUndefined():Bool
+		return __self__.isUndefined();
+
+	/**
+		// Equal reports whether v and w are equal according to JavaScript's === operator.
+	**/
+	@:keep
+	public function equal(_w:Value):Bool
+		return __self__.equal(_w);
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:Func;
+	var __self__:Value;
 }
 
 @:keep private class Value_static_extension {
@@ -840,160 +1072,111 @@ class Func_asInterface {
 		throw "syscall.js.equal is not yet implemented";
 }
 
-class Value_asInterface {
+class T_error_asInterface {
 	/**
-		// InstanceOf reports whether v is an instance of type t according to JavaScript's instanceof operator.
+		// Error implements the error interface.
 	**/
 	@:keep
-	public var instanceOf:Value->Bool = null;
+	public function error():GoString
+		return __self__.error();
 
-	/**
-		// String returns the value v as a string.
-		// String is a special case because of Go's String method convention. Unlike the other getters,
-		// it does not panic if v's Type is not TypeString. Instead, it returns a string of the form "<T>"
-		// or "<T: V>" where T is v's type and V is a string representation of v's value.
-	**/
-	@:keep
-	public var string:() -> GoString = null;
+	@:embedded
+	public function _isNumber():Bool
+		return __self__._isNumber();
 
-	/**
-		// Truthy returns the JavaScript "truthiness" of the value v. In JavaScript,
-		// false, 0, "", null, undefined, and NaN are "falsy", and everything else is
-		// "truthy". See https://developer.mozilla.org/en-US/docs/Glossary/Truthy.
-	**/
-	@:keep
-	public var truthy:() -> Bool = null;
+	@:embedded
+	public function _float(_p:GoString):GoFloat64
+		return __self__._float(_p);
 
-	/**
-		// Bool returns the value v as a bool.
-		// It panics if v is not a JavaScript boolean.
-	**/
-	@:keep
-	public var bool_:() -> Bool = null;
+	@:embedded
+	public function type():Type
+		return __self__.type();
 
-	/**
-		// Int returns the value v truncated to an int.
-		// It panics if v is not a JavaScript number.
-	**/
-	@:keep
-	public var int:() -> GoInt = null;
+	@:embedded
+	public function truthy():Bool
+		return __self__.truthy();
 
-	/**
-		// Float returns the value v as a float64.
-		// It panics if v is not a JavaScript number.
-	**/
-	@:keep
-	public var float:() -> GoFloat64 = null;
+	@:embedded
+	public function string():GoString
+		return __self__.string();
 
-	@:keep
-	public var _float:GoString->GoFloat64 = null;
-	@:keep
-	public var _isNumber:() -> Bool = null;
+	@:embedded
+	public function setIndex(_i:GoInt, _x:AnyInterface):Void
+		__self__.setIndex(_i, _x);
 
-	/**
-		// New uses JavaScript's "new" operator with value v as constructor and the given arguments.
-		// It panics if v is not a JavaScript function.
-		// The arguments get mapped to JavaScript values according to the ValueOf function.
-	**/
-	@:keep
-	public var new_:haxe.Rest<AnyInterface>->Value = null;
+	@:embedded
+	public function set(_p:GoString, _x:AnyInterface):Void
+		__self__.set(_p, _x);
 
-	/**
-		// Invoke does a JavaScript call of the value v with the given arguments.
-		// It panics if v is not a JavaScript function.
-		// The arguments get mapped to JavaScript values according to the ValueOf function.
-	**/
-	@:keep
-	public var invoke:haxe.Rest<AnyInterface>->Value = null;
+	@:embedded
+	public function new_(_args:haxe.Rest<AnyInterface>):Value
+		return __self__.new_(..._args);
 
-	/**
-		// Call does a JavaScript call to the method m of value v with the given arguments.
-		// It panics if v has no method m.
-		// The arguments get mapped to JavaScript values according to the ValueOf function.
-	**/
-	@:keep
-	public var call:(GoString, haxe.Rest<AnyInterface>) -> Value = null;
+	@:embedded
+	public function length_():GoInt
+		return __self__.length_();
 
-	/**
-		// Length returns the JavaScript property "length" of v.
-		// It panics if v is not a JavaScript object.
-	**/
-	@:keep
-	public var length_:() -> GoInt = null;
+	@:embedded
+	public function isUndefined():Bool
+		return __self__.isUndefined();
 
-	/**
-		// SetIndex sets the JavaScript index i of value v to ValueOf(x).
-		// It panics if v is not a JavaScript object.
-	**/
-	@:keep
-	public var setIndex:(GoInt, AnyInterface) -> Void = null;
+	@:embedded
+	public function isNull():Bool
+		return __self__.isNull();
 
-	/**
-		// Index returns JavaScript index i of value v.
-		// It panics if v is not a JavaScript object.
-	**/
-	@:keep
-	public var index:GoInt->Value = null;
+	@:embedded
+	public function isNaN():Bool
+		return __self__.isNaN();
 
-	/**
-		// Delete deletes the JavaScript property p of value v.
-		// It panics if v is not a JavaScript object.
-	**/
-	@:keep
-	public var delete:GoString->Void = null;
+	@:embedded
+	public function invoke(_args:haxe.Rest<AnyInterface>):Value
+		return __self__.invoke(..._args);
 
-	/**
-		// Set sets the JavaScript property p of value v to ValueOf(x).
-		// It panics if v is not a JavaScript object.
-	**/
-	@:keep
-	public var set:(GoString, AnyInterface) -> Void = null;
+	@:embedded
+	public function int():GoInt
+		return __self__.int();
 
-	/**
-		// Get returns the JavaScript property p of value v.
-		// It panics if v is not a JavaScript object.
-	**/
-	@:keep
-	public var get:GoString->Value = null;
+	@:embedded
+	public function instanceOf(__0:Value):Bool
+		return __self__.instanceOf(__0);
 
-	/**
-		// Type returns the JavaScript type of the value v. It is similar to JavaScript's typeof operator,
-		// except that it returns TypeNull instead of TypeObject for null.
-	**/
-	@:keep
-	public var type:() -> Type = null;
+	@:embedded
+	public function index(_i:GoInt):Value
+		return __self__.index(_i);
 
-	/**
-		// IsNaN reports whether v is the JavaScript value "NaN".
-	**/
-	@:keep
-	public var isNaN:() -> Bool = null;
+	@:embedded
+	public function get(_p:GoString):Value
+		return __self__.get(_p);
 
-	/**
-		// IsNull reports whether v is the JavaScript value "null".
-	**/
-	@:keep
-	public var isNull:() -> Bool = null;
+	@:embedded
+	public function float():GoFloat64
+		return __self__.float();
 
-	/**
-		// IsUndefined reports whether v is the JavaScript value "undefined".
-	**/
-	@:keep
-	public var isUndefined:() -> Bool = null;
+	@:embedded
+	public function equal(__0:Value):Bool
+		return __self__.equal(__0);
 
-	/**
-		// Equal reports whether v and w are equal according to JavaScript's === operator.
-	**/
-	@:keep
-	public var equal:Value->Bool = null;
+	@:embedded
+	public function delete(_p:GoString):Void
+		__self__.delete(_p);
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	@:embedded
+	public function call(_m:GoString, _args:haxe.Rest<AnyInterface>):Value
+		return __self__.call(_m, ..._args);
+
+	@:embedded
+	public function bool_():Bool
+		return __self__.bool_();
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:Value;
+	var __self__:T_error;
 }
 
 @:keep private class T_error_static_extension {
@@ -1093,65 +1276,20 @@ class Value_asInterface {
 		return __self__.bool_();
 }
 
-class T_error_asInterface {
-	/**
-		// Error implements the error interface.
-	**/
+class ValueError_asInterface {
 	@:keep
-	public var error:() -> GoString = null;
+	public function error():GoString
+		return __self__.error();
 
-	@:embedded
-	public var _isNumber:() -> Bool = null;
-	@:embedded
-	public var _float:GoString->GoFloat64 = null;
-	@:embedded
-	public var type:() -> Type = null;
-	@:embedded
-	public var truthy:() -> Bool = null;
-	@:embedded
-	public var string:() -> GoString = null;
-	@:embedded
-	public var setIndex:(GoInt, AnyInterface) -> Void = null;
-	@:embedded
-	public var set:(GoString, AnyInterface) -> Void = null;
-	@:embedded
-	public var new_:haxe.Rest<AnyInterface>->Value = null;
-	@:embedded
-	public var length_:() -> GoInt = null;
-	@:embedded
-	public var isUndefined:() -> Bool = null;
-	@:embedded
-	public var isNull:() -> Bool = null;
-	@:embedded
-	public var isNaN:() -> Bool = null;
-	@:embedded
-	public var invoke:haxe.Rest<AnyInterface>->Value = null;
-	@:embedded
-	public var int:() -> GoInt = null;
-	@:embedded
-	public var instanceOf:Value->Bool = null;
-	@:embedded
-	public var index:GoInt->Value = null;
-	@:embedded
-	public var get:GoString->Value = null;
-	@:embedded
-	public var float:() -> GoFloat64 = null;
-	@:embedded
-	public var equal:Value->Bool = null;
-	@:embedded
-	public var delete:GoString->Void = null;
-	@:embedded
-	public var call:(GoString, haxe.Rest<AnyInterface>) -> Value = null;
-	@:embedded
-	public var bool_:() -> Bool = null;
-
-	public function new(__self__)
-		this.__self__ = __self__;
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:T_error;
+	var __self__:ValueError;
 }
 
 @:keep private class ValueError_static_extension {
@@ -1160,17 +1298,24 @@ class T_error_asInterface {
 		throw "syscall.js.error is not yet implemented";
 }
 
-class ValueError_asInterface {
+class Type_asInterface {
 	@:keep
-	public var error:() -> GoString = null;
+	public function _isObject():Bool
+		return __self__._isObject();
 
-	public function new(__self__)
-		this.__self__ = __self__;
+	@:keep
+	public function string():GoString
+		return __self__.string();
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return Go.toInterface(__self__);
 
-	var __self__:ValueError;
+	var __self__:Type;
 }
 
 @:keep private class Type_static_extension {
@@ -1181,19 +1326,4 @@ class ValueError_asInterface {
 	@:keep
 	static public function string(_t:Type):GoString
 		throw "syscall.js.string is not yet implemented";
-}
-
-class Type_asInterface {
-	@:keep
-	public var _isObject:() -> Bool = null;
-	@:keep
-	public var string:() -> GoString = null;
-
-	public function new(__self__)
-		this.__self__ = __self__;
-
-	public function __underlying__()
-		return Go.toInterface(this);
-
-	var __self__:Type;
 }

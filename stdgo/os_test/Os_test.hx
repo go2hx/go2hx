@@ -136,41 +136,41 @@ private final _testExecutableDeletion:GoString = ("" : GoString);
 	}
 }
 
-@:local typedef T__struct_1 = {
+@:local private typedef T__struct_1 = {
 	public var _in:GoString;
 	public var _out:GoString;
 };
 
-@:local typedef T__struct_2 = {
+@:local private typedef T__struct_2 = {
 	public var _name:GoString;
 	public var _create:() -> stdgo.Error;
 };
 
-@:local typedef T__struct_3 = {
+@:local private typedef T__struct_3 = {
 	public var _name:GoString;
 	public var _f:Ref<File>->stdgo.Error;
 };
 
-@:local typedef T__struct_4 = {};
+@:local private typedef T__struct_4 = {};
 
-@:local typedef T__struct_5 = {
+@:local private typedef T__struct_5 = {
 	public var _path:GoString;
 	public var _wantDir:GoString;
 	public var _wantBase:GoString;
 };
 
-@:local typedef T__struct_6 = {
+@:local private typedef T__struct_6 = {
 	public var _pattern:GoString;
 	public var _prefix:GoString;
 	public var _suffix:GoString;
 };
 
-@:local typedef T__struct_7 = {
+@:local private typedef T__struct_7 = {
 	public var _pattern:GoString;
 	public var _wantErr:Bool;
 };
 
-@:local typedef T__struct_8 = {
+@:local private typedef T__struct_8 = {
 	public var _pattern:GoString;
 	public var _wantPrefix:GoString;
 	public var _wantSuffix:GoString;
@@ -179,7 +179,7 @@ private final _testExecutableDeletion:GoString = ("" : GoString);
 /**
 	// For TestRawConnReadWrite.
 **/
-@:follow typedef T_syscallDescriptor = GoInt;
+@:follow private typedef T_syscallDescriptor = GoInt;
 
 /**
 	// testGetenv gives us a controlled set of variables for testing Expand.
@@ -696,26 +696,13 @@ function testErrPathNUL(_t:stdgo.testing.Testing.T):Void {
 
 function testPathErrorUnwrap(_t:stdgo.testing.Testing.T):Void {
 	var _pe = ({err: stdgo.io.fs.Fs.errInvalid} : stdgo.io.fs.Fs.PathError);
-	if (!stdgo.errors.Errors.is_({
-		final __self__ = new stdgo.io.fs.Fs.PathError_asInterface(_pe);
-		__self__.error = #if !macro function():GoString return _pe.error() #else null #end;
-		__self__.timeout = #if !macro function():Bool return _pe.timeout() #else null #end;
-		__self__.unwrap = #if !macro function():stdgo.Error return _pe.unwrap() #else null #end;
-		__self__;
-	}, stdgo.io.fs.Fs.errInvalid)) {
+	if (!stdgo.errors.Errors.is_(Go.asInterface(_pe), stdgo.io.fs.Fs.errInvalid)) {
 		_t.error(Go.toInterface((Go.str("errors.Is failed, wanted success") : GoString)));
 	};
 }
 
 function testErrorIsMethods(_t:stdgo.testing.Testing.T):Void {
-	if (stdgo.os.Os.isPermission({
-		final __self__ = new stdgo.os_test.Os_test.T_myErrorIs_asInterface((new stdgo.os_test.Os_test.T_myErrorIs(stdgo.io.fs.Fs.errPermission) : stdgo.os_test.Os_test.T_myErrorIs));
-		__self__.error = #if !macro function():GoString return
-			(new stdgo.os_test.Os_test.T_myErrorIs(stdgo.io.fs.Fs.errPermission) : stdgo.os_test.Os_test.T_myErrorIs).error() #else null #end;
-		__self__.is_ = #if !macro function(__0:stdgo.Error):Bool return
-			(new stdgo.os_test.Os_test.T_myErrorIs(stdgo.io.fs.Fs.errPermission) : stdgo.os_test.Os_test.T_myErrorIs).is_(__0) #else null #end;
-		__self__;
-	})) {
+	if (stdgo.os.Os.isPermission(Go.asInterface((new stdgo.os_test.Os_test.T_myErrorIs(stdgo.io.fs.Fs.errPermission) : stdgo.os_test.Os_test.T_myErrorIs)))) {
 		_t.error(Go.toInterface((Go.str("os.IsPermission(err) = true when err.Is(fs.ErrPermission), wanted false") : GoString)));
 	};
 }
@@ -795,15 +782,7 @@ function exampleFileMode():Void {
 	if (_err != null) {
 		stdgo.log.Log.fatal(Go.toInterface(_err));
 	};
-	stdgo.fmt.Fmt.printf((Go.str("permissions: %#o\n") : GoString), Go.toInterface({
-		final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_fi.mode().perm());
-		__self__.isDir = #if !macro function():Bool return _fi.mode().perm().isDir() #else null #end;
-		__self__.isRegular = #if !macro function():Bool return _fi.mode().perm().isRegular() #else null #end;
-		__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _fi.mode().perm().perm() #else null #end;
-		__self__.string = #if !macro function():GoString return _fi.mode().perm().string() #else null #end;
-		__self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return _fi.mode().perm().type() #else null #end;
-		__self__;
-	}));
+	stdgo.fmt.Fmt.printf((Go.str("permissions: %#o\n") : GoString), Go.toInterface(Go.asInterface(_fi.mode().perm())));
 	{
 		var _mode:stdgo.io.fs.Fs.FileMode = _fi.mode();
 		if (_mode.isRegular()) {
@@ -1157,43 +1136,7 @@ function exampleMkdirAll():Void {
 }
 
 function testExecutable(_t:stdgo.testing.Testing.T):Void {
-	stdgo.internal.testenv.Testenv.mustHaveExec({
-		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
-		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
-		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
-			return _t.deadline() #else null #end;
-		__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
-		__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
-		__self__.fail = #if !macro function():Void _t.fail() #else null #end;
-		__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
-		__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
-		__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
-		__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
-		__self__.helper = #if !macro function():Void _t.helper() #else null #end;
-		__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
-		__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
-		__self__.name = #if !macro function():GoString return _t.name() #else null #end;
-		__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
-		__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
-		__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
-		__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
-		__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
-		__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
-		__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
-		__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
-		__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
-		__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
-		__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
-				_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
-		__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
-		__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
-		__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
-		__self__._private = #if !macro function():Void _t._private() #else null #end;
-		__self__._report = #if !macro function():Void _t._report() #else null #end;
-		__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
-		__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
-		__self__;
-	});
+	stdgo.internal.testenv.Testenv.mustHaveExec(Go.asInterface(_t));
 	var __tmp__ = stdgo.os.Os.executable(),
 		_ep:GoString = __tmp__._0,
 		_err:stdgo.Error = __tmp__._1;
@@ -1248,43 +1191,7 @@ function _sameFile(_fn1:GoString, _fn2:GoString):Bool {
 }
 
 function testExecutableDeleted(_t:stdgo.testing.Testing.T):Void {
-	stdgo.internal.testenv.Testenv.mustHaveExec({
-		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
-		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
-		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
-			return _t.deadline() #else null #end;
-		__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
-		__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
-		__self__.fail = #if !macro function():Void _t.fail() #else null #end;
-		__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
-		__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
-		__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
-		__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
-		__self__.helper = #if !macro function():Void _t.helper() #else null #end;
-		__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
-		__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
-		__self__.name = #if !macro function():GoString return _t.name() #else null #end;
-		__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
-		__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
-		__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
-		__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
-		__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
-		__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
-		__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
-		__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
-		__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
-		__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
-		__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
-				_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
-		__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
-		__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
-		__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
-		__self__._private = #if !macro function():Void _t._private() #else null #end;
-		__self__._report = #if !macro function():Void _t._report() #else null #end;
-		__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
-		__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
-		__self__;
-	});
+	stdgo.internal.testenv.Testenv.mustHaveExec(Go.asInterface(_t));
 	if ((Go.str("js") : GoString) == ((Go.str("windows") : GoString)) || (Go.str("js") : GoString) == ((Go.str("plan9") : GoString))) {
 		_t.skipf((Go.str("%v does not support deleting running binary") : GoString), Go.toInterface((Go.str("js") : GoString)));
 	} else if ((Go.str("js") : GoString) == ((Go.str("openbsd") : GoString))
@@ -1300,44 +1207,9 @@ function testExecutableDeleted(_t:stdgo.testing.Testing.T):Void {
 	if (_err != null) {
 		_t.fatal(Go.toInterface(_err));
 	};
-	var __tmp__ = stdgo.os.exec.Exec.command(stdgo.internal.testenv.Testenv.goToolPath({
-		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
-		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
-		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
-			return _t.deadline() #else null #end;
-		__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
-		__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
-		__self__.fail = #if !macro function():Void _t.fail() #else null #end;
-		__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
-		__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
-		__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
-		__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
-		__self__.helper = #if !macro function():Void _t.helper() #else null #end;
-		__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
-		__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
-		__self__.name = #if !macro function():GoString return _t.name() #else null #end;
-		__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
-		__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
-		__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
-		__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
-		__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
-		__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
-		__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
-		__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
-		__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
-		__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
-		__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
-				_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
-		__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
-		__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
-		__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
-		__self__._private = #if !macro function():Void _t._private() #else null #end;
-		__self__._report = #if !macro function():Void _t._report() #else null #end;
-		__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
-		__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
-		__self__;
-	}),
-		(Go.str("build") : GoString), (Go.str("-o") : GoString), _exe, _src).combinedOutput(),
+	var __tmp__ = stdgo.os.exec.Exec.command(stdgo.internal.testenv.Testenv.goToolPath(Go.asInterface(_t)), (Go.str("build") : GoString),
+		(Go.str("-o") : GoString), _exe, _src)
+		.combinedOutput(),
 		_out:Slice<GoUInt8> = __tmp__._0,
 		_err:stdgo.Error = __tmp__._1;
 	_t.logf((Go.str("build output:\n%s") : GoString), Go.toInterface(_out));
@@ -1358,74 +1230,7 @@ function testExecutableDeleted(_t:stdgo.testing.Testing.T):Void {
 function testMain(_m:stdgo.testing.Testing.M):Void {
 	if (getenv((Go.str("GO_OS_TEST_DRAIN_STDIN") : GoString)) == (Go.str("1") : GoString)) {
 		stdgo.os.Os.stdout.close();
-		stdgo.io.Io.copy(stdgo.io.Io.discard, {
-			final __self__ = new File_asInterface(stdgo.os.Os.stdin);
-			__self__.chdir = #if !macro function():stdgo.Error return stdgo.os.Os.stdin.chdir() #else null #end;
-			__self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return stdgo.os.Os.stdin.chmod(_mode) #else null #end;
-			__self__.chown = #if !macro function(_uid:GoInt, _gid:GoInt):stdgo.Error return stdgo.os.Os.stdin.chown(_uid, _gid) #else null #end;
-			__self__.close = #if !macro function():stdgo.Error return stdgo.os.Os.stdin.close() #else null #end;
-			__self__.fd = #if !macro function():GoUIntptr return stdgo.os.Os.stdin.fd() #else null #end;
-			__self__.name = #if !macro function():GoString return stdgo.os.Os.stdin.name() #else null #end;
-			__self__.read = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return stdgo.os.Os.stdin.read(_b) #else null #end;
-			__self__.readAt = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return stdgo.os.Os.stdin.readAt(_b, _off) #else null #end;
-			__self__.readDir = #if !macro function(_n:GoInt):{var _0:Slice<stdgo.io.fs.Fs.DirEntry>; var _1:stdgo.Error;}
-				return stdgo.os.Os.stdin.readDir(_n) #else null #end;
-			__self__.readFrom = #if !macro function(_r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:stdgo.Error;}
-				return stdgo.os.Os.stdin.readFrom(_r) #else null #end;
-			__self__.readdir = #if !macro function(_n:GoInt):{var _0:Slice<stdgo.io.fs.Fs.FileInfo>; var _1:stdgo.Error;}
-				return stdgo.os.Os.stdin.readdir(_n) #else null #end;
-			__self__.readdirnames = #if !macro function(_n:GoInt):{var _0:Slice<GoString>; var _1:stdgo.Error;}
-				return stdgo.os.Os.stdin.readdirnames(_n) #else null #end;
-			__self__.seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:stdgo.Error;}
-				return stdgo.os.Os.stdin.seek(_offset, _whence) #else null #end;
-			__self__.setDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return stdgo.os.Os.stdin.setDeadline(__0) #else null #end;
-			__self__.setReadDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return stdgo.os.Os.stdin.setReadDeadline(__0) #else null #end;
-			__self__.setWriteDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return
-				stdgo.os.Os.stdin.setWriteDeadline(__0) #else null #end;
-			__self__.stat = #if !macro function():{var _0:stdgo.io.fs.Fs.FileInfo; var _1:stdgo.Error;}
-				return stdgo.os.Os.stdin.stat() #else null #end;
-			__self__.sync = #if !macro function():stdgo.Error return stdgo.os.Os.stdin.sync() #else null #end;
-			__self__.syscallConn = #if !macro function():{var _0:stdgo.syscall.Syscall.RawConn; var _1:stdgo.Error;}
-				return stdgo.os.Os.stdin.syscallConn() #else null #end;
-			__self__.truncate = #if !macro function(__0:GoInt64):stdgo.Error return stdgo.os.Os.stdin.truncate(__0) #else null #end;
-			__self__.write = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return stdgo.os.Os.stdin.write(_b) #else null #end;
-			__self__.writeAt = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return stdgo.os.Os.stdin.writeAt(_b, _off) #else null #end;
-			__self__.writeString = #if !macro function(__0:GoString):{var _0:GoInt; var _1:stdgo.Error;}
-				return stdgo.os.Os.stdin.writeString(__0) #else null #end;
-			__self__._checkValid = #if !macro function(__0:GoString):stdgo.Error return stdgo.os.Os.stdin._checkValid(__0) #else null #end;
-			__self__._chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return stdgo.os.Os.stdin._chmod(_mode) #else null #end;
-			__self__._close = #if !macro function():stdgo.Error return stdgo.os.Os.stdin._close() #else null #end;
-			__self__._pread = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return stdgo.os.Os.stdin._pread(_b, _off) #else null #end;
-			__self__._pwrite = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return stdgo.os.Os.stdin._pwrite(_b, _off) #else null #end;
-			__self__._read = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return stdgo.os.Os.stdin._read(_b) #else null #end;
-			__self__._readFrom = #if !macro function(_r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:Bool; var _2:stdgo.Error;}
-				return stdgo.os.Os.stdin._readFrom(_r) #else null #end;
-			__self__._readdir = #if !macro function(_n:GoInt, _mode:T_readdirMode):{
-				var _0:Slice<GoString>;
-				var _1:Slice<stdgo.io.fs.Fs.DirEntry>;
-				var _2:Slice<stdgo.io.fs.Fs.FileInfo>;
-				var _3:stdgo.Error;
-			}
-				return stdgo.os.Os.stdin._readdir(_n, _mode) #else null #end;
-			__self__._seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:stdgo.Error;}
-				return stdgo.os.Os.stdin._seek(_offset, _whence) #else null #end;
-			__self__._setDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return stdgo.os.Os.stdin._setDeadline(__0) #else null #end;
-			__self__._setReadDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return
-				stdgo.os.Os.stdin._setReadDeadline(__0) #else null #end;
-			__self__._setWriteDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return
-				stdgo.os.Os.stdin._setWriteDeadline(__0) #else null #end;
-			__self__._wrapErr = #if !macro function(_op:GoString, _err:stdgo.Error):stdgo.Error return stdgo.os.Os.stdin._wrapErr(_op, _err) #else null #end;
-			__self__._write = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return stdgo.os.Os.stdin._write(_b) #else null #end;
-			__self__;
-		});
+		stdgo.io.Io.copy(stdgo.io.Io.discard, Go.asInterface(stdgo.os.Os.stdin));
 		exit((0 : GoInt));
 	};
 	exit(_m.run());
@@ -1451,71 +1256,9 @@ function _size(_name:GoString, _t:stdgo.testing.Testing.T):GoInt64 {
 			};
 			a();
 		});
-		var __tmp__ = stdgo.io.Io.copy(stdgo.io.Io.discard, {
-			final __self__ = new File_asInterface(_file);
-			__self__.chdir = #if !macro function():stdgo.Error return _file.chdir() #else null #end;
-			__self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _file.chmod(_mode) #else null #end;
-			__self__.chown = #if !macro function(_uid:GoInt, _gid:GoInt):stdgo.Error return _file.chown(_uid, _gid) #else null #end;
-			__self__.close = #if !macro function():stdgo.Error return _file.close() #else null #end;
-			__self__.fd = #if !macro function():GoUIntptr return _file.fd() #else null #end;
-			__self__.name = #if !macro function():GoString return _file.name() #else null #end;
-			__self__.read = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _file.read(_b) #else null #end;
-			__self__.readAt = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _file.readAt(_b, _off) #else null #end;
-			__self__.readDir = #if !macro function(_n:GoInt):{var _0:Slice<stdgo.io.fs.Fs.DirEntry>; var _1:stdgo.Error;}
-				return _file.readDir(_n) #else null #end;
-			__self__.readFrom = #if !macro function(_r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _file.readFrom(_r) #else null #end;
-			__self__.readdir = #if !macro function(_n:GoInt):{var _0:Slice<stdgo.io.fs.Fs.FileInfo>; var _1:stdgo.Error;}
-				return _file.readdir(_n) #else null #end;
-			__self__.readdirnames = #if !macro function(_n:GoInt):{var _0:Slice<GoString>; var _1:stdgo.Error;}
-				return _file.readdirnames(_n) #else null #end;
-			__self__.seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _file.seek(_offset, _whence) #else null #end;
-			__self__.setDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _file.setDeadline(__0) #else null #end;
-			__self__.setReadDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _file.setReadDeadline(__0) #else null #end;
-			__self__.setWriteDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _file.setWriteDeadline(__0) #else null #end;
-			__self__.stat = #if !macro function():{var _0:stdgo.io.fs.Fs.FileInfo; var _1:stdgo.Error;}
-				return _file.stat() #else null #end;
-			__self__.sync = #if !macro function():stdgo.Error return _file.sync() #else null #end;
-			__self__.syscallConn = #if !macro function():{var _0:stdgo.syscall.Syscall.RawConn; var _1:stdgo.Error;}
-				return _file.syscallConn() #else null #end;
-			__self__.truncate = #if !macro function(__0:GoInt64):stdgo.Error return _file.truncate(__0) #else null #end;
-			__self__.write = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _file.write(_b) #else null #end;
-			__self__.writeAt = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _file.writeAt(_b, _off) #else null #end;
-			__self__.writeString = #if !macro function(__0:GoString):{var _0:GoInt; var _1:stdgo.Error;}
-				return _file.writeString(__0) #else null #end;
-			__self__._checkValid = #if !macro function(__0:GoString):stdgo.Error return _file._checkValid(__0) #else null #end;
-			__self__._chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _file._chmod(_mode) #else null #end;
-			__self__._close = #if !macro function():stdgo.Error return _file._close() #else null #end;
-			__self__._pread = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _file._pread(_b, _off) #else null #end;
-			__self__._pwrite = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _file._pwrite(_b, _off) #else null #end;
-			__self__._read = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _file._read(_b) #else null #end;
-			__self__._readFrom = #if !macro function(_r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:Bool; var _2:stdgo.Error;}
-				return _file._readFrom(_r) #else null #end;
-			__self__._readdir = #if !macro function(_n:GoInt, _mode:T_readdirMode):{
-				var _0:Slice<GoString>;
-				var _1:Slice<stdgo.io.fs.Fs.DirEntry>;
-				var _2:Slice<stdgo.io.fs.Fs.FileInfo>;
-				var _3:stdgo.Error;
-			}
-				return _file._readdir(_n, _mode) #else null #end;
-			__self__._seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _file._seek(_offset, _whence) #else null #end;
-			__self__._setDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _file._setDeadline(__0) #else null #end;
-			__self__._setReadDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _file._setReadDeadline(__0) #else null #end;
-			__self__._setWriteDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _file._setWriteDeadline(__0) #else null #end;
-			__self__._wrapErr = #if !macro function(_op:GoString, _err_:stdgo.Error):stdgo.Error return _file._wrapErr(_op, _err_) #else null #end;
-			__self__._write = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _file._write(_b) #else null #end;
-			__self__;
-		}), _n:GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+		var __tmp__ = stdgo.io.Io.copy(stdgo.io.Io.discard, Go.asInterface(_file)),
+			_n:GoInt64 = __tmp__._0,
+			_err:stdgo.Error = __tmp__._1;
 		if (_err != null) {
 			_t.fatal(Go.toInterface(_err));
 		};
@@ -1635,43 +1378,7 @@ function testStatError(_t:stdgo.testing.Testing.T):Void {
 				_t.errorf((Go.str("got %T, want %T") : GoString), Go.toInterface(_err), Go.toInterface(_perr));
 			};
 		};
-		stdgo.internal.testenv.Testenv.mustHaveSymlink({
-			final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
-			__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
-			__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
-				return _t.deadline() #else null #end;
-			__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
-			__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
-			__self__.fail = #if !macro function():Void _t.fail() #else null #end;
-			__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
-			__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
-			__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
-			__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
-			__self__.helper = #if !macro function():Void _t.helper() #else null #end;
-			__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
-			__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
-			__self__.name = #if !macro function():GoString return _t.name() #else null #end;
-			__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
-			__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
-			__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
-			__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
-			__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
-			__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
-			__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
-			__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
-			__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
-			__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
-			__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
-					_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
-			__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
-			__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
-			__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
-			__self__._private = #if !macro function():Void _t._private() #else null #end;
-			__self__._report = #if !macro function():Void _t._report() #else null #end;
-			__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
-			__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
-			__self__;
-		});
+		stdgo.internal.testenv.Testenv.mustHaveSymlink(Go.asInterface(_t));
 		var _link:GoString = (Go.str("symlink") : GoString);
 		_err = symlink(_path, _link);
 		if (_err != null) {
@@ -1724,43 +1431,7 @@ function testStatError(_t:stdgo.testing.Testing.T):Void {
 
 function testStatSymlinkLoop(_t:stdgo.testing.Testing.T):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	stdgo.internal.testenv.Testenv.mustHaveSymlink({
-		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
-		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
-		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
-			return _t.deadline() #else null #end;
-		__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
-		__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
-		__self__.fail = #if !macro function():Void _t.fail() #else null #end;
-		__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
-		__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
-		__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
-		__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
-		__self__.helper = #if !macro function():Void _t.helper() #else null #end;
-		__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
-		__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
-		__self__.name = #if !macro function():GoString return _t.name() #else null #end;
-		__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
-		__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
-		__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
-		__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
-		__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
-		__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
-		__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
-		__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
-		__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
-		__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
-		__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
-				_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
-		__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
-		__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
-		__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
-		__self__._private = #if !macro function():Void _t._private() #else null #end;
-		__self__._report = #if !macro function():Void _t._report() #else null #end;
-		__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
-		__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
-		__self__;
-	});
+	stdgo.internal.testenv.Testenv.mustHaveSymlink(Go.asInterface(_t));
 	try {
 		__deferstack__.unshift(() -> _chtmpdir(_t)());
 		var _err:stdgo.Error = stdgo.os.Os.symlink((Go.str("x") : GoString), (Go.str("y") : GoString));
@@ -2131,23 +1802,8 @@ function _testReadDir(_dir:GoString, _contents:Slice<GoString>, _t:stdgo.testing
 					_t.errorf((Go.str("%s: IsDir=%v, want %v") : GoString), Go.toInterface(_m), Go.toInterface(_n.isDir()), Go.toInterface(_lstat.isDir()));
 				};
 				if (_n.type() != _lstat.mode().type()) {
-					_t.errorf((Go.str("%s: IsDir=%v, want %v") : GoString), Go.toInterface(_m), Go.toInterface({
-						final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_n.type());
-						__self__.isDir = #if !macro function():Bool return _n.type().isDir() #else null #end;
-						__self__.isRegular = #if !macro function():Bool return _n.type().isRegular() #else null #end;
-						__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _n.type().perm() #else null #end;
-						__self__.string = #if !macro function():GoString return _n.type().string() #else null #end;
-						__self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return _n.type().type() #else null #end;
-						__self__;
-					}), Go.toInterface({
-						final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_lstat.mode().type());
-						__self__.isDir = #if !macro function():Bool return _lstat.mode().type().isDir() #else null #end;
-						__self__.isRegular = #if !macro function():Bool return _lstat.mode().type().isRegular() #else null #end;
-						__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _lstat.mode().type().perm() #else null #end;
-						__self__.string = #if !macro function():GoString return _lstat.mode().type().string() #else null #end;
-						__self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return _lstat.mode().type().type() #else null #end;
-						__self__;
-					}));
+					_t.errorf((Go.str("%s: IsDir=%v, want %v") : GoString), Go.toInterface(_m), Go.toInterface(Go.asInterface(_n.type())),
+						Go.toInterface(Go.asInterface(_lstat.mode().type())));
 				};
 				var __tmp__ = _n.info(),
 					_info:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
@@ -2742,43 +2398,7 @@ function testReaddirOfFile(_t:stdgo.testing.Testing.T):Void {
 
 function testHardLink(_t:stdgo.testing.Testing.T):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	stdgo.internal.testenv.Testenv.mustHaveLink({
-		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
-		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
-		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
-			return _t.deadline() #else null #end;
-		__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
-		__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
-		__self__.fail = #if !macro function():Void _t.fail() #else null #end;
-		__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
-		__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
-		__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
-		__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
-		__self__.helper = #if !macro function():Void _t.helper() #else null #end;
-		__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
-		__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
-		__self__.name = #if !macro function():GoString return _t.name() #else null #end;
-		__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
-		__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
-		__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
-		__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
-		__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
-		__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
-		__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
-		__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
-		__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
-		__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
-		__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
-				_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
-		__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
-		__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
-		__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
-		__self__._private = #if !macro function():Void _t._private() #else null #end;
-		__self__._report = #if !macro function():Void _t._report() #else null #end;
-		__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
-		__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
-		__self__;
-	});
+	stdgo.internal.testenv.Testenv.mustHaveLink(Go.asInterface(_t));
 	try {
 		__deferstack__.unshift(() -> _chtmpdir(_t)());
 		var _from:GoString = (Go.str("hardlinktestfrom") : GoString),
@@ -2913,43 +2533,7 @@ function _chtmpdir(_t:stdgo.testing.Testing.T):() -> Void {
 
 function testSymlink(_t:stdgo.testing.Testing.T):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	stdgo.internal.testenv.Testenv.mustHaveSymlink({
-		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
-		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
-		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
-			return _t.deadline() #else null #end;
-		__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
-		__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
-		__self__.fail = #if !macro function():Void _t.fail() #else null #end;
-		__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
-		__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
-		__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
-		__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
-		__self__.helper = #if !macro function():Void _t.helper() #else null #end;
-		__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
-		__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
-		__self__.name = #if !macro function():GoString return _t.name() #else null #end;
-		__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
-		__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
-		__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
-		__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
-		__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
-		__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
-		__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
-		__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
-		__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
-		__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
-		__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
-				_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
-		__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
-		__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
-		__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
-		__self__._private = #if !macro function():Void _t._private() #else null #end;
-		__self__._report = #if !macro function():Void _t._report() #else null #end;
-		__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
-		__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
-		__self__;
-	});
+	stdgo.internal.testenv.Testenv.mustHaveSymlink(Go.asInterface(_t));
 	try {
 		__deferstack__.unshift(() -> _chtmpdir(_t)());
 		var _from:GoString = (Go.str("symlinktestfrom") : GoString),
@@ -2977,17 +2561,8 @@ function testSymlink(_t:stdgo.testing.Testing.T):Void {
 			_t.fatalf((Go.str("Lstat(%q) failed: %v") : GoString), Go.toInterface(_to), Go.toInterface(_err));
 		};
 		if ((_tostat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode)) != (0 : stdgo.io.fs.Fs.FileMode)) {
-			_t.fatalf((Go.str("Lstat(%q).Mode()&ModeSymlink = %v, want 0") : GoString), Go.toInterface(_to), Go.toInterface({
-				final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_tostat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode));
-				__self__.isDir = #if !macro function():Bool return _tostat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode).isDir() #else null #end;
-				__self__.isRegular = #if !macro function():Bool return _tostat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode).isRegular() #else null #end;
-				__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _tostat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode)
-					.perm() #else null #end;
-				__self__.string = #if !macro function():GoString return _tostat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode).string() #else null #end;
-				__self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return _tostat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode)
-					.type() #else null #end;
-				__self__;
-			}));
+			_t.fatalf((Go.str("Lstat(%q).Mode()&ModeSymlink = %v, want 0") : GoString), Go.toInterface(_to),
+				Go.toInterface(Go.asInterface(_tostat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode))));
 		};
 		var __tmp__ = stat(_from),
 			_fromstat:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
@@ -3007,15 +2582,8 @@ function testSymlink(_t:stdgo.testing.Testing.T):Void {
 			_t.fatalf((Go.str("Lstat(%q) failed: %v") : GoString), Go.toInterface(_from), Go.toInterface(_err));
 		};
 		if ((_fromstat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode)) == (0 : stdgo.io.fs.Fs.FileMode)) {
-			_t.fatalf((Go.str("Lstat(%q).Mode()&ModeSymlink = 0, want %v") : GoString), Go.toInterface(_from), Go.toInterface({
-				final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface((134217728 : stdgo.io.fs.Fs.FileMode));
-				__self__.isDir = #if !macro function():Bool return (134217728 : stdgo.io.fs.Fs.FileMode).isDir() #else null #end;
-				__self__.isRegular = #if !macro function():Bool return (134217728 : stdgo.io.fs.Fs.FileMode).isRegular() #else null #end;
-				__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return (134217728 : stdgo.io.fs.Fs.FileMode).perm() #else null #end;
-				__self__.string = #if !macro function():GoString return (134217728 : stdgo.io.fs.Fs.FileMode).string() #else null #end;
-				__self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return (134217728 : stdgo.io.fs.Fs.FileMode).type() #else null #end;
-				__self__;
-			}));
+			_t.fatalf((Go.str("Lstat(%q).Mode()&ModeSymlink = 0, want %v") : GoString), Go.toInterface(_from),
+				Go.toInterface(Go.asInterface((134217728 : stdgo.io.fs.Fs.FileMode))));
 		};
 		{
 			var __tmp__ = stat(_from);
@@ -3029,17 +2597,8 @@ function testSymlink(_t:stdgo.testing.Testing.T):Void {
 			_t.errorf((Go.str("Stat(%q).Name() = %q, want %q") : GoString), Go.toInterface(_from), Go.toInterface(_fromstat.name()), Go.toInterface(_from));
 		};
 		if ((_fromstat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode)) != (0 : stdgo.io.fs.Fs.FileMode)) {
-			_t.fatalf((Go.str("Stat(%q).Mode()&ModeSymlink = %v, want 0") : GoString), Go.toInterface(_from), Go.toInterface({
-				final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_fromstat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode));
-				__self__.isDir = #if !macro function():Bool return _fromstat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode).isDir() #else null #end;
-				__self__.isRegular = #if !macro function():Bool return _fromstat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode).isRegular() #else null #end;
-				__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _fromstat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode)
-					.perm() #else null #end;
-				__self__.string = #if !macro function():GoString return _fromstat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode).string() #else null #end;
-				__self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return _fromstat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode)
-					.type() #else null #end;
-				__self__;
-			}));
+			_t.fatalf((Go.str("Stat(%q).Mode()&ModeSymlink = %v, want 0") : GoString), Go.toInterface(_from),
+				Go.toInterface(Go.asInterface(_fromstat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode))));
 		};
 		var __tmp__ = readlink(_from),
 			_s:GoString = __tmp__._0,
@@ -3085,43 +2644,7 @@ function testSymlink(_t:stdgo.testing.Testing.T):Void {
 
 function testLongSymlink(_t:stdgo.testing.Testing.T):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	stdgo.internal.testenv.Testenv.mustHaveSymlink({
-		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
-		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
-		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
-			return _t.deadline() #else null #end;
-		__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
-		__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
-		__self__.fail = #if !macro function():Void _t.fail() #else null #end;
-		__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
-		__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
-		__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
-		__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
-		__self__.helper = #if !macro function():Void _t.helper() #else null #end;
-		__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
-		__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
-		__self__.name = #if !macro function():GoString return _t.name() #else null #end;
-		__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
-		__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
-		__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
-		__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
-		__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
-		__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
-		__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
-		__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
-		__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
-		__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
-		__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
-				_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
-		__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
-		__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
-		__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
-		__self__._private = #if !macro function():Void _t._private() #else null #end;
-		__self__._report = #if !macro function():Void _t._report() #else null #end;
-		__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
-		__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
-		__self__;
-	});
+	stdgo.internal.testenv.Testenv.mustHaveSymlink(Go.asInterface(_t));
 	try {
 		__deferstack__.unshift(() -> _chtmpdir(_t)());
 		var _s:GoString = (Go.str("0123456789abcdef") : GoString);
@@ -3540,111 +3063,7 @@ function _exec(_t:stdgo.testing.Testing.T, _dir:GoString, _cmd:GoString, _args:S
 		};
 		_w.close();
 		var _b:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-		stdgo.io.Io.copy({
-			final __self__ = new stdgo.bytes.Bytes.Buffer_asInterface(_b);
-			__self__.bytes = #if !macro function():Slice<GoUInt8> return _b.bytes() #else null #end;
-			__self__.cap = #if !macro function():GoInt return _b.cap() #else null #end;
-			__self__.grow = #if !macro function(_n:GoInt):Void _b.grow(_n) #else null #end;
-			__self__.len = #if !macro function():GoInt return _b.len() #else null #end;
-			__self__.next = #if !macro function(_n:GoInt):Slice<GoUInt8> return _b.next(_n) #else null #end;
-			__self__.read = #if !macro function(_b_:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _b.read(_b_) #else null #end;
-			__self__.readByte = #if !macro function():{var _0:GoUInt8; var _1:stdgo.Error;}
-				return _b.readByte() #else null #end;
-			__self__.readBytes = #if !macro function(_c:GoUInt8):{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _b.readBytes(_c) #else null #end;
-			__self__.readFrom = #if !macro function(_r_:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _b.readFrom(_r_) #else null #end;
-			__self__.readRune = #if !macro function():{var _0:GoInt32; var _1:GoInt; var _2:stdgo.Error;}
-				return _b.readRune() #else null #end;
-			__self__.readString = #if !macro function(_c:GoUInt8):{var _0:GoString; var _1:stdgo.Error;}
-				return _b.readString(_c) #else null #end;
-			__self__.reset = #if !macro function():Void _b.reset() #else null #end;
-			__self__.string = #if !macro function():GoString return _b.string() #else null #end;
-			__self__.truncate = #if !macro function(_n:GoInt):Void _b.truncate(_n) #else null #end;
-			__self__.unreadByte = #if !macro function():stdgo.Error return _b.unreadByte() #else null #end;
-			__self__.unreadRune = #if !macro function():stdgo.Error return _b.unreadRune() #else null #end;
-			__self__.write = #if !macro function(_b__:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _b.write(_b__) #else null #end;
-			__self__.writeByte = #if !macro function(_c:GoUInt8):stdgo.Error return _b.writeByte(_c) #else null #end;
-			__self__.writeRune = #if !macro function(__0:GoInt32):{var _0:GoInt; var _1:stdgo.Error;}
-				return _b.writeRune(__0) #else null #end;
-			__self__.writeString = #if !macro function(__0:GoString):{var _0:GoInt; var _1:stdgo.Error;}
-				return _b.writeString(__0) #else null #end;
-			__self__.writeTo = #if !macro function(_w_:stdgo.io.Io.Writer):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _b.writeTo(_w_) #else null #end;
-			__self__._empty = #if !macro function():Bool return _b._empty() #else null #end;
-			__self__._grow = #if !macro function(_n:GoInt):GoInt return _b._grow(_n) #else null #end;
-			__self__._readSlice = #if !macro function(_c:GoUInt8):{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _b._readSlice(_c) #else null #end;
-			__self__._tryGrowByReslice = #if !macro function(_n:GoInt):{var _0:GoInt; var _1:Bool;}
-				return _b._tryGrowByReslice(_n) #else null #end;
-			__self__;
-		}, {
-			final __self__ = new File_asInterface(_r);
-			__self__.chdir = #if !macro function():stdgo.Error return _r.chdir() #else null #end;
-			__self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _r.chmod(_mode) #else null #end;
-			__self__.chown = #if !macro function(_uid:GoInt, _gid:GoInt):stdgo.Error return _r.chown(_uid, _gid) #else null #end;
-			__self__.close = #if !macro function():stdgo.Error return _r.close() #else null #end;
-			__self__.fd = #if !macro function():GoUIntptr return _r.fd() #else null #end;
-			__self__.name = #if !macro function():GoString return _r.name() #else null #end;
-			__self__.read = #if !macro function(_b_:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _r.read(_b_) #else null #end;
-			__self__.readAt = #if !macro function(_b__:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _r.readAt(_b__, _off) #else null #end;
-			__self__.readDir = #if !macro function(_n:GoInt):{var _0:Slice<stdgo.io.fs.Fs.DirEntry>; var _1:stdgo.Error;}
-				return _r.readDir(_n) #else null #end;
-			__self__.readFrom = #if !macro function(_r_:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _r.readFrom(_r_) #else null #end;
-			__self__.readdir = #if !macro function(_n:GoInt):{var _0:Slice<stdgo.io.fs.Fs.FileInfo>; var _1:stdgo.Error;}
-				return _r.readdir(_n) #else null #end;
-			__self__.readdirnames = #if !macro function(_n:GoInt):{var _0:Slice<GoString>; var _1:stdgo.Error;}
-				return _r.readdirnames(_n) #else null #end;
-			__self__.seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _r.seek(_offset, _whence) #else null #end;
-			__self__.setDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _r.setDeadline(__0) #else null #end;
-			__self__.setReadDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _r.setReadDeadline(__0) #else null #end;
-			__self__.setWriteDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _r.setWriteDeadline(__0) #else null #end;
-			__self__.stat = #if !macro function():{var _0:stdgo.io.fs.Fs.FileInfo; var _1:stdgo.Error;}
-				return _r.stat() #else null #end;
-			__self__.sync = #if !macro function():stdgo.Error return _r.sync() #else null #end;
-			__self__.syscallConn = #if !macro function():{var _0:stdgo.syscall.Syscall.RawConn; var _1:stdgo.Error;}
-				return _r.syscallConn() #else null #end;
-			__self__.truncate = #if !macro function(__0:GoInt64):stdgo.Error return _r.truncate(__0) #else null #end;
-			__self__.write = #if !macro function(_b___:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _r.write(_b___) #else null #end;
-			__self__.writeAt = #if !macro function(_b____:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _r.writeAt(_b____, _off) #else null #end;
-			__self__.writeString = #if !macro function(__0:GoString):{var _0:GoInt; var _1:stdgo.Error;}
-				return _r.writeString(__0) #else null #end;
-			__self__._checkValid = #if !macro function(__0:GoString):stdgo.Error return _r._checkValid(__0) #else null #end;
-			__self__._chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _r._chmod(_mode) #else null #end;
-			__self__._close = #if !macro function():stdgo.Error return _r._close() #else null #end;
-			__self__._pread = #if !macro function(_b_____:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _r._pread(_b_____, _off) #else null #end;
-			__self__._pwrite = #if !macro function(_b______:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _r._pwrite(_b______, _off) #else null #end;
-			__self__._read = #if !macro function(_b_______:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _r._read(_b_______) #else null #end;
-			__self__._readFrom = #if !macro function(_r__:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:Bool; var _2:stdgo.Error;}
-				return _r._readFrom(_r__) #else null #end;
-			__self__._readdir = #if !macro function(_n:GoInt, _mode:T_readdirMode):{
-				var _0:Slice<GoString>;
-				var _1:Slice<stdgo.io.fs.Fs.DirEntry>;
-				var _2:Slice<stdgo.io.fs.Fs.FileInfo>;
-				var _3:stdgo.Error;
-			}
-				return _r._readdir(_n, _mode) #else null #end;
-			__self__._seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _r._seek(_offset, _whence) #else null #end;
-			__self__._setDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _r._setDeadline(__0) #else null #end;
-			__self__._setReadDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _r._setReadDeadline(__0) #else null #end;
-			__self__._setWriteDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _r._setWriteDeadline(__0) #else null #end;
-			__self__._wrapErr = #if !macro function(_op:GoString, _err_:stdgo.Error):stdgo.Error return _r._wrapErr(_op, _err_) #else null #end;
-			__self__._write = #if !macro function(_b________:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _r._write(_b________) #else null #end;
-			__self__;
-		});
+		stdgo.io.Io.copy(Go.asInterface(_b), Go.asInterface(_r));
 		var _output:GoString = (_b.string() : GoString);
 		var __tmp__ = stat(stdgo.strings.Strings.trimSpace(_output)),
 			_fi1:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
@@ -3684,43 +3103,7 @@ function _exec(_t:stdgo.testing.Testing.T, _dir:GoString, _cmd:GoString, _args:S
 }
 
 function testStartProcess(_t:stdgo.testing.Testing.T):Void {
-	stdgo.internal.testenv.Testenv.mustHaveExec({
-		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
-		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
-		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
-			return _t.deadline() #else null #end;
-		__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
-		__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
-		__self__.fail = #if !macro function():Void _t.fail() #else null #end;
-		__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
-		__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
-		__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
-		__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
-		__self__.helper = #if !macro function():Void _t.helper() #else null #end;
-		__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
-		__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
-		__self__.name = #if !macro function():GoString return _t.name() #else null #end;
-		__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
-		__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
-		__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
-		__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
-		__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
-		__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
-		__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
-		__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
-		__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
-		__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
-		__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
-				_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
-		__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
-		__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
-		__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
-		__self__._private = #if !macro function():Void _t._private() #else null #end;
-		__self__._report = #if !macro function():Void _t._report() #else null #end;
-		__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
-		__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
-		__self__;
-	});
+	stdgo.internal.testenv.Testenv.mustHaveExec(Go.asInterface(_t));
 	var _dir:GoString = ("" : GoString), _cmd:GoString = ("" : GoString);
 	var _args:Slice<GoString> = (null : Slice<GoString>);
 	if ((Go.str("js") : GoString) == ((Go.str("android") : GoString))) {
@@ -3756,34 +3139,12 @@ function _checkMode(_t:stdgo.testing.Testing.T, _path:GoString, _mode:FileMode):
 		_dir:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 		_err:stdgo.Error = __tmp__._1;
 	if (_err != null) {
-		_t.fatalf((Go.str("Stat %q (looking for mode %#o): %s") : GoString), Go.toInterface(_path), Go.toInterface({
-			final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_mode);
-			__self__.isDir = #if !macro function():Bool return _mode.isDir() #else null #end;
-			__self__.isRegular = #if !macro function():Bool return _mode.isRegular() #else null #end;
-			__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _mode.perm() #else null #end;
-			__self__.string = #if !macro function():GoString return _mode.string() #else null #end;
-			__self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return _mode.type() #else null #end;
-			__self__;
-		}), Go.toInterface(_err));
+		_t.fatalf((Go.str("Stat %q (looking for mode %#o): %s") : GoString), Go.toInterface(_path), Go.toInterface(Go.asInterface(_mode)),
+			Go.toInterface(_err));
 	};
 	if ((_dir.mode() & (511 : stdgo.io.fs.Fs.FileMode)) != _mode) {
-		_t.errorf((Go.str("Stat %q: mode %#o want %#o") : GoString), Go.toInterface(_path), Go.toInterface({
-			final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_dir.mode());
-			__self__.isDir = #if !macro function():Bool return _dir.mode().isDir() #else null #end;
-			__self__.isRegular = #if !macro function():Bool return _dir.mode().isRegular() #else null #end;
-			__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _dir.mode().perm() #else null #end;
-			__self__.string = #if !macro function():GoString return _dir.mode().string() #else null #end;
-			__self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return _dir.mode().type() #else null #end;
-			__self__;
-		}), Go.toInterface({
-			final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_mode);
-			__self__.isDir = #if !macro function():Bool return _mode.isDir() #else null #end;
-			__self__.isRegular = #if !macro function():Bool return _mode.isRegular() #else null #end;
-			__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _mode.perm() #else null #end;
-			__self__.string = #if !macro function():GoString return _mode.string() #else null #end;
-			__self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return _mode.type() #else null #end;
-			__self__;
-		}));
+		_t.errorf((Go.str("Stat %q: mode %#o want %#o") : GoString), Go.toInterface(_path), Go.toInterface(Go.asInterface(_dir.mode())),
+			Go.toInterface(Go.asInterface(_mode)));
 	};
 }
 
@@ -3803,15 +3164,7 @@ function testChmod(_t:stdgo.testing.Testing.T):Void {
 		{
 			var _err:stdgo.Error = chmod(_f.name(), _fm);
 			if (_err != null) {
-				_t.fatalf((Go.str("chmod %s %#o: %s") : GoString), Go.toInterface(_f.name()), Go.toInterface({
-					final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_fm);
-					__self__.isDir = #if !macro function():Bool return _fm.isDir() #else null #end;
-					__self__.isRegular = #if !macro function():Bool return _fm.isRegular() #else null #end;
-					__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _fm.perm() #else null #end;
-					__self__.string = #if !macro function():GoString return _fm.string() #else null #end;
-					__self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return _fm.type() #else null #end;
-					__self__;
-				}), Go.toInterface(_err));
+				_t.fatalf((Go.str("chmod %s %#o: %s") : GoString), Go.toInterface(_f.name()), Go.toInterface(Go.asInterface(_fm)), Go.toInterface(_err));
 			};
 		};
 		_checkMode(_t, _f.name(), _fm);
@@ -3822,15 +3175,7 @@ function testChmod(_t:stdgo.testing.Testing.T):Void {
 		{
 			var _err:stdgo.Error = _f.chmod(_fm);
 			if (_err != null) {
-				_t.fatalf((Go.str("chmod %s %#o: %s") : GoString), Go.toInterface(_f.name()), Go.toInterface({
-					final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_fm);
-					__self__.isDir = #if !macro function():Bool return _fm.isDir() #else null #end;
-					__self__.isRegular = #if !macro function():Bool return _fm.isRegular() #else null #end;
-					__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _fm.perm() #else null #end;
-					__self__.string = #if !macro function():GoString return _fm.string() #else null #end;
-					__self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return _fm.type() #else null #end;
-					__self__;
-				}), Go.toInterface(_err));
+				_t.fatalf((Go.str("chmod %s %#o: %s") : GoString), Go.toInterface(_f.name()), Go.toInterface(Go.asInterface(_fm)), Go.toInterface(_err));
 			};
 		};
 		_checkMode(_t, _f.name(), _fm);
@@ -4082,470 +3427,16 @@ function _testChtimes(_t:stdgo.testing.Testing.T, _name:GoString):Void {
 				_t.logf((Go.str("AccessTime didn\'t go backwards, but see a filesystem mounted noatime; ignoring. Issue 19293.") : GoString));
 			} else {
 				_t.logf((Go.str("AccessTime didn\'t go backwards; was=%v, after=%v (Ignoring on NetBSD, assuming noatime, Issue 19293)") : GoString),
-					Go.toInterface({
-						final __self__ = new stdgo.time.Time.Time_asInterface(_at);
-						__self__.add = #if !macro function(_d:stdgo.time.Time.Duration):stdgo.time.Time.Time return _at.add(_d) #else null #end;
-						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-								_days:GoInt):stdgo.time.Time.Time return _at.addDate(_years, _months, _days) #else null #end;
-						__self__.after = #if !macro function(__0:stdgo.time.Time.Time):Bool return _at.after(__0) #else null #end;
-						__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-								_layout:GoString):Slice<GoUInt8> return _at.appendFormat(_b, _layout) #else null #end;
-						__self__.before = #if !macro function(__0:stdgo.time.Time.Time):Bool return _at.before(__0) #else null #end;
-						__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-							return _at.clock() #else null #end;
-						__self__.date = #if !macro function():{var _0:GoInt; var _1:stdgo.time.Time.Month; var _2:GoInt;}
-							return _at.date() #else null #end;
-						__self__.day = #if !macro function():GoInt return _at.day() #else null #end;
-						__self__.equal = #if !macro function(__0:stdgo.time.Time.Time):Bool return _at.equal(__0) #else null #end;
-						__self__.format = #if !macro function(__0:GoString):GoString return _at.format(__0) #else null #end;
-						__self__.goString = #if !macro function():GoString return _at.goString() #else null #end;
-						__self__.gobDecode = #if !macro function(_b:Slice<GoUInt8>):stdgo.Error return _at.gobDecode(_b) #else null #end;
-						__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _at.gobEncode() #else null #end;
-						__self__.hour = #if !macro function():GoInt return _at.hour() #else null #end;
-						__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-							return _at.isoweek() #else null #end;
-						__self__.in_ = #if !macro function(_loc:Ref<stdgo.time.Time.Location>):stdgo.time.Time.Time return _at.in_(_loc) #else null #end;
-						__self__.isDST = #if !macro function():Bool return _at.isDST() #else null #end;
-						__self__.isZero = #if !macro function():Bool return _at.isZero() #else null #end;
-						__self__.local = #if !macro function():stdgo.time.Time.Time return _at.local() #else null #end;
-						__self__.location = #if !macro function():Ref<stdgo.time.Time.Location> return _at.location() #else null #end;
-						__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _at.marshalBinary() #else null #end;
-						__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _at.marshalJSON() #else null #end;
-						__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _at.marshalText() #else null #end;
-						__self__.minute = #if !macro function():GoInt return _at.minute() #else null #end;
-						__self__.month = #if !macro function():stdgo.time.Time.Month return _at.month() #else null #end;
-						__self__.nanosecond = #if !macro function():GoInt return _at.nanosecond() #else null #end;
-						__self__.round = #if !macro function(_d:stdgo.time.Time.Duration):stdgo.time.Time.Time return _at.round(_d) #else null #end;
-						__self__.second = #if !macro function():GoInt return _at.second() #else null #end;
-						__self__.string = #if !macro function():GoString return _at.string() #else null #end;
-						__self__.sub = #if !macro function(__0:stdgo.time.Time.Time):stdgo.time.Time.Duration return _at.sub(__0) #else null #end;
-						__self__.truncate = #if !macro function(_d:stdgo.time.Time.Duration):stdgo.time.Time.Time return _at.truncate(_d) #else null #end;
-						__self__.utc = #if !macro function():stdgo.time.Time.Time return _at.utc() #else null #end;
-						__self__.unix = #if !macro function():GoInt64 return _at.unix() #else null #end;
-						__self__.unixMicro = #if !macro function():GoInt64 return _at.unixMicro() #else null #end;
-						__self__.unixMilli = #if !macro function():GoInt64 return _at.unixMilli() #else null #end;
-						__self__.unixNano = #if !macro function():GoInt64 return _at.unixNano() #else null #end;
-						__self__.unmarshalBinary = #if !macro function(_b:Slice<GoUInt8>):stdgo.Error return _at.unmarshalBinary(_b) #else null #end;
-						__self__.unmarshalJSON = #if !macro function(_b:Slice<GoUInt8>):stdgo.Error return _at.unmarshalJSON(_b) #else null #end;
-						__self__.unmarshalText = #if !macro function(_b:Slice<GoUInt8>):stdgo.Error return _at.unmarshalText(_b) #else null #end;
-						__self__.weekday = #if !macro function():stdgo.time.Time.Weekday return _at.weekday() #else null #end;
-						__self__.year = #if !macro function():GoInt return _at.year() #else null #end;
-						__self__.yearDay = #if !macro function():GoInt return _at.yearDay() #else null #end;
-						__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-							return _at.zone() #else null #end;
-						__self__.zoneBounds = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:stdgo.time.Time.Time;}
-							return _at.zoneBounds() #else null #end;
-						__self__._abs = #if !macro function():GoUInt64 return _at._abs() #else null #end;
-						__self__._addSec = #if !macro function(__0:GoInt64):Void _at._addSec(__0) #else null #end;
-						__self__._date = #if !macro function(__0:Bool):{
-							var _0:GoInt;
-							var _1:stdgo.time.Time.Month;
-							var _2:GoInt;
-							var _3:GoInt;
-						}
-							return _at._date(__0) #else null #end;
-						__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-							return _at._locabs() #else null #end;
-						__self__._mono = #if !macro function():GoInt64 return _at._mono() #else null #end;
-						__self__._nsec = #if !macro function():GoInt32 return _at._nsec() #else null #end;
-						__self__._sec = #if !macro function():GoInt64 return _at._sec() #else null #end;
-						__self__._setLoc = #if !macro function(_loc:Ref<stdgo.time.Time.Location>):Void _at._setLoc(_loc) #else null #end;
-						__self__._setMono = #if !macro function(__0:GoInt64):Void _at._setMono(__0) #else null #end;
-						__self__._stripMono = #if !macro function():Void _at._stripMono() #else null #end;
-						__self__._unixSec = #if !macro function():GoInt64 return _at._unixSec() #else null #end;
-						__self__;
-					}), Go.toInterface({
-						final __self__ = new stdgo.time.Time.Time_asInterface(_pat);
-						__self__.add = #if !macro function(_d:stdgo.time.Time.Duration):stdgo.time.Time.Time return _pat.add(_d) #else null #end;
-						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-								_days:GoInt):stdgo.time.Time.Time return _pat.addDate(_years, _months, _days) #else null #end;
-						__self__.after = #if !macro function(__0:stdgo.time.Time.Time):Bool return _pat.after(__0) #else null #end;
-						__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-								_layout:GoString):Slice<GoUInt8> return _pat.appendFormat(_b, _layout) #else null #end;
-						__self__.before = #if !macro function(__0:stdgo.time.Time.Time):Bool return _pat.before(__0) #else null #end;
-						__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-							return _pat.clock() #else null #end;
-						__self__.date = #if !macro function():{var _0:GoInt; var _1:stdgo.time.Time.Month; var _2:GoInt;}
-							return _pat.date() #else null #end;
-						__self__.day = #if !macro function():GoInt return _pat.day() #else null #end;
-						__self__.equal = #if !macro function(__0:stdgo.time.Time.Time):Bool return _pat.equal(__0) #else null #end;
-						__self__.format = #if !macro function(__0:GoString):GoString return _pat.format(__0) #else null #end;
-						__self__.goString = #if !macro function():GoString return _pat.goString() #else null #end;
-						__self__.gobDecode = #if !macro function(_b:Slice<GoUInt8>):stdgo.Error return _pat.gobDecode(_b) #else null #end;
-						__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _pat.gobEncode() #else null #end;
-						__self__.hour = #if !macro function():GoInt return _pat.hour() #else null #end;
-						__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-							return _pat.isoweek() #else null #end;
-						__self__.in_ = #if !macro function(_loc:Ref<stdgo.time.Time.Location>):stdgo.time.Time.Time return _pat.in_(_loc) #else null #end;
-						__self__.isDST = #if !macro function():Bool return _pat.isDST() #else null #end;
-						__self__.isZero = #if !macro function():Bool return _pat.isZero() #else null #end;
-						__self__.local = #if !macro function():stdgo.time.Time.Time return _pat.local() #else null #end;
-						__self__.location = #if !macro function():Ref<stdgo.time.Time.Location> return _pat.location() #else null #end;
-						__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _pat.marshalBinary() #else null #end;
-						__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _pat.marshalJSON() #else null #end;
-						__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-							return _pat.marshalText() #else null #end;
-						__self__.minute = #if !macro function():GoInt return _pat.minute() #else null #end;
-						__self__.month = #if !macro function():stdgo.time.Time.Month return _pat.month() #else null #end;
-						__self__.nanosecond = #if !macro function():GoInt return _pat.nanosecond() #else null #end;
-						__self__.round = #if !macro function(_d:stdgo.time.Time.Duration):stdgo.time.Time.Time return _pat.round(_d) #else null #end;
-						__self__.second = #if !macro function():GoInt return _pat.second() #else null #end;
-						__self__.string = #if !macro function():GoString return _pat.string() #else null #end;
-						__self__.sub = #if !macro function(__0:stdgo.time.Time.Time):stdgo.time.Time.Duration return _pat.sub(__0) #else null #end;
-						__self__.truncate = #if !macro function(_d:stdgo.time.Time.Duration):stdgo.time.Time.Time return _pat.truncate(_d) #else null #end;
-						__self__.utc = #if !macro function():stdgo.time.Time.Time return _pat.utc() #else null #end;
-						__self__.unix = #if !macro function():GoInt64 return _pat.unix() #else null #end;
-						__self__.unixMicro = #if !macro function():GoInt64 return _pat.unixMicro() #else null #end;
-						__self__.unixMilli = #if !macro function():GoInt64 return _pat.unixMilli() #else null #end;
-						__self__.unixNano = #if !macro function():GoInt64 return _pat.unixNano() #else null #end;
-						__self__.unmarshalBinary = #if !macro function(_b:Slice<GoUInt8>):stdgo.Error return _pat.unmarshalBinary(_b) #else null #end;
-						__self__.unmarshalJSON = #if !macro function(_b:Slice<GoUInt8>):stdgo.Error return _pat.unmarshalJSON(_b) #else null #end;
-						__self__.unmarshalText = #if !macro function(_b:Slice<GoUInt8>):stdgo.Error return _pat.unmarshalText(_b) #else null #end;
-						__self__.weekday = #if !macro function():stdgo.time.Time.Weekday return _pat.weekday() #else null #end;
-						__self__.year = #if !macro function():GoInt return _pat.year() #else null #end;
-						__self__.yearDay = #if !macro function():GoInt return _pat.yearDay() #else null #end;
-						__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-							return _pat.zone() #else null #end;
-						__self__.zoneBounds = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:stdgo.time.Time.Time;}
-							return _pat.zoneBounds() #else null #end;
-						__self__._abs = #if !macro function():GoUInt64 return _pat._abs() #else null #end;
-						__self__._addSec = #if !macro function(__0:GoInt64):Void _pat._addSec(__0) #else null #end;
-						__self__._date = #if !macro function(__0:Bool):{
-							var _0:GoInt;
-							var _1:stdgo.time.Time.Month;
-							var _2:GoInt;
-							var _3:GoInt;
-						}
-							return _pat._date(__0) #else null #end;
-						__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-							return _pat._locabs() #else null #end;
-						__self__._mono = #if !macro function():GoInt64 return _pat._mono() #else null #end;
-						__self__._nsec = #if !macro function():GoInt32 return _pat._nsec() #else null #end;
-						__self__._sec = #if !macro function():GoInt64 return _pat._sec() #else null #end;
-						__self__._setLoc = #if !macro function(_loc:Ref<stdgo.time.Time.Location>):Void _pat._setLoc(_loc) #else null #end;
-						__self__._setMono = #if !macro function(__0:GoInt64):Void _pat._setMono(__0) #else null #end;
-						__self__._stripMono = #if !macro function():Void _pat._stripMono() #else null #end;
-						__self__._unixSec = #if !macro function():GoInt64 return _pat._unixSec() #else null #end;
-						__self__;
-					}));
+					Go.toInterface(Go.asInterface(_at)), Go.toInterface(Go.asInterface(_pat)));
 			};
 		} else {
-			_t.errorf((Go.str("AccessTime didn\'t go backwards; was=%v, after=%v") : GoString), Go.toInterface({
-				final __self__ = new stdgo.time.Time.Time_asInterface(_at);
-				__self__.add = #if !macro function(_d:stdgo.time.Time.Duration):stdgo.time.Time.Time return _at.add(_d) #else null #end;
-				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-						_days:GoInt):stdgo.time.Time.Time return _at.addDate(_years, _months, _days) #else null #end;
-				__self__.after = #if !macro function(__0:stdgo.time.Time.Time):Bool return _at.after(__0) #else null #end;
-				__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-						_layout:GoString):Slice<GoUInt8> return _at.appendFormat(_b, _layout) #else null #end;
-				__self__.before = #if !macro function(__0:stdgo.time.Time.Time):Bool return _at.before(__0) #else null #end;
-				__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-					return _at.clock() #else null #end;
-				__self__.date = #if !macro function():{var _0:GoInt; var _1:stdgo.time.Time.Month; var _2:GoInt;}
-					return _at.date() #else null #end;
-				__self__.day = #if !macro function():GoInt return _at.day() #else null #end;
-				__self__.equal = #if !macro function(__0:stdgo.time.Time.Time):Bool return _at.equal(__0) #else null #end;
-				__self__.format = #if !macro function(__0:GoString):GoString return _at.format(__0) #else null #end;
-				__self__.goString = #if !macro function():GoString return _at.goString() #else null #end;
-				__self__.gobDecode = #if !macro function(_b:Slice<GoUInt8>):stdgo.Error return _at.gobDecode(_b) #else null #end;
-				__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _at.gobEncode() #else null #end;
-				__self__.hour = #if !macro function():GoInt return _at.hour() #else null #end;
-				__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-					return _at.isoweek() #else null #end;
-				__self__.in_ = #if !macro function(_loc:Ref<stdgo.time.Time.Location>):stdgo.time.Time.Time return _at.in_(_loc) #else null #end;
-				__self__.isDST = #if !macro function():Bool return _at.isDST() #else null #end;
-				__self__.isZero = #if !macro function():Bool return _at.isZero() #else null #end;
-				__self__.local = #if !macro function():stdgo.time.Time.Time return _at.local() #else null #end;
-				__self__.location = #if !macro function():Ref<stdgo.time.Time.Location> return _at.location() #else null #end;
-				__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _at.marshalBinary() #else null #end;
-				__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _at.marshalJSON() #else null #end;
-				__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _at.marshalText() #else null #end;
-				__self__.minute = #if !macro function():GoInt return _at.minute() #else null #end;
-				__self__.month = #if !macro function():stdgo.time.Time.Month return _at.month() #else null #end;
-				__self__.nanosecond = #if !macro function():GoInt return _at.nanosecond() #else null #end;
-				__self__.round = #if !macro function(_d:stdgo.time.Time.Duration):stdgo.time.Time.Time return _at.round(_d) #else null #end;
-				__self__.second = #if !macro function():GoInt return _at.second() #else null #end;
-				__self__.string = #if !macro function():GoString return _at.string() #else null #end;
-				__self__.sub = #if !macro function(__0:stdgo.time.Time.Time):stdgo.time.Time.Duration return _at.sub(__0) #else null #end;
-				__self__.truncate = #if !macro function(_d:stdgo.time.Time.Duration):stdgo.time.Time.Time return _at.truncate(_d) #else null #end;
-				__self__.utc = #if !macro function():stdgo.time.Time.Time return _at.utc() #else null #end;
-				__self__.unix = #if !macro function():GoInt64 return _at.unix() #else null #end;
-				__self__.unixMicro = #if !macro function():GoInt64 return _at.unixMicro() #else null #end;
-				__self__.unixMilli = #if !macro function():GoInt64 return _at.unixMilli() #else null #end;
-				__self__.unixNano = #if !macro function():GoInt64 return _at.unixNano() #else null #end;
-				__self__.unmarshalBinary = #if !macro function(_b:Slice<GoUInt8>):stdgo.Error return _at.unmarshalBinary(_b) #else null #end;
-				__self__.unmarshalJSON = #if !macro function(_b:Slice<GoUInt8>):stdgo.Error return _at.unmarshalJSON(_b) #else null #end;
-				__self__.unmarshalText = #if !macro function(_b:Slice<GoUInt8>):stdgo.Error return _at.unmarshalText(_b) #else null #end;
-				__self__.weekday = #if !macro function():stdgo.time.Time.Weekday return _at.weekday() #else null #end;
-				__self__.year = #if !macro function():GoInt return _at.year() #else null #end;
-				__self__.yearDay = #if !macro function():GoInt return _at.yearDay() #else null #end;
-				__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-					return _at.zone() #else null #end;
-				__self__.zoneBounds = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:stdgo.time.Time.Time;}
-					return _at.zoneBounds() #else null #end;
-				__self__._abs = #if !macro function():GoUInt64 return _at._abs() #else null #end;
-				__self__._addSec = #if !macro function(__0:GoInt64):Void _at._addSec(__0) #else null #end;
-				__self__._date = #if !macro function(__0:Bool):{
-					var _0:GoInt;
-					var _1:stdgo.time.Time.Month;
-					var _2:GoInt;
-					var _3:GoInt;
-				}
-					return _at._date(__0) #else null #end;
-				__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-					return _at._locabs() #else null #end;
-				__self__._mono = #if !macro function():GoInt64 return _at._mono() #else null #end;
-				__self__._nsec = #if !macro function():GoInt32 return _at._nsec() #else null #end;
-				__self__._sec = #if !macro function():GoInt64 return _at._sec() #else null #end;
-				__self__._setLoc = #if !macro function(_loc:Ref<stdgo.time.Time.Location>):Void _at._setLoc(_loc) #else null #end;
-				__self__._setMono = #if !macro function(__0:GoInt64):Void _at._setMono(__0) #else null #end;
-				__self__._stripMono = #if !macro function():Void _at._stripMono() #else null #end;
-				__self__._unixSec = #if !macro function():GoInt64 return _at._unixSec() #else null #end;
-				__self__;
-			}), Go.toInterface({
-				final __self__ = new stdgo.time.Time.Time_asInterface(_pat);
-				__self__.add = #if !macro function(_d:stdgo.time.Time.Duration):stdgo.time.Time.Time return _pat.add(_d) #else null #end;
-				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-						_days:GoInt):stdgo.time.Time.Time return _pat.addDate(_years, _months, _days) #else null #end;
-				__self__.after = #if !macro function(__0:stdgo.time.Time.Time):Bool return _pat.after(__0) #else null #end;
-				__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-						_layout:GoString):Slice<GoUInt8> return _pat.appendFormat(_b, _layout) #else null #end;
-				__self__.before = #if !macro function(__0:stdgo.time.Time.Time):Bool return _pat.before(__0) #else null #end;
-				__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-					return _pat.clock() #else null #end;
-				__self__.date = #if !macro function():{var _0:GoInt; var _1:stdgo.time.Time.Month; var _2:GoInt;}
-					return _pat.date() #else null #end;
-				__self__.day = #if !macro function():GoInt return _pat.day() #else null #end;
-				__self__.equal = #if !macro function(__0:stdgo.time.Time.Time):Bool return _pat.equal(__0) #else null #end;
-				__self__.format = #if !macro function(__0:GoString):GoString return _pat.format(__0) #else null #end;
-				__self__.goString = #if !macro function():GoString return _pat.goString() #else null #end;
-				__self__.gobDecode = #if !macro function(_b:Slice<GoUInt8>):stdgo.Error return _pat.gobDecode(_b) #else null #end;
-				__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _pat.gobEncode() #else null #end;
-				__self__.hour = #if !macro function():GoInt return _pat.hour() #else null #end;
-				__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-					return _pat.isoweek() #else null #end;
-				__self__.in_ = #if !macro function(_loc:Ref<stdgo.time.Time.Location>):stdgo.time.Time.Time return _pat.in_(_loc) #else null #end;
-				__self__.isDST = #if !macro function():Bool return _pat.isDST() #else null #end;
-				__self__.isZero = #if !macro function():Bool return _pat.isZero() #else null #end;
-				__self__.local = #if !macro function():stdgo.time.Time.Time return _pat.local() #else null #end;
-				__self__.location = #if !macro function():Ref<stdgo.time.Time.Location> return _pat.location() #else null #end;
-				__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _pat.marshalBinary() #else null #end;
-				__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _pat.marshalJSON() #else null #end;
-				__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-					return _pat.marshalText() #else null #end;
-				__self__.minute = #if !macro function():GoInt return _pat.minute() #else null #end;
-				__self__.month = #if !macro function():stdgo.time.Time.Month return _pat.month() #else null #end;
-				__self__.nanosecond = #if !macro function():GoInt return _pat.nanosecond() #else null #end;
-				__self__.round = #if !macro function(_d:stdgo.time.Time.Duration):stdgo.time.Time.Time return _pat.round(_d) #else null #end;
-				__self__.second = #if !macro function():GoInt return _pat.second() #else null #end;
-				__self__.string = #if !macro function():GoString return _pat.string() #else null #end;
-				__self__.sub = #if !macro function(__0:stdgo.time.Time.Time):stdgo.time.Time.Duration return _pat.sub(__0) #else null #end;
-				__self__.truncate = #if !macro function(_d:stdgo.time.Time.Duration):stdgo.time.Time.Time return _pat.truncate(_d) #else null #end;
-				__self__.utc = #if !macro function():stdgo.time.Time.Time return _pat.utc() #else null #end;
-				__self__.unix = #if !macro function():GoInt64 return _pat.unix() #else null #end;
-				__self__.unixMicro = #if !macro function():GoInt64 return _pat.unixMicro() #else null #end;
-				__self__.unixMilli = #if !macro function():GoInt64 return _pat.unixMilli() #else null #end;
-				__self__.unixNano = #if !macro function():GoInt64 return _pat.unixNano() #else null #end;
-				__self__.unmarshalBinary = #if !macro function(_b:Slice<GoUInt8>):stdgo.Error return _pat.unmarshalBinary(_b) #else null #end;
-				__self__.unmarshalJSON = #if !macro function(_b:Slice<GoUInt8>):stdgo.Error return _pat.unmarshalJSON(_b) #else null #end;
-				__self__.unmarshalText = #if !macro function(_b:Slice<GoUInt8>):stdgo.Error return _pat.unmarshalText(_b) #else null #end;
-				__self__.weekday = #if !macro function():stdgo.time.Time.Weekday return _pat.weekday() #else null #end;
-				__self__.year = #if !macro function():GoInt return _pat.year() #else null #end;
-				__self__.yearDay = #if !macro function():GoInt return _pat.yearDay() #else null #end;
-				__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-					return _pat.zone() #else null #end;
-				__self__.zoneBounds = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:stdgo.time.Time.Time;}
-					return _pat.zoneBounds() #else null #end;
-				__self__._abs = #if !macro function():GoUInt64 return _pat._abs() #else null #end;
-				__self__._addSec = #if !macro function(__0:GoInt64):Void _pat._addSec(__0) #else null #end;
-				__self__._date = #if !macro function(__0:Bool):{
-					var _0:GoInt;
-					var _1:stdgo.time.Time.Month;
-					var _2:GoInt;
-					var _3:GoInt;
-				}
-					return _pat._date(__0) #else null #end;
-				__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-					return _pat._locabs() #else null #end;
-				__self__._mono = #if !macro function():GoInt64 return _pat._mono() #else null #end;
-				__self__._nsec = #if !macro function():GoInt32 return _pat._nsec() #else null #end;
-				__self__._sec = #if !macro function():GoInt64 return _pat._sec() #else null #end;
-				__self__._setLoc = #if !macro function(_loc:Ref<stdgo.time.Time.Location>):Void _pat._setLoc(_loc) #else null #end;
-				__self__._setMono = #if !macro function(__0:GoInt64):Void _pat._setMono(__0) #else null #end;
-				__self__._stripMono = #if !macro function():Void _pat._stripMono() #else null #end;
-				__self__._unixSec = #if !macro function():GoInt64 return _pat._unixSec() #else null #end;
-				__self__;
-			}));
+			_t.errorf((Go.str("AccessTime didn\'t go backwards; was=%v, after=%v") : GoString), Go.toInterface(Go.asInterface(_at)),
+				Go.toInterface(Go.asInterface(_pat)));
 		};
 	};
 	if (!_pmt.before((_mt == null ? null : _mt.__copy__()))) {
-		_t.errorf((Go.str("ModTime didn\'t go backwards; was=%v, after=%v") : GoString), Go.toInterface({
-			final __self__ = new stdgo.time.Time.Time_asInterface(_mt);
-			__self__.add = #if !macro function(_d:stdgo.time.Time.Duration):stdgo.time.Time.Time return _mt.add(_d) #else null #end;
-			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-					_days:GoInt):stdgo.time.Time.Time return _mt.addDate(_years, _months, _days) #else null #end;
-			__self__.after = #if !macro function(__0:stdgo.time.Time.Time):Bool return _mt.after(__0) #else null #end;
-			__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-					_layout:GoString):Slice<GoUInt8> return _mt.appendFormat(_b, _layout) #else null #end;
-			__self__.before = #if !macro function(__0:stdgo.time.Time.Time):Bool return _mt.before(__0) #else null #end;
-			__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-				return _mt.clock() #else null #end;
-			__self__.date = #if !macro function():{var _0:GoInt; var _1:stdgo.time.Time.Month; var _2:GoInt;}
-				return _mt.date() #else null #end;
-			__self__.day = #if !macro function():GoInt return _mt.day() #else null #end;
-			__self__.equal = #if !macro function(__0:stdgo.time.Time.Time):Bool return _mt.equal(__0) #else null #end;
-			__self__.format = #if !macro function(__0:GoString):GoString return _mt.format(__0) #else null #end;
-			__self__.goString = #if !macro function():GoString return _mt.goString() #else null #end;
-			__self__.gobDecode = #if !macro function(_b:Slice<GoUInt8>):stdgo.Error return _mt.gobDecode(_b) #else null #end;
-			__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _mt.gobEncode() #else null #end;
-			__self__.hour = #if !macro function():GoInt return _mt.hour() #else null #end;
-			__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-				return _mt.isoweek() #else null #end;
-			__self__.in_ = #if !macro function(_loc:Ref<stdgo.time.Time.Location>):stdgo.time.Time.Time return _mt.in_(_loc) #else null #end;
-			__self__.isDST = #if !macro function():Bool return _mt.isDST() #else null #end;
-			__self__.isZero = #if !macro function():Bool return _mt.isZero() #else null #end;
-			__self__.local = #if !macro function():stdgo.time.Time.Time return _mt.local() #else null #end;
-			__self__.location = #if !macro function():Ref<stdgo.time.Time.Location> return _mt.location() #else null #end;
-			__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _mt.marshalBinary() #else null #end;
-			__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _mt.marshalJSON() #else null #end;
-			__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _mt.marshalText() #else null #end;
-			__self__.minute = #if !macro function():GoInt return _mt.minute() #else null #end;
-			__self__.month = #if !macro function():stdgo.time.Time.Month return _mt.month() #else null #end;
-			__self__.nanosecond = #if !macro function():GoInt return _mt.nanosecond() #else null #end;
-			__self__.round = #if !macro function(_d:stdgo.time.Time.Duration):stdgo.time.Time.Time return _mt.round(_d) #else null #end;
-			__self__.second = #if !macro function():GoInt return _mt.second() #else null #end;
-			__self__.string = #if !macro function():GoString return _mt.string() #else null #end;
-			__self__.sub = #if !macro function(__0:stdgo.time.Time.Time):stdgo.time.Time.Duration return _mt.sub(__0) #else null #end;
-			__self__.truncate = #if !macro function(_d:stdgo.time.Time.Duration):stdgo.time.Time.Time return _mt.truncate(_d) #else null #end;
-			__self__.utc = #if !macro function():stdgo.time.Time.Time return _mt.utc() #else null #end;
-			__self__.unix = #if !macro function():GoInt64 return _mt.unix() #else null #end;
-			__self__.unixMicro = #if !macro function():GoInt64 return _mt.unixMicro() #else null #end;
-			__self__.unixMilli = #if !macro function():GoInt64 return _mt.unixMilli() #else null #end;
-			__self__.unixNano = #if !macro function():GoInt64 return _mt.unixNano() #else null #end;
-			__self__.unmarshalBinary = #if !macro function(_b:Slice<GoUInt8>):stdgo.Error return _mt.unmarshalBinary(_b) #else null #end;
-			__self__.unmarshalJSON = #if !macro function(_b:Slice<GoUInt8>):stdgo.Error return _mt.unmarshalJSON(_b) #else null #end;
-			__self__.unmarshalText = #if !macro function(_b:Slice<GoUInt8>):stdgo.Error return _mt.unmarshalText(_b) #else null #end;
-			__self__.weekday = #if !macro function():stdgo.time.Time.Weekday return _mt.weekday() #else null #end;
-			__self__.year = #if !macro function():GoInt return _mt.year() #else null #end;
-			__self__.yearDay = #if !macro function():GoInt return _mt.yearDay() #else null #end;
-			__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-				return _mt.zone() #else null #end;
-			__self__.zoneBounds = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:stdgo.time.Time.Time;}
-				return _mt.zoneBounds() #else null #end;
-			__self__._abs = #if !macro function():GoUInt64 return _mt._abs() #else null #end;
-			__self__._addSec = #if !macro function(__0:GoInt64):Void _mt._addSec(__0) #else null #end;
-			__self__._date = #if !macro function(__0:Bool):{
-				var _0:GoInt;
-				var _1:stdgo.time.Time.Month;
-				var _2:GoInt;
-				var _3:GoInt;
-			}
-				return _mt._date(__0) #else null #end;
-			__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-				return _mt._locabs() #else null #end;
-			__self__._mono = #if !macro function():GoInt64 return _mt._mono() #else null #end;
-			__self__._nsec = #if !macro function():GoInt32 return _mt._nsec() #else null #end;
-			__self__._sec = #if !macro function():GoInt64 return _mt._sec() #else null #end;
-			__self__._setLoc = #if !macro function(_loc:Ref<stdgo.time.Time.Location>):Void _mt._setLoc(_loc) #else null #end;
-			__self__._setMono = #if !macro function(__0:GoInt64):Void _mt._setMono(__0) #else null #end;
-			__self__._stripMono = #if !macro function():Void _mt._stripMono() #else null #end;
-			__self__._unixSec = #if !macro function():GoInt64 return _mt._unixSec() #else null #end;
-			__self__;
-		}), Go.toInterface({
-			final __self__ = new stdgo.time.Time.Time_asInterface(_pmt);
-			__self__.add = #if !macro function(_d:stdgo.time.Time.Duration):stdgo.time.Time.Time return _pmt.add(_d) #else null #end;
-			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
-					_days:GoInt):stdgo.time.Time.Time return _pmt.addDate(_years, _months, _days) #else null #end;
-			__self__.after = #if !macro function(__0:stdgo.time.Time.Time):Bool return _pmt.after(__0) #else null #end;
-			__self__.appendFormat = #if !macro function(_b:Slice<GoUInt8>,
-					_layout:GoString):Slice<GoUInt8> return _pmt.appendFormat(_b, _layout) #else null #end;
-			__self__.before = #if !macro function(__0:stdgo.time.Time.Time):Bool return _pmt.before(__0) #else null #end;
-			__self__.clock = #if !macro function():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-				return _pmt.clock() #else null #end;
-			__self__.date = #if !macro function():{var _0:GoInt; var _1:stdgo.time.Time.Month; var _2:GoInt;}
-				return _pmt.date() #else null #end;
-			__self__.day = #if !macro function():GoInt return _pmt.day() #else null #end;
-			__self__.equal = #if !macro function(__0:stdgo.time.Time.Time):Bool return _pmt.equal(__0) #else null #end;
-			__self__.format = #if !macro function(__0:GoString):GoString return _pmt.format(__0) #else null #end;
-			__self__.goString = #if !macro function():GoString return _pmt.goString() #else null #end;
-			__self__.gobDecode = #if !macro function(_b:Slice<GoUInt8>):stdgo.Error return _pmt.gobDecode(_b) #else null #end;
-			__self__.gobEncode = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _pmt.gobEncode() #else null #end;
-			__self__.hour = #if !macro function():GoInt return _pmt.hour() #else null #end;
-			__self__.isoweek = #if !macro function():{var _0:GoInt; var _1:GoInt;}
-				return _pmt.isoweek() #else null #end;
-			__self__.in_ = #if !macro function(_loc:Ref<stdgo.time.Time.Location>):stdgo.time.Time.Time return _pmt.in_(_loc) #else null #end;
-			__self__.isDST = #if !macro function():Bool return _pmt.isDST() #else null #end;
-			__self__.isZero = #if !macro function():Bool return _pmt.isZero() #else null #end;
-			__self__.local = #if !macro function():stdgo.time.Time.Time return _pmt.local() #else null #end;
-			__self__.location = #if !macro function():Ref<stdgo.time.Time.Location> return _pmt.location() #else null #end;
-			__self__.marshalBinary = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _pmt.marshalBinary() #else null #end;
-			__self__.marshalJSON = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _pmt.marshalJSON() #else null #end;
-			__self__.marshalText = #if !macro function():{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _pmt.marshalText() #else null #end;
-			__self__.minute = #if !macro function():GoInt return _pmt.minute() #else null #end;
-			__self__.month = #if !macro function():stdgo.time.Time.Month return _pmt.month() #else null #end;
-			__self__.nanosecond = #if !macro function():GoInt return _pmt.nanosecond() #else null #end;
-			__self__.round = #if !macro function(_d:stdgo.time.Time.Duration):stdgo.time.Time.Time return _pmt.round(_d) #else null #end;
-			__self__.second = #if !macro function():GoInt return _pmt.second() #else null #end;
-			__self__.string = #if !macro function():GoString return _pmt.string() #else null #end;
-			__self__.sub = #if !macro function(__0:stdgo.time.Time.Time):stdgo.time.Time.Duration return _pmt.sub(__0) #else null #end;
-			__self__.truncate = #if !macro function(_d:stdgo.time.Time.Duration):stdgo.time.Time.Time return _pmt.truncate(_d) #else null #end;
-			__self__.utc = #if !macro function():stdgo.time.Time.Time return _pmt.utc() #else null #end;
-			__self__.unix = #if !macro function():GoInt64 return _pmt.unix() #else null #end;
-			__self__.unixMicro = #if !macro function():GoInt64 return _pmt.unixMicro() #else null #end;
-			__self__.unixMilli = #if !macro function():GoInt64 return _pmt.unixMilli() #else null #end;
-			__self__.unixNano = #if !macro function():GoInt64 return _pmt.unixNano() #else null #end;
-			__self__.unmarshalBinary = #if !macro function(_b:Slice<GoUInt8>):stdgo.Error return _pmt.unmarshalBinary(_b) #else null #end;
-			__self__.unmarshalJSON = #if !macro function(_b:Slice<GoUInt8>):stdgo.Error return _pmt.unmarshalJSON(_b) #else null #end;
-			__self__.unmarshalText = #if !macro function(_b:Slice<GoUInt8>):stdgo.Error return _pmt.unmarshalText(_b) #else null #end;
-			__self__.weekday = #if !macro function():stdgo.time.Time.Weekday return _pmt.weekday() #else null #end;
-			__self__.year = #if !macro function():GoInt return _pmt.year() #else null #end;
-			__self__.yearDay = #if !macro function():GoInt return _pmt.yearDay() #else null #end;
-			__self__.zone = #if !macro function():{var _0:GoString; var _1:GoInt;}
-				return _pmt.zone() #else null #end;
-			__self__.zoneBounds = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:stdgo.time.Time.Time;}
-				return _pmt.zoneBounds() #else null #end;
-			__self__._abs = #if !macro function():GoUInt64 return _pmt._abs() #else null #end;
-			__self__._addSec = #if !macro function(__0:GoInt64):Void _pmt._addSec(__0) #else null #end;
-			__self__._date = #if !macro function(__0:Bool):{
-				var _0:GoInt;
-				var _1:stdgo.time.Time.Month;
-				var _2:GoInt;
-				var _3:GoInt;
-			}
-				return _pmt._date(__0) #else null #end;
-			__self__._locabs = #if !macro function():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-				return _pmt._locabs() #else null #end;
-			__self__._mono = #if !macro function():GoInt64 return _pmt._mono() #else null #end;
-			__self__._nsec = #if !macro function():GoInt32 return _pmt._nsec() #else null #end;
-			__self__._sec = #if !macro function():GoInt64 return _pmt._sec() #else null #end;
-			__self__._setLoc = #if !macro function(_loc:Ref<stdgo.time.Time.Location>):Void _pmt._setLoc(_loc) #else null #end;
-			__self__._setMono = #if !macro function(__0:GoInt64):Void _pmt._setMono(__0) #else null #end;
-			__self__._stripMono = #if !macro function():Void _pmt._stripMono() #else null #end;
-			__self__._unixSec = #if !macro function():GoInt64 return _pmt._unixSec() #else null #end;
-			__self__;
-		}));
+		_t.errorf((Go.str("ModTime didn\'t go backwards; was=%v, after=%v") : GoString), Go.toInterface(Go.asInterface(_mt)),
+			Go.toInterface(Go.asInterface(_pmt)));
 	};
 }
 
@@ -4679,75 +3570,7 @@ function testChdirAndGetwd(_t:stdgo.testing.Testing.T):Void {
 				setenv((Go.str("PWD") : GoString), _oldwd);
 				var _err2:stdgo.Error = _fd.chdir();
 				if (_err2 != null) {
-					stdgo.fmt.Fmt.fprintf({
-						final __self__ = new File_asInterface(stderr);
-						__self__.chdir = #if !macro function():stdgo.Error return stderr.chdir() #else null #end;
-						__self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return stderr.chmod(_mode) #else null #end;
-						__self__.chown = #if !macro function(_uid:GoInt, _gid:GoInt):stdgo.Error return stderr.chown(_uid, _gid) #else null #end;
-						__self__.close = #if !macro function():stdgo.Error return stderr.close() #else null #end;
-						__self__.fd = #if !macro function():GoUIntptr return stderr.fd() #else null #end;
-						__self__.name = #if !macro function():GoString return stderr.name() #else null #end;
-						__self__.read = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-							return stderr.read(_b) #else null #end;
-						__self__.readAt = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-							return stderr.readAt(_b, _off) #else null #end;
-						__self__.readDir = #if !macro function(_n:GoInt):{var _0:Slice<stdgo.io.fs.Fs.DirEntry>; var _1:stdgo.Error;}
-							return stderr.readDir(_n) #else null #end;
-						__self__.readFrom = #if !macro function(_r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:stdgo.Error;}
-							return stderr.readFrom(_r) #else null #end;
-						__self__.readdir = #if !macro function(_n:GoInt):{var _0:Slice<stdgo.io.fs.Fs.FileInfo>; var _1:stdgo.Error;}
-							return stderr.readdir(_n) #else null #end;
-						__self__.readdirnames = #if !macro function(_n:GoInt):{var _0:Slice<GoString>; var _1:stdgo.Error;}
-							return stderr.readdirnames(_n) #else null #end;
-						__self__.seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:stdgo.Error;}
-							return stderr.seek(_offset, _whence) #else null #end;
-						__self__.setDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return stderr.setDeadline(__0) #else null #end;
-						__self__.setReadDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return stderr.setReadDeadline(__0) #else null #end;
-						__self__.setWriteDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return
-							stderr.setWriteDeadline(__0) #else null #end;
-						__self__.stat = #if !macro function():{var _0:stdgo.io.fs.Fs.FileInfo; var _1:stdgo.Error;}
-							return stderr.stat() #else null #end;
-						__self__.sync = #if !macro function():stdgo.Error return stderr.sync() #else null #end;
-						__self__.syscallConn = #if !macro function():{var _0:stdgo.syscall.Syscall.RawConn; var _1:stdgo.Error;}
-							return stderr.syscallConn() #else null #end;
-						__self__.truncate = #if !macro function(__0:GoInt64):stdgo.Error return stderr.truncate(__0) #else null #end;
-						__self__.write = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-							return stderr.write(_b) #else null #end;
-						__self__.writeAt = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-							return stderr.writeAt(_b, _off) #else null #end;
-						__self__.writeString = #if !macro function(__0:GoString):{var _0:GoInt; var _1:stdgo.Error;}
-							return stderr.writeString(__0) #else null #end;
-						__self__._checkValid = #if !macro function(__0:GoString):stdgo.Error return stderr._checkValid(__0) #else null #end;
-						__self__._chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return stderr._chmod(_mode) #else null #end;
-						__self__._close = #if !macro function():stdgo.Error return stderr._close() #else null #end;
-						__self__._pread = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-							return stderr._pread(_b, _off) #else null #end;
-						__self__._pwrite = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-							return stderr._pwrite(_b, _off) #else null #end;
-						__self__._read = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-							return stderr._read(_b) #else null #end;
-						__self__._readFrom = #if !macro function(_r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:Bool; var _2:stdgo.Error;}
-							return stderr._readFrom(_r) #else null #end;
-						__self__._readdir = #if !macro function(_n:GoInt, _mode:T_readdirMode):{
-							var _0:Slice<GoString>;
-							var _1:Slice<stdgo.io.fs.Fs.DirEntry>;
-							var _2:Slice<stdgo.io.fs.Fs.FileInfo>;
-							var _3:stdgo.Error;
-						}
-							return stderr._readdir(_n, _mode) #else null #end;
-						__self__._seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:stdgo.Error;}
-							return stderr._seek(_offset, _whence) #else null #end;
-						__self__._setDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return stderr._setDeadline(__0) #else null #end;
-						__self__._setReadDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return
-							stderr._setReadDeadline(__0) #else null #end;
-						__self__._setWriteDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return
-							stderr._setWriteDeadline(__0) #else null #end;
-						__self__._wrapErr = #if !macro function(_op:GoString, _err_:stdgo.Error):stdgo.Error return stderr._wrapErr(_op,
-							_err_) #else null #end;
-						__self__._write = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-							return stderr._write(_b) #else null #end;
-						__self__;
-					}, (Go.str("fchdir back to dot failed: %s\n") : GoString), Go.toInterface(_err2));
+					stdgo.fmt.Fmt.fprintf(Go.asInterface(stderr), (Go.str("fchdir back to dot failed: %s\n") : GoString), Go.toInterface(_err2));
 					exit((1 : GoInt));
 				};
 				if (_err != null) {
@@ -4915,71 +3738,7 @@ function testSeek(_t:stdgo.testing.Testing.T):Void {
 		};
 		__deferstack__.unshift(() -> _f.close());
 		var _data:GoString = (Go.str("hello, world\n") : GoString);
-		stdgo.io.Io.writeString({
-			final __self__ = new File_asInterface(_f);
-			__self__.chdir = #if !macro function():stdgo.Error return _f.chdir() #else null #end;
-			__self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _f.chmod(_mode) #else null #end;
-			__self__.chown = #if !macro function(_uid:GoInt, _gid:GoInt):stdgo.Error return _f.chown(_uid, _gid) #else null #end;
-			__self__.close = #if !macro function():stdgo.Error return _f.close() #else null #end;
-			__self__.fd = #if !macro function():GoUIntptr return _f.fd() #else null #end;
-			__self__.name = #if !macro function():GoString return _f.name() #else null #end;
-			__self__.read = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.read(_b) #else null #end;
-			__self__.readAt = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.readAt(_b, _off) #else null #end;
-			__self__.readDir = #if !macro function(_n:GoInt):{var _0:Slice<stdgo.io.fs.Fs.DirEntry>; var _1:stdgo.Error;}
-				return _f.readDir(_n) #else null #end;
-			__self__.readFrom = #if !macro function(_r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _f.readFrom(_r) #else null #end;
-			__self__.readdir = #if !macro function(_n:GoInt):{var _0:Slice<stdgo.io.fs.Fs.FileInfo>; var _1:stdgo.Error;}
-				return _f.readdir(_n) #else null #end;
-			__self__.readdirnames = #if !macro function(_n:GoInt):{var _0:Slice<GoString>; var _1:stdgo.Error;}
-				return _f.readdirnames(_n) #else null #end;
-			__self__.seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _f.seek(_offset, _whence) #else null #end;
-			__self__.setDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f.setDeadline(__0) #else null #end;
-			__self__.setReadDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f.setReadDeadline(__0) #else null #end;
-			__self__.setWriteDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f.setWriteDeadline(__0) #else null #end;
-			__self__.stat = #if !macro function():{var _0:stdgo.io.fs.Fs.FileInfo; var _1:stdgo.Error;}
-				return _f.stat() #else null #end;
-			__self__.sync = #if !macro function():stdgo.Error return _f.sync() #else null #end;
-			__self__.syscallConn = #if !macro function():{var _0:stdgo.syscall.Syscall.RawConn; var _1:stdgo.Error;}
-				return _f.syscallConn() #else null #end;
-			__self__.truncate = #if !macro function(__0:GoInt64):stdgo.Error return _f.truncate(__0) #else null #end;
-			__self__.write = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.write(_b) #else null #end;
-			__self__.writeAt = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.writeAt(_b, _off) #else null #end;
-			__self__.writeString = #if !macro function(__0:GoString):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.writeString(__0) #else null #end;
-			__self__._checkValid = #if !macro function(__0:GoString):stdgo.Error return _f._checkValid(__0) #else null #end;
-			__self__._chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _f._chmod(_mode) #else null #end;
-			__self__._close = #if !macro function():stdgo.Error return _f._close() #else null #end;
-			__self__._pread = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f._pread(_b, _off) #else null #end;
-			__self__._pwrite = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f._pwrite(_b, _off) #else null #end;
-			__self__._read = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f._read(_b) #else null #end;
-			__self__._readFrom = #if !macro function(_r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:Bool; var _2:stdgo.Error;}
-				return _f._readFrom(_r) #else null #end;
-			__self__._readdir = #if !macro function(_n:GoInt, _mode:T_readdirMode):{
-				var _0:Slice<GoString>;
-				var _1:Slice<stdgo.io.fs.Fs.DirEntry>;
-				var _2:Slice<stdgo.io.fs.Fs.FileInfo>;
-				var _3:stdgo.Error;
-			}
-				return _f._readdir(_n, _mode) #else null #end;
-			__self__._seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _f._seek(_offset, _whence) #else null #end;
-			__self__._setDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f._setDeadline(__0) #else null #end;
-			__self__._setReadDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f._setReadDeadline(__0) #else null #end;
-			__self__._setWriteDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f._setWriteDeadline(__0) #else null #end;
-			__self__._wrapErr = #if !macro function(_op:GoString, _err:stdgo.Error):stdgo.Error return _f._wrapErr(_op, _err) #else null #end;
-			__self__._write = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f._write(_b) #else null #end;
-			__self__;
-		}, (Go.str("hello, world\n") : GoString));
+		stdgo.io.Io.writeString(Go.asInterface(_f), (Go.str("hello, world\n") : GoString));
 		{};
 		var _tests:Slice<stdgo.os_test.Os_test.T_test_testSeek_0> = (new Slice<stdgo.os_test.Os_test.T_test_testSeek_0>(0, 0,
 			(new stdgo.os_test.Os_test.T_test_testSeek_0((0 : GoInt64), (1 : GoInt),
@@ -5183,111 +3942,7 @@ function _runBinHostname(_t:stdgo.testing.Testing.T):GoString {
 		};
 		_w.close();
 		var _b:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-		stdgo.io.Io.copy({
-			final __self__ = new stdgo.bytes.Bytes.Buffer_asInterface(_b);
-			__self__.bytes = #if !macro function():Slice<GoUInt8> return _b.bytes() #else null #end;
-			__self__.cap = #if !macro function():GoInt return _b.cap() #else null #end;
-			__self__.grow = #if !macro function(_n:GoInt):Void _b.grow(_n) #else null #end;
-			__self__.len = #if !macro function():GoInt return _b.len() #else null #end;
-			__self__.next = #if !macro function(_n:GoInt):Slice<GoUInt8> return _b.next(_n) #else null #end;
-			__self__.read = #if !macro function(_b_:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _b.read(_b_) #else null #end;
-			__self__.readByte = #if !macro function():{var _0:GoUInt8; var _1:stdgo.Error;}
-				return _b.readByte() #else null #end;
-			__self__.readBytes = #if !macro function(_c:GoUInt8):{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _b.readBytes(_c) #else null #end;
-			__self__.readFrom = #if !macro function(_r_:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _b.readFrom(_r_) #else null #end;
-			__self__.readRune = #if !macro function():{var _0:GoInt32; var _1:GoInt; var _2:stdgo.Error;}
-				return _b.readRune() #else null #end;
-			__self__.readString = #if !macro function(_c:GoUInt8):{var _0:GoString; var _1:stdgo.Error;}
-				return _b.readString(_c) #else null #end;
-			__self__.reset = #if !macro function():Void _b.reset() #else null #end;
-			__self__.string = #if !macro function():GoString return _b.string() #else null #end;
-			__self__.truncate = #if !macro function(_n:GoInt):Void _b.truncate(_n) #else null #end;
-			__self__.unreadByte = #if !macro function():stdgo.Error return _b.unreadByte() #else null #end;
-			__self__.unreadRune = #if !macro function():stdgo.Error return _b.unreadRune() #else null #end;
-			__self__.write = #if !macro function(_b__:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _b.write(_b__) #else null #end;
-			__self__.writeByte = #if !macro function(_c:GoUInt8):stdgo.Error return _b.writeByte(_c) #else null #end;
-			__self__.writeRune = #if !macro function(__0:GoInt32):{var _0:GoInt; var _1:stdgo.Error;}
-				return _b.writeRune(__0) #else null #end;
-			__self__.writeString = #if !macro function(__0:GoString):{var _0:GoInt; var _1:stdgo.Error;}
-				return _b.writeString(__0) #else null #end;
-			__self__.writeTo = #if !macro function(_w_:stdgo.io.Io.Writer):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _b.writeTo(_w_) #else null #end;
-			__self__._empty = #if !macro function():Bool return _b._empty() #else null #end;
-			__self__._grow = #if !macro function(_n:GoInt):GoInt return _b._grow(_n) #else null #end;
-			__self__._readSlice = #if !macro function(_c:GoUInt8):{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
-				return _b._readSlice(_c) #else null #end;
-			__self__._tryGrowByReslice = #if !macro function(_n:GoInt):{var _0:GoInt; var _1:Bool;}
-				return _b._tryGrowByReslice(_n) #else null #end;
-			__self__;
-		}, {
-			final __self__ = new File_asInterface(_r);
-			__self__.chdir = #if !macro function():stdgo.Error return _r.chdir() #else null #end;
-			__self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _r.chmod(_mode) #else null #end;
-			__self__.chown = #if !macro function(_uid:GoInt, _gid:GoInt):stdgo.Error return _r.chown(_uid, _gid) #else null #end;
-			__self__.close = #if !macro function():stdgo.Error return _r.close() #else null #end;
-			__self__.fd = #if !macro function():GoUIntptr return _r.fd() #else null #end;
-			__self__.name = #if !macro function():GoString return _r.name() #else null #end;
-			__self__.read = #if !macro function(_b_:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _r.read(_b_) #else null #end;
-			__self__.readAt = #if !macro function(_b__:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _r.readAt(_b__, _off) #else null #end;
-			__self__.readDir = #if !macro function(_n:GoInt):{var _0:Slice<stdgo.io.fs.Fs.DirEntry>; var _1:stdgo.Error;}
-				return _r.readDir(_n) #else null #end;
-			__self__.readFrom = #if !macro function(_r_:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _r.readFrom(_r_) #else null #end;
-			__self__.readdir = #if !macro function(_n:GoInt):{var _0:Slice<stdgo.io.fs.Fs.FileInfo>; var _1:stdgo.Error;}
-				return _r.readdir(_n) #else null #end;
-			__self__.readdirnames = #if !macro function(_n:GoInt):{var _0:Slice<GoString>; var _1:stdgo.Error;}
-				return _r.readdirnames(_n) #else null #end;
-			__self__.seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _r.seek(_offset, _whence) #else null #end;
-			__self__.setDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _r.setDeadline(__0) #else null #end;
-			__self__.setReadDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _r.setReadDeadline(__0) #else null #end;
-			__self__.setWriteDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _r.setWriteDeadline(__0) #else null #end;
-			__self__.stat = #if !macro function():{var _0:stdgo.io.fs.Fs.FileInfo; var _1:stdgo.Error;}
-				return _r.stat() #else null #end;
-			__self__.sync = #if !macro function():stdgo.Error return _r.sync() #else null #end;
-			__self__.syscallConn = #if !macro function():{var _0:stdgo.syscall.Syscall.RawConn; var _1:stdgo.Error;}
-				return _r.syscallConn() #else null #end;
-			__self__.truncate = #if !macro function(__0:GoInt64):stdgo.Error return _r.truncate(__0) #else null #end;
-			__self__.write = #if !macro function(_b___:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _r.write(_b___) #else null #end;
-			__self__.writeAt = #if !macro function(_b____:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _r.writeAt(_b____, _off) #else null #end;
-			__self__.writeString = #if !macro function(__0:GoString):{var _0:GoInt; var _1:stdgo.Error;}
-				return _r.writeString(__0) #else null #end;
-			__self__._checkValid = #if !macro function(__0:GoString):stdgo.Error return _r._checkValid(__0) #else null #end;
-			__self__._chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _r._chmod(_mode) #else null #end;
-			__self__._close = #if !macro function():stdgo.Error return _r._close() #else null #end;
-			__self__._pread = #if !macro function(_b_____:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _r._pread(_b_____, _off) #else null #end;
-			__self__._pwrite = #if !macro function(_b______:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _r._pwrite(_b______, _off) #else null #end;
-			__self__._read = #if !macro function(_b_______:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _r._read(_b_______) #else null #end;
-			__self__._readFrom = #if !macro function(_r__:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:Bool; var _2:stdgo.Error;}
-				return _r._readFrom(_r__) #else null #end;
-			__self__._readdir = #if !macro function(_n:GoInt, _mode:T_readdirMode):{
-				var _0:Slice<GoString>;
-				var _1:Slice<stdgo.io.fs.Fs.DirEntry>;
-				var _2:Slice<stdgo.io.fs.Fs.FileInfo>;
-				var _3:stdgo.Error;
-			}
-				return _r._readdir(_n, _mode) #else null #end;
-			__self__._seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _r._seek(_offset, _whence) #else null #end;
-			__self__._setDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _r._setDeadline(__0) #else null #end;
-			__self__._setReadDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _r._setReadDeadline(__0) #else null #end;
-			__self__._setWriteDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _r._setWriteDeadline(__0) #else null #end;
-			__self__._wrapErr = #if !macro function(_op:GoString, _err_:stdgo.Error):stdgo.Error return _r._wrapErr(_op, _err_) #else null #end;
-			__self__._write = #if !macro function(_b________:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _r._write(_b________) #else null #end;
-			__self__;
-		});
+		stdgo.io.Io.copy(Go.asInterface(_b), Go.asInterface(_r));
 		{
 			var __tmp__ = _p.wait_();
 			_err = __tmp__._1;
@@ -5372,43 +4027,7 @@ function testHostname(_t:stdgo.testing.Testing.T):Void {
 		_testWindowsHostname(_t, _hostname);
 		return;
 	};
-	stdgo.internal.testenv.Testenv.mustHaveExec({
-		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
-		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
-		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
-			return _t.deadline() #else null #end;
-		__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
-		__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
-		__self__.fail = #if !macro function():Void _t.fail() #else null #end;
-		__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
-		__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
-		__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
-		__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
-		__self__.helper = #if !macro function():Void _t.helper() #else null #end;
-		__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
-		__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
-		__self__.name = #if !macro function():GoString return _t.name() #else null #end;
-		__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
-		__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
-		__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
-		__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
-		__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
-		__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
-		__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
-		__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
-		__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
-		__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
-		__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
-				_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
-		__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
-		__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
-		__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
-		__self__._private = #if !macro function():Void _t._private() #else null #end;
-		__self__._report = #if !macro function():Void _t._report() #else null #end;
-		__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
-		__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
-		__self__;
-	});
+	stdgo.internal.testenv.Testenv.mustHaveExec(Go.asInterface(_t));
 	var _want:GoString = _runBinHostname(_t);
 	if (_hostname != _want) {
 		var __tmp__ = stdgo.strings.Strings.cut(_hostname, (Go.str(".") : GoString)),
@@ -5431,71 +4050,7 @@ function testReadAt(_t:stdgo.testing.Testing.T):Void {
 		};
 		__deferstack__.unshift(() -> _f.close());
 		var _data:GoString = (Go.str("hello, world\n") : GoString);
-		stdgo.io.Io.writeString({
-			final __self__ = new File_asInterface(_f);
-			__self__.chdir = #if !macro function():stdgo.Error return _f.chdir() #else null #end;
-			__self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _f.chmod(_mode) #else null #end;
-			__self__.chown = #if !macro function(_uid:GoInt, _gid:GoInt):stdgo.Error return _f.chown(_uid, _gid) #else null #end;
-			__self__.close = #if !macro function():stdgo.Error return _f.close() #else null #end;
-			__self__.fd = #if !macro function():GoUIntptr return _f.fd() #else null #end;
-			__self__.name = #if !macro function():GoString return _f.name() #else null #end;
-			__self__.read = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.read(_b) #else null #end;
-			__self__.readAt = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.readAt(_b, _off) #else null #end;
-			__self__.readDir = #if !macro function(_n:GoInt):{var _0:Slice<stdgo.io.fs.Fs.DirEntry>; var _1:stdgo.Error;}
-				return _f.readDir(_n) #else null #end;
-			__self__.readFrom = #if !macro function(_r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _f.readFrom(_r) #else null #end;
-			__self__.readdir = #if !macro function(_n:GoInt):{var _0:Slice<stdgo.io.fs.Fs.FileInfo>; var _1:stdgo.Error;}
-				return _f.readdir(_n) #else null #end;
-			__self__.readdirnames = #if !macro function(_n:GoInt):{var _0:Slice<GoString>; var _1:stdgo.Error;}
-				return _f.readdirnames(_n) #else null #end;
-			__self__.seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _f.seek(_offset, _whence) #else null #end;
-			__self__.setDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f.setDeadline(__0) #else null #end;
-			__self__.setReadDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f.setReadDeadline(__0) #else null #end;
-			__self__.setWriteDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f.setWriteDeadline(__0) #else null #end;
-			__self__.stat = #if !macro function():{var _0:stdgo.io.fs.Fs.FileInfo; var _1:stdgo.Error;}
-				return _f.stat() #else null #end;
-			__self__.sync = #if !macro function():stdgo.Error return _f.sync() #else null #end;
-			__self__.syscallConn = #if !macro function():{var _0:stdgo.syscall.Syscall.RawConn; var _1:stdgo.Error;}
-				return _f.syscallConn() #else null #end;
-			__self__.truncate = #if !macro function(__0:GoInt64):stdgo.Error return _f.truncate(__0) #else null #end;
-			__self__.write = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.write(_b) #else null #end;
-			__self__.writeAt = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.writeAt(_b, _off) #else null #end;
-			__self__.writeString = #if !macro function(__0:GoString):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.writeString(__0) #else null #end;
-			__self__._checkValid = #if !macro function(__0:GoString):stdgo.Error return _f._checkValid(__0) #else null #end;
-			__self__._chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _f._chmod(_mode) #else null #end;
-			__self__._close = #if !macro function():stdgo.Error return _f._close() #else null #end;
-			__self__._pread = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f._pread(_b, _off) #else null #end;
-			__self__._pwrite = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f._pwrite(_b, _off) #else null #end;
-			__self__._read = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f._read(_b) #else null #end;
-			__self__._readFrom = #if !macro function(_r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:Bool; var _2:stdgo.Error;}
-				return _f._readFrom(_r) #else null #end;
-			__self__._readdir = #if !macro function(_n:GoInt, _mode:T_readdirMode):{
-				var _0:Slice<GoString>;
-				var _1:Slice<stdgo.io.fs.Fs.DirEntry>;
-				var _2:Slice<stdgo.io.fs.Fs.FileInfo>;
-				var _3:stdgo.Error;
-			}
-				return _f._readdir(_n, _mode) #else null #end;
-			__self__._seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _f._seek(_offset, _whence) #else null #end;
-			__self__._setDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f._setDeadline(__0) #else null #end;
-			__self__._setReadDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f._setReadDeadline(__0) #else null #end;
-			__self__._setWriteDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f._setWriteDeadline(__0) #else null #end;
-			__self__._wrapErr = #if !macro function(_op:GoString, _err:stdgo.Error):stdgo.Error return _f._wrapErr(_op, _err) #else null #end;
-			__self__._write = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f._write(_b) #else null #end;
-			__self__;
-		}, (Go.str("hello, world\n") : GoString));
+		stdgo.io.Io.writeString(Go.asInterface(_f), (Go.str("hello, world\n") : GoString));
 		var _b = new Slice<GoUInt8>((5 : GoInt).toBasic(), 0, ...[for (i in 0...(5 : GoInt).toBasic()) (0 : GoUInt8)]);
 		var __tmp__ = _f.readAt(_b, (7 : GoInt64)),
 			_n:GoInt = __tmp__._0,
@@ -5546,71 +4101,7 @@ function testReadAtOffset(_t:stdgo.testing.Testing.T):Void {
 		};
 		__deferstack__.unshift(() -> _f.close());
 		var _data:GoString = (Go.str("hello, world\n") : GoString);
-		stdgo.io.Io.writeString({
-			final __self__ = new File_asInterface(_f);
-			__self__.chdir = #if !macro function():stdgo.Error return _f.chdir() #else null #end;
-			__self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _f.chmod(_mode) #else null #end;
-			__self__.chown = #if !macro function(_uid:GoInt, _gid:GoInt):stdgo.Error return _f.chown(_uid, _gid) #else null #end;
-			__self__.close = #if !macro function():stdgo.Error return _f.close() #else null #end;
-			__self__.fd = #if !macro function():GoUIntptr return _f.fd() #else null #end;
-			__self__.name = #if !macro function():GoString return _f.name() #else null #end;
-			__self__.read = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.read(_b) #else null #end;
-			__self__.readAt = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.readAt(_b, _off) #else null #end;
-			__self__.readDir = #if !macro function(_n:GoInt):{var _0:Slice<stdgo.io.fs.Fs.DirEntry>; var _1:stdgo.Error;}
-				return _f.readDir(_n) #else null #end;
-			__self__.readFrom = #if !macro function(_r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _f.readFrom(_r) #else null #end;
-			__self__.readdir = #if !macro function(_n:GoInt):{var _0:Slice<stdgo.io.fs.Fs.FileInfo>; var _1:stdgo.Error;}
-				return _f.readdir(_n) #else null #end;
-			__self__.readdirnames = #if !macro function(_n:GoInt):{var _0:Slice<GoString>; var _1:stdgo.Error;}
-				return _f.readdirnames(_n) #else null #end;
-			__self__.seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _f.seek(_offset, _whence) #else null #end;
-			__self__.setDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f.setDeadline(__0) #else null #end;
-			__self__.setReadDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f.setReadDeadline(__0) #else null #end;
-			__self__.setWriteDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f.setWriteDeadline(__0) #else null #end;
-			__self__.stat = #if !macro function():{var _0:stdgo.io.fs.Fs.FileInfo; var _1:stdgo.Error;}
-				return _f.stat() #else null #end;
-			__self__.sync = #if !macro function():stdgo.Error return _f.sync() #else null #end;
-			__self__.syscallConn = #if !macro function():{var _0:stdgo.syscall.Syscall.RawConn; var _1:stdgo.Error;}
-				return _f.syscallConn() #else null #end;
-			__self__.truncate = #if !macro function(__0:GoInt64):stdgo.Error return _f.truncate(__0) #else null #end;
-			__self__.write = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.write(_b) #else null #end;
-			__self__.writeAt = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.writeAt(_b, _off) #else null #end;
-			__self__.writeString = #if !macro function(__0:GoString):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.writeString(__0) #else null #end;
-			__self__._checkValid = #if !macro function(__0:GoString):stdgo.Error return _f._checkValid(__0) #else null #end;
-			__self__._chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _f._chmod(_mode) #else null #end;
-			__self__._close = #if !macro function():stdgo.Error return _f._close() #else null #end;
-			__self__._pread = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f._pread(_b, _off) #else null #end;
-			__self__._pwrite = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f._pwrite(_b, _off) #else null #end;
-			__self__._read = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f._read(_b) #else null #end;
-			__self__._readFrom = #if !macro function(_r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:Bool; var _2:stdgo.Error;}
-				return _f._readFrom(_r) #else null #end;
-			__self__._readdir = #if !macro function(_n:GoInt, _mode:T_readdirMode):{
-				var _0:Slice<GoString>;
-				var _1:Slice<stdgo.io.fs.Fs.DirEntry>;
-				var _2:Slice<stdgo.io.fs.Fs.FileInfo>;
-				var _3:stdgo.Error;
-			}
-				return _f._readdir(_n, _mode) #else null #end;
-			__self__._seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _f._seek(_offset, _whence) #else null #end;
-			__self__._setDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f._setDeadline(__0) #else null #end;
-			__self__._setReadDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f._setReadDeadline(__0) #else null #end;
-			__self__._setWriteDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f._setWriteDeadline(__0) #else null #end;
-			__self__._wrapErr = #if !macro function(_op:GoString, _err:stdgo.Error):stdgo.Error return _f._wrapErr(_op, _err) #else null #end;
-			__self__._write = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f._write(_b) #else null #end;
-			__self__;
-		}, (Go.str("hello, world\n") : GoString));
+		stdgo.io.Io.writeString(Go.asInterface(_f), (Go.str("hello, world\n") : GoString));
 		_f.seek((0 : GoInt64), (0 : GoInt));
 		var _b = new Slice<GoUInt8>((5 : GoInt).toBasic(), 0, ...[for (i in 0...(5 : GoInt).toBasic()) (0 : GoUInt8)]);
 		var __tmp__ = _f.readAt(_b, (7 : GoInt64)),
@@ -5670,71 +4161,7 @@ function testReadAtNegativeOffset(_t:stdgo.testing.Testing.T):Void {
 		};
 		__deferstack__.unshift(() -> _f.close());
 		var _data:GoString = (Go.str("hello, world\n") : GoString);
-		stdgo.io.Io.writeString({
-			final __self__ = new File_asInterface(_f);
-			__self__.chdir = #if !macro function():stdgo.Error return _f.chdir() #else null #end;
-			__self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _f.chmod(_mode) #else null #end;
-			__self__.chown = #if !macro function(_uid:GoInt, _gid:GoInt):stdgo.Error return _f.chown(_uid, _gid) #else null #end;
-			__self__.close = #if !macro function():stdgo.Error return _f.close() #else null #end;
-			__self__.fd = #if !macro function():GoUIntptr return _f.fd() #else null #end;
-			__self__.name = #if !macro function():GoString return _f.name() #else null #end;
-			__self__.read = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.read(_b) #else null #end;
-			__self__.readAt = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.readAt(_b, _off) #else null #end;
-			__self__.readDir = #if !macro function(_n:GoInt):{var _0:Slice<stdgo.io.fs.Fs.DirEntry>; var _1:stdgo.Error;}
-				return _f.readDir(_n) #else null #end;
-			__self__.readFrom = #if !macro function(_r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _f.readFrom(_r) #else null #end;
-			__self__.readdir = #if !macro function(_n:GoInt):{var _0:Slice<stdgo.io.fs.Fs.FileInfo>; var _1:stdgo.Error;}
-				return _f.readdir(_n) #else null #end;
-			__self__.readdirnames = #if !macro function(_n:GoInt):{var _0:Slice<GoString>; var _1:stdgo.Error;}
-				return _f.readdirnames(_n) #else null #end;
-			__self__.seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _f.seek(_offset, _whence) #else null #end;
-			__self__.setDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f.setDeadline(__0) #else null #end;
-			__self__.setReadDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f.setReadDeadline(__0) #else null #end;
-			__self__.setWriteDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f.setWriteDeadline(__0) #else null #end;
-			__self__.stat = #if !macro function():{var _0:stdgo.io.fs.Fs.FileInfo; var _1:stdgo.Error;}
-				return _f.stat() #else null #end;
-			__self__.sync = #if !macro function():stdgo.Error return _f.sync() #else null #end;
-			__self__.syscallConn = #if !macro function():{var _0:stdgo.syscall.Syscall.RawConn; var _1:stdgo.Error;}
-				return _f.syscallConn() #else null #end;
-			__self__.truncate = #if !macro function(__0:GoInt64):stdgo.Error return _f.truncate(__0) #else null #end;
-			__self__.write = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.write(_b) #else null #end;
-			__self__.writeAt = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.writeAt(_b, _off) #else null #end;
-			__self__.writeString = #if !macro function(__0:GoString):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.writeString(__0) #else null #end;
-			__self__._checkValid = #if !macro function(__0:GoString):stdgo.Error return _f._checkValid(__0) #else null #end;
-			__self__._chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _f._chmod(_mode) #else null #end;
-			__self__._close = #if !macro function():stdgo.Error return _f._close() #else null #end;
-			__self__._pread = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f._pread(_b, _off) #else null #end;
-			__self__._pwrite = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f._pwrite(_b, _off) #else null #end;
-			__self__._read = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f._read(_b) #else null #end;
-			__self__._readFrom = #if !macro function(_r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:Bool; var _2:stdgo.Error;}
-				return _f._readFrom(_r) #else null #end;
-			__self__._readdir = #if !macro function(_n:GoInt, _mode:T_readdirMode):{
-				var _0:Slice<GoString>;
-				var _1:Slice<stdgo.io.fs.Fs.DirEntry>;
-				var _2:Slice<stdgo.io.fs.Fs.FileInfo>;
-				var _3:stdgo.Error;
-			}
-				return _f._readdir(_n, _mode) #else null #end;
-			__self__._seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _f._seek(_offset, _whence) #else null #end;
-			__self__._setDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f._setDeadline(__0) #else null #end;
-			__self__._setReadDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f._setReadDeadline(__0) #else null #end;
-			__self__._setWriteDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f._setWriteDeadline(__0) #else null #end;
-			__self__._wrapErr = #if !macro function(_op:GoString, _err:stdgo.Error):stdgo.Error return _f._wrapErr(_op, _err) #else null #end;
-			__self__._write = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f._write(_b) #else null #end;
-			__self__;
-		}, (Go.str("hello, world\n") : GoString));
+		stdgo.io.Io.writeString(Go.asInterface(_f), (Go.str("hello, world\n") : GoString));
 		_f.seek((0 : GoInt64), (0 : GoInt));
 		var _b = new Slice<GoUInt8>((5 : GoInt).toBasic(), 0, ...[for (i in 0...(5 : GoInt).toBasic()) (0 : GoUInt8)]);
 		var __tmp__ = _f.readAt(_b, (-10 : GoInt64)),
@@ -5779,71 +4206,7 @@ function testWriteAt(_t:stdgo.testing.Testing.T):Void {
 		};
 		__deferstack__.unshift(() -> _f.close());
 		var _data:GoString = (Go.str("hello, world\n") : GoString);
-		stdgo.io.Io.writeString({
-			final __self__ = new File_asInterface(_f);
-			__self__.chdir = #if !macro function():stdgo.Error return _f.chdir() #else null #end;
-			__self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _f.chmod(_mode) #else null #end;
-			__self__.chown = #if !macro function(_uid:GoInt, _gid:GoInt):stdgo.Error return _f.chown(_uid, _gid) #else null #end;
-			__self__.close = #if !macro function():stdgo.Error return _f.close() #else null #end;
-			__self__.fd = #if !macro function():GoUIntptr return _f.fd() #else null #end;
-			__self__.name = #if !macro function():GoString return _f.name() #else null #end;
-			__self__.read = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.read(_b) #else null #end;
-			__self__.readAt = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.readAt(_b, _off) #else null #end;
-			__self__.readDir = #if !macro function(_n:GoInt):{var _0:Slice<stdgo.io.fs.Fs.DirEntry>; var _1:stdgo.Error;}
-				return _f.readDir(_n) #else null #end;
-			__self__.readFrom = #if !macro function(_r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _f.readFrom(_r) #else null #end;
-			__self__.readdir = #if !macro function(_n:GoInt):{var _0:Slice<stdgo.io.fs.Fs.FileInfo>; var _1:stdgo.Error;}
-				return _f.readdir(_n) #else null #end;
-			__self__.readdirnames = #if !macro function(_n:GoInt):{var _0:Slice<GoString>; var _1:stdgo.Error;}
-				return _f.readdirnames(_n) #else null #end;
-			__self__.seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _f.seek(_offset, _whence) #else null #end;
-			__self__.setDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f.setDeadline(__0) #else null #end;
-			__self__.setReadDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f.setReadDeadline(__0) #else null #end;
-			__self__.setWriteDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f.setWriteDeadline(__0) #else null #end;
-			__self__.stat = #if !macro function():{var _0:stdgo.io.fs.Fs.FileInfo; var _1:stdgo.Error;}
-				return _f.stat() #else null #end;
-			__self__.sync = #if !macro function():stdgo.Error return _f.sync() #else null #end;
-			__self__.syscallConn = #if !macro function():{var _0:stdgo.syscall.Syscall.RawConn; var _1:stdgo.Error;}
-				return _f.syscallConn() #else null #end;
-			__self__.truncate = #if !macro function(__0:GoInt64):stdgo.Error return _f.truncate(__0) #else null #end;
-			__self__.write = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.write(_b) #else null #end;
-			__self__.writeAt = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.writeAt(_b, _off) #else null #end;
-			__self__.writeString = #if !macro function(__0:GoString):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f.writeString(__0) #else null #end;
-			__self__._checkValid = #if !macro function(__0:GoString):stdgo.Error return _f._checkValid(__0) #else null #end;
-			__self__._chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _f._chmod(_mode) #else null #end;
-			__self__._close = #if !macro function():stdgo.Error return _f._close() #else null #end;
-			__self__._pread = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f._pread(_b, _off) #else null #end;
-			__self__._pwrite = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f._pwrite(_b, _off) #else null #end;
-			__self__._read = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f._read(_b) #else null #end;
-			__self__._readFrom = #if !macro function(_r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:Bool; var _2:stdgo.Error;}
-				return _f._readFrom(_r) #else null #end;
-			__self__._readdir = #if !macro function(_n:GoInt, _mode:T_readdirMode):{
-				var _0:Slice<GoString>;
-				var _1:Slice<stdgo.io.fs.Fs.DirEntry>;
-				var _2:Slice<stdgo.io.fs.Fs.FileInfo>;
-				var _3:stdgo.Error;
-			}
-				return _f._readdir(_n, _mode) #else null #end;
-			__self__._seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:stdgo.Error;}
-				return _f._seek(_offset, _whence) #else null #end;
-			__self__._setDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f._setDeadline(__0) #else null #end;
-			__self__._setReadDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f._setReadDeadline(__0) #else null #end;
-			__self__._setWriteDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f._setWriteDeadline(__0) #else null #end;
-			__self__._wrapErr = #if !macro function(_op:GoString, _err:stdgo.Error):stdgo.Error return _f._wrapErr(_op, _err) #else null #end;
-			__self__._write = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-				return _f._write(_b) #else null #end;
-			__self__;
-		}, (Go.str("hello, world\n") : GoString));
+		stdgo.io.Io.writeString(Go.asInterface(_f), (Go.str("hello, world\n") : GoString));
 		var __tmp__ = _f.writeAt(((Go.str("WORLD") : GoString) : Slice<GoByte>), (7 : GoInt64)),
 			_n:GoInt = __tmp__._0,
 			_err:stdgo.Error = __tmp__._1;
@@ -5980,71 +4343,9 @@ function _writeFile(_t:stdgo.testing.Testing.T, _fname:GoString, _flag:GoInt, _t
 	if (_err != null) {
 		_t.fatalf((Go.str("Open: %v") : GoString), Go.toInterface(_err));
 	};
-	var __tmp__ = stdgo.io.Io.writeString({
-		final __self__ = new File_asInterface(_f);
-		__self__.chdir = #if !macro function():stdgo.Error return _f.chdir() #else null #end;
-		__self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _f.chmod(_mode) #else null #end;
-		__self__.chown = #if !macro function(_uid:GoInt, _gid:GoInt):stdgo.Error return _f.chown(_uid, _gid) #else null #end;
-		__self__.close = #if !macro function():stdgo.Error return _f.close() #else null #end;
-		__self__.fd = #if !macro function():GoUIntptr return _f.fd() #else null #end;
-		__self__.name = #if !macro function():GoString return _f.name() #else null #end;
-		__self__.read = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-			return _f.read(_b) #else null #end;
-		__self__.readAt = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-			return _f.readAt(_b, _off) #else null #end;
-		__self__.readDir = #if !macro function(_n:GoInt):{var _0:Slice<stdgo.io.fs.Fs.DirEntry>; var _1:stdgo.Error;}
-			return _f.readDir(_n) #else null #end;
-		__self__.readFrom = #if !macro function(_r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:stdgo.Error;}
-			return _f.readFrom(_r) #else null #end;
-		__self__.readdir = #if !macro function(_n:GoInt):{var _0:Slice<stdgo.io.fs.Fs.FileInfo>; var _1:stdgo.Error;}
-			return _f.readdir(_n) #else null #end;
-		__self__.readdirnames = #if !macro function(_n:GoInt):{var _0:Slice<GoString>; var _1:stdgo.Error;}
-			return _f.readdirnames(_n) #else null #end;
-		__self__.seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:stdgo.Error;}
-			return _f.seek(_offset, _whence) #else null #end;
-		__self__.setDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f.setDeadline(__0) #else null #end;
-		__self__.setReadDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f.setReadDeadline(__0) #else null #end;
-		__self__.setWriteDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f.setWriteDeadline(__0) #else null #end;
-		__self__.stat = #if !macro function():{var _0:stdgo.io.fs.Fs.FileInfo; var _1:stdgo.Error;}
-			return _f.stat() #else null #end;
-		__self__.sync = #if !macro function():stdgo.Error return _f.sync() #else null #end;
-		__self__.syscallConn = #if !macro function():{var _0:stdgo.syscall.Syscall.RawConn; var _1:stdgo.Error;}
-			return _f.syscallConn() #else null #end;
-		__self__.truncate = #if !macro function(__0:GoInt64):stdgo.Error return _f.truncate(__0) #else null #end;
-		__self__.write = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-			return _f.write(_b) #else null #end;
-		__self__.writeAt = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-			return _f.writeAt(_b, _off) #else null #end;
-		__self__.writeString = #if !macro function(__0:GoString):{var _0:GoInt; var _1:stdgo.Error;}
-			return _f.writeString(__0) #else null #end;
-		__self__._checkValid = #if !macro function(__0:GoString):stdgo.Error return _f._checkValid(__0) #else null #end;
-		__self__._chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _f._chmod(_mode) #else null #end;
-		__self__._close = #if !macro function():stdgo.Error return _f._close() #else null #end;
-		__self__._pread = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-			return _f._pread(_b, _off) #else null #end;
-		__self__._pwrite = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{var _0:GoInt; var _1:stdgo.Error;}
-			return _f._pwrite(_b, _off) #else null #end;
-		__self__._read = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-			return _f._read(_b) #else null #end;
-		__self__._readFrom = #if !macro function(_r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:Bool; var _2:stdgo.Error;}
-			return _f._readFrom(_r) #else null #end;
-		__self__._readdir = #if !macro function(_n:GoInt, _mode:T_readdirMode):{
-			var _0:Slice<GoString>;
-			var _1:Slice<stdgo.io.fs.Fs.DirEntry>;
-			var _2:Slice<stdgo.io.fs.Fs.FileInfo>;
-			var _3:stdgo.Error;
-		}
-			return _f._readdir(_n, _mode) #else null #end;
-		__self__._seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:stdgo.Error;}
-			return _f._seek(_offset, _whence) #else null #end;
-		__self__._setDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f._setDeadline(__0) #else null #end;
-		__self__._setReadDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f._setReadDeadline(__0) #else null #end;
-		__self__._setWriteDeadline = #if !macro function(__0:stdgo.time.Time.Time):stdgo.Error return _f._setWriteDeadline(__0) #else null #end;
-		__self__._wrapErr = #if !macro function(_op:GoString, _err_:stdgo.Error):stdgo.Error return _f._wrapErr(_op, _err_) #else null #end;
-		__self__._write = #if !macro function(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
-			return _f._write(_b) #else null #end;
-		__self__;
-	}, _text), _n:GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+	var __tmp__ = stdgo.io.Io.writeString(Go.asInterface(_f), _text),
+		_n:GoInt = __tmp__._0,
+		_err:stdgo.Error = __tmp__._1;
 	if (_err != null) {
 		_t.fatalf((Go.str("WriteString: %d, %v") : GoString), Go.toInterface(_n), Go.toInterface(_err));
 	};
@@ -6226,37 +4527,13 @@ function _testDevNullFileInfo(_t:stdgo.testing.Testing.T, _statname:GoString, _d
 		_t.errorf(_pre + (Go.str("wrong file size have %d want 0") : GoString), Go.toInterface(_fi.size()));
 	};
 	if ((_fi.mode() & (67108864 : stdgo.io.fs.Fs.FileMode)) == (0 : stdgo.io.fs.Fs.FileMode)) {
-		_t.errorf(_pre + (Go.str("wrong file mode %q: ModeDevice is not set") : GoString), Go.toInterface({
-			final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_fi.mode());
-			__self__.isDir = #if !macro function():Bool return _fi.mode().isDir() #else null #end;
-			__self__.isRegular = #if !macro function():Bool return _fi.mode().isRegular() #else null #end;
-			__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _fi.mode().perm() #else null #end;
-			__self__.string = #if !macro function():GoString return _fi.mode().string() #else null #end;
-			__self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return _fi.mode().type() #else null #end;
-			__self__;
-		}));
+		_t.errorf(_pre + (Go.str("wrong file mode %q: ModeDevice is not set") : GoString), Go.toInterface(Go.asInterface(_fi.mode())));
 	};
 	if ((_fi.mode() & (2097152 : stdgo.io.fs.Fs.FileMode)) == (0 : stdgo.io.fs.Fs.FileMode)) {
-		_t.errorf(_pre + (Go.str("wrong file mode %q: ModeCharDevice is not set") : GoString), Go.toInterface({
-			final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_fi.mode());
-			__self__.isDir = #if !macro function():Bool return _fi.mode().isDir() #else null #end;
-			__self__.isRegular = #if !macro function():Bool return _fi.mode().isRegular() #else null #end;
-			__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _fi.mode().perm() #else null #end;
-			__self__.string = #if !macro function():GoString return _fi.mode().string() #else null #end;
-			__self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return _fi.mode().type() #else null #end;
-			__self__;
-		}));
+		_t.errorf(_pre + (Go.str("wrong file mode %q: ModeCharDevice is not set") : GoString), Go.toInterface(Go.asInterface(_fi.mode())));
 	};
 	if (_fi.mode().isRegular()) {
-		_t.errorf(_pre + (Go.str("wrong file mode %q: IsRegular returns true") : GoString), Go.toInterface({
-			final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_fi.mode());
-			__self__.isDir = #if !macro function():Bool return _fi.mode().isDir() #else null #end;
-			__self__.isRegular = #if !macro function():Bool return _fi.mode().isRegular() #else null #end;
-			__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _fi.mode().perm() #else null #end;
-			__self__.string = #if !macro function():GoString return _fi.mode().string() #else null #end;
-			__self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return _fi.mode().type() #else null #end;
-			__self__;
-		}));
+		_t.errorf(_pre + (Go.str("wrong file mode %q: IsRegular returns true") : GoString), Go.toInterface(Go.asInterface(_fi.mode())));
 	};
 }
 
@@ -6361,15 +4638,8 @@ function testStatDirModeExec(_t:stdgo.testing.Testing.T):Void {
 		_t.fatalf((Go.str("Stat %q (looking for mode %#o): %s") : GoString), Go.toInterface(_path), Go.toInterface((73 : GoInt)), Go.toInterface(_err));
 	};
 	if ((_dir.mode() & (73 : stdgo.io.fs.Fs.FileMode)) != (73 : stdgo.io.fs.Fs.FileMode)) {
-		_t.errorf((Go.str("Stat %q: mode %#o want %#o") : GoString), Go.toInterface(_path), Go.toInterface({
-			final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_dir.mode() & (73 : stdgo.io.fs.Fs.FileMode));
-			__self__.isDir = #if !macro function():Bool return _dir.mode() & (73 : stdgo.io.fs.Fs.FileMode).isDir() #else null #end;
-			__self__.isRegular = #if !macro function():Bool return _dir.mode() & (73 : stdgo.io.fs.Fs.FileMode).isRegular() #else null #end;
-			__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _dir.mode() & (73 : stdgo.io.fs.Fs.FileMode).perm() #else null #end;
-			__self__.string = #if !macro function():GoString return _dir.mode() & (73 : stdgo.io.fs.Fs.FileMode).string() #else null #end;
-			__self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return _dir.mode() & (73 : stdgo.io.fs.Fs.FileMode).type() #else null #end;
-			__self__;
-		}), Go.toInterface((73 : GoInt)));
+		_t.errorf((Go.str("Stat %q: mode %#o want %#o") : GoString), Go.toInterface(_path),
+			Go.toInterface(Go.asInterface(_dir.mode() & (73 : stdgo.io.fs.Fs.FileMode))), Go.toInterface((73 : GoInt)));
 	};
 }
 
@@ -6377,43 +4647,7 @@ function testStatStdin(_t:stdgo.testing.Testing.T):Void {
 	if ((Go.str("js") : GoString) == ((Go.str("android") : GoString)) || (Go.str("js") : GoString) == ((Go.str("plan9") : GoString))) {
 		_t.skipf((Go.str("%s doesn\'t have /bin/sh") : GoString), Go.toInterface((Go.str("js") : GoString)));
 	};
-	stdgo.internal.testenv.Testenv.mustHaveExec({
-		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
-		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
-		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
-			return _t.deadline() #else null #end;
-		__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
-		__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
-		__self__.fail = #if !macro function():Void _t.fail() #else null #end;
-		__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
-		__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
-		__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
-		__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
-		__self__.helper = #if !macro function():Void _t.helper() #else null #end;
-		__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
-		__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
-		__self__.name = #if !macro function():GoString return _t.name() #else null #end;
-		__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
-		__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
-		__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
-		__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
-		__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
-		__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
-		__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
-		__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
-		__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
-		__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
-		__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
-				_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
-		__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
-		__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
-		__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
-		__self__._private = #if !macro function():Void _t._private() #else null #end;
-		__self__._report = #if !macro function():Void _t._report() #else null #end;
-		__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
-		__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
-		__self__;
-	});
+	stdgo.internal.testenv.Testenv.mustHaveExec(Go.asInterface(_t));
 	if (getenv((Go.str("GO_WANT_HELPER_PROCESS") : GoString)) == (Go.str("1") : GoString)) {
 		var __tmp__ = stdin.stat(),
 			_st:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
@@ -6435,15 +4669,7 @@ function testStatStdin(_t:stdgo.testing.Testing.T):Void {
 		if (((_mode & (2097152 : stdgo.io.fs.Fs.FileMode)) != (0 : stdgo.io.fs.Fs.FileMode))
 			&& ((_mode & (67108864 : stdgo.io.fs.Fs.FileMode)) != (0 : stdgo.io.fs.Fs.FileMode))) {} else
 			if ((_mode & (33554432 : stdgo.io.fs.Fs.FileMode)) != (0 : stdgo.io.fs.Fs.FileMode)) {} else {
-			_t.fatalf((Go.str("unexpected Stdin mode (%v), want ModeCharDevice or ModeNamedPipe") : GoString), Go.toInterface({
-				final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_mode);
-				__self__.isDir = #if !macro function():Bool return _mode.isDir() #else null #end;
-				__self__.isRegular = #if !macro function():Bool return _mode.isRegular() #else null #end;
-				__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _mode.perm() #else null #end;
-				__self__.string = #if !macro function():GoString return _mode.string() #else null #end;
-				__self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return _mode.type() #else null #end;
-				__self__;
-			}));
+			_t.fatalf((Go.str("unexpected Stdin mode (%v), want ModeCharDevice or ModeNamedPipe") : GoString), Go.toInterface(Go.asInterface(_mode)));
 		};
 	};
 	var _cmd:stdgo.os.exec.Exec.Cmd = (null : stdgo.os.exec.Exec.Cmd);
@@ -6468,43 +4694,7 @@ function testStatStdin(_t:stdgo.testing.Testing.T):Void {
 
 function testStatRelativeSymlink(_t:stdgo.testing.Testing.T):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	stdgo.internal.testenv.Testenv.mustHaveSymlink({
-		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
-		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
-		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
-			return _t.deadline() #else null #end;
-		__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
-		__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
-		__self__.fail = #if !macro function():Void _t.fail() #else null #end;
-		__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
-		__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
-		__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
-		__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
-		__self__.helper = #if !macro function():Void _t.helper() #else null #end;
-		__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
-		__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
-		__self__.name = #if !macro function():GoString return _t.name() #else null #end;
-		__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
-		__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
-		__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
-		__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
-		__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
-		__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
-		__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
-		__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
-		__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
-		__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
-		__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
-				_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
-		__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
-		__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
-		__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
-		__self__._private = #if !macro function():Void _t._private() #else null #end;
-		__self__._report = #if !macro function():Void _t._report() #else null #end;
-		__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
-		__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
-		__self__;
-	});
+	stdgo.internal.testenv.Testenv.mustHaveSymlink(Go.asInterface(_t));
 	try {
 		var _tmpdir:GoString = _t.tempDir();
 		var _target:GoString = stdgo.path.filepath.Filepath.join(_tmpdir, (Go.str("target") : GoString));
@@ -6744,43 +4934,7 @@ function testLongPath(_t:stdgo.testing.Testing.T):Void {
 
 function _testKillProcess(_t:stdgo.testing.Testing.T, _processKiller:(_p:Process) -> Void):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	stdgo.internal.testenv.Testenv.mustHaveExec({
-		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
-		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
-		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
-			return _t.deadline() #else null #end;
-		__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
-		__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
-		__self__.fail = #if !macro function():Void _t.fail() #else null #end;
-		__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
-		__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
-		__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
-		__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
-		__self__.helper = #if !macro function():Void _t.helper() #else null #end;
-		__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
-		__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
-		__self__.name = #if !macro function():GoString return _t.name() #else null #end;
-		__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
-		__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
-		__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
-		__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
-		__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
-		__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
-		__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
-		__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
-		__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
-		__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
-		__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
-				_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
-		__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
-		__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
-		__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
-		__self__._private = #if !macro function():Void _t._private() #else null #end;
-		__self__._report = #if !macro function():Void _t._report() #else null #end;
-		__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
-		__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
-		__self__;
-	});
+	stdgo.internal.testenv.Testenv.mustHaveExec(Go.asInterface(_t));
 	try {
 		_t.parallel();
 		var _cmd = stdgo.os.exec.Exec.command(args[(0 : GoInt)]);
@@ -6852,43 +5006,7 @@ function testGetppid(_t:stdgo.testing.Testing.T):Void {
 	if (false) {
 		_t.skipf((Go.str("skipping test on plan9; see issue 8206") : GoString));
 	};
-	stdgo.internal.testenv.Testenv.mustHaveExec({
-		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
-		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
-		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
-			return _t.deadline() #else null #end;
-		__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
-		__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
-		__self__.fail = #if !macro function():Void _t.fail() #else null #end;
-		__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
-		__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
-		__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
-		__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
-		__self__.helper = #if !macro function():Void _t.helper() #else null #end;
-		__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
-		__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
-		__self__.name = #if !macro function():GoString return _t.name() #else null #end;
-		__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
-		__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
-		__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
-		__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
-		__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
-		__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
-		__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
-		__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
-		__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
-		__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
-		__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
-				_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
-		__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
-		__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
-		__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
-		__self__._private = #if !macro function():Void _t._private() #else null #end;
-		__self__._report = #if !macro function():Void _t._report() #else null #end;
-		__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
-		__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
-		__self__;
-	});
+	stdgo.internal.testenv.Testenv.mustHaveExec(Go.asInterface(_t));
 	if (getenv((Go.str("GO_WANT_HELPER_PROCESS") : GoString)) == (Go.str("1") : GoString)) {
 		stdgo.fmt.Fmt.print(getppid());
 		exit((0 : GoInt));
@@ -6967,43 +5085,7 @@ function testRemoveAllRace(_t:stdgo.testing.Testing.T):Void {
 	};
 	try {
 		if (false) {
-			stdgo.internal.testenv.Testenv.skipFlaky({
-				final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
-				__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
-				__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
-					return _t.deadline() #else null #end;
-				__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
-				__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
-				__self__.fail = #if !macro function():Void _t.fail() #else null #end;
-				__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
-				__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
-				__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
-				__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
-				__self__.helper = #if !macro function():Void _t.helper() #else null #end;
-				__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
-				__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
-				__self__.name = #if !macro function():GoString return _t.name() #else null #end;
-				__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
-				__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
-				__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
-				__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
-				__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
-				__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
-				__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
-				__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
-				__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
-				__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
-				__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
-						_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
-				__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
-				__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
-				__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
-				__self__._private = #if !macro function():Void _t._private() #else null #end;
-				__self__._report = #if !macro function():Void _t._report() #else null #end;
-				__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
-				__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
-				__self__;
-			}, (52301 : GoInt));
+			stdgo.internal.testenv.Testenv.skipFlaky(Go.asInterface(_t), (52301 : GoInt));
 		};
 		var _n:GoInt = stdgo.runtime.Runtime.gomaxprocs((16 : GoInt));
 		{
@@ -7266,57 +5348,13 @@ function testUserHomeDir(_t:stdgo.testing.Testing.T):Void {
 		_t.fatal(Go.toInterface(_err));
 	};
 	if (!_fi.isDir()) {
-		_t.fatalf((Go.str("dir %s is not directory; type = %v") : GoString), Go.toInterface(_dir), Go.toInterface({
-			final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_fi.mode());
-			__self__.isDir = #if !macro function():Bool return _fi.mode().isDir() #else null #end;
-			__self__.isRegular = #if !macro function():Bool return _fi.mode().isRegular() #else null #end;
-			__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _fi.mode().perm() #else null #end;
-			__self__.string = #if !macro function():GoString return _fi.mode().string() #else null #end;
-			__self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return _fi.mode().type() #else null #end;
-			__self__;
-		}));
+		_t.fatalf((Go.str("dir %s is not directory; type = %v") : GoString), Go.toInterface(_dir), Go.toInterface(Go.asInterface(_fi.mode())));
 	};
 }
 
 function testDirSeek(_t:stdgo.testing.Testing.T):Void {
 	if (false) {
-		stdgo.internal.testenv.Testenv.skipFlaky({
-			final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
-			__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
-			__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
-				return _t.deadline() #else null #end;
-			__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
-			__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
-			__self__.fail = #if !macro function():Void _t.fail() #else null #end;
-			__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
-			__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
-			__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
-			__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
-			__self__.helper = #if !macro function():Void _t.helper() #else null #end;
-			__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
-			__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
-			__self__.name = #if !macro function():GoString return _t.name() #else null #end;
-			__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
-			__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
-			__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
-			__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
-			__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
-			__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
-			__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
-			__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
-			__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
-			__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
-			__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
-					_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
-			__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
-			__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
-			__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
-			__self__._private = #if !macro function():Void _t._private() #else null #end;
-			__self__._report = #if !macro function():Void _t._report() #else null #end;
-			__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
-			__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
-			__self__;
-		}, (36019 : GoInt));
+		stdgo.internal.testenv.Testenv.skipFlaky(Go.asInterface(_t), (36019 : GoInt));
 	};
 	var __tmp__ = getwd(),
 		_wd:GoString = __tmp__._0,
@@ -7366,43 +5404,7 @@ function testDirSeek(_t:stdgo.testing.Testing.T):Void {
 
 function testReaddirSmallSeek(_t:stdgo.testing.Testing.T):Void {
 	if (false) {
-		stdgo.internal.testenv.Testenv.skipFlaky({
-			final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
-			__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
-			__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
-				return _t.deadline() #else null #end;
-			__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
-			__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
-			__self__.fail = #if !macro function():Void _t.fail() #else null #end;
-			__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
-			__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
-			__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
-			__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
-			__self__.helper = #if !macro function():Void _t.helper() #else null #end;
-			__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
-			__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
-			__self__.name = #if !macro function():GoString return _t.name() #else null #end;
-			__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
-			__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
-			__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
-			__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
-			__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
-			__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
-			__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
-			__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
-			__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
-			__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
-			__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
-					_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
-			__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
-			__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
-			__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
-			__self__._private = #if !macro function():Void _t._private() #else null #end;
-			__self__._report = #if !macro function():Void _t._report() #else null #end;
-			__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
-			__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
-			__self__;
-		}, (36019 : GoInt));
+		stdgo.internal.testenv.Testenv.skipFlaky(Go.asInterface(_t), (36019 : GoInt));
 	};
 	var __tmp__ = getwd(),
 		_wd:GoString = __tmp__._0,
@@ -7490,15 +5492,7 @@ function testOpenFileKeepsPermissions(_t:stdgo.testing.Testing.T):Void {
 		if (_err != null) {
 			_t.error(Go.toInterface(_err));
 		} else if ((_fi.mode() & (146 : stdgo.io.fs.Fs.FileMode)) == (0 : stdgo.io.fs.Fs.FileMode)) {
-			_t.errorf((Go.str("f.Stat.Mode after OpenFile is %v, should be writable") : GoString), Go.toInterface({
-				final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_fi.mode());
-				__self__.isDir = #if !macro function():Bool return _fi.mode().isDir() #else null #end;
-				__self__.isRegular = #if !macro function():Bool return _fi.mode().isRegular() #else null #end;
-				__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _fi.mode().perm() #else null #end;
-				__self__.string = #if !macro function():GoString return _fi.mode().string() #else null #end;
-				__self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return _fi.mode().type() #else null #end;
-				__self__;
-			}));
+			_t.errorf((Go.str("f.Stat.Mode after OpenFile is %v, should be writable") : GoString), Go.toInterface(Go.asInterface(_fi.mode())));
 		};
 	};
 	{
@@ -7514,15 +5508,7 @@ function testOpenFileKeepsPermissions(_t:stdgo.testing.Testing.T):Void {
 		if (_err != null) {
 			_t.error(Go.toInterface(_err));
 		} else if ((_fi.mode() & (146 : stdgo.io.fs.Fs.FileMode)) == (0 : stdgo.io.fs.Fs.FileMode)) {
-			_t.errorf((Go.str("Stat after OpenFile is %v, should be writable") : GoString), Go.toInterface({
-				final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_fi.mode());
-				__self__.isDir = #if !macro function():Bool return _fi.mode().isDir() #else null #end;
-				__self__.isRegular = #if !macro function():Bool return _fi.mode().isRegular() #else null #end;
-				__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _fi.mode().perm() #else null #end;
-				__self__.string = #if !macro function():GoString return _fi.mode().string() #else null #end;
-				__self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return _fi.mode().type() #else null #end;
-				__self__;
-			}));
+			_t.errorf((Go.str("Stat after OpenFile is %v, should be writable") : GoString), Go.toInterface(Go.asInterface(_fi.mode())));
 		};
 	};
 }
@@ -7975,15 +5961,8 @@ function testReaddirRemoveRace(_t:stdgo.testing.Testing.T):Void {
 		if ((_fis.length != (0 : GoInt)) || (_err != stdgo.io.Io.eof)) {
 			_t.errorf((Go.str("Readdir = %d entries: %v; want 0, io.EOF") : GoString), Go.toInterface((_fis.length)), Go.toInterface(_err));
 			for (_i => _fi in _fis) {
-				_t.errorf((Go.str("  entry[%d]: %q, %v") : GoString), Go.toInterface(_i), Go.toInterface(_fi.name()), Go.toInterface({
-					final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_fi.mode());
-					__self__.isDir = #if !macro function():Bool return _fi.mode().isDir() #else null #end;
-					__self__.isRegular = #if !macro function():Bool return _fi.mode().isRegular() #else null #end;
-					__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _fi.mode().perm() #else null #end;
-					__self__.string = #if !macro function():GoString return _fi.mode().string() #else null #end;
-					__self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return _fi.mode().type() #else null #end;
-					__self__;
-				}));
+				_t.errorf((Go.str("  entry[%d]: %q, %v") : GoString), Go.toInterface(_i), Go.toInterface(_fi.name()),
+					Go.toInterface(Go.asInterface(_fi.mode())));
 			};
 			_t.failNow();
 		};
@@ -8045,15 +6024,7 @@ function testMkdirStickyUmask(_t:stdgo.testing.Testing.T):Void {
 			var _mode:stdgo.io.fs.Fs.FileMode = _fi.mode();
 			if (((_mode & (63 : stdgo.io.fs.Fs.FileMode)) != (0 : stdgo.io.fs.Fs.FileMode))
 				|| ((_mode & ((511 : stdgo.io.fs.Fs.FileMode) ^ (-1 : GoUnTypedInt))) != ("2148532224" : stdgo.io.fs.Fs.FileMode))) {
-				_t.errorf((Go.str("unexpected mode %s") : GoString), Go.toInterface({
-					final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_mode);
-					__self__.isDir = #if !macro function():Bool return _mode.isDir() #else null #end;
-					__self__.isRegular = #if !macro function():Bool return _mode.isRegular() #else null #end;
-					__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _mode.perm() #else null #end;
-					__self__.string = #if !macro function():GoString return _mode.string() #else null #end;
-					__self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return _mode.type() #else null #end;
-					__self__;
-				}));
+				_t.errorf((Go.str("unexpected mode %s") : GoString), Go.toInterface(Go.asInterface(_mode)));
 			};
 		};
 		for (defer in __deferstack__) {
@@ -8299,43 +6270,7 @@ function testMkdirAll(_t:stdgo.testing.Testing.T):Void {
 }
 
 function testMkdirAllWithSymlink(_t:stdgo.testing.Testing.T):Void {
-	stdgo.internal.testenv.Testenv.mustHaveSymlink({
-		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
-		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
-		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
-			return _t.deadline() #else null #end;
-		__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
-		__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
-		__self__.fail = #if !macro function():Void _t.fail() #else null #end;
-		__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
-		__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
-		__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
-		__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
-		__self__.helper = #if !macro function():Void _t.helper() #else null #end;
-		__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
-		__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
-		__self__.name = #if !macro function():GoString return _t.name() #else null #end;
-		__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
-		__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
-		__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
-		__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
-		__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
-		__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
-		__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
-		__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
-		__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
-		__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
-		__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
-				_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
-		__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
-		__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
-		__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
-		__self__._private = #if !macro function():Void _t._private() #else null #end;
-		__self__._report = #if !macro function():Void _t._report() #else null #end;
-		__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
-		__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
-		__self__;
-	});
+	stdgo.internal.testenv.Testenv.mustHaveSymlink(Go.asInterface(_t));
 	var _tmpDir:GoString = _t.tempDir();
 	var _dir:GoString = _tmpDir + (Go.str("/dir") : GoString);
 	{
@@ -9492,43 +7427,7 @@ function _testSymlinkSameFile(_t:stdgo.testing.Testing.T, _path:GoString, _link:
 }
 
 function testDirAndSymlinkStats(_t:stdgo.testing.Testing.T):Void {
-	stdgo.internal.testenv.Testenv.mustHaveSymlink({
-		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
-		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
-		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
-			return _t.deadline() #else null #end;
-		__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
-		__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
-		__self__.fail = #if !macro function():Void _t.fail() #else null #end;
-		__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
-		__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
-		__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
-		__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
-		__self__.helper = #if !macro function():Void _t.helper() #else null #end;
-		__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
-		__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
-		__self__.name = #if !macro function():GoString return _t.name() #else null #end;
-		__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
-		__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
-		__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
-		__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
-		__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
-		__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
-		__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
-		__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
-		__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
-		__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
-		__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
-				_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
-		__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
-		__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
-		__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
-		__self__._private = #if !macro function():Void _t._private() #else null #end;
-		__self__._report = #if !macro function():Void _t._report() #else null #end;
-		__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
-		__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
-		__self__;
-	});
+	stdgo.internal.testenv.Testenv.mustHaveSymlink(Go.asInterface(_t));
 	var _tmpdir:GoString = _t.tempDir();
 	var _dir:GoString = stdgo.path.filepath.Filepath.join(_tmpdir, (Go.str("dir") : GoString));
 	{
@@ -9559,43 +7458,7 @@ function testDirAndSymlinkStats(_t:stdgo.testing.Testing.T):Void {
 }
 
 function testFileAndSymlinkStats(_t:stdgo.testing.Testing.T):Void {
-	stdgo.internal.testenv.Testenv.mustHaveSymlink({
-		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
-		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
-		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
-			return _t.deadline() #else null #end;
-		__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
-		__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
-		__self__.fail = #if !macro function():Void _t.fail() #else null #end;
-		__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
-		__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
-		__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
-		__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
-		__self__.helper = #if !macro function():Void _t.helper() #else null #end;
-		__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
-		__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
-		__self__.name = #if !macro function():GoString return _t.name() #else null #end;
-		__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
-		__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
-		__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
-		__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
-		__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
-		__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
-		__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
-		__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
-		__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
-		__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
-		__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
-				_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
-		__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
-		__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
-		__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
-		__self__._private = #if !macro function():Void _t._private() #else null #end;
-		__self__._report = #if !macro function():Void _t._report() #else null #end;
-		__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
-		__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
-		__self__;
-	});
+	stdgo.internal.testenv.Testenv.mustHaveSymlink(Go.asInterface(_t));
 	var _tmpdir:GoString = _t.tempDir();
 	var _file:GoString = stdgo.path.filepath.Filepath.join(_tmpdir, (Go.str("file") : GoString));
 	{
@@ -9629,43 +7492,7 @@ function testFileAndSymlinkStats(_t:stdgo.testing.Testing.T):Void {
 	// see issue 27225 for details
 **/
 function testSymlinkWithTrailingSlash(_t:stdgo.testing.Testing.T):Void {
-	stdgo.internal.testenv.Testenv.mustHaveSymlink({
-		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
-		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
-		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
-			return _t.deadline() #else null #end;
-		__self__.error = #if !macro function(_args:Slice<AnyInterface>):Void _t.error(_args) #else null #end;
-		__self__.errorf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.errorf(_format, _args) #else null #end;
-		__self__.fail = #if !macro function():Void _t.fail() #else null #end;
-		__self__.failNow = #if !macro function():Void _t.failNow() #else null #end;
-		__self__.failed = #if !macro function():Bool return _t.failed() #else null #end;
-		__self__.fatal = #if !macro function(_args:Slice<AnyInterface>):Void _t.fatal(_args) #else null #end;
-		__self__.fatalf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.fatalf(_format, _args) #else null #end;
-		__self__.helper = #if !macro function():Void _t.helper() #else null #end;
-		__self__.log = #if !macro function(_args:Slice<AnyInterface>):Void _t.log(_args) #else null #end;
-		__self__.logf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.logf(_format, _args) #else null #end;
-		__self__.name = #if !macro function():GoString return _t.name() #else null #end;
-		__self__.parallel = #if !macro function():Void _t.parallel() #else null #end;
-		__self__.run = #if !macro function(_name:GoString, _f:Ref<stdgo.testing.Testing.T>->Void):Bool return _t.run(_name, _f) #else null #end;
-		__self__.setenv = #if !macro function(_key:GoString, _value:GoString):Void _t.setenv(_key, _value) #else null #end;
-		__self__.skip = #if !macro function(_args:Slice<AnyInterface>):Void _t.skip(_args) #else null #end;
-		__self__.skipNow = #if !macro function():Void _t.skipNow() #else null #end;
-		__self__.skipf = #if !macro function(_format:GoString, _args:Slice<AnyInterface>):Void _t.skipf(_format, _args) #else null #end;
-		__self__.skipped = #if !macro function():Bool return _t.skipped() #else null #end;
-		__self__.tempDir = #if !macro function():GoString return _t.tempDir() #else null #end;
-		__self__._checkFuzzFn = #if !macro function(__0:GoString):Void _t._checkFuzzFn(__0) #else null #end;
-		__self__._decorate = #if !macro function(_name:GoString, _offset:GoInt):GoString return _t._decorate(_name, _offset) #else null #end;
-		__self__._flushToParent = #if !macro function(_testName:GoString, _format:GoString,
-				_args:Slice<AnyInterface>):Void _t._flushToParent(_testName, _format, _args) #else null #end;
-		__self__._frameSkip = #if !macro function(_n:GoInt):stdgo.runtime.Runtime.Frame return _t._frameSkip(_n) #else null #end;
-		__self__._log = #if !macro function(__0:GoString):Void _t._log(__0) #else null #end;
-		__self__._logDepth = #if !macro function(_name:GoString, _offset:GoInt):Void _t._logDepth(_name, _offset) #else null #end;
-		__self__._private = #if !macro function():Void _t._private() #else null #end;
-		__self__._report = #if !macro function():Void _t._report() #else null #end;
-		__self__._runCleanup = #if !macro function(_ph:stdgo.testing.Testing.T_panicHandling):AnyInterface return _t._runCleanup(_ph) #else null #end;
-		__self__._setRan = #if !macro function():Void _t._setRan() #else null #end;
-		__self__;
-	});
+	stdgo.internal.testenv.Testenv.mustHaveSymlink(Go.asInterface(_t));
 	var _tmpdir:GoString = _t.tempDir();
 	var _dir:GoString = stdgo.path.filepath.Filepath.join(_tmpdir, (Go.str("dir") : GoString));
 	{
@@ -10083,279 +7910,36 @@ function testMkdirTempBadPattern(_t:stdgo.testing.Testing.T):Void {
 
 @:keep var _ = {
 	try {
-		_isExistTests = (_isExistTests.__append__(({
-			_err: {
-				final __self__ = new stdgo.io.fs.Fs.PathError_asInterface(({
-					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((17 : stdgo.syscall.Syscall.Errno));
-						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
-						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__.timeout = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__;
-					}
-				} : stdgo.io.fs.Fs.PathError));
-				__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-				__self__.timeout = #if !macro function():Bool throw "__return__" #else null #end;
-				__self__.unwrap = #if !macro function():stdgo.Error throw "__return__" #else null #end;
-				__self__;
-			},
-			_is: true,
-			_isnot: false
-		} : stdgo.os_test.Os_test.T_isExistTest), ({
-			_err: {
-				final __self__ = new stdgo.io.fs.Fs.PathError_asInterface(({
-					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((39 : stdgo.syscall.Syscall.Errno));
-						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
-						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__.timeout = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__;
-					}
-				} : stdgo.io.fs.Fs.PathError));
-				__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-				__self__.timeout = #if !macro function():Bool throw "__return__" #else null #end;
-				__self__.unwrap = #if !macro function():stdgo.Error throw "__return__" #else null #end;
-				__self__;
-			},
-			_is: true,
-			_isnot: false
-			} : stdgo.os_test.Os_test.T_isExistTest), ({
-			_err: {
-				final __self__ = new LinkError_asInterface(({
-					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((17 : stdgo.syscall.Syscall.Errno));
-						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
-						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__.timeout = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__;
-					}
-				} : LinkError));
-				__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-				__self__.unwrap = #if !macro function():stdgo.Error throw "__return__" #else null #end;
-				__self__;
-			},
-			_is: true,
-			_isnot: false
-			} : stdgo.os_test.Os_test.T_isExistTest), ({
-			_err: {
-				final __self__ = new LinkError_asInterface(({
-					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((39 : stdgo.syscall.Syscall.Errno));
-						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
-						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__.timeout = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__;
-					}
-				} : LinkError));
-				__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-				__self__.unwrap = #if !macro function():stdgo.Error throw "__return__" #else null #end;
-				__self__;
-			},
-			_is: true,
-			_isnot: false
-			} : stdgo.os_test.Os_test.T_isExistTest), ({
-			_err: {
-				final __self__ = new SyscallError_asInterface(({
-					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((17 : stdgo.syscall.Syscall.Errno));
-						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
-						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__.timeout = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__;
-					}
-				} : SyscallError));
-				__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-				__self__.timeout = #if !macro function():Bool throw "__return__" #else null #end;
-				__self__.unwrap = #if !macro function():stdgo.Error throw "__return__" #else null #end;
-				__self__;
-			},
-			_is: true,
-			_isnot: false
-			} : stdgo.os_test.Os_test.T_isExistTest), ({
-			_err: {
-				final __self__ = new SyscallError_asInterface(({
-					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((39 : stdgo.syscall.Syscall.Errno));
-						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
-						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__.timeout = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__;
-					}
-				} : SyscallError));
-				__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-				__self__.timeout = #if !macro function():Bool throw "__return__" #else null #end;
-				__self__.unwrap = #if !macro function():stdgo.Error throw "__return__" #else null #end;
-				__self__;
-			},
-			_is: true,
-			_isnot: false
-			} : stdgo.os_test.Os_test.T_isExistTest)));
-		_isPermissionTests = (_isPermissionTests.__append__(({
-			_err: {
-				final __self__ = new stdgo.io.fs.Fs.PathError_asInterface(({
-					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((13 : stdgo.syscall.Syscall.Errno));
-						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
-						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__.timeout = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__;
-					}
-				} : stdgo.io.fs.Fs.PathError));
-				__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-				__self__.timeout = #if !macro function():Bool throw "__return__" #else null #end;
-				__self__.unwrap = #if !macro function():stdgo.Error throw "__return__" #else null #end;
-				__self__;
-			},
-			_want: true
-		} : stdgo.os_test.Os_test.T_isPermissionTest), ({
-			_err: {
-				final __self__ = new stdgo.io.fs.Fs.PathError_asInterface(({
-					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((1 : stdgo.syscall.Syscall.Errno));
-						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
-						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__.timeout = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__;
-					}
-				} : stdgo.io.fs.Fs.PathError));
-				__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-				__self__.timeout = #if !macro function():Bool throw "__return__" #else null #end;
-				__self__.unwrap = #if !macro function():stdgo.Error throw "__return__" #else null #end;
-				__self__;
-			},
-			_want: true
-			} : stdgo.os_test.Os_test.T_isPermissionTest), ({
-			_err: {
-				final __self__ = new stdgo.io.fs.Fs.PathError_asInterface(({
-					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((17 : stdgo.syscall.Syscall.Errno));
-						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
-						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__.timeout = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__;
-					}
-				} : stdgo.io.fs.Fs.PathError));
-				__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-				__self__.timeout = #if !macro function():Bool throw "__return__" #else null #end;
-				__self__.unwrap = #if !macro function():stdgo.Error throw "__return__" #else null #end;
-				__self__;
-			},
-			_want: false
-			} : stdgo.os_test.Os_test.T_isPermissionTest), ({
-			_err: {
-				final __self__ = new LinkError_asInterface(({
-					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((13 : stdgo.syscall.Syscall.Errno));
-						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
-						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__.timeout = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__;
-					}
-				} : LinkError));
-				__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-				__self__.unwrap = #if !macro function():stdgo.Error throw "__return__" #else null #end;
-				__self__;
-			},
-			_want: true
-			} : stdgo.os_test.Os_test.T_isPermissionTest), ({
-			_err: {
-				final __self__ = new LinkError_asInterface(({
-					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((1 : stdgo.syscall.Syscall.Errno));
-						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
-						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__.timeout = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__;
-					}
-				} : LinkError));
-				__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-				__self__.unwrap = #if !macro function():stdgo.Error throw "__return__" #else null #end;
-				__self__;
-			},
-			_want: true
-			} : stdgo.os_test.Os_test.T_isPermissionTest), ({
-			_err: {
-				final __self__ = new LinkError_asInterface(({
-					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((17 : stdgo.syscall.Syscall.Errno));
-						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
-						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__.timeout = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__;
-					}
-				} : LinkError));
-				__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-				__self__.unwrap = #if !macro function():stdgo.Error throw "__return__" #else null #end;
-				__self__;
-			},
-			_want: false
-			} : stdgo.os_test.Os_test.T_isPermissionTest), ({
-			_err: {
-				final __self__ = new SyscallError_asInterface(({
-					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((13 : stdgo.syscall.Syscall.Errno));
-						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
-						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__.timeout = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__;
-					}
-				} : SyscallError));
-				__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-				__self__.timeout = #if !macro function():Bool throw "__return__" #else null #end;
-				__self__.unwrap = #if !macro function():stdgo.Error throw "__return__" #else null #end;
-				__self__;
-			},
-			_want: true
-			} : stdgo.os_test.Os_test.T_isPermissionTest), ({
-			_err: {
-				final __self__ = new SyscallError_asInterface(({
-					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((1 : stdgo.syscall.Syscall.Errno));
-						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
-						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__.timeout = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__;
-					}
-				} : SyscallError));
-				__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-				__self__.timeout = #if !macro function():Bool throw "__return__" #else null #end;
-				__self__.unwrap = #if !macro function():stdgo.Error throw "__return__" #else null #end;
-				__self__;
-			},
-			_want: true
-			} : stdgo.os_test.Os_test.T_isPermissionTest), ({
-			_err: {
-				final __self__ = new SyscallError_asInterface(({
-					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((17 : stdgo.syscall.Syscall.Errno));
-						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
-						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__.timeout = #if !macro function():Bool throw "__return__" #else null #end;
-						__self__;
-					}
-				} : SyscallError));
-				__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
-				__self__.timeout = #if !macro function():Bool throw "__return__" #else null #end;
-				__self__.unwrap = #if !macro function():stdgo.Error throw "__return__" #else null #end;
-				__self__;
-			},
-			_want: false
-			} : stdgo.os_test.Os_test.T_isPermissionTest)));
+		_isExistTests = (_isExistTests.__append__(({_err: Go.asInterface(({err: Go.asInterface((17 : stdgo.syscall.Syscall.Errno))} : stdgo.io.fs.Fs.PathError)),
+			_is: true, _isnot: false} : stdgo.os_test.Os_test.T_isExistTest),
+			({_err: Go.asInterface(({err: Go.asInterface((39 : stdgo.syscall.Syscall.Errno))} : stdgo.io.fs.Fs.PathError)), _is: true,
+				_isnot: false} : stdgo.os_test.Os_test.T_isExistTest),
+			({_err: Go.asInterface(({err: Go.asInterface((17 : stdgo.syscall.Syscall.Errno))} : LinkError)), _is: true,
+				_isnot: false} : stdgo.os_test.Os_test.T_isExistTest),
+			({_err: Go.asInterface(({err: Go.asInterface((39 : stdgo.syscall.Syscall.Errno))} : LinkError)), _is: true,
+				_isnot: false} : stdgo.os_test.Os_test.T_isExistTest),
+			({_err: Go.asInterface(({err: Go.asInterface((17 : stdgo.syscall.Syscall.Errno))} : SyscallError)), _is: true,
+				_isnot: false} : stdgo.os_test.Os_test.T_isExistTest),
+			({_err: Go.asInterface(({err: Go.asInterface((39 : stdgo.syscall.Syscall.Errno))} : SyscallError)), _is: true,
+				_isnot: false} : stdgo.os_test.Os_test.T_isExistTest)));
+		_isPermissionTests = (_isPermissionTests.__append__(({_err: Go.asInterface(({err: Go.asInterface((13 : stdgo.syscall.Syscall.Errno))} : stdgo.io.fs.Fs.PathError)),
+			_want: true} : stdgo.os_test.Os_test.T_isPermissionTest),
+			({_err: Go.asInterface(({err: Go.asInterface((1 : stdgo.syscall.Syscall.Errno))} : stdgo.io.fs.Fs.PathError)),
+				_want: true} : stdgo.os_test.Os_test.T_isPermissionTest),
+			({_err: Go.asInterface(({err: Go.asInterface((17 : stdgo.syscall.Syscall.Errno))} : stdgo.io.fs.Fs.PathError)),
+				_want: false} : stdgo.os_test.Os_test.T_isPermissionTest),
+			({_err: Go.asInterface(({err: Go.asInterface((13 : stdgo.syscall.Syscall.Errno))} : LinkError)),
+				_want: true} : stdgo.os_test.Os_test.T_isPermissionTest),
+			({_err: Go.asInterface(({err: Go.asInterface((1 : stdgo.syscall.Syscall.Errno))} : LinkError)),
+				_want: true} : stdgo.os_test.Os_test.T_isPermissionTest),
+			({_err: Go.asInterface(({err: Go.asInterface((17 : stdgo.syscall.Syscall.Errno))} : LinkError)),
+				_want: false} : stdgo.os_test.Os_test.T_isPermissionTest),
+			({_err: Go.asInterface(({err: Go.asInterface((13 : stdgo.syscall.Syscall.Errno))} : SyscallError)),
+				_want: true} : stdgo.os_test.Os_test.T_isPermissionTest),
+			({_err: Go.asInterface(({err: Go.asInterface((1 : stdgo.syscall.Syscall.Errno))} : SyscallError)),
+				_want: true} : stdgo.os_test.Os_test.T_isPermissionTest),
+			({_err: Go.asInterface(({err: Go.asInterface((17 : stdgo.syscall.Syscall.Errno))} : SyscallError)),
+				_want: false} : stdgo.os_test.Os_test.T_isPermissionTest)));
 		{
 			var _e:GoString = stdgo.os.Os.getenv((Go.str("OSTEST_OUTPUT_EXECPATH") : GoString));
 			if (_e != (Go.str() : GoString)) {
@@ -10388,6 +7972,26 @@ function testMkdirTempBadPattern(_t:stdgo.testing.Testing.T):Void {
 	true;
 };
 
+private class T_myErrorIs_asInterface {
+	@:keep
+	public function is_(_target:Error):Bool
+		return __self__.is_(_target);
+
+	@:embedded
+	public function error():GoString
+		return __self__.error();
+
+	public function new(?__self__) {
+		if (__self__ != null)
+			this.__self__ = __self__;
+	}
+
+	public function __underlying__()
+		return Go.toInterface(__self__);
+
+	var __self__:T_myErrorIs;
+}
+
 @:keep private class T_myErrorIs_static_extension {
 	@:keep
 	static public function is_(_e:T_myErrorIs, _target:Error):Bool {
@@ -10397,19 +8001,4 @@ function testMkdirTempBadPattern(_t:stdgo.testing.Testing.T):Void {
 	@:embedded
 	public static function error(__self__:T_myErrorIs):GoString
 		return __self__.error();
-}
-
-private class T_myErrorIs_asInterface {
-	@:keep
-	public var is_:Error->Bool = null;
-	@:embedded
-	public var error:() -> GoString = null;
-
-	public function new(__self__)
-		this.__self__ = __self__;
-
-	public function __underlying__()
-		return Go.toInterface(this);
-
-	var __self__:T_myErrorIs;
 }

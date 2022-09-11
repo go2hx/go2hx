@@ -114,9 +114,9 @@ function keepAlive(x:AnyInterface) {}
 @:eager
 typedef T_error = Error;
 
-typedef Error = StructType &
-	stdgo.Error & {
+typedef Error = StructType & {
 	public function runtimeError():Void;
+	public function error():GoString;
 }
 
 class Frames {

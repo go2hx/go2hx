@@ -488,13 +488,23 @@ class Go {
 						default:
 					}
 				}
-				final name = p.sub != null ? p.sub : p.name;
-				final t = Context.getType(name + "_asInterface");
-				final staticExtension = macro $i{name + "_static_extension"};
+				final printer = new haxe.macro.Printer();
+				final t = Context.getType(printer.printTypePath(p) + "_asInterface");
+				final staticExtension = macro $i{printer.printTypePath(p) + "_static_extension"};
+				function createTypePath() {
+					final p:TypePath = {name: p.name, sub: p.sub, pack: p.pack};
+					if (p.sub != null) {
+						p.sub += "_asInterface";
+					} else {
+						p.name += "_asInterface";
+					}
+					return p;
+				}
 				switch t {
 					case TInst(_.get() => t, params):
-						final p:TypePath = {name: name + "_asInterface", pack: []};
+						final asInterfacePointer = t.meta.has(":pointer");
 						if (params != null && params.length > 0) {
+							final p = createTypePath();
 							final exprs = [macro final __self__ = new $p($expr)];
 							final fields = t.fields.get();
 							for (field in fields) {
@@ -530,9 +540,9 @@ class Go {
 								}
 							}
 							exprs.push(macro __self__);
-							// trace(new haxe.macro.Printer().printExpr(macro $b{exprs}));
 							return macro $b{exprs};
 						} else {
+							final p = createTypePath();
 							return macro new $p($expr);
 						}
 					default:

@@ -479,7 +479,17 @@ class Go {
 			case TPath(p):
 				var self:Expr = {expr: expr.expr, pos: expr.pos};
 				var selfPointer = false;
-				if (p.name == "Pointer" && p.params != null && p.pack.length == 1 && p.pack[0] == "stdgo" && p.params.length == 1) {
+				if (p.sub == "Ref" && p.name == "StdGoTypes" && p.params != null && p.pack != null && p.pack.length == 1 && p.pack[0] == "stdgo"
+					&& p.params.length == 1) {
+					switch p.params[0] {
+						case TPType(TPath(p2)):
+							selfPointer = true;
+							self = macro $self.value;
+							p = p2;
+						default:
+					}
+				}
+				if (p.name == "Pointer" && p.params != null && p.pack != null && p.pack.length == 1 && p.pack[0] == "stdgo" && p.params.length == 1) {
 					switch p.params[0] {
 						case TPType(TPath(p2)):
 							selfPointer = true;

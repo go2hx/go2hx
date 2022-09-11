@@ -2898,7 +2898,12 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 								}
 								var x = typeExpr(expr.fun.x, info);
 								genArgs(true);
-								args.unshift(macro Go.pointer($x));
+								if (isPointer(xType)) {
+									args.unshift(x);
+								} else {
+									args.unshift(macro Go.pointer($x));
+								}
+
 								var e = x;
 								if (xTypePointer)
 									e = macro $e.value;

@@ -112,7 +112,7 @@ function main() {
 		};
 		tasks.push(data);
 	}
-	runsLeft = tasks.length * (targets.length * 2 - (targets.indexOf("interp") != -1 ? 1 : 0)); // 2 runs per task per target
+	runsLeft = tasks.length * (targets.length * 2);
 	Sys.println("Test runs left: " + runsLeft);
 	startStamp = haxe.Timer.stamp();
 	// update loop

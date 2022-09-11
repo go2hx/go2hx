@@ -634,7 +634,7 @@ private function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Arr
 			break;
 		}
 	}
-	if (isRestType(fieldArgs[fieldArgs.length - 1].type)) {
+	if (fieldArgs.length > 0 && isRestType(fieldArgs[fieldArgs.length - 1].type)) {
 		fieldCallArgs[fieldCallArgs.length - 1] = macro...$e{fieldCallArgs[fieldCallArgs.length - 1]};
 	}
 	var e = macro $e.$funcName($a{fieldCallArgs});

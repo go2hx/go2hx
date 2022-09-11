@@ -488,12 +488,13 @@ class Go {
 						default:
 					}
 				}
-				final t = Context.getType(p.sub + "_asInterface");
-				final staticExtension = macro $i{p.sub + "_static_extension"};
+				final name = p.sub != null ? p.sub : p.name;
+				final t = Context.getType(name + "_asInterface");
+				final staticExtension = macro $i{name + "_static_extension"};
 				switch t {
 					case TInst(_.get() => t, params):
+						final p:TypePath = {name: name + "_asInterface", pack: []};
 						if (params != null && params.length > 0) {
-							final p:TypePath = {name: p.sub + "_asInterface", pack: []};
 							final exprs = [macro final __self__ = new $p($expr)];
 							final fields = t.fields.get();
 							for (field in fields) {
@@ -535,11 +536,12 @@ class Go {
 							return macro new $p($expr);
 						}
 					default:
-						throw "invalid type: " + t;
+						Context.error("invalid type: " + t, Context.currentPos());
 				}
 			default:
-				throw "invalid type: " + t;
+				Context.error("invalid type: " + t, Context.currentPos());
 		}
+		return macro null;
 	}
 
 	public static macro function toInterface(expr) {

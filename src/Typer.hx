@@ -418,10 +418,10 @@ function main(data:DataType, instance:Main.InstanceData) {
 					isExtern: false,
 					meta: [{name: ":keep", pos: null},],
 				};
+				var isWrapperPointer = false;
 				final wrapperName = def.name + "_asInterface";
 				// FIXME: wrapperType needs to be pointer sometimes
-				var isWrapperPointer = false;
-				final wrapper:TypeDefinition = macro class $wrapperName {
+				final wrapper = macro class $wrapperName {
 					public function new(__self__)
 						this.__self__ = __self__;
 
@@ -432,6 +432,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 				};
 				wrapper.isExtern = def.isExtern;
 				wrapper.params = def.params;
+				file.defs.push(wrapper);
 				final fieldExtension = [info.global.filePath, staticExtensionName];
 				final globalPath = getGlobalPath(info);
 				if (globalPath != "")
@@ -441,7 +442,6 @@ function main(data:DataType, instance:Main.InstanceData) {
 				}
 				def.meta.push({name: ":using", params: [macro $p{fieldExtension}], pos: null});
 				file.defs.push(staticExtension);
-				file.defs.push(wrapper);
 				var embedded = false;
 				for (field in def.fields) {
 					if (field.meta != null) {
@@ -477,7 +477,9 @@ function main(data:DataType, instance:Main.InstanceData) {
 											fun.expr = macro return ${fun.expr};
 										default:
 									}
-									addLocalMethod(fieldName, field.pos, field.meta, field.doc, field.access, fun, staticExtension, wrapper, true);
+									addLocalMethod(fieldName, field.pos, field.meta, field.doc, field.access, fun, staticExtension, wrapper,
+										true, def.params != null
+										&& def.params.length > 0);
 									fun.args = fun.args.slice(1);
 									fun.expr = expr;
 								default:
@@ -499,8 +501,8 @@ function main(data:DataType, instance:Main.InstanceData) {
 									}
 									if (Patch.funcInline.indexOf(patchName) != -1 && access.indexOf(AInline) == -1)
 										access.push(AInline);
-									if (addLocalMethod(func.name, func.pos, func.meta, func.doc, access, fun, staticExtension,
-										wrapper)) isWrapperPointer = true;
+									if (addLocalMethod(func.name, func.pos, func.meta, func.doc, access, fun, staticExtension, wrapper, true, def.params != null
+										&& def.params.length > 0)) isWrapperPointer = true;
 								default:
 							}
 						default:
@@ -531,7 +533,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 }
 
 private function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Array<Access>, fun:Function, staticExtension:TypeDefinition,
-		wrapper:TypeDefinition, embedded:Bool = false) {
+		wrapper:TypeDefinition, embedded:Bool, hasParams:Bool) {
 	var isPointerArg = false;
 	var isWrapperPointer = false;
 	if (fun.args.length > 0) {
@@ -600,7 +602,7 @@ private function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Arr
 		fieldCallArgs.unshift(macro __self__);
 		e = macro $e.value;
 	}
-	var e = macro @:define("!macro") $e.$funcName($a{fieldCallArgs});
+	var e = macro $e.$funcName($a{fieldCallArgs});
 	if (!isVoid(fieldRet))
 		e = macro return $e;
 	final field:Field = {
@@ -609,7 +611,7 @@ private function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Arr
 		meta: meta.copy(),
 		pos: pos,
 		doc: doc,
-		kind: FFun({
+		kind: hasParams ? FVar(TFunction(fieldArgs.map(arg -> arg.type), fieldRet)) : FFun({
 			args: fieldArgs,
 			ret: fieldRet,
 			expr: e,
@@ -1941,7 +1943,7 @@ private function wrapper(t:GoType, y:Expr, info:Info):Expr {
 		t = getElem(t);
 	}
 	switch t {
-		case named(name, methods, type):
+		case named(name, methods, type, _, params):
 			if (methods.length == 0)
 				return y;
 			if (type == invalidType)
@@ -1949,12 +1951,9 @@ private function wrapper(t:GoType, y:Expr, info:Info):Expr {
 			if (isInterface(type)) {
 				return selfPointer ? self : y;
 			}
-			final p = namedTypePath(name, info);
-			p.name += "_asInterface";
-			final dt = defaultValue(t, info);
-			if (selfPointer)
-				y = macro $y == null ? null : $y;
-			return macro new $p($y);
+			// if (selfPointer)
+			//	y = macro $y == null ? null : $y;
+			return macro Go.asInterface($y);
 		default:
 	}
 	return y;
@@ -4829,6 +4828,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 										meta: [{name: ":follow", pos: pos}],
 										kind: TDAlias(t),
 									};
+									// trace(new haxe.macro.Printer().printTypeDefinition(td));
 									tds.push(td);
 								});
 							default:
@@ -5000,6 +5000,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 				$b{genericTypes};
 				$b{nonGenericTypes};
 				tds.push(td);
+				// trace(new haxe.macro.Printer().printTypeDefinition(td));
 				haxe.macro.Context.defineModule(pack.concat([className]).join("."), tds, haxe.macro.Context.getLocalImports());
 			}
 			return @:macro $call;

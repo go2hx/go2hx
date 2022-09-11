@@ -473,6 +473,75 @@ class Go {
 			return e; */
 	}
 
+	public static macro function asInterface(expr) {
+		final t = Context.toComplexType(Context.typeof(expr));
+		switch t {
+			case TPath(p):
+				var self:Expr = {expr: expr.expr, pos: expr.pos};
+				var selfPointer = false;
+				if (p.name == "Pointer" && p.params != null && p.pack.length == 1 && p.pack[0] == "stdgo" && p.params.length == 1) {
+					switch p.params[0] {
+						case TPType(TPath(p2)):
+							selfPointer = true;
+							self = macro $self.value;
+							p = p2;
+						default:
+					}
+				}
+				final t = Context.getType(p.sub + "_asInterface");
+				final staticExtension = macro $i{p.sub + "_static_extension"};
+				switch t {
+					case TInst(_.get() => t, params):
+						if (params != null && params.length > 0) {
+							final p:TypePath = {name: p.sub + "_asInterface", pack: []};
+							final exprs = [macro final __self__ = new $p($expr)];
+							final fields = t.fields.get();
+							for (field in fields) {
+								if (field.name == "__underlying__" || field.name == "__self__")
+									continue;
+								final isPointer = field.meta.has(":pointer");
+								final methodName = field.name;
+								switch field.type {
+									case TFun(args, ret):
+										final callArgs = args.map(arg -> macro $i{arg.name});
+										if (isPointer) {
+											if (!selfPointer) {
+												callArgs.unshift(macro Go.pointer($expr));
+											} else {
+												callArgs.unshift(macro $expr);
+											}
+										}
+										callArgs.unshift(self);
+										var e = macro $staticExtension.$methodName($a{callArgs});
+										if (!isVoid(ret))
+											e = macro return $e;
+										final f = {
+											expr: EFunction(FAnonymous, {
+												expr: e,
+												args: args.map(arg -> ({name: arg.name, type: Context.toComplexType(arg.t)} : FunctionArg)),
+												ret: Context.toComplexType(ret),
+											}),
+											pos: Context.currentPos(),
+										}
+										exprs.push(macro __self__.$methodName = $f);
+									default:
+										throw "invalid field type: " + field.type;
+								}
+							}
+							exprs.push(macro __self__);
+							// trace(new haxe.macro.Printer().printExpr(macro $b{exprs}));
+							return macro $b{exprs};
+						} else {
+							return macro new $p($expr);
+						}
+					default:
+						throw "invalid type: " + t;
+				}
+			default:
+				throw "invalid type: " + t;
+		}
+	}
+
 	public static macro function toInterface(expr) {
 		#if go2hx_compiler
 		return macro null;
@@ -819,7 +888,7 @@ class Go {
 											final path = createPath(ref.pack, ref.name);
 											for (field in fs) {
 												switch field.kind {
-													case FVar(AccNormal, AccNormal):
+													case FMethod(_):
 														switch field.name {
 															case "new", "__underlying__", "__t__":
 																continue;

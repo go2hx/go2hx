@@ -64,7 +64,8 @@ abstract Pointer<T>(PointerData<T>) from PointerData<T> {
 	@:to
 	public static inline function to<T>(p:PointerData<T>):T {
 		if (p == null)
-			throw "null pointer conversion";
+			return null;
+		// throw "null pointer conversion";
 		return p.get();
 	}
 

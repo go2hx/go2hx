@@ -422,8 +422,10 @@ function main(data:DataType, instance:Main.InstanceData) {
 				final wrapperName = def.name + "_asInterface";
 				// FIXME: wrapperType needs to be pointer sometimes
 				final wrapper = macro class $wrapperName {
-					public function new(__self__)
-						this.__self__ = __self__;
+					public function new(?__self__) {
+						if (__self__ != null)
+							this.__self__ = __self__;
+					}
 
 					public function __underlying__()
 						return Go.toInterface(__self__);
@@ -479,7 +481,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 									}
 									addLocalMethod(fieldName, field.pos, field.meta, field.doc, field.access, fun, staticExtension, wrapper,
 										true, def.params != null
-										&& def.params.length > 0);
+										&& def.params.length > 0, false);
 									fun.args = fun.args.slice(1);
 									fun.expr = expr;
 								default:
@@ -487,8 +489,30 @@ function main(data:DataType, instance:Main.InstanceData) {
 						}
 					}
 				}
-				for (decl in local) {
-					var func = typeFunction(decl.func, info, restrictedNames, isNamed, decl.sel);
+				var isWrapperPointer = false;
+				final funcs = [
+					for (decl in local) {
+						var func = typeFunction(decl.func, info, restrictedNames, isNamed, decl.sel);
+						switch func.kind {
+							case TDField(kind, access):
+								switch kind {
+									case FFun(fun):
+										if (fun.args.length > 0) {
+											for (meta in fun.args[0].meta) {
+												if (meta.name == ":pointer") {
+													isWrapperPointer = true;
+													break;
+												}
+											}
+										}
+									default:
+								}
+							default:
+						}
+						func;
+					}
+				];
+				for (func in funcs) {
 					switch func.kind {
 						case TDField(kind, access):
 							switch kind {
@@ -501,8 +525,8 @@ function main(data:DataType, instance:Main.InstanceData) {
 									}
 									if (Patch.funcInline.indexOf(patchName) != -1 && access.indexOf(AInline) == -1)
 										access.push(AInline);
-									if (addLocalMethod(func.name, func.pos, func.meta, func.doc, access, fun, staticExtension, wrapper, true, def.params != null
-										&& def.params.length > 0)) isWrapperPointer = true;
+									addLocalMethod(func.name, func.pos, func.meta, func.doc, access, fun, staticExtension, wrapper,
+										true, def.params != null && def.params.length > 0, isWrapperPointer);
 								default:
 							}
 						default:
@@ -512,6 +536,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 					switch wrapper.fields[wrapper.fields.length - 1].kind {
 						case FVar(t, _):
 							wrapper.fields[wrapper.fields.length - 1].kind = FVar(TPath({name: "Pointer", pack: [], params: [TPType(t)]}), null);
+							wrapper.meta.push({name: ":pointer", pos: null});
 							switch wrapper.fields[wrapper.fields.length - 2].kind {
 								case FFun(f):
 									f.expr = macro return Go.toInterface(__self__.value);
@@ -533,15 +558,13 @@ function main(data:DataType, instance:Main.InstanceData) {
 }
 
 private function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Array<Access>, fun:Function, staticExtension:TypeDefinition,
-		wrapper:TypeDefinition, embedded:Bool, hasParams:Bool) {
+		wrapper:TypeDefinition, embedded:Bool, hasParams:Bool, isWrapperPointer:Bool) {
 	var isPointerArg = false;
-	var isWrapperPointer = false;
 	if (fun.args.length > 0) {
 		for (meta in fun.args[0].meta) {
 			if (meta.name == ":pointer") {
 				fun.args[0].meta.remove(meta);
 				isPointerArg = true;
-				isWrapperPointer = true;
 				break;
 			}
 		}
@@ -549,7 +572,8 @@ private function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Arr
 	final funcName = name;
 	final staticArgs = fun.args.copy();
 	if (isPointerArg) {
-		switch exprOfType(staticArgs[0].type) {
+		final t = exprOfType(staticArgs[0].type);
+		switch t {
 			case TPath(p):
 				switch p.params[0] { // Pointer<T>
 					case TPType(t):
@@ -600,11 +624,23 @@ private function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Arr
 	var e = macro __self__;
 	if (isPointerArg) {
 		fieldCallArgs.unshift(macro __self__);
+	}
+	if (isWrapperPointer) {
 		e = macro $e.value;
+	}
+	for (meta in wrapper.meta) {
+		if (meta.name == ":pointer") {
+			e = macro $e.value;
+			break;
+		}
+	}
+	if (isRestType(fieldArgs[fieldArgs.length - 1].type)) {
+		fieldCallArgs[fieldCallArgs.length - 1] = macro...$e{fieldCallArgs[fieldCallArgs.length - 1]};
 	}
 	var e = macro $e.$funcName($a{fieldCallArgs});
 	if (!isVoid(fieldRet))
 		e = macro return $e;
+
 	final field:Field = {
 		name: funcName,
 		access: [APublic],
@@ -619,7 +655,6 @@ private function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Arr
 	};
 	wrapper.fields.unshift(field);
 	staticExtension.fields.unshift(staticField);
-	return isWrapperPointer;
 }
 
 private function exprOfType(t:ComplexType):ComplexType {
@@ -1808,6 +1843,14 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
 	return y;
 }
 
+private function isRestType(t:ComplexType):Bool {
+	return switch t {
+		case TPath(p): p.name == "Rest" && p.pack != null && p.pack.length == 1 && p.pack[0] == "haxe";
+		default:
+			false;
+	}
+}
+
 private function isRestExpr(expr:Expr):Bool {
 	return switch expr.expr {
 		case EUnop(op, _, _):
@@ -1951,8 +1994,6 @@ private function wrapper(t:GoType, y:Expr, info:Info):Expr {
 			if (isInterface(type)) {
 				return selfPointer ? self : y;
 			}
-			// if (selfPointer)
-			//	y = macro $y == null ? null : $y;
 			return macro Go.asInterface($y);
 		default:
 	}

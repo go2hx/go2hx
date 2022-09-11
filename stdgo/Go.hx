@@ -488,22 +488,31 @@ class Go {
 						default:
 					}
 				}
-				final printer = new haxe.macro.Printer();
-				final t = Context.getType(printer.printTypePath(p) + "_asInterface");
-				final staticExtension = macro $i{printer.printTypePath(p) + "_static_extension"};
-				function createTypePath() {
-					final p:TypePath = {name: p.name, sub: p.sub, pack: p.pack};
+				function createTypePath(s:String = "_asInterface") {
+					final p:TypePath = {
+						name: p.name,
+						sub: p.sub,
+						pack: p.pack,
+						params: p.params
+					};
 					if (p.sub != null) {
-						p.sub += "_asInterface";
+						p.sub += s;
 					} else {
-						p.name += "_asInterface";
+						p.name += s;
 					}
 					return p;
 				}
+				final printer = new haxe.macro.Printer();
+				final p = createTypePath();
+				p.params = null;
+				var s = printer.printTypePath(p);
+				final t = Context.getType(printer.printTypePath(p));
+				final p = createTypePath("_static_extension");
+				p.params = null;
 				switch t {
 					case TInst(_.get() => t, params):
 						final asInterfacePointer = t.meta.has(":pointer");
-						if (params != null && params.length > 0) {
+						if (params != null && params.length > 0) { // has params
 							final p = createTypePath();
 							final exprs = [macro final __self__ = new $p($expr)];
 							final fields = t.fields.get();
@@ -522,8 +531,9 @@ class Go {
 												callArgs.unshift(macro $expr);
 											}
 										}
-										callArgs.unshift(self);
-										var e = macro $staticExtension.$methodName($a{callArgs});
+										// callArgs.unshift(self);
+										var e = macro $self.$methodName($a{callArgs});
+										// trace("e: " + printer.printExpr(e));
 										if (!isVoid(ret))
 											e = macro return $e;
 										final f = {

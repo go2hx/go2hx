@@ -669,21 +669,18 @@ class Value {
 
 	public function string():GoString {
 		var value = value.value;
-		if (isNamed(@:privateAccess type().common().value))
-			value = (value : Dynamic).__t__;
-		final underlyingType = new _Type(getUnderlying(@:privateAccess type().common().value));
+		final t = @:privateAccess type().common().value;
+		final underlyingType = new _Type(getUnderlying(t));
 		switch (underlyingType.gt) {
 			case basic(kind):
 				switch kind {
 					case string_kind:
 						return value;
 					default:
-						throw new ValueError("String", underlyingType.kind());
 				}
 			default:
-				throw new ValueError("String", underlyingType.kind());
 		}
-		return "";
+		return "<" + type().string() + ">";
 	}
 
 	public function index(i:GoInt):Value {
@@ -691,8 +688,6 @@ class Value {
 		return null;
 		#else
 		var value = value.value;
-		if (isNamed(@:privateAccess type().common().value))
-			value = (value : Dynamic).__t__;
 		final gt = getUnderlying(@:privateAccess type().common().value);
 		return switch gt {
 			case arrayType(elem, _): @:privateAccess new Value(new AnyInterface((value : GoArray<Dynamic>)[i], new _Type(unroll(gt, elem))));
@@ -756,8 +751,6 @@ class Value {
 		return null;
 		#else
 		var value = value.value;
-		if (isNamed(@:privateAccess type().common().value))
-			value = (value : Dynamic).__t__;
 		return switch @:privateAccess type().common().value {
 			case mapType(_, mapValue):
 				new Value(new AnyInterface((value : GoMap<Dynamic, Dynamic>)[key.value], new _Type(mapValue)));
@@ -772,8 +765,6 @@ class Value {
 		return null;
 		#else
 		var value = value.value;
-		if (isNamed(@:privateAccess type().common().value))
-			value = (value : Dynamic).__t__;
 		var val:GoMap<Dynamic, Dynamic> = value;
 		var gt:GoType = @:privateAccess type().common().value;
 		switch gt {
@@ -795,14 +786,13 @@ class Value {
 		return null;
 		#else
 		var value = value.value;
-		if (isNamed(@:privateAccess type().common().value))
-			value = (value : Dynamic).__t__;
 		var k = kind();
+		final t = @:privateAccess type().common().value;
 		switch k {
 			case ptr:
 				if (value == null)
 					return new Value();
-				switch getUnderlying(@:privateAccess type().common().value) {
+				switch getUnderlying(t) {
 					case GoType.pointer(elem):
 						return new Value(new AnyInterface((value : Pointer<Dynamic>).value, new _Type(elem)), value).setAddr();
 					default:
@@ -817,7 +807,8 @@ class Value {
 
 	public function len():GoInt {
 		var value = value.value;
-		if (isNamed(@:privateAccess type().common().value))
+		final t = @:privateAccess type().common().value;
+		if (isNamed(t))
 			value = (value : Dynamic);
 		final k:Int = kind().toBasic();
 		return switch k {

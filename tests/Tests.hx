@@ -161,6 +161,7 @@ private function completeProcess(code:Int, proc:Process, task:TaskData, command:
 			processPool.run(command, task, true);
 		} else {
 			suites[task.data.type].success(task);
+			runsLeft--;
 		}
 	} else {
 		if (runtimeBool) {
@@ -174,8 +175,6 @@ private function completeProcess(code:Int, proc:Process, task:TaskData, command:
 			suites[task.data.type].buildError(task);
 		}
 	}
-	if (task.target == "interp")
-		runsLeft--;
 	if (runsLeft % 10 == 0)
 		trace("runsLeft: " + runsLeft);
 	if (--runsLeft <= 0) {

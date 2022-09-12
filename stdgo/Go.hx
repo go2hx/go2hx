@@ -508,7 +508,11 @@ class Go {
 					if (p.sub != null) {
 						p.sub += s;
 					} else {
-						p.name += s;
+						if (p.pack.length > 0) {
+							p.sub = p.name + s;
+						} else {
+							p.name += s;
+						}
 					}
 					return p;
 				}

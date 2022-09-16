@@ -35,6 +35,7 @@ parser
 test/go.mod
 tests/diff
 go4hx
+go2hxdoc
 gobyexample
 golibs
 gopath

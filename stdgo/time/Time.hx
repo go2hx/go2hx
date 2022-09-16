@@ -181,7 +181,7 @@ private var _utcLoc:Location = ({_name: (Go.str("UTC") : GoString)} : Location);
 /**
 	// UTC represents Universal Coordinated Time (UTC).
 **/
-var utc:Location = _utcLoc;
+var utc:Ref<Location> = _utcLoc;
 
 /**
 	// Local represents the system's local time zone.
@@ -191,7 +191,7 @@ var utc:Location = _utcLoc;
 	// TZ="" means use UTC.
 	// TZ="foo" means use file foo in the system timezone directory.
 **/
-var local:Location = _localLoc;
+var local:Ref<Location> = _localLoc;
 
 private var _errLocation:stdgo.Error = stdgo.errors.Errors.new_((Go.str("time: invalid location name") : GoString));
 
@@ -3226,11 +3226,11 @@ function parse(_layout:GoString, _value:GoString):{var _0:Time; var _1:Error;} {
 	// Second, when given a zone offset or abbreviation, Parse tries to match it
 	// against the Local location; ParseInLocation uses the given location.
 **/
-function parseInLocation(_layout:GoString, _value:GoString, _loc:Location):{var _0:Time; var _1:Error;} {
+function parseInLocation(_layout:GoString, _value:GoString, _loc:Ref<Location>):{var _0:Time; var _1:Error;} {
 	return _parse(_layout, _value, _loc, _loc);
 }
 
-function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _local:Location):{var _0:Time; var _1:Error;} {
+function _parse(_layout:GoString, _value:GoString, _defaultLocation:Ref<Location>, _local:Ref<Location>):{var _0:Time; var _1:Error;} {
 	var _alayout:GoString = _layout, _avalue:GoString = _value;
 	var _rangeErrString:GoString = (Go.str() : GoString);
 	var _amSet:Bool = false;
@@ -3243,7 +3243,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 		_min:GoInt = (0 : GoInt),
 		_sec:GoInt = (0 : GoInt),
 		_nsec:GoInt = (0 : GoInt),
-		_z:Location = (null : Location),
+		_z:Ref<Location> = (null : Location),
 		_zoneOffset:GoInt = (-1 : GoInt),
 		_zoneName:GoString = ("" : GoString);
 	while (true) {
@@ -4187,7 +4187,7 @@ function _when(_d:Duration):GoInt64 {
 	return _t;
 }
 
-function _startTimer(_0:T_runtimeTimer):Void {
+function _startTimer(_0:Ref<T_runtimeTimer>):Void {
 	final t = _0;
 	t._status = 1;
 	var diff = (t._when - Time._runtimeNano()) / (1000 * 1000);
@@ -4209,7 +4209,7 @@ function _startTimer(_0:T_runtimeTimer):Void {
 	t._pp = (timer : GoUIntptr);
 }
 
-function _stopTimer(_0:T_runtimeTimer):Bool {
+function _stopTimer(_0:Ref<T_runtimeTimer>):Bool {
 	final t:Dynamic = _0;
 	if ((t._pp : GoUIntptr) != (0 : GoUIntptr)) {
 		final timer:haxe.Timer = t._pp;
@@ -4220,14 +4220,14 @@ function _stopTimer(_0:T_runtimeTimer):Bool {
 	return wasActive;
 }
 
-function _resetTimer(_0:T_runtimeTimer, _1:GoInt64):Bool {
+function _resetTimer(_0:Ref<T_runtimeTimer>, _1:GoInt64):Bool {
 	final t = _0;
 	final when = _1;
 	final wasActive = t._status == 1;
 	return wasActive;
 }
 
-function _modTimer(_t:T_runtimeTimer, _when:GoInt64, _period:GoInt64, _f:(AnyInterface, GoUIntptr) -> Void, _arg:AnyInterface, _seq:GoUIntptr):Void {
+function _modTimer(_t:Ref<T_runtimeTimer>, _when:GoInt64, _period:GoInt64, _f:(AnyInterface, GoUIntptr) -> Void, _arg:AnyInterface, _seq:GoUIntptr):Void {
 	_stopTimer(_t);
 	_t._when = _when;
 	_t._period = _period;
@@ -4241,7 +4241,7 @@ function _modTimer(_t:T_runtimeTimer, _when:GoInt64, _period:GoInt64, _f:(AnyInt
 	// NewTimer creates a new Timer that will send
 	// the current time on its channel after at least duration d.
 **/
-function newTimer(_d:Duration):Timer {
+function newTimer(_d:Duration):Ref<Timer> {
 	var _c = new Chan<Time>((1 : GoInt).toBasic(), () -> ({} : Time));
 	var _t = ({c: _c, _r: ({_when: _when(_d), _f: _sendTime, _arg: Go.toInterface(_c)} : T_runtimeTimer)} : Timer);
 	_startTimer(_t._r);
@@ -4272,7 +4272,7 @@ function after(_d:Duration):Chan<Time> {
 	// in its own goroutine. It returns a Timer that can
 	// be used to cancel the call using its Stop method.
 **/
-function afterFunc(_d:Duration, _f:() -> Void):Timer {
+function afterFunc(_d:Duration, _f:() -> Void):Ref<Timer> {
 	var _t = ({_r: ({_when: _when(_d), _f: _goFunc, _arg: Go.toInterface(_f)} : T_runtimeTimer)} : Timer);
 	_startTimer(_t._r);
 	return _t;
@@ -4343,7 +4343,7 @@ function _preadn(_fd:GoUIntptr, _buf:Slice<GoByte>, _off:GoInt):Error {
 	// The duration d must be greater than zero; if not, NewTicker will
 	// panic. Stop the ticker to release associated resources.
 **/
-function newTicker(_d:Duration):Ticker {
+function newTicker(_d:Duration):Ref<Ticker> {
 	if (_d <= (0 : Duration)) {
 		throw Go.toInterface(stdgo.errors.Errors.new_((Go.str("non-positive interval for NewTicker") : GoString)));
 	};
@@ -4703,7 +4703,7 @@ function _norm(_hi:GoInt, _lo:GoInt, _base:GoInt):{var _0:GoInt; var _1:GoInt;} 
 	//
 	// Date panics if loc is nil.
 **/
-function date(_year:GoInt, _month:Month, _day:GoInt, _hour:GoInt, _min:GoInt, _sec:GoInt, _nsec:GoInt, _loc:Location):Time {
+function date(_year:GoInt, _month:Month, _day:GoInt, _hour:GoInt, _min:GoInt, _sec:GoInt, _nsec:GoInt, _loc:Ref<Location>):Time {
 	if (_loc == null) {
 		throw Go.toInterface((Go.str("time: missing Location in call to Date") : GoString));
 	};
@@ -4857,7 +4857,7 @@ function _div(_t:Time, _d:Duration):{var _0:GoInt; var _1:Duration;} {
 	// FixedZone returns a Location that always uses
 	// the given zone name and offset (seconds east of UTC).
 **/
-function fixedZone(_name:GoString, _offset:GoInt):Location {
+function fixedZone(_name:GoString, _offset:GoInt):Ref<Location> {
 	var _l = ({
 		_name: _name,
 		_zone: (new Slice<T_zone>(0, 0, (new T_zone(_name, _offset, false) : T_zone)) : Slice<T_zone>),
@@ -5375,7 +5375,7 @@ function _tzruleTime(_year:GoInt, _r:T_rule, _off:GoInt):GoInt {
 	// - $GOROOT/lib/time/zoneinfo.zip
 	// - the time/tzdata package, if it was imported
 **/
-function loadLocation(_name:GoString):{var _0:Location; var _1:Error;} {
+function loadLocation(_name:GoString):{var _0:Ref<Location>; var _1:Error;} {
 	if ((_name == (Go.str() : GoString)) || (_name == (Go.str("UTC") : GoString))) {
 		return {_0: utc, _1: (null : stdgo.Error)};
 	};
@@ -5516,7 +5516,7 @@ function _byteString(_p:Slice<GoByte>):GoString {
 	// The data should be in the format of a standard IANA time zone file
 	// (for example, the content of /etc/localtime on Unix systems).
 **/
-function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Location; var _1:Error;} {
+function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Ref<Location>; var _1:Error;} {
 	var _d:T_dataIO = (new T_dataIO(_data, false) : T_dataIO);
 	{
 		var _magic = _d._read((4 : GoInt));
@@ -5956,8 +5956,8 @@ function _loadTzinfo(_name:GoString, _source:GoString):{var _0:Slice<GoByte>; va
 	// The first timezone data matching the given name that is successfully loaded
 	// and parsed is returned as a Location.
 **/
-function _loadLocation(_name:GoString, _sources:Slice<GoString>):{var _0:Location; var _1:Error;} {
-	var _z:Location = (null : Location),
+function _loadLocation(_name:GoString, _sources:Slice<GoString>):{var _0:Ref<Location>; var _1:Error;} {
+	var _z:Ref<Location> = (null : Location),
 		_firstErr:Error = (null : stdgo.Error);
 	for (_0 => _source in _sources) {
 		var __tmp__ = _loadTzinfo(_name, _source),
@@ -6136,7 +6136,7 @@ class ParseError_asInterface {
 		// Error returns the string representation of a ParseError.
 	**/
 	@:keep
-	static public function error(_e:ParseError):GoString {
+	static public function error(_e:Ref<ParseError>):GoString {
 		if (_e.message == (Go.str() : GoString)) {
 			return (((((((Go.str("parsing time ") : GoString) + _quote(_e.value)) + (Go.str(" as ") : GoString)) + _quote(_e.layout))
 				+ (Go.str(": cannot parse ") : GoString))
@@ -6266,7 +6266,7 @@ class Timer_asInterface {
 		// f is completed, it must coordinate with f explicitly.
 	**/
 	@:keep
-	static public function reset(_t:Timer, _d:Duration):Bool {
+	static public function reset(_t:Ref<Timer>, _d:Duration):Bool {
 		if (_t._r._f == null) {
 			throw Go.toInterface((Go.str("time: Reset called on uninitialized Timer") : GoString));
 		};
@@ -6299,7 +6299,7 @@ class Timer_asInterface {
 		// with f explicitly.
 	**/
 	@:keep
-	static public function stop(_t:Timer):Bool {
+	static public function stop(_t:Ref<Timer>):Bool {
 		if (_t._r._f == null) {
 			throw Go.toInterface((Go.str("time: Stop called on uninitialized Timer") : GoString));
 		};
@@ -6344,7 +6344,7 @@ class Ticker_asInterface {
 		// must be greater than zero; if not, Reset will panic.
 	**/
 	@:keep
-	static public function reset(_t:Ticker, _d:Duration):Void {
+	static public function reset(_t:Ref<Ticker>, _d:Duration):Void {
 		if (_d <= (0 : Duration)) {
 			throw Go.toInterface((Go.str("non-positive interval for Ticker.Reset") : GoString));
 		};
@@ -6360,7 +6360,7 @@ class Ticker_asInterface {
 		// reading from the channel from seeing an erroneous "tick".
 	**/
 	@:keep
-	static public function stop(_t:Ticker):Void {
+	static public function stop(_t:Ref<Ticker>):Void {
 		_stopTimer(_t._r);
 	}
 }
@@ -6529,7 +6529,7 @@ class Time_asInterface {
 		// Location returns the time zone information associated with t.
 	**/
 	@:keep
-	public function location():Location
+	public function location():Ref<Location>
 		return __self__.location();
 
 	/**
@@ -6540,7 +6540,7 @@ class Time_asInterface {
 		// In panics if loc is nil.
 	**/
 	@:keep
-	public function in_(_loc:Location):Time
+	public function in_(_loc:Ref<Location>):Time
 		return __self__.in_(_loc);
 
 	/**
@@ -6771,7 +6771,7 @@ class Time_asInterface {
 		// setLoc sets the location associated with the time.
 	**/
 	@:keep
-	public function _setLoc(_loc:Location):Void
+	public function _setLoc(_loc:Ref<Location>):Void
 		__self__._setLoc(_loc);
 
 	/**
@@ -6924,7 +6924,7 @@ class Time_asInterface {
 		// The time is expected to be in RFC 3339 format.
 	**/
 	@:keep
-	static public function unmarshalText(_t:Time, _data:Slice<GoByte>):Error {
+	static public function unmarshalText(_t:Ref<Time>, _data:Slice<GoByte>):Error {
 		var _err:Error = (null : stdgo.Error);
 		{
 			var __tmp__ = parse((Go.str("2006-01-02T15:04:05Z07:00") : GoString), (_data : GoString));
@@ -6956,7 +6956,7 @@ class Time_asInterface {
 		// The time is expected to be a quoted string in RFC 3339 format.
 	**/
 	@:keep
-	static public function unmarshalJSON(_t:Time, _data:Slice<GoByte>):Error {
+	static public function unmarshalJSON(_t:Ref<Time>, _data:Slice<GoByte>):Error {
 		if ((_data : GoString) == (Go.str("null") : GoString)) {
 			return (null : stdgo.Error);
 		};
@@ -6992,7 +6992,7 @@ class Time_asInterface {
 		// GobDecode implements the gob.GobDecoder interface.
 	**/
 	@:keep
-	static public function gobDecode(_t:Time, _data:Slice<GoByte>):Error {
+	static public function gobDecode(_t:Ref<Time>, _data:Slice<GoByte>):Error {
 		return _t.unmarshalBinary(_data);
 	}
 
@@ -7008,7 +7008,7 @@ class Time_asInterface {
 		// UnmarshalBinary implements the encoding.BinaryUnmarshaler interface.
 	**/
 	@:keep
-	static public function unmarshalBinary(_t:Time, _data:Slice<GoByte>):Error {
+	static public function unmarshalBinary(_t:Ref<Time>, _data:Slice<GoByte>):Error {
 		var _buf = _data;
 		if ((_buf.length) == (0 : GoInt)) {
 			return stdgo.errors.Errors.new_((Go.str("Time.UnmarshalBinary: no data") : GoString));
@@ -7192,7 +7192,7 @@ class Time_asInterface {
 		// Location returns the time zone information associated with t.
 	**/
 	@:keep
-	static public function location(_t:Time):Location {
+	static public function location(_t:Time):Ref<Location> {
 		var _l = _t._loc;
 		if (_l == null) {
 			_l = stdgo.time.Time.utc;
@@ -7208,7 +7208,7 @@ class Time_asInterface {
 		// In panics if loc is nil.
 	**/
 	@:keep
-	static public function in_(_t:Time, _loc:Location):Time {
+	static public function in_(_t:Time, _loc:Ref<Location>):Time {
 		if (_loc == null) {
 			throw Go.toInterface((Go.str("time: missing Location in call to Time.In") : GoString));
 		};
@@ -7598,7 +7598,7 @@ class Time_asInterface {
 		// monotonic clock reading as well.
 	**/
 	@:keep
-	static public function _mono(_t:Time):GoInt64 {
+	static public function _mono(_t:Ref<Time>):GoInt64 {
 		if ((_t._wall & ("9223372036854775808" : GoUInt64)) == (0 : GoUInt64)) {
 			return (0 : GoInt64);
 		};
@@ -7612,7 +7612,7 @@ class Time_asInterface {
 		// setMono is a no-op.
 	**/
 	@:keep
-	static public function _setMono(_t:Time, _m:GoInt64):Void {
+	static public function _setMono(_t:Ref<Time>, _m:GoInt64):Void {
 		if ((_t._wall & ("9223372036854775808" : GoUInt64)) == (0 : GoUInt64)) {
 			var _sec:GoInt64 = _t._ext;
 			if ((_sec < ("59453308800":GoInt64)) || (("68043243391" : GoInt64) < _sec)) {
@@ -7627,7 +7627,7 @@ class Time_asInterface {
 		// stripMono strips the monotonic clock reading in t.
 	**/
 	@:keep
-	static public function _stripMono(_t:Time):Void {
+	static public function _stripMono(_t:Ref<Time>):Void {
 		if ((_t._wall & ("9223372036854775808" : GoUInt64)) != (0 : GoUInt64)) {
 			_t._ext = _t._sec();
 			_t._wall = _t._wall & ((1073741823 : GoUInt64));
@@ -7638,7 +7638,7 @@ class Time_asInterface {
 		// setLoc sets the location associated with the time.
 	**/
 	@:keep
-	static public function _setLoc(_t:Time, _loc:Location):Void {
+	static public function _setLoc(_t:Ref<Time>, _loc:Ref<Location>):Void {
 		if (_loc == _utcLoc) {
 			_loc = null;
 		};
@@ -7650,7 +7650,7 @@ class Time_asInterface {
 		// addSec adds d seconds to the time.
 	**/
 	@:keep
-	static public function _addSec(_t:Time, _d:GoInt64):Void {
+	static public function _addSec(_t:Ref<Time>, _d:GoInt64):Void {
 		if ((_t._wall & ("9223372036854775808" : GoUInt64)) != (0 : GoUInt64)) {
 			var _sec:GoInt64 = ((_t._wall << (1 : GoUnTypedInt)) >> (31 : GoUnTypedInt) : GoInt64);
 			var _dsec:GoInt64 = _sec + _d;
@@ -7674,7 +7674,7 @@ class Time_asInterface {
 		// unixSec returns the time's seconds since Jan 1 1970 (Unix time).
 	**/
 	@:keep
-	static public function _unixSec(_t:Time):GoInt64 {
+	static public function _unixSec(_t:Ref<Time>):GoInt64 {
 		return _t._sec() + ("-62135596800" : GoInt64);
 	}
 
@@ -7682,7 +7682,7 @@ class Time_asInterface {
 		// sec returns the time's seconds since Jan 1 year 1.
 	**/
 	@:keep
-	static public function _sec(_t:Time):GoInt64 {
+	static public function _sec(_t:Ref<Time>):GoInt64 {
 		if ((_t._wall & ("9223372036854775808" : GoUInt64)) != (0 : GoUInt64)) {
 			return ("59453308800" : GoInt64) + ((_t._wall << (1 : GoUnTypedInt)) >> (31 : GoUnTypedInt) : GoInt64);
 		};
@@ -7693,7 +7693,7 @@ class Time_asInterface {
 		// nsec returns the time's nanoseconds.
 	**/
 	@:keep
-	static public function _nsec(_t:Time):GoInt32 {
+	static public function _nsec(_t:Ref<Time>):GoInt32 {
 		return (_t._wall & (1073741823 : GoUInt64):GoInt32);
 	}
 
@@ -8086,7 +8086,7 @@ class Location_asInterface {
 		return __self__.string();
 
 	@:keep
-	public function _get():Location
+	public function _get():Ref<Location>
 		return __self__._get();
 
 	public function new(?__self__) {
@@ -8107,7 +8107,7 @@ class Location_asInterface {
 		// (what the given time of day would be in UTC).
 	**/
 	@:keep
-	static public function _lookupName(_l:Location, _name:GoString, _unix:GoInt64):{var _0:GoInt; var _1:Bool;} {
+	static public function _lookupName(_l:Ref<Location>, _name:GoString, _unix:GoInt64):{var _0:GoInt; var _1:Bool;} {
 		var _offset:GoInt = (0 : GoInt), _ok:Bool = false;
 		_l = _l._get();
 		for (_i => _ in _l._zone) {
@@ -8138,7 +8138,7 @@ class Location_asInterface {
 		// transition.
 	**/
 	@:keep
-	static public function _firstZoneUsed(_l:Location):Bool {
+	static public function _firstZoneUsed(_l:Ref<Location>):Bool {
 		for (_0 => _tx in _l._tx) {
 			if (_tx._index == (0 : GoUInt8)) {
 				return true;
@@ -8165,7 +8165,7 @@ class Location_asInterface {
 		//  4. Otherwise, use the first zone.
 	**/
 	@:keep
-	static public function _lookupFirstZone(_l:Location):GoInt {
+	static public function _lookupFirstZone(_l:Ref<Location>):GoInt {
 		if (!_l._firstZoneUsed()) {
 			return (0 : GoInt);
 		};
@@ -8197,7 +8197,7 @@ class Location_asInterface {
 		// the daylight savings is being observed at that time.
 	**/
 	@:keep
-	static public function _lookup(_l:Location, _sec:GoInt64):{
+	static public function _lookup(_l:Ref<Location>, _sec:GoInt64):{
 		var _0:GoString;
 		var _1:GoInt;
 		var _2:GoInt64;
@@ -8313,12 +8313,12 @@ class Location_asInterface {
 		// corresponding to the name argument to LoadLocation or FixedZone.
 	**/
 	@:keep
-	static public function string(_l:Location):GoString {
+	static public function string(_l:Ref<Location>):GoString {
 		return _l._get()._name;
 	}
 
 	@:keep
-	static public function _get(_l:Location):Location {
+	static public function _get(_l:Ref<Location>):Ref<Location> {
 		if (_l == null) {
 			return _utcLoc;
 		};
@@ -8369,14 +8369,14 @@ private class T_dataIO_asInterface {
 		// read returns the read of the data in the buffer.
 	**/
 	@:keep
-	static public function _rest(_d:T_dataIO):Slice<GoByte> {
+	static public function _rest(_d:Ref<T_dataIO>):Slice<GoByte> {
 		var _r = _d._p;
 		_d._p = (null : Slice<GoUInt8>);
 		return _r;
 	}
 
 	@:keep
-	static public function _byte(_d:T_dataIO):{var _0:GoByte; var _1:Bool;} {
+	static public function _byte(_d:Ref<T_dataIO>):{var _0:GoByte; var _1:Bool;} {
 		var _n:GoByte = (0 : GoUInt8), _ok:Bool = false;
 		var _p = _d._read((1 : GoInt));
 		if ((_p.length) < (1 : GoInt)) {
@@ -8387,7 +8387,7 @@ private class T_dataIO_asInterface {
 	}
 
 	@:keep
-	static public function _big8(_d:T_dataIO):{var _0:GoUInt64; var _1:Bool;} {
+	static public function _big8(_d:Ref<T_dataIO>):{var _0:GoUInt64; var _1:Bool;} {
 		var _n:GoUInt64 = (0 : GoUInt64), _ok:Bool = false;
 		var __tmp__ = _d._big4(),
 			_n1:GoUInt32 = __tmp__._0,
@@ -8403,7 +8403,7 @@ private class T_dataIO_asInterface {
 	}
 
 	@:keep
-	static public function _big4(_d:T_dataIO):{var _0:GoUInt32; var _1:Bool;} {
+	static public function _big4(_d:Ref<T_dataIO>):{var _0:GoUInt32; var _1:Bool;} {
 		var _n:GoUInt32 = (0 : GoUInt32), _ok:Bool = false;
 		var _p = _d._read((4 : GoInt));
 		if ((_p.length) < (4 : GoInt)) {
@@ -8416,7 +8416,7 @@ private class T_dataIO_asInterface {
 	}
 
 	@:keep
-	static public function _read(_d:T_dataIO, _n:GoInt):Slice<GoByte> {
+	static public function _read(_d:Ref<T_dataIO>, _n:GoInt):Slice<GoByte> {
 		if ((_d._p.length) < _n) {
 			_d._p = (null : Slice<GoUInt8>);
 			_d._error = true;

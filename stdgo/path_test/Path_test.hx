@@ -437,7 +437,7 @@ function exampleSplit():Void {
 	_split((Go.str() : GoString));
 }
 
-function testMatch(_t:stdgo.testing.Testing.T):Void {
+function testMatch(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _matchTests) {
 		var __tmp__ = match(_tt._pattern, _tt._s),
 			_ok:Bool = __tmp__._0,
@@ -449,7 +449,7 @@ function testMatch(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testClean(_t:stdgo.testing.Testing.T):Void {
+function testClean(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _test in _cleantests) {
 		{
 			var _s:GoString = clean(_test._path);
@@ -466,7 +466,7 @@ function testClean(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testCleanMallocs(_t:stdgo.testing.Testing.T):Void {
+function testCleanMallocs(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (stdgo.testing.Testing.short()) {
 		_t.skip(Go.toInterface((Go.str("skipping malloc count in short mode") : GoString)));
 	};
@@ -484,7 +484,7 @@ function testCleanMallocs(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testSplit(_t:stdgo.testing.Testing.T):Void {
+function testSplit(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _test in _splittests) {
 		{
 			var __tmp__ = split(_test._path),
@@ -498,7 +498,7 @@ function testSplit(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testJoin(_t:stdgo.testing.Testing.T):Void {
+function testJoin(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _test in _jointests) {
 		{
 			var _p:GoString = join(..._test._elem.__toArray__());
@@ -509,7 +509,7 @@ function testJoin(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testExt(_t:stdgo.testing.Testing.T):Void {
+function testExt(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _test in _exttests) {
 		{
 			var _x:GoString = ext(_test._path);
@@ -520,7 +520,7 @@ function testExt(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testBase(_t:stdgo.testing.Testing.T):Void {
+function testBase(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _test in _basetests) {
 		{
 			var _s:GoString = base(_test._path);
@@ -531,7 +531,7 @@ function testBase(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testDir(_t:stdgo.testing.Testing.T):Void {
+function testDir(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _test in _dirtests) {
 		{
 			var _s:GoString = dir(_test._path);
@@ -542,7 +542,7 @@ function testDir(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testIsAbs(_t:stdgo.testing.Testing.T):Void {
+function testIsAbs(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _test in _isAbsTests) {
 		{
 			var _r:Bool = isAbs(_test._path);

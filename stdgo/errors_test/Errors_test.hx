@@ -130,7 +130,7 @@ private var _poserPathErr:Ref<stdgo.io.fs.Fs.PathError> = ({op: (Go.str("poser")
 	public var _want:stdgo.Error;
 };
 
-function testNewEqual(_t:stdgo.testing.Testing.T):Void {
+function testNewEqual(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (stdgo.errors.Errors.new_((Go.str("abc") : GoString)) == stdgo.errors.Errors.new_((Go.str("abc") : GoString))) {
 		_t.errorf(("New(\"abc\") == New(\"abc\")" : GoString));
 	};
@@ -143,7 +143,7 @@ function testNewEqual(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testErrorMethod(_t:stdgo.testing.Testing.T):Void {
+function testErrorMethod(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _err:stdgo.Error = stdgo.errors.Errors.new_((Go.str("abc") : GoString));
 	if (_err.error() != (Go.str("abc") : GoString)) {
 		_t.errorf(("New(\"abc\").Error() = %q, want %q" : GoString), Go.toInterface(_err.error()), Go.toInterface((Go.str("abc") : GoString)));
@@ -189,7 +189,7 @@ function example():Void {
 	};
 }
 
-function testIs(_t:stdgo.testing.Testing.T):Void {
+function testIs(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _err1:stdgo.Error = stdgo.errors.Errors.new_((Go.str("1") : GoString));
 	var _erra:stdgo.errors_test.Errors_test.T_wrapped = (new stdgo.errors_test.Errors_test.T_wrapped((Go.str("wrap 2") : GoString),
 		_err1) : stdgo.errors_test.Errors_test.T_wrapped);
@@ -226,7 +226,7 @@ function testIs(_t:stdgo.testing.Testing.T):Void {
 		({_err: Go.asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)), _target: _err1,
 			_match: false} : T__struct_0)) : Slice<T__struct_0>);
 	for (_0 => _tc in _testCases) {
-		_t.run((Go.str() : GoString), function(_t:stdgo.testing.Testing.T):Void {
+		_t.run((Go.str() : GoString), function(_t:Ref<stdgo.testing.Testing.T>):Void {
 			{
 				var _got:Bool = stdgo.errors.Errors.is_(_tc._err, _tc._target);
 				if (_got != _tc._match) {
@@ -238,11 +238,11 @@ function testIs(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testAs(_t:stdgo.testing.Testing.T):Void {
+function testAs(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _errT:T_errorT = ({} : stdgo.errors_test.Errors_test.T_errorT);
-	var _errP:stdgo.io.fs.Fs.PathError = (null : stdgo.io.fs.Fs.PathError);
+	var _errP:Ref<stdgo.io.fs.Fs.PathError> = (null : stdgo.io.fs.Fs.PathError);
 	var _timeout:T__interface_3 = (null : stdgo.errors_test.Errors_test.T__interface_3);
-	var _p:T_poser = (null : stdgo.errors_test.Errors_test.T_poser);
+	var _p:Ref<T_poser> = (null : stdgo.errors_test.Errors_test.T_poser);
 	var __tmp__ = stdgo.os.Os.open((Go.str("non-existing") : GoString)),
 		_0:Ref<stdgo.os.Os.File> = __tmp__._0,
 		_errF:stdgo.Error = __tmp__._1;
@@ -314,7 +314,7 @@ function testAs(_t:stdgo.testing.Testing.T):Void {
 		_rtarget.elem()
 			.set((stdgo.reflect.Reflect.zero(stdgo.reflect.Reflect.typeOf(Go.toInterface(_tc._target))
 				.elem()) == null ? null : stdgo.reflect.Reflect.zero(stdgo.reflect.Reflect.typeOf(Go.toInterface(_tc._target)).elem()).__copy__()));
-		_t.run(_name, function(_t:stdgo.testing.Testing.T):Void {
+		_t.run(_name, function(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _match:Bool = stdgo.errors.Errors.as(_tc._err, Go.toInterface(_tc._target));
 			if (_match != _tc._match) {
 				_t.fatalf((Go.str("match: got %v; want %v") : GoString), Go.toInterface(_match), Go.toInterface(_tc._match));
@@ -332,13 +332,13 @@ function testAs(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testAsValidation(_t:stdgo.testing.Testing.T):Void {
+function testAsValidation(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _s:GoString = ("" : GoString);
 	var _testCases = (new Slice<AnyInterface>(0, 0, (null : AnyInterface), Go.toInterface((null : Pointer<GoInt>)),
 		Go.toInterface((Go.str("error") : GoString)), Go.toInterface(Go.pointer(_s))) : Slice<AnyInterface>);
 	var _err:stdgo.Error = stdgo.errors.Errors.new_((Go.str("error") : GoString));
 	for (_0 => _tc in _testCases) {
-		_t.run(stdgo.fmt.Fmt.sprintf((Go.str("%T(%v)") : GoString), Go.toInterface(_tc), Go.toInterface(_tc)), function(_t:stdgo.testing.Testing.T):Void {
+		_t.run(stdgo.fmt.Fmt.sprintf((Go.str("%T(%v)") : GoString), Go.toInterface(_tc), Go.toInterface(_tc)), function(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var __deferstack__:Array<Void->Void> = [];
 			__deferstack__.unshift(() -> {
 				var a = function():Void {
@@ -387,7 +387,7 @@ function testAsValidation(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testUnwrap(_t:stdgo.testing.Testing.T):Void {
+function testUnwrap(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _err1:stdgo.Error = stdgo.errors.Errors.new_((Go.str("1") : GoString));
 	var _erra:stdgo.errors_test.Errors_test.T_wrapped = (new stdgo.errors_test.Errors_test.T_wrapped((Go.str("wrap 2") : GoString),
 		_err1) : stdgo.errors_test.Errors_test.T_wrapped);
@@ -428,7 +428,7 @@ function exampleAs():Void {
 			_0:Ref<stdgo.os.Os.File> = __tmp__._0,
 			_err:stdgo.Error = __tmp__._1;
 		if (_err != null) {
-			var _pathError:stdgo.io.fs.Fs.PathError = (null : stdgo.io.fs.Fs.PathError);
+			var _pathError:Ref<stdgo.io.fs.Fs.PathError> = (null : stdgo.io.fs.Fs.PathError);
 			if (stdgo.errors.Errors.as(_err, Go.toInterface(_pathError))) {
 				stdgo.fmt.Fmt.println((Go.str("Failed at path:") : GoString), _pathError.path);
 			} else {
@@ -494,19 +494,19 @@ private class T_poser_asInterface {
 
 @:keep private class T_poser_static_extension {
 	@:keep
-	static public function as(_p:T_poser, _err:AnyInterface):Bool {
-		if (Go.assertable((_err : T_poser))) {
+	static public function as(_p:Ref<T_poser>, _err:AnyInterface):Bool {
+		if (Go.assertable((_err : Ref<Ref<T_poser>>))) {
 			var _x:Ref<Ref<stdgo.errors_test.Errors_test.T_poser>> = _err == null ? null : _err.__underlying__() == null ? null : _err == null ? null : _err.__underlying__()
 				.value;
 			_x = _p;
-		} else if (Go.assertable((_err : T_errorT))) {
+		} else if (Go.assertable((_err : Ref<T_errorT>))) {
 			var _x:Ref<stdgo.errors_test.Errors_test.T_errorT> = _err == null ? null : _err.__underlying__() == null ? null : _err == null ? null : _err.__underlying__()
 				.value;
 			{
 				var __tmp__ = (new stdgo.errors_test.Errors_test.T_errorT((Go.str("poser") : GoString)) : stdgo.errors_test.Errors_test.T_errorT);
 				_x._s = __tmp__._s;
 			};
-		} else if (Go.assertable((_err : stdgo.io.fs.Fs.PathError))) {
+		} else if (Go.assertable((_err : Ref<Ref<stdgo.io.fs.Fs.PathError>>))) {
 			var _x:Ref<Ref<stdgo.io.fs.Fs.PathError>> = _err == null ? null : _err.__underlying__() == null ? null : _err == null ? null : _err.__underlying__()
 				.value;
 			_x = _poserPathErr;
@@ -518,12 +518,12 @@ private class T_poser_asInterface {
 	}
 
 	@:keep
-	static public function is_(_p:T_poser, _err:Error):Bool {
+	static public function is_(_p:Ref<T_poser>, _err:Error):Bool {
 		return _p._f(_err);
 	}
 
 	@:keep
-	static public function error(_p:T_poser):GoString {
+	static public function error(_p:Ref<T_poser>):GoString {
 		return _p._msg;
 	}
 }

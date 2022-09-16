@@ -165,7 +165,7 @@ function _boolString(_s:GoString):GoString {
 	return (Go.str("true") : GoString);
 }
 
-function testEverything(_t:stdgo.testing.Testing.T):Void {
+function testEverything(_t:Ref<stdgo.testing.Testing.T>):Void {
 	resetForTesting(null);
 	bool_((Go.str("test_bool") : GoString), false, (Go.str("bool value") : GoString));
 	int((Go.str("test_int") : GoString), (0 : GoInt), (Go.str("int value") : GoString));
@@ -207,7 +207,7 @@ function testEverything(_t:stdgo.testing.Testing.T):Void {
 			}
 		])))))) : GoMap<GoString, Ref<Flag>>);
 	var _desired:GoString = (Go.str("0") : GoString);
-	var _visitor = function(_f:Flag):Void {
+	var _visitor = function(_f:Ref<Flag>):Void {
 		if ((_f.name.length > (5 : GoInt)) && ((_f.name.__slice__((0 : GoInt), (5 : GoInt)) : GoString) == (Go.str("test_") : GoString))) {
 			_m[_f.name] = _f;
 			var _ok:Bool = false;
@@ -287,7 +287,7 @@ function testEverything(_t:stdgo.testing.Testing.T):Void {
 		};
 	};
 	var _flagNames:Slice<GoString> = (null : Slice<GoString>);
-	visit(function(_f:Flag):Void {
+	visit(function(_f:Ref<Flag>):Void {
 		_flagNames = (_flagNames.__append__(_f.name));
 	});
 	if (!stdgo.sort.Sort.stringsAreSorted(_flagNames)) {
@@ -295,7 +295,7 @@ function testEverything(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testGet(_t:stdgo.testing.Testing.T):Void {
+function testGet(_t:Ref<stdgo.testing.Testing.T>):Void {
 	resetForTesting(null);
 	bool_((Go.str("test_bool") : GoString), true, (Go.str("bool value") : GoString));
 	int((Go.str("test_int") : GoString), (1 : GoInt), (Go.str("int value") : GoString));
@@ -305,7 +305,7 @@ function testGet(_t:stdgo.testing.Testing.T):Void {
 	string((Go.str("test_string") : GoString), (Go.str("5") : GoString), (Go.str("string value") : GoString));
 	float64((Go.str("test_float64") : GoString), (6 : GoFloat64), (Go.str("float64 value") : GoString));
 	duration((Go.str("test_duration") : GoString), (7 : stdgo.time.Time.Duration), (Go.str("time.Duration value") : GoString));
-	var _visitor = function(_f:Flag):Void {
+	var _visitor = function(_f:Ref<Flag>):Void {
 		if ((_f.name.length > (5 : GoInt)) && ((_f.name.__slice__((0 : GoInt), (5 : GoInt)) : GoString) == (Go.str("test_") : GoString))) {
 			var __tmp__ = try {
 				{value: ((_f.value.__underlying__().value : Dynamic) : Getter), ok: true};
@@ -342,7 +342,7 @@ function testGet(_t:stdgo.testing.Testing.T):Void {
 	visitAll(_visitor);
 }
 
-function testUsage(_t:stdgo.testing.Testing.T):Void {
+function testUsage(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _called:Bool = false;
 	resetForTesting(function():Void {
 		_called = true;
@@ -355,7 +355,7 @@ function testUsage(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function _testParse(_f:FlagSet, _t:stdgo.testing.Testing.T):Void {
+function _testParse(_f:Ref<FlagSet>, _t:Ref<stdgo.testing.Testing.T>):Void {
 	if (_f.parsed()) {
 		_t.error(Go.toInterface((Go.str("f.Parse() = true before Parse") : GoString)));
 	};
@@ -417,18 +417,18 @@ function _testParse(_f:FlagSet, _t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testParse(_t:stdgo.testing.Testing.T):Void {
+function testParse(_t:Ref<stdgo.testing.Testing.T>):Void {
 	resetForTesting(function():Void {
 		_t.error(Go.toInterface((Go.str("bad parse") : GoString)));
 	});
 	_testParse(commandLine, _t);
 }
 
-function testFlagSetParse(_t:stdgo.testing.Testing.T):Void {
+function testFlagSetParse(_t:Ref<stdgo.testing.Testing.T>):Void {
 	_testParse(newFlagSet((Go.str("test") : GoString), (0 : ErrorHandling)), _t);
 }
 
-function testUserDefined(_t:stdgo.testing.Testing.T):Void {
+function testUserDefined(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _flags:FlagSet = ({} : FlagSet);
 	_flags.init((Go.str("test") : GoString), (0 : ErrorHandling));
 	_flags.setOutput(stdgo.io.Io.discard);
@@ -450,7 +450,7 @@ function testUserDefined(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testUserDefinedFunc(_t:stdgo.testing.Testing.T):Void {
+function testUserDefinedFunc(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _flags = newFlagSet((Go.str("test") : GoString), (0 : ErrorHandling));
 	_flags.setOutput(stdgo.io.Io.discard);
 	var _ss:Slice<GoString> = (null : Slice<GoString>);
@@ -508,7 +508,7 @@ function testUserDefinedFunc(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testUserDefinedForCommandLine(_t:stdgo.testing.Testing.T):Void {
+function testUserDefinedForCommandLine(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _help:GoString = (Go.str("HELP") : GoString);
 	var _result:GoString = ("" : GoString);
 	resetForTesting(function():Void {
@@ -520,7 +520,7 @@ function testUserDefinedForCommandLine(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testUserDefinedBool(_t:stdgo.testing.Testing.T):Void {
+function testUserDefinedBool(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _flags:FlagSet = ({} : FlagSet);
 	_flags.init((Go.str("test") : GoString), (0 : ErrorHandling));
 	_flags.setOutput(stdgo.io.Io.discard);
@@ -545,7 +545,7 @@ function testUserDefinedBool(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testSetOutput(_t:stdgo.testing.Testing.T):Void {
+function testSetOutput(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _flags:FlagSet = ({} : FlagSet);
 	var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
 	_flags.setOutput(Go.asInterface(_buf));
@@ -563,7 +563,7 @@ function testSetOutput(_t:stdgo.testing.Testing.T):Void {
 	// This tests that one can reset the flags. This still works but not well, and is
 	// superseded by FlagSet.
 **/
-function testChangingArgs(_t:stdgo.testing.Testing.T):Void {
+function testChangingArgs(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	resetForTesting(function():Void {
 		_t.fatal(Go.toInterface((Go.str("bad parse") : GoString)));
@@ -622,7 +622,7 @@ function testChangingArgs(_t:stdgo.testing.Testing.T):Void {
 /**
 	// Test that -help invokes the usage message and returns ErrHelp.
 **/
-function testHelp(_t:stdgo.testing.Testing.T):Void {
+function testHelp(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _helpCalled:Bool = false;
 	var _fs = newFlagSet((Go.str("help test") : GoString), (0 : ErrorHandling));
 	_fs.usage = function():Void {
@@ -663,7 +663,7 @@ function testHelp(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testPrintDefaults(_t:stdgo.testing.Testing.T):Void {
+function testPrintDefaults(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _fs = newFlagSet((Go.str("print defaults test") : GoString), (0 : ErrorHandling));
 	var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
 	_fs.setOutput(Go.asInterface(_buf));
@@ -697,7 +697,7 @@ function testPrintDefaults(_t:stdgo.testing.Testing.T):Void {
 /**
 	// Issue 19230: validate range of Int and Uint flag values.
 **/
-function testIntFlagOverflow(_t:stdgo.testing.Testing.T):Void {
+function testIntFlagOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (false) {
 		return;
 	};
@@ -721,7 +721,7 @@ function testIntFlagOverflow(_t:stdgo.testing.Testing.T):Void {
 /**
 	// Issue 20998: Usage should respect CommandLine.output.
 **/
-function testUsageOutput(_t:stdgo.testing.Testing.T):Void {
+function testUsageOutput(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	resetForTesting(defaultUsage);
 	try {
@@ -771,7 +771,7 @@ function testUsageOutput(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testGetters(_t:stdgo.testing.Testing.T):Void {
+function testGetters(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _expectedName:GoString = (Go.str("flag set") : GoString);
 	var _expectedErrorHandling:ErrorHandling = (0 : ErrorHandling);
 	var _expectedOutput:stdgo.io.Io.Writer = Go.asInterface(stdgo.os.Os.stderr);
@@ -803,7 +803,7 @@ function testGetters(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testParseError(_t:stdgo.testing.Testing.T):Void {
+function testParseError(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _typ in (new Slice<GoString>(0, 0, (Go.str("bool") : GoString), (Go.str("int") : GoString), (Go.str("int64") : GoString),
 		(Go.str("uint") : GoString), (Go.str("uint64") : GoString), (Go.str("float64") : GoString), (Go.str("duration") : GoString)) : Slice<GoString>)) {
 		var _fs = newFlagSet((Go.str("parse error test") : GoString), (0 : ErrorHandling));
@@ -828,7 +828,7 @@ function testParseError(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testRangeError(_t:stdgo.testing.Testing.T):Void {
+function testRangeError(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _bad = (new Slice<GoString>(0, 0, (Go.str("-int=123456789012345678901") : GoString), (Go.str("-int64=123456789012345678901") : GoString),
 		(Go.str("-uint=123456789012345678901") : GoString), (Go.str("-uint64=123456789012345678901") : GoString),
 		(Go.str("-float64=1e1000") : GoString)) : Slice<GoString>);
@@ -852,7 +852,7 @@ function testRangeError(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testExitCode(_t:stdgo.testing.Testing.T):Void {
+function testExitCode(_t:Ref<stdgo.testing.Testing.T>):Void {
 	stdgo.internal.testenv.Testenv.mustHaveExec(Go.asInterface(_t));
 	var _magic:GoInt = (123 : GoInt);
 	if (stdgo.os.Os.getenv((Go.str("GO_CHILD_FLAG") : GoString)) != (Go.str() : GoString)) {
@@ -885,7 +885,7 @@ function testExitCode(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function _mustPanic(_t:stdgo.testing.Testing.T, _testName:GoString, _expected:GoString, _f:() -> Void):Void {
+function _mustPanic(_t:Ref<stdgo.testing.Testing.T>, _testName:GoString, _expected:GoString, _f:() -> Void):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	_t.helper();
 	try {
@@ -973,7 +973,7 @@ function _mustPanic(_t:stdgo.testing.Testing.T, _testName:GoString, _expected:Go
 	};
 }
 
-function testInvalidFlags(_t:stdgo.testing.Testing.T):Void {
+function testInvalidFlags(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _tests = (new Slice<T__struct_1>(0, 0, ({_flag: ("" : GoString), _errorMsg: ("" : GoString)} : T__struct_1),
 		({_flag: ("" : GoString), _errorMsg: ("" : GoString)} : T__struct_1)) : Slice<T__struct_1>);
 	for (_0 => _test in _tests) {
@@ -995,7 +995,7 @@ function testInvalidFlags(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testRedefinedFlags(_t:stdgo.testing.Testing.T):Void {
+function testRedefinedFlags(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _tests = (new Slice<T__struct_2>(0, 0, ({_flagSetName: ("" : GoString), _errorMsg: ("" : GoString)} : T__struct_2),
 		({_flagSetName: ("" : GoString), _errorMsg: ("" : GoString)} : T__struct_2)) : Slice<T__struct_2>);
 	for (_0 => _test in _tests) {
@@ -1117,12 +1117,12 @@ private class T_boolFlagVar_asInterface {
 
 @:keep private class T_boolFlagVar_static_extension {
 	@:keep
-	static public function isBoolFlag(_b:T_boolFlagVar):Bool {
+	static public function isBoolFlag(_b:Ref<T_boolFlagVar>):Bool {
 		return _b._count < (4:GoInt);
 	}
 
 	@:keep
-	static public function set(_b:T_boolFlagVar, _value:GoString):Error {
+	static public function set(_b:Ref<T_boolFlagVar>, _value:GoString):Error {
 		if (_value == (Go.str("true") : GoString)) {
 			_b._count++;
 		};
@@ -1130,7 +1130,7 @@ private class T_boolFlagVar_asInterface {
 	}
 
 	@:keep
-	static public function string(_b:T_boolFlagVar):GoString {
+	static public function string(_b:Ref<T_boolFlagVar>):GoString {
 		return stdgo.fmt.Fmt.sprintf((Go.str("%d") : GoString), Go.toInterface(_b._count));
 	}
 }
@@ -1157,7 +1157,7 @@ private class T_zeroPanicker_asInterface {
 
 @:keep private class T_zeroPanicker_static_extension {
 	@:keep
-	static public function string(_f:T_zeroPanicker):GoString {
+	static public function string(_f:Ref<T_zeroPanicker>):GoString {
 		if (!_f._dontPanic) {
 			throw Go.toInterface((Go.str("panic!") : GoString));
 		};
@@ -1165,7 +1165,7 @@ private class T_zeroPanicker_asInterface {
 	}
 
 	@:keep
-	static public function set(_f:T_zeroPanicker, _s:GoString):Error {
+	static public function set(_f:Ref<T_zeroPanicker>, _s:GoString):Error {
 		_f._v = _s;
 		return (null : stdgo.Error);
 	}
@@ -1207,7 +1207,7 @@ private class T_interval_asInterface {
 		// It's a comma-separated list, so we split it.
 	**/
 	@:keep
-	static public function set(_i:T_interval, _value:GoString):Error {
+	static public function set(_i:Ref<T_interval>, _value:GoString):Error {
 		if ((_i.length) > (0 : GoInt)) {
 			return stdgo.errors.Errors.new_((Go.str("interval flag already set") : GoString));
 		};
@@ -1228,7 +1228,7 @@ private class T_interval_asInterface {
 		// The String method's output will be used in diagnostics.
 	**/
 	@:keep
-	static public function string(_i:T_interval):GoString {
+	static public function string(_i:Ref<T_interval>):GoString {
 		return stdgo.fmt.Fmt.sprint(_i);
 	}
 }
@@ -1255,13 +1255,13 @@ private class T_flagVar_asInterface {
 
 @:keep private class T_flagVar_static_extension {
 	@:keep
-	static public function set(_f:T_flagVar, _value:GoString):Error {
+	static public function set(_f:Ref<T_flagVar>, _value:GoString):Error {
 		_f = (_f.__append__(_value));
 		return (null : stdgo.Error);
 	}
 
 	@:keep
-	static public function string(_f:T_flagVar):GoString {
+	static public function string(_f:Ref<T_flagVar>):GoString {
 		return stdgo.fmt.Fmt.sprint((_f : Slice<GoString>));
 	}
 }

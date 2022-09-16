@@ -63,7 +63,7 @@ import stdgo.Chan;
 **/
 private var __go2hxdoc__package:Bool;
 
-private var _errorType:stdgo.internal.reflectlite.Reflectlite.Type = stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface(((null : stdgo.Error) : Error)))
+private var _errorType:stdgo.internal.reflectlite.Reflectlite.Type = stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface(((null : stdgo.Error) : Ref<Error>)))
 	.elem();
 
 @:local private typedef T__interface_0 = StructType & {
@@ -240,7 +240,7 @@ private class T_errorString_asInterface {
 
 @:keep private class T_errorString_static_extension {
 	@:keep
-	static public function error(_e:T_errorString):GoString {
+	static public function error(_e:Ref<T_errorString>):GoString {
 		return _e._s;
 	}
 }

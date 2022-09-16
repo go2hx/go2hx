@@ -107,7 +107,7 @@ private var _surrogateTests:Slice<T__struct_1> = (new Slice<T__struct_1>(0, 0, (
 /**
 	// Validate the constants redefined from unicode.
 **/
-function testConstants(_t:stdgo.testing.Testing.T):Void {
+function testConstants(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (false) {
 		_t.errorf((Go.str("utf16.maxRune is wrong: %x should be %x") : GoString), Go.toInterface((1114111 : GoInt32)), Go.toInterface((1114111 : GoInt32)));
 	};
@@ -117,7 +117,7 @@ function testConstants(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testEncode(_t:stdgo.testing.Testing.T):Void {
+function testEncode(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _encodeTests) {
 		var _out = encode(_tt._in);
 		if (!stdgo.reflect.Reflect.deepEqual(Go.toInterface(_out), Go.toInterface(_tt._out))) {
@@ -126,7 +126,7 @@ function testEncode(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testEncodeRune(_t:stdgo.testing.Testing.T):Void {
+function testEncodeRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_i => _tt in _encodeTests) {
 		var _j:GoInt = (0 : GoInt);
 		for (_0 => _r in _tt._in) {
@@ -166,7 +166,7 @@ function testEncodeRune(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testDecode(_t:stdgo.testing.Testing.T):Void {
+function testDecode(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _decodeTests) {
 		var _out = decode(_tt._in);
 		if (!stdgo.reflect.Reflect.deepEqual(Go.toInterface(_out), Go.toInterface(_tt._out))) {
@@ -175,7 +175,7 @@ function testDecode(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testDecodeRune(_t:stdgo.testing.Testing.T):Void {
+function testDecodeRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_i => _tt in _decodeRuneTests) {
 		var _got:GoInt32 = decodeRune(_tt._r1, _tt._r2);
 		if (_got != _tt._want) {
@@ -185,7 +185,7 @@ function testDecodeRune(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testIsSurrogate(_t:stdgo.testing.Testing.T):Void {
+function testIsSurrogate(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_i => _tt in _surrogateTests) {
 		var _got:Bool = isSurrogate(_tt._r);
 		if (_got != _tt._want) {
@@ -195,7 +195,7 @@ function testIsSurrogate(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function benchmarkDecodeValidASCII(_b:stdgo.testing.Testing.B):Void {
+function benchmarkDecodeValidASCII(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _data = (new Slice<GoUInt16>(0, 0, (104 : GoUInt16), (101 : GoUInt16), (108 : GoUInt16), (108 : GoUInt16), (111 : GoUInt16), (32 : GoUInt16),
 		(119 : GoUInt16), (111 : GoUInt16), (114 : GoUInt16), (108 : GoUInt16), (100 : GoUInt16)) : Slice<GoUInt16>);
 	{
@@ -206,7 +206,7 @@ function benchmarkDecodeValidASCII(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkDecodeValidJapaneseChars(_b:stdgo.testing.Testing.B):Void {
+function benchmarkDecodeValidJapaneseChars(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _data = (new Slice<GoUInt16>(0, 0, (26085 : GoUInt16), (26412 : GoUInt16), (35486 : GoUInt16), (26085 : GoUInt16), (26412 : GoUInt16),
 		(35486 : GoUInt16), (26085 : GoUInt16), (26412 : GoUInt16), (35486 : GoUInt16)) : Slice<GoUInt16>);
 	{
@@ -217,7 +217,7 @@ function benchmarkDecodeValidJapaneseChars(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkDecodeRune(_b:stdgo.testing.Testing.B):Void {
+function benchmarkDecodeRune(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _rs = new Slice<GoInt32>((10 : GoInt).toBasic(), 0, ...[for (i in 0...(10 : GoInt).toBasic()) (0 : GoInt32)]);
 	for (_i => _u in (new Slice<GoInt32>(0, 0, ("𝓐".code : GoInt32), ("𝓑".code : GoInt32), ("𝓒".code : GoInt32), ("𝓓".code : GoInt32),
 		("𝓔".code : GoInt32)) : Slice<GoInt32>)) {
@@ -241,7 +241,7 @@ function benchmarkDecodeRune(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkEncodeValidASCII(_b:stdgo.testing.Testing.B):Void {
+function benchmarkEncodeValidASCII(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _data = (new Slice<GoInt32>(0, 0, ("h".code : GoInt32), ("e".code : GoInt32), ("l".code : GoInt32), ("l".code : GoInt32),
 		("o".code : GoInt32)) : Slice<GoInt32>);
 	{
@@ -252,7 +252,7 @@ function benchmarkEncodeValidASCII(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkEncodeValidJapaneseChars(_b:stdgo.testing.Testing.B):Void {
+function benchmarkEncodeValidJapaneseChars(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _data = (new Slice<GoInt32>(0, 0, ("日".code : GoInt32), ("本".code : GoInt32), ("語".code : GoInt32)) : Slice<GoInt32>);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -262,7 +262,7 @@ function benchmarkEncodeValidJapaneseChars(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkEncodeRune(_b:stdgo.testing.Testing.B):Void {
+function benchmarkEncodeRune(_b:Ref<stdgo.testing.Testing.B>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < _b.n, _i++, {

@@ -23,7 +23,7 @@ private var _copyTests:Slice<T__struct_1> = (null : Slice<T__struct_1>);
 @:follow private typedef T_object = GoMap<GoString, AnyInterface>;
 @:follow private typedef T_array = Slice<AnyInterface>;
 
-function testBool(_t:stdgo.testing.Testing.T):Void {
+function testBool(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _want:Bool = true;
 	var _o:Value = (_dummys.get((Go.str("someBool") : GoString)) == null ? null : _dummys.get((Go.str("someBool") : GoString)).__copy__());
 	{
@@ -45,7 +45,7 @@ function testBool(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testString(_t:stdgo.testing.Testing.T):Void {
+function testString(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _want:GoString = (Go.str("abc\u1234") : GoString);
 	var _o:Value = (_dummys.get((Go.str("someString") : GoString)) == null ? null : _dummys.get((Go.str("someString") : GoString)).__copy__());
 	{
@@ -116,7 +116,7 @@ function testString(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testInt(_t:stdgo.testing.Testing.T):Void {
+function testInt(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _want:GoInt = (42 : GoInt);
 	var _o:Value = (_dummys.get((Go.str("someInt") : GoString)) == null ? null : _dummys.get((Go.str("someInt") : GoString)).__copy__());
 	{
@@ -144,7 +144,7 @@ function testInt(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testIntConversion(_t:stdgo.testing.Testing.T):Void {
+function testIntConversion(_t:Ref<stdgo.testing.Testing.T>):Void {
 	_testIntConversion(_t, (0 : GoInt));
 	_testIntConversion(_t, (1 : GoInt));
 	_testIntConversion(_t, (-1 : GoInt));
@@ -156,7 +156,7 @@ function testIntConversion(_t:stdgo.testing.Testing.T):Void {
 	_testIntConversion(_t, ("-1152921504606846976" : GoUnTypedInt));
 }
 
-function _testIntConversion(_t:stdgo.testing.Testing.T, _want:GoInt):Void {
+function _testIntConversion(_t:Ref<stdgo.testing.Testing.T>, _want:GoInt):Void {
 	{
 		var _got:GoInt = stdgo.syscall.js.Js.valueOf(Go.toInterface(_want)).int();
 		if (_got != _want) {
@@ -165,7 +165,7 @@ function _testIntConversion(_t:stdgo.testing.Testing.T, _want:GoInt):Void {
 	};
 }
 
-function testFloat(_t:stdgo.testing.Testing.T):Void {
+function testFloat(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _want:GoFloat64 = (42.123 : GoFloat64);
 	var _o:Value = (_dummys.get((Go.str("someFloat") : GoString)) == null ? null : _dummys.get((Go.str("someFloat") : GoString)).__copy__());
 	{
@@ -187,7 +187,7 @@ function testFloat(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testObject(_t:stdgo.testing.Testing.T):Void {
+function testObject(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (!_dummys.get((Go.str("someArray") : GoString))
 		.equal((_dummys.get((Go.str("someArray") : GoString)) == null ? null : _dummys.get((Go.str("someArray") : GoString)).__copy__()))) {
 		_t.errorf((Go.str("same value not equal") : GoString));
@@ -207,7 +207,7 @@ function testObject(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testFrozenObject(_t:stdgo.testing.Testing.T):Void {
+function testFrozenObject(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _o:Value = (stdgo.syscall.js.Js.global()
 		.call((Go.str("eval") : GoString),
 			Go.toInterface((Go.str("(function () { let o = new Object(); o.field = 5; Object.freeze(o); return o; })()") : GoString))) == null ? null : stdgo.syscall.js.Js.global()
@@ -223,7 +223,7 @@ function testFrozenObject(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testEqual(_t:stdgo.testing.Testing.T):Void {
+function testEqual(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (!_dummys.get((Go.str("someFloat") : GoString))
 		.equal((_dummys.get((Go.str("someFloat") : GoString)) == null ? null : _dummys.get((Go.str("someFloat") : GoString)).__copy__()))) {
 		_t.errorf((Go.str("same float is not equal") : GoString));
@@ -238,7 +238,7 @@ function testEqual(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testNaN(_t:stdgo.testing.Testing.T):Void {
+function testNaN(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (!_dummys.get((Go.str("NaN") : GoString)).isNaN()) {
 		_t.errorf((Go.str("JS NaN is not NaN") : GoString));
 	};
@@ -251,7 +251,7 @@ function testNaN(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testUndefined(_t:stdgo.testing.Testing.T):Void {
+function testUndefined(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (!stdgo.syscall.js.Js.undefined().isUndefined()) {
 		_t.errorf((Go.str("undefined is not undefined") : GoString));
 	};
@@ -272,7 +272,7 @@ function testUndefined(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testNull(_t:stdgo.testing.Testing.T):Void {
+function testNull(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (!stdgo.syscall.js.Js.null_().isNull()) {
 		_t.errorf((Go.str("null is not null") : GoString));
 	};
@@ -299,7 +299,7 @@ function testNull(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testLength(_t:stdgo.testing.Testing.T):Void {
+function testLength(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _got:GoInt = _dummys.get((Go.str("someArray") : GoString)).length_();
 		if (_got != (3 : GoInt)) {
@@ -308,19 +308,19 @@ function testLength(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testGet(_t:stdgo.testing.Testing.T):Void {
+function testGet(_t:Ref<stdgo.testing.Testing.T>):Void {
 	_expectValueError(_t, function():Void {
 		_dummys.get((Go.str("zero") : GoString)).get((Go.str("badField") : GoString));
 	});
 }
 
-function testSet(_t:stdgo.testing.Testing.T):Void {
+function testSet(_t:Ref<stdgo.testing.Testing.T>):Void {
 	_expectValueError(_t, function():Void {
 		_dummys.get((Go.str("zero") : GoString)).set((Go.str("badField") : GoString), Go.toInterface((42 : GoInt)));
 	});
 }
 
-function testDelete(_t:stdgo.testing.Testing.T):Void {
+function testDelete(_t:Ref<stdgo.testing.Testing.T>):Void {
 	_dummys.set((Go.str("test") : GoString), Go.toInterface((42 : GoInt)));
 	_dummys.delete((Go.str("test") : GoString));
 	if (_dummys.call((Go.str("hasOwnProperty") : GoString), Go.toInterface((Go.str("test") : GoString))).bool_()) {
@@ -331,7 +331,7 @@ function testDelete(_t:stdgo.testing.Testing.T):Void {
 	});
 }
 
-function testIndex(_t:stdgo.testing.Testing.T):Void {
+function testIndex(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _got:GoInt = _dummys.get((Go.str("someArray") : GoString)).index((1 : GoInt)).int();
 		if (_got != (42 : GoInt)) {
@@ -343,7 +343,7 @@ function testIndex(_t:stdgo.testing.Testing.T):Void {
 	});
 }
 
-function testSetIndex(_t:stdgo.testing.Testing.T):Void {
+function testSetIndex(_t:Ref<stdgo.testing.Testing.T>):Void {
 	_dummys.get((Go.str("someArray") : GoString)).setIndex((2 : GoInt), Go.toInterface((99 : GoInt)));
 	{
 		var _got:GoInt = _dummys.get((Go.str("someArray") : GoString)).index((2 : GoInt)).int();
@@ -356,7 +356,7 @@ function testSetIndex(_t:stdgo.testing.Testing.T):Void {
 	});
 }
 
-function testCall(_t:stdgo.testing.Testing.T):Void {
+function testCall(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _i:GoInt64 = (40 : GoInt64);
 	{
 		var _got:GoInt = _dummys.call((Go.str("add") : GoString), Go.toInterface(_i), Go.toInterface((2 : GoInt))).int();
@@ -381,7 +381,7 @@ function testCall(_t:stdgo.testing.Testing.T):Void {
 	});
 }
 
-function testInvoke(_t:stdgo.testing.Testing.T):Void {
+function testInvoke(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _i:GoInt64 = (40 : GoInt64);
 	{
 		var _got:GoInt = _dummys.get((Go.str("add") : GoString)).invoke(Go.toInterface(_i), Go.toInterface((2 : GoInt))).int();
@@ -394,7 +394,7 @@ function testInvoke(_t:stdgo.testing.Testing.T):Void {
 	});
 }
 
-function testNew(_t:stdgo.testing.Testing.T):Void {
+function testNew(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _got:GoInt = stdgo.syscall.js.Js.global()
 			.get((Go.str("Array") : GoString))
@@ -409,7 +409,7 @@ function testNew(_t:stdgo.testing.Testing.T):Void {
 	});
 }
 
-function testInstanceOf(_t:stdgo.testing.Testing.T):Void {
+function testInstanceOf(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _someArray:Value = (stdgo.syscall.js.Js.global()
 		.get((Go.str("Array") : GoString))
 		.new_() == null ? null : stdgo.syscall.js.Js.global()
@@ -438,7 +438,7 @@ function testInstanceOf(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testType(_t:stdgo.testing.Testing.T):Void {
+function testType(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _got:Type = stdgo.syscall.js.Js.undefined().type(),
 			_want:Type = (0 : Type);
@@ -507,7 +507,7 @@ function testType(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testValueOf(_t:stdgo.testing.Testing.T):Void {
+function testValueOf(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _a:Value = (stdgo.syscall.js.Js.valueOf(Go.toInterface((new Slice<AnyInterface>(0, 0, Go.toInterface((0 : GoInt)),
 		Go.toInterface((new Slice<AnyInterface>(0, 0, Go.toInterface((0 : GoInt)), Go.toInterface((42 : GoInt)),
 			Go.toInterface((0 : GoInt))) : Slice<AnyInterface>)),
@@ -564,14 +564,14 @@ function testValueOf(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testZeroValue(_t:stdgo.testing.Testing.T):Void {
+function testZeroValue(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _v:Value = ({} : Value);
 	if (!_v.isUndefined()) {
 		_t.error(Go.toInterface((Go.str("zero js.Value is not js.Undefined()") : GoString)));
 	};
 }
 
-function testFuncOf(_t:stdgo.testing.Testing.T):Void {
+function testFuncOf(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	var _c = new Chan<T__struct_0>(0, () -> ({} : T__struct_0));
 	try {
@@ -622,7 +622,7 @@ function testFuncOf(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testInvokeFunction(_t:stdgo.testing.Testing.T):Void {
+function testInvokeFunction(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	var _called:Bool = false;
 	try {
@@ -739,7 +739,7 @@ function testInvokeFunction(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testInterleavedFunctions(_t:stdgo.testing.Testing.T):Void {
+function testInterleavedFunctions(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _c1 = new Chan<T__struct_0>(0, () -> ({} : T__struct_0));
 	var _c2 = new Chan<T__struct_0>(0, () -> ({} : T__struct_0));
 	stdgo.syscall.js.Js.global()
@@ -782,7 +782,7 @@ function exampleFuncOf():Void {
 	// - https://stackoverflow.com/questions/19839952/all-falsey-values-in-javascript/19839953#19839953
 	// - http://www.ecma-international.org/ecma-262/5.1/#sec-9.2
 **/
-function testTruthy(_t:stdgo.testing.Testing.T):Void {
+function testTruthy(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _want:Bool = true;
 	for (_0 => _key in (new Slice<GoString>(0, 0, (Go.str("someBool") : GoString), (Go.str("someString") : GoString), (Go.str("someInt") : GoString),
 		(Go.str("someFloat") : GoString), (Go.str("someArray") : GoString), (Go.str("someDate") : GoString), (Go.str("stringZero") : GoString),
@@ -828,7 +828,7 @@ function testTruthy(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function _expectValueError(_t:stdgo.testing.Testing.T, _fn:() -> Void):Void {
+function _expectValueError(_t:Ref<stdgo.testing.Testing.T>, _fn:() -> Void):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	__deferstack__.unshift(() -> {
 		var a = function():Void {
@@ -839,7 +839,7 @@ function _expectValueError(_t:stdgo.testing.Testing.T, _fn:() -> Void):Void {
 			}));
 			{
 				var __tmp__ = try {
-					{value: ((_err.value : Dynamic).__t__ : ValueError), ok: true};
+					{value: ((_err.value : Dynamic).__t__ : Ref<ValueError>), ok: true};
 				} catch (_) {
 					{value: (null : ValueError), ok: false};
 				}, _0 = __tmp__.value, _ok = __tmp__.ok;
@@ -876,7 +876,7 @@ function _expectValueError(_t:stdgo.testing.Testing.T, _fn:() -> Void):Void {
 	};
 }
 
-function _expectPanic(_t:stdgo.testing.Testing.T, _fn:() -> Void):Void {
+function _expectPanic(_t:Ref<stdgo.testing.Testing.T>, _fn:() -> Void):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	__deferstack__.unshift(() -> {
 		var a = function():Void {
@@ -917,10 +917,10 @@ function _expectPanic(_t:stdgo.testing.Testing.T, _fn:() -> Void):Void {
 	};
 }
 
-function testCopyBytesToGo(_t:stdgo.testing.Testing.T):Void {
+function testCopyBytesToGo(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _copyTests) {
 		_t.run(stdgo.fmt.Fmt.sprintf((Go.str("%d-to-%d") : GoString), Go.toInterface(_tt._srcLen), Go.toInterface(_tt._dstLen)),
-			function(_t:stdgo.testing.Testing.T):Void {
+			function(_t:Ref<stdgo.testing.Testing.T>):Void {
 				var _src:Value = (stdgo.syscall.js.Js.global()
 					.get((Go.str("Uint8Array") : GoString))
 					.new_(Go.toInterface(_tt._srcLen)) == null ? null : stdgo.syscall.js.Js.global()
@@ -951,10 +951,10 @@ function testCopyBytesToGo(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testCopyBytesToJS(_t:stdgo.testing.Testing.T):Void {
+function testCopyBytesToJS(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _copyTests) {
 		_t.run(stdgo.fmt.Fmt.sprintf((Go.str("%d-to-%d") : GoString), Go.toInterface(_tt._srcLen), Go.toInterface(_tt._dstLen)),
-			function(_t:stdgo.testing.Testing.T):Void {
+			function(_t:Ref<stdgo.testing.Testing.T>):Void {
 				var _src = new Slice<GoUInt8>((_tt._srcLen : GoInt).toBasic(), 0, ...[for (i in 0...(_tt._srcLen : GoInt).toBasic()) (0 : GoUInt8)]);
 				if (_tt._srcLen >= (2 : GoInt)) {
 					_src[(1 : GoInt)] = (42 : GoUInt8);
@@ -985,7 +985,7 @@ function testCopyBytesToJS(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testGarbageCollection(_t:stdgo.testing.Testing.T):Void {
+function testGarbageCollection(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _before:GoInt = stdgo.syscall.js.Js.jsgo.get((Go.str("_values") : GoString)).length_();
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -1009,7 +1009,7 @@ function testGarbageCollection(_t:stdgo.testing.Testing.T):Void {
 	// It creates a div, and sets its id. Then searches by that id and sets some data.
 	// Finally it removes that div.
 **/
-function benchmarkDOM(_b:stdgo.testing.Testing.B):Void {
+function benchmarkDOM(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _document:Value = (stdgo.syscall.js.Js.global()
 		.get((Go.str("document") : GoString)) == null ? null : stdgo.syscall.js.Js.global()
 		.get((Go.str("document") : GoString))
@@ -1044,7 +1044,7 @@ function benchmarkDOM(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function testGlobal(_t:stdgo.testing.Testing.T):Void {
+function testGlobal(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	var _ident:Func = (stdgo.syscall.js.Js.funcOf(function(_this:Value, _args:Slice<Value>):AnyInterface {
 		return Go.toInterface(Go.asInterface(_args[(0 : GoInt)]));

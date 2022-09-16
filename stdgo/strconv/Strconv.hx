@@ -1301,7 +1301,7 @@ function _convErr(_err:Error, _s:GoString):{var _0:Error; var _1:Error;} {
 		_range_:Error = (null : stdgo.Error);
 	{
 		var __tmp__ = try {
-			{value: ((_err.__underlying__().value : Dynamic) : NumError), ok: true};
+			{value: ((_err.__underlying__().value : Dynamic) : Ref<NumError>), ok: true};
 		} catch (_) {
 			{value: (null : NumError), ok: false};
 		}, _x = __tmp__.value, _ok = __tmp__.ok;
@@ -1784,7 +1784,7 @@ function _atof32exact(_mantissa:GoUInt64, _exp:GoInt, _neg:Bool):{var _0:GoFloat
 	// The string s has already been parsed into a mantissa, exponent, and sign (neg==true for negative).
 	// If trunc is true, trailing non-zero bits have been omitted from the mantissa.
 **/
-function _atofHex(_s:GoString, _flt:T_floatInfo, _mantissa:GoUInt64, _exp:GoInt, _neg:Bool, _trunc:Bool):{var _0:GoFloat64; var _1:Error;} {
+function _atofHex(_s:GoString, _flt:Ref<T_floatInfo>, _mantissa:GoUInt64, _exp:GoInt, _neg:Bool, _trunc:Bool):{var _0:GoFloat64; var _1:Error;} {
 	var _maxExp:GoInt = (((1 : GoInt) << _flt._expbits) + _flt._bias) - (2 : GoInt);
 	var _minExp:GoInt = _flt._bias + (1 : GoInt);
 	_exp = _exp + ((_flt._mantbits : GoInt));
@@ -2008,7 +2008,7 @@ function parseFloat(_s:GoString, _bitSize:GoInt):{var _0:GoFloat64; var _1:Error
 		_f:GoFloat64 = __tmp__._0,
 		_n:GoInt = __tmp__._1,
 		_err:stdgo.Error = __tmp__._2;
-	if ((_n != _s.length) && ((_err == null) || (((_err.__underlying__().value : Dynamic) : NumError).err != errSyntax))) {
+	if ((_n != _s.length) && ((_err == null) || (((_err.__underlying__().value : Dynamic) : Ref<NumError>).err != errSyntax))) {
 		return {_0: (0 : GoFloat64), _1: Go.asInterface(_syntaxError((Go.str("ParseFloat") : GoString), _s))};
 	};
 	return {_0: _f, _1: _err};
@@ -2035,19 +2035,19 @@ function _lower(_c:GoByte):GoByte {
 	return _c | (32 : GoUInt8);
 }
 
-function _syntaxError(_fn:GoString, _str:GoString):NumError {
+function _syntaxError(_fn:GoString, _str:GoString):Ref<NumError> {
 	return (new NumError(_fn, _str, errSyntax) : NumError);
 }
 
-function _rangeError(_fn:GoString, _str:GoString):NumError {
+function _rangeError(_fn:GoString, _str:GoString):Ref<NumError> {
 	return (new NumError(_fn, _str, errRange) : NumError);
 }
 
-function _baseError(_fn:GoString, _str:GoString, _base:GoInt):NumError {
+function _baseError(_fn:GoString, _str:GoString, _base:GoInt):Ref<NumError> {
 	return (new NumError(_fn, _str, stdgo.errors.Errors.new_((Go.str("invalid base ") : GoString) + itoa(_base))) : NumError);
 }
 
-function _bitSizeError(_fn:GoString, _str:GoString, _bitSize:GoInt):NumError {
+function _bitSizeError(_fn:GoString, _str:GoString, _bitSize:GoInt):Ref<NumError> {
 	return (new NumError(_fn, _str, stdgo.errors.Errors.new_((Go.str("invalid bit size ") : GoString) + itoa(_bitSize))) : NumError);
 }
 
@@ -2177,9 +2177,9 @@ function parseInt(_s:GoString, _base:GoInt, _bitSize:GoInt):{var _0:GoInt64; var
 		_un = __tmp__._0;
 		_err = __tmp__._1;
 	};
-	if ((_err != null) && (((_err.__underlying__().value : Dynamic) : NumError).err != errRange)) {
-		((_err.__underlying__().value : Dynamic) : NumError).func = (Go.str("ParseInt") : GoString);
-		((_err.__underlying__().value : Dynamic) : NumError).num = _s0;
+	if ((_err != null) && (((_err.__underlying__().value : Dynamic) : Ref<NumError>).err != errRange)) {
+		((_err.__underlying__().value : Dynamic) : Ref<NumError>).func = (Go.str("ParseInt") : GoString);
+		((_err.__underlying__().value : Dynamic) : Ref<NumError>).num = _s0;
 		return {_0: (0 : GoInt64), _1: _err};
 	};
 	if (_bitSize == (0 : GoInt)) {
@@ -2231,7 +2231,7 @@ function atoi(_s:GoString):{var _0:GoInt; var _1:Error;} {
 		_err:stdgo.Error = __tmp__._1;
 	{
 		var __tmp__ = try {
-			{value: ((_err.__underlying__().value : Dynamic) : NumError), ok: true};
+			{value: ((_err.__underlying__().value : Dynamic) : Ref<NumError>), ok: true};
 		} catch (_) {
 			{value: (null : NumError), ok: false};
 		}, _nerr = __tmp__.value, _ok = __tmp__.ok;
@@ -2330,7 +2330,7 @@ function _digitZero(_dst:Slice<GoByte>):GoInt {
 	// (They are meaningless; the decimal point is tracked
 	// independent of the number of digits.)
 **/
-function _trim(_a:T_decimal):Void {
+function _trim(_a:Ref<T_decimal>):Void {
 	while ((_a._nd > (0 : GoInt)) && (_a._d[_a._nd - (1 : GoInt)] == ("0".code : GoUInt8))) {
 		_a._nd--;
 	};
@@ -2342,7 +2342,7 @@ function _trim(_a:T_decimal):Void {
 /**
 	// Binary shift right (/ 2) by k bits.  k <= maxShift to avoid overflow.
 **/
-function _rightShift(_a:T_decimal, _k:GoUInt):Void {
+function _rightShift(_a:Ref<T_decimal>, _k:GoUInt):Void {
 	var _r:GoInt = (0 : GoInt);
 	var _w:GoInt = (0 : GoInt);
 	var _n:GoUInt = (0 : GoUInt);
@@ -2407,7 +2407,7 @@ function _prefixIsLessThan(_b:Slice<GoByte>, _s:GoString):Bool {
 /**
 	// Binary shift left (* 2) by k bits.  k <= maxShift to avoid overflow.
 **/
-function _leftShift(_a:T_decimal, _k:GoUInt):Void {
+function _leftShift(_a:Ref<T_decimal>, _k:GoUInt):Void {
 	var _delta:GoInt = _leftcheats[_k]._delta;
 	if (_prefixIsLessThan((_a._d.__slice__((0 : GoInt), _a._nd) : Slice<GoUInt8>), _leftcheats[_k]._cutoff)) {
 		_delta--;
@@ -2452,7 +2452,7 @@ function _leftShift(_a:T_decimal, _k:GoUInt):Void {
 /**
 	// If we chop a at nd digits, should we round up?
 **/
-function _shouldRoundUp(_a:T_decimal, _nd:GoInt):Bool {
+function _shouldRoundUp(_a:Ref<T_decimal>, _nd:GoInt):Bool {
 	if ((_nd < (0:GoInt)) || (_nd >= _a._nd)) {
 		return false;
 	};
@@ -2626,7 +2626,7 @@ function appendFloat(_dst:Slice<GoByte>, _f:GoFloat64, _fmt:GoByte, _prec:GoInt,
 
 function _genericFtoa(_dst:Slice<GoByte>, _val:GoFloat64, _fmt:GoByte, _prec:GoInt, _bitSize:GoInt):Slice<GoByte> {
 	var _bits:GoUInt64 = (0 : GoUInt64);
-	var _flt:T_floatInfo = (null : T_floatInfo);
+	var _flt:Ref<T_floatInfo> = (null : T_floatInfo);
 	if (_bitSize == ((32 : GoInt))) {
 		_bits = (stdgo.math.Math.float32bits((_val : GoFloat32)) : GoUInt64);
 		_flt = _float32info;
@@ -2711,7 +2711,7 @@ function _genericFtoa(_dst:Slice<GoByte>, _val:GoFloat64, _fmt:GoByte, _prec:GoI
 /**
 	// bigFtoa uses multiprecision computations to format a float.
 **/
-function _bigFtoa(_dst:Slice<GoByte>, _prec:GoInt, _fmt:GoByte, _neg:Bool, _mant:GoUInt64, _exp:GoInt, _flt:T_floatInfo):Slice<GoByte> {
+function _bigFtoa(_dst:Slice<GoByte>, _prec:GoInt, _fmt:GoByte, _neg:Bool, _mant:GoUInt64, _exp:GoInt, _flt:Ref<T_floatInfo>):Slice<GoByte> {
 	var _d = ({} : T_decimal);
 	_d.assign(_mant);
 	_d.shift(_exp - (_flt._mantbits : GoInt));
@@ -2775,7 +2775,7 @@ function _formatDigits(_dst:Slice<GoByte>, _shortest:Bool, _neg:Bool, _digs:T_de
 	// roundShortest rounds d (= mant * 2^exp) to the shortest number of digits
 	// that will let the original floating point value be precisely reconstructed.
 **/
-function _roundShortest(_d:T_decimal, _mant:GoUInt64, _exp:GoInt, _flt:T_floatInfo):Void {
+function _roundShortest(_d:Ref<T_decimal>, _mant:GoUInt64, _exp:GoInt, _flt:Ref<T_floatInfo>):Void {
 	if (_mant == (0 : GoUInt64)) {
 		_d._nd = (0 : GoInt);
 		return;
@@ -2933,7 +2933,7 @@ function _fmtF(_dst:Slice<GoByte>, _neg:Bool, _d:T_decimalSlice, _prec:GoInt):Sl
 /**
 	// %b: -ddddddddp±ddd
 **/
-function _fmtB(_dst:Slice<GoByte>, _neg:Bool, _mant:GoUInt64, _exp:GoInt, _flt:T_floatInfo):Slice<GoByte> {
+function _fmtB(_dst:Slice<GoByte>, _neg:Bool, _mant:GoUInt64, _exp:GoInt, _flt:Ref<T_floatInfo>):Slice<GoByte> {
 	if (_neg) {
 		_dst = (_dst.__append__(("-".code : GoUInt8)));
 	};
@@ -2956,7 +2956,7 @@ function _fmtB(_dst:Slice<GoByte>, _neg:Bool, _mant:GoUInt64, _exp:GoInt, _flt:T
 /**
 	// %x: -0x1.yyyyyyyyp±ddd or -0x0p+0. (y is hex digit, d is decimal digit)
 **/
-function _fmtX(_dst:Slice<GoByte>, _prec:GoInt, _fmt:GoByte, _neg:Bool, _mant:GoUInt64, _exp:GoInt, _flt:T_floatInfo):Slice<GoByte> {
+function _fmtX(_dst:Slice<GoByte>, _prec:GoInt, _fmt:GoByte, _neg:Bool, _mant:GoUInt64, _exp:GoInt, _flt:Ref<T_floatInfo>):Slice<GoByte> {
 	if (_mant == (0 : GoUInt64)) {
 		_exp = (0 : GoInt);
 	};
@@ -3052,7 +3052,7 @@ function _max(_a:GoInt, _b:GoInt):GoInt {
 /**
 	// ryuFtoaFixed32 formats mant*(2^exp) with prec decimal digits.
 **/
-function _ryuFtoaFixed32(_d:T_decimalSlice, _mant:GoUInt32, _exp:GoInt, _prec:GoInt):Void {
+function _ryuFtoaFixed32(_d:Ref<T_decimalSlice>, _mant:GoUInt32, _exp:GoInt, _prec:GoInt):Void {
 	if (_prec < (0:GoInt)) {
 		throw Go.toInterface((Go.str("ryuFtoaFixed32 called with negative prec") : GoString));
 	};
@@ -3110,7 +3110,7 @@ function _ryuFtoaFixed32(_d:T_decimalSlice, _mant:GoUInt32, _exp:GoInt, _prec:Go
 /**
 	// ryuFtoaFixed64 formats mant*(2^exp) with prec decimal digits.
 **/
-function _ryuFtoaFixed64(_d:T_decimalSlice, _mant:GoUInt64, _exp:GoInt, _prec:GoInt):Void {
+function _ryuFtoaFixed64(_d:Ref<T_decimalSlice>, _mant:GoUInt64, _exp:GoInt, _prec:GoInt):Void {
 	if (_prec > (18 : GoInt)) {
 		throw Go.toInterface((Go.str("ryuFtoaFixed64 called with prec > 18") : GoString));
 	};
@@ -3167,7 +3167,7 @@ function _ryuFtoaFixed64(_d:T_decimalSlice, _mant:GoUInt64, _exp:GoInt, _prec:Go
 	// of mantissa m. The boolean trunc indicates whether m
 	// is truncated compared to the original number being formatted.
 **/
-function _formatDecimal(_d:T_decimalSlice, _m:GoUInt64, _trunc:Bool, _roundUp:Bool, _prec:GoInt):Void {
+function _formatDecimal(_d:Ref<T_decimalSlice>, _m:GoUInt64, _trunc:Bool, _roundUp:Bool, _prec:GoInt):Void {
 	var _max:GoUInt64 = _uint64pow10[_prec];
 	var _trimmed:GoInt = (0 : GoInt);
 	while (_m >= _max) {
@@ -3239,7 +3239,7 @@ function _formatDecimal(_d:T_decimalSlice, _m:GoUInt64, _trunc:Bool, _roundUp:Bo
 /**
 	// ryuFtoaShortest formats mant*2^exp with prec decimal digits.
 **/
-function _ryuFtoaShortest(_d:T_decimalSlice, _mant:GoUInt64, _exp:GoInt, _flt:T_floatInfo):Void {
+function _ryuFtoaShortest(_d:Ref<T_decimalSlice>, _mant:GoUInt64, _exp:GoInt, _flt:Ref<T_floatInfo>):Void {
 	if (_mant == (0 : GoUInt64)) {
 		{
 			final __tmp__0 = (0 : GoInt);
@@ -3393,7 +3393,7 @@ function _mulByLog10Log2(_x:GoInt):GoInt {
 	// where the mantissas are 55-bit (or 26-bit) integers, describing the interval
 	// represented by the input float64 or float32.
 **/
-function _computeBounds(_mant:GoUInt64, _exp:GoInt, _flt:T_floatInfo):{
+function _computeBounds(_mant:GoUInt64, _exp:GoInt, _flt:Ref<T_floatInfo>):{
 	var _0:GoUInt64;
 	var _1:GoUInt64;
 	var _2:GoUInt64;
@@ -3438,7 +3438,7 @@ function _computeBounds(_mant:GoUInt64, _exp:GoInt, _flt:T_floatInfo):{
 	};
 }
 
-function _ryuDigits(_d:T_decimalSlice, _lower:GoUInt64, _central:GoUInt64, _upper:GoUInt64, _c0:Bool, _cup:Bool):Void {
+function _ryuDigits(_d:Ref<T_decimalSlice>, _lower:GoUInt64, _central:GoUInt64, _upper:GoUInt64, _c0:Bool, _cup:Bool):Void {
 	var __tmp__ = _divmod1e9(_lower),
 		_lhi:GoUInt32 = __tmp__._0,
 		_llo:GoUInt32 = __tmp__._1;
@@ -3488,7 +3488,7 @@ function _ryuDigits(_d:T_decimalSlice, _lower:GoUInt64, _central:GoUInt64, _uppe
 /**
 	// ryuDigits32 emits decimal digits for a number less than 1e9.
 **/
-function _ryuDigits32(_d:T_decimalSlice, _lower:GoUInt32, _central:GoUInt32, _upper:GoUInt32, _c0:Bool, _cup:Bool, _endindex:GoInt):Void {
+function _ryuDigits32(_d:Ref<T_decimalSlice>, _lower:GoUInt32, _central:GoUInt32, _upper:GoUInt32, _c0:Bool, _cup:Bool, _endindex:GoInt):Void {
 	if (_upper == (0 : GoUInt32)) {
 		_d._dp = _endindex + (1 : GoInt);
 		return;
@@ -3653,7 +3653,7 @@ function _divmod1e9(_x:GoUInt64):{var _0:GoUInt32; var _1:GoUInt32;} {
 	return {_0: (_q : GoUInt32), _1: (_x - (_q * (1e+09 : GoUInt64)) : GoUInt32)};
 }
 
-function newDecimal(_i:GoUInt64):T_decimal {
+function newDecimal(_i:GoUInt64):Ref<T_decimal> {
 	var _d = ({} : T_decimal);
 	_d.assign(_i);
 	return _d;
@@ -4652,12 +4652,12 @@ class NumError_asInterface {
 
 @:keep private class NumError_static_extension {
 	@:keep
-	static public function unwrap(_e:NumError):Error {
+	static public function unwrap(_e:Ref<NumError>):Error {
 		return _e.err;
 	}
 
 	@:keep
-	static public function error(_e:NumError):GoString {
+	static public function error(_e:Ref<NumError>):GoString {
 		return ((((((Go.str("strconv.") : GoString) + _e.func) + (Go.str(": ") : GoString)) + (Go.str("parsing ") : GoString)) + quote(_e.num))
 			+ (Go.str(": ") : GoString))
 			+ _e.err.error();
@@ -4716,7 +4716,7 @@ private class T_decimal_asInterface {
 		return __self__.string();
 
 	@:keep
-	public function _floatBits(_flt:T_floatInfo):{var _0:GoUInt64; var _1:Bool;}
+	public function _floatBits(_flt:Ref<T_floatInfo>):{var _0:GoUInt64; var _1:Bool;}
 		return __self__._floatBits(_flt);
 
 	@:keep
@@ -4740,7 +4740,7 @@ private class T_decimal_asInterface {
 		// No guarantees about overflow.
 	**/
 	@:keep
-	static public function roundedInteger(_a:T_decimal):GoUInt64 {
+	static public function roundedInteger(_a:Ref<T_decimal>):GoUInt64 {
 		if (_a._dp > (20 : GoInt)) {
 			return ("18446744073709551615" : GoUInt64);
 		};
@@ -4765,7 +4765,7 @@ private class T_decimal_asInterface {
 		// Round a up to nd digits (or fewer).
 	**/
 	@:keep
-	static public function roundUp(_a:T_decimal, _nd:GoInt):Void {
+	static public function roundUp(_a:Ref<T_decimal>, _nd:GoInt):Void {
 		if ((_nd < (0:GoInt)) || (_nd >= _a._nd)) {
 			return;
 		};
@@ -4789,7 +4789,7 @@ private class T_decimal_asInterface {
 		// Round a down to nd digits (or fewer).
 	**/
 	@:keep
-	static public function roundDown(_a:T_decimal, _nd:GoInt):Void {
+	static public function roundDown(_a:Ref<T_decimal>, _nd:GoInt):Void {
 		if ((_nd < (0:GoInt)) || (_nd >= _a._nd)) {
 			return;
 		};
@@ -4804,7 +4804,7 @@ private class T_decimal_asInterface {
 		// 0.09 -> 0.1.
 	**/
 	@:keep
-	static public function round(_a:T_decimal, _nd:GoInt):Void {
+	static public function round(_a:Ref<T_decimal>, _nd:GoInt):Void {
 		if ((_nd < (0:GoInt)) || (_nd >= _a._nd)) {
 			return;
 		};
@@ -4819,7 +4819,7 @@ private class T_decimal_asInterface {
 		// Binary shift left (k > 0) or right (k < 0).
 	**/
 	@:keep
-	static public function shift(_a:T_decimal, _k:GoInt):Void {
+	static public function shift(_a:Ref<T_decimal>, _k:GoInt):Void {
 		if (_a._nd == (0 : GoInt)) {} else if (_k > (0 : GoInt)) {
 			while (_k > (28 : GoInt)) {
 				_leftShift(_a, (28 : GoUInt));
@@ -4839,7 +4839,7 @@ private class T_decimal_asInterface {
 		// Assign v to a.
 	**/
 	@:keep
-	static public function assign(_a:T_decimal, _v:GoUInt64):Void {
+	static public function assign(_a:Ref<T_decimal>, _v:GoUInt64):Void {
 		var _buf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0...24) (0 : GoUInt8)]);
 		var _n:GoInt = (0 : GoInt);
 		while (_v > (0 : GoUInt64)) {
@@ -4862,7 +4862,7 @@ private class T_decimal_asInterface {
 	}
 
 	@:keep
-	static public function string(_a:T_decimal):GoString {
+	static public function string(_a:Ref<T_decimal>):GoString {
 		var _n:GoInt = (10 : GoInt) + _a._nd;
 		if (_a._dp > (0 : GoInt)) {
 			_n = _n + (_a._dp);
@@ -4894,7 +4894,7 @@ private class T_decimal_asInterface {
 	}
 
 	@:keep
-	static public function _floatBits(_d:T_decimal, _flt:T_floatInfo):{var _0:GoUInt64; var _1:Bool;} {
+	static public function _floatBits(_d:Ref<T_decimal>, _flt:Ref<T_floatInfo>):{var _0:GoUInt64; var _1:Bool;} {
 		return stdgo.internal.Macro.controlFlow({
 			var _b:GoUInt64 = (0 : GoUInt64), _overflow:Bool = false;
 			var _exp:GoInt = (0 : GoInt);
@@ -4968,7 +4968,7 @@ private class T_decimal_asInterface {
 	}
 
 	@:keep
-	static public function _set(_b:T_decimal, _s:GoString):Bool {
+	static public function _set(_b:Ref<T_decimal>, _s:GoString):Bool {
 		var _ok:Bool = false;
 		var _i:GoInt = (0 : GoInt);
 		_b._neg = false;

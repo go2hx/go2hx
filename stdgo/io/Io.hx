@@ -109,8 +109,8 @@ final seekEnd:GoUnTypedInt = (2 : GoUnTypedInt);
 **/
 private var _3:ReaderFrom = Go.asInterface((new T_discard() : T_discard));
 
-private var _4:WriterTo = Go.asInterface((null : T_multiReader));
-private var _5:StringWriter = Go.asInterface((null : T_multiWriter));
+private var _4:WriterTo = Go.asInterface(((null : T_multiReader) : Ref<T_multiReader>));
+private var _5:StringWriter = Go.asInterface(((null : T_multiWriter) : Ref<T_multiWriter>));
 
 /**
 	// Reader is the interface that wraps the basic Read method.
@@ -876,7 +876,7 @@ function _copyBuffer(_dst:Writer, _src:Reader, _buf:Slice<GoByte>):{var _0:GoInt
 		var _size:GoInt = (32768 : GoInt);
 		{
 			var __tmp__ = try {
-				{value: ((_src.__underlying__().value : Dynamic) : LimitedReader), ok: true};
+				{value: ((_src.__underlying__().value : Dynamic) : Ref<LimitedReader>), ok: true};
 			} catch (_) {
 				{value: (null : LimitedReader), ok: false};
 			}, _l = __tmp__.value, _ok = __tmp__.ok;
@@ -937,7 +937,7 @@ function limitReader(_r:Reader, _n:GoInt64):Reader {
 	// NewSectionReader returns a SectionReader that reads from r
 	// starting at offset off and stops with EOF after n bytes.
 **/
-function newSectionReader(_r:ReaderAt, _off:GoInt64, _n:GoInt64):SectionReader {
+function newSectionReader(_r:ReaderAt, _off:GoInt64, _n:GoInt64):Ref<SectionReader> {
 	var _remaining:GoInt64 = (0 : GoInt64);
 	var _maxint64:GoUnTypedInt = ("9223372036854775807" : GoUnTypedInt);
 	if (_off <= (("9223372036854775807" : GoInt64) - _n)) {
@@ -1031,7 +1031,7 @@ function multiWriter(_writers:haxe.Rest<Writer>):Writer {
 	for (_0 => _w in _writers) {
 		{
 			var __tmp__ = try {
-				{value: ((_w.__underlying__().value : Dynamic) : T_multiWriter), ok: true};
+				{value: ((_w.__underlying__().value : Dynamic) : Ref<T_multiWriter>), ok: true};
 			} catch (_) {
 				{value: (null : T_multiWriter), ok: false};
 			}, _mw = __tmp__.value, _ok = __tmp__.ok;
@@ -1062,7 +1062,7 @@ function multiWriter(_writers:haxe.Rest<Writer>):Writer {
 	// Parallel calls to Read and parallel calls to Write are also safe:
 	// the individual calls will be gated sequentially.
 **/
-function pipe():{var _0:PipeReader; var _1:PipeWriter;} {
+function pipe():{var _0:Ref<PipeReader>; var _1:Ref<PipeWriter>;} {
 	var _p = ({_wrCh: new Chan<Slice<GoUInt8>>(0,
 		() -> (null : Slice<GoUInt8>)), _rdCh: new Chan<GoInt>(0, () -> (0 : GoInt)), _done: new Chan<T_discard>(0, () -> ({} : T_discard))} : T_pipe);
 	return {_0: (new PipeReader(_p) : PipeReader), _1: (new PipeWriter(_p) : PipeWriter)};
@@ -1086,7 +1086,7 @@ class LimitedReader_asInterface {
 
 @:keep private class LimitedReader_static_extension {
 	@:keep
-	static public function read(_l:LimitedReader, _p:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
+	static public function read(_l:Ref<LimitedReader>, _p:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
 		var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
 		if (_l.n <= (0 : GoInt64)) {
 			return {_0: (0 : GoInt), _1: eof};
@@ -1140,12 +1140,12 @@ class SectionReader_asInterface {
 		// Size returns the size of the section in bytes.
 	**/
 	@:keep
-	static public function size(_s:SectionReader):GoInt64 {
+	static public function size(_s:Ref<SectionReader>):GoInt64 {
 		return _s._limit - _s._base;
 	}
 
 	@:keep
-	static public function readAt(_s:SectionReader, _p:Slice<GoByte>, _off:GoInt64):{var _0:GoInt; var _1:Error;} {
+	static public function readAt(_s:Ref<SectionReader>, _p:Slice<GoByte>, _off:GoInt64):{var _0:GoInt; var _1:Error;} {
 		var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
 		if ((_off < (0:GoInt64)) || (_off >= (_s._limit - _s._base))) {
 			return {_0: (0 : GoInt), _1: eof};
@@ -1170,7 +1170,7 @@ class SectionReader_asInterface {
 	}
 
 	@:keep
-	static public function seek(_s:SectionReader, _offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:Error;} {
+	static public function seek(_s:Ref<SectionReader>, _offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:Error;} {
 		if (_whence == ((0 : GoInt))) {
 			_offset = _offset + (_s._base);
 		} else if (_whence == ((1 : GoInt))) {
@@ -1186,7 +1186,7 @@ class SectionReader_asInterface {
 	}
 
 	@:keep
-	static public function read(_s:SectionReader, _p:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
+	static public function read(_s:Ref<SectionReader>, _p:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
 		var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
 		if (_s._off >= _s._limit) {
 			return {_0: (0 : GoInt), _1: eof};
@@ -1225,7 +1225,7 @@ private class T_teeReader_asInterface {
 
 @:keep private class T_teeReader_static_extension {
 	@:keep
-	static public function read(_t:T_teeReader, _p:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
+	static public function read(_t:Ref<T_teeReader>, _p:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
 		var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
 		{
 			var __tmp__ = _t._r.read(_p);
@@ -1274,7 +1274,7 @@ private class T_discard_asInterface {
 	@:keep
 	static public function readFrom(_:T_discard, _r:Reader):{var _0:GoInt64; var _1:Error;} {
 		var _n:GoInt64 = (0 : GoInt64), _err:Error = (null : stdgo.Error);
-		var _bufp = (_blackHolePool.get().value : Slice<GoByte>);
+		var _bufp = (_blackHolePool.get().value : Ref<Slice<GoByte>>);
 		var _readSize:GoInt = (0 : GoInt);
 		while (true) {
 			{
@@ -1425,13 +1425,13 @@ private class T_multiReader_asInterface {
 
 @:keep private class T_multiReader_static_extension {
 	@:keep
-	static public function _writeToWithBuffer(_mr:T_multiReader, _w:Writer, _buf:Slice<GoByte>):{var _0:GoInt64; var _1:Error;} {
+	static public function _writeToWithBuffer(_mr:Ref<T_multiReader>, _w:Writer, _buf:Slice<GoByte>):{var _0:GoInt64; var _1:Error;} {
 		var _sum:GoInt64 = (0 : GoInt64), _err:Error = (null : stdgo.Error);
 		for (_i => _r in _mr._readers) {
 			var _n:GoInt64 = (0 : GoInt64);
 			{
 				var __tmp__ = try {
-					{value: ((_r.__underlying__().value : Dynamic) : T_multiReader), ok: true};
+					{value: ((_r.__underlying__().value : Dynamic) : Ref<T_multiReader>), ok: true};
 				} catch (_) {
 					{value: (null : T_multiReader), ok: false};
 				}, _subMr = __tmp__.value, _ok = __tmp__.ok;
@@ -1461,19 +1461,19 @@ private class T_multiReader_asInterface {
 	}
 
 	@:keep
-	static public function writeTo(_mr:T_multiReader, _w:Writer):{var _0:GoInt64; var _1:Error;} {
+	static public function writeTo(_mr:Ref<T_multiReader>, _w:Writer):{var _0:GoInt64; var _1:Error;} {
 		var _sum:GoInt64 = (0 : GoInt64), _err:Error = (null : stdgo.Error);
 		return _mr._writeToWithBuffer(_w, new Slice<GoUInt8>((32768 : GoInt).toBasic(), 0, ...[for (i in 0...(32768 : GoInt).toBasic()) (0 : GoUInt8)]));
 	}
 
 	@:keep
-	static public function read(_mr:T_multiReader, _p:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
+	static public function read(_mr:Ref<T_multiReader>, _p:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
 		var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
 		while ((_mr._readers.length) > (0 : GoInt)) {
 			if ((_mr._readers.length) == (1 : GoInt)) {
 				{
 					var __tmp__ = try {
-						{value: ((_mr._readers[(0 : GoInt)].__underlying__().value : Dynamic) : T_multiReader), ok: true};
+						{value: ((_mr._readers[(0 : GoInt)].__underlying__().value : Dynamic) : Ref<T_multiReader>), ok: true};
 					} catch (_) {
 						{value: (null : T_multiReader), ok: false};
 					}, _r = __tmp__.value, _ok = __tmp__.ok;
@@ -1525,7 +1525,7 @@ private class T_multiWriter_asInterface {
 
 @:keep private class T_multiWriter_static_extension {
 	@:keep
-	static public function writeString(_t:T_multiWriter, _s:GoString):{var _0:GoInt; var _1:Error;} {
+	static public function writeString(_t:Ref<T_multiWriter>, _s:GoString):{var _0:GoInt; var _1:Error;} {
 		var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
 		var _p:Slice<GoByte> = (null : Slice<GoUInt8>);
 		for (_0 => _w in _t._writers) {
@@ -1564,7 +1564,7 @@ private class T_multiWriter_asInterface {
 	}
 
 	@:keep
-	static public function write(_t:T_multiWriter, _p:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
+	static public function write(_t:Ref<T_multiWriter>, _p:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
 		var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
 		for (_0 => _w in _t._writers) {
 			{
@@ -1626,7 +1626,7 @@ private class T_onceError_asInterface {
 
 @:keep private class T_onceError_static_extension {
 	@:keep
-	static public function load(_a:T_onceError):Error {
+	static public function load(_a:Ref<T_onceError>):Error {
 		var __deferstack__:Array<Void->Void> = [];
 		_a.lock();
 		__deferstack__.unshift(() -> _a.unlock());
@@ -1662,7 +1662,7 @@ private class T_onceError_asInterface {
 	}
 
 	@:keep
-	static public function store(_a:T_onceError, _err:Error):Void {
+	static public function store(_a:Ref<T_onceError>, _err:Error):Void {
 		var __deferstack__:Array<Void->Void> = [];
 		_a.lock();
 		try {
@@ -1768,7 +1768,7 @@ private class T_pipe_asInterface {
 		// writeCloseError is considered internal to the pipe type.
 	**/
 	@:keep
-	static public function _writeCloseError(_p:T_pipe):Error {
+	static public function _writeCloseError(_p:Ref<T_pipe>):Error {
 		var _werr:stdgo.Error = _p._werr.load();
 		{
 			var _rerr:stdgo.Error = _p._rerr.load();
@@ -1783,7 +1783,7 @@ private class T_pipe_asInterface {
 		// readCloseError is considered internal to the pipe type.
 	**/
 	@:keep
-	static public function _readCloseError(_p:T_pipe):Error {
+	static public function _readCloseError(_p:Ref<T_pipe>):Error {
 		var _rerr:stdgo.Error = _p._rerr.load();
 		{
 			var _werr:stdgo.Error = _p._werr.load();
@@ -1795,7 +1795,7 @@ private class T_pipe_asInterface {
 	}
 
 	@:keep
-	static public function _closeWrite(_p:T_pipe, _err:Error):Error {
+	static public function _closeWrite(_p:Ref<T_pipe>, _err:Error):Error {
 		if (_err == null) {
 			_err = eof;
 		};
@@ -1808,7 +1808,7 @@ private class T_pipe_asInterface {
 	}
 
 	@:keep
-	static public function _write(_p:T_pipe, _b:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
+	static public function _write(_p:Ref<T_pipe>, _b:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
 		var __deferstack__:Array<Void->Void> = [];
 		var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
 		Go.select([
@@ -1872,7 +1872,7 @@ private class T_pipe_asInterface {
 	}
 
 	@:keep
-	static public function _closeRead(_p:T_pipe, _err:Error):Error {
+	static public function _closeRead(_p:Ref<T_pipe>, _err:Error):Error {
 		if (_err == null) {
 			_err = errClosedPipe;
 		};
@@ -1885,7 +1885,7 @@ private class T_pipe_asInterface {
 	}
 
 	@:keep
-	static public function _read(_p:T_pipe, _b:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
+	static public function _read(_p:Ref<T_pipe>, _b:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
 		var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
 		Go.select([
 			_p._done.__get__() => {
@@ -1960,7 +1960,7 @@ class PipeReader_asInterface {
 		// and always returns nil.
 	**/
 	@:keep
-	static public function closeWithError(_r:PipeReader, _err:Error):Error {
+	static public function closeWithError(_r:Ref<PipeReader>, _err:Error):Error {
 		return _r._p._closeRead(_err);
 	}
 
@@ -1969,7 +1969,7 @@ class PipeReader_asInterface {
 		// write half of the pipe will return the error ErrClosedPipe.
 	**/
 	@:keep
-	static public function close(_r:PipeReader):Error {
+	static public function close(_r:Ref<PipeReader>):Error {
 		return _r.closeWithError((null : stdgo.Error));
 	}
 
@@ -1981,7 +1981,7 @@ class PipeReader_asInterface {
 		// returned as err; otherwise err is EOF.
 	**/
 	@:keep
-	static public function read(_r:PipeReader, _data:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
+	static public function read(_r:Ref<PipeReader>, _data:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
 		var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
 		return _r._p._read(_data);
 	}
@@ -2040,7 +2040,7 @@ class PipeWriter_asInterface {
 		// and always returns nil.
 	**/
 	@:keep
-	static public function closeWithError(_w:PipeWriter, _err:Error):Error {
+	static public function closeWithError(_w:Ref<PipeWriter>, _err:Error):Error {
 		return _w._p._closeWrite(_err);
 	}
 
@@ -2049,7 +2049,7 @@ class PipeWriter_asInterface {
 		// read half of the pipe will return no bytes and EOF.
 	**/
 	@:keep
-	static public function close(_w:PipeWriter):Error {
+	static public function close(_w:Ref<PipeWriter>):Error {
 		return _w.closeWithError((null : stdgo.Error));
 	}
 
@@ -2061,7 +2061,7 @@ class PipeWriter_asInterface {
 		// returned as err; otherwise err is ErrClosedPipe.
 	**/
 	@:keep
-	static public function write(_w:PipeWriter, _data:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
+	static public function write(_w:Ref<PipeWriter>, _data:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
 		var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
 		return _w._p._write(_data);
 	}

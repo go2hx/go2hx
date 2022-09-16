@@ -8706,7 +8706,7 @@ function isPrint(_r:GoRune):Bool {
 	// IsOneOf reports whether the rune is a member of one of the ranges.
 	// The function "In" provides a nicer signature and should be used in preference to IsOneOf.
 **/
-function isOneOf(_ranges:Slice<RangeTable>, _r:GoRune):Bool {
+function isOneOf(_ranges:Slice<Ref<RangeTable>>, _r:GoRune):Bool {
 	for (_0 => _inside in _ranges) {
 		if (is_(_inside, _r)) {
 			return true;
@@ -8718,8 +8718,8 @@ function isOneOf(_ranges:Slice<RangeTable>, _r:GoRune):Bool {
 /**
 	// In reports whether the rune is a member of one of the ranges.
 **/
-function in_(_r:GoRune, _ranges:haxe.Rest<RangeTable>):Bool {
-	var _ranges = new Slice<RangeTable>(0, 0, ..._ranges);
+function in_(_r:GoRune, _ranges:haxe.Rest<Ref<RangeTable>>):Bool {
+	var _ranges = new Slice<Ref<RangeTable>>(0, 0, ..._ranges);
 	for (_0 => _inside in _ranges) {
 		if (is_(_inside, _r)) {
 			return true;
@@ -8878,7 +8878,7 @@ function _is32(_ranges:Slice<Range32>, _r:GoUInt32):Bool {
 /**
 	// Is reports whether the rune is in the specified table of ranges.
 **/
-function is_(_rangeTab:RangeTable, _r:GoRune):Bool {
+function is_(_rangeTab:Ref<RangeTable>, _r:GoRune):Bool {
 	var _r16 = _rangeTab.r16;
 	if ((_r16.length > (0 : GoInt)) && ((_r : GoUInt32) <= (_r16[(_r16.length) - (1 : GoInt)].hi : GoUInt32))) {
 		return _is16(_r16, (_r : GoUInt16));
@@ -8890,7 +8890,7 @@ function is_(_rangeTab:RangeTable, _r:GoRune):Bool {
 	return false;
 }
 
-function _isExcludingLatin(_rangeTab:RangeTable, _r:GoRune):Bool {
+function _isExcludingLatin(_rangeTab:Ref<RangeTable>, _r:GoRune):Bool {
 	var _r16 = _rangeTab.r16;
 	{
 		var _off:GoInt = _rangeTab.latinOffset;

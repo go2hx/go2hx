@@ -106,7 +106,7 @@ private var _tab:GoArray<T_entry> = new GoArray<T_entry>(...[
 	public var _rem:GoUInt64;
 };
 
-function testUintSize(_t:stdgo.testing.Testing.T):Void {
+function testUintSize(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _x:GoUInt = (0 : GoUInt);
 	{
 		var _want:GoUIntptr = (32 : GoUIntptr);
@@ -116,7 +116,7 @@ function testUintSize(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testLeadingZeros(_t:stdgo.testing.Testing.T):Void {
+function testLeadingZeros(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (256:GoInt), _i++, {
@@ -189,7 +189,7 @@ function testLeadingZeros(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function benchmarkLeadingZeros(_b:stdgo.testing.Testing.B):Void {
+function benchmarkLeadingZeros(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s:GoInt = (0 : GoInt);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -200,7 +200,7 @@ function benchmarkLeadingZeros(_b:stdgo.testing.Testing.B):Void {
 	output = _s;
 }
 
-function benchmarkLeadingZeros8(_b:stdgo.testing.Testing.B):Void {
+function benchmarkLeadingZeros8(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s:GoInt = (0 : GoInt);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -211,7 +211,7 @@ function benchmarkLeadingZeros8(_b:stdgo.testing.Testing.B):Void {
 	output = _s;
 }
 
-function benchmarkLeadingZeros16(_b:stdgo.testing.Testing.B):Void {
+function benchmarkLeadingZeros16(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s:GoInt = (0 : GoInt);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -222,7 +222,7 @@ function benchmarkLeadingZeros16(_b:stdgo.testing.Testing.B):Void {
 	output = _s;
 }
 
-function benchmarkLeadingZeros32(_b:stdgo.testing.Testing.B):Void {
+function benchmarkLeadingZeros32(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s:GoInt = (0 : GoInt);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -233,7 +233,7 @@ function benchmarkLeadingZeros32(_b:stdgo.testing.Testing.B):Void {
 	output = _s;
 }
 
-function benchmarkLeadingZeros64(_b:stdgo.testing.Testing.B):Void {
+function benchmarkLeadingZeros64(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s:GoInt = (0 : GoInt);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -244,7 +244,7 @@ function benchmarkLeadingZeros64(_b:stdgo.testing.Testing.B):Void {
 	output = _s;
 }
 
-function testTrailingZeros(_t:stdgo.testing.Testing.T):Void {
+function testTrailingZeros(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (256:GoInt), _i++, {
@@ -314,7 +314,7 @@ function testTrailingZeros(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function benchmarkTrailingZeros(_b:stdgo.testing.Testing.B):Void {
+function benchmarkTrailingZeros(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s:GoInt = (0 : GoInt);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -325,7 +325,7 @@ function benchmarkTrailingZeros(_b:stdgo.testing.Testing.B):Void {
 	output = _s;
 }
 
-function benchmarkTrailingZeros8(_b:stdgo.testing.Testing.B):Void {
+function benchmarkTrailingZeros8(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s:GoInt = (0 : GoInt);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -336,7 +336,7 @@ function benchmarkTrailingZeros8(_b:stdgo.testing.Testing.B):Void {
 	output = _s;
 }
 
-function benchmarkTrailingZeros16(_b:stdgo.testing.Testing.B):Void {
+function benchmarkTrailingZeros16(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s:GoInt = (0 : GoInt);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -347,7 +347,7 @@ function benchmarkTrailingZeros16(_b:stdgo.testing.Testing.B):Void {
 	output = _s;
 }
 
-function benchmarkTrailingZeros32(_b:stdgo.testing.Testing.B):Void {
+function benchmarkTrailingZeros32(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s:GoInt = (0 : GoInt);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -358,7 +358,7 @@ function benchmarkTrailingZeros32(_b:stdgo.testing.Testing.B):Void {
 	output = _s;
 }
 
-function benchmarkTrailingZeros64(_b:stdgo.testing.Testing.B):Void {
+function benchmarkTrailingZeros64(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s:GoInt = (0 : GoInt);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -369,7 +369,7 @@ function benchmarkTrailingZeros64(_b:stdgo.testing.Testing.B):Void {
 	output = _s;
 }
 
-function testOnesCount(_t:stdgo.testing.Testing.T):Void {
+function testOnesCount(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _x:GoUInt64 = (0 : GoUInt64);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -398,7 +398,7 @@ function testOnesCount(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function _testOnesCount(_t:stdgo.testing.Testing.T, _x:GoUInt64, _want:GoInt):Void {
+function _testOnesCount(_t:Ref<stdgo.testing.Testing.T>, _x:GoUInt64, _want:GoInt):Void {
 	if (_x <= (255 : GoUInt64)) {
 		var _got:GoInt = onesCount8((_x : GoUInt8));
 		if (_got != _want) {
@@ -438,7 +438,7 @@ function _testOnesCount(_t:stdgo.testing.Testing.T, _x:GoUInt64, _want:GoInt):Vo
 	};
 }
 
-function benchmarkOnesCount(_b:stdgo.testing.Testing.B):Void {
+function benchmarkOnesCount(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s:GoInt = (0 : GoInt);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -449,7 +449,7 @@ function benchmarkOnesCount(_b:stdgo.testing.Testing.B):Void {
 	output = _s;
 }
 
-function benchmarkOnesCount8(_b:stdgo.testing.Testing.B):Void {
+function benchmarkOnesCount8(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s:GoInt = (0 : GoInt);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -460,7 +460,7 @@ function benchmarkOnesCount8(_b:stdgo.testing.Testing.B):Void {
 	output = _s;
 }
 
-function benchmarkOnesCount16(_b:stdgo.testing.Testing.B):Void {
+function benchmarkOnesCount16(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s:GoInt = (0 : GoInt);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -471,7 +471,7 @@ function benchmarkOnesCount16(_b:stdgo.testing.Testing.B):Void {
 	output = _s;
 }
 
-function benchmarkOnesCount32(_b:stdgo.testing.Testing.B):Void {
+function benchmarkOnesCount32(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s:GoInt = (0 : GoInt);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -482,7 +482,7 @@ function benchmarkOnesCount32(_b:stdgo.testing.Testing.B):Void {
 	output = _s;
 }
 
-function benchmarkOnesCount64(_b:stdgo.testing.Testing.B):Void {
+function benchmarkOnesCount64(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s:GoInt = (0 : GoInt);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -493,7 +493,7 @@ function benchmarkOnesCount64(_b:stdgo.testing.Testing.B):Void {
 	output = _s;
 }
 
-function testRotateLeft(_t:stdgo.testing.Testing.T):Void {
+function testRotateLeft(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _m:GoUInt64 = ("285870213051353865" : GoUInt64);
 	{
 		var _k:GoUInt = (0 : GoUInt);
@@ -578,7 +578,7 @@ function testRotateLeft(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function benchmarkRotateLeft(_b:stdgo.testing.Testing.B):Void {
+function benchmarkRotateLeft(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s:GoUInt = (0 : GoUInt);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -589,7 +589,7 @@ function benchmarkRotateLeft(_b:stdgo.testing.Testing.B):Void {
 	output = (_s : GoInt);
 }
 
-function benchmarkRotateLeft8(_b:stdgo.testing.Testing.B):Void {
+function benchmarkRotateLeft8(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s:GoUInt8 = (0 : GoUInt8);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -600,7 +600,7 @@ function benchmarkRotateLeft8(_b:stdgo.testing.Testing.B):Void {
 	output = (_s : GoInt);
 }
 
-function benchmarkRotateLeft16(_b:stdgo.testing.Testing.B):Void {
+function benchmarkRotateLeft16(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s:GoUInt16 = (0 : GoUInt16);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -611,7 +611,7 @@ function benchmarkRotateLeft16(_b:stdgo.testing.Testing.B):Void {
 	output = (_s : GoInt);
 }
 
-function benchmarkRotateLeft32(_b:stdgo.testing.Testing.B):Void {
+function benchmarkRotateLeft32(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s:GoUInt32 = (0 : GoUInt32);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -622,7 +622,7 @@ function benchmarkRotateLeft32(_b:stdgo.testing.Testing.B):Void {
 	output = (_s : GoInt);
 }
 
-function benchmarkRotateLeft64(_b:stdgo.testing.Testing.B):Void {
+function benchmarkRotateLeft64(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s:GoUInt64 = (0 : GoUInt64);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -633,7 +633,7 @@ function benchmarkRotateLeft64(_b:stdgo.testing.Testing.B):Void {
 	output = (_s : GoInt);
 }
 
-function testReverse(_t:stdgo.testing.Testing.T):Void {
+function testReverse(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoUInt = (0 : GoUInt);
 		Go.cfor(_i < (64:GoUInt), _i++, {
@@ -663,7 +663,7 @@ function testReverse(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function _testReverse(_t:stdgo.testing.Testing.T, _x64:GoUInt64, _want64:GoUInt64):Void {
+function _testReverse(_t:Ref<stdgo.testing.Testing.T>, _x64:GoUInt64, _want64:GoUInt64):Void {
 	var _x8:GoUInt8 = (_x64 : GoUInt8);
 	var _got8:GoUInt8 = reverse8(_x8);
 	var _want8:GoUInt8 = (_want64 >> (56 : GoUnTypedInt) : GoUInt8);
@@ -704,7 +704,7 @@ function _testReverse(_t:stdgo.testing.Testing.T, _x64:GoUInt64, _want64:GoUInt6
 	};
 }
 
-function benchmarkReverse(_b:stdgo.testing.Testing.B):Void {
+function benchmarkReverse(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s:GoUInt = (0 : GoUInt);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -715,7 +715,7 @@ function benchmarkReverse(_b:stdgo.testing.Testing.B):Void {
 	output = (_s : GoInt);
 }
 
-function benchmarkReverse8(_b:stdgo.testing.Testing.B):Void {
+function benchmarkReverse8(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s:GoUInt8 = (0 : GoUInt8);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -726,7 +726,7 @@ function benchmarkReverse8(_b:stdgo.testing.Testing.B):Void {
 	output = (_s : GoInt);
 }
 
-function benchmarkReverse16(_b:stdgo.testing.Testing.B):Void {
+function benchmarkReverse16(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s:GoUInt16 = (0 : GoUInt16);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -737,7 +737,7 @@ function benchmarkReverse16(_b:stdgo.testing.Testing.B):Void {
 	output = (_s : GoInt);
 }
 
-function benchmarkReverse32(_b:stdgo.testing.Testing.B):Void {
+function benchmarkReverse32(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s:GoUInt32 = (0 : GoUInt32);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -748,7 +748,7 @@ function benchmarkReverse32(_b:stdgo.testing.Testing.B):Void {
 	output = (_s : GoInt);
 }
 
-function benchmarkReverse64(_b:stdgo.testing.Testing.B):Void {
+function benchmarkReverse64(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s:GoUInt64 = (0 : GoUInt64);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -759,7 +759,7 @@ function benchmarkReverse64(_b:stdgo.testing.Testing.B):Void {
 	output = (_s : GoInt);
 }
 
-function testReverseBytes(_t:stdgo.testing.Testing.T):Void {
+function testReverseBytes(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _test in (new Slice<T__struct_0>(0, 0, ({_x: (0 : GoUInt64), _r: (0 : GoUInt64)} : T__struct_0),
 		({_x: (1 : GoUInt64), _r: ("72057594037927936" : GoUInt64)} : T__struct_0),
 		({_x: (291 : GoUInt64), _r: ("2522297266304188416" : GoUInt64)} : T__struct_0),
@@ -774,7 +774,7 @@ function testReverseBytes(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function _testReverseBytes(_t:stdgo.testing.Testing.T, _x64:GoUInt64, _want64:GoUInt64):Void {
+function _testReverseBytes(_t:Ref<stdgo.testing.Testing.T>, _x64:GoUInt64, _want64:GoUInt64):Void {
 	var _x16:GoUInt16 = (_x64 : GoUInt16);
 	var _got16:GoUInt16 = reverseBytes16(_x16);
 	var _want16:GoUInt16 = (_want64 >> (48 : GoUnTypedInt) : GoUInt16);
@@ -809,7 +809,7 @@ function _testReverseBytes(_t:stdgo.testing.Testing.T, _x64:GoUInt64, _want64:Go
 	};
 }
 
-function benchmarkReverseBytes(_b:stdgo.testing.Testing.B):Void {
+function benchmarkReverseBytes(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s:GoUInt = (0 : GoUInt);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -820,7 +820,7 @@ function benchmarkReverseBytes(_b:stdgo.testing.Testing.B):Void {
 	output = (_s : GoInt);
 }
 
-function benchmarkReverseBytes16(_b:stdgo.testing.Testing.B):Void {
+function benchmarkReverseBytes16(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s:GoUInt16 = (0 : GoUInt16);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -831,7 +831,7 @@ function benchmarkReverseBytes16(_b:stdgo.testing.Testing.B):Void {
 	output = (_s : GoInt);
 }
 
-function benchmarkReverseBytes32(_b:stdgo.testing.Testing.B):Void {
+function benchmarkReverseBytes32(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s:GoUInt32 = (0 : GoUInt32);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -842,7 +842,7 @@ function benchmarkReverseBytes32(_b:stdgo.testing.Testing.B):Void {
 	output = (_s : GoInt);
 }
 
-function benchmarkReverseBytes64(_b:stdgo.testing.Testing.B):Void {
+function benchmarkReverseBytes64(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s:GoUInt64 = (0 : GoUInt64);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -853,7 +853,7 @@ function benchmarkReverseBytes64(_b:stdgo.testing.Testing.B):Void {
 	output = (_s : GoInt);
 }
 
-function testLen(_t:stdgo.testing.Testing.T):Void {
+function testLen(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (256:GoInt), _i++, {
@@ -908,7 +908,7 @@ function testLen(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testAddSubUint(_t:stdgo.testing.Testing.T):Void {
+function testAddSubUint(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _test:(GoString, (GoUInt, GoUInt, GoUInt) -> {
 		var _0:GoUInt;
 		var _1:GoUInt;
@@ -1009,7 +1009,7 @@ function testAddSubUint(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testAddSubUint32(_t:stdgo.testing.Testing.T):Void {
+function testAddSubUint32(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _test:(GoString, (GoUInt32, GoUInt32, GoUInt32) -> {
 		var _0:GoUInt32;
 		var _1:GoUInt32;
@@ -1098,7 +1098,7 @@ function testAddSubUint32(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testAddSubUint64(_t:stdgo.testing.Testing.T):Void {
+function testAddSubUint64(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _test:(GoString, (GoUInt64, GoUInt64, GoUInt64) -> {
 		var _0:GoUInt64;
 		var _1:GoUInt64;
@@ -1199,7 +1199,7 @@ function testAddSubUint64(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testAdd64OverflowPanic(_t:stdgo.testing.Testing.T):Void {
+function testAdd64OverflowPanic(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _tests = (new Slice<(GoUInt64, GoUInt64) -> GoUInt64>(0, 0, function(_a:GoUInt64, _b:GoUInt64):GoUInt64 {
 		var __tmp__ = add64(_a, _b, (0 : GoUInt64)), _x:GoUInt64 = __tmp__._0, _c:GoUInt64 = __tmp__._1;
 		if (_c > (0 : GoUInt64)) {
@@ -1289,7 +1289,7 @@ function testAdd64OverflowPanic(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testSub64OverflowPanic(_t:stdgo.testing.Testing.T):Void {
+function testSub64OverflowPanic(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _tests = (new Slice<(GoUInt64, GoUInt64) -> GoUInt64>(0, 0, function(_a:GoUInt64, _b:GoUInt64):GoUInt64 {
 		var __tmp__ = sub64(_a, _b, (0 : GoUInt64)), _x:GoUInt64 = __tmp__._0, _c:GoUInt64 = __tmp__._1;
 		if (_c > (0 : GoUInt64)) {
@@ -1379,7 +1379,7 @@ function testSub64OverflowPanic(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testMulDiv(_t:stdgo.testing.Testing.T):Void {
+function testMulDiv(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _testMul:(GoString, (GoUInt, GoUInt) -> {
 		var _0:GoUInt;
 		var _1:GoUInt;
@@ -1440,7 +1440,7 @@ function testMulDiv(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testMulDiv32(_t:stdgo.testing.Testing.T):Void {
+function testMulDiv32(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _testMul:(GoString, (GoUInt32, GoUInt32) -> {
 		var _0:GoUInt32;
 		var _1:GoUInt32;
@@ -1495,7 +1495,7 @@ function testMulDiv32(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testMulDiv64(_t:stdgo.testing.Testing.T):Void {
+function testMulDiv64(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _testMul:(GoString, (GoUInt64, GoUInt64) -> {
 		var _0:GoUInt64;
 		var _1:GoUInt64;
@@ -1562,7 +1562,7 @@ function testMulDiv64(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testDivPanicOverflow(_t:stdgo.testing.Testing.T):Void {
+function testDivPanicOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	__deferstack__.unshift(() -> {
 		var a = function():Void {
@@ -1618,7 +1618,7 @@ function testDivPanicOverflow(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testDiv32PanicOverflow(_t:stdgo.testing.Testing.T):Void {
+function testDiv32PanicOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	__deferstack__.unshift(() -> {
 		var a = function():Void {
@@ -1674,7 +1674,7 @@ function testDiv32PanicOverflow(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testDiv64PanicOverflow(_t:stdgo.testing.Testing.T):Void {
+function testDiv64PanicOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	__deferstack__.unshift(() -> {
 		var a = function():Void {
@@ -1730,7 +1730,7 @@ function testDiv64PanicOverflow(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testDivPanicZero(_t:stdgo.testing.Testing.T):Void {
+function testDivPanicZero(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	__deferstack__.unshift(() -> {
 		var a = function():Void {
@@ -1786,7 +1786,7 @@ function testDivPanicZero(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testDiv32PanicZero(_t:stdgo.testing.Testing.T):Void {
+function testDiv32PanicZero(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	__deferstack__.unshift(() -> {
 		var a = function():Void {
@@ -1842,7 +1842,7 @@ function testDiv32PanicZero(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testDiv64PanicZero(_t:stdgo.testing.Testing.T):Void {
+function testDiv64PanicZero(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	__deferstack__.unshift(() -> {
 		var a = function():Void {
@@ -1898,7 +1898,7 @@ function testDiv64PanicZero(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testRem32(_t:stdgo.testing.Testing.T):Void {
+function testRem32(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _hi:GoUInt32 = (510510 : GoUInt32),
 		_lo:GoUInt32 = (9699690 : GoUInt32),
 		_y:GoUInt32 = (510511 : GoUInt32);
@@ -1918,7 +1918,7 @@ function testRem32(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testRem32Overflow(_t:stdgo.testing.Testing.T):Void {
+function testRem32Overflow(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _hi:GoUInt32 = (510510 : GoUInt32),
 		_lo:GoUInt32 = (9699690 : GoUInt32),
 		_y:GoUInt32 = (7 : GoUInt32);
@@ -1938,7 +1938,7 @@ function testRem32Overflow(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testRem64(_t:stdgo.testing.Testing.T):Void {
+function testRem64(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _hi:GoUInt64 = (510510 : GoUInt64),
 		_lo:GoUInt64 = (9699690 : GoUInt64),
 		_y:GoUInt64 = (510511 : GoUInt64);
@@ -1958,7 +1958,7 @@ function testRem64(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testRem64Overflow(_t:stdgo.testing.Testing.T):Void {
+function testRem64Overflow(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var rem64Tests = (new Slice<T__struct_7>(0, 0, ({
 		_hi: (42 : GoUInt64),
 		_lo: (1119 : GoUInt64),
@@ -2008,7 +2008,7 @@ function testRem64Overflow(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function benchmarkAdd(_b:stdgo.testing.Testing.B):Void {
+function benchmarkAdd(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _z:GoUInt = (0 : GoUInt), _c:GoUInt = (0 : GoUInt);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -2023,7 +2023,7 @@ function benchmarkAdd(_b:stdgo.testing.Testing.B):Void {
 	output = (_z + _c : GoInt);
 }
 
-function benchmarkAdd32(_b:stdgo.testing.Testing.B):Void {
+function benchmarkAdd32(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _z:GoUInt32 = (0 : GoUInt32), _c:GoUInt32 = (0 : GoUInt32);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -2038,7 +2038,7 @@ function benchmarkAdd32(_b:stdgo.testing.Testing.B):Void {
 	output = (_z + _c : GoInt);
 }
 
-function benchmarkAdd64(_b:stdgo.testing.Testing.B):Void {
+function benchmarkAdd64(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _z:GoUInt64 = (0 : GoUInt64), _c:GoUInt64 = (0 : GoUInt64);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -2053,7 +2053,7 @@ function benchmarkAdd64(_b:stdgo.testing.Testing.B):Void {
 	output = (_z + _c : GoInt);
 }
 
-function benchmarkAdd64multiple(_b:stdgo.testing.Testing.B):Void {
+function benchmarkAdd64multiple(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _z0:GoUInt64 = (input : GoUInt64);
 	var _z1:GoUInt64 = (input : GoUInt64);
 	var _z2:GoUInt64 = (input : GoUInt64);
@@ -2086,7 +2086,7 @@ function benchmarkAdd64multiple(_b:stdgo.testing.Testing.B):Void {
 	output = (((_z0 + _z1) + _z2) + _z3 : GoInt);
 }
 
-function benchmarkSub(_b:stdgo.testing.Testing.B):Void {
+function benchmarkSub(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _z:GoUInt = (0 : GoUInt), _c:GoUInt = (0 : GoUInt);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -2101,7 +2101,7 @@ function benchmarkSub(_b:stdgo.testing.Testing.B):Void {
 	output = (_z + _c : GoInt);
 }
 
-function benchmarkSub32(_b:stdgo.testing.Testing.B):Void {
+function benchmarkSub32(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _z:GoUInt32 = (0 : GoUInt32), _c:GoUInt32 = (0 : GoUInt32);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -2116,7 +2116,7 @@ function benchmarkSub32(_b:stdgo.testing.Testing.B):Void {
 	output = (_z + _c : GoInt);
 }
 
-function benchmarkSub64(_b:stdgo.testing.Testing.B):Void {
+function benchmarkSub64(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _z:GoUInt64 = (0 : GoUInt64), _c:GoUInt64 = (0 : GoUInt64);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -2131,7 +2131,7 @@ function benchmarkSub64(_b:stdgo.testing.Testing.B):Void {
 	output = (_z + _c : GoInt);
 }
 
-function benchmarkSub64multiple(_b:stdgo.testing.Testing.B):Void {
+function benchmarkSub64multiple(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _z0:GoUInt64 = (input : GoUInt64);
 	var _z1:GoUInt64 = (input : GoUInt64);
 	var _z2:GoUInt64 = (input : GoUInt64);
@@ -2164,7 +2164,7 @@ function benchmarkSub64multiple(_b:stdgo.testing.Testing.B):Void {
 	output = (((_z0 + _z1) + _z2) + _z3 : GoInt);
 }
 
-function benchmarkMul(_b:stdgo.testing.Testing.B):Void {
+function benchmarkMul(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _hi:GoUInt = (0 : GoUInt), _lo:GoUInt = (0 : GoUInt);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -2179,7 +2179,7 @@ function benchmarkMul(_b:stdgo.testing.Testing.B):Void {
 	output = (_hi + _lo : GoInt);
 }
 
-function benchmarkMul32(_b:stdgo.testing.Testing.B):Void {
+function benchmarkMul32(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _hi:GoUInt32 = (0 : GoUInt32), _lo:GoUInt32 = (0 : GoUInt32);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -2194,7 +2194,7 @@ function benchmarkMul32(_b:stdgo.testing.Testing.B):Void {
 	output = (_hi + _lo : GoInt);
 }
 
-function benchmarkMul64(_b:stdgo.testing.Testing.B):Void {
+function benchmarkMul64(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _hi:GoUInt64 = (0 : GoUInt64), _lo:GoUInt64 = (0 : GoUInt64);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -2209,7 +2209,7 @@ function benchmarkMul64(_b:stdgo.testing.Testing.B):Void {
 	output = (_hi + _lo : GoInt);
 }
 
-function benchmarkDiv(_b:stdgo.testing.Testing.B):Void {
+function benchmarkDiv(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _q:GoUInt = (0 : GoUInt), _r:GoUInt = (0 : GoUInt);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -2224,7 +2224,7 @@ function benchmarkDiv(_b:stdgo.testing.Testing.B):Void {
 	output = (_q + _r : GoInt);
 }
 
-function benchmarkDiv32(_b:stdgo.testing.Testing.B):Void {
+function benchmarkDiv32(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _q:GoUInt32 = (0 : GoUInt32), _r:GoUInt32 = (0 : GoUInt32);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -2239,7 +2239,7 @@ function benchmarkDiv32(_b:stdgo.testing.Testing.B):Void {
 	output = (_q + _r : GoInt);
 }
 
-function benchmarkDiv64(_b:stdgo.testing.Testing.B):Void {
+function benchmarkDiv64(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _q:GoUInt64 = (0 : GoUInt64), _r:GoUInt64 = (0 : GoUInt64);
 	{
 		var _i:GoInt = (0 : GoInt);

@@ -482,7 +482,7 @@ function dumpTables(_pattern:GoString):{var _0:Slice<GoInt>; var _1:Slice<GoInt>
 	// NewReader returns a new Reader reading from s.
 	// It is similar to bytes.NewBufferString but more efficient and read-only.
 **/
-function newReader(_s:GoString):Reader {
+function newReader(_s:GoString):Ref<Reader> {
 	return (new Reader(_s, (0 : GoInt64), (-1 : GoInt)) : Reader);
 }
 
@@ -494,7 +494,7 @@ function newReader(_s:GoString):Reader {
 	//
 	// NewReplacer panics if given an odd number of arguments.
 **/
-function newReplacer(_oldnew:haxe.Rest<GoString>):Replacer {
+function newReplacer(_oldnew:haxe.Rest<GoString>):Ref<Replacer> {
 	var _oldnew = new Slice<GoString>(0, 0, ..._oldnew);
 	if ((_oldnew.length % (2 : GoInt)) == (1 : GoInt)) {
 		throw Go.toInterface((Go.str("strings.NewReplacer: odd argument count") : GoString));
@@ -502,7 +502,7 @@ function newReplacer(_oldnew:haxe.Rest<GoString>):Replacer {
 	return ({_oldnew: ((null : Slice<GoString>).__append__(..._oldnew.__toArray__()))} : Replacer);
 }
 
-function _makeGenericReplacer(_oldnew:Slice<GoString>):T_genericReplacer {
+function _makeGenericReplacer(_oldnew:Slice<GoString>):Ref<T_genericReplacer> {
 	var _r = ({} : T_genericReplacer);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -551,11 +551,11 @@ function _getStringWriter(_w:stdgo.io.Io.Writer):stdgo.io.Io.StringWriter {
 	return _sw;
 }
 
-function _makeSingleStringReplacer(_pattern:GoString, _value:GoString):T_singleStringReplacer {
+function _makeSingleStringReplacer(_pattern:GoString, _value:GoString):Ref<T_singleStringReplacer> {
 	return ({_finder: _makeStringFinder(_pattern), _value: _value} : T_singleStringReplacer);
 }
 
-function _makeStringFinder(_pattern:GoString):T_stringFinder {
+function _makeStringFinder(_pattern:GoString):Ref<T_stringFinder> {
 	var _f = ({_pattern: _pattern, _goodSuffixSkip: new Slice<GoInt>((_pattern.length : GoInt).toBasic(), 0,
 		...[for (i in 0...(_pattern.length : GoInt).toBasic()) (0 : GoInt)])} : T_stringFinder);
 	var _last:GoInt = (_pattern.length) - (1 : GoInt);
@@ -1572,7 +1572,7 @@ function _trimLeftByte(_s:GoString, _c:GoByte):GoString {
 	return _s;
 }
 
-function _trimLeftASCII(_s:GoString, _as:T_asciiSet):GoString {
+function _trimLeftASCII(_s:GoString, _as:Ref<T_asciiSet>):GoString {
 	while ((_s.length) > (0 : GoInt)) {
 		if (!_as._contains(_s[(0 : GoInt)])) {
 			break;
@@ -1631,7 +1631,7 @@ function _trimRightByte(_s:GoString, _c:GoByte):GoString {
 	return _s;
 }
 
-function _trimRightASCII(_s:GoString, _as:T_asciiSet):GoString {
+function _trimRightASCII(_s:GoString, _as:Ref<T_asciiSet>):GoString {
 	while ((_s.length) > (0 : GoInt)) {
 		if (!_as._contains(_s[(_s.length) - (1 : GoInt)])) {
 			break;
@@ -2038,7 +2038,7 @@ class Builder_asInterface {
 		// It returns the length of s and a nil error.
 	**/
 	@:keep
-	static public function writeString(_b:Builder, _s:GoString):{var _0:GoInt; var _1:Error;} {
+	static public function writeString(_b:Ref<Builder>, _s:GoString):{var _0:GoInt; var _1:Error;} {
 		_b._copyCheck();
 		_b._buf = (_b._buf.__append__(..._s.__toArray__()));
 		return {_0: (_s.length), _1: (null : stdgo.Error)};
@@ -2049,7 +2049,7 @@ class Builder_asInterface {
 		// It returns the length of r and a nil error.
 	**/
 	@:keep
-	static public function writeRune(_b:Builder, _r:GoRune):{var _0:GoInt; var _1:Error;} {
+	static public function writeRune(_b:Ref<Builder>, _r:GoRune):{var _0:GoInt; var _1:Error;} {
 		_b._copyCheck();
 		if ((_r : GoUInt32) < (128 : GoUInt32)) {
 			_b._buf = (_b._buf.__append__((_r : GoByte)));
@@ -2069,7 +2069,7 @@ class Builder_asInterface {
 		// The returned error is always nil.
 	**/
 	@:keep
-	static public function writeByte(_b:Builder, _c:GoByte):Error {
+	static public function writeByte(_b:Ref<Builder>, _c:GoByte):Error {
 		_b._copyCheck();
 		_b._buf = (_b._buf.__append__(_c));
 		return (null : stdgo.Error);
@@ -2080,7 +2080,7 @@ class Builder_asInterface {
 		// Write always returns len(p), nil.
 	**/
 	@:keep
-	static public function write(_b:Builder, _p:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
+	static public function write(_b:Ref<Builder>, _p:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
 		_b._copyCheck();
 		_b._buf = (_b._buf.__append__(..._p.__toArray__()));
 		return {_0: (_p.length), _1: (null : stdgo.Error)};
@@ -2092,7 +2092,7 @@ class Builder_asInterface {
 		// without another allocation. If n is negative, Grow panics.
 	**/
 	@:keep
-	static public function grow(_b:Builder, _n:GoInt):Void {
+	static public function grow(_b:Ref<Builder>, _n:GoInt):Void {
 		_b._copyCheck();
 		if (_n < (0:GoInt)) {
 			throw Go.toInterface((Go.str("strings.Builder.Grow: negative count") : GoString));
@@ -2107,7 +2107,7 @@ class Builder_asInterface {
 		// bytes of capacity beyond len(b.buf).
 	**/
 	@:keep
-	static public function _grow(_b:Builder, _n:GoInt):Void {
+	static public function _grow(_b:Ref<Builder>, _n:GoInt):Void {
 		var _buf = new Slice<GoUInt8>((_b._buf.length : GoInt).toBasic(), ((2 : GoInt) * _b._buf.capacity) + _n,
 			...[for (i in 0...(_b._buf.length : GoInt).toBasic()) (0 : GoUInt8)]);
 		Go.copySlice(_buf, _b._buf);
@@ -2118,7 +2118,7 @@ class Builder_asInterface {
 		// Reset resets the Builder to be empty.
 	**/
 	@:keep
-	static public function reset(_b:Builder):Void {
+	static public function reset(_b:Ref<Builder>):Void {
 		_b._addr = null;
 		_b._buf = (null : Slice<GoUInt8>);
 	}
@@ -2129,7 +2129,7 @@ class Builder_asInterface {
 		// already written.
 	**/
 	@:keep
-	static public function cap(_b:Builder):GoInt {
+	static public function cap(_b:Ref<Builder>):GoInt {
 		return _b._buf.capacity;
 	}
 
@@ -2137,7 +2137,7 @@ class Builder_asInterface {
 		// Len returns the number of accumulated bytes; b.Len() == len(b.String()).
 	**/
 	@:keep
-	static public function len(_b:Builder):GoInt {
+	static public function len(_b:Ref<Builder>):GoInt {
 		return (_b._buf.length);
 	}
 
@@ -2145,13 +2145,13 @@ class Builder_asInterface {
 		// String returns the accumulated string.
 	**/
 	@:keep
-	static public function string(_b:Builder):GoString {
+	static public function string(_b:Ref<Builder>):GoString {
 		return ((Go.toInterface(_b._buf) : stdgo.unsafe.Unsafe.UnsafePointer)
 			.__convert__(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.basic(string_kind))) : Pointer<GoString>).value;
 	}
 
 	@:keep
-	static public function _copyCheck(_b:Builder):Void
+	static public function _copyCheck(_b:Ref<Builder>):Void
 		_b._addr = _b;
 }
 
@@ -2253,7 +2253,7 @@ class Reader_asInterface {
 		// Reset resets the Reader to be reading from s.
 	**/
 	@:keep
-	static public function reset(_r:Reader, _s:GoString):Void {
+	static public function reset(_r:Ref<Reader>, _s:GoString):Void {
 		{
 			var __tmp__ = (new Reader(_s, (0 : GoInt64), (-1 : GoInt)) : Reader);
 			_r._s = __tmp__._s;
@@ -2266,7 +2266,7 @@ class Reader_asInterface {
 		// WriteTo implements the io.WriterTo interface.
 	**/
 	@:keep
-	static public function writeTo(_r:Reader, _w:stdgo.io.Io.Writer):{var _0:GoInt64; var _1:Error;} {
+	static public function writeTo(_r:Ref<Reader>, _w:stdgo.io.Io.Writer):{var _0:GoInt64; var _1:Error;} {
 		var _n:GoInt64 = (0 : GoInt64), _err:Error = (null : stdgo.Error);
 		_r._prevRune = (-1 : GoInt);
 		if (_r._i >= (_r._s.length : GoInt64)) {
@@ -2291,7 +2291,7 @@ class Reader_asInterface {
 		// Seek implements the io.Seeker interface.
 	**/
 	@:keep
-	static public function seek(_r:Reader, _offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:Error;} {
+	static public function seek(_r:Ref<Reader>, _offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:Error;} {
 		_r._prevRune = (-1 : GoInt);
 		var _abs:GoInt64 = (0 : GoInt64);
 		if (_whence == ((0 : GoInt))) {
@@ -2314,7 +2314,7 @@ class Reader_asInterface {
 		// UnreadRune implements the io.RuneScanner interface.
 	**/
 	@:keep
-	static public function unreadRune(_r:Reader):Error {
+	static public function unreadRune(_r:Ref<Reader>):Error {
 		if (_r._i <= (0 : GoInt64)) {
 			return stdgo.errors.Errors.new_((Go.str("strings.Reader.UnreadRune: at beginning of string") : GoString));
 		};
@@ -2330,7 +2330,7 @@ class Reader_asInterface {
 		// ReadRune implements the io.RuneReader interface.
 	**/
 	@:keep
-	static public function readRune(_r:Reader):{var _0:GoRune; var _1:GoInt; var _2:Error;} {
+	static public function readRune(_r:Ref<Reader>):{var _0:GoRune; var _1:GoInt; var _2:Error;} {
 		var _ch:GoRune = (0 : GoInt32),
 			_size:GoInt = (0 : GoInt),
 			_err:Error = (null : stdgo.Error);
@@ -2359,7 +2359,7 @@ class Reader_asInterface {
 		// UnreadByte implements the io.ByteScanner interface.
 	**/
 	@:keep
-	static public function unreadByte(_r:Reader):Error {
+	static public function unreadByte(_r:Ref<Reader>):Error {
 		if (_r._i <= (0 : GoInt64)) {
 			return stdgo.errors.Errors.new_((Go.str("strings.Reader.UnreadByte: at beginning of string") : GoString));
 		};
@@ -2372,7 +2372,7 @@ class Reader_asInterface {
 		// ReadByte implements the io.ByteReader interface.
 	**/
 	@:keep
-	static public function readByte(_r:Reader):{var _0:GoByte; var _1:Error;} {
+	static public function readByte(_r:Ref<Reader>):{var _0:GoByte; var _1:Error;} {
 		_r._prevRune = (-1 : GoInt);
 		if (_r._i >= (_r._s.length : GoInt64)) {
 			return {_0: (0 : GoUInt8), _1: stdgo.io.Io.eof};
@@ -2386,7 +2386,7 @@ class Reader_asInterface {
 		// ReadAt implements the io.ReaderAt interface.
 	**/
 	@:keep
-	static public function readAt(_r:Reader, _b:Slice<GoByte>, _off:GoInt64):{var _0:GoInt; var _1:Error;} {
+	static public function readAt(_r:Ref<Reader>, _b:Slice<GoByte>, _off:GoInt64):{var _0:GoInt; var _1:Error;} {
 		var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
 		if (_off < (0:GoInt64)) {
 			return {_0: (0 : GoInt), _1: stdgo.errors.Errors.new_((Go.str("strings.Reader.ReadAt: negative offset") : GoString))};
@@ -2405,7 +2405,7 @@ class Reader_asInterface {
 		// Read implements the io.Reader interface.
 	**/
 	@:keep
-	static public function read(_r:Reader, _b:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
+	static public function read(_r:Ref<Reader>, _b:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
 		var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
 		if (_r._i >= (_r._s.length : GoInt64)) {
 			return {_0: (0 : GoInt), _1: stdgo.io.Io.eof};
@@ -2423,7 +2423,7 @@ class Reader_asInterface {
 		// to any other method.
 	**/
 	@:keep
-	static public function size(_r:Reader):GoInt64 {
+	static public function size(_r:Ref<Reader>):GoInt64 {
 		return (_r._s.length : GoInt64);
 	}
 
@@ -2432,7 +2432,7 @@ class Reader_asInterface {
 		// string.
 	**/
 	@:keep
-	static public function len(_r:Reader):GoInt {
+	static public function len(_r:Ref<Reader>):GoInt {
 		if (_r._i >= (_r._s.length : GoInt64)) {
 			return (0 : GoInt);
 		};
@@ -2487,7 +2487,7 @@ class Replacer_asInterface {
 		// WriteString writes s to w with all replacements performed.
 	**/
 	@:keep
-	static public function writeString(_r:Replacer, _w:stdgo.io.Io.Writer, _s:GoString):{var _0:GoInt; var _1:Error;} {
+	static public function writeString(_r:Ref<Replacer>, _w:stdgo.io.Io.Writer, _s:GoString):{var _0:GoInt; var _1:Error;} {
 		var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
 		_r._once.do_(_r._buildOnce);
 		return _r._r.writeString(_w, _s);
@@ -2497,13 +2497,13 @@ class Replacer_asInterface {
 		// Replace returns a copy of s with all replacements performed.
 	**/
 	@:keep
-	static public function replace(_r:Replacer, _s:GoString):GoString {
+	static public function replace(_r:Ref<Replacer>, _s:GoString):GoString {
 		_r._once.do_(_r._buildOnce);
 		return _r._r.replace(_s);
 	}
 
 	@:keep
-	static public function _build(_b:Replacer):T_replacer {
+	static public function _build(_b:Ref<Replacer>):T_replacer {
 		var _oldnew = _b._oldnew;
 		if ((_oldnew.length == (2 : GoInt)) && (_oldnew[(0 : GoInt)].length > (1 : GoInt))) {
 			return Go.asInterface(_makeSingleStringReplacer(_oldnew[(0 : GoInt)], _oldnew[(1 : GoInt)]));
@@ -2552,20 +2552,20 @@ class Replacer_asInterface {
 	}
 
 	@:keep
-	static public function _buildOnce(_r:Replacer):Void {
+	static public function _buildOnce(_r:Ref<Replacer>):Void {
 		_r._r = _r._build();
 		_r._oldnew = (null : Slice<GoString>);
 	}
 
 	@:keep
-	static public function printTrie(_r:Replacer):GoString {
+	static public function printTrie(_r:Ref<Replacer>):GoString {
 		_r._once.do_(_r._buildOnce);
-		var _gen = ((_r._r.__underlying__().value : Dynamic) : T_genericReplacer);
+		var _gen = ((_r._r.__underlying__().value : Dynamic) : Ref<T_genericReplacer>);
 		return _gen._printNode(_gen._root, (0 : GoInt));
 	}
 
 	@:keep
-	static public function replacer(_r:Replacer):AnyInterface {
+	static public function replacer(_r:Ref<Replacer>):AnyInterface {
 		_r._once.do_(_r._buildOnce);
 		return Go.toInterface(_r._r);
 	}
@@ -2573,7 +2573,7 @@ class Replacer_asInterface {
 
 private class T_trieNode_asInterface {
 	@:keep
-	public function _add(_key:GoString, _val:GoString, _priority:GoInt, _r:T_genericReplacer):Void
+	public function _add(_key:GoString, _val:GoString, _priority:GoInt, _r:Ref<T_genericReplacer>):Void
 		__self__._add(_key, _val, _priority, _r);
 
 	public function new(?__self__) {
@@ -2589,7 +2589,7 @@ private class T_trieNode_asInterface {
 
 @:keep private class T_trieNode_static_extension {
 	@:keep
-	static public function _add(_t:T_trieNode, _key:GoString, _val:GoString, _priority:GoInt, _r:T_genericReplacer):Void {
+	static public function _add(_t:Ref<T_trieNode>, _key:GoString, _val:GoString, _priority:GoInt, _r:Ref<T_genericReplacer>):Void {
 		if (_key == (Go.str() : GoString)) {
 			if (_t._priority == (0 : GoInt)) {
 				_t._value = _val;
@@ -2607,7 +2607,7 @@ private class T_trieNode_asInterface {
 			if (_n == (_t._prefix.length)) {
 				_t._next._add((_key.__slice__(_n) : GoString), _val, _priority, _r);
 			} else if (_n == (0 : GoInt)) {
-				var _prefixNode:T_trieNode = (null : T_trieNode);
+				var _prefixNode:Ref<T_trieNode> = (null : T_trieNode);
 				if ((_t._prefix.length) == (1 : GoInt)) {
 					_prefixNode = _t._next;
 				} else {
@@ -2655,7 +2655,7 @@ private class T_genericReplacer_asInterface {
 		return __self__._lookup(_s, _ignoreRoot);
 
 	@:keep
-	public function _printNode(_t:T_trieNode, _depth:GoInt):GoString
+	public function _printNode(_t:Ref<T_trieNode>, _depth:GoInt):GoString
 		return __self__._printNode(_t, _depth);
 
 	public function new(?__self__) {
@@ -2671,7 +2671,7 @@ private class T_genericReplacer_asInterface {
 
 @:keep private class T_genericReplacer_static_extension {
 	@:keep
-	static public function writeString(_r:T_genericReplacer, _w:stdgo.io.Io.Writer, _s:GoString):{var _0:GoInt; var _1:Error;} {
+	static public function writeString(_r:Ref<T_genericReplacer>, _w:stdgo.io.Io.Writer, _s:GoString):{var _0:GoInt; var _1:Error;} {
 		var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
 		var _sw:stdgo.io.Io.StringWriter = _getStringWriter(_w);
 		var _last:GoInt = (0 : GoInt), _wn:GoInt = (0 : GoInt);
@@ -2729,14 +2729,14 @@ private class T_genericReplacer_asInterface {
 	}
 
 	@:keep
-	static public function replace(_r:T_genericReplacer, _s:GoString):GoString {
+	static public function replace(_r:Ref<T_genericReplacer>, _s:GoString):GoString {
 		var _buf:T_appendSliceWriter = new T_appendSliceWriter((0 : GoInt).toBasic(), (_s.length), ...[for (i in 0...(0 : GoInt).toBasic()) (0 : GoUInt8)]);
 		_r.writeString(Go.asInterface(_buf), _s);
 		return (_buf : GoString);
 	}
 
 	@:keep
-	static public function _lookup(_r:T_genericReplacer, _s:GoString, _ignoreRoot:Bool):{var _0:GoString; var _1:GoInt; var _2:Bool;} {
+	static public function _lookup(_r:Ref<T_genericReplacer>, _s:GoString, _ignoreRoot:Bool):{var _0:GoString; var _1:GoInt; var _2:Bool;} {
 		var _val:GoString = ("" : GoString),
 			_keylen:GoInt = (0 : GoInt),
 			_found:Bool = false;
@@ -2773,7 +2773,7 @@ private class T_genericReplacer_asInterface {
 	}
 
 	@:keep
-	static public function _printNode(_r:T_genericReplacer, _t:T_trieNode, _depth:GoInt):GoString {
+	static public function _printNode(_r:Ref<T_genericReplacer>, _t:Ref<T_trieNode>, _depth:GoInt):GoString {
 		var _s:GoString = ("" : GoString);
 		if (_t._priority > (0 : GoInt)) {
 			_s = _s + ((Go.str("+") : GoString));
@@ -2841,7 +2841,7 @@ private class T_singleStringReplacer_asInterface {
 
 @:keep private class T_singleStringReplacer_static_extension {
 	@:keep
-	static public function writeString(_r:T_singleStringReplacer, _w:stdgo.io.Io.Writer, _s:GoString):{var _0:GoInt; var _1:Error;} {
+	static public function writeString(_r:Ref<T_singleStringReplacer>, _w:stdgo.io.Io.Writer, _s:GoString):{var _0:GoInt; var _1:Error;} {
 		var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
 		var _sw:stdgo.io.Io.StringWriter = _getStringWriter(_w);
 		var _i:GoInt = (0 : GoInt), _wn:GoInt = (0 : GoInt);
@@ -2880,7 +2880,7 @@ private class T_singleStringReplacer_asInterface {
 	}
 
 	@:keep
-	static public function replace(_r:T_singleStringReplacer, _s:GoString):GoString {
+	static public function replace(_r:Ref<T_singleStringReplacer>, _s:GoString):GoString {
 		var _buf:Builder = ({} : Builder);
 		var _i:GoInt = (0 : GoInt), _matched:Bool = false;
 		while (true) {
@@ -2924,7 +2924,7 @@ private class T_byteStringReplacer_asInterface {
 
 @:keep private class T_byteStringReplacer_static_extension {
 	@:keep
-	static public function writeString(_r:T_byteStringReplacer, _w:stdgo.io.Io.Writer, _s:GoString):{var _0:GoInt; var _1:Error;} {
+	static public function writeString(_r:Ref<T_byteStringReplacer>, _w:stdgo.io.Io.Writer, _s:GoString):{var _0:GoInt; var _1:Error;} {
 		var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
 		var _sw:stdgo.io.Io.StringWriter = _getStringWriter(_w);
 		var _last:GoInt = (0 : GoInt);
@@ -2967,7 +2967,7 @@ private class T_byteStringReplacer_asInterface {
 	}
 
 	@:keep
-	static public function replace(_r:T_byteStringReplacer, _s:GoString):GoString {
+	static public function replace(_r:Ref<T_byteStringReplacer>, _s:GoString):GoString {
 		var _newSize:GoInt = (_s.length);
 		var _anyChanges:Bool = false;
 		if ((_r._toReplace.length * (8 : GoInt)) <= (_s.length)) {
@@ -3039,7 +3039,7 @@ private class T_stringFinder_asInterface {
 		// the pattern is not found, it returns -1.
 	**/
 	@:keep
-	static public function _next(_f:T_stringFinder, _text:GoString):GoInt {
+	static public function _next(_f:Ref<T_stringFinder>, _text:GoString):GoInt {
 		var _i:GoInt = (_f._pattern.length) - (1 : GoInt);
 		while (_i < (_text.length)) {
 			var _j:GoInt = (_f._pattern.length) - (1 : GoInt);
@@ -3087,7 +3087,7 @@ private class T_appendSliceWriter_asInterface {
 		// WriteString writes to the buffer without string->[]byte->string allocations.
 	**/
 	@:keep
-	static public function writeString(_w:T_appendSliceWriter, _s:GoString):{var _0:GoInt; var _1:Error;} {
+	static public function writeString(_w:Ref<T_appendSliceWriter>, _s:GoString):{var _0:GoInt; var _1:Error;} {
 		_w = (_w.__append__(..._s.__toArray__()));
 		return {_0: (_s.length), _1: (null : stdgo.Error)};
 	}
@@ -3096,7 +3096,7 @@ private class T_appendSliceWriter_asInterface {
 		// Write writes to the buffer to satisfy io.Writer.
 	**/
 	@:keep
-	static public function write(_w:T_appendSliceWriter, _p:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
+	static public function write(_w:Ref<T_appendSliceWriter>, _p:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
 		_w = (_w.__append__(..._p.__toArray__()));
 		return {_0: (_p.length), _1: (null : stdgo.Error)};
 	}
@@ -3124,7 +3124,7 @@ private class T_byteReplacer_asInterface {
 
 @:keep private class T_byteReplacer_static_extension {
 	@:keep
-	static public function writeString(_r:T_byteReplacer, _w:stdgo.io.Io.Writer, _s:GoString):{var _0:GoInt; var _1:Error;} {
+	static public function writeString(_r:Ref<T_byteReplacer>, _w:stdgo.io.Io.Writer, _s:GoString):{var _0:GoInt; var _1:Error;} {
 		var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
 		var _bufsize:GoInt = (32768 : GoInt);
 		if ((_s.length) < _bufsize) {
@@ -3149,7 +3149,7 @@ private class T_byteReplacer_asInterface {
 	}
 
 	@:keep
-	static public function replace(_r:T_byteReplacer, _s:GoString):GoString {
+	static public function replace(_r:Ref<T_byteReplacer>, _s:GoString):GoString {
 		var _buf:Slice<GoByte> = (null : Slice<GoUInt8>);
 		{
 			var _i:GoInt = (0 : GoInt);
@@ -3194,7 +3194,7 @@ private class T_asciiSet_asInterface {
 		// contains reports whether c is inside the set.
 	**/
 	@:keep
-	static public function _contains(_as:T_asciiSet, _c:GoByte):Bool {
+	static public function _contains(_as:Ref<T_asciiSet>, _c:GoByte):Bool {
 		return (_as[@:invalid_index 0] & ((1 : GoUInt32) << (_c % (32 : GoUInt8)))) != (0 : GoUInt32);
 	}
 }

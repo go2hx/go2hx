@@ -395,7 +395,7 @@ function exampleWalkDir():Void {
 	});
 }
 
-function testValidPath(_t:stdgo.testing.Testing.T):Void {
+function testValidPath(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _isValidPathTests) {
 		var _ok:Bool = validPath(_tt._name);
 		if (_ok != _tt._ok) {
@@ -404,7 +404,7 @@ function testValidPath(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testGlob(_t:stdgo.testing.Testing.T):Void {
+function testGlob(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _globTests) {
 		var __tmp__ = glob(_tt._fs, _tt._pattern),
 			_matches:Slice<GoString> = __tmp__._0,
@@ -432,7 +432,7 @@ function testGlob(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testGlobError(_t:stdgo.testing.Testing.T):Void {
+function testGlobError(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _bad = (new Slice<GoString>(0, 0, ("[]" : GoString), ("nonexist/[]" : GoString)) : Slice<GoString>);
 	for (_0 => _pattern in _bad) {
 		var __tmp__ = glob(stdgo.os.Os.dirFS((Go.str(".") : GoString)), _pattern),
@@ -444,7 +444,7 @@ function testGlobError(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testCVE202230630(_t:stdgo.testing.Testing.T):Void {
+function testCVE202230630(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __tmp__ = glob(stdgo.os.Os.dirFS((Go.str(".") : GoString)),
 		(Go.str("/*") : GoString) + stdgo.strings.Strings.repeat((Go.str("/") : GoString), (10001 : GoInt))),
 		_0:Slice<GoString> = __tmp__._0,
@@ -466,7 +466,7 @@ function _contains(_vector:Slice<GoString>, _s:GoString):Bool {
 	return false;
 }
 
-function testGlobMethod(_t:stdgo.testing.Testing.T):Void {
+function testGlobMethod(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _check = function(_desc:GoString, _names:Slice<GoString>, _err:Error):Void {
 		_t.helper();
 		if (((_err != null) || (_names.length != (1 : GoInt))) || (_names[(0 : GoInt)] != (Go.str("hello.txt") : GoString))) {
@@ -488,7 +488,7 @@ function testGlobMethod(_t:stdgo.testing.Testing.T):Void {
 	_check((Go.str("openOnly") : GoString), _names, _err);
 }
 
-function testReadDir(_t:stdgo.testing.Testing.T):Void {
+function testReadDir(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _check = function(_desc:GoString, _dirs:Slice<DirEntry>, _err:Error):Void {
 		_t.helper();
 		if ((((_err != null) || (_dirs.length != (2 : GoInt))) || (_dirs[(0 : GoInt)].name() != (Go.str("hello.txt") : GoString)))
@@ -527,7 +527,7 @@ function testReadDir(_t:stdgo.testing.Testing.T):Void {
 	_check((Go.str("sub(.)") : GoString), _dirs, _err);
 }
 
-function testFileInfoToDirEntry(_t:stdgo.testing.Testing.T):Void {
+function testFileInfoToDirEntry(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _testFs:stdgo.testing.fstest.Fstest.MapFS = {
 		final x = new stdgo.GoMap.GoObjectMap<GoString,
 			Ref<stdgo.testing.fstest.Fstest.MapFile>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.named("stdgo.testing.fstest.Fstest.MapFS",
@@ -703,7 +703,7 @@ function testFileInfoToDirEntry(_t:stdgo.testing.Testing.T):Void {
 			final x = _test;
 			({_path: x._path, _wantMode: x._wantMode, _wantDir: x._wantDir} : T__struct_2);
 		};
-		_t.run(_test._path, function(_t:stdgo.testing.Testing.T):Void {
+		_t.run(_test._path, function(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var __tmp__ = stat(Go.asInterface(_testFs), _test._path),
 				_fi:FileInfo = __tmp__._0,
 				_err:stdgo.Error = __tmp__._1;
@@ -735,7 +735,7 @@ function testFileInfoToDirEntry(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testReadFile(_t:stdgo.testing.Testing.T):Void {
+function testReadFile(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __tmp__ = readFile(Go.asInterface((new stdgo.io.fs_test.Fs_test.T_readFileOnly(Go.asInterface(_testFsys)) : stdgo.io.fs_test.Fs_test.T_readFileOnly)),
 		(Go.str("hello.txt") : GoString)),
 		_data:Slice<GoUInt8> = __tmp__._0,
@@ -771,7 +771,7 @@ function testReadFile(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testStat(_t:stdgo.testing.Testing.T):Void {
+function testStat(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _check:(GoString, FileInfo, stdgo.Error) -> Void = function(_desc:GoString, _info:FileInfo, _err:Error):Void {
 		_t.helper();
 		if (((_err != null) || (_info == null)) || (_info.mode() != (302 : FileMode))) {
@@ -796,7 +796,7 @@ function testStat(_t:stdgo.testing.Testing.T):Void {
 	_check((Go.str("openOnly") : GoString), _info, _err);
 }
 
-function testSub(_t:stdgo.testing.Testing.T):Void {
+function testSub(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _check:(GoString, FS, stdgo.Error) -> Void = function(_desc:GoString, _sub:FS, _err:Error):Void {
 		_t.helper();
 		if (_err != null) {
@@ -838,7 +838,7 @@ function testSub(_t:stdgo.testing.Testing.T):Void {
 		_t.fatal(Go.toInterface((Go.str("Open(nonexist): succeeded") : GoString)));
 	};
 	var __tmp__ = try {
-		{value: ((_err.__underlying__().value : Dynamic) : PathError), ok: true};
+		{value: ((_err.__underlying__().value : Dynamic) : Ref<PathError>), ok: true};
 	} catch (_) {
 		{value: (null : PathError), ok: false};
 	}, _pe = __tmp__.value, _ok = __tmp__.ok;
@@ -850,14 +850,14 @@ function testSub(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function _walkTree(_n:Node, _path:GoString, _f:(_path:GoString, _n:Node) -> Void):Void {
+function _walkTree(_n:Ref<Node>, _path:GoString, _f:(_path:GoString, _n:Ref<Node>) -> Void):Void {
 	_f(_path, _n);
 	for (_0 => _e in _n._entries) {
 		_walkTree(_e, stdgo.path.Path.join(_path, _e._name), _f);
 	};
 }
 
-function _makeTree(_t:stdgo.testing.Testing.T):FS {
+function _makeTree(_t:Ref<stdgo.testing.Testing.T>):FS {
 	var _fsys:stdgo.testing.fstest.Fstest.MapFS = new stdgo.GoMap.GoObjectMap<GoString,
 		Ref<stdgo.testing.fstest.Fstest.MapFile>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.named("stdgo.testing.fstest.Fstest.MapFS", [],
 		stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind),
@@ -1017,7 +1017,7 @@ function _makeTree(_t:stdgo.testing.Testing.T):FS {
 						type: stdgo.reflect.Reflect.GoType.interfaceType(true, [])
 					}
 				])))))));
-	_walkTree(_tree, _tree._name, function(_path:GoString, _n:Node):Void {
+	_walkTree(_tree, _tree._name, function(_path:GoString, _n:Ref<Node>):Void {
 		if (_n._entries == null) {
 			_fsys[_path] = (new stdgo.testing.fstest.Fstest.MapFile() : stdgo.testing.fstest.Fstest.MapFile);
 		} else {
@@ -1027,14 +1027,14 @@ function _makeTree(_t:stdgo.testing.Testing.T):FS {
 	return Go.asInterface(_fsys);
 }
 
-function _markTree(_n:Node):Void {
-	_walkTree(_n, (Go.str() : GoString), function(_path:GoString, _n:Node):Void {
+function _markTree(_n:Ref<Node>):Void {
+	_walkTree(_n, (Go.str() : GoString), function(_path:GoString, _n:Ref<Node>):Void {
 		_n._mark++;
 	});
 }
 
-function _checkMarks(_t:stdgo.testing.Testing.T, _report:Bool):Void {
-	_walkTree(_tree, _tree._name, function(_path:GoString, _n:Node):Void {
+function _checkMarks(_t:Ref<stdgo.testing.Testing.T>, _report:Bool):Void {
+	_walkTree(_tree, _tree._name, function(_path:GoString, _n:Ref<Node>):Void {
 		if ((_n._mark != (1 : GoInt)) && _report) {
 			_t.errorf((Go.str("node %s mark = %d; expected 1") : GoString), Go.toInterface(_path), Go.toInterface(_n._mark));
 		};
@@ -1047,9 +1047,9 @@ function _checkMarks(_t:stdgo.testing.Testing.T, _report:Bool):Void {
 	// If clear is true, any incoming error is cleared before return. The errors
 	// are always accumulated, though.
 **/
-function _mark(_entry:DirEntry, _err:Error, _errors:Slice<Error>, _clear:Bool):Error {
+function _mark(_entry:DirEntry, _err:Error, _errors:Ref<Slice<Error>>, _clear:Bool):Error {
 	var _name:GoString = _entry.name();
-	_walkTree(_tree, _tree._name, function(_path:GoString, _n:Node):Void {
+	_walkTree(_tree, _tree._name, function(_path:GoString, _n:Ref<Node>):Void {
 		if (_n._name == _name) {
 			_n._mark++;
 		};
@@ -1064,7 +1064,7 @@ function _mark(_entry:DirEntry, _err:Error, _errors:Slice<Error>, _clear:Bool):E
 	return (null : stdgo.Error);
 }
 
-function testWalkDir(_t:stdgo.testing.Testing.T):Void {
+function testWalkDir(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	var _tmpDir:GoString = _t.tempDir();
 	try {
@@ -1122,7 +1122,7 @@ function testWalkDir(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testIssue51617(_t:stdgo.testing.Testing.T):Void {
+function testIssue51617(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	var _dir:GoString = _t.tempDir();
 	try {

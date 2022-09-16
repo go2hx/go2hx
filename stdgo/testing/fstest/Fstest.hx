@@ -317,10 +317,10 @@ private var _3:stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
 **/
 @:named @:using(stdgo.testing.fstest.Fstest.MapFS_static_extension) typedef MapFS = GoMap<GoString, Ref<MapFile>>;
 
-function testMapFS(_t:stdgo.testing.Testing.T):Void
+function testMapFS(_t:Ref<stdgo.testing.Testing.T>):Void
 	throw "testing.fstest.testMapFS is not yet implemented";
 
-function testMapFSChmodDot(_t:stdgo.testing.Testing.T):Void
+function testMapFSChmodDot(_t:Ref<stdgo.testing.Testing.T>):Void
 	throw "testing.fstest.testMapFSChmodDot is not yet implemented";
 
 /**
@@ -365,10 +365,10 @@ function _formatInfoEntry(_info:stdgo.io.fs.Fs.FileInfo):GoString
 function _formatInfo(_info:stdgo.io.fs.Fs.FileInfo):GoString
 	throw "testing.fstest._formatInfo is not yet implemented";
 
-function testSymlink(_t:stdgo.testing.Testing.T):Void
+function testSymlink(_t:Ref<stdgo.testing.Testing.T>):Void
 	throw "testing.fstest.testSymlink is not yet implemented";
 
-function testDash(_t:stdgo.testing.Testing.T):Void
+function testDash(_t:Ref<stdgo.testing.Testing.T>):Void
 	throw "testing.fstest.testDash is not yet implemented";
 
 private class T_fsOnly_asInterface {
@@ -501,35 +501,35 @@ private class T_mapFileInfo_asInterface {
 
 @:keep private class T_mapFileInfo_static_extension {
 	@:keep
-	static public function info(_i:T_mapFileInfo):{var _0:stdgo.io.fs.Fs.FileInfo; var _1:Error;}
+	static public function info(_i:Ref<T_mapFileInfo>):{var _0:stdgo.io.fs.Fs.FileInfo; var _1:Error;}
 		throw "testing.fstest.info is not yet implemented";
 
 	@:keep
-	static public function sys(_i:T_mapFileInfo):AnyInterface
+	static public function sys(_i:Ref<T_mapFileInfo>):AnyInterface
 		throw "testing.fstest.sys is not yet implemented";
 
 	@:keep
-	static public function isDir(_i:T_mapFileInfo):Bool
+	static public function isDir(_i:Ref<T_mapFileInfo>):Bool
 		throw "testing.fstest.isDir is not yet implemented";
 
 	@:keep
-	static public function modTime(_i:T_mapFileInfo):stdgo.time.Time.Time
+	static public function modTime(_i:Ref<T_mapFileInfo>):stdgo.time.Time.Time
 		throw "testing.fstest.modTime is not yet implemented";
 
 	@:keep
-	static public function type(_i:T_mapFileInfo):stdgo.io.fs.Fs.FileMode
+	static public function type(_i:Ref<T_mapFileInfo>):stdgo.io.fs.Fs.FileMode
 		throw "testing.fstest.type is not yet implemented";
 
 	@:keep
-	static public function mode(_i:T_mapFileInfo):stdgo.io.fs.Fs.FileMode
+	static public function mode(_i:Ref<T_mapFileInfo>):stdgo.io.fs.Fs.FileMode
 		throw "testing.fstest.mode is not yet implemented";
 
 	@:keep
-	static public function size(_i:T_mapFileInfo):GoInt64
+	static public function size(_i:Ref<T_mapFileInfo>):GoInt64
 		throw "testing.fstest.size is not yet implemented";
 
 	@:keep
-	static public function name(_i:T_mapFileInfo):GoString
+	static public function name(_i:Ref<T_mapFileInfo>):GoString
 		throw "testing.fstest.name is not yet implemented";
 }
 
@@ -599,23 +599,23 @@ private class T_openMapFile_asInterface {
 
 @:keep private class T_openMapFile_static_extension {
 	@:keep
-	static public function readAt(_f:T_openMapFile, _b:Slice<GoByte>, _offset:GoInt64):{var _0:GoInt; var _1:Error;}
+	static public function readAt(_f:Ref<T_openMapFile>, _b:Slice<GoByte>, _offset:GoInt64):{var _0:GoInt; var _1:Error;}
 		throw "testing.fstest.readAt is not yet implemented";
 
 	@:keep
-	static public function seek(_f:T_openMapFile, _offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:Error;}
+	static public function seek(_f:Ref<T_openMapFile>, _offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:Error;}
 		throw "testing.fstest.seek is not yet implemented";
 
 	@:keep
-	static public function read(_f:T_openMapFile, _b:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
+	static public function read(_f:Ref<T_openMapFile>, _b:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		throw "testing.fstest.read is not yet implemented";
 
 	@:keep
-	static public function close(_f:T_openMapFile):Error
+	static public function close(_f:Ref<T_openMapFile>):Error
 		throw "testing.fstest.close is not yet implemented";
 
 	@:keep
-	static public function stat(_f:T_openMapFile):{var _0:stdgo.io.fs.Fs.FileInfo; var _1:Error;}
+	static public function stat(_f:Ref<T_openMapFile>):{var _0:stdgo.io.fs.Fs.FileInfo; var _1:Error;}
 		throw "testing.fstest.stat is not yet implemented";
 
 	@:embedded
@@ -713,19 +713,19 @@ private class T_mapDir_asInterface {
 
 @:keep private class T_mapDir_static_extension {
 	@:keep
-	static public function readDir(_d:T_mapDir, _count:GoInt):{var _0:Slice<stdgo.io.fs.Fs.DirEntry>; var _1:Error;}
+	static public function readDir(_d:Ref<T_mapDir>, _count:GoInt):{var _0:Slice<stdgo.io.fs.Fs.DirEntry>; var _1:Error;}
 		throw "testing.fstest.readDir is not yet implemented";
 
 	@:keep
-	static public function read(_d:T_mapDir, _b:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
+	static public function read(_d:Ref<T_mapDir>, _b:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		throw "testing.fstest.read is not yet implemented";
 
 	@:keep
-	static public function close(_d:T_mapDir):Error
+	static public function close(_d:Ref<T_mapDir>):Error
 		throw "testing.fstest.close is not yet implemented";
 
 	@:keep
-	static public function stat(_d:T_mapDir):{var _0:stdgo.io.fs.Fs.FileInfo; var _1:Error;}
+	static public function stat(_d:Ref<T_mapDir>):{var _0:stdgo.io.fs.Fs.FileInfo; var _1:Error;}
 		throw "testing.fstest.stat is not yet implemented";
 
 	@:embedded
@@ -845,25 +845,25 @@ private class T_fsTester_asInterface {
 		// checkBadPath checks that various invalid forms of file's name cannot be opened using open.
 	**/
 	@:keep
-	static public function _checkBadPath(_t:T_fsTester, _file:GoString, _desc:GoString, _open:GoString->Error):Void
+	static public function _checkBadPath(_t:Ref<T_fsTester>, _file:GoString, _desc:GoString, _open:GoString->Error):Void
 		throw "testing.fstest._checkBadPath is not yet implemented";
 
 	/**
 		// checkBadPath checks that various invalid forms of file's name cannot be opened using t.fsys.Open.
 	**/
 	@:keep
-	static public function _checkOpen(_t:T_fsTester, _file:GoString):Void
+	static public function _checkOpen(_t:Ref<T_fsTester>, _file:GoString):Void
 		throw "testing.fstest._checkOpen is not yet implemented";
 
 	@:keep
-	static public function _checkFileRead(_t:T_fsTester, _file:GoString, _desc:GoString, _data1:Slice<GoByte>, _data2:Slice<GoByte>):Void
+	static public function _checkFileRead(_t:Ref<T_fsTester>, _file:GoString, _desc:GoString, _data1:Slice<GoByte>, _data2:Slice<GoByte>):Void
 		throw "testing.fstest._checkFileRead is not yet implemented";
 
 	/**
 		// checkFile checks that basic file reading works correctly.
 	**/
 	@:keep
-	static public function _checkFile(_t:T_fsTester, _file:GoString):Void
+	static public function _checkFile(_t:Ref<T_fsTester>, _file:GoString):Void
 		throw "testing.fstest._checkFile is not yet implemented";
 
 	/**
@@ -871,7 +871,7 @@ private class T_fsTester_asInterface {
 		// The order of the lists need not match.
 	**/
 	@:keep
-	static public function _checkDirList(_t:T_fsTester, _dir:GoString, _desc:GoString, _list1:Slice<stdgo.io.fs.Fs.DirEntry>,
+	static public function _checkDirList(_t:Ref<T_fsTester>, _dir:GoString, _desc:GoString, _list1:Slice<stdgo.io.fs.Fs.DirEntry>,
 			_list2:Slice<stdgo.io.fs.Fs.DirEntry>):Void
 		throw "testing.fstest._checkDirList is not yet implemented";
 
@@ -880,14 +880,14 @@ private class T_fsTester_asInterface {
 		// which was found in the parent's directory listing.
 	**/
 	@:keep
-	static public function _checkStat(_t:T_fsTester, _path:GoString, _entry:stdgo.io.fs.Fs.DirEntry):Void
+	static public function _checkStat(_t:Ref<T_fsTester>, _path:GoString, _entry:stdgo.io.fs.Fs.DirEntry):Void
 		throw "testing.fstest._checkStat is not yet implemented";
 
 	/**
 		// checkGlob checks that various glob patterns work if the file system implements GlobFS.
 	**/
 	@:keep
-	static public function _checkGlob(_t:T_fsTester, _dir:GoString, _list:Slice<stdgo.io.fs.Fs.DirEntry>):Void
+	static public function _checkGlob(_t:Ref<T_fsTester>, _dir:GoString, _list:Slice<stdgo.io.fs.Fs.DirEntry>):Void
 		throw "testing.fstest._checkGlob is not yet implemented";
 
 	/**
@@ -895,18 +895,18 @@ private class T_fsTester_asInterface {
 		// (it is either the root or was found in a directory listing with IsDir true).
 	**/
 	@:keep
-	static public function _checkDir(_t:T_fsTester, _dir:GoString):Void
+	static public function _checkDir(_t:Ref<T_fsTester>, _dir:GoString):Void
 		throw "testing.fstest._checkDir is not yet implemented";
 
 	@:keep
-	static public function _openDir(_t:T_fsTester, _dir:GoString):stdgo.io.fs.Fs.ReadDirFile
+	static public function _openDir(_t:Ref<T_fsTester>, _dir:GoString):stdgo.io.fs.Fs.ReadDirFile
 		throw "testing.fstest._openDir is not yet implemented";
 
 	/**
 		// errorf adds an error line to errText.
 	**/
 	@:keep
-	static public function _errorf(_t:T_fsTester, _format:GoString, _args:haxe.Rest<AnyInterface>):Void
+	static public function _errorf(_t:Ref<T_fsTester>, _format:GoString, _args:haxe.Rest<AnyInterface>):Void
 		throw "testing.fstest._errorf is not yet implemented";
 }
 

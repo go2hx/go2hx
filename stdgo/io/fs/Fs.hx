@@ -1108,7 +1108,7 @@ class PathError_asInterface {
 		// Timeout reports whether this error represents a timeout.
 	**/
 	@:keep
-	static public function timeout(_e:PathError):Bool {
+	static public function timeout(_e:Ref<PathError>):Bool {
 		var __tmp__ = try {
 			{value: ((_e.err.__underlying__().value : Dynamic) : T__interface_0), ok: true};
 		} catch (_) {
@@ -1118,12 +1118,12 @@ class PathError_asInterface {
 	}
 
 	@:keep
-	static public function unwrap(_e:PathError):Error {
+	static public function unwrap(_e:Ref<PathError>):Error {
 		return _e.err;
 	}
 
 	@:keep
-	static public function error(_e:PathError):GoString {
+	static public function error(_e:Ref<PathError>):GoString {
 		return (((_e.op + (Go.str(" ") : GoString)) + _e.path) + (Go.str(": ") : GoString)) + _e.err.error();
 	}
 }
@@ -1233,7 +1233,7 @@ private class T_subFS_asInterface {
 
 @:keep private class T_subFS_static_extension {
 	@:keep
-	static public function sub(_f:T_subFS, _dir:GoString):{var _0:FS; var _1:Error;} {
+	static public function sub(_f:Ref<T_subFS>, _dir:GoString):{var _0:FS; var _1:Error;} {
 		if (_dir == (Go.str(".") : GoString)) {
 			return {_0: Go.asInterface(_f), _1: (null : stdgo.Error)};
 		};
@@ -1247,7 +1247,7 @@ private class T_subFS_asInterface {
 	}
 
 	@:keep
-	static public function glob(_f:T_subFS, _pattern:GoString):{var _0:Slice<GoString>; var _1:Error;} {
+	static public function glob(_f:Ref<T_subFS>, _pattern:GoString):{var _0:Slice<GoString>; var _1:Error;} {
 		{
 			var __tmp__ = stdgo.path.Path.match(_pattern, (Go.str() : GoString)),
 				_0:Bool = __tmp__._0,
@@ -1278,7 +1278,7 @@ private class T_subFS_asInterface {
 	}
 
 	@:keep
-	static public function readFile(_f:T_subFS, _name:GoString):{var _0:Slice<GoByte>; var _1:Error;} {
+	static public function readFile(_f:Ref<T_subFS>, _name:GoString):{var _0:Slice<GoByte>; var _1:Error;} {
 		var __tmp__ = _f._fullName((Go.str("read") : GoString), _name),
 			_full:GoString = __tmp__._0,
 			_err:stdgo.Error = __tmp__._1;
@@ -1292,7 +1292,7 @@ private class T_subFS_asInterface {
 	}
 
 	@:keep
-	static public function readDir(_f:T_subFS, _name:GoString):{var _0:Slice<DirEntry>; var _1:Error;} {
+	static public function readDir(_f:Ref<T_subFS>, _name:GoString):{var _0:Slice<DirEntry>; var _1:Error;} {
 		var __tmp__ = _f._fullName((Go.str("read") : GoString), _name),
 			_full:GoString = __tmp__._0,
 			_err:stdgo.Error = __tmp__._1;
@@ -1306,7 +1306,7 @@ private class T_subFS_asInterface {
 	}
 
 	@:keep
-	static public function open(_f:T_subFS, _name:GoString):{var _0:File; var _1:Error;} {
+	static public function open(_f:Ref<T_subFS>, _name:GoString):{var _0:File; var _1:Error;} {
 		var __tmp__ = _f._fullName((Go.str("open") : GoString), _name),
 			_full:GoString = __tmp__._0,
 			_err:stdgo.Error = __tmp__._1;
@@ -1323,10 +1323,10 @@ private class T_subFS_asInterface {
 		// fixErr shortens any reported names in PathErrors by stripping f.dir.
 	**/
 	@:keep
-	static public function _fixErr(_f:T_subFS, _err:Error):Error {
+	static public function _fixErr(_f:Ref<T_subFS>, _err:Error):Error {
 		{
 			var __tmp__ = try {
-				{value: ((_err.__underlying__().value : Dynamic) : PathError), ok: true};
+				{value: ((_err.__underlying__().value : Dynamic) : Ref<PathError>), ok: true};
 			} catch (_) {
 				{value: (null : PathError), ok: false};
 			}, _e = __tmp__.value, _ok = __tmp__.ok;
@@ -1348,7 +1348,7 @@ private class T_subFS_asInterface {
 		// shorten maps name, which should start with f.dir, back to the suffix after f.dir.
 	**/
 	@:keep
-	static public function _shorten(_f:T_subFS, _name:GoString):{var _0:GoString; var _1:Bool;} {
+	static public function _shorten(_f:Ref<T_subFS>, _name:GoString):{var _0:GoString; var _1:Bool;} {
 		var _rel:GoString = ("" : GoString), _ok:Bool = false;
 		if (_name == _f._dir) {
 			return {_0: (Go.str(".") : GoString), _1: true};
@@ -1364,7 +1364,7 @@ private class T_subFS_asInterface {
 		// fullName maps name to the fully-qualified name dir/name.
 	**/
 	@:keep
-	static public function _fullName(_f:T_subFS, _op:GoString, _name:GoString):{var _0:GoString; var _1:Error;} {
+	static public function _fullName(_f:Ref<T_subFS>, _op:GoString, _name:GoString):{var _0:GoString; var _1:Error;} {
 		if (!validPath(_name)) {
 			return {_0: (Go.str() : GoString), _1: Go.asInterface(({op: _op, path: _name,
 				err: stdgo.errors.Errors.new_((Go.str("invalid name") : GoString))} : PathError))};
@@ -1403,22 +1403,22 @@ private class T_statDirEntry_asInterface {
 
 @:keep private class T_statDirEntry_static_extension {
 	@:keep
-	static public function info(_d:T_statDirEntry):{var _0:FileInfo; var _1:Error;} {
+	static public function info(_d:Ref<T_statDirEntry>):{var _0:FileInfo; var _1:Error;} {
 		return {_0: _d._info, _1: (null : stdgo.Error)};
 	}
 
 	@:keep
-	static public function type(_d:T_statDirEntry):FileMode {
+	static public function type(_d:Ref<T_statDirEntry>):FileMode {
 		return _d._info.mode().type();
 	}
 
 	@:keep
-	static public function isDir(_d:T_statDirEntry):Bool {
+	static public function isDir(_d:Ref<T_statDirEntry>):Bool {
 		return _d._info.isDir();
 	}
 
 	@:keep
-	static public function name(_d:T_statDirEntry):GoString {
+	static public function name(_d:Ref<T_statDirEntry>):GoString {
 		return _d._info.name();
 	}
 }

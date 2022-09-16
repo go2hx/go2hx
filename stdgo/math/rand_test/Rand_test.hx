@@ -326,7 +326,7 @@ function exampleIntn():Void {
 	// TestConcurrent exercises the rand API concurrently, triggering situations
 	// where the race detector is likely to detect issues.
 **/
-function testConcurrent(_t:stdgo.testing.Testing.T):Void {
+function testConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	var _numRoutines:GoUnTypedInt = (10 : GoUnTypedInt),
 		_numCycles:GoUnTypedInt = (10 : GoUnTypedInt);
@@ -432,7 +432,7 @@ function _nearEqual(_a:GoFloat64, _b:GoFloat64, _closeEnough:GoFloat64, _maxErro
 	return (_absDiff / _max(stdgo.math.Math.abs(_a), stdgo.math.Math.abs(_b))) < _maxError;
 }
 
-function _getStatsResults(_samples:Slice<GoFloat64>):T_statsResults {
+function _getStatsResults(_samples:Slice<GoFloat64>):Ref<T_statsResults> {
 	var _res = ({} : stdgo.math.rand_test.Rand_test.T_statsResults);
 	var _sum:GoFloat64 = (0 : GoFloat64),
 		_squaresum:GoFloat64 = (0 : GoFloat64);
@@ -445,7 +445,7 @@ function _getStatsResults(_samples:Slice<GoFloat64>):T_statsResults {
 	return _res;
 }
 
-function _checkSampleDistribution(_t:stdgo.testing.Testing.T, _samples:Slice<GoFloat64>, _expected:T_statsResults):Void {
+function _checkSampleDistribution(_t:Ref<stdgo.testing.Testing.T>, _samples:Slice<GoFloat64>, _expected:Ref<T_statsResults>):Void {
 	_t.helper();
 	var _actual = _getStatsResults(_samples);
 	var _err:stdgo.Error = _actual._checkSimilarDistribution(_expected);
@@ -454,7 +454,7 @@ function _checkSampleDistribution(_t:stdgo.testing.Testing.T, _samples:Slice<GoF
 	};
 }
 
-function _checkSampleSliceDistributions(_t:stdgo.testing.Testing.T, _samples:Slice<GoFloat64>, _nslices:GoInt, _expected:T_statsResults):Void {
+function _checkSampleSliceDistributions(_t:Ref<stdgo.testing.Testing.T>, _samples:Slice<GoFloat64>, _nslices:GoInt, _expected:Ref<T_statsResults>):Void {
 	_t.helper();
 	var _chunk:GoInt = (_samples.length) / _nslices;
 	{
@@ -481,7 +481,7 @@ function _generateNormalSamples(_nsamples:GoInt, _mean:GoFloat64, _stddev:GoFloa
 	return _samples;
 }
 
-function _testNormalDistribution(_t:stdgo.testing.Testing.T, _nsamples:GoInt, _mean:GoFloat64, _stddev:GoFloat64, _seed:GoInt64):Void {
+function _testNormalDistribution(_t:Ref<stdgo.testing.Testing.T>, _nsamples:GoInt, _mean:GoFloat64, _stddev:GoFloat64, _seed:GoInt64):Void {
 	var _samples = _generateNormalSamples(_nsamples, _mean, _stddev, _seed);
 	var _errorScale:GoFloat64 = _max((1 : GoFloat64), _stddev);
 	var _expected = (new stdgo.math.rand_test.Rand_test.T_statsResults(_mean, _stddev, (0.1 : GoFloat64) * _errorScale,
@@ -491,13 +491,13 @@ function _testNormalDistribution(_t:stdgo.testing.Testing.T, _nsamples:GoInt, _m
 	_checkSampleSliceDistributions(_t, _samples, (7 : GoInt), _expected);
 }
 
-function testStandardNormalValues(_t:stdgo.testing.Testing.T):Void {
+function testStandardNormalValues(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _seed in _testSeeds) {
 		_testNormalDistribution(_t, (10000 : GoInt), (0 : GoFloat64), (1 : GoFloat64), _seed);
 	};
 }
 
-function testNonStandardNormalValues(_t:stdgo.testing.Testing.T):Void {
+function testNonStandardNormalValues(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _sdmax:GoFloat64 = (1000 : GoFloat64);
 	var _mmax:GoFloat64 = (1000 : GoFloat64);
 	if (stdgo.testing.Testing.short()) {
@@ -531,7 +531,7 @@ function _generateExponentialSamples(_nsamples:GoInt, _rate:GoFloat64, _seed:GoI
 	return _samples;
 }
 
-function _testExponentialDistribution(_t:stdgo.testing.Testing.T, _nsamples:GoInt, _rate:GoFloat64, _seed:GoInt64):Void {
+function _testExponentialDistribution(_t:Ref<stdgo.testing.Testing.T>, _nsamples:GoInt, _rate:GoFloat64, _seed:GoInt64):Void {
 	var _mean:GoFloat64 = (1 : GoFloat64) / _rate;
 	var _stddev:GoFloat64 = _mean;
 	var _samples = _generateExponentialSamples(_nsamples, _rate, _seed);
@@ -543,13 +543,13 @@ function _testExponentialDistribution(_t:stdgo.testing.Testing.T, _nsamples:GoIn
 	_checkSampleSliceDistributions(_t, _samples, (7 : GoInt), _expected);
 }
 
-function testStandardExponentialValues(_t:stdgo.testing.Testing.T):Void {
+function testStandardExponentialValues(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _seed in _testSeeds) {
 		_testExponentialDistribution(_t, (10000 : GoInt), (1 : GoFloat64), _seed);
 	};
 }
 
-function testNonStandardExponentialValues(_t:stdgo.testing.Testing.T):Void {
+function testNonStandardExponentialValues(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _rate:GoFloat64 = (0.05 : GoFloat64);
 		Go.cfor(_rate < (10:GoFloat64), _rate = _rate * ((2 : GoFloat64)), {
@@ -665,7 +665,7 @@ function _compareFloat32Slices(_s1:Slice<GoFloat32>, _s2:Slice<GoFloat32>):GoInt
 	return (-1 : GoInt);
 }
 
-function testNormTables(_t:stdgo.testing.Testing.T):Void {
+function testNormTables(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __tmp__ = _initNorm(),
 		_testKn:Slice<GoUInt32> = __tmp__._0,
 		_testWn:Slice<GoFloat32> = __tmp__._1,
@@ -690,7 +690,7 @@ function testNormTables(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testExpTables(_t:stdgo.testing.Testing.T):Void {
+function testExpTables(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __tmp__ = _initExp(),
 		_testKe:Slice<GoUInt32> = __tmp__._0,
 		_testWe:Slice<GoFloat32> = __tmp__._1,
@@ -727,7 +727,7 @@ function _hasSlowFloatingPoint():Bool {
 	return false;
 }
 
-function testFloat32(_t:stdgo.testing.Testing.T):Void {
+function testFloat32(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _num:GoInt = (1e+07 : GoInt);
 	if (stdgo.testing.Testing.short()
 		&& ((stdgo.internal.testenv.Testenv.builder() == (Go.str() : GoString)) || _hasSlowFloatingPoint())) {
@@ -746,7 +746,7 @@ function testFloat32(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function _testReadUniformity(_t:stdgo.testing.Testing.T, _n:GoInt, _seed:GoInt64):Void {
+function _testReadUniformity(_t:Ref<stdgo.testing.Testing.T>, _n:GoInt, _seed:GoInt64):Void {
 	var _r = new_(newSource(_seed));
 	var _buf = new Slice<GoUInt8>((_n : GoInt).toBasic(), 0, ...[for (i in 0...(_n : GoInt).toBasic()) (0 : GoUInt8)]);
 	var __tmp__ = _r.read(_buf),
@@ -770,7 +770,7 @@ function _testReadUniformity(_t:stdgo.testing.Testing.T, _n:GoInt, _seed:GoInt64
 	_checkSampleDistribution(_t, _samples, _expected);
 }
 
-function testReadUniformity(_t:stdgo.testing.Testing.T):Void {
+function testReadUniformity(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _testBufferSizes = (new Slice<GoInt>(0, 0, (2 : GoInt), (4 : GoInt), (7 : GoInt), (64 : GoInt), (1024 : GoInt), (65536 : GoInt),
 		(1048576 : GoInt)) : Slice<GoInt>);
 	for (_0 => _seed in _testSeeds) {
@@ -780,7 +780,7 @@ function testReadUniformity(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testReadEmpty(_t:stdgo.testing.Testing.T):Void {
+function testReadEmpty(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _r = new_(newSource((1 : GoInt64)));
 	var _buf = new Slice<GoUInt8>((0 : GoInt).toBasic(), 0, ...[for (i in 0...(0 : GoInt).toBasic()) (0 : GoUInt8)]);
 	var __tmp__ = _r.read(_buf),
@@ -794,7 +794,7 @@ function testReadEmpty(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testReadByOneByte(_t:stdgo.testing.Testing.T):Void {
+function testReadByOneByte(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _r = new_(newSource((1 : GoInt64)));
 	var _b1 = new Slice<GoUInt8>((100 : GoInt).toBasic(), 0, ...[for (i in 0...(100 : GoInt).toBasic()) (0 : GoUInt8)]);
 	var __tmp__ = stdgo.io.Io.readFull(stdgo.testing.iotest.Iotest.oneByteReader(Go.asInterface(_r)), _b1),
@@ -817,7 +817,7 @@ function testReadByOneByte(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testReadSeedReset(_t:stdgo.testing.Testing.T):Void {
+function testReadSeedReset(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _r = new_(newSource((42 : GoInt64)));
 	var _b1 = new Slice<GoUInt8>((128 : GoInt).toBasic(), 0, ...[for (i in 0...(128 : GoInt).toBasic()) (0 : GoUInt8)]);
 	var __tmp__ = _r.read(_b1),
@@ -840,7 +840,7 @@ function testReadSeedReset(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testShuffleSmall(_t:stdgo.testing.Testing.T):Void {
+function testShuffleSmall(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _r = new_(newSource((1 : GoInt64)));
 	{
 		var _n:GoInt = (0 : GoInt);
@@ -881,7 +881,7 @@ function _encodePerm(_s:Slice<GoInt>):GoInt {
 /**
 	// TestUniformFactorial tests several ways of generating a uniform value in [0, n!).
 **/
-function testUniformFactorial(_t:stdgo.testing.Testing.T):Void {
+function testUniformFactorial(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _r = new_(newSource(_testSeeds[(0 : GoInt)]));
 	var _top:GoInt = (6 : GoInt);
 	if (stdgo.testing.Testing.short()) {
@@ -890,7 +890,7 @@ function testUniformFactorial(_t:stdgo.testing.Testing.T):Void {
 	{
 		var _n:GoInt = (3 : GoInt);
 		Go.cfor(_n <= _top, _n++, {
-			_t.run(stdgo.fmt.Fmt.sprintf((Go.str("n=%d") : GoString), Go.toInterface(_n)), function(_t:stdgo.testing.Testing.T):Void {
+			_t.run(stdgo.fmt.Fmt.sprintf((Go.str("n=%d") : GoString), Go.toInterface(_n)), function(_t:Ref<stdgo.testing.Testing.T>):Void {
 				var _nfact:GoInt = (1 : GoInt);
 				{
 					var _i:GoInt = (2 : GoInt);
@@ -903,7 +903,7 @@ function testUniformFactorial(_t:stdgo.testing.Testing.T):Void {
 					({_name: ("" : GoString), _fn: null} : T__struct_0), ({_name: ("" : GoString), _fn: null} : T__struct_0),
 					({_name: ("" : GoString), _fn: null} : T__struct_0)) : GoArray<T__struct_0>);
 				for (_0 => _test in _tests) {
-					_t.run(_test._name, function(_t:stdgo.testing.Testing.T):Void {
+					_t.run(_test._name, function(_t:Ref<stdgo.testing.Testing.T>):Void {
 						var _nsamples:GoInt = (10 : GoInt) * _nfact;
 						if (_nsamples < (200:GoInt)) {
 							_nsamples = (200 : GoInt);
@@ -941,7 +941,7 @@ function testUniformFactorial(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function benchmarkInt63Threadsafe(_b:stdgo.testing.Testing.B):Void {
+function benchmarkInt63Threadsafe(_b:Ref<stdgo.testing.Testing.B>):Void {
 	{
 		var _n:GoInt = _b.n;
 		Go.cfor(_n > (0 : GoInt), _n--, {
@@ -950,15 +950,15 @@ function benchmarkInt63Threadsafe(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkInt63ThreadsafeParallel(_b:stdgo.testing.Testing.B):Void {
-	_b.runParallel(function(_pb:stdgo.testing.Testing.PB):Void {
+function benchmarkInt63ThreadsafeParallel(_b:Ref<stdgo.testing.Testing.B>):Void {
+	_b.runParallel(function(_pb:Ref<stdgo.testing.Testing.PB>):Void {
 		while (_pb.next()) {
 			int63();
 		};
 	});
 }
 
-function benchmarkInt63Unthreadsafe(_b:stdgo.testing.Testing.B):Void {
+function benchmarkInt63Unthreadsafe(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _r = new_(newSource((1 : GoInt64)));
 	{
 		var _n:GoInt = _b.n;
@@ -968,7 +968,7 @@ function benchmarkInt63Unthreadsafe(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkIntn1000(_b:stdgo.testing.Testing.B):Void {
+function benchmarkIntn1000(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _r = new_(newSource((1 : GoInt64)));
 	{
 		var _n:GoInt = _b.n;
@@ -978,7 +978,7 @@ function benchmarkIntn1000(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkInt63n1000(_b:stdgo.testing.Testing.B):Void {
+function benchmarkInt63n1000(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _r = new_(newSource((1 : GoInt64)));
 	{
 		var _n:GoInt = _b.n;
@@ -988,7 +988,7 @@ function benchmarkInt63n1000(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkInt31n1000(_b:stdgo.testing.Testing.B):Void {
+function benchmarkInt31n1000(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _r = new_(newSource((1 : GoInt64)));
 	{
 		var _n:GoInt = _b.n;
@@ -998,7 +998,7 @@ function benchmarkInt31n1000(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkFloat32(_b:stdgo.testing.Testing.B):Void {
+function benchmarkFloat32(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _r = new_(newSource((1 : GoInt64)));
 	{
 		var _n:GoInt = _b.n;
@@ -1008,7 +1008,7 @@ function benchmarkFloat32(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkFloat64(_b:stdgo.testing.Testing.B):Void {
+function benchmarkFloat64(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _r = new_(newSource((1 : GoInt64)));
 	{
 		var _n:GoInt = _b.n;
@@ -1018,7 +1018,7 @@ function benchmarkFloat64(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkPerm3(_b:stdgo.testing.Testing.B):Void {
+function benchmarkPerm3(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _r = new_(newSource((1 : GoInt64)));
 	{
 		var _n:GoInt = _b.n;
@@ -1028,7 +1028,7 @@ function benchmarkPerm3(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkPerm30(_b:stdgo.testing.Testing.B):Void {
+function benchmarkPerm30(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _r = new_(newSource((1 : GoInt64)));
 	{
 		var _n:GoInt = _b.n;
@@ -1038,7 +1038,7 @@ function benchmarkPerm30(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkPerm30ViaShuffle(_b:stdgo.testing.Testing.B):Void {
+function benchmarkPerm30ViaShuffle(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _r = new_(newSource((1 : GoInt64)));
 	{
 		var _n:GoInt = _b.n;
@@ -1063,7 +1063,7 @@ function benchmarkPerm30ViaShuffle(_b:stdgo.testing.Testing.B):Void {
 	// BenchmarkShuffleOverhead uses a minimal swap function
 	// to measure just the shuffling overhead.
 **/
-function benchmarkShuffleOverhead(_b:stdgo.testing.Testing.B):Void {
+function benchmarkShuffleOverhead(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _r = new_(newSource((1 : GoInt64)));
 	{
 		var _n:GoInt = _b.n;
@@ -1077,7 +1077,7 @@ function benchmarkShuffleOverhead(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkRead3(_b:stdgo.testing.Testing.B):Void {
+function benchmarkRead3(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _r = new_(newSource((1 : GoInt64)));
 	var _buf = new Slice<GoUInt8>((3 : GoInt).toBasic(), 0, ...[for (i in 0...(3 : GoInt).toBasic()) (0 : GoUInt8)]);
 	_b.resetTimer();
@@ -1089,7 +1089,7 @@ function benchmarkRead3(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkRead64(_b:stdgo.testing.Testing.B):Void {
+function benchmarkRead64(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _r = new_(newSource((1 : GoInt64)));
 	var _buf = new Slice<GoUInt8>((64 : GoInt).toBasic(), 0, ...[for (i in 0...(64 : GoInt).toBasic()) (0 : GoUInt8)]);
 	_b.resetTimer();
@@ -1101,7 +1101,7 @@ function benchmarkRead64(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkRead1000(_b:stdgo.testing.Testing.B):Void {
+function benchmarkRead1000(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _r = new_(newSource((1 : GoInt64)));
 	var _buf = new Slice<GoUInt8>((1000 : GoInt).toBasic(), 0, ...[for (i in 0...(1000 : GoInt).toBasic()) (0 : GoUInt8)]);
 	_b.resetTimer();
@@ -1113,7 +1113,7 @@ function benchmarkRead1000(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function testRegress(_t:stdgo.testing.Testing.T):Void {
+function testRegress(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _int32s:Slice<GoInt32> = (new Slice<GoInt32>(0, 0, (1 : GoInt32), (10 : GoInt32), (32 : GoInt32), (1048576 : GoInt32), (1048577 : GoInt32),
 		(1000000000 : GoInt32), (1073741824 : GoInt32), (2147483646 : GoInt32), (2147483647 : GoInt32)) : Slice<GoInt32>);
 	var _int64s:Slice<GoInt64> = (new Slice<GoInt64>(0, 0, (1 : GoInt64), (10 : GoInt64), (32 : GoInt64), (1048576 : GoInt64), (1048577 : GoInt64),
@@ -1233,7 +1233,7 @@ private class T_statsResults_asInterface {
 		// two statsResults are similar.
 	**/
 	@:keep
-	public function _checkSimilarDistribution(_expected:T_statsResults):Error
+	public function _checkSimilarDistribution(_expected:Ref<T_statsResults>):Error
 		return __self__._checkSimilarDistribution(_expected);
 
 	public function new(?__self__) {
@@ -1253,7 +1253,7 @@ private class T_statsResults_asInterface {
 		// two statsResults are similar.
 	**/
 	@:keep
-	static public function _checkSimilarDistribution(_this:T_statsResults, _expected:T_statsResults):Error {
+	static public function _checkSimilarDistribution(_this:Ref<T_statsResults>, _expected:Ref<T_statsResults>):Error {
 		if (!_nearEqual(_this._mean, _expected._mean, _expected._closeEnough, _expected._maxError)) {
 			var _s:GoString = stdgo.fmt.Fmt.sprintf((Go.str("mean %v != %v (allowed error %v, %v)") : GoString), Go.toInterface(_this._mean),
 				Go.toInterface(_expected._mean), Go.toInterface(_expected._closeEnough), Go.toInterface(_expected._maxError));

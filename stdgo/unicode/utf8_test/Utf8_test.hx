@@ -375,7 +375,7 @@ function exampleAppendRune():Void {
 /**
 	// Validate the constants redefined from unicode.
 **/
-function testConstants(_t:stdgo.testing.Testing.T):Void {
+function testConstants(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (false) {
 		_t.errorf((Go.str("utf8.MaxRune is wrong: %x should be %x") : GoString), Go.toInterface((1114111 : GoInt32)), Go.toInterface((1114111 : GoInt32)));
 	};
@@ -384,7 +384,7 @@ function testConstants(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testFullRune(_t:stdgo.testing.Testing.T):Void {
+function testFullRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _m in _utf8map) {
 		var _b = (_m._str : Slice<GoByte>);
 		if (!fullRune(_b)) {
@@ -414,7 +414,7 @@ function testFullRune(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testEncodeRune(_t:stdgo.testing.Testing.T):Void {
+function testEncodeRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _m in _utf8map) {
 		var _b = (_m._str : Slice<GoByte>);
 		var _buf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0...10) (0 : GoUInt8)]);
@@ -426,7 +426,7 @@ function testEncodeRune(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testAppendRune(_t:stdgo.testing.Testing.T):Void {
+function testAppendRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _m in _utf8map) {
 		{
 			var _buf = appendRune((null : Slice<GoUInt8>), _m._r);
@@ -444,7 +444,7 @@ function testAppendRune(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testDecodeRune(_t:stdgo.testing.Testing.T):Void {
+function testDecodeRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _m in _utf8map) {
 		var _b = (_m._str : Slice<GoByte>);
 		var __tmp__ = decodeRune(_b),
@@ -534,7 +534,7 @@ function testDecodeRune(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testDecodeSurrogateRune(_t:stdgo.testing.Testing.T):Void {
+function testDecodeSurrogateRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _m in _surrogateMap) {
 		var _b = (_m._str : Slice<GoByte>);
 		var __tmp__ = decodeRune(_b),
@@ -561,7 +561,7 @@ function testDecodeSurrogateRune(_t:stdgo.testing.Testing.T):Void {
 	// Check that DecodeRune and DecodeLastRune correspond to
 	// the equivalent range loop.
 **/
-function testSequencing(_t:stdgo.testing.Testing.T):Void {
+function testSequencing(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _ts in _testStrings) {
 		for (_1 => _m in _utf8map) {
 			for (_2 => _s in (new Slice<GoString>(0, 0, _ts + _m._str, _m._str + _ts, (_ts + _m._str) + _ts) : Slice<GoString>)) {
@@ -581,7 +581,7 @@ function _runtimeRuneCount(_s:GoString):GoInt {
 	// Not really a test of this package, but the assumption is used here and
 	// it's good to verify.
 **/
-function testRuntimeConversion(_t:stdgo.testing.Testing.T):Void {
+function testRuntimeConversion(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _ts in _testStrings) {
 		var _count:GoInt = runeCountInString(_ts);
 		{
@@ -619,7 +619,7 @@ function _runtimeDecodeRune(_s:GoString):GoRune {
 	return (-1 : GoInt32);
 }
 
-function testDecodeInvalidSequence(_t:stdgo.testing.Testing.T):Void {
+function testDecodeInvalidSequence(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _s in _invalidSequenceTests) {
 		var __tmp__ = decodeRune((_s : Slice<GoByte>)),
 			_r1:GoInt32 = __tmp__._0,
@@ -674,7 +674,7 @@ function testDecodeInvalidSequence(_t:stdgo.testing.Testing.T):Void {
 	}
 }
 
-function _testSequence(_t:stdgo.testing.Testing.T, _s:GoString):Void {
+function _testSequence(_t:Ref<stdgo.testing.Testing.T>, _s:GoString):Void {
 	{};
 	var _index = new Slice<stdgo.unicode.utf8_test.Utf8_test.T_info__testSequence_0>((_s.length : GoInt).toBasic(), 0, ...[
 		for (i in 0...(_s.length : GoInt).toBasic()) ({} : stdgo.unicode.utf8_test.Utf8_test.T_info__testSequence_0)
@@ -754,7 +754,7 @@ function _testSequence(_t:stdgo.testing.Testing.T, _s:GoString):Void {
 /**
 	// Check that negative runes encode as U+FFFD.
 **/
-function testNegativeRune(_t:stdgo.testing.Testing.T):Void {
+function testNegativeRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _errorbuf = new Slice<GoUInt8>((4 : GoInt).toBasic(), 0, ...[for (i in 0...(4 : GoInt).toBasic()) (0 : GoUInt8)]);
 	_errorbuf = (_errorbuf.__slice__((0 : GoInt), encodeRune(_errorbuf, (65533 : GoInt32))) : Slice<GoUInt8>);
 	var _buf = new Slice<GoUInt8>((4 : GoInt).toBasic(), 0, ...[for (i in 0...(4 : GoInt).toBasic()) (0 : GoUInt8)]);
@@ -764,7 +764,7 @@ function testNegativeRune(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testRuneCount(_t:stdgo.testing.Testing.T):Void {
+function testRuneCount(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _runecounttests) {
 		{
 			var _out:GoInt = runeCountInString(_tt._in);
@@ -781,7 +781,7 @@ function testRuneCount(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testRuneLen(_t:stdgo.testing.Testing.T):Void {
+function testRuneLen(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _runelentests) {
 		{
 			var _size:GoInt = runeLen(_tt._r);
@@ -792,7 +792,7 @@ function testRuneLen(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testValid(_t:stdgo.testing.Testing.T):Void {
+function testValid(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _validTests) {
 		if (valid((_tt._in : Slice<GoByte>)) != _tt._out) {
 			_t.errorf((Go.str("Valid(%q) = %v; want %v") : GoString), Go.toInterface(_tt._in), Go.toInterface(!_tt._out), Go.toInterface(_tt._out));
@@ -803,7 +803,7 @@ function testValid(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testValidRune(_t:stdgo.testing.Testing.T):Void {
+function testValidRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _validrunetests) {
 		{
 			var _ok:Bool = validRune(_tt._r);
@@ -814,7 +814,7 @@ function testValidRune(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function benchmarkRuneCountTenASCIIChars(_b:stdgo.testing.Testing.B):Void {
+function benchmarkRuneCountTenASCIIChars(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s = ((Go.str("0123456789") : GoString) : Slice<GoByte>);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -824,7 +824,7 @@ function benchmarkRuneCountTenASCIIChars(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkRuneCountTenJapaneseChars(_b:stdgo.testing.Testing.B):Void {
+function benchmarkRuneCountTenJapaneseChars(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s = ((Go.str("日本語日本語日本語日") : GoString) : Slice<GoByte>);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -834,7 +834,7 @@ function benchmarkRuneCountTenJapaneseChars(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkRuneCountInStringTenASCIIChars(_b:stdgo.testing.Testing.B):Void {
+function benchmarkRuneCountInStringTenASCIIChars(_b:Ref<stdgo.testing.Testing.B>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < _b.n, _i++, {
@@ -843,7 +843,7 @@ function benchmarkRuneCountInStringTenASCIIChars(_b:stdgo.testing.Testing.B):Voi
 	};
 }
 
-function benchmarkRuneCountInStringTenJapaneseChars(_b:stdgo.testing.Testing.B):Void {
+function benchmarkRuneCountInStringTenJapaneseChars(_b:Ref<stdgo.testing.Testing.B>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < _b.n, _i++, {
@@ -852,7 +852,7 @@ function benchmarkRuneCountInStringTenJapaneseChars(_b:stdgo.testing.Testing.B):
 	};
 }
 
-function benchmarkValidTenASCIIChars(_b:stdgo.testing.Testing.B):Void {
+function benchmarkValidTenASCIIChars(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s = ((Go.str("0123456789") : GoString) : Slice<GoByte>);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -862,7 +862,7 @@ function benchmarkValidTenASCIIChars(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkValid100KASCIIChars(_b:stdgo.testing.Testing.B):Void {
+function benchmarkValid100KASCIIChars(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s = (_ascii100000 : Slice<GoByte>);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -872,7 +872,7 @@ function benchmarkValid100KASCIIChars(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkValidTenJapaneseChars(_b:stdgo.testing.Testing.B):Void {
+function benchmarkValidTenJapaneseChars(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _s = ((Go.str("日本語日本語日本語日") : GoString) : Slice<GoByte>);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -882,7 +882,7 @@ function benchmarkValidTenJapaneseChars(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkValidLongMostlyASCII(_b:stdgo.testing.Testing.B):Void {
+function benchmarkValidLongMostlyASCII(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _longMostlyASCII = (_longStringMostlyASCII : Slice<GoByte>);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -892,7 +892,7 @@ function benchmarkValidLongMostlyASCII(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkValidLongJapanese(_b:stdgo.testing.Testing.B):Void {
+function benchmarkValidLongJapanese(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _longJapanese = (_longStringJapanese : Slice<GoByte>);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -902,7 +902,7 @@ function benchmarkValidLongJapanese(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkValidStringTenASCIIChars(_b:stdgo.testing.Testing.B):Void {
+function benchmarkValidStringTenASCIIChars(_b:Ref<stdgo.testing.Testing.B>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < _b.n, _i++, {
@@ -911,7 +911,7 @@ function benchmarkValidStringTenASCIIChars(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkValidString100KASCIIChars(_b:stdgo.testing.Testing.B):Void {
+function benchmarkValidString100KASCIIChars(_b:Ref<stdgo.testing.Testing.B>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < _b.n, _i++, {
@@ -920,7 +920,7 @@ function benchmarkValidString100KASCIIChars(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkValidStringTenJapaneseChars(_b:stdgo.testing.Testing.B):Void {
+function benchmarkValidStringTenJapaneseChars(_b:Ref<stdgo.testing.Testing.B>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < _b.n, _i++, {
@@ -929,7 +929,7 @@ function benchmarkValidStringTenJapaneseChars(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkValidStringLongMostlyASCII(_b:stdgo.testing.Testing.B):Void {
+function benchmarkValidStringLongMostlyASCII(_b:Ref<stdgo.testing.Testing.B>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < _b.n, _i++, {
@@ -938,7 +938,7 @@ function benchmarkValidStringLongMostlyASCII(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkValidStringLongJapanese(_b:stdgo.testing.Testing.B):Void {
+function benchmarkValidStringLongJapanese(_b:Ref<stdgo.testing.Testing.B>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < _b.n, _i++, {
@@ -947,7 +947,7 @@ function benchmarkValidStringLongJapanese(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkEncodeASCIIRune(_b:stdgo.testing.Testing.B):Void {
+function benchmarkEncodeASCIIRune(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _buf = new Slice<GoUInt8>((4 : GoInt).toBasic(), 0, ...[for (i in 0...(4 : GoInt).toBasic()) (0 : GoUInt8)]);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -957,7 +957,7 @@ function benchmarkEncodeASCIIRune(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkEncodeJapaneseRune(_b:stdgo.testing.Testing.B):Void {
+function benchmarkEncodeJapaneseRune(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _buf = new Slice<GoUInt8>((4 : GoInt).toBasic(), 0, ...[for (i in 0...(4 : GoInt).toBasic()) (0 : GoUInt8)]);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -967,7 +967,7 @@ function benchmarkEncodeJapaneseRune(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkAppendASCIIRune(_b:stdgo.testing.Testing.B):Void {
+function benchmarkAppendASCIIRune(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _buf = new Slice<GoUInt8>((4 : GoInt).toBasic(), 0, ...[for (i in 0...(4 : GoInt).toBasic()) (0 : GoUInt8)]);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -977,7 +977,7 @@ function benchmarkAppendASCIIRune(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkAppendJapaneseRune(_b:stdgo.testing.Testing.B):Void {
+function benchmarkAppendJapaneseRune(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _buf = new Slice<GoUInt8>((4 : GoInt).toBasic(), 0, ...[for (i in 0...(4 : GoInt).toBasic()) (0 : GoUInt8)]);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -987,7 +987,7 @@ function benchmarkAppendJapaneseRune(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkDecodeASCIIRune(_b:stdgo.testing.Testing.B):Void {
+function benchmarkDecodeASCIIRune(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _a = (new Slice<GoUInt8>(0, 0, ("a".code : GoUInt8)) : Slice<GoUInt8>);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -997,7 +997,7 @@ function benchmarkDecodeASCIIRune(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkDecodeJapaneseRune(_b:stdgo.testing.Testing.B):Void {
+function benchmarkDecodeJapaneseRune(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _nihon = ((Go.str("本") : GoString) : Slice<GoByte>);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -1007,12 +1007,12 @@ function benchmarkDecodeJapaneseRune(_b:stdgo.testing.Testing.B):Void {
 	};
 }
 
-function benchmarkFullRune(_b:stdgo.testing.Testing.B):Void {
+function benchmarkFullRune(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _benchmarks = (new Slice<T__struct_0>(0, 0, ({_name: (Go.str("ASCII") : GoString), _data: ((Go.str("a") : GoString) : Slice<GoByte>)} : T__struct_0),
 		({_name: (Go.str("Incomplete") : GoString), _data: ((Go.str(240, 144, 128) : GoString) : Slice<GoByte>)} : T__struct_0),
 		({_name: (Go.str("Japanese") : GoString), _data: ((Go.str("本") : GoString) : Slice<GoByte>)} : T__struct_0)) : Slice<T__struct_0>);
 	for (_0 => _bm in _benchmarks) {
-		_b.run(_bm._name, function(_b:stdgo.testing.Testing.B):Void {
+		_b.run(_bm._name, function(_b:Ref<stdgo.testing.Testing.B>):Void {
 			{
 				var _i:GoInt = (0 : GoInt);
 				Go.cfor(_i < _b.n, _i++, {

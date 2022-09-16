@@ -1097,7 +1097,7 @@ function _underlyingError(_err:Error):Error
 function _wrapSyscallError(_name:GoString, _err:Error):Error
 	throw "os._wrapSyscallError is not yet implemented";
 
-function _newProcess(_pid:GoInt, _handle:GoUIntptr):Process
+function _newProcess(_pid:GoInt, _handle:GoUIntptr):Ref<Process>
 	throw "os._newProcess is not yet implemented";
 
 /**
@@ -1121,7 +1121,7 @@ function getppid():GoInt
 	// On Unix systems, FindProcess always succeeds and returns a Process
 	// for the given pid, regardless of whether the process exists.
 **/
-function findProcess(_pid:GoInt):{var _0:Process; var _1:Error;}
+function findProcess(_pid:GoInt):{var _0:Ref<Process>; var _1:Error;}
 	throw "os.findProcess is not yet implemented";
 
 /**
@@ -1139,13 +1139,13 @@ function findProcess(_pid:GoInt):{var _0:Process; var _1:Error;}
 	//
 	// If there is an error, it will be of type *PathError.
 **/
-function startProcess(_name:GoString, _argv:Slice<GoString>, _attr:ProcAttr):{var _0:Process; var _1:Error;}
+function startProcess(_name:GoString, _argv:Slice<GoString>, _attr:Ref<ProcAttr>):{var _0:Ref<Process>; var _1:Error;}
 	throw "os.startProcess is not yet implemented";
 
-function _startProcess(_name:GoString, _argv:Slice<GoString>, _attr:ProcAttr):{var _0:Process; var _1:Error;}
+function _startProcess(_name:GoString, _argv:Slice<GoString>, _attr:Ref<ProcAttr>):{var _0:Ref<Process>; var _1:Error;}
 	throw "os._startProcess is not yet implemented";
 
-function _findProcess(_pid:GoInt):{var _0:Process; var _1:Error;}
+function _findProcess(_pid:GoInt):{var _0:Ref<Process>; var _1:Error;}
 	throw "os._findProcess is not yet implemented";
 
 /**
@@ -1173,7 +1173,7 @@ function _executable():{var _0:GoString; var _1:Error;}
 function _stringsTrimSuffix(_s:GoString, _suffix:GoString):GoString
 	throw "os._stringsTrimSuffix is not yet implemented";
 
-function _genericReadFrom(_f:File, _r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:Error;}
+function _genericReadFrom(_f:Ref<File>, _r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:Error;}
 	throw "os._genericReadFrom is not yet implemented";
 
 /**
@@ -1203,7 +1203,7 @@ function chdir(_dir:GoString):Error
 	// descriptor has mode O_RDONLY.
 	// If there is an error, it will be of type *PathError.
 **/
-function open(_name:GoString):{var _0:File; var _1:Error;} {
+function open(_name:GoString):{var _0:Ref<File>; var _1:Error;} {
 	if (!sys.FileSystem.exists(_name))
 		return {_0: null, _1: stdgo.errors.Errors.new_("os can not open: " + _name)};
 	throw "os.open is not yet implemented";
@@ -1217,7 +1217,7 @@ function open(_name:GoString):{var _0:File; var _1:Error;} {
 	// be used for I/O; the associated file descriptor has mode O_RDWR.
 	// If there is an error, it will be of type *PathError.
 **/
-function create(_name:GoString):{var _0:File; var _1:Error;}
+function create(_name:GoString):{var _0:Ref<File>; var _1:Error;}
 	throw "os.create is not yet implemented";
 
 /**
@@ -1228,7 +1228,7 @@ function create(_name:GoString):{var _0:File; var _1:Error;}
 	// methods on the returned File can be used for I/O.
 	// If there is an error, it will be of type *PathError.
 **/
-function openFile(_name:GoString, _flag:GoInt, _perm:FileMode):{var _0:File; var _1:Error;}
+function openFile(_name:GoString, _flag:GoInt, _perm:FileMode):{var _0:Ref<File>; var _1:Error;}
 	throw "os.openFile is not yet implemented";
 
 /**
@@ -1455,7 +1455,7 @@ function _rename(_oldname:GoString, _newname:GoString):Error
 	// conditions described in the comments of the Fd method, and the same
 	// constraints apply.
 **/
-function newFile(_fd:GoUIntptr, _name:GoString):File
+function newFile(_fd:GoUIntptr, _name:GoString):Ref<File>
 	throw "os.newFile is not yet implemented";
 
 /**
@@ -1463,7 +1463,7 @@ function newFile(_fd:GoUIntptr, _name:GoString):File
 	// (as passed in the kind parameter) it tries to add the file to
 	// the runtime poller.
 **/
-function _newFile(_fd:GoUIntptr, _name:GoString, _kind:T_newFileKind):File
+function _newFile(_fd:GoUIntptr, _name:GoString, _kind:T_newFileKind):Ref<File>
 	throw "os._newFile is not yet implemented";
 
 /**
@@ -1471,14 +1471,14 @@ function _newFile(_fd:GoUIntptr, _name:GoString, _kind:T_newFileKind):File
 	// output or standard error. See the SIGPIPE docs in os/signal, and
 	// issue 11845.
 **/
-function _epipecheck(_file:File, _e:Error):Void
+function _epipecheck(_file:Ref<File>, _e:Error):Void
 	throw "os._epipecheck is not yet implemented";
 
 /**
 	// openFileNolog is the Unix implementation of OpenFile.
 	// Changes here should be reflected in openFdAt, if relevant.
 **/
-function _openFileNolog(_name:GoString, _flag:GoInt, _perm:FileMode):{var _0:File; var _1:Error;}
+function _openFileNolog(_name:GoString, _flag:GoInt, _perm:FileMode):{var _0:Ref<File>; var _1:Error;}
 	throw "os._openFileNolog is not yet implemented";
 
 /**
@@ -1587,7 +1587,7 @@ function _fixRootDirectory(_p:GoString):GoString
 	// Pipe returns a connected pair of Files; reads from r return bytes written to w.
 	// It returns the files and an error, if any.
 **/
-function pipe():{var _0:File; var _1:File; var _2:Error;}
+function pipe():{var _0:Ref<File>; var _1:Ref<File>; var _2:Error;}
 	throw "os.pipe is not yet implemented";
 
 function _runtime_args():Slice<GoString> {
@@ -1653,7 +1653,7 @@ function exit(_code:GoInt):Void
 function _runtime_beforeExit():Void
 	throw "os._runtime_beforeExit is not yet implemented";
 
-function _newRawConn(_file:File):{var _0:T_rawConn; var _1:Error;}
+function _newRawConn(_file:Ref<File>):{var _0:Ref<T_rawConn>; var _1:Error;}
 	throw "os._newRawConn is not yet implemented";
 
 function _removeAll(_path:GoString):Error
@@ -1675,7 +1675,7 @@ function stat(_name:GoString):{var _0:FileInfo; var _1:Error;}
 function lstat(_name:GoString):{var _0:FileInfo; var _1:Error;}
 	throw "os.lstat is not yet implemented";
 
-function _fillFileStatFromSys(_fs:T_fileStat, _name:GoString):Void
+function _fillFileStatFromSys(_fs:Ref<T_fileStat>, _name:GoString):Void
 	throw "os._fillFileStatFromSys is not yet implemented";
 
 /**
@@ -1739,7 +1739,7 @@ function _nextRandom():GoString
 	// The caller can use the file's Name method to find the pathname of the file.
 	// It is the caller's responsibility to remove the file when it is no longer needed.
 **/
-function createTemp(_dir:GoString, _pattern:GoString):{var _0:File; var _1:Error;}
+function createTemp(_dir:GoString, _pattern:GoString):{var _0:Ref<File>; var _1:Error;}
 	throw "os.createTemp is not yet implemented";
 
 /**
@@ -1787,7 +1787,7 @@ function getpagesize():GoInt
 function sameFile(_fi1:FileInfo, _fi2:FileInfo):Bool
 	throw "os.sameFile is not yet implemented";
 
-function _sameFile(_fs1:T_fileStat, _fs2:T_fileStat):Bool
+function _sameFile(_fs1:Ref<T_fileStat>, _fs2:Ref<T_fileStat>):Bool
 	throw "os._sameFile is not yet implemented";
 
 @:keep var _ = {
@@ -1817,7 +1817,7 @@ private class T_dirInfo_asInterface {
 
 @:keep private class T_dirInfo_static_extension {
 	@:keep
-	static public function _close(_d:T_dirInfo):Void
+	static public function _close(_d:Ref<T_dirInfo>):Void
 		throw "os._close is not yet implemented";
 }
 
@@ -1853,15 +1853,15 @@ class SyscallError_asInterface {
 		// Timeout reports whether this error represents a timeout.
 	**/
 	@:keep
-	static public function timeout(_e:SyscallError):Bool
+	static public function timeout(_e:Ref<SyscallError>):Bool
 		throw "os.timeout is not yet implemented";
 
 	@:keep
-	static public function unwrap(_e:SyscallError):Error
+	static public function unwrap(_e:Ref<SyscallError>):Error
 		throw "os.unwrap is not yet implemented";
 
 	@:keep
-	static public function error(_e:SyscallError):GoString
+	static public function error(_e:Ref<SyscallError>):GoString
 		throw "os.error is not yet implemented";
 }
 
@@ -1888,7 +1888,7 @@ class Process_asInterface {
 		return __self__._signal(_sig);
 
 	@:keep
-	public function _wait():{var _0:ProcessState; var _1:Error;}
+	public function _wait():{var _0:Ref<ProcessState>; var _1:Error;}
 		return __self__._wait();
 
 	@:keep
@@ -1911,7 +1911,7 @@ class Process_asInterface {
 		// of the current process or an error will be returned.
 	**/
 	@:keep
-	public function wait_():{var _0:ProcessState; var _1:Error;}
+	public function wait_():{var _0:Ref<ProcessState>; var _1:Error;}
 		return __self__.wait_();
 
 	/**
@@ -1962,23 +1962,23 @@ class Process_asInterface {
 		// signal to the wrong process, see issue #13987.
 	**/
 	@:keep
-	static public function _blockUntilWaitable(_p:Process):{var _0:Bool; var _1:Error;}
+	static public function _blockUntilWaitable(_p:Ref<Process>):{var _0:Bool; var _1:Error;}
 		throw "os._blockUntilWaitable is not yet implemented";
 
 	@:keep
-	static public function _release(_p:Process):Error
+	static public function _release(_p:Ref<Process>):Error
 		throw "os._release is not yet implemented";
 
 	@:keep
-	static public function _signal(_p:Process, _sig:Signal):Error
+	static public function _signal(_p:Ref<Process>, _sig:Signal):Error
 		throw "os._signal is not yet implemented";
 
 	@:keep
-	static public function _wait(_p:Process):{var _0:ProcessState; var _1:Error;}
+	static public function _wait(_p:Ref<Process>):{var _0:Ref<ProcessState>; var _1:Error;}
 		throw "os._wait is not yet implemented";
 
 	@:keep
-	static public function _kill(_p:Process):Error
+	static public function _kill(_p:Ref<Process>):Error
 		throw "os._kill is not yet implemented";
 
 	/**
@@ -1986,7 +1986,7 @@ class Process_asInterface {
 		// Sending Interrupt on Windows is not implemented.
 	**/
 	@:keep
-	static public function signal(_p:Process, _sig:Signal):Error
+	static public function signal(_p:Ref<Process>, _sig:Signal):Error
 		throw "os.signal is not yet implemented";
 
 	/**
@@ -1997,7 +1997,7 @@ class Process_asInterface {
 		// of the current process or an error will be returned.
 	**/
 	@:keep
-	static public function wait_(_p:Process):{var _0:ProcessState; var _1:Error;}
+	static public function wait_(_p:Ref<Process>):{var _0:Ref<ProcessState>; var _1:Error;}
 		throw "os.wait_ is not yet implemented";
 
 	/**
@@ -2006,7 +2006,7 @@ class Process_asInterface {
 		// not any other processes it may have started.
 	**/
 	@:keep
-	static public function kill(_p:Process):Error
+	static public function kill(_p:Ref<Process>):Error
 		throw "os.kill is not yet implemented";
 
 	/**
@@ -2015,15 +2015,15 @@ class Process_asInterface {
 		// Release only needs to be called if Wait is not.
 	**/
 	@:keep
-	static public function release(_p:Process):Error
+	static public function release(_p:Ref<Process>):Error
 		throw "os.release is not yet implemented";
 
 	@:keep
-	static public function _done(_p:Process):Bool
+	static public function _done(_p:Ref<Process>):Bool
 		throw "os._done is not yet implemented";
 
 	@:keep
-	static public function _setDone(_p:Process):Void
+	static public function _setDone(_p:Ref<Process>):Void
 		throw "os._setDone is not yet implemented";
 }
 
@@ -2135,11 +2135,11 @@ class ProcessState_asInterface {
 
 @:keep private class ProcessState_static_extension {
 	@:keep
-	static public function _systemTime(_p:ProcessState):stdgo.time.Time.Duration
+	static public function _systemTime(_p:Ref<ProcessState>):stdgo.time.Time.Duration
 		throw "os._systemTime is not yet implemented";
 
 	@:keep
-	static public function _userTime(_p:ProcessState):stdgo.time.Time.Duration
+	static public function _userTime(_p:Ref<ProcessState>):stdgo.time.Time.Duration
 		throw "os._userTime is not yet implemented";
 
 	/**
@@ -2147,34 +2147,34 @@ class ProcessState_asInterface {
 		// if the process hasn't exited or was terminated by a signal.
 	**/
 	@:keep
-	static public function exitCode(_p:ProcessState):GoInt
+	static public function exitCode(_p:Ref<ProcessState>):GoInt
 		throw "os.exitCode is not yet implemented";
 
 	@:keep
-	static public function string(_p:ProcessState):GoString
+	static public function string(_p:Ref<ProcessState>):GoString
 		throw "os.string is not yet implemented";
 
 	@:keep
-	static public function _sysUsage(_p:ProcessState):AnyInterface
+	static public function _sysUsage(_p:Ref<ProcessState>):AnyInterface
 		throw "os._sysUsage is not yet implemented";
 
 	@:keep
-	static public function _sys(_p:ProcessState):AnyInterface
+	static public function _sys(_p:Ref<ProcessState>):AnyInterface
 		throw "os._sys is not yet implemented";
 
 	@:keep
-	static public function _success(_p:ProcessState):Bool
+	static public function _success(_p:Ref<ProcessState>):Bool
 		throw "os._success is not yet implemented";
 
 	@:keep
-	static public function _exited(_p:ProcessState):Bool
+	static public function _exited(_p:Ref<ProcessState>):Bool
 		throw "os._exited is not yet implemented";
 
 	/**
 		// Pid returns the process id of the exited process.
 	**/
 	@:keep
-	static public function pid(_p:ProcessState):GoInt
+	static public function pid(_p:Ref<ProcessState>):GoInt
 		throw "os.pid is not yet implemented";
 
 	/**
@@ -2185,7 +2185,7 @@ class ProcessState_asInterface {
 		// getrusage(2) manual page.)
 	**/
 	@:keep
-	static public function sysUsage(_p:ProcessState):AnyInterface
+	static public function sysUsage(_p:Ref<ProcessState>):AnyInterface
 		throw "os.sysUsage is not yet implemented";
 
 	/**
@@ -2194,7 +2194,7 @@ class ProcessState_asInterface {
 		// type, such as syscall.WaitStatus on Unix, to access its contents.
 	**/
 	@:keep
-	static public function sys(_p:ProcessState):AnyInterface
+	static public function sys(_p:Ref<ProcessState>):AnyInterface
 		throw "os.sys is not yet implemented";
 
 	/**
@@ -2202,7 +2202,7 @@ class ProcessState_asInterface {
 		// such as with exit status 0 on Unix.
 	**/
 	@:keep
-	static public function success(_p:ProcessState):Bool
+	static public function success(_p:Ref<ProcessState>):Bool
 		throw "os.success is not yet implemented";
 
 	/**
@@ -2211,21 +2211,21 @@ class ProcessState_asInterface {
 		// but false if the program terminated due to a signal.
 	**/
 	@:keep
-	static public function exited(_p:ProcessState):Bool
+	static public function exited(_p:Ref<ProcessState>):Bool
 		throw "os.exited is not yet implemented";
 
 	/**
 		// SystemTime returns the system CPU time of the exited process and its children.
 	**/
 	@:keep
-	static public function systemTime(_p:ProcessState):stdgo.time.Time.Duration
+	static public function systemTime(_p:Ref<ProcessState>):stdgo.time.Time.Duration
 		throw "os.systemTime is not yet implemented";
 
 	/**
 		// UserTime returns the user CPU time of the exited process and its children.
 	**/
 	@:keep
-	static public function userTime(_p:ProcessState):stdgo.time.Time.Duration
+	static public function userTime(_p:Ref<ProcessState>):stdgo.time.Time.Duration
 		throw "os.userTime is not yet implemented";
 }
 
@@ -2251,11 +2251,11 @@ class LinkError_asInterface {
 
 @:keep private class LinkError_static_extension {
 	@:keep
-	static public function unwrap(_e:LinkError):Error
+	static public function unwrap(_e:Ref<LinkError>):Error
 		throw "os.unwrap is not yet implemented";
 
 	@:keep
-	static public function error(_e:LinkError):GoString
+	static public function error(_e:Ref<LinkError>):GoString
 		throw "os.error is not yet implemented";
 }
 
@@ -2299,7 +2299,7 @@ private class T_file_asInterface {
 
 @:keep private class T_file_static_extension {
 	@:keep
-	static public function _close(_file:T_file):Error
+	static public function _close(_file:Ref<T_file>):Error
 		throw "os._close is not yet implemented";
 }
 
@@ -2333,19 +2333,19 @@ private class T_unixDirent_asInterface {
 
 @:keep private class T_unixDirent_static_extension {
 	@:keep
-	static public function info(_d:T_unixDirent):{var _0:FileInfo; var _1:Error;}
+	static public function info(_d:Ref<T_unixDirent>):{var _0:FileInfo; var _1:Error;}
 		throw "os.info is not yet implemented";
 
 	@:keep
-	static public function type(_d:T_unixDirent):FileMode
+	static public function type(_d:Ref<T_unixDirent>):FileMode
 		throw "os.type is not yet implemented";
 
 	@:keep
-	static public function isDir(_d:T_unixDirent):Bool
+	static public function isDir(_d:Ref<T_unixDirent>):Bool
 		throw "os.isDir is not yet implemented";
 
 	@:keep
-	static public function name(_d:T_unixDirent):GoString
+	static public function name(_d:Ref<T_unixDirent>):GoString
 		throw "os.name is not yet implemented";
 }
 
@@ -2375,15 +2375,15 @@ private class T_rawConn_asInterface {
 
 @:keep private class T_rawConn_static_extension {
 	@:keep
-	static public function write(_c:T_rawConn, _f:GoUIntptr->Bool):Error
+	static public function write(_c:Ref<T_rawConn>, _f:GoUIntptr->Bool):Error
 		throw "os.write is not yet implemented";
 
 	@:keep
-	static public function read(_c:T_rawConn, _f:GoUIntptr->Bool):Error
+	static public function read(_c:Ref<T_rawConn>, _f:GoUIntptr->Bool):Error
 		throw "os.read is not yet implemented";
 
 	@:keep
-	static public function control(_c:T_rawConn, _f:GoUIntptr->Void):Error
+	static public function control(_c:Ref<T_rawConn>, _f:GoUIntptr->Void):Error
 		throw "os.control is not yet implemented";
 }
 
@@ -2788,11 +2788,11 @@ class File_asInterface {
 		// If there is an error, it will be of type *PathError.
 	**/
 	@:keep
-	static public function stat(_f:File):{var _0:FileInfo; var _1:Error;}
+	static public function stat(_f:Ref<File>):{var _0:FileInfo; var _1:Error;}
 		throw "os.stat is not yet implemented";
 
 	@:keep
-	static public function _readFrom(_f:File, _r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:Bool; var _2:Error;}
+	static public function _readFrom(_f:Ref<File>, _r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:Bool; var _2:Error;}
 		throw "os._readFrom is not yet implemented";
 
 	/**
@@ -2802,7 +2802,7 @@ class File_asInterface {
 		// It returns the new offset and an error, if any.
 	**/
 	@:keep
-	static public function _seek(_f:File, _offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:Error;}
+	static public function _seek(_f:Ref<File>, _offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:Error;}
 		throw "os._seek is not yet implemented";
 
 	/**
@@ -2820,7 +2820,7 @@ class File_asInterface {
 		// As an alternative, see the f.SyscallConn method.
 	**/
 	@:keep
-	static public function fd(_f:File):GoUIntptr
+	static public function fd(_f:Ref<File>):GoUIntptr
 		throw "os.fd is not yet implemented";
 
 	/**
@@ -2828,28 +2828,28 @@ class File_asInterface {
 		// If not, it returns an appropriate error, perhaps incorporating the operation name op.
 	**/
 	@:keep
-	static public function _checkValid(_f:File, _op:GoString):Error
+	static public function _checkValid(_f:Ref<File>, _op:GoString):Error
 		throw "os._checkValid is not yet implemented";
 
 	/**
 		// setWriteDeadline sets the write deadline.
 	**/
 	@:keep
-	static public function _setWriteDeadline(_f:File, _t:stdgo.time.Time.Time):Error
+	static public function _setWriteDeadline(_f:Ref<File>, _t:stdgo.time.Time.Time):Error
 		throw "os._setWriteDeadline is not yet implemented";
 
 	/**
 		// setReadDeadline sets the read deadline.
 	**/
 	@:keep
-	static public function _setReadDeadline(_f:File, _t:stdgo.time.Time.Time):Error
+	static public function _setReadDeadline(_f:Ref<File>, _t:stdgo.time.Time.Time):Error
 		throw "os._setReadDeadline is not yet implemented";
 
 	/**
 		// setDeadline sets the read and write deadline.
 	**/
 	@:keep
-	static public function _setDeadline(_f:File, _t:stdgo.time.Time.Time):Error
+	static public function _setDeadline(_f:Ref<File>, _t:stdgo.time.Time.Time):Error
 		throw "os._setDeadline is not yet implemented";
 
 	/**
@@ -2858,7 +2858,7 @@ class File_asInterface {
 		// If there is an error, it will be of type *PathError.
 	**/
 	@:keep
-	static public function chdir(_f:File):Error
+	static public function chdir(_f:Ref<File>):Error
 		throw "os.chdir is not yet implemented";
 
 	/**
@@ -2867,7 +2867,7 @@ class File_asInterface {
 		// of recently written data to disk.
 	**/
 	@:keep
-	static public function sync(_f:File):Error
+	static public function sync(_f:Ref<File>):Error
 		throw "os.sync is not yet implemented";
 
 	/**
@@ -2876,7 +2876,7 @@ class File_asInterface {
 		// If there is an error, it will be of type *PathError.
 	**/
 	@:keep
-	static public function truncate(_f:File, _size:GoInt64):Error
+	static public function truncate(_f:Ref<File>, _size:GoInt64):Error
 		throw "os.truncate is not yet implemented";
 
 	/**
@@ -2887,14 +2887,14 @@ class File_asInterface {
 		// in *PathError.
 	**/
 	@:keep
-	static public function chown(_f:File, _uid:GoInt, _gid:GoInt):Error
+	static public function chown(_f:Ref<File>, _uid:GoInt, _gid:GoInt):Error
 		throw "os.chown is not yet implemented";
 
 	/**
 		// See docs in file.go:(*File).Chmod.
 	**/
 	@:keep
-	static public function _chmod(_f:File, _mode:FileMode):Error
+	static public function _chmod(_f:Ref<File>, _mode:FileMode):Error
 		throw "os._chmod is not yet implemented";
 
 	/**
@@ -2902,7 +2902,7 @@ class File_asInterface {
 		// It returns the number of bytes written and an error, if any.
 	**/
 	@:keep
-	static public function _pwrite(_f:File, _b:Slice<GoByte>, _off:GoInt64):{var _0:GoInt; var _1:Error;}
+	static public function _pwrite(_f:Ref<File>, _b:Slice<GoByte>, _off:GoInt64):{var _0:GoInt; var _1:Error;}
 		throw "os._pwrite is not yet implemented";
 
 	/**
@@ -2910,7 +2910,7 @@ class File_asInterface {
 		// It returns the number of bytes written and an error, if any.
 	**/
 	@:keep
-	static public function _write(_f:File, _b:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
+	static public function _write(_f:Ref<File>, _b:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		throw "os._write is not yet implemented";
 
 	/**
@@ -2919,7 +2919,7 @@ class File_asInterface {
 		// EOF is signaled by a zero count with err set to nil.
 	**/
 	@:keep
-	static public function _pread(_f:File, _b:Slice<GoByte>, _off:GoInt64):{var _0:GoInt; var _1:Error;}
+	static public function _pread(_f:Ref<File>, _b:Slice<GoByte>, _off:GoInt64):{var _0:GoInt; var _1:Error;}
 		throw "os._pread is not yet implemented";
 
 	/**
@@ -2927,7 +2927,7 @@ class File_asInterface {
 		// It returns the number of bytes read and an error, if any.
 	**/
 	@:keep
-	static public function _read(_f:File, _b:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
+	static public function _read(_f:Ref<File>, _b:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		throw "os._read is not yet implemented";
 
 	/**
@@ -2937,7 +2937,7 @@ class File_asInterface {
 		// Close will return an error if it has already been called.
 	**/
 	@:keep
-	static public function close(_f:File):Error
+	static public function close(_f:Ref<File>):Error
 		throw "os.close is not yet implemented";
 
 	/**
@@ -2945,7 +2945,7 @@ class File_asInterface {
 		// This implements the syscall.Conn interface.
 	**/
 	@:keep
-	static public function syscallConn(_f:File):{var _0:stdgo.syscall.Syscall.RawConn; var _1:Error;}
+	static public function syscallConn(_f:Ref<File>):{var _0:stdgo.syscall.Syscall.RawConn; var _1:Error;}
 		throw "os.syscallConn is not yet implemented";
 
 	/**
@@ -2957,7 +2957,7 @@ class File_asInterface {
 		// Not all files support setting deadlines; see SetDeadline.
 	**/
 	@:keep
-	static public function setWriteDeadline(_f:File, _t:stdgo.time.Time.Time):Error
+	static public function setWriteDeadline(_f:Ref<File>, _t:stdgo.time.Time.Time):Error
 		throw "os.setWriteDeadline is not yet implemented";
 
 	/**
@@ -2967,7 +2967,7 @@ class File_asInterface {
 		// Not all files support setting deadlines; see SetDeadline.
 	**/
 	@:keep
-	static public function setReadDeadline(_f:File, _t:stdgo.time.Time.Time):Error
+	static public function setReadDeadline(_f:Ref<File>, _t:stdgo.time.Time.Time):Error
 		throw "os.setReadDeadline is not yet implemented";
 
 	/**
@@ -2997,7 +2997,7 @@ class File_asInterface {
 		// A zero value for t means I/O operations will not time out.
 	**/
 	@:keep
-	static public function setDeadline(_f:File, _t:stdgo.time.Time.Time):Error
+	static public function setDeadline(_f:Ref<File>, _t:stdgo.time.Time.Time):Error
 		throw "os.setDeadline is not yet implemented";
 
 	/**
@@ -3005,7 +3005,7 @@ class File_asInterface {
 		// If there is an error, it will be of type *PathError.
 	**/
 	@:keep
-	static public function chmod(_f:File, _mode:FileMode):Error
+	static public function chmod(_f:Ref<File>, _mode:FileMode):Error
 		throw "os.chmod is not yet implemented";
 
 	/**
@@ -3014,7 +3014,7 @@ class File_asInterface {
 		// poll.ErrFileClosing to ErrClosed and wraps the error in a PathError.
 	**/
 	@:keep
-	static public function _wrapErr(_f:File, _op:GoString, _err:Error):Error
+	static public function _wrapErr(_f:Ref<File>, _op:GoString, _err:Error):Error
 		throw "os._wrapErr is not yet implemented";
 
 	/**
@@ -3022,7 +3022,7 @@ class File_asInterface {
 		// a slice of bytes.
 	**/
 	@:keep
-	static public function writeString(_f:File, _s:GoString):{var _0:GoInt; var _1:Error;}
+	static public function writeString(_f:Ref<File>, _s:GoString):{var _0:GoInt; var _1:Error;}
 		throw "os.writeString is not yet implemented";
 
 	/**
@@ -3037,7 +3037,7 @@ class File_asInterface {
 		// operating systems, but not on Windows.
 	**/
 	@:keep
-	static public function seek(_f:File, _offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:Error;}
+	static public function seek(_f:Ref<File>, _offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:Error;}
 		throw "os.seek is not yet implemented";
 
 	/**
@@ -3048,7 +3048,7 @@ class File_asInterface {
 		// If file was opened with the O_APPEND flag, WriteAt returns an error.
 	**/
 	@:keep
-	static public function writeAt(_f:File, _b:Slice<GoByte>, _off:GoInt64):{var _0:GoInt; var _1:Error;}
+	static public function writeAt(_f:Ref<File>, _b:Slice<GoByte>, _off:GoInt64):{var _0:GoInt; var _1:Error;}
 		throw "os.writeAt is not yet implemented";
 
 	/**
@@ -3057,14 +3057,14 @@ class File_asInterface {
 		// Write returns a non-nil error when n != len(b).
 	**/
 	@:keep
-	static public function write(_f:File, _b:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
+	static public function write(_f:Ref<File>, _b:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		throw "os.write is not yet implemented";
 
 	/**
 		// ReadFrom implements io.ReaderFrom.
 	**/
 	@:keep
-	static public function readFrom(_f:File, _r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:Error;}
+	static public function readFrom(_f:Ref<File>, _r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:Error;}
 		throw "os.readFrom is not yet implemented";
 
 	/**
@@ -3074,7 +3074,7 @@ class File_asInterface {
 		// At end of file, that error is io.EOF.
 	**/
 	@:keep
-	static public function readAt(_f:File, _b:Slice<GoByte>, _off:GoInt64):{var _0:GoInt; var _1:Error;}
+	static public function readAt(_f:Ref<File>, _b:Slice<GoByte>, _off:GoInt64):{var _0:GoInt; var _1:Error;}
 		throw "os.readAt is not yet implemented";
 
 	/**
@@ -3083,18 +3083,18 @@ class File_asInterface {
 		// At end of file, Read returns 0, io.EOF.
 	**/
 	@:keep
-	static public function read(_f:File, _b:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
+	static public function read(_f:Ref<File>, _b:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		throw "os.read is not yet implemented";
 
 	/**
 		// Name returns the name of the file as presented to Open.
 	**/
 	@:keep
-	static public function name(_f:File):GoString
+	static public function name(_f:Ref<File>):GoString
 		throw "os.name is not yet implemented";
 
 	@:keep
-	static public function _readdir(_f:File, _n:GoInt, _mode:T_readdirMode):{
+	static public function _readdir(_f:Ref<File>, _n:GoInt, _mode:T_readdirMode):{
 		var _0:Slice<GoString>;
 		var _1:Slice<DirEntry>;
 		var _2:Slice<FileInfo>;
@@ -3115,7 +3115,7 @@ class File_asInterface {
 		// When it succeeds, it returns a nil error (not io.EOF).
 	**/
 	@:keep
-	static public function readDir(_f:File, _n:GoInt):{var _0:Slice<DirEntry>; var _1:Error;}
+	static public function readDir(_f:Ref<File>, _n:GoInt):{var _0:Slice<DirEntry>; var _1:Error;}
 		throw "os.readDir is not yet implemented";
 
 	/**
@@ -3136,7 +3136,7 @@ class File_asInterface {
 		// a non-nil error.
 	**/
 	@:keep
-	static public function readdirnames(_f:File, _n:GoInt):{var _0:Slice<GoString>; var _1:Error;}
+	static public function readdirnames(_f:Ref<File>, _n:GoInt):{var _0:Slice<GoString>; var _1:Error;}
 		throw "os.readdirnames is not yet implemented";
 
 	/**
@@ -3159,7 +3159,7 @@ class File_asInterface {
 		// Most clients are better served by the more efficient ReadDir method.
 	**/
 	@:keep
-	static public function readdir(_f:File, _n:GoInt):{var _0:Slice<FileInfo>; var _1:Error;}
+	static public function readdir(_f:Ref<File>, _n:GoInt):{var _0:Slice<FileInfo>; var _1:Error;}
 		throw "os.readdir is not yet implemented";
 
 	@:embedded
@@ -3205,27 +3205,27 @@ private class T_fileStat_asInterface {
 
 @:keep private class T_fileStat_static_extension {
 	@:keep
-	static public function sys(_fs:T_fileStat):AnyInterface
+	static public function sys(_fs:Ref<T_fileStat>):AnyInterface
 		throw "os.sys is not yet implemented";
 
 	@:keep
-	static public function modTime(_fs:T_fileStat):stdgo.time.Time.Time
+	static public function modTime(_fs:Ref<T_fileStat>):stdgo.time.Time.Time
 		throw "os.modTime is not yet implemented";
 
 	@:keep
-	static public function mode(_fs:T_fileStat):FileMode
+	static public function mode(_fs:Ref<T_fileStat>):FileMode
 		throw "os.mode is not yet implemented";
 
 	@:keep
-	static public function size(_fs:T_fileStat):GoInt64
+	static public function size(_fs:Ref<T_fileStat>):GoInt64
 		throw "os.size is not yet implemented";
 
 	@:keep
-	static public function isDir(_fs:T_fileStat):Bool
+	static public function isDir(_fs:Ref<T_fileStat>):Bool
 		throw "os.isDir is not yet implemented";
 
 	@:keep
-	static public function name(_fs:T_fileStat):GoString
+	static public function name(_fs:Ref<T_fileStat>):GoString
 		throw "os.name is not yet implemented";
 }
 

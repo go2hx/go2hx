@@ -569,7 +569,7 @@ private class T_lazybuf_asInterface {
 
 @:keep private class T_lazybuf_static_extension {
 	@:keep
-	static public function _string(_b:T_lazybuf):GoString {
+	static public function _string(_b:Ref<T_lazybuf>):GoString {
 		if (_b._buf == null) {
 			return (_b._s.__slice__(0, _b._w) : GoString);
 		};
@@ -577,7 +577,7 @@ private class T_lazybuf_asInterface {
 	}
 
 	@:keep
-	static public function _append(_b:T_lazybuf, _c:GoByte):Void {
+	static public function _append(_b:Ref<T_lazybuf>, _c:GoByte):Void {
 		if (_b._buf == null) {
 			if ((_b._w < _b._s.length) && (_b._s[_b._w] == _c)) {
 				_b._w++;
@@ -591,7 +591,7 @@ private class T_lazybuf_asInterface {
 	}
 
 	@:keep
-	static public function _index(_b:T_lazybuf, _i:GoInt):GoByte {
+	static public function _index(_b:Ref<T_lazybuf>, _i:GoInt):GoByte {
 		if (_b._buf != null) {
 			return _b._buf[_i];
 		};

@@ -10,25 +10,27 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-function recvfromInet4(_fd:GoInt, _p:Slice<GoByte>, _flags:GoInt, _from:stdgo.syscall.Syscall.SockaddrInet4):{var _0:GoInt; var _1:Error;}
+function recvfromInet4(_fd:GoInt, _p:Slice<GoByte>, _flags:GoInt, _from:Ref<stdgo.syscall.Syscall.SockaddrInet4>):{var _0:GoInt; var _1:Error;}
 	throw "internal.syscall.unix.recvfromInet4 is not yet implemented";
 
-function recvfromInet6(_fd:GoInt, _p:Slice<GoByte>, _flags:GoInt, _from:stdgo.syscall.Syscall.SockaddrInet6):{var _0:GoInt; var _1:Error;}
+function recvfromInet6(_fd:GoInt, _p:Slice<GoByte>, _flags:GoInt, _from:Ref<stdgo.syscall.Syscall.SockaddrInet6>):{var _0:GoInt; var _1:Error;}
 	throw "internal.syscall.unix.recvfromInet6 is not yet implemented";
 
-function sendtoInet4(_fd:GoInt, _p:Slice<GoByte>, _flags:GoInt, _to:stdgo.syscall.Syscall.SockaddrInet4):Error
+function sendtoInet4(_fd:GoInt, _p:Slice<GoByte>, _flags:GoInt, _to:Ref<stdgo.syscall.Syscall.SockaddrInet4>):Error
 	throw "internal.syscall.unix.sendtoInet4 is not yet implemented";
 
-function sendtoInet6(_fd:GoInt, _p:Slice<GoByte>, _flags:GoInt, _to:stdgo.syscall.Syscall.SockaddrInet6):Error
+function sendtoInet6(_fd:GoInt, _p:Slice<GoByte>, _flags:GoInt, _to:Ref<stdgo.syscall.Syscall.SockaddrInet6>):Error
 	throw "internal.syscall.unix.sendtoInet6 is not yet implemented";
 
-function sendmsgNInet4(_fd:GoInt, _p:Slice<GoByte>, _oob:Slice<GoByte>, _to:stdgo.syscall.Syscall.SockaddrInet4, _flags:GoInt):{var _0:GoInt; var _1:Error;}
+function sendmsgNInet4(_fd:GoInt, _p:Slice<GoByte>, _oob:Slice<GoByte>, _to:Ref<stdgo.syscall.Syscall.SockaddrInet4>,
+		_flags:GoInt):{var _0:GoInt; var _1:Error;}
 	throw "internal.syscall.unix.sendmsgNInet4 is not yet implemented";
 
-function sendmsgNInet6(_fd:GoInt, _p:Slice<GoByte>, _oob:Slice<GoByte>, _to:stdgo.syscall.Syscall.SockaddrInet6, _flags:GoInt):{var _0:GoInt; var _1:Error;}
+function sendmsgNInet6(_fd:GoInt, _p:Slice<GoByte>, _oob:Slice<GoByte>, _to:Ref<stdgo.syscall.Syscall.SockaddrInet6>,
+		_flags:GoInt):{var _0:GoInt; var _1:Error;}
 	throw "internal.syscall.unix.sendmsgNInet6 is not yet implemented";
 
-function recvmsgInet4(_fd:GoInt, _p:Slice<GoByte>, _oob:Slice<GoByte>, _flags:GoInt, _from:stdgo.syscall.Syscall.SockaddrInet4):{
+function recvmsgInet4(_fd:GoInt, _p:Slice<GoByte>, _oob:Slice<GoByte>, _flags:GoInt, _from:Ref<stdgo.syscall.Syscall.SockaddrInet4>):{
 	var _0:GoInt;
 	var _1:GoInt;
 	var _2:GoInt;
@@ -36,7 +38,7 @@ function recvmsgInet4(_fd:GoInt, _p:Slice<GoByte>, _oob:Slice<GoByte>, _flags:Go
 }
 	throw "internal.syscall.unix.recvmsgInet4 is not yet implemented";
 
-function recvmsgInet6(_fd:GoInt, _p:Slice<GoByte>, _oob:Slice<GoByte>, _flags:GoInt, _from:stdgo.syscall.Syscall.SockaddrInet6):{
+function recvmsgInet6(_fd:GoInt, _p:Slice<GoByte>, _oob:Slice<GoByte>, _flags:GoInt, _from:Ref<stdgo.syscall.Syscall.SockaddrInet6>):{
 	var _0:GoInt;
 	var _1:GoInt;
 	var _2:GoInt;

@@ -1993,7 +1993,7 @@ function environ():Slice<GoString>
 function _now():{var _0:GoInt64; var _1:GoInt32;}
 	throw "syscall._now is not yet implemented";
 
-function _fdToFile(_fd:GoInt):{var _0:T_jsFile; var _1:Error;}
+function _fdToFile(_fd:GoInt):{var _0:Ref<T_jsFile>; var _1:Error;}
 	throw "syscall._fdToFile is not yet implemented";
 
 function open(_path:GoString, _openmode:GoInt, _perm:GoUInt32):{var _0:GoInt; var _1:Error;}
@@ -2011,16 +2011,16 @@ function mkdir(_path:GoString, _perm:GoUInt32):Error
 function readDirent(_fd:GoInt, _buf:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 	throw "syscall.readDirent is not yet implemented";
 
-function _setStat(_st:Stat_t, _jsSt:stdgo.syscall.js.Js.Value):Void
+function _setStat(_st:Ref<Stat_t>, _jsSt:stdgo.syscall.js.Js.Value):Void
 	throw "syscall._setStat is not yet implemented";
 
-function stat(_path:GoString, _st:Stat_t):Error
+function stat(_path:GoString, _st:Ref<Stat_t>):Error
 	throw "syscall.stat is not yet implemented";
 
-function lstat(_path:GoString, _st:Stat_t):Error
+function lstat(_path:GoString, _st:Ref<Stat_t>):Error
 	throw "syscall.lstat is not yet implemented";
 
-function fstat(_fd:GoInt, _st:Stat_t):Error
+function fstat(_fd:GoInt, _st:Ref<Stat_t>):Error
 	throw "syscall.fstat is not yet implemented";
 
 function unlink(_path:GoString):Error
@@ -2110,7 +2110,7 @@ function _fsCall(_name:GoString, _args:haxe.Rest<AnyInterface>):{var _0:stdgo.sy
 function _checkPath(_path:GoString):Error
 	throw "syscall._checkPath is not yet implemented";
 
-function _recoverErr(_errPtr:Error):Void
+function _recoverErr(_errPtr:Ref<Error>):Void
 	throw "syscall._recoverErr is not yet implemented";
 
 /**
@@ -2274,7 +2274,7 @@ function getppid():GoInt
 function umask(_mask:GoInt):GoInt
 	throw "syscall.umask is not yet implemented";
 
-function gettimeofday(_tv:Timeval):Error
+function gettimeofday(_tv:Ref<Timeval>):Error
 	throw "syscall.gettimeofday is not yet implemented";
 
 function kill(_pid:GoInt, _signum:Signal):Error
@@ -2283,10 +2283,10 @@ function kill(_pid:GoInt, _signum:Signal):Error
 function sendfile(_outfd:GoInt, _infd:GoInt, _offset:Pointer<GoInt64>, _count:GoInt):{var _0:GoInt; var _1:Error;}
 	throw "syscall.sendfile is not yet implemented";
 
-function startProcess(_argv0:GoString, _argv:Slice<GoString>, _attr:ProcAttr):{var _0:GoInt; var _1:GoUIntptr; var _2:Error;}
+function startProcess(_argv0:GoString, _argv:Slice<GoString>, _attr:Ref<ProcAttr>):{var _0:GoInt; var _1:GoUIntptr; var _2:Error;}
 	throw "syscall.startProcess is not yet implemented";
 
-function wait4(_pid:GoInt, _wstatus:Pointer<WaitStatus>, _options:GoInt, _rusage:Rusage):{var _0:GoInt; var _1:Error;}
+function wait4(_pid:GoInt, _wstatus:Pointer<WaitStatus>, _options:GoInt, _rusage:Ref<Rusage>):{var _0:GoInt; var _1:Error;}
 	throw "syscall.wait4 is not yet implemented";
 
 function _setTimespec(_sec:GoInt64, _nsec:GoInt64):Timespec
@@ -2360,14 +2360,14 @@ class Timespec_asInterface {
 		// Nano returns the time stored in ts as nanoseconds.
 	**/
 	@:keep
-	static public function nano(_ts:Timespec):GoInt64
+	static public function nano(_ts:Ref<Timespec>):GoInt64
 		throw "syscall.nano is not yet implemented";
 
 	/**
 		// Unix returns the time stored in ts as seconds plus nanoseconds.
 	**/
 	@:keep
-	static public function unix(_ts:Timespec):{var _0:GoInt64; var _1:GoInt64;}
+	static public function unix(_ts:Ref<Timespec>):{var _0:GoInt64; var _1:GoInt64;}
 		throw "syscall.unix is not yet implemented";
 }
 
@@ -2402,14 +2402,14 @@ class Timeval_asInterface {
 		// Nano returns the time stored in tv as nanoseconds.
 	**/
 	@:keep
-	static public function nano(_tv:Timeval):GoInt64
+	static public function nano(_tv:Ref<Timeval>):GoInt64
 		throw "syscall.nano is not yet implemented";
 
 	/**
 		// Unix returns the time stored in tv as seconds plus nanoseconds.
 	**/
 	@:keep
-	static public function unix(_tv:Timeval):{var _0:GoInt64; var _1:GoInt64;}
+	static public function unix(_tv:Ref<Timeval>):{var _0:GoInt64; var _1:GoInt64;}
 		throw "syscall.unix is not yet implemented";
 }
 

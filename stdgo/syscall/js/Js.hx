@@ -1294,7 +1294,7 @@ class ValueError_asInterface {
 
 @:keep private class ValueError_static_extension {
 	@:keep
-	static public function error(_e:ValueError):GoString
+	static public function error(_e:Ref<ValueError>):GoString
 		throw "syscall.js.error is not yet implemented";
 }
 

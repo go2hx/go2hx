@@ -2687,8 +2687,8 @@ function y0(_x:GoFloat64):GoFloat64 {
 }
 
 function _pzero(_x:GoFloat64):GoFloat64 {
-	var _p:GoArray<GoFloat64> = null;
-	var _q:GoArray<GoFloat64> = null;
+	var _p:Ref<GoArray<GoFloat64>> = null;
+	var _q:Ref<GoArray<GoFloat64>> = null;
 	if (_x >= (8 : GoFloat64)) {
 		_p = _p0R8;
 		_q = _p0S8;
@@ -2711,7 +2711,7 @@ function _pzero(_x:GoFloat64):GoFloat64 {
 }
 
 function _qzero(_x:GoFloat64):GoFloat64 {
-	var _p:GoArray<GoFloat64> = null, _q:GoArray<GoFloat64> = null;
+	var _p:Ref<GoArray<GoFloat64>> = null, _q:Ref<GoArray<GoFloat64>> = null;
 	if (_x >= (8 : GoFloat64)) {
 		_p = _q0R8;
 		_q = _q0S8;
@@ -2880,8 +2880,8 @@ function y1(_x:GoFloat64):GoFloat64 {
 }
 
 function _pone(_x:GoFloat64):GoFloat64 {
-	var _p:GoArray<GoFloat64> = null;
-	var _q:GoArray<GoFloat64> = null;
+	var _p:Ref<GoArray<GoFloat64>> = null;
+	var _q:Ref<GoArray<GoFloat64>> = null;
 	if (_x >= (8 : GoFloat64)) {
 		_p = _p1R8;
 		_q = _p1S8;
@@ -2904,7 +2904,7 @@ function _pone(_x:GoFloat64):GoFloat64 {
 }
 
 function _qone(_x:GoFloat64):GoFloat64 {
-	var _p:GoArray<GoFloat64> = null, _q:GoArray<GoFloat64> = null;
+	var _p:Ref<GoArray<GoFloat64>> = null, _q:Ref<GoArray<GoFloat64>> = null;
 	if (_x >= (8 : GoFloat64)) {
 		_p = _q1R8;
 		_q = _q1S8;

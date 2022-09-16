@@ -257,7 +257,7 @@ private var _inPropTest:Slice<stdgo.unicode_test.Unicode_test.T> = (new Slice<st
 	}
 }
 
-function testDigit(_t:stdgo.testing.Testing.T):Void {
+function testDigit(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _r in _testDigit) {
 		if (!isDigit(_r)) {
 			_t.errorf((Go.str("IsDigit(U+%04X) = false, want true") : GoString), Go.toInterface(_r));
@@ -273,7 +273,7 @@ function testDigit(_t:stdgo.testing.Testing.T):Void {
 /**
 	// Test that the special case in IsDigit agrees with the table
 **/
-function testDigitOptimization(_t:stdgo.testing.Testing.T):Void {
+function testDigitOptimization(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoInt32 = ((0 : GoInt32) : GoRune);
 		Go.cfor(_i <= (255 : GoInt32), _i++, {
@@ -421,7 +421,7 @@ function exampleIsSpace():Void {
 	stdgo.fmt.Fmt.printf((Go.str("%t\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.isSpace(("a".code : GoInt32))));
 }
 
-function testIsControlLatin1(_t:stdgo.testing.Testing.T):Void {
+function testIsControlLatin1(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoInt32 = ((0 : GoInt32) : GoRune);
 		Go.cfor(_i <= (255 : GoInt32), _i++, {
@@ -439,7 +439,7 @@ function testIsControlLatin1(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testIsLetterLatin1(_t:stdgo.testing.Testing.T):Void {
+function testIsLetterLatin1(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoInt32 = ((0 : GoInt32) : GoRune);
 		Go.cfor(_i <= (255 : GoInt32), _i++, {
@@ -452,7 +452,7 @@ function testIsLetterLatin1(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testIsUpperLatin1(_t:stdgo.testing.Testing.T):Void {
+function testIsUpperLatin1(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoInt32 = ((0 : GoInt32) : GoRune);
 		Go.cfor(_i <= (255 : GoInt32), _i++, {
@@ -465,7 +465,7 @@ function testIsUpperLatin1(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testIsLowerLatin1(_t:stdgo.testing.Testing.T):Void {
+function testIsLowerLatin1(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoInt32 = ((0 : GoInt32) : GoRune);
 		Go.cfor(_i <= (255 : GoInt32), _i++, {
@@ -478,7 +478,7 @@ function testIsLowerLatin1(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testNumberLatin1(_t:stdgo.testing.Testing.T):Void {
+function testNumberLatin1(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoInt32 = ((0 : GoInt32) : GoRune);
 		Go.cfor(_i <= (255 : GoInt32), _i++, {
@@ -491,7 +491,7 @@ function testNumberLatin1(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testIsPrintLatin1(_t:stdgo.testing.Testing.T):Void {
+function testIsPrintLatin1(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoInt32 = ((0 : GoInt32) : GoRune);
 		Go.cfor(_i <= (255 : GoInt32), _i++, {
@@ -507,7 +507,7 @@ function testIsPrintLatin1(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testIsGraphicLatin1(_t:stdgo.testing.Testing.T):Void {
+function testIsGraphicLatin1(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoInt32 = ((0 : GoInt32) : GoRune);
 		Go.cfor(_i <= (255 : GoInt32), _i++, {
@@ -520,7 +520,7 @@ function testIsGraphicLatin1(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testIsPunctLatin1(_t:stdgo.testing.Testing.T):Void {
+function testIsPunctLatin1(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoInt32 = ((0 : GoInt32) : GoRune);
 		Go.cfor(_i <= (255 : GoInt32), _i++, {
@@ -533,7 +533,7 @@ function testIsPunctLatin1(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testIsSpaceLatin1(_t:stdgo.testing.Testing.T):Void {
+function testIsSpaceLatin1(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoInt32 = ((0 : GoInt32) : GoRune);
 		Go.cfor(_i <= (255 : GoInt32), _i++, {
@@ -546,7 +546,7 @@ function testIsSpaceLatin1(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testIsSymbolLatin1(_t:stdgo.testing.Testing.T):Void {
+function testIsSymbolLatin1(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoInt32 = ((0 : GoInt32) : GoRune);
 		Go.cfor(_i <= (255 : GoInt32), _i++, {
@@ -559,7 +559,7 @@ function testIsSymbolLatin1(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testIsLetter(_t:stdgo.testing.Testing.T):Void {
+function testIsLetter(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _r in _upperTest) {
 		if (!isLetter(_r)) {
 			_t.errorf((Go.str("IsLetter(U+%04X) = false, want true") : GoString), Go.toInterface(_r));
@@ -577,7 +577,7 @@ function testIsLetter(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testIsUpper(_t:stdgo.testing.Testing.T):Void {
+function testIsUpper(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _r in _upperTest) {
 		if (!isUpper(_r)) {
 			_t.errorf((Go.str("IsUpper(U+%04X) = false, want true") : GoString), Go.toInterface(_r));
@@ -606,7 +606,7 @@ function _caseString(_c:GoInt):GoString {
 	return (Go.str("ErrorCase") : GoString);
 }
 
-function testTo(_t:stdgo.testing.Testing.T):Void {
+function testTo(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _c in _caseTest) {
 		var _r:GoInt32 = to(_c._cas, _c._in);
 		if (_c._out != _r) {
@@ -616,7 +616,7 @@ function testTo(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testToUpperCase(_t:stdgo.testing.Testing.T):Void {
+function testToUpperCase(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _c in _caseTest) {
 		if (_c._cas != (0 : GoInt)) {
 			continue;
@@ -628,7 +628,7 @@ function testToUpperCase(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testToLowerCase(_t:stdgo.testing.Testing.T):Void {
+function testToLowerCase(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _c in _caseTest) {
 		if (_c._cas != (1 : GoInt)) {
 			continue;
@@ -640,7 +640,7 @@ function testToLowerCase(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testToTitleCase(_t:stdgo.testing.Testing.T):Void {
+function testToTitleCase(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _c in _caseTest) {
 		if (_c._cas != (2 : GoInt)) {
 			continue;
@@ -652,7 +652,7 @@ function testToTitleCase(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testIsSpace(_t:stdgo.testing.Testing.T):Void {
+function testIsSpace(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _c in _spaceTest) {
 		if (!isSpace(_c)) {
 			_t.errorf((Go.str("IsSpace(U+%04X) = false; want true") : GoString), Go.toInterface(_c));
@@ -669,7 +669,7 @@ function testIsSpace(_t:stdgo.testing.Testing.T):Void {
 	// Check that the optimizations for IsLetter etc. agree with the tables.
 	// We only need to check the Latin-1 range.
 **/
-function testLetterOptimizations(_t:stdgo.testing.Testing.T):Void {
+function testLetterOptimizations(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoInt32 = ((0 : GoInt32) : GoRune);
 		Go.cfor(_i <= (255 : GoInt32), _i++, {
@@ -701,7 +701,7 @@ function testLetterOptimizations(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testTurkishCase(_t:stdgo.testing.Testing.T):Void {
+function testTurkishCase(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _lower = ((Go.str("abcçdefgğhıijklmnoöprsştuüvyz") : GoString) : Slice<GoRune>);
 	var _upper = ((Go.str("ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ") : GoString) : Slice<GoRune>);
 	for (_i => _l in _lower) {
@@ -733,7 +733,7 @@ function testTurkishCase(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testSimpleFold(_t:stdgo.testing.Testing.T):Void {
+function testSimpleFold(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _simpleFoldTests) {
 		var _cycle = (_tt : Slice<GoRune>);
 		var _r:GoInt32 = _cycle[(_cycle.length) - (1 : GoInt)];
@@ -755,7 +755,7 @@ function testSimpleFold(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testCalibrate(_t:stdgo.testing.Testing.T):Void {
+function testCalibrate(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (!_calibrate.value) {
 		return;
 	};
@@ -764,7 +764,7 @@ function testCalibrate(_t:stdgo.testing.Testing.T):Void {
 	};
 	var _n:GoInt = stdgo.sort.Sort.search((64 : GoInt), function(_n:GoInt):Bool {
 		var _tab = _fakeTable(_n);
-		var _blinear = function(_b:stdgo.testing.Testing.B):Void {
+		var _blinear = function(_b:Ref<stdgo.testing.Testing.B>):Void {
 			var _tab = _tab;
 			var _max:GoInt = (_n * (5 : GoInt)) + (20 : GoInt);
 			{
@@ -779,7 +779,7 @@ function testCalibrate(_t:stdgo.testing.Testing.T):Void {
 				});
 			};
 		};
-		var _bbinary = function(_b:stdgo.testing.Testing.B):Void {
+		var _bbinary = function(_b:Ref<stdgo.testing.Testing.B>):Void {
 			var _tab = _tab;
 			var _max:GoInt = (_n * (5 : GoInt)) + (20 : GoInt);
 			{
@@ -848,7 +848,7 @@ function _binary(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
 	return false;
 }
 
-function testLatinOffset(_t:stdgo.testing.Testing.T):Void {
+function testLatinOffset(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _maps:Slice<GoMap<GoString, Ref<RangeTable>>> = (new Slice<GoMap<GoString, Ref<RangeTable>>>(0, 0, categories, foldCategory, foldScript, properties,
 		scripts) : Slice<GoMap<GoString, Ref<RangeTable>>>);
 	for (_0 => _m in _maps) {
@@ -864,7 +864,7 @@ function testLatinOffset(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testSpecialCaseNoMapping(_t:stdgo.testing.Testing.T):Void {
+function testSpecialCaseNoMapping(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _noChangeForCapitalA:CaseRange = (new CaseRange(("A".code : GoUInt32), ("A".code : GoUInt32),
 		(new GoArray<GoInt32>((0 : GoInt32), (0 : GoInt32), (0 : GoInt32)) : GoArray<GoInt32>)) : CaseRange);
 	var _got:GoString = stdgo.strings.Strings.toLowerSpecial(((new Slice<CaseRange>(0, 0,
@@ -876,7 +876,7 @@ function testSpecialCaseNoMapping(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testNegativeRune(_t:stdgo.testing.Testing.T):Void {
+function testNegativeRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _nonLatin1 = (new Slice<GoUInt32>(0, 0, (256 : GoUInt32), (257 : GoUInt32), (453 : GoUInt32), (768 : GoUInt32), (1632 : GoUInt32), (894 : GoUInt32),
 		(706 : GoUInt32), (5760 : GoUInt32)) : Slice<GoUInt32>);
 	{
@@ -933,7 +933,7 @@ function testNegativeRune(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testCategories(_t:stdgo.testing.Testing.T):Void {
+function testCategories(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _notTested = (new GoObjectMap<GoString,
 		Bool>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind),
 			stdgo.reflect.Reflect.GoType.basic(bool_kind)))) : GoMap<GoString, Bool>);
@@ -961,7 +961,7 @@ function testCategories(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testProperties(_t:stdgo.testing.Testing.T):Void {
+function testProperties(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _notTested = (new GoObjectMap<GoString,
 		Bool>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind),
 			stdgo.reflect.Reflect.GoType.basic(bool_kind)))) : GoMap<GoString, Bool>);

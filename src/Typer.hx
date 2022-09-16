@@ -2548,6 +2548,7 @@ private function starType(expr:Ast.StarExpr, info:Info):ComplexType { // pointer
 			params: type != null ? [TPType(type)] : [],
 		});
 	}
+
 	return TPath({
 		pack: [],
 		name: "Pointer",
@@ -4743,7 +4744,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 						}
 					}
 					return p;
-				};
+				}
 				p = f(p);
 				recvGeneric = p.params != null && p.params.length > 0;
 				if (recvGeneric) {
@@ -4890,11 +4891,11 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 									case TPType(t):
 										ct = t;
 									default:
-										@:keep var _ = false;
+										var _ = false;
 								}
 							}
 						default:
-							@:keep var _ = false;
+							var _ = false;
 					}
 					{
 						name: ${makeString(arg.name)},
@@ -5320,45 +5321,6 @@ private function getRecvName(recv:Ast.Expr, info:Info):String {
 		return getRecvName(recv.x, info);
 	}
 	return className(recv.name, info);
-}
-
-private function getRecvComplexTypeName(t:ComplexType, info:Info):String {
-	return switch t {
-		case TPath(p):
-			if (p.name == "Pointer" && p.params != null && p.params.length == 1) {
-				switch p.params[0] {
-					case TPType(t):
-						getRecvComplexTypeName(t, info);
-					default:
-						throw "no tp expr type allowed";
-				}
-			} else {
-				p.name;
-			}
-		default:
-			throw "cannot convert recv complex type: " + t;
-	}
-	return "";
-}
-
-private function getRecvInfo(recvType:ComplexType, type:GoType):{name:String, isPointer:Bool, type:ComplexType} {
-	switch recvType {
-		case TPath(p):
-			if (p.name == "Pointer") {
-				switch p.params[0] {
-					case TPType(t):
-						switch t {
-							case TPath(p):
-								return {name: p.name, isPointer: true, type: t};
-							default:
-						}
-					default:
-				}
-			}
-			return {name: p.name, isPointer: false, type: recvType};
-		default:
-	}
-	return {name: "", isPointer: false, type: recvType};
 }
 
 private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValuesBool:Bool):ComplexType { // A single type or Anonymous struct type

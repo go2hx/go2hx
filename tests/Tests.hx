@@ -314,7 +314,7 @@ private function close() {
 				log(obj);
 			Sys.exit(1);
 		}
-		File.saveContent('tests/$type.json', Json.stringify(input));
+		File.saveContent('tests/$type.json', Json.stringify(input, null, " "));
 	}
 	logOutput.close();
 	Main.close();

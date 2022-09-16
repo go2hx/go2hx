@@ -1149,7 +1149,7 @@ private function translateStruct(e:Expr, fromType:GoType, toType:GoType, info:In
 			final underlying = getUnderlying(toType);
 			switch underlying {
 				case structType(fields):
-					return createNamedObjectDecl(fields, (field, _) -> macro $e.field, info);
+					return createNamedObjectDecl(fields, (field, _) -> macro $e.$field, info);
 				default:
 					throw "not a struct";
 			}

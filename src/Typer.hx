@@ -5218,7 +5218,11 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 				case basic(_):
 					final ct = ct();
 					final e = defaultValue(underlying, info);
-					macro($e : $ct);
+					if (hasTypeParam(ct)) {
+						e;
+					} else {
+						macro($e : $ct);
+					}
 				case structType(fields):
 					final ct = ct();
 					final fs:Array<ObjectField> = [];

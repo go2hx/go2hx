@@ -4972,6 +4972,17 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 				case TPath(p):
 					switch p.params[0] {
 						case TPType(t):
+							switch t {
+								case TPath(p):
+									if (p.name == "Ref") {
+										switch p.params[0] {
+											case TPType(t2):
+												t = t2;
+											default:
+										}
+									}
+								default:
+							}
 							findGeneric(arg.name, [], t);
 						default:
 					}

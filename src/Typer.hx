@@ -1145,23 +1145,29 @@ private function translateStruct(e:Expr, fromType:GoType, toType:GoType, info:In
 		default:
 	}
 	switch toType {
-		case named(path, _, _, _):
+		case named(_, _, _, _):
 			final underlying = getUnderlying(toType);
-			var p = namedTypePath(path, info);
-			var exprs:Array<Expr> = [];
 			switch underlying {
 				case structType(fields):
-					for (field in fields) {
-						final field = formatHaxeFieldName(field.name, info);
-						exprs.push(macro $e.$field);
-					}
+					return createNamedObjectDecl(fields, (field, _) -> macro $e.field, info);
 				default:
 					throw "not a struct";
 			}
-			return macro new $p($a{exprs});
 		default:
 			throw "struct is unnamed: " + toType;
 	}
+}
+
+private function createNamedObjectDecl(fields:Array<stdgo.reflect.Reflect.FieldType>, f:(field:String, type:GoType) -> Expr, info:Info):Expr {
+	final objectFields:Array<ObjectField> = [];
+	for (i in 0...fields.length) {
+		final field = formatHaxeFieldName(fields[i].name, info);
+		objectFields.push({
+			field: field,
+			expr: f(field, fields[i].type),
+		});
+	}
+	return toExpr(EObjectDecl(objectFields));
 }
 
 private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoType, info:Info):Expr {
@@ -1782,15 +1788,7 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
 			case arrayType(_, _): // pass by copy
 				y = macro($y == null ? null : $y.__copy__());
 			case structType(fields):
-				final decl = toExpr(EObjectDecl([
-					for (field in fields) {
-						final name = nameIdent(field.name, false, false, info);
-						{
-							field: name,
-							expr: passByCopy(field.type, macro x.$name, info),
-						}
-					}
-				]));
+				final decl = createNamedObjectDecl(fields, (field, type) -> passByCopy(type, macro x.$field, info), info);
 				y = macro {
 					final x = $y;
 					$decl;
@@ -1800,15 +1798,7 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
 					case pointer(_), basic(_), signature(_, _, _, _), sliceType(_), mapType(_), chanType(_):
 						return y;
 					case structType(fields) if (path.indexOf("_struct_") != -1):
-						final decl = toExpr(EObjectDecl([
-							for (field in fields) {
-								final name = nameIdent(field.name, false, false, info);
-								{
-									field: name,
-									expr: passByCopy(field.type, macro x.$name, info),
-								}
-							}
-						]));
+						final decl = createNamedObjectDecl(fields, (field, type) -> passByCopy(type, macro x.$field, info), info);
 						final ct = toComplexType(fromType, info);
 						return macro {
 							final x = $y;
@@ -2361,7 +2351,7 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 				return ret(EReturn(macro $i{info.returnNames[0]}));
 			return ret(EReturn(defaultValue(info.returnTypes[0], info)));
 		}
-		var fields:Array<ObjectField> = [
+		final fields:Array<ObjectField> = [
 			for (i in 0...info.returnTypes.length)
 				{field: "_" + i, expr: info.returnNamed ? macro $i{info.returnNames[i]} : defaultValue(info.returnTypes[i], info)}
 		];
@@ -2383,7 +2373,7 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 		return ret(EReturn(e));
 	}
 	// multireturn
-	var expr = toExpr(EObjectDecl([
+	final expr = toExpr(EObjectDecl([
 		for (i in 0...stmt.results.length) {
 			var e = typeExpr(stmt.results[i], info);
 			final retType = info.returnTypes[i];
@@ -5232,6 +5222,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 				case structType(fields):
 					final ct = ct();
 					final fs:Array<ObjectField> = [];
+					var e = macro {};
 					if (alias) {
 						for (field in fields) {
 							fs.push({
@@ -5239,8 +5230,8 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 								expr: defaultValue(field.type, info),
 							});
 						}
+						e = createNamedObjectDecl(fields, (_, type) -> defaultValue(type, info), info);
 					}
-					final e = toExpr(EObjectDecl(fs));
 					if (hasTypeParam(ct)) {
 						e;
 					} else {

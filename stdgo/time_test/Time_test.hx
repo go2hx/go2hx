@@ -4361,7 +4361,7 @@ function benchmarkParallelTimerLatency(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _timerCount:GoInt = _gmp - (1 : GoInt);
 	var _stats = new Slice<T__struct_7>((_timerCount : GoInt).toBasic(), 0, ...[
 		for (i in 0...(_timerCount : GoInt).toBasic()) ({
-			_sum:(0 : GoFloat64), _max:((0 : GoInt64) : Duration), _count:(0 : GoInt64), _0:new GoArray<GoInt64>(...[for (i in 0...5) (0 : GoInt64)])
+			_sum:(0 : GoFloat64), _max:((0 : GoInt64) : Duration), _count:(0 : GoInt64), _1:new GoArray<GoInt64>(...[for (i in 0...5) (0 : GoInt64)])
 		} : T__struct_7)
 	]);
 	_warmupScheduler(_gmp);
@@ -4404,7 +4404,7 @@ function benchmarkParallelTimerLatency(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _total:GoFloat64 = (0 : GoFloat64);
 	var _samples:GoFloat64 = (0 : GoFloat64);
 	var _max:Duration = (0 : Duration);
-	for (_1 => _s in _stats) {
+	for (_2 => _s in _stats) {
 		if (_s._max > _max) {
 			_max = _s._max;
 		};
@@ -4438,7 +4438,7 @@ function benchmarkStaggeredTickerLatency(_b:Ref<stdgo.testing.Testing.B>):Void {
 								var _stats = new Slice<T__struct_7>((_tickerCount : GoInt).toBasic(), 0, ...[
 									for (i in 0...(_tickerCount : GoInt).toBasic()) ({
 										_sum:(0 : GoFloat64), _max:((0 : GoInt64) : Duration), _count:(0 : GoInt64),
-										_0:new GoArray<GoInt64>(...[for (i in 0...5) (0 : GoInt64)])
+										_1:new GoArray<GoInt64>(...[for (i in 0...5) (0 : GoInt64)])
 									} : T__struct_7)
 								]);
 								_warmupScheduler(_gmp);
@@ -4506,7 +4506,7 @@ function benchmarkStaggeredTickerLatency(_b:Ref<stdgo.testing.Testing.B>):Void {
 								var _total:GoFloat64 = (0 : GoFloat64);
 								var _samples:GoFloat64 = (0 : GoFloat64);
 								var _max:Duration = (0 : Duration);
-								for (_1 => _s in _stats) {
+								for (_2 => _s in _stats) {
 									if (_s._max > _max) {
 										_max = _s._max;
 									};

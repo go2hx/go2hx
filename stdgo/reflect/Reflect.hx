@@ -411,8 +411,8 @@ class Value {
 				setFloat((value : GoFloat64));
 			default:
 				this.value.value = value;
+				_set();
 		}
-		_set();
 	}
 
 	private function _set() {
@@ -790,10 +790,12 @@ class Value {
 		final t = @:privateAccess type().common().value;
 		switch k {
 			case ptr:
-				if (value == null)
-					return new Value();
 				switch getUnderlying(t) {
 					case GoType.pointer(elem):
+						if (value == null) {
+							final value = new Value(new AnyInterface(null, new _Type(elem)), null).setAddr();
+							return value;
+						}
 						return new Value(new AnyInterface((value : Pointer<Dynamic>).value, new _Type(elem)), value).setAddr();
 					default:
 				}
@@ -917,7 +919,7 @@ function sliceOf(t:Type):Type {
 }
 
 function zero(typ:Type):Value {
-	return new Value(defaultValue(typ), typ);
+	return new Value(new AnyInterface(defaultValue(typ), typ), typ);
 }
 
 function new_(typ:Type):Value {
@@ -927,7 +929,8 @@ function new_(typ:Type):Value {
 }
 
 function defaultValue(typ:Type):Any {
-	return switch (@:privateAccess typ.common().value : GoType) {
+	final t:GoType = @:privateAccess typ.common().value;
+	return switch t {
 		case basic(kind):
 			switch kind {
 				case string_kind: ("" : GoString);

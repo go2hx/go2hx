@@ -73,18 +73,6 @@ var printer = new Printer();
 
 function main(data:DataType, instance:Main.InstanceData) {
 	final imports:Array<String> = [];
-	// final command = "go list -f '{{ join .Imports \"\\n\" }}' " + data.args.join(" ");
-	// Sys.println('$command:');
-	// Sys.command(command);
-
-	/*if (data.pkgs.length > 0 && excludesList.indexOf(data.pkgs[0].path) != -1) {
-		final testPkgs = [];
-		for (pkg in data.pkgs) {
-			if (pkg.name == "main" || pkg.path == data.pkgs[0].path + "_test")
-				testPkgs.push(pkg);
-		}
-		data.pkgs = testPkgs;
-	}*/
 	final noCommentsBool = instance.noComments;
 	final externBool = instance.externBool;
 	var list:Array<Module> = [];
@@ -1081,7 +1069,6 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 					var type = spec.type.id != null ? typeExprType(spec.type, info) : null;
 					var value = macro null;
 					var args:Array<Expr> = [];
-
 					if (spec.names.length > spec.values.length && spec.values.length > 0) {
 						// destructure
 						var tmp = "__tmp__";
@@ -2554,8 +2541,13 @@ private function arrayTypeExpr(expr:Ast.ArrayType, info:Info):ComplexType {
 private function starType(expr:Ast.StarExpr, info:Info):ComplexType { // pointer type
 	var type = typeExprType(expr.x, info);
 	var t = typeof(expr.x, info, false);
-	if (isRefValue(t))
-		return type;
+	if (isRefValue(t)) {
+		return TPath({
+			pack: [],
+			name: "Ref",
+			params: type != null ? [TPType(type)] : [],
+		});
+	}
 	return TPath({
 		pack: [],
 		name: "Pointer",
@@ -4687,8 +4679,9 @@ private function destructureExpr(x:Expr, t:GoType):{x:Expr, t:GoType} {
 private function typeStarExpr(expr:Ast.StarExpr, info:Info):ExprDef {
 	var x = typeExpr(expr.x, info);
 	final t = typeof(expr.x, info, false);
-	if (!isPointer(t))
+	if (!isPointer(t)) {
 		return x.expr;
+	}
 	return (macro $x.value).expr; // pointer code
 }
 

@@ -2026,8 +2026,11 @@ private function goTypesEqual(a:GoType, b:GoType) {
 }
 
 private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info, passCopy:Bool = true):Expr {
-	if (goTypesEqual(fromType, toType))
+	if (goTypesEqual(fromType, toType)) {
+		if (passCopy)
+			return passByCopy(toType, expr, info);
 		return expr;
+	}
 	fromType = cleanType(fromType);
 	toType = cleanType(toType);
 	var y = expr;

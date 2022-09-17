@@ -896,9 +896,8 @@ class Go {
 									}
 									final path = createPath(ref.pack, ref.name);
 									final empty = methods.length == 0;
-									final local = ref.meta.has(":local");
 									ret = macro stdgo.reflect.Reflect.GoType.named($v{path}, [],
-										stdgo.reflect.Reflect.GoType.interfaceType($v{empty}, $a{methods}), $v{local});
+										stdgo.reflect.Reflect.GoType.interfaceType($v{empty}, $a{methods}));
 								}
 							default:
 								if (ref.meta.has(":follow"))
@@ -1126,7 +1125,6 @@ class Go {
 				}
 				final methods = macro $a{methods};
 				ret = macro stdgo.reflect.Reflect.GoType.structType($methods);
-			// xContext.error('reflect.cast_AnyInterface - unhandled anon type $t', Context.currentPos());
 			default:
 				Context.error('reflect.cast_AnyInterface - unhandled typeof $t', Context.currentPos());
 		}

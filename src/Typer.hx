@@ -1869,7 +1869,163 @@ function getReturnTupleNames(type:GoType):Array<String> {
 	}
 }
 
+private function goTypesEqual(a:GoType, b:GoType) {
+	return switch a {
+		case structType(fields):
+			switch b {
+				case structType(fields2):
+					if (fields.length != fields.length) {
+						false;
+					} else {
+						var bool = true;
+						for (i in 0...fields.length) {
+							if (fields[i].name != fields2[i].name || !goTypesEqual(fields[i].type, fields2[i].type)) {
+								bool = false;
+								break;
+							}
+						}
+						bool;
+					}
+				default:
+					false;
+			}
+		case typeParam(_, params):
+			switch b {
+				case typeParam(_, params2):
+					if (params.length != params2.length) {
+						false;
+					} else {
+						var bool = true;
+						for (i in 0...params.length) {
+							if (!goTypesEqual(params[i], params2[i])) {
+								bool = false;
+								break;
+							}
+						}
+						bool;
+					}
+
+				default:
+					false;
+			}
+		case signature(variadic, _.get() => params, _.get() => results, _):
+			switch b {
+				case signature(variadic2, _.get() => params2, _.get() => results2, _):
+					if (variadic != variadic2 || params.length != params2.length || results.length != results2.length) {
+						false;
+					} else {
+						var bool = true;
+						for (i in 0...params.length) {
+							if (!goTypesEqual(params[i], params2[i])) {
+								bool = false;
+								break;
+							}
+						}
+						if (bool) {
+							for (i in 0...results.length) {
+								if (!goTypesEqual(results[i], results[i])) {
+									bool = false;
+									break;
+								}
+							}
+							bool;
+						} else {
+							false;
+						}
+					}
+				default:
+					false;
+			}
+		case _var(_, t):
+			switch b {
+				case _var(_, t2):
+					goTypesEqual(t, t2);
+				default:
+					goTypesEqual(t, b);
+			}
+		case tuple(len, vars):
+			switch b {
+				case tuple(len2, vars2):
+					if (len != len2 || vars.length != vars2.length) {
+						false;
+					} else {
+						var bool = true;
+						for (i in 0...vars.length) {
+							if (!goTypesEqual(vars[i], vars2[i])) {
+								false;
+								break;
+							}
+						}
+						bool;
+					}
+				default:
+					false;
+			}
+		case basic(kind):
+			switch b {
+				case basic(kind2):
+					kind == kind2;
+				default:
+					false;
+			}
+		case arrayType(_.get() => elem, len), chanType(len, _.get() => elem):
+			switch b {
+				case arrayType(_.get() => elem2, len2), chanType(len2, _.get() => elem2): a.getIndex() == b.getIndex() && len == len2 && goTypesEqual(elem,
+						elem2);
+				default:
+					false;
+			}
+		case mapType(_.get() => key, _.get() => value):
+			switch b {
+				case mapType(_.get() => key2, _.get() => value2): goTypesEqual(key, key2) && goTypesEqual(value, value2);
+				default:
+					false;
+			}
+		case refType(elem), pointer(elem), sliceType(_.get() => elem):
+			switch b {
+				case refType(elem2), pointer(elem2), sliceType(_.get() => elem2): a.getIndex() == b.getIndex() && goTypesEqual(elem, elem2);
+				default:
+					false;
+			}
+		case named(path, _, _, _), previouslyNamed(path):
+			switch b {
+				case named(path2, _, _, _), previouslyNamed(path2):
+					path == path2;
+				default:
+					false;
+			}
+		case invalidType:
+			a == b;
+		case interfaceType(empty, methods):
+			switch b {
+				case interfaceType(empty2, methods2):
+					if (empty && empty2) {
+						true;
+					} else {
+						if (methods.length != methods2.length) {
+							false;
+						} else {
+							var bool = true;
+							for (i in 0...methods.length) {
+								if (methods[i].name != methods2[i].name
+									|| !goTypesEqual(methods[i].type.get(), methods2[i].type.get())
+									|| !goTypesEqual(methods[i].recv.get(), methods2[i].recv.get())) {
+									bool = false;
+									break;
+								}
+							}
+							bool;
+						}
+					}
+				default:
+					false;
+			}
+	}
+}
+
 private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info, passCopy:Bool = true):Expr {
+	if (goTypesEqual(fromType, toType))
+		return expr;
 	fromType = cleanType(fromType);
 	toType = cleanType(toType);
 	var y = expr;
@@ -3953,11 +4109,12 @@ private function setBasicLit(kind:Ast.Token, value:String, type:GoType, raw:Bool
 
 private function typeUnaryExpr(expr:Ast.UnaryExpr, info:Info):ExprDef {
 	var x = typeExpr(expr.x, info);
-	final t = typeof(expr.x, info, false);
+	final t = typeof(expr.x, info, false); // use expr type potentially instead of expr.x?
 	final isNamed = isNamed(t);
 	if (expr.op == AND) {
-		if (!isRefValue(t))
+		if (!isRefValue(t)) {
 			return (macro Go.pointer($x)).expr;
+		}
 		return x.expr;
 	} else {
 		final op = typeUnOp(expr.op);
@@ -5999,8 +6156,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 			}
 			final fields = typeFieldListMethods(struct.methods, info);
 			var meta = [];
-			if (local)
-				meta.push({name: ":local", pos: null, params: []});
 			// embedded interfaces
 			final implicits:Array<TypePath> = [];
 			if (struct.methods != null && struct.methods.list != null)

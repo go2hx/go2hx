@@ -1870,6 +1870,8 @@ function getReturnTupleNames(type:GoType):Array<String> {
 }
 
 private function goTypesEqual(a:GoType, b:GoType) {
+	if (a == null || b == null)
+		return true;
 	return switch a {
 		case structType(fields):
 			switch b {

@@ -2503,9 +2503,8 @@ function testReaderAt(_t:Ref<stdgo.testing.Testing.T>):Void {
 		if (_got != _tt._want) {
 			_t.errorf((Go.str("%d. got %q; want %q") : GoString), Go.toInterface(_i), Go.toInterface(_got), Go.toInterface(_tt._want));
 		};
-		if (stdgo.fmt.Fmt.sprintf((Go.str("%v") : GoString),
-			Go.toInterface(_err)) != stdgo.fmt.Fmt.sprintf((Go.str("%v") : GoString), Go.toInterface(_tt._wanterr))) {
-			_t.errorf((Go.str("%d. got error = %v; want %v") : GoString), Go.toInterface(_i), Go.toInterface(_err), Go.toInterface(_tt._wanterr));
+		if (stdgo.fmt.Fmt.sprintf((Go.str("%v") : GoString), Go.toInterface(_err)) != stdgo.fmt.Fmt.sprintf((Go.str("%v") : GoString), _tt._wanterr)) {
+			_t.errorf((Go.str("%d. got error = %v; want %v") : GoString), Go.toInterface(_i), Go.toInterface(_err), _tt._wanterr);
 		};
 	};
 }
@@ -3065,7 +3064,7 @@ function testReplacer(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testPickAlgorithm(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_i => _tc in _algorithmTestCases) {
-		var _got:GoString = stdgo.fmt.Fmt.sprintf((Go.str("%T") : GoString), Go.toInterface(_tc._r.replacer()));
+		var _got:GoString = stdgo.fmt.Fmt.sprintf((Go.str("%T") : GoString), _tc._r.replacer());
 		if (_got != _tc._want) {
 			_t.errorf((Go.str("%d. algorithm = %s, want %s") : GoString), Go.toInterface(_i), Go.toInterface(_got), Go.toInterface(_tc._want));
 		};
@@ -4210,18 +4209,18 @@ function _repeat(_s:GoString, _count:GoInt):Error {
 	__deferstack__.unshift(() -> {
 		var a = function():Void {
 			{
-				var _r:AnyInterface = Go.toInterface(({
+				var _r:AnyInterface = ({
 					final r = Go.recover_exception;
 					Go.recover_exception = null;
 					r;
-				}));
+				});
 				if (_r != null) {
 					if (Go.assertable((_r : Error))) {
 						var _v:stdgo.Error = _r == null ? null : _r.__underlying__() == null ? null : _r == null ? null : _r.__underlying__().value;
 						_err = _v;
 					} else {
 						var _v:AnyInterface = _r == null ? null : _r.__underlying__();
-						_err = stdgo.fmt.Fmt.errorf((Go.str("%s") : GoString), Go.toInterface(_v));
+						_err = stdgo.fmt.Fmt.errorf((Go.str("%s") : GoString), _v);
 					};
 				};
 			};

@@ -292,9 +292,8 @@ function searchStrings(_a:Slice<GoString>, _x:GoString):GoInt {
 	// the Interface type's Less method.
 **/
 function slice(_x:AnyInterface, _less:(_i:GoInt, _j:GoInt) -> Bool):Void {
-	var _rv:stdgo.internal.reflectlite.Reflectlite.Value = (_reflectValueOf(Go.toInterface(_x)) == null ? null : _reflectValueOf(Go.toInterface(_x))
-		.__copy__());
-	var _swap:(GoInt, GoInt) -> Void = _reflectSwapper(Go.toInterface(_x));
+	var _rv:stdgo.internal.reflectlite.Reflectlite.Value = (_reflectValueOf(_x) == null ? null : _reflectValueOf(_x).__copy__());
+	var _swap:(GoInt, GoInt) -> Void = _reflectSwapper(_x);
 	var _length:GoInt = _rv.len();
 	var _limit:GoInt = stdgo.math.bits.Bits.len((_length : GoUInt));
 	_pdqsort_func((new T_lessSwap(_less, _swap) : T_lessSwap), (0 : GoInt), _length, _limit);
@@ -309,9 +308,8 @@ function slice(_x:AnyInterface, _less:(_i:GoInt, _j:GoInt) -> Bool):Void {
 	// the Interface type's Less method.
 **/
 function sliceStable(_x:AnyInterface, _less:(_i:GoInt, _j:GoInt) -> Bool):Void {
-	var _rv:stdgo.internal.reflectlite.Reflectlite.Value = (_reflectValueOf(Go.toInterface(_x)) == null ? null : _reflectValueOf(Go.toInterface(_x))
-		.__copy__());
-	var _swap:(GoInt, GoInt) -> Void = _reflectSwapper(Go.toInterface(_x));
+	var _rv:stdgo.internal.reflectlite.Reflectlite.Value = (_reflectValueOf(_x) == null ? null : _reflectValueOf(_x).__copy__());
+	var _swap:(GoInt, GoInt) -> Void = _reflectSwapper(_x);
 	_stable_func((new T_lessSwap(_less, _swap) : T_lessSwap), _rv.len());
 }
 
@@ -320,8 +318,7 @@ function sliceStable(_x:AnyInterface, _less:(_i:GoInt, _j:GoInt) -> Bool):Void {
 	// It panics if x is not a slice.
 **/
 function sliceIsSorted(_x:AnyInterface, _less:(_i:GoInt, _j:GoInt) -> Bool):Bool {
-	var _rv:stdgo.internal.reflectlite.Reflectlite.Value = (_reflectValueOf(Go.toInterface(_x)) == null ? null : _reflectValueOf(Go.toInterface(_x))
-		.__copy__());
+	var _rv:stdgo.internal.reflectlite.Reflectlite.Value = (_reflectValueOf(_x) == null ? null : _reflectValueOf(_x).__copy__());
 	var _n:GoInt = _rv.len();
 	{
 		var _i:GoInt = _n - (1 : GoInt);

@@ -832,11 +832,11 @@ function _expectValueError(_t:Ref<stdgo.testing.Testing.T>, _fn:() -> Void):Void
 	var __deferstack__:Array<Void->Void> = [];
 	__deferstack__.unshift(() -> {
 		var a = function():Void {
-			var _err:AnyInterface = Go.toInterface(({
+			var _err:AnyInterface = ({
 				final r = Go.recover_exception;
 				Go.recover_exception = null;
 				r;
-			}));
+			});
 			{
 				var __tmp__ = try {
 					{value: ((_err.value : Dynamic).__t__ : Ref<ValueError>), ok: true};
@@ -844,7 +844,7 @@ function _expectValueError(_t:Ref<stdgo.testing.Testing.T>, _fn:() -> Void):Void
 					{value: (null : ValueError), ok: false};
 				}, _0 = __tmp__.value, _ok = __tmp__.ok;
 				if (!_ok) {
-					_t.errorf((Go.str("expected *js.ValueError, got %T") : GoString), Go.toInterface(_err));
+					_t.errorf((Go.str("expected *js.ValueError, got %T") : GoString), _err);
 				};
 			};
 		};
@@ -880,11 +880,11 @@ function _expectPanic(_t:Ref<stdgo.testing.Testing.T>, _fn:() -> Void):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	__deferstack__.unshift(() -> {
 		var a = function():Void {
-			var _err:AnyInterface = Go.toInterface(({
+			var _err:AnyInterface = ({
 				final r = Go.recover_exception;
 				Go.recover_exception = null;
 				r;
-			}));
+			});
 			if (_err == null) {
 				_t.errorf((Go.str("expected panic") : GoString));
 			};

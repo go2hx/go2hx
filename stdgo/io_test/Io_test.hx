@@ -26,7 +26,7 @@ private typedef T_closer = StructType & {
 	public function close():Error;
 };
 
-@:local private typedef T__interface_0 = StructType & {
+private typedef T__interface_0 = StructType & {
 	> Writer,
 	> stdgo.fmt.Fmt.Stringer,
 };

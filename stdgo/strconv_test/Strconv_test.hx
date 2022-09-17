@@ -3687,11 +3687,11 @@ function testFormatComplexInvalidBitSize(_t:Ref<stdgo.testing.Testing.T>):Void {
 	__deferstack__.unshift(() -> {
 		var a = function():Void {
 			{
-				var _r:AnyInterface = Go.toInterface(({
+				var _r:AnyInterface = ({
 					final r = Go.recover_exception;
 					Go.recover_exception = null;
 					r;
-				}));
+				});
 				if (_r == null) {
 					_t.fatalf((Go.str("expected panic due to invalid bitSize") : GoString));
 				};
@@ -4459,11 +4459,11 @@ function testFormatFloatInvalidBitSize(_t:Ref<stdgo.testing.Testing.T>):Void {
 	__deferstack__.unshift(() -> {
 		var a = function():Void {
 			{
-				var _r:AnyInterface = Go.toInterface(({
+				var _r:AnyInterface = ({
 					final r = Go.recover_exception;
 					Go.recover_exception = null;
 					r;
-				}));
+				});
 				if (_r == null) {
 					_t.fatalf((Go.str("expected panic due to invalid bitSize") : GoString));
 				};

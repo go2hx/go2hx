@@ -66,15 +66,15 @@ private var __go2hxdoc__package:Bool;
 private var _errorType:stdgo.internal.reflectlite.Reflectlite.Type = stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface(((null : stdgo.Error) : Ref<Error>)))
 	.elem();
 
-@:local private typedef T__interface_0 = StructType & {
+private typedef T__interface_0 = StructType & {
 	public function unwrap():Error;
 };
 
-@:local private typedef T__interface_1 = StructType & {
+private typedef T__interface_1 = StructType & {
 	public function is_(_0:Error):Bool;
 };
 
-@:local private typedef T__interface_2 = StructType & {
+private typedef T__interface_2 = StructType & {
 	public function as(_0:AnyInterface):Bool;
 };
 
@@ -190,7 +190,7 @@ function as(_err:Error, _target:AnyInterface):Bool {
 	if (_target == null) {
 		throw Go.toInterface((Go.str("errors: target cannot be nil") : GoString));
 	};
-	var _val:stdgo.internal.reflectlite.Reflectlite.Value = (stdgo.internal.reflectlite.Reflectlite.valueOf(Go.toInterface(_target)) == null ? null : stdgo.internal.reflectlite.Reflectlite.valueOf(Go.toInterface(_target))
+	var _val:stdgo.internal.reflectlite.Reflectlite.Value = (stdgo.internal.reflectlite.Reflectlite.valueOf(_target) == null ? null : stdgo.internal.reflectlite.Reflectlite.valueOf(_target)
 		.__copy__());
 	var _typ:stdgo.internal.reflectlite.Reflectlite.Type = _val.type();
 	if ((_typ.kind() != (22 : stdgo.internal.reflectlite.Reflectlite.Kind)) || _val.isNil()) {
@@ -213,7 +213,7 @@ function as(_err:Error, _target:AnyInterface):Bool {
 			} catch (_) {
 				{value: (null : T__interface_2), ok: false};
 			}, _x = __tmp__.value, _ok = __tmp__.ok;
-			if (_ok && _x.as(Go.toInterface(_target))) {
+			if (_ok && _x.as(_target)) {
 				return true;
 			};
 		};

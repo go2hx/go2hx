@@ -334,8 +334,7 @@ function testGet(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_ok = _g.get(Go.pointer(_g)) == (7 : stdgo.time.Time.Duration);
 			};
 			if (!_ok) {
-				_t.errorf((Go.str("Visit: bad value %T(%v) for %s") : GoString), Go.toInterface(_g.get(Go.pointer(_g))),
-					Go.toInterface(_g.get(Go.pointer(_g))), Go.toInterface(_f.name));
+				_t.errorf((Go.str("Visit: bad value %T(%v) for %s") : GoString), _g.get(Go.pointer(_g)), _g.get(Go.pointer(_g)), Go.toInterface(_f.name));
 			};
 		};
 	};
@@ -943,7 +942,7 @@ function _mustPanic(_t:Ref<stdgo.testing.Testing.T>, _testName:GoString, _expect
 						r;
 					}).__underlying__();
 					_t.errorf((Go.str("%s\n: expected panic(%q), but got panic(%T%v)") : GoString), Go.toInterface(_testName), Go.toInterface(_expected),
-						Go.toInterface(_msg), Go.toInterface(_msg));
+						_msg, _msg);
 				};
 			};
 			a();

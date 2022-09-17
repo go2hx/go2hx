@@ -12,7 +12,7 @@ import stdgo.Chan;
 
 private var _poserPathErr:Ref<stdgo.io.fs.Fs.PathError> = ({op: (Go.str("poser") : GoString)} : stdgo.io.fs.Fs.PathError);
 
-@:local private typedef T__interface_3 = StructType & {
+private typedef T__interface_3 = StructType & {
 	public function timeout():Bool;
 };
 
@@ -308,14 +308,14 @@ function testAs(_t:Ref<stdgo.testing.Testing.T>):Void {
 		} : T__struct_1)) : Slice<T__struct_1>);
 	for (_i => _tc in _testCases) {
 		var _name:GoString = stdgo.fmt.Fmt.sprintf((Go.str("%d:As(Errorf(..., %v), %v)") : GoString), Go.toInterface(_i), Go.toInterface(_tc._err),
-			Go.toInterface(_tc._target));
-		var _rtarget:stdgo.reflect.Reflect.Value = (stdgo.reflect.Reflect.valueOf(Go.toInterface(_tc._target)) == null ? null : stdgo.reflect.Reflect.valueOf(Go.toInterface(_tc._target))
+			_tc._target);
+		var _rtarget:stdgo.reflect.Reflect.Value = (stdgo.reflect.Reflect.valueOf(_tc._target) == null ? null : stdgo.reflect.Reflect.valueOf(_tc._target)
 			.__copy__());
 		_rtarget.elem()
-			.set((stdgo.reflect.Reflect.zero(stdgo.reflect.Reflect.typeOf(Go.toInterface(_tc._target))
-				.elem()) == null ? null : stdgo.reflect.Reflect.zero(stdgo.reflect.Reflect.typeOf(Go.toInterface(_tc._target)).elem()).__copy__()));
+			.set((stdgo.reflect.Reflect.zero(stdgo.reflect.Reflect.typeOf(_tc._target)
+				.elem()) == null ? null : stdgo.reflect.Reflect.zero(stdgo.reflect.Reflect.typeOf(_tc._target).elem()).__copy__()));
 		_t.run(_name, function(_t:Ref<stdgo.testing.Testing.T>):Void {
-			var _match:Bool = stdgo.errors.Errors.as(_tc._err, Go.toInterface(_tc._target));
+			var _match:Bool = stdgo.errors.Errors.as(_tc._err, _tc._target);
 			if (_match != _tc._match) {
 				_t.fatalf((Go.str("match: got %v; want %v") : GoString), Go.toInterface(_match), Go.toInterface(_tc._match));
 			};
@@ -323,9 +323,9 @@ function testAs(_t:Ref<stdgo.testing.Testing.T>):Void {
 				return;
 			};
 			{
-				var _got:AnyInterface = Go.toInterface(_rtarget.elem().interface_());
+				var _got:AnyInterface = _rtarget.elem().interface_();
 				if (_got != _tc._want) {
-					_t.fatalf((Go.str("got %#v, want %#v") : GoString), Go.toInterface(_got), Go.toInterface(_tc._want));
+					_t.fatalf((Go.str("got %#v, want %#v") : GoString), _got, _tc._want);
 				};
 			};
 		});
@@ -338,7 +338,7 @@ function testAsValidation(_t:Ref<stdgo.testing.Testing.T>):Void {
 		Go.toInterface((Go.str("error") : GoString)), Go.toInterface(Go.pointer(_s))) : Slice<AnyInterface>);
 	var _err:stdgo.Error = stdgo.errors.Errors.new_((Go.str("error") : GoString));
 	for (_0 => _tc in _testCases) {
-		_t.run(stdgo.fmt.Fmt.sprintf((Go.str("%T(%v)") : GoString), Go.toInterface(_tc), Go.toInterface(_tc)), function(_t:Ref<stdgo.testing.Testing.T>):Void {
+		_t.run(stdgo.fmt.Fmt.sprintf((Go.str("%T(%v)") : GoString), _tc, _tc), function(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var __deferstack__:Array<Void->Void> = [];
 			__deferstack__.unshift(() -> {
 				var a = function():Void {
@@ -351,8 +351,8 @@ function testAsValidation(_t:Ref<stdgo.testing.Testing.T>):Void {
 				a();
 			});
 			try {
-				if (stdgo.errors.Errors.as(_err, Go.toInterface(_tc))) {
-					_t.errorf((Go.str("As(err, %T(%v)) = true, want false") : GoString), Go.toInterface(_tc), Go.toInterface(_tc));
+				if (stdgo.errors.Errors.as(_err, _tc)) {
+					_t.errorf((Go.str("As(err, %T(%v)) = true, want false") : GoString), _tc, _tc);
 					{
 						for (defer in __deferstack__) {
 							defer();
@@ -360,7 +360,7 @@ function testAsValidation(_t:Ref<stdgo.testing.Testing.T>):Void {
 						return;
 					};
 				};
-				_t.errorf((Go.str("As(err, %T(%v)) did not panic") : GoString), Go.toInterface(_tc), Go.toInterface(_tc));
+				_t.errorf((Go.str("As(err, %T(%v)) did not panic") : GoString), _tc, _tc);
 				for (defer in __deferstack__) {
 					defer();
 				};

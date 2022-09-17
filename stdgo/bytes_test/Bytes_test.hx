@@ -1797,7 +1797,7 @@ function testReadFromNegativeReader(_t:Ref<stdgo.testing.Testing.T>):Void {
 						Go.recover_exception = null;
 						r;
 					}).__underlying__();
-					_t.fatalf((Go.str("unexpected panic value: %#v") : GoString), Go.toInterface(_err));
+					_t.fatalf((Go.str("unexpected panic value: %#v") : GoString), _err);
 				};
 			};
 			a();
@@ -2081,13 +2081,13 @@ function testGrowOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
 	__deferstack__.unshift(() -> {
 		var a = function():Void {
 			{
-				var _err:AnyInterface = Go.toInterface(({
+				var _err:AnyInterface = ({
 					final r = Go.recover_exception;
 					Go.recover_exception = null;
 					r;
-				}));
+				});
 				if (_err != errTooLarge) {
-					_t.errorf((Go.str("after too-large Grow, recover() = %v; want %v") : GoString), Go.toInterface(_err), Go.toInterface(errTooLarge));
+					_t.errorf((Go.str("after too-large Grow, recover() = %v; want %v") : GoString), _err, Go.toInterface(errTooLarge));
 				};
 			};
 		};
@@ -3383,18 +3383,18 @@ function _repeat(_b:Slice<GoByte>, _count:GoInt):Error {
 	__deferstack__.unshift(() -> {
 		var a = function():Void {
 			{
-				var _r:AnyInterface = Go.toInterface(({
+				var _r:AnyInterface = ({
 					final r = Go.recover_exception;
 					Go.recover_exception = null;
 					r;
-				}));
+				});
 				if (_r != null) {
 					if (Go.assertable((_r : Error))) {
 						var _v:stdgo.Error = _r == null ? null : _r.__underlying__() == null ? null : _r == null ? null : _r.__underlying__().value;
 						_err = _v;
 					} else {
 						var _v:AnyInterface = _r == null ? null : _r.__underlying__();
-						_err = stdgo.fmt.Fmt.errorf((Go.str("%s") : GoString), Go.toInterface(_v));
+						_err = stdgo.fmt.Fmt.errorf((Go.str("%s") : GoString), _v);
 					};
 				};
 			};
@@ -3709,11 +3709,11 @@ function testBufferGrowNegative(_t:Ref<stdgo.testing.Testing.T>):Void {
 	__deferstack__.unshift(() -> {
 		var a = function():Void {
 			{
-				var _err:AnyInterface = Go.toInterface(({
+				var _err:AnyInterface = ({
 					final r = Go.recover_exception;
 					Go.recover_exception = null;
 					r;
-				}));
+				});
 				if (_err == null) {
 					_t.fatal(Go.toInterface((Go.str("Grow(-1) should have panicked") : GoString)));
 				};
@@ -3753,11 +3753,11 @@ function testBufferTruncateNegative(_t:Ref<stdgo.testing.Testing.T>):Void {
 	__deferstack__.unshift(() -> {
 		var a = function():Void {
 			{
-				var _err:AnyInterface = Go.toInterface(({
+				var _err:AnyInterface = ({
 					final r = Go.recover_exception;
 					Go.recover_exception = null;
 					r;
-				}));
+				});
 				if (_err == null) {
 					_t.fatal(Go.toInterface((Go.str("Truncate(-1) should have panicked") : GoString)));
 				};
@@ -3797,11 +3797,11 @@ function testBufferTruncateOutOfRange(_t:Ref<stdgo.testing.Testing.T>):Void {
 	__deferstack__.unshift(() -> {
 		var a = function():Void {
 			{
-				var _err:AnyInterface = Go.toInterface(({
+				var _err:AnyInterface = ({
 					final r = Go.recover_exception;
 					Go.recover_exception = null;
 					r;
-				}));
+				});
 				if (_err == null) {
 					_t.fatal(Go.toInterface((Go.str("Truncate(20) should have panicked") : GoString)));
 				};
@@ -5095,9 +5095,8 @@ function testReaderAt(_t:Ref<stdgo.testing.Testing.T>):Void {
 		if (_got != _tt._want) {
 			_t.errorf((Go.str("%d. got %q; want %q") : GoString), Go.toInterface(_i), Go.toInterface(_got), Go.toInterface(_tt._want));
 		};
-		if (stdgo.fmt.Fmt.sprintf((Go.str("%v") : GoString),
-			Go.toInterface(_err)) != stdgo.fmt.Fmt.sprintf((Go.str("%v") : GoString), Go.toInterface(_tt._wanterr))) {
-			_t.errorf((Go.str("%d. got error = %v; want %v") : GoString), Go.toInterface(_i), Go.toInterface(_err), Go.toInterface(_tt._wanterr));
+		if (stdgo.fmt.Fmt.sprintf((Go.str("%v") : GoString), Go.toInterface(_err)) != stdgo.fmt.Fmt.sprintf((Go.str("%v") : GoString), _tt._wanterr)) {
+			_t.errorf((Go.str("%d. got error = %v; want %v") : GoString), Go.toInterface(_i), Go.toInterface(_err), _tt._wanterr);
 		};
 	};
 }

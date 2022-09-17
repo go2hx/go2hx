@@ -1237,11 +1237,11 @@ function testAdd64OverflowPanic(_t:Ref<stdgo.testing.Testing.T>):Void {
 			__deferstack__.unshift(() -> {
 				var a = function():Void {
 					{
-						var _err:AnyInterface = Go.toInterface(({
+						var _err:AnyInterface = ({
 							final r = Go.recover_exception;
 							Go.recover_exception = null;
 							r;
-						}));
+						});
 						if (_err == null) {
 							_t.fatalf((Go.str("expected panic") : GoString));
 						};
@@ -1327,11 +1327,11 @@ function testSub64OverflowPanic(_t:Ref<stdgo.testing.Testing.T>):Void {
 			__deferstack__.unshift(() -> {
 				var a = function():Void {
 					{
-						var _err:AnyInterface = Go.toInterface(({
+						var _err:AnyInterface = ({
 							final r = Go.recover_exception;
 							Go.recover_exception = null;
 							r;
-						}));
+						});
 						if (_err == null) {
 							_t.fatalf((Go.str("expected panic") : GoString));
 						};
@@ -1567,11 +1567,11 @@ function testDivPanicOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
 	__deferstack__.unshift(() -> {
 		var a = function():Void {
 			{
-				var _err:AnyInterface = Go.toInterface(({
+				var _err:AnyInterface = ({
 					final r = Go.recover_exception;
 					Go.recover_exception = null;
 					r;
-				}));
+				});
 				if (_err == null) {
 					_t.error(Go.toInterface((Go.str("Div should have panicked when y<=hi") : GoString)));
 				} else {
@@ -1623,11 +1623,11 @@ function testDiv32PanicOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
 	__deferstack__.unshift(() -> {
 		var a = function():Void {
 			{
-				var _err:AnyInterface = Go.toInterface(({
+				var _err:AnyInterface = ({
 					final r = Go.recover_exception;
 					Go.recover_exception = null;
 					r;
-				}));
+				});
 				if (_err == null) {
 					_t.error(Go.toInterface((Go.str("Div32 should have panicked when y<=hi") : GoString)));
 				} else {
@@ -1679,11 +1679,11 @@ function testDiv64PanicOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
 	__deferstack__.unshift(() -> {
 		var a = function():Void {
 			{
-				var _err:AnyInterface = Go.toInterface(({
+				var _err:AnyInterface = ({
 					final r = Go.recover_exception;
 					Go.recover_exception = null;
 					r;
-				}));
+				});
 				if (_err == null) {
 					_t.error(Go.toInterface((Go.str("Div64 should have panicked when y<=hi") : GoString)));
 				} else {
@@ -1735,11 +1735,11 @@ function testDivPanicZero(_t:Ref<stdgo.testing.Testing.T>):Void {
 	__deferstack__.unshift(() -> {
 		var a = function():Void {
 			{
-				var _err:AnyInterface = Go.toInterface(({
+				var _err:AnyInterface = ({
 					final r = Go.recover_exception;
 					Go.recover_exception = null;
 					r;
-				}));
+				});
 				if (_err == null) {
 					_t.error(Go.toInterface((Go.str("Div should have panicked when y==0") : GoString)));
 				} else {
@@ -1791,11 +1791,11 @@ function testDiv32PanicZero(_t:Ref<stdgo.testing.Testing.T>):Void {
 	__deferstack__.unshift(() -> {
 		var a = function():Void {
 			{
-				var _err:AnyInterface = Go.toInterface(({
+				var _err:AnyInterface = ({
 					final r = Go.recover_exception;
 					Go.recover_exception = null;
 					r;
-				}));
+				});
 				if (_err == null) {
 					_t.error(Go.toInterface((Go.str("Div32 should have panicked when y==0") : GoString)));
 				} else {
@@ -1847,11 +1847,11 @@ function testDiv64PanicZero(_t:Ref<stdgo.testing.Testing.T>):Void {
 	__deferstack__.unshift(() -> {
 		var a = function():Void {
 			{
-				var _err:AnyInterface = Go.toInterface(({
+				var _err:AnyInterface = ({
 					final r = Go.recover_exception;
 					Go.recover_exception = null;
 					r;
-				}));
+				});
 				if (_err == null) {
 					_t.error(Go.toInterface((Go.str("Div64 should have panicked when y==0") : GoString)));
 				} else {

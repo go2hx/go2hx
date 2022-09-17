@@ -515,17 +515,17 @@ function _isZeroValue(_flag:Ref<Flag>, _value:GoString):{var _0:Bool; var _1:Err
 		__deferstack__.unshift(() -> {
 			var a = function():Void {
 				{
-					var _e:AnyInterface = Go.toInterface(({
+					var _e:AnyInterface = ({
 						final r = Go.recover_exception;
 						Go.recover_exception = null;
 						r;
-					}));
+					});
 					if (_e != null) {
 						if (_typ.kind() == (22 : stdgo.reflect.Reflect.Kind)) {
 							_typ = _typ.elem();
 						};
 						_err = stdgo.fmt.Fmt.errorf((Go.str("panic calling String method on zero %v for flag %s: %v") : GoString), Go.toInterface(_typ),
-							Go.toInterface(_flag.name), Go.toInterface(_e));
+							Go.toInterface(_flag.name), _e);
 					};
 				};
 			};

@@ -391,7 +391,7 @@ typedef SubFS = StructType & {
 	public function sub(_dir:GoString):{var _0:FS; var _1:Error;};
 };
 
-@:local private typedef T__interface_0 = StructType & {
+private typedef T__interface_0 = StructType & {
 	public function timeout():Bool;
 };
 

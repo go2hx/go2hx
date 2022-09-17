@@ -233,8 +233,7 @@ function example_rand():Void {
 		__deferstack__.unshift(() -> _w.flush());
 		var _show:(GoString, AnyInterface, AnyInterface,
 			AnyInterface) -> Void = function(_name:GoString, _v1:AnyInterface, _v2:AnyInterface, _v3:AnyInterface):Void {
-				stdgo.fmt.Fmt.fprintf(Go.asInterface(_w), (Go.str("%s\t%v\t%v\t%v\n") : GoString), Go.toInterface(_name), Go.toInterface(_v1),
-					Go.toInterface(_v2), Go.toInterface(_v3));
+				stdgo.fmt.Fmt.fprintf(Go.asInterface(_w), (Go.str("%s\t%v\t%v\t%v\n") : GoString), Go.toInterface(_name), _v1, _v2, _v3);
 			};
 		_show((Go.str("Float32") : GoString), Go.toInterface(_r.float32()), Go.toInterface(_r.float32()), Go.toInterface(_r.float32()));
 		_show((Go.str("Float64") : GoString), Go.toInterface(_r.float64()), Go.toInterface(_r.float64()), Go.toInterface(_r.float64()));
@@ -1184,11 +1183,10 @@ function testRegress(_t:Ref<stdgo.testing.Testing.T>):Void {
 							};
 						};
 						_argstr = stdgo.fmt.Fmt.sprint(_x);
-						_args = (_args.__append__(stdgo.reflect.Reflect.valueOf(Go.toInterface(_x)) == null ? null : stdgo.reflect.Reflect.valueOf(Go.toInterface(_x))
-							.__copy__()));
+						_args = (_args.__append__(stdgo.reflect.Reflect.valueOf(_x) == null ? null : stdgo.reflect.Reflect.valueOf(_x).__copy__()));
 					};
 					var _out:AnyInterface = (null : AnyInterface);
-					_out = Go.toInterface(_mv.call(_args)[(0 : GoInt)].interface_());
+					_out = _mv.call(_args)[(0 : GoInt)].interface_();
 					if ((_m.name == (Go.str("Int") : GoString)) || (_m.name == (Go.str("Intn") : GoString))) {
 						_out = Go.toInterface(((_out.value : GoInt) : GoInt64));
 					};
@@ -1201,20 +1199,19 @@ function testRegress(_t:Ref<stdgo.testing.Testing.T>):Void {
 						if ((((_big : GoInt) : GoInt64) != _big)
 							&& ((_m.name == (Go.str("Int") : GoString)) || (_m.name == (Go.str("Intn") : GoString)))) {
 							_val = (Go.str("truncated") : GoString);
-						} else if (stdgo.reflect.Reflect.typeOf(Go.toInterface(_out)).kind() == (23 : stdgo.reflect.Reflect.Kind)) {
-							_val = stdgo.fmt.Fmt.sprintf((Go.str("%#v") : GoString), Go.toInterface(_out));
+						} else if (stdgo.reflect.Reflect.typeOf(_out).kind() == (23 : stdgo.reflect.Reflect.Kind)) {
+							_val = stdgo.fmt.Fmt.sprintf((Go.str("%#v") : GoString), _out);
 						} else {
-							_val = stdgo.fmt.Fmt.sprintf((Go.str("%T(%v)") : GoString), Go.toInterface(_out), Go.toInterface(_out));
+							_val = stdgo.fmt.Fmt.sprintf((Go.str("%T(%v)") : GoString), _out, _out);
 						};
 						stdgo.fmt.Fmt.printf((Go.str("\t%s, // %s(%s)\n") : GoString), Go.toInterface(_val), Go.toInterface(_m.name), Go.toInterface(_argstr));
 					} else {
-						var _want:AnyInterface = Go.toInterface(_regressGolden[_p]);
+						var _want:AnyInterface = _regressGolden[_p];
 						if (_m.name == (Go.str("Int") : GoString)) {
 							_want = Go.toInterface((((((_want.value : GoInt64) : GoUInt) << (1 : GoUnTypedInt)) >> (1 : GoUnTypedInt) : GoInt) : GoInt64));
 						};
-						if (!stdgo.reflect.Reflect.deepEqual(Go.toInterface(_out), Go.toInterface(_want))) {
-							_t.errorf((Go.str("r.%s(%s) = %v, want %v") : GoString), Go.toInterface(_m.name), Go.toInterface(_argstr), Go.toInterface(_out),
-								Go.toInterface(_want));
+						if (!stdgo.reflect.Reflect.deepEqual(_out, _want)) {
+							_t.errorf((Go.str("r.%s(%s) = %v, want %v") : GoString), Go.toInterface(_m.name), Go.toInterface(_argstr), _out, _want);
 						};
 					};
 					_p++;

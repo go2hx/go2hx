@@ -4069,11 +4069,11 @@ function testIssue5745(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var a = function():Void {
 				_ticker.stop();
 				{
-					var _r:AnyInterface = Go.toInterface(({
+					var _r:AnyInterface = ({
 						final r = Go.recover_exception;
 						Go.recover_exception = null;
 						r;
-					}));
+					});
 					if (_r == null) {
 						_t.error(Go.toInterface((Go.str("Expected panic, but none happened.") : GoString)));
 					};
@@ -4113,11 +4113,11 @@ function testOverflowPeriodRuntimeTimer(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function _checkZeroPanicString(_t:Ref<stdgo.testing.Testing.T>):Void {
-	var _e:AnyInterface = Go.toInterface(({
+	var _e:AnyInterface = ({
 		final r = Go.recover_exception;
 		Go.recover_exception = null;
 		r;
-	}));
+	});
 	var __tmp__ = try {
 		{value: (_e.value : GoString), ok: true};
 	} catch (_) {
@@ -4126,7 +4126,7 @@ function _checkZeroPanicString(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _want:GoString = (Go.str("called on uninitialized Timer") : GoString);
 		if (!stdgo.strings.Strings.contains(_s, _want)) {
-			_t.errorf((Go.str("panic = %v; want substring %q") : GoString), Go.toInterface(_e), Go.toInterface(_want));
+			_t.errorf((Go.str("panic = %v; want substring %q") : GoString), _e, Go.toInterface(_want));
 		};
 	};
 }
@@ -4664,11 +4664,11 @@ function testNewTickerLtZeroDuration(_t:Ref<stdgo.testing.Testing.T>):Void {
 	__deferstack__.unshift(() -> {
 		var a = function():Void {
 			{
-				var _err:AnyInterface = Go.toInterface(({
+				var _err:AnyInterface = ({
 					final r = Go.recover_exception;
 					Go.recover_exception = null;
 					r;
-				}));
+				});
 				if (_err == null) {
 					_t.errorf((Go.str("NewTicker(-1) should have panicked") : GoString));
 				};
@@ -4710,11 +4710,11 @@ function testTickerResetLtZeroDuration(_t:Ref<stdgo.testing.Testing.T>):Void {
 	__deferstack__.unshift(() -> {
 		var a = function():Void {
 			{
-				var _err:AnyInterface = Go.toInterface(({
+				var _err:AnyInterface = ({
 					final r = Go.recover_exception;
 					Go.recover_exception = null;
 					r;
-				}));
+				});
 				if (_err == null) {
 					_t.errorf((Go.str("Ticker.Reset(0) should have panicked") : GoString));
 				};

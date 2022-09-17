@@ -6351,7 +6351,7 @@ class Ticker_asInterface {
 		if (_t._r._f == null) {
 			throw Go.toInterface((Go.str("time: Reset called on uninitialized Ticker") : GoString));
 		};
-		_modTimer(_t._r, _when(_d), (_d : GoInt64), _t._r._f, Go.toInterface(_t._r._arg), _t._r._seq);
+		_modTimer(_t._r, _when(_d), (_d : GoInt64), _t._r._f, _t._r._arg, _t._r._seq);
 	}
 
 	/**

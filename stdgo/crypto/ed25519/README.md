@@ -7,6 +7,9 @@ stdgo/crypto/ed25519/internal/edwards25519/Edwards25519.hx:361: character 22 : `
 /home/runner/work/go2hx/go2hx/stdgo/crypto/ed25519/internal/edwards25519/Edwards25519.hx:374: characters 26-33 : You can't iterate on a Dynamic value, please specify KeyValueIterator or KeyValueIterable
 /home/runner/work/go2hx/go2hx/stdgo/crypto/ed25519/internal/edwards25519/Edwards25519.hx:1558: characters 16-18 : crypto.ed25519.internal.edwards25519.Point has no field _0
 /home/runner/work/go2hx/go2hx/stdgo/crypto/ed25519/internal/edwards25519/Edwards25519.hx:1558: characters 29-31 : Null<crypto.ed25519.internal.edwards25519.Point> has no field _0
+stdgo/encoding/binary/Binary.hx:2760: characters 25-29 : stdgo.reflect.Value has no field bool (Suggestion: bool_)
+stdgo/encoding/binary/Binary.hx:2578: lines 2578-2580 : ... Called from macro here
+stdgo/encoding/binary/Binary.hx:2607: characters 25-29 : stdgo.reflect.Value has no field bool (Suggestion: bool_)
 stdgo/encoding/binary/Binary.hx:183: characters 66-178 : Go Invalid expected type Abstract: Int
 stdgo/encoding/binary/Binary.hx:183: characters 180-295 : Go Invalid expected type Abstract: Int
 stdgo/encoding/binary/Binary.hx:185: characters 1-37 : stdgo.GoInt64 should be Int

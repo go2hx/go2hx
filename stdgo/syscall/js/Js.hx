@@ -98,7 +98,7 @@ final typeFunction:Type = ((0 : GoInt) : Type);
 		return false;
 
 	@:embedded
-	public function float():GoFloat64
+	public function float_():GoFloat64
 		return (0 : GoFloat64);
 
 	@:embedded
@@ -114,7 +114,7 @@ final typeFunction:Type = ((0 : GoInt) : Type);
 		return false;
 
 	@:embedded
-	public function int():GoInt
+	public function int_():GoInt
 		return (0 : GoInt);
 
 	@:embedded
@@ -246,7 +246,7 @@ final typeFunction:Type = ((0 : GoInt) : Type);
 		return false;
 
 	@:embedded
-	public function float():GoFloat64
+	public function float_():GoFloat64
 		return (0 : GoFloat64);
 
 	@:embedded
@@ -262,7 +262,7 @@ final typeFunction:Type = ((0 : GoInt) : Type);
 		return false;
 
 	@:embedded
-	public function int():GoInt
+	public function int_():GoInt
 		return (0 : GoInt);
 
 	@:embedded
@@ -575,8 +575,8 @@ class Func_asInterface {
 		return __self__.invoke(..._args);
 
 	@:embedded
-	public function int():GoInt
-		return __self__.int();
+	public function int_():GoInt
+		return __self__.int_();
 
 	@:embedded
 	public function instanceOf(__0:Value):Bool
@@ -591,8 +591,8 @@ class Func_asInterface {
 		return __self__.get(_p);
 
 	@:embedded
-	public function float():GoFloat64
-		return __self__.float();
+	public function float_():GoFloat64
+		return __self__.float_();
 
 	@:embedded
 	public function equal(__0:Value):Bool
@@ -684,8 +684,8 @@ class Func_asInterface {
 		return __self__.invoke(..._args);
 
 	@:embedded
-	public static function int(__self__:Func):GoInt
-		return __self__.int();
+	public static function int_(__self__:Func):GoInt
+		return __self__.int_();
 
 	@:embedded
 	public static function instanceOf(__self__:Func, __0:Value):Bool
@@ -700,8 +700,8 @@ class Func_asInterface {
 		return __self__.get(_p);
 
 	@:embedded
-	public static function float(__self__:Func):GoFloat64
-		return __self__.float();
+	public static function float_(__self__:Func):GoFloat64
+		return __self__.float_();
 
 	@:embedded
 	public static function equal(__self__:Func, __0:Value):Bool
@@ -760,16 +760,16 @@ class Value_asInterface {
 		// It panics if v is not a JavaScript number.
 	**/
 	@:keep
-	public function int():GoInt
-		return __self__.int();
+	public function int_():GoInt
+		return __self__.int_();
 
 	/**
 		// Float returns the value v as a float64.
 		// It panics if v is not a JavaScript number.
 	**/
 	@:keep
-	public function float():GoFloat64
-		return __self__.float();
+	public function float_():GoFloat64
+		return __self__.float_();
 
 	@:keep
 	public function _float(_method:GoString):GoFloat64
@@ -941,16 +941,16 @@ class Value_asInterface {
 		// It panics if v is not a JavaScript number.
 	**/
 	@:keep
-	static public function int(_v:Value):GoInt
-		throw "syscall.js.int is not yet implemented";
+	static public function int_(_v:Value):GoInt
+		throw "syscall.js.int_ is not yet implemented";
 
 	/**
 		// Float returns the value v as a float64.
 		// It panics if v is not a JavaScript number.
 	**/
 	@:keep
-	static public function float(_v:Value):GoFloat64
-		throw "syscall.js.float is not yet implemented";
+	static public function float_(_v:Value):GoFloat64
+		throw "syscall.js.float_ is not yet implemented";
 
 	@:keep
 	static public function _float(_v:Value, _method:GoString):GoFloat64
@@ -1133,8 +1133,8 @@ class T_error_asInterface {
 		return __self__.invoke(..._args);
 
 	@:embedded
-	public function int():GoInt
-		return __self__.int();
+	public function int_():GoInt
+		return __self__.int_();
 
 	@:embedded
 	public function instanceOf(__0:Value):Bool
@@ -1149,8 +1149,8 @@ class T_error_asInterface {
 		return __self__.get(_p);
 
 	@:embedded
-	public function float():GoFloat64
-		return __self__.float();
+	public function float_():GoFloat64
+		return __self__.float_();
 
 	@:embedded
 	public function equal(__0:Value):Bool
@@ -1240,8 +1240,8 @@ class T_error_asInterface {
 		return __self__.invoke(..._args);
 
 	@:embedded
-	public static function int(__self__:T_error):GoInt
-		return __self__.int();
+	public static function int_(__self__:T_error):GoInt
+		return __self__.int_();
 
 	@:embedded
 	public static function instanceOf(__self__:T_error, __0:Value):Bool
@@ -1256,8 +1256,8 @@ class T_error_asInterface {
 		return __self__.get(_p);
 
 	@:embedded
-	public static function float(__self__:T_error):GoFloat64
-		return __self__.float();
+	public static function float_(__self__:T_error):GoFloat64
+		return __self__.float_();
 
 	@:embedded
 	public static function equal(__self__:T_error, __0:Value):Bool

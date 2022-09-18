@@ -349,7 +349,7 @@ function testConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void {
 									_seed = _seed + ((expFloat64() : GoInt64));
 									_seed = _seed + ((float32() : GoInt64));
 									_seed = _seed + ((float64() : GoInt64));
-									_seed = _seed + ((intn(int()) : GoInt64));
+									_seed = _seed + ((intn(int_()) : GoInt64));
 									_seed = _seed + ((int31n(int31()) : GoInt64));
 									_seed = _seed + ((int63n(int63()) : GoInt64));
 									_seed = _seed + ((normFloat64() : GoInt64));

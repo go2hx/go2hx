@@ -168,7 +168,7 @@ function _boolString(_s:GoString):GoString {
 function testEverything(_t:Ref<stdgo.testing.Testing.T>):Void {
 	resetForTesting(null);
 	bool_((Go.str("test_bool") : GoString), false, (Go.str("bool value") : GoString));
-	int((Go.str("test_int") : GoString), (0 : GoInt), (Go.str("int value") : GoString));
+	int_((Go.str("test_int") : GoString), (0 : GoInt), (Go.str("int value") : GoString));
 	int64((Go.str("test_int64") : GoString), (0 : GoInt64), (Go.str("int64 value") : GoString));
 	uint((Go.str("test_uint") : GoString), (0 : GoUInt), (Go.str("uint value") : GoString));
 	uint64((Go.str("test_uint64") : GoString), (0 : GoUInt64), (Go.str("uint64 value") : GoString));
@@ -298,7 +298,7 @@ function testEverything(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testGet(_t:Ref<stdgo.testing.Testing.T>):Void {
 	resetForTesting(null);
 	bool_((Go.str("test_bool") : GoString), true, (Go.str("bool value") : GoString));
-	int((Go.str("test_int") : GoString), (1 : GoInt), (Go.str("int value") : GoString));
+	int_((Go.str("test_int") : GoString), (1 : GoInt), (Go.str("int value") : GoString));
 	int64((Go.str("test_int64") : GoString), (2 : GoInt64), (Go.str("int64 value") : GoString));
 	uint((Go.str("test_uint") : GoString), (3 : GoUInt), (Go.str("uint value") : GoString));
 	uint64((Go.str("test_uint64") : GoString), (4 : GoUInt64), (Go.str("uint64 value") : GoString));
@@ -360,7 +360,7 @@ function _testParse(_f:Ref<FlagSet>, _t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	var _boolFlag = _f.bool_((Go.str("bool") : GoString), false, (Go.str("bool value") : GoString));
 	var _bool2Flag = _f.bool_((Go.str("bool2") : GoString), false, (Go.str("bool2 value") : GoString));
-	var _intFlag = _f.int((Go.str("int") : GoString), (0 : GoInt), (Go.str("int value") : GoString));
+	var _intFlag = _f.int_((Go.str("int") : GoString), (0 : GoInt), (Go.str("int value") : GoString));
 	var _int64Flag = _f.int64((Go.str("int64") : GoString), (0 : GoInt64), (Go.str("int64 value") : GoString));
 	var _uintFlag = _f.uint((Go.str("uint") : GoString), (0 : GoUInt), (Go.str("uint value") : GoString));
 	var _uint64Flag = _f.uint64((Go.str("uint64") : GoString), (0 : GoUInt64), (Go.str("uint64 value") : GoString));
@@ -674,12 +674,12 @@ function testPrintDefaults(_t:Ref<stdgo.testing.Testing.T>):Void {
 	_fs.float64((Go.str("F") : GoString), (2.7 : GoFloat64), (Go.str("a non-zero `number`") : GoString));
 	_fs.float64((Go.str("G") : GoString), (0 : GoFloat64), (Go.str("a float that defaults to zero") : GoString));
 	_fs.string((Go.str("M") : GoString), (Go.str() : GoString), (Go.str("a multiline\nhelp\nstring") : GoString));
-	_fs.int((Go.str("N") : GoString), (27 : GoInt), (Go.str("a non-zero int") : GoString));
+	_fs.int_((Go.str("N") : GoString), (27 : GoInt), (Go.str("a non-zero int") : GoString));
 	_fs.bool_((Go.str("O") : GoString), true, (Go.str("a flag\nmultiline help string") : GoString));
 	_fs.var_(Go.asInterface((new stdgo.flag_test.Flag_test.T_flagVar(0, 0, (Go.str("a") : GoString),
 		(Go.str("b") : GoString)) : stdgo.flag_test.Flag_test.T_flagVar)),
 		(Go.str("V") : GoString), (Go.str("a `list` of strings") : GoString));
-	_fs.int((Go.str("Z") : GoString), (0 : GoInt), (Go.str("an int that defaults to zero") : GoString));
+	_fs.int_((Go.str("Z") : GoString), (0 : GoInt), (Go.str("an int that defaults to zero") : GoString));
 	_fs.var_(Go.asInterface((new stdgo.flag_test.Flag_test.T_zeroPanicker(true, (Go.str() : GoString)) : stdgo.flag_test.Flag_test.T_zeroPanicker)),
 		(Go.str("ZP0") : GoString), (Go.str("a flag whose String method panics when it is zero") : GoString));
 	_fs.var_(Go.asInterface((new stdgo.flag_test.Flag_test.T_zeroPanicker(true, (Go.str("something") : GoString)) : stdgo.flag_test.Flag_test.T_zeroPanicker)),
@@ -701,7 +701,7 @@ function testIntFlagOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
 		return;
 	};
 	resetForTesting(null);
-	int((Go.str("i") : GoString), (0 : GoInt), (Go.str() : GoString));
+	int_((Go.str("i") : GoString), (0 : GoInt), (Go.str() : GoString));
 	uint((Go.str("u") : GoString), (0 : GoUInt), (Go.str() : GoString));
 	{
 		var _err:stdgo.Error = set((Go.str("i") : GoString), (Go.str("2147483648") : GoString));
@@ -808,7 +808,7 @@ function testParseError(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var _fs = newFlagSet((Go.str("parse error test") : GoString), (0 : ErrorHandling));
 		_fs.setOutput(stdgo.io.Io.discard);
 		_fs.bool_((Go.str("bool") : GoString), false, (Go.str() : GoString));
-		_fs.int((Go.str("int") : GoString), (0 : GoInt), (Go.str() : GoString));
+		_fs.int_((Go.str("int") : GoString), (0 : GoInt), (Go.str() : GoString));
 		_fs.int64((Go.str("int64") : GoString), (0 : GoInt64), (Go.str() : GoString));
 		_fs.uint((Go.str("uint") : GoString), (0 : GoUInt), (Go.str() : GoString));
 		_fs.uint64((Go.str("uint64") : GoString), (0 : GoUInt64), (Go.str() : GoString));
@@ -834,7 +834,7 @@ function testRangeError(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _arg in _bad) {
 		var _fs = newFlagSet((Go.str("parse error test") : GoString), (0 : ErrorHandling));
 		_fs.setOutput(stdgo.io.Io.discard);
-		_fs.int((Go.str("int") : GoString), (0 : GoInt), (Go.str() : GoString));
+		_fs.int_((Go.str("int") : GoString), (0 : GoInt), (Go.str() : GoString));
 		_fs.int64((Go.str("int64") : GoString), (0 : GoInt64), (Go.str() : GoString));
 		_fs.uint((Go.str("uint") : GoString), (0 : GoUInt), (Go.str() : GoString));
 		_fs.uint64((Go.str("uint64") : GoString), (0 : GoUInt64), (Go.str() : GoString));

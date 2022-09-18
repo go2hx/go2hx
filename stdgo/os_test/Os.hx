@@ -23,7 +23,7 @@ function main():Void {
 	Sys.exit((stdgo.reflect.Reflect.valueOf(Go.toInterface(_m))
 		.elem()
 		.fieldByName((Go.str("exitCode") : GoString))
-		.int() : GoInt));
+		.int_() : GoInt));
 }
 
 @:keep var _ = {

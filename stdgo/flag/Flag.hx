@@ -696,8 +696,8 @@ function intVar(_p:Pointer<GoInt>, _name:GoString, _value:GoInt, _usage:GoString
 	// Int defines an int flag with specified name, default value, and usage string.
 	// The return value is the address of an int variable that stores the value of the flag.
 **/
-function int(_name:GoString, _value:GoInt, _usage:GoString):Pointer<GoInt> {
-	return commandLine.int(_name, _value, _usage);
+function int_(_name:GoString, _value:GoInt, _usage:GoString):Pointer<GoInt> {
+	return commandLine.int_(_name, _value, _usage);
 }
 
 /**
@@ -1119,8 +1119,8 @@ class FlagSet_asInterface {
 		// The return value is the address of an int variable that stores the value of the flag.
 	**/
 	@:keep
-	public function int(_name:GoString, _value:GoInt, _usage:GoString):Pointer<GoInt>
-		return __self__.int(_name, _value, _usage);
+	public function int_(_name:GoString, _value:GoInt, _usage:GoString):Pointer<GoInt>
+		return __self__.int_(_name, _value, _usage);
 
 	/**
 		// IntVar defines an int flag with specified name, default value, and usage string.
@@ -1697,7 +1697,7 @@ class FlagSet_asInterface {
 		// The return value is the address of an int variable that stores the value of the flag.
 	**/
 	@:keep
-	static public function int(_f:Ref<FlagSet>, _name:GoString, _value:GoInt, _usage:GoString):Pointer<GoInt> {
+	static public function int_(_f:Ref<FlagSet>, _name:GoString, _value:GoInt, _usage:GoString):Pointer<GoInt> {
 		var _p = Go.pointer((0 : GoInt));
 		_f.intVar(_p, _name, _value, _usage);
 		return _p;

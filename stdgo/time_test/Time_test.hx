@@ -6483,7 +6483,7 @@ function _equal(_t:Ref<stdgo.testing.Testing.T>, _f1:stdgo.reflect.Reflect.Value
 		|| _f1.type().kind() == ((4 : stdgo.reflect.Reflect.Kind))
 		|| _f1.type().kind() == ((5 : stdgo.reflect.Reflect.Kind))
 		|| _f1.type().kind() == ((6 : stdgo.reflect.Reflect.Kind))) {
-		return _f1.int() == _f2.int();
+		return _f1.int_() == _f2.int_();
 	} else if (_f1.type().kind() == ((7 : stdgo.reflect.Reflect.Kind))
 		|| _f1.type().kind() == ((8 : stdgo.reflect.Reflect.Kind))
 		|| _f1.type().kind() == ((9 : stdgo.reflect.Reflect.Kind))

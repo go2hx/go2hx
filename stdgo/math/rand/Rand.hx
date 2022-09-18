@@ -733,8 +733,8 @@ function int31():GoInt32 {
 /**
 	// Int returns a non-negative pseudo-random int from the default Source.
 **/
-function int():GoInt {
-	return _globalRand.int();
+function int_():GoInt {
+	return _globalRand.int_();
 }
 
 /**
@@ -957,8 +957,8 @@ class Rand_asInterface {
 		// Int returns a non-negative pseudo-random int.
 	**/
 	@:keep
-	public function int():GoInt
-		return __self__.int();
+	public function int_():GoInt
+		return __self__.int_();
 
 	/**
 		// Int31 returns a non-negative pseudo-random 31-bit integer as an int32.
@@ -1208,7 +1208,7 @@ class Rand_asInterface {
 		// Int returns a non-negative pseudo-random int.
 	**/
 	@:keep
-	static public function int(_r:Ref<Rand>):GoInt {
+	static public function int_(_r:Ref<Rand>):GoInt {
 		var _u:GoUInt = (_r.int63() : GoUInt);
 		return ((_u << (1 : GoUnTypedInt)) >> (1 : GoUnTypedInt) : GoInt);
 	}

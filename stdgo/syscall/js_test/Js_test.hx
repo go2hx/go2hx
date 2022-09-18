@@ -120,14 +120,14 @@ function testInt(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _want:GoInt = (42 : GoInt);
 	var _o:Value = (_dummys.get((Go.str("someInt") : GoString)) == null ? null : _dummys.get((Go.str("someInt") : GoString)).__copy__());
 	{
-		var _got:GoInt = _o.int();
+		var _got:GoInt = _o.int_();
 		if (_got != _want) {
 			_t.errorf((Go.str("got %#v, want %#v") : GoString), Go.toInterface(_got), Go.toInterface(_want));
 		};
 	};
 	_dummys.set((Go.str("otherInt") : GoString), Go.toInterface(_want));
 	{
-		var _got:GoInt = _dummys.get((Go.str("otherInt") : GoString)).int();
+		var _got:GoInt = _dummys.get((Go.str("otherInt") : GoString)).int_();
 		if (_got != _want) {
 			_t.errorf((Go.str("got %#v, want %#v") : GoString), Go.toInterface(_got), Go.toInterface(_want));
 		};
@@ -137,7 +137,7 @@ function testInt(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_t.errorf((Go.str("same value not equal") : GoString));
 	};
 	{
-		var _got:GoInt = _dummys.get((Go.str("zero") : GoString)).int();
+		var _got:GoInt = _dummys.get((Go.str("zero") : GoString)).int_();
 		if (_got != (0 : GoInt)) {
 			_t.errorf((Go.str("got %#v, want %#v") : GoString), Go.toInterface(_got), Go.toInterface((0 : GoInt)));
 		};
@@ -158,7 +158,7 @@ function testIntConversion(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function _testIntConversion(_t:Ref<stdgo.testing.Testing.T>, _want:GoInt):Void {
 	{
-		var _got:GoInt = stdgo.syscall.js.Js.valueOf(Go.toInterface(_want)).int();
+		var _got:GoInt = stdgo.syscall.js.Js.valueOf(Go.toInterface(_want)).int_();
 		if (_got != _want) {
 			_t.errorf((Go.str("got %#v, want %#v") : GoString), Go.toInterface(_got), Go.toInterface(_want));
 		};
@@ -169,14 +169,14 @@ function testFloat(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _want:GoFloat64 = (42.123 : GoFloat64);
 	var _o:Value = (_dummys.get((Go.str("someFloat") : GoString)) == null ? null : _dummys.get((Go.str("someFloat") : GoString)).__copy__());
 	{
-		var _got:GoFloat64 = _o.float();
+		var _got:GoFloat64 = _o.float_();
 		if (_got != _want) {
 			_t.errorf((Go.str("got %#v, want %#v") : GoString), Go.toInterface(_got), Go.toInterface(_want));
 		};
 	};
 	_dummys.set((Go.str("otherFloat") : GoString), Go.toInterface(_want));
 	{
-		var _got:GoFloat64 = _dummys.get((Go.str("otherFloat") : GoString)).float();
+		var _got:GoFloat64 = _dummys.get((Go.str("otherFloat") : GoString)).float_();
 		if (_got != _want) {
 			_t.errorf((Go.str("got %#v, want %#v") : GoString), Go.toInterface(_got), Go.toInterface(_want));
 		};
@@ -216,7 +216,7 @@ function testFrozenObject(_t:Ref<stdgo.testing.Testing.T>):Void {
 		.__copy__());
 	var _want:GoInt = (5 : GoInt);
 	{
-		var _got:GoInt = _o.get((Go.str("field") : GoString)).int();
+		var _got:GoInt = _o.get((Go.str("field") : GoString)).int_();
 		if (_want != _got) {
 			_t.errorf((Go.str("got %#v, want %#v") : GoString), Go.toInterface(_got), Go.toInterface(_want));
 		};
@@ -333,7 +333,7 @@ function testDelete(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testIndex(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
-		var _got:GoInt = _dummys.get((Go.str("someArray") : GoString)).index((1 : GoInt)).int();
+		var _got:GoInt = _dummys.get((Go.str("someArray") : GoString)).index((1 : GoInt)).int_();
 		if (_got != (42 : GoInt)) {
 			_t.errorf((Go.str("got %#v, want %#v") : GoString), Go.toInterface(_got), Go.toInterface((42 : GoInt)));
 		};
@@ -346,7 +346,7 @@ function testIndex(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testSetIndex(_t:Ref<stdgo.testing.Testing.T>):Void {
 	_dummys.get((Go.str("someArray") : GoString)).setIndex((2 : GoInt), Go.toInterface((99 : GoInt)));
 	{
-		var _got:GoInt = _dummys.get((Go.str("someArray") : GoString)).index((2 : GoInt)).int();
+		var _got:GoInt = _dummys.get((Go.str("someArray") : GoString)).index((2 : GoInt)).int_();
 		if (_got != (99 : GoInt)) {
 			_t.errorf((Go.str("got %#v, want %#v") : GoString), Go.toInterface(_got), Go.toInterface((99 : GoInt)));
 		};
@@ -359,7 +359,7 @@ function testSetIndex(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testCall(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _i:GoInt64 = (40 : GoInt64);
 	{
-		var _got:GoInt = _dummys.call((Go.str("add") : GoString), Go.toInterface(_i), Go.toInterface((2 : GoInt))).int();
+		var _got:GoInt = _dummys.call((Go.str("add") : GoString), Go.toInterface(_i), Go.toInterface((2 : GoInt))).int_();
 		if (_got != (42 : GoInt)) {
 			_t.errorf((Go.str("got %#v, want %#v") : GoString), Go.toInterface(_got), Go.toInterface((42 : GoInt)));
 		};
@@ -368,7 +368,7 @@ function testCall(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var _got:GoInt = _dummys.call((Go.str("add") : GoString),
 			Go.toInterface(Go.asInterface(stdgo.syscall.js.Js.global().call((Go.str("eval") : GoString), Go.toInterface((Go.str("40") : GoString))))),
 			Go.toInterface((2 : GoInt)))
-			.int();
+			.int_();
 		if (_got != (42 : GoInt)) {
 			_t.errorf((Go.str("got %#v, want %#v") : GoString), Go.toInterface(_got), Go.toInterface((42 : GoInt)));
 		};
@@ -384,7 +384,7 @@ function testCall(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testInvoke(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _i:GoInt64 = (40 : GoInt64);
 	{
-		var _got:GoInt = _dummys.get((Go.str("add") : GoString)).invoke(Go.toInterface(_i), Go.toInterface((2 : GoInt))).int();
+		var _got:GoInt = _dummys.get((Go.str("add") : GoString)).invoke(Go.toInterface(_i), Go.toInterface((2 : GoInt))).int_();
 		if (_got != (42 : GoInt)) {
 			_t.errorf((Go.str("got %#v, want %#v") : GoString), Go.toInterface(_got), Go.toInterface((42 : GoInt)));
 		};
@@ -518,7 +518,7 @@ function testValueOf(_t:Ref<stdgo.testing.Testing.T>):Void {
 			Go.toInterface((0 : GoInt))) : Slice<AnyInterface>)))
 		.__copy__());
 	{
-		var _got:GoInt = _a.index((1 : GoInt)).index((1 : GoInt)).int();
+		var _got:GoInt = _a.index((1 : GoInt)).index((1 : GoInt)).int_();
 		if (_got != (42 : GoInt)) {
 			_t.errorf((Go.str("got %v, want %v") : GoString), Go.toInterface(_got), Go.toInterface((42 : GoInt)));
 		};
@@ -557,7 +557,7 @@ function testValueOf(_t:Ref<stdgo.testing.Testing.T>):Void {
 		x;
 	})).__copy__());
 	{
-		var _got:GoInt = _o.get((Go.str("x") : GoString)).get((Go.str("y") : GoString)).int();
+		var _got:GoInt = _o.get((Go.str("x") : GoString)).get((Go.str("y") : GoString)).int_();
 		if (_got != (42 : GoInt)) {
 			_t.errorf((Go.str("got %v, want %v") : GoString), Go.toInterface(_got), Go.toInterface((42 : GoInt)));
 		};
@@ -577,7 +577,7 @@ function testFuncOf(_t:Ref<stdgo.testing.Testing.T>):Void {
 	try {
 		var _cb:Func = (stdgo.syscall.js.Js.funcOf(function(_this:Value, _args:Slice<Value>):AnyInterface {
 			{
-				var _got:GoInt = _args[(0 : GoInt)].int();
+				var _got:GoInt = _args[(0 : GoInt)].int_();
 				if (_got != (42 : GoInt)) {
 					_t.errorf((Go.str("got %#v, want %#v") : GoString), Go.toInterface(_got), Go.toInterface((42 : GoInt)));
 				};
@@ -586,7 +586,7 @@ function testFuncOf(_t:Ref<stdgo.testing.Testing.T>):Void {
 			return (null : AnyInterface);
 		}) == null ? null : stdgo.syscall.js.Js.funcOf(function(_this:Value, _args:Slice<Value>):AnyInterface {
 			{
-				var _got:GoInt = _args[(0 : GoInt)].int();
+				var _got:GoInt = _args[(0 : GoInt)].int_();
 				if (_got != (42 : GoInt)) {
 					_t.errorf((Go.str("got %#v, want %#v") : GoString), Go.toInterface(_got), Go.toInterface((42 : GoInt)));
 				};
@@ -707,7 +707,7 @@ function testInvokeFunction(_t:Ref<stdgo.testing.Testing.T>):Void {
 		}).__copy__());
 		__deferstack__.unshift(() -> _cb.release());
 		{
-			var _got:GoInt = _cb.invoke().int();
+			var _got:GoInt = _cb.invoke().int_();
 			if (_got != (42 : GoInt)) {
 				_t.errorf((Go.str("got %#v, want %#v") : GoString), Go.toInterface(_got), Go.toInterface((42 : GoInt)));
 			};
@@ -974,7 +974,7 @@ function testCopyBytesToJS(_t:Ref<stdgo.testing.Testing.T>):Void {
 				};
 				if (_tt._dstLen >= (2 : GoInt)) {
 					{
-						var _got:GoInt = _dst.index((1 : GoInt)).int(),
+						var _got:GoInt = _dst.index((1 : GoInt)).int_(),
 							_want:GoInt = (42 : GoInt);
 						if (_got != _want) {
 							_t.errorf((Go.str("got %d, want %d") : GoString), Go.toInterface(_got), Go.toInterface(_want));

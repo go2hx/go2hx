@@ -1,12 +1,12 @@
 [
- "interp|math/bits",
  "hl|math/bits",
- "interp|sort",
  "hl|sort",
- "interp|unicode",
  "hl|unicode",
- "interp|unicode/utf16",
  "hl|unicode/utf16",
- "interp|unicode/utf8",
- "hl|unicode/utf8"
+ "hl|unicode/utf8",
+ "interp|math/bits",
+ "interp|sort",
+ "interp|unicode",
+ "interp|unicode/utf16",
+ "interp|unicode/utf8"
 ]

@@ -1,4 +1,4 @@
-name: CI
+name: build
 
 on: [push,pull_request]
 
@@ -23,7 +23,7 @@ jobs:
         run: npm i lix -g
       - name: Run lix
         run: npx lix download
-      - name: Build source
+      - name: Set source
         run: npx haxelib dev go2hx .
       - name: Test run
         run: npx haxelib run go2hx ./rnd
@@ -55,7 +55,7 @@ jobs:
       #       HXCPP_COMPILE_CACHE: ~/hxcppcache
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: StdGo automatic compile
+          commit_message: stdGo automatic compile
       - name: Get go2hxdoc
         run: go get github.com/go2hx/go2hxdoc
       - name: Build go2hxdoc

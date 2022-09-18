@@ -341,8 +341,8 @@ class Value {
 		this.value = value;
 	}
 
-	function setSet(bool:Bool = true) {
-		notSetBool = bool;
+	function setSet(_bool:Bool = true) {
+		notSetBool = _bool;
 		return this;
 	}
 
@@ -354,8 +354,8 @@ class Value {
 		return true;
 	}
 
-	private function setAddr(bool:Bool = true) {
-		canAddrBool = bool;
+	private function setAddr(_bool:Bool = true) {
+		canAddrBool = _bool;
 		return this;
 	}
 
@@ -561,7 +561,7 @@ class Value {
 		return @:privateAccess value.type.common().value != invalidType;
 	}
 
-	public function bool():Bool {
+	public function bool_():Bool {
 		var value = value.value;
 		if (isNamed(@:privateAccess type().common().value))
 			value = (value : Dynamic).__t__;
@@ -1175,7 +1175,7 @@ class _Type {
 				_invalid;
 			case basic(kind):
 				switch kind {
-					case int_kind: int;
+					case int_kind: int_;
 					case int8_kind: int8;
 					case int16_kind: int16;
 					case int32_kind: int32;
@@ -1190,11 +1190,11 @@ class _Type {
 					case complex64_kind: complex64;
 					case complex128_kind: complex128;
 					case invalid_kind: invalid;
-					case bool_kind: bool;
+					case bool_kind: bool_;
 					case string_kind: __string;
 					case uintptr_kind: uintptr;
 					case unsafepointer_kind: unsafePointer;
-					case untyped_bool_kind: bool;
+					case untyped_bool_kind: bool_;
 					case untyped_complex_kind: complex128;
 					case untyped_float_kind: float64;
 					case untyped_int_kind: int64;
@@ -1213,7 +1213,7 @@ class _Type {
 			case sliceType(_): slice;
 			case tuple(_, _): throw "tuple type to kind not supported";
 			case signature(_, _, _, _): func;
-			case structType(_): struct;
+			case structType(_): struct_;
 		}
 		#end
 	}
@@ -1946,8 +1946,8 @@ final _string = 24;
 final _struct = 25;
 final _unsafePointer = 26;
 final invalid:Kind = new Kind(_invalid);
-final bool:Kind = new Kind(_bool);
-final int:Kind = new Kind(_int);
+final bool_:Kind = new Kind(_bool);
+final int_:Kind = new Kind(_int);
 final int8:Kind = new Kind(_int8);
 final int16:Kind = new Kind(_int16);
 final int32:Kind = new Kind(_int32);
@@ -1970,7 +1970,7 @@ final map:Kind = new Kind(_map);
 final ptr:Kind = new Kind(_ptr);
 final slice:Kind = new Kind(_slice);
 final toString:Kind = new Kind(_string);
-final struct:Kind = new Kind(_struct);
+final struct_:Kind = new Kind(_struct);
 final unsafePointer:Kind = new Kind(_unsafePointer);
 final __string = toString;
 
@@ -2017,7 +2017,7 @@ function deepValueEqual(v1:Value, v2:Value, visited:GoMap<Visit, Bool>, depth:Go
 			return true;
 		};
 		return deepValueEqual(v1.elem(), v2.elem(), visited, depth + (1 : GoInt64));
-	} else if (v1.kind() == struct) {
+	} else if (v1.kind() == struct_) {
 		for (i in 0...v1.numField().toBasic()) {
 			if (!deepValueEqual(v1.field(i), v2.field(i), visited, depth + (1 : GoInt64))) {
 				return false;

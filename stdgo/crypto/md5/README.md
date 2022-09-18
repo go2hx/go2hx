@@ -1,0 +1,10 @@
+# Module stdgo.crypto.md5 has compilation errors, please do not use:
+```
+stdgo/crypto/md5/Md5.hx:68: characters 75-85 : stdgo.Slice<stdgo.GoUInt8> has no field __setCap__
+stdgo/encoding/binary/Binary.hx:183: characters 66-178 : Go Invalid expected type Abstract: Int
+stdgo/encoding/binary/Binary.hx:183: characters 180-295 : Go Invalid expected type Abstract: Int
+stdgo/encoding/binary/Binary.hx:185: characters 1-37 : stdgo.GoInt64 should be Int
+stdgo/encoding/binary/Binary.hx:185: characters 1-37 : ... For function argument 'length'
+
+```
+

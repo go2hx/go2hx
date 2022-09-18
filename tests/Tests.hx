@@ -314,6 +314,7 @@ private function close() {
 				log(obj);
 			Sys.exit(1);
 		}
+		input.sort((a, b) -> a > b ? 1 : -1);
 		File.saveContent('tests/$type.json', Json.stringify(input, null, " "));
 	}
 	logOutput.close();

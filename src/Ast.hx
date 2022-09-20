@@ -34,10 +34,6 @@ class Comment {
 @:structInit
 class CommentGroup {
 	public var list:Array<Comment>;
-
-	public function new(list:Array<Comment>) {
-		this.list = list;
-	}
 }
 
 @:structInit
@@ -47,14 +43,6 @@ class Field {
 	public var type:Expr;
 	public var tag:String;
 	public var comment:CommentGroup;
-
-	public function new(doc:CommentGroup, names:Array<Ident>, type:Expr, tag:String, comment:CommentGroup) {
-		this.doc = doc;
-		this.names = names;
-		this.type = type;
-		this.tag = tag;
-		this.comment = comment
-	}
 }
 
 @:structInit
@@ -62,12 +50,6 @@ class FieldList {
 	public var opening:Pos;
 	public var list:Array<Field>;
 	public var closing:Pos;
-
-	public function new(opening:Pos, list:Array<Field>, closing:Pos) {
-		this.opening = opening;
-		this.list = list;
-		this.closing = closing;
-	}
 }
 
 @:structInit
@@ -76,17 +58,16 @@ class BadExpr {
 	public var from:Pos;
 	public var to:Pos;
 
-	public function new() {}
+public function new(?from:Pos, ?to:Pos) {this.from = from;this.to = to;}
 }
 
 @:structInit
 class Ident {
 	public var name:String;
 	public var type:ExprType;
-	?
 	public var kind:ObjKind;
 
-	public function new() {}
+public function new(?name:String, ?type:ExprType, ?kind:ObjKind) {this.name = name;this.type = type;this.kind = kind;}
 }
 
 @:structInit
@@ -95,7 +76,7 @@ class Ellipsis {
 	public var ellipsis:Pos;
 	public var elt:Expr;
 
-	public function new() {}
+public function new(?ellipsis:Pos, ?elt:Expr) {this.ellipsis = ellipsis;this.elt = elt;}
 }
 
 @:structInit
@@ -107,7 +88,7 @@ class BasicLit {
 	public var value:String;
 	public var raw:Bool;
 
-	public function new() {}
+public function new(?valuePos:Pos, ?kind:Token, ?type:ExprType, ?value:String, ?raw:Bool) {this.valuePos = valuePos;this.kind = kind;this.type = type;this.value = value;this.raw = raw;}
 }
 
 @:structInit
@@ -116,7 +97,7 @@ class FuncLit {
 	public var type:FuncType;
 	public var body:BlockStmt;
 
-	public function new() {}
+public function new(?type:FuncType, ?body:BlockStmt) {this.type = type;this.body = body;}
 }
 
 @:structInit
@@ -128,7 +109,7 @@ class CompositeLit {
 	public var rbrace:Pos;
 	public var incomplete:Bool;
 
-	public function new() {}
+public function new(?type:Expr, ?lbrace:Pos, ?elts:Array<Expr>, ?rbrace:Pos, ?incomplete:Bool) {this.type = type;this.lbrace = lbrace;this.elts = elts;this.rbrace = rbrace;this.incomplete = incomplete;}
 }
 
 @:structInit
@@ -138,7 +119,7 @@ class ParenExpr {
 	public var x:Expr;
 	public var rparen:Pos;
 
-	public function new() {}
+public function new(?lparen:Pos, ?x:Expr, ?rparen:Pos) {this.lparen = lparen;this.x = x;this.rparen = rparen;}
 }
 
 @:structInit
@@ -149,7 +130,7 @@ class SelectorExpr {
 	public var recv:ExprType;
 	public var type:ExprType;
 
-	public function new() {}
+public function new(?x:Expr, ?sel:Ident, ?recv:ExprType, ?type:ExprType) {this.x = x;this.sel = sel;this.recv = recv;this.type = type;}
 }
 
 @:structInit
@@ -161,7 +142,7 @@ class IndexExpr {
 	public var rbrack:Pos;
 	public var type:ExprType;
 
-	public function new() {}
+public function new(?x:Expr, ?lbrack:Pos, ?index:Expr, ?rbrack:Pos, ?type:ExprType) {this.x = x;this.lbrack = lbrack;this.index = index;this.rbrack = rbrack;this.type = type;}
 }
 
 @:structInit
@@ -172,7 +153,7 @@ class IndexListExpr {
 	public var rbrack:Pos;
 	public var type:ExprType;
 
-	public function new() {}
+public function new(?x:Expr, ?indices:Array<Expr>, ?lbrack:Pos, ?rbrack:Pos, ?type:ExprType) {this.x = x;this.indices = indices;this.lbrack = lbrack;this.rbrack = rbrack;this.type = type;}
 }
 
 @:structInit
@@ -187,7 +168,7 @@ class SliceExpr {
 	public var rbrack:Pos;
 	public var type:ExprType;
 
-	public function new() {}
+public function new(?x:Expr, ?lbrack:Pos, ?low:Expr, ?high:Expr, ?max:Expr, ?slice3:Bool, ?rbrack:Pos, ?type:ExprType) {this.x = x;this.lbrack = lbrack;this.low = low;this.high = high;this.max = max;this.slice3 = slice3;this.rbrack = rbrack;this.type = type;}
 }
 
 @:structInit
@@ -198,7 +179,7 @@ class TypeAssertExpr {
 	public var type:Expr;
 	public var rparen:Pos;
 
-	public function new() {}
+public function new(?x:Expr, ?lparen:Pos, ?type:Expr, ?rparen:Pos) {this.x = x;this.lparen = lparen;this.type = type;this.rparen = rparen;}
 }
 
 @:structInit
@@ -211,7 +192,7 @@ class CallExpr {
 	public var rparen:Pos;
 	public var type:ExprType;
 
-	public function new() {}
+public function new(?fun:Expr, ?lparen:Pos, ?args:Array<Expr>, ?ellipsis:Pos, ?rparen:Pos, ?type:ExprType) {this.fun = fun;this.lparen = lparen;this.args = args;this.ellipsis = ellipsis;this.rparen = rparen;this.type = type;}
 }
 
 @:structInit
@@ -221,7 +202,7 @@ class StarExpr {
 	public var x:Expr;
 	public var type:ExprType;
 
-	public function new() {}
+public function new(?star:Pos, ?x:Expr, ?type:ExprType) {this.star = star;this.x = x;this.type = type;}
 }
 
 @:structInit
@@ -231,7 +212,7 @@ class UnaryExpr {
 	public var op:Token;
 	public var x:Expr;
 
-	public function new() {}
+public function new(?opPos:Pos, ?op:Token, ?x:Expr) {this.opPos = opPos;this.op = op;this.x = x;}
 }
 
 @:structInit
@@ -243,7 +224,7 @@ class BinaryExpr {
 	public var y:Expr;
 	public var type:ExprType;
 
-	public function new() {}
+public function new(?x:Expr, ?opPos:Pos, ?op:Token, ?y:Expr, ?type:ExprType) {this.x = x;this.opPos = opPos;this.op = op;this.y = y;this.type = type;}
 }
 
 @:structInit
@@ -253,7 +234,7 @@ class KeyValueExpr {
 	public var colon:Pos;
 	public var value:Expr;
 
-	public function new() {}
+public function new(?key:Expr, ?colon:Pos, ?value:Expr) {this.key = key;this.colon = colon;this.value = value;}
 }
 
 @:structInit
@@ -264,7 +245,7 @@ class ArrayType {
 	public var elt:Expr;
 	public var type:ExprType;
 
-	public function new() {}
+public function new(?lbrack:Pos, ?len:Expr, ?elt:Expr, ?type:ExprType) {this.lbrack = lbrack;this.len = len;this.elt = elt;this.type = type;}
 }
 
 @:structInit
@@ -275,14 +256,14 @@ class StructType {
 	public var incomplete:Bool;
 	public var type:ExprType;
 
-	public function new() {}
+public function new(?struct:Pos, ?fields:FieldList, ?incomplete:Bool, ?type:ExprType) {this.struct = struct;this.fields = fields;this.incomplete = incomplete;this.type = type;}
 }
 
 @:structInit
 class PointerType {
 	public var elem:ExprType;
 
-	public function new() {}
+public function new(?elem:ExprType) {this.elem = elem;}
 }
 
 @:structInit
@@ -294,7 +275,7 @@ class FuncType {
 	public var typeParams:FieldList;
 	public var type:ExprType;
 
-	public function new() {}
+public function new(?func:Pos, ?params:FieldList, ?results:FieldList, ?typeParams:FieldList, ?type:ExprType) {this.func = func;this.params = params;this.results = results;this.typeParams = typeParams;this.type = type;}
 }
 
 @:structInit
@@ -306,7 +287,7 @@ class InterfaceType {
 	public var incomplete:Bool;
 	public var type:ExprType;
 
-	public function new() {}
+public function new(?interfacePos:Pos, ?methods:FieldList, ?incomplete:Bool, ?type:ExprType) {this.interfacePos = interfacePos;this.methods = methods;this.incomplete = incomplete;this.type = type;}
 }
 
 @:structInit
@@ -317,7 +298,7 @@ class MapType {
 	public var value:Expr;
 	public var type:ExprType;
 
-	public function new() {}
+public function new(?map:Pos, ?key:Expr, ?value:Expr, ?type:ExprType) {this.map = map;this.key = key;this.value = value;this.type = type;}
 }
 
 @:structInit
@@ -329,7 +310,7 @@ class ChanType {
 	public var value:Expr;
 	public var type:ExprType;
 
-	public function new() {}
+public function new(?begin:Pos, ?arrow:Pos, ?dir:ChanDir, ?value:Expr, ?type:ExprType) {this.begin = begin;this.arrow = arrow;this.dir = dir;this.value = value;this.type = type;}
 }
 
 @:structInit
@@ -338,7 +319,7 @@ class BadStmt {
 	public var from:Pos;
 	public var to:Pos;
 
-	public function new() {}
+public function new(?from:Pos, ?to:Pos) {this.from = from;this.to = to;}
 }
 
 @:structInit
@@ -346,7 +327,7 @@ class DeclStmt {
 	// > Node,
 	public var decl:Decl;
 
-	public function new() {}
+public function new(?decl:Decl) {this.decl = decl;}
 }
 
 @:structInit
@@ -355,7 +336,7 @@ class EmptyStmt {
 	public var semicolon:Pos;
 	public var implicit:Bool;
 
-	public function new() {}
+public function new(?semicolon:Pos, ?implicit:Bool) {this.semicolon = semicolon;this.implicit = implicit;}
 }
 
 @:structInit
@@ -365,7 +346,7 @@ class LabeledStmt {
 	public var colon:Pos;
 	public var stmt:Stmt;
 
-	public function new() {}
+public function new(?label:Ident, ?colon:Pos, ?stmt:Stmt) {this.label = label;this.colon = colon;this.stmt = stmt;}
 }
 
 @:structInit
@@ -375,7 +356,7 @@ class ExprStmt {
 	public var end:Int;
 	public var pos:Int;
 
-	public function new() {}
+public function new(?x:Expr, ?end:Int, ?pos:Int) {this.x = x;this.end = end;this.pos = pos;}
 }
 
 @:structInit
@@ -385,7 +366,7 @@ class SendStmt {
 	public var arrow:Pos;
 	public var value:Expr;
 
-	public function new() {}
+public function new(?chan:Expr, ?arrow:Pos, ?value:Expr) {this.chan = chan;this.arrow = arrow;this.value = value;}
 }
 
 @:structInit
@@ -395,7 +376,7 @@ class IncDecStmt {
 	public var tokPos:Pos;
 	public var tok:Token;
 
-	public function new() {}
+public function new(?x:Expr, ?tokPos:Pos, ?tok:Token) {this.x = x;this.tokPos = tokPos;this.tok = tok;}
 }
 
 @:structInit
@@ -406,7 +387,7 @@ class AssignStmt {
 	public var tok:Token;
 	public var rhs:Array<Expr>;
 
-	public function new() {}
+public function new(?lhs:Array<Expr>, ?tokPos:Pos, ?tok:Token, ?rhs:Array<Expr>) {this.lhs = lhs;this.tokPos = tokPos;this.tok = tok;this.rhs = rhs;}
 }
 
 @:structInit
@@ -415,7 +396,7 @@ class GoStmt {
 	public var go:Pos;
 	public var call:CallExpr;
 
-	public function new() {}
+public function new(?go:Pos, ?call:CallExpr) {this.go = go;this.call = call;}
 }
 
 @:structInit
@@ -424,7 +405,7 @@ class DeferStmt {
 	public var defer:Pos;
 	public var call:CallExpr;
 
-	public function new() {}
+public function new(?defer:Pos, ?call:CallExpr) {this.defer = defer;this.call = call;}
 }
 
 @:structInit
@@ -434,7 +415,7 @@ class ReturnStmt {
 	// return TODO: return -> returnPos
 	public var results:Array<Expr>;
 
-	public function new() {}
+public function new(?returnPos:Pos, ?results:Array<Expr>) {this.returnPos = returnPos;this.results = results;}
 }
 
 @:structInit
@@ -443,7 +424,7 @@ class BranchStmt {
 	public var tok:Token;
 	public var label:Ident;
 
-	public function new() {}
+public function new(?tokPos:Pos, ?tok:Token, ?label:Ident) {this.tokPos = tokPos;this.tok = tok;this.label = label;}
 }
 
 @:structInit
@@ -452,7 +433,7 @@ class BlockStmt {
 	public var list:Array<Stmt>;
 	public var rbrace:Pos;
 
-	public function new() {}
+public function new(?lbrace:Pos, ?list:Array<Stmt>, ?rbrace:Pos) {this.lbrace = lbrace;this.list = list;this.rbrace = rbrace;}
 }
 
 @:structInit
@@ -474,7 +455,7 @@ class CaseClause {
 	public var colon:Pos;
 	public var body:Array<Stmt>;
 
-	public function new() {}
+public function new(?casePos:Pos, ?list:Array<Expr>, ?colon:Pos, ?body:Array<Stmt>) {this.casePos = casePos;this.list = list;this.colon = colon;this.body = body;}
 }
 
 @:structInit
@@ -485,7 +466,7 @@ class SwitchStmt {
 	public var tag:Expr;
 	public var body:BlockStmt;
 
-	public function new() {}
+public function new(?switchPos:Pos, ?init:Stmt, ?tag:Expr, ?body:BlockStmt) {this.switchPos = switchPos;this.init = init;this.tag = tag;this.body = body;}
 }
 
 @:structInit
@@ -496,7 +477,7 @@ class TypeSwitchStmt {
 	public var assign:Stmt;
 	public var body:BlockStmt;
 
-	public function new() {}
+public function new(?switchPos:Pos, ?init:Stmt, ?assign:Stmt, ?body:BlockStmt) {this.switchPos = switchPos;this.init = init;this.assign = assign;this.body = body;}
 }
 
 @:structInit
@@ -507,7 +488,7 @@ class CommClause {
 	public var colon:Pos;
 	public var body:Array<Stmt>;
 
-	public function new() {}
+public function new(?casePos:Pos, ?comm:Stmt, ?colon:Pos, ?body:Array<Stmt>) {this.casePos = casePos;this.comm = comm;this.colon = colon;this.body = body;}
 }
 
 @:structInit
@@ -515,7 +496,7 @@ class SelectStmt {
 	public var select:Pos;
 	public var body:BlockStmt;
 
-	public function new() {}
+public function new(?select:Pos, ?body:BlockStmt) {this.select = select;this.body = body;}
 }
 
 @:structInit
@@ -527,7 +508,7 @@ class ForStmt {
 	public var post:Stmt;
 	public var body:BlockStmt;
 
-	public function new() {}
+public function new(?forPos:Pos, ?init:Stmt, ?cond:Expr, ?post:Stmt, ?body:BlockStmt) {this.forPos = forPos;this.init = init;this.cond = cond;this.post = post;this.body = body;}
 }
 
 @:structInit
@@ -541,7 +522,7 @@ class RangeStmt {
 	public var x:Expr;
 	public var body:BlockStmt;
 
-	public function new() {}
+public function new(?forPos:Pos, ?key:Expr, ?value:Expr, ?tokPos:Pos, ?tok:Token, ?x:Expr, ?body:BlockStmt) {this.forPos = forPos;this.key = key;this.value = value;this.tokPos = tokPos;this.tok = tok;this.x = x;this.body = body;}
 }
 
 typedef Spec = Dynamic; // A go interface
@@ -555,26 +536,28 @@ class ImportSpec {
 	public var comment:CommentGroup;
 	public var endPos:Pos;
 
-	public function new() {}
+public function new(?doc:CommentGroup, ?name:String, ?path:String, ?comment:CommentGroup, ?endPos:Pos) {this.doc = doc;this.name = name;this.path = path;this.comment = comment;this.endPos = endPos;}
 }
 
 @:structInit
 class ValueSpec {
 	public var doc:CommentGroup;
-	names:Array<Ast.Ident>
-, public var type:Expr;
-public var values:Array<Expr>;
-public var comment:CommentGroup;
-public var pos:Int;
-public var end:Int;
+	public var names:Array<Ast.Ident>;
+	public var type:Expr;
+	public var values:Array<Expr>;
+	public var comment:CommentGroup;
+	public var pos:Int;
+	public var end:Int;
 
-	public function new() {}
-} @:structInit
+public function new(?doc:CommentGroup, ?names:Array<Ast.Ident>, ?type:Expr, ?values:Array<Expr>, ?comment:CommentGroup, ?pos:Int, ?end:Int) {this.doc = doc;this.names = names;this.type = type;this.values = values;this.comment = comment;this.pos = pos;this.end = end;}
+} 
+
+@:structInit
 class ImplicitType {
 	public var name:String;
 	public var path:String;
 
-	public function new() {}
+public function new(?name:String, ?path:String) {this.name = name;this.path = path;}
 }
 
 @:structInit
@@ -585,22 +568,19 @@ class TypeSpec {
 	public var type:Expr;
 	public var comment:CommentGroup;
 	public var params:FieldList;
-	methods:Array<{
-		name:String,
-		type:ExprType,
-		recv:ExprType,
-		index:Array<Int>
-	}>
-, public var pos:Int;
-public var end:Int;
+	public var methods:Array<{name:String,type:ExprType,recv:ExprType,index:Array<Int>}>;
+	public var pos:Int;
+	public var end:Int;
 
-	public function new() {}
-} @:structInit
+public function new(?doc:CommentGroup, ?name:Ident, ?assign:Pos, ?type:Expr, ?comment:CommentGroup, ?params:FieldList, ?methods:Array<{name:String,type:ExprType,recv:ExprType,index:Array<Int>}>, ?pos:Int, ?end:Int) {this.doc = doc;this.name = name;this.assign = assign;this.type = type;this.comment = comment;this.params = params;this.methods = methods;this.pos = pos;this.end = end;}
+}
+
+@:structInit
 class BadDecl {
 	public var from:Pos;
 	public var to:Pos;
 
-	public function new() {}
+public function new(?from:Pos, ?to:Pos) {this.from = from;this.to = to;}
 }
 
 @:structInit
@@ -612,7 +592,7 @@ class GenDecl {
 	public var specs:Array<Spec>;
 	public var rparen:Pos;
 
-	public function new() {}
+public function new(?doc:CommentGroup, ?tokPos:Pos, ?tok:Token, ?lparen:Pos, ?specs:Array<Spec>, ?rparen:Pos) {this.doc = doc;this.tokPos = tokPos;this.tok = tok;this.lparen = lparen;this.specs = specs;this.rparen = rparen;}
 }
 
 @:structInit
@@ -626,7 +606,7 @@ class FuncDecl {
 	public var pos:Int;
 	public var end:Int;
 
-	public function new() {}
+public function new(?doc:CommentGroup, ?recv:FieldList, ?typeParams:FieldList, ?name:Ident, ?type:FuncType, ?body:BlockStmt, ?pos:Int, ?end:Int) {this.doc = doc;this.recv = recv;this.typeParams = typeParams;this.name = name;this.type = type;this.body = body;this.pos = pos;this.end = end;}
 }
 
 @:structInit
@@ -637,7 +617,7 @@ class Object {
 	public var data:Any;
 	public var type:Any;
 
-	public function new() {}
+public function new(?kind:ObjKind, ?name:String, ?decl:Any, ?data:Any, ?type:Any) {this.kind = kind;this.name = name;this.decl = decl;this.data = data;this.type = type;}
 }
 
 @:structInit
@@ -645,6 +625,7 @@ class Position {}
 
 @:structInit
 typedef Pos = Int;
+
 
 enum abstract Token(String) {
 	public final ILLEGAL = "ILLEGAL";

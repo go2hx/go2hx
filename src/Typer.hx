@@ -141,7 +141,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 					case "GenDecl":
 						declGens.push(new GenDecl(decl.doc, decl.tokPos, decl.tok, decl.lparen, decl.specs, decl.rparen));
 					case "FuncDecl":
-						declFuncs.push(new FuncDecl(decl.doc, decl.recv, decl.typeParams, decl.name. decl.type, decl.body, decl.ps, decl.end));
+						declFuncs.push(new FuncDecl(decl.doc, decl.recv, decl.typeParams, decl.name, decl.type, decl.body, decl.pos, decl.end));
 					default:
 				}
 			}
@@ -177,7 +177,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 					case "GenDecl":
 						declGens.push(new GenDecl(decl.doc, decl.tokPos, decl.tok, decl.lparen, decl.specs, decl.rparen));
 					case "FuncDecl":
-						var decl:Ast.FuncDecl = new FuncDecl(decl.doc, decl.recv, decl.typeParams, decl.name. decl.type, decl.body, decl.ps, decl.end);
+						var decl:Ast.FuncDecl = new FuncDecl(decl.doc, decl.recv, decl.typeParams, decl.name, decl.type, decl.body, decl.pos, decl.end);
 						if (decl.name.name != "_")
 							declFuncs.push(decl);
 					default:

@@ -494,11 +494,7 @@ function buildTarget(target:String, out:String, main:String):String {
 		case "hl", "jvm", "cpp", "cs":
 			'--$target $out';
 		case "interp":
-			if (main == "") {
-				"--interp";
-			} else {
-				"--run " + main;
-			}
+			"--interp";
 		default:
 			throw "unknown target: " + target;
 	}

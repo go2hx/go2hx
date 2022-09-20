@@ -167,7 +167,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 			info.locals.clear();
 			info.localUnderlyingNames.clear();
 			info.data = data;
-			final pkgDoc = getDoc(cast file);
+			final pkgDoc = getDoc(file);
 			var declFuncs:Array<Ast.FuncDecl> = [];
 			var declGens:Array<Ast.GenDecl> = [];
 			for (decl in file.decls) {
@@ -6608,12 +6608,7 @@ typedef PackageType = {
 	path:String,
 	name:String,
 	order:Array<String>,
-	files:Array<{
-		path:String,
-		location:String,
-		decls:Array<Ast.FuncOrGenDecl>,
-		doc:Ast.CommentGroup,
-	}>
+	files:Array<FileStruct>
 }; // filepath of export.json also stored here
 
 typedef Module = {
@@ -6636,3 +6631,17 @@ typedef FileType = {
 	location:String,
 	isMain:Bool
 }; // location is the global path to the file
+
+class FileStruct implements Ast.HasDoc {
+	public var path:String;
+	public var location:String;
+	public var decls:Array<Ast.FuncOrGenDecl>;
+	public var doc:Ast.CommentGroup;
+
+	public function new(?path:String, ?location:String, ?decls:Array<Ast.FuncOrGenDecl>, doc:Ast.CommentGroup) {
+		this.path = path;
+		this.location = location;
+		this.decls = decls;
+		this.doc = doc;
+	}
+}

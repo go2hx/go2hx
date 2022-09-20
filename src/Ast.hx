@@ -63,7 +63,12 @@ class FieldList {
 	public var list:Array<Field>;
 	public var closing:Pos;
 
-public function new() {}
+	public function new(opening:Pos, list:Array<Field>, closing:Pos) {
+		this.opening = opening;
+		this.list = list;
+		this.closing = closing;
+	}
+}
 
 @:structInit
 class BadExpr {

@@ -6617,8 +6617,18 @@ typedef PackageType = {
 	}>
 }; // filepath of export.json also stored here
 
-typedef Module = {name:String, path:String, files:Array<FileType>, isMain:Bool}
-typedef ImportType = {path:Array<String>, alias:String, doc:String}
+typedef Module = {
+	name:String, 
+	path:String, 
+	files:Array<FileType>, 
+	isMain:Bool
+}
+
+typedef ImportType = {
+	path:Array<String>, 
+	alias:String, 
+	doc:String
+}
 
 typedef FileType = {
 	name:String,

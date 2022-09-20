@@ -6,12 +6,10 @@ go2hx
 
 **warning:** *heavily experimental still a ways to go before an alpha.*
 
-Come give feedback on what [Go libraries you want  supported!](https://github.com/go2hx/go2hx/issues/67)
-
 
 # Getting started
 * [Download Go 1.16+](https://golang.org/dl/)
-* [Download Haxe 477663e nightly or later](https://build.haxe.org/builds/haxe/)
+* [Download Haxe 4.3.0-rc.1 or later](https://build.haxe.org/builds/haxe/)
 * *optional:* [Download Hashlink 1.12+](https://hashlink.haxe.org/#download) (better performance and used for testing)
 
 
@@ -20,47 +18,60 @@ Install:
 haxelib git go2hx https://github.com/go2hx/go2hx
 ```
 
-Compile Go code into Haxe and run it with the interp Haxe target:
+REPL mode (good for quick testing):
+```sh
+haxelib run go2hx
+```
+
+Local file compile and interp (good for prototyping):
 ```sh
 haxelib run go2hx ./main.go --interp
 ```
-Or with the Hashlink target:
-```sh
-haxelib run go2hx ./main.go --hl run.hl 
+
+## Standard library
+[Supported libraries](./stdgo/stdgo.md)
+
+example:
+
+build.hxml
+```hxml
+-m Main
+-lib go2hx
+--interp
+```
+```haxe
+import stdgo.sort.Sort.intsAreSorted;
+import stdgo.unicode.Unicode.isSymbol;
+
+function main() {
+    trace(isSymbol(".".code));
+    trace(intsAreSorted([30,24,67]));
+}
 ```
 
-Create a build.hxml (Haxe build file and use it to run the code later)
+
+## External libraries 
+**warning:** *most libraries will not work because of the limited supported of the standard libraries*
+
+create a go mod file:
 ```sh
-haxelib run go2hx ./main.go --norun --hxml build.hxml --hl run.hl
+go mod init test
+```
+get the library
+```sh
+go get golang.org/x/example/stringutil
+```
+compile with go2hx
+```sh
+haxelib run go2hx golang.org/x/example/stringutil
 ```
 
-*Shows percentage of tests passing out of total*
 
-<a href="https://go2hx.github.io/test883"><img src="graph.png" align="center"/></p></a>
-
-# Language features
-
-go2hx supports a subset of language features that have not been extensively tested yet. It does not include any support for go routines, The list includes:
-
-* control flow statements for/if/range
-* all statements except statements relating to go routines, control-flows/branches/decls
-* all exprs conversion/literals/access
-
-# Standard library support
-
-The standard library that has been rewritten in Haxe has partial support, It does not include any support for unsafe, embeds, testing, and cgo, The most supported libraries in order includes:
-
-* reflect
-* fmt
-* os
-* strings
-* strconv
-* math
 
 ## Commendation
 
 A spiritual successor to Tardisgo written by [Elliott Stoneham](https://github.com/elliott5),
-A maintainer, mentor, and code contribuitor of this project. Elliott's wise councel, solid engineering design, and effective programming is the core of this project and go2hx would not exist without him.
+A maintainer, mentor, and code contribuitor of this project. Elliott's wise counsel, solid engineering design, and effective programming is the core of this project and go2hx would not exist without him.
 
 ## Build from source
 

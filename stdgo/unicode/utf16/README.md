@@ -10,6 +10,15 @@
 Package utf16 implements encoding and decoding of UTF\-16 sequences. 
 
 
+<details><summary>hl tests failed</summary>
+<p>
+
+```
+(Test time-out - runtime exceeded 2m0s)
+```
+</p>
+</details>
+
 
 # Index
 

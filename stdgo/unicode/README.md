@@ -10,6 +10,15 @@
 Package unicode provides data and functions to test some properties of Unicode code points. 
 
 
+<details><summary>hl tests failed</summary>
+<p>
+
+```
+(Test time-out - runtime exceeded 2m0s)
+```
+</p>
+</details>
+
 
 # Index
 

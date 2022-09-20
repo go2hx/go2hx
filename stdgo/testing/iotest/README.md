@@ -10,6 +10,15 @@
 Package iotest implements Readers and Writers useful mainly for testing. 
 
 
+<details><summary>hl tests failed</summary>
+<p>
+
+```
+(Test time-out - runtime exceeded 2m0s)
+```
+</p>
+</details>
+
 
 # Index
 

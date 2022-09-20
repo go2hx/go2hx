@@ -10,6 +10,15 @@
 Package sort provides primitives for sorting slices and user\-defined collections. 
 
 
+<details><summary>hl tests failed</summary>
+<p>
+
+```
+(Test time-out - runtime exceeded 2m0s)
+```
+</p>
+</details>
+
 
 # Index
 

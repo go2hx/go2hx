@@ -10,6 +10,15 @@
 Package fstest implements support for testing implementations and users of file systems. 
 
 
+<details><summary>hl tests failed</summary>
+<p>
+
+```
+(Test time-out - runtime exceeded 2m0s)
+```
+</p>
+</details>
+
 
 # Index
 

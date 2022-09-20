@@ -10,6 +10,15 @@
 Package bits implements bit counting and manipulation functions for the predeclared unsigned integer types. 
 
 
+<details><summary>hl tests failed</summary>
+<p>
+
+```
+(Test time-out - runtime exceeded 2m0s)
+```
+</p>
+</details>
+
 
 # Index
 

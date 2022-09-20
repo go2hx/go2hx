@@ -47,6 +47,14 @@ class Field {
 	public var type:Expr;
 	public var tag:String;
 	public var comment:CommentGroup;
+
+	public function new(doc:CommentGroup, names:Array<Ident>, type:Expr, tag:String, comment:CommentGroup) {
+		this.doc = doc;
+		this.names = names;
+		this.type = type;
+		this.tag = tag;
+		this.comment = comment
+	}
 }
 
 @:structInit
@@ -54,20 +62,26 @@ class FieldList {
 	public var opening:Pos;
 	public var list:Array<Field>;
 	public var closing:Pos;
-}
+
+public function new() {}
 
 @:structInit
 class BadExpr {
 	// > Node,
 	public var from:Pos;
 	public var to:Pos;
+
+	public function new() {}
 }
 
 @:structInit
 class Ident {
 	public var name:String;
 	public var type:ExprType;
-	?public var kind:ObjKind;
+	?
+	public var kind:ObjKind;
+
+	public function new() {}
 }
 
 @:structInit
@@ -75,6 +89,8 @@ class Ellipsis {
 	// > Node,
 	public var ellipsis:Pos;
 	public var elt:Expr;
+
+	public function new() {}
 }
 
 @:structInit
@@ -85,6 +101,8 @@ class BasicLit {
 	public var type:ExprType;
 	public var value:String;
 	public var raw:Bool;
+
+	public function new() {}
 }
 
 @:structInit
@@ -92,6 +110,8 @@ class FuncLit {
 	// > Node,
 	public var type:FuncType;
 	public var body:BlockStmt;
+
+	public function new() {}
 }
 
 @:structInit
@@ -102,6 +122,8 @@ class CompositeLit {
 	public var elts:Array<Expr>;
 	public var rbrace:Pos;
 	public var incomplete:Bool;
+
+	public function new() {}
 }
 
 @:structInit
@@ -110,6 +132,8 @@ class ParenExpr {
 	public var lparen:Pos;
 	public var x:Expr;
 	public var rparen:Pos;
+
+	public function new() {}
 }
 
 @:structInit
@@ -119,6 +143,8 @@ class SelectorExpr {
 	public var sel:Ident;
 	public var recv:ExprType;
 	public var type:ExprType;
+
+	public function new() {}
 }
 
 @:structInit
@@ -129,6 +155,8 @@ class IndexExpr {
 	public var index:Expr;
 	public var rbrack:Pos;
 	public var type:ExprType;
+
+	public function new() {}
 }
 
 @:structInit
@@ -138,6 +166,8 @@ class IndexListExpr {
 	public var lbrack:Pos;
 	public var rbrack:Pos;
 	public var type:ExprType;
+
+	public function new() {}
 }
 
 @:structInit
@@ -151,6 +181,8 @@ class SliceExpr {
 	public var slice3:Bool;
 	public var rbrack:Pos;
 	public var type:ExprType;
+
+	public function new() {}
 }
 
 @:structInit
@@ -160,6 +192,8 @@ class TypeAssertExpr {
 	public var lparen:Pos;
 	public var type:Expr;
 	public var rparen:Pos;
+
+	public function new() {}
 }
 
 @:structInit
@@ -171,6 +205,8 @@ class CallExpr {
 	public var ellipsis:Pos;
 	public var rparen:Pos;
 	public var type:ExprType;
+
+	public function new() {}
 }
 
 @:structInit
@@ -179,6 +215,8 @@ class StarExpr {
 	public var star:Pos;
 	public var x:Expr;
 	public var type:ExprType;
+
+	public function new() {}
 }
 
 @:structInit
@@ -187,6 +225,8 @@ class UnaryExpr {
 	public var opPos:Pos;
 	public var op:Token;
 	public var x:Expr;
+
+	public function new() {}
 }
 
 @:structInit
@@ -197,6 +237,8 @@ class BinaryExpr {
 	public var op:Token;
 	public var y:Expr;
 	public var type:ExprType;
+
+	public function new() {}
 }
 
 @:structInit
@@ -205,6 +247,8 @@ class KeyValueExpr {
 	public var key:Expr;
 	public var colon:Pos;
 	public var value:Expr;
+
+	public function new() {}
 }
 
 @:structInit
@@ -214,6 +258,8 @@ class ArrayType {
 	public var len:Expr;
 	public var elt:Expr;
 	public var type:ExprType;
+
+	public function new() {}
 }
 
 @:structInit
@@ -223,11 +269,15 @@ class StructType {
 	public var fields:FieldList;
 	public var incomplete:Bool;
 	public var type:ExprType;
+
+	public function new() {}
 }
 
 @:structInit
 class PointerType {
 	public var elem:ExprType;
+
+	public function new() {}
 }
 
 @:structInit
@@ -238,6 +288,8 @@ class FuncType {
 	public var results:FieldList;
 	public var typeParams:FieldList;
 	public var type:ExprType;
+
+	public function new() {}
 }
 
 @:structInit
@@ -248,6 +300,8 @@ class InterfaceType {
 	public var methods:FieldList;
 	public var incomplete:Bool;
 	public var type:ExprType;
+
+	public function new() {}
 }
 
 @:structInit
@@ -257,6 +311,8 @@ class MapType {
 	public var key:Expr;
 	public var value:Expr;
 	public var type:ExprType;
+
+	public function new() {}
 }
 
 @:structInit
@@ -267,6 +323,8 @@ class ChanType {
 	public var dir:ChanDir;
 	public var value:Expr;
 	public var type:ExprType;
+
+	public function new() {}
 }
 
 @:structInit
@@ -274,12 +332,16 @@ class BadStmt {
 	// > Node,
 	public var from:Pos;
 	public var to:Pos;
+
+	public function new() {}
 }
 
 @:structInit
 class DeclStmt {
 	// > Node,
 	public var decl:Decl;
+
+	public function new() {}
 }
 
 @:structInit
@@ -287,6 +349,8 @@ class EmptyStmt {
 	// > Node,
 	public var semicolon:Pos;
 	public var implicit:Bool;
+
+	public function new() {}
 }
 
 @:structInit
@@ -295,6 +359,8 @@ class LabeledStmt {
 	public var label:Ident;
 	public var colon:Pos;
 	public var stmt:Stmt;
+
+	public function new() {}
 }
 
 @:structInit
@@ -303,6 +369,8 @@ class ExprStmt {
 	public var x:Expr;
 	public var end:Int;
 	public var pos:Int;
+
+	public function new() {}
 }
 
 @:structInit
@@ -311,6 +379,8 @@ class SendStmt {
 	public var chan:Expr;
 	public var arrow:Pos;
 	public var value:Expr;
+
+	public function new() {}
 }
 
 @:structInit
@@ -319,6 +389,8 @@ class IncDecStmt {
 	public var x:Expr;
 	public var tokPos:Pos;
 	public var tok:Token;
+
+	public function new() {}
 }
 
 @:structInit
@@ -328,6 +400,8 @@ class AssignStmt {
 	public var tokPos:Pos;
 	public var tok:Token;
 	public var rhs:Array<Expr>;
+
+	public function new() {}
 }
 
 @:structInit
@@ -335,6 +409,8 @@ class GoStmt {
 	// > Node,
 	public var go:Pos;
 	public var call:CallExpr;
+
+	public function new() {}
 }
 
 @:structInit
@@ -342,6 +418,8 @@ class DeferStmt {
 	// > Node,
 	public var defer:Pos;
 	public var call:CallExpr;
+
+	public function new() {}
 }
 
 @:structInit
@@ -350,6 +428,8 @@ class ReturnStmt {
 	public var returnPos:Pos;
 	// return TODO: return -> returnPos
 	public var results:Array<Expr>;
+
+	public function new() {}
 }
 
 @:structInit
@@ -357,6 +437,8 @@ class BranchStmt {
 	public var tokPos:Pos;
 	public var tok:Token;
 	public var label:Ident;
+
+	public function new() {}
 }
 
 @:structInit
@@ -364,6 +446,8 @@ class BlockStmt {
 	public var lbrace:Pos;
 	public var list:Array<Stmt>;
 	public var rbrace:Pos;
+
+	public function new() {}
 }
 
 @:structInit
@@ -384,6 +468,8 @@ class CaseClause {
 	public var list:Array<Expr>;
 	public var colon:Pos;
 	public var body:Array<Stmt>;
+
+	public function new() {}
 }
 
 @:structInit
@@ -393,6 +479,8 @@ class SwitchStmt {
 	public var init:Stmt;
 	public var tag:Expr;
 	public var body:BlockStmt;
+
+	public function new() {}
 }
 
 @:structInit
@@ -402,6 +490,8 @@ class TypeSwitchStmt {
 	public var init:Stmt;
 	public var assign:Stmt;
 	public var body:BlockStmt;
+
+	public function new() {}
 }
 
 @:structInit
@@ -411,12 +501,16 @@ class CommClause {
 	public var comm:Stmt;
 	public var colon:Pos;
 	public var body:Array<Stmt>;
+
+	public function new() {}
 }
 
 @:structInit
 class SelectStmt {
 	public var select:Pos;
 	public var body:BlockStmt;
+
+	public function new() {}
 }
 
 @:structInit
@@ -427,6 +521,8 @@ class ForStmt {
 	public var cond:Expr;
 	public var post:Stmt;
 	public var body:BlockStmt;
+
+	public function new() {}
 }
 
 @:structInit
@@ -439,6 +535,8 @@ class RangeStmt {
 	public var tok:Token;
 	public var x:Expr;
 	public var body:BlockStmt;
+
+	public function new() {}
 }
 
 typedef Spec = Dynamic; // A go interface
@@ -451,23 +549,27 @@ class ImportSpec {
 	public var path:String;
 	public var comment:CommentGroup;
 	public var endPos:Pos;
+
+	public function new() {}
 }
 
 @:structInit
 class ValueSpec {
 	public var doc:CommentGroup;
-	names:Array<Ast.Ident>,
-	public var type:Expr;
-	public var values:Array<Expr>;
-	public var comment:CommentGroup;
-	public var pos:Int;
-	public var end:Int;
-}
+	names:Array<Ast.Ident>
+, public var type:Expr;
+public var values:Array<Expr>;
+public var comment:CommentGroup;
+public var pos:Int;
+public var end:Int;
 
-@:structInit
+	public function new() {}
+} @:structInit
 class ImplicitType {
 	public var name:String;
 	public var path:String;
+
+	public function new() {}
 }
 
 @:structInit
@@ -483,15 +585,17 @@ class TypeSpec {
 		type:ExprType,
 		recv:ExprType,
 		index:Array<Int>
-	}>,
-	public var pos:Int;
-	public var end:Int;
-}
+	}>
+, public var pos:Int;
+public var end:Int;
 
-@:structInit
+	public function new() {}
+} @:structInit
 class BadDecl {
 	public var from:Pos;
 	public var to:Pos;
+
+	public function new() {}
 }
 
 @:structInit
@@ -502,6 +606,8 @@ class GenDecl {
 	public var lparen:Pos;
 	public var specs:Array<Spec>;
 	public var rparen:Pos;
+
+	public function new() {}
 }
 
 @:structInit
@@ -514,6 +620,8 @@ class FuncDecl {
 	public var body:BlockStmt;
 	public var pos:Int;
 	public var end:Int;
+
+	public function new() {}
 }
 
 @:structInit
@@ -523,10 +631,13 @@ class Object {
 	public var decl:Any;
 	public var data:Any;
 	public var type:Any;
+
+	public function new() {}
 }
 
 @:structInit
 class Position {}
+
 @:structInit
 typedef Pos = Int;
 

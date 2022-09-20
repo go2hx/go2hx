@@ -58,11 +58,16 @@ function main() {
 	if (!FileSystem.exists("go4hx") || rebuild)
 		Sys.command("go build .");
 
+	if (args.length <= 1) {
+		Sys.command("haxe build-interp.hxml --help");
+		return;
+	}
+
 	process = new Process("node -v");
 	code = process.exitCode();
 	process.close();
 
-	if (code == 0) {
+	if (code == 0 && false) {
 		// run nodejs
 		if (!FileSystem.exists("build.js") || rebuild) {
 			Sys.command("haxe build-js.hxml");

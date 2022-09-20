@@ -18,11 +18,6 @@ Install:
 haxelib git go2hx https://github.com/go2hx/go2hx
 ```
 
-REPL mode (good for quick testing):
-```sh
-haxelib run go2hx
-```
-
 Local file compile and interp (good for prototyping):
 ```sh
 haxelib run go2hx ./main.go --interp

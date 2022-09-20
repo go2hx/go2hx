@@ -6,8 +6,6 @@ var pastCode = "";
 var waiting = false;
 
 function init() {
-	var imports = ["fmt", "reflect"];
-	var imports = [for (value in imports) '    "$value"'].join("\n");
 	if (!FileSystem.isDirectory("repl")) {
 		FileSystem.createDirectory("repl");
 	}

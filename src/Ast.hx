@@ -10,6 +10,10 @@ typedef Decl = Dynamic;
 typedef Scope = Dynamic;
 typedef ChanDir = Int;
 
+interface HasDoc {
+	public var doc:CommentGroup;
+}
+
 enum abstract ObjKind(Int) {
 	public final bad = 0; // for error handling
 	public final pkg = 1; // package
@@ -730,7 +734,7 @@ class RangeStmt {
 typedef Spec = Dynamic; // A go interface
 
 @:structInit
-class ImportSpec {
+class ImportSpec implements HasDoc {
 	public var doc:CommentGroup;
 	public var name:String;
 	// Ident
@@ -748,7 +752,7 @@ class ImportSpec {
 }
 
 @:structInit
-class ValueSpec {
+class ValueSpec implements HasDoc {
 	public var doc:CommentGroup;
 	public var names:Array<Ast.Ident>;
 	public var type:Expr;
@@ -780,7 +784,7 @@ class ImplicitType {
 }
 
 @:structInit
-class TypeSpec {
+class TypeSpec implements HasDoc {
 	public var doc:CommentGroup;
 	public var name:Ident;
 	public var assign:Pos;
@@ -826,7 +830,7 @@ class BadDecl {
 }
 
 @:structInit
-class GenDecl {
+class GenDecl implements HasDoc {
 	public var doc:CommentGroup;
 	public var tokPos:Pos;
 	public var tok:Token;
@@ -845,7 +849,7 @@ class GenDecl {
 }
 
 @:structInit
-class FuncDecl {
+class FuncDecl implements HasDoc {
 	public var doc:CommentGroup;
 	public var recv:FieldList;
 	public var typeParams:FieldList;
@@ -871,7 +875,7 @@ class FuncDecl {
  *Used by `PackageType` to store information about both `FuncDecl`s and `GenDecl`s
  */
  @:structInit
-class FuncOrGenDecl {
+class FuncOrGenDecl implements HasDoc {
 	public var id:String;
 
 	//GenDecl

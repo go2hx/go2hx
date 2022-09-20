@@ -1,7 +1,5 @@
-import Ast.GenDecl;
 import haxe.ds.Either;
 import haxe.ds.Option;
-import Ast.FuncDecl;
 import haxe.DynamicAccess;
 import haxe.io.Path;
 import haxe.macro.Expr;
@@ -139,9 +137,9 @@ function main(data:DataType, instance:Main.InstanceData) {
 			for (decl in file.decls) {
 				switch decl.id {
 					case "GenDecl":
-						declGens.push(new GenDecl(decl.doc, decl.tokPos, decl.tok, decl.lparen, decl.specs, decl.rparen));
+						declGens.push(new Ast.GenDecl(decl.doc, decl.tokPos, decl.tok, decl.lparen, decl.specs, decl.rparen));
 					case "FuncDecl":
-						declFuncs.push(new FuncDecl(decl.doc, decl.recv, decl.typeParams, decl.name, decl.type, decl.body, decl.pos, decl.end));
+						declFuncs.push(new Ast.FuncDecl(decl.doc, decl.recv, decl.typeParams, decl.name, decl.type, decl.body, decl.pos, decl.end));
 					default:
 				}
 			}
@@ -169,15 +167,15 @@ function main(data:DataType, instance:Main.InstanceData) {
 			info.locals.clear();
 			info.localUnderlyingNames.clear();
 			info.data = data;
-			final pkgDoc = getDoc({doc: file.doc});
+			final pkgDoc = getDoc(cast file);
 			var declFuncs:Array<Ast.FuncDecl> = [];
 			var declGens:Array<Ast.GenDecl> = [];
 			for (decl in file.decls) {
 				switch decl.id {
 					case "GenDecl":
-						declGens.push(new GenDecl(decl.doc, decl.tokPos, decl.tok, decl.lparen, decl.specs, decl.rparen));
+						declGens.push(new Ast.GenDecl(decl.doc, decl.tokPos, decl.tok, decl.lparen, decl.specs, decl.rparen));
 					case "FuncDecl":
-						var decl:Ast.FuncDecl = new FuncDecl(decl.doc, decl.recv, decl.typeParams, decl.name, decl.type, decl.body, decl.pos, decl.end);
+						var decl:Ast.FuncDecl = new Ast.FuncDecl(decl.doc, decl.recv, decl.typeParams, decl.name, decl.type, decl.body, decl.pos, decl.end);
 						if (decl.name.name != "_")
 							declFuncs.push(decl);
 					default:
@@ -5626,7 +5624,7 @@ private function typeFieldListMethods(list:Ast.FieldList, info:Info):Array<Field
 		var params = typeFieldListArgs(expr.params, info);
 		if (ret == null || params == null)
 			continue;
-		final doc = getDoc(field) + getComment(field);
+		final doc = getDoc(cast field) + getComment(field);
 		for (n in field.names) {
 			var name = n.name;
 			fields.push({
@@ -5659,7 +5657,7 @@ private function typeFields(list:Array<FieldType>, info:Info, access:Array<Acces
 		}
 		if (field.tag != "")
 			meta.push({name: ":tag", pos: null, params: [makeString(field.tag)]});
-		var doc:String = getDoc({doc: docs == null ? null : docs[i]}) + getComment({comment: comments == null ? null : comments[i]});
+		var doc:String = getDoc(cast {doc: docs == null ? null : docs[i]}) + getComment({comment: comments == null ? null : comments[i]});
 		fields.push({
 			name: nameIdent(name, false, false, info),
 			pos: null,
@@ -6352,7 +6350,7 @@ private function getComment(value:{comment:Ast.CommentGroup}):String {
 	return source;
 }
 
-private function getDoc(value:{doc:Ast.CommentGroup}):String {
+private function getDoc(value:Ast.HasDoc):String {
 	if (value.doc == null || value.doc.list == null)
 		return "";
 	var source = value.doc.list.join("\n");

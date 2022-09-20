@@ -867,6 +867,48 @@ class FuncDecl {
 	}
 }
 
+/**
+ *Used by `PackageType` to store information about both `FuncDecl`s and `GenDecl`s
+ */
+ @:structInit
+class FuncOrGenDecl {
+	public var id:String;
+
+	//GenDecl
+	public var doc:CommentGroup;
+	public var tokPos:Pos;
+	public var tok:Token;
+	public var lparen:Pos;
+	public var specs:Array<Spec>;
+	public var rparen:Pos;
+
+	//FuncDecl
+	public var recv:FieldList;
+	public var typeParams:FieldList;
+	public var name:Ident;
+	public var type:FuncType;
+	public var body:BlockStmt;
+	public var pos:Int;
+	public var end:Int;
+
+
+	public function new(?doc:CommentGroup, ?tokPos:Pos, ?tok:Token, ?lparen:Pos, ?specs:Array<Spec>, ?rparen:Pos, ?recv:FieldList, ?typeParams:FieldList, ?name:Ident, ?type:FuncType, ?body:BlockStmt, ?pos:Int, ?end:Int) {
+		this.doc = doc;
+		this.tokPos = tokPos;
+		this.tok = tok;
+		this.lparen = lparen;
+		this.specs = specs;
+		this.rparen = rparen;
+		this.recv = recv;
+		this.typeParams = typeParams;
+		this.name = name;
+		this.type = type;
+		this.body = body;
+		this.pos = pos;
+		this.end = end;
+	}
+}
+
 @:structInit
 class Object {
 	public var kind:ObjKind;

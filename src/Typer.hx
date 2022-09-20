@@ -1,3 +1,7 @@
+import Ast.GenDecl;
+import haxe.ds.Either;
+import haxe.ds.Option;
+import Ast.FuncDecl;
 import haxe.DynamicAccess;
 import haxe.io.Path;
 import haxe.macro.Expr;
@@ -135,10 +139,9 @@ function main(data:DataType, instance:Main.InstanceData) {
 			for (decl in file.decls) {
 				switch decl.id {
 					case "GenDecl":
-						declGens.push(decl);
+						declGens.push(new GenDecl(decl.doc, decl.tokPos, decl.tok, decl.lparen, decl.specs, decl.rparen));
 					case "FuncDecl":
-						var decl:Ast.FuncDecl = decl;
-						declFuncs.push(decl);
+						declFuncs.push(new FuncDecl(decl.doc, decl.recv, decl.typeParams, decl.name. decl.type, decl.body, decl.ps, decl.end));
 					default:
 				}
 			}
@@ -172,9 +175,9 @@ function main(data:DataType, instance:Main.InstanceData) {
 			for (decl in file.decls) {
 				switch decl.id {
 					case "GenDecl":
-						declGens.push(decl);
+						declGens.push(new GenDecl(decl.doc, decl.tokPos, decl.tok, decl.lparen, decl.specs, decl.rparen));
 					case "FuncDecl":
-						var decl:Ast.FuncDecl = decl;
+						var decl:Ast.FuncDecl = new FuncDecl(decl.doc, decl.recv, decl.typeParams, decl.name. decl.type, decl.body, decl.ps, decl.end);
 						if (decl.name.name != "_")
 							declFuncs.push(decl);
 					default:
@@ -6609,7 +6612,7 @@ typedef PackageType = {
 	files:Array<{
 		path:String,
 		location:String,
-		decls:Array<Dynamic>,
+		decls:Array<Ast.FuncOrGenDecl>,
 		doc:Ast.CommentGroup,
 	}>
 }; // filepath of export.json also stored here

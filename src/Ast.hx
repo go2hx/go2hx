@@ -2,7 +2,7 @@ package;
 
 /*typedef Node = {
 	pos:Int
-};*/
+}*/
 typedef Expr = Dynamic;
 typedef Stmt = Dynamic;
 typedef ExprType = Dynamic;
@@ -20,446 +20,514 @@ enum abstract ObjKind(Int) {
 	public final lbl = 7; // label
 }
 
-typedef Comment = {
-	text:String,
-	pos:Int,
-};
+@:structInit
+class Comment {
+	public var text:String;
+	public var pos:Int;
 
-typedef CommentGroup = {
-	list:Array<Comment>,
-};
-
-typedef Field = {
-	doc:CommentGroup,
-	names:Array<Ident>,
-	type:Expr,
-	tag:String,
-	comment:CommentGroup,
-};
-
-typedef FieldList = {
-	opening:Pos,
-	list:Array<Field>,
-	closing:Pos,
-};
-
-typedef BadExpr = {
-	// > Node,
-	from:Pos,
-	to:Pos,
-};
-
-typedef Ident = {
-	name:String,
-	type:ExprType,
-	?kind:ObjKind,
+	public function new(text:String, pos:Int) {
+		this.text = text;
+		this.pos = pos;
+	}
 }
 
-typedef Ellipsis = {
-	// > Node,
-	ellipsis:Pos,
-	elt:Expr,
-};
+@:structInit
+class CommentGroup {
+	public var list:Array<Comment>;
 
-typedef BasicLit = {
-	// > Node,
-	valuePos:Pos,
-	kind:Token,
-	type:ExprType,
-	value:String,
-	raw:Bool,
-};
-
-typedef FuncLit = {
-	// > Node,
-	type:FuncType,
-	body:BlockStmt,
-};
-
-typedef CompositeLit = {
-	// > Node,
-	type:Expr,
-	lbrace:Pos,
-	elts:Array<Expr>,
-	rbrace:Pos,
-	incomplete:Bool,
-};
-
-typedef ParenExpr = {
-	// > Node,
-	lparen:Pos,
-	x:Expr,
-	rparen:Pos,
-};
-
-typedef SelectorExpr = {
-	// > Node,
-	x:Expr,
-	sel:Ident,
-	recv:ExprType,
-	type:ExprType,
-};
-
-typedef IndexExpr = {
-	// > Node,
-	x:Expr,
-	lbrack:Pos,
-	index:Expr,
-	rbrack:Pos,
-	type:ExprType,
-};
-
-typedef IndexListExpr = {
-	x:Expr,
-	indices:Array<Expr>,
-	lbrack:Pos,
-	rbrack:Pos,
-	type:ExprType,
+	public function new(list:Array<Comment>) {
+		this.list = list;
+	}
 }
 
-typedef SliceExpr = {
-	// > Node,
-	x:Expr,
-	lbrack:Pos,
-	low:Expr,
-	high:Expr,
-	max:Expr,
-	slice3:Bool,
-	rbrack:Pos,
-	type:ExprType,
-};
+@:structInit
+class Field {
+	public var doc:CommentGroup;
+	public var names:Array<Ident>;
+	public var type:Expr;
+	public var tag:String;
+	public var comment:CommentGroup;
+}
 
-typedef TypeAssertExpr = {
-	// > Node,
-	x:Expr,
-	lparen:Pos,
-	type:Expr,
-	rparen:Pos,
-};
+@:structInit
+class FieldList {
+	public var opening:Pos;
+	public var list:Array<Field>;
+	public var closing:Pos;
+}
 
-typedef CallExpr = {
+@:structInit
+class BadExpr {
 	// > Node,
-	fun:Expr,
-	lparen:Pos,
-	args:Array<Expr>,
-	ellipsis:Pos,
-	rparen:Pos,
-	type:ExprType,
-};
+	public var from:Pos;
+	public var to:Pos;
+}
 
-typedef StarExpr = {
+@:structInit
+class Ident {
+	public var name:String;
+	public var type:ExprType;
+	?public var kind:ObjKind;
+}
+
+@:structInit
+class Ellipsis {
 	// > Node,
-	star:Pos,
-	x:Expr,
-	type:ExprType,
-};
+	public var ellipsis:Pos;
+	public var elt:Expr;
+}
 
-typedef UnaryExpr = {
+@:structInit
+class BasicLit {
 	// > Node,
-	opPos:Pos,
-	op:Token,
-	x:Expr,
-};
+	public var valuePos:Pos;
+	public var kind:Token;
+	public var type:ExprType;
+	public var value:String;
+	public var raw:Bool;
+}
 
-typedef BinaryExpr = {
+@:structInit
+class FuncLit {
 	// > Node,
-	x:Expr,
-	opPos:Pos,
-	op:Token,
-	y:Expr,
-	type:ExprType,
-};
+	public var type:FuncType;
+	public var body:BlockStmt;
+}
 
-typedef KeyValueExpr = {
+@:structInit
+class CompositeLit {
 	// > Node,
-	key:Expr,
-	colon:Pos,
-	value:Expr,
-};
+	public var type:Expr;
+	public var lbrace:Pos;
+	public var elts:Array<Expr>;
+	public var rbrace:Pos;
+	public var incomplete:Bool;
+}
 
-typedef ArrayType = {
+@:structInit
+class ParenExpr {
 	// > Node,
-	lbrack:Pos,
-	len:Expr,
-	elt:Expr,
-	type:ExprType,
-};
+	public var lparen:Pos;
+	public var x:Expr;
+	public var rparen:Pos;
+}
 
-typedef StructType = {
+@:structInit
+class SelectorExpr {
 	// > Node,
-	struct:Pos,
-	fields:FieldList,
-	incomplete:Bool,
-	type:ExprType,
-};
+	public var x:Expr;
+	public var sel:Ident;
+	public var recv:ExprType;
+	public var type:ExprType;
+}
 
-typedef PointerType = {
-	elem:ExprType,
-};
-
-typedef FuncType = {
+@:structInit
+class IndexExpr {
 	// > Node,
-	func:Pos,
-	params:FieldList,
-	results:FieldList,
-	typeParams:FieldList,
-	type:ExprType,
-};
+	public var x:Expr;
+	public var lbrack:Pos;
+	public var index:Expr;
+	public var rbrack:Pos;
+	public var type:ExprType;
+}
 
-typedef InterfaceType = {
+@:structInit
+class IndexListExpr {
+	public var x:Expr;
+	public var indices:Array<Expr>;
+	public var lbrack:Pos;
+	public var rbrack:Pos;
+	public var type:ExprType;
+}
+
+@:structInit
+class SliceExpr {
 	// > Node,
-	interfacePos:Pos,
+	public var x:Expr;
+	public var lbrack:Pos;
+	public var low:Expr;
+	public var high:Expr;
+	public var max:Expr;
+	public var slice3:Bool;
+	public var rbrack:Pos;
+	public var type:ExprType;
+}
+
+@:structInit
+class TypeAssertExpr {
+	// > Node,
+	public var x:Expr;
+	public var lparen:Pos;
+	public var type:Expr;
+	public var rparen:Pos;
+}
+
+@:structInit
+class CallExpr {
+	// > Node,
+	public var fun:Expr;
+	public var lparen:Pos;
+	public var args:Array<Expr>;
+	public var ellipsis:Pos;
+	public var rparen:Pos;
+	public var type:ExprType;
+}
+
+@:structInit
+class StarExpr {
+	// > Node,
+	public var star:Pos;
+	public var x:Expr;
+	public var type:ExprType;
+}
+
+@:structInit
+class UnaryExpr {
+	// > Node,
+	public var opPos:Pos;
+	public var op:Token;
+	public var x:Expr;
+}
+
+@:structInit
+class BinaryExpr {
+	// > Node,
+	public var x:Expr;
+	public var opPos:Pos;
+	public var op:Token;
+	public var y:Expr;
+	public var type:ExprType;
+}
+
+@:structInit
+class KeyValueExpr {
+	// > Node,
+	public var key:Expr;
+	public var colon:Pos;
+	public var value:Expr;
+}
+
+@:structInit
+class ArrayType {
+	// > Node,
+	public var lbrack:Pos;
+	public var len:Expr;
+	public var elt:Expr;
+	public var type:ExprType;
+}
+
+@:structInit
+class StructType {
+	// > Node,
+	public var struct:Pos;
+	public var fields:FieldList;
+	public var incomplete:Bool;
+	public var type:ExprType;
+}
+
+@:structInit
+class PointerType {
+	public var elem:ExprType;
+}
+
+@:structInit
+class FuncType {
+	// > Node,
+	public var func:Pos;
+	public var params:FieldList;
+	public var results:FieldList;
+	public var typeParams:FieldList;
+	public var type:ExprType;
+}
+
+@:structInit
+class InterfaceType {
+	// > Node,
+	public var interfacePos:Pos;
 	// interface TODO: turn interface -> inter
-	methods:FieldList,
-	incomplete:Bool,
-	type:ExprType,
-};
+	public var methods:FieldList;
+	public var incomplete:Bool;
+	public var type:ExprType;
+}
 
-typedef MapType = {
+@:structInit
+class MapType {
 	// > Node,
-	map:Pos,
-	key:Expr,
-	value:Expr,
-	type:ExprType,
-};
+	public var map:Pos;
+	public var key:Expr;
+	public var value:Expr;
+	public var type:ExprType;
+}
 
-typedef ChanType = {
+@:structInit
+class ChanType {
 	// > Node,
-	begin:Pos,
-	arrow:Pos,
-	dir:ChanDir,
-	value:Expr,
-	type:ExprType,
-};
+	public var begin:Pos;
+	public var arrow:Pos;
+	public var dir:ChanDir;
+	public var value:Expr;
+	public var type:ExprType;
+}
 
-typedef BadStmt = {
+@:structInit
+class BadStmt {
 	// > Node,
-	from:Pos,
-	to:Pos,
-};
+	public var from:Pos;
+	public var to:Pos;
+}
 
-typedef DeclStmt = {
+@:structInit
+class DeclStmt {
 	// > Node,
-	decl:Decl,
-};
+	public var decl:Decl;
+}
 
-typedef EmptyStmt = {
+@:structInit
+class EmptyStmt {
 	// > Node,
-	semicolon:Pos,
-	implicit:Bool,
-};
+	public var semicolon:Pos;
+	public var implicit:Bool;
+}
 
-typedef LabeledStmt = {
+@:structInit
+class LabeledStmt {
 	// > Node,
-	label:Ident,
-	colon:Pos,
-	stmt:Stmt,
-};
+	public var label:Ident;
+	public var colon:Pos;
+	public var stmt:Stmt;
+}
 
-typedef ExprStmt = {
+@:structInit
+class ExprStmt {
 	// > Node,
-	x:Expr,
-	end:Int,
-	pos:Int,
-};
+	public var x:Expr;
+	public var end:Int;
+	public var pos:Int;
+}
 
-typedef SendStmt = {
+@:structInit
+class SendStmt {
 	// > Node,
-	chan:Expr,
-	arrow:Pos,
-	value:Expr,
-};
+	public var chan:Expr;
+	public var arrow:Pos;
+	public var value:Expr;
+}
 
-typedef IncDecStmt = {
+@:structInit
+class IncDecStmt {
 	// > Node,
-	x:Expr,
-	tokPos:Pos,
-	tok:Token,
-};
+	public var x:Expr;
+	public var tokPos:Pos;
+	public var tok:Token;
+}
 
-typedef AssignStmt = {
+@:structInit
+class AssignStmt {
 	// > Node,
-	lhs:Array<Expr>,
-	tokPos:Pos,
-	tok:Token,
-	rhs:Array<Expr>,
-};
+	public var lhs:Array<Expr>;
+	public var tokPos:Pos;
+	public var tok:Token;
+	public var rhs:Array<Expr>;
+}
 
-typedef GoStmt = {
+@:structInit
+class GoStmt {
 	// > Node,
-	go:Pos,
-	call:CallExpr,
-};
+	public var go:Pos;
+	public var call:CallExpr;
+}
 
-typedef DeferStmt = {
+@:structInit
+class DeferStmt {
 	// > Node,
-	defer:Pos,
-	call:CallExpr,
-};
+	public var defer:Pos;
+	public var call:CallExpr;
+}
 
-typedef ReturnStmt = {
+@:structInit
+class ReturnStmt {
 	// > Node,
-	returnPos:Pos,
+	public var returnPos:Pos;
 	// return TODO: return -> returnPos
-	results:Array<Expr>,
-};
+	public var results:Array<Expr>;
+}
 
-typedef BranchStmt = {
-	tokPos:Pos,
-	tok:Token,
-	label:Ident,
-};
+@:structInit
+class BranchStmt {
+	public var tokPos:Pos;
+	public var tok:Token;
+	public var label:Ident;
+}
 
-typedef BlockStmt = {
-	lbrace:Pos,
-	list:Array<Stmt>,
-	rbrace:Pos,
-};
+@:structInit
+class BlockStmt {
+	public var lbrace:Pos;
+	public var list:Array<Stmt>;
+	public var rbrace:Pos;
+}
 
-typedef IfStmt = {
-	ifPos:Pos,
+@:structInit
+class IfStmt {
+	public var ifPos:Pos;
 	// if TODO: if -> ifPos
-	init:Stmt,
-	cond:Expr,
-	body:BlockStmt,
-	elseStmt:Stmt,
+	public var init:Stmt;
+	public var cond:Expr;
+	public var body:BlockStmt;
+	public var elseStmt:Stmt;
 	// else TODO: else -> elseStmt
-};
+}
 
-typedef CaseClause = {
-	casePos:Pos,
+@:structInit
+class CaseClause {
+	public var casePos:Pos;
 	// case TODO: case -> casePos
-	list:Array<Expr>,
-	colon:Pos,
-	body:Array<Stmt>,
-};
+	public var list:Array<Expr>;
+	public var colon:Pos;
+	public var body:Array<Stmt>;
+}
 
-typedef SwitchStmt = {
-	switchPos:Pos,
+@:structInit
+class SwitchStmt {
+	public var switchPos:Pos;
 	// switch TODO: switch -> switchPos
-	init:Stmt,
-	tag:Expr,
-	body:BlockStmt,
-};
+	public var init:Stmt;
+	public var tag:Expr;
+	public var body:BlockStmt;
+}
 
-typedef TypeSwitchStmt = {
-	switchPos:Pos,
+@:structInit
+class TypeSwitchStmt {
+	public var switchPos:Pos;
 	// switch TODO: switch -> switchPos
-	init:Stmt,
-	assign:Stmt,
-	body:BlockStmt,
-};
+	public var init:Stmt;
+	public var assign:Stmt;
+	public var body:BlockStmt;
+}
 
-typedef CommClause = {
-	casePos:Pos,
+@:structInit
+class CommClause {
+	public var casePos:Pos;
 	// case TODO: case -> casePos
-	comm:Stmt,
-	colon:Pos,
-	body:Array<Stmt>,
-};
+	public var comm:Stmt;
+	public var colon:Pos;
+	public var body:Array<Stmt>;
+}
 
-typedef SelectStmt = {
-	select:Pos,
-	body:BlockStmt,
-};
+@:structInit
+class SelectStmt {
+	public var select:Pos;
+	public var body:BlockStmt;
+}
 
-typedef ForStmt = {
-	forPos:Pos,
+@:structInit
+class ForStmt {
+	public var forPos:Pos;
 	// for TODO: for -> forPos
-	init:Stmt,
-	cond:Expr,
-	post:Stmt,
-	body:BlockStmt,
-};
+	public var init:Stmt;
+	public var cond:Expr;
+	public var post:Stmt;
+	public var body:BlockStmt;
+}
 
-typedef RangeStmt = {
-	forPos:Pos,
+@:structInit
+class RangeStmt {
+	public var forPos:Pos;
 	// for TODO: for -> forPos
-	key:Expr,
-	value:Expr,
-	tokPos:Pos,
-	tok:Token,
-	x:Expr,
-	body:BlockStmt,
-};
+	public var key:Expr;
+	public var value:Expr;
+	public var tokPos:Pos;
+	public var tok:Token;
+	public var x:Expr;
+	public var body:BlockStmt;
+}
 
 typedef Spec = Dynamic; // A go interface
 
-typedef ImportSpec = {
-	doc:CommentGroup,
-	name:String,
+@:structInit
+class ImportSpec {
+	public var doc:CommentGroup;
+	public var name:String;
 	// Ident
-	path:String,
-	comment:CommentGroup,
-	endPos:Pos,
-};
+	public var path:String;
+	public var comment:CommentGroup;
+	public var endPos:Pos;
+}
 
-typedef ValueSpec = {
-	doc:CommentGroup,
+@:structInit
+class ValueSpec {
+	public var doc:CommentGroup;
 	names:Array<Ast.Ident>,
-	type:Expr,
-	values:Array<Expr>,
-	comment:CommentGroup,
-	pos:Int,
-	end:Int,
-};
+	public var type:Expr;
+	public var values:Array<Expr>;
+	public var comment:CommentGroup;
+	public var pos:Int;
+	public var end:Int;
+}
 
-typedef ImplicitType = {
-	name:String,
-	path:String,
-};
+@:structInit
+class ImplicitType {
+	public var name:String;
+	public var path:String;
+}
 
-typedef TypeSpec = {
-	doc:CommentGroup,
-	name:Ident,
-	assign:Pos,
-	type:Expr,
-	comment:CommentGroup,
-	params:FieldList,
+@:structInit
+class TypeSpec {
+	public var doc:CommentGroup;
+	public var name:Ident;
+	public var assign:Pos;
+	public var type:Expr;
+	public var comment:CommentGroup;
+	public var params:FieldList;
 	methods:Array<{
 		name:String,
 		type:ExprType,
 		recv:ExprType,
 		index:Array<Int>
 	}>,
-	pos:Int,
-	end:Int,
-};
+	public var pos:Int;
+	public var end:Int;
+}
 
-typedef BadDecl = {
-	from:Pos,
-	to:Pos,
-};
+@:structInit
+class BadDecl {
+	public var from:Pos;
+	public var to:Pos;
+}
 
-typedef GenDecl = {
-	doc:CommentGroup,
-	tokPos:Pos,
-	tok:Token,
-	lparen:Pos,
-	specs:Array<Spec>,
-	rparen:Pos,
-};
+@:structInit
+class GenDecl {
+	public var doc:CommentGroup;
+	public var tokPos:Pos;
+	public var tok:Token;
+	public var lparen:Pos;
+	public var specs:Array<Spec>;
+	public var rparen:Pos;
+}
 
-typedef FuncDecl = {
-	doc:CommentGroup,
-	recv:FieldList,
-	typeParams:FieldList,
-	name:Ident,
-	type:FuncType,
-	body:BlockStmt,
-	pos:Int,
-	end:Int,
-};
+@:structInit
+class FuncDecl {
+	public var doc:CommentGroup;
+	public var recv:FieldList;
+	public var typeParams:FieldList;
+	public var name:Ident;
+	public var type:FuncType;
+	public var body:BlockStmt;
+	public var pos:Int;
+	public var end:Int;
+}
 
-typedef Object = {
-	kind:ObjKind,
-	name:String,
-	decl:Any,
-	data:Any,
-	type:Any,
-};
+@:structInit
+class Object {
+	public var kind:ObjKind;
+	public var name:String;
+	public var decl:Any;
+	public var data:Any;
+	public var type:Any;
+}
 
-typedef Position = {};
+@:structInit
+class Position {}
+@:structInit
 typedef Pos = Int;
 
 enum abstract Token(String) {

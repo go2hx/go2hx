@@ -169,7 +169,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 			info.locals.clear();
 			info.localUnderlyingNames.clear();
 			info.data = data;
-			final pkgDoc = getDoc(file);
+			final pkgDoc = getDoc({doc: file.doc});
 			var declFuncs:Array<Ast.FuncDecl> = [];
 			var declGens:Array<Ast.GenDecl> = [];
 			for (decl in file.decls) {

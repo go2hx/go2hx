@@ -23,7 +23,7 @@ Local file compile and interp (good for prototyping):
 haxelib run go2hx ./main.go --interp
 ```
 
-## Standard library
+## Standard library (std/go)
 [Supported libraries](./stdgo/stdgo.md)
 
 example:
@@ -45,8 +45,10 @@ function main() {
 ```
 
 
-## External libraries 
+## External libraries (3rd party) 
 **warning:** *most libraries will not work because of the limited supported of the standard libraries*
+
+[example project](https://github.com/go2hx/go2hxdoc/tree/master/example-project)
 
 create a go mod file:
 ```sh

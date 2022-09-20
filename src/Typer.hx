@@ -5657,7 +5657,8 @@ private function typeFields(list:Array<FieldType>, info:Info, access:Array<Acces
 		}
 		if (field.tag != "")
 			meta.push({name: ":tag", pos: null, params: [makeString(field.tag)]});
-		var doc:String = getDoc(cast {doc: docs == null ? null : docs[i]}) + getComment({comment: comments == null ? null : comments[i]});
+		//casting here should work
+		var doc:String = getDoc(cast {doc: docs == null ? null : docs[i]}) + getComment({comment: comments == null ? null : comments[i]}); 
 		fields.push({
 			name: nameIdent(name, false, false, info),
 			pos: null,

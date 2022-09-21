@@ -90,7 +90,7 @@ function exampleAs():Void {
 			_err:stdgo.Error = __tmp__._1;
 		if (_err != null) {
 			var _pathError:Ref<stdgo.io.fs.Fs.PathError> = (null : stdgo.io.fs.Fs.PathError);
-			if (stdgo.errors.Errors.as(_err, Go.toInterface(_pathError))) {
+			if (stdgo.errors.Errors.as(_err, Go.toInterface((_pathError : Ref<Ref<stdgo.io.fs.Fs.PathError>>)))) {
 				stdgo.fmt.Fmt.println((Go.str("Failed at path:") : GoString), _pathError.path);
 			} else {
 				stdgo.fmt.Fmt.println(_err);

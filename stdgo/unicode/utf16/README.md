@@ -19,6 +19,24 @@ Package utf16 implements encoding and decoding of UTF\-16 sequences.
 </p>
 </details>
 
+<details><summary>interp tests failed</summary>
+<p>
+
+```
+(Test time-out - runtime exceeded 2m0s)
+```
+</p>
+</details>
+
+<details><summary>jvm tests failed</summary>
+<p>
+
+```
+(Test time-out - runtime exceeded 2m0s)
+```
+</p>
+</details>
+
 
 # Index
 

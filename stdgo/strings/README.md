@@ -19,6 +19,24 @@ Package strings implements simple functions to manipulate UTF\-8 encoded strings
 </p>
 </details>
 
+<details><summary>interp tests failed</summary>
+<p>
+
+```
+(Test time-out - runtime exceeded 2m0s)
+```
+</p>
+</details>
+
+<details><summary>jvm tests failed</summary>
+<p>
+
+```
+(Test time-out - runtime exceeded 2m0s)
+```
+</p>
+</details>
+
 
 # Index
 

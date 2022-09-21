@@ -19,6 +19,24 @@ Package bits implements bit counting and manipulation functions for the predecla
 </p>
 </details>
 
+<details><summary>interp tests failed</summary>
+<p>
+
+```
+(Test time-out - runtime exceeded 2m0s)
+```
+</p>
+</details>
+
+<details><summary>jvm tests failed</summary>
+<p>
+
+```
+(Test time-out - runtime exceeded 2m0s)
+```
+</p>
+</details>
+
 
 # Index
 

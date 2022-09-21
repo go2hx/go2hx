@@ -61,7 +61,7 @@
 | [stdgo.encoding.hex](./encoding/hex/README.md) | ❌ | no |  |  |  |  |
 | [stdgo.encoding.json](./encoding/json/README.md) | ✅ | no |  |  |  |  |
 | [stdgo.encoding.pem](./encoding/pem/README.md) | ❌ | no |  |  |  |  |
-| [stdgo.errors](./errors/README.md) | ✅ | yes |  | ❌ |  |  |
+| [stdgo.errors](./errors/README.md) | ✅ | yes |  | ❌ | ❌ | ❌ |
 | [stdgo.expvar](./expvar/README.md) | ❌ | no |  |  |  |  |
 | [stdgo.flag](./flag/README.md) | ❌ | yes |  |  |  |  |
 | [stdgo.fmt](./fmt/README.md) | ✅ | no |  |  |  |  |
@@ -103,7 +103,7 @@
 | [stdgo.log.syslog](./log/syslog/README.md) | ❌ | no |  |  |  |  |
 | [stdgo.math](./math/README.md) | ❌ | yes |  |  |  |  |
 | [stdgo.math.big](./math/big/README.md) | ❌ | yes |  |  |  |  |
-| [stdgo.math.bits](./math/bits/README.md) | ✅ | yes |  | ❌ |  |  |
+| [stdgo.math.bits](./math/bits/README.md) | ✅ | yes |  | ❌ | ❌ | ❌ |
 | [stdgo.math.cmplx](./math/cmplx/README.md) | ❌ | yes |  |  |  |  |
 | [stdgo.math.rand](./math/rand/README.md) | ❌ | yes |  |  |  |  |
 | [stdgo.mime](./mime/README.md) | ❌ | no |  |  |  |  |
@@ -137,23 +137,23 @@
 | [stdgo.runtime.cgo](./runtime/cgo/README.md) | ❌ | no |  |  |  |  |
 | [stdgo.runtime.metrics](./runtime/metrics/README.md) | ❌ | no |  |  |  |  |
 | [stdgo.runtime.trace](./runtime/trace/README.md) | ❌ | no |  |  |  |  |
-| [stdgo.sort](./sort/README.md) | ✅ | yes |  | ❌ |  |  |
+| [stdgo.sort](./sort/README.md) | ✅ | yes |  | ❌ | ❌ | ❌ |
 | [stdgo.strconv](./strconv/README.md) | ❌ | yes |  |  |  |  |
-| [stdgo.strings](./strings/README.md) | ✅ | yes |  | ❌ |  |  |
+| [stdgo.strings](./strings/README.md) | ✅ | yes |  | ❌ | ❌ | ❌ |
 | [stdgo.sync](./sync/README.md) | ✅ | no |  |  |  |  |
 | [stdgo.sync.atomic](./sync/atomic/README.md) | ✅ | no |  |  |  |  |
 | [stdgo.syscall](./syscall/README.md) | ❌ | yes |  |  |  |  |
 | [stdgo.syscall.js](./syscall/js/README.md) | ❌ | yes |  |  |  |  |
 | [stdgo.testing](./testing/README.md) | ✅ | no |  |  |  |  |
-| [stdgo.testing.fstest](./testing/fstest/README.md) | ✅ | yes |  | ❌ |  |  |
+| [stdgo.testing.fstest](./testing/fstest/README.md) | ✅ | yes |  | ❌ | ❌ | ❌ |
 | [stdgo.testing.internal.testdeps](./testing/internal/testdeps/README.md) | ✅ | no |  |  |  |  |
-| [stdgo.testing.iotest](./testing/iotest/README.md) | ✅ | yes |  | ❌ |  |  |
+| [stdgo.testing.iotest](./testing/iotest/README.md) | ✅ | yes |  | ❌ | ❌ | ❌ |
 | [stdgo.testing.quick](./testing/quick/README.md) | ✅ | no |  |  |  |  |
 | [stdgo.text.tabwriter](./text/tabwriter/README.md) | ❌ | no |  |  |  |  |
 | [stdgo.time](./time/README.md) | ❌ | yes |  |  |  |  |
-| [stdgo.unicode](./unicode/README.md) | ✅ | yes |  | ❌ |  |  |
-| [stdgo.unicode.utf16](./unicode/utf16/README.md) | ✅ | yes |  | ❌ |  |  |
-| [stdgo.unicode.utf8](./unicode/utf8/README.md) | ✅ | yes |  | ❌ |  |  |
+| [stdgo.unicode](./unicode/README.md) | ✅ | yes |  | ❌ | ❌ | ❌ |
+| [stdgo.unicode.utf16](./unicode/utf16/README.md) | ✅ | yes |  | ❌ | ❌ | ❌ |
+| [stdgo.unicode.utf8](./unicode/utf8/README.md) | ✅ | yes |  | ❌ | ❌ | ❌ |
 | [stdgo.unsafe](./unsafe/README.md) | ✅ | no |  |  |  |  |
 | [stdgo.vendor.golang_org.x.crypto.chacha20](./vendor/golang_org/x/crypto/chacha20/README.md) | ❌ | no |  |  |  |  |
 | [stdgo.vendor.golang_org.x.crypto.chacha20poly1305](./vendor/golang_org/x/crypto/chacha20poly1305/README.md) | ❌ | no |  |  |  |  |

@@ -19,6 +19,24 @@ Package utf8 implements functions and constants to support text encoded in UTF\-
 </p>
 </details>
 
+<details><summary>interp tests failed</summary>
+<p>
+
+```
+(Test time-out - runtime exceeded 2m0s)
+```
+</p>
+</details>
+
+<details><summary>jvm tests failed</summary>
+<p>
+
+```
+(Test time-out - runtime exceeded 2m0s)
+```
+</p>
+</details>
+
 
 # Index
 

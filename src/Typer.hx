@@ -4117,6 +4117,12 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr, info:Info):ExprDef {
 	final t = typeof(expr.x, info, false); // use expr type potentially instead of expr.x?
 	final isNamed = isNamed(t);
 	if (expr.op == AND) {
+		switch t {
+			case refType(_):
+				final ct = toComplexType(typeof(expr, info, false), info);
+				return (macro($x : $ct)).expr;
+			default:
+		}
 		if (!isRefValue(t)) {
 			return (macro Go.pointer($x)).expr;
 		}

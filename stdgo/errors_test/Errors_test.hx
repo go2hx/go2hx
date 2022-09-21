@@ -249,7 +249,7 @@ function testAs(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _poserErr = (new stdgo.errors_test.Errors_test.T_poser((Go.str("oh no") : GoString), null) : stdgo.errors_test.Errors_test.T_poser);
 	var _testCases = (new Slice<T__struct_1>(0, 0, ({
 		_err: (null : stdgo.Error),
-		_target: Go.toInterface(_errP),
+		_target: Go.toInterface((_errP : Ref<Ref<stdgo.io.fs.Fs.PathError>>)),
 		_match: false,
 		_want: (null : AnyInterface)
 	} : T__struct_1), ({
@@ -260,12 +260,12 @@ function testAs(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_want: Go.toInterface(Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT((Go.str("T") : GoString)) : stdgo.errors_test.Errors_test.T_errorT)))
 		} : T__struct_1), ({
 		_err: _errF,
-		_target: Go.toInterface(_errP),
+		_target: Go.toInterface((_errP : Ref<Ref<stdgo.io.fs.Fs.PathError>>)),
 		_match: true,
 		_want: Go.toInterface(_errF)
 		} : T__struct_1), ({
 		_err: Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT() : stdgo.errors_test.Errors_test.T_errorT)),
-		_target: Go.toInterface(_errP),
+		_target: Go.toInterface((_errP : Ref<Ref<stdgo.io.fs.Fs.PathError>>)),
 		_match: false,
 		_want: (null : AnyInterface)
 		} : T__struct_1), ({
@@ -281,12 +281,12 @@ function testAs(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_want: Go.toInterface(Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT((Go.str("poser") : GoString)) : stdgo.errors_test.Errors_test.T_errorT)))
 		} : T__struct_1), ({
 		_err: Go.asInterface((new stdgo.errors_test.Errors_test.T_poser((Go.str("path") : GoString), null) : stdgo.errors_test.Errors_test.T_poser)),
-		_target: Go.toInterface(_errP),
+		_target: Go.toInterface((_errP : Ref<Ref<stdgo.io.fs.Fs.PathError>>)),
 		_match: true,
 		_want: Go.toInterface(_poserPathErr)
 		} : T__struct_1), ({
 		_err: Go.asInterface(_poserErr),
-		_target: Go.toInterface(_p),
+		_target: Go.toInterface((_p : Ref<Ref<stdgo.errors_test.Errors_test.T_poser>>)),
 		_match: true,
 		_want: Go.toInterface(_poserErr)
 		} : T__struct_1), ({
@@ -429,7 +429,7 @@ function exampleAs():Void {
 			_err:stdgo.Error = __tmp__._1;
 		if (_err != null) {
 			var _pathError:Ref<stdgo.io.fs.Fs.PathError> = (null : stdgo.io.fs.Fs.PathError);
-			if (stdgo.errors.Errors.as(_err, Go.toInterface(_pathError))) {
+			if (stdgo.errors.Errors.as(_err, Go.toInterface((_pathError : Ref<Ref<stdgo.io.fs.Fs.PathError>>)))) {
 				stdgo.fmt.Fmt.println((Go.str("Failed at path:") : GoString), _pathError.path);
 			} else {
 				stdgo.fmt.Fmt.println(_err);

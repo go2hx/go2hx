@@ -2366,7 +2366,7 @@ function testReaddirOfFile(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_t.error(Go.toInterface((Go.str("Readdirnames succeeded; want non-nil error") : GoString)));
 		};
 		var _pe:Ref<PathError> = (null : stdgo.io.fs.Fs.PathError);
-		if (!stdgo.errors.Errors.as(_err, Go.toInterface(_pe)) || (_pe.path != _f.name())) {
+		if (!stdgo.errors.Errors.as(_err, Go.toInterface((_pe : Ref<Ref<stdgo.io.fs.Fs.PathError>>))) || (_pe.path != _f.name())) {
 			_t.errorf((Go.str("Readdirnames returned %q; want a PathError with path %q") : GoString), Go.toInterface(_err), Go.toInterface(_f.name()));
 		};
 		if ((_names.length) > (0 : GoInt)) {

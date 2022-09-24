@@ -412,6 +412,7 @@ class Value {
 				setFloat((value : GoFloat64));
 			default:
 				this.value = x.value;
+				_set();
 		}
 	}
 

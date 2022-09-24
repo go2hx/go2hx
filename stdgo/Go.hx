@@ -743,7 +743,7 @@ class Go {
 								return macro {
 									final underlying = $v{v};
 									final underlyingIndex = $v{s};
-									new $p(() -> $expr, v -> $expr = v, false, underlying, underlyingIndex);
+									new $p(() -> $expr, v -> $expr = v, true, underlying, underlyingIndex);
 								};
 						}
 					default:
@@ -870,7 +870,7 @@ class Go {
 						final type:haxe.macro.Type = params[0];
 						final underlyingType = gtDecode(type, null, marked);
 						// trace("underlyingType: " + new haxe.macro.Printer().printExpr(underlyingType));
-						ret = macro stdgo.reflect.Reflect.GoType.pointer($underlyingType);
+						ret = macro stdgo.reflect.Reflect.GoType.refType($underlyingType);
 					default:
 						final ref = t.get();
 						switch ref.type {

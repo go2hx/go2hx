@@ -279,7 +279,7 @@ function isPointer(type:GoType):Bool {
 			isPointer(elem);
 		case pointer(_):
 			true;
-		case refType(elem):
+		case refType(_):
 			false;
 		default:
 			false;
@@ -383,7 +383,8 @@ class Value {
 
 	public function set(x:Value) {
 		var value = x.value.value;
-		if (isNamed(@:privateAccess x.type().common().value))
+		final gt = @:privateAccess x.type().common().value;
+		if (isNamed(gt))
 			value = (x.value : Dynamic);
 		final k:Int = kind().toBasic();
 		switch k {
@@ -410,8 +411,7 @@ class Value {
 			case _float64:
 				setFloat((value : GoFloat64));
 			default:
-				this.value.value = value;
-				_set();
+				this.value = x.value;
 		}
 	}
 
@@ -532,18 +532,20 @@ class Value {
 
 	public inline function isNil():Bool {
 		var value = value.value;
-		if (isNamed(@:privateAccess type().common().value))
-			value = (value : Dynamic);
 		final k:Int = kind().toBasic();
+		final gt:GoType = this.type().common().value;
 		return switch k {
 			case _ptr:
-				if (value == null)
-					return true;
-				if ((value : Pointer<Dynamic>).hasSet())
-					return false;
-				if ((value : Pointer<Dynamic>).value == null)
-					return true;
-				false;
+				switch gt {
+					case GoType.refType(_):
+						false;
+					default:
+						if (value == null) {
+							true;
+						} else {
+							(value : Pointer<Dynamic>).hasSet();
+						}
+				}
 			case _func:
 				value == null;
 			case _map, _slice, _chan:
@@ -791,6 +793,13 @@ class Value {
 		switch k {
 			case ptr:
 				switch getUnderlying(t) {
+					case GoType.refType(elem):
+						switch elem {
+							case GoType.refType(_):
+								return new Value(new AnyInterface(Go.pointer(value), new _Type(elem)), value).setAddr();
+							default:
+								return new Value(new AnyInterface(value, new _Type(elem)), new _Type(elem)).setAddr();
+						}
 					case GoType.pointer(elem):
 						if (value == null) {
 							final value = new Value(new AnyInterface(null, new _Type(elem)), null).setAddr();
@@ -924,7 +933,7 @@ function zero(typ:Type):Value {
 
 function new_(typ:Type):Value {
 	var value = defaultValue(typ);
-	var ptr = new PointerData(() -> value, (x) -> value = x);
+	var ptr = new PointerData(() -> value, (x) -> value = x, true);
 	return new Value(new AnyInterface(ptr, new _Type(pointer(@:privateAccess typ.common().value))));
 }
 
@@ -1350,7 +1359,7 @@ class _Type {
 		#else
 		final gt:GoType = getUnderlying(common().value);
 		switch (gt) {
-			case chanType(_, elem), pointer(elem), sliceType(elem), arrayType(elem, _):
+			case chanType(_, elem), refType(elem), pointer(elem), sliceType(elem), arrayType(elem, _):
 				return new _Type(elem);
 			case interfaceType(_):
 				return null;

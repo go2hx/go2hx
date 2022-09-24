@@ -554,8 +554,10 @@ class Value {
 				value == null;
 			case _array:
 				false;
+			case _struct:
+				false;
 			default:
-				throw "nil check not supported kind: " + kind();
+				throw "nil check not supported kind: " + kind().string();
 		}
 	}
 
@@ -933,7 +935,7 @@ function zero(typ:Type):Value {
 
 function new_(typ:Type):Value {
 	var value = defaultValue(typ);
-	var ptr = new PointerData(() -> value, (x) -> value = x, true);
+	var ptr = new PointerData(() -> value, (x) -> value = x);
 	return new Value(new AnyInterface(ptr, new _Type(pointer(@:privateAccess typ.common().value))));
 }
 

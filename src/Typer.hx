@@ -4117,10 +4117,10 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr, info:Info):ExprDef {
 	final t = typeof(expr.x, info, false); // use expr type potentially instead of expr.x?
 	final isNamed = isNamed(t);
 	if (expr.op == AND) {
-		final t = typeof(expr, info, false);
 		// trace(t);
 		switch t {
 			case refType(_):
+				final t = typeof(expr, info, false);
 				final ct = toComplexType(t, info);
 				// trace(printer.printComplexType(ct));
 				return (macro($x : $ct)).expr;

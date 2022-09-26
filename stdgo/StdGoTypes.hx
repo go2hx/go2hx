@@ -1765,35 +1765,43 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 			return a == null && b == null;
 		var gt:GoType = @:privateAccess a.type.common().value;
 		var gt2:GoType = @:privateAccess b.type.common().value;
+
 		if (gt.match(invalidType) || gt2.match(invalidType))
 			return gt.match(invalidType) && gt2.match(invalidType);
 		if (!a.type.assignableTo(b.type)) {
+			trace(gt);
+			trace(gt2);
 			throw "invalid operation: (mismatched types " + a.type + " and " + b.type + ")";
-		}
-
-		function isNamed(gt:GoType) {
-			return switch gt {
-				case structType(_):
-					false;
-				default:
-					true;
-			}
 		}
 		var aValue = a.value;
 		var bValue = b.value;
 		switch gt {
-			case named(_, _, type, _):
-				if (isNamed(type))
-					aValue = (aValue : Dynamic).__t__;
+			case named(path, _, _, _):
+				if (aValue != null) {
+					final cl = std.Type.getClassName(std.Type.getClass(aValue));
+					if (StringTools.endsWith(cl, "_asInterface")) {
+						aValue = (aValue : Dynamic).__underlying__().value;
+					}
+				}
 			default:
 		}
 		switch gt2 {
 			case named(_, _, type, _):
-				if (isNamed(type))
-					bValue = (bValue : Dynamic).__t__;
+				if (bValue != null) {
+					final cl = std.Type.getClassName(std.Type.getClass(bValue));
+					if (StringTools.endsWith(cl, "_asInterface")) {
+						bValue = (bValue : Dynamic).__underlying__().value;
+					}
+				}
 			default:
 		}
-		return switch stdgo.reflect.Reflect.getUnderlying(gt) {
+
+		gt = stdgo.reflect.Reflect.getUnderlying(gt);
+		gt2 = stdgo.reflect.Reflect.getUnderlying(gt);
+		// trace(gt, gt2);
+		return switch gt {
+			case refType(_):
+				aValue == bValue;
 			case basic(kind):
 				switch kind {
 					case string_kind:
@@ -1822,6 +1830,10 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 						aValue == bValue;
 				}
 			case structType(fields):
+				if (aValue == null)
+					throw "struct equals a value null, b value: " + bValue;
+				if (bValue == null)
+					throw "struct equals b value null, a value: " + aValue;
 				for (i in 0...fields.length) {
 					final name = fields[i].name;
 					if (StringTools.startsWith(name, "__blank__"))
@@ -1830,13 +1842,15 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 					final fieldValue = std.Reflect.field(aValue, name);
 					final fieldValue2 = std.Reflect.field(bValue, name);
 
-					if (fieldValue == null || fieldValue2 == null)
+					if (fieldValue == null || fieldValue2 == null) {
+						trace(fieldValue, fieldValue2);
+						trace(aValue, bValue);
 						throw "struct issue with field name: " + name;
+					}
 
 					final type:Dynamic = @:privateAccess new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.unroll(gt, type));
 					final a = new AnyInterface(fieldValue, type);
 					final b = new AnyInterface(fieldValue2, type);
-
 					if (AnyInterface.notEquals(a, b))
 						return false;
 				}
@@ -1869,10 +1883,9 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 				}
 				true;
 			case pointer(_):
-				aValue == bValue;
-
+				(aValue : Pointer<Dynamic>) == (bValue : Pointer<Dynamic>);
 			default:
-				throw "unknown type equals: " + @:privateAccess a.type.common().value;
+				throw "unknown type equals: " + gt;
 		}
 		#end
 	}

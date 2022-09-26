@@ -13,7 +13,7 @@ final reserved = [
 	"iterator", "keyValueIterator", "switch", "case", "break", "continue", "default", "is", "abstract", "cast", "catch", "class", "do", "function", "dynamic",
 	"else", "enum", "extends", "extern", "final", "for", "function", "if", "interface", "implements", "import", "in", "inline", "macro", "new", "operator",
 	"overload", "override", "package", "private", "public", "return", "static", "this", "throw", "try", "typedef", "untyped", "using", "var", "while",
-	"construct", "null", "in", "wait", "length", "capacity", "bool","float", "int", "struct", "offsetof", "alignof",
+	"construct", "null", "in", "wait", "length", "capacity", "bool", "float", "int", "struct", "offsetof", "alignof",
 ];
 
 final reservedClassNames = [
@@ -1191,7 +1191,7 @@ private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTyp
 	}
 	if (isAnyInterface(fromType)) {
 		if (isNamed(toType)) {
-			return macro(($e.value : Dynamic).__t__ : $ct);
+			return macro(($e.value : Dynamic).__underlying__().value : $ct);
 		}
 
 		return macro($e.value : $ct);
@@ -4117,9 +4117,12 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr, info:Info):ExprDef {
 	final t = typeof(expr.x, info, false); // use expr type potentially instead of expr.x?
 	final isNamed = isNamed(t);
 	if (expr.op == AND) {
+		final t = typeof(expr, info, false);
+		// trace(t);
 		switch t {
 			case refType(_):
-				final ct = toComplexType(typeof(expr, info, false), info);
+				final ct = toComplexType(t, info);
+				// trace(printer.printComplexType(ct));
 				return (macro($x : $ct)).expr;
 			default:
 		}
@@ -4975,6 +4978,8 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 			for (arg in args)
 				macro $i{arg.name}
 		];
+		if (args.length > 0 && isRestType(args[args.length - 1].type))
+			params.push(macro...$e{params.pop()});
 		var e = macro $i{path}($a{params});
 		block = macro return $e;
 	}

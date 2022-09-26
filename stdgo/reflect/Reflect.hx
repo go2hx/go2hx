@@ -384,10 +384,23 @@ class Value {
 	public function set(x:Value) {
 		var value = x.value.value;
 		final gt = @:privateAccess x.type().common().value;
-		if (isNamed(gt))
-			value = (x.value : Dynamic);
+		if (value != null) {
+			final cl = std.Type.getClassName(std.Type.getClass(value));
+			if (StringTools.endsWith(cl, "_asInterface")) {
+				value = (value : Dynamic).__underlying__().value;
+			}
+		}
 		final k:Int = kind().toBasic();
 		switch k {
+			case _struct:
+				switch getUnderlying(gt) {
+					case structType(fields):
+						for (field in fields) {
+							final fieldValue = Reflect.field(value, field.name);
+							Reflect.setField(this.value.value, field.name, fieldValue);
+						}
+					default:
+				}
 			case _int8:
 				setInt((value : GoInt8));
 			case _int16:
@@ -797,12 +810,7 @@ class Value {
 			case ptr:
 				switch getUnderlying(t) {
 					case GoType.refType(elem):
-						switch elem {
-							case GoType.refType(_):
-								return new Value(new AnyInterface(Go.pointer(value), new _Type(elem)), value).setAddr();
-							default:
-								return new Value(new AnyInterface(value, new _Type(elem)), new _Type(elem)).setAddr();
-						}
+						return new Value(new AnyInterface(value, new _Type(elem)), null).setAddr();
 					case GoType.pointer(elem):
 						if (value == null) {
 							final value = new Value(new AnyInterface(null, new _Type(elem)), null).setAddr();
@@ -1287,7 +1295,7 @@ class _Type {
 				} else {
 					path;
 				}
-			case pointer(elem):
+			case pointer(elem), refType(elem):
 				"*" + new _Type(elem).string();
 			case structType(fields):
 				"struct { " + [
@@ -1348,8 +1356,6 @@ class _Type {
 				}
 				r = r.substr(1);
 				"interface {" + r + " }";
-			case refType(elem):
-				new _Type(elem).string();
 			default:
 				throw "not found enum toString " + gt; // should never get here
 		}
@@ -1513,7 +1519,8 @@ class _Type {
 	public function assignableTo(ot:Type):Bool {
 		if (ot == null)
 			throw "reflect: nil type passed to Type.AssignableTo";
-		return directlyAssignable(ot, this) || implementsMethod(ot, this, true);
+		final b = directlyAssignable(ot, this) || implementsMethod(ot, this, true);
+		return b;
 	}
 
 	public function implements_(ot:Type):Bool {
@@ -1817,9 +1824,9 @@ private function directlyAssignable(t:Type, v:Type):Bool {
 				default:
 					false;
 			}
-		case pointer(_):
+		case pointer(_), refType(_):
 			switch vgt {
-				case pointer(_):
+				case pointer(_), refType(_):
 					true;
 				default:
 					false;

@@ -869,7 +869,6 @@ class Go {
 					case "stdgo.Ref": // pointer with no overhead because the underlying type is a ref
 						final type:haxe.macro.Type = params[0];
 						final underlyingType = gtDecode(type, null, marked);
-						// trace("underlyingType: " + new haxe.macro.Printer().printExpr(underlyingType));
 						ret = macro stdgo.reflect.Reflect.GoType.refType($underlyingType);
 					default:
 						final ref = t.get();

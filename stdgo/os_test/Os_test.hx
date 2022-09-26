@@ -5668,7 +5668,7 @@ function _checkUidGid(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _uid:GoIn
 		_t.fatalf((Go.str("Lstat %q (looking for uid/gid %d/%d): %s") : GoString), Go.toInterface(_path), Go.toInterface(_uid), Go.toInterface(_gid),
 			Go.toInterface(_err));
 	};
-	var _sys = ((_dir.sys().value : Dynamic).__t__ : Ref<stdgo.syscall.Syscall.Stat_t>);
+	var _sys = ((_dir.sys().value : Dynamic).__underlying__().value : Ref<stdgo.syscall.Syscall.Stat_t>);
 	if ((_sys.uid : GoInt) != _uid) {
 		_t.errorf((Go.str("Lstat %q: uid %d want %d") : GoString), Go.toInterface(_path), Go.toInterface(_sys.uid), Go.toInterface(_uid));
 	};
@@ -5700,7 +5700,7 @@ function testChown(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_t.fatalf((Go.str("chown %s -1 %d: %s") : GoString), Go.toInterface(_f.name()), Go.toInterface(_gid), Go.toInterface(_err));
 			};
 		};
-		var _sys = ((_dir.sys().value : Dynamic).__t__ : Ref<stdgo.syscall.Syscall.Stat_t>);
+		var _sys = ((_dir.sys().value : Dynamic).__underlying__().value : Ref<stdgo.syscall.Syscall.Stat_t>);
 		_checkUidGid(_t, _f.name(), (_sys.uid : GoInt), _gid);
 		var __tmp__ = getgroups(),
 			_groups:Slice<GoInt> = __tmp__._0,
@@ -5772,7 +5772,7 @@ function testFileChown(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_t.fatalf((Go.str("fchown %s -1 %d: %s") : GoString), Go.toInterface(_f.name()), Go.toInterface(_gid), Go.toInterface(_err));
 			};
 		};
-		var _sys = ((_dir.sys().value : Dynamic).__t__ : Ref<stdgo.syscall.Syscall.Stat_t>);
+		var _sys = ((_dir.sys().value : Dynamic).__underlying__().value : Ref<stdgo.syscall.Syscall.Stat_t>);
 		_checkUidGid(_t, _f.name(), (_sys.uid : GoInt), _gid);
 		var __tmp__ = getgroups(),
 			_groups:Slice<GoInt> = __tmp__._0,
@@ -5868,7 +5868,7 @@ function testLchown(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_t.fatalf((Go.str("lchown %s -1 %d: %s") : GoString), Go.toInterface(_linkname), Go.toInterface(_gid), Go.toInterface(_err));
 			};
 		};
-		var _sys = ((_dir.sys().value : Dynamic).__t__ : Ref<stdgo.syscall.Syscall.Stat_t>);
+		var _sys = ((_dir.sys().value : Dynamic).__underlying__().value : Ref<stdgo.syscall.Syscall.Stat_t>);
 		_checkUidGid(_t, _linkname, (_sys.uid : GoInt), _gid);
 		var __tmp__ = getgroups(),
 			_groups:Slice<GoInt> = __tmp__._0,

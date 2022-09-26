@@ -839,7 +839,7 @@ function _expectValueError(_t:Ref<stdgo.testing.Testing.T>, _fn:() -> Void):Void
 			});
 			{
 				var __tmp__ = try {
-					{value: ((_err.value : Dynamic).__t__ : Ref<ValueError>), ok: true};
+					{value: ((_err.value : Dynamic).__underlying__().value : Ref<ValueError>), ok: true};
 				} catch (_) {
 					{value: (null : ValueError), ok: false};
 				}, _0 = __tmp__.value, _ok = __tmp__.ok;

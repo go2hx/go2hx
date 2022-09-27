@@ -12,7 +12,16 @@ abstract UnsafePointer(AnyInterface) from AnyInterface {
 	}
 
 	public function __convert__(toType:GoType):Any {
-		final fromType:GoType = this.type.common().value;
+		var fromType:GoType = this.type.common().value;
+		var f = null;
+		f = t -> switch t {
+			case refType(elem):
+				f(elem);
+			default:
+				t;
+		}
+		fromType = f(fromType);
+		toType = f(toType);
 		if (fromType.equals(toType))
 			return this.value;
 		// to

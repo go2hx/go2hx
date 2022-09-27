@@ -25,7 +25,7 @@ import stdgo.encoding.json.Json
 ```
 
 
-## function marshal
+## function \`marshal\`
 
 
 ```haxe

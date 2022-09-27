@@ -85,7 +85,7 @@ import stdgo.testing.fstest.Fstest
 ```
 
 
-## function \_formatEntry
+## function \`\_formatEntry\`
 
 
 ```haxe
@@ -99,7 +99,7 @@ formatEntry formats an fs.DirEntry into a string for error messages and comparis
 [\(view code\)](<./Fstest.hx#L354>)
 
 
-## function \_formatInfo
+## function \`\_formatInfo\`
 
 
 ```haxe
@@ -113,7 +113,7 @@ formatInfo formats an fs.FileInfo into a string for error messages and compariso
 [\(view code\)](<./Fstest.hx#L366>)
 
 
-## function \_formatInfoEntry
+## function \`\_formatInfoEntry\`
 
 
 ```haxe
@@ -127,7 +127,7 @@ formatInfoEntry formats an fs.FileInfo into a string like the result of formatEn
 [\(view code\)](<./Fstest.hx#L360>)
 
 
-## function \_testFS
+## function \`\_testFS\`
 
 
 ```haxe
@@ -141,7 +141,7 @@ function _testFS(_fsys:stdgo.io.fs.FS, _expected:haxe.Rest<stdgo.GoString>):stdg
 [\(view code\)](<./Fstest.hx#L348>)
 
 
-## function testDash
+## function \`testDash\`
 
 
 ```haxe
@@ -155,7 +155,7 @@ function testDash(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Fstest.hx#L372>)
 
 
-## function testFS
+## function \`testFS\`
 
 
 ```haxe
@@ -169,7 +169,7 @@ TestFS tests a file system implementation. It walks the entire tree of files in 
 [\(view code\)](<./Fstest.hx#L345>)
 
 
-## function testMapFS
+## function \`testMapFS\`
 
 
 ```haxe
@@ -183,7 +183,7 @@ function testMapFS(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Fstest.hx#L321>)
 
 
-## function testMapFSChmodDot
+## function \`testMapFSChmodDot\`
 
 
 ```haxe
@@ -197,7 +197,7 @@ function testMapFSChmodDot(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Fstest.hx#L324>)
 
 
-## function testSymlink
+## function \`testSymlink\`
 
 
 ```haxe

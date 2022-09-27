@@ -70,7 +70,7 @@ import stdgo.errors_test.Errors
 ```
 
 
-## function \_oops
+## function \`\_oops\`
 
 
 ```haxe
@@ -84,7 +84,7 @@ function _oops():stdgo.Error
 [\(view code\)](<./Errors.hx#L174>)
 
 
-## function example
+## function \`example\`
 
 
 ```haxe
@@ -98,7 +98,7 @@ function example():Void
 [\(view code\)](<./Errors.hx#L183>)
 
 
-## function exampleAs
+## function \`exampleAs\`
 
 
 ```haxe
@@ -109,10 +109,10 @@ function exampleAs():Void
  
 
 
-[\(view code\)](<./Errors.hx#L425>)
+[\(view code\)](<./Errors.hx#L429>)
 
 
-## function exampleIs
+## function \`exampleIs\`
 
 
 ```haxe
@@ -123,10 +123,10 @@ function exampleIs():Void
  
 
 
-[\(view code\)](<./Errors.hx#L410>)
+[\(view code\)](<./Errors.hx#L414>)
 
 
-## function exampleNew
+## function \`exampleNew\`
 
 
 ```haxe
@@ -140,7 +140,7 @@ function exampleNew():Void
 [\(view code\)](<./Errors.hx#L153>)
 
 
-## function exampleNew\_errorf
+## function \`exampleNew\_errorf\`
 
 
 ```haxe
@@ -154,7 +154,7 @@ The fmt package's Errorf function lets us use the package's formatting features 
 [\(view code\)](<./Errors.hx#L164>)
 
 
-## function exampleUnwrap
+## function \`exampleUnwrap\`
 
 
 ```haxe
@@ -165,10 +165,10 @@ function exampleUnwrap():Void
  
 
 
-[\(view code\)](<./Errors.hx#L441>)
+[\(view code\)](<./Errors.hx#L445>)
 
 
-## function testAs
+## function \`testAs\`
 
 
 ```haxe
@@ -179,10 +179,10 @@ function testAs(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Errors.hx#L241>)
+[\(view code\)](<./Errors.hx#L242>)
 
 
-## function testAsValidation
+## function \`testAsValidation\`
 
 
 ```haxe
@@ -193,10 +193,10 @@ function testAsValidation(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Errors.hx#L335>)
+[\(view code\)](<./Errors.hx#L339>)
 
 
-## function testErrorMethod
+## function \`testErrorMethod\`
 
 
 ```haxe
@@ -210,7 +210,7 @@ function testErrorMethod(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Errors.hx#L146>)
 
 
-## function testIs
+## function \`testIs\`
 
 
 ```haxe
@@ -224,7 +224,7 @@ function testIs(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Errors.hx#L192>)
 
 
-## function testNewEqual
+## function \`testNewEqual\`
 
 
 ```haxe
@@ -238,7 +238,7 @@ function testNewEqual(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Errors.hx#L133>)
 
 
-## function testUnwrap
+## function \`testUnwrap\`
 
 
 ```haxe
@@ -249,10 +249,10 @@ function testUnwrap(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Errors.hx#L390>)
+[\(view code\)](<./Errors.hx#L394>)
 
 
-## function main
+## function \`main\`
 
 
 ```haxe
@@ -315,6 +315,6 @@ function error():stdgo.GoString
  
 
 
-[\(view code\)](<./Errors_test.hx#L466>)
+[\(view code\)](<./Errors_test.hx#L470>)
 
 

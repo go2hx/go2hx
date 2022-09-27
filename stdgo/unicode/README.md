@@ -2230,7 +2230,7 @@ import stdgo.unicode.Unicode
 ```
 
 
-## function \_is16
+## function \`\_is16\`
 
 
 ```haxe
@@ -2241,10 +2241,10 @@ function _is16(_ranges:stdgo.Slice<stdgo.unicode.Range16>, _r:stdgo.GoUInt16):Bo
 is16 reports whether r is in the sorted slice of 16\-bit ranges. 
 
 
-[\(view code\)](<./Unicode.hx#L8815>)
+[\(view code\)](<./Unicode.hx#L8823>)
 
 
-## function \_is32
+## function \`\_is32\`
 
 
 ```haxe
@@ -2255,10 +2255,10 @@ function _is32(_ranges:stdgo.Slice<stdgo.unicode.Range32>, _r:stdgo.GoUInt32):Bo
 is32 reports whether r is in the sorted slice of 32\-bit ranges. 
 
 
-[\(view code\)](<./Unicode.hx#L8848>)
+[\(view code\)](<./Unicode.hx#L8856>)
 
 
-## function \_isExcludingLatin
+## function \`\_isExcludingLatin\`
 
 
 ```haxe
@@ -2269,10 +2269,10 @@ function _isExcludingLatin(_rangeTab:stdgo.Ref<stdgo.unicode.RangeTable>, _r:std
  
 
 
-[\(view code\)](<./Unicode.hx#L8893>)
+[\(view code\)](<./Unicode.hx#L8901>)
 
 
-## function \_to
+## function \`\_to\`
 
 
 ```haxe
@@ -2283,10 +2283,10 @@ function _to(__case:stdgo.GoInt, _r:stdgo.GoRune, _caseRange:stdgo.Slice<stdgo.u
 to maps the rune using the specified case mapping. It additionally reports whether caseRange contained a mapping for r. 
 
 
-[\(view code\)](<./Unicode.hx#L8942>)
+[\(view code\)](<./Unicode.hx#L8950>)
 
 
-## function in\_
+## function \`in\_\`
 
 
 ```haxe
@@ -2297,10 +2297,10 @@ function in_(_r:stdgo.GoRune, _ranges:haxe.Rest<stdgo.Ref<stdgo.unicode.RangeTab
 In reports whether the rune is a member of one of the ranges. 
 
 
-[\(view code\)](<./Unicode.hx#L8721>)
+[\(view code\)](<./Unicode.hx#L8729>)
 
 
-## function isControl
+## function \`isControl\`
 
 
 ```haxe
@@ -2311,10 +2311,10 @@ function isControl(_r:stdgo.GoRune):Bool
 IsControl reports whether the rune is a control character. The C \(Other\) Unicode category includes more code points such as surrogates; use Is\(C, r\) to test for them. 
 
 
-[\(view code\)](<./Unicode.hx#L8736>)
+[\(view code\)](<./Unicode.hx#L8744>)
 
 
-## function isDigit
+## function \`isDigit\`
 
 
 ```haxe
@@ -2344,10 +2344,10 @@ function exampleIsDigit():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L8672>)
+[\(view code\)](<./Unicode.hx#L8680>)
 
 
-## function isGraphic
+## function \`isGraphic\`
 
 
 ```haxe
@@ -2358,10 +2358,10 @@ function isGraphic(_r:stdgo.GoRune):Bool
 IsGraphic reports whether the rune is defined as a Graphic by Unicode. Such characters include letters, marks, numbers, punctuation, symbols, and spaces, from categories L, M, N, P, S, Zs. 
 
 
-[\(view code\)](<./Unicode.hx#L8684>)
+[\(view code\)](<./Unicode.hx#L8692>)
 
 
-## function isLetter
+## function \`isLetter\`
 
 
 ```haxe
@@ -2391,10 +2391,10 @@ function exampleIsLetter():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L8746>)
+[\(view code\)](<./Unicode.hx#L8754>)
 
 
-## function isLower
+## function \`isLower\`
 
 
 ```haxe
@@ -2424,10 +2424,10 @@ function exampleIsLower():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L8921>)
+[\(view code\)](<./Unicode.hx#L8929>)
 
 
-## function isMark
+## function \`isMark\`
 
 
 ```haxe
@@ -2438,10 +2438,10 @@ function isMark(_r:stdgo.GoRune):Bool
 IsMark reports whether the rune is a mark character \(category M\). 
 
 
-[\(view code\)](<./Unicode.hx#L8756>)
+[\(view code\)](<./Unicode.hx#L8764>)
 
 
-## function isNumber
+## function \`isNumber\`
 
 
 ```haxe
@@ -2471,10 +2471,10 @@ function exampleIsNumber():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L8763>)
+[\(view code\)](<./Unicode.hx#L8771>)
 
 
-## function isOneOf
+## function \`isOneOf\`
 
 
 ```haxe
@@ -2485,10 +2485,10 @@ function isOneOf(_ranges:stdgo.Slice<stdgo.Ref<stdgo.unicode.RangeTable>>, _r:st
 IsOneOf reports whether the rune is a member of one of the ranges. The function "In" provides a nicer signature and should be used in preference to IsOneOf. 
 
 
-[\(view code\)](<./Unicode.hx#L8709>)
+[\(view code\)](<./Unicode.hx#L8717>)
 
 
-## function isPrint
+## function \`isPrint\`
 
 
 ```haxe
@@ -2499,10 +2499,10 @@ function isPrint(_r:stdgo.GoRune):Bool
 IsPrint reports whether the rune is defined as printable by Go. Such characters include letters, marks, numbers, punctuation, symbols, and the ASCII space character, from categories L, M, N, P, S and the ASCII space character. This categorization is the same as IsGraphic except that the only spacing character is ASCII space, U\+0020. 
 
 
-[\(view code\)](<./Unicode.hx#L8698>)
+[\(view code\)](<./Unicode.hx#L8706>)
 
 
-## function isPunct
+## function \`isPunct\`
 
 
 ```haxe
@@ -2513,10 +2513,10 @@ function isPunct(_r:stdgo.GoRune):Bool
 IsPunct reports whether the rune is a Unicode punctuation character \(category P\). 
 
 
-[\(view code\)](<./Unicode.hx#L8774>)
+[\(view code\)](<./Unicode.hx#L8782>)
 
 
-## function isSpace
+## function \`isSpace\`
 
 
 ```haxe
@@ -2548,10 +2548,10 @@ function exampleIsSpace():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L8791>)
+[\(view code\)](<./Unicode.hx#L8799>)
 
 
-## function isSymbol
+## function \`isSymbol\`
 
 
 ```haxe
@@ -2562,10 +2562,10 @@ function isSymbol(_r:stdgo.GoRune):Bool
 IsSymbol reports whether the rune is a symbolic character. 
 
 
-[\(view code\)](<./Unicode.hx#L8805>)
+[\(view code\)](<./Unicode.hx#L8813>)
 
 
-## function isTitle
+## function \`isTitle\`
 
 
 ```haxe
@@ -2595,10 +2595,10 @@ function exampleIsTitle():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L8931>)
+[\(view code\)](<./Unicode.hx#L8939>)
 
 
-## function isUpper
+## function \`isUpper\`
 
 
 ```haxe
@@ -2628,10 +2628,10 @@ function exampleIsUpper():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L8911>)
+[\(view code\)](<./Unicode.hx#L8919>)
 
 
-## function is\_
+## function \`is\_\`
 
 
 ```haxe
@@ -2642,10 +2642,10 @@ function is_(_rangeTab:stdgo.Ref<stdgo.unicode.RangeTable>, _r:stdgo.GoRune):Boo
 Is reports whether the rune is in the specified table of ranges. 
 
 
-[\(view code\)](<./Unicode.hx#L8881>)
+[\(view code\)](<./Unicode.hx#L8889>)
 
 
-## function simpleFold
+## function \`simpleFold\`
 
 
 ```haxe
@@ -2679,10 +2679,10 @@ function exampleSimpleFold():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L9039>)
+[\(view code\)](<./Unicode.hx#L9047>)
 
 
-## function to
+## function \`to\`
 
 
 ```haxe
@@ -2718,10 +2718,10 @@ function exampleTo():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L8972>)
+[\(view code\)](<./Unicode.hx#L8980>)
 
 
-## function toLower
+## function \`toLower\`
 
 
 ```haxe
@@ -2751,10 +2751,10 @@ function exampleToLower():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L8996>)
+[\(view code\)](<./Unicode.hx#L9004>)
 
 
-## function toTitle
+## function \`toTitle\`
 
 
 ```haxe
@@ -2784,10 +2784,10 @@ function exampleToTitle():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L9009>)
+[\(view code\)](<./Unicode.hx#L9017>)
 
 
-## function toUpper
+## function \`toUpper\`
 
 
 ```haxe
@@ -2817,7 +2817,7 @@ function exampleToUpper():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L8983>)
+[\(view code\)](<./Unicode.hx#L8991>)
 
 
 # Classes
@@ -2860,7 +2860,7 @@ function new(?lo:stdgo.GoUInt32, ?hi:stdgo.GoUInt32, ?delta:Null<stdgo.unicode._
  
 
 
-[\(view code\)](<./Unicode.hx#L8619>)
+[\(view code\)](<./Unicode.hx#L8627>)
 
 
 ## class Range16
@@ -2895,7 +2895,7 @@ function new(?lo:stdgo.GoUInt16, ?hi:stdgo.GoUInt16, ?stride:stdgo.GoUInt16):Voi
  
 
 
-[\(view code\)](<./Unicode.hx#L8556>)
+[\(view code\)](<./Unicode.hx#L8564>)
 
 
 ## class Range32
@@ -2930,7 +2930,7 @@ function new(?lo:stdgo.GoUInt32, ?hi:stdgo.GoUInt32, ?stride:stdgo.GoUInt32):Voi
  
 
 
-[\(view code\)](<./Unicode.hx#L8583>)
+[\(view code\)](<./Unicode.hx#L8591>)
 
 
 ## class RangeTable
@@ -2968,7 +2968,7 @@ function new(?r16:stdgo.Slice<stdgo.unicode.Range16>, ?r32:stdgo.Slice<stdgo.uni
  
 
 
-[\(view code\)](<./Unicode.hx#L8530>)
+[\(view code\)](<./Unicode.hx#L8538>)
 
 
 # Typedefs
@@ -3027,7 +3027,7 @@ function toLower( _r:stdgo.GoRune):stdgo.GoRune
 ToLower maps the rune to lower case giving priority to the special mapping. 
 
 
-[\(view code\)](<./Unicode.hx#L9106>)
+[\(view code\)](<./Unicode.hx#L9114>)
 
 
 ### SpecialCase function toTitle
@@ -3041,7 +3041,7 @@ function toTitle( _r:stdgo.GoRune):stdgo.GoRune
 ToTitle maps the rune to title case giving priority to the special mapping. 
 
 
-[\(view code\)](<./Unicode.hx#L9120>)
+[\(view code\)](<./Unicode.hx#L9128>)
 
 
 ### SpecialCase function toUpper
@@ -3055,6 +3055,6 @@ function toUpper( _r:stdgo.GoRune):stdgo.GoRune
 ToUpper maps the rune to upper case giving priority to the special mapping. 
 
 
-[\(view code\)](<./Unicode.hx#L9134>)
+[\(view code\)](<./Unicode.hx#L9142>)
 
 

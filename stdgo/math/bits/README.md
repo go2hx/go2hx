@@ -245,7 +245,7 @@ import stdgo.math.bits.Bits
 ```
 
 
-## function add
+## function \`add\`
 
 
 ```haxe
@@ -259,7 +259,7 @@ Add returns the sum with carry of x, y and carry: sum = x \+ y \+ carry. The car
 [\(view code\)](<./Bits.hx#L538>)
 
 
-## function add32
+## function \`add32\`
 
 
 ```haxe
@@ -315,7 +315,7 @@ function exampleAdd32():Void {
 [\(view code\)](<./Bits.hx#L559>)
 
 
-## function add64
+## function \`add64\`
 
 
 ```haxe
@@ -371,7 +371,7 @@ function exampleAdd64():Void {
 [\(view code\)](<./Bits.hx#L574>)
 
 
-## function div
+## function \`div\`
 
 
 ```haxe
@@ -385,7 +385,7 @@ Div returns the quotient and remainder of \(hi, lo\) divided by y: quo = \(hi, l
 [\(view code\)](<./Bits.hx#L700>)
 
 
-## function div32
+## function \`div32\`
 
 
 ```haxe
@@ -434,7 +434,7 @@ function exampleDiv32():Void {
 [\(view code\)](<./Bits.hx#L720>)
 
 
-## function div64
+## function \`div64\`
 
 
 ```haxe
@@ -483,7 +483,7 @@ function exampleDiv64():Void {
 [\(view code\)](<./Bits.hx#L741>)
 
 
-## function leadingZeros
+## function \`leadingZeros\`
 
 
 ```haxe
@@ -497,7 +497,7 @@ LeadingZeros returns the number of leading zero bits in x; the result is UintSiz
 [\(view code\)](<./Bits.hx#L110>)
 
 
-## function leadingZeros16
+## function \`leadingZeros16\`
 
 
 ```haxe
@@ -530,7 +530,7 @@ function exampleLeadingZeros16():Void {
 [\(view code\)](<./Bits.hx#L124>)
 
 
-## function leadingZeros32
+## function \`leadingZeros32\`
 
 
 ```haxe
@@ -563,7 +563,7 @@ function exampleLeadingZeros32():Void {
 [\(view code\)](<./Bits.hx#L131>)
 
 
-## function leadingZeros64
+## function \`leadingZeros64\`
 
 
 ```haxe
@@ -596,7 +596,7 @@ function exampleLeadingZeros64():Void {
 [\(view code\)](<./Bits.hx#L138>)
 
 
-## function leadingZeros8
+## function \`leadingZeros8\`
 
 
 ```haxe
@@ -629,7 +629,7 @@ function exampleLeadingZeros8():Void {
 [\(view code\)](<./Bits.hx#L117>)
 
 
-## function len
+## function \`len\`
 
 
 ```haxe
@@ -643,7 +643,7 @@ Len returns the minimum number of bits required to represent x; the result is 0 
 [\(view code\)](<./Bits.hx#L458>)
 
 
-## function len16
+## function \`len16\`
 
 
 ```haxe
@@ -675,7 +675,7 @@ function exampleLen16():Void {
 [\(view code\)](<./Bits.hx#L477>)
 
 
-## function len32
+## function \`len32\`
 
 
 ```haxe
@@ -707,7 +707,7 @@ function exampleLen32():Void {
 [\(view code\)](<./Bits.hx#L492>)
 
 
-## function len64
+## function \`len64\`
 
 
 ```haxe
@@ -739,7 +739,7 @@ function exampleLen64():Void {
 [\(view code\)](<./Bits.hx#L511>)
 
 
-## function len8
+## function \`len8\`
 
 
 ```haxe
@@ -771,7 +771,7 @@ function exampleLen8():Void {
 [\(view code\)](<./Bits.hx#L468>)
 
 
-## function mul
+## function \`mul\`
 
 
 ```haxe
@@ -785,7 +785,7 @@ Mul returns the full\-width product of x and y: \(hi, lo\) = x \* y with the pro
 [\(view code\)](<./Bits.hx#L637>)
 
 
-## function mul32
+## function \`mul32\`
 
 
 ```haxe
@@ -832,7 +832,7 @@ function exampleMul32():Void {
 [\(view code\)](<./Bits.hx#L658>)
 
 
-## function mul64
+## function \`mul64\`
 
 
 ```haxe
@@ -879,7 +879,7 @@ function exampleMul64():Void {
 [\(view code\)](<./Bits.hx#L677>)
 
 
-## function onesCount
+## function \`onesCount\`
 
 
 ```haxe
@@ -912,7 +912,7 @@ function exampleOnesCount():Void {
 [\(view code\)](<./Bits.hx#L197>)
 
 
-## function onesCount16
+## function \`onesCount16\`
 
 
 ```haxe
@@ -945,7 +945,7 @@ function exampleOnesCount16():Void {
 [\(view code\)](<./Bits.hx#L219>)
 
 
-## function onesCount32
+## function \`onesCount32\`
 
 
 ```haxe
@@ -978,7 +978,7 @@ function exampleOnesCount32():Void {
 [\(view code\)](<./Bits.hx#L237>)
 
 
-## function onesCount64
+## function \`onesCount64\`
 
 
 ```haxe
@@ -1011,7 +1011,7 @@ function exampleOnesCount64():Void {
 [\(view code\)](<./Bits.hx#L267>)
 
 
-## function onesCount8
+## function \`onesCount8\`
 
 
 ```haxe
@@ -1044,7 +1044,7 @@ function exampleOnesCount8():Void {
 [\(view code\)](<./Bits.hx#L207>)
 
 
-## function rem
+## function \`rem\`
 
 
 ```haxe
@@ -1058,7 +1058,7 @@ Rem returns the remainder of \(hi, lo\) divided by y. Rem panics for y == 0 \(di
 [\(view code\)](<./Bits.hx#L786>)
 
 
-## function rem32
+## function \`rem32\`
 
 
 ```haxe
@@ -1072,7 +1072,7 @@ Rem32 returns the remainder of \(hi, lo\) divided by y. Rem32 panics for y == 0 
 [\(view code\)](<./Bits.hx#L798>)
 
 
-## function rem64
+## function \`rem64\`
 
 
 ```haxe
@@ -1086,7 +1086,7 @@ Rem64 returns the remainder of \(hi, lo\) divided by y. Rem64 panics for y == 0 
 [\(view code\)](<./Bits.hx#L807>)
 
 
-## function reverse
+## function \`reverse\`
 
 
 ```haxe
@@ -1100,7 +1100,7 @@ Reverse returns the value of x with its bits in reversed order.
 [\(view code\)](<./Bits.hx#L342>)
 
 
-## function reverse16
+## function \`reverse16\`
 
 
 ```haxe
@@ -1133,7 +1133,7 @@ function exampleReverse16():Void {
 [\(view code\)](<./Bits.hx#L367>)
 
 
-## function reverse32
+## function \`reverse32\`
 
 
 ```haxe
@@ -1166,7 +1166,7 @@ function exampleReverse32():Void {
 [\(view code\)](<./Bits.hx#L392>)
 
 
-## function reverse64
+## function \`reverse64\`
 
 
 ```haxe
@@ -1199,7 +1199,7 @@ function exampleReverse64():Void {
 [\(view code\)](<./Bits.hx#L403>)
 
 
-## function reverse8
+## function \`reverse8\`
 
 
 ```haxe
@@ -1232,7 +1232,7 @@ function exampleReverse8():Void {
 [\(view code\)](<./Bits.hx#L352>)
 
 
-## function reverseBytes
+## function \`reverseBytes\`
 
 
 ```haxe
@@ -1246,7 +1246,7 @@ ReverseBytes returns the value of x with its bytes in reversed order.  This func
 [\(view code\)](<./Bits.hx#L416>)
 
 
-## function reverseBytes16
+## function \`reverseBytes16\`
 
 
 ```haxe
@@ -1279,7 +1279,7 @@ function exampleReverseBytes16():Void {
 [\(view code\)](<./Bits.hx#L428>)
 
 
-## function reverseBytes32
+## function \`reverseBytes32\`
 
 
 ```haxe
@@ -1312,7 +1312,7 @@ function exampleReverseBytes32():Void {
 [\(view code\)](<./Bits.hx#L437>)
 
 
-## function reverseBytes64
+## function \`reverseBytes64\`
 
 
 ```haxe
@@ -1345,7 +1345,7 @@ function exampleReverseBytes64():Void {
 [\(view code\)](<./Bits.hx#L448>)
 
 
-## function rotateLeft
+## function \`rotateLeft\`
 
 
 ```haxe
@@ -1359,7 +1359,7 @@ RotateLeft returns the value of x rotated left by \(k mod UintSize\) bits. To ro
 [\(view code\)](<./Bits.hx#L284>)
 
 
-## function rotateLeft16
+## function \`rotateLeft16\`
 
 
 ```haxe
@@ -1393,7 +1393,7 @@ function exampleRotateLeft16():Void {
 [\(view code\)](<./Bits.hx#L309>)
 
 
-## function rotateLeft32
+## function \`rotateLeft32\`
 
 
 ```haxe
@@ -1427,7 +1427,7 @@ function exampleRotateLeft32():Void {
 [\(view code\)](<./Bits.hx#L321>)
 
 
-## function rotateLeft64
+## function \`rotateLeft64\`
 
 
 ```haxe
@@ -1461,7 +1461,7 @@ function exampleRotateLeft64():Void {
 [\(view code\)](<./Bits.hx#L333>)
 
 
-## function rotateLeft8
+## function \`rotateLeft8\`
 
 
 ```haxe
@@ -1495,7 +1495,7 @@ function exampleRotateLeft8():Void {
 [\(view code\)](<./Bits.hx#L297>)
 
 
-## function sub
+## function \`sub\`
 
 
 ```haxe
@@ -1509,7 +1509,7 @@ Sub returns the difference of x, y and borrow: diff = x \- y \- borrow. The borr
 [\(view code\)](<./Bits.hx#L588>)
 
 
-## function sub32
+## function \`sub32\`
 
 
 ```haxe
@@ -1565,7 +1565,7 @@ function exampleSub32():Void {
 [\(view code\)](<./Bits.hx#L609>)
 
 
-## function sub64
+## function \`sub64\`
 
 
 ```haxe
@@ -1621,7 +1621,7 @@ function exampleSub64():Void {
 [\(view code\)](<./Bits.hx#L623>)
 
 
-## function trailingZeros
+## function \`trailingZeros\`
 
 
 ```haxe
@@ -1635,7 +1635,7 @@ TrailingZeros returns the number of trailing zero bits in x; the result is UintS
 [\(view code\)](<./Bits.hx#L145>)
 
 
-## function trailingZeros16
+## function \`trailingZeros16\`
 
 
 ```haxe
@@ -1668,7 +1668,7 @@ function exampleTrailingZeros16():Void {
 [\(view code\)](<./Bits.hx#L167>)
 
 
-## function trailingZeros32
+## function \`trailingZeros32\`
 
 
 ```haxe
@@ -1701,7 +1701,7 @@ function exampleTrailingZeros32():Void {
 [\(view code\)](<./Bits.hx#L177>)
 
 
-## function trailingZeros64
+## function \`trailingZeros64\`
 
 
 ```haxe
@@ -1734,7 +1734,7 @@ function exampleTrailingZeros64():Void {
 [\(view code\)](<./Bits.hx#L187>)
 
 
-## function trailingZeros8
+## function \`trailingZeros8\`
 
 
 ```haxe

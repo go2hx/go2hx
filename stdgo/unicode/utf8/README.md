@@ -158,7 +158,7 @@ import stdgo.unicode.utf8.Utf8
 ```
 
 
-## function \_appendRuneNonASCII
+## function \`\_appendRuneNonASCII\`
 
 
 ```haxe
@@ -172,7 +172,7 @@ function _appendRuneNonASCII(_p:stdgo.Slice<stdgo.GoByte>, _r:stdgo.GoRune):stdg
 [\(view code\)](<./Utf8.hx#L524>)
 
 
-## function appendRune
+## function \`appendRune\`
 
 
 ```haxe
@@ -207,7 +207,7 @@ function exampleAppendRune():Void {
 [\(view code\)](<./Utf8.hx#L517>)
 
 
-## function decodeLastRune
+## function \`decodeLastRune\`
 
 
 ```haxe
@@ -246,7 +246,7 @@ function exampleDecodeLastRune():Void {
 [\(view code\)](<./Utf8.hx#L352>)
 
 
-## function decodeLastRuneInString
+## function \`decodeLastRuneInString\`
 
 
 ```haxe
@@ -285,7 +285,7 @@ function exampleDecodeLastRuneInString():Void {
 [\(view code\)](<./Utf8.hx#L399>)
 
 
-## function decodeRune
+## function \`decodeRune\`
 
 
 ```haxe
@@ -324,7 +324,7 @@ function exampleDecodeRune():Void {
 [\(view code\)](<./Utf8.hx#L248>)
 
 
-## function decodeRuneInString
+## function \`decodeRuneInString\`
 
 
 ```haxe
@@ -363,7 +363,7 @@ function exampleDecodeRuneInString():Void {
 [\(view code\)](<./Utf8.hx#L300>)
 
 
-## function encodeRune
+## function \`encodeRune\`
 
 
 ```haxe
@@ -422,7 +422,7 @@ function exampleEncodeRune_outOfRange():Void {
 [\(view code\)](<./Utf8.hx#L462>)
 
 
-## function fullRune
+## function \`fullRune\`
 
 
 ```haxe
@@ -456,7 +456,7 @@ function exampleFullRune():Void {
 [\(view code\)](<./Utf8.hx#L199>)
 
 
-## function fullRuneInString
+## function \`fullRuneInString\`
 
 
 ```haxe
@@ -490,7 +490,7 @@ function exampleFullRuneInString():Void {
 [\(view code\)](<./Utf8.hx#L220>)
 
 
-## function runeCount
+## function \`runeCount\`
 
 
 ```haxe
@@ -524,7 +524,7 @@ function exampleRuneCount():Void {
 [\(view code\)](<./Utf8.hx#L564>)
 
 
-## function runeCountInString
+## function \`runeCountInString\`
 
 
 ```haxe
@@ -558,7 +558,7 @@ function exampleRuneCountInString():Void {
 [\(view code\)](<./Utf8.hx#L612>)
 
 
-## function runeLen
+## function \`runeLen\`
 
 
 ```haxe
@@ -591,7 +591,7 @@ function exampleRuneLen():Void {
 [\(view code\)](<./Utf8.hx#L440>)
 
 
-## function runeStart
+## function \`runeStart\`
 
 
 ```haxe
@@ -626,7 +626,7 @@ function exampleRuneStart():Void {
 [\(view code\)](<./Utf8.hx#L661>)
 
 
-## function valid
+## function \`valid\`
 
 
 ```haxe
@@ -661,7 +661,7 @@ function exampleValid():Void {
 [\(view code\)](<./Utf8.hx#L668>)
 
 
-## function validRune
+## function \`validRune\`
 
 
 ```haxe
@@ -696,7 +696,7 @@ function exampleValidRune():Void {
 [\(view code\)](<./Utf8.hx#L774>)
 
 
-## function validString
+## function \`validString\`
 
 
 ```haxe

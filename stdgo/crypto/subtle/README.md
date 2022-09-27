@@ -33,7 +33,7 @@ import stdgo.crypto.subtle.Subtle
 ```
 
 
-## function constantTimeByteEq
+## function \`constantTimeByteEq\`
 
 
 ```haxe
@@ -47,7 +47,7 @@ ConstantTimeByteEq returns 1 if x == y and 0 otherwise.
 [\(view code\)](<./Subtle.hx#L39>)
 
 
-## function constantTimeCompare
+## function \`constantTimeCompare\`
 
 
 ```haxe
@@ -61,7 +61,7 @@ ConstantTimeCompare returns 1 if the two slices, x and y, have equal contents an
 [\(view code\)](<./Subtle.hx#L16>)
 
 
-## function constantTimeCopy
+## function \`constantTimeCopy\`
 
 
 ```haxe
@@ -75,7 +75,7 @@ ConstantTimeCopy copies the contents of y into x \(a slice of equal length\) if 
 [\(view code\)](<./Subtle.hx#L53>)
 
 
-## function constantTimeEq
+## function \`constantTimeEq\`
 
 
 ```haxe
@@ -89,7 +89,7 @@ ConstantTimeEq returns 1 if x == y and 0 otherwise.
 [\(view code\)](<./Subtle.hx#L45>)
 
 
-## function constantTimeLessOrEq
+## function \`constantTimeLessOrEq\`
 
 
 ```haxe
@@ -103,7 +103,7 @@ ConstantTimeLessOrEq returns 1 if x \<= y and 0 otherwise. Its behavior is undef
 [\(view code\)](<./Subtle.hx#L70>)
 
 
-## function constantTimeSelect
+## function \`constantTimeSelect\`
 
 
 ```haxe

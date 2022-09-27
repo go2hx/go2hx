@@ -275,7 +275,7 @@ import stdgo.math.bits_test.Bits
 ```
 
 
-## function \_testOnesCount
+## function \`\_testOnesCount\`
 
 
 ```haxe
@@ -289,7 +289,7 @@ function _testOnesCount(_t:stdgo.Ref<stdgo.testing.T>, _x:stdgo.GoUInt64, _want:
 [\(view code\)](<./Bits.hx#L401>)
 
 
-## function \_testReverse
+## function \`\_testReverse\`
 
 
 ```haxe
@@ -303,7 +303,7 @@ function _testReverse(_t:stdgo.Ref<stdgo.testing.T>, _x64:stdgo.GoUInt64, _want6
 [\(view code\)](<./Bits.hx#L666>)
 
 
-## function \_testReverseBytes
+## function \`\_testReverseBytes\`
 
 
 ```haxe
@@ -317,7 +317,7 @@ function _testReverseBytes(_t:stdgo.Ref<stdgo.testing.T>, _x64:stdgo.GoUInt64, _
 [\(view code\)](<./Bits.hx#L777>)
 
 
-## function benchmarkAdd
+## function \`benchmarkAdd\`
 
 
 ```haxe
@@ -331,7 +331,7 @@ function benchmarkAdd(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L2011>)
 
 
-## function benchmarkAdd32
+## function \`benchmarkAdd32\`
 
 
 ```haxe
@@ -345,7 +345,7 @@ function benchmarkAdd32(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L2026>)
 
 
-## function benchmarkAdd64
+## function \`benchmarkAdd64\`
 
 
 ```haxe
@@ -359,7 +359,7 @@ function benchmarkAdd64(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L2041>)
 
 
-## function benchmarkAdd64multiple
+## function \`benchmarkAdd64multiple\`
 
 
 ```haxe
@@ -373,7 +373,7 @@ function benchmarkAdd64multiple(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L2056>)
 
 
-## function benchmarkDiv
+## function \`benchmarkDiv\`
 
 
 ```haxe
@@ -387,7 +387,7 @@ function benchmarkDiv(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L2212>)
 
 
-## function benchmarkDiv32
+## function \`benchmarkDiv32\`
 
 
 ```haxe
@@ -401,7 +401,7 @@ function benchmarkDiv32(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L2227>)
 
 
-## function benchmarkDiv64
+## function \`benchmarkDiv64\`
 
 
 ```haxe
@@ -415,7 +415,7 @@ function benchmarkDiv64(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L2242>)
 
 
-## function benchmarkLeadingZeros
+## function \`benchmarkLeadingZeros\`
 
 
 ```haxe
@@ -429,7 +429,7 @@ function benchmarkLeadingZeros(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L192>)
 
 
-## function benchmarkLeadingZeros16
+## function \`benchmarkLeadingZeros16\`
 
 
 ```haxe
@@ -443,7 +443,7 @@ function benchmarkLeadingZeros16(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L214>)
 
 
-## function benchmarkLeadingZeros32
+## function \`benchmarkLeadingZeros32\`
 
 
 ```haxe
@@ -457,7 +457,7 @@ function benchmarkLeadingZeros32(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L225>)
 
 
-## function benchmarkLeadingZeros64
+## function \`benchmarkLeadingZeros64\`
 
 
 ```haxe
@@ -471,7 +471,7 @@ function benchmarkLeadingZeros64(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L236>)
 
 
-## function benchmarkLeadingZeros8
+## function \`benchmarkLeadingZeros8\`
 
 
 ```haxe
@@ -485,7 +485,7 @@ function benchmarkLeadingZeros8(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L203>)
 
 
-## function benchmarkMul
+## function \`benchmarkMul\`
 
 
 ```haxe
@@ -499,7 +499,7 @@ function benchmarkMul(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L2167>)
 
 
-## function benchmarkMul32
+## function \`benchmarkMul32\`
 
 
 ```haxe
@@ -513,7 +513,7 @@ function benchmarkMul32(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L2182>)
 
 
-## function benchmarkMul64
+## function \`benchmarkMul64\`
 
 
 ```haxe
@@ -527,7 +527,7 @@ function benchmarkMul64(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L2197>)
 
 
-## function benchmarkOnesCount
+## function \`benchmarkOnesCount\`
 
 
 ```haxe
@@ -541,7 +541,7 @@ function benchmarkOnesCount(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L441>)
 
 
-## function benchmarkOnesCount16
+## function \`benchmarkOnesCount16\`
 
 
 ```haxe
@@ -555,7 +555,7 @@ function benchmarkOnesCount16(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L463>)
 
 
-## function benchmarkOnesCount32
+## function \`benchmarkOnesCount32\`
 
 
 ```haxe
@@ -569,7 +569,7 @@ function benchmarkOnesCount32(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L474>)
 
 
-## function benchmarkOnesCount64
+## function \`benchmarkOnesCount64\`
 
 
 ```haxe
@@ -583,7 +583,7 @@ function benchmarkOnesCount64(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L485>)
 
 
-## function benchmarkOnesCount8
+## function \`benchmarkOnesCount8\`
 
 
 ```haxe
@@ -597,7 +597,7 @@ function benchmarkOnesCount8(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L452>)
 
 
-## function benchmarkReverse
+## function \`benchmarkReverse\`
 
 
 ```haxe
@@ -611,7 +611,7 @@ function benchmarkReverse(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L707>)
 
 
-## function benchmarkReverse16
+## function \`benchmarkReverse16\`
 
 
 ```haxe
@@ -625,7 +625,7 @@ function benchmarkReverse16(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L729>)
 
 
-## function benchmarkReverse32
+## function \`benchmarkReverse32\`
 
 
 ```haxe
@@ -639,7 +639,7 @@ function benchmarkReverse32(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L740>)
 
 
-## function benchmarkReverse64
+## function \`benchmarkReverse64\`
 
 
 ```haxe
@@ -653,7 +653,7 @@ function benchmarkReverse64(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L751>)
 
 
-## function benchmarkReverse8
+## function \`benchmarkReverse8\`
 
 
 ```haxe
@@ -667,7 +667,7 @@ function benchmarkReverse8(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L718>)
 
 
-## function benchmarkReverseBytes
+## function \`benchmarkReverseBytes\`
 
 
 ```haxe
@@ -681,7 +681,7 @@ function benchmarkReverseBytes(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L812>)
 
 
-## function benchmarkReverseBytes16
+## function \`benchmarkReverseBytes16\`
 
 
 ```haxe
@@ -695,7 +695,7 @@ function benchmarkReverseBytes16(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L823>)
 
 
-## function benchmarkReverseBytes32
+## function \`benchmarkReverseBytes32\`
 
 
 ```haxe
@@ -709,7 +709,7 @@ function benchmarkReverseBytes32(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L834>)
 
 
-## function benchmarkReverseBytes64
+## function \`benchmarkReverseBytes64\`
 
 
 ```haxe
@@ -723,7 +723,7 @@ function benchmarkReverseBytes64(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L845>)
 
 
-## function benchmarkRotateLeft
+## function \`benchmarkRotateLeft\`
 
 
 ```haxe
@@ -737,7 +737,7 @@ function benchmarkRotateLeft(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L581>)
 
 
-## function benchmarkRotateLeft16
+## function \`benchmarkRotateLeft16\`
 
 
 ```haxe
@@ -751,7 +751,7 @@ function benchmarkRotateLeft16(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L603>)
 
 
-## function benchmarkRotateLeft32
+## function \`benchmarkRotateLeft32\`
 
 
 ```haxe
@@ -765,7 +765,7 @@ function benchmarkRotateLeft32(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L614>)
 
 
-## function benchmarkRotateLeft64
+## function \`benchmarkRotateLeft64\`
 
 
 ```haxe
@@ -779,7 +779,7 @@ function benchmarkRotateLeft64(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L625>)
 
 
-## function benchmarkRotateLeft8
+## function \`benchmarkRotateLeft8\`
 
 
 ```haxe
@@ -793,7 +793,7 @@ function benchmarkRotateLeft8(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L592>)
 
 
-## function benchmarkSub
+## function \`benchmarkSub\`
 
 
 ```haxe
@@ -807,7 +807,7 @@ function benchmarkSub(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L2089>)
 
 
-## function benchmarkSub32
+## function \`benchmarkSub32\`
 
 
 ```haxe
@@ -821,7 +821,7 @@ function benchmarkSub32(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L2104>)
 
 
-## function benchmarkSub64
+## function \`benchmarkSub64\`
 
 
 ```haxe
@@ -835,7 +835,7 @@ function benchmarkSub64(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L2119>)
 
 
-## function benchmarkSub64multiple
+## function \`benchmarkSub64multiple\`
 
 
 ```haxe
@@ -849,7 +849,7 @@ function benchmarkSub64multiple(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L2134>)
 
 
-## function benchmarkTrailingZeros
+## function \`benchmarkTrailingZeros\`
 
 
 ```haxe
@@ -863,7 +863,7 @@ function benchmarkTrailingZeros(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L317>)
 
 
-## function benchmarkTrailingZeros16
+## function \`benchmarkTrailingZeros16\`
 
 
 ```haxe
@@ -877,7 +877,7 @@ function benchmarkTrailingZeros16(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L339>)
 
 
-## function benchmarkTrailingZeros32
+## function \`benchmarkTrailingZeros32\`
 
 
 ```haxe
@@ -891,7 +891,7 @@ function benchmarkTrailingZeros32(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L350>)
 
 
-## function benchmarkTrailingZeros64
+## function \`benchmarkTrailingZeros64\`
 
 
 ```haxe
@@ -905,7 +905,7 @@ function benchmarkTrailingZeros64(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L361>)
 
 
-## function benchmarkTrailingZeros8
+## function \`benchmarkTrailingZeros8\`
 
 
 ```haxe
@@ -919,7 +919,7 @@ function benchmarkTrailingZeros8(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Bits.hx#L328>)
 
 
-## function exampleAdd32
+## function \`exampleAdd32\`
 
 
 ```haxe
@@ -933,7 +933,7 @@ function exampleAdd32():Void
 [\(view code\)](<./Bits.hx#L2257>)
 
 
-## function exampleAdd64
+## function \`exampleAdd64\`
 
 
 ```haxe
@@ -947,7 +947,7 @@ function exampleAdd64():Void
 [\(view code\)](<./Bits.hx#L2285>)
 
 
-## function exampleDiv32
+## function \`exampleDiv32\`
 
 
 ```haxe
@@ -961,7 +961,7 @@ function exampleDiv32():Void
 [\(view code\)](<./Bits.hx#L2407>)
 
 
-## function exampleDiv64
+## function \`exampleDiv64\`
 
 
 ```haxe
@@ -975,7 +975,7 @@ function exampleDiv64():Void
 [\(view code\)](<./Bits.hx#L2428>)
 
 
-## function exampleLeadingZeros16
+## function \`exampleLeadingZeros16\`
 
 
 ```haxe
@@ -989,7 +989,7 @@ function exampleLeadingZeros16():Void
 [\(view code\)](<./Bits.hx#L2454>)
 
 
-## function exampleLeadingZeros32
+## function \`exampleLeadingZeros32\`
 
 
 ```haxe
@@ -1003,7 +1003,7 @@ function exampleLeadingZeros32():Void
 [\(view code\)](<./Bits.hx#L2459>)
 
 
-## function exampleLeadingZeros64
+## function \`exampleLeadingZeros64\`
 
 
 ```haxe
@@ -1017,7 +1017,7 @@ function exampleLeadingZeros64():Void
 [\(view code\)](<./Bits.hx#L2464>)
 
 
-## function exampleLeadingZeros8
+## function \`exampleLeadingZeros8\`
 
 
 ```haxe
@@ -1031,7 +1031,7 @@ function exampleLeadingZeros8():Void
 [\(view code\)](<./Bits.hx#L2449>)
 
 
-## function exampleLen16
+## function \`exampleLen16\`
 
 
 ```haxe
@@ -1045,7 +1045,7 @@ function exampleLen16():Void
 [\(view code\)](<./Bits.hx#L2577>)
 
 
-## function exampleLen32
+## function \`exampleLen32\`
 
 
 ```haxe
@@ -1059,7 +1059,7 @@ function exampleLen32():Void
 [\(view code\)](<./Bits.hx#L2581>)
 
 
-## function exampleLen64
+## function \`exampleLen64\`
 
 
 ```haxe
@@ -1073,7 +1073,7 @@ function exampleLen64():Void
 [\(view code\)](<./Bits.hx#L2585>)
 
 
-## function exampleLen8
+## function \`exampleLen8\`
 
 
 ```haxe
@@ -1087,7 +1087,7 @@ function exampleLen8():Void
 [\(view code\)](<./Bits.hx#L2573>)
 
 
-## function exampleMul32
+## function \`exampleMul32\`
 
 
 ```haxe
@@ -1101,7 +1101,7 @@ function exampleMul32():Void
 [\(view code\)](<./Bits.hx#L2369>)
 
 
-## function exampleMul64
+## function \`exampleMul64\`
 
 
 ```haxe
@@ -1115,7 +1115,7 @@ function exampleMul64():Void
 [\(view code\)](<./Bits.hx#L2388>)
 
 
-## function exampleOnesCount
+## function \`exampleOnesCount\`
 
 
 ```haxe
@@ -1129,7 +1129,7 @@ function exampleOnesCount():Void
 [\(view code\)](<./Bits.hx#L2489>)
 
 
-## function exampleOnesCount16
+## function \`exampleOnesCount16\`
 
 
 ```haxe
@@ -1143,7 +1143,7 @@ function exampleOnesCount16():Void
 [\(view code\)](<./Bits.hx#L2499>)
 
 
-## function exampleOnesCount32
+## function \`exampleOnesCount32\`
 
 
 ```haxe
@@ -1157,7 +1157,7 @@ function exampleOnesCount32():Void
 [\(view code\)](<./Bits.hx#L2504>)
 
 
-## function exampleOnesCount64
+## function \`exampleOnesCount64\`
 
 
 ```haxe
@@ -1171,7 +1171,7 @@ function exampleOnesCount64():Void
 [\(view code\)](<./Bits.hx#L2509>)
 
 
-## function exampleOnesCount8
+## function \`exampleOnesCount8\`
 
 
 ```haxe
@@ -1185,7 +1185,7 @@ function exampleOnesCount8():Void
 [\(view code\)](<./Bits.hx#L2494>)
 
 
-## function exampleReverse16
+## function \`exampleReverse16\`
 
 
 ```haxe
@@ -1199,7 +1199,7 @@ function exampleReverse16():Void
 [\(view code\)](<./Bits.hx#L2543>)
 
 
-## function exampleReverse32
+## function \`exampleReverse32\`
 
 
 ```haxe
@@ -1213,7 +1213,7 @@ function exampleReverse32():Void
 [\(view code\)](<./Bits.hx#L2548>)
 
 
-## function exampleReverse64
+## function \`exampleReverse64\`
 
 
 ```haxe
@@ -1227,7 +1227,7 @@ function exampleReverse64():Void
 [\(view code\)](<./Bits.hx#L2553>)
 
 
-## function exampleReverse8
+## function \`exampleReverse8\`
 
 
 ```haxe
@@ -1241,7 +1241,7 @@ function exampleReverse8():Void
 [\(view code\)](<./Bits.hx#L2538>)
 
 
-## function exampleReverseBytes16
+## function \`exampleReverseBytes16\`
 
 
 ```haxe
@@ -1255,7 +1255,7 @@ function exampleReverseBytes16():Void
 [\(view code\)](<./Bits.hx#L2558>)
 
 
-## function exampleReverseBytes32
+## function \`exampleReverseBytes32\`
 
 
 ```haxe
@@ -1269,7 +1269,7 @@ function exampleReverseBytes32():Void
 [\(view code\)](<./Bits.hx#L2563>)
 
 
-## function exampleReverseBytes64
+## function \`exampleReverseBytes64\`
 
 
 ```haxe
@@ -1283,7 +1283,7 @@ function exampleReverseBytes64():Void
 [\(view code\)](<./Bits.hx#L2568>)
 
 
-## function exampleRotateLeft16
+## function \`exampleRotateLeft16\`
 
 
 ```haxe
@@ -1297,7 +1297,7 @@ function exampleRotateLeft16():Void
 [\(view code\)](<./Bits.hx#L2520>)
 
 
-## function exampleRotateLeft32
+## function \`exampleRotateLeft32\`
 
 
 ```haxe
@@ -1311,7 +1311,7 @@ function exampleRotateLeft32():Void
 [\(view code\)](<./Bits.hx#L2526>)
 
 
-## function exampleRotateLeft64
+## function \`exampleRotateLeft64\`
 
 
 ```haxe
@@ -1325,7 +1325,7 @@ function exampleRotateLeft64():Void
 [\(view code\)](<./Bits.hx#L2532>)
 
 
-## function exampleRotateLeft8
+## function \`exampleRotateLeft8\`
 
 
 ```haxe
@@ -1339,7 +1339,7 @@ function exampleRotateLeft8():Void
 [\(view code\)](<./Bits.hx#L2514>)
 
 
-## function exampleSub32
+## function \`exampleSub32\`
 
 
 ```haxe
@@ -1353,7 +1353,7 @@ function exampleSub32():Void
 [\(view code\)](<./Bits.hx#L2313>)
 
 
-## function exampleSub64
+## function \`exampleSub64\`
 
 
 ```haxe
@@ -1367,7 +1367,7 @@ function exampleSub64():Void
 [\(view code\)](<./Bits.hx#L2341>)
 
 
-## function exampleTrailingZeros16
+## function \`exampleTrailingZeros16\`
 
 
 ```haxe
@@ -1381,7 +1381,7 @@ function exampleTrailingZeros16():Void
 [\(view code\)](<./Bits.hx#L2474>)
 
 
-## function exampleTrailingZeros32
+## function \`exampleTrailingZeros32\`
 
 
 ```haxe
@@ -1395,7 +1395,7 @@ function exampleTrailingZeros32():Void
 [\(view code\)](<./Bits.hx#L2479>)
 
 
-## function exampleTrailingZeros64
+## function \`exampleTrailingZeros64\`
 
 
 ```haxe
@@ -1409,7 +1409,7 @@ function exampleTrailingZeros64():Void
 [\(view code\)](<./Bits.hx#L2484>)
 
 
-## function exampleTrailingZeros8
+## function \`exampleTrailingZeros8\`
 
 
 ```haxe
@@ -1423,7 +1423,7 @@ function exampleTrailingZeros8():Void
 [\(view code\)](<./Bits.hx#L2469>)
 
 
-## function testAdd64OverflowPanic
+## function \`testAdd64OverflowPanic\`
 
 
 ```haxe
@@ -1437,7 +1437,7 @@ function testAdd64OverflowPanic(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Bits.hx#L1202>)
 
 
-## function testAddSubUint
+## function \`testAddSubUint\`
 
 
 ```haxe
@@ -1451,7 +1451,7 @@ function testAddSubUint(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Bits.hx#L911>)
 
 
-## function testAddSubUint32
+## function \`testAddSubUint32\`
 
 
 ```haxe
@@ -1465,7 +1465,7 @@ function testAddSubUint32(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Bits.hx#L1012>)
 
 
-## function testAddSubUint64
+## function \`testAddSubUint64\`
 
 
 ```haxe
@@ -1479,7 +1479,7 @@ function testAddSubUint64(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Bits.hx#L1101>)
 
 
-## function testDiv32PanicOverflow
+## function \`testDiv32PanicOverflow\`
 
 
 ```haxe
@@ -1493,7 +1493,7 @@ function testDiv32PanicOverflow(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Bits.hx#L1621>)
 
 
-## function testDiv32PanicZero
+## function \`testDiv32PanicZero\`
 
 
 ```haxe
@@ -1507,7 +1507,7 @@ function testDiv32PanicZero(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Bits.hx#L1789>)
 
 
-## function testDiv64PanicOverflow
+## function \`testDiv64PanicOverflow\`
 
 
 ```haxe
@@ -1521,7 +1521,7 @@ function testDiv64PanicOverflow(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Bits.hx#L1677>)
 
 
-## function testDiv64PanicZero
+## function \`testDiv64PanicZero\`
 
 
 ```haxe
@@ -1535,7 +1535,7 @@ function testDiv64PanicZero(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Bits.hx#L1845>)
 
 
-## function testDivPanicOverflow
+## function \`testDivPanicOverflow\`
 
 
 ```haxe
@@ -1549,7 +1549,7 @@ function testDivPanicOverflow(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Bits.hx#L1565>)
 
 
-## function testDivPanicZero
+## function \`testDivPanicZero\`
 
 
 ```haxe
@@ -1563,7 +1563,7 @@ function testDivPanicZero(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Bits.hx#L1733>)
 
 
-## function testLeadingZeros
+## function \`testLeadingZeros\`
 
 
 ```haxe
@@ -1577,7 +1577,7 @@ function testLeadingZeros(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Bits.hx#L119>)
 
 
-## function testLen
+## function \`testLen\`
 
 
 ```haxe
@@ -1591,7 +1591,7 @@ function testLen(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Bits.hx#L856>)
 
 
-## function testMulDiv
+## function \`testMulDiv\`
 
 
 ```haxe
@@ -1605,7 +1605,7 @@ function testMulDiv(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Bits.hx#L1382>)
 
 
-## function testMulDiv32
+## function \`testMulDiv32\`
 
 
 ```haxe
@@ -1619,7 +1619,7 @@ function testMulDiv32(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Bits.hx#L1443>)
 
 
-## function testMulDiv64
+## function \`testMulDiv64\`
 
 
 ```haxe
@@ -1633,7 +1633,7 @@ function testMulDiv64(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Bits.hx#L1498>)
 
 
-## function testOnesCount
+## function \`testOnesCount\`
 
 
 ```haxe
@@ -1647,7 +1647,7 @@ function testOnesCount(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Bits.hx#L372>)
 
 
-## function testRem32
+## function \`testRem32\`
 
 
 ```haxe
@@ -1661,7 +1661,7 @@ function testRem32(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Bits.hx#L1901>)
 
 
-## function testRem32Overflow
+## function \`testRem32Overflow\`
 
 
 ```haxe
@@ -1675,7 +1675,7 @@ function testRem32Overflow(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Bits.hx#L1921>)
 
 
-## function testRem64
+## function \`testRem64\`
 
 
 ```haxe
@@ -1689,7 +1689,7 @@ function testRem64(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Bits.hx#L1941>)
 
 
-## function testRem64Overflow
+## function \`testRem64Overflow\`
 
 
 ```haxe
@@ -1703,7 +1703,7 @@ function testRem64Overflow(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Bits.hx#L1961>)
 
 
-## function testReverse
+## function \`testReverse\`
 
 
 ```haxe
@@ -1717,7 +1717,7 @@ function testReverse(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Bits.hx#L636>)
 
 
-## function testReverseBytes
+## function \`testReverseBytes\`
 
 
 ```haxe
@@ -1731,7 +1731,7 @@ function testReverseBytes(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Bits.hx#L762>)
 
 
-## function testRotateLeft
+## function \`testRotateLeft\`
 
 
 ```haxe
@@ -1745,7 +1745,7 @@ function testRotateLeft(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Bits.hx#L496>)
 
 
-## function testSub64OverflowPanic
+## function \`testSub64OverflowPanic\`
 
 
 ```haxe
@@ -1759,7 +1759,7 @@ function testSub64OverflowPanic(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Bits.hx#L1292>)
 
 
-## function testTrailingZeros
+## function \`testTrailingZeros\`
 
 
 ```haxe
@@ -1773,7 +1773,7 @@ function testTrailingZeros(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Bits.hx#L247>)
 
 
-## function testUintSize
+## function \`testUintSize\`
 
 
 ```haxe
@@ -1787,7 +1787,7 @@ function testUintSize(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Bits.hx#L109>)
 
 
-## function main
+## function \`main\`
 
 
 ```haxe

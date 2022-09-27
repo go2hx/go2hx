@@ -120,7 +120,7 @@ import stdgo.testing.iotest.Iotest
 ```
 
 
-## function dataErrReader
+## function \`dataErrReader\`
 
 
 ```haxe
@@ -134,7 +134,7 @@ DataErrReader changes the way errors are handled by a Reader. Normally, a Reader
 [\(view code\)](<./Iotest.hx#L266>)
 
 
-## function errReader
+## function \`errReader\`
 
 
 ```haxe
@@ -170,7 +170,7 @@ function exampleErrReader():Void {
 [\(view code\)](<./Iotest.hx#L279>)
 
 
-## function halfReader
+## function \`halfReader\`
 
 
 ```haxe
@@ -184,7 +184,7 @@ HalfReader returns a Reader that implements Read by reading half as many request
 [\(view code\)](<./Iotest.hx#L256>)
 
 
-## function newReadLogger
+## function \`newReadLogger\`
 
 
 ```haxe
@@ -198,7 +198,7 @@ NewReadLogger returns a reader that behaves like r except that it logs \(using l
 [\(view code\)](<./Iotest.hx#L230>)
 
 
-## function newWriteLogger
+## function \`newWriteLogger\`
 
 
 ```haxe
@@ -212,7 +212,7 @@ NewWriteLogger returns a writer that behaves like w except that it logs \(using 
 [\(view code\)](<./Iotest.hx#L222>)
 
 
-## function oneByteReader
+## function \`oneByteReader\`
 
 
 ```haxe
@@ -226,7 +226,7 @@ OneByteReader returns a Reader that implements each non\-empty Read by reading o
 [\(view code\)](<./Iotest.hx#L249>)
 
 
-## function testDataErrReader\_emptyReader
+## function \`testDataErrReader\_emptyReader\`
 
 
 ```haxe
@@ -240,7 +240,7 @@ function testDataErrReader_emptyReader(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Iotest.hx#L315>)
 
 
-## function testDataErrReader\_nonEmptyReader
+## function \`testDataErrReader\_nonEmptyReader\`
 
 
 ```haxe
@@ -254,7 +254,7 @@ function testDataErrReader_nonEmptyReader(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Iotest.hx#L312>)
 
 
-## function testErrReader
+## function \`testErrReader\`
 
 
 ```haxe
@@ -268,7 +268,7 @@ function testErrReader(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Iotest.hx#L318>)
 
 
-## function testHalfReader\_emptyReader
+## function \`testHalfReader\_emptyReader\`
 
 
 ```haxe
@@ -282,7 +282,7 @@ function testHalfReader_emptyReader(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Iotest.hx#L303>)
 
 
-## function testHalfReader\_nonEmptyReader
+## function \`testHalfReader\_nonEmptyReader\`
 
 
 ```haxe
@@ -296,7 +296,7 @@ function testHalfReader_nonEmptyReader(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Iotest.hx#L300>)
 
 
-## function testOneByteReader\_emptyReader
+## function \`testOneByteReader\_emptyReader\`
 
 
 ```haxe
@@ -310,7 +310,7 @@ function testOneByteReader_emptyReader(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Iotest.hx#L297>)
 
 
-## function testOneByteReader\_nonEmptyReader
+## function \`testOneByteReader\_nonEmptyReader\`
 
 
 ```haxe
@@ -324,7 +324,7 @@ function testOneByteReader_nonEmptyReader(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Iotest.hx#L294>)
 
 
-## function testReadLogger
+## function \`testReadLogger\`
 
 
 ```haxe
@@ -338,7 +338,7 @@ function testReadLogger(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Iotest.hx#L239>)
 
 
-## function testReadLogger\_errorOnRead
+## function \`testReadLogger\_errorOnRead\`
 
 
 ```haxe
@@ -352,7 +352,7 @@ function testReadLogger_errorOnRead(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Iotest.hx#L242>)
 
 
-## function testReader
+## function \`testReader\`
 
 
 ```haxe
@@ -366,7 +366,7 @@ TestReader tests that reading from r returns the expected file content. It does 
 [\(view code\)](<./Iotest.hx#L291>)
 
 
-## function testStringsReader
+## function \`testStringsReader\`
 
 
 ```haxe
@@ -380,7 +380,7 @@ function testStringsReader(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Iotest.hx#L321>)
 
 
-## function testTimeOutReader\_emptyReader
+## function \`testTimeOutReader\_emptyReader\`
 
 
 ```haxe
@@ -394,7 +394,7 @@ function testTimeOutReader_emptyReader(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Iotest.hx#L309>)
 
 
-## function testTimeOutReader\_nonEmptyReader
+## function \`testTimeOutReader\_nonEmptyReader\`
 
 
 ```haxe
@@ -408,7 +408,7 @@ function testTimeOutReader_nonEmptyReader(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Iotest.hx#L306>)
 
 
-## function testTruncateWriter
+## function \`testTruncateWriter\`
 
 
 ```haxe
@@ -422,7 +422,7 @@ function testTruncateWriter(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Iotest.hx#L331>)
 
 
-## function testWriteLogger
+## function \`testWriteLogger\`
 
 
 ```haxe
@@ -436,7 +436,7 @@ function testWriteLogger(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Iotest.hx#L233>)
 
 
-## function testWriteLogger\_errorOnWrite
+## function \`testWriteLogger\_errorOnWrite\`
 
 
 ```haxe
@@ -450,7 +450,7 @@ function testWriteLogger_errorOnWrite(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Iotest.hx#L236>)
 
 
-## function timeoutReader
+## function \`timeoutReader\`
 
 
 ```haxe
@@ -464,7 +464,7 @@ TimeoutReader returns ErrTimeout on the second read with no data. Subsequent cal
 [\(view code\)](<./Iotest.hx#L273>)
 
 
-## function truncateWriter
+## function \`truncateWriter\`
 
 
 ```haxe

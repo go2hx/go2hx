@@ -81,7 +81,7 @@ import stdgo.container.ring.Ring
 ```
 
 
-## function new\_
+## function \`new\_\`
 
 
 ```haxe

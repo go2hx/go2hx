@@ -352,7 +352,7 @@ import stdgo.strings.Strings
 ```
 
 
-## function \_explode
+## function \`\_explode\`
 
 
 ```haxe
@@ -366,7 +366,7 @@ explode splits s into a slice of UTF\-8 strings, one string per Unicode characte
 [\(view code\)](<./Strings.hx#L615>)
 
 
-## function \_genSplit
+## function \`\_genSplit\`
 
 
 ```haxe
@@ -380,7 +380,7 @@ Generic split: splits after each instance of sep, including sepSave bytes of sep
 [\(view code\)](<./Strings.hx#L889>)
 
 
-## function \_getStringWriter
+## function \`\_getStringWriter\`
 
 
 ```haxe
@@ -394,7 +394,7 @@ function _getStringWriter(_w:stdgo.io.Writer):stdgo.io.StringWriter
 [\(view code\)](<./Strings.hx#L542>)
 
 
-## function \_indexFunc
+## function \`\_indexFunc\`
 
 
 ```haxe
@@ -408,7 +408,7 @@ indexFunc is the same as IndexFunc except that if truth==false, the sense of the
 [\(view code\)](<./Strings.hx#L1473>)
 
 
-## function \_isSeparator
+## function \`\_isSeparator\`
 
 
 ```haxe
@@ -422,7 +422,7 @@ isSeparator reports whether the rune could mark a word boundary. TODO: update wh
 [\(view code\)](<./Strings.hx#L1377>)
 
 
-## function \_lastIndexFunc
+## function \`\_lastIndexFunc\`
 
 
 ```haxe
@@ -436,7 +436,7 @@ lastIndexFunc is the same as LastIndexFunc except that if truth==false, the sens
 [\(view code\)](<./Strings.hx#L1487>)
 
 
-## function \_longestCommonSuffix
+## function \`\_longestCommonSuffix\`
 
 
 ```haxe
@@ -450,7 +450,7 @@ function _longestCommonSuffix(_a:stdgo.GoString, _b:stdgo.GoString):stdgo.GoInt
 [\(view code\)](<./Strings.hx#L593>)
 
 
-## function \_makeASCIISet
+## function \`\_makeASCIISet\`
 
 
 ```haxe
@@ -464,7 +464,7 @@ makeASCIISet creates a set of ASCII characters and reports whether all character
 [\(view code\)](<./Strings.hx#L1507>)
 
 
-## function \_makeGenericReplacer
+## function \`\_makeGenericReplacer\`
 
 
 ```haxe
@@ -478,7 +478,7 @@ function _makeGenericReplacer(_oldnew:stdgo.Slice<stdgo.GoString>):stdgo.Ref<std
 [\(view code\)](<./Strings.hx#L505>)
 
 
-## function \_makeSingleStringReplacer
+## function \`\_makeSingleStringReplacer\`
 
 
 ```haxe
@@ -492,7 +492,7 @@ function _makeSingleStringReplacer(_pattern:stdgo.GoString, _value:stdgo.GoStrin
 [\(view code\)](<./Strings.hx#L554>)
 
 
-## function \_makeStringFinder
+## function \`\_makeStringFinder\`
 
 
 ```haxe
@@ -506,7 +506,7 @@ function _makeStringFinder(_pattern:stdgo.GoString):stdgo.Ref<stdgo.strings._Str
 [\(view code\)](<./Strings.hx#L558>)
 
 
-## function \_max
+## function \`\_max\`
 
 
 ```haxe
@@ -520,7 +520,7 @@ function _max(_a:stdgo.GoInt, _b:stdgo.GoInt):stdgo.GoInt
 [\(view code\)](<./Strings.hx#L603>)
 
 
-## function \_noescape
+## function \`\_noescape\`
 
 
 ```haxe
@@ -534,7 +534,7 @@ noescape hides a pointer from escape analysis. It is the identity function but e
 [\(view code\)](<./Strings.hx#L427>)
 
 
-## function \_trimLeftASCII
+## function \`\_trimLeftASCII\`
 
 
 ```haxe
@@ -548,7 +548,7 @@ function _trimLeftASCII(_s:stdgo.GoString, _as:stdgo.Ref<stdgo.strings._Strings.
 [\(view code\)](<./Strings.hx#L1575>)
 
 
-## function \_trimLeftByte
+## function \`\_trimLeftByte\`
 
 
 ```haxe
@@ -562,7 +562,7 @@ function _trimLeftByte(_s:stdgo.GoString, _c:stdgo.GoByte):stdgo.GoString
 [\(view code\)](<./Strings.hx#L1568>)
 
 
-## function \_trimLeftUnicode
+## function \`\_trimLeftUnicode\`
 
 
 ```haxe
@@ -576,7 +576,7 @@ function _trimLeftUnicode(_s:stdgo.GoString, _cutset:stdgo.GoString):stdgo.GoStr
 [\(view code\)](<./Strings.hx#L1585>)
 
 
-## function \_trimRightASCII
+## function \`\_trimRightASCII\`
 
 
 ```haxe
@@ -590,7 +590,7 @@ function _trimRightASCII(_s:stdgo.GoString, _as:stdgo.Ref<stdgo.strings._Strings
 [\(view code\)](<./Strings.hx#L1634>)
 
 
-## function \_trimRightByte
+## function \`\_trimRightByte\`
 
 
 ```haxe
@@ -604,7 +604,7 @@ function _trimRightByte(_s:stdgo.GoString, _c:stdgo.GoByte):stdgo.GoString
 [\(view code\)](<./Strings.hx#L1627>)
 
 
-## function \_trimRightUnicode
+## function \`\_trimRightUnicode\`
 
 
 ```haxe
@@ -618,7 +618,7 @@ function _trimRightUnicode(_s:stdgo.GoString, _cutset:stdgo.GoString):stdgo.GoSt
 [\(view code\)](<./Strings.hx#L1644>)
 
 
-## function clone
+## function \`clone\`
 
 
 ```haxe
@@ -632,7 +632,7 @@ Clone returns a fresh copy of s. It guarantees to make a copy of s into a new al
 [\(view code\)](<./Strings.hx#L444>)
 
 
-## function compare
+## function \`compare\`
 
 
 ```haxe
@@ -666,7 +666,7 @@ function exampleCompare():Void {
 [\(view code\)](<./Strings.hx#L462>)
 
 
-## function contains
+## function \`contains\`
 
 
 ```haxe
@@ -701,7 +701,7 @@ function exampleContains():Void {
 [\(view code\)](<./Strings.hx#L665>)
 
 
-## function containsAny
+## function \`containsAny\`
 
 
 ```haxe
@@ -738,7 +738,7 @@ function exampleContainsAny():Void {
 [\(view code\)](<./Strings.hx#L672>)
 
 
-## function containsRune
+## function \`containsRune\`
 
 
 ```haxe
@@ -771,7 +771,7 @@ function exampleContainsRune():Void {
 [\(view code\)](<./Strings.hx#L679>)
 
 
-## function count
+## function \`count\`
 
 
 ```haxe
@@ -804,7 +804,7 @@ function exampleCount():Void {
 [\(view code\)](<./Strings.hx#L644>)
 
 
-## function cut
+## function \`cut\`
 
 
 ```haxe
@@ -844,7 +844,7 @@ function exampleCut():Void {
 [\(view code\)](<./Strings.hx#L1927>)
 
 
-## function dumpTables
+## function \`dumpTables\`
 
 
 ```haxe
@@ -858,7 +858,7 @@ function dumpTables(_pattern:stdgo.GoString):{_1:stdgo.Slice<stdgo.GoInt>, _0:st
 [\(view code\)](<./Strings.hx#L476>)
 
 
-## function equalFold
+## function \`equalFold\`
 
 
 ```haxe
@@ -892,7 +892,7 @@ function exampleEqualFold():Void {
 [\(view code\)](<./Strings.hx#L1775>)
 
 
-## function fields
+## function \`fields\`
 
 
 ```haxe
@@ -924,7 +924,7 @@ function exampleFields():Void {
 [\(view code\)](<./Strings.hx#L993>)
 
 
-## function fieldsFunc
+## function \`fieldsFunc\`
 
 
 ```haxe
@@ -960,7 +960,7 @@ function exampleFieldsFunc():Void {
 [\(view code\)](<./Strings.hx#L1068>)
 
 
-## function hasPrefix
+## function \`hasPrefix\`
 
 
 ```haxe
@@ -994,7 +994,7 @@ function exampleHasPrefix():Void {
 [\(view code\)](<./Strings.hx#L1124>)
 
 
-## function hasSuffix
+## function \`hasSuffix\`
 
 
 ```haxe
@@ -1029,7 +1029,7 @@ function exampleHasSuffix():Void {
 [\(view code\)](<./Strings.hx#L1131>)
 
 
-## function index
+## function \`index\`
 
 
 ```haxe
@@ -1062,7 +1062,7 @@ function exampleIndex():Void {
 [\(view code\)](<./Strings.hx#L1847>)
 
 
-## function indexAny
+## function \`indexAny\`
 
 
 ```haxe
@@ -1095,7 +1095,7 @@ function exampleIndexAny():Void {
 [\(view code\)](<./Strings.hx#L762>)
 
 
-## function indexByte
+## function \`indexByte\`
 
 
 ```haxe
@@ -1129,7 +1129,7 @@ function exampleIndexByte():Void {
 [\(view code\)](<./Strings.hx#L731>)
 
 
-## function indexFunc
+## function \`indexFunc\`
 
 
 ```haxe
@@ -1165,7 +1165,7 @@ function exampleIndexFunc():Void {
 [\(view code\)](<./Strings.hx#L1456>)
 
 
-## function indexRune
+## function \`indexRune\`
 
 
 ```haxe
@@ -1198,7 +1198,7 @@ function exampleIndexRune():Void {
 [\(view code\)](<./Strings.hx#L741>)
 
 
-## function join
+## function \`join\`
 
 
 ```haxe
@@ -1231,7 +1231,7 @@ function exampleJoin():Void {
 [\(view code\)](<./Strings.hx#L1098>)
 
 
-## function lastIndex
+## function \`lastIndex\`
 
 
 ```haxe
@@ -1265,7 +1265,7 @@ function exampleLastIndex():Void {
 [\(view code\)](<./Strings.hx#L686>)
 
 
-## function lastIndexAny
+## function \`lastIndexAny\`
 
 
 ```haxe
@@ -1299,7 +1299,7 @@ function exampleLastIndexAny():Void {
 [\(view code\)](<./Strings.hx#L804>)
 
 
-## function lastIndexByte
+## function \`lastIndexByte\`
 
 
 ```haxe
@@ -1333,7 +1333,7 @@ function exampleLastIndexByte():Void {
 [\(view code\)](<./Strings.hx#L873>)
 
 
-## function lastIndexFunc
+## function \`lastIndexFunc\`
 
 
 ```haxe
@@ -1367,7 +1367,7 @@ function exampleLastIndexFunc():Void {
 [\(view code\)](<./Strings.hx#L1464>)
 
 
-## function map
+## function \`map\`
 
 
 ```haxe
@@ -1407,7 +1407,7 @@ function exampleMap():Void {
 [\(view code\)](<./Strings.hx#L1140>)
 
 
-## function newReader
+## function \`newReader\`
 
 
 ```haxe
@@ -1421,7 +1421,7 @@ NewReader returns a new Reader reading from s. It is similar to bytes.NewBufferS
 [\(view code\)](<./Strings.hx#L485>)
 
 
-## function newReplacer
+## function \`newReplacer\`
 
 
 ```haxe
@@ -1454,7 +1454,7 @@ function exampleNewReplacer():Void {
 [\(view code\)](<./Strings.hx#L497>)
 
 
-## function repeat
+## function \`repeat\`
 
 
 ```haxe
@@ -1486,7 +1486,7 @@ function exampleRepeat():Void {
 [\(view code\)](<./Strings.hx#L1190>)
 
 
-## function replace
+## function \`replace\`
 
 
 ```haxe
@@ -1521,7 +1521,7 @@ function exampleReplace():Void {
 [\(view code\)](<./Strings.hx#L1721>)
 
 
-## function replaceAll
+## function \`replaceAll\`
 
 
 ```haxe
@@ -1553,7 +1553,7 @@ function exampleReplaceAll():Void {
 [\(view code\)](<./Strings.hx#L1766>)
 
 
-## function split
+## function \`split\`
 
 
 ```haxe
@@ -1590,7 +1590,7 @@ function exampleSplit():Void {
 [\(view code\)](<./Strings.hx#L968>)
 
 
-## function splitAfter
+## function \`splitAfter\`
 
 
 ```haxe
@@ -1623,7 +1623,7 @@ function exampleSplitAfter():Void {
 [\(view code\)](<./Strings.hx#L984>)
 
 
-## function splitAfterN
+## function \`splitAfterN\`
 
 
 ```haxe
@@ -1656,7 +1656,7 @@ function exampleSplitAfterN():Void {
 [\(view code\)](<./Strings.hx#L950>)
 
 
-## function splitN
+## function \`splitN\`
 
 
 ```haxe
@@ -1691,7 +1691,7 @@ function exampleSplitN():Void {
 [\(view code\)](<./Strings.hx#L933>)
 
 
-## function stringFind
+## function \`stringFind\`
 
 
 ```haxe
@@ -1705,7 +1705,7 @@ function stringFind(_pattern:stdgo.GoString, _text:stdgo.GoString):stdgo.GoInt
 [\(view code\)](<./Strings.hx#L472>)
 
 
-## function title
+## function \`title\`
 
 
 ```haxe
@@ -1739,7 +1739,7 @@ function exampleTitle():Void {
 [\(view code\)](<./Strings.hx#L1403>)
 
 
-## function toLower
+## function \`toLower\`
 
 
 ```haxe
@@ -1771,7 +1771,7 @@ function exampleToLower():Void {
 [\(view code\)](<./Strings.hx#L1254>)
 
 
-## function toLowerSpecial
+## function \`toLowerSpecial\`
 
 
 ```haxe
@@ -1803,7 +1803,7 @@ function exampleToLowerSpecial():Void {
 [\(view code\)](<./Strings.hx#L1308>)
 
 
-## function toTitle
+## function \`toTitle\`
 
 
 ```haxe
@@ -1837,7 +1837,7 @@ function exampleToTitle():Void {
 [\(view code\)](<./Strings.hx#L1292>)
 
 
-## function toTitleSpecial
+## function \`toTitleSpecial\`
 
 
 ```haxe
@@ -1870,7 +1870,7 @@ function exampleToTitleSpecial():Void {
 [\(view code\)](<./Strings.hx#L1316>)
 
 
-## function toUpper
+## function \`toUpper\`
 
 
 ```haxe
@@ -1902,7 +1902,7 @@ function exampleToUpper():Void {
 [\(view code\)](<./Strings.hx#L1217>)
 
 
-## function toUpperSpecial
+## function \`toUpperSpecial\`
 
 
 ```haxe
@@ -1934,7 +1934,7 @@ function exampleToUpperSpecial():Void {
 [\(view code\)](<./Strings.hx#L1300>)
 
 
-## function toValidUTF8
+## function \`toValidUTF8\`
 
 
 ```haxe
@@ -1948,7 +1948,7 @@ ToValidUTF8 returns a copy of the string s with each run of invalid UTF\-8 byte 
 [\(view code\)](<./Strings.hx#L1324>)
 
 
-## function trim
+## function \`trim\`
 
 
 ```haxe
@@ -1980,7 +1980,7 @@ function exampleTrim():Void {
 [\(view code\)](<./Strings.hx#L1526>)
 
 
-## function trimFunc
+## function \`trimFunc\`
 
 
 ```haxe
@@ -2014,7 +2014,7 @@ function exampleTrimFunc():Void {
 [\(view code\)](<./Strings.hx#L1448>)
 
 
-## function trimLeft
+## function \`trimLeft\`
 
 
 ```haxe
@@ -2046,7 +2046,7 @@ function exampleTrimLeft():Void {
 [\(view code\)](<./Strings.hx#L1550>)
 
 
-## function trimLeftFunc
+## function \`trimLeftFunc\`
 
 
 ```haxe
@@ -2080,7 +2080,7 @@ function exampleTrimLeftFunc():Void {
 [\(view code\)](<./Strings.hx#L1419>)
 
 
-## function trimPrefix
+## function \`trimPrefix\`
 
 
 ```haxe
@@ -2115,7 +2115,7 @@ function exampleTrimPrefix():Void {
 [\(view code\)](<./Strings.hx#L1695>)
 
 
-## function trimRight
+## function \`trimRight\`
 
 
 ```haxe
@@ -2147,7 +2147,7 @@ function exampleTrimRight():Void {
 [\(view code\)](<./Strings.hx#L1609>)
 
 
-## function trimRightFunc
+## function \`trimRightFunc\`
 
 
 ```haxe
@@ -2181,7 +2181,7 @@ function exampleTrimRightFunc():Void {
 [\(view code\)](<./Strings.hx#L1431>)
 
 
-## function trimSpace
+## function \`trimSpace\`
 
 
 ```haxe
@@ -2213,7 +2213,7 @@ function exampleTrimSpace():Void {
 [\(view code\)](<./Strings.hx#L1667>)
 
 
-## function trimSuffix
+## function \`trimSuffix\`
 
 
 ```haxe

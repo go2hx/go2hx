@@ -1,6 +1,6 @@
 # Module stdgo.internal has compilation errors, please do not use:
 ```
-stdgo/internal/profile/Profile.hx:2030: character 87 : Invalid escape sequence \A
+stdgo/internal/xcoff/Xcoff.hx:1655: character 76 : Invalid character '#'
 
 ```
 

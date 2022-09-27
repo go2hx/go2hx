@@ -171,7 +171,7 @@ import stdgo.unicode.utf8_test.Utf8
 ```
 
 
-## function \_runtimeDecodeRune
+## function \`\_runtimeDecodeRune\`
 
 
 ```haxe
@@ -185,7 +185,7 @@ function _runtimeDecodeRune(_s:stdgo.GoString):stdgo.GoRune
 [\(view code\)](<./Utf8.hx#L615>)
 
 
-## function \_runtimeRuneCount
+## function \`\_runtimeRuneCount\`
 
 
 ```haxe
@@ -199,7 +199,7 @@ function _runtimeRuneCount(_s:stdgo.GoString):stdgo.GoInt
 [\(view code\)](<./Utf8.hx#L574>)
 
 
-## function \_testSequence
+## function \`\_testSequence\`
 
 
 ```haxe
@@ -213,7 +213,7 @@ function _testSequence(_t:stdgo.Ref<stdgo.testing.T>, _s:stdgo.GoString):Void
 [\(view code\)](<./Utf8.hx#L677>)
 
 
-## function benchmarkAppendASCIIRune
+## function \`benchmarkAppendASCIIRune\`
 
 
 ```haxe
@@ -227,7 +227,7 @@ function benchmarkAppendASCIIRune(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Utf8.hx#L970>)
 
 
-## function benchmarkAppendJapaneseRune
+## function \`benchmarkAppendJapaneseRune\`
 
 
 ```haxe
@@ -241,7 +241,7 @@ function benchmarkAppendJapaneseRune(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Utf8.hx#L980>)
 
 
-## function benchmarkDecodeASCIIRune
+## function \`benchmarkDecodeASCIIRune\`
 
 
 ```haxe
@@ -255,7 +255,7 @@ function benchmarkDecodeASCIIRune(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Utf8.hx#L990>)
 
 
-## function benchmarkDecodeJapaneseRune
+## function \`benchmarkDecodeJapaneseRune\`
 
 
 ```haxe
@@ -269,7 +269,7 @@ function benchmarkDecodeJapaneseRune(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Utf8.hx#L1000>)
 
 
-## function benchmarkEncodeASCIIRune
+## function \`benchmarkEncodeASCIIRune\`
 
 
 ```haxe
@@ -283,7 +283,7 @@ function benchmarkEncodeASCIIRune(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Utf8.hx#L950>)
 
 
-## function benchmarkEncodeJapaneseRune
+## function \`benchmarkEncodeJapaneseRune\`
 
 
 ```haxe
@@ -297,7 +297,7 @@ function benchmarkEncodeJapaneseRune(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Utf8.hx#L960>)
 
 
-## function benchmarkFullRune
+## function \`benchmarkFullRune\`
 
 
 ```haxe
@@ -311,7 +311,7 @@ function benchmarkFullRune(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Utf8.hx#L1010>)
 
 
-## function benchmarkRuneCountInStringTenASCIIChars
+## function \`benchmarkRuneCountInStringTenASCIIChars\`
 
 
 ```haxe
@@ -325,7 +325,7 @@ function benchmarkRuneCountInStringTenASCIIChars(_b:stdgo.Ref<stdgo.testing.B>):
 [\(view code\)](<./Utf8.hx#L837>)
 
 
-## function benchmarkRuneCountInStringTenJapaneseChars
+## function \`benchmarkRuneCountInStringTenJapaneseChars\`
 
 
 ```haxe
@@ -339,7 +339,7 @@ function benchmarkRuneCountInStringTenJapaneseChars(_b:stdgo.Ref<stdgo.testing.B
 [\(view code\)](<./Utf8.hx#L846>)
 
 
-## function benchmarkRuneCountTenASCIIChars
+## function \`benchmarkRuneCountTenASCIIChars\`
 
 
 ```haxe
@@ -353,7 +353,7 @@ function benchmarkRuneCountTenASCIIChars(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Utf8.hx#L817>)
 
 
-## function benchmarkRuneCountTenJapaneseChars
+## function \`benchmarkRuneCountTenJapaneseChars\`
 
 
 ```haxe
@@ -367,7 +367,7 @@ function benchmarkRuneCountTenJapaneseChars(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Utf8.hx#L827>)
 
 
-## function benchmarkValid100KASCIIChars
+## function \`benchmarkValid100KASCIIChars\`
 
 
 ```haxe
@@ -381,7 +381,7 @@ function benchmarkValid100KASCIIChars(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Utf8.hx#L865>)
 
 
-## function benchmarkValidLongJapanese
+## function \`benchmarkValidLongJapanese\`
 
 
 ```haxe
@@ -395,7 +395,7 @@ function benchmarkValidLongJapanese(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Utf8.hx#L895>)
 
 
-## function benchmarkValidLongMostlyASCII
+## function \`benchmarkValidLongMostlyASCII\`
 
 
 ```haxe
@@ -409,7 +409,7 @@ function benchmarkValidLongMostlyASCII(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Utf8.hx#L885>)
 
 
-## function benchmarkValidString100KASCIIChars
+## function \`benchmarkValidString100KASCIIChars\`
 
 
 ```haxe
@@ -423,7 +423,7 @@ function benchmarkValidString100KASCIIChars(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Utf8.hx#L914>)
 
 
-## function benchmarkValidStringLongJapanese
+## function \`benchmarkValidStringLongJapanese\`
 
 
 ```haxe
@@ -437,7 +437,7 @@ function benchmarkValidStringLongJapanese(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Utf8.hx#L941>)
 
 
-## function benchmarkValidStringLongMostlyASCII
+## function \`benchmarkValidStringLongMostlyASCII\`
 
 
 ```haxe
@@ -451,7 +451,7 @@ function benchmarkValidStringLongMostlyASCII(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Utf8.hx#L932>)
 
 
-## function benchmarkValidStringTenASCIIChars
+## function \`benchmarkValidStringTenASCIIChars\`
 
 
 ```haxe
@@ -465,7 +465,7 @@ function benchmarkValidStringTenASCIIChars(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Utf8.hx#L905>)
 
 
-## function benchmarkValidStringTenJapaneseChars
+## function \`benchmarkValidStringTenJapaneseChars\`
 
 
 ```haxe
@@ -479,7 +479,7 @@ function benchmarkValidStringTenJapaneseChars(_b:stdgo.Ref<stdgo.testing.B>):Voi
 [\(view code\)](<./Utf8.hx#L923>)
 
 
-## function benchmarkValidTenASCIIChars
+## function \`benchmarkValidTenASCIIChars\`
 
 
 ```haxe
@@ -493,7 +493,7 @@ function benchmarkValidTenASCIIChars(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Utf8.hx#L855>)
 
 
-## function benchmarkValidTenJapaneseChars
+## function \`benchmarkValidTenJapaneseChars\`
 
 
 ```haxe
@@ -507,7 +507,7 @@ function benchmarkValidTenJapaneseChars(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Utf8.hx#L875>)
 
 
-## function exampleAppendRune
+## function \`exampleAppendRune\`
 
 
 ```haxe
@@ -521,7 +521,7 @@ function exampleAppendRune():Void
 [\(view code\)](<./Utf8.hx#L368>)
 
 
-## function exampleDecodeLastRune
+## function \`exampleDecodeLastRune\`
 
 
 ```haxe
@@ -535,7 +535,7 @@ function exampleDecodeLastRune():Void
 [\(view code\)](<./Utf8.hx#L250>)
 
 
-## function exampleDecodeLastRuneInString
+## function \`exampleDecodeLastRuneInString\`
 
 
 ```haxe
@@ -549,7 +549,7 @@ function exampleDecodeLastRuneInString():Void
 [\(view code\)](<./Utf8.hx#L261>)
 
 
-## function exampleDecodeRune
+## function \`exampleDecodeRune\`
 
 
 ```haxe
@@ -563,7 +563,7 @@ function exampleDecodeRune():Void
 [\(view code\)](<./Utf8.hx#L272>)
 
 
-## function exampleDecodeRuneInString
+## function \`exampleDecodeRuneInString\`
 
 
 ```haxe
@@ -577,7 +577,7 @@ function exampleDecodeRuneInString():Void
 [\(view code\)](<./Utf8.hx#L283>)
 
 
-## function exampleEncodeRune
+## function \`exampleEncodeRune\`
 
 
 ```haxe
@@ -591,7 +591,7 @@ function exampleEncodeRune():Void
 [\(view code\)](<./Utf8.hx#L294>)
 
 
-## function exampleEncodeRune\_outOfRange
+## function \`exampleEncodeRune\_outOfRange\`
 
 
 ```haxe
@@ -605,7 +605,7 @@ function exampleEncodeRune_outOfRange():Void
 [\(view code\)](<./Utf8.hx#L302>)
 
 
-## function exampleFullRune
+## function \`exampleFullRune\`
 
 
 ```haxe
@@ -619,7 +619,7 @@ function exampleFullRune():Void
 [\(view code\)](<./Utf8.hx#L311>)
 
 
-## function exampleFullRuneInString
+## function \`exampleFullRuneInString\`
 
 
 ```haxe
@@ -633,7 +633,7 @@ function exampleFullRuneInString():Void
 [\(view code\)](<./Utf8.hx#L317>)
 
 
-## function exampleRuneCount
+## function \`exampleRuneCount\`
 
 
 ```haxe
@@ -647,7 +647,7 @@ function exampleRuneCount():Void
 [\(view code\)](<./Utf8.hx#L323>)
 
 
-## function exampleRuneCountInString
+## function \`exampleRuneCountInString\`
 
 
 ```haxe
@@ -661,7 +661,7 @@ function exampleRuneCountInString():Void
 [\(view code\)](<./Utf8.hx#L329>)
 
 
-## function exampleRuneLen
+## function \`exampleRuneLen\`
 
 
 ```haxe
@@ -675,7 +675,7 @@ function exampleRuneLen():Void
 [\(view code\)](<./Utf8.hx#L335>)
 
 
-## function exampleRuneStart
+## function \`exampleRuneStart\`
 
 
 ```haxe
@@ -689,7 +689,7 @@ function exampleRuneStart():Void
 [\(view code\)](<./Utf8.hx#L340>)
 
 
-## function exampleValid
+## function \`exampleValid\`
 
 
 ```haxe
@@ -703,7 +703,7 @@ function exampleValid():Void
 [\(view code\)](<./Utf8.hx#L347>)
 
 
-## function exampleValidRune
+## function \`exampleValidRune\`
 
 
 ```haxe
@@ -717,7 +717,7 @@ function exampleValidRune():Void
 [\(view code\)](<./Utf8.hx#L354>)
 
 
-## function exampleValidString
+## function \`exampleValidString\`
 
 
 ```haxe
@@ -731,7 +731,7 @@ function exampleValidString():Void
 [\(view code\)](<./Utf8.hx#L361>)
 
 
-## function testAppendRune
+## function \`testAppendRune\`
 
 
 ```haxe
@@ -745,7 +745,7 @@ function testAppendRune(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Utf8.hx#L429>)
 
 
-## function testConstants
+## function \`testConstants\`
 
 
 ```haxe
@@ -759,7 +759,7 @@ Validate the constants redefined from unicode.
 [\(view code\)](<./Utf8.hx#L378>)
 
 
-## function testDecodeInvalidSequence
+## function \`testDecodeInvalidSequence\`
 
 
 ```haxe
@@ -773,7 +773,7 @@ function testDecodeInvalidSequence(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Utf8.hx#L622>)
 
 
-## function testDecodeRune
+## function \`testDecodeRune\`
 
 
 ```haxe
@@ -787,7 +787,7 @@ function testDecodeRune(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Utf8.hx#L447>)
 
 
-## function testDecodeSurrogateRune
+## function \`testDecodeSurrogateRune\`
 
 
 ```haxe
@@ -801,7 +801,7 @@ function testDecodeSurrogateRune(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Utf8.hx#L537>)
 
 
-## function testEncodeRune
+## function \`testEncodeRune\`
 
 
 ```haxe
@@ -815,7 +815,7 @@ function testEncodeRune(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Utf8.hx#L417>)
 
 
-## function testFullRune
+## function \`testFullRune\`
 
 
 ```haxe
@@ -829,7 +829,7 @@ function testFullRune(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Utf8.hx#L387>)
 
 
-## function testNegativeRune
+## function \`testNegativeRune\`
 
 
 ```haxe
@@ -843,7 +843,7 @@ Check that negative runes encode as U\+FFFD.
 [\(view code\)](<./Utf8.hx#L757>)
 
 
-## function testRuneCount
+## function \`testRuneCount\`
 
 
 ```haxe
@@ -857,7 +857,7 @@ function testRuneCount(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Utf8.hx#L767>)
 
 
-## function testRuneLen
+## function \`testRuneLen\`
 
 
 ```haxe
@@ -871,7 +871,7 @@ function testRuneLen(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Utf8.hx#L784>)
 
 
-## function testRuntimeConversion
+## function \`testRuntimeConversion\`
 
 
 ```haxe
@@ -885,7 +885,7 @@ Check that a range loop, len\(\[\]rune\(string\)\) optimization and \[\]rune con
 [\(view code\)](<./Utf8.hx#L584>)
 
 
-## function testSequencing
+## function \`testSequencing\`
 
 
 ```haxe
@@ -899,7 +899,7 @@ Check that DecodeRune and DecodeLastRune correspond to the equivalent range loop
 [\(view code\)](<./Utf8.hx#L564>)
 
 
-## function testValid
+## function \`testValid\`
 
 
 ```haxe
@@ -913,7 +913,7 @@ function testValid(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Utf8.hx#L795>)
 
 
-## function testValidRune
+## function \`testValidRune\`
 
 
 ```haxe
@@ -927,7 +927,7 @@ function testValidRune(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Utf8.hx#L806>)
 
 
-## function main
+## function \`main\`
 
 
 ```haxe

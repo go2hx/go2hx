@@ -40,7 +40,7 @@ import stdgo.testing.iotest_test.Iotest_test
 ```
 
 
-## function main
+## function \`main\`
 
 
 ```haxe
@@ -54,7 +54,7 @@ function main():Void
 [\(view code\)](<./Iotest_test.hx#L18>)
 
 
-## function exampleErrReader
+## function \`exampleErrReader\`
 
 
 ```haxe

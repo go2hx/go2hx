@@ -235,7 +235,7 @@ import stdgo.testing.Testing
 ```
 
 
-## function allocsPerRun
+## function \`allocsPerRun\`
 
 
 ```haxe
@@ -249,7 +249,7 @@ function allocsPerRun(_runs:stdgo.GoInt, f:():Void):stdgo.GoFloat64
 [\(view code\)](<./Testing.hx#L509>)
 
 
-## function benchmark
+## function \`benchmark\`
 
 
 ```haxe
@@ -263,7 +263,7 @@ function benchmark(f:()):stdgo.testing.BenchmarkResult
 [\(view code\)](<./Testing.hx#L501>)
 
 
-## function coverMode
+## function \`coverMode\`
 
 
 ```haxe
@@ -277,7 +277,7 @@ function coverMode():stdgo.GoString
 [\(view code\)](<./Testing.hx#L499>)
 
 
-## function mainStart
+## function \`mainStart\`
 
 
 ```haxe
@@ -291,7 +291,7 @@ function mainStart(deps:stdgo.testing.T_testDeps, tests:stdgo.Slice<stdgo.testin
 [\(view code\)](<./Testing.hx#L464>)
 
 
-## function short
+## function \`short\`
 
 
 ```haxe
@@ -305,7 +305,7 @@ function short():Bool
 [\(view code\)](<./Testing.hx#L506>)
 
 
-## function verbose
+## function \`verbose\`
 
 
 ```haxe

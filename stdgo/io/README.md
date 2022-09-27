@@ -1,8 +1,6 @@
 # Module stdgo.io has compilation errors, please do not use:
 ```
-stdgo/io/ioutil/Ioutil.hx:22: characters 25-33 : Spread unary operator is only allowed for unpacking the last argument in a call with rest arguments
-stdgo/io/ioutil/Ioutil.hx:22: characters 25-33 : ... For function argument 'length'
-stdgo/io/ioutil/Ioutil.hx:24: characters 15-26 : Not enough arguments, expected length:Int, capacity:Int, args:haxe.Rest<Unknown<0>>
+stdgo/io/fs_test/Fs_test.hx:389: characters 2-4 : Unknown identifier : fs
 stdgo/path/filepath/Filepath.hx:555: characters 41-49 : Spread unary operator is only allowed for unpacking the last argument in a call with rest arguments
 stdgo/path/filepath/Filepath.hx:555: characters 41-49 : ... For function argument 'length'
 stdgo/path/filepath/Filepath.hx:34: characters 42-154 : Spread unary operator is only allowed for unpacking the last argument in a call with rest arguments
@@ -15,7 +13,9 @@ stdgo/path/filepath/Filepath.hx:442: characters 72-107 : Void should be stdgo.Sl
 stdgo/path/filepath/Filepath.hx:813: characters 22-43 : Not enough arguments, expected length:Int, capacity:Int, args:haxe.Rest<stdgo.GoString>
 stdgo/path/filepath/Filepath.hx:636: characters 58-123 : Spread unary operator is only allowed for unpacking the last argument in a call with rest arguments
 stdgo/path/filepath/Filepath.hx:636: characters 58-123 : ... For function argument 'length'
-stdgo/io/fs_test/Fs_test.hx:389: characters 2-4 : Unknown identifier : fs
+stdgo/io/ioutil/Ioutil.hx:22: characters 25-33 : Spread unary operator is only allowed for unpacking the last argument in a call with rest arguments
+stdgo/io/ioutil/Ioutil.hx:22: characters 25-33 : ... For function argument 'length'
+stdgo/io/ioutil/Ioutil.hx:24: characters 15-26 : Not enough arguments, expected length:Int, capacity:Int, args:haxe.Rest<Unknown<0>>
 stdgo/io_test/Io_test.hx:1446: lines 1446-1447 : stdgo.io_test._Io_test.T__struct_4 should be stdgo.io.Reader
 stdgo/io_test/Io_test.hx:1446: lines 1446-1447 : ... { writerTo : stdgo.io.WriterTo, reader : stdgo.io.Reader } has no field __underlying__
 stdgo/io_test/Io_test.hx:1446: lines 1446-1447 : ... For function argument 'args'

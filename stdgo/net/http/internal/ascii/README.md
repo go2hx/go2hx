@@ -31,7 +31,7 @@ import stdgo.net.http.internal.ascii.Ascii
 ```
 
 
-## function \_lower
+## function \`\_lower\`
 
 
 ```haxe
@@ -45,7 +45,7 @@ lower returns the ASCII lowercase version of b.
 [\(view code\)](<./Ascii.hx#L35>)
 
 
-## function equalFold
+## function \`equalFold\`
 
 
 ```haxe
@@ -59,7 +59,7 @@ EqualFold is strings.EqualFold, ASCII only. It reports whether s and t are equal
 [\(view code\)](<./Ascii.hx#L17>)
 
 
-## function isPrint
+## function \`isPrint\`
 
 
 ```haxe
@@ -73,7 +73,7 @@ IsPrint returns whether s is ASCII and printable according to https://tools.ietf
 [\(view code\)](<./Ascii.hx#L46>)
 
 
-## function is\_
+## function \`is\_\`
 
 
 ```haxe
@@ -87,7 +87,7 @@ Is returns whether s is ASCII.
 [\(view code\)](<./Ascii.hx#L61>)
 
 
-## function toLower
+## function \`toLower\`
 
 
 ```haxe

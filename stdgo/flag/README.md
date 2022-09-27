@@ -9,8 +9,8 @@ stdgo/flag_test/Flag_test.hx:330: characters 18-32 : Too many arguments
 stdgo/flag_test/Flag_test.hx:332: characters 18-32 : Too many arguments
 stdgo/flag_test/Flag_test.hx:334: characters 18-32 : Too many arguments
 stdgo/flag_test/Flag_test.hx:337: characters 77-91 : Too many arguments
-stdgo/flag_test/Flag_test.hx:855: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
-stdgo/flag_test/Flag_test.hx:872: characters 14-32 : Type not found : stdgo.os.exec.Exec
+stdgo/flag_test/Flag_test.hx:857: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
+stdgo/flag_test/Flag_test.hx:874: characters 14-32 : Type not found : stdgo.os.exec.Exec
 stdgo/net/Net.hx:6857: characters 24-53 : Type not found : stdgo.context.Context
 stdgo/net/Net.hx:12059: characters 49-78 : Type not found : stdgo.context.Context
 stdgo/flag_test/Flag_test.hx:125: characters 12-24 : ... Called from macro here

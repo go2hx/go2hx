@@ -39,7 +39,7 @@ import stdgo.internal.syscall.unix.Unix
 ```
 
 
-## function isNonblock
+## function \`isNonblock\`
 
 
 ```haxe
@@ -53,7 +53,7 @@ function isNonblock(_fd:stdgo.GoInt):{_1:stdgo.Error, _0:Bool}
 [\(view code\)](<./Unix.hx#L50>)
 
 
-## function recvfromInet4
+## function \`recvfromInet4\`
 
 
 ```haxe
@@ -67,7 +67,7 @@ function recvfromInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:std
 [\(view code\)](<./Unix.hx#L14>)
 
 
-## function recvfromInet6
+## function \`recvfromInet6\`
 
 
 ```haxe
@@ -81,7 +81,7 @@ function recvfromInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:std
 [\(view code\)](<./Unix.hx#L17>)
 
 
-## function recvmsgInet4
+## function \`recvmsgInet4\`
 
 
 ```haxe
@@ -95,7 +95,7 @@ function recvmsgInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.
 [\(view code\)](<./Unix.hx#L39>)
 
 
-## function recvmsgInet6
+## function \`recvmsgInet6\`
 
 
 ```haxe
@@ -109,7 +109,7 @@ function recvmsgInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.
 [\(view code\)](<./Unix.hx#L47>)
 
 
-## function sendmsgNInet4
+## function \`sendmsgNInet4\`
 
 
 ```haxe
@@ -123,7 +123,7 @@ function sendmsgNInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo
 [\(view code\)](<./Unix.hx#L27>)
 
 
-## function sendmsgNInet6
+## function \`sendmsgNInet6\`
 
 
 ```haxe
@@ -137,7 +137,7 @@ function sendmsgNInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo
 [\(view code\)](<./Unix.hx#L31>)
 
 
-## function sendtoInet4
+## function \`sendtoInet4\`
 
 
 ```haxe
@@ -151,7 +151,7 @@ function sendtoInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo
 [\(view code\)](<./Unix.hx#L20>)
 
 
-## function sendtoInet6
+## function \`sendtoInet6\`
 
 
 ```haxe

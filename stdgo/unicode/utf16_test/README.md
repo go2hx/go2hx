@@ -62,7 +62,7 @@ import stdgo.unicode.utf16_test.Utf16
 ```
 
 
-## function benchmarkDecodeRune
+## function \`benchmarkDecodeRune\`
 
 
 ```haxe
@@ -76,7 +76,7 @@ function benchmarkDecodeRune(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Utf16.hx#L220>)
 
 
-## function benchmarkDecodeValidASCII
+## function \`benchmarkDecodeValidASCII\`
 
 
 ```haxe
@@ -90,7 +90,7 @@ function benchmarkDecodeValidASCII(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Utf16.hx#L198>)
 
 
-## function benchmarkDecodeValidJapaneseChars
+## function \`benchmarkDecodeValidJapaneseChars\`
 
 
 ```haxe
@@ -104,7 +104,7 @@ function benchmarkDecodeValidJapaneseChars(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Utf16.hx#L209>)
 
 
-## function benchmarkEncodeRune
+## function \`benchmarkEncodeRune\`
 
 
 ```haxe
@@ -118,7 +118,7 @@ function benchmarkEncodeRune(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Utf16.hx#L265>)
 
 
-## function benchmarkEncodeValidASCII
+## function \`benchmarkEncodeValidASCII\`
 
 
 ```haxe
@@ -132,7 +132,7 @@ function benchmarkEncodeValidASCII(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Utf16.hx#L244>)
 
 
-## function benchmarkEncodeValidJapaneseChars
+## function \`benchmarkEncodeValidJapaneseChars\`
 
 
 ```haxe
@@ -146,7 +146,7 @@ function benchmarkEncodeValidJapaneseChars(_b:stdgo.Ref<stdgo.testing.B>):Void
 [\(view code\)](<./Utf16.hx#L255>)
 
 
-## function testConstants
+## function \`testConstants\`
 
 
 ```haxe
@@ -160,7 +160,7 @@ Validate the constants redefined from unicode.
 [\(view code\)](<./Utf16.hx#L110>)
 
 
-## function testDecode
+## function \`testDecode\`
 
 
 ```haxe
@@ -174,7 +174,7 @@ function testDecode(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Utf16.hx#L169>)
 
 
-## function testDecodeRune
+## function \`testDecodeRune\`
 
 
 ```haxe
@@ -188,7 +188,7 @@ function testDecodeRune(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Utf16.hx#L178>)
 
 
-## function testEncode
+## function \`testEncode\`
 
 
 ```haxe
@@ -202,7 +202,7 @@ function testEncode(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Utf16.hx#L120>)
 
 
-## function testEncodeRune
+## function \`testEncodeRune\`
 
 
 ```haxe
@@ -216,7 +216,7 @@ function testEncodeRune(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Utf16.hx#L129>)
 
 
-## function testIsSurrogate
+## function \`testIsSurrogate\`
 
 
 ```haxe
@@ -230,7 +230,7 @@ function testIsSurrogate(_t:stdgo.Ref<stdgo.testing.T>):Void
 [\(view code\)](<./Utf16.hx#L188>)
 
 
-## function main
+## function \`main\`
 
 
 ```haxe

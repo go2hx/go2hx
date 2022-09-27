@@ -31,7 +31,7 @@ import stdgo.testing.quick.Quick
 ```
 
 
-## function check
+## function \`check\`
 
 
 ```haxe
@@ -45,7 +45,7 @@ function check(_f:stdgo.AnyInterface, _config:stdgo.testing.quick.Config):{<unkn
 [\(view code\)](<./Quick.hx#L6>)
 
 
-## function checkEqual
+## function \`checkEqual\`
 
 
 ```haxe

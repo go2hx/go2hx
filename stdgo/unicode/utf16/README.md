@@ -85,7 +85,7 @@ import stdgo.unicode.utf16.Utf16
 ```
 
 
-## function decode
+## function \`decode\`
 
 
 ```haxe
@@ -99,7 +99,7 @@ Decode returns the Unicode code point sequence represented by the UTF\-16 encodi
 [\(view code\)](<./Utf16.hx#L118>)
 
 
-## function decodeRune
+## function \`decodeRune\`
 
 
 ```haxe
@@ -113,7 +113,7 @@ DecodeRune returns the UTF\-16 decoding of a surrogate pair. If the pair is not 
 [\(view code\)](<./Utf16.hx#L62>)
 
 
-## function encode
+## function \`encode\`
 
 
 ```haxe
@@ -127,7 +127,7 @@ Encode returns the UTF\-16 encoding of the Unicode code point sequence s.
 [\(view code\)](<./Utf16.hx#L86>)
 
 
-## function encodeRune
+## function \`encodeRune\`
 
 
 ```haxe
@@ -141,7 +141,7 @@ EncodeRune returns the UTF\-16 surrogate pair r1, r2 for the given rune. If the 
 [\(view code\)](<./Utf16.hx#L74>)
 
 
-## function isSurrogate
+## function \`isSurrogate\`
 
 
 ```haxe

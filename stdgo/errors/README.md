@@ -64,7 +64,7 @@ import stdgo.errors.Errors
 ```
 
 
-## function as
+## function \`as\`
 
 
 ```haxe
@@ -108,7 +108,7 @@ function exampleAs():Void {
 [\(view code\)](<./Errors.hx#L189>)
 
 
-## function is\_
+## function \`is\_\`
 
 
 ```haxe
@@ -122,7 +122,7 @@ Is reports whether any error in err's chain matches target.  The chain consists 
 [\(view code\)](<./Errors.hx#L143>)
 
 
-## function new\_
+## function \`new\_\`
 
 
 ```haxe
@@ -136,7 +136,7 @@ New returns an error that formats as the given text. Each call to New returns a 
 [\(view code\)](<./Errors.hx#L104>)
 
 
-## function unwrap
+## function \`unwrap\`
 
 
 ```haxe

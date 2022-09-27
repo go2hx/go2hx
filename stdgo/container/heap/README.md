@@ -37,7 +37,7 @@ import stdgo.container.heap.Heap
 ```
 
 
-## function \_down
+## function \`\_down\`
 
 
 ```haxe
@@ -51,7 +51,7 @@ function _down(_h:stdgo.container.heap.Interface, _i0:stdgo.GoInt, _n:stdgo.GoIn
 [\(view code\)](<./Heap.hx#L85>)
 
 
-## function \_up
+## function \`\_up\`
 
 
 ```haxe
@@ -65,7 +65,7 @@ function _up(_h:stdgo.container.heap.Interface, _j:stdgo.GoInt):Void
 [\(view code\)](<./Heap.hx#L75>)
 
 
-## function fix
+## function \`fix\`
 
 
 ```haxe
@@ -79,7 +79,7 @@ Fix re\-establishes the heap ordering after the element at index i has changed i
 [\(view code\)](<./Heap.hx#L70>)
 
 
-## function init
+## function \`init\`
 
 
 ```haxe
@@ -93,7 +93,7 @@ Init establishes the heap invariants required by the other routines in this pack
 [\(view code\)](<./Heap.hx#L22>)
 
 
-## function pop
+## function \`pop\`
 
 
 ```haxe
@@ -107,7 +107,7 @@ Pop removes and returns the minimum element \(according to Less\) from the heap.
 [\(view code\)](<./Heap.hx#L44>)
 
 
-## function push
+## function \`push\`
 
 
 ```haxe
@@ -121,7 +121,7 @@ Push pushes the element x onto the heap. The complexity is O\(log n\) where n = 
 [\(view code\)](<./Heap.hx#L35>)
 
 
-## function remove
+## function \`remove\`
 
 
 ```haxe

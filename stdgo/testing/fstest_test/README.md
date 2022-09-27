@@ -38,7 +38,7 @@ import stdgo.testing.fstest_test.Fstest
 ```
 
 
-## function main
+## function \`main\`
 
 
 ```haxe

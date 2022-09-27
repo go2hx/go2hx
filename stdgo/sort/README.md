@@ -226,7 +226,7 @@ import stdgo.sort.Sort
 ```
 
 
-## function \_breakPatterns
+## function \`\_breakPatterns\`
 
 
 ```haxe
@@ -240,7 +240,7 @@ breakPatterns scatters some elements around in an attempt to break some patterns
 [\(view code\)](<./Sort.hx#L1164>)
 
 
-## function \_breakPatterns\_func
+## function \`\_breakPatterns\_func\`
 
 
 ```haxe
@@ -254,7 +254,7 @@ breakPatterns\_func scatters some elements around in an attempt to break some pa
 [\(view code\)](<./Sort.hx#L674>)
 
 
-## function \_choosePivot
+## function \`\_choosePivot\`
 
 
 ```haxe
@@ -268,7 +268,7 @@ choosePivot chooses a pivot in data\[a:b\].  \[0,8\): chooses a static pivot. \[
 [\(view code\)](<./Sort.hx#L1189>)
 
 
-## function \_choosePivot\_func
+## function \`\_choosePivot\_func\`
 
 
 ```haxe
@@ -282,7 +282,7 @@ choosePivot\_func chooses a pivot in data\[a:b\].  \[0,8\): chooses a static piv
 [\(view code\)](<./Sort.hx#L699>)
 
 
-## function \_heapSort
+## function \`\_heapSort\`
 
 
 ```haxe
@@ -296,7 +296,7 @@ function _heapSort(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):V
 [\(view code\)](<./Sort.hx#L967>)
 
 
-## function \_heapSort\_func
+## function \`\_heapSort\_func\`
 
 
 ```haxe
@@ -310,7 +310,7 @@ function _heapSort_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:st
 [\(view code\)](<./Sort.hx#L477>)
 
 
-## function \_insertionSort
+## function \`\_insertionSort\`
 
 
 ```haxe
@@ -324,7 +324,7 @@ insertionSort sorts data\[a:b\] using insertion sort.
 [\(view code\)](<./Sort.hx#L931>)
 
 
-## function \_insertionSort\_func
+## function \`\_insertionSort\_func\`
 
 
 ```haxe
@@ -338,7 +338,7 @@ insertionSort\_func sorts data\[a:b\] using insertion sort.
 [\(view code\)](<./Sort.hx#L441>)
 
 
-## function \_isNaN
+## function \`\_isNaN\`
 
 
 ```haxe
@@ -352,7 +352,7 @@ isNaN is a copy of math.IsNaN to avoid a dependency on the math package.
 [\(view code\)](<./Sort.hx#L379>)
 
 
-## function \_median
+## function \`\_median\`
 
 
 ```haxe
@@ -366,7 +366,7 @@ median returns x where data\[x\] is the median of data\[a\],data\[b\],data\[c\],
 [\(view code\)](<./Sort.hx#L1230>)
 
 
-## function \_medianAdjacent
+## function \`\_medianAdjacent\`
 
 
 ```haxe
@@ -380,7 +380,7 @@ medianAdjacent finds the median of data\[a \- 1\], data\[a\], data\[a \+ 1\] and
 [\(view code\)](<./Sort.hx#L1252>)
 
 
-## function \_medianAdjacent\_func
+## function \`\_medianAdjacent\_func\`
 
 
 ```haxe
@@ -394,7 +394,7 @@ medianAdjacent\_func finds the median of data\[a \- 1\], data\[a\], data\[a \+ 1
 [\(view code\)](<./Sort.hx#L762>)
 
 
-## function \_median\_func
+## function \`\_median\_func\`
 
 
 ```haxe
@@ -408,7 +408,7 @@ median\_func returns x where data\[x\] is the median of data\[a\],data\[b\],data
 [\(view code\)](<./Sort.hx#L740>)
 
 
-## function \_nextPowerOfTwo
+## function \`\_nextPowerOfTwo\`
 
 
 ```haxe
@@ -422,7 +422,7 @@ function _nextPowerOfTwo(_length:stdgo.GoInt):stdgo.GoUInt
 [\(view code\)](<./Sort.hx#L348>)
 
 
-## function \_order2
+## function \`\_order2\`
 
 
 ```haxe
@@ -436,7 +436,7 @@ order2 returns x,y where data\[x\] \<= data\[y\], where x,y=a,b or x,y=b,a.
 [\(view code\)](<./Sort.hx#L1219>)
 
 
-## function \_order2\_func
+## function \`\_order2\_func\`
 
 
 ```haxe
@@ -450,7 +450,7 @@ order2\_func returns x,y where data\[x\] \<= data\[y\], where x,y=a,b or x,y=b,a
 [\(view code\)](<./Sort.hx#L729>)
 
 
-## function \_partialInsertionSort
+## function \`\_partialInsertionSort\`
 
 
 ```haxe
@@ -464,7 +464,7 @@ partialInsertionSort partially sorts a slice, returns true if the slice is sorte
 [\(view code\)](<./Sort.hx#L1116>)
 
 
-## function \_partialInsertionSort\_func
+## function \`\_partialInsertionSort\_func\`
 
 
 ```haxe
@@ -478,7 +478,7 @@ partialInsertionSort\_func partially sorts a slice, returns true if the slice is
 [\(view code\)](<./Sort.hx#L626>)
 
 
-## function \_partition
+## function \`\_partition\`
 
 
 ```haxe
@@ -492,7 +492,7 @@ partition does one quicksort partition. Let p = data\[pivot\] Moves elements in 
 [\(view code\)](<./Sort.hx#L1053>)
 
 
-## function \_partitionEqual
+## function \`\_partitionEqual\`
 
 
 ```haxe
@@ -506,7 +506,7 @@ partitionEqual partitions data\[a:b\] into elements equal to data\[pivot\] follo
 [\(view code\)](<./Sort.hx#L1092>)
 
 
-## function \_partitionEqual\_func
+## function \`\_partitionEqual\_func\`
 
 
 ```haxe
@@ -520,7 +520,7 @@ partitionEqual\_func partitions data\[a:b\] into elements equal to data\[pivot\]
 [\(view code\)](<./Sort.hx#L602>)
 
 
-## function \_partition\_func
+## function \`\_partition\_func\`
 
 
 ```haxe
@@ -534,7 +534,7 @@ partition\_func does one quicksort partition. Let p = data\[pivot\] Moves elemen
 [\(view code\)](<./Sort.hx#L563>)
 
 
-## function \_pdqsort
+## function \`\_pdqsort\`
 
 
 ```haxe
@@ -548,7 +548,7 @@ pdqsort sorts data\[a:b\]. The algorithm based on pattern\-defeating quicksort\(
 [\(view code\)](<./Sort.hx#L994>)
 
 
-## function \_pdqsort\_func
+## function \`\_pdqsort\_func\`
 
 
 ```haxe
@@ -562,7 +562,7 @@ pdqsort\_func sorts data\[a:b\]. The algorithm based on pattern\-defeating quick
 [\(view code\)](<./Sort.hx#L504>)
 
 
-## function \_reverseRange
+## function \`\_reverseRange\`
 
 
 ```haxe
@@ -576,7 +576,7 @@ function _reverseRange(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoIn
 [\(view code\)](<./Sort.hx#L1256>)
 
 
-## function \_reverseRange\_func
+## function \`\_reverseRange\_func\`
 
 
 ```haxe
@@ -590,7 +590,7 @@ function _reverseRange_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _
 [\(view code\)](<./Sort.hx#L766>)
 
 
-## function \_rotate
+## function \`\_rotate\`
 
 
 ```haxe
@@ -604,7 +604,7 @@ rotate rotates two consecutive blocks u = data\[a:m\] and v = data\[m:b\] in dat
 [\(view code\)](<./Sort.hx#L1403>)
 
 
-## function \_rotate\_func
+## function \`\_rotate\_func\`
 
 
 ```haxe
@@ -618,7 +618,7 @@ rotate\_func rotates two consecutive blocks u = data\[a:m\] and v = data\[m:b\] 
 [\(view code\)](<./Sort.hx#L913>)
 
 
-## function \_siftDown
+## function \`\_siftDown\`
 
 
 ```haxe
@@ -632,7 +632,7 @@ siftDown implements the heap property on data\[lo:hi\]. first is an offset into 
 [\(view code\)](<./Sort.hx#L949>)
 
 
-## function \_siftDown\_func
+## function \`\_siftDown\_func\`
 
 
 ```haxe
@@ -646,7 +646,7 @@ siftDown\_func implements the heap property on data\[lo:hi\]. first is an offset
 [\(view code\)](<./Sort.hx#L459>)
 
 
-## function \_stable
+## function \`\_stable\`
 
 
 ```haxe
@@ -660,7 +660,7 @@ function _stable(_data:stdgo.sort.Interface, _n:stdgo.GoInt):Void
 [\(view code\)](<./Sort.hx#L1275>)
 
 
-## function \_stable\_func
+## function \`\_stable\_func\`
 
 
 ```haxe
@@ -674,7 +674,7 @@ function _stable_func(_data:stdgo.sort._Sort.T_lessSwap, _n:stdgo.GoInt):Void
 [\(view code\)](<./Sort.hx#L785>)
 
 
-## function \_swapRange
+## function \`\_swapRange\`
 
 
 ```haxe
@@ -688,7 +688,7 @@ function _swapRange(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, 
 [\(view code\)](<./Sort.hx#L1266>)
 
 
-## function \_swapRange\_func
+## function \`\_swapRange\_func\`
 
 
 ```haxe
@@ -702,7 +702,7 @@ function _swapRange_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:s
 [\(view code\)](<./Sort.hx#L776>)
 
 
-## function \_symMerge
+## function \`\_symMerge\`
 
 
 ```haxe
@@ -716,7 +716,7 @@ symMerge merges the two sorted subsequences data\[a:m\] and data\[m:b\] using th
 [\(view code\)](<./Sort.hx#L1327>)
 
 
-## function \_symMerge\_func
+## function \`\_symMerge\_func\`
 
 
 ```haxe
@@ -730,7 +730,7 @@ symMerge\_func merges the two sorted subsequences data\[a:m\] and data\[m:b\] us
 [\(view code\)](<./Sort.hx#L837>)
 
 
-## function find
+## function \`find\`
 
 
 ```haxe
@@ -744,7 +744,7 @@ Find uses binary search to find and return the smallest index i in \[0, n\) at w
 [\(view code\)](<./Sort.hx#L233>)
 
 
-## function float64s
+## function \`float64s\`
 
 
 ```haxe
@@ -782,7 +782,7 @@ function exampleFloat64s():Void {
 [\(view code\)](<./Sort.hx#L394>)
 
 
-## function float64sAreSorted
+## function \`float64sAreSorted\`
 
 
 ```haxe
@@ -819,7 +819,7 @@ function exampleFloat64sAreSorted():Void {
 [\(view code\)](<./Sort.hx#L416>)
 
 
-## function heapsort
+## function \`heapsort\`
 
 
 ```haxe
@@ -833,7 +833,7 @@ function heapsort(_data:stdgo.sort.Interface):Void
 [\(view code\)](<./Sort.hx#L135>)
 
 
-## function ints
+## function \`ints\`
 
 
 ```haxe
@@ -867,7 +867,7 @@ function exampleInts():Void {
 [\(view code\)](<./Sort.hx#L386>)
 
 
-## function intsAreSorted
+## function \`intsAreSorted\`
 
 
 ```haxe
@@ -904,7 +904,7 @@ function exampleIntsAreSorted():Void {
 [\(view code\)](<./Sort.hx#L408>)
 
 
-## function isSorted
+## function \`isSorted\`
 
 
 ```haxe
@@ -918,7 +918,7 @@ IsSorted reports whether data is sorted.
 [\(view code\)](<./Sort.hx#L363>)
 
 
-## function reverse
+## function \`reverse\`
 
 
 ```haxe
@@ -952,7 +952,7 @@ function exampleReverse():Void {
 [\(view code\)](<./Sort.hx#L356>)
 
 
-## function reverseRange
+## function \`reverseRange\`
 
 
 ```haxe
@@ -966,7 +966,7 @@ function reverseRange(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt
 [\(view code\)](<./Sort.hx#L139>)
 
 
-## function search
+## function \`search\`
 
 
 ```haxe
@@ -1036,7 +1036,7 @@ function exampleSearch_descendingOrder():Void {
 [\(view code\)](<./Sort.hx#L194>)
 
 
-## function searchFloat64s
+## function \`searchFloat64s\`
 
 
 ```haxe
@@ -1075,7 +1075,7 @@ function exampleSearchFloat64s():Void {
 [\(view code\)](<./Sort.hx#L265>)
 
 
-## function searchInts
+## function \`searchInts\`
 
 
 ```haxe
@@ -1113,7 +1113,7 @@ function exampleSearchInts():Void {
 [\(view code\)](<./Sort.hx#L253>)
 
 
-## function searchStrings
+## function \`searchStrings\`
 
 
 ```haxe
@@ -1127,7 +1127,7 @@ SearchStrings searches for x in a sorted slice of strings and returns the index 
 [\(view code\)](<./Sort.hx#L277>)
 
 
-## function slice
+## function \`slice\`
 
 
 ```haxe
@@ -1169,7 +1169,7 @@ function exampleSlice():Void {
 [\(view code\)](<./Sort.hx#L294>)
 
 
-## function sliceIsSorted
+## function \`sliceIsSorted\`
 
 
 ```haxe
@@ -1183,7 +1183,7 @@ SliceIsSorted reports whether the slice x is sorted according to the provided le
 [\(view code\)](<./Sort.hx#L320>)
 
 
-## function sliceStable
+## function \`sliceStable\`
 
 
 ```haxe
@@ -1227,7 +1227,7 @@ function exampleSliceStable():Void {
 [\(view code\)](<./Sort.hx#L310>)
 
 
-## function sort
+## function \`sort\`
 
 
 ```haxe
@@ -1241,7 +1241,7 @@ Sort sorts data in ascending order as determined by the Less method. It makes on
 [\(view code\)](<./Sort.hx#L339>)
 
 
-## function stable
+## function \`stable\`
 
 
 ```haxe
@@ -1255,7 +1255,7 @@ Stable sorts data in ascending order as determined by the Less method, while kee
 [\(view code\)](<./Sort.hx#L434>)
 
 
-## function strings
+## function \`strings\`
 
 
 ```haxe
@@ -1290,7 +1290,7 @@ function exampleStrings():Void {
 [\(view code\)](<./Sort.hx#L401>)
 
 
-## function stringsAreSorted
+## function \`stringsAreSorted\`
 
 
 ```haxe

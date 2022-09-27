@@ -29,7 +29,7 @@ import stdgo.unsafe.Unsafe
 ```
 
 
-## function alignof\_
+## function \`alignof\_\`
 
 
 ```haxe
@@ -40,10 +40,10 @@ function alignof_(x:stdgo.AnyInterface):stdgo.GoUIntptr
  
 
 
-[\(view code\)](<./Unsafe.hx#L57>)
+[\(view code\)](<./Unsafe.hx#L66>)
 
 
-## function offsetof\_
+## function \`offsetof\_\`
 
 
 ```haxe
@@ -54,10 +54,10 @@ function offsetof_(x:stdgo.AnyInterface):stdgo.GoUIntptr
  
 
 
-[\(view code\)](<./Unsafe.hx#L53>)
+[\(view code\)](<./Unsafe.hx#L62>)
 
 
-## function sizeof
+## function \`sizeof\`
 
 
 ```haxe
@@ -68,7 +68,7 @@ function sizeof(x:stdgo.AnyInterface):stdgo.GoUIntptr
  
 
 
-[\(view code\)](<./Unsafe.hx#L49>)
+[\(view code\)](<./Unsafe.hx#L58>)
 
 
 # Typedefs

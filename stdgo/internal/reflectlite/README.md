@@ -33,7 +33,7 @@ import stdgo.internal.reflectlite.Reflectlite
 ```
 
 
-## function swapper
+## function \`swapper\`
 
 
 ```haxe
@@ -47,7 +47,7 @@ function swapper(_x:stdgo.AnyInterface):(:stdgo.GoInt, :stdgo.GoInt):Void
 [\(view code\)](<./Reflectlite.hx#L13>)
 
 
-## function typeOf
+## function \`typeOf\`
 
 
 ```haxe
@@ -61,7 +61,7 @@ function typeOf(_x:stdgo.AnyInterface):stdgo.reflect.Type
 [\(view code\)](<./Reflectlite.hx#L9>)
 
 
-## function valueOf
+## function \`valueOf\`
 
 
 ```haxe

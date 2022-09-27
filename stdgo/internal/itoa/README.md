@@ -25,7 +25,7 @@ import stdgo.internal.itoa.Itoa
 ```
 
 
-## function itoa
+## function \`itoa\`
 
 
 ```haxe
@@ -39,7 +39,7 @@ Itoa converts val to a decimal string.
 [\(view code\)](<./Itoa.hx#L16>)
 
 
-## function uitoa
+## function \`uitoa\`
 
 
 ```haxe

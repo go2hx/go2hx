@@ -25,7 +25,7 @@ import stdgo.internal.testenv.Testenv
 ```
 
 
-## function builder
+## function \`builder\`
 
 
 ```haxe
@@ -39,7 +39,7 @@ function builder():stdgo.GoString
 [\(view code\)](<./Testenv.hx#L6>)
 
 
-## function skipFlaky
+## function \`skipFlaky\`
 
 
 ```haxe

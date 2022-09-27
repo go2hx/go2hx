@@ -206,10 +206,10 @@ private var _testFsys:stdgo.testing.fstest.Fstest.MapFS = {
 	x;
 };
 
-private var _tree:Ref<stdgo.io.fs_test.Fs_test.Node> = (new stdgo.io.fs_test.Fs_test.Node((Go.str("testdata") : GoString),
+private var _tree:Ref<stdgo.io.fs_test.Fs_test.Node> = ((new stdgo.io.fs_test.Fs_test.Node((Go.str("testdata") : GoString),
 	(new Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>(0, 0, @:invalid_compositelit null, @:invalid_compositelit null, @:invalid_compositelit null,
 		@:invalid_compositelit null) : Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>),
-	(0 : GoInt)) : stdgo.io.fs_test.Fs_test.Node);
+	(0 : GoInt)) : stdgo.io.fs_test.Fs_test.Node) : Ref<stdgo.io.fs_test.Fs_test.Node>);
 
 private var _sysValue:GoInt = (0 : GoInt);
 
@@ -1019,9 +1019,9 @@ function _makeTree(_t:Ref<stdgo.testing.Testing.T>):FS {
 				])))))));
 	_walkTree(_tree, _tree._name, function(_path:GoString, _n:Ref<Node>):Void {
 		if (_n._entries == null) {
-			_fsys[_path] = (new stdgo.testing.fstest.Fstest.MapFile() : stdgo.testing.fstest.Fstest.MapFile);
+			_fsys[_path] = ((new stdgo.testing.fstest.Fstest.MapFile() : stdgo.testing.fstest.Fstest.MapFile) : Ref<stdgo.testing.fstest.Fstest.MapFile>);
 		} else {
-			_fsys[_path] = ({mode: ("2147483648" : FileMode)} : stdgo.testing.fstest.Fstest.MapFile);
+			_fsys[_path] = (({mode: ("2147483648" : FileMode)} : stdgo.testing.fstest.Fstest.MapFile) : Ref<stdgo.testing.fstest.Fstest.MapFile>);
 		};
 	});
 	return Go.asInterface(_fsys);
@@ -1088,7 +1088,7 @@ function testWalkDir(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var _errors = new Slice<stdgo.Error>((0 : GoInt).toBasic(), (10 : GoInt), ...[for (i in 0...(0 : GoInt).toBasic()) (null : stdgo.Error)]);
 		var _clear:Bool = true;
 		var _markFn:(GoString, DirEntry, stdgo.Error) -> stdgo.Error = function(_path:GoString, _entry:DirEntry, _err:Error):Error {
-			return _mark(_entry, _err, _errors, _clear);
+			return _mark(_entry, _err, (_errors : Ref<Slice<stdgo.Error>>), _clear);
 		};
 		_err = walkDir(_fsys, (Go.str(".") : GoString), _markFn);
 		if (_err != null) {

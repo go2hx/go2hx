@@ -695,7 +695,7 @@ function testErrPathNUL(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testPathErrorUnwrap(_t:Ref<stdgo.testing.Testing.T>):Void {
-	var _pe = ({err: stdgo.io.fs.Fs.errInvalid} : stdgo.io.fs.Fs.PathError);
+	var _pe = (({err: stdgo.io.fs.Fs.errInvalid} : stdgo.io.fs.Fs.PathError) : Ref<stdgo.io.fs.Fs.PathError>);
 	if (!stdgo.errors.Errors.is_(Go.asInterface(_pe), stdgo.io.fs.Fs.errInvalid)) {
 		_t.error(Go.toInterface((Go.str("errors.Is failed, wanted success") : GoString)));
 	};
@@ -1150,7 +1150,7 @@ function testExecutable(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (_err != null) {
 		_t.fatalf((Go.str("filepath.Rel: %v") : GoString), Go.toInterface(_err));
 	};
-	var _cmd = (new stdgo.os.exec.Exec.Cmd() : stdgo.os.exec.Exec.Cmd);
+	var _cmd = ((new stdgo.os.exec.Exec.Cmd() : stdgo.os.exec.Exec.Cmd) : Ref<stdgo.os.exec.Exec.Cmd>);
 	_cmd.dir = _dir;
 	_cmd.path = _fn;
 	_cmd.args = (new Slice<GoString>(0, 0, (Go.str("-") : GoString), (Go.str("-test.run=XXXX") : GoString)) : Slice<GoString>);
@@ -3054,7 +3054,7 @@ function _exec(_t:Ref<stdgo.testing.Testing.T>, _dir:GoString, _cmd:GoString, _a
 			_t.fatalf((Go.str("Pipe: %v") : GoString), Go.toInterface(_err));
 		};
 		__deferstack__.unshift(() -> _r.close());
-		var _attr = ({dir: _dir, files: (new Slice<Ref<File>>(0, 0, null, _w, stderr) : Slice<Ref<File>>)} : ProcAttr);
+		var _attr = (({dir: _dir, files: (new Slice<Ref<File>>(0, 0, null, _w, stderr) : Slice<Ref<File>>)} : ProcAttr) : Ref<ProcAttr>);
 		var __tmp__ = startProcess(_cmd, _args, _attr),
 			_p:Ref<Process> = __tmp__._0,
 			_err:stdgo.Error = __tmp__._1;
@@ -3063,7 +3063,7 @@ function _exec(_t:Ref<stdgo.testing.Testing.T>, _dir:GoString, _cmd:GoString, _a
 		};
 		_w.close();
 		var _b:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-		stdgo.io.Io.copy(Go.asInterface(_b), Go.asInterface(_r));
+		stdgo.io.Io.copy(Go.asInterface((_b : Ref<stdgo.bytes.Bytes.Buffer>)), Go.asInterface(_r));
 		var _output:GoString = (_b.string() : GoString);
 		var __tmp__ = stat(stdgo.strings.Strings.trimSpace(_output)),
 			_fi1:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
@@ -3934,7 +3934,7 @@ function _runBinHostname(_t:Ref<stdgo.testing.Testing.T>):GoString {
 		if (false) {
 			_argv = (new Slice<GoString>(0, 0, (Go.str("hostname") : GoString), (Go.str("-s") : GoString)) : Slice<GoString>);
 		};
-		var __tmp__ = startProcess(_path, _argv, ({files: (new Slice<Ref<File>>(0, 0, null, _w, stderr) : Slice<Ref<File>>)} : ProcAttr)),
+		var __tmp__ = startProcess(_path, _argv, (({files: (new Slice<Ref<File>>(0, 0, null, _w, stderr) : Slice<Ref<File>>)} : ProcAttr) : Ref<ProcAttr>)),
 			_p:Ref<Process> = __tmp__._0,
 			_err:stdgo.Error = __tmp__._1;
 		if (_err != null) {
@@ -3942,7 +3942,7 @@ function _runBinHostname(_t:Ref<stdgo.testing.Testing.T>):GoString {
 		};
 		_w.close();
 		var _b:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-		stdgo.io.Io.copy(Go.asInterface(_b), Go.asInterface(_r));
+		stdgo.io.Io.copy(Go.asInterface((_b : Ref<stdgo.bytes.Bytes.Buffer>)), Go.asInterface(_r));
 		{
 			var __tmp__ = _p.wait_();
 			_err = __tmp__._1;
@@ -7910,35 +7910,35 @@ function testMkdirTempBadPattern(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 @:keep var _ = {
 	try {
-		_isExistTests = (_isExistTests.__append__(({_err: Go.asInterface(({err: Go.asInterface((17 : stdgo.syscall.Syscall.Errno))} : stdgo.io.fs.Fs.PathError)),
+		_isExistTests = (_isExistTests.__append__(({_err: Go.asInterface((({err: Go.asInterface((17 : stdgo.syscall.Syscall.Errno))} : stdgo.io.fs.Fs.PathError) : Ref<stdgo.io.fs.Fs.PathError>)),
 			_is: true, _isnot: false} : stdgo.os_test.Os_test.T_isExistTest),
-			({_err: Go.asInterface(({err: Go.asInterface((39 : stdgo.syscall.Syscall.Errno))} : stdgo.io.fs.Fs.PathError)), _is: true,
+			({_err: Go.asInterface((({err: Go.asInterface((39 : stdgo.syscall.Syscall.Errno))} : stdgo.io.fs.Fs.PathError) : Ref<stdgo.io.fs.Fs.PathError>)),
+				_is: true, _isnot: false} : stdgo.os_test.Os_test.T_isExistTest),
+			({_err: Go.asInterface((({err: Go.asInterface((17 : stdgo.syscall.Syscall.Errno))} : LinkError) : Ref<LinkError>)), _is: true,
 				_isnot: false} : stdgo.os_test.Os_test.T_isExistTest),
-			({_err: Go.asInterface(({err: Go.asInterface((17 : stdgo.syscall.Syscall.Errno))} : LinkError)), _is: true,
+			({_err: Go.asInterface((({err: Go.asInterface((39 : stdgo.syscall.Syscall.Errno))} : LinkError) : Ref<LinkError>)), _is: true,
 				_isnot: false} : stdgo.os_test.Os_test.T_isExistTest),
-			({_err: Go.asInterface(({err: Go.asInterface((39 : stdgo.syscall.Syscall.Errno))} : LinkError)), _is: true,
+			({_err: Go.asInterface((({err: Go.asInterface((17 : stdgo.syscall.Syscall.Errno))} : SyscallError) : Ref<SyscallError>)), _is: true,
 				_isnot: false} : stdgo.os_test.Os_test.T_isExistTest),
-			({_err: Go.asInterface(({err: Go.asInterface((17 : stdgo.syscall.Syscall.Errno))} : SyscallError)), _is: true,
-				_isnot: false} : stdgo.os_test.Os_test.T_isExistTest),
-			({_err: Go.asInterface(({err: Go.asInterface((39 : stdgo.syscall.Syscall.Errno))} : SyscallError)), _is: true,
+			({_err: Go.asInterface((({err: Go.asInterface((39 : stdgo.syscall.Syscall.Errno))} : SyscallError) : Ref<SyscallError>)), _is: true,
 				_isnot: false} : stdgo.os_test.Os_test.T_isExistTest)));
-		_isPermissionTests = (_isPermissionTests.__append__(({_err: Go.asInterface(({err: Go.asInterface((13 : stdgo.syscall.Syscall.Errno))} : stdgo.io.fs.Fs.PathError)),
+		_isPermissionTests = (_isPermissionTests.__append__(({_err: Go.asInterface((({err: Go.asInterface((13 : stdgo.syscall.Syscall.Errno))} : stdgo.io.fs.Fs.PathError) : Ref<stdgo.io.fs.Fs.PathError>)),
 			_want: true} : stdgo.os_test.Os_test.T_isPermissionTest),
-			({_err: Go.asInterface(({err: Go.asInterface((1 : stdgo.syscall.Syscall.Errno))} : stdgo.io.fs.Fs.PathError)),
+			({_err: Go.asInterface((({err: Go.asInterface((1 : stdgo.syscall.Syscall.Errno))} : stdgo.io.fs.Fs.PathError) : Ref<stdgo.io.fs.Fs.PathError>)),
 				_want: true} : stdgo.os_test.Os_test.T_isPermissionTest),
-			({_err: Go.asInterface(({err: Go.asInterface((17 : stdgo.syscall.Syscall.Errno))} : stdgo.io.fs.Fs.PathError)),
+			({_err: Go.asInterface((({err: Go.asInterface((17 : stdgo.syscall.Syscall.Errno))} : stdgo.io.fs.Fs.PathError) : Ref<stdgo.io.fs.Fs.PathError>)),
 				_want: false} : stdgo.os_test.Os_test.T_isPermissionTest),
-			({_err: Go.asInterface(({err: Go.asInterface((13 : stdgo.syscall.Syscall.Errno))} : LinkError)),
+			({_err: Go.asInterface((({err: Go.asInterface((13 : stdgo.syscall.Syscall.Errno))} : LinkError) : Ref<LinkError>)),
 				_want: true} : stdgo.os_test.Os_test.T_isPermissionTest),
-			({_err: Go.asInterface(({err: Go.asInterface((1 : stdgo.syscall.Syscall.Errno))} : LinkError)),
+			({_err: Go.asInterface((({err: Go.asInterface((1 : stdgo.syscall.Syscall.Errno))} : LinkError) : Ref<LinkError>)),
 				_want: true} : stdgo.os_test.Os_test.T_isPermissionTest),
-			({_err: Go.asInterface(({err: Go.asInterface((17 : stdgo.syscall.Syscall.Errno))} : LinkError)),
+			({_err: Go.asInterface((({err: Go.asInterface((17 : stdgo.syscall.Syscall.Errno))} : LinkError) : Ref<LinkError>)),
 				_want: false} : stdgo.os_test.Os_test.T_isPermissionTest),
-			({_err: Go.asInterface(({err: Go.asInterface((13 : stdgo.syscall.Syscall.Errno))} : SyscallError)),
+			({_err: Go.asInterface((({err: Go.asInterface((13 : stdgo.syscall.Syscall.Errno))} : SyscallError) : Ref<SyscallError>)),
 				_want: true} : stdgo.os_test.Os_test.T_isPermissionTest),
-			({_err: Go.asInterface(({err: Go.asInterface((1 : stdgo.syscall.Syscall.Errno))} : SyscallError)),
+			({_err: Go.asInterface((({err: Go.asInterface((1 : stdgo.syscall.Syscall.Errno))} : SyscallError) : Ref<SyscallError>)),
 				_want: true} : stdgo.os_test.Os_test.T_isPermissionTest),
-			({_err: Go.asInterface(({err: Go.asInterface((17 : stdgo.syscall.Syscall.Errno))} : SyscallError)),
+			({_err: Go.asInterface((({err: Go.asInterface((17 : stdgo.syscall.Syscall.Errno))} : SyscallError) : Ref<SyscallError>)),
 				_want: false} : stdgo.os_test.Os_test.T_isPermissionTest)));
 		{
 			var _e:GoString = stdgo.os.Os.getenv((Go.str("OSTEST_OUTPUT_EXECPATH") : GoString));

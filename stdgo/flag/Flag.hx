@@ -855,7 +855,7 @@ function _commandLineUsage():Void {
 	// in the default usage message and in error messages.
 **/
 function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):Ref<FlagSet> {
-	var _f = ({_name: _name, _errorHandling: _errorHandling} : FlagSet);
+	var _f = (({_name: _name, _errorHandling: _errorHandling} : FlagSet) : Ref<FlagSet>);
 	_f.usage = _f._defaultUsage;
 	return _f;
 }
@@ -1498,7 +1498,7 @@ class FlagSet_asInterface {
 		} else if (stdgo.strings.Strings.contains(_name, (Go.str("=") : GoString))) {
 			throw Go.toInterface(_f._sprintf((Go.str("flag %q contains =") : GoString), Go.toInterface(_name)));
 		};
-		var _flag = (new Flag(_name, _usage, _value, (_value.string() : GoString)) : Flag);
+		var _flag = ((new Flag(_name, _usage, _value, (_value.string() : GoString)) : Flag) : Ref<Flag>);
 		var __tmp__ = (_f._formal != null
 			&& _f._formal.__exists__(_name) ? {value: _f._formal[_name], ok: true} : {value: (null : Flag), ok: false}),
 			_0:Ref<Flag> = __tmp__.value,
@@ -1792,7 +1792,7 @@ class FlagSet_asInterface {
 		var _isZeroValueErrs:Slice<Error> = (null : Slice<stdgo.Error>);
 		_f.visitAll(function(_flag:Ref<Flag>):Void {
 			var _b:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
-			stdgo.fmt.Fmt.fprintf(Go.asInterface(_b), (Go.str("  -%s") : GoString), Go.toInterface(_flag.name));
+			stdgo.fmt.Fmt.fprintf(Go.asInterface((_b : Ref<stdgo.strings.Strings.Builder>)), (Go.str("  -%s") : GoString), Go.toInterface(_flag.name));
 			var __tmp__ = unquoteUsage(_flag),
 				_name:GoString = __tmp__._0,
 				_usage:GoString = __tmp__._1;
@@ -1820,9 +1820,11 @@ class FlagSet_asInterface {
 							{value: (null : Pointer<T_stringValue>), ok: false};
 						}, _0 = __tmp__.value, _ok = __tmp__.ok;
 						if (_ok) {
-							stdgo.fmt.Fmt.fprintf(Go.asInterface(_b), (Go.str(" (default %q)") : GoString), Go.toInterface(_flag.defValue));
+							stdgo.fmt.Fmt.fprintf(Go.asInterface((_b : Ref<stdgo.strings.Strings.Builder>)), (Go.str(" (default %q)") : GoString),
+								Go.toInterface(_flag.defValue));
 						} else {
-							stdgo.fmt.Fmt.fprintf(Go.asInterface(_b), (Go.str(" (default %v)") : GoString), Go.toInterface(_flag.defValue));
+							stdgo.fmt.Fmt.fprintf(Go.asInterface((_b : Ref<stdgo.strings.Strings.Builder>)), (Go.str(" (default %v)") : GoString),
+								Go.toInterface(_flag.defValue));
 						};
 					};
 				};

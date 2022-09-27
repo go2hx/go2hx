@@ -447,7 +447,7 @@ function clone(_s:GoString):GoString {
 	};
 	var _b = new Slice<GoUInt8>((_s.length : GoInt).toBasic(), 0, ...[for (i in 0...(_s.length : GoInt).toBasic()) (0 : GoUInt8)]);
 	Go.copySlice(_b, _s);
-	return ((Go.toInterface(_b) : stdgo.unsafe.Unsafe.UnsafePointer)
+	return ((Go.toInterface((_b : Ref<Slice<GoUInt8>>)) : stdgo.unsafe.Unsafe.UnsafePointer)
 		.__convert__(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.basic(string_kind))) : Pointer<GoString>).value;
 }
 
@@ -483,7 +483,7 @@ function dumpTables(_pattern:GoString):{var _0:Slice<GoInt>; var _1:Slice<GoInt>
 	// It is similar to bytes.NewBufferString but more efficient and read-only.
 **/
 function newReader(_s:GoString):Ref<Reader> {
-	return (new Reader(_s, (0 : GoInt64), (-1 : GoInt)) : Reader);
+	return ((new Reader(_s, (0 : GoInt64), (-1 : GoInt)) : Reader) : Ref<Reader>);
 }
 
 /**
@@ -499,7 +499,7 @@ function newReplacer(_oldnew:haxe.Rest<GoString>):Ref<Replacer> {
 	if ((_oldnew.length % (2 : GoInt)) == (1 : GoInt)) {
 		throw Go.toInterface((Go.str("strings.NewReplacer: odd argument count") : GoString));
 	};
-	return ({_oldnew: ((null : Slice<GoString>).__append__(..._oldnew.__toArray__()))} : Replacer);
+	return (({_oldnew: ((null : Slice<GoString>).__append__(..._oldnew.__toArray__()))} : Replacer) : Ref<Replacer>);
 }
 
 function _makeGenericReplacer(_oldnew:Slice<GoString>):Ref<T_genericReplacer> {
@@ -552,12 +552,12 @@ function _getStringWriter(_w:stdgo.io.Io.Writer):stdgo.io.Io.StringWriter {
 }
 
 function _makeSingleStringReplacer(_pattern:GoString, _value:GoString):Ref<T_singleStringReplacer> {
-	return ({_finder: _makeStringFinder(_pattern), _value: _value} : T_singleStringReplacer);
+	return (({_finder: _makeStringFinder(_pattern), _value: _value} : T_singleStringReplacer) : Ref<T_singleStringReplacer>);
 }
 
 function _makeStringFinder(_pattern:GoString):Ref<T_stringFinder> {
-	var _f = ({_pattern: _pattern, _goodSuffixSkip: new Slice<GoInt>((_pattern.length : GoInt).toBasic(), 0,
-		...[for (i in 0...(_pattern.length : GoInt).toBasic()) (0 : GoInt)])} : T_stringFinder);
+	var _f = (({_pattern: _pattern, _goodSuffixSkip: new Slice<GoInt>((_pattern.length : GoInt).toBasic(), 0,
+		...[for (i in 0...(_pattern.length : GoInt).toBasic()) (0 : GoInt)])} : T_stringFinder) : Ref<T_stringFinder>);
 	var _last:GoInt = (_pattern.length) - (1 : GoInt);
 	for (_i => _ in _f._badCharSkip) {
 		_f._badCharSkip[_i] = (_pattern.length);
@@ -1535,7 +1535,7 @@ function trim(_s:GoString, _cutset:GoString):GoString {
 			_as:T_asciiSet = __tmp__._0,
 			_ok:Bool = __tmp__._1;
 		if (_ok) {
-			return _trimLeftASCII(_trimRightASCII(_s, _as), _as);
+			return _trimLeftASCII(_trimRightASCII(_s, (_as : Ref<T_asciiSet>)), (_as : Ref<T_asciiSet>));
 		};
 	};
 	return _trimLeftUnicode(_trimRightUnicode(_s, _cutset), _cutset);
@@ -1559,7 +1559,7 @@ function trimLeft(_s:GoString, _cutset:GoString):GoString {
 			_as:T_asciiSet = __tmp__._0,
 			_ok:Bool = __tmp__._1;
 		if (_ok) {
-			return _trimLeftASCII(_s, _as);
+			return _trimLeftASCII(_s, (_as : Ref<T_asciiSet>));
 		};
 	};
 	return _trimLeftUnicode(_s, _cutset);
@@ -1618,7 +1618,7 @@ function trimRight(_s:GoString, _cutset:GoString):GoString {
 			_as:T_asciiSet = __tmp__._0,
 			_ok:Bool = __tmp__._1;
 		if (_ok) {
-			return _trimRightASCII(_s, _as);
+			return _trimRightASCII(_s, (_as : Ref<T_asciiSet>));
 		};
 	};
 	return _trimRightUnicode(_s, _cutset);
@@ -2146,7 +2146,7 @@ class Builder_asInterface {
 	**/
 	@:keep
 	static public function string(_b:Ref<Builder>):GoString {
-		return ((Go.toInterface(_b._buf) : stdgo.unsafe.Unsafe.UnsafePointer)
+		return ((Go.toInterface((_b._buf : Ref<Slice<GoUInt8>>)) : stdgo.unsafe.Unsafe.UnsafePointer)
 			.__convert__(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.basic(string_kind))) : Pointer<GoString>).value;
 	}
 
@@ -2533,7 +2533,7 @@ class Replacer_asInterface {
 					_r[_o] = _n;
 				});
 			};
-			return Go.asInterface(_r);
+			return Go.asInterface((_r : Ref<T_byteReplacer>));
 		};
 		var _r:T_byteStringReplacer = ({_toReplace: new Slice<GoString>((0 : GoInt).toBasic(), (_oldnew.length) / (2 : GoInt),
 			...[for (i in 0...(0 : GoInt).toBasic()) ("" : GoString)])} : T_byteStringReplacer);
@@ -2548,7 +2548,7 @@ class Replacer_asInterface {
 				_r._replacements[_o] = (_n : Slice<GoByte>);
 			});
 		};
-		return Go.asInterface(_r);
+		return Go.asInterface((_r : Ref<T_byteStringReplacer>));
 	}
 
 	@:keep
@@ -2561,7 +2561,7 @@ class Replacer_asInterface {
 	static public function printTrie(_r:Ref<Replacer>):GoString {
 		_r._once.do_(_r._buildOnce);
 		var _gen = ((_r._r.__underlying__().value : Dynamic) : Ref<T_genericReplacer>);
-		return _gen._printNode(_gen._root, (0 : GoInt));
+		return _gen._printNode((_gen._root : Ref<T_trieNode>), (0 : GoInt));
 	}
 
 	@:keep
@@ -2611,7 +2611,7 @@ private class T_trieNode_asInterface {
 				if ((_t._prefix.length) == (1 : GoInt)) {
 					_prefixNode = _t._next;
 				} else {
-					_prefixNode = ({_prefix: (_t._prefix.__slice__((1 : GoInt)) : GoString), _next: _t._next} : T_trieNode);
+					_prefixNode = (({_prefix: (_t._prefix.__slice__((1 : GoInt)) : GoString), _next: _t._next} : T_trieNode) : Ref<T_trieNode>);
 				};
 				var _keyNode = ({} : T_trieNode);
 				_t._table = new Slice<Ref<T_trieNode>>((_r._tableSize : GoInt).toBasic(), 0,
@@ -2622,7 +2622,7 @@ private class T_trieNode_asInterface {
 				_t._next = null;
 				_keyNode._add((_key.__slice__((1 : GoInt)) : GoString), _val, _priority, _r);
 			} else {
-				var _next = ({_prefix: (_t._prefix.__slice__(_n) : GoString), _next: _t._next} : T_trieNode);
+				var _next = (({_prefix: (_t._prefix.__slice__(_n) : GoString), _next: _t._next} : T_trieNode) : Ref<T_trieNode>);
 				_t._prefix = (_t._prefix.__slice__(0, _n) : GoString);
 				_t._next = _next;
 				_next._add((_key.__slice__(_n) : GoString), _val, _priority, _r);
@@ -2731,7 +2731,7 @@ private class T_genericReplacer_asInterface {
 	@:keep
 	static public function replace(_r:Ref<T_genericReplacer>, _s:GoString):GoString {
 		var _buf:T_appendSliceWriter = new T_appendSliceWriter((0 : GoInt).toBasic(), (_s.length), ...[for (i in 0...(0 : GoInt).toBasic()) (0 : GoUInt8)]);
-		_r.writeString(Go.asInterface(_buf), _s);
+		_r.writeString(Go.asInterface((_buf : Ref<T_appendSliceWriter>)), _s);
 		return (_buf : GoString);
 	}
 
@@ -2741,10 +2741,10 @@ private class T_genericReplacer_asInterface {
 			_keylen:GoInt = (0 : GoInt),
 			_found:Bool = false;
 		var _bestPriority:GoInt = (0 : GoInt);
-		var _node = _r._root;
+		var _node = (_r._root : Ref<T_trieNode>);
 		var _n:GoInt = (0 : GoInt);
 		while (_node != null) {
-			if ((_node._priority > _bestPriority) && !(_ignoreRoot && (_node == _r._root))) {
+			if ((_node._priority > _bestPriority) && !(_ignoreRoot && (_node == (_r._root : Ref<T_trieNode>)))) {
 				_bestPriority = _node._priority;
 				_val = _node._value;
 				_keylen = _n;

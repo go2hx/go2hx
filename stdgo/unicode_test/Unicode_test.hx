@@ -819,7 +819,7 @@ function _fakeTable(_n:GoInt):Slice<Range16> {
 
 function _linear(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
 	for (_i => _ in _ranges) {
-		var _range_ = _ranges[_i];
+		var _range_ = (_ranges[_i] : Ref<Range16>);
 		if (_r < _range_.lo) {
 			return false;
 		};
@@ -835,7 +835,7 @@ function _binary(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
 	var _hi:GoInt = (_ranges.length);
 	while (_lo < _hi) {
 		var _m:GoInt = _lo + ((_hi - _lo) / (2 : GoInt));
-		var _range_ = _ranges[_m];
+		var _range_ = (_ranges[_m] : Ref<Range16>);
 		if ((_range_.lo <= _r) && (_r <= _range_.hi)) {
 			return ((_r - _range_.lo) % _range_.stride) == (0 : GoUInt16);
 		};

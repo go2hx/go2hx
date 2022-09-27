@@ -74,7 +74,7 @@ var discard:Writer = Go.asInterface((new T_discard() : T_discard));
 private var _blackHolePool:stdgo.sync.Sync.Pool = ({
 	new_: function():AnyInterface {
 		var _b = new Slice<GoUInt8>((8192 : GoInt).toBasic(), 0, ...[for (i in 0...(8192 : GoInt).toBasic()) (0 : GoUInt8)]);
-		return Go.toInterface(_b);
+		return Go.toInterface((_b : Ref<Slice<GoUInt8>>));
 	}
 } : stdgo.sync.Sync.Pool);
 
@@ -930,7 +930,7 @@ function _copyBuffer(_dst:Writer, _src:Reader, _buf:Slice<GoByte>):{var _0:GoInt
 	// The underlying implementation is a *LimitedReader.
 **/
 function limitReader(_r:Reader, _n:GoInt64):Reader {
-	return Go.asInterface((new LimitedReader(_r, _n) : LimitedReader));
+	return Go.asInterface(((new LimitedReader(_r, _n) : LimitedReader) : Ref<LimitedReader>));
 }
 
 /**
@@ -945,7 +945,7 @@ function newSectionReader(_r:ReaderAt, _off:GoInt64, _n:GoInt64):Ref<SectionRead
 	} else {
 		_remaining = ("9223372036854775807" : GoInt64);
 	};
-	return (new SectionReader(_r, _off, _off, _remaining) : SectionReader);
+	return ((new SectionReader(_r, _off, _off, _remaining) : SectionReader) : Ref<SectionReader>);
 }
 
 /**
@@ -956,7 +956,7 @@ function newSectionReader(_r:ReaderAt, _off:GoInt64, _n:GoInt64):Ref<SectionRead
 	// Any error encountered while writing is reported as a read error.
 **/
 function teeReader(_r:Reader, _w:Writer):Reader {
-	return Go.asInterface((new T_teeReader(_r, _w) : T_teeReader));
+	return Go.asInterface(((new T_teeReader(_r, _w) : T_teeReader) : Ref<T_teeReader>));
 }
 
 /**
@@ -1014,7 +1014,7 @@ function multiReader(_readers:haxe.Rest<Reader>):Reader {
 	var _readers = new Slice<Reader>(0, 0, ..._readers);
 	var _r = new Slice<Reader>((_readers.length : GoInt).toBasic(), 0, ...[for (i in 0...(_readers.length : GoInt).toBasic()) (null : Reader)]);
 	Go.copySlice(_r, _readers);
-	return Go.asInterface((new T_multiReader(_r) : T_multiReader));
+	return Go.asInterface(((new T_multiReader(_r) : T_multiReader) : Ref<T_multiReader>));
 }
 
 /**
@@ -1042,7 +1042,7 @@ function multiWriter(_writers:haxe.Rest<Writer>):Writer {
 			};
 		};
 	};
-	return Go.asInterface((new T_multiWriter(_allWriters) : T_multiWriter));
+	return Go.asInterface(((new T_multiWriter(_allWriters) : T_multiWriter) : Ref<T_multiWriter>));
 }
 
 /**
@@ -1063,9 +1063,10 @@ function multiWriter(_writers:haxe.Rest<Writer>):Writer {
 	// the individual calls will be gated sequentially.
 **/
 function pipe():{var _0:Ref<PipeReader>; var _1:Ref<PipeWriter>;} {
-	var _p = ({_wrCh: new Chan<Slice<GoUInt8>>(0,
-		() -> (null : Slice<GoUInt8>)), _rdCh: new Chan<GoInt>(0, () -> (0 : GoInt)), _done: new Chan<T_discard>(0, () -> ({} : T_discard))} : T_pipe);
-	return {_0: (new PipeReader(_p) : PipeReader), _1: (new PipeWriter(_p) : PipeWriter)};
+	var _p = (({_wrCh: new Chan<Slice<GoUInt8>>(0,
+		() -> (null : Slice<GoUInt8>)), _rdCh: new Chan<GoInt>(0,
+			() -> (0 : GoInt)), _done: new Chan<T_discard>(0, () -> ({} : T_discard))} : T_pipe) : Ref<T_pipe>);
+	return {_0: ((new PipeReader(_p) : PipeReader) : Ref<PipeReader>), _1: ((new PipeWriter(_p) : PipeWriter) : Ref<PipeWriter>)};
 }
 
 class LimitedReader_asInterface {

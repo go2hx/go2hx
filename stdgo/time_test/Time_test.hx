@@ -2686,7 +2686,7 @@ function testParse(_t:Ref<stdgo.testing.Testing.T>):Void {
 		if (_err != null) {
 			_t.errorf((Go.str("%s error: %v") : GoString), Go.toInterface(_test._name), Go.toInterface(_err));
 		} else {
-			_checkTime((_time == null ? null : _time.__copy__()), _test, _t);
+			_checkTime((_time == null ? null : _time.__copy__()), (_test : Ref<stdgo.time_test.Time_test.ParseTest>), _t);
 		};
 	};
 }
@@ -2829,7 +2829,7 @@ function testRubyParse(_t:Ref<stdgo.testing.Testing.T>):Void {
 		if (_err != null) {
 			_t.errorf((Go.str("%s error: %v") : GoString), Go.toInterface(_test._name), Go.toInterface(_err));
 		} else {
-			_checkTime((_time == null ? null : _time.__copy__()), _test, _t);
+			_checkTime((_time == null ? null : _time.__copy__()), (_test : Ref<stdgo.time_test.Time_test.ParseTest>), _t);
 		};
 	};
 }
@@ -2902,7 +2902,7 @@ function testFormatAndParse(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _f32:GoInt32->Bool = function(_sec:GoInt32):Bool {
 		return _f((_sec : GoInt64));
 	};
-	var _cfg = ({maxCount: (10000 : GoInt)} : stdgo.testing.quick.Quick.Config);
+	var _cfg = (({maxCount: (10000 : GoInt)} : stdgo.testing.quick.Quick.Config) : Ref<stdgo.testing.quick.Quick.Config>);
 	{
 		var _err:stdgo.Error = stdgo.testing.quick.Quick.check(Go.toInterface(_f32), _cfg);
 		if (_err != null) {
@@ -3269,12 +3269,12 @@ function testParseFractionalSecondsLongerThanNineDigits(_t:Ref<stdgo.testing.Tes
 
 function testHasMonotonicClock(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _yes:(GoString, Time) -> Void = function(_expr:GoString, _tt:Time):Void {
-		if (getMono(_tt) == (0 : GoInt64)) {
+		if (getMono((_tt : Ref<Time>)) == (0 : GoInt64)) {
 			_t.errorf((Go.str("%s: missing monotonic clock reading") : GoString), Go.toInterface(_expr));
 		};
 	};
 	var _no:(GoString, Time) -> Void = function(_expr:GoString, _tt:Time):Void {
-		if (getMono(_tt) != (0 : GoInt64)) {
+		if (getMono((_tt : Ref<Time>)) != (0 : GoInt64)) {
 			_t.errorf((Go.str("%s: unexpected monotonic clock reading") : GoString), Go.toInterface(_expr));
 		};
 	};
@@ -3294,7 +3294,7 @@ function testHasMonotonicClock(_t:Ref<stdgo.testing.Testing.T>):Void {
 	_yes((Go.str("Now()") : GoString), (now() == null ? null : now().__copy__()));
 	var _tu:Time = (unix((1486057371 : GoInt64), (0 : GoInt64)) == null ? null : unix((1486057371 : GoInt64), (0 : GoInt64)).__copy__());
 	var _tm:Time = (_tu == null ? null : _tu.__copy__());
-	setMono(_tm, (123456 : GoInt64));
+	setMono((_tm : Ref<Time>), (123456 : GoInt64));
 	_no((Go.str("tu") : GoString), (_tu == null ? null : _tu.__copy__()));
 	_yes((Go.str("tm") : GoString), (_tm == null ? null : _tm.__copy__()));
 	_no((Go.str("tu.Add(1)") : GoString), (_tu.add((1 : Duration)) == null ? null : _tu.add((1 : Duration)).__copy__()));
@@ -3321,27 +3321,27 @@ function testHasMonotonicClock(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testMonotonicAdd(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _tm:Time = (unix((1486057371 : GoInt64), (123456 : GoInt64)) == null ? null : unix((1486057371 : GoInt64), (123456 : GoInt64)).__copy__());
-	setMono(_tm, ("123456789012345" : GoInt64));
+	setMono((_tm : Ref<Time>), ("123456789012345" : GoInt64));
 	var _t2:Time = (_tm.add((1e+08 : Duration)) == null ? null : _tm.add((1e+08 : Duration)).__copy__());
 	if (_t2.nanosecond() != (100123456 : GoInt)) {
 		_t.errorf((Go.str("t2.Nanosecond() = %d, want 100123456") : GoString), Go.toInterface(_t2.nanosecond()));
 	};
-	if (getMono(_t2) != ("123456889012345" : GoInt64)) {
-		_t.errorf((Go.str("t2.mono = %d, want 123456889012345") : GoString), Go.toInterface(getMono(_t2)));
+	if (getMono((_t2 : Ref<Time>)) != ("123456889012345" : GoInt64)) {
+		_t.errorf((Go.str("t2.mono = %d, want 123456889012345") : GoString), Go.toInterface(getMono((_t2 : Ref<Time>))));
 	};
 	var _t3:Time = (_tm.add(("-9000000000000000000" : Duration)) == null ? null : _tm.add(("-9000000000000000000" : Duration)).__copy__());
 	if (_t3.nanosecond() != (123456 : GoInt)) {
 		_t.errorf((Go.str("t3.Nanosecond() = %d, want 123456") : GoString), Go.toInterface(_t3.nanosecond()));
 	};
-	if (getMono(_t3) != (0 : GoInt64)) {
-		_t.errorf((Go.str("t3.mono = %d, want 0 (wall time out of range for monotonic reading)") : GoString), Go.toInterface(getMono(_t3)));
+	if (getMono((_t3 : Ref<Time>)) != (0 : GoInt64)) {
+		_t.errorf((Go.str("t3.mono = %d, want 0 (wall time out of range for monotonic reading)") : GoString), Go.toInterface(getMono((_t3 : Ref<Time>))));
 	};
 	var _t4:Time = (_tm.add(("9000000000000000000" : Duration)) == null ? null : _tm.add(("9000000000000000000" : Duration)).__copy__());
 	if (_t4.nanosecond() != (123456 : GoInt)) {
 		_t.errorf((Go.str("t4.Nanosecond() = %d, want 123456") : GoString), Go.toInterface(_t4.nanosecond()));
 	};
-	if (getMono(_t4) != (0 : GoInt64)) {
-		_t.errorf((Go.str("t4.mono = %d, want 0 (wall time out of range for monotonic reading)") : GoString), Go.toInterface(getMono(_t4)));
+	if (getMono((_t4 : Ref<Time>)) != (0 : GoInt64)) {
+		_t.errorf((Go.str("t4.mono = %d, want 0 (wall time out of range for monotonic reading)") : GoString), Go.toInterface(getMono((_t4 : Ref<Time>))));
 	};
 	var _tn:Time = (now() == null ? null : now().__copy__());
 	var _tn1:Time = (_tn.add(("3600000000000" : Duration)) == null ? null : _tn.add(("3600000000000" : Duration)).__copy__());
@@ -3367,21 +3367,21 @@ function testMonotonicAdd(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testMonotonicSub(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _t1:Time = (unix((1483228799 : GoInt64), (9.95e+08 : GoInt64)) == null ? null : unix((1483228799 : GoInt64), (9.95e+08 : GoInt64)).__copy__());
-	setMono(_t1, ("123456789012345" : GoInt64));
+	setMono((_t1 : Ref<Time>), ("123456789012345" : GoInt64));
 	var _t2:Time = (unix((1483228799 : GoInt64), (5e+06 : GoInt64)) == null ? null : unix((1483228799 : GoInt64), (5e+06 : GoInt64)).__copy__());
-	setMono(_t2, ("123456799012345" : GoInt64));
+	setMono((_t2 : Ref<Time>), ("123456799012345" : GoInt64));
 	var _t3:Time = (unix((1483228799 : GoInt64), (9.95e+08 : GoInt64)) == null ? null : unix((1483228799 : GoInt64), (9.95e+08 : GoInt64)).__copy__());
-	setMono(_t3, ("123457789012345" : GoInt64));
+	setMono((_t3 : Ref<Time>), ("123457789012345" : GoInt64));
 	var _t1w:Time = (_t1.addDate((0 : GoInt), (0 : GoInt), (0 : GoInt)) == null ? null : _t1.addDate((0 : GoInt), (0 : GoInt), (0 : GoInt)).__copy__());
-	if (getMono(_t1w) != (0 : GoInt64)) {
+	if (getMono((_t1w : Ref<Time>)) != (0 : GoInt64)) {
 		_t.fatalf((Go.str("AddDate didn\'t strip monotonic clock reading") : GoString));
 	};
 	var _t2w:Time = (_t2.addDate((0 : GoInt), (0 : GoInt), (0 : GoInt)) == null ? null : _t2.addDate((0 : GoInt), (0 : GoInt), (0 : GoInt)).__copy__());
-	if (getMono(_t2w) != (0 : GoInt64)) {
+	if (getMono((_t2w : Ref<Time>)) != (0 : GoInt64)) {
 		_t.fatalf((Go.str("AddDate didn\'t strip monotonic clock reading") : GoString));
 	};
 	var _t3w:Time = (_t3.addDate((0 : GoInt), (0 : GoInt), (0 : GoInt)) == null ? null : _t3.addDate((0 : GoInt), (0 : GoInt), (0 : GoInt)).__copy__());
-	if (getMono(_t3w) != (0 : GoInt64)) {
+	if (getMono((_t3w : Ref<Time>)) != (0 : GoInt64)) {
 		_t.fatalf((Go.str("AddDate didn\'t strip monotonic clock reading") : GoString));
 	};
 	var _sub:(GoString, GoString, Time, Time, Time, Time, Duration,
@@ -3480,7 +3480,7 @@ function testMonotonicOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	var _t0:Time = (now() == null ? null : now().__copy__());
 	_t1 = (_t0.add(("9223372036854775807" : Duration)) == null ? null : _t0.add(("9223372036854775807" : Duration)).__copy__());
-	if (getMono(_t1) != (0 : GoInt64)) {
+	if (getMono((_t1 : Ref<Time>)) != (0 : GoInt64)) {
 		_t.errorf((Go.str("Now().Add(maxDuration) has monotonic clock reading (%v => %v %d %d)") : GoString), Go.toInterface((_t0.string() : GoString)),
 			Go.toInterface((_t1.string() : GoString)), Go.toInterface(_t0.unix()), Go.toInterface(_t1.unix()));
 	};
@@ -3516,7 +3516,7 @@ function testMonotonicString(_t:Ref<stdgo.testing.Testing.T>):Void {
 	_t.logf((Go.str("Now() = %v") : GoString), Go.toInterface(Go.asInterface(_t1)));
 	for (_0 => _tt in _monotonicStringTests) {
 		var _t1:Time = (now() == null ? null : now().__copy__());
-		setMono(_t1, _tt._mono);
+		setMono((_t1 : Ref<Time>), _tt._mono);
 		var _s:GoString = (_t1.string() : GoString);
 		var _got:GoString = (_s.__slice__(stdgo.strings.Strings.lastIndex(_s, (Go.str(" ") : GoString)) + (1 : GoInt)) : GoString);
 		if (_got != _tt._want) {
@@ -4622,7 +4622,7 @@ function testTicker(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testTickerStopWithDirectInitialization(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _c = new Chan<Time>(0, () -> ({} : Time));
-	var _tk = ({c: _c} : Ticker);
+	var _tk = (({c: _c} : Ticker) : Ref<Ticker>);
 	_tk.stop();
 }
 
@@ -4836,7 +4836,7 @@ function _same(_t:Time, _u:Ref<T_parsedTime>):Bool {
 function testSecondsToUTC(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _test in _utctests) {
 		var _sec:GoInt64 = _test._seconds;
-		var _golden = _test._golden;
+		var _golden = (_test._golden : Ref<stdgo.time_test.Time_test.T_parsedTime>);
 		var _tm:Time = (unix(_sec, (0 : GoInt64)).utc() == null ? null : unix(_sec, (0 : GoInt64)).utc().__copy__());
 		var _newsec:GoInt64 = _tm.unix();
 		if (_newsec != _sec) {
@@ -4852,7 +4852,7 @@ function testSecondsToUTC(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testNanosecondsToUTC(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _test in _nanoutctests) {
-		var _golden = _test._golden;
+		var _golden = (_test._golden : Ref<stdgo.time_test.Time_test.T_parsedTime>);
 		var _nsec:GoInt64 = (_test._seconds * (1e+09 : GoInt64)) + (_golden.nanosecond : GoInt64);
 		var _tm:Time = (unix((0 : GoInt64), _nsec).utc() == null ? null : unix((0 : GoInt64), _nsec).utc().__copy__());
 		var _newnsec:GoInt64 = (_tm.unix() * (1e+09 : GoInt64)) + (_tm.nanosecond() : GoInt64);
@@ -4870,7 +4870,7 @@ function testNanosecondsToUTC(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testSecondsToLocalTime(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _test in _localtests) {
 		var _sec:GoInt64 = _test._seconds;
-		var _golden = _test._golden;
+		var _golden = (_test._golden : Ref<stdgo.time_test.Time_test.T_parsedTime>);
 		var _tm:Time = (unix(_sec, (0 : GoInt64)) == null ? null : unix(_sec, (0 : GoInt64)).__copy__());
 		var _newsec:GoInt64 = _tm.unix();
 		if (_newsec != _sec) {
@@ -4886,7 +4886,7 @@ function testSecondsToLocalTime(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testNanosecondsToLocalTime(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _test in _nanolocaltests) {
-		var _golden = _test._golden;
+		var _golden = (_test._golden : Ref<stdgo.time_test.Time_test.T_parsedTime>);
 		var _nsec:GoInt64 = (_test._seconds * (1e+09 : GoInt64)) + (_golden.nanosecond : GoInt64);
 		var _tm:Time = (unix((0 : GoInt64), _nsec) == null ? null : unix((0 : GoInt64), _nsec).__copy__());
 		var _newnsec:GoInt64 = (_tm.unix() * (1e+09 : GoInt64)) + (_tm.nanosecond() : GoInt64);
@@ -4908,7 +4908,7 @@ function testSecondsToUTCAndBack(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _f32:GoInt32->Bool = function(_sec:GoInt32):Bool {
 		return _f((_sec : GoInt64));
 	};
-	var _cfg = ({maxCount: (10000 : GoInt)} : stdgo.testing.quick.Quick.Config);
+	var _cfg = (({maxCount: (10000 : GoInt)} : stdgo.testing.quick.Quick.Config) : Ref<stdgo.testing.quick.Quick.Config>);
 	{
 		var _err:stdgo.Error = stdgo.testing.quick.Quick.check(Go.toInterface(_f32), _cfg);
 		if (_err != null) {
@@ -4932,7 +4932,7 @@ function testNanosecondsToUTCAndBack(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _f32:GoInt32->Bool = function(_nsec:GoInt32):Bool {
 		return _f((_nsec : GoInt64));
 	};
-	var _cfg = ({maxCount: (10000 : GoInt)} : stdgo.testing.quick.Quick.Config);
+	var _cfg = (({maxCount: (10000 : GoInt)} : stdgo.testing.quick.Quick.Config) : Ref<stdgo.testing.quick.Quick.Config>);
 	{
 		var _err:stdgo.Error = stdgo.testing.quick.Quick.check(Go.toInterface(_f32), _cfg);
 		if (_err != null) {
@@ -4952,7 +4952,7 @@ function testUnixMilli(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var _t:Time = (unixMilli(_msec) == null ? null : unixMilli(_msec).__copy__());
 		return _t.unixMilli() == _msec;
 	};
-	var _cfg = ({maxCount: (10000 : GoInt)} : stdgo.testing.quick.Quick.Config);
+	var _cfg = (({maxCount: (10000 : GoInt)} : stdgo.testing.quick.Quick.Config) : Ref<stdgo.testing.quick.Quick.Config>);
 	{
 		var _err:stdgo.Error = stdgo.testing.quick.Quick.check(Go.toInterface(_f), _cfg);
 		if (_err != null) {
@@ -4966,7 +4966,7 @@ function testUnixMicro(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var _t:Time = (unixMicro(_usec) == null ? null : unixMicro(_usec).__copy__());
 		return _t.unixMicro() == _usec;
 	};
-	var _cfg = ({maxCount: (10000 : GoInt)} : stdgo.testing.quick.Quick.Config);
+	var _cfg = (({maxCount: (10000 : GoInt)} : stdgo.testing.quick.Quick.Config) : Ref<stdgo.testing.quick.Quick.Config>);
 	{
 		var _err:stdgo.Error = stdgo.testing.quick.Quick.check(Go.toInterface(_f), _cfg);
 		if (_err != null) {
@@ -5081,7 +5081,7 @@ function testTruncateRound(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (_t.failed()) {
 		return;
 	};
-	var _cfg = ({maxCount: (100000 : GoInt)} : stdgo.testing.quick.Quick.Config);
+	var _cfg = (({maxCount: (100000 : GoInt)} : stdgo.testing.quick.Quick.Config) : Ref<stdgo.testing.quick.Quick.Config>);
 	if (stdgo.testing.Testing.short()) {
 		_cfg.maxCount = (1000 : GoInt);
 	};
@@ -5270,16 +5270,16 @@ function _equalTimeAndZone(_a:Time, _b:Time):Bool {
 
 function testTimeGob(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _b:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-	var _enc = stdgo.encoding.gob.Gob.newEncoder(Go.asInterface(_b));
-	var _dec = stdgo.encoding.gob.Gob.newDecoder(Go.asInterface(_b));
+	var _enc = stdgo.encoding.gob.Gob.newEncoder(Go.asInterface((_b : Ref<stdgo.bytes.Bytes.Buffer>)));
+	var _dec = stdgo.encoding.gob.Gob.newDecoder(Go.asInterface((_b : Ref<stdgo.bytes.Bytes.Buffer>)));
 	for (_0 => _tt in _gobTests) {
 		var _gobtt:Time = ({} : Time);
 		{
-			var _err:stdgo.Error = _enc.encode(Go.toInterface(_tt));
+			var _err:stdgo.Error = _enc.encode(Go.toInterface((_tt : Ref<Time>)));
 			if (_err != null) {
 				_t.errorf((Go.str("%v gob Encode error = %q, want nil") : GoString), Go.toInterface(Go.asInterface(_tt)), Go.toInterface(_err));
 			} else {
-				var _err:stdgo.Error = _dec.decode(Go.toInterface(_gobtt));
+				var _err:stdgo.Error = _dec.decode(Go.toInterface((_gobtt : Ref<Time>)));
 				if (_err != null) {
 					_t.errorf((Go.str("%v gob Decode error = %q, want nil") : GoString), Go.toInterface(Go.asInterface(_tt)), Go.toInterface(_err));
 				} else if (!_equalTimeAndZone((_gobtt == null ? null : _gobtt.__copy__()), (_tt == null ? null : _tt.__copy__()))) {
@@ -5340,7 +5340,7 @@ function testTimeJSON(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_t.errorf((Go.str("%v JSON = %#q, want %#q") : GoString), Go.toInterface(Go.asInterface(_tt._time)), Go.toInterface((_jsonBytes : GoString)),
 					Go.toInterface(_tt._json));
 			} else {
-				_err = stdgo.encoding.json.Json.unmarshal(_jsonBytes, Go.toInterface(_jsonTime));
+				_err = stdgo.encoding.json.Json.unmarshal(_jsonBytes, Go.toInterface((_jsonTime : Ref<Time>)));
 				if (_err != null) {
 					_t.errorf((Go.str("%v json.Unmarshal error = %v, want nil") : GoString), Go.toInterface(Go.asInterface(_tt._time)), Go.toInterface(_err));
 				} else if (!_equalTimeAndZone((_jsonTime == null ? null : _jsonTime.__copy__()), (_tt._time == null ? null : _tt._time.__copy__()))) {
@@ -5354,7 +5354,8 @@ function testTimeJSON(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testInvalidTimeJSON(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _tt:Time = ({} : Time);
-	var _err:stdgo.Error = stdgo.encoding.json.Json.unmarshal((("{\"now is the time\":\"buddy\"}" : GoString) : Slice<GoByte>), Go.toInterface(_tt));
+	var _err:stdgo.Error = stdgo.encoding.json.Json.unmarshal((("{\"now is the time\":\"buddy\"}" : GoString) : Slice<GoByte>),
+		Go.toInterface((_tt : Ref<Time>)));
 	var __tmp__ = try {
 		{value: ((_err.__underlying__().value : Dynamic) : Ref<ParseError>), ok: true};
 	} catch (_) {
@@ -6233,7 +6234,7 @@ function testZoneBounds(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 		for (_0 => _test in _utctests) {
 			var _sec:GoInt64 = _test._seconds;
-			var _golden = _test._golden;
+			var _golden = (_test._golden : Ref<stdgo.time_test.Time_test.T_parsedTime>);
 			var _tm:Time = (unix(_sec, (0 : GoInt64)).utc() == null ? null : unix(_sec, (0 : GoInt64)).utc().__copy__());
 			var __tmp__ = _tm.zoneBounds(),
 				_start:Time = __tmp__._0,

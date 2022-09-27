@@ -253,7 +253,7 @@ function _growSlice(_b:Slice<GoByte>, _n:GoInt):Slice<GoByte> {
 	// sufficient to initialize a Buffer.
 **/
 function newBuffer(_buf:Slice<GoByte>):Ref<Buffer> {
-	return ({_buf: _buf} : Buffer);
+	return (({_buf: _buf} : Buffer) : Ref<Buffer>);
 }
 
 /**
@@ -265,7 +265,7 @@ function newBuffer(_buf:Slice<GoByte>):Ref<Buffer> {
 	// sufficient to initialize a Buffer.
 **/
 function newBufferString(_s:GoString):Ref<Buffer> {
-	return ({_buf: (_s : Slice<GoByte>)} : Buffer);
+	return (({_buf: (_s : Slice<GoByte>)} : Buffer) : Ref<Buffer>);
 }
 
 /**
@@ -1331,7 +1331,7 @@ function trim(_s:Slice<GoByte>, _cutset:GoString):Slice<GoByte> {
 			_as:T_asciiSet = __tmp__._0,
 			_ok:Bool = __tmp__._1;
 		if (_ok) {
-			return _trimLeftASCII(_trimRightASCII(_s, _as), _as);
+			return _trimLeftASCII(_trimRightASCII(_s, (_as : Ref<T_asciiSet>)), (_as : Ref<T_asciiSet>));
 		};
 	};
 	return _trimLeftUnicode(_trimRightUnicode(_s, _cutset), _cutset);
@@ -1356,7 +1356,7 @@ function trimLeft(_s:Slice<GoByte>, _cutset:GoString):Slice<GoByte> {
 			_as:T_asciiSet = __tmp__._0,
 			_ok:Bool = __tmp__._1;
 		if (_ok) {
-			return _trimLeftASCII(_s, _as);
+			return _trimLeftASCII(_s, (_as : Ref<T_asciiSet>));
 		};
 	};
 	return _trimLeftUnicode(_s, _cutset);
@@ -1422,7 +1422,7 @@ function trimRight(_s:Slice<GoByte>, _cutset:GoString):Slice<GoByte> {
 			_as:T_asciiSet = __tmp__._0,
 			_ok:Bool = __tmp__._1;
 		if (_ok) {
-			return _trimRightASCII(_s, _as);
+			return _trimRightASCII(_s, (_as : Ref<T_asciiSet>));
 		};
 	};
 	return _trimRightUnicode(_s, _cutset);
@@ -1749,7 +1749,7 @@ function cut(_s:Slice<GoByte>, _sep:Slice<GoByte>):{var _0:Slice<GoByte>; var _1
 	// NewReader returns a new Reader reading from b.
 **/
 function newReader(_b:Slice<GoByte>):Ref<Reader> {
-	return (new Reader(_b, (0 : GoInt64), (-1 : GoInt)) : Reader);
+	return ((new Reader(_b, (0 : GoInt64), (-1 : GoInt)) : Reader) : Ref<Reader>);
 }
 
 class Buffer_asInterface {

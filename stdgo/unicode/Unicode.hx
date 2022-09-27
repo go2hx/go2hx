@@ -26,7 +26,7 @@ private var __TurkishCase:SpecialCase = (new SpecialCase(0, 0,
 var turkishCase:SpecialCase = __TurkishCase;
 var azeriCase:SpecialCase = __TurkishCase;
 
-private var __C:Ref<RangeTable> = ({
+private var __C:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((0 : GoUInt16), (31 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((127 : GoUInt16), (159 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((173 : GoUInt16), (1536 : GoUInt16), (1363 : GoUInt16)) : Range16),
@@ -50,12 +50,12 @@ private var __C:Ref<RangeTable> = ({
 		(new Range32((983040 : GoUInt32), (1048573 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((1048576 : GoUInt32), (1114109 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>),
 	latinOffset: (2 : GoInt)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Cc:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((0 : GoUInt16), (31 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((127 : GoUInt16), (159 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>), latinOffset: (2 : GoInt)} : RangeTable);
+private var __Cc:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((0 : GoUInt16), (31 : GoUInt16), (1 : GoUInt16)) : Range16),
+	(new Range16((127 : GoUInt16), (159 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>), latinOffset: (2 : GoInt)} : RangeTable) : Ref<RangeTable>);
 
-private var __Cf:Ref<RangeTable> = ({
+private var __Cf:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((173 : GoUInt16), (1536 : GoUInt16), (1363 : GoUInt16)) : Range16),
 		(new Range16((1537 : GoUInt16), (1541 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((1564 : GoUInt16), (1757 : GoUInt16), (193 : GoUInt16)) : Range16),
@@ -73,18 +73,18 @@ private var __Cf:Ref<RangeTable> = ({
 		(new Range32((119155 : GoUInt32), (119162 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((917505 : GoUInt32), (917536 : GoUInt32), (31 : GoUInt32)) : Range32),
 		(new Range32((917537 : GoUInt32), (917631 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Co:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
+private var __Co:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
 	(new Range16((57344 : GoUInt16), (63743 : GoUInt16),
 		(1 : GoUInt16)) : Range16)) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
 		(new Range32((983040 : GoUInt32), (1048573 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((1048576 : GoUInt32), (1114109 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((1048576 : GoUInt32), (1114109 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Cs:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
-	(new Range16((55296 : GoUInt16), (57343 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __Cs:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
+	(new Range16((55296 : GoUInt16), (57343 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __L:Ref<RangeTable> = ({
+private var __L:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((65 : GoUInt16), (90 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((97 : GoUInt16), (122 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((170 : GoUInt16), (181 : GoUInt16), (11 : GoUInt16)) : Range16),
@@ -672,9 +672,9 @@ private var __L:Ref<RangeTable> = ({
 		(new Range32((194560 : GoUInt32), (195101 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((196608 : GoUInt32), (201546 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>),
 	latinOffset: (6 : GoInt)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Ll:Ref<RangeTable> = ({
+private var __Ll:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((97 : GoUInt16), (122 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((181 : GoUInt16), (223 : GoUInt16), (42 : GoUInt16)) : Range16),
 		(new Range16((224 : GoUInt16), (246 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -832,9 +832,9 @@ private var __Ll:Ref<RangeTable> = ({
 		(new Range32((120779 : GoUInt32), (125218 : GoUInt32), (4439 : GoUInt32)) : Range32),
 		(new Range32((125219 : GoUInt32), (125251 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>),
 	latinOffset: (4 : GoInt)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Lm:Ref<RangeTable> = ({
+private var __Lm:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((688 : GoUInt16), (705 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((710 : GoUInt16), (721 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((736 : GoUInt16), (740 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -881,9 +881,9 @@ private var __Lm:Ref<RangeTable> = ({
 		(new Range32((94179 : GoUInt32), (123191 : GoUInt32), (29012 : GoUInt32)) : Range32),
 		(new Range32((123192 : GoUInt32), (123197 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((125259 : GoUInt32), (125259 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Lo:Ref<RangeTable> = ({
+private var __Lo:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((170 : GoUInt16), (186 : GoUInt16), (16 : GoUInt16)) : Range16),
 		(new Range16((443 : GoUInt16), (448 : GoUInt16), (5 : GoUInt16)) : Range16),
 		(new Range16((449 : GoUInt16), (451 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -1348,17 +1348,17 @@ private var __Lo:Ref<RangeTable> = ({
 		(new Range32((194560 : GoUInt32), (195101 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((196608 : GoUInt32), (201546 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>),
 	latinOffset: (1 : GoInt)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Lt:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((453 : GoUInt16), (459 : GoUInt16), (3 : GoUInt16)) : Range16),
+private var __Lt:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((453 : GoUInt16), (459 : GoUInt16), (3 : GoUInt16)) : Range16),
 	(new Range16((498 : GoUInt16), (8072 : GoUInt16), (7574 : GoUInt16)) : Range16),
 	(new Range16((8073 : GoUInt16), (8079 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((8088 : GoUInt16), (8095 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((8104 : GoUInt16), (8111 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((8124 : GoUInt16), (8140 : GoUInt16), (16 : GoUInt16)) : Range16),
-	(new Range16((8188 : GoUInt16), (8188 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((8188 : GoUInt16), (8188 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Lu:Ref<RangeTable> = ({
+private var __Lu:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((65 : GoUInt16), (90 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((192 : GoUInt16), (214 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((216 : GoUInt16), (222 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -1504,9 +1504,9 @@ private var __Lu:Ref<RangeTable> = ({
 		(new Range32((120778 : GoUInt32), (125184 : GoUInt32), (4406 : GoUInt32)) : Range32),
 		(new Range32((125185 : GoUInt32), (125217 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>),
 	latinOffset: (3 : GoInt)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __M:Ref<RangeTable> = ({
+private var __M:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((768 : GoUInt16), (879 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((1155 : GoUInt16), (1161 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((1425 : GoUInt16), (1469 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -1788,9 +1788,9 @@ private var __M:Ref<RangeTable> = ({
 		(new Range32((125136 : GoUInt32), (125142 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((125252 : GoUInt32), (125258 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((917760 : GoUInt32), (917999 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Mc:Ref<RangeTable> = ({
+private var __Mc:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((2307 : GoUInt16), (2363 : GoUInt16), (56 : GoUInt16)) : Range16),
 		(new Range16((2366 : GoUInt16), (2368 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((2377 : GoUInt16), (2380 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -1944,15 +1944,15 @@ private var __Mc:Ref<RangeTable> = ({
 		(new Range32((94192 : GoUInt32), (94193 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((119141 : GoUInt32), (119142 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((119149 : GoUInt32), (119154 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Me:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((1160 : GoUInt16), (1161 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __Me:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((1160 : GoUInt16), (1161 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((6846 : GoUInt16), (8413 : GoUInt16), (1567 : GoUInt16)) : Range16),
 	(new Range16((8414 : GoUInt16), (8416 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((8418 : GoUInt16), (8420 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((42608 : GoUInt16), (42610 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((42608 : GoUInt16), (42610 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Mn:Ref<RangeTable> = ({
+private var __Mn:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((768 : GoUInt16), (879 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((1155 : GoUInt16), (1159 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((1425 : GoUInt16), (1469 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -2245,9 +2245,9 @@ private var __Mn:Ref<RangeTable> = ({
 		(new Range32((125136 : GoUInt32), (125142 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((125252 : GoUInt32), (125258 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((917760 : GoUInt32), (917999 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __N:Ref<RangeTable> = ({
+private var __N:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((48 : GoUInt16), (57 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((178 : GoUInt16), (179 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((185 : GoUInt16), (188 : GoUInt16), (3 : GoUInt16)) : Range16),
@@ -2380,9 +2380,9 @@ private var __N:Ref<RangeTable> = ({
 		(new Range32((127232 : GoUInt32), (127244 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((130032 : GoUInt32), (130041 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>),
 	latinOffset: (4 : GoInt)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Nd:Ref<RangeTable> = ({
+private var __Nd:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((48 : GoUInt16), (57 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((1632 : GoUInt16), (1641 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((1776 : GoUInt16), (1785 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -2445,9 +2445,9 @@ private var __Nd:Ref<RangeTable> = ({
 		(new Range32((125264 : GoUInt32), (125273 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((130032 : GoUInt32), (130041 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>),
 	latinOffset: (1 : GoInt)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Nl:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((5870 : GoUInt16), (5872 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __Nl:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((5870 : GoUInt16), (5872 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((8544 : GoUInt16), (8578 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((8581 : GoUInt16), (8584 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((12295 : GoUInt16), (12321 : GoUInt16), (26 : GoUInt16)) : Range16),
@@ -2458,9 +2458,9 @@ private var __Nl:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16
 		(new Range32((65856 : GoUInt32), (65908 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((66369 : GoUInt32), (66378 : GoUInt32), (9 : GoUInt32)) : Range32),
 		(new Range32((66513 : GoUInt32), (66517 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((74752 : GoUInt32), (74862 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((74752 : GoUInt32), (74862 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __No:Ref<RangeTable> = ({
+private var __No:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((178 : GoUInt16), (179 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((185 : GoUInt16), (188 : GoUInt16), (3 : GoUInt16)) : Range16),
 		(new Range16((189 : GoUInt16), (190 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -2532,9 +2532,9 @@ private var __No:Ref<RangeTable> = ({
 		(new Range32((126255 : GoUInt32), (126269 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((127232 : GoUInt32), (127244 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>),
 	latinOffset: (3 : GoInt)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __P:Ref<RangeTable> = ({
+private var __P:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((33 : GoUInt16), (35 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((37 : GoUInt16), (42 : GoUInt16), (1 : GoUInt16)) : Range16), (new Range16((44 : GoUInt16), (47 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((58 : GoUInt16), (59 : GoUInt16), (1 : GoUInt16)) : Range16), (new Range16((63 : GoUInt16), (64 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -2695,15 +2695,15 @@ private var __P:Ref<RangeTable> = ({
 		(new Range32((121479 : GoUInt32), (121483 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((125278 : GoUInt32), (125279 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>),
 	latinOffset: (11 : GoInt)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Pc:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((95 : GoUInt16), (8255 : GoUInt16), (8160 : GoUInt16)) : Range16),
+private var __Pc:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((95 : GoUInt16), (8255 : GoUInt16), (8160 : GoUInt16)) : Range16),
 	(new Range16((8256 : GoUInt16), (8276 : GoUInt16), (20 : GoUInt16)) : Range16),
 	(new Range16((65075 : GoUInt16), (65076 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((65101 : GoUInt16), (65103 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((65343 : GoUInt16), (65343 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((65343 : GoUInt16), (65343 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Pd:Ref<RangeTable> = ({
+private var __Pd:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((45 : GoUInt16), (1418 : GoUInt16), (1373 : GoUInt16)) : Range16),
 		(new Range16((1470 : GoUInt16), (5120 : GoUInt16), (3650 : GoUInt16)) : Range16),
 		(new Range16((6150 : GoUInt16), (8208 : GoUInt16), (2058 : GoUInt16)) : Range16),
@@ -2716,9 +2716,9 @@ private var __Pd:Ref<RangeTable> = ({
 		(new Range16((65112 : GoUInt16), (65123 : GoUInt16), (11 : GoUInt16)) : Range16),
 		(new Range16((65293 : GoUInt16), (65293 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>),
 	r32: (new Slice<Range32>(0, 0, (new Range32((69293 : GoUInt32), (69293 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Pe:Ref<RangeTable> = ({
+private var __Pe:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((41 : GoUInt16), (93 : GoUInt16), (52 : GoUInt16)) : Range16),
 		(new Range16((125 : GoUInt16), (3899 : GoUInt16), (3774 : GoUInt16)) : Range16),
 		(new Range16((3901 : GoUInt16), (5788 : GoUInt16), (1887 : GoUInt16)) : Range16),
@@ -2742,22 +2742,22 @@ private var __Pe:Ref<RangeTable> = ({
 		(new Range16((65289 : GoUInt16), (65341 : GoUInt16), (52 : GoUInt16)) : Range16),
 		(new Range16((65373 : GoUInt16), (65379 : GoUInt16), (3 : GoUInt16)) : Range16)) : Slice<Range16>),
 	latinOffset: (1 : GoInt)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Pf:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((187 : GoUInt16), (8217 : GoUInt16), (8030 : GoUInt16)) : Range16),
+private var __Pf:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((187 : GoUInt16), (8217 : GoUInt16), (8030 : GoUInt16)) : Range16),
 	(new Range16((8221 : GoUInt16), (8250 : GoUInt16), (29 : GoUInt16)) : Range16),
 	(new Range16((11779 : GoUInt16), (11781 : GoUInt16), (2 : GoUInt16)) : Range16),
 	(new Range16((11786 : GoUInt16), (11789 : GoUInt16), (3 : GoUInt16)) : Range16),
-	(new Range16((11805 : GoUInt16), (11809 : GoUInt16), (4 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((11805 : GoUInt16), (11809 : GoUInt16), (4 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Pi:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((171 : GoUInt16), (8216 : GoUInt16), (8045 : GoUInt16)) : Range16),
+private var __Pi:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((171 : GoUInt16), (8216 : GoUInt16), (8045 : GoUInt16)) : Range16),
 	(new Range16((8219 : GoUInt16), (8220 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((8223 : GoUInt16), (8249 : GoUInt16), (26 : GoUInt16)) : Range16),
 	(new Range16((11778 : GoUInt16), (11780 : GoUInt16), (2 : GoUInt16)) : Range16),
 	(new Range16((11785 : GoUInt16), (11788 : GoUInt16), (3 : GoUInt16)) : Range16),
-	(new Range16((11804 : GoUInt16), (11808 : GoUInt16), (4 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((11804 : GoUInt16), (11808 : GoUInt16), (4 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Po:Ref<RangeTable> = ({
+private var __Po:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((33 : GoUInt16), (35 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((37 : GoUInt16), (39 : GoUInt16), (1 : GoUInt16)) : Range16), (new Range16((42 : GoUInt16), (46 : GoUInt16), (2 : GoUInt16)) : Range16),
 		(new Range16((47 : GoUInt16), (58 : GoUInt16), (11 : GoUInt16)) : Range16), (new Range16((59 : GoUInt16), (63 : GoUInt16), (4 : GoUInt16)) : Range16),
@@ -2915,9 +2915,9 @@ private var __Po:Ref<RangeTable> = ({
 		(new Range32((121479 : GoUInt32), (121483 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((125278 : GoUInt32), (125279 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>),
 	latinOffset: (8 : GoInt)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Ps:Ref<RangeTable> = ({
+private var __Ps:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((40 : GoUInt16), (91 : GoUInt16), (51 : GoUInt16)) : Range16),
 		(new Range16((123 : GoUInt16), (3898 : GoUInt16), (3775 : GoUInt16)) : Range16),
 		(new Range16((3900 : GoUInt16), (5787 : GoUInt16), (1887 : GoUInt16)) : Range16),
@@ -2944,9 +2944,9 @@ private var __Ps:Ref<RangeTable> = ({
 		(new Range16((65371 : GoUInt16), (65375 : GoUInt16), (4 : GoUInt16)) : Range16),
 		(new Range16((65378 : GoUInt16), (65378 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>),
 	latinOffset: (1 : GoInt)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __S:Ref<RangeTable> = ({
+private var __S:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((36 : GoUInt16), (43 : GoUInt16), (7 : GoUInt16)) : Range16),
 		(new Range16((60 : GoUInt16), (62 : GoUInt16), (1 : GoUInt16)) : Range16), (new Range16((94 : GoUInt16), (96 : GoUInt16), (2 : GoUInt16)) : Range16),
 		(new Range16((124 : GoUInt16), (126 : GoUInt16), (2 : GoUInt16)) : Range16),
@@ -3145,9 +3145,9 @@ private var __S:Ref<RangeTable> = ({
 		(new Range32((129792 : GoUInt32), (129938 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((129940 : GoUInt32), (129994 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>),
 	latinOffset: (10 : GoInt)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Sc:Ref<RangeTable> = ({
+private var __Sc:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((36 : GoUInt16), (162 : GoUInt16), (126 : GoUInt16)) : Range16),
 		(new Range16((163 : GoUInt16), (165 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((1423 : GoUInt16), (1547 : GoUInt16), (124 : GoUInt16)) : Range16),
@@ -3164,9 +3164,9 @@ private var __Sc:Ref<RangeTable> = ({
 	r32: (new Slice<Range32>(0, 0, (new Range32((73693 : GoUInt32), (73696 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((123647 : GoUInt32), (126128 : GoUInt32), (2481 : GoUInt32)) : Range32)) : Slice<Range32>),
 	latinOffset: (2 : GoInt)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Sk:Ref<RangeTable> = ({
+private var __Sk:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((94 : GoUInt16), (96 : GoUInt16), (2 : GoUInt16)) : Range16),
 		(new Range16((168 : GoUInt16), (175 : GoUInt16), (7 : GoUInt16)) : Range16),
 		(new Range16((180 : GoUInt16), (184 : GoUInt16), (4 : GoUInt16)) : Range16),
@@ -3193,9 +3193,9 @@ private var __Sk:Ref<RangeTable> = ({
 		(new Range16((65507 : GoUInt16), (65507 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>),
 	r32: (new Slice<Range32>(0, 0, (new Range32((127995 : GoUInt32), (127999 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>),
 	latinOffset: (3 : GoInt)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Sm:Ref<RangeTable> = ({
+private var __Sm:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((43 : GoUInt16), (60 : GoUInt16), (17 : GoUInt16)) : Range16),
 		(new Range16((61 : GoUInt16), (62 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((124 : GoUInt16), (126 : GoUInt16), (2 : GoUInt16)) : Range16),
@@ -3246,9 +3246,9 @@ private var __Sm:Ref<RangeTable> = ({
 		(new Range32((120745 : GoUInt32), (120771 : GoUInt32), (26 : GoUInt32)) : Range32),
 		(new Range32((126704 : GoUInt32), (126705 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>),
 	latinOffset: (5 : GoInt)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __So:Ref<RangeTable> = ({
+private var __So:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((166 : GoUInt16), (169 : GoUInt16), (3 : GoUInt16)) : Range16),
 		(new Range16((174 : GoUInt16), (176 : GoUInt16), (2 : GoUInt16)) : Range16),
 		(new Range16((1154 : GoUInt16), (1421 : GoUInt16), (267 : GoUInt16)) : Range16),
@@ -3414,26 +3414,28 @@ private var __So:Ref<RangeTable> = ({
 		(new Range32((129792 : GoUInt32), (129938 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((129940 : GoUInt32), (129994 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>),
 	latinOffset: (2 : GoInt)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Z:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((32 : GoUInt16), (160 : GoUInt16), (128 : GoUInt16)) : Range16),
+private var __Z:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((32 : GoUInt16), (160 : GoUInt16), (128 : GoUInt16)) : Range16),
 	(new Range16((5760 : GoUInt16), (8192 : GoUInt16), (2432 : GoUInt16)) : Range16),
 	(new Range16((8193 : GoUInt16), (8202 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((8232 : GoUInt16), (8233 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((8239 : GoUInt16), (8287 : GoUInt16), (48 : GoUInt16)) : Range16),
-	(new Range16((12288 : GoUInt16), (12288 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>), latinOffset: (1 : GoInt)} : RangeTable);
+	(new Range16((12288 : GoUInt16), (12288 : GoUInt16),
+		(1 : GoUInt16)) : Range16)) : Slice<Range16>), latinOffset: (1 : GoInt)} : RangeTable) : Ref<RangeTable>);
 
-private var __Zl:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
-	(new Range16((8232 : GoUInt16), (8232 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __Zl:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
+	(new Range16((8232 : GoUInt16), (8232 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Zp:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
-	(new Range16((8233 : GoUInt16), (8233 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __Zp:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
+	(new Range16((8233 : GoUInt16), (8233 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Zs:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((32 : GoUInt16), (160 : GoUInt16), (128 : GoUInt16)) : Range16),
+private var __Zs:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((32 : GoUInt16), (160 : GoUInt16), (128 : GoUInt16)) : Range16),
 	(new Range16((5760 : GoUInt16), (8192 : GoUInt16), (2432 : GoUInt16)) : Range16),
 	(new Range16((8193 : GoUInt16), (8202 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((8239 : GoUInt16), (8287 : GoUInt16), (48 : GoUInt16)) : Range16),
-	(new Range16((12288 : GoUInt16), (12288 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>), latinOffset: (1 : GoInt)} : RangeTable);
+	(new Range16((12288 : GoUInt16), (12288 : GoUInt16),
+		(1 : GoUInt16)) : Range16)) : Slice<Range16>), latinOffset: (1 : GoInt)} : RangeTable) : Ref<RangeTable>);
 
 /**
 	// Cc is the set of Unicode characters in category Cc (Other, control).// These variables have type *RangeTable.
@@ -3760,21 +3762,21 @@ var categories:GoMap<GoString, Ref<RangeTable>> = {
 	x;
 };
 
-private var __Adlam:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Adlam:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((125184 : GoUInt32), (125259 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((125264 : GoUInt32), (125273 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((125278 : GoUInt32), (125279 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((125278 : GoUInt32), (125279 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Ahom:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Ahom:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((71424 : GoUInt32), (71450 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((71453 : GoUInt32), (71467 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((71472 : GoUInt32), (71487 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((71472 : GoUInt32), (71487 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Anatolian_Hieroglyphs:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Anatolian_Hieroglyphs:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((82944 : GoUInt32), (83526 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((82944 : GoUInt32), (83526 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Arabic:Ref<RangeTable> = ({
+private var __Arabic:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((1536 : GoUInt16), (1540 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((1542 : GoUInt16), (1547 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((1549 : GoUInt16), (1562 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -3822,33 +3824,33 @@ private var __Arabic:Ref<RangeTable> = ({
 		(new Range32((126629 : GoUInt32), (126633 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((126635 : GoUInt32), (126651 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((126704 : GoUInt32), (126705 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Armenian:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((1329 : GoUInt16), (1366 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __Armenian:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((1329 : GoUInt16), (1366 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((1369 : GoUInt16), (1418 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((1421 : GoUInt16), (1423 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((64275 : GoUInt16), (64279 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((64275 : GoUInt16), (64279 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Avestan:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Avestan:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((68352 : GoUInt32), (68405 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((68409 : GoUInt32), (68415 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((68409 : GoUInt32), (68415 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Balinese:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((6912 : GoUInt16), (6987 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((6992 : GoUInt16), (7036 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __Balinese:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((6912 : GoUInt16), (6987 : GoUInt16), (1 : GoUInt16)) : Range16),
+	(new Range16((6992 : GoUInt16), (7036 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Bamum:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
+private var __Bamum:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
 	(new Range16((42656 : GoUInt16), (42743 : GoUInt16),
 		(1 : GoUInt16)) : Range16)) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((92160 : GoUInt32), (92728 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((92160 : GoUInt32), (92728 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Bassa_Vah:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Bassa_Vah:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((92880 : GoUInt32), (92909 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((92912 : GoUInt32), (92917 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((92912 : GoUInt32), (92917 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Batak:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((7104 : GoUInt16), (7155 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((7164 : GoUInt16), (7167 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __Batak:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((7104 : GoUInt16), (7155 : GoUInt16), (1 : GoUInt16)) : Range16),
+	(new Range16((7164 : GoUInt16), (7167 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Bengali:Ref<RangeTable> = ({
+private var __Bengali:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((2432 : GoUInt16), (2435 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((2437 : GoUInt16), (2444 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((2447 : GoUInt16), (2448 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -3863,62 +3865,62 @@ private var __Bengali:Ref<RangeTable> = ({
 		(new Range16((2525 : GoUInt16), (2527 : GoUInt16), (2 : GoUInt16)) : Range16),
 		(new Range16((2528 : GoUInt16), (2531 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((2534 : GoUInt16), (2558 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Bhaiksuki:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Bhaiksuki:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((72704 : GoUInt32), (72712 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((72714 : GoUInt32), (72758 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((72760 : GoUInt32), (72773 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((72784 : GoUInt32), (72812 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((72784 : GoUInt32), (72812 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Bopomofo:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((746 : GoUInt16), (747 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __Bopomofo:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((746 : GoUInt16), (747 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((12549 : GoUInt16), (12591 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((12704 : GoUInt16), (12735 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((12704 : GoUInt16), (12735 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Brahmi:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Brahmi:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((69632 : GoUInt32), (69709 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((69714 : GoUInt32), (69743 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((69759 : GoUInt32), (69759 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((69759 : GoUInt32), (69759 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Braille:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
-	(new Range16((10240 : GoUInt16), (10495 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __Braille:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
+	(new Range16((10240 : GoUInt16), (10495 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Buginese:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((6656 : GoUInt16), (6683 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((6686 : GoUInt16), (6687 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __Buginese:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((6656 : GoUInt16), (6683 : GoUInt16), (1 : GoUInt16)) : Range16),
+	(new Range16((6686 : GoUInt16), (6687 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Buhid:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
-	(new Range16((5952 : GoUInt16), (5971 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __Buhid:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
+	(new Range16((5952 : GoUInt16), (5971 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Canadian_Aboriginal:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
+private var __Canadian_Aboriginal:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
 	(new Range16((5120 : GoUInt16), (5759 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((6320 : GoUInt16), (6389 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((6320 : GoUInt16), (6389 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Carian:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Carian:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((66208 : GoUInt32), (66256 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((66208 : GoUInt32), (66256 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Caucasian_Albanian:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Caucasian_Albanian:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((66864 : GoUInt32), (66915 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((66927 : GoUInt32), (66927 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((66927 : GoUInt32), (66927 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Chakma:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Chakma:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((69888 : GoUInt32), (69940 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((69942 : GoUInt32), (69959 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((69942 : GoUInt32), (69959 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Cham:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((43520 : GoUInt16), (43574 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __Cham:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((43520 : GoUInt16), (43574 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((43584 : GoUInt16), (43597 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((43600 : GoUInt16), (43609 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((43612 : GoUInt16), (43615 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((43612 : GoUInt16), (43615 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Cherokee:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((5024 : GoUInt16), (5109 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __Cherokee:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((5024 : GoUInt16), (5109 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((5112 : GoUInt16), (5117 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((43888 : GoUInt16), (43967 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((43888 : GoUInt16), (43967 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Chorasmian:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Chorasmian:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((69552 : GoUInt32), (69579 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((69552 : GoUInt32), (69579 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Common:Ref<RangeTable> = ({
+private var __Common:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((0 : GoUInt16), (64 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((91 : GoUInt16), (96 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((123 : GoUInt16), (169 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -4084,43 +4086,43 @@ private var __Common:Ref<RangeTable> = ({
 		(new Range32((917505 : GoUInt32), (917536 : GoUInt32), (31 : GoUInt32)) : Range32),
 		(new Range32((917537 : GoUInt32), (917631 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>),
 	latinOffset: (6 : GoInt)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Coptic:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((994 : GoUInt16), (1007 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __Coptic:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((994 : GoUInt16), (1007 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((11392 : GoUInt16), (11507 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((11513 : GoUInt16), (11519 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((11513 : GoUInt16), (11519 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Cuneiform:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Cuneiform:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((73728 : GoUInt32), (74649 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((74752 : GoUInt32), (74862 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((74864 : GoUInt32), (74868 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((74880 : GoUInt32), (75075 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((74880 : GoUInt32), (75075 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Cypriot:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Cypriot:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((67584 : GoUInt32), (67589 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((67592 : GoUInt32), (67594 : GoUInt32), (2 : GoUInt32)) : Range32),
 		(new Range32((67595 : GoUInt32), (67637 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((67639 : GoUInt32), (67640 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((67644 : GoUInt32), (67647 : GoUInt32), (3 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((67644 : GoUInt32), (67647 : GoUInt32), (3 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Cyrillic:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((1024 : GoUInt16), (1156 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __Cyrillic:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((1024 : GoUInt16), (1156 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((1159 : GoUInt16), (1327 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((7296 : GoUInt16), (7304 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((7467 : GoUInt16), (7544 : GoUInt16), (77 : GoUInt16)) : Range16),
 	(new Range16((11744 : GoUInt16), (11775 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((42560 : GoUInt16), (42655 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((65070 : GoUInt16), (65071 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((65070 : GoUInt16), (65071 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Deseret:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Deseret:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((66560 : GoUInt32), (66639 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((66560 : GoUInt32), (66639 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Devanagari:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((2304 : GoUInt16), (2384 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __Devanagari:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((2304 : GoUInt16), (2384 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((2389 : GoUInt16), (2403 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((2406 : GoUInt16), (2431 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((43232 : GoUInt16), (43263 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((43232 : GoUInt16), (43263 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Dives_Akuru:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Dives_Akuru:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((71936 : GoUInt32), (71942 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((71945 : GoUInt32), (71948 : GoUInt32), (3 : GoUInt32)) : Range32),
 		(new Range32((71949 : GoUInt32), (71955 : GoUInt32), (1 : GoUInt32)) : Range32),
@@ -4128,32 +4130,32 @@ private var __Dives_Akuru:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
 		(new Range32((71960 : GoUInt32), (71989 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((71991 : GoUInt32), (71992 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((71995 : GoUInt32), (72006 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((72016 : GoUInt32), (72025 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((72016 : GoUInt32), (72025 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Dogra:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Dogra:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((71680 : GoUInt32), (71739 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((71680 : GoUInt32), (71739 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Duployan:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Duployan:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((113664 : GoUInt32), (113770 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((113776 : GoUInt32), (113788 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((113792 : GoUInt32), (113800 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((113808 : GoUInt32), (113817 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((113820 : GoUInt32), (113823 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((113820 : GoUInt32), (113823 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Egyptian_Hieroglyphs:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Egyptian_Hieroglyphs:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((77824 : GoUInt32), (78894 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((78896 : GoUInt32), (78904 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((78896 : GoUInt32), (78904 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Elbasan:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Elbasan:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((66816 : GoUInt32), (66855 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((66816 : GoUInt32), (66855 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Elymaic:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Elymaic:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((69600 : GoUInt32), (69622 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((69600 : GoUInt32), (69622 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Ethiopic:Ref<RangeTable> = ({
+private var __Ethiopic:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((4608 : GoUInt16), (4680 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((4682 : GoUInt16), (4685 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((4688 : GoUInt16), (4694 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -4186,31 +4188,31 @@ private var __Ethiopic:Ref<RangeTable> = ({
 		(new Range16((43793 : GoUInt16), (43798 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((43808 : GoUInt16), (43814 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((43816 : GoUInt16), (43822 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Georgian:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((4256 : GoUInt16), (4293 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __Georgian:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((4256 : GoUInt16), (4293 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((4295 : GoUInt16), (4301 : GoUInt16), (6 : GoUInt16)) : Range16),
 	(new Range16((4304 : GoUInt16), (4346 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((4348 : GoUInt16), (4351 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((7312 : GoUInt16), (7354 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((7357 : GoUInt16), (7359 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((11520 : GoUInt16), (11557 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((11559 : GoUInt16), (11565 : GoUInt16), (6 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((11559 : GoUInt16), (11565 : GoUInt16), (6 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Glagolitic:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((11264 : GoUInt16), (11310 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __Glagolitic:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((11264 : GoUInt16), (11310 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((11312 : GoUInt16), (11358 : GoUInt16),
 		(1 : GoUInt16)) : Range16)) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
 		(new Range32((122880 : GoUInt32), (122886 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((122888 : GoUInt32), (122904 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((122907 : GoUInt32), (122913 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((122915 : GoUInt32), (122916 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((122918 : GoUInt32), (122922 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((122918 : GoUInt32), (122922 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Gothic:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Gothic:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((66352 : GoUInt32), (66378 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((66352 : GoUInt32), (66378 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Grantha:Ref<RangeTable> = ({
+private var __Grantha:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0) : Slice<Range16>),
 	r32: (new Slice<Range32>(0, 0, (new Range32((70400 : GoUInt32), (70403 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((70405 : GoUInt32), (70412 : GoUInt32), (1 : GoUInt32)) : Range32),
@@ -4226,9 +4228,9 @@ private var __Grantha:Ref<RangeTable> = ({
 		(new Range32((70493 : GoUInt32), (70499 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((70502 : GoUInt32), (70508 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((70512 : GoUInt32), (70516 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Greek:Ref<RangeTable> = ({
+private var __Greek:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((880 : GoUInt16), (883 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((885 : GoUInt16), (887 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((890 : GoUInt16), (893 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -4261,9 +4263,9 @@ private var __Greek:Ref<RangeTable> = ({
 	r32: (new Slice<Range32>(0, 0, (new Range32((65856 : GoUInt32), (65934 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((65952 : GoUInt32), (119296 : GoUInt32), (53344 : GoUInt32)) : Range32),
 		(new Range32((119297 : GoUInt32), (119365 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Gujarati:Ref<RangeTable> = ({
+private var __Gujarati:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((2689 : GoUInt16), (2691 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((2693 : GoUInt16), (2701 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((2703 : GoUInt16), (2705 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -4278,17 +4280,17 @@ private var __Gujarati:Ref<RangeTable> = ({
 		(new Range16((2785 : GoUInt16), (2787 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((2790 : GoUInt16), (2801 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((2809 : GoUInt16), (2815 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Gunjala_Gondi:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Gunjala_Gondi:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((73056 : GoUInt32), (73061 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((73063 : GoUInt32), (73064 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((73066 : GoUInt32), (73102 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((73104 : GoUInt32), (73105 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((73107 : GoUInt32), (73112 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((73120 : GoUInt32), (73129 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((73120 : GoUInt32), (73129 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Gurmukhi:Ref<RangeTable> = ({
+private var __Gurmukhi:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((2561 : GoUInt16), (2563 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((2565 : GoUInt16), (2570 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((2575 : GoUInt16), (2576 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -4305,9 +4307,9 @@ private var __Gurmukhi:Ref<RangeTable> = ({
 		(new Range16((2650 : GoUInt16), (2652 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((2654 : GoUInt16), (2662 : GoUInt16), (8 : GoUInt16)) : Range16),
 		(new Range16((2663 : GoUInt16), (2678 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Han:Ref<RangeTable> = ({
+private var __Han:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((11904 : GoUInt16), (11929 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((11931 : GoUInt16), (12019 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((12032 : GoUInt16), (12245 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -4326,9 +4328,9 @@ private var __Han:Ref<RangeTable> = ({
 		(new Range32((183984 : GoUInt32), (191456 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((194560 : GoUInt32), (195101 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((196608 : GoUInt32), (201546 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Hangul:Ref<RangeTable> = ({
+private var __Hangul:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((4352 : GoUInt16), (4607 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((12334 : GoUInt16), (12335 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((12593 : GoUInt16), (12686 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -4343,21 +4345,21 @@ private var __Hangul:Ref<RangeTable> = ({
 		(new Range16((65482 : GoUInt16), (65487 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((65490 : GoUInt16), (65495 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((65498 : GoUInt16), (65500 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Hanifi_Rohingya:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Hanifi_Rohingya:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((68864 : GoUInt32), (68903 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((68912 : GoUInt32), (68921 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((68912 : GoUInt32), (68921 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Hanunoo:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
-	(new Range16((5920 : GoUInt16), (5940 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __Hanunoo:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
+	(new Range16((5920 : GoUInt16), (5940 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Hatran:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Hatran:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((67808 : GoUInt32), (67826 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((67828 : GoUInt32), (67829 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((67835 : GoUInt32), (67839 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((67835 : GoUInt32), (67839 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Hebrew:Ref<RangeTable> = ({
+private var __Hebrew:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((1425 : GoUInt16), (1479 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((1488 : GoUInt16), (1514 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((1519 : GoUInt16), (1524 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -4367,20 +4369,20 @@ private var __Hebrew:Ref<RangeTable> = ({
 		(new Range16((64321 : GoUInt16), (64323 : GoUInt16), (2 : GoUInt16)) : Range16),
 		(new Range16((64324 : GoUInt16), (64326 : GoUInt16), (2 : GoUInt16)) : Range16),
 		(new Range16((64327 : GoUInt16), (64335 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Hiragana:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((12353 : GoUInt16), (12438 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __Hiragana:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((12353 : GoUInt16), (12438 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((12445 : GoUInt16), (12447 : GoUInt16),
 		(1 : GoUInt16)) : Range16)) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
 		(new Range32((110593 : GoUInt32), (110878 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((110928 : GoUInt32), (110930 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((127488 : GoUInt32), (127488 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((127488 : GoUInt32), (127488 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Imperial_Aramaic:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Imperial_Aramaic:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((67648 : GoUInt32), (67669 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((67671 : GoUInt32), (67679 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((67671 : GoUInt32), (67679 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Inherited:Ref<RangeTable> = ({
+private var __Inherited:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((768 : GoUInt16), (879 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((1157 : GoUInt16), (1158 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((1611 : GoUInt16), (1621 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -4407,25 +4409,25 @@ private var __Inherited:Ref<RangeTable> = ({
 		(new Range32((119173 : GoUInt32), (119179 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((119210 : GoUInt32), (119213 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((917760 : GoUInt32), (917999 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Inscriptional_Pahlavi:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Inscriptional_Pahlavi:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((68448 : GoUInt32), (68466 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((68472 : GoUInt32), (68479 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((68472 : GoUInt32), (68479 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Inscriptional_Parthian:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Inscriptional_Parthian:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((68416 : GoUInt32), (68437 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((68440 : GoUInt32), (68447 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((68440 : GoUInt32), (68447 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Javanese:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((43392 : GoUInt16), (43469 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __Javanese:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((43392 : GoUInt16), (43469 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((43472 : GoUInt16), (43481 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((43486 : GoUInt16), (43487 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((43486 : GoUInt16), (43487 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Kaithi:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Kaithi:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((69760 : GoUInt32), (69825 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((69837 : GoUInt32), (69837 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((69837 : GoUInt32), (69837 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Kannada:Ref<RangeTable> = ({
+private var __Kannada:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((3200 : GoUInt16), (3212 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((3214 : GoUInt16), (3216 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((3218 : GoUInt16), (3240 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -4439,9 +4441,9 @@ private var __Kannada:Ref<RangeTable> = ({
 		(new Range16((3297 : GoUInt16), (3299 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((3302 : GoUInt16), (3311 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((3313 : GoUInt16), (3314 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Katakana:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((12449 : GoUInt16), (12538 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __Katakana:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((12449 : GoUInt16), (12538 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((12541 : GoUInt16), (12543 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((12784 : GoUInt16), (12799 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((13008 : GoUInt16), (13054 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -4450,12 +4452,12 @@ private var __Katakana:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new R
 	(new Range16((65393 : GoUInt16), (65437 : GoUInt16),
 		(1 : GoUInt16)) : Range16)) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
 		(new Range32((110592 : GoUInt32), (110948 : GoUInt32), (356 : GoUInt32)) : Range32),
-		(new Range32((110949 : GoUInt32), (110951 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((110949 : GoUInt32), (110951 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Kayah_Li:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((43264 : GoUInt16), (43309 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((43311 : GoUInt16), (43311 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __Kayah_Li:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((43264 : GoUInt16), (43309 : GoUInt16), (1 : GoUInt16)) : Range16),
+	(new Range16((43311 : GoUInt16), (43311 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Kharoshthi:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Kharoshthi:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((68096 : GoUInt32), (68099 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((68101 : GoUInt32), (68102 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((68108 : GoUInt32), (68115 : GoUInt32), (1 : GoUInt32)) : Range32),
@@ -4463,26 +4465,26 @@ private var __Kharoshthi:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
 		(new Range32((68121 : GoUInt32), (68149 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((68152 : GoUInt32), (68154 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((68159 : GoUInt32), (68168 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((68176 : GoUInt32), (68184 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((68176 : GoUInt32), (68184 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Khitan_Small_Script:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Khitan_Small_Script:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((94180 : GoUInt32), (101120 : GoUInt32), (6940 : GoUInt32)) : Range32),
-		(new Range32((101121 : GoUInt32), (101589 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((101121 : GoUInt32), (101589 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Khmer:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((6016 : GoUInt16), (6109 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __Khmer:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((6016 : GoUInt16), (6109 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((6112 : GoUInt16), (6121 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((6128 : GoUInt16), (6137 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((6624 : GoUInt16), (6655 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((6624 : GoUInt16), (6655 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Khojki:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Khojki:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((70144 : GoUInt32), (70161 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((70163 : GoUInt32), (70206 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((70163 : GoUInt32), (70206 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Khudawadi:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Khudawadi:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((70320 : GoUInt32), (70378 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((70384 : GoUInt32), (70393 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((70384 : GoUInt32), (70393 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Lao:Ref<RangeTable> = ({
+private var __Lao:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((3713 : GoUInt16), (3714 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((3716 : GoUInt16), (3718 : GoUInt16), (2 : GoUInt16)) : Range16),
 		(new Range16((3719 : GoUInt16), (3722 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -4494,9 +4496,9 @@ private var __Lao:Ref<RangeTable> = ({
 		(new Range16((3785 : GoUInt16), (3789 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((3792 : GoUInt16), (3801 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((3804 : GoUInt16), (3807 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Latin:Ref<RangeTable> = ({
+private var __Latin:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((65 : GoUInt16), (90 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((97 : GoUInt16), (122 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((170 : GoUInt16), (186 : GoUInt16), (16 : GoUInt16)) : Range16),
@@ -4527,208 +4529,209 @@ private var __Latin:Ref<RangeTable> = ({
 		(new Range16((65313 : GoUInt16), (65338 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((65345 : GoUInt16), (65370 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>),
 	latinOffset: (5 : GoInt)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Lepcha:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((7168 : GoUInt16), (7223 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __Lepcha:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((7168 : GoUInt16), (7223 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((7227 : GoUInt16), (7241 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((7245 : GoUInt16), (7247 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((7245 : GoUInt16), (7247 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Limbu:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((6400 : GoUInt16), (6430 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __Limbu:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((6400 : GoUInt16), (6430 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((6432 : GoUInt16), (6443 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((6448 : GoUInt16), (6459 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((6464 : GoUInt16), (6468 : GoUInt16), (4 : GoUInt16)) : Range16),
-	(new Range16((6469 : GoUInt16), (6479 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((6469 : GoUInt16), (6479 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Linear_A:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Linear_A:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((67072 : GoUInt32), (67382 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((67392 : GoUInt32), (67413 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((67424 : GoUInt32), (67431 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((67424 : GoUInt32), (67431 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Linear_B:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Linear_B:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((65536 : GoUInt32), (65547 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((65549 : GoUInt32), (65574 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((65576 : GoUInt32), (65594 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((65596 : GoUInt32), (65597 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((65599 : GoUInt32), (65613 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((65616 : GoUInt32), (65629 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((65664 : GoUInt32), (65786 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((65664 : GoUInt32), (65786 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Lisu:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
+private var __Lisu:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
 	(new Range16((42192 : GoUInt16), (42239 : GoUInt16),
 		(1 : GoUInt16)) : Range16)) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((73648 : GoUInt32), (73648 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((73648 : GoUInt32), (73648 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Lycian:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Lycian:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((66176 : GoUInt32), (66204 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((66176 : GoUInt32), (66204 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Lydian:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Lydian:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((67872 : GoUInt32), (67897 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((67903 : GoUInt32), (67903 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((67903 : GoUInt32), (67903 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Mahajani:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Mahajani:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((69968 : GoUInt32), (70006 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((69968 : GoUInt32), (70006 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Makasar:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Makasar:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((73440 : GoUInt32), (73464 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((73440 : GoUInt32), (73464 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Malayalam:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((3328 : GoUInt16), (3340 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __Malayalam:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((3328 : GoUInt16), (3340 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((3342 : GoUInt16), (3344 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((3346 : GoUInt16), (3396 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((3398 : GoUInt16), (3400 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((3402 : GoUInt16), (3407 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((3412 : GoUInt16), (3427 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((3430 : GoUInt16), (3455 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((3430 : GoUInt16), (3455 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Mandaic:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((2112 : GoUInt16), (2139 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((2142 : GoUInt16), (2142 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __Mandaic:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((2112 : GoUInt16), (2139 : GoUInt16), (1 : GoUInt16)) : Range16),
+	(new Range16((2142 : GoUInt16), (2142 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Manichaean:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Manichaean:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((68288 : GoUInt32), (68326 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((68331 : GoUInt32), (68342 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((68331 : GoUInt32), (68342 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Marchen:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Marchen:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((72816 : GoUInt32), (72847 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((72850 : GoUInt32), (72871 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((72873 : GoUInt32), (72886 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((72873 : GoUInt32), (72886 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Masaram_Gondi:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Masaram_Gondi:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((72960 : GoUInt32), (72966 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((72968 : GoUInt32), (72969 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((72971 : GoUInt32), (73014 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((73018 : GoUInt32), (73020 : GoUInt32), (2 : GoUInt32)) : Range32),
 		(new Range32((73021 : GoUInt32), (73023 : GoUInt32), (2 : GoUInt32)) : Range32),
 		(new Range32((73024 : GoUInt32), (73031 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((73040 : GoUInt32), (73049 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((73040 : GoUInt32), (73049 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Medefaidrin:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Medefaidrin:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((93760 : GoUInt32), (93850 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((93760 : GoUInt32), (93850 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Meetei_Mayek:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((43744 : GoUInt16), (43766 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __Meetei_Mayek:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
+	(new Range16((43744 : GoUInt16), (43766 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((43968 : GoUInt16), (44013 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((44016 : GoUInt16), (44025 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((44016 : GoUInt16), (44025 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Mende_Kikakui:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Mende_Kikakui:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((124928 : GoUInt32), (125124 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((125127 : GoUInt32), (125142 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((125127 : GoUInt32), (125142 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Meroitic_Cursive:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Meroitic_Cursive:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((68000 : GoUInt32), (68023 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((68028 : GoUInt32), (68047 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((68050 : GoUInt32), (68095 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((68050 : GoUInt32), (68095 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Meroitic_Hieroglyphs:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Meroitic_Hieroglyphs:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((67968 : GoUInt32), (67999 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((67968 : GoUInt32), (67999 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Miao:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Miao:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((93952 : GoUInt32), (94026 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((94031 : GoUInt32), (94087 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((94095 : GoUInt32), (94111 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((94095 : GoUInt32), (94111 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Modi:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Modi:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((71168 : GoUInt32), (71236 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((71248 : GoUInt32), (71257 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((71248 : GoUInt32), (71257 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Mongolian:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((6144 : GoUInt16), (6145 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __Mongolian:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((6144 : GoUInt16), (6145 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((6148 : GoUInt16), (6150 : GoUInt16), (2 : GoUInt16)) : Range16),
 	(new Range16((6151 : GoUInt16), (6158 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((6160 : GoUInt16), (6169 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((6176 : GoUInt16), (6264 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((6272 : GoUInt16), (6314 : GoUInt16),
 		(1 : GoUInt16)) : Range16)) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((71264 : GoUInt32), (71276 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((71264 : GoUInt32), (71276 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Mro:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Mro:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((92736 : GoUInt32), (92766 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((92768 : GoUInt32), (92777 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((92782 : GoUInt32), (92783 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((92782 : GoUInt32), (92783 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Multani:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Multani:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((70272 : GoUInt32), (70278 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((70280 : GoUInt32), (70282 : GoUInt32), (2 : GoUInt32)) : Range32),
 		(new Range32((70283 : GoUInt32), (70285 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((70287 : GoUInt32), (70301 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((70303 : GoUInt32), (70313 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((70303 : GoUInt32), (70313 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Myanmar:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((4096 : GoUInt16), (4255 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __Myanmar:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((4096 : GoUInt16), (4255 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((43488 : GoUInt16), (43518 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((43616 : GoUInt16), (43647 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((43616 : GoUInt16), (43647 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Nabataean:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Nabataean:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((67712 : GoUInt32), (67742 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((67751 : GoUInt32), (67759 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((67751 : GoUInt32), (67759 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Nandinagari:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Nandinagari:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((72096 : GoUInt32), (72103 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((72106 : GoUInt32), (72151 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((72154 : GoUInt32), (72164 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((72154 : GoUInt32), (72164 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __New_Tai_Lue:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((6528 : GoUInt16), (6571 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __New_Tai_Lue:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((6528 : GoUInt16), (6571 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((6576 : GoUInt16), (6601 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((6608 : GoUInt16), (6618 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((6622 : GoUInt16), (6623 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((6622 : GoUInt16), (6623 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Newa:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Newa:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((70656 : GoUInt32), (70747 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((70749 : GoUInt32), (70753 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((70749 : GoUInt32), (70753 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Nko:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((1984 : GoUInt16), (2042 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((2045 : GoUInt16), (2047 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __Nko:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((1984 : GoUInt16), (2042 : GoUInt16), (1 : GoUInt16)) : Range16),
+	(new Range16((2045 : GoUInt16), (2047 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Nushu:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Nushu:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((94177 : GoUInt32), (110960 : GoUInt32), (16783 : GoUInt32)) : Range32),
-		(new Range32((110961 : GoUInt32), (111355 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((110961 : GoUInt32), (111355 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Nyiakeng_Puachue_Hmong:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Nyiakeng_Puachue_Hmong:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((123136 : GoUInt32), (123180 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((123184 : GoUInt32), (123197 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((123200 : GoUInt32), (123209 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((123214 : GoUInt32), (123215 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((123214 : GoUInt32), (123215 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Ogham:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
-	(new Range16((5760 : GoUInt16), (5788 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __Ogham:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
+	(new Range16((5760 : GoUInt16), (5788 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Ol_Chiki:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
-	(new Range16((7248 : GoUInt16), (7295 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __Ol_Chiki:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
+	(new Range16((7248 : GoUInt16), (7295 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Old_Hungarian:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Old_Hungarian:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((68736 : GoUInt32), (68786 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((68800 : GoUInt32), (68850 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((68858 : GoUInt32), (68863 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((68858 : GoUInt32), (68863 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Old_Italic:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Old_Italic:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((66304 : GoUInt32), (66339 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((66349 : GoUInt32), (66351 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((66349 : GoUInt32), (66351 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Old_North_Arabian:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Old_North_Arabian:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((68224 : GoUInt32), (68255 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((68224 : GoUInt32), (68255 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Old_Permic:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Old_Permic:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((66384 : GoUInt32), (66426 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((66384 : GoUInt32), (66426 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Old_Persian:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Old_Persian:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((66464 : GoUInt32), (66499 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((66504 : GoUInt32), (66517 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((66504 : GoUInt32), (66517 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Old_Sogdian:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Old_Sogdian:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((69376 : GoUInt32), (69415 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((69376 : GoUInt32), (69415 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Old_South_Arabian:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Old_South_Arabian:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((68192 : GoUInt32), (68223 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((68192 : GoUInt32), (68223 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Old_Turkic:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Old_Turkic:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((68608 : GoUInt32), (68680 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((68608 : GoUInt32), (68680 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Oriya:Ref<RangeTable> = ({
+private var __Oriya:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((2817 : GoUInt16), (2819 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((2821 : GoUInt16), (2828 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((2831 : GoUInt16), (2832 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -4743,73 +4746,73 @@ private var __Oriya:Ref<RangeTable> = ({
 		(new Range16((2908 : GoUInt16), (2909 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((2911 : GoUInt16), (2915 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((2918 : GoUInt16), (2935 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Osage:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Osage:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((66736 : GoUInt32), (66771 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((66776 : GoUInt32), (66811 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((66776 : GoUInt32), (66811 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Osmanya:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Osmanya:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((66688 : GoUInt32), (66717 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((66720 : GoUInt32), (66729 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((66720 : GoUInt32), (66729 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Pahawh_Hmong:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Pahawh_Hmong:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((92928 : GoUInt32), (92997 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((93008 : GoUInt32), (93017 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((93019 : GoUInt32), (93025 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((93027 : GoUInt32), (93047 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((93053 : GoUInt32), (93071 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((93053 : GoUInt32), (93071 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Palmyrene:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Palmyrene:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((67680 : GoUInt32), (67711 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((67680 : GoUInt32), (67711 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Pau_Cin_Hau:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Pau_Cin_Hau:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((72384 : GoUInt32), (72440 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((72384 : GoUInt32), (72440 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Phags_Pa:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
-	(new Range16((43072 : GoUInt16), (43127 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __Phags_Pa:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
+	(new Range16((43072 : GoUInt16), (43127 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Phoenician:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Phoenician:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((67840 : GoUInt32), (67867 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((67871 : GoUInt32), (67871 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((67871 : GoUInt32), (67871 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Psalter_Pahlavi:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Psalter_Pahlavi:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((68480 : GoUInt32), (68497 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((68505 : GoUInt32), (68508 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((68521 : GoUInt32), (68527 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((68521 : GoUInt32), (68527 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Rejang:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((43312 : GoUInt16), (43347 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((43359 : GoUInt16), (43359 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __Rejang:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((43312 : GoUInt16), (43347 : GoUInt16), (1 : GoUInt16)) : Range16),
+	(new Range16((43359 : GoUInt16), (43359 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Runic:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((5792 : GoUInt16), (5866 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((5870 : GoUInt16), (5880 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __Runic:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((5792 : GoUInt16), (5866 : GoUInt16), (1 : GoUInt16)) : Range16),
+	(new Range16((5870 : GoUInt16), (5880 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Samaritan:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((2048 : GoUInt16), (2093 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((2096 : GoUInt16), (2110 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __Samaritan:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((2048 : GoUInt16), (2093 : GoUInt16), (1 : GoUInt16)) : Range16),
+	(new Range16((2096 : GoUInt16), (2110 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Saurashtra:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((43136 : GoUInt16), (43205 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((43214 : GoUInt16), (43225 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __Saurashtra:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((43136 : GoUInt16), (43205 : GoUInt16), (1 : GoUInt16)) : Range16),
+	(new Range16((43214 : GoUInt16), (43225 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Sharada:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Sharada:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((70016 : GoUInt32), (70111 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((70016 : GoUInt32), (70111 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Shavian:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Shavian:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((66640 : GoUInt32), (66687 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((66640 : GoUInt32), (66687 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Siddham:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Siddham:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((71040 : GoUInt32), (71093 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((71096 : GoUInt32), (71133 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((71096 : GoUInt32), (71133 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __SignWriting:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __SignWriting:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((120832 : GoUInt32), (121483 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((121499 : GoUInt32), (121503 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((121505 : GoUInt32), (121519 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((121505 : GoUInt32), (121519 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Sinhala:Ref<RangeTable> = ({
+private var __Sinhala:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((3457 : GoUInt16), (3459 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((3461 : GoUInt16), (3478 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((3482 : GoUInt16), (3505 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -4823,55 +4826,55 @@ private var __Sinhala:Ref<RangeTable> = ({
 		(new Range16((3558 : GoUInt16), (3567 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((3570 : GoUInt16), (3572 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>),
 	r32: (new Slice<Range32>(0, 0, (new Range32((70113 : GoUInt32), (70132 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Sogdian:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Sogdian:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((69424 : GoUInt32), (69465 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((69424 : GoUInt32), (69465 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Sora_Sompeng:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Sora_Sompeng:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((69840 : GoUInt32), (69864 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((69872 : GoUInt32), (69881 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((69872 : GoUInt32), (69881 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Soyombo:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Soyombo:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((72272 : GoUInt32), (72354 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((72272 : GoUInt32), (72354 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Sundanese:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((7040 : GoUInt16), (7103 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((7360 : GoUInt16), (7367 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __Sundanese:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((7040 : GoUInt16), (7103 : GoUInt16), (1 : GoUInt16)) : Range16),
+	(new Range16((7360 : GoUInt16), (7367 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Syloti_Nagri:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
-	(new Range16((43008 : GoUInt16), (43052 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __Syloti_Nagri:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
+	(new Range16((43008 : GoUInt16), (43052 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Syriac:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((1792 : GoUInt16), (1805 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __Syriac:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((1792 : GoUInt16), (1805 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((1807 : GoUInt16), (1866 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((1869 : GoUInt16), (1871 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((2144 : GoUInt16), (2154 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((2144 : GoUInt16), (2154 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Tagalog:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((5888 : GoUInt16), (5900 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((5902 : GoUInt16), (5908 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __Tagalog:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((5888 : GoUInt16), (5900 : GoUInt16), (1 : GoUInt16)) : Range16),
+	(new Range16((5902 : GoUInt16), (5908 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Tagbanwa:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((5984 : GoUInt16), (5996 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __Tagbanwa:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((5984 : GoUInt16), (5996 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((5998 : GoUInt16), (6000 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((6002 : GoUInt16), (6003 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((6002 : GoUInt16), (6003 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Tai_Le:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((6480 : GoUInt16), (6509 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((6512 : GoUInt16), (6516 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __Tai_Le:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((6480 : GoUInt16), (6509 : GoUInt16), (1 : GoUInt16)) : Range16),
+	(new Range16((6512 : GoUInt16), (6516 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Tai_Tham:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((6688 : GoUInt16), (6750 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __Tai_Tham:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((6688 : GoUInt16), (6750 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((6752 : GoUInt16), (6780 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((6783 : GoUInt16), (6793 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((6800 : GoUInt16), (6809 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((6816 : GoUInt16), (6829 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((6816 : GoUInt16), (6829 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Tai_Viet:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((43648 : GoUInt16), (43714 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((43739 : GoUInt16), (43743 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __Tai_Viet:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((43648 : GoUInt16), (43714 : GoUInt16), (1 : GoUInt16)) : Range16),
+	(new Range16((43739 : GoUInt16), (43743 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Takri:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Takri:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((71296 : GoUInt32), (71352 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((71360 : GoUInt32), (71369 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((71360 : GoUInt32), (71369 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Tamil:Ref<RangeTable> = ({
+private var __Tamil:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((2946 : GoUInt16), (2947 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((2949 : GoUInt16), (2954 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((2958 : GoUInt16), (2960 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -4889,15 +4892,15 @@ private var __Tamil:Ref<RangeTable> = ({
 		(new Range16((3046 : GoUInt16), (3066 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>),
 	r32: (new Slice<Range32>(0, 0, (new Range32((73664 : GoUInt32), (73713 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((73727 : GoUInt32), (73727 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Tangut:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Tangut:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((94176 : GoUInt32), (94208 : GoUInt32), (32 : GoUInt32)) : Range32),
 		(new Range32((94209 : GoUInt32), (100343 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((100352 : GoUInt32), (101119 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((101632 : GoUInt32), (101640 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((101632 : GoUInt32), (101640 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Telugu:Ref<RangeTable> = ({
+private var __Telugu:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((3072 : GoUInt16), (3084 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((3086 : GoUInt16), (3088 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((3090 : GoUInt16), (3112 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -4910,56 +4913,56 @@ private var __Telugu:Ref<RangeTable> = ({
 		(new Range16((3168 : GoUInt16), (3171 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((3174 : GoUInt16), (3183 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((3191 : GoUInt16), (3199 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Thaana:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
-	(new Range16((1920 : GoUInt16), (1969 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __Thaana:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
+	(new Range16((1920 : GoUInt16), (1969 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Thai:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((3585 : GoUInt16), (3642 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((3648 : GoUInt16), (3675 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __Thai:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((3585 : GoUInt16), (3642 : GoUInt16), (1 : GoUInt16)) : Range16),
+	(new Range16((3648 : GoUInt16), (3675 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Tibetan:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((3840 : GoUInt16), (3911 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __Tibetan:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((3840 : GoUInt16), (3911 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((3913 : GoUInt16), (3948 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((3953 : GoUInt16), (3991 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((3993 : GoUInt16), (4028 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((4030 : GoUInt16), (4044 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((4046 : GoUInt16), (4052 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((4057 : GoUInt16), (4058 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((4057 : GoUInt16), (4058 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Tifinagh:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((11568 : GoUInt16), (11623 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __Tifinagh:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((11568 : GoUInt16), (11623 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((11631 : GoUInt16), (11632 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((11647 : GoUInt16), (11647 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((11647 : GoUInt16), (11647 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Tirhuta:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Tirhuta:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((70784 : GoUInt32), (70855 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((70864 : GoUInt32), (70873 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((70864 : GoUInt32), (70873 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Ugaritic:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Ugaritic:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((66432 : GoUInt32), (66461 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((66463 : GoUInt32), (66463 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((66463 : GoUInt32), (66463 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Vai:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
-	(new Range16((42240 : GoUInt16), (42539 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __Vai:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
+	(new Range16((42240 : GoUInt16), (42539 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Wancho:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Wancho:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((123584 : GoUInt32), (123641 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((123647 : GoUInt32), (123647 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((123647 : GoUInt32), (123647 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Warang_Citi:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Warang_Citi:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((71840 : GoUInt32), (71922 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((71935 : GoUInt32), (71935 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((71935 : GoUInt32), (71935 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Yezidi:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Yezidi:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0, (new Range32((69248 : GoUInt32), (69289 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((69291 : GoUInt32), (69293 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((69296 : GoUInt32), (69297 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((69296 : GoUInt32), (69297 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Yi:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((40960 : GoUInt16), (42124 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((42128 : GoUInt16), (42182 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __Yi:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((40960 : GoUInt16), (42124 : GoUInt16), (1 : GoUInt16)) : Range16),
+	(new Range16((42128 : GoUInt16), (42182 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Zanabazar_Square:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Zanabazar_Square:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((72192 : GoUInt32), (72263 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((72192 : GoUInt32), (72263 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
 /**
 	// Adlam is the set of Unicode characters in script Adlam.// These variables have type *RangeTable.
@@ -5980,17 +5983,17 @@ var scripts:GoMap<GoString, Ref<RangeTable>> = {
 	x;
 };
 
-private var __ASCII_Hex_Digit:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((48 : GoUInt16), (57 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __ASCII_Hex_Digit:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((48 : GoUInt16), (57 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((65 : GoUInt16), (70 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((97 : GoUInt16), (102 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>), latinOffset: (3 : GoInt)} : RangeTable);
+	(new Range16((97 : GoUInt16), (102 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>), latinOffset: (3 : GoInt)} : RangeTable) : Ref<RangeTable>);
 
-private var __Bidi_Control:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
+private var __Bidi_Control:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
 	(new Range16((1564 : GoUInt16), (8206 : GoUInt16), (6642 : GoUInt16)) : Range16),
 	(new Range16((8207 : GoUInt16), (8234 : GoUInt16), (27 : GoUInt16)) : Range16),
 	(new Range16((8235 : GoUInt16), (8238 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((8294 : GoUInt16), (8297 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((8294 : GoUInt16), (8297 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Dash:Ref<RangeTable> = ({
+private var __Dash:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((45 : GoUInt16), (1418 : GoUInt16), (1373 : GoUInt16)) : Range16),
 		(new Range16((1470 : GoUInt16), (5120 : GoUInt16), (3650 : GoUInt16)) : Range16),
 		(new Range16((6150 : GoUInt16), (8208 : GoUInt16), (2058 : GoUInt16)) : Range16),
@@ -6005,17 +6008,17 @@ private var __Dash:Ref<RangeTable> = ({
 		(new Range16((65112 : GoUInt16), (65123 : GoUInt16), (11 : GoUInt16)) : Range16),
 		(new Range16((65293 : GoUInt16), (65293 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>),
 	r32: (new Slice<Range32>(0, 0, (new Range32((69293 : GoUInt32), (69293 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Deprecated:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((329 : GoUInt16), (1651 : GoUInt16), (1322 : GoUInt16)) : Range16),
+private var __Deprecated:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((329 : GoUInt16), (1651 : GoUInt16), (1322 : GoUInt16)) : Range16),
 	(new Range16((3959 : GoUInt16), (3961 : GoUInt16), (2 : GoUInt16)) : Range16),
 	(new Range16((6051 : GoUInt16), (6052 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((8298 : GoUInt16), (8303 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((9001 : GoUInt16), (9002 : GoUInt16),
 		(1 : GoUInt16)) : Range16)) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((917505 : GoUInt32), (917505 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((917505 : GoUInt32), (917505 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Diacritic:Ref<RangeTable> = ({
+private var __Diacritic:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((94 : GoUInt16), (96 : GoUInt16), (2 : GoUInt16)) : Range16),
 		(new Range16((168 : GoUInt16), (175 : GoUInt16), (7 : GoUInt16)) : Range16),
 		(new Range16((180 : GoUInt16), (183 : GoUInt16), (3 : GoUInt16)) : Range16),
@@ -6163,9 +6166,9 @@ private var __Diacritic:Ref<RangeTable> = ({
 		(new Range32((125252 : GoUInt32), (125254 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((125256 : GoUInt32), (125258 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>),
 	latinOffset: (3 : GoInt)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Extender:Ref<RangeTable> = ({
+private var __Extender:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((183 : GoUInt16), (720 : GoUInt16), (537 : GoUInt16)) : Range16),
 		(new Range16((721 : GoUInt16), (1600 : GoUInt16), (879 : GoUInt16)) : Range16),
 		(new Range16((2042 : GoUInt16), (2901 : GoUInt16), (859 : GoUInt16)) : Range16),
@@ -6188,29 +6191,31 @@ private var __Extender:Ref<RangeTable> = ({
 		(new Range32((94177 : GoUInt32), (94179 : GoUInt32), (2 : GoUInt32)) : Range32),
 		(new Range32((123196 : GoUInt32), (123197 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((125252 : GoUInt32), (125254 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Hex_Digit:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((48 : GoUInt16), (57 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __Hex_Digit:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((48 : GoUInt16), (57 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((65 : GoUInt16), (70 : GoUInt16), (1 : GoUInt16)) : Range16), (new Range16((97 : GoUInt16), (102 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((65296 : GoUInt16), (65305 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((65313 : GoUInt16), (65318 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((65345 : GoUInt16), (65350 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>), latinOffset: (3 : GoInt)} : RangeTable);
+	(new Range16((65345 : GoUInt16), (65350 : GoUInt16),
+		(1 : GoUInt16)) : Range16)) : Slice<Range16>), latinOffset: (3 : GoInt)} : RangeTable) : Ref<RangeTable>);
 
-private var __Hyphen:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((45 : GoUInt16), (173 : GoUInt16), (128 : GoUInt16)) : Range16),
+private var __Hyphen:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((45 : GoUInt16), (173 : GoUInt16), (128 : GoUInt16)) : Range16),
 	(new Range16((1418 : GoUInt16), (6150 : GoUInt16), (4732 : GoUInt16)) : Range16),
 	(new Range16((8208 : GoUInt16), (8209 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((11799 : GoUInt16), (12539 : GoUInt16), (740 : GoUInt16)) : Range16),
 	(new Range16((65123 : GoUInt16), (65293 : GoUInt16), (170 : GoUInt16)) : Range16),
-	(new Range16((65381 : GoUInt16), (65381 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>), latinOffset: (1 : GoInt)} : RangeTable);
+	(new Range16((65381 : GoUInt16), (65381 : GoUInt16),
+		(1 : GoUInt16)) : Range16)) : Slice<Range16>), latinOffset: (1 : GoInt)} : RangeTable) : Ref<RangeTable>);
 
-private var __IDS_Binary_Operator:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
+private var __IDS_Binary_Operator:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
 	(new Range16((12272 : GoUInt16), (12273 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((12276 : GoUInt16), (12283 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((12276 : GoUInt16), (12283 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __IDS_Trinary_Operator:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
-	(new Range16((12274 : GoUInt16), (12275 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __IDS_Trinary_Operator:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
+	(new Range16((12274 : GoUInt16), (12275 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Ideographic:Ref<RangeTable> = ({
+private var __Ideographic:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((12294 : GoUInt16), (12295 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((12321 : GoUInt16), (12329 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((12344 : GoUInt16), (12346 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -6230,20 +6235,20 @@ private var __Ideographic:Ref<RangeTable> = ({
 		(new Range32((183984 : GoUInt32), (191456 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((194560 : GoUInt32), (195101 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((196608 : GoUInt32), (201546 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Join_Control:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
-	(new Range16((8204 : GoUInt16), (8205 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var __Join_Control:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
+	(new Range16((8204 : GoUInt16), (8205 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Logical_Order_Exception:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
+private var __Logical_Order_Exception:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
 	(new Range16((3648 : GoUInt16), (3652 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((3776 : GoUInt16), (3780 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((6581 : GoUInt16), (6583 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((6586 : GoUInt16), (43701 : GoUInt16), (37115 : GoUInt16)) : Range16),
 	(new Range16((43702 : GoUInt16), (43705 : GoUInt16), (3 : GoUInt16)) : Range16),
-	(new Range16((43707 : GoUInt16), (43708 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((43707 : GoUInt16), (43708 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Noncharacter_Code_Point:Ref<RangeTable> = ({
+private var __Noncharacter_Code_Point:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((64976 : GoUInt16), (65007 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((65534 : GoUInt16), (65535 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>),
 	r32: (new Slice<Range32>(0, 0, (new Range32((131070 : GoUInt32), (131071 : GoUInt32), (1 : GoUInt32)) : Range32),
@@ -6262,9 +6267,9 @@ private var __Noncharacter_Code_Point:Ref<RangeTable> = ({
 		(new Range32((983038 : GoUInt32), (983039 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((1048574 : GoUInt32), (1048575 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((1114110 : GoUInt32), (1114111 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Other_Alphabetic:Ref<RangeTable> = ({
+private var __Other_Alphabetic:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((837 : GoUInt16), (1456 : GoUInt16), (619 : GoUInt16)) : Range16),
 		(new Range16((1457 : GoUInt16), (1469 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((1471 : GoUInt16), (1473 : GoUInt16), (2 : GoUInt16)) : Range16),
@@ -6486,9 +6491,9 @@ private var __Other_Alphabetic:Ref<RangeTable> = ({
 		(new Range32((127281 : GoUInt32), (127305 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((127312 : GoUInt32), (127337 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((127344 : GoUInt32), (127369 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Other_Default_Ignorable_Code_Point:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
+private var __Other_Default_Ignorable_Code_Point:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
 	(new Range16((847 : GoUInt16), (4447 : GoUInt16), (3600 : GoUInt16)) : Range16),
 	(new Range16((4448 : GoUInt16), (6068 : GoUInt16), (1620 : GoUInt16)) : Range16),
 	(new Range16((6069 : GoUInt16), (8293 : GoUInt16), (2224 : GoUInt16)) : Range16),
@@ -6498,9 +6503,9 @@ private var __Other_Default_Ignorable_Code_Point:Ref<RangeTable> = ({r16: (new S
 		(new Range32((917504 : GoUInt32), (917506 : GoUInt32), (2 : GoUInt32)) : Range32),
 		(new Range32((917507 : GoUInt32), (917535 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((917632 : GoUInt32), (917759 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((918000 : GoUInt32), (921599 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((918000 : GoUInt32), (921599 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Other_Grapheme_Extend:Ref<RangeTable> = ({
+private var __Other_Grapheme_Extend:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((2494 : GoUInt16), (2519 : GoUInt16), (25 : GoUInt16)) : Range16),
 		(new Range16((2878 : GoUInt16), (2903 : GoUInt16), (25 : GoUInt16)) : Range16),
 		(new Range16((3006 : GoUInt16), (3031 : GoUInt16), (25 : GoUInt16)) : Range16),
@@ -6517,18 +6522,19 @@ private var __Other_Grapheme_Extend:Ref<RangeTable> = ({
 		(new Range32((119141 : GoUInt32), (119150 : GoUInt32), (9 : GoUInt32)) : Range32),
 		(new Range32((119151 : GoUInt32), (119154 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((917536 : GoUInt32), (917631 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Other_ID_Continue:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
+private var __Other_ID_Continue:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
 	(new Range16((183 : GoUInt16), (903 : GoUInt16), (720 : GoUInt16)) : Range16),
 	(new Range16((4969 : GoUInt16), (4977 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((6618 : GoUInt16), (6618 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((6618 : GoUInt16), (6618 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Other_ID_Start:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((6277 : GoUInt16), (6278 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __Other_ID_Start:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
+	(new Range16((6277 : GoUInt16), (6278 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((8472 : GoUInt16), (8494 : GoUInt16), (22 : GoUInt16)) : Range16),
-	(new Range16((12443 : GoUInt16), (12444 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((12443 : GoUInt16), (12444 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Other_Lowercase:Ref<RangeTable> = ({
+private var __Other_Lowercase:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((170 : GoUInt16), (186 : GoUInt16), (16 : GoUInt16)) : Range16),
 		(new Range16((688 : GoUInt16), (696 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((704 : GoUInt16), (705 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -6547,9 +6553,9 @@ private var __Other_Lowercase:Ref<RangeTable> = ({
 		(new Range16((43001 : GoUInt16), (43868 : GoUInt16), (867 : GoUInt16)) : Range16),
 		(new Range16((43869 : GoUInt16), (43871 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>),
 	latinOffset: (1 : GoInt)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Other_Math:Ref<RangeTable> = ({
+private var __Other_Math:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((94 : GoUInt16), (976 : GoUInt16), (882 : GoUInt16)) : Range16),
 		(new Range16((977 : GoUInt16), (978 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((981 : GoUInt16), (1008 : GoUInt16), (27 : GoUInt16)) : Range16),
@@ -6668,17 +6674,17 @@ private var __Other_Math:Ref<RangeTable> = ({
 		(new Range32((126625 : GoUInt32), (126627 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((126629 : GoUInt32), (126633 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((126635 : GoUInt32), (126651 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Other_Uppercase:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
+private var __Other_Uppercase:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
 	(new Range16((8544 : GoUInt16), (8559 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((9398 : GoUInt16), (9423 : GoUInt16),
 		(1 : GoUInt16)) : Range16)) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
 		(new Range32((127280 : GoUInt32), (127305 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((127312 : GoUInt32), (127337 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((127344 : GoUInt32), (127369 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((127344 : GoUInt32), (127369 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Pattern_Syntax:Ref<RangeTable> = ({
+private var __Pattern_Syntax:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((33 : GoUInt16), (47 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((58 : GoUInt16), (64 : GoUInt16), (1 : GoUInt16)) : Range16), (new Range16((91 : GoUInt16), (94 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((96 : GoUInt16), (123 : GoUInt16), (27 : GoUInt16)) : Range16),
@@ -6703,21 +6709,22 @@ private var __Pattern_Syntax:Ref<RangeTable> = ({
 		(new Range16((64831 : GoUInt16), (65093 : GoUInt16), (262 : GoUInt16)) : Range16),
 		(new Range16((65094 : GoUInt16), (65094 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>),
 	latinOffset: (10 : GoInt)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Pattern_White_Space:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((9 : GoUInt16), (13 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((32 : GoUInt16), (133 : GoUInt16), (101 : GoUInt16)) : Range16),
+private var __Pattern_White_Space:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
+	(new Range16((9 : GoUInt16), (13 : GoUInt16), (1 : GoUInt16)) : Range16), (new Range16((32 : GoUInt16), (133 : GoUInt16), (101 : GoUInt16)) : Range16),
 	(new Range16((8206 : GoUInt16), (8207 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((8232 : GoUInt16), (8233 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>), latinOffset: (2 : GoInt)} : RangeTable);
+	(new Range16((8232 : GoUInt16), (8233 : GoUInt16),
+		(1 : GoUInt16)) : Range16)) : Slice<Range16>), latinOffset: (2 : GoInt)} : RangeTable) : Ref<RangeTable>);
 
-private var __Prepended_Concatenation_Mark:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
+private var __Prepended_Concatenation_Mark:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
 	(new Range16((1536 : GoUInt16), (1541 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((1757 : GoUInt16), (1807 : GoUInt16), (50 : GoUInt16)) : Range16),
 	(new Range16((2274 : GoUInt16), (2274 : GoUInt16),
 		(1 : GoUInt16)) : Range16)) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((69821 : GoUInt32), (69837 : GoUInt32), (16 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((69821 : GoUInt32), (69837 : GoUInt32), (16 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Quotation_Mark:Ref<RangeTable> = ({
+private var __Quotation_Mark:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((34 : GoUInt16), (39 : GoUInt16), (5 : GoUInt16)) : Range16),
 		(new Range16((171 : GoUInt16), (187 : GoUInt16), (16 : GoUInt16)) : Range16),
 		(new Range16((8216 : GoUInt16), (8223 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -6729,17 +6736,17 @@ private var __Quotation_Mark:Ref<RangeTable> = ({
 		(new Range16((65282 : GoUInt16), (65287 : GoUInt16), (5 : GoUInt16)) : Range16),
 		(new Range16((65378 : GoUInt16), (65379 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>),
 	latinOffset: (2 : GoInt)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Radical:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((11904 : GoUInt16), (11929 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __Radical:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((11904 : GoUInt16), (11929 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((11931 : GoUInt16), (12019 : GoUInt16), (1 : GoUInt16)) : Range16),
-	(new Range16((12032 : GoUInt16), (12245 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+	(new Range16((12032 : GoUInt16), (12245 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Regional_Indicator:Ref<RangeTable> = ({r16: (new Slice<Range16>(0,
+private var __Regional_Indicator:Ref<RangeTable> = (({r16: (new Slice<Range16>(0,
 	0) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((127462 : GoUInt32), (127487 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((127462 : GoUInt32), (127487 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Sentence_Terminal:Ref<RangeTable> = ({
+private var __Sentence_Terminal:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((33 : GoUInt16), (46 : GoUInt16), (13 : GoUInt16)) : Range16),
 		(new Range16((63 : GoUInt16), (1417 : GoUInt16), (1354 : GoUInt16)) : Range16),
 		(new Range16((1566 : GoUInt16), (1567 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -6802,9 +6809,9 @@ private var __Sentence_Terminal:Ref<RangeTable> = ({
 		(new Range32((93848 : GoUInt32), (113823 : GoUInt32), (19975 : GoUInt32)) : Range32),
 		(new Range32((121480 : GoUInt32), (121480 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>),
 	latinOffset: (1 : GoInt)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Soft_Dotted:Ref<RangeTable> = ({
+private var __Soft_Dotted:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((105 : GoUInt16), (106 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((303 : GoUInt16), (585 : GoUInt16), (282 : GoUInt16)) : Range16),
 		(new Range16((616 : GoUInt16), (669 : GoUInt16), (53 : GoUInt16)) : Range16),
@@ -6829,9 +6836,9 @@ private var __Soft_Dotted:Ref<RangeTable> = ({
 		(new Range32((120414 : GoUInt32), (120415 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((120466 : GoUInt32), (120467 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>),
 	latinOffset: (1 : GoInt)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Terminal_Punctuation:Ref<RangeTable> = ({
+private var __Terminal_Punctuation:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((33 : GoUInt16), (44 : GoUInt16), (11 : GoUInt16)) : Range16),
 		(new Range16((46 : GoUInt16), (58 : GoUInt16), (12 : GoUInt16)) : Range16), (new Range16((59 : GoUInt16), (63 : GoUInt16), (4 : GoUInt16)) : Range16),
 		(new Range16((894 : GoUInt16), (903 : GoUInt16), (9 : GoUInt16)) : Range16),
@@ -6920,9 +6927,9 @@ private var __Terminal_Punctuation:Ref<RangeTable> = ({
 		(new Range32((93848 : GoUInt32), (113823 : GoUInt32), (19975 : GoUInt32)) : Range32),
 		(new Range32((121479 : GoUInt32), (121482 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>),
 	latinOffset: (3 : GoInt)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var __Unified_Ideograph:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
+private var __Unified_Ideograph:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
 	(new Range16((13312 : GoUInt16), (19903 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((19968 : GoUInt16), (40956 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((64014 : GoUInt16), (64015 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -6937,21 +6944,22 @@ private var __Unified_Ideograph:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 
 		(new Range32((177984 : GoUInt32), (178205 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((178208 : GoUInt32), (183969 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((183984 : GoUInt32), (191456 : GoUInt32), (1 : GoUInt32)) : Range32),
-		(new Range32((196608 : GoUInt32), (201546 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((196608 : GoUInt32), (201546 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __Variation_Selector:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
+private var __Variation_Selector:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
 	(new Range16((6155 : GoUInt16), (6157 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((65024 : GoUInt16), (65039 : GoUInt16),
 		(1 : GoUInt16)) : Range16)) : Slice<Range16>), r32: (new Slice<Range32>(0, 0,
-		(new Range32((917760 : GoUInt32), (917999 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable);
+		(new Range32((917760 : GoUInt32), (917999 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>)} : RangeTable) : Ref<RangeTable>);
 
-private var __White_Space:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((9 : GoUInt16), (13 : GoUInt16), (1 : GoUInt16)) : Range16),
+private var __White_Space:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((9 : GoUInt16), (13 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((32 : GoUInt16), (133 : GoUInt16), (101 : GoUInt16)) : Range16),
 	(new Range16((160 : GoUInt16), (5760 : GoUInt16), (5600 : GoUInt16)) : Range16),
 	(new Range16((8192 : GoUInt16), (8202 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((8232 : GoUInt16), (8233 : GoUInt16), (1 : GoUInt16)) : Range16),
 	(new Range16((8239 : GoUInt16), (8287 : GoUInt16), (48 : GoUInt16)) : Range16),
-	(new Range16((12288 : GoUInt16), (12288 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>), latinOffset: (2 : GoInt)} : RangeTable);
+	(new Range16((12288 : GoUInt16), (12288 : GoUInt16),
+		(1 : GoUInt16)) : Range16)) : Slice<Range16>), latinOffset: (2 : GoInt)} : RangeTable) : Ref<RangeTable>);
 
 /**
 	// ASCII_Hex_Digit is the set of Unicode characters with property ASCII_Hex_Digit.// These variables have type *RangeTable.
@@ -7978,10 +7986,10 @@ private var _caseOrbit:Slice<T_foldPair> = (new Slice<T_foldPair>(0, 0, (new T_f
 	(new T_foldPair((8491 : GoUInt16), (197 : GoUInt16)) : T_foldPair), (new T_foldPair((42570 : GoUInt16), (42571 : GoUInt16)) : T_foldPair),
 	(new T_foldPair((42571 : GoUInt16), (7304 : GoUInt16)) : T_foldPair)) : Slice<T_foldPair>);
 
-private var _foldL:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
-	(new Range16((837 : GoUInt16), (837 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var _foldL:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
+	(new Range16((837 : GoUInt16), (837 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var _foldLl:Ref<RangeTable> = ({
+private var _foldLl:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((65 : GoUInt16), (90 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((192 : GoUInt16), (214 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((216 : GoUInt16), (222 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -8096,9 +8104,9 @@ private var _foldLl:Ref<RangeTable> = ({
 		(new Range32((93760 : GoUInt32), (93791 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((125184 : GoUInt32), (125217 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>),
 	latinOffset: (3 : GoInt)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var _foldLt:Ref<RangeTable> = ({
+private var _foldLt:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((452 : GoUInt16), (454 : GoUInt16), (2 : GoUInt16)) : Range16),
 		(new Range16((455 : GoUInt16), (457 : GoUInt16), (2 : GoUInt16)) : Range16),
 		(new Range16((458 : GoUInt16), (460 : GoUInt16), (2 : GoUInt16)) : Range16),
@@ -8108,9 +8116,9 @@ private var _foldLt:Ref<RangeTable> = ({
 		(new Range16((8096 : GoUInt16), (8103 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((8115 : GoUInt16), (8131 : GoUInt16), (16 : GoUInt16)) : Range16),
 		(new Range16((8179 : GoUInt16), (8179 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var _foldLu:Ref<RangeTable> = ({
+private var _foldLu:Ref<RangeTable> = (({
 	r16: (new Slice<Range16>(0, 0, (new Range16((97 : GoUInt16), (122 : GoUInt16), (1 : GoUInt16)) : Range16),
 		(new Range16((181 : GoUInt16), (223 : GoUInt16), (42 : GoUInt16)) : Range16),
 		(new Range16((224 : GoUInt16), (246 : GoUInt16), (1 : GoUInt16)) : Range16),
@@ -8226,13 +8234,13 @@ private var _foldLu:Ref<RangeTable> = ({
 		(new Range32((93792 : GoUInt32), (93823 : GoUInt32), (1 : GoUInt32)) : Range32),
 		(new Range32((125218 : GoUInt32), (125251 : GoUInt32), (1 : GoUInt32)) : Range32)) : Slice<Range32>),
 	latinOffset: (4 : GoInt)
-} : RangeTable);
+} : RangeTable) : Ref<RangeTable>);
 
-private var _foldM:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((921 : GoUInt16), (953 : GoUInt16), (32 : GoUInt16)) : Range16),
-	(new Range16((8126 : GoUInt16), (8126 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var _foldM:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((921 : GoUInt16), (953 : GoUInt16), (32 : GoUInt16)) : Range16),
+	(new Range16((8126 : GoUInt16), (8126 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var _foldMn:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((921 : GoUInt16), (953 : GoUInt16), (32 : GoUInt16)) : Range16),
-	(new Range16((8126 : GoUInt16), (8126 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var _foldMn:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((921 : GoUInt16), (953 : GoUInt16), (32 : GoUInt16)) : Range16),
+	(new Range16((8126 : GoUInt16), (8126 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
 /**
 	// FoldCategory maps a category name to a table of
@@ -8313,14 +8321,14 @@ var foldCategory:GoMap<GoString, Ref<RangeTable>> = {
 	x;
 };
 
-private var _foldCommon:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
-	(new Range16((924 : GoUInt16), (956 : GoUInt16), (32 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var _foldCommon:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
+	(new Range16((924 : GoUInt16), (956 : GoUInt16), (32 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var _foldGreek:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0,
-	(new Range16((181 : GoUInt16), (837 : GoUInt16), (656 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var _foldGreek:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0,
+	(new Range16((181 : GoUInt16), (837 : GoUInt16), (656 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
-private var _foldInherited:Ref<RangeTable> = ({r16: (new Slice<Range16>(0, 0, (new Range16((921 : GoUInt16), (953 : GoUInt16), (32 : GoUInt16)) : Range16),
-	(new Range16((8126 : GoUInt16), (8126 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable);
+private var _foldInherited:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Range16((921 : GoUInt16), (953 : GoUInt16), (32 : GoUInt16)) : Range16),
+	(new Range16((8126 : GoUInt16), (8126 : GoUInt16), (1 : GoUInt16)) : Range16)) : Slice<Range16>)} : RangeTable) : Ref<RangeTable>);
 
 /**
 	// FoldScript maps a script name to a table of
@@ -8815,7 +8823,7 @@ function isSymbol(_r:GoRune):Bool {
 function _is16(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
 	if ((_ranges.length <= (18 : GoInt)) || (_r <= (255 : GoUInt16))) {
 		for (_i => _ in _ranges) {
-			var _range_ = _ranges[_i];
+			var _range_ = (_ranges[_i] : Ref<Range16>);
 			if (_r < _range_.lo) {
 				return false;
 			};
@@ -8829,7 +8837,7 @@ function _is16(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
 	var _hi:GoInt = (_ranges.length);
 	while (_lo < _hi) {
 		var _m:GoInt = _lo + ((_hi - _lo) / (2 : GoInt));
-		var _range_ = _ranges[_m];
+		var _range_ = (_ranges[_m] : Ref<Range16>);
 		if ((_range_.lo <= _r) && (_r <= _range_.hi)) {
 			return (_range_.stride == (1 : GoUInt16)) || (((_r - _range_.lo) % _range_.stride) == (0 : GoUInt16));
 		};
@@ -8848,7 +8856,7 @@ function _is16(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
 function _is32(_ranges:Slice<Range32>, _r:GoUInt32):Bool {
 	if ((_ranges.length) <= (18 : GoInt)) {
 		for (_i => _ in _ranges) {
-			var _range_ = _ranges[_i];
+			var _range_ = (_ranges[_i] : Ref<Range32>);
 			if (_r < _range_.lo) {
 				return false;
 			};

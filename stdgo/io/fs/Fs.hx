@@ -775,8 +775,8 @@ function readDir(_fsys:FS, _name:GoString):{var _0:Slice<DirEntry>; var _1:Error
 				for (defer in __deferstack__) {
 					defer();
 				};
-				return {_0: (null : Slice<DirEntry>), _1: Go.asInterface(({op: (Go.str("readdir") : GoString), path: _name,
-					err: stdgo.errors.Errors.new_((Go.str("not implemented") : GoString))} : PathError))};
+				return {_0: (null : Slice<DirEntry>), _1: Go.asInterface((({op: (Go.str("readdir") : GoString), path: _name,
+					err: stdgo.errors.Errors.new_((Go.str("not implemented") : GoString))} : PathError) : Ref<PathError>))};
 			};
 		};
 		var __tmp__ = _dir.readDir((-1 : GoInt)),
@@ -988,8 +988,8 @@ function stat(_fsys:FS, _name:GoString):{var _0:FileInfo; var _1:Error;} {
 **/
 function sub(_fsys:FS, _dir:GoString):{var _0:FS; var _1:Error;} {
 	if (!validPath(_dir)) {
-		return {_0: (null : FS), _1: Go.asInterface(({op: (Go.str("sub") : GoString), path: _dir,
-			err: stdgo.errors.Errors.new_((Go.str("invalid name") : GoString))} : PathError))};
+		return {_0: (null : FS), _1: Go.asInterface((({op: (Go.str("sub") : GoString), path: _dir,
+			err: stdgo.errors.Errors.new_((Go.str("invalid name") : GoString))} : PathError) : Ref<PathError>))};
 	};
 	if (_dir == (Go.str(".") : GoString)) {
 		return {_0: _fsys, _1: (null : stdgo.Error)};
@@ -1004,7 +1004,7 @@ function sub(_fsys:FS, _dir:GoString):{var _0:FS; var _1:Error;} {
 			return _fsys.sub(_dir);
 		};
 	};
-	return {_0: Go.asInterface((new T_subFS(_fsys, _dir) : T_subFS)), _1: (null : stdgo.Error)};
+	return {_0: Go.asInterface(((new T_subFS(_fsys, _dir) : T_subFS) : Ref<T_subFS>)), _1: (null : stdgo.Error)};
 }
 
 /**
@@ -1068,7 +1068,7 @@ function walkDir(_fsys:FS, _root:GoString, _fn:WalkDirFunc):Error {
 	if (_err != null) {
 		_err = _fn(_root, (null : DirEntry), _err);
 	} else {
-		_err = _walkDir(_fsys, _root, Go.asInterface((new T_statDirEntry(_info) : T_statDirEntry)), _fn);
+		_err = _walkDir(_fsys, _root, Go.asInterface(((new T_statDirEntry(_info) : T_statDirEntry) : Ref<T_statDirEntry>)), _fn);
 	};
 	if (_err == skipDir) {
 		return (null : stdgo.Error);
@@ -1243,7 +1243,7 @@ private class T_subFS_asInterface {
 		if (_err != null) {
 			return {_0: (null : FS), _1: _err};
 		};
-		return {_0: Go.asInterface((new T_subFS(_f._fsys, _full) : T_subFS)), _1: (null : stdgo.Error)};
+		return {_0: Go.asInterface(((new T_subFS(_f._fsys, _full) : T_subFS) : Ref<T_subFS>)), _1: (null : stdgo.Error)};
 	}
 
 	@:keep
@@ -1366,8 +1366,8 @@ private class T_subFS_asInterface {
 	@:keep
 	static public function _fullName(_f:Ref<T_subFS>, _op:GoString, _name:GoString):{var _0:GoString; var _1:Error;} {
 		if (!validPath(_name)) {
-			return {_0: (Go.str() : GoString), _1: Go.asInterface(({op: _op, path: _name,
-				err: stdgo.errors.Errors.new_((Go.str("invalid name") : GoString))} : PathError))};
+			return {_0: (Go.str() : GoString), _1: Go.asInterface((({op: _op, path: _name,
+				err: stdgo.errors.Errors.new_((Go.str("invalid name") : GoString))} : PathError) : Ref<PathError>))};
 		};
 		return {_0: stdgo.path.Path.join(_f._dir, _name), _1: (null : stdgo.Error)};
 	}

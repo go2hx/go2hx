@@ -102,7 +102,7 @@ private typedef T__interface_2 = StructType & {
 	// Each call to New returns a distinct error value even if the text is identical.
 **/
 function new_(_text:GoString):Error {
-	return Go.asInterface((new T_errorString(_text) : T_errorString));
+	return Go.asInterface(((new T_errorString(_text) : T_errorString) : Ref<T_errorString>));
 }
 
 /**

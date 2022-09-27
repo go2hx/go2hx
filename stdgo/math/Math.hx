@@ -2690,17 +2690,17 @@ function _pzero(_x:GoFloat64):GoFloat64 {
 	var _p:Ref<GoArray<GoFloat64>> = null;
 	var _q:Ref<GoArray<GoFloat64>> = null;
 	if (_x >= (8 : GoFloat64)) {
-		_p = _p0R8;
-		_q = _p0S8;
+		_p = (_p0R8 : Ref<GoArray<GoFloat64>>);
+		_q = (_p0S8 : Ref<GoArray<GoFloat64>>);
 	} else if (_x >= (4.5454 : GoFloat64)) {
-		_p = _p0R5;
-		_q = _p0S5;
+		_p = (_p0R5 : Ref<GoArray<GoFloat64>>);
+		_q = (_p0S5 : Ref<GoArray<GoFloat64>>);
 	} else if (_x >= (2.8571 : GoFloat64)) {
-		_p = _p0R3;
-		_q = _p0S3;
+		_p = (_p0R3 : Ref<GoArray<GoFloat64>>);
+		_q = (_p0S3 : Ref<GoArray<GoFloat64>>);
 	} else if (_x >= (2 : GoFloat64)) {
-		_p = _p0R2;
-		_q = _p0S2;
+		_p = (_p0R2 : Ref<GoArray<GoFloat64>>);
+		_q = (_p0S2 : Ref<GoArray<GoFloat64>>);
 	};
 	var _z:GoFloat64 = (1 : GoFloat64) / (_x * _x);
 	var _r:GoFloat64 = _p[(0 : GoInt)]
@@ -2713,17 +2713,17 @@ function _pzero(_x:GoFloat64):GoFloat64 {
 function _qzero(_x:GoFloat64):GoFloat64 {
 	var _p:Ref<GoArray<GoFloat64>> = null, _q:Ref<GoArray<GoFloat64>> = null;
 	if (_x >= (8 : GoFloat64)) {
-		_p = _q0R8;
-		_q = _q0S8;
+		_p = (_q0R8 : Ref<GoArray<GoFloat64>>);
+		_q = (_q0S8 : Ref<GoArray<GoFloat64>>);
 	} else if (_x >= (4.5454 : GoFloat64)) {
-		_p = _q0R5;
-		_q = _q0S5;
+		_p = (_q0R5 : Ref<GoArray<GoFloat64>>);
+		_q = (_q0S5 : Ref<GoArray<GoFloat64>>);
 	} else if (_x >= (2.8571 : GoFloat64)) {
-		_p = _q0R3;
-		_q = _q0S3;
+		_p = (_q0R3 : Ref<GoArray<GoFloat64>>);
+		_q = (_q0S3 : Ref<GoArray<GoFloat64>>);
 	} else if (_x >= (2 : GoFloat64)) {
-		_p = _q0R2;
-		_q = _q0S2;
+		_p = (_q0R2 : Ref<GoArray<GoFloat64>>);
+		_q = (_q0S2 : Ref<GoArray<GoFloat64>>);
 	};
 	var _z:GoFloat64 = (1 : GoFloat64) / (_x * _x);
 	var _r:GoFloat64 = _p[(0 : GoInt)]
@@ -2883,17 +2883,17 @@ function _pone(_x:GoFloat64):GoFloat64 {
 	var _p:Ref<GoArray<GoFloat64>> = null;
 	var _q:Ref<GoArray<GoFloat64>> = null;
 	if (_x >= (8 : GoFloat64)) {
-		_p = _p1R8;
-		_q = _p1S8;
+		_p = (_p1R8 : Ref<GoArray<GoFloat64>>);
+		_q = (_p1S8 : Ref<GoArray<GoFloat64>>);
 	} else if (_x >= (4.5454 : GoFloat64)) {
-		_p = _p1R5;
-		_q = _p1S5;
+		_p = (_p1R5 : Ref<GoArray<GoFloat64>>);
+		_q = (_p1S5 : Ref<GoArray<GoFloat64>>);
 	} else if (_x >= (2.8571 : GoFloat64)) {
-		_p = _p1R3;
-		_q = _p1S3;
+		_p = (_p1R3 : Ref<GoArray<GoFloat64>>);
+		_q = (_p1S3 : Ref<GoArray<GoFloat64>>);
 	} else if (_x >= (2 : GoFloat64)) {
-		_p = _p1R2;
-		_q = _p1S2;
+		_p = (_p1R2 : Ref<GoArray<GoFloat64>>);
+		_q = (_p1S2 : Ref<GoArray<GoFloat64>>);
 	};
 	var _z:GoFloat64 = (1 : GoFloat64) / (_x * _x);
 	var _r:GoFloat64 = _p[(0 : GoInt)]
@@ -2906,17 +2906,17 @@ function _pone(_x:GoFloat64):GoFloat64 {
 function _qone(_x:GoFloat64):GoFloat64 {
 	var _p:Ref<GoArray<GoFloat64>> = null, _q:Ref<GoArray<GoFloat64>> = null;
 	if (_x >= (8 : GoFloat64)) {
-		_p = _q1R8;
-		_q = _q1S8;
+		_p = (_q1R8 : Ref<GoArray<GoFloat64>>);
+		_q = (_q1S8 : Ref<GoArray<GoFloat64>>);
 	} else if (_x >= (4.5454 : GoFloat64)) {
-		_p = _q1R5;
-		_q = _q1S5;
+		_p = (_q1R5 : Ref<GoArray<GoFloat64>>);
+		_q = (_q1S5 : Ref<GoArray<GoFloat64>>);
 	} else if (_x >= (2.8571 : GoFloat64)) {
-		_p = _q1R3;
-		_q = _q1S3;
+		_p = (_q1R3 : Ref<GoArray<GoFloat64>>);
+		_q = (_q1S3 : Ref<GoArray<GoFloat64>>);
 	} else if (_x >= (2 : GoFloat64)) {
-		_p = _q1R2;
-		_q = _q1S2;
+		_p = (_q1R2 : Ref<GoArray<GoFloat64>>);
+		_q = (_q1S2 : Ref<GoArray<GoFloat64>>);
 	};
 	var _z:GoFloat64 = (1 : GoFloat64) / (_x * _x);
 	var _r:GoFloat64 = _p[(0 : GoInt)]

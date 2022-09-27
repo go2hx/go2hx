@@ -37,8 +37,8 @@ function testEnv(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testExecErrPermutedFds(_t:Ref<stdgo.testing.Testing.T>):Void {
 	stdgo.internal.testenv.Testenv.mustHaveExec(Go.asInterface(_t));
-	var _attr = ({files: (new Slice<Ref<stdgo.os.Os.File>>(0, 0, stdgo.os.Os.stdin, stdgo.os.Os.stderr,
-		stdgo.os.Os.stdout) : Slice<Ref<stdgo.os.Os.File>>)} : stdgo.os.Os.ProcAttr);
+	var _attr = (({files: (new Slice<Ref<stdgo.os.Os.File>>(0, 0, stdgo.os.Os.stdin, stdgo.os.Os.stderr,
+		stdgo.os.Os.stdout) : Slice<Ref<stdgo.os.Os.File>>)} : stdgo.os.Os.ProcAttr) : Ref<stdgo.os.Os.ProcAttr>);
 	var __tmp__ = stdgo.os.Os.startProcess((Go.str("/") : GoString), (new Slice<GoString>(0, 0, (Go.str("/") : GoString)) : Slice<GoString>), _attr),
 		_0:Ref<stdgo.os.Os.Process> = __tmp__._0,
 		_err:stdgo.Error = __tmp__._1;
@@ -51,7 +51,7 @@ function testGettimeofday(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (true) {
 		_t.skip(Go.toInterface((Go.str("not implemented on js") : GoString)));
 	};
-	var _tv = (new Timeval() : Timeval);
+	var _tv = ((new Timeval() : Timeval) : Ref<Timeval>);
 	{
 		var _err:stdgo.Error = stdgo.syscall.Syscall.gettimeofday(_tv);
 		if (_err != null) {

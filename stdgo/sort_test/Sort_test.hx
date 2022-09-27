@@ -651,7 +651,7 @@ function example_sortKeys():Void {
 **/
 function orderedBy(_less:haxe.Rest<T_lessFunc>):Ref<T_multiSorter> {
 	var _less = new Slice<T_lessFunc>(0, 0, ..._less);
-	return ({_less: _less} : stdgo.sort_test.Sort_test.T_multiSorter);
+	return (({_less: _less} : stdgo.sort_test.Sort_test.T_multiSorter) : Ref<stdgo.sort_test.Sort_test.T_multiSorter>);
 }
 
 /**
@@ -1363,7 +1363,7 @@ function testNonDeterministicComparison(_t:Ref<stdgo.testing.Testing.T>):Void {
 		a();
 	});
 	try {
-		var _td = ({_r: stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource((0 : GoInt64)))} : stdgo.sort_test.Sort_test.T_nonDeterministicTestingData);
+		var _td = (({_r: stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource((0 : GoInt64)))} : stdgo.sort_test.Sort_test.T_nonDeterministicTestingData) : Ref<stdgo.sort_test.Sort_test.T_nonDeterministicTestingData>);
 		{
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_i < (10:GoInt), _i++, {
@@ -1743,12 +1743,12 @@ function _testBentleyMcIlroy(_t:Ref<stdgo.testing.Testing.T>, _sort:Interface->V
 								};
 								var _desc:GoString = stdgo.fmt.Fmt.sprintf((Go.str("n=%d m=%d dist=%s mode=%s") : GoString), Go.toInterface(_n),
 									Go.toInterface(_m), Go.toInterface(_dists[_dist]), Go.toInterface(_modes[_mode]));
-								var _d = ({
+								var _d = (({
 									_desc: _desc,
 									_t: _t,
 									_data: (_mdata.__slice__((0 : GoInt), _n) : Slice<GoInt>),
 									_maxswap: _maxswap(_n)
-								} : stdgo.sort_test.Sort_test.T_testingData);
+								} : stdgo.sort_test.Sort_test.T_testingData) : Ref<stdgo.sort_test.Sort_test.T_testingData>);
 								_sort(Go.asInterface(_d));
 								if (!intsAreSorted(_mdata)) {
 									_t.fatalf((Go.str("%s: ints not sorted\n\t%v") : GoString), Go.toInterface(_desc), Go.toInterface(_mdata));
@@ -1789,12 +1789,12 @@ function _newAdversaryTestingData(_t:Ref<stdgo.testing.Testing.T>, _size:GoInt, 
 			_data[_i] = _gas;
 		});
 	};
-	return ({
+	return (({
 		_t: _t,
 		_data: _data,
 		_maxcmp: _maxcmp,
 		_gas: _gas
-	} : stdgo.sort_test.Sort_test.T_adversaryTestingData);
+	} : stdgo.sort_test.Sort_test.T_adversaryTestingData) : Ref<stdgo.sort_test.Sort_test.T_adversaryTestingData>);
 }
 
 function testAdversary(_t:Ref<stdgo.testing.Testing.T>):Void {
@@ -1894,7 +1894,7 @@ function _countOps(_t:Ref<stdgo.testing.Testing.T>, _algo:Interface->Void, _name
 				_td._data[_i] = stdgo.math.rand.Rand.intn(_n / (5 : GoInt));
 			});
 		};
-		_algo(Go.asInterface(_td));
+		_algo(Go.asInterface((_td : Ref<stdgo.sort_test.Sort_test.T_testingData>)));
 		_t.logf((Go.str("%s %8d elements: %11d Swap, %10d Less") : GoString), Go.toInterface(_name), Go.toInterface(_n), Go.toInterface(_td._nswap),
 			Go.toInterface(_td._ncmp));
 	};
@@ -2039,7 +2039,7 @@ private class T_planetSorter_asInterface {
 	**/
 	@:keep
 	static public function less(_s:Ref<T_planetSorter>, _i:GoInt, _j:GoInt):Bool {
-		return _s._by(_s._planets[_i], _s._planets[_j]);
+		return _s._by((_s._planets[_i] : Ref<stdgo.sort_test.Sort_test.Planet>), (_s._planets[_j] : Ref<stdgo.sort_test.Sort_test.Planet>));
 	}
 
 	/**
@@ -2120,7 +2120,8 @@ private class T_multiSorter_asInterface {
 	**/
 	@:keep
 	static public function less(_ms:Ref<T_multiSorter>, _i:GoInt, _j:GoInt):Bool {
-		var _p = _ms._changes[_i], _q = _ms._changes[_j];
+		var _p = (_ms._changes[_i] : Ref<stdgo.sort_test.Sort_test.Change>),
+			_q = (_ms._changes[_j] : Ref<stdgo.sort_test.Sort_test.Change>);
 		var _k:GoInt = (0 : GoInt);
 		{
 			_k = (0 : GoInt);
@@ -2479,7 +2480,7 @@ class By_asInterface {
 	**/
 	@:keep
 	static public function sort(_by:By, _planets:Slice<Planet>):Void {
-		var _ps = ({_planets: _planets, _by: _by} : stdgo.sort_test.Sort_test.T_planetSorter);
+		var _ps = (({_planets: _planets, _by: _by} : stdgo.sort_test.Sort_test.T_planetSorter) : Ref<stdgo.sort_test.Sort_test.T_planetSorter>);
 		stdgo.sort.Sort.sort(Go.asInterface(_ps));
 	}
 }

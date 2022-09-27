@@ -10,7 +10,7 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-private var _poserPathErr:Ref<stdgo.io.fs.Fs.PathError> = ({op: (Go.str("poser") : GoString)} : stdgo.io.fs.Fs.PathError);
+private var _poserPathErr:Ref<stdgo.io.fs.Fs.PathError> = (({op: (Go.str("poser") : GoString)} : stdgo.io.fs.Fs.PathError) : Ref<stdgo.io.fs.Fs.PathError>);
 
 private typedef T__interface_3 = StructType & {
 	public function timeout():Bool;
@@ -196,9 +196,10 @@ function testIs(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _errb:stdgo.errors_test.Errors_test.T_wrapped = (new stdgo.errors_test.Errors_test.T_wrapped((Go.str("wrap 3") : GoString),
 		Go.asInterface(_erra)) : stdgo.errors_test.Errors_test.T_wrapped);
 	var _err3:stdgo.Error = stdgo.errors.Errors.new_((Go.str("3") : GoString));
-	var _poser = (new stdgo.errors_test.Errors_test.T_poser((Go.str("either 1 or 3") : GoString), function(_err:Error):Bool {
-		return (_err == _err1) || (_err == _err3);
-	}) : stdgo.errors_test.Errors_test.T_poser);
+	var _poser = ((new stdgo.errors_test.Errors_test.T_poser((Go.str("either 1 or 3") : GoString),
+		function(_err:Error):Bool {
+			return (_err == _err1) || (_err == _err3);
+		}) : stdgo.errors_test.Errors_test.T_poser) : Ref<stdgo.errors_test.Errors_test.T_poser>);
 	var _testCases = (new Slice<T__struct_0>(0, 0, ({_err: (null : stdgo.Error), _target: (null : stdgo.Error), _match: true} : T__struct_0),
 		({_err: _err1, _target: (null : stdgo.Error), _match: false} : T__struct_0), ({_err: _err1, _target: _err1, _match: true} : T__struct_0),
 		({_err: Go.asInterface(_erra), _target: _err1, _match: true} : T__struct_0),
@@ -213,18 +214,18 @@ function testIs(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_target: Go.asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)),
 			_match: true} : T__struct_0),
 		({_err: Go.asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)),
-			_target: Go.asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)),
+			_target: Go.asInterface(((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable) : Ref<stdgo.errors_test.Errors_test.T_errorUncomparable>)),
 			_match: false} : T__struct_0),
-		({_err: Go.asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)),
+		({_err: Go.asInterface(((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable) : Ref<stdgo.errors_test.Errors_test.T_errorUncomparable>)),
 			_target: Go.asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)),
 			_match: true} : T__struct_0),
-		({_err: Go.asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)),
-			_target: Go.asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)),
+		({_err: Go.asInterface(((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable) : Ref<stdgo.errors_test.Errors_test.T_errorUncomparable>)),
+			_target: Go.asInterface(((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable) : Ref<stdgo.errors_test.Errors_test.T_errorUncomparable>)),
 			_match: false} : T__struct_0),
 		({_err: Go.asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)), _target: _err1,
 			_match: false} : T__struct_0),
-		({_err: Go.asInterface((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable)), _target: _err1,
-			_match: false} : T__struct_0)) : Slice<T__struct_0>);
+		({_err: Go.asInterface(((new stdgo.errors_test.Errors_test.T_errorUncomparable() : stdgo.errors_test.Errors_test.T_errorUncomparable) : Ref<stdgo.errors_test.Errors_test.T_errorUncomparable>)),
+			_target: _err1, _match: false} : T__struct_0)) : Slice<T__struct_0>);
 	for (_0 => _tc in _testCases) {
 		_t.run((Go.str() : GoString), function(_t:Ref<stdgo.testing.Testing.T>):Void {
 			{
@@ -246,7 +247,8 @@ function testAs(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __tmp__ = stdgo.os.Os.open((Go.str("non-existing") : GoString)),
 		_0:Ref<stdgo.os.Os.File> = __tmp__._0,
 		_errF:stdgo.Error = __tmp__._1;
-	var _poserErr = (new stdgo.errors_test.Errors_test.T_poser((Go.str("oh no") : GoString), null) : stdgo.errors_test.Errors_test.T_poser);
+	var _poserErr = ((new stdgo.errors_test.Errors_test.T_poser((Go.str("oh no") : GoString),
+		null) : stdgo.errors_test.Errors_test.T_poser) : Ref<stdgo.errors_test.Errors_test.T_poser>);
 	var _testCases = (new Slice<T__struct_1>(0, 0, ({
 		_err: (null : stdgo.Error),
 		_target: Go.toInterface((_errP : Ref<Ref<stdgo.io.fs.Fs.PathError>>)),
@@ -255,7 +257,7 @@ function testAs(_t:Ref<stdgo.testing.Testing.T>):Void {
 	} : T__struct_1), ({
 		_err: Go.asInterface((new stdgo.errors_test.Errors_test.T_wrapped((Go.str("pitied the fool") : GoString),
 			Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT((Go.str("T") : GoString)) : stdgo.errors_test.Errors_test.T_errorT))) : stdgo.errors_test.Errors_test.T_wrapped)),
-		_target: Go.toInterface(_errT),
+		_target: Go.toInterface((_errT : Ref<stdgo.errors_test.Errors_test.T_errorT>)),
 		_match: true,
 		_want: Go.toInterface(Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT((Go.str("T") : GoString)) : stdgo.errors_test.Errors_test.T_errorT)))
 		} : T__struct_1), ({
@@ -271,16 +273,18 @@ function testAs(_t:Ref<stdgo.testing.Testing.T>):Void {
 		} : T__struct_1), ({
 		_err: Go.asInterface((new stdgo.errors_test.Errors_test.T_wrapped((Go.str("wrapped") : GoString),
 			(null : stdgo.Error)) : stdgo.errors_test.Errors_test.T_wrapped)),
-		_target: Go.toInterface(_errT),
+		_target: Go.toInterface((_errT : Ref<stdgo.errors_test.Errors_test.T_errorT>)),
 		_match: false,
 		_want: (null : AnyInterface)
 		} : T__struct_1), ({
-		_err: Go.asInterface((new stdgo.errors_test.Errors_test.T_poser((Go.str("error") : GoString), null) : stdgo.errors_test.Errors_test.T_poser)),
-		_target: Go.toInterface(_errT),
+		_err: Go.asInterface(((new stdgo.errors_test.Errors_test.T_poser((Go.str("error") : GoString),
+			null) : stdgo.errors_test.Errors_test.T_poser) : Ref<stdgo.errors_test.Errors_test.T_poser>)),
+		_target: Go.toInterface((_errT : Ref<stdgo.errors_test.Errors_test.T_errorT>)),
 		_match: true,
 		_want: Go.toInterface(Go.asInterface((new stdgo.errors_test.Errors_test.T_errorT((Go.str("poser") : GoString)) : stdgo.errors_test.Errors_test.T_errorT)))
 		} : T__struct_1), ({
-		_err: Go.asInterface((new stdgo.errors_test.Errors_test.T_poser((Go.str("path") : GoString), null) : stdgo.errors_test.Errors_test.T_poser)),
+		_err: Go.asInterface(((new stdgo.errors_test.Errors_test.T_poser((Go.str("path") : GoString),
+			null) : stdgo.errors_test.Errors_test.T_poser) : Ref<stdgo.errors_test.Errors_test.T_poser>)),
 		_target: Go.toInterface((_errP : Ref<Ref<stdgo.io.fs.Fs.PathError>>)),
 		_match: true,
 		_want: Go.toInterface(_poserPathErr)
@@ -291,18 +295,18 @@ function testAs(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_want: Go.toInterface(_poserErr)
 		} : T__struct_1), ({
 		_err: stdgo.errors.Errors.new_((Go.str("err") : GoString)),
-		_target: Go.toInterface(_timeout),
+		_target: Go.toInterface((_timeout : Ref<T__interface_3>)),
 		_match: false,
 		_want: (null : AnyInterface)
 		} : T__struct_1), ({
 		_err: _errF,
-		_target: Go.toInterface(_timeout),
+		_target: Go.toInterface((_timeout : Ref<T__interface_3>)),
 		_match: true,
 		_want: Go.toInterface(_errF)
 		} : T__struct_1), ({
 		_err: Go.asInterface((new stdgo.errors_test.Errors_test.T_wrapped((Go.str("path error") : GoString),
 			_errF) : stdgo.errors_test.Errors_test.T_wrapped)),
-		_target: Go.toInterface(_timeout),
+		_target: Go.toInterface((_timeout : Ref<T__interface_3>)),
 		_match: true,
 		_want: Go.toInterface(_errF)
 		} : T__struct_1)) : Slice<T__struct_1>);

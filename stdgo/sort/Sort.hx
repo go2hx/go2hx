@@ -354,7 +354,7 @@ function _nextPowerOfTwo(_length:GoInt):GoUInt {
 	// Reverse returns the reverse order for data.
 **/
 function reverse(_data:Interface):Interface {
-	return Go.asInterface((new T_reverse(_data) : T_reverse));
+	return Go.asInterface(((new T_reverse(_data) : T_reverse) : Ref<T_reverse>));
 }
 
 /**

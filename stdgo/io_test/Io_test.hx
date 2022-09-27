@@ -841,7 +841,7 @@ function exampleMultiWriter():Void {
 	var _r = stdgo.strings.Strings.newReader((Go.str("some io.Reader stream to be read\n") : GoString));
 	var _buf1:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer),
 		_buf2:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-	var _w:Writer = stdgo.io.Io.multiWriter(Go.asInterface(_buf1), Go.asInterface(_buf2));
+	var _w:Writer = stdgo.io.Io.multiWriter(Go.asInterface((_buf1 : Ref<stdgo.bytes.Bytes.Buffer>)), Go.asInterface((_buf2 : Ref<stdgo.bytes.Bytes.Buffer>)));
 	{
 		var __tmp__ = stdgo.io.Io.copy(_w, Go.asInterface(_r)),
 			_0:GoInt64 = __tmp__._0,
@@ -900,7 +900,7 @@ function testCopyNegative(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _rb = ({} : stdgo.io_test.Io_test.Buffer);
 	var _wb = ({} : stdgo.io_test.Io_test.Buffer);
 	_rb.writeString((Go.str("hello") : GoString));
-	copy(Go.asInterface(_wb), Go.asInterface(({r: Go.asInterface(_rb), n: (-1 : GoInt64)} : LimitedReader)));
+	copy(Go.asInterface(_wb), Go.asInterface((({r: Go.asInterface(_rb), n: (-1 : GoInt64)} : LimitedReader) : Ref<LimitedReader>)));
 	if ((_wb.string() : GoString) != (Go.str() : GoString)) {
 		_t.errorf((Go.str("Copy on LimitedReader with N<0 copied data") : GoString));
 	};
@@ -1046,7 +1046,7 @@ function benchmarkCopyNLarge(_b:Ref<stdgo.testing.Testing.B>):Void {
 
 function testCopyNEOF(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _b = ({} : stdgo.bytes.Bytes.Buffer);
-	var __tmp__ = copyN(Go.asInterface((new stdgo.io_test.Io_test.T_noReadFrom(Go.asInterface(_b)) : stdgo.io_test.Io_test.T_noReadFrom)),
+	var __tmp__ = copyN(Go.asInterface(((new stdgo.io_test.Io_test.T_noReadFrom(Go.asInterface(_b)) : stdgo.io_test.Io_test.T_noReadFrom) : Ref<stdgo.io_test.Io_test.T_noReadFrom>)),
 		Go.asInterface(stdgo.strings.Strings.newReader((Go.str("foo") : GoString))), (3 : GoInt64)),
 		_n:GoInt64 = __tmp__._0,
 		_err:stdgo.Error = __tmp__._1;
@@ -1054,7 +1054,7 @@ function testCopyNEOF(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_t.errorf((Go.str("CopyN(noReadFrom, foo, 3) = %d, %v; want 3, nil") : GoString), Go.toInterface(_n), Go.toInterface(_err));
 	};
 	{
-		var __tmp__ = copyN(Go.asInterface((new stdgo.io_test.Io_test.T_noReadFrom(Go.asInterface(_b)) : stdgo.io_test.Io_test.T_noReadFrom)),
+		var __tmp__ = copyN(Go.asInterface(((new stdgo.io_test.Io_test.T_noReadFrom(Go.asInterface(_b)) : stdgo.io_test.Io_test.T_noReadFrom) : Ref<stdgo.io_test.Io_test.T_noReadFrom>)),
 			Go.asInterface(stdgo.strings.Strings.newReader((Go.str("foo") : GoString))), (4 : GoInt64));
 		_n = __tmp__._0;
 		_err = __tmp__._1;
@@ -1088,7 +1088,7 @@ function testCopyNEOF(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_t.errorf((Go.str("CopyN(bytes.Buffer, wantedAndErrReader, 5) = %d, %v; want 5, nil") : GoString), Go.toInterface(_n), Go.toInterface(_err));
 	};
 	{
-		var __tmp__ = copyN(Go.asInterface((new stdgo.io_test.Io_test.T_noReadFrom(Go.asInterface(_b)) : stdgo.io_test.Io_test.T_noReadFrom)),
+		var __tmp__ = copyN(Go.asInterface(((new stdgo.io_test.Io_test.T_noReadFrom(Go.asInterface(_b)) : stdgo.io_test.Io_test.T_noReadFrom) : Ref<stdgo.io_test.Io_test.T_noReadFrom>)),
 			Go.asInterface((new stdgo.io_test.Io_test.T_wantedAndErrReader() : stdgo.io_test.Io_test.T_wantedAndErrReader)), (5 : GoInt64));
 		_n = __tmp__._0;
 		_err = __tmp__._1;
@@ -1100,19 +1100,19 @@ function testCopyNEOF(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testReadAtLeast(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _rb:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-	_testReadAtLeast(_t, Go.asInterface(_rb));
+	_testReadAtLeast(_t, Go.asInterface((_rb : Ref<stdgo.bytes.Bytes.Buffer>)));
 }
 
 function testReadAtLeastWithDataAndEOF(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _rb:T_dataAndErrorBuffer = ({} : stdgo.io_test.Io_test.T_dataAndErrorBuffer);
 	_rb._err = eof;
-	_testReadAtLeast(_t, Go.asInterface(_rb));
+	_testReadAtLeast(_t, Go.asInterface((_rb : Ref<stdgo.io_test.Io_test.T_dataAndErrorBuffer>)));
 }
 
 function testReadAtLeastWithDataAndError(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _rb:T_dataAndErrorBuffer = ({} : stdgo.io_test.Io_test.T_dataAndErrorBuffer);
 	_rb._err = stdgo.fmt.Fmt.errorf((Go.str("fake error") : GoString));
-	_testReadAtLeast(_t, Go.asInterface(_rb));
+	_testReadAtLeast(_t, Go.asInterface((_rb : Ref<stdgo.io_test.Io_test.T_dataAndErrorBuffer>)));
 }
 
 function _testReadAtLeast(_t:Ref<stdgo.testing.Testing.T>, _rb:ReadWriter):Void {
@@ -1519,7 +1519,7 @@ function testMultiReaderAsWriterTo(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (!_ok) {
 		_t.fatalf((Go.str("expected cast to WriterTo to succeed") : GoString));
 	};
-	var _sink = (new stdgo.strings.Strings.Builder() : stdgo.strings.Strings.Builder);
+	var _sink = ((new stdgo.strings.Strings.Builder() : stdgo.strings.Strings.Builder) : Ref<stdgo.strings.Strings.Builder>);
 	var __tmp__ = _mrAsWriterTo.writeTo(Go.asInterface(_sink)),
 		_n:GoInt64 = __tmp__._0,
 		_err:stdgo.Error = __tmp__._1;
@@ -1575,8 +1575,8 @@ function testMultiWriter_WriteStringSingleAlloc(_t:Ref<stdgo.testing.Testing.T>)
 	var _sink1:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer),
 		_sink2:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
 	{};
-	var _mw:Writer = multiWriter(Go.asInterface((new stdgo.io_test.Io_test.T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0(Go.asInterface(_sink1)) : stdgo.io_test.Io_test.T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0)),
-		Go.asInterface((new stdgo.io_test.Io_test.T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0(Go.asInterface(_sink2)) : stdgo.io_test.Io_test.T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0)));
+	var _mw:Writer = multiWriter(Go.asInterface((new stdgo.io_test.Io_test.T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0(Go.asInterface((_sink1 : Ref<stdgo.bytes.Bytes.Buffer>))) : stdgo.io_test.Io_test.T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0)),
+		Go.asInterface((new stdgo.io_test.Io_test.T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0(Go.asInterface((_sink2 : Ref<stdgo.bytes.Bytes.Buffer>))) : stdgo.io_test.Io_test.T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0)));
 	var _allocs:GoInt = (stdgo.testing.Testing.allocsPerRun((1000 : GoInt), function():Void {
 		writeString(_mw, (Go.str("foo") : GoString));
 	}) : GoInt);
@@ -1587,7 +1587,7 @@ function testMultiWriter_WriteStringSingleAlloc(_t:Ref<stdgo.testing.Testing.T>)
 
 function testMultiWriter_StringCheckCall(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _c:T_writeStringChecker = ({} : stdgo.io_test.Io_test.T_writeStringChecker);
-	var _mw:Writer = multiWriter(Go.asInterface(_c));
+	var _mw:Writer = multiWriter(Go.asInterface((_c : Ref<stdgo.io_test.Io_test.T_writeStringChecker>)));
 	writeString(_mw, (Go.str("foo") : GoString));
 	if (!_c._called) {
 		_t.error(Go.toInterface((Go.str("did not see WriteString call to writeStringChecker") : GoString)));
@@ -1683,7 +1683,7 @@ function testMultiReaderCopy(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testMultiWriterCopy(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
-	var _slice = (new Slice<Writer>(0, 0, Go.asInterface(_buf)) : Slice<Writer>);
+	var _slice = (new Slice<Writer>(0, 0, Go.asInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>))) : Slice<Writer>);
 	var _w:Writer = multiWriter(..._slice.__toArray__());
 	_slice[(0 : GoInt)] = (null : Writer);
 	var __tmp__ = _w.write(((Go.str("hello world") : GoString) : Slice<GoByte>)),

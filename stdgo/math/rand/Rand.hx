@@ -415,8 +415,8 @@ private var _rngCooked:GoArray<GoInt64> = (new GoArray<GoInt64>(("-4181792142133
 	("-6278469401177312761" : GoInt64), ("-2171292963361310674" : GoInt64), ("8382142935188824023" : GoInt64), ("9103922860780351547" : GoInt64),
 	("4152330101494654406" : GoInt64)) : GoArray<GoInt64>);
 
-private var _globalRand:Ref<Rand> = new_(Go.asInterface(({_src: ((newSource((1 : GoInt64)).__underlying__()
-	.value : Dynamic) : Ref<T_rngSource>)} : T_lockedSource)));
+private var _globalRand:Ref<Rand> = new_(Go.asInterface((({_src: ((newSource((1 : GoInt64)).__underlying__()
+	.value : Dynamic) : Ref<T_rngSource>)} : T_lockedSource) : Ref<T_lockedSource>)));
 
 private final _re:GoUnTypedFloat = (7.69711747013105 : GoUnTypedFloat);
 private final _rn:GoUnTypedFloat = (3.442619855899 : GoUnTypedFloat);
@@ -641,7 +641,7 @@ function _absInt32(_i:GoInt32):GoUInt32 {
 function newSource(_seed:GoInt64):Source {
 	var _rng:T_rngSource = ({} : T_rngSource);
 	_rng.seed(_seed);
-	return Go.asInterface(_rng);
+	return Go.asInterface((_rng : Ref<T_rngSource>));
 }
 
 /**
@@ -654,7 +654,7 @@ function new_(_src:Source):Ref<Rand> {
 	} catch (_) {
 		{value: (null : Source64), ok: false};
 	}, _s64 = __tmp__.value, _0 = __tmp__.ok;
-	return ({_src: _src, _s64: _s64} : Rand);
+	return (({_src: _src, _s64: _s64} : Rand) : Ref<Rand>);
 }
 
 function _read(_p:Slice<GoByte>, _src:Source, _readVal:Pointer<GoInt64>, _readPos:Pointer<GoInt8>):{var _0:GoInt; var _1:Error;} {

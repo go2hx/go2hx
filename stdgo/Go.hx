@@ -624,7 +624,7 @@ class Go {
 					}
 				} else if (t.pack.length == 1
 					&& t.pack[0] == "stdgo"
-					&& (t.name != "GoByte" && t.name != "GoRune" && t.name != "GoFloat" && t.name != "GoUInt" && t.name != "GoInt")) {
+					&& (t.name != "GoByte" && t.name != "GoRune" && t.name != "GoFloat" && t.name != "GoUInt" && t.name != "GoInt" && t.name != "Error")) {
 					follow = false;
 				}
 			case TAbstract(_, _):

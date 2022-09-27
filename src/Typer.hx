@@ -4114,22 +4114,19 @@ private function setBasicLit(kind:Ast.Token, value:String, type:GoType, raw:Bool
 
 private function typeUnaryExpr(expr:Ast.UnaryExpr, info:Info):ExprDef {
 	var x = typeExpr(expr.x, info);
-	final t = typeof(expr.x, info, false); // use expr type potentially instead of expr.x?
+	final t = typeof(expr, info, false); // use expr type potentially instead of expr.x?
 	final isNamed = isNamed(t);
 	if (expr.op == AND) {
-		// trace(t);
-		switch t {
+		return switch t {
 			case refType(_):
 				final t = typeof(expr, info, false);
 				final ct = toComplexType(t, info);
-				// trace(printer.printComplexType(ct));
 				return (macro($x : $ct)).expr;
+			case pointer(_):
+				return (macro Go.pointer($x)).expr;
 			default:
+				x.expr;
 		}
-		if (!isRefValue(t)) {
-			return (macro Go.pointer($x)).expr;
-		}
-		return x.expr;
 	} else {
 		final op = typeUnOp(expr.op);
 		if (op == null)

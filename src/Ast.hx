@@ -20,6 +20,48 @@ enum abstract ObjKind(Int) {
 	public final lbl = 7; // label
 }
 
+enum abstract BasicKind(Int) {
+	public final bool = 0;
+	public final int = 1;
+	public final int8 = 2;
+	public final int16 = 3;
+	public final int32 = 4;
+	public final int64 = 5;
+	public final uint = 6;
+	public final uint8 = 7;
+	public final uint16 = 8;
+	public final uint32 = 9;
+	public final uint64 = 10;
+	public final uintptr = 11;
+	public final float32 = 12;
+	public final float64 = 13;
+	public final complex64 = 14;
+	public final complex128 = 15;
+	public final string = 16;
+	public final unsafePointer = 17;
+	// types for untyped values
+	public final untypedBool = 18;
+	public final untypedInt = 19;
+	public final untypedRune = 20;
+	public final untypedFloat = 21;
+	public final untypedComplex = 22;
+	public final untypedString = 23;
+	public final untypedNil = 24;
+}
+
+enum abstract BasicInfo(Int) from Int to Int {
+	public final isBoolean = 1;
+	public final isInteger = 2;
+	public final isUnsigned = 4;
+	public final isFloat = 8;
+	public final isComplex = 16;
+	public final isString = 32;
+	public final isUntyped = 64;
+	public final isOrdered = isInteger | isFloat | isString;
+	public final isNumeric = isInteger | isFloat | isComplex;
+	public final isConstType = isBoolean | isNumeric | isString;
+}
+
 typedef Comment = {
 	text:String,
 	pos:Int,
@@ -63,10 +105,12 @@ typedef Ellipsis = {
 
 typedef BasicLit = {
 	// > Node,
-	valuePos:Pos,
-	kind:Token,
-	type:ExprType,
+	kind:BasicKind,
+	token:Token,
+	info:BasicInfo,
 	value:String,
+	type:ExprType,
+	basic:Bool,
 	raw:Bool,
 };
 

@@ -219,7 +219,7 @@ final list = [
 	// stdgo/os
 	"os:open" => macro {
 		if (!sys.FileSystem.exists(_name))
-			return {_0: null, _1: stdgo.errors.Errors.new_("os can not open: " + _name)};
+			return {_0: null, _1: stdgo.errors.Errors.new_("open " + _name + ": no such file or directory")};
 		throw "os.open is not yet implemented";
 		return {_0: null, _1: null};
 	},

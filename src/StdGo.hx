@@ -16,7 +16,8 @@ function main() {
 	for (data in list) {
 		libs.push(data.split("-")[0]);
 	}
-	// libs = ["unicode"];
+	// libs = ["errors"];
+	// libs = ["runtime"];
 	trace(libs);
 	libCount = libs.length;
 	Main.setup(0, 1); // amount of processes to spawn
@@ -42,18 +43,22 @@ var instance:Main.InstanceData = null;
 var compiled:Bool = false;
 var args:Array<String> = [];
 var hxml = "";
+var externBool = false;
+var exportBool = false;
 
 function update() {
-	var externBool = false;
 	#if !js
 	Main.update();
 	#end
 	for (lib in libs) {
 		externBool = externs.indexOf(lib) != -1;
+		exportBool = exports.indexOf(lib) != -1;
 		hxml = "stdgo/" + sanatize(lib);
 		args = [lib, '--nocomments', '--out', 'stdgo', '--root', 'stdgo', '--norun'];
 		if (externBool)
 			args.push("--extern");
+		if (exportBool)
+			args.push("--export");
 		if (noMain.indexOf(lib) == -1) {
 			args.push('--hxml');
 			args.push(hxml);
@@ -76,9 +81,11 @@ private function sanatize(s:String):String {
 	return s;
 }
 
-final noMain = ["testing/internal/testdeps"];
+final noMain = ["testing/internal/testdeps", "runtime"];
 
 final externs = [
 	"syscall/js", "syscall", "os", "context", "testing", "testing/quick", "testing/iotest", "testing/fstest", "testing/internal/testdeps", "regexp/syntax",
-	"regexp",
+	"regexp", "runtime",
 ];
+
+final exports = ["runtime"];

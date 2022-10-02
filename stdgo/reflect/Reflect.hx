@@ -1519,7 +1519,7 @@ class _Type {
 	public function assignableTo(ot:Type):Bool {
 		if (ot == null)
 			throw "reflect: nil type passed to Type.AssignableTo";
-		final b = directlyAssignable(ot, this) || implementsMethod(ot, this, true);
+		final b = directlyAssignable(ot, this) || implementsMethod(ot, this);
 		return b;
 	}
 
@@ -1528,7 +1528,7 @@ class _Type {
 			throw "reflect: nil type passed to Type.Implements";
 		if (ot.kind() != interface_)
 			throw "reflect: non-interface type passed to Type.Implements: " + ot.kind();
-		return implementsMethod(ot, this, true);
+		return implementsMethod(ot, this);
 	}
 
 	public function comparable():Bool {
@@ -1850,7 +1850,7 @@ private function sortMethods(methods:Array<MethodType>) {
 	});
 }
 
-private function implementsMethod(t:Type, v:Type, canBeNamed:Bool):Bool {
+private function implementsMethod(t:Type, v:Type):Bool {
 	#if go2hx_compiler
 	return false;
 	#else
@@ -1858,7 +1858,7 @@ private function implementsMethod(t:Type, v:Type, canBeNamed:Bool):Bool {
 	var gt:GoType = @:privateAccess t.common().value;
 	var vgt:GoType = @:privateAccess v.common().value;
 
-	if (!canBeNamed && t.kind() != interface_)
+	if (t.kind() != interface_)
 		return false;
 
 	return switch gt {

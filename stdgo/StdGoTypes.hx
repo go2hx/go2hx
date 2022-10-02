@@ -52,7 +52,7 @@ typedef GoUnTypedComplex = GoComplex128;
 typedef Ref<T> = T; // refrence type used only for macro reflection type info purposes, has no overhead
 
 @:eager
-typedef DynamicInvalid = Dynamic; // invalid type, attempt to use Dynamic
+typedef InvalidType = Dynamic; // invalid type, attempt to use Dynamic
 
 private function parseStringUInt(sParam:String):UInt32 {
 	final base:UInt32 = ofIntUInt(10);
@@ -837,8 +837,9 @@ abstract GoInt32(Int) from Int32 to Int32 to Int {
 		return a.toBasic() + b.toBasic();
 
 	@:op(A / B) private static inline function div(a:GoInt32, b:GoInt32):GoInt32 {
-		if (b == 0)
-			throw Go.toInterface(new stdgo.runtime.Runtime.T_errorString_asInterface(Go.pointer(stdgo.runtime.Runtime.divideError)));
+		if (b == 0) {
+			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
+		}
 		return Std.int(a.toBasic() / b.toBasic());
 	}
 
@@ -971,8 +972,9 @@ abstract GoUInt32(UInt) from UInt from Int to UInt to Int {
 		return clamp(a.toBasic() % b.toBasic());
 
 	@:op(A / B) private static function div(a:GoUInt32, b:GoUInt32):GoUInt32 {
-		if (b == 0)
-			throw Go.toInterface(new stdgo.runtime.Runtime.T_errorString_asInterface(Go.pointer(stdgo.runtime.Runtime.divideError)));
+		if (b == 0) {
+			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
+		}
 		return Std.int(a.toBasic() / b.toBasic());
 	}
 
@@ -1118,8 +1120,9 @@ abstract GoInt8(Int8) from Int8 from Int to Int8 {
 		return a.toBasic() <= b.toBasic();
 
 	@:op(A / B) private static function div(a:GoInt8, b:GoInt8):GoInt8 {
-		if (b == 0)
-			throw Go.toInterface(new stdgo.runtime.Runtime.T_errorString_asInterface(Go.pointer(stdgo.runtime.Runtime.divideError)));
+		if (b == 0) {
+			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
+		}
 		return Std.int(a.toBasic() / b.toBasic());
 	}
 
@@ -1218,8 +1221,9 @@ abstract GoInt16(Int16) from Int16 from Int to Int16 {
 		return a * -1;
 
 	@:op(A / B) private static function div(a:GoInt16, b:GoInt16):GoInt16 {
-		if (b == 0)
-			throw Go.toInterface(new stdgo.runtime.Runtime.T_errorString_asInterface(Go.pointer(stdgo.runtime.Runtime.divideError)));
+		if (b == 0) {
+			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
+		}
 		return Std.int(a.toBasic() / b.toBasic());
 	}
 
@@ -1338,8 +1342,9 @@ abstract GoInt64(Int64) from Int64 {
 		return a.toBasic() % b.toBasic();
 
 	@:op(A / B) public static function div(a:GoInt64, b:GoInt64):GoInt64 {
-		if (b == 0)
-			throw Go.toInterface(new stdgo.runtime.Runtime.T_errorString_asInterface(Go.pointer(stdgo.runtime.Runtime.divideError)));
+		if (b == 0) {
+			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
+		}
 		return a.toBasic() / b.toBasic();
 	}
 
@@ -1463,8 +1468,9 @@ abstract GoUInt8(UInt8) from UInt8 from Int to UInt8 {
 		return clamp(a.toBasic() % b.toBasic());
 
 	@:op(A / B) private static function div(a:GoUInt8, b:GoUInt8):GoUInt8 {
-		if (b == 0)
-			throw Go.toInterface(new stdgo.runtime.Runtime.T_errorString_asInterface(Go.pointer(stdgo.runtime.Runtime.divideError)));
+		if (b == 0) {
+			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
+		}
 		return clamp(Std.int(a.toBasic() / b.toBasic()));
 	}
 
@@ -1580,8 +1586,9 @@ abstract GoUInt16(UInt16) from UInt16 from Int to UInt16 {
 		return clamp(a.toBasic() % b.toBasic());
 
 	@:op(A / B) private static function div(a:GoUInt16, b:GoUInt16):GoUInt16 {
-		if (b == 0)
-			throw Go.toInterface(new stdgo.runtime.Runtime.T_errorString_asInterface(Go.pointer(stdgo.runtime.Runtime.divideError)));
+		if (b == 0) {
+			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
+		}
 		return clamp(Std.int(a.toBasic() / b.toBasic()));
 	}
 
@@ -1713,8 +1720,9 @@ abstract GoUInt64(UInt64) from UInt64 {
 		return a.toBasic() % b.toBasic();
 
 	@:op(A / B) private static function div(a:GoUInt64, b:GoUInt64):GoUInt64 {
-		if (b == 0)
-			throw Go.toInterface(new stdgo.runtime.Runtime.T_errorString_asInterface(Go.pointer(stdgo.runtime.Runtime.divideError)));
+		if (b == 0) {
+			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
+		}
 		return a.toBasic() / b.toBasic();
 	}
 
@@ -1775,6 +1783,15 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 		}
 		var aValue = a.value;
 		var bValue = b.value;
+		/*
+			trace(gt);
+			trace("-------");
+			trace(gt2);
+			trace("-end equals-");
+			trace(aValue);
+			trace(bValue);
+			trace("-end values-"); 
+		 */
 		switch gt {
 			case named(path, _, _, _):
 				if (aValue != null) {

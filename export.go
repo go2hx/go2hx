@@ -77,17 +77,21 @@ var typeMapIndex uint32 = 0
 var hashMap map[uint32]map[string]interface{}
 var testBool = false
 var externBool = false
+var exportBool = false
 
 func compile(params []string, excludesData []string, index string, debug bool) []byte {
 	args := []string{}
 	testBool = false
 	externBool = false
+	exportBool = false
 	for _, param := range params {
 		switch param {
 		case "-test", "--test":
 			testBool = true
 		case "-extern", "--extern", "-externs", "--externs":
 			externBool = true
+		case "-export", "--export", "-exports", "--exports":
+			exportBool = true
 		default:
 			args = append(args, param)
 		}
@@ -253,9 +257,9 @@ func parseLocalPackage(pkg *packages.Package, excludes map[string]bool) {
 		return
 	}
 	for _, val := range pkg.Imports {
-		if excludes[val.PkgPath] || strings.HasPrefix(val.PkgPath, "internal") {
+		/*if excludes[val.PkgPath] || strings.HasPrefix(val.PkgPath, "internal") {
 			continue
-		}
+		}*/
 		parseLocalPackage(val, excludes)
 	}
 	checker = types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
@@ -523,6 +527,9 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 			}
 		}
 		mergePackage(list[i])
+		if exportBool {
+			ast.FileExports(list[i].Syntax[0])
+		}
 		if externBool && !strings.HasSuffix(list[i].PkgPath, "_test") && !strings.HasSuffix(list[i].PkgPath, ".test") { // remove function bodies
 			for _, file := range list[i].Syntax {
 				for _, d := range file.Decls {
@@ -826,13 +833,15 @@ func parseType(node interface{}, marked2 map[string]bool) map[string]interface{}
 	case "Interface":
 		s := node.(*types.Interface)
 		data["empty"] = s.Empty()
-		data["methods"] = parseMethods(s, &methodCache, 1, marked)
+		methods := parseMethods(s, &methodCache, 0, marked)
+		data["methods"] = methods
 		embeds := make([]map[string]interface{}, s.NumEmbeddeds())
 		for i := 0; i < s.NumEmbeddeds(); i++ {
 			v := s.EmbeddedType(i)
 			embeds[i] = parseType(v, marked)
 		}
 		data["embeds"] = embeds
+		//fmt.Println(len(data["methods"].([]map[string]interface{})), len(methods))
 	case "Pointer":
 		s := node.(*types.Pointer)
 		data["elem"] = parseType(s.Elem(), marked)
@@ -1088,59 +1097,111 @@ func parseIdent(value *ast.Ident) map[string]interface{} {
 	}
 	return data
 }
-func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
+func parseBasicLit(expr *ast.BasicLit) map[string]interface{} {
 	output := ""
-	raw := false
-	switch value.Kind {
-	case token.INT:
-		i, err := strconv.ParseInt(value.Value, 0, 64)
-		if err != nil {
-			j, err2 := strconv.ParseUint(value.Value, 0, 64)
-			if err2 != nil {
-				k, err3 := strconv.ParseFloat(value.Value, 64)
-				if err3 != nil {
-					panic("parse uint/int 64 and float64 error: " + err3.Error())
+	if expr.Kind == token.STRING || expr.Kind == token.CHAR {
+		raw := false
+		if len(expr.Value) > 0 {
+			raw = expr.Value[0:1] == "`"
+			expr.Value = string(expr.Value[1 : len(expr.Value)-1])
+		}
+		output = expr.Value
+		return map[string]interface{}{
+			"id":    "BasicLit",
+			"value": output,
+			"raw":   raw,
+			"basic": true,
+			"token": expr.Kind.String(),
+			"kind":  nil,
+			"type":  parseType(checker.TypeOf(expr), map[string]bool{}),
+		}
+	}
+	if value := checker.Types[expr].Value; value != nil {
+		basic := checker.TypeOf(expr).Underlying().(*types.Basic)
+		switch {
+		case basic.Kind() == types.UntypedInt:
+			f, _ := constant.Uint64Val(constant.ToInt((value)))
+			output = strconv.FormatUint(f>>32, 10)
+		case basic.Info()&types.IsBoolean != 0:
+			output = strconv.FormatBool(constant.BoolVal(value))
+		case basic.Info()&types.IsInteger != 0:
+			if basic.Kind() == types.Int64 || basic.Kind() == types.Uint64 {
+				if basic.Kind() == types.Int64 {
+					d, ok := constant.Int64Val(constant.ToInt(value))
+					if !ok {
+						panic("imprecise int64")
+					}
+					output = strconv.FormatInt(d, 10)
 				} else {
-					output = fmt.Sprintf("%f", k) // decimal format
+					d, ok := constant.Uint64Val(constant.ToInt(value))
+					if !ok {
+						panic("imprecise uint64")
+					}
+					output = strconv.FormatUint(d, 10)
 				}
 			} else {
-				output = fmt.Sprint(j)
+				d, ok := constant.Int64Val(constant.ToInt(value))
+				if !ok {
+					panic("could not get exact int")
+				}
+				output = strconv.FormatInt(d, 10)
 			}
-		} else {
+		case basic.Info()&types.IsFloat != 0:
+			f, _ := constant.Float64Val(value)
+			output = strconv.FormatFloat(f, 'g', -1, 64)
+		case basic.Info()&types.IsComplex != 0:
+			r, _ := constant.Float64Val(constant.Real(value))
+			i, _ := constant.Float64Val(constant.Imag(value))
+			output = strconv.FormatFloat(r, 'g', -1, 64) + "i" + strconv.FormatFloat(i, 'g', -1, 64)
+		}
+		return map[string]interface{}{
+			"id":    "BasicLit",
+			"kind":  int32(basic.Kind()),
+			"info":  int32(basic.Info()),
+			"value": output,
+			"basic": false,
+			"type":  parseType(basic, map[string]bool{}),
+		}
+	} else {
+		switch expr.Kind {
+		case token.INT:
+			i, err := strconv.ParseInt(expr.Value, 0, 64)
+			if err != nil {
+				j, err2 := strconv.ParseUint(expr.Value, 0, 64)
+				if err2 != nil {
+					k, err3 := strconv.ParseFloat(expr.Value, 64)
+					if err3 != nil {
+						panic("parse uint/int 64 and float64 error: " + err3.Error())
+					} else {
+						output = fmt.Sprintf("%f", k) // decimal format
+					}
+				} else {
+					output = fmt.Sprint(j)
+				}
+			} else {
+				output = fmt.Sprint(i)
+			}
+		case token.FLOAT:
+			i, err := strconv.ParseFloat(expr.Value, 64)
+			if err != nil {
+				panic("parse float 64 error: " + err.Error())
+			}
 			output = fmt.Sprint(i)
-		}
-	case token.FLOAT:
-		i, err := strconv.ParseFloat(value.Value, 64)
-		if err != nil {
-			panic("parse float 64 error: " + err.Error())
-		}
-		output = fmt.Sprint(i)
-	case token.CHAR:
-		if len(value.Value) >= 2 && value.Value[0:1] == `'` {
-			value.Value = value.Value[1 : len(value.Value)-1]
-		}
-		output = value.Value
-	case token.STRING:
-		if len(value.Value) > 0 {
-			raw = value.Value[0:1] == "`"
-			if len(value.Value) >= 2 && (value.Value[0:1] == `"` || raw) {
-				value.Value = string(value.Value[1 : len(value.Value)-1])
+		case token.IMAG:
+			i, err := strconv.ParseComplex(expr.Value, 128)
+			if err != nil {
+				panic(err)
 			}
+			output = fmt.Sprint(imag(i)) + "i" + fmt.Sprint(real(i))
 		}
-		output = value.Value
-	case token.IMAG:
-		i, err := strconv.ParseComplex(value.Value, 128)
-		if err != nil {
-			panic(err)
+		return map[string]interface{}{
+			"id":    "BasicLit",
+			"kind":  nil,
+			"token": expr.Kind.String(),
+			"value": output,
+			"basic": true,
+			"type":  parseType(checker.TypeOf(expr), map[string]bool{}),
 		}
-		output = fmt.Sprint(imag(i)) + "i" + fmt.Sprint(real(i))
-	}
-	return map[string]interface{}{
-		"id":    "BasicLit",
-		"kind":  value.Kind.String(),
-		"value": output,
-		"raw":   raw,
-		"type":  parseType(checker.TypeOf(value), map[string]bool{}),
 	}
 }
 

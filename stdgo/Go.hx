@@ -373,104 +373,6 @@ class Go {
 		}
 		final t = gtDecode(t, null, []);
 		return macro stdgo.reflect.Reflect.defaultValue(new stdgo.reflect.Reflect._Type($t));
-		// e
-		/*final e = switch (t) {
-				case TType(t, params):
-					final name = t.toString();
-					switch name {
-						case "stdgo.GoInt":
-							macro 0;
-						case "stdgo.GoUInt":
-							macro 0;
-						case "stdgo.unsafe.Pointer_":
-							macro null;
-						case "stdgo GoUnTypedInt":
-							macro 0;
-						case "stdgo.GoUnTypedFloat":
-							macro 0;
-						case "stdgo.GoUnTypedComplex":
-							macro new Complex128();
-						case "stdgo.GoRune":
-							macro 0;
-						case "stdgo.GoByte":
-							macro 0;
-						case "stdgo.GoUnTypedInt":
-							macro(0 : UInt64);
-						case "stdgo.DynamicInvalid":
-							macro null;
-						case "stdgo.Ref": // pointer with no overhead because the underlying type is a ref
-							macro null;
-						default:
-							Context.fatalError("not implemented: " + name, Context.currentPos());
-					}
-				case TMono(_):
-					macro null;
-				case TAbstract(ref, params):
-					var sref:String = ref.toString();
-					switch (sref) {
-						case "stdgo.Slice":
-							macro null;
-						case "stdgo.GoArray":
-							macro null; // TODO may need to create a new array
-						case "stdgo.Pointer":
-							macro null;
-						case "stdgo.UnsafePointer", "stdgo.Unsafe.UnsafePointer", "stdgo.unsafe.UnsafePointer":
-							macro null;
-						case "stdgo.GoMap":
-							macro null;
-						case "haxe.Rest":
-							macro null;
-						case "stdgo.GoInt8":
-							macro 0;
-						case "stdgo.GoInt16":
-							macro 0;
-						case "stdgo.GoInt32", "haxe.Int32":
-							macro 0;
-						case "Int":
-							macro 0;
-						case "stdgo.GoInt64":
-							macro(0 : GoInt64);
-						case "stdgo.GoUInt8":
-							macro 0;
-						case "stdgo.GoUInt16":
-							macro 0;
-						case "stdgo.GoUInt32":
-							macro 0;
-						case "stdgo.GoUInt64":
-							macro(0 : GoUInt64);
-						case "stdgo.GoString", "String":
-							macro("" : GoString);
-						case "stdgo.GoComplex64":
-							macro(0 : GoComplex64);
-						case "stdgo.GoComplex128":
-							macro(0 : GoComplex128);
-						case "stdgo.ComplexType":
-							macro(0 : Complex128);
-						case "stdgo.GoFloat32":
-							macro 0;
-						case "stdgo.GoFloat64", "Float":
-							macro 0;
-						case "stdgo.FloatType":
-							macro 0;
-						case "Bool":
-							macro false;
-						case "stdgo.GoUIntptr":
-							macro 0;
-						case "stdgo.AnyInterface":
-							macro null;
-						case "haxe.Function":
-							macro null;
-						case "Null":
-							macro null;
-						case "Void":
-							macro null;
-						default: // used internally such as reflect.Kind
-							Context.error('unknown abstract type: $sref', Context.currentPos());
-					}
-				default:
-					Context.fatalError("not valid default type: " + t, Context.currentPos());
-			}
-			return e; */
 	}
 
 	public static macro function asInterface(expr) {
@@ -624,8 +526,13 @@ class Go {
 					}
 				} else if (t.pack.length == 1
 					&& t.pack[0] == "stdgo"
-					&& (t.name != "GoByte" && t.name != "GoRune" && t.name != "GoFloat" && t.name != "GoUInt" && t.name != "GoInt" && t.name != "Error")) {
-					follow = false;
+					&& (t.name != "GoByte" && t.name != "GoRune" && t.name != "GoFloat" && t.name != "GoUInt" && t.name != "GoInt")) {
+					if (t.name == "Error") {
+						follow = true;
+						// trace(t.pack, t.name);
+					} else {
+						follow = false;
+					}
 				}
 			case TAbstract(_, _):
 				follow = false;
@@ -684,8 +591,7 @@ class Go {
 					false;
 				} else {
 					final v = new stdgo.reflect.Reflect._Type($value);
-					@:privateAccess stdgo.reflect.Reflect.directlyAssignable(v,
-						$e.type) || @:privateAccess stdgo.reflect.Reflect.implementsMethod(v, $e.type, false)
+					@:privateAccess stdgo.reflect.Reflect.directlyAssignable(v, $e.type) || v.implements_($e.type)
 					;
 				};
 			default:
@@ -1035,24 +941,56 @@ class Go {
 						ret = macro stdgo.reflect.Reflect.GoType.basic(string_kind);
 					} else {
 						final methods:Array<Expr> = [];
-						final fs = ref.fields.get();
+
 						final path = createPath(ref.pack, ref.name);
-						for (field in fs) {
-							switch field.kind {
-								case FMethod(k):
-									switch field.name {
-										case "new", "__copy__", "__underlying__", "__t__", "__slice__", "__append__", "__set__":
-											continue;
+						if (ref.meta.has(":using")) {
+							final s = new haxe.macro.Printer().printExpr(ref.meta.extract(":using")[0].params[0]);
+							switch Context.getType(s) {
+								case TInst(_.get() => t, _):
+									final fs = t.statics.get();
+									for (field in fs) {
+										switch field.kind {
+											case FMethod(_):
+												switch field.name {
+													case "new", "__copy__", "__underlying__", "__t__", "__slice__", "__append__", "__set__":
+														continue;
+												}
+												if (field.name == "toString" && field.meta.has(":implicit"))
+													continue;
+												switch field.type {
+													case TLazy(f):
+														continue;
+													case TFun(args, ret2):
+														args.shift();
+														methods.push(macro new stdgo.reflect.Reflect.MethodType($v{field.name},
+															${gtDecode(TFun(args, ret2), null, marked, ret)}, null));
+													default:
+												}
+											default:
+										}
 									}
-									if (field.name == "toString" && field.meta.has(":implicit"))
-										continue;
-									switch field.type {
-										case TLazy(f):
-											continue;
-										default:
-									}
-									methods.push(macro new stdgo.reflect.Reflect.MethodType($v{field.name}, ${gtDecode(field.type, null, marked, ret)}, null));
 								default:
+							}
+						} else {
+							final fs = ref.fields.get();
+							for (field in fs) {
+								switch field.kind {
+									case FMethod(k):
+										switch field.name {
+											case "new", "__copy__", "__underlying__", "__t__", "__slice__", "__append__", "__set__":
+												continue;
+										}
+										if (field.name == "toString" && field.meta.has(":implicit"))
+											continue;
+										switch field.type {
+											case TLazy(f):
+												continue;
+											default:
+										}
+										methods.push(macro new stdgo.reflect.Reflect.MethodType($v{field.name}, ${gtDecode(field.type, null, marked, ret)},
+											null));
+									default:
+								}
 							}
 						}
 						ret = gtDecodeClassType(ref, methods, marked);

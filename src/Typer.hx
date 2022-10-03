@@ -3558,6 +3558,8 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 						kind = bool_kind;
 					case untyped_string_kind:
 						kind = string_kind;
+					case untyped_rune_kind:
+						kind = int32_kind;
 					default:
 				}
 				basic(kind);

@@ -1,6 +1,6 @@
 package main
 
-type A[T int64 | float32] int
+type A[T int64 | float32] int64
 
 func (a *A[T]) add() {}
 

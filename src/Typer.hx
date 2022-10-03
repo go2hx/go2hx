@@ -3363,7 +3363,7 @@ private function toReflectType(t:GoType, info:Info, paths:Array<String>):Expr {
 			for (method in methods) {
 				final name = makeString(method.name);
 				final t = toReflectType(method.type.get(), info, paths.copy());
-				final recv = toReflectType(method.recv.get(), info, paths.copy());
+				final recv = macro stdgo.reflect.Reflect.GoType.invalidType;//toReflectType(method.recv.get(), info, paths.copy());
 				methodExprs.push(macro new stdgo.reflect.Reflect.MethodType($name, $t, $recv));
 			}
 			final e = macro stdgo.reflect.Reflect.GoType.interfaceType($empty, ${macro $a{methodExprs}});

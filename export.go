@@ -1201,7 +1201,7 @@ func basicLitToken(expr *ast.BasicLit) map[string]interface{} {
 		if err != nil {
 			panic(err)
 		}
-		output = fmt.Sprint(imag(i)) + "i" + fmt.Sprint(real(i))
+		output = fmt.Sprint(real(i)) + "i" + fmt.Sprint(imag(i))
 	}
 	return map[string]interface{}{
 		"id":    "BasicLit",

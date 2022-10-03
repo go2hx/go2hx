@@ -3923,8 +3923,8 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 				(macro($e : GoFloat64)).expr;
 			case IMAG:
 				final index = expr.value.indexOf("i");
-				final imag = toExpr(EConst(CFloat(expr.value.substr(0, index))));
-				final real = toExpr(EConst(CFloat(expr.value.substr(index + 1))));
+				final real = toExpr(EConst(CFloat(expr.value.substr(0, index))));
+				final imag = toExpr(EConst(CFloat(expr.value.substr(index + 1))));
 				(macro new GoComplex128($real, $imag)).expr;
 			case INT:
 				var e = toExpr(EConst(CInt(expr.value)));
@@ -3957,64 +3957,13 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 		(macro($e : $ct)).expr;
 	} else if (expr.info & Ast.BasicInfo.isComplex != 0) {
 		final index = expr.value.indexOf("i");
-		final imag = toExpr(EConst(CFloat(expr.value.substr(0, index))));
-		final real = toExpr(EConst(CFloat(expr.value.substr(index + 1))));
+		final real = toExpr(EConst(CFloat(expr.value.substr(0, index))));
+		final imag = toExpr(EConst(CFloat(expr.value.substr(index + 1))));
 		(macro new GoComplex128($real, $imag)).expr;
 	} else {
 		trace(expr);
 		(macro null).expr;
 	}
-	/*
-		var e:Expr = switch kind {
-			case STRING:
-				if (!raw) {
-					makeStringLit(decodeEscapeSequences(value));
-				} else {
-					makeString(rawEscapeSequences(value));
-				}
-			case CHAR:
-				final const = makeString(getRune(value));
-				if (ct == null)
-					ct = TPath({name: "GoRune", pack: []});
-				macro $const.code;
-			case INT:
-				var e = toExpr(EConst(CInt(value)));
-				if (value.length >= 10) {
-					try {
-						var i = haxe.Int64Helper.parseString(value);
-						if (i > 2147483647 || i < -2147483648) {
-							e = makeString(value);
-						}
-					} catch (_) {
-						e = makeString(value);
-					}
-				}
-				e;
-			case FLOAT:
-				final e = toExpr(EConst(CFloat(value)));
-				e;
-			case IDENT:
-				var name = nameIdent(value, false, false, info);
-				macro $i{name};
-			case IMAG:
-				final index = value.indexOf("i");
-				final imag = toExpr(EConst(CFloat(value.substr(0, index))));
-				final real = toExpr(EConst(CFloat(value.substr(index + 1))));
-				macro new GoComplex128($real, $imag);
-			default:
-				throw "basic lit kind unknown: " + kind;
-				null;
-		}
-		if (ct != null) {
-			switch ct {
-				case TPath(p):
-					if (p.params != null && p.params.length > 0)
-						return e.expr; // ct not allowed to have params
-				default:
-			}
-			e = macro($e : $ct);
-		}
-		return e.expr; */
 }
 
 private function rawEscapeSequences(value:String):String {

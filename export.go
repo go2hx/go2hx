@@ -1163,7 +1163,7 @@ func parseBasicLit(expr *ast.BasicLit) map[string]interface{} {
 			"info":  int32(basic.Info()),
 			"value": output,
 			"basic": false,
-			"type":  parseType(basic, map[string]bool{}),
+			"type":  parseType(checker.TypeOf(expr), map[string]bool{}),
 		}
 	} else {
 		return basicLitToken(expr)

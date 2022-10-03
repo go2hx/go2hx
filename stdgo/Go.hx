@@ -587,13 +587,14 @@ class Go {
 						e = macro $e == null ? null : $e.__underlying__();
 					default:
 				}
-				return macro if ($e == null) {
+				final e = macro if ($e == null) {
 					false;
 				} else {
 					final v = new stdgo.reflect.Reflect._Type($value);
-					@:privateAccess stdgo.reflect.Reflect.directlyAssignable(v, $e.type) || v.implements_($e.type)
-					;
+					@:privateAccess stdgo.reflect.Reflect.directlyAssignable(v, $e.type) || @:privateAccess stdgo.reflect.Reflect.implementsMethod(v, $e.type);
 				};
+				// trace(new haxe.macro.Printer().printExpr(e));
+				return e;
 			default:
 				Context.error("unknown assignable expr: " + expr.expr, Context.currentPos());
 				return macro null;

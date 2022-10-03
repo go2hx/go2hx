@@ -4899,7 +4899,7 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef { //
 	if (!isAnyInterface(fromType) && isInterface(fromType) && isInterface(t)) {
 		// return (macro(($e.__underlying__().value : Dynamic) : $ct)).expr;
 		var rt = toReflectType(typeof(expr.type, info, false), info, []);
-		rt = macro new stdgo.reflect.Reflect._Type($rt);
+		rt = macro new stdgo.reflect.Reflect._Type(@:define("!go2hx_compiler") $rt);
 		return (macro if ($e.__underlying__().type.assignableTo($rt)) {
 			(($e.__underlying__().value : Dynamic) : $ct);
 		} else {

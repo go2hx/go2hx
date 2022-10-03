@@ -1117,7 +1117,10 @@ func parseBasicLit(expr *ast.BasicLit) map[string]interface{} {
 		}
 	}
 	if value := checker.Types[expr].Value; value != nil {
-		basic := checker.TypeOf(expr).Underlying().(*types.Basic)
+		basic, ok := checker.TypeOf(expr).Underlying().(*types.Basic)
+		if !ok {
+			return basicLitToken(expr)
+		}
 		switch {
 		case basic.Kind() == types.UntypedInt:
 			f, _ := constant.Uint64Val(constant.ToInt((value)))
@@ -1163,45 +1166,50 @@ func parseBasicLit(expr *ast.BasicLit) map[string]interface{} {
 			"type":  parseType(basic, map[string]bool{}),
 		}
 	} else {
-		switch expr.Kind {
-		case token.INT:
-			i, err := strconv.ParseInt(expr.Value, 0, 64)
-			if err != nil {
-				j, err2 := strconv.ParseUint(expr.Value, 0, 64)
-				if err2 != nil {
-					k, err3 := strconv.ParseFloat(expr.Value, 64)
-					if err3 != nil {
-						panic("parse uint/int 64 and float64 error: " + err3.Error())
-					} else {
-						output = fmt.Sprintf("%f", k) // decimal format
-					}
+		return basicLitToken(expr)
+	}
+}
+
+func basicLitToken(expr *ast.BasicLit) map[string]interface{} {
+	output := ""
+	switch expr.Kind {
+	case token.INT:
+		i, err := strconv.ParseInt(expr.Value, 0, 64)
+		if err != nil {
+			j, err2 := strconv.ParseUint(expr.Value, 0, 64)
+			if err2 != nil {
+				k, err3 := strconv.ParseFloat(expr.Value, 64)
+				if err3 != nil {
+					panic("parse uint/int 64 and float64 error: " + err3.Error())
 				} else {
-					output = fmt.Sprint(j)
+					output = fmt.Sprintf("%f", k) // decimal format
 				}
 			} else {
-				output = fmt.Sprint(i)
+				output = fmt.Sprint(j)
 			}
-		case token.FLOAT:
-			i, err := strconv.ParseFloat(expr.Value, 64)
-			if err != nil {
-				panic("parse float 64 error: " + err.Error())
-			}
+		} else {
 			output = fmt.Sprint(i)
-		case token.IMAG:
-			i, err := strconv.ParseComplex(expr.Value, 128)
-			if err != nil {
-				panic(err)
-			}
-			output = fmt.Sprint(imag(i)) + "i" + fmt.Sprint(real(i))
 		}
-		return map[string]interface{}{
-			"id":    "BasicLit",
-			"kind":  nil,
-			"token": expr.Kind.String(),
-			"value": output,
-			"basic": true,
-			"type":  parseType(checker.TypeOf(expr), map[string]bool{}),
+	case token.FLOAT:
+		i, err := strconv.ParseFloat(expr.Value, 64)
+		if err != nil {
+			panic("parse float 64 error: " + err.Error())
 		}
+		output = fmt.Sprint(i)
+	case token.IMAG:
+		i, err := strconv.ParseComplex(expr.Value, 128)
+		if err != nil {
+			panic(err)
+		}
+		output = fmt.Sprint(imag(i)) + "i" + fmt.Sprint(real(i))
+	}
+	return map[string]interface{}{
+		"id":    "BasicLit",
+		"kind":  nil,
+		"token": expr.Kind.String(),
+		"value": output,
+		"basic": true,
+		"type":  parseType(checker.TypeOf(expr), map[string]bool{}),
 	}
 }
 

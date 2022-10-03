@@ -1035,7 +1035,7 @@ class Go {
 					recvExpr = recv;
 				ret = macro stdgo.reflect.Reflect.GoType.signature($variadic, $a{args}, $a{results}, $recvExpr);
 			case TDynamic(t):
-				ret = macro stdgo.reflect.Reflect.GoType.interfaceType(true);
+				ret = macro stdgo.reflect.Reflect.GoType.interfaceType(true, []);
 			case TLazy(f):
 				ret = gtDecode(f(), null, []);
 			case TEnum(_, _):

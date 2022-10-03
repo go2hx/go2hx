@@ -3363,7 +3363,7 @@ private function toReflectType(t:GoType, info:Info, paths:Array<String>):Expr {
 			for (method in methods) {
 				final name = makeString(method.name);
 				final t = toReflectType(method.type.get(), info, paths.copy());
-				final recv = macro stdgo.reflect.Reflect.GoType.invalidType;//toReflectType(method.recv.get(), info, paths.copy());
+				final recv = macro stdgo.reflect.Reflect.GoType.invalidType; // toReflectType(method.recv.get(), info, paths.copy());
 				methodExprs.push(macro new stdgo.reflect.Reflect.MethodType($name, $t, $recv));
 			}
 			final e = macro stdgo.reflect.Reflect.GoType.interfaceType($empty, ${macro $a{methodExprs}});
@@ -3522,7 +3522,7 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 					}
 				};
 				if (e.methods != null) {
-					for (method in (e.methods : Array<Dynamic>)) {
+					for (method in(e.methods : Array<Dynamic>)) {
 						final recv = method.recv;
 						final type = method.type;
 						methods.push({
@@ -3533,7 +3533,7 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 					}
 				}
 				if (e.params != null && e.params.length > 0) {
-					for (param in (e.params : Array<Dynamic>)) {
+					for (param in(e.params : Array<Dynamic>)) {
 						params.push(typeof(param, info, false, paths.copy()));
 					}
 				}
@@ -3547,7 +3547,7 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 			}
 		case "Tuple":
 			if (e.len > 1) {
-				tuple(e.len, [for (v in (e.vars : Array<Dynamic>)) typeof(v, info, false, paths.copy())]);
+				tuple(e.len, [for (v in(e.vars : Array<Dynamic>)) typeof(v, info, false, paths.copy())]);
 			} else {
 				typeof(e.vars[0], info, false, paths.copy());
 			}
@@ -3561,7 +3561,7 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 			} else {
 				final methods:Array<MethodType> = [];
 				if (e.methods != null) {
-					for (method in (e.methods : Array<Dynamic>)) {
+					for (method in(e.methods : Array<Dynamic>)) {
 						methods.push({
 							name: method.name,
 							type: {get: () -> typeof(method.type, info, false, paths.copy())},
@@ -3583,7 +3583,7 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 			mapType({get: () -> typeof(e.key, info, false, paths.copy())}, {get: () -> typeof(e.elem, info, false, paths.copy())});
 		case "Struct":
 			var t:GoType = structType([
-				for (field in (e.fields : Array<Dynamic>))
+				for (field in(e.fields : Array<Dynamic>))
 					{
 						name: field.name,
 						type: typeof(field.type, info, false, paths.copy()),
@@ -4900,11 +4900,11 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef { //
 		// return (macro(($e.__underlying__().value : Dynamic) : $ct)).expr;
 		var rt = toReflectType(typeof(expr.type, info, false), info, []);
 		rt = macro new stdgo.reflect.Reflect._Type(@:define("!go2hx_compiler") $rt);
-		return (macro if ($e.__underlying__().type.assignableTo($rt)) {
+		return (macro(if ($e.__underlying__().type.assignableTo($rt)) {
 			(($e.__underlying__().value : Dynamic) : $ct);
 		} else {
 			throw "unable to be assigned";
-		}).expr;
+		})).expr;
 	}
 	final e = checkType(e, ct, fromType, t, info);
 	return e.expr;

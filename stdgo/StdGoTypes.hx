@@ -46,9 +46,6 @@ private typedef UInt64 = haxe.UInt64;
 private typedef Float = Float64;
 private typedef Float64 = #if hl hl.F64; #else StdTypes.Float; #end
 private typedef Float32 = #if hl hl.F32; #else Float64; #end
-typedef GoUnTypedInt = GoUInt64;
-typedef GoUnTypedFloat = GoFloat64;
-typedef GoUnTypedComplex = GoComplex128;
 typedef Ref<T> = T; // refrence type used only for macro reflection type info purposes, has no overhead
 
 @:eager
@@ -82,14 +79,7 @@ private function ofStringInt64(s:String):Int64 {
 	return haxe.Int64.parseString(s);
 }
 
-private function ofStringUnTypedInt(sParam:String):Int64 {
-	return haxe.Int64.parseString(sParam);
-}
-
 private function ofStringUInt64(s:String):UInt64 {
-	if (s.charAt(0) == "-") {
-		return 0; // because of constant
-	}
 	return UInt64.parseString(s);
 }
 
@@ -787,6 +777,9 @@ abstract GoInt32(Int) from Int32 to Int32 to Int {
 
 	public inline function toBasic()
 		return this;
+
+	@:from static function fromString(s:String):GoInt32
+		return Std.parseInt(s);
 
 	@:from static function fromFloat(x:Float):GoInt32
 		return Std.int(x);
@@ -1835,14 +1828,8 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 						(aValue : GoComplex64) == (bValue : GoComplex64);
 					case complex128_kind:
 						(aValue : GoComplex128) == (bValue : GoComplex128);
-					case untyped_int_kind:
-						if (!haxe.Int64.isInt64(bValue))
-							bValue = haxe.Int64.ofInt(bValue);
-						(aValue : GoUnTypedInt) == (bValue : GoUnTypedInt);
-					case untyped_float_kind:
-						(aValue : GoUnTypedFloat) == (bValue : GoUnTypedFloat);
-					case untyped_complex_kind:
-						(aValue : GoUnTypedComplex) == (bValue : GoUnTypedComplex);
+					case untyped_int_kind, untyped_float_kind, untyped_complex_kind:
+						throw "untyped kind";
 					default:
 						aValue == bValue;
 				}

@@ -11,6 +11,7 @@ import (
 	"go/importer"
 	"go/token"
 	"go/types"
+	"math/big"
 	"net"
 	"path/filepath"
 	"runtime"
@@ -284,10 +285,12 @@ func parseLocalConstants(file *ast.File, pkg *packages.Package) {
 				basic := checker.TypeOf(node.(ast.Expr)).Underlying().(*types.Basic)
 				var e ast.Expr
 				_ = basic
+				kind := basic.Kind()
+				info := basic.Info()
 				switch {
-				case basic.Info()&types.IsInteger != 0:
-					if basic.Kind() == types.Int64 || basic.Kind() == types.Uint64 || basic.Kind() == types.Uint || basic.Kind() == types.Int {
-						if basic.Kind() == types.Int64 || basic.Kind() == types.Int {
+				case info&types.IsInteger != 0:
+					if kind == types.Int64 || kind == types.Uint64 || kind == types.Uint || kind == types.Int {
+						if kind == types.Int64 || basic.Kind() == types.Int {
 							d, ok := constant.Int64Val(constant.ToInt(value))
 							if !ok {
 								panic("could not get exact int64: " + value.String())
@@ -309,19 +312,19 @@ func parseLocalConstants(file *ast.File, pkg *packages.Package) {
 							e = &ast.BasicLit{Kind: token.INT, Value: fmt.Sprint(d)}
 						}
 					}
-				case basic.Info()&types.IsFloat != 0:
+				case info&types.IsFloat != 0:
 					f, _ := constant.Float64Val(value)
 					e = &ast.BasicLit{Kind: token.FLOAT, Value: fmt.Sprint(f)}
-				case basic.Info()&types.IsBoolean != 0:
+				case info&types.IsBoolean != 0:
 					e = ast.NewIdent(strconv.FormatBool(constant.BoolVal(value)))
-				case basic.Info()&types.IsComplex != 0:
+				case info&types.IsComplex != 0:
 					r, _ := constant.Float64Val(constant.Real(value))
 					i, _ := constant.Float64Val(constant.Imag(value))
 					x := &ast.BasicLit{Kind: token.FLOAT, Value: fmt.Sprint(r)}
 					y := &ast.BasicLit{Kind: token.IMAG, Value: fmt.Sprint(i)}
 					m := &ast.BinaryExpr{Op: token.ADD, X: x, Y: y}
 					e = &ast.ParenExpr{X: m}
-				case basic.Info()&types.IsString != 0:
+				case info&types.IsString != 0:
 					s := value.ExactString()
 					e = &ast.BasicLit{Kind: token.STRING, Value: s}
 				default:
@@ -1121,15 +1124,43 @@ func parseBasicLit(expr *ast.BasicLit) map[string]interface{} {
 		if !ok {
 			return basicLitToken(expr)
 		}
+		kind := basic.Kind()
+		info := basic.Info()
 		switch {
-		case basic.Kind() == types.UntypedInt:
-			f, _ := constant.Uint64Val(constant.ToInt((value)))
-			output = strconv.FormatUint(f, 10)
-		case basic.Info()&types.IsBoolean != 0:
+		case kind == types.UntypedInt:
+			set := false
+			info = types.IsInteger
+			switch value := constant.Val(value).(type) {
+			case *big.Int:
+				if value.IsUint64() {
+					set = true
+					kind = types.Uint64
+					d := value.Uint64()
+					if !ok {
+						panic("imprecise untyped int64")
+					}
+					output = strconv.FormatUint(d, 10)
+				} else if !value.IsInt64() {
+					set = true
+					fmt.Println(value.String())
+					output = value.String()
+				}
+			case int64:
+			default:
+			}
+			if !set {
+				kind = types.Int64
+				d, ok := constant.Int64Val(constant.ToInt(value))
+				if !ok {
+					panic("imprecise untyped int64")
+				}
+				output = strconv.FormatInt(d, 10)
+			}
+		case info&types.IsBoolean != 0:
 			output = strconv.FormatBool(constant.BoolVal(value))
-		case basic.Info()&types.IsInteger != 0:
-			if basic.Kind() == types.Int64 || basic.Kind() == types.Uint64 {
-				if basic.Kind() == types.Int64 {
+		case info&types.IsInteger != 0:
+			if kind == types.Int64 || kind == types.Uint64 {
+				if kind == types.Int64 {
 					d, ok := constant.Int64Val(constant.ToInt(value))
 					if !ok {
 						panic("imprecise int64")
@@ -1149,18 +1180,18 @@ func parseBasicLit(expr *ast.BasicLit) map[string]interface{} {
 				}
 				output = strconv.FormatInt(d, 10)
 			}
-		case basic.Info()&types.IsFloat != 0:
+		case info&types.IsFloat != 0:
 			f, _ := constant.Float64Val(value)
 			output = strconv.FormatFloat(f, 'g', -1, 64)
-		case basic.Info()&types.IsComplex != 0:
+		case info&types.IsComplex != 0:
 			r, _ := constant.Float64Val(constant.Real(value))
 			i, _ := constant.Float64Val(constant.Imag(value))
 			output = strconv.FormatFloat(r, 'g', -1, 64) + "i" + strconv.FormatFloat(i, 'g', -1, 64)
 		}
 		return map[string]interface{}{
 			"id":    "BasicLit",
-			"kind":  int32(basic.Kind()),
-			"info":  int32(basic.Info()),
+			"kind":  int32(kind),
+			"info":  int32(info),
 			"value": output,
 			"basic": false,
 			"type":  parseType(checker.TypeOf(expr), map[string]bool{}),

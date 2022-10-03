@@ -1067,6 +1067,9 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 	for (decl in decls) {
 		info.lastValue = null;
 		info.lastType = null;
+		if (decl.tok == CONST) {
+			continue;
+		}
 		for (spec in decl.specs) {
 			switch spec.id {
 				case "TypeSpec":
@@ -3543,7 +3546,21 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 			if (e.kind == 0) {
 				invalidType;
 			} else {
-				basic(BasicKind.createByIndex(e.kind));
+				var kind = BasicKind.createByIndex(e.kind);
+				switch kind {
+					case untyped_int_kind:
+						kind = int64_kind;
+					case untyped_float_kind:
+						kind = float64_kind;
+					case untyped_complex_kind:
+						kind = complex128_kind;
+					case untyped_bool_kind:
+						kind = bool_kind;
+					case untyped_string_kind:
+						kind = string_kind;
+					default:
+				}
+				basic(kind);
 			}
 		case "Tuple":
 			if (e.len > 1) {
@@ -3783,12 +3800,9 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 
 				case uintptr_kind: TPath({pack: [], name: "GoUIntptr"});
 
-				case untyped_int_kind: TPath({pack: [], name: "GoUnTypedInt"});
-				case untyped_bool_kind: TPath({pack: [], name: "Bool"});
-				case untyped_float_kind: TPath({pack: [], name: "GoUnTypedFloat"});
-				case untyped_rune_kind: TPath({pack: [], name: "GoInt32"});
-				case untyped_complex_kind: TPath({pack: [], name: "GoUnTypedComplex"});
-				case untyped_string_kind: TPath({pack: [], name: "GoString"});
+				case untyped_int_kind, untyped_bool_kind, untyped_float_kind, untyped_rune_kind, untyped_complex_kind,
+					untyped_string_kind: throw "untyped kind: "
+						+ kind;
 				case untyped_nil_kind: null;
 				case invalid_kind: null;
 				case unsafepointer_kind: TPath({pack: ["stdgo", "unsafe", "Unsafe"], name: "UnsafePointer"});
@@ -3950,16 +3964,16 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 		final underlyingType = getUnderlying(t);
 		final e = toExpr(switch underlyingType {
 			case basic(int64_kind), basic(uint64_kind), basic(untyped_int_kind):
-				final ct = toComplexType(underlyingType,info);
+				final ct = toComplexType(underlyingType, info);
 				final s = makeString(expr.value);
-				(macro ($s : $ct)).expr;
+				(macro($s : $ct)).expr;
 			default:
 				EConst(CInt(expr.value));
 		});
 		final ct = toComplexType(t, info);
 		if (hasTypeParam(ct)) {
 			e.expr;
-		}else{
+		} else {
 			(macro($e : $ct)).expr;
 		}
 	} else if (expr.info & Ast.BasicInfo.isComplex != 0) {
@@ -4605,7 +4619,6 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info, walk:Bool = true
 
 	switch expr.op { // operators that don't exist in haxe need to be handled here
 		case AND_NOT: // &^ refrenced from Tardisgo
-			// macro($x) & (($y) ^ (-1 : GoUnTypedInt)))
 			return typeBinaryExpr({
 				x: expr.x,
 				y: {
@@ -4620,7 +4633,7 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info, walk:Bool = true
 							token: Ast.Token.INT,
 							type: {
 								id: "Basic",
-								kind: BasicKind.untyped_int_kind.getIndex()
+								kind: BasicKind.int32_kind.getIndex()
 							}
 						},
 						op: Ast.Token.XOR,
@@ -4640,17 +4653,6 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info, walk:Bool = true
 	if ((isInvalid(typeX) || isInterface(typeX)) && op != OpBoolAnd && !isInvalid(typeY) && op == OpAssign) {
 		x = toInterface(x, typeX, info);
 		y = toInterface(y, typeY, info);
-	} else {
-		switch typeX {
-			case basic(untyped_float_kind):
-				y = macro($y : GoUnTypedFloat);
-			default:
-		}
-		switch typeY {
-			case basic(untyped_float_kind):
-				x = macro($x : GoUnTypedFloat);
-			default:
-		}
 	}
 	var e = toExpr(EBinop(op, x, y));
 	e = assignTranslate(getUnderlying(typeX), typeof(expr.type, info, false), e, info);
@@ -5461,13 +5463,13 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 		case basic(kind):
 			if (strict) {
 				switch kind {
-					case bool_kind, untyped_bool_kind: macro false;
+					case bool_kind: macro false;
 					case int_kind: macro(0 : GoInt);
 					case int8_kind: macro(0 : GoInt8);
 					case int16_kind: macro(0 : GoInt16);
-					case int32_kind, untyped_rune_kind: macro(0 : GoInt32);
+					case int32_kind: macro(0 : GoInt32);
 					case int64_kind: macro(0 : GoInt64);
-					case string_kind, untyped_string_kind: macro("" : GoString);
+					case string_kind: macro("" : GoString);
 					case uint_kind: macro(0 : GoUInt);
 					case uint8_kind: macro(0 : GoUInt8);
 					case uint16_kind: macro(0 : GoUInt16);
@@ -5478,9 +5480,8 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 					case float64_kind: macro(0 : GoFloat64);
 					case complex64_kind: macro new GoComplex64(0, 0);
 					case complex128_kind: macro new GoComplex128(0, 0);
-					case untyped_int_kind: macro(0 : GoUnTypedInt);
-					case untyped_float_kind: macro(0 : GoUnTypedFloat);
-					case untyped_complex_kind: macro(0 : GoUnTypedComplex);
+					case untyped_bool_kind, untyped_rune_kind, untyped_string_kind, untyped_int_kind, untyped_float_kind, untyped_complex_kind:
+						throw "untyped kind: " + kind;
 					default: macro null;
 				}
 			} else {

@@ -45,7 +45,11 @@ typedef GoStringer = StructType & {
 }
 
 inline function errorf(fmt:GoString, args:Rest<AnyInterface>) {
+	#if macro
+	return null;
+	#else
 	return stdgo.errors.Errors.new_(format(fmt, args));
+	#end
 }
 
 function println(args:Rest<Dynamic>):{_0:Int, _1:Error} {

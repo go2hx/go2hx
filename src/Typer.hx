@@ -3947,12 +3947,15 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 		ECheckType(toExpr(EConst(CFloat(expr.value))), TPath({name: "GoFloat64", pack: []}));
 	} else if (expr.info & Ast.BasicInfo.isInteger != 0) {
 		final t = typeof(expr.type, info, false);
-		final e = toExpr(EConst(switch t {
+		final underlyingType = getUnderlying(t);
+		final e = toExpr(switch underlyingType {
 			case basic(int64_kind), basic(uint64_kind), basic(untyped_int_kind):
-				CString(expr.value);
+				final ct = toComplexType(underlyingType,info);
+				final s = makeString(expr.value);
+				(macro ($s : $ct)).expr;
 			default:
-				CInt(expr.value);
-		}));
+				EConst(CInt(expr.value));
+		});
 		final ct = toComplexType(t, info);
 		if (hasTypeParam(ct)) {
 			e.expr;

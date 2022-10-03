@@ -1122,9 +1122,6 @@ func parseBasicLit(expr *ast.BasicLit) map[string]interface{} {
 			return basicLitToken(expr)
 		}
 		switch {
-		case basic.Kind() == types.UntypedInt:
-			f, _ := constant.Uint64Val(constant.ToInt((value)))
-			output = strconv.FormatUint(f>>32, 10)
 		case basic.Info()&types.IsBoolean != 0:
 			output = strconv.FormatBool(constant.BoolVal(value))
 		case basic.Info()&types.IsInteger != 0:

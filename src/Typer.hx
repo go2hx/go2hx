@@ -3954,7 +3954,11 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 				CInt(expr.value);
 		}));
 		final ct = toComplexType(t, info);
-		(macro($e : $ct)).expr;
+		if (hasTypeParam(ct)) {
+			e.expr;
+		}else{
+			(macro($e : $ct)).expr;
+		}
 	} else if (expr.info & Ast.BasicInfo.isComplex != 0) {
 		final index = expr.value.indexOf("i");
 		final real = toExpr(EConst(CFloat(expr.value.substr(0, index))));

@@ -23,7 +23,7 @@ enum GoType {
 	basic(kind:BasicKind);
 	_var(name:String, type:GoType);
 	tuple(len:Int, vars:Array<GoType>);
-	interfaceType(empty:Bool, ?methods:Array<MethodType>);
+	interfaceType(empty:Bool, methods:Array<MethodType>);
 	sliceType(elem:Ref<GoType>);
 	named(path:String, methods:Array<MethodType>, type:GoType, ?alias:Bool, ?params:Array<GoType>);
 	previouslyNamed(path:String);
@@ -105,7 +105,7 @@ function isAnyInterface(type:GoType):Bool {
 	return switch type {
 		case named(_, _, elem):
 			isAnyInterface(elem);
-		case interfaceType(empty):
+		case interfaceType(empty, _):
 			empty;
 		default:
 			false;
@@ -1389,6 +1389,9 @@ class _Type {
 	}
 
 	public function numMethod():GoInt {
+		#if go2hx_compiler
+		return 0;
+		#else
 		switch (gt) {
 			case named(_, methods, _), interfaceType(_, methods):
 				var count = 0;
@@ -1402,7 +1405,7 @@ class _Type {
 			default:
 				throw "reflect.NumMethod not implemented for " + string();
 		}
-		return 0;
+		#end
 	}
 
 	public function hasName():Bool {

@@ -922,7 +922,7 @@ class Go {
 					case "stdgo.GoUIntptr":
 						ret = macro stdgo.reflect.Reflect.GoType.basic(uintptr_kind);
 					case "stdgo.AnyInterface":
-						ret = macro stdgo.reflect.Reflect.GoType.interfaceType(true);
+						ret = macro stdgo.reflect.Reflect.GoType.interfaceType(true, []);
 					case "haxe.Function":
 						ret = macro stdgo.reflect.Reflect.GoType.signature(false, [], [], stdgo.reflect.Reflect.GoType.invalidType);
 					case "Null":

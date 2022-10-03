@@ -1142,7 +1142,6 @@ func parseBasicLit(expr *ast.BasicLit) map[string]interface{} {
 					output = strconv.FormatUint(d, 10)
 				} else if !value.IsInt64() {
 					set = true
-					fmt.Println(value.String())
 					output = value.String()
 				}
 			case int64:

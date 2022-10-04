@@ -4307,7 +4307,7 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 				} else {
 					for (i in 0...expr.elts.length) {
 						var elt:Ast.KeyValueExpr = expr.elts[i];
-						var key = elt.key.name;
+						var key = formatHaxeFieldName(elt.key.name, info);
 						var value = typeExpr(elt.value, info);
 						var removed = false;
 						for (field in fields) {

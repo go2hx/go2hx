@@ -471,7 +471,7 @@ function mainStart(deps:T_testDeps, tests:Slice<InternalTest>, benchmarks:Slice<
 			final match = args[i + 1];
 			runArgBool = true;
 			for (_ => test in tests) {
-				if (test.name.indexOf(match) != -1) {
+				if (test.name.indexOf(match) == 0) {
 					testlist.push(test);
 				}
 			}

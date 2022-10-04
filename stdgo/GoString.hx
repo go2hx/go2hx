@@ -244,11 +244,11 @@ private class GoStringKeyValueIterator {
 }
 
 class GoStringTools {
-	public static function lastIndexOf(str:GoString, str:GoString, ?startIndex:Int):Int
-		return str.__toString__().lastIndexOf(str, startIndex);
+	public static function lastIndexOf(s:GoString, str:GoString, ?startIndex:Int):Int
+		return s.__toString__().lastIndexOf(str, startIndex);
 
-	public static function indexOf(str:GoString, str:GoString, ?startIndex:Int):Int
-		return str.__toString__().lastIndexOf(str, startIndex);
+	public static function indexOf(s:GoString, str:GoString, ?startIndex:Int):Int
+		return s.__toString__().indexOf(str, startIndex);
 
 	public static function substr(str:GoString, pos:Int, ?len:Int):GoString
 		return str.__toString__().substr(pos, len);

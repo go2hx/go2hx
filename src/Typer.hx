@@ -3690,7 +3690,11 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 			typeof(e.x, info, false, paths.copy());
 		case "InterfaceType":
 			var e:Ast.InterfaceType = e;
-			typeof(e.type, info, false, paths.copy());
+			if (e.incomplete) {
+				invalidType;
+			} else {
+				typeof(e.type, info, false, paths.copy());
+			}
 		case "ArrayType":
 			var e:Ast.ArrayType = e;
 			typeof(e.type, info, false, paths.copy());
@@ -3835,7 +3839,7 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 			final ctValue = toComplexType(value, info);
 			TPath({pack: [], name: "GoMap", params: [TPType(ctKey), TPType(ctValue)]});
 		case invalidType:
-			TPath({pack: [], name: "InvalidType"});
+			invalidComplexType();
 		case pointer(elem):
 			final ct = toComplexType(elem, info);
 			TPath({pack: [], name: "Pointer", params: [TPType(ct)]});
@@ -6197,6 +6201,21 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 			return cl;
 		case "InterfaceType":
 			var struct:Ast.InterfaceType = spec.type;
+			if (struct.incomplete) {
+				final meta:Metadata = [{name: ":follow", pos: null}];
+				final params = getParams(spec.params, info, true);
+				return {
+					name: name,
+					pos: null,
+					fields: [],
+					pack: [],
+					doc: getDoc(spec),
+					params: params,
+					isExtern: externBool,
+					meta: meta,
+					kind: TDAlias(invalidComplexType()),
+				}
+			}
 			if (struct.methods.list.length == 0) {
 				final meta:Metadata = [{name: ":follow", pos: null}];
 				final params = getParams(spec.params, info, true);
@@ -6207,6 +6226,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 					pack: [],
 					doc: getDoc(spec),
 					params: params,
+					isExtern: externBool,
 					meta: meta,
 					kind: TDAlias(anyInterfaceType()),
 				}
@@ -6263,6 +6283,9 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 
 private function anyInterfaceType()
 	return TPath({name: "AnyInterface", pack: []});
+
+private function invalidComplexType()
+	return TPath({name: "InvalidType", pack: []});
 
 private function errorType()
 	return TPath({name: "Error", pack: []});

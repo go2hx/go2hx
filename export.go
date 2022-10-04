@@ -11,7 +11,6 @@ import (
 	"go/importer"
 	"go/token"
 	"go/types"
-	"math/big"
 	"net"
 	"path/filepath"
 	"runtime"
@@ -1128,32 +1127,12 @@ func parseBasicLit(expr *ast.BasicLit) map[string]interface{} {
 		info := basic.Info()
 		switch {
 		case kind == types.UntypedInt:
-			set := false
-			info = types.IsInteger
-			switch value := constant.Val(value).(type) {
-			case *big.Int:
-				if value.IsUint64() {
-					set = true
-					kind = types.Uint64
-					d := value.Uint64()
-					if !ok {
-						panic("imprecise untyped int64")
-					}
-					output = strconv.FormatUint(d, 10)
-				} else if !value.IsInt64() {
-					set = true
-					output = value.String()
-				}
-			case int64:
-			default:
-			}
-			if !set {
-				kind = types.Int64
-				d, ok := constant.Int64Val(constant.ToInt(value))
-				if !ok {
-					panic("imprecise untyped int64")
-				}
-				output = strconv.FormatInt(d, 10)
+			kind = types.Uint64
+			d, ok := constant.Uint64Val(constant.ToInt(value))
+			if !ok {
+				output = "0"
+			} else {
+				output = strconv.FormatUint(d, 10)
 			}
 		case info&types.IsBoolean != 0:
 			output = strconv.FormatBool(constant.BoolVal(value))

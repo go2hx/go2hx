@@ -3549,7 +3549,7 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 				var kind = BasicKind.createByIndex(e.kind);
 				switch kind {
 					case untyped_int_kind:
-						kind = int64_kind;
+						kind = uint64_kind;
 					case untyped_float_kind:
 						kind = float64_kind;
 					case untyped_complex_kind:

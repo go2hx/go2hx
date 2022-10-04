@@ -234,7 +234,7 @@ final list = [
 	"math_bits_test:testOnesCount" => macro {},
 	"math_bits_test:testLen" => macro {},
 	// stdgo/runtime
-	"runtime:gomaxprocs" => macro return 0,
+	"runtime:gomaxprocs" => macro return 1,
 ];
 
 final skipTargets = [

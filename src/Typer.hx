@@ -1175,7 +1175,7 @@ private function translateStruct(e:Expr, fromType:GoType, toType:GoType, info:In
 private function createNamedObjectDecl(fields:Array<stdgo.reflect.Reflect.FieldType>, f:(field:String, type:GoType) -> Expr, info:Info):Expr {
 	final objectFields:Array<ObjectField> = [];
 	for (i in 0...fields.length) {
-		final field = formatHaxeFieldName(fields[i].name, info);
+		final field = fields[i].name;
 		objectFields.push({
 			field: field,
 			expr: f(field, fields[i].type),
@@ -1710,7 +1710,7 @@ private function castTranslate(obj:Ast.Expr, e:Expr, info:Info):{expr:Expr, ok:B
 			{
 				ok: true,
 				expr: macro try {
-					{value: $e, ok: true}
+					{value: $e, ok: true};
 				} catch (_) {
 					{value: $value, ok: false};
 				}
@@ -1724,7 +1724,6 @@ private function castTranslate(obj:Ast.Expr, e:Expr, info:Info):{expr:Expr, ok:B
 			var index = typeExpr(obj.index, info);
 			var x = typeExpr(obj.x, info);
 			final t = getUnderlying(typeof(obj, info, false));
-			// trace(t);
 			final value = switch t {
 				case tuple(_, vars):
 					defaultValue(vars[0], info);
@@ -2320,7 +2319,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 								case structType(fields):
 									final exprs:Array<Expr> = [
 										for (field in fields) {
-											final field = formatHaxeFieldName(field.name, info);
+											final field = field.name;
 											macro $x.$field = __tmp__.$field;
 										}
 									];
@@ -3403,7 +3402,7 @@ private function toReflectType(t:GoType, info:Info, paths:Array<String>):Expr {
 		case structType(fields):
 			var exprs:Array<Expr> = [];
 			for (field in fields) {
-				final name = makeString(formatHaxeFieldName(field.name, info));
+				final name = makeString(field.name);
 				final embedded = field.embedded ? macro true : macro false;
 				final tag = makeString(field.tag);
 				final t = toReflectType(field.type, info, paths.copy());
@@ -3529,7 +3528,7 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 						final recv = method.recv;
 						final type = method.type;
 						methods.push({
-							name: method.name,
+							name: formatHaxeFieldName(method.name, info),
 							type: {get: () -> typeof(type, info, false, paths.copy())},
 							recv: {get: () -> typeof(recv, info, false, paths.copy())},
 						});
@@ -3582,7 +3581,7 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 				if (e.methods != null) {
 					for (method in(e.methods : Array<Dynamic>)) {
 						methods.push({
-							name: method.name,
+							name: formatHaxeFieldName(method.name, info),
 							type: {get: () -> typeof(method.type, info, false, paths.copy())},
 							recv: {get: () -> typeof(method.recv, info, false, paths.copy())},
 						});
@@ -3604,7 +3603,7 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 			var t:GoType = structType([
 				for (field in(e.fields : Array<Dynamic>))
 					{
-						name: field.name,
+						name: formatHaxeFieldName(field.name, info),
 						type: typeof(field.type, info, false, paths.copy()),
 						embedded: field.embedded,
 						tag: field.tag == null ? "" : field.tag,
@@ -3689,12 +3688,7 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 			var e:Ast.ParenExpr = e;
 			typeof(e.x, info, false, paths.copy());
 		case "InterfaceType":
-			var e:Ast.InterfaceType = e;
-			if (e.incomplete) {
-				invalidType;
-			} else {
-				typeof(e.type, info, false, paths.copy());
-			}
+			typeof(e.type, info, false, paths.copy());
 		case "ArrayType":
 			var e:Ast.ArrayType = e;
 			typeof(e.type, info, false, paths.copy());
@@ -4306,7 +4300,7 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 							}
 						}
 						objectFields.push({
-							field: nameIdent(field.name, false, false, info),
+							field: field.name,
 							expr: value,
 						});
 					}
@@ -4322,7 +4316,7 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 							if (field.name == key) {
 								value = assignTranslate(typeof(elt.value, info, false), field.type, value, info);
 								objectFields.push({
-									field: nameIdent(key, false, true, info),
+									field: key,
 									expr: value, // macro ($value : $fieldType),
 								});
 								fields.remove(field);
@@ -4350,7 +4344,7 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 					var objectFields:Array<ObjectField> = [];
 					for (i in 0...fields.length) {
 						objectFields.push({
-							field: nameIdent(fields[i].name, false, false, info),
+							field: fields[i].name,
 							expr: args[i],
 						});
 					}
@@ -4778,7 +4772,7 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 			var chains:Array<String> = []; // chains together a field selectors
 			function recursion(path:String, fields:Array<FieldType>) {
 				for (field in fields) {
-					var setPath = path + nameIdent(field.name, false, false, info);
+					var setPath = path + field.name;
 					chains.push(setPath);
 					setPath += ".";
 					var structFields = getStructFields(field.type);
@@ -4860,7 +4854,7 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef { //
 	}
 	final ct = typeExprType(expr.type, info);
 	final fromType = typeof(expr.x, info, false);
-	if (!isAnyInterface(fromType) && isInterface(fromType) && isInterface(t)) {
+	if (isInterface(fromType) && isInterface(t)) {
 		// return (macro(($e.__underlying__().value : Dynamic) : $ct)).expr;
 		var rt = toReflectType(typeof(expr.type, info, false), info, []);
 		rt = macro new stdgo.reflect.Reflect._Type(@:define("!go2hx_compiler") $rt);
@@ -5448,7 +5442,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 					if (alias) {
 						for (field in fields) {
 							fs.push({
-								field: nameIdent(field.name, false, false, info),
+								field: field.name,
 								expr: defaultValue(field.type, info),
 							});
 						}
@@ -5509,7 +5503,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			var fs:Array<ObjectField> = [];
 			for (field in fields) {
 				fs.push({
-					field: nameIdent(field.name, false, false, info),
+					field: field.name,
 					expr: defaultValue(field.type, info, true),
 				});
 			}
@@ -5685,7 +5679,7 @@ private function typeFieldListMethods(list:Ast.FieldList, info:Info):Array<Field
 				name: nameIdent(name, true, false, info),
 				pos: null,
 				doc: doc,
-				access: [APublic], // typeAccess(n.name, true),
+				access: [APublic],
 				kind: FFun({
 					args: params,
 					ret: ret,
@@ -5713,7 +5707,7 @@ private function typeFields(list:Array<FieldType>, info:Info, access:Array<Acces
 			meta.push({name: ":tag", pos: null, params: [makeString(field.tag)]});
 		var doc:String = getDoc({doc: docs == null ? null : docs[i]}) + getComment({comment: comments == null ? null : comments[i]});
 		fields.push({
-			name: nameIdent(name, false, false, info),
+			name: formatHaxeFieldName(name, info),
 			pos: null,
 			meta: meta,
 			doc: doc,
@@ -5809,7 +5803,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 			final args:Array<FunctionArg> = [];
 			final p:TypePath = {name: name, pack: []};
 			for (field in fs) {
-				final name = nameIdent(field.name, true, false, info);
+				final name = field.name;
 				argExprs.push(macro $i{name});
 				args.push({opt: true, name: name});
 			}
@@ -5900,13 +5894,14 @@ private function refToPointerWrapper(t:GoType):GoType {
 }
 
 private function typeSpec(spec:Ast.TypeSpec, info:Info, local:Bool = false):TypeDefinition {
+	var hash:UInt = 0;
 	if (spec.type.type != null) {
-		final hash:UInt = spec.type.type.hash;
+		hash = spec.type.type.hash;
 		if (!info.locals.exists(hash)) {
 			final path = spec.name.type.path == null ? spec.name.name : spec.name.type.path;
 			var nameType:GoType = if (spec.type.id == "InterfaceType") {
 				final t = typeof(spec.type.type, info, true, [path]);
-				named(path, [], t);
+				named(className(path, info), [], t);
 			} else {
 				final t = typeof(spec.type, info, false);
 				info.localUnderlyingNames[path] = t;
@@ -5914,7 +5909,7 @@ private function typeSpec(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 			}
 			switch nameType {
 				case structType(fields):
-					nameType = named(path, [], structType(fields), spec.assign != 0 || local);
+					nameType = named(className(path, info), [], structType(fields), spec.assign != 0 || local);
 				default:
 			}
 			info.locals[hash] = nameType;
@@ -5939,7 +5934,7 @@ private function typeSpec(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 		}
 	}
 	return switch spec.type.id {
-		case "StructType", "InterfaceType": typeType(spec, info, local);
+		case "StructType", "InterfaceType": typeType(spec, info, local, hash);
 		default: typeNamed(spec, info);
 	}
 }
@@ -5991,7 +5986,7 @@ private function makeStringLit(values:Array<{?s:String, ?code:Int}>):Expr {
 	return macro Go.str($a{exprs});
 }
 
-private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):TypeDefinition {
+private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash:UInt = 0):TypeDefinition {
 	var name = className(spec.name.name, info);
 	var externBool = isTitle(spec.name.name);
 	info.className = name;
@@ -6201,22 +6196,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 			return cl;
 		case "InterfaceType":
 			var struct:Ast.InterfaceType = spec.type;
-			if (struct.incomplete) {
-				final meta:Metadata = [{name: ":follow", pos: null}];
-				final params = getParams(spec.params, info, true);
-				return {
-					name: name,
-					pos: null,
-					fields: [],
-					pack: [],
-					doc: getDoc(spec),
-					params: params,
-					isExtern: externBool,
-					meta: meta,
-					kind: TDAlias(invalidComplexType()),
-				}
-			}
-			if (struct.methods.list.length == 0) {
+			if (struct.methods.list.length == 0 && !struct.incomplete) {
 				final meta:Metadata = [{name: ":follow", pos: null}];
 				final params = getParams(spec.params, info, true);
 				return {
@@ -6259,6 +6239,18 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 				}
 			}
 			final params = getParams(spec.params, info, true);
+			if (struct.incomplete) {
+				switch name {
+					case "T_error":
+						implicits.push(switch errorType() {
+							case TPath(p):
+								p;
+							default:
+								throw "invalid";
+						});
+					default:
+				}
+			}
 			return {
 				name: name,
 				pack: [],
@@ -6393,7 +6385,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 
 			var name = nameIdent(value.names[i].name, false, true, info);
 			var doc:String = getComment(value) + getDoc(value); // + getSource(value, info);
-			var access = []; // typeAccess(value.names[i]);
+			var access = [];
 			if (!isTitle(value.names[i].name))
 				access.push(APrivate);
 			if (constant)
@@ -6455,7 +6447,7 @@ private function sanatizeComment(source:String):String {
 }
 
 private function typeAccess(name:String, isField:Bool = false):Array<Access> {
-	return isTitle(name) ? (isField ? [APublic] : []) : [APrivate];
+	return StringTools.startsWith(name, "_") ? [APrivate] : (isField ? [APublic] : []);
 }
 
 private function getRestrictedName(name:String, info:Info):String { // all function defs are restricted names

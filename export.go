@@ -697,7 +697,7 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 			}
 			data[i] = map[string]interface{}{
 				"id":      "TypeSpec",
-				"assign":  fset.Position(obj.Assign).Offset,
+				"assign":  parsePos(obj.Assign),
 				"name":    parseData(obj.Name),
 				"type":    parseData(obj.Type),
 				"params":  params,
@@ -720,8 +720,8 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 		default:
 			data[i] = parseData(obj)
 		}
-		data[i]["pos"] = fset.Position(obj.Pos()).Offset
-		data[i]["end"] = fset.Position(obj.End()).Offset
+		data[i]["pos"] = parsePos(obj.Pos())
+		data[i]["end"] = parsePos(obj.End())
 	}
 	return data
 }
@@ -950,10 +950,12 @@ func parseData(node interface{}) map[string]interface{} {
 		switch value := value.(type) {
 		case nil:
 		case token.Pos:
-			data[field.Name] = fset.PositionFor(value, true).Offset
+			data[field.Name] = parsePos(value)
 		case token.Token:
 			data[field.Name] = value.String()
-		case *ast.InterfaceType, *ast.StructType, *ast.ArrayType, *ast.MapType, *ast.ChanType:
+		case *ast.InterfaceType:
+			data[field.Name] = parseInterfaceType(value)
+		case *ast.StructType, *ast.ArrayType, *ast.MapType, *ast.ChanType:
 			data[field.Name] = parseData(value)
 		case *ast.BasicLit:
 			data[field.Name] = parseBasicLit(value)
@@ -965,8 +967,8 @@ func parseData(node interface{}) map[string]interface{} {
 			data[field.Name] = map[string]interface{}{
 				"id":  "ExprStmt",
 				"x":   parseData(value.X),
-				"pos": fset.PositionFor(value.X.Pos(), true).Offset,
-				"end": fset.PositionFor(value.X.End(), true).Offset,
+				"pos": parsePos(value.X.Pos()),
+				"end": parsePos(value.X.End()),
 			}
 		case *ast.BadStmt, *ast.DeclStmt, *ast.EmptyStmt, *ast.LabeledStmt, *ast.SendStmt, *ast.IncDecStmt, *ast.GoStmt, ast.DeferStmt:
 			data[field.Name] = parseData(value)
@@ -1053,8 +1055,8 @@ func parseData(node interface{}) map[string]interface{} {
 		data["type"] = parseType(checker.TypeOf(node.(ast.Expr)), map[string]bool{})
 	case *ast.KeyValueExpr:
 	case *ast.FuncDecl:
-		data["pos"] = fset.Position(node.Pos()).Offset
-		data["end"] = fset.Position(node.End()).Offset
+		data["pos"] = parsePos(node.Pos())
+		data["end"] = parsePos(node.End())
 	default:
 	}
 	return data
@@ -1098,6 +1100,14 @@ func parseIdent(value *ast.Ident) map[string]interface{} {
 		data["type"] = parseType(obj.Type(), map[string]bool{})
 	}
 	return data
+}
+func parseInterfaceType(expr *ast.InterfaceType) map[string]interface{} {
+	return map[string]interface{}{
+		"interfacePos": parsePos(expr.Pos()),
+		"methods":      parseFieldList(expr.Methods.List),
+		"incomplete":   expr.Incomplete,
+		"type":         parseType(checker.TypeOf(expr), map[string]bool{}),
+	}
 }
 func parseBasicLit(expr *ast.BasicLit) map[string]interface{} {
 	output := ""
@@ -1177,6 +1187,10 @@ func parseBasicLit(expr *ast.BasicLit) map[string]interface{} {
 	} else {
 		return basicLitToken(expr)
 	}
+}
+
+func parsePos(pos token.Pos) int {
+	return fset.PositionFor(pos, true).Offset
 }
 
 func basicLitToken(expr *ast.BasicLit) map[string]interface{} {

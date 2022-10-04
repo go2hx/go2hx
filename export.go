@@ -954,7 +954,7 @@ func parseData(node interface{}) map[string]interface{} {
 		case token.Token:
 			data[field.Name] = value.String()
 		case *ast.InterfaceType:
-			data[field.Name] = parseInterfaceType(value)
+			data[field.Name] = parseData(value)
 		case *ast.StructType, *ast.ArrayType, *ast.MapType, *ast.ChanType:
 			data[field.Name] = parseData(value)
 		case *ast.BasicLit:
@@ -1100,14 +1100,6 @@ func parseIdent(value *ast.Ident) map[string]interface{} {
 		data["type"] = parseType(obj.Type(), map[string]bool{})
 	}
 	return data
-}
-func parseInterfaceType(expr *ast.InterfaceType) map[string]interface{} {
-	return map[string]interface{}{
-		"interfacePos": parsePos(expr.Pos()),
-		"methods":      parseFieldList(expr.Methods.List),
-		"incomplete":   expr.Incomplete,
-		"type":         parseType(checker.TypeOf(expr), map[string]bool{}),
-	}
 }
 func parseBasicLit(expr *ast.BasicLit) map[string]interface{} {
 	output := ""

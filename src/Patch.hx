@@ -230,9 +230,11 @@ final list = [
 		return;
 	},
 	// stdgo/math_bits_test
-	"math_bits_test:TestLeadingZeros" => macro {},
-	"math_bits_test:TestOnesCount" => macro {},
-	"math_bits_test:TestLen" => macro {}
+	"math_bits_test:testLeadingZeros" => macro {},
+	"math_bits_test:testOnesCount" => macro {},
+	"math_bits_test:testLen" => macro {},
+	// stdgo/runtime
+	"runtime:gomaxprocs" => macro return 0,
 ];
 
 final skipTargets = [

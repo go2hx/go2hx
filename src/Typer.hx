@@ -3388,8 +3388,8 @@ private function toReflectType(t:GoType, info:Info, paths:Array<String>):Expr {
 			macro stdgo.reflect.Reflect.GoType.previousNamed($path);
 		case signature(variadic, params, results, _.get() => recv):
 			final variadic = variadic ? macro true : macro false;
-			final params = macro $a{params.get().map(param -> toReflectType(param, info, []))};
-			final results = macro $a{results.get().map(result -> toReflectType(result, info, []))};
+			final params = macro $a{params.get().map(param -> toReflectType(param, info, paths.copy()))};
+			final results = macro $a{results.get().map(result -> toReflectType(result, info, paths.copy()))};
 			final recv = macro stdgo.reflect.Reflect.GoType.invalidType; // toReflectType(recv, info, paths.copy());
 			macro stdgo.reflect.Reflect.GoType.signature($variadic, $params, $results, $recv);
 		case structType(fields):

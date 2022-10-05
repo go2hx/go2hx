@@ -4850,6 +4850,11 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef { //
 	if (isAnyInterface(fromType))
 		return (macro Go.typeAssert(($e : $ct))).expr;
 	// non anyInterface conversions are always known to work at compile time
+	final t = typeof(expr.type, info, false);
+	if (isPointer(t)) {
+		final ct = typeExprType(expr.type.x, info);
+		return (macro Go.pointer(($e.__underlying__().value : $ct))).expr;
+	}
 	return (macro($e.__underlying__().value : $ct)).expr;
 }
 

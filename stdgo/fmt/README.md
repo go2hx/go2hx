@@ -1,5 +1,4 @@
-# Module: stdgo.fmt
-
+# Module: `stdgo.fmt`
 
 [(view library index)](../stdgo.md)
 
@@ -13,25 +12,25 @@
 # Index
 
 
-- [function errorf\(fmt:stdgo.GoString, args:haxe.Rest\<stdgo.AnyInterface\>\):stdgo.Error](<#function-errorf>)
+- [`function errorf(fmt:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):stdgo.Error`](<#function-errorf>)
 
-- [function fprint\(w:stdgo.io.Writer, args:haxe.Rest\<Dynamic\>\):Void](<#function-fprint>)
+- [`function fprint(w:stdgo.io.Writer, args:haxe.Rest<Dynamic>):Void`](<#function-fprint>)
 
-- [function fprintf\(w:stdgo.io.Writer, fmt:stdgo.GoString, args:haxe.Rest\<Dynamic\>\):Void](<#function-fprintf>)
+- [`function fprintf(w:stdgo.io.Writer, fmt:stdgo.GoString, args:haxe.Rest<Dynamic>):Void`](<#function-fprintf>)
 
-- [function fprintln\(w:stdgo.io.Writer, args:haxe.Rest\<Dynamic\>\):Void](<#function-fprintln>)
+- [`function fprintln(w:stdgo.io.Writer, args:haxe.Rest<Dynamic>):Void`](<#function-fprintln>)
 
-- [function print\(args:haxe.Rest\<Dynamic\>\):\{\_1:stdgo.Error, \_0:Int\}](<#function-print>)
+- [`function print(args:haxe.Rest<Dynamic>):{_1:stdgo.Error, _0:Int}`](<#function-print>)
 
-- [function printf\(fmt:stdgo.GoString, args:haxe.Rest\<stdgo.AnyInterface\>\):Void](<#function-printf>)
+- [`function printf(fmt:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):Void`](<#function-printf>)
 
-- [function println\(args:haxe.Rest\<Dynamic\>\):\{\_1:stdgo.Error, \_0:Int\}](<#function-println>)
+- [`function println(args:haxe.Rest<Dynamic>):{_1:stdgo.Error, _0:Int}`](<#function-println>)
 
-- [function sprint\(args:haxe.Rest\<Dynamic\>\):stdgo.GoString](<#function-sprint>)
+- [`function sprint(args:haxe.Rest<Dynamic>):stdgo.GoString`](<#function-sprint>)
 
-- [function sprintf\(fmt:stdgo.GoString, args:haxe.Rest\<stdgo.AnyInterface\>\):stdgo.GoString](<#function-sprintf>)
+- [`function sprintf(fmt:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):stdgo.GoString`](<#function-sprintf>)
 
-- [function sprintln\(args:haxe.Rest\<Dynamic\>\):stdgo.GoString](<#function-sprintln>)
+- [`function sprintln(args:haxe.Rest<Dynamic>):stdgo.GoString`](<#function-sprintln>)
 
 - [typedef Formatter](<#typedef-formatter>)
 
@@ -53,7 +52,7 @@ import stdgo.fmt.Fmt
 ```
 
 
-## function \`errorf\`
+## function errorf
 
 
 ```haxe
@@ -67,7 +66,7 @@ function errorf(fmt:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):stdgo.Er
 [\(view code\)](<./Fmt.hx#L47>)
 
 
-## function \`fprint\`
+## function fprint
 
 
 ```haxe
@@ -78,10 +77,10 @@ function fprint(w:stdgo.io.Writer, args:haxe.Rest<Dynamic>):Void
  
 
 
-[\(view code\)](<./Fmt.hx#L67>)
+[\(view code\)](<./Fmt.hx#L71>)
 
 
-## function \`fprintf\`
+## function fprintf
 
 
 ```haxe
@@ -92,10 +91,10 @@ function fprintf(w:stdgo.io.Writer, fmt:stdgo.GoString, args:haxe.Rest<Dynamic>)
  
 
 
-[\(view code\)](<./Fmt.hx#L65>)
+[\(view code\)](<./Fmt.hx#L69>)
 
 
-## function \`fprintln\`
+## function fprintln
 
 
 ```haxe
@@ -106,10 +105,10 @@ function fprintln(w:stdgo.io.Writer, args:haxe.Rest<Dynamic>):Void
  
 
 
-[\(view code\)](<./Fmt.hx#L66>)
+[\(view code\)](<./Fmt.hx#L70>)
 
 
-## function \`print\`
+## function print
 
 
 ```haxe
@@ -120,10 +119,10 @@ function print(args:haxe.Rest<Dynamic>):{_1:stdgo.Error, _0:Int}
  
 
 
-[\(view code\)](<./Fmt.hx#L56>)
+[\(view code\)](<./Fmt.hx#L60>)
 
 
-## function \`printf\`
+## function printf
 
 
 ```haxe
@@ -134,10 +133,10 @@ function printf(fmt:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):Void
  
 
 
-[\(view code\)](<./Fmt.hx#L61>)
+[\(view code\)](<./Fmt.hx#L65>)
 
 
-## function \`println\`
+## function println
 
 
 ```haxe
@@ -148,10 +147,10 @@ function println(args:haxe.Rest<Dynamic>):{_1:stdgo.Error, _0:Int}
  
 
 
-[\(view code\)](<./Fmt.hx#L51>)
+[\(view code\)](<./Fmt.hx#L55>)
 
 
-## function \`sprint\`
+## function sprint
 
 
 ```haxe
@@ -162,10 +161,10 @@ function sprint(args:haxe.Rest<Dynamic>):stdgo.GoString
  
 
 
-[\(view code\)](<./Fmt.hx#L69>)
+[\(view code\)](<./Fmt.hx#L73>)
 
 
-## function \`sprintf\`
+## function sprintf
 
 
 ```haxe
@@ -176,10 +175,10 @@ function sprintf(fmt:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):stdgo.G
  
 
 
-[\(view code\)](<./Fmt.hx#L85>)
+[\(view code\)](<./Fmt.hx#L89>)
 
 
-## function \`sprintln\`
+## function sprintln
 
 
 ```haxe
@@ -190,7 +189,7 @@ function sprintln(args:haxe.Rest<Dynamic>):stdgo.GoString
  
 
 
-[\(view code\)](<./Fmt.hx#L73>)
+[\(view code\)](<./Fmt.hx#L77>)
 
 
 # Typedefs

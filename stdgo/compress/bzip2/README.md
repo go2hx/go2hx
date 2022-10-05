@@ -1,5 +1,7 @@
 # Module stdgo.compress.bzip2 has compilation errors, please do not use:
 ```
+stdgo/compress/bzip2/Bzip2.hx:394: characters 39-51 : Type not found : GoUnTypedInt
+stdgo/compress/bzip2/Bzip2.hx:431: characters 50-62 : Type not found : GoUnTypedInt
 stdgo/compress/bzip2/Bzip2.hx:442: characters 46-111 : Spread unary operator is only allowed for unpacking the last argument in a call with rest arguments
 stdgo/compress/bzip2/Bzip2.hx:442: characters 46-111 : ... For function argument 'length'
 stdgo/compress/bzip2/Bzip2.hx:477: characters 47-120 : Spread unary operator is only allowed for unpacking the last argument in a call with rest arguments
@@ -22,6 +24,13 @@ stdgo/compress/bzip2/Bzip2.hx:229: characters 47-163 : ... For function argument
 stdgo/compress/bzip2/Bzip2.hx:245: characters 46-158 : Spread unary operator is only allowed for unpacking the last argument in a call with rest arguments
 stdgo/compress/bzip2/Bzip2.hx:245: characters 46-158 : ... For function argument 'length'
 stdgo/compress/bzip2/Bzip2.hx:538: characters 42-61 : Type not found : stdgo.Error_wrapper
+stdgo/compress/bzip2/Bzip2.hx:596: characters 55-67 : Type not found : GoUnTypedInt
+stdgo/compress/bzip2/Bzip2.hx:185: characters 139-151 : Type not found : GoUnTypedInt
+stdgo/compress/bzip2/Bzip2.hx:188: characters 74-86 : Type not found : GoUnTypedInt
+stdgo/compress/bzip2/Bzip2.hx:742: characters 47-59 : Type not found : GoUnTypedInt
+stdgo/compress/bzip2/Bzip2.hx:197: characters 65-77 : Type not found : GoUnTypedInt
+stdgo/compress/bzip2/Bzip2.hx:197: characters 39-97 : Void should be stdgo.GoUInt32
+stdgo/compress/bzip2/Bzip2.hx:197: characters 135-147 : Type not found : GoUnTypedInt
 stdgo/compress/bzip2/Bzip2.hx:823: characters 44-120 : Spread unary operator is only allowed for unpacking the last argument in a call with rest arguments
 stdgo/compress/bzip2/Bzip2.hx:823: characters 44-120 : ... For function argument 'length'
 stdgo/bufio/Bufio.hx:155: characters 38-103 : Spread unary operator is only allowed for unpacking the last argument in a call with rest arguments
@@ -48,6 +57,9 @@ stdgo/bufio/Bufio.hx:173: characters 46-111 : Spread unary operator is only allo
 stdgo/bufio/Bufio.hx:173: characters 46-111 : ... For function argument 'length'
 stdgo/compress/bzip2/Bzip2.hx:160: characters 9-20 : stdgo.compress.bzip2.T_reader should be stdgo.io.Reader
 stdgo/compress/bzip2/Bzip2.hx:160: characters 9-20 : ... stdgo.compress.bzip2.T_reader has no field read
+stdgo/compress/bzip2/Bzip2.hx:345: characters 65-77 : Type not found : GoUnTypedInt
+stdgo/compress/bzip2/Bzip2.hx:350: characters 51-63 : Type not found : GoUnTypedInt
+stdgo/compress/bzip2/Bzip2.hx:352: characters 51-63 : Type not found : GoUnTypedInt
 
 ```
 

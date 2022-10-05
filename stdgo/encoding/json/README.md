@@ -1,5 +1,4 @@
-# Module: stdgo.encoding.json
-
+# Module: `stdgo.encoding.json`
 
 [(view library index)](../../stdgo.md)
 
@@ -13,7 +12,7 @@
 # Index
 
 
-- [function marshal\(v:stdgo.AnyInterface\):\{\_1:stdgo.Error, \_0:stdgo.Slice\<stdgo.GoByte\>\}](<#function-marshal>)
+- [`function marshal(v:stdgo.AnyInterface):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoByte>}`](<#function-marshal>)
 
 - [typedef Unmarshaler](<#typedef-unmarshaler>)
 
@@ -25,7 +24,7 @@ import stdgo.encoding.json.Json
 ```
 
 
-## function \`marshal\`
+## function marshal
 
 
 ```haxe

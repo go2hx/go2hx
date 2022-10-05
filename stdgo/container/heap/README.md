@@ -1,5 +1,4 @@
-# Module: stdgo.container.heap
-
+# Module: `stdgo.container.heap`
 
 [(view library index)](../../stdgo.md)
 
@@ -13,19 +12,19 @@
 # Index
 
 
-- [function \_down\(\_h:stdgo.container.heap.Interface, \_i0:stdgo.GoInt, \_n:stdgo.GoInt\):Bool](<#function-_down>)
+- [`function _down(_h:stdgo.container.heap.Interface, _i0:stdgo.GoInt, _n:stdgo.GoInt):Bool`](<#function-_down>)
 
-- [function \_up\(\_h:stdgo.container.heap.Interface, \_j:stdgo.GoInt\):Void](<#function-_up>)
+- [`function _up(_h:stdgo.container.heap.Interface, _j:stdgo.GoInt):Void`](<#function-_up>)
 
-- [function fix\(\_h:stdgo.container.heap.Interface, \_i:stdgo.GoInt\):Void](<#function-fix>)
+- [`function fix(_h:stdgo.container.heap.Interface, _i:stdgo.GoInt):Void`](<#function-fix>)
 
-- [function init\(\_h:stdgo.container.heap.Interface\):Void](<#function-init>)
+- [`function init(_h:stdgo.container.heap.Interface):Void`](<#function-init>)
 
-- [function pop\(\_h:stdgo.container.heap.Interface\):stdgo.AnyInterface](<#function-pop>)
+- [`function pop(_h:stdgo.container.heap.Interface):stdgo.AnyInterface`](<#function-pop>)
 
-- [function push\(\_h:stdgo.container.heap.Interface, \_x:stdgo.AnyInterface\):Void](<#function-push>)
+- [`function push(_h:stdgo.container.heap.Interface, _x:stdgo.AnyInterface):Void`](<#function-push>)
 
-- [function remove\(\_h:stdgo.container.heap.Interface, \_i:stdgo.GoInt\):stdgo.AnyInterface](<#function-remove>)
+- [`function remove(_h:stdgo.container.heap.Interface, _i:stdgo.GoInt):stdgo.AnyInterface`](<#function-remove>)
 
 - [typedef Interface](<#typedef-interface>)
 
@@ -37,7 +36,7 @@ import stdgo.container.heap.Heap
 ```
 
 
-## function \`\_down\`
+## function \_down
 
 
 ```haxe
@@ -51,7 +50,7 @@ function _down(_h:stdgo.container.heap.Interface, _i0:stdgo.GoInt, _n:stdgo.GoIn
 [\(view code\)](<./Heap.hx#L85>)
 
 
-## function \`\_up\`
+## function \_up
 
 
 ```haxe
@@ -65,7 +64,7 @@ function _up(_h:stdgo.container.heap.Interface, _j:stdgo.GoInt):Void
 [\(view code\)](<./Heap.hx#L75>)
 
 
-## function \`fix\`
+## function fix
 
 
 ```haxe
@@ -79,7 +78,7 @@ Fix re\-establishes the heap ordering after the element at index i has changed i
 [\(view code\)](<./Heap.hx#L70>)
 
 
-## function \`init\`
+## function init
 
 
 ```haxe
@@ -93,7 +92,7 @@ Init establishes the heap invariants required by the other routines in this pack
 [\(view code\)](<./Heap.hx#L22>)
 
 
-## function \`pop\`
+## function pop
 
 
 ```haxe
@@ -107,7 +106,7 @@ Pop removes and returns the minimum element \(according to Less\) from the heap.
 [\(view code\)](<./Heap.hx#L44>)
 
 
-## function \`push\`
+## function push
 
 
 ```haxe
@@ -121,7 +120,7 @@ Push pushes the element x onto the heap. The complexity is O\(log n\) where n = 
 [\(view code\)](<./Heap.hx#L35>)
 
 
-## function \`remove\`
+## function remove
 
 
 ```haxe

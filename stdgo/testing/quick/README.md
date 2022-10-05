@@ -1,5 +1,4 @@
-# Module: stdgo.testing.quick
-
+# Module: `stdgo.testing.quick`
 
 [(view library index)](../../stdgo.md)
 
@@ -13,15 +12,15 @@
 # Index
 
 
-- [function check\(\_f:stdgo.AnyInterface, \_config:stdgo.testing.quick.Config\):\{\<unknown\>\}](<#function-check>)
+- [`function check(_f:stdgo.AnyInterface, _config:stdgo.testing.quick.Config):{<unknown>}`](<#function-check>)
 
-- [function checkEqual\(\_f:stdgo.AnyInterface, \_g:stdgo.AnyInterface, \_config:stdgo.testing.quick.Config\):stdgo.Error](<#function-checkequal>)
+- [`function checkEqual(_f:stdgo.AnyInterface, _g:stdgo.AnyInterface, _config:stdgo.testing.quick.Config):stdgo.Error`](<#function-checkequal>)
 
 - [class Config](<#class-config>)
 
-  - [function new\(?maxCount:Null\<stdgo.GoInt\>, ?maxCountScale:Null\<stdgo.GoFloat64\>, ?rand:Null\<stdgo.Ref\<stdgo.math.rand.Rand\>\>, values:\(:stdgo.Slice\<stdgo.reflect.Value\>, :stdgo.Ref\<stdgo.math.rand.Rand\>\):Void\):Void](<#config-function-new>)
+  - [`function new(?maxCount:Null<stdgo.GoInt>, ?maxCountScale:Null<stdgo.GoFloat64>, ?rand:Null<stdgo.Ref<stdgo.math.rand.Rand>>, values:(:stdgo.Slice<stdgo.reflect.Value>, :stdgo.Ref<stdgo.math.rand.Rand>):Void):Void`](<#config-function-new>)
 
-  - [function values\(:stdgo.Slice\<stdgo.reflect.Value\>, :stdgo.Ref\<stdgo.math.rand.Rand\>\):Void](<#config-function-values>)
+  - [`function values(:stdgo.Slice<stdgo.reflect.Value>, :stdgo.Ref<stdgo.math.rand.Rand>):Void`](<#config-function-values>)
 
 # Functions
 
@@ -31,7 +30,7 @@ import stdgo.testing.quick.Quick
 ```
 
 
-## function \`check\`
+## function check
 
 
 ```haxe
@@ -45,7 +44,7 @@ function check(_f:stdgo.AnyInterface, _config:stdgo.testing.quick.Config):{<unkn
 [\(view code\)](<./Quick.hx#L6>)
 
 
-## function \`checkEqual\`
+## function checkEqual
 
 
 ```haxe

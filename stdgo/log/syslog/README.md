@@ -1,6 +1,6 @@
 # Module stdgo.log.syslog has compilation errors, please do not use:
 ```
-stdgo/net/Net.hx:6857: characters 24-53 : Type not found : stdgo.context.Context
+stdgo/log/Log.hx:394: characters 13-25 : Type not found : GoUnTypedInt
 
 ```
 

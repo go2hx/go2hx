@@ -1,5 +1,4 @@
-# Module: stdgo.internal.oserror
-
+# Module: `stdgo.internal.oserror`
 
 [(view library index)](../../stdgo.md)
 

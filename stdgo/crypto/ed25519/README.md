@@ -9,6 +9,9 @@ stdgo/crypto/ed25519/Ed25519.hx:139: characters 47-49 : Void has no field ok
 stdgo/crypto/ed25519/Ed25519.hx:135: characters 13-20 : Variables of type Void are not allowed
 stdgo/crypto/ed25519/Ed25519.hx:63: characters 45-119 : Spread unary operator is only allowed for unpacking the last argument in a call with rest arguments
 stdgo/crypto/ed25519/Ed25519.hx:63: characters 45-119 : ... For function argument 'length'
+stdgo/crypto/sha512/Sha512.hx:202: characters 118-130 : Type not found : GoUnTypedInt
+stdgo/crypto/sha512/Sha512.hx:209: characters 172-184 : Type not found : GoUnTypedInt
+stdgo/crypto/sha512/Sha512.hx:211: characters 170-182 : Type not found : GoUnTypedInt
 stdgo/crypto/sha512/Sha512.hx:12: characters 1-37 : stdgo.GoUInt64 should be Int
 stdgo/crypto/sha512/Sha512.hx:12: characters 1-37 : ... For function argument 'length'
 

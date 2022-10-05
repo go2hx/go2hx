@@ -1,5 +1,4 @@
-# Module: stdgo.unsafe
-
+# Module: `stdgo.unsafe`
 
 [(view library index)](../stdgo.md)
 
@@ -13,11 +12,11 @@
 # Index
 
 
-- [function alignof\_\(x:stdgo.AnyInterface\):stdgo.GoUIntptr](<#function-alignof_>)
+- [`function alignof_(x:stdgo.AnyInterface):stdgo.GoUIntptr`](<#function-alignof_>)
 
-- [function offsetof\_\(x:stdgo.AnyInterface\):stdgo.GoUIntptr](<#function-offsetof_>)
+- [`function offsetof_(x:stdgo.AnyInterface):stdgo.GoUIntptr`](<#function-offsetof_>)
 
-- [function sizeof\(x:stdgo.AnyInterface\):stdgo.GoUIntptr](<#function-sizeof>)
+- [`function sizeof(x:stdgo.AnyInterface):stdgo.GoUIntptr`](<#function-sizeof>)
 
 - [typedef Pointer\_](<#typedef-pointer_>)
 
@@ -29,7 +28,7 @@ import stdgo.unsafe.Unsafe
 ```
 
 
-## function \`alignof\_\`
+## function alignof\_
 
 
 ```haxe
@@ -43,7 +42,7 @@ function alignof_(x:stdgo.AnyInterface):stdgo.GoUIntptr
 [\(view code\)](<./Unsafe.hx#L66>)
 
 
-## function \`offsetof\_\`
+## function offsetof\_
 
 
 ```haxe
@@ -57,7 +56,7 @@ function offsetof_(x:stdgo.AnyInterface):stdgo.GoUIntptr
 [\(view code\)](<./Unsafe.hx#L62>)
 
 
-## function \`sizeof\`
+## function sizeof
 
 
 ```haxe

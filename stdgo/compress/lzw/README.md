@@ -21,8 +21,18 @@ stdgo/bufio/Bufio.hx:990: characters 50-118 : Spread unary operator is only allo
 stdgo/bufio/Bufio.hx:990: characters 50-118 : ... For function argument 'length'
 stdgo/bufio/Bufio.hx:173: characters 46-111 : Spread unary operator is only allowed for unpacking the last argument in a call with rest arguments
 stdgo/bufio/Bufio.hx:173: characters 46-111 : ... For function argument 'length'
+stdgo/compress/lzw/Lzw.hx:691: characters 43-55 : Type not found : GoUnTypedInt
+stdgo/compress/lzw/Lzw.hx:667: characters 78-90 : Type not found : GoUnTypedInt
+stdgo/compress/lzw/Lzw.hx:672: characters 43-55 : Type not found : GoUnTypedInt
 stdgo/compress/lzw/Lzw.hx:454: characters 13-52 : stdgo.bufio.Writer should be stdgo.compress.lzw.T_writer
 stdgo/compress/lzw/Lzw.hx:454: characters 13-52 : ... stdgo.bufio.Writer has no field flush
+stdgo/compress/lzw/Lzw.hx:638: characters 51-63 : Type not found : GoUnTypedInt
+stdgo/compress/lzw/Lzw.hx:650: characters 44-56 : Type not found : GoUnTypedInt
+stdgo/compress/lzw/Lzw.hx:532: characters 48-60 : Type not found : GoUnTypedInt
+stdgo/compress/lzw/Lzw.hx:586: characters 53-65 : Type not found : GoUnTypedInt
+stdgo/compress/lzw/Lzw.hx:587: characters 55-67 : Type not found : GoUnTypedInt
+stdgo/compress/lzw/Lzw.hx:591: characters 51-63 : Type not found : GoUnTypedInt
+stdgo/compress/lzw/Lzw.hx:618: characters 83-95 : Type not found : GoUnTypedInt
 stdgo/compress/lzw/Lzw.hx:136: characters 9-49 : stdgo.compress.lzw.Reader should be stdgo.io.ReadCloser
 stdgo/compress/lzw/Lzw.hx:136: characters 9-49 : ... stdgo.compress.lzw.Reader has no field close
 stdgo/compress/lzw/Lzw.hx:155: characters 9-49 : stdgo.compress.lzw.Writer should be stdgo.io.WriteCloser

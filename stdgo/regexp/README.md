@@ -19,6 +19,20 @@ stdgo/regexp/Regexp.hx:1183: characters 40-103 : ... For function argument 'leng
 stdgo/regexp/Regexp.hx:1190: characters 50-53 : stdgo.Slice<stdgo.GoInt> has no field cap
 stdgo/regexp/Regexp.hx:1191: characters 45-108 : Spread unary operator is only allowed for unpacking the last argument in a call with rest arguments
 stdgo/regexp/Regexp.hx:1191: characters 45-108 : ... For function argument 'length'
+stdgo/regexp/Regexp.hx:3556: characters 43-55 : Type not found : GoUnTypedInt
+stdgo/regexp/Regexp.hx:1233: lines 1233-1285 : ... Called from macro here
+stdgo/regexp/Regexp.hx:3561: characters 80-92 : Type not found : GoUnTypedInt
+stdgo/regexp/Regexp.hx:1233: lines 1233-1285 : ... Called from macro here
+stdgo/regexp/Regexp.hx:3567: characters 80-92 : Type not found : GoUnTypedInt
+stdgo/regexp/Regexp.hx:1233: lines 1233-1285 : ... Called from macro here
+stdgo/regexp/Regexp.hx:3577: characters 80-92 : Type not found : GoUnTypedInt
+stdgo/regexp/Regexp.hx:1233: lines 1233-1285 : ... Called from macro here
+stdgo/regexp/Regexp.hx:3583: characters 80-92 : Type not found : GoUnTypedInt
+stdgo/regexp/Regexp.hx:1233: lines 1233-1285 : ... Called from macro here
+stdgo/regexp/Regexp.hx:3589: characters 81-93 : Type not found : GoUnTypedInt
+stdgo/regexp/Regexp.hx:1233: lines 1233-1285 : ... Called from macro here
+stdgo/regexp/Regexp.hx:3591: characters 81-93 : Type not found : GoUnTypedInt
+stdgo/regexp/Regexp.hx:1233: lines 1233-1285 : ... Called from macro here
 stdgo/regexp/Regexp.hx:1486: characters 44-162 : Spread unary operator is only allowed for unpacking the last argument in a call with rest arguments
 stdgo/regexp/Regexp.hx:1486: characters 44-162 : ... For function argument 'length'
 stdgo/regexp/Regexp.hx:1233: lines 1233-1285 : ... Called from macro here
@@ -34,6 +48,7 @@ stdgo/regexp/Regexp.hx:1338: characters 107-164 : Void should be stdgo.Slice<std
 stdgo/regexp/Regexp.hx:1351: characters 134-171 : stdgo.regexp.T_thread should be Int
 stdgo/regexp/Regexp.hx:1351: characters 134-171 : ... For function argument 'length'
 stdgo/regexp/Regexp.hx:1351: characters 109-172 : Void should be stdgo.Slice<stdgo.Ref<stdgo.regexp.T_thread>>
+stdgo/regexp/Regexp.hx:326: characters 49-61 : Type not found : GoUnTypedInt
 stdgo/regexp/Regexp.hx:1728: characters 42-76 : stdgo.GoString should be Int
 stdgo/regexp/Regexp.hx:1728: characters 42-76 : ... For function argument 'length'
 stdgo/regexp/Regexp.hx:2550: characters 83-93 : stdgo.Slice<stdgo.GoInt> has no field __setCap__

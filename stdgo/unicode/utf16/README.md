@@ -1,5 +1,4 @@
-# Module: stdgo.unicode.utf16
-
+# Module: `stdgo.unicode.utf16`
 
 [(view library index)](../../stdgo.md)
 
@@ -43,15 +42,15 @@ Package utf16 implements encoding and decoding of UTF\-16 sequences.
 
 - [Constants](<#constants>)
 
-- [function decode\(\_s:stdgo.Slice\<stdgo.GoUInt16\>\):stdgo.Slice\<stdgo.GoRune\>](<#function-decode>)
+- [`function decode(_s:stdgo.Slice<stdgo.GoUInt16>):stdgo.Slice<stdgo.GoRune>`](<#function-decode>)
 
-- [function decodeRune\(\_r1:stdgo.GoRune, \_r2:stdgo.GoRune\):stdgo.GoRune](<#function-decoderune>)
+- [`function decodeRune(_r1:stdgo.GoRune, _r2:stdgo.GoRune):stdgo.GoRune`](<#function-decoderune>)
 
-- [function encode\(\_s:stdgo.Slice\<stdgo.GoRune\>\):stdgo.Slice\<stdgo.GoUInt16\>](<#function-encode>)
+- [`function encode(_s:stdgo.Slice<stdgo.GoRune>):stdgo.Slice<stdgo.GoUInt16>`](<#function-encode>)
 
-- [function encodeRune\(\_r:stdgo.GoRune\):\{\_1:stdgo.GoRune, \_0:stdgo.GoRune\}](<#function-encoderune>)
+- [`function encodeRune(_r:stdgo.GoRune):{_1:stdgo.GoRune, _0:stdgo.GoRune}`](<#function-encoderune>)
 
-- [function isSurrogate\(\_r:stdgo.GoRune\):Bool](<#function-issurrogate>)
+- [`function isSurrogate(_r:stdgo.GoRune):Bool`](<#function-issurrogate>)
 
 # Constants
 
@@ -85,7 +84,7 @@ import stdgo.unicode.utf16.Utf16
 ```
 
 
-## function \`decode\`
+## function decode
 
 
 ```haxe
@@ -99,7 +98,7 @@ Decode returns the Unicode code point sequence represented by the UTF\-16 encodi
 [\(view code\)](<./Utf16.hx#L118>)
 
 
-## function \`decodeRune\`
+## function decodeRune
 
 
 ```haxe
@@ -113,7 +112,7 @@ DecodeRune returns the UTF\-16 decoding of a surrogate pair. If the pair is not 
 [\(view code\)](<./Utf16.hx#L62>)
 
 
-## function \`encode\`
+## function encode
 
 
 ```haxe
@@ -127,7 +126,7 @@ Encode returns the UTF\-16 encoding of the Unicode code point sequence s.
 [\(view code\)](<./Utf16.hx#L86>)
 
 
-## function \`encodeRune\`
+## function encodeRune
 
 
 ```haxe
@@ -141,7 +140,7 @@ EncodeRune returns the UTF\-16 surrogate pair r1, r2 for the given rune. If the 
 [\(view code\)](<./Utf16.hx#L74>)
 
 
-## function \`isSurrogate\`
+## function isSurrogate
 
 
 ```haxe

@@ -1,5 +1,4 @@
-# Module: stdgo.math.bits
-
+# Module: `stdgo.math.bits`
 
 [(view library index)](../../stdgo.md)
 
@@ -43,178 +42,184 @@ Package bits implements bit counting and manipulation functions for the predecla
 
 - [Constants](<#constants>)
 
-- [function add\(\_x:stdgo.GoUInt, \_y:stdgo.GoUInt, \_carry:stdgo.GoUInt\):\{\_1:stdgo.GoUInt, \_0:stdgo.GoUInt\}](<#function-add>)
+- [`function add(_x:stdgo.GoUInt, _y:stdgo.GoUInt, _carry:stdgo.GoUInt):{_1:stdgo.GoUInt, _0:stdgo.GoUInt}`](<#function-add>)
 
-- [function add32\(\_x:stdgo.GoUInt32, \_y:stdgo.GoUInt32, \_carry:stdgo.GoUInt32\):\{\_1:stdgo.GoUInt32, \_0:stdgo.GoUInt32\}](<#function-add32>)
+- [`function add32(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32, _carry:stdgo.GoUInt32):{_1:stdgo.GoUInt32, _0:stdgo.GoUInt32}`](<#function-add32>)
 
-- [function add64\(\_x:stdgo.GoUInt64, \_y:stdgo.GoUInt64, \_carry:stdgo.GoUInt64\):\{\_1:stdgo.GoUInt64, \_0:stdgo.GoUInt64\}](<#function-add64>)
+- [`function add64(_x:stdgo.GoUInt64, _y:stdgo.GoUInt64, _carry:stdgo.GoUInt64):{_1:stdgo.GoUInt64, _0:stdgo.GoUInt64}`](<#function-add64>)
 
-- [function div\(\_hi:stdgo.GoUInt, \_lo:stdgo.GoUInt, \_y:stdgo.GoUInt\):\{\_1:stdgo.GoUInt, \_0:stdgo.GoUInt\}](<#function-div>)
+- [`function div(_hi:stdgo.GoUInt, _lo:stdgo.GoUInt, _y:stdgo.GoUInt):{_1:stdgo.GoUInt, _0:stdgo.GoUInt}`](<#function-div>)
 
-- [function div32\(\_hi:stdgo.GoUInt32, \_lo:stdgo.GoUInt32, \_y:stdgo.GoUInt32\):\{\_1:stdgo.GoUInt32, \_0:stdgo.GoUInt32\}](<#function-div32>)
+- [`function div32(_hi:stdgo.GoUInt32, _lo:stdgo.GoUInt32, _y:stdgo.GoUInt32):{_1:stdgo.GoUInt32, _0:stdgo.GoUInt32}`](<#function-div32>)
 
-- [function div64\(\_hi:stdgo.GoUInt64, \_lo:stdgo.GoUInt64, \_y:stdgo.GoUInt64\):\{\_1:stdgo.GoUInt64, \_0:stdgo.GoUInt64\}](<#function-div64>)
+- [`function div64(_hi:stdgo.GoUInt64, _lo:stdgo.GoUInt64, _y:stdgo.GoUInt64):{_1:stdgo.GoUInt64, _0:stdgo.GoUInt64}`](<#function-div64>)
 
-- [function leadingZeros\(\_x:stdgo.GoUInt\):stdgo.GoInt](<#function-leadingzeros>)
+- [`function leadingZeros(_x:stdgo.GoUInt):stdgo.GoInt`](<#function-leadingzeros>)
 
-- [function leadingZeros16\(\_x:stdgo.GoUInt16\):stdgo.GoInt](<#function-leadingzeros16>)
+- [`function leadingZeros16(_x:stdgo.GoUInt16):stdgo.GoInt`](<#function-leadingzeros16>)
 
-- [function leadingZeros32\(\_x:stdgo.GoUInt32\):stdgo.GoInt](<#function-leadingzeros32>)
+- [`function leadingZeros32(_x:stdgo.GoUInt32):stdgo.GoInt`](<#function-leadingzeros32>)
 
-- [function leadingZeros64\(\_x:stdgo.GoUInt64\):stdgo.GoInt](<#function-leadingzeros64>)
+- [`function leadingZeros64(_x:stdgo.GoUInt64):stdgo.GoInt`](<#function-leadingzeros64>)
 
-- [function leadingZeros8\(\_x:stdgo.GoUInt8\):stdgo.GoInt](<#function-leadingzeros8>)
+- [`function leadingZeros8(_x:stdgo.GoUInt8):stdgo.GoInt`](<#function-leadingzeros8>)
 
-- [function len\(\_x:stdgo.GoUInt\):stdgo.GoInt](<#function-len>)
+- [`function len(_x:stdgo.GoUInt):stdgo.GoInt`](<#function-len>)
 
-- [function len16\(\_x:stdgo.GoUInt16\):stdgo.GoInt](<#function-len16>)
+- [`function len16(_x:stdgo.GoUInt16):stdgo.GoInt`](<#function-len16>)
 
-- [function len32\(\_x:stdgo.GoUInt32\):stdgo.GoInt](<#function-len32>)
+- [`function len32(_x:stdgo.GoUInt32):stdgo.GoInt`](<#function-len32>)
 
-- [function len64\(\_x:stdgo.GoUInt64\):stdgo.GoInt](<#function-len64>)
+- [`function len64(_x:stdgo.GoUInt64):stdgo.GoInt`](<#function-len64>)
 
-- [function len8\(\_x:stdgo.GoUInt8\):stdgo.GoInt](<#function-len8>)
+- [`function len8(_x:stdgo.GoUInt8):stdgo.GoInt`](<#function-len8>)
 
-- [function mul\(\_x:stdgo.GoUInt, \_y:stdgo.GoUInt\):\{\_1:stdgo.GoUInt, \_0:stdgo.GoUInt\}](<#function-mul>)
+- [`function mul(_x:stdgo.GoUInt, _y:stdgo.GoUInt):{_1:stdgo.GoUInt, _0:stdgo.GoUInt}`](<#function-mul>)
 
-- [function mul32\(\_x:stdgo.GoUInt32, \_y:stdgo.GoUInt32\):\{\_1:stdgo.GoUInt32, \_0:stdgo.GoUInt32\}](<#function-mul32>)
+- [`function mul32(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32):{_1:stdgo.GoUInt32, _0:stdgo.GoUInt32}`](<#function-mul32>)
 
-- [function mul64\(\_x:stdgo.GoUInt64, \_y:stdgo.GoUInt64\):\{\_1:stdgo.GoUInt64, \_0:stdgo.GoUInt64\}](<#function-mul64>)
+- [`function mul64(_x:stdgo.GoUInt64, _y:stdgo.GoUInt64):{_1:stdgo.GoUInt64, _0:stdgo.GoUInt64}`](<#function-mul64>)
 
-- [function onesCount\(\_x:stdgo.GoUInt\):stdgo.GoInt](<#function-onescount>)
+- [`function onesCount(_x:stdgo.GoUInt):stdgo.GoInt`](<#function-onescount>)
 
-- [function onesCount16\(\_x:stdgo.GoUInt16\):stdgo.GoInt](<#function-onescount16>)
+- [`function onesCount16(_x:stdgo.GoUInt16):stdgo.GoInt`](<#function-onescount16>)
 
-- [function onesCount32\(\_x:stdgo.GoUInt32\):stdgo.GoInt](<#function-onescount32>)
+- [`function onesCount32(_x:stdgo.GoUInt32):stdgo.GoInt`](<#function-onescount32>)
 
-- [function onesCount64\(\_x:stdgo.GoUInt64\):stdgo.GoInt](<#function-onescount64>)
+- [`function onesCount64(_x:stdgo.GoUInt64):stdgo.GoInt`](<#function-onescount64>)
 
-- [function onesCount8\(\_x:stdgo.GoUInt8\):stdgo.GoInt](<#function-onescount8>)
+- [`function onesCount8(_x:stdgo.GoUInt8):stdgo.GoInt`](<#function-onescount8>)
 
-- [function rem\(\_hi:stdgo.GoUInt, \_lo:stdgo.GoUInt, \_y:stdgo.GoUInt\):stdgo.GoUInt](<#function-rem>)
+- [`function rem(_hi:stdgo.GoUInt, _lo:stdgo.GoUInt, _y:stdgo.GoUInt):stdgo.GoUInt`](<#function-rem>)
 
-- [function rem32\(\_hi:stdgo.GoUInt32, \_lo:stdgo.GoUInt32, \_y:stdgo.GoUInt32\):stdgo.GoUInt32](<#function-rem32>)
+- [`function rem32(_hi:stdgo.GoUInt32, _lo:stdgo.GoUInt32, _y:stdgo.GoUInt32):stdgo.GoUInt32`](<#function-rem32>)
 
-- [function rem64\(\_hi:stdgo.GoUInt64, \_lo:stdgo.GoUInt64, \_y:stdgo.GoUInt64\):stdgo.GoUInt64](<#function-rem64>)
+- [`function rem64(_hi:stdgo.GoUInt64, _lo:stdgo.GoUInt64, _y:stdgo.GoUInt64):stdgo.GoUInt64`](<#function-rem64>)
 
-- [function reverse\(\_x:stdgo.GoUInt\):stdgo.GoUInt](<#function-reverse>)
+- [`function reverse(_x:stdgo.GoUInt):stdgo.GoUInt`](<#function-reverse>)
 
-- [function reverse16\(\_x:stdgo.GoUInt16\):stdgo.GoUInt16](<#function-reverse16>)
+- [`function reverse16(_x:stdgo.GoUInt16):stdgo.GoUInt16`](<#function-reverse16>)
 
-- [function reverse32\(\_x:stdgo.GoUInt32\):stdgo.GoUInt32](<#function-reverse32>)
+- [`function reverse32(_x:stdgo.GoUInt32):stdgo.GoUInt32`](<#function-reverse32>)
 
-- [function reverse64\(\_x:stdgo.GoUInt64\):stdgo.GoUInt64](<#function-reverse64>)
+- [`function reverse64(_x:stdgo.GoUInt64):stdgo.GoUInt64`](<#function-reverse64>)
 
-- [function reverse8\(\_x:stdgo.GoUInt8\):stdgo.GoUInt8](<#function-reverse8>)
+- [`function reverse8(_x:stdgo.GoUInt8):stdgo.GoUInt8`](<#function-reverse8>)
 
-- [function reverseBytes\(\_x:stdgo.GoUInt\):stdgo.GoUInt](<#function-reversebytes>)
+- [`function reverseBytes(_x:stdgo.GoUInt):stdgo.GoUInt`](<#function-reversebytes>)
 
-- [function reverseBytes16\(\_x:stdgo.GoUInt16\):stdgo.GoUInt16](<#function-reversebytes16>)
+- [`function reverseBytes16(_x:stdgo.GoUInt16):stdgo.GoUInt16`](<#function-reversebytes16>)
 
-- [function reverseBytes32\(\_x:stdgo.GoUInt32\):stdgo.GoUInt32](<#function-reversebytes32>)
+- [`function reverseBytes32(_x:stdgo.GoUInt32):stdgo.GoUInt32`](<#function-reversebytes32>)
 
-- [function reverseBytes64\(\_x:stdgo.GoUInt64\):stdgo.GoUInt64](<#function-reversebytes64>)
+- [`function reverseBytes64(_x:stdgo.GoUInt64):stdgo.GoUInt64`](<#function-reversebytes64>)
 
-- [function rotateLeft\(\_x:stdgo.GoUInt, \_k:stdgo.GoInt\):stdgo.GoUInt](<#function-rotateleft>)
+- [`function rotateLeft(_x:stdgo.GoUInt, _k:stdgo.GoInt):stdgo.GoUInt`](<#function-rotateleft>)
 
-- [function rotateLeft16\(\_x:stdgo.GoUInt16, \_k:stdgo.GoInt\):stdgo.GoUInt16](<#function-rotateleft16>)
+- [`function rotateLeft16(_x:stdgo.GoUInt16, _k:stdgo.GoInt):stdgo.GoUInt16`](<#function-rotateleft16>)
 
-- [function rotateLeft32\(\_x:stdgo.GoUInt32, \_k:stdgo.GoInt\):stdgo.GoUInt32](<#function-rotateleft32>)
+- [`function rotateLeft32(_x:stdgo.GoUInt32, _k:stdgo.GoInt):stdgo.GoUInt32`](<#function-rotateleft32>)
 
-- [function rotateLeft64\(\_x:stdgo.GoUInt64, \_k:stdgo.GoInt\):stdgo.GoUInt64](<#function-rotateleft64>)
+- [`function rotateLeft64(_x:stdgo.GoUInt64, _k:stdgo.GoInt):stdgo.GoUInt64`](<#function-rotateleft64>)
 
-- [function rotateLeft8\(\_x:stdgo.GoUInt8, \_k:stdgo.GoInt\):stdgo.GoUInt8](<#function-rotateleft8>)
+- [`function rotateLeft8(_x:stdgo.GoUInt8, _k:stdgo.GoInt):stdgo.GoUInt8`](<#function-rotateleft8>)
 
-- [function sub\(\_x:stdgo.GoUInt, \_y:stdgo.GoUInt, \_borrow:stdgo.GoUInt\):\{\_1:stdgo.GoUInt, \_0:stdgo.GoUInt\}](<#function-sub>)
+- [`function sub(_x:stdgo.GoUInt, _y:stdgo.GoUInt, _borrow:stdgo.GoUInt):{_1:stdgo.GoUInt, _0:stdgo.GoUInt}`](<#function-sub>)
 
-- [function sub32\(\_x:stdgo.GoUInt32, \_y:stdgo.GoUInt32, \_borrow:stdgo.GoUInt32\):\{\_1:stdgo.GoUInt32, \_0:stdgo.GoUInt32\}](<#function-sub32>)
+- [`function sub32(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32, _borrow:stdgo.GoUInt32):{_1:stdgo.GoUInt32, _0:stdgo.GoUInt32}`](<#function-sub32>)
 
-- [function sub64\(\_x:stdgo.GoUInt64, \_y:stdgo.GoUInt64, \_borrow:stdgo.GoUInt64\):\{\_1:stdgo.GoUInt64, \_0:stdgo.GoUInt64\}](<#function-sub64>)
+- [`function sub64(_x:stdgo.GoUInt64, _y:stdgo.GoUInt64, _borrow:stdgo.GoUInt64):{_1:stdgo.GoUInt64, _0:stdgo.GoUInt64}`](<#function-sub64>)
 
-- [function trailingZeros\(\_x:stdgo.GoUInt\):stdgo.GoInt](<#function-trailingzeros>)
+- [`function trailingZeros(_x:stdgo.GoUInt):stdgo.GoInt`](<#function-trailingzeros>)
 
-- [function trailingZeros16\(\_x:stdgo.GoUInt16\):stdgo.GoInt](<#function-trailingzeros16>)
+- [`function trailingZeros16(_x:stdgo.GoUInt16):stdgo.GoInt`](<#function-trailingzeros16>)
 
-- [function trailingZeros32\(\_x:stdgo.GoUInt32\):stdgo.GoInt](<#function-trailingzeros32>)
+- [`function trailingZeros32(_x:stdgo.GoUInt32):stdgo.GoInt`](<#function-trailingzeros32>)
 
-- [function trailingZeros64\(\_x:stdgo.GoUInt64\):stdgo.GoInt](<#function-trailingzeros64>)
+- [`function trailingZeros64(_x:stdgo.GoUInt64):stdgo.GoInt`](<#function-trailingzeros64>)
 
-- [function trailingZeros8\(\_x:stdgo.GoUInt8\):stdgo.GoInt](<#function-trailingzeros8>)
+- [`function trailingZeros8(_x:stdgo.GoUInt8):stdgo.GoInt`](<#function-trailingzeros8>)
+
+- [class T\_errorString\_static\_extension](<#class-t_errorstring_static_extension>)
+
+  - [`function error(_e:stdgo.math.bits._Bits.T_errorString):stdgo.GoString`](<#t_errorstring_static_extension-function-error>)
+
+  - [`function runtimeError(_e:stdgo.math.bits._Bits.T_errorString):Void`](<#t_errorstring_static_extension-function-runtimeerror>)
 
 # Examples
 
 
-- [exampleAdd32](<#exampleadd32>)
+- [`exampleAdd32`](<#exampleadd32>)
 
-- [exampleAdd64](<#exampleadd64>)
+- [`exampleAdd64`](<#exampleadd64>)
 
-- [exampleDiv32](<#examplediv32>)
+- [`exampleDiv32`](<#examplediv32>)
 
-- [exampleDiv64](<#examplediv64>)
+- [`exampleDiv64`](<#examplediv64>)
 
-- [exampleLeadingZeros16](<#exampleleadingzeros16>)
+- [`exampleLeadingZeros16`](<#exampleleadingzeros16>)
 
-- [exampleLeadingZeros32](<#exampleleadingzeros32>)
+- [`exampleLeadingZeros32`](<#exampleleadingzeros32>)
 
-- [exampleLeadingZeros64](<#exampleleadingzeros64>)
+- [`exampleLeadingZeros64`](<#exampleleadingzeros64>)
 
-- [exampleLeadingZeros8](<#exampleleadingzeros8>)
+- [`exampleLeadingZeros8`](<#exampleleadingzeros8>)
 
-- [exampleLen16](<#examplelen16>)
+- [`exampleLen16`](<#examplelen16>)
 
-- [exampleLen32](<#examplelen32>)
+- [`exampleLen32`](<#examplelen32>)
 
-- [exampleLen64](<#examplelen64>)
+- [`exampleLen64`](<#examplelen64>)
 
-- [exampleLen8](<#examplelen8>)
+- [`exampleLen8`](<#examplelen8>)
 
-- [exampleMul32](<#examplemul32>)
+- [`exampleMul32`](<#examplemul32>)
 
-- [exampleMul64](<#examplemul64>)
+- [`exampleMul64`](<#examplemul64>)
 
-- [exampleOnesCount](<#exampleonescount>)
+- [`exampleOnesCount`](<#exampleonescount>)
 
-- [exampleOnesCount16](<#exampleonescount16>)
+- [`exampleOnesCount16`](<#exampleonescount16>)
 
-- [exampleOnesCount32](<#exampleonescount32>)
+- [`exampleOnesCount32`](<#exampleonescount32>)
 
-- [exampleOnesCount64](<#exampleonescount64>)
+- [`exampleOnesCount64`](<#exampleonescount64>)
 
-- [exampleOnesCount8](<#exampleonescount8>)
+- [`exampleOnesCount8`](<#exampleonescount8>)
 
-- [exampleReverse16](<#examplereverse16>)
+- [`exampleReverse16`](<#examplereverse16>)
 
-- [exampleReverse32](<#examplereverse32>)
+- [`exampleReverse32`](<#examplereverse32>)
 
-- [exampleReverse64](<#examplereverse64>)
+- [`exampleReverse64`](<#examplereverse64>)
 
-- [exampleReverse8](<#examplereverse8>)
+- [`exampleReverse8`](<#examplereverse8>)
 
-- [exampleReverseBytes16](<#examplereversebytes16>)
+- [`exampleReverseBytes16`](<#examplereversebytes16>)
 
-- [exampleReverseBytes32](<#examplereversebytes32>)
+- [`exampleReverseBytes32`](<#examplereversebytes32>)
 
-- [exampleReverseBytes64](<#examplereversebytes64>)
+- [`exampleReverseBytes64`](<#examplereversebytes64>)
 
-- [exampleRotateLeft16](<#examplerotateleft16>)
+- [`exampleRotateLeft16`](<#examplerotateleft16>)
 
-- [exampleRotateLeft32](<#examplerotateleft32>)
+- [`exampleRotateLeft32`](<#examplerotateleft32>)
 
-- [exampleRotateLeft64](<#examplerotateleft64>)
+- [`exampleRotateLeft64`](<#examplerotateleft64>)
 
-- [exampleRotateLeft8](<#examplerotateleft8>)
+- [`exampleRotateLeft8`](<#examplerotateleft8>)
 
-- [exampleSub32](<#examplesub32>)
+- [`exampleSub32`](<#examplesub32>)
 
-- [exampleSub64](<#examplesub64>)
+- [`exampleSub64`](<#examplesub64>)
 
-- [exampleTrailingZeros16](<#exampletrailingzeros16>)
+- [`exampleTrailingZeros16`](<#exampletrailingzeros16>)
 
-- [exampleTrailingZeros32](<#exampletrailingzeros32>)
+- [`exampleTrailingZeros32`](<#exampletrailingzeros32>)
 
-- [exampleTrailingZeros64](<#exampletrailingzeros64>)
+- [`exampleTrailingZeros64`](<#exampletrailingzeros64>)
 
-- [exampleTrailingZeros8](<#exampletrailingzeros8>)
+- [`exampleTrailingZeros8`](<#exampletrailingzeros8>)
 
 # Constants
 
@@ -225,12 +230,12 @@ import stdgo.math.bits.Bits
 
 
 ```haxe
-final deBruijn64:stdgo.GoUnTypedInt = (("285870213051353865" : GoUnTypedInt))
+final deBruijn64:stdgo.GoUInt64 = (("285870213051353865" : GoUInt64))
 ```
 
 
 ```haxe
-final uintSize:stdgo.GoUnTypedInt = ((32 : GoUnTypedInt))
+final uintSize:stdgo.GoUInt64 = (("32" : GoUInt64))
 ```
 
 
@@ -245,7 +250,7 @@ import stdgo.math.bits.Bits
 ```
 
 
-## function \`add\`
+## function add
 
 
 ```haxe
@@ -256,10 +261,10 @@ function add(_x:stdgo.GoUInt, _y:stdgo.GoUInt, _carry:stdgo.GoUInt):{_1:stdgo.Go
 Add returns the sum with carry of x, y and carry: sum = x \+ y \+ carry. The carry input must be 0 or 1; otherwise the behavior is undefined. The carryOut output is guaranteed to be 0 or 1.  This function's execution time does not depend on the inputs. 
 
 
-[\(view code\)](<./Bits.hx#L538>)
+[\(view code\)](<./Bits.hx#L542>)
 
 
-## function \`add32\`
+## function add32
 
 
 ```haxe
@@ -279,21 +284,20 @@ Add32 returns the sum with carry of x, y and carry: sum = x \+ y \+ carry. The c
 
 ```haxe
 function exampleAdd32():Void {
-	var _n1 = (new Slice<GoUInt32>(0, 0, (33 : GoUInt32), (12 : GoUInt32)) : Slice<GoUInt32>);
-	var _n2 = (new Slice<GoUInt32>(0, 0, (21 : GoUInt32), (23 : GoUInt32)) : Slice<GoUInt32>);
-	var __tmp__ = stdgo.math.bits.Bits.add32(_n1[(1 : GoInt)], _n2[(1 : GoInt)], (0 : GoUInt32)),
+	var _n1 = (new Slice<GoUInt32>(0, 0, ("33" : GoUInt32), ("12" : GoUInt32)) : Slice<GoUInt32>);
+	var _n2 = (new Slice<GoUInt32>(0, 0, ("21" : GoUInt32), ("23" : GoUInt32)) : Slice<GoUInt32>);
+	var __tmp__ = stdgo.math.bits.Bits.add32(_n1[(1 : GoInt)], _n2[(1 : GoInt)], ("0" : GoUInt32)),
 		_d1:GoUInt32 = __tmp__._0,
 		_carry:GoUInt32 = __tmp__._1;
 	var __tmp__ = stdgo.math.bits.Bits.add32(_n1[(0 : GoInt)], _n2[(0 : GoInt)], _carry),
 		_d0:GoUInt32 = __tmp__._0,
 		_0:GoUInt32 = __tmp__._1;
 	var _nsum = (new Slice<GoUInt32>(0, 0, _d0, _d1) : Slice<GoUInt32>);
-	stdgo.fmt.Fmt.printf((Go.str("%v + %v = %v (carry bit was %v)\n") : GoString), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum),
-		Go.toInterface(_carry));
-	_n1 = (new Slice<GoUInt32>(0, 0, (1 : GoUInt32), ("2147483648" : GoUInt32)) : Slice<GoUInt32>);
-	_n2 = (new Slice<GoUInt32>(0, 0, (1 : GoUInt32), ("2147483648" : GoUInt32)) : Slice<GoUInt32>);
+	stdgo.fmt.Fmt.printf(Go.str("%v + %v = %v (carry bit was %v)\n"), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum), Go.toInterface(_carry));
+	_n1 = (new Slice<GoUInt32>(0, 0, ("1" : GoUInt32), ("2147483648" : GoUInt32)) : Slice<GoUInt32>);
+	_n2 = (new Slice<GoUInt32>(0, 0, ("1" : GoUInt32), ("2147483648" : GoUInt32)) : Slice<GoUInt32>);
 	{
-		var __tmp__ = stdgo.math.bits.Bits.add32(_n1[(1 : GoInt)], _n2[(1 : GoInt)], (0 : GoUInt32));
+		var __tmp__ = stdgo.math.bits.Bits.add32(_n1[(1 : GoInt)], _n2[(1 : GoInt)], ("0" : GoUInt32));
 		_d1 = __tmp__._0;
 		_carry = __tmp__._1;
 	};
@@ -302,8 +306,7 @@ function exampleAdd32():Void {
 		_d0 = __tmp__._0;
 	};
 	_nsum = (new Slice<GoUInt32>(0, 0, _d0, _d1) : Slice<GoUInt32>);
-	stdgo.fmt.Fmt.printf((Go.str("%v + %v = %v (carry bit was %v)\n") : GoString), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum),
-		Go.toInterface(_carry));
+	stdgo.fmt.Fmt.printf(Go.str("%v + %v = %v (carry bit was %v)\n"), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum), Go.toInterface(_carry));
 }
 ```
 
@@ -312,10 +315,10 @@ function exampleAdd32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L559>)
+[\(view code\)](<./Bits.hx#L563>)
 
 
-## function \`add64\`
+## function add64
 
 
 ```haxe
@@ -335,21 +338,20 @@ Add64 returns the sum with carry of x, y and carry: sum = x \+ y \+ carry. The c
 
 ```haxe
 function exampleAdd64():Void {
-	var _n1 = (new Slice<GoUInt64>(0, 0, (33 : GoUInt64), (12 : GoUInt64)) : Slice<GoUInt64>);
-	var _n2 = (new Slice<GoUInt64>(0, 0, (21 : GoUInt64), (23 : GoUInt64)) : Slice<GoUInt64>);
-	var __tmp__ = stdgo.math.bits.Bits.add64(_n1[(1 : GoInt)], _n2[(1 : GoInt)], (0 : GoUInt64)),
+	var _n1 = (new Slice<GoUInt64>(0, 0, ("33" : GoUInt64), ("12" : GoUInt64)) : Slice<GoUInt64>);
+	var _n2 = (new Slice<GoUInt64>(0, 0, ("21" : GoUInt64), ("23" : GoUInt64)) : Slice<GoUInt64>);
+	var __tmp__ = stdgo.math.bits.Bits.add64(_n1[(1 : GoInt)], _n2[(1 : GoInt)], ("0" : GoUInt64)),
 		_d1:GoUInt64 = __tmp__._0,
 		_carry:GoUInt64 = __tmp__._1;
 	var __tmp__ = stdgo.math.bits.Bits.add64(_n1[(0 : GoInt)], _n2[(0 : GoInt)], _carry),
 		_d0:GoUInt64 = __tmp__._0,
 		_0:GoUInt64 = __tmp__._1;
 	var _nsum = (new Slice<GoUInt64>(0, 0, _d0, _d1) : Slice<GoUInt64>);
-	stdgo.fmt.Fmt.printf((Go.str("%v + %v = %v (carry bit was %v)\n") : GoString), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum),
-		Go.toInterface(_carry));
-	_n1 = (new Slice<GoUInt64>(0, 0, (1 : GoUInt64), ("9223372036854775808" : GoUInt64)) : Slice<GoUInt64>);
-	_n2 = (new Slice<GoUInt64>(0, 0, (1 : GoUInt64), ("9223372036854775808" : GoUInt64)) : Slice<GoUInt64>);
+	stdgo.fmt.Fmt.printf(Go.str("%v + %v = %v (carry bit was %v)\n"), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum), Go.toInterface(_carry));
+	_n1 = (new Slice<GoUInt64>(0, 0, ("1" : GoUInt64), ("9223372036854775808" : GoUInt64)) : Slice<GoUInt64>);
+	_n2 = (new Slice<GoUInt64>(0, 0, ("1" : GoUInt64), ("9223372036854775808" : GoUInt64)) : Slice<GoUInt64>);
 	{
-		var __tmp__ = stdgo.math.bits.Bits.add64(_n1[(1 : GoInt)], _n2[(1 : GoInt)], (0 : GoUInt64));
+		var __tmp__ = stdgo.math.bits.Bits.add64(_n1[(1 : GoInt)], _n2[(1 : GoInt)], ("0" : GoUInt64));
 		_d1 = __tmp__._0;
 		_carry = __tmp__._1;
 	};
@@ -358,8 +360,7 @@ function exampleAdd64():Void {
 		_d0 = __tmp__._0;
 	};
 	_nsum = (new Slice<GoUInt64>(0, 0, _d0, _d1) : Slice<GoUInt64>);
-	stdgo.fmt.Fmt.printf((Go.str("%v + %v = %v (carry bit was %v)\n") : GoString), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum),
-		Go.toInterface(_carry));
+	stdgo.fmt.Fmt.printf(Go.str("%v + %v = %v (carry bit was %v)\n"), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum), Go.toInterface(_carry));
 }
 ```
 
@@ -368,10 +369,10 @@ function exampleAdd64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L574>)
+[\(view code\)](<./Bits.hx#L578>)
 
 
-## function \`div\`
+## function div
 
 
 ```haxe
@@ -382,10 +383,10 @@ function div(_hi:stdgo.GoUInt, _lo:stdgo.GoUInt, _y:stdgo.GoUInt):{_1:stdgo.GoUI
 Div returns the quotient and remainder of \(hi, lo\) divided by y: quo = \(hi, lo\)/y, rem = \(hi, lo\)%y with the dividend bits' upper half in parameter hi and the lower half in parameter lo. Div panics for y == 0 \(division by zero\) or y \<= hi \(quotient overflow\). 
 
 
-[\(view code\)](<./Bits.hx#L700>)
+[\(view code\)](<./Bits.hx#L704>)
 
 
-## function \`div32\`
+## function div32
 
 
 ```haxe
@@ -405,24 +406,24 @@ Div32 returns the quotient and remainder of \(hi, lo\) divided by y: quo = \(hi,
 
 ```haxe
 function exampleDiv32():Void {
-	var _n1 = (new Slice<GoUInt32>(0, 0, (0 : GoUInt32), (6 : GoUInt32)) : Slice<GoUInt32>);
-	var _n2 = (new Slice<GoUInt32>(0, 0, (0 : GoUInt32), (3 : GoUInt32)) : Slice<GoUInt32>);
+	var _n1 = (new Slice<GoUInt32>(0, 0, ("0" : GoUInt32), ("6" : GoUInt32)) : Slice<GoUInt32>);
+	var _n2 = (new Slice<GoUInt32>(0, 0, ("0" : GoUInt32), ("3" : GoUInt32)) : Slice<GoUInt32>);
 	var __tmp__ = stdgo.math.bits.Bits.div32(_n1[(0 : GoInt)], _n1[(1 : GoInt)], _n2[(1 : GoInt)]),
 		_quo:GoUInt32 = __tmp__._0,
 		_rem:GoUInt32 = __tmp__._1;
 	var _nsum = (new Slice<GoUInt32>(0, 0, _quo, _rem) : Slice<GoUInt32>);
-	stdgo.fmt.Fmt.printf((Go.str("[%v %v] / %v = %v\n") : GoString), Go.toInterface(_n1[(0 : GoInt)]), Go.toInterface(_n1[(1 : GoInt)]),
-		Go.toInterface(_n2[(1 : GoInt)]), Go.toInterface(_nsum));
-	_n1 = (new Slice<GoUInt32>(0, 0, (2 : GoUInt32), ("2147483648" : GoUInt32)) : Slice<GoUInt32>);
-	_n2 = (new Slice<GoUInt32>(0, 0, (0 : GoUInt32), ("2147483648" : GoUInt32)) : Slice<GoUInt32>);
+	stdgo.fmt.Fmt.printf(Go.str("[%v %v] / %v = %v\n"), Go.toInterface(_n1[(0 : GoInt)]), Go.toInterface(_n1[(1 : GoInt)]), Go.toInterface(_n2[(1 : GoInt)]),
+		Go.toInterface(_nsum));
+	_n1 = (new Slice<GoUInt32>(0, 0, ("2" : GoUInt32), ("2147483648" : GoUInt32)) : Slice<GoUInt32>);
+	_n2 = (new Slice<GoUInt32>(0, 0, ("0" : GoUInt32), ("2147483648" : GoUInt32)) : Slice<GoUInt32>);
 	{
 		var __tmp__ = stdgo.math.bits.Bits.div32(_n1[(0 : GoInt)], _n1[(1 : GoInt)], _n2[(1 : GoInt)]);
 		_quo = __tmp__._0;
 		_rem = __tmp__._1;
 	};
 	_nsum = (new Slice<GoUInt32>(0, 0, _quo, _rem) : Slice<GoUInt32>);
-	stdgo.fmt.Fmt.printf((Go.str("[%v %v] / %v = %v\n") : GoString), Go.toInterface(_n1[(0 : GoInt)]), Go.toInterface(_n1[(1 : GoInt)]),
-		Go.toInterface(_n2[(1 : GoInt)]), Go.toInterface(_nsum));
+	stdgo.fmt.Fmt.printf(Go.str("[%v %v] / %v = %v\n"), Go.toInterface(_n1[(0 : GoInt)]), Go.toInterface(_n1[(1 : GoInt)]), Go.toInterface(_n2[(1 : GoInt)]),
+		Go.toInterface(_nsum));
 }
 ```
 
@@ -431,10 +432,10 @@ function exampleDiv32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L720>)
+[\(view code\)](<./Bits.hx#L724>)
 
 
-## function \`div64\`
+## function div64
 
 
 ```haxe
@@ -454,24 +455,24 @@ Div64 returns the quotient and remainder of \(hi, lo\) divided by y: quo = \(hi,
 
 ```haxe
 function exampleDiv64():Void {
-	var _n1 = (new Slice<GoUInt64>(0, 0, (0 : GoUInt64), (6 : GoUInt64)) : Slice<GoUInt64>);
-	var _n2 = (new Slice<GoUInt64>(0, 0, (0 : GoUInt64), (3 : GoUInt64)) : Slice<GoUInt64>);
+	var _n1 = (new Slice<GoUInt64>(0, 0, ("0" : GoUInt64), ("6" : GoUInt64)) : Slice<GoUInt64>);
+	var _n2 = (new Slice<GoUInt64>(0, 0, ("0" : GoUInt64), ("3" : GoUInt64)) : Slice<GoUInt64>);
 	var __tmp__ = stdgo.math.bits.Bits.div64(_n1[(0 : GoInt)], _n1[(1 : GoInt)], _n2[(1 : GoInt)]),
 		_quo:GoUInt64 = __tmp__._0,
 		_rem:GoUInt64 = __tmp__._1;
 	var _nsum = (new Slice<GoUInt64>(0, 0, _quo, _rem) : Slice<GoUInt64>);
-	stdgo.fmt.Fmt.printf((Go.str("[%v %v] / %v = %v\n") : GoString), Go.toInterface(_n1[(0 : GoInt)]), Go.toInterface(_n1[(1 : GoInt)]),
-		Go.toInterface(_n2[(1 : GoInt)]), Go.toInterface(_nsum));
-	_n1 = (new Slice<GoUInt64>(0, 0, (2 : GoUInt64), ("9223372036854775808" : GoUInt64)) : Slice<GoUInt64>);
-	_n2 = (new Slice<GoUInt64>(0, 0, (0 : GoUInt64), ("9223372036854775808" : GoUInt64)) : Slice<GoUInt64>);
+	stdgo.fmt.Fmt.printf(Go.str("[%v %v] / %v = %v\n"), Go.toInterface(_n1[(0 : GoInt)]), Go.toInterface(_n1[(1 : GoInt)]), Go.toInterface(_n2[(1 : GoInt)]),
+		Go.toInterface(_nsum));
+	_n1 = (new Slice<GoUInt64>(0, 0, ("2" : GoUInt64), ("9223372036854775808" : GoUInt64)) : Slice<GoUInt64>);
+	_n2 = (new Slice<GoUInt64>(0, 0, ("0" : GoUInt64), ("9223372036854775808" : GoUInt64)) : Slice<GoUInt64>);
 	{
 		var __tmp__ = stdgo.math.bits.Bits.div64(_n1[(0 : GoInt)], _n1[(1 : GoInt)], _n2[(1 : GoInt)]);
 		_quo = __tmp__._0;
 		_rem = __tmp__._1;
 	};
 	_nsum = (new Slice<GoUInt64>(0, 0, _quo, _rem) : Slice<GoUInt64>);
-	stdgo.fmt.Fmt.printf((Go.str("[%v %v] / %v = %v\n") : GoString), Go.toInterface(_n1[(0 : GoInt)]), Go.toInterface(_n1[(1 : GoInt)]),
-		Go.toInterface(_n2[(1 : GoInt)]), Go.toInterface(_nsum));
+	stdgo.fmt.Fmt.printf(Go.str("[%v %v] / %v = %v\n"), Go.toInterface(_n1[(0 : GoInt)]), Go.toInterface(_n1[(1 : GoInt)]), Go.toInterface(_n2[(1 : GoInt)]),
+		Go.toInterface(_nsum));
 }
 ```
 
@@ -480,10 +481,10 @@ function exampleDiv64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L741>)
+[\(view code\)](<./Bits.hx#L745>)
 
 
-## function \`leadingZeros\`
+## function leadingZeros
 
 
 ```haxe
@@ -497,7 +498,7 @@ LeadingZeros returns the number of leading zero bits in x; the result is UintSiz
 [\(view code\)](<./Bits.hx#L110>)
 
 
-## function \`leadingZeros16\`
+## function leadingZeros16
 
 
 ```haxe
@@ -517,7 +518,7 @@ LeadingZeros16 returns the number of leading zero bits in x; the result is 16 fo
 
 ```haxe
 function exampleLeadingZeros16():Void {
-	stdgo.fmt.Fmt.printf((Go.str("LeadingZeros16(%016b) = %d\n") : GoString), Go.toInterface((1 : GoInt)),
+	stdgo.fmt.Fmt.printf(Go.str("LeadingZeros16(%016b) = %d\n"), Go.toInterface((1 : GoInt)),
 		Go.toInterface(stdgo.math.bits.Bits.leadingZeros16((1 : GoUInt16))));
 }
 ```
@@ -530,7 +531,7 @@ function exampleLeadingZeros16():Void {
 [\(view code\)](<./Bits.hx#L124>)
 
 
-## function \`leadingZeros32\`
+## function leadingZeros32
 
 
 ```haxe
@@ -550,8 +551,8 @@ LeadingZeros32 returns the number of leading zero bits in x; the result is 32 fo
 
 ```haxe
 function exampleLeadingZeros32():Void {
-	stdgo.fmt.Fmt.printf((Go.str("LeadingZeros32(%032b) = %d\n") : GoString), Go.toInterface((1 : GoInt)),
-		Go.toInterface(stdgo.math.bits.Bits.leadingZeros32((1 : GoUInt32))));
+	stdgo.fmt.Fmt.printf(Go.str("LeadingZeros32(%032b) = %d\n"), Go.toInterface((1 : GoInt)),
+		Go.toInterface(stdgo.math.bits.Bits.leadingZeros32(("1" : GoUInt32))));
 }
 ```
 
@@ -563,7 +564,7 @@ function exampleLeadingZeros32():Void {
 [\(view code\)](<./Bits.hx#L131>)
 
 
-## function \`leadingZeros64\`
+## function leadingZeros64
 
 
 ```haxe
@@ -583,8 +584,8 @@ LeadingZeros64 returns the number of leading zero bits in x; the result is 64 fo
 
 ```haxe
 function exampleLeadingZeros64():Void {
-	stdgo.fmt.Fmt.printf((Go.str("LeadingZeros64(%064b) = %d\n") : GoString), Go.toInterface((1 : GoInt)),
-		Go.toInterface(stdgo.math.bits.Bits.leadingZeros64((1 : GoUInt64))));
+	stdgo.fmt.Fmt.printf(Go.str("LeadingZeros64(%064b) = %d\n"), Go.toInterface((1 : GoInt)),
+		Go.toInterface(stdgo.math.bits.Bits.leadingZeros64(("1" : GoUInt64))));
 }
 ```
 
@@ -596,7 +597,7 @@ function exampleLeadingZeros64():Void {
 [\(view code\)](<./Bits.hx#L138>)
 
 
-## function \`leadingZeros8\`
+## function leadingZeros8
 
 
 ```haxe
@@ -616,8 +617,7 @@ LeadingZeros8 returns the number of leading zero bits in x; the result is 8 for 
 
 ```haxe
 function exampleLeadingZeros8():Void {
-	stdgo.fmt.Fmt.printf((Go.str("LeadingZeros8(%08b) = %d\n") : GoString), Go.toInterface((1 : GoInt)),
-		Go.toInterface(stdgo.math.bits.Bits.leadingZeros8((1 : GoUInt8))));
+	stdgo.fmt.Fmt.printf(Go.str("LeadingZeros8(%08b) = %d\n"), Go.toInterface((1 : GoInt)), Go.toInterface(stdgo.math.bits.Bits.leadingZeros8((1 : GoUInt8))));
 }
 ```
 
@@ -629,7 +629,7 @@ function exampleLeadingZeros8():Void {
 [\(view code\)](<./Bits.hx#L117>)
 
 
-## function \`len\`
+## function len
 
 
 ```haxe
@@ -640,10 +640,10 @@ function len(_x:stdgo.GoUInt):stdgo.GoInt
 Len returns the minimum number of bits required to represent x; the result is 0 for x == 0. 
 
 
-[\(view code\)](<./Bits.hx#L458>)
+[\(view code\)](<./Bits.hx#L462>)
 
 
-## function \`len16\`
+## function len16
 
 
 ```haxe
@@ -663,7 +663,7 @@ Len16 returns the minimum number of bits required to represent x; the result is 
 
 ```haxe
 function exampleLen16():Void {
-	stdgo.fmt.Fmt.printf((Go.str("Len16(%016b) = %d\n") : GoString), Go.toInterface((8 : GoInt)), Go.toInterface(stdgo.math.bits.Bits.len16((8 : GoUInt16))));
+	stdgo.fmt.Fmt.printf(Go.str("Len16(%016b) = %d\n"), Go.toInterface((8 : GoInt)), Go.toInterface(stdgo.math.bits.Bits.len16((8 : GoUInt16))));
 }
 ```
 
@@ -672,10 +672,10 @@ function exampleLen16():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L477>)
+[\(view code\)](<./Bits.hx#L481>)
 
 
-## function \`len32\`
+## function len32
 
 
 ```haxe
@@ -695,7 +695,7 @@ Len32 returns the minimum number of bits required to represent x; the result is 
 
 ```haxe
 function exampleLen32():Void {
-	stdgo.fmt.Fmt.printf((Go.str("Len32(%032b) = %d\n") : GoString), Go.toInterface((8 : GoInt)), Go.toInterface(stdgo.math.bits.Bits.len32((8 : GoUInt32))));
+	stdgo.fmt.Fmt.printf(Go.str("Len32(%032b) = %d\n"), Go.toInterface((8 : GoInt)), Go.toInterface(stdgo.math.bits.Bits.len32(("8" : GoUInt32))));
 }
 ```
 
@@ -704,10 +704,10 @@ function exampleLen32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L492>)
+[\(view code\)](<./Bits.hx#L496>)
 
 
-## function \`len64\`
+## function len64
 
 
 ```haxe
@@ -727,7 +727,7 @@ Len64 returns the minimum number of bits required to represent x; the result is 
 
 ```haxe
 function exampleLen64():Void {
-	stdgo.fmt.Fmt.printf((Go.str("Len64(%064b) = %d\n") : GoString), Go.toInterface((8 : GoInt)), Go.toInterface(stdgo.math.bits.Bits.len64((8 : GoUInt64))));
+	stdgo.fmt.Fmt.printf(Go.str("Len64(%064b) = %d\n"), Go.toInterface((8 : GoInt)), Go.toInterface(stdgo.math.bits.Bits.len64(("8" : GoUInt64))));
 }
 ```
 
@@ -736,10 +736,10 @@ function exampleLen64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L511>)
+[\(view code\)](<./Bits.hx#L515>)
 
 
-## function \`len8\`
+## function len8
 
 
 ```haxe
@@ -759,7 +759,7 @@ Len8 returns the minimum number of bits required to represent x; the result is 0
 
 ```haxe
 function exampleLen8():Void {
-	stdgo.fmt.Fmt.printf((Go.str("Len8(%08b) = %d\n") : GoString), Go.toInterface((8 : GoInt)), Go.toInterface(stdgo.math.bits.Bits.len8((8 : GoUInt8))));
+	stdgo.fmt.Fmt.printf(Go.str("Len8(%08b) = %d\n"), Go.toInterface((8 : GoInt)), Go.toInterface(stdgo.math.bits.Bits.len8((8 : GoUInt8))));
 }
 ```
 
@@ -768,10 +768,10 @@ function exampleLen8():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L468>)
+[\(view code\)](<./Bits.hx#L472>)
 
 
-## function \`mul\`
+## function mul
 
 
 ```haxe
@@ -782,10 +782,10 @@ function mul(_x:stdgo.GoUInt, _y:stdgo.GoUInt):{_1:stdgo.GoUInt, _0:stdgo.GoUInt
 Mul returns the full\-width product of x and y: \(hi, lo\) = x \* y with the product bits' upper half returned in hi and the lower half returned in lo.  This function's execution time does not depend on the inputs. 
 
 
-[\(view code\)](<./Bits.hx#L637>)
+[\(view code\)](<./Bits.hx#L641>)
 
 
-## function \`mul32\`
+## function mul32
 
 
 ```haxe
@@ -805,22 +805,22 @@ Mul32 returns the 64\-bit product of x and y: \(hi, lo\) = x \* y with the produ
 
 ```haxe
 function exampleMul32():Void {
-	var _n1 = (new Slice<GoUInt32>(0, 0, (0 : GoUInt32), (12 : GoUInt32)) : Slice<GoUInt32>);
-	var _n2 = (new Slice<GoUInt32>(0, 0, (0 : GoUInt32), (12 : GoUInt32)) : Slice<GoUInt32>);
+	var _n1 = (new Slice<GoUInt32>(0, 0, ("0" : GoUInt32), ("12" : GoUInt32)) : Slice<GoUInt32>);
+	var _n2 = (new Slice<GoUInt32>(0, 0, ("0" : GoUInt32), ("12" : GoUInt32)) : Slice<GoUInt32>);
 	var __tmp__ = stdgo.math.bits.Bits.mul32(_n1[(1 : GoInt)], _n2[(1 : GoInt)]),
 		_hi:GoUInt32 = __tmp__._0,
 		_lo:GoUInt32 = __tmp__._1;
 	var _nsum = (new Slice<GoUInt32>(0, 0, _hi, _lo) : Slice<GoUInt32>);
-	stdgo.fmt.Fmt.printf((Go.str("%v * %v = %v\n") : GoString), Go.toInterface(_n1[(1 : GoInt)]), Go.toInterface(_n2[(1 : GoInt)]), Go.toInterface(_nsum));
-	_n1 = (new Slice<GoUInt32>(0, 0, (0 : GoUInt32), ("2147483648" : GoUInt32)) : Slice<GoUInt32>);
-	_n2 = (new Slice<GoUInt32>(0, 0, (0 : GoUInt32), (2 : GoUInt32)) : Slice<GoUInt32>);
+	stdgo.fmt.Fmt.printf(Go.str("%v * %v = %v\n"), Go.toInterface(_n1[(1 : GoInt)]), Go.toInterface(_n2[(1 : GoInt)]), Go.toInterface(_nsum));
+	_n1 = (new Slice<GoUInt32>(0, 0, ("0" : GoUInt32), ("2147483648" : GoUInt32)) : Slice<GoUInt32>);
+	_n2 = (new Slice<GoUInt32>(0, 0, ("0" : GoUInt32), ("2" : GoUInt32)) : Slice<GoUInt32>);
 	{
 		var __tmp__ = stdgo.math.bits.Bits.mul32(_n1[(1 : GoInt)], _n2[(1 : GoInt)]);
 		_hi = __tmp__._0;
 		_lo = __tmp__._1;
 	};
 	_nsum = (new Slice<GoUInt32>(0, 0, _hi, _lo) : Slice<GoUInt32>);
-	stdgo.fmt.Fmt.printf((Go.str("%v * %v = %v\n") : GoString), Go.toInterface(_n1[(1 : GoInt)]), Go.toInterface(_n2[(1 : GoInt)]), Go.toInterface(_nsum));
+	stdgo.fmt.Fmt.printf(Go.str("%v * %v = %v\n"), Go.toInterface(_n1[(1 : GoInt)]), Go.toInterface(_n2[(1 : GoInt)]), Go.toInterface(_nsum));
 }
 ```
 
@@ -829,10 +829,10 @@ function exampleMul32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L658>)
+[\(view code\)](<./Bits.hx#L662>)
 
 
-## function \`mul64\`
+## function mul64
 
 
 ```haxe
@@ -852,22 +852,22 @@ Mul64 returns the 128\-bit product of x and y: \(hi, lo\) = x \* y with the prod
 
 ```haxe
 function exampleMul64():Void {
-	var _n1 = (new Slice<GoUInt64>(0, 0, (0 : GoUInt64), (12 : GoUInt64)) : Slice<GoUInt64>);
-	var _n2 = (new Slice<GoUInt64>(0, 0, (0 : GoUInt64), (12 : GoUInt64)) : Slice<GoUInt64>);
+	var _n1 = (new Slice<GoUInt64>(0, 0, ("0" : GoUInt64), ("12" : GoUInt64)) : Slice<GoUInt64>);
+	var _n2 = (new Slice<GoUInt64>(0, 0, ("0" : GoUInt64), ("12" : GoUInt64)) : Slice<GoUInt64>);
 	var __tmp__ = stdgo.math.bits.Bits.mul64(_n1[(1 : GoInt)], _n2[(1 : GoInt)]),
 		_hi:GoUInt64 = __tmp__._0,
 		_lo:GoUInt64 = __tmp__._1;
 	var _nsum = (new Slice<GoUInt64>(0, 0, _hi, _lo) : Slice<GoUInt64>);
-	stdgo.fmt.Fmt.printf((Go.str("%v * %v = %v\n") : GoString), Go.toInterface(_n1[(1 : GoInt)]), Go.toInterface(_n2[(1 : GoInt)]), Go.toInterface(_nsum));
-	_n1 = (new Slice<GoUInt64>(0, 0, (0 : GoUInt64), ("9223372036854775808" : GoUInt64)) : Slice<GoUInt64>);
-	_n2 = (new Slice<GoUInt64>(0, 0, (0 : GoUInt64), (2 : GoUInt64)) : Slice<GoUInt64>);
+	stdgo.fmt.Fmt.printf(Go.str("%v * %v = %v\n"), Go.toInterface(_n1[(1 : GoInt)]), Go.toInterface(_n2[(1 : GoInt)]), Go.toInterface(_nsum));
+	_n1 = (new Slice<GoUInt64>(0, 0, ("0" : GoUInt64), ("9223372036854775808" : GoUInt64)) : Slice<GoUInt64>);
+	_n2 = (new Slice<GoUInt64>(0, 0, ("0" : GoUInt64), ("2" : GoUInt64)) : Slice<GoUInt64>);
 	{
 		var __tmp__ = stdgo.math.bits.Bits.mul64(_n1[(1 : GoInt)], _n2[(1 : GoInt)]);
 		_hi = __tmp__._0;
 		_lo = __tmp__._1;
 	};
 	_nsum = (new Slice<GoUInt64>(0, 0, _hi, _lo) : Slice<GoUInt64>);
-	stdgo.fmt.Fmt.printf((Go.str("%v * %v = %v\n") : GoString), Go.toInterface(_n1[(1 : GoInt)]), Go.toInterface(_n2[(1 : GoInt)]), Go.toInterface(_nsum));
+	stdgo.fmt.Fmt.printf(Go.str("%v * %v = %v\n"), Go.toInterface(_n1[(1 : GoInt)]), Go.toInterface(_n2[(1 : GoInt)]), Go.toInterface(_nsum));
 }
 ```
 
@@ -876,10 +876,10 @@ function exampleMul64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L677>)
+[\(view code\)](<./Bits.hx#L681>)
 
 
-## function \`onesCount\`
+## function onesCount
 
 
 ```haxe
@@ -899,8 +899,7 @@ OnesCount returns the number of one bits \("population count"\) in x.
 
 ```haxe
 function exampleOnesCount():Void {
-	stdgo.fmt.Fmt.printf((Go.str("OnesCount(%b) = %d\n") : GoString), Go.toInterface((14 : GoInt)),
-		Go.toInterface(stdgo.math.bits.Bits.onesCount((14 : GoUInt))));
+	stdgo.fmt.Fmt.printf(Go.str("OnesCount(%b) = %d\n"), Go.toInterface((14 : GoInt)), Go.toInterface(stdgo.math.bits.Bits.onesCount(("14" : GoUInt))));
 }
 ```
 
@@ -909,10 +908,10 @@ function exampleOnesCount():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L197>)
+[\(view code\)](<./Bits.hx#L201>)
 
 
-## function \`onesCount16\`
+## function onesCount16
 
 
 ```haxe
@@ -932,8 +931,7 @@ OnesCount16 returns the number of one bits \("population count"\) in x.
 
 ```haxe
 function exampleOnesCount16():Void {
-	stdgo.fmt.Fmt.printf((Go.str("OnesCount16(%016b) = %d\n") : GoString), Go.toInterface((14 : GoInt)),
-		Go.toInterface(stdgo.math.bits.Bits.onesCount16((14 : GoUInt16))));
+	stdgo.fmt.Fmt.printf(Go.str("OnesCount16(%016b) = %d\n"), Go.toInterface((14 : GoInt)), Go.toInterface(stdgo.math.bits.Bits.onesCount16((14 : GoUInt16))));
 }
 ```
 
@@ -942,10 +940,10 @@ function exampleOnesCount16():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L219>)
+[\(view code\)](<./Bits.hx#L223>)
 
 
-## function \`onesCount32\`
+## function onesCount32
 
 
 ```haxe
@@ -965,8 +963,8 @@ OnesCount32 returns the number of one bits \("population count"\) in x.
 
 ```haxe
 function exampleOnesCount32():Void {
-	stdgo.fmt.Fmt.printf((Go.str("OnesCount32(%032b) = %d\n") : GoString), Go.toInterface((14 : GoInt)),
-		Go.toInterface(stdgo.math.bits.Bits.onesCount32((14 : GoUInt32))));
+	stdgo.fmt.Fmt.printf(Go.str("OnesCount32(%032b) = %d\n"), Go.toInterface((14 : GoInt)),
+		Go.toInterface(stdgo.math.bits.Bits.onesCount32(("14" : GoUInt32))));
 }
 ```
 
@@ -975,10 +973,10 @@ function exampleOnesCount32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L237>)
+[\(view code\)](<./Bits.hx#L241>)
 
 
-## function \`onesCount64\`
+## function onesCount64
 
 
 ```haxe
@@ -998,8 +996,8 @@ OnesCount64 returns the number of one bits \("population count"\) in x.
 
 ```haxe
 function exampleOnesCount64():Void {
-	stdgo.fmt.Fmt.printf((Go.str("OnesCount64(%064b) = %d\n") : GoString), Go.toInterface((14 : GoInt)),
-		Go.toInterface(stdgo.math.bits.Bits.onesCount64((14 : GoUInt64))));
+	stdgo.fmt.Fmt.printf(Go.str("OnesCount64(%064b) = %d\n"), Go.toInterface((14 : GoInt)),
+		Go.toInterface(stdgo.math.bits.Bits.onesCount64(("14" : GoUInt64))));
 }
 ```
 
@@ -1008,10 +1006,10 @@ function exampleOnesCount64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L267>)
+[\(view code\)](<./Bits.hx#L271>)
 
 
-## function \`onesCount8\`
+## function onesCount8
 
 
 ```haxe
@@ -1031,8 +1029,7 @@ OnesCount8 returns the number of one bits \("population count"\) in x.
 
 ```haxe
 function exampleOnesCount8():Void {
-	stdgo.fmt.Fmt.printf((Go.str("OnesCount8(%08b) = %d\n") : GoString), Go.toInterface((14 : GoInt)),
-		Go.toInterface(stdgo.math.bits.Bits.onesCount8((14 : GoUInt8))));
+	stdgo.fmt.Fmt.printf(Go.str("OnesCount8(%08b) = %d\n"), Go.toInterface((14 : GoInt)), Go.toInterface(stdgo.math.bits.Bits.onesCount8((14 : GoUInt8))));
 }
 ```
 
@@ -1041,10 +1038,10 @@ function exampleOnesCount8():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L207>)
+[\(view code\)](<./Bits.hx#L211>)
 
 
-## function \`rem\`
+## function rem
 
 
 ```haxe
@@ -1055,10 +1052,10 @@ function rem(_hi:stdgo.GoUInt, _lo:stdgo.GoUInt, _y:stdgo.GoUInt):stdgo.GoUInt
 Rem returns the remainder of \(hi, lo\) divided by y. Rem panics for y == 0 \(division by zero\) but, unlike Div, it doesn't panic on a quotient overflow. 
 
 
-[\(view code\)](<./Bits.hx#L786>)
+[\(view code\)](<./Bits.hx#L789>)
 
 
-## function \`rem32\`
+## function rem32
 
 
 ```haxe
@@ -1069,10 +1066,10 @@ function rem32(_hi:stdgo.GoUInt32, _lo:stdgo.GoUInt32, _y:stdgo.GoUInt32):stdgo.
 Rem32 returns the remainder of \(hi, lo\) divided by y. Rem32 panics for y == 0 \(division by zero\) but, unlike Div32, it doesn't panic on a quotient overflow. 
 
 
-[\(view code\)](<./Bits.hx#L798>)
+[\(view code\)](<./Bits.hx#L801>)
 
 
-## function \`rem64\`
+## function rem64
 
 
 ```haxe
@@ -1083,10 +1080,10 @@ function rem64(_hi:stdgo.GoUInt64, _lo:stdgo.GoUInt64, _y:stdgo.GoUInt64):stdgo.
 Rem64 returns the remainder of \(hi, lo\) divided by y. Rem64 panics for y == 0 \(division by zero\) but, unlike Div64, it doesn't panic on a quotient overflow. 
 
 
-[\(view code\)](<./Bits.hx#L807>)
+[\(view code\)](<./Bits.hx#L810>)
 
 
-## function \`reverse\`
+## function reverse
 
 
 ```haxe
@@ -1097,10 +1094,10 @@ function reverse(_x:stdgo.GoUInt):stdgo.GoUInt
 Reverse returns the value of x with its bits in reversed order. 
 
 
-[\(view code\)](<./Bits.hx#L342>)
+[\(view code\)](<./Bits.hx#L346>)
 
 
-## function \`reverse16\`
+## function reverse16
 
 
 ```haxe
@@ -1120,8 +1117,8 @@ Reverse16 returns the value of x with its bits in reversed order.
 
 ```haxe
 function exampleReverse16():Void {
-	stdgo.fmt.Fmt.printf((Go.str("%016b\n") : GoString), Go.toInterface((19 : GoInt)));
-	stdgo.fmt.Fmt.printf((Go.str("%016b\n") : GoString), Go.toInterface(stdgo.math.bits.Bits.reverse16((19 : GoUInt16))));
+	stdgo.fmt.Fmt.printf(Go.str("%016b\n"), Go.toInterface((19 : GoInt)));
+	stdgo.fmt.Fmt.printf(Go.str("%016b\n"), Go.toInterface(stdgo.math.bits.Bits.reverse16((19 : GoUInt16))));
 }
 ```
 
@@ -1130,10 +1127,10 @@ function exampleReverse16():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L367>)
+[\(view code\)](<./Bits.hx#L371>)
 
 
-## function \`reverse32\`
+## function reverse32
 
 
 ```haxe
@@ -1153,8 +1150,8 @@ Reverse32 returns the value of x with its bits in reversed order.
 
 ```haxe
 function exampleReverse32():Void {
-	stdgo.fmt.Fmt.printf((Go.str("%032b\n") : GoString), Go.toInterface((19 : GoInt)));
-	stdgo.fmt.Fmt.printf((Go.str("%032b\n") : GoString), Go.toInterface(stdgo.math.bits.Bits.reverse32((19 : GoUInt32))));
+	stdgo.fmt.Fmt.printf(Go.str("%032b\n"), Go.toInterface((19 : GoInt)));
+	stdgo.fmt.Fmt.printf(Go.str("%032b\n"), Go.toInterface(stdgo.math.bits.Bits.reverse32(("19" : GoUInt32))));
 }
 ```
 
@@ -1163,10 +1160,10 @@ function exampleReverse32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L392>)
+[\(view code\)](<./Bits.hx#L396>)
 
 
-## function \`reverse64\`
+## function reverse64
 
 
 ```haxe
@@ -1186,8 +1183,8 @@ Reverse64 returns the value of x with its bits in reversed order.
 
 ```haxe
 function exampleReverse64():Void {
-	stdgo.fmt.Fmt.printf((Go.str("%064b\n") : GoString), Go.toInterface((19 : GoInt)));
-	stdgo.fmt.Fmt.printf((Go.str("%064b\n") : GoString), Go.toInterface(stdgo.math.bits.Bits.reverse64((19 : GoUInt64))));
+	stdgo.fmt.Fmt.printf(Go.str("%064b\n"), Go.toInterface((19 : GoInt)));
+	stdgo.fmt.Fmt.printf(Go.str("%064b\n"), Go.toInterface(stdgo.math.bits.Bits.reverse64(("19" : GoUInt64))));
 }
 ```
 
@@ -1196,10 +1193,10 @@ function exampleReverse64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L403>)
+[\(view code\)](<./Bits.hx#L407>)
 
 
-## function \`reverse8\`
+## function reverse8
 
 
 ```haxe
@@ -1219,8 +1216,8 @@ Reverse8 returns the value of x with its bits in reversed order.
 
 ```haxe
 function exampleReverse8():Void {
-	stdgo.fmt.Fmt.printf((Go.str("%08b\n") : GoString), Go.toInterface((19 : GoInt)));
-	stdgo.fmt.Fmt.printf((Go.str("%08b\n") : GoString), Go.toInterface(stdgo.math.bits.Bits.reverse8((19 : GoUInt8))));
+	stdgo.fmt.Fmt.printf(Go.str("%08b\n"), Go.toInterface((19 : GoInt)));
+	stdgo.fmt.Fmt.printf(Go.str("%08b\n"), Go.toInterface(stdgo.math.bits.Bits.reverse8((19 : GoUInt8))));
 }
 ```
 
@@ -1229,10 +1226,10 @@ function exampleReverse8():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L352>)
+[\(view code\)](<./Bits.hx#L356>)
 
 
-## function \`reverseBytes\`
+## function reverseBytes
 
 
 ```haxe
@@ -1243,10 +1240,10 @@ function reverseBytes(_x:stdgo.GoUInt):stdgo.GoUInt
 ReverseBytes returns the value of x with its bytes in reversed order.  This function's execution time does not depend on the inputs. 
 
 
-[\(view code\)](<./Bits.hx#L416>)
+[\(view code\)](<./Bits.hx#L420>)
 
 
-## function \`reverseBytes16\`
+## function reverseBytes16
 
 
 ```haxe
@@ -1266,8 +1263,8 @@ ReverseBytes16 returns the value of x with its bytes in reversed order.  This fu
 
 ```haxe
 function exampleReverseBytes16():Void {
-	stdgo.fmt.Fmt.printf((Go.str("%016b\n") : GoString), Go.toInterface((15 : GoInt)));
-	stdgo.fmt.Fmt.printf((Go.str("%016b\n") : GoString), Go.toInterface(stdgo.math.bits.Bits.reverseBytes16((15 : GoUInt16))));
+	stdgo.fmt.Fmt.printf(Go.str("%016b\n"), Go.toInterface((15 : GoInt)));
+	stdgo.fmt.Fmt.printf(Go.str("%016b\n"), Go.toInterface(stdgo.math.bits.Bits.reverseBytes16((15 : GoUInt16))));
 }
 ```
 
@@ -1276,10 +1273,10 @@ function exampleReverseBytes16():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L428>)
+[\(view code\)](<./Bits.hx#L432>)
 
 
-## function \`reverseBytes32\`
+## function reverseBytes32
 
 
 ```haxe
@@ -1299,8 +1296,8 @@ ReverseBytes32 returns the value of x with its bytes in reversed order.  This fu
 
 ```haxe
 function exampleReverseBytes32():Void {
-	stdgo.fmt.Fmt.printf((Go.str("%032b\n") : GoString), Go.toInterface((15 : GoInt)));
-	stdgo.fmt.Fmt.printf((Go.str("%032b\n") : GoString), Go.toInterface(stdgo.math.bits.Bits.reverseBytes32((15 : GoUInt32))));
+	stdgo.fmt.Fmt.printf(Go.str("%032b\n"), Go.toInterface((15 : GoInt)));
+	stdgo.fmt.Fmt.printf(Go.str("%032b\n"), Go.toInterface(stdgo.math.bits.Bits.reverseBytes32(("15" : GoUInt32))));
 }
 ```
 
@@ -1309,10 +1306,10 @@ function exampleReverseBytes32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L437>)
+[\(view code\)](<./Bits.hx#L441>)
 
 
-## function \`reverseBytes64\`
+## function reverseBytes64
 
 
 ```haxe
@@ -1332,8 +1329,8 @@ ReverseBytes64 returns the value of x with its bytes in reversed order.  This fu
 
 ```haxe
 function exampleReverseBytes64():Void {
-	stdgo.fmt.Fmt.printf((Go.str("%064b\n") : GoString), Go.toInterface((15 : GoInt)));
-	stdgo.fmt.Fmt.printf((Go.str("%064b\n") : GoString), Go.toInterface(stdgo.math.bits.Bits.reverseBytes64((15 : GoUInt64))));
+	stdgo.fmt.Fmt.printf(Go.str("%064b\n"), Go.toInterface((15 : GoInt)));
+	stdgo.fmt.Fmt.printf(Go.str("%064b\n"), Go.toInterface(stdgo.math.bits.Bits.reverseBytes64(("15" : GoUInt64))));
 }
 ```
 
@@ -1342,10 +1339,10 @@ function exampleReverseBytes64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L448>)
+[\(view code\)](<./Bits.hx#L452>)
 
 
-## function \`rotateLeft\`
+## function rotateLeft
 
 
 ```haxe
@@ -1356,10 +1353,10 @@ function rotateLeft(_x:stdgo.GoUInt, _k:stdgo.GoInt):stdgo.GoUInt
 RotateLeft returns the value of x rotated left by \(k mod UintSize\) bits. To rotate x right by k bits, call RotateLeft\(x, \-k\).  This function's execution time does not depend on the inputs. 
 
 
-[\(view code\)](<./Bits.hx#L284>)
+[\(view code\)](<./Bits.hx#L288>)
 
 
-## function \`rotateLeft16\`
+## function rotateLeft16
 
 
 ```haxe
@@ -1379,9 +1376,9 @@ RotateLeft16 returns the value of x rotated left by \(k mod 16\) bits. To rotate
 
 ```haxe
 function exampleRotateLeft16():Void {
-	stdgo.fmt.Fmt.printf((Go.str("%016b\n") : GoString), Go.toInterface((15 : GoInt)));
-	stdgo.fmt.Fmt.printf((Go.str("%016b\n") : GoString), Go.toInterface(stdgo.math.bits.Bits.rotateLeft16((15 : GoUInt16), (2 : GoInt))));
-	stdgo.fmt.Fmt.printf((Go.str("%016b\n") : GoString), Go.toInterface(stdgo.math.bits.Bits.rotateLeft16((15 : GoUInt16), (-2 : GoInt))));
+	stdgo.fmt.Fmt.printf(Go.str("%016b\n"), Go.toInterface((15 : GoInt)));
+	stdgo.fmt.Fmt.printf(Go.str("%016b\n"), Go.toInterface(stdgo.math.bits.Bits.rotateLeft16((15 : GoUInt16), (2 : GoInt))));
+	stdgo.fmt.Fmt.printf(Go.str("%016b\n"), Go.toInterface(stdgo.math.bits.Bits.rotateLeft16((15 : GoUInt16), (-2 : GoInt))));
 }
 ```
 
@@ -1390,10 +1387,10 @@ function exampleRotateLeft16():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L309>)
+[\(view code\)](<./Bits.hx#L313>)
 
 
-## function \`rotateLeft32\`
+## function rotateLeft32
 
 
 ```haxe
@@ -1413,9 +1410,9 @@ RotateLeft32 returns the value of x rotated left by \(k mod 32\) bits. To rotate
 
 ```haxe
 function exampleRotateLeft32():Void {
-	stdgo.fmt.Fmt.printf((Go.str("%032b\n") : GoString), Go.toInterface((15 : GoInt)));
-	stdgo.fmt.Fmt.printf((Go.str("%032b\n") : GoString), Go.toInterface(stdgo.math.bits.Bits.rotateLeft32((15 : GoUInt32), (2 : GoInt))));
-	stdgo.fmt.Fmt.printf((Go.str("%032b\n") : GoString), Go.toInterface(stdgo.math.bits.Bits.rotateLeft32((15 : GoUInt32), (-2 : GoInt))));
+	stdgo.fmt.Fmt.printf(Go.str("%032b\n"), Go.toInterface((15 : GoInt)));
+	stdgo.fmt.Fmt.printf(Go.str("%032b\n"), Go.toInterface(stdgo.math.bits.Bits.rotateLeft32(("15" : GoUInt32), (2 : GoInt))));
+	stdgo.fmt.Fmt.printf(Go.str("%032b\n"), Go.toInterface(stdgo.math.bits.Bits.rotateLeft32(("15" : GoUInt32), (-2 : GoInt))));
 }
 ```
 
@@ -1424,10 +1421,10 @@ function exampleRotateLeft32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L321>)
+[\(view code\)](<./Bits.hx#L325>)
 
 
-## function \`rotateLeft64\`
+## function rotateLeft64
 
 
 ```haxe
@@ -1447,9 +1444,9 @@ RotateLeft64 returns the value of x rotated left by \(k mod 64\) bits. To rotate
 
 ```haxe
 function exampleRotateLeft64():Void {
-	stdgo.fmt.Fmt.printf((Go.str("%064b\n") : GoString), Go.toInterface((15 : GoInt)));
-	stdgo.fmt.Fmt.printf((Go.str("%064b\n") : GoString), Go.toInterface(stdgo.math.bits.Bits.rotateLeft64((15 : GoUInt64), (2 : GoInt))));
-	stdgo.fmt.Fmt.printf((Go.str("%064b\n") : GoString), Go.toInterface(stdgo.math.bits.Bits.rotateLeft64((15 : GoUInt64), (-2 : GoInt))));
+	stdgo.fmt.Fmt.printf(Go.str("%064b\n"), Go.toInterface((15 : GoInt)));
+	stdgo.fmt.Fmt.printf(Go.str("%064b\n"), Go.toInterface(stdgo.math.bits.Bits.rotateLeft64(("15" : GoUInt64), (2 : GoInt))));
+	stdgo.fmt.Fmt.printf(Go.str("%064b\n"), Go.toInterface(stdgo.math.bits.Bits.rotateLeft64(("15" : GoUInt64), (-2 : GoInt))));
 }
 ```
 
@@ -1458,10 +1455,10 @@ function exampleRotateLeft64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L333>)
+[\(view code\)](<./Bits.hx#L337>)
 
 
-## function \`rotateLeft8\`
+## function rotateLeft8
 
 
 ```haxe
@@ -1481,9 +1478,9 @@ RotateLeft8 returns the value of x rotated left by \(k mod 8\) bits. To rotate x
 
 ```haxe
 function exampleRotateLeft8():Void {
-	stdgo.fmt.Fmt.printf((Go.str("%08b\n") : GoString), Go.toInterface((15 : GoInt)));
-	stdgo.fmt.Fmt.printf((Go.str("%08b\n") : GoString), Go.toInterface(stdgo.math.bits.Bits.rotateLeft8((15 : GoUInt8), (2 : GoInt))));
-	stdgo.fmt.Fmt.printf((Go.str("%08b\n") : GoString), Go.toInterface(stdgo.math.bits.Bits.rotateLeft8((15 : GoUInt8), (-2 : GoInt))));
+	stdgo.fmt.Fmt.printf(Go.str("%08b\n"), Go.toInterface((15 : GoInt)));
+	stdgo.fmt.Fmt.printf(Go.str("%08b\n"), Go.toInterface(stdgo.math.bits.Bits.rotateLeft8((15 : GoUInt8), (2 : GoInt))));
+	stdgo.fmt.Fmt.printf(Go.str("%08b\n"), Go.toInterface(stdgo.math.bits.Bits.rotateLeft8((15 : GoUInt8), (-2 : GoInt))));
 }
 ```
 
@@ -1492,10 +1489,10 @@ function exampleRotateLeft8():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L297>)
+[\(view code\)](<./Bits.hx#L301>)
 
 
-## function \`sub\`
+## function sub
 
 
 ```haxe
@@ -1506,10 +1503,10 @@ function sub(_x:stdgo.GoUInt, _y:stdgo.GoUInt, _borrow:stdgo.GoUInt):{_1:stdgo.G
 Sub returns the difference of x, y and borrow: diff = x \- y \- borrow. The borrow input must be 0 or 1; otherwise the behavior is undefined. The borrowOut output is guaranteed to be 0 or 1.  This function's execution time does not depend on the inputs. 
 
 
-[\(view code\)](<./Bits.hx#L588>)
+[\(view code\)](<./Bits.hx#L592>)
 
 
-## function \`sub32\`
+## function sub32
 
 
 ```haxe
@@ -1529,21 +1526,20 @@ Sub32 returns the difference of x, y and borrow, diff = x \- y \- borrow. The bo
 
 ```haxe
 function exampleSub32():Void {
-	var _n1 = (new Slice<GoUInt32>(0, 0, (33 : GoUInt32), (23 : GoUInt32)) : Slice<GoUInt32>);
-	var _n2 = (new Slice<GoUInt32>(0, 0, (21 : GoUInt32), (12 : GoUInt32)) : Slice<GoUInt32>);
-	var __tmp__ = stdgo.math.bits.Bits.sub32(_n1[(1 : GoInt)], _n2[(1 : GoInt)], (0 : GoUInt32)),
+	var _n1 = (new Slice<GoUInt32>(0, 0, ("33" : GoUInt32), ("23" : GoUInt32)) : Slice<GoUInt32>);
+	var _n2 = (new Slice<GoUInt32>(0, 0, ("21" : GoUInt32), ("12" : GoUInt32)) : Slice<GoUInt32>);
+	var __tmp__ = stdgo.math.bits.Bits.sub32(_n1[(1 : GoInt)], _n2[(1 : GoInt)], ("0" : GoUInt32)),
 		_d1:GoUInt32 = __tmp__._0,
 		_carry:GoUInt32 = __tmp__._1;
 	var __tmp__ = stdgo.math.bits.Bits.sub32(_n1[(0 : GoInt)], _n2[(0 : GoInt)], _carry),
 		_d0:GoUInt32 = __tmp__._0,
 		_0:GoUInt32 = __tmp__._1;
 	var _nsum = (new Slice<GoUInt32>(0, 0, _d0, _d1) : Slice<GoUInt32>);
-	stdgo.fmt.Fmt.printf((Go.str("%v - %v = %v (carry bit was %v)\n") : GoString), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum),
-		Go.toInterface(_carry));
-	_n1 = (new Slice<GoUInt32>(0, 0, (3 : GoUInt32), (2147483647 : GoUInt32)) : Slice<GoUInt32>);
-	_n2 = (new Slice<GoUInt32>(0, 0, (1 : GoUInt32), ("2147483648" : GoUInt32)) : Slice<GoUInt32>);
+	stdgo.fmt.Fmt.printf(Go.str("%v - %v = %v (carry bit was %v)\n"), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum), Go.toInterface(_carry));
+	_n1 = (new Slice<GoUInt32>(0, 0, ("3" : GoUInt32), ("2147483647" : GoUInt32)) : Slice<GoUInt32>);
+	_n2 = (new Slice<GoUInt32>(0, 0, ("1" : GoUInt32), ("2147483648" : GoUInt32)) : Slice<GoUInt32>);
 	{
-		var __tmp__ = stdgo.math.bits.Bits.sub32(_n1[(1 : GoInt)], _n2[(1 : GoInt)], (0 : GoUInt32));
+		var __tmp__ = stdgo.math.bits.Bits.sub32(_n1[(1 : GoInt)], _n2[(1 : GoInt)], ("0" : GoUInt32));
 		_d1 = __tmp__._0;
 		_carry = __tmp__._1;
 	};
@@ -1552,8 +1548,7 @@ function exampleSub32():Void {
 		_d0 = __tmp__._0;
 	};
 	_nsum = (new Slice<GoUInt32>(0, 0, _d0, _d1) : Slice<GoUInt32>);
-	stdgo.fmt.Fmt.printf((Go.str("%v - %v = %v (carry bit was %v)\n") : GoString), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum),
-		Go.toInterface(_carry));
+	stdgo.fmt.Fmt.printf(Go.str("%v - %v = %v (carry bit was %v)\n"), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum), Go.toInterface(_carry));
 }
 ```
 
@@ -1562,10 +1557,10 @@ function exampleSub32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L609>)
+[\(view code\)](<./Bits.hx#L613>)
 
 
-## function \`sub64\`
+## function sub64
 
 
 ```haxe
@@ -1585,21 +1580,20 @@ Sub64 returns the difference of x, y and borrow: diff = x \- y \- borrow. The bo
 
 ```haxe
 function exampleSub64():Void {
-	var _n1 = (new Slice<GoUInt64>(0, 0, (33 : GoUInt64), (23 : GoUInt64)) : Slice<GoUInt64>);
-	var _n2 = (new Slice<GoUInt64>(0, 0, (21 : GoUInt64), (12 : GoUInt64)) : Slice<GoUInt64>);
-	var __tmp__ = stdgo.math.bits.Bits.sub64(_n1[(1 : GoInt)], _n2[(1 : GoInt)], (0 : GoUInt64)),
+	var _n1 = (new Slice<GoUInt64>(0, 0, ("33" : GoUInt64), ("23" : GoUInt64)) : Slice<GoUInt64>);
+	var _n2 = (new Slice<GoUInt64>(0, 0, ("21" : GoUInt64), ("12" : GoUInt64)) : Slice<GoUInt64>);
+	var __tmp__ = stdgo.math.bits.Bits.sub64(_n1[(1 : GoInt)], _n2[(1 : GoInt)], ("0" : GoUInt64)),
 		_d1:GoUInt64 = __tmp__._0,
 		_carry:GoUInt64 = __tmp__._1;
 	var __tmp__ = stdgo.math.bits.Bits.sub64(_n1[(0 : GoInt)], _n2[(0 : GoInt)], _carry),
 		_d0:GoUInt64 = __tmp__._0,
 		_0:GoUInt64 = __tmp__._1;
 	var _nsum = (new Slice<GoUInt64>(0, 0, _d0, _d1) : Slice<GoUInt64>);
-	stdgo.fmt.Fmt.printf((Go.str("%v - %v = %v (carry bit was %v)\n") : GoString), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum),
-		Go.toInterface(_carry));
-	_n1 = (new Slice<GoUInt64>(0, 0, (3 : GoUInt64), ("9223372036854775807" : GoUInt64)) : Slice<GoUInt64>);
-	_n2 = (new Slice<GoUInt64>(0, 0, (1 : GoUInt64), ("9223372036854775808" : GoUInt64)) : Slice<GoUInt64>);
+	stdgo.fmt.Fmt.printf(Go.str("%v - %v = %v (carry bit was %v)\n"), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum), Go.toInterface(_carry));
+	_n1 = (new Slice<GoUInt64>(0, 0, ("3" : GoUInt64), ("9223372036854775807" : GoUInt64)) : Slice<GoUInt64>);
+	_n2 = (new Slice<GoUInt64>(0, 0, ("1" : GoUInt64), ("9223372036854775808" : GoUInt64)) : Slice<GoUInt64>);
 	{
-		var __tmp__ = stdgo.math.bits.Bits.sub64(_n1[(1 : GoInt)], _n2[(1 : GoInt)], (0 : GoUInt64));
+		var __tmp__ = stdgo.math.bits.Bits.sub64(_n1[(1 : GoInt)], _n2[(1 : GoInt)], ("0" : GoUInt64));
 		_d1 = __tmp__._0;
 		_carry = __tmp__._1;
 	};
@@ -1608,8 +1602,7 @@ function exampleSub64():Void {
 		_d0 = __tmp__._0;
 	};
 	_nsum = (new Slice<GoUInt64>(0, 0, _d0, _d1) : Slice<GoUInt64>);
-	stdgo.fmt.Fmt.printf((Go.str("%v - %v = %v (carry bit was %v)\n") : GoString), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum),
-		Go.toInterface(_carry));
+	stdgo.fmt.Fmt.printf(Go.str("%v - %v = %v (carry bit was %v)\n"), Go.toInterface(_n1), Go.toInterface(_n2), Go.toInterface(_nsum), Go.toInterface(_carry));
 }
 ```
 
@@ -1618,10 +1611,10 @@ function exampleSub64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L623>)
+[\(view code\)](<./Bits.hx#L627>)
 
 
-## function \`trailingZeros\`
+## function trailingZeros
 
 
 ```haxe
@@ -1635,7 +1628,7 @@ TrailingZeros returns the number of trailing zero bits in x; the result is UintS
 [\(view code\)](<./Bits.hx#L145>)
 
 
-## function \`trailingZeros16\`
+## function trailingZeros16
 
 
 ```haxe
@@ -1655,7 +1648,7 @@ TrailingZeros16 returns the number of trailing zero bits in x; the result is 16 
 
 ```haxe
 function exampleTrailingZeros16():Void {
-	stdgo.fmt.Fmt.printf((Go.str("TrailingZeros16(%016b) = %d\n") : GoString), Go.toInterface((14 : GoInt)),
+	stdgo.fmt.Fmt.printf(Go.str("TrailingZeros16(%016b) = %d\n"), Go.toInterface((14 : GoInt)),
 		Go.toInterface(stdgo.math.bits.Bits.trailingZeros16((14 : GoUInt16))));
 }
 ```
@@ -1668,7 +1661,7 @@ function exampleTrailingZeros16():Void {
 [\(view code\)](<./Bits.hx#L167>)
 
 
-## function \`trailingZeros32\`
+## function trailingZeros32
 
 
 ```haxe
@@ -1688,8 +1681,8 @@ TrailingZeros32 returns the number of trailing zero bits in x; the result is 32 
 
 ```haxe
 function exampleTrailingZeros32():Void {
-	stdgo.fmt.Fmt.printf((Go.str("TrailingZeros32(%032b) = %d\n") : GoString), Go.toInterface((14 : GoInt)),
-		Go.toInterface(stdgo.math.bits.Bits.trailingZeros32((14 : GoUInt32))));
+	stdgo.fmt.Fmt.printf(Go.str("TrailingZeros32(%032b) = %d\n"), Go.toInterface((14 : GoInt)),
+		Go.toInterface(stdgo.math.bits.Bits.trailingZeros32(("14" : GoUInt32))));
 }
 ```
 
@@ -1698,10 +1691,10 @@ function exampleTrailingZeros32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L177>)
+[\(view code\)](<./Bits.hx#L179>)
 
 
-## function \`trailingZeros64\`
+## function trailingZeros64
 
 
 ```haxe
@@ -1721,8 +1714,8 @@ TrailingZeros64 returns the number of trailing zero bits in x; the result is 64 
 
 ```haxe
 function exampleTrailingZeros64():Void {
-	stdgo.fmt.Fmt.printf((Go.str("TrailingZeros64(%064b) = %d\n") : GoString), Go.toInterface((14 : GoInt)),
-		Go.toInterface(stdgo.math.bits.Bits.trailingZeros64((14 : GoUInt64))));
+	stdgo.fmt.Fmt.printf(Go.str("TrailingZeros64(%064b) = %d\n"), Go.toInterface((14 : GoInt)),
+		Go.toInterface(stdgo.math.bits.Bits.trailingZeros64(("14" : GoUInt64))));
 }
 ```
 
@@ -1731,10 +1724,10 @@ function exampleTrailingZeros64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L187>)
+[\(view code\)](<./Bits.hx#L189>)
 
 
-## function \`trailingZeros8\`
+## function trailingZeros8
 
 
 ```haxe
@@ -1754,7 +1747,7 @@ TrailingZeros8 returns the number of trailing zero bits in x; the result is 8 fo
 
 ```haxe
 function exampleTrailingZeros8():Void {
-	stdgo.fmt.Fmt.printf((Go.str("TrailingZeros8(%08b) = %d\n") : GoString), Go.toInterface((14 : GoInt)),
+	stdgo.fmt.Fmt.printf(Go.str("TrailingZeros8(%08b) = %d\n"), Go.toInterface((14 : GoInt)),
 		Go.toInterface(stdgo.math.bits.Bits.trailingZeros8((14 : GoUInt8))));
 }
 ```
@@ -1765,5 +1758,47 @@ function exampleTrailingZeros8():Void {
 
 
 [\(view code\)](<./Bits.hx#L155>)
+
+
+# Classes
+
+
+```haxe
+import stdgo.math.bits.*
+```
+
+
+## class T\_errorString\_static\_extension
+
+
+ 
+
+
+### T\_errorString\_static\_extension function error
+
+
+```haxe
+function error(_e:stdgo.math.bits._Bits.T_errorString):stdgo.GoString
+```
+
+
+ 
+
+
+[\(view code\)](<./Bits.hx#L839>)
+
+
+### T\_errorString\_static\_extension function runtimeError
+
+
+```haxe
+function runtimeError(_e:stdgo.math.bits._Bits.T_errorString):Void
+```
+
+
+ 
+
+
+[\(view code\)](<./Bits.hx#L844>)
 
 

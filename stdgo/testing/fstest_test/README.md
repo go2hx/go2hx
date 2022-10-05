@@ -1,5 +1,4 @@
-# Module: stdgo.testing.fstest
-
+# Module: `stdgo.testing.fstest`
 
 [(view library index)](../../stdgo.md)
 
@@ -15,7 +14,7 @@
 
 - [Variables](<#variables>)
 
-- [function main\(\):Void](<#function-main>)
+- [`function main():Void`](<#function-main>)
 
 # Variables
 
@@ -38,7 +37,7 @@ import stdgo.testing.fstest_test.Fstest
 ```
 
 
-## function \`main\`
+## function main
 
 
 ```haxe

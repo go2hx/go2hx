@@ -1,5 +1,4 @@
-# Module: stdgo.sync
-
+# Module: `stdgo.sync`
 
 [(view library index)](../stdgo.md)
 
@@ -15,83 +14,83 @@
 
 - [class Map\_](<#class-map_>)
 
-  - [function delete\(key:stdgo.AnyInterface\):Void](<#map_-function-delete>)
+  - [`function delete(key:stdgo.AnyInterface):Void`](<#map_-function-delete>)
 
-  - [function load\(key:stdgo.AnyInterface\):\{\_1:Bool, \_0:\{\<unknown\>\}\}](<#map_-function-load>)
+  - [`function load(key:stdgo.AnyInterface):{_1:Bool, _0:{<unknown>}}`](<#map_-function-load>)
 
-  - [function loadAndDelete\(key:stdgo.AnyInterface\):\{\_1:Bool, \_0:\{\<unknown\>\}\}](<#map_-function-loadanddelete>)
+  - [`function loadAndDelete(key:stdgo.AnyInterface):{_1:Bool, _0:{<unknown>}}`](<#map_-function-loadanddelete>)
 
-  - [function loadOrStore\(key:stdgo.AnyInterface, value:stdgo.AnyInterface\):\{\_1:Bool, \_0:\{\<unknown\>\}\}](<#map_-function-loadorstore>)
+  - [`function loadOrStore(key:stdgo.AnyInterface, value:stdgo.AnyInterface):{_1:Bool, _0:{<unknown>}}`](<#map_-function-loadorstore>)
 
-  - [function new\(\):Void](<#map_-function-new>)
+  - [`function new():Void`](<#map_-function-new>)
 
-  - [function range\(f:\(key:stdgo.AnyInterface, value:stdgo.AnyInterface\):Bool\):\{\<unknown\>\}](<#map_-function-range>)
+  - [`function range(f:(key:stdgo.AnyInterface, value:stdgo.AnyInterface):Bool):{<unknown>}`](<#map_-function-range>)
 
-  - [function store\(key:stdgo.AnyInterface, value:stdgo.AnyInterface\):Void](<#map_-function-store>)
+  - [`function store(key:stdgo.AnyInterface, value:stdgo.AnyInterface):Void`](<#map_-function-store>)
 
 - [class Mutex](<#class-mutex>)
 
-  - [function \_lockSlow\(\):Void](<#mutex-function-_lockslow>)
+  - [`function _lockSlow():Void`](<#mutex-function-_lockslow>)
 
-  - [function \_unlockSlow\(i:stdgo.GoInt32\):Void](<#mutex-function-_unlockslow>)
+  - [`function _unlockSlow(i:stdgo.GoInt32):Void`](<#mutex-function-_unlockslow>)
 
-  - [function lock\(\):Void](<#mutex-function-lock>)
+  - [`function lock():Void`](<#mutex-function-lock>)
 
-  - [function new\(\):Void](<#mutex-function-new>)
+  - [`function new():Void`](<#mutex-function-new>)
 
-  - [function rlock\(\):Void](<#mutex-function-rlock>)
+  - [`function rlock():Void`](<#mutex-function-rlock>)
 
-  - [function runlock\(\):Void](<#mutex-function-runlock>)
+  - [`function runlock():Void`](<#mutex-function-runlock>)
 
-  - [function tryLock\(\):Bool](<#mutex-function-trylock>)
+  - [`function tryLock():Bool`](<#mutex-function-trylock>)
 
-  - [function unlock\(\):Void](<#mutex-function-unlock>)
+  - [`function unlock():Void`](<#mutex-function-unlock>)
 
 - [class Once](<#class-once>)
 
-  - [function do\_\(f:haxe.Function\):Void](<#once-function-do_>)
+  - [`function do_(f:haxe.Function):Void`](<#once-function-do_>)
 
-  - [function new\(\):Void](<#once-function-new>)
+  - [`function new():Void`](<#once-function-new>)
 
 - [class Pool](<#class-pool>)
 
-  - [function get\(\):stdgo.AnyInterface](<#pool-function-get>)
+  - [`function get():stdgo.AnyInterface`](<#pool-function-get>)
 
-  - [function new\(?new\_:\(\):stdgo.AnyInterface, ?\_victimSize:stdgo.GoInt, ?\_victim:stdgo.AnyInterface, ?\_noCopy:stdgo.sync.T\_noCopy, ?\_localSize:stdgo.GoInt, ?\_local:stdgo.AnyInterface\):Void](<#pool-function-new>)
+  - [`function new(?new_:():stdgo.AnyInterface, ?_victimSize:stdgo.GoInt, ?_victim:stdgo.AnyInterface, ?_noCopy:stdgo.sync.T_noCopy, ?_localSize:stdgo.GoInt, ?_local:stdgo.AnyInterface):Void`](<#pool-function-new>)
 
-  - [function new\_\(\):stdgo.AnyInterface](<#pool-function-new_>)
+  - [`function new_():stdgo.AnyInterface`](<#pool-function-new_>)
 
-  - [function put\(\_p:stdgo.AnyInterface\):Void](<#pool-function-put>)
+  - [`function put(_p:stdgo.AnyInterface):Void`](<#pool-function-put>)
 
 - [class RWMutex](<#class-rwmutex>)
 
-  - [function lock\(\):Void](<#rwmutex-function-lock>)
+  - [`function lock():Void`](<#rwmutex-function-lock>)
 
-  - [function new\(\):Void](<#rwmutex-function-new>)
+  - [`function new():Void`](<#rwmutex-function-new>)
 
-  - [function rlock\(\):Void](<#rwmutex-function-rlock>)
+  - [`function rlock():Void`](<#rwmutex-function-rlock>)
 
-  - [function runlock\(\):Void](<#rwmutex-function-runlock>)
+  - [`function runlock():Void`](<#rwmutex-function-runlock>)
 
-  - [function unlock\(\):Void](<#rwmutex-function-unlock>)
+  - [`function unlock():Void`](<#rwmutex-function-unlock>)
 
 - [class T\_noCopy](<#class-t_nocopy>)
 
-  - [function lock\(\):Void](<#t_nocopy-function-lock>)
+  - [`function lock():Void`](<#t_nocopy-function-lock>)
 
-  - [function new\(\):Void](<#t_nocopy-function-new>)
+  - [`function new():Void`](<#t_nocopy-function-new>)
 
-  - [function unlock\(\):Void](<#t_nocopy-function-unlock>)
+  - [`function unlock():Void`](<#t_nocopy-function-unlock>)
 
 - [class WaitGroup](<#class-waitgroup>)
 
-  - [function add\(delta:stdgo.GoInt\):Void](<#waitgroup-function-add>)
+  - [`function add(delta:stdgo.GoInt):Void`](<#waitgroup-function-add>)
 
-  - [function done\(\):Void](<#waitgroup-function-done>)
+  - [`function done():Void`](<#waitgroup-function-done>)
 
-  - [function new\(\):Void](<#waitgroup-function-new>)
+  - [`function new():Void`](<#waitgroup-function-new>)
 
-  - [function wait\_\(\):Void](<#waitgroup-function-wait_>)
+  - [`function wait_():Void`](<#waitgroup-function-wait_>)
 
 - [typedef Locker](<#typedef-locker>)
 

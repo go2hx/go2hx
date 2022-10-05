@@ -1,5 +1,4 @@
-# Module: stdgo.testing.iotest
-
+# Module: `stdgo.testing.iotest`
 
 [(view library index)](../../stdgo.md)
 
@@ -15,9 +14,9 @@
 
 - [Variables](<#variables>)
 
-- [function main\(\):Void](<#function-main>)
+- [`function main():Void`](<#function-main>)
 
-- [function exampleErrReader\(\):Void](<#function-exampleerrreader>)
+- [`function exampleErrReader():Void`](<#function-exampleerrreader>)
 
 # Variables
 
@@ -40,7 +39,7 @@ import stdgo.testing.iotest_test.Iotest_test
 ```
 
 
-## function \`main\`
+## function main
 
 
 ```haxe
@@ -54,7 +53,7 @@ function main():Void
 [\(view code\)](<./Iotest_test.hx#L18>)
 
 
-## function \`exampleErrReader\`
+## function exampleErrReader
 
 
 ```haxe

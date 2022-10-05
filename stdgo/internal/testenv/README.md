@@ -1,5 +1,4 @@
-# Module: stdgo.internal.testenv
-
+# Module: `stdgo.internal.testenv`
 
 [(view library index)](../../stdgo.md)
 
@@ -13,9 +12,9 @@
 # Index
 
 
-- [function builder\(\):stdgo.GoString](<#function-builder>)
+- [`function builder():stdgo.GoString`](<#function-builder>)
 
-- [function skipFlaky\(t:stdgo.testing.TB, issue:stdgo.GoInt\):Void](<#function-skipflaky>)
+- [`function skipFlaky(t:stdgo.testing.TB, issue:stdgo.GoInt):Void`](<#function-skipflaky>)
 
 # Functions
 
@@ -25,7 +24,7 @@ import stdgo.internal.testenv.Testenv
 ```
 
 
-## function \`builder\`
+## function builder
 
 
 ```haxe
@@ -39,7 +38,7 @@ function builder():stdgo.GoString
 [\(view code\)](<./Testenv.hx#L6>)
 
 
-## function \`skipFlaky\`
+## function skipFlaky
 
 
 ```haxe

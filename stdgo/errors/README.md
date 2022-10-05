@@ -1,5 +1,4 @@
-# Module: stdgo.errors
-
+# Module: `stdgo.errors`
 
 [(view library index)](../stdgo.md)
 
@@ -41,20 +40,24 @@ Package errors implements functions to manipulate errors.  The New function crea
 # Index
 
 
-- [function as\(\_err:stdgo.Error, \_target:stdgo.AnyInterface\):Bool](<#function-as>)
+- [`function as(_err:stdgo.Error, _target:stdgo.AnyInterface):Bool`](<#function-as>)
 
-- [function is\_\(\_err:stdgo.Error, \_target:stdgo.Error\):Bool](<#function-is_>)
+- [`function is_(_err:stdgo.Error, _target:stdgo.Error):Bool`](<#function-is_>)
 
-- [function new\_\(\_text:stdgo.GoString\):stdgo.Error](<#function-new_>)
+- [`function new_(_text:stdgo.GoString):stdgo.Error`](<#function-new_>)
 
-- [function unwrap\(\_err:stdgo.Error\):stdgo.Error](<#function-unwrap>)
+- [`function unwrap(_err:stdgo.Error):stdgo.Error`](<#function-unwrap>)
+
+- [class T\_errorString\_static\_extension](<#class-t_errorstring_static_extension>)
+
+  - [`function error(_e:stdgo.Ref<stdgo.errors._Errors.T_errorString>):stdgo.GoString`](<#t_errorstring_static_extension-function-error>)
 
 # Examples
 
 
-- [exampleAs](<#exampleas>)
+- [`exampleAs`](<#exampleas>)
 
-- [exampleUnwrap](<#exampleunwrap>)
+- [`exampleUnwrap`](<#exampleunwrap>)
 
 # Functions
 
@@ -64,7 +67,7 @@ import stdgo.errors.Errors
 ```
 
 
-## function \`as\`
+## function as
 
 
 ```haxe
@@ -85,13 +88,13 @@ As finds the first error in err's chain that matches target, and if one is found
 ```haxe
 function exampleAs():Void {
 	{
-		var __tmp__ = stdgo.os.Os.open((Go.str("non-existing") : GoString)),
+		var __tmp__ = stdgo.os.Os.open(Go.str("non-existing")),
 			_0:Ref<stdgo.os.Os.File> = __tmp__._0,
-			_err:stdgo.Error = __tmp__._1;
+			_err:Error = __tmp__._1;
 		if (_err != null) {
 			var _pathError:Ref<stdgo.io.fs.Fs.PathError> = (null : stdgo.io.fs.Fs.PathError);
 			if (stdgo.errors.Errors.as(_err, Go.toInterface((_pathError : Ref<Ref<stdgo.io.fs.Fs.PathError>>)))) {
-				stdgo.fmt.Fmt.println((Go.str("Failed at path:") : GoString), _pathError.path);
+				stdgo.fmt.Fmt.println(Go.str("Failed at path:"), _pathError.path);
 			} else {
 				stdgo.fmt.Fmt.println(_err);
 			};
@@ -108,7 +111,7 @@ function exampleAs():Void {
 [\(view code\)](<./Errors.hx#L189>)
 
 
-## function \`is\_\`
+## function is\_
 
 
 ```haxe
@@ -122,7 +125,7 @@ Is reports whether any error in err's chain matches target.  The chain consists 
 [\(view code\)](<./Errors.hx#L143>)
 
 
-## function \`new\_\`
+## function new\_
 
 
 ```haxe
@@ -136,7 +139,7 @@ New returns an error that formats as the given text. Each call to New returns a 
 [\(view code\)](<./Errors.hx#L104>)
 
 
-## function \`unwrap\`
+## function unwrap
 
 
 ```haxe
@@ -156,8 +159,8 @@ Unwrap returns the result of calling the Unwrap method on err, if err's type con
 
 ```haxe
 function exampleUnwrap():Void {
-	var _err1:stdgo.Error = stdgo.errors.Errors.new_((Go.str("error1") : GoString));
-	var _err2:stdgo.Error = stdgo.fmt.Fmt.errorf((Go.str("error2: [%w]") : GoString), Go.toInterface(_err1));
+	var _err1:Error = stdgo.errors.Errors.new_(Go.str("error1"));
+	var _err2:Error = stdgo.fmt.Fmt.errorf(Go.str("error2: [%w]"), Go.toInterface(_err1));
 	stdgo.fmt.Fmt.println(_err2);
 	stdgo.fmt.Fmt.println(stdgo.errors.Errors.unwrap(_err2));
 }
@@ -169,5 +172,33 @@ function exampleUnwrap():Void {
 
 
 [\(view code\)](<./Errors.hx#L113>)
+
+
+# Classes
+
+
+```haxe
+import stdgo.errors.*
+```
+
+
+## class T\_errorString\_static\_extension
+
+
+ 
+
+
+### T\_errorString\_static\_extension function error
+
+
+```haxe
+function error(_e:stdgo.Ref<stdgo.errors._Errors.T_errorString>):stdgo.GoString
+```
+
+
+ 
+
+
+[\(view code\)](<./Errors.hx#L243>)
 
 

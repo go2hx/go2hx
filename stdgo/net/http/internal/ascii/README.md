@@ -1,5 +1,4 @@
-# Module: stdgo.net.http.internal.ascii
-
+# Module: `stdgo.net.http.internal.ascii`
 
 [(view library index)](../../../../stdgo.md)
 
@@ -13,15 +12,15 @@
 # Index
 
 
-- [function \_lower\(\_b:stdgo.GoByte\):stdgo.GoByte](<#function-_lower>)
+- [`function _lower(_b:stdgo.GoByte):stdgo.GoByte`](<#function-_lower>)
 
-- [function equalFold\(\_s:stdgo.GoString, \_t:stdgo.GoString\):Bool](<#function-equalfold>)
+- [`function equalFold(_s:stdgo.GoString, _t:stdgo.GoString):Bool`](<#function-equalfold>)
 
-- [function isPrint\(\_s:stdgo.GoString\):Bool](<#function-isprint>)
+- [`function isPrint(_s:stdgo.GoString):Bool`](<#function-isprint>)
 
-- [function is\_\(\_s:stdgo.GoString\):Bool](<#function-is_>)
+- [`function is_(_s:stdgo.GoString):Bool`](<#function-is_>)
 
-- [function toLower\(\_s:stdgo.GoString\):\{\_1:Bool, \_0:stdgo.GoString\}](<#function-tolower>)
+- [`function toLower(_s:stdgo.GoString):{_1:Bool, _0:stdgo.GoString}`](<#function-tolower>)
 
 # Functions
 
@@ -31,7 +30,7 @@ import stdgo.net.http.internal.ascii.Ascii
 ```
 
 
-## function \`\_lower\`
+## function \_lower
 
 
 ```haxe
@@ -45,7 +44,7 @@ lower returns the ASCII lowercase version of b.
 [\(view code\)](<./Ascii.hx#L35>)
 
 
-## function \`equalFold\`
+## function equalFold
 
 
 ```haxe
@@ -59,7 +58,7 @@ EqualFold is strings.EqualFold, ASCII only. It reports whether s and t are equal
 [\(view code\)](<./Ascii.hx#L17>)
 
 
-## function \`isPrint\`
+## function isPrint
 
 
 ```haxe
@@ -73,7 +72,7 @@ IsPrint returns whether s is ASCII and printable according to https://tools.ietf
 [\(view code\)](<./Ascii.hx#L46>)
 
 
-## function \`is\_\`
+## function is\_
 
 
 ```haxe
@@ -87,7 +86,7 @@ Is returns whether s is ASCII.
 [\(view code\)](<./Ascii.hx#L61>)
 
 
-## function \`toLower\`
+## function toLower
 
 
 ```haxe

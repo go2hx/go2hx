@@ -1,5 +1,4 @@
-# Module: stdgo.internal.itoa
-
+# Module: `stdgo.internal.itoa`
 
 [(view library index)](../../stdgo.md)
 
@@ -13,9 +12,9 @@
 # Index
 
 
-- [function itoa\(\_val:stdgo.GoInt\):stdgo.GoString](<#function-itoa>)
+- [`function itoa(_val:stdgo.GoInt):stdgo.GoString`](<#function-itoa>)
 
-- [function uitoa\(\_val:stdgo.GoUInt\):stdgo.GoString](<#function-uitoa>)
+- [`function uitoa(_val:stdgo.GoUInt):stdgo.GoString`](<#function-uitoa>)
 
 # Functions
 
@@ -25,7 +24,7 @@ import stdgo.internal.itoa.Itoa
 ```
 
 
-## function \`itoa\`
+## function itoa
 
 
 ```haxe
@@ -39,7 +38,7 @@ Itoa converts val to a decimal string.
 [\(view code\)](<./Itoa.hx#L16>)
 
 
-## function \`uitoa\`
+## function uitoa
 
 
 ```haxe

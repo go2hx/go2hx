@@ -1,5 +1,4 @@
-# Module: stdgo.testing
-
+# Module: `stdgo.testing`
 
 [(view library index)](../stdgo.md)
 
@@ -13,211 +12,211 @@
 # Index
 
 
-- [function allocsPerRun\(\_runs:stdgo.GoInt, f:\(\):Void\):stdgo.GoFloat64](<#function-allocsperrun>)
+- [`function allocsPerRun(_runs:stdgo.GoInt, f:():Void):stdgo.GoFloat64`](<#function-allocsperrun>)
 
-- [function benchmark\(f:\(\)\):stdgo.testing.BenchmarkResult](<#function-benchmark>)
+- [`function benchmark(f:()):stdgo.testing.BenchmarkResult`](<#function-benchmark>)
 
-- [function coverMode\(\):stdgo.GoString](<#function-covermode>)
+- [`function coverMode():stdgo.GoString`](<#function-covermode>)
 
-- [function mainStart\(deps:stdgo.testing.T\_testDeps, tests:stdgo.Slice\<stdgo.testing.InternalTest\>, benchmarks:stdgo.Slice\<stdgo.testing.InternalBenchmark\>, \_0:Any, ?\_1:Any\):stdgo.testing.M](<#function-mainstart>)
+- [`function mainStart(deps:stdgo.testing.T_testDeps, tests:stdgo.Slice<stdgo.testing.InternalTest>, benchmarks:stdgo.Slice<stdgo.testing.InternalBenchmark>, _0:Any, ?_1:Any):stdgo.testing.M`](<#function-mainstart>)
 
-- [function short\(\):Bool](<#function-short>)
+- [`function short():Bool`](<#function-short>)
 
-- [function verbose\(\):Bool](<#function-verbose>)
+- [`function verbose():Bool`](<#function-verbose>)
 
 - [class B](<#class-b>)
 
-  - [function cleanup\(f:\(\):Void\):Void](<#b-function-cleanup>)
+  - [`function cleanup(f:():Void):Void`](<#b-function-cleanup>)
 
-  - [function error\(args:haxe.Rest\<stdgo.AnyInterface\>\):Void](<#b-function-error>)
+  - [`function error(args:haxe.Rest<stdgo.AnyInterface>):Void`](<#b-function-error>)
 
-  - [function errorf\(format:stdgo.GoString, args:haxe.Rest\<stdgo.AnyInterface\>\):Void](<#b-function-errorf>)
+  - [`function errorf(format:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):Void`](<#b-function-errorf>)
 
-  - [function fail\(\):Void](<#b-function-fail>)
+  - [`function fail():Void`](<#b-function-fail>)
 
-  - [function failNow\(\):Void](<#b-function-failnow>)
+  - [`function failNow():Void`](<#b-function-failnow>)
 
-  - [function failed\(\):Bool](<#b-function-failed>)
+  - [`function failed():Bool`](<#b-function-failed>)
 
-  - [function fatal\(args:haxe.Rest\<stdgo.AnyInterface\>\):Void](<#b-function-fatal>)
+  - [`function fatal(args:haxe.Rest<stdgo.AnyInterface>):Void`](<#b-function-fatal>)
 
-  - [function fatalf\(format:stdgo.GoString, args:haxe.Rest\<stdgo.AnyInterface\>\):Void](<#b-function-fatalf>)
+  - [`function fatalf(format:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):Void`](<#b-function-fatalf>)
 
-  - [function helper\(\):Void](<#b-function-helper>)
+  - [`function helper():Void`](<#b-function-helper>)
 
-  - [function log\(args:haxe.Rest\<stdgo.AnyInterface\>\):Void](<#b-function-log>)
+  - [`function log(args:haxe.Rest<stdgo.AnyInterface>):Void`](<#b-function-log>)
 
-  - [function logf\(format:stdgo.GoString, args:haxe.Rest\<stdgo.AnyInterface\>\):Void](<#b-function-logf>)
+  - [`function logf(format:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):Void`](<#b-function-logf>)
 
-  - [function name\(\):stdgo.GoString](<#b-function-name>)
+  - [`function name():stdgo.GoString`](<#b-function-name>)
 
-  - [function new\(?n:Null\<stdgo.GoInt\>\):Void](<#b-function-new>)
+  - [`function new(?n:Null<stdgo.GoInt>):Void`](<#b-function-new>)
 
-  - [function reportAllocs\(\):Void](<#b-function-reportallocs>)
+  - [`function reportAllocs():Void`](<#b-function-reportallocs>)
 
-  - [function reportMetric\(n:stdgo.GoFloat64, uint:stdgo.GoString\):Void](<#b-function-reportmetric>)
+  - [`function reportMetric(n:stdgo.GoFloat64, uint:stdgo.GoString):Void`](<#b-function-reportmetric>)
 
-  - [function resetTimer\(\):Void](<#b-function-resettimer>)
+  - [`function resetTimer():Void`](<#b-function-resettimer>)
 
-  - [function run\(name:stdgo.GoString, f:\(\)\):Bool](<#b-function-run>)
+  - [`function run(name:stdgo.GoString, f:()):Bool`](<#b-function-run>)
 
-  - [function runParrallel\(body:\(\)\):\{\<unknown\>\}](<#b-function-runparrallel>)
+  - [`function runParrallel(body:()):{<unknown>}`](<#b-function-runparrallel>)
 
-  - [function setBytes\(n:stdgo.GoInt64\):Void](<#b-function-setbytes>)
+  - [`function setBytes(n:stdgo.GoInt64):Void`](<#b-function-setbytes>)
 
-  - [function setParallelism\(p:stdgo.GoInt\):Void](<#b-function-setparallelism>)
+  - [`function setParallelism(p:stdgo.GoInt):Void`](<#b-function-setparallelism>)
 
-  - [function setenv\(key:stdgo.GoString, value:stdgo.GoString\):Void](<#b-function-setenv>)
+  - [`function setenv(key:stdgo.GoString, value:stdgo.GoString):Void`](<#b-function-setenv>)
 
-  - [function skip\(args:haxe.Rest\<stdgo.AnyInterface\>\):Void](<#b-function-skip>)
+  - [`function skip(args:haxe.Rest<stdgo.AnyInterface>):Void`](<#b-function-skip>)
 
-  - [function skipNow\(\):Void](<#b-function-skipnow>)
+  - [`function skipNow():Void`](<#b-function-skipnow>)
 
-  - [function skipf\(format:stdgo.GoString, args:haxe.Rest\<stdgo.AnyInterface\>\):Void](<#b-function-skipf>)
+  - [`function skipf(format:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):Void`](<#b-function-skipf>)
 
-  - [function skipped\(\):Bool](<#b-function-skipped>)
+  - [`function skipped():Bool`](<#b-function-skipped>)
 
-  - [function startTimer\(\):Void](<#b-function-starttimer>)
+  - [`function startTimer():Void`](<#b-function-starttimer>)
 
-  - [function stopTimer\(\):Void](<#b-function-stoptimer>)
+  - [`function stopTimer():Void`](<#b-function-stoptimer>)
 
-  - [function tempDir\(\):stdgo.GoString](<#b-function-tempdir>)
+  - [`function tempDir():stdgo.GoString`](<#b-function-tempdir>)
 
 - [class BenchmarkResult](<#class-benchmarkresult>)
 
-  - [function allocedBytesPerOp\(\):stdgo.GoInt64](<#benchmarkresult-function-allocedbytesperop>)
+  - [`function allocedBytesPerOp():stdgo.GoInt64`](<#benchmarkresult-function-allocedbytesperop>)
 
-  - [function allocsPerOp\(\):stdgo.GoInt64](<#benchmarkresult-function-allocsperop>)
+  - [`function allocsPerOp():stdgo.GoInt64`](<#benchmarkresult-function-allocsperop>)
 
-  - [function memString\(\):stdgo.GoString](<#benchmarkresult-function-memstring>)
+  - [`function memString():stdgo.GoString`](<#benchmarkresult-function-memstring>)
 
-  - [function new\(?n:stdgo.GoInt, ?t:\{\<unknown\>\}, ?bytes:stdgo.GoInt64, ?memAllocs:stdgo.GoUInt64, ?memBytes:stdgo.GoUInt64, ?extra:stdgo.GoMap\<stdgo.GoString, stdgo.GoFloat64\>\):Void](<#benchmarkresult-function-new>)
+  - [`function new(?n:stdgo.GoInt, ?t:{<unknown>}, ?bytes:stdgo.GoInt64, ?memAllocs:stdgo.GoUInt64, ?memBytes:stdgo.GoUInt64, ?extra:stdgo.GoMap<stdgo.GoString, stdgo.GoFloat64>):Void`](<#benchmarkresult-function-new>)
 
-  - [function nsPerOp\(\):stdgo.GoInt64](<#benchmarkresult-function-nsperop>)
+  - [`function nsPerOp():stdgo.GoInt64`](<#benchmarkresult-function-nsperop>)
 
-  - [function string\(\):stdgo.GoString](<#benchmarkresult-function-string>)
+  - [`function string():stdgo.GoString`](<#benchmarkresult-function-string>)
 
 - [class F](<#class-f>)
 
-  - [function cleanup\(f:\(\):Void\):Void](<#f-function-cleanup>)
+  - [`function cleanup(f:():Void):Void`](<#f-function-cleanup>)
 
-  - [function error\(args:haxe.Rest\<stdgo.AnyInterface\>\):Void](<#f-function-error>)
+  - [`function error(args:haxe.Rest<stdgo.AnyInterface>):Void`](<#f-function-error>)
 
-  - [function errorf\(format:stdgo.GoString, args:haxe.Rest\<stdgo.AnyInterface\>\):Void](<#f-function-errorf>)
+  - [`function errorf(format:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):Void`](<#f-function-errorf>)
 
-  - [function fail\(\):Void](<#f-function-fail>)
+  - [`function fail():Void`](<#f-function-fail>)
 
-  - [function failNow\(\):Void](<#f-function-failnow>)
+  - [`function failNow():Void`](<#f-function-failnow>)
 
-  - [function failed\(\):Bool](<#f-function-failed>)
+  - [`function failed():Bool`](<#f-function-failed>)
 
-  - [function fatal\(args:haxe.Rest\<stdgo.AnyInterface\>\):Void](<#f-function-fatal>)
+  - [`function fatal(args:haxe.Rest<stdgo.AnyInterface>):Void`](<#f-function-fatal>)
 
-  - [function fatalf\(format:stdgo.GoString, args:haxe.Rest\<stdgo.AnyInterface\>\):Void](<#f-function-fatalf>)
+  - [`function fatalf(format:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):Void`](<#f-function-fatalf>)
 
-  - [function helper\(\):Void](<#f-function-helper>)
+  - [`function helper():Void`](<#f-function-helper>)
 
-  - [function log\(args:haxe.Rest\<stdgo.AnyInterface\>\):Void](<#f-function-log>)
+  - [`function log(args:haxe.Rest<stdgo.AnyInterface>):Void`](<#f-function-log>)
 
-  - [function logf\(format:stdgo.GoString, args:haxe.Rest\<stdgo.AnyInterface\>\):Void](<#f-function-logf>)
+  - [`function logf(format:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):Void`](<#f-function-logf>)
 
-  - [function new\(output:StringBuf\):Void](<#f-function-new>)
+  - [`function new(output:StringBuf):Void`](<#f-function-new>)
 
-  - [function parallel\(\):Void](<#f-function-parallel>)
+  - [`function parallel():Void`](<#f-function-parallel>)
 
-  - [function run\(name:stdgo.GoString, f:\(\)\):Bool](<#f-function-run>)
+  - [`function run(name:stdgo.GoString, f:()):Bool`](<#f-function-run>)
 
-  - [function setenv\(key:stdgo.GoString, value:stdgo.GoString\):Void](<#f-function-setenv>)
+  - [`function setenv(key:stdgo.GoString, value:stdgo.GoString):Void`](<#f-function-setenv>)
 
-  - [function skip\(args:haxe.Rest\<stdgo.AnyInterface\>\):Void](<#f-function-skip>)
+  - [`function skip(args:haxe.Rest<stdgo.AnyInterface>):Void`](<#f-function-skip>)
 
-  - [function skipNow\(\):Void](<#f-function-skipnow>)
+  - [`function skipNow():Void`](<#f-function-skipnow>)
 
-  - [function skipf\(format:stdgo.GoString, args:haxe.Rest\<stdgo.AnyInterface\>\):Void](<#f-function-skipf>)
+  - [`function skipf(format:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):Void`](<#f-function-skipf>)
 
-  - [function skipped\(\):Bool](<#f-function-skipped>)
+  - [`function skipped():Bool`](<#f-function-skipped>)
 
-  - [function tempDir\(\):stdgo.GoString](<#f-function-tempdir>)
+  - [`function tempDir():stdgo.GoString`](<#f-function-tempdir>)
 
 - [class InternalBenchmark](<#class-internalbenchmark>)
 
-  - [function f\(\)](<#internalbenchmark-function-f>)
+  - [`function f()`](<#internalbenchmark-function-f>)
 
-  - [function new\(?name:stdgo.GoString, ?f:\(\)\):Void](<#internalbenchmark-function-new>)
+  - [`function new(?name:stdgo.GoString, ?f:()):Void`](<#internalbenchmark-function-new>)
 
 - [class InternalExample](<#class-internalexample>)
 
-  - [function f\(\):Void](<#internalexample-function-f>)
+  - [`function f():Void`](<#internalexample-function-f>)
 
-  - [function new\(?name:stdgo.GoString, ?f:\(\):Void, ?output:stdgo.GoString, ?unordered:Bool\):Void](<#internalexample-function-new>)
+  - [`function new(?name:stdgo.GoString, ?f:():Void, ?output:stdgo.GoString, ?unordered:Bool):Void`](<#internalexample-function-new>)
 
 - [class InternalFuzzTarget](<#class-internalfuzztarget>)
 
-  - [function f\(\):Void](<#internalfuzztarget-function-f>)
+  - [`function f():Void`](<#internalfuzztarget-function-f>)
 
-  - [function new\(?name:stdgo.GoString, ?f:\(\):Void\):Void](<#internalfuzztarget-function-new>)
+  - [`function new(?name:stdgo.GoString, ?f:():Void):Void`](<#internalfuzztarget-function-new>)
 
 - [class InternalTest](<#class-internaltest>)
 
-  - [function f\(\)](<#internaltest-function-f>)
+  - [`function f()`](<#internaltest-function-f>)
 
-  - [function new\(name:stdgo.GoString, f:\(\)\):Void](<#internaltest-function-new>)
+  - [`function new(name:stdgo.GoString, f:()):Void`](<#internaltest-function-new>)
 
 - [class M](<#class-m>)
 
-  - [function new\(deps:stdgo.testing.T\_testDeps, tests:stdgo.Slice\<stdgo.testing.InternalTest\>, benchmarks:stdgo.Slice\<stdgo.testing.InternalBenchmark\>, examples:stdgo.Slice\<stdgo.testing.InternalExample\>\):Void](<#m-function-new>)
+  - [`function new(deps:stdgo.testing.T_testDeps, tests:stdgo.Slice<stdgo.testing.InternalTest>, benchmarks:stdgo.Slice<stdgo.testing.InternalBenchmark>, examples:stdgo.Slice<stdgo.testing.InternalExample>):Void`](<#m-function-new>)
 
-  - [function run\(\):stdgo.GoInt](<#m-function-run>)
+  - [`function run():stdgo.GoInt`](<#m-function-run>)
 
 - [class PB](<#class-pb>)
 
-  - [function new\(\):Void](<#pb-function-new>)
+  - [`function new():Void`](<#pb-function-new>)
 
-  - [function next\(\):Bool](<#pb-function-next>)
+  - [`function next():Bool`](<#pb-function-next>)
 
 - [class T](<#class-t>)
 
-  - [function cleanup\(f:\(\):Void\):Void](<#t-function-cleanup>)
+  - [`function cleanup(f:():Void):Void`](<#t-function-cleanup>)
 
-  - [function error\(args:haxe.Rest\<stdgo.AnyInterface\>\):Void](<#t-function-error>)
+  - [`function error(args:haxe.Rest<stdgo.AnyInterface>):Void`](<#t-function-error>)
 
-  - [function errorf\(format:stdgo.GoString, args:haxe.Rest\<stdgo.AnyInterface\>\):Void](<#t-function-errorf>)
+  - [`function errorf(format:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):Void`](<#t-function-errorf>)
 
-  - [function fail\(\):Void](<#t-function-fail>)
+  - [`function fail():Void`](<#t-function-fail>)
 
-  - [function failNow\(\):Void](<#t-function-failnow>)
+  - [`function failNow():Void`](<#t-function-failnow>)
 
-  - [function failed\(\):Bool](<#t-function-failed>)
+  - [`function failed():Bool`](<#t-function-failed>)
 
-  - [function fatal\(args:haxe.Rest\<stdgo.AnyInterface\>\):Void](<#t-function-fatal>)
+  - [`function fatal(args:haxe.Rest<stdgo.AnyInterface>):Void`](<#t-function-fatal>)
 
-  - [function fatalf\(format:stdgo.GoString, args:haxe.Rest\<stdgo.AnyInterface\>\):Void](<#t-function-fatalf>)
+  - [`function fatalf(format:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):Void`](<#t-function-fatalf>)
 
-  - [function helper\(\):Void](<#t-function-helper>)
+  - [`function helper():Void`](<#t-function-helper>)
 
-  - [function log\(args:haxe.Rest\<stdgo.AnyInterface\>\):Void](<#t-function-log>)
+  - [`function log(args:haxe.Rest<stdgo.AnyInterface>):Void`](<#t-function-log>)
 
-  - [function logf\(format:stdgo.GoString, args:haxe.Rest\<stdgo.AnyInterface\>\):Void](<#t-function-logf>)
+  - [`function logf(format:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):Void`](<#t-function-logf>)
 
-  - [function name\(\):stdgo.GoString](<#t-function-name>)
+  - [`function name():stdgo.GoString`](<#t-function-name>)
 
-  - [function new\(?output:StringBuf\):Void](<#t-function-new>)
+  - [`function new(?output:StringBuf):Void`](<#t-function-new>)
 
-  - [function parallel\(\):Void](<#t-function-parallel>)
+  - [`function parallel():Void`](<#t-function-parallel>)
 
-  - [function run\(name:stdgo.GoString, f:\(\)\):Bool](<#t-function-run>)
+  - [`function run(name:stdgo.GoString, f:()):Bool`](<#t-function-run>)
 
-  - [function setenv\(key:stdgo.GoString, value:stdgo.GoString\):Void](<#t-function-setenv>)
+  - [`function setenv(key:stdgo.GoString, value:stdgo.GoString):Void`](<#t-function-setenv>)
 
-  - [function skip\(args:haxe.Rest\<stdgo.AnyInterface\>\):Void](<#t-function-skip>)
+  - [`function skip(args:haxe.Rest<stdgo.AnyInterface>):Void`](<#t-function-skip>)
 
-  - [function skipNow\(\):Void](<#t-function-skipnow>)
+  - [`function skipNow():Void`](<#t-function-skipnow>)
 
-  - [function skipf\(format:stdgo.GoString, args:haxe.Rest\<stdgo.AnyInterface\>\):Void](<#t-function-skipf>)
+  - [`function skipf(format:stdgo.GoString, args:haxe.Rest<stdgo.AnyInterface>):Void`](<#t-function-skipf>)
 
-  - [function skipped\(\):Bool](<#t-function-skipped>)
+  - [`function skipped():Bool`](<#t-function-skipped>)
 
-  - [function tempDir\(\):stdgo.GoString](<#t-function-tempdir>)
+  - [`function tempDir():stdgo.GoString`](<#t-function-tempdir>)
 
 - [typedef TB](<#typedef-tb>)
 
@@ -235,7 +234,7 @@ import stdgo.testing.Testing
 ```
 
 
-## function \`allocsPerRun\`
+## function allocsPerRun
 
 
 ```haxe
@@ -249,7 +248,7 @@ function allocsPerRun(_runs:stdgo.GoInt, f:():Void):stdgo.GoFloat64
 [\(view code\)](<./Testing.hx#L509>)
 
 
-## function \`benchmark\`
+## function benchmark
 
 
 ```haxe
@@ -263,7 +262,7 @@ function benchmark(f:()):stdgo.testing.BenchmarkResult
 [\(view code\)](<./Testing.hx#L501>)
 
 
-## function \`coverMode\`
+## function coverMode
 
 
 ```haxe
@@ -277,7 +276,7 @@ function coverMode():stdgo.GoString
 [\(view code\)](<./Testing.hx#L499>)
 
 
-## function \`mainStart\`
+## function mainStart
 
 
 ```haxe
@@ -291,7 +290,7 @@ function mainStart(deps:stdgo.testing.T_testDeps, tests:stdgo.Slice<stdgo.testin
 [\(view code\)](<./Testing.hx#L464>)
 
 
-## function \`short\`
+## function short
 
 
 ```haxe
@@ -305,7 +304,7 @@ function short():Bool
 [\(view code\)](<./Testing.hx#L506>)
 
 
-## function \`verbose\`
+## function verbose
 
 
 ```haxe

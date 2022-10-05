@@ -1,5 +1,4 @@
-# Module: stdgo.internal.poll
-
+# Module: `stdgo.internal.poll`
 
 [(view library index)](../../stdgo.md)
 
@@ -15,7 +14,7 @@
 
 - [class FD](<#class-fd>)
 
-  - [function new\(\):Void](<#fd-function-new>)
+  - [`function new():Void`](<#fd-function-new>)
 
 # Classes
 

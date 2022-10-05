@@ -38,7 +38,7 @@
 | [stdgo.crypto.sha1](./crypto/sha1/README.md) | ❌ | no |  |  |  |  |
 | [stdgo.crypto.sha256](./crypto/sha256/README.md) | ❌ | no |  |  |  |  |
 | [stdgo.crypto.sha512](./crypto/sha512/README.md) | ❌ | no |  |  |  |  |
-| [stdgo.crypto.subtle](./crypto/subtle/README.md) | ✅ | no |  |  |  |  |
+| [stdgo.crypto.subtle](./crypto/subtle/README.md) | ❌ | no |  |  |  |  |
 | [stdgo.crypto.tls](./crypto/tls/README.md) | ❌ | no |  |  |  |  |
 | [stdgo.crypto.x509](./crypto/x509/README.md) | ❌ | no |  |  |  |  |
 | [stdgo.crypto.x509.pkix](./crypto/x509/pkix/README.md) | ❌ | no |  |  |  |  |
@@ -83,9 +83,12 @@
 | [stdgo.image.png](./image/png/README.md) | ❌ | no |  |  |  |  |
 | [stdgo.index.suffixarray](./index/suffixarray/README.md) | ❌ | no |  |  |  |  |
 | [stdgo.internal](./internal/README.md) | ❌ | no |  |  |  |  |
+| [stdgo.internal.abi](./internal/abi/README.md) | ❌ | no |  |  |  |  |
 | [stdgo.internal.bytealg](./internal/bytealg/README.md) | ✅ | no |  |  |  |  |
 | [stdgo.internal.execabs](./internal/execabs/README.md) | ❌ | no |  |  |  |  |
 | [stdgo.internal.goarch](./internal/goarch/README.md) | ✅ | no |  |  |  |  |
+| [stdgo.internal.goexperiment](./internal/goexperiment/README.md) | ✅ | no |  |  |  |  |
+| [stdgo.internal.goos](./internal/goos/README.md) | ✅ | no |  |  |  |  |
 | [stdgo.internal.itoa](./internal/itoa/README.md) | ✅ | no |  |  |  |  |
 | [stdgo.internal.obscuretestdata](./internal/obscuretestdata/README.md) | ❌ | no |  |  |  |  |
 | [stdgo.internal.oserror](./internal/oserror/README.md) | ✅ | no |  |  |  |  |

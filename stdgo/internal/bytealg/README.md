@@ -1,5 +1,4 @@
-# Module: stdgo.internal.bytealg
-
+# Module: `stdgo.internal.bytealg`
 
 [(view library index)](../../stdgo.md)
 
@@ -15,29 +14,29 @@
 
 - [Constants](<#constants>)
 
-- [function compare\(a:stdgo.Slice\<stdgo.GoByte\>, b:stdgo.Slice\<stdgo.GoByte\>\):stdgo.GoInt](<#function-compare>)
+- [`function compare(a:stdgo.Slice<stdgo.GoByte>, b:stdgo.Slice<stdgo.GoByte>):stdgo.GoInt`](<#function-compare>)
 
-- [function count\(b:stdgo.Slice\<stdgo.GoByte\>, c:stdgo.GoByte\):stdgo.GoInt](<#function-count>)
+- [`function count(b:stdgo.Slice<stdgo.GoByte>, c:stdgo.GoByte):stdgo.GoInt`](<#function-count>)
 
-- [function countString\(s:stdgo.GoString, c:stdgo.GoByte\):stdgo.GoInt](<#function-countstring>)
+- [`function countString(s:stdgo.GoString, c:stdgo.GoByte):stdgo.GoInt`](<#function-countstring>)
 
-- [function cutover\(\_n:stdgo.GoInt\):stdgo.GoInt](<#function-cutover>)
+- [`function cutover(_n:stdgo.GoInt):stdgo.GoInt`](<#function-cutover>)
 
-- [function hashStrRev\(sep:stdgo.GoString\):\{\_1:stdgo.GoUInt32, \_0:stdgo.GoUInt32\}](<#function-hashstrrev>)
+- [`function hashStrRev(sep:stdgo.GoString):{_1:stdgo.GoUInt32, _0:stdgo.GoUInt32}`](<#function-hashstrrev>)
 
-- [function hashStrRevBytes\(sep:stdgo.Slice\<stdgo.GoByte\>\):\{\_1:stdgo.GoUInt32, \_0:stdgo.GoUInt32\}](<#function-hashstrrevbytes>)
+- [`function hashStrRevBytes(sep:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.GoUInt32, _0:stdgo.GoUInt32}`](<#function-hashstrrevbytes>)
 
-- [function index\(a:stdgo.Slice\<stdgo.GoByte\>, b:stdgo.Slice\<stdgo.GoByte\>\):stdgo.GoInt](<#function-index>)
+- [`function index(a:stdgo.Slice<stdgo.GoByte>, b:stdgo.Slice<stdgo.GoByte>):stdgo.GoInt`](<#function-index>)
 
-- [function indexByte\(\_b:stdgo.Slice\<stdgo.GoByte\>, \_c:stdgo.GoByte\):stdgo.GoInt](<#function-indexbyte>)
+- [`function indexByte(_b:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.GoInt`](<#function-indexbyte>)
 
-- [function indexByteString\(b:stdgo.GoString, c:stdgo.GoByte\):stdgo.GoInt](<#function-indexbytestring>)
+- [`function indexByteString(b:stdgo.GoString, c:stdgo.GoByte):stdgo.GoInt`](<#function-indexbytestring>)
 
-- [function indexRabinKarp\(\_s:stdgo.GoString, \_substr:stdgo.GoString\):stdgo.GoInt](<#function-indexrabinkarp>)
+- [`function indexRabinKarp(_s:stdgo.GoString, _substr:stdgo.GoString):stdgo.GoInt`](<#function-indexrabinkarp>)
 
-- [function indexRabinKarpBytes\(\_s:stdgo.Slice\<stdgo.GoByte\>, \_sep:stdgo.Slice\<stdgo.GoByte\>\):stdgo.GoInt](<#function-indexrabinkarpbytes>)
+- [`function indexRabinKarpBytes(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):stdgo.GoInt`](<#function-indexrabinkarpbytes>)
 
-- [function indexString\(\_a:stdgo.GoString, \_b:stdgo.GoString\):stdgo.GoInt](<#function-indexstring>)
+- [`function indexString(_a:stdgo.GoString, _b:stdgo.GoString):stdgo.GoInt`](<#function-indexstring>)
 
 # Constants
 
@@ -70,7 +69,7 @@ import stdgo.internal.bytealg.Bytealg
 ```
 
 
-## function \`compare\`
+## function compare
 
 
 ```haxe
@@ -84,7 +83,7 @@ function compare(a:stdgo.Slice<stdgo.GoByte>, b:stdgo.Slice<stdgo.GoByte>):stdgo
 [\(view code\)](<./Bytealg.hx#L99>)
 
 
-## function \`count\`
+## function count
 
 
 ```haxe
@@ -98,7 +97,7 @@ function count(b:stdgo.Slice<stdgo.GoByte>, c:stdgo.GoByte):stdgo.GoInt
 [\(view code\)](<./Bytealg.hx#L46>)
 
 
-## function \`countString\`
+## function countString
 
 
 ```haxe
@@ -112,7 +111,7 @@ function countString(s:stdgo.GoString, c:stdgo.GoByte):stdgo.GoInt
 [\(view code\)](<./Bytealg.hx#L55>)
 
 
-## function \`cutover\`
+## function cutover
 
 
 ```haxe
@@ -126,7 +125,7 @@ function cutover(_n:stdgo.GoInt):stdgo.GoInt
 [\(view code\)](<./Bytealg.hx#L123>)
 
 
-## function \`hashStrRev\`
+## function hashStrRev
 
 
 ```haxe
@@ -140,7 +139,7 @@ function hashStrRev(sep:stdgo.GoString):{_1:stdgo.GoUInt32, _0:stdgo.GoUInt32}
 [\(view code\)](<./Bytealg.hx#L67>)
 
 
-## function \`hashStrRevBytes\`
+## function hashStrRevBytes
 
 
 ```haxe
@@ -154,7 +153,7 @@ function hashStrRevBytes(sep:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.GoUInt32, _0:s
 [\(view code\)](<./Bytealg.hx#L27>)
 
 
-## function \`index\`
+## function index
 
 
 ```haxe
@@ -168,7 +167,7 @@ function index(a:stdgo.Slice<stdgo.GoByte>, b:stdgo.Slice<stdgo.GoByte>):stdgo.G
 [\(view code\)](<./Bytealg.hx#L88>)
 
 
-## function \`indexByte\`
+## function indexByte
 
 
 ```haxe
@@ -182,7 +181,7 @@ function indexByte(_b:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.GoInt
 [\(view code\)](<./Bytealg.hx#L11>)
 
 
-## function \`indexByteString\`
+## function indexByteString
 
 
 ```haxe
@@ -196,7 +195,7 @@ function indexByteString(b:stdgo.GoString, c:stdgo.GoByte):stdgo.GoInt
 [\(view code\)](<./Bytealg.hx#L19>)
 
 
-## function \`indexRabinKarp\`
+## function indexRabinKarp
 
 
 ```haxe
@@ -210,7 +209,7 @@ function indexRabinKarp(_s:stdgo.GoString, _substr:stdgo.GoString):stdgo.GoInt
 [\(view code\)](<./Bytealg.hx#L128>)
 
 
-## function \`indexRabinKarpBytes\`
+## function indexRabinKarpBytes
 
 
 ```haxe
@@ -224,7 +223,7 @@ function indexRabinKarpBytes(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdg
 [\(view code\)](<./Bytealg.hx#L130>)
 
 
-## function \`indexString\`
+## function indexString
 
 
 ```haxe

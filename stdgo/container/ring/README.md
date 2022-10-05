@@ -1,5 +1,4 @@
-# Module: stdgo.container.ring
-
+# Module: `stdgo.container.ring`
 
 [(view library index)](../../stdgo.md)
 
@@ -13,65 +12,65 @@
 # Index
 
 
-- [function new\_\(\_n:stdgo.GoInt\):stdgo.container.ring.Ring](<#function-new_>)
+- [`function new_(_n:stdgo.GoInt):stdgo.container.ring.Ring`](<#function-new_>)
 
 - [class Ring](<#class-ring>)
 
-  - [function new\(?\_next:stdgo.Ref\<stdgo.container.ring.Ring\>, ?\_prev:stdgo.Ref\<stdgo.container.ring.Ring\>, ?value:stdgo.AnyInterface\):Void](<#ring-function-new>)
+  - [`function new(?_next:stdgo.Ref<stdgo.container.ring.Ring>, ?_prev:stdgo.Ref<stdgo.container.ring.Ring>, ?value:stdgo.AnyInterface):Void`](<#ring-function-new>)
 
-  - [function \_init\(\):stdgo.container.ring.Ring](<#ring-function-_init>)
+  - [`function _init():stdgo.container.ring.Ring`](<#ring-function-_init>)
 
-  - [function do\_\( \_f:\(\)\):Void](<#ring-function-do_>)
+  - [`function do_( _f:()):Void`](<#ring-function-do_>)
 
-  - [function len\(\):stdgo.GoInt](<#ring-function-len>)
+  - [`function len():stdgo.GoInt`](<#ring-function-len>)
 
-  - [function link\( \_s:stdgo.container.ring.Ring\):stdgo.container.ring.Ring](<#ring-function-link>)
+  - [`function link( _s:stdgo.container.ring.Ring):stdgo.container.ring.Ring`](<#ring-function-link>)
 
-  - [function move\( \_n:stdgo.GoInt\):stdgo.container.ring.Ring](<#ring-function-move>)
+  - [`function move( _n:stdgo.GoInt):stdgo.container.ring.Ring`](<#ring-function-move>)
 
-  - [function next\(\):stdgo.container.ring.Ring](<#ring-function-next>)
+  - [`function next():stdgo.container.ring.Ring`](<#ring-function-next>)
 
-  - [function prev\(\):stdgo.container.ring.Ring](<#ring-function-prev>)
+  - [`function prev():stdgo.container.ring.Ring`](<#ring-function-prev>)
 
-  - [function unlink\( \_n:stdgo.GoInt\):stdgo.container.ring.Ring](<#ring-function-unlink>)
+  - [`function unlink( _n:stdgo.GoInt):stdgo.container.ring.Ring`](<#ring-function-unlink>)
 
 - [class Ring\_static\_extension](<#class-ring_static_extension>)
 
-  - [function \_init\(\):stdgo.container.ring.Ring](<#ring_static_extension-function-_init>)
+  - [`function _init():stdgo.container.ring.Ring`](<#ring_static_extension-function-_init>)
 
-  - [function do\_\( \_f:\(\)\):Void](<#ring_staticextension-function-do>)
+  - [`function do_( _f:()):Void`](<#ring_staticextension-function-do>)
 
-  - [function len\(\):stdgo.GoInt](<#ring_static_extension-function-len>)
+  - [`function len():stdgo.GoInt`](<#ring_static_extension-function-len>)
 
-  - [function link\( \_s:stdgo.container.ring.Ring\):stdgo.container.ring.Ring](<#ring_static_extension-function-link>)
+  - [`function link( _s:stdgo.container.ring.Ring):stdgo.container.ring.Ring`](<#ring_static_extension-function-link>)
 
-  - [function move\( \_n:stdgo.GoInt\):stdgo.container.ring.Ring](<#ring_static_extension-function-move>)
+  - [`function move( _n:stdgo.GoInt):stdgo.container.ring.Ring`](<#ring_static_extension-function-move>)
 
-  - [function next\(\):stdgo.container.ring.Ring](<#ring_static_extension-function-next>)
+  - [`function next():stdgo.container.ring.Ring`](<#ring_static_extension-function-next>)
 
-  - [function prev\(\):stdgo.container.ring.Ring](<#ring_static_extension-function-prev>)
+  - [`function prev():stdgo.container.ring.Ring`](<#ring_static_extension-function-prev>)
 
-  - [function unlink\( \_n:stdgo.GoInt\):stdgo.container.ring.Ring](<#ring_static_extension-function-unlink>)
+  - [`function unlink( _n:stdgo.GoInt):stdgo.container.ring.Ring`](<#ring_static_extension-function-unlink>)
 
 - [class Ring\_wrapper](<#class-ring_wrapper>)
 
-  - [function \_init\(\):stdgo.container.ring.Ring](<#ring_wrapper-function-_init>)
+  - [`function _init():stdgo.container.ring.Ring`](<#ring_wrapper-function-_init>)
 
-  - [function do\_\(\)](<#ringwrapper-function-do>)
+  - [`function do_()`](<#ringwrapper-function-do>)
 
-  - [function len\(\):stdgo.GoInt](<#ring_wrapper-function-len>)
+  - [`function len():stdgo.GoInt`](<#ring_wrapper-function-len>)
 
-  - [function link\(\)](<#ring_wrapper-function-link>)
+  - [`function link()`](<#ring_wrapper-function-link>)
 
-  - [function move\(\)](<#ring_wrapper-function-move>)
+  - [`function move()`](<#ring_wrapper-function-move>)
 
-  - [function new\(\_\_self\_\_:stdgo.container.ring.Ring\):Void](<#ring_wrapper-function-new>)
+  - [`function new(__self__:stdgo.container.ring.Ring):Void`](<#ring_wrapper-function-new>)
 
-  - [function next\(\):stdgo.container.ring.Ring](<#ring_wrapper-function-next>)
+  - [`function next():stdgo.container.ring.Ring`](<#ring_wrapper-function-next>)
 
-  - [function prev\(\):stdgo.container.ring.Ring](<#ring_wrapper-function-prev>)
+  - [`function prev():stdgo.container.ring.Ring`](<#ring_wrapper-function-prev>)
 
-  - [function unlink\(\)](<#ring_wrapper-function-unlink>)
+  - [`function unlink()`](<#ring_wrapper-function-unlink>)
 
 # Functions
 
@@ -81,7 +80,7 @@ import stdgo.container.ring.Ring
 ```
 
 
-## function \`new\_\`
+## function new\_
 
 
 ```haxe

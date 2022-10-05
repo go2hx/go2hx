@@ -1,5 +1,4 @@
-# Module: stdgo.Go
-
+# Module: `stdgo.Go`
 
 [(view library index)](./stdgo.md)
 
@@ -15,157 +14,155 @@
 
 - [class AnyInterfaceData](<#class-anyinterfacedata>)
 
-  - [function new\(value:Any, type:stdgo.reflect.Type\):Void](<#anyinterfacedata-function-new>)
+  - [`function new(value:Any, type:stdgo.reflect.Type):Void`](<#anyinterfacedata-function-new>)
 
-  - [function toString\(\):String](<#anyinterfacedata-function-tostring>)
+  - [`function toString():String`](<#anyinterfacedata-function-tostring>)
 
 - [class ChanData](<#class-chandata>)
 
-  - [function iterator\(\):stdgo.\_Chan.ChanIterator\<stdgo.ChanData.T\>](<#chandata-function-iterator>)
+  - [`function iterator():stdgo._Chan.ChanIterator<stdgo.ChanData.T>`](<#chandata-function-iterator>)
 
-  - [function keyValueIterator\(\):stdgo.\_Chan.ChanKeyValueIterator\<stdgo.ChanData.T\>](<#chandata-function-keyvalueiterator>)
+  - [`function keyValueIterator():stdgo._Chan.ChanKeyValueIterator<stdgo.ChanData.T>`](<#chandata-function-keyvalueiterator>)
 
-  - [function new\(length:stdgo.GoInt, defaultValue:\(\):stdgo.ChanData.T\):Void](<#chandata-function-new>)
+  - [`function new(length:stdgo.GoInt, defaultValue:():stdgo.ChanData.T):Void`](<#chandata-function-new>)
 
-  - [function toString\(\):String](<#chandata-function-tostring>)
+  - [`function toString():String`](<#chandata-function-tostring>)
 
 - [class Complex](<#class-complex>)
 
-  - [function new\(r:stdgo.Complex.T, i:stdgo.Complex.T\):Void](<#complex-function-new>)
+  - [`function new(r:stdgo.Complex.T, i:stdgo.Complex.T):Void`](<#complex-function-new>)
 
-  - [function toString\(\):String](<#complex-function-tostring>)
+  - [`function toString():String`](<#complex-function-tostring>)
 
 - [class Go](<#class-go>)
 
-  - [function asInterface\(expr:Dynamic\):Dynamic](<#go-function-asinterface>)
+  - [`function asInterface(expr:Dynamic):Dynamic`](<#go-function-asinterface>)
 
-  - [function assertable\(expr:Dynamic\):Dynamic](<#go-function-assertable>)
+  - [`function cfor(cond:Dynamic, post:Dynamic, expr:Dynamic):Dynamic`](<#go-function-cfor>)
 
-  - [function cfor\(cond:Dynamic, post:Dynamic, expr:Dynamic\):Dynamic](<#go-function-cfor>)
+  - [`function copySlice(dst:Dynamic, src:Dynamic):Dynamic`](<#go-function-copyslice>)
 
-  - [function copySlice\(dst:Dynamic, src:Dynamic\):Dynamic](<#go-function-copyslice>)
+  - [`function expectedValue():Dynamic`](<#go-function-expectedvalue>)
 
-  - [function expectedValue\(\):Dynamic](<#go-function-expectedvalue>)
+  - [`function map(exprs:Dynamic):Dynamic`](<#go-function-map>)
 
-  - [function map\(exprs:Dynamic\):Dynamic](<#go-function-map>)
+  - [`function multireturn(expr:Dynamic):Dynamic`](<#go-function-multireturn>)
 
-  - [function multireturn\(expr:Dynamic\):Dynamic](<#go-function-multireturn>)
+  - [`function pointer(expr:Dynamic, hasSet:Dynamic):Dynamic`](<#go-function-pointer>)
 
-  - [function pointer\(expr:Dynamic, hasSet:Dynamic\):Dynamic](<#go-function-pointer>)
+  - [`function routine(func:():Void):Void`](<#go-function-routine>)
 
-  - [function routine\(func:\(\):Void\):Void](<#go-function-routine>)
+  - [`function select(expr:Dynamic):Dynamic`](<#go-function-select>)
 
-  - [function select\(expr:Dynamic\):Dynamic](<#go-function-select>)
+  - [`function setKeys(expr:Dynamic):Dynamic`](<#go-function-setkeys>)
 
-  - [function setKeys\(expr:Dynamic\):Dynamic](<#go-function-setkeys>)
+  - [`function str(exprs:Dynamic):Dynamic`](<#go-function-str>)
 
-  - [function str\(exprs:Dynamic\):Dynamic](<#go-function-str>)
+  - [`function string(s:Dynamic):String`](<#go-function-string>)
 
-  - [function string\(s:Dynamic\):String](<#go-function-string>)
+  - [`function toInterface(expr:Dynamic):Dynamic`](<#go-function-tointerface>)
 
-  - [function toInterface\(expr:Dynamic\):Dynamic](<#go-function-tointerface>)
+  - [`function typeAssert(expr:Dynamic):Dynamic`](<#go-function-typeassert>)
 
-  - [function typeFunction\(e:Dynamic\):Dynamic](<#go-function-typefunction>)
+  - [`function typeEquals(expr:Dynamic):Dynamic`](<#go-function-typeequals>)
 
-  - [function unquote\(qvalue:Dynamic\):Dynamic](<#go-function-unquote>)
+  - [`function typeFunction(e:Dynamic):Dynamic`](<#go-function-typefunction>)
 
-  - [function wrapper\(e:Dynamic\):Dynamic](<#go-function-wrapper>)
+  - [`function unquote(qvalue:Dynamic):Dynamic`](<#go-function-unquote>)
 
 - [class GoIntIterator](<#class-gointiterator>)
 
-  - [function hasNext\(\):Bool](<#gointiterator-function-hasnext>)
+  - [`function hasNext():Bool`](<#gointiterator-function-hasnext>)
 
-  - [function new\(min:stdgo.GoInt, max:stdgo.GoInt\):Void](<#gointiterator-function-new>)
+  - [`function new(min:stdgo.GoInt, max:stdgo.GoInt):Void`](<#gointiterator-function-new>)
 
-  - [function next\(\):stdgo.GoInt](<#gointiterator-function-next>)
+  - [`function next():stdgo.GoInt`](<#gointiterator-function-next>)
 
 - [class GoObjectMap](<#class-goobjectmap>)
 
-  - [function clear\(\):Void](<#goobjectmap-function-clear>)
+  - [`function clear():Void`](<#goobjectmap-function-clear>)
 
-  - [function copy\(\):stdgo.GoObjectMap\<stdgo.GoObjectMap.K, stdgo.GoObjectMap.V\>](<#goobjectmap-function-copy>)
+  - [`function copy():stdgo.GoObjectMap<stdgo.GoObjectMap.K, stdgo.GoObjectMap.V>`](<#goobjectmap-function-copy>)
 
-  - [function defaultValue\(\):stdgo.GoObjectMap.V](<#goobjectmap-function-defaultvalue>)
+  - [`function defaultValue():stdgo.GoObjectMap.V`](<#goobjectmap-function-defaultvalue>)
 
-  - [function exists\(key:stdgo.GoObjectMap.K\):Bool](<#goobjectmap-function-exists>)
+  - [`function exists(key:stdgo.GoObjectMap.K):Bool`](<#goobjectmap-function-exists>)
 
-  - [function get\(key:stdgo.GoObjectMap.K\):Null\<stdgo.GoObjectMap.V\>](<#goobjectmap-function-get>)
+  - [`function get(key:stdgo.GoObjectMap.K):Null<stdgo.GoObjectMap.V>`](<#goobjectmap-function-get>)
 
-  - [function iterator\(\):Iterator\<stdgo.GoObjectMap.V\>](<#goobjectmap-function-iterator>)
+  - [`function iterator():Iterator<stdgo.GoObjectMap.V>`](<#goobjectmap-function-iterator>)
 
-  - [function keyValueIterator\(\):KeyValueIterator\<stdgo.GoObjectMap.K, stdgo.GoObjectMap.V\>](<#goobjectmap-function-keyvalueiterator>)
+  - [`function keyValueIterator():KeyValueIterator<stdgo.GoObjectMap.K, stdgo.GoObjectMap.V>`](<#goobjectmap-function-keyvalueiterator>)
 
-  - [function keys\(\):Iterator\<stdgo.GoObjectMap.K\>](<#goobjectmap-function-keys>)
+  - [`function keys():Iterator<stdgo.GoObjectMap.K>`](<#goobjectmap-function-keys>)
 
-  - [function new\(t:stdgo.reflect.Type\):Void](<#goobjectmap-function-new>)
+  - [`function new(t:stdgo.reflect.Type):Void`](<#goobjectmap-function-new>)
 
-  - [function remove\(key:stdgo.GoObjectMap.K\):Bool](<#goobjectmap-function-remove>)
+  - [`function remove(key:stdgo.GoObjectMap.K):Bool`](<#goobjectmap-function-remove>)
 
-  - [function set\(key:stdgo.GoObjectMap.K, value:stdgo.GoObjectMap.V\):Void](<#goobjectmap-function-set>)
+  - [`function set(key:stdgo.GoObjectMap.K, value:stdgo.GoObjectMap.V):Void`](<#goobjectmap-function-set>)
 
-  - [function toString\(\):String](<#goobjectmap-function-tostring>)
+  - [`function toString():String`](<#goobjectmap-function-tostring>)
 
 - [class GoStringTools](<#class-gostringtools>)
 
-  - [function indexOf\(str:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int\):Int](<#gostringtools-function-indexof>)
+  - [`function indexOf(s:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int):Int`](<#gostringtools-function-indexof>)
 
-  - [function lastIndexOf\(str:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int\):Int](<#gostringtools-function-lastindexof>)
+  - [`function lastIndexOf(s:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int):Int`](<#gostringtools-function-lastindexof>)
 
-  - [function substr\(str:stdgo.GoString, pos:Int, ?len:Int\):stdgo.GoString](<#gostringtools-function-substr>)
+  - [`function substr(str:stdgo.GoString, pos:Int, ?len:Int):stdgo.GoString`](<#gostringtools-function-substr>)
 
-  - [function toString\(str:stdgo.GoString\):String](<#gostringtools-function-tostring>)
+  - [`function toString(str:stdgo.GoString):String`](<#gostringtools-function-tostring>)
 
 - [class PointerData](<#class-pointerdata>)
 
-  - [function assign\(\):stdgo.PointerData.T](<#pointerdata-function-assign>)
+  - [`function assign():stdgo.PointerData.T`](<#pointerdata-function-assign>)
 
-  - [function convert\(\)](<#pointerdata-function-convert>)
+  - [`function convert()`](<#pointerdata-function-convert>)
 
-  - [function get\(\):stdgo.PointerData.T](<#pointerdata-function-get>)
+  - [`function get():stdgo.PointerData.T`](<#pointerdata-function-get>)
 
-  - [function new\(?get:\(\):stdgo.PointerData.T, ?set:\(value:stdgo.PointerData.T\):stdgo.PointerData.T, ?hasSet:Bool, ?previous:stdgo.Pointer\<Any\>, ?underlying:Any, ?underlyingIndex:Any\):Void](<#pointerdata-function-new>)
+  - [`function new(?get:():stdgo.PointerData.T, ?set:(value:stdgo.PointerData.T):stdgo.PointerData.T, ?hasSet:Bool, ?previous:stdgo.Pointer<Any>, ?underlying:Any, ?underlyingIndex:Any):Void`](<#pointerdata-function-new>)
 
-  - [function set\(\)](<#pointerdata-function-set>)
+  - [`function set()`](<#pointerdata-function-set>)
 
-  - [function toString\(\):String](<#pointerdata-function-tostring>)
+  - [`function toString():String`](<#pointerdata-function-tostring>)
 
 - [class SliceData](<#class-slicedata>)
 
-  - [function get\(index:Int\):stdgo.SliceData.T](<#slicedata-function-get>)
+  - [`function get(index:Int):stdgo.SliceData.T`](<#slicedata-function-get>)
 
-  - [function grow\(\):Void](<#slicedata-function-grow>)
+  - [`function grow():Void`](<#slicedata-function-grow>)
 
-  - [function iterator\(\):stdgo.\_Slice.SliceIterator\<stdgo.SliceData.T\>](<#slicedata-function-iterator>)
+  - [`function iterator():stdgo._Slice.SliceIterator<stdgo.SliceData.T>`](<#slicedata-function-iterator>)
 
-  - [function keyValueIterator\(\):stdgo.\_Slice.SliceKeyValueIterator\<stdgo.SliceData.T\>](<#slicedata-function-keyvalueiterator>)
+  - [`function keyValueIterator():stdgo._Slice.SliceKeyValueIterator<stdgo.SliceData.T>`](<#slicedata-function-keyvalueiterator>)
 
-  - [function new\(length:Int, capacity:Int, args:haxe.Rest\<stdgo.SliceData.T\>\):Void](<#slicedata-function-new>)
+  - [`function new(length:Int, capacity:Int, args:haxe.Rest<stdgo.SliceData.T>):Void`](<#slicedata-function-new>)
 
-  - [function set\(index:Int, value:stdgo.SliceData.T\):stdgo.SliceData.T](<#slicedata-function-set>)
+  - [`function set(index:Int, value:stdgo.SliceData.T):stdgo.SliceData.T`](<#slicedata-function-set>)
 
-  - [function toArray\(\):Array\<stdgo.SliceData.T\>](<#slicedata-function-toarray>)
+  - [`function toArray():Array<stdgo.SliceData.T>`](<#slicedata-function-toarray>)
 
-  - [function toString\(\):String](<#slicedata-function-tostring>)
+  - [`function toString():String`](<#slicedata-function-tostring>)
 
-  - [function toVector\(\):haxe.ds.Vector\<stdgo.SliceData.T\>](<#slicedata-function-tovector>)
+  - [`function toVector():haxe.ds.Vector<stdgo.SliceData.T>`](<#slicedata-function-tovector>)
 
 - [class Unknown](<#class-unknown>)
 
 - [class VectorData](<#class-vectordata>)
 
-  - [function get\(i:Int\):stdgo.VectorData.T](<#vectordata-function-get>)
+  - [`function get(i:Int):stdgo.VectorData.T`](<#vectordata-function-get>)
 
-  - [function new\(length:Int\):Void](<#vectordata-function-new>)
+  - [`function new(length:Int):Void`](<#vectordata-function-new>)
 
-  - [function set\(i:Int, value:stdgo.VectorData.T\):stdgo.VectorData.T](<#vectordata-function-set>)
+  - [`function set(i:Int, value:stdgo.VectorData.T):stdgo.VectorData.T`](<#vectordata-function-set>)
 
-  - [function toString\(\):String](<#vectordata-function-tostring>)
+  - [`function toString():String`](<#vectordata-function-tostring>)
 
 - [typedef Complex128](<#typedef-complex128>)
 
 - [typedef Complex64](<#typedef-complex64>)
-
-- [typedef DynamicInvalid](<#typedef-dynamicinvalid>)
 
 - [typedef Error](<#typedef-error>)
 
@@ -179,15 +176,13 @@
 
 - [typedef GoUInt](<#typedef-gouint>)
 
-- [typedef GoUnTypedComplex](<#typedef-gountypedcomplex>)
-
-- [typedef GoUnTypedFloat](<#typedef-gountypedfloat>)
-
-- [typedef GoUnTypedInt](<#typedef-gountypedint>)
+- [typedef InvalidType](<#typedef-invalidtype>)
 
 - [typedef MapAccess](<#typedef-mapaccess>)
 
 - [typedef Ref](<#typedef-ref>)
+
+- [typedef RuntimeError](<#typedef-runtimeerror>)
 
 - [typedef StructType](<#typedef-structtype>)
 
@@ -226,7 +221,7 @@ function new(value:Any, type:stdgo.reflect.Type):Void
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L1741>)
+[\(view code\)](<./StdGoTypes.hx#L1739>)
 
 
 ### AnyInterfaceData function toString
@@ -240,7 +235,7 @@ function toString():String
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L1747>)
+[\(view code\)](<./StdGoTypes.hx#L1745>)
 
 
 ## class ChanData
@@ -342,7 +337,7 @@ function new(r:stdgo.Complex.T, i:stdgo.Complex.T):Void
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L243>)
+[\(view code\)](<./StdGoTypes.hx#L233>)
 
 
 ### Complex function toString
@@ -356,7 +351,7 @@ function toString():String
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L249>)
+[\(view code\)](<./StdGoTypes.hx#L239>)
 
 
 ## class Go
@@ -375,17 +370,6 @@ var recover_exception:stdgo.AnyInterface
 
 ```haxe
 function asInterface(expr:Dynamic):Dynamic
-```
-
-
- 
-
-
-### Go function assertable
-
-
-```haxe
-function assertable(expr:Dynamic):Dynamic
 ```
 
 
@@ -530,6 +514,28 @@ function toInterface(expr:Dynamic):Dynamic
  
 
 
+### Go function typeAssert
+
+
+```haxe
+function typeAssert(expr:Dynamic):Dynamic
+```
+
+
+ 
+
+
+### Go function typeEquals
+
+
+```haxe
+function typeEquals(expr:Dynamic):Dynamic
+```
+
+
+ 
+
+
 ### Go function typeFunction
 
 
@@ -546,17 +552,6 @@ function typeFunction(e:Dynamic):Dynamic
 
 ```haxe
 function unquote(qvalue:Dynamic):Dynamic
-```
-
-
- 
-
-
-### Go function wrapper
-
-
-```haxe
-function wrapper(e:Dynamic):Dynamic
 ```
 
 
@@ -580,7 +575,7 @@ function hasNext():Bool
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L1907>)
+[\(view code\)](<./StdGoTypes.hx#L1908>)
 
 
 ### GoIntIterator function new
@@ -594,7 +589,7 @@ function new(min:stdgo.GoInt, max:stdgo.GoInt):Void
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L1902>)
+[\(view code\)](<./StdGoTypes.hx#L1903>)
 
 
 ### GoIntIterator function next
@@ -608,7 +603,7 @@ function next():stdgo.GoInt
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L1911>)
+[\(view code\)](<./StdGoTypes.hx#L1912>)
 
 
 ## class GoObjectMap
@@ -800,7 +795,7 @@ function toString():String
 
 
 ```haxe
-function indexOf(str:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int):Int
+function indexOf(s:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int):Int
 ```
 
 
@@ -814,7 +809,7 @@ function indexOf(str:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int):Int
 
 
 ```haxe
-function lastIndexOf(str:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int):Int
+function lastIndexOf(s:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int):Int
 ```
 
 
@@ -1220,17 +1215,6 @@ typedef Complex64 = var c:stdgo._StdGoTypes.Float32
  
 
 
-## typedef DynamicInvalid
-
-
-```haxe
-typedef DynamicInvalid = var d:{<>}
-```
-
-
- 
-
-
 ## typedef Error
 
 
@@ -1297,33 +1281,11 @@ typedef GoUInt = var x:{<>}
  
 
 
-## typedef GoUnTypedComplex
+## typedef InvalidType
 
 
 ```haxe
-typedef GoUnTypedComplex = var x:{<>}
-```
-
-
- 
-
-
-## typedef GoUnTypedFloat
-
-
-```haxe
-typedef GoUnTypedFloat = var x:{<>}
-```
-
-
- 
-
-
-## typedef GoUnTypedInt
-
-
-```haxe
-typedef GoUnTypedInt = var x:{<>}
+typedef InvalidType = var d:{<>}
 ```
 
 
@@ -1346,6 +1308,17 @@ typedef MapAccess = var a:{<get> | (k:stdgo.MapAccess.K, v:stdgo.MapAccess.V):Vo
 
 ```haxe
 typedef Ref = var c:{<>}
+```
+
+
+ 
+
+
+## typedef RuntimeError
+
+
+```haxe
+typedef RuntimeError = var a:{<__underlying__> | ():Void | ():stdgo.GoString | ():stdgo.AnyInterface}
 ```
 
 

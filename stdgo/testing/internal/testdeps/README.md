@@ -1,5 +1,4 @@
-# Module: stdgo.testing.internal.testdeps
-
+# Module: `stdgo.testing.internal.testdeps`
 
 [(view library index)](../../../stdgo.md)
 
@@ -17,105 +16,105 @@
 
 - [class T\_testLog](<#class-t_testlog>)
 
-  - [function new\(?\_mu:stdgo.sync.Mutex, ?\_w:\{\<unknown\>\}, ?\_set:Bool\):Void](<#t_testlog-function-new>)
+  - [`function new(?_mu:stdgo.sync.Mutex, ?_w:{<unknown>}, ?_set:Bool):Void`](<#t_testlog-function-new>)
 
-  - [function \_add\( \_op:stdgo.GoString, \_name:stdgo.GoString\):Void](<#t_testlog-function-_add>)
+  - [`function _add( _op:stdgo.GoString, _name:stdgo.GoString):Void`](<#t_testlog-function-_add>)
 
-  - [function chdir\( \_name:stdgo.GoString\):Void](<#t_testlog-function-chdir>)
+  - [`function chdir( _name:stdgo.GoString):Void`](<#t_testlog-function-chdir>)
 
-  - [function getenv\( \_key:stdgo.GoString\):Void](<#t_testlog-function-getenv>)
+  - [`function getenv( _key:stdgo.GoString):Void`](<#t_testlog-function-getenv>)
 
-  - [function open\( \_name:stdgo.GoString\):Void](<#t_testlog-function-open>)
+  - [`function open( _name:stdgo.GoString):Void`](<#t_testlog-function-open>)
 
-  - [function stat\( \_name:stdgo.GoString\):Void](<#t_testlog-function-stat>)
+  - [`function stat( _name:stdgo.GoString):Void`](<#t_testlog-function-stat>)
 
 - [class T\_testLog\_static\_extension](<#class-t_testlog_static_extension>)
 
-  - [function \_add\( \_op:stdgo.GoString, \_name:stdgo.GoString\):Void](<#t_testlog_static_extension-function-_add>)
+  - [`function _add( _op:stdgo.GoString, _name:stdgo.GoString):Void`](<#t_testlog_static_extension-function-_add>)
 
-  - [function chdir\( \_name:stdgo.GoString\):Void](<#t_testlog_static_extension-function-chdir>)
+  - [`function chdir( _name:stdgo.GoString):Void`](<#t_testlog_static_extension-function-chdir>)
 
-  - [function getenv\( \_key:stdgo.GoString\):Void](<#t_testlog_static_extension-function-getenv>)
+  - [`function getenv( _key:stdgo.GoString):Void`](<#t_testlog_static_extension-function-getenv>)
 
-  - [function open\( \_name:stdgo.GoString\):Void](<#t_testlog_static_extension-function-open>)
+  - [`function open( _name:stdgo.GoString):Void`](<#t_testlog_static_extension-function-open>)
 
-  - [function stat\( \_name:stdgo.GoString\):Void](<#t_testlog_static_extension-function-stat>)
+  - [`function stat( _name:stdgo.GoString):Void`](<#t_testlog_static_extension-function-stat>)
 
 - [class T\_testLog\_wrapper](<#class-t_testlog_wrapper>)
 
-  - [function \_add\(:stdgo.GoString, :stdgo.GoString\):Void](<#t_testlog_wrapper-function-_add>)
+  - [`function _add(:stdgo.GoString, :stdgo.GoString):Void`](<#t_testlog_wrapper-function-_add>)
 
-  - [function chdir\(\)](<#t_testlog_wrapper-function-chdir>)
+  - [`function chdir()`](<#t_testlog_wrapper-function-chdir>)
 
-  - [function getenv\(\)](<#t_testlog_wrapper-function-getenv>)
+  - [`function getenv()`](<#t_testlog_wrapper-function-getenv>)
 
-  - [function new\(\_\_self\_\_:stdgo.testing.internal.testdeps.T\_testLog\):Void](<#t_testlog_wrapper-function-new>)
+  - [`function new(__self__:stdgo.testing.internal.testdeps.T_testLog):Void`](<#t_testlog_wrapper-function-new>)
 
-  - [function open\(\)](<#t_testlog_wrapper-function-open>)
+  - [`function open()`](<#t_testlog_wrapper-function-open>)
 
-  - [function stat\(\)](<#t_testlog_wrapper-function-stat>)
+  - [`function stat()`](<#t_testlog_wrapper-function-stat>)
 
 - [class TestDeps](<#class-testdeps>)
 
-  - [function new\(\):Void](<#testdeps-function-new>)
+  - [`function new():Void`](<#testdeps-function-new>)
 
-  - [function checkCorpus\( \_vals:stdgo.Slice\<stdgo.AnyInterface\>, \_types:stdgo.Slice\<stdgo.reflect.Type\>\):stdgo.Error](<#testdeps-function-checkcorpus>)
+  - [`function checkCorpus( _vals:stdgo.Slice<stdgo.AnyInterface>, _types:stdgo.Slice<stdgo.reflect.Type>):stdgo.Error`](<#testdeps-function-checkcorpus>)
 
-  - [function coordinateFuzzing\( \_timeout:stdgo.time.Duration, \_limit:stdgo.GoInt64, \_minimizeTimeout:stdgo.time.Duration, \_minimizeLimit:stdgo.GoInt64, \_parallel:stdgo.GoInt, \_seed:stdgo.Slice\<\{values:stdgo.Slice\<stdgo.AnyInterface\>, path:stdgo.GoString, parent:stdgo.GoString, isSeed:Bool, generation:stdgo.GoInt, data:stdgo.Slice\<stdgo.GoUInt8\>\}\>, \_types:stdgo.Slice\<stdgo.reflect.Type\>, \_corpusDir:stdgo.GoString, \_cacheDir:stdgo.GoString\):stdgo.Error](<#testdeps-function-coordinatefuzzing>)
+  - [`function coordinateFuzzing( _timeout:stdgo.time.Duration, _limit:stdgo.GoInt64, _minimizeTimeout:stdgo.time.Duration, _minimizeLimit:stdgo.GoInt64, _parallel:stdgo.GoInt, _seed:stdgo.Slice<{values:stdgo.Slice<stdgo.AnyInterface>, path:stdgo.GoString, parent:stdgo.GoString, isSeed:Bool, generation:stdgo.GoInt, data:stdgo.Slice<stdgo.GoUInt8>}>, _types:stdgo.Slice<stdgo.reflect.Type>, _corpusDir:stdgo.GoString, _cacheDir:stdgo.GoString):stdgo.Error`](<#testdeps-function-coordinatefuzzing>)
 
-  - [function importPath\(\):stdgo.GoString](<#testdeps-function-importpath>)
+  - [`function importPath():stdgo.GoString`](<#testdeps-function-importpath>)
 
-  - [function matchString\( \_pat:stdgo.GoString, \_str:stdgo.GoString\):\{\_1:stdgo.Error, \_0:Bool\}](<#testdeps-function-matchstring>)
+  - [`function matchString( _pat:stdgo.GoString, _str:stdgo.GoString):{_1:stdgo.Error, _0:Bool}`](<#testdeps-function-matchstring>)
 
-  - [function readCorpus\( \_dir:stdgo.GoString, \_types:stdgo.Slice\<stdgo.reflect.Type\>\):\{\_1:stdgo.Error, \_0:stdgo.Slice\<\{values:stdgo.Slice\<stdgo.AnyInterface\>, path:stdgo.GoString, parent:stdgo.GoString, isSeed:Bool, generation:stdgo.GoInt, data:stdgo.Slice\<stdgo.GoUInt8\>\}\>\}](<#testdeps-function-readcorpus>)
+  - [`function readCorpus( _dir:stdgo.GoString, _types:stdgo.Slice<stdgo.reflect.Type>):{_1:stdgo.Error, _0:stdgo.Slice<{values:stdgo.Slice<stdgo.AnyInterface>, path:stdgo.GoString, parent:stdgo.GoString, isSeed:Bool, generation:stdgo.GoInt, data:stdgo.Slice<stdgo.GoUInt8>}>}`](<#testdeps-function-readcorpus>)
 
-  - [function resetCoverage\(\):Void](<#testdeps-function-resetcoverage>)
+  - [`function resetCoverage():Void`](<#testdeps-function-resetcoverage>)
 
-  - [function runFuzzWorker\( \_fn:\(\)\):stdgo.Error](<#testdeps-function-runfuzzworker>)
+  - [`function runFuzzWorker( _fn:()):stdgo.Error`](<#testdeps-function-runfuzzworker>)
 
-  - [function setPanicOnExit0\( \_v:Bool\):Void](<#testdeps-function-setpaniconexit0>)
+  - [`function setPanicOnExit0( _v:Bool):Void`](<#testdeps-function-setpaniconexit0>)
 
-  - [function snapshotCoverage\(\):Void](<#testdeps-function-snapshotcoverage>)
+  - [`function snapshotCoverage():Void`](<#testdeps-function-snapshotcoverage>)
 
-  - [function startCPUProfile\( \_w:stdgo.io.Writer\):stdgo.Error](<#testdeps-function-startcpuprofile>)
+  - [`function startCPUProfile( _w:stdgo.io.Writer):stdgo.Error`](<#testdeps-function-startcpuprofile>)
 
-  - [function startTestLog\( \_w:stdgo.io.Writer\):Void](<#testdeps-function-starttestlog>)
+  - [`function startTestLog( _w:stdgo.io.Writer):Void`](<#testdeps-function-starttestlog>)
 
-  - [function stopCPUProfile\(\):Void](<#testdeps-function-stopcpuprofile>)
+  - [`function stopCPUProfile():Void`](<#testdeps-function-stopcpuprofile>)
 
-  - [function stopTestLog\(\):stdgo.Error](<#testdeps-function-stoptestlog>)
+  - [`function stopTestLog():stdgo.Error`](<#testdeps-function-stoptestlog>)
 
-  - [function writeProfileTo\( \_name:stdgo.GoString, \_w:stdgo.io.Writer, \_debug:stdgo.GoInt\):stdgo.Error](<#testdeps-function-writeprofileto>)
+  - [`function writeProfileTo( _name:stdgo.GoString, _w:stdgo.io.Writer, _debug:stdgo.GoInt):stdgo.Error`](<#testdeps-function-writeprofileto>)
 
 - [class TestDeps\_static\_extension](<#class-testdeps_static_extension>)
 
-  - [function checkCorpus\( \_vals:stdgo.Slice\<stdgo.AnyInterface\>, \_types:stdgo.Slice\<stdgo.reflect.Type\>\):stdgo.Error](<#testdeps_static_extension-function-checkcorpus>)
+  - [`function checkCorpus( _vals:stdgo.Slice<stdgo.AnyInterface>, _types:stdgo.Slice<stdgo.reflect.Type>):stdgo.Error`](<#testdeps_static_extension-function-checkcorpus>)
 
-  - [function coordinateFuzzing\( \_timeout:stdgo.time.Duration, \_limit:stdgo.GoInt64, \_minimizeTimeout:stdgo.time.Duration, \_minimizeLimit:stdgo.GoInt64, \_parallel:stdgo.GoInt, \_seed:stdgo.Slice\<\{values:stdgo.Slice\<stdgo.AnyInterface\>, path:stdgo.GoString, parent:stdgo.GoString, isSeed:Bool, generation:stdgo.GoInt, data:stdgo.Slice\<stdgo.GoUInt8\>\}\>, \_types:stdgo.Slice\<stdgo.reflect.Type\>, \_corpusDir:stdgo.GoString, \_cacheDir:stdgo.GoString\):stdgo.Error](<#testdeps_static_extension-function-coordinatefuzzing>)
+  - [`function coordinateFuzzing( _timeout:stdgo.time.Duration, _limit:stdgo.GoInt64, _minimizeTimeout:stdgo.time.Duration, _minimizeLimit:stdgo.GoInt64, _parallel:stdgo.GoInt, _seed:stdgo.Slice<{values:stdgo.Slice<stdgo.AnyInterface>, path:stdgo.GoString, parent:stdgo.GoString, isSeed:Bool, generation:stdgo.GoInt, data:stdgo.Slice<stdgo.GoUInt8>}>, _types:stdgo.Slice<stdgo.reflect.Type>, _corpusDir:stdgo.GoString, _cacheDir:stdgo.GoString):stdgo.Error`](<#testdeps_static_extension-function-coordinatefuzzing>)
 
-  - [function importPath\(\):stdgo.GoString](<#testdeps_static_extension-function-importpath>)
+  - [`function importPath():stdgo.GoString`](<#testdeps_static_extension-function-importpath>)
 
-  - [function matchString\( \_pat:stdgo.GoString, \_str:stdgo.GoString\):\{\_1:stdgo.Error, \_0:Bool\}](<#testdeps_static_extension-function-matchstring>)
+  - [`function matchString( _pat:stdgo.GoString, _str:stdgo.GoString):{_1:stdgo.Error, _0:Bool}`](<#testdeps_static_extension-function-matchstring>)
 
-  - [function readCorpus\( \_dir:stdgo.GoString, \_types:stdgo.Slice\<stdgo.reflect.Type\>\):\{\_1:stdgo.Error, \_0:stdgo.Slice\<\{values:stdgo.Slice\<stdgo.AnyInterface\>, path:stdgo.GoString, parent:stdgo.GoString, isSeed:Bool, generation:stdgo.GoInt, data:stdgo.Slice\<stdgo.GoUInt8\>\}\>\}](<#testdeps_static_extension-function-readcorpus>)
+  - [`function readCorpus( _dir:stdgo.GoString, _types:stdgo.Slice<stdgo.reflect.Type>):{_1:stdgo.Error, _0:stdgo.Slice<{values:stdgo.Slice<stdgo.AnyInterface>, path:stdgo.GoString, parent:stdgo.GoString, isSeed:Bool, generation:stdgo.GoInt, data:stdgo.Slice<stdgo.GoUInt8>}>}`](<#testdeps_static_extension-function-readcorpus>)
 
-  - [function resetCoverage\(\):Void](<#testdeps_static_extension-function-resetcoverage>)
+  - [`function resetCoverage():Void`](<#testdeps_static_extension-function-resetcoverage>)
 
-  - [function runFuzzWorker\( \_fn:\(\)\):stdgo.Error](<#testdeps_static_extension-function-runfuzzworker>)
+  - [`function runFuzzWorker( _fn:()):stdgo.Error`](<#testdeps_static_extension-function-runfuzzworker>)
 
-  - [function setPanicOnExit0\( \_v:Bool\):Void](<#testdeps_static_extension-function-setpaniconexit0>)
+  - [`function setPanicOnExit0( _v:Bool):Void`](<#testdeps_static_extension-function-setpaniconexit0>)
 
-  - [function snapshotCoverage\(\):Void](<#testdeps_static_extension-function-snapshotcoverage>)
+  - [`function snapshotCoverage():Void`](<#testdeps_static_extension-function-snapshotcoverage>)
 
-  - [function startCPUProfile\( \_w:stdgo.io.Writer\):stdgo.Error](<#testdeps_static_extension-function-startcpuprofile>)
+  - [`function startCPUProfile( _w:stdgo.io.Writer):stdgo.Error`](<#testdeps_static_extension-function-startcpuprofile>)
 
-  - [function startTestLog\( \_w:stdgo.io.Writer\):Void](<#testdeps_static_extension-function-starttestlog>)
+  - [`function startTestLog( _w:stdgo.io.Writer):Void`](<#testdeps_static_extension-function-starttestlog>)
 
-  - [function stopCPUProfile\(\):Void](<#testdeps_static_extension-function-stopcpuprofile>)
+  - [`function stopCPUProfile():Void`](<#testdeps_static_extension-function-stopcpuprofile>)
 
-  - [function stopTestLog\(\):stdgo.Error](<#testdeps_static_extension-function-stoptestlog>)
+  - [`function stopTestLog():stdgo.Error`](<#testdeps_static_extension-function-stoptestlog>)
 
-  - [function writeProfileTo\( \_name:stdgo.GoString, \_w:stdgo.io.Writer, \_debug:stdgo.GoInt\):stdgo.Error](<#testdeps_static_extension-function-writeprofileto>)
+  - [`function writeProfileTo( _name:stdgo.GoString, _w:stdgo.io.Writer, _debug:stdgo.GoInt):stdgo.Error`](<#testdeps_static_extension-function-writeprofileto>)
 
 # Variables
 

@@ -1,6 +1,6 @@
 # Module stdgo.image.draw has compilation errors, please do not use:
 ```
-stdgo/image/Image.hx:2102: characters 20-50 : Module stdgo.sync.atomic.Atomic does not define type Value
+stdgo/image/draw/Draw.hx:83: characters 10-22 : Type not found : GoUnTypedInt
 
 ```
 

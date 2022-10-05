@@ -523,7 +523,6 @@ class Go {
 					if (t.kind() == stdgo.reflect.Reflect.interface_) {
 						($e.value : $t);
 					} else {
-						trace((($e.value : Dynamic).__underlying__().value : haxe.io.Bytes));
 						(($e.value : Dynamic).__underlying__().value : $t);
 					}
 				});

@@ -2645,7 +2645,7 @@ private function interfaceTypeExpr(expr:Ast.InterfaceType, info:Info):ComplexTyp
 		return anyInterfaceType();
 	} else {
 		// anonymous struct
-		var fields = typeFieldListFields(expr.methods, info, null, false);
+		var fields = typeFieldListFields(expr.methods, info, [], false);
 		return TAnonymous(fields);
 	}
 }
@@ -2653,7 +2653,7 @@ private function interfaceTypeExpr(expr:Ast.InterfaceType, info:Info):ComplexTyp
 private function structTypeExpr(expr:Ast.StructType, info:Info):ComplexType {
 	if (expr.fields == null || expr.fields.list == null) // || expr.fields.list.length == 0)
 		return TPath({name: "Dynamic", pack: []});
-	var fields = typeFieldListFields(expr.fields, info, null, false);
+	var fields = typeFieldListFields(expr.fields, info, [], false);
 	return TAnonymous(fields);
 }
 

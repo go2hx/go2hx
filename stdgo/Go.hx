@@ -517,7 +517,6 @@ class Go {
 
 				return macro({
 					final t = new stdgo.reflect.Reflect._Type($toType);
-					trace(t.kind().string());
 					final b = $e.type.assignableTo(t);
 					if (!b)
 						throw "unable to assert";

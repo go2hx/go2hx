@@ -49,6 +49,9 @@ class MethodType {
 
 	function string():GoString
 		return name;
+
+	public function toString()
+		return '$name: $type';
 }
 
 @:structInit
@@ -1857,13 +1860,12 @@ private function implementsMethod(t:Type, v:Type):Bool {
 	#if go2hx_compiler
 	return false;
 	#else
+	if (t.kind() != interface_)
+		return false;
 	var interfacePath = "";
 	var gt:GoType = @:privateAccess t.common().value;
 	var vgt:GoType = @:privateAccess v.common().value;
-
-	if (t.kind() != interface_)
-		return false;
-
+	// trace(vgt);
 	return switch gt {
 		case interfaceType(_, methods), named(_, methods, _):
 			if (methods == null || methods.length == 0)

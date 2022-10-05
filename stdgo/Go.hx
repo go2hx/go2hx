@@ -516,10 +516,16 @@ class Go {
 				final toType = gtDecode(t2, null, []);
 
 				return macro({
-					if ($e.type.assignableTo(new stdgo.reflect.Reflect._Type($toType))) {
-						(($e.value : Dynamic).__underlying__().value : $t);
-					} else {
+					final t = new stdgo.reflect.Reflect._Type($toType);
+					trace(t.kind().string());
+					final b = $e.type.assignableTo(t);
+					if (!b)
 						throw "unable to assert";
+					if (t.kind() == stdgo.reflect.Reflect.interface_) {
+						($e.value : $t);
+					} else {
+						trace((($e.value : Dynamic).__underlying__().value : haxe.io.Bytes));
+						(($e.value : Dynamic).__underlying__().value : $t);
 					}
 				});
 			default:

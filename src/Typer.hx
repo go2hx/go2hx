@@ -1203,13 +1203,6 @@ private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTyp
 			default:
 		}
 	}
-	if (isAnyInterface(fromType)) {
-		if (isNamed(toType)) {
-			return macro(($e.value : Dynamic).__underlying__().value : $ct);
-		}
-
-		return macro($e.value : $ct);
-	}
 	if (isInterface(pointerUnwrap(fromType)) && !isInterface(pointerUnwrap(toType))) {
 		if (isPointer(fromType) && !isPointer(toType)) {
 			switch ct {
@@ -1346,7 +1339,7 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 		} else {
 			final type = typeExprType(obj.list[i], info);
 			types.push(typeof(obj.list[i], info, false));
-			macro Go.assertable(($assign : $type));
+			macro Go.typeEquals(($assign : $type));
 		}
 		if (i + 1 >= obj.list.length)
 			return value;
@@ -1485,13 +1478,13 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 			x = macro $x.value;
 		if (isPointer(typeY))
 			y = macro $y.value;
-		x = toInterface(x, typeX, info);
-		y = toInterface(y, typeY, info);
+		x = toAnyInterface(x, typeX, info);
+		y = toAnyInterface(y, typeY, info);
 	}
 	var t = getUnderlying(typeX);
 	switch t {
 		case structType(_):
-			return toExpr(EBinop(op, toInterface(x, typeX, info), toInterface(y, typeY, info)));
+			return toExpr(EBinop(op, toAnyInterface(x, typeX, info), toAnyInterface(y, typeY, info)));
 		case arrayType(elem, len):
 			var e = macro {
 				var bool = true;
@@ -2072,7 +2065,7 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 		y = passByCopy(toType, y, info);
 
 	if (isAnyInterface(toType) && !isRestExpr(expr)) {
-		y = toInterface(y, fromType, info);
+		y = toAnyInterface(y, fromType, info);
 	}
 	if (isAnyInterface(fromType) && !isInvalid(toType) && !isInterface(toType)) {
 		switch expr.expr {
@@ -2971,7 +2964,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					if (fun.x.id == "Ident") {
 						switch fun.x.name {
 							case "unsafe":
-								args[0] = macro Go.toInterface(${args[0]});
+								args[0] = toAnyInterface(args[0], invalidType, info);
 						}
 					}
 				}
@@ -3021,7 +3014,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		final fromType = typeof(expr.args[0], info, false);
 		final toType = typeof(expr.fun, info, false);
 		if (isAnyInterface(toType) && !isRestExpr(e)) {
-			return toInterface(e, fromType, info).expr;
+			return toAnyInterface(e, fromType, info).expr;
 		}
 		return returnExpr(checkType(e, ct, fromType, toType, info));
 	}
@@ -3099,7 +3092,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				switch expr.fun.name {
 					case "panic":
 						genArgs(false);
-						return returnExpr(macro throw Go.toInterface(${args[0]}));
+						return returnExpr(macro throw ${toAnyInterface(args[0], typeof(expr.args[0], info, false), info)});
 					case "recover":
 						info.recoverBool = true;
 						return returnExpr(macro({
@@ -3317,7 +3310,7 @@ private function genericIndices(indices:Array<Ast.Expr>, params:Array<GoType>, t
 	return args;
 }
 
-private function toInterface(x:Expr, t:GoType, info:Info):Expr {
+private function toAnyInterface(x:Expr, t:GoType, info:Info):Expr {
 	switch t {
 		case named(_, _, _, _):
 			if (!isInterface(t) && !isAnyInterface(t))
@@ -3395,9 +3388,9 @@ private function toReflectType(t:GoType, info:Info, paths:Array<String>):Expr {
 			macro stdgo.reflect.Reflect.GoType.previousNamed($path);
 		case signature(variadic, params, results, _.get() => recv):
 			final variadic = variadic ? macro true : macro false;
-			final params = macro [];
-			final results = macro [];
-			final recv = toReflectType(recv, info, paths.copy());
+			final params = macro $a{params.get().map(param -> toReflectType(param, info, []))};
+			final results = macro $a{results.get().map(result -> toReflectType(result, info, []))};
+			final recv = macro stdgo.reflect.Reflect.GoType.invalidType; // toReflectType(recv, info, paths.copy());
 			macro stdgo.reflect.Reflect.GoType.signature($variadic, $params, $results, $recv);
 		case structType(fields):
 			var exprs:Array<Expr> = [];
@@ -4651,8 +4644,8 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info, walk:Bool = true
 	y = toGoType(y);
 	x = toGoType(x);
 	if ((isInvalid(typeX) || isInterface(typeX)) && op != OpBoolAnd && !isInvalid(typeY) && op == OpAssign) {
-		x = toInterface(x, typeX, info);
-		y = toInterface(y, typeY, info);
+		x = toAnyInterface(x, typeX, info);
+		y = toAnyInterface(y, typeY, info);
 	}
 	var e = toExpr(EBinop(op, x, y));
 	e = assignTranslate(getUnderlying(typeX), typeof(expr.type, info, false), e, info);
@@ -4854,18 +4847,10 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef { //
 	}
 	final ct = typeExprType(expr.type, info);
 	final fromType = typeof(expr.x, info, false);
-	if (isInterface(fromType) && isInterface(t)) {
-		// return (macro(($e.__underlying__().value : Dynamic) : $ct)).expr;
-		var rt = toReflectType(typeof(expr.type, info, false), info, []);
-		rt = macro new stdgo.reflect.Reflect._Type(@:define("!go2hx_compiler") $rt);
-		return (macro(if ($e.__underlying__().type.assignableTo($rt)) {
-			(($e.__underlying__().value : Dynamic) : $ct);
-		} else {
-			throw "unable to be assigned";
-		})).expr;
-	}
-	final e = checkType(e, ct, fromType, t, info);
-	return e.expr;
+	if (isAnyInterface(fromType))
+		return (macro Go.typeAssert(($e : $ct))).expr;
+	// non anyInterface conversions are always known to work at compile time
+	return (macro($e.__underlying__().value : $ct)).expr;
 }
 
 private function destructureExpr(x:Expr, t:GoType):{x:Expr, t:GoType} {

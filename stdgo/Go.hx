@@ -182,63 +182,6 @@ class Go {
 		return macro stdgo.strconv.Strconv.unquote(qvalue);
 	}
 
-	public static macro function wrapper(e:Expr) { // define module to auto wrap named type
-		var t = Context.typeof(e);
-		var ct = Context.toComplexType(t);
-		var p:TypePath = null;
-		switch ct {
-			case TPath(p):
-				if (p.name == "Pointer" && p.pack.length == 1 && p.pack[0] == "stdgo" && p.params != null && p.params.length == 1) {
-					switch p.params[0] {
-						case TPType(t):
-							ct = t;
-						default:
-					}
-				}
-			default:
-		}
-		t = Context.resolveType(ct, Context.currentPos());
-		switch ct {
-			case TPath(p2):
-				p = p2;
-				p.sub += "_asInterface";
-				try {
-					final ps:TypePath = {
-						name: p.name,
-						pack: p.pack,
-						sub: p.sub,
-						params: null,
-					};
-					t = Context.getType(new haxe.macro.Printer().printTypePath(ps));
-				} catch (ex) {
-					trace(ex);
-					throw ex;
-				}
-			default:
-		}
-		final typeFields:Array<ClassField> = switch t {
-			case TInst(_.get() => t, _):
-				t.fields.get();
-			default:
-				throw "invalid: " + t;
-		}
-		final fieldExprs = [];
-		for (field in typeFields) {
-			if (field.name == "__self__" || field.name == "__underlying__")
-				continue;
-			final fieldName = field.name;
-			fieldExprs.push(macro ___self___.$fieldName = stdgo.Go.typeFunction($e.$fieldName));
-		}
-		e = macro {
-			final ___self___ = new $p($e);
-			$b{fieldExprs};
-			___self___;
-		};
-		trace(new haxe.macro.Printer().printExpr(e));
-		e.pos = Context.currentPos();
-		return e;
-	}
-
 	public static macro function typeFunction(e:Expr) {
 		var t:haxe.macro.Type = null;
 		var funArgs = [];
@@ -509,21 +452,11 @@ class Go {
 			}
 		}
 		var t = Context.typeof(expr);
-		var wrapped = false;
 		var follow = true;
 		switch t {
 			case TType(_.get() => t, params):
 				if (t.meta.has(":named")) {
 					follow = false;
-					wrapped = true;
-					switch Context.toComplexType(Context.follow(t.type)) {
-						case TPath(p):
-							final std = p.name == "StdTypes" && p.params.length == 0 && p.pack.length == 0;
-							final stdgo = p.name == "StdGoTypes" && p.params.length == 0 && p.pack.length == 1 && p.pack[0] == "stdgo";
-							final string = p.name == "GoString" && p.params.length == 0 && p.pack.length == 1 && p.pack[0] == "stdgo";
-							if (std || stdgo || string) expr = macro stdgo.Go.pointer($expr);
-						default:
-					}
 				} else if (t.pack.length == 1
 					&& t.pack[0] == "stdgo"
 					&& (t.name != "GoByte" && t.name != "GoRune" && t.name != "GoFloat" && t.name != "GoUInt" && t.name != "GoInt")) {
@@ -567,7 +500,35 @@ class Go {
 		#end
 	}
 
-	public static macro function assertable(expr:Expr) {
+	public static macro function typeAssert(expr:Expr) {
+		function parens(expr) {
+			return switch expr.expr {
+				case EParenthesis(e): parens(e);
+				default: expr;
+			}
+		}
+		expr = parens(expr);
+		switch expr.expr {
+			case ECheckType(e, t): // e always an anyInterface
+				final t2 = ComplexTypeTools.toType(t);
+				if (t2 == null)
+					Context.error("complexType converted to type is null", Context.currentPos());
+				final toType = gtDecode(t2, null, []);
+
+				return macro({
+					if ($e.type.assignableTo(new stdgo.reflect.Reflect._Type($toType))) {
+						(($e.value : Dynamic).__underlying__().value : $t);
+					} else {
+						throw "unable to assert";
+					}
+				});
+			default:
+				Context.error("unknown assignable expr: " + expr.expr, Context.currentPos());
+				return macro null;
+		}
+	}
+
+	public static macro function typeEquals(expr:Expr) {
 		function parens(expr) {
 			return switch expr.expr {
 				case EParenthesis(e): parens(e);
@@ -591,9 +552,8 @@ class Go {
 					false;
 				} else {
 					final v = new stdgo.reflect.Reflect._Type($value);
-					@:privateAccess stdgo.reflect.Reflect.directlyAssignable(v, $e.type) || @:privateAccess stdgo.reflect.Reflect.implementsMethod(v, $e.type);
+					v.assignableTo($e.type);
 				};
-				// trace(new haxe.macro.Printer().printExpr(e));
 				return e;
 			default:
 				Context.error("unknown assignable expr: " + expr.expr, Context.currentPos());
@@ -852,7 +812,7 @@ class Go {
 										} catch (e) {
 											// trace(e);
 										}
-										ret = macro stdgo.reflect.Reflect.GoType.named($v{path}, $a{methods}, $underlyingType);
+										return macro stdgo.reflect.Reflect.GoType.named($v{path}, $a{methods}, $underlyingType);
 									}
 								} else {
 									Context.error("go unknown typedef: " + name, Context.currentPos());
@@ -1006,7 +966,6 @@ class Go {
 					args.push(gtDecode(arg.t, null, marked));
 				}
 				var results = [];
-				// var voidBool = isVoid(Context.followWithAbstracts(result));
 				switch result {
 					case TAnonymous(a):
 						final fields = a.get().fields;
@@ -1016,7 +975,9 @@ class Go {
 					default:
 				}
 				if (results.length == 0) {
-					results.push(gtDecode(result, null, marked));
+					final voidBool = isVoid(Context.followWithAbstracts(result));
+					if (!voidBool)
+						results.push(gtDecode(result, null, marked));
 				}
 				var variadic = macro false;
 				if (a.length > 0) {

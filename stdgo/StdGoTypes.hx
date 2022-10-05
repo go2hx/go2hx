@@ -901,9 +901,6 @@ abstract GoUInt32(UInt) from UInt from Int to UInt to Int {
 		return ofStringUInt(s);
 	}
 
-	@:from static function fromFloat(x:Float):GoUInt32
-		return Std.int(x);
-
 	@:to inline function toInt64():GoInt64
 		return ofIntInt64(this);
 

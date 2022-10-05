@@ -3956,7 +3956,7 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 		final t = typeof(expr.type, info, false);
 		final underlyingType = getUnderlying(t);
 		final e = toExpr(switch underlyingType {
-			case basic(int64_kind), basic(uint64_kind), basic(untyped_int_kind):
+			case basic(int64_kind), basic(uint32_kind), basic(uint64_kind), basic(untyped_int_kind):
 				final ct = toComplexType(underlyingType, info);
 				final s = makeString(expr.value);
 				(macro($s : $ct)).expr;

@@ -558,7 +558,9 @@ class Go {
 					false;
 				} else {
 					final v = new stdgo.reflect.Reflect._Type($value);
-					v.assignableTo($e.type);
+					$e.type.assignableTo(v);
+					// @:privateAccess stdgo.reflect.Reflect.directlyAssignable(v, $e.type) || @:privateAccess stdgo.reflect.Reflect.implementsMethod(v, $e.type);
+					// v.assignableTo($e.type);
 				};
 				return e;
 			default:

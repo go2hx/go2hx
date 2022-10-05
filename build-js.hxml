@@ -5,6 +5,7 @@
 -D go2hx_compiler
 -D simulate_num
 -lib hxnodejs
+-D nolinkstd
 --dce full
 -D analyzer-optimize
 #-D nolinkstd

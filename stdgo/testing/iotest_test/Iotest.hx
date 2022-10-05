@@ -24,7 +24,7 @@ function main():Void {
 
 @:keep var _ = {
 	try {
-		stdgo.testing.internal.testdeps.Testdeps.importPath = (Go.str("testing/iotest") : GoString);
+		stdgo.testing.internal.testdeps.Testdeps.importPath = Go.str("testing/iotest");
 	} catch (__exception__)
 		if (__exception__.message != "__return__")
 			throw __exception__;

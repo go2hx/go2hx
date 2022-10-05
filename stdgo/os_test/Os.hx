@@ -22,13 +22,13 @@ function main():Void {
 	stdgo.os_test.Os_test.testMain(_m);
 	Sys.exit((stdgo.reflect.Reflect.valueOf(Go.toInterface(_m))
 		.elem()
-		.fieldByName((Go.str("exitCode") : GoString))
+		.fieldByName(Go.str("exitCode"))
 		.int_() : GoInt));
 }
 
 @:keep var _ = {
 	try {
-		stdgo.testing.internal.testdeps.Testdeps.importPath = (Go.str("os") : GoString);
+		stdgo.testing.internal.testdeps.Testdeps.importPath = Go.str("os");
 	} catch (__exception__)
 		if (__exception__.message != "__return__")
 			throw __exception__;

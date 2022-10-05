@@ -28,23 +28,23 @@ final replacementChar:GoInt32 = (65533 : GoInt32);
 /**
 	// Unicode replacement character
 **/
-private final _replacementChar:GoInt32 = ("\uFFFD".code : GoInt32);
+private final _replacementChar:GoInt32 = ("\uFFFD".code : GoRune);
 
 /**
 	// Maximum valid Unicode code point.
 **/
-private final _maxRune:GoInt32 = ("\u{0010FFFF}".code : GoInt32);
+private final _maxRune:GoInt32 = ("\u{0010FFFF}".code : GoRune);
 
 /**
 	// 0xd800-0xdc00 encodes the high 10 bits of a pair.
 	// 0xdc00-0xe000 encodes the low 10 bits of a pair.
 	// the value is those 20 bits plus 0x10000.
 **/
-private final _surr1:GoUnTypedInt = (55296 : GoUnTypedInt);
+private final _surr1:GoUInt64 = ("55296" : GoUInt64);
 
-private final _surr2:GoUnTypedInt = (56320 : GoUnTypedInt);
-private final _surr3:GoUnTypedInt = (57344 : GoUnTypedInt);
-private final _surrSelf:GoUnTypedInt = (65536 : GoUnTypedInt);
+private final _surr2:GoUInt64 = ("56320" : GoUInt64);
+private final _surr3:GoUInt64 = ("57344" : GoUInt64);
+private final _surrSelf:GoUInt64 = ("65536" : GoUInt64);
 
 /**
 	// IsSurrogate reports whether the specified Unicode code point
@@ -61,7 +61,7 @@ function isSurrogate(_r:GoRune):Bool {
 **/
 function decodeRune(_r1:GoRune, _r2:GoRune):GoRune {
 	if (((((55296 : GoInt32) <= _r1) && (_r1 < (56320:GoInt32))) && ((56320 : GoInt32) <= _r2)) && (_r2 < (57344:GoInt32))) {
-		return (((_r1 - (55296 : GoInt32)) << (10 : GoUnTypedInt)) | (_r2 - (56320 : GoInt32))) + (65536 : GoInt32);
+		return (((_r1 - (55296 : GoInt32)) << (("10" : GoUInt64) : GoUInt64)) | (_r2 - (56320 : GoInt32))) + (65536 : GoInt32);
 	};
 	return (65533 : GoInt32);
 }
@@ -77,7 +77,7 @@ function encodeRune(_r:GoRune):{var _0:GoRune; var _1:GoRune;} {
 		return {_0: (65533 : GoInt32), _1: (65533 : GoInt32)};
 	};
 	_r = _r - ((65536 : GoInt32));
-	return {_0: (55296 : GoInt32) + ((_r >> (10 : GoUnTypedInt)) & (1023 : GoInt32)), _1: (56320 : GoInt32) + (_r & (1023 : GoInt32))};
+	return {_0: (55296 : GoInt32) + ((_r >> (("10" : GoUInt64) : GoUInt64)) & (1023 : GoInt32)), _1: (56320 : GoInt32) + (_r & (1023 : GoInt32))};
 }
 
 /**

@@ -63,7 +63,7 @@ import stdgo.Chan;
 **/
 private var __go2hxdoc__package:Bool;
 
-private var _errorType:stdgo.internal.reflectlite.Reflectlite.Type = stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface(((null : stdgo.Error) : Ref<Error>)))
+private var _errorType:stdgo.internal.reflectlite.Reflectlite.Type = stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface(((null : Error) : Ref<Error>)))
 	.elem();
 
 private typedef T__interface_0 = StructType & {
@@ -112,12 +112,12 @@ function new_(_text:GoString):Error {
 **/
 function unwrap(_err:Error):Error {
 	var __tmp__ = try {
-		{value: ((_err.__underlying__().value : Dynamic) : T__interface_0), ok: true};
+		{value: (_err.__underlying__().value : T__interface_0), ok: true};
 	} catch (_) {
 		{value: (null : T__interface_0), ok: false};
 	}, _u = __tmp__.value, _ok = __tmp__.ok;
 	if (!_ok) {
-		return (null : stdgo.Error);
+		return (null : Error);
 	};
 	return _u.unwrap();
 }
@@ -151,7 +151,7 @@ function is_(_err:Error, _target:Error):Bool {
 		};
 		{
 			var __tmp__ = try {
-				{value: ((_err.__underlying__().value : Dynamic) : T__interface_1), ok: true};
+				{value: (_err.__underlying__().value : T__interface_1), ok: true};
 			} catch (_) {
 				{value: (null : T__interface_1), ok: false};
 			}, _x = __tmp__.value, _ok = __tmp__.ok;
@@ -188,17 +188,17 @@ function is_(_err:Error, _target:Error):Bool {
 **/
 function as(_err:Error, _target:AnyInterface):Bool {
 	if (_target == null) {
-		throw Go.toInterface((Go.str("errors: target cannot be nil") : GoString));
+		throw Go.toInterface(Go.str("errors: target cannot be nil"));
 	};
 	var _val:stdgo.internal.reflectlite.Reflectlite.Value = (stdgo.internal.reflectlite.Reflectlite.valueOf(_target) == null ? null : stdgo.internal.reflectlite.Reflectlite.valueOf(_target)
 		.__copy__());
 	var _typ:stdgo.internal.reflectlite.Reflectlite.Type = _val.type();
-	if ((_typ.kind() != (22 : stdgo.internal.reflectlite.Reflectlite.Kind)) || _val.isNil()) {
-		throw Go.toInterface((Go.str("errors: target must be a non-nil pointer") : GoString));
+	if ((_typ.kind() != (("22" : GoUInt) : stdgo.internal.reflectlite.Reflectlite.Kind)) || _val.isNil()) {
+		throw Go.toInterface(Go.str("errors: target must be a non-nil pointer"));
 	};
 	var _targetType:stdgo.internal.reflectlite.Reflectlite.Type = _typ.elem();
-	if ((_targetType.kind() != (20 : stdgo.internal.reflectlite.Reflectlite.Kind)) && !_targetType.implements_(_errorType)) {
-		throw Go.toInterface((Go.str("errors: *target must be interface or implement error") : GoString));
+	if ((_targetType.kind() != (("20" : GoUInt) : stdgo.internal.reflectlite.Reflectlite.Kind)) && !_targetType.implements_(_errorType)) {
+		throw Go.toInterface(Go.str("errors: *target must be interface or implement error"));
 	};
 	while (_err != null) {
 		if (stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface(_err)).assignableTo(_targetType)) {
@@ -209,7 +209,7 @@ function as(_err:Error, _target:AnyInterface):Bool {
 		};
 		{
 			var __tmp__ = try {
-				{value: ((_err.__underlying__().value : Dynamic) : T__interface_2), ok: true};
+				{value: (_err.__underlying__().value : T__interface_2), ok: true};
 			} catch (_) {
 				{value: (null : T__interface_2), ok: false};
 			}, _x = __tmp__.value, _ok = __tmp__.ok;
@@ -238,7 +238,7 @@ private class T_errorString_asInterface {
 	var __self__:T_errorString;
 }
 
-@:keep private class T_errorString_static_extension {
+@:keep @:allow(stdgo.errors.Errors.T_errorString_asInterface) class T_errorString_static_extension {
 	@:keep
 	static public function error(_e:Ref<T_errorString>):GoString {
 		return _e._s;

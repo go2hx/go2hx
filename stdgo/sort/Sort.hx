@@ -194,7 +194,7 @@ function reverseRange(_data:Interface, _a:GoInt, _b:GoInt):Void {
 function search(_n:GoInt, _f:GoInt->Bool):GoInt {
 	var _i:GoInt = (0 : GoInt), _j:GoInt = _n;
 	while (_i < _j) {
-		var _h:GoInt = ((_i + _j : GoUInt) >> (1 : GoUnTypedInt) : GoInt);
+		var _h:GoInt = ((_i + _j : GoUInt) >> ("1" : GoUInt64) : GoInt);
 		if (!_f(_h)) {
 			_i = _h + (1 : GoInt);
 		} else {
@@ -234,7 +234,7 @@ function find(_n:GoInt, _cmp:GoInt->GoInt):{var _0:GoInt; var _1:Bool;} {
 	var _i:GoInt = (0 : GoInt), _found:Bool = false;
 	var _i:GoInt = (0 : GoInt), _j:GoInt = _n;
 	while (_i < _j) {
-		var _h:GoInt = ((_i + _j : GoUInt) >> (1 : GoUnTypedInt) : GoInt);
+		var _h:GoInt = ((_i + _j : GoUInt) >> ("1" : GoUInt64) : GoInt);
 		if (_cmp(_h) > (0 : GoInt)) {
 			_i = _h + (1 : GoInt);
 		} else {
@@ -347,7 +347,7 @@ function sort(_data:Interface):Void {
 
 function _nextPowerOfTwo(_length:GoInt):GoUInt {
 	var _shift:GoUInt = (stdgo.math.bits.Bits.len((_length : GoUInt)) : GoUInt);
-	return ((1 : GoUInt) << _shift : GoUInt);
+	return (("1" : GoUInt) << _shift : GoUInt);
 }
 
 /**
@@ -502,7 +502,7 @@ function _heapSort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Void {
 	// limit is the number of allowed bad (very unbalanced) pivots before falling back to heapsort.
 **/
 function _pdqsort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _limit:GoInt):Void {
-	var _maxInsertion:GoUnTypedInt = (12 : GoUnTypedInt);
+	{};
 	var _wasBalanced:Bool = true, _wasPartitioned:Bool = true;
 	while (true) {
 		var _length:GoInt = _b - _a;
@@ -624,8 +624,7 @@ function _partitionEqual_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _pivot:GoInt
 	// partialInsertionSort_func partially sorts a slice, returns true if the slice is sorted at the end.
 **/
 function _partialInsertionSort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Bool {
-	var _maxSteps:GoUnTypedInt = (5 : GoUnTypedInt),
-		_shortestShifting:GoUnTypedInt = (50 : GoUnTypedInt);
+	{};
 	var _i:GoInt = _a + (1 : GoInt);
 	{
 		var _j:GoInt = (0 : GoInt);
@@ -679,7 +678,7 @@ function _breakPatterns_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Void {
 		{
 			var _idx:GoInt = (_a + ((_length / (4 : GoInt)) * (2 : GoInt))) - (1 : GoInt);
 			Go.cfor(_idx <= ((_a + ((_length / (4 : GoInt)) * (2 : GoInt))) + (1 : GoInt)), _idx++, {
-				var _other:GoInt = ((_random.next(Go.pointer(_random)) : GoUInt) & (_modulus - (1 : GoUInt)) : GoInt);
+				var _other:GoInt = ((_random.next(Go.pointer(_random)) : GoUInt) & (_modulus - (("1" : GoUInt) : GoUInt)) : GoInt);
 				if (_other >= _length) {
 					_other = _other - (_length);
 				};
@@ -699,8 +698,7 @@ function _breakPatterns_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Void {
 function _choosePivot_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):{var _0:GoInt; var _1:T_sortedHint;} {
 	var _pivot:GoInt = (0 : GoInt),
 		_hint:T_sortedHint = ((0 : GoInt) : T_sortedHint);
-	var _shortestNinther:GoUnTypedInt = (50 : GoUnTypedInt),
-		_maxSwaps:GoUnTypedInt = (12 : GoUnTypedInt);
+	{};
 	var _l:GoInt = _b - _a;
 	var _swaps:GoInt = (0 : GoInt),
 		_i:GoInt = _a + ((_l / (4 : GoInt)) * (1 : GoInt)),
@@ -839,7 +837,7 @@ function _symMerge_func(_data:T_lessSwap, _a:GoInt, _m:GoInt, _b:GoInt):Void {
 		var _i:GoInt = _m;
 		var _j:GoInt = _b;
 		while (_i < _j) {
-			var _h:GoInt = ((_i + _j : GoUInt) >> (1 : GoUnTypedInt) : GoInt);
+			var _h:GoInt = ((_i + _j : GoUInt) >> ("1" : GoUInt64) : GoInt);
 			if (_data.less(_h, _a)) {
 				_i = _h + (1 : GoInt);
 			} else {
@@ -858,7 +856,7 @@ function _symMerge_func(_data:T_lessSwap, _a:GoInt, _m:GoInt, _b:GoInt):Void {
 		var _i:GoInt = _a;
 		var _j:GoInt = _m;
 		while (_i < _j) {
-			var _h:GoInt = ((_i + _j : GoUInt) >> (1 : GoUnTypedInt) : GoInt);
+			var _h:GoInt = ((_i + _j : GoUInt) >> ("1" : GoUInt64) : GoInt);
 			if (!_data.less(_m, _h)) {
 				_i = _h + (1 : GoInt);
 			} else {
@@ -873,7 +871,7 @@ function _symMerge_func(_data:T_lessSwap, _a:GoInt, _m:GoInt, _b:GoInt):Void {
 		};
 		return;
 	};
-	var _mid:GoInt = ((_a + _b : GoUInt) >> (1 : GoUnTypedInt) : GoInt);
+	var _mid:GoInt = ((_a + _b : GoUInt) >> ("1" : GoUInt64) : GoInt);
 	var _n:GoInt = _mid + _m;
 	var _start:GoInt = (0 : GoInt), _r:GoInt = (0 : GoInt);
 	if (_m > _mid) {
@@ -885,7 +883,7 @@ function _symMerge_func(_data:T_lessSwap, _a:GoInt, _m:GoInt, _b:GoInt):Void {
 	};
 	var _p:GoInt = _n - (1 : GoInt);
 	while (_start < _r) {
-		var _c:GoInt = ((_start + _r : GoUInt) >> (1 : GoUnTypedInt) : GoInt);
+		var _c:GoInt = ((_start + _r : GoUInt) >> ("1" : GoUInt64) : GoInt);
 		if (!_data.less(_p - _c, _c)) {
 			_start = _c + (1 : GoInt);
 		} else {
@@ -992,7 +990,7 @@ function _heapSort(_data:Interface, _a:GoInt, _b:GoInt):Void {
 	// limit is the number of allowed bad (very unbalanced) pivots before falling back to heapsort.
 **/
 function _pdqsort(_data:Interface, _a:GoInt, _b:GoInt, _limit:GoInt):Void {
-	var _maxInsertion:GoUnTypedInt = (12 : GoUnTypedInt);
+	{};
 	var _wasBalanced:Bool = true, _wasPartitioned:Bool = true;
 	while (true) {
 		var _length:GoInt = _b - _a;
@@ -1114,8 +1112,7 @@ function _partitionEqual(_data:Interface, _a:GoInt, _b:GoInt, _pivot:GoInt):GoIn
 	// partialInsertionSort partially sorts a slice, returns true if the slice is sorted at the end.
 **/
 function _partialInsertionSort(_data:Interface, _a:GoInt, _b:GoInt):Bool {
-	var _maxSteps:GoUnTypedInt = (5 : GoUnTypedInt),
-		_shortestShifting:GoUnTypedInt = (50 : GoUnTypedInt);
+	{};
 	var _i:GoInt = _a + (1 : GoInt);
 	{
 		var _j:GoInt = (0 : GoInt);
@@ -1169,7 +1166,7 @@ function _breakPatterns(_data:Interface, _a:GoInt, _b:GoInt):Void {
 		{
 			var _idx:GoInt = (_a + ((_length / (4 : GoInt)) * (2 : GoInt))) - (1 : GoInt);
 			Go.cfor(_idx <= ((_a + ((_length / (4 : GoInt)) * (2 : GoInt))) + (1 : GoInt)), _idx++, {
-				var _other:GoInt = ((_random.next(Go.pointer(_random)) : GoUInt) & (_modulus - (1 : GoUInt)) : GoInt);
+				var _other:GoInt = ((_random.next(Go.pointer(_random)) : GoUInt) & (_modulus - (("1" : GoUInt) : GoUInt)) : GoInt);
 				if (_other >= _length) {
 					_other = _other - (_length);
 				};
@@ -1189,8 +1186,7 @@ function _breakPatterns(_data:Interface, _a:GoInt, _b:GoInt):Void {
 function _choosePivot(_data:Interface, _a:GoInt, _b:GoInt):{var _0:GoInt; var _1:T_sortedHint;} {
 	var _pivot:GoInt = (0 : GoInt),
 		_hint:T_sortedHint = ((0 : GoInt) : T_sortedHint);
-	var _shortestNinther:GoUnTypedInt = (50 : GoUnTypedInt),
-		_maxSwaps:GoUnTypedInt = (12 : GoUnTypedInt);
+	{};
 	var _l:GoInt = _b - _a;
 	var _swaps:GoInt = (0 : GoInt),
 		_i:GoInt = _a + ((_l / (4 : GoInt)) * (1 : GoInt)),
@@ -1329,7 +1325,7 @@ function _symMerge(_data:Interface, _a:GoInt, _m:GoInt, _b:GoInt):Void {
 		var _i:GoInt = _m;
 		var _j:GoInt = _b;
 		while (_i < _j) {
-			var _h:GoInt = ((_i + _j : GoUInt) >> (1 : GoUnTypedInt) : GoInt);
+			var _h:GoInt = ((_i + _j : GoUInt) >> ("1" : GoUInt64) : GoInt);
 			if (_data.less(_h, _a)) {
 				_i = _h + (1 : GoInt);
 			} else {
@@ -1348,7 +1344,7 @@ function _symMerge(_data:Interface, _a:GoInt, _m:GoInt, _b:GoInt):Void {
 		var _i:GoInt = _a;
 		var _j:GoInt = _m;
 		while (_i < _j) {
-			var _h:GoInt = ((_i + _j : GoUInt) >> (1 : GoUnTypedInt) : GoInt);
+			var _h:GoInt = ((_i + _j : GoUInt) >> ("1" : GoUInt64) : GoInt);
 			if (!_data.less(_m, _h)) {
 				_i = _h + (1 : GoInt);
 			} else {
@@ -1363,7 +1359,7 @@ function _symMerge(_data:Interface, _a:GoInt, _m:GoInt, _b:GoInt):Void {
 		};
 		return;
 	};
-	var _mid:GoInt = ((_a + _b : GoUInt) >> (1 : GoUnTypedInt) : GoInt);
+	var _mid:GoInt = ((_a + _b : GoUInt) >> ("1" : GoUInt64) : GoInt);
 	var _n:GoInt = _mid + _m;
 	var _start:GoInt = (0 : GoInt), _r:GoInt = (0 : GoInt);
 	if (_m > _mid) {
@@ -1375,7 +1371,7 @@ function _symMerge(_data:Interface, _a:GoInt, _m:GoInt, _b:GoInt):Void {
 	};
 	var _p:GoInt = _n - (1 : GoInt);
 	while (_start < _r) {
-		var _c:GoInt = ((_start + _r : GoUInt) >> (1 : GoUnTypedInt) : GoInt);
+		var _c:GoInt = ((_start + _r : GoUInt) >> ("1" : GoUInt64) : GoInt);
 		if (!_data.less(_p - _c, _c)) {
 			_start = _c + (1 : GoInt);
 		} else {
@@ -1442,7 +1438,7 @@ private class T_reverse_asInterface {
 	var __self__:T_reverse;
 }
 
-@:keep private class T_reverse_static_extension {
+@:keep @:allow(stdgo.sort.Sort.T_reverse_asInterface) class T_reverse_static_extension {
 	/**
 		// Less returns the opposite of the embedded implementation's Less method.
 	**/
@@ -1477,13 +1473,13 @@ private class T_reverse_asInterface {
 	var __self__:Pointer<T_xorshift>;
 }
 
-@:keep private class T_xorshift_static_extension {
+@:keep @:allow(stdgo.sort.Sort.T_xorshift_asInterface) class T_xorshift_static_extension {
 	@:keep
 	@:pointer
 	static public function next(____:T_xorshift, _r:Pointer<T_xorshift>):GoUInt64 {
-		_r.value = _r.value ^ (_r.value << (13 : GoUnTypedInt));
-		_r.value = _r.value ^ (_r.value >> (17 : GoUnTypedInt));
-		_r.value = _r.value ^ (_r.value << (5 : GoUnTypedInt));
+		_r.value = _r.value ^ (_r.value << (("13" : GoUInt64) : GoUInt64));
+		_r.value = _r.value ^ (_r.value >> (("17" : GoUInt64) : GoUInt64));
+		_r.value = _r.value ^ (_r.value << (("5" : GoUInt64) : GoUInt64));
 		return (_r.value : GoUInt64);
 	}
 }
@@ -1526,7 +1522,7 @@ class IntSlice_asInterface {
 	var __self__:IntSlice;
 }
 
-@:keep private class IntSlice_static_extension {
+@:keep @:allow(stdgo.sort.Sort.IntSlice_asInterface) class IntSlice_static_extension {
 	/**
 		// Sort is a convenience method: x.Sort() calls Sort(x).
 	**/
@@ -1610,7 +1606,7 @@ class Float64Slice_asInterface {
 	var __self__:Float64Slice;
 }
 
-@:keep private class Float64Slice_static_extension {
+@:keep @:allow(stdgo.sort.Sort.Float64Slice_asInterface) class Float64Slice_static_extension {
 	/**
 		// Sort is a convenience method: x.Sort() calls Sort(x).
 	**/
@@ -1694,7 +1690,7 @@ class StringSlice_asInterface {
 	var __self__:StringSlice;
 }
 
-@:keep private class StringSlice_static_extension {
+@:keep @:allow(stdgo.sort.Sort.StringSlice_asInterface) class StringSlice_static_extension {
 	/**
 		// Sort is a convenience method: x.Sort() calls Sort(x).
 	**/

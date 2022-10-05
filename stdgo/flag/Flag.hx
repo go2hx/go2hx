@@ -96,19 +96,19 @@ private var __go2hxdoc__package:Bool;
 	// ErrHelp is the error returned if the -help or -h flag is invoked
 	// but no such flag is defined.
 **/
-var errHelp:stdgo.Error = stdgo.errors.Errors.new_((Go.str("flag: help requested") : GoString));
+var errHelp:Error = stdgo.errors.Errors.new_(Go.str("flag: help requested"));
 
 /**
 	// errParse is returned by Set if a flag's value fails to parse, such as with an invalid integer for Int.
 	// It then gets wrapped through failf to provide more information.
 **/
-private var _errParse:stdgo.Error = stdgo.errors.Errors.new_((Go.str("parse error") : GoString));
+private var _errParse:Error = stdgo.errors.Errors.new_(Go.str("parse error"));
 
 /**
 	// errRange is returned by Set if a flag's value is out of range.
 	// It then gets wrapped through failf to provide more information.
 **/
-private var _errRange:stdgo.Error = stdgo.errors.Errors.new_((Go.str("value out of range") : GoString));
+private var _errRange:Error = stdgo.errors.Errors.new_(Go.str("value out of range"));
 
 /**
 	// CommandLine is the default set of command-line flags, parsed from os.Args.
@@ -129,7 +129,7 @@ var commandLine:Ref<FlagSet> = newFlagSet(stdgo.os.Os.args[(0 : GoInt)], (1 : Er
 	// ExitOnError.
 **/
 var usage:() -> Void = function():Void {
-	stdgo.fmt.Fmt.fprintf(commandLine.output(), (Go.str("Usage of %s:\n") : GoString), Go.toInterface(stdgo.os.Os.args[(0 : GoInt)]));
+	stdgo.fmt.Fmt.fprintf(commandLine.output(), Go.str("Usage of %s:\n"), Go.toInterface(stdgo.os.Os.args[(0 : GoInt)]));
 	printDefaults();
 };
 
@@ -354,7 +354,7 @@ typedef Getter = StructType & {
 /**
 	// -- func Value
 **/
-@:named @:using(stdgo.flag.Flag.T_funcValue_static_extension) private typedef T_funcValue = GoString->stdgo.Error;
+@:named @:using(stdgo.flag.Flag.T_funcValue_static_extension) private typedef T_funcValue = GoString->Error;
 
 /**
 	// ErrorHandling defines how FlagSet.Parse behaves if the parse fails.
@@ -375,7 +375,7 @@ function resetForTesting(_usage:() -> Void):Void {
 
 function _numError(_err:Error):Error {
 	var __tmp__ = try {
-		{value: ((_err.__underlying__().value : Dynamic) : Ref<stdgo.strconv.Strconv.NumError>), ok: true};
+		{value: (_err.__underlying__().value : Ref<stdgo.strconv.Strconv.NumError>), ok: true};
 	} catch (_) {
 		{value: (null : stdgo.strconv.Strconv.NumError), ok: false};
 	}, _ne = __tmp__.value, _ok = __tmp__.ok;
@@ -434,16 +434,16 @@ function _newDurationValue(_val:stdgo.time.Time.Duration, _p:Pointer<stdgo.time.
 function _newTextValue(_val:stdgo.encoding.Encoding.TextMarshaler, _p:stdgo.encoding.Encoding.TextUnmarshaler):T_textValue {
 	var _ptrVal:stdgo.reflect.Reflect.Value = (stdgo.reflect.Reflect.valueOf(Go.toInterface(_p)) == null ? null : stdgo.reflect.Reflect.valueOf(Go.toInterface(_p))
 		.__copy__());
-	if (_ptrVal.kind() != (22 : stdgo.reflect.Reflect.Kind)) {
-		throw Go.toInterface((Go.str("variable value type must be a pointer") : GoString));
+	if (_ptrVal.kind() != (("22" : GoUInt) : stdgo.reflect.Reflect.Kind)) {
+		throw Go.toInterface(Go.str("variable value type must be a pointer"));
 	};
 	var _defVal:stdgo.reflect.Reflect.Value = (stdgo.reflect.Reflect.valueOf(Go.toInterface(_val)) == null ? null : stdgo.reflect.Reflect.valueOf(Go.toInterface(_val))
 		.__copy__());
-	if (_defVal.kind() == (22 : stdgo.reflect.Reflect.Kind)) {
+	if (_defVal.kind() == (("22" : GoUInt) : stdgo.reflect.Reflect.Kind)) {
 		_defVal = (_defVal.elem() == null ? null : _defVal.elem().__copy__());
 	};
 	if (_defVal.type() != _ptrVal.type().elem()) {
-		throw Go.toInterface(stdgo.fmt.Fmt.sprintf((Go.str("default type does not match variable type: %v != %v") : GoString), Go.toInterface(_defVal.type()),
+		throw Go.toInterface(stdgo.fmt.Fmt.sprintf(Go.str("default type does not match variable type: %v != %v"), Go.toInterface(_defVal.type()),
 			Go.toInterface(_ptrVal.type().elem())));
 	};
 	_ptrVal.elem().set((_defVal == null ? null : _defVal.__copy__()));
@@ -503,11 +503,11 @@ function set(_name:GoString, _value:GoString):Error {
 **/
 function _isZeroValue(_flag:Ref<Flag>, _value:GoString):{var _0:Bool; var _1:Error;} {
 	var __deferstack__:Array<Void->Void> = [];
-	var _ok:Bool = false, _err:Error = (null : stdgo.Error);
+	var _ok:Bool = false, _err:Error = (null : Error);
 	var _typ:stdgo.reflect.Reflect.Type = stdgo.reflect.Reflect.typeOf(Go.toInterface(_flag.value));
 	var _z:stdgo.reflect.Reflect.Value = ({} : stdgo.reflect.Reflect.Value);
 	try {
-		if (_typ.kind() == (22 : stdgo.reflect.Reflect.Kind)) {
+		if (_typ.kind() == (("22" : GoUInt) : stdgo.reflect.Reflect.Kind)) {
 			_z = (stdgo.reflect.Reflect.new_(_typ.elem()) == null ? null : stdgo.reflect.Reflect.new_(_typ.elem()).__copy__());
 		} else {
 			_z = (stdgo.reflect.Reflect.zero(_typ) == null ? null : stdgo.reflect.Reflect.zero(_typ).__copy__());
@@ -521,10 +521,10 @@ function _isZeroValue(_flag:Ref<Flag>, _value:GoString):{var _0:Bool; var _1:Err
 						r;
 					});
 					if (_e != null) {
-						if (_typ.kind() == (22 : stdgo.reflect.Reflect.Kind)) {
+						if (_typ.kind() == (("22" : GoUInt) : stdgo.reflect.Reflect.Kind)) {
 							_typ = _typ.elem();
 						};
-						_err = stdgo.fmt.Fmt.errorf((Go.str("panic calling String method on zero %v for flag %s: %v") : GoString), Go.toInterface(_typ),
+						_err = stdgo.fmt.Fmt.errorf(Go.str("panic calling String method on zero %v for flag %s: %v"), Go.toInterface(_typ),
 							Go.toInterface(_flag.name), _e);
 					};
 				};
@@ -535,7 +535,7 @@ function _isZeroValue(_flag:Ref<Flag>, _value:GoString):{var _0:Bool; var _1:Err
 			for (defer in __deferstack__) {
 				defer();
 			};
-			return {_0: _value == ((_z.interface_(Go.pointer(_z)).value : Value).string() : GoString), _1: (null : stdgo.Error)};
+			return {_0: _value == (Go.typeAssert((_z.interface_(Go.pointer(_z)) : Value)).string() : GoString), _1: (null : Error)};
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -574,11 +574,11 @@ function unquoteUsage(_flag:Ref<Flag>):{var _0:GoString; var _1:GoString;} {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_usage.length), _i++, {
-			if (_usage[_i] == ("`".code : GoUInt8)) {
+			if (_usage[_i] == ("`".code : GoRune)) {
 				{
 					var _j:GoInt = _i + (1 : GoInt);
 					Go.cfor(_j < (_usage.length), _j++, {
-						if (_usage[_j] == ("`".code : GoUInt8)) {
+						if (_usage[_j] == ("`".code : GoRune)) {
 							_name = (_usage.__slice__(_i + (1 : GoInt), _j) : GoString);
 							_usage = ((_usage.__slice__(0, _i) : GoString) + _name) + (_usage.__slice__(_j + (1 : GoInt)) : GoString);
 							return {_0: _name, _1: _usage};
@@ -589,19 +589,19 @@ function unquoteUsage(_flag:Ref<Flag>):{var _0:GoString; var _1:GoString;} {
 			};
 		});
 	};
-	_name = (Go.str("value") : GoString);
-	if (Go.assertable((_flag.value : T_boolFlag))) {
-		_name = (Go.str() : GoString);
-	} else if (Go.assertable((_flag.value : Pointer<T_durationValue>))) {
-		_name = (Go.str("duration") : GoString);
-	} else if (Go.assertable((_flag.value : Pointer<T_float64Value>))) {
-		_name = (Go.str("float") : GoString);
-	} else if (Go.assertable((_flag.value : Pointer<T_intValue>)) || Go.assertable((_flag.value : Pointer<T_int64Value>))) {
-		_name = (Go.str("int") : GoString);
-	} else if (Go.assertable((_flag.value : Pointer<T_stringValue>))) {
-		_name = (Go.str("string") : GoString);
-	} else if (Go.assertable((_flag.value : Pointer<T_uintValue>)) || Go.assertable((_flag.value : Pointer<T_uint64Value>))) {
-		_name = (Go.str("uint") : GoString);
+	_name = Go.str("value");
+	if (Go.typeEquals((_flag.value : T_boolFlag))) {
+		_name = Go.str();
+	} else if (Go.typeEquals((_flag.value : Pointer<T_durationValue>))) {
+		_name = Go.str("duration");
+	} else if (Go.typeEquals((_flag.value : Pointer<T_float64Value>))) {
+		_name = Go.str("float");
+	} else if (Go.typeEquals((_flag.value : Pointer<T_intValue>)) || Go.typeEquals((_flag.value : Pointer<T_int64Value>))) {
+		_name = Go.str("int");
+	} else if (Go.typeEquals((_flag.value : Pointer<T_stringValue>))) {
+		_name = Go.str("string");
+	} else if (Go.typeEquals((_flag.value : Pointer<T_uintValue>)) || Go.typeEquals((_flag.value : Pointer<T_uint64Value>))) {
+		_name = Go.str("uint");
 	};
 	return {_0: _name, _1: _usage};
 }
@@ -893,12 +893,12 @@ private class T_textValue_asInterface {
 	var __self__:T_textValue;
 }
 
-@:keep private class T_textValue_static_extension {
+@:keep @:allow(stdgo.flag.Flag.T_textValue_asInterface) class T_textValue_static_extension {
 	@:keep
 	static public function string(_v:T_textValue):GoString {
 		{
 			var __tmp__ = try {
-				{value: ((_v._p.__underlying__().value : Dynamic) : stdgo.encoding.Encoding.TextMarshaler), ok: true};
+				{value: (_v._p.__underlying__().value : stdgo.encoding.Encoding.TextMarshaler), ok: true};
 			} catch (_) {
 				{value: (null : stdgo.encoding.Encoding.TextMarshaler), ok: false};
 			}, _m = __tmp__.value, _ok = __tmp__.ok;
@@ -906,14 +906,14 @@ private class T_textValue_asInterface {
 				{
 					var __tmp__ = _m.marshalText(),
 						_b:Slice<GoUInt8> = __tmp__._0,
-						_err:stdgo.Error = __tmp__._1;
+						_err:Error = __tmp__._1;
 					if (_err == null) {
 						return (_b : GoString);
 					};
 				};
 			};
 		};
-		return (Go.str() : GoString);
+		return Go.str();
 	}
 
 	@:keep
@@ -1263,7 +1263,7 @@ class FlagSet_asInterface {
 	var __self__:FlagSet;
 }
 
-@:keep private class FlagSet_static_extension {
+@:keep @:allow(stdgo.flag.Flag.FlagSet_asInterface) class FlagSet_static_extension {
 	/**
 		// Init sets the name and error handling property for a flag set.
 		// By default, the zero FlagSet uses an empty name and the
@@ -1296,7 +1296,7 @@ class FlagSet_asInterface {
 		while (true) {
 			var __tmp__ = _f._parseOne(),
 				_seen:Bool = __tmp__._0,
-				_err:stdgo.Error = __tmp__._1;
+				_err:Error = __tmp__._1;
 			if (_seen) {
 				continue;
 			};
@@ -1314,7 +1314,7 @@ class FlagSet_asInterface {
 				throw Go.toInterface(_err);
 			};
 		};
-		return (null : stdgo.Error);
+		return (null : Error);
 	}
 
 	/**
@@ -1323,32 +1323,32 @@ class FlagSet_asInterface {
 	@:keep
 	static public function _parseOne(_f:Ref<FlagSet>):{var _0:Bool; var _1:Error;} {
 		if ((_f._args.length) == (0 : GoInt)) {
-			return {_0: false, _1: (null : stdgo.Error)};
+			return {_0: false, _1: (null : Error)};
 		};
 		var _s:GoString = _f._args[(0 : GoInt)];
-		if ((_s.length < (2:GoInt)) || (_s[(0 : GoInt)] != ("-".code : GoUInt8))) {
-			return {_0: false, _1: (null : stdgo.Error)};
+		if ((_s.length < (2:GoInt)) || (_s[(0 : GoInt)] != ("-".code : GoRune))) {
+			return {_0: false, _1: (null : Error)};
 		};
 		var _numMinuses:GoInt = (1 : GoInt);
-		if (_s[(1 : GoInt)] == ("-".code : GoUInt8)) {
+		if (_s[(1 : GoInt)] == ("-".code : GoRune)) {
 			_numMinuses++;
 			if ((_s.length) == (2 : GoInt)) {
 				_f._args = (_f._args.__slice__((1 : GoInt)) : Slice<GoString>);
-				return {_0: false, _1: (null : stdgo.Error)};
+				return {_0: false, _1: (null : Error)};
 			};
 		};
 		var _name:GoString = (_s.__slice__(_numMinuses) : GoString);
-		if (((_name.length == (0 : GoInt)) || (_name[(0 : GoInt)] == ("-".code : GoUInt8)))
-			|| (_name[(0 : GoInt)] == ("=".code : GoUInt8))) {
-			return {_0: false, _1: _f._failf((Go.str("bad flag syntax: %s") : GoString), Go.toInterface(_s))};
+		if (((_name.length == (0 : GoInt)) || (_name[(0 : GoInt)] == ("-".code : GoRune)))
+			|| (_name[(0 : GoInt)] == ("=".code : GoRune))) {
+			return {_0: false, _1: _f._failf(Go.str("bad flag syntax: %s"), Go.toInterface(_s))};
 		};
 		_f._args = (_f._args.__slice__((1 : GoInt)) : Slice<GoString>);
 		var _hasValue:Bool = false;
-		var _value:GoString = (Go.str() : GoString);
+		var _value:GoString = Go.str();
 		{
 			var _i:GoInt = (1 : GoInt);
 			Go.cfor(_i < (_name.length), _i++, {
-				if (_name[_i] == ("=".code : GoUInt8)) {
+				if (_name[_i] == ("=".code : GoRune)) {
 					_value = (_name.__slice__(_i + (1 : GoInt)) : GoString);
 					_hasValue = true;
 					_name = (_name.__slice__((0 : GoInt), _i) : GoString);
@@ -1361,32 +1361,32 @@ class FlagSet_asInterface {
 			_flag:Ref<Flag> = __tmp__.value,
 			_alreadythere:Bool = __tmp__.ok;
 		if (!_alreadythere) {
-			if ((_name == (Go.str("help") : GoString)) || (_name == (Go.str("h") : GoString))) {
+			if ((_name == Go.str("help")) || (_name == Go.str("h"))) {
 				_f._usage();
 				return {_0: false, _1: errHelp};
 			};
-			return {_0: false, _1: _f._failf((Go.str("flag provided but not defined: -%s") : GoString), Go.toInterface(_name))};
+			return {_0: false, _1: _f._failf(Go.str("flag provided but not defined: -%s"), Go.toInterface(_name))};
 		};
 		{
 			var __tmp__ = try {
-				{value: ((_flag.value.__underlying__().value : Dynamic) : T_boolFlag), ok: true};
+				{value: (_flag.value.__underlying__().value : T_boolFlag), ok: true};
 			} catch (_) {
 				{value: (null : T_boolFlag), ok: false};
 			}, _fv = __tmp__.value, _ok = __tmp__.ok;
 			if (_ok && _fv.isBoolFlag()) {
 				if (_hasValue) {
 					{
-						var _err:stdgo.Error = _fv.set(_value);
+						var _err:Error = _fv.set(_value);
 						if (_err != null) {
-							return {_0: false, _1: _f._failf((Go.str("invalid boolean value %q for -%s: %v") : GoString), Go.toInterface(_value),
-								Go.toInterface(_name), Go.toInterface(_err))};
+							return {_0: false, _1: _f._failf(Go.str("invalid boolean value %q for -%s: %v"), Go.toInterface(_value), Go.toInterface(_name),
+								Go.toInterface(_err))};
 						};
 					};
 				} else {
 					{
-						var _err:stdgo.Error = _fv.set((Go.str("true") : GoString));
+						var _err:Error = _fv.set(Go.str("true"));
 						if (_err != null) {
-							return {_0: false, _1: _f._failf((Go.str("invalid boolean flag %s: %v") : GoString), Go.toInterface(_name), Go.toInterface(_err))};
+							return {_0: false, _1: _f._failf(Go.str("invalid boolean flag %s: %v"), Go.toInterface(_name), Go.toInterface(_err))};
 						};
 					};
 				};
@@ -1401,13 +1401,13 @@ class FlagSet_asInterface {
 					};
 				};
 				if (!_hasValue) {
-					return {_0: false, _1: _f._failf((Go.str("flag needs an argument: -%s") : GoString), Go.toInterface(_name))};
+					return {_0: false, _1: _f._failf(Go.str("flag needs an argument: -%s"), Go.toInterface(_name))};
 				};
 				{
-					var _err:stdgo.Error = _flag.value.set(_value);
+					var _err:Error = _flag.value.set(_value);
 					if (_err != null) {
-						return {_0: false, _1: _f._failf((Go.str("invalid value %q for flag -%s: %v") : GoString), Go.toInterface(_value),
-							Go.toInterface(_name), Go.toInterface(_err))};
+						return {_0: false, _1: _f._failf(Go.str("invalid value %q for flag -%s: %v"), Go.toInterface(_value), Go.toInterface(_name),
+							Go.toInterface(_err))};
 					};
 				};
 			};
@@ -1432,8 +1432,54 @@ class FlagSet_asInterface {
 						name: "value",
 						embedded: false,
 						tag: "",
-						type: stdgo.reflect.Reflect.GoType.named("Value", [],
-							stdgo.reflect.Reflect.GoType.named("Value", [], stdgo.reflect.Reflect.GoType.interfaceType(false, [])))
+						type: stdgo.reflect.Reflect.GoType.named("Value", [
+							new stdgo.reflect.Reflect.MethodType("set",
+								stdgo.reflect.Reflect.GoType.signature(false, [stdgo.reflect.Reflect.GoType.basic(string_kind)], [
+									stdgo.reflect.Reflect.GoType.named("Error", [
+										new stdgo.reflect.Reflect.MethodType("error",
+											stdgo.reflect.Reflect.GoType.signature(false, [], [stdgo.reflect.Reflect.GoType.basic(string_kind)],
+												stdgo.reflect.Reflect.GoType.invalidType),
+											stdgo.reflect.Reflect.GoType.invalidType)
+									],
+										stdgo.reflect.Reflect.GoType.interfaceType(false,
+											[
+												new stdgo.reflect.Reflect.MethodType("error",
+													stdgo.reflect.Reflect.GoType.signature(false, [], [stdgo.reflect.Reflect.GoType.basic(string_kind)],
+														stdgo.reflect.Reflect.GoType.invalidType),
+													stdgo.reflect.Reflect.GoType.invalidType)
+											]))
+								],
+									stdgo.reflect.Reflect.GoType.invalidType),
+								stdgo.reflect.Reflect.GoType.invalidType),
+							new stdgo.reflect.Reflect.MethodType("string",
+								stdgo.reflect.Reflect.GoType.signature(false, [], [stdgo.reflect.Reflect.GoType.basic(string_kind)],
+									stdgo.reflect.Reflect.GoType.invalidType),
+								stdgo.reflect.Reflect.GoType.invalidType)
+						],
+							stdgo.reflect.Reflect.GoType.named("Value", [], stdgo.reflect.Reflect.GoType.interfaceType(false, [
+								new stdgo.reflect.Reflect.MethodType("set",
+									stdgo.reflect.Reflect.GoType.signature(false, [stdgo.reflect.Reflect.GoType.basic(string_kind)], [
+										stdgo.reflect.Reflect.GoType.named("Error", [
+											new stdgo.reflect.Reflect.MethodType("error",
+												stdgo.reflect.Reflect.GoType.signature(false, [], [stdgo.reflect.Reflect.GoType.basic(string_kind)],
+													stdgo.reflect.Reflect.GoType.invalidType),
+												stdgo.reflect.Reflect.GoType.invalidType)
+										],
+											stdgo.reflect.Reflect.GoType.interfaceType(false,
+												[
+													new stdgo.reflect.Reflect.MethodType("error",
+														stdgo.reflect.Reflect.GoType.signature(false, [], [stdgo.reflect.Reflect.GoType.basic(string_kind)],
+															stdgo.reflect.Reflect.GoType.invalidType),
+														stdgo.reflect.Reflect.GoType.invalidType)
+												]))
+									],
+										stdgo.reflect.Reflect.GoType.invalidType),
+									stdgo.reflect.Reflect.GoType.invalidType),
+								new stdgo.reflect.Reflect.MethodType("string",
+									stdgo.reflect.Reflect.GoType.signature(false, [], [stdgo.reflect.Reflect.GoType.basic(string_kind)],
+										stdgo.reflect.Reflect.GoType.invalidType),
+									stdgo.reflect.Reflect.GoType.invalidType)
+							])))
 					},
 					{
 						name: "defValue",
@@ -1444,7 +1490,7 @@ class FlagSet_asInterface {
 				])))))) : GoMap<GoString, Ref<Flag>>);
 		};
 		_f._actual[_name] = _flag;
-		return {_0: true, _1: (null : stdgo.Error)};
+		return {_0: true, _1: (null : Error)};
 	}
 
 	/**
@@ -1493,10 +1539,10 @@ class FlagSet_asInterface {
 	**/
 	@:keep
 	static public function var_(_f:Ref<FlagSet>, _value:Value, _name:GoString, _usage:GoString):Void {
-		if (stdgo.strings.Strings.hasPrefix(_name, (Go.str("-") : GoString))) {
-			throw Go.toInterface(_f._sprintf((Go.str("flag %q begins with -") : GoString), Go.toInterface(_name)));
-		} else if (stdgo.strings.Strings.contains(_name, (Go.str("=") : GoString))) {
-			throw Go.toInterface(_f._sprintf((Go.str("flag %q contains =") : GoString), Go.toInterface(_name)));
+		if (stdgo.strings.Strings.hasPrefix(_name, Go.str("-"))) {
+			throw Go.toInterface(_f._sprintf(Go.str("flag %q begins with -"), Go.toInterface(_name)));
+		} else if (stdgo.strings.Strings.contains(_name, Go.str("="))) {
+			throw Go.toInterface(_f._sprintf(Go.str("flag %q contains ="), Go.toInterface(_name)));
 		};
 		var _flag = ((new Flag(_name, _usage, _value, (_value.string() : GoString)) : Flag) : Ref<Flag>);
 		var __tmp__ = (_f._formal != null
@@ -1505,10 +1551,10 @@ class FlagSet_asInterface {
 			_alreadythere:Bool = __tmp__.ok;
 		if (_alreadythere) {
 			var _msg:GoString = ("" : GoString);
-			if (_f._name == (Go.str() : GoString)) {
-				_msg = _f._sprintf((Go.str("flag redefined: %s") : GoString), Go.toInterface(_name));
+			if (_f._name == Go.str()) {
+				_msg = _f._sprintf(Go.str("flag redefined: %s"), Go.toInterface(_name));
 			} else {
-				_msg = _f._sprintf((Go.str("%s flag redefined: %s") : GoString), Go.toInterface(_f._name), Go.toInterface(_name));
+				_msg = _f._sprintf(Go.str("%s flag redefined: %s"), Go.toInterface(_f._name), Go.toInterface(_name));
 			};
 			throw Go.toInterface(_msg);
 		};
@@ -1532,8 +1578,54 @@ class FlagSet_asInterface {
 						name: "value",
 						embedded: false,
 						tag: "",
-						type: stdgo.reflect.Reflect.GoType.named("Value", [],
-							stdgo.reflect.Reflect.GoType.named("Value", [], stdgo.reflect.Reflect.GoType.interfaceType(false, [])))
+						type: stdgo.reflect.Reflect.GoType.named("Value", [
+							new stdgo.reflect.Reflect.MethodType("set",
+								stdgo.reflect.Reflect.GoType.signature(false, [stdgo.reflect.Reflect.GoType.basic(string_kind)], [
+									stdgo.reflect.Reflect.GoType.named("Error", [
+										new stdgo.reflect.Reflect.MethodType("error",
+											stdgo.reflect.Reflect.GoType.signature(false, [], [stdgo.reflect.Reflect.GoType.basic(string_kind)],
+												stdgo.reflect.Reflect.GoType.invalidType),
+											stdgo.reflect.Reflect.GoType.invalidType)
+									],
+										stdgo.reflect.Reflect.GoType.interfaceType(false,
+											[
+												new stdgo.reflect.Reflect.MethodType("error",
+													stdgo.reflect.Reflect.GoType.signature(false, [], [stdgo.reflect.Reflect.GoType.basic(string_kind)],
+														stdgo.reflect.Reflect.GoType.invalidType),
+													stdgo.reflect.Reflect.GoType.invalidType)
+											]))
+								],
+									stdgo.reflect.Reflect.GoType.invalidType),
+								stdgo.reflect.Reflect.GoType.invalidType),
+							new stdgo.reflect.Reflect.MethodType("string",
+								stdgo.reflect.Reflect.GoType.signature(false, [], [stdgo.reflect.Reflect.GoType.basic(string_kind)],
+									stdgo.reflect.Reflect.GoType.invalidType),
+								stdgo.reflect.Reflect.GoType.invalidType)
+						],
+							stdgo.reflect.Reflect.GoType.named("Value", [], stdgo.reflect.Reflect.GoType.interfaceType(false, [
+								new stdgo.reflect.Reflect.MethodType("set",
+									stdgo.reflect.Reflect.GoType.signature(false, [stdgo.reflect.Reflect.GoType.basic(string_kind)], [
+										stdgo.reflect.Reflect.GoType.named("Error", [
+											new stdgo.reflect.Reflect.MethodType("error",
+												stdgo.reflect.Reflect.GoType.signature(false, [], [stdgo.reflect.Reflect.GoType.basic(string_kind)],
+													stdgo.reflect.Reflect.GoType.invalidType),
+												stdgo.reflect.Reflect.GoType.invalidType)
+										],
+											stdgo.reflect.Reflect.GoType.interfaceType(false,
+												[
+													new stdgo.reflect.Reflect.MethodType("error",
+														stdgo.reflect.Reflect.GoType.signature(false, [], [stdgo.reflect.Reflect.GoType.basic(string_kind)],
+															stdgo.reflect.Reflect.GoType.invalidType),
+														stdgo.reflect.Reflect.GoType.invalidType)
+												]))
+									],
+										stdgo.reflect.Reflect.GoType.invalidType),
+									stdgo.reflect.Reflect.GoType.invalidType),
+								new stdgo.reflect.Reflect.MethodType("string",
+									stdgo.reflect.Reflect.GoType.signature(false, [], [stdgo.reflect.Reflect.GoType.basic(string_kind)],
+										stdgo.reflect.Reflect.GoType.invalidType),
+									stdgo.reflect.Reflect.GoType.invalidType)
+							])))
 					},
 					{
 						name: "defValue",
@@ -1756,7 +1848,7 @@ class FlagSet_asInterface {
 	@:keep
 	static public function arg(_f:Ref<FlagSet>, _i:GoInt):GoString {
 		if ((_i < (0:GoInt)) || (_i >= _f._args.length)) {
-			return (Go.str() : GoString);
+			return Go.str();
 		};
 		return _f._args[_i];
 	}
@@ -1774,10 +1866,10 @@ class FlagSet_asInterface {
 	**/
 	@:keep
 	static public function _defaultUsage(_f:Ref<FlagSet>):Void {
-		if (_f._name == (Go.str() : GoString)) {
-			stdgo.fmt.Fmt.fprintf(_f.output(), (Go.str("Usage:\n") : GoString));
+		if (_f._name == Go.str()) {
+			stdgo.fmt.Fmt.fprintf(_f.output(), Go.str("Usage:\n"));
 		} else {
-			stdgo.fmt.Fmt.fprintf(_f.output(), (Go.str("Usage of %s:\n") : GoString), Go.toInterface(_f._name));
+			stdgo.fmt.Fmt.fprintf(_f.output(), Go.str("Usage of %s:\n"), Go.toInterface(_f._name));
 		};
 		_f.printDefaults();
 	}
@@ -1789,47 +1881,47 @@ class FlagSet_asInterface {
 	**/
 	@:keep
 	static public function printDefaults(_f:Ref<FlagSet>):Void {
-		var _isZeroValueErrs:Slice<Error> = (null : Slice<stdgo.Error>);
+		var _isZeroValueErrs:Slice<Error> = (null : Slice<Error>);
 		_f.visitAll(function(_flag:Ref<Flag>):Void {
 			var _b:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
-			stdgo.fmt.Fmt.fprintf(Go.asInterface((_b : Ref<stdgo.strings.Strings.Builder>)), (Go.str("  -%s") : GoString), Go.toInterface(_flag.name));
+			stdgo.fmt.Fmt.fprintf(Go.asInterface((_b : Ref<stdgo.strings.Strings.Builder>)), Go.str("  -%s"), Go.toInterface(_flag.name));
 			var __tmp__ = unquoteUsage(_flag),
 				_name:GoString = __tmp__._0,
 				_usage:GoString = __tmp__._1;
 			if ((_name.length) > (0 : GoInt)) {
-				_b.writeString((Go.str(" ") : GoString));
+				_b.writeString(Go.str(" "));
 				_b.writeString(_name);
 			};
 			if (_b.len() <= (4 : GoInt)) {
-				_b.writeString((Go.str("\t") : GoString));
+				_b.writeString(Go.str("\t"));
 			} else {
-				_b.writeString((Go.str("\n    \t") : GoString));
+				_b.writeString(Go.str("\n    \t"));
 			};
-			_b.writeString(stdgo.strings.Strings.replaceAll(_usage, (Go.str("\n") : GoString), (Go.str("\n    \t") : GoString)));
+			_b.writeString(stdgo.strings.Strings.replaceAll(_usage, Go.str("\n"), Go.str("\n    \t")));
 			{
 				var __tmp__ = _isZeroValue(_flag, _flag.defValue),
 					_isZero:Bool = __tmp__._0,
-					_err:stdgo.Error = __tmp__._1;
+					_err:Error = __tmp__._1;
 				if (_err != null) {
 					_isZeroValueErrs = (_isZeroValueErrs.__append__(_err));
 				} else if (!_isZero) {
 					{
 						var __tmp__ = try {
-							{value: ((_flag.value.__underlying__().value : Dynamic) : Pointer<T_stringValue>), ok: true};
+							{value: Go.pointer((_flag.value.__underlying__().value : T_stringValue)), ok: true};
 						} catch (_) {
 							{value: (null : Pointer<T_stringValue>), ok: false};
 						}, _0 = __tmp__.value, _ok = __tmp__.ok;
 						if (_ok) {
-							stdgo.fmt.Fmt.fprintf(Go.asInterface((_b : Ref<stdgo.strings.Strings.Builder>)), (Go.str(" (default %q)") : GoString),
+							stdgo.fmt.Fmt.fprintf(Go.asInterface((_b : Ref<stdgo.strings.Strings.Builder>)), Go.str(" (default %q)"),
 								Go.toInterface(_flag.defValue));
 						} else {
-							stdgo.fmt.Fmt.fprintf(Go.asInterface((_b : Ref<stdgo.strings.Strings.Builder>)), (Go.str(" (default %v)") : GoString),
+							stdgo.fmt.Fmt.fprintf(Go.asInterface((_b : Ref<stdgo.strings.Strings.Builder>)), Go.str(" (default %v)"),
 								Go.toInterface(_flag.defValue));
 						};
 					};
 				};
 			};
-			stdgo.fmt.Fmt.fprint(_f.output(), (_b.string() : GoString), (Go.str("\n") : GoString));
+			stdgo.fmt.Fmt.fprint(_f.output(), (_b.string() : GoString), Go.str("\n"));
 		});
 		{
 			var _errs = _isZeroValueErrs;
@@ -1852,9 +1944,9 @@ class FlagSet_asInterface {
 			_flag:Ref<Flag> = __tmp__.value,
 			_ok:Bool = __tmp__.ok;
 		if (!_ok) {
-			return stdgo.fmt.Fmt.errorf((Go.str("no such flag -%v") : GoString), Go.toInterface(_name));
+			return stdgo.fmt.Fmt.errorf(Go.str("no such flag -%v"), Go.toInterface(_name));
 		};
-		var _err:stdgo.Error = _flag.value.set(_value);
+		var _err:Error = _flag.value.set(_value);
 		if (_err != null) {
 			return _err;
 		};
@@ -1878,8 +1970,54 @@ class FlagSet_asInterface {
 						name: "value",
 						embedded: false,
 						tag: "",
-						type: stdgo.reflect.Reflect.GoType.named("Value", [],
-							stdgo.reflect.Reflect.GoType.named("Value", [], stdgo.reflect.Reflect.GoType.interfaceType(false, [])))
+						type: stdgo.reflect.Reflect.GoType.named("Value", [
+							new stdgo.reflect.Reflect.MethodType("set",
+								stdgo.reflect.Reflect.GoType.signature(false, [stdgo.reflect.Reflect.GoType.basic(string_kind)], [
+									stdgo.reflect.Reflect.GoType.named("Error", [
+										new stdgo.reflect.Reflect.MethodType("error",
+											stdgo.reflect.Reflect.GoType.signature(false, [], [stdgo.reflect.Reflect.GoType.basic(string_kind)],
+												stdgo.reflect.Reflect.GoType.invalidType),
+											stdgo.reflect.Reflect.GoType.invalidType)
+									],
+										stdgo.reflect.Reflect.GoType.interfaceType(false,
+											[
+												new stdgo.reflect.Reflect.MethodType("error",
+													stdgo.reflect.Reflect.GoType.signature(false, [], [stdgo.reflect.Reflect.GoType.basic(string_kind)],
+														stdgo.reflect.Reflect.GoType.invalidType),
+													stdgo.reflect.Reflect.GoType.invalidType)
+											]))
+								],
+									stdgo.reflect.Reflect.GoType.invalidType),
+								stdgo.reflect.Reflect.GoType.invalidType),
+							new stdgo.reflect.Reflect.MethodType("string",
+								stdgo.reflect.Reflect.GoType.signature(false, [], [stdgo.reflect.Reflect.GoType.basic(string_kind)],
+									stdgo.reflect.Reflect.GoType.invalidType),
+								stdgo.reflect.Reflect.GoType.invalidType)
+						],
+							stdgo.reflect.Reflect.GoType.named("Value", [], stdgo.reflect.Reflect.GoType.interfaceType(false, [
+								new stdgo.reflect.Reflect.MethodType("set",
+									stdgo.reflect.Reflect.GoType.signature(false, [stdgo.reflect.Reflect.GoType.basic(string_kind)], [
+										stdgo.reflect.Reflect.GoType.named("Error", [
+											new stdgo.reflect.Reflect.MethodType("error",
+												stdgo.reflect.Reflect.GoType.signature(false, [], [stdgo.reflect.Reflect.GoType.basic(string_kind)],
+													stdgo.reflect.Reflect.GoType.invalidType),
+												stdgo.reflect.Reflect.GoType.invalidType)
+										],
+											stdgo.reflect.Reflect.GoType.interfaceType(false,
+												[
+													new stdgo.reflect.Reflect.MethodType("error",
+														stdgo.reflect.Reflect.GoType.signature(false, [], [stdgo.reflect.Reflect.GoType.basic(string_kind)],
+															stdgo.reflect.Reflect.GoType.invalidType),
+														stdgo.reflect.Reflect.GoType.invalidType)
+												]))
+									],
+										stdgo.reflect.Reflect.GoType.invalidType),
+									stdgo.reflect.Reflect.GoType.invalidType),
+								new stdgo.reflect.Reflect.MethodType("string",
+									stdgo.reflect.Reflect.GoType.signature(false, [], [stdgo.reflect.Reflect.GoType.basic(string_kind)],
+										stdgo.reflect.Reflect.GoType.invalidType),
+									stdgo.reflect.Reflect.GoType.invalidType)
+							])))
 					},
 					{
 						name: "defValue",
@@ -1890,7 +2028,7 @@ class FlagSet_asInterface {
 				])))))) : GoMap<GoString, Ref<Flag>>);
 		};
 		_f._actual[_name] = _flag;
-		return (null : stdgo.Error);
+		return (null : Error);
 	}
 
 	/**
@@ -1993,7 +2131,7 @@ class FlagSet_asInterface {
 	var __self__:Pointer<T_boolValue>;
 }
 
-@:keep private class T_boolValue_static_extension {
+@:keep @:allow(stdgo.flag.Flag.T_boolValue_asInterface) class T_boolValue_static_extension {
 	@:keep
 	@:pointer
 	static public function isBoolFlag(____:T_boolValue, _b:Pointer<T_boolValue>):Bool {
@@ -2017,7 +2155,7 @@ class FlagSet_asInterface {
 	static public function set(____:T_boolValue, _b:Pointer<T_boolValue>, _s:GoString):Error {
 		var __tmp__ = stdgo.strconv.Strconv.parseBool(_s),
 			_v:Bool = __tmp__._0,
-			_err:stdgo.Error = __tmp__._1;
+			_err:Error = __tmp__._1;
 		if (_err != null) {
 			_err = _errParse;
 		};
@@ -2053,7 +2191,7 @@ class FlagSet_asInterface {
 	var __self__:Pointer<T_intValue>;
 }
 
-@:keep private class T_intValue_static_extension {
+@:keep @:allow(stdgo.flag.Flag.T_intValue_asInterface) class T_intValue_static_extension {
 	@:keep
 	@:pointer
 	static public function string(____:T_intValue, _i:Pointer<T_intValue>):GoString {
@@ -2071,7 +2209,7 @@ class FlagSet_asInterface {
 	static public function set(____:T_intValue, _i:Pointer<T_intValue>, _s:GoString):Error {
 		var __tmp__ = stdgo.strconv.Strconv.parseInt(_s, (0 : GoInt), (32 : GoInt)),
 			_v:GoInt64 = __tmp__._0,
-			_err:stdgo.Error = __tmp__._1;
+			_err:Error = __tmp__._1;
 		if (_err != null) {
 			_err = _numError(_err);
 		};
@@ -2107,7 +2245,7 @@ class FlagSet_asInterface {
 	var __self__:Pointer<T_int64Value>;
 }
 
-@:keep private class T_int64Value_static_extension {
+@:keep @:allow(stdgo.flag.Flag.T_int64Value_asInterface) class T_int64Value_static_extension {
 	@:keep
 	@:pointer
 	static public function string(____:T_int64Value, _i:Pointer<T_int64Value>):GoString {
@@ -2125,7 +2263,7 @@ class FlagSet_asInterface {
 	static public function set(____:T_int64Value, _i:Pointer<T_int64Value>, _s:GoString):Error {
 		var __tmp__ = stdgo.strconv.Strconv.parseInt(_s, (0 : GoInt), (64 : GoInt)),
 			_v:GoInt64 = __tmp__._0,
-			_err:stdgo.Error = __tmp__._1;
+			_err:Error = __tmp__._1;
 		if (_err != null) {
 			_err = _numError(_err);
 		};
@@ -2161,7 +2299,7 @@ class FlagSet_asInterface {
 	var __self__:Pointer<T_uintValue>;
 }
 
-@:keep private class T_uintValue_static_extension {
+@:keep @:allow(stdgo.flag.Flag.T_uintValue_asInterface) class T_uintValue_static_extension {
 	@:keep
 	@:pointer
 	static public function string(____:T_uintValue, _i:Pointer<T_uintValue>):GoString {
@@ -2179,7 +2317,7 @@ class FlagSet_asInterface {
 	static public function set(____:T_uintValue, _i:Pointer<T_uintValue>, _s:GoString):Error {
 		var __tmp__ = stdgo.strconv.Strconv.parseUint(_s, (0 : GoInt), (32 : GoInt)),
 			_v:GoUInt64 = __tmp__._0,
-			_err:stdgo.Error = __tmp__._1;
+			_err:Error = __tmp__._1;
 		if (_err != null) {
 			_err = _numError(_err);
 		};
@@ -2215,7 +2353,7 @@ class FlagSet_asInterface {
 	var __self__:Pointer<T_uint64Value>;
 }
 
-@:keep private class T_uint64Value_static_extension {
+@:keep @:allow(stdgo.flag.Flag.T_uint64Value_asInterface) class T_uint64Value_static_extension {
 	@:keep
 	@:pointer
 	static public function string(____:T_uint64Value, _i:Pointer<T_uint64Value>):GoString {
@@ -2233,7 +2371,7 @@ class FlagSet_asInterface {
 	static public function set(____:T_uint64Value, _i:Pointer<T_uint64Value>, _s:GoString):Error {
 		var __tmp__ = stdgo.strconv.Strconv.parseUint(_s, (0 : GoInt), (64 : GoInt)),
 			_v:GoUInt64 = __tmp__._0,
-			_err:stdgo.Error = __tmp__._1;
+			_err:Error = __tmp__._1;
 		if (_err != null) {
 			_err = _numError(_err);
 		};
@@ -2269,7 +2407,7 @@ class FlagSet_asInterface {
 	var __self__:Pointer<T_stringValue>;
 }
 
-@:keep private class T_stringValue_static_extension {
+@:keep @:allow(stdgo.flag.Flag.T_stringValue_asInterface) class T_stringValue_static_extension {
 	@:keep
 	@:pointer
 	static public function string(____:T_stringValue, _s:Pointer<T_stringValue>):GoString {
@@ -2286,7 +2424,7 @@ class FlagSet_asInterface {
 	@:pointer
 	static public function set(____:T_stringValue, _s:Pointer<T_stringValue>, _val:GoString):Error {
 		_s.value = (_val : T_stringValue);
-		return (null : stdgo.Error);
+		return (null : Error);
 	}
 }
 
@@ -2317,11 +2455,11 @@ class FlagSet_asInterface {
 	var __self__:Pointer<T_float64Value>;
 }
 
-@:keep private class T_float64Value_static_extension {
+@:keep @:allow(stdgo.flag.Flag.T_float64Value_asInterface) class T_float64Value_static_extension {
 	@:keep
 	@:pointer
 	static public function string(____:T_float64Value, _f:Pointer<T_float64Value>):GoString {
-		return stdgo.strconv.Strconv.formatFloat((_f.value : GoFloat64), ("g".code : GoUInt8), (-1 : GoInt), (64 : GoInt));
+		return stdgo.strconv.Strconv.formatFloat((_f.value : GoFloat64), ("g".code : GoRune), (-1 : GoInt), (64 : GoInt));
 	}
 
 	@:keep
@@ -2335,7 +2473,7 @@ class FlagSet_asInterface {
 	static public function set(____:T_float64Value, _f:Pointer<T_float64Value>, _s:GoString):Error {
 		var __tmp__ = stdgo.strconv.Strconv.parseFloat(_s, (64 : GoInt)),
 			_v:GoFloat64 = __tmp__._0,
-			_err:stdgo.Error = __tmp__._1;
+			_err:Error = __tmp__._1;
 		if (_err != null) {
 			_err = _numError(_err);
 		};
@@ -2371,7 +2509,7 @@ class FlagSet_asInterface {
 	var __self__:Pointer<T_durationValue>;
 }
 
-@:keep private class T_durationValue_static_extension {
+@:keep @:allow(stdgo.flag.Flag.T_durationValue_asInterface) class T_durationValue_static_extension {
 	@:keep
 	@:pointer
 	static public function string(____:T_durationValue, _d:Pointer<T_durationValue>):GoString {
@@ -2390,7 +2528,7 @@ class FlagSet_asInterface {
 	static public function set(____:T_durationValue, _d:Pointer<T_durationValue>, _s:GoString):Error {
 		var __tmp__ = stdgo.time.Time.parseDuration(_s),
 			_v:stdgo.time.Time.Duration = __tmp__._0,
-			_err:stdgo.Error = __tmp__._1;
+			_err:Error = __tmp__._1;
 		if (_err != null) {
 			_err = _errParse;
 		};
@@ -2419,10 +2557,10 @@ private class T_funcValue_asInterface {
 	var __self__:T_funcValue;
 }
 
-@:keep private class T_funcValue_static_extension {
+@:keep @:allow(stdgo.flag.Flag.T_funcValue_asInterface) class T_funcValue_static_extension {
 	@:keep
 	static public function string(_f:T_funcValue):GoString {
-		return (Go.str() : GoString);
+		return Go.str();
 	}
 
 	@:keep

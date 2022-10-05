@@ -64,23 +64,23 @@ private var _errorstr:GoArray<GoString> = new GoArray<GoString>(...[for (i in 0.
 	// Do the interface allocations only once for common
 	// Errno values.
 **/
-private var _errEAGAIN:Error = (null : stdgo.Error);
+private var _errEAGAIN:Error = (null : Error);
 
 /**
 	// Do the interface allocations only once for common
 	// Errno values.
 **/
-private var _errEINVAL:Error = (null : stdgo.Error);
+private var _errEINVAL:Error = (null : Error);
 
 /**
 	// Do the interface allocations only once for common
 	// Errno values.
 **/
-private var _errENOENT:Error = (null : stdgo.Error);
+private var _errENOENT:Error = (null : Error);
 
 private var _errnoByCode:GoMap<GoString, Errno> = (null : GoMap<GoString, Errno>);
-private final _asanenabled = null;
-private final _isBigEndian = null;
+private final _asanenabled:InvalidType = null;
+private final _isBigEndian:InvalidType = null;
 
 /**
 	// envOnce guards initialization by copyenv, which populates env.
@@ -98,39 +98,39 @@ private var _envLock:stdgo.sync.Sync.RWMutex = ({} : stdgo.sync.Sync.RWMutex);
 private var _env:GoMap<GoString, GoInt> = (null : GoMap<GoString, GoInt>);
 
 private var _filesMu:stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
-private final _msanenabled = null;
-final af_UNSPEC:GoUnTypedInt = (0 : GoUnTypedInt);
-final af_UNIX = null;
-final af_INET = null;
-final af_INET6 = null;
-final sock_STREAM:GoUnTypedInt = (0 : GoUnTypedInt);
-final sock_DGRAM = null;
-final sock_RAW = null;
-final sock_SEQPACKET = null;
-final ipproto_IP:GoUnTypedInt = (0 : GoUnTypedInt);
-final ipproto_IPV4:GoUnTypedInt = (0 : GoUnTypedInt);
-final ipproto_IPV6:GoUnTypedInt = (0 : GoUnTypedInt);
-final ipproto_TCP:GoUnTypedInt = (0 : GoUnTypedInt);
-final ipproto_UDP:GoUnTypedInt = (0 : GoUnTypedInt);
-private final _0:GoUnTypedInt = (0 : GoUnTypedInt);
-final ipv6_V6ONLY = null;
-final somaxconn = null;
-final so_ERROR = null;
+private final _msanenabled:InvalidType = null;
+final af_UNSPEC:GoUInt64 = (0 : GoUInt64);
+final af_UNIX:InvalidType = null;
+final af_INET:InvalidType = null;
+final af_INET6:InvalidType = null;
+final sock_STREAM:GoUInt64 = (0 : GoUInt64);
+final sock_DGRAM:InvalidType = null;
+final sock_RAW:InvalidType = null;
+final sock_SEQPACKET:InvalidType = null;
+final ipproto_IP:GoUInt64 = (0 : GoUInt64);
+final ipproto_IPV4:GoUInt64 = (0 : GoUInt64);
+final ipproto_IPV6:GoUInt64 = (0 : GoUInt64);
+final ipproto_TCP:GoUInt64 = (0 : GoUInt64);
+final ipproto_UDP:GoUInt64 = (0 : GoUInt64);
+private final _8:GoUInt64 = (0 : GoUInt64);
+final ipv6_V6ONLY:InvalidType = null;
+final somaxconn:InvalidType = null;
+final so_ERROR:InvalidType = null;
 
 /**
 	// Misc constants expected by package net but not supported.
 **/
-private final _1:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _9:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// Misc constants expected by package net but not supported.
 **/
-final f_DUPFD_CLOEXEC = null;
+final f_DUPFD_CLOEXEC:InvalidType = null;
 
 /**
 	// unsupported// Misc constants expected by package net but not supported.
 **/
-final sys_FCNTL:GoUnTypedInt = (0 : GoUnTypedInt);
+final sys_FCNTL:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// Single-word zero for use when we need a valid pointer to 0 bytes.
@@ -138,83 +138,83 @@ final sys_FCNTL:GoUnTypedInt = (0 : GoUnTypedInt);
 **/
 private var __zero:GoUIntptr = (0 : GoUIntptr);
 
-private final _direntSize:GoUnTypedInt = (0 : GoUnTypedInt);
-final pathMax:GoUnTypedInt = (0 : GoUnTypedInt);
-private final _2:Signal = ((0 : GoInt) : Signal);
+private final _direntSize:GoUInt64 = (0 : GoUInt64);
+final pathMax:GoUInt64 = (0 : GoUInt64);
+private final _10:Signal = ((0 : GoInt) : Signal);
 final sigchld:Signal = ((0 : GoInt) : Signal);
 final sigint:Signal = ((0 : GoInt) : Signal);
 final sigkill:Signal = ((0 : GoInt) : Signal);
 final sigtrap:Signal = ((0 : GoInt) : Signal);
 final sigquit:Signal = ((0 : GoInt) : Signal);
 final sigterm:Signal = ((0 : GoInt) : Signal);
-final stdin:GoUnTypedInt = (0 : GoUnTypedInt);
-final stdout:GoUnTypedInt = (0 : GoUnTypedInt);
-final stderr:GoUnTypedInt = (0 : GoUnTypedInt);
-final o_RDONLY:GoUnTypedInt = (0 : GoUnTypedInt);
-final o_WRONLY:GoUnTypedInt = (0 : GoUnTypedInt);
-final o_RDWR:GoUnTypedInt = (0 : GoUnTypedInt);
-final o_CREAT:GoUnTypedInt = (0 : GoUnTypedInt);
-final o_CREATE:GoUnTypedInt = (0 : GoUnTypedInt);
-final o_TRUNC:GoUnTypedInt = (0 : GoUnTypedInt);
-final o_APPEND:GoUnTypedInt = (0 : GoUnTypedInt);
-final o_EXCL:GoUnTypedInt = (0 : GoUnTypedInt);
-final o_SYNC:GoUnTypedInt = (0 : GoUnTypedInt);
-final o_CLOEXEC:GoUnTypedInt = (0 : GoUnTypedInt);
-final f_DUPFD:GoUnTypedInt = (0 : GoUnTypedInt);
-final f_GETFD:GoUnTypedInt = (0 : GoUnTypedInt);
-final f_SETFD:GoUnTypedInt = (0 : GoUnTypedInt);
-final f_GETFL:GoUnTypedInt = (0 : GoUnTypedInt);
-final f_SETFL:GoUnTypedInt = (0 : GoUnTypedInt);
-final f_GETOWN:GoUnTypedInt = (0 : GoUnTypedInt);
-final f_SETOWN:GoUnTypedInt = (0 : GoUnTypedInt);
-final f_GETLK:GoUnTypedInt = (0 : GoUnTypedInt);
-final f_SETLK:GoUnTypedInt = (0 : GoUnTypedInt);
-final f_SETLKW:GoUnTypedInt = (0 : GoUnTypedInt);
-final f_RGETLK:GoUnTypedInt = (0 : GoUnTypedInt);
-final f_RSETLK:GoUnTypedInt = (0 : GoUnTypedInt);
-final f_CNVT:GoUnTypedInt = (0 : GoUnTypedInt);
-final f_RSETLKW:GoUnTypedInt = (0 : GoUnTypedInt);
-final f_RDLCK:GoUnTypedInt = (0 : GoUnTypedInt);
-final f_WRLCK:GoUnTypedInt = (0 : GoUnTypedInt);
-final f_UNLCK:GoUnTypedInt = (0 : GoUnTypedInt);
-final f_UNLKSYS:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IFMT:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IFSHM_SYSV:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IFSEMA:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IFCOND:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IFMUTEX:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IFSHM:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IFBOUNDSOCK:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IFSOCKADDR:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IFDSOCK:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IFSOCK:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IFLNK:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IFREG:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IFBLK:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IFDIR:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IFCHR:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IFIFO:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_UNSUP:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_ISUID:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_ISGID:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_ISVTX:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IREAD:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IWRITE:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IEXEC:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IRWXU:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IRUSR:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IWUSR:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IXUSR:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IRWXG:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IRGRP:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IWGRP:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IXGRP:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IRWXO:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IROTH:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IWOTH:GoUnTypedInt = (0 : GoUnTypedInt);
-final s_IXOTH:GoUnTypedInt = (0 : GoUnTypedInt);
+final stdin:GoUInt64 = (0 : GoUInt64);
+final stdout:GoUInt64 = (0 : GoUInt64);
+final stderr:GoUInt64 = (0 : GoUInt64);
+final o_RDONLY:GoUInt64 = (0 : GoUInt64);
+final o_WRONLY:GoUInt64 = (0 : GoUInt64);
+final o_RDWR:GoUInt64 = (0 : GoUInt64);
+final o_CREAT:GoUInt64 = (0 : GoUInt64);
+final o_CREATE:GoUInt64 = (0 : GoUInt64);
+final o_TRUNC:GoUInt64 = (0 : GoUInt64);
+final o_APPEND:GoUInt64 = (0 : GoUInt64);
+final o_EXCL:GoUInt64 = (0 : GoUInt64);
+final o_SYNC:GoUInt64 = (0 : GoUInt64);
+final o_CLOEXEC:GoUInt64 = (0 : GoUInt64);
+final f_DUPFD:GoUInt64 = (0 : GoUInt64);
+final f_GETFD:GoUInt64 = (0 : GoUInt64);
+final f_SETFD:GoUInt64 = (0 : GoUInt64);
+final f_GETFL:GoUInt64 = (0 : GoUInt64);
+final f_SETFL:GoUInt64 = (0 : GoUInt64);
+final f_GETOWN:GoUInt64 = (0 : GoUInt64);
+final f_SETOWN:GoUInt64 = (0 : GoUInt64);
+final f_GETLK:GoUInt64 = (0 : GoUInt64);
+final f_SETLK:GoUInt64 = (0 : GoUInt64);
+final f_SETLKW:GoUInt64 = (0 : GoUInt64);
+final f_RGETLK:GoUInt64 = (0 : GoUInt64);
+final f_RSETLK:GoUInt64 = (0 : GoUInt64);
+final f_CNVT:GoUInt64 = (0 : GoUInt64);
+final f_RSETLKW:GoUInt64 = (0 : GoUInt64);
+final f_RDLCK:GoUInt64 = (0 : GoUInt64);
+final f_WRLCK:GoUInt64 = (0 : GoUInt64);
+final f_UNLCK:GoUInt64 = (0 : GoUInt64);
+final f_UNLKSYS:GoUInt64 = (0 : GoUInt64);
+final s_IFMT:GoUInt64 = (0 : GoUInt64);
+final s_IFSHM_SYSV:GoUInt64 = (0 : GoUInt64);
+final s_IFSEMA:GoUInt64 = (0 : GoUInt64);
+final s_IFCOND:GoUInt64 = (0 : GoUInt64);
+final s_IFMUTEX:GoUInt64 = (0 : GoUInt64);
+final s_IFSHM:GoUInt64 = (0 : GoUInt64);
+final s_IFBOUNDSOCK:GoUInt64 = (0 : GoUInt64);
+final s_IFSOCKADDR:GoUInt64 = (0 : GoUInt64);
+final s_IFDSOCK:GoUInt64 = (0 : GoUInt64);
+final s_IFSOCK:GoUInt64 = (0 : GoUInt64);
+final s_IFLNK:GoUInt64 = (0 : GoUInt64);
+final s_IFREG:GoUInt64 = (0 : GoUInt64);
+final s_IFBLK:GoUInt64 = (0 : GoUInt64);
+final s_IFDIR:GoUInt64 = (0 : GoUInt64);
+final s_IFCHR:GoUInt64 = (0 : GoUInt64);
+final s_IFIFO:GoUInt64 = (0 : GoUInt64);
+final s_UNSUP:GoUInt64 = (0 : GoUInt64);
+final s_ISUID:GoUInt64 = (0 : GoUInt64);
+final s_ISGID:GoUInt64 = (0 : GoUInt64);
+final s_ISVTX:GoUInt64 = (0 : GoUInt64);
+final s_IREAD:GoUInt64 = (0 : GoUInt64);
+final s_IWRITE:GoUInt64 = (0 : GoUInt64);
+final s_IEXEC:GoUInt64 = (0 : GoUInt64);
+final s_IRWXU:GoUInt64 = (0 : GoUInt64);
+final s_IRUSR:GoUInt64 = (0 : GoUInt64);
+final s_IWUSR:GoUInt64 = (0 : GoUInt64);
+final s_IXUSR:GoUInt64 = (0 : GoUInt64);
+final s_IRWXG:GoUInt64 = (0 : GoUInt64);
+final s_IRGRP:GoUInt64 = (0 : GoUInt64);
+final s_IWGRP:GoUInt64 = (0 : GoUInt64);
+final s_IXGRP:GoUInt64 = (0 : GoUInt64);
+final s_IRWXO:GoUInt64 = (0 : GoUInt64);
+final s_IROTH:GoUInt64 = (0 : GoUInt64);
+final s_IWOTH:GoUInt64 = (0 : GoUInt64);
+final s_IXOTH:GoUInt64 = (0 : GoUInt64);
 var forkLock:stdgo.sync.Sync.RWMutex = ({} : stdgo.sync.Sync.RWMutex);
-final implementsGetwd = null;
+final implementsGetwd:InvalidType = null;
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -223,7 +223,7 @@ final implementsGetwd = null;
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_null:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_null:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -232,7 +232,7 @@ private final _sys_null:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_nameservice:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_nameservice:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -241,7 +241,7 @@ private final _sys_nameservice:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_dup:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_dup:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -250,7 +250,7 @@ private final _sys_dup:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_dup2:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_dup2:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -259,7 +259,7 @@ private final _sys_dup2:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_open:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_open:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -268,7 +268,7 @@ private final _sys_open:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_close:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_close:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -277,7 +277,7 @@ private final _sys_close:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_read:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_read:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -286,7 +286,7 @@ private final _sys_read:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_write:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_write:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -295,7 +295,7 @@ private final _sys_write:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_lseek:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_lseek:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -304,7 +304,7 @@ private final _sys_lseek:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_stat:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_stat:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -313,7 +313,7 @@ private final _sys_stat:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_fstat:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_fstat:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -322,7 +322,7 @@ private final _sys_fstat:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_chmod:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_chmod:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -331,7 +331,7 @@ private final _sys_chmod:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_isatty:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_isatty:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -340,7 +340,7 @@ private final _sys_isatty:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_brk:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_brk:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -349,7 +349,7 @@ private final _sys_brk:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_mmap:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_mmap:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -358,7 +358,7 @@ private final _sys_mmap:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_munmap:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_munmap:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -367,7 +367,7 @@ private final _sys_munmap:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_getdents:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_getdents:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -376,7 +376,7 @@ private final _sys_getdents:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_mprotect:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_mprotect:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -385,7 +385,7 @@ private final _sys_mprotect:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_list_mappings:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_list_mappings:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -394,7 +394,7 @@ private final _sys_list_mappings:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_exit:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_exit:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -403,7 +403,7 @@ private final _sys_exit:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_getpid:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_getpid:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -412,7 +412,7 @@ private final _sys_getpid:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_sched_yield:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_sched_yield:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -421,7 +421,7 @@ private final _sys_sched_yield:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_sysconf:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_sysconf:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -430,7 +430,7 @@ private final _sys_sysconf:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_gettimeofday:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_gettimeofday:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -439,7 +439,7 @@ private final _sys_gettimeofday:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_clock:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_clock:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -448,7 +448,7 @@ private final _sys_clock:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_nanosleep:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_nanosleep:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -457,7 +457,7 @@ private final _sys_nanosleep:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_clock_getres:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_clock_getres:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -466,7 +466,7 @@ private final _sys_clock_getres:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_clock_gettime:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_clock_gettime:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -475,7 +475,7 @@ private final _sys_clock_gettime:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_mkdir:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_mkdir:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -484,7 +484,7 @@ private final _sys_mkdir:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_rmdir:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_rmdir:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -493,7 +493,7 @@ private final _sys_rmdir:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_chdir:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_chdir:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -502,7 +502,7 @@ private final _sys_chdir:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_getcwd:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_getcwd:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -511,7 +511,7 @@ private final _sys_getcwd:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_unlink:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_unlink:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -520,7 +520,7 @@ private final _sys_unlink:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_imc_makeboundsock:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_imc_makeboundsock:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -529,7 +529,7 @@ private final _sys_imc_makeboundsock:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_imc_accept:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_imc_accept:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -538,7 +538,7 @@ private final _sys_imc_accept:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_imc_connect:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_imc_connect:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -547,7 +547,7 @@ private final _sys_imc_connect:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_imc_sendmsg:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_imc_sendmsg:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -556,7 +556,7 @@ private final _sys_imc_sendmsg:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_imc_recvmsg:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_imc_recvmsg:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -565,7 +565,7 @@ private final _sys_imc_recvmsg:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_imc_mem_obj_create:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_imc_mem_obj_create:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -574,7 +574,7 @@ private final _sys_imc_mem_obj_create:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_imc_socketpair:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_imc_socketpair:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -583,7 +583,7 @@ private final _sys_imc_socketpair:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_mutex_create:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_mutex_create:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -592,7 +592,7 @@ private final _sys_mutex_create:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_mutex_lock:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_mutex_lock:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -601,7 +601,7 @@ private final _sys_mutex_lock:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_mutex_trylock:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_mutex_trylock:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -610,7 +610,7 @@ private final _sys_mutex_trylock:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_mutex_unlock:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_mutex_unlock:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -619,7 +619,7 @@ private final _sys_mutex_unlock:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_cond_create:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_cond_create:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -628,7 +628,7 @@ private final _sys_cond_create:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_cond_wait:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_cond_wait:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -637,7 +637,7 @@ private final _sys_cond_wait:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_cond_signal:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_cond_signal:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -646,7 +646,7 @@ private final _sys_cond_signal:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_cond_broadcast:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_cond_broadcast:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -655,7 +655,7 @@ private final _sys_cond_broadcast:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_cond_timed_wait_abs:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_cond_timed_wait_abs:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -664,7 +664,7 @@ private final _sys_cond_timed_wait_abs:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_thread_create:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_thread_create:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -673,7 +673,7 @@ private final _sys_thread_create:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_thread_exit:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_thread_exit:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -682,7 +682,7 @@ private final _sys_thread_exit:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_tls_init:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_tls_init:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -691,7 +691,7 @@ private final _sys_tls_init:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_thread_nice:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_thread_nice:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -700,7 +700,7 @@ private final _sys_thread_nice:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_tls_get:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_tls_get:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -709,7 +709,7 @@ private final _sys_tls_get:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_second_tls_set:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_second_tls_set:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -718,7 +718,7 @@ private final _sys_second_tls_set:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_second_tls_get:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_second_tls_get:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -727,7 +727,7 @@ private final _sys_second_tls_get:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_exception_handler:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_exception_handler:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -736,7 +736,7 @@ private final _sys_exception_handler:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_exception_stack:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_exception_stack:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -745,7 +745,7 @@ private final _sys_exception_stack:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_exception_clear_flag:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_exception_clear_flag:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -754,7 +754,7 @@ private final _sys_exception_clear_flag:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_sem_create:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_sem_create:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -763,7 +763,7 @@ private final _sys_sem_create:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_sem_wait:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_sem_wait:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -772,7 +772,7 @@ private final _sys_sem_wait:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_sem_post:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_sem_post:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -781,7 +781,7 @@ private final _sys_sem_post:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_sem_get_value:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_sem_get_value:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -790,7 +790,7 @@ private final _sys_sem_get_value:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_dyncode_create:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_dyncode_create:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -799,7 +799,7 @@ private final _sys_dyncode_create:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_dyncode_modify:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_dyncode_modify:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -808,7 +808,7 @@ private final _sys_dyncode_modify:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_dyncode_delete:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_dyncode_delete:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -817,7 +817,7 @@ private final _sys_dyncode_delete:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_test_infoleak:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_test_infoleak:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -826,7 +826,7 @@ private final _sys_test_infoleak:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_test_crash:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_test_crash:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -835,7 +835,7 @@ private final _sys_test_crash:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_test_syscall_1:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_test_syscall_1:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -844,7 +844,7 @@ private final _sys_test_syscall_1:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_test_syscall_2:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_test_syscall_2:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -853,7 +853,7 @@ private final _sys_test_syscall_2:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_futex_wait_abs:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_futex_wait_abs:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -862,7 +862,7 @@ private final _sys_futex_wait_abs:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_futex_wake:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_futex_wake:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -871,7 +871,7 @@ private final _sys_futex_wake:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_pread:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_pread:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -880,7 +880,7 @@ private final _sys_pread:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_pwrite:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_pwrite:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -889,7 +889,7 @@ private final _sys_pwrite:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_truncate:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_truncate:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -898,7 +898,7 @@ private final _sys_truncate:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_lstat:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_lstat:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -907,7 +907,7 @@ private final _sys_lstat:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_link:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_link:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -916,7 +916,7 @@ private final _sys_link:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_rename:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_rename:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -925,7 +925,7 @@ private final _sys_rename:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_symlink:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_symlink:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -934,7 +934,7 @@ private final _sys_symlink:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_access:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_access:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -943,7 +943,7 @@ private final _sys_access:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_readlink:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_readlink:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -952,7 +952,7 @@ private final _sys_readlink:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_utimes:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_utimes:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// These were originally used by Nacl, then later also used by
@@ -961,7 +961,7 @@ private final _sys_utimes:GoUnTypedInt = (0 : GoUnTypedInt);
 	//
 	// TODO: delete? replace with something meaningful?
 **/
-private final _sys_get_random_bytes:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _sys_get_random_bytes:GoUInt64 = (0 : GoUInt64);
 
 /**
 	/|* Operation not permitted *|/// native_client/src/trusted/service_runtime/include/sys/errno.h
@@ -1574,7 +1574,7 @@ final ecaseclash:Errno = ((0 : GoUIntptr) : Errno);
 **/
 final ewouldblock:Errno = ((0 : GoUIntptr) : Errno);
 
-private final _faketime = null;
+private final _faketime:InvalidType = null;
 
 /**
 	// A RawConn is a raw network connection.
@@ -2355,7 +2355,7 @@ class Timespec_asInterface {
 	var __self__:Timespec;
 }
 
-@:keep private class Timespec_static_extension {
+@:keep @:allow(stdgo.syscall.Syscall.Timespec_asInterface) class Timespec_static_extension {
 	/**
 		// Nano returns the time stored in ts as nanoseconds.
 	**/
@@ -2397,7 +2397,7 @@ class Timeval_asInterface {
 	var __self__:Timeval;
 }
 
-@:keep private class Timeval_static_extension {
+@:keep @:allow(stdgo.syscall.Syscall.Timeval_asInterface) class Timeval_static_extension {
 	/**
 		// Nano returns the time stored in tv as nanoseconds.
 	**/
@@ -2441,7 +2441,7 @@ class Errno_asInterface {
 	var __self__:Errno;
 }
 
-@:keep private class Errno_static_extension {
+@:keep @:allow(stdgo.syscall.Syscall.Errno_asInterface) class Errno_static_extension {
 	@:keep
 	static public function timeout(_e:Errno):Bool
 		throw "syscall.timeout is not yet implemented";
@@ -2479,7 +2479,7 @@ class Signal_asInterface {
 	var __self__:Signal;
 }
 
-@:keep private class Signal_static_extension {
+@:keep @:allow(stdgo.syscall.Syscall.Signal_asInterface) class Signal_static_extension {
 	@:keep
 	static public function string(_s:Signal):GoString
 		throw "syscall.string is not yet implemented";
@@ -2537,7 +2537,7 @@ class WaitStatus_asInterface {
 	var __self__:WaitStatus;
 }
 
-@:keep private class WaitStatus_static_extension {
+@:keep @:allow(stdgo.syscall.Syscall.WaitStatus_asInterface) class WaitStatus_static_extension {
 	@:keep
 	static public function trapCause(_w:WaitStatus):GoInt
 		throw "syscall.trapCause is not yet implemented";

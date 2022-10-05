@@ -11,23 +11,19 @@ import stdgo.GoMap;
 import stdgo.Chan;
 
 private var _tests:Slice<stdgo.testing.Testing.InternalTest> = (new Slice<stdgo.testing.Testing.InternalTest>(0, 0,
-	(new stdgo.testing.Testing.InternalTest((Go.str("TestValidPath") : GoString),
-		stdgo.io.fs_test.Fs_test.testValidPath) : stdgo.testing.Testing.InternalTest),
-	(new stdgo.testing.Testing.InternalTest((Go.str("TestGlob") : GoString), stdgo.io.fs_test.Fs_test.testGlob) : stdgo.testing.Testing.InternalTest),
-	(new stdgo.testing.Testing.InternalTest((Go.str("TestGlobError") : GoString),
-		stdgo.io.fs_test.Fs_test.testGlobError) : stdgo.testing.Testing.InternalTest),
-	(new stdgo.testing.Testing.InternalTest((Go.str("TestCVE202230630") : GoString),
-		stdgo.io.fs_test.Fs_test.testCVE202230630) : stdgo.testing.Testing.InternalTest),
-	(new stdgo.testing.Testing.InternalTest((Go.str("TestGlobMethod") : GoString),
-		stdgo.io.fs_test.Fs_test.testGlobMethod) : stdgo.testing.Testing.InternalTest),
-	(new stdgo.testing.Testing.InternalTest((Go.str("TestReadDir") : GoString), stdgo.io.fs_test.Fs_test.testReadDir) : stdgo.testing.Testing.InternalTest),
-	(new stdgo.testing.Testing.InternalTest((Go.str("TestFileInfoToDirEntry") : GoString),
+	(new stdgo.testing.Testing.InternalTest(Go.str("TestValidPath"), stdgo.io.fs_test.Fs_test.testValidPath) : stdgo.testing.Testing.InternalTest),
+	(new stdgo.testing.Testing.InternalTest(Go.str("TestGlob"), stdgo.io.fs_test.Fs_test.testGlob) : stdgo.testing.Testing.InternalTest),
+	(new stdgo.testing.Testing.InternalTest(Go.str("TestGlobError"), stdgo.io.fs_test.Fs_test.testGlobError) : stdgo.testing.Testing.InternalTest),
+	(new stdgo.testing.Testing.InternalTest(Go.str("TestCVE202230630"), stdgo.io.fs_test.Fs_test.testCVE202230630) : stdgo.testing.Testing.InternalTest),
+	(new stdgo.testing.Testing.InternalTest(Go.str("TestGlobMethod"), stdgo.io.fs_test.Fs_test.testGlobMethod) : stdgo.testing.Testing.InternalTest),
+	(new stdgo.testing.Testing.InternalTest(Go.str("TestReadDir"), stdgo.io.fs_test.Fs_test.testReadDir) : stdgo.testing.Testing.InternalTest),
+	(new stdgo.testing.Testing.InternalTest(Go.str("TestFileInfoToDirEntry"),
 		stdgo.io.fs_test.Fs_test.testFileInfoToDirEntry) : stdgo.testing.Testing.InternalTest),
-	(new stdgo.testing.Testing.InternalTest((Go.str("TestReadFile") : GoString), stdgo.io.fs_test.Fs_test.testReadFile) : stdgo.testing.Testing.InternalTest),
-	(new stdgo.testing.Testing.InternalTest((Go.str("TestStat") : GoString), stdgo.io.fs_test.Fs_test.testStat) : stdgo.testing.Testing.InternalTest),
-	(new stdgo.testing.Testing.InternalTest((Go.str("TestSub") : GoString), stdgo.io.fs_test.Fs_test.testSub) : stdgo.testing.Testing.InternalTest),
-	(new stdgo.testing.Testing.InternalTest((Go.str("TestWalkDir") : GoString), stdgo.io.fs_test.Fs_test.testWalkDir) : stdgo.testing.Testing.InternalTest),
-	(new stdgo.testing.Testing.InternalTest((Go.str("TestIssue51617") : GoString),
+	(new stdgo.testing.Testing.InternalTest(Go.str("TestReadFile"), stdgo.io.fs_test.Fs_test.testReadFile) : stdgo.testing.Testing.InternalTest),
+	(new stdgo.testing.Testing.InternalTest(Go.str("TestStat"), stdgo.io.fs_test.Fs_test.testStat) : stdgo.testing.Testing.InternalTest),
+	(new stdgo.testing.Testing.InternalTest(Go.str("TestSub"), stdgo.io.fs_test.Fs_test.testSub) : stdgo.testing.Testing.InternalTest),
+	(new stdgo.testing.Testing.InternalTest(Go.str("TestWalkDir"), stdgo.io.fs_test.Fs_test.testWalkDir) : stdgo.testing.Testing.InternalTest),
+	(new stdgo.testing.Testing.InternalTest(Go.str("TestIssue51617"),
 		stdgo.io.fs_test.Fs_test.testIssue51617) : stdgo.testing.Testing.InternalTest)) : Slice<stdgo.testing.Testing.InternalTest>);
 
 private var _benchmarks:Slice<stdgo.testing.Testing.InternalBenchmark> = (new Slice<stdgo.testing.Testing.InternalBenchmark>(0,
@@ -48,7 +44,7 @@ function main():Void {
 
 @:keep var _ = {
 	try {
-		stdgo.testing.internal.testdeps.Testdeps.importPath = (Go.str("io/fs") : GoString);
+		stdgo.testing.internal.testdeps.Testdeps.importPath = Go.str("io/fs");
 	} catch (__exception__)
 		if (__exception__.message != "__return__")
 			throw __exception__;

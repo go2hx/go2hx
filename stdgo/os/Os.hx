@@ -55,7 +55,7 @@ private var _dirBufPool:stdgo.sync.Sync.Pool = ({} : stdgo.sync.Sync.Pool);
 	// "invalid argument"// ErrInvalid indicates an invalid argument.
 	// Methods on File will return this error when the receiver is nil.
 **/
-var errInvalid:stdgo.Error = (null : stdgo.Error);
+var errInvalid:Error = (null : Error);
 
 /**
 	// "permission denied"// Portable analogs of some common system call errors.
@@ -63,7 +63,7 @@ var errInvalid:stdgo.Error = (null : stdgo.Error);
 	// Errors returned from this package may be tested against these errors
 	// with errors.Is.
 **/
-var errPermission:stdgo.Error = (null : stdgo.Error);
+var errPermission:Error = (null : Error);
 
 /**
 	// "file already exists"// Portable analogs of some common system call errors.
@@ -71,7 +71,7 @@ var errPermission:stdgo.Error = (null : stdgo.Error);
 	// Errors returned from this package may be tested against these errors
 	// with errors.Is.
 **/
-var errExist:stdgo.Error = (null : stdgo.Error);
+var errExist:Error = (null : Error);
 
 /**
 	// "file does not exist"// Portable analogs of some common system call errors.
@@ -79,7 +79,7 @@ var errExist:stdgo.Error = (null : stdgo.Error);
 	// Errors returned from this package may be tested against these errors
 	// with errors.Is.
 **/
-var errNotExist:stdgo.Error = (null : stdgo.Error);
+var errNotExist:Error = (null : Error);
 
 /**
 	// "file already closed"// Portable analogs of some common system call errors.
@@ -87,7 +87,7 @@ var errNotExist:stdgo.Error = (null : stdgo.Error);
 	// Errors returned from this package may be tested against these errors
 	// with errors.Is.
 **/
-var errClosed:stdgo.Error = (null : stdgo.Error);
+var errClosed:Error = (null : Error);
 
 /**
 	// "file type does not support deadline"// Portable analogs of some common system call errors.
@@ -95,7 +95,7 @@ var errClosed:stdgo.Error = (null : stdgo.Error);
 	// Errors returned from this package may be tested against these errors
 	// with errors.Is.
 **/
-var errNoDeadline:stdgo.Error = (null : stdgo.Error);
+var errNoDeadline:Error = (null : Error);
 
 /**
 	// "i/o timeout"// Portable analogs of some common system call errors.
@@ -103,12 +103,12 @@ var errNoDeadline:stdgo.Error = (null : stdgo.Error);
 	// Errors returned from this package may be tested against these errors
 	// with errors.Is.
 **/
-var errDeadlineExceeded:stdgo.Error = (null : stdgo.Error);
+var errDeadlineExceeded:Error = (null : Error);
 
 /**
 	// ErrProcessDone indicates a Process has finished.
 **/
-var errProcessDone:stdgo.Error = (null : stdgo.Error);
+var errProcessDone:Error = (null : Error);
 
 /**
 	// The only signal values guaranteed to be present in the os package on all
@@ -128,7 +128,7 @@ var interrupt:Signal = (null : Signal);
 **/
 var kill:Signal = (null : Signal);
 
-private var _errWriteAtInAppendMode:stdgo.Error = (null : stdgo.Error);
+private var _errWriteAtInAppendMode:Error = (null : Error);
 
 /**
 	// Stdin, Stdout, and Stderr are open Files pointing to the standard input,
@@ -160,29 +160,29 @@ var stdout:Ref<File> = (null : File);
 **/
 var stderr:Ref<File> = (null : File);
 
-private var _errPatternHasSeparator:stdgo.Error = (null : stdgo.Error);
+private var _errPatternHasSeparator:Error = (null : Error);
 
 /**
 	// lstat is overridden in tests.
 **/
 private var _lstat:GoString -> {
 	var _0:stdgo.io.fs.Fs.FileInfo;
-	var _1:stdgo.Error;
+	var _1:Error;
 } = null;
 
 var atime:stdgo.io.fs.Fs.FileInfo->stdgo.time.Time.Time = null;
 
 var lstatP:Ref<GoString -> {
 	var _0:stdgo.io.fs.Fs.FileInfo;
-	var _1:stdgo.Error;
+	var _1:Error;
 }> = (null : GoString -> {
 	var _0:stdgo.io.fs.Fs.FileInfo;
-	var _1:stdgo.Error;
+	var _1:Error;
 });
 
-var errWriteAtInAppendMode:stdgo.Error = (null : stdgo.Error);
+var errWriteAtInAppendMode:Error = (null : Error);
 var testingForceReadDirLstat:Pointer<Bool> = (null : Pointer<Bool>);
-var errPatternHasSeparator:stdgo.Error = (null : stdgo.Error);
+var errPatternHasSeparator:Error = (null : Error);
 
 var splitPath:GoString -> {
 	var _0:GoString;
@@ -202,9 +202,9 @@ private var _testingForceReadDirLstat:Bool = false;
 /**
 	// More than 5760 to work around https://golang.org/issue/24015.
 **/
-private final _blockSize:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _blockSize:GoUInt64 = (0 : GoUInt64);
 
-private final _isBigEndian = null;
+private final _isBigEndian:InvalidType = null;
 
 /**
 	// open the file read-only.// Exactly one of O_RDONLY, O_WRONLY, or O_RDWR must be specified.
@@ -305,7 +305,7 @@ var args:Slice<GoString> = (null : Slice<GoString>);
 	// According to sticky(8), neither open(2) nor mkdir(2) will create
 	// a file with the sticky bit set.
 **/
-private final _supportsCreateWithStickyBit = null;
+private final _supportsCreateWithStickyBit:InvalidType = null;
 
 private final _hex:GoString = ("" : GoString);
 
@@ -313,7 +313,7 @@ private final _hex:GoString = ("" : GoString);
 	// supportsCloseOnExec reports whether the platform supports the
 	// O_CLOEXEC flag.
 **/
-private final _supportsCloseOnExec = null;
+private final _supportsCloseOnExec:InvalidType = null;
 
 /**
 	// d: is a directory// The single letters are the abbreviations
@@ -502,9 +502,9 @@ typedef Signal = StructType & {
 **/
 @:structInit @:using(stdgo.os.Os.SyscallError_static_extension) class SyscallError {
 	public var syscall:GoString = "";
-	public var err:stdgo.Error = (null : stdgo.Error);
+	public var err:Error = (null : Error);
 
-	public function new(?syscall:GoString, ?err:stdgo.Error) {
+	public function new(?syscall:GoString, ?err:Error) {
 		if (syscall != null)
 			this.syscall = syscall;
 		if (err != null)
@@ -657,9 +657,9 @@ typedef Signal = StructType & {
 	public var op:GoString = "";
 	public var old:GoString = "";
 	public var new_:GoString = "";
-	public var err:stdgo.Error = (null : stdgo.Error);
+	public var err:Error = (null : Error);
 
-	public function new(?op:GoString, ?old:GoString, ?new_:GoString, ?err:stdgo.Error) {
+	public function new(?op:GoString, ?old:GoString, ?new_:GoString, ?err:Error) {
 		if (op != null)
 			this.op = op;
 		if (old != null)
@@ -688,7 +688,7 @@ typedef Signal = StructType & {
 	}
 
 	@:embedded
-	public function write(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
+	public function write(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
 		return null;
 
 	public function __underlying__():AnyInterface
@@ -812,8 +812,8 @@ typedef Signal = StructType & {
 	}
 
 	@:embedded
-	public function _close():stdgo.Error
-		return (null : stdgo.Error);
+	public function _close():Error
+		return (null : Error);
 
 	public function __underlying__():AnyInterface
 		return Go.toInterface(this);
@@ -1205,7 +1205,7 @@ function chdir(_dir:GoString):Error
 **/
 function open(_name:GoString):{var _0:Ref<File>; var _1:Error;} {
 	if (!sys.FileSystem.exists(_name))
-		return {_0: null, _1: stdgo.errors.Errors.new_("os can not open: " + _name)};
+		return {_0: null, _1: stdgo.errors.Errors.new_("open " + _name + ": no such file or directory")};
 	throw "os.open is not yet implemented";
 	return {_0: null, _1: null};
 }
@@ -1815,7 +1815,7 @@ private class T_dirInfo_asInterface {
 	var __self__:T_dirInfo;
 }
 
-@:keep private class T_dirInfo_static_extension {
+@:keep @:allow(stdgo.os.Os.T_dirInfo_asInterface) class T_dirInfo_static_extension {
 	@:keep
 	static public function _close(_d:Ref<T_dirInfo>):Void
 		throw "os._close is not yet implemented";
@@ -1848,7 +1848,7 @@ class SyscallError_asInterface {
 	var __self__:SyscallError;
 }
 
-@:keep private class SyscallError_static_extension {
+@:keep @:allow(stdgo.os.Os.SyscallError_asInterface) class SyscallError_static_extension {
 	/**
 		// Timeout reports whether this error represents a timeout.
 	**/
@@ -1951,7 +1951,7 @@ class Process_asInterface {
 	var __self__:Process;
 }
 
-@:keep private class Process_static_extension {
+@:keep @:allow(stdgo.os.Os.Process_asInterface) class Process_static_extension {
 	/**
 		// blockUntilWaitable attempts to block until a call to p.Wait will
 		// succeed immediately, and reports whether it has done so.
@@ -2133,7 +2133,7 @@ class ProcessState_asInterface {
 	var __self__:ProcessState;
 }
 
-@:keep private class ProcessState_static_extension {
+@:keep @:allow(stdgo.os.Os.ProcessState_asInterface) class ProcessState_static_extension {
 	@:keep
 	static public function _systemTime(_p:Ref<ProcessState>):stdgo.time.Time.Duration
 		throw "os._systemTime is not yet implemented";
@@ -2249,7 +2249,7 @@ class LinkError_asInterface {
 	var __self__:LinkError;
 }
 
-@:keep private class LinkError_static_extension {
+@:keep @:allow(stdgo.os.Os.LinkError_asInterface) class LinkError_static_extension {
 	@:keep
 	static public function unwrap(_e:Ref<LinkError>):Error
 		throw "os.unwrap is not yet implemented";
@@ -2261,7 +2261,7 @@ class LinkError_asInterface {
 
 private class T_onlyWriter_asInterface {
 	@:embedded
-	public function write(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
+	public function write(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
 		return __self__.write(_b);
 
 	public function new(?__self__) {
@@ -2275,9 +2275,9 @@ private class T_onlyWriter_asInterface {
 	var __self__:T_onlyWriter;
 }
 
-@:keep private class T_onlyWriter_static_extension {
+@:keep @:allow(stdgo.os.Os.T_onlyWriter_asInterface) class T_onlyWriter_static_extension {
 	@:embedded
-	public static function write(__self__:T_onlyWriter, _b:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
+	public static function write(__self__:T_onlyWriter, _b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
 		return __self__.write(_b);
 }
 
@@ -2297,7 +2297,7 @@ private class T_file_asInterface {
 	var __self__:T_file;
 }
 
-@:keep private class T_file_static_extension {
+@:keep @:allow(stdgo.os.Os.T_file_asInterface) class T_file_static_extension {
 	@:keep
 	static public function _close(_file:Ref<T_file>):Error
 		throw "os._close is not yet implemented";
@@ -2331,7 +2331,7 @@ private class T_unixDirent_asInterface {
 	var __self__:T_unixDirent;
 }
 
-@:keep private class T_unixDirent_static_extension {
+@:keep @:allow(stdgo.os.Os.T_unixDirent_asInterface) class T_unixDirent_static_extension {
 	@:keep
 	static public function info(_d:Ref<T_unixDirent>):{var _0:FileInfo; var _1:Error;}
 		throw "os.info is not yet implemented";
@@ -2373,7 +2373,7 @@ private class T_rawConn_asInterface {
 	var __self__:T_rawConn;
 }
 
-@:keep private class T_rawConn_static_extension {
+@:keep @:allow(stdgo.os.Os.T_rawConn_asInterface) class T_rawConn_static_extension {
 	@:keep
 	static public function write(_c:Ref<T_rawConn>, _f:GoUIntptr->Bool):Error
 		throw "os.write is not yet implemented";
@@ -2768,7 +2768,7 @@ class File_asInterface {
 		return __self__.readdir(_n);
 
 	@:embedded
-	public function _close():stdgo.Error
+	public function _close():Error
 		return __self__._close();
 
 	public function new(?__self__) {
@@ -2782,7 +2782,7 @@ class File_asInterface {
 	var __self__:File;
 }
 
-@:keep private class File_static_extension {
+@:keep @:allow(stdgo.os.Os.File_asInterface) class File_static_extension {
 	/**
 		// Stat returns the FileInfo structure describing file.
 		// If there is an error, it will be of type *PathError.
@@ -3163,7 +3163,7 @@ class File_asInterface {
 		throw "os.readdir is not yet implemented";
 
 	@:embedded
-	public static function _close(__self__:File):stdgo.Error
+	public static function _close(__self__:File):Error
 		return __self__._close();
 }
 
@@ -3203,7 +3203,7 @@ private class T_fileStat_asInterface {
 	var __self__:T_fileStat;
 }
 
-@:keep private class T_fileStat_static_extension {
+@:keep @:allow(stdgo.os.Os.T_fileStat_asInterface) class T_fileStat_static_extension {
 	@:keep
 	static public function sys(_fs:Ref<T_fileStat>):AnyInterface
 		throw "os.sys is not yet implemented";
@@ -3249,7 +3249,7 @@ private class T_dirFS_asInterface {
 	var __self__:T_dirFS;
 }
 
-@:keep private class T_dirFS_static_extension {
+@:keep @:allow(stdgo.os.Os.T_dirFS_asInterface) class T_dirFS_static_extension {
 	@:keep
 	static public function stat(_dir:T_dirFS, _name:GoString):{var _0:stdgo.io.fs.Fs.FileInfo; var _1:Error;}
 		throw "os.stat is not yet implemented";

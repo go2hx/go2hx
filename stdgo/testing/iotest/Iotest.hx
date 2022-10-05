@@ -18,7 +18,7 @@ private var __go2hxdoc__package:Bool;
 /**
 	// ErrTimeout is a fake timeout error.
 **/
-var errTimeout:stdgo.Error = (null : stdgo.Error);
+var errTimeout:Error = (null : Error);
 
 private var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>);
 
@@ -61,9 +61,9 @@ private var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>
 }
 
 @:structInit @:using(stdgo.testing.iotest.Iotest.T_errWriter_static_extension) private class T_errWriter {
-	public var _err:stdgo.Error = (null : stdgo.Error);
+	public var _err:Error = (null : Error);
 
-	public function new(?_err:stdgo.Error) {
+	public function new(?_err:Error) {
 		if (_err != null)
 			this._err = _err;
 	}
@@ -150,9 +150,9 @@ private var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>
 }
 
 @:structInit @:using(stdgo.testing.iotest.Iotest.T_errReader_static_extension) private class T_errReader {
-	public var _err:stdgo.Error = (null : stdgo.Error);
+	public var _err:Error = (null : Error);
 
-	public function new(?_err:stdgo.Error) {
+	public function new(?_err:Error) {
 		if (_err != null)
 			this._err = _err;
 	}
@@ -346,7 +346,7 @@ private class T_writeLogger_asInterface {
 	var __self__:T_writeLogger;
 }
 
-@:keep private class T_writeLogger_static_extension {
+@:keep @:allow(stdgo.testing.iotest.Iotest.T_writeLogger_asInterface) class T_writeLogger_static_extension {
 	@:keep
 	static public function write(_l:Ref<T_writeLogger>, _p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		throw "testing.iotest.write is not yet implemented";
@@ -368,7 +368,7 @@ private class T_readLogger_asInterface {
 	var __self__:T_readLogger;
 }
 
-@:keep private class T_readLogger_static_extension {
+@:keep @:allow(stdgo.testing.iotest.Iotest.T_readLogger_asInterface) class T_readLogger_static_extension {
 	@:keep
 	static public function read(_l:Ref<T_readLogger>, _p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		throw "testing.iotest.read is not yet implemented";
@@ -390,7 +390,7 @@ private class T_errWriter_asInterface {
 	var __self__:T_errWriter;
 }
 
-@:keep private class T_errWriter_static_extension {
+@:keep @:allow(stdgo.testing.iotest.Iotest.T_errWriter_asInterface) class T_errWriter_static_extension {
 	@:keep
 	static public function write(_w:T_errWriter, _0:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		throw "testing.iotest.write is not yet implemented";
@@ -412,7 +412,7 @@ private class T_oneByteReader_asInterface {
 	var __self__:T_oneByteReader;
 }
 
-@:keep private class T_oneByteReader_static_extension {
+@:keep @:allow(stdgo.testing.iotest.Iotest.T_oneByteReader_asInterface) class T_oneByteReader_static_extension {
 	@:keep
 	static public function read(_r:Ref<T_oneByteReader>, _p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		throw "testing.iotest.read is not yet implemented";
@@ -434,7 +434,7 @@ private class T_halfReader_asInterface {
 	var __self__:T_halfReader;
 }
 
-@:keep private class T_halfReader_static_extension {
+@:keep @:allow(stdgo.testing.iotest.Iotest.T_halfReader_asInterface) class T_halfReader_static_extension {
 	@:keep
 	static public function read(_r:Ref<T_halfReader>, _p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		throw "testing.iotest.read is not yet implemented";
@@ -456,7 +456,7 @@ private class T_dataErrReader_asInterface {
 	var __self__:T_dataErrReader;
 }
 
-@:keep private class T_dataErrReader_static_extension {
+@:keep @:allow(stdgo.testing.iotest.Iotest.T_dataErrReader_asInterface) class T_dataErrReader_static_extension {
 	@:keep
 	static public function read(_r:Ref<T_dataErrReader>, _p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		throw "testing.iotest.read is not yet implemented";
@@ -478,7 +478,7 @@ private class T_timeoutReader_asInterface {
 	var __self__:T_timeoutReader;
 }
 
-@:keep private class T_timeoutReader_static_extension {
+@:keep @:allow(stdgo.testing.iotest.Iotest.T_timeoutReader_asInterface) class T_timeoutReader_static_extension {
 	@:keep
 	static public function read(_r:Ref<T_timeoutReader>, _p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		throw "testing.iotest.read is not yet implemented";
@@ -500,7 +500,7 @@ private class T_errReader_asInterface {
 	var __self__:T_errReader;
 }
 
-@:keep private class T_errReader_static_extension {
+@:keep @:allow(stdgo.testing.iotest.Iotest.T_errReader_asInterface) class T_errReader_static_extension {
 	@:keep
 	static public function read(_r:Ref<T_errReader>, _p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		throw "testing.iotest.read is not yet implemented";
@@ -522,7 +522,7 @@ private class T_smallByteReader_asInterface {
 	var __self__:T_smallByteReader;
 }
 
-@:keep private class T_smallByteReader_static_extension {
+@:keep @:allow(stdgo.testing.iotest.Iotest.T_smallByteReader_asInterface) class T_smallByteReader_static_extension {
 	@:keep
 	static public function read(_r:Ref<T_smallByteReader>, _p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		throw "testing.iotest.read is not yet implemented";
@@ -544,7 +544,7 @@ private class T_truncateWriter_asInterface {
 	var __self__:T_truncateWriter;
 }
 
-@:keep private class T_truncateWriter_static_extension {
+@:keep @:allow(stdgo.testing.iotest.Iotest.T_truncateWriter_asInterface) class T_truncateWriter_static_extension {
 	@:keep
 	static public function write(_t:Ref<T_truncateWriter>, _p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		throw "testing.iotest.write is not yet implemented";

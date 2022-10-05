@@ -42,17 +42,17 @@ private var _funcsMu:stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
 /**
 	// nanHead are the upper 32 bits of a ref which are set if the value is not encoded as an IEEE 754 number (see above).
 **/
-private final _nanHead:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _nanHead:GoUInt64 = (0 : GoUInt64);
 
 /**
 	// the type flags need to be in sync with wasm_exec.js
 **/
-private final _typeFlagNone:GoUnTypedInt = (0 : GoUnTypedInt);
+private final _typeFlagNone:GoUInt64 = (0 : GoUInt64);
 
-private final _typeFlagObject = null;
-private final _typeFlagString = null;
-private final _typeFlagSymbol = null;
-private final _typeFlagFunction = null;
+private final _typeFlagObject:InvalidType = null;
+private final _typeFlagString:InvalidType = null;
+private final _typeFlagSymbol:InvalidType = null;
+private final _typeFlagFunction:InvalidType = null;
 final typeUndefined:Type = ((0 : GoInt) : Type);
 final typeNull:Type = ((0 : GoInt) : Type);
 final typeBoolean:Type = ((0 : GoInt) : Type);
@@ -185,7 +185,7 @@ final typeFunction:Type = ((0 : GoInt) : Type);
 	/**
 		// uncomparable; to make == not compile
 	**/
-	public var _0:GoArray<() -> Void> = new GoArray<() -> Void>(...[for (i in 0...0) null]);
+	public var _10:GoArray<() -> Void> = new GoArray<() -> Void>(...[for (i in 0...0) null]);
 
 	/**
 		// identifies a JavaScript value, see ref type
@@ -197,9 +197,9 @@ final typeFunction:Type = ((0 : GoInt) : Type);
 	**/
 	public var _gcPtr:Pointer<T_ref> = (null : Pointer<T_ref>);
 
-	public function new(?_0:GoArray<() -> Void>, ?_ref:T_ref, ?_gcPtr:Pointer<T_ref>) {
-		if (_0 != null)
-			this._0 = _0;
+	public function new(?_10:GoArray<() -> Void>, ?_ref:T_ref, ?_gcPtr:Pointer<T_ref>) {
+		if (_10 != null)
+			this._10 = _10;
 		if (_ref != null)
 			this._ref = _ref;
 		if (_gcPtr != null)
@@ -210,7 +210,7 @@ final typeFunction:Type = ((0 : GoInt) : Type);
 		return Go.toInterface(this);
 
 	public function __copy__() {
-		return new Value(_0, _ref, _gcPtr);
+		return new Value(_10, _ref, _gcPtr);
 	}
 }
 
@@ -621,7 +621,7 @@ class Func_asInterface {
 	var __self__:Func;
 }
 
-@:keep private class Func_static_extension {
+@:keep @:allow(stdgo.syscall.js.Js.Func_asInterface) class Func_static_extension {
 	/**
 		// Release frees up resources allocated for the function.
 		// The function must not be invoked after calling Release.
@@ -901,7 +901,7 @@ class Value_asInterface {
 	var __self__:Value;
 }
 
-@:keep private class Value_static_extension {
+@:keep @:allow(stdgo.syscall.js.Js.Value_asInterface) class Value_static_extension {
 	/**
 		// InstanceOf reports whether v is an instance of type t according to JavaScript's instanceof operator.
 	**/
@@ -1179,7 +1179,7 @@ class T_error_asInterface {
 	var __self__:T_error;
 }
 
-@:keep private class T_error_static_extension {
+@:keep @:allow(stdgo.syscall.js.Js.T_error_asInterface) class T_error_static_extension {
 	/**
 		// Error implements the error interface.
 	**/
@@ -1292,7 +1292,7 @@ class ValueError_asInterface {
 	var __self__:ValueError;
 }
 
-@:keep private class ValueError_static_extension {
+@:keep @:allow(stdgo.syscall.js.Js.ValueError_asInterface) class ValueError_static_extension {
 	@:keep
 	static public function error(_e:Ref<ValueError>):GoString
 		throw "syscall.js.error is not yet implemented";
@@ -1318,7 +1318,7 @@ class Type_asInterface {
 	var __self__:Type;
 }
 
-@:keep private class Type_static_extension {
+@:keep @:allow(stdgo.syscall.js.Js.Type_asInterface) class Type_static_extension {
 	@:keep
 	static public function _isObject(_t:Type):Bool
 		throw "syscall.js._isObject is not yet implemented";

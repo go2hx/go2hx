@@ -53,38 +53,38 @@ private var _spaceTest:Slice<GoInt32> = (new Slice<GoInt32>(0, 0, (9 : GoInt32),
 	(32 : GoInt32), (133 : GoInt32), (160 : GoInt32), (8192 : GoInt32), (12288 : GoInt32)) : Slice<GoInt32>);
 
 private var _caseTest:Slice<stdgo.unicode_test.Unicode_test.T_caseT> = (new Slice<stdgo.unicode_test.Unicode_test.T_caseT>(0, 0,
-	(new stdgo.unicode_test.Unicode_test.T_caseT((-1 : GoInt), ("\n".code : GoInt32), (65533 : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
+	(new stdgo.unicode_test.Unicode_test.T_caseT((-1 : GoInt), ("\n".code : GoRune), (65533 : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
 	(new stdgo.unicode_test.Unicode_test.T_caseT((0 : GoInt), (-1 : GoInt32), (-1 : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
 	(new stdgo.unicode_test.Unicode_test.T_caseT((0 : GoInt), (1073741824 : GoInt32), (1073741824 : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
-	(new stdgo.unicode_test.Unicode_test.T_caseT((0 : GoInt), ("\n".code : GoInt32), ("\n".code : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
-	(new stdgo.unicode_test.Unicode_test.T_caseT((0 : GoInt), ("a".code : GoInt32), ("A".code : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
-	(new stdgo.unicode_test.Unicode_test.T_caseT((0 : GoInt), ("A".code : GoInt32), ("A".code : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
-	(new stdgo.unicode_test.Unicode_test.T_caseT((0 : GoInt), ("7".code : GoInt32), ("7".code : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
-	(new stdgo.unicode_test.Unicode_test.T_caseT((1 : GoInt), ("\n".code : GoInt32), ("\n".code : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
-	(new stdgo.unicode_test.Unicode_test.T_caseT((1 : GoInt), ("a".code : GoInt32), ("a".code : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
-	(new stdgo.unicode_test.Unicode_test.T_caseT((1 : GoInt), ("A".code : GoInt32), ("a".code : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
-	(new stdgo.unicode_test.Unicode_test.T_caseT((1 : GoInt), ("7".code : GoInt32), ("7".code : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
-	(new stdgo.unicode_test.Unicode_test.T_caseT((2 : GoInt), ("\n".code : GoInt32), ("\n".code : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
-	(new stdgo.unicode_test.Unicode_test.T_caseT((2 : GoInt), ("a".code : GoInt32), ("A".code : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
-	(new stdgo.unicode_test.Unicode_test.T_caseT((2 : GoInt), ("A".code : GoInt32), ("A".code : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
-	(new stdgo.unicode_test.Unicode_test.T_caseT((2 : GoInt), ("7".code : GoInt32), ("7".code : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
+	(new stdgo.unicode_test.Unicode_test.T_caseT((0 : GoInt), ("\n".code : GoRune), ("\n".code : GoRune)) : stdgo.unicode_test.Unicode_test.T_caseT),
+	(new stdgo.unicode_test.Unicode_test.T_caseT((0 : GoInt), ("a".code : GoRune), ("A".code : GoRune)) : stdgo.unicode_test.Unicode_test.T_caseT),
+	(new stdgo.unicode_test.Unicode_test.T_caseT((0 : GoInt), ("A".code : GoRune), ("A".code : GoRune)) : stdgo.unicode_test.Unicode_test.T_caseT),
+	(new stdgo.unicode_test.Unicode_test.T_caseT((0 : GoInt), ("7".code : GoRune), ("7".code : GoRune)) : stdgo.unicode_test.Unicode_test.T_caseT),
+	(new stdgo.unicode_test.Unicode_test.T_caseT((1 : GoInt), ("\n".code : GoRune), ("\n".code : GoRune)) : stdgo.unicode_test.Unicode_test.T_caseT),
+	(new stdgo.unicode_test.Unicode_test.T_caseT((1 : GoInt), ("a".code : GoRune), ("a".code : GoRune)) : stdgo.unicode_test.Unicode_test.T_caseT),
+	(new stdgo.unicode_test.Unicode_test.T_caseT((1 : GoInt), ("A".code : GoRune), ("a".code : GoRune)) : stdgo.unicode_test.Unicode_test.T_caseT),
+	(new stdgo.unicode_test.Unicode_test.T_caseT((1 : GoInt), ("7".code : GoRune), ("7".code : GoRune)) : stdgo.unicode_test.Unicode_test.T_caseT),
+	(new stdgo.unicode_test.Unicode_test.T_caseT((2 : GoInt), ("\n".code : GoRune), ("\n".code : GoRune)) : stdgo.unicode_test.Unicode_test.T_caseT),
+	(new stdgo.unicode_test.Unicode_test.T_caseT((2 : GoInt), ("a".code : GoRune), ("A".code : GoRune)) : stdgo.unicode_test.Unicode_test.T_caseT),
+	(new stdgo.unicode_test.Unicode_test.T_caseT((2 : GoInt), ("A".code : GoRune), ("A".code : GoRune)) : stdgo.unicode_test.Unicode_test.T_caseT),
+	(new stdgo.unicode_test.Unicode_test.T_caseT((2 : GoInt), ("7".code : GoRune), ("7".code : GoRune)) : stdgo.unicode_test.Unicode_test.T_caseT),
 	(new stdgo.unicode_test.Unicode_test.T_caseT((0 : GoInt), (128 : GoInt32), (128 : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
-	(new stdgo.unicode_test.Unicode_test.T_caseT((0 : GoInt), ("Å".code : GoInt32), ("Å".code : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
-	(new stdgo.unicode_test.Unicode_test.T_caseT((0 : GoInt), ("å".code : GoInt32), ("Å".code : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
+	(new stdgo.unicode_test.Unicode_test.T_caseT((0 : GoInt), ("Å".code : GoRune), ("Å".code : GoRune)) : stdgo.unicode_test.Unicode_test.T_caseT),
+	(new stdgo.unicode_test.Unicode_test.T_caseT((0 : GoInt), ("å".code : GoRune), ("Å".code : GoRune)) : stdgo.unicode_test.Unicode_test.T_caseT),
 	(new stdgo.unicode_test.Unicode_test.T_caseT((1 : GoInt), (128 : GoInt32), (128 : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
-	(new stdgo.unicode_test.Unicode_test.T_caseT((1 : GoInt), ("Å".code : GoInt32), ("å".code : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
-	(new stdgo.unicode_test.Unicode_test.T_caseT((1 : GoInt), ("å".code : GoInt32), ("å".code : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
+	(new stdgo.unicode_test.Unicode_test.T_caseT((1 : GoInt), ("Å".code : GoRune), ("å".code : GoRune)) : stdgo.unicode_test.Unicode_test.T_caseT),
+	(new stdgo.unicode_test.Unicode_test.T_caseT((1 : GoInt), ("å".code : GoRune), ("å".code : GoRune)) : stdgo.unicode_test.Unicode_test.T_caseT),
 	(new stdgo.unicode_test.Unicode_test.T_caseT((2 : GoInt), (128 : GoInt32), (128 : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
-	(new stdgo.unicode_test.Unicode_test.T_caseT((2 : GoInt), ("Å".code : GoInt32), ("Å".code : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
-	(new stdgo.unicode_test.Unicode_test.T_caseT((2 : GoInt), ("å".code : GoInt32), ("Å".code : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
-	(new stdgo.unicode_test.Unicode_test.T_caseT((0 : GoInt), (305 : GoInt32), ("I".code : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
+	(new stdgo.unicode_test.Unicode_test.T_caseT((2 : GoInt), ("Å".code : GoRune), ("Å".code : GoRune)) : stdgo.unicode_test.Unicode_test.T_caseT),
+	(new stdgo.unicode_test.Unicode_test.T_caseT((2 : GoInt), ("å".code : GoRune), ("Å".code : GoRune)) : stdgo.unicode_test.Unicode_test.T_caseT),
+	(new stdgo.unicode_test.Unicode_test.T_caseT((0 : GoInt), (305 : GoInt32), ("I".code : GoRune)) : stdgo.unicode_test.Unicode_test.T_caseT),
 	(new stdgo.unicode_test.Unicode_test.T_caseT((1 : GoInt), (305 : GoInt32), (305 : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
-	(new stdgo.unicode_test.Unicode_test.T_caseT((2 : GoInt), (305 : GoInt32), ("I".code : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
+	(new stdgo.unicode_test.Unicode_test.T_caseT((2 : GoInt), (305 : GoInt32), ("I".code : GoRune)) : stdgo.unicode_test.Unicode_test.T_caseT),
 	(new stdgo.unicode_test.Unicode_test.T_caseT((0 : GoInt), (307 : GoInt32), (306 : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
 	(new stdgo.unicode_test.Unicode_test.T_caseT((1 : GoInt), (307 : GoInt32), (307 : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
 	(new stdgo.unicode_test.Unicode_test.T_caseT((2 : GoInt), (307 : GoInt32), (306 : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
 	(new stdgo.unicode_test.Unicode_test.T_caseT((0 : GoInt), (8490 : GoInt32), (8490 : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
-	(new stdgo.unicode_test.Unicode_test.T_caseT((1 : GoInt), (8490 : GoInt32), ("k".code : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
+	(new stdgo.unicode_test.Unicode_test.T_caseT((1 : GoInt), (8490 : GoInt32), ("k".code : GoRune)) : stdgo.unicode_test.Unicode_test.T_caseT),
 	(new stdgo.unicode_test.Unicode_test.T_caseT((2 : GoInt), (8490 : GoInt32), (8490 : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
 	(new stdgo.unicode_test.Unicode_test.T_caseT((0 : GoInt), (42560 : GoInt32), (42560 : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
 	(new stdgo.unicode_test.Unicode_test.T_caseT((1 : GoInt), (42560 : GoInt32), (42561 : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT),
@@ -132,89 +132,86 @@ private var _caseTest:Slice<stdgo.unicode_test.Unicode_test.T_caseT> = (new Slic
 	(new stdgo.unicode_test.Unicode_test.T_caseT((0 : GoInt), (837 : GoInt32),
 		(921 : GoInt32)) : stdgo.unicode_test.Unicode_test.T_caseT)) : Slice<stdgo.unicode_test.Unicode_test.T_caseT>);
 
-private var _simpleFoldTests:Slice<GoString> = (new Slice<GoString>(0, 0, (Go.str("Aa") : GoString), (Go.str("δΔ") : GoString), (Go.str("KkK") : GoString),
-	(Go.str("Ssſ") : GoString), (Go.str("ρϱΡ") : GoString), (Go.str("ͅΙιι") : GoString), (Go.str("İ") : GoString), (Go.str("ı") : GoString),
-	(Go.str("\u13b0\uab80") : GoString)) : Slice<GoString>);
+private var _simpleFoldTests:Slice<GoString> = (new Slice<GoString>(0, 0, Go.str("Aa"), Go.str("δΔ"), Go.str("KkK"), Go.str("Ssſ"), Go.str("ρϱΡ"),
+	Go.str("ͅΙιι"), Go.str("İ"), Go.str("ı"), Go.str("\u13b0\uab80")) : Slice<GoString>);
 
-private var _calibrate:Pointer<Bool> = stdgo.flag.Flag.bool_((Go.str("calibrate") : GoString), false,
-	(Go.str("compute crossover for linear vs. binary search") : GoString));
+private var _calibrate:Pointer<Bool> = stdgo.flag.Flag.bool_(Go.str("calibrate"), false, Go.str("compute crossover for linear vs. binary search"));
 
 private var _inCategoryTest:Slice<stdgo.unicode_test.Unicode_test.T> = (new Slice<stdgo.unicode_test.Unicode_test.T>(0, 0,
-	(new stdgo.unicode_test.Unicode_test.T((129 : GoInt32), (Go.str("Cc") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((8203 : GoInt32), (Go.str("Cf") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((983040 : GoInt32), (Go.str("Co") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((56192 : GoInt32), (Go.str("Cs") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((566 : GoInt32), (Go.str("Ll") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((7581 : GoInt32), (Go.str("Lm") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((1999 : GoInt32), (Go.str("Lo") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((8074 : GoInt32), (Go.str("Lt") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((1023 : GoInt32), (Go.str("Lu") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((3009 : GoInt32), (Go.str("Mc") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((8415 : GoInt32), (Go.str("Me") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((2032 : GoInt32), (Go.str("Mn") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((7090 : GoInt32), (Go.str("Nd") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((65863 : GoInt32), (Go.str("Nl") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((9336 : GoInt32), (Go.str("No") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((65075 : GoInt32), (Go.str("Pc") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((8209 : GoInt32), (Go.str("Pd") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((12318 : GoInt32), (Go.str("Pe") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((11779 : GoInt32), (Go.str("Pf") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((11778 : GoInt32), (Go.str("Pi") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((34 : GoInt32), (Go.str("Po") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((10096 : GoInt32), (Go.str("Ps") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((164 : GoInt32), (Go.str("Sc") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((42769 : GoInt32), (Go.str("Sk") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((9721 : GoInt32), (Go.str("Sm") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((8456 : GoInt32), (Go.str("So") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((8232 : GoInt32), (Go.str("Zl") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((8233 : GoInt32), (Go.str("Zp") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((8239 : GoInt32), (Go.str("Zs") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((1194 : GoInt32), (Go.str("L") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((9 : GoInt32), (Go.str("C") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((5906 : GoInt32), (Go.str("M") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((49 : GoInt32), (Go.str("N") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((187 : GoInt32), (Go.str("P") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((162 : GoInt32), (Go.str("S") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((160 : GoInt32),
-		(Go.str("Z") : GoString)) : stdgo.unicode_test.Unicode_test.T)) : Slice<stdgo.unicode_test.Unicode_test.T>);
+	(new stdgo.unicode_test.Unicode_test.T((129 : GoInt32), Go.str("Cc")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((8203 : GoInt32), Go.str("Cf")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((983040 : GoInt32), Go.str("Co")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((56192 : GoInt32), Go.str("Cs")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((566 : GoInt32), Go.str("Ll")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((7581 : GoInt32), Go.str("Lm")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((1999 : GoInt32), Go.str("Lo")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((8074 : GoInt32), Go.str("Lt")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((1023 : GoInt32), Go.str("Lu")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((3009 : GoInt32), Go.str("Mc")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((8415 : GoInt32), Go.str("Me")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((2032 : GoInt32), Go.str("Mn")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((7090 : GoInt32), Go.str("Nd")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((65863 : GoInt32), Go.str("Nl")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((9336 : GoInt32), Go.str("No")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((65075 : GoInt32), Go.str("Pc")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((8209 : GoInt32), Go.str("Pd")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((12318 : GoInt32), Go.str("Pe")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((11779 : GoInt32), Go.str("Pf")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((11778 : GoInt32), Go.str("Pi")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((34 : GoInt32), Go.str("Po")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((10096 : GoInt32), Go.str("Ps")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((164 : GoInt32), Go.str("Sc")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((42769 : GoInt32), Go.str("Sk")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((9721 : GoInt32), Go.str("Sm")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((8456 : GoInt32), Go.str("So")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((8232 : GoInt32), Go.str("Zl")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((8233 : GoInt32), Go.str("Zp")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((8239 : GoInt32), Go.str("Zs")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((1194 : GoInt32), Go.str("L")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((9 : GoInt32), Go.str("C")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((5906 : GoInt32), Go.str("M")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((49 : GoInt32), Go.str("N")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((187 : GoInt32), Go.str("P")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((162 : GoInt32), Go.str("S")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((160 : GoInt32), Go.str("Z")) : stdgo.unicode_test.Unicode_test.T)) : Slice<stdgo.unicode_test.Unicode_test.T>);
 
 private var _inPropTest:Slice<stdgo.unicode_test.Unicode_test.T> = (new Slice<stdgo.unicode_test.Unicode_test.T>(0, 0,
-	(new stdgo.unicode_test.Unicode_test.T((70 : GoInt32), (Go.str("ASCII_Hex_Digit") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((8207 : GoInt32), (Go.str("Bidi_Control") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((8722 : GoInt32), (Go.str("Dash") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((917505 : GoInt32), (Go.str("Deprecated") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((183 : GoInt32), (Go.str("Diacritic") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((12542 : GoInt32), (Go.str("Extender") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((65350 : GoInt32), (Go.str("Hex_Digit") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((11799 : GoInt32), (Go.str("Hyphen") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((12283 : GoInt32), (Go.str("IDS_Binary_Operator") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((12275 : GoInt32), (Go.str("IDS_Trinary_Operator") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((64106 : GoInt32), (Go.str("Ideographic") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((8205 : GoInt32), (Go.str("Join_Control") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((3780 : GoInt32), (Go.str("Logical_Order_Exception") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((196607 : GoInt32), (Go.str("Noncharacter_Code_Point") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((1630 : GoInt32), (Go.str("Other_Alphabetic") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((8293 : GoInt32), (Go.str("Other_Default_Ignorable_Code_Point") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((3031 : GoInt32), (Go.str("Other_Grapheme_Extend") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((903 : GoInt32), (Go.str("Other_ID_Continue") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((8494 : GoInt32), (Go.str("Other_ID_Start") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((8340 : GoInt32), (Go.str("Other_Lowercase") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((8256 : GoInt32), (Go.str("Other_Math") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((8559 : GoInt32), (Go.str("Other_Uppercase") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((39 : GoInt32), (Go.str("Pattern_Syntax") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((32 : GoInt32), (Go.str("Pattern_White_Space") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((1757 : GoInt32), (Go.str("Prepended_Concatenation_Mark") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((12301 : GoInt32), (Go.str("Quotation_Mark") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((12019 : GoInt32), (Go.str("Radical") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((127487 : GoInt32), (Go.str("Regional_Indicator") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((1567 : GoInt32), (Go.str("STerm") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((1567 : GoInt32), (Go.str("Sentence_Terminal") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((8305 : GoInt32), (Go.str("Soft_Dotted") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((58 : GoInt32), (Go.str("Terminal_Punctuation") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((40899 : GoInt32), (Go.str("Unified_Ideograph") : GoString)) : stdgo.unicode_test.Unicode_test.T),
-	(new stdgo.unicode_test.Unicode_test.T((65039 : GoInt32), (Go.str("Variation_Selector") : GoString)) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((70 : GoInt32), Go.str("ASCII_Hex_Digit")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((8207 : GoInt32), Go.str("Bidi_Control")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((8722 : GoInt32), Go.str("Dash")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((917505 : GoInt32), Go.str("Deprecated")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((183 : GoInt32), Go.str("Diacritic")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((12542 : GoInt32), Go.str("Extender")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((65350 : GoInt32), Go.str("Hex_Digit")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((11799 : GoInt32), Go.str("Hyphen")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((12283 : GoInt32), Go.str("IDS_Binary_Operator")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((12275 : GoInt32), Go.str("IDS_Trinary_Operator")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((64106 : GoInt32), Go.str("Ideographic")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((8205 : GoInt32), Go.str("Join_Control")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((3780 : GoInt32), Go.str("Logical_Order_Exception")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((196607 : GoInt32), Go.str("Noncharacter_Code_Point")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((1630 : GoInt32), Go.str("Other_Alphabetic")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((8293 : GoInt32), Go.str("Other_Default_Ignorable_Code_Point")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((3031 : GoInt32), Go.str("Other_Grapheme_Extend")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((903 : GoInt32), Go.str("Other_ID_Continue")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((8494 : GoInt32), Go.str("Other_ID_Start")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((8340 : GoInt32), Go.str("Other_Lowercase")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((8256 : GoInt32), Go.str("Other_Math")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((8559 : GoInt32), Go.str("Other_Uppercase")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((39 : GoInt32), Go.str("Pattern_Syntax")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((32 : GoInt32), Go.str("Pattern_White_Space")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((1757 : GoInt32), Go.str("Prepended_Concatenation_Mark")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((12301 : GoInt32), Go.str("Quotation_Mark")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((12019 : GoInt32), Go.str("Radical")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((127487 : GoInt32), Go.str("Regional_Indicator")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((1567 : GoInt32), Go.str("STerm")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((1567 : GoInt32), Go.str("Sentence_Terminal")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((8305 : GoInt32), Go.str("Soft_Dotted")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((58 : GoInt32), Go.str("Terminal_Punctuation")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((40899 : GoInt32), Go.str("Unified_Ideograph")) : stdgo.unicode_test.Unicode_test.T),
+	(new stdgo.unicode_test.Unicode_test.T((65039 : GoInt32), Go.str("Variation_Selector")) : stdgo.unicode_test.Unicode_test.T),
 	(new stdgo.unicode_test.Unicode_test.T((32 : GoInt32),
-		(Go.str("White_Space") : GoString)) : stdgo.unicode_test.Unicode_test.T)) : Slice<stdgo.unicode_test.Unicode_test.T>);
+		Go.str("White_Space")) : stdgo.unicode_test.Unicode_test.T)) : Slice<stdgo.unicode_test.Unicode_test.T>);
 
 @:structInit private class T_caseT {
 	public var _cas:GoInt = 0;
@@ -260,12 +257,12 @@ private var _inPropTest:Slice<stdgo.unicode_test.Unicode_test.T> = (new Slice<st
 function testDigit(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _r in _testDigit) {
 		if (!isDigit(_r)) {
-			_t.errorf((Go.str("IsDigit(U+%04X) = false, want true") : GoString), Go.toInterface(_r));
+			_t.errorf(Go.str("IsDigit(U+%04X) = false, want true"), Go.toInterface(_r));
 		};
 	};
 	for (_1 => _r in _testLetter) {
 		if (isDigit(_r)) {
-			_t.errorf((Go.str("IsDigit(U+%04X) = true, want false") : GoString), Go.toInterface(_r));
+			_t.errorf(Go.str("IsDigit(U+%04X) = true, want false"), Go.toInterface(_r));
 		};
 	};
 }
@@ -278,7 +275,7 @@ function testDigitOptimization(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var _i:GoInt32 = ((0 : GoInt32) : GoRune);
 		Go.cfor(_i <= (255 : GoInt32), _i++, {
 			if (is_(digit, _i) != isDigit(_i)) {
-				_t.errorf((Go.str("IsDigit(U+%04X) disagrees with Is(Digit)") : GoString), Go.toInterface(_i));
+				_t.errorf(Go.str("IsDigit(U+%04X) disagrees with Is(Digit)"), Go.toInterface(_i));
 			};
 		});
 	};
@@ -289,136 +286,136 @@ function testDigitOptimization(_t:Ref<stdgo.testing.Testing.T>):Void {
 	// rune belongs to. Note that runes may fit into more than one range.
 **/
 function example_is():Void {
-	var _mixed:GoString = (Go.str("\x085Ὂg̀9! ℃ᾭG") : GoString);
-	for (_0 => _c in (Go.str("\x085Ὂg̀9! ℃ᾭG") : GoString)) {
-		stdgo.fmt.Fmt.printf((Go.str("For %q:\n") : GoString), Go.toInterface(_c));
+	{};
+	for (_0 => _c in Go.str("\x085Ὂg̀9! ℃ᾭG")) {
+		stdgo.fmt.Fmt.printf(Go.str("For %q:\n"), Go.toInterface(_c));
 		if (stdgo.unicode.Unicode.isControl(_c)) {
-			stdgo.fmt.Fmt.println((Go.str("\tis control rune") : GoString));
+			stdgo.fmt.Fmt.println(Go.str("\tis control rune"));
 		};
 		if (stdgo.unicode.Unicode.isDigit(_c)) {
-			stdgo.fmt.Fmt.println((Go.str("\tis digit rune") : GoString));
+			stdgo.fmt.Fmt.println(Go.str("\tis digit rune"));
 		};
 		if (stdgo.unicode.Unicode.isGraphic(_c)) {
-			stdgo.fmt.Fmt.println((Go.str("\tis graphic rune") : GoString));
+			stdgo.fmt.Fmt.println(Go.str("\tis graphic rune"));
 		};
 		if (stdgo.unicode.Unicode.isLetter(_c)) {
-			stdgo.fmt.Fmt.println((Go.str("\tis letter rune") : GoString));
+			stdgo.fmt.Fmt.println(Go.str("\tis letter rune"));
 		};
 		if (stdgo.unicode.Unicode.isLower(_c)) {
-			stdgo.fmt.Fmt.println((Go.str("\tis lower case rune") : GoString));
+			stdgo.fmt.Fmt.println(Go.str("\tis lower case rune"));
 		};
 		if (stdgo.unicode.Unicode.isMark(_c)) {
-			stdgo.fmt.Fmt.println((Go.str("\tis mark rune") : GoString));
+			stdgo.fmt.Fmt.println(Go.str("\tis mark rune"));
 		};
 		if (stdgo.unicode.Unicode.isNumber(_c)) {
-			stdgo.fmt.Fmt.println((Go.str("\tis number rune") : GoString));
+			stdgo.fmt.Fmt.println(Go.str("\tis number rune"));
 		};
 		if (stdgo.unicode.Unicode.isPrint(_c)) {
-			stdgo.fmt.Fmt.println((Go.str("\tis printable rune") : GoString));
+			stdgo.fmt.Fmt.println(Go.str("\tis printable rune"));
 		};
 		if (!stdgo.unicode.Unicode.isPrint(_c)) {
-			stdgo.fmt.Fmt.println((Go.str("\tis not printable rune") : GoString));
+			stdgo.fmt.Fmt.println(Go.str("\tis not printable rune"));
 		};
 		if (stdgo.unicode.Unicode.isPunct(_c)) {
-			stdgo.fmt.Fmt.println((Go.str("\tis punct rune") : GoString));
+			stdgo.fmt.Fmt.println(Go.str("\tis punct rune"));
 		};
 		if (stdgo.unicode.Unicode.isSpace(_c)) {
-			stdgo.fmt.Fmt.println((Go.str("\tis space rune") : GoString));
+			stdgo.fmt.Fmt.println(Go.str("\tis space rune"));
 		};
 		if (stdgo.unicode.Unicode.isSymbol(_c)) {
-			stdgo.fmt.Fmt.println((Go.str("\tis symbol rune") : GoString));
+			stdgo.fmt.Fmt.println(Go.str("\tis symbol rune"));
 		};
 		if (stdgo.unicode.Unicode.isTitle(_c)) {
-			stdgo.fmt.Fmt.println((Go.str("\tis title case rune") : GoString));
+			stdgo.fmt.Fmt.println(Go.str("\tis title case rune"));
 		};
 		if (stdgo.unicode.Unicode.isUpper(_c)) {
-			stdgo.fmt.Fmt.println((Go.str("\tis upper case rune") : GoString));
+			stdgo.fmt.Fmt.println(Go.str("\tis upper case rune"));
 		};
 	};
 }
 
 function exampleSimpleFold():Void {
-	stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.simpleFold(("A".code : GoInt32))));
-	stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.simpleFold(("a".code : GoInt32))));
-	stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.simpleFold(("K".code : GoInt32))));
-	stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.simpleFold(("k".code : GoInt32))));
-	stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.simpleFold(("\u212A".code : GoInt32))));
-	stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.simpleFold(("1".code : GoInt32))));
+	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.simpleFold(("A".code : GoRune))));
+	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.simpleFold(("a".code : GoRune))));
+	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.simpleFold(("K".code : GoRune))));
+	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.simpleFold(("k".code : GoRune))));
+	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.simpleFold(("\u212A".code : GoRune))));
+	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.simpleFold(("1".code : GoRune))));
 }
 
 function exampleTo():Void {
-	var _lcG:GoInt32 = ("g".code : GoInt32);
-	stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.to((0 : GoInt), (103 : GoInt32))));
-	stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.to((1 : GoInt), (103 : GoInt32))));
-	stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.to((2 : GoInt), (103 : GoInt32))));
-	var _ucG:GoInt32 = ("G".code : GoInt32);
-	stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.to((0 : GoInt), (71 : GoInt32))));
-	stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.to((1 : GoInt), (71 : GoInt32))));
-	stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.to((2 : GoInt), (71 : GoInt32))));
+	{};
+	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.to((0 : GoInt), (103 : GoInt32))));
+	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.to((1 : GoInt), (103 : GoInt32))));
+	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.to((2 : GoInt), (103 : GoInt32))));
+	{};
+	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.to((0 : GoInt), (71 : GoInt32))));
+	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.to((1 : GoInt), (71 : GoInt32))));
+	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.to((2 : GoInt), (71 : GoInt32))));
 }
 
 function exampleToLower():Void {
-	var _ucG:GoInt32 = ("G".code : GoInt32);
-	stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.toLower((71 : GoInt32))));
+	{};
+	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.toLower((71 : GoInt32))));
 }
 
 function exampleToTitle():Void {
-	var _ucG:GoInt32 = ("g".code : GoInt32);
-	stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.toTitle((103 : GoInt32))));
+	{};
+	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.toTitle((103 : GoInt32))));
 }
 
 function exampleToUpper():Void {
-	var _ucG:GoInt32 = ("g".code : GoInt32);
-	stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.toUpper((103 : GoInt32))));
+	{};
+	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.toUpper((103 : GoInt32))));
 }
 
 function exampleSpecialCase():Void {
 	var _t:SpecialCase = stdgo.unicode.Unicode.turkishCase;
-	var _lci:GoInt32 = ("i".code : GoInt32);
-	stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(_t.toLower((105 : GoInt32))));
-	stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(_t.toTitle((105 : GoInt32))));
-	stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(_t.toUpper((105 : GoInt32))));
-	var _uci:GoInt32 = ("İ".code : GoInt32);
-	stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(_t.toLower((304 : GoInt32))));
-	stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(_t.toTitle((304 : GoInt32))));
-	stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(_t.toUpper((304 : GoInt32))));
+	{};
+	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(_t.toLower((105 : GoInt32))));
+	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(_t.toTitle((105 : GoInt32))));
+	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(_t.toUpper((105 : GoInt32))));
+	{};
+	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(_t.toLower((304 : GoInt32))));
+	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(_t.toTitle((304 : GoInt32))));
+	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(_t.toUpper((304 : GoInt32))));
 }
 
 function exampleIsDigit():Void {
-	stdgo.fmt.Fmt.printf((Go.str("%t\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.isDigit(("৩".code : GoInt32))));
-	stdgo.fmt.Fmt.printf((Go.str("%t\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.isDigit(("A".code : GoInt32))));
+	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isDigit(("৩".code : GoRune))));
+	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isDigit(("A".code : GoRune))));
 }
 
 function exampleIsNumber():Void {
-	stdgo.fmt.Fmt.printf((Go.str("%t\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.isNumber(("Ⅷ".code : GoInt32))));
-	stdgo.fmt.Fmt.printf((Go.str("%t\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.isNumber(("A".code : GoInt32))));
+	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isNumber(("Ⅷ".code : GoRune))));
+	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isNumber(("A".code : GoRune))));
 }
 
 function exampleIsLetter():Void {
-	stdgo.fmt.Fmt.printf((Go.str("%t\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.isLetter(("A".code : GoInt32))));
-	stdgo.fmt.Fmt.printf((Go.str("%t\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.isLetter(("7".code : GoInt32))));
+	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isLetter(("A".code : GoRune))));
+	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isLetter(("7".code : GoRune))));
 }
 
 function exampleIsLower():Void {
-	stdgo.fmt.Fmt.printf((Go.str("%t\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.isLower(("a".code : GoInt32))));
-	stdgo.fmt.Fmt.printf((Go.str("%t\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.isLower(("A".code : GoInt32))));
+	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isLower(("a".code : GoRune))));
+	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isLower(("A".code : GoRune))));
 }
 
 function exampleIsUpper():Void {
-	stdgo.fmt.Fmt.printf((Go.str("%t\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.isUpper(("A".code : GoInt32))));
-	stdgo.fmt.Fmt.printf((Go.str("%t\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.isUpper(("a".code : GoInt32))));
+	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isUpper(("A".code : GoRune))));
+	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isUpper(("a".code : GoRune))));
 }
 
 function exampleIsTitle():Void {
-	stdgo.fmt.Fmt.printf((Go.str("%t\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.isTitle(("ǅ".code : GoInt32))));
-	stdgo.fmt.Fmt.printf((Go.str("%t\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.isTitle(("a".code : GoInt32))));
+	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isTitle(("ǅ".code : GoRune))));
+	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isTitle(("a".code : GoRune))));
 }
 
 function exampleIsSpace():Void {
-	stdgo.fmt.Fmt.printf((Go.str("%t\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.isSpace((" ".code : GoInt32))));
-	stdgo.fmt.Fmt.printf((Go.str("%t\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.isSpace(("\n".code : GoInt32))));
-	stdgo.fmt.Fmt.printf((Go.str("%t\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.isSpace(("\t".code : GoInt32))));
-	stdgo.fmt.Fmt.printf((Go.str("%t\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.isSpace(("a".code : GoInt32))));
+	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isSpace((" ".code : GoRune))));
+	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isSpace(("\n".code : GoRune))));
+	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isSpace(("\t".code : GoRune))));
+	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isSpace(("a".code : GoRune))));
 }
 
 function testIsControlLatin1(_t:Ref<stdgo.testing.Testing.T>):Void {
@@ -433,7 +430,7 @@ function testIsControlLatin1(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_want = true;
 			};
 			if (_got != _want) {
-				_t.errorf((Go.str("%U incorrect: got %t; want %t") : GoString), Go.toInterface(_i), Go.toInterface(_got), Go.toInterface(_want));
+				_t.errorf(Go.str("%U incorrect: got %t; want %t"), Go.toInterface(_i), Go.toInterface(_got), Go.toInterface(_want));
 			};
 		});
 	};
@@ -446,7 +443,7 @@ function testIsLetterLatin1(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _got:Bool = isLetter(_i);
 			var _want:Bool = is_(letter, _i);
 			if (_got != _want) {
-				_t.errorf((Go.str("%U incorrect: got %t; want %t") : GoString), Go.toInterface(_i), Go.toInterface(_got), Go.toInterface(_want));
+				_t.errorf(Go.str("%U incorrect: got %t; want %t"), Go.toInterface(_i), Go.toInterface(_got), Go.toInterface(_want));
 			};
 		});
 	};
@@ -459,7 +456,7 @@ function testIsUpperLatin1(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _got:Bool = isUpper(_i);
 			var _want:Bool = is_(upper, _i);
 			if (_got != _want) {
-				_t.errorf((Go.str("%U incorrect: got %t; want %t") : GoString), Go.toInterface(_i), Go.toInterface(_got), Go.toInterface(_want));
+				_t.errorf(Go.str("%U incorrect: got %t; want %t"), Go.toInterface(_i), Go.toInterface(_got), Go.toInterface(_want));
 			};
 		});
 	};
@@ -472,7 +469,7 @@ function testIsLowerLatin1(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _got:Bool = isLower(_i);
 			var _want:Bool = is_(lower, _i);
 			if (_got != _want) {
-				_t.errorf((Go.str("%U incorrect: got %t; want %t") : GoString), Go.toInterface(_i), Go.toInterface(_got), Go.toInterface(_want));
+				_t.errorf(Go.str("%U incorrect: got %t; want %t"), Go.toInterface(_i), Go.toInterface(_got), Go.toInterface(_want));
 			};
 		});
 	};
@@ -485,7 +482,7 @@ function testNumberLatin1(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _got:Bool = isNumber(_i);
 			var _want:Bool = is_(number, _i);
 			if (_got != _want) {
-				_t.errorf((Go.str("%U incorrect: got %t; want %t") : GoString), Go.toInterface(_i), Go.toInterface(_got), Go.toInterface(_want));
+				_t.errorf(Go.str("%U incorrect: got %t; want %t"), Go.toInterface(_i), Go.toInterface(_got), Go.toInterface(_want));
 			};
 		});
 	};
@@ -497,11 +494,11 @@ function testIsPrintLatin1(_t:Ref<stdgo.testing.Testing.T>):Void {
 		Go.cfor(_i <= (255 : GoInt32), _i++, {
 			var _got:Bool = isPrint(_i);
 			var _want:Bool = in_(_i, ...printRanges.__toArray__());
-			if (_i == (" ".code : GoInt32)) {
+			if (_i == (" ".code : GoRune)) {
 				_want = true;
 			};
 			if (_got != _want) {
-				_t.errorf((Go.str("%U incorrect: got %t; want %t") : GoString), Go.toInterface(_i), Go.toInterface(_got), Go.toInterface(_want));
+				_t.errorf(Go.str("%U incorrect: got %t; want %t"), Go.toInterface(_i), Go.toInterface(_got), Go.toInterface(_want));
 			};
 		});
 	};
@@ -514,7 +511,7 @@ function testIsGraphicLatin1(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _got:Bool = isGraphic(_i);
 			var _want:Bool = in_(_i, ...graphicRanges.__toArray__());
 			if (_got != _want) {
-				_t.errorf((Go.str("%U incorrect: got %t; want %t") : GoString), Go.toInterface(_i), Go.toInterface(_got), Go.toInterface(_want));
+				_t.errorf(Go.str("%U incorrect: got %t; want %t"), Go.toInterface(_i), Go.toInterface(_got), Go.toInterface(_want));
 			};
 		});
 	};
@@ -527,7 +524,7 @@ function testIsPunctLatin1(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _got:Bool = isPunct(_i);
 			var _want:Bool = is_(punct, _i);
 			if (_got != _want) {
-				_t.errorf((Go.str("%U incorrect: got %t; want %t") : GoString), Go.toInterface(_i), Go.toInterface(_got), Go.toInterface(_want));
+				_t.errorf(Go.str("%U incorrect: got %t; want %t"), Go.toInterface(_i), Go.toInterface(_got), Go.toInterface(_want));
 			};
 		});
 	};
@@ -540,7 +537,7 @@ function testIsSpaceLatin1(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _got:Bool = isSpace(_i);
 			var _want:Bool = is_(white_Space, _i);
 			if (_got != _want) {
-				_t.errorf((Go.str("%U incorrect: got %t; want %t") : GoString), Go.toInterface(_i), Go.toInterface(_got), Go.toInterface(_want));
+				_t.errorf(Go.str("%U incorrect: got %t; want %t"), Go.toInterface(_i), Go.toInterface(_got), Go.toInterface(_want));
 			};
 		});
 	};
@@ -553,7 +550,7 @@ function testIsSymbolLatin1(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _got:Bool = isSymbol(_i);
 			var _want:Bool = is_(symbol, _i);
 			if (_got != _want) {
-				_t.errorf((Go.str("%U incorrect: got %t; want %t") : GoString), Go.toInterface(_i), Go.toInterface(_got), Go.toInterface(_want));
+				_t.errorf(Go.str("%U incorrect: got %t; want %t"), Go.toInterface(_i), Go.toInterface(_got), Go.toInterface(_want));
 			};
 		});
 	};
@@ -562,17 +559,17 @@ function testIsSymbolLatin1(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testIsLetter(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _r in _upperTest) {
 		if (!isLetter(_r)) {
-			_t.errorf((Go.str("IsLetter(U+%04X) = false, want true") : GoString), Go.toInterface(_r));
+			_t.errorf(Go.str("IsLetter(U+%04X) = false, want true"), Go.toInterface(_r));
 		};
 	};
 	for (_1 => _r in _letterTest) {
 		if (!isLetter(_r)) {
-			_t.errorf((Go.str("IsLetter(U+%04X) = false, want true") : GoString), Go.toInterface(_r));
+			_t.errorf(Go.str("IsLetter(U+%04X) = false, want true"), Go.toInterface(_r));
 		};
 	};
 	for (_2 => _r in _notletterTest) {
 		if (isLetter(_r)) {
-			_t.errorf((Go.str("IsLetter(U+%04X) = true, want false") : GoString), Go.toInterface(_r));
+			_t.errorf(Go.str("IsLetter(U+%04X) = true, want false"), Go.toInterface(_r));
 		};
 	};
 }
@@ -580,38 +577,38 @@ function testIsLetter(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testIsUpper(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _r in _upperTest) {
 		if (!isUpper(_r)) {
-			_t.errorf((Go.str("IsUpper(U+%04X) = false, want true") : GoString), Go.toInterface(_r));
+			_t.errorf(Go.str("IsUpper(U+%04X) = false, want true"), Go.toInterface(_r));
 		};
 	};
 	for (_1 => _r in _notupperTest) {
 		if (isUpper(_r)) {
-			_t.errorf((Go.str("IsUpper(U+%04X) = true, want false") : GoString), Go.toInterface(_r));
+			_t.errorf(Go.str("IsUpper(U+%04X) = true, want false"), Go.toInterface(_r));
 		};
 	};
 	for (_2 => _r in _notletterTest) {
 		if (isUpper(_r)) {
-			_t.errorf((Go.str("IsUpper(U+%04X) = true, want false") : GoString), Go.toInterface(_r));
+			_t.errorf(Go.str("IsUpper(U+%04X) = true, want false"), Go.toInterface(_r));
 		};
 	};
 }
 
 function _caseString(_c:GoInt):GoString {
 	if (_c == ((0 : GoInt))) {
-		return (Go.str("UpperCase") : GoString);
+		return Go.str("UpperCase");
 	} else if (_c == ((1 : GoInt))) {
-		return (Go.str("LowerCase") : GoString);
+		return Go.str("LowerCase");
 	} else if (_c == ((2 : GoInt))) {
-		return (Go.str("TitleCase") : GoString);
+		return Go.str("TitleCase");
 	};
-	return (Go.str("ErrorCase") : GoString);
+	return Go.str("ErrorCase");
 }
 
 function testTo(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _c in _caseTest) {
 		var _r:GoInt32 = to(_c._cas, _c._in);
 		if (_c._out != _r) {
-			_t.errorf((Go.str("To(U+%04X, %s) = U+%04X want U+%04X") : GoString), Go.toInterface(_c._in), Go.toInterface(_caseString(_c._cas)),
-				Go.toInterface(_r), Go.toInterface(_c._out));
+			_t.errorf(Go.str("To(U+%04X, %s) = U+%04X want U+%04X"), Go.toInterface(_c._in), Go.toInterface(_caseString(_c._cas)), Go.toInterface(_r),
+				Go.toInterface(_c._out));
 		};
 	};
 }
@@ -623,7 +620,7 @@ function testToUpperCase(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 		var _r:GoInt32 = toUpper(_c._in);
 		if (_c._out != _r) {
-			_t.errorf((Go.str("ToUpper(U+%04X) = U+%04X want U+%04X") : GoString), Go.toInterface(_c._in), Go.toInterface(_r), Go.toInterface(_c._out));
+			_t.errorf(Go.str("ToUpper(U+%04X) = U+%04X want U+%04X"), Go.toInterface(_c._in), Go.toInterface(_r), Go.toInterface(_c._out));
 		};
 	};
 }
@@ -635,7 +632,7 @@ function testToLowerCase(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 		var _r:GoInt32 = toLower(_c._in);
 		if (_c._out != _r) {
-			_t.errorf((Go.str("ToLower(U+%04X) = U+%04X want U+%04X") : GoString), Go.toInterface(_c._in), Go.toInterface(_r), Go.toInterface(_c._out));
+			_t.errorf(Go.str("ToLower(U+%04X) = U+%04X want U+%04X"), Go.toInterface(_c._in), Go.toInterface(_r), Go.toInterface(_c._out));
 		};
 	};
 }
@@ -647,7 +644,7 @@ function testToTitleCase(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 		var _r:GoInt32 = toTitle(_c._in);
 		if (_c._out != _r) {
-			_t.errorf((Go.str("ToTitle(U+%04X) = U+%04X want U+%04X") : GoString), Go.toInterface(_c._in), Go.toInterface(_r), Go.toInterface(_c._out));
+			_t.errorf(Go.str("ToTitle(U+%04X) = U+%04X want U+%04X"), Go.toInterface(_c._in), Go.toInterface(_r), Go.toInterface(_c._out));
 		};
 	};
 }
@@ -655,12 +652,12 @@ function testToTitleCase(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testIsSpace(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _c in _spaceTest) {
 		if (!isSpace(_c)) {
-			_t.errorf((Go.str("IsSpace(U+%04X) = false; want true") : GoString), Go.toInterface(_c));
+			_t.errorf(Go.str("IsSpace(U+%04X) = false; want true"), Go.toInterface(_c));
 		};
 	};
 	for (_1 => _c in _letterTest) {
 		if (isSpace(_c)) {
-			_t.errorf((Go.str("IsSpace(U+%04X) = true; want false") : GoString), Go.toInterface(_c));
+			_t.errorf(Go.str("IsSpace(U+%04X) = true; want false"), Go.toInterface(_c));
 		};
 	};
 }
@@ -674,61 +671,55 @@ function testLetterOptimizations(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var _i:GoInt32 = ((0 : GoInt32) : GoRune);
 		Go.cfor(_i <= (255 : GoInt32), _i++, {
 			if (is_(letter, _i) != isLetter(_i)) {
-				_t.errorf((Go.str("IsLetter(U+%04X) disagrees with Is(Letter)") : GoString), Go.toInterface(_i));
+				_t.errorf(Go.str("IsLetter(U+%04X) disagrees with Is(Letter)"), Go.toInterface(_i));
 			};
 			if (is_(upper, _i) != isUpper(_i)) {
-				_t.errorf((Go.str("IsUpper(U+%04X) disagrees with Is(Upper)") : GoString), Go.toInterface(_i));
+				_t.errorf(Go.str("IsUpper(U+%04X) disagrees with Is(Upper)"), Go.toInterface(_i));
 			};
 			if (is_(lower, _i) != isLower(_i)) {
-				_t.errorf((Go.str("IsLower(U+%04X) disagrees with Is(Lower)") : GoString), Go.toInterface(_i));
+				_t.errorf(Go.str("IsLower(U+%04X) disagrees with Is(Lower)"), Go.toInterface(_i));
 			};
 			if (is_(title, _i) != isTitle(_i)) {
-				_t.errorf((Go.str("IsTitle(U+%04X) disagrees with Is(Title)") : GoString), Go.toInterface(_i));
+				_t.errorf(Go.str("IsTitle(U+%04X) disagrees with Is(Title)"), Go.toInterface(_i));
 			};
 			if (is_(white_Space, _i) != isSpace(_i)) {
-				_t.errorf((Go.str("IsSpace(U+%04X) disagrees with Is(White_Space)") : GoString), Go.toInterface(_i));
+				_t.errorf(Go.str("IsSpace(U+%04X) disagrees with Is(White_Space)"), Go.toInterface(_i));
 			};
 			if (to((0 : GoInt), _i) != toUpper(_i)) {
-				_t.errorf((Go.str("ToUpper(U+%04X) disagrees with To(Upper)") : GoString), Go.toInterface(_i));
+				_t.errorf(Go.str("ToUpper(U+%04X) disagrees with To(Upper)"), Go.toInterface(_i));
 			};
 			if (to((1 : GoInt), _i) != toLower(_i)) {
-				_t.errorf((Go.str("ToLower(U+%04X) disagrees with To(Lower)") : GoString), Go.toInterface(_i));
+				_t.errorf(Go.str("ToLower(U+%04X) disagrees with To(Lower)"), Go.toInterface(_i));
 			};
 			if (to((2 : GoInt), _i) != toTitle(_i)) {
-				_t.errorf((Go.str("ToTitle(U+%04X) disagrees with To(Title)") : GoString), Go.toInterface(_i));
+				_t.errorf(Go.str("ToTitle(U+%04X) disagrees with To(Title)"), Go.toInterface(_i));
 			};
 		});
 	};
 }
 
 function testTurkishCase(_t:Ref<stdgo.testing.Testing.T>):Void {
-	var _lower = ((Go.str("abcçdefgğhıijklmnoöprsştuüvyz") : GoString) : Slice<GoRune>);
-	var _upper = ((Go.str("ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ") : GoString) : Slice<GoRune>);
+	var _lower = (Go.str("abcçdefgğhıijklmnoöprsştuüvyz") : Slice<GoRune>);
+	var _upper = (Go.str("ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ") : Slice<GoRune>);
 	for (_i => _l in _lower) {
 		var _u:GoInt32 = _upper[_i];
 		if (turkishCase.toLower(_l) != _l) {
-			_t.errorf((Go.str("lower(U+%04X) is U+%04X not U+%04X") : GoString), Go.toInterface(_l), Go.toInterface(turkishCase.toLower(_l)),
-				Go.toInterface(_l));
+			_t.errorf(Go.str("lower(U+%04X) is U+%04X not U+%04X"), Go.toInterface(_l), Go.toInterface(turkishCase.toLower(_l)), Go.toInterface(_l));
 		};
 		if (turkishCase.toUpper(_u) != _u) {
-			_t.errorf((Go.str("upper(U+%04X) is U+%04X not U+%04X") : GoString), Go.toInterface(_u), Go.toInterface(turkishCase.toUpper(_u)),
-				Go.toInterface(_u));
+			_t.errorf(Go.str("upper(U+%04X) is U+%04X not U+%04X"), Go.toInterface(_u), Go.toInterface(turkishCase.toUpper(_u)), Go.toInterface(_u));
 		};
 		if (turkishCase.toUpper(_l) != _u) {
-			_t.errorf((Go.str("upper(U+%04X) is U+%04X not U+%04X") : GoString), Go.toInterface(_l), Go.toInterface(turkishCase.toUpper(_l)),
-				Go.toInterface(_u));
+			_t.errorf(Go.str("upper(U+%04X) is U+%04X not U+%04X"), Go.toInterface(_l), Go.toInterface(turkishCase.toUpper(_l)), Go.toInterface(_u));
 		};
 		if (turkishCase.toLower(_u) != _l) {
-			_t.errorf((Go.str("lower(U+%04X) is U+%04X not U+%04X") : GoString), Go.toInterface(_u), Go.toInterface(turkishCase.toLower(_l)),
-				Go.toInterface(_l));
+			_t.errorf(Go.str("lower(U+%04X) is U+%04X not U+%04X"), Go.toInterface(_u), Go.toInterface(turkishCase.toLower(_l)), Go.toInterface(_l));
 		};
 		if (turkishCase.toTitle(_u) != _u) {
-			_t.errorf((Go.str("title(U+%04X) is U+%04X not U+%04X") : GoString), Go.toInterface(_u), Go.toInterface(turkishCase.toTitle(_u)),
-				Go.toInterface(_u));
+			_t.errorf(Go.str("title(U+%04X) is U+%04X not U+%04X"), Go.toInterface(_u), Go.toInterface(turkishCase.toTitle(_u)), Go.toInterface(_u));
 		};
 		if (turkishCase.toTitle(_l) != _u) {
-			_t.errorf((Go.str("title(U+%04X) is U+%04X not U+%04X") : GoString), Go.toInterface(_l), Go.toInterface(turkishCase.toTitle(_l)),
-				Go.toInterface(_u));
+			_t.errorf(Go.str("title(U+%04X) is U+%04X not U+%04X"), Go.toInterface(_l), Go.toInterface(turkishCase.toTitle(_l)), Go.toInterface(_u));
 		};
 	};
 }
@@ -741,7 +732,7 @@ function testSimpleFold(_t:Ref<stdgo.testing.Testing.T>):Void {
 			{
 				var _r:GoInt32 = simpleFold(_r);
 				if (_r != _out) {
-					_t.errorf((Go.str("SimpleFold(%#U) = %#U, want %#U") : GoString), Go.toInterface(_r), Go.toInterface(_r), Go.toInterface(_out));
+					_t.errorf(Go.str("SimpleFold(%#U) = %#U, want %#U"), Go.toInterface(_r), Go.toInterface(_r), Go.toInterface(_out));
 				};
 			};
 			_r = _out;
@@ -750,7 +741,7 @@ function testSimpleFold(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _r:GoInt32 = simpleFold((-42 : GoInt32));
 		if (_r != (-42 : GoInt32)) {
-			_t.errorf((Go.str("SimpleFold(-42) = %v, want -42") : GoString), Go.toInterface(_r));
+			_t.errorf(Go.str("SimpleFold(-42) = %v, want -42"), Go.toInterface(_r));
 		};
 	};
 }
@@ -760,7 +751,7 @@ function testCalibrate(_t:Ref<stdgo.testing.Testing.T>):Void {
 		return;
 	};
 	if (false) {
-		stdgo.fmt.Fmt.printf((Go.str("warning: running calibration on %s\n") : GoString), Go.toInterface((Go.str("wasm") : GoString)));
+		stdgo.fmt.Fmt.printf(Go.str("warning: running calibration on %s\n"), Go.toInterface(Go.str("wasm")));
 	};
 	var _n:GoInt = stdgo.sort.Sort.search((64 : GoInt), function(_n:GoInt):Bool {
 		var _tab = _fakeTable(_n);
@@ -798,11 +789,11 @@ function testCalibrate(_t:Ref<stdgo.testing.Testing.T>):Void {
 			.__copy__());
 		var _bmbinary:stdgo.testing.Testing.BenchmarkResult = (stdgo.testing.Testing.benchmark(_bbinary) == null ? null : stdgo.testing.Testing.benchmark(_bbinary)
 			.__copy__());
-		stdgo.fmt.Fmt.printf((Go.str("n=%d: linear=%d binary=%d\n") : GoString), Go.toInterface(_n), Go.toInterface(_bmlinear.nsPerOp()),
+		stdgo.fmt.Fmt.printf(Go.str("n=%d: linear=%d binary=%d\n"), Go.toInterface(_n), Go.toInterface(_bmlinear.nsPerOp()),
 			Go.toInterface(_bmbinary.nsPerOp()));
-		return (_bmlinear.nsPerOp() * (100 : GoInt64)) > (_bmbinary.nsPerOp() * (110 : GoInt64));
+		return (_bmlinear.nsPerOp() * (("100" : GoInt64) : GoInt64)) > (_bmbinary.nsPerOp() * (("110" : GoInt64) : GoInt64));
 	});
-	stdgo.fmt.Fmt.printf((Go.str("calibration: linear cutoff = %d\n") : GoString), Go.toInterface(_n));
+	stdgo.fmt.Fmt.printf(Go.str("calibration: linear cutoff = %d\n"), Go.toInterface(_n));
 }
 
 function _fakeTable(_n:GoInt):Slice<Range16> {
@@ -858,27 +849,27 @@ function testLatinOffset(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_i++;
 			};
 			if (_tab.latinOffset != _i) {
-				_t.errorf((Go.str("%s: LatinOffset=%d, want %d") : GoString), Go.toInterface(_name), Go.toInterface(_tab.latinOffset), Go.toInterface(_i));
+				_t.errorf(Go.str("%s: LatinOffset=%d, want %d"), Go.toInterface(_name), Go.toInterface(_tab.latinOffset), Go.toInterface(_i));
 			};
 		};
 	};
 }
 
 function testSpecialCaseNoMapping(_t:Ref<stdgo.testing.Testing.T>):Void {
-	var _noChangeForCapitalA:CaseRange = (new CaseRange(("A".code : GoUInt32), ("A".code : GoUInt32),
+	var _noChangeForCapitalA:CaseRange = (new CaseRange(("A".code : GoRune), ("A".code : GoRune),
 		(new GoArray<GoInt32>((0 : GoInt32), (0 : GoInt32), (0 : GoInt32)) : GoArray<GoInt32>)) : CaseRange);
 	var _got:GoString = stdgo.strings.Strings.toLowerSpecial(((new Slice<CaseRange>(0, 0,
 		(_noChangeForCapitalA == null ? null : _noChangeForCapitalA.__copy__())) : Slice<CaseRange>) : SpecialCase),
-		(Go.str("ABC") : GoString));
-	var _want:GoString = (Go.str("Abc") : GoString);
+		Go.str("ABC"));
+	var _want:GoString = Go.str("Abc");
 	if (_got != _want) {
-		_t.errorf((Go.str("got %q; want %q") : GoString), Go.toInterface(_got), Go.toInterface(_want));
+		_t.errorf(Go.str("got %q; want %q"), Go.toInterface(_got), Go.toInterface(_want));
 	};
 }
 
 function testNegativeRune(_t:Ref<stdgo.testing.Testing.T>):Void {
-	var _nonLatin1 = (new Slice<GoUInt32>(0, 0, (256 : GoUInt32), (257 : GoUInt32), (453 : GoUInt32), (768 : GoUInt32), (1632 : GoUInt32), (894 : GoUInt32),
-		(706 : GoUInt32), (5760 : GoUInt32)) : Slice<GoUInt32>);
+	var _nonLatin1 = (new Slice<GoUInt32>(0, 0, ("256" : GoUInt32), ("257" : GoUInt32), ("453" : GoUInt32), ("768" : GoUInt32), ("1632" : GoUInt32),
+		("894" : GoUInt32), ("706" : GoUInt32), ("5760" : GoUInt32)) : Slice<GoUInt32>);
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < ((255 : GoInt) + _nonLatin1.length), _i++, {
@@ -888,46 +879,46 @@ function testNegativeRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 			};
 			var _r:GoInt32 = (_base - ("2147483648" : GoUInt32) : GoRune);
 			if (is_(letter, _r)) {
-				_t.errorf((Go.str("Is(Letter, 0x%x - 1<<31) = true, want false") : GoString), Go.toInterface(_base));
+				_t.errorf(Go.str("Is(Letter, 0x%x - 1<<31) = true, want false"), Go.toInterface(_base));
 			};
 			if (isControl(_r)) {
-				_t.errorf((Go.str("IsControl(0x%x - 1<<31) = true, want false") : GoString), Go.toInterface(_base));
+				_t.errorf(Go.str("IsControl(0x%x - 1<<31) = true, want false"), Go.toInterface(_base));
 			};
 			if (isDigit(_r)) {
-				_t.errorf((Go.str("IsDigit(0x%x - 1<<31) = true, want false") : GoString), Go.toInterface(_base));
+				_t.errorf(Go.str("IsDigit(0x%x - 1<<31) = true, want false"), Go.toInterface(_base));
 			};
 			if (isGraphic(_r)) {
-				_t.errorf((Go.str("IsGraphic(0x%x - 1<<31) = true, want false") : GoString), Go.toInterface(_base));
+				_t.errorf(Go.str("IsGraphic(0x%x - 1<<31) = true, want false"), Go.toInterface(_base));
 			};
 			if (isLetter(_r)) {
-				_t.errorf((Go.str("IsLetter(0x%x - 1<<31) = true, want false") : GoString), Go.toInterface(_base));
+				_t.errorf(Go.str("IsLetter(0x%x - 1<<31) = true, want false"), Go.toInterface(_base));
 			};
 			if (isLower(_r)) {
-				_t.errorf((Go.str("IsLower(0x%x - 1<<31) = true, want false") : GoString), Go.toInterface(_base));
+				_t.errorf(Go.str("IsLower(0x%x - 1<<31) = true, want false"), Go.toInterface(_base));
 			};
 			if (isMark(_r)) {
-				_t.errorf((Go.str("IsMark(0x%x - 1<<31) = true, want false") : GoString), Go.toInterface(_base));
+				_t.errorf(Go.str("IsMark(0x%x - 1<<31) = true, want false"), Go.toInterface(_base));
 			};
 			if (isNumber(_r)) {
-				_t.errorf((Go.str("IsNumber(0x%x - 1<<31) = true, want false") : GoString), Go.toInterface(_base));
+				_t.errorf(Go.str("IsNumber(0x%x - 1<<31) = true, want false"), Go.toInterface(_base));
 			};
 			if (isPrint(_r)) {
-				_t.errorf((Go.str("IsPrint(0x%x - 1<<31) = true, want false") : GoString), Go.toInterface(_base));
+				_t.errorf(Go.str("IsPrint(0x%x - 1<<31) = true, want false"), Go.toInterface(_base));
 			};
 			if (isPunct(_r)) {
-				_t.errorf((Go.str("IsPunct(0x%x - 1<<31) = true, want false") : GoString), Go.toInterface(_base));
+				_t.errorf(Go.str("IsPunct(0x%x - 1<<31) = true, want false"), Go.toInterface(_base));
 			};
 			if (isSpace(_r)) {
-				_t.errorf((Go.str("IsSpace(0x%x - 1<<31) = true, want false") : GoString), Go.toInterface(_base));
+				_t.errorf(Go.str("IsSpace(0x%x - 1<<31) = true, want false"), Go.toInterface(_base));
 			};
 			if (isSymbol(_r)) {
-				_t.errorf((Go.str("IsSymbol(0x%x - 1<<31) = true, want false") : GoString), Go.toInterface(_base));
+				_t.errorf(Go.str("IsSymbol(0x%x - 1<<31) = true, want false"), Go.toInterface(_base));
 			};
 			if (isTitle(_r)) {
-				_t.errorf((Go.str("IsTitle(0x%x - 1<<31) = true, want false") : GoString), Go.toInterface(_base));
+				_t.errorf(Go.str("IsTitle(0x%x - 1<<31) = true, want false"), Go.toInterface(_base));
 			};
 			if (isUpper(_r)) {
-				_t.errorf((Go.str("IsUpper(0x%x - 1<<31) = true, want false") : GoString), Go.toInterface(_base));
+				_t.errorf(Go.str("IsUpper(0x%x - 1<<31) = true, want false"), Go.toInterface(_base));
 			};
 		});
 	};
@@ -947,17 +938,17 @@ function testCategories(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_1:Ref<RangeTable> = __tmp__.value,
 				_ok:Bool = __tmp__.ok;
 			if (!_ok) {
-				_t.fatal(Go.toInterface(_test._script), Go.toInterface((Go.str("not a known category") : GoString)));
+				_t.fatal(Go.toInterface(_test._script), Go.toInterface(Go.str("not a known category")));
 			};
 		};
 		if (!is_(categories[_test._script], _test._rune)) {
-			_t.errorf((Go.str("IsCategory(%U, %s) = false, want true") : GoString), Go.toInterface(_test._rune), Go.toInterface(_test._script));
+			_t.errorf(Go.str("IsCategory(%U, %s) = false, want true"), Go.toInterface(_test._rune), Go.toInterface(_test._script));
 		};
 		if (_notTested != null)
 			_notTested.__remove__(_test._script);
 	};
 	for (_k => _ in _notTested) {
-		_t.error(Go.toInterface((Go.str("category not tested:") : GoString)), Go.toInterface(_k));
+		_t.error(Go.toInterface(Go.str("category not tested:")), Go.toInterface(_k));
 	};
 }
 
@@ -975,16 +966,16 @@ function testProperties(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_1:Ref<RangeTable> = __tmp__.value,
 				_ok:Bool = __tmp__.ok;
 			if (!_ok) {
-				_t.fatal(Go.toInterface(_test._script), Go.toInterface((Go.str("not a known prop") : GoString)));
+				_t.fatal(Go.toInterface(_test._script), Go.toInterface(Go.str("not a known prop")));
 			};
 		};
 		if (!is_(properties[_test._script], _test._rune)) {
-			_t.errorf((Go.str("IsCategory(%U, %s) = false, want true") : GoString), Go.toInterface(_test._rune), Go.toInterface(_test._script));
+			_t.errorf(Go.str("IsCategory(%U, %s) = false, want true"), Go.toInterface(_test._rune), Go.toInterface(_test._script));
 		};
 		if (_notTested != null)
 			_notTested.__remove__(_test._script);
 	};
 	for (_k => _ in _notTested) {
-		_t.error(Go.toInterface((Go.str("property not tested:") : GoString)), Go.toInterface(_k));
+		_t.error(Go.toInterface(Go.str("property not tested:")), Go.toInterface(_k));
 	};
 }

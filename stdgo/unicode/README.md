@@ -13,7 +13,7 @@ Package unicode provides data and functions to test some properties of Unicode c
 <p>
 
 ```
-(Test time-out - runtime exceeded 2m0s)
+(Test time-out - runtime exceeded 15m0s)
 ```
 </p>
 </details>
@@ -22,7 +22,7 @@ Package unicode provides data and functions to test some properties of Unicode c
 <p>
 
 ```
-(Test time-out - runtime exceeded 2m0s)
+(Test time-out - runtime exceeded 15m0s)
 ```
 </p>
 </details>
@@ -31,7 +31,7 @@ Package unicode provides data and functions to test some properties of Unicode c
 <p>
 
 ```
-(Test time-out - runtime exceeded 2m0s)
+(Test time-out - runtime exceeded 15m0s)
 ```
 </p>
 </details>

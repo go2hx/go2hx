@@ -13,7 +13,7 @@ Package strings implements simple functions to manipulate UTF\-8 encoded strings
 <p>
 
 ```
-(Test time-out - runtime exceeded 2m0s)
+(Test time-out - runtime exceeded 15m0s)
 ```
 </p>
 </details>
@@ -22,7 +22,7 @@ Package strings implements simple functions to manipulate UTF\-8 encoded strings
 <p>
 
 ```
-(Test time-out - runtime exceeded 2m0s)
+(Test time-out - runtime exceeded 15m0s)
 ```
 </p>
 </details>
@@ -31,7 +31,7 @@ Package strings implements simple functions to manipulate UTF\-8 encoded strings
 <p>
 
 ```
-(Test time-out - runtime exceeded 2m0s)
+(Test time-out - runtime exceeded 15m0s)
 ```
 </p>
 </details>

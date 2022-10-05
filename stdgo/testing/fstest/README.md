@@ -13,7 +13,7 @@ Package fstest implements support for testing implementations and users of file 
 <p>
 
 ```
-(Test time-out - runtime exceeded 2m0s)
+(Test time-out - runtime exceeded 15m0s)
 ```
 </p>
 </details>
@@ -22,7 +22,7 @@ Package fstest implements support for testing implementations and users of file 
 <p>
 
 ```
-(Test time-out - runtime exceeded 2m0s)
+(Test time-out - runtime exceeded 15m0s)
 ```
 </p>
 </details>
@@ -31,7 +31,7 @@ Package fstest implements support for testing implementations and users of file 
 <p>
 
 ```
-(Test time-out - runtime exceeded 2m0s)
+(Test time-out - runtime exceeded 15m0s)
 ```
 </p>
 </details>

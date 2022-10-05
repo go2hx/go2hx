@@ -5425,12 +5425,6 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 					final fs:Array<ObjectField> = [];
 					var e = macro {};
 					if (alias) {
-						for (field in fields) {
-							fs.push({
-								field: field.name,
-								expr: defaultValue(field.type, info),
-							});
-						}
 						e = createNamedObjectDecl(fields, (_, type) -> defaultValue(type, info), info);
 					}
 					if (hasTypeParam(ct)) {
@@ -5692,7 +5686,7 @@ private function typeFields(list:Array<FieldType>, info:Info, access:Array<Acces
 			meta.push({name: ":tag", pos: null, params: [makeString(field.tag)]});
 		var doc:String = getDoc({doc: docs == null ? null : docs[i]}) + getComment({comment: comments == null ? null : comments[i]});
 		fields.push({
-			name: formatHaxeFieldName(name, info),
+			name: name,
 			pos: null,
 			meta: meta,
 			doc: doc,

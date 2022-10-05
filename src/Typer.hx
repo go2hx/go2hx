@@ -5726,7 +5726,7 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 		comments.push(field.comment);
 		if (field.names.length == 0) {
 			// embedded
-			var name:String = getName(field.type);
+			var name:String = formatHaxeFieldName(getName(field.type), info);
 			if (name == null)
 				continue;
 			fieldList.push({
@@ -5737,7 +5737,7 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 			});
 		} else {
 			for (n in field.names) {
-				final name = n.name;
+				final name = formatHaxeFieldName(n.name, info);
 				fieldList.push({
 					name: name,
 					type: type,
@@ -6539,8 +6539,9 @@ private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, 
 		}
 		info.restricted.push(name);
 	}
-	if (reserved.indexOf(name) != -1)
+	if (reserved.indexOf(name) != -1) {
 		name = name + "_";
+	}
 	if (overwrite) {
 		info.renameIdents[oldName] = name;
 	}

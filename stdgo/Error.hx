@@ -3,7 +3,7 @@ package stdgo;
 import stdgo.GoString;
 import stdgo.StdGoTypes;
 
-typedef Error = StructType & {
+@:named typedef Error = StructType & {
 	public function error():GoString;
 }
 
@@ -12,11 +12,16 @@ typedef Error = StructType & {
 **/
 @:named @:using(stdgo.Error.T_errorString_static_extension) private typedef T_errorString = GoString;
 
-private var _overflowError:Error = new T_errorString_asInterface("integer overflow");
-private var _divideError:Error = new T_errorString_asInterface("integer divide by zero");
-private var _shiftError:Error = new T_errorString_asInterface("negative shift amount");
-private var _floatError:Error = new T_errorString_asInterface("floating point error");
-private var _memoryError:Error = new T_errorString_asInterface("invalid memory address or nil pointer dereference");
+private var _overflowError:RuntimeError = new T_errorString_asInterface("integer overflow");
+private var _divideError:RuntimeError = new T_errorString_asInterface("integer divide by zero");
+private var _shiftError:RuntimeError = new T_errorString_asInterface("negative shift amount");
+private var _floatError:RuntimeError = new T_errorString_asInterface("floating point error");
+private var _memoryError:RuntimeError = new T_errorString_asInterface("invalid memory address or nil pointer dereference");
+
+@:named typedef RuntimeError = StructType & {
+	public function error():GoString;
+	public function runtimeError():Void;
+}
 
 class T_errorString_asInterface {
 	@:keep

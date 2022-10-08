@@ -1156,8 +1156,9 @@ class _Type {
 	public function uncommon():Pointer<Dynamic>
 		return null;
 
-	public function common():Pointer<Dynamic>
+	public function common():Pointer<Dynamic> {
 		return new Pointer(() -> gt, v -> gt = v);
+	}
 
 	public inline function new(t:GoType = invalidType) {
 		gt = t;
@@ -1872,9 +1873,7 @@ private function implementsMethod(t:Type, v:Type):Bool {
 				return true;
 			switch vgt {
 				case interfaceType(_, methods2), named(_, methods2, _):
-					if (methods2 == null || methods2.length == 0)
-						return true;
-					if (methods.length != methods2.length)
+					if (methods.length > methods2.length)
 						return false;
 					for (i in 0...methods.length) {
 						if (methods[i].name != methods2[i].name)

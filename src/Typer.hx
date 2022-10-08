@@ -1462,8 +1462,9 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 	}
 	var value = nilExpr;
 	if (value != null) {
-		if (isInterface(typeX) || isInterface(typeY))
+		if (isInterface(typeX) || isInterface(typeY)) {
 			return toExpr(EBinop(op, x, y));
+		}
 		if (isNamed(nilType))
 			nilType = getUnderlying(nilType);
 		switch op {
@@ -4643,6 +4644,11 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info, walk:Bool = true
 	var op = typeOp(expr.op);
 	y = toGoType(y);
 	x = toGoType(x);
+	switch op {
+		case OpEq, OpNotEq:
+			return translateEquals(x, y, typeX, typeY, op, info).expr;
+		default:
+	}
 	if ((isInvalid(typeX) || isInterface(typeX)) && op != OpBoolAnd && !isInvalid(typeY) && op == OpAssign) {
 		x = toAnyInterface(x, typeX, info);
 		y = toAnyInterface(y, typeY, info);
@@ -4847,15 +4853,16 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef { //
 	}
 	final ct = typeExprType(expr.type, info);
 	final fromType = typeof(expr.x, info, false);
-	if (isAnyInterface(fromType))
-		return (macro Go.typeAssert(($e : $ct))).expr;
 	// non anyInterface conversions are always known to work at compile time
 	final t = typeof(expr.type, info, false);
 	if (isPointer(t)) {
 		final ct = typeExprType(expr.type.x, info);
 		return (macro Go.pointer(($e.__underlying__().value : $ct))).expr;
 	}
-	return (macro($e.__underlying__().value : $ct)).expr;
+	if (isAnyInterface(fromType))
+		return (macro Go.typeAssert(($e : $ct))).expr;
+	e = toAnyInterface(e, fromType, info);
+	return (macro Go.typeAssert(($e : $ct))).expr;
 }
 
 private function destructureExpr(x:Expr, t:GoType):{x:Expr, t:GoType} {

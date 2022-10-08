@@ -1873,7 +1873,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 						return false;
 				}
 				true;
-			case interfaceType(_): (a == null && b == null) || a.value == b.value;
+			case interfaceType(_): true;
 			case arrayType(elem, _):
 				var a:GoArray<Any> = aValue;
 				var b:GoArray<Any> = bValue;

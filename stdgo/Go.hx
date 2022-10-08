@@ -517,7 +517,7 @@ class Go {
 
 				return macro({
 					final t = new stdgo.reflect.Reflect._Type($toType);
-					final b = $e.type.assignableTo(t);
+					final b = ($e.value : StructType).__underlying__().type.assignableTo(t);
 					if (!b)
 						throw "unable to assert";
 					if (t.kind() == stdgo.reflect.Reflect.interface_) {
@@ -768,7 +768,7 @@ class Go {
 									}
 									final path = createPath(ref.pack, ref.name);
 									final empty = methods.length == 0;
-									ret = macro stdgo.reflect.Reflect.GoType.named($v{path}, [],
+									ret = macro stdgo.reflect.Reflect.GoType.named($v{path}, $a{methods},
 										stdgo.reflect.Reflect.GoType.interfaceType($v{empty}, $a{methods}));
 								}
 							default:

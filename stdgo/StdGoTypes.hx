@@ -1873,7 +1873,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 						return false;
 				}
 				true;
-			case interfaceType(_): true;
+			case interfaceType(_, _): final t:stdgo.reflect.Reflect.Type = new stdgo.reflect.Reflect._Type(gt); final t2:stdgo.reflect.Reflect.Type = new stdgo.reflect.Reflect._Type(gt2); t.assignableTo(t2) && aValue == bValue;
 			case arrayType(elem, _):
 				var a:GoArray<Any> = aValue;
 				var b:GoArray<Any> = bValue;

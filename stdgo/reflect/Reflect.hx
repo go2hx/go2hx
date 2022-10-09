@@ -1875,10 +1875,18 @@ private function implementsMethod(t:Type, v:Type):Bool {
 				case interfaceType(_, methods2), named(_, methods2, _):
 					if (methods.length > methods2.length)
 						return false;
+					var found = false;
 					for (i in 0...methods.length) {
-						if (methods[i].name != methods2[i].name)
-							return false;
-						if (!new _Type(methods[i].type).assignableTo(new _Type(methods2[i].type)))
+						found = false;
+						for (j in 0...methods2.length) {
+							if (methods[i].name != methods2[j].name)
+								continue;
+							if (!new _Type(methods[i].type).assignableTo(new _Type(methods2[j].type)))
+								return false;
+							found = true;
+							break;
+						}
+						if (!found)
 							return false;
 					}
 					true;

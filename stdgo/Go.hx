@@ -541,26 +541,16 @@ class Go {
 		}
 		expr = parens(expr);
 		switch expr.expr {
-			case ECheckType(e, t):
-				var t = ComplexTypeTools.toType(t);
-				if (t == null)
+			case ECheckType(e, t2):
+				var t2 = ComplexTypeTools.toType(t2);
+				if (t2 == null)
 					Context.error("complexType converted to type is null", Context.currentPos());
-				var et = Context.follow(Context.typeof(e));
-				var value = gtDecode(t, null, []);
-				switch et {
-					case TAnonymous(_):
-						e = macro $e == null ? null : $e.__underlying__();
-					default:
-				}
-				final e = macro if ($e == null) {
-					false;
-				} else {
-					final v = new stdgo.reflect.Reflect._Type($value);
-					$e.type.assignableTo(v);
-					// @:privateAccess stdgo.reflect.Reflect.directlyAssignable(v, $e.type) || @:privateAccess stdgo.reflect.Reflect.implementsMethod(v, $e.type);
-					// v.assignableTo($e.type);
+				final t2 = gtDecode(t2, null, []);
+				return macro {
+					final t = Go.toInterface($e).type;
+					final t2:stdgo.reflect.Reflect.Type = new stdgo.reflect.Reflect._Type(${t2});
+					t.assignableTo(t2);
 				};
-				return e;
 			default:
 				Context.error("unknown assignable expr: " + expr.expr, Context.currentPos());
 				return macro null;

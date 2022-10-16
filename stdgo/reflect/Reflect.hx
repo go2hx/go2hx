@@ -298,6 +298,10 @@ function isRef(type:GoType):Bool {
 	}
 }
 
+function isReflectTypeRef(type:Type):Bool {
+	return isRef(type.common().value);
+}
+
 function isRefValue(type:GoType):Bool {
 	return switch type {
 		case named(_, _, t, _):
@@ -1747,7 +1751,6 @@ private function directlyAssignable(t:Type, v:Type):Bool {
 			}
 		default:
 	}
-
 	tgt = getUnderlying(tgt);
 	vgt = getUnderlying(vgt);
 	return switch tgt {
@@ -1851,43 +1854,40 @@ private function directlyAssignable(t:Type, v:Type):Bool {
 	#end
 }
 
-private function sortMethods(methods:Array<MethodType>) {
-	methods.sort((a, b) -> {
-		return a.name > b.name ? 1 : -1;
-	});
-}
-
 private function implementsMethod(t:Type, v:Type):Bool {
 	#if go2hx_compiler
 	return false;
 	#else
-	if (t.kind() != interface_)
+	if (t.kind() != interface_) {
 		return false;
+	}
 	var interfacePath = "";
 	var gt:GoType = @:privateAccess t.common().value;
 	var vgt:GoType = @:privateAccess v.common().value;
-	// trace(vgt);
 	return switch gt {
 		case interfaceType(_, methods), named(_, methods, _):
 			if (methods == null || methods.length == 0)
 				return true;
 			switch vgt {
 				case interfaceType(_, methods2), named(_, methods2, _):
-					if (methods.length > methods2.length)
+					if (methods.length > methods2.length) {
 						return false;
+					}
 					var found = false;
 					for (i in 0...methods.length) {
 						found = false;
 						for (j in 0...methods2.length) {
 							if (methods[i].name != methods2[j].name)
 								continue;
-							if (!new _Type(methods[i].type).assignableTo(new _Type(methods2[j].type)))
+							if (!new _Type(methods[i].type).assignableTo(new _Type(methods2[j].type))) {
 								return false;
+							}
 							found = true;
 							break;
 						}
-						if (!found)
+						if (!found) {
 							return false;
+						}
 					}
 					true;
 				default:

@@ -320,6 +320,10 @@ class Go {
 
 	public static macro function asInterface(expr) {
 		final t = Context.toComplexType(Context.typeof(expr));
+		// trace(new haxe.macro.Printer().printExpr(expr));
+		final gt = gtDecode(Context.typeof(expr), []);
+		final rt = macro new stdgo.reflect.Reflect._Type($gt);
+		// trace(new haxe.macro.Printer().printExpr(rt));
 		switch t {
 			case TPath(p):
 				var self:Expr = {expr: expr.expr, pos: expr.pos};
@@ -328,18 +332,17 @@ class Go {
 					&& p.params.length == 1) {
 					switch p.params[0] {
 						case TPType(TPath(p2)):
-							selfPointer = true;
-							self = macro $self.value;
 							p = p2;
+						// expr = macro Go.pointer($expr);
+						// selfPointer = true;
 						default:
 					}
 				}
 				if (p.name == "Pointer" && p.params != null && p.pack != null && p.pack.length == 1 && p.pack[0] == "stdgo" && p.params.length == 1) {
 					switch p.params[0] {
 						case TPType(TPath(p2)):
-							selfPointer = true;
-							self = macro $self.value;
 							p = p2;
+							selfPointer = true;
 						default:
 					}
 				}
@@ -373,7 +376,7 @@ class Go {
 						final asInterfacePointer = t.meta.has(":pointer");
 						if (params != null && params.length > 0) { // has params
 							final p = createTypePath();
-							final exprs = [macro final __self__ = new $p($expr)];
+							final exprs = [macro final __self__ = new $p($expr, $rt)];
 							final fields = t.fields.get();
 							for (field in fields) {
 								if (field.name == "__underlying__" || field.name == "__self__")
@@ -412,7 +415,10 @@ class Go {
 							return macro $b{exprs};
 						} else {
 							final p = createTypePath();
-							return macro new $p($expr);
+							if (!selfPointer)
+								expr = macro Go.pointer($expr);
+							// trace(new haxe.macro.Printer().printExpr(macro new $p($expr, $rt)));
+							return macro new $p($expr, $rt);
 						}
 					default:
 						Context.error("invalid type: " + t, Context.currentPos());

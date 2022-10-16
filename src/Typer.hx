@@ -373,12 +373,18 @@ function main(data:DataType, instance:Main.InstanceData) {
 					default:
 				}
 				final ct:ComplexType = TPath({
-					name: def.name,
+					name: "Pointer",
 					pack: [],
-					params: def.params == null ? [] : def.params.map(p -> TPType(TPath({
-						name: p.name,
-						pack: []
-					})))
+					params: [
+						TPType(TPath({
+							name: def.name,
+							pack: [],
+							params: def.params == null ? [] : def.params.map(p -> TPType(TPath({
+								name: p.name,
+								pack: []
+							})))
+						}))
+					]
 				});
 				// trace(new haxe.macro.Printer().printComplexType(ct));
 				var embedded = false;
@@ -421,15 +427,18 @@ function main(data:DataType, instance:Main.InstanceData) {
 				var isWrapperPointer = false;
 				// FIXME: wrapperType needs to be pointer sometimes
 				final wrapper = macro class $wrapperName {
-					public function new(?__self__) {
-						if (__self__ != null)
-							this.__self__ = __self__;
+					public function new(__self__, __type__) {
+						this.__self__ = __self__;
+						this.__type__ = __type__;
 					}
 
 					public function __underlying__()
-						return Go.toInterface(__self__);
+						return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+							&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__,
+							__type__);
 
 					var __self__:$ct;
+					var __type__:stdgo.reflect.Reflect.Type;
 				};
 				wrapper.isExtern = def.isExtern;
 				wrapper.params = def.params;
@@ -472,7 +481,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 											};
 										default:
 									}
-									fun.expr = macro __self__.$fieldName($a{args});
+									fun.expr = macro __self__.value.$fieldName($a{args});
 									switch expr.expr {
 										case EReturn(_):
 											fun.expr = macro return ${fun.expr};
@@ -531,7 +540,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 						default:
 					}
 				}
-				if (isWrapperPointer) {
+				/*if (isWrapperPointer) {
 					switch wrapper.fields[wrapper.fields.length - 1].kind {
 						case FVar(t, _):
 							wrapper.fields[wrapper.fields.length - 1].kind = FVar(TPath({name: "Pointer", pack: [], params: [TPType(t)]}), null);
@@ -543,7 +552,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 							}
 						default:
 					}
-				}
+				}*/
 				// trace(printer.printTypeDefinition(staticExtension));
 				// trace(printer.printTypeDefinition(wrapper));
 			}
@@ -620,12 +629,9 @@ private function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Arr
 		fieldArgs[i] = {name: fieldArgs[i].name, type: exprOfType(fieldArgs[i].type)};
 
 	final fieldCallArgs = fieldArgs.map(arg -> macro $i{arg.name});
-	var e = macro __self__;
+	var e = macro __self__.value;
 	if (isPointerArg) {
 		fieldCallArgs.unshift(macro __self__);
-	}
-	if (isWrapperPointer) {
-		e = macro $e.value;
 	}
 	for (meta in wrapper.meta) {
 		if (meta.name == ":pointer") {
@@ -5005,7 +5011,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		};
 	}
 	var doc = getDoc(decl);
-	var preamble = "//#go2hx ";
+	var preamble = "// #go2hx ";
 	var index = doc.indexOf(preamble);
 	var finalDoc = doc + getSource(decl, info);
 	if (index != -1) {

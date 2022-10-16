@@ -12,11 +12,20 @@ import stdgo.StdGoTypes;
 **/
 @:named @:using(stdgo.Error.T_errorString_static_extension) private typedef T_errorString = GoString;
 
-private var _overflowError:RuntimeError = new T_errorString_asInterface("integer overflow");
-private var _divideError:RuntimeError = new T_errorString_asInterface("integer divide by zero");
-private var _shiftError:RuntimeError = new T_errorString_asInterface("negative shift amount");
-private var _floatError:RuntimeError = new T_errorString_asInterface("floating point error");
-private var _memoryError:RuntimeError = new T_errorString_asInterface("invalid memory address or nil pointer dereference");
+private var _overflowError:RuntimeError = new T_errorString_asInterface("integer overflow",
+	new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.basic(string_kind)));
+
+private var _divideError:RuntimeError = new T_errorString_asInterface("integer divide by zero",
+	new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.basic(string_kind)));
+
+private var _shiftError:RuntimeError = new T_errorString_asInterface("negative shift amount",
+	new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.basic(string_kind)));
+
+private var _floatError:RuntimeError = new T_errorString_asInterface("floating point error",
+	new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.basic(string_kind)));
+
+private var _memoryError:RuntimeError = new T_errorString_asInterface("invalid memory address or nil pointer dereference",
+	new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.basic(string_kind)));
 
 @:named typedef RuntimeError = StructType & {
 	public function error():GoString;
@@ -32,15 +41,16 @@ class T_errorString_asInterface {
 	public function runtimeError():Void
 		__self__.runtimeError();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
 		return Go.toInterface(__self__);
 
 	var __self__:T_errorString;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep private class T_errorString_static_extension {

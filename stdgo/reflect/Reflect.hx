@@ -1410,6 +1410,8 @@ class _Type {
 				return count;
 			case structType(_):
 				return 0;
+			case pointer(_), refType(_):
+				return elem().numMethod();
 			default:
 				throw "reflect.NumMethod not implemented for " + string();
 		}

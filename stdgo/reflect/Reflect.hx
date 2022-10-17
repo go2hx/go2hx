@@ -1864,6 +1864,10 @@ private function implementsMethod(t:Type, v:Type):Bool {
 	var interfacePath = "";
 	var gt:GoType = @:privateAccess t.common().value;
 	var vgt:GoType = @:privateAccess v.common().value;
+	if (isPointer(gt))
+		gt = getElem(gt);
+	if (isPointer(vgt))
+		vgt = getElem(vgt);
 	return switch gt {
 		case interfaceType(_, methods), named(_, methods, _):
 			if (methods == null || methods.length == 0)

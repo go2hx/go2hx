@@ -481,7 +481,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 											};
 										default:
 									}
-									fun.expr = macro __self__.value.$fieldName($a{args});
+									fun.expr = macro __self__.$fieldName($a{args});
 									switch expr.expr {
 										case EReturn(_):
 											fun.expr = macro return ${fun.expr};
@@ -540,19 +540,6 @@ function main(data:DataType, instance:Main.InstanceData) {
 						default:
 					}
 				}
-				/*if (isWrapperPointer) {
-					switch wrapper.fields[wrapper.fields.length - 1].kind {
-						case FVar(t, _):
-							wrapper.fields[wrapper.fields.length - 1].kind = FVar(TPath({name: "Pointer", pack: [], params: [TPType(t)]}), null);
-							wrapper.meta.push({name: ":pointer", pos: null});
-							switch wrapper.fields[wrapper.fields.length - 2].kind {
-								case FFun(f):
-									f.expr = macro return Go.toInterface(__self__.value);
-								default:
-							}
-						default:
-					}
-				}*/
 				// trace(printer.printTypeDefinition(staticExtension));
 				// trace(printer.printTypeDefinition(wrapper));
 			}
@@ -629,20 +616,14 @@ private function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Arr
 		fieldArgs[i] = {name: fieldArgs[i].name, type: exprOfType(fieldArgs[i].type)};
 
 	final fieldCallArgs = fieldArgs.map(arg -> macro $i{arg.name});
-	var e = macro __self__.value;
+	var e = macro __self__;
 	if (isPointerArg) {
 		fieldCallArgs.unshift(macro __self__);
-	}
-	for (meta in wrapper.meta) {
-		if (meta.name == ":pointer") {
-			e = macro $e.value;
-			break;
-		}
 	}
 	if (fieldArgs.length > 0 && isRestType(fieldArgs[fieldArgs.length - 1].type)) {
 		fieldCallArgs[fieldCallArgs.length - 1] = macro...$e{fieldCallArgs[fieldCallArgs.length - 1]};
 	}
-	var e = macro $e.$funcName($a{fieldCallArgs});
+	var e = macro $e.value.$funcName($a{fieldCallArgs});
 	if (!isVoid(fieldRet))
 		e = macro return $e;
 

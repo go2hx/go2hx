@@ -16,7 +16,7 @@ function main() {
 	for (data in list) {
 		libs.push(data.split("-")[0]);
 	}
-	// libs = ["time"];
+	// libs = ["os/exec"];
 	trace(libs);
 	libCount = libs.length;
 	Main.setup(0, 1); // amount of processes to spawn
@@ -80,11 +80,17 @@ private function sanatize(s:String):String {
 	return s;
 }
 
-final noMain = ["testing/internal/testdeps", "runtime", "internal/oserror", "encoding"];
+final noMain = [
+	"testing/internal/testdeps",
+	"runtime",
+	"internal/oserror",
+	"encoding",
+	"internal/testenv"
+];
 
 final externs = [
-	"syscall/js", "syscall", "os", "context", "testing", "testing/quick", "testing/iotest", "testing/fstest", "testing/internal/testdeps", "regexp/syntax",
-	"regexp", "runtime",
+	"syscall/js", "syscall", "os", "os/exec", "context", "testing", "testing/quick", "testing/iotest", "testing/fstest", "testing/internal/testdeps",
+	"regexp/syntax", "regexp", "runtime",
 ];
 
 final exports = ["runtime"];

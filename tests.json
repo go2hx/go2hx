@@ -27,5 +27,7 @@
     "encoding/base64",
     "internal/oserror",
     "encoding",
-    "bufio"
+    "bufio",
+    "regexp",
+    "regexp/syntax"
 ]

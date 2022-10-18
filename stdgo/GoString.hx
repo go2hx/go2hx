@@ -225,11 +225,11 @@ private class GoStringKeyValueIterator {
 	public function hasNext()
 		return bytes.length > 0;
 
-	public function next() {
+	public function next():{key:GoInt, value:GoRune} {
 		#if nolinkstd
 		trace("std not linked");
 		bytes = [];
-		return 0;
+		return {key: 0, value: 0};
 		#else
 		final tmp = stdgo.unicode.utf8.Utf8.decodeRune(bytes);
 		final rune = tmp._0;

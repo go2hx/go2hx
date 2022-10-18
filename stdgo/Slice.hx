@@ -249,7 +249,7 @@ class SliceData<T> {
 
 	public function toString():String {
 		#if !macro
-		return "[" + [for (i in offset...offset + length) GoUtil.string(vector[i])].join(" ") + "]";
+		return "[" + [for (i in offset...offset + length) Go.string(vector[i])].join(" ") + "]";
 		#else
 		return "";
 		#end

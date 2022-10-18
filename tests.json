@@ -12,15 +12,20 @@
     "io/fs",
     "testing/fstest",
     "testing/iotest",
+    "testing/internal/testdeps",
     "os",
     "syscall",
     "syscall/js",
     "log",
     "bytes",
     "time",
-    "testing",
     "path",
     "strconv",
     "errors",
-    "runtime"
+    "runtime",
+    "log",
+    "encoding/base64",
+    "internal/oserror",
+    "encoding",
+    "bufio"
 ]

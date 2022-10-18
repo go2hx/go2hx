@@ -95,7 +95,7 @@ class Tcp {
 		return new Stream(s, loop);
 	}
 }
-#elseif interp
+#elseif (interp || no_uv)
 class Stream {
 	var s:Socket = null;
 	var loop:Loop;
@@ -109,7 +109,7 @@ class Stream {
 	}
 
 	public function write(b:Bytes, ?onWrite:Bool->Void) {
-		s.setBlocking(true);
+		s.setBlocking(false);
 		s.output.writeBytes(b, 0, b.length);
 		s.output.flush();
 		s.setBlocking(false);

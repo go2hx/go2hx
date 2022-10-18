@@ -1407,7 +1407,7 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 	switch typeX {
 		case named(path, _, _, _):
 			if (path == "reflect.Type") {
-				var e = macro $x.toString() == $y.toString();
+				var e = macro($x.string() : String) == ($y.string() : String);
 				switch op {
 					case OpNotEq:
 						e = macro !($e);
@@ -4332,6 +4332,11 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 					var e = toExpr(EObjectDecl(objectFields));
 					return (macro($e : $ct)).expr;
 				} else {
+					switch ct {
+						case TAnonymous(_):
+							return (macro @:unknown_anon_compositelit null).expr;
+						default:
+					}
 					final p = getTypePath(ct);
 					final b = hasTypeParam(ct);
 					p.params = null;
@@ -5870,8 +5875,9 @@ private function refToPointerWrapper(t:GoType):GoType {
 private function typeSpec(spec:Ast.TypeSpec, info:Info, local:Bool = false):TypeDefinition {
 	var hash:UInt = 0;
 	if (spec.type.type != null) {
-		hash = spec.type.type.hash;
-		if (!info.locals.exists(hash)) {
+		if (spec.type.type != null && spec.type.type.hash != null)
+			hash = spec.type.type.hash;
+		if (!info.locals.exists(hash) || hash == 0) {
 			final path = spec.name.type.path == null ? spec.name.name : spec.name.type.path;
 			var nameType:GoType = if (spec.type.id == "InterfaceType") {
 				final t = typeof(spec.type.type, info, true, [path]);
@@ -5886,7 +5892,8 @@ private function typeSpec(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 					nameType = named(className(path, info), [], structType(fields), spec.assign != 0 || local);
 				default:
 			}
-			info.locals[hash] = nameType;
+			if (hash != 0)
+				info.locals[hash] = nameType;
 		}
 	}
 	if (spec.type != null) {

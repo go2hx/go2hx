@@ -90,8 +90,16 @@ function main() {
 
 	if (code == 0) {
 		// run hashlink
-		if (!FileSystem.exists("build.hl") || rebuild)
-			Sys.command("haxe build-hl.hxml");
+		var no_uv = false;
+		if (args.indexOf("-no_uv") != -1 || args.indexOf("--no_uv") != -1) {
+			no_uv = true;
+		}
+		if (!FileSystem.exists("build.hl") || rebuild) {
+			var cmd = "haxe build-hl.hxml";
+			if (no_uv)
+				cmd += " -D no_uv";
+			Sys.command(cmd);
+		}
 		args.unshift("build.hl");
 		Sys.command("hl", args);
 	} else {
@@ -110,7 +118,7 @@ function clean() {
 				for (path2 in FileSystem.readDirectory('stdgo/$path')) {
 					if (FileSystem.isDirectory('stdgo/$path/$path2')) {
 						switch path2 {
-							case "poll", "reflectlite", "bytealg":
+							case "poll", "reflectlite", "bytealg", "testenv":
 							default:
 								deleteDirectoryRecursively('stdgo/$path/$path2');
 						}

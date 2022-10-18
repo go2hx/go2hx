@@ -33,7 +33,9 @@ jobs:
         run: npx haxelib run go2hx ./rnd
       - name: Memory info
         run: free -m
-      - name: Run StdGo autogenerator
+      - name: Clean go2hx
+        run: npx haxelib run go2hx clean
+      - name: Run stdgo automatic compile
         run: npx haxe stdgo.hxml
       - name: Build tests
         run: npx haxe tests.hxml
@@ -59,7 +61,7 @@ jobs:
       #       HXCPP_COMPILE_CACHE: ~/hxcppcache
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: stdGo automatic compile
+          commit_message: stdgo automatic compile
       - name: Get go2hxdoc
         run: go get github.com/go2hx/go2hxdoc
       - name: Build go2hxdoc

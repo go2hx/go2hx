@@ -13,6 +13,11 @@ function main() {
 		false;
 	}
 
+	if (args.length > 0 && args[0] == "clean") {
+		clean();
+		return;
+	}
+
 	var process = new Process("go", ["version"]);
 	var code = process.exitCode();
 	if (code != 0) {
@@ -91,5 +96,41 @@ function main() {
 		Sys.command("hl", args);
 	} else {
 		Sys.command("haxe build-interp.hxml " + args.join(" "));
+	}
+}
+
+function clean() {
+	for (path in FileSystem.readDirectory("stdgo")) {
+		if (!FileSystem.isDirectory('stdgo/$path'))
+			continue;
+		switch path {
+			case "reflect", "fmt", "sync", "unsafe":
+				continue;
+			case "internal", "testing":
+				for (path2 in FileSystem.readDirectory('stdgo/$path')) {
+					if (FileSystem.isDirectory('stdgo/$path/$path2')) {
+						switch path2 {
+							case "poll", "reflectlite", "bytealg":
+							default:
+								deleteDirectoryRecursively('stdgo/$path/$path2');
+						}
+					}
+				}
+				continue;
+		}
+		deleteDirectoryRecursively('stdgo/$path');
+	}
+}
+
+function deleteDirectoryRecursively(dir:String):Int {
+	return switch (systemName) {
+		case "Windows":
+			#if !js Sys.command("rmdir /s /q " + dir); #else 0; #end
+		default:
+			#if !js
+			Sys.command("rm -rf " + dir);
+			#else
+			0;
+			#end
 	}
 }

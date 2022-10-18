@@ -379,7 +379,7 @@ class Go {
 							final exprs = [macro final __self__ = new $p($expr, $rt)];
 							final fields = t.fields.get();
 							for (field in fields) {
-								if (field.name == "__underlying__" || field.name == "__self__")
+								if (field.name == "__underlying__" || field.name == "__self__" || field.name == "__type__")
 									continue;
 								final isPointer = field.meta.has(":pointer");
 								final methodName = field.name;
@@ -394,7 +394,7 @@ class Go {
 											}
 										}
 										// callArgs.unshift(self);
-										var e = macro $self.$methodName($a{callArgs});
+										var e = macro $self.value.$methodName($a{callArgs});
 										// trace("e: " + printer.printExpr(e));
 										if (!isVoid(ret))
 											e = macro return $e;
@@ -520,18 +520,15 @@ class Go {
 				if (t2 == null)
 					Context.error("complexType converted to type is null", Context.currentPos());
 				final toType = gtDecode(t2, null, []);
-
-				return macro({
+				final e = macro({
 					final t = new stdgo.reflect.Reflect._Type($toType);
-					final b = ($e.value : StructType).__underlying__().type.assignableTo(t);
+					final b = $e.type.assignableTo(t);
 					if (!b)
 						throw "unable to assert";
-					if (t.kind() == stdgo.reflect.Reflect.interface_) {
-						($e.value : $t);
-					} else {
-						(($e.value : Dynamic).__underlying__().value : $t);
-					}
+					($e.value : $t);
 				});
+				// trace(new haxe.macro.Printer().printExpr(e));
+				return e;
 			default:
 				Context.error("unknown assignable expr: " + expr.expr, Context.currentPos());
 				return macro null;

@@ -247,8 +247,13 @@ class SliceData<T> {
 		return vector;
 	}
 
-	public function toString():String
-		return "[" + [for (i in offset...offset + length) Go.string(vector[i])].join(" ") + "]";
+	public function toString():String {
+		#if !macro
+		return "[" + [for (i in offset...offset + length) GoUtil.string(vector[i])].join(" ") + "]";
+		#else
+		return "";
+		#end
+	}
 
 	public function grow() {
 		if (vector.length >= capacity)

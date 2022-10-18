@@ -58,7 +58,7 @@ abstract Pointer<T>(PointerData<T>) from PointerData<T> {
 	@:from
 	private static function fromSlice<T>(slice:Slice<T>):Pointer<GoArray<T>> {
 		var x:GoArray<T> = cast slice.__toVector__();
-		return Go.pointer(x);
+		return #if !macro Go.pointer(x) #else null #end;
 	}
 
 	@:to

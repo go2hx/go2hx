@@ -998,7 +998,7 @@ function valueOf(iface:AnyInterface):Value {
 	}
 
 	public function __underlying__():AnyInterface
-		return Go.toInterface(__t__);
+		return #if !macro Go.toInterface(__t__) #else null #end;
 
 	public function string():GoString
 		return Go.string(__t__);
@@ -1023,7 +1023,7 @@ function valueOf(iface:AnyInterface):Value {
 	}
 
 	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
+		return #if !macro Go.toInterface(this) #else null #end;
 
 	public function __copy__() {
 		return new StringHeader(data, len);
@@ -1055,7 +1055,7 @@ function valueOf(iface:AnyInterface):Value {
 	}
 
 	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
+		return #if !macro Go.toInterface(this) #else null #end;
 
 	public function __copy__() {
 		return new SliceHeader(data, len, cap);
@@ -1604,7 +1604,7 @@ class _Type {
 	public var __t__:GoString = "";
 
 	public function __underlying__():AnyInterface
-		return Go.toInterface(__t__);
+		return #if !macro Go.toInterface(__t__) #else null #end;
 
 	public function string():GoString
 		return Go.string(__t__);
@@ -1659,7 +1659,7 @@ class _Type {
 			var qvalue:GoString = tag.__slice__(0, i + ((1 : GoInt64)));
 			tag = tag.__slice__(i + ((1 : GoInt64)));
 			if (key == name) {
-				var __tmp__ = #if nolinkstd {_0: qvalue, _1: null} #else Go.unquote(qvalue) #end,
+				var __tmp__ = #if nolinkstd {_0: qvalue, _1: null} #elseif !macro Go.unquote(qvalue) #else {_0: null, _1: null} #end,
 					value = __tmp__._0,
 					err = __tmp__._1;
 				if (err != null) {

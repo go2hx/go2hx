@@ -47,7 +47,7 @@ class T_errorString_asInterface {
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return #if !macro Go.toInterface(__self__) #else null #end;
 
 	var __self__:T_errorString;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -56,7 +56,7 @@ class T_errorString_asInterface {
 @:keep private class T_errorString_static_extension {
 	@:keep
 	static public function error(_e:T_errorString):GoString {
-		return Go.str("runtime error: ") + (_e : GoString);
+		return #if !macro Go.str("runtime error: ") + (_e : GoString) #else "" #end;
 	}
 
 	@:keep

@@ -831,7 +831,9 @@ abstract GoInt32(Int) from Int32 to Int32 to Int {
 
 	@:op(A / B) private static inline function div(a:GoInt32, b:GoInt32):GoInt32 {
 		if (b == 0) {
+			#if !macro
 			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
+			#end
 		}
 		return Std.int(a.toBasic() / b.toBasic());
 	}
@@ -963,7 +965,9 @@ abstract GoUInt32(UInt) from UInt from Int to UInt to Int {
 
 	@:op(A / B) private static function div(a:GoUInt32, b:GoUInt32):GoUInt32 {
 		if (b == 0) {
+			#if !macro
 			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
+			#end
 		}
 		return Std.int(a.toBasic() / b.toBasic());
 	}
@@ -1111,7 +1115,9 @@ abstract GoInt8(Int8) from Int8 from Int to Int8 {
 
 	@:op(A / B) private static function div(a:GoInt8, b:GoInt8):GoInt8 {
 		if (b == 0) {
+			#if !macro
 			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
+			#end
 		}
 		return Std.int(a.toBasic() / b.toBasic());
 	}
@@ -1212,7 +1218,9 @@ abstract GoInt16(Int16) from Int16 from Int to Int16 {
 
 	@:op(A / B) private static function div(a:GoInt16, b:GoInt16):GoInt16 {
 		if (b == 0) {
+			#if !macro
 			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
+			#end
 		}
 		return Std.int(a.toBasic() / b.toBasic());
 	}
@@ -1333,7 +1341,9 @@ abstract GoInt64(Int64) from Int64 {
 
 	@:op(A / B) public static function div(a:GoInt64, b:GoInt64):GoInt64 {
 		if (b == 0) {
+			#if !macro
 			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
+			#end
 		}
 		return a.toBasic() / b.toBasic();
 	}
@@ -1459,7 +1469,9 @@ abstract GoUInt8(UInt8) from UInt8 from Int to UInt8 {
 
 	@:op(A / B) private static function div(a:GoUInt8, b:GoUInt8):GoUInt8 {
 		if (b == 0) {
+			#if !macro
 			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
+			#end
 		}
 		return clamp(Std.int(a.toBasic() / b.toBasic()));
 	}
@@ -1577,7 +1589,9 @@ abstract GoUInt16(UInt16) from UInt16 from Int to UInt16 {
 
 	@:op(A / B) private static function div(a:GoUInt16, b:GoUInt16):GoUInt16 {
 		if (b == 0) {
+			#if !macro
 			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
+			#end
 		}
 		return clamp(Std.int(a.toBasic() / b.toBasic()));
 	}
@@ -1711,7 +1725,9 @@ abstract GoUInt64(UInt64) from UInt64 {
 
 	@:op(A / B) private static function div(a:GoUInt64, b:GoUInt64):GoUInt64 {
 		if (b == 0) {
+			#if !macro
 			throw Go.toInterface(@:privateAccess stdgo.Error._divideError);
+			#end
 		}
 		return a.toBasic() / b.toBasic();
 	}

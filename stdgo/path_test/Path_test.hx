@@ -382,7 +382,7 @@ function testMatch(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var __tmp__ = match(_tt._pattern, _tt._s),
 			_ok:Bool = __tmp__._0,
 			_err:Error = __tmp__._1;
-		if ((_ok != _tt._match) || (_err != _tt._err)) {
+		if ((_ok != _tt._match) || (Go.toInterface(_err) != Go.toInterface(_tt._err))) {
 			_t.errorf(Go.str("Match(%#q, %#q) = %v, %v want %v, %v"), Go.toInterface(_tt._pattern), Go.toInterface(_tt._s), Go.toInterface(_ok),
 				Go.toInterface(_err), Go.toInterface(_tt._match), Go.toInterface(_tt._err));
 		};
@@ -393,13 +393,13 @@ function testClean(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _test in _cleantests) {
 		{
 			var _s:GoString = clean(_test._path);
-			if (_s != _test._result) {
+			if (_s != (_test._result)) {
 				_t.errorf(Go.str("Clean(%q) = %q, want %q"), Go.toInterface(_test._path), Go.toInterface(_s), Go.toInterface(_test._result));
 			};
 		};
 		{
 			var _s:GoString = clean(_test._result);
-			if (_s != _test._result) {
+			if (_s != (_test._result)) {
 				_t.errorf(Go.str("Clean(%q) = %q, want %q"), Go.toInterface(_test._result), Go.toInterface(_s), Go.toInterface(_test._result));
 			};
 		};
@@ -442,7 +442,7 @@ function testJoin(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _test in _jointests) {
 		{
 			var _p:GoString = join(..._test._elem.__toArray__());
-			if (_p != _test._path) {
+			if (_p != (_test._path)) {
 				_t.errorf(Go.str("Join(%q) = %q, want %q"), Go.toInterface(_test._elem), Go.toInterface(_p), Go.toInterface(_test._path));
 			};
 		};
@@ -453,7 +453,7 @@ function testExt(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _test in _exttests) {
 		{
 			var _x:GoString = ext(_test._path);
-			if (_x != _test._ext) {
+			if (_x != (_test._ext)) {
 				_t.errorf(Go.str("Ext(%q) = %q, want %q"), Go.toInterface(_test._path), Go.toInterface(_x), Go.toInterface(_test._ext));
 			};
 		};
@@ -464,7 +464,7 @@ function testBase(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _test in _basetests) {
 		{
 			var _s:GoString = base(_test._path);
-			if (_s != _test._result) {
+			if (_s != (_test._result)) {
 				_t.errorf(Go.str("Base(%q) = %q, want %q"), Go.toInterface(_test._path), Go.toInterface(_s), Go.toInterface(_test._result));
 			};
 		};
@@ -475,7 +475,7 @@ function testDir(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _test in _dirtests) {
 		{
 			var _s:GoString = dir(_test._path);
-			if (_s != _test._result) {
+			if (_s != (_test._result)) {
 				_t.errorf(Go.str("Dir(%q) = %q, want %q"), Go.toInterface(_test._path), Go.toInterface(_s), Go.toInterface(_test._result));
 			};
 		};
@@ -486,7 +486,7 @@ function testIsAbs(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _test in _isAbsTests) {
 		{
 			var _r:Bool = isAbs(_test._path);
-			if (_r != _test._isAbs) {
+			if (_r != (_test._isAbs)) {
 				_t.errorf(Go.str("IsAbs(%q) = %v, want %v"), Go.toInterface(_test._path), Go.toInterface(_r), Go.toInterface(_test._isAbs));
 			};
 		};

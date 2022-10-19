@@ -442,7 +442,7 @@ function _noescape(_p:stdgo.unsafe.Unsafe.UnsafePointer):stdgo.unsafe.Unsafe.Uns
 	// and no allocation is made.
 **/
 function clone(_s:GoString):GoString {
-	if ((_s.length) == (0 : GoInt)) {
+	if ((_s.length) == ((0 : GoInt))) {
 		return Go.str();
 	};
 	var _b = new Slice<GoUInt8>((_s.length : GoInt).toBasic(), 0, ...[for (i in 0...(_s.length : GoInt).toBasic()) (0 : GoUInt8)]);
@@ -460,7 +460,7 @@ function clone(_s:GoString):GoString {
 	// string comparison operators ==, <, >, and so on.
 **/
 function compare(_a:GoString, _b:GoString):GoInt {
-	if (_a == _b) {
+	if (_a == (_b)) {
 		return (0 : GoInt);
 	};
 	if (_a < _b) {
@@ -496,7 +496,7 @@ function newReader(_s:GoString):Ref<Reader> {
 **/
 function newReplacer(_oldnew:haxe.Rest<GoString>):Ref<Replacer> {
 	var _oldnew = new Slice<GoString>(0, 0, ..._oldnew);
-	if ((_oldnew.length % (2 : GoInt)) == (1 : GoInt)) {
+	if ((_oldnew.length) % (2 : GoInt) == ((1 : GoInt))) {
 		throw Go.toInterface(Go.str("strings.NewReplacer: odd argument count"));
 	};
 	return (({_oldnew: ((null : Slice<GoString>).__append__(..._oldnew.__toArray__()))} : Replacer) : Ref<Replacer>);
@@ -521,7 +521,7 @@ function _makeGenericReplacer(_oldnew:Slice<GoString>):Ref<T_genericReplacer> {
 	};
 	var _index:GoByte = (0 : GoUInt8);
 	for (_i => _b in _r._mapping) {
-		if (_b == (0 : GoUInt8)) {
+		if (_b == ((0 : GoUInt8))) {
 			_r._mapping[_i] = (_r._tableSize : GoByte);
 		} else {
 			_r._mapping[_i] = _index;
@@ -541,7 +541,7 @@ function _makeGenericReplacer(_oldnew:Slice<GoString>):Ref<T_genericReplacer> {
 
 function _getStringWriter(_w:stdgo.io.Io.Writer):stdgo.io.Io.StringWriter {
 	var __tmp__ = try {
-		{value: (_w.__underlying__().value : stdgo.io.Io.StringWriter), ok: true};
+		{value: Go.typeAssert((Go.toInterface(_w) : stdgo.io.Io.StringWriter)), ok: true};
 	} catch (_) {
 		{value: (null : stdgo.io.Io.StringWriter), ok: false};
 	}, _sw = __tmp__.value, _ok = __tmp__.ok;
@@ -582,7 +582,7 @@ function _makeStringFinder(_pattern:GoString):Ref<T_stringFinder> {
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < _last, _i++, {
 			var _lenSuffix:GoInt = _longestCommonSuffix(_pattern, (_pattern.__slice__((1 : GoInt), _i + (1 : GoInt)) : GoString));
-			if (_pattern[_i - _lenSuffix] != _pattern[_last - _lenSuffix]) {
+			if (_pattern[_i - _lenSuffix] != (_pattern[_last - _lenSuffix])) {
 				_f._goodSuffixSkip[_last - _lenSuffix] = (_lenSuffix + _last) - _i;
 			};
 		});
@@ -593,7 +593,7 @@ function _makeStringFinder(_pattern:GoString):Ref<T_stringFinder> {
 function _longestCommonSuffix(_a:GoString, _b:GoString):GoInt {
 	var _i:GoInt = (0 : GoInt);
 	Go.cfor((_i < _a.length) && (_i < _b.length), _i++, {
-		if (_a[(_a.length - (1 : GoInt)) - _i] != _b[(_b.length - (1 : GoInt)) - _i]) {
+		if (_a[(_a.length - (1 : GoInt)) - _i] != (_b[(_b.length - (1 : GoInt)) - _i])) {
 			break;
 		};
 	});
@@ -626,7 +626,7 @@ function _explode(_s:GoString, _n:GoInt):Slice<GoString> {
 				_size:GoInt = __tmp__._1;
 			_a[_i] = (_s.__slice__(0, _size) : GoString);
 			_s = (_s.__slice__(_size) : GoString);
-			if (_ch == (65533 : GoInt32)) {
+			if (_ch == ((65533 : GoInt32))) {
 				_a[_i] = ((65533 : GoInt32) : GoString);
 			};
 		});
@@ -642,16 +642,16 @@ function _explode(_s:GoString, _n:GoInt):Slice<GoString> {
 	// If substr is an empty string, Count returns 1 + the number of Unicode code points in s.
 **/
 function count(_s:GoString, _substr:GoString):GoInt {
-	if ((_substr.length) == (0 : GoInt)) {
+	if ((_substr.length) == ((0 : GoInt))) {
 		return stdgo.unicode.utf8.Utf8.runeCountInString(_s) + (1 : GoInt);
 	};
-	if ((_substr.length) == (1 : GoInt)) {
+	if ((_substr.length) == ((1 : GoInt))) {
 		return stdgo.internal.bytealg.Bytealg.countString(_s, _substr[(0 : GoInt)]);
 	};
 	var _n:GoInt = (0 : GoInt);
 	while (true) {
 		var _i:GoInt = index(_s, _substr);
-		if (_i == (-1 : GoInt)) {
+		if (_i == ((-1 : GoInt))) {
 			return _n;
 		};
 		_n++;
@@ -685,12 +685,12 @@ function containsRune(_s:GoString, _r:GoRune):Bool {
 **/
 function lastIndex(_s:GoString, _substr:GoString):GoInt {
 	var _n:GoInt = (_substr.length);
-	if (_n == (0 : GoInt)) {
+	if (_n == ((0 : GoInt))) {
 		return (_s.length);
-	} else if (_n == (1 : GoInt)) {
+	} else if (_n == ((1 : GoInt))) {
 		return lastIndexByte(_s, _substr[(0 : GoInt)]);
-	} else if (_n == (_s.length)) {
-		if (_substr == _s) {
+	} else if (_n == ((_s.length))) {
+		if (_substr == (_s)) {
 			return (0 : GoInt);
 		};
 		return (-1 : GoInt);
@@ -741,9 +741,9 @@ function indexByte(_s:GoString, _c:GoByte):GoInt {
 function indexRune(_s:GoString, _r:GoRune):GoInt {
 	if (((0 : GoInt32) <= _r) && (_r < (128:GoInt32))) {
 		return indexByte(_s, (_r : GoByte));
-	} else if (_r == (65533 : GoInt32)) {
+	} else if (_r == ((65533 : GoInt32))) {
 		for (_i => _r in _s) {
-			if (_r == (65533 : GoInt32)) {
+			if (_r == ((65533 : GoInt32))) {
 				return _i;
 			};
 		};
@@ -760,10 +760,10 @@ function indexRune(_s:GoString, _r:GoRune):GoInt {
 	// from chars in s, or -1 if no Unicode code point from chars is present in s.
 **/
 function indexAny(_s:GoString, _chars:GoString):GoInt {
-	if (_chars == Go.str()) {
+	if (_chars == (Go.str())) {
 		return (-1 : GoInt);
 	};
-	if ((_chars.length) == (1 : GoInt)) {
+	if ((_chars.length) == ((1 : GoInt))) {
 		var _r:GoInt32 = (_chars[(0 : GoInt)] : GoRune);
 		if (_r >= (128 : GoInt32)) {
 			_r = (65533 : GoInt32);
@@ -802,10 +802,10 @@ function indexAny(_s:GoString, _chars:GoString):GoInt {
 	// present in s.
 **/
 function lastIndexAny(_s:GoString, _chars:GoString):GoInt {
-	if (_chars == Go.str()) {
+	if (_chars == (Go.str())) {
 		return (-1 : GoInt);
 	};
-	if ((_s.length) == (1 : GoInt)) {
+	if ((_s.length) == ((1 : GoInt))) {
 		var _rc:GoInt32 = (_s[(0 : GoInt)] : GoRune);
 		if (_rc >= (128 : GoInt32)) {
 			_rc = (65533 : GoInt32);
@@ -833,7 +833,7 @@ function lastIndexAny(_s:GoString, _chars:GoString):GoInt {
 			};
 		};
 	};
-	if ((_chars.length) == (1 : GoInt)) {
+	if ((_chars.length) == ((1 : GoInt))) {
 		var _rc:GoInt32 = (_chars[(0 : GoInt)] : GoRune);
 		if (_rc >= (128 : GoInt32)) {
 			_rc = (65533 : GoInt32);
@@ -845,7 +845,7 @@ function lastIndexAny(_s:GoString, _chars:GoString):GoInt {
 					_r:GoInt32 = __tmp__._0,
 					_size:GoInt = __tmp__._1;
 				_i = _i - (_size);
-				if (_rc == _r) {
+				if (_rc == (_r)) {
 					return _i;
 				};
 			};
@@ -874,7 +874,7 @@ function lastIndexByte(_s:GoString, _c:GoByte):GoInt {
 	{
 		var _i:GoInt = (_s.length) - (1 : GoInt);
 		Go.cfor(_i >= (0 : GoInt), _i--, {
-			if (_s[_i] == _c) {
+			if (_s[_i] == (_c)) {
 				return _i;
 			};
 		});
@@ -887,10 +887,10 @@ function lastIndexByte(_s:GoString, _c:GoByte):GoInt {
 	// including sepSave bytes of sep in the subarrays.
 **/
 function _genSplit(_s:GoString, _sep:GoString, _sepSave:GoInt, _n:GoInt):Slice<GoString> {
-	if (_n == (0 : GoInt)) {
+	if (_n == ((0 : GoInt))) {
 		return (null : Slice<GoString>);
 	};
-	if (_sep == Go.str()) {
+	if (_sep == (Go.str())) {
 		return _explode(_s, _n);
 	};
 	if (_n < (0:GoInt)) {
@@ -1016,7 +1016,7 @@ function fields(_s:GoString):Slice<GoString> {
 	};
 	_fieldStart = _i;
 	while (_i < (_s.length)) {
-		if (_asciiSpace[_s[_i]] == (0 : GoUInt8)) {
+		if (_asciiSpace[_s[_i]] == ((0 : GoUInt8))) {
 			_i++;
 			continue;
 		};
@@ -1145,7 +1145,7 @@ function map(_mapping:GoRune->GoRune, _s:GoString):GoString {
 			continue;
 		};
 		var _width:GoInt = (0 : GoInt);
-		if (_c == (65533 : GoInt32)) {
+		if (_c == ((65533 : GoInt32))) {
 			{
 				var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString((_s.__slice__(_i) : GoString));
 				_c = __tmp__._0;
@@ -1165,7 +1165,7 @@ function map(_mapping:GoRune->GoRune, _s:GoString):GoString {
 		_s = (_s.__slice__(_i + _width) : GoString);
 		break;
 	};
-	if (_b.cap() == (0 : GoInt)) {
+	if (_b.cap() == ((0 : GoInt))) {
 		return _s;
 	};
 	for (_0 => _c in _s) {
@@ -1188,12 +1188,12 @@ function map(_mapping:GoRune->GoRune, _s:GoString):GoString {
 	// the result of (len(s) * count) overflows.
 **/
 function repeat(_s:GoString, _count:GoInt):GoString {
-	if (_count == (0 : GoInt)) {
+	if (_count == ((0 : GoInt))) {
 		return Go.str();
 	};
 	if (_count < (0:GoInt)) {
 		throw Go.toInterface(Go.str("strings: negative Repeat count"));
-	} else if (((_s.length * _count) / _count) != (_s.length)) {
+	} else if ((_s.length) * _count / _count != ((_s.length))) {
 		throw Go.toInterface(Go.str("strings: Repeat count causes overflow"));
 	};
 	var _n:GoInt = (_s.length) * _count;
@@ -1324,20 +1324,20 @@ function toTitleSpecial(_c:stdgo.unicode.Unicode.SpecialCase, _s:GoString):GoStr
 function toValidUTF8(_s:GoString, _replacement:GoString):GoString {
 	var _b:Builder = ({} : Builder);
 	for (_i => _c in _s) {
-		if (_c != (65533 : GoInt32)) {
+		if (_c != ((65533 : GoInt32))) {
 			continue;
 		};
 		var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString((_s.__slice__(_i) : GoString)),
 			_0:GoInt32 = __tmp__._0,
 			_wid:GoInt = __tmp__._1;
-		if (_wid == (1 : GoInt)) {
+		if (_wid == ((1 : GoInt))) {
 			_b.grow((_s.length) + (_replacement.length));
 			_b.writeString((_s.__slice__(0, _i) : GoString));
 			_s = (_s.__slice__(_i) : GoString);
 			break;
 		};
 	};
-	if (_b.cap() == (0 : GoInt)) {
+	if (_b.cap() == ((0 : GoInt))) {
 		return _s;
 	};
 	var _invalid:Bool = false;
@@ -1354,7 +1354,7 @@ function toValidUTF8(_s:GoString, _replacement:GoString):GoString {
 			var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString((_s.__slice__(_i) : GoString)),
 				_1:GoInt32 = __tmp__._0,
 				_wid:GoInt = __tmp__._1;
-			if (_wid == (1 : GoInt)) {
+			if (_wid == ((1 : GoInt))) {
 				_i++;
 				if (!_invalid) {
 					_invalid = true;
@@ -1382,7 +1382,7 @@ function _isSeparator(_r:GoRune):Bool {
 			return false;
 		} else if ((("A".code : GoRune) <= _r) && (_r <= ("Z".code : GoRune))) {
 			return false;
-		} else if (_r == ("_".code : GoRune)) {
+		} else if (_r == (("_".code : GoRune))) {
 			return false;
 		};
 		return true;
@@ -1418,7 +1418,7 @@ function title(_s:GoString):GoString {
 **/
 function trimLeftFunc(_s:GoString, _f:GoRune->Bool):GoString {
 	var _i:GoInt = _indexFunc(_s, _f, false);
-	if (_i == (-1 : GoInt)) {
+	if (_i == ((-1 : GoInt))) {
 		return Go.str();
 	};
 	return (_s.__slice__(_i) : GoString);
@@ -1472,7 +1472,7 @@ function lastIndexFunc(_s:GoString, _f:GoRune->Bool):GoInt {
 **/
 function _indexFunc(_s:GoString, _f:GoRune->Bool, _truth:Bool):GoInt {
 	for (_i => _r in _s) {
-		if (_f(_r) == _truth) {
+		if (_f(_r) == (_truth)) {
 			return _i;
 		};
 	};
@@ -1492,7 +1492,7 @@ function _lastIndexFunc(_s:GoString, _f:GoRune->Bool, _truth:Bool):GoInt {
 				_r:GoInt32 = __tmp__._0,
 				_size:GoInt = __tmp__._1;
 			_i = _i - (_size);
-			if (_f(_r) == _truth) {
+			if (_f(_r) == (_truth)) {
 				return _i;
 			};
 		};
@@ -1671,7 +1671,7 @@ function trimSpace(_s:GoString):GoString {
 		if (_c >= (128 : GoUInt8)) {
 			return trimFunc((_s.__slice__(_start) : GoString), stdgo.unicode.Unicode.isSpace);
 		};
-		if (_asciiSpace[_c] == (0 : GoUInt8)) {
+		if (_asciiSpace[_c] == ((0 : GoUInt8))) {
 			break;
 		};
 	});
@@ -1681,7 +1681,7 @@ function trimSpace(_s:GoString):GoString {
 		if (_c >= (128 : GoUInt8)) {
 			return trimRightFunc((_s.__slice__(_start, _stop) : GoString), stdgo.unicode.Unicode.isSpace);
 		};
-		if (_asciiSpace[_c] == (0 : GoUInt8)) {
+		if (_asciiSpace[_c] == ((0 : GoUInt8))) {
 			break;
 		};
 	});
@@ -1724,7 +1724,7 @@ function replace(_s:GoString, _old:GoString, _new:GoString, _n:GoInt):GoString {
 	};
 	{
 		var _m:GoInt = count(_s, _old);
-		if (_m == (0 : GoInt)) {
+		if (_m == ((0 : GoInt))) {
 			return _s;
 		} else if ((_n < (0:GoInt)) || (_m < _n)) {
 			_n = _m;
@@ -1737,7 +1737,7 @@ function replace(_s:GoString, _old:GoString, _new:GoString, _n:GoInt):GoString {
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < _n, _i++, {
 			var _j:GoInt = _start;
-			if ((_old.length) == (0 : GoInt)) {
+			if ((_old.length) == ((0 : GoInt))) {
 				if (_i > (0 : GoInt)) {
 					var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString((_s.__slice__(_start) : GoString)),
 						_0:GoInt32 = __tmp__._0,
@@ -1811,7 +1811,7 @@ function equalFold(_s:GoString, _t:GoString):Bool {
 				_t = __tmp__1;
 			};
 		};
-		if (_tr == _sr) {
+		if (_tr == (_sr)) {
 			continue;
 		};
 		if (_tr < _sr) {
@@ -1824,7 +1824,7 @@ function equalFold(_s:GoString, _t:GoString):Bool {
 		};
 		if (_tr < (128:GoInt32)) {
 			if (((("A".code : GoRune) <= _sr) && (_sr <= ("Z".code : GoRune)))
-				&& (_tr == ((_sr + ("a".code : GoRune)) - ("A".code : GoRune)))) {
+				&& (_tr == (_sr + ("a".code : GoRune) - ("A".code : GoRune)))) {
 				continue;
 			};
 			return false;
@@ -1833,12 +1833,12 @@ function equalFold(_s:GoString, _t:GoString):Bool {
 		while ((_r != _sr) && (_r < _tr)) {
 			_r = stdgo.unicode.Unicode.simpleFold(_r);
 		};
-		if (_r == _tr) {
+		if (_r == (_tr)) {
 			continue;
 		};
 		return false;
 	};
-	return _s == _t;
+	return _s == (_t);
 }
 
 /**
@@ -1846,12 +1846,12 @@ function equalFold(_s:GoString, _t:GoString):Bool {
 **/
 function index(_s:GoString, _substr:GoString):GoInt {
 	var _n:GoInt = (_substr.length);
-	if (_n == (0 : GoInt)) {
+	if (_n == ((0 : GoInt))) {
 		return (0 : GoInt);
-	} else if (_n == (1 : GoInt)) {
+	} else if (_n == ((1 : GoInt))) {
 		return indexByte(_s, _substr[(0 : GoInt)]);
-	} else if (_n == (_s.length)) {
-		if (_substr == _s) {
+	} else if (_n == ((_s.length))) {
+		if (_substr == (_s)) {
 			return (0 : GoInt);
 		};
 		return (-1 : GoInt);
@@ -1867,7 +1867,7 @@ function index(_s:GoString, _substr:GoString):GoInt {
 		var _t:GoInt = (_s.length - _n) + (1 : GoInt);
 		var _fails:GoInt = (0 : GoInt);
 		while (_i < _t) {
-			if (_s[_i] != _c0) {
+			if (_s[_i] != (_c0)) {
 				var _o:GoInt = indexByte((_s.__slice__(_i + (1 : GoInt), _t) : GoString), _c0);
 				if (_o < (0:GoInt)) {
 					return (-1 : GoInt);
@@ -1895,7 +1895,7 @@ function index(_s:GoString, _substr:GoString):GoInt {
 	var _t:GoInt = (_s.length - _n) + (1 : GoInt);
 	var _fails:GoInt = (0 : GoInt);
 	while (_i < _t) {
-		if (_s[_i] != _c0) {
+		if (_s[_i] != (_c0)) {
 			var _o:GoInt = indexByte((_s.__slice__(_i + (1 : GoInt), _t) : GoString), _c0);
 			if (_o < (0:GoInt)) {
 				return (-1 : GoInt);
@@ -1944,7 +1944,7 @@ class Builder_asInterface {
 	**/
 	@:keep
 	public function writeString(_s:GoString):{var _0:GoInt; var _1:Error;}
-		return __self__.writeString(_s);
+		return __self__.value.writeString(_s);
 
 	/**
 		// WriteRune appends the UTF-8 encoding of Unicode code point r to b's buffer.
@@ -1952,7 +1952,7 @@ class Builder_asInterface {
 	**/
 	@:keep
 	public function writeRune(_r:GoRune):{var _0:GoInt; var _1:Error;}
-		return __self__.writeRune(_r);
+		return __self__.value.writeRune(_r);
 
 	/**
 		// WriteByte appends the byte c to b's buffer.
@@ -1960,7 +1960,7 @@ class Builder_asInterface {
 	**/
 	@:keep
 	public function writeByte(_c:GoByte):Error
-		return __self__.writeByte(_c);
+		return __self__.value.writeByte(_c);
 
 	/**
 		// Write appends the contents of p to b's buffer.
@@ -1968,7 +1968,7 @@ class Builder_asInterface {
 	**/
 	@:keep
 	public function write(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
-		return __self__.write(_p);
+		return __self__.value.write(_p);
 
 	/**
 		// Grow grows b's capacity, if necessary, to guarantee space for
@@ -1977,7 +1977,7 @@ class Builder_asInterface {
 	**/
 	@:keep
 	public function grow(_n:GoInt):Void
-		__self__.grow(_n);
+		__self__.value.grow(_n);
 
 	/**
 		// grow copies the buffer to a new, larger buffer so that there are at least n
@@ -1985,14 +1985,14 @@ class Builder_asInterface {
 	**/
 	@:keep
 	public function _grow(_n:GoInt):Void
-		__self__._grow(_n);
+		__self__.value._grow(_n);
 
 	/**
 		// Reset resets the Builder to be empty.
 	**/
 	@:keep
 	public function reset():Void
-		__self__.reset();
+		__self__.value.reset();
 
 	/**
 		// Cap returns the capacity of the builder's underlying byte slice. It is the
@@ -2001,35 +2001,37 @@ class Builder_asInterface {
 	**/
 	@:keep
 	public function cap():GoInt
-		return __self__.cap();
+		return __self__.value.cap();
 
 	/**
 		// Len returns the number of accumulated bytes; b.Len() == len(b.String()).
 	**/
 	@:keep
 	public function len():GoInt
-		return __self__.len();
+		return __self__.value.len();
 
 	/**
 		// String returns the accumulated string.
 	**/
 	@:keep
 	public function string():GoString
-		return __self__.string();
+		return __self__.value.string();
 
 	@:keep
 	public function _copyCheck():Void
-		__self__._copyCheck();
+		__self__.value._copyCheck();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:Builder;
+	var __self__:Pointer<Builder>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.strings.Strings.Builder_asInterface) class Builder_static_extension {
@@ -2161,63 +2163,63 @@ class Reader_asInterface {
 	**/
 	@:keep
 	public function reset(_s:GoString):Void
-		__self__.reset(_s);
+		__self__.value.reset(_s);
 
 	/**
 		// WriteTo implements the io.WriterTo interface.
 	**/
 	@:keep
 	public function writeTo(_w:stdgo.io.Io.Writer):{var _0:GoInt64; var _1:Error;}
-		return __self__.writeTo(_w);
+		return __self__.value.writeTo(_w);
 
 	/**
 		// Seek implements the io.Seeker interface.
 	**/
 	@:keep
 	public function seek(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:Error;}
-		return __self__.seek(_offset, _whence);
+		return __self__.value.seek(_offset, _whence);
 
 	/**
 		// UnreadRune implements the io.RuneScanner interface.
 	**/
 	@:keep
 	public function unreadRune():Error
-		return __self__.unreadRune();
+		return __self__.value.unreadRune();
 
 	/**
 		// ReadRune implements the io.RuneReader interface.
 	**/
 	@:keep
 	public function readRune():{var _0:GoRune; var _1:GoInt; var _2:Error;}
-		return __self__.readRune();
+		return __self__.value.readRune();
 
 	/**
 		// UnreadByte implements the io.ByteScanner interface.
 	**/
 	@:keep
 	public function unreadByte():Error
-		return __self__.unreadByte();
+		return __self__.value.unreadByte();
 
 	/**
 		// ReadByte implements the io.ByteReader interface.
 	**/
 	@:keep
 	public function readByte():{var _0:GoByte; var _1:Error;}
-		return __self__.readByte();
+		return __self__.value.readByte();
 
 	/**
 		// ReadAt implements the io.ReaderAt interface.
 	**/
 	@:keep
 	public function readAt(_b:Slice<GoByte>, _off:GoInt64):{var _0:GoInt; var _1:Error;}
-		return __self__.readAt(_b, _off);
+		return __self__.value.readAt(_b, _off);
 
 	/**
 		// Read implements the io.Reader interface.
 	**/
 	@:keep
 	public function read(_b:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
-		return __self__.read(_b);
+		return __self__.value.read(_b);
 
 	/**
 		// Size returns the original length of the underlying string.
@@ -2227,7 +2229,7 @@ class Reader_asInterface {
 	**/
 	@:keep
 	public function size():GoInt64
-		return __self__.size();
+		return __self__.value.size();
 
 	/**
 		// Len returns the number of bytes of the unread portion of the
@@ -2235,17 +2237,19 @@ class Reader_asInterface {
 	**/
 	@:keep
 	public function len():GoInt
-		return __self__.len();
+		return __self__.value.len();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:Reader;
+	var __self__:Pointer<Reader>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.strings.Strings.Reader_asInterface) class Reader_static_extension {
@@ -2281,7 +2285,7 @@ class Reader_asInterface {
 		};
 		_r._i = _r._i + ((_m : GoInt64));
 		_n = (_m : GoInt64);
-		if ((_m != _s.length) && (_err == null)) {
+		if ((_m != (_s.length)) && (_err == null)) {
 			_err = stdgo.io.Io.errShortWrite;
 		};
 		return {_0: _n, _1: _err};
@@ -2446,40 +2450,42 @@ class Replacer_asInterface {
 	**/
 	@:keep
 	public function writeString(_w:stdgo.io.Io.Writer, _s:GoString):{var _0:GoInt; var _1:Error;}
-		return __self__.writeString(_w, _s);
+		return __self__.value.writeString(_w, _s);
 
 	/**
 		// Replace returns a copy of s with all replacements performed.
 	**/
 	@:keep
 	public function replace(_s:GoString):GoString
-		return __self__.replace(_s);
+		return __self__.value.replace(_s);
 
 	@:keep
 	public function _build():T_replacer
-		return __self__._build();
+		return __self__.value._build();
 
 	@:keep
 	public function _buildOnce():Void
-		__self__._buildOnce();
+		__self__.value._buildOnce();
 
 	@:keep
 	public function printTrie():GoString
-		return __self__.printTrie();
+		return __self__.value.printTrie();
 
 	@:keep
 	public function replacer():AnyInterface
-		return __self__.replacer();
+		return __self__.value.replacer();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:Replacer;
+	var __self__:Pointer<Replacer>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.strings.Strings.Replacer_asInterface) class Replacer_static_extension {
@@ -2512,10 +2518,10 @@ class Replacer_asInterface {
 		{
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_i < (_oldnew.length), _i = _i + ((2 : GoInt)), {
-				if ((_oldnew[_i].length) != (1 : GoInt)) {
+				if ((_oldnew[_i].length) != ((1 : GoInt))) {
 					return Go.asInterface(_makeGenericReplacer(_oldnew));
 				};
-				if ((_oldnew[_i + (1 : GoInt)].length) != (1 : GoInt)) {
+				if ((_oldnew[_i + (1 : GoInt)].length) != ((1 : GoInt))) {
 					_allNewBytes = false;
 				};
 			});
@@ -2560,7 +2566,7 @@ class Replacer_asInterface {
 	@:keep
 	static public function printTrie(_r:Ref<Replacer>):GoString {
 		_r._once.do_(_r._buildOnce);
-		var _gen = (_r._r.__underlying__().value : Ref<T_genericReplacer>);
+		var _gen = Go.typeAssert((Go.toInterface(_r._r) : Ref<T_genericReplacer>));
 		return _gen._printNode((_gen._root : Ref<T_trieNode>), (0 : GoInt));
 	}
 
@@ -2574,41 +2580,43 @@ class Replacer_asInterface {
 private class T_trieNode_asInterface {
 	@:keep
 	public function _add(_key:GoString, _val:GoString, _priority:GoInt, _r:Ref<T_genericReplacer>):Void
-		__self__._add(_key, _val, _priority, _r);
+		__self__.value._add(_key, _val, _priority, _r);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_trieNode;
+	var __self__:Pointer<T_trieNode>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.strings.Strings.T_trieNode_asInterface) class T_trieNode_static_extension {
 	@:keep
 	static public function _add(_t:Ref<T_trieNode>, _key:GoString, _val:GoString, _priority:GoInt, _r:Ref<T_genericReplacer>):Void {
-		if (_key == Go.str()) {
-			if (_t._priority == (0 : GoInt)) {
+		if (_key == (Go.str())) {
+			if (_t._priority == ((0 : GoInt))) {
 				_t._value = _val;
 				_t._priority = _priority;
 			};
 			return;
 		};
-		if (_t._prefix != Go.str()) {
+		if (_t._prefix != (Go.str())) {
 			var _n:GoInt = (0 : GoInt);
 			Go.cfor((_n < _t._prefix.length) && (_n < _key.length), _n++, {
-				if (_t._prefix[_n] != _key[_n]) {
+				if (_t._prefix[_n] != (_key[_n])) {
 					break;
 				};
 			});
-			if (_n == (_t._prefix.length)) {
+			if (_n == ((_t._prefix.length))) {
 				_t._next._add((_key.__slice__(_n) : GoString), _val, _priority, _r);
-			} else if (_n == (0 : GoInt)) {
+			} else if (_n == ((0 : GoInt))) {
 				var _prefixNode:Ref<T_trieNode> = (null : T_trieNode);
-				if ((_t._prefix.length) == (1 : GoInt)) {
+				if ((_t._prefix.length) == ((1 : GoInt))) {
 					_prefixNode = _t._next;
 				} else {
 					_prefixNode = (({_prefix: (_t._prefix.__slice__((1 : GoInt)) : GoString), _next: _t._next} : T_trieNode) : Ref<T_trieNode>);
@@ -2644,29 +2652,31 @@ private class T_trieNode_asInterface {
 private class T_genericReplacer_asInterface {
 	@:keep
 	public function writeString(_w:stdgo.io.Io.Writer, _s:GoString):{var _0:GoInt; var _1:Error;}
-		return __self__.writeString(_w, _s);
+		return __self__.value.writeString(_w, _s);
 
 	@:keep
 	public function replace(_s:GoString):GoString
-		return __self__.replace(_s);
+		return __self__.value.replace(_s);
 
 	@:keep
 	public function _lookup(_s:GoString, _ignoreRoot:Bool):{var _0:GoString; var _1:GoInt; var _2:Bool;}
-		return __self__._lookup(_s, _ignoreRoot);
+		return __self__.value._lookup(_s, _ignoreRoot);
 
 	@:keep
 	public function _printNode(_t:Ref<T_trieNode>, _depth:GoInt):GoString
-		return __self__._printNode(_t, _depth);
+		return __self__.value._printNode(_t, _depth);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_genericReplacer;
+	var __self__:Pointer<T_genericReplacer>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.strings.Strings.T_genericReplacer_asInterface) class T_genericReplacer_static_extension {
@@ -2679,7 +2689,7 @@ private class T_genericReplacer_asInterface {
 		{
 			var _i:GoInt = (0 : GoInt);
 			while (_i <= (_s.length)) {
-				if ((_i != _s.length) && (_r._root._priority == (0 : GoInt))) {
+				if ((_i != (_s.length)) && (_r._root._priority == (0 : GoInt))) {
 					var _index:GoInt = (_r._mapping[_s[_i]] : GoInt);
 					if ((_index == _r._tableSize) || (_r._root._table[_index] == null)) {
 						_i++;
@@ -2717,7 +2727,7 @@ private class T_genericReplacer_asInterface {
 				_i++;
 			};
 		};
-		if (_last != (_s.length)) {
+		if (_last != ((_s.length))) {
 			{
 				var __tmp__ = _sw.writeString((_s.__slice__(_last) : GoString));
 				_wn = __tmp__._0;
@@ -2750,12 +2760,12 @@ private class T_genericReplacer_asInterface {
 				_keylen = _n;
 				_found = true;
 			};
-			if (_s == Go.str()) {
+			if (_s == (Go.str())) {
 				break;
 			};
 			if (_node._table != null) {
 				var _index:GoUInt8 = _r._mapping[_s[(0 : GoInt)]];
-				if ((_index : GoInt) == _r._tableSize) {
+				if ((_index : GoInt) == (_r._tableSize)) {
 					break;
 				};
 				_node = _node._table[_index];
@@ -2781,7 +2791,7 @@ private class T_genericReplacer_asInterface {
 			_s = _s + (Go.str("-"));
 		};
 		_s = _s + (Go.str("\n"));
-		if (_t._prefix != Go.str()) {
+		if (_t._prefix != (Go.str())) {
 			_s = _s + (repeat(Go.str("."), _depth) + _t._prefix);
 			_s = _s + (_r._printNode(_t._next, _depth + (_t._prefix.length)));
 		} else if (_t._table != null) {
@@ -2799,17 +2809,19 @@ private class T_genericReplacer_asInterface {
 private class T_stringWriter_asInterface {
 	@:keep
 	public function writeString(_s:GoString):{var _0:GoInt; var _1:Error;}
-		return __self__.writeString(_s);
+		return __self__.value.writeString(_s);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_stringWriter;
+	var __self__:Pointer<T_stringWriter>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.strings.Strings.T_stringWriter_asInterface) class T_stringWriter_static_extension {
@@ -2822,21 +2834,23 @@ private class T_stringWriter_asInterface {
 private class T_singleStringReplacer_asInterface {
 	@:keep
 	public function writeString(_w:stdgo.io.Io.Writer, _s:GoString):{var _0:GoInt; var _1:Error;}
-		return __self__.writeString(_w, _s);
+		return __self__.value.writeString(_w, _s);
 
 	@:keep
 	public function replace(_s:GoString):GoString
-		return __self__.replace(_s);
+		return __self__.value.replace(_s);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_singleStringReplacer;
+	var __self__:Pointer<T_singleStringReplacer>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.strings.Strings.T_singleStringReplacer_asInterface) class T_singleStringReplacer_static_extension {
@@ -2847,7 +2861,7 @@ private class T_singleStringReplacer_asInterface {
 		var _i:GoInt = (0 : GoInt), _wn:GoInt = (0 : GoInt);
 		while (true) {
 			var _match:GoInt = _r._finder._next((_s.__slice__(_i) : GoString));
-			if (_match == (-1 : GoInt)) {
+			if (_match == ((-1 : GoInt))) {
 				break;
 			};
 			{
@@ -2885,7 +2899,7 @@ private class T_singleStringReplacer_asInterface {
 		var _i:GoInt = (0 : GoInt), _matched:Bool = false;
 		while (true) {
 			var _match:GoInt = _r._finder._next((_s.__slice__(_i) : GoString));
-			if (_match == (-1 : GoInt)) {
+			if (_match == ((-1 : GoInt))) {
 				break;
 			};
 			_matched = true;
@@ -2905,21 +2919,23 @@ private class T_singleStringReplacer_asInterface {
 private class T_byteStringReplacer_asInterface {
 	@:keep
 	public function writeString(_w:stdgo.io.Io.Writer, _s:GoString):{var _0:GoInt; var _1:Error;}
-		return __self__.writeString(_w, _s);
+		return __self__.value.writeString(_w, _s);
 
 	@:keep
 	public function replace(_s:GoString):GoString
-		return __self__.replace(_s);
+		return __self__.value.replace(_s);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_byteStringReplacer;
+	var __self__:Pointer<T_byteStringReplacer>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.strings.Strings.T_byteStringReplacer_asInterface) class T_byteStringReplacer_static_extension {
@@ -2935,7 +2951,7 @@ private class T_byteStringReplacer_asInterface {
 				if (_r._replacements[_b] == null) {
 					continue;
 				};
-				if (_last != _i) {
+				if (_last != (_i)) {
 					var __tmp__ = _sw.writeString((_s.__slice__(_last, _i) : GoString)),
 						_nw:GoInt = __tmp__._0,
 						_err:Error = __tmp__._1;
@@ -2954,7 +2970,7 @@ private class T_byteStringReplacer_asInterface {
 				};
 			});
 		};
-		if (_last != (_s.length)) {
+		if (_last != ((_s.length))) {
 			var _nw:GoInt = (0 : GoInt);
 			{
 				var __tmp__ = _sw.writeString((_s.__slice__(_last) : GoString));
@@ -2974,7 +2990,7 @@ private class T_byteStringReplacer_asInterface {
 			for (_0 => _x in _r._toReplace) {
 				{
 					var _c:GoInt = count(_s, _x);
-					if (_c != (0 : GoInt)) {
+					if (_c != ((0 : GoInt))) {
 						_newSize = _newSize + (_c * (_r._replacements[_x[(0 : GoInt)]].length - (1 : GoInt)));
 						_anyChanges = true;
 					};
@@ -3020,17 +3036,19 @@ private class T_stringFinder_asInterface {
 	**/
 	@:keep
 	public function _next(_text:GoString):GoInt
-		return __self__._next(_text);
+		return __self__.value._next(_text);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_stringFinder;
+	var __self__:Pointer<T_stringFinder>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.strings.Strings.T_stringFinder_asInterface) class T_stringFinder_static_extension {
@@ -3062,24 +3080,26 @@ private class T_appendSliceWriter_asInterface {
 	**/
 	@:keep
 	public function writeString(_s:GoString):{var _0:GoInt; var _1:Error;}
-		return __self__.writeString(_s);
+		return __self__.value.writeString(_s);
 
 	/**
 		// Write writes to the buffer to satisfy io.Writer.
 	**/
 	@:keep
 	public function write(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
-		return __self__.write(_p);
+		return __self__.value.write(_p);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_appendSliceWriter;
+	var __self__:Pointer<T_appendSliceWriter>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.strings.Strings.T_appendSliceWriter_asInterface) class T_appendSliceWriter_static_extension {
@@ -3105,21 +3125,23 @@ private class T_appendSliceWriter_asInterface {
 private class T_byteReplacer_asInterface {
 	@:keep
 	public function writeString(_w:stdgo.io.Io.Writer, _s:GoString):{var _0:GoInt; var _1:Error;}
-		return __self__.writeString(_w, _s);
+		return __self__.value.writeString(_w, _s);
 
 	@:keep
 	public function replace(_s:GoString):GoString
-		return __self__.replace(_s);
+		return __self__.value.replace(_s);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_byteReplacer;
+	var __self__:Pointer<T_byteReplacer>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.strings.Strings.T_byteReplacer_asInterface) class T_byteReplacer_static_extension {
@@ -3155,7 +3177,7 @@ private class T_byteReplacer_asInterface {
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_i < (_s.length), _i++, {
 				var _b:GoUInt8 = _s[_i];
-				if (_r[@:invalid_index 0] != _b) {
+				if (_r[@:invalid_index 0] != (_b)) {
 					if (_buf == null) {
 						_buf = (_s : Slice<GoByte>);
 					};
@@ -3176,17 +3198,19 @@ private class T_asciiSet_asInterface {
 	**/
 	@:keep
 	public function _contains(_c:GoByte):Bool
-		return __self__._contains(_c);
+		return __self__.value._contains(_c);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_asciiSet;
+	var __self__:Pointer<T_asciiSet>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.strings.Strings.T_asciiSet_asInterface) class T_asciiSet_static_extension {
@@ -3195,6 +3219,6 @@ private class T_asciiSet_asInterface {
 	**/
 	@:keep
 	static public function _contains(_as:Ref<T_asciiSet>, _c:GoByte):Bool {
-		return (_as[@:invalid_index 0] & ((("1" : GoUInt32) : GoUInt32) << (_c % (32 : GoUInt8)))) != ("0" : GoUInt32);
+		return (_as[@:invalid_index 0] & ((("1" : GoUInt32) : GoUInt32) << (_c % (32 : GoUInt8)))) != (("0" : GoUInt32));
 	}
 }

@@ -10,396 +10,282 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-@:structInit class Logger {
-	public function writer():stdgo.io.Io.Writer {
-		var _l = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-		var recover_exception:Error = null;
-		var deferstack:Array<Void->Void> = [];
-		_l.value._mu.lock();
-		try {
-			deferstack.unshift(() -> _l.value._mu.unlock());
-			{
-				for (defer in deferstack) {
-					defer();
-				};
-				return _l.value._out;
-			};
-			for (defer in deferstack) {
-				defer();
-			};
-		} catch (e) {
-			recover_exception = stdgo.runtime.Runtime.newRuntime(e.message);
-			{
-				for (defer in deferstack) {
-					defer();
-				};
-				if (recover_exception != null)
-					throw recover_exception;
-				return ((null : stdgo.io.Io.Writer));
-			};
-		};
-	}
+/**
+	// Package log implements a simple logging package. It defines a type, Logger,
+	// with methods for formatting output. It also has a predefined 'standard'
+	// Logger accessible through helper functions Print[f|ln], Fatal[f|ln], and
+	// Panic[f|ln], which are easier to use than creating a Logger manually.
+	// That logger writes to standard error and prints the date and time
+	// of each logged message.
+	// Every log message is output on a separate line: if the message being
+	// printed does not end in a newline, the logger will add one.
+	// The Fatal functions call os.Exit(1) after writing the log message.
+	// The Panic functions call panic after writing the log message.
+**/
+private var __go2hxdoc__package:Bool;
 
-	public function setPrefix(_prefix:GoString):Void {
-		var _l = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-		var recover_exception:Error = null;
-		var deferstack:Array<Void->Void> = [];
-		try {
-			_l.value._mu.lock();
-			deferstack.unshift(() -> _l.value._mu.unlock());
-			_l.value._prefix = _prefix;
-			for (defer in deferstack) {
-				defer();
-			};
-		} catch (e) {
-			recover_exception = stdgo.runtime.Runtime.newRuntime(e.message);
-			{
-				for (defer in deferstack) {
-					defer();
-				};
-				if (recover_exception != null)
-					throw recover_exception;
-				return;
-			};
-		};
-	}
+private var _std:Ref<Logger> = new_(Go.asInterface(stdgo.os.Os.stderr), Go.str(), (3 : GoInt));
 
-	public function prefix():GoString {
-		var _l = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-		var recover_exception:Error = null;
-		var deferstack:Array<Void->Void> = [];
-		_l.value._mu.lock();
-		try {
-			deferstack.unshift(() -> _l.value._mu.unlock());
-			{
-				for (defer in deferstack) {
-					defer();
-				};
-				return _l.value._prefix;
-			};
-			for (defer in deferstack) {
-				defer();
-			};
-		} catch (e) {
-			recover_exception = stdgo.runtime.Runtime.newRuntime(e.message);
-			{
-				for (defer in deferstack) {
-					defer();
-				};
-				if (recover_exception != null)
-					throw recover_exception;
-				return (("" : GoString));
-			};
-		};
-	}
+private var _tests:Slice<T_tester> = (new Slice<T_tester>(0, 0, (new T_tester((0 : GoInt), Go.str(), Go.str()) : T_tester),
+	(new T_tester((0 : GoInt), Go.str("XXX"), Go.str("XXX")) : T_tester),
+	(new T_tester((1 : GoInt), Go.str(), Go.str("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] ")) : T_tester),
+	(new T_tester((2 : GoInt), Go.str(), Go.str("[0-9][0-9]:[0-9][0-9]:[0-9][0-9] ")) : T_tester),
+	(new T_tester((66 : GoInt), Go.str("XXX"), Go.str("[0-9][0-9]:[0-9][0-9]:[0-9][0-9] XXX")) : T_tester),
+	(new T_tester((6 : GoInt), Go.str(), Go.str("[0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] ")) : T_tester),
+	(new T_tester((4 : GoInt), Go.str(), Go.str("[0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] ")) : T_tester),
+	(new T_tester((8 : GoInt), Go.str(), Go.str(".*/[A-Za-z0-9_\\-]+\\.go:(61|63): ")) : T_tester),
+	(new T_tester((16 : GoInt), Go.str(), Go.str("[A-Za-z0-9_\\-]+\\.go:(61|63): ")) : T_tester),
+	(new T_tester((24 : GoInt), Go.str(), Go.str("[A-Za-z0-9_\\-]+\\.go:(61|63): ")) : T_tester),
+	(new T_tester((15 : GoInt), Go.str("XXX"),
+		Go.str("XXX[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] .*/[A-Za-z0-9_\\-]+\\.go:(61|63): ")) : T_tester),
+	(new T_tester((23 : GoInt), Go.str("XXX"),
+		Go.str("XXX[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] [A-Za-z0-9_\\-]+\\.go:(61|63): ")) : T_tester),
+	(new T_tester((79 : GoInt), Go.str("XXX"),
+		Go.str("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] .*/[A-Za-z0-9_\\-]+\\.go:(61|63): XXX")) : T_tester),
+	(new T_tester((87 : GoInt), Go.str("XXX"),
+		Go.str("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] [A-Za-z0-9_\\-]+\\.go:(61|63): XXX")) : T_tester)) : Slice<T_tester>);
 
-	public function setFlags(_flag:GoInt):Void {
-		var _l = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-		var recover_exception:Error = null;
-		var deferstack:Array<Void->Void> = [];
-		try {
-			_l.value._mu.lock();
-			deferstack.unshift(() -> _l.value._mu.unlock());
-			_l.value._flag = _flag;
-			for (defer in deferstack) {
-				defer();
-			};
-		} catch (e) {
-			recover_exception = stdgo.runtime.Runtime.newRuntime(e.message);
-			{
-				for (defer in deferstack) {
-					defer();
-				};
-				if (recover_exception != null)
-					throw recover_exception;
-				return;
-			};
-		};
-	}
+/**
+	// the date in the local time zone: 2009/01/23// These flags define which text to prefix to each log entry generated by the Logger.
+	// Bits are or'ed together to control what's printed.
+	// With the exception of the Lmsgprefix flag, there is no
+	// control over the order they appear (the order listed here)
+	// or the format they present (as described in the comments).
+	// The prefix is followed by a colon only when Llongfile or Lshortfile
+	// is specified.
+	// For example, flags Ldate | Ltime (or LstdFlags) produce,
+	//
+	//	2009/01/23 01:23:23 message
+	//
+	// while flags Ldate | Ltime | Lmicroseconds | Llongfile produce,
+	//
+	//	2009/01/23 01:23:23.123123 /a/b/c/d.go:23: message
+**/
+final ldate:GoUInt64 = ("64" : GoUInt64);
 
-	public function flags():GoInt {
-		var _l = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-		var recover_exception:Error = null;
-		var deferstack:Array<Void->Void> = [];
-		_l.value._mu.lock();
-		try {
-			deferstack.unshift(() -> _l.value._mu.unlock());
-			{
-				for (defer in deferstack) {
-					defer();
-				};
-				return _l.value._flag;
-			};
-			for (defer in deferstack) {
-				defer();
-			};
-		} catch (e) {
-			recover_exception = stdgo.runtime.Runtime.newRuntime(e.message);
-			{
-				for (defer in deferstack) {
-					defer();
-				};
-				if (recover_exception != null)
-					throw recover_exception;
-				return ((0 : GoInt));
-			};
-		};
-	}
+/**
+	// the time in the local time zone: 01:23:23// These flags define which text to prefix to each log entry generated by the Logger.
+	// Bits are or'ed together to control what's printed.
+	// With the exception of the Lmsgprefix flag, there is no
+	// control over the order they appear (the order listed here)
+	// or the format they present (as described in the comments).
+	// The prefix is followed by a colon only when Llongfile or Lshortfile
+	// is specified.
+	// For example, flags Ldate | Ltime (or LstdFlags) produce,
+	//
+	//	2009/01/23 01:23:23 message
+	//
+	// while flags Ldate | Ltime | Lmicroseconds | Llongfile produce,
+	//
+	//	2009/01/23 01:23:23.123123 /a/b/c/d.go:23: message
+**/
+final ltime:InvalidType = ("64" : GoUInt64);
 
-	public function panicln(_v:haxe.Rest<AnyInterface>):Void {
-		var _l = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-		var _v = new Slice<AnyInterface>(..._v);
-		var _s:GoString = stdgo.fmt.Fmt.sprintln(..._v.toArray());
-		_l.value.output(((2 : GoInt)), _s);
-		throw _s;
-	}
+/**
+	// microsecond resolution: 01:23:23.123123.  assumes Ltime.// These flags define which text to prefix to each log entry generated by the Logger.
+	// Bits are or'ed together to control what's printed.
+	// With the exception of the Lmsgprefix flag, there is no
+	// control over the order they appear (the order listed here)
+	// or the format they present (as described in the comments).
+	// The prefix is followed by a colon only when Llongfile or Lshortfile
+	// is specified.
+	// For example, flags Ldate | Ltime (or LstdFlags) produce,
+	//
+	//	2009/01/23 01:23:23 message
+	//
+	// while flags Ldate | Ltime | Lmicroseconds | Llongfile produce,
+	//
+	//	2009/01/23 01:23:23.123123 /a/b/c/d.go:23: message
+**/
+final lmicroseconds:InvalidType = ("64" : GoUInt64);
 
-	public function panicf(_format:GoString, _v:haxe.Rest<AnyInterface>):Void {
-		var _l = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-		var _v = new Slice<AnyInterface>(..._v);
-		var _s:GoString = stdgo.fmt.Fmt.sprintf(_format, ..._v.toArray());
-		_l.value.output(((2 : GoInt)), _s);
-		throw _s;
-	}
+/**
+	// full file name and line number: /a/b/c/d.go:23// These flags define which text to prefix to each log entry generated by the Logger.
+	// Bits are or'ed together to control what's printed.
+	// With the exception of the Lmsgprefix flag, there is no
+	// control over the order they appear (the order listed here)
+	// or the format they present (as described in the comments).
+	// The prefix is followed by a colon only when Llongfile or Lshortfile
+	// is specified.
+	// For example, flags Ldate | Ltime (or LstdFlags) produce,
+	//
+	//	2009/01/23 01:23:23 message
+	//
+	// while flags Ldate | Ltime | Lmicroseconds | Llongfile produce,
+	//
+	//	2009/01/23 01:23:23.123123 /a/b/c/d.go:23: message
+**/
+final llongfile:InvalidType = ("64" : GoUInt64);
 
-	public function panic(_v:haxe.Rest<AnyInterface>):Void {
-		var _l = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-		var _v = new Slice<AnyInterface>(..._v);
-		var _s:GoString = stdgo.fmt.Fmt.sprint(..._v.toArray());
-		_l.value.output(((2 : GoInt)), _s);
-		throw _s;
-	}
+/**
+	// final file name element and line number: d.go:23. overrides Llongfile// These flags define which text to prefix to each log entry generated by the Logger.
+	// Bits are or'ed together to control what's printed.
+	// With the exception of the Lmsgprefix flag, there is no
+	// control over the order they appear (the order listed here)
+	// or the format they present (as described in the comments).
+	// The prefix is followed by a colon only when Llongfile or Lshortfile
+	// is specified.
+	// For example, flags Ldate | Ltime (or LstdFlags) produce,
+	//
+	//	2009/01/23 01:23:23 message
+	//
+	// while flags Ldate | Ltime | Lmicroseconds | Llongfile produce,
+	//
+	//	2009/01/23 01:23:23.123123 /a/b/c/d.go:23: message
+**/
+final lshortfile:InvalidType = ("64" : GoUInt64);
 
-	public function fatalln(_v:haxe.Rest<AnyInterface>):Void {
-		var _l = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-		var _v = new Slice<AnyInterface>(..._v);
-		_l.value.output(((2 : GoInt)), stdgo.fmt.Fmt.sprintln(..._v.toArray()));
-		stdgo.os.Os.exit(((1 : GoInt)));
-	}
+/**
+	// if Ldate or Ltime is set, use UTC rather than the local time zone// These flags define which text to prefix to each log entry generated by the Logger.
+	// Bits are or'ed together to control what's printed.
+	// With the exception of the Lmsgprefix flag, there is no
+	// control over the order they appear (the order listed here)
+	// or the format they present (as described in the comments).
+	// The prefix is followed by a colon only when Llongfile or Lshortfile
+	// is specified.
+	// For example, flags Ldate | Ltime (or LstdFlags) produce,
+	//
+	//	2009/01/23 01:23:23 message
+	//
+	// while flags Ldate | Ltime | Lmicroseconds | Llongfile produce,
+	//
+	//	2009/01/23 01:23:23.123123 /a/b/c/d.go:23: message
+**/
+final lutc:InvalidType = ("64" : GoUInt64);
 
-	public function fatalf(_format:GoString, _v:haxe.Rest<AnyInterface>):Void {
-		var _l = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-		var _v = new Slice<AnyInterface>(..._v);
-		_l.value.output(((2 : GoInt)), stdgo.fmt.Fmt.sprintf(_format, ..._v.toArray()));
-		stdgo.os.Os.exit(((1 : GoInt)));
-	}
+/**
+	// move the "prefix" from the beginning of the line to before the message// These flags define which text to prefix to each log entry generated by the Logger.
+	// Bits are or'ed together to control what's printed.
+	// With the exception of the Lmsgprefix flag, there is no
+	// control over the order they appear (the order listed here)
+	// or the format they present (as described in the comments).
+	// The prefix is followed by a colon only when Llongfile or Lshortfile
+	// is specified.
+	// For example, flags Ldate | Ltime (or LstdFlags) produce,
+	//
+	//	2009/01/23 01:23:23 message
+	//
+	// while flags Ldate | Ltime | Lmicroseconds | Llongfile produce,
+	//
+	//	2009/01/23 01:23:23.123123 /a/b/c/d.go:23: message
+**/
+final lmsgprefix:InvalidType = ("64" : GoUInt64);
 
-	public function fatal(_v:haxe.Rest<AnyInterface>):Void {
-		var _l = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-		var _v = new Slice<AnyInterface>(..._v);
-		_l.value.output(((2 : GoInt)), stdgo.fmt.Fmt.sprint(..._v.toArray()));
-		stdgo.os.Os.exit(((1 : GoInt)));
-	}
+/**
+	// initial values for the standard logger// These flags define which text to prefix to each log entry generated by the Logger.
+	// Bits are or'ed together to control what's printed.
+	// With the exception of the Lmsgprefix flag, there is no
+	// control over the order they appear (the order listed here)
+	// or the format they present (as described in the comments).
+	// The prefix is followed by a colon only when Llongfile or Lshortfile
+	// is specified.
+	// For example, flags Ldate | Ltime (or LstdFlags) produce,
+	//
+	//	2009/01/23 01:23:23 message
+	//
+	// while flags Ldate | Ltime | Lmicroseconds | Llongfile produce,
+	//
+	//	2009/01/23 01:23:23.123123 /a/b/c/d.go:23: message
+**/
+final lstdFlags:GoUInt64 = ("3" : GoUInt64);
 
-	public function println(_v:haxe.Rest<AnyInterface>):Void {
-		var _l = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-		var _v = new Slice<AnyInterface>(..._v);
-		_l.value.output(((2 : GoInt)), stdgo.fmt.Fmt.sprintln(..._v.toArray()));
-	}
+final rdate:GoString = "[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9]";
+final rtime:GoString = "[0-9][0-9]:[0-9][0-9]:[0-9][0-9]";
+final rmicroseconds:GoString = "\\.[0-9][0-9][0-9][0-9][0-9][0-9]";
 
-	public function print(_v:haxe.Rest<AnyInterface>):Void {
-		var _l = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-		var _v = new Slice<AnyInterface>(..._v);
-		_l.value.output(((2 : GoInt)), stdgo.fmt.Fmt.sprint(..._v.toArray()));
-	}
+/**
+	// must update if the calls to l.Printf / l.Print below move
+**/
+final rline:GoString = "(61|63):";
 
-	public function printf(_format:GoString, _v:haxe.Rest<AnyInterface>):Void {
-		var _l = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-		var _v = new Slice<AnyInterface>(..._v);
-		_l.value.output(((2 : GoInt)), stdgo.fmt.Fmt.sprintf(_format, ..._v.toArray()));
-	}
+final rlongfile:GoString = Go.str(".*/[A-Za-z0-9_\\-]+\\.go:(61|63):");
+final rshortfile:GoString = Go.str("[A-Za-z0-9_\\-]+\\.go:(61|63):");
 
-	public function output(_calldepth:GoInt, _s:GoString):Error {
-		var _l = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-		var recover_exception:Error = null;
-		var deferstack:Array<Void->Void> = [];
-		var _now:stdgo.time.Time.Time = stdgo.time.Time.now().__copy__();
-		try {
-			var _file:GoString = (("" : GoString));
-			var _line:GoInt = ((0 : GoInt));
-			_l.value._mu.lock();
-			deferstack.unshift(() -> _l.value._mu.unlock());
-			if (_l.value._flag & (lshortfile | llongfile) != ((0 : GoInt))) {
-				_l.value._mu.unlock();
-				var _ok:Bool = false;
-				{
-					var __tmp__ = stdgo.runtime.Runtime.caller(_calldepth);
-					_file = __tmp__._1;
-					_line = __tmp__._2;
-					_ok = __tmp__._3;
-				};
-				if (!_ok) {
-					_file = "???";
-					_line = ((0 : GoInt));
-				};
-				_l.value._mu.lock();
-			};
-			_l.value._buf = _l.value._buf.__slice__(0, ((0 : GoInt)));
-			_l.value._formatHeader(Go.pointer(_l.value._buf), _now.__copy__(), _file, _line);
-			_l.value._buf = _l.value._buf.__append__(..._s.toArray());
-			if (_s.length == ((0 : GoInt)) || _s[_s.length - ((1 : GoInt))] != (("\n".code : GoRune))) {
-				_l.value._buf = _l.value._buf.__append__((("\n".code : GoRune)));
-			};
-			var __tmp__ = _l.value._out.write(_l.value._buf),
-				_:GoInt = __tmp__._0,
-				_err:stdgo.Error = __tmp__._1;
-			{
-				for (defer in deferstack) {
-					defer();
-				};
-				return _err;
-			};
-			for (defer in deferstack) {
-				defer();
-			};
-		} catch (e) {
-			recover_exception = stdgo.runtime.Runtime.newRuntime(e.message);
-			{
-				for (defer in deferstack) {
-					defer();
-				};
-				if (recover_exception != null)
-					throw recover_exception;
-				return ((null : stdgo.Error));
-			};
-		};
-	}
+/**
+	// A Logger represents an active logging object that generates lines of
+	// output to an io.Writer. Each logging operation makes a single call to
+	// the Writer's Write method. A Logger can be used simultaneously from
+	// multiple goroutines; it guarantees to serialize access to the Writer.
+**/
+@:structInit @:using(stdgo.log.Log.Logger_static_extension) class Logger {
+	/**
+		// ensures atomic writes; protects the following fields
+	**/
+	public var _mu:stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
 
-	public function _formatHeader(_buf:Pointer<Slice<GoByte>>, _t:stdgo.time.Time.Time, _file:GoString, _line:GoInt):Void {
-		var _l = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-		if (_l.value._flag & lmsgprefix == ((0 : GoInt))) {
-			_buf.value = _buf.value.__append__(..._l.value._prefix.toArray());
-		};
-		if (_l.value._flag & (ldate | ltime | lmicroseconds) != ((0 : GoInt))) {
-			if (_l.value._flag & lutc != ((0 : GoInt))) {
-				_t = _t.utc().__copy__();
-			};
-			if (_l.value._flag & ldate != ((0 : GoInt))) {
-				var __tmp__ = _t.date(),
-					_year:GoInt = __tmp__._0,
-					_month:stdgo.time.Time.Month = __tmp__._1,
-					_day:GoInt = __tmp__._2;
-				_itoa(_buf, _year, ((4 : GoInt)));
-				_buf.value = _buf.value.__append__((("/".code : GoRune)));
-				_itoa(_buf, _month.__t__, ((2 : GoInt)));
-				_buf.value = _buf.value.__append__((("/".code : GoRune)));
-				_itoa(_buf, _day, ((2 : GoInt)));
-				_buf.value = _buf.value.__append__(((" ".code : GoRune)));
-			};
-			if (_l.value._flag & (ltime | lmicroseconds) != ((0 : GoInt))) {
-				var __tmp__ = _t.clock(),
-					_hour:GoInt = __tmp__._0,
-					_min:GoInt = __tmp__._1,
-					_sec:GoInt = __tmp__._2;
-				_itoa(_buf, _hour, ((2 : GoInt)));
-				_buf.value = _buf.value.__append__(((":".code : GoRune)));
-				_itoa(_buf, _min, ((2 : GoInt)));
-				_buf.value = _buf.value.__append__(((":".code : GoRune)));
-				_itoa(_buf, _sec, ((2 : GoInt)));
-				if (_l.value._flag & lmicroseconds != ((0 : GoInt))) {
-					_buf.value = _buf.value.__append__(((".".code : GoRune)));
-					_itoa(_buf, _t.nanosecond() / ((1000 : GoInt)), ((6 : GoInt)));
-				};
-				_buf.value = _buf.value.__append__(((" ".code : GoRune)));
-			};
-		};
-		if (_l.value._flag & (lshortfile | llongfile) != ((0 : GoInt))) {
-			if (_l.value._flag & lshortfile != ((0 : GoInt))) {
-				var _short:GoString = _file;
-				{
-					var _i:GoInt = _file.length - ((1 : GoInt));
-					Go.cfor(_i > ((0 : GoInt)), _i--, {
-						if (_file[_i] == (("/".code : GoRune))) {
-							_short = _file.__slice__(_i + ((1 : GoInt)));
-							break;
-						};
-					});
-				};
-				_file = _short;
-			};
-			_buf.value = _buf.value.__append__(..._file.toArray());
-			_buf.value = _buf.value.__append__(((":".code : GoRune)));
-			_itoa(_buf, _line, -((1 : GoUnTypedInt)));
-			_buf.value = _buf.value.__append__(...((": " : GoString)).toArray());
-		};
-		if (_l.value._flag & lmsgprefix != ((0 : GoInt))) {
-			_buf.value = _buf.value.__append__(..._l.value._prefix.toArray());
-		};
-	}
+	/**
+		// prefix on each line to identify the logger (but see Lmsgprefix)
+	**/
+	public var _prefix:GoString = "";
 
-	public function setOutput(_w:stdgo.io.Io.Writer):Void {
-		var _l = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-		var recover_exception:Error = null;
-		var deferstack:Array<Void->Void> = [];
-		try {
-			_l.value._mu.lock();
-			deferstack.unshift(() -> _l.value._mu.unlock());
-			_l.value._out = _w;
-			for (defer in deferstack) {
-				defer();
-			};
-		} catch (e) {
-			recover_exception = stdgo.runtime.Runtime.newRuntime(e.message);
-			{
-				for (defer in deferstack) {
-					defer();
-				};
-				if (recover_exception != null)
-					throw recover_exception;
-				return;
-			};
-		};
-	}
+	/**
+		// properties
+	**/
+	public var _flag:GoInt = 0;
 
-	public var _mu:stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
-	public var _prefix:GoString = (("" : GoString));
-	public var _flag:GoInt = ((0 : GoInt));
-	public var _out:stdgo.io.Io.Writer = ((null : stdgo.io.Io.Writer));
-	public var _buf:Slice<GoUInt8> = new Slice<GoUInt8>().nil();
+	/**
+		// destination for output
+	**/
+	public var _out:stdgo.io.Io.Writer = (null : stdgo.io.Io.Writer);
 
-	public function new(?_mu:stdgo.sync.Sync.Mutex, ?_prefix:GoString, ?_flag:GoInt, ?_out:stdgo.io.Io.Writer, ?_buf:Slice<GoUInt8>)
-		stdgo.internal.Macro.initLocals();
+	/**
+		// for accumulating text to write
+	**/
+	public var _buf:Slice<GoUInt8> = (null : Slice<GoUInt8>);
 
-	public function toString() {
-		return '{'
-			+ Go.string(_mu)
-			+ " "
-			+ Go.string(_prefix)
-			+ " "
-			+ Go.string(_flag)
-			+ " "
-			+ Go.string(_out)
-			+ " "
-			+ Go.string(_buf)
-			+ "}";
+	/**
+		// atomic boolean: whether out == io.Discard
+	**/
+	public var _isDiscard:GoInt32 = 0;
+
+	public function new(?_mu:stdgo.sync.Sync.Mutex, ?_prefix:GoString, ?_flag:GoInt, ?_out:stdgo.io.Io.Writer, ?_buf:Slice<GoUInt8>, ?_isDiscard:GoInt32) {
+		if (_mu != null)
+			this._mu = _mu;
+		if (_prefix != null)
+			this._prefix = _prefix;
+		if (_flag != null)
+			this._flag = _flag;
+		if (_out != null)
+			this._out = _out;
+		if (_buf != null)
+			this._buf = _buf;
+		if (_isDiscard != null)
+			this._isDiscard = _isDiscard;
 	}
 
 	public function __underlying__():AnyInterface
 		return Go.toInterface(this);
 
 	public function __copy__() {
-		return new Logger(_mu, _prefix, _flag, _out, _buf);
-	}
-
-	public function __set__(__tmp__) {
-		this._mu = __tmp__._mu;
-		this._prefix = __tmp__._prefix;
-		this._flag = __tmp__._flag;
-		this._out = __tmp__._out;
-		this._buf = __tmp__._buf;
-		return this;
+		return new Logger(_mu, _prefix, _flag, _out, _buf, _isDiscard);
 	}
 }
 
-final ldate:GoUnTypedInt = (((1 : GoUnTypedInt)) << (0 : GoUnTypedInt));
-final ltime = (((1 : GoUnTypedInt)) << (1 : GoUnTypedInt));
-final lstdFlags:GoUnTypedInt = ldate | ltime;
-var _std:Pointer<Logger> = new_(stdgo.os.Os.stderr.value, "", lstdFlags);
-final lutc = (((1 : GoUnTypedInt)) << (5 : GoUnTypedInt));
-final llongfile = (((1 : GoUnTypedInt)) << (3 : GoUnTypedInt));
-final lmsgprefix = (((1 : GoUnTypedInt)) << (6 : GoUnTypedInt));
-final lshortfile = (((1 : GoUnTypedInt)) << (4 : GoUnTypedInt));
-final lmicroseconds = (((1 : GoUnTypedInt)) << (2 : GoUnTypedInt));
+@:structInit private class T_tester {
+	public var _flag:GoInt = 0;
+	public var _prefix:GoString = "";
+
+	/**
+		// regexp that log output must match; we add ^ and expected_text$ always
+	**/
+	public var _pattern:GoString = "";
+
+	public function new(?_flag:GoInt, ?_prefix:GoString, ?_pattern:GoString) {
+		if (_flag != null)
+			this._flag = _flag;
+		if (_prefix != null)
+			this._prefix = _prefix;
+		if (_pattern != null)
+			this._pattern = _pattern;
+	}
+
+	public function __underlying__():AnyInterface
+		return Go.toInterface(this);
+
+	public function __copy__() {
+		return new T_tester(_flag, _prefix, _pattern);
+	}
+}
 
 /**
 	// New creates a new Logger. The out variable sets the
@@ -408,64 +294,43 @@ final lmicroseconds = (((1 : GoUnTypedInt)) << (2 : GoUnTypedInt));
 	// after the log header if the Lmsgprefix flag is provided.
 	// The flag argument defines the logging properties.
 **/
-function new_(_out:stdgo.io.Io.Writer, _prefix:GoString, _flag:GoInt):Pointer<Logger> {
-	return Go.pointer((({
-		_out: _out,
-		_prefix: _prefix,
-		_flag: _flag,
-		_mu: new stdgo.sync.Sync.Mutex(),
-		_buf: new Slice<GoUInt8>().nil()
-	} : Logger)));
+function new_(_out:stdgo.io.Io.Writer, _prefix:GoString, _flag:GoInt):Ref<Logger> {
+	var _l = (({_out: _out, _prefix: _prefix, _flag: _flag} : Logger) : Ref<Logger>);
+	if (Go.toInterface(_out) == (Go.toInterface(stdgo.io.Io.discard))) {
+		_l._isDiscard = (1 : GoInt32);
+	};
+	return _l;
 }
 
 /**
 	// Default returns the standard logger used by the package-level output functions.
 **/
-function default_():Pointer<Logger> {
+function default_():Ref<Logger> {
 	return _std;
 }
 
 /**
 	// Cheap integer to fixed-width decimal ASCII. Give a negative width to avoid zero-padding.
 **/
-function _itoa(_buf:Pointer<Slice<GoByte>>, _i:GoInt, _wid:GoInt):Void {
-	var _b:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0...20) ((0 : GoUInt8))]);
-	var _bp:GoInt = _b.length - ((1 : GoInt));
-	while (_i >= ((10 : GoInt)) || _wid > ((1 : GoInt))) {
+function _itoa(_buf:Ref<Slice<GoByte>>, _i:GoInt, _wid:GoInt):Void {
+	var _b:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0...20) (0 : GoUInt8)]);
+	var _bp:GoInt = (19 : GoInt);
+	while ((_i >= (10 : GoInt)) || (_wid > (1 : GoInt))) {
 		_wid--;
-		var _q:GoInt = _i / ((10 : GoInt));
-		_b[_bp] = ((((("0".code : GoRune)) + _i - _q * ((10 : GoInt))) : GoByte));
+		var _q:GoInt = _i / (10 : GoInt);
+		_b[_bp] = ((("0".code : GoRune) + _i) - (_q * (10 : GoInt)) : GoByte);
 		_bp--;
 		_i = _q;
 	};
-	_b[_bp] = ((((("0".code : GoRune)) + _i) : GoByte));
-	_buf.value = _buf.value.__append__(..._b.__slice__(_bp).toArray());
+	_b[_bp] = (("0".code : GoRune) + _i : GoByte);
+	_buf = (_buf.__append__(...(_b.__slice__(_bp) : Slice<GoUInt8>).__toArray__()));
 }
 
 /**
 	// SetOutput sets the output destination for the standard logger.
 **/
 function setOutput(_w:stdgo.io.Io.Writer):Void {
-	var recover_exception:Error = null;
-	var deferstack:Array<Void->Void> = [];
-	try {
-		_std.value._mu.lock();
-		deferstack.unshift(() -> _std.value._mu.unlock());
-		_std.value._out = _w;
-		for (defer in deferstack) {
-			defer();
-		};
-	} catch (e) {
-		recover_exception = stdgo.runtime.Runtime.newRuntime(e.message);
-		{
-			for (defer in deferstack) {
-				defer();
-			};
-			if (recover_exception != null)
-				throw recover_exception;
-			return;
-		};
-	};
+	_std.setOutput(_w);
 }
 
 /**
@@ -473,7 +338,7 @@ function setOutput(_w:stdgo.io.Io.Writer):Void {
 	// The flag bits are Ldate, Ltime, and so on.
 **/
 function flags():GoInt {
-	return _std.value.flags();
+	return _std.flags();
 }
 
 /**
@@ -481,28 +346,28 @@ function flags():GoInt {
 	// The flag bits are Ldate, Ltime, and so on.
 **/
 function setFlags(_flag:GoInt):Void {
-	_std.value.setFlags(_flag);
+	_std.setFlags(_flag);
 }
 
 /**
 	// Prefix returns the output prefix for the standard logger.
 **/
 function prefix():GoString {
-	return _std.value.prefix();
+	return _std.prefix();
 }
 
 /**
 	// SetPrefix sets the output prefix for the standard logger.
 **/
 function setPrefix(_prefix:GoString):Void {
-	_std.value.setPrefix(_prefix);
+	_std.setPrefix(_prefix);
 }
 
 /**
 	// Writer returns the output destination for the standard logger.
 **/
 function writer():stdgo.io.Io.Writer {
-	return _std.value.writer();
+	return _std.writer();
 }
 
 /**
@@ -510,8 +375,11 @@ function writer():stdgo.io.Io.Writer {
 	// Arguments are handled in the manner of fmt.Print.
 **/
 function print(_v:haxe.Rest<AnyInterface>):Void {
-	var _v = new Slice<AnyInterface>(..._v);
-	_std.value.output(((2 : GoInt)), stdgo.fmt.Fmt.sprint(..._v.toArray()));
+	var _v = new Slice<AnyInterface>(0, 0, ..._v);
+	if (stdgo.sync.atomic.Atomic.loadInt32(Go.pointer(_std._isDiscard)) != ((0 : GoInt32))) {
+		return;
+	};
+	_std.output((2 : GoInt), stdgo.fmt.Fmt.sprint(..._v.__toArray__()));
 }
 
 /**
@@ -519,8 +387,11 @@ function print(_v:haxe.Rest<AnyInterface>):Void {
 	// Arguments are handled in the manner of fmt.Printf.
 **/
 function printf(_format:GoString, _v:haxe.Rest<AnyInterface>):Void {
-	var _v = new Slice<AnyInterface>(..._v);
-	_std.value.output(((2 : GoInt)), stdgo.fmt.Fmt.sprintf(_format, ..._v.toArray()));
+	var _v = new Slice<AnyInterface>(0, 0, ..._v);
+	if (stdgo.sync.atomic.Atomic.loadInt32(Go.pointer(_std._isDiscard)) != ((0 : GoInt32))) {
+		return;
+	};
+	_std.output((2 : GoInt), stdgo.fmt.Fmt.sprintf(_format, ..._v.__toArray__()));
 }
 
 /**
@@ -528,65 +399,68 @@ function printf(_format:GoString, _v:haxe.Rest<AnyInterface>):Void {
 	// Arguments are handled in the manner of fmt.Println.
 **/
 function println(_v:haxe.Rest<AnyInterface>):Void {
-	var _v = new Slice<AnyInterface>(..._v);
-	_std.value.output(((2 : GoInt)), stdgo.fmt.Fmt.sprintln(..._v.toArray()));
+	var _v = new Slice<AnyInterface>(0, 0, ..._v);
+	if (stdgo.sync.atomic.Atomic.loadInt32(Go.pointer(_std._isDiscard)) != ((0 : GoInt32))) {
+		return;
+	};
+	_std.output((2 : GoInt), stdgo.fmt.Fmt.sprintln(..._v.__toArray__()));
 }
 
 /**
 	// Fatal is equivalent to Print() followed by a call to os.Exit(1).
 **/
 function fatal(_v:haxe.Rest<AnyInterface>):Void {
-	var _v = new Slice<AnyInterface>(..._v);
-	_std.value.output(((2 : GoInt)), stdgo.fmt.Fmt.sprint(..._v.toArray()));
-	stdgo.os.Os.exit(((1 : GoInt)));
+	var _v = new Slice<AnyInterface>(0, 0, ..._v);
+	_std.output((2 : GoInt), stdgo.fmt.Fmt.sprint(..._v.__toArray__()));
+	Sys.exit((1 : GoInt));
 }
 
 /**
 	// Fatalf is equivalent to Printf() followed by a call to os.Exit(1).
 **/
 function fatalf(_format:GoString, _v:haxe.Rest<AnyInterface>):Void {
-	var _v = new Slice<AnyInterface>(..._v);
-	_std.value.output(((2 : GoInt)), stdgo.fmt.Fmt.sprintf(_format, ..._v.toArray()));
-	stdgo.os.Os.exit(((1 : GoInt)));
+	var _v = new Slice<AnyInterface>(0, 0, ..._v);
+	_std.output((2 : GoInt), stdgo.fmt.Fmt.sprintf(_format, ..._v.__toArray__()));
+	Sys.exit((1 : GoInt));
 }
 
 /**
 	// Fatalln is equivalent to Println() followed by a call to os.Exit(1).
 **/
 function fatalln(_v:haxe.Rest<AnyInterface>):Void {
-	var _v = new Slice<AnyInterface>(..._v);
-	_std.value.output(((2 : GoInt)), stdgo.fmt.Fmt.sprintln(..._v.toArray()));
-	stdgo.os.Os.exit(((1 : GoInt)));
+	var _v = new Slice<AnyInterface>(0, 0, ..._v);
+	_std.output((2 : GoInt), stdgo.fmt.Fmt.sprintln(..._v.__toArray__()));
+	Sys.exit((1 : GoInt));
 }
 
 /**
 	// Panic is equivalent to Print() followed by a call to panic().
 **/
 function panic(_v:haxe.Rest<AnyInterface>):Void {
-	var _v = new Slice<AnyInterface>(..._v);
-	var _s:GoString = stdgo.fmt.Fmt.sprint(..._v.toArray());
-	_std.value.output(((2 : GoInt)), _s);
-	throw _s;
+	var _v = new Slice<AnyInterface>(0, 0, ..._v);
+	var _s:GoString = stdgo.fmt.Fmt.sprint(..._v.__toArray__());
+	_std.output((2 : GoInt), _s);
+	throw Go.toInterface(_s);
 }
 
 /**
 	// Panicf is equivalent to Printf() followed by a call to panic().
 **/
 function panicf(_format:GoString, _v:haxe.Rest<AnyInterface>):Void {
-	var _v = new Slice<AnyInterface>(..._v);
-	var _s:GoString = stdgo.fmt.Fmt.sprintf(_format, ..._v.toArray());
-	_std.value.output(((2 : GoInt)), _s);
-	throw _s;
+	var _v = new Slice<AnyInterface>(0, 0, ..._v);
+	var _s:GoString = stdgo.fmt.Fmt.sprintf(_format, ..._v.__toArray__());
+	_std.output((2 : GoInt), _s);
+	throw Go.toInterface(_s);
 }
 
 /**
 	// Panicln is equivalent to Println() followed by a call to panic().
 **/
 function panicln(_v:haxe.Rest<AnyInterface>):Void {
-	var _v = new Slice<AnyInterface>(..._v);
-	var _s:GoString = stdgo.fmt.Fmt.sprintln(..._v.toArray());
-	_std.value.output(((2 : GoInt)), _s);
-	throw _s;
+	var _v = new Slice<AnyInterface>(0, 0, ..._v);
+	var _s:GoString = stdgo.fmt.Fmt.sprintln(..._v.__toArray__());
+	_std.output((2 : GoInt), _s);
+	throw Go.toInterface(_s);
 }
 
 /**
@@ -599,58 +473,828 @@ function panicln(_v:haxe.Rest<AnyInterface>):Void {
 	// for the caller of Output.
 **/
 function output(_calldepth:GoInt, _s:GoString):Error {
-	return _std.value.output(_calldepth + ((1 : GoInt)), _s);
+	return _std.output(_calldepth + (1 : GoInt), _s);
 }
 
-class Logger_extension_fields {
-	public function setOutput(__tmp__, _w:stdgo.io.Io.Writer):Void
-		__tmp__.setOutput(_w);
+/**
+	// Test using Println("hello", 23, "world") or using Printf("hello %d world", 23)
+**/
+function _testPrint(_t:Ref<stdgo.testing.Testing.T>, _flag:GoInt, _prefix:GoString, _pattern:GoString, _useFormat:Bool):Void {
+	var _buf = ({} : stdgo.bytes.Bytes.Buffer);
+	setOutput(Go.asInterface(_buf));
+	setFlags(_flag);
+	setPrefix(_prefix);
+	if (_useFormat) {
+		printf(Go.str("hello %d world"), Go.toInterface((23 : GoInt)));
+	} else {
+		println(Go.toInterface(Go.str("hello")), Go.toInterface((23 : GoInt)), Go.toInterface(Go.str("world")));
+	};
+	var _line:GoString = (_buf.string() : GoString);
+	_line = (_line.__slice__((0 : GoInt), (_line.length) - (1 : GoInt)) : GoString);
+	_pattern = (Go.str("^") + _pattern) + Go.str("hello 23 world$$");
+	var __tmp__ = stdgo.regexp.Regexp.matchString(_pattern, _line),
+		_matched:Bool = __tmp__._0,
+		_err:Error = __tmp__._1;
+	if (_err != null) {
+		_t.fatal(Go.toInterface(Go.str("pattern did not compile:")), Go.toInterface(_err));
+	};
+	if (!_matched) {
+		_t.errorf(Go.str("log output should match %q is %q"), Go.toInterface(_pattern), Go.toInterface(_line));
+	};
+	setOutput(Go.asInterface(stdgo.os.Os.stderr));
+}
 
-	public function _formatHeader(__tmp__, _buf:Pointer<Slice<GoByte>>, _t:stdgo.time.Time.Time, _file:GoString, _line:GoInt):Void
-		__tmp__._formatHeader(_buf, _t, _file, _line);
+function testDefault(_t:Ref<stdgo.testing.Testing.T>):Void {
+	{
+		var _got = default_();
+		if (_got != (_std)) {
+			_t.errorf(Go.str("Default [%p] should be std [%p]"), Go.toInterface(_got), Go.toInterface(_std));
+		};
+	};
+}
 
-	public function output(__tmp__, _calldepth:GoInt, _s:GoString):Error
-		return __tmp__.output(_calldepth, _s);
+function testAll(_t:Ref<stdgo.testing.Testing.T>):Void {
+	for (_0 => _testcase in _tests) {
+		_testPrint(_t, _testcase._flag, _testcase._prefix, _testcase._pattern, false);
+		_testPrint(_t, _testcase._flag, _testcase._prefix, _testcase._pattern, true);
+	};
+}
 
-	public function printf(__tmp__, _format:GoString, _v:haxe.Rest<AnyInterface>):Void
-		__tmp__.printf(_format, _v);
+function testOutput(_t:Ref<stdgo.testing.Testing.T>):Void {
+	{};
+	var _b:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
+	var _l = new_(Go.asInterface((_b : Ref<stdgo.bytes.Bytes.Buffer>)), Go.str(), (0 : GoInt));
+	_l.println(Go.toInterface(Go.str("test")));
+	{
+		var _expect:GoString = Go.str("test\n");
+		if ((_b.string() : GoString) != (_expect)) {
+			_t.errorf(Go.str("log output should match %q is %q"), Go.toInterface(_expect), Go.toInterface((_b.string() : GoString)));
+		};
+	};
+}
 
-	public function print(__tmp__, _v:haxe.Rest<AnyInterface>):Void
-		__tmp__.print(_v);
+function testOutputRace(_t:Ref<stdgo.testing.Testing.T>):Void {
+	var _b:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
+	var _l = new_(Go.asInterface((_b : Ref<stdgo.bytes.Bytes.Buffer>)), Go.str(), (0 : GoInt));
+	{
+		var _i:GoInt = (0 : GoInt);
+		Go.cfor(_i < (100:GoInt), _i++, {
+			Go.routine(() -> {
+				var a = function():Void {
+					_l.setFlags((0 : GoInt));
+				};
+				a();
+			});
+			_l.output((0 : GoInt), Go.str());
+		});
+	};
+}
 
-	public function println(__tmp__, _v:haxe.Rest<AnyInterface>):Void
-		__tmp__.println(_v);
+function testFlagAndPrefixSetting(_t:Ref<stdgo.testing.Testing.T>):Void {
+	var _b:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
+	var _l = new_(Go.asInterface((_b : Ref<stdgo.bytes.Bytes.Buffer>)), Go.str("Test:"), (3 : GoInt));
+	var _f:GoInt = _l.flags();
+	if (_f != ((3 : GoInt))) {
+		_t.errorf(Go.str("Flags 1: expected %x got %x"), Go.toInterface((3 : GoInt)), Go.toInterface(_f));
+	};
+	_l.setFlags(_f | (4 : GoInt));
+	_f = _l.flags();
+	if (_f != ((7 : GoInt))) {
+		_t.errorf(Go.str("Flags 2: expected %x got %x"), Go.toInterface((7 : GoInt)), Go.toInterface(_f));
+	};
+	var _p:GoString = _l.prefix();
+	if (_p != (Go.str("Test:"))) {
+		_t.errorf("Prefix: expected \"Test:\" got %q", Go.toInterface(_p));
+	};
+	_l.setPrefix(Go.str("Reality:"));
+	_p = _l.prefix();
+	if (_p != (Go.str("Reality:"))) {
+		_t.errorf("Prefix: expected \"Reality:\" got %q", Go.toInterface(_p));
+	};
+	_l.print(Go.toInterface(Go.str("hello")));
+	var _pattern:GoString = Go.str("^Reality:[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] hello\n");
+	var __tmp__ = stdgo.regexp.Regexp.match(_pattern, _b.bytes()),
+		_matched:Bool = __tmp__._0,
+		_err:Error = __tmp__._1;
+	if (_err != null) {
+		_t.fatalf(Go.str("pattern %q did not compile: %s"), Go.toInterface(_pattern), Go.toInterface(_err));
+	};
+	if (!_matched) {
+		_t.error(Go.toInterface(Go.str("message did not match pattern")));
+	};
+}
 
-	public function fatal(__tmp__, _v:haxe.Rest<AnyInterface>):Void
-		__tmp__.fatal(_v);
+function testUTCFlag(_t:Ref<stdgo.testing.Testing.T>):Void {
+	var _b:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
+	var _l = new_(Go.asInterface((_b : Ref<stdgo.bytes.Bytes.Buffer>)), Go.str("Test:"), (3 : GoInt));
+	_l.setFlags((35 : GoInt));
+	var _now:stdgo.time.Time.Time = (stdgo.time.Time.now().utc() == null ? null : stdgo.time.Time.now().utc().__copy__());
+	_l.print(Go.toInterface(Go.str("hello")));
+	var _want:GoString = stdgo.fmt.Fmt.sprintf(Go.str("Test:%d/%.2d/%.2d %.2d:%.2d:%.2d hello\n"), Go.toInterface(_now.year()),
+		Go.toInterface(Go.asInterface(_now.month())), Go.toInterface(_now.day()), Go.toInterface(_now.hour()), Go.toInterface(_now.minute()),
+		Go.toInterface(_now.second()));
+	var _got:GoString = (_b.string() : GoString);
+	if (_got == (_want)) {
+		return;
+	};
+	_now = (_now.add((("1000000000" : GoInt64) : stdgo.time.Time.Duration)) == null ? null : _now.add((("1000000000" : GoInt64) : stdgo.time.Time.Duration))
+		.__copy__());
+	_want = stdgo.fmt.Fmt.sprintf(Go.str("Test:%d/%.2d/%.2d %.2d:%.2d:%.2d hello\n"), Go.toInterface(_now.year()),
+		Go.toInterface(Go.asInterface(_now.month())), Go.toInterface(_now.day()), Go.toInterface(_now.hour()), Go.toInterface(_now.minute()),
+		Go.toInterface(_now.second()));
+	if (_got == (_want)) {
+		return;
+	};
+	_t.errorf(Go.str("got %q; want %q"), Go.toInterface(_got), Go.toInterface(_want));
+}
 
-	public function fatalf(__tmp__, _format:GoString, _v:haxe.Rest<AnyInterface>):Void
-		__tmp__.fatalf(_format, _v);
+function testEmptyPrintCreatesLine(_t:Ref<stdgo.testing.Testing.T>):Void {
+	var _b:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
+	var _l = new_(Go.asInterface((_b : Ref<stdgo.bytes.Bytes.Buffer>)), Go.str("Header:"), (3 : GoInt));
+	_l.print();
+	_l.println(Go.toInterface(Go.str("non-empty")));
+	var _output:GoString = (_b.string() : GoString);
+	{
+		var _n:GoInt = stdgo.strings.Strings.count(_output, Go.str("Header"));
+		if (_n != ((2 : GoInt))) {
+			_t.errorf(Go.str("expected 2 headers, got %d"), Go.toInterface(_n));
+		};
+	};
+	{
+		var _n:GoInt = stdgo.strings.Strings.count(_output, Go.str("\n"));
+		if (_n != ((2 : GoInt))) {
+			_t.errorf(Go.str("expected 2 lines, got %d"), Go.toInterface(_n));
+		};
+	};
+}
 
-	public function fatalln(__tmp__, _v:haxe.Rest<AnyInterface>):Void
-		__tmp__.fatalln(_v);
+function testDiscard(_t:Ref<stdgo.testing.Testing.T>):Void {
+	var _l = new_(stdgo.io.Io.discard, Go.str(), (0 : GoInt));
+	var _s:GoString = stdgo.strings.Strings.repeat(Go.str("a"), (102400 : GoInt));
+	var _c:GoFloat64 = stdgo.testing.Testing.allocsPerRun((100 : GoInt), function():Void {
+		_l.printf(Go.str("%s"), Go.toInterface(_s));
+	});
+	if (_c > (1 : GoFloat64)) {
+		_t.errorf(Go.str("got %v allocs, want at most 1"), Go.toInterface(_c));
+	};
+}
 
-	public function panic(__tmp__, _v:haxe.Rest<AnyInterface>):Void
-		__tmp__.panic(_v);
+function benchmarkItoa(_b:Ref<stdgo.testing.Testing.B>):Void {
+	var _dst = new Slice<GoUInt8>((0 : GoInt).toBasic(), (64 : GoInt), ...[for (i in 0...(0 : GoInt).toBasic()) (0 : GoUInt8)]);
+	{
+		var _i:GoInt = (0 : GoInt);
+		Go.cfor(_i < _b.n, _i++, {
+			_dst = (_dst.__slice__((0 : GoInt), (0 : GoInt)) : Slice<GoUInt8>);
+			_itoa((_dst : Ref<Slice<GoUInt8>>), (2015 : GoInt), (4 : GoInt));
+			_itoa((_dst : Ref<Slice<GoUInt8>>), (1 : GoInt), (2 : GoInt));
+			_itoa((_dst : Ref<Slice<GoUInt8>>), (30 : GoInt), (2 : GoInt));
+			_itoa((_dst : Ref<Slice<GoUInt8>>), (12 : GoInt), (2 : GoInt));
+			_itoa((_dst : Ref<Slice<GoUInt8>>), (56 : GoInt), (2 : GoInt));
+			_itoa((_dst : Ref<Slice<GoUInt8>>), (0 : GoInt), (2 : GoInt));
+			_itoa((_dst : Ref<Slice<GoUInt8>>), (987654 : GoInt), (6 : GoInt));
+		});
+	};
+}
 
-	public function panicf(__tmp__, _format:GoString, _v:haxe.Rest<AnyInterface>):Void
-		__tmp__.panicf(_format, _v);
+function benchmarkPrintln(_b:Ref<stdgo.testing.Testing.B>):Void {
+	{};
+	var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
+	var _l = new_(Go.asInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>)), Go.str(), (3 : GoInt));
+	{
+		var _i:GoInt = (0 : GoInt);
+		Go.cfor(_i < _b.n, _i++, {
+			_buf.reset();
+			_l.println(Go.toInterface(Go.str("test")));
+		});
+	};
+}
 
-	public function panicln(__tmp__, _v:haxe.Rest<AnyInterface>):Void
-		__tmp__.panicln(_v);
+function benchmarkPrintlnNoFlags(_b:Ref<stdgo.testing.Testing.B>):Void {
+	{};
+	var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
+	var _l = new_(Go.asInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>)), Go.str(), (0 : GoInt));
+	{
+		var _i:GoInt = (0 : GoInt);
+		Go.cfor(_i < _b.n, _i++, {
+			_buf.reset();
+			_l.println(Go.toInterface(Go.str("test")));
+		});
+	};
+}
 
-	public function flags(__tmp__):GoInt
-		return __tmp__.flags();
+class Logger_asInterface {
+	/**
+		// Writer returns the output destination for the logger.
+	**/
+	@:keep
+	public function writer():stdgo.io.Io.Writer
+		return __self__.value.writer();
 
-	public function setFlags(__tmp__, _flag:GoInt):Void
-		__tmp__.setFlags(_flag);
+	/**
+		// SetPrefix sets the output prefix for the logger.
+	**/
+	@:keep
+	public function setPrefix(_prefix:GoString):Void
+		__self__.value.setPrefix(_prefix);
 
-	public function prefix(__tmp__):GoString
-		return __tmp__.prefix();
+	/**
+		// Prefix returns the output prefix for the logger.
+	**/
+	@:keep
+	public function prefix():GoString
+		return __self__.value.prefix();
 
-	public function setPrefix(__tmp__, _prefix:GoString):Void
-		__tmp__.setPrefix(_prefix);
+	/**
+		// SetFlags sets the output flags for the logger.
+		// The flag bits are Ldate, Ltime, and so on.
+	**/
+	@:keep
+	public function setFlags(_flag:GoInt):Void
+		__self__.value.setFlags(_flag);
 
-	public function writer(__tmp__):stdgo.io.Io.Writer
-		return __tmp__.writer();
+	/**
+		// Flags returns the output flags for the logger.
+		// The flag bits are Ldate, Ltime, and so on.
+	**/
+	@:keep
+	public function flags():GoInt
+		return __self__.value.flags();
+
+	/**
+		// Panicln is equivalent to l.Println() followed by a call to panic().
+	**/
+	@:keep
+	public function panicln(_v:haxe.Rest<AnyInterface>):Void
+		__self__.value.panicln(..._v);
+
+	/**
+		// Panicf is equivalent to l.Printf() followed by a call to panic().
+	**/
+	@:keep
+	public function panicf(_format:GoString, _v:haxe.Rest<AnyInterface>):Void
+		__self__.value.panicf(_format, ..._v);
+
+	/**
+		// Panic is equivalent to l.Print() followed by a call to panic().
+	**/
+	@:keep
+	public function panic(_v:haxe.Rest<AnyInterface>):Void
+		__self__.value.panic(..._v);
+
+	/**
+		// Fatalln is equivalent to l.Println() followed by a call to os.Exit(1).
+	**/
+	@:keep
+	public function fatalln(_v:haxe.Rest<AnyInterface>):Void
+		__self__.value.fatalln(..._v);
+
+	/**
+		// Fatalf is equivalent to l.Printf() followed by a call to os.Exit(1).
+	**/
+	@:keep
+	public function fatalf(_format:GoString, _v:haxe.Rest<AnyInterface>):Void
+		__self__.value.fatalf(_format, ..._v);
+
+	/**
+		// Fatal is equivalent to l.Print() followed by a call to os.Exit(1).
+	**/
+	@:keep
+	public function fatal(_v:haxe.Rest<AnyInterface>):Void
+		__self__.value.fatal(..._v);
+
+	/**
+		// Println calls l.Output to print to the logger.
+		// Arguments are handled in the manner of fmt.Println.
+	**/
+	@:keep
+	public function println(_v:haxe.Rest<AnyInterface>):Void
+		__self__.value.println(..._v);
+
+	/**
+		// Print calls l.Output to print to the logger.
+		// Arguments are handled in the manner of fmt.Print.
+	**/
+	@:keep
+	public function print(_v:haxe.Rest<AnyInterface>):Void
+		__self__.value.print(..._v);
+
+	/**
+		// Printf calls l.Output to print to the logger.
+		// Arguments are handled in the manner of fmt.Printf.
+	**/
+	@:keep
+	public function printf(_format:GoString, _v:haxe.Rest<AnyInterface>):Void
+		__self__.value.printf(_format, ..._v);
+
+	/**
+		// Output writes the output for a logging event. The string s contains
+		// the text to print after the prefix specified by the flags of the
+		// Logger. A newline is appended if the last character of s is not
+		// already a newline. Calldepth is used to recover the PC and is
+		// provided for generality, although at the moment on all pre-defined
+		// paths it will be 2.
+	**/
+	@:keep
+	public function output(_calldepth:GoInt, _s:GoString):Error
+		return __self__.value.output(_calldepth, _s);
+
+	/**
+		// formatHeader writes log header to buf in following order:
+		//   - l.prefix (if it's not blank and Lmsgprefix is unset),
+		//   - date and/or time (if corresponding flags are provided),
+		//   - file and line number (if corresponding flags are provided),
+		//   - l.prefix (if it's not blank and Lmsgprefix is set).
+	**/
+	@:keep
+	public function _formatHeader(_buf:Ref<Slice<GoByte>>, _t:stdgo.time.Time.Time, _file:GoString, _line:GoInt):Void
+		__self__.value._formatHeader(_buf, _t, _file, _line);
+
+	/**
+		// SetOutput sets the output destination for the logger.
+	**/
+	@:keep
+	public function setOutput(_w:stdgo.io.Io.Writer):Void
+		__self__.value.setOutput(_w);
+
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
+	}
+
+	public function __underlying__()
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+
+	var __self__:Pointer<Logger>;
+	var __type__:stdgo.reflect.Reflect.Type;
+}
+
+@:keep @:allow(stdgo.log.Log.Logger_asInterface) class Logger_static_extension {
+	/**
+		// Writer returns the output destination for the logger.
+	**/
+	@:keep
+	static public function writer(_l:Ref<Logger>):stdgo.io.Io.Writer {
+		var __deferstack__:Array<Void->Void> = [];
+		_l._mu.lock();
+		__deferstack__.unshift(() -> _l._mu.unlock());
+		try {
+			{
+				for (defer in __deferstack__) {
+					defer();
+				};
+				return _l._out;
+			};
+			for (defer in __deferstack__) {
+				defer();
+			};
+			{
+				for (defer in __deferstack__) {
+					defer();
+				};
+				if (Go.recover_exception != null)
+					throw Go.recover_exception;
+				return (null : stdgo.io.Io.Writer);
+			};
+		} catch (__exception__) {
+			if (!(__exception__.native is AnyInterfaceData))
+				throw __exception__;
+			Go.recover_exception = __exception__.native;
+			for (defer in __deferstack__) {
+				defer();
+			};
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
+			return (null : stdgo.io.Io.Writer);
+		};
+	}
+
+	/**
+		// SetPrefix sets the output prefix for the logger.
+	**/
+	@:keep
+	static public function setPrefix(_l:Ref<Logger>, _prefix:GoString):Void {
+		var __deferstack__:Array<Void->Void> = [];
+		_l._mu.lock();
+		try {
+			__deferstack__.unshift(() -> _l._mu.unlock());
+			_l._prefix = _prefix;
+			for (defer in __deferstack__) {
+				defer();
+			};
+			{
+				for (defer in __deferstack__) {
+					defer();
+				};
+				if (Go.recover_exception != null)
+					throw Go.recover_exception;
+				return;
+			};
+		} catch (__exception__) {
+			if (!(__exception__.native is AnyInterfaceData))
+				throw __exception__;
+			Go.recover_exception = __exception__.native;
+			for (defer in __deferstack__) {
+				defer();
+			};
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
+			return;
+		};
+	}
+
+	/**
+		// Prefix returns the output prefix for the logger.
+	**/
+	@:keep
+	static public function prefix(_l:Ref<Logger>):GoString {
+		var __deferstack__:Array<Void->Void> = [];
+		_l._mu.lock();
+		__deferstack__.unshift(() -> _l._mu.unlock());
+		try {
+			{
+				for (defer in __deferstack__) {
+					defer();
+				};
+				return _l._prefix;
+			};
+			for (defer in __deferstack__) {
+				defer();
+			};
+			{
+				for (defer in __deferstack__) {
+					defer();
+				};
+				if (Go.recover_exception != null)
+					throw Go.recover_exception;
+				return ("" : GoString);
+			};
+		} catch (__exception__) {
+			if (!(__exception__.native is AnyInterfaceData))
+				throw __exception__;
+			Go.recover_exception = __exception__.native;
+			for (defer in __deferstack__) {
+				defer();
+			};
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
+			return ("" : GoString);
+		};
+	}
+
+	/**
+		// SetFlags sets the output flags for the logger.
+		// The flag bits are Ldate, Ltime, and so on.
+	**/
+	@:keep
+	static public function setFlags(_l:Ref<Logger>, _flag:GoInt):Void {
+		var __deferstack__:Array<Void->Void> = [];
+		_l._mu.lock();
+		try {
+			__deferstack__.unshift(() -> _l._mu.unlock());
+			_l._flag = _flag;
+			for (defer in __deferstack__) {
+				defer();
+			};
+			{
+				for (defer in __deferstack__) {
+					defer();
+				};
+				if (Go.recover_exception != null)
+					throw Go.recover_exception;
+				return;
+			};
+		} catch (__exception__) {
+			if (!(__exception__.native is AnyInterfaceData))
+				throw __exception__;
+			Go.recover_exception = __exception__.native;
+			for (defer in __deferstack__) {
+				defer();
+			};
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
+			return;
+		};
+	}
+
+	/**
+		// Flags returns the output flags for the logger.
+		// The flag bits are Ldate, Ltime, and so on.
+	**/
+	@:keep
+	static public function flags(_l:Ref<Logger>):GoInt {
+		var __deferstack__:Array<Void->Void> = [];
+		_l._mu.lock();
+		__deferstack__.unshift(() -> _l._mu.unlock());
+		try {
+			{
+				for (defer in __deferstack__) {
+					defer();
+				};
+				return _l._flag;
+			};
+			for (defer in __deferstack__) {
+				defer();
+			};
+			{
+				for (defer in __deferstack__) {
+					defer();
+				};
+				if (Go.recover_exception != null)
+					throw Go.recover_exception;
+				return (0 : GoInt);
+			};
+		} catch (__exception__) {
+			if (!(__exception__.native is AnyInterfaceData))
+				throw __exception__;
+			Go.recover_exception = __exception__.native;
+			for (defer in __deferstack__) {
+				defer();
+			};
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
+			return (0 : GoInt);
+		};
+	}
+
+	/**
+		// Panicln is equivalent to l.Println() followed by a call to panic().
+	**/
+	@:keep
+	static public function panicln(_l:Ref<Logger>, _v:haxe.Rest<AnyInterface>):Void {
+		var _v = new Slice<AnyInterface>(0, 0, ..._v);
+		var _s:GoString = stdgo.fmt.Fmt.sprintln(..._v.__toArray__());
+		_l.output((2 : GoInt), _s);
+		throw Go.toInterface(_s);
+	}
+
+	/**
+		// Panicf is equivalent to l.Printf() followed by a call to panic().
+	**/
+	@:keep
+	static public function panicf(_l:Ref<Logger>, _format:GoString, _v:haxe.Rest<AnyInterface>):Void {
+		var _v = new Slice<AnyInterface>(0, 0, ..._v);
+		var _s:GoString = stdgo.fmt.Fmt.sprintf(_format, ..._v.__toArray__());
+		_l.output((2 : GoInt), _s);
+		throw Go.toInterface(_s);
+	}
+
+	/**
+		// Panic is equivalent to l.Print() followed by a call to panic().
+	**/
+	@:keep
+	static public function panic(_l:Ref<Logger>, _v:haxe.Rest<AnyInterface>):Void {
+		var _v = new Slice<AnyInterface>(0, 0, ..._v);
+		var _s:GoString = stdgo.fmt.Fmt.sprint(..._v.__toArray__());
+		_l.output((2 : GoInt), _s);
+		throw Go.toInterface(_s);
+	}
+
+	/**
+		// Fatalln is equivalent to l.Println() followed by a call to os.Exit(1).
+	**/
+	@:keep
+	static public function fatalln(_l:Ref<Logger>, _v:haxe.Rest<AnyInterface>):Void {
+		var _v = new Slice<AnyInterface>(0, 0, ..._v);
+		_l.output((2 : GoInt), stdgo.fmt.Fmt.sprintln(..._v.__toArray__()));
+		Sys.exit((1 : GoInt));
+	}
+
+	/**
+		// Fatalf is equivalent to l.Printf() followed by a call to os.Exit(1).
+	**/
+	@:keep
+	static public function fatalf(_l:Ref<Logger>, _format:GoString, _v:haxe.Rest<AnyInterface>):Void {
+		var _v = new Slice<AnyInterface>(0, 0, ..._v);
+		_l.output((2 : GoInt), stdgo.fmt.Fmt.sprintf(_format, ..._v.__toArray__()));
+		Sys.exit((1 : GoInt));
+	}
+
+	/**
+		// Fatal is equivalent to l.Print() followed by a call to os.Exit(1).
+	**/
+	@:keep
+	static public function fatal(_l:Ref<Logger>, _v:haxe.Rest<AnyInterface>):Void {
+		var _v = new Slice<AnyInterface>(0, 0, ..._v);
+		_l.output((2 : GoInt), stdgo.fmt.Fmt.sprint(..._v.__toArray__()));
+		Sys.exit((1 : GoInt));
+	}
+
+	/**
+		// Println calls l.Output to print to the logger.
+		// Arguments are handled in the manner of fmt.Println.
+	**/
+	@:keep
+	static public function println(_l:Ref<Logger>, _v:haxe.Rest<AnyInterface>):Void {
+		var _v = new Slice<AnyInterface>(0, 0, ..._v);
+		if (stdgo.sync.atomic.Atomic.loadInt32(Go.pointer(_l._isDiscard)) != ((0 : GoInt32))) {
+			return;
+		};
+		_l.output((2 : GoInt), stdgo.fmt.Fmt.sprintln(..._v.__toArray__()));
+	}
+
+	/**
+		// Print calls l.Output to print to the logger.
+		// Arguments are handled in the manner of fmt.Print.
+	**/
+	@:keep
+	static public function print(_l:Ref<Logger>, _v:haxe.Rest<AnyInterface>):Void {
+		var _v = new Slice<AnyInterface>(0, 0, ..._v);
+		if (stdgo.sync.atomic.Atomic.loadInt32(Go.pointer(_l._isDiscard)) != ((0 : GoInt32))) {
+			return;
+		};
+		_l.output((2 : GoInt), stdgo.fmt.Fmt.sprint(..._v.__toArray__()));
+	}
+
+	/**
+		// Printf calls l.Output to print to the logger.
+		// Arguments are handled in the manner of fmt.Printf.
+	**/
+	@:keep
+	static public function printf(_l:Ref<Logger>, _format:GoString, _v:haxe.Rest<AnyInterface>):Void {
+		var _v = new Slice<AnyInterface>(0, 0, ..._v);
+		if (stdgo.sync.atomic.Atomic.loadInt32(Go.pointer(_l._isDiscard)) != ((0 : GoInt32))) {
+			return;
+		};
+		_l.output((2 : GoInt), stdgo.fmt.Fmt.sprintf(_format, ..._v.__toArray__()));
+	}
+
+	/**
+		// Output writes the output for a logging event. The string s contains
+		// the text to print after the prefix specified by the flags of the
+		// Logger. A newline is appended if the last character of s is not
+		// already a newline. Calldepth is used to recover the PC and is
+		// provided for generality, although at the moment on all pre-defined
+		// paths it will be 2.
+	**/
+	@:keep
+	static public function output(_l:Ref<Logger>, _calldepth:GoInt, _s:GoString):Error {
+		var __deferstack__:Array<Void->Void> = [];
+		var _now:stdgo.time.Time.Time = (stdgo.time.Time.now() == null ? null : stdgo.time.Time.now().__copy__());
+		var _file:GoString = ("" : GoString);
+		try {
+			var _line:GoInt = (0 : GoInt);
+			_l._mu.lock();
+			__deferstack__.unshift(() -> _l._mu.unlock());
+			if (_l._flag & (24 : GoInt) != ((0 : GoInt))) {
+				_l._mu.unlock();
+				var _ok:Bool = false;
+				{
+					var __tmp__ = stdgo.runtime.Runtime.caller(_calldepth);
+					_file = __tmp__._1;
+					_line = __tmp__._2;
+					_ok = __tmp__._3;
+				};
+				if (!_ok) {
+					_file = Go.str("???");
+					_line = (0 : GoInt);
+				};
+				_l._mu.lock();
+			};
+			_l._buf = (_l._buf.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>);
+			_l._formatHeader((_l._buf : Ref<Slice<GoUInt8>>), (_now == null ? null : _now.__copy__()), _file, _line);
+			_l._buf = (_l._buf.__append__(..._s.__toArray__()));
+			if ((_s.length == (0 : GoInt)) || (_s[(_s.length) - (1 : GoInt)] != ("\n".code : GoRune))) {
+				_l._buf = (_l._buf.__append__(("\n".code : GoRune)));
+			};
+			var __tmp__ = _l._out.write(_l._buf),
+				_0:GoInt = __tmp__._0,
+				_err:Error = __tmp__._1;
+			{
+				for (defer in __deferstack__) {
+					defer();
+				};
+				return _err;
+			};
+			for (defer in __deferstack__) {
+				defer();
+			};
+			{
+				for (defer in __deferstack__) {
+					defer();
+				};
+				if (Go.recover_exception != null)
+					throw Go.recover_exception;
+				return (null : Error);
+			};
+		} catch (__exception__) {
+			if (!(__exception__.native is AnyInterfaceData))
+				throw __exception__;
+			Go.recover_exception = __exception__.native;
+			for (defer in __deferstack__) {
+				defer();
+			};
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
+			return (null : Error);
+		};
+	}
+
+	/**
+		// formatHeader writes log header to buf in following order:
+		//   - l.prefix (if it's not blank and Lmsgprefix is unset),
+		//   - date and/or time (if corresponding flags are provided),
+		//   - file and line number (if corresponding flags are provided),
+		//   - l.prefix (if it's not blank and Lmsgprefix is set).
+	**/
+	@:keep
+	static public function _formatHeader(_l:Ref<Logger>, _buf:Ref<Slice<GoByte>>, _t:stdgo.time.Time.Time, _file:GoString, _line:GoInt):Void {
+		if (_l._flag & (64 : GoInt) == ((0 : GoInt))) {
+			_buf = (_buf.__append__(..._l._prefix.__toArray__()));
+		};
+		if (_l._flag & (7 : GoInt) != ((0 : GoInt))) {
+			if (_l._flag & (32 : GoInt) != ((0 : GoInt))) {
+				_t = (_t.utc() == null ? null : _t.utc().__copy__());
+			};
+			if (_l._flag & (1 : GoInt) != ((0 : GoInt))) {
+				var __tmp__ = _t.date(),
+					_year:GoInt = __tmp__._0,
+					_month:stdgo.time.Time.Month = __tmp__._1,
+					_day:GoInt = __tmp__._2;
+				_itoa(_buf, _year, (4 : GoInt));
+				_buf = (_buf.__append__(("/".code : GoRune)));
+				_itoa(_buf, (_month : GoInt), (2 : GoInt));
+				_buf = (_buf.__append__(("/".code : GoRune)));
+				_itoa(_buf, _day, (2 : GoInt));
+				_buf = (_buf.__append__((" ".code : GoRune)));
+			};
+			if (_l._flag & (6 : GoInt) != ((0 : GoInt))) {
+				var __tmp__ = _t.clock(),
+					_hour:GoInt = __tmp__._0,
+					_min:GoInt = __tmp__._1,
+					_sec:GoInt = __tmp__._2;
+				_itoa(_buf, _hour, (2 : GoInt));
+				_buf = (_buf.__append__((":".code : GoRune)));
+				_itoa(_buf, _min, (2 : GoInt));
+				_buf = (_buf.__append__((":".code : GoRune)));
+				_itoa(_buf, _sec, (2 : GoInt));
+				if (_l._flag & (4 : GoInt) != ((0 : GoInt))) {
+					_buf = (_buf.__append__((".".code : GoRune)));
+					_itoa(_buf, _t.nanosecond() / (1000 : GoInt), (6 : GoInt));
+				};
+				_buf = (_buf.__append__((" ".code : GoRune)));
+			};
+		};
+		if (_l._flag & (24 : GoInt) != ((0 : GoInt))) {
+			if (_l._flag & (16 : GoInt) != ((0 : GoInt))) {
+				var _short:GoString = _file;
+				{
+					var _i:GoInt = (_file.length) - (1 : GoInt);
+					Go.cfor(_i > (0 : GoInt), _i--, {
+						if (_file[_i] == (("/".code : GoRune))) {
+							_short = (_file.__slice__(_i + (1 : GoInt)) : GoString);
+							break;
+						};
+					});
+				};
+				_file = _short;
+			};
+			_buf = (_buf.__append__(..._file.__toArray__()));
+			_buf = (_buf.__append__((":".code : GoRune)));
+			_itoa(_buf, _line, (-1 : GoInt));
+			_buf = (_buf.__append__(...Go.str(": ").__toArray__()));
+		};
+		if (_l._flag & (64 : GoInt) != ((0 : GoInt))) {
+			_buf = (_buf.__append__(..._l._prefix.__toArray__()));
+		};
+	}
+
+	/**
+		// SetOutput sets the output destination for the logger.
+	**/
+	@:keep
+	static public function setOutput(_l:Ref<Logger>, _w:stdgo.io.Io.Writer):Void {
+		var __deferstack__:Array<Void->Void> = [];
+		_l._mu.lock();
+		try {
+			__deferstack__.unshift(() -> _l._mu.unlock());
+			_l._out = _w;
+			var _isDiscard:GoInt32 = (0 : GoInt32);
+			if (Go.toInterface(_w) == (Go.toInterface(stdgo.io.Io.discard))) {
+				_isDiscard = (1 : GoInt32);
+			};
+			stdgo.sync.atomic.Atomic.storeInt32(Go.pointer(_l._isDiscard), _isDiscard);
+			for (defer in __deferstack__) {
+				defer();
+			};
+			{
+				for (defer in __deferstack__) {
+					defer();
+				};
+				if (Go.recover_exception != null)
+					throw Go.recover_exception;
+				return;
+			};
+		} catch (__exception__) {
+			if (!(__exception__.native is AnyInterfaceData))
+				throw __exception__;
+			Go.recover_exception = __exception__.native;
+			for (defer in __deferstack__) {
+				defer();
+			};
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
+			return;
+		};
+	}
 }

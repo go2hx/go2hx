@@ -1802,17 +1802,19 @@ function _sameFile(_fs1:Ref<T_fileStat>, _fs2:Ref<T_fileStat>):Bool
 private class T_dirInfo_asInterface {
 	@:keep
 	public function _close():Void
-		__self__._close();
+		__self__.value._close();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_dirInfo;
+	var __self__:Pointer<T_dirInfo>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.os.Os.T_dirInfo_asInterface) class T_dirInfo_static_extension {
@@ -1827,25 +1829,27 @@ class SyscallError_asInterface {
 	**/
 	@:keep
 	public function timeout():Bool
-		return __self__.timeout();
+		return __self__.value.timeout();
 
 	@:keep
 	public function unwrap():Error
-		return __self__.unwrap();
+		return __self__.value.unwrap();
 
 	@:keep
 	public function error():GoString
-		return __self__.error();
+		return __self__.value.error();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:SyscallError;
+	var __self__:Pointer<SyscallError>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.os.Os.SyscallError_asInterface) class SyscallError_static_extension {
@@ -1877,23 +1881,23 @@ class Process_asInterface {
 	**/
 	@:keep
 	public function _blockUntilWaitable():{var _0:Bool; var _1:Error;}
-		return __self__._blockUntilWaitable();
+		return __self__.value._blockUntilWaitable();
 
 	@:keep
 	public function _release():Error
-		return __self__._release();
+		return __self__.value._release();
 
 	@:keep
 	public function _signal(_sig:Signal):Error
-		return __self__._signal(_sig);
+		return __self__.value._signal(_sig);
 
 	@:keep
 	public function _wait():{var _0:Ref<ProcessState>; var _1:Error;}
-		return __self__._wait();
+		return __self__.value._wait();
 
 	@:keep
 	public function _kill():Error
-		return __self__._kill();
+		return __self__.value._kill();
 
 	/**
 		// Signal sends a signal to the Process.
@@ -1901,7 +1905,7 @@ class Process_asInterface {
 	**/
 	@:keep
 	public function signal(_sig:Signal):Error
-		return __self__.signal(_sig);
+		return __self__.value.signal(_sig);
 
 	/**
 		// Wait waits for the Process to exit, and then returns a
@@ -1912,7 +1916,7 @@ class Process_asInterface {
 	**/
 	@:keep
 	public function wait_():{var _0:Ref<ProcessState>; var _1:Error;}
-		return __self__.wait_();
+		return __self__.value.wait_();
 
 	/**
 		// Kill causes the Process to exit immediately. Kill does not wait until
@@ -1921,7 +1925,7 @@ class Process_asInterface {
 	**/
 	@:keep
 	public function kill():Error
-		return __self__.kill();
+		return __self__.value.kill();
 
 	/**
 		// Release releases any resources associated with the Process p,
@@ -1930,25 +1934,27 @@ class Process_asInterface {
 	**/
 	@:keep
 	public function release():Error
-		return __self__.release();
+		return __self__.value.release();
 
 	@:keep
 	public function _done():Bool
-		return __self__._done();
+		return __self__.value._done();
 
 	@:keep
 	public function _setDone():Void
-		__self__._setDone();
+		__self__.value._setDone();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:Process;
+	var __self__:Pointer<Process>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.os.Os.Process_asInterface) class Process_static_extension {
@@ -2030,11 +2036,11 @@ class Process_asInterface {
 class ProcessState_asInterface {
 	@:keep
 	public function _systemTime():stdgo.time.Time.Duration
-		return __self__._systemTime();
+		return __self__.value._systemTime();
 
 	@:keep
 	public function _userTime():stdgo.time.Time.Duration
-		return __self__._userTime();
+		return __self__.value._userTime();
 
 	/**
 		// ExitCode returns the exit code of the exited process, or -1
@@ -2042,34 +2048,34 @@ class ProcessState_asInterface {
 	**/
 	@:keep
 	public function exitCode():GoInt
-		return __self__.exitCode();
+		return __self__.value.exitCode();
 
 	@:keep
 	public function string():GoString
-		return __self__.string();
+		return __self__.value.string();
 
 	@:keep
 	public function _sysUsage():AnyInterface
-		return __self__._sysUsage();
+		return __self__.value._sysUsage();
 
 	@:keep
 	public function _sys():AnyInterface
-		return __self__._sys();
+		return __self__.value._sys();
 
 	@:keep
 	public function _success():Bool
-		return __self__._success();
+		return __self__.value._success();
 
 	@:keep
 	public function _exited():Bool
-		return __self__._exited();
+		return __self__.value._exited();
 
 	/**
 		// Pid returns the process id of the exited process.
 	**/
 	@:keep
 	public function pid():GoInt
-		return __self__.pid();
+		return __self__.value.pid();
 
 	/**
 		// SysUsage returns system-dependent resource usage information about
@@ -2080,7 +2086,7 @@ class ProcessState_asInterface {
 	**/
 	@:keep
 	public function sysUsage():AnyInterface
-		return __self__.sysUsage();
+		return __self__.value.sysUsage();
 
 	/**
 		// Sys returns system-dependent exit information about
@@ -2089,7 +2095,7 @@ class ProcessState_asInterface {
 	**/
 	@:keep
 	public function sys():AnyInterface
-		return __self__.sys();
+		return __self__.value.sys();
 
 	/**
 		// Success reports whether the program exited successfully,
@@ -2097,7 +2103,7 @@ class ProcessState_asInterface {
 	**/
 	@:keep
 	public function success():Bool
-		return __self__.success();
+		return __self__.value.success();
 
 	/**
 		// Exited reports whether the program has exited.
@@ -2106,31 +2112,33 @@ class ProcessState_asInterface {
 	**/
 	@:keep
 	public function exited():Bool
-		return __self__.exited();
+		return __self__.value.exited();
 
 	/**
 		// SystemTime returns the system CPU time of the exited process and its children.
 	**/
 	@:keep
 	public function systemTime():stdgo.time.Time.Duration
-		return __self__.systemTime();
+		return __self__.value.systemTime();
 
 	/**
 		// UserTime returns the user CPU time of the exited process and its children.
 	**/
 	@:keep
 	public function userTime():stdgo.time.Time.Duration
-		return __self__.userTime();
+		return __self__.value.userTime();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:ProcessState;
+	var __self__:Pointer<ProcessState>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.os.Os.ProcessState_asInterface) class ProcessState_static_extension {
@@ -2232,21 +2240,23 @@ class ProcessState_asInterface {
 class LinkError_asInterface {
 	@:keep
 	public function unwrap():Error
-		return __self__.unwrap();
+		return __self__.value.unwrap();
 
 	@:keep
 	public function error():GoString
-		return __self__.error();
+		return __self__.value.error();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:LinkError;
+	var __self__:Pointer<LinkError>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.os.Os.LinkError_asInterface) class LinkError_static_extension {
@@ -2262,17 +2272,19 @@ class LinkError_asInterface {
 private class T_onlyWriter_asInterface {
 	@:embedded
 	public function write(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
-		return __self__.write(_b);
+		return __self__.value.write(_b);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_onlyWriter;
+	var __self__:Pointer<T_onlyWriter>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.os.Os.T_onlyWriter_asInterface) class T_onlyWriter_static_extension {
@@ -2284,17 +2296,19 @@ private class T_onlyWriter_asInterface {
 private class T_file_asInterface {
 	@:keep
 	public function _close():Error
-		return __self__._close();
+		return __self__.value._close();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_file;
+	var __self__:Pointer<T_file>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.os.Os.T_file_asInterface) class T_file_static_extension {
@@ -2306,29 +2320,31 @@ private class T_file_asInterface {
 private class T_unixDirent_asInterface {
 	@:keep
 	public function info():{var _0:FileInfo; var _1:Error;}
-		return __self__.info();
+		return __self__.value.info();
 
 	@:keep
 	public function type():FileMode
-		return __self__.type();
+		return __self__.value.type();
 
 	@:keep
 	public function isDir():Bool
-		return __self__.isDir();
+		return __self__.value.isDir();
 
 	@:keep
 	public function name():GoString
-		return __self__.name();
+		return __self__.value.name();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_unixDirent;
+	var __self__:Pointer<T_unixDirent>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.os.Os.T_unixDirent_asInterface) class T_unixDirent_static_extension {
@@ -2352,25 +2368,27 @@ private class T_unixDirent_asInterface {
 private class T_rawConn_asInterface {
 	@:keep
 	public function write(_f:GoUIntptr->Bool):Error
-		return __self__.write(_f);
+		return __self__.value.write(_f);
 
 	@:keep
 	public function read(_f:GoUIntptr->Bool):Error
-		return __self__.read(_f);
+		return __self__.value.read(_f);
 
 	@:keep
 	public function control(_f:GoUIntptr->Void):Error
-		return __self__.control(_f);
+		return __self__.value.control(_f);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_rawConn;
+	var __self__:Pointer<T_rawConn>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.os.Os.T_rawConn_asInterface) class T_rawConn_static_extension {
@@ -2394,11 +2412,11 @@ class File_asInterface {
 	**/
 	@:keep
 	public function stat():{var _0:FileInfo; var _1:Error;}
-		return __self__.stat();
+		return __self__.value.stat();
 
 	@:keep
 	public function _readFrom(_r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:Bool; var _2:Error;}
-		return __self__._readFrom(_r);
+		return __self__.value._readFrom(_r);
 
 	/**
 		// seek sets the offset for the next Read or Write on file to offset, interpreted
@@ -2408,7 +2426,7 @@ class File_asInterface {
 	**/
 	@:keep
 	public function _seek(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:Error;}
-		return __self__._seek(_offset, _whence);
+		return __self__.value._seek(_offset, _whence);
 
 	/**
 		// Fd returns the integer Unix file descriptor referencing the open file.
@@ -2426,7 +2444,7 @@ class File_asInterface {
 	**/
 	@:keep
 	public function fd():GoUIntptr
-		return __self__.fd();
+		return __self__.value.fd();
 
 	/**
 		// checkValid checks whether f is valid for use.
@@ -2434,28 +2452,28 @@ class File_asInterface {
 	**/
 	@:keep
 	public function _checkValid(_op:GoString):Error
-		return __self__._checkValid(_op);
+		return __self__.value._checkValid(_op);
 
 	/**
 		// setWriteDeadline sets the write deadline.
 	**/
 	@:keep
 	public function _setWriteDeadline(_t:stdgo.time.Time.Time):Error
-		return __self__._setWriteDeadline(_t);
+		return __self__.value._setWriteDeadline(_t);
 
 	/**
 		// setReadDeadline sets the read deadline.
 	**/
 	@:keep
 	public function _setReadDeadline(_t:stdgo.time.Time.Time):Error
-		return __self__._setReadDeadline(_t);
+		return __self__.value._setReadDeadline(_t);
 
 	/**
 		// setDeadline sets the read and write deadline.
 	**/
 	@:keep
 	public function _setDeadline(_t:stdgo.time.Time.Time):Error
-		return __self__._setDeadline(_t);
+		return __self__.value._setDeadline(_t);
 
 	/**
 		// Chdir changes the current working directory to the file,
@@ -2464,7 +2482,7 @@ class File_asInterface {
 	**/
 	@:keep
 	public function chdir():Error
-		return __self__.chdir();
+		return __self__.value.chdir();
 
 	/**
 		// Sync commits the current contents of the file to stable storage.
@@ -2473,7 +2491,7 @@ class File_asInterface {
 	**/
 	@:keep
 	public function sync():Error
-		return __self__.sync();
+		return __self__.value.sync();
 
 	/**
 		// Truncate changes the size of the file.
@@ -2482,7 +2500,7 @@ class File_asInterface {
 	**/
 	@:keep
 	public function truncate(_size:GoInt64):Error
-		return __self__.truncate(_size);
+		return __self__.value.truncate(_size);
 
 	/**
 		// Chown changes the numeric uid and gid of the named file.
@@ -2493,14 +2511,14 @@ class File_asInterface {
 	**/
 	@:keep
 	public function chown(_uid:GoInt, _gid:GoInt):Error
-		return __self__.chown(_uid, _gid);
+		return __self__.value.chown(_uid, _gid);
 
 	/**
 		// See docs in file.go:(*File).Chmod.
 	**/
 	@:keep
 	public function _chmod(_mode:FileMode):Error
-		return __self__._chmod(_mode);
+		return __self__.value._chmod(_mode);
 
 	/**
 		// pwrite writes len(b) bytes to the File starting at byte offset off.
@@ -2508,7 +2526,7 @@ class File_asInterface {
 	**/
 	@:keep
 	public function _pwrite(_b:Slice<GoByte>, _off:GoInt64):{var _0:GoInt; var _1:Error;}
-		return __self__._pwrite(_b, _off);
+		return __self__.value._pwrite(_b, _off);
 
 	/**
 		// write writes len(b) bytes to the File.
@@ -2516,7 +2534,7 @@ class File_asInterface {
 	**/
 	@:keep
 	public function _write(_b:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
-		return __self__._write(_b);
+		return __self__.value._write(_b);
 
 	/**
 		// pread reads len(b) bytes from the File starting at byte offset off.
@@ -2525,7 +2543,7 @@ class File_asInterface {
 	**/
 	@:keep
 	public function _pread(_b:Slice<GoByte>, _off:GoInt64):{var _0:GoInt; var _1:Error;}
-		return __self__._pread(_b, _off);
+		return __self__.value._pread(_b, _off);
 
 	/**
 		// read reads up to len(b) bytes from the File.
@@ -2533,7 +2551,7 @@ class File_asInterface {
 	**/
 	@:keep
 	public function _read(_b:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
-		return __self__._read(_b);
+		return __self__.value._read(_b);
 
 	/**
 		// Close closes the File, rendering it unusable for I/O.
@@ -2543,7 +2561,7 @@ class File_asInterface {
 	**/
 	@:keep
 	public function close():Error
-		return __self__.close();
+		return __self__.value.close();
 
 	/**
 		// SyscallConn returns a raw file.
@@ -2551,7 +2569,7 @@ class File_asInterface {
 	**/
 	@:keep
 	public function syscallConn():{var _0:stdgo.syscall.Syscall.RawConn; var _1:Error;}
-		return __self__.syscallConn();
+		return __self__.value.syscallConn();
 
 	/**
 		// SetWriteDeadline sets the deadline for any future Write calls and any
@@ -2563,7 +2581,7 @@ class File_asInterface {
 	**/
 	@:keep
 	public function setWriteDeadline(_t:stdgo.time.Time.Time):Error
-		return __self__.setWriteDeadline(_t);
+		return __self__.value.setWriteDeadline(_t);
 
 	/**
 		// SetReadDeadline sets the deadline for future Read calls and any
@@ -2573,7 +2591,7 @@ class File_asInterface {
 	**/
 	@:keep
 	public function setReadDeadline(_t:stdgo.time.Time.Time):Error
-		return __self__.setReadDeadline(_t);
+		return __self__.value.setReadDeadline(_t);
 
 	/**
 		// SetDeadline sets the read and write deadlines for a File.
@@ -2603,7 +2621,7 @@ class File_asInterface {
 	**/
 	@:keep
 	public function setDeadline(_t:stdgo.time.Time.Time):Error
-		return __self__.setDeadline(_t);
+		return __self__.value.setDeadline(_t);
 
 	/**
 		// Chmod changes the mode of the file to mode.
@@ -2611,7 +2629,7 @@ class File_asInterface {
 	**/
 	@:keep
 	public function chmod(_mode:FileMode):Error
-		return __self__.chmod(_mode);
+		return __self__.value.chmod(_mode);
 
 	/**
 		// wrapErr wraps an error that occurred during an operation on an open file.
@@ -2620,7 +2638,7 @@ class File_asInterface {
 	**/
 	@:keep
 	public function _wrapErr(_op:GoString, _err:Error):Error
-		return __self__._wrapErr(_op, _err);
+		return __self__.value._wrapErr(_op, _err);
 
 	/**
 		// WriteString is like Write, but writes the contents of string s rather than
@@ -2628,7 +2646,7 @@ class File_asInterface {
 	**/
 	@:keep
 	public function writeString(_s:GoString):{var _0:GoInt; var _1:Error;}
-		return __self__.writeString(_s);
+		return __self__.value.writeString(_s);
 
 	/**
 		// Seek sets the offset for the next Read or Write on file to offset, interpreted
@@ -2643,7 +2661,7 @@ class File_asInterface {
 	**/
 	@:keep
 	public function seek(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:Error;}
-		return __self__.seek(_offset, _whence);
+		return __self__.value.seek(_offset, _whence);
 
 	/**
 		// WriteAt writes len(b) bytes to the File starting at byte offset off.
@@ -2654,7 +2672,7 @@ class File_asInterface {
 	**/
 	@:keep
 	public function writeAt(_b:Slice<GoByte>, _off:GoInt64):{var _0:GoInt; var _1:Error;}
-		return __self__.writeAt(_b, _off);
+		return __self__.value.writeAt(_b, _off);
 
 	/**
 		// Write writes len(b) bytes from b to the File.
@@ -2663,14 +2681,14 @@ class File_asInterface {
 	**/
 	@:keep
 	public function write(_b:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
-		return __self__.write(_b);
+		return __self__.value.write(_b);
 
 	/**
 		// ReadFrom implements io.ReaderFrom.
 	**/
 	@:keep
 	public function readFrom(_r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:Error;}
-		return __self__.readFrom(_r);
+		return __self__.value.readFrom(_r);
 
 	/**
 		// ReadAt reads len(b) bytes from the File starting at byte offset off.
@@ -2680,7 +2698,7 @@ class File_asInterface {
 	**/
 	@:keep
 	public function readAt(_b:Slice<GoByte>, _off:GoInt64):{var _0:GoInt; var _1:Error;}
-		return __self__.readAt(_b, _off);
+		return __self__.value.readAt(_b, _off);
 
 	/**
 		// Read reads up to len(b) bytes from the File and stores them in b.
@@ -2689,14 +2707,14 @@ class File_asInterface {
 	**/
 	@:keep
 	public function read(_b:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
-		return __self__.read(_b);
+		return __self__.value.read(_b);
 
 	/**
 		// Name returns the name of the file as presented to Open.
 	**/
 	@:keep
 	public function name():GoString
-		return __self__.name();
+		return __self__.value.name();
 
 	@:keep
 	public function _readdir(_n:GoInt, _mode:T_readdirMode):{
@@ -2705,7 +2723,7 @@ class File_asInterface {
 		var _2:Slice<FileInfo>;
 		var _3:Error;
 	}
-		return __self__._readdir(_n, _mode);
+		return __self__.value._readdir(_n, _mode);
 
 	/**
 		// ReadDir reads the contents of the directory associated with the file f
@@ -2721,7 +2739,7 @@ class File_asInterface {
 	**/
 	@:keep
 	public function readDir(_n:GoInt):{var _0:Slice<DirEntry>; var _1:Error;}
-		return __self__.readDir(_n);
+		return __self__.value.readDir(_n);
 
 	/**
 		// Readdirnames reads the contents of the directory associated with file
@@ -2742,7 +2760,7 @@ class File_asInterface {
 	**/
 	@:keep
 	public function readdirnames(_n:GoInt):{var _0:Slice<GoString>; var _1:Error;}
-		return __self__.readdirnames(_n);
+		return __self__.value.readdirnames(_n);
 
 	/**
 		// Readdir reads the contents of the directory associated with file and
@@ -2765,21 +2783,23 @@ class File_asInterface {
 	**/
 	@:keep
 	public function readdir(_n:GoInt):{var _0:Slice<FileInfo>; var _1:Error;}
-		return __self__.readdir(_n);
+		return __self__.value.readdir(_n);
 
 	@:embedded
 	public function _close():Error
-		return __self__._close();
+		return __self__.value._close();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:File;
+	var __self__:Pointer<File>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.os.Os.File_asInterface) class File_static_extension {
@@ -3170,37 +3190,39 @@ class File_asInterface {
 private class T_fileStat_asInterface {
 	@:keep
 	public function sys():AnyInterface
-		return __self__.sys();
+		return __self__.value.sys();
 
 	@:keep
 	public function modTime():stdgo.time.Time.Time
-		return __self__.modTime();
+		return __self__.value.modTime();
 
 	@:keep
 	public function mode():FileMode
-		return __self__.mode();
+		return __self__.value.mode();
 
 	@:keep
 	public function size():GoInt64
-		return __self__.size();
+		return __self__.value.size();
 
 	@:keep
 	public function isDir():Bool
-		return __self__.isDir();
+		return __self__.value.isDir();
 
 	@:keep
 	public function name():GoString
-		return __self__.name();
+		return __self__.value.name();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_fileStat;
+	var __self__:Pointer<T_fileStat>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.os.Os.T_fileStat_asInterface) class T_fileStat_static_extension {
@@ -3232,21 +3254,23 @@ private class T_fileStat_asInterface {
 private class T_dirFS_asInterface {
 	@:keep
 	public function stat(_name:GoString):{var _0:stdgo.io.fs.Fs.FileInfo; var _1:Error;}
-		return __self__.stat(_name);
+		return __self__.value.stat(_name);
 
 	@:keep
 	public function open(_name:GoString):{var _0:stdgo.io.fs.Fs.File; var _1:Error;}
-		return __self__.open(_name);
+		return __self__.value.open(_name);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_dirFS;
+	var __self__:Pointer<T_dirFS>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.os.Os.T_dirFS_asInterface) class T_dirFS_static_extension {

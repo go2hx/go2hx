@@ -1276,7 +1276,7 @@ var globalF:GoFloat64 = (0 : GoFloat64);
 };
 
 function _tolerance(_a:GoFloat64, _b:GoFloat64, _e:GoFloat64):Bool {
-	if (_a == _b) {
+	if (_a == (_b)) {
 		return true;
 	};
 	var _d:GoFloat64 = _a - _b;
@@ -1307,19 +1307,19 @@ function _soclose(_a:GoFloat64, _b:GoFloat64, _e:GoFloat64):Bool {
 function _alike(_a:GoFloat64, _b:GoFloat64):Bool {
 	if (isNaN(_a) && isNaN(_b)) {
 		return true;
-	} else if (_a == _b) {
-		return signbit(_a) == signbit(_b);
+	} else if (_a == (_b)) {
+		return signbit(_a) == (signbit(_b));
 	};
 	return false;
 }
 
 function testNaN(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _f64:GoFloat64 = naN();
-	if (_f64 == _f64) {
+	if (_f64 == (_f64)) {
 		_t.fatalf(Go.str("NaN() returns %g, expected NaN"), Go.toInterface(_f64));
 	};
 	var _f32:GoFloat32 = (_f64 : GoFloat32);
-	if (_f32 == _f32) {
+	if (_f32 == (_f32)) {
 		_t.fatalf(Go.str("float32(NaN()) is %g, expected NaN"), Go.toInterface(_f32));
 	};
 }
@@ -1560,7 +1560,7 @@ function testCopysign(_t:Ref<stdgo.testing.Testing.T>):Void {
 		Go.cfor(_i < (_vf.length), _i++, {
 			{
 				var _f:GoFloat64 = copysign(_vf[_i], (-1 : GoFloat64));
-				if (_copysign[_i] != _f) {
+				if (_copysign[_i] != (_f)) {
 					_t.errorf(Go.str("Copysign(%g, -1) = %g, want %g"), Go.toInterface(_vf[_i]), Go.toInterface(_f), Go.toInterface(_copysign[_i]));
 				};
 			};
@@ -1571,7 +1571,7 @@ function testCopysign(_t:Ref<stdgo.testing.Testing.T>):Void {
 		Go.cfor(_i < (_vf.length), _i++, {
 			{
 				var _f:GoFloat64 = copysign(_vf[_i], (1 : GoFloat64));
-				if (-_copysign[_i] != _f) {
+				if (-_copysign[_i] != (_f)) {
 					_t.errorf(Go.str("Copysign(%g, 1) = %g, want %g"), Go.toInterface(_vf[_i]), Go.toInterface(_f), Go.toInterface(-_copysign[_i]));
 				};
 			};
@@ -1892,7 +1892,7 @@ function _testExp2(_t:Ref<stdgo.testing.Testing.T>, exp2:GoFloat64->GoFloat64, _
 		Go.cfor(_n < (1024:GoInt), _n++, {
 			var _f:GoFloat64 = exp2((_n : GoFloat64));
 			var _vf:GoFloat64 = ldexp((1 : GoFloat64), _n);
-			if (_f != _vf) {
+			if (_f != (_vf)) {
 				_t.errorf(Go.str("%s(%d) = %g, want %g"), Go.toInterface(_name), Go.toInterface(_n), Go.toInterface(_f), Go.toInterface(_vf));
 			};
 		});
@@ -1905,7 +1905,7 @@ function testAbs(_t:Ref<stdgo.testing.Testing.T>):Void {
 		Go.cfor(_i < (_vf.length), _i++, {
 			{
 				var _f:GoFloat64 = abs(_vf[_i]);
-				if (_fabs[_i] != _f) {
+				if (_fabs[_i] != (_f)) {
 					_t.errorf(Go.str("Abs(%g) = %g, want %g"), Go.toInterface(_vf[_i]), Go.toInterface(_f), Go.toInterface(_fabs[_i]));
 				};
 			};
@@ -1930,7 +1930,7 @@ function testDim(_t:Ref<stdgo.testing.Testing.T>):Void {
 		Go.cfor(_i < (_vf.length), _i++, {
 			{
 				var _f:GoFloat64 = dim(_vf[_i], (0 : GoFloat64));
-				if (_fdim[_i] != _f) {
+				if (_fdim[_i] != (_f)) {
 					_t.errorf(Go.str("Dim(%g, %g) = %g, want %g"), Go.toInterface(_vf[_i]), Go.toInterface((0 : GoFloat64)), Go.toInterface(_f),
 						Go.toInterface(_fdim[_i]));
 				};
@@ -1994,7 +1994,7 @@ function testMax(_t:Ref<stdgo.testing.Testing.T>):Void {
 		Go.cfor(_i < (_vf.length), _i++, {
 			{
 				var _f:GoFloat64 = max(_vf[_i], _ceil[_i]);
-				if (_ceil[_i] != _f) {
+				if (_ceil[_i] != (_f)) {
 					_t.errorf(Go.str("Max(%g, %g) = %g, want %g"), Go.toInterface(_vf[_i]), Go.toInterface(_ceil[_i]), Go.toInterface(_f),
 						Go.toInterface(_ceil[_i]));
 				};
@@ -2033,7 +2033,7 @@ function testMin(_t:Ref<stdgo.testing.Testing.T>):Void {
 		Go.cfor(_i < (_vf.length), _i++, {
 			{
 				var _f:GoFloat64 = min(_vf[_i], _floor[_i]);
-				if (_floor[_i] != _f) {
+				if (_floor[_i] != (_f)) {
 					_t.errorf(Go.str("Min(%g, %g) = %g, want %g"), Go.toInterface(_vf[_i]), Go.toInterface(_floor[_i]), Go.toInterface(_f),
 						Go.toInterface(_floor[_i]));
 				};
@@ -2072,7 +2072,7 @@ function testMod(_t:Ref<stdgo.testing.Testing.T>):Void {
 		Go.cfor(_i < (_vf.length), _i++, {
 			{
 				var _f:GoFloat64 = mod((10 : GoFloat64), _vf[_i]);
-				if (_fmod[_i] != _f) {
+				if (_fmod[_i] != (_f)) {
 					_t.errorf(Go.str("Mod(10, %g) = %g, want %g"), Go.toInterface(_vf[_i]), Go.toInterface(_f), Go.toInterface(_fmod[_i]));
 				};
 			};
@@ -2092,7 +2092,7 @@ function testMod(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	{
 		var _f:GoFloat64 = mod((5.9790119248836734e+200 : GoFloat64), (1.1258465975523544 : GoFloat64));
-		if ((0.6447968302508578 : GoFloat64) != _f) {
+		if ((0.6447968302508578 : GoFloat64) != (_f)) {
 			_t.errorf(Go.str("Remainder(5.9790119248836734e+200, 1.1258465975523544) = %g, want 0.6447968302508578"), Go.toInterface(_f));
 		};
 	};
@@ -2239,7 +2239,7 @@ function testIlogb(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _a:GoInt = _frexp[_i]._i - (1 : GoInt);
 			{
 				var _e:GoInt = ilogb(_vf[_i]);
-				if (_a != _e) {
+				if (_a != (_e)) {
 					_t.errorf(Go.str("Ilogb(%g) = %d, want %d"), Go.toInterface(_vf[_i]), Go.toInterface(_e), Go.toInterface(_a));
 				};
 			};
@@ -2250,7 +2250,7 @@ function testIlogb(_t:Ref<stdgo.testing.Testing.T>):Void {
 		Go.cfor(_i < (_vflogbSC.length), _i++, {
 			{
 				var _e:GoInt = ilogb(_vflogbSC[_i]);
-				if (_ilogbSC[_i] != _e) {
+				if (_ilogbSC[_i] != (_e)) {
 					_t.errorf(Go.str("Ilogb(%g) = %d, want %d"), Go.toInterface(_vflogbSC[_i]), Go.toInterface(_e), Go.toInterface(_ilogbSC[_i]));
 				};
 			};
@@ -2261,7 +2261,7 @@ function testIlogb(_t:Ref<stdgo.testing.Testing.T>):Void {
 		Go.cfor(_i < (_vffrexpBC.length), _i++, {
 			{
 				var _e:GoInt = ilogb(_vffrexpBC[_i]);
-				if ((_logbBC[_i] : GoInt) != _e) {
+				if ((_logbBC[_i] : GoInt) != (_e)) {
 					_t.errorf(Go.str("Ilogb(%g) = %d, want %d"), Go.toInterface(_vffrexpBC[_i]), Go.toInterface(_e), Go.toInterface((_logbBC[_i] : GoInt)));
 				};
 			};
@@ -2457,7 +2457,7 @@ function testLog(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _a:GoFloat64 = abs(_vf[_i]);
 			{
 				var _f:GoFloat64 = log(_a);
-				if (_log[_i] != _f) {
+				if (_log[_i] != (_f)) {
 					_t.errorf(Go.str("Log(%g) = %g, want %g"), Go.toInterface(_a), Go.toInterface(_f), Go.toInterface(_log[_i]));
 				};
 			};
@@ -2488,7 +2488,7 @@ function testLogb(_t:Ref<stdgo.testing.Testing.T>):Void {
 		Go.cfor(_i < (_vf.length), _i++, {
 			{
 				var _f:GoFloat64 = logb(_vf[_i]);
-				if (_logb[_i] != _f) {
+				if (_logb[_i] != (_f)) {
 					_t.errorf(Go.str("Logb(%g) = %g, want %g"), Go.toInterface(_vf[_i]), Go.toInterface(_f), Go.toInterface(_logb[_i]));
 				};
 			};
@@ -2620,7 +2620,7 @@ function testLog2(_t:Ref<stdgo.testing.Testing.T>):Void {
 		Go.cfor(_i <= (1023 : GoInt), _i++, {
 			var _f:GoFloat64 = ldexp((1 : GoFloat64), _i);
 			var _l:GoFloat64 = log2(_f);
-			if (_l != (_i : GoFloat64)) {
+			if (_l != ((_i : GoFloat64))) {
 				_t.errorf(Go.str("Log2(2**%d) = %g, want %d"), Go.toInterface(_i), Go.toInterface(_l), Go.toInterface(_i));
 			};
 		});
@@ -2669,7 +2669,7 @@ function testNextafter32(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _vfi:GoFloat32 = (_vf[_i] : GoFloat32);
 			{
 				var _f:GoFloat32 = nextafter32(_vfi, (10 : GoFloat64));
-				if (_nextafter32[_i] != _f) {
+				if (_nextafter32[_i] != (_f)) {
 					_t.errorf(Go.str("Nextafter32(%g, %g) = %g want %g"), Go.toInterface(_vfi), Go.toInterface((10 : GoFloat64)), Go.toInterface(_f),
 						Go.toInterface(_nextafter32[_i]));
 				};
@@ -2696,7 +2696,7 @@ function testNextafter64(_t:Ref<stdgo.testing.Testing.T>):Void {
 		Go.cfor(_i < (_vf.length), _i++, {
 			{
 				var _f:GoFloat64 = nextafter(_vf[_i], (10 : GoFloat64));
-				if (_nextafter64[_i] != _f) {
+				if (_nextafter64[_i] != (_f)) {
 					_t.errorf(Go.str("Nextafter64(%g, %g) = %g want %g"), Go.toInterface(_vf[_i]), Go.toInterface((10 : GoFloat64)), Go.toInterface(_f),
 						Go.toInterface(_nextafter64[_i]));
 				};
@@ -2763,7 +2763,7 @@ function testRemainder(_t:Ref<stdgo.testing.Testing.T>):Void {
 		Go.cfor(_i < (_vf.length), _i++, {
 			{
 				var _f:GoFloat64 = remainder((10 : GoFloat64), _vf[_i]);
-				if (_remainder[_i] != _f) {
+				if (_remainder[_i] != (_f)) {
 					_t.errorf(Go.str("Remainder(10, %g) = %g, want %g"), Go.toInterface(_vf[_i]), Go.toInterface(_f), Go.toInterface(_remainder[_i]));
 				};
 			};
@@ -2783,7 +2783,7 @@ function testRemainder(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	{
 		var _f:GoFloat64 = remainder((5.9790119248836734e+200 : GoFloat64), (1.1258465975523544 : GoFloat64));
-		if ((-0.4810497673014966 : GoFloat64) != _f) {
+		if ((-0.4810497673014966 : GoFloat64) != (_f)) {
 			_t.errorf(Go.str("Remainder(5.9790119248836734e+200, 1.1258465975523544) = %g, want -0.4810497673014966"), Go.toInterface(_f));
 		};
 	};
@@ -2870,7 +2870,7 @@ function testSignbit(_t:Ref<stdgo.testing.Testing.T>):Void {
 		Go.cfor(_i < (_vf.length), _i++, {
 			{
 				var _f:Bool = signbit(_vf[_i]);
-				if (_signbit[_i] != _f) {
+				if (_signbit[_i] != (_f)) {
 					_t.errorf(Go.str("Signbit(%g) = %t, want %t"), Go.toInterface(_vf[_i]), Go.toInterface(_f), Go.toInterface(_signbit[_i]));
 				};
 			};
@@ -2881,7 +2881,7 @@ function testSignbit(_t:Ref<stdgo.testing.Testing.T>):Void {
 		Go.cfor(_i < (_vfsignbitSC.length), _i++, {
 			{
 				var _f:Bool = signbit(_vfsignbitSC[_i]);
-				if (_signbitSC[_i] != _f) {
+				if (_signbitSC[_i] != (_f)) {
 					_t.errorf(Go.str("Signbit(%g) = %t, want %t"), Go.toInterface(_vfsignbitSC[_i]), Go.toInterface(_f), Go.toInterface(_signbitSC[_i]));
 				};
 			};
@@ -2963,14 +2963,14 @@ function testSqrt(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _a:GoFloat64 = abs(_vf[_i]);
 			{
 				var _f:GoFloat64 = sqrtGo(_a);
-				if (_sqrt[_i] != _f) {
+				if (_sqrt[_i] != (_f)) {
 					_t.errorf(Go.str("SqrtGo(%g) = %g, want %g"), Go.toInterface(_a), Go.toInterface(_f), Go.toInterface(_sqrt[_i]));
 				};
 			};
 			_a = abs(_vf[_i]);
 			{
 				var _f:GoFloat64 = sqrt(_a);
-				if (_sqrt[_i] != _f) {
+				if (_sqrt[_i] != (_f)) {
 					_t.errorf(Go.str("Sqrt(%g) = %g, want %g"), Go.toInterface(_a), Go.toInterface(_f), Go.toInterface(_sqrt[_i]));
 				};
 			};
@@ -3332,7 +3332,7 @@ function testFloat32Sqrt(_t:Ref<stdgo.testing.Testing.T>):Void {
 			};
 			continue;
 		};
-		if (_got != _want) {
+		if (_got != (_want)) {
 			_t.errorf(Go.str("got=%#v want=%#v, v=%#v"), Go.toInterface(_got), Go.toInterface(_want), Go.toInterface(_v));
 		};
 	};
@@ -4028,7 +4028,7 @@ function _isPrime(_i:GoInt):Bool {
 	{
 		var _j:GoInt = (2 : GoInt);
 		Go.cfor((_j : GoFloat64) <= sqrt((_i : GoFloat64)), _j++, {
-			if ((_i % _j) == (0 : GoInt)) {
+			if (_i % _j == ((0 : GoInt))) {
 				return false;
 			};
 		});
@@ -4171,31 +4171,31 @@ function benchmarkFMA(_b:Ref<stdgo.testing.Testing.B>):Void {
 function testMaxUint(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _v:GoUInt = (("4294967295" : GoUInt) : GoUInt);
-		if ((_v + (("1" : GoUInt) : GoUInt)) != ("0" : GoUInt)) {
+		if (_v + ("1" : GoUInt) != (("0" : GoUInt))) {
 			_t.errorf(Go.str("MaxUint should wrap around to zero: %d"), Go.toInterface(_v + ("1" : GoUInt)));
 		};
 	};
 	{
 		var _v:GoUInt8 = (255 : GoUInt8);
-		if ((_v + (1 : GoUInt8)) != (0 : GoUInt8)) {
+		if (_v + (1 : GoUInt8) != ((0 : GoUInt8))) {
 			_t.errorf(Go.str("MaxUint8 should wrap around to zero: %d"), Go.toInterface(_v + (1 : GoUInt8)));
 		};
 	};
 	{
 		var _v:GoUInt16 = (65535 : GoUInt16);
-		if ((_v + (1 : GoUInt16)) != (0 : GoUInt16)) {
+		if (_v + (1 : GoUInt16) != ((0 : GoUInt16))) {
 			_t.errorf(Go.str("MaxUint16 should wrap around to zero: %d"), Go.toInterface(_v + (1 : GoUInt16)));
 		};
 	};
 	{
 		var _v:GoUInt32 = (("4294967295" : GoUInt32) : GoUInt32);
-		if ((_v + (("1" : GoUInt32) : GoUInt32)) != ("0" : GoUInt32)) {
+		if (_v + ("1" : GoUInt32) != (("0" : GoUInt32))) {
 			_t.errorf(Go.str("MaxUint32 should wrap around to zero: %d"), Go.toInterface(_v + ("1" : GoUInt32)));
 		};
 	};
 	{
 		var _v:GoUInt64 = (("18446744073709551615" : GoUInt64) : GoUInt64);
-		if ((_v + (("1" : GoUInt64) : GoUInt64)) != ("0" : GoUInt64)) {
+		if (_v + ("1" : GoUInt64) != (("0" : GoUInt64))) {
 			_t.errorf(Go.str("MaxUint64 should wrap around to zero: %d"), Go.toInterface(_v + ("1" : GoUInt64)));
 		};
 	};
@@ -4204,31 +4204,31 @@ function testMaxUint(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testMaxInt(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _v:GoInt = (2147483647 : GoInt);
-		if ((_v + (1 : GoInt)) != (-2147483648 : GoInt)) {
+		if (_v + (1 : GoInt) != ((-2147483648 : GoInt))) {
 			_t.errorf(Go.str("MaxInt should wrap around to MinInt: %d"), Go.toInterface(_v + (1 : GoInt)));
 		};
 	};
 	{
 		var _v:GoInt8 = (127 : GoInt8);
-		if ((_v + (1 : GoInt8)) != (-128 : GoInt8)) {
+		if (_v + (1 : GoInt8) != ((-128 : GoInt8))) {
 			_t.errorf(Go.str("MaxInt8 should wrap around to MinInt8: %d"), Go.toInterface(_v + (1 : GoInt8)));
 		};
 	};
 	{
 		var _v:GoInt16 = (32767 : GoInt16);
-		if ((_v + (1 : GoInt16)) != (-32768 : GoInt16)) {
+		if (_v + (1 : GoInt16) != ((-32768 : GoInt16))) {
 			_t.errorf(Go.str("MaxInt16 should wrap around to MinInt16: %d"), Go.toInterface(_v + (1 : GoInt16)));
 		};
 	};
 	{
 		var _v:GoInt32 = (2147483647 : GoInt32);
-		if ((_v + (1 : GoInt32)) != (-2147483648 : GoInt32)) {
+		if (_v + (1 : GoInt32) != ((-2147483648 : GoInt32))) {
 			_t.errorf(Go.str("MaxInt32 should wrap around to MinInt32: %d"), Go.toInterface(_v + (1 : GoInt32)));
 		};
 	};
 	{
 		var _v:GoInt64 = (("9223372036854775807" : GoInt64) : GoInt64);
-		if ((_v + (("1" : GoInt64) : GoInt64)) != ("-9223372036854775808" : GoInt64)) {
+		if (_v + ("1" : GoInt64) != (("-9223372036854775808" : GoInt64))) {
 			_t.errorf(Go.str("MaxInt64 should wrap around to MinInt64: %d"), Go.toInterface(_v + ("1" : GoInt64)));
 		};
 	};

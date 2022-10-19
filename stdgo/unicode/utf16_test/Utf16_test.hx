@@ -152,13 +152,13 @@ function testEncodeRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 				};
 				_j = _j + ((2 : GoInt));
 				var _dec:GoInt32 = decodeRune(_r1, _r2);
-				if (_dec != _r) {
+				if (_dec != (_r)) {
 					_t.errorf(Go.str("DecodeRune(%#x, %#x) = %#x; want %#x"), Go.toInterface(_r1), Go.toInterface(_r2), Go.toInterface(_dec),
 						Go.toInterface(_r));
 				};
 			};
 		};
-		if (_j != (_tt._out.length)) {
+		if (_j != ((_tt._out.length))) {
 			_t.errorf(Go.str("#%d: EncodeRune didn\'t generate enough output"), Go.toInterface(_i));
 		};
 	};
@@ -176,7 +176,7 @@ function testDecode(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testDecodeRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_i => _tt in _decodeRuneTests) {
 		var _got:GoInt32 = decodeRune(_tt._r1, _tt._r2);
-		if (_got != _tt._want) {
+		if (_got != (_tt._want)) {
 			_t.errorf(Go.str("%d: DecodeRune(%q, %q) = %v; want %v"), Go.toInterface(_i), Go.toInterface(_tt._r1), Go.toInterface(_tt._r2),
 				Go.toInterface(_got), Go.toInterface(_tt._want));
 		};
@@ -186,7 +186,7 @@ function testDecodeRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testIsSurrogate(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_i => _tt in _surrogateTests) {
 		var _got:Bool = isSurrogate(_tt._r);
-		if (_got != _tt._want) {
+		if (_got != (_tt._want)) {
 			_t.errorf(Go.str("%d: IsSurrogate(%q) = %v; want %v"), Go.toInterface(_i), Go.toInterface(_tt._r), Go.toInterface(_got),
 				Go.toInterface(_tt._want));
 		};

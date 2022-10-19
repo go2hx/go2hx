@@ -1170,22 +1170,22 @@ private var _durationAbsTests:Slice<T__struct_24> = (new Slice<T__struct_24>(0, 
 private var _defaultLocTests:Slice<T__struct_25> = (new Slice<T__struct_25>(0, 0, ({
 	_name: Go.str("After"),
 	_f: function(_t1:Time, _t2:Time):Bool {
-		return _t1.after((_t2 == null ? null : _t2.__copy__())) == _t2.after((_t1 == null ? null : _t1.__copy__()));
+		return _t1.after((_t2 == null ? null : _t2.__copy__())) == (_t2.after(_t1 == null ? null : _t1.__copy__()));
 	}
 } : T__struct_25), ({
 	_name: Go.str("Before"),
 	_f: function(_t1:Time, _t2:Time):Bool {
-		return _t1.before((_t2 == null ? null : _t2.__copy__())) == _t2.before((_t1 == null ? null : _t1.__copy__()));
+		return _t1.before((_t2 == null ? null : _t2.__copy__())) == (_t2.before(_t1 == null ? null : _t1.__copy__()));
 	}
 	} : T__struct_25), ({
 	_name: Go.str("Equal"),
 	_f: function(_t1:Time, _t2:Time):Bool {
-		return _t1.equal((_t2 == null ? null : _t2.__copy__())) == _t2.equal((_t1 == null ? null : _t1.__copy__()));
+		return _t1.equal((_t2 == null ? null : _t2.__copy__())) == (_t2.equal(_t1 == null ? null : _t1.__copy__()));
 	}
 	} : T__struct_25), ({
 	_name: Go.str("IsZero"),
 	_f: function(_t1:Time, _t2:Time):Bool {
-		return _t1.isZero() == _t2.isZero();
+		return _t1.isZero() == (_t2.isZero());
 	}
 	} : T__struct_25), ({
 	_name: Go.str("Date"),
@@ -1197,22 +1197,22 @@ private var _defaultLocTests:Slice<T__struct_25> = (new Slice<T__struct_25>(0, 0
 	} : T__struct_25), ({
 	_name: Go.str("Year"),
 	_f: function(_t1:Time, _t2:Time):Bool {
-		return _t1.year() == _t2.year();
+		return _t1.year() == (_t2.year());
 	}
 	} : T__struct_25), ({
 	_name: Go.str("Month"),
 	_f: function(_t1:Time, _t2:Time):Bool {
-		return _t1.month() == _t2.month();
+		return _t1.month() == (_t2.month());
 	}
 	} : T__struct_25), ({
 	_name: Go.str("Day"),
 	_f: function(_t1:Time, _t2:Time):Bool {
-		return _t1.day() == _t2.day();
+		return _t1.day() == (_t2.day());
 	}
 	} : T__struct_25), ({
 	_name: Go.str("Weekday"),
 	_f: function(_t1:Time, _t2:Time):Bool {
-		return _t1.weekday() == _t2.weekday();
+		return _t1.weekday() == (_t2.weekday());
 	}
 	} : T__struct_25), ({
 	_name: Go.str("ISOWeek"),
@@ -1231,27 +1231,27 @@ private var _defaultLocTests:Slice<T__struct_25> = (new Slice<T__struct_25>(0, 0
 	} : T__struct_25), ({
 	_name: Go.str("Hour"),
 	_f: function(_t1:Time, _t2:Time):Bool {
-		return _t1.hour() == _t2.hour();
+		return _t1.hour() == (_t2.hour());
 	}
 	} : T__struct_25), ({
 	_name: Go.str("Minute"),
 	_f: function(_t1:Time, _t2:Time):Bool {
-		return _t1.minute() == _t2.minute();
+		return _t1.minute() == (_t2.minute());
 	}
 	} : T__struct_25), ({
 	_name: Go.str("Second"),
 	_f: function(_t1:Time, _t2:Time):Bool {
-		return _t1.second() == _t2.second();
+		return _t1.second() == (_t2.second());
 	}
 	} : T__struct_25), ({
 	_name: Go.str("Nanosecond"),
 	_f: function(_t1:Time, _t2:Time):Bool {
-		return _t1.hour() == _t2.hour();
+		return _t1.hour() == (_t2.hour());
 	}
 	} : T__struct_25), ({
 	_name: Go.str("YearDay"),
 	_f: function(_t1:Time, _t2:Time):Bool {
-		return _t1.yearDay() == _t2.yearDay();
+		return _t1.yearDay() == (_t2.yearDay());
 	}
 	} : T__struct_25), ({
 	_name: Go.str("Add"),
@@ -1262,32 +1262,33 @@ private var _defaultLocTests:Slice<T__struct_25> = (new Slice<T__struct_25>(0, 0
 	} : T__struct_25), ({
 	_name: Go.str("Sub"),
 	_f: function(_t1:Time, _t2:Time):Bool {
-		return _t1.sub((_t2 == null ? null : _t2.__copy__())) == _t2.sub((_t1 == null ? null : _t1.__copy__()));
+		return _t1.sub((_t2 == null ? null : _t2.__copy__())) == (_t2.sub(_t1 == null ? null : _t1.__copy__()));
 	}
 	} : T__struct_25), ({
 	_name: Go.str("AddDate"),
 	_f: function(_t1:Time, _t2:Time):Bool {
-		return _t1.addDate((1991 : GoInt), (9 : GoInt), (3 : GoInt)) == _t2.addDate((1991 : GoInt), (9 : GoInt), (3 : GoInt));
+		return Go.toInterface(Go.asInterface(_t1.addDate((1991 : GoInt), (9 : GoInt),
+			(3 : GoInt)))) == Go.toInterface(Go.asInterface(_t2.addDate((1991 : GoInt), (9 : GoInt), (3 : GoInt))));
 	}
 	} : T__struct_25), ({
 	_name: Go.str("UTC"),
 	_f: function(_t1:Time, _t2:Time):Bool {
-		return _t1.utc() == _t2.utc();
+		return Go.toInterface(Go.asInterface(_t1.utc())) == Go.toInterface(Go.asInterface(_t2.utc()));
 	}
 	} : T__struct_25), ({
 	_name: Go.str("Local"),
 	_f: function(_t1:Time, _t2:Time):Bool {
-		return _t1.local() == _t2.local();
+		return Go.toInterface(Go.asInterface(_t1.local())) == Go.toInterface(Go.asInterface(_t2.local()));
 	}
 	} : T__struct_25), ({
 	_name: Go.str("In"),
 	_f: function(_t1:Time, _t2:Time):Bool {
-		return _t1.in_(utc) == _t2.in_(utc);
+		return Go.toInterface(Go.asInterface(_t1.in_(utc))) == Go.toInterface(Go.asInterface(_t2.in_(utc)));
 	}
 	} : T__struct_25), ({
 	_name: Go.str("Local"),
 	_f: function(_t1:Time, _t2:Time):Bool {
-		return _t1.local() == _t2.local();
+		return Go.toInterface(Go.asInterface(_t1.local())) == Go.toInterface(Go.asInterface(_t2.local()));
 	}
 	} : T__struct_25), ({
 	_name: Go.str("Zone"),
@@ -1299,50 +1300,50 @@ private var _defaultLocTests:Slice<T__struct_25> = (new Slice<T__struct_25>(0, 0
 	} : T__struct_25), ({
 	_name: Go.str("Unix"),
 	_f: function(_t1:Time, _t2:Time):Bool {
-		return _t1.unix() == _t2.unix();
+		return _t1.unix() == (_t2.unix());
 	}
 	} : T__struct_25), ({
 	_name: Go.str("UnixNano"),
 	_f: function(_t1:Time, _t2:Time):Bool {
-		return _t1.unixNano() == _t2.unixNano();
+		return _t1.unixNano() == (_t2.unixNano());
 	}
 	} : T__struct_25), ({
 	_name: Go.str("UnixMilli"),
 	_f: function(_t1:Time, _t2:Time):Bool {
-		return _t1.unixMilli() == _t2.unixMilli();
+		return _t1.unixMilli() == (_t2.unixMilli());
 	}
 	} : T__struct_25), ({
 	_name: Go.str("UnixMicro"),
 	_f: function(_t1:Time, _t2:Time):Bool {
-		return _t1.unixMicro() == _t2.unixMicro();
+		return _t1.unixMicro() == (_t2.unixMicro());
 	}
 	} : T__struct_25), ({
 	_name: Go.str("MarshalBinary"),
 	_f: function(_t1:Time, _t2:Time):Bool {
 		var __tmp__ = _t1.marshalBinary(), _a1:Slice<GoUInt8> = __tmp__._0, _b1:Error = __tmp__._1;
 		var __tmp__ = _t2.marshalBinary(), _a2:Slice<GoUInt8> = __tmp__._0, _b2:Error = __tmp__._1;
-		return stdgo.bytes.Bytes.equal(_a1, _a2) && (_b1 == _b2);
+		return stdgo.bytes.Bytes.equal(_a1, _a2) && (Go.toInterface(_b1) == Go.toInterface(_b2));
 	}
 	} : T__struct_25), ({
 	_name: Go.str("GobEncode"),
 	_f: function(_t1:Time, _t2:Time):Bool {
 		var __tmp__ = _t1.gobEncode(), _a1:Slice<GoUInt8> = __tmp__._0, _b1:Error = __tmp__._1;
 		var __tmp__ = _t2.gobEncode(), _a2:Slice<GoUInt8> = __tmp__._0, _b2:Error = __tmp__._1;
-		return stdgo.bytes.Bytes.equal(_a1, _a2) && (_b1 == _b2);
+		return stdgo.bytes.Bytes.equal(_a1, _a2) && (Go.toInterface(_b1) == Go.toInterface(_b2));
 	}
 	} : T__struct_25), ({
 	_name: Go.str("MarshalJSON"),
 	_f: function(_t1:Time, _t2:Time):Bool {
 		var __tmp__ = _t1.marshalJSON(), _a1:Slice<GoUInt8> = __tmp__._0, _b1:Error = __tmp__._1;
 		var __tmp__ = _t2.marshalJSON(), _a2:Slice<GoUInt8> = __tmp__._0, _b2:Error = __tmp__._1;
-		return stdgo.bytes.Bytes.equal(_a1, _a2) && (_b1 == _b2);
+		return stdgo.bytes.Bytes.equal(_a1, _a2) && (Go.toInterface(_b1) == Go.toInterface(_b2));
 	}
 	} : T__struct_25), ({
 	_name: Go.str("MarshalText"),
 	_f: function(_t1:Time, _t2:Time):Bool {
 		var __tmp__ = _t1.marshalText(), _a1:Slice<GoUInt8> = __tmp__._0, _b1:Error = __tmp__._1;
 		var __tmp__ = _t2.marshalText(), _a2:Slice<GoUInt8> = __tmp__._0, _b2:Error = __tmp__._1;
-		return stdgo.bytes.Bytes.equal(_a1, _a2) && (_b1 == _b2);
+		return stdgo.bytes.Bytes.equal(_a1, _a2) && (Go.toInterface(_b1) == Go.toInterface(_b2));
 	}
 	} : T__struct_25), ({
 	_name: Go.str("Truncate"),
@@ -1360,7 +1361,8 @@ private var _defaultLocTests:Slice<T__struct_25> = (new Slice<T__struct_25>(0, 0
 	} : T__struct_25), ({
 	_name: Go.str("== Time{}"),
 	_f: function(_t1:Time, _t2:Time):Bool {
-		return (_t1 == (new Time() : Time)) == (_t2 == (new Time() : Time));
+		return
+			(Go.toInterface(Go.asInterface(_t1)) == Go.toInterface(Go.asInterface((new Time() : Time)))) == ((Go.toInterface(Go.asInterface(_t2)) == Go.toInterface(Go.asInterface((new Time() : Time)))));
 	}
 	} : T__struct_25)) : Slice<T__struct_25>);
 
@@ -2191,7 +2193,7 @@ function exampleTime_Format():Void {
 	stdgo.fmt.Fmt.println(Go.str("in Shanghai with colon seconds:"), _t.in_(_tz).format(Go.str("2006-01-02T15:04:05 -07:00:00")));
 	var _do:(GoString, GoString, GoString) -> Void = function(_name:GoString, _layout:GoString, _want:GoString):Void {
 		var _got:GoString = _t.format(_layout);
-		if (_want != _got) {
+		if (_want != (_got)) {
 			stdgo.fmt.Fmt.printf(Go.str("error: for %q got %q; expected %q\n"), Go.toInterface(_layout), Go.toInterface(_got), Go.toInterface(_want));
 			return;
 		};
@@ -2223,7 +2225,7 @@ function exampleTime_Format_pad():Void {
 	};
 	var _do:(GoString, GoString, GoString) -> Void = function(_name:GoString, _layout:GoString, _want:GoString):Void {
 		var _got:GoString = _t.format(_layout);
-		if (_want != _got) {
+		if (_want != (_got)) {
 			stdgo.fmt.Fmt.printf(Go.str("error: for %q got %q; expected %q\n"), Go.toInterface(_layout), Go.toInterface(_got), Go.toInterface(_want));
 			return;
 		};
@@ -2510,7 +2512,7 @@ function exampleTime_Equal():Void {
 		_beijing) == null ? null : stdgo.time.Time.date((2000 : GoInt), (2 : Month), (1 : GoInt), (20 : GoInt), (30 : GoInt), (0 : GoInt), (0 : GoInt),
 			_beijing)
 		.__copy__());
-	var _datesEqualUsingEqualOperator:Bool = _d1 == _d2;
+	var _datesEqualUsingEqualOperator:Bool = Go.toInterface(Go.asInterface(_d1)) == Go.toInterface(Go.asInterface(_d2));
 	var _datesEqualUsingFunction:Bool = _d1.equal((_d2 == null ? null : _d2.__copy__()));
 	stdgo.fmt.Fmt.printf(Go.str("datesEqualUsingEqualOperator = %v\n"), Go.toInterface(_datesEqualUsingEqualOperator));
 	stdgo.fmt.Fmt.printf(Go.str("datesEqualUsingFunction = %v\n"), Go.toInterface(_datesEqualUsingFunction));
@@ -2567,7 +2569,7 @@ function testNextStdChunk(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var _out:GoString = Go.str();
 		{
 			var _s:GoString = _format;
-			while (_s != Go.str()) {
+			while (_s != (Go.str())) {
 				var __tmp__ = nextStdChunk(_s), _prefix:GoString = __tmp__._0, _std:GoInt = __tmp__._1, _suffix:GoString = __tmp__._2;
 				_out = _out + (_prefix);
 				if (_std > (0 : GoInt)) {
@@ -2587,7 +2589,7 @@ function testNextStdChunk(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _marked in _nextStdChunkTests) {
 		var _format:GoString = stdgo.strings.Strings.map(_noParens, _marked);
 		var _out:GoString = _markChunks(_format);
-		if (_out != _marked) {
+		if (_out != (_marked)) {
 			_t.errorf(Go.str("nextStdChunk parses %q as %q, want %q"), Go.toInterface(_format), Go.toInterface(_out), Go.toInterface(_marked));
 		};
 	};
@@ -2595,7 +2597,7 @@ function testNextStdChunk(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testRFC3339Conversion(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _f in _rfc3339Formats) {
-		if (_f._time.format(Go.str("2006-01-02T15:04:05Z07:00")) != _f._formattedValue) {
+		if (_f._time.format(Go.str("2006-01-02T15:04:05Z07:00")) != (_f._formattedValue)) {
 			_t.error(Go.toInterface(Go.str("RFC3339:")));
 			_t.errorf(Go.str("  want=%+v"), Go.toInterface(_f._formattedValue));
 			_t.errorf(Go.str("  have=%+v"), Go.toInterface(_f._time.format(Go.str("2006-01-02T15:04:05Z07:00"))));
@@ -2608,7 +2610,7 @@ function testFormat(_t:Ref<stdgo.testing.Testing.T>):Void {
 		("1233810057012345600" : GoInt64)) == null ? null : unix(("0" : GoInt64), ("1233810057012345600" : GoInt64)).__copy__());
 	for (_0 => _test in _formatTests) {
 		var _result:GoString = _time.format(_test._format);
-		if (_result != _test._result) {
+		if (_result != (_test._result)) {
 			_t.errorf(Go.str("%s expected %q got %q"), Go.toInterface(_test._name), Go.toInterface(_test._result), Go.toInterface(_result));
 		};
 	};
@@ -2616,7 +2618,7 @@ function testFormat(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testGoString(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _goStringTests) {
-		if (_tt._in.goString() != _tt._want) {
+		if (_tt._in.goString() != (_tt._want)) {
 			_t.errorf(Go.str("GoString (%q): got %q want %q"), Go.toInterface(Go.asInterface(_tt._in)), Go.toInterface(_tt._in.goString()),
 				Go.toInterface(_tt._want));
 		};
@@ -2632,7 +2634,7 @@ function testFormatSingleDigits(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _test:stdgo.time_test.Time_test.FormatTest = (new stdgo.time_test.Time_test.FormatTest(Go.str("single digit format"), Go.str("3:4:5"),
 		Go.str("4:5:6")) : stdgo.time_test.Time_test.FormatTest);
 	var _result:GoString = _time.format(_test._format);
-	if (_result != _test._result) {
+	if (_result != (_test._result)) {
 		_t.errorf(Go.str("%s expected %q got %q"), Go.toInterface(_test._name), Go.toInterface(_test._result), Go.toInterface(_result));
 	};
 }
@@ -2652,7 +2654,7 @@ function testFormatShortYear(_t:Ref<stdgo.testing.Testing.T>):Void {
 		} else {
 			_want = stdgo.fmt.Fmt.sprintf(Go.str("%04d.%02d.%02d"), Go.toInterface(_y), Go.toInterface((1 : GoInt)), Go.toInterface((1 : GoInt)));
 		};
-		if (_result != _want) {
+		if (_result != (_want)) {
 			_t.errorf(Go.str("(jan 1 %d).Format(\"2006.01.02\") = %q, want %q"), Go.toInterface(_y), Go.toInterface(_result), Go.toInterface(_want));
 		};
 	};
@@ -2719,15 +2721,15 @@ function testParseInLocation(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __tmp__ = _t1.zone(),
 		_0:GoString = __tmp__._0,
 		_offset:GoInt = __tmp__._1;
-	if (_offset != (0 : GoInt)) {
+	if (_offset != ((0 : GoInt))) {
 		_t2 = (date((2013 : GoInt), (2 : Month), (1 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt),
 			_baghdad) == null ? null : date((2013 : GoInt), (2 : Month), (1 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt),
 				_baghdad).__copy__());
-		if (_t1 != _t2) {
+		if (Go.toInterface(Go.asInterface(_t1)) != Go.toInterface(Go.asInterface(_t2))) {
 			_t.fatalf(Go.str("ParseInLocation(Feb 01 2013 AST, Baghdad) = %v, want %v"), Go.toInterface(Go.asInterface(_t1)),
 				Go.toInterface(Go.asInterface(_t2)));
 		};
-		if (_offset != (10800 : GoInt)) {
+		if (_offset != ((10800 : GoInt))) {
 			_t.fatalf(Go.str("ParseInLocation(Feb 01 2013 AST, Baghdad).Zone = _, %d, want _, %d"), Go.toInterface(_offset), Go.toInterface((10800 : GoInt)));
 		};
 	};
@@ -2748,7 +2750,7 @@ function testParseInLocation(_t:Ref<stdgo.testing.Testing.T>):Void {
 	_t2 = (date((2013 : GoInt), (2 : Month), (1 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt),
 		_blancSablon) == null ? null : date((2013 : GoInt), (2 : Month), (1 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt),
 			_blancSablon).__copy__());
-	if (_t1 != _t2) {
+	if (Go.toInterface(Go.asInterface(_t1)) != Go.toInterface(Go.asInterface(_t2))) {
 		_t.fatalf(Go.str("ParseInLocation(Feb 01 2013 AST, Blanc-Sablon) = %v, want %v"), Go.toInterface(Go.asInterface(_t1)),
 			Go.toInterface(Go.asInterface(_t2)));
 	};
@@ -2756,7 +2758,7 @@ function testParseInLocation(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var __tmp__ = _t1.zone();
 		_offset = __tmp__._1;
 	};
-	if (_offset != (-14400 : GoInt)) {
+	if (_offset != ((-14400 : GoInt))) {
 		_t.fatalf(Go.str("ParseInLocation(Feb 01 2013 AST, Blanc-Sablon).Zone = _, %d, want _, %d"), Go.toInterface(_offset),
 			Go.toInterface((-14400 : GoInt)));
 	};
@@ -2817,20 +2819,20 @@ function _checkTime(_time:Time, _test:Ref<ParseTest>, _t:Ref<stdgo.testing.Testi
 	if ((_test._yearSign >= (0 : GoInt)) && ((_test._yearSign * _time.year()) != (2010 : GoInt))) {
 		_t.errorf(Go.str("%s: bad year: %d not %d"), Go.toInterface(_test._name), Go.toInterface(_time.year()), Go.toInterface((2010 : GoInt)));
 	};
-	if (_time.month() != (2 : Month)) {
+	if (_time.month() != ((2 : Month))) {
 		_t.errorf(Go.str("%s: bad month: %s not %s"), Go.toInterface(_test._name), Go.toInterface(Go.asInterface(_time.month())),
 			Go.toInterface(Go.asInterface((2 : Month))));
 	};
-	if (_time.day() != (4 : GoInt)) {
+	if (_time.day() != ((4 : GoInt))) {
 		_t.errorf(Go.str("%s: bad day: %d not %d"), Go.toInterface(_test._name), Go.toInterface(_time.day()), Go.toInterface((4 : GoInt)));
 	};
-	if (_time.hour() != (21 : GoInt)) {
+	if (_time.hour() != ((21 : GoInt))) {
 		_t.errorf(Go.str("%s: bad hour: %d not %d"), Go.toInterface(_test._name), Go.toInterface(_time.hour()), Go.toInterface((21 : GoInt)));
 	};
-	if (_time.minute() != (0 : GoInt)) {
+	if (_time.minute() != ((0 : GoInt))) {
 		_t.errorf(Go.str("%s: bad minute: %d not %d"), Go.toInterface(_test._name), Go.toInterface(_time.minute()), Go.toInterface((0 : GoInt)));
 	};
-	if (_time.second() != (57 : GoInt)) {
+	if (_time.second() != ((57 : GoInt))) {
 		_t.errorf(Go.str("%s: bad second: %d not %d"), Go.toInterface(_test._name), Go.toInterface(_time.second()), Go.toInterface((57 : GoInt)));
 	};
 	var __tmp__ = stdgo.strconv.Strconv.parseUint((Go.str("012345678").__slice__(0, _test._fracDigits) : GoString)
@@ -2841,7 +2843,7 @@ function _checkTime(_time:Time, _test:Ref<ParseTest>, _t:Ref<stdgo.testing.Testi
 	if (_err != null) {
 		throw Go.toInterface(_err);
 	};
-	if (_time.nanosecond() != (_nanosec : GoInt)) {
+	if (_time.nanosecond() != ((_nanosec : GoInt))) {
 		_t.errorf(Go.str("%s: bad nanosecond: %d not %d"), Go.toInterface(_test._name), Go.toInterface(_time.nanosecond()), Go.toInterface(_nanosec));
 	};
 	var __tmp__ = _time.zone(),
@@ -2900,9 +2902,9 @@ function testParseTimeZone(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var __tmp__ = parseTimeZone(_test._value),
 			_length:GoInt = __tmp__._0,
 			_ok:Bool = __tmp__._1;
-		if (_ok != _test._ok) {
+		if (_ok != (_test._ok)) {
 			_t.errorf(Go.str("expected %t for %q got %t"), Go.toInterface(_test._ok), Go.toInterface(_test._value), Go.toInterface(_ok));
-		} else if (_length != _test._length) {
+		} else if (_length != (_test._length)) {
 			_t.errorf(Go.str("expected %d for %q got %d"), Go.toInterface(_test._length), Go.toInterface(_test._value), Go.toInterface(_length));
 		};
 	};
@@ -2927,11 +2929,11 @@ function testNoonIs12PM(_t:Ref<stdgo.testing.Testing.T>):Void {
 		utc) == null ? null : date((0 : GoInt), (1 : Month), (1 : GoInt), (12 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt), utc).__copy__());
 	{};
 	var _got:GoString = _noon.format(Go.str("3:04PM"));
-	if (_got != Go.str("12:00PM")) {
+	if (_got != (Go.str("12:00PM"))) {
 		_t.errorf(Go.str("got %q; expect %q"), Go.toInterface(_got), Go.toInterface(Go.str("12:00PM")));
 	};
 	_got = _noon.format(Go.str("03:04PM"));
-	if (_got != Go.str("12:00PM")) {
+	if (_got != (Go.str("12:00PM"))) {
 		_t.errorf(Go.str("got %q; expect %q"), Go.toInterface(_got), Go.toInterface(Go.str("12:00PM")));
 	};
 }
@@ -2941,11 +2943,11 @@ function testMidnightIs12AM(_t:Ref<stdgo.testing.Testing.T>):Void {
 		utc) == null ? null : date((0 : GoInt), (1 : Month), (1 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt), utc).__copy__());
 	var _expect:GoString = Go.str("12:00AM");
 	var _got:GoString = _midnight.format(Go.str("3:04PM"));
-	if (_got != _expect) {
+	if (_got != (_expect)) {
 		_t.errorf(Go.str("got %q; expect %q"), Go.toInterface(_got), Go.toInterface(_expect));
 	};
 	_got = _midnight.format(Go.str("03:04PM"));
-	if (_got != _expect) {
+	if (_got != (_expect)) {
 		_t.errorf(Go.str("got %q; expect %q"), Go.toInterface(_got), Go.toInterface(_expect));
 	};
 }
@@ -2957,7 +2959,7 @@ function test12PMIsNoon(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (_err != null) {
 		_t.fatal(Go.toInterface(Go.str("error parsing date:")), Go.toInterface(_err));
 	};
-	if (_noon.hour() != (12 : GoInt)) {
+	if (_noon.hour() != ((12 : GoInt))) {
 		_t.errorf(Go.str("got %d; expect 12"), Go.toInterface(_noon.hour()));
 	};
 	{
@@ -2968,7 +2970,7 @@ function test12PMIsNoon(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (_err != null) {
 		_t.fatal(Go.toInterface(Go.str("error parsing date:")), Go.toInterface(_err));
 	};
-	if (_noon.hour() != (12 : GoInt)) {
+	if (_noon.hour() != ((12 : GoInt))) {
 		_t.errorf(Go.str("got %d; expect 12"), Go.toInterface(_noon.hour()));
 	};
 }
@@ -2980,7 +2982,7 @@ function test12AMIsMidnight(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (_err != null) {
 		_t.fatal(Go.toInterface(Go.str("error parsing date:")), Go.toInterface(_err));
 	};
-	if (_midnight.hour() != (0 : GoInt)) {
+	if (_midnight.hour() != ((0 : GoInt))) {
 		_t.errorf(Go.str("got %d; expect 0"), Go.toInterface(_midnight.hour()));
 	};
 	{
@@ -2991,7 +2993,7 @@ function test12AMIsMidnight(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (_err != null) {
 		_t.fatal(Go.toInterface(Go.str("error parsing date:")), Go.toInterface(_err));
 	};
-	if (_midnight.hour() != (0 : GoInt)) {
+	if (_midnight.hour() != ((0 : GoInt))) {
 		_t.errorf(Go.str("got %d; expect 0"), Go.toInterface(_midnight.hour()));
 	};
 }
@@ -3009,7 +3011,7 @@ function testMissingZone(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	var _expect:GoString = Go.str("Thu Feb  2 16:10:03 -0500 2006");
 	var _str:GoString = _time.format(Go.str("Mon Jan _2 15:04:05 MST 2006"));
-	if (_str != _expect) {
+	if (_str != (_expect)) {
 		_t.errorf(Go.str("got %s; expect %s"), Go.toInterface(_str), Go.toInterface(_expect));
 	};
 }
@@ -3025,7 +3027,7 @@ function testMinutesInTimeZone(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __tmp__ = _time.zone(),
 		_0:GoString = __tmp__._0,
 		_offset:GoInt = __tmp__._1;
-	if (_offset != _expected) {
+	if (_offset != (_expected)) {
 		_t.errorf(Go.str("ZoneOffset = %d, want %d"), Go.toInterface(_offset), Go.toInterface(_expected));
 	};
 }
@@ -3041,7 +3043,7 @@ function testParseSecondsInTimeZone(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var __tmp__ = _time.zone(),
 			_1:GoString = __tmp__._0,
 			_offset:GoInt = __tmp__._1;
-		if (_offset != _test._expectedoffset) {
+		if (_offset != (_test._expectedoffset)) {
 			_t.errorf(Go.str("ZoneOffset = %d, want %d"), Go.toInterface(_offset), Go.toInterface(_test._expectedoffset));
 		};
 	};
@@ -3054,7 +3056,7 @@ function testFormatSecondsInTimeZone(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_test._expectedoffset)) == null ? null : date((1871 : GoInt), (1 : Month), (1 : GoInt), (5 : GoInt), (33 : GoInt), (2 : GoInt), (0 : GoInt),
 				fixedZone(Go.str("LMT"), _test._expectedoffset)).__copy__());
 		var _timestr:GoString = _d.format(_test._format);
-		if (_timestr != _test._value) {
+		if (_timestr != (_test._value)) {
 			_t.errorf(Go.str("Format = %s, want %s"), Go.toInterface(_timestr), Go.toInterface(_test._value));
 		};
 	};
@@ -3083,13 +3085,13 @@ function testUnderscoreTwoThousand(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	{
 		var _h:GoInt = _time.hour();
-		if (_h != (14 : GoInt)) {
+		if (_h != ((14 : GoInt))) {
 			_t.errorf(Go.str("Incorrect hour, got %d"), Go.toInterface(_h));
 		};
 	};
 	{
 		var _m:GoInt = _time.minute();
-		if (_m != (38 : GoInt)) {
+		if (_m != ((38 : GoInt))) {
 			_t.errorf(Go.str("Incorrect minute, got %d"), Go.toInterface(_m));
 		};
 	};
@@ -3111,7 +3113,7 @@ function testStd0xParseError(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_t.errorf(Go.str("Parse(%q, %q) did not fail as expected"), Go.toInterface(_tt._format), Go.toInterface(_tt._value));
 		} else {
 			var __tmp__ = try {
-				{value: (_err.__underlying__().value : Ref<ParseError>), ok: true};
+				{value: Go.typeAssert((Go.toInterface(_err) : Ref<ParseError>)), ok: true};
 			} catch (_) {
 				{value: (null : ParseError), ok: false};
 			}, _perr = __tmp__.value, _ok = __tmp__.ok;
@@ -3178,7 +3180,7 @@ function testQuote(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _tests) {
 		{
 			var _q:GoString = quote(_tt._s);
-			if (_q != _tt._want) {
+			if (_q != (_tt._want)) {
 				_t.errorf(Go.str("Quote(%q) = got %q, want %q"), Go.toInterface(_tt._s), Go.toInterface(_q), Go.toInterface(_tt._want));
 			};
 		};
@@ -3197,7 +3199,7 @@ function testFormatFractionalSecondSeparators(_t:Ref<stdgo.testing.Testing.T>):V
 	for (_0 => _tt in _tests) {
 		{
 			var _q:GoString = _time.format(_tt._s);
-			if (_q != _tt._want) {
+			if (_q != (_tt._want)) {
 				_t.errorf(Go.str("Format(%q) = got %q, want %q"), Go.toInterface(_tt._s), Go.toInterface(_q), Go.toInterface(_tt._want));
 			};
 		};
@@ -3234,7 +3236,7 @@ function testParseFractionalSecondsLongerThanNineDigits(_t:Ref<stdgo.testing.Tes
 		};
 		{
 			var _got:GoInt = _tm.nanosecond();
-			if (_got != _tt._want) {
+			if (_got != (_tt._want)) {
 				_t.errorf(Go.str("Parse(%q) = got %d, want %d"), Go.toInterface(_tt._s), Go.toInterface(_got), Go.toInterface(_tt._want));
 			};
 		};
@@ -3243,12 +3245,12 @@ function testParseFractionalSecondsLongerThanNineDigits(_t:Ref<stdgo.testing.Tes
 
 function testHasMonotonicClock(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _yes:(GoString, Time) -> Void = function(_expr:GoString, _tt:Time):Void {
-		if (getMono((_tt : Ref<Time>)) == ("0" : GoInt64)) {
+		if (getMono((_tt : Ref<Time>)) == (("0" : GoInt64))) {
 			_t.errorf(Go.str("%s: missing monotonic clock reading"), Go.toInterface(_expr));
 		};
 	};
 	var _no:(GoString, Time) -> Void = function(_expr:GoString, _tt:Time):Void {
-		if (getMono((_tt : Ref<Time>)) != ("0" : GoInt64)) {
+		if (getMono((_tt : Ref<Time>)) != (("0" : GoInt64))) {
 			_t.errorf(Go.str("%s: unexpected monotonic clock reading"), Go.toInterface(_expr));
 		};
 	};
@@ -3297,26 +3299,26 @@ function testMonotonicAdd(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _tm:Time = (unix(("1486057371" : GoInt64), ("123456" : GoInt64)) == null ? null : unix(("1486057371" : GoInt64), ("123456" : GoInt64)).__copy__());
 	setMono((_tm : Ref<Time>), ("123456789012345" : GoInt64));
 	var _t2:Time = (_tm.add((("100000000" : GoInt64) : Duration)) == null ? null : _tm.add((("100000000" : GoInt64) : Duration)).__copy__());
-	if (_t2.nanosecond() != (100123456 : GoInt)) {
+	if (_t2.nanosecond() != ((100123456 : GoInt))) {
 		_t.errorf(Go.str("t2.Nanosecond() = %d, want 100123456"), Go.toInterface(_t2.nanosecond()));
 	};
-	if (getMono((_t2 : Ref<Time>)) != ("123456889012345" : GoInt64)) {
+	if (getMono((_t2 : Ref<Time>)) != (("123456889012345" : GoInt64))) {
 		_t.errorf(Go.str("t2.mono = %d, want 123456889012345"), Go.toInterface(getMono((_t2 : Ref<Time>))));
 	};
 	var _t3:Time = (_tm.add((("-9000000000000000000" : GoInt64) : Duration)) == null ? null : _tm.add((("-9000000000000000000" : GoInt64) : Duration))
 		.__copy__());
-	if (_t3.nanosecond() != (123456 : GoInt)) {
+	if (_t3.nanosecond() != ((123456 : GoInt))) {
 		_t.errorf(Go.str("t3.Nanosecond() = %d, want 123456"), Go.toInterface(_t3.nanosecond()));
 	};
-	if (getMono((_t3 : Ref<Time>)) != ("0" : GoInt64)) {
+	if (getMono((_t3 : Ref<Time>)) != (("0" : GoInt64))) {
 		_t.errorf(Go.str("t3.mono = %d, want 0 (wall time out of range for monotonic reading)"), Go.toInterface(getMono((_t3 : Ref<Time>))));
 	};
 	var _t4:Time = (_tm.add((("9000000000000000000" : GoInt64) : Duration)) == null ? null : _tm.add((("9000000000000000000" : GoInt64) : Duration))
 		.__copy__());
-	if (_t4.nanosecond() != (123456 : GoInt)) {
+	if (_t4.nanosecond() != ((123456 : GoInt))) {
 		_t.errorf(Go.str("t4.Nanosecond() = %d, want 123456"), Go.toInterface(_t4.nanosecond()));
 	};
-	if (getMono((_t4 : Ref<Time>)) != ("0" : GoInt64)) {
+	if (getMono((_t4 : Ref<Time>)) != (("0" : GoInt64))) {
 		_t.errorf(Go.str("t4.mono = %d, want 0 (wall time out of range for monotonic reading)"), Go.toInterface(getMono((_t4 : Ref<Time>))));
 	};
 	var _tn:Time = (now() == null ? null : now().__copy__());
@@ -3351,21 +3353,21 @@ function testMonotonicSub(_t:Ref<stdgo.testing.Testing.T>):Void {
 		("995000000" : GoInt64)) == null ? null : unix(("1483228799" : GoInt64), ("995000000" : GoInt64)).__copy__());
 	setMono((_t3 : Ref<Time>), ("123457789012345" : GoInt64));
 	var _t1w:Time = (_t1.addDate((0 : GoInt), (0 : GoInt), (0 : GoInt)) == null ? null : _t1.addDate((0 : GoInt), (0 : GoInt), (0 : GoInt)).__copy__());
-	if (getMono((_t1w : Ref<Time>)) != ("0" : GoInt64)) {
+	if (getMono((_t1w : Ref<Time>)) != (("0" : GoInt64))) {
 		_t.fatalf(Go.str("AddDate didn\'t strip monotonic clock reading"));
 	};
 	var _t2w:Time = (_t2.addDate((0 : GoInt), (0 : GoInt), (0 : GoInt)) == null ? null : _t2.addDate((0 : GoInt), (0 : GoInt), (0 : GoInt)).__copy__());
-	if (getMono((_t2w : Ref<Time>)) != ("0" : GoInt64)) {
+	if (getMono((_t2w : Ref<Time>)) != (("0" : GoInt64))) {
 		_t.fatalf(Go.str("AddDate didn\'t strip monotonic clock reading"));
 	};
 	var _t3w:Time = (_t3.addDate((0 : GoInt), (0 : GoInt), (0 : GoInt)) == null ? null : _t3.addDate((0 : GoInt), (0 : GoInt), (0 : GoInt)).__copy__());
-	if (getMono((_t3w : Ref<Time>)) != ("0" : GoInt64)) {
+	if (getMono((_t3w : Ref<Time>)) != (("0" : GoInt64))) {
 		_t.fatalf(Go.str("AddDate didn\'t strip monotonic clock reading"));
 	};
 	var _sub:(GoString, GoString, Time, Time, Time, Time, Duration,
 		Duration) -> Void = function(_txs:GoString, _tys:GoString, _tx:Time, _txw:Time, _ty:Time, _tyw:Time, _d:Duration, _dw:Duration):Void {
 			var _check:(GoString, Duration, Duration) -> Void = function(_expr:GoString, _d:Duration, _want:Duration):Void {
-				if (_d != _want) {
+				if (_d != (_want)) {
 					_t.errorf(Go.str("%s = %v, want %v"), Go.toInterface(_expr), Go.toInterface(Go.asInterface(_d)), Go.toInterface(Go.asInterface(_want)));
 				};
 			};
@@ -3395,7 +3397,7 @@ function testMonotonicSub(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _cmp:(GoString, GoString, Time, Time, Time, Time, GoInt,
 		GoInt) -> Void = function(_txs:GoString, _tys:GoString, _tx:Time, _txw:Time, _ty:Time, _tyw:Time, _c:GoInt, _cw:GoInt):Void {
 			var _check:(GoString, Bool, Bool) -> Void = function(_expr:GoString, _b:Bool, _want:Bool):Void {
-				if (_b != _want) {
+				if (_b != (_want)) {
 					_t.errorf(Go.str("%s = %v, want %v"), Go.toInterface(_expr), Go.toInterface(_b), Go.toInterface(_want));
 				};
 			};
@@ -3407,10 +3409,10 @@ function testMonotonicSub(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_check(((_txs + Go.str("w.Before(")) + _tys) + Go.str(")"), _txw.before((_ty == null ? null : _ty.__copy__())), _cw < (0:GoInt));
 			_check(((_txs + Go.str(".Before(")) + _tys) + Go.str("w)"), _tx.before((_tyw == null ? null : _tyw.__copy__())), _cw < (0:GoInt));
 			_check(((_txs + Go.str("w.Before(")) + _tys) + Go.str("w)"), _txw.before((_tyw == null ? null : _tyw.__copy__())), _cw < (0:GoInt));
-			_check(((_txs + Go.str(".Equal(")) + _tys) + Go.str(")"), _tx.equal((_ty == null ? null : _ty.__copy__())), _c == (0 : GoInt));
-			_check(((_txs + Go.str("w.Equal(")) + _tys) + Go.str(")"), _txw.equal((_ty == null ? null : _ty.__copy__())), _cw == (0 : GoInt));
-			_check(((_txs + Go.str(".Equal(")) + _tys) + Go.str("w)"), _tx.equal((_tyw == null ? null : _tyw.__copy__())), _cw == (0 : GoInt));
-			_check(((_txs + Go.str("w.Equal(")) + _tys) + Go.str("w)"), _txw.equal((_tyw == null ? null : _tyw.__copy__())), _cw == (0 : GoInt));
+			_check(((_txs + Go.str(".Equal(")) + _tys) + Go.str(")"), _tx.equal((_ty == null ? null : _ty.__copy__())), _c == ((0 : GoInt)));
+			_check(((_txs + Go.str("w.Equal(")) + _tys) + Go.str(")"), _txw.equal((_ty == null ? null : _ty.__copy__())), _cw == ((0 : GoInt)));
+			_check(((_txs + Go.str(".Equal(")) + _tys) + Go.str("w)"), _tx.equal((_tyw == null ? null : _tyw.__copy__())), _cw == ((0 : GoInt)));
+			_check(((_txs + Go.str("w.Equal(")) + _tys) + Go.str("w)"), _txw.equal((_tyw == null ? null : _tyw.__copy__())), _cw == ((0 : GoInt)));
 		};
 	_cmp(Go.str("t1"), Go.str("t1"), (_t1 == null ? null : _t1.__copy__()), (_t1w == null ? null : _t1w.__copy__()), (_t1 == null ? null : _t1.__copy__()),
 		(_t1w == null ? null : _t1w.__copy__()), (0 : GoInt), (0 : GoInt));
@@ -3445,7 +3447,7 @@ function testMonotonicOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	var _t0:Time = (now() == null ? null : now().__copy__());
 	_t1 = (_t0.add((("9223372036854775807" : GoInt64) : Duration)) == null ? null : _t0.add((("9223372036854775807" : GoInt64) : Duration)).__copy__());
-	if (getMono((_t1 : Ref<Time>)) != ("0" : GoInt64)) {
+	if (getMono((_t1 : Ref<Time>)) != (("0" : GoInt64))) {
 		_t.errorf(Go.str("Now().Add(maxDuration) has monotonic clock reading (%v => %v %d %d)"), Go.toInterface((_t0.string() : GoString)),
 			Go.toInterface((_t1.string() : GoString)), Go.toInterface(_t0.unix()), Go.toInterface(_t1.unix()));
 	};
@@ -3485,7 +3487,7 @@ function testMonotonicString(_t:Ref<stdgo.testing.Testing.T>):Void {
 		setMono((_t1 : Ref<Time>), _tt._mono);
 		var _s:GoString = (_t1.string() : GoString);
 		var _got:GoString = (_s.__slice__(stdgo.strings.Strings.lastIndex(_s, Go.str(" ")) + (1 : GoInt)) : GoString);
-		if (_got != _tt._want) {
+		if (_got != (_tt._want)) {
 			_t.errorf(Go.str("with mono=%d: got %q; want %q"), Go.toInterface(_tt._mono), Go.toInterface(_got), Go.toInterface(_tt._want));
 		};
 	};
@@ -3539,7 +3541,7 @@ function testAfterStress(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _stop:GoUInt32 = (("0" : GoUInt32) : GoUInt32);
 	Go.routine(() -> {
 		var a = function():Void {
-			while (stdgo.sync.atomic.Atomic.loadUint32(Go.pointer(_stop)) == ("0" : GoUInt32)) {
+			while (stdgo.sync.atomic.Atomic.loadUint32(Go.pointer(_stop)) == (("0" : GoUInt32))) {
 				stdgo.runtime.Runtime.gc();
 				sleep((("1" : GoInt64) : Duration));
 			};
@@ -4269,7 +4271,7 @@ function testAdjustTimers(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _timers = new Slice<Ref<Timer>>((100 : GoInt).toBasic(), 0, ...[for (i in 0...(100 : GoInt).toBasic()) (null : Timer)]);
 	var _states = new Slice<GoInt>((_timers.length : GoInt).toBasic(), 0, ...[for (i in 0...(_timers.length : GoInt).toBasic()) (0 : GoInt)]);
 	var _indices = _rnd.perm((_timers.length));
-	while ((_indices.length) != (0 : GoInt)) {
+	while ((_indices.length) != ((0 : GoInt))) {
 		var _ii:GoInt = _rnd.intn((_indices.length));
 		var _i:GoInt = _indices[_ii];
 		var _timer:Ref<Timer> = _timers[_i];
@@ -4804,7 +4806,7 @@ function testSecondsToUTC(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var _golden = (_test._golden : Ref<stdgo.time_test.Time_test.T_parsedTime>);
 		var _tm:Time = (unix(_sec, ("0" : GoInt64)).utc() == null ? null : unix(_sec, ("0" : GoInt64)).utc().__copy__());
 		var _newsec:GoInt64 = _tm.unix();
-		if (_newsec != _sec) {
+		if (_newsec != (_sec)) {
 			_t.errorf(Go.str("SecondsToUTC(%d).Seconds() = %d"), Go.toInterface(_sec), Go.toInterface(_newsec));
 		};
 		if (!_same((_tm == null ? null : _tm.__copy__()), _golden)) {
@@ -4821,7 +4823,7 @@ function testNanosecondsToUTC(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var _nsec:GoInt64 = (_test._seconds * (("1000000000" : GoInt64) : GoInt64)) + (_golden.nanosecond : GoInt64);
 		var _tm:Time = (unix(("0" : GoInt64), _nsec).utc() == null ? null : unix(("0" : GoInt64), _nsec).utc().__copy__());
 		var _newnsec:GoInt64 = (_tm.unix() * (("1000000000" : GoInt64) : GoInt64)) + (_tm.nanosecond() : GoInt64);
-		if (_newnsec != _nsec) {
+		if (_newnsec != (_nsec)) {
 			_t.errorf(Go.str("NanosecondsToUTC(%d).Nanoseconds() = %d"), Go.toInterface(_nsec), Go.toInterface(_newnsec));
 		};
 		if (!_same((_tm == null ? null : _tm.__copy__()), _golden)) {
@@ -4838,7 +4840,7 @@ function testSecondsToLocalTime(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var _golden = (_test._golden : Ref<stdgo.time_test.Time_test.T_parsedTime>);
 		var _tm:Time = (unix(_sec, ("0" : GoInt64)) == null ? null : unix(_sec, ("0" : GoInt64)).__copy__());
 		var _newsec:GoInt64 = _tm.unix();
-		if (_newsec != _sec) {
+		if (_newsec != (_sec)) {
 			_t.errorf(Go.str("SecondsToLocalTime(%d).Seconds() = %d"), Go.toInterface(_sec), Go.toInterface(_newsec));
 		};
 		if (!_same((_tm == null ? null : _tm.__copy__()), _golden)) {
@@ -4855,7 +4857,7 @@ function testNanosecondsToLocalTime(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var _nsec:GoInt64 = (_test._seconds * (("1000000000" : GoInt64) : GoInt64)) + (_golden.nanosecond : GoInt64);
 		var _tm:Time = (unix(("0" : GoInt64), _nsec) == null ? null : unix(("0" : GoInt64), _nsec).__copy__());
 		var _newnsec:GoInt64 = (_tm.unix() * (("1000000000" : GoInt64) : GoInt64)) + (_tm.nanosecond() : GoInt64);
-		if (_newnsec != _nsec) {
+		if (_newnsec != (_nsec)) {
 			_t.errorf(Go.str("NanosecondsToLocalTime(%d).Seconds() = %d"), Go.toInterface(_nsec), Go.toInterface(_newnsec));
 		};
 		if (!_same((_tm == null ? null : _tm.__copy__()), _golden)) {
@@ -4868,7 +4870,7 @@ function testNanosecondsToLocalTime(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testSecondsToUTCAndBack(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _f:GoInt64->Bool = function(_sec:GoInt64):Bool {
-		return unix(_sec, ("0" : GoInt64)).utc().unix() == _sec;
+		return unix(_sec, ("0" : GoInt64)).utc().unix() == (_sec);
 	};
 	var _f32:GoInt32->Bool = function(_sec:GoInt32):Bool {
 		return _f((_sec : GoInt64));
@@ -4892,7 +4894,7 @@ function testNanosecondsToUTCAndBack(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _f:GoInt64->Bool = function(_nsec:GoInt64):Bool {
 		var _t:Time = (unix(("0" : GoInt64), _nsec).utc() == null ? null : unix(("0" : GoInt64), _nsec).utc().__copy__());
 		var _ns:GoInt64 = (_t.unix() * (("1000000000" : GoInt64) : GoInt64)) + (_t.nanosecond() : GoInt64);
-		return _ns == _nsec;
+		return _ns == (_nsec);
 	};
 	var _f32:GoInt32->Bool = function(_nsec:GoInt32):Bool {
 		return _f((_nsec : GoInt64));
@@ -4915,7 +4917,7 @@ function testNanosecondsToUTCAndBack(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testUnixMilli(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _f:GoInt64->Bool = function(_msec:GoInt64):Bool {
 		var _t:Time = (unixMilli(_msec) == null ? null : unixMilli(_msec).__copy__());
-		return _t.unixMilli() == _msec;
+		return _t.unixMilli() == (_msec);
 	};
 	var _cfg = (({maxCount: (10000 : GoInt)} : stdgo.testing.quick.Quick.Config) : Ref<stdgo.testing.quick.Quick.Config>);
 	{
@@ -4929,7 +4931,7 @@ function testUnixMilli(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testUnixMicro(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _f:GoInt64->Bool = function(_usec:GoInt64):Bool {
 		var _t:Time = (unixMicro(_usec) == null ? null : unixMicro(_usec).__copy__());
-		return _t.unixMicro() == _usec;
+		return _t.unixMicro() == (_usec);
 	};
 	var _cfg = (({maxCount: (10000 : GoInt)} : stdgo.testing.quick.Quick.Config) : Ref<stdgo.testing.quick.Quick.Config>);
 	{
@@ -4999,7 +5001,7 @@ function testTruncateRound(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var _t1:Time = (_t0.add(-(_r : Duration)) == null ? null : _t0.add(-(_r : Duration)).__copy__());
 		{
 			var _trunc:Time = (_t0.truncate(_d) == null ? null : _t0.truncate(_d).__copy__());
-			if (_trunc != _t1) {
+			if (Go.toInterface(Go.asInterface(_trunc)) != Go.toInterface(Go.asInterface(_t1))) {
 				_t.errorf(Go.str("Time.Truncate(%s, %s) = %s, want %s\n%v trunc %v =\n%v want\n%v"),
 					Go.toInterface(_t0.format(Go.str("2006-01-02T15:04:05.999999999Z07:00"))), Go.toInterface(Go.asInterface(_d)),
 					Go.toInterface(Go.asInterface(_trunc)), Go.toInterface(_t1.format(Go.str("2006-01-02T15:04:05.999999999Z07:00"))),
@@ -5014,7 +5016,7 @@ function testTruncateRound(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 		{
 			var _rnd:Time = (_t0.round(_d) == null ? null : _t0.round(_d).__copy__());
-			if (_rnd != _t1) {
+			if (Go.toInterface(Go.asInterface(_rnd)) != Go.toInterface(Go.asInterface(_t1))) {
 				_t.errorf(Go.str("Time.Round(%s, %s) = %s, want %s\n%v round %v =\n%v want\n%v"),
 					Go.toInterface(_t0.format(Go.str("2006-01-02T15:04:05.999999999Z07:00"))), Go.toInterface(Go.asInterface(_d)),
 					Go.toInterface(Go.asInterface(_rnd)), Go.toInterface(_t1.format(Go.str("2006-01-02T15:04:05.999999999Z07:00"))),
@@ -5075,7 +5077,7 @@ function testTruncateRound(_t:Ref<stdgo.testing.Testing.T>):Void {
 	stdgo.testing.quick.Quick.check(Go.toInterface(_f2), _cfg);
 	var _f3:(GoInt64, GoInt64) -> Bool = function(_tns:GoInt64, _di:GoInt64):Bool {
 		_di = _di & (("4294967294" : GoInt64));
-		if (_di == ("0" : GoInt64)) {
+		if (_di == (("0" : GoInt64))) {
 			_di = ("2" : GoInt64);
 		};
 		_tns = _tns - (_tns % _di);
@@ -5128,7 +5130,7 @@ function testYearDay(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_loc) == null ? null : date(_ydt._year, (_ydt._month : Month), _ydt._day, (0 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt),
 					_loc).__copy__());
 			var _yday:GoInt = _dt.yearDay();
-			if (_yday != _ydt._yday) {
+			if (_yday != (_ydt._yday)) {
 				_t.errorf(Go.str("Date(%d-%02d-%02d in %v).YearDay() = %d, want %d"), Go.toInterface(_ydt._year), Go.toInterface(_ydt._month),
 					Go.toInterface(_ydt._day), Go.toInterface(_loc), Go.toInterface(_yday), Go.toInterface(_ydt._yday));
 				continue;
@@ -5157,7 +5159,7 @@ function testDurationString(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _durationTests) {
 		{
 			var _str:GoString = (_tt._d.string() : GoString);
-			if (_str != _tt._str) {
+			if (_str != (_tt._str)) {
 				_t.errorf(Go.str("Duration(%d).String() = %s, want %s"), Go.toInterface((_tt._d : GoInt64)), Go.toInterface(_str), Go.toInterface(_tt._str));
 			};
 		};
@@ -5203,7 +5205,7 @@ function testAddDate(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testDaysIn(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _daysInTests) {
 		var _di:GoInt = daysIn((_tt._month : Month), _tt._year);
-		if (_di != _tt._di) {
+		if (_di != (_tt._di)) {
 			_t.errorf(Go.str("got %d; expected %d for %d-%02d"), Go.toInterface(_di), Go.toInterface(_tt._di), Go.toInterface(_tt._year),
 				Go.toInterface(_tt._month));
 		};
@@ -5297,7 +5299,7 @@ function testTimeJSON(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_err:Error = __tmp__._1;
 			if (_err != null) {
 				_t.errorf(Go.str("%v json.Marshal error = %v, want nil"), Go.toInterface(Go.asInterface(_tt._time)), Go.toInterface(_err));
-			} else if ((_jsonBytes : GoString) != _tt._json) {
+			} else if ((_jsonBytes : GoString) != (_tt._json)) {
 				_t.errorf(Go.str("%v JSON = %#q, want %#q"), Go.toInterface(Go.asInterface(_tt._time)), Go.toInterface((_jsonBytes : GoString)),
 					Go.toInterface(_tt._json));
 			} else {
@@ -5316,7 +5318,7 @@ function testInvalidTimeJSON(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _tt:Time = ({} : Time);
 	var _err:Error = stdgo.encoding.json.Json.unmarshal(("{\"now is the time\":\"buddy\"}" : Slice<GoByte>), Go.toInterface((_tt : Ref<Time>)));
 	var __tmp__ = try {
-		{value: (_err.__underlying__().value : Ref<ParseError>), ok: true};
+		{value: Go.typeAssert((Go.toInterface(_err) : Ref<ParseError>)), ok: true};
 	} catch (_) {
 		{value: (null : ParseError), ok: false};
 	}, _0 = __tmp__.value, _isParseErr = __tmp__.ok;
@@ -5448,7 +5450,7 @@ function testLoadFixed(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testSub(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_i => _st in _subTests) {
 		var _got:Duration = _st._t.sub((_st._u == null ? null : _st._u.__copy__()));
-		if (_got != _st._d) {
+		if (_got != (_st._d)) {
 			_t.errorf(Go.str("#%d: Sub(%v, %v): got %v; want %v"), Go.toInterface(_i), Go.toInterface(Go.asInterface(_st._t)),
 				Go.toInterface(Go.asInterface(_st._u)), Go.toInterface(Go.asInterface(_got)), Go.toInterface(Go.asInterface(_st._d)));
 		};
@@ -5459,7 +5461,7 @@ function testDurationNanoseconds(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _nsDurationTests) {
 		{
 			var _got:GoInt64 = _tt._d.nanoseconds();
-			if (_got != _tt._want) {
+			if (_got != (_tt._want)) {
 				_t.errorf(Go.str("Duration(%s).Nanoseconds() = %d; want: %d"), Go.toInterface(Go.asInterface(_tt._d)), Go.toInterface(_got),
 					Go.toInterface(_tt._want));
 			};
@@ -5471,7 +5473,7 @@ function testDurationMicroseconds(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _usDurationTests) {
 		{
 			var _got:GoInt64 = _tt._d.microseconds();
-			if (_got != _tt._want) {
+			if (_got != (_tt._want)) {
 				_t.errorf(Go.str("Duration(%s).Microseconds() = %d; want: %d"), Go.toInterface(Go.asInterface(_tt._d)), Go.toInterface(_got),
 					Go.toInterface(_tt._want));
 			};
@@ -5483,7 +5485,7 @@ function testDurationMilliseconds(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _msDurationTests) {
 		{
 			var _got:GoInt64 = _tt._d.milliseconds();
-			if (_got != _tt._want) {
+			if (_got != (_tt._want)) {
 				_t.errorf(Go.str("Duration(%s).Milliseconds() = %d; want: %d"), Go.toInterface(Go.asInterface(_tt._d)), Go.toInterface(_got),
 					Go.toInterface(_tt._want));
 			};
@@ -5495,7 +5497,7 @@ function testDurationSeconds(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _secDurationTests) {
 		{
 			var _got:GoFloat64 = _tt._d.seconds();
-			if (_got != _tt._want) {
+			if (_got != (_tt._want)) {
 				_t.errorf(Go.str("Duration(%s).Seconds() = %g; want: %g"), Go.toInterface(Go.asInterface(_tt._d)), Go.toInterface(_got),
 					Go.toInterface(_tt._want));
 			};
@@ -5507,7 +5509,7 @@ function testDurationMinutes(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _minDurationTests) {
 		{
 			var _got:GoFloat64 = _tt._d.minutes();
-			if (_got != _tt._want) {
+			if (_got != (_tt._want)) {
 				_t.errorf(Go.str("Duration(%s).Minutes() = %g; want: %g"), Go.toInterface(Go.asInterface(_tt._d)), Go.toInterface(_got),
 					Go.toInterface(_tt._want));
 			};
@@ -5519,7 +5521,7 @@ function testDurationHours(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _hourDurationTests) {
 		{
 			var _got:GoFloat64 = _tt._d.hours();
-			if (_got != _tt._want) {
+			if (_got != (_tt._want)) {
 				_t.errorf(Go.str("Duration(%s).Hours() = %g; want: %g"), Go.toInterface(Go.asInterface(_tt._d)), Go.toInterface(_got),
 					Go.toInterface(_tt._want));
 			};
@@ -5531,7 +5533,7 @@ function testDurationTruncate(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _durationTruncateTests) {
 		{
 			var _got:Duration = _tt._d.truncate(_tt._m);
-			if (_got != _tt._want) {
+			if (_got != (_tt._want)) {
 				_t.errorf(Go.str("Duration(%s).Truncate(%s) = %s; want: %s"), Go.toInterface(Go.asInterface(_tt._d)), Go.toInterface(Go.asInterface(_tt._m)),
 					Go.toInterface(Go.asInterface(_got)), Go.toInterface(Go.asInterface(_tt._want)));
 			};
@@ -5543,7 +5545,7 @@ function testDurationRound(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _durationRoundTests) {
 		{
 			var _got:Duration = _tt._d.round(_tt._m);
-			if (_got != _tt._want) {
+			if (_got != (_tt._want)) {
 				_t.errorf(Go.str("Duration(%s).Round(%s) = %s; want: %s"), Go.toInterface(Go.asInterface(_tt._d)), Go.toInterface(Go.asInterface(_tt._m)),
 					Go.toInterface(Go.asInterface(_got)), Go.toInterface(Go.asInterface(_tt._want)));
 			};
@@ -5555,7 +5557,7 @@ function testDurationAbs(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _durationAbsTests) {
 		{
 			var _got:Duration = _tt._d.abs();
-			if (_got != _tt._want) {
+			if (_got != (_tt._want)) {
 				_t.errorf(Go.str("Duration(%s).Abs() = %s; want: %s"), Go.toInterface(Go.asInterface(_tt._d)), Go.toInterface(Go.asInterface(_got)),
 					Go.toInterface(Go.asInterface(_tt._want)));
 			};
@@ -5733,7 +5735,7 @@ function testMarshalBinaryZeroTime(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_t.fatal(Go.toInterface(_err));
 		};
 	};
-	if (_t1 != _t0) {
+	if (Go.toInterface(Go.asInterface(_t1)) != Go.toInterface(Go.asInterface(_t0))) {
 		_t.errorf(Go.str("t0=%#v\nt1=%#v\nwant identical structures"), Go.toInterface(Go.asInterface(_t0)), Go.toInterface(Go.asInterface(_t1)));
 	};
 }
@@ -5782,7 +5784,7 @@ function testZeroMonthString(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _got:GoString = ((0 : Month).string() : GoString),
 			_want:GoString = Go.str("%!Month(0)");
-		if (_got != _want) {
+		if (_got != (_want)) {
 			_t.errorf(Go.str("zero month = %q; want %q"), Go.toInterface(_got), Go.toInterface(_want));
 		};
 	};
@@ -5795,14 +5797,14 @@ function testWeekdayString(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _got:GoString = ((2 : Weekday).string() : GoString),
 			_want:GoString = Go.str("Tuesday");
-		if (_got != _want) {
+		if (_got != (_want)) {
 			_t.errorf(Go.str("Tuesday weekday = %q; want %q"), Go.toInterface(_got), Go.toInterface(_want));
 		};
 	};
 	{
 		var _got:GoString = ((14 : Weekday).string() : GoString),
 			_want:GoString = Go.str("%!Weekday(14)");
-		if (_got != _want) {
+		if (_got != (_want)) {
 			_t.errorf(Go.str("14th weekday = %q; want %q"), Go.toInterface(_got), Go.toInterface(_want));
 		};
 	};
@@ -6019,7 +6021,7 @@ function testTimeIsDST(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 		for (_i => _tt in _tests) {
 			var _got:Bool = _tt._time.isDST();
-			if (_got != _tt._want) {
+			if (_got != (_tt._want)) {
 				_t.errorf(Go.str("#%d:: (%#v).IsDST()=%t, want %t"), Go.toInterface(_i),
 					Go.toInterface(_tt._time.format(Go.str("2006-01-02T15:04:05Z07:00"))), Go.toInterface(_got), Go.toInterface(_tt._want));
 			};
@@ -6374,7 +6376,7 @@ function testEmbeddedTZData(_t:Ref<stdgo.testing.Testing.T>):Void {
 					};
 				});
 			};
-			if (_found != (2 : GoInt)) {
+			if (_found != ((2 : GoInt))) {
 				_t.errorf(Go.str("test must be updated for change to time.Location struct"));
 			};
 		};
@@ -6408,7 +6410,7 @@ function testEmbeddedTZData(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function _equal(_t:Ref<stdgo.testing.Testing.T>, _f1:stdgo.reflect.Reflect.Value, _f2:stdgo.reflect.Reflect.Value):Bool {
 	if (_f1.type().kind() == ((("23" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-		if (_f1.len() != _f2.len()) {
+		if (_f1.len() != (_f2.len())) {
 			return false;
 		};
 		{
@@ -6432,22 +6434,22 @@ function _equal(_t:Ref<stdgo.testing.Testing.T>, _f1:stdgo.reflect.Reflect.Value
 		};
 		return true;
 	} else if (_f1.type().kind() == ((("24" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-		return (_f1.string() : GoString) == (_f2.string() : GoString);
+		return (_f1.string() : GoString) == ((_f2.string() : GoString));
 	} else if (_f1.type().kind() == ((("1" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-		return _f1.bool_() == _f2.bool_();
+		return _f1.bool_() == (_f2.bool_());
 	} else if (_f1.type().kind() == ((("2" : GoUInt) : stdgo.reflect.Reflect.Kind))
 		|| _f1.type().kind() == ((("3" : GoUInt) : stdgo.reflect.Reflect.Kind))
 		|| _f1.type().kind() == ((("4" : GoUInt) : stdgo.reflect.Reflect.Kind))
 		|| _f1.type().kind() == ((("5" : GoUInt) : stdgo.reflect.Reflect.Kind))
 		|| _f1.type().kind() == ((("6" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-		return _f1.int_() == _f2.int_();
+		return _f1.int_() == (_f2.int_());
 	} else if (_f1.type().kind() == ((("7" : GoUInt) : stdgo.reflect.Reflect.Kind))
 		|| _f1.type().kind() == ((("8" : GoUInt) : stdgo.reflect.Reflect.Kind))
 		|| _f1.type().kind() == ((("9" : GoUInt) : stdgo.reflect.Reflect.Kind))
 		|| _f1.type().kind() == ((("10" : GoUInt) : stdgo.reflect.Reflect.Kind))
 		|| _f1.type().kind() == ((("11" : GoUInt) : stdgo.reflect.Reflect.Kind))
 		|| _f1.type().kind() == ((("12" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-		return _f1.uint() == _f2.uint();
+		return _f1.uint() == (_f2.uint());
 	} else {
 		_t.errorf(Go.str("test internal error: unsupported kind %v"), Go.toInterface(Go.asInterface(_f1.type().kind())));
 		return true;
@@ -6465,7 +6467,7 @@ function testEnvVarUsage(_t:Ref<stdgo.testing.Testing.T>):Void {
 		__deferstack__.unshift(() -> stdgo.time.Time.resetZoneinfoForTesting());
 		{
 			var _zoneinfo = stdgo.time.Time.zoneinfoForTesting();
-			if (Go.str("foo.zip") != _zoneinfo.value) {
+			if (Go.str("foo.zip") != (_zoneinfo.value)) {
 				_t.errorf(Go.str("zoneinfo does not match env variable: got %q want %q"), Go.toInterface(_zoneinfo.value), Go.toInterface(Go.str("foo.zip")));
 			};
 		};
@@ -6500,7 +6502,7 @@ function testBadLocationErrMsg(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __tmp__ = stdgo.time.Time.loadLocation(_loc),
 		_0:Ref<Location> = __tmp__._0,
 		_err:Error = __tmp__._1;
-	if (_err.error() != _want.error()) {
+	if (_err.error() != (_want.error())) {
 		_t.errorf(Go.str("LoadLocation(%q) error = %v; want %v"), Go.toInterface(_loc), Go.toInterface(_err), Go.toInterface(_want));
 	};
 }
@@ -6514,7 +6516,7 @@ function testLoadLocationValidatesNames(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var __tmp__ = stdgo.time.Time.loadLocation(_v),
 			_1:Ref<Location> = __tmp__._0,
 			_err:Error = __tmp__._1;
-		if (_err != stdgo.time.Time.errLocation) {
+		if (Go.toInterface(_err) != (Go.toInterface(stdgo.time.Time.errLocation))) {
 			_t.errorf(Go.str("LoadLocation(%q) error = %v; want ErrLocation"), Go.toInterface(_v), Go.toInterface(_err));
 		};
 	};
@@ -6585,12 +6587,12 @@ function testFirstZone(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_t.fatal(Go.toInterface(_err));
 			};
 			var _s:GoString = stdgo.time.Time.unix(_test._unix, ("0" : GoInt64)).in_(_z).format(Go.str("Mon, 02 Jan 2006 15:04:05 -0700 (MST)"));
-			if (_s != _test._want1) {
+			if (_s != (_test._want1)) {
 				_t.errorf(Go.str("for %s %d got %q want %q"), Go.toInterface(_test._zone), Go.toInterface(_test._unix), Go.toInterface(_s),
 					Go.toInterface(_test._want1));
 			};
 			_s = stdgo.time.Time.unix(_test._unix + ("1" : GoInt64), ("0" : GoInt64)).in_(_z).format(Go.str("Mon, 02 Jan 2006 15:04:05 -0700 (MST)"));
-			if (_s != _test._want2) {
+			if (_s != (_test._want2)) {
 				_t.errorf(Go.str("for %s %d got %q want %q"), Go.toInterface(_test._zone), Go.toInterface(_test._unix), Go.toInterface(_s),
 					Go.toInterface(_test._want2));
 			};
@@ -6620,10 +6622,10 @@ function testFirstZone(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testLocationNames(_t:Ref<stdgo.testing.Testing.T>):Void {
-	if ((stdgo.time.Time.local.string() : GoString) != Go.str("Local")) {
+	if ((stdgo.time.Time.local.string() : GoString) != (Go.str("Local"))) {
 		_t.errorf("invalid Local location name: got %q want \"Local\"", Go.toInterface(stdgo.time.Time.local));
 	};
-	if ((stdgo.time.Time.utc.string() : GoString) != Go.str("UTC")) {
+	if ((stdgo.time.Time.utc.string() : GoString) != (Go.str("UTC"))) {
 		_t.errorf("invalid UTC location name: got %q want \"UTC\"", Go.toInterface(stdgo.time.Time.utc));
 	};
 }
@@ -6708,13 +6710,13 @@ function testEarlyLocation(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_tzOffset:GoInt = __tmp__._1;
 		{
 			var _want:GoString = Go.str("EST");
-			if (_tzName != _want) {
+			if (_tzName != (_want)) {
 				_t.errorf(Go.str("Zone name == %s, want %s"), Go.toInterface(_tzName), Go.toInterface(_want));
 			};
 		};
 		{
 			var _want:GoInt = (-18000 : GoInt);
-			if (_tzOffset != _want) {
+			if (_tzOffset != (_want)) {
 				_t.errorf(Go.str("Zone offset == %d, want %d"), Go.toInterface(_tzOffset), Go.toInterface(_want));
 			};
 		};
@@ -6772,10 +6774,10 @@ function testLoadLocationFromTZDataSlim(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var __tmp__ = _d.zone(),
 			_tzName:GoString = __tmp__._0,
 			_tzOffset:GoInt = __tmp__._1;
-		if (_tzName != _test._wantName) {
+		if (_tzName != (_test._wantName)) {
 			_t.errorf(Go.str("Zone name == %s, want %s"), Go.toInterface(_tzName), Go.toInterface(_test._wantName));
 		};
-		if (_tzOffset != _test._wantOffset) {
+		if (_tzOffset != (_test._wantOffset)) {
 			_t.errorf(Go.str("Zone offset == %d, want %d"), Go.toInterface(_tzOffset), Go.toInterface(_test._wantOffset));
 		};
 	};
@@ -7051,7 +7053,7 @@ function testTzsetRule(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_r:Rule = __tmp__._0,
 			_out:GoString = __tmp__._1,
 			_ok:Bool = __tmp__._2;
-		if (((_r != _test._r) || (_out != _test._out)) || (_ok != _test._ok)) {
+		if (((Go.toInterface(_r) != Go.toInterface(_test._r)) || (_out != _test._out)) || (_ok != _test._ok)) {
 			_t.errorf(Go.str("tzsetName(%q) = %#v, %q, %t, want %#v, %q, %t"), Go.toInterface(_test._in), Go.toInterface(_r), Go.toInterface(_out),
 				Go.toInterface(_ok), Go.toInterface(_test._r), Go.toInterface(_test._out), Go.toInterface(_test._ok));
 		};

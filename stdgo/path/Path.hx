@@ -142,7 +142,7 @@ function match(_pattern:GoString, _name:GoString):{var _0:Bool; var _1:Error;} {
 			};
 			return {_0: false, _1: (null : Error)};
 		};
-		return {_0: (_name.length) == (0 : GoInt), _1: (null : Error)};
+		return {_0: (_name.length) == ((0 : GoInt)), _1: (null : Error)};
 	});
 }
 
@@ -252,7 +252,7 @@ function _matchChunk(_chunk:GoString, _s:GoString):{var _0:GoString; var _1:Bool
 							};
 						};
 						_hi = _lo;
-						if (_chunk[(0 : GoInt)] == ("-".code : GoRune)) {
+						if (_chunk[(0 : GoInt)] == (("-".code : GoRune))) {
 							{
 								{
 									var __tmp__ = _getEsc((_chunk.__slice__((1 : GoInt)) : GoString));
@@ -270,14 +270,14 @@ function _matchChunk(_chunk:GoString, _s:GoString):{var _0:GoString; var _1:Bool
 						};
 						_nrange++;
 					};
-					if (_match == _negated) {
+					if (_match == (_negated)) {
 						_failed = true;
 					};
 					break;
 					break;
 				} else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && _chunk[(0 : GoInt)] == (("?".code : GoRune)))) {
 					if (!_failed) {
-						if (_s[(0 : GoInt)] == ("/".code : GoRune)) {
+						if (_s[(0 : GoInt)] == (("/".code : GoRune))) {
 							_failed = true;
 						};
 						var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_s),
@@ -290,7 +290,7 @@ function _matchChunk(_chunk:GoString, _s:GoString):{var _0:GoString; var _1:Bool
 					break;
 				} else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && _chunk[(0 : GoInt)] == (("\\".code : GoRune)))) {
 					_chunk = (_chunk.__slice__((1 : GoInt)) : GoString);
-					if ((_chunk.length) == (0 : GoInt)) {
+					if ((_chunk.length) == ((0 : GoInt))) {
 						return {_0: Go.str(), _1: false, _2: errBadPattern};
 					};
 					@:fallthrough {
@@ -300,7 +300,7 @@ function _matchChunk(_chunk:GoString, _s:GoString):{var _0:GoString; var _1:Bool
 					break;
 				} else {
 					if (!_failed) {
-						if (_chunk[(0 : GoInt)] != _s[(0 : GoInt)]) {
+						if (_chunk[(0 : GoInt)] != (_s[(0 : GoInt)])) {
 							_failed = true;
 						};
 						_s = (_s.__slice__((1 : GoInt)) : GoString);
@@ -329,9 +329,9 @@ function _getEsc(_chunk:GoString):{var _0:GoRune; var _1:GoString; var _2:Error;
 		_err = errBadPattern;
 		return {_0: _r, _1: _nchunk, _2: _err};
 	};
-	if (_chunk[(0 : GoInt)] == ("\\".code : GoRune)) {
+	if (_chunk[(0 : GoInt)] == (("\\".code : GoRune))) {
 		_chunk = (_chunk.__slice__((1 : GoInt)) : GoString);
-		if ((_chunk.length) == (0 : GoInt)) {
+		if ((_chunk.length) == ((0 : GoInt))) {
 			_err = errBadPattern;
 			return {_0: _r, _1: _nchunk, _2: _err};
 		};
@@ -343,7 +343,7 @@ function _getEsc(_chunk:GoString):{var _0:GoRune; var _1:GoString; var _2:Error;
 		_err = errBadPattern;
 	};
 	_nchunk = (_chunk.__slice__(_n) : GoString);
-	if ((_nchunk.length) == (0 : GoInt)) {
+	if ((_nchunk.length) == ((0 : GoInt))) {
 		_err = errBadPattern;
 	};
 	return {_0: _r, _1: _nchunk, _2: _err};
@@ -371,10 +371,10 @@ function _getEsc(_chunk:GoString):{var _0:GoRune; var _1:GoString; var _2:Error;
 	// https://9p.io/sys/doc/lexnames.html
 **/
 function clean(_path:GoString):GoString {
-	if (_path == Go.str()) {
+	if (_path == (Go.str())) {
 		return Go.str(".");
 	};
-	var _rooted:Bool = _path[(0 : GoInt)] == ("/".code : GoRune);
+	var _rooted:Bool = _path[(0 : GoInt)] == (("/".code : GoRune));
 	var _n:GoInt = (_path.length);
 	var _out:T_lazybuf = ({_s: _path} : T_lazybuf);
 	var _r:GoInt = (0 : GoInt), _dotdot:GoInt = (0 : GoInt);
@@ -388,7 +388,7 @@ function clean(_path:GoString):GoString {
 		};
 	};
 	while (_r < _n) {
-		if (_path[_r] == ("/".code : GoRune)) {
+		if (_path[_r] == (("/".code : GoRune))) {
 			_r++;
 		} else if ((_path[_r] == (".".code : GoRune))
 			&& (((_r + (1 : GoInt)) == _n) || (_path[_r + (1 : GoInt)] == ("/".code : GoRune)))) {
@@ -418,7 +418,7 @@ function clean(_path:GoString):GoString {
 			});
 		};
 	};
-	if (_out._w == (0 : GoInt)) {
+	if (_out._w == ((0 : GoInt))) {
 		return Go.str(".");
 	};
 	return _out._string();
@@ -461,7 +461,7 @@ function join(_elem:haxe.Rest<GoString>):GoString {
 	for (_0 => _e in _elem) {
 		_size = _size + ((_e.length));
 	};
-	if (_size == (0 : GoInt)) {
+	if (_size == ((0 : GoInt))) {
 		return Go.str();
 	};
 	var _buf = new Slice<GoUInt8>((0 : GoInt).toBasic(), (_size + _elem.length) - (1 : GoInt), ...[for (i in 0...(0 : GoInt).toBasic()) (0 : GoUInt8)]);
@@ -486,7 +486,7 @@ function ext(_path:GoString):GoString {
 	{
 		var _i:GoInt = (_path.length) - (1 : GoInt);
 		Go.cfor((_i >= (0 : GoInt)) && (_path[_i] != ("/".code : GoRune)), _i--, {
-			if (_path[_i] == (".".code : GoRune)) {
+			if (_path[_i] == ((".".code : GoRune))) {
 				return (_path.__slice__(_i) : GoString);
 			};
 		});
@@ -501,7 +501,7 @@ function ext(_path:GoString):GoString {
 	// If the path consists entirely of slashes, Base returns "/".
 **/
 function base(_path:GoString):GoString {
-	if (_path == Go.str()) {
+	if (_path == (Go.str())) {
 		return Go.str(".");
 	};
 	while ((_path.length > (0 : GoInt)) && (_path[(_path.length) - (1 : GoInt)] == ("/".code : GoRune))) {
@@ -513,7 +513,7 @@ function base(_path:GoString):GoString {
 			_path = (_path.__slice__(_i + (1 : GoInt)) : GoString);
 		};
 	};
-	if (_path == Go.str()) {
+	if (_path == (Go.str())) {
 		return Go.str("/");
 	};
 	return _path;
@@ -545,25 +545,27 @@ function dir(_path:GoString):GoString {
 private class T_lazybuf_asInterface {
 	@:keep
 	public function _string():GoString
-		return __self__._string();
+		return __self__.value._string();
 
 	@:keep
 	public function _append(_c:GoByte):Void
-		__self__._append(_c);
+		__self__.value._append(_c);
 
 	@:keep
 	public function _index(_i:GoInt):GoByte
-		return __self__._index(_i);
+		return __self__.value._index(_i);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_lazybuf;
+	var __self__:Pointer<T_lazybuf>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.path.Path.T_lazybuf_asInterface) class T_lazybuf_static_extension {

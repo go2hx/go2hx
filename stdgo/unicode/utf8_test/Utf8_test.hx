@@ -425,7 +425,7 @@ function testAppendRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _m in _utf8map) {
 		{
 			var _buf = appendRune((null : Slice<GoUInt8>), _m._r);
-			if ((_buf : GoString) != _m._str) {
+			if ((_buf : GoString) != (_m._str)) {
 				_t.errorf(Go.str("AppendRune(nil, %#04x) = %s, want %s"), Go.toInterface(_m._r), Go.toInterface(_buf), Go.toInterface(_m._str));
 			};
 		};
@@ -445,7 +445,7 @@ function testDecodeRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var __tmp__ = decodeRune(_b),
 			_r:GoInt32 = __tmp__._0,
 			_size:GoInt = __tmp__._1;
-		if ((_r != _m._r) || (_size != _b.length)) {
+		if ((_r != _m._r) || (_size != (_b.length))) {
 			_t.errorf(Go.str("DecodeRune(%q) = %#04x, %d want %#04x, %d"), Go.toInterface(_b), Go.toInterface(_r), Go.toInterface(_size),
 				Go.toInterface(_m._r), Go.toInterface((_b.length)));
 		};
@@ -455,7 +455,7 @@ function testDecodeRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_r = __tmp__._0;
 			_size = __tmp__._1;
 		};
-		if ((_r != _m._r) || (_size != _b.length)) {
+		if ((_r != _m._r) || (_size != (_b.length))) {
 			_t.errorf(Go.str("DecodeRuneInString(%q) = %#04x, %d want %#04x, %d"), Go.toInterface(_s), Go.toInterface(_r), Go.toInterface(_size),
 				Go.toInterface(_m._r), Go.toInterface((_b.length)));
 		};
@@ -464,7 +464,7 @@ function testDecodeRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_r = __tmp__._0;
 			_size = __tmp__._1;
 		};
-		if ((_r != _m._r) || (_size != _b.length)) {
+		if ((_r != _m._r) || (_size != (_b.length))) {
 			_t.errorf(Go.str("DecodeRune(%q) = %#04x, %d want %#04x, %d"), Go.toInterface(_b), Go.toInterface(_r), Go.toInterface(_size),
 				Go.toInterface(_m._r), Go.toInterface((_b.length)));
 		};
@@ -474,7 +474,7 @@ function testDecodeRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_r = __tmp__._0;
 			_size = __tmp__._1;
 		};
-		if ((_r != _m._r) || (_size != _b.length)) {
+		if ((_r != _m._r) || (_size != (_b.length))) {
 			_t.errorf(Go.str("DecodeRuneInString(%q) = %#04x, %d want %#04x, %d"), Go.toInterface(_s), Go.toInterface(_r), Go.toInterface(_size),
 				Go.toInterface(_m._r), Go.toInterface((_b.length)));
 		};
@@ -502,7 +502,7 @@ function testDecodeRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_t.errorf(Go.str("DecodeRuneInString(%q) = %#04x, %d want %#04x, %d"), Go.toInterface(_s), Go.toInterface(_r), Go.toInterface(_size),
 				Go.toInterface((65533 : GoInt32)), Go.toInterface(_wantsize));
 		};
-		if ((_b.length) == (1 : GoInt)) {
+		if ((_b.length) == ((1 : GoInt))) {
 			_b[(0 : GoInt)] = (128 : GoUInt8);
 		} else {
 			_b[(_b.length) - (1 : GoInt)] = (127 : GoUInt8);
@@ -581,7 +581,7 @@ function testRuntimeConversion(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var _count:GoInt = runeCountInString(_ts);
 		{
 			var _n:GoInt = _runtimeRuneCount(_ts);
-			if (_n != _count) {
+			if (_n != (_count)) {
 				_t.errorf(Go.str("%q: len([]rune()) counted %d runes; got %d from RuneCountInString"), Go.toInterface(_ts), Go.toInterface(_n),
 					Go.toInterface(_count));
 				break;
@@ -590,7 +590,7 @@ function testRuntimeConversion(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var _runes = (_ts : Slice<GoRune>);
 		{
 			var _n:GoInt = (_runes.length);
-			if (_n != _count) {
+			if (_n != (_count)) {
 				_t.errorf(Go.str("%q: []rune() has length %d; got %d from RuneCountInString"), Go.toInterface(_ts), Go.toInterface(_n),
 					Go.toInterface(_count));
 				break;
@@ -598,7 +598,7 @@ function testRuntimeConversion(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 		var _i:GoInt = (0 : GoInt);
 		for (_1 => _r in _ts) {
-			if (_r != _runes[_i]) {
+			if (_r != (_runes[_i])) {
 				_t.errorf(Go.str("%q[%d]: expected %c (%U); got %c (%U)"), Go.toInterface(_ts), Go.toInterface(_i), Go.toInterface(_runes[_i]),
 					Go.toInterface(_runes[_i]), Go.toInterface(_r), Go.toInterface(_r));
 			};
@@ -621,7 +621,7 @@ function testDecodeInvalidSequence(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_1:GoInt = __tmp__._1;
 		{
 			var _want:GoInt32 = (65533 : GoInt32);
-			if (_r1 != _want) {
+			if (_r1 != (_want)) {
 				_t.errorf(Go.str("DecodeRune(%#x) = %#04x, want %#04x"), Go.toInterface(_s), Go.toInterface(_r1), Go.toInterface(_want));
 				return;
 			};
@@ -631,18 +631,18 @@ function testDecodeInvalidSequence(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_2:GoInt = __tmp__._1;
 		{
 			var _want:GoInt32 = (65533 : GoInt32);
-			if (_r2 != _want) {
+			if (_r2 != (_want)) {
 				_t.errorf(Go.str("DecodeRuneInString(%q) = %#04x, want %#04x"), Go.toInterface(_s), Go.toInterface(_r2), Go.toInterface(_want));
 				return;
 			};
 		};
-		if (_r1 != _r2) {
+		if (_r1 != (_r2)) {
 			_t.errorf(Go.str("DecodeRune(%#x) = %#04x mismatch with DecodeRuneInString(%q) = %#04x"), Go.toInterface(_s), Go.toInterface(_r1),
 				Go.toInterface(_s), Go.toInterface(_r2));
 			return;
 		};
 		var _r3:GoInt32 = _runtimeDecodeRune(_s);
-		if (_r2 != _r3) {
+		if (_r2 != (_r3)) {
 			_t.errorf(Go.str("DecodeRuneInString(%q) = %#04x mismatch with runtime.decoderune(%q) = %#04x"), Go.toInterface(_s), Go.toInterface(_r2),
 				Go.toInterface(_s), Go.toInterface(_r3));
 			return;
@@ -678,7 +678,7 @@ function _testSequence(_t:Ref<stdgo.testing.Testing.T>, _s:GoString):Void {
 	var _si:GoInt = (0 : GoInt);
 	var _j:GoInt = (0 : GoInt);
 	for (_i => _r in _s) {
-		if (_si != _i) {
+		if (_si != (_i)) {
 			_t.errorf(Go.str("Sequence(%q) mismatched index %d, want %d"), Go.toInterface(_s), Go.toInterface(_si), Go.toInterface(_i));
 			return;
 		};
@@ -687,19 +687,19 @@ function _testSequence(_t:Ref<stdgo.testing.Testing.T>, _s:GoString):Void {
 		var __tmp__ = decodeRune((_b.__slice__(_i) : Slice<GoUInt8>)),
 			_r1:GoInt32 = __tmp__._0,
 			_size1:GoInt = __tmp__._1;
-		if (_r != _r1) {
+		if (_r != (_r1)) {
 			_t.errorf(Go.str("DecodeRune(%q) = %#04x, want %#04x"), Go.toInterface((_s.__slice__(_i) : GoString)), Go.toInterface(_r1), Go.toInterface(_r));
 			return;
 		};
 		var __tmp__ = decodeRuneInString((_s.__slice__(_i) : GoString)),
 			_r2:GoInt32 = __tmp__._0,
 			_size2:GoInt = __tmp__._1;
-		if (_r != _r2) {
+		if (_r != (_r2)) {
 			_t.errorf(Go.str("DecodeRuneInString(%q) = %#04x, want %#04x"), Go.toInterface((_s.__slice__(_i) : GoString)), Go.toInterface(_r2),
 				Go.toInterface(_r));
 			return;
 		};
-		if (_size1 != _size2) {
+		if (_size1 != (_size2)) {
 			_t.errorf(Go.str("DecodeRune/DecodeRuneInString(%q) size mismatch %d/%d"), Go.toInterface((_s.__slice__(_i) : GoString)), Go.toInterface(_size1),
 				Go.toInterface(_size2));
 			return;
@@ -716,23 +716,23 @@ function _testSequence(_t:Ref<stdgo.testing.Testing.T>, _s:GoString):Void {
 			var __tmp__ = decodeLastRuneInString((_s.__slice__((0 : GoInt), _si) : GoString)),
 				_r2:GoInt32 = __tmp__._0,
 				_size2:GoInt = __tmp__._1;
-			if (_size1 != _size2) {
+			if (_size1 != (_size2)) {
 				_t.errorf(Go.str("DecodeLastRune/DecodeLastRuneInString(%q, %d) size mismatch %d/%d"), Go.toInterface(_s), Go.toInterface(_si),
 					Go.toInterface(_size1), Go.toInterface(_size2));
 				return;
 			};
-			if (_r1 != _index[_j]._r) {
+			if (_r1 != (_index[_j]._r)) {
 				_t.errorf(Go.str("DecodeLastRune(%q, %d) = %#04x, want %#04x"), Go.toInterface(_s), Go.toInterface(_si), Go.toInterface(_r1),
 					Go.toInterface(_index[_j]._r));
 				return;
 			};
-			if (_r2 != _index[_j]._r) {
+			if (_r2 != (_index[_j]._r)) {
 				_t.errorf(Go.str("DecodeLastRuneInString(%q, %d) = %#04x, want %#04x"), Go.toInterface(_s), Go.toInterface(_si), Go.toInterface(_r2),
 					Go.toInterface(_index[_j]._r));
 				return;
 			};
 			_si = _si - (_size1);
-			if (_si != _index[_j]._index) {
+			if (_si != (_index[_j]._index)) {
 				_t.errorf(Go.str("DecodeLastRune(%q) index mismatch at %d, want %d"), Go.toInterface(_s), Go.toInterface(_si),
 					Go.toInterface(_index[_j]._index));
 				return;
@@ -740,7 +740,7 @@ function _testSequence(_t:Ref<stdgo.testing.Testing.T>, _s:GoString):Void {
 			_j--;
 		};
 	};
-	if (_si != (0 : GoInt)) {
+	if (_si != ((0 : GoInt))) {
 		_t.errorf(Go.str("DecodeLastRune(%q) finished at %d, not 0"), Go.toInterface(_s), Go.toInterface(_si));
 	};
 }
@@ -762,13 +762,13 @@ function testRuneCount(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _runecounttests) {
 		{
 			var _out:GoInt = runeCountInString(_tt._in);
-			if (_out != _tt._out) {
+			if (_out != (_tt._out)) {
 				_t.errorf(Go.str("RuneCountInString(%q) = %d, want %d"), Go.toInterface(_tt._in), Go.toInterface(_out), Go.toInterface(_tt._out));
 			};
 		};
 		{
 			var _out:GoInt = runeCount((_tt._in : Slice<GoByte>));
-			if (_out != _tt._out) {
+			if (_out != (_tt._out)) {
 				_t.errorf(Go.str("RuneCount(%q) = %d, want %d"), Go.toInterface(_tt._in), Go.toInterface(_out), Go.toInterface(_tt._out));
 			};
 		};
@@ -779,7 +779,7 @@ function testRuneLen(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _runelentests) {
 		{
 			var _size:GoInt = runeLen(_tt._r);
-			if (_size != _tt._size) {
+			if (_size != (_tt._size)) {
 				_t.errorf(Go.str("RuneLen(%#U) = %d, want %d"), Go.toInterface(_tt._r), Go.toInterface(_size), Go.toInterface(_tt._size));
 			};
 		};
@@ -788,10 +788,10 @@ function testRuneLen(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testValid(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _validTests) {
-		if (valid((_tt._in : Slice<GoByte>)) != _tt._out) {
+		if (valid((_tt._in : Slice<GoByte>)) != (_tt._out)) {
 			_t.errorf(Go.str("Valid(%q) = %v; want %v"), Go.toInterface(_tt._in), Go.toInterface(!_tt._out), Go.toInterface(_tt._out));
 		};
-		if (validString(_tt._in) != _tt._out) {
+		if (validString(_tt._in) != (_tt._out)) {
 			_t.errorf(Go.str("ValidString(%q) = %v; want %v"), Go.toInterface(_tt._in), Go.toInterface(!_tt._out), Go.toInterface(_tt._out));
 		};
 	};
@@ -801,7 +801,7 @@ function testValidRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _validrunetests) {
 		{
 			var _ok:Bool = validRune(_tt._r);
-			if (_ok != _tt._ok) {
+			if (_ok != (_tt._ok)) {
 				_t.errorf(Go.str("ValidRune(%#U) = %t, want %t"), Go.toInterface(_tt._r), Go.toInterface(_ok), Go.toInterface(_tt._ok));
 			};
 		};
@@ -1030,7 +1030,7 @@ function benchmarkFullRune(_b:Ref<stdgo.testing.Testing.B>):Void {
 		{
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_b.len() < (100000:GoInt), _i++, {
-				if ((_i % (100 : GoInt)) == (0 : GoInt)) {
+				if (_i % (100 : GoInt) == ((0 : GoInt))) {
 					_b.writeString(Go.str("日本語日本語日本語日"));
 				} else {
 					_b.writeString(Go.str("0123456789"));

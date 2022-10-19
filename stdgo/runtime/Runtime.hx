@@ -1483,21 +1483,23 @@ function setCgoTraceback(_version:GoInt, _traceback:stdgo.unsafe.Unsafe.UnsafePo
 class TypeAssertionError_asInterface {
 	@:keep
 	public function error():GoString
-		return __self__.error();
+		return __self__.value.error();
 
 	@:keep
 	public function runtimeError():Void
-		__self__.runtimeError();
+		__self__.value.runtimeError();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:TypeAssertionError;
+	var __self__:Pointer<TypeAssertionError>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.runtime.Runtime.TypeAssertionError_asInterface) class TypeAssertionError_static_extension {
@@ -1517,17 +1519,19 @@ class StackRecord_asInterface {
 	**/
 	@:keep
 	public function stack():Slice<GoUIntptr>
-		return __self__.stack();
+		return __self__.value.stack();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:StackRecord;
+	var __self__:Pointer<StackRecord>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.runtime.Runtime.StackRecord_asInterface) class StackRecord_static_extension {
@@ -1547,31 +1551,33 @@ class MemProfileRecord_asInterface {
 	**/
 	@:keep
 	public function stack():Slice<GoUIntptr>
-		return __self__.stack();
+		return __self__.value.stack();
 
 	/**
 		// InUseObjects returns the number of objects in use (AllocObjects - FreeObjects).
 	**/
 	@:keep
 	public function inUseObjects():GoInt64
-		return __self__.inUseObjects();
+		return __self__.value.inUseObjects();
 
 	/**
 		// InUseBytes returns the number of bytes in use (AllocBytes - FreeBytes).
 	**/
 	@:keep
 	public function inUseBytes():GoInt64
-		return __self__.inUseBytes();
+		return __self__.value.inUseBytes();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:MemProfileRecord;
+	var __self__:Pointer<MemProfileRecord>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.runtime.Runtime.MemProfileRecord_asInterface) class MemProfileRecord_static_extension {
@@ -1601,17 +1607,19 @@ class MemProfileRecord_asInterface {
 class BlockProfileRecord_asInterface {
 	@:embedded
 	public function stack():Slice<GoUIntptr>
-		return __self__.stack();
+		return __self__.value.stack();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:BlockProfileRecord;
+	var __self__:Pointer<BlockProfileRecord>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.runtime.Runtime.BlockProfileRecord_asInterface) class BlockProfileRecord_static_extension {
@@ -1634,17 +1642,19 @@ class Frames_asInterface {
 	**/
 	@:keep
 	public function next():{var _0:Frame; var _1:Bool;}
-		return __self__.next();
+		return __self__.value.next();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:Frames;
+	var __self__:Pointer<Frames>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.runtime.Runtime.Frames_asInterface) class Frames_static_extension {
@@ -1673,31 +1683,33 @@ class Func_asInterface {
 	**/
 	@:keep
 	public function fileLine(_pc:GoUIntptr):{var _0:GoString; var _1:GoInt;}
-		return __self__.fileLine(_pc);
+		return __self__.value.fileLine(_pc);
 
 	/**
 		// Entry returns the entry address of the function.
 	**/
 	@:keep
 	public function entry():GoUIntptr
-		return __self__.entry();
+		return __self__.value.entry();
 
 	/**
 		// Name returns the name of the function.
 	**/
 	@:keep
 	public function name():GoString
-		return __self__.name();
+		return __self__.value.name();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:Func;
+	var __self__:Pointer<Func>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.runtime.Runtime.Func_asInterface) class Func_static_extension {

@@ -145,21 +145,23 @@ class RegArgs_asInterface {
 	**/
 	@:keep
 	public function intRegArgAddr(_reg:GoInt, _argSize:GoUIntptr):stdgo.unsafe.Unsafe.UnsafePointer
-		return __self__.intRegArgAddr(_reg, _argSize);
+		return __self__.value.intRegArgAddr(_reg, _argSize);
 
 	@:keep
 	public function dump():Void
-		__self__.dump();
+		__self__.value.dump();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:RegArgs;
+	var __self__:Pointer<RegArgs>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(internal.abi.Abi.RegArgs_asInterface) class RegArgs_static_extension {
@@ -194,24 +196,26 @@ class IntArgRegBitmap_asInterface {
 	**/
 	@:keep
 	public function get(_i:GoInt):Bool
-		return __self__.get(_i);
+		return __self__.value.get(_i);
 
 	/**
 		// Set sets the i'th bit of the bitmap to 1.
 	**/
 	@:keep
 	public function set(_i:GoInt):Void
-		__self__.set(_i);
+		__self__.value.set(_i);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:IntArgRegBitmap;
+	var __self__:Pointer<IntArgRegBitmap>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(internal.abi.Abi.IntArgRegBitmap_asInterface) class IntArgRegBitmap_static_extension {

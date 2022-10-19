@@ -377,7 +377,7 @@ function isSorted(_data:Interface):Bool {
 	// isNaN is a copy of math.IsNaN to avoid a dependency on the math package.
 **/
 function _isNaN(_f:GoFloat64):Bool {
-	return _f != _f;
+	return _f != (_f);
 }
 
 /**
@@ -510,7 +510,7 @@ function _pdqsort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _limit:GoInt):Void 
 			_insertionSort_func((_data == null ? null : _data.__copy__()), _a, _b);
 			return;
 		};
-		if (_limit == (0 : GoInt)) {
+		if (_limit == ((0 : GoInt))) {
 			_heapSort_func((_data == null ? null : _data.__copy__()), _a, _b);
 			return;
 		};
@@ -521,7 +521,7 @@ function _pdqsort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _limit:GoInt):Void 
 		var __tmp__ = _choosePivot_func((_data == null ? null : _data.__copy__()), _a, _b),
 			_pivot:GoInt = __tmp__._0,
 			_hint:T_sortedHint = __tmp__._1;
-		if (_hint == (2 : T_sortedHint)) {
+		if (_hint == ((2 : T_sortedHint))) {
 			_reverseRange_func((_data == null ? null : _data.__copy__()), _a, _b);
 			_pivot = (_b - (1 : GoInt)) - (_pivot - _a);
 			_hint = (1 : T_sortedHint);
@@ -632,7 +632,7 @@ function _partialInsertionSort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Bool {
 			while ((_i < _b) && !_data.less(_i, _i - (1 : GoInt))) {
 				_i++;
 			};
-			if (_i == _b) {
+			if (_i == (_b)) {
 				return true;
 			};
 			if ((_b - _a) < (50 : GoInt)) {
@@ -833,7 +833,7 @@ function _stable_func(_data:T_lessSwap, _n:GoInt):Void {
 	// which improves performance.
 **/
 function _symMerge_func(_data:T_lessSwap, _a:GoInt, _m:GoInt, _b:GoInt):Void {
-	if ((_m - _a) == (1 : GoInt)) {
+	if (_m - _a == ((1 : GoInt))) {
 		var _i:GoInt = _m;
 		var _j:GoInt = _b;
 		while (_i < _j) {
@@ -852,7 +852,7 @@ function _symMerge_func(_data:T_lessSwap, _a:GoInt, _m:GoInt, _b:GoInt):Void {
 		};
 		return;
 	};
-	if ((_b - _m) == (1 : GoInt)) {
+	if (_b - _m == ((1 : GoInt))) {
 		var _i:GoInt = _a;
 		var _j:GoInt = _m;
 		while (_i < _j) {
@@ -911,7 +911,7 @@ function _symMerge_func(_data:T_lessSwap, _a:GoInt, _m:GoInt, _b:GoInt):Void {
 function _rotate_func(_data:T_lessSwap, _a:GoInt, _m:GoInt, _b:GoInt):Void {
 	var _i:GoInt = _m - _a;
 	var _j:GoInt = _b - _m;
-	while (_i != _j) {
+	while (_i != (_j)) {
 		if (_i > _j) {
 			_swapRange_func((_data == null ? null : _data.__copy__()), _m - _i, _m, _j);
 			_i = _i - (_j);
@@ -998,7 +998,7 @@ function _pdqsort(_data:Interface, _a:GoInt, _b:GoInt, _limit:GoInt):Void {
 			_insertionSort(_data, _a, _b);
 			return;
 		};
-		if (_limit == (0 : GoInt)) {
+		if (_limit == ((0 : GoInt))) {
 			_heapSort(_data, _a, _b);
 			return;
 		};
@@ -1009,7 +1009,7 @@ function _pdqsort(_data:Interface, _a:GoInt, _b:GoInt, _limit:GoInt):Void {
 		var __tmp__ = _choosePivot(_data, _a, _b),
 			_pivot:GoInt = __tmp__._0,
 			_hint:T_sortedHint = __tmp__._1;
-		if (_hint == (2 : T_sortedHint)) {
+		if (_hint == ((2 : T_sortedHint))) {
 			_reverseRange(_data, _a, _b);
 			_pivot = (_b - (1 : GoInt)) - (_pivot - _a);
 			_hint = (1 : T_sortedHint);
@@ -1120,7 +1120,7 @@ function _partialInsertionSort(_data:Interface, _a:GoInt, _b:GoInt):Bool {
 			while ((_i < _b) && !_data.less(_i, _i - (1 : GoInt))) {
 				_i++;
 			};
-			if (_i == _b) {
+			if (_i == (_b)) {
 				return true;
 			};
 			if ((_b - _a) < (50 : GoInt)) {
@@ -1321,7 +1321,7 @@ function _stable(_data:Interface, _n:GoInt):Void {
 	// which improves performance.
 **/
 function _symMerge(_data:Interface, _a:GoInt, _m:GoInt, _b:GoInt):Void {
-	if ((_m - _a) == (1 : GoInt)) {
+	if (_m - _a == ((1 : GoInt))) {
 		var _i:GoInt = _m;
 		var _j:GoInt = _b;
 		while (_i < _j) {
@@ -1340,7 +1340,7 @@ function _symMerge(_data:Interface, _a:GoInt, _m:GoInt, _b:GoInt):Void {
 		};
 		return;
 	};
-	if ((_b - _m) == (1 : GoInt)) {
+	if (_b - _m == ((1 : GoInt))) {
 		var _i:GoInt = _a;
 		var _j:GoInt = _m;
 		while (_i < _j) {
@@ -1399,7 +1399,7 @@ function _symMerge(_data:Interface, _a:GoInt, _m:GoInt, _b:GoInt):Void {
 function _rotate(_data:Interface, _a:GoInt, _m:GoInt, _b:GoInt):Void {
 	var _i:GoInt = _m - _a;
 	var _j:GoInt = _b - _m;
-	while (_i != _j) {
+	while (_i != (_j)) {
 		if (_i > _j) {
 			_swapRange(_data, _m - _i, _m, _j);
 			_i = _i - (_j);
@@ -1417,25 +1417,27 @@ private class T_reverse_asInterface {
 	**/
 	@:keep
 	public function less(_i:GoInt, _j:GoInt):Bool
-		return __self__.less(_i, _j);
+		return __self__.value.less(_i, _j);
 
 	@:embedded
 	public function swap(_i_:GoInt, _j_:GoInt):Void
-		__self__.swap(_i_, _j_);
+		__self__.value.swap(_i_, _j_);
 
 	@:embedded
 	public function len():GoInt
-		return __self__.len();
+		return __self__.value.len();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_reverse;
+	var __self__:Pointer<T_reverse>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.sort.Sort.T_reverse_asInterface) class T_reverse_static_extension {
@@ -1456,21 +1458,23 @@ private class T_reverse_asInterface {
 		return __self__.len();
 }
 
-@:pointer private class T_xorshift_asInterface {
+private class T_xorshift_asInterface {
 	@:keep
 	@:pointer
 	public function next():GoUInt64
 		return __self__.value.next(__self__);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__.value);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
 	var __self__:Pointer<T_xorshift>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.sort.Sort.T_xorshift_asInterface) class T_xorshift_static_extension {
@@ -1490,36 +1494,38 @@ class IntSlice_asInterface {
 	**/
 	@:keep
 	public function sort():Void
-		__self__.sort();
+		__self__.value.sort();
 
 	@:keep
 	public function swap(_i:GoInt, _j:GoInt):Void
-		__self__.swap(_i, _j);
+		__self__.value.swap(_i, _j);
 
 	@:keep
 	public function less(_i:GoInt, _j:GoInt):Bool
-		return __self__.less(_i, _j);
+		return __self__.value.less(_i, _j);
 
 	@:keep
 	public function len():GoInt
-		return __self__.len();
+		return __self__.value.len();
 
 	/**
 		// Search returns the result of applying SearchInts to the receiver and x.
 	**/
 	@:keep
 	public function search(_x:GoInt):GoInt
-		return __self__.search(_x);
+		return __self__.value.search(_x);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:IntSlice;
+	var __self__:Pointer<IntSlice>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.sort.Sort.IntSlice_asInterface) class IntSlice_static_extension {
@@ -1566,11 +1572,11 @@ class Float64Slice_asInterface {
 	**/
 	@:keep
 	public function sort():Void
-		__self__.sort();
+		__self__.value.sort();
 
 	@:keep
 	public function swap(_i:GoInt, _j:GoInt):Void
-		__self__.swap(_i, _j);
+		__self__.value.swap(_i, _j);
 
 	/**
 		// Less reports whether x[i] should be ordered before x[j], as required by the sort Interface.
@@ -1582,28 +1588,30 @@ class Float64Slice_asInterface {
 	**/
 	@:keep
 	public function less(_i:GoInt, _j:GoInt):Bool
-		return __self__.less(_i, _j);
+		return __self__.value.less(_i, _j);
 
 	@:keep
 	public function len():GoInt
-		return __self__.len();
+		return __self__.value.len();
 
 	/**
 		// Search returns the result of applying SearchFloat64s to the receiver and x.
 	**/
 	@:keep
 	public function search(_x:GoFloat64):GoInt
-		return __self__.search(_x);
+		return __self__.value.search(_x);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:Float64Slice;
+	var __self__:Pointer<Float64Slice>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.sort.Sort.Float64Slice_asInterface) class Float64Slice_static_extension {
@@ -1658,36 +1666,38 @@ class StringSlice_asInterface {
 	**/
 	@:keep
 	public function sort():Void
-		__self__.sort();
+		__self__.value.sort();
 
 	@:keep
 	public function swap(_i:GoInt, _j:GoInt):Void
-		__self__.swap(_i, _j);
+		__self__.value.swap(_i, _j);
 
 	@:keep
 	public function less(_i:GoInt, _j:GoInt):Bool
-		return __self__.less(_i, _j);
+		return __self__.value.less(_i, _j);
 
 	@:keep
 	public function len():GoInt
-		return __self__.len();
+		return __self__.value.len();
 
 	/**
 		// Search returns the result of applying SearchStrings to the receiver and x.
 	**/
 	@:keep
 	public function search(_x:GoString):GoInt
-		return __self__.search(_x);
+		return __self__.value.search(_x);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:StringSlice;
+	var __self__:Pointer<StringSlice>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.sort.Sort.StringSlice_asInterface) class StringSlice_static_extension {

@@ -165,7 +165,7 @@ function trailingZeros8(_x:GoUInt8):GoInt {
 	// TrailingZeros16 returns the number of trailing zero bits in x; the result is 16 for x == 0.
 **/
 function trailingZeros16(_x:GoUInt16):GoInt {
-	if (_x == (0 : GoUInt16)) {
+	if (_x == ((0 : GoUInt16))) {
 		return (16 : GoInt);
 	};
 	return (_deBruijn32tab[
@@ -177,7 +177,7 @@ function trailingZeros16(_x:GoUInt16):GoInt {
 	// TrailingZeros32 returns the number of trailing zero bits in x; the result is 32 for x == 0.
 **/
 function trailingZeros32(_x:GoUInt32):GoInt {
-	if (_x == ("0" : GoUInt32)) {
+	if (_x == (("0" : GoUInt32))) {
 		return (32 : GoInt);
 	};
 	return (_deBruijn32tab[((_x & -_x) * (("125613361" : GoUInt32) : GoUInt32)) >> ("27" : GoUInt64)] : GoInt);
@@ -187,7 +187,7 @@ function trailingZeros32(_x:GoUInt32):GoInt {
 	// TrailingZeros64 returns the number of trailing zero bits in x; the result is 64 for x == 0.
 **/
 function trailingZeros64(_x:GoUInt64):GoInt {
-	if (_x == ("0" : GoUInt64)) {
+	if (_x == (("0" : GoUInt64))) {
 		return (64 : GoInt);
 	};
 	return (_deBruijn64tab[
@@ -723,7 +723,7 @@ function div(_hi:GoUInt, _lo:GoUInt, _y:GoUInt):{var _0:GoUInt; var _1:GoUInt;} 
 **/
 function div32(_hi:GoUInt32, _lo:GoUInt32, _y:GoUInt32):{var _0:GoUInt32; var _1:GoUInt32;} {
 	var _quo:GoUInt32 = (0 : GoUInt32), _rem:GoUInt32 = (0 : GoUInt32);
-	if ((_y != (("0" : GoUInt32) : GoUInt32)) && (_y <= _hi)) {
+	if ((_y != ("0" : GoUInt32)) && (_y <= _hi)) {
 		throw Go.toInterface(_overflowError);
 	};
 	var _z:GoUInt64 = ((_hi : GoUInt64) << (("32" : GoUInt64) : GoUInt64)) | (_lo : GoUInt64);
@@ -745,7 +745,7 @@ function div32(_hi:GoUInt32, _lo:GoUInt32, _y:GoUInt32):{var _0:GoUInt32; var _1
 function div64(_hi:GoUInt64, _lo:GoUInt64, _y:GoUInt64):{var _0:GoUInt64; var _1:GoUInt64;} {
 	var _quo:GoUInt64 = (0 : GoUInt64), _rem:GoUInt64 = (0 : GoUInt64);
 	{};
-	if (_y == ("0" : GoUInt64)) {
+	if (_y == (("0" : GoUInt64))) {
 		throw Go.toInterface(_divideError);
 	};
 	if (_y <= _hi) {
@@ -817,21 +817,23 @@ function rem64(_hi:GoUInt64, _lo:GoUInt64, _y:GoUInt64):GoUInt64 {
 private class T_errorString_asInterface {
 	@:keep
 	public function error():GoString
-		return __self__.error();
+		return __self__.value.error();
 
 	@:keep
 	public function runtimeError():Void
-		__self__.runtimeError();
+		__self__.value.runtimeError();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_errorString;
+	var __self__:Pointer<T_errorString>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.math.bits.Bits.T_errorString_asInterface) class T_errorString_static_extension {

@@ -110,7 +110,7 @@ function testUintSize(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _x:GoUInt = (0 : GoUInt);
 	{
 		var _want:GoUIntptr = (32 : GoUIntptr);
-		if ((32 : GoUIntptr) != _want) {
+		if ((32 : GoUIntptr) != (_want)) {
 			_t.fatalf(Go.str("UintSize = %d; want %d"), Go.toInterface((32 : GoInt)), Go.toInterface(_want));
 		};
 	};
@@ -128,35 +128,35 @@ function testLeadingZeros(_t:Ref<stdgo.testing.Testing.T>):Void {
 					if (_x <= ("255" : GoUInt64)) {
 						var _got:GoInt = leadingZeros8((_x : GoUInt8));
 						var _want:GoInt = (_nlz - _k) + (0 : GoInt);
-						if (_x == ("0" : GoUInt64)) {
+						if (_x == (("0" : GoUInt64))) {
 							_want = (8 : GoInt);
 						};
-						if (_got != _want) {
+						if (_got != (_want)) {
 							_t.fatalf(Go.str("LeadingZeros8(%#02x) == %d; want %d"), Go.toInterface(_x), Go.toInterface(_got), Go.toInterface(_want));
 						};
 					};
 					if (_x <= ("65535" : GoUInt64)) {
 						var _got:GoInt = leadingZeros16((_x : GoUInt16));
 						var _want:GoInt = (_nlz - _k) + (8 : GoInt);
-						if (_x == ("0" : GoUInt64)) {
+						if (_x == (("0" : GoUInt64))) {
 							_want = (16 : GoInt);
 						};
-						if (_got != _want) {
+						if (_got != (_want)) {
 							_t.fatalf(Go.str("LeadingZeros16(%#04x) == %d; want %d"), Go.toInterface(_x), Go.toInterface(_got), Go.toInterface(_want));
 						};
 					};
 					if (_x <= ("4294967295" : GoUInt64)) {
 						var _got:GoInt = leadingZeros32((_x : GoUInt32));
 						var _want:GoInt = (_nlz - _k) + (24 : GoInt);
-						if (_x == ("0" : GoUInt64)) {
+						if (_x == (("0" : GoUInt64))) {
 							_want = (32 : GoInt);
 						};
-						if (_got != _want) {
+						if (_got != (_want)) {
 							_t.fatalf(Go.str("LeadingZeros32(%#08x) == %d; want %d"), Go.toInterface(_x), Go.toInterface(_got), Go.toInterface(_want));
 						};
 						if (true) {
 							_got = leadingZeros((_x : GoUInt));
-							if (_got != _want) {
+							if (_got != (_want)) {
 								_t.fatalf(Go.str("LeadingZeros(%#08x) == %d; want %d"), Go.toInterface(_x), Go.toInterface(_got), Go.toInterface(_want));
 							};
 						};
@@ -164,15 +164,15 @@ function testLeadingZeros(_t:Ref<stdgo.testing.Testing.T>):Void {
 					if (_x <= ("18446744073709551615" : GoUInt64)) {
 						var _got:GoInt = leadingZeros64((_x : GoUInt64));
 						var _want:GoInt = (_nlz - _k) + (56 : GoInt);
-						if (_x == ("0" : GoUInt64)) {
+						if (_x == (("0" : GoUInt64))) {
 							_want = (64 : GoInt);
 						};
-						if (_got != _want) {
+						if (_got != (_want)) {
 							_t.fatalf(Go.str("LeadingZeros64(%#016x) == %d; want %d"), Go.toInterface(_x), Go.toInterface(_got), Go.toInterface(_want));
 						};
 						if (false) {
 							_got = leadingZeros((_x : GoUInt));
-							if (_got != _want) {
+							if (_got != (_want)) {
 								_t.fatalf(Go.str("LeadingZeros(%#016x) == %d; want %d"), Go.toInterface(_x), Go.toInterface(_got), Go.toInterface(_want));
 							};
 						};
@@ -250,48 +250,48 @@ function testTrailingZeros(_t:Ref<stdgo.testing.Testing.T>):Void {
 					var _want:GoInt = _ntz + _k;
 					if (_x <= ("255" : GoUInt64)) {
 						var _got:GoInt = trailingZeros8((_x : GoUInt8));
-						if (_x == ("0" : GoUInt64)) {
+						if (_x == (("0" : GoUInt64))) {
 							_want = (8 : GoInt);
 						};
-						if (_got != _want) {
+						if (_got != (_want)) {
 							_t.fatalf(Go.str("TrailingZeros8(%#02x) == %d; want %d"), Go.toInterface(_x), Go.toInterface(_got), Go.toInterface(_want));
 						};
 					};
 					if (_x <= ("65535" : GoUInt64)) {
 						var _got:GoInt = trailingZeros16((_x : GoUInt16));
-						if (_x == ("0" : GoUInt64)) {
+						if (_x == (("0" : GoUInt64))) {
 							_want = (16 : GoInt);
 						};
-						if (_got != _want) {
+						if (_got != (_want)) {
 							_t.fatalf(Go.str("TrailingZeros16(%#04x) == %d; want %d"), Go.toInterface(_x), Go.toInterface(_got), Go.toInterface(_want));
 						};
 					};
 					if (_x <= ("4294967295" : GoUInt64)) {
 						var _got:GoInt = trailingZeros32((_x : GoUInt32));
-						if (_x == ("0" : GoUInt64)) {
+						if (_x == (("0" : GoUInt64))) {
 							_want = (32 : GoInt);
 						};
-						if (_got != _want) {
+						if (_got != (_want)) {
 							_t.fatalf(Go.str("TrailingZeros32(%#08x) == %d; want %d"), Go.toInterface(_x), Go.toInterface(_got), Go.toInterface(_want));
 						};
 						if (true) {
 							_got = trailingZeros((_x : GoUInt));
-							if (_got != _want) {
+							if (_got != (_want)) {
 								_t.fatalf(Go.str("TrailingZeros(%#08x) == %d; want %d"), Go.toInterface(_x), Go.toInterface(_got), Go.toInterface(_want));
 							};
 						};
 					};
 					if (_x <= ("18446744073709551615" : GoUInt64)) {
 						var _got:GoInt = trailingZeros64((_x : GoUInt64));
-						if (_x == ("0" : GoUInt64)) {
+						if (_x == (("0" : GoUInt64))) {
 							_want = (64 : GoInt);
 						};
-						if (_got != _want) {
+						if (_got != (_want)) {
 							_t.fatalf(Go.str("TrailingZeros64(%#016x) == %d; want %d"), Go.toInterface(_x), Go.toInterface(_got), Go.toInterface(_want));
 						};
 						if (false) {
 							_got = trailingZeros((_x : GoUInt));
-							if (_got != _want) {
+							if (_got != (_want)) {
 								_t.fatalf(Go.str("TrailingZeros(%#016x) == %d; want %d"), Go.toInterface(_x), Go.toInterface(_got), Go.toInterface(_want));
 							};
 						};
@@ -389,36 +389,36 @@ function testOnesCount(_t:Ref<stdgo.testing.Testing.T>):Void {
 function _testOnesCount(_t:Ref<stdgo.testing.Testing.T>, _x:GoUInt64, _want:GoInt):Void {
 	if (_x <= ("255" : GoUInt64)) {
 		var _got:GoInt = onesCount8((_x : GoUInt8));
-		if (_got != _want) {
+		if (_got != (_want)) {
 			_t.fatalf(Go.str("OnesCount8(%#02x) == %d; want %d"), Go.toInterface((_x : GoUInt8)), Go.toInterface(_got), Go.toInterface(_want));
 		};
 	};
 	if (_x <= ("65535" : GoUInt64)) {
 		var _got:GoInt = onesCount16((_x : GoUInt16));
-		if (_got != _want) {
+		if (_got != (_want)) {
 			_t.fatalf(Go.str("OnesCount16(%#04x) == %d; want %d"), Go.toInterface((_x : GoUInt16)), Go.toInterface(_got), Go.toInterface(_want));
 		};
 	};
 	if (_x <= ("4294967295" : GoUInt64)) {
 		var _got:GoInt = onesCount32((_x : GoUInt32));
-		if (_got != _want) {
+		if (_got != (_want)) {
 			_t.fatalf(Go.str("OnesCount32(%#08x) == %d; want %d"), Go.toInterface((_x : GoUInt32)), Go.toInterface(_got), Go.toInterface(_want));
 		};
 		if (true) {
 			_got = onesCount((_x : GoUInt));
-			if (_got != _want) {
+			if (_got != (_want)) {
 				_t.fatalf(Go.str("OnesCount(%#08x) == %d; want %d"), Go.toInterface((_x : GoUInt32)), Go.toInterface(_got), Go.toInterface(_want));
 			};
 		};
 	};
 	if (_x <= ("18446744073709551615" : GoUInt64)) {
 		var _got:GoInt = onesCount64((_x : GoUInt64));
-		if (_got != _want) {
+		if (_got != (_want)) {
 			_t.fatalf(Go.str("OnesCount64(%#016x) == %d; want %d"), Go.toInterface(_x), Go.toInterface(_got), Go.toInterface(_want));
 		};
 		if (false) {
 			_got = onesCount((_x : GoUInt));
-			if (_got != _want) {
+			if (_got != (_want)) {
 				_t.fatalf(Go.str("OnesCount(%#016x) == %d; want %d"), Go.toInterface(_x), Go.toInterface(_got), Go.toInterface(_want));
 			};
 		};
@@ -488,36 +488,36 @@ function testRotateLeft(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _x8:GoUInt8 = (_m : GoUInt8);
 			var _got8:GoUInt8 = rotateLeft8(_x8, (_k : GoInt));
 			var _want8:GoUInt8 = (_x8 << (_k & (("7" : GoUInt) : GoUInt))) | (_x8 >> ((("8" : GoUInt) : GoUInt) - (_k & (("7" : GoUInt) : GoUInt))));
-			if (_got8 != _want8) {
+			if (_got8 != (_want8)) {
 				_t.fatalf(Go.str("RotateLeft8(%#02x, %d) == %#02x; want %#02x"), Go.toInterface(_x8), Go.toInterface(_k), Go.toInterface(_got8),
 					Go.toInterface(_want8));
 			};
 			_got8 = rotateLeft8(_want8, -(_k : GoInt));
-			if (_got8 != _x8) {
+			if (_got8 != (_x8)) {
 				_t.fatalf(Go.str("RotateLeft8(%#02x, -%d) == %#02x; want %#02x"), Go.toInterface(_want8), Go.toInterface(_k), Go.toInterface(_got8),
 					Go.toInterface(_x8));
 			};
 			var _x16:GoUInt16 = (_m : GoUInt16);
 			var _got16:GoUInt16 = rotateLeft16(_x16, (_k : GoInt));
 			var _want16:GoUInt16 = (_x16 << (_k & (("15" : GoUInt) : GoUInt))) | (_x16 >> ((("16" : GoUInt) : GoUInt) - (_k & (("15" : GoUInt) : GoUInt))));
-			if (_got16 != _want16) {
+			if (_got16 != (_want16)) {
 				_t.fatalf(Go.str("RotateLeft16(%#04x, %d) == %#04x; want %#04x"), Go.toInterface(_x16), Go.toInterface(_k), Go.toInterface(_got16),
 					Go.toInterface(_want16));
 			};
 			_got16 = rotateLeft16(_want16, -(_k : GoInt));
-			if (_got16 != _x16) {
+			if (_got16 != (_x16)) {
 				_t.fatalf(Go.str("RotateLeft16(%#04x, -%d) == %#04x; want %#04x"), Go.toInterface(_want16), Go.toInterface(_k), Go.toInterface(_got16),
 					Go.toInterface(_x16));
 			};
 			var _x32:GoUInt32 = (_m : GoUInt32);
 			var _got32:GoUInt32 = rotateLeft32(_x32, (_k : GoInt));
 			var _want32:GoUInt32 = (_x32 << (_k & (("31" : GoUInt) : GoUInt))) | (_x32 >> ((("32" : GoUInt) : GoUInt) - (_k & (("31" : GoUInt) : GoUInt))));
-			if (_got32 != _want32) {
+			if (_got32 != (_want32)) {
 				_t.fatalf(Go.str("RotateLeft32(%#08x, %d) == %#08x; want %#08x"), Go.toInterface(_x32), Go.toInterface(_k), Go.toInterface(_got32),
 					Go.toInterface(_want32));
 			};
 			_got32 = rotateLeft32(_want32, -(_k : GoInt));
-			if (_got32 != _x32) {
+			if (_got32 != (_x32)) {
 				_t.fatalf(Go.str("RotateLeft32(%#08x, -%d) == %#08x; want %#08x"), Go.toInterface(_want32), Go.toInterface(_k), Go.toInterface(_got32),
 					Go.toInterface(_x32));
 			};
@@ -525,12 +525,12 @@ function testRotateLeft(_t:Ref<stdgo.testing.Testing.T>):Void {
 				var _x:GoUInt = (_m : GoUInt);
 				var _got:GoUInt = rotateLeft(_x, (_k : GoInt));
 				var _want:GoUInt = (_x << (_k & (("31" : GoUInt) : GoUInt))) | (_x >> ((("32" : GoUInt) : GoUInt) - (_k & (("31" : GoUInt) : GoUInt))));
-				if (_got != _want) {
+				if (_got != (_want)) {
 					_t.fatalf(Go.str("RotateLeft(%#08x, %d) == %#08x; want %#08x"), Go.toInterface(_x), Go.toInterface(_k), Go.toInterface(_got),
 						Go.toInterface(_want));
 				};
 				_got = rotateLeft(_want, -(_k : GoInt));
-				if (_got != _x) {
+				if (_got != (_x)) {
 					_t.fatalf(Go.str("RotateLeft(%#08x, -%d) == %#08x; want %#08x"), Go.toInterface(_want), Go.toInterface(_k), Go.toInterface(_got),
 						Go.toInterface(_x));
 				};
@@ -538,12 +538,12 @@ function testRotateLeft(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _x64:GoUInt64 = (_m : GoUInt64);
 			var _got64:GoUInt64 = rotateLeft64(_x64, (_k : GoInt));
 			var _want64:GoUInt64 = (_x64 << (_k & (("63" : GoUInt) : GoUInt))) | (_x64 >> ((("64" : GoUInt) : GoUInt) - (_k & (("63" : GoUInt) : GoUInt))));
-			if (_got64 != _want64) {
+			if (_got64 != (_want64)) {
 				_t.fatalf(Go.str("RotateLeft64(%#016x, %d) == %#016x; want %#016x"), Go.toInterface(_x64), Go.toInterface(_k), Go.toInterface(_got64),
 					Go.toInterface(_want64));
 			};
 			_got64 = rotateLeft64(_want64, -(_k : GoInt));
-			if (_got64 != _x64) {
+			if (_got64 != (_x64)) {
 				_t.fatalf(Go.str("RotateLeft64(%#016x, -%d) == %#016x; want %#016x"), Go.toInterface(_want64), Go.toInterface(_k), Go.toInterface(_got64),
 					Go.toInterface(_x64));
 			};
@@ -551,12 +551,12 @@ function testRotateLeft(_t:Ref<stdgo.testing.Testing.T>):Void {
 				var _x:GoUInt = (_m : GoUInt);
 				var _got:GoUInt = rotateLeft(_x, (_k : GoInt));
 				var _want:GoUInt = (_x << (_k & (("63" : GoUInt) : GoUInt))) | (_x >> ((("64" : GoUInt) : GoUInt) - (_k & (("63" : GoUInt) : GoUInt))));
-				if (_got != _want) {
+				if (_got != (_want)) {
 					_t.fatalf(Go.str("RotateLeft(%#016x, %d) == %#016x; want %#016x"), Go.toInterface(_x), Go.toInterface(_k), Go.toInterface(_got),
 						Go.toInterface(_want));
 				};
 				_got = rotateLeft(_want, -(_k : GoInt));
-				if (_got != _x) {
+				if (_got != (_x)) {
 					_t.fatalf(Go.str("RotateLeft(%#08x, -%d) == %#08x; want %#08x"), Go.toInterface(_want), Go.toInterface(_k), Go.toInterface(_got),
 						Go.toInterface(_x));
 				};
@@ -654,38 +654,38 @@ function _testReverse(_t:Ref<stdgo.testing.Testing.T>, _x64:GoUInt64, _want64:Go
 	var _x8:GoUInt8 = (_x64 : GoUInt8);
 	var _got8:GoUInt8 = reverse8(_x8);
 	var _want8:GoUInt8 = (_want64 >> ("56" : GoUInt64) : GoUInt8);
-	if (_got8 != _want8) {
+	if (_got8 != (_want8)) {
 		_t.fatalf(Go.str("Reverse8(%#02x) == %#02x; want %#02x"), Go.toInterface(_x8), Go.toInterface(_got8), Go.toInterface(_want8));
 	};
 	var _x16:GoUInt16 = (_x64 : GoUInt16);
 	var _got16:GoUInt16 = reverse16(_x16);
 	var _want16:GoUInt16 = (_want64 >> ("48" : GoUInt64) : GoUInt16);
-	if (_got16 != _want16) {
+	if (_got16 != (_want16)) {
 		_t.fatalf(Go.str("Reverse16(%#04x) == %#04x; want %#04x"), Go.toInterface(_x16), Go.toInterface(_got16), Go.toInterface(_want16));
 	};
 	var _x32:GoUInt32 = (_x64 : GoUInt32);
 	var _got32:GoUInt32 = reverse32(_x32);
 	var _want32:GoUInt32 = (_want64 >> ("32" : GoUInt64) : GoUInt32);
-	if (_got32 != _want32) {
+	if (_got32 != (_want32)) {
 		_t.fatalf(Go.str("Reverse32(%#08x) == %#08x; want %#08x"), Go.toInterface(_x32), Go.toInterface(_got32), Go.toInterface(_want32));
 	};
 	if (true) {
 		var _x:GoUInt = (_x32 : GoUInt);
 		var _got:GoUInt = reverse(_x);
 		var _want:GoUInt = (_want32 : GoUInt);
-		if (_got != _want) {
+		if (_got != (_want)) {
 			_t.fatalf(Go.str("Reverse(%#08x) == %#08x; want %#08x"), Go.toInterface(_x), Go.toInterface(_got), Go.toInterface(_want));
 		};
 	};
 	var _got64:GoUInt64 = reverse64(_x64);
-	if (_got64 != _want64) {
+	if (_got64 != (_want64)) {
 		_t.fatalf(Go.str("Reverse64(%#016x) == %#016x; want %#016x"), Go.toInterface(_x64), Go.toInterface(_got64), Go.toInterface(_want64));
 	};
 	if (false) {
 		var _x:GoUInt = (_x64 : GoUInt);
 		var _got:GoUInt = reverse(_x);
 		var _want:GoUInt = (_want64 : GoUInt);
-		if (_got != _want) {
+		if (_got != (_want)) {
 			_t.fatalf(Go.str("Reverse(%#08x) == %#016x; want %#016x"), Go.toInterface(_x), Go.toInterface(_got), Go.toInterface(_want));
 		};
 	};
@@ -765,32 +765,32 @@ function _testReverseBytes(_t:Ref<stdgo.testing.Testing.T>, _x64:GoUInt64, _want
 	var _x16:GoUInt16 = (_x64 : GoUInt16);
 	var _got16:GoUInt16 = reverseBytes16(_x16);
 	var _want16:GoUInt16 = (_want64 >> ("48" : GoUInt64) : GoUInt16);
-	if (_got16 != _want16) {
+	if (_got16 != (_want16)) {
 		_t.fatalf(Go.str("ReverseBytes16(%#04x) == %#04x; want %#04x"), Go.toInterface(_x16), Go.toInterface(_got16), Go.toInterface(_want16));
 	};
 	var _x32:GoUInt32 = (_x64 : GoUInt32);
 	var _got32:GoUInt32 = reverseBytes32(_x32);
 	var _want32:GoUInt32 = (_want64 >> ("32" : GoUInt64) : GoUInt32);
-	if (_got32 != _want32) {
+	if (_got32 != (_want32)) {
 		_t.fatalf(Go.str("ReverseBytes32(%#08x) == %#08x; want %#08x"), Go.toInterface(_x32), Go.toInterface(_got32), Go.toInterface(_want32));
 	};
 	if (true) {
 		var _x:GoUInt = (_x32 : GoUInt);
 		var _got:GoUInt = reverseBytes(_x);
 		var _want:GoUInt = (_want32 : GoUInt);
-		if (_got != _want) {
+		if (_got != (_want)) {
 			_t.fatalf(Go.str("ReverseBytes(%#08x) == %#08x; want %#08x"), Go.toInterface(_x), Go.toInterface(_got), Go.toInterface(_want));
 		};
 	};
 	var _got64:GoUInt64 = reverseBytes64(_x64);
-	if (_got64 != _want64) {
+	if (_got64 != (_want64)) {
 		_t.fatalf(Go.str("ReverseBytes64(%#016x) == %#016x; want %#016x"), Go.toInterface(_x64), Go.toInterface(_got64), Go.toInterface(_want64));
 	};
 	if (false) {
 		var _x:GoUInt = (_x64 : GoUInt);
 		var _got:GoUInt = reverseBytes(_x);
 		var _want:GoUInt = (_want64 : GoUInt);
-		if (_got != _want) {
+		if (_got != (_want)) {
 			_t.fatalf(Go.str("ReverseBytes(%#016x) == %#016x; want %#016x"), Go.toInterface(_x), Go.toInterface(_got), Go.toInterface(_want));
 		};
 	};
@@ -850,41 +850,41 @@ function testLen(_t:Ref<stdgo.testing.Testing.T>):Void {
 				Go.cfor(_k < (56:GoInt), _k++, {
 					var _x:GoUInt64 = (_i : GoUInt64) << (_k : GoUInt);
 					var _want:GoInt = (0 : GoInt);
-					if (_x != ("0" : GoUInt64)) {
+					if (_x != (("0" : GoUInt64))) {
 						_want = _len + _k;
 					};
 					if (_x <= ("255" : GoUInt64)) {
 						var _got:GoInt = len8((_x : GoUInt8));
-						if (_got != _want) {
+						if (_got != (_want)) {
 							_t.fatalf(Go.str("Len8(%#02x) == %d; want %d"), Go.toInterface(_x), Go.toInterface(_got), Go.toInterface(_want));
 						};
 					};
 					if (_x <= ("65535" : GoUInt64)) {
 						var _got:GoInt = len16((_x : GoUInt16));
-						if (_got != _want) {
+						if (_got != (_want)) {
 							_t.fatalf(Go.str("Len16(%#04x) == %d; want %d"), Go.toInterface(_x), Go.toInterface(_got), Go.toInterface(_want));
 						};
 					};
 					if (_x <= ("4294967295" : GoUInt64)) {
 						var _got:GoInt = len32((_x : GoUInt32));
-						if (_got != _want) {
+						if (_got != (_want)) {
 							_t.fatalf(Go.str("Len32(%#08x) == %d; want %d"), Go.toInterface(_x), Go.toInterface(_got), Go.toInterface(_want));
 						};
 						if (true) {
 							var _got:GoInt = len((_x : GoUInt));
-							if (_got != _want) {
+							if (_got != (_want)) {
 								_t.fatalf(Go.str("Len(%#08x) == %d; want %d"), Go.toInterface(_x), Go.toInterface(_got), Go.toInterface(_want));
 							};
 						};
 					};
 					if (_x <= ("18446744073709551615" : GoUInt64)) {
 						var _got:GoInt = len64((_x : GoUInt64));
-						if (_got != _want) {
+						if (_got != (_want)) {
 							_t.fatalf(Go.str("Len64(%#016x) == %d; want %d"), Go.toInterface(_x), Go.toInterface(_got), Go.toInterface(_want));
 						};
 						if (false) {
 							var _got:GoInt = len((_x : GoUInt));
-							if (_got != _want) {
+							if (_got != (_want)) {
 								_t.fatalf(Go.str("Len(%#016x) == %d; want %d"), Go.toInterface(_x), Go.toInterface(_got), Go.toInterface(_want));
 							};
 						};
@@ -1195,25 +1195,25 @@ function testAdd64OverflowPanic(_t:Ref<stdgo.testing.Testing.T>):Void {
 		return _x;
 	}, function(_a:GoUInt64, _b:GoUInt64):GoUInt64 {
 		var __tmp__ = add64(_a, _b, ("0" : GoUInt64)), _x:GoUInt64 = __tmp__._0, _c:GoUInt64 = __tmp__._1;
-		if (_c != ("0" : GoUInt64)) {
+		if (_c != (("0" : GoUInt64))) {
 			throw Go.toInterface(Go.str("overflow"));
 		};
 		return _x;
 	}, function(_a:GoUInt64, _b:GoUInt64):GoUInt64 {
 		var __tmp__ = add64(_a, _b, ("0" : GoUInt64)), _x:GoUInt64 = __tmp__._0, _c:GoUInt64 = __tmp__._1;
-		if (_c == ("1" : GoUInt64)) {
+		if (_c == (("1" : GoUInt64))) {
 			throw Go.toInterface(Go.str("overflow"));
 		};
 		return _x;
 	}, function(_a:GoUInt64, _b:GoUInt64):GoUInt64 {
 		var __tmp__ = add64(_a, _b, ("0" : GoUInt64)), _x:GoUInt64 = __tmp__._0, _c:GoUInt64 = __tmp__._1;
-		if (_c != ("1" : GoUInt64)) {
+		if (_c != (("1" : GoUInt64))) {
 			return _x;
 		};
 		throw Go.toInterface(Go.str("overflow"));
 	}, function(_a:GoUInt64, _b:GoUInt64):GoUInt64 {
 		var __tmp__ = add64(_a, _b, ("0" : GoUInt64)), _x:GoUInt64 = __tmp__._0, _c:GoUInt64 = __tmp__._1;
-		if (_c == ("0" : GoUInt64)) {
+		if (_c == (("0" : GoUInt64))) {
 			return _x;
 		};
 		throw Go.toInterface(Go.str("overflow"));
@@ -1285,25 +1285,25 @@ function testSub64OverflowPanic(_t:Ref<stdgo.testing.Testing.T>):Void {
 		return _x;
 	}, function(_a:GoUInt64, _b:GoUInt64):GoUInt64 {
 		var __tmp__ = sub64(_a, _b, ("0" : GoUInt64)), _x:GoUInt64 = __tmp__._0, _c:GoUInt64 = __tmp__._1;
-		if (_c != ("0" : GoUInt64)) {
+		if (_c != (("0" : GoUInt64))) {
 			throw Go.toInterface(Go.str("overflow"));
 		};
 		return _x;
 	}, function(_a:GoUInt64, _b:GoUInt64):GoUInt64 {
 		var __tmp__ = sub64(_a, _b, ("0" : GoUInt64)), _x:GoUInt64 = __tmp__._0, _c:GoUInt64 = __tmp__._1;
-		if (_c == ("1" : GoUInt64)) {
+		if (_c == (("1" : GoUInt64))) {
 			throw Go.toInterface(Go.str("overflow"));
 		};
 		return _x;
 	}, function(_a:GoUInt64, _b:GoUInt64):GoUInt64 {
 		var __tmp__ = sub64(_a, _b, ("0" : GoUInt64)), _x:GoUInt64 = __tmp__._0, _c:GoUInt64 = __tmp__._1;
-		if (_c != ("1" : GoUInt64)) {
+		if (_c != (("1" : GoUInt64))) {
 			return _x;
 		};
 		throw Go.toInterface(Go.str("overflow"));
 	}, function(_a:GoUInt64, _b:GoUInt64):GoUInt64 {
 		var __tmp__ = sub64(_a, _b, ("0" : GoUInt64)), _x:GoUInt64 = __tmp__._0, _c:GoUInt64 = __tmp__._1;
-		if (_c == ("0" : GoUInt64)) {
+		if (_c == (("0" : GoUInt64))) {
 			return _x;
 		};
 		throw Go.toInterface(Go.str("overflow"));
@@ -1896,7 +1896,7 @@ function testRem32(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var __tmp__ = div32(_hi, _lo, _y),
 				_0:GoUInt32 = __tmp__._0,
 				_r2:GoUInt32 = __tmp__._1;
-			if (_r != _r2) {
+			if (_r != (_r2)) {
 				_t.errorf(Go.str("Rem32(%v, %v, %v) returned %v, but Div32 returned rem %v"), Go.toInterface(_hi), Go.toInterface(_lo), Go.toInterface(_y),
 					Go.toInterface(_r), Go.toInterface(_r2));
 			};
@@ -1916,7 +1916,7 @@ function testRem32Overflow(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var __tmp__ = div64(("0" : GoUInt64), ((_hi : GoUInt64) << (("32" : GoUInt64) : GoUInt64)) | (_lo : GoUInt64), (_y : GoUInt64)),
 				_0:GoUInt64 = __tmp__._0,
 				_r2:GoUInt64 = __tmp__._1;
-			if (_r != (_r2 : GoUInt32)) {
+			if (_r != ((_r2 : GoUInt32))) {
 				_t.errorf(Go.str("Rem32(%v, %v, %v) returned %v, but Div64 returned rem %v"), Go.toInterface(_hi), Go.toInterface(_lo), Go.toInterface(_y),
 					Go.toInterface(_r), Go.toInterface(_r2));
 			};
@@ -1936,7 +1936,7 @@ function testRem64(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var __tmp__ = div64(_hi, _lo, _y),
 				_0:GoUInt64 = __tmp__._0,
 				_r2:GoUInt64 = __tmp__._1;
-			if (_r != _r2) {
+			if (_r != (_r2)) {
 				_t.errorf(Go.str("Rem64(%v, %v, %v) returned %v, but Div64 returned rem %v"), Go.toInterface(_hi), Go.toInterface(_lo), Go.toInterface(_y),
 					Go.toInterface(_r), Go.toInterface(_r2));
 			};
@@ -1987,7 +1987,7 @@ function testRem64Overflow(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_t.fatalf(Go.str("Rem64(%v, %v, %v) is not a test with quo overflow"), Go.toInterface(_rt._hi), Go.toInterface(_rt._lo), Go.toInterface(_rt._y));
 		};
 		var _rem:GoUInt64 = rem64(_rt._hi, _rt._lo, _rt._y);
-		if (_rem != _rt._rem) {
+		if (_rem != (_rt._rem)) {
 			_t.errorf(Go.str("Rem64(%v, %v, %v) returned %v, wanted %v"), Go.toInterface(_rt._hi), Go.toInterface(_rt._lo), Go.toInterface(_rt._y),
 				Go.toInterface(_rem), Go.toInterface(_rt._rem));
 		};
@@ -2568,21 +2568,21 @@ function exampleLen64():Void {
 			Go.cfor(_i < (_tab.length), _i++, {
 				var _x:GoInt = _i;
 				var _n:GoInt = (0 : GoInt);
-				while ((_x & (128 : GoInt)) == (0 : GoInt)) {
+				while (_x & (128 : GoInt) == ((0 : GoInt))) {
 					_n++;
 					_x = _x << (("1" : GoUInt64));
 				};
 				_tab[_i]._nlz = _n;
 				_x = _i;
 				_n = (0 : GoInt);
-				while ((_x & (1 : GoInt)) == (0 : GoInt)) {
+				while (_x & (1 : GoInt) == ((0 : GoInt))) {
 					_n++;
 					_x = _x >> (("1" : GoUInt64));
 				};
 				_tab[_i]._ntz = _n;
 				_x = _i;
 				_n = (0 : GoInt);
-				while (_x != (0 : GoInt)) {
+				while (_x != ((0 : GoInt))) {
 					_n = _n + ((_x & (1 : GoInt) : GoInt));
 					_x = _x >> (("1" : GoUInt64));
 				};

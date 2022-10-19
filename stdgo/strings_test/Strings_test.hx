@@ -565,7 +565,7 @@ private var _isUpper:stdgo.strings_test.Strings_test.T_predicate = (new stdgo.st
 	Go.str("IsUpper")) : stdgo.strings_test.Strings_test.T_predicate);
 
 private var _isValidRune:stdgo.strings_test.Strings_test.T_predicate = (new stdgo.strings_test.Strings_test.T_predicate(function(_r:GoRune):Bool {
-	return _r != (65533 : GoInt32);
+	return _r != ((65533 : GoInt32));
 }, Go.str("IsValidRune")) : stdgo.strings_test.Strings_test.T_predicate);
 
 private var _trimFuncTests:Slice<T__struct_14> = (new Slice<T__struct_14>(0, 0, ({
@@ -1075,7 +1075,7 @@ private var _makeFieldsInput:() -> GoString = function():GoString {
 private var _makeFieldsInputASCII:() -> GoString = function():GoString {
 	var _x = new Slice<GoUInt8>((1048576 : GoInt).toBasic(), 0, ...[for (i in 0...(1048576 : GoInt).toBasic()) (0 : GoUInt8)]);
 	for (_i => _ in _x) {
-		if (stdgo.math.rand.Rand.intn((10 : GoInt)) == (0 : GoInt)) {
+		if (stdgo.math.rand.Rand.intn((10 : GoInt)) == ((0 : GoInt))) {
 			_x[_i] = (" ".code : GoRune);
 		} else {
 			_x[_i] = ("x".code : GoRune);
@@ -1388,13 +1388,13 @@ private var _stringSink:GoString = ("" : GoString);
 function _check(_t:Ref<stdgo.testing.Testing.T>, _b:Ref<Builder>, _want:GoString):Void {
 	_t.helper();
 	var _got:GoString = (_b.string() : GoString);
-	if (_got != _want) {
+	if (_got != (_want)) {
 		_t.errorf(Go.str("String: got %#q; want %#q"), Go.toInterface(_got), Go.toInterface(_want));
 		return;
 	};
 	{
 		var _n:GoInt = _b.len();
-		if (_n != (_got.length)) {
+		if (_n != ((_got.length))) {
 			_t.errorf(Go.str("Len: got %d; but len(String()) is %d"), Go.toInterface(_n), Go.toInterface((_got.length)));
 		};
 	};
@@ -1447,19 +1447,19 @@ function testBuilderString(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _s3:GoString = (_b.string() : GoString);
 	{
 		var _want:GoString = Go.str("alpha");
-		if (_s1 != _want) {
+		if (_s1 != (_want)) {
 			_t.errorf(Go.str("first String result is now %q; want %q"), Go.toInterface(_s1), Go.toInterface(_want));
 		};
 	};
 	{
 		var _want:GoString = Go.str("alphabeta");
-		if (_s2 != _want) {
+		if (_s2 != (_want)) {
 			_t.errorf(Go.str("second String result is now %q; want %q"), Go.toInterface(_s2), Go.toInterface(_want));
 		};
 	};
 	{
 		var _want:GoString = Go.str("alphabetagamma");
-		if (_s3 != _want) {
+		if (_s3 != (_want)) {
 			_t.errorf(Go.str("third String result is now %q; want %q"), Go.toInterface(_s3), Go.toInterface(_want));
 		};
 	};
@@ -1477,7 +1477,7 @@ function testBuilderReset(_t:Ref<stdgo.testing.Testing.T>):Void {
 	_check(_t, (_b : Ref<Builder>), Go.str("bbb"));
 	{
 		var _want:GoString = Go.str("aaa");
-		if (_s != _want) {
+		if (_s != (_want)) {
 			_t.errorf(Go.str("previous String result changed after Reset: got %q; want %q"), Go.toInterface(_s), Go.toInterface(_want));
 		};
 	};
@@ -1493,17 +1493,17 @@ function testBuilderGrow(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_t.fatalf(Go.str("growLen=%d: Cap() is lower than growLen"), Go.toInterface(_growLen));
 			};
 			_b.write(_p);
-			if ((_b.string() : GoString) != (_p : GoString)) {
+			if ((_b.string() : GoString) != ((_p : GoString))) {
 				_t.fatalf(Go.str("growLen=%d: bad data written after Grow"), Go.toInterface(_growLen));
 			};
 		});
 		var _wantAllocs:GoInt = (1 : GoInt);
-		if (_growLen == (0 : GoInt)) {
+		if (_growLen == ((0 : GoInt))) {
 			_wantAllocs = (0 : GoInt);
 		};
 		{
 			var _g:GoInt = (_allocs : GoInt), _w:GoInt = _wantAllocs;
-			if (_g != _w) {
+			if (_g != (_w)) {
 				_t.errorf(Go.str("growLen=%d: got %d allocs during Write; want %v"), Go.toInterface(_growLen), Go.toInterface(_g), Go.toInterface(_w));
 			};
 		};
@@ -1549,7 +1549,7 @@ function testBuilderWrite2(_t:Ref<stdgo.testing.Testing.T>):Void {
 			if (_err != null) {
 				_t.fatalf(Go.str("first call: got %s"), Go.toInterface(_err));
 			};
-			if (_n != _tt._n) {
+			if (_n != (_tt._n)) {
 				_t.errorf(Go.str("first call: got n=%d; want %d"), Go.toInterface(_n), Go.toInterface(_tt._n));
 			};
 			_check(_t, (_b : Ref<Builder>), _tt._want);
@@ -1561,7 +1561,7 @@ function testBuilderWrite2(_t:Ref<stdgo.testing.Testing.T>):Void {
 			if (_err != null) {
 				_t.fatalf(Go.str("second call: got %s"), Go.toInterface(_err));
 			};
-			if (_n != _tt._n) {
+			if (_n != (_tt._n)) {
 				_t.errorf(Go.str("second call: got n=%d; want %d"), Go.toInterface(_n), Go.toInterface(_tt._n));
 			};
 			_check(_t, (_b : Ref<Builder>), _tt._want + _tt._want);
@@ -1649,7 +1649,7 @@ function testBuilderCopyPanic(_t:Ref<stdgo.testing.Testing.T>):Void {
 		});
 		{
 			var _got:Bool = _didPanic.__get__();
-			if (_got != _tt._wantPanic) {
+			if (_got != (_tt._wantPanic)) {
 				_t.errorf(Go.str("%s: panicked = %v; want %v"), Go.toInterface(_tt._name), Go.toInterface(_got), Go.toInterface(_tt._wantPanic));
 			};
 		};
@@ -1727,7 +1727,7 @@ function testClone(_t:Ref<stdgo.testing.Testing.T>):Void {
 		stdgo.strings.Strings.repeat(Go.str("a"), (42 : GoInt))) : Slice<GoString>);
 	for (_0 => _input in _cloneTests) {
 		var _clone:GoString = stdgo.strings.Strings.clone(_input);
-		if (_clone != _input) {
+		if (_clone != (_input)) {
 			_t.errorf(Go.str("Clone(%q) = %q; want %q"), Go.toInterface(_input), Go.toInterface(_clone), Go.toInterface(_input));
 		};
 		var _inputHeader = ((Go.toInterface(Go.pointer(_input)) : stdgo.unsafe.Unsafe.UnsafePointer)
@@ -1801,7 +1801,7 @@ function benchmarkClone(_b:Ref<stdgo.testing.Testing.B>):Void {
 function testCompare(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _compareTests) {
 		var _cmp:GoInt = compare(_tt._a, _tt._b);
-		if (_cmp != _tt._i) {
+		if (_cmp != (_tt._i)) {
 			_t.errorf("Compare(%q, %q) = %v", Go.toInterface(_tt._a), Go.toInterface(_tt._b), Go.toInterface(_cmp));
 		};
 	};
@@ -1809,10 +1809,10 @@ function testCompare(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testCompareIdenticalString(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _s:GoString = Go.str("Hello Gophers!");
-	if (compare(_s, _s) != (0 : GoInt)) {
+	if (compare(_s, _s) != ((0 : GoInt))) {
 		_t.error(Go.toInterface(Go.str("s != s")));
 	};
-	if (compare(_s, (_s.__slice__(0, (1 : GoInt)) : GoString)) != (1 : GoInt)) {
+	if (compare(_s, (_s.__slice__(0, (1 : GoInt)) : GoString)) != ((1 : GoInt))) {
 		_t.error(Go.toInterface(Go.str("s > s[:1] failed")));
 	};
 }
@@ -1854,16 +1854,16 @@ function testCompareStrings(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 		var _sa:GoString = _unsafeString(_a), _sb:GoString = _unsafeString(_b);
 		var _cmp:GoInt = compare((_sa.__slice__(0, _len) : GoString), (_sb.__slice__(0, _len) : GoString));
-		if (_cmp != (0 : GoInt)) {
+		if (_cmp != ((0 : GoInt))) {
 			_t.errorf("CompareIdentical(%d) = %d", Go.toInterface(_len), Go.toInterface(_cmp));
 		};
 		if (_len > (0 : GoInt)) {
 			_cmp = compare((_sa.__slice__(0, _len - (1 : GoInt)) : GoString), (_sb.__slice__(0, _len) : GoString));
-			if (_cmp != (-1 : GoInt)) {
+			if (_cmp != ((-1 : GoInt))) {
 				_t.errorf("CompareAshorter(%d) = %d", Go.toInterface(_len), Go.toInterface(_cmp));
 			};
 			_cmp = compare((_sa.__slice__(0, _len) : GoString), (_sb.__slice__(0, _len - (1 : GoInt)) : GoString));
-			if (_cmp != (1 : GoInt)) {
+			if (_cmp != ((1 : GoInt))) {
 				_t.errorf("CompareBshorter(%d) = %d", Go.toInterface(_len), Go.toInterface(_cmp));
 			};
 		};
@@ -1872,12 +1872,12 @@ function testCompareStrings(_t:Ref<stdgo.testing.Testing.T>):Void {
 			Go.cfor(_k < _len, _k++, {
 				_b[_k] = _a[_k] - (1 : GoUInt8);
 				_cmp = compare(_unsafeString((_a.__slice__(0, _len) : Slice<GoUInt8>)), _unsafeString((_b.__slice__(0, _len) : Slice<GoUInt8>)));
-				if (_cmp != (1 : GoInt)) {
+				if (_cmp != ((1 : GoInt))) {
 					_t.errorf("CompareAbigger(%d,%d) = %d", Go.toInterface(_len), Go.toInterface(_k), Go.toInterface(_cmp));
 				};
 				_b[_k] = _a[_k] + (1 : GoUInt8);
 				_cmp = compare(_unsafeString((_a.__slice__(0, _len) : Slice<GoUInt8>)), _unsafeString((_b.__slice__(0, _len) : Slice<GoUInt8>)));
-				if (_cmp != (-1 : GoInt)) {
+				if (_cmp != ((-1 : GoInt))) {
 					_t.errorf("CompareBbigger(%d,%d) = %d", Go.toInterface(_len), Go.toInterface(_k), Go.toInterface(_cmp));
 				};
 				_b[_k] = _a[_k];
@@ -2249,19 +2249,19 @@ function testReader(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_t.errorf(Go.str("%d. seek error = %q; want %q"), Go.toInterface(_i), Go.toInterface(_err.error()), Go.toInterface(_tt._seekerr));
 			continue;
 		};
-		if ((_tt._wantpos != (("0" : GoInt64) : GoInt64)) && (_tt._wantpos != _pos)) {
+		if ((_tt._wantpos != ("0" : GoInt64)) && (_tt._wantpos != _pos)) {
 			_t.errorf(Go.str("%d. pos = %d, want %d"), Go.toInterface(_i), Go.toInterface(_pos), Go.toInterface(_tt._wantpos));
 		};
 		var _buf = new Slice<GoUInt8>((_tt._n : GoInt).toBasic(), 0, ...[for (i in 0...(_tt._n : GoInt).toBasic()) (0 : GoUInt8)]);
 		var __tmp__ = _r.read(_buf),
 			_n:GoInt = __tmp__._0,
 			_err:Error = __tmp__._1;
-		if (_err != _tt._readerr) {
+		if (Go.toInterface(_err) != (Go.toInterface(_tt._readerr))) {
 			_t.errorf(Go.str("%d. read = %v; want %v"), Go.toInterface(_i), Go.toInterface(_err), Go.toInterface(_tt._readerr));
 			continue;
 		};
 		var _got:GoString = ((_buf.__slice__(0, _n) : Slice<GoUInt8>) : GoString);
-		if (_got != _tt._want) {
+		if (_got != (_tt._want)) {
 			_t.errorf(Go.str("%d. got %q; want %q"), Go.toInterface(_i), Go.toInterface(_got), Go.toInterface(_tt._want));
 		};
 	};
@@ -2281,7 +2281,7 @@ function testReadAfterBigSeek(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var __tmp__ = _r.read(new Slice<GoUInt8>((10 : GoInt).toBasic(), 0, ...[for (i in 0...(10 : GoInt).toBasic()) (0 : GoUInt8)])),
 			_n:GoInt = __tmp__._0,
 			_err:Error = __tmp__._1;
-		if ((_n != (0 : GoInt)) || (_err != stdgo.io.Io.eof)) {
+		if ((_n != (0 : GoInt)) || (Go.toInterface(_err) != Go.toInterface(stdgo.io.Io.eof))) {
 			_t.errorf(Go.str("Read = %d, %v; want 0, EOF"), Go.toInterface(_n), Go.toInterface(_err));
 		};
 	};
@@ -2326,10 +2326,10 @@ function testReaderAt(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_rn:GoInt = __tmp__._0,
 			_err:Error = __tmp__._1;
 		var _got:GoString = ((_b.__slice__(0, _rn) : Slice<GoUInt8>) : GoString);
-		if (_got != _tt._want) {
+		if (_got != (_tt._want)) {
 			_t.errorf(Go.str("%d. got %q; want %q"), Go.toInterface(_i), Go.toInterface(_got), Go.toInterface(_tt._want));
 		};
-		if (stdgo.fmt.Fmt.sprintf(Go.str("%v"), Go.toInterface(_err)) != stdgo.fmt.Fmt.sprintf(Go.str("%v"), _tt._wanterr)) {
+		if (stdgo.fmt.Fmt.sprintf(Go.str("%v"), Go.toInterface(_err)) != (stdgo.fmt.Fmt.sprintf(Go.str("%v"), _tt._wanterr))) {
 			_t.errorf(Go.str("%d. got error = %v; want %v"), Go.toInterface(_i), Go.toInterface(_err), _tt._wanterr);
 		};
 	};
@@ -2467,17 +2467,17 @@ function testWriteTo(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_err:Error = __tmp__._1;
 			{
 				var _expect:GoInt64 = (_s.length : GoInt64);
-				if (_n != _expect) {
+				if (_n != (_expect)) {
 					_t.errorf(Go.str("got %v; want %v"), Go.toInterface(_n), Go.toInterface(_expect));
 				};
 			};
 			if (_err != null) {
 				_t.errorf(Go.str("for length %d: got error = %v; want nil"), Go.toInterface((_s.length)), Go.toInterface(_err));
 			};
-			if ((_b.string() : GoString) != _s) {
+			if ((_b.string() : GoString) != (_s)) {
 				_t.errorf(Go.str("got string %q; want %q"), Go.toInterface((_b.string() : GoString)), Go.toInterface(_s));
 			};
-			if (_r.len() != (0 : GoInt)) {
+			if (_r.len() != ((0 : GoInt))) {
 				_t.errorf(Go.str("reader contains %v bytes; want 0"), Go.toInterface(_r.len()));
 			};
 		});
@@ -2490,10 +2490,10 @@ function testWriteTo(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testReaderLenSize(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _r = stdgo.strings.Strings.newReader(Go.str("abc"));
 	stdgo.io.Io.copyN(stdgo.io.Io.discard, Go.asInterface(_r), ("1" : GoInt64));
-	if (_r.len() != (2 : GoInt)) {
+	if (_r.len() != ((2 : GoInt))) {
 		_t.errorf(Go.str("Len = %d; want 2"), Go.toInterface(_r.len()));
 	};
-	if (_r.size() != ("3" : GoInt64)) {
+	if (_r.size() != (("3" : GoInt64))) {
 		_t.errorf(Go.str("Size = %d; want 3"), Go.toInterface(_r.size()));
 	};
 }
@@ -2525,7 +2525,7 @@ function testReaderReset(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	{
 		var _got:GoString = (_buf : GoString);
-		if (_got != Go.str("abcdef")) {
+		if (_got != (Go.str("abcdef"))) {
 			_t.errorf(Go.str("ReadAll: got %q, want %q"), Go.toInterface(_got), Go.toInterface(Go.str("abcdef")));
 		};
 	};
@@ -2534,7 +2534,7 @@ function testReaderReset(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testReaderZero(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _l:GoInt = (((new Reader() : Reader) : Ref<Reader>)).len();
-		if (_l != (0 : GoInt)) {
+		if (_l != ((0 : GoInt))) {
 			_t.errorf(Go.str("Len: got %d, want 0"), Go.toInterface(_l));
 		};
 	};
@@ -2542,7 +2542,7 @@ function testReaderZero(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var __tmp__ = (((new Reader() : Reader) : Ref<Reader>)).read((null : Slice<GoUInt8>)),
 			_n:GoInt = __tmp__._0,
 			_err:Error = __tmp__._1;
-		if ((_n != (0 : GoInt)) || (_err != stdgo.io.Io.eof)) {
+		if ((_n != (0 : GoInt)) || (Go.toInterface(_err) != Go.toInterface(stdgo.io.Io.eof))) {
 			_t.errorf(Go.str("Read: got %d, %v; want 0, io.EOF"), Go.toInterface(_n), Go.toInterface(_err));
 		};
 	};
@@ -2550,7 +2550,7 @@ function testReaderZero(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var __tmp__ = (((new Reader() : Reader) : Ref<Reader>)).readAt((null : Slice<GoUInt8>), ("11" : GoInt64)),
 			_n:GoInt = __tmp__._0,
 			_err:Error = __tmp__._1;
-		if ((_n != (0 : GoInt)) || (_err != stdgo.io.Io.eof)) {
+		if ((_n != (0 : GoInt)) || (Go.toInterface(_err) != Go.toInterface(stdgo.io.Io.eof))) {
 			_t.errorf(Go.str("ReadAt: got %d, %v; want 0, io.EOF"), Go.toInterface(_n), Go.toInterface(_err));
 		};
 	};
@@ -2558,7 +2558,7 @@ function testReaderZero(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var __tmp__ = (((new Reader() : Reader) : Ref<Reader>)).readByte(),
 			_b:GoUInt8 = __tmp__._0,
 			_err:Error = __tmp__._1;
-		if ((_b != (0 : GoUInt8)) || (_err != stdgo.io.Io.eof)) {
+		if ((_b != (0 : GoUInt8)) || (Go.toInterface(_err) != Go.toInterface(stdgo.io.Io.eof))) {
 			_t.errorf(Go.str("ReadByte: got %d, %v; want 0, io.EOF"), Go.toInterface(_b), Go.toInterface(_err));
 		};
 	};
@@ -2567,7 +2567,7 @@ function testReaderZero(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_ch:GoInt32 = __tmp__._0,
 			_size:GoInt = __tmp__._1,
 			_err:Error = __tmp__._2;
-		if (((_ch != (0 : GoInt32)) || (_size != (0 : GoInt))) || (_err != stdgo.io.Io.eof)) {
+		if (((_ch != (0 : GoInt32)) || (_size != (0 : GoInt))) || (Go.toInterface(_err) != Go.toInterface(stdgo.io.Io.eof))) {
 			_t.errorf(Go.str("ReadRune: got %d, %d, %v; want 0, 0, io.EOF"), Go.toInterface(_ch), Go.toInterface(_size), Go.toInterface(_err));
 		};
 	};
@@ -2575,13 +2575,13 @@ function testReaderZero(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var __tmp__ = (((new Reader() : Reader) : Ref<Reader>)).seek(("11" : GoInt64), (0 : GoInt)),
 			_offset:GoInt64 = __tmp__._0,
 			_err:Error = __tmp__._1;
-		if ((_offset != (("11" : GoInt64) : GoInt64)) || (_err != null)) {
+		if ((_offset != ("11" : GoInt64)) || (_err != null)) {
 			_t.errorf(Go.str("Seek: got %d, %v; want 11, nil"), Go.toInterface(_offset), Go.toInterface(_err));
 		};
 	};
 	{
 		var _s:GoInt64 = (((new Reader() : Reader) : Ref<Reader>)).size();
-		if (_s != ("0" : GoInt64)) {
+		if (_s != (("0" : GoInt64))) {
 			_t.errorf(Go.str("Size: got %d, want 0"), Go.toInterface(_s));
 		};
 	};
@@ -2595,7 +2595,7 @@ function testReaderZero(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var __tmp__ = (((new Reader() : Reader) : Ref<Reader>)).writeTo(stdgo.io.Io.discard),
 			_n:GoInt64 = __tmp__._0,
 			_err:Error = __tmp__._1;
-		if ((_n != (("0" : GoInt64) : GoInt64)) || (_err != null)) {
+		if ((_n != ("0" : GoInt64)) || (_err != null)) {
 			_t.errorf(Go.str("WriteTo: got %d, %v; want 0, nil"), Go.toInterface(_n), Go.toInterface(_err));
 		};
 	};
@@ -2843,7 +2843,7 @@ function testReplacer(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_i => _tc in _testCases) {
 		{
 			var _s:GoString = _tc._r.replace(_tc._in);
-			if (_s != _tc._out) {
+			if (_s != (_tc._out)) {
 				_t.errorf(Go.str("%d. Replace(%q) = %q, want %q"), Go.toInterface(_i), Go.toInterface(_tc._in), Go.toInterface(_s), Go.toInterface(_tc._out));
 			};
 		};
@@ -2856,12 +2856,12 @@ function testReplacer(_t:Ref<stdgo.testing.Testing.T>):Void {
 			continue;
 		};
 		var _got:GoString = (_buf.string() : GoString);
-		if (_got != _tc._out) {
+		if (_got != (_tc._out)) {
 			_t.errorf(Go.str("%d. WriteString(%q) wrote %q, want %q"), Go.toInterface(_i), Go.toInterface(_tc._in), Go.toInterface(_got),
 				Go.toInterface(_tc._out));
 			continue;
 		};
-		if (_n != (_tc._out.length)) {
+		if (_n != ((_tc._out.length))) {
 			_t.errorf(Go.str("%d. WriteString(%q) wrote correct string but reported %d bytes; want %d (%q)"), Go.toInterface(_i), Go.toInterface(_tc._in),
 				Go.toInterface(_n), Go.toInterface((_tc._out.length)), Go.toInterface(_tc._out));
 		};
@@ -2874,7 +2874,7 @@ function testReplacer(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testPickAlgorithm(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_i => _tc in _algorithmTestCases) {
 		var _got:GoString = stdgo.fmt.Fmt.sprintf(Go.str("%T"), _tc._r.replacer());
-		if (_got != _tc._want) {
+		if (_got != (_tc._want)) {
 			_t.errorf(Go.str("%d. algorithm = %s, want %s"), Go.toInterface(_i), Go.toInterface(_got), Go.toInterface(_tc._want));
 		};
 	};
@@ -2922,13 +2922,13 @@ function testGenericTrieBuilding(_t:Ref<stdgo.testing.Testing.T>):Void {
 		{
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_i < (_tc._out.length), _i++, {
-				if (_tc._out[_i] != ("\t".code : GoRune)) {
+				if (_tc._out[_i] != (("\t".code : GoRune))) {
 					_wantbuf = (_wantbuf.__append__(_tc._out[_i]));
 				};
 			});
 		};
 		var _want:GoString = (_wantbuf : GoString);
-		if (_got != _want) {
+		if (_got != (_want)) {
 			_t.errorf(Go.str("PrintTrie(%q)\ngot\n%swant\n%s"), Go.toInterface(_tc._in), Go.toInterface(_got), Go.toInterface(_want));
 		};
 	};
@@ -3156,7 +3156,7 @@ function testFinderNext(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tc in _testCases) {
 		var _got:GoInt = stringFind(_tc._pat, _tc._text);
 		var _want:GoInt = _tc._index;
-		if (_got != _want) {
+		if (_got != (_want)) {
 			_t.errorf(Go.str("stringFind(%q, %q) got %d, want %d\n"), Go.toInterface(_tc._pat), Go.toInterface(_tc._text), Go.toInterface(_got),
 				Go.toInterface(_want));
 		};
@@ -3219,10 +3219,10 @@ function testFinderCreation(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_good:Slice<GoInt> = __tmp__._1;
 		for (_i => _got in _bad) {
 			var _want:GoInt = _tc._bad[_i];
-			if (_want == (0 : GoInt)) {
+			if (_want == ((0 : GoInt))) {
 				_want = (_tc._pattern.length);
 			};
-			if (_got != _want) {
+			if (_got != (_want)) {
 				_t.errorf(Go.str("boyerMoore(%q) bad[\'%c\']: got %d want %d"), Go.toInterface(_tc._pattern), Go.toInterface(_i), Go.toInterface(_got),
 					Go.toInterface(_want));
 			};
@@ -3234,13 +3234,13 @@ function testFinderCreation(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function _eq(_a:Slice<GoString>, _b:Slice<GoString>):Bool {
-	if ((_a.length) != (_b.length)) {
+	if ((_a.length) != ((_b.length))) {
 		return false;
 	};
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_a.length), _i++, {
-			if (_a[_i] != _b[_i]) {
+			if (_a[_i] != (_b[_i])) {
 				return false;
 			};
 		});
@@ -3255,7 +3255,7 @@ function _eq(_a:Slice<GoString>, _b:Slice<GoString>):Bool {
 function _runIndexTests(_t:Ref<stdgo.testing.Testing.T>, _f:(_s:GoString, _sep:GoString) -> GoInt, _funcName:GoString, _testCases:Slice<IndexTest>):Void {
 	for (_0 => _test in _testCases) {
 		var _actual:GoInt = _f(_test._s, _test._sep);
-		if (_actual != _test._out) {
+		if (_actual != (_test._out)) {
 			_t.errorf(Go.str("%s(%q,%q) = %v; want %v"), Go.toInterface(_funcName), Go.toInterface(_test._s), Go.toInterface(_test._sep),
 				Go.toInterface(_actual), Go.toInterface(_test._out));
 		};
@@ -3280,11 +3280,11 @@ function testLastIndexAny(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testIndexByte(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _indexTests) {
-		if ((_tt._sep.length) != (1 : GoInt)) {
+		if ((_tt._sep.length) != ((1 : GoInt))) {
 			continue;
 		};
 		var _pos:GoInt = indexByte(_tt._s, _tt._sep[(0 : GoInt)]);
-		if (_pos != _tt._out) {
+		if (_pos != (_tt._out)) {
 			_t.errorf("IndexByte(%q, %q) = %v; want %v", Go.toInterface(_tt._s), Go.toInterface(_tt._sep[(0 : GoInt)]), Go.toInterface(_pos),
 				Go.toInterface(_tt._out));
 		};
@@ -3304,7 +3304,7 @@ function testLastIndexByte(_t:Ref<stdgo.testing.Testing.T>):Void {
 			(Go.str("a☺").length)) : stdgo.strings_test.Strings_test.IndexTest)) : Slice<stdgo.strings_test.Strings_test.IndexTest>);
 	for (_0 => _test in _testCases) {
 		var _actual:GoInt = lastIndexByte(_test._s, _test._sep[(0 : GoInt)]);
-		if (_actual != _test._out) {
+		if (_actual != (_test._out)) {
 			_t.errorf(Go.str("LastIndexByte(%q,%c) = %v; want %v"), Go.toInterface(_test._s), Go.toInterface(_test._sep[(0 : GoInt)]),
 				Go.toInterface(_actual), Go.toInterface(_test._out));
 		};
@@ -3316,7 +3316,7 @@ function _simpleIndex(_s:GoString, _sep:GoString):GoInt {
 	{
 		var _i:GoInt = _n;
 		Go.cfor(_i <= (_s.length), _i++, {
-			if ((_s.__slice__(_i - _n, _i) : GoString) == _sep) {
+			if ((_s.__slice__(_i - _n, _i) : GoString) == (_sep)) {
 				return _i - _n;
 			};
 		});
@@ -3345,13 +3345,13 @@ function testIndexRandom(_t:Ref<stdgo.testing.Testing.T>):Void {
 							var _begin:GoInt = stdgo.math.rand.Rand.intn((_s.length) + (1 : GoInt));
 							var _end:GoInt = _begin + stdgo.math.rand.Rand.intn((_s.length + (1 : GoInt)) - _begin);
 							var _sep:GoString = (_s.__slice__(_begin, _end) : GoString);
-							if ((_i % (4 : GoInt)) == (0 : GoInt)) {
+							if (_i % (4 : GoInt) == ((0 : GoInt))) {
 								var _pos:GoInt = stdgo.math.rand.Rand.intn((_sep.length) + (1 : GoInt));
 								_sep = ((_sep.__slice__(0, _pos) : GoString) + Go.str("A")) + (_sep.__slice__(_pos) : GoString);
 							};
 							var _want:GoInt = _simpleIndex(_s, _sep);
 							var _res:GoInt = index(_s, _sep);
-							if (_res != _want) {
+							if (_res != (_want)) {
 								_t.errorf(Go.str("Index(%s,%s) = %d; want %d"), Go.toInterface(_s), Go.toInterface(_sep), Go.toInterface(_res),
 									Go.toInterface(_want));
 							};
@@ -3387,7 +3387,7 @@ function testIndexRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _tests) {
 		{
 			var _got:GoInt = indexRune(_tt._in, _tt._rune);
-			if (_got != _tt._want) {
+			if (_got != (_tt._want)) {
 				_t.errorf(Go.str("IndexRune(%q, %d) = %v; want %v"), Go.toInterface(_tt._in), Go.toInterface(_tt._rune), Go.toInterface(_got),
 					Go.toInterface(_tt._want));
 			};
@@ -3397,13 +3397,13 @@ function testIndexRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _allocs:GoFloat64 = stdgo.testing.Testing.allocsPerRun((1000 : GoInt), function():Void {
 		{
 			var _i:GoInt = indexRune(_haystack, ("s".code : GoRune));
-			if (_i != (2 : GoInt)) {
+			if (_i != ((2 : GoInt))) {
 				_t.fatalf(Go.str("\'s\' at %d; want 2"), Go.toInterface(_i));
 			};
 		};
 		{
 			var _i:GoInt = indexRune(_haystack, ("世".code : GoRune));
-			if (_i != (4 : GoInt)) {
+			if (_i != ((4 : GoInt))) {
 				_t.fatalf(Go.str("\'世\' at %d; want 4"), Go.toInterface(_i));
 			};
 		};
@@ -3416,7 +3416,7 @@ function testIndexRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 function benchmarkIndexRune(_b:Ref<stdgo.testing.Testing.B>):Void {
 	{
 		var _got:GoInt = indexRune(Go.str("some_text=some☺value"), ("☺".code : GoRune));
-		if (_got != (14 : GoInt)) {
+		if (_got != ((14 : GoInt))) {
 			_b.fatalf(Go.str("wrong index: expected 14, got=%d"), Go.toInterface(_got));
 		};
 	};
@@ -3431,7 +3431,7 @@ function benchmarkIndexRune(_b:Ref<stdgo.testing.Testing.B>):Void {
 function benchmarkIndexRuneLongString(_b:Ref<stdgo.testing.Testing.B>):Void {
 	{
 		var _got:GoInt = indexRune(_benchmarkLongString, ("☺".code : GoRune));
-		if (_got != (114 : GoInt)) {
+		if (_got != ((114 : GoInt))) {
 			_b.fatalf(Go.str("wrong index: expected 114, got=%d"), Go.toInterface(_got));
 		};
 	};
@@ -3446,7 +3446,7 @@ function benchmarkIndexRuneLongString(_b:Ref<stdgo.testing.Testing.B>):Void {
 function benchmarkIndexRuneFastPath(_b:Ref<stdgo.testing.Testing.B>):Void {
 	{
 		var _got:GoInt = indexRune(Go.str("some_text=some☺value"), ("v".code : GoRune));
-		if (_got != (17 : GoInt)) {
+		if (_got != ((17 : GoInt))) {
 			_b.fatalf(Go.str("wrong index: expected 17, got=%d"), Go.toInterface(_got));
 		};
 	};
@@ -3461,7 +3461,7 @@ function benchmarkIndexRuneFastPath(_b:Ref<stdgo.testing.Testing.B>):Void {
 function benchmarkIndex(_b:Ref<stdgo.testing.Testing.B>):Void {
 	{
 		var _got:GoInt = index(Go.str("some_text=some☺value"), Go.str("v"));
-		if (_got != (17 : GoInt)) {
+		if (_got != ((17 : GoInt))) {
 			_b.fatalf(Go.str("wrong index: expected 17, got=%d"), Go.toInterface(_got));
 		};
 	};
@@ -3476,7 +3476,7 @@ function benchmarkIndex(_b:Ref<stdgo.testing.Testing.B>):Void {
 function benchmarkLastIndex(_b:Ref<stdgo.testing.Testing.B>):Void {
 	{
 		var _got:GoInt = index(Go.str("some_text=some☺value"), Go.str("v"));
-		if (_got != (17 : GoInt)) {
+		if (_got != ((17 : GoInt))) {
 			_b.fatalf(Go.str("wrong index: expected 17, got=%d"), Go.toInterface(_got));
 		};
 	};
@@ -3491,7 +3491,7 @@ function benchmarkLastIndex(_b:Ref<stdgo.testing.Testing.B>):Void {
 function benchmarkIndexByte(_b:Ref<stdgo.testing.Testing.B>):Void {
 	{
 		var _got:GoInt = indexByte(Go.str("some_text=some☺value"), ("v".code : GoRune));
-		if (_got != (17 : GoInt)) {
+		if (_got != ((17 : GoInt))) {
 			_b.fatalf(Go.str("wrong index: expected 17, got=%d"), Go.toInterface(_got));
 		};
 	};
@@ -3511,11 +3511,11 @@ function testSplit(_t:Ref<stdgo.testing.Testing.T>):Void {
 				Go.toInterface(_tt._a));
 			continue;
 		};
-		if (_tt._n == (0 : GoInt)) {
+		if (_tt._n == ((0 : GoInt))) {
 			continue;
 		};
 		var _s:GoString = join(_a, _tt._sep);
-		if (_s != _tt._s) {
+		if (_s != (_tt._s)) {
 			_t.errorf(Go.str("Join(Split(%q, %q, %d), %q) = %q"), Go.toInterface(_tt._s), Go.toInterface(_tt._sep), Go.toInterface(_tt._n),
 				Go.toInterface(_tt._sep), Go.toInterface(_s));
 		};
@@ -3538,7 +3538,7 @@ function testSplitAfter(_t:Ref<stdgo.testing.Testing.T>):Void {
 			continue;
 		};
 		var _s:GoString = join(_a, Go.str());
-		if (_s != _tt._s) {
+		if (_s != (_tt._s)) {
 			_t.errorf("Join(Split(%q, %q, %d), %q) = %q", Go.toInterface(_tt._s), Go.toInterface(_tt._sep), Go.toInterface(_tt._n), Go.toInterface(_tt._sep),
 				Go.toInterface(_s));
 		};
@@ -3571,7 +3571,7 @@ function testFieldsFunc(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 	};
 	var _pred:GoInt32->Bool = function(_c:GoRune):Bool {
-		return _c == ("X".code : GoRune);
+		return _c == (("X".code : GoRune));
 	};
 	for (_1 => _tt in fieldsFuncTests) {
 		var _a = fieldsFunc(_tt._s, _pred);
@@ -3588,7 +3588,7 @@ function testFieldsFunc(_t:Ref<stdgo.testing.Testing.T>):Void {
 function _runStringTests(_t:Ref<stdgo.testing.Testing.T>, _f:GoString->GoString, _funcName:GoString, _testCases:Slice<StringTest>):Void {
 	for (_0 => _tc in _testCases) {
 		var _actual:GoString = _f(_tc._in);
-		if (_actual != _tc._out) {
+		if (_actual != (_tc._out)) {
 			_t.errorf(Go.str("%s(%q) = %q; want %q"), Go.toInterface(_funcName), Go.toInterface(_tc._in), Go.toInterface(_actual), Go.toInterface(_tc._out));
 		};
 	};
@@ -3623,7 +3623,7 @@ function testMap(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	var _m:GoString = map(_maxRune, _a);
 	var _expect:GoString = _tenRunes((1114111 : GoInt32));
-	if (_m != _expect) {
+	if (_m != (_expect)) {
 		_t.errorf(Go.str("growing: expected %q got %q"), Go.toInterface(_expect), Go.toInterface(_m));
 	};
 	var _minRune:GoInt32->GoInt32 = function(_0:GoRune):GoRune {
@@ -3631,17 +3631,17 @@ function testMap(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	_m = map(_minRune, _tenRunes((1114111 : GoInt32)));
 	_expect = _a;
-	if (_m != _expect) {
+	if (_m != (_expect)) {
 		_t.errorf(Go.str("shrinking: expected %q got %q"), Go.toInterface(_expect), Go.toInterface(_m));
 	};
 	_m = map(_rot13, Go.str("a to zed"));
 	_expect = Go.str("n gb mrq");
-	if (_m != _expect) {
+	if (_m != (_expect)) {
 		_t.errorf(Go.str("rot13: expected %q got %q"), Go.toInterface(_expect), Go.toInterface(_m));
 	};
 	_m = map(_rot13, map(_rot13, Go.str("a to zed")));
 	_expect = Go.str("a to zed");
-	if (_m != _expect) {
+	if (_m != (_expect)) {
 		_t.errorf(Go.str("rot13: expected %q got %q"), Go.toInterface(_expect), Go.toInterface(_m));
 	};
 	var _dropNotLatin:GoInt32->GoInt32 = function(_r:GoRune):GoRune {
@@ -3652,7 +3652,7 @@ function testMap(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	_m = map(_dropNotLatin, Go.str("Hello, 세계"));
 	_expect = Go.str("Hello");
-	if (_m != _expect) {
+	if (_m != (_expect)) {
 		_t.errorf(Go.str("drop: expected %q got %q"), Go.toInterface(_expect), Go.toInterface(_m));
 	};
 	var _identity:GoInt32->GoInt32 = function(_r:GoRune):GoRune {
@@ -3675,7 +3675,7 @@ function testMap(_t:Ref<stdgo.testing.Testing.T>):Void {
 				tag: "",
 				type: stdgo.reflect.Reflect.GoType.basic(int_kind)
 			}
-		])))) : Ref<stdgo.reflect.Reflect.StringHeader>).data != ((Go.toInterface(Go.pointer(_m)) : stdgo.unsafe.Unsafe.UnsafePointer)
+		])))) : Ref<stdgo.reflect.Reflect.StringHeader>).data != (((Go.toInterface(Go.pointer(_m)) : stdgo.unsafe.Unsafe.UnsafePointer)
 		.__convert__(stdgo.reflect.Reflect.GoType.refType(stdgo.reflect.Reflect.GoType.named("stdgo.reflect.Reflect.StringHeader", [],
 			stdgo.reflect.Reflect.GoType.structType([
 		{
@@ -3690,7 +3690,7 @@ function testMap(_t:Ref<stdgo.testing.Testing.T>):Void {
 			tag: "",
 			type: stdgo.reflect.Reflect.GoType.basic(int_kind)
 		}
-		])))) : Ref<stdgo.reflect.Reflect.StringHeader>).data) {
+		])))) : Ref<stdgo.reflect.Reflect.StringHeader>).data)) {
 			_t.error(Go.toInterface(Go.str("unexpected copy during identity map")));
 		};
 	var _replaceNotLatin:GoInt32->GoInt32 = function(_r:GoRune):GoRune {
@@ -3701,7 +3701,7 @@ function testMap(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	_m = map(_replaceNotLatin, Go.str("Hello", 173, "orld"));
 	_expect = Go.str("Hello\uFFFDWorld");
-	if (_m != _expect) {
+	if (_m != (_expect)) {
 		_t.errorf(Go.str("replace invalid sequence: expected %q got %q"), Go.toInterface(_expect), Go.toInterface(_m));
 	};
 	var _encode:GoInt32->GoInt32 = function(_r:GoRune):GoRune {
@@ -3715,11 +3715,11 @@ function testMap(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _s:GoString = Go.str("\u0080\u{0010ffff}");
 	var _r:GoString = Go.str("\u{0010ffff}\u0080");
 	_m = map(_encode, _s);
-	if (_m != _r) {
+	if (_m != (_r)) {
 		_t.errorf(Go.str("encoding not handled correctly: expected %q got %q"), Go.toInterface(_r), Go.toInterface(_m));
 	};
 	_m = map(_encode, _r);
-	if (_m != _s) {
+	if (_m != (_s)) {
 		_t.errorf(Go.str("encoding not handled correctly: expected %q got %q"), Go.toInterface(_s), Go.toInterface(_m));
 	};
 	var _trimSpaces:GoInt32->GoInt32 = function(_r:GoRune):GoRune {
@@ -3730,7 +3730,7 @@ function testMap(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	_m = map(_trimSpaces, Go.str("   abc    123   "));
 	_expect = Go.str("abc123");
-	if (_m != _expect) {
+	if (_m != (_expect)) {
 		_t.errorf(Go.str("trimSpaces: expected %q got %q"), Go.toInterface(_expect), Go.toInterface(_m));
 	};
 }
@@ -3746,7 +3746,7 @@ function testToLower(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testToValidUTF8(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tc in _toValidUTF8Tests) {
 		var _got:GoString = toValidUTF8(_tc._in, _tc._repl);
-		if (_got != _tc._out) {
+		if (_got != (_tc._out)) {
 			_t.errorf(Go.str("ToValidUTF8(%q, %q) = %q; want %q"), Go.toInterface(_tc._in), Go.toInterface(_tc._repl), Go.toInterface(_got),
 				Go.toInterface(_tc._out));
 		};
@@ -3760,7 +3760,7 @@ function benchmarkToUpper(_b:Ref<stdgo.testing.Testing.B>):Void {
 				var _i:GoInt = (0 : GoInt);
 				Go.cfor(_i < _b.n, _i++, {
 					var _actual:GoString = toUpper(_tc._in);
-					if (_actual != _tc._out) {
+					if (_actual != (_tc._out)) {
 						_b.errorf(Go.str("ToUpper(%q) = %q; want %q"), Go.toInterface(_tc._in), Go.toInterface(_actual), Go.toInterface(_tc._out));
 					};
 				});
@@ -3776,7 +3776,7 @@ function benchmarkToLower(_b:Ref<stdgo.testing.Testing.B>):Void {
 				var _i:GoInt = (0 : GoInt);
 				Go.cfor(_i < _b.n, _i++, {
 					var _actual:GoString = toLower(_tc._in);
-					if (_actual != _tc._out) {
+					if (_actual != (_tc._out)) {
 						_b.errorf(Go.str("ToLower(%q) = %q; want %q"), Go.toInterface(_tc._in), Go.toInterface(_actual), Go.toInterface(_tc._out));
 					};
 				});
@@ -3801,19 +3801,19 @@ function testSpecialCase(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _lower:GoString = Go.str("abcçdefgğhıijklmnoöprsştuüvyz");
 	var _upper:GoString = Go.str("ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ");
 	var _u:GoString = toUpperSpecial(stdgo.unicode.Unicode.turkishCase, _upper);
-	if (_u != _upper) {
+	if (_u != (_upper)) {
 		_t.errorf(Go.str("Upper(upper) is %s not %s"), Go.toInterface(_u), Go.toInterface(_upper));
 	};
 	_u = toUpperSpecial(stdgo.unicode.Unicode.turkishCase, _lower);
-	if (_u != _upper) {
+	if (_u != (_upper)) {
 		_t.errorf(Go.str("Upper(lower) is %s not %s"), Go.toInterface(_u), Go.toInterface(_upper));
 	};
 	var _l:GoString = toLowerSpecial(stdgo.unicode.Unicode.turkishCase, _lower);
-	if (_l != _lower) {
+	if (_l != (_lower)) {
 		_t.errorf(Go.str("Lower(lower) is %s not %s"), Go.toInterface(_l), Go.toInterface(_lower));
 	};
 	_l = toLowerSpecial(stdgo.unicode.Unicode.turkishCase, _upper);
-	if (_l != _lower) {
+	if (_l != (_lower)) {
 		_t.errorf(Go.str("Lower(upper) is %s not %s"), Go.toInterface(_l), Go.toInterface(_lower));
 	};
 }
@@ -3840,7 +3840,7 @@ function testTrim(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_t.errorf(Go.str("Undefined trim function %s"), Go.toInterface(_name));
 		};
 		var _actual:GoString = _f(_tc._in, _tc._arg);
-		if (_actual != _tc._out) {
+		if (_actual != (_tc._out)) {
 			_t.errorf(Go.str("%s(%q, %q) = %q; want %q"), Go.toInterface(_name), Go.toInterface(_tc._in), Go.toInterface(_tc._arg), Go.toInterface(_actual),
 				Go.toInterface(_tc._out));
 		};
@@ -3869,7 +3869,7 @@ function benchmarkTrim(_b:Ref<stdgo.testing.Testing.B>):Void {
 					_b.errorf(Go.str("Undefined trim function %s"), Go.toInterface(_name));
 				};
 				var _actual:GoString = _f(_tc._in, _tc._arg);
-				if (_actual != _tc._out) {
+				if (_actual != (_tc._out)) {
 					_b.errorf(Go.str("%s(%q, %q) = %q; want %q"), Go.toInterface(_name), Go.toInterface(_tc._in), Go.toInterface(_tc._arg),
 						Go.toInterface(_actual), Go.toInterface(_tc._out));
 				};
@@ -3909,7 +3909,7 @@ function testTrimFunc(_t:Ref<stdgo.testing.Testing.T>):Void {
 			({_name: Go.str("TrimRightFunc"), _trim: trimRightFunc, _out: _tc._rightOut} : T__struct_15)) : Slice<T__struct_15>);
 		for (_1 => _trimmer in _trimmers) {
 			var _actual:GoString = _trimmer._trim(_tc._in, _tc._f._f);
-			if (_actual != _trimmer._out) {
+			if (_actual != (_trimmer._out)) {
 				_t.errorf(Go.str("%s(%q, %q) = %q; want %q"), Go.toInterface(_trimmer._name), Go.toInterface(_tc._in), Go.toInterface(_tc._f._name),
 					Go.toInterface(_actual), Go.toInterface(_trimmer._out));
 			};
@@ -3920,12 +3920,12 @@ function testTrimFunc(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testIndexFunc(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tc in _indexFuncTests) {
 		var _first:GoInt = indexFunc(_tc._in, _tc._f._f);
-		if (_first != _tc._first) {
+		if (_first != (_tc._first)) {
 			_t.errorf(Go.str("IndexFunc(%q, %s) = %d; want %d"), Go.toInterface(_tc._in), Go.toInterface(_tc._f._name), Go.toInterface(_first),
 				Go.toInterface(_tc._first));
 		};
 		var _last:GoInt = lastIndexFunc(_tc._in, _tc._f._f);
-		if (_last != _tc._last) {
+		if (_last != (_tc._last)) {
 			_t.errorf(Go.str("LastIndexFunc(%q, %s) = %d; want %d"), Go.toInterface(_tc._in), Go.toInterface(_tc._f._name), Go.toInterface(_last),
 				Go.toInterface(_tc._last));
 		};
@@ -3933,7 +3933,7 @@ function testIndexFunc(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function _equal(_m:GoString, _s1:GoString, _s2:GoString, _t:Ref<stdgo.testing.Testing.T>):Bool {
-	if (_s1 == _s2) {
+	if (_s1 == (_s2)) {
 		return true;
 	};
 	var _e1 = split(_s1, Go.str());
@@ -3948,7 +3948,7 @@ function _equal(_m:GoString, _s1:GoString, _s2:GoString, _t:Ref<stdgo.testing.Te
 		var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_e2[_i]),
 			_r2:GoInt32 = __tmp__._0,
 			_1:GoInt = __tmp__._1;
-		if (_r1 != _r2) {
+		if (_r1 != (_r2)) {
 			_t.errorf(Go.str("%s diff at %d: U+%04X U+%04X"), Go.toInterface(_m), Go.toInterface(_i), Go.toInterface(_r1), Go.toInterface(_r2));
 		};
 	};
@@ -3969,13 +3969,13 @@ function testCaseConsistency(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _lower:GoString = toLower(_s);
 	{
 		var _n:GoInt = stdgo.unicode.utf8.Utf8.runeCountInString(_upper);
-		if (_n != _numRunes) {
+		if (_n != (_numRunes)) {
 			_t.error(Go.toInterface(Go.str("rune count wrong in upper:")), Go.toInterface(_n));
 		};
 	};
 	{
 		var _n:GoInt = stdgo.unicode.utf8.Utf8.runeCountInString(_lower);
-		if (_n != _numRunes) {
+		if (_n != (_numRunes)) {
 			_t.error(Go.toInterface(Go.str("rune count wrong in lower:")), Go.toInterface(_n));
 		};
 	};
@@ -4077,7 +4077,7 @@ function testRepeatCatchesOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	for (_i => _tt in _tests) {
 		var _err:Error = _repeat(_tt._s, _tt._count);
-		if (_tt._errStr == Go.str()) {
+		if (_tt._errStr == (Go.str())) {
 			if (_err != null) {
 				_t.errorf(Go.str("#%d panicked %v"), Go.toInterface(_i), Go.toInterface(_err));
 			};
@@ -4090,11 +4090,11 @@ function testRepeatCatchesOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function _runesEqual(_a:Slice<GoRune>, _b:Slice<GoRune>):Bool {
-	if ((_a.length) != (_b.length)) {
+	if ((_a.length) != ((_b.length))) {
 		return false;
 	};
 	for (_i => _r in _a) {
-		if (_r != _b[_i]) {
+		if (_r != (_b[_i])) {
 			return false;
 		};
 	};
@@ -4110,7 +4110,7 @@ function testRunes(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 		if (!_tt._lossy) {
 			var _s:GoString = (_a : GoString);
-			if (_s != _tt._in) {
+			if (_s != (_tt._in)) {
 				_t.errorf(Go.str("string([]rune(%q)) = %x; want %x"), Go.toInterface(_tt._in), Go.toInterface(_s), Go.toInterface(_tt._in));
 			};
 		};
@@ -4132,7 +4132,7 @@ function testReadByte(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var __tmp__ = _reader.readByte(),
 				_b:GoUInt8 = __tmp__._0,
 				_e:Error = __tmp__._1;
-			if (_e == stdgo.io.Io.eof) {
+			if (Go.toInterface(_e) == (Go.toInterface(stdgo.io.Io.eof))) {
 				break;
 			};
 			if (_e != null) {
@@ -4152,12 +4152,12 @@ function testReadByte(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_t.errorf(Go.str("Reading %q after unreading: %s"), Go.toInterface(_s), Go.toInterface(_e));
 				break;
 			};
-			if (_b1 != _b) {
+			if (_b1 != (_b)) {
 				_t.errorf(Go.str("Reading %q after unreading: want byte %q, got %q"), Go.toInterface(_s), Go.toInterface(_b), Go.toInterface(_b1));
 				break;
 			};
 		};
-		if ((_res.string() : GoString) != _s) {
+		if ((_res.string() : GoString) != (_s)) {
 			_t.errorf(Go.str("Reader(%q).ReadByte() produced %q"), Go.toInterface(_s), Go.toInterface((_res.string() : GoString)));
 		};
 	};
@@ -4179,7 +4179,7 @@ function testReadRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_r:GoInt32 = __tmp__._0,
 				_z:GoInt = __tmp__._1,
 				_e:Error = __tmp__._2;
-			if (_e == stdgo.io.Io.eof) {
+			if (Go.toInterface(_e) == (Go.toInterface(stdgo.io.Io.eof))) {
 				break;
 			};
 			if (_e != null) {
@@ -4200,16 +4200,16 @@ function testReadRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_t.errorf(Go.str("Reading %q after unreading: %s"), Go.toInterface(_s), Go.toInterface(_e));
 				break;
 			};
-			if (_r1 != _r) {
+			if (_r1 != (_r)) {
 				_t.errorf(Go.str("Reading %q after unreading: want rune %q, got %q"), Go.toInterface(_s), Go.toInterface(_r), Go.toInterface(_r1));
 				break;
 			};
-			if (_z1 != _z) {
+			if (_z1 != (_z)) {
 				_t.errorf(Go.str("Reading %q after unreading: want size %d, got %d"), Go.toInterface(_s), Go.toInterface(_z), Go.toInterface(_z1));
 				break;
 			};
 		};
-		if (_res != _s) {
+		if (_res != (_s)) {
 			_t.errorf(Go.str("Reader(%q).ReadRune() produced %q"), Go.toInterface(_s), Go.toInterface(_res));
 		};
 	};
@@ -4239,14 +4239,14 @@ function testReplace(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in replaceTests) {
 		{
 			var _s:GoString = replace(_tt._in, _tt._old, _tt._new, _tt._n);
-			if (_s != _tt._out) {
+			if (_s != (_tt._out)) {
 				_t.errorf(Go.str("Replace(%q, %q, %q, %d) = %q, want %q"), Go.toInterface(_tt._in), Go.toInterface(_tt._old), Go.toInterface(_tt._new),
 					Go.toInterface(_tt._n), Go.toInterface(_s), Go.toInterface(_tt._out));
 			};
 		};
-		if (_tt._n == (-1 : GoInt)) {
+		if (_tt._n == ((-1 : GoInt))) {
 			var _s:GoString = replaceAll(_tt._in, _tt._old, _tt._new);
-			if (_s != _tt._out) {
+			if (_s != (_tt._out)) {
 				_t.errorf(Go.str("ReplaceAll(%q, %q, %q) = %q, want %q"), Go.toInterface(_tt._in), Go.toInterface(_tt._old), Go.toInterface(_tt._new),
 					Go.toInterface(_s), Go.toInterface(_tt._out));
 			};
@@ -4258,7 +4258,7 @@ function testTitle(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in titleTests) {
 		{
 			var _s:GoString = title(_tt._in);
-			if (_s != _tt._out) {
+			if (_s != (_tt._out)) {
 				_t.errorf(Go.str("Title(%q) = %q, want %q"), Go.toInterface(_tt._in), Go.toInterface(_s), Go.toInterface(_tt._out));
 			};
 		};
@@ -4267,7 +4267,7 @@ function testTitle(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testContains(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _ct in containsTests) {
-		if (contains(_ct._str, _ct._substr) != _ct._expected) {
+		if (contains(_ct._str, _ct._substr) != (_ct._expected)) {
 			_t.errorf(Go.str("Contains(%s, %s) = %v, want %v"), Go.toInterface(_ct._str), Go.toInterface(_ct._substr), Go.toInterface(!_ct._expected),
 				Go.toInterface(_ct._expected));
 		};
@@ -4276,7 +4276,7 @@ function testContains(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testContainsAny(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _ct in containsAnyTests) {
-		if (containsAny(_ct._str, _ct._substr) != _ct._expected) {
+		if (containsAny(_ct._str, _ct._substr) != (_ct._expected)) {
 			_t.errorf(Go.str("ContainsAny(%s, %s) = %v, want %v"), Go.toInterface(_ct._str), Go.toInterface(_ct._substr), Go.toInterface(!_ct._expected),
 				Go.toInterface(_ct._expected));
 		};
@@ -4285,7 +4285,7 @@ function testContainsAny(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testContainsRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _ct in containsRuneTests) {
-		if (containsRune(_ct._str, _ct._r) != _ct._expected) {
+		if (containsRune(_ct._str, _ct._r) != (_ct._expected)) {
 			_t.errorf(Go.str("ContainsRune(%q, %q) = %v, want %v"), Go.toInterface(_ct._str), Go.toInterface(_ct._r), Go.toInterface(!_ct._expected),
 				Go.toInterface(_ct._expected));
 		};
@@ -4296,14 +4296,14 @@ function testEqualFold(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in equalFoldTests) {
 		{
 			var _out:Bool = equalFold(_tt._s, _tt._t);
-			if (_out != _tt._out) {
+			if (_out != (_tt._out)) {
 				_t.errorf(Go.str("EqualFold(%#q, %#q) = %v, want %v"), Go.toInterface(_tt._s), Go.toInterface(_tt._t), Go.toInterface(_out),
 					Go.toInterface(_tt._out));
 			};
 		};
 		{
 			var _out:Bool = equalFold(_tt._t, _tt._s);
-			if (_out != _tt._out) {
+			if (_out != (_tt._out)) {
 				_t.errorf(Go.str("EqualFold(%#q, %#q) = %v, want %v"), Go.toInterface(_tt._t), Go.toInterface(_tt._s), Go.toInterface(_out),
 					Go.toInterface(_tt._out));
 			};
@@ -4318,7 +4318,7 @@ function benchmarkEqualFold(_b:Ref<stdgo.testing.Testing.B>):Void {
 			for (_0 => _tt in equalFoldTests) {
 				{
 					var _out:Bool = equalFold(_tt._s, _tt._t);
-					if (_out != _tt._out) {
+					if (_out != (_tt._out)) {
 						_b.fatal(Go.toInterface(Go.str("wrong result")));
 					};
 				};
@@ -4331,7 +4331,7 @@ function testCount(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in countTests) {
 		{
 			var _num:GoInt = count(_tt._s, _tt._sep);
-			if (_num != _tt._num) {
+			if (_num != (_tt._num)) {
 				_t.errorf(Go.str("Count(%q, %q) = %d, want %d"), Go.toInterface(_tt._s), Go.toInterface(_tt._sep), Go.toInterface(_num),
 					Go.toInterface(_tt._num));
 			};
@@ -4781,17 +4781,19 @@ function benchmarkReplaceAll(_b:Ref<stdgo.testing.Testing.B>):Void {
 private class T_errWriter_asInterface {
 	@:keep
 	public function write(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
-		return __self__.write(_p);
+		return __self__.value.write(_p);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_errWriter;
+	var __self__:Pointer<T_errWriter>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.strings_test.Strings_test.T_errWriter_asInterface) class T_errWriter_static_extension {

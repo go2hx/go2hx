@@ -10,8 +10,15 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-var errNotExist:stdgo.Error = stdgo.errors.Errors.new_((("file does not exist" : GoString)));
-var errExist:stdgo.Error = stdgo.errors.Errors.new_((("file already exists" : GoString)));
-var errPermission:stdgo.Error = stdgo.errors.Errors.new_((("permission denied" : GoString)));
-var errClosed:stdgo.Error = stdgo.errors.Errors.new_((("file already closed" : GoString)));
-var errInvalid:stdgo.Error = stdgo.errors.Errors.new_((("invalid argument" : GoString)));
+/**
+	// Package oserror defines errors values used in the os package.
+	//
+	// These types are defined here to permit the syscall package to reference them.
+**/
+private var __go2hxdoc__package:Bool;
+
+var errInvalid:Error = stdgo.errors.Errors.new_(Go.str("invalid argument"));
+var errPermission:Error = stdgo.errors.Errors.new_(Go.str("permission denied"));
+var errExist:Error = stdgo.errors.Errors.new_(Go.str("file already exists"));
+var errNotExist:Error = stdgo.errors.Errors.new_(Go.str("file does not exist"));
+var errClosed:Error = stdgo.errors.Errors.new_(Go.str("file already closed"));

@@ -21,7 +21,7 @@ function _testSetGetenv(_t:Ref<stdgo.testing.Testing.T>, _key:GoString, _value:G
 	if (!_found) {
 		_t.fatalf(Go.str("Getenv failed to find %v variable (want value %q)"), Go.toInterface(_key), Go.toInterface(_value));
 	};
-	if (_newvalue != _value) {
+	if (_newvalue != (_value)) {
 		_t.fatalf(Go.str("Getenv(%v) = %q; want %q"), Go.toInterface(_key), Go.toInterface(_newvalue), Go.toInterface(_value));
 	};
 }
@@ -58,7 +58,7 @@ function testGettimeofday(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_t.fatal(Go.toInterface(_err));
 		};
 	};
-	if ((_tv.sec == (("0" : GoInt64) : GoInt64)) && (_tv.usec == (("0" : GoInt64) : GoInt64))) {
+	if ((_tv.sec == ("0" : GoInt64)) && (_tv.usec == ("0" : GoInt64))) {
 		_t.fatal(Go.toInterface(Go.str("Sec and Usec both zero")));
 	};
 }

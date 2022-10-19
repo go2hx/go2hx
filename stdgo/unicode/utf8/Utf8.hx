@@ -198,7 +198,7 @@ private final _s7:GoUInt64 = ("68" : GoUInt64);
 **/
 function fullRune(_p:Slice<GoByte>):Bool {
 	var _n:GoInt = (_p.length);
-	if (_n == (0 : GoInt)) {
+	if (_n == ((0 : GoInt))) {
 		return false;
 	};
 	var _x:GoUInt8 = _first[_p[(0 : GoInt)]];
@@ -219,7 +219,7 @@ function fullRune(_p:Slice<GoByte>):Bool {
 **/
 function fullRuneInString(_s:GoString):Bool {
 	var _n:GoInt = (_s.length);
-	if (_n == (0 : GoInt)) {
+	if (_n == ((0 : GoInt))) {
 		return false;
 	};
 	var _x:GoUInt8 = _first[_s[(0 : GoInt)]];
@@ -352,7 +352,7 @@ function decodeRuneInString(_s:GoString):{var _0:GoRune; var _1:GoInt;} {
 function decodeLastRune(_p:Slice<GoByte>):{var _0:GoRune; var _1:GoInt;} {
 	var _r:GoRune = (0 : GoInt32), _size:GoInt = (0 : GoInt);
 	var _end:GoInt = (_p.length);
-	if (_end == (0 : GoInt)) {
+	if (_end == ((0 : GoInt))) {
 		return {_0: (65533 : GoInt32), _1: (0 : GoInt)};
 	};
 	var _start:GoInt = _end - (1 : GoInt);
@@ -380,7 +380,7 @@ function decodeLastRune(_p:Slice<GoByte>):{var _0:GoRune; var _1:GoInt;} {
 		_r = __tmp__._0;
 		_size = __tmp__._1;
 	};
-	if ((_start + _size) != _end) {
+	if (_start + _size != (_end)) {
 		return {_0: (65533 : GoInt32), _1: (1 : GoInt)};
 	};
 	return {_0: _r, _1: _size};
@@ -399,7 +399,7 @@ function decodeLastRune(_p:Slice<GoByte>):{var _0:GoRune; var _1:GoInt;} {
 function decodeLastRuneInString(_s:GoString):{var _0:GoRune; var _1:GoInt;} {
 	var _r:GoRune = (0 : GoInt32), _size:GoInt = (0 : GoInt);
 	var _end:GoInt = (_s.length);
-	if (_end == (0 : GoInt)) {
+	if (_end == ((0 : GoInt))) {
 		return {_0: (65533 : GoInt32), _1: (0 : GoInt)};
 	};
 	var _start:GoInt = _end - (1 : GoInt);
@@ -427,7 +427,7 @@ function decodeLastRuneInString(_s:GoString):{var _0:GoRune; var _1:GoInt;} {
 		_r = __tmp__._0;
 		_size = __tmp__._1;
 	};
-	if ((_start + _size) != _end) {
+	if (_start + _size != (_end)) {
 		return {_0: (65533 : GoInt32), _1: (1 : GoInt)};
 	};
 	return {_0: _r, _1: _size};
@@ -580,7 +580,7 @@ function runeCount(_p:Slice<GoByte>):GoInt {
 				continue;
 			};
 			var _x:GoUInt8 = _first[_c];
-			if (_x == (241 : GoUInt8)) {
+			if (_x == ((241 : GoUInt8))) {
 				_i++;
 				continue;
 			};
@@ -594,11 +594,11 @@ function runeCount(_p:Slice<GoByte>):GoInt {
 				var _c:GoUInt8 = _p[_i + (1 : GoInt)];
 				if ((_c < _accept._lo) || (_accept._hi < _c)) {
 					_size = (1 : GoInt);
-				} else if (_size == (2 : GoInt)) {} else {
+				} else if (_size == ((2 : GoInt))) {} else {
 					var _c:GoUInt8 = _p[_i + (2 : GoInt)];
 					if ((_c < (128:GoUInt8)) || ((191 : GoUInt8) < _c)) {
 						_size = (1 : GoInt);
-					} else if (_size == (3 : GoInt)) {} else {
+					} else if (_size == ((3 : GoInt))) {} else {
 						var _c:GoUInt8 = _p[_i + (3 : GoInt)];
 						if ((_c < (128:GoUInt8)) || ((191 : GoUInt8) < _c)) {
 							_size = (1 : GoInt);
@@ -627,7 +627,7 @@ function runeCountInString(_s:GoString):GoInt {
 				continue;
 			};
 			var _x:GoUInt8 = _first[_c];
-			if (_x == (241 : GoUInt8)) {
+			if (_x == ((241 : GoUInt8))) {
 				_i++;
 				continue;
 			};
@@ -641,11 +641,11 @@ function runeCountInString(_s:GoString):GoInt {
 				var _c:GoUInt8 = _s[_i + (1 : GoInt)];
 				if ((_c < _accept._lo) || (_accept._hi < _c)) {
 					_size = (1 : GoInt);
-				} else if (_size == (2 : GoInt)) {} else {
+				} else if (_size == ((2 : GoInt))) {} else {
 					var _c:GoUInt8 = _s[_i + (2 : GoInt)];
 					if ((_c < (128:GoUInt8)) || ((191 : GoUInt8) < _c)) {
 						_size = (1 : GoInt);
-					} else if (_size == (3 : GoInt)) {} else {
+					} else if (_size == ((3 : GoInt))) {} else {
 						var _c:GoUInt8 = _s[_i + (3 : GoInt)];
 						if ((_c < (128:GoUInt8)) || ((191 : GoUInt8) < _c)) {
 							_size = (1 : GoInt);
@@ -665,7 +665,7 @@ function runeCountInString(_s:GoString):GoInt {
 	// bits set to 10.
 **/
 function runeStart(_b:GoByte):Bool {
-	return (_b & (192 : GoUInt8)) != (128 : GoUInt8);
+	return _b & (192 : GoUInt8) != ((128 : GoUInt8));
 }
 
 /**
@@ -676,7 +676,7 @@ function valid(_p:Slice<GoByte>):Bool {
 	while ((_p.length) >= (8 : GoInt)) {
 		var _first32:GoUInt32 = (((_p[(0 : GoInt)] : GoUInt32) | ((_p[(1 : GoInt)] : GoUInt32) << (("8" : GoUInt64) : GoUInt64))) | ((_p[(2 : GoInt)] : GoUInt32) << (("16" : GoUInt64) : GoUInt64))) | ((_p[(3 : GoInt)] : GoUInt32) << (("24" : GoUInt64) : GoUInt64));
 		var _second32:GoUInt32 = (((_p[(4 : GoInt)] : GoUInt32) | ((_p[(5 : GoInt)] : GoUInt32) << (("8" : GoUInt64) : GoUInt64))) | ((_p[(6 : GoInt)] : GoUInt32) << (("16" : GoUInt64) : GoUInt64))) | ((_p[(7 : GoInt)] : GoUInt32) << (("24" : GoUInt64) : GoUInt64));
-		if (((_first32 | _second32) & (("2155905152" : GoUInt32) : GoUInt32)) != ("0" : GoUInt32)) {
+		if ((_first32 | _second32) & ("2155905152" : GoUInt32) != (("0" : GoUInt32))) {
 			break;
 		};
 		_p = (_p.__slice__((8 : GoInt)) : Slice<GoUInt8>);
@@ -691,7 +691,7 @@ function valid(_p:Slice<GoByte>):Bool {
 				continue;
 			};
 			var _x:GoUInt8 = _first[_pi];
-			if (_x == (241 : GoUInt8)) {
+			if (_x == ((241 : GoUInt8))) {
 				return false;
 			};
 			var _size:GoInt = (_x & (7 : GoUInt8) : GoInt);
@@ -703,11 +703,11 @@ function valid(_p:Slice<GoByte>):Bool {
 				var _c:GoUInt8 = _p[_i + (1 : GoInt)];
 				if ((_c < _accept._lo) || (_accept._hi < _c)) {
 					return false;
-				} else if (_size == (2 : GoInt)) {} else {
+				} else if (_size == ((2 : GoInt))) {} else {
 					var _c:GoUInt8 = _p[_i + (2 : GoInt)];
 					if ((_c < (128:GoUInt8)) || ((191 : GoUInt8) < _c)) {
 						return false;
-					} else if (_size == (3 : GoInt)) {} else {
+					} else if (_size == ((3 : GoInt))) {} else {
 						var _c:GoUInt8 = _p[_i + (3 : GoInt)];
 						if ((_c < (128:GoUInt8)) || ((191 : GoUInt8) < _c)) {
 							return false;
@@ -728,7 +728,7 @@ function validString(_s:GoString):Bool {
 	while ((_s.length) >= (8 : GoInt)) {
 		var _first32:GoUInt32 = (((_s[(0 : GoInt)] : GoUInt32) | ((_s[(1 : GoInt)] : GoUInt32) << (("8" : GoUInt64) : GoUInt64))) | ((_s[(2 : GoInt)] : GoUInt32) << (("16" : GoUInt64) : GoUInt64))) | ((_s[(3 : GoInt)] : GoUInt32) << (("24" : GoUInt64) : GoUInt64));
 		var _second32:GoUInt32 = (((_s[(4 : GoInt)] : GoUInt32) | ((_s[(5 : GoInt)] : GoUInt32) << (("8" : GoUInt64) : GoUInt64))) | ((_s[(6 : GoInt)] : GoUInt32) << (("16" : GoUInt64) : GoUInt64))) | ((_s[(7 : GoInt)] : GoUInt32) << (("24" : GoUInt64) : GoUInt64));
-		if (((_first32 | _second32) & (("2155905152" : GoUInt32) : GoUInt32)) != ("0" : GoUInt32)) {
+		if ((_first32 | _second32) & ("2155905152" : GoUInt32) != (("0" : GoUInt32))) {
 			break;
 		};
 		_s = (_s.__slice__((8 : GoInt)) : GoString);
@@ -743,7 +743,7 @@ function validString(_s:GoString):Bool {
 				continue;
 			};
 			var _x:GoUInt8 = _first[_si];
-			if (_x == (241 : GoUInt8)) {
+			if (_x == ((241 : GoUInt8))) {
 				return false;
 			};
 			var _size:GoInt = (_x & (7 : GoUInt8) : GoInt);
@@ -755,11 +755,11 @@ function validString(_s:GoString):Bool {
 				var _c:GoUInt8 = _s[_i + (1 : GoInt)];
 				if ((_c < _accept._lo) || (_accept._hi < _c)) {
 					return false;
-				} else if (_size == (2 : GoInt)) {} else {
+				} else if (_size == ((2 : GoInt))) {} else {
 					var _c:GoUInt8 = _s[_i + (2 : GoInt)];
 					if ((_c < (128:GoUInt8)) || ((191 : GoUInt8) < _c)) {
 						return false;
-					} else if (_size == (3 : GoInt)) {} else {
+					} else if (_size == ((3 : GoInt))) {} else {
 						var _c:GoUInt8 = _s[_i + (3 : GoInt)];
 						if ((_c < (128:GoUInt8)) || ((191 : GoUInt8) < _c)) {
 							return false;

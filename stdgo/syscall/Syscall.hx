@@ -2335,24 +2335,26 @@ class Timespec_asInterface {
 	**/
 	@:keep
 	public function nano():GoInt64
-		return __self__.nano();
+		return __self__.value.nano();
 
 	/**
 		// Unix returns the time stored in ts as seconds plus nanoseconds.
 	**/
 	@:keep
 	public function unix():{var _0:GoInt64; var _1:GoInt64;}
-		return __self__.unix();
+		return __self__.value.unix();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:Timespec;
+	var __self__:Pointer<Timespec>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.syscall.Syscall.Timespec_asInterface) class Timespec_static_extension {
@@ -2377,24 +2379,26 @@ class Timeval_asInterface {
 	**/
 	@:keep
 	public function nano():GoInt64
-		return __self__.nano();
+		return __self__.value.nano();
 
 	/**
 		// Unix returns the time stored in tv as seconds plus nanoseconds.
 	**/
 	@:keep
 	public function unix():{var _0:GoInt64; var _1:GoInt64;}
-		return __self__.unix();
+		return __self__.value.unix();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:Timeval;
+	var __self__:Pointer<Timeval>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.syscall.Syscall.Timeval_asInterface) class Timeval_static_extension {
@@ -2416,29 +2420,31 @@ class Timeval_asInterface {
 class Errno_asInterface {
 	@:keep
 	public function timeout():Bool
-		return __self__.timeout();
+		return __self__.value.timeout();
 
 	@:keep
 	public function temporary():Bool
-		return __self__.temporary();
+		return __self__.value.temporary();
 
 	@:keep
 	public function is_(_target:Error):Bool
-		return __self__.is_(_target);
+		return __self__.value.is_(_target);
 
 	@:keep
 	public function error():GoString
-		return __self__.error();
+		return __self__.value.error();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:Errno;
+	var __self__:Pointer<Errno>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.syscall.Syscall.Errno_asInterface) class Errno_static_extension {
@@ -2462,21 +2468,23 @@ class Errno_asInterface {
 class Signal_asInterface {
 	@:keep
 	public function string():GoString
-		return __self__.string();
+		return __self__.value.string();
 
 	@:keep
 	public function signal():Void
-		__self__.signal();
+		__self__.value.signal();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:Signal;
+	var __self__:Pointer<Signal>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.syscall.Syscall.Signal_asInterface) class Signal_static_extension {
@@ -2492,49 +2500,51 @@ class Signal_asInterface {
 class WaitStatus_asInterface {
 	@:keep
 	public function trapCause():GoInt
-		return __self__.trapCause();
+		return __self__.value.trapCause();
 
 	@:keep
 	public function stopSignal():Signal
-		return __self__.stopSignal();
+		return __self__.value.stopSignal();
 
 	@:keep
 	public function continued():Bool
-		return __self__.continued();
+		return __self__.value.continued();
 
 	@:keep
 	public function stopped():Bool
-		return __self__.stopped();
+		return __self__.value.stopped();
 
 	@:keep
 	public function coreDump():Bool
-		return __self__.coreDump();
+		return __self__.value.coreDump();
 
 	@:keep
 	public function signal():Signal
-		return __self__.signal();
+		return __self__.value.signal();
 
 	@:keep
 	public function signaled():Bool
-		return __self__.signaled();
+		return __self__.value.signaled();
 
 	@:keep
 	public function exitStatus():GoInt
-		return __self__.exitStatus();
+		return __self__.value.exitStatus();
 
 	@:keep
 	public function exited():Bool
-		return __self__.exited();
+		return __self__.value.exited();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:WaitStatus;
+	var __self__:Pointer<WaitStatus>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.syscall.Syscall.WaitStatus_asInterface) class WaitStatus_static_extension {

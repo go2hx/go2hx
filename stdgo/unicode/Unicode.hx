@@ -8679,7 +8679,7 @@ function isDigit(_r:GoRune):Bool {
 **/
 function isGraphic(_r:GoRune):Bool {
 	if ((_r : GoUInt32) <= ("255" : GoUInt32)) {
-		return (_properties[(_r : GoUInt8)] & (144 : GoUInt8)) != (0 : GoUInt8);
+		return _properties[(_r : GoUInt8)] & (144 : GoUInt8) != ((0 : GoUInt8));
 	};
 	return in_(_r, ...graphicRanges.__toArray__());
 }
@@ -8693,7 +8693,7 @@ function isGraphic(_r:GoRune):Bool {
 **/
 function isPrint(_r:GoRune):Bool {
 	if ((_r : GoUInt32) <= ("255" : GoUInt32)) {
-		return (_properties[(_r : GoUInt8)] & (128 : GoUInt8)) != (0 : GoUInt8);
+		return _properties[(_r : GoUInt8)] & (128 : GoUInt8) != ((0 : GoUInt8));
 	};
 	return in_(_r, ...printRanges.__toArray__());
 }
@@ -8731,7 +8731,7 @@ function in_(_r:GoRune, _ranges:haxe.Rest<Ref<RangeTable>>):Bool {
 **/
 function isControl(_r:GoRune):Bool {
 	if ((_r : GoUInt32) <= ("255" : GoUInt32)) {
-		return (_properties[(_r : GoUInt8)] & (1 : GoUInt8)) != (0 : GoUInt8);
+		return _properties[(_r : GoUInt8)] & (1 : GoUInt8) != ((0 : GoUInt8));
 	};
 	return false;
 }
@@ -8741,7 +8741,7 @@ function isControl(_r:GoRune):Bool {
 **/
 function isLetter(_r:GoRune):Bool {
 	if ((_r : GoUInt32) <= ("255" : GoUInt32)) {
-		return (_properties[(_r : GoUInt8)] & (96 : GoUInt8)) != (0 : GoUInt8);
+		return _properties[(_r : GoUInt8)] & (96 : GoUInt8) != ((0 : GoUInt8));
 	};
 	return _isExcludingLatin(letter, _r);
 }
@@ -8758,7 +8758,7 @@ function isMark(_r:GoRune):Bool {
 **/
 function isNumber(_r:GoRune):Bool {
 	if ((_r : GoUInt32) <= ("255" : GoUInt32)) {
-		return (_properties[(_r : GoUInt8)] & (4 : GoUInt8)) != (0 : GoUInt8);
+		return _properties[(_r : GoUInt8)] & (4 : GoUInt8) != ((0 : GoUInt8));
 	};
 	return _isExcludingLatin(number, _r);
 }
@@ -8769,7 +8769,7 @@ function isNumber(_r:GoRune):Bool {
 **/
 function isPunct(_r:GoRune):Bool {
 	if ((_r : GoUInt32) <= ("255" : GoUInt32)) {
-		return (_properties[(_r : GoUInt8)] & (2 : GoUInt8)) != (0 : GoUInt8);
+		return _properties[(_r : GoUInt8)] & (2 : GoUInt8) != ((0 : GoUInt8));
 	};
 	return is_(punct, _r);
 }
@@ -8800,7 +8800,7 @@ function isSpace(_r:GoRune):Bool {
 **/
 function isSymbol(_r:GoRune):Bool {
 	if ((_r : GoUInt32) <= ("255" : GoUInt32)) {
-		return (_properties[(_r : GoUInt8)] & (8 : GoUInt8)) != (0 : GoUInt8);
+		return _properties[(_r : GoUInt8)] & (8 : GoUInt8) != ((0 : GoUInt8));
 	};
 	return _isExcludingLatin(symbol, _r);
 }
@@ -8849,8 +8849,7 @@ function _is32(_ranges:Slice<Range32>, _r:GoUInt32):Bool {
 				return false;
 			};
 			if (_r <= _range_.hi) {
-				return (_range_.stride == (("1" : GoUInt32) : GoUInt32))
-					|| (((_r - _range_.lo) % _range_.stride) == (("0" : GoUInt32) : GoUInt32));
+				return (_range_.stride == ("1" : GoUInt32)) || (((_r - _range_.lo) % _range_.stride) == ("0" : GoUInt32));
 			};
 		};
 		return false;
@@ -8861,8 +8860,7 @@ function _is32(_ranges:Slice<Range32>, _r:GoUInt32):Bool {
 		var _m:GoInt = _lo + ((_hi - _lo) / (2 : GoInt));
 		var _range_:Range32 = (_ranges[_m] == null ? null : _ranges[_m].__copy__());
 		if ((_range_.lo <= _r) && (_r <= _range_.hi)) {
-			return (_range_.stride == (("1" : GoUInt32) : GoUInt32))
-				|| (((_r - _range_.lo) % _range_.stride) == (("0" : GoUInt32) : GoUInt32));
+			return (_range_.stride == ("1" : GoUInt32)) || (((_r - _range_.lo) % _range_.stride) == ("0" : GoUInt32));
 		};
 		if (_r < _range_.lo) {
 			_hi = _m;
@@ -8908,7 +8906,7 @@ function _isExcludingLatin(_rangeTab:Ref<RangeTable>, _r:GoRune):Bool {
 **/
 function isUpper(_r:GoRune):Bool {
 	if ((_r : GoUInt32) <= ("255" : GoUInt32)) {
-		return (_properties[(_r : GoUInt8)] & (96 : GoUInt8)) == (32 : GoUInt8);
+		return _properties[(_r : GoUInt8)] & (96 : GoUInt8) == ((32 : GoUInt8));
 	};
 	return _isExcludingLatin(upper, _r);
 }
@@ -8918,7 +8916,7 @@ function isUpper(_r:GoRune):Bool {
 **/
 function isLower(_r:GoRune):Bool {
 	if ((_r : GoUInt32) <= ("255" : GoUInt32)) {
-		return (_properties[(_r : GoUInt8)] & (96 : GoUInt8)) == (64 : GoUInt8);
+		return _properties[(_r : GoUInt8)] & (96 : GoUInt8) == ((64 : GoUInt8));
 	};
 	return _isExcludingLatin(lower, _r);
 }
@@ -9055,7 +9053,7 @@ function simpleFold(_r:GoRune):GoRune {
 	};
 	{
 		var _l:GoInt32 = toLower(_r);
-		if (_l != _r) {
+		if (_l != (_r)) {
 			return _l;
 		};
 	};
@@ -9068,31 +9066,33 @@ class SpecialCase_asInterface {
 	**/
 	@:keep
 	public function toLower(_r:GoRune):GoRune
-		return __self__.toLower(_r);
+		return __self__.value.toLower(_r);
 
 	/**
 		// ToTitle maps the rune to title case giving priority to the special mapping.
 	**/
 	@:keep
 	public function toTitle(_r:GoRune):GoRune
-		return __self__.toTitle(_r);
+		return __self__.value.toTitle(_r);
 
 	/**
 		// ToUpper maps the rune to upper case giving priority to the special mapping.
 	**/
 	@:keep
 	public function toUpper(_r:GoRune):GoRune
-		return __self__.toUpper(_r);
+		return __self__.value.toUpper(_r);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:SpecialCase;
+	var __self__:Pointer<SpecialCase>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.unicode.Unicode.SpecialCase_asInterface) class SpecialCase_static_extension {

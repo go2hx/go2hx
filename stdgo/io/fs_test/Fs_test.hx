@@ -24905,7 +24905,7 @@ function exampleWalkDir():Void {
 function testValidPath(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _isValidPathTests) {
 		var _ok:Bool = validPath(_tt._name);
-		if (_ok != _tt._ok) {
+		if (_ok != (_tt._ok)) {
 			_t.errorf(Go.str("ValidPath(%q) = %v, want %v"), Go.toInterface(_tt._name), Go.toInterface(_ok), Go.toInterface(_tt._ok));
 		};
 	};
@@ -24932,7 +24932,7 @@ function testGlob(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_t.errorf(Go.str("Glob error for %q: %s"), Go.toInterface(_pattern), Go.toInterface(_err));
 			continue;
 		};
-		if ((_matches.length) != (0 : GoInt)) {
+		if ((_matches.length) != ((0 : GoInt))) {
 			_t.errorf(Go.str("Glob(%#q) = %#v want []"), Go.toInterface(_pattern), Go.toInterface(_matches));
 		};
 	};
@@ -24944,7 +24944,7 @@ function testGlobError(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var __tmp__ = glob(stdgo.os.Os.dirFS(Go.str(".")), _pattern),
 			_1:Slice<GoString> = __tmp__._0,
 			_err:Error = __tmp__._1;
-		if (_err != stdgo.path.Path.errBadPattern) {
+		if (Go.toInterface(_err) != (Go.toInterface(stdgo.path.Path.errBadPattern))) {
 			_t.errorf(Go.str("Glob(fs, %#q) returned err=%v, want path.ErrBadPattern"), Go.toInterface(_pattern), Go.toInterface(_err));
 		};
 	};
@@ -24954,7 +24954,7 @@ function testCVE202230630(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __tmp__ = glob(stdgo.os.Os.dirFS(Go.str(".")), Go.str("/*") + stdgo.strings.Strings.repeat(Go.str("/"), (10001 : GoInt))),
 		_0:Slice<GoString> = __tmp__._0,
 		_err:Error = __tmp__._1;
-	if (_err != stdgo.path.Path.errBadPattern) {
+	if (Go.toInterface(_err) != (Go.toInterface(stdgo.path.Path.errBadPattern))) {
 		_t.fatalf(Go.str("Glob returned err=%v, want %v"), Go.toInterface(_err), Go.toInterface(stdgo.path.Path.errBadPattern));
 	};
 }
@@ -24964,7 +24964,7 @@ function testCVE202230630(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function _contains(_vector:Slice<GoString>, _s:GoString):Bool {
 	for (_0 => _elem in _vector) {
-		if (_elem == _s) {
+		if (_elem == (_s)) {
 			return true;
 		};
 	};
@@ -49826,19 +49826,19 @@ function testFileInfoToDirEntry(_t:Ref<stdgo.testing.Testing.T>):Void {
 			{
 				var _g:FileMode = _dirEntry.type(),
 					_w:FileMode = _test._wantMode;
-				if (_g != _w) {
+				if (_g != (_w)) {
 					_t.errorf(Go.str("FileMode mismatch: got=%v, want=%v"), Go.toInterface(Go.asInterface(_g)), Go.toInterface(Go.asInterface(_w)));
 				};
 			};
 			{
 				var _g:GoString = _dirEntry.name(), _w:GoString = _test._path;
-				if (_g != _w) {
+				if (_g != (_w)) {
 					_t.errorf(Go.str("Name mismatch: got=%v, want=%v"), Go.toInterface(_g), Go.toInterface(_w));
 				};
 			};
 			{
 				var _g:Bool = _dirEntry.isDir(), _w:Bool = _test._wantDir;
-				if (_g != _w) {
+				if (_g != (_w)) {
 					_t.errorf(Go.str("IsDir mismatch: got=%v, want=%v"), Go.toInterface(_g), Go.toInterface(_w));
 				};
 			};
@@ -49948,14 +49948,14 @@ function testSub(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_t.fatal(Go.toInterface(Go.str("Open(nonexist): succeeded")));
 	};
 	var __tmp__ = try {
-		{value: (_err.__underlying__().value : Ref<PathError>), ok: true};
+		{value: Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)), ok: true};
 	} catch (_) {
 		{value: (null : PathError), ok: false};
 	}, _pe = __tmp__.value, _ok = __tmp__.ok;
 	if (!_ok) {
 		_t.fatalf(Go.str("Open(nonexist): error is %T, want *PathError"), Go.toInterface(_err));
 	};
-	if (_pe.path != Go.str("nonexist")) {
+	if (_pe.path != (Go.str("nonexist"))) {
 		_t.fatalf(Go.str("Open(nonexist): err.Path = %q, want %q"), Go.toInterface(_pe.path), Go.toInterface(Go.str("nonexist")));
 	};
 }
@@ -74670,7 +74670,7 @@ function _checkMarks(_t:Ref<stdgo.testing.Testing.T>, _report:Bool):Void {
 function _mark(_entry:DirEntry, _err:Error, _errors:Ref<Slice<Error>>, _clear:Bool):Error {
 	var _name:GoString = _entry.name();
 	_walkTree(_tree, _tree._name, function(_path:GoString, _n:Ref<Node>):Void {
-		if (_n._name == _name) {
+		if (_n._name == (_name)) {
 			_n._mark++;
 		};
 	});
@@ -74714,7 +74714,7 @@ function testWalkDir(_t:Ref<stdgo.testing.Testing.T>):Void {
 		if (_err != null) {
 			_t.fatalf(Go.str("no error expected, found: %s"), Go.toInterface(_err));
 		};
-		if ((_errors.length) != (0 : GoInt)) {
+		if ((_errors.length) != ((0 : GoInt))) {
 			_t.fatalf(Go.str("unexpected errors: %s"), Go.toInterface(_errors));
 		};
 		_checkMarks(_t, true);
@@ -74811,21 +74811,23 @@ function testIssue51617(_t:Ref<stdgo.testing.Testing.T>):Void {
 private class T_globOnly_asInterface {
 	@:keep
 	public function open(_name:GoString):{var _0:File; var _1:Error;}
-		return __self__.open(_name);
+		return __self__.value.open(_name);
 
 	@:embedded
 	public function glob(_name:GoString):{var _0:Slice<GoString>; var _1:Error;}
-		return __self__.glob(_name);
+		return __self__.value.glob(_name);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_globOnly;
+	var __self__:Pointer<T_globOnly>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.io.fs_test.Fs_test.T_globOnly_asInterface) class T_globOnly_static_extension {
@@ -74842,21 +74844,23 @@ private class T_globOnly_asInterface {
 private class T_readDirOnly_asInterface {
 	@:keep
 	public function open(_name:GoString):{var _0:File; var _1:Error;}
-		return __self__.open(_name);
+		return __self__.value.open(_name);
 
 	@:embedded
 	public function readDir(_name:GoString):{var _0:Slice<DirEntry>; var _1:Error;}
-		return __self__.readDir(_name);
+		return __self__.value.readDir(_name);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_readDirOnly;
+	var __self__:Pointer<T_readDirOnly>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.io.fs_test.Fs_test.T_readDirOnly_asInterface) class T_readDirOnly_static_extension {
@@ -74873,21 +74877,23 @@ private class T_readDirOnly_asInterface {
 private class T_readFileOnly_asInterface {
 	@:keep
 	public function open(_name:GoString):{var _0:File; var _1:Error;}
-		return __self__.open(_name);
+		return __self__.value.open(_name);
 
 	@:embedded
 	public function readFile(_name:GoString):{var _0:Slice<GoUInt8>; var _1:Error;}
-		return __self__.readFile(_name);
+		return __self__.value.readFile(_name);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_readFileOnly;
+	var __self__:Pointer<T_readFileOnly>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.io.fs_test.Fs_test.T_readFileOnly_asInterface) class T_readFileOnly_static_extension {
@@ -74904,17 +74910,19 @@ private class T_readFileOnly_asInterface {
 private class T_openOnly_asInterface {
 	@:embedded
 	public function open(_name:GoString):{var _0:File; var _1:Error;}
-		return __self__.open(_name);
+		return __self__.value.open(_name);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_openOnly;
+	var __self__:Pointer<T_openOnly>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.io.fs_test.Fs_test.T_openOnly_asInterface) class T_openOnly_static_extension {
@@ -74926,21 +74934,23 @@ private class T_openOnly_asInterface {
 private class T_statOnly_asInterface {
 	@:keep
 	public function open(_name:GoString):{var _0:File; var _1:Error;}
-		return __self__.open(_name);
+		return __self__.value.open(_name);
 
 	@:embedded
 	public function stat(_name:GoString):{var _0:FileInfo; var _1:Error;}
-		return __self__.stat(_name);
+		return __self__.value.stat(_name);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_statOnly;
+	var __self__:Pointer<T_statOnly>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.io.fs_test.Fs_test.T_statOnly_asInterface) class T_statOnly_static_extension {
@@ -74957,21 +74967,23 @@ private class T_statOnly_asInterface {
 private class T_subOnly_asInterface {
 	@:keep
 	public function open(_name:GoString):{var _0:File; var _1:Error;}
-		return __self__.open(_name);
+		return __self__.value.open(_name);
 
 	@:embedded
 	public function sub(_name:GoString):{var _0:FS; var _1:Error;}
-		return __self__.sub(_name);
+		return __self__.value.sub(_name);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_subOnly;
+	var __self__:Pointer<T_subOnly>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.io.fs_test.Fs_test.T_subOnly_asInterface) class T_subOnly_static_extension {

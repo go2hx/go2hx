@@ -464,16 +464,14 @@ private var _rngCooked:GoArray<GoInt64> = (new GoArray<GoInt64>(("-4181792142133
 	("-6278469401177312761" : GoInt64), ("-2171292963361310674" : GoInt64), ("8382142935188824023" : GoInt64), ("9103922860780351547" : GoInt64),
 	("4152330101494654406" : GoInt64)) : GoArray<GoInt64>);
 
-private var _globalRand:Ref<Rand> = new_(Go.asInterface((({_src: (newSource(("1" : GoInt64)).__underlying__()
-	.value : Ref<T_rngSource>)} : T_lockedSource) : Ref<T_lockedSource>)));
-
+private var _globalRand:Ref<Rand> = new_(Go.asInterface((({_src: Go.typeAssert((Go.toInterface(newSource(("1" : GoInt64))) : Ref<T_rngSource>))} : T_lockedSource) : Ref<T_lockedSource>)));
 private final _re:GoFloat64 = (7.69711747013105 : GoFloat64);
 private final _rn:GoFloat64 = (3.442619855899 : GoFloat64);
 
 /**
 	// Type assert that globalRand's source is a lockedSource whose src is a *rngSource.
 **/
-private var _1:Ref<T_rngSource> = (_globalRand._src.__underlying__().value : Ref<T_lockedSource>)._src;
+private var _1:Ref<T_rngSource> = Go.typeAssert((Go.toInterface(_globalRand._src) : Ref<T_lockedSource>))._src;
 
 private final _rngLen:GoUInt64 = ("607" : GoUInt64);
 private final _rngTap:GoUInt64 = ("273" : GoUInt64);
@@ -699,7 +697,7 @@ function newSource(_seed:GoInt64):Source {
 **/
 function new_(_src:Source):Ref<Rand> {
 	var __tmp__ = try {
-		{value: (_src.__underlying__().value : Source64), ok: true};
+		{value: Go.typeAssert((Go.toInterface(_src) : Source64)), ok: true};
 	} catch (_) {
 		{value: (null : Source64), ok: false};
 	}, _s64 = __tmp__.value, _0 = __tmp__.ok;
@@ -711,14 +709,14 @@ function _read(_p:Slice<GoByte>, _src:Source, _readVal:Pointer<GoInt64>, _readPo
 	var _pos:GoInt8 = _readPos.value;
 	var _val:GoInt64 = _readVal.value;
 	var __tmp__ = try {
-		{value: (_src.__underlying__().value : Ref<T_rngSource>), ok: true};
+		{value: Go.typeAssert((Go.toInterface(_src) : Ref<T_rngSource>)), ok: true};
 	} catch (_) {
 		{value: (null : T_rngSource), ok: false};
 	}, _rng = __tmp__.value, _0 = __tmp__.ok;
 	{
 		_n = (0 : GoInt);
 		Go.cfor(_n < (_p.length), _n++, {
-			if (_pos == (0 : GoInt8)) {
+			if (_pos == ((0 : GoInt8))) {
 				if (_rng != null) {
 					_val = _rng.int63();
 				} else {
@@ -928,7 +926,7 @@ class Rand_asInterface {
 	**/
 	@:keep
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
-		return __self__.read(_p);
+		return __self__.value.read(_p);
 
 	/**
 		// Shuffle pseudo-randomizes the order of elements.
@@ -937,7 +935,7 @@ class Rand_asInterface {
 	**/
 	@:keep
 	public function shuffle(_n:GoInt, _swap:(_i:GoInt, _j:GoInt) -> Void):Void
-		__self__.shuffle(_n, _swap);
+		__self__.value.shuffle(_n, _swap);
 
 	/**
 		// Perm returns, as a slice of n ints, a pseudo-random permutation of the integers
@@ -945,21 +943,21 @@ class Rand_asInterface {
 	**/
 	@:keep
 	public function perm(_n:GoInt):Slice<GoInt>
-		return __self__.perm(_n);
+		return __self__.value.perm(_n);
 
 	/**
 		// Float32 returns, as a float32, a pseudo-random number in the half-open interval [0.0,1.0).
 	**/
 	@:keep
 	public function float32():GoFloat32
-		return __self__.float32();
+		return __self__.value.float32();
 
 	/**
 		// Float64 returns, as a float64, a pseudo-random number in the half-open interval [0.0,1.0).
 	**/
 	@:keep
 	public function float64():GoFloat64
-		return __self__.float64();
+		return __self__.value.float64();
 
 	/**
 		// Intn returns, as an int, a non-negative pseudo-random number in the half-open interval [0,n).
@@ -967,7 +965,7 @@ class Rand_asInterface {
 	**/
 	@:keep
 	public function intn(_n:GoInt):GoInt
-		return __self__.intn(_n);
+		return __self__.value.intn(_n);
 
 	/**
 		// int31n returns, as an int32, a non-negative pseudo-random number in the half-open interval [0,n).
@@ -982,7 +980,7 @@ class Rand_asInterface {
 	**/
 	@:keep
 	public function _int31n(_n:GoInt32):GoInt32
-		return __self__._int31n(_n);
+		return __self__.value._int31n(_n);
 
 	/**
 		// Int31n returns, as an int32, a non-negative pseudo-random number in the half-open interval [0,n).
@@ -990,7 +988,7 @@ class Rand_asInterface {
 	**/
 	@:keep
 	public function int31n(_n:GoInt32):GoInt32
-		return __self__.int31n(_n);
+		return __self__.value.int31n(_n);
 
 	/**
 		// Int63n returns, as an int64, a non-negative pseudo-random number in the half-open interval [0,n).
@@ -998,42 +996,42 @@ class Rand_asInterface {
 	**/
 	@:keep
 	public function int63n(_n:GoInt64):GoInt64
-		return __self__.int63n(_n);
+		return __self__.value.int63n(_n);
 
 	/**
 		// Int returns a non-negative pseudo-random int.
 	**/
 	@:keep
 	public function int_():GoInt
-		return __self__.int_();
+		return __self__.value.int_();
 
 	/**
 		// Int31 returns a non-negative pseudo-random 31-bit integer as an int32.
 	**/
 	@:keep
 	public function int31():GoInt32
-		return __self__.int31();
+		return __self__.value.int31();
 
 	/**
 		// Uint64 returns a pseudo-random 64-bit value as a uint64.
 	**/
 	@:keep
 	public function uint64():GoUInt64
-		return __self__.uint64();
+		return __self__.value.uint64();
 
 	/**
 		// Uint32 returns a pseudo-random 32-bit value as a uint32.
 	**/
 	@:keep
 	public function uint32():GoUInt32
-		return __self__.uint32();
+		return __self__.value.uint32();
 
 	/**
 		// Int63 returns a non-negative pseudo-random 63-bit integer as an int64.
 	**/
 	@:keep
 	public function int63():GoInt64
-		return __self__.int63();
+		return __self__.value.int63();
 
 	/**
 		// Seed uses the provided seed value to initialize the generator to a deterministic state.
@@ -1041,7 +1039,7 @@ class Rand_asInterface {
 	**/
 	@:keep
 	public function seed(_seed:GoInt64):Void
-		__self__.seed(_seed);
+		__self__.value.seed(_seed);
 
 	/**
 		// NormFloat64 returns a normally distributed float64 in
@@ -1054,7 +1052,7 @@ class Rand_asInterface {
 	**/
 	@:keep
 	public function normFloat64():GoFloat64
-		return __self__.normFloat64();
+		return __self__.value.normFloat64();
 
 	/**
 		// ExpFloat64 returns an exponentially distributed float64 in the range
@@ -1067,17 +1065,19 @@ class Rand_asInterface {
 	**/
 	@:keep
 	public function expFloat64():GoFloat64
-		return __self__.expFloat64();
+		return __self__.value.expFloat64();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:Rand;
+	var __self__:Pointer<Rand>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.math.rand.Rand.Rand_asInterface) class Rand_static_extension {
@@ -1091,7 +1091,7 @@ class Rand_asInterface {
 		var _n:GoInt = (0 : GoInt), _err:Error = (null : Error);
 		{
 			var __tmp__ = try {
-				{value: (_r._src.__underlying__().value : Ref<T_lockedSource>), ok: true};
+				{value: Go.typeAssert((Go.toInterface(_r._src) : Ref<T_lockedSource>)), ok: true};
 			} catch (_) {
 				{value: (null : T_lockedSource), ok: false};
 			}, _lk = __tmp__.value, _ok = __tmp__.ok;
@@ -1220,7 +1220,7 @@ class Rand_asInterface {
 		if (_n <= (0 : GoInt32)) {
 			throw Go.toInterface(Go.str("invalid argument to Int31n"));
 		};
-		if ((_n & (_n - (1 : GoInt32))) == (0 : GoInt32)) {
+		if (_n & (_n - (1 : GoInt32)) == ((0 : GoInt32))) {
 			return _r.int31() & (_n - (1 : GoInt32));
 		};
 		var _max:GoInt32 = (("2147483647" : GoUInt32) - ((("2147483648" : GoUInt32) : GoUInt32) % (_n : GoUInt32)) : GoInt32);
@@ -1240,7 +1240,7 @@ class Rand_asInterface {
 		if (_n <= ("0" : GoInt64)) {
 			throw Go.toInterface(Go.str("invalid argument to Int63n"));
 		};
-		if ((_n & (_n - (("1" : GoInt64) : GoInt64))) == ("0" : GoInt64)) {
+		if (_n & (_n - (("1" : GoInt64) : GoInt64)) == (("0" : GoInt64))) {
 			return _r.int63() & (_n - (("1" : GoInt64) : GoInt64));
 		};
 		var _max:GoInt64 = (("9223372036854775807" : GoUInt64) - ((("9223372036854775808" : GoUInt64) : GoUInt64) % (_n : GoUInt64)) : GoInt64);
@@ -1303,7 +1303,7 @@ class Rand_asInterface {
 	static public function seed(_r:Ref<Rand>, _seed:GoInt64):Void {
 		{
 			var __tmp__ = try {
-				{value: (_r._src.__underlying__().value : Ref<T_lockedSource>), ok: true};
+				{value: Go.typeAssert((Go.toInterface(_r._src) : Ref<T_lockedSource>)), ok: true};
 			} catch (_) {
 				{value: (null : T_lockedSource), ok: false};
 			}, _lk = __tmp__.value, _ok = __tmp__.ok;
@@ -1334,7 +1334,7 @@ class Rand_asInterface {
 			if (_absInt32(_j) < _kn[_i]) {
 				return _x;
 			};
-			if (_i == (0 : GoInt32)) {
+			if (_i == ((0 : GoInt32))) {
 				while (true) {
 					_x = -stdgo.math.Math.log(_r.float64()) * (0.29047645161474317 : GoFloat64);
 					var _y:GoFloat64 = -stdgo.math.Math.log(_r.float64());
@@ -1372,7 +1372,7 @@ class Rand_asInterface {
 			if (_j < _ke[_i]) {
 				return _x;
 			};
-			if (_i == ("0" : GoUInt32)) {
+			if (_i == (("0" : GoUInt32))) {
 				return (7.69711747013105 : GoFloat64) - stdgo.math.Math.log(_r.float64());
 			};
 			if ((_fe[_i] + ((_r.float64() : GoFloat32) * (_fe[_i - ("1" : GoUInt32)] - _fe[_i]))) < (stdgo.math.Math.exp(-_x) : GoFloat32)) {
@@ -1388,36 +1388,38 @@ private class T_lockedSource_asInterface {
 	**/
 	@:keep
 	public function _read(_p:Slice<GoByte>, _readVal:Pointer<GoInt64>, _readPos:Pointer<GoInt8>):{var _0:GoInt; var _1:Error;}
-		return __self__._read(_p, _readVal, _readPos);
+		return __self__.value._read(_p, _readVal, _readPos);
 
 	/**
 		// seedPos implements Seed for a lockedSource without a race condition.
 	**/
 	@:keep
 	public function _seedPos(_seed:GoInt64, _readPos:Pointer<GoInt8>):Void
-		__self__._seedPos(_seed, _readPos);
+		__self__.value._seedPos(_seed, _readPos);
 
 	@:keep
 	public function seed(_seed:GoInt64):Void
-		__self__.seed(_seed);
+		__self__.value.seed(_seed);
 
 	@:keep
 	public function uint64():GoUInt64
-		return __self__.uint64();
+		return __self__.value.uint64();
 
 	@:keep
 	public function int63():GoInt64
-		return __self__.int63();
+		return __self__.value.int63();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_lockedSource;
+	var __self__:Pointer<T_lockedSource>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.math.rand.Rand.T_lockedSource_asInterface) class T_lockedSource_static_extension {
@@ -1480,31 +1482,33 @@ private class T_rngSource_asInterface {
 	**/
 	@:keep
 	public function uint64():GoUInt64
-		return __self__.uint64();
+		return __self__.value.uint64();
 
 	/**
 		// Int63 returns a non-negative pseudo-random 63-bit integer as an int64.
 	**/
 	@:keep
 	public function int63():GoInt64
-		return __self__.int63();
+		return __self__.value.int63();
 
 	/**
 		// Seed uses the provided seed value to initialize the generator to a deterministic state.
 	**/
 	@:keep
 	public function seed(_seed:GoInt64):Void
-		__self__.seed(_seed);
+		__self__.value.seed(_seed);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_rngSource;
+	var __self__:Pointer<T_rngSource>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.math.rand.Rand.T_rngSource_asInterface) class T_rngSource_static_extension {
@@ -1545,7 +1549,7 @@ private class T_rngSource_asInterface {
 		if (_seed < ("0":GoInt64)) {
 			_seed = _seed + (("2147483647" : GoInt64));
 		};
-		if (_seed == ("0" : GoInt64)) {
+		if (_seed == (("0" : GoInt64))) {
 			_seed = ("89482311" : GoInt64);
 		};
 		var _x:GoInt32 = (_seed : GoInt32);
@@ -1575,25 +1579,27 @@ class Zipf_asInterface {
 	**/
 	@:keep
 	public function uint64():GoUInt64
-		return __self__.uint64();
+		return __self__.value.uint64();
 
 	@:keep
 	public function _hinv(_x:GoFloat64):GoFloat64
-		return __self__._hinv(_x);
+		return __self__.value._hinv(_x);
 
 	@:keep
 	public function _h(_x:GoFloat64):GoFloat64
-		return __self__._h(_x);
+		return __self__.value._h(_x);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:Zipf;
+	var __self__:Pointer<Zipf>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.math.rand.Rand.Zipf_asInterface) class Zipf_static_extension {

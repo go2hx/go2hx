@@ -550,7 +550,7 @@ function validPath(_name:GoString):Bool {
 	if (!stdgo.unicode.utf8.Utf8.validString(_name)) {
 		return false;
 	};
-	if (_name == Go.str(".")) {
+	if (_name == (Go.str("."))) {
 		return true;
 	};
 	while (true) {
@@ -562,7 +562,7 @@ function validPath(_name:GoString):Bool {
 		if (((_elem == Go.str()) || (_elem == Go.str("."))) || (_elem == Go.str(".."))) {
 			return false;
 		};
-		if (_i == (_name.length)) {
+		if (_i == ((_name.length))) {
 			return true;
 		};
 		_name = (_name.__slice__(_i + (1 : GoInt)) : GoString);
@@ -618,7 +618,7 @@ function _globWithLimit(_fsys:FS, _pattern:GoString, _depth:GoInt):{var _0:Slice
 	};
 	{
 		var __tmp__ = try {
-			{value: (_fsys.__underlying__().value : GlobFS), ok: true};
+			{value: Go.typeAssert((Go.toInterface(_fsys) : GlobFS)), ok: true};
 		} catch (_) {
 			{value: (null : GlobFS), ok: false};
 		}, _fsys = __tmp__.value, _ok = __tmp__.ok;
@@ -653,7 +653,7 @@ function _globWithLimit(_fsys:FS, _pattern:GoString, _depth:GoInt):{var _0:Slice
 	if (!_hasMeta(_dir)) {
 		return _glob(_fsys, _dir, _file, (null : Slice<GoString>));
 	};
-	if (_dir == _pattern) {
+	if (_dir == (_pattern)) {
 		return {_0: (null : Slice<GoString>), _1: stdgo.path.Path.errBadPattern};
 	};
 	var _m:Slice<GoString> = (null : Slice<GoString>);
@@ -749,7 +749,7 @@ function readDir(_fsys:FS, _name:GoString):{var _0:Slice<DirEntry>; var _1:Error
 	var __deferstack__:Array<Void->Void> = [];
 	{
 		var __tmp__ = try {
-			{value: (_fsys.__underlying__().value : ReadDirFS), ok: true};
+			{value: Go.typeAssert((Go.toInterface(_fsys) : ReadDirFS)), ok: true};
 		} catch (_) {
 			{value: (null : ReadDirFS), ok: false};
 		}, _fsys = __tmp__.value, _ok = __tmp__.ok;
@@ -766,7 +766,7 @@ function readDir(_fsys:FS, _name:GoString):{var _0:Slice<DirEntry>; var _1:Error
 	try {
 		__deferstack__.unshift(() -> _file.close());
 		var __tmp__ = try {
-			{value: (_file.__underlying__().value : ReadDirFile), ok: true};
+			{value: Go.typeAssert((Go.toInterface(_file) : ReadDirFile)), ok: true};
 		} catch (_) {
 			{value: (null : ReadDirFile), ok: false};
 		}, _dir = __tmp__.value, _ok = __tmp__.ok;
@@ -840,7 +840,7 @@ function readFile(_fsys:FS, _name:GoString):{var _0:Slice<GoByte>; var _1:Error;
 	var __deferstack__:Array<Void->Void> = [];
 	{
 		var __tmp__ = try {
-			{value: (_fsys.__underlying__().value : ReadFileFS), ok: true};
+			{value: Go.typeAssert((Go.toInterface(_fsys) : ReadFileFS)), ok: true};
 		} catch (_) {
 			{value: (null : ReadFileFS), ok: false};
 		}, _fsys = __tmp__.value, _ok = __tmp__.ok;
@@ -863,7 +863,7 @@ function readFile(_fsys:FS, _name:GoString):{var _0:Slice<GoByte>; var _1:Error;
 				_err:Error = __tmp__._1;
 			if (_err == null) {
 				var _size64:GoInt64 = _info.size();
-				if (((_size64 : GoInt) : GoInt64) == _size64) {
+				if (((_size64 : GoInt) : GoInt64) == (_size64)) {
 					_size = (_size64 : GoInt);
 				};
 			};
@@ -879,7 +879,7 @@ function readFile(_fsys:FS, _name:GoString):{var _0:Slice<GoByte>; var _1:Error;
 				_err:Error = __tmp__._1;
 			_data = (_data.__slice__(0, (_data.length) + _n) : Slice<GoUInt8>);
 			if (_err != null) {
-				if (_err == stdgo.io.Io.eof) {
+				if (Go.toInterface(_err) == (Go.toInterface(stdgo.io.Io.eof))) {
 					_err = (null : Error);
 				};
 				{
@@ -924,7 +924,7 @@ function stat(_fsys:FS, _name:GoString):{var _0:FileInfo; var _1:Error;} {
 	var __deferstack__:Array<Void->Void> = [];
 	{
 		var __tmp__ = try {
-			{value: (_fsys.__underlying__().value : StatFS), ok: true};
+			{value: Go.typeAssert((Go.toInterface(_fsys) : StatFS)), ok: true};
 		} catch (_) {
 			{value: (null : StatFS), ok: false};
 		}, _fsys = __tmp__.value, _ok = __tmp__.ok;
@@ -991,12 +991,12 @@ function sub(_fsys:FS, _dir:GoString):{var _0:FS; var _1:Error;} {
 		return {_0: (null : FS), _1: Go.asInterface((({op: Go.str("sub"), path: _dir,
 			err: stdgo.errors.Errors.new_(Go.str("invalid name"))} : PathError) : Ref<PathError>))};
 	};
-	if (_dir == Go.str(".")) {
+	if (_dir == (Go.str("."))) {
 		return {_0: _fsys, _1: (null : Error)};
 	};
 	{
 		var __tmp__ = try {
-			{value: (_fsys.__underlying__().value : SubFS), ok: true};
+			{value: Go.typeAssert((Go.toInterface(_fsys) : SubFS)), ok: true};
 		} catch (_) {
 			{value: (null : SubFS), ok: false};
 		}, _fsys = __tmp__.value, _ok = __tmp__.ok;
@@ -1014,7 +1014,7 @@ function _walkDir(_fsys:FS, _name:GoString, _d:DirEntry, _walkDirFn:WalkDirFunc)
 	{
 		var _err:Error = _walkDirFn(_name, _d, (null : Error));
 		if ((_err != null) || !_d.isDir()) {
-			if ((_err == skipDir) && _d.isDir()) {
+			if ((Go.toInterface(_err) == Go.toInterface(skipDir)) && _d.isDir()) {
 				_err = (null : Error);
 			};
 			return _err;
@@ -1026,7 +1026,7 @@ function _walkDir(_fsys:FS, _name:GoString, _d:DirEntry, _walkDirFn:WalkDirFunc)
 	if (_err != null) {
 		_err = _walkDirFn(_name, _d, _err);
 		if (_err != null) {
-			if ((_err == skipDir) && _d.isDir()) {
+			if ((Go.toInterface(_err) == Go.toInterface(skipDir)) && _d.isDir()) {
 				_err = (null : Error);
 			};
 			return _err;
@@ -1037,7 +1037,7 @@ function _walkDir(_fsys:FS, _name:GoString, _d:DirEntry, _walkDirFn:WalkDirFunc)
 		{
 			var _err:Error = _walkDir(_fsys, _name1, _d1, _walkDirFn);
 			if (_err != null) {
-				if (_err == skipDir) {
+				if (Go.toInterface(_err) == (Go.toInterface(skipDir))) {
 					break;
 				};
 				return _err;
@@ -1070,7 +1070,7 @@ function walkDir(_fsys:FS, _root:GoString, _fn:WalkDirFunc):Error {
 	} else {
 		_err = _walkDir(_fsys, _root, Go.asInterface(((new T_statDirEntry(_info) : T_statDirEntry) : Ref<T_statDirEntry>)), _fn);
 	};
-	if (_err == skipDir) {
+	if (Go.toInterface(_err) == (Go.toInterface(skipDir))) {
 		return (null : Error);
 	};
 	return _err;
@@ -1082,25 +1082,27 @@ class PathError_asInterface {
 	**/
 	@:keep
 	public function timeout():Bool
-		return __self__.timeout();
+		return __self__.value.timeout();
 
 	@:keep
 	public function unwrap():Error
-		return __self__.unwrap();
+		return __self__.value.unwrap();
 
 	@:keep
 	public function error():GoString
-		return __self__.error();
+		return __self__.value.error();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:PathError;
+	var __self__:Pointer<PathError>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.io.fs.Fs.PathError_asInterface) class PathError_static_extension {
@@ -1110,7 +1112,7 @@ class PathError_asInterface {
 	@:keep
 	static public function timeout(_e:Ref<PathError>):Bool {
 		var __tmp__ = try {
-			{value: (_e.err.__underlying__().value : T__interface_0), ok: true};
+			{value: Go.typeAssert((Go.toInterface(_e.err) : T__interface_0)), ok: true};
 		} catch (_) {
 			{value: (null : T__interface_0), ok: false};
 		}, _t = __tmp__.value, _ok = __tmp__.ok;
@@ -1131,29 +1133,31 @@ class PathError_asInterface {
 private class T_dirInfo_asInterface {
 	@:keep
 	public function name():GoString
-		return __self__.name();
+		return __self__.value.name();
 
 	@:keep
 	public function info():{var _0:FileInfo; var _1:Error;}
-		return __self__.info();
+		return __self__.value.info();
 
 	@:keep
 	public function type():FileMode
-		return __self__.type();
+		return __self__.value.type();
 
 	@:keep
 	public function isDir():Bool
-		return __self__.isDir();
+		return __self__.value.isDir();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_dirInfo;
+	var __self__:Pointer<T_dirInfo>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.io.fs.Fs.T_dirInfo_asInterface) class T_dirInfo_static_extension {
@@ -1181,60 +1185,62 @@ private class T_dirInfo_asInterface {
 private class T_subFS_asInterface {
 	@:keep
 	public function sub(_dir:GoString):{var _0:FS; var _1:Error;}
-		return __self__.sub(_dir);
+		return __self__.value.sub(_dir);
 
 	@:keep
 	public function glob(_pattern:GoString):{var _0:Slice<GoString>; var _1:Error;}
-		return __self__.glob(_pattern);
+		return __self__.value.glob(_pattern);
 
 	@:keep
 	public function readFile(_name:GoString):{var _0:Slice<GoByte>; var _1:Error;}
-		return __self__.readFile(_name);
+		return __self__.value.readFile(_name);
 
 	@:keep
 	public function readDir(_name:GoString):{var _0:Slice<DirEntry>; var _1:Error;}
-		return __self__.readDir(_name);
+		return __self__.value.readDir(_name);
 
 	@:keep
 	public function open(_name:GoString):{var _0:File; var _1:Error;}
-		return __self__.open(_name);
+		return __self__.value.open(_name);
 
 	/**
 		// fixErr shortens any reported names in PathErrors by stripping f.dir.
 	**/
 	@:keep
 	public function _fixErr(_err:Error):Error
-		return __self__._fixErr(_err);
+		return __self__.value._fixErr(_err);
 
 	/**
 		// shorten maps name, which should start with f.dir, back to the suffix after f.dir.
 	**/
 	@:keep
 	public function _shorten(_name:GoString):{var _0:GoString; var _1:Bool;}
-		return __self__._shorten(_name);
+		return __self__.value._shorten(_name);
 
 	/**
 		// fullName maps name to the fully-qualified name dir/name.
 	**/
 	@:keep
 	public function _fullName(_op:GoString, _name:GoString):{var _0:GoString; var _1:Error;}
-		return __self__._fullName(_op, _name);
+		return __self__.value._fullName(_op, _name);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_subFS;
+	var __self__:Pointer<T_subFS>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.io.fs.Fs.T_subFS_asInterface) class T_subFS_static_extension {
 	@:keep
 	static public function sub(_f:Ref<T_subFS>, _dir:GoString):{var _0:FS; var _1:Error;} {
-		if (_dir == Go.str(".")) {
+		if (_dir == (Go.str("."))) {
 			return {_0: Go.asInterface(_f), _1: (null : Error)};
 		};
 		var __tmp__ = _f._fullName(Go.str("sub"), _dir),
@@ -1256,7 +1262,7 @@ private class T_subFS_asInterface {
 				return {_0: (null : Slice<GoString>), _1: _err};
 			};
 		};
-		if (_pattern == Go.str(".")) {
+		if (_pattern == (Go.str("."))) {
 			return {_0: (new Slice<GoString>(0, 0, Go.str(".")) : Slice<GoString>), _1: (null : Error)};
 		};
 		var _full:GoString = (_f._dir + Go.str("/")) + _pattern;
@@ -1326,7 +1332,7 @@ private class T_subFS_asInterface {
 	static public function _fixErr(_f:Ref<T_subFS>, _err:Error):Error {
 		{
 			var __tmp__ = try {
-				{value: (_err.__underlying__().value : Ref<PathError>), ok: true};
+				{value: Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)), ok: true};
 			} catch (_) {
 				{value: (null : PathError), ok: false};
 			}, _e = __tmp__.value, _ok = __tmp__.ok;
@@ -1350,7 +1356,7 @@ private class T_subFS_asInterface {
 	@:keep
 	static public function _shorten(_f:Ref<T_subFS>, _name:GoString):{var _0:GoString; var _1:Bool;} {
 		var _rel:GoString = ("" : GoString), _ok:Bool = false;
-		if (_name == _f._dir) {
+		if (_name == (_f._dir)) {
 			return {_0: Go.str("."), _1: true};
 		};
 		if (((_name.length >= (_f._dir.length + (2 : GoInt))) && (_name[(_f._dir.length)] == ("/".code : GoRune)))
@@ -1376,29 +1382,31 @@ private class T_subFS_asInterface {
 private class T_statDirEntry_asInterface {
 	@:keep
 	public function info():{var _0:FileInfo; var _1:Error;}
-		return __self__.info();
+		return __self__.value.info();
 
 	@:keep
 	public function type():FileMode
-		return __self__.type();
+		return __self__.value.type();
 
 	@:keep
 	public function isDir():Bool
-		return __self__.isDir();
+		return __self__.value.isDir();
 
 	@:keep
 	public function name():GoString
-		return __self__.name();
+		return __self__.value.name();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_statDirEntry;
+	var __self__:Pointer<T_statDirEntry>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.io.fs.Fs.T_statDirEntry_asInterface) class T_statDirEntry_static_extension {
@@ -1429,14 +1437,14 @@ class FileMode_asInterface {
 	**/
 	@:keep
 	public function type():FileMode
-		return __self__.type();
+		return __self__.value.type();
 
 	/**
 		// Perm returns the Unix permission bits in m (m & ModePerm).
 	**/
 	@:keep
 	public function perm():FileMode
-		return __self__.perm();
+		return __self__.value.perm();
 
 	/**
 		// IsRegular reports whether m describes a regular file.
@@ -1444,7 +1452,7 @@ class FileMode_asInterface {
 	**/
 	@:keep
 	public function isRegular():Bool
-		return __self__.isRegular();
+		return __self__.value.isRegular();
 
 	/**
 		// IsDir reports whether m describes a directory.
@@ -1452,21 +1460,23 @@ class FileMode_asInterface {
 	**/
 	@:keep
 	public function isDir():Bool
-		return __self__.isDir();
+		return __self__.value.isDir();
 
 	@:keep
 	public function string():GoString
-		return __self__.string();
+		return __self__.value.string();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:FileMode;
+	var __self__:Pointer<FileMode>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.io.fs.Fs.FileMode_asInterface) class FileMode_static_extension {
@@ -1492,7 +1502,7 @@ class FileMode_asInterface {
 	**/
 	@:keep
 	static public function isRegular(_m:FileMode):Bool {
-		return (_m & (("2401763328" : GoUInt32) : FileMode)) == (("0" : GoUInt32) : FileMode);
+		return _m & (("2401763328" : GoUInt32) : FileMode) == ((("0" : GoUInt32) : FileMode));
 	}
 
 	/**
@@ -1501,7 +1511,7 @@ class FileMode_asInterface {
 	**/
 	@:keep
 	static public function isDir(_m:FileMode):Bool {
-		return (_m & (("2147483648" : GoUInt32) : FileMode)) != (("0" : GoUInt32) : FileMode);
+		return _m & (("2147483648" : GoUInt32) : FileMode) != ((("0" : GoUInt32) : FileMode));
 	}
 
 	@:keep
@@ -1510,18 +1520,18 @@ class FileMode_asInterface {
 		var _buf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0...32) (0 : GoUInt8)]);
 		var _w:GoInt = (0 : GoInt);
 		for (_i => _c in Go.str("dalTLDpSugct?")) {
-			if ((_m & ((("1" : GoUInt32) : FileMode) << ((31 : GoInt) - _i : GoUInt))) != (("0" : GoUInt32) : FileMode)) {
+			if (_m & ((("1" : GoUInt32) : FileMode) << ((31 : GoInt) - _i : GoUInt)) != ((("0" : GoUInt32) : FileMode))) {
 				_buf[_w] = (_c : GoByte);
 				_w++;
 			};
 		};
-		if (_w == (0 : GoInt)) {
+		if (_w == ((0 : GoInt))) {
 			_buf[_w] = ("-".code : GoRune);
 			_w++;
 		};
 		{};
 		for (_i => _c in Go.str("rwxrwxrwx")) {
-			if ((_m & ((("1" : GoUInt32) : FileMode) << ((8 : GoInt) - _i : GoUInt))) != (("0" : GoUInt32) : FileMode)) {
+			if (_m & ((("1" : GoUInt32) : FileMode) << ((8 : GoInt) - _i : GoUInt)) != ((("0" : GoUInt32) : FileMode))) {
 				_buf[_w] = (_c : GoByte);
 			} else {
 				_buf[_w] = ("-".code : GoRune);

@@ -1,0 +1,3 @@
+-m stdgo.regexp_test.Regexp
+-lib go2hx
+-cp stdgo

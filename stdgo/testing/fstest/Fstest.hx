@@ -374,17 +374,19 @@ function testDash(_t:Ref<stdgo.testing.Testing.T>):Void
 private class T_fsOnly_asInterface {
 	@:embedded
 	public function open(_pattern:GoString):{var _0:stdgo.io.fs.Fs.File; var _1:Error;}
-		return __self__.open(_pattern);
+		return __self__.value.open(_pattern);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_fsOnly;
+	var __self__:Pointer<T_fsOnly>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.testing.fstest.Fstest.T_fsOnly_asInterface) class T_fsOnly_static_extension {
@@ -396,37 +398,39 @@ private class T_fsOnly_asInterface {
 private class T_noSub_asInterface {
 	@:keep
 	public function sub():Void
-		__self__.sub();
+		__self__.value.sub();
 
 	@:embedded
 	public function stat(_pattern:GoString):{var _0:stdgo.io.fs.Fs.FileInfo; var _1:Error;}
-		return __self__.stat(_pattern);
+		return __self__.value.stat(_pattern);
 
 	@:embedded
 	public function readFile(_pattern:GoString):{var _0:Slice<GoUInt8>; var _1:Error;}
-		return __self__.readFile(_pattern);
+		return __self__.value.readFile(_pattern);
 
 	@:embedded
 	public function readDir(_pattern:GoString):{var _0:Slice<stdgo.io.fs.Fs.DirEntry>; var _1:Error;}
-		return __self__.readDir(_pattern);
+		return __self__.value.readDir(_pattern);
 
 	@:embedded
 	public function open(_pattern:GoString):{var _0:stdgo.io.fs.Fs.File; var _1:Error;}
-		return __self__.open(_pattern);
+		return __self__.value.open(_pattern);
 
 	@:embedded
 	public function glob(_pattern:GoString):{var _0:Slice<GoString>; var _1:Error;}
-		return __self__.glob(_pattern);
+		return __self__.value.glob(_pattern);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_noSub;
+	var __self__:Pointer<T_noSub>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.testing.fstest.Fstest.T_noSub_asInterface) class T_noSub_static_extension {
@@ -458,45 +462,47 @@ private class T_noSub_asInterface {
 private class T_mapFileInfo_asInterface {
 	@:keep
 	public function info():{var _0:stdgo.io.fs.Fs.FileInfo; var _1:Error;}
-		return __self__.info();
+		return __self__.value.info();
 
 	@:keep
 	public function sys():AnyInterface
-		return __self__.sys();
+		return __self__.value.sys();
 
 	@:keep
 	public function isDir():Bool
-		return __self__.isDir();
+		return __self__.value.isDir();
 
 	@:keep
 	public function modTime():stdgo.time.Time.Time
-		return __self__.modTime();
+		return __self__.value.modTime();
 
 	@:keep
 	public function type():stdgo.io.fs.Fs.FileMode
-		return __self__.type();
+		return __self__.value.type();
 
 	@:keep
 	public function mode():stdgo.io.fs.Fs.FileMode
-		return __self__.mode();
+		return __self__.value.mode();
 
 	@:keep
 	public function size():GoInt64
-		return __self__.size();
+		return __self__.value.size();
 
 	@:keep
 	public function name():GoString
-		return __self__.name();
+		return __self__.value.name();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_mapFileInfo;
+	var __self__:Pointer<T_mapFileInfo>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.testing.fstest.Fstest.T_mapFileInfo_asInterface) class T_mapFileInfo_static_extension {
@@ -536,65 +542,67 @@ private class T_mapFileInfo_asInterface {
 private class T_openMapFile_asInterface {
 	@:keep
 	public function readAt(_b:Slice<GoByte>, _offset:GoInt64):{var _0:GoInt; var _1:Error;}
-		return __self__.readAt(_b, _offset);
+		return __self__.value.readAt(_b, _offset);
 
 	@:keep
 	public function seek(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:Error;}
-		return __self__.seek(_offset, _whence);
+		return __self__.value.seek(_offset, _whence);
 
 	@:keep
 	public function read(_b:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
-		return __self__.read(_b);
+		return __self__.value.read(_b);
 
 	@:keep
 	public function close():Error
-		return __self__.close();
+		return __self__.value.close();
 
 	@:keep
 	public function stat():{var _0:stdgo.io.fs.Fs.FileInfo; var _1:Error;}
-		return __self__.stat();
+		return __self__.value.stat();
 
 	@:embedded
 	public function type():stdgo.io.fs.Fs.FileMode
-		return __self__.type();
+		return __self__.value.type();
 
 	@:embedded
 	public function sys():AnyInterface
-		return __self__.sys();
+		return __self__.value.sys();
 
 	@:embedded
 	public function size():GoInt64
-		return __self__.size();
+		return __self__.value.size();
 
 	@:embedded
 	public function name():GoString
-		return __self__.name();
+		return __self__.value.name();
 
 	@:embedded
 	public function mode():stdgo.io.fs.Fs.FileMode
-		return __self__.mode();
+		return __self__.value.mode();
 
 	@:embedded
 	public function modTime():stdgo.time.Time.Time
-		return __self__.modTime();
+		return __self__.value.modTime();
 
 	@:embedded
 	public function isDir():Bool
-		return __self__.isDir();
+		return __self__.value.isDir();
 
 	@:embedded
 	public function info():{var _0:stdgo.io.fs.Fs.FileInfo; var _1:Error;}
-		return __self__.info();
+		return __self__.value.info();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_openMapFile;
+	var __self__:Pointer<T_openMapFile>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.testing.fstest.Fstest.T_openMapFile_asInterface) class T_openMapFile_static_extension {
@@ -654,61 +662,63 @@ private class T_openMapFile_asInterface {
 private class T_mapDir_asInterface {
 	@:keep
 	public function readDir(_count:GoInt):{var _0:Slice<stdgo.io.fs.Fs.DirEntry>; var _1:Error;}
-		return __self__.readDir(_count);
+		return __self__.value.readDir(_count);
 
 	@:keep
 	public function read(_b:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
-		return __self__.read(_b);
+		return __self__.value.read(_b);
 
 	@:keep
 	public function close():Error
-		return __self__.close();
+		return __self__.value.close();
 
 	@:keep
 	public function stat():{var _0:stdgo.io.fs.Fs.FileInfo; var _1:Error;}
-		return __self__.stat();
+		return __self__.value.stat();
 
 	@:embedded
 	public function type():stdgo.io.fs.Fs.FileMode
-		return __self__.type();
+		return __self__.value.type();
 
 	@:embedded
 	public function sys():AnyInterface
-		return __self__.sys();
+		return __self__.value.sys();
 
 	@:embedded
 	public function size():GoInt64
-		return __self__.size();
+		return __self__.value.size();
 
 	@:embedded
 	public function name():GoString
-		return __self__.name();
+		return __self__.value.name();
 
 	@:embedded
 	public function mode():stdgo.io.fs.Fs.FileMode
-		return __self__.mode();
+		return __self__.value.mode();
 
 	@:embedded
 	public function modTime():stdgo.time.Time.Time
-		return __self__.modTime();
+		return __self__.value.modTime();
 
 	@:embedded
 	public function isDir():Bool
-		return __self__.isDir();
+		return __self__.value.isDir();
 
 	@:embedded
 	public function info():{var _0:stdgo.io.fs.Fs.FileInfo; var _1:Error;}
-		return __self__.info();
+		return __self__.value.info();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_mapDir;
+	var __self__:Pointer<T_mapDir>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.testing.fstest.Fstest.T_mapDir_asInterface) class T_mapDir_static_extension {
@@ -767,25 +777,25 @@ private class T_fsTester_asInterface {
 	**/
 	@:keep
 	public function _checkBadPath(_file:GoString, _desc:GoString, _open:GoString->Error):Void
-		__self__._checkBadPath(_file, _desc, _open);
+		__self__.value._checkBadPath(_file, _desc, _open);
 
 	/**
 		// checkBadPath checks that various invalid forms of file's name cannot be opened using t.fsys.Open.
 	**/
 	@:keep
 	public function _checkOpen(_file:GoString):Void
-		__self__._checkOpen(_file);
+		__self__.value._checkOpen(_file);
 
 	@:keep
 	public function _checkFileRead(_file:GoString, _desc:GoString, _data1:Slice<GoByte>, _data2:Slice<GoByte>):Void
-		__self__._checkFileRead(_file, _desc, _data1, _data2);
+		__self__.value._checkFileRead(_file, _desc, _data1, _data2);
 
 	/**
 		// checkFile checks that basic file reading works correctly.
 	**/
 	@:keep
 	public function _checkFile(_file:GoString):Void
-		__self__._checkFile(_file);
+		__self__.value._checkFile(_file);
 
 	/**
 		// checkDirList checks that two directory lists contain the same files and file info.
@@ -793,7 +803,7 @@ private class T_fsTester_asInterface {
 	**/
 	@:keep
 	public function _checkDirList(_dir:GoString, _desc:GoString, _list1:Slice<stdgo.io.fs.Fs.DirEntry>, _list2:Slice<stdgo.io.fs.Fs.DirEntry>):Void
-		__self__._checkDirList(_dir, _desc, _list1, _list2);
+		__self__.value._checkDirList(_dir, _desc, _list1, _list2);
 
 	/**
 		// checkStat checks that a direct stat of path matches entry,
@@ -801,14 +811,14 @@ private class T_fsTester_asInterface {
 	**/
 	@:keep
 	public function _checkStat(_path:GoString, _entry:stdgo.io.fs.Fs.DirEntry):Void
-		__self__._checkStat(_path, _entry);
+		__self__.value._checkStat(_path, _entry);
 
 	/**
 		// checkGlob checks that various glob patterns work if the file system implements GlobFS.
 	**/
 	@:keep
 	public function _checkGlob(_dir:GoString, _list:Slice<stdgo.io.fs.Fs.DirEntry>):Void
-		__self__._checkGlob(_dir, _list);
+		__self__.value._checkGlob(_dir, _list);
 
 	/**
 		// checkDir checks the directory dir, which is expected to exist
@@ -816,28 +826,30 @@ private class T_fsTester_asInterface {
 	**/
 	@:keep
 	public function _checkDir(_dir:GoString):Void
-		__self__._checkDir(_dir);
+		__self__.value._checkDir(_dir);
 
 	@:keep
 	public function _openDir(_dir:GoString):stdgo.io.fs.Fs.ReadDirFile
-		return __self__._openDir(_dir);
+		return __self__.value._openDir(_dir);
 
 	/**
 		// errorf adds an error line to errText.
 	**/
 	@:keep
 	public function _errorf(_format:GoString, _args:haxe.Rest<AnyInterface>):Void
-		__self__._errorf(_format, ..._args);
+		__self__.value._errorf(_format, ..._args);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_fsTester;
+	var __self__:Pointer<T_fsTester>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.testing.fstest.Fstest.T_fsTester_asInterface) class T_fsTester_static_extension {
@@ -913,40 +925,42 @@ private class T_fsTester_asInterface {
 class MapFS_asInterface {
 	@:keep
 	public function sub(_dir:GoString):{var _0:stdgo.io.fs.Fs.FS; var _1:Error;}
-		return __self__.sub(_dir);
+		return __self__.value.sub(_dir);
 
 	@:keep
 	public function glob(_pattern:GoString):{var _0:Slice<GoString>; var _1:Error;}
-		return __self__.glob(_pattern);
+		return __self__.value.glob(_pattern);
 
 	@:keep
 	public function readDir(_name:GoString):{var _0:Slice<stdgo.io.fs.Fs.DirEntry>; var _1:Error;}
-		return __self__.readDir(_name);
+		return __self__.value.readDir(_name);
 
 	@:keep
 	public function stat(_name:GoString):{var _0:stdgo.io.fs.Fs.FileInfo; var _1:Error;}
-		return __self__.stat(_name);
+		return __self__.value.stat(_name);
 
 	@:keep
 	public function readFile(_name:GoString):{var _0:Slice<GoByte>; var _1:Error;}
-		return __self__.readFile(_name);
+		return __self__.value.readFile(_name);
 
 	/**
 		// Open opens the named file.
 	**/
 	@:keep
 	public function open(_name:GoString):{var _0:stdgo.io.fs.Fs.File; var _1:Error;}
-		return __self__.open(_name);
+		return __self__.value.open(_name);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:MapFS;
+	var __self__:Pointer<MapFS>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.testing.fstest.Fstest.MapFS_asInterface) class MapFS_static_extension {

@@ -520,105 +520,107 @@ class Func_asInterface {
 	**/
 	@:keep
 	public function release():Void
-		__self__.release();
+		__self__.value.release();
 
 	@:embedded
 	public function _isNumber():Bool
-		return __self__._isNumber();
+		return __self__.value._isNumber();
 
 	@:embedded
 	public function _float(_p:GoString):GoFloat64
-		return __self__._float(_p);
+		return __self__.value._float(_p);
 
 	@:embedded
 	public function type():Type
-		return __self__.type();
+		return __self__.value.type();
 
 	@:embedded
 	public function truthy():Bool
-		return __self__.truthy();
+		return __self__.value.truthy();
 
 	@:embedded
 	public function string():GoString
-		return __self__.string();
+		return __self__.value.string();
 
 	@:embedded
 	public function setIndex(_i:GoInt, _x:AnyInterface):Void
-		__self__.setIndex(_i, _x);
+		__self__.value.setIndex(_i, _x);
 
 	@:embedded
 	public function set(_p:GoString, _x:AnyInterface):Void
-		__self__.set(_p, _x);
+		__self__.value.set(_p, _x);
 
 	@:embedded
 	public function new_(_args:haxe.Rest<AnyInterface>):Value
-		return __self__.new_(..._args);
+		return __self__.value.new_(..._args);
 
 	@:embedded
 	public function length_():GoInt
-		return __self__.length_();
+		return __self__.value.length_();
 
 	@:embedded
 	public function isUndefined():Bool
-		return __self__.isUndefined();
+		return __self__.value.isUndefined();
 
 	@:embedded
 	public function isNull():Bool
-		return __self__.isNull();
+		return __self__.value.isNull();
 
 	@:embedded
 	public function isNaN():Bool
-		return __self__.isNaN();
+		return __self__.value.isNaN();
 
 	@:embedded
 	public function invoke(_args:haxe.Rest<AnyInterface>):Value
-		return __self__.invoke(..._args);
+		return __self__.value.invoke(..._args);
 
 	@:embedded
 	public function int_():GoInt
-		return __self__.int_();
+		return __self__.value.int_();
 
 	@:embedded
 	public function instanceOf(__0:Value):Bool
-		return __self__.instanceOf(__0);
+		return __self__.value.instanceOf(__0);
 
 	@:embedded
 	public function index(_i:GoInt):Value
-		return __self__.index(_i);
+		return __self__.value.index(_i);
 
 	@:embedded
 	public function get(_p:GoString):Value
-		return __self__.get(_p);
+		return __self__.value.get(_p);
 
 	@:embedded
 	public function float_():GoFloat64
-		return __self__.float_();
+		return __self__.value.float_();
 
 	@:embedded
 	public function equal(__0:Value):Bool
-		return __self__.equal(__0);
+		return __self__.value.equal(__0);
 
 	@:embedded
 	public function delete(_p:GoString):Void
-		__self__.delete(_p);
+		__self__.value.delete(_p);
 
 	@:embedded
 	public function call(_m:GoString, _args:haxe.Rest<AnyInterface>):Value
-		return __self__.call(_m, ..._args);
+		return __self__.value.call(_m, ..._args);
 
 	@:embedded
 	public function bool_():Bool
-		return __self__.bool_();
+		return __self__.value.bool_();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:Func;
+	var __self__:Pointer<Func>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.syscall.js.Js.Func_asInterface) class Func_static_extension {
@@ -726,7 +728,7 @@ class Value_asInterface {
 	**/
 	@:keep
 	public function instanceOf(_t:Value):Bool
-		return __self__.instanceOf(_t);
+		return __self__.value.instanceOf(_t);
 
 	/**
 		// String returns the value v as a string.
@@ -736,7 +738,7 @@ class Value_asInterface {
 	**/
 	@:keep
 	public function string():GoString
-		return __self__.string();
+		return __self__.value.string();
 
 	/**
 		// Truthy returns the JavaScript "truthiness" of the value v. In JavaScript,
@@ -745,7 +747,7 @@ class Value_asInterface {
 	**/
 	@:keep
 	public function truthy():Bool
-		return __self__.truthy();
+		return __self__.value.truthy();
 
 	/**
 		// Bool returns the value v as a bool.
@@ -753,7 +755,7 @@ class Value_asInterface {
 	**/
 	@:keep
 	public function bool_():Bool
-		return __self__.bool_();
+		return __self__.value.bool_();
 
 	/**
 		// Int returns the value v truncated to an int.
@@ -761,7 +763,7 @@ class Value_asInterface {
 	**/
 	@:keep
 	public function int_():GoInt
-		return __self__.int_();
+		return __self__.value.int_();
 
 	/**
 		// Float returns the value v as a float64.
@@ -769,15 +771,15 @@ class Value_asInterface {
 	**/
 	@:keep
 	public function float_():GoFloat64
-		return __self__.float_();
+		return __self__.value.float_();
 
 	@:keep
 	public function _float(_method:GoString):GoFloat64
-		return __self__._float(_method);
+		return __self__.value._float(_method);
 
 	@:keep
 	public function _isNumber():Bool
-		return __self__._isNumber();
+		return __self__.value._isNumber();
 
 	/**
 		// New uses JavaScript's "new" operator with value v as constructor and the given arguments.
@@ -786,7 +788,7 @@ class Value_asInterface {
 	**/
 	@:keep
 	public function new_(_args:haxe.Rest<AnyInterface>):Value
-		return __self__.new_(..._args);
+		return __self__.value.new_(..._args);
 
 	/**
 		// Invoke does a JavaScript call of the value v with the given arguments.
@@ -795,7 +797,7 @@ class Value_asInterface {
 	**/
 	@:keep
 	public function invoke(_args:haxe.Rest<AnyInterface>):Value
-		return __self__.invoke(..._args);
+		return __self__.value.invoke(..._args);
 
 	/**
 		// Call does a JavaScript call to the method m of value v with the given arguments.
@@ -804,7 +806,7 @@ class Value_asInterface {
 	**/
 	@:keep
 	public function call(_m:GoString, _args:haxe.Rest<AnyInterface>):Value
-		return __self__.call(_m, ..._args);
+		return __self__.value.call(_m, ..._args);
 
 	/**
 		// Length returns the JavaScript property "length" of v.
@@ -812,7 +814,7 @@ class Value_asInterface {
 	**/
 	@:keep
 	public function length_():GoInt
-		return __self__.length_();
+		return __self__.value.length_();
 
 	/**
 		// SetIndex sets the JavaScript index i of value v to ValueOf(x).
@@ -820,7 +822,7 @@ class Value_asInterface {
 	**/
 	@:keep
 	public function setIndex(_i:GoInt, _x:AnyInterface):Void
-		__self__.setIndex(_i, _x);
+		__self__.value.setIndex(_i, _x);
 
 	/**
 		// Index returns JavaScript index i of value v.
@@ -828,7 +830,7 @@ class Value_asInterface {
 	**/
 	@:keep
 	public function index(_i:GoInt):Value
-		return __self__.index(_i);
+		return __self__.value.index(_i);
 
 	/**
 		// Delete deletes the JavaScript property p of value v.
@@ -836,7 +838,7 @@ class Value_asInterface {
 	**/
 	@:keep
 	public function delete(_p:GoString):Void
-		__self__.delete(_p);
+		__self__.value.delete(_p);
 
 	/**
 		// Set sets the JavaScript property p of value v to ValueOf(x).
@@ -844,7 +846,7 @@ class Value_asInterface {
 	**/
 	@:keep
 	public function set(_p:GoString, _x:AnyInterface):Void
-		__self__.set(_p, _x);
+		__self__.value.set(_p, _x);
 
 	/**
 		// Get returns the JavaScript property p of value v.
@@ -852,7 +854,7 @@ class Value_asInterface {
 	**/
 	@:keep
 	public function get(_p:GoString):Value
-		return __self__.get(_p);
+		return __self__.value.get(_p);
 
 	/**
 		// Type returns the JavaScript type of the value v. It is similar to JavaScript's typeof operator,
@@ -860,45 +862,47 @@ class Value_asInterface {
 	**/
 	@:keep
 	public function type():Type
-		return __self__.type();
+		return __self__.value.type();
 
 	/**
 		// IsNaN reports whether v is the JavaScript value "NaN".
 	**/
 	@:keep
 	public function isNaN():Bool
-		return __self__.isNaN();
+		return __self__.value.isNaN();
 
 	/**
 		// IsNull reports whether v is the JavaScript value "null".
 	**/
 	@:keep
 	public function isNull():Bool
-		return __self__.isNull();
+		return __self__.value.isNull();
 
 	/**
 		// IsUndefined reports whether v is the JavaScript value "undefined".
 	**/
 	@:keep
 	public function isUndefined():Bool
-		return __self__.isUndefined();
+		return __self__.value.isUndefined();
 
 	/**
 		// Equal reports whether v and w are equal according to JavaScript's === operator.
 	**/
 	@:keep
 	public function equal(_w:Value):Bool
-		return __self__.equal(_w);
+		return __self__.value.equal(_w);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:Value;
+	var __self__:Pointer<Value>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.syscall.js.Js.Value_asInterface) class Value_static_extension {
@@ -1078,105 +1082,107 @@ class T_error_asInterface {
 	**/
 	@:keep
 	public function error():GoString
-		return __self__.error();
+		return __self__.value.error();
 
 	@:embedded
 	public function _isNumber():Bool
-		return __self__._isNumber();
+		return __self__.value._isNumber();
 
 	@:embedded
 	public function _float(_p:GoString):GoFloat64
-		return __self__._float(_p);
+		return __self__.value._float(_p);
 
 	@:embedded
 	public function type():Type
-		return __self__.type();
+		return __self__.value.type();
 
 	@:embedded
 	public function truthy():Bool
-		return __self__.truthy();
+		return __self__.value.truthy();
 
 	@:embedded
 	public function string():GoString
-		return __self__.string();
+		return __self__.value.string();
 
 	@:embedded
 	public function setIndex(_i:GoInt, _x:AnyInterface):Void
-		__self__.setIndex(_i, _x);
+		__self__.value.setIndex(_i, _x);
 
 	@:embedded
 	public function set(_p:GoString, _x:AnyInterface):Void
-		__self__.set(_p, _x);
+		__self__.value.set(_p, _x);
 
 	@:embedded
 	public function new_(_args:haxe.Rest<AnyInterface>):Value
-		return __self__.new_(..._args);
+		return __self__.value.new_(..._args);
 
 	@:embedded
 	public function length_():GoInt
-		return __self__.length_();
+		return __self__.value.length_();
 
 	@:embedded
 	public function isUndefined():Bool
-		return __self__.isUndefined();
+		return __self__.value.isUndefined();
 
 	@:embedded
 	public function isNull():Bool
-		return __self__.isNull();
+		return __self__.value.isNull();
 
 	@:embedded
 	public function isNaN():Bool
-		return __self__.isNaN();
+		return __self__.value.isNaN();
 
 	@:embedded
 	public function invoke(_args:haxe.Rest<AnyInterface>):Value
-		return __self__.invoke(..._args);
+		return __self__.value.invoke(..._args);
 
 	@:embedded
 	public function int_():GoInt
-		return __self__.int_();
+		return __self__.value.int_();
 
 	@:embedded
 	public function instanceOf(__0:Value):Bool
-		return __self__.instanceOf(__0);
+		return __self__.value.instanceOf(__0);
 
 	@:embedded
 	public function index(_i:GoInt):Value
-		return __self__.index(_i);
+		return __self__.value.index(_i);
 
 	@:embedded
 	public function get(_p:GoString):Value
-		return __self__.get(_p);
+		return __self__.value.get(_p);
 
 	@:embedded
 	public function float_():GoFloat64
-		return __self__.float_();
+		return __self__.value.float_();
 
 	@:embedded
 	public function equal(__0:Value):Bool
-		return __self__.equal(__0);
+		return __self__.value.equal(__0);
 
 	@:embedded
 	public function delete(_p:GoString):Void
-		__self__.delete(_p);
+		__self__.value.delete(_p);
 
 	@:embedded
 	public function call(_m:GoString, _args:haxe.Rest<AnyInterface>):Value
-		return __self__.call(_m, ..._args);
+		return __self__.value.call(_m, ..._args);
 
 	@:embedded
 	public function bool_():Bool
-		return __self__.bool_();
+		return __self__.value.bool_();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_error;
+	var __self__:Pointer<T_error>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.syscall.js.Js.T_error_asInterface) class T_error_static_extension {
@@ -1279,17 +1285,19 @@ class T_error_asInterface {
 class ValueError_asInterface {
 	@:keep
 	public function error():GoString
-		return __self__.error();
+		return __self__.value.error();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:ValueError;
+	var __self__:Pointer<ValueError>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.syscall.js.Js.ValueError_asInterface) class ValueError_static_extension {
@@ -1301,21 +1309,23 @@ class ValueError_asInterface {
 class Type_asInterface {
 	@:keep
 	public function _isObject():Bool
-		return __self__._isObject();
+		return __self__.value._isObject();
 
 	@:keep
 	public function string():GoString
-		return __self__.string();
+		return __self__.value.string();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:Type;
+	var __self__:Pointer<Type>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.syscall.js.Js.Type_asInterface) class Type_static_extension {

@@ -112,7 +112,7 @@ function new_(_text:GoString):Error {
 **/
 function unwrap(_err:Error):Error {
 	var __tmp__ = try {
-		{value: (_err.__underlying__().value : T__interface_0), ok: true};
+		{value: Go.typeAssert((Go.toInterface(_err) : T__interface_0)), ok: true};
 	} catch (_) {
 		{value: (null : T__interface_0), ok: false};
 	}, _u = __tmp__.value, _ok = __tmp__.ok;
@@ -142,16 +142,16 @@ function unwrap(_err:Error):Error {
 **/
 function is_(_err:Error, _target:Error):Bool {
 	if (_target == null) {
-		return _err == _target;
+		return Go.toInterface(_err) == (Go.toInterface(_target));
 	};
 	var _isComparable:Bool = stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface(_target)).comparable();
 	while (true) {
-		if (_isComparable && (_err == _target)) {
+		if (_isComparable && (Go.toInterface(_err) == Go.toInterface(_target))) {
 			return true;
 		};
 		{
 			var __tmp__ = try {
-				{value: (_err.__underlying__().value : T__interface_1), ok: true};
+				{value: Go.typeAssert((Go.toInterface(_err) : T__interface_1)), ok: true};
 			} catch (_) {
 				{value: (null : T__interface_1), ok: false};
 			}, _x = __tmp__.value, _ok = __tmp__.ok;
@@ -209,7 +209,7 @@ function as(_err:Error, _target:AnyInterface):Bool {
 		};
 		{
 			var __tmp__ = try {
-				{value: (_err.__underlying__().value : T__interface_2), ok: true};
+				{value: Go.typeAssert((Go.toInterface(_err) : T__interface_2)), ok: true};
 			} catch (_) {
 				{value: (null : T__interface_2), ok: false};
 			}, _x = __tmp__.value, _ok = __tmp__.ok;
@@ -225,17 +225,19 @@ function as(_err:Error, _target:AnyInterface):Bool {
 private class T_errorString_asInterface {
 	@:keep
 	public function error():GoString
-		return __self__.error();
+		return __self__.value.error();
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_errorString;
+	var __self__:Pointer<T_errorString>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.errors.Errors.T_errorString_asInterface) class T_errorString_static_extension {

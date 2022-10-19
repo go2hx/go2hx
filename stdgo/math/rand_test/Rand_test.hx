@@ -643,14 +643,14 @@ function _initExp():{var _0:Slice<GoUInt32>; var _1:Slice<GoFloat32>; var _2:Sli
 	// are identical.
 **/
 function _compareUint32Slices(_s1:Slice<GoUInt32>, _s2:Slice<GoUInt32>):GoInt {
-	if ((_s1.length) != (_s2.length)) {
+	if ((_s1.length) != ((_s2.length))) {
 		if ((_s1.length) > (_s2.length)) {
 			return (_s2.length) + (1 : GoInt);
 		};
 		return (_s1.length) + (1 : GoInt);
 	};
 	for (_i => _ in _s1) {
-		if (_s1[_i] != _s2[_i]) {
+		if (_s1[_i] != (_s2[_i])) {
 			return _i;
 		};
 	};
@@ -663,7 +663,7 @@ function _compareUint32Slices(_s1:Slice<GoUInt32>, _s2:Slice<GoUInt32>):GoInt {
 	// are identical.
 **/
 function _compareFloat32Slices(_s1:Slice<GoFloat32>, _s2:Slice<GoFloat32>):GoInt {
-	if ((_s1.length) != (_s2.length)) {
+	if ((_s1.length) != ((_s2.length))) {
 		if ((_s1.length) > (_s2.length)) {
 			return (_s2.length) + (1 : GoInt);
 		};
@@ -729,7 +729,7 @@ function testExpTables(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function _hasSlowFloatingPoint():Bool {
 	if (Go.str("wasm") == (Go.str("arm"))) {
-		return stdgo.os.Os.getenv(Go.str("GOARM")) == Go.str("5");
+		return stdgo.os.Os.getenv(Go.str("GOARM")) == (Go.str("5"));
 	} else if (Go.str("wasm") == (Go.str("mips"))
 		|| Go.str("wasm") == (Go.str("mipsle"))
 		|| Go.str("wasm") == (Go.str("mips64"))
@@ -766,7 +766,7 @@ function _testReadUniformity(_t:Ref<stdgo.testing.Testing.T>, _n:GoInt, _seed:Go
 	if (_err != null) {
 		_t.errorf(Go.str("Read err %v"), Go.toInterface(_err));
 	};
-	if (_nRead != _n) {
+	if (_nRead != (_n)) {
 		_t.errorf(Go.str("Read returned unexpected n; %d != %d"), Go.toInterface(_nRead), Go.toInterface(_n));
 	};
 	var _mean:GoFloat64 = (127.5 : GoFloat64),
@@ -800,7 +800,7 @@ function testReadEmpty(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (_err != null) {
 		_t.errorf(Go.str("Read err into empty buffer; %v"), Go.toInterface(_err));
 	};
-	if (_n != (0 : GoInt)) {
+	if (_n != ((0 : GoInt))) {
 		_t.errorf(Go.str("Read into empty buffer returned unexpected n of %d"), Go.toInterface(_n));
 	};
 }
@@ -1146,7 +1146,7 @@ function testRegress(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _m:stdgo.reflect.Reflect.Method = (_rv.type().method(_i) == null ? null : _rv.type().method(_i).__copy__());
 			var _mv:stdgo.reflect.Reflect.Value = (_rv.method(_i) == null ? null : _rv.method(_i).__copy__());
 			var _mt:stdgo.reflect.Reflect.Type = _mv.type();
-			if (_mt.numOut() == (0 : GoInt)) {
+			if (_mt.numOut() == ((0 : GoInt))) {
 				continue;
 			};
 			_r.seed(("0" : GoInt64));
@@ -1155,18 +1155,18 @@ function testRegress(_t:Ref<stdgo.testing.Testing.T>):Void {
 				Go.cfor(_repeat < (20:GoInt), _repeat++, {
 					var _args:Slice<stdgo.reflect.Reflect.Value> = (null : Slice<stdgo.reflect.Reflect.Value>);
 					var _argstr:GoString = ("" : GoString);
-					if (_mt.numIn() == (1 : GoInt)) {
+					if (_mt.numIn() == ((1 : GoInt))) {
 						var _x:AnyInterface = (null : AnyInterface);
 						{
 							var __switchIndex__ = -1;
 							while (true) {
 								if (_mt.in_((0 : GoInt)).kind() == ((("2" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-									if (_m.name == Go.str("Perm")) {
+									if (_m.name == (Go.str("Perm"))) {
 										_x = Go.toInterface(_permSizes[_repeat % (_permSizes.length)]);
 										break;
 									};
 									var _big:GoInt64 = _int64s[_repeat % (_int64s.length)];
-									if (((_big : GoInt) : GoInt64) != _big) {
+									if (((_big : GoInt) : GoInt64) != (_big)) {
 										_r.int63n(_big);
 										if (_printgolden.value) {
 											stdgo.fmt.Fmt.printf(Go.str("\tskipped, // must run printgolden on 64-bit machine\n"));
@@ -1183,7 +1183,7 @@ function testRegress(_t:Ref<stdgo.testing.Testing.T>):Void {
 									_x = Go.toInterface(_int64s[_repeat % (_int64s.length)]);
 									break;
 								} else if (_mt.in_((0 : GoInt)).kind() == ((("23" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-									if (_m.name == Go.str("Read")) {
+									if (_m.name == (Go.str("Read"))) {
 										var _n:GoInt = _readBufferSizes[_repeat % (_readBufferSizes.length)];
 										_x = Go.toInterface(new Slice<GoUInt8>((_n : GoInt).toBasic(), 0,
 											...[for (i in 0...(_n : GoInt).toBasic()) (0 : GoUInt8)]));
@@ -1201,7 +1201,7 @@ function testRegress(_t:Ref<stdgo.testing.Testing.T>):Void {
 					if ((_m.name == Go.str("Int")) || (_m.name == Go.str("Intn"))) {
 						_out = Go.toInterface((Go.typeAssert((_out : GoInt)) : GoInt64));
 					};
-					if (_m.name == Go.str("Read")) {
+					if (_m.name == (Go.str("Read"))) {
 						_out = Go.toInterface(Go.typeAssert((_args[(0 : GoInt)].interface_() : Slice<GoByte>)));
 					};
 					if (_printgolden.value) {
@@ -1209,7 +1209,7 @@ function testRegress(_t:Ref<stdgo.testing.Testing.T>):Void {
 						var _big:GoInt64 = (("1152921504606846976" : GoInt64) : GoInt64);
 						if ((((_big : GoInt) : GoInt64) != _big) && ((_m.name == Go.str("Int")) || (_m.name == Go.str("Intn")))) {
 							_val = Go.str("truncated");
-						} else if (stdgo.reflect.Reflect.typeOf(_out).kind() == (("23" : GoUInt) : stdgo.reflect.Reflect.Kind)) {
+						} else if (stdgo.reflect.Reflect.typeOf(_out).kind() == ((("23" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
 							_val = stdgo.fmt.Fmt.sprintf(Go.str("%#v"), _out);
 						} else {
 							_val = stdgo.fmt.Fmt.sprintf(Go.str("%T(%v)"), _out, _out);
@@ -1217,7 +1217,7 @@ function testRegress(_t:Ref<stdgo.testing.Testing.T>):Void {
 						stdgo.fmt.Fmt.printf(Go.str("\t%s, // %s(%s)\n"), Go.toInterface(_val), Go.toInterface(_m.name), Go.toInterface(_argstr));
 					} else {
 						var _want:AnyInterface = _regressGolden[_p];
-						if (_m.name == Go.str("Int")) {
+						if (_m.name == (Go.str("Int"))) {
 							_want = Go.toInterface(((((Go.typeAssert((_want : GoInt64)) : GoUInt) << (("1" : GoUInt64) : GoUInt64)) >> ("1" : GoUInt64) : GoInt) : GoInt64));
 						};
 						if (!stdgo.reflect.Reflect.deepEqual(_out, _want)) {
@@ -1241,17 +1241,19 @@ private class T_statsResults_asInterface {
 	**/
 	@:keep
 	public function _checkSimilarDistribution(_expected:Ref<T_statsResults>):Error
-		return __self__._checkSimilarDistribution(_expected);
+		return __self__.value._checkSimilarDistribution(_expected);
 
-	public function new(?__self__) {
-		if (__self__ != null)
-			this.__self__ = __self__;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(__self__);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
 
-	var __self__:T_statsResults;
+	var __self__:Pointer<T_statsResults>;
+	var __type__:stdgo.reflect.Reflect.Type;
 }
 
 @:keep @:allow(stdgo.math.rand_test.Rand_test.T_statsResults_asInterface) class T_statsResults_static_extension {

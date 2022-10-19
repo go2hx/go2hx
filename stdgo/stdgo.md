@@ -28,7 +28,7 @@
 | [stdgo.io.fs](./io/fs/README.md) | ❌ | yes |  |  |  |  |
 | [stdgo.log](./log/README.md) | ❌ | yes |  |  |  |  |
 | [stdgo.math](./math/README.md) | ❌ | yes |  |  |  |  |
-| [stdgo.math.bits](./math/bits/README.md) | ✅ | yes |  | ❌ | ❌ | ❌ |
+| [stdgo.math.bits](./math/bits/README.md) | ✅ | yes |  | ✅ | ✅ | ❌ |
 | [stdgo.math.rand](./math/rand/README.md) | ❌ | yes |  |  |  |  |
 | [stdgo.os](./os/README.md) | ❌ | yes |  |  |  |  |
 | [stdgo.path](./path/README.md) | ✅ | yes |  | ❌ | ❌ | ❌ |
@@ -36,7 +36,7 @@
 | [stdgo.regexp](./regexp/README.md) | ❌ | yes |  |  |  |  |
 | [stdgo.regexp.syntax](./regexp/syntax/README.md) | ✅ | yes |  | ❌ | ❌ | ❌ |
 | [stdgo.runtime](./runtime/README.md) | ✅ | no |  |  |  |  |
-| [stdgo.sort](./sort/README.md) | ✅ | yes |  | ❌ | ❌ | ❌ |
+| [stdgo.sort](./sort/README.md) | ✅ | yes |  | ✅ | ✅ | ❌ |
 | [stdgo.strconv](./strconv/README.md) | ❌ | yes |  |  |  |  |
 | [stdgo.strings](./strings/README.md) | ✅ | yes |  | ❌ | ❌ | ❌ |
 | [stdgo.sync](./sync/README.md) | ✅ | no |  |  |  |  |
@@ -48,8 +48,8 @@
 | [stdgo.testing.internal.testdeps](./testing/internal/testdeps/README.md) | ✅ | no |  |  |  |  |
 | [stdgo.testing.iotest](./testing/iotest/README.md) | ✅ | yes |  | ❌ | ❌ | ❌ |
 | [stdgo.time](./time/README.md) | ❌ | yes |  |  |  |  |
-| [stdgo.unicode](./unicode/README.md) | ✅ | yes |  | ❌ | ❌ | ❌ |
-| [stdgo.unicode.utf16](./unicode/utf16/README.md) | ✅ | yes |  | ❌ | ❌ | ❌ |
-| [stdgo.unicode.utf8](./unicode/utf8/README.md) | ✅ | yes |  | ❌ | ❌ | ❌ |
+| [stdgo.unicode](./unicode/README.md) | ✅ | yes |  | ✅ | ✅ | ❌ |
+| [stdgo.unicode.utf16](./unicode/utf16/README.md) | ✅ | yes |  | ✅ | ✅ | ❌ |
+| [stdgo.unicode.utf8](./unicode/utf8/README.md) | ✅ | yes |  | ✅ | ✅ | ❌ |
 | [stdgo.unsafe](./unsafe/README.md) | ✅ | no |  |  |  |  |
 

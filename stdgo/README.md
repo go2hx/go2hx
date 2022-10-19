@@ -221,7 +221,7 @@ function new(value:Any, type:stdgo.reflect.Type):Void
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L1739>)
+[\(view code\)](<./StdGoTypes.hx#L1755>)
 
 
 ### AnyInterfaceData function toString
@@ -235,7 +235,7 @@ function toString():String
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L1745>)
+[\(view code\)](<./StdGoTypes.hx#L1761>)
 
 
 ## class ChanData
@@ -575,7 +575,7 @@ function hasNext():Bool
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L1908>)
+[\(view code\)](<./StdGoTypes.hx#L1924>)
 
 
 ### GoIntIterator function new
@@ -589,7 +589,7 @@ function new(min:stdgo.GoInt, max:stdgo.GoInt):Void
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L1903>)
+[\(view code\)](<./StdGoTypes.hx#L1919>)
 
 
 ### GoIntIterator function next
@@ -603,7 +603,7 @@ function next():stdgo.GoInt
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L1912>)
+[\(view code\)](<./StdGoTypes.hx#L1928>)
 
 
 ## class GoObjectMap
@@ -1001,7 +1001,7 @@ function grow():Void
  
 
 
-[\(view code\)](<./Slice.hx#L253>)
+[\(view code\)](<./Slice.hx#L258>)
 
 
 ### SliceData function iterator
@@ -1085,7 +1085,7 @@ function toString():String
  
 
 
-[\(view code\)](<./Slice.hx#L251>)
+[\(view code\)](<./Slice.hx#L250>)
 
 
 ### SliceData function toVector

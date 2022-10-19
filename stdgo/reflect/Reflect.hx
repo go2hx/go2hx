@@ -1532,7 +1532,7 @@ class _Type {
 	public function assignableTo(ot:Type):Bool {
 		if (ot == null)
 			throw "reflect: nil type passed to Type.AssignableTo";
-		final b = directlyAssignable(ot, this) || implementsMethod(ot, this);
+		final b = directlyAssignable(ot, this) || this.implements_(ot);
 		return b;
 	}
 
@@ -1737,7 +1737,7 @@ function getUnderlying(gt:GoType, once:Bool = false) {
 	}
 }
 
-private function directlyAssignable(t:Type, v:Type):Bool {
+function directlyAssignable(t:Type, v:Type):Bool {
 	#if go2hx_compiler
 	return false;
 	#else
@@ -1856,13 +1856,10 @@ private function directlyAssignable(t:Type, v:Type):Bool {
 	#end
 }
 
-private function implementsMethod(t:Type, v:Type):Bool {
+function implementsMethod(t:Type, v:Type):Bool {
 	#if go2hx_compiler
 	return false;
 	#else
-	if (t.kind() != interface_) {
-		return false;
-	}
 	var interfacePath = "";
 	var gt:GoType = @:privateAccess t.common().value;
 	var vgt:GoType = @:privateAccess v.common().value;

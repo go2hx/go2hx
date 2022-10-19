@@ -522,7 +522,7 @@ class Go {
 				final toType = gtDecode(t2, null, []);
 				final e = macro({
 					final t = new stdgo.reflect.Reflect._Type($toType);
-					final b = t.assignableTo($e.type); // $e.type.assignableTo(t);
+					final b = stdgo.reflect.Reflect.directlyAssignable($e.type, t) || stdgo.reflect.Reflect.implementsMethod($e.type, t);
 					if (!b)
 						throw "unable to assert";
 					($e.value : $t);
@@ -953,7 +953,7 @@ class Go {
 								}
 							}
 						}
-						ret = gtDecodeClassType(ref, methods, marked);
+						ret = gtDecodeClassType(ref, methods, marked, expr);
 					}
 				} else {
 					var name = parseModule(ref.module) + "." + ref.name;
@@ -1043,7 +1043,7 @@ class Go {
 		return pack.join(".") + "." + name;
 	}
 
-	static function gtDecodeClassType(ref:haxe.macro.Type.ClassType, methods:Array<Expr>, marked:Map<String, Bool>):Expr {
+	static function gtDecodeClassType(ref:haxe.macro.Type.ClassType, methods:Array<Expr>, marked:Map<String, Bool>, expr:Expr):Expr {
 		var fields:Array<Expr> = [];
 		var fs = ref.fields.get();
 		var underlyingType:haxe.macro.Type = null;
@@ -1055,7 +1055,7 @@ class Go {
 				case FMethod(k):
 				default:
 					if (field.name == "__self__") {
-						return gtDecode(field.type, null, marked);
+						return macro $expr.__underlying__().type.common().value;
 					}
 					if (field.name == "__t__") {
 						underlyingType = field.type;

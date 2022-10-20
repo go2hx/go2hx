@@ -174,7 +174,7 @@ var cfg = &packages.Config{
 		packages.NeedSyntax |
 		packages.NeedImports | packages.NeedDeps |
 		packages.NeedFiles | packages.NeedTypes | packages.NeedTypesInfo | packages.NeedModule | packages.NeedTypesSizes,
-	BuildFlags: []string{"-tags", "netgo,purego,math_big_pure_go,compiler_bootstrap"}, // build tags
+	BuildFlags: []string{"-tags", "netgo,purego,math_big_pure_go"}, // build tags
 }
 
 func main() {

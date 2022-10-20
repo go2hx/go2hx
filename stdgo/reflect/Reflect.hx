@@ -1836,10 +1836,10 @@ function directlyAssignable(t:Type, v:Type):Bool {
 				default:
 					false;
 			}
-		case pointer(_), refType(_):
+		case pointer(e), refType(e):
 			switch vgt {
-				case pointer(_), refType(_):
-					true;
+				case pointer(e2), refType(e2):
+					directlyAssignable(new stdgo.reflect.Reflect._Type(e), new stdgo.reflect.Reflect._Type(e2));
 				default:
 					false;
 			}

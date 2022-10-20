@@ -133,10 +133,10 @@ function clean() {
 function deleteDirectoryRecursively(dir:String):Int {
 	return switch (systemName) {
 		case "Windows":
-			#if !js Sys.command("rmdir /s /q " + dir); #else 0; #end
+			#if !js Sys.command("rmdir !(*.md) /s /q " + dir); #else 0; #end
 		default:
 			#if !js
-			Sys.command("rm -rf " + dir);
+			Sys.command("rm -rf !(*.md) " + dir);
 			#else
 			0;
 			#end

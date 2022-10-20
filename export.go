@@ -119,7 +119,6 @@ func compile(params []string, excludesData []string, index string, debug bool) [
 	//init
 	methodCache = typeutil.MethodSetCache{}
 	//typeHasher = typeutil.MakeHasher()
-	typeMap = typeutil.Map{}
 	excludes = make(map[string]bool, len(excludesData))
 	hashMap = make(map[uint32]map[string]interface{})
 	for _, exclude := range excludesData {
@@ -373,6 +372,8 @@ func encodeString(s string) string {
 
 func parseLocalTypes(file *ast.File, pkg *packages.Package) {
 	interfaceTypes := make(map[uint32]*ast.Ident)
+	typeMap = typeutil.Map{}
+	typeMapIndex = 0
 	structTypes := make(map[uint32]*ast.Ident)
 	continueBool := false
 	count := 0

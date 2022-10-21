@@ -71,8 +71,7 @@ var excludes map[string]bool
 var conf = types.Config{Importer: importer.Default(), FakeImportC: true}
 var checker *types.Checker
 
-// var typeHasher typeutil.Hasher
-var typeMap typeutil.Map
+var typeMap *typeutil.Map
 var typeMapIndex uint32 = 0
 var hashMap map[uint32]map[string]interface{}
 var testBool = false
@@ -118,7 +117,7 @@ func compile(params []string, excludesData []string, index string, debug bool) [
 	}
 	//init
 	methodCache = typeutil.MethodSetCache{}
-	//typeHasher = typeutil.MakeHasher()
+	typeMap = &typeutil.Map{}
 	excludes = make(map[string]bool, len(excludesData))
 	hashMap = make(map[uint32]map[string]interface{})
 	for _, exclude := range excludesData {
@@ -142,9 +141,8 @@ func compile(params []string, excludesData []string, index string, debug bool) [
 	}
 	//reset
 	hashMap = nil
+	typeMap = nil
 	excludes = nil
-	//typeHasher = typeutil.Hasher{}
-	//methodCache = typeutil.MethodSetCache{}
 	data.Args = args
 	if debug {
 		b, _ = json.MarshalIndent(data, "", "  ")
@@ -255,6 +253,7 @@ func parseLocalPackage(pkg *packages.Package, excludes map[string]bool) {
 	if excludes[pkg.PkgPath] {
 		return
 	}
+	typeMap = &typeutil.Map{}
 	for _, val := range pkg.Imports {
 		/*if excludes[val.PkgPath] || strings.HasPrefix(val.PkgPath, "internal") {
 			continue
@@ -372,8 +371,6 @@ func encodeString(s string) string {
 
 func parseLocalTypes(file *ast.File, pkg *packages.Package) {
 	interfaceTypes := make(map[uint32]*ast.Ident)
-	typeMap = typeutil.Map{}
-	typeMapIndex = 0
 	structTypes := make(map[uint32]*ast.Ident)
 	continueBool := false
 	count := 0

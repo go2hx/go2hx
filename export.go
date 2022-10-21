@@ -71,7 +71,7 @@ var excludes map[string]bool
 var conf = types.Config{Importer: importer.Default(), FakeImportC: true}
 var checker *types.Checker
 
-var typeMap *typeutil.Map
+var typeMap *typeutil.Map = nil
 var typeMapIndex uint32 = 0
 var hashMap map[uint32]map[string]interface{}
 var testBool = false
@@ -116,8 +116,8 @@ func compile(params []string, excludesData []string, index string, debug bool) [
 		return []byte{}
 	}
 	//init
+	typeMapIndex = 0
 	methodCache = typeutil.MethodSetCache{}
-	typeMap = &typeutil.Map{}
 	excludes = make(map[string]bool, len(excludesData))
 	hashMap = make(map[uint32]map[string]interface{})
 	for _, exclude := range excludesData {
@@ -131,6 +131,7 @@ func compile(params []string, excludesData []string, index string, debug bool) [
 			delete(excludes, pkg.PkgPath)
 		}
 	}
+	typeMap = &typeutil.Map{}
 	data := parsePkgList(initial, excludes)
 	data.Index = index
 	data.TypeList = make([]map[string]interface{}, len(hashMap))
@@ -141,7 +142,6 @@ func compile(params []string, excludesData []string, index string, debug bool) [
 	}
 	//reset
 	hashMap = nil
-	typeMap = nil
 	excludes = nil
 	data.Args = args
 	if debug {
@@ -253,7 +253,6 @@ func parseLocalPackage(pkg *packages.Package, excludes map[string]bool) {
 	if excludes[pkg.PkgPath] {
 		return
 	}
-	typeMap = &typeutil.Map{}
 	for _, val := range pkg.Imports {
 		/*if excludes[val.PkgPath] || strings.HasPrefix(val.PkgPath, "internal") {
 			continue
@@ -554,6 +553,7 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 	countInterface = 0
 	countStruct = 0
 	for _, pkg := range list {
+		typeMap = &typeutil.Map{}
 		parseLocalPackage(pkg, excludes)
 	}
 	// 2nd pass
@@ -592,6 +592,7 @@ func parsePkg(pkg *packages.Package) packageType {
 	}
 	data.Name = pkg.Name
 	data.Path = pkg.PkgPath
+	typeMap = &typeutil.Map{}
 	checker = types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
 	name := pkg.Name
 	if name == "main" {

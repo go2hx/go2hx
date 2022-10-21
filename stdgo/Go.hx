@@ -522,7 +522,7 @@ class Go {
 				final toType = gtDecode(t2, null, []);
 				final e = macro({
 					final t = new stdgo.reflect.Reflect._Type($toType);
-					final b = stdgo.reflect.Reflect.directlyAssignable($e.type, t) || stdgo.reflect.Reflect.implementsMethod($e.type, t);
+					final b = t.assignableTo($e.type);
 					if (!b)
 						throw "unable to assert";
 					($e.value : $t);

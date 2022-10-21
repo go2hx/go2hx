@@ -27,6 +27,7 @@ final reservedClassNames = [
 	"Int64",
 	"AnyInterface",
 	"Dynamic",
+	"InvalidType",
 	"Null",
 	"Bool",
 	// "Reflect",
@@ -2640,7 +2641,7 @@ private function interfaceTypeExpr(expr:Ast.InterfaceType, info:Info):ComplexTyp
 
 private function structTypeExpr(expr:Ast.StructType, info:Info):ComplexType {
 	if (expr.fields == null || expr.fields.list == null) // || expr.fields.list.length == 0)
-		return TPath({name: "Dynamic", pack: []});
+		return TPath({name: "InvalidType", pack: []});
 	var fields = typeFieldListFields(expr.fields, info, [], false);
 	return TAnonymous(fields);
 }
@@ -3752,7 +3753,7 @@ private function namedTypePath(path:String, info:Info):TypePath { // other parse
 
 private function toComplexType(e:GoType, info:Info):ComplexType {
 	if (e == null)
-		return TPath({pack: [], name: "Any"});
+		return TPath({pack: [], name: "InvalidType"});
 	return switch e {
 		case refType(elem):
 			final ct = toComplexType(elem, info);
@@ -5847,7 +5848,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	if (getUnderlying(t) == invalidType) {
 		t = refToPointerWrapper(t);
 	}
-	var uct = t == invalidType ? TPath({name: "Dynamic", pack: []}) : toComplexType(t, info);
+	var uct = t == invalidType ? TPath({name: "InvalidType", pack: []}) : toComplexType(t, info);
 	final meta:Metadata = [{name: ":named", pos: null}];
 	final params = getParams(spec.params, info, true);
 	return {
@@ -6371,7 +6372,12 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 				access.push(APrivate);
 			if (constant)
 				access.push(AFinal);
-
+			final patchName = info.global.module.path + ":" + name;
+			final patch = Patch.list[patchName];
+			if (patch != null) {
+				expr = patch;
+				Patch.list.remove(patchName);
+			}
 			values.push({
 				name: name,
 				pos: null,

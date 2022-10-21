@@ -223,6 +223,9 @@ final list = [
 		throw "os.open is not yet implemented";
 		return {_0: null, _1: null};
 	},
+	// stdgo/math_bits
+	"math.bits:_overflowError" => macro @:privateAccess stdgo.Error._overflowError,
+	"math.bits:_divideError" => macro @:privateAccess stdgo.Error._divideError,
 	// stdgo/math_test
 	"math_test:testFloatMinMax" => macro trace("testFloatMinMax not implemented: fmt formatter"),
 	"math:testGamma" => macro @:define("interp") {

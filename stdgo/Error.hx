@@ -25,11 +25,6 @@ typedef Error = StructType & {
 **/
 @:named @:using(Error.T_errorString_static_extension) private typedef T_errorString = GoString;
 
-function main():Void {
-	var _a:AnyInterface = Go.toInterface(_divideError);
-	_a;
-}
-
 private class T_errorString_asInterface {
 	@:keep
 	public function error():GoString
@@ -55,7 +50,7 @@ private class T_errorString_asInterface {
 @:keep @:allow(Error.T_errorString_asInterface) class T_errorString_static_extension {
 	@:keep
 	static public function error(_e:T_errorString):GoString {
-		return Go.str("runtime error: ") + (_e : GoString);
+		return ("runtime error: " : GoString) + (_e : GoString);
 	}
 
 	@:keep

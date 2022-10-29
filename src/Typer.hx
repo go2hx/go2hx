@@ -3321,17 +3321,17 @@ private function toReflectType(t:GoType, info:Info, paths:Array<String>):Expr {
 		case mapType(_.get() => key, _.get() => value):
 			final key = toReflectType(key, info, paths.copy());
 			final value = toReflectType(value, info, paths.copy());
-			macro stdgo.reflect.Reflect.GoType.mapType($key, $value);
+			macro stdgo.reflect.Reflect.GoType.mapType({get: () -> $key}, {get: () -> $value});
 		case pointer(elem):
 			final elem = toReflectType(elem, info, paths.copy());
 			macro stdgo.reflect.Reflect.GoType.pointer($elem);
 		case arrayType(_.get() => elem, len):
 			final elem = toReflectType(elem, info, paths.copy());
 			final len = toExpr(EConst(CInt('$len')));
-			macro stdgo.reflect.Reflect.GoType.arrayType($elem, $len);
+			macro stdgo.reflect.Reflect.GoType.arrayType({get: () -> $elem}, $len);
 		case sliceType(_.get() => elem):
 			final elem = toReflectType(elem, info, paths.copy());
-			macro stdgo.reflect.Reflect.GoType.sliceType($elem);
+			macro stdgo.reflect.Reflect.GoType.sliceType({get: () -> $elem});
 		case basic(kind):
 			final name = macro $i{kind.getName()};
 			macro stdgo.reflect.Reflect.GoType.basic($name);
@@ -3340,7 +3340,7 @@ private function toReflectType(t:GoType, info:Info, paths:Array<String>):Expr {
 		case chanType(dir, _.get() => elem):
 			final dir = toExpr(EConst(CInt('$dir')));
 			final elem = toReflectType(elem, info, paths.copy());
-			macro stdgo.reflect.Reflect.GoType.chanType($dir, $elem);
+			macro stdgo.reflect.Reflect.GoType.chanType($dir, {get: () -> $elem});
 		case interfaceType(empty, methods):
 			final empty = empty ? macro true : macro false;
 			final methodExprs:Array<Expr> = [];
@@ -3348,7 +3348,7 @@ private function toReflectType(t:GoType, info:Info, paths:Array<String>):Expr {
 				final name = makeString(method.name);
 				final t = toReflectType(method.type.get(), info, paths.copy());
 				final recv = macro stdgo.reflect.Reflect.GoType.invalidType; // toReflectType(method.recv.get(), info, paths.copy());
-				methodExprs.push(macro new stdgo.reflect.Reflect.MethodType($name, $t, $recv));
+				methodExprs.push(macro new stdgo.reflect.Reflect.MethodType($name, {get: () -> $t}, {get: () -> $recv}));
 			}
 			final e = macro stdgo.reflect.Reflect.GoType.interfaceType($empty, ${macro $a{methodExprs}});
 			e;
@@ -3367,7 +3367,7 @@ private function toReflectType(t:GoType, info:Info, paths:Array<String>):Expr {
 					final name = makeString(method.name);
 					final t = toReflectType(method.type.get(), info, paths.copy());
 					final recv = macro stdgo.reflect.Reflect.GoType.invalidType; // toReflectType(method.recv.get(), info);
-					methodExprs.push(macro new stdgo.reflect.Reflect.MethodType($name, $t, $recv));
+					methodExprs.push(macro new stdgo.reflect.Reflect.MethodType($name, {get: () -> $t}, {get: () -> $recv}));
 				}
 			}
 			final e = macro stdgo.reflect.Reflect.GoType.named($path, ${macro $a{methodExprs}}, $t);
@@ -3380,7 +3380,7 @@ private function toReflectType(t:GoType, info:Info, paths:Array<String>):Expr {
 			final params = macro $a{params.get().map(param -> toReflectType(param, info, paths.copy()))};
 			final results = macro $a{results.get().map(result -> toReflectType(result, info, paths.copy()))};
 			final recv = macro stdgo.reflect.Reflect.GoType.invalidType; // toReflectType(recv, info, paths.copy());
-			macro stdgo.reflect.Reflect.GoType.signature($variadic, $params, $results, $recv);
+			macro stdgo.reflect.Reflect.GoType.signature($variadic, {get: () -> $params}, {get: () -> $results}, {get: () -> $recv});
 		case structType(fields):
 			var exprs:Array<Expr> = [];
 			for (field in fields) {

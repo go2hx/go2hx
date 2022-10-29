@@ -8,13 +8,9 @@ import stdgo.Pointer.PointerData;
 import stdgo.Slice.Slice;
 import stdgo.StdGoTypes;
 
-#if go2hx_compiler
 typedef Ref<T> = {
 	function get():T;
 }
-#else
-typedef Ref<T> = T;
-#end
 
 enum GoType {
 	typeParam(name:String, params:Array<GoType>);
@@ -221,7 +217,7 @@ function getElem(type:GoType):GoType {
 			type;
 		case _var(_, type):
 			getElem(type);
-		case arrayType(#if go2hx_compiler _.get() => #end elem, _), sliceType(#if go2hx_compiler _.get() => #end elem), pointer(elem), refType(elem):
+		case arrayType(_.get() => elem, _), sliceType(_.get() => elem), pointer(elem), refType(elem):
 			elem;
 		default:
 			type;
@@ -253,9 +249,6 @@ function getSignature(type:GoType):GoType {
 }
 
 function isUnsafePointer(type:GoType):Bool {
-	#if go2hx_compiler
-	return false;
-	#else
 	if (type == null)
 		return false;
 	return switch type {
@@ -269,7 +262,6 @@ function isUnsafePointer(type:GoType):Bool {
 		default:
 			false;
 	}
-	#end
 }
 
 function isPointer(type:GoType):Bool {
@@ -530,16 +522,12 @@ class Value {
 	}
 
 	static function findUnderlying(t:Type):Type {
-		#if go2hx_compiler
-		return null;
-		#else
 		switch (@:privateAccess t.common().value) {
 			case named(_, _, elem), pointer(elem):
 				return findUnderlying(new _Type(elem));
 			default:
 				return t;
 		}
-		#end
 	}
 
 	public inline function type()
@@ -709,14 +697,12 @@ class Value {
 	}
 
 	public function index(i:GoInt):Value {
-		#if go2hx_compiler
-		return null;
-		#else
 		var value = value.value;
 		final gt = getUnderlying(@:privateAccess type().common().value);
 		return switch gt {
-			case arrayType(elem, _): @:privateAccess new Value(new AnyInterface((value : GoArray<Dynamic>)[i], new _Type(unroll(gt, elem))));
-			case sliceType(elem): @:privateAccess new Value(new AnyInterface((value : Slice<Dynamic>)[i], new _Type(unroll(gt, elem))), value, i).setAddr();
+			case arrayType(_.get() => elem, _): @:privateAccess new Value(new AnyInterface((value : GoArray<Dynamic>)[i], new _Type(unroll(gt, elem))));
+			case sliceType(_.get() => elem): @:privateAccess new Value(new AnyInterface((value : Slice<Dynamic>)[i], new _Type(unroll(gt, elem))), value,
+					i).setAddr();
 			/*case string:
 				var value = value;
 				if ((value is String))
@@ -734,7 +720,6 @@ class Value {
 				}
 			default: throw "not supported";
 		}
-		#end
 	}
 
 	public function numField():GoInt {
@@ -772,28 +757,21 @@ class Value {
 	}
 
 	public function mapIndex(key:Value):Value {
-		#if go2hx_compiler
-		return null;
-		#else
 		var value = value.value;
 		return switch @:privateAccess type().common().value {
-			case mapType(_, mapValue):
+			case mapType(_, _.get() => mapValue):
 				new Value(new AnyInterface((value : GoMap<Dynamic, Dynamic>)[key.value], new _Type(mapValue)));
 			default:
 				throw "not a map";
 		}
-		#end
 	}
 
 	public function mapKeys():Slice<Value> {
-		#if go2hx_compiler
-		return null;
-		#else
 		var value = value.value;
 		var val:GoMap<Dynamic, Dynamic> = value;
 		var gt:GoType = @:privateAccess type().common().value;
 		switch gt {
-			case mapType(key, valueType):
+			case mapType(_.get() => key, _.get() => valueType):
 				var slice = new Slice<Value>(0, 0, ...[
 					for (obj in val) {
 						new Value(new AnyInterface(obj.key, new _Type(valueType)));
@@ -803,13 +781,9 @@ class Value {
 			default:
 				throw "map index incorrect type: " + gt;
 		}
-		#end
 	}
 
 	public function elem():Value {
-		#if go2hx_compiler
-		return null;
-		#else
 		var value = value.value;
 		var k = kind();
 		final t = @:privateAccess type().common().value;
@@ -831,7 +805,6 @@ class Value {
 				return value;
 		}
 		throw new ValueError("reflect.Value.Elem", k);
-		#end
 	}
 
 	public function len():GoInt {
@@ -885,9 +858,6 @@ class ValueError {
 }
 
 private function unroll(parent:GoType, child:GoType):GoType {
-	#if go2hx_compiler
-	return null;
-	#else
 	var parentName = "";
 	var parentType:GoType = null;
 	switch parent {
@@ -901,8 +871,8 @@ private function unroll(parent:GoType, child:GoType):GoType {
 			childName == parentName ? parent : child;
 		case pointer(elem):
 			pointer(unroll(parent, elem));
-		case mapType(key, value):
-			mapType(unroll(parent, key), unroll(parent, value));
+		case mapType(_.get() => key, _.get() => value):
+			mapType({get: () -> unroll(parent, key)}, {get: () -> unroll(parent, value)});
 		case basic(_):
 			child;
 		case interfaceType(_): child;
@@ -918,12 +888,11 @@ private function unroll(parent:GoType, child:GoType):GoType {
 						embedded: field.embedded,
 					}
 			]);
-		case sliceType(elem):
-			sliceType(unroll(parent, elem));
+		case sliceType(_.get() => elem):
+			sliceType({get: () -> unroll(parent, elem)});
 		default:
 			throw "unsupported unroll gt type: " + child;
 	}
-	#end
 }
 
 function typeOf(iface:AnyInterface):Type {
@@ -978,7 +947,7 @@ function defaultValue(typ:Type):Any {
 				default:
 					defaultValue(new _Type(type));
 			}
-		case arrayType(#if go2hx_compiler _.get() => #end elem, len):
+		case arrayType(_.get() => elem, len):
 			new GoArray([for (i in 0...len) defaultValue(new _Type(elem))]);
 		default: null;
 	}
@@ -1194,9 +1163,6 @@ class _Type {
 	}
 
 	public function kind():Kind {
-		#if go2hx_compiler
-		return 0;
-		#else
 		final gt = getUnderlying(gt);
 		return switch gt {
 			case typeParam(_, _):
@@ -1243,13 +1209,9 @@ class _Type {
 			case signature(_, _, _, _): func;
 			case structType(_): struct_;
 		}
-		#end
 	}
 
 	public function size():GoUIntptr {
-		#if go2hx_compiler
-		return 0;
-		#else
 		if (kind() == 0)
 			return 0;
 		final k:Int = kind().toBasic();
@@ -1270,7 +1232,7 @@ class _Type {
 			case _array:
 				var gt = getUnderlying(gt);
 				return switch gt {
-					case arrayType(elem, len):
+					case arrayType(_.get() => elem, len):
 						((new _Type(elem).size().toBasic() * len) : GoUIntptr);
 					default:
 						0;
@@ -1281,13 +1243,9 @@ class _Type {
 			default:
 				throw "unimplemented: size of type: " + kind();
 		}
-		#end
 	}
 
 	public function string():GoString {
-		#if go2hx_compiler
-		return "";
-		#else
 		return switch (gt) {
 			case basic(kind):
 				if (kind == untyped_int_kind)
@@ -1310,15 +1268,15 @@ class _Type {
 					for (field in fields)
 						formatGoFieldName(field.name) + " " + new _Type(field.type).string()
 				].join("; ") + " }";
-			case arrayType(typ, len):
+			case arrayType(_.get() => typ, len):
 				"[" + Std.string(len) + "]" + new _Type(typ).string();
-			case sliceType(typ):
+			case sliceType(_.get() => typ):
 				"[]" + new _Type(typ).string();
-			case mapType(key, value):
+			case mapType(_.get() => key, _.get() => value):
 				"map[" + new _Type(key).string() + "]" + new _Type(value).string();
-			case chanType(_, typ):
+			case chanType(_, _.get() => typ):
 				"chan " + new _Type(typ).string();
-			case signature(variadic, args, rets, recv):
+			case signature(variadic, _.get() => args, _.get() => rets, _.get() => recv):
 				var r:GoString = "func(";
 				var preface = "";
 				switch recv {
@@ -1360,23 +1318,19 @@ class _Type {
 				if (empty)
 					return "interface {}";
 				for (method in methods) {
-					r += "; " + formatGoFieldName(method.name) + new _Type(method.type).string().__toString__().substr(4);
+					r += "; " + formatGoFieldName(method.name) + new _Type(method.type.get()).string().__toString__().substr(4);
 				}
 				r = r.substr(1);
 				"interface {" + r + " }";
 			default:
 				throw "not found enum toString " + gt; // should never get here
 		}
-		#end
 	}
 
 	public function elem():Type {
-		#if go2hx_compiler
-		return null;
-		#else
 		final gt:GoType = getUnderlying(common().value);
 		switch (gt) {
-			case chanType(_, elem), refType(elem), pointer(elem), sliceType(elem), arrayType(elem, _):
+			case chanType(_, _.get() => elem), refType(elem), pointer(elem), sliceType(_.get() => elem), arrayType(_.get() => elem, _):
 				return new _Type(elem);
 			case interfaceType(_):
 				return null;
@@ -1384,7 +1338,6 @@ class _Type {
 				trace(gt);
 				throw "reflect.Type.Elem not implemented for " + string();
 		}
-		#end
 	}
 
 	public function len():GoInt {
@@ -1397,9 +1350,6 @@ class _Type {
 	}
 
 	public function numMethod():GoInt {
-		#if go2hx_compiler
-		return 0;
-		#else
 		switch (gt) {
 			case named(_, methods, _), interfaceType(_, methods):
 				var count = 0;
@@ -1415,7 +1365,6 @@ class _Type {
 			default:
 				throw "reflect.NumMethod not implemented for " + string();
 		}
-		#end
 	}
 
 	public function hasName():Bool {
@@ -1462,9 +1411,6 @@ class _Type {
 	}
 
 	public function method(index:GoInt):Method {
-		#if go2hx_compiler
-		return null;
-		#else
 		switch gt {
 			case named(path, methods, _):
 				final index = index.toBasic();
@@ -1474,7 +1420,7 @@ class _Type {
 				path += "_static_extension";
 				final cl = std.Type.resolveClass(path);
 				final instance = std.Type.createEmptyInstance(cl);
-				final t = new _Type(method.type);
+				final t = new _Type(method.type.get());
 				final f = Reflect.field(instance, method.name);
 				return {
 					name: method.name,
@@ -1486,7 +1432,6 @@ class _Type {
 			default:
 				throw "invalid type for method access: " + gt;
 		}
-		#end
 	}
 
 	function formatGoFieldName(name:String):String {
@@ -1545,13 +1490,10 @@ class _Type {
 	}
 
 	public function comparable():Bool {
-		#if go2hx_compiler
-		return false;
-		#else
 		return switch (gt) {
 			case sliceType(_), signature(_, _, _, _), mapType(_, _):
 				return false;
-			case arrayType(elem, _):
+			case arrayType(_.get() => elem, _):
 				return new _Type(elem).comparable();
 			case structType(fields):
 				for (field in fields) {
@@ -1564,7 +1506,6 @@ class _Type {
 			default:
 				return true;
 		}
-		#end
 	}
 }
 
@@ -1712,16 +1653,12 @@ class _Type {
 }
 
 private function namedUnderlying(obj:AnyInterface):AnyInterface {
-	#if go2hx_compiler
-	return null;
-	#else
 	return switch (@:privateAccess obj.type.common().value : GoType) {
 		case named(_, _, type):
 			new AnyInterface((obj.value : Dynamic).__t__, new _Type(type));
 		default:
 			obj;
 	}
-	#end
 }
 
 function getUnderlying(gt:GoType, once:Bool = false) {
@@ -1738,40 +1675,37 @@ function getUnderlying(gt:GoType, once:Bool = false) {
 }
 
 function directlyAssignable(t:Type, v:Type):Bool {
-	#if go2hx_compiler
-	return false;
-	#else
 	var tgt:GoType = @:privateAccess t.common().value;
 	var vgt:GoType = @:privateAccess v.common().value;
-
-	switch tgt {
+	switch vgt {
 		case named(path, _, _):
-			switch vgt {
+			switch tgt {
 				case named(path2, _, _):
 					return path == path2;
 				default:
+					return false;
 			}
 		default:
 	}
 	tgt = getUnderlying(tgt);
 	vgt = getUnderlying(vgt);
 	return switch tgt {
-		case chanType(_, elem), sliceType(elem):
+		case chanType(_, _.get() => elem), sliceType(_.get() => elem):
 			switch vgt {
-				case chanType(_, elem2), sliceType(elem2): new _Type(elem).assignableTo(new _Type(elem2));
+				case chanType(_, _.get() => elem2), sliceType(_.get() => elem2): new _Type(elem).assignableTo(new _Type(elem2));
 				default: false;
 			}
-		case arrayType(elem, len):
+		case arrayType(_.get() => elem, len):
 			switch vgt {
-				case arrayType(elem2, len2):
+				case arrayType(_.get() => elem2, len2):
 					if (len != len2)
 						return false;
 					new _Type(elem).assignableTo(new _Type(elem2));
 				default: false;
 			}
-		case mapType(key, value):
+		case mapType(_.get() => key, _.get() => value):
 			switch vgt {
-				case mapType(key2, value2):
+				case mapType(_.get() => key2, _.get() => value2):
 					if (!new _Type(key).assignableTo(new _Type(key2)))
 						return false;
 					if (!new _Type(value).assignableTo(new _Type(value2)))
@@ -1794,9 +1728,9 @@ function directlyAssignable(t:Type, v:Type):Bool {
 			}
 		case interfaceType(_):
 			false; // checked by implements instead
-		case signature(_, input, output, _):
+		case signature(_, _.get() => input, _.get() => output, _):
 			switch vgt {
-				case signature(_, input2, output2, _):
+				case signature(_, _.get() => input2, _.get() => output2, _):
 					if (input.length != input2.length)
 						return false;
 					if (output.length != output2.length)
@@ -1853,13 +1787,9 @@ function directlyAssignable(t:Type, v:Type):Bool {
 		default:
 			throw "unable to check for assignability: " + tgt;
 	}
-	#end
 }
 
 function implementsMethod(t:Type, v:Type):Bool {
-	#if go2hx_compiler
-	return false;
-	#else
 	var interfacePath = "";
 	var gt:GoType = @:privateAccess t.common().value;
 	var vgt:GoType = @:privateAccess v.common().value;
@@ -1882,7 +1812,7 @@ function implementsMethod(t:Type, v:Type):Bool {
 						for (j in 0...methods2.length) {
 							if (methods[i].name != methods2[j].name)
 								continue;
-							if (!new _Type(methods[i].type).assignableTo(new _Type(methods2[j].type))) {
+							if (!new _Type(methods[i].type.get()).assignableTo(new _Type(methods2[j].type.get()))) {
 								return false;
 							}
 							found = true;
@@ -1899,7 +1829,6 @@ function implementsMethod(t:Type, v:Type):Bool {
 		default:
 			false;
 	}
-	#end
 }
 
 @:using(Reflect.Kind_extension)

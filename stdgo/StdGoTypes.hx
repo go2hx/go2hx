@@ -1772,9 +1772,6 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 	}
 
 	@:op(A == B) public static function equals(a:AnyInterface, b:AnyInterface):Bool {
-		#if go2hx_compiler
-		return false;
-		#else
 		if (a == null || b == null) // null check
 			return a == null && b == null;
 		var gt:GoType = @:privateAccess a.type.common().value;
@@ -1878,7 +1875,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 					case invalidType: true;
 					default: false;
 				}
-			case sliceType(elem):
+			case sliceType(_.get() => elem):
 				var a:Slice<Any> = aValue;
 				var b:Slice<Any> = bValue;
 				var t:Dynamic = new stdgo.reflect.Reflect._Type(elem);
@@ -1890,7 +1887,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 				}
 				true;
 			case interfaceType(_, _): final t:stdgo.reflect.Reflect.Type = new stdgo.reflect.Reflect._Type(gt); final t2:stdgo.reflect.Reflect.Type = new stdgo.reflect.Reflect._Type(gt2); t.assignableTo(t2) && aValue == bValue;
-			case arrayType(elem, _):
+			case arrayType(_.get() => elem, _):
 				var a:GoArray<Any> = aValue;
 				var b:GoArray<Any> = bValue;
 				var t:Dynamic = new stdgo.reflect.Reflect._Type(elem);
@@ -1904,7 +1901,6 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 			default:
 				throw "unknown type equals: " + gt;
 		}
-		#end
 	}
 }
 

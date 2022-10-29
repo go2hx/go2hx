@@ -91,7 +91,7 @@ class GoObjectMap<K, V> implements haxe.Constraints.IMap<K, V> {
 			return x == y;
 		}
 		return switch (t.common().value : stdgo.reflect.Reflect.GoType) {
-			case mapType(#if go2hx_compiler _.get() => #end var keyType, _):
+			case mapType(_.get() => var keyType, _):
 				final t:Type = new stdgo.reflect.Reflect._Type(keyType);
 				new AnyInterface(key, t) == new AnyInterface(objKey, t);
 			default:
@@ -101,7 +101,7 @@ class GoObjectMap<K, V> implements haxe.Constraints.IMap<K, V> {
 
 	public function defaultValue():V {
 		return switch @:privateAccess (t.common().value : stdgo.reflect.Reflect.GoType) {
-			case mapType(_, #if go2hx_compiler _.get() => #end value): stdgo.reflect.Reflect.defaultValue(new stdgo.reflect.Reflect._Type(value));
+			case mapType(_, _.get() => value): stdgo.reflect.Reflect.defaultValue(new stdgo.reflect.Reflect._Type(value));
 			default: @:privateAccess throw "unknown default map type: " + (t.common().value : stdgo.reflect.Reflect.GoType);
 		}
 	}

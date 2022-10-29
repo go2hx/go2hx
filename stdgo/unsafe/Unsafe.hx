@@ -38,7 +38,7 @@ abstract UnsafePointer(AnyInterface) from AnyInterface {
 						return this.value;
 					default:
 				}
-			case sliceType(elem):
+			case sliceType(_.get() => elem):
 				switch elem {
 					case basic(uint8_kind):
 						switch toType {

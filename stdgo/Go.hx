@@ -516,7 +516,7 @@ class Go {
 				final t2 = ComplexTypeTools.toType(t);
 				if (t2 == null)
 					Context.error("complexType converted to type is null", Context.currentPos());
-				final toType = gtDecode(t2, e, []);
+				final toType = gtDecode(t2, null, []);
 				final e = macro({
 					final t = new stdgo.reflect.Reflect._Type($toType);
 					// trace($e.type.common().value);
@@ -834,7 +834,7 @@ class Go {
 				var sref:String = ref.toString();
 				switch (sref) {
 					case "stdgo.Chan":
-						var len = macro - 1;
+						var len = macro(-1);
 						if (expr != null)
 							len = macro($expr : Chan<Dynamic>).length.toBasic();
 						final param = gtParams(params, marked)[0];
@@ -1083,7 +1083,7 @@ class Go {
 						underlyingType = field.type;
 						continue;
 					}
-					var t = gtDecode(field.type, macro $expr.$fieldName, marked);
+					var t = gtDecode(field.type, expr != null ? macro $expr.$fieldName : null, marked);
 					final embedded = field.meta.has(":embedded") ? macro true : macro false;
 					final tag = field.meta.has(":tag") ? field.meta.extract(":tag")[0].params[0] : macro "";
 					fields.push(macro new stdgo.reflect.Reflect.FieldType($v{fieldName}, $t, $tag, $embedded));

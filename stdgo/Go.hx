@@ -525,8 +525,11 @@ class Go {
 					if (!b)
 						throw "unable to assert";
 					// trace($e.type.common().value);
-					// trace($e.value);
-					($e.value : $t);
+					if (t.kind() == stdgo.reflect.Reflect.interface_) {
+						($e.value : $t);
+					} else {
+						(($e.value : Dynamic).__underlying__().value : $t);
+					}
 				});
 				// trace(new haxe.macro.Printer().printExpr(e));
 				return e;

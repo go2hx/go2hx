@@ -862,7 +862,7 @@ class Go {
 						ret = macro stdgo.reflect.Reflect.GoType.mapType($a{ps});
 					case "haxe.Rest":
 						final param = gtParams(params, marked)[0];
-						ret = macro stdgo.reflect.Reflect.GoType.sliceType($param);
+						ret = macro stdgo.reflect.Reflect.GoType.sliceType({get: () -> $param});
 					case "stdgo.GoInt8":
 						ret = macro stdgo.reflect.Reflect.GoType.basic(int8_kind);
 					case "stdgo.GoInt16":

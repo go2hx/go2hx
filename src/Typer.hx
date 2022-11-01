@@ -6159,12 +6159,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				kind: TDClass(),
 			};
 			cl.fields.push({
-				name: "__underlying__",
-				pos: null,
-				kind: FFun({args: [], expr: macro return Go.toInterface(this), ret: anyInterfaceType()}),
-				access: [APublic],
-			});
-			cl.fields.push({
 				name: "__copy__", // internally used
 				pos: null,
 				access: [APublic],

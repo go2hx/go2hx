@@ -169,17 +169,17 @@ private function completeProcess(code:Int, proc:Process, task:TaskData, command:
 		} else {
 			log(task.data.name + '.go `$command`   build error: $code');
 			log(proc.stderr.readAll().toString());
-			if (task.target != "interp")
-				runsLeft--; // remove as no more runtime test
+			runsLeft--; // remove as no more runtime test
 			suites[task.data.type].buildError(task);
 		}
 	}
-	if (task.target == "interp")
-		runsLeft--;
 	if (runsLeft % 10 == 0)
 		trace("runsLeft: " + runsLeft);
 	if (--runsLeft <= 0) {
-		trace(processPool.pool.map(p -> p.command));
+		if (processPool.pool.length > 0) {
+			trace(processPool.pool.map(p -> p.command));
+			throw "TASKS STILL IN POOL";
+		}
 		close();
 	}
 }

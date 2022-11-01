@@ -1817,7 +1817,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 		}
 
 		gt = stdgo.reflect.Reflect.getUnderlying(gt);
-		gt2 = stdgo.reflect.Reflect.getUnderlying(gt);
+		gt2 = stdgo.reflect.Reflect.getUnderlying(gt2);
 		// trace(gt, gt2);
 		return switch gt {
 			case refType(_):

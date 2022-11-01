@@ -35,12 +35,11 @@ final gobyexampleExcludes = [
 	"text-templates.go",                  // TODO os
 	"writing-files.go",                   // TODO os
 ];
+// @formatter:on
 final yaegiExcludes = [];
 final goExcludes = [];
 final unitExcludes = [];
-// @formatter:on
 var tasks:Array<TaskData> = [];
-var runsLeft:Int = 0;
 var processPool = new ProcessPool(2);
 final path = Sys.getCwd();
 var ci = false;
@@ -112,8 +111,6 @@ function main() {
 		};
 		tasks.push(data);
 	}
-	runsLeft = tasks.length * (targets.length * 2);
-	Sys.println("Test runs left: " + runsLeft);
 	startStamp = haxe.Timer.stamp();
 	// update loop
 	while (true)
@@ -128,7 +125,6 @@ private function update() {
 	Main.update();
 	for (task in tasks) {
 		if (task.data.type == "std") {
-			runsLeft--;
 			complete([], task);
 			tasks.remove(task);
 			continue;
@@ -169,17 +165,10 @@ private function completeProcess(code:Int, proc:Process, task:TaskData, command:
 		} else {
 			log(task.data.name + '.go `$command`   build error: $code');
 			log(proc.stderr.readAll().toString());
-			runsLeft--; // remove as no more runtime test
 			suites[task.data.type].buildError(task);
 		}
 	}
-	if (runsLeft % 10 == 0)
-		trace("runsLeft: " + runsLeft);
-	if (--runsLeft <= 0) {
-		if (processPool.pool.length > 0) {
-			trace(processPool.pool.map(p -> p.command));
-			throw "TASKS STILL IN POOL";
-		}
+	if (processPool.pool.length <= 0 && tasks.length <= 0) {
 		close();
 	}
 }

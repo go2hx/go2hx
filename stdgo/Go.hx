@@ -809,7 +809,14 @@ class Go {
 															continue;
 														switch field.type {
 															case TLazy(f):
-																if (field.name != "runtimeError") continue;
+																switch field.name {
+																	case "error":
+																		field.type = f();
+																	case "runtimeError":
+
+																	default:
+																		continue;
+																}
 															default:
 														}
 														// trace(field.name, field.type);

@@ -435,7 +435,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 
 					public function __underlying__()
 						return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-							&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__ : __self__.value,
+							&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__ : (__self__ : Dynamic).value,
 							__type__);
 
 					var __self__:$ct;

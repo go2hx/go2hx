@@ -788,8 +788,10 @@ class Go {
 										var type:haxe.macro.Type = ref.type;
 										final underlyingType = gtDecode(type, expr, marked);
 										final methods:Array<Expr> = [];
+										final extensionPath = ref.module + "." + ref.name + "_asInterface";
 										try {
-											final extensionType = Context.getType(ref.name + "_asInterface");
+											final path = createPath(ref.pack, ref.name);
+											final extensionType = Context.getType(extensionPath);
 											final extension = switch extensionType {
 												case TInst(_.get() => t, _):
 													t;
@@ -797,7 +799,6 @@ class Go {
 													throw "invalid extension type";
 											}
 											var fs = extension.fields.get();
-											final path = createPath(ref.pack, ref.name);
 											for (field in fs) {
 												switch field.kind {
 													case FMethod(_):
@@ -809,17 +810,13 @@ class Go {
 															continue;
 														switch field.type {
 															case TLazy(f):
-																switch field.name {
-																	case "error":
-																		field.type = f();
-																	case "runtimeError":
-
-																	default:
-																		continue;
+																try {
+																	field.type = f();
+																} catch (e) {
+																	continue;
 																}
 															default:
 														}
-														// trace(field.name, field.type);
 														final t = gtDecode(field.type, expr, marked.copy(), ret);
 														// trace(new haxe.macro.Printer().printExpr(t));
 														final method = macro new stdgo.reflect.Reflect.MethodType($v{field.name}, {get: () -> $t},
@@ -829,6 +826,7 @@ class Go {
 												}
 											}
 										} catch (e) {
+											// trace(extensionPath);
 											// trace(e);
 										}
 										return macro stdgo.reflect.Reflect.GoType.named($v{path}, $a{methods}, $underlyingType);
@@ -945,7 +943,14 @@ class Go {
 													continue;
 												switch field.type {
 													case TLazy(f):
-														continue;
+														try {
+															field.type = f();
+														} catch (e) {
+															continue;
+														}
+													default:
+												}
+												switch field.type {
 													case TFun(args, ret2):
 														args.shift();
 														final t = gtDecode(TFun(args, ret2), expr, marked, ret);

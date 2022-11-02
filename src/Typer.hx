@@ -114,6 +114,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 		info.printGoCode = instance.printGoCode;
 		info.global.path = pkg.path;
 		info.global.externBool = instance.externBool;
+		info.global.varTraceBool = instance.varTraceBool;
 		info.global.noCommentsBool = instance.noCommentsBool;
 		info.global.module = module;
 		info.global.root = instance.root;
@@ -2261,8 +2262,26 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				for (i in 0...stmt.lhs.length) {
 					var x = typeExpr(stmt.lhs[i], info);
 					var y = typeExpr(stmt.rhs[i], info);
-					// remove Haxe compiler error: "Assigning a value to itself"
 					if (op == OpAssign) {
+						// __append__ -> __appendref__
+						var callExpr:Expr = {expr: y.expr, pos: y.pos};
+						switch callExpr.expr {
+							case EParenthesis(e):
+								callExpr = e;
+							default:
+						}
+						switch callExpr.expr {
+							case ECall(e, params):
+								switch e.expr {
+									case EField(e, field):
+										if (field == "__append__" && printer.printExpr(e) == printer.printExpr(x)) {
+											y.expr = ECall({expr: EField(e, "__appendref__"), pos: null}, params);
+										}
+									default:
+								}
+							default:
+						}
+						// remove Haxe compiler error: "Assigning a value to itself"
 						switch x.expr {
 							case EConst(c):
 								switch c {
@@ -6372,6 +6391,15 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 				expr = patch;
 				Patch.list.remove(patchName);
 			}
+			if (info.global.varTraceBool)
+				if (expr != null) {
+					expr = macro {
+						trace("start var: " + ${makeExpr(name)});
+						final value = $expr;
+						trace("end var: " + ${makeExpr(name)});
+						value;
+					};
+				}
 			values.push({
 				name: name,
 				pos: null,
@@ -6559,6 +6587,7 @@ function normalizePath(path:String):String {
 }
 
 class Global {
+	public var varTraceBool:Bool = false;
 	public var initBlock:Array<Expr> = [];
 	public var path:String = "";
 	public var filePath:String = "";
@@ -6579,6 +6608,7 @@ class Global {
 		g.module = module;
 		g.filePath = filePath;
 		g.hasBreak = hasBreak;
+		g.varTraceBool = varTraceBool;
 		g.root = root;
 		g.hashMap = hashMap;
 		return g;

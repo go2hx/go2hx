@@ -121,10 +121,31 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		return slice;
 	}
 
+	public function __appendref__(args:Rest<T>):Slice<T> {
+		final startOffset = this.length;
+		final growCapacity = args.length - this.capacity + this.length + this.offset;
+		if (growCapacity <= 0) {
+			this.length += args.length;
+			for (i in 0...args.length) {
+				this.set(startOffset + i, args[i]);
+			}
+			return this;
+		}
+		return this;
+		this.length += growCapacity;
+		this.capacity += growCapacity;
+		this.capacity += this.capacity >> 2;
+		this.grow(); // allocation
+		for (i in 0...args.length) {
+			this.set(startOffset + i, args[i]);
+		}
+		return this;
+	}
+
 	public function __append__(args:Rest<T>):Slice<T> {
 		final slice:SliceData<T> = __ref__(); // no allocation
-		var startOffset = slice.length;
-		var growCapacity = args.length - slice.capacity + slice.length + slice.offset;
+		final startOffset = slice.length;
+		final growCapacity = args.length - slice.capacity + slice.length + slice.offset;
 		if (growCapacity <= 0) {
 			slice.vector = slice.vector.copy(); // allocation
 			slice.length += args.length;

@@ -5,6 +5,5 @@
 -D nolinkstd
 --dce full
 -D analyzer-optimize
--D go2hx_compiler
 -D simulate_num
 --run Main

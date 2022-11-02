@@ -4,6 +4,5 @@
 -D no-deprecation-warnings
 -D nolinkstd
 -D simulate_num
--D go2hx_compiler
 -dce full
 -hl tests.hl

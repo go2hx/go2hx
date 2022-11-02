@@ -9,10 +9,9 @@ extraParams.hxml
 -D no-deprecation-warnings
 -D watch.excludes=golibs
 -dce full
--D go2hx_compiler
-#-lib hxnodejs
-#--js rnd.js
-#--cmd node rnd.js
+# -lib hxnodejs
+# --js rnd.js
+# --cmd node rnd.js
 
 #-hl rnd.hl
 #--cmd hl rnd.hl

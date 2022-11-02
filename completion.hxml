@@ -1,6 +1,5 @@
 -m Main
 -cp src
--D go2hx_compiler
 extraParams.hxml
 -D nolinkstd
 --interp

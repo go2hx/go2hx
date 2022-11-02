@@ -2,7 +2,6 @@
 -main Main
 -D no-deprecation-warnings
 -D std-encoding-utf8
--D go2hx_compiler
 -D nolinkstd
 --dce full
 -D analyzer-optimize

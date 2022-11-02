@@ -168,7 +168,8 @@ private function completeProcess(code:Int, proc:Process, task:TaskData, command:
 			suites[task.data.type].buildError(task);
 		}
 	}
-	if (processPool.pool.length <= 0 && tasks.length <= 0) {
+	trace(processPool.pool.length, tasks.length);
+	if (processPool.pool.length <= 1 && tasks.length <= 0) {
 		close();
 	}
 }

@@ -1,4 +1,3 @@
-// ! -lib hxnodejs
 package;
 
 import Network;
@@ -88,6 +87,7 @@ function compileArgs(args:Array<String>):InstanceData {
 		["-test", "--test"] => () -> instance.test = true,
 		@doc("generate externs exported module fields only with no func exprs")
 		["-extern", "--extern", "-externs", "--externs"] => () -> instance.externBool = true,
+		["-vartrace", "--vartrace", "-varTrace", "--varTrace"] => () -> instance.varTraceBool = true,
 		@doc("set output path or file location")
 		["-output", "--output", "-o", "--o", "-out", "--out"] => out -> instance.outputPath = out,
 		@doc("set the root package for all generated files")
@@ -198,7 +198,7 @@ function update() {
 }
 
 function close() {
-	#if debug
+	#if (debug && !nodejs)
 	if (processes.length > 0) {
 		processes[0].kill();
 		try {
@@ -571,6 +571,7 @@ function write(args:Array<String>, instance:InstanceData):Bool {
 final instanceCache = new Vector<InstanceData>(20);
 
 class InstanceData {
+	public var varTraceBool:Bool = false;
 	public var args:Array<String> = [];
 	public var data:Dynamic = null;
 	public var printGoCode = false;

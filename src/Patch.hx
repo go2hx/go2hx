@@ -249,10 +249,7 @@ final skipTargets = [
 
 final adds = [
 	"math:negZero" => macro {
-		final _sign:GoInt32 = 1 << 63;
-		final _x:GoFloat = 0;
-		final _y:GoFloat = -1;
-		return float64frombits((float64bits(_x) & (_sign ^ ((-1 : GoInt32)))) | (float64bits(_y) & _sign));
+		return copysign(0.0, -1.0);
 	},
 	"os:_init" => macro {
 		args = _runtime_args();

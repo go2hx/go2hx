@@ -169,9 +169,6 @@ final typeFunction:Type = ((0 : GoInt) : Type);
 	public function _isNumber():Bool
 		return false;
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new Func(value, _id);
 	}
@@ -205,9 +202,6 @@ final typeFunction:Type = ((0 : GoInt) : Type);
 		if (_gcPtr != null)
 			this._gcPtr = _gcPtr;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Value(_10, _ref, _gcPtr);
@@ -317,9 +311,6 @@ final typeFunction:Type = ((0 : GoInt) : Type);
 	public function _isNumber():Bool
 		return false;
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_error(value);
 	}
@@ -340,9 +331,6 @@ final typeFunction:Type = ((0 : GoInt) : Type);
 		if (type != null)
 			this.type = type;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new ValueError(method, type);
@@ -617,7 +605,8 @@ class Func_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Func>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -899,7 +888,8 @@ class Value_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Value>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1179,7 +1169,8 @@ class T_error_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_error>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1294,7 +1285,8 @@ class ValueError_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<ValueError>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1322,7 +1314,8 @@ class Type_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Type>;
 	var __type__:stdgo.reflect.Reflect.Type;

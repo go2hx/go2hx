@@ -246,9 +246,6 @@ private final __NMode:InvalidType = ("6" : GoUInt64);
 			this.age = age;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new Person(name, age);
 	}
@@ -270,9 +267,6 @@ private final __NMode:InvalidType = ("6" : GoUInt64);
 		if (_distance != null)
 			this._distance = _distance;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Planet(_name, _mass, _distance);
@@ -298,9 +292,6 @@ private final __NMode:InvalidType = ("6" : GoUInt64);
 			this._by = _by;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_planetSorter(_planets, _by);
 	}
@@ -323,9 +314,6 @@ private final __NMode:InvalidType = ("6" : GoUInt64);
 			this._lines = _lines;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new Change(_user, _language, _lines);
 	}
@@ -345,9 +333,6 @@ private final __NMode:InvalidType = ("6" : GoUInt64);
 			this._less = _less;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_multiSorter(_changes, _less);
 	}
@@ -363,9 +348,6 @@ private final __NMode:InvalidType = ("6" : GoUInt64);
 		if (weight != null)
 			this.weight = weight;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Organ(name, weight);
@@ -393,9 +375,6 @@ private final __NMode:InvalidType = ("6" : GoUInt64);
 	public function swap(_i:GoInt, _j:GoInt)
 		organs.swap(_i, _j);
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new ByName(organs);
 	}
@@ -422,9 +401,6 @@ private final __NMode:InvalidType = ("6" : GoUInt64);
 	public function swap(_i:GoInt, _j:GoInt)
 		organs.swap(_i, _j);
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new ByWeight(organs);
 	}
@@ -437,9 +413,6 @@ private final __NMode:InvalidType = ("6" : GoUInt64);
 		if (_r != null)
 			this._r = _r;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_nonDeterministicTestingData(_r);
@@ -473,9 +446,6 @@ private final __NMode:InvalidType = ("6" : GoUInt64);
 		if (_nswap != null)
 			this._nswap = _nswap;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_testingData(_desc, _t, _data, _maxswap, _ncmp, _nswap);
@@ -535,9 +505,6 @@ private final __NMode:InvalidType = ("6" : GoUInt64);
 		if (_gas != null)
 			this._gas = _gas;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_adversaryTestingData(_t, _data, _maxcmp, _ncmp, _nsolid, _candidate, _gas);
@@ -1976,7 +1943,8 @@ class Person_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Person>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2018,7 +1986,8 @@ private class T_planetSorter_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_planetSorter>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2096,7 +2065,8 @@ private class T_multiSorter_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_multiSorter>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2181,7 +2151,8 @@ class ByName_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<ByName>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2222,7 +2193,8 @@ class ByWeight_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<ByWeight>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2263,7 +2235,8 @@ private class T_nonDeterministicTestingData_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_nonDeterministicTestingData>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2311,7 +2284,8 @@ private class T_testingData_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_testingData>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2365,7 +2339,8 @@ private class T_adversaryTestingData_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_adversaryTestingData>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2431,7 +2406,8 @@ class ByAge_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<ByAge>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2474,7 +2450,8 @@ class By_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<By>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2503,7 +2480,8 @@ class Grams_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Grams>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2532,7 +2510,8 @@ class Organs_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Organs>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2592,7 +2571,8 @@ private class T_intPairs_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_intPairs>;
 	var __type__:stdgo.reflect.Reflect.Type;

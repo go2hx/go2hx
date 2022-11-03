@@ -184,9 +184,6 @@ private final _s7:GoUInt64 = ("68" : GoUInt64);
 			this._hi = _hi;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_acceptRange(_lo, _hi);
 	}

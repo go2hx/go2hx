@@ -412,9 +412,6 @@ private typedef T__interface_0 = StructType & {
 			this.err = err;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new PathError(op, path, err);
 	}
@@ -430,9 +427,6 @@ private typedef T__interface_0 = StructType & {
 		if (_fileInfo != null)
 			this._fileInfo = _fileInfo;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_dirInfo(_fileInfo);
@@ -450,9 +444,6 @@ private typedef T__interface_0 = StructType & {
 			this._dir = _dir;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_subFS(_fsys, _dir);
 	}
@@ -465,9 +456,6 @@ private typedef T__interface_0 = StructType & {
 		if (_info != null)
 			this._info = _info;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_statDirEntry(_info);
@@ -714,7 +702,7 @@ function _glob(_fs:FS, _dir:GoString, _pattern:GoString, _matches:Slice<GoString
 			return {_0: _m, _1: _err};
 		};
 		if (_matched) {
-			_m = (_m.__append__(stdgo.path.Path.join(_dir, _n)));
+			_m = _m.__appendref__(stdgo.path.Path.join(_dir, _n));
 		};
 	};
 	return {_0: _m, _1: _e};
@@ -1099,7 +1087,8 @@ class PathError_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<PathError>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1154,7 +1143,8 @@ private class T_dirInfo_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_dirInfo>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1231,7 +1221,8 @@ private class T_subFS_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_subFS>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1403,7 +1394,8 @@ private class T_statDirEntry_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_statDirEntry>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1473,7 +1465,8 @@ class FileMode_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<FileMode>;
 	var __type__:stdgo.reflect.Reflect.Type;

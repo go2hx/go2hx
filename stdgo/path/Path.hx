@@ -46,9 +46,6 @@ var errBadPattern:Error = stdgo.errors.Errors.new_(Go.str("syntax error in patte
 			this._w = _w;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_lazybuf(_s, _buf, _w);
 	}
@@ -468,9 +465,9 @@ function join(_elem:haxe.Rest<GoString>):GoString {
 	for (_1 => _e in _elem) {
 		if ((_buf.length > (0 : GoInt)) || (_e != Go.str())) {
 			if ((_buf.length) > (0 : GoInt)) {
-				_buf = (_buf.__append__(("/".code : GoRune)));
+				_buf = _buf.__appendref__(("/".code : GoRune));
 			};
-			_buf = (_buf.__append__(..._e.__toArray__()));
+			_buf = _buf.__appendref__(..._e.__toArray__());
 		};
 	};
 	return clean((_buf : GoString));
@@ -562,7 +559,8 @@ private class T_lazybuf_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_lazybuf>;
 	var __type__:stdgo.reflect.Reflect.Type;

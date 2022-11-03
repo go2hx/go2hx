@@ -253,9 +253,6 @@ final rshortfile:GoString = Go.str("[A-Za-z0-9_\\-]+\\.go:(61|63):");
 			this._isDiscard = _isDiscard;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new Logger(_mu, _prefix, _flag, _out, _buf, _isDiscard);
 	}
@@ -278,9 +275,6 @@ final rshortfile:GoString = Go.str("[A-Za-z0-9_\\-]+\\.go:(61|63):");
 		if (_pattern != null)
 			this._pattern = _pattern;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_tester(_flag, _prefix, _pattern);
@@ -323,7 +317,7 @@ function _itoa(_buf:Ref<Slice<GoByte>>, _i:GoInt, _wid:GoInt):Void {
 		_i = _q;
 	};
 	_b[_bp] = (("0".code : GoRune) + _i : GoByte);
-	_buf = (_buf.__append__(...(_b.__slice__(_bp) : Slice<GoUInt8>).__toArray__()));
+	_buf = _buf.__appendref__(...(_b.__slice__(_bp) : Slice<GoUInt8>).__toArray__());
 }
 
 /**
@@ -823,7 +817,8 @@ class Logger_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Logger>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1153,9 +1148,9 @@ class Logger_asInterface {
 			};
 			_l._buf = (_l._buf.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>);
 			_l._formatHeader((_l._buf : Ref<Slice<GoUInt8>>), (_now == null ? null : _now.__copy__()), _file, _line);
-			_l._buf = (_l._buf.__append__(..._s.__toArray__()));
+			_l._buf = _l._buf.__appendref__(..._s.__toArray__());
 			if ((_s.length == (0 : GoInt)) || (_s[(_s.length) - (1 : GoInt)] != ("\n".code : GoRune))) {
-				_l._buf = (_l._buf.__append__(("\n".code : GoRune)));
+				_l._buf = _l._buf.__appendref__(("\n".code : GoRune));
 			};
 			var __tmp__ = _l._out.write(_l._buf),
 				_0:GoInt = __tmp__._0,
@@ -1200,7 +1195,7 @@ class Logger_asInterface {
 	@:keep
 	static public function _formatHeader(_l:Ref<Logger>, _buf:Ref<Slice<GoByte>>, _t:stdgo.time.Time.Time, _file:GoString, _line:GoInt):Void {
 		if (_l._flag & (64 : GoInt) == ((0 : GoInt))) {
-			_buf = (_buf.__append__(..._l._prefix.__toArray__()));
+			_buf = _buf.__appendref__(..._l._prefix.__toArray__());
 		};
 		if (_l._flag & (7 : GoInt) != ((0 : GoInt))) {
 			if (_l._flag & (32 : GoInt) != ((0 : GoInt))) {
@@ -1212,11 +1207,11 @@ class Logger_asInterface {
 					_month:stdgo.time.Time.Month = __tmp__._1,
 					_day:GoInt = __tmp__._2;
 				_itoa(_buf, _year, (4 : GoInt));
-				_buf = (_buf.__append__(("/".code : GoRune)));
+				_buf = _buf.__appendref__(("/".code : GoRune));
 				_itoa(_buf, (_month : GoInt), (2 : GoInt));
-				_buf = (_buf.__append__(("/".code : GoRune)));
+				_buf = _buf.__appendref__(("/".code : GoRune));
 				_itoa(_buf, _day, (2 : GoInt));
-				_buf = (_buf.__append__((" ".code : GoRune)));
+				_buf = _buf.__appendref__((" ".code : GoRune));
 			};
 			if (_l._flag & (6 : GoInt) != ((0 : GoInt))) {
 				var __tmp__ = _t.clock(),
@@ -1224,15 +1219,15 @@ class Logger_asInterface {
 					_min:GoInt = __tmp__._1,
 					_sec:GoInt = __tmp__._2;
 				_itoa(_buf, _hour, (2 : GoInt));
-				_buf = (_buf.__append__((":".code : GoRune)));
+				_buf = _buf.__appendref__((":".code : GoRune));
 				_itoa(_buf, _min, (2 : GoInt));
-				_buf = (_buf.__append__((":".code : GoRune)));
+				_buf = _buf.__appendref__((":".code : GoRune));
 				_itoa(_buf, _sec, (2 : GoInt));
 				if (_l._flag & (4 : GoInt) != ((0 : GoInt))) {
-					_buf = (_buf.__append__((".".code : GoRune)));
+					_buf = _buf.__appendref__((".".code : GoRune));
 					_itoa(_buf, _t.nanosecond() / (1000 : GoInt), (6 : GoInt));
 				};
-				_buf = (_buf.__append__((" ".code : GoRune)));
+				_buf = _buf.__appendref__((" ".code : GoRune));
 			};
 		};
 		if (_l._flag & (24 : GoInt) != ((0 : GoInt))) {
@@ -1249,13 +1244,13 @@ class Logger_asInterface {
 				};
 				_file = _short;
 			};
-			_buf = (_buf.__append__(..._file.__toArray__()));
-			_buf = (_buf.__append__((":".code : GoRune)));
+			_buf = _buf.__appendref__(..._file.__toArray__());
+			_buf = _buf.__appendref__((":".code : GoRune));
 			_itoa(_buf, _line, (-1 : GoInt));
-			_buf = (_buf.__append__(...Go.str(": ").__toArray__()));
+			_buf = _buf.__appendref__(...Go.str(": ").__toArray__());
 		};
 		if (_l._flag & (64 : GoInt) != ((0 : GoInt))) {
-			_buf = (_buf.__append__(..._l._prefix.__toArray__()));
+			_buf = _buf.__appendref__(..._l._prefix.__toArray__());
 		};
 	}
 

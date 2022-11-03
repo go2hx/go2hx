@@ -39,9 +39,8 @@ private var _atobtests:Slice<stdgo.strconv_test.Strconv_test.T_atobTest> = (new 
 		(null : Error)) : stdgo.strconv_test.Strconv_test.T_atobTest)) : Slice<stdgo.strconv_test.Strconv_test.T_atobTest>);
 
 private var _boolString:GoMap<Bool, GoString> = {
-	final x = new stdgo.GoMap.GoObjectMap<Bool,
-		GoString>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(bool_kind),
-			stdgo.reflect.Reflect.GoType.basic(string_kind))));
+	final x = new stdgo.GoMap.GoObjectMap<Bool, GoString>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType({get: () ->
+		stdgo.reflect.Reflect.GoType.basic(bool_kind)}, {get: () -> stdgo.reflect.Reflect.GoType.basic(string_kind)})));
 	@:privateAccess x._keys = [true, false];
 	@:privateAccess x._values = [Go.str("true"), Go.str("false")];
 	x;
@@ -1734,9 +1733,6 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 			this._err = _err;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_atobTest(_in, _out, _err);
 	}
@@ -1755,9 +1751,6 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 		if (_out != null)
 			this._out = _out;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_appendBoolTest(_b, _in, _out);
@@ -1778,9 +1771,6 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 			this._err = _err;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_atocTest(_in, _out, _err);
 	}
@@ -1800,9 +1790,6 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 			this._err = _err;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_atofTest(_in, _out, _err);
 	}
@@ -1818,9 +1805,6 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 		if (_s != null)
 			this._s = _s;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_atofSimpleTest(_x, _s);
@@ -1840,9 +1824,6 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 		if (_err != null)
 			this._err = _err;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_parseUint64Test(_in, _out, _err);
@@ -1866,9 +1847,6 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 			this._err = _err;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_parseUint64BaseTest(_in, _base, _out, _err);
 	}
@@ -1887,9 +1865,6 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 		if (_err != null)
 			this._err = _err;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_parseInt64Test(_in, _out, _err);
@@ -1913,9 +1888,6 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 			this._err = _err;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_parseInt64BaseTest(_in, _base, _out, _err);
 	}
@@ -1934,9 +1906,6 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 		if (_err != null)
 			this._err = _err;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_parseUint32Test(_in, _out, _err);
@@ -1957,9 +1926,6 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 			this._err = _err;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_parseInt32Test(_in, _out, _err);
 	}
@@ -1975,9 +1941,6 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 		if (_want != null)
 			this._want = _want;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_numErrorTest(_num, _want);
@@ -1995,9 +1958,6 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 			this._errStub = _errStub;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_parseErrorTest(_arg, _errStub);
 	}
@@ -2013,9 +1973,6 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 		if (_num != null)
 			this._num = _num;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_benchCase(_name, _num);
@@ -2035,9 +1992,6 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 		if (_out != null)
 			this._out = _out;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_shiftTest(_i, _shift, _out);
@@ -2067,9 +2021,6 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 			this._int = _int;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_roundTest(_i, _nd, _down, _round, _up, _int);
 	}
@@ -2088,9 +2039,6 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 		if (_int != null)
 			this._int = _int;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_roundIntTest(_i, _shift, _int);
@@ -2114,9 +2062,6 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 			this._s = _s;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_ftoaTest(_f, _fmt, _prec, _s);
 	}
@@ -2136,9 +2081,6 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 			this._out = _out;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_itob64Test(_in, _base, _out);
 	}
@@ -2157,9 +2099,6 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 		if (_out != null)
 			this._out = _out;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_uitob64Test(_in, _base, _out);
@@ -2183,9 +2122,6 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 			this._graphic = _graphic;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_quoteTest(_in, _out, _ascii, _graphic);
 	}
@@ -2208,9 +2144,6 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 			this._graphic = _graphic;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_quoteRuneTest(_in, _out, _ascii, _graphic);
 	}
@@ -2227,9 +2160,6 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 			this._out = _out;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_canBackquoteTest(_in, _out);
 	}
@@ -2245,9 +2175,6 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 		if (_out != null)
 			this._out = _out;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_unQuoteTest(_in, _out);
@@ -3270,11 +3197,11 @@ function _benchmarkAtoi(_b:Ref<stdgo.testing.Testing.B>, _neg:GoInt):Void {
 		(new stdgo.strconv_test.Strconv_test.T_benchCase(Go.str("31bit"),
 			("2147483647" : GoInt64)) : stdgo.strconv_test.Strconv_test.T_benchCase)) : Slice<stdgo.strconv_test.Strconv_test.T_benchCase>);
 	if (false) {
-		_cases = (_cases.__append__(...(new Slice<stdgo.strconv_test.Strconv_test.T_benchCase>(0, 0,
+		_cases = _cases.__appendref__(...(new Slice<stdgo.strconv_test.Strconv_test.T_benchCase>(0, 0,
 			(new stdgo.strconv_test.Strconv_test.T_benchCase(Go.str("56bit"), ("72057594037927935" : GoInt64)) : stdgo.strconv_test.Strconv_test.T_benchCase),
 			(new stdgo.strconv_test.Strconv_test.T_benchCase(Go.str("63bit"),
 				("9223372036854775807" : GoInt64)) : stdgo.strconv_test.Strconv_test.T_benchCase)) : Slice<stdgo.strconv_test.Strconv_test.T_benchCase>)
-			.__toArray__()));
+			.__toArray__());
 	};
 	for (_0 => _cs in _cases) {
 		_b.run(_cs._name, function(_b:Ref<stdgo.testing.Testing.B>):Void {

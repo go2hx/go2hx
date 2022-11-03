@@ -203,9 +203,6 @@ private var _isAbsTests:Slice<stdgo.path_test.Path_test.IsAbsTest> = (new Slice<
 			this._err = _err;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new MatchTest(_pattern, _s, _match, _err);
 	}
@@ -221,9 +218,6 @@ private var _isAbsTests:Slice<stdgo.path_test.Path_test.IsAbsTest> = (new Slice<
 		if (_result != null)
 			this._result = _result;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new PathTest(_path, _result);
@@ -244,9 +238,6 @@ private var _isAbsTests:Slice<stdgo.path_test.Path_test.IsAbsTest> = (new Slice<
 			this._file = _file;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new SplitTest(_path, _dir, _file);
 	}
@@ -262,9 +253,6 @@ private var _isAbsTests:Slice<stdgo.path_test.Path_test.IsAbsTest> = (new Slice<
 		if (_path != null)
 			this._path = _path;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new JoinTest(_elem, _path);
@@ -282,9 +270,6 @@ private var _isAbsTests:Slice<stdgo.path_test.Path_test.IsAbsTest> = (new Slice<
 			this._ext = _ext;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new ExtTest(_path, _ext);
 	}
@@ -300,9 +285,6 @@ private var _isAbsTests:Slice<stdgo.path_test.Path_test.IsAbsTest> = (new Slice<
 		if (_isAbs != null)
 			this._isAbs = _isAbs;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new IsAbsTest(_path, _isAbs);

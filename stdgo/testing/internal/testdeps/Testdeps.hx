@@ -37,9 +37,6 @@ private var _log:T_testLog = ({} : T_testLog);
 @:structInit @:using(stdgo.testing.internal.testdeps.Testdeps.TestDeps_static_extension) class TestDeps {
 	public function new() {}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new TestDeps();
 	}
@@ -61,9 +58,6 @@ private var _log:T_testLog = ({} : T_testLog);
 		if (_set != null)
 			this._set = _set;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_testLog(_mu, _w, _set);
@@ -160,7 +154,8 @@ class TestDeps_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<TestDeps>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -281,7 +276,8 @@ private class T_testLog_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_testLog>;
 	var __type__:stdgo.reflect.Reflect.Type;

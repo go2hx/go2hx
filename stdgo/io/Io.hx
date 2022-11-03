@@ -433,9 +433,6 @@ typedef StringWriter = StructType & {
 			this.n = n;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new LimitedReader(r, n);
 	}
@@ -462,9 +459,6 @@ typedef StringWriter = StructType & {
 			this._limit = _limit;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new SectionReader(_r, _base, _off, _limit);
 	}
@@ -481,9 +475,6 @@ typedef StringWriter = StructType & {
 			this._w = _w;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_teeReader(_r, _w);
 	}
@@ -491,9 +482,6 @@ typedef StringWriter = StructType & {
 
 @:structInit @:using(stdgo.io.Io.T_discard_static_extension) private class T_discard {
 	public function new() {}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_discard();
@@ -513,9 +501,6 @@ typedef StringWriter = StructType & {
 	public function read(_p_:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
 		return reader.read(_p_);
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_nopCloser(reader);
 	}
@@ -534,9 +519,6 @@ typedef StringWriter = StructType & {
 	public function read(_p_:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
 		return reader.read(_p_);
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_nopCloserWriterTo(reader);
 	}
@@ -544,9 +526,6 @@ typedef StringWriter = StructType & {
 
 @:structInit @:using(stdgo.io.Io.T_eofReader_static_extension) private class T_eofReader {
 	public function new() {}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_eofReader();
@@ -561,9 +540,6 @@ typedef StringWriter = StructType & {
 			this._readers = _readers;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_multiReader(_readers);
 	}
@@ -576,9 +552,6 @@ typedef StringWriter = StructType & {
 		if (_writers != null)
 			this._writers = _writers;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_multiWriter(_writers);
@@ -624,9 +597,6 @@ typedef StringWriter = StructType & {
 	public function _unlockSlow(_new:GoInt32)
 		mutex._unlockSlow(_new);
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_onceError(mutex, _err);
 	}
@@ -671,9 +641,6 @@ typedef StringWriter = StructType & {
 			this._werr = _werr;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_pipe(_wrMu, _wrCh, _rdCh, _once, _done, _rerr, _werr);
 	}
@@ -690,9 +657,6 @@ typedef StringWriter = StructType & {
 			this._p = _p;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new PipeReader(_p);
 	}
@@ -708,9 +672,6 @@ typedef StringWriter = StructType & {
 		if (_p != null)
 			this._p = _p;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new PipeWriter(_p);
@@ -1036,9 +997,9 @@ function multiWriter(_writers:haxe.Rest<Writer>):Writer {
 				{value: (null : T_multiWriter), ok: false};
 			}, _mw = __tmp__.value, _ok = __tmp__.ok;
 			if (_ok) {
-				_allWriters = (_allWriters.__append__(..._mw._writers.__toArray__()));
+				_allWriters = _allWriters.__appendref__(..._mw._writers.__toArray__());
 			} else {
-				_allWriters = (_allWriters.__append__(_w));
+				_allWriters = _allWriters.__appendref__(_w);
 			};
 		};
 	};
@@ -1081,7 +1042,8 @@ class LimitedReader_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<LimitedReader>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1134,7 +1096,8 @@ class SectionReader_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<SectionReader>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1224,7 +1187,8 @@ private class T_teeReader_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_teeReader>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1273,7 +1237,8 @@ private class T_discard_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_discard>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1329,7 +1294,8 @@ private class T_nopCloser_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_nopCloser>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1366,7 +1332,8 @@ private class T_nopCloserWriterTo_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_nopCloserWriterTo>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1401,7 +1368,8 @@ private class T_eofReader_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_eofReader>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1434,7 +1402,8 @@ private class T_multiReader_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_multiReader>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1536,7 +1505,8 @@ private class T_multiWriter_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_multiWriter>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1639,7 +1609,8 @@ private class T_onceError_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_onceError>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1780,7 +1751,8 @@ private class T_pipe_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_pipe>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1970,7 +1942,8 @@ class PipeReader_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<PipeReader>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2051,7 +2024,8 @@ class PipeWriter_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<PipeWriter>;
 	var __type__:stdgo.reflect.Reflect.Type;

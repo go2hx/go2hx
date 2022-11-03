@@ -221,9 +221,6 @@ private typedef T_input = StructType & {
 			this._err = _err;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_stringError(_re, _err);
 	}
@@ -245,9 +242,6 @@ private typedef T_input = StructType & {
 		if (_output != null)
 			this._output = _output;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new ReplaceTest(_pattern, _replacement, _input, _output);
@@ -271,9 +265,6 @@ private typedef T_input = StructType & {
 			this._output = _output;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new ReplaceFuncTest(_pattern, _replacement, _input, _output);
 	}
@@ -296,9 +287,6 @@ private typedef T_input = StructType & {
 			this._isLiteral = _isLiteral;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new MetaTest(_pattern, _output, _literal, _isLiteral);
 	}
@@ -314,9 +302,6 @@ private typedef T_input = StructType & {
 		if (_index != null)
 			this._index = _index;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_subexpIndex(_name, _index);
@@ -340,9 +325,6 @@ private typedef T_input = StructType & {
 			this._indices = _indices;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_subexpCase(_input, _num, _names, _indices);
 	}
@@ -365,9 +347,6 @@ private typedef T_input = StructType & {
 		if (_pos != null)
 			this._pos = _pos;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_job(_pc, _arg, _pos);
@@ -400,9 +379,6 @@ private typedef T_input = StructType & {
 			this._inputs = _inputs;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_bitState(_end, _cap, _matchcap, _jobs, _visited, _inputs);
 	}
@@ -422,9 +398,6 @@ private typedef T_input = StructType & {
 		if (_dense != null)
 			this._dense = _dense;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_queue(_sparse, _dense);
@@ -448,9 +421,6 @@ private typedef T_input = StructType & {
 			this._t = _t;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_entry(_pc, _t);
 	}
@@ -471,9 +441,6 @@ private typedef T_input = StructType & {
 		if (_cap != null)
 			this._cap = _cap;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_thread(_inst, _cap);
@@ -537,9 +504,6 @@ private typedef T_input = StructType & {
 			this._inputs = _inputs;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_machine(_re, _p, _q0, _q1, _pool, _matched, _matchcap, _inputs);
 	}
@@ -563,9 +527,6 @@ private typedef T_input = StructType & {
 			this._reader = _reader;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_inputs(_bytes, _string, _reader);
 	}
@@ -581,9 +542,6 @@ private typedef T_input = StructType & {
 		if (_matchcap != null)
 			this._matchcap = _matchcap;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_onePassMachine(_inputs, _matchcap);
@@ -610,9 +568,6 @@ private typedef T_input = StructType & {
 		if (_matches != null)
 			this._matches = _matches;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new FindTest(_pat, _text, _matches);
@@ -644,9 +599,6 @@ private typedef T_input = StructType & {
 		if (numCap != null)
 			this.numCap = numCap;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_onePassProg(inst, start, numCap);
@@ -689,9 +641,6 @@ private typedef T_input = StructType & {
 	public function _op():stdgo.regexp.syntax.Syntax.InstOp
 		return ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.InstOp);
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_onePassInst(inst, next);
 	}
@@ -716,9 +665,6 @@ private typedef T_input = StructType & {
 		if (_nextIndex != null)
 			this._nextIndex = _nextIndex;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_queueOnePass(_sparse, _dense, _size, _nextIndex);
@@ -838,9 +784,6 @@ private typedef T_input = StructType & {
 			this._longest = _longest;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new Regexp(_expr, _prog, _onepass, _numSubexp, _maxBitStateLen, _subexpNames, _prefix, _prefixBytes, _prefixRune, _prefixEnd, _mpool,
 			_matchcap, _prefixComplete, _cond, _minInputLen, _longest);
@@ -858,9 +801,6 @@ private typedef T_input = StructType & {
 			this._str = _str;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_inputString(_str);
 	}
@@ -876,9 +816,6 @@ private typedef T_input = StructType & {
 		if (_str != null)
 			this._str = _str;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_inputBytes(_str);
@@ -901,9 +838,6 @@ private typedef T_input = StructType & {
 		if (_pos != null)
 			this._pos = _pos;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_inputReader(_r, _atEOT, _pos);
@@ -1576,7 +1510,8 @@ private class T_bitState_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_bitState>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1666,7 +1601,8 @@ private class T_machine_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_machine>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1753,7 +1689,8 @@ private class T_inputs_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_inputs>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1793,7 +1730,8 @@ class FindTest_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<FindTest>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1833,7 +1771,8 @@ private class T_onePassInst_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_onePassInst>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1893,7 +1832,8 @@ private class T_queueOnePass_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_queueOnePass>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2409,7 +2349,8 @@ class Regexp_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Regexp>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2925,7 +2866,8 @@ private class T_inputString_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_inputString>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2981,7 +2923,8 @@ private class T_inputBytes_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_inputBytes>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -3037,7 +2980,8 @@ private class T_inputReader_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_inputReader>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -3077,7 +3021,8 @@ private class T_lazyFlag_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_lazyFlag>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -3109,7 +3054,8 @@ private class T_runeSlice_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_runeSlice>;
 	var __type__:stdgo.reflect.Reflect.Type;

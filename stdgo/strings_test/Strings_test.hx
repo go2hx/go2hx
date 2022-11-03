@@ -1096,9 +1096,6 @@ private var _stringSink:GoString = ("" : GoString);
 @:structInit @:using(stdgo.strings_test.Strings_test.T_errWriter_static_extension) private class T_errWriter {
 	public function new() {}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_errWriter();
 	}
@@ -1117,9 +1114,6 @@ private var _stringSink:GoString = ("" : GoString);
 		if (_out != null)
 			this._out = _out;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new IndexTest(_s, _sep, _out);
@@ -1143,9 +1137,6 @@ private var _stringSink:GoString = ("" : GoString);
 			this._a = _a;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new SplitTest(_s, _sep, _n, _a);
 	}
@@ -1161,9 +1152,6 @@ private var _stringSink:GoString = ("" : GoString);
 		if (_a != null)
 			this._a = _a;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new FieldsTest(_s, _a);
@@ -1184,9 +1172,6 @@ private var _stringSink:GoString = ("" : GoString);
 			this._out = _out;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new StringTest(_in, _out);
 	}
@@ -1202,9 +1187,6 @@ private var _stringSink:GoString = ("" : GoString);
 		if (_name != null)
 			this._name = _name;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_predicate(_f, _name);
@@ -1826,12 +1808,12 @@ function testCompareStrings(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i <= (128 : GoInt), _i++, {
-			_lengths = (_lengths.__append__(_i));
+			_lengths = _lengths.__appendref__(_i);
 		});
 	};
-	_lengths = (_lengths.__append__((256 : GoInt), (512 : GoInt), (1024 : GoInt), (1333 : GoInt), (4095 : GoInt), (4096 : GoInt), (4097 : GoInt)));
+	_lengths = _lengths.__appendref__((256 : GoInt), (512 : GoInt), (1024 : GoInt), (1333 : GoInt), (4095 : GoInt), (4096 : GoInt), (4097 : GoInt));
 	if (!stdgo.testing.Testing.short() || (stdgo.internal.testenv.Testenv.builder() != Go.str())) {
-		_lengths = (_lengths.__append__((65535 : GoInt), (65536 : GoInt), (65537 : GoInt), (99999 : GoInt)));
+		_lengths = _lengths.__appendref__((65535 : GoInt), (65536 : GoInt), (65537 : GoInt), (99999 : GoInt));
 	};
 	var _n:GoInt = _lengths[(_lengths.length) - (1 : GoInt)];
 	var _a = new Slice<GoUInt8>((_n + (1 : GoInt) : GoInt).toBasic(), 0, ...[for (i in 0...(_n + (1 : GoInt) : GoInt).toBasic()) (0 : GoUInt8)]);
@@ -2627,9 +2609,6 @@ function _oldHTMLEscape(_s:GoString):GoString {
 			this._out = _out;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_testCase_testReplacer_0(_r, _in, _out);
 	}
@@ -2649,11 +2628,11 @@ function testReplacer(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (256:GoInt), _i++, {
-			_s = (_s.__append__(_str((_i : GoByte)), _str((_i + (1 : GoInt) : GoByte))));
+			_s = _s.__appendref__(_str((_i : GoByte)), _str((_i + (1 : GoInt) : GoByte)));
 		});
 	};
 	var _inc = newReplacer(..._s.__toArray__());
-	_testCases = (_testCases.__append__((new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_capitalLetters, Go.str("brad"),
+	_testCases = _testCases.__appendref__((new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_capitalLetters, Go.str("brad"),
 		Go.str("BrAd")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_capitalLetters, repeat(Go.str("a"), (32891 : GoInt)),
 			repeat(Go.str("A"), (32891 : GoInt))) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
@@ -2665,7 +2644,7 @@ function testReplacer(_t:Ref<stdgo.testing.Testing.T>):Void {
 			Go.str(1, 0)) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_inc, Go.str(), Go.str()) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(newReplacer(Go.str("a"), Go.str("1"), Go.str("a"), Go.str("2")), Go.str("brad"),
-			Go.str("br1d")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0)));
+			Go.str("br1d")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0));
 	_s = (null : Slice<GoString>);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -2674,11 +2653,11 @@ function testReplacer(_t:Ref<stdgo.testing.Testing.T>):Void {
 			if (_n < (1:GoInt)) {
 				_n = (1 : GoInt);
 			};
-			_s = (_s.__append__(_str((_i : GoByte)), repeat(_str((_i : GoByte)), _n)));
+			_s = _s.__appendref__(_str((_i : GoByte)), repeat(_str((_i : GoByte)), _n));
 		});
 	};
 	var _repeat = newReplacer(..._s.__toArray__());
-	_testCases = (_testCases.__append__((new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_htmlEscaper, Go.str("No changes"),
+	_testCases = _testCases.__appendref__((new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_htmlEscaper, Go.str("No changes"),
 		Go.str("No changes")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_htmlEscaper, Go.str("I <3 escaping & stuff"),
 			Go.str("I &lt;3 escaping &amp; stuff")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
@@ -2693,8 +2672,8 @@ function testReplacer(_t:Ref<stdgo.testing.Testing.T>):Void {
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_repeat, Go.str(),
 			Go.str()) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(newReplacer(Go.str("a"), Go.str("11"), Go.str("a"), Go.str("22")), Go.str("brad"),
-			Go.str("br11d")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0)));
-	_testCases = (_testCases.__append__((new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_htmlUnescaper, Go.str("&amp;amp;"),
+			Go.str("br11d")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0));
+	_testCases = _testCases.__appendref__((new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_htmlUnescaper, Go.str("&amp;amp;"),
 		Go.str("&amp;")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_htmlUnescaper, Go.str("&lt;b&gt;HTML&apos;s neat&lt;/b&gt;"),
 			Go.str("<b>HTML\'s neat</b>")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
@@ -2708,11 +2687,11 @@ function testReplacer(_t:Ref<stdgo.testing.Testing.T>):Void {
 			Go.str("1111")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(newReplacer(Go.str("aaa"), Go.str("3"), Go.str("aa"), Go.str("2"), Go.str("a"),
 			Go.str("1")), Go.str("aaaa"),
-			Go.str("31")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0)));
+			Go.str("31")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0));
 	var _gen1 = newReplacer(Go.str("aaa"), Go.str("3[aaa]"), Go.str("aa"), Go.str("2[aa]"), Go.str("a"), Go.str("1[a]"), Go.str("i"), Go.str("i"),
 		Go.str("longerst"), Go.str("most long"), Go.str("longer"), Go.str("medium"), Go.str("long"), Go.str("short"), Go.str("xx"), Go.str("xx"), Go.str("x"),
 		Go.str("X"), Go.str("X"), Go.str("Y"), Go.str("Y"), Go.str("Z"));
-	_testCases = (_testCases.__append__((new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_gen1, Go.str("fooaaabar"),
+	_testCases = _testCases.__appendref__((new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_gen1, Go.str("fooaaabar"),
 		Go.str("foo3[aaa]b1[a]r")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_gen1, Go.str("long, longerst, longer"),
 			Go.str("short, most long, medium")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
@@ -2721,27 +2700,27 @@ function testReplacer(_t:Ref<stdgo.testing.Testing.T>):Void {
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_gen1, Go.str("XiX"),
 			Go.str("YiY")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_gen1, Go.str(),
-			Go.str()) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0)));
+			Go.str()) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0));
 	var _gen2 = newReplacer(Go.str("roses"), Go.str("red"), Go.str("violets"), Go.str("blue"), Go.str("sugar"), Go.str("sweet"));
-	_testCases = (_testCases.__append__((new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_gen2, Go.str("roses are red, violets are blue..."),
+	_testCases = _testCases.__appendref__((new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_gen2, Go.str("roses are red, violets are blue..."),
 		Go.str("red are red, blue are blue...")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_gen2, Go.str(),
-			Go.str()) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0)));
+			Go.str()) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0));
 	var _gen3 = newReplacer(Go.str("abracadabra"), Go.str("poof"), Go.str("abracadabrakazam"), Go.str("splat"), Go.str("abraham"), Go.str("lincoln"),
 		Go.str("abrasion"), Go.str("scrape"), Go.str("abraham"), Go.str("isaac"));
-	_testCases = (_testCases.__append__((new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_gen3, Go.str("abracadabrakazam abraham"),
+	_testCases = _testCases.__appendref__((new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_gen3, Go.str("abracadabrakazam abraham"),
 		Go.str("poofkazam lincoln")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_gen3, Go.str("abrasion abracad"),
 			Go.str("scrape abracad")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_gen3, Go.str("abba abram abrasive"),
 			Go.str("abba abram abrasive")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_gen3, Go.str(),
-			Go.str()) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0)));
+			Go.str()) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0));
 	var _foo1 = newReplacer(Go.str("foo1"), Go.str("A"), Go.str("foo2"), Go.str("B"), Go.str("foo3"), Go.str("C"));
 	var _foo2 = newReplacer(Go.str("foo1"), Go.str("A"), Go.str("foo2"), Go.str("B"), Go.str("foo31"), Go.str("C"), Go.str("foo32"), Go.str("D"));
 	var _foo3 = newReplacer(Go.str("foo11"), Go.str("A"), Go.str("foo12"), Go.str("B"), Go.str("foo31"), Go.str("C"), Go.str("foo32"), Go.str("D"));
 	var _foo4 = newReplacer(Go.str("foo12"), Go.str("B"), Go.str("foo32"), Go.str("D"));
-	_testCases = (_testCases.__append__((new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_foo1, Go.str("fofoofoo12foo32oo"),
+	_testCases = _testCases.__appendref__((new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_foo1, Go.str("fofoofoo12foo32oo"),
 		Go.str("fofooA2C2oo")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_foo1, Go.str(), Go.str()) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_foo2, Go.str("fofoofoo12foo32oo"),
@@ -2753,19 +2732,19 @@ function testReplacer(_t:Ref<stdgo.testing.Testing.T>):Void {
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_foo4, Go.str("fofoofoo12foo32oo"),
 			Go.str("fofooBDoo")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_foo4, Go.str(),
-			Go.str()) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0)));
+			Go.str()) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0));
 	var _allBytes = new Slice<GoUInt8>((256 : GoInt).toBasic(), 0, ...[for (i in 0...(256 : GoInt).toBasic()) (0 : GoUInt8)]);
 	for (_i => _ in _allBytes) {
 		_allBytes[_i] = (_i : GoByte);
 	};
 	var _allString:GoString = (_allBytes : GoString);
 	var _genAll = newReplacer(_allString, Go.str("[all]"), Go.str(255), Go.str("[ff]"), Go.str(0), Go.str("[00]"));
-	_testCases = (_testCases.__append__((new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_genAll, _allString,
+	_testCases = _testCases.__appendref__((new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_genAll, _allString,
 		Go.str("[all]")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_genAll, (Go.str("a", 255) + _allString) + Go.str(0),
 			Go.str("a[ff][all][00]")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_genAll, Go.str(),
-			Go.str()) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0)));
+			Go.str()) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0));
 	var _blankToX1 = newReplacer(Go.str(), Go.str("X"));
 	var _blankToX2 = newReplacer(Go.str(), Go.str("X"), Go.str(), Go.str());
 	var _blankHighPriority = newReplacer(Go.str(), Go.str("X"), Go.str("o"), Go.str("O"));
@@ -2773,7 +2752,7 @@ function testReplacer(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _blankNoOp1 = newReplacer(Go.str(), Go.str());
 	var _blankNoOp2 = newReplacer(Go.str(), Go.str(), Go.str(), Go.str("A"));
 	var _blankFoo = newReplacer(Go.str(), Go.str("X"), Go.str("foobar"), Go.str("R"), Go.str("foobaz"), Go.str("Z"));
-	_testCases = (_testCases.__append__((new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_blankToX1, Go.str("foo"),
+	_testCases = _testCases.__appendref__((new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_blankToX1, Go.str("foo"),
 		Go.str("XfXoXoX")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_blankToX1, Go.str(),
 			Go.str("X")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
@@ -2814,9 +2793,9 @@ function testReplacer(_t:Ref<stdgo.testing.Testing.T>):Void {
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_blankFoo, Go.str("foobar-foobaz"),
 			Go.str("XRX-XZX")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_blankFoo, Go.str(),
-			Go.str("X")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0)));
+			Go.str("X")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0));
 	var _abcMatcher = newReplacer(Go.str("abc"), Go.str("[match]"));
-	_testCases = (_testCases.__append__((new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_abcMatcher, Go.str(),
+	_testCases = _testCases.__appendref__((new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_abcMatcher, Go.str(),
 		Go.str()) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_abcMatcher, Go.str("ab"),
 			Go.str("ab")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
@@ -2825,21 +2804,20 @@ function testReplacer(_t:Ref<stdgo.testing.Testing.T>):Void {
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_abcMatcher, Go.str("abcd"),
 			Go.str("[match]d")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_abcMatcher, Go.str("cabcabcdabca"),
-			Go.str("c[match][match]d[match]a")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0)));
+			Go.str("c[match][match]d[match]a")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0));
 	var _noHello = newReplacer(Go.str("Hello"), Go.str());
-	_testCases = (_testCases.__append__((new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_noHello, Go.str("Hello"),
+	_testCases = _testCases.__appendref__((new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_noHello, Go.str("Hello"),
 		Go.str()) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_noHello, Go.str("Hellox"),
 			Go.str("x")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_noHello, Go.str("xHello"),
 			Go.str("x")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_noHello, Go.str("xHellox"),
-			Go.str("xx")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0)));
+			Go.str("xx")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0));
 	var _nop = newReplacer();
-	_testCases = (_testCases.__append__((new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_nop, Go.str("abc"),
+	_testCases = _testCases.__appendref__((new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_nop, Go.str("abc"),
 		Go.str("abc")) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0),
-		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_nop, Go.str(),
-			Go.str()) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0)));
+		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_nop, Go.str(), Go.str()) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0));
 	for (_i => _tc in _testCases) {
 		{
 			var _s:GoString = _tc._r.replace(_tc._in);
@@ -2923,7 +2901,7 @@ function testGenericTrieBuilding(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_i < (_tc._out.length), _i++, {
 				if (_tc._out[_i] != (("\t".code : GoRune))) {
-					_wantbuf = (_wantbuf.__append__(_tc._out[_i]));
+					_wantbuf = _wantbuf.__appendref__(_tc._out[_i]);
 				};
 			});
 		};
@@ -4363,7 +4341,7 @@ function _makeBenchInputHard():GoString {
 		if ((_x.length + _tokens[_i].length) >= (1048576 : GoInt)) {
 			break;
 		};
-		_x = (_x.__append__(..._tokens[_i].__toArray__()));
+		_x = _x.__appendref__(..._tokens[_i].__toArray__());
 	};
 	return (_x : GoString);
 }
@@ -4790,7 +4768,8 @@ private class T_errWriter_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_errWriter>;
 	var __type__:stdgo.reflect.Reflect.Type;

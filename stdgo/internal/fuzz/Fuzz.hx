@@ -232,9 +232,6 @@ private typedef T_mutatorRand = StructType & {
 			this.cacheDir = cacheDir;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new CoordinateFuzzingOpts(log, timeout, limit, minimizeTimeout, minimizeLimit, parallel, seed, types, corpusDir, cacheDir);
 	}
@@ -255,9 +252,6 @@ private typedef T_mutatorRand = StructType & {
 		if (_err != null)
 			this._err = _err;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_crashError(_path, _err);
@@ -295,9 +289,6 @@ private typedef T_mutatorRand = StructType & {
 		if (_hashes != null)
 			this._hashes = _hashes;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_corpus(_entries, _hashes);
@@ -394,9 +385,6 @@ private typedef T_mutatorRand = StructType & {
 			this._coverageData = _coverageData;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_fuzzInput(_entry, _timeout, _limit, _warmup, _coverageData);
 	}
@@ -472,9 +460,6 @@ private typedef T_mutatorRand = StructType & {
 			this._entryDuration = _entryDuration;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_fuzzResult(_entry, _crasherMsg, _canMinimize, _coverageData, _limit, _count, _totalDuration, _entryDuration);
 	}
@@ -533,9 +518,6 @@ private typedef T_mutatorRand = StructType & {
 		if (_keepCoverage != null)
 			this._keepCoverage = _keepCoverage;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_fuzzMinimizeInput(_entry, _crasherMsg, _limit, _timeout, _keepCoverage);
@@ -707,9 +689,6 @@ private typedef T_mutatorRand = StructType & {
 			this._coverageMask = _coverageMask;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_coordinator(_opts, _startTime, _inputC, _minimizeC, _resultC, _count, _countLastLog, _timeLastLog, _interestingCount, _warmupInputCount,
 			_warmupInputLeft, _duration, _countWaiting, _corpus, _minimizationAllowed, _inputQueue, _minimizeQueue, _crashMinimizing, _coverageMask);
@@ -728,9 +707,6 @@ private typedef T_mutatorRand = StructType & {
 		if (_errs != null)
 			this._errs = _errs;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new MalformedCorpusError(_errs);
@@ -781,9 +757,6 @@ private typedef T_mutatorRand = StructType & {
 			this._sys = _sys;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_sharedMem(_f, _region, _removeOnClose, _sys);
 	}
@@ -832,9 +805,6 @@ private typedef T_mutatorRand = StructType & {
 			this._rawInMem = _rawInMem;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_sharedMemHeader(_count, _valueLen, _randState, _randInc, _rawInMem);
 	}
@@ -854,9 +824,6 @@ private typedef T_mutatorRand = StructType & {
 		if (_scratch != null)
 			this._scratch = _scratch;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_mutator(_r, _scratch);
@@ -885,9 +852,6 @@ private typedef T_mutatorRand = StructType & {
 			this._inc = _inc;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_pcgRand(_noCopy, _state, _inc);
 	}
@@ -902,9 +866,6 @@ private typedef T_mutatorRand = StructType & {
 **/
 @:structInit @:using(internal.fuzz.Fuzz.T_noCopy_static_extension) private class T_noCopy {
 	public function new() {}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_noCopy();
@@ -941,9 +902,6 @@ private typedef T_mutatorRand = StructType & {
 			this._len = _len;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_queue(_elems, _head, _len);
 	}
@@ -951,9 +909,6 @@ private typedef T_mutatorRand = StructType & {
 
 @:structInit private class T_sharedMemSys {
 	public function new() {}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_sharedMemSys();
@@ -1046,9 +1001,6 @@ private typedef T_mutatorRand = StructType & {
 			this._termC = _termC;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_worker(_dir, _binPath, _args, _env, _coordinator, _memMu, _cmd, _client, _waitErr, _interrupted, _termC);
 	}
@@ -1072,9 +1024,6 @@ private typedef T_mutatorRand = StructType & {
 		if (minimize != null)
 			this.minimize = minimize;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_call(ping, fuzz, minimize);
@@ -1121,9 +1070,6 @@ private typedef T_mutatorRand = StructType & {
 		if (index != null)
 			this.index = index;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_minimizeArgs(timeout, limit, keepCoverage, index);
@@ -1177,9 +1123,6 @@ private typedef T_mutatorRand = StructType & {
 			this.count = count;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_minimizeResponse(wroteToMem, err, coverageData, duration, count);
 	}
@@ -1225,9 +1168,6 @@ private typedef T_mutatorRand = StructType & {
 		if (coverageData != null)
 			this.coverageData = coverageData;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_fuzzArgs(timeout, limit, warmup, coverageData);
@@ -1284,9 +1224,6 @@ private typedef T_mutatorRand = StructType & {
 			this.internalErr = internalErr;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_fuzzResponse(totalDuration, interestingDuration, count, coverageData, err, internalErr);
 	}
@@ -1298,9 +1235,6 @@ private typedef T_mutatorRand = StructType & {
 @:structInit private class T_pingArgs {
 	public function new() {}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_pingArgs();
 	}
@@ -1311,9 +1245,6 @@ private typedef T_mutatorRand = StructType & {
 **/
 @:structInit private class T_pingResponse {
 	public function new() {}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_pingResponse();
@@ -1349,9 +1280,6 @@ private typedef T_mutatorRand = StructType & {
 		if (_memMu != null)
 			this._memMu = _memMu;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_workerComm(_fuzzIn, _fuzzOut, _memMu);
@@ -1403,9 +1331,6 @@ private typedef T_mutatorRand = StructType & {
 			this._fuzzFn = _fuzzFn;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_workerServer(_workerComm, _m, _coverageMask, _fuzzFn);
 	}
@@ -1439,9 +1364,6 @@ private typedef T_mutatorRand = StructType & {
 			this._mu = _mu;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_workerClient(_workerComm, _m, _mu);
 	}
@@ -1467,9 +1389,6 @@ private typedef T_mutatorRand = StructType & {
 		if (_r != null)
 			this._r = _r;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_contextReader(_ctx, _r);
@@ -1864,7 +1783,8 @@ private class T_crashError_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_crashError>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2016,7 +1936,8 @@ private class T_coordinator_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_coordinator>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2160,7 +2081,8 @@ class MalformedCorpusError_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<MalformedCorpusError>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2227,7 +2149,8 @@ private class T_sharedMem_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_sharedMem>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2329,7 +2252,8 @@ private class T_mutator_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_mutator>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2436,7 +2360,8 @@ private class T_pcgRand_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_pcgRand>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2515,7 +2440,8 @@ private class T_noCopy_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_noCopy>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2566,7 +2492,8 @@ private class T_queue_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_queue>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2688,7 +2615,8 @@ private class T_worker_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_worker>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2843,7 +2771,8 @@ private class T_workerServer_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_workerServer>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2962,7 +2891,8 @@ private class T_workerClient_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_workerClient>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -3027,7 +2957,8 @@ private class T_contextReader_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_contextReader>;
 	var __type__:stdgo.reflect.Reflect.Type;

@@ -95,9 +95,6 @@ final effectiveFloatRegSize:GoUInt64 = (0 : GoUInt64);
 			this.returnIsPtr = returnIsPtr;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new RegArgs(ints, floats, ptrs, returnIsPtr);
 	}
@@ -158,7 +155,8 @@ class RegArgs_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<RegArgs>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -212,7 +210,8 @@ class IntArgRegBitmap_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<IntArgRegBitmap>;
 	var __type__:stdgo.reflect.Reflect.Type;

@@ -123,9 +123,6 @@ private final _startBufSize:GoUInt64 = ("4096" : GoUInt64);
 			this._lastRuneSize = _lastRuneSize;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new Reader(_buf, _rd, _r, _w, _err, _lastByte, _lastRuneSize);
 	}
@@ -155,9 +152,6 @@ private final _startBufSize:GoUInt64 = ("4096" : GoUInt64);
 		if (_wr != null)
 			this._wr = _wr;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Writer(_err, _buf, _n, _wr);
@@ -286,9 +280,6 @@ private final _startBufSize:GoUInt64 = ("4096" : GoUInt64);
 	public function _writeBuf(_w:stdgo.io.Io.Writer):{var _0:GoInt64; var _1:Error;}
 		return reader._writeBuf(_w);
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new ReadWriter(reader, writer);
 	}
@@ -392,9 +383,6 @@ private final _startBufSize:GoUInt64 = ("4096" : GoUInt64);
 		if (_done != null)
 			this._done = _done;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Scanner(_r, _split, _maxTokenSize, _token, _buf, _start, _end, _err, _empties, _scanCalled, _done);
@@ -876,7 +864,8 @@ class Reader_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Reader>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1051,7 +1040,7 @@ class Reader_asInterface {
 			};
 			var _buf = new Slice<GoUInt8>((_frag.length : GoInt).toBasic(), 0, ...[for (i in 0...(_frag.length : GoInt).toBasic()) (0 : GoUInt8)]);
 			Go.copySlice(_buf, _frag);
-			_fullBuffers = (_fullBuffers.__append__(_buf));
+			_fullBuffers = _fullBuffers.__appendref__(_buf);
 			_totalLen = _totalLen + ((_buf.length));
 		};
 		_totalLen = _totalLen + ((_frag.length));
@@ -1595,7 +1584,8 @@ class Writer_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Writer>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1994,7 +1984,8 @@ class ReadWriter_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<ReadWriter>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2204,7 +2195,8 @@ class Scanner_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Scanner>;
 	var __type__:stdgo.reflect.Reflect.Type;

@@ -1433,9 +1433,6 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 			this._formattedValue = _formattedValue;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new TimeFormatTest(_time, _formattedValue);
 	}
@@ -1454,9 +1451,6 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 		if (_result != null)
 			this._result = _result;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new FormatTest(_name, _format, _result);
@@ -1505,9 +1499,6 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 			this._fracDigits = _fracDigits;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new ParseTest(_name, _format, _value, _hasTZ, _hasWD, _yearSign, _fracDigits);
 	}
@@ -1526,9 +1517,6 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 		if (_ok != null)
 			this._ok = _ok;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new ParseTimeZoneTest(_value, _length, _ok);
@@ -1553,9 +1541,6 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 			this._expect = _expect;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new ParseErrorTest(_format, _value, _expect);
 	}
@@ -1575,9 +1560,6 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 			this._expectedoffset = _expectedoffset;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new SecondsTimeZoneOffsetTest(_format, _value, _expectedoffset);
 	}
@@ -1593,9 +1575,6 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 		if (_t != null)
 			this._t = _t;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_afterResult(_slot, _t);
@@ -1659,9 +1638,6 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 			this.zone = zone;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_parsedTime(year, month, day, hour, minute, second, nanosecond, weekday, zoneOffset, zone);
 	}
@@ -1677,9 +1653,6 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 		if (_golden != null)
 			this._golden = _golden;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new TimeTest(_seconds, _golden);
@@ -1722,9 +1695,6 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 			this._wex = _wex;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new ISOWeekTest(_year, _month, _day, _yex, _wex);
 	}
@@ -1746,9 +1716,6 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 		if (_yday != null)
 			this._yday = _yday;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new YearDayTest(_year, _month, _day, _yday);
@@ -3789,27 +3756,27 @@ function testAfterStop(_t:Ref<stdgo.testing.Testing.T>):Void {
 			});
 			var _c2 = after((("200000000" : GoInt64) : Duration));
 			if (!_t0.stop()) {
-				_errs = (_errs.__append__(Go.str("failed to stop event 0")));
+				_errs = _errs.__appendref__(Go.str("failed to stop event 0"));
 				continue;
 			};
 			if (!_t1.stop()) {
-				_errs = (_errs.__append__(Go.str("failed to stop event 1")));
+				_errs = _errs.__appendref__(Go.str("failed to stop event 1"));
 				continue;
 			};
 			_c2.__get__();
 			Go.select([
 				_c1.__get__() => {
-					_errs = (_errs.__append__(Go.str("event 1 was not stopped")));
+					_errs = _errs.__appendref__(Go.str("event 1 was not stopped"));
 					continue;
 				},
 				_t0.c.__get__() => {
-					_errs = (_errs.__append__(Go.str("event 0 was not stopped")));
+					_errs = _errs.__appendref__(Go.str("event 0 was not stopped"));
 					continue;
 				},
 				{}
 			]);
 			if (_t1.stop()) {
-				_errs = (_errs.__append__(Go.str("Stop returned true twice")));
+				_errs = _errs.__appendref__(Go.str("Stop returned true twice"));
 				continue;
 			};
 			if ((_errs.length) > (0 : GoInt)) {
@@ -3858,8 +3825,8 @@ function _testAfterQueuing(_delta:Duration):Error {
 	var _times:Slice<Time> = (null : Slice<Time>);
 	for (_ => _ in _slots) {
 		var _r:stdgo.time_test.Time_test.T_afterResult = (_result.__get__() == null ? null : _result.__get__().__copy__());
-		_order = (_order.__append__(_r._slot));
-		_times = (_times.__append__(_r._t == null ? null : _r._t.__copy__()));
+		_order = _order.__appendref__(_r._slot);
+		_times = _times.__appendref__((_r._t == null ? null : _r._t.__copy__()));
 	};
 	for (_i => _ in _order) {
 		if ((_i > (0 : GoInt)) && (_order[_i] < _order[_i - (1 : GoInt)])) {
@@ -4558,10 +4525,10 @@ function testTicker(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var _target:Duration = ((("3" : GoInt64) : Duration) * _delta) * (_count / (2 : GoInt) : Duration);
 		var _slop:Duration = (_target * (("3" : GoInt64) : Duration)) / (("10" : GoInt64) : Duration);
 		if ((_dt < (_target - _slop)) || (_dt > (_target + _slop))) {
-			_errs = (_errs.__append__(stdgo.fmt.Fmt.sprintf(Go.str("%d %s ticks then %d %s ticks took %s, expected [%s,%s]"),
+			_errs = _errs.__appendref__(stdgo.fmt.Fmt.sprintf(Go.str("%d %s ticks then %d %s ticks took %s, expected [%s,%s]"),
 				Go.toInterface(_count / (2 : GoInt)), Go.toInterface(Go.asInterface(_delta)), Go.toInterface(_count / (2 : GoInt)),
 				Go.toInterface(Go.asInterface(_delta * (("2" : GoInt64) : Duration))), Go.toInterface(Go.asInterface(_dt)),
-				Go.toInterface(Go.asInterface(_target - _slop)), Go.toInterface(Go.asInterface(_target + _slop)))));
+				Go.toInterface(Go.asInterface(_target - _slop)), Go.toInterface(Go.asInterface(_target + _slop))));
 			if (_dt > (_target + _slop)) {
 				sleep((("500000000" : GoInt64) : Duration));
 			};
@@ -4570,7 +4537,7 @@ function testTicker(_t:Ref<stdgo.testing.Testing.T>):Void {
 		sleep((("2" : GoInt64) : Duration) * _delta);
 		Go.select([
 			_ticker.c.__get__() => {
-				_errs = (_errs.__append__(Go.str("Ticker did not shut down")));
+				_errs = _errs.__appendref__(Go.str("Ticker did not shut down"));
 				continue;
 			},
 			{}

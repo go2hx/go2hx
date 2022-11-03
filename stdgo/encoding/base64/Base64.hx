@@ -106,9 +106,6 @@ private final _encodeURL:GoString = Go.str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij
 			this._strict = _strict;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new Encoding(_encode, _decodeMap, _padChar, _strict);
 	}
@@ -148,9 +145,6 @@ private final _encodeURL:GoString = Go.str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij
 		if (_out != null)
 			this._out = _out;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_encoder(_err, _enc, _w, _buf, _nbuf, _out);
@@ -202,9 +196,6 @@ private final _encodeURL:GoString = Go.str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij
 			this._outbuf = _outbuf;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_decoder(_err, _readErr, _enc, _r, _buf, _nbuf, _out, _outbuf);
 	}
@@ -217,9 +208,6 @@ private final _encodeURL:GoString = Go.str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij
 		if (_wrapped != null)
 			this._wrapped = _wrapped;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_newlineFilteringReader(_wrapped);
@@ -236,9 +224,6 @@ private final _encodeURL:GoString = Go.str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij
 		if (_encoded != null)
 			this._encoded = _encoded;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_testpair(_decoded, _encoded);
@@ -263,9 +248,6 @@ private final _encodeURL:GoString = Go.str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij
 			this._conv = _conv;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_encodingTest(_enc, _conv);
 	}
@@ -289,9 +271,6 @@ private final _encodeURL:GoString = Go.str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij
 			this._err = _err;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_nextRead(_n, _err);
 	}
@@ -311,9 +290,6 @@ private final _encodeURL:GoString = Go.str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij
 		if (_nextc != null)
 			this._nextc = _nextc;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_faultInjectReader(_source, _nextc);
@@ -1040,7 +1016,8 @@ class Encoding_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Encoding>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1397,7 +1374,8 @@ private class T_encoder_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_encoder>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1491,7 +1469,8 @@ private class T_decoder_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_decoder>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1585,7 +1564,8 @@ private class T_newlineFilteringReader_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_newlineFilteringReader>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1632,7 +1612,8 @@ private class T_faultInjectReader_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_faultInjectReader>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1663,7 +1644,8 @@ class CorruptInputError_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<CorruptInputError>;
 	var __type__:stdgo.reflect.Reflect.Type;

@@ -3687,58 +3687,60 @@ var graphicRanges:Slice<Ref<RangeTable>> = (new Slice<Ref<RangeTable>>(0, 0, l, 
 	// Categories is the set of Unicode category tables.
 **/
 var categories:GoMap<GoString, Ref<RangeTable>> = {
-	final x = new stdgo.GoMap.GoObjectMap<GoString,
-		Ref<RangeTable>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind),
-		stdgo.reflect.Reflect.GoType.refType(stdgo.reflect.Reflect.GoType.named("RangeTable", [], stdgo.reflect.Reflect.GoType.structType([
+	final x = new stdgo.GoMap.GoObjectMap<GoString, Ref<RangeTable>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType({get: () ->
+		stdgo.reflect.Reflect.GoType.basic(string_kind)},
+		{get: () -> stdgo.reflect.Reflect.GoType.refType(stdgo.reflect.Reflect.GoType.named("RangeTable", [], stdgo.reflect.Reflect.GoType.structType([
 			{
 				name: "r16",
 				embedded: false,
 				tag: "",
-				type: stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("Range16", [], stdgo.reflect.Reflect.GoType.structType([
-					{
-						name: "lo",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
-					},
-					{
-						name: "hi",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
-					},
-					{
-						name: "stride",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
-					}
-				])))
+				type: stdgo.reflect.Reflect.GoType.sliceType({get: () -> stdgo.reflect.Reflect.GoType.named("Range16", [],
+					stdgo.reflect.Reflect.GoType.structType([
+						{
+							name: "lo",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
+						},
+						{
+							name: "hi",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
+						},
+						{
+							name: "stride",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
+						}
+					]))})
 			},
 			{
 				name: "r32",
 				embedded: false,
 				tag: "",
-				type: stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("Range32", [], stdgo.reflect.Reflect.GoType.structType([
-					{
-						name: "lo",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
-					},
-					{
-						name: "hi",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
-					},
-					{
-						name: "stride",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
-					}
-				])))
+				type: stdgo.reflect.Reflect.GoType.sliceType({get: () -> stdgo.reflect.Reflect.GoType.named("Range32", [],
+					stdgo.reflect.Reflect.GoType.structType([
+						{
+							name: "lo",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
+						},
+						{
+							name: "hi",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
+						},
+						{
+							name: "stride",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
+						}
+					]))})
 			},
 			{
 				name: "latinOffset",
@@ -3746,7 +3748,7 @@ var categories:GoMap<GoString, Ref<RangeTable>> = {
 				tag: "",
 				type: stdgo.reflect.Reflect.GoType.basic(int_kind)
 			}
-		]))))));
+		])))})));
 	@:privateAccess x._keys = [
 		Go.str("C"), Go.str("Cc"), Go.str("Cf"), Go.str("Co"), Go.str("Cs"), Go.str("L"), Go.str("Ll"), Go.str("Lm"), Go.str("Lo"), Go.str("Lt"),
 		Go.str("Lu"), Go.str("M"), Go.str("Mc"), Go.str("Me"), Go.str("Mn"), Go.str("N"), Go.str("Nd"), Go.str("Nl"), Go.str("No"), Go.str("P"), Go.str("Pc"),
@@ -5744,58 +5746,60 @@ var zanabazar_Square:Ref<RangeTable> = __Zanabazar_Square;
 	// Scripts is the set of Unicode script tables.
 **/
 var scripts:GoMap<GoString, Ref<RangeTable>> = {
-	final x = new stdgo.GoMap.GoObjectMap<GoString,
-		Ref<RangeTable>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind),
-		stdgo.reflect.Reflect.GoType.refType(stdgo.reflect.Reflect.GoType.named("RangeTable", [], stdgo.reflect.Reflect.GoType.structType([
+	final x = new stdgo.GoMap.GoObjectMap<GoString, Ref<RangeTable>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType({get: () ->
+		stdgo.reflect.Reflect.GoType.basic(string_kind)},
+		{get: () -> stdgo.reflect.Reflect.GoType.refType(stdgo.reflect.Reflect.GoType.named("RangeTable", [], stdgo.reflect.Reflect.GoType.structType([
 			{
 				name: "r16",
 				embedded: false,
 				tag: "",
-				type: stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("Range16", [], stdgo.reflect.Reflect.GoType.structType([
-					{
-						name: "lo",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
-					},
-					{
-						name: "hi",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
-					},
-					{
-						name: "stride",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
-					}
-				])))
+				type: stdgo.reflect.Reflect.GoType.sliceType({get: () -> stdgo.reflect.Reflect.GoType.named("Range16", [],
+					stdgo.reflect.Reflect.GoType.structType([
+						{
+							name: "lo",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
+						},
+						{
+							name: "hi",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
+						},
+						{
+							name: "stride",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
+						}
+					]))})
 			},
 			{
 				name: "r32",
 				embedded: false,
 				tag: "",
-				type: stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("Range32", [], stdgo.reflect.Reflect.GoType.structType([
-					{
-						name: "lo",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
-					},
-					{
-						name: "hi",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
-					},
-					{
-						name: "stride",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
-					}
-				])))
+				type: stdgo.reflect.Reflect.GoType.sliceType({get: () -> stdgo.reflect.Reflect.GoType.named("Range32", [],
+					stdgo.reflect.Reflect.GoType.structType([
+						{
+							name: "lo",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
+						},
+						{
+							name: "hi",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
+						},
+						{
+							name: "stride",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
+						}
+					]))})
 			},
 			{
 				name: "latinOffset",
@@ -5803,7 +5807,7 @@ var scripts:GoMap<GoString, Ref<RangeTable>> = {
 				tag: "",
 				type: stdgo.reflect.Reflect.GoType.basic(int_kind)
 			}
-		]))))));
+		])))})));
 	@:privateAccess x._keys = [
 		Go.str("Adlam"),
 		Go.str("Ahom"),
@@ -7136,58 +7140,60 @@ var white_Space:Ref<RangeTable> = __White_Space;
 	// Properties is the set of Unicode property tables.
 **/
 var properties:GoMap<GoString, Ref<RangeTable>> = {
-	final x = new stdgo.GoMap.GoObjectMap<GoString,
-		Ref<RangeTable>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind),
-		stdgo.reflect.Reflect.GoType.refType(stdgo.reflect.Reflect.GoType.named("RangeTable", [], stdgo.reflect.Reflect.GoType.structType([
+	final x = new stdgo.GoMap.GoObjectMap<GoString, Ref<RangeTable>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType({get: () ->
+		stdgo.reflect.Reflect.GoType.basic(string_kind)},
+		{get: () -> stdgo.reflect.Reflect.GoType.refType(stdgo.reflect.Reflect.GoType.named("RangeTable", [], stdgo.reflect.Reflect.GoType.structType([
 			{
 				name: "r16",
 				embedded: false,
 				tag: "",
-				type: stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("Range16", [], stdgo.reflect.Reflect.GoType.structType([
-					{
-						name: "lo",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
-					},
-					{
-						name: "hi",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
-					},
-					{
-						name: "stride",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
-					}
-				])))
+				type: stdgo.reflect.Reflect.GoType.sliceType({get: () -> stdgo.reflect.Reflect.GoType.named("Range16", [],
+					stdgo.reflect.Reflect.GoType.structType([
+						{
+							name: "lo",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
+						},
+						{
+							name: "hi",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
+						},
+						{
+							name: "stride",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
+						}
+					]))})
 			},
 			{
 				name: "r32",
 				embedded: false,
 				tag: "",
-				type: stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("Range32", [], stdgo.reflect.Reflect.GoType.structType([
-					{
-						name: "lo",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
-					},
-					{
-						name: "hi",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
-					},
-					{
-						name: "stride",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
-					}
-				])))
+				type: stdgo.reflect.Reflect.GoType.sliceType({get: () -> stdgo.reflect.Reflect.GoType.named("Range32", [],
+					stdgo.reflect.Reflect.GoType.structType([
+						{
+							name: "lo",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
+						},
+						{
+							name: "hi",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
+						},
+						{
+							name: "stride",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
+						}
+					]))})
 			},
 			{
 				name: "latinOffset",
@@ -7195,7 +7201,7 @@ var properties:GoMap<GoString, Ref<RangeTable>> = {
 				tag: "",
 				type: stdgo.reflect.Reflect.GoType.basic(int_kind)
 			}
-		]))))));
+		])))})));
 	@:privateAccess x._keys = [
 		Go.str("ASCII_Hex_Digit"),
 		Go.str("Bidi_Control"),
@@ -8248,58 +8254,60 @@ private var _foldMn:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (new Ran
 	// If there is no entry for a category name, there are no such points.
 **/
 var foldCategory:GoMap<GoString, Ref<RangeTable>> = {
-	final x = new stdgo.GoMap.GoObjectMap<GoString,
-		Ref<RangeTable>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind),
-		stdgo.reflect.Reflect.GoType.refType(stdgo.reflect.Reflect.GoType.named("RangeTable", [], stdgo.reflect.Reflect.GoType.structType([
+	final x = new stdgo.GoMap.GoObjectMap<GoString, Ref<RangeTable>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType({get: () ->
+		stdgo.reflect.Reflect.GoType.basic(string_kind)},
+		{get: () -> stdgo.reflect.Reflect.GoType.refType(stdgo.reflect.Reflect.GoType.named("RangeTable", [], stdgo.reflect.Reflect.GoType.structType([
 			{
 				name: "r16",
 				embedded: false,
 				tag: "",
-				type: stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("Range16", [], stdgo.reflect.Reflect.GoType.structType([
-					{
-						name: "lo",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
-					},
-					{
-						name: "hi",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
-					},
-					{
-						name: "stride",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
-					}
-				])))
+				type: stdgo.reflect.Reflect.GoType.sliceType({get: () -> stdgo.reflect.Reflect.GoType.named("Range16", [],
+					stdgo.reflect.Reflect.GoType.structType([
+						{
+							name: "lo",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
+						},
+						{
+							name: "hi",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
+						},
+						{
+							name: "stride",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
+						}
+					]))})
 			},
 			{
 				name: "r32",
 				embedded: false,
 				tag: "",
-				type: stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("Range32", [], stdgo.reflect.Reflect.GoType.structType([
-					{
-						name: "lo",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
-					},
-					{
-						name: "hi",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
-					},
-					{
-						name: "stride",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
-					}
-				])))
+				type: stdgo.reflect.Reflect.GoType.sliceType({get: () -> stdgo.reflect.Reflect.GoType.named("Range32", [],
+					stdgo.reflect.Reflect.GoType.structType([
+						{
+							name: "lo",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
+						},
+						{
+							name: "hi",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
+						},
+						{
+							name: "stride",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
+						}
+					]))})
 			},
 			{
 				name: "latinOffset",
@@ -8307,7 +8315,7 @@ var foldCategory:GoMap<GoString, Ref<RangeTable>> = {
 				tag: "",
 				type: stdgo.reflect.Reflect.GoType.basic(int_kind)
 			}
-		]))))));
+		])))})));
 	@:privateAccess x._keys = [Go.str("L"), Go.str("Ll"), Go.str("Lt"), Go.str("Lu"), Go.str("M"), Go.str("Mn")];
 	@:privateAccess x._values = [_foldL, _foldLl, _foldLt, _foldLu, _foldM, _foldMn];
 	x;
@@ -8329,58 +8337,60 @@ private var _foldInherited:Ref<RangeTable> = (({r16: (new Slice<Range16>(0, 0, (
 	// If there is no entry for a script name, there are no such points.
 **/
 var foldScript:GoMap<GoString, Ref<RangeTable>> = {
-	final x = new stdgo.GoMap.GoObjectMap<GoString,
-		Ref<RangeTable>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind),
-		stdgo.reflect.Reflect.GoType.refType(stdgo.reflect.Reflect.GoType.named("RangeTable", [], stdgo.reflect.Reflect.GoType.structType([
+	final x = new stdgo.GoMap.GoObjectMap<GoString, Ref<RangeTable>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType({get: () ->
+		stdgo.reflect.Reflect.GoType.basic(string_kind)},
+		{get: () -> stdgo.reflect.Reflect.GoType.refType(stdgo.reflect.Reflect.GoType.named("RangeTable", [], stdgo.reflect.Reflect.GoType.structType([
 			{
 				name: "r16",
 				embedded: false,
 				tag: "",
-				type: stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("Range16", [], stdgo.reflect.Reflect.GoType.structType([
-					{
-						name: "lo",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
-					},
-					{
-						name: "hi",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
-					},
-					{
-						name: "stride",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
-					}
-				])))
+				type: stdgo.reflect.Reflect.GoType.sliceType({get: () -> stdgo.reflect.Reflect.GoType.named("Range16", [],
+					stdgo.reflect.Reflect.GoType.structType([
+						{
+							name: "lo",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
+						},
+						{
+							name: "hi",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
+						},
+						{
+							name: "stride",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint16_kind)
+						}
+					]))})
 			},
 			{
 				name: "r32",
 				embedded: false,
 				tag: "",
-				type: stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("Range32", [], stdgo.reflect.Reflect.GoType.structType([
-					{
-						name: "lo",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
-					},
-					{
-						name: "hi",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
-					},
-					{
-						name: "stride",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
-					}
-				])))
+				type: stdgo.reflect.Reflect.GoType.sliceType({get: () -> stdgo.reflect.Reflect.GoType.named("Range32", [],
+					stdgo.reflect.Reflect.GoType.structType([
+						{
+							name: "lo",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
+						},
+						{
+							name: "hi",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
+						},
+						{
+							name: "stride",
+							embedded: false,
+							tag: "",
+							type: stdgo.reflect.Reflect.GoType.basic(uint32_kind)
+						}
+					]))})
 			},
 			{
 				name: "latinOffset",
@@ -8388,7 +8398,7 @@ var foldScript:GoMap<GoString, Ref<RangeTable>> = {
 				tag: "",
 				type: stdgo.reflect.Reflect.GoType.basic(int_kind)
 			}
-		]))))));
+		])))})));
 	@:privateAccess x._keys = [Go.str("Common"), Go.str("Greek"), Go.str("Inherited")];
 	@:privateAccess x._values = [_foldCommon, _foldGreek, _foldInherited];
 	x;
@@ -8532,9 +8542,6 @@ final version:GoString = Go.str("13.0.0");
 			this.latinOffset = latinOffset;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new RangeTable(r16, r32, latinOffset);
 	}
@@ -8557,9 +8564,6 @@ final version:GoString = Go.str("13.0.0");
 		if (stride != null)
 			this.stride = stride;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Range16(lo, hi, stride);
@@ -8584,9 +8588,6 @@ final version:GoString = Go.str("13.0.0");
 		if (stride != null)
 			this.stride = stride;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Range32(lo, hi, stride);
@@ -8621,9 +8622,6 @@ final version:GoString = Go.str("13.0.0");
 			this.delta = delta;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new CaseRange(lo, hi, delta);
 	}
@@ -8645,9 +8643,6 @@ final version:GoString = Go.str("13.0.0");
 		if (to != null)
 			this.to = to;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_foldPair(from, to);
@@ -9089,7 +9084,8 @@ class SpecialCase_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<SpecialCase>;
 	var __type__:stdgo.reflect.Reflect.Type;

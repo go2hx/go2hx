@@ -33,9 +33,6 @@ private var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>
 			this._w = _w;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_writeLogger(_prefix, _w);
 	}
@@ -52,9 +49,6 @@ private var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>
 			this._r = _r;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_readLogger(_prefix, _r);
 	}
@@ -67,9 +61,6 @@ private var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>
 		if (_err != null)
 			this._err = _err;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_errWriter(_err);
@@ -84,9 +75,6 @@ private var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>
 			this._r = _r;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_oneByteReader(_r);
 	}
@@ -99,9 +87,6 @@ private var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>
 		if (_r != null)
 			this._r = _r;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_halfReader(_r);
@@ -122,9 +107,6 @@ private var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>
 			this._data = _data;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_dataErrReader(_r, _unread, _data);
 	}
@@ -141,9 +123,6 @@ private var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>
 			this._count = _count;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_timeoutReader(_r, _count);
 	}
@@ -156,9 +135,6 @@ private var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>
 		if (_err != null)
 			this._err = _err;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_errReader(_err);
@@ -179,9 +155,6 @@ private var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>
 			this._n = _n;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_smallByteReader(_r, _off, _n);
 	}
@@ -197,9 +170,6 @@ private var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>
 		if (_n != null)
 			this._n = _n;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_truncateWriter(_w, _n);
@@ -342,7 +312,8 @@ private class T_writeLogger_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_writeLogger>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -366,7 +337,8 @@ private class T_readLogger_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_readLogger>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -390,7 +362,8 @@ private class T_errWriter_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_errWriter>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -414,7 +387,8 @@ private class T_oneByteReader_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_oneByteReader>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -438,7 +412,8 @@ private class T_halfReader_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_halfReader>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -462,7 +437,8 @@ private class T_dataErrReader_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_dataErrReader>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -486,7 +462,8 @@ private class T_timeoutReader_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_timeoutReader>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -510,7 +487,8 @@ private class T_errReader_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_errReader>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -534,7 +512,8 @@ private class T_smallByteReader_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_smallByteReader>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -558,7 +537,8 @@ private class T_truncateWriter_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_truncateWriter>;
 	var __type__:stdgo.reflect.Reflect.Type;

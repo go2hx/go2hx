@@ -120,9 +120,6 @@ final minRead:GoUInt64 = ("512" : GoUInt64);
 			this._lastRead = _lastRead;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new Buffer(_buf, _off, _lastRead);
 	}
@@ -156,9 +153,6 @@ final minRead:GoUInt64 = ("512" : GoUInt64);
 		if (_prevRune != null)
 			this._prevRune = _prevRune;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Reader(_s, _i, _prevRune);
@@ -807,9 +801,6 @@ function fields(_s:Slice<GoByte>):Slice<Slice<GoByte>> {
 			this._end = _end;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_span_fieldsFunc_0(_start, _end);
 	}
@@ -842,7 +833,7 @@ function fieldsFunc(_s:Slice<GoByte>, _f:GoRune->Bool):Slice<Slice<GoByte>> {
 			};
 			if (_f(_r)) {
 				if (_start >= (0 : GoInt)) {
-					_spans = (_spans.__append__((new T_span_fieldsFunc_0(_start, _i) : T_span_fieldsFunc_0)));
+					_spans = _spans.__appendref__((new T_span_fieldsFunc_0(_start, _i) : T_span_fieldsFunc_0));
 					_start = (-1 : GoInt);
 				};
 			} else {
@@ -854,7 +845,7 @@ function fieldsFunc(_s:Slice<GoByte>, _f:GoRune->Bool):Slice<Slice<GoByte>> {
 		};
 	};
 	if (_start >= (0 : GoInt)) {
-		_spans = (_spans.__append__((new T_span_fieldsFunc_0(_start, (_s.length)) : T_span_fieldsFunc_0)));
+		_spans = _spans.__appendref__((new T_span_fieldsFunc_0(_start, (_s.length)) : T_span_fieldsFunc_0));
 	};
 	var _a = new Slice<Slice<GoUInt8>>((_spans.length : GoInt).toBasic(), 0, ...[for (i in 0...(_spans.length : GoInt).toBasic()) (null : Slice<GoUInt8>)]);
 	for (_i => _span in _spans) {
@@ -1086,7 +1077,7 @@ function toValidUTF8(_s:Slice<GoByte>, _replacement:Slice<GoByte>):Slice<GoByte>
 			if (_c < (128:GoUInt8)) {
 				_i++;
 				_invalid = false;
-				_b = (_b.__append__(_c));
+				_b = _b.__appendref__(_c);
 				continue;
 			};
 			var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRune((_s.__slice__(_i) : Slice<GoUInt8>)),
@@ -1096,12 +1087,12 @@ function toValidUTF8(_s:Slice<GoByte>, _replacement:Slice<GoByte>):Slice<GoByte>
 				_i++;
 				if (!_invalid) {
 					_invalid = true;
-					_b = (_b.__append__(..._replacement.__toArray__()));
+					_b = _b.__appendref__(..._replacement.__toArray__());
 				};
 				continue;
 			};
 			_invalid = false;
-			_b = (_b.__append__(...(_s.__slice__(_i, _i + _wid) : Slice<GoUInt8>).__toArray__()));
+			_b = _b.__appendref__(...(_s.__slice__(_i, _i + _wid) : Slice<GoUInt8>).__toArray__());
 			_i = _i + (_wid);
 		};
 	};
@@ -2000,7 +1991,8 @@ class Buffer_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Buffer>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2058,7 +2050,7 @@ class Buffer_asInterface {
 		var __tmp__ = _b._readSlice(_delim),
 			_slice:Slice<GoUInt8> = __tmp__._0,
 			_err:Error = __tmp__._1;
-		_line = (_line.__append__(..._slice.__toArray__()));
+		_line = _line.__appendref__(..._slice.__toArray__());
 		return {_0: _line, _1: _err};
 	}
 
@@ -2574,7 +2566,8 @@ class Reader_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Reader>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2786,7 +2779,8 @@ private class T_asciiSet_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_asciiSet>;
 	var __type__:stdgo.reflect.Reflect.Type;

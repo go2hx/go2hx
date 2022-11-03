@@ -537,9 +537,6 @@ typedef Source64 = StructType & {
 			this._readPos = _readPos;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new Rand(_src, _s64, _readVal, _readPos);
 	}
@@ -555,9 +552,6 @@ typedef Source64 = StructType & {
 		if (_src != null)
 			this._src = _src;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_lockedSource(_lk, _src);
@@ -588,9 +582,6 @@ typedef Source64 = StructType & {
 		if (_vec != null)
 			this._vec = _vec;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_rngSource(_tap, _feed, _vec);
@@ -632,9 +623,6 @@ typedef Source64 = StructType & {
 		if (_hx0minusHxm != null)
 			this._hx0minusHxm = _hx0minusHxm;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Zipf(_r, _imax, _v, _q, _s, _oneminusQ, _oneminusQinv, _hxm, _hx0minusHxm);
@@ -1074,7 +1062,8 @@ class Rand_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Rand>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1416,7 +1405,8 @@ private class T_lockedSource_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_lockedSource>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1505,7 +1495,8 @@ private class T_rngSource_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_rngSource>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1596,7 +1587,8 @@ class Zipf_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Zipf>;
 	var __type__:stdgo.reflect.Reflect.Type;

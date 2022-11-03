@@ -89,9 +89,6 @@ private typedef T__interface_2 = StructType & {
 			this._s = _s;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_errorString(_s);
 	}
@@ -234,7 +231,8 @@ private class T_errorString_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_errorString>;
 	var __type__:stdgo.reflect.Reflect.Type;

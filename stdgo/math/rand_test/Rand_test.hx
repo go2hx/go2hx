@@ -212,9 +212,6 @@ var __tmp__1 = getExponentialDistributionParameters();
 			this._maxError = _maxError;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_statsResults(_mean, _stddev, _closeEnough, _maxError);
 	}
@@ -1194,7 +1191,7 @@ function testRegress(_t:Ref<stdgo.testing.Testing.T>):Void {
 							};
 						};
 						_argstr = stdgo.fmt.Fmt.sprint(_x);
-						_args = (_args.__append__(stdgo.reflect.Reflect.valueOf(_x) == null ? null : stdgo.reflect.Reflect.valueOf(_x).__copy__()));
+						_args = _args.__appendref__((stdgo.reflect.Reflect.valueOf(_x) == null ? null : stdgo.reflect.Reflect.valueOf(_x).__copy__()));
 					};
 					var _out:AnyInterface = (null : AnyInterface);
 					_out = _mv.call(_args)[(0 : GoInt)].interface_();
@@ -1250,7 +1247,8 @@ private class T_statsResults_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_statsResults>;
 	var __type__:stdgo.reflect.Reflect.Type;

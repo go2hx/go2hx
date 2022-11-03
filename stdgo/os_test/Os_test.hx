@@ -47,9 +47,6 @@ private final _testExecutableDeletion:GoString = ("" : GoString);
 			this._isnot = _isnot;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_isExistTest(_err, _is, _isnot);
 	}
@@ -65,9 +62,6 @@ private final _testExecutableDeletion:GoString = ("" : GoString);
 		if (_want != null)
 			this._want = _want;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_isPermissionTest(_err, _want);
@@ -87,9 +81,6 @@ private final _testExecutableDeletion:GoString = ("" : GoString);
 	public function error():GoString
 		return ("" : GoString);
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_myErrorIs(_error);
 	}
@@ -105,9 +96,6 @@ private final _testExecutableDeletion:GoString = ("" : GoString);
 		if (_files != null)
 			this._files = _files;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_sysDir(_name, _files);
@@ -127,9 +115,6 @@ private final _testExecutableDeletion:GoString = ("" : GoString);
 		if (_error != null)
 			this._error = _error;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_openErrorTest(_path, _mode, _error);
@@ -3524,7 +3509,7 @@ function testChdirAndGetwd(_t:Ref<stdgo.testing.Testing.T>):Void {
 			if (_err != null) {
 				_t.fatalf(Go.str("EvalSymlinks: %v"), Go.toInterface(_err));
 			};
-			_dirs = (_dirs.__append__(_dir));
+			_dirs = _dirs.__appendref__(_dir);
 		};
 	};
 	var _oldwd:GoString = getenv(Go.str("PWD"));
@@ -3703,9 +3688,6 @@ function testProgWideChdir(_t:Ref<stdgo.testing.Testing.T>):Void {
 		if (_out != null)
 			this._out = _out;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_test_testSeek_0(_in, _whence, _out);
@@ -4851,7 +4833,7 @@ function testLongPath(_t:Ref<stdgo.testing.Testing.T>):Void {
 							_t.fatalf(Go.str("Symlink failed: %v"), Go.toInterface(_err));
 						};
 					};
-					_names = (_names.__append__(Go.str("symlink.txt")));
+					_names = _names.__appendref__(Go.str("symlink.txt"));
 				};
 				if (stdgo.internal.testenv.Testenv.hasLink()) {
 					{
@@ -4860,7 +4842,7 @@ function testLongPath(_t:Ref<stdgo.testing.Testing.T>):Void {
 							_t.fatalf(Go.str("Link failed: %v"), Go.toInterface(_err));
 						};
 					};
-					_names = (_names.__append__(Go.str("link.txt")));
+					_names = _names.__appendref__(Go.str("link.txt"));
 				};
 				for (_0 => _wantSize in (new Slice<GoInt64>(0, 0, (_data.length : GoInt64), ("0" : GoInt64)) : Slice<GoInt64>)) {
 					for (_1 => _name in _names) {
@@ -7155,7 +7137,7 @@ function testOpenFileLimit(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_t.error(Go.toInterface(_err));
 				break;
 			};
-			_files = (_files.__append__(_f));
+			_files = _files.__appendref__(_f);
 		});
 	};
 	for (_0 => _f in _files) {
@@ -7871,7 +7853,7 @@ function testMkdirTempBadPattern(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 @:keep var _ = {
 	try {
-		_isExistTests = (_isExistTests.__append__(({_err: Go.asInterface((({err: Go.asInterface((17 : stdgo.syscall.Syscall.Errno))} : stdgo.io.fs.Fs.PathError) : Ref<stdgo.io.fs.Fs.PathError>)),
+		_isExistTests = _isExistTests.__appendref__(({_err: Go.asInterface((({err: Go.asInterface((17 : stdgo.syscall.Syscall.Errno))} : stdgo.io.fs.Fs.PathError) : Ref<stdgo.io.fs.Fs.PathError>)),
 			_is: true, _isnot: false} : stdgo.os_test.Os_test.T_isExistTest),
 			({_err: Go.asInterface((({err: Go.asInterface((39 : stdgo.syscall.Syscall.Errno))} : stdgo.io.fs.Fs.PathError) : Ref<stdgo.io.fs.Fs.PathError>)),
 				_is: true, _isnot: false} : stdgo.os_test.Os_test.T_isExistTest),
@@ -7882,8 +7864,8 @@ function testMkdirTempBadPattern(_t:Ref<stdgo.testing.Testing.T>):Void {
 			({_err: Go.asInterface((({err: Go.asInterface((17 : stdgo.syscall.Syscall.Errno))} : SyscallError) : Ref<SyscallError>)), _is: true,
 				_isnot: false} : stdgo.os_test.Os_test.T_isExistTest),
 			({_err: Go.asInterface((({err: Go.asInterface((39 : stdgo.syscall.Syscall.Errno))} : SyscallError) : Ref<SyscallError>)), _is: true,
-				_isnot: false} : stdgo.os_test.Os_test.T_isExistTest)));
-		_isPermissionTests = (_isPermissionTests.__append__(({_err: Go.asInterface((({err: Go.asInterface((13 : stdgo.syscall.Syscall.Errno))} : stdgo.io.fs.Fs.PathError) : Ref<stdgo.io.fs.Fs.PathError>)),
+				_isnot: false} : stdgo.os_test.Os_test.T_isExistTest));
+		_isPermissionTests = _isPermissionTests.__appendref__(({_err: Go.asInterface((({err: Go.asInterface((13 : stdgo.syscall.Syscall.Errno))} : stdgo.io.fs.Fs.PathError) : Ref<stdgo.io.fs.Fs.PathError>)),
 			_want: true} : stdgo.os_test.Os_test.T_isPermissionTest),
 			({_err: Go.asInterface((({err: Go.asInterface((1 : stdgo.syscall.Syscall.Errno))} : stdgo.io.fs.Fs.PathError) : Ref<stdgo.io.fs.Fs.PathError>)),
 				_want: true} : stdgo.os_test.Os_test.T_isPermissionTest),
@@ -7900,7 +7882,7 @@ function testMkdirTempBadPattern(_t:Ref<stdgo.testing.Testing.T>):Void {
 			({_err: Go.asInterface((({err: Go.asInterface((1 : stdgo.syscall.Syscall.Errno))} : SyscallError) : Ref<SyscallError>)),
 				_want: true} : stdgo.os_test.Os_test.T_isPermissionTest),
 			({_err: Go.asInterface((({err: Go.asInterface((17 : stdgo.syscall.Syscall.Errno))} : SyscallError) : Ref<SyscallError>)),
-				_want: false} : stdgo.os_test.Os_test.T_isPermissionTest)));
+				_want: false} : stdgo.os_test.Os_test.T_isPermissionTest));
 		{
 			var _e:GoString = stdgo.os.Os.getenv(Go.str("OSTEST_OUTPUT_EXECPATH"));
 			if (_e != (Go.str())) {
@@ -7949,7 +7931,8 @@ private class T_myErrorIs_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_myErrorIs>;
 	var __type__:stdgo.reflect.Reflect.Type;

@@ -153,9 +153,6 @@ private var _boolSink:Bool = false;
 			this._str = _str;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new Utf8Map(_r, _str);
 	}
@@ -171,9 +168,6 @@ private var _boolSink:Bool = false;
 		if (_out != null)
 			this._out = _out;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new RuneCountTest(_in, _out);
@@ -191,9 +185,6 @@ private var _boolSink:Bool = false;
 			this._size = _size;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new RuneLenTest(_r, _size);
 	}
@@ -210,9 +201,6 @@ private var _boolSink:Bool = false;
 			this._out = _out;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new ValidTest(_in, _out);
 	}
@@ -228,9 +216,6 @@ private var _boolSink:Bool = false;
 		if (_ok != null)
 			this._ok = _ok;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new ValidRuneTest(_r, _ok);
@@ -660,9 +645,6 @@ function testDecodeInvalidSequence(_t:Ref<stdgo.testing.Testing.T>):Void {
 		if (_r != null)
 			this._r = _r;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_info__testSequence_0(_index, _r);

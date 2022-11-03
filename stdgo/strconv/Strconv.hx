@@ -1111,9 +1111,6 @@ private final _upperhex:GoString = Go.str("0123456789ABCDEF");
 			this.err = err;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new NumError(func, num, err);
 	}
@@ -1158,9 +1155,6 @@ private final _upperhex:GoString = Go.str("0123456789ABCDEF");
 			this._trunc = _trunc;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_decimal(_d, _nd, _dp, _neg, _trunc);
 	}
@@ -1184,9 +1178,6 @@ private final _upperhex:GoString = Go.str("0123456789ABCDEF");
 			this._cutoff = _cutoff;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_leftCheat(_delta, _cutoff);
 	}
@@ -1209,9 +1200,6 @@ private final _upperhex:GoString = Go.str("0123456789ABCDEF");
 			this._bias = _bias;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_floatInfo(_mantbits, _expbits, _bias);
 	}
@@ -1233,9 +1221,6 @@ private final _upperhex:GoString = Go.str("0123456789ABCDEF");
 		if (_neg != null)
 			this._neg = _neg;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_decimalSlice(_d, _nd, _dp, _neg);
@@ -2273,15 +2258,7 @@ function _underscoreOK(_s:GoString):Bool {
 	// index returns the index of the first instance of c in s, or -1 if missing.
 **/
 function _index(_s:GoString, _c:GoByte):GoInt {
-	{
-		var _i:GoInt = (0 : GoInt);
-		Go.cfor(_i < (_s.length), _i++, {
-			if (_s[_i] == (_c)) {
-				return _i;
-			};
-		});
-	};
-	return (-1 : GoInt);
+	return stdgo.internal.bytealg.Bytealg.indexByteString(_s, _c);
 }
 
 /**
@@ -2838,26 +2815,26 @@ function _roundShortest(_d:Ref<T_decimal>, _mant:GoUInt64, _exp:GoInt, _flt:Ref<
 **/
 function _fmtE(_dst:Slice<GoByte>, _neg:Bool, _d:T_decimalSlice, _prec:GoInt, _fmt:GoByte):Slice<GoByte> {
 	if (_neg) {
-		_dst = (_dst.__append__(("-".code : GoRune)));
+		_dst = _dst.__appendref__(("-".code : GoRune));
 	};
 	var _ch:GoUInt8 = (("0".code : GoRune) : GoByte);
 	if (_d._nd != ((0 : GoInt))) {
 		_ch = _d._d[(0 : GoInt)];
 	};
-	_dst = (_dst.__append__(_ch));
+	_dst = _dst.__appendref__(_ch);
 	if (_prec > (0 : GoInt)) {
-		_dst = (_dst.__append__((".".code : GoRune)));
+		_dst = _dst.__appendref__((".".code : GoRune));
 		var _i:GoInt = (1 : GoInt);
 		var _m:GoInt = _min(_d._nd, _prec + (1 : GoInt));
 		if (_i < _m) {
-			_dst = (_dst.__append__(...(_d._d.__slice__(_i, _m) : Slice<GoUInt8>).__toArray__()));
+			_dst = _dst.__appendref__(...(_d._d.__slice__(_i, _m) : Slice<GoUInt8>).__toArray__());
 			_i = _m;
 		};
 		Go.cfor(_i <= _prec, _i++, {
-			_dst = (_dst.__append__(("0".code : GoRune)));
+			_dst = _dst.__appendref__(("0".code : GoRune));
 		});
 	};
-	_dst = (_dst.__append__(_fmt));
+	_dst = _dst.__appendref__(_fmt);
 	var _exp:GoInt = _d._dp - (1 : GoInt);
 	if (_d._nd == ((0 : GoInt))) {
 		_exp = (0 : GoInt);
@@ -2868,17 +2845,17 @@ function _fmtE(_dst:Slice<GoByte>, _neg:Bool, _d:T_decimalSlice, _prec:GoInt, _f
 	} else {
 		_ch = ("+".code : GoRune);
 	};
-	_dst = (_dst.__append__(_ch));
+	_dst = _dst.__appendref__(_ch);
 	if (_exp < (10:GoInt)) {
-		_dst = (_dst.__append__(("0".code : GoRune), (_exp : GoByte) + ("0".code : GoRune)));
+		_dst = _dst.__appendref__(("0".code : GoRune), (_exp : GoByte) + ("0".code : GoRune));
 	} else if (_exp < (100:GoInt)) {
-		_dst = (_dst.__append__((_exp / (10 : GoInt) : GoByte) + ("0".code : GoRune), (_exp % (10 : GoInt) : GoByte) + ("0".code : GoRune)));
+		_dst = _dst.__appendref__((_exp / (10 : GoInt) : GoByte) + ("0".code : GoRune), (_exp % (10 : GoInt) : GoByte) + ("0".code : GoRune));
 	} else {
-		_dst = (_dst.__append__((_exp / (100 : GoInt) : GoByte)
+		_dst = _dst.__appendref__((_exp / (100 : GoInt) : GoByte)
 			+ ("0".code : GoRune),
 			((_exp / (10 : GoInt) : GoByte) % (10 : GoUInt8))
 			+ ("0".code : GoRune), (_exp % (10 : GoInt) : GoByte)
-			+ ("0".code : GoRune)));
+			+ ("0".code : GoRune));
 	};
 	return _dst;
 }
@@ -2888,19 +2865,19 @@ function _fmtE(_dst:Slice<GoByte>, _neg:Bool, _d:T_decimalSlice, _prec:GoInt, _f
 **/
 function _fmtF(_dst:Slice<GoByte>, _neg:Bool, _d:T_decimalSlice, _prec:GoInt):Slice<GoByte> {
 	if (_neg) {
-		_dst = (_dst.__append__(("-".code : GoRune)));
+		_dst = _dst.__appendref__(("-".code : GoRune));
 	};
 	if (_d._dp > (0 : GoInt)) {
 		var _m:GoInt = _min(_d._nd, _d._dp);
-		_dst = (_dst.__append__(...(_d._d.__slice__(0, _m) : Slice<GoUInt8>).__toArray__()));
+		_dst = _dst.__appendref__(...(_d._d.__slice__(0, _m) : Slice<GoUInt8>).__toArray__());
 		Go.cfor(_m < _d._dp, _m++, {
-			_dst = (_dst.__append__(("0".code : GoRune)));
+			_dst = _dst.__appendref__(("0".code : GoRune));
 		});
 	} else {
-		_dst = (_dst.__append__(("0".code : GoRune)));
+		_dst = _dst.__appendref__(("0".code : GoRune));
 	};
 	if (_prec > (0 : GoInt)) {
-		_dst = (_dst.__append__((".".code : GoRune)));
+		_dst = _dst.__appendref__((".".code : GoRune));
 		{
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_i < _prec, _i++, {
@@ -2911,7 +2888,7 @@ function _fmtF(_dst:Slice<GoByte>, _neg:Bool, _d:T_decimalSlice, _prec:GoInt):Sl
 						_ch = _d._d[_j];
 					};
 				};
-				_dst = (_dst.__append__(_ch));
+				_dst = _dst.__appendref__(_ch);
 			});
 		};
 	};
@@ -2923,16 +2900,16 @@ function _fmtF(_dst:Slice<GoByte>, _neg:Bool, _d:T_decimalSlice, _prec:GoInt):Sl
 **/
 function _fmtB(_dst:Slice<GoByte>, _neg:Bool, _mant:GoUInt64, _exp:GoInt, _flt:Ref<T_floatInfo>):Slice<GoByte> {
 	if (_neg) {
-		_dst = (_dst.__append__(("-".code : GoRune)));
+		_dst = _dst.__appendref__(("-".code : GoRune));
 	};
 	{
 		var __tmp__ = _formatBits(_dst, _mant, (10 : GoInt), false, true);
 		_dst = __tmp__._0;
 	};
-	_dst = (_dst.__append__(("p".code : GoRune)));
+	_dst = _dst.__appendref__(("p".code : GoRune));
 	_exp = _exp - ((_flt._mantbits : GoInt));
 	if (_exp >= (0 : GoInt)) {
-		_dst = (_dst.__append__(("+".code : GoRune)));
+		_dst = _dst.__appendref__(("+".code : GoRune));
 	};
 	{
 		var __tmp__ = _formatBits(_dst, (_exp : GoUInt64), (10 : GoInt), _exp < (0:GoInt), true);
@@ -2971,22 +2948,22 @@ function _fmtX(_dst:Slice<GoByte>, _prec:GoInt, _fmt:GoByte, _neg:Bool, _mant:Go
 		_hex = Go.str("0123456789ABCDEF");
 	};
 	if (_neg) {
-		_dst = (_dst.__append__(("-".code : GoRune)));
+		_dst = _dst.__appendref__(("-".code : GoRune));
 	};
-	_dst = (_dst.__append__(("0".code : GoRune), _fmt, ("0".code : GoRune) + ((_mant >> (("60" : GoUInt64) : GoUInt64)) & ("1" : GoUInt64) : GoByte)));
+	_dst = _dst.__appendref__(("0".code : GoRune), _fmt, ("0".code : GoRune) + ((_mant >> (("60" : GoUInt64) : GoUInt64)) & ("1" : GoUInt64) : GoByte));
 	_mant = _mant << (("4" : GoUInt64));
 	if ((_prec < (0:GoInt)) && (_mant != ("0" : GoUInt64))) {
-		_dst = (_dst.__append__((".".code : GoRune)));
+		_dst = _dst.__appendref__((".".code : GoRune));
 		while (_mant != (("0" : GoUInt64))) {
-			_dst = (_dst.__append__(_hex[(_mant >> (("60" : GoUInt64) : GoUInt64)) & ("15" : GoUInt64)]));
+			_dst = _dst.__appendref__(_hex[(_mant >> (("60" : GoUInt64) : GoUInt64)) & ("15" : GoUInt64)]);
 			_mant = _mant << (("4" : GoUInt64));
 		};
 	} else if (_prec > (0 : GoInt)) {
-		_dst = (_dst.__append__((".".code : GoRune)));
+		_dst = _dst.__appendref__((".".code : GoRune));
 		{
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_i < _prec, _i++, {
-				_dst = (_dst.__append__(_hex[(_mant >> (("60" : GoUInt64) : GoUInt64)) & ("15" : GoUInt64)]));
+				_dst = _dst.__appendref__(_hex[(_mant >> (("60" : GoUInt64) : GoUInt64)) & ("15" : GoUInt64)]);
 				_mant = _mant << (("4" : GoUInt64));
 			});
 		};
@@ -2995,30 +2972,30 @@ function _fmtX(_dst:Slice<GoByte>, _prec:GoInt, _fmt:GoByte, _neg:Bool, _mant:Go
 	if (_fmt == (_lower(_fmt))) {
 		_ch = ("p".code : GoRune);
 	};
-	_dst = (_dst.__append__(_ch));
+	_dst = _dst.__appendref__(_ch);
 	if (_exp < (0:GoInt)) {
 		_ch = ("-".code : GoRune);
 		_exp = -_exp;
 	} else {
 		_ch = ("+".code : GoRune);
 	};
-	_dst = (_dst.__append__(_ch));
+	_dst = _dst.__appendref__(_ch);
 	if (_exp < (100:GoInt)) {
-		_dst = (_dst.__append__((_exp / (10 : GoInt) : GoByte) + ("0".code : GoRune), (_exp % (10 : GoInt) : GoByte) + ("0".code : GoRune)));
+		_dst = _dst.__appendref__((_exp / (10 : GoInt) : GoByte) + ("0".code : GoRune), (_exp % (10 : GoInt) : GoByte) + ("0".code : GoRune));
 	} else if (_exp < (1000:GoInt)) {
-		_dst = (_dst.__append__((_exp / (100 : GoInt) : GoByte)
-			+ ("0".code : GoRune), ((_exp / (10 : GoInt)) % (10 : GoInt) : GoByte)
+		_dst = _dst.__appendref__((_exp / (100 : GoInt) : GoByte)
 			+ ("0".code : GoRune),
-			(_exp % (10 : GoInt) : GoByte)
-			+ ("0".code : GoRune)));
+			((_exp / (10 : GoInt)) % (10 : GoInt) : GoByte)
+			+ ("0".code : GoRune), (_exp % (10 : GoInt) : GoByte)
+			+ ("0".code : GoRune));
 	} else {
-		_dst = (_dst.__append__((_exp / (1000 : GoInt) : GoByte)
+		_dst = _dst.__appendref__((_exp / (1000 : GoInt) : GoByte)
 			+ ("0".code : GoRune),
 			((_exp / (100 : GoInt) : GoByte) % (10 : GoUInt8))
 			+ ("0".code : GoRune), ((_exp / (10 : GoInt)) % (10 : GoInt) : GoByte)
 			+ ("0".code : GoRune),
 			(_exp % (10 : GoInt) : GoByte)
-			+ ("0".code : GoRune)));
+			+ ("0".code : GoRune));
 	};
 	return _dst;
 }
@@ -3870,7 +3847,7 @@ function _appendQuotedWith(_buf:Slice<GoByte>, _s:GoString, _quote:GoByte, ascii
 		Go.copySlice(_nBuf, _buf);
 		_buf = _nBuf;
 	};
-	_buf = (_buf.__append__(_quote));
+	_buf = _buf.__appendref__(_quote);
 	{
 		var _width:GoInt = (0 : GoInt);
 		Go.cfor((_s.length) > (0 : GoInt), _s = (_s.__slice__(_width) : GoString), {
@@ -3884,77 +3861,77 @@ function _appendQuotedWith(_buf:Slice<GoByte>, _s:GoString, _quote:GoByte, ascii
 				};
 			};
 			if ((_width == (1 : GoInt)) && (_r == (65533 : GoInt32))) {
-				_buf = (_buf.__append__(...("\\x" : GoString).__toArray__()));
-				_buf = (_buf.__append__(Go.str("0123456789abcdef")[_s[(0 : GoInt)] >> ("4" : GoUInt64)]));
-				_buf = (_buf.__append__(Go.str("0123456789abcdef")[_s[(0 : GoInt)] & (15 : GoUInt8)]));
+				_buf = _buf.__appendref__(...("\\x" : GoString).__toArray__());
+				_buf = _buf.__appendref__(Go.str("0123456789abcdef")[_s[(0 : GoInt)] >> ("4" : GoUInt64)]);
+				_buf = _buf.__appendref__(Go.str("0123456789abcdef")[_s[(0 : GoInt)] & (15 : GoUInt8)]);
 				continue;
 			};
 			_buf = _appendEscapedRune(_buf, _r, _quote, asciionly, _graphicOnly);
 		});
 	};
-	_buf = (_buf.__append__(_quote));
+	_buf = _buf.__appendref__(_quote);
 	return _buf;
 }
 
 function _appendQuotedRuneWith(_buf:Slice<GoByte>, _r:GoRune, _quote:GoByte, asciionly:Bool, _graphicOnly:Bool):Slice<GoByte> {
-	_buf = (_buf.__append__(_quote));
+	_buf = _buf.__appendref__(_quote);
 	if (!stdgo.unicode.utf8.Utf8.validRune(_r)) {
 		_r = (65533 : GoInt32);
 	};
 	_buf = _appendEscapedRune(_buf, _r, _quote, asciionly, _graphicOnly);
-	_buf = (_buf.__append__(_quote));
+	_buf = _buf.__appendref__(_quote);
 	return _buf;
 }
 
 function _appendEscapedRune(_buf:Slice<GoByte>, _r:GoRune, _quote:GoByte, asciionly:Bool, _graphicOnly:Bool):Slice<GoByte> {
 	var _runeTmp:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0...4) (0 : GoUInt8)]);
 	if ((_r == (_quote : GoRune)) || (_r == ("\\".code : GoRune))) {
-		_buf = (_buf.__append__(("\\".code : GoRune)));
-		_buf = (_buf.__append__((_r : GoByte)));
+		_buf = _buf.__appendref__(("\\".code : GoRune));
+		_buf = _buf.__appendref__((_r : GoByte));
 		return _buf;
 	};
 	if (asciionly) {
 		if ((_r < (128:GoInt32)) && isPrint(_r)) {
-			_buf = (_buf.__append__((_r : GoByte)));
+			_buf = _buf.__appendref__((_r : GoByte));
 			return _buf;
 		};
 	} else if (isPrint(_r) || (_graphicOnly && _isInGraphicList(_r))) {
 		var _n:GoInt = stdgo.unicode.utf8.Utf8.encodeRune((_runeTmp.__slice__(0) : Slice<GoUInt8>), _r);
-		_buf = (_buf.__append__(...(_runeTmp.__slice__(0, _n) : Slice<GoUInt8>).__toArray__()));
+		_buf = _buf.__appendref__(...(_runeTmp.__slice__(0, _n) : Slice<GoUInt8>).__toArray__());
 		return _buf;
 	};
 	{
 		var __switchIndex__ = -1;
 		while (true) {
 			if (_r == (("\x07".code : GoRune))) {
-				_buf = (_buf.__append__(...("\\a" : GoString).__toArray__()));
+				_buf = _buf.__appendref__(...("\\a" : GoString).__toArray__());
 				break;
 			} else if (_r == (("\u0008".code : GoRune))) {
-				_buf = (_buf.__append__(...("\\b" : GoString).__toArray__()));
+				_buf = _buf.__appendref__(...("\\b" : GoString).__toArray__());
 				break;
 			} else if (_r == (("\x0C".code : GoRune))) {
-				_buf = (_buf.__append__(...("\\f" : GoString).__toArray__()));
+				_buf = _buf.__appendref__(...("\\f" : GoString).__toArray__());
 				break;
 			} else if (_r == (("\n".code : GoRune))) {
-				_buf = (_buf.__append__(...("\\n" : GoString).__toArray__()));
+				_buf = _buf.__appendref__(...("\\n" : GoString).__toArray__());
 				break;
 			} else if (_r == (("\r".code : GoRune))) {
-				_buf = (_buf.__append__(...("\\r" : GoString).__toArray__()));
+				_buf = _buf.__appendref__(...("\\r" : GoString).__toArray__());
 				break;
 			} else if (_r == (("\t".code : GoRune))) {
-				_buf = (_buf.__append__(...("\\t" : GoString).__toArray__()));
+				_buf = _buf.__appendref__(...("\\t" : GoString).__toArray__());
 				break;
 			} else if (_r == (("\x0B".code : GoRune))) {
-				_buf = (_buf.__append__(...("\\v" : GoString).__toArray__()));
+				_buf = _buf.__appendref__(...("\\v" : GoString).__toArray__());
 				break;
 			} else {
 				{
 					var __switchIndex__ = -1;
 					while (true) {
 						if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (_r < (" ".code:GoRune)) || (_r == (127 : GoInt32)))) {
-							_buf = (_buf.__append__(...("\\x" : GoString).__toArray__()));
-							_buf = (_buf.__append__(Go.str("0123456789abcdef")[(_r : GoByte) >> ("4" : GoUInt64)]));
-							_buf = (_buf.__append__(Go.str("0123456789abcdef")[(_r : GoByte) & (15 : GoUInt8)]));
+							_buf = _buf.__appendref__(...("\\x" : GoString).__toArray__());
+							_buf = _buf.__appendref__(Go.str("0123456789abcdef")[(_r : GoByte) >> ("4" : GoUInt64)]);
+							_buf = _buf.__appendref__(Go.str("0123456789abcdef")[(_r : GoByte) & (15 : GoUInt8)]);
 							break;
 							break;
 						} else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && !stdgo.unicode.utf8.Utf8.validRune(_r))) {
@@ -3965,21 +3942,21 @@ function _appendEscapedRune(_buf:Slice<GoByte>, _r:GoRune, _quote:GoByte, asciio
 							};
 							break;
 						} else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && _r < (65536:GoInt32))) {
-							_buf = (_buf.__append__(...("\\u" : GoString).__toArray__()));
+							_buf = _buf.__appendref__(...("\\u" : GoString).__toArray__());
 							{
 								var _s:GoInt = (12 : GoInt);
 								Go.cfor(_s >= (0 : GoInt), _s = _s - ((4 : GoInt)), {
-									_buf = (_buf.__append__(Go.str("0123456789abcdef")[(_r >> (_s : GoUInt)) & (15 : GoInt32)]));
+									_buf = _buf.__appendref__(Go.str("0123456789abcdef")[(_r >> (_s : GoUInt)) & (15 : GoInt32)]);
 								});
 							};
 							break;
 							break;
 						} else {
-							_buf = (_buf.__append__(...("\\U" : GoString).__toArray__()));
+							_buf = _buf.__appendref__(...("\\U" : GoString).__toArray__());
 							{
 								var _s:GoInt = (28 : GoInt);
 								Go.cfor(_s >= (0 : GoInt), _s = _s - ((4 : GoInt)), {
-									_buf = (_buf.__append__(Go.str("0123456789abcdef")[(_r >> (_s : GoUInt)) & (15 : GoInt32)]));
+									_buf = _buf.__appendref__(Go.str("0123456789abcdef")[(_r >> (_s : GoUInt)) & (15 : GoInt32)]);
 								});
 							};
 							break;
@@ -4440,7 +4417,7 @@ function _unquote(_in:GoString, _unescape:Bool):{var _0:GoString; var _1:GoStrin
 						var _i:GoInt = (Go.str("`").length);
 						Go.cfor(_i < (_end - Go.str("`").length), _i++, {
 							if (_in[_i] != (("\r".code : GoRune))) {
-								_buf = (_buf.__append__(_in[_i]));
+								_buf = _buf.__appendref__(_in[_i]);
 							};
 						});
 					};
@@ -4489,11 +4466,11 @@ function _unquote(_in:GoString, _unescape:Bool):{var _0:GoString; var _1:GoStrin
 					_in = _rem;
 					if (_unescape) {
 						if ((_r < (128:GoInt32)) || !_multibyte) {
-							_buf = (_buf.__append__((_r : GoByte)));
+							_buf = _buf.__appendref__((_r : GoByte));
 						} else {
 							var _arr:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0...4) (0 : GoUInt8)]);
 							var _n:GoInt = stdgo.unicode.utf8.Utf8.encodeRune((_arr.__slice__(0) : Slice<GoUInt8>), _r);
-							_buf = (_buf.__append__(...(_arr.__slice__(0, _n) : Slice<GoUInt8>).__toArray__()));
+							_buf = _buf.__appendref__(...(_arr.__slice__(0, _n) : Slice<GoUInt8>).__toArray__());
 						};
 					};
 					if (_quote == (("\'".code : GoRune))) {
@@ -4635,7 +4612,8 @@ class NumError_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<NumError>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -4719,7 +4697,8 @@ private class T_decimal_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_decimal>;
 	var __type__:stdgo.reflect.Reflect.Type;

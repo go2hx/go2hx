@@ -1,9 +1,12 @@
 [
+ "hl|errors",
+ "hl|math",
  "hl|math/bits",
  "hl|sort",
  "hl|unicode",
  "hl|unicode/utf16",
  "hl|unicode/utf8",
+ "interp|errors",
  "interp|math/bits",
  "interp|sort",
  "interp|unicode",

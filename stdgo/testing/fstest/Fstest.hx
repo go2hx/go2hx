@@ -53,9 +53,6 @@ private var _3:stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
 			this.sys = sys;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new MapFile(data, mode, modTime, sys);
 	}
@@ -81,9 +78,6 @@ private var _3:stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
 	@:embedded
 	public function open(_pattern:GoString):{var _0:stdgo.io.fs.Fs.File; var _1:Error;}
 		return null;
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_fsOnly(fs);
@@ -119,9 +113,6 @@ private var _3:stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
 	public function stat(_pattern:GoString):{var _0:stdgo.io.fs.Fs.FileInfo; var _1:Error;}
 		return null;
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_noSub(mapFS);
 	}
@@ -140,9 +131,6 @@ private var _3:stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
 		if (_f != null)
 			this._f = _f;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_mapFileInfo(_name, _f);
@@ -198,9 +186,6 @@ private var _3:stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
 	@:embedded
 	public function type():stdgo.io.fs.Fs.FileMode
 		return ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_openMapFile(_path, _mapFileInfo, _offset);
@@ -260,9 +245,6 @@ private var _3:stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
 	public function type():stdgo.io.fs.Fs.FileMode
 		return ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_mapDir(_path, _mapFileInfo, _entry, _offset);
 	}
@@ -287,9 +269,6 @@ private var _3:stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
 		if (_files != null)
 			this._files = _files;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_fsTester(_fsys, _errText, _dirs, _files);
@@ -383,7 +362,8 @@ private class T_fsOnly_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_fsOnly>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -427,7 +407,8 @@ private class T_noSub_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_noSub>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -499,7 +480,8 @@ private class T_mapFileInfo_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_mapFileInfo>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -599,7 +581,8 @@ private class T_openMapFile_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_openMapFile>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -715,7 +698,8 @@ private class T_mapDir_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_mapDir>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -846,7 +830,8 @@ private class T_fsTester_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_fsTester>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -957,7 +942,8 @@ class MapFS_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<MapFS>;
 	var __type__:stdgo.reflect.Reflect.Type;

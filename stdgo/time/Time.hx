@@ -123,9 +123,8 @@ private var _errBad:Error = stdgo.errors.Errors.new_(Go.str("bad value for field
 private var _errLeadingInt:Error = stdgo.errors.Errors.new_(Go.str("time: bad [0-9]*"));
 
 private var _unitMap:GoMap<GoString, GoUInt64> = {
-	final x = new stdgo.GoMap.GoObjectMap<GoString,
-		GoUInt64>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind),
-			stdgo.reflect.Reflect.GoType.basic(uint64_kind))));
+	final x = new stdgo.GoMap.GoObjectMap<GoString, GoUInt64>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType({get: () ->
+		stdgo.reflect.Reflect.GoType.basic(string_kind)}, {get: () -> stdgo.reflect.Reflect.GoType.basic(uint64_kind)})));
 	@:privateAccess x._keys = [
 		Go.str("ns"),
 		Go.str("us"),
@@ -252,9 +251,8 @@ var tzsetOffset:GoString -> {
 	// StdChunkNames maps from nextStdChunk results to the matched strings.
 **/
 var stdChunkNames:GoMap<GoInt, GoString> = {
-	final x = new stdgo.GoMap.GoObjectMap<GoInt,
-		GoString>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(int_kind),
-			stdgo.reflect.Reflect.GoType.basic(string_kind))));
+	final x = new stdgo.GoMap.GoObjectMap<GoInt, GoString>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType({get: () ->
+		stdgo.reflect.Reflect.GoType.basic(int_kind)}, {get: () -> stdgo.reflect.Reflect.GoType.basic(string_kind)})));
 	@:privateAccess x._keys = [
 		(0 : GoInt), (257 : GoInt), (258 : GoInt), (259 : GoInt), (260 : GoInt), (261 : GoInt), (262 : GoInt), (263 : GoInt), (264 : GoInt), (265 : GoInt),
 		(266 : GoInt), (267 : GoInt), (524 : GoInt), (525 : GoInt), (526 : GoInt), (527 : GoInt), (528 : GoInt), (529 : GoInt), (530 : GoInt), (275 : GoInt),
@@ -2213,9 +2211,6 @@ private var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 			this.time = time;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new Rule(kind, day, week, mon, time);
 	}
@@ -2243,9 +2238,6 @@ private var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 		if (message != null)
 			this.message = message;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new ParseError(layout, value, layoutElem, valueElem, message);
@@ -2291,9 +2283,6 @@ private var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 			this._status = _status;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_runtimeTimer(_pp, _when, _period, _f, _arg, _seq, _nextwhen, _status);
 	}
@@ -2315,9 +2304,6 @@ private var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 		if (_r != null)
 			this._r = _r;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Timer(c, _r);
@@ -2342,9 +2328,6 @@ private var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 		if (_r != null)
 			this._r = _r;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Ticker(c, _r);
@@ -2432,9 +2415,6 @@ private var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 			this._loc = _loc;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new Time(_wall, _ext, _loc);
 	}
@@ -2494,9 +2474,6 @@ private var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 			this._cacheZone = _cacheZone;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new Location(_name, _zone, _tx, _extend, _cacheStart, _cacheEnd, _cacheZone);
 	}
@@ -2529,9 +2506,6 @@ private var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 		if (_isDST != null)
 			this._isDST = _isDST;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_zone(_name, _offset, _isDST);
@@ -2570,9 +2544,6 @@ private var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 			this._isutc = _isutc;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_zoneTrans(_when, _index, _isstd, _isutc);
 	}
@@ -2605,9 +2576,6 @@ private var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 			this._time = _time;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_rule(_kind, _day, _week, _mon, _time);
 	}
@@ -2626,9 +2594,6 @@ private var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 		if (_error != null)
 			this._error = _error;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_dataIO(_p, _error);
@@ -2905,7 +2870,7 @@ function _lookup(_tab:Slice<GoString>, _val:GoString):{var _0:GoInt; var _1:GoSt
 function _appendInt(_b:Slice<GoByte>, _x:GoInt, _width:GoInt):Slice<GoByte> {
 	var _u:GoUInt = (_x : GoUInt);
 	if (_x < (0:GoInt)) {
-		_b = (_b.__append__(("-".code : GoRune)));
+		_b = _b.__appendref__(("-".code : GoRune));
 		_u = (-_x : GoUInt);
 	};
 	var _buf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0...20) (0 : GoUInt8)]);
@@ -2921,7 +2886,7 @@ function _appendInt(_b:Slice<GoByte>, _x:GoInt, _width:GoInt):Slice<GoByte> {
 	{
 		var _w:GoInt = (_buf.length) - _i;
 		Go.cfor(_w < _width, _w++, {
-			_b = (_b.__append__(("0".code : GoRune)));
+			_b = _b.__appendref__(("0".code : GoRune));
 		});
 	};
 	return (_b.__append__(...(_buf.__slice__(_i) : Slice<GoUInt8>).__toArray__()));
@@ -3003,7 +2968,7 @@ function _formatNano(_b:Slice<GoByte>, _nanosec:GoUInt, _std:GoInt):Slice<GoByte
 			return _b;
 		};
 	};
-	_b = (_b.__append__(_separator));
+	_b = _b.__appendref__(_separator);
 	return (_b.__append__(...(_buf.__slice__(0, _n) : Slice<GoUInt8>).__toArray__()));
 }
 
@@ -3025,19 +2990,19 @@ function _quote(_s:GoString):GoString {
 			{
 				var _j:GoInt = (0 : GoInt);
 				Go.cfor(_j < _width, _j++, {
-					_buf = (_buf.__append__(...("\\x" : GoString).__toArray__()));
-					_buf = (_buf.__append__(Go.str("0123456789abcdef")[_s[_i + _j] >> ("4" : GoUInt64)]));
-					_buf = (_buf.__append__(Go.str("0123456789abcdef")[_s[_i + _j] & (15 : GoUInt8)]));
+					_buf = _buf.__appendref__(...("\\x" : GoString).__toArray__());
+					_buf = _buf.__appendref__(Go.str("0123456789abcdef")[_s[_i + _j] >> ("4" : GoUInt64)]);
+					_buf = _buf.__appendref__(Go.str("0123456789abcdef")[_s[_i + _j] & (15 : GoUInt8)]);
 				});
 			};
 		} else {
 			if ((_c == ("\"".code : GoRune)) || (_c == ("\\".code : GoRune))) {
-				_buf = (_buf.__append__(("\\".code : GoRune)));
+				_buf = _buf.__appendref__(("\\".code : GoRune));
 			};
-			_buf = (_buf.__append__(...(_c : GoString).__toArray__()));
+			_buf = _buf.__appendref__(...(_c : GoString).__toArray__());
 		};
 	};
-	_buf = (_buf.__append__(("\"".code : GoRune)));
+	_buf = _buf.__appendref__(("\"".code : GoRune));
 	return (_buf : GoString);
 }
 
@@ -5643,7 +5608,7 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Ref
 		};
 	};
 	if ((_tx.length) == ((0 : GoInt))) {
-		_tx = (_tx.__append__(({_when: ("-9223372036854775808" : GoInt64), _index: (0 : GoUInt8)} : T_zoneTrans)));
+		_tx = _tx.__appendref__(({_when: ("-9223372036854775808" : GoInt64), _index: (0 : GoUInt8)} : T_zoneTrans));
 	};
 	var _l = (({
 		_zone: _zones,
@@ -5994,7 +5959,7 @@ function _readFile(_name:GoString):{var _0:Slice<GoByte>; var _1:Error;} {
 				_err = __tmp__._1;
 			};
 			if (_n > (0 : GoInt)) {
-				_ret = (_ret.__append__(...(_buf.__slice__(0, _n) : Slice<GoUInt8>).__toArray__()));
+				_ret = _ret.__appendref__(...(_buf.__slice__(0, _n) : Slice<GoUInt8>).__toArray__());
 			};
 			if ((_n == (0 : GoInt)) || (_err != null)) {
 				break;
@@ -6062,7 +6027,8 @@ class ParseError_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<ParseError>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -6160,7 +6126,8 @@ class Timer_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Timer>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -6271,7 +6238,8 @@ class Ticker_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Ticker>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -6794,7 +6762,8 @@ class Time_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Time>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -6924,9 +6893,9 @@ class Time_asInterface {
 			};
 		};
 		var _b = new Slice<GoUInt8>((0 : GoInt).toBasic(), (37 : GoInt), ...[for (i in 0...(0 : GoInt).toBasic()) (0 : GoUInt8)]);
-		_b = (_b.__append__(("\"".code : GoRune)));
+		_b = _b.__appendref__(("\"".code : GoRune));
 		_b = _t.appendFormat(_b, Go.str("2006-01-02T15:04:05.999999999Z07:00"));
-		_b = (_b.__append__(("\"".code : GoRune)));
+		_b = _b.__appendref__(("\"".code : GoRune));
 		return {_0: _b, _1: (null : Error)};
 	}
 
@@ -7033,7 +7002,7 @@ class Time_asInterface {
 			(_nsec >> ("16" : GoUInt64) : GoByte), (_nsec >> ("8" : GoUInt64) : GoByte), (_nsec : GoByte), (_offsetMin >> ("8" : GoUInt64) : GoByte),
 			(_offsetMin : GoByte)) : Slice<GoUInt8>);
 		if (_version == ((2 : GoUInt8))) {
-			_enc = (_enc.__append__((_offsetSec : GoByte)));
+			_enc = _enc.__appendref__((_offsetSec : GoByte));
 		};
 		return {_0: _enc, _1: (null : Error)};
 	}
@@ -7662,7 +7631,7 @@ class Time_asInterface {
 				_std:GoInt = __tmp__._1,
 				_suffix:GoString = __tmp__._2;
 			if (_prefix != (Go.str())) {
-				_b = (_b.__append__(..._prefix.__toArray__()));
+				_b = _b.__appendref__(..._prefix.__toArray__());
 			};
 			if (_std == ((0 : GoInt))) {
 				break;
@@ -7700,11 +7669,11 @@ class Time_asInterface {
 						_b = _appendInt(_b, _year, (4 : GoInt));
 						break;
 					} else if (_std & (65535 : GoInt) == ((258 : GoInt))) {
-						_b = (_b.__append__(...((_month.string() : GoString).__slice__(0, (3 : GoInt)) : GoString).__toArray__()));
+						_b = _b.__appendref__(...((_month.string() : GoString).__slice__(0, (3 : GoInt)) : GoString).__toArray__());
 						break;
 					} else if (_std & (65535 : GoInt) == ((257 : GoInt))) {
 						var _m:GoString = (_month.string() : GoString);
-						_b = (_b.__append__(..._m.__toArray__()));
+						_b = _b.__appendref__(..._m.__toArray__());
 						break;
 					} else if (_std & (65535 : GoInt) == ((259 : GoInt))) {
 						_b = _appendInt(_b, (_month : GoInt), (0 : GoInt));
@@ -7713,18 +7682,18 @@ class Time_asInterface {
 						_b = _appendInt(_b, (_month : GoInt), (2 : GoInt));
 						break;
 					} else if (_std & (65535 : GoInt) == ((262 : GoInt))) {
-						_b = (_b.__append__(...((_absWeekday(_abs).string() : GoString).__slice__(0, (3 : GoInt)) : GoString).__toArray__()));
+						_b = _b.__appendref__(...((_absWeekday(_abs).string() : GoString).__slice__(0, (3 : GoInt)) : GoString).__toArray__());
 						break;
 					} else if (_std & (65535 : GoInt) == ((261 : GoInt))) {
 						var _s:GoString = (_absWeekday(_abs).string() : GoString);
-						_b = (_b.__append__(..._s.__toArray__()));
+						_b = _b.__appendref__(..._s.__toArray__());
 						break;
 					} else if (_std & (65535 : GoInt) == ((263 : GoInt))) {
 						_b = _appendInt(_b, _day, (0 : GoInt));
 						break;
 					} else if (_std & (65535 : GoInt) == ((264 : GoInt))) {
 						if (_day < (10:GoInt)) {
-							_b = (_b.__append__((" ".code : GoRune)));
+							_b = _b.__appendref__((" ".code : GoRune));
 						};
 						_b = _appendInt(_b, _day, (0 : GoInt));
 						break;
@@ -7733,9 +7702,9 @@ class Time_asInterface {
 						break;
 					} else if (_std & (65535 : GoInt) == ((266 : GoInt))) {
 						if (_yday < (100:GoInt)) {
-							_b = (_b.__append__((" ".code : GoRune)));
+							_b = _b.__appendref__((" ".code : GoRune));
 							if (_yday < (10:GoInt)) {
-								_b = (_b.__append__((" ".code : GoRune)));
+								_b = _b.__appendref__((" ".code : GoRune));
 							};
 						};
 						_b = _appendInt(_b, _yday, (0 : GoInt));
@@ -7774,16 +7743,16 @@ class Time_asInterface {
 						break;
 					} else if (_std & (65535 : GoInt) == ((533 : GoInt))) {
 						if (_hour >= (12 : GoInt)) {
-							_b = (_b.__append__(...Go.str("PM").__toArray__()));
+							_b = _b.__appendref__(...Go.str("PM").__toArray__());
 						} else {
-							_b = (_b.__append__(...Go.str("AM").__toArray__()));
+							_b = _b.__appendref__(...Go.str("AM").__toArray__());
 						};
 						break;
 					} else if (_std & (65535 : GoInt) == ((534 : GoInt))) {
 						if (_hour >= (12 : GoInt)) {
-							_b = (_b.__append__(...Go.str("pm").__toArray__()));
+							_b = _b.__appendref__(...Go.str("pm").__toArray__());
 						} else {
-							_b = (_b.__append__(...Go.str("am").__toArray__()));
+							_b = _b.__appendref__(...Go.str("am").__toArray__());
 						};
 						break;
 					} else if (_std & (65535 : GoInt) == ((24 : GoInt))
@@ -7799,43 +7768,43 @@ class Time_asInterface {
 						if ((_offset == (0 : GoInt))
 							&& (((((_std == (24 : GoInt)) || (_std == (27 : GoInt))) || (_std == (25 : GoInt))) || (_std == (26 : GoInt)))
 								|| (_std == (28 : GoInt)))) {
-							_b = (_b.__append__(("Z".code : GoRune)));
+							_b = _b.__appendref__(("Z".code : GoRune));
 							break;
 						};
 						var _zone:GoInt = _offset / (60 : GoInt);
 						var _absoffset:GoInt = _offset;
 						if (_zone < (0:GoInt)) {
-							_b = (_b.__append__(("-".code : GoRune)));
+							_b = _b.__appendref__(("-".code : GoRune));
 							_zone = -_zone;
 							_absoffset = -_absoffset;
 						} else {
-							_b = (_b.__append__(("+".code : GoRune)));
+							_b = _b.__appendref__(("+".code : GoRune));
 						};
 						_b = _appendInt(_b, _zone / (60 : GoInt), (2 : GoInt));
 						if ((((_std == (27 : GoInt)) || (_std == (32 : GoInt))) || (_std == (28 : GoInt))) || (_std == (33 : GoInt))) {
-							_b = (_b.__append__((":".code : GoRune)));
+							_b = _b.__appendref__((":".code : GoRune));
 						};
 						if ((_std != (31 : GoInt)) && (_std != (26 : GoInt))) {
 							_b = _appendInt(_b, _zone % (60 : GoInt), (2 : GoInt));
 						};
 						if ((((_std == (25 : GoInt)) || (_std == (30 : GoInt))) || (_std == (33 : GoInt))) || (_std == (28 : GoInt))) {
 							if ((_std == (33 : GoInt)) || (_std == (28 : GoInt))) {
-								_b = (_b.__append__((":".code : GoRune)));
+								_b = _b.__appendref__((":".code : GoRune));
 							};
 							_b = _appendInt(_b, _absoffset % (60 : GoInt), (2 : GoInt));
 						};
 						break;
 					} else if (_std & (65535 : GoInt) == ((23 : GoInt))) {
 						if (_name != (Go.str())) {
-							_b = (_b.__append__(..._name.__toArray__()));
+							_b = _b.__appendref__(..._name.__toArray__());
 							break;
 						};
 						var _zone:GoInt = _offset / (60 : GoInt);
 						if (_zone < (0:GoInt)) {
-							_b = (_b.__append__(("-".code : GoRune)));
+							_b = _b.__appendref__(("-".code : GoRune));
 							_zone = -_zone;
 						} else {
-							_b = (_b.__append__(("+".code : GoRune)));
+							_b = _b.__appendref__(("+".code : GoRune));
 						};
 						_b = _appendInt(_b, _zone / (60 : GoInt), (2 : GoInt));
 						_b = _appendInt(_b, _zone % (60 : GoInt), (2 : GoInt));
@@ -7881,39 +7850,39 @@ class Time_asInterface {
 	@:keep
 	static public function goString(_t:Time):GoString {
 		var _buf = new Slice<GoUInt8>((0 : GoInt).toBasic(), (70 : GoInt), ...[for (i in 0...(0 : GoInt).toBasic()) (0 : GoUInt8)]);
-		_buf = (_buf.__append__(...Go.str("time.Date(").__toArray__()));
+		_buf = _buf.__appendref__(...Go.str("time.Date(").__toArray__());
 		_buf = _appendInt(_buf, _t.year(), (0 : GoInt));
 		var _month:Month = _t.month();
 		if (((1 : Month) <= _month) && (_month <= (12 : Month))) {
-			_buf = (_buf.__append__(...Go.str(", time.").__toArray__()));
-			_buf = (_buf.__append__(...(_t.month().string() : GoString).__toArray__()));
+			_buf = _buf.__appendref__(...Go.str(", time.").__toArray__());
+			_buf = _buf.__appendref__(...(_t.month().string() : GoString).__toArray__());
 		} else {
 			_buf = _appendInt(_buf, (_month : GoInt), (0 : GoInt));
 		};
-		_buf = (_buf.__append__(...Go.str(", ").__toArray__()));
+		_buf = _buf.__appendref__(...Go.str(", ").__toArray__());
 		_buf = _appendInt(_buf, _t.day(), (0 : GoInt));
-		_buf = (_buf.__append__(...Go.str(", ").__toArray__()));
+		_buf = _buf.__appendref__(...Go.str(", ").__toArray__());
 		_buf = _appendInt(_buf, _t.hour(), (0 : GoInt));
-		_buf = (_buf.__append__(...Go.str(", ").__toArray__()));
+		_buf = _buf.__appendref__(...Go.str(", ").__toArray__());
 		_buf = _appendInt(_buf, _t.minute(), (0 : GoInt));
-		_buf = (_buf.__append__(...Go.str(", ").__toArray__()));
+		_buf = _buf.__appendref__(...Go.str(", ").__toArray__());
 		_buf = _appendInt(_buf, _t.second(), (0 : GoInt));
-		_buf = (_buf.__append__(...Go.str(", ").__toArray__()));
+		_buf = _buf.__appendref__(...Go.str(", ").__toArray__());
 		_buf = _appendInt(_buf, _t.nanosecond(), (0 : GoInt));
-		_buf = (_buf.__append__(...Go.str(", ").__toArray__()));
+		_buf = _buf.__appendref__(...Go.str(", ").__toArray__());
 		{
 			var _loc = _t.location();
 			if (_loc == (stdgo.time.Time.utc) || _loc == null) {
-				_buf = (_buf.__append__(...Go.str("time.UTC").__toArray__()));
+				_buf = _buf.__appendref__(...Go.str("time.UTC").__toArray__());
 			} else if (_loc == (stdgo.time.Time.local)) {
-				_buf = (_buf.__append__(...Go.str("time.Local").__toArray__()));
+				_buf = _buf.__appendref__(...Go.str("time.Local").__toArray__());
 			} else {
-				_buf = (_buf.__append__(...("time.Location(" : GoString).__toArray__()));
-				_buf = (_buf.__append__(...(_quote(_loc._name) : Slice<GoByte>).__toArray__()));
-				_buf = (_buf.__append__(...(")" : GoString).__toArray__()));
+				_buf = _buf.__appendref__(...("time.Location(" : GoString).__toArray__());
+				_buf = _buf.__appendref__(...(_quote(_loc._name) : Slice<GoByte>).__toArray__());
+				_buf = _buf.__appendref__(...(")" : GoString).__toArray__());
 			};
 		};
-		_buf = (_buf.__append__((")".code : GoRune)));
+		_buf = _buf.__appendref__((")".code : GoRune));
 		return (_buf : GoString);
 	}
 
@@ -7945,15 +7914,15 @@ class Time_asInterface {
 			var _m0:GoUInt64 = _m1 / ("1000000000" : GoUInt64),
 				_m1:GoUInt64 = _m1 % ("1000000000" : GoUInt64);
 			var _buf = new Slice<GoUInt8>((0 : GoInt).toBasic(), (24 : GoInt), ...[for (i in 0...(0 : GoInt).toBasic()) (0 : GoUInt8)]);
-			_buf = (_buf.__append__(...Go.str(" m=").__toArray__()));
-			_buf = (_buf.__append__(_sign));
+			_buf = _buf.__appendref__(...Go.str(" m=").__toArray__());
+			_buf = _buf.__appendref__(_sign);
 			var _wid:GoInt = (0 : GoInt);
 			if (_m0 != (("0" : GoUInt64))) {
 				_buf = _appendInt(_buf, (_m0 : GoInt), (0 : GoInt));
 				_wid = (9 : GoInt);
 			};
 			_buf = _appendInt(_buf, (_m1 : GoInt), _wid);
-			_buf = (_buf.__append__((".".code : GoRune)));
+			_buf = _buf.__appendref__((".".code : GoRune));
 			_buf = _appendInt(_buf, (_m2 : GoInt), (9 : GoInt));
 			_s = _s + ((_buf : GoString));
 		};
@@ -8038,7 +8007,8 @@ class Location_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Location>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -8304,7 +8274,8 @@ private class T_dataIO_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_dataIO>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -8389,7 +8360,8 @@ class Month_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Month>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -8425,7 +8397,8 @@ class Weekday_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Weekday>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -8534,7 +8507,8 @@ class Duration_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Duration>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -8742,7 +8716,8 @@ private class T_fileSizeError_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_fileSizeError>;
 	var __type__:stdgo.reflect.Reflect.Type;

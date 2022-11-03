@@ -832,9 +832,6 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 @:structInit @:using(stdgo.bytes_test.Bytes_test.T_negativeReader_static_extension) private class T_negativeReader {
 	public function new() {}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_negativeReader();
 	}
@@ -847,9 +844,6 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 		if (_panic != null)
 			this._panic = _panic;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_panicReader(_panic);
@@ -869,9 +863,6 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 		if (_i != null)
 			this._i = _i;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new BinOpTest(_a, _b, _i);
@@ -895,9 +886,6 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 			this._a = _a;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new SplitTest(_s, _sep, _n, _a);
 	}
@@ -913,9 +901,6 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 		if (_a != null)
 			this._a = _a;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new FieldsTest(_s, _a);
@@ -937,9 +922,6 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 			this._out = _out;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new StringTest(_in, _out);
 	}
@@ -959,9 +941,6 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 			this._count = _count;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new RepeatTest(_in, _out, _count);
 	}
@@ -980,9 +959,6 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 		if (_lossy != null)
 			this._lossy = _lossy;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new RunesTest(_in, _out, _lossy);
@@ -1006,9 +982,6 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 			this._out = _out;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new TrimTest(_f, _in, _arg, _out);
 	}
@@ -1031,9 +1004,6 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 			this._out = _out;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new TrimNilTest(_f, _in, _arg, _out);
 	}
@@ -1049,9 +1019,6 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 		if (_name != null)
 			this._name = _name;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_predicate(_f, _name);
@@ -1079,9 +1046,6 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 			this._rightOut = _rightOut;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new TrimFuncTest(_f, _in, _trimOut, _leftOut, _rightOut);
 	}
@@ -1103,9 +1067,6 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 		if (_last != null)
 			this._last = _last;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new IndexFuncTest(_in, _f, _first, _last);
@@ -1132,9 +1093,6 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 			this._out = _out;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new ReplaceTest(_in, _old, _new, _n, _out);
 	}
@@ -1150,9 +1108,6 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 		if (_out != null)
 			this._out = _out;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new TitleTest(_in, _out);
@@ -3816,7 +3771,7 @@ function _makeBenchInputHard():Slice<GoByte> {
 		if ((_x.length + _tokens[_i].length) >= (1048576 : GoInt)) {
 			break;
 		};
-		_x = (_x.__append__(..._tokens[_i].__toArray__()));
+		_x = _x.__appendref__(..._tokens[_i].__toArray__());
 	};
 	return _x;
 }
@@ -4158,12 +4113,12 @@ function testCompareBytes(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i <= (128 : GoInt), _i++, {
-			_lengths = (_lengths.__append__(_i));
+			_lengths = _lengths.__appendref__(_i);
 		});
 	};
-	_lengths = (_lengths.__append__((256 : GoInt), (512 : GoInt), (1024 : GoInt), (1333 : GoInt), (4095 : GoInt), (4096 : GoInt), (4097 : GoInt)));
+	_lengths = _lengths.__appendref__((256 : GoInt), (512 : GoInt), (1024 : GoInt), (1333 : GoInt), (4095 : GoInt), (4096 : GoInt), (4097 : GoInt));
 	if (!stdgo.testing.Testing.short() || (stdgo.internal.testenv.Testenv.builder() != Go.str())) {
-		_lengths = (_lengths.__append__((65535 : GoInt), (65536 : GoInt), (65537 : GoInt), (99999 : GoInt)));
+		_lengths = _lengths.__appendref__((65535 : GoInt), (65536 : GoInt), (65537 : GoInt), (99999 : GoInt));
 	};
 	var _n:GoInt = _lengths[(_lengths.length) - (1 : GoInt)];
 	var _a = new Slice<GoUInt8>((_n + (1 : GoInt) : GoInt).toBasic(), 0, ...[for (i in 0...(_n + (1 : GoInt) : GoInt).toBasic()) (0 : GoUInt8)]);
@@ -4335,7 +4290,7 @@ function benchmarkCompareBytesBigUnaligned(_b:Ref<stdgo.testing.Testing.B>):Void
 	_b.stopTimer();
 	var _b1 = new Slice<GoUInt8>((0 : GoInt).toBasic(), (1048576 : GoInt), ...[for (i in 0...(0 : GoInt).toBasic()) (0 : GoUInt8)]);
 	while ((_b1.length) < (1048576 : GoInt)) {
-		_b1 = (_b1.__append__(...Go.str("Hello Gophers!").__toArray__()));
+		_b1 = _b1.__appendref__(...Go.str("Hello Gophers!").__toArray__());
 	};
 	var _b2 = ((Go.str("hello") : Slice<GoByte>).__append__(..._b1.__toArray__()));
 	_b.startTimer();
@@ -4354,7 +4309,7 @@ function benchmarkCompareBytesBig(_b:Ref<stdgo.testing.Testing.B>):Void {
 	_b.stopTimer();
 	var _b1 = new Slice<GoUInt8>((0 : GoInt).toBasic(), (1048576 : GoInt), ...[for (i in 0...(0 : GoInt).toBasic()) (0 : GoUInt8)]);
 	while ((_b1.length) < (1048576 : GoInt)) {
-		_b1 = (_b1.__append__(...Go.str("Hello Gophers!").__toArray__()));
+		_b1 = _b1.__appendref__(...Go.str("Hello Gophers!").__toArray__());
 	};
 	var _b2 = ((new Slice<GoUInt8>(0, 0) : Slice<GoUInt8>).__append__(..._b1.__toArray__()));
 	_b.startTimer();
@@ -4373,7 +4328,7 @@ function benchmarkCompareBytesBigIdentical(_b:Ref<stdgo.testing.Testing.B>):Void
 	_b.stopTimer();
 	var _b1 = new Slice<GoUInt8>((0 : GoInt).toBasic(), (1048576 : GoInt), ...[for (i in 0...(0 : GoInt).toBasic()) (0 : GoUInt8)]);
 	while ((_b1.length) < (1048576 : GoInt)) {
-		_b1 = (_b1.__append__(...Go.str("Hello Gophers!").__toArray__()));
+		_b1 = _b1.__appendref__(...Go.str("Hello Gophers!").__toArray__());
 	};
 	var _b2 = _b1;
 	_b.startTimer();
@@ -4727,7 +4682,7 @@ function exampleTrimSuffix():Void {
 	var _b:Slice<GoUInt8> = (Go.str("Hello, goodbye, etc!") : Slice<GoByte>);
 	_b = stdgo.bytes.Bytes.trimSuffix(_b, (Go.str("goodbye, etc!") : Slice<GoByte>));
 	_b = stdgo.bytes.Bytes.trimSuffix(_b, (Go.str("gopher") : Slice<GoByte>));
-	_b = (_b.__append__(...stdgo.bytes.Bytes.trimSuffix((Go.str("world!") : Slice<GoByte>), (Go.str("x!") : Slice<GoByte>)).__toArray__()));
+	_b = _b.__appendref__(...stdgo.bytes.Bytes.trimSuffix((Go.str("world!") : Slice<GoByte>), (Go.str("x!") : Slice<GoByte>)).__toArray__());
 	stdgo.os.Os.stdout.write(_b);
 }
 
@@ -5183,9 +5138,6 @@ function testReaderDoubleUnreadRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 			this._err = _err;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_nErr_testReaderCopyNothing_0(_n, _err);
 	}
@@ -5204,9 +5156,6 @@ function testReaderDoubleUnreadRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 	public function read(__0:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
 		return reader.read(__0);
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_justReader_testReaderCopyNothing_1(reader);
 	}
@@ -5224,9 +5173,6 @@ function testReaderDoubleUnreadRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 	@:embedded
 	public function write(__0:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
 		return writer.write(__0);
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_justWriter_testReaderCopyNothing_2(writer);
@@ -5405,7 +5351,8 @@ private class T_negativeReader_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_negativeReader>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -5430,7 +5377,8 @@ private class T_panicReader_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_panicReader>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -5458,7 +5406,8 @@ private class T_justReader_testReaderCopyNothing_1_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_justReader_testReaderCopyNothing_1>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -5482,7 +5431,8 @@ private class T_justWriter_testReaderCopyNothing_2_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_justWriter_testReaderCopyNothing_2>;
 	var __type__:stdgo.reflect.Reflect.Type;

@@ -274,9 +274,6 @@ typedef T_error = StructType & {
 @:structInit @:using(stdgo.runtime.Runtime.TypeAssertionError_static_extension) class TypeAssertionError {
 	public function new() {}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new TypeAssertionError();
 	}
@@ -295,9 +292,6 @@ typedef T_error = StructType & {
 		if (stack0 != null)
 			this.stack0 = stack0;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new StackRecord(stack0);
@@ -340,9 +334,6 @@ typedef T_error = StructType & {
 			this.stack0 = stack0;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new MemProfileRecord(allocBytes, freeBytes, allocObjects, freeObjects, stack0);
 	}
@@ -370,9 +361,6 @@ typedef T_error = StructType & {
 	@:embedded
 	public function stack():Slice<GoUIntptr>
 		return (null : Slice<GoUIntptr>);
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new BlockProfileRecord(count, cycles, stackRecord);
@@ -736,9 +724,6 @@ typedef T_error = StructType & {
 			this.bySize = bySize;
 		}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new MemStats(alloc, totalAlloc, sys, lookups, mallocs, frees, heapAlloc, heapSys, heapIdle, heapInuse, heapReleased, heapObjects, stackInuse,
 			stackSys, mspanInuse, mspanSys, mcacheInuse, mcacheSys, buckHashSys, gcsys, otherSys, nextGC, lastGC, pauseTotalNs, pauseNs, pauseEnd, numGC,
@@ -752,9 +737,6 @@ typedef T_error = StructType & {
 **/
 @:structInit @:using(stdgo.runtime.Runtime.Frames_static_extension) class Frames {
 	public function new() {}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Frames();
@@ -821,9 +803,6 @@ typedef T_error = StructType & {
 			this.entry = entry;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new Frame(pc, func, function_, file, line, entry);
 	}
@@ -834,9 +813,6 @@ typedef T_error = StructType & {
 **/
 @:structInit @:using(stdgo.runtime.Runtime.Func_static_extension) class Func {
 	public function new() {}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Func();
@@ -1496,7 +1472,8 @@ class TypeAssertionError_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<TypeAssertionError>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1528,7 +1505,8 @@ class StackRecord_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<StackRecord>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1574,7 +1552,8 @@ class MemProfileRecord_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<MemProfileRecord>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1616,7 +1595,8 @@ class BlockProfileRecord_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<BlockProfileRecord>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1651,7 +1631,8 @@ class Frames_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Frames>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1706,7 +1687,8 @@ class Func_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Func>;
 	var __type__:stdgo.reflect.Reflect.Type;

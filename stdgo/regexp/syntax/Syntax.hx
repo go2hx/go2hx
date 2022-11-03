@@ -450,9 +450,6 @@ private final _meta:GoString = ("" : GoString);
 			this._tail = _tail;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_patchList(_head, _tail);
 	}
@@ -486,9 +483,6 @@ private final _meta:GoString = ("" : GoString);
 			this._nullable = _nullable;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_frag(_i, _out, _nullable);
 	}
@@ -501,9 +495,6 @@ private final _meta:GoString = ("" : GoString);
 		if (_p != null)
 			this._p = _p;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_compiler(_p);
@@ -524,9 +515,6 @@ private final _meta:GoString = ("" : GoString);
 		if (expr != null)
 			this.expr = expr;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_error(code, expr);
@@ -588,9 +576,6 @@ private final _meta:GoString = ("" : GoString);
 			this._height = _height;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_parser(_flags, _stack, _free, _numCap, _wholeRegexp, _tmpClass, _numRegexp, _height);
 	}
@@ -606,9 +591,6 @@ private final _meta:GoString = ("" : GoString);
 		if (_class != null)
 			this._class = _class;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_charGroup(_sign, _class);
@@ -629,9 +611,6 @@ private final _meta:GoString = ("" : GoString);
 			this._p = _p;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_ranges(_p);
 	}
@@ -647,9 +626,6 @@ private final _meta:GoString = ("" : GoString);
 		if (dump != null)
 			this.dump = dump;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_parseTest(regexp, dump);
@@ -680,9 +656,6 @@ private final _meta:GoString = ("" : GoString);
 		if (numCap != null)
 			this.numCap = numCap;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Prog(inst, start, numCap);
@@ -717,9 +690,6 @@ private final _meta:GoString = ("" : GoString);
 		if (rune != null)
 			this.rune = rune;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Inst(op, out, arg, rune);
@@ -797,9 +767,6 @@ private final _meta:GoString = ("" : GoString);
 		if (name != null)
 			this.name = name;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Regexp(op, flags, sub, sub0, rune, rune0, min, max, cap, name);
@@ -1145,7 +1112,8 @@ private class T_patchList_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_patchList>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1232,7 +1200,8 @@ private class T_compiler_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_compiler>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1315,7 +1284,8 @@ class T_error_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_error>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1584,7 +1554,8 @@ private class T_parser_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_parser>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1862,7 +1833,8 @@ private class T_ranges_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_ranges>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -1918,7 +1890,8 @@ class Prog_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Prog>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2001,7 +1974,8 @@ class Inst_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Inst>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2098,7 +2072,8 @@ class Regexp_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Regexp>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2160,7 +2135,8 @@ class ErrorCode_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<ErrorCode>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2184,7 +2160,8 @@ class InstOp_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<InstOp>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2208,7 +2185,8 @@ class Op_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Op>;
 	var __type__:stdgo.reflect.Reflect.Type;

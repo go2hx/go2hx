@@ -66,9 +66,6 @@ private var _surrogateTests:Slice<T__struct_1> = (new Slice<T__struct_1>(0, 0, (
 			this._out = _out;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_encodeTest(_in, _out);
 	}
@@ -84,9 +81,6 @@ private var _surrogateTests:Slice<T__struct_1> = (new Slice<T__struct_1>(0, 0, (
 		if (_out != null)
 			this._out = _out;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_decodeTest(_in, _out);

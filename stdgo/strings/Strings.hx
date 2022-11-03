@@ -67,9 +67,6 @@ private typedef T_replacer = StructType & {
 			this._buf = _buf;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new Builder(_addr, _buf);
 	}
@@ -103,9 +100,6 @@ private typedef T_replacer = StructType & {
 			this._prevRune = _prevRune;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new Reader(_s, _i, _prevRune);
 	}
@@ -132,9 +126,6 @@ private typedef T_replacer = StructType & {
 		if (_oldnew != null)
 			this._oldnew = _oldnew;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Replacer(_once, _r, _oldnew);
@@ -209,9 +200,6 @@ private typedef T_replacer = StructType & {
 			this._table = _table;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_trieNode(_value, _priority, _prefix, _next, _table);
 	}
@@ -244,9 +232,6 @@ private typedef T_replacer = StructType & {
 			this._mapping = _mapping;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_genericReplacer(_root, _tableSize, _mapping);
 	}
@@ -259,9 +244,6 @@ private typedef T_replacer = StructType & {
 		if (_w != null)
 			this._w = _w;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_stringWriter(_w);
@@ -286,9 +268,6 @@ private typedef T_replacer = StructType & {
 		if (_value != null)
 			this._value = _value;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_singleStringReplacer(_finder, _value);
@@ -319,9 +298,6 @@ private typedef T_replacer = StructType & {
 		if (_toReplace != null)
 			this._toReplace = _toReplace;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_byteStringReplacer(_replacements, _toReplace);
@@ -384,9 +360,6 @@ private typedef T_replacer = StructType & {
 		if (_goodSuffixSkip != null)
 			this._goodSuffixSkip = _goodSuffixSkip;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_stringFinder(_pattern, _badCharSkip, _goodSuffixSkip);
@@ -1049,9 +1022,6 @@ function fields(_s:GoString):Slice<GoString> {
 			this._end = _end;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_span_fieldsFunc_0(_start, _end);
 	}
@@ -1072,7 +1042,7 @@ function fieldsFunc(_s:GoString, _f:GoRune->Bool):Slice<GoString> {
 	for (_end => _rune in _s) {
 		if (_f(_rune)) {
 			if (_start >= (0 : GoInt)) {
-				_spans = (_spans.__append__((new T_span_fieldsFunc_0(_start, _end) : T_span_fieldsFunc_0)));
+				_spans = _spans.__appendref__((new T_span_fieldsFunc_0(_start, _end) : T_span_fieldsFunc_0));
 				_start = (-1 ^ _start);
 			};
 		} else {
@@ -1082,7 +1052,7 @@ function fieldsFunc(_s:GoString, _f:GoRune->Bool):Slice<GoString> {
 		};
 	};
 	if (_start >= (0 : GoInt)) {
-		_spans = (_spans.__append__((new T_span_fieldsFunc_0(_start, (_s.length)) : T_span_fieldsFunc_0)));
+		_spans = _spans.__appendref__((new T_span_fieldsFunc_0(_start, (_s.length)) : T_span_fieldsFunc_0));
 	};
 	var _a = new Slice<GoString>((_spans.length : GoInt).toBasic(), 0, ...[for (i in 0...(_spans.length : GoInt).toBasic()) ("" : GoString)]);
 	for (_i => _span in _spans) {
@@ -2028,7 +1998,8 @@ class Builder_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Builder>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2042,7 +2013,7 @@ class Builder_asInterface {
 	@:keep
 	static public function writeString(_b:Ref<Builder>, _s:GoString):{var _0:GoInt; var _1:Error;} {
 		_b._copyCheck();
-		_b._buf = (_b._buf.__append__(..._s.__toArray__()));
+		_b._buf = _b._buf.__appendref__(..._s.__toArray__());
 		return {_0: (_s.length), _1: (null : Error)};
 	}
 
@@ -2054,7 +2025,7 @@ class Builder_asInterface {
 	static public function writeRune(_b:Ref<Builder>, _r:GoRune):{var _0:GoInt; var _1:Error;} {
 		_b._copyCheck();
 		if ((_r : GoUInt32) < ("128" : GoUInt32)) {
-			_b._buf = (_b._buf.__append__((_r : GoByte)));
+			_b._buf = _b._buf.__appendref__((_r : GoByte));
 			return {_0: (1 : GoInt), _1: (null : Error)};
 		};
 		var _l:GoInt = (_b._buf.length);
@@ -2073,7 +2044,7 @@ class Builder_asInterface {
 	@:keep
 	static public function writeByte(_b:Ref<Builder>, _c:GoByte):Error {
 		_b._copyCheck();
-		_b._buf = (_b._buf.__append__(_c));
+		_b._buf = _b._buf.__appendref__(_c);
 		return (null : Error);
 	}
 
@@ -2084,7 +2055,7 @@ class Builder_asInterface {
 	@:keep
 	static public function write(_b:Ref<Builder>, _p:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
 		_b._copyCheck();
-		_b._buf = (_b._buf.__append__(..._p.__toArray__()));
+		_b._buf = _b._buf.__appendref__(..._p.__toArray__());
 		return {_0: (_p.length), _1: (null : Error)};
 	}
 
@@ -2246,7 +2217,8 @@ class Reader_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Reader>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2482,7 +2454,8 @@ class Replacer_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Replacer>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2549,7 +2522,7 @@ class Replacer_asInterface {
 				var _o:GoUInt8 = _oldnew[_i][(0 : GoInt)];
 				var _n:GoString = _oldnew[_i + (1 : GoInt)];
 				if (_r._replacements[_o] == null) {
-					_r._toReplace = (_r._toReplace.__append__(((new Slice<GoUInt8>(0, 0, _o) : Slice<GoUInt8>) : GoString)));
+					_r._toReplace = _r._toReplace.__appendref__(((new Slice<GoUInt8>(0, 0, _o) : Slice<GoUInt8>) : GoString));
 				};
 				_r._replacements[_o] = (_n : Slice<GoByte>);
 			});
@@ -2589,7 +2562,8 @@ private class T_trieNode_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_trieNode>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2673,7 +2647,8 @@ private class T_genericReplacer_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_genericReplacer>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2818,7 +2793,8 @@ private class T_stringWriter_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_stringWriter>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2847,7 +2823,8 @@ private class T_singleStringReplacer_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_singleStringReplacer>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2932,7 +2909,8 @@ private class T_byteStringReplacer_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_byteStringReplacer>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -3045,7 +3023,8 @@ private class T_stringFinder_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_stringFinder>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -3096,7 +3075,8 @@ private class T_appendSliceWriter_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_appendSliceWriter>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -3108,7 +3088,7 @@ private class T_appendSliceWriter_asInterface {
 	**/
 	@:keep
 	static public function writeString(_w:Ref<T_appendSliceWriter>, _s:GoString):{var _0:GoInt; var _1:Error;} {
-		_w = (_w.__append__(..._s.__toArray__()));
+		_w = _w.__appendref__(..._s.__toArray__());
 		return {_0: (_s.length), _1: (null : Error)};
 	}
 
@@ -3117,7 +3097,7 @@ private class T_appendSliceWriter_asInterface {
 	**/
 	@:keep
 	static public function write(_w:Ref<T_appendSliceWriter>, _p:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
-		_w = (_w.__append__(..._p.__toArray__()));
+		_w = _w.__appendref__(..._p.__toArray__());
 		return {_0: (_p.length), _1: (null : Error)};
 	}
 }
@@ -3138,7 +3118,8 @@ private class T_byteReplacer_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_byteReplacer>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -3207,7 +3188,8 @@ private class T_asciiSet_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_asciiSet>;
 	var __type__:stdgo.reflect.Reflect.Type;

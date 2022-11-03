@@ -68,36 +68,36 @@ private typedef T__interface_0 = StructType & {
 		return buffer.cap();
 
 	@:embedded
-	public function grow(_pid:GoInt)
-		buffer.grow(_pid);
+	public function grow(__0:GoInt)
+		buffer.grow(__0);
 
 	@:embedded
 	public function len():GoInt
 		return buffer.len();
 
 	@:embedded
-	public function next(_pid:GoInt):Slice<GoUInt8>
-		return buffer.next(_pid);
+	public function next(__0:GoInt):Slice<GoUInt8>
+		return buffer.next(__0);
 
 	@:embedded
-	public function read(_p:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
-		return buffer.read(_p);
+	public function read(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
+		return buffer.read(_b);
 
 	@:embedded
 	public function readByte():{var _0:GoUInt8; var _1:Error;}
 		return buffer.readByte();
 
 	@:embedded
-	public function readBytes(_c:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
-		return buffer.readBytes(_c);
+	public function readBytes(_delim:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
+		return buffer.readBytes(_delim);
 
 	@:embedded
 	public function readRune():{var _0:GoInt32; var _1:GoInt; var _2:Error;}
 		return buffer.readRune();
 
 	@:embedded
-	public function readString(_c:GoUInt8):{var _0:GoString; var _1:Error;}
-		return buffer.readString(_c);
+	public function readString(_delim:GoUInt8):{var _0:GoString; var _1:Error;}
+		return buffer.readString(_delim);
 
 	@:embedded
 	public function reset()
@@ -108,8 +108,8 @@ private typedef T__interface_0 = StructType & {
 		return buffer.string();
 
 	@:embedded
-	public function truncate(_pid:GoInt)
-		buffer.truncate(_pid);
+	public function truncate(__0:GoInt)
+		buffer.truncate(__0);
 
 	@:embedded
 	public function unreadByte():Error
@@ -120,16 +120,16 @@ private typedef T__interface_0 = StructType & {
 		return buffer.unreadRune();
 
 	@:embedded
-	public function write(_p:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
-		return buffer.write(_p);
+	public function write(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
+		return buffer.write(_b);
 
 	@:embedded
-	public function writeByte(_c:GoUInt8):Error
-		return buffer.writeByte(_c);
+	public function writeByte(_delim:GoUInt8):Error
+		return buffer.writeByte(_delim);
 
 	@:embedded
-	public function writeRune(_new:GoInt32):{var _0:GoInt; var _1:Error;}
-		return buffer.writeRune(_new);
+	public function writeRune(__0:GoInt32):{var _0:GoInt; var _1:Error;}
+		return buffer.writeRune(__0);
 
 	@:embedded
 	public function writeString(__0:GoString):{var _0:GoInt; var _1:Error;}
@@ -140,19 +140,16 @@ private typedef T__interface_0 = StructType & {
 		return buffer._empty();
 
 	@:embedded
-	public function _grow(_pid:GoInt):GoInt
-		return buffer._grow(_pid);
+	public function _grow(__0:GoInt):GoInt
+		return buffer._grow(__0);
 
 	@:embedded
-	public function _readSlice(_c:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
-		return buffer._readSlice(_c);
+	public function _readSlice(_delim:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
+		return buffer._readSlice(_delim);
 
 	@:embedded
-	public function _tryGrowByReslice(_pid:GoInt):{var _0:GoInt; var _1:Bool;}
-		return buffer._tryGrowByReslice(_pid);
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
+	public function _tryGrowByReslice(__0:GoInt):{var _0:GoInt; var _1:Bool;}
+		return buffer._tryGrowByReslice(__0);
 
 	public function __copy__() {
 		return new Buffer(buffer, readerFrom, writerTo);
@@ -183,28 +180,28 @@ private typedef T__interface_0 = StructType & {
 		return buffer.cap();
 
 	@:embedded
-	public function grow(_pid:GoInt)
-		buffer.grow(_pid);
+	public function grow(__0:GoInt)
+		buffer.grow(__0);
 
 	@:embedded
 	public function len():GoInt
 		return buffer.len();
 
 	@:embedded
-	public function next(_pid:GoInt):Slice<GoUInt8>
-		return buffer.next(_pid);
+	public function next(__0:GoInt):Slice<GoUInt8>
+		return buffer.next(__0);
 
 	@:embedded
-	public function read(_p:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
-		return buffer.read(_p);
+	public function read(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
+		return buffer.read(_b);
 
 	@:embedded
 	public function readByte():{var _0:GoUInt8; var _1:Error;}
 		return buffer.readByte();
 
 	@:embedded
-	public function readBytes(_c:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
-		return buffer.readBytes(_c);
+	public function readBytes(_delim:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
+		return buffer.readBytes(_delim);
 
 	@:embedded
 	public function readFrom(_r:Reader):{var _0:GoInt64; var _1:Error;}
@@ -215,8 +212,8 @@ private typedef T__interface_0 = StructType & {
 		return buffer.readRune();
 
 	@:embedded
-	public function readString(_c:GoUInt8):{var _0:GoString; var _1:Error;}
-		return buffer.readString(_c);
+	public function readString(_delim:GoUInt8):{var _0:GoString; var _1:Error;}
+		return buffer.readString(_delim);
 
 	@:embedded
 	public function reset()
@@ -227,8 +224,8 @@ private typedef T__interface_0 = StructType & {
 		return buffer.string();
 
 	@:embedded
-	public function truncate(_pid:GoInt)
-		buffer.truncate(_pid);
+	public function truncate(__0:GoInt)
+		buffer.truncate(__0);
 
 	@:embedded
 	public function unreadByte():Error
@@ -239,16 +236,16 @@ private typedef T__interface_0 = StructType & {
 		return buffer.unreadRune();
 
 	@:embedded
-	public function write(_p:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
-		return buffer.write(_p);
+	public function write(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
+		return buffer.write(_b);
 
 	@:embedded
-	public function writeByte(_c:GoUInt8):Error
-		return buffer.writeByte(_c);
+	public function writeByte(_delim:GoUInt8):Error
+		return buffer.writeByte(_delim);
 
 	@:embedded
-	public function writeRune(_new:GoInt32):{var _0:GoInt; var _1:Error;}
-		return buffer.writeRune(_new);
+	public function writeRune(__0:GoInt32):{var _0:GoInt; var _1:Error;}
+		return buffer.writeRune(__0);
 
 	@:embedded
 	public function writeString(__0:GoString):{var _0:GoInt; var _1:Error;}
@@ -259,19 +256,16 @@ private typedef T__interface_0 = StructType & {
 		return buffer._empty();
 
 	@:embedded
-	public function _grow(_pid:GoInt):GoInt
-		return buffer._grow(_pid);
+	public function _grow(__0:GoInt):GoInt
+		return buffer._grow(__0);
 
 	@:embedded
-	public function _readSlice(_c:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
-		return buffer._readSlice(_c);
+	public function _readSlice(_delim:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
+		return buffer._readSlice(_delim);
 
 	@:embedded
-	public function _tryGrowByReslice(_pid:GoInt):{var _0:GoInt; var _1:Bool;}
-		return buffer._tryGrowByReslice(_pid);
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
+	public function _tryGrowByReslice(__0:GoInt):{var _0:GoInt; var _1:Bool;}
+		return buffer._tryGrowByReslice(__0);
 
 	public function __copy__() {
 		return new T_writeToChecker(buffer, _writeToCalled);
@@ -286,9 +280,6 @@ private typedef T__interface_0 = StructType & {
 			this._err = _err;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_zeroErrReader(_err);
 	}
@@ -301,9 +292,6 @@ private typedef T__interface_0 = StructType & {
 		if (_err != null)
 			this._err = _err;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_errWriter(_err);
@@ -318,9 +306,6 @@ private typedef T__interface_0 = StructType & {
 			this._w = _w;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_noReadFrom(_w);
 	}
@@ -328,9 +313,6 @@ private typedef T__interface_0 = StructType & {
 
 @:structInit @:using(stdgo.io_test.Io_test.T_wantedAndErrReader_static_extension) private class T_wantedAndErrReader {
 	public function new() {}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_wantedAndErrReader();
@@ -362,24 +344,24 @@ private typedef T__interface_0 = StructType & {
 		return buffer.cap();
 
 	@:embedded
-	public function grow(_pid:GoInt)
-		buffer.grow(_pid);
+	public function grow(__0:GoInt)
+		buffer.grow(__0);
 
 	@:embedded
 	public function len():GoInt
 		return buffer.len();
 
 	@:embedded
-	public function next(_pid:GoInt):Slice<GoUInt8>
-		return buffer.next(_pid);
+	public function next(__0:GoInt):Slice<GoUInt8>
+		return buffer.next(__0);
 
 	@:embedded
 	public function readByte():{var _0:GoUInt8; var _1:Error;}
 		return buffer.readByte();
 
 	@:embedded
-	public function readBytes(_c:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
-		return buffer.readBytes(_c);
+	public function readBytes(_delim:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
+		return buffer.readBytes(_delim);
 
 	@:embedded
 	public function readFrom(_r:Reader):{var _0:GoInt64; var _1:Error;}
@@ -390,8 +372,8 @@ private typedef T__interface_0 = StructType & {
 		return buffer.readRune();
 
 	@:embedded
-	public function readString(_c:GoUInt8):{var _0:GoString; var _1:Error;}
-		return buffer.readString(_c);
+	public function readString(_delim:GoUInt8):{var _0:GoString; var _1:Error;}
+		return buffer.readString(_delim);
 
 	@:embedded
 	public function reset()
@@ -402,8 +384,8 @@ private typedef T__interface_0 = StructType & {
 		return buffer.string();
 
 	@:embedded
-	public function truncate(_pid:GoInt)
-		buffer.truncate(_pid);
+	public function truncate(__0:GoInt)
+		buffer.truncate(__0);
 
 	@:embedded
 	public function unreadByte():Error
@@ -414,16 +396,16 @@ private typedef T__interface_0 = StructType & {
 		return buffer.unreadRune();
 
 	@:embedded
-	public function write(_p:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
-		return buffer.write(_p);
+	public function write(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
+		return buffer.write(_b);
 
 	@:embedded
-	public function writeByte(_c:GoUInt8):Error
-		return buffer.writeByte(_c);
+	public function writeByte(_delim:GoUInt8):Error
+		return buffer.writeByte(_delim);
 
 	@:embedded
-	public function writeRune(_new:GoInt32):{var _0:GoInt; var _1:Error;}
-		return buffer.writeRune(_new);
+	public function writeRune(__0:GoInt32):{var _0:GoInt; var _1:Error;}
+		return buffer.writeRune(__0);
 
 	@:embedded
 	public function writeString(__0:GoString):{var _0:GoInt; var _1:Error;}
@@ -438,19 +420,16 @@ private typedef T__interface_0 = StructType & {
 		return buffer._empty();
 
 	@:embedded
-	public function _grow(_pid:GoInt):GoInt
-		return buffer._grow(_pid);
+	public function _grow(__0:GoInt):GoInt
+		return buffer._grow(__0);
 
 	@:embedded
-	public function _readSlice(_c:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
-		return buffer._readSlice(_c);
+	public function _readSlice(_delim:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
+		return buffer._readSlice(_delim);
 
 	@:embedded
-	public function _tryGrowByReslice(_pid:GoInt):{var _0:GoInt; var _1:Bool;}
-		return buffer._tryGrowByReslice(_pid);
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
+	public function _tryGrowByReslice(__0:GoInt):{var _0:GoInt; var _1:Bool;}
+		return buffer._tryGrowByReslice(__0);
 
 	public function __copy__() {
 		return new T_dataAndErrorBuffer(_err, buffer);
@@ -469,9 +448,6 @@ private typedef T__interface_0 = StructType & {
 			this._err = _err;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_largeWriter(_err);
 	}
@@ -484,9 +460,6 @@ private typedef T__interface_0 = StructType & {
 		if (_called != null)
 			this._called = _called;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_writeStringChecker(_called);
@@ -503,9 +476,6 @@ private typedef T__interface_0 = StructType & {
 		if (_err != null)
 			this._err = _err;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_pipeReturn(_n, _err);
@@ -525,9 +495,6 @@ private typedef T__interface_0 = StructType & {
 		if (_closeWithError != null)
 			this._closeWithError = _closeWithError;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_pipeTest(_async, _err, _closeWithError);
@@ -1554,11 +1521,8 @@ function testMultiWriter_String(_t:Ref<stdgo.testing.Testing.T>):Void {
 	}
 
 	@:embedded
-	public function write(_p:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
-		return writer.write(_p);
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
+	public function write(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
+		return writer.write(_b);
 
 	public function __copy__() {
 		return new T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0(writer);
@@ -2205,9 +2169,6 @@ function testWriteAfterWriterClose(_t:Ref<stdgo.testing.Testing.T>):Void {
 	public function error():GoString
 		return _error.error();
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_testError1_testPipeCloseError_0(_error);
 	}
@@ -2225,9 +2186,6 @@ function testWriteAfterWriterClose(_t:Ref<stdgo.testing.Testing.T>):Void {
 	@:embedded
 	public function error():GoString
 		return _error.error();
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_testError2_testPipeCloseError_1(_error);
@@ -2369,7 +2327,7 @@ function testPipeConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void {
 		{
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_i < _c.capacity, _i++, {
-				_got = (_got.__append__(...(_c.__get__()).__toArray__()));
+				_got = _got.__appendref__(...(_c.__get__()).__toArray__());
 			});
 		};
 		_got = _sortBytesInGroups(_got, (2 : GoInt));
@@ -2384,7 +2342,7 @@ function testPipeConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void {
 function _sortBytesInGroups(_b:Slice<GoByte>, _n:GoInt):Slice<GoByte> {
 	var _groups:Slice<Slice<GoByte>> = (null : Slice<Slice<GoUInt8>>);
 	while ((_b.length) > (0 : GoInt)) {
-		_groups = (_groups.__append__((_b.__slice__(0, _n) : Slice<GoUInt8>)));
+		_groups = _groups.__appendref__((_b.__slice__(0, _n) : Slice<GoUInt8>));
 		_b = (_b.__slice__(_n) : Slice<GoUInt8>);
 	};
 	stdgo.sort.Sort.slice(Go.toInterface(_groups), function(_i:GoInt, _j:GoInt):Bool {
@@ -2395,16 +2353,16 @@ function _sortBytesInGroups(_b:Slice<GoByte>, _n:GoInt):Slice<GoByte> {
 
 class Buffer_asInterface {
 	@:embedded
-	public function _tryGrowByReslice(_pid:GoInt):{var _0:GoInt; var _1:Bool;}
-		return __self__.value._tryGrowByReslice(_pid);
+	public function _tryGrowByReslice(__0:GoInt):{var _0:GoInt; var _1:Bool;}
+		return __self__.value._tryGrowByReslice(__0);
 
 	@:embedded
-	public function _readSlice(_c:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
-		return __self__.value._readSlice(_c);
+	public function _readSlice(_delim:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
+		return __self__.value._readSlice(_delim);
 
 	@:embedded
-	public function _grow(_pid:GoInt):GoInt
-		return __self__.value._grow(_pid);
+	public function _grow(__0:GoInt):GoInt
+		return __self__.value._grow(__0);
 
 	@:embedded
 	public function _empty():Bool
@@ -2415,16 +2373,16 @@ class Buffer_asInterface {
 		return __self__.value.writeString(__0);
 
 	@:embedded
-	public function writeRune(_new:GoInt32):{var _0:GoInt; var _1:Error;}
-		return __self__.value.writeRune(_new);
+	public function writeRune(__0:GoInt32):{var _0:GoInt; var _1:Error;}
+		return __self__.value.writeRune(__0);
 
 	@:embedded
-	public function writeByte(_c:GoUInt8):Error
-		return __self__.value.writeByte(_c);
+	public function writeByte(_delim:GoUInt8):Error
+		return __self__.value.writeByte(_delim);
 
 	@:embedded
-	public function write(_p:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
-		return __self__.value.write(_p);
+	public function write(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
+		return __self__.value.write(_b);
 
 	@:embedded
 	public function unreadRune():Error
@@ -2435,8 +2393,8 @@ class Buffer_asInterface {
 		return __self__.value.unreadByte();
 
 	@:embedded
-	public function truncate(_pid:GoInt):Void
-		__self__.value.truncate(_pid);
+	public function truncate(__0:GoInt):Void
+		__self__.value.truncate(__0);
 
 	@:embedded
 	public function string():GoString
@@ -2447,36 +2405,36 @@ class Buffer_asInterface {
 		__self__.value.reset();
 
 	@:embedded
-	public function readString(_c:GoUInt8):{var _0:GoString; var _1:Error;}
-		return __self__.value.readString(_c);
+	public function readString(_delim:GoUInt8):{var _0:GoString; var _1:Error;}
+		return __self__.value.readString(_delim);
 
 	@:embedded
 	public function readRune():{var _0:GoInt32; var _1:GoInt; var _2:Error;}
 		return __self__.value.readRune();
 
 	@:embedded
-	public function readBytes(_c:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
-		return __self__.value.readBytes(_c);
+	public function readBytes(_delim:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
+		return __self__.value.readBytes(_delim);
 
 	@:embedded
 	public function readByte():{var _0:GoUInt8; var _1:Error;}
 		return __self__.value.readByte();
 
 	@:embedded
-	public function read(_p:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
-		return __self__.value.read(_p);
+	public function read(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
+		return __self__.value.read(_b);
 
 	@:embedded
-	public function next(_pid:GoInt):Slice<GoUInt8>
-		return __self__.value.next(_pid);
+	public function next(__0:GoInt):Slice<GoUInt8>
+		return __self__.value.next(__0);
 
 	@:embedded
 	public function len():GoInt
 		return __self__.value.len();
 
 	@:embedded
-	public function grow(_pid:GoInt):Void
-		__self__.value.grow(_pid);
+	public function grow(__0:GoInt):Void
+		__self__.value.grow(__0);
 
 	@:embedded
 	public function cap():GoInt
@@ -2493,7 +2451,8 @@ class Buffer_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Buffer>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2501,16 +2460,16 @@ class Buffer_asInterface {
 
 @:keep @:allow(stdgo.io_test.Io_test.Buffer_asInterface) class Buffer_static_extension {
 	@:embedded
-	public static function _tryGrowByReslice(__self__:Buffer, _pid:GoInt):{var _0:GoInt; var _1:Bool;}
-		return __self__._tryGrowByReslice(_pid);
+	public static function _tryGrowByReslice(__self__:Buffer, __0:GoInt):{var _0:GoInt; var _1:Bool;}
+		return __self__._tryGrowByReslice(__0);
 
 	@:embedded
-	public static function _readSlice(__self__:Buffer, _c:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
-		return __self__._readSlice(_c);
+	public static function _readSlice(__self__:Buffer, _delim:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
+		return __self__._readSlice(_delim);
 
 	@:embedded
-	public static function _grow(__self__:Buffer, _pid:GoInt):GoInt
-		return __self__._grow(_pid);
+	public static function _grow(__self__:Buffer, __0:GoInt):GoInt
+		return __self__._grow(__0);
 
 	@:embedded
 	public static function _empty(__self__:Buffer):Bool
@@ -2521,16 +2480,16 @@ class Buffer_asInterface {
 		return __self__.writeString(__0);
 
 	@:embedded
-	public static function writeRune(__self__:Buffer, _new:GoInt32):{var _0:GoInt; var _1:Error;}
-		return __self__.writeRune(_new);
+	public static function writeRune(__self__:Buffer, __0:GoInt32):{var _0:GoInt; var _1:Error;}
+		return __self__.writeRune(__0);
 
 	@:embedded
-	public static function writeByte(__self__:Buffer, _c:GoUInt8):Error
-		return __self__.writeByte(_c);
+	public static function writeByte(__self__:Buffer, _delim:GoUInt8):Error
+		return __self__.writeByte(_delim);
 
 	@:embedded
-	public static function write(__self__:Buffer, _p:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
-		return __self__.write(_p);
+	public static function write(__self__:Buffer, _b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
+		return __self__.write(_b);
 
 	@:embedded
 	public static function unreadRune(__self__:Buffer):Error
@@ -2541,8 +2500,8 @@ class Buffer_asInterface {
 		return __self__.unreadByte();
 
 	@:embedded
-	public static function truncate(__self__:Buffer, _pid:GoInt)
-		__self__.truncate(_pid);
+	public static function truncate(__self__:Buffer, __0:GoInt)
+		__self__.truncate(__0);
 
 	@:embedded
 	public static function string(__self__:Buffer):GoString
@@ -2553,36 +2512,36 @@ class Buffer_asInterface {
 		__self__.reset();
 
 	@:embedded
-	public static function readString(__self__:Buffer, _c:GoUInt8):{var _0:GoString; var _1:Error;}
-		return __self__.readString(_c);
+	public static function readString(__self__:Buffer, _delim:GoUInt8):{var _0:GoString; var _1:Error;}
+		return __self__.readString(_delim);
 
 	@:embedded
 	public static function readRune(__self__:Buffer):{var _0:GoInt32; var _1:GoInt; var _2:Error;}
 		return __self__.readRune();
 
 	@:embedded
-	public static function readBytes(__self__:Buffer, _c:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
-		return __self__.readBytes(_c);
+	public static function readBytes(__self__:Buffer, _delim:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
+		return __self__.readBytes(_delim);
 
 	@:embedded
 	public static function readByte(__self__:Buffer):{var _0:GoUInt8; var _1:Error;}
 		return __self__.readByte();
 
 	@:embedded
-	public static function read(__self__:Buffer, _p:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
-		return __self__.read(_p);
+	public static function read(__self__:Buffer, _b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
+		return __self__.read(_b);
 
 	@:embedded
-	public static function next(__self__:Buffer, _pid:GoInt):Slice<GoUInt8>
-		return __self__.next(_pid);
+	public static function next(__self__:Buffer, __0:GoInt):Slice<GoUInt8>
+		return __self__.next(__0);
 
 	@:embedded
 	public static function len(__self__:Buffer):GoInt
 		return __self__.len();
 
 	@:embedded
-	public static function grow(__self__:Buffer, _pid:GoInt)
-		__self__.grow(_pid);
+	public static function grow(__self__:Buffer, __0:GoInt)
+		__self__.grow(__0);
 
 	@:embedded
 	public static function cap(__self__:Buffer):GoInt
@@ -2599,16 +2558,16 @@ private class T_writeToChecker_asInterface {
 		return __self__.value.writeTo(_w);
 
 	@:embedded
-	public function _tryGrowByReslice(_pid:GoInt):{var _0:GoInt; var _1:Bool;}
-		return __self__.value._tryGrowByReslice(_pid);
+	public function _tryGrowByReslice(__0:GoInt):{var _0:GoInt; var _1:Bool;}
+		return __self__.value._tryGrowByReslice(__0);
 
 	@:embedded
-	public function _readSlice(_c:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
-		return __self__.value._readSlice(_c);
+	public function _readSlice(_delim:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
+		return __self__.value._readSlice(_delim);
 
 	@:embedded
-	public function _grow(_pid:GoInt):GoInt
-		return __self__.value._grow(_pid);
+	public function _grow(__0:GoInt):GoInt
+		return __self__.value._grow(__0);
 
 	@:embedded
 	public function _empty():Bool
@@ -2619,16 +2578,16 @@ private class T_writeToChecker_asInterface {
 		return __self__.value.writeString(__0);
 
 	@:embedded
-	public function writeRune(_new:GoInt32):{var _0:GoInt; var _1:Error;}
-		return __self__.value.writeRune(_new);
+	public function writeRune(__0:GoInt32):{var _0:GoInt; var _1:Error;}
+		return __self__.value.writeRune(__0);
 
 	@:embedded
-	public function writeByte(_c:GoUInt8):Error
-		return __self__.value.writeByte(_c);
+	public function writeByte(_delim:GoUInt8):Error
+		return __self__.value.writeByte(_delim);
 
 	@:embedded
-	public function write(_p:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
-		return __self__.value.write(_p);
+	public function write(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
+		return __self__.value.write(_b);
 
 	@:embedded
 	public function unreadRune():Error
@@ -2639,8 +2598,8 @@ private class T_writeToChecker_asInterface {
 		return __self__.value.unreadByte();
 
 	@:embedded
-	public function truncate(_pid:GoInt):Void
-		__self__.value.truncate(_pid);
+	public function truncate(__0:GoInt):Void
+		__self__.value.truncate(__0);
 
 	@:embedded
 	public function string():GoString
@@ -2651,8 +2610,8 @@ private class T_writeToChecker_asInterface {
 		__self__.value.reset();
 
 	@:embedded
-	public function readString(_c:GoUInt8):{var _0:GoString; var _1:Error;}
-		return __self__.value.readString(_c);
+	public function readString(_delim:GoUInt8):{var _0:GoString; var _1:Error;}
+		return __self__.value.readString(_delim);
 
 	@:embedded
 	public function readRune():{var _0:GoInt32; var _1:GoInt; var _2:Error;}
@@ -2663,28 +2622,28 @@ private class T_writeToChecker_asInterface {
 		return __self__.value.readFrom(_r);
 
 	@:embedded
-	public function readBytes(_c:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
-		return __self__.value.readBytes(_c);
+	public function readBytes(_delim:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
+		return __self__.value.readBytes(_delim);
 
 	@:embedded
 	public function readByte():{var _0:GoUInt8; var _1:Error;}
 		return __self__.value.readByte();
 
 	@:embedded
-	public function read(_p:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
-		return __self__.value.read(_p);
+	public function read(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
+		return __self__.value.read(_b);
 
 	@:embedded
-	public function next(_pid:GoInt):Slice<GoUInt8>
-		return __self__.value.next(_pid);
+	public function next(__0:GoInt):Slice<GoUInt8>
+		return __self__.value.next(__0);
 
 	@:embedded
 	public function len():GoInt
 		return __self__.value.len();
 
 	@:embedded
-	public function grow(_pid:GoInt):Void
-		__self__.value.grow(_pid);
+	public function grow(__0:GoInt):Void
+		__self__.value.grow(__0);
 
 	@:embedded
 	public function cap():GoInt
@@ -2701,7 +2660,8 @@ private class T_writeToChecker_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_writeToChecker>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2715,16 +2675,16 @@ private class T_writeToChecker_asInterface {
 	}
 
 	@:embedded
-	public static function _tryGrowByReslice(__self__:T_writeToChecker, _pid:GoInt):{var _0:GoInt; var _1:Bool;}
-		return __self__._tryGrowByReslice(_pid);
+	public static function _tryGrowByReslice(__self__:T_writeToChecker, __0:GoInt):{var _0:GoInt; var _1:Bool;}
+		return __self__._tryGrowByReslice(__0);
 
 	@:embedded
-	public static function _readSlice(__self__:T_writeToChecker, _c:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
-		return __self__._readSlice(_c);
+	public static function _readSlice(__self__:T_writeToChecker, _delim:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
+		return __self__._readSlice(_delim);
 
 	@:embedded
-	public static function _grow(__self__:T_writeToChecker, _pid:GoInt):GoInt
-		return __self__._grow(_pid);
+	public static function _grow(__self__:T_writeToChecker, __0:GoInt):GoInt
+		return __self__._grow(__0);
 
 	@:embedded
 	public static function _empty(__self__:T_writeToChecker):Bool
@@ -2735,16 +2695,16 @@ private class T_writeToChecker_asInterface {
 		return __self__.writeString(__0);
 
 	@:embedded
-	public static function writeRune(__self__:T_writeToChecker, _new:GoInt32):{var _0:GoInt; var _1:Error;}
-		return __self__.writeRune(_new);
+	public static function writeRune(__self__:T_writeToChecker, __0:GoInt32):{var _0:GoInt; var _1:Error;}
+		return __self__.writeRune(__0);
 
 	@:embedded
-	public static function writeByte(__self__:T_writeToChecker, _c:GoUInt8):Error
-		return __self__.writeByte(_c);
+	public static function writeByte(__self__:T_writeToChecker, _delim:GoUInt8):Error
+		return __self__.writeByte(_delim);
 
 	@:embedded
-	public static function write(__self__:T_writeToChecker, _p:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
-		return __self__.write(_p);
+	public static function write(__self__:T_writeToChecker, _b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
+		return __self__.write(_b);
 
 	@:embedded
 	public static function unreadRune(__self__:T_writeToChecker):Error
@@ -2755,8 +2715,8 @@ private class T_writeToChecker_asInterface {
 		return __self__.unreadByte();
 
 	@:embedded
-	public static function truncate(__self__:T_writeToChecker, _pid:GoInt)
-		__self__.truncate(_pid);
+	public static function truncate(__self__:T_writeToChecker, __0:GoInt)
+		__self__.truncate(__0);
 
 	@:embedded
 	public static function string(__self__:T_writeToChecker):GoString
@@ -2767,8 +2727,8 @@ private class T_writeToChecker_asInterface {
 		__self__.reset();
 
 	@:embedded
-	public static function readString(__self__:T_writeToChecker, _c:GoUInt8):{var _0:GoString; var _1:Error;}
-		return __self__.readString(_c);
+	public static function readString(__self__:T_writeToChecker, _delim:GoUInt8):{var _0:GoString; var _1:Error;}
+		return __self__.readString(_delim);
 
 	@:embedded
 	public static function readRune(__self__:T_writeToChecker):{var _0:GoInt32; var _1:GoInt; var _2:Error;}
@@ -2779,28 +2739,28 @@ private class T_writeToChecker_asInterface {
 		return __self__.readFrom(_r);
 
 	@:embedded
-	public static function readBytes(__self__:T_writeToChecker, _c:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
-		return __self__.readBytes(_c);
+	public static function readBytes(__self__:T_writeToChecker, _delim:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
+		return __self__.readBytes(_delim);
 
 	@:embedded
 	public static function readByte(__self__:T_writeToChecker):{var _0:GoUInt8; var _1:Error;}
 		return __self__.readByte();
 
 	@:embedded
-	public static function read(__self__:T_writeToChecker, _p:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
-		return __self__.read(_p);
+	public static function read(__self__:T_writeToChecker, _b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
+		return __self__.read(_b);
 
 	@:embedded
-	public static function next(__self__:T_writeToChecker, _pid:GoInt):Slice<GoUInt8>
-		return __self__.next(_pid);
+	public static function next(__self__:T_writeToChecker, __0:GoInt):Slice<GoUInt8>
+		return __self__.next(__0);
 
 	@:embedded
 	public static function len(__self__:T_writeToChecker):GoInt
 		return __self__.len();
 
 	@:embedded
-	public static function grow(__self__:T_writeToChecker, _pid:GoInt)
-		__self__.grow(_pid);
+	public static function grow(__self__:T_writeToChecker, __0:GoInt)
+		__self__.grow(__0);
 
 	@:embedded
 	public static function cap(__self__:T_writeToChecker):GoInt
@@ -2823,7 +2783,8 @@ private class T_zeroErrReader_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_zeroErrReader>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2848,7 +2809,8 @@ private class T_errWriter_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_errWriter>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2873,7 +2835,8 @@ private class T_noReadFrom_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_noReadFrom>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2899,7 +2862,8 @@ private class T_wantedAndErrReader_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_wantedAndErrReader>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2918,16 +2882,16 @@ private class T_dataAndErrorBuffer_asInterface {
 		return __self__.value.read(_p);
 
 	@:embedded
-	public function _tryGrowByReslice(_pid:GoInt):{var _0:GoInt; var _1:Bool;}
-		return __self__.value._tryGrowByReslice(_pid);
+	public function _tryGrowByReslice(__0:GoInt):{var _0:GoInt; var _1:Bool;}
+		return __self__.value._tryGrowByReslice(__0);
 
 	@:embedded
-	public function _readSlice(_c:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
-		return __self__.value._readSlice(_c);
+	public function _readSlice(_delim:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
+		return __self__.value._readSlice(_delim);
 
 	@:embedded
-	public function _grow(_pid:GoInt):GoInt
-		return __self__.value._grow(_pid);
+	public function _grow(__0:GoInt):GoInt
+		return __self__.value._grow(__0);
 
 	@:embedded
 	public function _empty():Bool
@@ -2942,16 +2906,16 @@ private class T_dataAndErrorBuffer_asInterface {
 		return __self__.value.writeString(__0);
 
 	@:embedded
-	public function writeRune(_new:GoInt32):{var _0:GoInt; var _1:Error;}
-		return __self__.value.writeRune(_new);
+	public function writeRune(__0:GoInt32):{var _0:GoInt; var _1:Error;}
+		return __self__.value.writeRune(__0);
 
 	@:embedded
-	public function writeByte(_c:GoUInt8):Error
-		return __self__.value.writeByte(_c);
+	public function writeByte(_delim:GoUInt8):Error
+		return __self__.value.writeByte(_delim);
 
 	@:embedded
-	public function write(_p:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
-		return __self__.value.write(_p);
+	public function write(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
+		return __self__.value.write(_b);
 
 	@:embedded
 	public function unreadRune():Error
@@ -2962,8 +2926,8 @@ private class T_dataAndErrorBuffer_asInterface {
 		return __self__.value.unreadByte();
 
 	@:embedded
-	public function truncate(_pid:GoInt):Void
-		__self__.value.truncate(_pid);
+	public function truncate(__0:GoInt):Void
+		__self__.value.truncate(__0);
 
 	@:embedded
 	public function string():GoString
@@ -2974,8 +2938,8 @@ private class T_dataAndErrorBuffer_asInterface {
 		__self__.value.reset();
 
 	@:embedded
-	public function readString(_c:GoUInt8):{var _0:GoString; var _1:Error;}
-		return __self__.value.readString(_c);
+	public function readString(_delim:GoUInt8):{var _0:GoString; var _1:Error;}
+		return __self__.value.readString(_delim);
 
 	@:embedded
 	public function readRune():{var _0:GoInt32; var _1:GoInt; var _2:Error;}
@@ -2986,24 +2950,24 @@ private class T_dataAndErrorBuffer_asInterface {
 		return __self__.value.readFrom(_r);
 
 	@:embedded
-	public function readBytes(_c:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
-		return __self__.value.readBytes(_c);
+	public function readBytes(_delim:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
+		return __self__.value.readBytes(_delim);
 
 	@:embedded
 	public function readByte():{var _0:GoUInt8; var _1:Error;}
 		return __self__.value.readByte();
 
 	@:embedded
-	public function next(_pid:GoInt):Slice<GoUInt8>
-		return __self__.value.next(_pid);
+	public function next(__0:GoInt):Slice<GoUInt8>
+		return __self__.value.next(__0);
 
 	@:embedded
 	public function len():GoInt
 		return __self__.value.len();
 
 	@:embedded
-	public function grow(_pid:GoInt):Void
-		__self__.value.grow(_pid);
+	public function grow(__0:GoInt):Void
+		__self__.value.grow(__0);
 
 	@:embedded
 	public function cap():GoInt
@@ -3020,7 +2984,8 @@ private class T_dataAndErrorBuffer_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_dataAndErrorBuffer>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -3042,16 +3007,16 @@ private class T_dataAndErrorBuffer_asInterface {
 	}
 
 	@:embedded
-	public static function _tryGrowByReslice(__self__:T_dataAndErrorBuffer, _pid:GoInt):{var _0:GoInt; var _1:Bool;}
-		return __self__._tryGrowByReslice(_pid);
+	public static function _tryGrowByReslice(__self__:T_dataAndErrorBuffer, __0:GoInt):{var _0:GoInt; var _1:Bool;}
+		return __self__._tryGrowByReslice(__0);
 
 	@:embedded
-	public static function _readSlice(__self__:T_dataAndErrorBuffer, _c:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
-		return __self__._readSlice(_c);
+	public static function _readSlice(__self__:T_dataAndErrorBuffer, _delim:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
+		return __self__._readSlice(_delim);
 
 	@:embedded
-	public static function _grow(__self__:T_dataAndErrorBuffer, _pid:GoInt):GoInt
-		return __self__._grow(_pid);
+	public static function _grow(__self__:T_dataAndErrorBuffer, __0:GoInt):GoInt
+		return __self__._grow(__0);
 
 	@:embedded
 	public static function _empty(__self__:T_dataAndErrorBuffer):Bool
@@ -3066,16 +3031,16 @@ private class T_dataAndErrorBuffer_asInterface {
 		return __self__.writeString(__0);
 
 	@:embedded
-	public static function writeRune(__self__:T_dataAndErrorBuffer, _new:GoInt32):{var _0:GoInt; var _1:Error;}
-		return __self__.writeRune(_new);
+	public static function writeRune(__self__:T_dataAndErrorBuffer, __0:GoInt32):{var _0:GoInt; var _1:Error;}
+		return __self__.writeRune(__0);
 
 	@:embedded
-	public static function writeByte(__self__:T_dataAndErrorBuffer, _c:GoUInt8):Error
-		return __self__.writeByte(_c);
+	public static function writeByte(__self__:T_dataAndErrorBuffer, _delim:GoUInt8):Error
+		return __self__.writeByte(_delim);
 
 	@:embedded
-	public static function write(__self__:T_dataAndErrorBuffer, _p:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
-		return __self__.write(_p);
+	public static function write(__self__:T_dataAndErrorBuffer, _b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
+		return __self__.write(_b);
 
 	@:embedded
 	public static function unreadRune(__self__:T_dataAndErrorBuffer):Error
@@ -3086,8 +3051,8 @@ private class T_dataAndErrorBuffer_asInterface {
 		return __self__.unreadByte();
 
 	@:embedded
-	public static function truncate(__self__:T_dataAndErrorBuffer, _pid:GoInt)
-		__self__.truncate(_pid);
+	public static function truncate(__self__:T_dataAndErrorBuffer, __0:GoInt)
+		__self__.truncate(__0);
 
 	@:embedded
 	public static function string(__self__:T_dataAndErrorBuffer):GoString
@@ -3098,8 +3063,8 @@ private class T_dataAndErrorBuffer_asInterface {
 		__self__.reset();
 
 	@:embedded
-	public static function readString(__self__:T_dataAndErrorBuffer, _c:GoUInt8):{var _0:GoString; var _1:Error;}
-		return __self__.readString(_c);
+	public static function readString(__self__:T_dataAndErrorBuffer, _delim:GoUInt8):{var _0:GoString; var _1:Error;}
+		return __self__.readString(_delim);
 
 	@:embedded
 	public static function readRune(__self__:T_dataAndErrorBuffer):{var _0:GoInt32; var _1:GoInt; var _2:Error;}
@@ -3110,24 +3075,24 @@ private class T_dataAndErrorBuffer_asInterface {
 		return __self__.readFrom(_r);
 
 	@:embedded
-	public static function readBytes(__self__:T_dataAndErrorBuffer, _c:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
-		return __self__.readBytes(_c);
+	public static function readBytes(__self__:T_dataAndErrorBuffer, _delim:GoUInt8):{var _0:Slice<GoUInt8>; var _1:Error;}
+		return __self__.readBytes(_delim);
 
 	@:embedded
 	public static function readByte(__self__:T_dataAndErrorBuffer):{var _0:GoUInt8; var _1:Error;}
 		return __self__.readByte();
 
 	@:embedded
-	public static function next(__self__:T_dataAndErrorBuffer, _pid:GoInt):Slice<GoUInt8>
-		return __self__.next(_pid);
+	public static function next(__self__:T_dataAndErrorBuffer, __0:GoInt):Slice<GoUInt8>
+		return __self__.next(__0);
 
 	@:embedded
 	public static function len(__self__:T_dataAndErrorBuffer):GoInt
 		return __self__.len();
 
 	@:embedded
-	public static function grow(__self__:T_dataAndErrorBuffer, _pid:GoInt)
-		__self__.grow(_pid);
+	public static function grow(__self__:T_dataAndErrorBuffer, __0:GoInt)
+		__self__.grow(__0);
 
 	@:embedded
 	public static function cap(__self__:T_dataAndErrorBuffer):GoInt
@@ -3150,7 +3115,8 @@ private class T_largeWriter_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_largeWriter>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -3179,7 +3145,8 @@ private class T_writeStringChecker_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_writeStringChecker>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -3212,7 +3179,8 @@ private class T_pipeTest_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_pipeTest>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -3238,7 +3206,8 @@ private class T_writerFunc_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_writerFunc>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -3263,7 +3232,8 @@ private class T_readerFunc_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_readerFunc>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -3288,7 +3258,8 @@ private class T_byteAndEOFReader_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_byteAndEOFReader>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -3308,8 +3279,8 @@ private class T_byteAndEOFReader_asInterface {
 
 private class T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0_asInterface {
 	@:embedded
-	public function write(_p:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
-		return __self__.value.write(_p);
+	public function write(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
+		return __self__.value.write(_b);
 
 	public function new(__self__, __type__) {
 		this.__self__ = __self__;
@@ -3318,7 +3289,8 @@ private class T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0_asInterfac
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -3326,8 +3298,8 @@ private class T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0_asInterfac
 
 @:keep @:allow(stdgo.io_test.Io_test.T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0_asInterface) class T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0_static_extension {
 	@:embedded
-	public static function write(__self__:T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0, _p:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
-		return __self__.write(_p);
+	public static function write(__self__:T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0, _b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
+		return __self__.write(_b);
 }
 
 private class T_testError1_testPipeCloseError_0_asInterface {
@@ -3342,7 +3314,8 @@ private class T_testError1_testPipeCloseError_0_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_testError1_testPipeCloseError_0>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -3366,7 +3339,8 @@ private class T_testError2_testPipeCloseError_1_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_testError2_testPipeCloseError_1>;
 	var __type__:stdgo.reflect.Reflect.Type;

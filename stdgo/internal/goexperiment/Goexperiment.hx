@@ -138,9 +138,6 @@ final unifiedInt:GoUInt64 = (0 : GoUInt64);
 			this.heapMinimum512KiB = heapMinimum512KiB;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new Flags(fieldTrack, preemptibleLoops, staticLockRanking, boringCrypto, unified, regabiWrappers, regabiArgs, heapMinimum512KiB);
 	}

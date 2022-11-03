@@ -31,9 +31,6 @@ private var _deBruijn64tab:GoArray<GoUInt8> = (new GoArray<GoUInt8>((0 : GoUInt8
 	(40 : GoUInt8), (15 : GoUInt8), (34 : GoUInt8), (20 : GoUInt8), (31 : GoUInt8), (10 : GoUInt8), (25 : GoUInt8), (14 : GoUInt8), (19 : GoUInt8),
 	(9 : GoUInt8), (13 : GoUInt8), (8 : GoUInt8), (7 : GoUInt8), (6 : GoUInt8)) : GoArray<GoUInt8>);
 
-private var _overflowError:Error = Go.asInterface((Go.str("integer overflow") : T_errorString));
-private var _divideError:Error = Go.asInterface((Go.str("integer divide by zero") : T_errorString));
-
 /**
 	// 32 or 64
 **/
@@ -73,6 +70,16 @@ private final _m3:GoUInt64 = ("71777214294589695" : GoUInt64);
 
 private final _m4:GoUInt64 = ("281470681808895" : GoUInt64);
 
+/**
+	//go:linkname overflowError runtime.overflowError
+**/
+private var _overflowError:Error = @:privateAccess stdgo.Error._overflowError;
+
+/**
+	//go:linkname divideError runtime.divideError
+**/
+private var _divideError:Error = @:privateAccess stdgo.Error._divideError;
+
 private final _ntz8tab:GoString = Go.str("\x08", 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 5, 0, 1, 0, 2,
 	0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 6, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 4, 0, 1, 0, 2, 0, 1, 0,
 	3, 0, 1, 0, 2, 0, 1, 0, 5, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, "\x07", 0, 1, 0, 2, 0, 1, 0, 3, 0,
@@ -102,7 +109,6 @@ private final _len8tab:GoString = Go.str(0, 1, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 
 	"\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08");
 
 final deBruijn64:GoUInt64 = ("285870213051353865" : GoUInt64);
-@:named @:using(stdgo.math.bits.Bits.T_errorString_static_extension) private typedef T_errorString = GoString;
 
 /**
 	// LeadingZeros returns the number of leading zero bits in x; the result is UintSize for x == 0.
@@ -812,36 +818,4 @@ function rem64(_hi:GoUInt64, _lo:GoUInt64, _y:GoUInt64):GoUInt64 {
 		_0:GoUInt64 = __tmp__._0,
 		_rem:GoUInt64 = __tmp__._1;
 	return _rem;
-}
-
-private class T_errorString_asInterface {
-	@:keep
-	public function error():GoString
-		return __self__.value.error();
-
-	@:keep
-	public function runtimeError():Void
-		__self__.value.runtimeError();
-
-	public function new(__self__, __type__) {
-		this.__self__ = __self__;
-		this.__type__ = __type__;
-	}
-
-	public function __underlying__()
-		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
-
-	var __self__:Pointer<T_errorString>;
-	var __type__:stdgo.reflect.Reflect.Type;
-}
-
-@:keep @:allow(stdgo.math.bits.Bits.T_errorString_asInterface) class T_errorString_static_extension {
-	@:keep
-	static public function error(_e:T_errorString):GoString {
-		return Go.str("runtime error: ") + (_e : GoString);
-	}
-
-	@:keep
-	static public function runtimeError(_e:T_errorString):Void {}
 }

@@ -227,9 +227,6 @@ private var _inPropTest:Slice<stdgo.unicode_test.Unicode_test.T> = (new Slice<st
 			this._out = _out;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_caseT(_cas, _in, _out);
 	}
@@ -245,9 +242,6 @@ private var _inPropTest:Slice<stdgo.unicode_test.Unicode_test.T> = (new Slice<st
 		if (_script != null)
 			this._script = _script;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T(_rune, _script);
@@ -801,8 +795,8 @@ function _fakeTable(_n:GoInt):Slice<Range16> {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < _n, _i++, {
-			_r16 = (_r16.__append__((new Range16(((_i * (5 : GoInt)) + (10 : GoInt) : GoUInt16), ((_i * (5 : GoInt)) + (12 : GoInt) : GoUInt16),
-				(1 : GoUInt16)) : Range16)));
+			_r16 = _r16.__appendref__((new Range16(((_i * (5 : GoInt)) + (10 : GoInt) : GoUInt16), ((_i * (5 : GoInt)) + (12 : GoInt) : GoUInt16),
+				(1 : GoUInt16)) : Range16));
 		});
 	};
 	return _r16;
@@ -925,9 +919,8 @@ function testNegativeRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testCategories(_t:Ref<stdgo.testing.Testing.T>):Void {
-	var _notTested = (new GoObjectMap<GoString,
-		Bool>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind),
-			stdgo.reflect.Reflect.GoType.basic(bool_kind)))) : GoMap<GoString, Bool>);
+	var _notTested = (new GoObjectMap<GoString, Bool>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType({get: () ->
+		stdgo.reflect.Reflect.GoType.basic(string_kind)}, {get: () -> stdgo.reflect.Reflect.GoType.basic(bool_kind)}))) : GoMap<GoString, Bool>);
 	for (_k => _ in categories) {
 		_notTested[_k] = true;
 	};
@@ -953,9 +946,8 @@ function testCategories(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testProperties(_t:Ref<stdgo.testing.Testing.T>):Void {
-	var _notTested = (new GoObjectMap<GoString,
-		Bool>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind),
-			stdgo.reflect.Reflect.GoType.basic(bool_kind)))) : GoMap<GoString, Bool>);
+	var _notTested = (new GoObjectMap<GoString, Bool>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType({get: () ->
+		stdgo.reflect.Reflect.GoType.basic(string_kind)}, {get: () -> stdgo.reflect.Reflect.GoType.basic(bool_kind)}))) : GoMap<GoString, Bool>);
 	for (_k => _ in properties) {
 		_notTested[_k] = true;
 	};

@@ -1642,9 +1642,6 @@ typedef Conn = StructType & {
 			this._seeked = _seeked;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_jsFile(_path, _entries, _dirIdx, _pos, _seeked);
 	}
@@ -1660,9 +1657,6 @@ typedef Conn = StructType & {
 		if (addr != null)
 			this.addr = addr;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new SockaddrInet4(port, addr);
@@ -1683,9 +1677,6 @@ typedef Conn = StructType & {
 			this.addr = addr;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new SockaddrInet6(port, zoneId, addr);
 	}
@@ -1698,9 +1689,6 @@ typedef Conn = StructType & {
 		if (name != null)
 			this.name = name;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new SockaddrUnix(name);
@@ -1717,9 +1705,6 @@ typedef Conn = StructType & {
 		if (name != null)
 			this.name = name;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Dirent(reclen, name);
@@ -1780,9 +1765,6 @@ typedef Conn = StructType & {
 			this.ctimeNsec = ctimeNsec;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new Stat_t(dev, ino, mode, nlink, uid, gid, rdev, size, blksize, blocks, atime, atimeNsec, mtime, mtimeNsec, ctime, ctimeNsec);
 	}
@@ -1801,9 +1783,6 @@ typedef Conn = StructType & {
 		if (stime != null)
 			this.stime = stime;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Rusage(utime, stime);
@@ -1830,9 +1809,6 @@ typedef Conn = StructType & {
 			this.sys = sys;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new ProcAttr(dir, env, files, sys);
 	}
@@ -1840,9 +1816,6 @@ typedef Conn = StructType & {
 
 @:structInit class SysProcAttr {
 	public function new() {}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new SysProcAttr();
@@ -1854,9 +1827,6 @@ typedef Conn = StructType & {
 **/
 @:structInit class Iovec {
 	public function new() {}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Iovec();
@@ -1874,9 +1844,6 @@ typedef Conn = StructType & {
 			this.nsec = nsec;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new Timespec(sec, nsec);
 	}
@@ -1892,9 +1859,6 @@ typedef Conn = StructType & {
 		if (usec != null)
 			this.usec = usec;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Timeval(sec, usec);
@@ -2351,7 +2315,8 @@ class Timespec_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Timespec>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2395,7 +2360,8 @@ class Timeval_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Timeval>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2441,7 +2407,8 @@ class Errno_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Errno>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2481,7 +2448,8 @@ class Signal_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<Signal>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -2541,7 +2509,8 @@ class WaitStatus_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<WaitStatus>;
 	var __type__:stdgo.reflect.Reflect.Type;

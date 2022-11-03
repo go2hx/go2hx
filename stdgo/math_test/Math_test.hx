@@ -1238,9 +1238,6 @@ var globalF:GoFloat64 = (0 : GoFloat64);
 			this._i = _i;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_fi(_f, _i);
 	}
@@ -1259,9 +1256,6 @@ var globalF:GoFloat64 = (0 : GoFloat64);
 		if (_str != null)
 			this._str = _str;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_floatTest(_val, _name, _str);
@@ -3255,9 +3249,9 @@ function testTrigReduce(_t:Ref<stdgo.testing.Testing.T>):Void {
 	Go.copySlice(_inputs, _vf);
 	var _large:GoFloat64 = (314159.26535897935 : GoFloat64);
 	for (_0 => _v in _vf) {
-		_inputs = (_inputs.__append__(_v + _large));
+		_inputs = _inputs.__appendref__(_v + _large);
 	};
-	_inputs = (_inputs.__append__((3.141592653589793 : GoFloat64), nextafter((5.36870912e+08 : GoFloat64), (0 : GoFloat64))));
+	_inputs = _inputs.__appendref__((3.141592653589793 : GoFloat64), nextafter((5.36870912e+08 : GoFloat64), (0 : GoFloat64)));
 	for (_1 => _x in _inputs) {
 		var __tmp__ = trigReduce(_x),
 			_j:GoUInt64 = __tmp__._0,

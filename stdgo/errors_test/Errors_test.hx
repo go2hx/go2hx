@@ -30,9 +30,6 @@ private typedef T__interface_3 = StructType & {
 			this.what = what;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new MyError(when, what);
 	}
@@ -49,9 +46,6 @@ private typedef T__interface_3 = StructType & {
 			this._f = _f;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_poser(_msg, _f);
 	}
@@ -64,9 +58,6 @@ private typedef T__interface_3 = StructType & {
 		if (_s != null)
 			this._s = _s;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_errorT(_s);
@@ -84,9 +75,6 @@ private typedef T__interface_3 = StructType & {
 			this._err = _err;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	public function __copy__() {
 		return new T_wrapped(_msg, _err);
 	}
@@ -99,9 +87,6 @@ private typedef T__interface_3 = StructType & {
 		if (_f != null)
 			this._f = _f;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_errorUncomparable(_f);
@@ -456,7 +441,8 @@ class MyError_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<MyError>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -489,7 +475,8 @@ private class T_poser_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_poser>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -543,7 +530,8 @@ private class T_errorT_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_errorT>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -572,7 +560,8 @@ private class T_wrapped_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_wrapped>;
 	var __type__:stdgo.reflect.Reflect.Type;
@@ -606,7 +595,8 @@ private class T_errorUncomparable_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? __self__.value : __self__, __type__);
+			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
 	var __self__:Pointer<T_errorUncomparable>;
 	var __type__:stdgo.reflect.Reflect.Type;

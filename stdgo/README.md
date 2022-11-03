@@ -148,6 +148,12 @@
 
   - [`function toVector():haxe.ds.Vector<stdgo.SliceData.T>`](<#slicedata-function-tovector>)
 
+- [class T\_errorString\_static\_extension](<#class-t_errorstring_static_extension>)
+
+  - [`function error(_e:stdgo._Error.T_errorString):stdgo.GoString`](<#t_errorstring_static_extension-function-error>)
+
+  - [`function runtimeError(_e:stdgo._Error.T_errorString):Void`](<#t_errorstring_static_extension-function-runtimeerror>)
+
 - [class Unknown](<#class-unknown>)
 
 - [class VectorData](<#class-vectordata>)
@@ -181,8 +187,6 @@
 - [typedef MapAccess](<#typedef-mapaccess>)
 
 - [typedef Ref](<#typedef-ref>)
-
-- [typedef RuntimeError](<#typedef-runtimeerror>)
 
 - [typedef StructType](<#typedef-structtype>)
 
@@ -575,7 +579,7 @@ function hasNext():Bool
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L1924>)
+[\(view code\)](<./StdGoTypes.hx#L1920>)
 
 
 ### GoIntIterator function new
@@ -589,7 +593,7 @@ function new(min:stdgo.GoInt, max:stdgo.GoInt):Void
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L1919>)
+[\(view code\)](<./StdGoTypes.hx#L1915>)
 
 
 ### GoIntIterator function next
@@ -603,7 +607,7 @@ function next():stdgo.GoInt
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L1928>)
+[\(view code\)](<./StdGoTypes.hx#L1924>)
 
 
 ## class GoObjectMap
@@ -987,7 +991,7 @@ function get(index:Int):stdgo.SliceData.T
  
 
 
-[\(view code\)](<./Slice.hx#L219>)
+[\(view code\)](<./Slice.hx#L242>)
 
 
 ### SliceData function grow
@@ -1001,7 +1005,7 @@ function grow():Void
  
 
 
-[\(view code\)](<./Slice.hx#L258>)
+[\(view code\)](<./Slice.hx#L281>)
 
 
 ### SliceData function iterator
@@ -1015,7 +1019,7 @@ function iterator():stdgo._Slice.SliceIterator<stdgo.SliceData.T>
  
 
 
-[\(view code\)](<./Slice.hx#L232>)
+[\(view code\)](<./Slice.hx#L255>)
 
 
 ### SliceData function keyValueIterator
@@ -1029,7 +1033,7 @@ function keyValueIterator():stdgo._Slice.SliceKeyValueIterator<stdgo.SliceData.T
  
 
 
-[\(view code\)](<./Slice.hx#L235>)
+[\(view code\)](<./Slice.hx#L258>)
 
 
 ### SliceData function new
@@ -1043,7 +1047,7 @@ function new(length:Int, capacity:Int, args:haxe.Rest<stdgo.SliceData.T>):Void
  
 
 
-[\(view code\)](<./Slice.hx#L196>)
+[\(view code\)](<./Slice.hx#L219>)
 
 
 ### SliceData function set
@@ -1057,7 +1061,7 @@ function set(index:Int, value:stdgo.SliceData.T):stdgo.SliceData.T
  
 
 
-[\(view code\)](<./Slice.hx#L225>)
+[\(view code\)](<./Slice.hx#L248>)
 
 
 ### SliceData function toArray
@@ -1071,7 +1075,7 @@ function toArray():Array<stdgo.SliceData.T>
  
 
 
-[\(view code\)](<./Slice.hx#L237>)
+[\(view code\)](<./Slice.hx#L260>)
 
 
 ### SliceData function toString
@@ -1085,7 +1089,7 @@ function toString():String
  
 
 
-[\(view code\)](<./Slice.hx#L250>)
+[\(view code\)](<./Slice.hx#L273>)
 
 
 ### SliceData function toVector
@@ -1099,7 +1103,41 @@ function toVector():haxe.ds.Vector<stdgo.SliceData.T>
  
 
 
-[\(view code\)](<./Slice.hx#L241>)
+[\(view code\)](<./Slice.hx#L264>)
+
+
+## class T\_errorString\_static\_extension
+
+
+ 
+
+
+### T\_errorString\_static\_extension function error
+
+
+```haxe
+function error(_e:stdgo._Error.T_errorString):stdgo.GoString
+```
+
+
+ 
+
+
+[\(view code\)](<./Error.hx#L53>)
+
+
+### T\_errorString\_static\_extension function runtimeError
+
+
+```haxe
+function runtimeError(_e:stdgo._Error.T_errorString):Void
+```
+
+
+ 
+
+
+[\(view code\)](<./Error.hx#L58>)
 
 
 ## class Unknown
@@ -1308,17 +1346,6 @@ typedef MapAccess = var a:{<get> | (k:stdgo.MapAccess.K, v:stdgo.MapAccess.V):Vo
 
 ```haxe
 typedef Ref = var c:{<>}
-```
-
-
- 
-
-
-## typedef RuntimeError
-
-
-```haxe
-typedef RuntimeError = var a:{<__underlying__> | ():Void | ():stdgo.GoString | ():stdgo.AnyInterface}
 ```
 
 

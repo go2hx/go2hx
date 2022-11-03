@@ -8,7 +8,7 @@
 | [stdgo.bytes](./bytes/README.md) | ❌ | yes |  |  |  |  |
 | [stdgo.encoding](./encoding/README.md) | ❌ | no |  |  |  |  |
 | [stdgo.encoding.base64](./encoding/base64/README.md) | ❌ | yes |  |  |  |  |
-| [stdgo.errors](./errors/README.md) | ✅ | yes |  | ❌ | ❌ | ❌ |
+| [stdgo.errors](./errors/README.md) | ✅ | yes |  | ✅ | ✅ | ❌ |
 | [stdgo.flag](./flag/README.md) | ❌ | yes |  |  |  |  |
 | [stdgo.fmt](./fmt/README.md) | ✅ | no |  |  |  |  |
 | [stdgo.internal](./internal/README.md) | ❌ | no |  |  |  |  |

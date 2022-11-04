@@ -2,7 +2,7 @@ import haxe.DynamicAccess;
 import haxe.io.Path;
 import haxe.macro.Expr;
 import shared.Util;
-import stdgo.reflect.Reflect;
+import stdgo.internal.reflect.Reflect;
 import sys.io.File;
 
 var stdgoList:Array<String> = stdgoList = haxe.Json.parse(File.getContent("./stdgo.json"));
@@ -426,22 +426,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 						{name: ":allow", pos: null, params: [toExpr(EConst(CIdent(fieldWrapper.join("."))))]}
 					],
 				};
-				var isWrapperPointer = false;
-				// FIXME: wrapperType needs to be pointer sometimes
-				final wrapper = macro class $wrapperName {
-					public function new(__self__, __type__) {
-						this.__self__ = __self__;
-						this.__type__ = __type__;
-					}
-
-					public function __underlying__()
-						return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-							&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
-							__type__);
-
-					var __self__:$ct;
-					var __type__:stdgo.reflect.Reflect.Type;
-				};
+				final wrapper = createWrapper(wrapperName, ct);
 				wrapper.isExtern = def.isExtern;
 				wrapper.params = def.params;
 				file.defs.push(wrapper);
@@ -455,7 +440,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 				def.meta.push({name: ":using", params: [macro $p{fieldExtension}], pos: null});
 				file.defs.push(staticExtension);
 				var embedded = false;
-				for (field in def.fields) {
+				for (field in def.fields) { // embedded
 					if (field.meta != null) {
 						embedded = false;
 						for (meta in field.meta) {
@@ -491,7 +476,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 									}
 									addLocalMethod(fieldName, field.pos, field.meta, field.doc, field.access, fun, staticExtension, wrapper,
 										true, def.params != null
-										&& def.params.length > 0, false);
+										&& def.params.length > 0);
 									fun.args = fun.args.slice(1);
 									fun.expr = expr;
 								default:
@@ -499,26 +484,9 @@ function main(data:DataType, instance:Main.InstanceData) {
 						}
 					}
 				}
-				var isWrapperPointer = false;
 				final funcs = [
 					for (decl in local) {
 						var func = typeFunction(decl.func, info, restrictedNames, isNamed, decl.sel);
-						switch func.kind {
-							case TDField(kind, access):
-								switch kind {
-									case FFun(fun):
-										if (fun.args.length > 0) {
-											for (meta in fun.args[0].meta) {
-												if (meta.name == ":pointer") {
-													isWrapperPointer = true;
-													break;
-												}
-											}
-										}
-									default:
-								}
-							default:
-						}
 						func;
 					}
 				];
@@ -536,7 +504,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 									if (Patch.funcInline.indexOf(patchName) != -1 && access.indexOf(AInline) == -1)
 										access.push(AInline);
 									addLocalMethod(func.name, func.pos, func.meta, func.doc, access, fun, staticExtension, wrapper,
-										true, def.params != null && def.params.length > 0, isWrapperPointer);
+										true, def.params != null && def.params.length > 0);
 								default:
 							}
 						default:
@@ -554,10 +522,27 @@ function main(data:DataType, instance:Main.InstanceData) {
 	return list;
 }
 
+private function createWrapper(wrapperName:String, ct:ComplexType) {
+	return macro class $wrapperName {
+		public function new(__self__, __type__) {
+			this.__self__ = __self__;
+			this.__type__ = __type__;
+		}
+
+		public function __underlying__()
+			return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+				&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+				__type__);
+
+		var __self__:$ct;
+		var __type__:stdgo.internal.reflect.Reflect._Type;
+	};
+}
+
 private function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Array<Access>, fun:Function, staticExtension:TypeDefinition,
-		wrapper:TypeDefinition, embedded:Bool, hasParams:Bool, isWrapperPointer:Bool) {
+		wrapper:TypeDefinition, embedded:Bool, hasParams:Bool) {
 	var isPointerArg = false;
-	if (fun.args.length > 0) {
+	if (fun.args.length > 0 && meta != null) {
 		for (meta in fun.args[0].meta) {
 			if (meta.name == ":pointer") {
 				fun.args[0].meta.remove(meta);
@@ -599,7 +584,7 @@ private function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Arr
 	final staticField:Field = {
 		name: funcName,
 		pos: pos,
-		meta: meta.copy(),
+		meta: meta == null ? null : meta.copy(),
 		doc: doc,
 		access: staticFieldAccess,
 		kind: FFun({
@@ -632,7 +617,7 @@ private function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Arr
 	final field:Field = {
 		name: funcName,
 		access: [APublic],
-		meta: meta.copy(),
+		meta: meta == null ? null : meta.copy(),
 		pos: pos,
 		doc: doc,
 		kind: hasParams ? FVar(TFunction(fieldArgs.map(arg -> arg.type), fieldRet)) : FFun({
@@ -860,7 +845,7 @@ private function typeGoStmt(stmt:Ast.GoStmt, info:Info):ExprDef {
 private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, isFunc:Bool):ExprDef {
 	if (stmt.list == null) {
 		if (isFunc && info.returnTypes.length > 0)
-			return (macro throw "not implemeneted").expr;
+			return (macro throw "not implemented").expr;
 		return (macro {}).expr;
 	}
 	return typeStmtList(stmt.list, info, isFunc);
@@ -1161,7 +1146,7 @@ private function translateStruct(e:Expr, fromType:GoType, toType:GoType, info:In
 	}
 }
 
-private function createNamedObjectDecl(fields:Array<stdgo.reflect.Reflect.FieldType>, f:(field:String, type:GoType) -> Expr, info:Info):Expr {
+private function createNamedObjectDecl(fields:Array<FieldType>, f:(field:String, type:GoType) -> Expr, info:Info):Expr {
 	final objectFields:Array<ObjectField> = [];
 	for (i in 0...fields.length) {
 		final field = fields[i].name;
@@ -2564,6 +2549,23 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 	return ret(EReturn(expr));
 }
 
+function resultsToReturnValue(results:Array<GoType>, info:Info):Expr {
+	if (results.length == 0)
+		return macro return;
+	if (results.length == 1)
+		return macro return ${defaultValue(results[0], info)};
+	// multireturn
+	final expr = toExpr(EObjectDecl([
+		for (i in 0...results.length) {
+			{
+				field: "_" + i,
+				expr: defaultValue(results[i], info),
+			};
+		}
+	]));
+	return expr;
+}
+
 private function typeExprType(expr:Dynamic, info:Info):ComplexType { // get the type of an expr
 
 	if (expr == null)
@@ -3879,7 +3881,7 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 	}
 }
 
-private function getReturn(results:Array<GoType>, info:Info) {
+private function getReturn(results:Array<GoType>, info:Info):ComplexType {
 	if (results.length == 0) {
 		return TPath({name: "Void", pack: []});
 	} else if (results.length == 1) {
@@ -6077,7 +6079,10 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 			var meta:Metadata = [{name: ":structInit", pos: null}];
 			for (method in spec.methods) { // covers both embedded interfaces and structures
 				// embedded methods
-				final name = fields[method.index[0]].name;
+				final field = fields[method.index[0]];
+				if (field == null)
+					continue;
+				final name = field.name;
 				info.renameIdents[name] = name;
 				info.restricted = [];
 				final type = typeof(method.type, info, false);
@@ -6231,6 +6236,66 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 			for (method in struct.methods.list) {
 				if (method.names.length == 0) {
 					implicits.push(getTypePath(typeExprType(method.type, info)));
+				}
+			}
+			// Interface -> Struct creation
+			final interfaceToStructBool = false;
+			if (interfaceToStructBool) {
+				final ct:ComplexType = TPath({
+					name: "Pointer",
+					pack: [],
+					params: [
+						TPType(TPath({
+							name: "_" + name,
+							pack: [],
+							params: [],
+						}))
+					]
+				});
+				final staticExtensionName = "_" + name + "_static_extension";
+				final wrapperName = "_" + name + "_asInterface";
+				final fieldWrapper = [info.global.filePath, wrapperName];
+				final globalPath = getGlobalPath(info);
+				if (globalPath != "")
+					fieldWrapper.unshift(globalPath);
+				if (stdgoList.indexOf(toGoPath(globalPath)) != -1) { // haxe only type, otherwise the go code refrences Haxe
+					fieldWrapper.unshift("stdgo");
+				}
+				final staticExtension:TypeDefinition = {
+					name: staticExtensionName,
+					pos: null,
+					pack: [],
+					kind: TDClass(),
+					fields: [],
+					isExtern: true,
+					meta: [
+						{name: ":keep", pos: null},
+						{name: ":allow", pos: null, params: [toExpr(EConst(CIdent(fieldWrapper.join("."))))]}
+					],
+				};
+				final wrapper = createWrapper(wrapperName, ct);
+				info.data.defs.push(wrapper);
+				info.data.defs.push(staticExtension);
+				for (i in 0...fields.length) {
+					final field = fields[i];
+					switch field.kind {
+						case FFun(f):
+							// f.args.unshift({})
+							f.expr = macro {}; // fill in because it's an interface method
+							if (!isVoid(f.ret)) {
+								final t = typeof(struct.methods.list[i].type, info, false, []);
+								switch t {
+									case signature(_, _, _.get() => results, _, _):
+										f.expr = macro throw "not implemented";
+									default:
+								}
+							}
+							f.args.unshift({name: "t", type: TPath({name: "_" + name, pack: []})});
+							addLocalMethod(field.name, field.pos, field.meta, null, [], f, staticExtension, wrapper, false, false);
+							f.expr = null;
+							f.args.shift();
+						default:
+					}
 				}
 			}
 			final params = getParams(spec.params, info, true);

@@ -82,11 +82,11 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		return this == null ? 0 : this.capacity;
 	}
 
-	@:op([]) public function __get__(index:GoInt):T {
+	@:op([]) public inline function __get__(index:GoInt):T {
 		return this.get(index.toBasic());
 	}
 
-	@:op([]) public function __set__(index:GoInt, value:T):T {
+	@:op([]) public inline function __set__(index:GoInt, value:T):T {
 		return this.set(index.toBasic(), value);
 	}
 
@@ -183,11 +183,11 @@ private class SliceKeyValueIterator<T> {
 		this.slice = slice.__ref__();
 	}
 
-	public function hasNext() {
+	public inline function hasNext() {
 		return pos < slice.length;
 	}
 
-	public function next() {
+	public inline function next() {
 		return {key: (pos : GoInt), value: slice.__get__(pos++)};
 	}
 }
@@ -200,11 +200,11 @@ private class SliceIterator<T> {
 		this.slice = slice.__ref__();
 	}
 
-	public function hasNext() {
+	public inline function hasNext() {
 		return pos < slice.length;
 	}
 
-	public function next() {
+	public inline function next() {
 		return slice.__get__(pos++);
 	}
 }
@@ -239,16 +239,14 @@ class SliceData<T> {
 		#end
 	}
 
-	public function get(index:Int):T {
+	public inline function get(index:Int):T {
 		boundsCheck(index);
-		final i = index + offset;
-		return vector.get(i);
+		return vector.get(index + offset);
 	}
 
-	public function set(index:Int, value:T):T {
+	public inline function set(index:Int, value:T):T {
 		boundsCheck(index);
-		final i = index + offset;
-		return vector.set(i, value);
+		return vector.set(index + offset, value);
 	}
 
 	public function iterator()

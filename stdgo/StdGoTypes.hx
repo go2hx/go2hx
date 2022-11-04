@@ -25,7 +25,7 @@ package stdgo;
 import haxe.Int32;
 import haxe.Int64;
 import stdgo.Pointer.PointerData;
-import stdgo.reflect.Reflect;
+import stdgo.internal.reflect.Reflect;
 
 using stdgo.StdGoTypes.UInt64;
 
@@ -1750,7 +1750,7 @@ typedef StructType = {
 @:structInit
 class AnyInterfaceData {
 	public var value:Any;
-	public var type:stdgo.reflect.Reflect.Type;
+	public var type:stdgo.internal.reflect.Reflect._Type;
 
 	public function new(value, type) {
 		this.value = value;
@@ -1774,12 +1774,12 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 	@:op(A == B) public static function equals(a:AnyInterface, b:AnyInterface):Bool {
 		if (a == null || b == null) // null check
 			return a == null && b == null;
-		var gt:GoType = @:privateAccess a.type.common().value;
-		var gt2:GoType = @:privateAccess b.type.common().value;
+		var gt:GoType = @:privateAccess (a.type : Dynamic)._common();
+		var gt2:GoType = @:privateAccess (b.type : Dynamic)._common();
 
 		if (gt.match(invalidType) || gt2.match(invalidType))
 			return gt.match(invalidType) && gt2.match(invalidType);
-		if (!a.type.assignableTo(b.type)) {
+		if (!a.type.assignableTo(Go.asInterface(b.type))) {
 			trace(gt);
 			trace(gt2);
 			throw "invalid operation: (mismatched types " + a.type + " and " + b.type + ")";
@@ -1816,8 +1816,8 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 			default:
 		}
 
-		gt = stdgo.reflect.Reflect.getUnderlying(gt);
-		gt2 = stdgo.reflect.Reflect.getUnderlying(gt2);
+		gt = stdgo.internal.reflect.Reflect.getUnderlying(gt);
+		gt2 = stdgo.internal.reflect.Reflect.getUnderlying(gt2);
 		// trace(gt, gt2);
 		return switch gt {
 			case refType(_):
@@ -1862,7 +1862,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 						throw "struct issue with field name: " + name;
 					}
 
-					final type:Dynamic = @:privateAccess new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.unroll(gt, type));
+					final type:Dynamic = null; // TOD: use new constructor //@:privateAccess new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.unroll(gt, type));
 					final a = new AnyInterface(fieldValue, type);
 					final b = new AnyInterface(fieldValue2, type);
 					if (AnyInterface.notEquals(a, b))
@@ -1871,14 +1871,14 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 				true;
 
 			case invalidType:
-				switch @:privateAccess b.type.common().value {
+				switch @:privateAccess ((b.type : Dynamic)._common() : stdgo.internal.reflect.Reflect.GoType) {
 					case invalidType: true;
 					default: false;
 				}
 			case sliceType(_.get() => elem):
 				var a:Slice<Any> = aValue;
 				var b:Slice<Any> = bValue;
-				var t:Dynamic = new stdgo.reflect.Reflect._Type(elem);
+				var t:Dynamic = null; // TODO: use new constructor //new stdgo.reflect.Reflect._Type(elem);
 				if (a.length != b.length)
 					return false;
 				for (i in 0...a.length.toBasic()) {
@@ -1886,11 +1886,12 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 						return false;
 				}
 				true;
-			case interfaceType(_, _): final t:stdgo.reflect.Reflect.Type = new stdgo.reflect.Reflect._Type(gt); final t2:stdgo.reflect.Reflect.Type = new stdgo.reflect.Reflect._Type(gt2); t.assignableTo(t2) && aValue == bValue;
+			case interfaceType(_,
+				_): false; // TODO: use new constructor //final t:stdgo.reflect.Reflect.Type = new stdgo.reflect.Reflect._Type(gt); final t2:stdgo.reflect.Reflect.Type = new stdgo.reflect.Reflect._Type(gt2); t.assignableTo(t2) && aValue == bValue;
 			case arrayType(_.get() => elem, _):
 				var a:GoArray<Any> = aValue;
 				var b:GoArray<Any> = bValue;
-				var t:Dynamic = new stdgo.reflect.Reflect._Type(elem);
+				var t:Dynamic = null; // TODO: use new constructor // new stdgo.reflect.Reflect._Type(elem);
 				for (i in 0...a.length.toBasic()) {
 					if (AnyInterface.notEquals(new AnyInterface(a[i], t), new AnyInterface(b[i], t)))
 						return false;

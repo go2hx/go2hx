@@ -5,7 +5,7 @@ import haxe.Constraints;
 import haxe.Rest;
 import haxe.ds.*;
 import stdgo.StdGoTypes;
-import stdgo.reflect.Reflect.Type;
+import stdgo.internal.reflect.Reflect._Type;
 
 @:transitive
 @:multiType(@:followWithAbstracts K)
@@ -66,9 +66,9 @@ class GoObjectMap<K, V> implements haxe.Constraints.IMap<K, V> {
 	var _keys:Array<K> = [];
 	var _values:Array<V> = [];
 
-	public var t:Type = null;
+	public var t:_Type = null;
 
-	public function new(t:Type) {
+	public function new(t:_Type) {
 		this.t = t;
 	}
 
@@ -86,23 +86,25 @@ class GoObjectMap<K, V> implements haxe.Constraints.IMap<K, V> {
 		if (bool) {
 			final x:AnyInterface = (key : Any);
 			final y:AnyInterface = (objKey : Any);
-			if (!x.type.assignableTo(y.type))
+
+			if (!x.type.assignableTo(Go.asInterface(y.type)))
 				return false;
 			return x == y;
 		}
-		return switch (t.common().value : stdgo.reflect.Reflect.GoType) {
+		return switch ((t : Dynamic)._common() : stdgo.internal.reflect.Reflect.GoType) {
 			case mapType(_.get() => var keyType, _):
-				final t:Type = new stdgo.reflect.Reflect._Type(keyType);
+				final t:_Type = new stdgo.internal.reflect.Reflect._Type(keyType);
 				new AnyInterface(key, t) == new AnyInterface(objKey, t);
 			default:
-				throw "unknown type map equals: " + t.common().value;
+				throw "unknown type map equals: " + (t : Dynamic)._common();
 		}
 	}
 
 	public function defaultValue():V {
-		return switch @:privateAccess (t.common().value : stdgo.reflect.Reflect.GoType) {
-			case mapType(_, _.get() => value): stdgo.reflect.Reflect.defaultValue(new stdgo.reflect.Reflect._Type(value));
-			default: @:privateAccess throw "unknown default map type: " + (t.common().value : stdgo.reflect.Reflect.GoType);
+		return switch @:privateAccess ((t : Dynamic)._common() : stdgo.internal.reflect.Reflect.GoType) {
+			case mapType(_,
+				_.get() => value): null; // TODO: use new constructor // stdgo.internal.reflect.Reflect.defaultValue(new stdgo.reflect.Reflect._Type(value));
+			default: @:privateAccess throw "unknown default map type: " + (t : Dynamic)._common();
 		}
 	}
 

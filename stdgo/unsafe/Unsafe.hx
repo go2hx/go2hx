@@ -2,7 +2,7 @@ package stdgo.unsafe;
 
 import stdgo.Pointer;
 import stdgo.StdGoTypes;
-import stdgo.reflect.Reflect.GoType;
+import stdgo.internal.reflect.Reflect.GoType;
 
 @:follow typedef Pointer_ = UnsafePointer;
 
@@ -12,7 +12,7 @@ abstract UnsafePointer(AnyInterface) from AnyInterface {
 	}
 
 	public function __convert__(toType:GoType):Any {
-		var fromType:GoType = this.type.common().value;
+		var fromType:GoType = (this.type : Dynamic)._common();
 		var f = null;
 		f = t -> switch t {
 			case refType(elem):

@@ -16,7 +16,7 @@ function main() {
 	for (data in list) {
 		libs.push(data.split("-")[0]);
 	}
-	// libs = ["os/exec"];
+	// libs = ["reflect", "io"];
 	trace(libs);
 	libCount = libs.length;
 	Main.setup(0, 1); // amount of processes to spawn
@@ -44,6 +44,7 @@ var args:Array<String> = [];
 var hxml = "";
 var externBool = false;
 var exportBool = false;
+var varTraceBool = false;
 
 function update() {
 	#if !js
@@ -54,6 +55,8 @@ function update() {
 		exportBool = exports.indexOf(lib) != -1;
 		hxml = "stdgo/" + sanatize(lib);
 		args = [lib, '--nocomments', '--out', 'stdgo', '--root', 'stdgo', '--norun'];
+		if (varTraceBool)
+			args.push("--vartrace");
 		if (externBool)
 			args.push("--extern");
 		if (exportBool)
@@ -83,14 +86,16 @@ private function sanatize(s:String):String {
 final noMain = [
 	"testing/internal/testdeps",
 	"runtime",
+	"runtime/debug",
 	"internal/oserror",
 	"encoding",
-	"internal/testenv"
+	"internal/testenv",
+	"reflect",
 ];
 
 final externs = [
 	"syscall/js", "syscall", "os", "os/exec", "context", "testing", "testing/quick", "testing/iotest", "testing/fstest", "testing/internal/testdeps",
-	"regexp/syntax", "regexp", "runtime",
+	"regexp/syntax", "regexp", "runtime", "runtime/debug", "reflect",
 ];
 
-final exports = ["runtime"];
+final exports = ["runtime", "runtime/debug", "reflect"];

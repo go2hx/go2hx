@@ -24,11 +24,14 @@
     "strconv",
     "errors",
     "runtime",
+    "runtime/debug",
     "log",
     "encoding/base64",
     "internal/oserror",
     "encoding",
     "bufio",
     "regexp",
-    "regexp/syntax"
+    "regexp/syntax",
+    "encoding/binary",
+    "reflect"
 ]

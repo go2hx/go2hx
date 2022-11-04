@@ -236,8 +236,16 @@ final list = [
 	"math_bits_test:testLeadingZeros" => macro {},
 	"math_bits_test:testOnesCount" => macro {},
 	"math_bits_test:testLen" => macro {},
+	// stdgo/strings_test
+	"strings_test:_makeBenchInputHard" => macro return "",
 	// stdgo/runtime
 	"runtime:gomaxprocs" => macro return 1,
+	// stdgo/reflect
+	"reflect:typeOf" => macro {
+		if (_i == null)
+			return Go.asInterface(new stdgo.internal.reflect.Reflect._Type(basic(unsafepointer_kind)));
+		return Go.asInterface(_i.type);
+	}
 ];
 
 final skipTargets = [

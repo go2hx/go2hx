@@ -1,1525 +1,367 @@
 package stdgo.reflect;
 
-import haxe.EnumTools;
-import stdgo.GoArray.GoArray;
-import stdgo.GoMap.GoMap;
-import stdgo.GoString.GoString;
-import stdgo.Pointer.PointerData;
-import stdgo.Slice.Slice;
+import stdgo.Chan;
+import stdgo.Error;
+import stdgo.Go;
+import stdgo.GoArray;
+import stdgo.GoMap;
+import stdgo.GoString;
+import stdgo.Pointer;
+import stdgo.Slice;
 import stdgo.StdGoTypes;
 
-typedef Ref<T> = {
-	function get():T;
-}
-
-enum GoType {
-	typeParam(name:String, params:Array<GoType>);
-	invalidType;
-	signature(variadic:Bool, params:Ref<Array<GoType>>, results:Ref<Array<GoType>>, recv:Ref<GoType>, ?typeParams:Ref<Array<GoType>>);
-	basic(kind:BasicKind);
-	_var(name:String, type:GoType);
-	tuple(len:Int, vars:Array<GoType>);
-	interfaceType(empty:Bool, methods:Array<MethodType>);
-	sliceType(elem:Ref<GoType>);
-	named(path:String, methods:Array<MethodType>, type:GoType, ?alias:Bool, ?params:Array<GoType>);
-	previouslyNamed(path:String);
-	structType(fields:Array<FieldType>);
-	pointer(elem:GoType);
-	arrayType(elem:Ref<GoType>, len:Int);
-	mapType(key:Ref<GoType>, value:Ref<GoType>);
-	chanType(dir:Int, elem:Ref<GoType>);
-	refType(elem:GoType);
-}
-
-@:structInit
-class MethodType {
-	public var name:String;
-	public var type:Ref<GoType>;
-	public var recv:Ref<GoType>;
-
-	public function new(name, type, recv) {
-		this.name = name;
-		this.type = type;
-		this.recv = recv;
-	}
-
-	function string():GoString
-		return name;
-
-	public function toString()
-		return '$name: $type';
-}
-
-@:structInit
-class FieldType {
-	public var name:String;
-	public var type:GoType;
-	public var tag:String;
-	public var embedded:Bool;
-
-	public function new(name, type, tag, embedded) {
-		this.name = name;
-		this.type = type;
-		this.tag = tag;
-		this.embedded = embedded;
-	}
-}
-
-enum BasicKind {
-	invalid_kind;
-	bool_kind;
-	int_kind;
-	int8_kind;
-	int16_kind;
-	int32_kind;
-	int64_kind;
-	uint_kind;
-	uint8_kind;
-	uint16_kind;
-	uint32_kind;
-	uint64_kind;
-	uintptr_kind;
-	float32_kind;
-	float64_kind;
-	complex64_kind;
-	complex128_kind;
-	string_kind;
-	unsafepointer_kind;
-
-	untyped_bool_kind;
-	untyped_int_kind;
-	untyped_rune_kind;
-	untyped_float_kind;
-	untyped_complex_kind;
-	untyped_string_kind;
-	untyped_nil_kind;
-	// aliases
-	// byte = uint8
-	// rune = int32
-}
-
-function isAnyInterface(type:GoType):Bool {
-	if (type == null)
-		return false;
-	return switch type {
-		case named(_, _, elem):
-			isAnyInterface(elem);
-		case interfaceType(empty, _):
-			empty;
-		default:
-			false;
-	}
-}
-
-function isInterface(type:GoType):Bool {
-	if (type == null)
-		return false;
-	return switch type {
-		case refType(elem):
-			isInterface(elem);
-		case named(_, _, elem):
-			isInterface(elem);
-		case interfaceType(_):
-			true;
-		default:
-			false;
-	}
-}
-
-function isSignature(type:GoType, underlyingBool:Bool = true):Bool {
-	if (type == null)
-		return false;
-	return switch type {
-		case signature(_, _, _):
-			true;
-		case named(_, _, underlying):
-			if (underlyingBool) {
-				isSignature(underlying, underlyingBool);
-			} else {
-				false;
-			}
-		default:
-			false;
-	}
-}
-
-// named doesn't count for interfaces
-function isNamed(type:GoType):Bool {
-	if (type == null)
-		return false;
-	return switch type {
-		case refType(underlying):
-			isNamed(underlying);
-		case named(_, _, underlying):
-			switch underlying {
-				case structType(_): true;
-				case interfaceType(_, _): false;
-				case named(_, _, underlying): isNamed(underlying);
-				default:
-					true;
-			}
-		default: false;
-	}
-}
-
-function isTitle(string:String):Bool {
-	return string.charAt(0) == "_" ? false : string.charAt(0) == string.charAt(0).toUpperCase();
-}
-
-function isStruct(type:GoType):Bool {
-	if (type == null)
-		return false;
-	return switch type {
-		case refType(type):
-			isStruct(type);
-		case named(_, _, underlying):
-			isStruct(underlying);
-		case structType(_):
-			true;
-		default: false;
-	}
-}
-
-function isPointerStruct(type:GoType):Bool {
-	if (type == null)
-		return false;
-	return switch type {
-		case pointer(elem): isStruct(elem);
-		default: false;
-	}
-}
-
-function isInvalid(type:GoType):Bool {
-	if (type == null)
-		return true;
-	return switch type {
-		case invalidType:
-			true;
-		case basic(kind):
-			switch kind {
-				case invalid_kind:
-					true;
-				default:
-					false;
-			}
-		case named(_, _, underlying):
-			isInvalid(underlying);
-		default:
-			false;
-	}
-}
-
-function getElem(type:GoType):GoType {
-	if (type == null)
-		return type;
-	return switch type {
-		case named(_, _, type):
-			type;
-		case _var(_, type):
-			getElem(type);
-		case arrayType(_.get() => elem, _), sliceType(_.get() => elem), pointer(elem), refType(elem):
-			elem;
-		default:
-			type;
-	}
-}
-
-function getVar(type:GoType):GoType {
-	if (type == null)
-		return type;
-	return switch type {
-		case _var(_, type):
-			type;
-		default:
-			type;
-	}
-}
-
-function getSignature(type:GoType):GoType {
-	if (type == null)
-		return type;
-	return switch type {
-		case signature(_, _, _):
-			type;
-		case named(_, _, underlying):
-			getSignature(underlying);
-		default:
-			null;
-	}
-}
-
-function isUnsafePointer(type:GoType):Bool {
-	if (type == null)
-		return false;
-	return switch type {
-		case named(_, _, elem):
-			isUnsafePointer(elem);
-		case basic(kind):
-			switch kind {
-				case unsafepointer_kind: true;
-				default: false;
-			}
-		default:
-			false;
-	}
-}
-
-function isPointer(type:GoType):Bool {
-	if (type == null)
-		return false;
-	return switch type {
-		case _var(_, elem):
-			isPointer(elem);
-		case named(_, _, elem):
-			isPointer(elem);
-		case pointer(_):
-			true;
-		case refType(_):
-			false;
-		default:
-			false;
-	}
-}
-
-function isRef(type:GoType):Bool {
-	return switch type {
-		case refType(_):
-			true;
-		default:
-			false;
-	}
-}
-
-function isReflectTypeRef(type:Type):Bool {
-	return isRef(type.common().value);
-}
-
-function isRefValue(type:GoType):Bool {
-	return switch type {
-		case named(_, _, t, _):
-			isRefValue(t);
-		case basic(_): // , pointer(_):
-			false;
-		default:
-			true;
-	}
-}
-
-function pointerUnwrap(type:GoType):GoType {
-	if (type == null)
-		return type;
-	return switch type {
-		case pointer(elem):
-			pointerUnwrap(elem);
-		default:
-			type;
-	}
-}
-
-@:structInit
-class Value {
-	@:local
-	var value:AnyInterface;
-	@:local
-	var underlyingValue:Dynamic;
-	var underlyingIndex:GoInt = -1;
-	@:local
-	var underlyingKey:Dynamic = null;
-	var canAddrBool:Bool = false;
-	var notSetBool:Bool = false;
-
-	public function __underlying__():AnyInterface
-		return null;
-
-	public function new(value:AnyInterface = null, underlyingValue:Dynamic = null, underlyingIndex:GoInt = -1, underlyingKey:Dynamic = null) {
-		this.underlyingValue = underlyingValue;
-		this.underlyingIndex = underlyingIndex;
-		this.underlyingKey = underlyingKey;
-		if (value == null)
-			value = new AnyInterface(null, new _Type(invalidType));
-		this.value = value;
-	}
-
-	function setSet(_bool:Bool = true) {
-		notSetBool = _bool;
-		return this;
-	}
-
-	public function canSet():Bool {
-		if (!canAddr())
-			return false;
-		if (notSetBool)
-			return false;
-		return true;
-	}
-
-	private function setAddr(_bool:Bool = true) {
-		canAddrBool = _bool;
-		return this;
-	}
-
-	public function canAddr():Bool {
-		return canAddrBool;
-	}
-
-	public function cap():GoInt {
-		var value = value.value;
-		if (isNamed(@:privateAccess type().common().value))
-			value = (value : Dynamic);
-		if (value == null)
-			return 0;
-		switch kind().toBasic() {
-			case _array:
-				return (value : GoArray<Any>).capacity;
-			case _slice:
-				return (value : Slice<Any>).capacity;
-			case _chan:
-				return (value : Chan<Any>).capacity;
-			default:
-				throw "not a cap type";
-		}
-	}
-
-	public function set(x:Value) {
-		var value = x.value.value;
-		final gt = @:privateAccess x.type().common().value;
-		if (value != null) {
-			final cl = std.Type.getClassName(std.Type.getClass(value));
-			if (StringTools.endsWith(cl, "_asInterface")) {
-				value = (value : Dynamic).__underlying__().value;
-			}
-		}
-		final k:Int = kind().toBasic();
-		switch k {
-			case _struct:
-				switch getUnderlying(gt) {
-					case structType(fields):
-						for (field in fields) {
-							final fieldValue = Reflect.field(value, field.name);
-							Reflect.setField(this.value.value, field.name, fieldValue);
-						}
-					default:
-				}
-			case _int8:
-				setInt((value : GoInt8));
-			case _int16:
-				setInt((value : GoInt16));
-			case _int32:
-				setInt((value : GoInt32));
-			case _int64:
-				setInt((value : GoInt64));
-			case _int:
-				setInt((value : GoInt));
-			case _uint:
-				setInt((value : GoUInt8));
-			case _uint16:
-				setInt((value : GoUInt16));
-			case _uint32:
-				setInt((value : GoUInt32));
-			case _uint64:
-				setInt((value : GoUInt64));
-			case _float32:
-				setFloat((value : GoFloat32));
-			case _float64:
-				setFloat((value : GoFloat64));
-			default:
-				this.value = x.value;
-				_set();
-		}
-	}
-
-	private function _set() {
-		if (underlyingValue != null) {
-			if (underlyingIndex == -1) {
-				if (underlyingKey != null) {
-					underlyingValue.set(underlyingKey, value.value);
-				} else {
-					underlyingValue.set(value.value); // set pointer
-				}
-			} else {
-				// set array or slice
-				underlyingValue.set(underlyingIndex, value.value);
-			}
-		}
-	}
-
-	public function setInt(x:GoInt64) {
-		final k:Int = kind().toBasic();
-		value.value = switch k {
-			case _int8: (x : GoInt8);
-			case _int16: (x : GoInt16);
-			case _int32: (x : GoInt32);
-			case _int64: (x : GoInt64);
-			case _int: (x : GoInt);
-			case _uint: (x : GoUInt);
-			case _uint8: (x : GoUInt8);
-			case _uint16: (x : GoUInt16);
-			case _uint32: (x : GoUInt32);
-			case _uint64: (x : GoUInt64);
-			case _float32: (x : GoFloat32);
-			case _float64: (x : GoFloat64);
-			default: x;
-		}
-		_set();
-	}
-
-	public function setString(x:GoString) {
-		value.value = x;
-		_set();
-	}
-
-	public function setUint(x:GoUInt64) {
-		final k:Int = kind().toBasic();
-		value.value = switch k {
-			case _int8: (x : GoInt8);
-			case _int16: (x : GoInt16);
-			case _int32: (x : GoInt32);
-			case _int64: (x : GoInt64);
-			case _int: (x : GoInt);
-			case _uint: (x : GoUInt);
-			case _uint8: (x : GoUInt8);
-			case _uint16: (x : GoUInt16);
-			case _uint32: (x : GoUInt32);
-			case _uint64: (x : GoUInt64);
-			case _float32: (x : GoFloat32);
-			case _float64: (x : GoFloat64);
-			default: x;
-		}
-		_set();
-	}
-
-	public function setComplex(x:GoComplex128) {
-		switch kind() {
-			case _complex64, _complex128:
-				value.value = x;
-			default:
-				throw "not a complex kind: " + kind().string();
-		}
-		_set();
-	}
-
-	public function setFloat(x:GoFloat64) {
-		value.value = x;
-		_set();
-	}
-
-	public function setBytes(x:Slice<GoByte>) {
-		value.value = x;
-		_set();
-	}
-
-	public function setBool(x:Bool) {
-		value.value = x;
-		_set();
-	}
-
-	public function canInterface():Bool {
-		return true; // TODO
-	}
-
-	public function __copy__() {
-		return new Value(value, underlyingValue, underlyingIndex);
-	}
-
-	static function findUnderlying(t:Type):Type {
-		switch (@:privateAccess t.common().value) {
-			case named(_, _, elem), pointer(elem):
-				return findUnderlying(new _Type(elem));
-			default:
-				return t;
-		}
-	}
-
-	public inline function type()
-		return value.type;
-
-	public inline function kind()
-		return value.type.kind();
-
-	public inline function interface_(val:Dynamic = null):AnyInterface
-		return value;
-
-	public inline function isNil():Bool {
-		var value = value.value;
-		final k:Int = kind().toBasic();
-		final gt:GoType = this.type().common().value;
-		return switch k {
-			case _ptr:
-				switch gt {
-					case GoType.refType(_):
-						false;
-					default:
-						if (value == null) {
-							true;
-						} else {
-							(value : Pointer<Dynamic>).hasSet();
-						}
-				}
-			case _func:
-				value == null;
-			case _map, _slice, _chan:
-				value == null;
-			case _interface:
-				value == null;
-			case _array:
-				false;
-			case _struct:
-				false;
-			default:
-				throw "nil check not supported kind: " + kind().string();
-		}
-	}
-
-	public inline function isValid() {
-		return @:privateAccess value.type.common().value != invalidType;
-	}
-
-	public function bool_():Bool {
-		var value = value.value;
-		if (isNamed(@:privateAccess type().common().value))
-			value = (value : Dynamic).__t__;
-		final underlyingType = new _Type(getUnderlying(@:privateAccess type().common().value));
-		switch underlyingType.gt {
-			case basic(kind):
-				switch kind {
-					case bool_kind:
-						return value;
-					default:
-						throw new ValueError("Bool", underlyingType.kind());
-				}
-			default:
-				throw new ValueError("Bool", underlyingType.kind());
-		}
-	}
-
-	public function int():GoInt64 {
-		var value = value.value;
-		if (isNamed(@:privateAccess type().common().value))
-			value = (value : Dynamic);
-		final k:Int = kind().toBasic();
-		return switch k {
-			case _int8: (value : GoInt8);
-			case _int16: (value : GoInt16);
-			case _int32: (value : GoInt32);
-			case _int64: (value : GoInt64);
-			case _int: (value : GoInt);
-			case _uint: (value : GoUInt);
-			case _uint8: (value : GoUInt8);
-			case _uint16: (value : GoUInt16);
-			case _uint32: (value : GoUInt32);
-			case _uint64: (value : GoUInt64);
-			case _float32: (value : GoFloat32);
-			case _float64: (value : GoFloat64);
-			case _uintptr: (value : GoUIntptr);
-			default: value;
-		}
-	}
-
-	public function uint():GoUInt64 {
-		var value = value.value;
-		if (isNamed(@:privateAccess type().common().value))
-			value = (value : Dynamic);
-		final k:Int = kind().toBasic();
-		var value:GoUInt64 = switch k {
-			case _int8: (value : GoInt8);
-			case _int16: (value : GoInt16);
-			case _int32: (value : GoInt32);
-			case _int64: (value : GoInt64);
-			case _int: (value : GoInt);
-			case _uint: (value : GoUInt);
-			case _uint8: (value : GoUInt8);
-			case _uint16: (value : GoUInt16);
-			case _uint32: (value : GoUInt32);
-			case _uint64: (value : GoUInt64);
-			case _float32: (value : GoFloat32);
-			case _float64: (value : GoFloat64);
-			case _uintptr: (value : GoUIntptr);
-			default: value;
-		}
-		return value;
-	}
-
-	public function float():GoFloat64 {
-		var value = value.value;
-		if (isNamed(@:privateAccess type().common().value))
-			value = (value : Dynamic);
-		final k:Int = kind().toBasic();
-		return switch k {
-			case _int8: (value : GoInt8);
-			case _int16: (value : GoInt16);
-			case _int32: (value : GoInt32);
-			case _int64: (value : GoInt64);
-			case _int: (value : GoInt);
-			case _uint: (value : GoUInt);
-			case _uint8: (value : GoUInt8);
-			case _uint16: (value : GoUInt16);
-			case _uint32: (value : GoUInt32);
-			case _uint64: (value : GoUInt64);
-			case _float32: (value : GoFloat32);
-			case _float64: (value : GoFloat64);
-			case _uintptr: (value : GoUIntptr);
-			default: value;
-		}
-	}
-
-	public function complex():GoComplex128 {
-		var value = value.value;
-		if (isNamed(@:privateAccess type().common().value))
-			value = (value : Dynamic).__t__;
-		final underlyingType = new _Type(getUnderlying(@:privateAccess type().common().value));
-		switch (underlyingType.gt) {
-			case basic(kind):
-				switch kind {
-					case complex64_kind, complex128_kind:
-						return value;
-					default:
-						throw new ValueError("Complex", underlyingType.kind());
-				}
-			default:
-				throw new ValueError("Complex", underlyingType.kind());
-		}
-	}
-
-	public function string():GoString {
-		var value = value.value;
-		final t = @:privateAccess type().common().value;
-		final underlyingType = new _Type(getUnderlying(t));
-		switch (underlyingType.gt) {
-			case basic(kind):
-				switch kind {
-					case string_kind:
-						return value;
-					default:
-				}
-			default:
-		}
-		return "<" + type().string() + ">";
-	}
-
-	public function index(i:GoInt):Value {
-		var value = value.value;
-		final gt = getUnderlying(@:privateAccess type().common().value);
-		return switch gt {
-			case arrayType(_.get() => elem, _): @:privateAccess new Value(new AnyInterface((value : GoArray<Dynamic>)[i], new _Type(unroll(gt, elem))));
-			case sliceType(_.get() => elem): @:privateAccess new Value(new AnyInterface((value : Slice<Dynamic>)[i], new _Type(unroll(gt, elem))), value,
-					i).setAddr();
-			/*case string:
-				var value = value;
-				if ((value is String))
-					value = new GoString(value);
-				new Value(new AnyInterface((value : GoString).get(i),new _Type(basic(uint8_kind)))); */
-			case basic(kind):
-				switch kind {
-					case string_kind:
-						var value = value;
-						if ((value is String))
-							value = new GoString(value);
-						new Value(new AnyInterface((value : GoString)[i], new _Type(basic(uint8_kind))));
-					default:
-						throw "unsupported basic kind";
-				}
-			default: throw "not supported";
-		}
-	}
-
-	public function numField():GoInt {
-		var type:GoType = @:privateAccess type().common().value;
-		type = getUnderlying(type);
-		switch type {
-			case structType(fields):
-				return fields.length;
-			default:
-		}
-		throw "unsupported";
-	}
-
-	public function field(i:GoInt):Value {
-		// struct is never a named type internally
-		final gt:GoType = @:privateAccess getUnderlying(type().common().value);
-		switch gt {
-			case structType(fields):
-				var field = fields[i.toBasic()];
-				var fieldValue = std.Reflect.field(value.value, field.name);
-				var valueType = new Value(new AnyInterface(fieldValue, value.type.field(i).type));
-				if (field.name.charAt(0) == "_")
-					valueType.setSet(false);
-				return valueType;
-			default:
-		}
-		throw "unsupported: " + gt;
-	}
-
-	public function pointer():GoUIntptr {
-		var value = value.value;
-		if (isNamed(@:privateAccess type().common().value))
-			value = (value : Dynamic);
-		return value != null ? 1 : 0;
-	}
-
-	public function mapIndex(key:Value):Value {
-		var value = value.value;
-		return switch @:privateAccess type().common().value {
-			case mapType(_, _.get() => mapValue):
-				new Value(new AnyInterface((value : GoMap<Dynamic, Dynamic>)[key.value], new _Type(mapValue)));
-			default:
-				throw "not a map";
-		}
-	}
-
-	public function mapKeys():Slice<Value> {
-		var value = value.value;
-		var val:GoMap<Dynamic, Dynamic> = value;
-		var gt:GoType = @:privateAccess type().common().value;
-		switch gt {
-			case mapType(_.get() => key, _.get() => valueType):
-				var slice = new Slice<Value>(0, 0, ...[
-					for (obj in val) {
-						new Value(new AnyInterface(obj.key, new _Type(valueType)));
-					}
-				]);
-				return slice;
-			default:
-				throw "map index incorrect type: " + gt;
-		}
-	}
-
-	public function elem():Value {
-		var value = value.value;
-		var k = kind();
-		final t = @:privateAccess type().common().value;
-		switch k {
-			case ptr:
-				switch getUnderlying(t) {
-					case GoType.refType(elem):
-						return new Value(new AnyInterface(value, new _Type(elem)), null).setAddr();
-					case GoType.pointer(elem):
-						if (value == null) {
-							final value = new Value(new AnyInterface(null, new _Type(elem)), null).setAddr();
-							return value;
-						}
-						return new Value(new AnyInterface((value : Pointer<Dynamic>).value, new _Type(elem)), value).setAddr();
-					default:
-				}
-			case interface_:
-				var value = this.__copy__().setAddr();
-				return value;
-		}
-		throw new ValueError("reflect.Value.Elem", k);
-	}
-
-	public function len():GoInt {
-		var value = value.value;
-		final t = @:privateAccess type().common().value;
-		if (isNamed(t))
-			value = (value : Dynamic);
-		final k:Int = kind().toBasic();
-		return switch k {
-			case _array:
-				(value : GoArray<Dynamic>).length;
-			case _chan:
-				(value : Chan<Dynamic>).length;
-			case _slice:
-				(value : Slice<Dynamic>).length;
-			case _map:
-				(value : GoMap<Dynamic, Dynamic>).length;
-			case _string: // string_:
-				(value : Dynamic).length;
-			default:
-				throw "not supported";
-		}
-	}
-}
-
-class ValueError {
-	var method:GoString;
-	var kind:Kind;
-
-	public function __underlying__():AnyInterface
-		return null;
-
-	public function new(m:GoString, k:Kind) {
-		method = m;
-		kind = k;
-	}
-
-	public function __copy__()
-		return new ValueError(method, kind);
-
-	public function string():GoString {
-		return this.error();
-	}
-
-	public function error():GoString {
-		if (this.kind == invalid) {
-			return "reflect: call of " + this.method + " on zero Value";
-		}
-		return "reflect: call of " + this.method + " on " + this.kind.string() + " Value";
-	}
-}
-
-private function unroll(parent:GoType, child:GoType):GoType {
-	var parentName = "";
-	var parentType:GoType = null;
-	switch parent {
-		case named(path, _, _):
-			parentName = path;
-		default:
-			return child;
-	}
-	return switch child {
-		case previouslyNamed(childName):
-			childName == parentName ? parent : child;
-		case pointer(elem):
-			pointer(unroll(parent, elem));
-		case mapType(_.get() => key, _.get() => value):
-			mapType({get: () -> unroll(parent, key)}, {get: () -> unroll(parent, value)});
-		case basic(_):
-			child;
-		case interfaceType(_): child;
-		case named(path, methods, type):
-			named(path, methods, unroll(parent, type));
-		case structType(fields):
-			structType([
-				for (field in fields)
-					{
-						name: field.name,
-						type: unroll(parent, field.type),
-						tag: field.tag,
-						embedded: field.embedded,
-					}
-			]);
-		case sliceType(_.get() => elem):
-			sliceType({get: () -> unroll(parent, elem)});
-		default:
-			throw "unsupported unroll gt type: " + child;
-	}
-}
-
-function typeOf(iface:AnyInterface):Type {
-	if (iface == null)
-		return new _Type(basic(unsafepointer_kind));
-	return iface.type;
-}
-
-function appendSlice(dst:Value, src:Value):Value {
-	return @:privateAccess new Value(new AnyInterface((dst.value.value : Slice<Dynamic>).__append__(...(src.value.value : Slice<Dynamic>).__toArray__()),
-		dst.type()));
-}
-
-function ptrTo(t:Type):Type {
-	return new _Type(pointer(@:privateAccess t.common().value));
-}
-
-function sliceOf(t:Type):Type {
-	return new _Type(sliceType(@:privateAccess t.common().value));
-}
-
-function zero(typ:Type):Value {
-	return new Value(new AnyInterface(defaultValue(typ), typ), typ);
-}
-
-function new_(typ:Type):Value {
-	var value = defaultValue(typ);
-	var ptr = new PointerData(() -> value, (x) -> value = x);
-	return new Value(new AnyInterface(ptr, new _Type(pointer(@:privateAccess typ.common().value))));
-}
-
-function defaultValue(typ:Type):Any {
-	final t:GoType = @:privateAccess typ.common().value;
-	return switch t {
-		case basic(kind):
-			switch kind {
-				case string_kind: ("" : GoString);
-				case bool_kind: false;
-				case int64_kind: (0 : GoInt64);
-				case uint64_kind: (0 : GoUInt64);
-				case uint_kind: (0 : GoUInt);
-				case uint32_kind: (0 : GoUInt32);
-				case complex64_kind: (0 : GoComplex64);
-				case complex128_kind: (0 : GoComplex128);
-				default: 0;
-			}
-		case named(path, methods, type):
-			switch type {
-				case structType(_):
-					var cl = std.Type.resolveClass(path);
-					std.Type.createInstance(cl, []);
-				default:
-					defaultValue(new _Type(type));
-			}
-		case arrayType(_.get() => elem, len):
-			new GoArray([for (i in 0...len) defaultValue(new _Type(elem))]);
-		default: null;
-	}
-}
-
-function valueOf(iface:AnyInterface):Value {
-	if ((iface.type : Dynamic) == false)
-		throw "issue";
-	return new Value(iface);
-}
-
-@:named class ChanDir {
-	public var __t__:GoInt;
-
-	public function new(?t:GoInt) {
-		__t__ = t == null ? 0 : t;
-	}
-
-	public function __underlying__():AnyInterface
-		return #if !macro Go.toInterface(__t__) #else null #end;
-
-	public function string():GoString
-		return Go.string(__t__);
-
-	public function __copy__():GoInt
-		return __t__;
-}
-
-@:structInit class StringHeader {
-	public var data:GoUIntptr = ((0 : GoUIntptr));
-	public var len:GoInt = ((0 : GoInt));
-
-	public function new(?data:GoUIntptr, ?len:GoInt) {
-		if (data != null)
-			this.data = data;
-		if (len != null)
-			this.len = len;
-	}
-
-	public function string():GoString {
-		return '{' + Go.string(data) + " " + Go.string(len) + "}";
-	}
-
-	public function __underlying__():AnyInterface
-		return #if !macro Go.toInterface(this) #else null #end;
-
-	public function __copy__() {
-		return new StringHeader(data, len);
-	}
-
-	public function __set__(__tmp__) {
-		this.data = __tmp__.data;
-		this.len = __tmp__.len;
-		return this;
-	}
-}
-
-@:structInit class SliceHeader {
-	public var data:GoUIntptr = ((0 : GoUIntptr));
-	public var len:GoInt = ((0 : GoInt));
-	public var cap:GoInt = ((0 : GoInt));
-
-	public function new(?data:GoUIntptr, ?len:GoInt, ?cap:GoInt) {
-		if (data != null)
-			this.data = data;
-		if (len != null)
-			this.len = len;
-		if (cap != null)
-			this.cap = cap;
-	}
-
-	public function string():GoString {
-		return '{' + Go.string(data) + " " + Go.string(len) + " " + Go.string(cap) + "}";
-	}
-
-	public function __underlying__():AnyInterface
-		return #if !macro Go.toInterface(this) #else null #end;
-
-	public function __copy__() {
-		return new SliceHeader(data, len, cap);
-	}
-
-	public function __set__(__tmp__) {
-		this.data = __tmp__.data;
-		this.len = __tmp__.len;
-		this.cap = __tmp__.cap;
-		return this;
-	}
-}
-
+/**
+	// Package reflect implements run-time reflection, allowing a program to
+	// manipulate objects with arbitrary types. The typical use is to take a value
+	// with static type interface{} and extract its dynamic type information by
+	// calling TypeOf, which returns a Type.
+	//
+	// A call to ValueOf returns a Value representing the run-time data.
+	// Zero takes a Type and returns a Value representing a zero value
+	// for that type.
+	//
+	// See "The Laws of Reflection" for an introduction to reflection in Go:
+	// https://golang.org/doc/articles/laws_of_reflection.html
+**/
+private var __go2hxdoc__package:Bool;
+
+final invalid:Kind = ((0 : GoUInt) : Kind);
+final bool_:Kind = ((0 : GoUInt) : Kind);
+final int_:Kind = ((0 : GoUInt) : Kind);
+final int8:Kind = ((0 : GoUInt) : Kind);
+final int16:Kind = ((0 : GoUInt) : Kind);
+final int32:Kind = ((0 : GoUInt) : Kind);
+final int64:Kind = ((0 : GoUInt) : Kind);
+final uint:Kind = ((0 : GoUInt) : Kind);
+final uint8:Kind = ((0 : GoUInt) : Kind);
+final uint16:Kind = ((0 : GoUInt) : Kind);
+final uint32:Kind = ((0 : GoUInt) : Kind);
+final uint64:Kind = ((0 : GoUInt) : Kind);
+final uintptr:Kind = ((0 : GoUInt) : Kind);
+final float32:Kind = ((0 : GoUInt) : Kind);
+final float64:Kind = ((0 : GoUInt) : Kind);
+final complex64:Kind = ((0 : GoUInt) : Kind);
+final complex128:Kind = ((0 : GoUInt) : Kind);
+final array:Kind = ((0 : GoUInt) : Kind);
+final chan:Kind = ((0 : GoUInt) : Kind);
+final func:Kind = ((0 : GoUInt) : Kind);
+final interface_:Kind = ((0 : GoUInt) : Kind);
+final map:Kind = ((0 : GoUInt) : Kind);
+final pointer:Kind = ((0 : GoUInt) : Kind);
+final slice:Kind = ((0 : GoUInt) : Kind);
+final string:Kind = ((0 : GoUInt) : Kind);
+final struct_:Kind = ((0 : GoUInt) : Kind);
+final unsafePointer:Kind = ((0 : GoUInt) : Kind);
+
+/**
+	// Ptr is the old name for the Pointer kind.
+**/
+final ptr:Kind = ((0 : GoUInt) : Kind);
+
+/**
+	// <-chan
+**/
+final recvDir:ChanDir = ((0 : GoInt) : ChanDir);
+
+/**
+	// chan<-
+**/
+final sendDir:ChanDir = ((0 : GoInt) : ChanDir);
+
+/**
+	// chan
+**/
+final bothDir:ChanDir = ((0 : GoInt) : ChanDir);
+
+/**
+	// case Chan <- Send
+**/
+final selectSend:InvalidType = @:unknown_default_value null;
+
+/**
+	// case <-Chan:
+**/
+final selectRecv:InvalidType = @:unknown_default_value null;
+
+/**
+	// default
+**/
+final selectDefault:InvalidType = @:unknown_default_value null;
+
+/**
+	// Type is the representation of a Go type.
+	//
+	// Not all methods apply to all kinds of types. Restrictions,
+	// if any, are noted in the documentation for each method.
+	// Use the Kind method to find out the kind of type before
+	// calling kind-specific methods. Calling a method
+	// inappropriate to the kind of type causes a run-time panic.
+	//
+	// Type values are comparable, such as with the == operator,
+	// so they can be used as map keys.
+	// Two Type values are equal if they represent identical types.
+**/
 typedef Type = StructType & {
+	/**
+		// Align returns the alignment in bytes of a value of
+		// this type when allocated in memory.
+	**/
 	public function align():GoInt;
-	public function fieldAlign():GoInt;
-	public function method(_0:GoInt):Method;
-	public function methodByName(_0:GoString):{var _0:Method; var _1:Bool;};
-	public function numMethod():GoInt;
-	public function name():GoString;
-	public function pkgPath():GoString;
-	public function size():GoUIntptr;
-	public function string():GoString;
-	public function kind():Kind;
-	public function implements_(u:Type):Bool;
-	public function assignableTo(u:Type):Bool;
-	public function convertibleTo(u:Type):Bool;
-	public function comparable():Bool;
-	public function bits():GoInt;
-	public function chanDir():ChanDir;
-	public function isVariadic():Bool;
-	public function elem():Type;
-	public function field(i:GoInt):StructField;
-	public function fieldByIndex(index:Slice<GoInt>):StructField;
-	public function fieldByName(name:GoString):{_0:StructField, _1:Bool};
-	public function fieldByNameFunc(match:GoString->Bool):{_0:StructField, _1:Bool};
-	public function in_(i:GoInt):Type;
-	public function key():Type;
-	public function len():GoInt;
-	public function numField():GoInt;
-	public function numIn():GoInt;
-	public function numOut():GoInt;
-	public function out(i:GoInt):Type;
 
-	public function common():Pointer<Dynamic>;
-	public function uncommon():Pointer<Dynamic>;
+	/**
+		// FieldAlign returns the alignment in bytes of a value of
+		// this type when used as a field in a struct.
+	**/
+	public function fieldAlign():GoInt;
+
+	/**
+		// Method returns the i'th method in the type's method set.
+		// It panics if i is not in the range [0, NumMethod()).
+		//
+		// For a non-interface type T or *T, the returned Method's Type and Func
+		// fields describe a function whose first argument is the receiver,
+		// and only exported methods are accessible.
+		//
+		// For an interface type, the returned Method's Type field gives the
+		// method signature, without a receiver, and the Func field is nil.
+		//
+		// Methods are sorted in lexicographic order.
+	**/
+	public function method(_0:GoInt):Method;
+
+	/**
+		// MethodByName returns the method with that name in the type's
+		// method set and a boolean indicating if the method was found.
+		//
+		// For a non-interface type T or *T, the returned Method's Type and Func
+		// fields describe a function whose first argument is the receiver.
+		//
+		// For an interface type, the returned Method's Type field gives the
+		// method signature, without a receiver, and the Func field is nil.
+	**/
+	public function methodByName(_0:GoString):{var _0:Method; var _1:Bool;};
+
+	/**
+		// NumMethod returns the number of methods accessible using Method.
+		//
+		// For a non-interface type, it returns the number of exported methods.
+		//
+		// For an interface type, it returns the number of exported and unexported methods.
+	**/
+	public function numMethod():GoInt;
+
+	/**
+		// Name returns the type's name within its package for a defined type.
+		// For other (non-defined) types it returns the empty string.
+	**/
+	public function name():GoString;
+
+	/**
+		// PkgPath returns a defined type's package path, that is, the import path
+		// that uniquely identifies the package, such as "encoding/base64".
+		// If the type was predeclared (string, error) or not defined (*T, struct{},
+		// []int, or A where A is an alias for a non-defined type), the package path
+		// will be the empty string.
+	**/
+	public function pkgPath():GoString;
+
+	/**
+		// Size returns the number of bytes needed to store
+		// a value of the given type; it is analogous to unsafe.Sizeof.
+	**/
+	public function size():GoUIntptr;
+
+	/**
+		// String returns a string representation of the type.
+		// The string representation may use shortened package names
+		// (e.g., base64 instead of "encoding/base64") and is not
+		// guaranteed to be unique among types. To test for type identity,
+		// compare the Types directly.
+	**/
+	public function string():GoString;
+
+	/**
+		// Kind returns the specific kind of this type.
+	**/
+	public function kind():Kind;
+
+	/**
+		// Implements reports whether the type implements the interface type u.
+	**/
+	public function implements_(_u:Type):Bool;
+
+	/**
+		// AssignableTo reports whether a value of the type is assignable to type u.
+	**/
+	public function assignableTo(_u:Type):Bool;
+
+	/**
+		// ConvertibleTo reports whether a value of the type is convertible to type u.
+		// Even if ConvertibleTo returns true, the conversion may still panic.
+		// For example, a slice of type []T is convertible to *[N]T,
+		// but the conversion will panic if its length is less than N.
+	**/
+	public function convertibleTo(_u:Type):Bool;
+
+	/**
+		// Comparable reports whether values of this type are comparable.
+		// Even if Comparable returns true, the comparison may still panic.
+		// For example, values of interface type are comparable,
+		// but the comparison will panic if their dynamic type is not comparable.
+	**/
+	public function comparable():Bool;
+
+	/**
+		// Bits returns the size of the type in bits.
+		// It panics if the type's Kind is not one of the
+		// sized or unsized Int, Uint, Float, or Complex kinds.
+	**/
+	public function bits():GoInt;
+
+	/**
+		// ChanDir returns a channel type's direction.
+		// It panics if the type's Kind is not Chan.
+	**/
+	public function chanDir():ChanDir;
+
+	/**
+		// IsVariadic reports whether a function type's final input parameter
+		// is a "..." parameter. If so, t.In(t.NumIn() - 1) returns the parameter's
+		// implicit actual type []T.
+		//
+		// For concreteness, if t represents func(x int, y ... float64), then
+		//
+		//	t.NumIn() == 2
+		//	t.In(0) is the reflect.Type for "int"
+		//	t.In(1) is the reflect.Type for "[]float64"
+		//	t.IsVariadic() == true
+		//
+		// IsVariadic panics if the type's Kind is not Func.
+	**/
+	public function isVariadic():Bool;
+
+	/**
+		// Elem returns a type's element type.
+		// It panics if the type's Kind is not Array, Chan, Map, Pointer, or Slice.
+	**/
+	public function elem():Type;
+
+	/**
+		// Field returns a struct type's i'th field.
+		// It panics if the type's Kind is not Struct.
+		// It panics if i is not in the range [0, NumField()).
+	**/
+	public function field(_i:GoInt):StructField;
+
+	/**
+		// FieldByIndex returns the nested field corresponding
+		// to the index sequence. It is equivalent to calling Field
+		// successively for each index i.
+		// It panics if the type's Kind is not Struct.
+	**/
+	public function fieldByIndex(_index:Slice<GoInt>):StructField;
+
+	/**
+		// FieldByName returns the struct field with the given name
+		// and a boolean indicating if the field was found.
+	**/
+	public function fieldByName(_name:GoString):{var _0:StructField; var _1:Bool;};
+
+	/**
+		// FieldByNameFunc returns the struct field with a name
+		// that satisfies the match function and a boolean indicating if
+		// the field was found.
+		//
+		// FieldByNameFunc considers the fields in the struct itself
+		// and then the fields in any embedded structs, in breadth first order,
+		// stopping at the shallowest nesting depth containing one or more
+		// fields satisfying the match function. If multiple fields at that depth
+		// satisfy the match function, they cancel each other
+		// and FieldByNameFunc returns no match.
+		// This behavior mirrors Go's handling of name lookup in
+		// structs containing embedded fields.
+	**/
+	public function fieldByNameFunc(_match:GoString->Bool):{var _0:StructField; var _1:Bool;};
+
+	/**
+		// In returns the type of a function type's i'th input parameter.
+		// It panics if the type's Kind is not Func.
+		// It panics if i is not in the range [0, NumIn()).
+	**/
+	public function in_(_i:GoInt):Type;
+
+	/**
+		// Key returns a map type's key type.
+		// It panics if the type's Kind is not Map.
+	**/
+	public function key():Type;
+
+	/**
+		// Len returns an array type's length.
+		// It panics if the type's Kind is not Array.
+	**/
+	public function len():GoInt;
+
+	/**
+		// NumField returns a struct type's field count.
+		// It panics if the type's Kind is not Struct.
+	**/
+	public function numField():GoInt;
+
+	/**
+		// NumIn returns a function type's input parameter count.
+		// It panics if the type's Kind is not Func.
+	**/
+	public function numIn():GoInt;
+
+	/**
+		// NumOut returns a function type's output parameter count.
+		// It panics if the type's Kind is not Func.
+	**/
+	public function numOut():GoInt;
+
+	/**
+		// Out returns the type of a function type's i'th output parameter.
+		// It panics if the type's Kind is not Func.
+		// It panics if i is not in the range [0, NumOut()).
+	**/
+	public function out(_i:GoInt):Type;
 };
 
-class _Type {
-	@:local
-	public var gt:GoType;
-
-	@:local
-	public var __t__(get, never):Type;
-
-	function get___t__():Type {
-		return this;
-	}
-
-	public function in_(i:GoInt):Type
-		throw "not implemented"; // TODO
-
-	public function out(i:GoInt):Type
-		throw "not implemented"; // TODO
-
-	public function numOut():GoInt
-		throw "not implemented"; // TODO
-
-	public function numIn():GoInt
-		throw "not implemented"; // TODO
-
-	public function key():Type
-		throw "not implemented"; // TODO
-
-	public function align():GoInt
-		return 0; // TODO
-
-	public function fieldAlign():GoInt
-		return 0; // TODO
-
-	public function convertibleTo(u:Type):Bool
-		return false; // TODO
-
-	public function chanDir():ChanDir
-		return new ChanDir(0); // TODO
-
-	public function fieldByIndex(index:Slice<GoInt>):StructField
-		return null; // TODO
-
-	public function fieldByName(name:GoString):{_0:StructField, _1:Bool} {
-		throw "not implemeneted"; // TODO
-	}
-
-	public function fieldByNameFunc(match:GoString->Bool):{_0:StructField, _1:Bool} {
-		throw "not implemented"; // TODO
-	}
-
-	public function methodByName(name:GoString):{_0:Method, _1:Bool} {
-		throw "not implemented"; // TODO
-	}
-
-	public function uncommon():Pointer<Dynamic>
-		return null;
-
-	public function common():Pointer<Dynamic> {
-		return new Pointer(() -> gt, v -> gt = v);
-	}
-
-	public inline function new(t:GoType = invalidType) {
-		gt = t;
-	}
-
-	public function __copy__():Type
-		return new _Type(gt);
-
-	public function __underlying__()
-		return null;
-
-	public function bits():GoInt {
-		final k:Int = kind().toBasic();
-		return switch k {
-			case _int8: 8;
-			case _int16: 16;
-			case _int32: 32;
-			case _int64: 64;
-			case _uint8: 8;
-			case _uint16: 16;
-			case _uint32: 32;
-			case _uint64: 64;
-			case _float32: 32;
-			case _float64: 64;
-			case _complex64: 64;
-			case _complex128: 128;
-			default: 0;
-		}
-	}
-
-	public function kind():Kind {
-		final gt = getUnderlying(gt);
-		return switch gt {
-			case typeParam(_, _):
-				_invalid;
-			case basic(kind):
-				switch kind {
-					case int_kind: int_;
-					case int8_kind: int8;
-					case int16_kind: int16;
-					case int32_kind: int32;
-					case int64_kind: int64;
-					case uint_kind: uint;
-					case uint8_kind: uint8;
-					case uint16_kind: uint16;
-					case uint32_kind: uint32;
-					case uint64_kind: uint64;
-					case float32_kind: float32;
-					case float64_kind: float64;
-					case complex64_kind: complex64;
-					case complex128_kind: complex128;
-					case invalid_kind: invalid;
-					case bool_kind: bool_;
-					case string_kind: __string;
-					case uintptr_kind: uintptr;
-					case unsafepointer_kind: unsafePointer;
-					case untyped_bool_kind: bool_;
-					case untyped_complex_kind: complex128;
-					case untyped_float_kind: float64;
-					case untyped_int_kind: int64;
-					case untyped_nil_kind: invalid;
-					case untyped_rune_kind: int32;
-					case untyped_string_kind: __string;
-				}
-			case chanType(_, _): chan;
-			case interfaceType(_, _): interface_;
-			case arrayType(_, _): array;
-			case invalidType: invalid;
-			case mapType(_, _): map;
-			case named(_, _, type), _var(_, type): new _Type(type).kind();
-			case pointer(_), refType(_): ptr;
-			case previouslyNamed(_): throw "previouslyNamed type to kind not supported should be unrolled before access";
-			case sliceType(_): slice;
-			case tuple(_, _): throw "tuple type to kind not supported";
-			case signature(_, _, _, _): func;
-			case structType(_): struct_;
-		}
-	}
-
-	public function size():GoUIntptr {
-		if (kind() == 0)
-			return 0;
-		final k:Int = kind().toBasic();
-		return switch k {
-			case _bool, _int8, _uint8: 1;
-			case _int16, _uint16: 2;
-			case _int32, _uint32, _int, _uint: 4;
-			case _int64, _uint64: 8;
-			case _float32: 4;
-			case _float64: 8;
-			case _complex64: 8;
-			case _complex128: 16;
-			case _string: 16; // TODO: this may be wrong
-			// TODO
-			case _slice: 0;
-			case _interface: 0;
-			case _func: 0;
-			case _array:
-				var gt = getUnderlying(gt);
-				return switch gt {
-					case arrayType(_.get() => elem, len):
-						((new _Type(elem).size().toBasic() * len) : GoUIntptr);
-					default:
-						0;
-				}
-			case _struct: 0;
-			case _ptr: 0;
-			case _uintptr: 0;
-			default:
-				throw "unimplemented: size of type: " + kind();
-		}
-	}
-
-	public function string():GoString {
-		return switch (gt) {
-			case basic(kind):
-				if (kind == untyped_int_kind)
-					kind = int_kind;
-				var name = kind.getName();
-				name = name.substr(0, name.length - 5);
-				name;
-			case previouslyNamed(name):
-				name;
-			case named(path, _, type, alias):
-				if (alias) {
-					new _Type(type).string();
-				} else {
-					path;
-				}
-			case pointer(elem), refType(elem):
-				"*" + new _Type(elem).string();
-			case structType(fields):
-				"struct { " + [
-					for (field in fields)
-						formatGoFieldName(field.name) + " " + new _Type(field.type).string()
-				].join("; ") + " }";
-			case arrayType(_.get() => typ, len):
-				"[" + Std.string(len) + "]" + new _Type(typ).string();
-			case sliceType(_.get() => typ):
-				"[]" + new _Type(typ).string();
-			case mapType(_.get() => key, _.get() => value):
-				"map[" + new _Type(key).string() + "]" + new _Type(value).string();
-			case chanType(_, _.get() => typ):
-				"chan " + new _Type(typ).string();
-			case signature(variadic, _.get() => args, _.get() => rets, _.get() => recv):
-				var r:GoString = "func(";
-				var preface = "";
-				switch recv {
-					case invalidType:
-					default:
-						r += new _Type(recv).string();
-						r += ", ";
-				}
-				for (i in 0...args.length) {
-					r += preface;
-					preface = ", ";
-					final isVariadic = variadic && i == args.length - 1;
-					var str:GoString = new _Type(args[i]).string();
-					if (isVariadic)
-						str = "..." + str.__slice__(2);
-					r += str;
-				}
-				r += ")";
-				if (rets != null) {
-					if (rets.length > 0) {
-						r += " ";
-						if (rets.length > 1)
-							r += "(";
-						preface = "";
-						for (ret in rets) {
-							r += preface;
-							preface = ", ";
-							r += new _Type(ret).string();
-						}
-						if (rets.length > 1)
-							r += ")";
-					}
-				}
-				r;
-			case invalidType:
-				return "<null>";
-			case interfaceType(empty, methods):
-				var r = "";
-				if (empty)
-					return "interface {}";
-				for (method in methods) {
-					r += "; " + formatGoFieldName(method.name) + new _Type(method.type.get()).string().__toString__().substr(4);
-				}
-				r = r.substr(1);
-				"interface {" + r + " }";
-			default:
-				throw "not found enum toString " + gt; // should never get here
-		}
-	}
-
-	public function elem():Type {
-		final gt:GoType = getUnderlying(common().value);
-		switch (gt) {
-			case chanType(_, _.get() => elem), refType(elem), pointer(elem), sliceType(_.get() => elem), arrayType(_.get() => elem, _):
-				return new _Type(elem);
-			case interfaceType(_):
-				return null;
-			default:
-				trace(gt);
-				throw "reflect.Type.Elem not implemented for " + string();
-		}
-	}
-
-	public function len():GoInt {
-		switch (gt) {
-			case arrayType(_, len):
-				return (len : GoInt);
-			default:
-				throw "reflect.Type.Len() not implemented for " + string();
-		}
-	}
-
-	public function numMethod():GoInt {
-		switch (gt) {
-			case named(_, methods, _), interfaceType(_, methods):
-				var count = 0;
-				for (method in methods) {
-					if (isExported(method.name))
-						count++;
-				}
-				return count;
-			case structType(_):
-				return 0;
-			case pointer(_), refType(_):
-				return elem().numMethod();
-			default:
-				throw "reflect.NumMethod not implemented for " + string();
-		}
-	}
-
-	public function hasName():Bool {
-		switch gt {
-			case named(_, _, _), previouslyNamed(_):
-				return true;
-			default:
-		}
-		return false;
-	}
-
-	public function name():GoString {
-		switch gt {
-			case named(name, _, _), previouslyNamed(name):
-				return name;
-			default:
-				trace("gt: " + gt);
-				return "";
-		}
-	}
-
-	public function pkgPath():GoString {
-		return switch gt {
-			case named(path, _, _):
-				var index = path.lastIndexOf(".");
-				if (index == -1)
-					return "";
-				path.substr(0, index);
-			case previouslyNamed(name): name.substr(0, name.lastIndexOf("."));
-			default: "";
-		}
-	}
-
-	public function isExported(name:String):Bool {
-		return name.charCodeAt(0) != "_".code;
-	}
-
-	public function isVariadic():Bool {
-		return switch gt {
-			case signature(variadic, _, _, _):
-				variadic;
-			default: throw "not a function: " + gt;
-		}
-	}
-
-	public function method(index:GoInt):Method {
-		switch gt {
-			case named(path, methods, _):
-				final index = index.toBasic();
-				if (index >= methods.length)
-					throw "Method index out of range";
-				var method = methods[index];
-				path += "_static_extension";
-				final cl = std.Type.resolveClass(path);
-				final instance = std.Type.createEmptyInstance(cl);
-				final t = new _Type(method.type.get());
-				final f = Reflect.field(instance, method.name);
-				return {
-					name: method.name,
-					pkgPath: path,
-					type: t,
-					func: new Value(new AnyInterface(f, t)),
-					index: index,
-				};
-			default:
-				throw "invalid type for method access: " + gt;
-		}
-	}
-
-	function formatGoFieldName(name:String):String {
-		return (name.charAt(0) == "_" ? "" : name.charAt(0).toUpperCase()) + name.substr(1);
-	}
-
-	public function field(index:GoInt):StructField {
-		var module = "";
-		final underlyingType:GoType = getUnderlying(gt);
-
-		switch underlyingType {
-			case structType(fields):
-				var field = fields[index.toBasic()];
-				var name = field.name;
-				name = formatGoFieldName(name);
-				return {
-					name: name,
-					pkgPath: module,
-					type: new _Type(unroll(gt, field.type)),
-					tag: field.tag,
-					index: new Slice(index, index),
-					anonymous: field.embedded,
-				};
-			default:
-				throw "cannot get struct: " + gt;
-		}
-	}
-
-	public function numField():GoInt {
-		#if !go2hx_compiler
-		switch (gt) {
-			case named(_, _, type):
-				return new _Type(type).numField();
-			case structType(fields):
-				return fields.length;
-			default:
-				throw "reflect.NumField not implemented for " + string();
-		}
-		#end
-		return 0;
-	}
-
-	public function assignableTo(ot:Type):Bool {
-		if (ot == null)
-			throw "reflect: nil type passed to Type.AssignableTo";
-		final b = directlyAssignable(ot, this) || this.implements_(ot);
-		return b;
-	}
-
-	public function implements_(ot:Type):Bool {
-		if (ot == null)
-			throw "reflect: nil type passed to Type.Implements";
-		if (ot.kind() != interface_)
-			throw "reflect: non-interface type passed to Type.Implements: " + ot.kind();
-		return implementsMethod(ot, this);
-	}
-
-	public function comparable():Bool {
-		return switch (gt) {
-			case sliceType(_), signature(_, _, _, _), mapType(_, _):
-				return false;
-			case arrayType(_.get() => elem, _):
-				return new _Type(elem).comparable();
-			case structType(fields):
-				for (field in fields) {
-					if (!new _Type(field.type).comparable())
-						return false;
-				}
-				return true;
-			case named(_, _, type):
-				return new _Type(type).comparable();
-			default:
-				return true;
-		}
-	}
-}
-
-@:structInit class Method {
+/**
+	// Method represents a single method.
+**/
+@:structInit @:using(stdgo.reflect.Reflect.Method_static_extension) class Method {
+	/**
+		// Name is the method name.
+	**/
 	public var name:GoString = "";
+
+	/**
+		// PkgPath is the package path that qualifies a lower case (unexported)
+		// method name. It is empty for upper case (exported) method names.
+		// The combination of PkgPath and Name uniquely identifies a method
+		// in a method set.
+		// See https://golang.org/ref/spec#Uniqueness_of_identifiers
+	**/
 	public var pkgPath:GoString = "";
-	public var type:Type = new _Type(invalidType);
-	public var func:Value = new Value();
+
+	/**
+		// method type
+	**/
+	public var type:Type = (null : Type);
+
+	/**
+		// func with receiver as first argument
+	**/
+	public var func:Value = ({} : Value);
+
+	/**
+		// index for Type.Method
+	**/
 	public var index:GoInt = 0;
 
-	public function __underlying__():AnyInterface
-		return null;
-
-	public function new(?name:GoString, ?pkgPath:GoString, ?type, ?func, ?index) {
+	public function new(?name:GoString, ?pkgPath:GoString, ?type:Type, ?func:Value, ?index:GoInt) {
 		if (name != null)
 			this.name = name;
 		if (pkgPath != null)
@@ -1532,100 +374,53 @@ class _Type {
 			this.index = index;
 	}
 
-	public function string() {
-		return '{${Std.string(name)} ${Std.string(pkgPath)} ${Std.string(type)} ${Std.string(func)} ${Std.string(index)}}';
-	}
-
 	public function __copy__() {
-		return null; // new Method(name, pkgPath, type, func, index);
+		return new Method(name, pkgPath, type, func, index);
 	}
 }
 
-@:named class StructTag {
-	public var __t__:GoString = "";
-
-	public function __underlying__():AnyInterface
-		return #if !macro Go.toInterface(__t__) #else null #end;
-
-	public function string():GoString
-		return Go.string(__t__);
-
-	public function __copy__():GoString
-		return __t__;
-
-	public function new(str:GoString)
-		this.__t__ = str;
-
-	public function get(key:GoString):GoString {
-		var obj = lookup(key);
-		var v = obj._0;
-		return v;
-	}
-
-	public function lookup(key:GoString):{_0:GoString, _1:Bool} {
-		var tag = __t__;
-		var value:GoString = (("" : GoString)), ok:Bool = false;
-		while (tag != (("" : GoString))) {
-			var i:GoInt64 = 0;
-			while (i < tag.length && tag[i] == (" ".code : GoRune)) {
-				i++;
-			};
-			tag = tag.__slice__(i);
-			if (tag == (("" : GoString))) {
-				break;
-			};
-			i = 0;
-			while (i < tag.length && tag[i] > (" ".code : GoRune) && tag[i] != (":".code : GoRune) && tag[i] != ("\"".code : GoRune)
-				&& tag[i] != ((127 : GoInt64))) {
-				i++;
-			};
-			if (i == ((0 : GoInt64))
-				|| i + ((1 : GoInt64)) >= tag.length
-					|| tag[i] != (":".code : GoRune)
-					|| tag[i + ((1 : GoInt64))] != ("\"".code : GoRune)) {
-				break;
-			};
-			var name:GoString = tag.__slice__(0, i);
-			tag = tag.__slice__(i + ((1 : GoInt64)));
-			i = 1;
-			while (i < tag.length && tag[i] != ("\"".code : GoRune)) {
-				if (tag[i] == ("\\".code : GoRune)) {
-					i++;
-				};
-				i++;
-			};
-			if (i >= tag.length) {
-				break;
-			};
-			var qvalue:GoString = tag.__slice__(0, i + ((1 : GoInt64)));
-			tag = tag.__slice__(i + ((1 : GoInt64)));
-			if (key == name) {
-				var __tmp__ = #if nolinkstd {_0: qvalue, _1: null} #elseif !macro Go.unquote(qvalue) #else {_0: null, _1: null} #end,
-					value = __tmp__._0,
-					err = __tmp__._1;
-				if (err != null) {
-					break;
-				};
-				return {_0: value, _1: true};
-			};
-		};
-		return {_0: "", _1: false};
-	}
-}
-
-@:structInit final class StructField {
+/**
+	// A StructField describes a single field in a struct.
+**/
+@:structInit @:using(stdgo.reflect.Reflect.StructField_static_extension) class StructField {
+	/**
+		// Name is the field name.
+	**/
 	public var name:GoString = "";
+
+	/**
+		// PkgPath is the package path that qualifies a lower case (unexported)
+		// field name. It is empty for upper case (exported) field names.
+		// See https://golang.org/ref/spec#Uniqueness_of_identifiers
+	**/
 	public var pkgPath:GoString = "";
-	public var type:Type = new _Type(invalidType);
-	public var tag:StructTag = new StructTag("");
-	public var offset:GoUIntptr = (0 : GoUIntptr);
-	public var index:Slice<GoInt> = new Slice<GoInt>(0, 0);
+
+	/**
+		// field type
+	**/
+	public var type:Type = (null : Type);
+
+	/**
+		// field tag string
+	**/
+	public var tag:StructTag = (("" : GoString) : StructTag);
+
+	/**
+		// offset within struct, in bytes
+	**/
+	public var offset:GoUIntptr = 0;
+
+	/**
+		// index sequence for Type.FieldByIndex
+	**/
+	public var index:Slice<GoInt> = (null : Slice<GoInt>);
+
+	/**
+		// is an embedded field
+	**/
 	public var anonymous:Bool = false;
 
-	public function __underlying__():AnyInterface
-		return null;
-
-	public function new(?name:GoString, ?pkgPath:GoString, ?type, ?tag:GoString, ?offset, ?index, ?anonymous) {
+	public function new(?name:GoString, ?pkgPath:GoString, ?type:Type, ?tag:StructTag, ?offset:GoUIntptr, ?index:Slice<GoInt>, ?anonymous:Bool) {
 		if (name != null)
 			this.name = name;
 		if (pkgPath != null)
@@ -1633,7 +428,7 @@ class _Type {
 		if (type != null)
 			this.type = type;
 		if (tag != null)
-			this.tag = new StructTag(tag);
+			this.tag = tag;
 		if (offset != null)
 			this.offset = offset;
 		if (index != null)
@@ -1642,393 +437,2160 @@ class _Type {
 			this.anonymous = anonymous;
 	}
 
-	public function string():GoString {
-		return
-			'{${Std.string(name)} ${Std.string(pkgPath)} ${Std.string(type)} ${Std.string(tag)} ${Std.string(offset)} ${Std.string(index)} ${Std.string(anonymous)}}';
+	public function __copy__() {
+		return new StructField(name, pkgPath, type, tag, offset, index, anonymous);
+	}
+}
+
+/**
+	// Value is the reflection interface to a Go value.
+	//
+	// Not all methods apply to all kinds of values. Restrictions,
+	// if any, are noted in the documentation for each method.
+	// Use the Kind method to find out the kind of value before
+	// calling kind-specific methods. Calling a method
+	// inappropriate to the kind of type causes a run time panic.
+	//
+	// The zero Value represents no value.
+	// Its IsValid method returns false, its Kind method returns Invalid,
+	// its String method returns "<invalid Value>", and all other methods panic.
+	// Most functions and methods never return an invalid value.
+	// If one does, its documentation states the conditions explicitly.
+	//
+	// A Value can be used concurrently by multiple goroutines provided that
+	// the underlying Go value can be used concurrently for the equivalent
+	// direct operations.
+	//
+	// To compare two Values, compare the results of the Interface method.
+	// Using == on two Values does not compare the underlying values
+	// they represent.
+**/
+@:structInit @:using(stdgo.reflect.Reflect.Value_static_extension) class Value {
+	public function new() {}
+
+	public function __copy__() {
+		return new Value();
+	}
+}
+
+/**
+	// A ValueError occurs when a Value method is invoked on
+	// a Value that does not support it. Such cases are documented
+	// in the description of each method.
+**/
+@:structInit @:using(stdgo.reflect.Reflect.ValueError_static_extension) class ValueError {
+	public var method:GoString = "";
+	public var kind:Kind = ((0 : GoUInt) : Kind);
+
+	public function new(?method:GoString, ?kind:Kind) {
+		if (method != null)
+			this.method = method;
+		if (kind != null)
+			this.kind = kind;
 	}
 
 	public function __copy__() {
-		return new StructField(name, pkgPath, type, tag.__t__, 0, index, anonymous); // TODO set offset, stdgo.GoUIntptr should be Null<Int>
+		return new ValueError(method, kind);
 	}
 }
 
-private function namedUnderlying(obj:AnyInterface):AnyInterface {
-	return switch (@:privateAccess obj.type.common().value : GoType) {
-		case named(_, _, type):
-			new AnyInterface((obj.value : Dynamic).__t__, new _Type(type));
-		default:
-			obj;
+/**
+	// A MapIter is an iterator for ranging over a map.
+	// See Value.MapRange.
+**/
+@:structInit @:using(stdgo.reflect.Reflect.MapIter_static_extension) class MapIter {
+	public function new() {}
+
+	public function __copy__() {
+		return new MapIter();
 	}
 }
 
-function getUnderlying(gt:GoType, once:Bool = false) {
-	return switch gt {
-		case named(_, _, type):
-			if (once) {
-				type;
-			} else {
-				getUnderlying(type);
-			}
-		default:
-			gt;
+/**
+	// StringHeader is the runtime representation of a string.
+	// It cannot be used safely or portably and its representation may
+	// change in a later release.
+	// Moreover, the Data field is not sufficient to guarantee the data
+	// it references will not be garbage collected, so programs must keep
+	// a separate, correctly typed pointer to the underlying data.
+**/
+@:structInit class StringHeader {
+	public var data:GoUIntptr = 0;
+	public var len:GoInt = 0;
+
+	public function new(?data:GoUIntptr, ?len:GoInt) {
+		if (data != null)
+			this.data = data;
+		if (len != null)
+			this.len = len;
+	}
+
+	public function __copy__() {
+		return new StringHeader(data, len);
 	}
 }
 
-function directlyAssignable(t:Type, v:Type):Bool {
-	var tgt:GoType = @:privateAccess t.common().value;
-	var vgt:GoType = @:privateAccess v.common().value;
-	switch vgt {
-		case named(path, _, _):
-			switch tgt {
-				case named(path2, _, _):
-					return path == path2;
-				default:
-					return false;
-			}
-		default:
-	}
-	tgt = getUnderlying(tgt);
-	vgt = getUnderlying(vgt);
-	return switch tgt {
-		case chanType(_, _.get() => elem), sliceType(_.get() => elem):
-			switch vgt {
-				case chanType(_, _.get() => elem2), sliceType(_.get() => elem2): new _Type(elem).assignableTo(new _Type(elem2));
-				default: false;
-			}
-		case arrayType(_.get() => elem, len):
-			switch vgt {
-				case arrayType(_.get() => elem2, len2):
-					if (len != len2)
-						return false;
-					new _Type(elem).assignableTo(new _Type(elem2));
-				default: false;
-			}
-		case mapType(_.get() => key, _.get() => value):
-			switch vgt {
-				case mapType(_.get() => key2, _.get() => value2):
-					if (!new _Type(key).assignableTo(new _Type(key2)))
-						return false;
-					if (!new _Type(value).assignableTo(new _Type(value2)))
-						return false;
-					true;
-				default: false;
-			}
-		case structType(fields):
-			switch vgt {
-				case structType(fields2):
-					if (fields.length != fields2.length)
-						return false;
-					for (i in 0...fields.length) {
-						if (!directlyAssignable(new _Type(fields[i].type), new _Type(fields2[i].type)))
-							return false;
-					}
-					true;
-				default:
-					false;
-			}
-		case interfaceType(_):
-			false; // checked by implements instead
-		case signature(_, _.get() => input, _.get() => output, _):
-			switch vgt {
-				case signature(_, _.get() => input2, _.get() => output2, _):
-					if (input.length != input2.length)
-						return false;
-					if (output.length != output2.length)
-						return false;
+/**
+	// SliceHeader is the runtime representation of a slice.
+	// It cannot be used safely or portably and its representation may
+	// change in a later release.
+	// Moreover, the Data field is not sufficient to guarantee the data
+	// it references will not be garbage collected, so programs must keep
+	// a separate, correctly typed pointer to the underlying data.
+**/
+@:structInit class SliceHeader {
+	public var data:GoUIntptr = 0;
+	public var len:GoInt = 0;
+	public var cap:GoInt = 0;
 
-					true;
-				default:
-					false;
-			}
-		case basic(kind):
-			switch vgt {
-				case basic(kind2):
-					function untype(kind:BasicKind, kind2:BasicKind):Bool {
-						final index = kind2.getIndex();
-						var min = 0;
-						var max = 0;
-						switch kind {
-							case untyped_int_kind:
-								min = int_kind.getIndex();
-								max = int64_kind.getIndex();
-							case untyped_float_kind:
-								min = float32_kind.getIndex();
-								max = float64_kind.getIndex();
-							case untyped_complex_kind:
-								min = complex64_kind.getIndex();
-								max = complex128_kind.getIndex();
-							default:
-								return false;
-						}
-						return min <= index && max >= index;
-					}
-					if (untype(kind, kind2))
-						return true;
-					if (untype(kind2, kind))
-						return true;
-					kind.getIndex() == kind2.getIndex();
-				default:
-					false;
-			}
-		case pointer(e), refType(e):
-			switch vgt {
-				case pointer(e2), refType(e2):
-					directlyAssignable(new stdgo.reflect.Reflect._Type(e), new stdgo.reflect.Reflect._Type(e2));
-				default:
-					false;
-			}
-		case previouslyNamed(path):
-			switch vgt {
-				case previouslyNamed(path2):
-					path == path2;
-				default:
-					false;
-			}
-		default:
-			throw "unable to check for assignability: " + tgt;
+	public function new(?data:GoUIntptr, ?len:GoInt, ?cap:GoInt) {
+		if (data != null)
+			this.data = data;
+		if (len != null)
+			this.len = len;
+		if (cap != null)
+			this.cap = cap;
+	}
+
+	public function __copy__() {
+		return new SliceHeader(data, len, cap);
 	}
 }
 
-function implementsMethod(t:Type, v:Type):Bool {
-	var interfacePath = "";
-	var gt:GoType = @:privateAccess t.common().value;
-	var vgt:GoType = @:privateAccess v.common().value;
-	if (isPointer(gt))
-		gt = getElem(gt);
-	if (isPointer(vgt))
-		vgt = getElem(vgt);
-	return switch gt {
-		case interfaceType(_, methods), named(_, methods, _):
-			if (methods == null || methods.length == 0)
-				return true;
-			switch vgt {
-				case interfaceType(_, methods2), named(_, methods2, _):
-					if (methods.length > methods2.length) {
-						return false;
-					}
-					var found = false;
-					for (i in 0...methods.length) {
-						found = false;
-						for (j in 0...methods2.length) {
-							if (methods[i].name != methods2[j].name)
-								continue;
-							if (!new _Type(methods[i].type.get()).assignableTo(new _Type(methods2[j].type.get()))) {
-								return false;
-							}
-							found = true;
-							break;
-						}
-						if (!found) {
-							return false;
-						}
-					}
-					true;
-				default:
-					false;
-			}
-		default:
-			false;
+/**
+	// A SelectCase describes a single case in a select operation.
+	// The kind of case depends on Dir, the communication direction.
+	//
+	// If Dir is SelectDefault, the case represents a default case.
+	// Chan and Send must be zero Values.
+	//
+	// If Dir is SelectSend, the case represents a send operation.
+	// Normally Chan's underlying value must be a channel, and Send's underlying value must be
+	// assignable to the channel's element type. As a special case, if Chan is a zero Value,
+	// then the case is ignored, and the field Send will also be ignored and may be either zero
+	// or non-zero.
+	//
+	// If Dir is SelectRecv, the case represents a receive operation.
+	// Normally Chan's underlying value must be a channel and Send must be a zero Value.
+	// If Chan is a zero Value, then the case is ignored, but Send must still be a zero Value.
+	// When a receive operation is selected, the received Value is returned by Select.
+**/
+@:structInit class SelectCase {
+	/**
+		// direction of case
+	**/
+	public var dir:SelectDir = ((0 : GoInt) : SelectDir);
+
+	/**
+		// channel to use (for send or receive)
+	**/
+	public var chan:Value = ({} : Value);
+
+	/**
+		// value to send (for send)
+	**/
+	public var send:Value = ({} : Value);
+
+	public function new(?dir:SelectDir, ?chan:Value, ?send:Value) {
+		if (dir != null)
+			this.dir = dir;
+		if (chan != null)
+			this.chan = chan;
+		if (send != null)
+			this.send = send;
+	}
+
+	public function __copy__() {
+		return new SelectCase(dir, chan, send);
 	}
 }
 
-@:using(Reflect.Kind_extension)
-@:named
-typedef Kind = GoUInt;
+/**
+	// A Kind represents the specific kind of type that a Type represents.
+	// The zero Kind is not a valid kind.
+**/
+@:named @:using(stdgo.reflect.Reflect.Kind_static_extension) typedef Kind = GoUInt;
+
+/**
+	// ChanDir represents a channel type's direction.
+**/
+@:named @:using(stdgo.reflect.Reflect.ChanDir_static_extension) typedef ChanDir = GoInt;
+
+/**
+	// A StructTag is the tag string in a struct field.
+	//
+	// By convention, tag strings are a concatenation of
+	// optionally space-separated key:"value" pairs.
+	// Each key is a non-empty string consisting of non-control
+	// characters other than space (U+0020 ' '), quote (U+0022 '"'),
+	// and colon (U+003A ':').  Each value is quoted using U+0022 '"'
+	// characters and Go string literal syntax.
+**/
+@:named @:using(stdgo.reflect.Reflect.StructTag_static_extension) typedef StructTag = GoString;
+
+/**
+	// A SelectDir describes the communication direction of a select case.
+**/
+@:named typedef SelectDir = GoInt;
+
+/**
+	// DeepEqual reports whether x and y are “deeply equal,” defined as follows.
+	// Two values of identical type are deeply equal if one of the following cases applies.
+	// Values of distinct types are never deeply equal.
+	//
+	// Array values are deeply equal when their corresponding elements are deeply equal.
+	//
+	// Struct values are deeply equal if their corresponding fields,
+	// both exported and unexported, are deeply equal.
+	//
+	// Func values are deeply equal if both are nil; otherwise they are not deeply equal.
+	//
+	// Interface values are deeply equal if they hold deeply equal concrete values.
+	//
+	// Map values are deeply equal when all of the following are true:
+	// they are both nil or both non-nil, they have the same length,
+	// and either they are the same map object or their corresponding keys
+	// (matched using Go equality) map to deeply equal values.
+	//
+	// Pointer values are deeply equal if they are equal using Go's == operator
+	// or if they point to deeply equal values.
+	//
+	// Slice values are deeply equal when all of the following are true:
+	// they are both nil or both non-nil, they have the same length,
+	// and either they point to the same initial entry of the same underlying array
+	// (that is, &x[0] == &y[0]) or their corresponding elements (up to length) are deeply equal.
+	// Note that a non-nil empty slice and a nil slice (for example, []byte{} and []byte(nil))
+	// are not deeply equal.
+	//
+	// Other values - numbers, bools, strings, and channels - are deeply equal
+	// if they are equal using Go's == operator.
+	//
+	// In general DeepEqual is a recursive relaxation of Go's == operator.
+	// However, this idea is impossible to implement without some inconsistency.
+	// Specifically, it is possible for a value to be unequal to itself,
+	// either because it is of func type (uncomparable in general)
+	// or because it is a floating-point NaN value (not equal to itself in floating-point comparison),
+	// or because it is an array, struct, or interface containing
+	// such a value.
+	// On the other hand, pointer values are always equal to themselves,
+	// even if they point at or contain such problematic values,
+	// because they compare equal using Go's == operator, and that
+	// is a sufficient condition to be deeply equal, regardless of content.
+	// DeepEqual has been defined so that the same short-cut applies
+	// to slices and maps: if x and y are the same slice or the same map,
+	// they are deeply equal regardless of content.
+	//
+	// As DeepEqual traverses the data values it may find a cycle. The
+	// second and subsequent times that DeepEqual compares two pointer
+	// values that have been compared before, it treats the values as
+	// equal rather than examining the values to which they point.
+	// This ensures that DeepEqual terminates.
+**/
+function deepEqual(_x:AnyInterface, _y:AnyInterface):Bool
+	throw "reflect.deepEqual is not yet implemented";
+
+/**
+	// MakeFunc returns a new function of the given Type
+	// that wraps the function fn. When called, that new function
+	// does the following:
+	//
+	//   - converts its arguments to a slice of Values.
+	//   - runs results := fn(args).
+	//   - returns the results as a slice of Values, one per formal result.
+	//
+	// The implementation fn can assume that the argument Value slice
+	// has the number and type of arguments given by typ.
+	// If typ describes a variadic function, the final Value is itself
+	// a slice representing the variadic arguments, as in the
+	// body of a variadic function. The result Value slice returned by fn
+	// must have the number and type of results given by typ.
+	//
+	// The Value.Call method allows the caller to invoke a typed function
+	// in terms of Values; in contrast, MakeFunc allows the caller to implement
+	// a typed function in terms of Values.
+	//
+	// The Examples section of the documentation includes an illustration
+	// of how to use MakeFunc to build a swap function for different types.
+**/
+function makeFunc(_typ:Type, _fn:(_args:Slice<Value>) -> Slice<Value>):Value
+	throw "reflect.makeFunc is not yet implemented";
+
+/**
+	// Swapper returns a function that swaps the elements in the provided
+	// slice.
+	//
+	// Swapper panics if the provided interface is not a slice.
+**/
+function swapper(_slice:AnyInterface):(_i:GoInt, _j:GoInt) -> Void
+	throw "reflect.swapper is not yet implemented";
+
+/**
+	// TypeOf returns the reflection Type that represents the dynamic type of i.
+	// If i is a nil interface value, TypeOf returns nil.
+**/
+function typeOf(_i:AnyInterface):Type {
+	if (_i == null)
+		return Go.asInterface(new stdgo.internal.reflect.Reflect._Type(basic(unsafepointer_kind)));
+	return Go.asInterface(_i.type);
+}
+
+/**
+	// PtrTo returns the pointer type with element t.
+	// For example, if t represents type Foo, PtrTo(t) represents *Foo.
+	//
+	// PtrTo is the old spelling of PointerTo.
+	// The two functions behave identically.
+**/
+function ptrTo(_t:Type):Type
+	throw "reflect.ptrTo is not yet implemented";
+
+/**
+	// PointerTo returns the pointer type with element t.
+	// For example, if t represents type Foo, PointerTo(t) represents *Foo.
+**/
+function pointerTo(_t:Type):Type
+	throw "reflect.pointerTo is not yet implemented";
+
+/**
+	// ChanOf returns the channel type with the given direction and element type.
+	// For example, if t represents int, ChanOf(RecvDir, t) represents <-chan int.
+	//
+	// The gc runtime imposes a limit of 64 kB on channel element types.
+	// If t's size is equal to or exceeds this limit, ChanOf panics.
+**/
+function chanOf(_dir:ChanDir, _t:Type):Type
+	throw "reflect.chanOf is not yet implemented";
+
+/**
+	// MapOf returns the map type with the given key and element types.
+	// For example, if k represents int and e represents string,
+	// MapOf(k, e) represents map[int]string.
+	//
+	// If the key type is not a valid map key type (that is, if it does
+	// not implement Go's == operator), MapOf panics.
+**/
+function mapOf(_key:Type, _elem:Type):Type
+	throw "reflect.mapOf is not yet implemented";
+
+/**
+	// FuncOf returns the function type with the given argument and result types.
+	// For example if k represents int and e represents string,
+	// FuncOf([]Type{k}, []Type{e}, false) represents func(int) string.
+	//
+	// The variadic argument controls whether the function is variadic. FuncOf
+	// panics if the in[len(in)-1] does not represent a slice and variadic is
+	// true.
+**/
+function funcOf(_in:Slice<Type>, _out:Slice<Type>, _variadic:Bool):Type
+	throw "reflect.funcOf is not yet implemented";
+
+/**
+	// SliceOf returns the slice type with element type t.
+	// For example, if t represents int, SliceOf(t) represents []int.
+**/
+function sliceOf(_t:Type):Type
+	throw "reflect.sliceOf is not yet implemented";
+
+/**
+	// StructOf returns the struct type containing fields.
+	// The Offset and Index fields are ignored and computed as they would be
+	// by the compiler.
+	//
+	// StructOf currently does not generate wrapper methods for embedded
+	// fields and panics if passed unexported StructFields.
+	// These limitations may be lifted in a future version.
+**/
+function structOf(_fields:Slice<StructField>):Type
+	throw "reflect.structOf is not yet implemented";
+
+/**
+	// ArrayOf returns the array type with the given length and element type.
+	// For example, if t represents int, ArrayOf(5, t) represents [5]int.
+	//
+	// If the resulting type would be larger than the available address space,
+	// ArrayOf panics.
+**/
+function arrayOf(_length:GoInt, _elem:Type):Type
+	throw "reflect.arrayOf is not yet implemented";
+
+/**
+	// Append appends the values x to a slice s and returns the resulting slice.
+	// As in Go, each x's value must be assignable to the slice's element type.
+**/
+function append(_s:Value, _x:haxe.Rest<Value>):Value
+	throw "reflect.append is not yet implemented";
+
+/**
+	// AppendSlice appends a slice t to a slice s and returns the resulting slice.
+	// The slices s and t must have the same element type.
+**/
+function appendSlice(_s:Value, _t:Value):Value
+	throw "reflect.appendSlice is not yet implemented";
+
+/**
+	// Copy copies the contents of src into dst until either
+	// dst has been filled or src has been exhausted.
+	// It returns the number of elements copied.
+	// Dst and src each must have kind Slice or Array, and
+	// dst and src must have the same element type.
+	//
+	// As a special case, src can have kind String if the element type of dst is kind Uint8.
+**/
+function copy(_dst:Value, _src:Value):GoInt
+	throw "reflect.copy is not yet implemented";
+
+/**
+	// Select executes a select operation described by the list of cases.
+	// Like the Go select statement, it blocks until at least one of the cases
+	// can proceed, makes a uniform pseudo-random choice,
+	// and then executes that case. It returns the index of the chosen case
+	// and, if that case was a receive operation, the value received and a
+	// boolean indicating whether the value corresponds to a send on the channel
+	// (as opposed to a zero value received because the channel is closed).
+	// Select supports a maximum of 65536 cases.
+**/
+function select(_cases:Slice<SelectCase>):{var _0:GoInt; var _1:Value; var _2:Bool;}
+	throw "reflect.select is not yet implemented";
+
+/**
+	// MakeSlice creates a new zero-initialized slice value
+	// for the specified slice type, length, and capacity.
+**/
+function makeSlice(_typ:Type, _len:GoInt, _cap:GoInt):Value
+	throw "reflect.makeSlice is not yet implemented";
+
+/**
+	// MakeChan creates a new channel with the specified type and buffer size.
+**/
+function makeChan(_typ:Type, _buffer:GoInt):Value
+	throw "reflect.makeChan is not yet implemented";
+
+/**
+	// MakeMap creates a new map with the specified type.
+**/
+function makeMap(_typ:Type):Value
+	throw "reflect.makeMap is not yet implemented";
+
+/**
+	// MakeMapWithSize creates a new map with the specified type
+	// and initial space for approximately n elements.
+**/
+function makeMapWithSize(_typ:Type, _n:GoInt):Value
+	throw "reflect.makeMapWithSize is not yet implemented";
+
+/**
+	// Indirect returns the value that v points to.
+	// If v is a nil pointer, Indirect returns a zero Value.
+	// If v is not a pointer, Indirect returns v.
+**/
+function indirect(_v:Value):Value
+	throw "reflect.indirect is not yet implemented";
+
+/**
+	// ValueOf returns a new Value initialized to the concrete value
+	// stored in the interface i. ValueOf(nil) returns the zero Value.
+**/
+function valueOf(_i:AnyInterface):Value
+	throw "reflect.valueOf is not yet implemented";
+
+/**
+	// Zero returns a Value representing the zero value for the specified type.
+	// The result is different from the zero value of the Value struct,
+	// which represents no value at all.
+	// For example, Zero(TypeOf(42)) returns a Value with Kind Int and value 0.
+	// The returned value is neither addressable nor settable.
+**/
+function zero(_typ:Type):Value
+	throw "reflect.zero is not yet implemented";
+
+/**
+	// New returns a Value representing a pointer to a new zero value
+	// for the specified type. That is, the returned Value's Type is PointerTo(typ).
+**/
+function new_(_typ:Type):Value
+	throw "reflect.new_ is not yet implemented";
+
+/**
+	// NewAt returns a Value representing a pointer to a value of the
+	// specified type, using p as that pointer.
+**/
+function newAt(_typ:Type, _p:stdgo.unsafe.Unsafe.UnsafePointer):Value
+	throw "reflect.newAt is not yet implemented";
+
+/**
+	// VisibleFields returns all the visible fields in t, which must be a
+	// struct type. A field is defined as visible if it's accessible
+	// directly with a FieldByName call. The returned fields include fields
+	// inside anonymous struct members and unexported fields. They follow
+	// the same order found in the struct, with anonymous fields followed
+	// immediately by their promoted fields.
+	//
+	// For each element e of the returned slice, the corresponding field
+	// can be retrieved from a value v of type t by calling v.FieldByIndex(e.Index).
+**/
+function visibleFields(_t:Type):Slice<StructField>
+	throw "reflect.visibleFields is not yet implemented";
+
+class Method_asInterface {
+	/**
+		// IsExported reports whether the method is exported.
+	**/
+	@:keep
+	public function isExported():Bool
+		return __self__.value.isExported();
+
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
+	}
+
+	public function __underlying__()
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
+
+	var __self__:Pointer<Method>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
+}
+
+@:keep @:allow(stdgo.reflect.Reflect.Method_asInterface) class Method_static_extension {
+	/**
+		// IsExported reports whether the method is exported.
+	**/
+	@:keep
+	static public function isExported(_m:Method):Bool
+		throw "reflect.isExported is not yet implemented";
+}
+
+class StructField_asInterface {
+	/**
+		// IsExported reports whether the field is exported.
+	**/
+	@:keep
+	public function isExported():Bool
+		return __self__.value.isExported();
+
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
+	}
+
+	public function __underlying__()
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
+
+	var __self__:Pointer<StructField>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
+}
+
+@:keep @:allow(stdgo.reflect.Reflect.StructField_asInterface) class StructField_static_extension {
+	/**
+		// IsExported reports whether the field is exported.
+	**/
+	@:keep
+	static public function isExported(_f:StructField):Bool
+		throw "reflect.isExported is not yet implemented";
+}
+
+class Value_asInterface {
+	/**
+		// CanConvert reports whether the value v can be converted to type t.
+		// If v.CanConvert(t) returns true then v.Convert(t) will not panic.
+	**/
+	@:keep
+	public function canConvert(_t:Type):Bool
+		return __self__.value.canConvert(_t);
+
+	/**
+		// Convert returns the value v converted to type t.
+		// If the usual Go conversion rules do not allow conversion
+		// of the value v to type t, or if converting v to type t panics, Convert panics.
+	**/
+	@:keep
+	public function convert(_t:Type):Value
+		return __self__.value.convert(_t);
+
+	/**
+		// UnsafePointer returns v's value as a unsafe.Pointer.
+		// It panics if v's Kind is not Chan, Func, Map, Pointer, Slice, or UnsafePointer.
+		//
+		// If v's Kind is Func, the returned pointer is an underlying
+		// code pointer, but not necessarily enough to identify a
+		// single function uniquely. The only guarantee is that the
+		// result is zero if and only if v is a nil func Value.
+		//
+		// If v's Kind is Slice, the returned pointer is to the first
+		// element of the slice. If the slice is nil the returned value
+		// is nil.  If the slice is empty but non-nil the return value is non-nil.
+	**/
+	@:keep
+	public function unsafePointer():stdgo.unsafe.Unsafe.UnsafePointer
+		return __self__.value.unsafePointer();
+
+	/**
+		// UnsafeAddr returns a pointer to v's data, as a uintptr.
+		// It is for advanced clients that also import the "unsafe" package.
+		// It panics if v is not addressable.
+		//
+		// It's preferred to use uintptr(Value.Addr().UnsafePointer()) to get the equivalent result.
+	**/
+	@:keep
+	public function unsafeAddr():GoUIntptr
+		return __self__.value.unsafeAddr();
+
+	/**
+		// Uint returns v's underlying value, as a uint64.
+		// It panics if v's Kind is not Uint, Uintptr, Uint8, Uint16, Uint32, or Uint64.
+	**/
+	@:keep
+	public function uint():GoUInt64
+		return __self__.value.uint();
+
+	/**
+		// CanUint reports whether Uint can be used without panicking.
+	**/
+	@:keep
+	public function canUint():Bool
+		return __self__.value.canUint();
+
+	/**
+		// Type returns v's type.
+	**/
+	@:keep
+	public function type():Type
+		return __self__.value.type();
+
+	/**
+		// TrySend attempts to send x on the channel v but will not block.
+		// It panics if v's Kind is not Chan.
+		// It reports whether the value was sent.
+		// As in Go, x's value must be assignable to the channel's element type.
+	**/
+	@:keep
+	public function trySend(_x:Value):Bool
+		return __self__.value.trySend(_x);
+
+	/**
+		// TryRecv attempts to receive a value from the channel v but will not block.
+		// It panics if v's Kind is not Chan.
+		// If the receive delivers a value, x is the transferred value and ok is true.
+		// If the receive cannot finish without blocking, x is the zero Value and ok is false.
+		// If the channel is closed, x is the zero value for the channel's element type and ok is false.
+	**/
+	@:keep
+	public function tryRecv():{var _0:Value; var _1:Bool;}
+		return __self__.value.tryRecv();
+
+	/**
+		// String returns the string v's underlying value, as a string.
+		// String is a special case because of Go's String method convention.
+		// Unlike the other getters, it does not panic if v's Kind is not String.
+		// Instead, it returns a string of the form "<T value>" where T is v's type.
+		// The fmt package treats Values specially. It does not call their String
+		// method implicitly but instead prints the concrete values they hold.
+	**/
+	@:keep
+	public function string():GoString
+		return __self__.value.string();
+
+	/**
+		// Slice3 is the 3-index form of the slice operation: it returns v[i:j:k].
+		// It panics if v's Kind is not Array or Slice, or if v is an unaddressable array,
+		// or if the indexes are out of bounds.
+	**/
+	@:keep
+	public function slice3(_i:GoInt, _j:GoInt, _k:GoInt):Value
+		return __self__.value.slice3(_i, _j, _k);
+
+	/**
+		// Slice returns v[i:j].
+		// It panics if v's Kind is not Array, Slice or String, or if v is an unaddressable array,
+		// or if the indexes are out of bounds.
+	**/
+	@:keep
+	public function slice(_i:GoInt, _j:GoInt):Value
+		return __self__.value.slice(_i, _j);
+
+	/**
+		// SetString sets v's underlying value to x.
+		// It panics if v's Kind is not String or if CanSet() is false.
+	**/
+	@:keep
+	public function setString(_x:GoString):Void
+		__self__.value.setString(_x);
+
+	/**
+		// SetPointer sets the unsafe.Pointer value v to x.
+		// It panics if v's Kind is not UnsafePointer.
+	**/
+	@:keep
+	public function setPointer(_x:stdgo.unsafe.Unsafe.UnsafePointer):Void
+		__self__.value.setPointer(_x);
+
+	/**
+		// SetUint sets v's underlying value to x.
+		// It panics if v's Kind is not Uint, Uintptr, Uint8, Uint16, Uint32, or Uint64, or if CanSet() is false.
+	**/
+	@:keep
+	public function setUint(_x:GoUInt64):Void
+		__self__.value.setUint(_x);
+
+	/**
+		// SetMapIndex sets the element associated with key in the map v to elem.
+		// It panics if v's Kind is not Map.
+		// If elem is the zero Value, SetMapIndex deletes the key from the map.
+		// Otherwise if v holds a nil map, SetMapIndex will panic.
+		// As in Go, key's elem must be assignable to the map's key type,
+		// and elem's value must be assignable to the map's elem type.
+	**/
+	@:keep
+	public function setMapIndex(_key:Value, _elem:Value):Void
+		__self__.value.setMapIndex(_key, _elem);
+
+	/**
+		// SetCap sets v's capacity to n.
+		// It panics if v's Kind is not Slice or if n is smaller than the length or
+		// greater than the capacity of the slice.
+	**/
+	@:keep
+	public function setCap(_n:GoInt):Void
+		__self__.value.setCap(_n);
+
+	/**
+		// SetLen sets v's length to n.
+		// It panics if v's Kind is not Slice or if n is negative or
+		// greater than the capacity of the slice.
+	**/
+	@:keep
+	public function setLen(_n:GoInt):Void
+		__self__.value.setLen(_n);
+
+	/**
+		// SetInt sets v's underlying value to x.
+		// It panics if v's Kind is not Int, Int8, Int16, Int32, or Int64, or if CanSet() is false.
+	**/
+	@:keep
+	public function setInt(_x:GoInt64):Void
+		__self__.value.setInt(_x);
+
+	/**
+		// SetFloat sets v's underlying value to x.
+		// It panics if v's Kind is not Float32 or Float64, or if CanSet() is false.
+	**/
+	@:keep
+	public function setFloat(_x:GoFloat64):Void
+		__self__.value.setFloat(_x);
+
+	/**
+		// SetComplex sets v's underlying value to x.
+		// It panics if v's Kind is not Complex64 or Complex128, or if CanSet() is false.
+	**/
+	@:keep
+	public function setComplex(_x:GoComplex128):Void
+		__self__.value.setComplex(_x);
+
+	/**
+		// SetBytes sets v's underlying value.
+		// It panics if v's underlying value is not a slice of bytes.
+	**/
+	@:keep
+	public function setBytes(_x:Slice<GoByte>):Void
+		__self__.value.setBytes(_x);
+
+	/**
+		// SetBool sets v's underlying value.
+		// It panics if v's Kind is not Bool or if CanSet() is false.
+	**/
+	@:keep
+	public function setBool(_x:Bool):Void
+		__self__.value.setBool(_x);
+
+	/**
+		// Set assigns x to the value v.
+		// It panics if CanSet returns false.
+		// As in Go, x's value must be assignable to v's type.
+	**/
+	@:keep
+	public function set(_x:Value):Void
+		__self__.value.set(_x);
+
+	/**
+		// Send sends x on the channel v.
+		// It panics if v's kind is not Chan or if x's type is not the same type as v's element type.
+		// As in Go, x's value must be assignable to the channel's element type.
+	**/
+	@:keep
+	public function send(_x:Value):Void
+		__self__.value.send(_x);
+
+	/**
+		// Recv receives and returns a value from the channel v.
+		// It panics if v's Kind is not Chan.
+		// The receive blocks until a value is ready.
+		// The boolean value ok is true if the value x corresponds to a send
+		// on the channel, false if it is a zero value received because the channel is closed.
+	**/
+	@:keep
+	public function recv():{var _0:Value; var _1:Bool;}
+		return __self__.value.recv();
+
+	/**
+		// Pointer returns v's value as a uintptr.
+		// It returns uintptr instead of unsafe.Pointer so that
+		// code using reflect cannot obtain unsafe.Pointers
+		// without importing the unsafe package explicitly.
+		// It panics if v's Kind is not Chan, Func, Map, Pointer, Slice, or UnsafePointer.
+		//
+		// If v's Kind is Func, the returned pointer is an underlying
+		// code pointer, but not necessarily enough to identify a
+		// single function uniquely. The only guarantee is that the
+		// result is zero if and only if v is a nil func Value.
+		//
+		// If v's Kind is Slice, the returned pointer is to the first
+		// element of the slice. If the slice is nil the returned value
+		// is 0.  If the slice is empty but non-nil the return value is non-zero.
+		//
+		// It's preferred to use uintptr(Value.UnsafePointer()) to get the equivalent result.
+	**/
+	@:keep
+	public function pointer():GoUIntptr
+		return __self__.value.pointer();
+
+	/**
+		// OverflowUint reports whether the uint64 x cannot be represented by v's type.
+		// It panics if v's Kind is not Uint, Uintptr, Uint8, Uint16, Uint32, or Uint64.
+	**/
+	@:keep
+	public function overflowUint(_x:GoUInt64):Bool
+		return __self__.value.overflowUint(_x);
+
+	/**
+		// OverflowInt reports whether the int64 x cannot be represented by v's type.
+		// It panics if v's Kind is not Int, Int8, Int16, Int32, or Int64.
+	**/
+	@:keep
+	public function overflowInt(_x:GoInt64):Bool
+		return __self__.value.overflowInt(_x);
+
+	/**
+		// OverflowFloat reports whether the float64 x cannot be represented by v's type.
+		// It panics if v's Kind is not Float32 or Float64.
+	**/
+	@:keep
+	public function overflowFloat(_x:GoFloat64):Bool
+		return __self__.value.overflowFloat(_x);
+
+	/**
+		// OverflowComplex reports whether the complex128 x cannot be represented by v's type.
+		// It panics if v's Kind is not Complex64 or Complex128.
+	**/
+	@:keep
+	public function overflowComplex(_x:GoComplex128):Bool
+		return __self__.value.overflowComplex(_x);
+
+	/**
+		// NumField returns the number of fields in the struct v.
+		// It panics if v's Kind is not Struct.
+	**/
+	@:keep
+	public function numField():GoInt
+		return __self__.value.numField();
+
+	/**
+		// MethodByName returns a function value corresponding to the method
+		// of v with the given name.
+		// The arguments to a Call on the returned function should not include
+		// a receiver; the returned function will always use v as the receiver.
+		// It returns the zero Value if no method was found.
+	**/
+	@:keep
+	public function methodByName(_name:GoString):Value
+		return __self__.value.methodByName(_name);
+
+	/**
+		// NumMethod returns the number of methods in the value's method set.
+		//
+		// For a non-interface type, it returns the number of exported methods.
+		//
+		// For an interface type, it returns the number of exported and unexported methods.
+	**/
+	@:keep
+	public function numMethod():GoInt
+		return __self__.value.numMethod();
+
+	/**
+		// Method returns a function value corresponding to v's i'th method.
+		// The arguments to a Call on the returned function should not include
+		// a receiver; the returned function will always use v as the receiver.
+		// Method panics if i is out of range or if v is a nil interface value.
+	**/
+	@:keep
+	public function method(_i:GoInt):Value
+		return __self__.value.method(_i);
+
+	/**
+		// MapRange returns a range iterator for a map.
+		// It panics if v's Kind is not Map.
+		//
+		// Call Next to advance the iterator, and Key/Value to access each entry.
+		// Next returns false when the iterator is exhausted.
+		// MapRange follows the same iteration semantics as a range statement.
+		//
+		// Example:
+		//
+		//	iter := reflect.ValueOf(m).MapRange()
+		//	for iter.Next() {
+		//		k := iter.Key()
+		//		v := iter.Value()
+		//		...
+		//	}
+	**/
+	@:keep
+	public function mapRange():Ref<MapIter>
+		return __self__.value.mapRange();
+
+	/**
+		// SetIterValue assigns to v the value of iter's current map entry.
+		// It is equivalent to v.Set(iter.Value()), but it avoids allocating a new Value.
+		// As in Go, the value must be assignable to v's type.
+	**/
+	@:keep
+	public function setIterValue(_iter:Ref<MapIter>):Void
+		__self__.value.setIterValue(_iter);
+
+	/**
+		// SetIterKey assigns to v the key of iter's current map entry.
+		// It is equivalent to v.Set(iter.Key()), but it avoids allocating a new Value.
+		// As in Go, the key must be assignable to v's type.
+	**/
+	@:keep
+	public function setIterKey(_iter:Ref<MapIter>):Void
+		__self__.value.setIterKey(_iter);
+
+	/**
+		// MapKeys returns a slice containing all the keys present in the map,
+		// in unspecified order.
+		// It panics if v's Kind is not Map.
+		// It returns an empty slice if v represents a nil map.
+	**/
+	@:keep
+	public function mapKeys():Slice<Value>
+		return __self__.value.mapKeys();
+
+	/**
+		// MapIndex returns the value associated with key in the map v.
+		// It panics if v's Kind is not Map.
+		// It returns the zero Value if key is not found in the map or if v represents a nil map.
+		// As in Go, the key's value must be assignable to the map's key type.
+	**/
+	@:keep
+	public function mapIndex(_key:Value):Value
+		return __self__.value.mapIndex(_key);
+
+	/**
+		// Len returns v's length.
+		// It panics if v's Kind is not Array, Chan, Map, Slice, String, or pointer to Array.
+	**/
+	@:keep
+	public function len():GoInt
+		return __self__.value.len();
+
+	/**
+		// Kind returns v's Kind.
+		// If v is the zero Value (IsValid returns false), Kind returns Invalid.
+	**/
+	@:keep
+	public function kind():Kind
+		return __self__.value.kind();
+
+	/**
+		// IsZero reports whether v is the zero value for its type.
+		// It panics if the argument is invalid.
+	**/
+	@:keep
+	public function isZero():Bool
+		return __self__.value.isZero();
+
+	/**
+		// IsValid reports whether v represents a value.
+		// It returns false if v is the zero Value.
+		// If IsValid returns false, all other methods except String panic.
+		// Most functions and methods never return an invalid Value.
+		// If one does, its documentation states the conditions explicitly.
+	**/
+	@:keep
+	public function isValid():Bool
+		return __self__.value.isValid();
+
+	/**
+		// IsNil reports whether its argument v is nil. The argument must be
+		// a chan, func, interface, map, pointer, or slice value; if it is
+		// not, IsNil panics. Note that IsNil is not always equivalent to a
+		// regular comparison with nil in Go. For example, if v was created
+		// by calling ValueOf with an uninitialized interface variable i,
+		// i==nil will be true but v.IsNil will panic as v will be the zero
+		// Value.
+	**/
+	@:keep
+	public function isNil():Bool
+		return __self__.value.isNil();
+
+	/**
+		// InterfaceData returns a pair of unspecified uintptr values.
+		// It panics if v's Kind is not Interface.
+		//
+		// In earlier versions of Go, this function returned the interface's
+		// value as a uintptr pair. As of Go 1.4, the implementation of
+		// interface values precludes any defined use of InterfaceData.
+		//
+		// Deprecated: The memory representation of interface values is not
+		// compatible with InterfaceData.
+	**/
+	@:keep
+	public function interfaceData():GoArray<GoUIntptr>
+		return __self__.value.interfaceData();
+
+	/**
+		// Interface returns v's current value as an interface{}.
+		// It is equivalent to:
+		//
+		//	var i interface{} = (v's underlying value)
+		//
+		// It panics if the Value was obtained by accessing
+		// unexported struct fields.
+	**/
+	@:keep
+	public function interface_():AnyInterface
+		return __self__.value.interface_();
+
+	/**
+		// CanInterface reports whether Interface can be used without panicking.
+	**/
+	@:keep
+	public function canInterface():Bool
+		return __self__.value.canInterface();
+
+	/**
+		// Int returns v's underlying value, as an int64.
+		// It panics if v's Kind is not Int, Int8, Int16, Int32, or Int64.
+	**/
+	@:keep
+	public function int_():GoInt64
+		return __self__.value.int_();
+
+	/**
+		// CanInt reports whether Int can be used without panicking.
+	**/
+	@:keep
+	public function canInt():Bool
+		return __self__.value.canInt();
+
+	/**
+		// Index returns v's i'th element.
+		// It panics if v's Kind is not Array, Slice, or String or i is out of range.
+	**/
+	@:keep
+	public function index(_i:GoInt):Value
+		return __self__.value.index(_i);
+
+	/**
+		// Float returns v's underlying value, as a float64.
+		// It panics if v's Kind is not Float32 or Float64
+	**/
+	@:keep
+	public function float_():GoFloat64
+		return __self__.value.float_();
+
+	/**
+		// CanFloat reports whether Float can be used without panicking.
+	**/
+	@:keep
+	public function canFloat():Bool
+		return __self__.value.canFloat();
+
+	/**
+		// FieldByNameFunc returns the struct field with a name
+		// that satisfies the match function.
+		// It panics if v's Kind is not struct.
+		// It returns the zero Value if no field was found.
+	**/
+	@:keep
+	public function fieldByNameFunc(_match:GoString->Bool):Value
+		return __self__.value.fieldByNameFunc(_match);
+
+	/**
+		// FieldByName returns the struct field with the given name.
+		// It returns the zero Value if no field was found.
+		// It panics if v's Kind is not struct.
+	**/
+	@:keep
+	public function fieldByName(_name:GoString):Value
+		return __self__.value.fieldByName(_name);
+
+	/**
+		// FieldByIndexErr returns the nested field corresponding to index.
+		// It returns an error if evaluation requires stepping through a nil
+		// pointer, but panics if it must step through a field that
+		// is not a struct.
+	**/
+	@:keep
+	public function fieldByIndexErr(_index:Slice<GoInt>):{var _0:Value; var _1:Error;}
+		return __self__.value.fieldByIndexErr(_index);
+
+	/**
+		// FieldByIndex returns the nested field corresponding to index.
+		// It panics if evaluation requires stepping through a nil
+		// pointer or a field that is not a struct.
+	**/
+	@:keep
+	public function fieldByIndex(_index:Slice<GoInt>):Value
+		return __self__.value.fieldByIndex(_index);
+
+	/**
+		// Field returns the i'th field of the struct v.
+		// It panics if v's Kind is not Struct or i is out of range.
+	**/
+	@:keep
+	public function field(_i:GoInt):Value
+		return __self__.value.field(_i);
+
+	/**
+		// Elem returns the value that the interface v contains
+		// or that the pointer v points to.
+		// It panics if v's Kind is not Interface or Pointer.
+		// It returns the zero Value if v is nil.
+	**/
+	@:keep
+	public function elem():Value
+		return __self__.value.elem();
+
+	/**
+		// Complex returns v's underlying value, as a complex128.
+		// It panics if v's Kind is not Complex64 or Complex128
+	**/
+	@:keep
+	public function complex():GoComplex128
+		return __self__.value.complex();
+
+	/**
+		// CanComplex reports whether Complex can be used without panicking.
+	**/
+	@:keep
+	public function canComplex():Bool
+		return __self__.value.canComplex();
+
+	/**
+		// Close closes the channel v.
+		// It panics if v's Kind is not Chan.
+	**/
+	@:keep
+	public function close():Void
+		__self__.value.close();
+
+	/**
+		// Cap returns v's capacity.
+		// It panics if v's Kind is not Array, Chan, Slice or pointer to Array.
+	**/
+	@:keep
+	public function cap():GoInt
+		return __self__.value.cap();
+
+	/**
+		// CallSlice calls the variadic function v with the input arguments in,
+		// assigning the slice in[len(in)-1] to v's final variadic argument.
+		// For example, if len(in) == 3, v.CallSlice(in) represents the Go call v(in[0], in[1], in[2]...).
+		// CallSlice panics if v's Kind is not Func or if v is not variadic.
+		// It returns the output results as Values.
+		// As in Go, each input argument must be assignable to the
+		// type of the function's corresponding input parameter.
+	**/
+	@:keep
+	public function callSlice(_in:Slice<Value>):Slice<Value>
+		return __self__.value.callSlice(_in);
+
+	/**
+		// Call calls the function v with the input arguments in.
+		// For example, if len(in) == 3, v.Call(in) represents the Go call v(in[0], in[1], in[2]).
+		// Call panics if v's Kind is not Func.
+		// It returns the output results as Values.
+		// As in Go, each input argument must be assignable to the
+		// type of the function's corresponding input parameter.
+		// If v is a variadic function, Call creates the variadic slice parameter
+		// itself, copying in the corresponding values.
+	**/
+	@:keep
+	public function call(_in:Slice<Value>):Slice<Value>
+		return __self__.value.call(_in);
+
+	/**
+		// CanSet reports whether the value of v can be changed.
+		// A Value can be changed only if it is addressable and was not
+		// obtained by the use of unexported struct fields.
+		// If CanSet returns false, calling Set or any type-specific
+		// setter (e.g., SetBool, SetInt) will panic.
+	**/
+	@:keep
+	public function canSet():Bool
+		return __self__.value.canSet();
+
+	/**
+		// CanAddr reports whether the value's address can be obtained with Addr.
+		// Such values are called addressable. A value is addressable if it is
+		// an element of a slice, an element of an addressable array,
+		// a field of an addressable struct, or the result of dereferencing a pointer.
+		// If CanAddr returns false, calling Addr will panic.
+	**/
+	@:keep
+	public function canAddr():Bool
+		return __self__.value.canAddr();
+
+	/**
+		// Bytes returns v's underlying value.
+		// It panics if v's underlying value is not a slice of bytes or
+		// an addressable array of bytes.
+	**/
+	@:keep
+	public function bytes():Slice<GoByte>
+		return __self__.value.bytes();
+
+	/**
+		// Bool returns v's underlying value.
+		// It panics if v's kind is not Bool.
+	**/
+	@:keep
+	public function bool_():Bool
+		return __self__.value.bool_();
+
+	/**
+		// Addr returns a pointer value representing the address of v.
+		// It panics if CanAddr() returns false.
+		// Addr is typically used to obtain a pointer to a struct field
+		// or slice element in order to call a method that requires a
+		// pointer receiver.
+	**/
+	@:keep
+	public function addr():Value
+		return __self__.value.addr();
+
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
+	}
+
+	public function __underlying__()
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
+
+	var __self__:Pointer<Value>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
+}
+
+@:keep @:allow(stdgo.reflect.Reflect.Value_asInterface) class Value_static_extension {
+	/**
+		// CanConvert reports whether the value v can be converted to type t.
+		// If v.CanConvert(t) returns true then v.Convert(t) will not panic.
+	**/
+	@:keep
+	static public function canConvert(_v:Value, _t:Type):Bool
+		throw "reflect.canConvert is not yet implemented";
+
+	/**
+		// Convert returns the value v converted to type t.
+		// If the usual Go conversion rules do not allow conversion
+		// of the value v to type t, or if converting v to type t panics, Convert panics.
+	**/
+	@:keep
+	static public function convert(_v:Value, _t:Type):Value
+		throw "reflect.convert is not yet implemented";
+
+	/**
+		// UnsafePointer returns v's value as a unsafe.Pointer.
+		// It panics if v's Kind is not Chan, Func, Map, Pointer, Slice, or UnsafePointer.
+		//
+		// If v's Kind is Func, the returned pointer is an underlying
+		// code pointer, but not necessarily enough to identify a
+		// single function uniquely. The only guarantee is that the
+		// result is zero if and only if v is a nil func Value.
+		//
+		// If v's Kind is Slice, the returned pointer is to the first
+		// element of the slice. If the slice is nil the returned value
+		// is nil.  If the slice is empty but non-nil the return value is non-nil.
+	**/
+	@:keep
+	static public function unsafePointer(_v:Value):stdgo.unsafe.Unsafe.UnsafePointer
+		throw "reflect.unsafePointer is not yet implemented";
+
+	/**
+		// UnsafeAddr returns a pointer to v's data, as a uintptr.
+		// It is for advanced clients that also import the "unsafe" package.
+		// It panics if v is not addressable.
+		//
+		// It's preferred to use uintptr(Value.Addr().UnsafePointer()) to get the equivalent result.
+	**/
+	@:keep
+	static public function unsafeAddr(_v:Value):GoUIntptr
+		throw "reflect.unsafeAddr is not yet implemented";
+
+	/**
+		// Uint returns v's underlying value, as a uint64.
+		// It panics if v's Kind is not Uint, Uintptr, Uint8, Uint16, Uint32, or Uint64.
+	**/
+	@:keep
+	static public function uint(_v:Value):GoUInt64
+		throw "reflect.uint is not yet implemented";
+
+	/**
+		// CanUint reports whether Uint can be used without panicking.
+	**/
+	@:keep
+	static public function canUint(_v:Value):Bool
+		throw "reflect.canUint is not yet implemented";
+
+	/**
+		// Type returns v's type.
+	**/
+	@:keep
+	static public function type(_v:Value):Type
+		throw "reflect.type is not yet implemented";
+
+	/**
+		// TrySend attempts to send x on the channel v but will not block.
+		// It panics if v's Kind is not Chan.
+		// It reports whether the value was sent.
+		// As in Go, x's value must be assignable to the channel's element type.
+	**/
+	@:keep
+	static public function trySend(_v:Value, _x:Value):Bool
+		throw "reflect.trySend is not yet implemented";
+
+	/**
+		// TryRecv attempts to receive a value from the channel v but will not block.
+		// It panics if v's Kind is not Chan.
+		// If the receive delivers a value, x is the transferred value and ok is true.
+		// If the receive cannot finish without blocking, x is the zero Value and ok is false.
+		// If the channel is closed, x is the zero value for the channel's element type and ok is false.
+	**/
+	@:keep
+	static public function tryRecv(_v:Value):{var _0:Value; var _1:Bool;}
+		throw "reflect.tryRecv is not yet implemented";
+
+	/**
+		// String returns the string v's underlying value, as a string.
+		// String is a special case because of Go's String method convention.
+		// Unlike the other getters, it does not panic if v's Kind is not String.
+		// Instead, it returns a string of the form "<T value>" where T is v's type.
+		// The fmt package treats Values specially. It does not call their String
+		// method implicitly but instead prints the concrete values they hold.
+	**/
+	@:keep
+	static public function string(_v:Value):GoString
+		throw "reflect.string is not yet implemented";
+
+	/**
+		// Slice3 is the 3-index form of the slice operation: it returns v[i:j:k].
+		// It panics if v's Kind is not Array or Slice, or if v is an unaddressable array,
+		// or if the indexes are out of bounds.
+	**/
+	@:keep
+	static public function slice3(_v:Value, _i:GoInt, _j:GoInt, _k:GoInt):Value
+		throw "reflect.slice3 is not yet implemented";
+
+	/**
+		// Slice returns v[i:j].
+		// It panics if v's Kind is not Array, Slice or String, or if v is an unaddressable array,
+		// or if the indexes are out of bounds.
+	**/
+	@:keep
+	static public function slice(_v:Value, _i:GoInt, _j:GoInt):Value
+		throw "reflect.slice is not yet implemented";
+
+	/**
+		// SetString sets v's underlying value to x.
+		// It panics if v's Kind is not String or if CanSet() is false.
+	**/
+	@:keep
+	static public function setString(_v:Value, _x:GoString):Void
+		throw "reflect.setString is not yet implemented";
+
+	/**
+		// SetPointer sets the unsafe.Pointer value v to x.
+		// It panics if v's Kind is not UnsafePointer.
+	**/
+	@:keep
+	static public function setPointer(_v:Value, _x:stdgo.unsafe.Unsafe.UnsafePointer):Void
+		throw "reflect.setPointer is not yet implemented";
+
+	/**
+		// SetUint sets v's underlying value to x.
+		// It panics if v's Kind is not Uint, Uintptr, Uint8, Uint16, Uint32, or Uint64, or if CanSet() is false.
+	**/
+	@:keep
+	static public function setUint(_v:Value, _x:GoUInt64):Void
+		throw "reflect.setUint is not yet implemented";
+
+	/**
+		// SetMapIndex sets the element associated with key in the map v to elem.
+		// It panics if v's Kind is not Map.
+		// If elem is the zero Value, SetMapIndex deletes the key from the map.
+		// Otherwise if v holds a nil map, SetMapIndex will panic.
+		// As in Go, key's elem must be assignable to the map's key type,
+		// and elem's value must be assignable to the map's elem type.
+	**/
+	@:keep
+	static public function setMapIndex(_v:Value, _key:Value, _elem:Value):Void
+		throw "reflect.setMapIndex is not yet implemented";
+
+	/**
+		// SetCap sets v's capacity to n.
+		// It panics if v's Kind is not Slice or if n is smaller than the length or
+		// greater than the capacity of the slice.
+	**/
+	@:keep
+	static public function setCap(_v:Value, _n:GoInt):Void
+		throw "reflect.setCap is not yet implemented";
+
+	/**
+		// SetLen sets v's length to n.
+		// It panics if v's Kind is not Slice or if n is negative or
+		// greater than the capacity of the slice.
+	**/
+	@:keep
+	static public function setLen(_v:Value, _n:GoInt):Void
+		throw "reflect.setLen is not yet implemented";
+
+	/**
+		// SetInt sets v's underlying value to x.
+		// It panics if v's Kind is not Int, Int8, Int16, Int32, or Int64, or if CanSet() is false.
+	**/
+	@:keep
+	static public function setInt(_v:Value, _x:GoInt64):Void
+		throw "reflect.setInt is not yet implemented";
+
+	/**
+		// SetFloat sets v's underlying value to x.
+		// It panics if v's Kind is not Float32 or Float64, or if CanSet() is false.
+	**/
+	@:keep
+	static public function setFloat(_v:Value, _x:GoFloat64):Void
+		throw "reflect.setFloat is not yet implemented";
+
+	/**
+		// SetComplex sets v's underlying value to x.
+		// It panics if v's Kind is not Complex64 or Complex128, or if CanSet() is false.
+	**/
+	@:keep
+	static public function setComplex(_v:Value, _x:GoComplex128):Void
+		throw "reflect.setComplex is not yet implemented";
+
+	/**
+		// SetBytes sets v's underlying value.
+		// It panics if v's underlying value is not a slice of bytes.
+	**/
+	@:keep
+	static public function setBytes(_v:Value, _x:Slice<GoByte>):Void
+		throw "reflect.setBytes is not yet implemented";
+
+	/**
+		// SetBool sets v's underlying value.
+		// It panics if v's Kind is not Bool or if CanSet() is false.
+	**/
+	@:keep
+	static public function setBool(_v:Value, _x:Bool):Void
+		throw "reflect.setBool is not yet implemented";
+
+	/**
+		// Set assigns x to the value v.
+		// It panics if CanSet returns false.
+		// As in Go, x's value must be assignable to v's type.
+	**/
+	@:keep
+	static public function set(_v:Value, _x:Value):Void
+		throw "reflect.set is not yet implemented";
+
+	/**
+		// Send sends x on the channel v.
+		// It panics if v's kind is not Chan or if x's type is not the same type as v's element type.
+		// As in Go, x's value must be assignable to the channel's element type.
+	**/
+	@:keep
+	static public function send(_v:Value, _x:Value):Void
+		throw "reflect.send is not yet implemented";
+
+	/**
+		// Recv receives and returns a value from the channel v.
+		// It panics if v's Kind is not Chan.
+		// The receive blocks until a value is ready.
+		// The boolean value ok is true if the value x corresponds to a send
+		// on the channel, false if it is a zero value received because the channel is closed.
+	**/
+	@:keep
+	static public function recv(_v:Value):{var _0:Value; var _1:Bool;}
+		throw "reflect.recv is not yet implemented";
+
+	/**
+		// Pointer returns v's value as a uintptr.
+		// It returns uintptr instead of unsafe.Pointer so that
+		// code using reflect cannot obtain unsafe.Pointers
+		// without importing the unsafe package explicitly.
+		// It panics if v's Kind is not Chan, Func, Map, Pointer, Slice, or UnsafePointer.
+		//
+		// If v's Kind is Func, the returned pointer is an underlying
+		// code pointer, but not necessarily enough to identify a
+		// single function uniquely. The only guarantee is that the
+		// result is zero if and only if v is a nil func Value.
+		//
+		// If v's Kind is Slice, the returned pointer is to the first
+		// element of the slice. If the slice is nil the returned value
+		// is 0.  If the slice is empty but non-nil the return value is non-zero.
+		//
+		// It's preferred to use uintptr(Value.UnsafePointer()) to get the equivalent result.
+	**/
+	@:keep
+	static public function pointer(_v:Value):GoUIntptr
+		throw "reflect.pointer is not yet implemented";
+
+	/**
+		// OverflowUint reports whether the uint64 x cannot be represented by v's type.
+		// It panics if v's Kind is not Uint, Uintptr, Uint8, Uint16, Uint32, or Uint64.
+	**/
+	@:keep
+	static public function overflowUint(_v:Value, _x:GoUInt64):Bool
+		throw "reflect.overflowUint is not yet implemented";
+
+	/**
+		// OverflowInt reports whether the int64 x cannot be represented by v's type.
+		// It panics if v's Kind is not Int, Int8, Int16, Int32, or Int64.
+	**/
+	@:keep
+	static public function overflowInt(_v:Value, _x:GoInt64):Bool
+		throw "reflect.overflowInt is not yet implemented";
+
+	/**
+		// OverflowFloat reports whether the float64 x cannot be represented by v's type.
+		// It panics if v's Kind is not Float32 or Float64.
+	**/
+	@:keep
+	static public function overflowFloat(_v:Value, _x:GoFloat64):Bool
+		throw "reflect.overflowFloat is not yet implemented";
+
+	/**
+		// OverflowComplex reports whether the complex128 x cannot be represented by v's type.
+		// It panics if v's Kind is not Complex64 or Complex128.
+	**/
+	@:keep
+	static public function overflowComplex(_v:Value, _x:GoComplex128):Bool
+		throw "reflect.overflowComplex is not yet implemented";
+
+	/**
+		// NumField returns the number of fields in the struct v.
+		// It panics if v's Kind is not Struct.
+	**/
+	@:keep
+	static public function numField(_v:Value):GoInt
+		throw "reflect.numField is not yet implemented";
+
+	/**
+		// MethodByName returns a function value corresponding to the method
+		// of v with the given name.
+		// The arguments to a Call on the returned function should not include
+		// a receiver; the returned function will always use v as the receiver.
+		// It returns the zero Value if no method was found.
+	**/
+	@:keep
+	static public function methodByName(_v:Value, _name:GoString):Value
+		throw "reflect.methodByName is not yet implemented";
+
+	/**
+		// NumMethod returns the number of methods in the value's method set.
+		//
+		// For a non-interface type, it returns the number of exported methods.
+		//
+		// For an interface type, it returns the number of exported and unexported methods.
+	**/
+	@:keep
+	static public function numMethod(_v:Value):GoInt
+		throw "reflect.numMethod is not yet implemented";
+
+	/**
+		// Method returns a function value corresponding to v's i'th method.
+		// The arguments to a Call on the returned function should not include
+		// a receiver; the returned function will always use v as the receiver.
+		// Method panics if i is out of range or if v is a nil interface value.
+	**/
+	@:keep
+	static public function method(_v:Value, _i:GoInt):Value
+		throw "reflect.method is not yet implemented";
+
+	/**
+		// MapRange returns a range iterator for a map.
+		// It panics if v's Kind is not Map.
+		//
+		// Call Next to advance the iterator, and Key/Value to access each entry.
+		// Next returns false when the iterator is exhausted.
+		// MapRange follows the same iteration semantics as a range statement.
+		//
+		// Example:
+		//
+		//	iter := reflect.ValueOf(m).MapRange()
+		//	for iter.Next() {
+		//		k := iter.Key()
+		//		v := iter.Value()
+		//		...
+		//	}
+	**/
+	@:keep
+	static public function mapRange(_v:Value):Ref<MapIter>
+		throw "reflect.mapRange is not yet implemented";
+
+	/**
+		// SetIterValue assigns to v the value of iter's current map entry.
+		// It is equivalent to v.Set(iter.Value()), but it avoids allocating a new Value.
+		// As in Go, the value must be assignable to v's type.
+	**/
+	@:keep
+	static public function setIterValue(_v:Value, _iter:Ref<MapIter>):Void
+		throw "reflect.setIterValue is not yet implemented";
+
+	/**
+		// SetIterKey assigns to v the key of iter's current map entry.
+		// It is equivalent to v.Set(iter.Key()), but it avoids allocating a new Value.
+		// As in Go, the key must be assignable to v's type.
+	**/
+	@:keep
+	static public function setIterKey(_v:Value, _iter:Ref<MapIter>):Void
+		throw "reflect.setIterKey is not yet implemented";
+
+	/**
+		// MapKeys returns a slice containing all the keys present in the map,
+		// in unspecified order.
+		// It panics if v's Kind is not Map.
+		// It returns an empty slice if v represents a nil map.
+	**/
+	@:keep
+	static public function mapKeys(_v:Value):Slice<Value>
+		throw "reflect.mapKeys is not yet implemented";
+
+	/**
+		// MapIndex returns the value associated with key in the map v.
+		// It panics if v's Kind is not Map.
+		// It returns the zero Value if key is not found in the map or if v represents a nil map.
+		// As in Go, the key's value must be assignable to the map's key type.
+	**/
+	@:keep
+	static public function mapIndex(_v:Value, _key:Value):Value
+		throw "reflect.mapIndex is not yet implemented";
+
+	/**
+		// Len returns v's length.
+		// It panics if v's Kind is not Array, Chan, Map, Slice, String, or pointer to Array.
+	**/
+	@:keep
+	static public function len(_v:Value):GoInt
+		throw "reflect.len is not yet implemented";
+
+	/**
+		// Kind returns v's Kind.
+		// If v is the zero Value (IsValid returns false), Kind returns Invalid.
+	**/
+	@:keep
+	static public function kind(_v:Value):Kind
+		throw "reflect.kind is not yet implemented";
+
+	/**
+		// IsZero reports whether v is the zero value for its type.
+		// It panics if the argument is invalid.
+	**/
+	@:keep
+	static public function isZero(_v:Value):Bool
+		throw "reflect.isZero is not yet implemented";
+
+	/**
+		// IsValid reports whether v represents a value.
+		// It returns false if v is the zero Value.
+		// If IsValid returns false, all other methods except String panic.
+		// Most functions and methods never return an invalid Value.
+		// If one does, its documentation states the conditions explicitly.
+	**/
+	@:keep
+	static public function isValid(_v:Value):Bool
+		throw "reflect.isValid is not yet implemented";
+
+	/**
+		// IsNil reports whether its argument v is nil. The argument must be
+		// a chan, func, interface, map, pointer, or slice value; if it is
+		// not, IsNil panics. Note that IsNil is not always equivalent to a
+		// regular comparison with nil in Go. For example, if v was created
+		// by calling ValueOf with an uninitialized interface variable i,
+		// i==nil will be true but v.IsNil will panic as v will be the zero
+		// Value.
+	**/
+	@:keep
+	static public function isNil(_v:Value):Bool
+		throw "reflect.isNil is not yet implemented";
+
+	/**
+		// InterfaceData returns a pair of unspecified uintptr values.
+		// It panics if v's Kind is not Interface.
+		//
+		// In earlier versions of Go, this function returned the interface's
+		// value as a uintptr pair. As of Go 1.4, the implementation of
+		// interface values precludes any defined use of InterfaceData.
+		//
+		// Deprecated: The memory representation of interface values is not
+		// compatible with InterfaceData.
+	**/
+	@:keep
+	static public function interfaceData(_v:Value):GoArray<GoUIntptr>
+		throw "reflect.interfaceData is not yet implemented";
+
+	/**
+		// Interface returns v's current value as an interface{}.
+		// It is equivalent to:
+		//
+		//	var i interface{} = (v's underlying value)
+		//
+		// It panics if the Value was obtained by accessing
+		// unexported struct fields.
+	**/
+	@:keep
+	static public function interface_(_v:Value):AnyInterface
+		throw "reflect.interface_ is not yet implemented";
+
+	/**
+		// CanInterface reports whether Interface can be used without panicking.
+	**/
+	@:keep
+	static public function canInterface(_v:Value):Bool
+		throw "reflect.canInterface is not yet implemented";
+
+	/**
+		// Int returns v's underlying value, as an int64.
+		// It panics if v's Kind is not Int, Int8, Int16, Int32, or Int64.
+	**/
+	@:keep
+	static public function int_(_v:Value):GoInt64
+		throw "reflect.int_ is not yet implemented";
+
+	/**
+		// CanInt reports whether Int can be used without panicking.
+	**/
+	@:keep
+	static public function canInt(_v:Value):Bool
+		throw "reflect.canInt is not yet implemented";
+
+	/**
+		// Index returns v's i'th element.
+		// It panics if v's Kind is not Array, Slice, or String or i is out of range.
+	**/
+	@:keep
+	static public function index(_v:Value, _i:GoInt):Value
+		throw "reflect.index is not yet implemented";
+
+	/**
+		// Float returns v's underlying value, as a float64.
+		// It panics if v's Kind is not Float32 or Float64
+	**/
+	@:keep
+	static public function float_(_v:Value):GoFloat64
+		throw "reflect.float_ is not yet implemented";
+
+	/**
+		// CanFloat reports whether Float can be used without panicking.
+	**/
+	@:keep
+	static public function canFloat(_v:Value):Bool
+		throw "reflect.canFloat is not yet implemented";
+
+	/**
+		// FieldByNameFunc returns the struct field with a name
+		// that satisfies the match function.
+		// It panics if v's Kind is not struct.
+		// It returns the zero Value if no field was found.
+	**/
+	@:keep
+	static public function fieldByNameFunc(_v:Value, _match:GoString->Bool):Value
+		throw "reflect.fieldByNameFunc is not yet implemented";
+
+	/**
+		// FieldByName returns the struct field with the given name.
+		// It returns the zero Value if no field was found.
+		// It panics if v's Kind is not struct.
+	**/
+	@:keep
+	static public function fieldByName(_v:Value, _name:GoString):Value
+		throw "reflect.fieldByName is not yet implemented";
+
+	/**
+		// FieldByIndexErr returns the nested field corresponding to index.
+		// It returns an error if evaluation requires stepping through a nil
+		// pointer, but panics if it must step through a field that
+		// is not a struct.
+	**/
+	@:keep
+	static public function fieldByIndexErr(_v:Value, _index:Slice<GoInt>):{var _0:Value; var _1:Error;}
+		throw "reflect.fieldByIndexErr is not yet implemented";
+
+	/**
+		// FieldByIndex returns the nested field corresponding to index.
+		// It panics if evaluation requires stepping through a nil
+		// pointer or a field that is not a struct.
+	**/
+	@:keep
+	static public function fieldByIndex(_v:Value, _index:Slice<GoInt>):Value
+		throw "reflect.fieldByIndex is not yet implemented";
+
+	/**
+		// Field returns the i'th field of the struct v.
+		// It panics if v's Kind is not Struct or i is out of range.
+	**/
+	@:keep
+	static public function field(_v:Value, _i:GoInt):Value
+		throw "reflect.field is not yet implemented";
+
+	/**
+		// Elem returns the value that the interface v contains
+		// or that the pointer v points to.
+		// It panics if v's Kind is not Interface or Pointer.
+		// It returns the zero Value if v is nil.
+	**/
+	@:keep
+	static public function elem(_v:Value):Value
+		throw "reflect.elem is not yet implemented";
+
+	/**
+		// Complex returns v's underlying value, as a complex128.
+		// It panics if v's Kind is not Complex64 or Complex128
+	**/
+	@:keep
+	static public function complex(_v:Value):GoComplex128
+		throw "reflect.complex is not yet implemented";
+
+	/**
+		// CanComplex reports whether Complex can be used without panicking.
+	**/
+	@:keep
+	static public function canComplex(_v:Value):Bool
+		throw "reflect.canComplex is not yet implemented";
+
+	/**
+		// Close closes the channel v.
+		// It panics if v's Kind is not Chan.
+	**/
+	@:keep
+	static public function close(_v:Value):Void
+		throw "reflect.close is not yet implemented";
+
+	/**
+		// Cap returns v's capacity.
+		// It panics if v's Kind is not Array, Chan, Slice or pointer to Array.
+	**/
+	@:keep
+	static public function cap(_v:Value):GoInt
+		throw "reflect.cap is not yet implemented";
+
+	/**
+		// CallSlice calls the variadic function v with the input arguments in,
+		// assigning the slice in[len(in)-1] to v's final variadic argument.
+		// For example, if len(in) == 3, v.CallSlice(in) represents the Go call v(in[0], in[1], in[2]...).
+		// CallSlice panics if v's Kind is not Func or if v is not variadic.
+		// It returns the output results as Values.
+		// As in Go, each input argument must be assignable to the
+		// type of the function's corresponding input parameter.
+	**/
+	@:keep
+	static public function callSlice(_v:Value, _in:Slice<Value>):Slice<Value>
+		throw "reflect.callSlice is not yet implemented";
+
+	/**
+		// Call calls the function v with the input arguments in.
+		// For example, if len(in) == 3, v.Call(in) represents the Go call v(in[0], in[1], in[2]).
+		// Call panics if v's Kind is not Func.
+		// It returns the output results as Values.
+		// As in Go, each input argument must be assignable to the
+		// type of the function's corresponding input parameter.
+		// If v is a variadic function, Call creates the variadic slice parameter
+		// itself, copying in the corresponding values.
+	**/
+	@:keep
+	static public function call(_v:Value, _in:Slice<Value>):Slice<Value>
+		throw "reflect.call is not yet implemented";
+
+	/**
+		// CanSet reports whether the value of v can be changed.
+		// A Value can be changed only if it is addressable and was not
+		// obtained by the use of unexported struct fields.
+		// If CanSet returns false, calling Set or any type-specific
+		// setter (e.g., SetBool, SetInt) will panic.
+	**/
+	@:keep
+	static public function canSet(_v:Value):Bool
+		throw "reflect.canSet is not yet implemented";
+
+	/**
+		// CanAddr reports whether the value's address can be obtained with Addr.
+		// Such values are called addressable. A value is addressable if it is
+		// an element of a slice, an element of an addressable array,
+		// a field of an addressable struct, or the result of dereferencing a pointer.
+		// If CanAddr returns false, calling Addr will panic.
+	**/
+	@:keep
+	static public function canAddr(_v:Value):Bool
+		throw "reflect.canAddr is not yet implemented";
+
+	/**
+		// Bytes returns v's underlying value.
+		// It panics if v's underlying value is not a slice of bytes or
+		// an addressable array of bytes.
+	**/
+	@:keep
+	static public function bytes(_v:Value):Slice<GoByte>
+		throw "reflect.bytes is not yet implemented";
+
+	/**
+		// Bool returns v's underlying value.
+		// It panics if v's kind is not Bool.
+	**/
+	@:keep
+	static public function bool_(_v:Value):Bool
+		throw "reflect.bool_ is not yet implemented";
+
+	/**
+		// Addr returns a pointer value representing the address of v.
+		// It panics if CanAddr() returns false.
+		// Addr is typically used to obtain a pointer to a struct field
+		// or slice element in order to call a method that requires a
+		// pointer receiver.
+	**/
+	@:keep
+	static public function addr(_v:Value):Value
+		throw "reflect.addr is not yet implemented";
+}
+
+class ValueError_asInterface {
+	@:keep
+	public function error():GoString
+		return __self__.value.error();
+
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
+	}
+
+	public function __underlying__()
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
+
+	var __self__:Pointer<ValueError>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
+}
+
+@:keep @:allow(stdgo.reflect.Reflect.ValueError_asInterface) class ValueError_static_extension {
+	@:keep
+	static public function error(_e:Ref<ValueError>):GoString
+		throw "reflect.error is not yet implemented";
+}
+
+class MapIter_asInterface {
+	/**
+		// Reset modifies iter to iterate over v.
+		// It panics if v's Kind is not Map and v is not the zero Value.
+		// Reset(Value{}) causes iter to not to refer to any map,
+		// which may allow the previously iterated-over map to be garbage collected.
+	**/
+	@:keep
+	public function reset(_v:Value):Void
+		__self__.value.reset(_v);
+
+	/**
+		// Next advances the map iterator and reports whether there is another
+		// entry. It returns false when iter is exhausted; subsequent
+		// calls to Key, Value, or Next will panic.
+	**/
+	@:keep
+	public function next():Bool
+		return __self__.value.next();
+
+	/**
+		// Value returns the value of iter's current map entry.
+	**/
+	@:keep
+	public function value():Value
+		return __self__.value.value();
+
+	/**
+		// Key returns the key of iter's current map entry.
+	**/
+	@:keep
+	public function key():Value
+		return __self__.value.key();
+
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
+	}
+
+	public function __underlying__()
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
+
+	var __self__:Pointer<MapIter>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
+}
+
+@:keep @:allow(stdgo.reflect.Reflect.MapIter_asInterface) class MapIter_static_extension {
+	/**
+		// Reset modifies iter to iterate over v.
+		// It panics if v's Kind is not Map and v is not the zero Value.
+		// Reset(Value{}) causes iter to not to refer to any map,
+		// which may allow the previously iterated-over map to be garbage collected.
+	**/
+	@:keep
+	static public function reset(_iter:Ref<MapIter>, _v:Value):Void
+		throw "reflect.reset is not yet implemented";
+
+	/**
+		// Next advances the map iterator and reports whether there is another
+		// entry. It returns false when iter is exhausted; subsequent
+		// calls to Key, Value, or Next will panic.
+	**/
+	@:keep
+	static public function next(_iter:Ref<MapIter>):Bool
+		throw "reflect.next is not yet implemented";
+
+	/**
+		// Value returns the value of iter's current map entry.
+	**/
+	@:keep
+	static public function value(_iter:Ref<MapIter>):Value
+		throw "reflect.value is not yet implemented";
+
+	/**
+		// Key returns the key of iter's current map entry.
+	**/
+	@:keep
+	static public function key(_iter:Ref<MapIter>):Value
+		throw "reflect.key is not yet implemented";
+}
 
 class Kind_asInterface {
-	public var __t__:Pointer<Kind>;
-
-	public function new(__t__)
-		this.__t__ = __t__;
-
+	/**
+		// String returns the name of k.
+	**/
+	@:keep
 	public function string():GoString
-		return "";
-}
+		return __self__.value.string();
 
-class Kind_extension {
-	public static function string(kind:Kind):GoString {
-		var idx:Int = kind.toBasic();
-		return switch idx {
-			case _invalid: "invalid";
-			case _bool: "bool";
-			case _int: "int";
-			case _int8: "int8";
-			case _int16: "int16";
-			case _int32: "int32";
-			case _int64: "int64";
-			case _uint: "uint";
-			case _uint8: "uint8";
-			case _uint16: "uint16";
-			case _uint32: "uint32";
-			case _uint64: "uint64";
-			case _uintptr: "uintptr";
-			case _float32: "float32";
-			case _float64: "float64";
-			case _complex64: "complex64";
-			case _complex128: "complex128";
-			case _array: "array";
-			case _chan: "chan";
-			case _func: "func";
-			case _interface: "interface";
-			case _map: "map";
-			case _ptr: "ptr";
-			case _slice: "slice";
-			case _string: "string";
-			case _struct: "struct";
-			case _unsafePointer: "unsafe.Pointer";
-			default: throw "unknown kind string: " + idx;
-		}
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
+
+	public function __underlying__()
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
+
+	var __self__:Pointer<Kind>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-final _invalid = 0;
-final _bool = 1;
-final _int = 2;
-final _int8 = 3;
-final _int16 = 4;
-final _int32 = 5;
-final _int64 = 6;
-final _uint = 7;
-final _uint8 = 8;
-final _uint16 = 9;
-final _uint32 = 10;
-final _uint64 = 11;
-final _uintptr = 12;
-final _float32 = 13;
-final _float64 = 14;
-final _complex64 = 15;
-final _complex128 = 16;
-final _array = 17;
-final _chan = 18;
-final _func = 19;
-final _interface = 20;
-final _map = 21;
-final _ptr = 22;
-final _slice = 23;
-final _string = 24;
-final _struct = 25;
-final _unsafePointer = 26;
-final invalid:Kind = new Kind(_invalid);
-final bool_:Kind = new Kind(_bool);
-final int_:Kind = new Kind(_int);
-final int8:Kind = new Kind(_int8);
-final int16:Kind = new Kind(_int16);
-final int32:Kind = new Kind(_int32);
-final int64:Kind = new Kind(_int64);
-final uint:Kind = new Kind(_uint);
-final uint8:Kind = new Kind(_uint8);
-final uint16:Kind = new Kind(_uint16);
-final uint32:Kind = new Kind(_uint32);
-final uint64:Kind = new Kind(_uint64);
-final uintptr:Kind = new Kind(_uintptr);
-final float32:Kind = new Kind(_float32);
-final float64:Kind = new Kind(_float64);
-final complex64:Kind = new Kind(_complex64);
-final complex128:Kind = new Kind(_complex128);
-final array:Kind = new Kind(_array);
-final chan:Kind = new Kind(_chan);
-final func:Kind = new Kind(_func);
-final interface_:Kind = new Kind(_interface);
-final map:Kind = new Kind(_map);
-final ptr:Kind = new Kind(_ptr);
-final slice:Kind = new Kind(_slice);
-final toString:Kind = new Kind(_string);
-final struct_:Kind = new Kind(_struct);
-final unsafePointer:Kind = new Kind(_unsafePointer);
-final __string = toString;
-
-@:structInit final private class Visit {
-	public var _typ:Type = null;
-
-	public function new(?_typ) {}
+@:keep @:allow(stdgo.reflect.Reflect.Kind_asInterface) class Kind_static_extension {
+	/**
+		// String returns the name of k.
+	**/
+	@:keep
+	static public function string(_k:Kind):GoString
+		throw "reflect.string is not yet implemented";
 }
 
-function deepValueEqual(v1:Value, v2:Value, visited:GoMap<Visit, Bool>, depth:GoInt):Bool {
-	if (!v1.isValid() || !v2.isValid()) {
-		return v1.isValid() == v2.isValid();
+class ChanDir_asInterface {
+	@:keep
+	public function string():GoString
+		return __self__.value.string();
+
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
-	if (v1.kind() == array) {
-		for (i in 0...v1.len().toBasic()) {
-			if (!deepValueEqual(v1.index(i), v2.index(i), visited, depth + (1 : GoInt64))) {
-				return false;
-			}
-		}
-		return true;
-	} else if (v1.kind() == slice) {
-		if (v1.isNil() != v2.isNil()) {
-			return false;
-		}
-		if (v1.len() != v2.len()) {
-			return false;
-		}
-		if (v1.pointer() != v2.pointer()) {
-			return true;
-		}
-		for (i in 0...v1.len().toBasic()) {
-			if (!deepValueEqual(v1.index(i), v2.index(i), visited, depth + (1 : GoInt64))) {
-				return false;
-			}
-		}
-		return true;
-	} else if (v1.kind() == interface_) {
-		if (v1.isNil() || v2.isNil()) {
-			return v1.isNil() == v2.isNil();
-		}
-		return true;
-	} else if (v1.kind() == ptr) {
-		if (v1.pointer() == v2.pointer()) {
-			return true;
-		};
-		return deepValueEqual(v1.elem(), v2.elem(), visited, depth + (1 : GoInt64));
-	} else if (v1.kind() == struct_) {
-		for (i in 0...v1.numField().toBasic()) {
-			if (!deepValueEqual(v1.field(i), v2.field(i), visited, depth + (1 : GoInt64))) {
-				return false;
-			}
-		}
-		return true;
-	} else if (v1.kind() == map) {
-		if (v1.isNil() != v2.isNil()) {
-			return false;
-		}
-		if (v1.len() != v2.len()) {
-			return false;
-		}
-		if (v1.pointer() == v2.pointer()) {
-			return true;
-		}
-		for (k in v1.mapKeys()) {
-			var val1 = v1.mapIndex(k);
-			var val2 = v2.mapIndex(k);
-			if (!val1.isValid() || !val2.isValid() || !deepValueEqual(val1, val2, visited, depth + (1 : GoInt64))) {
-				return false;
-			}
-		}
-		return true;
-	} else if (v1.kind() == func) {
-		if (v1.isNil() && v2.isNil()) {
-			return true;
-		}
-		return false;
-	} else {
-		return v1.interface_() == v2.interface_();
-	}
+
+	public function __underlying__()
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
+
+	var __self__:Pointer<ChanDir>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-function deepEqual(x:AnyInterface, y:AnyInterface):Bool {
-	x = namedUnderlying(x);
-	y = namedUnderlying(y);
-
-	if (new Value(x).isNil() || new Value(y).isNil()) {
-		return x == y;
-	}
-	var v1 = valueOf(x);
-	var v2 = valueOf(y);
-	return deepValueEqual(v1, v2, null, 0);
+@:keep @:allow(stdgo.reflect.Reflect.ChanDir_asInterface) class ChanDir_static_extension {
+	@:keep
+	static public function string(_d:ChanDir):GoString
+		throw "reflect.string is not yet implemented";
 }
 
-function indirect(v:Value):Value {
-	if (v.kind() != ptr)
-		return v;
-	return v.elem();
+class StructTag_asInterface {
+	/**
+		// Lookup returns the value associated with key in the tag string.
+		// If the key is present in the tag the value (which may be empty)
+		// is returned. Otherwise the returned value will be the empty string.
+		// The ok return value reports whether the value was explicitly set in
+		// the tag string. If the tag does not have the conventional format,
+		// the value returned by Lookup is unspecified.
+	**/
+	@:keep
+	public function lookup(_key:GoString):{var _0:GoString; var _1:Bool;}
+		return __self__.value.lookup(_key);
+
+	/**
+		// Get returns the value associated with key in the tag string.
+		// If there is no such key in the tag, Get returns the empty string.
+		// If the tag does not have the conventional format, the value
+		// returned by Get is unspecified. To determine whether a tag is
+		// explicitly set to the empty string, use Lookup.
+	**/
+	@:keep
+	public function get(_key:GoString):GoString
+		return __self__.value.get(_key);
+
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
+	}
+
+	public function __underlying__()
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
+
+	var __self__:Pointer<StructTag>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
+}
+
+@:keep @:allow(stdgo.reflect.Reflect.StructTag_asInterface) class StructTag_static_extension {
+	/**
+		// Lookup returns the value associated with key in the tag string.
+		// If the key is present in the tag the value (which may be empty)
+		// is returned. Otherwise the returned value will be the empty string.
+		// The ok return value reports whether the value was explicitly set in
+		// the tag string. If the tag does not have the conventional format,
+		// the value returned by Lookup is unspecified.
+	**/
+	@:keep
+	static public function lookup(_tag:StructTag, _key:GoString):{var _0:GoString; var _1:Bool;}
+		throw "reflect.lookup is not yet implemented";
+
+	/**
+		// Get returns the value associated with key in the tag string.
+		// If there is no such key in the tag, Get returns the empty string.
+		// If the tag does not have the conventional format, the value
+		// returned by Get is unspecified. To determine whether a tag is
+		// explicitly set to the empty string, use Lookup.
+	**/
+	@:keep
+	static public function get(_tag:StructTag, _key:GoString):GoString
+		throw "reflect.get is not yet implemented";
 }

@@ -559,11 +559,11 @@ private class T_lazybuf_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<T_lazybuf>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.path.Path.T_lazybuf_asInterface) class T_lazybuf_static_extension {

@@ -1998,11 +1998,11 @@ class Builder_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<Builder>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.strings.Strings.Builder_asInterface) class Builder_static_extension {
@@ -2217,11 +2217,11 @@ class Reader_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<Reader>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.strings.Strings.Reader_asInterface) class Reader_static_extension {
@@ -2454,11 +2454,11 @@ class Replacer_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<Replacer>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.strings.Strings.Replacer_asInterface) class Replacer_static_extension {
@@ -2562,11 +2562,11 @@ private class T_trieNode_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<T_trieNode>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.strings.Strings.T_trieNode_asInterface) class T_trieNode_static_extension {
@@ -2647,11 +2647,11 @@ private class T_genericReplacer_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<T_genericReplacer>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.strings.Strings.T_genericReplacer_asInterface) class T_genericReplacer_static_extension {
@@ -2793,11 +2793,11 @@ private class T_stringWriter_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<T_stringWriter>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.strings.Strings.T_stringWriter_asInterface) class T_stringWriter_static_extension {
@@ -2823,11 +2823,11 @@ private class T_singleStringReplacer_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<T_singleStringReplacer>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.strings.Strings.T_singleStringReplacer_asInterface) class T_singleStringReplacer_static_extension {
@@ -2909,11 +2909,11 @@ private class T_byteStringReplacer_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<T_byteStringReplacer>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.strings.Strings.T_byteStringReplacer_asInterface) class T_byteStringReplacer_static_extension {
@@ -3023,11 +3023,11 @@ private class T_stringFinder_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<T_stringFinder>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.strings.Strings.T_stringFinder_asInterface) class T_stringFinder_static_extension {
@@ -3075,11 +3075,11 @@ private class T_appendSliceWriter_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<T_appendSliceWriter>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.strings.Strings.T_appendSliceWriter_asInterface) class T_appendSliceWriter_static_extension {
@@ -3118,11 +3118,11 @@ private class T_byteReplacer_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<T_byteReplacer>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.strings.Strings.T_byteReplacer_asInterface) class T_byteReplacer_static_extension {
@@ -3188,11 +3188,11 @@ private class T_asciiSet_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<T_asciiSet>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.strings.Strings.T_asciiSet_asInterface) class T_asciiSet_static_extension {

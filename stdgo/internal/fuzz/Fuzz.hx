@@ -1783,11 +1783,11 @@ private class T_crashError_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<T_crashError>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(internal.fuzz.Fuzz.T_crashError_asInterface) class T_crashError_static_extension {
@@ -1936,11 +1936,11 @@ private class T_coordinator_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<T_coordinator>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(internal.fuzz.Fuzz.T_coordinator_asInterface) class T_coordinator_static_extension {
@@ -2081,11 +2081,11 @@ class MalformedCorpusError_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<MalformedCorpusError>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(internal.fuzz.Fuzz.MalformedCorpusError_asInterface) class MalformedCorpusError_static_extension {
@@ -2149,11 +2149,11 @@ private class T_sharedMem_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<T_sharedMem>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(internal.fuzz.Fuzz.T_sharedMem_asInterface) class T_sharedMem_static_extension {
@@ -2252,11 +2252,11 @@ private class T_mutator_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<T_mutator>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(internal.fuzz.Fuzz.T_mutator_asInterface) class T_mutator_static_extension {
@@ -2360,11 +2360,11 @@ private class T_pcgRand_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<T_pcgRand>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(internal.fuzz.Fuzz.T_pcgRand_asInterface) class T_pcgRand_static_extension {
@@ -2440,11 +2440,11 @@ private class T_noCopy_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<T_noCopy>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(internal.fuzz.Fuzz.T_noCopy_asInterface) class T_noCopy_static_extension {
@@ -2492,11 +2492,11 @@ private class T_queue_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<T_queue>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(internal.fuzz.Fuzz.T_queue_asInterface) class T_queue_static_extension {
@@ -2615,11 +2615,11 @@ private class T_worker_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<T_worker>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(internal.fuzz.Fuzz.T_worker_asInterface) class T_worker_static_extension {
@@ -2771,11 +2771,11 @@ private class T_workerServer_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<T_workerServer>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(internal.fuzz.Fuzz.T_workerServer_asInterface) class T_workerServer_static_extension {
@@ -2891,11 +2891,11 @@ private class T_workerClient_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<T_workerClient>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(internal.fuzz.Fuzz.T_workerClient_asInterface) class T_workerClient_static_extension {
@@ -2957,11 +2957,11 @@ private class T_contextReader_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<T_contextReader>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(internal.fuzz.Fuzz.T_contextReader_asInterface) class T_contextReader_static_extension {

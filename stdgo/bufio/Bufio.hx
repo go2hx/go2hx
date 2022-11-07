@@ -864,11 +864,11 @@ class Reader_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<Reader>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.bufio.Bufio.Reader_asInterface) class Reader_static_extension {
@@ -1584,11 +1584,11 @@ class Writer_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<Writer>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.bufio.Bufio.Writer_asInterface) class Writer_static_extension {
@@ -1984,11 +1984,11 @@ class ReadWriter_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<ReadWriter>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.bufio.Bufio.ReadWriter_asInterface) class ReadWriter_static_extension {
@@ -2195,11 +2195,11 @@ class Scanner_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<Scanner>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.bufio.Bufio.Scanner_asInterface) class Scanner_static_extension {

@@ -1943,11 +1943,11 @@ class Person_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<Person>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.sort_test.Sort_test.Person_asInterface) class Person_static_extension {
@@ -1986,11 +1986,11 @@ private class T_planetSorter_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<T_planetSorter>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.sort_test.Sort_test.T_planetSorter_asInterface) class T_planetSorter_static_extension {
@@ -2065,11 +2065,11 @@ private class T_multiSorter_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<T_multiSorter>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.sort_test.Sort_test.T_multiSorter_asInterface) class T_multiSorter_static_extension {
@@ -2151,11 +2151,11 @@ class ByName_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<ByName>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.sort_test.Sort_test.ByName_asInterface) class ByName_static_extension {
@@ -2193,11 +2193,11 @@ class ByWeight_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<ByWeight>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.sort_test.Sort_test.ByWeight_asInterface) class ByWeight_static_extension {
@@ -2235,11 +2235,11 @@ private class T_nonDeterministicTestingData_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<T_nonDeterministicTestingData>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.sort_test.Sort_test.T_nonDeterministicTestingData_asInterface) class T_nonDeterministicTestingData_static_extension {
@@ -2284,11 +2284,11 @@ private class T_testingData_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<T_testingData>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.sort_test.Sort_test.T_testingData_asInterface) class T_testingData_static_extension {
@@ -2339,11 +2339,11 @@ private class T_adversaryTestingData_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<T_adversaryTestingData>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.sort_test.Sort_test.T_adversaryTestingData_asInterface) class T_adversaryTestingData_static_extension {
@@ -2406,11 +2406,11 @@ class ByAge_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<ByAge>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.sort_test.Sort_test.ByAge_asInterface) class ByAge_static_extension {
@@ -2450,11 +2450,11 @@ class By_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<By>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.sort_test.Sort_test.By_asInterface) class By_static_extension {
@@ -2480,11 +2480,11 @@ class Grams_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<Grams>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.sort_test.Sort_test.Grams_asInterface) class Grams_static_extension {
@@ -2510,11 +2510,11 @@ class Organs_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<Organs>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.sort_test.Sort_test.Organs_asInterface) class Organs_static_extension {
@@ -2571,11 +2571,11 @@ private class T_intPairs_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<T_intPairs>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.sort_test.Sort_test.T_intPairs_asInterface) class T_intPairs_static_extension {

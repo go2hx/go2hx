@@ -4332,19 +4332,8 @@ function testCut(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 }
 
-function _makeBenchInputHard():GoString {
-	var _tokens = (new GoArray<GoString>(Go.str("<a>"), Go.str("<p>"), Go.str("<b>"), Go.str("<strong>"), Go.str("</a>"), Go.str("</p>"), Go.str("</b>"),
-		Go.str("</strong>"), Go.str("hello"), Go.str("world")) : GoArray<GoString>);
-	var _x = new Slice<GoUInt8>((0 : GoInt).toBasic(), (1048576 : GoInt), ...[for (i in 0...(0 : GoInt).toBasic()) (0 : GoUInt8)]);
-	while (true) {
-		var _i:GoInt = stdgo.math.rand.Rand.intn((_tokens.length));
-		if ((_x.length + _tokens[_i].length) >= (1048576 : GoInt)) {
-			break;
-		};
-		_x = _x.__appendref__(..._tokens[_i].__toArray__());
-	};
-	return (_x : GoString);
-}
+function _makeBenchInputHard():GoString
+	return "";
 
 function _benchmarkIndexHard(_b:Ref<stdgo.testing.Testing.B>, _sep:GoString):Void {
 	{
@@ -4768,11 +4757,11 @@ private class T_errWriter_asInterface {
 
 	public function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
 	var __self__:Pointer<T_errWriter>;
-	var __type__:stdgo.reflect.Reflect.Type;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
 @:keep @:allow(stdgo.strings_test.Strings_test.T_errWriter_asInterface) class T_errWriter_static_extension {

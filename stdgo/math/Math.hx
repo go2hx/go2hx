@@ -4159,7 +4159,7 @@ inline function _sqrt(_x:GoFloat64):GoFloat64
 	return std.Math.sqrt(_x.toBasic());
 
 function _archSqrt(_x:GoFloat64):GoFloat64
-	throw "not implemeneted";
+	throw "not implemented";
 
 function _archAcos(_x:GoFloat64):GoFloat64 {
 	throw Go.toInterface(Go.str("not implemented"));

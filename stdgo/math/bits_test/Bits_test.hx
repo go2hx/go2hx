@@ -1553,24 +1553,22 @@ function testDivPanicOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	__deferstack__.unshift(() -> {
 		var a = function():Void {
-			{
-				var _err:AnyInterface = ({
-					final r = Go.recover_exception;
-					Go.recover_exception = null;
-					r;
-				});
-				if (_err == null) {
-					_t.error(Go.toInterface(Go.str("Div should have panicked when y<=hi")));
-				} else {
-					var __tmp__ = try {
-						{value: Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)), ok: true};
-					} catch (_) {
-						{value: (null : stdgo.runtime.Runtime.T_error), ok: false};
-					}, _e = __tmp__.value, _ok = __tmp__.ok;
-					if (!_ok || (_e.error() != Go.str("runtime error: integer overflow"))) {
-						_t.errorf(Go.str("Div expected panic: %q, got: %q "), Go.toInterface(Go.str("runtime error: integer overflow")),
-							Go.toInterface(_e.error()));
-					};
+			var _err:AnyInterface = ({
+				final r = Go.recover_exception;
+				Go.recover_exception = null;
+				r;
+			});
+			if (_err == null) {
+				_t.error(Go.toInterface(Go.str("Div should have panicked when y<=hi")));
+			} else {
+				var __tmp__ = try {
+					{value: Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)), ok: true};
+				} catch (_) {
+					{value: (null : stdgo.runtime.Runtime.T_error), ok: false};
+				}, _e = __tmp__.value, _ok = __tmp__.ok;
+				if (!_ok || (_e.error() != Go.str("runtime error: integer overflow"))) {
+					_t.errorf(Go.str("Div expected panic: %q, got: %q "), Go.toInterface(Go.str("runtime error: integer overflow")),
+						Go.toInterface(_e.error()));
 				};
 			};
 		};

@@ -1,14 +1,14 @@
 package stdgo.reflect;
 
-import stdgo.Chan;
+import stdgo.StdGoTypes;
 import stdgo.Error;
 import stdgo.Go;
-import stdgo.GoArray;
-import stdgo.GoMap;
 import stdgo.GoString;
 import stdgo.Pointer;
 import stdgo.Slice;
-import stdgo.StdGoTypes;
+import stdgo.GoArray;
+import stdgo.GoMap;
+import stdgo.Chan;
 
 /**
 	// Package reflect implements run-time reflection, allowing a program to
@@ -730,8 +730,9 @@ function swapper(_slice:AnyInterface):(_i:GoInt, _j:GoInt) -> Void
 **/
 function typeOf(_i:AnyInterface):Type {
 	if (_i == null)
-		return Go.asInterface(new stdgo.internal.reflect.Reflect._Type(basic(unsafepointer_kind)));
-	return Go.asInterface(_i.type);
+		return new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(new stdgo.internal.reflect.Reflect._Type(basic(unsafepointer_kind))),
+			new stdgo.internal.reflect.Reflect._Type(basic(unsafepointer_kind)));
+	return new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(_i.type), _i.type);
 }
 
 /**

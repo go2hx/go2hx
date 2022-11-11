@@ -243,8 +243,9 @@ final list = [
 	// stdgo/reflect
 	"reflect:typeOf" => macro {
 		if (_i == null)
-			return Go.asInterface(new stdgo.internal.reflect.Reflect._Type(basic(unsafepointer_kind)));
-		return Go.asInterface(_i.type);
+			return new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(new stdgo.internal.reflect.Reflect._Type(basic(unsafepointer_kind))),
+				new stdgo.internal.reflect.Reflect._Type(basic(unsafepointer_kind)));
+		return new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(_i.type), _i.type);
 	}
 ];
 

@@ -404,6 +404,7 @@ function defaultValue(typ:Type):Any {
 
 @:structInit
 @:using(stdgo.internal.reflect.Reflect._Type_static_extension)
+@:named
 class _Type {
 	@:local
 	var gt:GoType;
@@ -412,6 +413,7 @@ class _Type {
 		this.gt = gt;
 	}
 
+	@:local
 	public function _common():GoType
 		return cast gt;
 }
@@ -460,7 +462,9 @@ class _Type {
 		final gt:GoType = getUnderlying(cast t._common());
 		switch (gt) {
 			case chanType(_, _.get() => elem), refType(elem), pointer(elem), sliceType(_.get() => elem), arrayType(_.get() => elem, _):
-				return Go.asInterface(new _Type(elem));
+				var t = new _Type(elem);
+				// set internal Type
+				return new _Type_asInterface(new Pointer(() -> t, value -> t = value), t);
 			case interfaceType(_):
 				return null;
 			default:

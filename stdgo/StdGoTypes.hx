@@ -1779,7 +1779,8 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 
 		if (gt.match(invalidType) || gt2.match(invalidType))
 			return gt.match(invalidType) && gt2.match(invalidType);
-		if (!a.type.assignableTo(Go.asInterface(b.type))) {
+		// set internal Type
+		if (!a.type.assignableTo(new stdgo.internal.reflect.Reflect._Type_asInterface(new Pointer(() -> b.type, value -> b.type = value), b.type))) {
 			trace(gt);
 			trace(gt2);
 			throw "invalid operation: (mismatched types " + a.type + " and " + b.type + ")";

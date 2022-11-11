@@ -86,8 +86,8 @@ class GoObjectMap<K, V> implements haxe.Constraints.IMap<K, V> {
 		if (bool) {
 			final x:AnyInterface = (key : Any);
 			final y:AnyInterface = (objKey : Any);
-
-			if (!x.type.assignableTo(Go.asInterface(y.type)))
+			// set internal Type
+			if (!x.type.assignableTo(new stdgo.internal.reflect.Reflect._Type_asInterface(new Pointer(() -> y.type, value -> y.type = value), y.type)))
 				return false;
 			return x == y;
 		}

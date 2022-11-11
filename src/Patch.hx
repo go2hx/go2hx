@@ -242,9 +242,11 @@ final list = [
 	"runtime:gomaxprocs" => macro return 1,
 	// stdgo/reflect
 	"reflect:typeOf" => macro {
+		// // set internal Type
 		if (_i == null)
 			return new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(new stdgo.internal.reflect.Reflect._Type(basic(unsafepointer_kind))),
 				new stdgo.internal.reflect.Reflect._Type(basic(unsafepointer_kind)));
+		// set internal Type
 		return new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(_i.type), _i.type);
 	}
 ];

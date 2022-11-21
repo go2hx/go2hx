@@ -67,7 +67,7 @@ class Go {
 		final e = macro new stdgo.GoMap<$keyType, $valueType>();
 		final t = gtDecode(Context.typeof(e), e, []);
 		final e = macro {
-			final x = new stdgo.GoMap.GoObjectMap<$keyType, $valueType>(Go.asInterface(new stdgo.reflect.Reflect._Type($t)));
+			final x = new stdgo.GoMap.GoObjectMap<$keyType, $valueType>(Go.asInterface(new stdgo.internal.reflect.Reflect._Type($t)));
 			@:privateAccess x._keys = $a{keys};
 			@:privateAccess x._values = $a{values};
 			x;
@@ -315,7 +315,7 @@ class Go {
 			default:
 		}
 		final t = gtDecode(t, null, []);
-		return macro stdgo.reflect.Reflect.defaultValue(Go.asInterface(new stdgo.reflect.Reflect._Type($t)));
+		return macro stdgo.internal.reflect.Reflect.defaultValue(Go.asInterface(new stdgo.internal.reflect.Reflect._Type($t)));
 	}
 
 	public static macro function asInterface(expr) {
@@ -491,8 +491,9 @@ class Go {
 				for (field in a.fields) {
 					if (field.name == "__underlying__") {
 						macro $expr == null ? new stdgo.StdGoTypes.AnyInterface(null,
-							new stdgo.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.invalidType)) : new stdgo.StdGoTypes.AnyInterface($expr,
-							$expr.__underlying__().type);
+							new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.invalidType)) : new stdgo.StdGoTypes.AnyInterface($expr,
+							$expr.__underlying__()
+							.type);
 					}
 				}
 			default:
@@ -518,14 +519,14 @@ class Go {
 					Context.error("complexType converted to type is null", Context.currentPos());
 				final toType = gtDecode(t2, null, []);
 				final e = macro({
-					final t = null; // TODO: set //new stdgo.reflect.Reflect._Type($toType);
+					final t = new stdgo.reflect.Reflect._Type($toType);
 					// trace($e.type.common().value);
 					// trace(t.common().value);
 					final b = $e.type.assignableTo(t);
 					if (!b)
 						throw "unable to assert";
-					// trace($e.type.common().value);
-					if (t.kind() == stdgo.reflect.Reflect.interface_) {
+					// interface kind check
+					if (t.kind() == 20) {
 						($e.value : $t);
 					} else {
 						(($e.value : Dynamic).__underlying__().value : $t);
@@ -555,7 +556,7 @@ class Go {
 				final t2 = gtDecode(t2, e, []);
 				return macro {
 					final t = Go.toInterface($e).type;
-					final t2:stdgo.reflect.Reflect.Type = new stdgo.reflect.Reflect._Type(${t2});
+					final t2:stdgo.reflect.Reflect.Type = new stdgo.internal.reflect.Reflect._Type(${t2});
 					try {
 						t.assignableTo(t2);
 					} catch (_) {
@@ -982,7 +983,7 @@ class Go {
 											default:
 										}
 										final t = gtDecode(field.type, expr, marked, ret);
-										methods.push(macro new stdgo.reflect.Reflect.MethodType($v{field.name}, {get: () -> $t}, {
+										methods.push(macro new stdgo.internal.reflect.Reflect.MethodType($v{field.name}, {get: () -> $t}, {
 											get: () -> null
 										}));
 									default:

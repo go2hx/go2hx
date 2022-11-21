@@ -1095,7 +1095,7 @@ class Go {
 				default:
 					final fieldName = field.name;
 					if (fieldName == "__self__") {
-						return macro $expr.__underlying__().type.common().value;
+						return macro $expr.__underlying__().type._common();
 					}
 					if (fieldName == "__t__") {
 						underlyingType = field.type;

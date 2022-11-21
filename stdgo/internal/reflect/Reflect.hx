@@ -494,8 +494,47 @@ class _Type {
 	static public function implements_(t:_Type, _u:Type):Bool
 		throw "not implemented";
 
-	static public function kind(t:_Type):Kind
-		throw "not implemented";
+	static public function kind(t:_Type):Kind {
+		final gt:GoType = getUnderlying(cast t._common());
+		return switch gt {
+			case typeParam(_, _):
+				0;
+			case basic(kind):
+				switch kind {
+					case invalid_kind, untyped_nil_kind: 0;
+					case bool_kind, untyped_bool_kind: 1;
+					case int_kind: 2;
+					case int8_kind: 3;
+					case int16_kind: 4;
+					case int32_kind, untyped_rune_kind: 5;
+					case int64_kind, untyped_int_kind: 6;
+					case uint_kind: 7;
+					case uint8_kind: 8;
+					case uint16_kind: 9;
+					case uint32_kind: 10;
+					case uint64_kind: 11;
+					case uintptr_kind: 12;
+					case float32_kind: 13;
+					case float64_kind, untyped_float_kind: 14;
+					case complex64_kind: 15;
+					case complex128_kind, untyped_complex_kind: 16;
+					case string_kind, untyped_string_kind: 24;
+					case unsafepointer_kind: 26;
+				}
+			case chanType(_, _): 18;
+			case interfaceType(_, _): 20;
+			case arrayType(_, _): 17;
+			case invalidType: 0;
+			case mapType(_, _): 21;
+			case named(_, _, type), _var(_, type): new _Type(type).kind();
+			case pointer(_), refType(_): 22;
+			case previouslyNamed(_): throw "previouslyNamed type to kind not supported should be unrolled before access";
+			case sliceType(_): 23;
+			case tuple(_, _): throw "tuple type to kind not supported";
+			case signature(_, _, _, _): 19;
+			case structType(_): 25;
+		}
+	}
 
 	static public function string(t:_Type):GoString {
 		final gt:GoType = (t : Dynamic)._common();

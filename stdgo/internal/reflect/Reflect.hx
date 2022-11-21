@@ -645,10 +645,10 @@ class _Type {
 }
 
 class _Type_asInterface {
-	public function _uncommon():Ref<Dynamic>
+	public function _uncommon():Dynamic
 		return cast __self__.value._uncommon();
 
-	public function _common():Ref<Dynamic>
+	public function _common():Dynamic
 		return cast __self__.value._common();
 
 	public function out(_i:GoInt):Type

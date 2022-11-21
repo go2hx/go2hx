@@ -3940,8 +3940,8 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 				(macro($e : GoFloat64)).expr;
 			case IMAG:
 				final index = expr.value.indexOf("i");
-				final real = toExpr(EConst(CFloat(expr.value.substr(0, index))));
-				final imag = toExpr(EConst(CFloat(expr.value.substr(index + 1))));
+				final imag = toExpr(EConst(CFloat(expr.value.substr(0, index))));
+				final real = toExpr(EConst(CFloat(expr.value.substr(index + 1))));
 				(macro new GoComplex128($real, $imag)).expr;
 			case INT:
 				var e = toExpr(EConst(CInt(expr.value)));

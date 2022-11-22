@@ -4,8 +4,205 @@ import stdgo.Pointer;
 import stdgo.StdGoTypes;
 import stdgo.reflect.Reflect;
 
+private enum abstract KindType(stdgo.reflect.Reflect.Kind) from Int from stdgo.reflect.Reflect.Kind to stdgo.reflect.Reflect.Kind {
+	var invalid = 0;
+	var bool = 1;
+	var int = 2;
+	var int8 = 3;
+	var int16 = 4;
+	var int32 = 5;
+	var int64 = 6;
+	var uint = 7;
+	var uint8 = 8;
+	var uint16 = 9;
+	var uint32 = 10;
+	var uint64 = 11;
+	var uintptr = 12;
+	var float32 = 13;
+	var float64 = 14;
+	var complex64 = 15;
+	var complex128 = 16;
+	var array = 17;
+	var chan = 18;
+	var func = 19;
+	var interface_ = 20;
+	var map = 21;
+	var pointer = 22;
+	var slice = 23;
+	var string = 24;
+	var struct = 25;
+	var unsafePointer = 26;
+}
+
 function formatGoFieldName(name:String):String {
 	return (name.charAt(0) == "_" ? "" : name.charAt(0).toUpperCase()) + name.substr(1);
+}
+
+function directlyAssignable(t:Type, v:Type):Bool {
+	var tgt:GoType = (t : Dynamic)._common();
+	var vgt:GoType = (v : Dynamic)._common();
+	switch vgt {
+		case named(path, _, _):
+			switch tgt {
+				case named(path2, _, _):
+					return path == path2;
+				default:
+					return false;
+			}
+		default:
+	}
+	tgt = getUnderlying(tgt);
+	vgt = getUnderlying(vgt);
+	return switch tgt {
+		case chanType(_, _.get() => elem), sliceType(_.get() => elem):
+			switch vgt {
+				case chanType(_,
+					_.get() => elem2), sliceType(_.get() => elem2): new _Type(elem).assignableTo(new _Type_asInterface(Go.pointer(new _Type(elem2)),
+						new _Type(elem2)));
+				default: false;
+			}
+		case arrayType(_.get() => elem, len):
+			switch vgt {
+				case arrayType(_.get() => elem2, len2):
+					if (len != len2)
+						return false;
+					final i = new _Type_asInterface(Go.pointer(new _Type(elem2)), new _Type(elem2));
+					new _Type(elem).assignableTo(i);
+				default: false;
+			}
+		case mapType(_.get() => key, _.get() => value):
+			switch vgt {
+				case mapType(_.get() => key2, _.get() => value2):
+					final i = new _Type_asInterface(Go.pointer(new _Type(key2)), new _Type(key2));
+					if (!new _Type(key).assignableTo(i))
+						return false;
+					final i2 = new _Type_asInterface(Go.pointer(new _Type(value2)), new _Type(value2));
+					if (!new _Type(value).assignableTo(i2))
+						return false;
+					true;
+				default: false;
+			}
+		case structType(fields):
+			switch vgt {
+				case structType(fields2):
+					if (fields.length != fields2.length)
+						return false;
+					for (i in 0...fields.length) {
+						final i2 = new _Type_asInterface(Go.pointer(new _Type(fields[i].type)), new _Type(fields[i].type));
+						final i3 = new _Type_asInterface(Go.pointer(new _Type(fields2[i].type)), new _Type(fields2[i].type));
+						if (!directlyAssignable(i2, i3))
+							return false;
+					}
+					true;
+				default:
+					false;
+			}
+		case interfaceType(_):
+			false; // checked by implements instead
+		case signature(_, _.get() => input, _.get() => output, _):
+			switch vgt {
+				case signature(_, _.get() => input2, _.get() => output2, _):
+					if (input.length != input2.length)
+						return false;
+					if (output.length != output2.length)
+						return false;
+
+					true;
+				default:
+					false;
+			}
+		case basic(kind):
+			switch vgt {
+				case basic(kind2):
+					function untype(kind:BasicKind, kind2:BasicKind):Bool {
+						final index = kind2.getIndex();
+						var min = 0;
+						var max = 0;
+						switch kind {
+							case untyped_int_kind:
+								min = int_kind.getIndex();
+								max = int64_kind.getIndex();
+							case untyped_float_kind:
+								min = float32_kind.getIndex();
+								max = float64_kind.getIndex();
+							case untyped_complex_kind:
+								min = complex64_kind.getIndex();
+								max = complex128_kind.getIndex();
+							default:
+								return false;
+						}
+						return min <= index && max >= index;
+					}
+					if (untype(kind, kind2))
+						return true;
+					if (untype(kind2, kind))
+						return true;
+					kind.getIndex() == kind2.getIndex();
+				default:
+					false;
+			}
+		case pointer(e), refType(e):
+			switch vgt {
+				case pointer(e2), refType(e2):
+					final i = new _Type_asInterface(Go.pointer(new _Type(e)), new _Type(e));
+					final i2 = new _Type_asInterface(Go.pointer(new _Type(e2)), new _Type(e2));
+					directlyAssignable(i, i2);
+				default:
+					false;
+			}
+		case previouslyNamed(path):
+			switch vgt {
+				case previouslyNamed(path2):
+					path == path2;
+				default:
+					false;
+			}
+		default:
+			throw "unable to check for assignability: " + tgt;
+	}
+}
+
+function implementsMethod(t:Type, v:Type):Bool {
+	var interfacePath = "";
+	var gt:GoType = (t : Dynamic)._common();
+	var vgt:GoType = (v : Dynamic)._common();
+	if (isPointer(gt))
+		gt = getElem(gt);
+	if (isPointer(vgt))
+		vgt = getElem(vgt);
+	return switch gt {
+		case interfaceType(_, methods), named(_, methods, _):
+			if (methods == null || methods.length == 0)
+				return true;
+			switch vgt {
+				case interfaceType(_, methods2), named(_, methods2, _):
+					if (methods.length > methods2.length) {
+						return false;
+					}
+					var found = false;
+					for (i in 0...methods.length) {
+						found = false;
+						for (j in 0...methods2.length) {
+							if (methods[i].name != methods2[j].name)
+								continue;
+							if (!new _Type(methods[i].type.get()).assignableTo(new _Type_asInterface(Go.pointer(new _Type(methods2[j].type.get())),
+								new _Type(methods2[j].type.get())))) {
+								return false;
+							}
+							found = true;
+							break;
+						}
+						if (!found) {
+							return false;
+						}
+					}
+					true;
+				default:
+					false;
+			}
+		default:
+			false;
+	}
 }
 
 @:structInit
@@ -488,11 +685,22 @@ class _Type {
 	static public function convertibleTo(t:_Type, _u:Type):Bool
 		throw "not implemented";
 
-	static public function assignableTo(t:_Type, _u:Type):Bool
-		throw "not implemented";
+	static public function assignableTo(t:_Type, _u:Type):Bool {
+		if (_u == null)
+			throw "reflect: nil type passed to Type.AssignableTo";
+		final i = new _Type_asInterface(Go.pointer(t), t);
+		final b = directlyAssignable(_u, i) || t.implements_(_u);
+		return b;
+	}
 
-	static public function implements_(t:_Type, _u:Type):Bool
-		throw "not implemented";
+	static public function implements_(t:_Type, _u:Type):Bool {
+		if (_u == null)
+			throw "reflect: nil type passed to Type.Implements";
+		// interface check
+		if (_u.kind() != KindType.interface_)
+			throw "reflect: non-interface type passed to Type.Implements: " + _u.kind().string();
+		return implementsMethod(_u, new _Type_asInterface(Go.pointer(t), t));
+	}
 
 	static public function kind(t:_Type):Kind {
 		final gt:GoType = getUnderlying(cast t._common());
@@ -501,25 +709,25 @@ class _Type {
 				0;
 			case basic(kind):
 				switch kind {
-					case invalid_kind, untyped_nil_kind: 0;
-					case bool_kind, untyped_bool_kind: 1;
-					case int_kind: 2;
-					case int8_kind: 3;
-					case int16_kind: 4;
-					case int32_kind, untyped_rune_kind: 5;
-					case int64_kind, untyped_int_kind: 6;
-					case uint_kind: 7;
-					case uint8_kind: 8;
-					case uint16_kind: 9;
-					case uint32_kind: 10;
-					case uint64_kind: 11;
-					case uintptr_kind: 12;
-					case float32_kind: 13;
-					case float64_kind, untyped_float_kind: 14;
-					case complex64_kind: 15;
-					case complex128_kind, untyped_complex_kind: 16;
-					case string_kind, untyped_string_kind: 24;
-					case unsafepointer_kind: 26;
+					case invalid_kind, untyped_nil_kind: KindType.invalid;
+					case bool_kind, untyped_bool_kind: KindType.bool;
+					case int_kind: KindType.int;
+					case int8_kind: KindType.int8;
+					case int16_kind: KindType.int16;
+					case int32_kind, untyped_rune_kind: KindType.int32;
+					case int64_kind, untyped_int_kind: KindType.int64;
+					case uint_kind: KindType.uint;
+					case uint8_kind: KindType.uint8;
+					case uint16_kind: KindType.uint16;
+					case uint32_kind: KindType.uint32;
+					case uint64_kind: KindType.uint64;
+					case uintptr_kind: KindType.uintptr;
+					case float32_kind: KindType.float32;
+					case float64_kind, untyped_float_kind: KindType.float64;
+					case complex64_kind: KindType.complex64;
+					case complex128_kind, untyped_complex_kind: KindType.complex128;
+					case string_kind, untyped_string_kind: KindType.string;
+					case unsafepointer_kind: KindType.unsafePointer;
 				}
 			case chanType(_, _): 18;
 			case interfaceType(_, _): 20;

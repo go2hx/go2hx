@@ -490,10 +490,10 @@ class Go {
 				// trace(a.fields.map(field -> field.name));
 				for (field in a.fields) {
 					if (field.name == "__underlying__") {
-						macro $expr == null ? new stdgo.StdGoTypes.AnyInterface(null,
+						return macro $expr == null ? new stdgo.StdGoTypes.AnyInterface(null,
 							new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.invalidType)) : new stdgo.StdGoTypes.AnyInterface($expr,
-							$expr.__underlying__()
-							.type);
+								$expr.__underlying__()
+								.type);
 					}
 				}
 			default:
@@ -556,9 +556,9 @@ class Go {
 				final t2 = gtDecode(t2, e, []);
 				return macro {
 					final t = Go.toInterface($e).type;
-					final t2:stdgo.reflect.Reflect.Type = new stdgo.internal.reflect.Reflect._Type(${t2});
+					var t2 = new stdgo.internal.reflect.Reflect._Type(${t2});
 					try {
-						t.assignableTo(t2);
+						t.assignableTo(new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(t2), t2));
 					} catch (_) {
 						false;
 					}

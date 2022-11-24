@@ -529,7 +529,12 @@ class Go {
 					if (t.kind() == 20) {
 						($e.value : $t);
 					} else {
-						(($e.value : Dynamic).__underlying__().value : $t);
+						var value:Dynamic = ($e.value : Dynamic).__underlying__().value;
+						if (!(value is PointerData) && t.kind() == 22) {
+							(Go.pointer(value) : $t);
+						} else {
+							(value : $t);
+						}
 					}
 				});
 				// trace(new haxe.macro.Printer().printExpr(e));

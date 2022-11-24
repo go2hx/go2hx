@@ -519,10 +519,10 @@ class Go {
 					Context.error("complexType converted to type is null", Context.currentPos());
 				final toType = gtDecode(t2, null, []);
 				final e = macro({
-					final t = new stdgo.reflect.Reflect._Type($toType);
+					var t = new stdgo.internal.reflect.Reflect._Type($toType);
 					// trace($e.type.common().value);
 					// trace(t.common().value);
-					final b = $e.type.assignableTo(t);
+					final b = $e.type.assignableTo(new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(t), t));
 					if (!b)
 						throw "unable to assert";
 					// interface kind check

@@ -46,6 +46,7 @@ var ci = false;
 var logOutput:FileOutput = null;
 var suites:Map<String, TestSuite> = [];
 var startStamp = 0.0;
+var timeout = 0;
 
 function main() {
 	final args = Sys.args();
@@ -136,6 +137,10 @@ private function update() {
 			break;
 		tasks.remove(task);
 	}
+	if (timeout++ > 2 * 60 * 5) {
+		trace("TIMEOUT");
+		close();
+	}
 }
 
 final hadError:Map<String, Bool> = [];
@@ -168,7 +173,7 @@ private function completeProcess(code:Int, proc:Process, task:TaskData, command:
 			suites[task.data.type].buildError(task);
 		}
 	}
-	trace(processPool.pool.length, tasks.length);
+	timeout = 0;
 	if (processPool.pool.length <= 1 && tasks.length <= 0) {
 		close();
 	}
@@ -176,6 +181,7 @@ private function completeProcess(code:Int, proc:Process, task:TaskData, command:
 
 private function complete(modules:Array<Typer.Module>, task:TaskData) {
 	// spawn targets
+	timeout = 0;
 	for (target in targets) {
 		final task = task.copy();
 		var command = (ci ? "npx " : "") + "haxe " + task.hxml + ".hxml";

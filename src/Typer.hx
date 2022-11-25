@@ -3369,7 +3369,7 @@ private function toReflectType(t:GoType, info:Info, paths:Array<String>):Expr {
 				final name = makeString(method.name);
 				final t = toReflectType(method.type.get(), info, paths.copy());
 				final recv = macro stdgo.internal.reflect.Reflect.GoType.invalidType; // toReflectType(method.recv.get(), info, paths.copy());
-				methodExprs.push(macro new stdgo.reflect.Reflect.MethodType($name, {get: () -> $t}, {get: () -> $recv}));
+				methodExprs.push(macro new stdgo.internal.reflect.Reflect.MethodType($name, {get: () -> $t}, {get: () -> $recv}));
 			}
 			final e = macro stdgo.internal.reflect.Reflect.GoType.interfaceType($empty, ${macro $a{methodExprs}});
 			e;
@@ -3388,7 +3388,7 @@ private function toReflectType(t:GoType, info:Info, paths:Array<String>):Expr {
 					final name = makeString(method.name);
 					final t = toReflectType(method.type.get(), info, paths.copy());
 					final recv = macro stdgo.internal.reflect.Reflect.GoType.invalidType; // toReflectType(method.recv.get(), info);
-					methodExprs.push(macro new stdgo.reflect.Reflect.MethodType($name, {get: () -> $t}, {get: () -> $recv}));
+					methodExprs.push(macro new stdgo.internal.reflect.Reflect.MethodType($name, {get: () -> $t}, {get: () -> $recv}));
 				}
 			}
 			final e = macro stdgo.internal.reflect.Reflect.GoType.named($path, ${macro $a{methodExprs}}, $t);

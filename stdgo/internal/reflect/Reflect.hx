@@ -34,6 +34,10 @@ private enum abstract KindType(stdgo.reflect.Reflect.Kind) from Int from stdgo.r
 	var unsafePointer = 26;
 }
 
+function isExported(name:String):Bool {
+	return name.charCodeAt(0) != "_".code;
+}
+
 function formatGoFieldName(name:String):String {
 	return (name.charAt(0) == "_" ? "" : name.charAt(0).toUpperCase()) + name.substr(1);
 }
@@ -836,8 +840,23 @@ class _Type {
 	static public function name(t:_Type):GoString
 		throw "not implemented";
 
-	static public function numMethod(t:_Type):GoInt
-		throw "not implemented";
+	static public function numMethod(t:_Type):GoInt {
+		switch t._common() {
+			case named(_, methods, _), interfaceType(_, methods):
+				var count = 0;
+				for (method in methods) {
+					if (isExported(method.name))
+						count++;
+				}
+				return count;
+			case structType(_):
+				return 0;
+			case pointer(_), refType(_):
+				return t.elem().numMethod();
+			default:
+				throw "reflect.NumMethod not implemented for " + t.string();
+		}
+	}
 
 	static public function methodByName(t:_Type, _0:GoString):{var _0:Method; var _1:Bool;}
 		throw "not implemented";

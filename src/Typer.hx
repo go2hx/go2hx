@@ -3041,7 +3041,8 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 			final selType = typeof(expr.fun, info, false);
 			genericBool = isGeneric(selType);
 			switch selType {
-				case signature(_, _, _, _.get() => recv):
+				case signature(_, params, results, _):
+					final recv = typeof(expr.fun.recv, info, false);
 					switch recv {
 						case _var(_, type):
 							final xType = typeof(expr.fun.x, info, false);
@@ -3625,7 +3626,7 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 			var e:Ast.CallExpr = e;
 			var type = typeof(e.type, info, false, paths.copy());
 			switch type {
-				case signature(variadic, params, _.get() => results, recv):
+				case signature(_, _, _.get() => results, _):
 					return results[0];
 				default:
 					return type;

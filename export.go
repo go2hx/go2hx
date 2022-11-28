@@ -9,6 +9,7 @@ import (
 	"go/ast"
 	"go/constant"
 	"go/importer"
+	"go/printer"
 	"go/token"
 	"go/types"
 	"net"
@@ -1030,6 +1031,11 @@ func parseData(node interface{}) map[string]interface{} {
 	case *ast.SelectorExpr:
 		typeAndValue := checker.Types[node.X.(ast.Expr)]
 		typ := typeAndValue.Type
+		switch typ2 := typ.(type) {
+		case *types.Pointer:
+			typ = typ2.Elem()
+		default:
+		}
 		switch typ := typ.(type) {
 		case *types.Named:
 			nm := typ.NumMethods()
@@ -1262,4 +1268,10 @@ func parseField(field *ast.Field) map[string]interface{} {
 		"type":    parseData(field.Type),
 		"tag":     tag,
 	}
+}
+
+func printExpr(node any) {
+	var buf bytes.Buffer
+	printer.Fprint(&buf, fset, node)
+	fmt.Println(buf.String())
 }

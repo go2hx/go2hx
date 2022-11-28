@@ -2,7 +2,7 @@ package stdgo.testing;
 
 import haxe.Rest;
 import stdgo.StdGoTypes;
-import stdgo.reflect.Reflect.GoType;
+import stdgo.internal.reflect.Reflect.GoType;
 
 using stdgo.GoString.GoStringTools;
 

@@ -4,7 +4,7 @@ import stdgo.Pointer;
 import stdgo.StdGoTypes;
 import stdgo.reflect.Reflect;
 
-private enum abstract KindType(stdgo.reflect.Reflect.Kind) from Int from stdgo.reflect.Reflect.Kind to stdgo.reflect.Reflect.Kind {
+enum abstract KindType(stdgo.reflect.Reflect.Kind) from Int from stdgo.reflect.Reflect.Kind to stdgo.reflect.Reflect.Kind {
 	var invalid = 0;
 	var bool = 1;
 	var int = 2;

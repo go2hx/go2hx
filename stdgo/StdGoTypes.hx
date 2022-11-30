@@ -1863,7 +1863,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 						throw "struct issue with field name: " + name;
 					}
 
-					final type:Dynamic = null; // TOD: use new constructor //@:privateAccess new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.unroll(gt, type));
+					final type:Dynamic = @:privateAccess new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.unroll(gt, type));
 					final a = new AnyInterface(fieldValue, type);
 					final b = new AnyInterface(fieldValue2, type);
 					if (AnyInterface.notEquals(a, b))
@@ -1879,7 +1879,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 			case sliceType(_.get() => elem):
 				var a:Slice<Any> = aValue;
 				var b:Slice<Any> = bValue;
-				var t:Dynamic = null; // TODO: use new constructor //new stdgo.reflect.Reflect._Type(elem);
+				var t:Dynamic = new stdgo.internal.reflect.Reflect._Type(elem);
 				if (a.length != b.length)
 					return false;
 				for (i in 0...a.length.toBasic()) {
@@ -1887,12 +1887,13 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 						return false;
 				}
 				true;
-			case interfaceType(_,
-				_): false; // TODO: use new constructor //final t:stdgo.reflect.Reflect.Type = new stdgo.reflect.Reflect._Type(gt); final t2:stdgo.reflect.Reflect.Type = new stdgo.reflect.Reflect._Type(gt2); t.assignableTo(t2) && aValue == bValue;
+			case interfaceType(_, _): final t:stdgo.reflect.Reflect.Type = new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(new stdgo.internal.reflect.Reflect._Type(gt)),
+					new stdgo.internal.reflect.Reflect._Type(gt)); final t2:stdgo.reflect.Reflect.Type = new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(new stdgo.internal.reflect.Reflect._Type(gt2)),
+					new stdgo.internal.reflect.Reflect._Type(gt2)); t.assignableTo(t2) && aValue == bValue;
 			case arrayType(_.get() => elem, _):
 				var a:GoArray<Any> = aValue;
 				var b:GoArray<Any> = bValue;
-				var t:Dynamic = null; // TODO: use new constructor // new stdgo.reflect.Reflect._Type(elem);
+				var t:Dynamic = new stdgo.internal.reflect.Reflect._Type(elem);
 				for (i in 0...a.length.toBasic()) {
 					if (AnyInterface.notEquals(new AnyInterface(a[i], t), new AnyInterface(b[i], t)))
 						return false;

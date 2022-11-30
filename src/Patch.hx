@@ -252,6 +252,7 @@ final list = [
 	"reflect:valueOf" => macro {
 		return new Value(_i);
 	},
+	"reflect:zero" => macro return new Value(new AnyInterface(stdgo.internal.reflect.Reflect.defaultValue(_typ), cast _typ)),
 	"reflect.Value:type" => macro return @:privateAccess new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(_v.value.type), _v.value.type),
 	"reflect.Value:kind" => macro return _v.type().kind(),
 	"reflect.Value:elem" => macro {

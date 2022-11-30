@@ -252,6 +252,8 @@ final list = [
 	"reflect:valueOf" => macro {
 		return new Value(_i);
 	},
+	"reflect.Value:type" => macro return @:privateAccess new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(_v.value.type), _v.value.type),
+	"reflect.Value:kind" => macro return _v.type().kind(),
 	"reflect.Value:elem" => macro {
 		var value = @:privateAccess _v.value;
 		var k = _v.kind();
@@ -274,6 +276,7 @@ final list = [
 						@:privateAccess value.canAddrBool = true;
 						return value;
 					default:
+						var _ = 0;
 				}
 			case interface_:
 				final value = _v.__copy__();

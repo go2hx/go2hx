@@ -252,6 +252,36 @@ final list = [
 	"reflect:valueOf" => macro {
 		return new Value(_i);
 	},
+	"reflect.Value:elem" => macro {
+		var value = @:privateAccess _v.value;
+		var k = _v.kind();
+		final t = @:privateAccess _v.value.type._common();
+		switch k {
+			case ptr:
+				switch stdgo.internal.reflect.Reflect.getUnderlying(t) {
+					case stdgo.internal.reflect.Reflect.GoType.refType(elem):
+						final value = new Value(new AnyInterface(value, new stdgo.internal.reflect.Reflect._Type(elem)), null);
+						@:privateAccess value.canAddrBool = true;
+						return value;
+					case stdgo.internal.reflect.Reflect.GoType.pointer(elem):
+						if (value == null) {
+							final value = new Value(new AnyInterface(null, new stdgo.internal.reflect.Reflect._Type(elem)), null);
+							@:privateAccess value.canAddrBool = true;
+							return value;
+						}
+						final ptrValue = null; // (value : Pointer<Dynamic>).value
+						final value = new Value(new AnyInterface(ptrValue, new stdgo.internal.reflect.Reflect._Type(elem)), value);
+						@:privateAccess value.canAddrBool = true;
+						return value;
+					default:
+				}
+			case interface_:
+				final value = _v.__copy__();
+				@:privateAccess value.canAddrBool = true;
+				return value;
+		}
+		throw new ValueError("reflect.Value.Elem", k);
+	},
 	"reflect.Kind:string" => macro {
 		var idx:Int = _k.toBasic();
 		trace(idx);
@@ -298,9 +328,10 @@ final skipTargets = [
 final structs = [
 	"reflect:Value" => macro {
 		var value:stdgo.StdGoTypes.AnyInterface;
-		// @:local
-		var underlyingValue:Any;
+		@:local
+		var underlyingValue:Dynamic;
 		var underlyingIndex:stdgo.StdGoTypes.GoInt = -1;
+		@:local
 		var underlyingKey:Dynamic = null;
 		var canAddrBool:Bool = false;
 		var notSetBool:Bool = false;

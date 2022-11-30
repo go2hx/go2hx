@@ -6020,6 +6020,39 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 			}
 			info.renameIdents[spec.name.name] = name + "_static_extension";
 			info.classNames[spec.name.name] = name + "_static_extension";
+			// add to fields patch structs
+			final patchName = info.global.module.path + ":" + name;
+			final struct = Patch.structs[patchName];
+			var structAddFieldsIndex = -1;
+			if (struct != null) {
+				switch struct.expr {
+					case EBlock(exprs):
+						exprs.pop();
+						for (expr in exprs) {
+							switch expr.expr {
+								case EMeta(s, {expr: EVars(_[0] => v), pos: _}):
+									if (structAddFieldsIndex == -1)
+										structAddFieldsIndex = fields.length;
+									fields.push({
+										name: v.name,
+										pos: null,
+										kind: FVar(v.type, v.expr),
+										meta: [s],
+									});
+								case EVars(_[0] => v):
+									if (structAddFieldsIndex == -1)
+										structAddFieldsIndex = fields.length;
+									fields.push({
+										name: v.name,
+										pos: null,
+										kind: FVar(v.type, v.expr),
+									});
+								default:
+							}
+						}
+					default:
+				}
+			}
 			final names = [for (field in fields) field.name];
 			final exprs:Array<Expr> = [
 				for (name in names)
@@ -6078,8 +6111,14 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 			}
 			sets.push(macro return this);
 			var meta:Metadata = [{name: ":structInit", pos: null}];
+			if (name == "Value") {
+				trace(spec.methods.length);
+			}
 			for (method in spec.methods) { // covers both embedded interfaces and structures
 				// embedded methods
+				if (structAddFieldsIndex > -1 && structAddFieldsIndex <= method.index[0])
+					continue;
+				trace(structAddFieldsIndex, method.index[0]);
 				final field = fields[method.index[0]];
 				if (field == null)
 					continue;

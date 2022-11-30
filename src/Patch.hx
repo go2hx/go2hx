@@ -249,6 +249,9 @@ final list = [
 		// set internal Type
 		return new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(_i.type), _i.type);
 	},
+	"reflect:valueOf" => macro {
+		return new Value(_i);
+	},
 	"reflect.Kind:string" => macro {
 		var idx:Int = _k.toBasic();
 		trace(idx);
@@ -290,6 +293,19 @@ final skipTargets = [
 	"math_test:testNextafter32" => ["interp"],
 	// "math_test:testSignbit" => ["interp"],
 	"math_test:testGamma" => ["interp"],
+];
+
+final structs = [
+	"reflect:Value" => macro {
+		var value:stdgo.StdGoTypes.AnyInterface;
+		// @:local
+		var underlyingValue:Any;
+		var underlyingIndex:stdgo.StdGoTypes.GoInt = -1;
+		var underlyingKey:Dynamic = null;
+		var canAddrBool:Bool = false;
+		var notSetBool:Bool = false;
+		0;
+	},
 ];
 
 final adds = [

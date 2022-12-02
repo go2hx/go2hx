@@ -42,7 +42,7 @@ abstract UnsafePointer(AnyInterface) from AnyInterface {
 				switch elem {
 					case basic(uint8_kind):
 						switch toType {
-							case pointer(basic(string_kind)):
+							case pointerType(basic(string_kind)):
 								return Go.pointer(((this.value : Slice<GoUInt8>).toBytes() : GoString));
 							default:
 						}

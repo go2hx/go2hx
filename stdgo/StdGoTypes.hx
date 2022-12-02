@@ -1780,22 +1780,13 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 		if (gt.match(invalidType) || gt2.match(invalidType))
 			return gt.match(invalidType) && gt2.match(invalidType);
 		// set internal Type
-		if (!a.type.assignableTo(new stdgo.internal.reflect.Reflect._Type_asInterface(new Pointer(() -> b.type, value -> b.type = value), b.type))) {
+		if (!a.type.assignableTo(cast new stdgo.internal.reflect.Reflect._Type_asInterface(new Pointer(() -> b.type, value -> b.type = value), b.type))) {
 			trace(gt);
 			trace(gt2);
 			throw "invalid operation: (mismatched types " + a.type + " and " + b.type + ")";
 		}
 		var aValue = a.value;
 		var bValue = b.value;
-		/*
-			trace(gt);
-			trace("-------");
-			trace(gt2);
-			trace("-end equals-");
-			trace(aValue);
-			trace(bValue);
-			trace("-end values-"); 
-		 */
 		switch gt {
 			case named(path, _, _, _):
 				if (aValue != null) {
@@ -1863,7 +1854,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 						throw "struct issue with field name: " + name;
 					}
 
-					final type:Dynamic = @:privateAccess new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.unroll(gt, type));
+					final type = @:privateAccess new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.unroll(gt, type));
 					final a = new AnyInterface(fieldValue, type);
 					final b = new AnyInterface(fieldValue2, type);
 					if (AnyInterface.notEquals(a, b))
@@ -1887,9 +1878,8 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 						return false;
 				}
 				true;
-			case interfaceType(_, _): final t:stdgo.reflect.Reflect.Type = new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(new stdgo.internal.reflect.Reflect._Type(gt)),
-					new stdgo.internal.reflect.Reflect._Type(gt)); final t2:stdgo.reflect.Reflect.Type = new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(new stdgo.internal.reflect.Reflect._Type(gt2)),
-					new stdgo.internal.reflect.Reflect._Type(gt2)); t.assignableTo(t2) && aValue == bValue;
+			case interfaceType(_, _):
+				aValue == bValue;
 			case arrayType(_.get() => elem, _):
 				var a:GoArray<Any> = aValue;
 				var b:GoArray<Any> = bValue;
@@ -1899,7 +1889,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 						return false;
 				}
 				true;
-			case pointer(_):
+			case pointerType(_):
 				(aValue : Pointer<Dynamic>) == (bValue : Pointer<Dynamic>);
 			default:
 				throw "unknown type equals: " + gt;

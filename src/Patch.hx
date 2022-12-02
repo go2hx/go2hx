@@ -324,6 +324,12 @@ final list = [
 			default: throw "not supported";
 		}
 	},
+	"reflect:new_" => macro {
+		var value = stdgo.internal.reflect.Reflect.defaultValue(_typ);
+		var ptr = new Pointer(() -> value, x -> value = x);
+		return new Value(new AnyInterface(ptr,
+			new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.pointerType(@:privateAccess (_typ : Dynamic)._common()))));
+	},
 	"reflect.Value:set" => macro {
 		var value = @:privateAccess _x.value.value;
 		final gt = @:privateAccess _x.value.type._common();

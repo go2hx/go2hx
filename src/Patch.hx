@@ -343,6 +343,7 @@ final list = [
 							std.Reflect.setField(value, field.name, fieldValue);
 						}
 					default:
+						var _ = 0;
 				};
 			case stdgo.internal.reflect.Reflect.KindType.int8:
 				_v.setInt((value : GoInt8));
@@ -367,8 +368,8 @@ final list = [
 			case stdgo.internal.reflect.Reflect.KindType.float64:
 				_v.setFloat((value : GoFloat64));
 			default:
-				_v.value = _x.value;
-				stdgo.internal.refle_set(_v);
+				@:privateAccess _v.value = _x.value;
+				stdgo.internal.reflect.Reflect._set(_v);
 		}
 	},
 	"reflect.Value:interface_" => macro return @:privateAccess _v.value,

@@ -1776,7 +1776,7 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
 				};
 			case named(path, _, type):
 				switch getUnderlying(type) {
-					case pointer(_), basic(_), signature(_, _, _, _), sliceType(_), mapType(_), chanType(_):
+					case pointerType(_), basic(_), signature(_, _, _, _), sliceType(_), mapType(_), chanType(_):
 						return y;
 					case structType(fields) if (path.indexOf("_struct_") != -1):
 						final decl = createNamedObjectDecl(fields, (field, type) -> passByCopy(type, macro x.$field, info), info);
@@ -1793,7 +1793,7 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
 				if (!isInterface(type) && !isAnyInterface(type)) {
 					y = macro($y == null ? null : $y.__copy__());
 				}
-			case invalidType, pointer(_), previouslyNamed(_), refType(_), tuple(_, _):
+			case invalidType, pointerType(_), previouslyNamed(_), refType(_), tuple(_, _):
 
 			case _var(_, _):
 		}
@@ -1963,9 +1963,9 @@ private function goTypesEqual(a:GoType, b:GoType) {
 				default:
 					false;
 			}
-		case refType(elem), pointer(elem), sliceType(_.get() => elem):
+		case refType(elem), pointerType(elem), sliceType(_.get() => elem):
 			switch b {
-				case refType(elem2), pointer(elem2), sliceType(_.get() => elem2): a.getIndex() == b.getIndex() && goTypesEqual(elem, elem2);
+				case refType(elem2), pointerType(elem2), sliceType(_.get() => elem2): a.getIndex() == b.getIndex() && goTypesEqual(elem, elem2);
 				default:
 					false;
 			}
@@ -2123,16 +2123,16 @@ private function replaceInvalidType(t:GoType, replace:GoType):GoType {
 		case _var(name, type):
 			final type = replaceInvalidType(type, replace);
 			_var(name, type);
-		case pointer(elem):
+		case pointerType(elem):
 			final elem = replaceInvalidType(elem, replace);
-			pointer(elem);
+			pointerType(elem);
 		case refType(elem):
 			switch elem {
 				case invalidType, named(_, _, invalidType):
 					if (isRefValue(replace)) {
 						refType(elem);
 					} else {
-						pointer(elem);
+						pointerType(elem);
 					}
 				default:
 					final elem = replaceInvalidType(elem, replace);
@@ -2156,7 +2156,7 @@ private function isGeneric(t:GoType):Bool {
 			switch recv {
 				case _var(_, t):
 					switch t {
-						case refType(s), pointer(s):
+						case refType(s), pointerType(s):
 							t = s;
 						default:
 					}
@@ -2170,7 +2170,7 @@ private function isGeneric(t:GoType):Bool {
 			if (params.length > 0) {
 				var t = params[0];
 				switch t {
-					case refType(s), pointer(s):
+					case refType(s), pointerType(s):
 						t = s;
 					default:
 				}
@@ -3344,9 +3344,9 @@ private function toReflectType(t:GoType, info:Info, paths:Array<String>):Expr {
 			final key = toReflectType(key, info, paths.copy());
 			final value = toReflectType(value, info, paths.copy());
 			macro stdgo.internal.reflect.Reflect.GoType.mapType({get: () -> $key}, {get: () -> $value});
-		case pointer(elem):
+		case pointerType(elem):
 			final elem = toReflectType(elem, info, paths.copy());
-			macro stdgo.internal.reflect.Reflect.GoType.pointer($elem);
+			macro stdgo.internal.reflect.Reflect.GoType.pointerType($elem);
 		case arrayType(_.get() => elem, len):
 			final elem = toReflectType(elem, info, paths.copy());
 			final len = toExpr(EConst(CInt('$len')));
@@ -3600,7 +3600,7 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 		case "Array":
 			arrayType({get: () -> typeof(e.elem, info, false, paths.copy())}, e.len);
 		case "Pointer":
-			pointer(typeof(e.elem, info, false, paths.copy()));
+			pointerType(typeof(e.elem, info, false, paths.copy()));
 		case "Map":
 			mapType({get: () -> typeof(e.key, info, false, paths.copy())}, {get: () -> typeof(e.elem, info, false, paths.copy())});
 		case "Struct":
@@ -3672,7 +3672,7 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 				case ARROW:
 					getElem(typeof(e.x, info, false, paths.copy()));
 				case AND:
-					pointer(typeof(e.x, info, false, paths.copy()));
+					pointerType(typeof(e.x, info, false, paths.copy()));
 				default:
 					typeof(e.x, info, false, paths.copy());
 			}
@@ -3712,7 +3712,7 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 			throw "unknown typeof expr: " + e.id;
 	}
 	return switch t {
-		case pointer(elem):
+		case pointerType(elem):
 			isRefValue(elem) ? refType(elem) : t;
 		default:
 			t;
@@ -3838,7 +3838,7 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 			TPath({pack: [], name: "GoMap", params: [TPType(ctKey), TPType(ctValue)]});
 		case invalidType:
 			invalidComplexType();
-		case pointer(elem):
+		case pointerType(elem):
 			final ct = toComplexType(elem, info);
 			TPath({pack: [], name: "Pointer", params: [TPType(ct)]});
 		case chanType(dir, _.get() => elem):
@@ -4172,7 +4172,7 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr, info:Info):ExprDef {
 				final t = typeof(expr, info, false);
 				final ct = toComplexType(t, info);
 				return (macro($x : $ct)).expr;
-			case pointer(_):
+			case pointerType(_):
 				return (macro Go.pointer($x)).expr;
 			default:
 				x.expr;
@@ -4277,7 +4277,7 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 		case refType(elem):
 			final e = toExpr(compositeLit(elem, complexTypeElem(ct), expr, info));
 			return e.expr;
-		case pointer(elem):
+		case pointerType(elem):
 			final e = toExpr(compositeLit(elem, complexTypeElem(ct), expr, info));
 			return (macro Go.pointer($e)).expr;
 		case structType(fields):
@@ -4759,7 +4759,7 @@ function getStructFields(type:GoType):Array<FieldType> {
 	if (type == null)
 		return [];
 	return switch type {
-		case named(_, _, elem), pointer(elem), refType(elem):
+		case named(_, _, elem), pointerType(elem), refType(elem):
 			getStructFields(elem);
 		case structType(fields):
 			fields;
@@ -5409,7 +5409,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			final t = toComplexType(elem, info);
 			var value = defaultValue(elem, info);
 			macro(null : Chan<$t>);
-		case pointer(elem):
+		case pointerType(elem):
 			final t = toComplexType(elem, info);
 			macro(null : Pointer<$t>);
 		case signature(_, _, _, _):
@@ -5428,7 +5428,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 				default:
 			}
 			switch underlying {
-				case pointer(_), interfaceType(_), mapType(_, _), signature(_, _):
+				case pointerType(_), interfaceType(_), mapType(_, _), signature(_, _):
 					final ct = ct();
 					if (hasTypeParam(ct)) {
 						macro null;
@@ -5889,7 +5889,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 private function refToPointerWrapper(t:GoType):GoType {
 	return switch t {
 		case refType(elem):
-			pointer(refToPointerWrapper(elem));
+			pointerType(refToPointerWrapper(elem));
 		default:
 			t;
 	}
@@ -6503,7 +6503,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 						final value = $expr;
 						trace("end var: " + ${makeExpr(name)});
 						value;
-					};
+					}
 				}
 			values.push({
 				name: name,

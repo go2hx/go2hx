@@ -42,6 +42,93 @@ function formatGoFieldName(name:String):String {
 	return (name.charAt(0) == "_" ? "" : name.charAt(0).toUpperCase()) + name.substr(1);
 }
 
+function namedUnderlying(obj:AnyInterface):AnyInterface {
+	return switch @:privateAccess obj.type._common() {
+		case named(_, _, type):
+			new AnyInterface((obj.value : Dynamic).__t__, new _Type(type));
+		default:
+			obj;
+	}
+}
+
+@:structInit final private class Visit {
+	public var _typ:Type = null;
+
+	public function new(?_typ) {}
+}
+
+function deepValueEqual(v1:Value, v2:Value, visited:GoMap<Visit, Bool>, depth:GoInt):Bool {
+	if (!v1.isValid() || !v2.isValid()) {
+		return v1.isValid() == v2.isValid();
+	}
+	if (v1.kind() == array) {
+		for (i in 0...v1.len().toBasic()) {
+			if (!deepValueEqual(v1.index(i), v2.index(i), visited, depth + (1 : GoInt64))) {
+				return false;
+			}
+		}
+		return true;
+	} else if (v1.kind() == slice) {
+		if (v1.isNil() != v2.isNil()) {
+			return false;
+		}
+		if (v1.len() != v2.len()) {
+			return false;
+		}
+		if (v1.pointer() != v2.pointer()) {
+			return true;
+		}
+		for (i in 0...v1.len().toBasic()) {
+			if (!deepValueEqual(v1.index(i), v2.index(i), visited, depth + (1 : GoInt64))) {
+				return false;
+			}
+		}
+		return true;
+	} else if (v1.kind() == interface_) {
+		if (v1.isNil() || v2.isNil()) {
+			return v1.isNil() == v2.isNil();
+		}
+		return true;
+	} else if (v1.kind() == ptr) {
+		if (v1.pointer() == v2.pointer()) {
+			return true;
+		};
+		return deepValueEqual(v1.elem(), v2.elem(), visited, depth + (1 : GoInt64));
+	} else if (v1.kind() == struct_) {
+		for (i in 0...v1.numField().toBasic()) {
+			if (!deepValueEqual(v1.field(i), v2.field(i), visited, depth + (1 : GoInt64))) {
+				return false;
+			}
+		}
+		return true;
+	} else if (v1.kind() == map) {
+		if (v1.isNil() != v2.isNil()) {
+			return false;
+		}
+		if (v1.len() != v2.len()) {
+			return false;
+		}
+		if (v1.pointer() == v2.pointer()) {
+			return true;
+		}
+		for (k in v1.mapKeys()) {
+			var val1 = v1.mapIndex(k);
+			var val2 = v2.mapIndex(k);
+			if (!val1.isValid() || !val2.isValid() || !deepValueEqual(val1, val2, visited, depth + (1 : GoInt64))) {
+				return false;
+			}
+		}
+		return true;
+	} else if (v1.kind() == func) {
+		if (v1.isNil() && v2.isNil()) {
+			return true;
+		}
+		return false;
+	} else {
+		return v1.interface_() == v2.interface_();
+	}
+}
+
 function directlyAssignable(t:Type, v:Type):Bool {
 	var tgt:GoType = (t : Dynamic)._common();
 	var vgt:GoType = (v : Dynamic)._common();
@@ -145,9 +232,9 @@ function directlyAssignable(t:Type, v:Type):Bool {
 				default:
 					false;
 			}
-		case pointer(e), refType(e):
+		case pointerType(e), refType(e):
 			switch vgt {
-				case pointer(e2), refType(e2):
+				case pointerType(e2), refType(e2):
 					final i = new _Type_asInterface(Go.pointer(new _Type(e)), new _Type(e));
 					final i2 = new _Type_asInterface(Go.pointer(new _Type(e2)), new _Type(e2));
 					directlyAssignable(i, i2);
@@ -255,7 +342,7 @@ enum GoType {
 	named(path:String, methods:Array<MethodType>, type:GoType, ?alias:Bool, ?params:Array<GoType>);
 	previouslyNamed(path:String);
 	structType(fields:Array<FieldType>);
-	pointer(elem:GoType);
+	pointerType(elem:GoType);
 	arrayType(elem:Ref<GoType>, len:Int);
 	mapType(key:Ref<GoType>, value:Ref<GoType>);
 	chanType(dir:Int, elem:Ref<GoType>);
@@ -324,7 +411,7 @@ function isPointerStruct(type:GoType):Bool {
 	if (type == null)
 		return false;
 	return switch type {
-		case pointer(elem): isStruct(elem);
+		case pointerType(elem): isStruct(elem);
 		default: false;
 	}
 }
@@ -357,7 +444,7 @@ function getElem(type:GoType):GoType {
 			type;
 		case _var(_, type):
 			getElem(type);
-		case arrayType(_.get() => elem, _), sliceType(_.get() => elem), pointer(elem), refType(elem):
+		case arrayType(_.get() => elem, _), sliceType(_.get() => elem), pointerType(elem), refType(elem):
 			elem;
 		default:
 			type;
@@ -412,7 +499,7 @@ function isPointer(type:GoType):Bool {
 			isPointer(elem);
 		case named(_, _, elem):
 			isPointer(elem);
-		case pointer(_):
+		case pointerType(_):
 			true;
 		case refType(_):
 			false;
@@ -449,7 +536,7 @@ function pointerUnwrap(type:GoType):GoType {
 	if (type == null)
 		return type;
 	return switch type {
-		case pointer(elem):
+		case pointerType(elem):
 			pointerUnwrap(elem);
 		default:
 			type;
@@ -496,8 +583,8 @@ private function unroll(parent:GoType, child:GoType):GoType {
 	return switch child {
 		case previouslyNamed(childName):
 			childName == parentName ? parent : child;
-		case pointer(elem):
-			pointer(unroll(parent, elem));
+		case pointerType(elem):
+			pointerType(unroll(parent, elem));
 		case mapType(_.get() => key, _.get() => value):
 			mapType({get: () -> unroll(parent, key)}, {get: () -> unroll(parent, value)});
 		case basic(_):
@@ -589,14 +676,60 @@ function defaultValue(typ:Type):Any {
 					var cl = std.Type.resolveClass(path);
 					std.Type.createInstance(cl, []);
 				default:
-					// TODO: use new Type constructor creation
-					// defaultValue(new _Type(type));
-					null;
+					var t = new _Type(type);
+					defaultValue(new _Type_asInterface(Go.pointer(t), t));
 			}
 		case arrayType(_.get() => elem, len):
-			// TODO: use new Type constructor creation
-			// new GoArray([for (i in 0...len) defaultValue(new _Type(elem))]);
-			null;
+			var t = new _Type(elem);
+			final value = defaultValue(new _Type_asInterface(Go.pointer(t), t));
+			new GoArray([for (i in 0...len) value]);
+		default: null;
+	}
+}
+
+function _set(value:Value) {
+	if (@:privateAccess value.underlyingValue != null) {
+		if (@:privateAccess value.underlyingIndex == -1) {
+			if (@:privateAccess value.underlyingKey != null) {
+				@:privateAccess value.underlyingValue.set(@:privateAccess value.underlyingKey, @:privateAccess value.value.value);
+			} else {
+				@:privateAccess value.underlyingValue.set(@:privateAccess value.value.value); // set pointer
+			}
+		} else {
+			// set array or slice
+			@:privateAccess value.underlyingValue.set(@:privateAccess value.underlyingIndex, @:privateAccess value.value.value);
+		}
+	}
+}
+
+function defaultValueInternal(typ:_Type):Any {
+	final t:GoType = @:privateAccess typ._common();
+	return switch (t : stdgo.internal.reflect.Reflect.GoType) {
+		case basic(kind):
+			switch kind {
+				case string_kind: ("" : GoString);
+				case bool_kind: false;
+				case int64_kind: (0 : GoInt64);
+				case uint64_kind: (0 : GoUInt64);
+				case uint_kind: (0 : GoUInt);
+				case uint32_kind: (0 : GoUInt32);
+				case complex64_kind: (0 : GoComplex64);
+				case complex128_kind: (0 : GoComplex128);
+				default: 0;
+			}
+		case named(path, methods, type):
+			switch type {
+				case structType(_):
+					var cl = std.Type.resolveClass(path);
+					std.Type.createInstance(cl, []);
+				default:
+					var t = new _Type(type);
+					defaultValue(new _Type_asInterface(Go.pointer(t), t));
+			}
+		case arrayType(_.get() => elem, len):
+			var t = new _Type(elem);
+			final value = defaultValue(new _Type_asInterface(Go.pointer(t), t));
+			new GoArray([for (i in 0...len) value]);
 		default: null;
 	}
 }
@@ -662,7 +795,7 @@ class _Type {
 	static public function elem(t:_Type):Type {
 		final gt:GoType = getUnderlying(cast t._common());
 		switch (gt) {
-			case chanType(_, _.get() => elem), refType(elem), pointer(elem), sliceType(_.get() => elem), arrayType(_.get() => elem, _):
+			case chanType(_, _.get() => elem), refType(elem), pointerType(elem), sliceType(_.get() => elem), arrayType(_.get() => elem, _):
 				var t = new _Type(elem);
 				// set internal Type
 				return new _Type_asInterface(new Pointer(() -> t, value -> t = value), t);
@@ -739,7 +872,7 @@ class _Type {
 			case invalidType: 0;
 			case mapType(_, _): 21;
 			case named(_, _, type), _var(_, type): new _Type(type).kind();
-			case pointer(_), refType(_): 22;
+			case pointerType(_), refType(_): 22;
 			case previouslyNamed(_): throw "previouslyNamed type to kind not supported should be unrolled before access";
 			case sliceType(_): 23;
 			case tuple(_, _): throw "tuple type to kind not supported";
@@ -765,7 +898,7 @@ class _Type {
 				} else {
 					path;
 				}
-			case pointer(elem), refType(elem):
+			case pointerType(elem), refType(elem):
 				"*" + new _Type(elem).string();
 			case structType(fields):
 				"struct { " + [
@@ -851,7 +984,7 @@ class _Type {
 				return count;
 			case structType(_):
 				return 0;
-			case pointer(_), refType(_):
+			case pointerType(_), refType(_):
 				return t.elem().numMethod();
 			default:
 				throw "reflect.NumMethod not implemented for " + t.string();

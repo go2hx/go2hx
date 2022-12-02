@@ -252,9 +252,156 @@ final list = [
 	"reflect:valueOf" => macro {
 		return new Value(_i);
 	},
+	"reflect:deepEqual" => macro {
+		_x = stdgo.internal.reflect.Reflect.namedUnderlying(_x);
+		_y = stdgo.internal.reflect.Reflect.namedUnderlying(_y);
+		if (new Value(_x).isNil() || new Value(_y).isNil()) {
+			return (_x : AnyInterface) == (_y : AnyInterface);
+		};
+		var v1 = valueOf(_x);
+		var v2 = valueOf(_y);
+		return stdgo.internal.reflect.Reflect.deepValueEqual(v1, v2, null, 0);
+	},
 	"reflect:zero" => macro return new Value(new AnyInterface(stdgo.internal.reflect.Reflect.defaultValue(_typ), cast _typ)),
 	"reflect.Value:type" => macro return @:privateAccess new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(_v.value.type), _v.value.type),
 	"reflect.Value:kind" => macro return _v.type().kind(),
+	"reflect.Value:isValid" => macro return @:privateAccess _v.value.type._common() != stdgo.internal.reflect.Reflect.GoType.invalidType,
+	"reflect.Value:pointer" => macro {
+		var value = @:privateAccess _v.value.value;
+		if (stdgo.internal.reflect.Reflect.isNamed(@:privateAccess _v.value.type._common()))
+			value = (value : Dynamic);
+		return value != null ? 1 : 0;
+	},
+	"reflect.Value:len" => macro {
+		var value = @:privateAccess _v.value.value;
+		final t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
+		if (stdgo.internal.reflect.Reflect.isNamed(t))
+			value = (value : Dynamic);
+		final k = _v.kind();
+		return switch k {
+			case stdgo.internal.reflect.Reflect.KindType.array:
+				(value : GoArray<Dynamic>).length;
+			case stdgo.internal.reflect.Reflect.KindType.chan:
+				(value : Chan<Dynamic>).length;
+			case stdgo.internal.reflect.Reflect.KindType.slice:
+				(value : Slice<Dynamic>).length;
+			case stdgo.internal.reflect.Reflect.KindType.map:
+				(value : GoMap<Dynamic, Dynamic>).length;
+			case stdgo.internal.reflect.Reflect.KindType.string: // string_:
+				(value : Dynamic).length;
+			default:
+				throw "not supported";
+		}
+	},
+	"reflect.Value:index" => macro {
+		var value = @:privateAccess _v.value.value;
+		final gt = stdgo.internal.reflect.Reflect.getUnderlying(@:privateAccess _v.value.type._common());
+		return switch gt {
+			case stdgo.internal.reflect.Reflect.GoType.arrayType(_.get() => elem,
+				_): @:privateAccess new Value(new AnyInterface((value : GoArray<Dynamic>)[_i],
+					new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.unroll(gt, elem))));
+			case stdgo.internal.reflect.Reflect.GoType.sliceType(_.get() => elem):
+				final value = @:privateAccess new Value(new AnyInterface((value : Slice<Dynamic>)[_i],
+					new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.unroll(gt, elem))),
+					value, _i);
+				@:privateAccess value.canAddrBool = true;
+				value;
+			/*case string:
+				var value = value;
+				if ((value is String))
+					value = new GoString(value);
+				new Value(new AnyInterface((value : GoString).get(i),new _Type(basic(uint8_kind)))); */
+			case stdgo.internal.reflect.Reflect.GoType.basic(kind):
+				switch kind {
+					case string_kind:
+						var value = value;
+						if ((value is String))
+							value = (value : GoString);
+						new Value(new AnyInterface((value : GoString)[_i], new stdgo.internal.reflect.Reflect._Type(basic(uint8_kind))));
+					default:
+						throw "unsupported basic kind";
+				}
+			default: throw "not supported";
+		}
+	},
+	"reflect.Value:set" => macro {
+		var value = @:privateAccess _x.value.value;
+		final gt = @:privateAccess _x.value.type._common();
+		if (value != null) {
+			final cl = std.Type.getClassName(std.Type.getClass(value));
+			if (StringTools.endsWith(cl, "_asInterface")) {
+				value = (value : Dynamic).__underlying__().value;
+			};
+		};
+		final k = _v.kind();
+		switch k {
+			case stdgo.internal.reflect.Reflect.KindType.struct:
+				switch stdgo.internal.reflect.Reflect.getUnderlying(gt) {
+					case structType(fields):
+						for (field in fields) {
+							final fieldValue = std.Reflect.field(value, field.name);
+							std.Reflect.setField(value, field.name, fieldValue);
+						}
+					default:
+				};
+			case stdgo.internal.reflect.Reflect.KindType.int8:
+				_v.setInt((value : GoInt8));
+			case stdgo.internal.reflect.Reflect.KindType.int16:
+				_v.setInt((value : GoInt16));
+			case stdgo.internal.reflect.Reflect.KindType.int32:
+				_v.setInt((value : GoInt32));
+			case stdgo.internal.reflect.Reflect.KindType.int64:
+				_v.setInt((value : GoInt64));
+			case stdgo.internal.reflect.Reflect.KindType.int:
+				_v.setInt((value : GoInt));
+			case stdgo.internal.reflect.Reflect.KindType.uint:
+				_v.setInt((value : GoUInt8));
+			case stdgo.internal.reflect.Reflect.KindType.uint16:
+				_v.setInt((value : GoUInt16));
+			case stdgo.internal.reflect.Reflect.KindType.uint32:
+				_v.setInt((value : GoUInt32));
+			case stdgo.internal.reflect.Reflect.KindType.uint64:
+				_v.setInt((value : GoUInt64));
+			case stdgo.internal.reflect.Reflect.KindType.float32:
+				_v.setFloat((value : GoFloat32));
+			case stdgo.internal.reflect.Reflect.KindType.float64:
+				_v.setFloat((value : GoFloat64));
+			default:
+				_v.value = _x.value;
+				stdgo.internal.refle_set(_v);
+		}
+	},
+	"reflect.Value:interface_" => macro return @:privateAccess _v.value,
+	"reflect.Value:isNil" => macro {
+		var value = @:privateAccess _v.value.value;
+		final k = _v.kind();
+		final gt:stdgo.internal.reflect.Reflect.GoType = (_v.type() : Dynamic)._common();
+		return switch k {
+			case stdgo.internal.reflect.Reflect.KindType.pointer:
+				switch gt {
+					case stdgo.internal.reflect.Reflect.GoType.refType(_):
+						false;
+					default:
+						if (value == null) {
+							true;
+						} else {
+							(value : Pointer<Dynamic>).hasSet();
+						}
+				}
+			case stdgo.internal.reflect.Reflect.KindType.func:
+				value == null;
+			case stdgo.internal.reflect.Reflect.KindType.map, stdgo.internal.reflect.Reflect.KindType.slice, stdgo.internal.reflect.Reflect.KindType.chan:
+				value == null;
+			case stdgo.internal.reflect.Reflect.KindType.interface_:
+				value == null;
+			case stdgo.internal.reflect.Reflect.KindType.array:
+				false;
+			case stdgo.internal.reflect.Reflect.KindType.struct:
+				false;
+			default:
+				throw "nil check not supported kind: " + _v.kind().string();
+		}
+	},
 	"reflect.Value:elem" => macro {
 		var value = @:privateAccess _v.value;
 		var k = _v.kind();
@@ -266,7 +413,7 @@ final list = [
 						final value = new Value(new AnyInterface(value, new stdgo.internal.reflect.Reflect._Type(elem)), null);
 						@:privateAccess value.canAddrBool = true;
 						return value;
-					case stdgo.internal.reflect.Reflect.GoType.pointer(elem):
+					case stdgo.internal.reflect.Reflect.GoType.pointerType(elem):
 						if (value == null) {
 							final value = new Value(new AnyInterface(null, new stdgo.internal.reflect.Reflect._Type(elem)), null);
 							@:privateAccess value.canAddrBool = true;

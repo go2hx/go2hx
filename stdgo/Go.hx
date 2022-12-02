@@ -518,6 +518,7 @@ class Go {
 				if (t2 == null)
 					Context.error("complexType converted to type is null", Context.currentPos());
 				final toType = gtDecode(t2, null, []);
+				// trace(new haxe.macro.Printer().printExpr(e));
 				final e = macro({
 					var t = new stdgo.internal.reflect.Reflect._Type($toType);
 					// trace($e.type.common().value);
@@ -866,7 +867,7 @@ class Go {
 							$len); // TODO go2hx does not store the length in the type
 					case "stdgo.Pointer":
 						final param = gtParams(params, marked)[0];
-						ret = macro stdgo.internal.reflect.Reflect.GoType.pointer($param);
+						ret = macro stdgo.internal.reflect.Reflect.GoType.pointerType($param);
 					case "stdgo.UnsafePointer", "stdgo.Unsafe.UnsafePointer", "stdgo.unsafe.UnsafePointer":
 						return macro stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind);
 					case "stdgo.GoMap":

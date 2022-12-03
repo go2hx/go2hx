@@ -239,12 +239,12 @@ class SliceData<T> {
 		#end
 	}
 
-	public inline function get(index:Int):T {
+	public function get(index:Int):T {
 		boundsCheck(index);
 		return vector.get(index + offset);
 	}
 
-	public inline function set(index:Int, value:T):T {
+	public function set(index:Int, value:T):T {
 		boundsCheck(index);
 		return vector.set(index + offset, value);
 	}

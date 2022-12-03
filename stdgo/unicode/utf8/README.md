@@ -14,33 +14,33 @@ Package utf8 implements functions and constants to support text encoded in UTF\-
 
 ```
 === RUN   TestConstants
---- PASS: TestConstants (6.69956207275391e-05)
+--- PASS: TestConstants (6.60419464111328e-05)
 === RUN   TestFullRune
---- PASS: TestFullRune (0.000271081924438477)
+--- PASS: TestFullRune (0.000241994857788086)
 === RUN   TestEncodeRune
---- PASS: TestEncodeRune (0.000303983688354492)
+--- PASS: TestEncodeRune (0.000263214111328125)
 === RUN   TestAppendRune
---- PASS: TestAppendRune (0.000435829162597656)
+--- PASS: TestAppendRune (0.000384092330932617)
 === RUN   TestDecodeRune
---- PASS: TestDecodeRune (0.0011601448059082)
+--- PASS: TestDecodeRune (0.000937223434448242)
 === RUN   TestDecodeSurrogateRune
---- PASS: TestDecodeSurrogateRune (2.47955322265625e-05)
+--- PASS: TestDecodeSurrogateRune (1.97887420654297e-05)
 === RUN   TestSequencing
---- PASS: TestSequencing (0.373800039291382)
+--- PASS: TestSequencing (0.309419870376587)
 === RUN   TestRuntimeConversion
---- PASS: TestRuntimeConversion (0.00214004516601562)
+--- PASS: TestRuntimeConversion (0.00188088417053223)
 === RUN   TestDecodeInvalidSequence
---- PASS: TestDecodeInvalidSequence (0.000375986099243164)
+--- PASS: TestDecodeInvalidSequence (0.00033116340637207)
 === RUN   TestNegativeRune
---- PASS: TestNegativeRune (2.69412994384766e-05)
+--- PASS: TestNegativeRune (2.288818359375e-05)
 === RUN   TestRuneCount
---- PASS: TestRuneCount (3.29017639160156e-05)
+--- PASS: TestRuneCount (2.90870666503906e-05)
 === RUN   TestRuneLen
---- PASS: TestRuneLen (9.05990600585938e-06)
+--- PASS: TestRuneLen (1.09672546386719e-05)
 === RUN   TestValid
---- PASS: TestValid (0.000164985656738281)
+--- PASS: TestValid (0.000151872634887695)
 === RUN   TestValidRune
---- PASS: TestValidRune (1.00135803222656e-05)
+--- PASS: TestValidRune (9.05990600585938e-06)
 ```
 </p>
 </details>
@@ -50,33 +50,33 @@ Package utf8 implements functions and constants to support text encoded in UTF\-
 
 ```
 === RUN   TestConstants
---- PASS: TestConstants (5.07831573486328125e-05)
+--- PASS: TestConstants (4.69684600830078125e-05)
 === RUN   TestFullRune
---- PASS: TestFullRune (0.00195193290710449219)
+--- PASS: TestFullRune (0.0016269683837890625)
 === RUN   TestEncodeRune
---- PASS: TestEncodeRune (0.00150585174560546875)
+--- PASS: TestEncodeRune (0.00122284889221191406)
 === RUN   TestAppendRune
---- PASS: TestAppendRune (0.00266098976135253906)
+--- PASS: TestAppendRune (0.00209283828735351562)
 === RUN   TestDecodeRune
---- PASS: TestDecodeRune (0.00729608535766601562)
+--- PASS: TestDecodeRune (0.00552892684936523438)
 === RUN   TestDecodeSurrogateRune
---- PASS: TestDecodeSurrogateRune (0.000118017196655273438)
+--- PASS: TestDecodeSurrogateRune (8.296966552734375e-05)
 === RUN   TestSequencing
---- PASS: TestSequencing (2.0724031925201416)
+--- PASS: TestSequencing (1.66043496131896973)
 === RUN   TestRuntimeConversion
---- PASS: TestRuntimeConversion (0.0113468170166015625)
+--- PASS: TestRuntimeConversion (0.00916194915771484375)
 === RUN   TestDecodeInvalidSequence
---- PASS: TestDecodeInvalidSequence (0.00249314308166503906)
+--- PASS: TestDecodeInvalidSequence (0.00204801559448242188)
 === RUN   TestNegativeRune
---- PASS: TestNegativeRune (0.000216960906982421875)
+--- PASS: TestNegativeRune (0.000115156173706054688)
 === RUN   TestRuneCount
---- PASS: TestRuneCount (0.000211000442504882812)
+--- PASS: TestRuneCount (0.00018787384033203125)
 === RUN   TestRuneLen
 --- PASS: TestRuneLen (3.0040740966796875e-05)
 === RUN   TestValid
---- PASS: TestValid (0.0011749267578125)
+--- PASS: TestValid (0.00101613998413085938)
 === RUN   TestValidRune
---- PASS: TestValidRune (3.0040740966796875e-05)
+--- PASS: TestValidRune (3.50475311279296875e-05)
 ```
 </p>
 </details>

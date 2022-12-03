@@ -31,6 +31,7 @@
 | [stdgo.log](./log/README.md) | ❌ | yes |  |  |  |  |
 | [stdgo.math](./math/README.md) | ❌ | yes |  |  |  |  |
 | [stdgo.math.bits](./math/bits/README.md) | ✅ | yes |  | ✅ | ✅ | ❌ |
+| [stdgo.math.cmplx](./math/cmplx/README.md) | ✅ | yes |  | ❌ | ❌ | ❌ |
 | [stdgo.math.rand](./math/rand/README.md) | ❌ | yes |  |  |  |  |
 | [stdgo.os](./os/README.md) | ❌ | yes |  |  |  |  |
 | [stdgo.path](./path/README.md) | ✅ | yes |  | ❌ | ❌ | ❌ |

@@ -33,5 +33,6 @@
     "regexp",
     "regexp/syntax",
     "encoding/binary",
-    "reflect"
+    "reflect",
+    "math/cmplx"
 ]

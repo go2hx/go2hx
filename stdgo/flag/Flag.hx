@@ -526,7 +526,7 @@ function _isZeroValue(_flag:Ref<Flag>, _value:GoString):{var _0:Bool; var _1:Err
 			for (defer in __deferstack__) {
 				defer();
 			};
-			return {_0: _value == ((Go.typeAssert((_z.interface_(Go.pointer(_z)) : Value)).string() : GoString)), _1: (null : Error)};
+			return {_0: _value == ((Go.typeAssert((_z.interface_() : Value)).string() : GoString)), _1: (null : Error)};
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -1410,83 +1410,87 @@ class FlagSet_asInterface {
 			};
 		};
 		if (_f._actual == null) {
-			_f._actual = (new GoObjectMap<GoString, Ref<Flag>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType({get: () ->
-				stdgo.reflect.Reflect.GoType.basic(string_kind)},
-				{get: () -> stdgo.reflect.Reflect.GoType.refType(stdgo.reflect.Reflect.GoType.named("Flag", [], stdgo.reflect.Reflect.GoType.structType([
-					{
-						name: "name",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(string_kind)
-					},
-					{
-						name: "usage",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(string_kind)
-					},
-					{
-						name: "value",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.named("Value", [
-							new stdgo.reflect.Reflect.MethodType("set",
-								{get: () -> stdgo.reflect.Reflect.GoType.signature(false, {get: () -> [stdgo.reflect.Reflect.GoType.basic(string_kind)]},
-									{get: () -> [
-										stdgo.reflect.Reflect.GoType.named("Error", [
-											new stdgo.reflect.Reflect.MethodType("error",
-												{get: () -> stdgo.reflect.Reflect.GoType.signature(false, {get: () -> []},
-													{get: () -> [stdgo.reflect.Reflect.GoType.basic(string_kind)]},
-													{get: () -> stdgo.reflect.Reflect.GoType.invalidType})},
-												{get: () -> stdgo.reflect.Reflect.GoType.invalidType})
-										], stdgo.reflect.Reflect.GoType.interfaceType(false, [
-											new stdgo.reflect.Reflect.MethodType("error",
-												{get: () -> stdgo.reflect.Reflect.GoType.signature(false, {get: () -> []},
-													{get: () -> [stdgo.reflect.Reflect.GoType.basic(string_kind)]},
-													{get: () -> stdgo.reflect.Reflect.GoType.invalidType})},
-												{get: () -> stdgo.reflect.Reflect.GoType.invalidType})
-											]))
-									]}, {get: () -> stdgo.reflect.Reflect.GoType.invalidType})},
-								{get: () -> stdgo.reflect.Reflect.GoType.invalidType}),
-							new stdgo.reflect.Reflect.MethodType("string",
-								{get: () -> stdgo.reflect.Reflect.GoType.signature(false, {get: () -> []},
-									{get: () -> [stdgo.reflect.Reflect.GoType.basic(string_kind)]}, {get: () -> stdgo.reflect.Reflect.GoType.invalidType})},
-								{get: () -> stdgo.reflect.Reflect.GoType.invalidType})
-						],
-							stdgo.reflect.Reflect.GoType.named("Value", [], stdgo.reflect.Reflect.GoType.interfaceType(false, [
-								new stdgo.reflect.Reflect.MethodType("set", {
-									get: () -> stdgo.reflect.Reflect.GoType.signature(false, {get: () -> [stdgo.reflect.Reflect.GoType.basic(string_kind)]},
-										{get: () -> [
-											stdgo.reflect.Reflect.GoType.named("Error", [
-												new stdgo.reflect.Reflect.MethodType("error",
-													{get: () -> stdgo.reflect.Reflect.GoType.signature(false, {get: () -> []},
-														{get: () -> [stdgo.reflect.Reflect.GoType.basic(string_kind)]},
-														{get: () -> stdgo.reflect.Reflect.GoType.invalidType})},
-													{get: () -> stdgo.reflect.Reflect.GoType.invalidType})
-											], stdgo.reflect.Reflect.GoType.interfaceType(false, [
-												new stdgo.reflect.Reflect.MethodType("error",
-													{get: () -> stdgo.reflect.Reflect.GoType.signature(false, {get: () -> []},
-														{get: () -> [stdgo.reflect.Reflect.GoType.basic(string_kind)]},
-														{get: () -> stdgo.reflect.Reflect.GoType.invalidType})},
-													{get: () -> stdgo.reflect.Reflect.GoType.invalidType})
+			_f._actual = (new GoObjectMap<GoString,
+				Ref<Flag>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({get: () ->
+					stdgo.internal.reflect.Reflect.GoType.basic(string_kind)},
+				{get: () -> stdgo.internal.reflect.Reflect.GoType.refType(stdgo.internal.reflect.Reflect.GoType.named("Flag", [],
+					stdgo.internal.reflect.Reflect.GoType.structType([
+						{
+							name: "name",
+							embedded: false,
+							tag: "",
+							type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
+						},
+						{
+							name: "usage",
+							embedded: false,
+							tag: "",
+							type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
+						},
+						{
+							name: "value",
+							embedded: false,
+							tag: "",
+							type: stdgo.internal.reflect.Reflect.GoType.named("Value", [
+								new stdgo.internal.reflect.Reflect.MethodType("set", {
+									get: () -> stdgo.internal.reflect.Reflect.GoType.signature(false,
+										{get: () -> [stdgo.internal.reflect.Reflect.GoType.basic(string_kind)]}, {get: () -> [
+											stdgo.internal.reflect.Reflect.GoType.named("Error", [
+												new stdgo.internal.reflect.Reflect.MethodType("error",
+													{get: () -> stdgo.internal.reflect.Reflect.GoType.signature(false, {get: () -> []},
+														{get: () -> [stdgo.internal.reflect.Reflect.GoType.basic(string_kind)]},
+														{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})},
+													{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})
+											], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, [
+												new stdgo.internal.reflect.Reflect.MethodType("error",
+													{get: () -> stdgo.internal.reflect.Reflect.GoType.signature(false, {get: () -> []},
+														{get: () -> [stdgo.internal.reflect.Reflect.GoType.basic(string_kind)]},
+														{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})},
+													{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})
 												]))
-										]}, {get: () -> stdgo.reflect.Reflect.GoType.invalidType})
+										]}, {get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})
 								},
-									{get: () -> stdgo.reflect.Reflect.GoType.invalidType}),
-								new stdgo.reflect.Reflect.MethodType("string",
-									{get: () -> stdgo.reflect.Reflect.GoType.signature(false, {get: () -> []},
-										{get: () -> [stdgo.reflect.Reflect.GoType.basic(string_kind)]},
-										{get: () -> stdgo.reflect.Reflect.GoType.invalidType})},
-									{get: () -> stdgo.reflect.Reflect.GoType.invalidType})
-							])))
-					},
-					{
-						name: "defValue",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(string_kind)
-					}
-				])))}))) : GoMap<GoString, Ref<Flag>>);
+									{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType}),
+								new stdgo.internal.reflect.Reflect.MethodType("string",
+									{get: () -> stdgo.internal.reflect.Reflect.GoType.signature(false, {get: () -> []},
+										{get: () -> [stdgo.internal.reflect.Reflect.GoType.basic(string_kind)]},
+										{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})},
+									{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})
+							],
+								stdgo.internal.reflect.Reflect.GoType.named("Value", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, [
+									new stdgo.internal.reflect.Reflect.MethodType("set", {
+										get: () -> stdgo.internal.reflect.Reflect.GoType.signature(false,
+											{get: () -> [stdgo.internal.reflect.Reflect.GoType.basic(string_kind)]}, {get: () -> [
+												stdgo.internal.reflect.Reflect.GoType.named("Error", [
+													new stdgo.internal.reflect.Reflect.MethodType("error",
+														{get: () -> stdgo.internal.reflect.Reflect.GoType.signature(false, {get: () -> []},
+															{get: () -> [stdgo.internal.reflect.Reflect.GoType.basic(string_kind)]},
+															{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})},
+														{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})
+												], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, [
+													new stdgo.internal.reflect.Reflect.MethodType("error",
+														{get: () -> stdgo.internal.reflect.Reflect.GoType.signature(false, {get: () -> []},
+															{get: () -> [stdgo.internal.reflect.Reflect.GoType.basic(string_kind)]},
+															{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})},
+														{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})
+													]))
+											]}, {get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})
+									},
+										{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType}),
+									new stdgo.internal.reflect.Reflect.MethodType("string",
+										{get: () -> stdgo.internal.reflect.Reflect.GoType.signature(false, {get: () -> []},
+											{get: () -> [stdgo.internal.reflect.Reflect.GoType.basic(string_kind)]},
+											{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})},
+										{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})
+								])))
+						},
+						{
+							name: "defValue",
+							embedded: false,
+							tag: "",
+							type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
+						}
+					])))}))) : GoMap<GoString, Ref<Flag>>);
 		};
 		_f._actual[_name] = _flag;
 		return {_0: true, _1: (null : Error)};
@@ -1558,83 +1562,87 @@ class FlagSet_asInterface {
 			throw Go.toInterface(_msg);
 		};
 		if (_f._formal == null) {
-			_f._formal = (new GoObjectMap<GoString, Ref<Flag>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType({get: () ->
-				stdgo.reflect.Reflect.GoType.basic(string_kind)},
-				{get: () -> stdgo.reflect.Reflect.GoType.refType(stdgo.reflect.Reflect.GoType.named("Flag", [], stdgo.reflect.Reflect.GoType.structType([
-					{
-						name: "name",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(string_kind)
-					},
-					{
-						name: "usage",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(string_kind)
-					},
-					{
-						name: "value",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.named("Value", [
-							new stdgo.reflect.Reflect.MethodType("set",
-								{get: () -> stdgo.reflect.Reflect.GoType.signature(false, {get: () -> [stdgo.reflect.Reflect.GoType.basic(string_kind)]},
-									{get: () -> [
-										stdgo.reflect.Reflect.GoType.named("Error", [
-											new stdgo.reflect.Reflect.MethodType("error",
-												{get: () -> stdgo.reflect.Reflect.GoType.signature(false, {get: () -> []},
-													{get: () -> [stdgo.reflect.Reflect.GoType.basic(string_kind)]},
-													{get: () -> stdgo.reflect.Reflect.GoType.invalidType})},
-												{get: () -> stdgo.reflect.Reflect.GoType.invalidType})
-										], stdgo.reflect.Reflect.GoType.interfaceType(false, [
-											new stdgo.reflect.Reflect.MethodType("error",
-												{get: () -> stdgo.reflect.Reflect.GoType.signature(false, {get: () -> []},
-													{get: () -> [stdgo.reflect.Reflect.GoType.basic(string_kind)]},
-													{get: () -> stdgo.reflect.Reflect.GoType.invalidType})},
-												{get: () -> stdgo.reflect.Reflect.GoType.invalidType})
-											]))
-									]}, {get: () -> stdgo.reflect.Reflect.GoType.invalidType})},
-								{get: () -> stdgo.reflect.Reflect.GoType.invalidType}),
-							new stdgo.reflect.Reflect.MethodType("string",
-								{get: () -> stdgo.reflect.Reflect.GoType.signature(false, {get: () -> []},
-									{get: () -> [stdgo.reflect.Reflect.GoType.basic(string_kind)]}, {get: () -> stdgo.reflect.Reflect.GoType.invalidType})},
-								{get: () -> stdgo.reflect.Reflect.GoType.invalidType})
-						],
-							stdgo.reflect.Reflect.GoType.named("Value", [], stdgo.reflect.Reflect.GoType.interfaceType(false, [
-								new stdgo.reflect.Reflect.MethodType("set", {
-									get: () -> stdgo.reflect.Reflect.GoType.signature(false, {get: () -> [stdgo.reflect.Reflect.GoType.basic(string_kind)]},
-										{get: () -> [
-											stdgo.reflect.Reflect.GoType.named("Error", [
-												new stdgo.reflect.Reflect.MethodType("error",
-													{get: () -> stdgo.reflect.Reflect.GoType.signature(false, {get: () -> []},
-														{get: () -> [stdgo.reflect.Reflect.GoType.basic(string_kind)]},
-														{get: () -> stdgo.reflect.Reflect.GoType.invalidType})},
-													{get: () -> stdgo.reflect.Reflect.GoType.invalidType})
-											], stdgo.reflect.Reflect.GoType.interfaceType(false, [
-												new stdgo.reflect.Reflect.MethodType("error",
-													{get: () -> stdgo.reflect.Reflect.GoType.signature(false, {get: () -> []},
-														{get: () -> [stdgo.reflect.Reflect.GoType.basic(string_kind)]},
-														{get: () -> stdgo.reflect.Reflect.GoType.invalidType})},
-													{get: () -> stdgo.reflect.Reflect.GoType.invalidType})
+			_f._formal = (new GoObjectMap<GoString,
+				Ref<Flag>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({get: () ->
+					stdgo.internal.reflect.Reflect.GoType.basic(string_kind)},
+				{get: () -> stdgo.internal.reflect.Reflect.GoType.refType(stdgo.internal.reflect.Reflect.GoType.named("Flag", [],
+					stdgo.internal.reflect.Reflect.GoType.structType([
+						{
+							name: "name",
+							embedded: false,
+							tag: "",
+							type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
+						},
+						{
+							name: "usage",
+							embedded: false,
+							tag: "",
+							type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
+						},
+						{
+							name: "value",
+							embedded: false,
+							tag: "",
+							type: stdgo.internal.reflect.Reflect.GoType.named("Value", [
+								new stdgo.internal.reflect.Reflect.MethodType("set", {
+									get: () -> stdgo.internal.reflect.Reflect.GoType.signature(false,
+										{get: () -> [stdgo.internal.reflect.Reflect.GoType.basic(string_kind)]}, {get: () -> [
+											stdgo.internal.reflect.Reflect.GoType.named("Error", [
+												new stdgo.internal.reflect.Reflect.MethodType("error",
+													{get: () -> stdgo.internal.reflect.Reflect.GoType.signature(false, {get: () -> []},
+														{get: () -> [stdgo.internal.reflect.Reflect.GoType.basic(string_kind)]},
+														{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})},
+													{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})
+											], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, [
+												new stdgo.internal.reflect.Reflect.MethodType("error",
+													{get: () -> stdgo.internal.reflect.Reflect.GoType.signature(false, {get: () -> []},
+														{get: () -> [stdgo.internal.reflect.Reflect.GoType.basic(string_kind)]},
+														{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})},
+													{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})
 												]))
-										]}, {get: () -> stdgo.reflect.Reflect.GoType.invalidType})
+										]}, {get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})
 								},
-									{get: () -> stdgo.reflect.Reflect.GoType.invalidType}),
-								new stdgo.reflect.Reflect.MethodType("string",
-									{get: () -> stdgo.reflect.Reflect.GoType.signature(false, {get: () -> []},
-										{get: () -> [stdgo.reflect.Reflect.GoType.basic(string_kind)]},
-										{get: () -> stdgo.reflect.Reflect.GoType.invalidType})},
-									{get: () -> stdgo.reflect.Reflect.GoType.invalidType})
-							])))
-					},
-					{
-						name: "defValue",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(string_kind)
-					}
-				])))}))) : GoMap<GoString, Ref<Flag>>);
+									{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType}),
+								new stdgo.internal.reflect.Reflect.MethodType("string",
+									{get: () -> stdgo.internal.reflect.Reflect.GoType.signature(false, {get: () -> []},
+										{get: () -> [stdgo.internal.reflect.Reflect.GoType.basic(string_kind)]},
+										{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})},
+									{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})
+							],
+								stdgo.internal.reflect.Reflect.GoType.named("Value", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, [
+									new stdgo.internal.reflect.Reflect.MethodType("set", {
+										get: () -> stdgo.internal.reflect.Reflect.GoType.signature(false,
+											{get: () -> [stdgo.internal.reflect.Reflect.GoType.basic(string_kind)]}, {get: () -> [
+												stdgo.internal.reflect.Reflect.GoType.named("Error", [
+													new stdgo.internal.reflect.Reflect.MethodType("error",
+														{get: () -> stdgo.internal.reflect.Reflect.GoType.signature(false, {get: () -> []},
+															{get: () -> [stdgo.internal.reflect.Reflect.GoType.basic(string_kind)]},
+															{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})},
+														{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})
+												], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, [
+													new stdgo.internal.reflect.Reflect.MethodType("error",
+														{get: () -> stdgo.internal.reflect.Reflect.GoType.signature(false, {get: () -> []},
+															{get: () -> [stdgo.internal.reflect.Reflect.GoType.basic(string_kind)]},
+															{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})},
+														{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})
+													]))
+											]}, {get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})
+									},
+										{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType}),
+									new stdgo.internal.reflect.Reflect.MethodType("string",
+										{get: () -> stdgo.internal.reflect.Reflect.GoType.signature(false, {get: () -> []},
+											{get: () -> [stdgo.internal.reflect.Reflect.GoType.basic(string_kind)]},
+											{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})},
+										{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})
+								])))
+						},
+						{
+							name: "defValue",
+							embedded: false,
+							tag: "",
+							type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
+						}
+					])))}))) : GoMap<GoString, Ref<Flag>>);
 		};
 		_f._formal[_name] = _flag;
 	}
@@ -1952,83 +1960,87 @@ class FlagSet_asInterface {
 			return _err;
 		};
 		if (_f._actual == null) {
-			_f._actual = (new GoObjectMap<GoString, Ref<Flag>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType({get: () ->
-				stdgo.reflect.Reflect.GoType.basic(string_kind)},
-				{get: () -> stdgo.reflect.Reflect.GoType.refType(stdgo.reflect.Reflect.GoType.named("Flag", [], stdgo.reflect.Reflect.GoType.structType([
-					{
-						name: "name",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(string_kind)
-					},
-					{
-						name: "usage",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(string_kind)
-					},
-					{
-						name: "value",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.named("Value", [
-							new stdgo.reflect.Reflect.MethodType("set",
-								{get: () -> stdgo.reflect.Reflect.GoType.signature(false, {get: () -> [stdgo.reflect.Reflect.GoType.basic(string_kind)]},
-									{get: () -> [
-										stdgo.reflect.Reflect.GoType.named("Error", [
-											new stdgo.reflect.Reflect.MethodType("error",
-												{get: () -> stdgo.reflect.Reflect.GoType.signature(false, {get: () -> []},
-													{get: () -> [stdgo.reflect.Reflect.GoType.basic(string_kind)]},
-													{get: () -> stdgo.reflect.Reflect.GoType.invalidType})},
-												{get: () -> stdgo.reflect.Reflect.GoType.invalidType})
-										], stdgo.reflect.Reflect.GoType.interfaceType(false, [
-											new stdgo.reflect.Reflect.MethodType("error",
-												{get: () -> stdgo.reflect.Reflect.GoType.signature(false, {get: () -> []},
-													{get: () -> [stdgo.reflect.Reflect.GoType.basic(string_kind)]},
-													{get: () -> stdgo.reflect.Reflect.GoType.invalidType})},
-												{get: () -> stdgo.reflect.Reflect.GoType.invalidType})
-											]))
-									]}, {get: () -> stdgo.reflect.Reflect.GoType.invalidType})},
-								{get: () -> stdgo.reflect.Reflect.GoType.invalidType}),
-							new stdgo.reflect.Reflect.MethodType("string",
-								{get: () -> stdgo.reflect.Reflect.GoType.signature(false, {get: () -> []},
-									{get: () -> [stdgo.reflect.Reflect.GoType.basic(string_kind)]}, {get: () -> stdgo.reflect.Reflect.GoType.invalidType})},
-								{get: () -> stdgo.reflect.Reflect.GoType.invalidType})
-						],
-							stdgo.reflect.Reflect.GoType.named("Value", [], stdgo.reflect.Reflect.GoType.interfaceType(false, [
-								new stdgo.reflect.Reflect.MethodType("set", {
-									get: () -> stdgo.reflect.Reflect.GoType.signature(false, {get: () -> [stdgo.reflect.Reflect.GoType.basic(string_kind)]},
-										{get: () -> [
-											stdgo.reflect.Reflect.GoType.named("Error", [
-												new stdgo.reflect.Reflect.MethodType("error",
-													{get: () -> stdgo.reflect.Reflect.GoType.signature(false, {get: () -> []},
-														{get: () -> [stdgo.reflect.Reflect.GoType.basic(string_kind)]},
-														{get: () -> stdgo.reflect.Reflect.GoType.invalidType})},
-													{get: () -> stdgo.reflect.Reflect.GoType.invalidType})
-											], stdgo.reflect.Reflect.GoType.interfaceType(false, [
-												new stdgo.reflect.Reflect.MethodType("error",
-													{get: () -> stdgo.reflect.Reflect.GoType.signature(false, {get: () -> []},
-														{get: () -> [stdgo.reflect.Reflect.GoType.basic(string_kind)]},
-														{get: () -> stdgo.reflect.Reflect.GoType.invalidType})},
-													{get: () -> stdgo.reflect.Reflect.GoType.invalidType})
+			_f._actual = (new GoObjectMap<GoString,
+				Ref<Flag>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({get: () ->
+					stdgo.internal.reflect.Reflect.GoType.basic(string_kind)},
+				{get: () -> stdgo.internal.reflect.Reflect.GoType.refType(stdgo.internal.reflect.Reflect.GoType.named("Flag", [],
+					stdgo.internal.reflect.Reflect.GoType.structType([
+						{
+							name: "name",
+							embedded: false,
+							tag: "",
+							type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
+						},
+						{
+							name: "usage",
+							embedded: false,
+							tag: "",
+							type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
+						},
+						{
+							name: "value",
+							embedded: false,
+							tag: "",
+							type: stdgo.internal.reflect.Reflect.GoType.named("Value", [
+								new stdgo.internal.reflect.Reflect.MethodType("set", {
+									get: () -> stdgo.internal.reflect.Reflect.GoType.signature(false,
+										{get: () -> [stdgo.internal.reflect.Reflect.GoType.basic(string_kind)]}, {get: () -> [
+											stdgo.internal.reflect.Reflect.GoType.named("Error", [
+												new stdgo.internal.reflect.Reflect.MethodType("error",
+													{get: () -> stdgo.internal.reflect.Reflect.GoType.signature(false, {get: () -> []},
+														{get: () -> [stdgo.internal.reflect.Reflect.GoType.basic(string_kind)]},
+														{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})},
+													{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})
+											], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, [
+												new stdgo.internal.reflect.Reflect.MethodType("error",
+													{get: () -> stdgo.internal.reflect.Reflect.GoType.signature(false, {get: () -> []},
+														{get: () -> [stdgo.internal.reflect.Reflect.GoType.basic(string_kind)]},
+														{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})},
+													{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})
 												]))
-										]}, {get: () -> stdgo.reflect.Reflect.GoType.invalidType})
+										]}, {get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})
 								},
-									{get: () -> stdgo.reflect.Reflect.GoType.invalidType}),
-								new stdgo.reflect.Reflect.MethodType("string",
-									{get: () -> stdgo.reflect.Reflect.GoType.signature(false, {get: () -> []},
-										{get: () -> [stdgo.reflect.Reflect.GoType.basic(string_kind)]},
-										{get: () -> stdgo.reflect.Reflect.GoType.invalidType})},
-									{get: () -> stdgo.reflect.Reflect.GoType.invalidType})
-							])))
-					},
-					{
-						name: "defValue",
-						embedded: false,
-						tag: "",
-						type: stdgo.reflect.Reflect.GoType.basic(string_kind)
-					}
-				])))}))) : GoMap<GoString, Ref<Flag>>);
+									{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType}),
+								new stdgo.internal.reflect.Reflect.MethodType("string",
+									{get: () -> stdgo.internal.reflect.Reflect.GoType.signature(false, {get: () -> []},
+										{get: () -> [stdgo.internal.reflect.Reflect.GoType.basic(string_kind)]},
+										{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})},
+									{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})
+							],
+								stdgo.internal.reflect.Reflect.GoType.named("Value", [], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, [
+									new stdgo.internal.reflect.Reflect.MethodType("set", {
+										get: () -> stdgo.internal.reflect.Reflect.GoType.signature(false,
+											{get: () -> [stdgo.internal.reflect.Reflect.GoType.basic(string_kind)]}, {get: () -> [
+												stdgo.internal.reflect.Reflect.GoType.named("Error", [
+													new stdgo.internal.reflect.Reflect.MethodType("error",
+														{get: () -> stdgo.internal.reflect.Reflect.GoType.signature(false, {get: () -> []},
+															{get: () -> [stdgo.internal.reflect.Reflect.GoType.basic(string_kind)]},
+															{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})},
+														{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})
+												], stdgo.internal.reflect.Reflect.GoType.interfaceType(false, [
+													new stdgo.internal.reflect.Reflect.MethodType("error",
+														{get: () -> stdgo.internal.reflect.Reflect.GoType.signature(false, {get: () -> []},
+															{get: () -> [stdgo.internal.reflect.Reflect.GoType.basic(string_kind)]},
+															{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})},
+														{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})
+													]))
+											]}, {get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})
+									},
+										{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType}),
+									new stdgo.internal.reflect.Reflect.MethodType("string",
+										{get: () -> stdgo.internal.reflect.Reflect.GoType.signature(false, {get: () -> []},
+											{get: () -> [stdgo.internal.reflect.Reflect.GoType.basic(string_kind)]},
+											{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})},
+										{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})
+								])))
+						},
+						{
+							name: "defValue",
+							embedded: false,
+							tag: "",
+							type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
+						}
+					])))}))) : GoMap<GoString, Ref<Flag>>);
 		};
 		_f._actual[_name] = _flag;
 		return (null : Error);

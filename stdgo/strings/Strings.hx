@@ -398,7 +398,7 @@ private typedef T_replacer = StructType & {
 	//go:nocheckptr
 **/
 function _noescape(_p:stdgo.unsafe.Unsafe.UnsafePointer):stdgo.unsafe.Unsafe.UnsafePointer {
-	var _x:GoUIntptr = (_p.__convert__(stdgo.reflect.Reflect.GoType.basic(uintptr_kind)) : GoUIntptr);
+	var _x:GoUIntptr = (_p.__convert__(stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : GoUIntptr);
 	return (Go.toInterface((_x ^ (0 : GoUIntptr))) : stdgo.unsafe.Unsafe.UnsafePointer);
 }
 
@@ -421,7 +421,7 @@ function clone(_s:GoString):GoString {
 	var _b = new Slice<GoUInt8>((_s.length : GoInt).toBasic(), 0, ...[for (i in 0...(_s.length : GoInt).toBasic()) (0 : GoUInt8)]);
 	Go.copySlice(_b, _s);
 	return ((Go.toInterface((_b : Ref<Slice<GoUInt8>>)) : stdgo.unsafe.Unsafe.UnsafePointer)
-		.__convert__(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.basic(string_kind))) : Pointer<GoString>).value;
+		.__convert__(stdgo.internal.reflect.Reflect.GoType.pointerType(stdgo.internal.reflect.Reflect.GoType.basic(string_kind))) : Pointer<GoString>).value;
 }
 
 /**
@@ -2120,7 +2120,8 @@ class Builder_asInterface {
 	@:keep
 	static public function string(_b:Ref<Builder>):GoString {
 		return ((Go.toInterface((_b._buf : Ref<Slice<GoUInt8>>)) : stdgo.unsafe.Unsafe.UnsafePointer)
-			.__convert__(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.basic(string_kind))) : Pointer<GoString>).value;
+			.__convert__(stdgo.internal.reflect.Reflect.GoType.pointerType(stdgo.internal.reflect.Reflect.GoType.basic(string_kind))) : Pointer<GoString>)
+			.value;
 	}
 
 	@:keep

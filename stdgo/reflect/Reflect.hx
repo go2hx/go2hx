@@ -934,7 +934,7 @@ function valueOf(_i:AnyInterface):Value {
 	// The returned value is neither addressable nor settable.
 **/
 function zero(_typ:Type):Value
-	return new Value(new AnyInterface(stdgo.internal.reflect.Reflect.defaultValue(_typ), cast _typ));
+	return new Value(new AnyInterface(stdgo.internal.reflect.Reflect.defaultValue(_typ), _typ.__underlying__().value));
 
 /**
 	// New returns a Value representing a pointer to a new zero value

@@ -507,13 +507,17 @@ function testValueOf(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 	};
 	var _o:Value = (stdgo.syscall.js.Js.valueOf(Go.toInterface({
-		final x = new stdgo.GoMap.GoObjectMap<GoString, AnyInterface>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType({get: () ->
-			stdgo.reflect.Reflect.GoType.basic(string_kind)}, {get: () -> stdgo.reflect.Reflect.GoType.interfaceType(true, [])})));
+		final x = new stdgo.GoMap.GoObjectMap<GoString,
+			AnyInterface>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({get: () ->
+				stdgo.internal.reflect.Reflect.GoType.basic(string_kind)},
+			{get: () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, [])})));
 		@:privateAccess x._keys = [Go.str("x")];
 		@:privateAccess x._values = [
 			Go.toInterface({
-				final x = new stdgo.GoMap.GoObjectMap<GoString, AnyInterface>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType({get: () ->
-					stdgo.reflect.Reflect.GoType.basic(string_kind)}, {get: () -> stdgo.reflect.Reflect.GoType.interfaceType(true, [])})));
+				final x = new stdgo.GoMap.GoObjectMap<GoString,
+					AnyInterface>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({
+					get: () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
+				}, {get: () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, [])})));
 				@:privateAccess x._keys = [Go.str("y")];
 				@:privateAccess x._values = [Go.toInterface((42 : GoInt))];
 				x;
@@ -521,13 +525,17 @@ function testValueOf(_t:Ref<stdgo.testing.Testing.T>):Void {
 		];
 		x;
 	})) == null ? null : stdgo.syscall.js.Js.valueOf(Go.toInterface({
-		final x = new stdgo.GoMap.GoObjectMap<GoString, AnyInterface>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType({get: () ->
-			stdgo.reflect.Reflect.GoType.basic(string_kind)}, {get: () -> stdgo.reflect.Reflect.GoType.interfaceType(true, [])})));
+		final x = new stdgo.GoMap.GoObjectMap<GoString,
+			AnyInterface>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({get: () ->
+				stdgo.internal.reflect.Reflect.GoType.basic(string_kind)},
+			{get: () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, [])})));
 		@:privateAccess x._keys = [Go.str("x")];
 		@:privateAccess x._values = [
 			Go.toInterface({
-				final x = new stdgo.GoMap.GoObjectMap<GoString, AnyInterface>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType({get: () ->
-					stdgo.reflect.Reflect.GoType.basic(string_kind)}, {get: () -> stdgo.reflect.Reflect.GoType.interfaceType(true, [])})));
+				final x = new stdgo.GoMap.GoObjectMap<GoString,
+					AnyInterface>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({
+					get: () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
+				}, {get: () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, [])})));
 				@:privateAccess x._keys = [Go.str("y")];
 				@:privateAccess x._values = [Go.toInterface((42 : GoInt))];
 				x;

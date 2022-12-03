@@ -123,8 +123,9 @@ private var _errBad:Error = stdgo.errors.Errors.new_(Go.str("bad value for field
 private var _errLeadingInt:Error = stdgo.errors.Errors.new_(Go.str("time: bad [0-9]*"));
 
 private var _unitMap:GoMap<GoString, GoUInt64> = {
-	final x = new stdgo.GoMap.GoObjectMap<GoString, GoUInt64>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType({get: () ->
-		stdgo.reflect.Reflect.GoType.basic(string_kind)}, {get: () -> stdgo.reflect.Reflect.GoType.basic(uint64_kind)})));
+	final x = new stdgo.GoMap.GoObjectMap<GoString,
+		GoUInt64>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({get: () ->
+			stdgo.internal.reflect.Reflect.GoType.basic(string_kind)}, {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint64_kind)})));
 	@:privateAccess x._keys = [
 		Go.str("ns"),
 		Go.str("us"),
@@ -251,8 +252,8 @@ var tzsetOffset:GoString -> {
 	// StdChunkNames maps from nextStdChunk results to the matched strings.
 **/
 var stdChunkNames:GoMap<GoInt, GoString> = {
-	final x = new stdgo.GoMap.GoObjectMap<GoInt, GoString>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType({get: () ->
-		stdgo.reflect.Reflect.GoType.basic(int_kind)}, {get: () -> stdgo.reflect.Reflect.GoType.basic(string_kind)})));
+	final x = new stdgo.GoMap.GoObjectMap<GoInt, GoString>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({get: () ->
+		stdgo.internal.reflect.Reflect.GoType.basic(int_kind)}, {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind)})));
 	@:privateAccess x._keys = [
 		(0 : GoInt), (257 : GoInt), (258 : GoInt), (259 : GoInt), (260 : GoInt), (261 : GoInt), (262 : GoInt), (263 : GoInt), (264 : GoInt), (265 : GoInt),
 		(266 : GoInt), (267 : GoInt), (524 : GoInt), (525 : GoInt), (526 : GoInt), (527 : GoInt), (528 : GoInt), (529 : GoInt), (530 : GoInt), (275 : GoInt),

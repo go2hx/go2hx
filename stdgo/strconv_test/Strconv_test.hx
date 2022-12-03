@@ -39,8 +39,8 @@ private var _atobtests:Slice<stdgo.strconv_test.Strconv_test.T_atobTest> = (new 
 		(null : Error)) : stdgo.strconv_test.Strconv_test.T_atobTest)) : Slice<stdgo.strconv_test.Strconv_test.T_atobTest>);
 
 private var _boolString:GoMap<Bool, GoString> = {
-	final x = new stdgo.GoMap.GoObjectMap<Bool, GoString>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType({get: () ->
-		stdgo.reflect.Reflect.GoType.basic(bool_kind)}, {get: () -> stdgo.reflect.Reflect.GoType.basic(string_kind)})));
+	final x = new stdgo.GoMap.GoObjectMap<Bool, GoString>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({get: () ->
+		stdgo.internal.reflect.Reflect.GoType.basic(bool_kind)}, {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind)})));
 	@:privateAccess x._keys = [true, false];
 	@:privateAccess x._values = [Go.str("true"), Go.str("false")];
 	x;
@@ -2299,7 +2299,7 @@ function testParseComplex(_t:Ref<stdgo.testing.Testing.T>):Void {
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("(i)"), new GoComplex128(0, 0), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("(0)"), new GoComplex128(0, 0), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("(1i)"), new GoComplex128(0, 1), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("(3.0+5.5i)"), ((3 : GoFloat64) + new GoComplex128(5.5, 0)),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("(3.0+5.5i)"), ((3 : GoFloat64) + new GoComplex128(0, 5.5)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("(1)+1i"), new GoComplex128(0, 0), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("(3.0+5.5i"), new GoComplex128(0, 0), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
@@ -2348,33 +2348,33 @@ function testParseComplex(_t:Ref<stdgo.testing.Testing.T>):Void {
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("-0e+0-0e+0i"), new GoComplex128(0, 0),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0.1"), new GoComplex128(0.1, 0), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0.1i"), ((0 : GoFloat64) + new GoComplex128(0.1, 0)),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0.1i"), ((0 : GoFloat64) + new GoComplex128(0, 0.1)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0.123"), new GoComplex128(0.123, 0),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0.123i"), ((0 : GoFloat64) + new GoComplex128(0.123, 0)),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0.123i"), ((0 : GoFloat64) + new GoComplex128(0, 0.123)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0.123+0.123i"), ((0.123 : GoFloat64) + new GoComplex128(0.123, 0)),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0.123+0.123i"), ((0.123 : GoFloat64) + new GoComplex128(0, 0.123)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("99"), new GoComplex128(99, 0), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+99"), new GoComplex128(99, 0), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("-99"), ((-99 : GoFloat64) + new GoComplex128(0, 0)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+1i"), new GoComplex128(0, 1), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("-1i"), ((0 : GoFloat64) + new GoComplex128(-1, 0)),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("-1i"), ((0 : GoFloat64) + new GoComplex128(0, -1)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+3+1i"), ((3 : GoFloat64) + new GoComplex128(1, 0)),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+3+1i"), ((3 : GoFloat64) + new GoComplex128(0, 1)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("30+3i"), ((30 : GoFloat64) + new GoComplex128(3, 0)),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("30+3i"), ((30 : GoFloat64) + new GoComplex128(0, 3)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+3e+3-3e+3i"), ((3000 : GoFloat64) + new GoComplex128(-3000, 0)),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+3e+3-3e+3i"), ((3000 : GoFloat64) + new GoComplex128(0, -3000)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+3e+3+3e+3i"), ((3000 : GoFloat64) + new GoComplex128(3000, 0)),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+3e+3+3e+3i"), ((3000 : GoFloat64) + new GoComplex128(0, 3000)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+3e+3+3e+3i+"), new GoComplex128(0, 0),
 			errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0.1"), new GoComplex128(0.1, 0), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0.1i"), ((0 : GoFloat64) + new GoComplex128(0.1, 0)),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0.1i"), ((0 : GoFloat64) + new GoComplex128(0, 0.1)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0.1_2_3"), new GoComplex128(0.123, 0),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
@@ -2382,17 +2382,17 @@ function testParseComplex(_t:Ref<stdgo.testing.Testing.T>):Void {
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0_0+0x_0p0i"), new GoComplex128(0, 0),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0x_10.3p-8+0x3p3i"), ((0.063232421875 : GoFloat64) + new GoComplex128(24, 0)),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0x_10.3p-8+0x3p3i"), ((0.063232421875 : GoFloat64) + new GoComplex128(0, 24)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+0x_1_0.3p-8+0x_3_0p3i"), ((0.063232421875 : GoFloat64) + new GoComplex128(384, 0)),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+0x_1_0.3p-8+0x_3_0p3i"), ((0.063232421875 : GoFloat64) + new GoComplex128(0, 384)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0x1_0.3p+8-0x_3p3i"), ((4144 : GoFloat64) + new GoComplex128(-24, 0)),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0x1_0.3p+8-0x_3p3i"), ((4144 : GoFloat64) + new GoComplex128(0, -24)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0x10.3p-8+0x3p3i"), ((0.063232421875 : GoFloat64) + new GoComplex128(24, 0)),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0x10.3p-8+0x3p3i"), ((0.063232421875 : GoFloat64) + new GoComplex128(0, 24)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+0x10.3p-8+0x3p3i"), ((0.063232421875 : GoFloat64) + new GoComplex128(24, 0)),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+0x10.3p-8+0x3p3i"), ((0.063232421875 : GoFloat64) + new GoComplex128(0, 24)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0x10.3p+8-0x3p3i"), ((4144 : GoFloat64) + new GoComplex128(-24, 0)),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0x10.3p+8-0x3p3i"), ((4144 : GoFloat64) + new GoComplex128(0, -24)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0x1p0"), new GoComplex128(1, 0), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0x1p1"), new GoComplex128(2, 0), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
@@ -2416,16 +2416,16 @@ function testParseComplex(_t:Ref<stdgo.testing.Testing.T>):Void {
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("-0x1p1024+0x1p1024i"), _infmp, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("-0x1p1024-0x1p1024i"), _infmm, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+0x1.fffffffffffff7fffp1023+0x1.fffffffffffff7fffp1023i"),
-			((1.7976931348623157e+308 : GoFloat64) + new GoComplex128(1.7976931348623157e+308, 0)),
+			((1.7976931348623157e+308 : GoFloat64) + new GoComplex128(0, 1.7976931348623157e+308)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+0x1.fffffffffffff7fffp1023-0x1.fffffffffffff7fffp1023i"),
-			((1.7976931348623157e+308 : GoFloat64) + new GoComplex128(-1.7976931348623157e+308, 0)),
+			((1.7976931348623157e+308 : GoFloat64) + new GoComplex128(0, -1.7976931348623157e+308)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("-0x1.fffffffffffff7fffp1023+0x1.fffffffffffff7fffp1023i"),
-			((-1.7976931348623157e+308 : GoFloat64) + new GoComplex128(1.7976931348623157e+308, 0)),
+			((-1.7976931348623157e+308 : GoFloat64) + new GoComplex128(0, 1.7976931348623157e+308)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("-0x1.fffffffffffff7fffp1023-0x1.fffffffffffff7fffp1023i"),
-			((-1.7976931348623157e+308 : GoFloat64) + new GoComplex128(-1.7976931348623157e+308, 0)),
+			((-1.7976931348623157e+308 : GoFloat64) + new GoComplex128(0, -1.7976931348623157e+308)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+0x1.fffffffffffff8p1023"), _infp0, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("-0x1fffffffffffff.8p+971"), _infm0, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
@@ -2439,7 +2439,7 @@ function testParseComplex(_t:Ref<stdgo.testing.Testing.T>):Void {
 			errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("-0x1fffffffffffff8p+967-0x1fffffffffffff8p+967i"), _infmm,
 			errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("1e308+1e308i"), ((1e+308 : GoFloat64) + new GoComplex128(1e+308, 0)),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("1e308+1e308i"), ((1e+308 : GoFloat64) + new GoComplex128(0, 1e+308)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("2e308+2e308i"), _infpp, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("1e309+1e309i"), _infpp, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
@@ -2517,9 +2517,9 @@ function testParseComplexIncorrectBitSize(_t:Ref<stdgo.testing.Testing.T>):Void 
 			_t.fatalf(Go.str("ParseComplex(%q, %d) gave error %s"), Go.toInterface(Go.str("1.5e308+1.0e307i")), Go.toInterface(_bitSize),
 				Go.toInterface(_err));
 		};
-		if (_c != (((1.5e+308 : GoFloat64) + new GoComplex128(1e+307, 0)))) {
+		if (_c != (((1.5e+308 : GoFloat64) + new GoComplex128(0, 1e+307)))) {
 			_t.fatalf(Go.str("ParseComplex(%q, %d) = %g (expected %g)"), Go.toInterface(Go.str("1.5e308+1.0e307i")), Go.toInterface(_bitSize),
-				Go.toInterface(_c), Go.toInterface(((1.5e+308 : GoFloat64) + new GoComplex128(1e+307, 0))));
+				Go.toInterface(_c), Go.toInterface(((1.5e+308 : GoFloat64) + new GoComplex128(0, 1e+307))));
 		};
 	};
 }
@@ -3221,55 +3221,55 @@ function _benchmarkAtoi(_b:Ref<stdgo.testing.Testing.B>, _neg:GoInt):Void {
 
 function testFormatComplex(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _tests = (new Slice<T__struct_1>(0, 0, ({
-		_c: ((1 : GoFloat64) + new GoComplex128(2, 0)),
+		_c: ((1 : GoFloat64) + new GoComplex128(0, 2)),
 		_fmt: ("g".code : GoRune),
 		_prec: (-1 : GoInt),
 		_bitSize: (128 : GoInt),
 		_out: Go.str("(1+2i)")
 	} : T__struct_1), ({
-		_c: ((3 : GoFloat64) + new GoComplex128(-4, 0)),
+		_c: ((3 : GoFloat64) + new GoComplex128(0, -4)),
 		_fmt: ("g".code : GoRune),
 		_prec: (-1 : GoInt),
 		_bitSize: (128 : GoInt),
 		_out: Go.str("(3-4i)")
 		} : T__struct_1), ({
-		_c: ((-5 : GoFloat64) + new GoComplex128(6, 0)),
+		_c: ((-5 : GoFloat64) + new GoComplex128(0, 6)),
 		_fmt: ("g".code : GoRune),
 		_prec: (-1 : GoInt),
 		_bitSize: (128 : GoInt),
 		_out: Go.str("(-5+6i)")
 		} : T__struct_1), ({
-		_c: ((-7 : GoFloat64) + new GoComplex128(-8, 0)),
+		_c: ((-7 : GoFloat64) + new GoComplex128(0, -8)),
 		_fmt: ("g".code : GoRune),
 		_prec: (-1 : GoInt),
 		_bitSize: (128 : GoInt),
 		_out: Go.str("(-7-8i)")
 		} : T__struct_1), ({
-		_c: ((3.14159 : GoFloat64) + new GoComplex128(0.00123, 0)),
+		_c: ((3.14159 : GoFloat64) + new GoComplex128(0, 0.00123)),
 		_fmt: ("e".code : GoRune),
 		_prec: (3 : GoInt),
 		_bitSize: (128 : GoInt),
 		_out: Go.str("(3.142e+00+1.230e-03i)")
 		} : T__struct_1), ({
-		_c: ((3.14159 : GoFloat64) + new GoComplex128(0.00123, 0)),
+		_c: ((3.14159 : GoFloat64) + new GoComplex128(0, 0.00123)),
 		_fmt: ("f".code : GoRune),
 		_prec: (3 : GoInt),
 		_bitSize: (128 : GoInt),
 		_out: Go.str("(3.142+0.001i)")
 		} : T__struct_1), ({
-		_c: ((3.14159 : GoFloat64) + new GoComplex128(0.00123, 0)),
+		_c: ((3.14159 : GoFloat64) + new GoComplex128(0, 0.00123)),
 		_fmt: ("g".code : GoRune),
 		_prec: (3 : GoInt),
 		_bitSize: (128 : GoInt),
 		_out: Go.str("(3.14+0.00123i)")
 		} : T__struct_1), ({
-		_c: ((1.2345678901234567 : GoFloat64) + new GoComplex128(9.876543210987654, 0)),
+		_c: ((1.2345678901234567 : GoFloat64) + new GoComplex128(0, 9.876543210987654)),
 		_fmt: ("f".code : GoRune),
 		_prec: (-1 : GoInt),
 		_bitSize: (128 : GoInt),
 		_out: Go.str("(1.2345678901234567+9.876543210987654i)")
 		} : T__struct_1), ({
-		_c: ((1.2345678901234567 : GoFloat64) + new GoComplex128(9.876543210987654, 0)),
+		_c: ((1.2345678901234567 : GoFloat64) + new GoComplex128(0, 9.876543210987654)),
 		_fmt: ("f".code : GoRune),
 		_prec: (-1 : GoInt),
 		_bitSize: (64 : GoInt),
@@ -3302,7 +3302,7 @@ function testFormatComplexInvalidBitSize(_t:Ref<stdgo.testing.Testing.T>):Void {
 		a();
 	});
 	try {
-		formatComplex(((1 : GoFloat64) + new GoComplex128(2, 0)), ("g".code : GoRune), (-1 : GoInt), (100 : GoInt));
+		formatComplex(((1 : GoFloat64) + new GoComplex128(0, 2)), ("g".code : GoRune), (-1 : GoInt), (100 : GoInt));
 		for (defer in __deferstack__) {
 			defer();
 		};

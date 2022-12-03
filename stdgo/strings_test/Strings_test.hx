@@ -1713,54 +1713,54 @@ function testClone(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_t.errorf(Go.str("Clone(%q) = %q; want %q"), Go.toInterface(_input), Go.toInterface(_clone), Go.toInterface(_input));
 		};
 		var _inputHeader = ((Go.toInterface(Go.pointer(_input)) : stdgo.unsafe.Unsafe.UnsafePointer)
-			.__convert__(stdgo.reflect.Reflect.GoType.refType(stdgo.reflect.Reflect.GoType.named("stdgo.reflect.Reflect.StringHeader", [],
-				stdgo.reflect.Reflect.GoType.structType([
+			.__convert__(stdgo.internal.reflect.Reflect.GoType.refType(stdgo.internal.reflect.Reflect.GoType.named("stdgo.reflect.Reflect.StringHeader", [],
+				stdgo.internal.reflect.Reflect.GoType.structType([
 			{
 				name: "data",
 				embedded: false,
 				tag: "",
-				type: stdgo.reflect.Reflect.GoType.basic(uintptr_kind)
+				type: stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)
 			},
 			{
 				name: "len",
 				embedded: false,
 				tag: "",
-				type: stdgo.reflect.Reflect.GoType.basic(int_kind)
+				type: stdgo.internal.reflect.Reflect.GoType.basic(int_kind)
 			}
 		])))) : Ref<stdgo.reflect.Reflect.StringHeader>);
 		var _cloneHeader = ((Go.toInterface(Go.pointer(_clone)) : stdgo.unsafe.Unsafe.UnsafePointer)
-			.__convert__(stdgo.reflect.Reflect.GoType.refType(stdgo.reflect.Reflect.GoType.named("stdgo.reflect.Reflect.StringHeader", [],
-				stdgo.reflect.Reflect.GoType.structType([
+			.__convert__(stdgo.internal.reflect.Reflect.GoType.refType(stdgo.internal.reflect.Reflect.GoType.named("stdgo.reflect.Reflect.StringHeader", [],
+				stdgo.internal.reflect.Reflect.GoType.structType([
 			{
 				name: "data",
 				embedded: false,
 				tag: "",
-				type: stdgo.reflect.Reflect.GoType.basic(uintptr_kind)
+				type: stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)
 			},
 			{
 				name: "len",
 				embedded: false,
 				tag: "",
-				type: stdgo.reflect.Reflect.GoType.basic(int_kind)
+				type: stdgo.internal.reflect.Reflect.GoType.basic(int_kind)
 			}
 		])))) : Ref<stdgo.reflect.Reflect.StringHeader>);
 		if ((_input.length != (0 : GoInt)) && (_cloneHeader.data == _inputHeader.data)) {
 			_t.errorf(Go.str("Clone(%q) return value should not reference inputs backing memory."), Go.toInterface(_input));
 		};
 		var _emptyHeader = ((Go.toInterface(Go.pointer(_emptyString)) : stdgo.unsafe.Unsafe.UnsafePointer)
-			.__convert__(stdgo.reflect.Reflect.GoType.refType(stdgo.reflect.Reflect.GoType.named("stdgo.reflect.Reflect.StringHeader", [],
-				stdgo.reflect.Reflect.GoType.structType([
+			.__convert__(stdgo.internal.reflect.Reflect.GoType.refType(stdgo.internal.reflect.Reflect.GoType.named("stdgo.reflect.Reflect.StringHeader", [],
+				stdgo.internal.reflect.Reflect.GoType.structType([
 			{
 				name: "data",
 				embedded: false,
 				tag: "",
-				type: stdgo.reflect.Reflect.GoType.basic(uintptr_kind)
+				type: stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)
 			},
 			{
 				name: "len",
 				embedded: false,
 				tag: "",
-				type: stdgo.reflect.Reflect.GoType.basic(int_kind)
+				type: stdgo.internal.reflect.Reflect.GoType.basic(int_kind)
 			}
 		])))) : Ref<stdgo.reflect.Reflect.StringHeader>);
 		if ((_input.length == (0 : GoInt)) && (_cloneHeader.data != _emptyHeader.data)) {
@@ -1802,7 +1802,8 @@ function testCompareIdenticalString(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testCompareStrings(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _unsafeString = function(_b:Slice<GoByte>):GoString {
 		return ((Go.toInterface((_b : Ref<Slice<GoUInt8>>)) : stdgo.unsafe.Unsafe.UnsafePointer)
-			.__convert__(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.basic(string_kind))) : Pointer<GoString>).value;
+			.__convert__(stdgo.internal.reflect.Reflect.GoType.pointerType(stdgo.internal.reflect.Reflect.GoType.basic(string_kind))) : Pointer<GoString>)
+			.value;
 	};
 	var _lengths = new Slice<GoInt>((0 : GoInt).toBasic(), 0, ...[for (i in 0...(0 : GoInt).toBasic()) (0 : GoInt)]);
 	{
@@ -3639,34 +3640,34 @@ function testMap(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _orig:GoString = Go.str("Input string that we expect not to be copied.");
 	_m = map(_identity, _orig);
 	if (((Go.toInterface(Go.pointer(_orig)) : stdgo.unsafe.Unsafe.UnsafePointer)
-		.__convert__(stdgo.reflect.Reflect.GoType.refType(stdgo.reflect.Reflect.GoType.named("stdgo.reflect.Reflect.StringHeader", [],
-		stdgo.reflect.Reflect.GoType.structType([
+		.__convert__(stdgo.internal.reflect.Reflect.GoType.refType(stdgo.internal.reflect.Reflect.GoType.named("stdgo.reflect.Reflect.StringHeader", [],
+		stdgo.internal.reflect.Reflect.GoType.structType([
 			{
 				name: "data",
 				embedded: false,
 				tag: "",
-				type: stdgo.reflect.Reflect.GoType.basic(uintptr_kind)
+				type: stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)
 			},
 			{
 				name: "len",
 				embedded: false,
 				tag: "",
-				type: stdgo.reflect.Reflect.GoType.basic(int_kind)
+				type: stdgo.internal.reflect.Reflect.GoType.basic(int_kind)
 			}
 		])))) : Ref<stdgo.reflect.Reflect.StringHeader>).data != (((Go.toInterface(Go.pointer(_m)) : stdgo.unsafe.Unsafe.UnsafePointer)
-		.__convert__(stdgo.reflect.Reflect.GoType.refType(stdgo.reflect.Reflect.GoType.named("stdgo.reflect.Reflect.StringHeader", [],
-			stdgo.reflect.Reflect.GoType.structType([
+		.__convert__(stdgo.internal.reflect.Reflect.GoType.refType(stdgo.internal.reflect.Reflect.GoType.named("stdgo.reflect.Reflect.StringHeader", [],
+			stdgo.internal.reflect.Reflect.GoType.structType([
 		{
 			name: "data",
 			embedded: false,
 			tag: "",
-			type: stdgo.reflect.Reflect.GoType.basic(uintptr_kind)
+			type: stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)
 		},
 		{
 			name: "len",
 			embedded: false,
 			tag: "",
-			type: stdgo.reflect.Reflect.GoType.basic(int_kind)
+			type: stdgo.internal.reflect.Reflect.GoType.basic(int_kind)
 		}
 		])))) : Ref<stdgo.reflect.Reflect.StringHeader>).data)) {
 			_t.error(Go.toInterface(Go.str("unexpected copy during identity map")));

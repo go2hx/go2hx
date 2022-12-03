@@ -1,5 +1,4 @@
 [
-    "reflect",
     "internal/reflectlite",
     "internal/unsafeheader",
     "unsafe",

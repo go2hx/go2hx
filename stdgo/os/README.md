@@ -1,6 +1,5 @@
 # Module stdgo.os has compilation errors, please do not use:
 ```
-stdgo/os_test/Os.hx:25: characters 4-15 : stdgo.reflect.Value has no field fieldByName
 stdgo/os_test/Os_test.hx:537: characters 23-51 : Type not found : stdgo.path.filepath.Filepath
 stdgo/os_test/Os_test.hx:545: characters 10-38 : Type not found : stdgo.path.filepath.Filepath
 stdgo/log/Log.hx:1085: characters 7-31 : Module stdgo.sync.atomic.Atomic does not define type Atomic

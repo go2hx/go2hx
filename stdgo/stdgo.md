@@ -8,6 +8,7 @@
 | [stdgo.bytes](./bytes/README.md) | ❌ | yes |  |  |  |  |
 | [stdgo.encoding](./encoding/README.md) | ❌ | no |  |  |  |  |
 | [stdgo.encoding.base64](./encoding/base64/README.md) | ❌ | yes |  |  |  |  |
+| [stdgo.encoding.binary](./encoding/binary/README.md) | ❌ | yes |  |  |  |  |
 | [stdgo.errors](./errors/README.md) | ✅ | yes |  | ✅ | ✅ | ❌ |
 | [stdgo.flag](./flag/README.md) | ❌ | yes |  |  |  |  |
 | [stdgo.fmt](./fmt/README.md) | ✅ | no |  |  |  |  |
@@ -21,6 +22,7 @@
 | [stdgo.internal.goos](./internal/goos/README.md) | ✅ | no |  |  |  |  |
 | [stdgo.internal.oserror](./internal/oserror/README.md) | ✅ | no |  |  |  |  |
 | [stdgo.internal.poll](./internal/poll/README.md) | ✅ | no |  |  |  |  |
+| [stdgo.internal.reflect](./internal/reflect/README.md) | ✅ | no |  |  |  |  |
 | [stdgo.internal.reflectlite](./internal/reflectlite/README.md) | ✅ | no |  |  |  |  |
 | [stdgo.internal.syscall.unix](./internal/syscall/unix/README.md) | ✅ | no |  |  |  |  |
 | [stdgo.internal.testenv](./internal/testenv/README.md) | ✅ | no |  |  |  |  |

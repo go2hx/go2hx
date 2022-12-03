@@ -15,10 +15,10 @@ Package strings implements simple functions to manipulate UTF\-8 encoded strings
 ```
 Error: Command failed with error 1
 === RUN   TestBuilder
---- PASS: TestBuilder (8.0108642578125e-05)
+--- PASS: TestBuilder (9.89437103271484e-05)
 === RUN   TestBuilderString
 Exception: slice out of bounds, index: 8 length: 8
-Called from stdgo.SliceData.set (stdgo/Slice.hx line 249)
+Called from stdgo.SliceData.set (stdgo/Slice.hx line 248)
 Called from stdgo.strings.$Builder_static_extension.writeString (stdgo/Slice.hx line 141)
 Called from stdgo.strings_test._Strings_test.$Strings_test_Fields_.testBuilderString (stdgo/strings_test/Strings_test.hx line 1424)
 Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 353)
@@ -32,12 +32,12 @@ Called from stdgo.strings_test._Strings.$Strings_Fields_.main (stdgo/strings_tes
 
 ```
 === RUN   TestBuilder
---- PASS: TestBuilder (0.000156879425048828125)
+--- PASS: TestBuilder (0.000180006027221679688)
 === RUN   TestBuilderString
 Exception: slice out of bounds, index: 8 length: 8
 Called from stdgo.strings_test._Strings_test.Strings_test_Fields_.testBuilderString (stdgo/strings_test/Strings_test.hx line 1424 column 2)
-Called from stdgo.strings.Builder_static_extension.writeString (stdgo/strings/Strings.hx line 121 column 11)
-Called from stdgo.SliceData.set (stdgo/Slice.hx line 249 column 3)
+Called from stdgo.strings.Builder_static_extension.writeString (stdgo/strings/Strings.hx line 121 column 14)
+Called from stdgo.SliceData.set (stdgo/Slice.hx line 248 column 3)
 Called from stdgo.SliceData.boundsCheck (stdgo/Slice.hx line 237 column 4)
 ```
 </p>
@@ -2418,7 +2418,7 @@ function _copyCheck():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2128>)
+[\(view code\)](<./Strings.hx#L2129>)
 
 
 ### Builder function \_grow
@@ -2578,7 +2578,7 @@ function _copyCheck():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2128>)
+[\(view code\)](<./Strings.hx#L2129>)
 
 
 ### Builder\_static\_extension function \_grow
@@ -2773,7 +2773,7 @@ function len():stdgo.GoInt
 Len returns the number of bytes of the unread portion of the string. 
 
 
-[\(view code\)](<./Strings.hx#L2411>)
+[\(view code\)](<./Strings.hx#L2412>)
 
 
 ### Reader function read
@@ -2787,7 +2787,7 @@ function read( _b:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}
 Read implements the io.Reader interface. 
 
 
-[\(view code\)](<./Strings.hx#L2384>)
+[\(view code\)](<./Strings.hx#L2385>)
 
 
 ### Reader function readAt
@@ -2801,7 +2801,7 @@ function readAt( _b:stdgo.Slice<stdgo.GoByte>, _off:stdgo.GoInt64):{_1:stdgo.Err
 ReadAt implements the io.ReaderAt interface. 
 
 
-[\(view code\)](<./Strings.hx#L2365>)
+[\(view code\)](<./Strings.hx#L2366>)
 
 
 ### Reader function readByte
@@ -2815,7 +2815,7 @@ function readByte():{_1:stdgo.Error, _0:stdgo.GoByte}
 ReadByte implements the io.ByteReader interface. 
 
 
-[\(view code\)](<./Strings.hx#L2351>)
+[\(view code\)](<./Strings.hx#L2352>)
 
 
 ### Reader function readRune
@@ -2829,7 +2829,7 @@ function readRune():{_2:stdgo.Error, _1:stdgo.GoInt, _0:stdgo.GoRune}
 ReadRune implements the io.RuneReader interface. 
 
 
-[\(view code\)](<./Strings.hx#L2309>)
+[\(view code\)](<./Strings.hx#L2310>)
 
 
 ### Reader function reset
@@ -2843,7 +2843,7 @@ function reset( _s:stdgo.GoString):Void
 Reset resets the Reader to be reading from s. 
 
 
-[\(view code\)](<./Strings.hx#L2232>)
+[\(view code\)](<./Strings.hx#L2233>)
 
 
 ### Reader function seek
@@ -2857,7 +2857,7 @@ function seek( _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{_1:stdgo.Error, _0:s
 Seek implements the io.Seeker interface. 
 
 
-[\(view code\)](<./Strings.hx#L2270>)
+[\(view code\)](<./Strings.hx#L2271>)
 
 
 ### Reader function size
@@ -2871,7 +2871,7 @@ function size():stdgo.GoInt64
 Size returns the original length of the underlying string. Size is the number of bytes available for reading via ReadAt. The returned value is always the same and is not affected by calls to any other method. 
 
 
-[\(view code\)](<./Strings.hx#L2402>)
+[\(view code\)](<./Strings.hx#L2403>)
 
 
 ### Reader function unreadByte
@@ -2885,7 +2885,7 @@ function unreadByte():stdgo.Error
 UnreadByte implements the io.ByteScanner interface. 
 
 
-[\(view code\)](<./Strings.hx#L2338>)
+[\(view code\)](<./Strings.hx#L2339>)
 
 
 ### Reader function unreadRune
@@ -2899,7 +2899,7 @@ function unreadRune():stdgo.Error
 UnreadRune implements the io.RuneScanner interface. 
 
 
-[\(view code\)](<./Strings.hx#L2293>)
+[\(view code\)](<./Strings.hx#L2294>)
 
 
 ### Reader function writeTo
@@ -2913,7 +2913,7 @@ function writeTo( _w:stdgo.io.Writer):{_1:stdgo.Error, _0:stdgo.GoInt64}
 WriteTo implements the io.WriterTo interface. 
 
 
-[\(view code\)](<./Strings.hx#L2245>)
+[\(view code\)](<./Strings.hx#L2246>)
 
 
 ## class Reader\_static\_extension
@@ -2933,7 +2933,7 @@ function len():stdgo.GoInt
 Len returns the number of bytes of the unread portion of the string. 
 
 
-[\(view code\)](<./Strings.hx#L2411>)
+[\(view code\)](<./Strings.hx#L2412>)
 
 
 ### Reader\_static\_extension function read
@@ -2947,7 +2947,7 @@ function read( _b:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}
 Read implements the io.Reader interface. 
 
 
-[\(view code\)](<./Strings.hx#L2384>)
+[\(view code\)](<./Strings.hx#L2385>)
 
 
 ### Reader\_static\_extension function readAt
@@ -2961,7 +2961,7 @@ function readAt( _b:stdgo.Slice<stdgo.GoByte>, _off:stdgo.GoInt64):{_1:stdgo.Err
 ReadAt implements the io.ReaderAt interface. 
 
 
-[\(view code\)](<./Strings.hx#L2365>)
+[\(view code\)](<./Strings.hx#L2366>)
 
 
 ### Reader\_static\_extension function readByte
@@ -2975,7 +2975,7 @@ function readByte():{_1:stdgo.Error, _0:stdgo.GoByte}
 ReadByte implements the io.ByteReader interface. 
 
 
-[\(view code\)](<./Strings.hx#L2351>)
+[\(view code\)](<./Strings.hx#L2352>)
 
 
 ### Reader\_static\_extension function readRune
@@ -2989,7 +2989,7 @@ function readRune():{_2:stdgo.Error, _1:stdgo.GoInt, _0:stdgo.GoRune}
 ReadRune implements the io.RuneReader interface. 
 
 
-[\(view code\)](<./Strings.hx#L2309>)
+[\(view code\)](<./Strings.hx#L2310>)
 
 
 ### Reader\_static\_extension function reset
@@ -3003,7 +3003,7 @@ function reset( _s:stdgo.GoString):Void
 Reset resets the Reader to be reading from s. 
 
 
-[\(view code\)](<./Strings.hx#L2232>)
+[\(view code\)](<./Strings.hx#L2233>)
 
 
 ### Reader\_static\_extension function seek
@@ -3017,7 +3017,7 @@ function seek( _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{_1:stdgo.Error, _0:s
 Seek implements the io.Seeker interface. 
 
 
-[\(view code\)](<./Strings.hx#L2270>)
+[\(view code\)](<./Strings.hx#L2271>)
 
 
 ### Reader\_static\_extension function size
@@ -3031,7 +3031,7 @@ function size():stdgo.GoInt64
 Size returns the original length of the underlying string. Size is the number of bytes available for reading via ReadAt. The returned value is always the same and is not affected by calls to any other method. 
 
 
-[\(view code\)](<./Strings.hx#L2402>)
+[\(view code\)](<./Strings.hx#L2403>)
 
 
 ### Reader\_static\_extension function unreadByte
@@ -3045,7 +3045,7 @@ function unreadByte():stdgo.Error
 UnreadByte implements the io.ByteScanner interface. 
 
 
-[\(view code\)](<./Strings.hx#L2338>)
+[\(view code\)](<./Strings.hx#L2339>)
 
 
 ### Reader\_static\_extension function unreadRune
@@ -3059,7 +3059,7 @@ function unreadRune():stdgo.Error
 UnreadRune implements the io.RuneScanner interface. 
 
 
-[\(view code\)](<./Strings.hx#L2293>)
+[\(view code\)](<./Strings.hx#L2294>)
 
 
 ### Reader\_static\_extension function writeTo
@@ -3073,7 +3073,7 @@ function writeTo( _w:stdgo.io.Writer):{_1:stdgo.Error, _0:stdgo.GoInt64}
 WriteTo implements the io.WriterTo interface. 
 
 
-[\(view code\)](<./Strings.hx#L2245>)
+[\(view code\)](<./Strings.hx#L2246>)
 
 
 ## class Replacer
@@ -3125,7 +3125,7 @@ function _build():stdgo.strings._Strings.T_replacer
  
 
 
-[\(view code\)](<./Strings.hx#L2485>)
+[\(view code\)](<./Strings.hx#L2486>)
 
 
 ### Replacer function \_buildOnce
@@ -3139,7 +3139,7 @@ function _buildOnce():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2534>)
+[\(view code\)](<./Strings.hx#L2535>)
 
 
 ### Replacer function printTrie
@@ -3153,7 +3153,7 @@ function printTrie():stdgo.GoString
  
 
 
-[\(view code\)](<./Strings.hx#L2540>)
+[\(view code\)](<./Strings.hx#L2541>)
 
 
 ### Replacer function replace
@@ -3167,7 +3167,7 @@ function replace( _s:stdgo.GoString):stdgo.GoString
 Replace returns a copy of s with all replacements performed. 
 
 
-[\(view code\)](<./Strings.hx#L2479>)
+[\(view code\)](<./Strings.hx#L2480>)
 
 
 ### Replacer function replacer
@@ -3181,7 +3181,7 @@ function replacer():stdgo.AnyInterface
  
 
 
-[\(view code\)](<./Strings.hx#L2547>)
+[\(view code\)](<./Strings.hx#L2548>)
 
 
 ### Replacer function writeString
@@ -3195,7 +3195,7 @@ function writeString( _w:stdgo.io.Writer, _s:stdgo.GoString):{_1:stdgo.Error, _0
 WriteString writes s to w with all replacements performed. 
 
 
-[\(view code\)](<./Strings.hx#L2469>)
+[\(view code\)](<./Strings.hx#L2470>)
 
 
 ## class Replacer\_static\_extension
@@ -3215,7 +3215,7 @@ function _build():stdgo.strings._Strings.T_replacer
  
 
 
-[\(view code\)](<./Strings.hx#L2485>)
+[\(view code\)](<./Strings.hx#L2486>)
 
 
 ### Replacer\_static\_extension function \_buildOnce
@@ -3229,7 +3229,7 @@ function _buildOnce():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2534>)
+[\(view code\)](<./Strings.hx#L2535>)
 
 
 ### Replacer\_static\_extension function printTrie
@@ -3243,7 +3243,7 @@ function printTrie():stdgo.GoString
  
 
 
-[\(view code\)](<./Strings.hx#L2540>)
+[\(view code\)](<./Strings.hx#L2541>)
 
 
 ### Replacer\_static\_extension function replace
@@ -3257,7 +3257,7 @@ function replace( _s:stdgo.GoString):stdgo.GoString
 Replace returns a copy of s with all replacements performed. 
 
 
-[\(view code\)](<./Strings.hx#L2479>)
+[\(view code\)](<./Strings.hx#L2480>)
 
 
 ### Replacer\_static\_extension function replacer
@@ -3271,7 +3271,7 @@ function replacer():stdgo.AnyInterface
  
 
 
-[\(view code\)](<./Strings.hx#L2547>)
+[\(view code\)](<./Strings.hx#L2548>)
 
 
 ### Replacer\_static\_extension function writeString
@@ -3285,7 +3285,7 @@ function writeString( _w:stdgo.io.Writer, _s:stdgo.GoString):{_1:stdgo.Error, _0
 WriteString writes s to w with all replacements performed. 
 
 
-[\(view code\)](<./Strings.hx#L2469>)
+[\(view code\)](<./Strings.hx#L2470>)
 
 
 ## class T\_appendSliceWriter\_static\_extension
@@ -3305,7 +3305,7 @@ function write(_w:stdgo.Ref<stdgo.strings._Strings.T_appendSliceWriter>, _p:stdg
 Write writes to the buffer to satisfy io.Writer. 
 
 
-[\(view code\)](<./Strings.hx#L3099>)
+[\(view code\)](<./Strings.hx#L3100>)
 
 
 ### T\_appendSliceWriter\_static\_extension function writeString
@@ -3319,7 +3319,7 @@ function writeString(_w:stdgo.Ref<stdgo.strings._Strings.T_appendSliceWriter>, _
 WriteString writes to the buffer without string\-\>\[\]byte\-\>string allocations. 
 
 
-[\(view code\)](<./Strings.hx#L3090>)
+[\(view code\)](<./Strings.hx#L3091>)
 
 
 ## class T\_asciiSet\_static\_extension
@@ -3339,7 +3339,7 @@ function _contains(_as:stdgo.Ref<stdgo.strings._Strings.T_asciiSet>, _c:stdgo.Go
 contains reports whether c is inside the set. 
 
 
-[\(view code\)](<./Strings.hx#L3203>)
+[\(view code\)](<./Strings.hx#L3204>)
 
 
 ## class T\_byteReplacer\_static\_extension
@@ -3359,7 +3359,7 @@ function replace(_r:stdgo.Ref<stdgo.strings._Strings.T_byteReplacer>, _s:stdgo.G
  
 
 
-[\(view code\)](<./Strings.hx#L3155>)
+[\(view code\)](<./Strings.hx#L3156>)
 
 
 ### T\_byteReplacer\_static\_extension function writeString
@@ -3373,7 +3373,7 @@ function writeString(_r:stdgo.Ref<stdgo.strings._Strings.T_byteReplacer>, _w:std
  
 
 
-[\(view code\)](<./Strings.hx#L3130>)
+[\(view code\)](<./Strings.hx#L3131>)
 
 
 ## class T\_byteStringReplacer\_static\_extension
@@ -3393,7 +3393,7 @@ function replace(_r:stdgo.Ref<stdgo.strings._Strings.T_byteStringReplacer>, _s:s
  
 
 
-[\(view code\)](<./Strings.hx#L2964>)
+[\(view code\)](<./Strings.hx#L2965>)
 
 
 ### T\_byteStringReplacer\_static\_extension function writeString
@@ -3407,7 +3407,7 @@ function writeString(_r:stdgo.Ref<stdgo.strings._Strings.T_byteStringReplacer>, 
  
 
 
-[\(view code\)](<./Strings.hx#L2921>)
+[\(view code\)](<./Strings.hx#L2922>)
 
 
 ## class T\_genericReplacer\_static\_extension
@@ -3427,7 +3427,7 @@ function _lookup(_r:stdgo.Ref<stdgo.strings._Strings.T_genericReplacer>, _s:stdg
  
 
 
-[\(view code\)](<./Strings.hx#L2724>)
+[\(view code\)](<./Strings.hx#L2725>)
 
 
 ### T\_genericReplacer\_static\_extension function \_printNode
@@ -3441,7 +3441,7 @@ function _printNode(_r:stdgo.Ref<stdgo.strings._Strings.T_genericReplacer>, _t:s
  
 
 
-[\(view code\)](<./Strings.hx#L2761>)
+[\(view code\)](<./Strings.hx#L2762>)
 
 
 ### T\_genericReplacer\_static\_extension function replace
@@ -3455,7 +3455,7 @@ function replace(_r:stdgo.Ref<stdgo.strings._Strings.T_genericReplacer>, _s:stdg
  
 
 
-[\(view code\)](<./Strings.hx#L2717>)
+[\(view code\)](<./Strings.hx#L2718>)
 
 
 ### T\_genericReplacer\_static\_extension function writeString
@@ -3469,7 +3469,7 @@ function writeString(_r:stdgo.Ref<stdgo.strings._Strings.T_genericReplacer>, _w:
  
 
 
-[\(view code\)](<./Strings.hx#L2659>)
+[\(view code\)](<./Strings.hx#L2660>)
 
 
 ## class T\_singleStringReplacer\_static\_extension
@@ -3489,7 +3489,7 @@ function replace(_r:stdgo.Ref<stdgo.strings._Strings.T_singleStringReplacer>, _s
  
 
 
-[\(view code\)](<./Strings.hx#L2874>)
+[\(view code\)](<./Strings.hx#L2875>)
 
 
 ### T\_singleStringReplacer\_static\_extension function writeString
@@ -3503,7 +3503,7 @@ function writeString(_r:stdgo.Ref<stdgo.strings._Strings.T_singleStringReplacer>
  
 
 
-[\(view code\)](<./Strings.hx#L2835>)
+[\(view code\)](<./Strings.hx#L2836>)
 
 
 ## class T\_stringFinder\_static\_extension
@@ -3523,7 +3523,7 @@ function _next(_f:stdgo.Ref<stdgo.strings._Strings.T_stringFinder>, _text:stdgo.
 next returns the index in text of the first occurrence of the pattern. If the pattern is not found, it returns \-1. 
 
 
-[\(view code\)](<./Strings.hx#L3039>)
+[\(view code\)](<./Strings.hx#L3040>)
 
 
 ## class T\_stringWriter\_static\_extension
@@ -3543,7 +3543,7 @@ function writeString(_w:stdgo.strings._Strings.T_stringWriter, _s:stdgo.GoString
  
 
 
-[\(view code\)](<./Strings.hx#L2805>)
+[\(view code\)](<./Strings.hx#L2806>)
 
 
 ## class T\_trieNode\_static\_extension
@@ -3563,6 +3563,6 @@ function _add(_t:stdgo.Ref<stdgo.strings._Strings.T_trieNode>, _key:stdgo.GoStri
  
 
 
-[\(view code\)](<./Strings.hx#L2574>)
+[\(view code\)](<./Strings.hx#L2575>)
 
 

@@ -1,4 +1,4 @@
-# Module stdgo.bytes has compilation errors, please do not use:
+# Module stdgo.encoding.binary has compilation errors, please do not use:
 ```
 stdgo/Go.hx:864: characters 19-45 : stdgo.reflect.Value should be stdgo.GoArray<Dynamic>
 stdgo/Go.hx:864: characters 19-45 : ... For function argument 'len'
@@ -19,8 +19,26 @@ stdgo/encoding/binary/Binary.hx:1066: characters 77-117 : Expected Expr but got 
 stdgo/encoding/binary/Binary.hx:1066: characters 77-117 : ... For function argument '_data'
 stdgo/encoding/binary/Binary.hx:1072: characters 35-54 : Expected Expr but got {pos: #pos(stdgo/encoding/binary/Binary.hx:1072: characters 35-54), expr: ENew({name: StdGoTypes, params: [], sub: AnyInterface, pack: [stdgo]},[{pos: #pos(stdgo/encoding/binary/Binary.hx:1072: characters 50-53), expr: EConst(CIdent(<...>))},{pos: #pos(stdgo/Go.hx:502: characters 58-103), expr: ENew({name: <...>, params: <...>, sub: <...>, pack: <...>},[<...>])}])} (see dump/decoding_error.txt for details)
 stdgo/encoding/binary/Binary.hx:1072: characters 35-54 : ... For function argument 'args'
-stdgo/encoding/base64/Base64.hx:632: characters 86-111 : Type not found : stdgo.runtime.debug.Debug
-stdgo/encoding/base64/Base64.hx:632: characters 86-111 : ... For function argument 'args'
+stdgo/encoding/binary_test/Binary_test.hx:23: characters 76-133 : Uncaught exception Type not found 'T_littleEndian_asInterface'
+/home/runner/haxe/versions/477663e/std/haxe/macro/Context.hx:292: characters 10-35 : Called from here
+stdgo/Go.hx:371: characters 15-56 : Called from here
+stdgo/encoding/binary_test/Binary_test.hx:23: characters 76-133 : Called from here
+For function argument '_order'
+stdgo/encoding/binary_test/Binary_test.hx:35: characters 77-134 : Uncaught exception Type not found 'T_littleEndian_asInterface'
+/home/runner/haxe/versions/477663e/std/haxe/macro/Context.hx:292: characters 10-35 : Called from here
+stdgo/Go.hx:371: characters 15-56 : Called from here
+stdgo/encoding/binary_test/Binary_test.hx:35: characters 77-134 : Called from here
+For function argument '_order'
+stdgo/encoding/binary_test/Binary_test.hx:48: characters 75-132 : Uncaught exception Type not found 'T_littleEndian_asInterface'
+/home/runner/haxe/versions/477663e/std/haxe/macro/Context.hx:292: characters 10-35 : Called from here
+stdgo/Go.hx:371: characters 15-56 : Called from here
+stdgo/encoding/binary_test/Binary_test.hx:48: characters 75-132 : Called from here
+For function argument '_order'
+stdgo/encoding/binary_test/Binary_test.hx:67: characters 74-131 : Uncaught exception Type not found 'T_littleEndian_asInterface'
+/home/runner/haxe/versions/477663e/std/haxe/macro/Context.hx:292: characters 10-35 : Called from here
+stdgo/Go.hx:371: characters 15-56 : Called from here
+stdgo/encoding/binary_test/Binary_test.hx:67: characters 74-131 : Called from here
+For function argument '_order'
 
 ```
 

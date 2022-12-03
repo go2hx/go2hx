@@ -676,7 +676,7 @@ function testProperties(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Unicode.hx#L948>)
+[\(view code\)](<./Unicode.hx#L949>)
 
 
 ## function testSimpleFold

@@ -46,13 +46,6 @@ stdgo/time_test/Time_test.hx:5207: characters 13-35 : Type not found : stdgo.enc
 stdgo/time_test/Time_test.hx:5264: characters 18-42 : Type not found : stdgo.encoding.json.Json
 stdgo/time_test/Time_test.hx:5273: characters 12-36 : Type not found : stdgo.encoding.json.Json
 stdgo/time_test/Time_test.hx:5286: characters 19-43 : Type not found : stdgo.encoding.json.Json
-stdgo/time_test/Time_test.hx:6412: characters 14-18 : stdgo.reflect.Value has no field int_ (Suggestion: int)
-stdgo/time_test/Time_test.hx:6335: lines 6335-6344 : ... Called from macro here
-stdgo/time_test/Time_test.hx:6412: characters 29-33 : stdgo.reflect.Value has no field int_ (Suggestion: int)
-stdgo/time_test/Time_test.hx:6335: lines 6335-6344 : ... Called from macro here
-stdgo/Go.hx:325: characters 20-56 : Too many arguments
-stdgo/Go.hx:325: characters 20-56 : ... For function argument 'args'
-stdgo/time_test/Time_test.hx:6335: lines 6335-6344 : ... Called from macro here
 stdgo/time_test/Time_test.hx:6612: characters 50-80 : Module stdgo.internal.testenv.Testenv does not define type Testenv
 stdgo/time_test/Time_test.hx:6612: characters 50-80 : ... For function argument ''
 

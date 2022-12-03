@@ -14,7 +14,7 @@
 
 - [class AnyInterfaceData](<#class-anyinterfacedata>)
 
-  - [`function new(value:Any, type:stdgo.reflect.Type):Void`](<#anyinterfacedata-function-new>)
+  - [`function new(value:Any, type:stdgo.internal.reflect._Type):Void`](<#anyinterfacedata-function-new>)
 
   - [`function toString():String`](<#anyinterfacedata-function-tostring>)
 
@@ -96,7 +96,7 @@
 
   - [`function keys():Iterator<stdgo.GoObjectMap.K>`](<#goobjectmap-function-keys>)
 
-  - [`function new(t:stdgo.reflect.Type):Void`](<#goobjectmap-function-new>)
+  - [`function new(t:stdgo.internal.reflect._Type):Void`](<#goobjectmap-function-new>)
 
   - [`function remove(key:stdgo.GoObjectMap.K):Bool`](<#goobjectmap-function-remove>)
 
@@ -205,7 +205,7 @@ import stdgo.*
 
 
 ```haxe
-var type:stdgo.reflect.Type
+var type:stdgo.internal.reflect._Type
 ```
 
 
@@ -218,7 +218,7 @@ var value:Any
 
 
 ```haxe
-function new(value:Any, type:stdgo.reflect.Type):Void
+function new(value:Any, type:stdgo.internal.reflect._Type):Void
 ```
 
 
@@ -579,7 +579,7 @@ function hasNext():Bool
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L1920>)
+[\(view code\)](<./StdGoTypes.hx#L1913>)
 
 
 ### GoIntIterator function new
@@ -593,7 +593,7 @@ function new(min:stdgo.GoInt, max:stdgo.GoInt):Void
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L1915>)
+[\(view code\)](<./StdGoTypes.hx#L1908>)
 
 
 ### GoIntIterator function next
@@ -607,7 +607,7 @@ function next():stdgo.GoInt
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L1924>)
+[\(view code\)](<./StdGoTypes.hx#L1917>)
 
 
 ## class GoObjectMap
@@ -617,7 +617,7 @@ function next():stdgo.GoInt
 
 
 ```haxe
-var t:stdgo.reflect.Type
+var t:stdgo.internal.reflect._Type
 ```
 
 
@@ -632,7 +632,7 @@ function clear():Void
  
 
 
-[\(view code\)](<./GoMap.hx#L160>)
+[\(view code\)](<./GoMap.hx#L162>)
 
 
 ### GoObjectMap function copy
@@ -646,7 +646,7 @@ function copy():stdgo.GoObjectMap<stdgo.GoObjectMap.K, stdgo.GoObjectMap.V>
  
 
 
-[\(view code\)](<./GoMap.hx#L146>)
+[\(view code\)](<./GoMap.hx#L148>)
 
 
 ### GoObjectMap function defaultValue
@@ -660,7 +660,7 @@ function defaultValue():stdgo.GoObjectMap.V
  
 
 
-[\(view code\)](<./GoMap.hx#L102>)
+[\(view code\)](<./GoMap.hx#L103>)
 
 
 ### GoObjectMap function exists
@@ -674,7 +674,7 @@ function exists(key:stdgo.GoObjectMap.K):Bool
  
 
 
-[\(view code\)](<./GoMap.hx#L117>)
+[\(view code\)](<./GoMap.hx#L119>)
 
 
 ### GoObjectMap function get
@@ -688,7 +688,7 @@ function get(key:stdgo.GoObjectMap.K):Null<stdgo.GoObjectMap.V>
  
 
 
-[\(view code\)](<./GoMap.hx#L109>)
+[\(view code\)](<./GoMap.hx#L111>)
 
 
 ### GoObjectMap function iterator
@@ -702,7 +702,7 @@ function iterator():Iterator<stdgo.GoObjectMap.V>
  
 
 
-[\(view code\)](<./GoMap.hx#L140>)
+[\(view code\)](<./GoMap.hx#L142>)
 
 
 ### GoObjectMap function keyValueIterator
@@ -716,7 +716,7 @@ function keyValueIterator():KeyValueIterator<stdgo.GoObjectMap.K, stdgo.GoObject
  
 
 
-[\(view code\)](<./GoMap.hx#L142>)
+[\(view code\)](<./GoMap.hx#L144>)
 
 
 ### GoObjectMap function keys
@@ -730,14 +730,14 @@ function keys():Iterator<stdgo.GoObjectMap.K>
  
 
 
-[\(view code\)](<./GoMap.hx#L137>)
+[\(view code\)](<./GoMap.hx#L139>)
 
 
 ### GoObjectMap function new
 
 
 ```haxe
-function new(t:stdgo.reflect.Type):Void
+function new(t:stdgo.internal.reflect._Type):Void
 ```
 
 
@@ -758,7 +758,7 @@ function remove(key:stdgo.GoObjectMap.K):Bool
  
 
 
-[\(view code\)](<./GoMap.hx#L125>)
+[\(view code\)](<./GoMap.hx#L127>)
 
 
 ### GoObjectMap function set
@@ -786,7 +786,7 @@ function toString():String
  
 
 
-[\(view code\)](<./GoMap.hx#L153>)
+[\(view code\)](<./GoMap.hx#L155>)
 
 
 ## class GoStringTools
@@ -1005,7 +1005,7 @@ function grow():Void
  
 
 
-[\(view code\)](<./Slice.hx#L281>)
+[\(view code\)](<./Slice.hx#L279>)
 
 
 ### SliceData function iterator
@@ -1019,7 +1019,7 @@ function iterator():stdgo._Slice.SliceIterator<stdgo.SliceData.T>
  
 
 
-[\(view code\)](<./Slice.hx#L255>)
+[\(view code\)](<./Slice.hx#L253>)
 
 
 ### SliceData function keyValueIterator
@@ -1033,7 +1033,7 @@ function keyValueIterator():stdgo._Slice.SliceKeyValueIterator<stdgo.SliceData.T
  
 
 
-[\(view code\)](<./Slice.hx#L258>)
+[\(view code\)](<./Slice.hx#L256>)
 
 
 ### SliceData function new
@@ -1061,7 +1061,7 @@ function set(index:Int, value:stdgo.SliceData.T):stdgo.SliceData.T
  
 
 
-[\(view code\)](<./Slice.hx#L248>)
+[\(view code\)](<./Slice.hx#L247>)
 
 
 ### SliceData function toArray
@@ -1075,7 +1075,7 @@ function toArray():Array<stdgo.SliceData.T>
  
 
 
-[\(view code\)](<./Slice.hx#L260>)
+[\(view code\)](<./Slice.hx#L258>)
 
 
 ### SliceData function toString
@@ -1089,7 +1089,7 @@ function toString():String
  
 
 
-[\(view code\)](<./Slice.hx#L273>)
+[\(view code\)](<./Slice.hx#L271>)
 
 
 ### SliceData function toVector
@@ -1103,7 +1103,7 @@ function toVector():haxe.ds.Vector<stdgo.SliceData.T>
  
 
 
-[\(view code\)](<./Slice.hx#L264>)
+[\(view code\)](<./Slice.hx#L262>)
 
 
 ## class T\_errorString\_static\_extension

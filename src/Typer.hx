@@ -6118,7 +6118,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				// embedded methods
 				if (structAddFieldsIndex > -1 && structAddFieldsIndex <= method.index[0])
 					continue;
-				trace(structAddFieldsIndex, method.index[0]);
 				final field = fields[method.index[0]];
 				if (field == null)
 					continue;

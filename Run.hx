@@ -91,13 +91,19 @@ function main() {
 	if (code == 0) {
 		// run hashlink
 		var no_uv = false;
+		var no_fmt = false;
 		if (args.indexOf("-no_uv") != -1 || args.indexOf("--no_uv") != -1) {
 			no_uv = true;
+		}
+		if (args.indexOf("-no_fmt") != -1 || args.indexOf("--no_fmt") != -1) {
+			no_fmt = true;
 		}
 		if (!FileSystem.exists("build.hl") || rebuild) {
 			var cmd = "haxe build-hl.hxml";
 			if (no_uv)
 				cmd += " -D no_uv";
+			if (no_fmt)
+				cmd += " -D no_fmt";
 			Sys.command(cmd);
 		}
 		args.unshift("build.hl");
@@ -118,7 +124,7 @@ function clean() {
 				for (path2 in FileSystem.readDirectory('stdgo/$path')) {
 					if (FileSystem.isDirectory('stdgo/$path/$path2')) {
 						switch path2 {
-							case "poll", "reflectlite", "bytealg", "testenv":
+							case "poll", "reflectlite", "bytealg", "testenv", "reflect":
 							default:
 								deleteDirectoryRecursively('stdgo/$path/$path2');
 						}
@@ -131,14 +137,10 @@ function clean() {
 }
 
 function deleteDirectoryRecursively(dir:String):Int {
-	return switch (systemName) {
-		case "Windows":
-			#if !js Sys.command("rmdir !(*.md) /s /q " + dir); #else 0; #end
-		default:
-			#if !js
-			Sys.command("rm -rf !(*.md) " + dir);
-			#else
-			0;
-			#end
-	}
+	trace(dir);
+	#if !js
+	return Sys.command('find $dir -type f ! -iname "*.MD" -delete');
+	#else
+	return 0;
+	#end
 }

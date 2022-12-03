@@ -48,7 +48,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 
 	@:from
 	public static function fromVector<T>(vector:haxe.ds.Vector<T>):Slice<T> {
-		final data = new SliceData(0, -1);
+		final data = new SliceData<T>(0, -1);
 		data.vector = vector;
 		data.length = vector.length;
 		data.capacity = vector.length;
@@ -82,11 +82,11 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		return this == null ? 0 : this.capacity;
 	}
 
-	@:op([]) public inline function __get__(index:GoInt):T {
+	@:op([]) public function __get__(index:GoInt):T {
 		return this.get(index.toBasic());
 	}
 
-	@:op([]) public inline function __set__(index:GoInt, value:T):T {
+	@:op([]) public function __set__(index:GoInt, value:T):T {
 		return this.set(index.toBasic(), value);
 	}
 

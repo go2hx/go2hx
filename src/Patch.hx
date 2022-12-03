@@ -262,7 +262,7 @@ final list = [
 		var v2 = valueOf(_y);
 		return stdgo.internal.reflect.Reflect.deepValueEqual(v1, v2, null, 0);
 	},
-	"reflect:zero" => macro return new Value(new AnyInterface(stdgo.internal.reflect.Reflect.defaultValue(_typ), cast _typ)),
+	"reflect:zero" => macro return new Value(new AnyInterface(stdgo.internal.reflect.Reflect.defaultValue(_typ), _typ.__underlying__().value)),
 	"reflect.Value:type" => macro return @:privateAccess new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(_v.value.type), _v.value.type),
 	"reflect.Value:kind" => macro return _v.type().kind(),
 	"reflect.Value:isValid" => macro return @:privateAccess _v.value.type._common() != stdgo.internal.reflect.Reflect.GoType.invalidType,

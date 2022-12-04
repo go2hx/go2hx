@@ -16,7 +16,7 @@ function main() {
 	for (data in list) {
 		libs.push(data.split("-")[0]);
 	}
-	// libs = ["reflect", "io"];
+	// libs = ["sync", "sync/atomic"];
 	trace(libs);
 	libCount = libs.length;
 	Main.setup(0, 1); // amount of processes to spawn
@@ -95,7 +95,7 @@ final noMain = [
 
 final externs = [
 	"syscall/js", "syscall", "os", "os/exec", "context", "testing", "testing/quick", "testing/iotest", "testing/fstest", "testing/internal/testdeps",
-	"regexp/syntax", "regexp", "runtime", "runtime/debug", "reflect",
+	"regexp/syntax", "regexp", "runtime", "runtime/debug", "reflect", "sync", "sync/atomic",
 ];
 
 final exports = ["runtime", "runtime/debug", "reflect"];

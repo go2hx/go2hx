@@ -257,9 +257,9 @@ function implementsMethod(t:Type, v:Type):Bool {
 	var interfacePath = "";
 	var gt:GoType = (t : Dynamic)._common();
 	var vgt:GoType = (v : Dynamic)._common();
-	if (isPointer(gt))
+	if (isPointer(gt) || isRef(gt))
 		gt = getElem(gt);
-	if (isPointer(vgt))
+	if (isPointer(vgt) || isRef(vgt))
 		vgt = getElem(vgt);
 	return switch gt {
 		case interfaceType(_, methods), named(_, methods, _):
@@ -834,8 +834,9 @@ class _Type {
 		if (_u == null)
 			throw "reflect: nil type passed to Type.Implements";
 		// interface check
-		if (_u.kind() != KindType.interface_)
-			throw "reflect: non-interface type passed to Type.Implements: " + _u.kind().string();
+		// trace(t.kind().string(), _u.kind().string());
+		// if (_u.kind() != KindType.interface_)
+		//	throw "reflect: non-interface type passed to Type.Implements: " + _u.kind().string();
 		return implementsMethod(_u, new _Type_asInterface(Go.pointer(t), t));
 	}
 

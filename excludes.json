@@ -9,8 +9,6 @@
     "runtime/internal/atomic",
     "runtime/internal/math",
     "internal/bytealg",
-    "sync",
-    "sync/atomic",
     "internal/race",
     "internal/syscall",
     "internal/syscall/js",

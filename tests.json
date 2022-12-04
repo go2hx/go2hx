@@ -34,5 +34,7 @@
     "regexp/syntax",
     "encoding/binary",
     "reflect",
-    "math/cmplx"
+    "math/cmplx",
+    "sync/atomic",
+    "sync"
 ]

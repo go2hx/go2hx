@@ -472,6 +472,37 @@ final list = [
 			case 26: "unsafe.Pointer";
 			default: throw "unknown kind string: " + idx;
 		}
+	},
+	// stdgo/sync
+	"sync.Pool:get" => macro {
+		var obj = @:privateAccess _p.pool.pop(true);
+		if (obj == null && @:privateAccess _p.new_ != null)
+			obj = @:privateAccess _p.new_();
+		return obj;
+	},
+	"sync.Pool.put" => macro {
+		@:privateAccess _p.pool.push(_p);
+	},
+	"sync.Mutex:lock" => macro @:privateAccess _m.mutex.acquire(),
+	"sync.Mutex:tryLock" => macro @:privateAccess return _m.mutex.tryAcquire(),
+	"sync.Mutex:unlock" => macro @:privateAccess _m.mutex.release(),
+	"sync.WaitGroup:add" => macro {
+		@:privateAccess _wg.counter += _delta;
+		if (@:privateAccess _wg.counter < 0)
+			throw "sync: negative WaitGroup counter";
+	},
+	"sync.WaitGroup:done" => macro {
+		@:privateAccess _wg.counter--;
+		if (@:privateAccess _wg.counter <= 0) {
+			@:privateAccess _wg.lock.release();
+		}
+	},
+	"sync.WaitGroup:wait_" => macro @:privateAccess _wg.lock.wait(),
+	"sync.Once:do_" => macro {
+		if (@:privateAccess _o._done == 1)
+			return;
+		@:privateAccess _o._done = 1;
+		_f();
 	}
 ];
 
@@ -494,6 +525,27 @@ final structs = [
 		var notSetBool:Bool = false;
 		0;
 	},
+	"sync:WaitGroup" => macro {
+		@:local
+		var lock = new sys.thread.Lock();
+		var counter:GoUInt = 0;
+		0;
+	},
+	"sync:Mutex" => macro {
+		@:local
+		var mutex = new sys.thread.Mutex();
+		0;
+	},
+	"sync:RWMutex" => macro {
+		@:local
+		var mutex = new sys.thread.Mutex();
+		0;
+	},
+	"sync:Pool" => macro {
+		@:local
+		var pool = new sys.thread.Deque<AnyInterface>();
+		0;
+	}
 ];
 
 final adds = [

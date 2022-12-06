@@ -1155,6 +1155,7 @@ function testRegress(_t:Ref<stdgo.testing.Testing.T>):Void {
 					if (_mt.numIn() == ((1 : GoInt))) {
 						var _x:AnyInterface = (null : AnyInterface);
 						{
+							var __continue__ = false;
 							var __switchIndex__ = -1;
 							while (true) {
 								if (_mt.in_((0 : GoInt)).kind() == ((("2" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
@@ -1169,7 +1170,10 @@ function testRegress(_t:Ref<stdgo.testing.Testing.T>):Void {
 											stdgo.fmt.Fmt.printf(Go.str("\tskipped, // must run printgolden on 64-bit machine\n"));
 										};
 										_p++;
-										continue;
+										{
+											__continue__ = true;
+											break;
+										};
 									};
 									_x = Go.toInterface((_big : GoInt));
 									break;
@@ -1189,6 +1193,8 @@ function testRegress(_t:Ref<stdgo.testing.Testing.T>):Void {
 								};
 								break;
 							};
+							if (__continue__)
+								continue;
 						};
 						_argstr = stdgo.fmt.Fmt.sprint(_x);
 						_args = _args.__appendref__((stdgo.reflect.Reflect.valueOf(_x) == null ? null : stdgo.reflect.Reflect.valueOf(_x).__copy__()));

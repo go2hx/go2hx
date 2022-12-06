@@ -2693,7 +2693,6 @@ class Kind_asInterface {
 	@:keep
 	static public function string(_k:Kind):GoString {
 		var idx:Int = _k.toBasic();
-		trace(idx);
 		return switch idx {
 			case 0:
 				"invalid";

@@ -1528,11 +1528,15 @@ function _readFloat(_s:GoString):{
 			{
 				var _c:GoUInt8 = _s[_i];
 				{
+					var __continue__ = false;
 					var __switchIndex__ = -1;
 					while (true) {
 						if (true == (_c == ("_".code : GoRune))) {
 							_underscores = true;
-							continue;
+							{
+								__continue__ = true;
+								break;
+							};
 							break;
 						} else if (true == (_c == (".".code : GoRune))) {
 							if (_sawdot) {
@@ -1544,13 +1548,19 @@ function _readFloat(_s:GoString):{
 							};
 							_sawdot = true;
 							_dp = _nd;
-							continue;
+							{
+								__continue__ = true;
+								break;
+							};
 							break;
 						} else if (true == ((("0".code : GoRune) <= _c) && (_c <= ("9".code : GoRune)))) {
 							_sawdigits = true;
 							if ((_c == ("0".code : GoRune)) && (_nd == (0 : GoInt))) {
 								_dp--;
-								continue;
+								{
+									__continue__ = true;
+									break;
+								};
 							};
 							_nd++;
 							if (_ndMant < _maxMantDigits) {
@@ -1560,7 +1570,10 @@ function _readFloat(_s:GoString):{
 							} else if (_c != (("0".code : GoRune))) {
 								_trunc = true;
 							};
-							continue;
+							{
+								__continue__ = true;
+								break;
+							};
 							break;
 						} else if (true == (((_base == ("16" : GoUInt64)) && (("a".code : GoRune) <= _lower(_c)))
 							&& (_lower(_c) <= ("f".code : GoRune)))) {
@@ -1573,11 +1586,16 @@ function _readFloat(_s:GoString):{
 							} else {
 								_trunc = true;
 							};
-							continue;
+							{
+								__continue__ = true;
+								break;
+							};
 							break;
 						};
 						break;
 					};
+					if (__continue__)
+						continue;
 				};
 			};
 			break;

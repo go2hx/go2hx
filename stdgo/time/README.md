@@ -11,9 +11,6 @@ stdgo/time_test/Time_test.hx:4166: characters 44-62 : Module stdgo.testing.Testi
 stdgo/time_test/Time_test.hx:4166: characters 44-62 : ... For function argument 't'
 stdgo/time_test/Time_test.hx:4298: lines 4298-4300 : Object requires field _1
 stdgo/time_test/Time_test.hx:4298: lines 4298-4300 : ... For function argument 'x'
-stdgo/time_test/Time_test.hx:4475: characters 13-37 : Module stdgo.sync.atomic.Atomic does not define type Atomic
-stdgo/time_test/Time_test.hx:4331: characters 14-38 : Module stdgo.sync.atomic.Atomic does not define type Atomic
-stdgo/time_test/Time_test.hx:4336: characters 11-35 : Module stdgo.sync.atomic.Atomic does not define type Atomic
 stdgo/time_test/Time_test.hx:4374: lines 4374-4377 : Object requires field _1
 stdgo/time_test/Time_test.hx:4374: lines 4374-4377 : ... For function argument 'x'
 stdgo/time_test/Time_test.hx:4530: characters 20-73 : Module stdgo.StdGoTypes does not define type GoInt64_asInterface

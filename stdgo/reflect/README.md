@@ -1044,7 +1044,7 @@ function string():stdgo.GoString
  
 
 
-[\(view code\)](<./Reflect.hx#L2780>)
+[\(view code\)](<./Reflect.hx#L2779>)
 
 
 ## class Kind\_static\_extension
@@ -1535,7 +1535,7 @@ function get( _key:stdgo.GoString):stdgo.GoString
 Get returns the value associated with key in the tag string. If there is no such key in the tag, Get returns the empty string. If the tag does not have the conventional format, the value returned by Get is unspecified. To determine whether a tag is explicitly set to the empty string, use Lookup. 
 
 
-[\(view code\)](<./Reflect.hx#L2843>)
+[\(view code\)](<./Reflect.hx#L2842>)
 
 
 ### StructTag\_static\_extension function lookup
@@ -1549,7 +1549,7 @@ function lookup( _key:stdgo.GoString):{_1:Bool, _0:stdgo.GoString}
 Lookup returns the value associated with key in the tag string. If the key is present in the tag the value \(which may be empty\) is returned. Otherwise the returned value will be the empty string. The ok return value reports whether the value was explicitly set in the tag string. If the tag does not have the conventional format, the value returned by Lookup is unspecified. 
 
 
-[\(view code\)](<./Reflect.hx#L2832>)
+[\(view code\)](<./Reflect.hx#L2831>)
 
 
 ## class Value
@@ -3632,7 +3632,7 @@ function string():stdgo.GoString
  
 
 
-[\(view code\)](<./Reflect.hx#L2780>)
+[\(view code\)](<./Reflect.hx#L2779>)
 
 
 ## typedef Kind
@@ -3693,7 +3693,7 @@ function get( _key:stdgo.GoString):stdgo.GoString
 Get returns the value associated with key in the tag string. If there is no such key in the tag, Get returns the empty string. If the tag does not have the conventional format, the value returned by Get is unspecified. To determine whether a tag is explicitly set to the empty string, use Lookup. 
 
 
-[\(view code\)](<./Reflect.hx#L2843>)
+[\(view code\)](<./Reflect.hx#L2842>)
 
 
 ### StructTag function lookup
@@ -3707,7 +3707,7 @@ function lookup( _key:stdgo.GoString):{_1:Bool, _0:stdgo.GoString}
 Lookup returns the value associated with key in the tag string. If the key is present in the tag the value \(which may be empty\) is returned. Otherwise the returned value will be the empty string. The ok return value reports whether the value was explicitly set in the tag string. If the tag does not have the conventional format, the value returned by Lookup is unspecified. 
 
 
-[\(view code\)](<./Reflect.hx#L2832>)
+[\(view code\)](<./Reflect.hx#L2831>)
 
 
 ## typedef Type

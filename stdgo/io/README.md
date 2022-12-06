@@ -20,12 +20,6 @@ stdgo/Go.hx:421: characters 21-39 : ... For function argument '_sink'
 stdgo/io_test/Io_test.hx:830: characters 25-27 : stdgo.Ref<stdgo.io.PipeWriter> should be stdgo.io.Writer
 stdgo/io_test/Io_test.hx:830: characters 25-27 : ... stdgo.io.PipeWriter has no field __underlying__
 stdgo/io_test/Io_test.hx:830: characters 25-27 : ... For function argument 'w'
-stdgo/log/Log.hx:1085: characters 7-31 : Module stdgo.sync.atomic.Atomic does not define type Atomic
-stdgo/log/Log.hx:1098: characters 7-31 : Module stdgo.sync.atomic.Atomic does not define type Atomic
-stdgo/log/Log.hx:1111: characters 7-31 : Module stdgo.sync.atomic.Atomic does not define type Atomic
-stdgo/log/Log.hx:373: characters 6-30 : Module stdgo.sync.atomic.Atomic does not define type Atomic
-stdgo/log/Log.hx:385: characters 6-30 : Module stdgo.sync.atomic.Atomic does not define type Atomic
-stdgo/log/Log.hx:397: characters 6-30 : Module stdgo.sync.atomic.Atomic does not define type Atomic
 
 ```
 

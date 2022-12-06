@@ -2,12 +2,6 @@
 ```
 stdgo/os_test/Os_test.hx:537: characters 23-51 : Type not found : stdgo.path.filepath.Filepath
 stdgo/os_test/Os_test.hx:545: characters 10-38 : Type not found : stdgo.path.filepath.Filepath
-stdgo/log/Log.hx:1085: characters 7-31 : Module stdgo.sync.atomic.Atomic does not define type Atomic
-stdgo/log/Log.hx:1098: characters 7-31 : Module stdgo.sync.atomic.Atomic does not define type Atomic
-stdgo/log/Log.hx:1111: characters 7-31 : Module stdgo.sync.atomic.Atomic does not define type Atomic
-stdgo/log/Log.hx:373: characters 6-30 : Module stdgo.sync.atomic.Atomic does not define type Atomic
-stdgo/log/Log.hx:385: characters 6-30 : Module stdgo.sync.atomic.Atomic does not define type Atomic
-stdgo/log/Log.hx:397: characters 6-30 : Module stdgo.sync.atomic.Atomic does not define type Atomic
 stdgo/os_test/Os_test.hx:891: characters 24-52 : Type not found : stdgo.path.filepath.Filepath
 stdgo/os_test/Os_test.hx:935: characters 31-59 : Type not found : stdgo.path.filepath.Filepath
 stdgo/os_test/Os_test.hx:936: characters 17-45 : Type not found : stdgo.path.filepath.Filepath

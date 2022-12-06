@@ -15,7 +15,7 @@ Package cmplx provides basic constants and mathematical functions for complex nu
 ```
 Error: Command failed with error 1
 === RUN   TestAbs
---- PASS: TestAbs (0.000104904174804688)
+--- PASS: TestAbs (7.10487365722656e-05)
 === RUN   TestAcos
 Acos((0+0i)) = (1.5707963267949+0i), want (1.5707963267949+-0i)
 ```
@@ -27,7 +27,7 @@ Acos((0+0i)) = (1.5707963267949+0i), want (1.5707963267949+-0i)
 
 ```
 === RUN   TestAbs
---- PASS: TestAbs (0.000113010406494140625)
+--- PASS: TestAbs (0.000128984451293945312)
 === RUN   TestAcos
 Acos((0+0i)) = (1.57079632679489656+0i), want (1.57079632679489656+-0i)
 ```

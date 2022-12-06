@@ -14,59 +14,59 @@ Package sort provides primitives for sorting slices and user\-defined collection
 
 ```
 === RUN   TestSearch
---- PASS: TestSearch (0.000378131866455078)
+--- PASS: TestSearch (0.000474929809570312)
 === RUN   TestFind
---- PASS: TestFind (4.48226928710938e-05)
+--- PASS: TestFind (9.32216644287109e-05)
 === RUN   TestSearchEfficiency
---- PASS: TestSearchEfficiency (0.0192830562591553)
+--- PASS: TestSearchEfficiency (0.0223760604858398)
 === RUN   TestSearchWrappers
---- PASS: TestSearchWrappers (1.09672546386719e-05)
+--- PASS: TestSearchWrappers (1.50203704833984e-05)
 === RUN   TestSearchWrappersDontAlloc
---- PASS: TestSearchWrappersDontAlloc (8.82148742675781e-06)
+--- PASS: TestSearchWrappersDontAlloc (8.70227813720703e-05)
 === RUN   TestSearchExhaustive
---- PASS: TestSearchExhaustive (0.0404369831085205)
+--- PASS: TestSearchExhaustive (0.0485420227050781)
 === RUN   TestFindExhaustive
---- PASS: TestFindExhaustive (0.080082893371582)
+--- PASS: TestFindExhaustive (0.0990190505981445)
 === RUN   TestSortIntSlice
---- PASS: TestSortIntSlice (5.31673431396484e-05)
+--- PASS: TestSortIntSlice (6.60419464111328e-05)
 === RUN   TestSortFloat64Slice
---- PASS: TestSortFloat64Slice (4.60147857666016e-05)
+--- PASS: TestSortFloat64Slice (6.79492950439453e-05)
 === RUN   TestSortStringSlice
---- PASS: TestSortStringSlice (9.70363616943359e-05)
+--- PASS: TestSortStringSlice (0.000102043151855469)
 === RUN   TestInts
---- PASS: TestInts (3.69548797607422e-05)
+--- PASS: TestInts (4.60147857666016e-05)
 === RUN   TestFloat64s
---- PASS: TestFloat64s (3.98159027099609e-05)
+--- PASS: TestFloat64s (5.69820404052734e-05)
 === RUN   TestStrings
---- PASS: TestStrings (6.4849853515625e-05)
+--- PASS: TestStrings (7.70092010498047e-05)
 === RUN   TestSlice
---- PASS: TestSlice (0.000188112258911133)
+--- PASS: TestSlice (0.000290870666503906)
 === RUN   TestSortLarge_Random
---- PASS: TestSortLarge_Random (0.159525156021118)
+--- PASS: TestSortLarge_Random (0.201994180679321)
 === RUN   TestReverseSortIntSlice
---- PASS: TestReverseSortIntSlice (7.60555267333984e-05)
+--- PASS: TestReverseSortIntSlice (9.10758972167969e-05)
 === RUN   TestBreakPatterns
---- PASS: TestBreakPatterns (8.51154327392578e-05)
+--- PASS: TestBreakPatterns (0.000101089477539062)
 === RUN   TestReverseRange
---- PASS: TestReverseRange (2.59876251220703e-05)
+--- PASS: TestReverseRange (3.88622283935547e-05)
 === RUN   TestNonDeterministicComparison
---- PASS: TestNonDeterministicComparison (5.2962121963501)
+--- PASS: TestNonDeterministicComparison (6.57940697669983)
 === RUN   TestSortBM
---- PASS: TestSortBM (0.308198928833008)
+--- PASS: TestSortBM (0.372276067733765)
 === RUN   TestHeapsortBM
---- PASS: TestHeapsortBM (0.470427989959717)
+--- PASS: TestHeapsortBM (0.580183982849121)
 === RUN   TestStableBM
---- PASS: TestStableBM (0.675592184066772)
+--- PASS: TestStableBM (0.844922065734863)
 === RUN   TestAdversary
---- PASS: TestAdversary (0.0219290256500244)
+--- PASS: TestAdversary (0.0270040035247803)
 === RUN   TestStableInts
---- PASS: TestStableInts (4.31537628173828e-05)
+--- PASS: TestStableInts (4.88758087158203e-05)
 === RUN   TestStability
---- PASS: TestStability (0.039484977722168)
+--- PASS: TestStability (0.0460748672485352)
 === RUN   TestCountStableOps
---- PASS: TestCountStableOps (0.588176012039185)
+--- PASS: TestCountStableOps (0.736462831497192)
 === RUN   TestCountSortOps
---- PASS: TestCountSortOps (0.238245010375977)
+--- PASS: TestCountSortOps (0.293254852294922)
 ```
 </p>
 </details>
@@ -76,59 +76,59 @@ Package sort provides primitives for sorting slices and user\-defined collection
 
 ```
 === RUN   TestSearch
---- PASS: TestSearch (0.00189304351806640625)
+--- PASS: TestSearch (0.0021209716796875)
 === RUN   TestFind
---- PASS: TestFind (0.000316858291625976562)
+--- PASS: TestFind (0.000314950942993164062)
 === RUN   TestSearchEfficiency
---- PASS: TestSearchEfficiency (0.0857329368591308594)
+--- PASS: TestSearchEfficiency (0.100792884826660156)
 === RUN   TestSearchWrappers
---- PASS: TestSearchWrappers (2.40802764892578125e-05)
+--- PASS: TestSearchWrappers (2.59876251220703125e-05)
 === RUN   TestSearchWrappersDontAlloc
---- PASS: TestSearchWrappersDontAlloc (1.50203704833984375e-05)
+--- PASS: TestSearchWrappersDontAlloc (1.59740447998046875e-05)
 === RUN   TestSearchExhaustive
---- PASS: TestSearchExhaustive (0.181757926940917969)
+--- PASS: TestSearchExhaustive (0.224687814712524414)
 === RUN   TestFindExhaustive
---- PASS: TestFindExhaustive (0.392340898513793945)
+--- PASS: TestFindExhaustive (0.476295948028564453)
 === RUN   TestSortIntSlice
---- PASS: TestSortIntSlice (0.000296115875244140625)
+--- PASS: TestSortIntSlice (0.00033092498779296875)
 === RUN   TestSortFloat64Slice
---- PASS: TestSortFloat64Slice (0.000264883041381835938)
+--- PASS: TestSortFloat64Slice (0.000362873077392578125)
 === RUN   TestSortStringSlice
---- PASS: TestSortStringSlice (0.00014400482177734375)
+--- PASS: TestSortStringSlice (0.0001621246337890625)
 === RUN   TestInts
---- PASS: TestInts (0.000232934951782226562)
+--- PASS: TestInts (0.000236988067626953125)
 === RUN   TestFloat64s
---- PASS: TestFloat64s (0.000249147415161132812)
+--- PASS: TestFloat64s (0.0003108978271484375)
 === RUN   TestStrings
---- PASS: TestStrings (0.000221967697143554688)
+--- PASS: TestStrings (0.000248193740844726562)
 === RUN   TestSlice
---- PASS: TestSlice (0.000488996505737304688)
+--- PASS: TestSlice (0.000586986541748046875)
 === RUN   TestSortLarge_Random
---- PASS: TestSortLarge_Random (0.937425851821899414)
+--- PASS: TestSortLarge_Random (1.15196514129638672)
 === RUN   TestReverseSortIntSlice
---- PASS: TestReverseSortIntSlice (0.000428915023803710938)
+--- PASS: TestReverseSortIntSlice (0.000525951385498046875)
 === RUN   TestBreakPatterns
---- PASS: TestBreakPatterns (0.00057888031005859375)
+--- PASS: TestBreakPatterns (0.000718832015991210938)
 === RUN   TestReverseRange
---- PASS: TestReverseRange (7.2956085205078125e-05)
+--- PASS: TestReverseRange (7.41481781005859375e-05)
 === RUN   TestNonDeterministicComparison
---- PASS: TestNonDeterministicComparison (31.6657030582427979)
+--- PASS: TestNonDeterministicComparison (38.36604905128479)
 === RUN   TestSortBM
---- PASS: TestSortBM (2.26043200492858887)
+--- PASS: TestSortBM (2.7315831184387207)
 === RUN   TestHeapsortBM
---- PASS: TestHeapsortBM (4.56603789329528809)
+--- PASS: TestHeapsortBM (5.53904509544372559)
 === RUN   TestStableBM
---- PASS: TestStableBM (4.84863495826721191)
+--- PASS: TestStableBM (5.87475085258483887)
 === RUN   TestAdversary
---- PASS: TestAdversary (0.265146970748901367)
+--- PASS: TestAdversary (0.325111150741577148)
 === RUN   TestStableInts
---- PASS: TestStableInts (0.000223875045776367188)
+--- PASS: TestStableInts (0.000251054763793945312)
 === RUN   TestStability
---- PASS: TestStability (0.2711181640625)
+--- PASS: TestStability (0.34053492546081543)
 === RUN   TestCountStableOps
---- PASS: TestCountStableOps (3.76330900192260742)
+--- PASS: TestCountStableOps (4.63564705848693848)
 === RUN   TestCountSortOps
---- PASS: TestCountSortOps (1.43198084831237793)
+--- PASS: TestCountSortOps (1.83849096298217773)
 ```
 </p>
 </details>

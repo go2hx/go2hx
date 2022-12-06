@@ -648,15 +648,15 @@ private function exprOfType(t:ComplexType):ComplexType {
 	return t;
 }
 
-private function mapReturnToThrow(e:Expr):Expr {
-	var func = null;
-	func = e -> return switch e.expr {
+private function mapReturnToThrow(expr:Expr):Expr {
+	var f = null;
+	f = expr -> return switch expr.expr {
 		case EReturn(_):
 			macro throw "__return__";
 		default:
-			haxe.macro.ExprTools.map(e, func);
+			haxe.macro.ExprTools.map(expr, f);
 	}
-	return func(e);
+	return f(expr);
 }
 
 private function compareComplexType(a:ComplexType, b:ComplexType):Bool {
@@ -810,7 +810,15 @@ private function typeGoto(label:Expr):Expr {
 }
 private function typeBranchStmt(stmt:Ast.BranchStmt, info:Info):ExprDef {
 	return switch stmt.tok {
-		case CONTINUE: EContinue;
+		case CONTINUE:
+			if (info.continueSwitch) {
+				(macro {
+					__continue__ = true;
+					break;
+				}).expr;
+			} else {
+				EContinue;
+			}
 		case BREAK:
 			info.global.hasBreak = true;
 			if (stmt.label != null) {
@@ -1367,14 +1375,21 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 	if (stmt.body == null || stmt.body.list == null)
 		return (macro {}).expr;
 	info.global.hasBreak = false;
+	info.continueSwitch = true;
 	var expr = ifs();
-	if (info.global.hasBreak) {
+	info.continueSwitch = false;
+	if (info.global.hasBreak) { // no fallthrough stmt for TypeSwitch
 		expr = macro {
-			while (true) {
+			var __bool__ = true;
+			var __continue__ = true;
+			while (__bool__) {
+				__bool__ = false;
 				$expr;
 				break;
 			}
-		};
+			if (__continue__)
+				continue;
+		}
 	}
 	if (init != null)
 		expr = switch expr.expr {
@@ -1578,7 +1593,9 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 			$next;
 	}
 	info.global.hasBreak = false;
+	info.continueSwitch = true;
 	var expr = ifs();
+	info.continueSwitch = false;
 	if (hasFallThrough || info.global.hasBreak) {
 		if (info.global.hasBreak) {
 			function func(expr:Expr):Expr {
@@ -1608,13 +1625,15 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 			expr = func(expr);
 		}
 		var needsReturn = exprWillReturn(expr);
-
 		expr = macro {
 			var __switchIndex__ = -1;
+			var __continue__ = false;
 			while (true) {
 				$expr;
 				break;
 			}
+			if (__continue__)
+				continue;
 		};
 		if (needsReturn) {
 			switch expr.expr {
@@ -6722,6 +6741,7 @@ class Global {
 class Info {
 	public var blankCounter:Int = 0;
 	public var count:Int = 0;
+	public var continueSwitch:Bool = false;
 	public var restricted:Array<String> = [];
 	public var thisName:String = "";
 	public var deferBool:Bool = false;
@@ -6759,6 +6779,7 @@ class Info {
 
 	public inline function copy() {
 		var info = new Info();
+		info.continueSwitch = continueSwitch;
 		info.returnTypes = returnTypes.copy();
 		info.returnComplexTypes = returnComplexTypes.copy();
 		info.returnNames = returnNames.copy();

@@ -15,14 +15,17 @@ Package strconv implements conversions to and from string representations of bas
 ```
 Error: Command failed with error 1
 === RUN   TestParseBool
---- PASS: TestParseBool (0.000278949737548828)
+--- PASS: TestParseBool (0.000210046768188477)
 === RUN   TestFormatBool
---- PASS: TestFormatBool (3.60012054443359e-05)
+--- PASS: TestFormatBool (3.00407409667969e-05)
 === RUN   TestAppendBool
---- PASS: TestAppendBool (2.19345092773438e-05)
+--- PASS: TestAppendBool (1.78813934326172e-05)
 === RUN   TestParseComplex
-Exception: nil check not supported kind: invalid
-Called from stdgo.reflect._Reflect.$Reflect_Fields_.deepEqual (stdgo/reflect/Reflect.hx line 715)
+StdGoTypes.hx:1784: structType([stdgo.internal.reflect.FieldType,stdgo.internal.reflect.FieldType,stdgo.internal.reflect.FieldType])
+StdGoTypes.hx:1785: refType(named(stdgo.strconv.NumError,[unwrap: {get : function#56526ACD14B8},error: {get : function#56526ACD14F8}],structType([stdgo.internal.reflect.FieldType,stdgo.internal.reflect.FieldType,stdgo.internal.reflect.FieldType]),null,null))
+Exception: invalid operation: (mismatched types stdgo.internal.reflect._Type and stdgo.internal.reflect._Type)
+Called from stdgo.internal.reflect._Reflect.$Reflect_Fields_.deepValueEqual (stdgo/internal/reflect/Reflect.hx line 128)
+Called from stdgo.reflect._Reflect.$Reflect_Fields_.deepEqual (stdgo/reflect/Reflect.hx line 720)
 Called from stdgo.strconv_test._Strconv_test.$Strconv_test_Fields_.testParseComplex (stdgo/strconv_test/Strconv_test.hx line 2481)
 Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 353)
 Called from stdgo.strconv_test._Strconv.$Strconv_Fields_.main (stdgo/strconv_test/Strconv.hx line 231)
@@ -35,16 +38,19 @@ Called from stdgo.strconv_test._Strconv.$Strconv_Fields_.main (stdgo/strconv_tes
 
 ```
 === RUN   TestParseBool
---- PASS: TestParseBool (0.000489950180053710938)
+--- PASS: TestParseBool (0.0004940032958984375)
 === RUN   TestFormatBool
---- PASS: TestFormatBool (8.08238983154296875e-05)
+--- PASS: TestFormatBool (7.89165496826171875e-05)
 === RUN   TestAppendBool
---- PASS: TestAppendBool (8.106231689453125e-05)
+--- PASS: TestAppendBool (8.296966552734375e-05)
 === RUN   TestParseComplex
-Exception: nil check not supported kind: invalid
+StdGoTypes.hx:1784: structType([stdgo.internal.reflect.FieldType,stdgo.internal.reflect.FieldType,stdgo.internal.reflect.FieldType])
+StdGoTypes.hx:1785: refType(named(stdgo.strconv.NumError,[unwrap: {get: #fun},error: {get: #fun}],structType([stdgo.internal.reflect.FieldType,stdgo.internal.reflect.FieldType,stdgo.internal.reflect.FieldType]),null,null))
+Exception: invalid operation: (mismatched types stdgo.internal.reflect._Type and stdgo.internal.reflect._Type)
 Called from stdgo.strconv_test._Strconv_test.Strconv_test_Fields_.testParseComplex (stdgo/strconv_test/Strconv_test.hx line 2481 column 8)
-Called from stdgo.reflect._Reflect.Reflect_Fields_.deepEqual (stdgo/reflect/Reflect.hx line 715 column 6)
-Called from stdgo.reflect.Value_static_extension.isNil (stdgo/reflect/Reflect.hx line 2263 column 5)
+Called from stdgo.reflect._Reflect.Reflect_Fields_.deepEqual (stdgo/reflect/Reflect.hx line 720 column 9)
+Called from stdgo.internal.reflect._Reflect.Reflect_Fields_.deepValueEqual (stdgo/internal/reflect/Reflect.hx line 128 column 10)
+Called from stdgo._StdGoTypes.AnyInterface_Impl_.equals (stdgo/StdGoTypes.hx line 1786 column 4)
 ```
 </p>
 </details>

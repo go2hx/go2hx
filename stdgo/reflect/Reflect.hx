@@ -2259,6 +2259,8 @@ class Value_asInterface {
 				false;
 			case stdgo.internal.reflect.Reflect.KindType.struct:
 				false;
+			case stdgo.internal.reflect.Reflect.KindType.invalid:
+				false;
 			default:
 				throw "nil check not supported kind: " + _v.kind().string();
 		};

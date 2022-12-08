@@ -61,14 +61,14 @@ function deepValueEqual(v1:Value, v2:Value, visited:GoMap<Visit, Bool>, depth:Go
 	if (!v1.isValid() || !v2.isValid()) {
 		return v1.isValid() == v2.isValid();
 	}
-	if (v1.kind() == array) {
+	if (v1.kind() == KindType.array) {
 		for (i in 0...v1.len().toBasic()) {
 			if (!deepValueEqual(v1.index(i), v2.index(i), visited, depth + (1 : GoInt64))) {
 				return false;
 			}
 		}
 		return true;
-	} else if (v1.kind() == slice) {
+	} else if (v1.kind() == KindType.slice) {
 		if (v1.isNil() != v2.isNil()) {
 			return false;
 		}
@@ -84,24 +84,24 @@ function deepValueEqual(v1:Value, v2:Value, visited:GoMap<Visit, Bool>, depth:Go
 			}
 		}
 		return true;
-	} else if (v1.kind() == interface_) {
+	} else if (v1.kind() == KindType.interface_) {
 		if (v1.isNil() || v2.isNil()) {
 			return v1.isNil() == v2.isNil();
 		}
 		return true;
-	} else if (v1.kind() == ptr) {
+	} else if (v1.kind() == KindType.pointer) {
 		if (v1.pointer() == v2.pointer()) {
 			return true;
 		};
 		return deepValueEqual(v1.elem(), v2.elem(), visited, depth + (1 : GoInt64));
-	} else if (v1.kind() == struct_) {
+	} else if (v1.kind() == KindType.struct) {
 		for (i in 0...v1.numField().toBasic()) {
 			if (!deepValueEqual(v1.field(i), v2.field(i), visited, depth + (1 : GoInt64))) {
 				return false;
 			}
 		}
 		return true;
-	} else if (v1.kind() == map) {
+	} else if (v1.kind() == KindType.map) {
 		if (v1.isNil() != v2.isNil()) {
 			return false;
 		}
@@ -119,12 +119,13 @@ function deepValueEqual(v1:Value, v2:Value, visited:GoMap<Visit, Bool>, depth:Go
 			}
 		}
 		return true;
-	} else if (v1.kind() == func) {
+	} else if (v1.kind() == KindType.func) {
 		if (v1.isNil() && v2.isNil()) {
 			return true;
 		}
 		return false;
 	} else {
+		// trace(v1.kind().string(), v2.kind().string());
 		return v1.interface_() == v2.interface_();
 	}
 }

@@ -2945,9 +2945,12 @@ function _separator(_std:GoInt):GoByte {
 	// and returns the result.
 **/
 function _formatNano(_b:Slice<GoByte>, _nanosec:GoUInt, _std:GoInt):Slice<GoByte> {
-	var _n:GoInt = _digitsLen(_std),
-		_separator:GoUInt8 = _separator(_std),
-		_trim:Bool = _std & (65535 : GoInt) == ((35 : GoInt));
+	var _0:GoInt = _digitsLen(_std),
+		_1:GoUInt8 = _separator(_std),
+		_2:Bool = _std & (65535 : GoInt) == ((35 : GoInt)),
+		_trim:Bool = _2,
+		_separator:GoUInt8 = _1,
+		_n:GoInt = _0;
 	var _u:GoUInt = _nanosec;
 	var _buf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0...9) (0 : GoUInt8)]);
 	{
@@ -3043,7 +3046,10 @@ function _getnum(_s:GoString, _fixed:Bool):{var _0:GoInt; var _1:GoString; var _
 	// of the string.
 **/
 function _getnum3(_s:GoString, _fixed:Bool):{var _0:GoInt; var _1:GoString; var _2:Error;} {
-	var _n:GoInt = (0 : GoInt), _i:GoInt = (0 : GoInt);
+	var _0:GoInt = (0 : GoInt),
+		_1:GoInt = (0 : GoInt),
+		_i:GoInt = _1,
+		_n:GoInt = _0;
 	{
 		_i = (0 : GoInt);
 		Go.cfor((_i < (3:GoInt)) && _isDigit(_s, _i), _i++, {
@@ -3146,21 +3152,35 @@ function parseInLocation(_layout:GoString, _value:GoString, _loc:Ref<Location>):
 }
 
 function _parse(_layout:GoString, _value:GoString, _defaultLocation:Ref<Location>, _local:Ref<Location>):{var _0:Time; var _1:Error;} {
-	var _alayout:GoString = _layout, _avalue:GoString = _value;
+	var _0:GoString = _layout,
+		_1:GoString = _value,
+		_avalue:GoString = _1,
+		_alayout:GoString = _0;
 	var _rangeErrString:GoString = Go.str();
 	var _amSet:Bool = false;
 	var _pmSet:Bool = false;
-	var _year:GoInt = (0 : GoInt),
-		_month:GoInt = (-1 : GoInt),
-		_day:GoInt = (-1 : GoInt),
-		_yday:GoInt = (-1 : GoInt),
-		_hour:GoInt = (0 : GoInt),
-		_min:GoInt = (0 : GoInt),
-		_sec:GoInt = (0 : GoInt),
-		_nsec:GoInt = (0 : GoInt),
-		_z:Ref<Location> = (null : Ref<Location>),
-		_zoneOffset:GoInt = (-1 : GoInt),
-		_zoneName:GoString = ("" : GoString);
+	var _0:GoInt = (0 : GoInt),
+		_1:GoInt = (-1 : GoInt),
+		_2:GoInt = (-1 : GoInt),
+		_3:GoInt = (-1 : GoInt),
+		_4:GoInt = (0 : GoInt),
+		_5:GoInt = (0 : GoInt),
+		_6:GoInt = (0 : GoInt),
+		_7:GoInt = (0 : GoInt),
+		_8:Ref<Location> = (null : Ref<Location>),
+		_9:GoInt = (-1 : GoInt),
+		_10:GoString = ("" : GoString),
+		_zoneName:GoString = _10,
+		_zoneOffset:GoInt = _9,
+		_z:Ref<Location> = _8,
+		_nsec:GoInt = _7,
+		_sec:GoInt = _6,
+		_min:GoInt = _5,
+		_hour:GoInt = _4,
+		_yday:GoInt = _3,
+		_day:GoInt = _2,
+		_month:GoInt = _1,
+		_year:GoInt = _0;
 	while (true) {
 		var _err:Error = (null : Error);
 		var __tmp__ = _nextStdChunk(_layout),
@@ -3420,10 +3440,14 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Ref<Location
 						_z = utc;
 						break;
 					};
-					var _sign:GoString = ("" : GoString),
-						_hour:GoString = ("" : GoString),
-						_min:GoString = ("" : GoString),
-						_seconds:GoString = ("" : GoString);
+					var _0:GoString = ("" : GoString),
+						_1:GoString = ("" : GoString),
+						_2:GoString = ("" : GoString),
+						_3:GoString = ("" : GoString),
+						_seconds:GoString = _3,
+						_min:GoString = _2,
+						_hour:GoString = _1,
+						_sign:GoString = _0;
 					if ((_std == (27 : GoInt)) || (_std == (32 : GoInt))) {
 						if ((_value.length) < (6 : GoInt)) {
 							_err = _errBad;
@@ -3518,9 +3542,12 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Ref<Location
 							_value = __tmp__4;
 						};
 					};
-					var _hr:GoInt = (0 : GoInt),
-						_mm:GoInt = (0 : GoInt),
-						_ss:GoInt = (0 : GoInt);
+					var _0:GoInt = (0 : GoInt),
+						_1:GoInt = (0 : GoInt),
+						_2:GoInt = (0 : GoInt),
+						_ss:GoInt = _2,
+						_mm:GoInt = _1,
+						_hr:GoInt = _0;
 					{
 						var __tmp__ = _atoi(_hour);
 						_hr = __tmp__._0;
@@ -3931,9 +3958,12 @@ function parseDuration(_s:GoString):{var _0:Duration; var _1:Error;} {
 		return {_0: (("0" : GoInt64) : Duration), _1: stdgo.errors.Errors.new_(Go.str("time: invalid duration ") + _quote(_orig))};
 	};
 	while (_s != (Go.str())) {
-		var _v:GoUInt64 = (0 : GoUInt64),
-			_f:GoUInt64 = (0 : GoUInt64),
-			_scale:GoFloat64 = (1 : GoFloat64);
+		var _0:GoUInt64 = (0 : GoUInt64),
+			_1:GoUInt64 = (0 : GoUInt64),
+			_2:GoFloat64 = (1 : GoFloat64),
+			_scale:GoFloat64 = _2,
+			_f:GoUInt64 = _1,
+			_v:GoUInt64 = _0;
 		var _err:Error = (null : Error);
 		if (!((_s[(0 : GoInt)] == (".".code : GoRune))
 			|| ((("0".code : GoRune) <= _s[(0 : GoInt)]) && (_s[(0 : GoInt)] <= ("9".code : GoRune))))) {
@@ -4715,7 +4745,10 @@ function _div(_t:Time, _d:Duration):{var _0:GoInt; var _1:Duration;} {
 				var _u1:GoUInt64 = _tmp >> ("32" : GoUInt64);
 				var _u0:GoUInt64 = _tmp << ("32" : GoUInt64);
 				_tmp = (_sec & (("4294967295" : GoUInt64) : GoUInt64)) * ("1000000000" : GoUInt64);
-				var _u0x:GoUInt64 = _u0, _u0:GoUInt64 = _u0 + _tmp;
+				var _0:GoUInt64 = _u0,
+					_1:GoUInt64 = _u0 + _tmp,
+					_u0:GoUInt64 = _1,
+					_u0x:GoUInt64 = _0;
 				if (_u0 < _u0x) {
 					_u1++;
 				};
@@ -4806,10 +4839,14 @@ function _tzset(_s:GoString, _initEnd:GoInt64, _sec:GoInt64):{
 		_end:GoInt64 = (0 : GoInt64),
 		_isDST:Bool = false,
 		_ok:Bool = false;
-	var _stdName:GoString = ("" : GoString),
-		_dstName:GoString = ("" : GoString),
-		_stdOffset:GoInt = (0 : GoInt),
-		_dstOffset:GoInt = (0 : GoInt);
+	var _0:GoString = ("" : GoString),
+		_1:GoString = ("" : GoString),
+		_2:GoInt = (0 : GoInt),
+		_3:GoInt = (0 : GoInt),
+		_dstOffset:GoInt = _3,
+		_stdOffset:GoInt = _2,
+		_dstName:GoString = _1,
+		_stdName:GoString = _0;
 	{
 		var __tmp__ = _tzsetName(_s);
 		_stdName = __tmp__._0;
@@ -4888,7 +4925,10 @@ function _tzset(_s:GoString, _initEnd:GoInt64, _sec:GoInt64):{
 		};
 	};
 	_s = (_s.__slice__((1 : GoInt)) : GoString);
-	var _startRule:T_rule = ({} : T_rule), _endRule:T_rule = ({} : T_rule);
+	var _0:T_rule = ({} : T_rule),
+		_1:T_rule = ({} : T_rule),
+		_endRule:T_rule = _1,
+		_startRule:T_rule = _0;
 	{
 		var __tmp__ = _tzsetRule(_s);
 		_startRule = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
@@ -4933,7 +4973,10 @@ function _tzset(_s:GoString, _initEnd:GoInt64, _sec:GoInt64):{
 	_abs = _abs + (("-9223372028715321600" : GoInt64));
 	var _startSec:GoInt64 = (_tzruleTime(_year, (_startRule == null ? null : _startRule.__copy__()), _stdOffset) : GoInt64);
 	var _endSec:GoInt64 = (_tzruleTime(_year, (_endRule == null ? null : _endRule.__copy__()), _dstOffset) : GoInt64);
-	var _dstIsDST:Bool = true, _stdIsDST:Bool = false;
+	var _0:Bool = true,
+		_1:Bool = false,
+		_stdIsDST:Bool = _1,
+		_dstIsDST:Bool = _0;
 	if (_endSec < _startSec) {
 		{
 			final __tmp__0 = _endSec;
@@ -5951,9 +5994,12 @@ function _readFile(_name:GoString):{var _0:Slice<GoByte>; var _1:Error;} {
 		__deferstack__.unshift(() -> _closefd(_a0));
 	};
 	try {
-		var _buf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0...4096) (0 : GoUInt8)]),
-			_ret:Slice<GoByte> = (null : Slice<GoUInt8>),
-			_n:GoInt = (0 : GoInt);
+		var _0:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0...4096) (0 : GoUInt8)]),
+			_1:Slice<GoByte> = (null : Slice<GoUInt8>),
+			_2:GoInt = (0 : GoInt),
+			_n:GoInt = _2,
+			_ret:Slice<GoByte> = _1,
+			_buf:GoArray<GoByte> = _0;
 		while (true) {
 			{
 				var __tmp__ = _read(_f, (_buf.__slice__(0) : Slice<GoUInt8>));
@@ -7616,17 +7662,24 @@ class Time_asInterface {
 	**/
 	@:keep
 	static public function appendFormat(_t:Time, _b:Slice<GoByte>, _layout:GoString):Slice<GoByte> {
-		var __tmp__ = _t._locabs(),
+		var _0:GoInt = (-1 : GoInt),
+			_1:Month = ((0 : GoInt) : Month),
+			_2:GoInt = (0 : GoInt),
+			_3:GoInt = (0 : GoInt),
+			_4:GoInt = (-1 : GoInt),
+			_5:GoInt = (0 : GoInt),
+			_6:GoInt = (0 : GoInt),
+			__tmp__ = _t._locabs(),
 			_name:GoString = __tmp__._0,
 			_offset:GoInt = __tmp__._1,
 			_abs:GoUInt64 = __tmp__._2,
-			_year:GoInt = (-1 : GoInt),
-			_month:Month = ((0 : GoInt) : Month),
-			_day:GoInt = (0 : GoInt),
-			_yday:GoInt = (0 : GoInt),
-			_hour:GoInt = (-1 : GoInt),
-			_min:GoInt = (0 : GoInt),
-			_sec:GoInt = (0 : GoInt);
+			_sec:GoInt = _6,
+			_min:GoInt = _5,
+			_hour:GoInt = _4,
+			_yday:GoInt = _3,
+			_day:GoInt = _2,
+			_month:Month = _1,
+			_year:GoInt = _0;
 		while (_layout != (Go.str())) {
 			var __tmp__ = _nextStdChunk(_layout),
 				_prefix:GoString = __tmp__._0,
@@ -7911,10 +7964,14 @@ class Time_asInterface {
 				_sign = ("-".code : GoRune);
 				_m2 = -_m2;
 			};
-			var _m1:GoUInt64 = _m2 / ("1000000000" : GoUInt64),
-				_m2:GoUInt64 = _m2 % ("1000000000" : GoUInt64);
-			var _m0:GoUInt64 = _m1 / ("1000000000" : GoUInt64),
-				_m1:GoUInt64 = _m1 % ("1000000000" : GoUInt64);
+			var _0:GoUInt64 = _m2 / ("1000000000" : GoUInt64),
+				_1:GoUInt64 = _m2 % ("1000000000" : GoUInt64),
+				_m2:GoUInt64 = _1,
+				_m1:GoUInt64 = _0;
+			var _0:GoUInt64 = _m1 / ("1000000000" : GoUInt64),
+				_1:GoUInt64 = _m1 % ("1000000000" : GoUInt64),
+				_m1:GoUInt64 = _1,
+				_m0:GoUInt64 = _0;
 			var _buf = new Slice<GoUInt8>((0 : GoInt).toBasic(), (24 : GoInt), ...[for (i in 0...(0 : GoInt).toBasic()) (0 : GoUInt8)]);
 			_buf = _buf.__appendref__(...Go.str(" m=").__toArray__());
 			_buf = _buf.__appendref__(_sign);

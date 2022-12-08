@@ -443,8 +443,10 @@ function _nearEqual(_a:GoFloat64, _b:GoFloat64, _closeEnough:GoFloat64, _maxErro
 
 function _getStatsResults(_samples:Slice<GoFloat64>):Ref<T_statsResults> {
 	var _res = ({} : stdgo.math.rand_test.Rand_test.T_statsResults);
-	var _sum:GoFloat64 = (0 : GoFloat64),
-		_squaresum:GoFloat64 = (0 : GoFloat64);
+	var _0:GoFloat64 = (0 : GoFloat64),
+		_1:GoFloat64 = (0 : GoFloat64),
+		_squaresum:GoFloat64 = _1,
+		_sum:GoFloat64 = _0;
 	for (_0 => _s in _samples) {
 		_sum = _sum + (_s);
 		_squaresum = _squaresum + (_s * _s);
@@ -577,9 +579,12 @@ function _initNorm():{var _0:Slice<GoUInt32>; var _1:Slice<GoFloat32>; var _2:Sl
 		_testWn:Slice<GoFloat32> = (null : Slice<GoFloat32>),
 		_testFn:Slice<GoFloat32> = (null : Slice<GoFloat32>);
 	{};
-	var _dn:GoFloat64 = _rn,
-		_tn:GoFloat64 = _dn,
-		_vn:GoFloat64 = (0.00991256303526217 : GoFloat64);
+	var _0:GoFloat64 = _rn,
+		_1:GoFloat64 = _dn,
+		_2:GoFloat64 = (0.00991256303526217 : GoFloat64),
+		_vn:GoFloat64 = _2,
+		_tn:GoFloat64 = _1,
+		_dn:GoFloat64 = _0;
 	_testKn = new Slice<GoUInt32>((128 : GoInt).toBasic(), 0, ...[for (i in 0...(128 : GoInt).toBasic()) (0 : GoUInt32)]);
 	_testWn = new Slice<GoFloat32>((128 : GoInt).toBasic(), 0, ...[for (i in 0...(128 : GoInt).toBasic()) (0 : GoFloat32)]);
 	_testFn = new Slice<GoFloat32>((128 : GoInt).toBasic(), 0, ...[for (i in 0...(128 : GoInt).toBasic()) (0 : GoFloat32)]);
@@ -608,9 +613,12 @@ function _initExp():{var _0:Slice<GoUInt32>; var _1:Slice<GoFloat32>; var _2:Sli
 		_testWe:Slice<GoFloat32> = (null : Slice<GoFloat32>),
 		_testFe:Slice<GoFloat32> = (null : Slice<GoFloat32>);
 	{};
-	var _de:GoFloat64 = _re,
-		_te:GoFloat64 = _de,
-		_ve:GoFloat64 = (0.003949659822581557 : GoFloat64);
+	var _0:GoFloat64 = _re,
+		_1:GoFloat64 = _de,
+		_2:GoFloat64 = (0.003949659822581557 : GoFloat64),
+		_ve:GoFloat64 = _2,
+		_te:GoFloat64 = _1,
+		_de:GoFloat64 = _0;
 	_testKe = new Slice<GoUInt32>((256 : GoInt).toBasic(), 0, ...[for (i in 0...(256 : GoInt).toBasic()) (0 : GoUInt32)]);
 	_testWe = new Slice<GoFloat32>((256 : GoInt).toBasic(), 0, ...[for (i in 0...(256 : GoInt).toBasic()) (0 : GoFloat32)]);
 	_testFe = new Slice<GoFloat32>((256 : GoInt).toBasic(), 0, ...[for (i in 0...(256 : GoInt).toBasic()) (0 : GoFloat32)]);
@@ -766,9 +774,12 @@ function _testReadUniformity(_t:Ref<stdgo.testing.Testing.T>, _n:GoInt, _seed:Go
 	if (_nRead != (_n)) {
 		_t.errorf(Go.str("Read returned unexpected n; %d != %d"), Go.toInterface(_nRead), Go.toInterface(_n));
 	};
-	var _mean:GoFloat64 = (127.5 : GoFloat64),
-		_stddev:GoFloat64 = (256 : GoFloat64) / stdgo.math.Math.sqrt((12 : GoFloat64)),
-		_errorScale:GoFloat64 = _stddev / stdgo.math.Math.sqrt((_n : GoFloat64));
+	var _0:GoFloat64 = (127.5 : GoFloat64),
+		_1:GoFloat64 = (256 : GoFloat64) / stdgo.math.Math.sqrt((12 : GoFloat64)),
+		_2:GoFloat64 = _stddev / stdgo.math.Math.sqrt((_n : GoFloat64)),
+		_errorScale:GoFloat64 = _2,
+		_stddev:GoFloat64 = _1,
+		_mean:GoFloat64 = _0;
 	var _expected = ((new stdgo.math.rand_test.Rand_test.T_statsResults(_mean, _stddev, (0.1 : GoFloat64) * _errorScale,
 		(0.08 : GoFloat64) * _errorScale) : stdgo.math.rand_test.Rand_test.T_statsResults) : Ref<stdgo.math.rand_test.Rand_test.T_statsResults>);
 	var _samples = new Slice<GoFloat64>((_n : GoInt).toBasic(), 0, ...[for (i in 0...(_n : GoInt).toBasic()) (0 : GoFloat64)]);

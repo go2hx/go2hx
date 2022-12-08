@@ -963,7 +963,10 @@ function repeat(_b:Slice<GoByte>, _count:GoInt):Slice<GoByte> {
 	// their upper case.
 **/
 function toUpper(_s:Slice<GoByte>):Slice<GoByte> {
-	var _isASCII:Bool = true, _hasLower:Bool = false;
+	var _0:Bool = true,
+		_1:Bool = false,
+		_hasLower:Bool = _1,
+		_isASCII:Bool = _0;
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_s.length), _i++, {
@@ -1000,7 +1003,10 @@ function toUpper(_s:Slice<GoByte>):Slice<GoByte> {
 	// their lower case.
 **/
 function toLower(_s:Slice<GoByte>):Slice<GoByte> {
-	var _isASCII:Bool = true, _hasUpper:Bool = false;
+	var _0:Bool = true,
+		_1:Bool = false,
+		_hasUpper:Bool = _1,
+		_isASCII:Bool = _0;
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_s.length), _i++, {
@@ -1252,8 +1258,10 @@ function _lastIndexFunc(_s:Slice<GoByte>, _f:(_r:GoRune) -> Bool, _truth:Bool):G
 	{
 		var _i:GoInt = (_s.length);
 		while (_i > (0 : GoInt)) {
-			var _r:GoInt32 = (_s[_i - (1 : GoInt)] : GoRune),
-				_size:GoInt = (1 : GoInt);
+			var _0:GoInt32 = (_s[_i - (1 : GoInt)] : GoRune),
+				_1:GoInt = (1 : GoInt),
+				_size:GoInt = _1,
+				_r:GoInt32 = _0;
 			if (_r >= (128 : GoInt32)) {
 				{
 					var __tmp__ = stdgo.unicode.utf8.Utf8.decodeLastRune((_s.__slice__((0 : GoInt), _i) : Slice<GoUInt8>));
@@ -1378,7 +1386,10 @@ function _trimLeftASCII(_s:Slice<GoByte>, _as:Ref<T_asciiSet>):Slice<GoByte> {
 
 function _trimLeftUnicode(_s:Slice<GoByte>, _cutset:GoString):Slice<GoByte> {
 	while ((_s.length) > (0 : GoInt)) {
-		var _r:GoInt32 = (_s[(0 : GoInt)] : GoRune), _n:GoInt = (1 : GoInt);
+		var _0:GoInt32 = (_s[(0 : GoInt)] : GoRune),
+			_1:GoInt = (1 : GoInt),
+			_n:GoInt = _1,
+			_r:GoInt32 = _0;
 		if (_r >= (128 : GoInt32)) {
 			{
 				var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRune(_s);
@@ -1438,8 +1449,10 @@ function _trimRightASCII(_s:Slice<GoByte>, _as:Ref<T_asciiSet>):Slice<GoByte> {
 
 function _trimRightUnicode(_s:Slice<GoByte>, _cutset:GoString):Slice<GoByte> {
 	while ((_s.length) > (0 : GoInt)) {
-		var _r:GoInt32 = (_s[(_s.length) - (1 : GoInt)] : GoRune),
-			_n:GoInt = (1 : GoInt);
+		var _0:GoInt32 = (_s[(_s.length) - (1 : GoInt)] : GoRune),
+			_1:GoInt = (1 : GoInt),
+			_n:GoInt = _1,
+			_r:GoInt32 = _0;
 		if (_r >= (128 : GoInt32)) {
 			{
 				var __tmp__ = stdgo.unicode.utf8.Utf8.decodeLastRune(_s);
@@ -1571,7 +1584,10 @@ function replaceAll(_s:Slice<GoByte>, _old:Slice<GoByte>, _new:Slice<GoByte>):Sl
 **/
 function equalFold(_s:Slice<GoByte>, _t:Slice<GoByte>):Bool {
 	while ((_s.length != (0 : GoInt)) && (_t.length != (0 : GoInt))) {
-		var _sr:GoRune = (0 : GoInt32), _tr:GoRune = (0 : GoInt32);
+		var _0:GoRune = (0 : GoInt32),
+			_1:GoRune = (0 : GoInt32),
+			_tr:GoRune = _1,
+			_sr:GoRune = _0;
 		if (_s[(0 : GoInt)] < (128 : GoUInt8)) {
 			{
 				final __tmp__0 = (_s[(0 : GoInt)] : GoRune);

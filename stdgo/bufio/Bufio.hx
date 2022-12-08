@@ -624,7 +624,10 @@ function scanWords(_data:Slice<GoByte>, _atEOF:Bool):{var _0:GoInt; var _1:Slice
 		});
 	};
 	{
-		var _width:GoInt = (0 : GoInt), _i:GoInt = _start;
+		var _0:GoInt = (0 : GoInt),
+			_1:GoInt = _start,
+			_i:GoInt = _1,
+			_width:GoInt = _0;
 		Go.cfor(_i < (_data.length), _i = _i + (_width), {
 			var _r:GoRune = (0 : GoInt32);
 			{

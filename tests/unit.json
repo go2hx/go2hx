@@ -56,6 +56,7 @@
  "hl|struct0",
  "hl|struct1",
  "hl|unsafe0",
+ "hl|var0",
  "interp|append0",
  "interp|builtin0",
  "interp|complex0",
@@ -113,6 +114,7 @@
  "interp|struct0",
  "interp|struct1",
  "interp|unsafe0",
+ "interp|var0",
  "jvm|builtin0",
  "jvm|complex0",
  "jvm|complex1",
@@ -164,5 +166,6 @@
  "jvm|select2",
  "jvm|struct0",
  "jvm|struct1",
- "jvm|unsafe0"
+ "jvm|unsafe0",
+ "jvm|var0"
 ]

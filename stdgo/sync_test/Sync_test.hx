@@ -900,8 +900,10 @@ function benchmarkRange(_b:Ref<stdgo.testing.Testing.B>):Void {
 function benchmarkAdversarialAlloc(_b:Ref<stdgo.testing.Testing.B>):Void {
 	_benchMap(_b, ({
 		_perG: function(_b:Ref<stdgo.testing.Testing.B>, _pb:Ref<stdgo.testing.Testing.PB>, _i:GoInt, _m:T_mapInterface):Void {
-			var _stores:GoInt64 = (0 : GoInt64),
-				_loadsSinceStore:GoInt64 = (0 : GoInt64);
+			var _0:GoInt64 = (0 : GoInt64),
+				_1:GoInt64 = (0 : GoInt64),
+				_loadsSinceStore:GoInt64 = _1,
+				_stores:GoInt64 = _0;
 			Go.cfor(_pb.next(), _i++, {
 				_m.load(Go.toInterface(_i));
 				{
@@ -1113,8 +1115,10 @@ function testConcurrentRange(_t:Ref<stdgo.testing.Testing.T>):Void {
 			Go.cfor(_n > (0 : GoInt), _n--, {
 				var _seen = new Map<Int, Bool>();
 				_m.range(function(_ki:AnyInterface, _vi:AnyInterface):Bool {
-					var _k:GoInt64 = (Go.typeAssert((_ki : GoInt64)) : GoInt64),
-						_v:GoInt64 = (Go.typeAssert((_vi : GoInt64)) : GoInt64);
+					var _0:GoInt64 = (Go.typeAssert((_ki : GoInt64)) : GoInt64),
+						_1:GoInt64 = (Go.typeAssert((_vi : GoInt64)) : GoInt64),
+						_v:GoInt64 = _1,
+						_k:GoInt64 = _0;
 					if (_v % _k != (("0" : GoInt64))) {
 						_t.fatalf(Go.str("while Storing multiples of %v, Range saw value %v"), Go.toInterface(_k), Go.toInterface(_v));
 					};
@@ -1541,7 +1545,10 @@ function benchmarkMutexWorkSlack(_b:Ref<stdgo.testing.Testing.B>):Void {
 
 function benchmarkMutexNoSpin(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _m:Mutex = ({} : Mutex);
-	var _acc0:GoUInt64 = (0 : GoUInt64), _acc1:GoUInt64 = (0 : GoUInt64);
+	var _0:GoUInt64 = (0 : GoUInt64),
+		_1:GoUInt64 = (0 : GoUInt64),
+		_acc1:GoUInt64 = _1,
+		_acc0:GoUInt64 = _0;
 	_b.setParallelism((4 : GoInt));
 	_b.runParallel(function(_pb:Ref<stdgo.testing.Testing.PB>):Void {
 		var _c = new Chan<Bool>(0, () -> false);
@@ -1576,7 +1583,10 @@ function benchmarkMutexNoSpin(_b:Ref<stdgo.testing.Testing.B>):Void {
 
 function benchmarkMutexSpin(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _m:Mutex = ({} : Mutex);
-	var _acc0:GoUInt64 = (0 : GoUInt64), _acc1:GoUInt64 = (0 : GoUInt64);
+	var _0:GoUInt64 = (0 : GoUInt64),
+		_1:GoUInt64 = (0 : GoUInt64),
+		_acc1:GoUInt64 = _1,
+		_acc0:GoUInt64 = _0;
 	_b.runParallel(function(_pb:Ref<stdgo.testing.Testing.PB>):Void {
 		var _data:GoArray<GoUInt64> = new GoArray<GoUInt64>(...[for (i in 0...16384) (0 : GoUInt64)]);
 		{
@@ -1862,8 +1872,10 @@ function _testPool(_t:Ref<stdgo.testing.Testing.T>, _drain:Bool):Void {
 				if ((_try == (1 : GoInt)) && stdgo.testing.Testing.short()) {
 					break;
 				};
-				var _fin:GoUInt32 = (0 : GoUInt32),
-					_fin1:GoUInt32 = (0 : GoUInt32);
+				var _0:GoUInt32 = (0 : GoUInt32),
+					_1:GoUInt32 = (0 : GoUInt32),
+					_fin1:GoUInt32 = _1,
+					_fin:GoUInt32 = _0;
 				{
 					var _i:GoInt = (0 : GoInt);
 					Go.cfor(_i < (100:GoInt), _i++, {
@@ -2162,8 +2174,10 @@ function benchmarkPoolExpensiveNew(_b:Ref<stdgo.testing.Testing.B>):Void {
 			stdgo.time.Time.sleep((("1000000" : GoInt64) : stdgo.time.Time.Duration));
 			return Go.toInterface((42 : GoInt));
 		};
-		var _mstats1:stdgo.runtime.Runtime.MemStats = ({} : stdgo.runtime.Runtime.MemStats),
-			_mstats2:stdgo.runtime.Runtime.MemStats = ({} : stdgo.runtime.Runtime.MemStats);
+		var _0:stdgo.runtime.Runtime.MemStats = ({} : stdgo.runtime.Runtime.MemStats),
+			_1:stdgo.runtime.Runtime.MemStats = ({} : stdgo.runtime.Runtime.MemStats),
+			_mstats2:stdgo.runtime.Runtime.MemStats = _1,
+			_mstats1:stdgo.runtime.Runtime.MemStats = _0;
 		stdgo.runtime.Runtime.readMemStats((_mstats1 : Ref<stdgo.runtime.Runtime.MemStats>));
 		_b.runParallel(function(_pb:Ref<stdgo.testing.Testing.PB>):Void {
 			var _items = new Slice<AnyInterface>((100 : GoInt).toBasic(), 0, ...[for (i in 0...(100 : GoInt).toBasic()) (null : AnyInterface)]);

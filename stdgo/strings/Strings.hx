@@ -1185,7 +1185,10 @@ function repeat(_s:GoString, _count:GoInt):GoString {
 	// ToUpper returns s with all Unicode letters mapped to their upper case.
 **/
 function toUpper(_s:GoString):GoString {
-	var _isASCII:Bool = true, _hasLower:Bool = false;
+	var _0:Bool = true,
+		_1:Bool = false,
+		_hasLower:Bool = _1,
+		_isASCII:Bool = _0;
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_s.length), _i++, {
@@ -1222,7 +1225,10 @@ function toUpper(_s:GoString):GoString {
 	// ToLower returns s with all Unicode letters mapped to their lower case.
 **/
 function toLower(_s:GoString):GoString {
-	var _isASCII:Bool = true, _hasUpper:Bool = false;
+	var _0:Bool = true,
+		_1:Bool = false,
+		_hasUpper:Bool = _1,
+		_isASCII:Bool = _0;
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_s.length), _i++, {
@@ -1554,7 +1560,10 @@ function _trimLeftASCII(_s:GoString, _as:Ref<T_asciiSet>):GoString {
 
 function _trimLeftUnicode(_s:GoString, _cutset:GoString):GoString {
 	while ((_s.length) > (0 : GoInt)) {
-		var _r:GoInt32 = (_s[(0 : GoInt)] : GoRune), _n:GoInt = (1 : GoInt);
+		var _0:GoInt32 = (_s[(0 : GoInt)] : GoRune),
+			_1:GoInt = (1 : GoInt),
+			_n:GoInt = _1,
+			_r:GoInt32 = _0;
 		if (_r >= (128 : GoInt32)) {
 			{
 				var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_s);
@@ -1613,8 +1622,10 @@ function _trimRightASCII(_s:GoString, _as:Ref<T_asciiSet>):GoString {
 
 function _trimRightUnicode(_s:GoString, _cutset:GoString):GoString {
 	while ((_s.length) > (0 : GoInt)) {
-		var _r:GoInt32 = (_s[(_s.length) - (1 : GoInt)] : GoRune),
-			_n:GoInt = (1 : GoInt);
+		var _0:GoInt32 = (_s[(_s.length) - (1 : GoInt)] : GoRune),
+			_1:GoInt = (1 : GoInt),
+			_n:GoInt = _1,
+			_r:GoInt32 = _0;
 		if (_r >= (128 : GoInt32)) {
 			{
 				var __tmp__ = stdgo.unicode.utf8.Utf8.decodeLastRuneInString(_s);
@@ -1744,7 +1755,10 @@ function replaceAll(_s:GoString, _old:GoString, _new:GoString):GoString {
 **/
 function equalFold(_s:GoString, _t:GoString):Bool {
 	while ((_s != Go.str()) && (_t != Go.str())) {
-		var _sr:GoRune = (0 : GoInt32), _tr:GoRune = (0 : GoInt32);
+		var _0:GoRune = (0 : GoInt32),
+			_1:GoRune = (0 : GoInt32),
+			_tr:GoRune = _1,
+			_sr:GoRune = _0;
 		if (_s[(0 : GoInt)] < (128 : GoUInt8)) {
 			{
 				final __tmp__0 = (_s[(0 : GoInt)] : GoRune);
@@ -2660,7 +2674,10 @@ private class T_genericReplacer_asInterface {
 	static public function writeString(_r:Ref<T_genericReplacer>, _w:stdgo.io.Io.Writer, _s:GoString):{var _0:GoInt; var _1:Error;} {
 		var _n:GoInt = (0 : GoInt), _err:Error = (null : Error);
 		var _sw:stdgo.io.Io.StringWriter = _getStringWriter(_w);
-		var _last:GoInt = (0 : GoInt), _wn:GoInt = (0 : GoInt);
+		var _0:GoInt = (0 : GoInt),
+			_1:GoInt = (0 : GoInt),
+			_wn:GoInt = _1,
+			_last:GoInt = _0;
 		var _prevMatchEmpty:Bool = false;
 		{
 			var _i:GoInt = (0 : GoInt);
@@ -2836,7 +2853,10 @@ private class T_singleStringReplacer_asInterface {
 	static public function writeString(_r:Ref<T_singleStringReplacer>, _w:stdgo.io.Io.Writer, _s:GoString):{var _0:GoInt; var _1:Error;} {
 		var _n:GoInt = (0 : GoInt), _err:Error = (null : Error);
 		var _sw:stdgo.io.Io.StringWriter = _getStringWriter(_w);
-		var _i:GoInt = (0 : GoInt), _wn:GoInt = (0 : GoInt);
+		var _0:GoInt = (0 : GoInt),
+			_1:GoInt = (0 : GoInt),
+			_wn:GoInt = _1,
+			_i:GoInt = _0;
 		while (true) {
 			var _match:GoInt = _r._finder._next((_s.__slice__(_i) : GoString));
 			if (_match == ((-1 : GoInt))) {
@@ -2874,7 +2894,10 @@ private class T_singleStringReplacer_asInterface {
 	@:keep
 	static public function replace(_r:Ref<T_singleStringReplacer>, _s:GoString):GoString {
 		var _buf:Builder = ({} : Builder);
-		var _i:GoInt = (0 : GoInt), _matched:Bool = false;
+		var _0:GoInt = (0 : GoInt),
+			_1:Bool = false,
+			_matched:Bool = _1,
+			_i:GoInt = _0;
 		while (true) {
 			var _match:GoInt = _r._finder._next((_s.__slice__(_i) : GoString));
 			if (_match == ((-1 : GoInt))) {

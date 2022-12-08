@@ -1602,8 +1602,10 @@ function _testBentleyMcIlroy(_t:Ref<stdgo.testing.Testing.T>, _sort:Interface->V
 	var _dists = (new Slice<GoString>(0, 0, Go.str("sawtooth"), Go.str("rand"), Go.str("stagger"), Go.str("plateau"), Go.str("shuffle")) : Slice<GoString>);
 	var _modes = (new Slice<GoString>(0, 0, Go.str("copy"), Go.str("reverse"), Go.str("reverse1"), Go.str("reverse2"), Go.str("sort"),
 		Go.str("dither")) : Slice<GoString>);
-	var _tmp1:GoArray<GoInt> = new GoArray<GoInt>(...[for (i in 0...1025) (0 : GoInt)]),
-		_tmp2:GoArray<GoInt> = new GoArray<GoInt>(...[for (i in 0...1025) (0 : GoInt)]);
+	var _0:GoArray<GoInt> = new GoArray<GoInt>(...[for (i in 0...1025) (0 : GoInt)]),
+		_1:GoArray<GoInt> = new GoArray<GoInt>(...[for (i in 0...1025) (0 : GoInt)]),
+		_tmp2:GoArray<GoInt> = _1,
+		_tmp1:GoArray<GoInt> = _0;
 	for (_0 => _n in _sizes) {
 		{
 			var _m:GoInt = (1 : GoInt);
@@ -1773,7 +1775,10 @@ function testStableInts(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testStability(_t:Ref<stdgo.testing.Testing.T>):Void {
-	var _n:GoInt = (100000 : GoInt), _m:GoInt = (1000 : GoInt);
+	var _0:GoInt = (100000 : GoInt),
+		_1:GoInt = (1000 : GoInt),
+		_m:GoInt = _1,
+		_n:GoInt = _0;
 	if (stdgo.testing.Testing.short()) {
 		{
 			final __tmp__0 = (1000 : GoInt);
@@ -2083,8 +2088,10 @@ private class T_multiSorter_asInterface {
 	**/
 	@:keep
 	static public function less(_ms:Ref<T_multiSorter>, _i:GoInt, _j:GoInt):Bool {
-		var _p = (_ms._changes[_i] : Ref<stdgo.sort_test.Sort_test.Change>),
-			_q = (_ms._changes[_j] : Ref<stdgo.sort_test.Sort_test.Change>);
+		var _0 = (_ms._changes[_i] : Ref<stdgo.sort_test.Sort_test.Change>),
+			_1 = (_ms._changes[_j] : Ref<stdgo.sort_test.Sort_test.Change>),
+			_q = _1,
+			_p = _0;
 		var _k:GoInt = (0 : GoInt);
 		{
 			_k = (0 : GoInt);
@@ -2584,7 +2591,10 @@ private class T_intPairs_asInterface {
 	**/
 	@:keep
 	static public function _inOrder(_d:T_intPairs):Bool {
-		var _lastA:GoInt = (-1 : GoInt), _lastB:GoInt = (0 : GoInt);
+		var _0:GoInt = (-1 : GoInt),
+			_1:GoInt = (0 : GoInt),
+			_lastB:GoInt = _1,
+			_lastA:GoInt = _0;
 		{
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_i < (_d.length), _i++, {

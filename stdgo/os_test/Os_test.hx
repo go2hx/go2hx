@@ -2111,7 +2111,7 @@ function testReaddirNValues(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_t.fatalf(Go.str("Readdir of %d got error %v, want %v"), Go.toInterface(_n), Go.toInterface(_err), Go.toInterface(_wantErr));
 		};
 		{
-			var _g:GoInt = (_fi.length), _e:GoInt = _want;
+			var _0:GoInt = (_fi.length), _1:GoInt = _want, _e:GoInt = _1, _g:GoInt = _0;
 			if (_g != (_e)) {
 				_t.errorf(Go.str("Readdir of %d got %d files, want %d"), Go.toInterface(_n), Go.toInterface(_g), Go.toInterface(_e));
 			};
@@ -2124,7 +2124,7 @@ function testReaddirNValues(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_t.fatalf(Go.str("ReadDir of %d got error %v, want %v"), Go.toInterface(_n), Go.toInterface(_err), Go.toInterface(_wantErr));
 		};
 		{
-			var _g:GoInt = (_de.length), _e:GoInt = _want;
+			var _0:GoInt = (_de.length), _1:GoInt = _want, _e:GoInt = _1, _g:GoInt = _0;
 			if (_g != (_e)) {
 				_t.errorf(Go.str("ReadDir of %d got %d files, want %d"), Go.toInterface(_n), Go.toInterface(_g), Go.toInterface(_e));
 			};
@@ -2137,7 +2137,7 @@ function testReaddirNValues(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_t.fatalf(Go.str("Readdirnames of %d got error %v, want %v"), Go.toInterface(_n), Go.toInterface(_err), Go.toInterface(_wantErr));
 		};
 		{
-			var _g:GoInt = (_fi.length), _e:GoInt = _want;
+			var _0:GoInt = (_fi.length), _1:GoInt = _want, _e:GoInt = _1, _g:GoInt = _0;
 			if (_g != (_e)) {
 				_t.errorf(Go.str("Readdirnames of %d got %d files, want %d"), Go.toInterface(_n), Go.toInterface(_g), Go.toInterface(_e));
 			};
@@ -2257,16 +2257,20 @@ function testReaddirStatFailures(_t:Ref<stdgo.testing.Testing.T>):Void {
 			return _s;
 		};
 		{
-			var _got = _names(_mustReadDir(Go.str("initial readdir"))),
-				_want = (new Slice<GoString>(0, 0, Go.str("good1"), Go.str("good2"), Go.str("x")) : Slice<GoString>);
+			var _0 = _names(_mustReadDir(Go.str("initial readdir"))),
+				_1 = (new Slice<GoString>(0, 0, Go.str("good1"), Go.str("good2"), Go.str("x")) : Slice<GoString>),
+				_want = _1,
+				_got = _0;
 			if (!stdgo.reflect.Reflect.deepEqual(Go.toInterface(_got), Go.toInterface(_want))) {
 				_t.errorf(Go.str("initial readdir got %q; want %q"), Go.toInterface(_got), Go.toInterface(_want));
 			};
 		};
 		_xerr = errNotExist;
 		{
-			var _got = _names(_mustReadDir(Go.str("with x disappearing"))),
-				_want = (new Slice<GoString>(0, 0, Go.str("good1"), Go.str("good2")) : Slice<GoString>);
+			var _0 = _names(_mustReadDir(Go.str("with x disappearing"))),
+				_1 = (new Slice<GoString>(0, 0, Go.str("good1"), Go.str("good2")) : Slice<GoString>),
+				_want = _1,
+				_got = _0;
 			if (!stdgo.reflect.Reflect.deepEqual(Go.toInterface(_got), Go.toInterface(_want))) {
 				_t.errorf(Go.str("with x disappearing, got %q; want %q"), Go.toInterface(_got), Go.toInterface(_want));
 			};
@@ -2371,8 +2375,10 @@ function testHardLink(_t:Ref<stdgo.testing.Testing.T>):Void {
 	stdgo.internal.testenv.Testenv.mustHaveLink(Go.asInterface(_t));
 	try {
 		__deferstack__.unshift(() -> _chtmpdir(_t)());
-		var _from:GoString = Go.str("hardlinktestfrom"),
-			_to:GoString = Go.str("hardlinktestto");
+		var _0:GoString = Go.str("hardlinktestfrom"),
+			_1:GoString = Go.str("hardlinktestto"),
+			_to:GoString = _1,
+			_from:GoString = _0;
 		var __tmp__ = create(_to),
 			_file:Ref<File> = __tmp__._0,
 			_err:Error = __tmp__._1;
@@ -2506,8 +2512,10 @@ function testSymlink(_t:Ref<stdgo.testing.Testing.T>):Void {
 	stdgo.internal.testenv.Testenv.mustHaveSymlink(Go.asInterface(_t));
 	try {
 		__deferstack__.unshift(() -> _chtmpdir(_t)());
-		var _from:GoString = Go.str("symlinktestfrom"),
-			_to:GoString = Go.str("symlinktestto");
+		var _0:GoString = Go.str("symlinktestfrom"),
+			_1:GoString = Go.str("symlinktestto"),
+			_to:GoString = _1,
+			_from:GoString = _0;
 		var __tmp__ = create(_to),
 			_file:Ref<File> = __tmp__._0,
 			_err:Error = __tmp__._1;
@@ -2661,8 +2669,10 @@ function testRename(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	__deferstack__.unshift(() -> _chtmpdir(_t)());
 	try {
-		var _from:GoString = Go.str("renamefrom"),
-			_to:GoString = Go.str("renameto");
+		var _0:GoString = Go.str("renamefrom"),
+			_1:GoString = Go.str("renameto"),
+			_to:GoString = _1,
+			_from:GoString = _0;
 		var __tmp__ = create(_from),
 			_file:Ref<File> = __tmp__._0,
 			_err:Error = __tmp__._1;
@@ -2714,8 +2724,10 @@ function testRenameOverwriteDest(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	__deferstack__.unshift(() -> _chtmpdir(_t)());
 	try {
-		var _from:GoString = Go.str("renamefrom"),
-			_to:GoString = Go.str("renameto");
+		var _0:GoString = Go.str("renamefrom"),
+			_1:GoString = Go.str("renameto"),
+			_to:GoString = _1,
+			_from:GoString = _0;
 		var _toData = (Go.str("to") : Slice<GoByte>);
 		var _fromData = (Go.str("from") : Slice<GoByte>);
 		var _err:Error = stdgo.os.Os.writeFile(_to, _toData, (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
@@ -2777,8 +2789,10 @@ function testRenameFailed(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	__deferstack__.unshift(() -> _chtmpdir(_t)());
 	try {
-		var _from:GoString = Go.str("renamefrom"),
-			_to:GoString = Go.str("renameto");
+		var _0:GoString = Go.str("renamefrom"),
+			_1:GoString = Go.str("renameto"),
+			_to:GoString = _1,
+			_from:GoString = _0;
 		var _err:Error = rename(_from, _to);
 		if (Go.typeEquals((_err : Ref<LinkError>))) {
 			var _err:Ref<LinkError> = _err == null ? null : _err.__underlying__() == null ? null : _err == null ? null : _err.__underlying__().value;
@@ -2830,8 +2844,10 @@ function testRenameNotExisting(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	__deferstack__.unshift(() -> _chtmpdir(_t)());
 	try {
-		var _from:GoString = Go.str("doesnt-exist"),
-			_to:GoString = Go.str("dest");
+		var _0:GoString = Go.str("doesnt-exist"),
+			_1:GoString = Go.str("dest"),
+			_to:GoString = _1,
+			_from:GoString = _0;
 		mkdir(_to, (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 		{
 			var _err:Error = rename(_from, _to);
@@ -2867,8 +2883,10 @@ function testRenameToDirFailed(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	__deferstack__.unshift(() -> _chtmpdir(_t)());
 	try {
-		var _from:GoString = Go.str("renamefrom"),
-			_to:GoString = Go.str("renameto");
+		var _0:GoString = Go.str("renamefrom"),
+			_1:GoString = Go.str("renameto"),
+			_to:GoString = _1,
+			_from:GoString = _0;
 		mkdir(_from, (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 		mkdir(_to, (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 		var _err:Error = rename(_from, _to);
@@ -2919,8 +2937,10 @@ function testRenameToDirFailed(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testRenameCaseDifference(_pt:Ref<stdgo.testing.Testing.T>):Void {
-	var _from:GoString = Go.str("renameFROM"),
-		_to:GoString = Go.str("RENAMEfrom");
+	var _0:GoString = Go.str("renameFROM"),
+		_1:GoString = Go.str("RENAMEfrom"),
+		_to:GoString = _1,
+		_from:GoString = _0;
 	var _tests = (new Slice<T__struct_2>(0, 0, ({
 		_name: Go.str("dir"),
 		_create: function():Error {
@@ -3073,7 +3093,10 @@ function _exec(_t:Ref<stdgo.testing.Testing.T>, _dir:GoString, _cmd:GoString, _a
 
 function testStartProcess(_t:Ref<stdgo.testing.Testing.T>):Void {
 	stdgo.internal.testenv.Testenv.mustHaveExec(Go.asInterface(_t));
-	var _dir:GoString = ("" : GoString), _cmd:GoString = ("" : GoString);
+	var _0:GoString = ("" : GoString),
+		_1:GoString = ("" : GoString),
+		_cmd:GoString = _1,
+		_dir:GoString = _0;
 	var _args:Slice<GoString> = (null : Slice<GoString>);
 	if (Go.str("js") == (Go.str("android"))) {
 		_t.skip(Go.toInterface(Go.str("android doesn\'t have /bin/pwd")));

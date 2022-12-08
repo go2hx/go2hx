@@ -235,8 +235,10 @@ function _matchChunk(_chunk:GoString, _s:GoString):{var _0:GoString; var _1:Bool
 							_chunk = (_chunk.__slice__((1 : GoInt)) : GoString);
 							break;
 						};
-						var _lo:GoRune = (0 : GoInt32),
-							_hi:GoRune = (0 : GoInt32);
+						var _0:GoRune = (0 : GoInt32),
+							_1:GoRune = (0 : GoInt32),
+							_hi:GoRune = _1,
+							_lo:GoRune = _0;
 						{
 							{
 								var __tmp__ = _getEsc(_chunk);
@@ -374,7 +376,10 @@ function clean(_path:GoString):GoString {
 	var _rooted:Bool = _path[(0 : GoInt)] == (("/".code : GoRune));
 	var _n:GoInt = (_path.length);
 	var _out:T_lazybuf = ({_s: _path} : T_lazybuf);
-	var _r:GoInt = (0 : GoInt), _dotdot:GoInt = (0 : GoInt);
+	var _0:GoInt = (0 : GoInt),
+		_1:GoInt = (0 : GoInt),
+		_dotdot:GoInt = _1,
+		_r:GoInt = _0;
 	if (_rooted) {
 		_out._append(("/".code : GoRune));
 		{

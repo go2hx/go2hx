@@ -186,7 +186,7 @@ function reverseRange(_data:Interface, _a:GoInt, _b:GoInt):Void {
 	//	}
 **/
 function search(_n:GoInt, _f:GoInt->Bool):GoInt {
-	var _i:GoInt = (0 : GoInt), _j:GoInt = _n;
+	var _0:GoInt = (0 : GoInt), _1:GoInt = _n, _j:GoInt = _1, _i:GoInt = _0;
 	while (_i < _j) {
 		var _h:GoInt = ((_i + _j : GoUInt) >> ("1" : GoUInt64) : GoInt);
 		if (!_f(_h)) {
@@ -226,7 +226,7 @@ function search(_n:GoInt, _f:GoInt->Bool):GoInt {
 **/
 function find(_n:GoInt, _cmp:GoInt->GoInt):{var _0:GoInt; var _1:Bool;} {
 	var _i:GoInt = (0 : GoInt), _found:Bool = false;
-	var _i:GoInt = (0 : GoInt), _j:GoInt = _n;
+	var _0:GoInt = (0 : GoInt), _1:GoInt = _n, _j:GoInt = _1, _i:GoInt = _0;
 	while (_i < _j) {
 		var _h:GoInt = ((_i + _j : GoUInt) >> ("1" : GoUInt64) : GoInt);
 		if (_cmp(_h) > (0 : GoInt)) {
@@ -497,7 +497,10 @@ function _heapSort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Void {
 **/
 function _pdqsort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _limit:GoInt):Void {
 	{};
-	var _wasBalanced:Bool = true, _wasPartitioned:Bool = true;
+	var _0:Bool = true,
+		_1:Bool = true,
+		_wasPartitioned:Bool = _1,
+		_wasBalanced:Bool = _0;
 	while (true) {
 		var _length:GoInt = _b - _a;
 		if (_length <= (12 : GoInt)) {
@@ -534,7 +537,10 @@ function _pdqsort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _limit:GoInt):Void 
 			_mid:GoInt = __tmp__._0,
 			_alreadyPartitioned:Bool = __tmp__._1;
 		_wasPartitioned = _alreadyPartitioned;
-		var _leftLen:GoInt = _mid - _a, _rightLen:GoInt = _b - _mid;
+		var _0:GoInt = _mid - _a,
+			_1:GoInt = _b - _mid,
+			_rightLen:GoInt = _1,
+			_leftLen:GoInt = _0;
 		var _balanceThreshold:GoInt = _length / (8 : GoInt);
 		if (_leftLen < _rightLen) {
 			_wasBalanced = _leftLen >= _balanceThreshold;
@@ -557,7 +563,10 @@ function _pdqsort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _limit:GoInt):Void 
 function _partition_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _pivot:GoInt):{var _0:GoInt; var _1:Bool;} {
 	var _newpivot:GoInt = (0 : GoInt), _alreadyPartitioned:Bool = false;
 	_data.swap(_a, _pivot);
-	var _i:GoInt = _a + (1 : GoInt), _j:GoInt = _b - (1 : GoInt);
+	var _0:GoInt = _a + (1 : GoInt),
+		_1:GoInt = _b - (1 : GoInt),
+		_j:GoInt = _1,
+		_i:GoInt = _0;
 	while ((_i <= _j) && _data.less(_i, _a)) {
 		_i++;
 	};
@@ -596,7 +605,10 @@ function _partition_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _pivot:GoInt):{va
 function _partitionEqual_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _pivot:GoInt):GoInt {
 	var _newpivot:GoInt = (0 : GoInt);
 	_data.swap(_a, _pivot);
-	var _i:GoInt = _a + (1 : GoInt), _j:GoInt = _b - (1 : GoInt);
+	var _0:GoInt = _a + (1 : GoInt),
+		_1:GoInt = _b - (1 : GoInt),
+		_j:GoInt = _1,
+		_i:GoInt = _0;
 	while (true) {
 		while ((_i <= _j) && !_data.less(_a, _i)) {
 			_i++;
@@ -694,10 +706,14 @@ function _choosePivot_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):{var _0:GoInt; 
 		_hint:T_sortedHint = ((0 : GoInt) : T_sortedHint);
 	{};
 	var _l:GoInt = _b - _a;
-	var _swaps:GoInt = (0 : GoInt),
-		_i:GoInt = _a + ((_l / (4 : GoInt)) * (1 : GoInt)),
-		_j:GoInt = _a + ((_l / (4 : GoInt)) * (2 : GoInt)),
-		_k:GoInt = _a + ((_l / (4 : GoInt)) * (3 : GoInt));
+	var _0:GoInt = (0 : GoInt),
+		_1:GoInt = _a + ((_l / (4 : GoInt)) * (1 : GoInt)),
+		_2:GoInt = _a + ((_l / (4 : GoInt)) * (2 : GoInt)),
+		_3:GoInt = _a + ((_l / (4 : GoInt)) * (3 : GoInt)),
+		_k:GoInt = _3,
+		_j:GoInt = _2,
+		_i:GoInt = _1,
+		_swaps:GoInt = _0;
 	if (_l >= (8 : GoInt)) {
 		if (_l >= (50 : GoInt)) {
 			_i = _medianAdjacent_func((_data == null ? null : _data.__copy__()), _i, Go.pointer(_swaps));
@@ -776,7 +792,10 @@ function _swapRange_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _n:GoInt):Void {
 
 function _stable_func(_data:T_lessSwap, _n:GoInt):Void {
 	var _blockSize:GoInt = (20 : GoInt);
-	var _a:GoInt = (0 : GoInt), _b:GoInt = _blockSize;
+	var _0:GoInt = (0 : GoInt),
+		_1:GoInt = _blockSize,
+		_b:GoInt = _1,
+		_a:GoInt = _0;
 	while (_b <= _n) {
 		_insertionSort_func((_data == null ? null : _data.__copy__()), _a, _b);
 		_a = _b;
@@ -867,7 +886,10 @@ function _symMerge_func(_data:T_lessSwap, _a:GoInt, _m:GoInt, _b:GoInt):Void {
 	};
 	var _mid:GoInt = ((_a + _b : GoUInt) >> ("1" : GoUInt64) : GoInt);
 	var _n:GoInt = _mid + _m;
-	var _start:GoInt = (0 : GoInt), _r:GoInt = (0 : GoInt);
+	var _0:GoInt = (0 : GoInt),
+		_1:GoInt = (0 : GoInt),
+		_r:GoInt = _1,
+		_start:GoInt = _0;
 	if (_m > _mid) {
 		_start = _n - _b;
 		_r = _mid;
@@ -985,7 +1007,10 @@ function _heapSort(_data:Interface, _a:GoInt, _b:GoInt):Void {
 **/
 function _pdqsort(_data:Interface, _a:GoInt, _b:GoInt, _limit:GoInt):Void {
 	{};
-	var _wasBalanced:Bool = true, _wasPartitioned:Bool = true;
+	var _0:Bool = true,
+		_1:Bool = true,
+		_wasPartitioned:Bool = _1,
+		_wasBalanced:Bool = _0;
 	while (true) {
 		var _length:GoInt = _b - _a;
 		if (_length <= (12 : GoInt)) {
@@ -1022,7 +1047,10 @@ function _pdqsort(_data:Interface, _a:GoInt, _b:GoInt, _limit:GoInt):Void {
 			_mid:GoInt = __tmp__._0,
 			_alreadyPartitioned:Bool = __tmp__._1;
 		_wasPartitioned = _alreadyPartitioned;
-		var _leftLen:GoInt = _mid - _a, _rightLen:GoInt = _b - _mid;
+		var _0:GoInt = _mid - _a,
+			_1:GoInt = _b - _mid,
+			_rightLen:GoInt = _1,
+			_leftLen:GoInt = _0;
 		var _balanceThreshold:GoInt = _length / (8 : GoInt);
 		if (_leftLen < _rightLen) {
 			_wasBalanced = _leftLen >= _balanceThreshold;
@@ -1045,7 +1073,10 @@ function _pdqsort(_data:Interface, _a:GoInt, _b:GoInt, _limit:GoInt):Void {
 function _partition(_data:Interface, _a:GoInt, _b:GoInt, _pivot:GoInt):{var _0:GoInt; var _1:Bool;} {
 	var _newpivot:GoInt = (0 : GoInt), _alreadyPartitioned:Bool = false;
 	_data.swap(_a, _pivot);
-	var _i:GoInt = _a + (1 : GoInt), _j:GoInt = _b - (1 : GoInt);
+	var _0:GoInt = _a + (1 : GoInt),
+		_1:GoInt = _b - (1 : GoInt),
+		_j:GoInt = _1,
+		_i:GoInt = _0;
 	while ((_i <= _j) && _data.less(_i, _a)) {
 		_i++;
 	};
@@ -1084,7 +1115,10 @@ function _partition(_data:Interface, _a:GoInt, _b:GoInt, _pivot:GoInt):{var _0:G
 function _partitionEqual(_data:Interface, _a:GoInt, _b:GoInt, _pivot:GoInt):GoInt {
 	var _newpivot:GoInt = (0 : GoInt);
 	_data.swap(_a, _pivot);
-	var _i:GoInt = _a + (1 : GoInt), _j:GoInt = _b - (1 : GoInt);
+	var _0:GoInt = _a + (1 : GoInt),
+		_1:GoInt = _b - (1 : GoInt),
+		_j:GoInt = _1,
+		_i:GoInt = _0;
 	while (true) {
 		while ((_i <= _j) && !_data.less(_a, _i)) {
 			_i++;
@@ -1182,10 +1216,14 @@ function _choosePivot(_data:Interface, _a:GoInt, _b:GoInt):{var _0:GoInt; var _1
 		_hint:T_sortedHint = ((0 : GoInt) : T_sortedHint);
 	{};
 	var _l:GoInt = _b - _a;
-	var _swaps:GoInt = (0 : GoInt),
-		_i:GoInt = _a + ((_l / (4 : GoInt)) * (1 : GoInt)),
-		_j:GoInt = _a + ((_l / (4 : GoInt)) * (2 : GoInt)),
-		_k:GoInt = _a + ((_l / (4 : GoInt)) * (3 : GoInt));
+	var _0:GoInt = (0 : GoInt),
+		_1:GoInt = _a + ((_l / (4 : GoInt)) * (1 : GoInt)),
+		_2:GoInt = _a + ((_l / (4 : GoInt)) * (2 : GoInt)),
+		_3:GoInt = _a + ((_l / (4 : GoInt)) * (3 : GoInt)),
+		_k:GoInt = _3,
+		_j:GoInt = _2,
+		_i:GoInt = _1,
+		_swaps:GoInt = _0;
 	if (_l >= (8 : GoInt)) {
 		if (_l >= (50 : GoInt)) {
 			_i = _medianAdjacent(_data, _i, Go.pointer(_swaps));
@@ -1264,7 +1302,10 @@ function _swapRange(_data:Interface, _a:GoInt, _b:GoInt, _n:GoInt):Void {
 
 function _stable(_data:Interface, _n:GoInt):Void {
 	var _blockSize:GoInt = (20 : GoInt);
-	var _a:GoInt = (0 : GoInt), _b:GoInt = _blockSize;
+	var _0:GoInt = (0 : GoInt),
+		_1:GoInt = _blockSize,
+		_b:GoInt = _1,
+		_a:GoInt = _0;
 	while (_b <= _n) {
 		_insertionSort(_data, _a, _b);
 		_a = _b;
@@ -1355,7 +1396,10 @@ function _symMerge(_data:Interface, _a:GoInt, _m:GoInt, _b:GoInt):Void {
 	};
 	var _mid:GoInt = ((_a + _b : GoUInt) >> ("1" : GoUInt64) : GoInt);
 	var _n:GoInt = _mid + _m;
-	var _start:GoInt = (0 : GoInt), _r:GoInt = (0 : GoInt);
+	var _0:GoInt = (0 : GoInt),
+		_1:GoInt = (0 : GoInt),
+		_r:GoInt = _1,
+		_start:GoInt = _0;
 	if (_m > _mid) {
 		_start = _n - _b;
 		_r = _mid;

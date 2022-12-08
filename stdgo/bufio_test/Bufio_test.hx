@@ -1835,8 +1835,10 @@ function testWriterReadFrom(_t:Ref<stdgo.testing.Testing.T>):Void {
 				};
 			};
 			{
-				var _got:GoString = (_b.string() : GoString),
-					_want:GoString = (_input : GoString);
+				var _0:GoString = (_b.string() : GoString),
+					_1:GoString = (_input : GoString),
+					_want:GoString = _1,
+					_got:GoString = _0;
 				if (_got != (_want)) {
 					_t.errorf(Go.str("ws[%d], rs[%d]:\ngot  %q\nwant %q\n"), Go.toInterface(_wi), Go.toInterface(_ri), Go.toInterface(_got),
 						Go.toInterface(_want));
@@ -2088,8 +2090,10 @@ function testWriterReadFromUntilEOF(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	_w.flush();
 	{
-		var _got:GoString = (_buf.bytes() : GoString),
-			_want:GoString = Go.str("0123abcd");
+		var _0:GoString = (_buf.bytes() : GoString),
+			_1:GoString = Go.str("0123abcd"),
+			_want:GoString = _1,
+			_got:GoString = _0;
 		if (_got != (_want)) {
 			_t.fatalf(Go.str("buf.Bytes() returned %q, want %q"), Go.toInterface(_got), Go.toInterface(_want));
 		};
@@ -2151,14 +2155,19 @@ function testWriterReadFromWithBufferedData(_t:Ref<stdgo.testing.Testing.T>):Voi
 		};
 	};
 	{
-		var _got:GoInt = _rfw._writeBytes, _want:GoInt = (16 : GoInt);
+		var _0:GoInt = _rfw._writeBytes,
+			_1:GoInt = (16 : GoInt),
+			_want:GoInt = _1,
+			_got:GoInt = _0;
 		if (_got != (_want)) {
 			_t.errorf(Go.str("wrote %v bytes with Write, want %v"), Go.toInterface(_got), Go.toInterface(_want));
 		};
 	};
 	{
-		var _got:GoInt = _rfw._readFromBytes,
-			_want:GoInt = (_input.length) - (16 : GoInt);
+		var _0:GoInt = _rfw._readFromBytes,
+			_1:GoInt = (_input.length) - (16 : GoInt),
+			_want:GoInt = _1,
+			_got:GoInt = _0;
 		if (_got != (_want)) {
 			_t.errorf(Go.str("wrote %v bytes with ReadFrom, want %v"), Go.toInterface(_got), Go.toInterface(_want));
 		};
@@ -2234,9 +2243,12 @@ function testReaderReset(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testWriterReset(_t:Ref<stdgo.testing.Testing.T>):Void {
-	var _buf1:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer),
-		_buf2:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer),
-		_buf3:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
+	var _0:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer),
+		_1:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer),
+		_2:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer),
+		_buf3:stdgo.bytes.Bytes.Buffer = _2,
+		_buf2:stdgo.bytes.Bytes.Buffer = _1,
+		_buf1:stdgo.bytes.Bytes.Buffer = _0;
 	var _w = newWriter(Go.asInterface((_buf1 : Ref<stdgo.bytes.Bytes.Buffer>)));
 	_w.writeString(Go.str("foo"));
 	_w.reset(Go.asInterface((_buf2 : Ref<stdgo.bytes.Bytes.Buffer>)));
@@ -2369,8 +2381,10 @@ function testReaderDiscard(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_discarded:GoInt = __tmp__._0,
 			_err:Error = __tmp__._1;
 		{
-			var _ge:GoString = stdgo.fmt.Fmt.sprint(_err),
-				_we:GoString = stdgo.fmt.Fmt.sprint(_tt._wantErr);
+			var _0:GoString = stdgo.fmt.Fmt.sprint(_err),
+				_1:GoString = stdgo.fmt.Fmt.sprint(_tt._wantErr),
+				_we:GoString = _1,
+				_ge:GoString = _0;
 			if ((_discarded != _tt._want) || (_ge != _we)) {
 				_t.errorf(Go.str("%s: Discard(%d) = (%v, %v); want (%v, %v)"), Go.toInterface(_tt._name), Go.toInterface(_tt._n), Go.toInterface(_discarded),
 					Go.toInterface(_ge), Go.toInterface(_tt._want), Go.toInterface(_we));
@@ -2389,15 +2403,19 @@ function testReaderDiscard(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testReaderSize(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
-		var _got:GoInt = newReader((null : stdgo.io.Io.Reader)).size(),
-			_want:GoInt = (4096 : GoInt);
+		var _0:GoInt = newReader((null : stdgo.io.Io.Reader)).size(),
+			_1:GoInt = (4096 : GoInt),
+			_want:GoInt = _1,
+			_got:GoInt = _0;
 		if (_got != (_want)) {
 			_t.errorf(Go.str("NewReader\'s Reader.Size = %d; want %d"), Go.toInterface(_got), Go.toInterface(_want));
 		};
 	};
 	{
-		var _got:GoInt = newReaderSize((null : stdgo.io.Io.Reader), (1234 : GoInt)).size(),
-			_want:GoInt = (1234 : GoInt);
+		var _0:GoInt = newReaderSize((null : stdgo.io.Io.Reader), (1234 : GoInt)).size(),
+			_1:GoInt = (1234 : GoInt),
+			_want:GoInt = _1,
+			_got:GoInt = _0;
 		if (_got != (_want)) {
 			_t.errorf(Go.str("NewReaderSize\'s Reader.Size = %d; want %d"), Go.toInterface(_got), Go.toInterface(_want));
 		};
@@ -2406,15 +2424,19 @@ function testReaderSize(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testWriterSize(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
-		var _got:GoInt = newWriter((null : stdgo.io.Io.Writer)).size(),
-			_want:GoInt = (4096 : GoInt);
+		var _0:GoInt = newWriter((null : stdgo.io.Io.Writer)).size(),
+			_1:GoInt = (4096 : GoInt),
+			_want:GoInt = _1,
+			_got:GoInt = _0;
 		if (_got != (_want)) {
 			_t.errorf(Go.str("NewWriter\'s Writer.Size = %d; want %d"), Go.toInterface(_got), Go.toInterface(_want));
 		};
 	};
 	{
-		var _got:GoInt = newWriterSize((null : stdgo.io.Io.Writer), (1234 : GoInt)).size(),
-			_want:GoInt = (1234 : GoInt);
+		var _0:GoInt = newWriterSize((null : stdgo.io.Io.Writer), (1234 : GoInt)).size(),
+			_1:GoInt = (1234 : GoInt),
+			_want:GoInt = _1,
+			_got:GoInt = _0;
 		if (_got != (_want)) {
 			_t.errorf(Go.str("NewWriterSize\'s Writer.Size = %d; want %d"), Go.toInterface(_got), Go.toInterface(_want));
 		};
@@ -2927,7 +2949,10 @@ function testScanRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var _buf = stdgo.strings.Strings.newReader(_test);
 		var _s = newScanner(Go.asInterface(_buf));
 		_s.split(scanRunes);
-		var _i:GoInt = (0 : GoInt), _runeCount:GoInt = (0 : GoInt);
+		var _0:GoInt = (0 : GoInt),
+			_1:GoInt = (0 : GoInt),
+			_runeCount:GoInt = _1,
+			_i:GoInt = _0;
 		var _expect:GoRune = (0 : GoInt32);
 		for (__key__ => __value__ in (_test : GoString)) {
 			_expect = __value__;
@@ -3470,7 +3495,10 @@ function testNegativeEOFReader(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 	};
 	{
-		var _got:Error = _scanner.err(), _want:Error = errBadReadCount;
+		var _0:Error = _scanner.err(),
+			_1:Error = errBadReadCount,
+			_want:Error = _1,
+			_got:Error = _0;
 		if (Go.toInterface(_got) != (Go.toInterface(_want))) {
 			_t.errorf(Go.str("scanner.Err: got %v, want %v"), Go.toInterface(_got), Go.toInterface(_want));
 		};
@@ -3485,7 +3513,10 @@ function testLargeReader(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _scanner = newScanner(Go.asInterface((new stdgo.bufio_test.Bufio_test.T_largeReader() : stdgo.bufio_test.Bufio_test.T_largeReader)));
 	while (_scanner.scan()) {};
 	{
-		var _got:Error = _scanner.err(), _want:Error = errBadReadCount;
+		var _0:Error = _scanner.err(),
+			_1:Error = errBadReadCount,
+			_want:Error = _1,
+			_got:Error = _0;
 		if (Go.toInterface(_got) != (Go.toInterface(_want))) {
 			_t.errorf(Go.str("scanner.Err: got %v, want %v"), Go.toInterface(_got), Go.toInterface(_want));
 		};

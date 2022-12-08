@@ -1445,7 +1445,10 @@ function _erf(_x:GoFloat64):GoFloat64 {
 		return (1 : GoFloat64);
 	};
 	var _s:GoFloat64 = (1 : GoFloat64) / (_x * _x);
-	var r:GoFloat64 = (0 : GoFloat64), s:GoFloat64 = (0 : GoFloat64);
+	var _0:GoFloat64 = (0 : GoFloat64),
+		_1:GoFloat64 = (0 : GoFloat64),
+		s:GoFloat64 = _1,
+		r:GoFloat64 = _0;
 	if (_x < (2.857142857142857:GoFloat64)) {
 		r = (-0.009864944034847148 : GoFloat64)
 			+ (_s * ((-0.6938585727071818 : GoFloat64)
@@ -1563,7 +1566,10 @@ function _erfc(_x:GoFloat64):GoFloat64 {
 	};
 	if (_x < (28:GoFloat64)) {
 		var _s:GoFloat64 = (1 : GoFloat64) / (_x * _x);
-		var r:GoFloat64 = (0 : GoFloat64), s:GoFloat64 = (0 : GoFloat64);
+		var _0:GoFloat64 = (0 : GoFloat64),
+			_1:GoFloat64 = (0 : GoFloat64),
+			s:GoFloat64 = _1,
+			r:GoFloat64 = _0;
 		if (_x < (2.857142857142857:GoFloat64)) {
 			r = (-0.009864944034847148 : GoFloat64)
 				+ (_s * ((-0.6938585727071818 : GoFloat64)
@@ -1652,7 +1658,10 @@ function erfinv(_x:GoFloat64):GoFloat64 {
 			+ (1 : GoFloat64);
 		_ans = (_x * _z1) / _z2;
 	} else {
-		var _z1:GoFloat64 = (0 : GoFloat64), _z2:GoFloat64 = (0 : GoFloat64);
+		var _0:GoFloat64 = (0 : GoFloat64),
+			_1:GoFloat64 = (0 : GoFloat64),
+			_z2:GoFloat64 = _1,
+			_z1:GoFloat64 = _0;
 		var _r:GoFloat64 = sqrt((0.6931471805599453 : GoFloat64) - log((1 : GoFloat64) - _x));
 		if (_r <= (5 : GoFloat64)) {
 			_r = _r - (1.6 : GoFloat64);
@@ -1848,7 +1857,10 @@ function _expm1(_x:GoFloat64):GoFloat64 {
 	var _c:GoFloat64 = (0 : GoFloat64);
 	var _k:GoInt = (0 : GoInt);
 	if (_absx > (0.34657359027997264 : GoFloat64)) {
-		var _hi:GoFloat64 = (0 : GoFloat64), _lo:GoFloat64 = (0 : GoFloat64);
+		var _0:GoFloat64 = (0 : GoFloat64),
+			_1:GoFloat64 = (0 : GoFloat64),
+			_lo:GoFloat64 = _1,
+			_hi:GoFloat64 = _0;
 		if (_absx < (1.0397207708399179:GoFloat64)) {
 			if (!_sign) {
 				_hi = _x - (0.6931471803691238 : GoFloat64);
@@ -2152,9 +2164,12 @@ function _split(_b:GoUInt64):{var _0:GoUInt32; var _1:GoInt32; var _2:GoUInt64;}
 	// (That is, FMA returns the fused multiply-add of x, y, and z.)
 **/
 function fma(_x:GoFloat64, _y:GoFloat64, _z:GoFloat64):GoFloat64 {
-	var _bx:GoUInt64 = float64bits(_x),
-		_by:GoUInt64 = float64bits(_y),
-		_bz:GoUInt64 = float64bits(_z);
+	var _0:GoUInt64 = float64bits(_x),
+		_1:GoUInt64 = float64bits(_y),
+		_2:GoUInt64 = float64bits(_z),
+		_bz:GoUInt64 = _2,
+		_by:GoUInt64 = _1,
+		_bx:GoUInt64 = _0;
 	if (((((_x == (0 : GoFloat64)) || (_y == (0 : GoFloat64))) || (_z == (0 : GoFloat64)))
 		|| ((_bx & (("9218868437227405312" : GoUInt64) : GoUInt64)) == ("9218868437227405312" : GoUInt64)))
 		|| ((_by & (("9218868437227405312" : GoUInt64) : GoUInt64)) == ("9218868437227405312" : GoUInt64))) {
@@ -2179,8 +2194,10 @@ function fma(_x:GoFloat64, _y:GoFloat64, _z:GoFloat64):GoFloat64 {
 	var __tmp__ = stdgo.math.bits.Bits.mul64(_xm << ("10" : GoUInt64), _ym << ("11" : GoUInt64)),
 		_pm1:GoUInt64 = __tmp__._0,
 		_pm2:GoUInt64 = __tmp__._1;
-	var _zm1:GoUInt64 = _zm << ("10" : GoUInt64),
-		_zm2:GoUInt64 = (("0" : GoUInt64) : GoUInt64);
+	var _0:GoUInt64 = _zm << ("10" : GoUInt64),
+		_1:GoUInt64 = (("0" : GoUInt64) : GoUInt64),
+		_zm2:GoUInt64 = _1,
+		_zm1:GoUInt64 = _0;
 	var _ps:GoUInt32 = _xs ^ _ys;
 	var _is62zero:GoUInt = (((-1 ^ _pm1) >> (("62" : GoUInt64) : GoUInt64)) & ("1" : GoUInt64) : GoUInt);
 	{
@@ -2214,7 +2231,10 @@ function fma(_x:GoFloat64, _y:GoFloat64, _z:GoFloat64):GoFloat64 {
 		_zm1 = __tmp__._0;
 		_zm2 = __tmp__._1;
 	};
-	var _m:GoUInt64 = (0 : GoUInt64), _c:GoUInt64 = (0 : GoUInt64);
+	var _0:GoUInt64 = (0 : GoUInt64),
+		_1:GoUInt64 = (0 : GoUInt64),
+		_c:GoUInt64 = _1,
+		_m:GoUInt64 = _0;
 	if (_ps == (_zs)) {
 		{
 			var __tmp__ = stdgo.math.bits.Bits.add64(_pm2, _zm2, ("0" : GoUInt64));
@@ -2647,7 +2667,10 @@ function _pzero(_x:GoFloat64):GoFloat64 {
 }
 
 function _qzero(_x:GoFloat64):GoFloat64 {
-	var _p:Ref<GoArray<GoFloat64>> = null, _q:Ref<GoArray<GoFloat64>> = null;
+	var _0:Ref<GoArray<GoFloat64>> = null,
+		_1:Ref<GoArray<GoFloat64>> = null,
+		_q:Ref<GoArray<GoFloat64>> = _1,
+		_p:Ref<GoArray<GoFloat64>> = _0;
 	if (_x >= (8 : GoFloat64)) {
 		_p = (_q0R8 : Ref<GoArray<GoFloat64>>);
 		_q = (_q0S8 : Ref<GoArray<GoFloat64>>);
@@ -2819,7 +2842,10 @@ function _pone(_x:GoFloat64):GoFloat64 {
 }
 
 function _qone(_x:GoFloat64):GoFloat64 {
-	var _p:Ref<GoArray<GoFloat64>> = null, _q:Ref<GoArray<GoFloat64>> = null;
+	var _0:Ref<GoArray<GoFloat64>> = null,
+		_1:Ref<GoArray<GoFloat64>> = null,
+		_q:Ref<GoArray<GoFloat64>> = _1,
+		_p:Ref<GoArray<GoFloat64>> = _0;
 	if (_x >= (8 : GoFloat64)) {
 		_p = (_q1R8 : Ref<GoArray<GoFloat64>>);
 		_q = (_q1S8 : Ref<GoArray<GoFloat64>>);
@@ -2903,7 +2929,10 @@ function jn(_n:GoInt, _x:GoFloat64):GoFloat64 {
 		} else {
 			_b = j1(_x);
 			{
-				var _i:GoInt = (1 : GoInt), _a:GoFloat64 = j0(_x);
+				var _0:GoInt = (1 : GoInt),
+					_1:GoFloat64 = j0(_x),
+					_a:GoFloat64 = _1,
+					_i:GoInt = _0;
 				Go.cfor(_i < _n, _i++, {
 					{
 						final __tmp__0 = _b;
@@ -3517,9 +3546,12 @@ function _log1p(_x:GoFloat64):GoFloat64 {
 		_f = _u - (1 : GoFloat64);
 	};
 	var _hfsq:GoFloat64 = ((0.5 : GoFloat64) * _f) * _f;
-	var _s:GoFloat64 = (0 : GoFloat64),
-		r:GoFloat64 = (0 : GoFloat64),
-		_z:GoFloat64 = (0 : GoFloat64);
+	var _0:GoFloat64 = (0 : GoFloat64),
+		_1:GoFloat64 = (0 : GoFloat64),
+		_2:GoFloat64 = (0 : GoFloat64),
+		_z:GoFloat64 = _2,
+		r:GoFloat64 = _1,
+		_s:GoFloat64 = _0;
 	if (_iu == (("0" : GoUInt64))) {
 		if (_f == (0 : GoFloat64)) {
 			if (_k == ((0 : GoInt))) {
@@ -4014,13 +4046,19 @@ function sincos(_x:GoFloat64):{var _0:GoFloat64; var _1:GoFloat64;} {
 	} else if (isNaN(_x) || isInf(_x, (0 : GoInt))) {
 		return {_0: naN(), _1: naN()};
 	};
-	var _sinSign:Bool = false, _cosSign:Bool = false;
+	var _0:Bool = false,
+		_1:Bool = false,
+		_cosSign:Bool = _1,
+		_sinSign:Bool = _0;
 	if (_x < (0:GoFloat64)) {
 		_x = -_x;
 		_sinSign = true;
 	};
 	var _j:GoUInt64 = (0 : GoUInt64);
-	var _y:GoFloat64 = (0 : GoFloat64), _z:GoFloat64 = (0 : GoFloat64);
+	var _0:GoFloat64 = (0 : GoFloat64),
+		_1:GoFloat64 = (0 : GoFloat64),
+		_z:GoFloat64 = _1,
+		_y:GoFloat64 = _0;
 	if (_x >= (5.36870912e+08 : GoFloat64)) {
 		{
 			var __tmp__ = _trigReduce(_x);
@@ -4286,7 +4324,10 @@ function _tan(_x:GoFloat64):GoFloat64 {
 		_sign = true;
 	};
 	var _j:GoUInt64 = (0 : GoUInt64);
-	var _y:GoFloat64 = (0 : GoFloat64), _z:GoFloat64 = (0 : GoFloat64);
+	var _0:GoFloat64 = (0 : GoFloat64),
+		_1:GoFloat64 = (0 : GoFloat64),
+		_z:GoFloat64 = _1,
+		_y:GoFloat64 = _0;
 	if (_x >= (5.36870912e+08 : GoFloat64)) {
 		{
 			var __tmp__ = _trigReduce(_x);
@@ -4381,8 +4422,10 @@ function _trigReduce(_x:GoFloat64):{var _0:GoUInt64; var _1:GoFloat64;} {
 	var _exp:GoInt = (((_ix >> (("52" : GoUInt64) : GoUInt64)) & ("2047" : GoUInt64) : GoInt) - (1023 : GoInt)) - (52 : GoInt);
 	_ix = _ix & (("9218868437227405312" : GoUInt64) ^ (-1 : GoInt));
 	_ix = _ix | (("4503599627370496" : GoUInt64));
-	var _digit:GoUInt = (_exp + (61 : GoInt) : GoUInt) / ("64" : GoUInt),
-		_bitshift:GoUInt = (_exp + (61 : GoInt) : GoUInt) % ("64" : GoUInt);
+	var _0:GoUInt = (_exp + (61 : GoInt) : GoUInt) / ("64" : GoUInt),
+		_1:GoUInt = (_exp + (61 : GoInt) : GoUInt) % ("64" : GoUInt),
+		_bitshift:GoUInt = _1,
+		_digit:GoUInt = _0;
 	var _z0:GoUInt64 = (_mPi4[_digit] << _bitshift) | (_mPi4[_digit + ("1" : GoUInt)] >> ((("64" : GoUInt) : GoUInt) - _bitshift));
 	var _z1:GoUInt64 = (_mPi4[_digit + ("1" : GoUInt)] << _bitshift) | (_mPi4[_digit + ("2" : GoUInt)] >> ((("64" : GoUInt) : GoUInt) - _bitshift));
 	var _z2:GoUInt64 = (_mPi4[_digit + ("2" : GoUInt)] << _bitshift) | (_mPi4[_digit + ("3" : GoUInt)] >> ((("64" : GoUInt) : GoUInt) - _bitshift));

@@ -806,8 +806,10 @@ function exampleSeeker_Seek():Void {
 
 function exampleMultiWriter():Void {
 	var _r = stdgo.strings.Strings.newReader(Go.str("some io.Reader stream to be read\n"));
-	var _buf1:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer),
-		_buf2:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
+	var _0:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer),
+		_1:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer),
+		_buf2:stdgo.bytes.Bytes.Buffer = _1,
+		_buf1:stdgo.bytes.Bytes.Buffer = _0;
 	var _w:Writer = stdgo.io.Io.multiWriter(Go.asInterface((_buf1 : Ref<stdgo.bytes.Bytes.Buffer>)), Go.asInterface((_buf2 : Ref<stdgo.bytes.Bytes.Buffer>)));
 	{
 		var __tmp__ = stdgo.io.Io.copy(_w, Go.asInterface(_r)),
@@ -941,10 +943,14 @@ function testCopyPriority(_t:Ref<stdgo.testing.Testing.T>):Void {
 	// is returned, as it is the one that prevented progressing further.
 **/
 function testCopyReadErrWriteErr(_t:Ref<stdgo.testing.Testing.T>):Void {
-	var _er:Error = stdgo.errors.Errors.new_(Go.str("readError")),
-		_ew:Error = stdgo.errors.Errors.new_(Go.str("writeError"));
-	var _r:stdgo.io_test.Io_test.T_zeroErrReader = ({_err: _er} : stdgo.io_test.Io_test.T_zeroErrReader),
-		_w:stdgo.io_test.Io_test.T_errWriter = ({_err: _ew} : stdgo.io_test.Io_test.T_errWriter);
+	var _0:Error = stdgo.errors.Errors.new_(Go.str("readError")),
+		_1:Error = stdgo.errors.Errors.new_(Go.str("writeError")),
+		_ew:Error = _1,
+		_er:Error = _0;
+	var _0:stdgo.io_test.Io_test.T_zeroErrReader = ({_err: _er} : stdgo.io_test.Io_test.T_zeroErrReader),
+		_1:stdgo.io_test.Io_test.T_errWriter = ({_err: _ew} : stdgo.io_test.Io_test.T_errWriter),
+		_w:stdgo.io_test.Io_test.T_errWriter = _1,
+		_r:stdgo.io_test.Io_test.T_zeroErrReader = _0;
 	var __tmp__ = copy(Go.asInterface(_w), Go.asInterface(_r)),
 		_n:GoInt64 = __tmp__._0,
 		_err:Error = __tmp__._1;
@@ -1534,8 +1540,10 @@ function testMultiWriter_String(_t:Ref<stdgo.testing.Testing.T>):Void {
 	// even if multiple targets don't support WriteString.
 **/
 function testMultiWriter_WriteStringSingleAlloc(_t:Ref<stdgo.testing.Testing.T>):Void {
-	var _sink1:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer),
-		_sink2:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
+	var _0:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer),
+		_1:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer),
+		_sink2:stdgo.bytes.Bytes.Buffer = _1,
+		_sink1:stdgo.bytes.Bytes.Buffer = _0;
 	{};
 	var _mw:Writer = multiWriter(Go.asInterface((new stdgo.io_test.Io_test.T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0(Go.asInterface((_sink1 : Ref<stdgo.bytes.Bytes.Buffer>))) : stdgo.io_test.Io_test.T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0)),
 		Go.asInterface((new stdgo.io_test.Io_test.T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0(Go.asInterface((_sink2 : Ref<stdgo.bytes.Bytes.Buffer>))) : stdgo.io_test.Io_test.T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0)));

@@ -1484,7 +1484,10 @@ function testBuilderGrow(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_wantAllocs = (0 : GoInt);
 		};
 		{
-			var _g:GoInt = (_allocs : GoInt), _w:GoInt = _wantAllocs;
+			var _0:GoInt = (_allocs : GoInt),
+				_1:GoInt = _wantAllocs,
+				_w:GoInt = _1,
+				_g:GoInt = _0;
 			if (_g != (_w)) {
 				_t.errorf(Go.str("growLen=%d: got %d allocs during Write; want %v"), Go.toInterface(_growLen), Go.toInterface(_g), Go.toInterface(_w));
 			};
@@ -1835,7 +1838,10 @@ function testCompareStrings(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_b[_i] = (9 : GoUInt8);
 			});
 		};
-		var _sa:GoString = _unsafeString(_a), _sb:GoString = _unsafeString(_b);
+		var _0:GoString = _unsafeString(_a),
+			_1:GoString = _unsafeString(_b),
+			_sb:GoString = _1,
+			_sa:GoString = _0;
 		var _cmp:GoInt = compare((_sa.__slice__(0, _len) : GoString), (_sb.__slice__(0, _len) : GoString));
 		if (_cmp != ((0 : GoInt))) {
 			_t.errorf("CompareIdentical(%d) = %d", Go.toInterface(_len), Go.toInterface(_cmp));

@@ -5059,7 +5059,10 @@ function testValueSwapConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _v:Value = ({} : Value);
 	var _count:GoUInt64 = (0 : GoUInt64);
 	var _g:stdgo.sync.Sync.WaitGroup = ({} : stdgo.sync.Sync.WaitGroup);
-	var _m:GoUInt64 = ("10000" : GoUInt64), _n:GoUInt64 = ("10000" : GoUInt64);
+	var _0:GoUInt64 = ("10000" : GoUInt64),
+		_1:GoUInt64 = ("10000" : GoUInt64),
+		_n:GoUInt64 = _1,
+		_m:GoUInt64 = _0;
 	if (stdgo.testing.Testing.short()) {
 		_m = ("1000" : GoUInt64);
 		_n = ("1000" : GoUInt64);
@@ -5092,8 +5095,10 @@ function testValueSwapConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	_g.wait_();
 	{
-		var _want:GoUInt64 = (((_m * _n) - (("1" : GoUInt64) : GoUInt64)) * (_m * _n)) / ("2" : GoUInt64),
-			_got:GoUInt64 = _count + (Go.typeAssert((_v.load() : GoUInt64)) : GoUInt64);
+		var _0:GoUInt64 = (((_m * _n) - (("1" : GoUInt64) : GoUInt64)) * (_m * _n)) / ("2" : GoUInt64),
+			_1:GoUInt64 = _count + (Go.typeAssert((_v.load() : GoUInt64)) : GoUInt64),
+			_got:GoUInt64 = _1,
+			_want:GoUInt64 = _0;
 		if (_got != (_want)) {
 			_t.errorf(Go.str("sum from 0 to %d was %d, want %v"), Go.toInterface((_m * _n) - ("1" : GoUInt64)), Go.toInterface(_got), Go.toInterface(_want));
 		};
@@ -5160,7 +5165,10 @@ function testValueCompareAndSwapConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void
 	var _v:Value = ({} : Value);
 	var _w:stdgo.sync.Sync.WaitGroup = ({} : stdgo.sync.Sync.WaitGroup);
 	_v.store(Go.toInterface((0 : GoInt)));
-	var _m:GoInt = (1000 : GoInt), _n:GoInt = (100 : GoInt);
+	var _0:GoInt = (1000 : GoInt),
+		_1:GoInt = (100 : GoInt),
+		_n:GoInt = _1,
+		_m:GoInt = _0;
 	if (stdgo.testing.Testing.short()) {
 		_m = (100 : GoInt);
 		_n = (100 : GoInt);

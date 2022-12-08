@@ -1280,7 +1280,10 @@ class Encoding_asInterface {
 			return;
 		};
 		_enc._encode;
-		var _di:GoInt = (0 : GoInt), _si:GoInt = (0 : GoInt);
+		var _0:GoInt = (0 : GoInt),
+			_1:GoInt = (0 : GoInt),
+			_si:GoInt = _1,
+			_di:GoInt = _0;
 		var _n:GoInt = (_src.length / (3 : GoInt)) * (3 : GoInt);
 		while (_si < _n) {
 			var _val:GoUInt = (((_src[_si + (0 : GoInt)] : GoUInt) << (("16" : GoUInt64) : GoUInt64)) | ((_src[_si + (1 : GoInt)] : GoUInt) << (("8" : GoUInt64) : GoUInt64))) | (_src[_si

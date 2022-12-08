@@ -2471,7 +2471,10 @@ function _eiselLemire64(_man:GoUInt64, _exp10:GoInt, _neg:Bool):{var _0:GoFloat6
 		var __tmp__ = stdgo.math.bits.Bits.mul64(_man, _detailedPowersOfTen[_exp10 - (-348 : GoInt)][(0 : GoInt)]),
 			_yHi:GoUInt64 = __tmp__._0,
 			_yLo:GoUInt64 = __tmp__._1;
-		var _mergedHi:GoUInt64 = _xHi, _mergedLo:GoUInt64 = _xLo + _yHi;
+		var _0:GoUInt64 = _xHi,
+			_1:GoUInt64 = _xLo + _yHi,
+			_mergedLo:GoUInt64 = _1,
+			_mergedHi:GoUInt64 = _0;
 		if (_mergedLo < _xLo) {
 			_mergedHi++;
 		};
@@ -2532,7 +2535,10 @@ function _eiselLemire32(_man:GoUInt64, _exp10:GoInt, _neg:Bool):{var _0:GoFloat3
 		var __tmp__ = stdgo.math.bits.Bits.mul64(_man, _detailedPowersOfTen[_exp10 - (-348 : GoInt)][(0 : GoInt)]),
 			_yHi:GoUInt64 = __tmp__._0,
 			_yLo:GoUInt64 = __tmp__._1;
-		var _mergedHi:GoUInt64 = _xHi, _mergedLo:GoUInt64 = _xLo + _yHi;
+		var _0:GoUInt64 = _xHi,
+			_1:GoUInt64 = _xLo + _yHi,
+			_mergedLo:GoUInt64 = _1,
+			_mergedHi:GoUInt64 = _0;
 		if (_mergedLo < _xLo) {
 			_mergedHi++;
 		};
@@ -3076,7 +3082,10 @@ function _ryuFtoaFixed32(_d:Ref<T_decimalSlice>, _mant:GoUInt32, _exp:GoInt, _pr
 	};
 	var _extra:GoUInt = (-_dexp2 : GoUInt);
 	var _extraMask:GoUInt32 = (((("1" : GoUInt32) : GoUInt32) << _extra) - ("1" : GoUInt32) : GoUInt32);
-	var _di:GoUInt32 = _di >> _extra, _dfrac:GoUInt32 = _di & _extraMask;
+	var _0:GoUInt32 = _di >> _extra,
+		_1:GoUInt32 = _di & _extraMask,
+		_dfrac:GoUInt32 = _1,
+		_di:GoUInt32 = _0;
 	var _roundUp:Bool = false;
 	if (_exact) {
 		_roundUp = ((_dfrac > ((("1" : GoUInt32) : GoUInt32) << (_extra - (("1" : GoUInt) : GoUInt))))
@@ -3132,7 +3141,10 @@ function _ryuFtoaFixed64(_d:Ref<T_decimalSlice>, _mant:GoUInt64, _exp:GoInt, _pr
 	};
 	var _extra:GoUInt = (-_dexp2 : GoUInt);
 	var _extraMask:GoUInt64 = (((("1" : GoUInt64) : GoUInt64) << _extra) - ("1" : GoUInt64) : GoUInt64);
-	var _di:GoUInt64 = _di >> _extra, _dfrac:GoUInt64 = _di & _extraMask;
+	var _0:GoUInt64 = _di >> _extra,
+		_1:GoUInt64 = _di & _extraMask,
+		_dfrac:GoUInt64 = _1,
+		_di:GoUInt64 = _0;
 	var _roundUp:Bool = false;
 	if (_exact) {
 		_roundUp = ((_dfrac > ((("1" : GoUInt64) : GoUInt64) << (_extra - (("1" : GoUInt) : GoUInt))))
@@ -3158,8 +3170,10 @@ function _formatDecimal(_d:Ref<T_decimalSlice>, _m:GoUInt64, _trunc:Bool, _round
 	var _max:GoUInt64 = _uint64pow10[_prec];
 	var _trimmed:GoInt = (0 : GoInt);
 	while (_m >= _max) {
-		var _a:GoUInt64 = _m / ("10" : GoUInt64),
-			_b:GoUInt64 = _m % ("10" : GoUInt64);
+		var _0:GoUInt64 = _m / ("10" : GoUInt64),
+			_1:GoUInt64 = _m % ("10" : GoUInt64),
+			_b:GoUInt64 = _1,
+			_a:GoUInt64 = _0;
 		_m = _a;
 		_trimmed++;
 		if (_b > ("5" : GoUInt64)) {
@@ -3184,7 +3198,10 @@ function _formatDecimal(_d:Ref<T_decimalSlice>, _m:GoUInt64, _trunc:Bool, _round
 	_d._nd = (_prec : GoInt);
 	var _v:GoUInt64 = _m;
 	while (_v >= ("100" : GoUInt64)) {
-		var _v1:GoUInt64 = (0 : GoUInt64), _v2:GoUInt64 = (0 : GoUInt64);
+		var _0:GoUInt64 = (0 : GoUInt64),
+			_1:GoUInt64 = (0 : GoUInt64),
+			_v2:GoUInt64 = _1,
+			_v1:GoUInt64 = _0;
 		if (_v >> ("32" : GoUInt64) == (("0" : GoUInt64))) {
 			{
 				final __tmp__0 = ((_v : GoUInt32) / ("100" : GoUInt32) : GoUInt64);
@@ -3251,14 +3268,25 @@ function _ryuFtoaShortest(_d:Ref<T_decimalSlice>, _mant:GoUInt64, _exp:GoInt, _f
 		return;
 	};
 	var _q:GoInt = _mulByLog2Log10(-_e2) + (1 : GoInt);
-	var _dl:GoUInt64 = (0 : GoUInt64),
-		_dc:GoUInt64 = (0 : GoUInt64),
-		_du:GoUInt64 = (0 : GoUInt64);
-	var _dl0:Bool = false, _dc0:Bool = false, _du0:Bool = false;
+	var _0:GoUInt64 = (0 : GoUInt64),
+		_1:GoUInt64 = (0 : GoUInt64),
+		_2:GoUInt64 = (0 : GoUInt64),
+		_du:GoUInt64 = _2,
+		_dc:GoUInt64 = _1,
+		_dl:GoUInt64 = _0;
+	var _0:Bool = false,
+		_1:Bool = false,
+		_2:Bool = false,
+		_du0:Bool = _2,
+		_dc0:Bool = _1,
+		_dl0:Bool = _0;
 	if (_flt == ((_float32info : Ref<T_floatInfo>))) {
-		var _dl32:GoUInt32 = (0 : GoUInt32),
-			_dc32:GoUInt32 = (0 : GoUInt32),
-			_du32:GoUInt32 = (0 : GoUInt32);
+		var _0:GoUInt32 = (0 : GoUInt32),
+			_1:GoUInt32 = (0 : GoUInt32),
+			_2:GoUInt32 = (0 : GoUInt32),
+			_du32:GoUInt32 = _2,
+			_dc32:GoUInt32 = _1,
+			_dl32:GoUInt32 = _0;
 		{
 			var __tmp__ = _mult64bitPow10((_ml : GoUInt32), _e2, _q);
 			_dl32 = __tmp__._0;
@@ -3327,9 +3355,18 @@ function _ryuFtoaShortest(_d:Ref<T_decimalSlice>, _mant:GoUInt64, _exp:GoInt, _f
 	};
 	var _extra:GoUInt = (-_e2 : GoUInt);
 	var _extraMask:GoUInt64 = (((("1" : GoUInt64) : GoUInt64) << _extra) - ("1" : GoUInt64) : GoUInt64);
-	var _dl:GoUInt64 = _dl >> _extra, _fracl:GoUInt64 = _dl & _extraMask;
-	var _dc:GoUInt64 = _dc >> _extra, _fracc:GoUInt64 = _dc & _extraMask;
-	var _du:GoUInt64 = _du >> _extra, _fracu:GoUInt64 = _du & _extraMask;
+	var _0:GoUInt64 = _dl >> _extra,
+		_1:GoUInt64 = _dl & _extraMask,
+		_fracl:GoUInt64 = _1,
+		_dl:GoUInt64 = _0;
+	var _0:GoUInt64 = _dc >> _extra,
+		_1:GoUInt64 = _dc & _extraMask,
+		_fracc:GoUInt64 = _1,
+		_dc:GoUInt64 = _0;
+	var _0:GoUInt64 = _du >> _extra,
+		_1:GoUInt64 = _du & _extraMask,
+		_fracu:GoUInt64 = _1,
+		_du:GoUInt64 = _0;
 	var _uok:Bool = !_du0 || (_fracu > (("0" : GoUInt64) : GoUInt64));
 	if (_du0 && (_fracu == ("0" : GoUInt64))) {
 		_uok = _mant & ("1" : GoUInt64) == (("0" : GoUInt64));
@@ -3452,8 +3489,10 @@ function _ryuDigits(_d:Ref<T_decimalSlice>, _lower:GoUInt64, _central:GoUInt64, 
 		{
 			var _v:GoUInt32 = _chi;
 			while (_v > ("0" : GoUInt32)) {
-				var _v1:GoUInt32 = _v / ("10" : GoUInt32),
-					_v2:GoUInt32 = _v % ("10" : GoUInt32);
+				var _0:GoUInt32 = _v / ("10" : GoUInt32),
+					_1:GoUInt32 = _v % ("10" : GoUInt32),
+					_v2:GoUInt32 = _1,
+					_v1:GoUInt32 = _0;
 				_v = _v1;
 				_n--;
 				_d._d[_n] = (_v2 + ("0".code : GoRune) : GoByte);
@@ -3485,8 +3524,10 @@ function _ryuDigits32(_d:Ref<T_decimalSlice>, _lower:GoUInt32, _central:GoUInt32
 	var _cNextDigit:GoInt = (0 : GoInt);
 	while (_upper > ("0" : GoUInt32)) {
 		var _l:GoUInt32 = (_lower + (("9" : GoUInt32) : GoUInt32)) / ("10" : GoUInt32);
-		var _c:GoUInt32 = _central / ("10" : GoUInt32),
-			_cdigit:GoUInt32 = _central % ("10" : GoUInt32);
+		var _0:GoUInt32 = _central / ("10" : GoUInt32),
+			_1:GoUInt32 = _central % ("10" : GoUInt32),
+			_cdigit:GoUInt32 = _1,
+			_c:GoUInt32 = _0;
 		var _u:GoUInt32 = _upper / ("10" : GoUInt32);
 		if (_l > _u) {
 			break;
@@ -3520,8 +3561,10 @@ function _ryuDigits32(_d:Ref<T_decimalSlice>, _lower:GoUInt32, _central:GoUInt32
 	var _v:GoUInt32 = _central;
 	var _n:GoInt = _endindex;
 	while (_n > _d._nd) {
-		var _v1:GoUInt32 = _v / ("100" : GoUInt32),
-			_v2:GoUInt32 = _v % ("100" : GoUInt32);
+		var _0:GoUInt32 = _v / ("100" : GoUInt32),
+			_1:GoUInt32 = _v % ("100" : GoUInt32),
+			_v2:GoUInt32 = _1,
+			_v1:GoUInt32 = _0;
 		_d._d[_n] = Go.str("00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899")[((("2" : GoUInt32) : GoUInt32) * _v2)
 			+ ("1" : GoUInt32)];
 		_d._d[_n - (1 : GoInt)] = Go.str("00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899")[((("2" : GoUInt32) : GoUInt32) * _v2)
@@ -4520,7 +4563,10 @@ function _unquote(_in:GoString, _unescape:Bool):{var _0:GoString; var _1:GoStrin
 	// If there is no such i, bsearch16 returns len(a).
 **/
 function _bsearch16(_a:Slice<GoUInt16>, _x:GoUInt16):GoInt {
-	var _i:GoInt = (0 : GoInt), _j:GoInt = (_a.length);
+	var _0:GoInt = (0 : GoInt),
+		_1:GoInt = (_a.length),
+		_j:GoInt = _1,
+		_i:GoInt = _0;
 	while (_i < _j) {
 		var _h:GoInt = _i + ((_j - _i) >> (("1" : GoUInt64) : GoUInt64));
 		if (_a[_h] < _x) {
@@ -4537,7 +4583,10 @@ function _bsearch16(_a:Slice<GoUInt16>, _x:GoUInt16):GoInt {
 	// If there is no such i, bsearch32 returns len(a).
 **/
 function _bsearch32(_a:Slice<GoUInt32>, _x:GoUInt32):GoInt {
-	var _i:GoInt = (0 : GoInt), _j:GoInt = (_a.length);
+	var _0:GoInt = (0 : GoInt),
+		_1:GoInt = (_a.length),
+		_j:GoInt = _1,
+		_i:GoInt = _0;
 	while (_i < _j) {
 		var _h:GoInt = _i + ((_j - _i) >> (("1" : GoUInt64) : GoUInt64));
 		if (_a[_h] < _x) {
@@ -4565,9 +4614,12 @@ function isPrint(_r:GoRune):Bool {
 		return false;
 	};
 	if (((0 : GoInt32) <= _r) && (_r < (65536:GoInt32))) {
-		var _rr:GoUInt16 = (_r : GoUInt16),
-			_isPrint = _isPrint16,
-			_isNotPrint = _isNotPrint16;
+		var _0:GoUInt16 = (_r : GoUInt16),
+			_1 = _isPrint16,
+			_2 = _isNotPrint16,
+			_isNotPrint = _2,
+			_isPrint = _1,
+			_rr:GoUInt16 = _0;
 		var _i:GoInt = _bsearch16(_isPrint, _rr);
 		if (((_i >= _isPrint.length) || (_rr < _isPrint[_i & ((1 : GoInt) ^ (-1 : GoInt))])) || (_isPrint[_i | (1 : GoInt)] < _rr)) {
 			return false;
@@ -4575,9 +4627,12 @@ function isPrint(_r:GoRune):Bool {
 		var _j:GoInt = _bsearch16(_isNotPrint, _rr);
 		return (_j >= _isNotPrint.length) || (_isNotPrint[_j] != _rr);
 	};
-	var _rr:GoUInt32 = (_r : GoUInt32),
-		_isPrint = _isPrint32,
-		_isNotPrint = _isNotPrint32;
+	var _0:GoUInt32 = (_r : GoUInt32),
+		_1 = _isPrint32,
+		_2 = _isNotPrint32,
+		_isNotPrint = _2,
+		_isPrint = _1,
+		_rr:GoUInt32 = _0;
 	var _i:GoInt = _bsearch32(_isPrint, _rr);
 	if (((_i >= _isPrint.length) || (_rr < _isPrint[_i & ((1 : GoInt) ^ (-1 : GoInt))])) || (_isPrint[_i | (1 : GoInt)] < _rr)) {
 		return false;

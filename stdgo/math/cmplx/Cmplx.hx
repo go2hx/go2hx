@@ -556,7 +556,10 @@ function abs(_x:GoComplex128):GoFloat64 {
 **/
 function asin(_x:GoComplex128):GoComplex128 {
 	{
-		var _re:GoFloat64 = _x.real, _im:GoFloat64 = _x.imag;
+		var _0:GoFloat64 = _x.real,
+			_1:GoFloat64 = _x.imag,
+			_im:GoFloat64 = _1,
+			_re:GoFloat64 = _0;
 		if ((_im == (0 : GoFloat64)) && (stdgo.math.Math.abs(_re) <= (1 : GoFloat64))) {
 			return new GoComplex128(stdgo.math.Math.asin(_re), _im);
 		} else if ((_re == (0 : GoFloat64)) && (stdgo.math.Math.abs(_im) <= (1 : GoFloat64))) {
@@ -594,7 +597,10 @@ function asin(_x:GoComplex128):GoComplex128 {
 **/
 function asinh(_x:GoComplex128):GoComplex128 {
 	{
-		var _re:GoFloat64 = _x.real, _im:GoFloat64 = _x.imag;
+		var _0:GoFloat64 = _x.real,
+			_1:GoFloat64 = _x.imag,
+			_im:GoFloat64 = _1,
+			_re:GoFloat64 = _0;
 		if ((_im == (0 : GoFloat64)) && (stdgo.math.Math.abs(_re) <= (1 : GoFloat64))) {
 			return new GoComplex128(stdgo.math.Math.asinh(_re), _im);
 		} else if ((_re == (0 : GoFloat64)) && (stdgo.math.Math.abs(_im) <= (1 : GoFloat64))) {
@@ -651,7 +657,10 @@ function acosh(_x:GoComplex128):GoComplex128 {
 **/
 function atan(_x:GoComplex128):GoComplex128 {
 	{
-		var _re:GoFloat64 = _x.real, _im:GoFloat64 = _x.imag;
+		var _0:GoFloat64 = _x.real,
+			_1:GoFloat64 = _x.imag,
+			_im:GoFloat64 = _1,
+			_re:GoFloat64 = _0;
 		if (_im == (0 : GoFloat64)) {
 			return new GoComplex128(stdgo.math.Math.atan(_re), _im);
 		} else if ((_re == (0 : GoFloat64)) && (stdgo.math.Math.abs(_im) <= (1 : GoFloat64))) {
@@ -741,7 +750,10 @@ function _cVeryclose(_a:GoComplex128, _b:GoComplex128):Bool {
 }
 
 function _cAlike(_a:GoComplex128, _b:GoComplex128):Bool {
-	var _realAlike:Bool = false, _imagAlike:Bool = false;
+	var _0:Bool = false,
+		_1:Bool = false,
+		_imagAlike:Bool = _1,
+		_realAlike:Bool = _0;
 	if (_isExact(_b.real)) {
 		_realAlike = _alike(_a.real, _b.real);
 	} else {
@@ -817,8 +829,10 @@ function testAcos(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	for (_1 => _pt in _branchPoints) {
 		{
-			var _f0:GoComplex128 = acos(_pt[(0 : GoInt)]),
-				_f1:GoComplex128 = acos(_pt[(1 : GoInt)]);
+			var _0:GoComplex128 = acos(_pt[(0 : GoInt)]),
+				_1:GoComplex128 = acos(_pt[(1 : GoInt)]),
+				_f1:GoComplex128 = _1,
+				_f0:GoComplex128 = _0;
 			if (!_cVeryclose(_f0, _f1)) {
 				_t.errorf(Go.str("Acos(%g) not continuous, got %g want %g"), Go.toInterface(_pt[(0 : GoInt)]), Go.toInterface(_f0), Go.toInterface(_f1));
 			};
@@ -857,8 +871,10 @@ function testAcosh(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	for (_1 => _pt in _branchPoints) {
 		{
-			var _f0:GoComplex128 = acosh(_pt[(0 : GoInt)]),
-				_f1:GoComplex128 = acosh(_pt[(1 : GoInt)]);
+			var _0:GoComplex128 = acosh(_pt[(0 : GoInt)]),
+				_1:GoComplex128 = acosh(_pt[(1 : GoInt)]),
+				_f1:GoComplex128 = _1,
+				_f0:GoComplex128 = _0;
 			if (!_cVeryclose(_f0, _f1)) {
 				_t.errorf(Go.str("Acosh(%g) not continuous, got %g want %g"), Go.toInterface(_pt[(0 : GoInt)]), Go.toInterface(_f0), Go.toInterface(_f1));
 			};
@@ -906,8 +922,10 @@ function testAsin(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	for (_1 => _pt in _branchPoints) {
 		{
-			var _f0:GoComplex128 = asin(_pt[(0 : GoInt)]),
-				_f1:GoComplex128 = asin(_pt[(1 : GoInt)]);
+			var _0:GoComplex128 = asin(_pt[(0 : GoInt)]),
+				_1:GoComplex128 = asin(_pt[(1 : GoInt)]),
+				_f1:GoComplex128 = _1,
+				_f0:GoComplex128 = _0;
 			if (!_cVeryclose(_f0, _f1)) {
 				_t.errorf(Go.str("Asin(%g) not continuous, got %g want %g"), Go.toInterface(_pt[(0 : GoInt)]), Go.toInterface(_f0), Go.toInterface(_f1));
 			};
@@ -955,8 +973,10 @@ function testAsinh(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	for (_1 => _pt in _branchPoints) {
 		{
-			var _f0:GoComplex128 = asinh(_pt[(0 : GoInt)]),
-				_f1:GoComplex128 = asinh(_pt[(1 : GoInt)]);
+			var _0:GoComplex128 = asinh(_pt[(0 : GoInt)]),
+				_1:GoComplex128 = asinh(_pt[(1 : GoInt)]),
+				_f1:GoComplex128 = _1,
+				_f0:GoComplex128 = _0;
 			if (!_cVeryclose(_f0, _f1)) {
 				_t.errorf(Go.str("Asinh(%g) not continuous, got %g want %g"), Go.toInterface(_pt[(0 : GoInt)]), Go.toInterface(_f0), Go.toInterface(_f1));
 			};
@@ -1004,8 +1024,10 @@ function testAtan(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	for (_1 => _pt in _branchPoints) {
 		{
-			var _f0:GoComplex128 = atan(_pt[(0 : GoInt)]),
-				_f1:GoComplex128 = atan(_pt[(1 : GoInt)]);
+			var _0:GoComplex128 = atan(_pt[(0 : GoInt)]),
+				_1:GoComplex128 = atan(_pt[(1 : GoInt)]),
+				_f1:GoComplex128 = _1,
+				_f0:GoComplex128 = _0;
 			if (!_cVeryclose(_f0, _f1)) {
 				_t.errorf(Go.str("Atan(%g) not continuous, got %g want %g"), Go.toInterface(_pt[(0 : GoInt)]), Go.toInterface(_f0), Go.toInterface(_f1));
 			};
@@ -1053,8 +1075,10 @@ function testAtanh(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	for (_1 => _pt in _branchPoints) {
 		{
-			var _f0:GoComplex128 = atanh(_pt[(0 : GoInt)]),
-				_f1:GoComplex128 = atanh(_pt[(1 : GoInt)]);
+			var _0:GoComplex128 = atanh(_pt[(0 : GoInt)]),
+				_1:GoComplex128 = atanh(_pt[(1 : GoInt)]),
+				_f1:GoComplex128 = _1,
+				_f0:GoComplex128 = _0;
 			if (!_cVeryclose(_f0, _f1)) {
 				_t.errorf(Go.str("Atanh(%g) not continuous, got %g want %g"), Go.toInterface(_pt[(0 : GoInt)]), Go.toInterface(_f0), Go.toInterface(_f1));
 			};
@@ -1243,8 +1267,10 @@ function testLog(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	for (_1 => _pt in _branchPoints) {
 		{
-			var _f0:GoComplex128 = log(_pt[(0 : GoInt)]),
-				_f1:GoComplex128 = log(_pt[(1 : GoInt)]);
+			var _0:GoComplex128 = log(_pt[(0 : GoInt)]),
+				_1:GoComplex128 = log(_pt[(1 : GoInt)]),
+				_f1:GoComplex128 = _1,
+				_f0:GoComplex128 = _0;
 			if (!_cVeryclose(_f0, _f1)) {
 				_t.errorf(Go.str("Log(%g) not continuous, got %g want %g"), Go.toInterface(_pt[(0 : GoInt)]), Go.toInterface(_f0), Go.toInterface(_f1));
 			};
@@ -1357,8 +1383,10 @@ function testPow(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	for (_1 => _pt in _branchPoints) {
 		{
-			var _f0:GoComplex128 = pow(_pt[(0 : GoInt)], new GoComplex128(0.1, 0)),
-				_f1:GoComplex128 = pow(_pt[(1 : GoInt)], new GoComplex128(0.1, 0));
+			var _0:GoComplex128 = pow(_pt[(0 : GoInt)], new GoComplex128(0.1, 0)),
+				_1:GoComplex128 = pow(_pt[(1 : GoInt)], new GoComplex128(0.1, 0)),
+				_f1:GoComplex128 = _1,
+				_f0:GoComplex128 = _0;
 			if (!_cVeryclose(_f0, _f1)) {
 				_t.errorf(Go.str("Pow(%g, 0.1) not continuous, got %g want %g"), Go.toInterface(_pt[(0 : GoInt)]), Go.toInterface(_f0), Go.toInterface(_f1));
 			};
@@ -1504,8 +1532,10 @@ function testSqrt(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	for (_1 => _pt in _branchPoints) {
 		{
-			var _f0:GoComplex128 = sqrt(_pt[(0 : GoInt)]),
-				_f1:GoComplex128 = sqrt(_pt[(1 : GoInt)]);
+			var _0:GoComplex128 = sqrt(_pt[(0 : GoInt)]),
+				_1:GoComplex128 = sqrt(_pt[(1 : GoInt)]),
+				_f1:GoComplex128 = _1,
+				_f0:GoComplex128 = _0;
 			if (!_cVeryclose(_f0, _f1)) {
 				_t.errorf(Go.str("Sqrt(%g) not continuous, got %g want %g"), Go.toInterface(_pt[(0 : GoInt)]), Go.toInterface(_f0), Go.toInterface(_f1));
 			};
@@ -1816,7 +1846,10 @@ function conj(_x:GoComplex128):GoComplex128 {
 **/
 function exp(_x:GoComplex128):GoComplex128 {
 	{
-		var _re:GoFloat64 = _x.real, _im:GoFloat64 = _x.imag;
+		var _0:GoFloat64 = _x.real,
+			_1:GoFloat64 = _x.imag,
+			_im:GoFloat64 = _1,
+			_re:GoFloat64 = _0;
 		if (stdgo.math.Math.isInf(_re, (0 : GoInt))) {
 			if ((_re > (0 : GoFloat64)) && (_im == (0 : GoFloat64))) {
 				return _x;
@@ -1935,7 +1968,10 @@ function pow(_x:GoComplex128, _y:GoComplex128):GoComplex128 {
 		if (isNaN(_y)) {
 			return naN();
 		};
-		var _r:GoFloat64 = _y.real, _i:GoFloat64 = _y.imag;
+		var _0:GoFloat64 = _y.real,
+			_1:GoFloat64 = _y.imag,
+			_i:GoFloat64 = _1,
+			_r:GoFloat64 = _0;
 		if (_r == (0 : GoFloat64)) {
 			return new GoComplex128(1, 0);
 		} else if (_r < (0:GoFloat64)) {
@@ -1980,7 +2016,10 @@ function rect(_r:GoFloat64, __952:GoFloat64):GoComplex128 {
 **/
 function sin(_x:GoComplex128):GoComplex128 {
 	{
-		var _re:GoFloat64 = _x.real, _im:GoFloat64 = _x.imag;
+		var _0:GoFloat64 = _x.real,
+			_1:GoFloat64 = _x.imag,
+			_im:GoFloat64 = _1,
+			_re:GoFloat64 = _0;
 		if ((_im == (0 : GoFloat64)) && (stdgo.math.Math.isInf(_re, (0 : GoInt)) || stdgo.math.Math.isNaN(_re))) {
 			return new GoComplex128(stdgo.math.Math.naN(), _im);
 		} else if (stdgo.math.Math.isInf(_im, (0 : GoInt))) {
@@ -2007,7 +2046,10 @@ function sin(_x:GoComplex128):GoComplex128 {
 **/
 function sinh(_x:GoComplex128):GoComplex128 {
 	{
-		var _re:GoFloat64 = _x.real, _im:GoFloat64 = _x.imag;
+		var _0:GoFloat64 = _x.real,
+			_1:GoFloat64 = _x.imag,
+			_im:GoFloat64 = _1,
+			_re:GoFloat64 = _0;
 		if ((_re == (0 : GoFloat64)) && (stdgo.math.Math.isInf(_im, (0 : GoInt)) || stdgo.math.Math.isNaN(_im))) {
 			return new GoComplex128(_re, stdgo.math.Math.naN());
 		} else if (stdgo.math.Math.isInf(_re, (0 : GoInt))) {
@@ -2034,7 +2076,10 @@ function sinh(_x:GoComplex128):GoComplex128 {
 **/
 function cos(_x:GoComplex128):GoComplex128 {
 	{
-		var _re:GoFloat64 = _x.real, _im:GoFloat64 = _x.imag;
+		var _0:GoFloat64 = _x.real,
+			_1:GoFloat64 = _x.imag,
+			_im:GoFloat64 = _1,
+			_re:GoFloat64 = _0;
 		if ((_im == (0 : GoFloat64)) && (stdgo.math.Math.isInf(_re, (0 : GoInt)) || stdgo.math.Math.isNaN(_re))) {
 			return new GoComplex128(stdgo.math.Math.naN(), -_im * stdgo.math.Math.copysign((0 : GoFloat64), _re));
 		} else if (stdgo.math.Math.isInf(_im, (0 : GoInt))) {
@@ -2061,7 +2106,10 @@ function cos(_x:GoComplex128):GoComplex128 {
 **/
 function cosh(_x:GoComplex128):GoComplex128 {
 	{
-		var _re:GoFloat64 = _x.real, _im:GoFloat64 = _x.imag;
+		var _0:GoFloat64 = _x.real,
+			_1:GoFloat64 = _x.imag,
+			_im:GoFloat64 = _1,
+			_re:GoFloat64 = _0;
 		if ((_re == (0 : GoFloat64)) && (stdgo.math.Math.isInf(_im, (0 : GoInt)) || stdgo.math.Math.isNaN(_im))) {
 			return new GoComplex128(stdgo.math.Math.naN(), _re * stdgo.math.Math.copysign((0 : GoFloat64), _im));
 		} else if (stdgo.math.Math.isInf(_re, (0 : GoInt))) {
@@ -2155,7 +2203,10 @@ function sqrt(_x:GoComplex128):GoComplex128 {
 **/
 function tan(_x:GoComplex128):GoComplex128 {
 	{
-		var _re:GoFloat64 = _x.real, _im:GoFloat64 = _x.imag;
+		var _0:GoFloat64 = _x.real,
+			_1:GoFloat64 = _x.imag,
+			_im:GoFloat64 = _1,
+			_re:GoFloat64 = _0;
 		if (stdgo.math.Math.isInf(_im, (0 : GoInt))) {
 			if (stdgo.math.Math.isInf(_re, (0 : GoInt)) || stdgo.math.Math.isNaN(_re)) {
 				return new GoComplex128(stdgo.math.Math.copysign((0 : GoFloat64), _re), stdgo.math.Math.copysign((1 : GoFloat64), _im));
@@ -2181,7 +2232,10 @@ function tan(_x:GoComplex128):GoComplex128 {
 **/
 function tanh(_x:GoComplex128):GoComplex128 {
 	{
-		var _re:GoFloat64 = _x.real, _im:GoFloat64 = _x.imag;
+		var _0:GoFloat64 = _x.real,
+			_1:GoFloat64 = _x.imag,
+			_im:GoFloat64 = _1,
+			_re:GoFloat64 = _0;
 		if (stdgo.math.Math.isInf(_re, (0 : GoInt))) {
 			if (stdgo.math.Math.isInf(_im, (0 : GoInt)) || stdgo.math.Math.isNaN(_im)) {
 				return new GoComplex128(stdgo.math.Math.copysign((1 : GoFloat64), _re), stdgo.math.Math.copysign((0 : GoFloat64), _im));
@@ -2229,8 +2283,10 @@ function _reducePi(_x:GoFloat64):GoFloat64 {
 		("5639122210317440029" : GoUInt64), ("10375251204153461767" : GoUInt64), ("17840878831444244111" : GoUInt64), ("13158180450388509915" : GoUInt64),
 		("12079533480525952278" : GoUInt64), ("13444332734028904637" : GoUInt64), ("11422145685100251509" : GoUInt64), ("3890458997777936004" : GoUInt64),
 		("3098925296816862677" : GoUInt64)) : GoArray<GoUInt64>);
-	var _digit:GoUInt = (_exp + (64 : GoInt) : GoUInt) / ("64" : GoUInt),
-		_bitshift:GoUInt = (_exp + (64 : GoInt) : GoUInt) % ("64" : GoUInt);
+	var _0:GoUInt = (_exp + (64 : GoInt) : GoUInt) / ("64" : GoUInt),
+		_1:GoUInt = (_exp + (64 : GoInt) : GoUInt) % ("64" : GoUInt),
+		_bitshift:GoUInt = _1,
+		_digit:GoUInt = _0;
 	var _z0:GoUInt64 = (_mPi[_digit] << _bitshift) | (_mPi[_digit + ("1" : GoUInt)] >> ((("64" : GoUInt) : GoUInt) - _bitshift));
 	var _z1:GoUInt64 = (_mPi[_digit + ("1" : GoUInt)] << _bitshift) | (_mPi[_digit + ("2" : GoUInt)] >> ((("64" : GoUInt) : GoUInt) - _bitshift));
 	var _z2:GoUInt64 = (_mPi[_digit + ("2" : GoUInt)] << _bitshift) | (_mPi[_digit + ("3" : GoUInt)] >> ((("64" : GoUInt) : GoUInt) - _bitshift));

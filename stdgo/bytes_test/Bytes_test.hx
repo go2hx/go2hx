@@ -2920,7 +2920,7 @@ function testSplit(_t:Ref<stdgo.testing.Testing.T>):Void {
 			};
 		};
 		if ((_a.length) > (0 : GoInt)) {
-			var _in = _a[(0 : GoInt)], _out = _s;
+			var _0 = _a[(0 : GoInt)], _1 = _s, _out = _1, _in = _0;
 			if ((_in.capacity == _out.capacity)
 				&& (Go.pointer((_in.__slice__(0,
 					(1 : GoInt)) : Slice<GoUInt8>)[(0 : GoInt)]) == Go.pointer((_out.__slice__(0, (1 : GoInt)) : Slice<GoUInt8>)[(0 : GoInt)]))) {
@@ -4425,8 +4425,10 @@ function exampleBuffer_ReadByte():Void {
 }
 
 function exampleCompare():Void {
-	var _a:Slice<GoByte> = (null : Slice<GoUInt8>),
-		_b:Slice<GoByte> = (null : Slice<GoUInt8>);
+	var _0:Slice<GoByte> = (null : Slice<GoUInt8>),
+		_1:Slice<GoByte> = (null : Slice<GoUInt8>),
+		_b:Slice<GoByte> = _1,
+		_a:Slice<GoByte> = _0;
 	if (stdgo.bytes.Bytes.compare(_a, _b) < (0:GoInt)) {};
 	if (stdgo.bytes.Bytes.compare(_a, _b) <= (0 : GoInt)) {};
 	if (stdgo.bytes.Bytes.compare(_a, _b) > (0 : GoInt)) {};
@@ -5047,7 +5049,10 @@ function testReaderLen(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{};
 	var _r = newReader((Go.str("hello world") : Slice<GoByte>));
 	{
-		var _got:GoInt = _r.len(), _want:GoInt = (11 : GoInt);
+		var _0:GoInt = _r.len(),
+			_1:GoInt = (11 : GoInt),
+			_want:GoInt = _1,
+			_got:GoInt = _0;
 		if (_got != (_want)) {
 			_t.errorf(Go.str("r.Len(): got %d, want %d"), Go.toInterface(_got), Go.toInterface(_want));
 		};
@@ -5061,7 +5066,10 @@ function testReaderLen(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 	};
 	{
-		var _got:GoInt = _r.len(), _want:GoInt = (1 : GoInt);
+		var _0:GoInt = _r.len(),
+			_1:GoInt = (1 : GoInt),
+			_want:GoInt = _1,
+			_got:GoInt = _0;
 		if (_got != (_want)) {
 			_t.errorf(Go.str("r.Len(): got %d, want %d"), Go.toInterface(_got), Go.toInterface(_want));
 		};
@@ -5075,7 +5083,10 @@ function testReaderLen(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 	};
 	{
-		var _got:GoInt = _r.len(), _want:GoInt = (0 : GoInt);
+		var _0:GoInt = _r.len(),
+			_1:GoInt = (0 : GoInt),
+			_want:GoInt = _1,
+			_got:GoInt = _0;
 		if (_got != (_want)) {
 			_t.errorf(Go.str("r.Len(): got %d, want %d"), Go.toInterface(_got), Go.toInterface(_want));
 		};
@@ -5188,8 +5199,10 @@ function testReaderCopyNothing(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{};
 	{};
 	var _discard:stdgo.bytes_test.Bytes_test.T_justWriter_testReaderCopyNothing_2 = (new stdgo.bytes_test.Bytes_test.T_justWriter_testReaderCopyNothing_2(stdgo.io.Io.discard) : stdgo.bytes_test.Bytes_test.T_justWriter_testReaderCopyNothing_2);
-	var _with:T_nErr_testReaderCopyNothing_0 = ({} : stdgo.bytes_test.Bytes_test.T_nErr_testReaderCopyNothing_0),
-		_withOut:T_nErr_testReaderCopyNothing_0 = ({} : stdgo.bytes_test.Bytes_test.T_nErr_testReaderCopyNothing_0);
+	var _0:T_nErr_testReaderCopyNothing_0 = ({} : stdgo.bytes_test.Bytes_test.T_nErr_testReaderCopyNothing_0),
+		_1:T_nErr_testReaderCopyNothing_0 = ({} : stdgo.bytes_test.Bytes_test.T_nErr_testReaderCopyNothing_0),
+		_withOut:T_nErr_testReaderCopyNothing_0 = _1,
+		_with:T_nErr_testReaderCopyNothing_0 = _0;
 	{
 		var __tmp__ = stdgo.io.Io.copy(Go.asInterface(_discard), Go.asInterface(newReader((null : Slice<GoUInt8>))));
 		_with._n = __tmp__._0;

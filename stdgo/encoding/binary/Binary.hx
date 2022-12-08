@@ -773,7 +773,10 @@ function _sizeof(_t:stdgo.reflect.Reflect.Type):GoInt {
 	} else if (_t.kind() == ((("25" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
 		var _sum:GoInt = (0 : GoInt);
 		{
-			var _i:GoInt = (0 : GoInt), _n:GoInt = _t.numField();
+			var _0:GoInt = (0 : GoInt),
+				_1:GoInt = _t.numField(),
+				_n:GoInt = _1,
+				_i:GoInt = _0;
 			Go.cfor(_i < _n, _i++, {
 				var _s:GoInt = _sizeof(_t.field(_i).type);
 				if (_s < (0:GoInt)) {
@@ -1017,7 +1020,10 @@ function testWriteT(_t:Ref<stdgo.testing.Testing.T>):Void {
 			.__copy__()))
 		.__copy__());
 	{
-		var _i:GoInt = (0 : GoInt), _n:GoInt = _tv.numField();
+		var _0:GoInt = (0 : GoInt),
+			_1:GoInt = _tv.numField(),
+			_n:GoInt = _1,
+			_i:GoInt = _0;
 		Go.cfor(_i < _n, _i++, {
 			var _typ:GoString = (_tv.field(_i).type().string() : GoString);
 			if (_typ == (Go.str("[4]int"))) {
@@ -2110,13 +2116,19 @@ function testBufferTooBigWithOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_value:GoUInt64 = __tmp__._0,
 				_n:GoInt = __tmp__._1;
 			{
-				var _g:GoInt = _n, _w:GoInt = _tt._wantN;
+				var _0:GoInt = _n,
+					_1:GoInt = _tt._wantN,
+					_w:GoInt = _1,
+					_g:GoInt = _0;
 				if (_g != (_w)) {
 					_t.errorf(Go.str("bytes returned=%d, want=%d"), Go.toInterface(_g), Go.toInterface(_w));
 				};
 			};
 			{
-				var _g:GoUInt64 = _value, _w:GoUInt64 = _tt._wantValue;
+				var _0:GoUInt64 = _value,
+					_1:GoUInt64 = _tt._wantValue,
+					_w:GoUInt64 = _1,
+					_g:GoUInt64 = _0;
 				if (_g != (_w)) {
 					_t.errorf(Go.str("value=%d, want=%d"), Go.toInterface(_g), Go.toInterface(_w));
 				};

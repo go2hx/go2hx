@@ -2676,7 +2676,10 @@ function testParseInLocation(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (_err != null) {
 		_t.fatal(Go.toInterface(_err));
 	};
-	var _t1:Time = ({} : Time), _t2:Time = ({} : Time);
+	var _0:Time = ({} : Time),
+		_1:Time = ({} : Time),
+		_t2:Time = _1,
+		_t1:Time = _0;
 	{
 		var __tmp__ = parseInLocation(Go.str("Jan 02 2006 MST"), Go.str("Feb 01 2013 AST"), _baghdad);
 		_t1 = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
@@ -4503,7 +4506,10 @@ function testTicker(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	for (_0 => _test in (new Slice<T__struct_8>(0, 0, ({_count: (0 : GoInt), _delta: ((0 : GoInt64) : Duration)} : T__struct_8),
 		({_count: (0 : GoInt), _delta: ((0 : GoInt64) : Duration)} : T__struct_8)) : Slice<T__struct_8>)) {
-		var _count:GoInt = _test._count, _delta:Duration = _test._delta;
+		var _0:GoInt = _test._count,
+			_1:Duration = _test._delta,
+			_delta:Duration = _1,
+			_count:GoInt = _0;
 		var _ticker = newTicker(_delta);
 		var _t0:Time = (now() == null ? null : now().__copy__());
 		{
@@ -4939,13 +4945,20 @@ function _absString(_t:Time):GoString {
 }
 
 function testTruncateRound(_t:Ref<stdgo.testing.Testing.T>):Void {
-	var _bsec:Ref<stdgo.math.big.Big.Int_> = ({} : stdgo.math.big.Big.Int_),
-		_bnsec:Ref<stdgo.math.big.Big.Int_> = ({} : stdgo.math.big.Big.Int_),
-		_bd:Ref<stdgo.math.big.Big.Int_> = ({} : stdgo.math.big.Big.Int_),
-		_bt:Ref<stdgo.math.big.Big.Int_> = ({} : stdgo.math.big.Big.Int_),
-		_br:Ref<stdgo.math.big.Big.Int_> = ({} : stdgo.math.big.Big.Int_),
-		_bq:Ref<stdgo.math.big.Big.Int_> = ({} : stdgo.math.big.Big.Int_),
-		_b1e9:Ref<stdgo.math.big.Big.Int_> = ({} : stdgo.math.big.Big.Int_);
+	var _0:Ref<stdgo.math.big.Big.Int_> = ({} : stdgo.math.big.Big.Int_),
+		_1:Ref<stdgo.math.big.Big.Int_> = ({} : stdgo.math.big.Big.Int_),
+		_2:Ref<stdgo.math.big.Big.Int_> = ({} : stdgo.math.big.Big.Int_),
+		_3:Ref<stdgo.math.big.Big.Int_> = ({} : stdgo.math.big.Big.Int_),
+		_4:Ref<stdgo.math.big.Big.Int_> = ({} : stdgo.math.big.Big.Int_),
+		_5:Ref<stdgo.math.big.Big.Int_> = ({} : stdgo.math.big.Big.Int_),
+		_6:Ref<stdgo.math.big.Big.Int_> = ({} : stdgo.math.big.Big.Int_),
+		_b1e9:Ref<stdgo.math.big.Big.Int_> = _6,
+		_bq:Ref<stdgo.math.big.Big.Int_> = _5,
+		_br:Ref<stdgo.math.big.Big.Int_> = _4,
+		_bt:Ref<stdgo.math.big.Big.Int_> = _3,
+		_bd:Ref<stdgo.math.big.Big.Int_> = _2,
+		_bnsec:Ref<stdgo.math.big.Big.Int_> = _1,
+		_bsec:Ref<stdgo.math.big.Big.Int_> = _0;
 	_b1e9.setInt64(("1000000000" : GoInt64));
 	var _testOne:(GoInt64, GoInt64, GoInt64) -> Bool = function(_ti:GoInt64, _tns:GoInt64, _di:GoInt64):Bool {
 		_t.helper();
@@ -5021,7 +5034,8 @@ function testTruncateRound(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	var _f1:(GoInt64, GoInt32, GoInt32) -> Bool = function(_ti:GoInt64, _tns:GoInt32, _logdi:GoInt32):Bool {
 		var _d:Duration = (("1" : GoInt64) : Duration);
-		var _a:GoUInt = (_logdi % (9 : GoInt32) : GoUInt), _b:GoInt32 = (_logdi >> (("16" : GoUInt64) : GoUInt64)) % (9 : GoInt32);
+		var _0:GoUInt = (_logdi % (9 : GoInt32) : GoUInt), _1:GoInt32 = (_logdi >> (("16" : GoUInt64) : GoUInt64)) % (9 : GoInt32), _b:GoInt32 = _1,
+			_a:GoUInt = _0;
 		_d = _d << (_a);
 		{
 			var _i:GoInt = (0 : GoInt);
@@ -5749,8 +5763,10 @@ function testMarshalBinaryVersion2(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testZeroMonthString(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
-		var _got:GoString = ((0 : Month).string() : GoString),
-			_want:GoString = Go.str("%!Month(0)");
+		var _0:GoString = ((0 : Month).string() : GoString),
+			_1:GoString = Go.str("%!Month(0)"),
+			_want:GoString = _1,
+			_got:GoString = _0;
 		if (_got != (_want)) {
 			_t.errorf(Go.str("zero month = %q; want %q"), Go.toInterface(_got), Go.toInterface(_want));
 		};
@@ -5762,15 +5778,19 @@ function testZeroMonthString(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testWeekdayString(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
-		var _got:GoString = ((2 : Weekday).string() : GoString),
-			_want:GoString = Go.str("Tuesday");
+		var _0:GoString = ((2 : Weekday).string() : GoString),
+			_1:GoString = Go.str("Tuesday"),
+			_want:GoString = _1,
+			_got:GoString = _0;
 		if (_got != (_want)) {
 			_t.errorf(Go.str("Tuesday weekday = %q; want %q"), Go.toInterface(_got), Go.toInterface(_want));
 		};
 	};
 	{
-		var _got:GoString = ((14 : Weekday).string() : GoString),
-			_want:GoString = Go.str("%!Weekday(14)");
+		var _0:GoString = ((14 : Weekday).string() : GoString),
+			_1:GoString = Go.str("%!Weekday(14)"),
+			_want:GoString = _1,
+			_got:GoString = _0;
 		if (_got != (_want)) {
 			_t.errorf(Go.str("14th weekday = %q; want %q"), Go.toInterface(_got), Go.toInterface(_want));
 		};

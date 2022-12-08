@@ -3214,7 +3214,10 @@ function testLargeSincos(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_vf.length), _i++, {
-			var _f1:GoFloat64 = _sinLarge[_i], _g1:GoFloat64 = _cosLarge[_i];
+			var _0:GoFloat64 = _sinLarge[_i],
+				_1:GoFloat64 = _cosLarge[_i],
+				_g1:GoFloat64 = _1,
+				_f1:GoFloat64 = _0;
 			var __tmp__ = sincos(_vf[_i] + _large),
 				_f2:GoFloat64 = __tmp__._0,
 				_g2:GoFloat64 = __tmp__._1;
@@ -3258,21 +3261,30 @@ function testTrigReduce(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_z:GoFloat64 = __tmp__._1;
 		var _xred:GoFloat64 = ((_j : GoFloat64) * (0.7853981633974483 : GoFloat64)) + _z;
 		{
-			var _f:GoFloat64 = sin(_x), _fred:GoFloat64 = sin(_xred);
+			var _0:GoFloat64 = sin(_x),
+				_1:GoFloat64 = sin(_xred),
+				_fred:GoFloat64 = _1,
+				_f:GoFloat64 = _0;
 			if (!_close(_f, _fred)) {
 				_t.errorf(Go.str("Sin(trigReduce(%g)) != Sin(%g), got %g, want %g"), Go.toInterface(_x), Go.toInterface(_x), Go.toInterface(_fred),
 					Go.toInterface(_f));
 			};
 		};
 		{
-			var _f:GoFloat64 = cos(_x), _fred:GoFloat64 = cos(_xred);
+			var _0:GoFloat64 = cos(_x),
+				_1:GoFloat64 = cos(_xred),
+				_fred:GoFloat64 = _1,
+				_f:GoFloat64 = _0;
 			if (!_close(_f, _fred)) {
 				_t.errorf(Go.str("Cos(trigReduce(%g)) != Cos(%g), got %g, want %g"), Go.toInterface(_x), Go.toInterface(_x), Go.toInterface(_fred),
 					Go.toInterface(_f));
 			};
 		};
 		{
-			var _f:GoFloat64 = tan(_x), _fred:GoFloat64 = tan(_xred);
+			var _0:GoFloat64 = tan(_x),
+				_1:GoFloat64 = tan(_xred),
+				_fred:GoFloat64 = _1,
+				_f:GoFloat64 = _0;
 			if (!_close(_f, _fred)) {
 				_t.errorf(Go.str(" Tan(trigReduce(%g)) != Tan(%g), got %g, want %g"), Go.toInterface(_x), Go.toInterface(_x), Go.toInterface(_fred),
 					Go.toInterface(_f));
@@ -3973,7 +3985,10 @@ function benchmarkSinh(_b:Ref<stdgo.testing.Testing.B>):Void {
 }
 
 function benchmarkSqrtIndirect(_b:Ref<stdgo.testing.Testing.B>):Void {
-	var _x:GoFloat64 = (0 : GoFloat64), _y:GoFloat64 = (10 : GoFloat64);
+	var _0:GoFloat64 = (0 : GoFloat64),
+		_1:GoFloat64 = (10 : GoFloat64),
+		_y:GoFloat64 = _1,
+		_x:GoFloat64 = _0;
 	var _f:GoFloat64->GoFloat64 = sqrt;
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -4441,7 +4456,10 @@ function testHugeSinCos(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_trigHuge.length), _i++, {
-			var _f1:GoFloat64 = _sinHuge[_i], _g1:GoFloat64 = _cosHuge[_i];
+			var _0:GoFloat64 = _sinHuge[_i],
+				_1:GoFloat64 = _cosHuge[_i],
+				_g1:GoFloat64 = _1,
+				_f1:GoFloat64 = _0;
 			var __tmp__ = sincos(_trigHuge[_i]),
 				_f2:GoFloat64 = __tmp__._0,
 				_g2:GoFloat64 = __tmp__._1;

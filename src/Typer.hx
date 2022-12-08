@@ -1039,6 +1039,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 		return (macro {}).expr; // blank
 	var decls:Array<Ast.GenDecl> = stmt.decl.decls;
 	var vars:Array<Var> = [];
+	var vars2:Array<Var> = [];
 	for (decl in decls) {
 		info.lastValue = null;
 		info.lastType = null;
@@ -1066,7 +1067,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 						func = data.expr;
 						if (data.ok)
 							spec.names = [{name: "value", type: null}, {name: "ok", type: null}];
-						vars.push({
+						vars2.push({
 							name: tmp,
 							expr: func
 						});
@@ -1076,56 +1077,73 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 							final fieldName = "_" + i;
 							final type = toComplexType(tuples[i], info);
 							final name = nameIdent(spec.names[i].name, false, false, info);
-							vars.push({
+							vars2.push({
 								name: name,
 								expr: macro __tmp__.$fieldName,
 								type: type,
 							});
 						}
 					} else {
-						vars = vars.concat([
-							// concat because this is in a for loop
-							for (i in 0...spec.names.length) {
-								var expr:Expr = null;
-								if (spec.values[i] == null) {
-									if (type != null) {
-										expr = defaultValue(typeof(spec.type, info, false), info);
-									} else {
-										expr = typeExpr(info.lastValue, info);
-										type = toComplexType(info.lastType, info);
-										expr = assignTranslate(typeof(info.lastValue, info, false), info.lastType, expr, info);
-									}
+						// concat because this is in a for loop
+						for (i in 0...spec.names.length) {
+							var expr:Expr = null;
+							if (spec.values[i] == null) {
+								if (type != null) {
+									expr = defaultValue(typeof(spec.type, info, false), info);
 								} else {
-									info.lastValue = spec.values[i];
-									info.lastType = typeof(spec.type, info, false);
-									expr = typeExpr(spec.values[i], info);
+									expr = typeExpr(info.lastValue, info);
+									type = toComplexType(info.lastType, info);
 									expr = assignTranslate(typeof(info.lastValue, info, false), info.lastType, expr, info);
 								}
-								var name = nameIdent(spec.names[i].name, false, true, info);
-								var t = typeof(spec.type, info, false);
-								var exprType = type;
-								if (exprType == null) {
-									final specType = typeof(spec.names[i], info, false);
-									if (specType != null)
-										exprType = toComplexType(specType, info);
-								}
-								{
-									name: name,
-									type: exprType,
-									expr: expr,
-								};
+							} else {
+								info.lastValue = spec.values[i];
+								info.lastType = typeof(spec.type, info, false);
+								expr = typeExpr(spec.values[i], info);
+								expr = assignTranslate(typeof(info.lastValue, info, false), info.lastType, expr, info);
 							}
-						]);
+							var name = nameIdent(spec.names[i].name, false, true, info);
+							var t = typeof(spec.type, info, false);
+							var exprType = type;
+							if (exprType == null) {
+								final specType = typeof(spec.names[i], info, false);
+								if (specType != null)
+									exprType = toComplexType(specType, info);
+							}
+							vars.push({
+								name: name,
+								type: exprType,
+								expr: expr,
+							});
+						}
 					}
 				default:
 					throw "unknown id: " + spec.id;
 			}
 		}
 	}
-	if (vars.length > 0)
-		return EVars(vars);
+	if (vars.length > 0) {
+		vars2 = vars2.concat(createTempVars(vars));
+		return EVars(vars.concat(vars2));
+	}
 	return (macro {}).expr; // blank expr def
 } // ($expr : $type);
+
+private function createTempVars(vars:Array<Var>):Array<Var> {
+	final vars2:Array<Var> = [];
+	if (vars.length > 1) {
+		var count = 0;
+		for (v in vars) {
+			final tempName = "_" + (count++);
+			vars2.unshift({
+				name: v.name,
+				type: v.type,
+				expr: macro $i{tempName},
+			});
+			v.name = tempName;
+		}
+	}
+	return vars2;
+}
 
 private function translateStruct(e:Expr, fromType:GoType, toType:GoType, info:Info):Expr {
 	switch toType {
@@ -2497,7 +2515,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 						expr: expr,
 					});
 				}
-				return EVars(vars);
+				return EVars(vars.concat(createTempVars(vars)));
 			} else if (stmt.lhs.length > stmt.rhs.length && stmt.rhs.length == 1) {
 				// define, destructure system
 				var func = typeExpr(stmt.rhs[0], info);
@@ -4932,9 +4950,9 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef { //
 	// non anyInterface conversions are always known to work at compile time
 	final t = typeof(expr.type, info, false);
 	if (isAnyInterface(fromType))
-		return (macro (Go.typeAssert(($e : $ct)) : $ct)).expr;
+		return (macro(Go.typeAssert(($e : $ct)) : $ct)).expr;
 	e = toAnyInterface(e, fromType, info);
-	return (macro (Go.typeAssert(($e : $ct)) : $ct)).expr;
+	return (macro(Go.typeAssert(($e : $ct)) : $ct)).expr;
 }
 
 private function destructureExpr(x:Expr, t:GoType):{x:Expr, t:GoType} {

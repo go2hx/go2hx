@@ -633,7 +633,7 @@ private typedef T_mutatorRand = StructType & {
 	/**
 		// crashMinimizing is the crash that is currently being minimized.
 	**/
-	public var _crashMinimizing:Ref<T_fuzzResult> = (null : T_fuzzResult);
+	public var _crashMinimizing:Ref<T_fuzzResult> = (null : Ref<T_fuzzResult>);
 
 	/**
 		// coverageMask aggregates coverage that was found for all inputs in the
@@ -728,7 +728,7 @@ private typedef T_mutatorRand = StructType & {
 	/**
 		// f is the file mapped into memory.
 	**/
-	public var _f:Ref<stdgo.os.Os.File> = (null : stdgo.os.Os.File);
+	public var _f:Ref<stdgo.os.Os.File> = (null : Ref<stdgo.os.Os.File>);
 
 	/**
 		// region is the mapped region of virtual memory for f. The content of f may
@@ -942,7 +942,7 @@ private typedef T_mutatorRand = StructType & {
 	**/
 	public var _env:Slice<GoString> = (null : Slice<GoString>);
 
-	public var _coordinator:Ref<T_coordinator> = (null : T_coordinator);
+	public var _coordinator:Ref<T_coordinator> = (null : Ref<T_coordinator>);
 
 	/**
 		// mutex guarding shared memory with worker; persists across processes.
@@ -952,12 +952,12 @@ private typedef T_mutatorRand = StructType & {
 	/**
 		// current worker process
 	**/
-	public var _cmd:Ref<stdgo.os.exec.Exec.Cmd> = (null : stdgo.os.exec.Exec.Cmd);
+	public var _cmd:Ref<stdgo.os.exec.Exec.Cmd> = (null : Ref<stdgo.os.exec.Exec.Cmd>);
 
 	/**
 		// used to communicate with worker process
 	**/
-	public var _client:Ref<T_workerClient> = (null : T_workerClient);
+	public var _client:Ref<T_workerClient> = (null : Ref<T_workerClient>);
 
 	/**
 		// last error returned by wait, set before termC is closed.
@@ -1012,9 +1012,9 @@ private typedef T_mutatorRand = StructType & {
 	// which method to call.
 **/
 @:structInit private class T_call {
-	public var ping:Ref<T_pingArgs> = (null : T_pingArgs);
-	public var fuzz:Ref<T_fuzzArgs> = (null : T_fuzzArgs);
-	public var minimize:Ref<T_minimizeArgs> = (null : T_minimizeArgs);
+	public var ping:Ref<T_pingArgs> = (null : Ref<T_pingArgs>);
+	public var fuzz:Ref<T_fuzzArgs> = (null : Ref<T_fuzzArgs>);
+	public var minimize:Ref<T_minimizeArgs> = (null : Ref<T_minimizeArgs>);
 
 	public function new(?ping:Ref<T_pingArgs>, ?fuzz:Ref<T_fuzzArgs>, ?minimize:Ref<T_minimizeArgs>) {
 		if (ping != null)
@@ -1263,12 +1263,12 @@ private typedef T_mutatorRand = StructType & {
 	// (coordinator) has exclusive access.
 **/
 @:structInit private class T_workerComm {
-	public var _fuzzIn:Ref<stdgo.os.Os.File> = (null : stdgo.os.Os.File);
+	public var _fuzzIn:Ref<stdgo.os.Os.File> = (null : Ref<stdgo.os.Os.File>);
 
 	/**
 		// mutex guarding shared memory
 	**/
-	public var _fuzzOut:Ref<stdgo.os.Os.File> = (null : stdgo.os.Os.File);
+	public var _fuzzOut:Ref<stdgo.os.Os.File> = (null : Ref<stdgo.os.Os.File>);
 
 	public var _memMu:Chan<Ref<T_sharedMem>> = (null : Chan<Ref<T_sharedMem>>);
 
@@ -1296,7 +1296,7 @@ private typedef T_mutatorRand = StructType & {
 @:structInit @:using(internal.fuzz.Fuzz.T_workerServer_static_extension) private class T_workerServer {
 	@:embedded
 	public var _workerComm:T_workerComm = ({} : T_workerComm);
-	public var _m:Ref<T_mutator> = (null : T_mutator);
+	public var _m:Ref<T_mutator> = (null : Ref<T_mutator>);
 
 	/**
 		// coverageMask is the local coverage data for the worker. It is
@@ -1344,7 +1344,7 @@ private typedef T_mutatorRand = StructType & {
 @:structInit @:using(internal.fuzz.Fuzz.T_workerClient_static_extension) private class T_workerClient {
 	@:embedded
 	public var _workerComm:T_workerComm = ({} : T_workerComm);
-	public var _m:Ref<T_mutator> = (null : T_mutator);
+	public var _m:Ref<T_mutator> = (null : Ref<T_mutator>);
 
 	/**
 		// mu is the mutex protecting the workerComm.fuzzIn pipe. This must be

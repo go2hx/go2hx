@@ -123,7 +123,7 @@ private var _match:Slice<(Ref<Regexp>, Ref<Regexp>, GoString) -> {
 	var _1:GoString;
 }>);
 
-private var _notab:Ref<Regexp> = (null : Regexp);
+private var _notab:Ref<Regexp> = (null : Ref<Regexp>);
 private var _benchData:Slice<T__struct_1> = (null : Slice<T__struct_1>);
 private var _benchSizes:Slice<T__struct_3> = (null : Slice<T__struct_3>);
 private var _findTests:Slice<FindTest> = (null : Slice<FindTest>);
@@ -412,7 +412,7 @@ private typedef T_input = StructType & {
 **/
 @:structInit private class T_entry {
 	public var _pc:GoUInt32 = 0;
-	public var _t:Ref<T_thread> = (null : T_thread);
+	public var _t:Ref<T_thread> = (null : Ref<T_thread>);
 
 	public function new(?_pc:GoUInt32, ?_t:Ref<T_thread>) {
 		if (_pc != null)
@@ -432,7 +432,7 @@ private typedef T_input = StructType & {
 	// See https://swtch.com/~rsc/regexp/regexp2.html
 **/
 @:structInit private class T_thread {
-	public var _inst:Ref<stdgo.regexp.syntax.Syntax.Inst> = (null : stdgo.regexp.syntax.Syntax.Inst);
+	public var _inst:Ref<stdgo.regexp.syntax.Syntax.Inst> = (null : Ref<stdgo.regexp.syntax.Syntax.Inst>);
 	public var _cap:Slice<GoInt> = (null : Slice<GoInt>);
 
 	public function new(?_inst:Ref<stdgo.regexp.syntax.Syntax.Inst>, ?_cap:Slice<GoInt>) {
@@ -454,12 +454,12 @@ private typedef T_input = StructType & {
 	/**
 		// corresponding Regexp
 	**/
-	public var _re:Ref<Regexp> = (null : Regexp);
+	public var _re:Ref<Regexp> = (null : Ref<Regexp>);
 
 	/**
 		// compiled program
 	**/
-	public var _p:Ref<stdgo.regexp.syntax.Syntax.Prog> = (null : stdgo.regexp.syntax.Syntax.Prog);
+	public var _p:Ref<stdgo.regexp.syntax.Syntax.Prog> = (null : Ref<stdgo.regexp.syntax.Syntax.Prog>);
 
 	/**
 		// two queues for runq, nextq
@@ -685,12 +685,12 @@ private typedef T_input = StructType & {
 	/**
 		// compiled program
 	**/
-	public var _prog:Ref<stdgo.regexp.syntax.Syntax.Prog> = (null : stdgo.regexp.syntax.Syntax.Prog);
+	public var _prog:Ref<stdgo.regexp.syntax.Syntax.Prog> = (null : Ref<stdgo.regexp.syntax.Syntax.Prog>);
 
 	/**
 		// onepass program or nil
 	**/
-	public var _onepass:Ref<T_onePassProg> = (null : T_onePassProg);
+	public var _onepass:Ref<T_onePassProg> = (null : Ref<T_onePassProg>);
 
 	public var _numSubexp:GoInt = 0;
 	public var _maxBitStateLen:GoInt = 0;

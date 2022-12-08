@@ -34,7 +34,7 @@ private var _intervalFlag:T_interval = new stdgo.flag_test.Flag_test.T_interval(
 private final _defaultOutput:GoString = "  -A\tfor bootstrapping, allow \'any\' type\n  -Alongflagname\n    \tdisable bounds checking\n  -C\ta boolean defaulting to true (default true)\n  -D path\n    \tset relative path for local imports\n  -E string\n    \tissue 23543 (default \"0\")\n  -F number\n    \ta non-zero number (default 2.7)\n  -G float\n    \ta float that defaults to zero\n  -M string\n    \ta multiline\n    \thelp\n    \tstring\n  -N int\n    \ta non-zero int (default 27)\n  -O\ta flag\n    \tmultiline help string (default true)\n  -V list\n    \ta list of strings (default [a b])\n  -Z int\n    \tan int that defaults to zero\n  -ZP0 value\n    \ta flag whose String method panics when it is zero\n  -ZP1 value\n    \ta flag whose String method panics when it is zero\n  -maxT timeout\n    \tset timeout for dial\n\npanic calling String method on zero flag_test.zeroPanicker for flag ZP0: panic!\npanic calling String method on zero flag_test.zeroPanicker for flag ZP1: panic!\n";
 
 @:structInit @:using(stdgo.flag_test.Flag_test.URLValue_static_extension) class URLValue {
-	public var url:Ref<stdgo.net.url.Url.URL> = (null : stdgo.net.url.Url.URL);
+	public var url:Ref<stdgo.net.url.Url.URL> = (null : Ref<stdgo.net.url.Url.URL>);
 
 	public function new(?url:Ref<stdgo.net.url.Url.URL>) {
 		if (url != null)
@@ -397,7 +397,7 @@ function testGet(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _visitor = function(_f:Ref<Flag>):Void {
 		if ((_f.name.length > (5 : GoInt)) && ((_f.name.__slice__((0 : GoInt), (5 : GoInt)) : GoString) == Go.str("test_"))) {
 			var __tmp__ = try {
-				{value: Go.typeAssert((Go.toInterface(_f.value) : Getter)), ok: true};
+				{value: (Go.typeAssert((Go.toInterface(_f.value) : Getter)) : Getter), ok: true};
 			} catch (_) {
 				{value: (null : Getter), ok: false};
 			}, _g = __tmp__.value, _ok = __tmp__.ok;

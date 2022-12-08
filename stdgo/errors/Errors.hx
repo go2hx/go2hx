@@ -63,8 +63,7 @@ import stdgo.Chan;
 **/
 private var __go2hxdoc__package:Bool;
 
-private var _errorType:stdgo.internal.reflectlite.Reflectlite.Type = stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface(((null : Error) : Ref<Error>)))
-	.elem();
+private var _errorType:stdgo.internal.reflectlite.Reflectlite.Type = stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface((null : Ref<Error>))).elem();
 
 private typedef T__interface_0 = StructType & {
 	public function unwrap():Error;
@@ -109,7 +108,7 @@ function new_(_text:GoString):Error {
 **/
 function unwrap(_err:Error):Error {
 	var __tmp__ = try {
-		{value: Go.typeAssert((Go.toInterface(_err) : T__interface_0)), ok: true};
+		{value: (Go.typeAssert((Go.toInterface(_err) : T__interface_0)) : T__interface_0), ok: true};
 	} catch (_) {
 		{value: (null : T__interface_0), ok: false};
 	}, _u = __tmp__.value, _ok = __tmp__.ok;
@@ -148,7 +147,7 @@ function is_(_err:Error, _target:Error):Bool {
 		};
 		{
 			var __tmp__ = try {
-				{value: Go.typeAssert((Go.toInterface(_err) : T__interface_1)), ok: true};
+				{value: (Go.typeAssert((Go.toInterface(_err) : T__interface_1)) : T__interface_1), ok: true};
 			} catch (_) {
 				{value: (null : T__interface_1), ok: false};
 			}, _x = __tmp__.value, _ok = __tmp__.ok;
@@ -206,7 +205,7 @@ function as(_err:Error, _target:AnyInterface):Bool {
 		};
 		{
 			var __tmp__ = try {
-				{value: Go.typeAssert((Go.toInterface(_err) : T__interface_2)), ok: true};
+				{value: (Go.typeAssert((Go.toInterface(_err) : T__interface_2)) : T__interface_2), ok: true};
 			} catch (_) {
 				{value: (null : T__interface_2), ok: false};
 			}, _x = __tmp__.value, _ok = __tmp__.ok;

@@ -3080,9 +3080,9 @@ function testStd0xParseError(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_t.errorf(Go.str("Parse(%q, %q) did not fail as expected"), Go.toInterface(_tt._format), Go.toInterface(_tt._value));
 		} else {
 			var __tmp__ = try {
-				{value: Go.typeAssert((Go.toInterface(_err) : Ref<ParseError>)), ok: true};
+				{value: (Go.typeAssert((Go.toInterface(_err) : Ref<ParseError>)) : Ref<ParseError>), ok: true};
 			} catch (_) {
-				{value: (null : ParseError), ok: false};
+				{value: (null : Ref<ParseError>), ok: false};
 			}, _perr = __tmp__.value, _ok = __tmp__.ok;
 			if (!_ok) {
 				_t.errorf(Go.str("Parse(%q, %q) returned error type %T, expected ParseError"), Go.toInterface(_tt._format), Go.toInterface(_tt._value),
@@ -3538,7 +3538,7 @@ function _benchmark(_b:Ref<stdgo.testing.Testing.B>, _bench:(_n:GoInt) -> Void):
 				var __deferstack__:Array<Void->Void> = [];
 				__deferstack__.unshift(() -> _wg.done());
 				try {
-					var _garbage = new Slice<Ref<Timer>>((32768 : GoInt).toBasic(), 0, ...[for (i in 0...(32768 : GoInt).toBasic()) (null : Timer)]);
+					var _garbage = new Slice<Ref<Timer>>((32768 : GoInt).toBasic(), 0, ...[for (i in 0...(32768 : GoInt).toBasic()) (null : Ref<Timer>)]);
 					for (_j => _ in _garbage) {
 						_garbage[_j] = afterFunc((("3600000000000" : GoInt64) : Duration), null);
 					};
@@ -3639,7 +3639,7 @@ function benchmarkSimultaneousAfterFunc(_b:Ref<stdgo.testing.Testing.B>):Void {
 
 function benchmarkStartStop(_b:Ref<stdgo.testing.Testing.B>):Void {
 	_benchmark(_b, function(_n:GoInt):Void {
-		var _timers = new Slice<Ref<Timer>>((_n : GoInt).toBasic(), 0, ...[for (i in 0...(_n : GoInt).toBasic()) (null : Timer)]);
+		var _timers = new Slice<Ref<Timer>>((_n : GoInt).toBasic(), 0, ...[for (i in 0...(_n : GoInt).toBasic()) (null : Ref<Timer>)]);
 		{
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_i < _n, _i++, {
@@ -4017,7 +4017,7 @@ function testIssue5745(_t:Ref<stdgo.testing.Testing.T>):Void {
 			};
 			a();
 		});
-		var _timer:Ref<Timer> = (null : Timer);
+		var _timer:Ref<Timer> = (null : Ref<Timer>);
 		_timer.stop();
 		_t.error(Go.toInterface(Go.str("Should be unreachable.")));
 		for (defer in __deferstack__) {
@@ -4055,7 +4055,7 @@ function _checkZeroPanicString(_t:Ref<stdgo.testing.Testing.T>):Void {
 		r;
 	});
 	var __tmp__ = try {
-		{value: Go.typeAssert((_e : GoString)), ok: true};
+		{value: (Go.typeAssert((_e : GoString)) : GoString), ok: true};
 	} catch (_) {
 		{value: ("" : GoString), ok: false};
 	}, _s = __tmp__.value, _0 = __tmp__.ok;
@@ -4235,7 +4235,7 @@ function testTimerModifiedEarlier(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testAdjustTimers(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _rnd:Ref<stdgo.math.rand.Rand.Rand> = stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource(now().unixNano()));
-	var _timers = new Slice<Ref<Timer>>((100 : GoInt).toBasic(), 0, ...[for (i in 0...(100 : GoInt).toBasic()) (null : Timer)]);
+	var _timers = new Slice<Ref<Timer>>((100 : GoInt).toBasic(), 0, ...[for (i in 0...(100 : GoInt).toBasic()) (null : Ref<Timer>)]);
 	var _states = new Slice<GoInt>((_timers.length : GoInt).toBasic(), 0, ...[for (i in 0...(_timers.length : GoInt).toBasic()) (0 : GoInt)]);
 	var _indices = _rnd.perm((_timers.length));
 	while ((_indices.length) != ((0 : GoInt))) {
@@ -5285,9 +5285,9 @@ function testInvalidTimeJSON(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _tt:Time = ({} : Time);
 	var _err:Error = stdgo.encoding.json.Json.unmarshal(("{\"now is the time\":\"buddy\"}" : Slice<GoByte>), Go.toInterface((_tt : Ref<Time>)));
 	var __tmp__ = try {
-		{value: Go.typeAssert((Go.toInterface(_err) : Ref<ParseError>)), ok: true};
+		{value: (Go.typeAssert((Go.toInterface(_err) : Ref<ParseError>)) : Ref<ParseError>), ok: true};
 	} catch (_) {
-		{value: (null : ParseError), ok: false};
+		{value: (null : Ref<ParseError>), ok: false};
 	}, _0 = __tmp__.value, _isParseErr = __tmp__.ok;
 	if (!_isParseErr) {
 		_t.errorf(Go.str("expected *time.ParseError unmarshaling JSON, got %v"), Go.toInterface(_err));

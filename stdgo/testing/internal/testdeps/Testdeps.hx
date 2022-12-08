@@ -21,7 +21,7 @@ import stdgo.Chan;
 private var __go2hxdoc__package:Bool;
 
 private var _matchPat:GoString = ("" : GoString);
-private var _matchRe:Ref<stdgo.regexp.Regexp.Regexp> = (null : stdgo.regexp.Regexp.Regexp);
+private var _matchRe:Ref<stdgo.regexp.Regexp.Regexp> = (null : Ref<stdgo.regexp.Regexp.Regexp>);
 
 /**
 	// ImportPath is the import path of the testing binary, set by the generated main function.
@@ -47,7 +47,7 @@ private var _log:T_testLog = ({} : T_testLog);
 **/
 @:structInit @:using(stdgo.testing.internal.testdeps.Testdeps.T_testLog_static_extension) private class T_testLog {
 	public var _mu:stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
-	public var _w:Ref<stdgo.bufio.Bufio.Writer> = (null : stdgo.bufio.Bufio.Writer);
+	public var _w:Ref<stdgo.bufio.Bufio.Writer> = (null : Ref<stdgo.bufio.Bufio.Writer>);
 	public var _set:Bool = false;
 
 	public function new(?_mu:stdgo.sync.Sync.Mutex, ?_w:Ref<stdgo.bufio.Bufio.Writer>, ?_set:Bool) {

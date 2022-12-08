@@ -56,7 +56,7 @@ private typedef T_replacer = StructType & {
 	/**
 		// of receiver, to detect copies by value
 	**/
-	public var _addr:Ref<Builder> = (null : Builder);
+	public var _addr:Ref<Builder> = (null : Ref<Builder>);
 
 	public var _buf:Slice<GoUInt8> = (null : Slice<GoUInt8>);
 
@@ -174,7 +174,7 @@ private typedef T_replacer = StructType & {
 	**/
 	public var _prefix:GoString = "";
 
-	public var _next:Ref<T_trieNode> = (null : T_trieNode);
+	public var _next:Ref<T_trieNode> = (null : Ref<T_trieNode>);
 
 	/**
 		// table is a lookup table indexed by the next byte in the key, after
@@ -255,7 +255,7 @@ private typedef T_replacer = StructType & {
 	// one string to replace (and that string has more than one byte).
 **/
 @:structInit @:using(stdgo.strings.Strings.T_singleStringReplacer_static_extension) private class T_singleStringReplacer {
-	public var _finder:Ref<T_stringFinder> = (null : T_stringFinder);
+	public var _finder:Ref<T_stringFinder> = (null : Ref<T_stringFinder>);
 
 	/**
 		// value is the new string that replaces that pattern when it's found.
@@ -502,7 +502,7 @@ function _makeGenericReplacer(_oldnew:Slice<GoString>):Ref<T_genericReplacer> {
 		};
 	};
 	_r._root._table = new Slice<Ref<T_trieNode>>((_r._tableSize : GoInt).toBasic(), 0,
-		...[for (i in 0...(_r._tableSize : GoInt).toBasic()) (null : T_trieNode)]);
+		...[for (i in 0...(_r._tableSize : GoInt).toBasic()) (null : Ref<T_trieNode>)]);
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_oldnew.length), _i = _i + ((2 : GoInt)), {
@@ -514,7 +514,7 @@ function _makeGenericReplacer(_oldnew:Slice<GoString>):Ref<T_genericReplacer> {
 
 function _getStringWriter(_w:stdgo.io.Io.Writer):stdgo.io.Io.StringWriter {
 	var __tmp__ = try {
-		{value: Go.typeAssert((Go.toInterface(_w) : stdgo.io.Io.StringWriter)), ok: true};
+		{value: (Go.typeAssert((Go.toInterface(_w) : stdgo.io.Io.StringWriter)) : stdgo.io.Io.StringWriter), ok: true};
 	} catch (_) {
 		{value: (null : stdgo.io.Io.StringWriter), ok: false};
 	}, _sw = __tmp__.value, _ok = __tmp__.ok;
@@ -2540,7 +2540,7 @@ class Replacer_asInterface {
 	@:keep
 	static public function printTrie(_r:Ref<Replacer>):GoString {
 		_r._once.do_(_r._buildOnce);
-		var _gen = Go.typeAssert((Go.toInterface(_r._r) : Ref<T_genericReplacer>));
+		var _gen = (Go.typeAssert((Go.toInterface(_r._r) : Ref<T_genericReplacer>)) : Ref<T_genericReplacer>);
 		return _gen._printNode((_gen._root : Ref<T_trieNode>), (0 : GoInt));
 	}
 
@@ -2590,7 +2590,7 @@ private class T_trieNode_asInterface {
 			if (_n == ((_t._prefix.length))) {
 				_t._next._add((_key.__slice__(_n) : GoString), _val, _priority, _r);
 			} else if (_n == ((0 : GoInt))) {
-				var _prefixNode:Ref<T_trieNode> = (null : T_trieNode);
+				var _prefixNode:Ref<T_trieNode> = (null : Ref<T_trieNode>);
 				if ((_t._prefix.length) == ((1 : GoInt))) {
 					_prefixNode = _t._next;
 				} else {
@@ -2598,7 +2598,7 @@ private class T_trieNode_asInterface {
 				};
 				var _keyNode = ({} : T_trieNode);
 				_t._table = new Slice<Ref<T_trieNode>>((_r._tableSize : GoInt).toBasic(), 0,
-					...[for (i in 0...(_r._tableSize : GoInt).toBasic()) (null : T_trieNode)]);
+					...[for (i in 0...(_r._tableSize : GoInt).toBasic()) (null : Ref<T_trieNode>)]);
 				_t._table[_r._mapping[_t._prefix[(0 : GoInt)]]] = _prefixNode;
 				_t._table[_r._mapping[_key[(0 : GoInt)]]] = _keyNode;
 				_t._prefix = Go.str();

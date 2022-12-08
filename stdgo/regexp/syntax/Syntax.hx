@@ -151,7 +151,7 @@ private var __go2hxdoc__package:Bool;
 private var _anyRuneNotNL:Slice<GoInt32> = (null : Slice<GoInt32>);
 private var _anyRune:Slice<GoInt32> = (null : Slice<GoInt32>);
 private var __Op_index_0:GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0...20) (0 : GoUInt8)]);
-private var _anyTable:Ref<stdgo.unicode.Unicode.RangeTable> = (null : stdgo.unicode.Unicode.RangeTable);
+private var _anyTable:Ref<stdgo.unicode.Unicode.RangeTable> = (null : Ref<stdgo.unicode.Unicode.RangeTable>);
 private var _code1:Slice<GoInt32> = (null : Slice<GoInt32>);
 private var _code2:Slice<GoInt32> = (null : Slice<GoInt32>);
 private var _code3:Slice<GoInt32> = (null : Slice<GoInt32>);
@@ -489,7 +489,7 @@ private final _meta:GoString = ("" : GoString);
 }
 
 @:structInit @:using(stdgo.regexp.syntax.Syntax.T_compiler_static_extension) private class T_compiler {
-	public var _p:Ref<Prog> = (null : Prog);
+	public var _p:Ref<Prog> = (null : Ref<Prog>);
 
 	public function new(?_p:Ref<Prog>) {
 		if (_p != null)
@@ -532,7 +532,7 @@ private final _meta:GoString = ("" : GoString);
 	**/
 	public var _stack:Slice<Ref<Regexp>> = (null : Slice<Ref<Regexp>>);
 
-	public var _free:Ref<Regexp> = (null : Regexp);
+	public var _free:Ref<Regexp> = (null : Ref<Regexp>);
 
 	/**
 		// number of capturing groups seen
@@ -715,7 +715,7 @@ private final _meta:GoString = ("" : GoString);
 	/**
 		// storage for short Sub
 	**/
-	public var sub0:GoArray<Ref<Regexp>> = new GoArray<Ref<Regexp>>(...[for (i in 0...1) (null : Regexp)]);
+	public var sub0:GoArray<Ref<Regexp>> = new GoArray<Ref<Regexp>>(...[for (i in 0...1) (null : Ref<Regexp>)]);
 
 	/**
 		// matched runes, for OpLiteral, OpCharClass

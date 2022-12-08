@@ -748,7 +748,7 @@ function _dataSize(_v:stdgo.reflect.Reflect.Value):GoInt {
 				_size:AnyInterface = __tmp__._0,
 				_ok:Bool = __tmp__._1;
 			if (_ok) {
-				return Go.typeAssert((_size : GoInt));
+				return (Go.typeAssert((_size : GoInt)) : GoInt);
 			};
 		};
 		var _size:GoInt = _sizeof(_t);

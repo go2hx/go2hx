@@ -224,9 +224,9 @@ function testIs(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testAs(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _errT:T_errorT = ({} : stdgo.errors_test.Errors_test.T_errorT);
-	var _errP:Ref<stdgo.io.fs.Fs.PathError> = (null : stdgo.io.fs.Fs.PathError);
+	var _errP:Ref<stdgo.io.fs.Fs.PathError> = (null : Ref<stdgo.io.fs.Fs.PathError>);
 	var _timeout:T__interface_3 = (null : stdgo.errors_test.Errors_test.T__interface_3);
-	var _p:Ref<T_poser> = (null : stdgo.errors_test.Errors_test.T_poser);
+	var _p:Ref<T_poser> = (null : Ref<stdgo.errors_test.Errors_test.T_poser>);
 	var __tmp__ = stdgo.os.Os.open(Go.str("non-existing")),
 		_0:Ref<stdgo.os.Os.File> = __tmp__._0,
 		_errF:Error = __tmp__._1;
@@ -412,7 +412,7 @@ function exampleAs():Void {
 			_0:Ref<stdgo.os.Os.File> = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			var _pathError:Ref<stdgo.io.fs.Fs.PathError> = (null : stdgo.io.fs.Fs.PathError);
+			var _pathError:Ref<stdgo.io.fs.Fs.PathError> = (null : Ref<stdgo.io.fs.Fs.PathError>);
 			if (stdgo.errors.Errors.as(_err, Go.toInterface((_pathError : Ref<Ref<stdgo.io.fs.Fs.PathError>>)))) {
 				stdgo.fmt.Fmt.println(Go.str("Failed at path:"), _pathError.path);
 			} else {
@@ -606,7 +606,7 @@ private class T_errorUncomparable_asInterface {
 	@:keep
 	static public function is_(_:T_errorUncomparable, _target:Error):Bool {
 		var __tmp__ = try {
-			{value: Go.typeAssert((Go.toInterface(_target) : T_errorUncomparable)), ok: true};
+			{value: (Go.typeAssert((Go.toInterface(_target) : T_errorUncomparable)) : T_errorUncomparable), ok: true};
 		} catch (_) {
 			{value: ({} : stdgo.errors_test.Errors_test.T_errorUncomparable), ok: false};
 		}, _0 = __tmp__.value, _ok = __tmp__.ok;

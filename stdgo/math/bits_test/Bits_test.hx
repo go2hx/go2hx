@@ -1563,7 +1563,7 @@ function testDivPanicOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
 					_t.error(Go.toInterface(Go.str("Div should have panicked when y<=hi")));
 				} else {
 					var __tmp__ = try {
-						{value: Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)), ok: true};
+						{value: (Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), ok: true};
 					} catch (_) {
 						{value: (null : stdgo.runtime.Runtime.T_error), ok: false};
 					}, _e = __tmp__.value, _ok = __tmp__.ok;
@@ -1619,7 +1619,7 @@ function testDiv32PanicOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
 					_t.error(Go.toInterface(Go.str("Div32 should have panicked when y<=hi")));
 				} else {
 					var __tmp__ = try {
-						{value: Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)), ok: true};
+						{value: (Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), ok: true};
 					} catch (_) {
 						{value: (null : stdgo.runtime.Runtime.T_error), ok: false};
 					}, _e = __tmp__.value, _ok = __tmp__.ok;
@@ -1675,7 +1675,7 @@ function testDiv64PanicOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
 					_t.error(Go.toInterface(Go.str("Div64 should have panicked when y<=hi")));
 				} else {
 					var __tmp__ = try {
-						{value: Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)), ok: true};
+						{value: (Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), ok: true};
 					} catch (_) {
 						{value: (null : stdgo.runtime.Runtime.T_error), ok: false};
 					}, _e = __tmp__.value, _ok = __tmp__.ok;
@@ -1731,7 +1731,7 @@ function testDivPanicZero(_t:Ref<stdgo.testing.Testing.T>):Void {
 					_t.error(Go.toInterface(Go.str("Div should have panicked when y==0")));
 				} else {
 					var __tmp__ = try {
-						{value: Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)), ok: true};
+						{value: (Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), ok: true};
 					} catch (_) {
 						{value: (null : stdgo.runtime.Runtime.T_error), ok: false};
 					}, _e = __tmp__.value, _ok = __tmp__.ok;
@@ -1787,7 +1787,7 @@ function testDiv32PanicZero(_t:Ref<stdgo.testing.Testing.T>):Void {
 					_t.error(Go.toInterface(Go.str("Div32 should have panicked when y==0")));
 				} else {
 					var __tmp__ = try {
-						{value: Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)), ok: true};
+						{value: (Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), ok: true};
 					} catch (_) {
 						{value: (null : stdgo.runtime.Runtime.T_error), ok: false};
 					}, _e = __tmp__.value, _ok = __tmp__.ok;
@@ -1843,7 +1843,7 @@ function testDiv64PanicZero(_t:Ref<stdgo.testing.Testing.T>):Void {
 					_t.error(Go.toInterface(Go.str("Div64 should have panicked when y==0")));
 				} else {
 					var __tmp__ = try {
-						{value: Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)), ok: true};
+						{value: (Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), ok: true};
 					} catch (_) {
 						{value: (null : stdgo.runtime.Runtime.T_error), ok: false};
 					}, _e = __tmp__.value, _ok = __tmp__.ok;

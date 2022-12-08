@@ -407,7 +407,7 @@ private final __NMode:InvalidType = ("6" : GoUInt64);
 }
 
 @:structInit @:using(stdgo.sort_test.Sort_test.T_nonDeterministicTestingData_static_extension) private class T_nonDeterministicTestingData {
-	public var _r:Ref<stdgo.math.rand.Rand.Rand> = (null : stdgo.math.rand.Rand.Rand);
+	public var _r:Ref<stdgo.math.rand.Rand.Rand> = (null : Ref<stdgo.math.rand.Rand.Rand>);
 
 	public function new(?_r:Ref<stdgo.math.rand.Rand.Rand>) {
 		if (_r != null)
@@ -421,7 +421,7 @@ private final __NMode:InvalidType = ("6" : GoUInt64);
 
 @:structInit @:using(stdgo.sort_test.Sort_test.T_testingData_static_extension) private class T_testingData {
 	public var _desc:GoString = "";
-	public var _t:Ref<stdgo.testing.Testing.T> = (null : stdgo.testing.Testing.T);
+	public var _t:Ref<stdgo.testing.Testing.T> = (null : Ref<stdgo.testing.Testing.T>);
 	public var _data:Slice<GoInt> = (null : Slice<GoInt>);
 
 	/**
@@ -457,7 +457,7 @@ private final __NMode:InvalidType = ("6" : GoUInt64);
 	// See https://www.cs.dartmouth.edu/~doug/mdmspe.pdf for more info.
 **/
 @:structInit @:using(stdgo.sort_test.Sort_test.T_adversaryTestingData_static_extension) private class T_adversaryTestingData {
-	public var _t:Ref<stdgo.testing.Testing.T> = (null : stdgo.testing.Testing.T);
+	public var _t:Ref<stdgo.testing.Testing.T> = (null : Ref<stdgo.testing.Testing.T>);
 
 	/**
 		// item values, initialized to special gas value and changed by Less

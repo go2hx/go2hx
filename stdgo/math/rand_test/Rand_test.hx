@@ -1202,10 +1202,10 @@ function testRegress(_t:Ref<stdgo.testing.Testing.T>):Void {
 					var _out:AnyInterface = (null : AnyInterface);
 					_out = _mv.call(_args)[(0 : GoInt)].interface_();
 					if ((_m.name == Go.str("Int")) || (_m.name == Go.str("Intn"))) {
-						_out = Go.toInterface((Go.typeAssert((_out : GoInt)) : GoInt64));
+						_out = Go.toInterface(((Go.typeAssert((_out : GoInt)) : GoInt) : GoInt64));
 					};
 					if (_m.name == (Go.str("Read"))) {
-						_out = Go.toInterface(Go.typeAssert((_args[(0 : GoInt)].interface_() : Slice<GoByte>)));
+						_out = Go.toInterface((Go.typeAssert((_args[(0 : GoInt)].interface_() : Slice<GoByte>)) : Slice<GoByte>));
 					};
 					if (_printgolden.value) {
 						var _val:GoString = ("" : GoString);
@@ -1221,7 +1221,7 @@ function testRegress(_t:Ref<stdgo.testing.Testing.T>):Void {
 					} else {
 						var _want:AnyInterface = _regressGolden[_p];
 						if (_m.name == (Go.str("Int"))) {
-							_want = Go.toInterface(((((Go.typeAssert((_want : GoInt64)) : GoUInt) << (("1" : GoUInt64) : GoUInt64)) >> ("1" : GoUInt64) : GoInt) : GoInt64));
+							_want = Go.toInterface((((((Go.typeAssert((_want : GoInt64)) : GoInt64) : GoUInt) << (("1" : GoUInt64) : GoUInt64)) >> ("1" : GoUInt64) : GoInt) : GoInt64));
 						};
 						if (!stdgo.reflect.Reflect.deepEqual(_out, _want)) {
 							_t.errorf(Go.str("r.%s(%s) = %v, want %v"), Go.toInterface(_m.name), Go.toInterface(_argstr), _out, _want);

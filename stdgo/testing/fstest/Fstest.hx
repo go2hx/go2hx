@@ -123,7 +123,7 @@ private var _3:stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
 **/
 @:structInit @:using(stdgo.testing.fstest.Fstest.T_mapFileInfo_static_extension) private class T_mapFileInfo {
 	public var _name:GoString = "";
-	public var _f:Ref<MapFile> = (null : MapFile);
+	public var _f:Ref<MapFile> = (null : Ref<MapFile>);
 
 	public function new(?_name:GoString, ?_f:Ref<MapFile>) {
 		if (_name != null)

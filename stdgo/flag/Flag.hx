@@ -366,9 +366,9 @@ function resetForTesting(_usage:() -> Void):Void {
 
 function _numError(_err:Error):Error {
 	var __tmp__ = try {
-		{value: Go.typeAssert((Go.toInterface(_err) : Ref<stdgo.strconv.Strconv.NumError>)), ok: true};
+		{value: (Go.typeAssert((Go.toInterface(_err) : Ref<stdgo.strconv.Strconv.NumError>)) : Ref<stdgo.strconv.Strconv.NumError>), ok: true};
 	} catch (_) {
-		{value: (null : stdgo.strconv.Strconv.NumError), ok: false};
+		{value: (null : Ref<stdgo.strconv.Strconv.NumError>), ok: false};
 	}, _ne = __tmp__.value, _ok = __tmp__.ok;
 	if (!_ok) {
 		return _err;
@@ -445,7 +445,7 @@ function _newTextValue(_val:stdgo.encoding.Encoding.TextMarshaler, _p:stdgo.enco
 	// sortFlags returns the flags as a slice in lexicographical sorted order.
 **/
 function _sortFlags(_flags:GoMap<GoString, Ref<Flag>>):Slice<Ref<Flag>> {
-	var _result = new Slice<Ref<Flag>>((_flags.length : GoInt).toBasic(), 0, ...[for (i in 0...(_flags.length : GoInt).toBasic()) (null : Flag)]);
+	var _result = new Slice<Ref<Flag>>((_flags.length : GoInt).toBasic(), 0, ...[for (i in 0...(_flags.length : GoInt).toBasic()) (null : Ref<Flag>)]);
 	var _i:GoInt = (0 : GoInt);
 	for (_0 => _f in _flags) {
 		_result[_i] = _f;
@@ -526,7 +526,7 @@ function _isZeroValue(_flag:Ref<Flag>, _value:GoString):{var _0:Bool; var _1:Err
 			for (defer in __deferstack__) {
 				defer();
 			};
-			return {_0: _value == ((Go.typeAssert((_z.interface_() : Value)).string() : GoString)), _1: (null : Error)};
+			return {_0: _value == (((Go.typeAssert((_z.interface_() : Value)) : Value).string() : GoString)), _1: (null : Error)};
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -892,7 +892,7 @@ private class T_textValue_asInterface {
 	static public function string(_v:T_textValue):GoString {
 		{
 			var __tmp__ = try {
-				{value: Go.typeAssert((Go.toInterface(_v._p) : stdgo.encoding.Encoding.TextMarshaler)), ok: true};
+				{value: (Go.typeAssert((Go.toInterface(_v._p) : stdgo.encoding.Encoding.TextMarshaler)) : stdgo.encoding.Encoding.TextMarshaler), ok: true};
 			} catch (_) {
 				{value: (null : stdgo.encoding.Encoding.TextMarshaler), ok: false};
 			}, _m = __tmp__.value, _ok = __tmp__.ok;
@@ -1354,7 +1354,7 @@ class FlagSet_asInterface {
 			});
 		};
 		var _m = _f._formal;
-		var __tmp__ = (_m != null && _m.__exists__(_name) ? {value: _m[_name], ok: true} : {value: (null : Flag), ok: false}),
+		var __tmp__ = (_m != null && _m.__exists__(_name) ? {value: _m[_name], ok: true} : {value: (null : Ref<Flag>), ok: false}),
 			_flag:Ref<Flag> = __tmp__.value,
 			_alreadythere:Bool = __tmp__.ok;
 		if (!_alreadythere) {
@@ -1366,7 +1366,7 @@ class FlagSet_asInterface {
 		};
 		{
 			var __tmp__ = try {
-				{value: Go.typeAssert((Go.toInterface(_flag.value) : T_boolFlag)), ok: true};
+				{value: (Go.typeAssert((Go.toInterface(_flag.value) : T_boolFlag)) : T_boolFlag), ok: true};
 			} catch (_) {
 				{value: (null : T_boolFlag), ok: false};
 			}, _fv = __tmp__.value, _ok = __tmp__.ok;
@@ -1549,7 +1549,7 @@ class FlagSet_asInterface {
 		};
 		var _flag = ((new Flag(_name, _usage, _value, (_value.string() : GoString)) : Flag) : Ref<Flag>);
 		var __tmp__ = (_f._formal != null
-			&& _f._formal.__exists__(_name) ? {value: _f._formal[_name], ok: true} : {value: (null : Flag), ok: false}),
+			&& _f._formal.__exists__(_name) ? {value: _f._formal[_name], ok: true} : {value: (null : Ref<Flag>), ok: false}),
 			_0:Ref<Flag> = __tmp__.value,
 			_alreadythere:Bool = __tmp__.ok;
 		if (_alreadythere) {
@@ -1916,7 +1916,7 @@ class FlagSet_asInterface {
 				} else if (!_isZero) {
 					{
 						var __tmp__ = try {
-							{value: Go.typeAssert((Go.toInterface(_flag.value) : Pointer<T_stringValue>)), ok: true};
+							{value: (Go.typeAssert((Go.toInterface(_flag.value) : Pointer<T_stringValue>)) : Pointer<T_stringValue>), ok: true};
 						} catch (_) {
 							{value: (null : Pointer<T_stringValue>), ok: false};
 						}, _0 = __tmp__.value, _ok = __tmp__.ok;
@@ -1949,7 +1949,7 @@ class FlagSet_asInterface {
 	@:keep
 	static public function set(_f:Ref<FlagSet>, _name:GoString, _value:GoString):Error {
 		var __tmp__ = (_f._formal != null
-			&& _f._formal.__exists__(_name) ? {value: _f._formal[_name], ok: true} : {value: (null : Flag), ok: false}),
+			&& _f._formal.__exists__(_name) ? {value: _f._formal[_name], ok: true} : {value: (null : Ref<Flag>), ok: false}),
 			_flag:Ref<Flag> = __tmp__.value,
 			_ok:Bool = __tmp__.ok;
 		if (!_ok) {

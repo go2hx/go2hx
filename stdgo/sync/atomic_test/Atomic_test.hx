@@ -2271,7 +2271,7 @@ function testHammer32(_t:Ref<stdgo.testing.Testing.T>):Void {
 											r;
 										});
 										if (_err != null) {
-											_t.error(Go.toInterface(Go.typeAssert((_err : GoString))));
+											_t.error(Go.toInterface((Go.typeAssert((_err : GoString)) : GoString)));
 										};
 									};
 									_c.__send__((1 : GoInt));
@@ -3101,7 +3101,7 @@ function testHammer64(_t:Ref<stdgo.testing.Testing.T>):Void {
 											r;
 										});
 										if (_err != null) {
-											_t.error(Go.toInterface(Go.typeAssert((_err : GoString))));
+											_t.error(Go.toInterface((Go.typeAssert((_err : GoString)) : GoString)));
 										};
 									};
 									_c.__send__((1 : GoInt));
@@ -4118,7 +4118,7 @@ function _shouldPanic(_t:Ref<stdgo.testing.Testing.T>, _name:GoString, _f:() -> 
 				_t.errorf(Go.str("%s did not panic"), Go.toInterface(_name));
 			} else {
 				var __tmp__ = try {
-					{value: Go.typeAssert((_err : GoString)), ok: true};
+					{value: (Go.typeAssert((_err : GoString)) : GoString), ok: true};
 				} catch (_) {
 					{value: ("" : GoString), ok: false};
 				}, _s = __tmp__.value, _0 = __tmp__.ok;
@@ -4451,23 +4451,23 @@ function testNilDeref(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _funcs = (new GoArray<() -> Void>(function():Void {
 		compareAndSwapInt32((null : Pointer<GoInt32>), (0 : GoInt32), (0 : GoInt32));
 	}, function():Void {
-		((null : Int32) : Ref<Int32>).compareAndSwap((0 : GoInt32), (0 : GoInt32));
+		(null : Ref<Int32>).compareAndSwap((0 : GoInt32), (0 : GoInt32));
 	}, function():Void {
 		compareAndSwapInt64((null : Pointer<GoInt64>), ("0" : GoInt64), ("0" : GoInt64));
 	}, function():Void {
-		((null : Int64_) : Ref<Int64_>).compareAndSwap(("0" : GoInt64), ("0" : GoInt64));
+		(null : Ref<Int64_>).compareAndSwap(("0" : GoInt64), ("0" : GoInt64));
 	}, function():Void {
 		compareAndSwapUint32((null : Pointer<GoUInt32>), ("0" : GoUInt32), ("0" : GoUInt32));
 	}, function():Void {
-		((null : Uint32) : Ref<Uint32>).compareAndSwap(("0" : GoUInt32), ("0" : GoUInt32));
+		(null : Ref<Uint32>).compareAndSwap(("0" : GoUInt32), ("0" : GoUInt32));
 	}, function():Void {
 		compareAndSwapUint64((null : Pointer<GoUInt64>), ("0" : GoUInt64), ("0" : GoUInt64));
 	}, function():Void {
-		((null : Uint64) : Ref<Uint64>).compareAndSwap(("0" : GoUInt64), ("0" : GoUInt64));
+		(null : Ref<Uint64>).compareAndSwap(("0" : GoUInt64), ("0" : GoUInt64));
 	}, function():Void {
 		compareAndSwapUintptr((null : Pointer<GoUIntptr>), (0 : GoUIntptr), (0 : GoUIntptr));
 	}, function():Void {
-		((null : Uintptr) : Ref<Uintptr>).compareAndSwap((0 : GoUIntptr), (0 : GoUIntptr));
+		(null : Ref<Uintptr>).compareAndSwap((0 : GoUIntptr), (0 : GoUIntptr));
 	}, function():Void {
 		compareAndSwapPointer((null : Pointer<stdgo.unsafe.Unsafe.UnsafePointer>), null, null);
 	}, function():Void {
@@ -4475,23 +4475,23 @@ function testNilDeref(_t:Ref<stdgo.testing.Testing.T>):Void {
 	}, function():Void {
 		swapInt32((null : Pointer<GoInt32>), (0 : GoInt32));
 	}, function():Void {
-		((null : Int32) : Ref<Int32>).swap((0 : GoInt32));
+		(null : Ref<Int32>).swap((0 : GoInt32));
 	}, function():Void {
 		swapUint32((null : Pointer<GoUInt32>), ("0" : GoUInt32));
 	}, function():Void {
-		((null : Uint32) : Ref<Uint32>).swap(("0" : GoUInt32));
+		(null : Ref<Uint32>).swap(("0" : GoUInt32));
 	}, function():Void {
 		swapInt64((null : Pointer<GoInt64>), ("0" : GoInt64));
 	}, function():Void {
-		((null : Int64_) : Ref<Int64_>).swap(("0" : GoInt64));
+		(null : Ref<Int64_>).swap(("0" : GoInt64));
 	}, function():Void {
 		swapUint64((null : Pointer<GoUInt64>), ("0" : GoUInt64));
 	}, function():Void {
-		((null : Uint64) : Ref<Uint64>).swap(("0" : GoUInt64));
+		(null : Ref<Uint64>).swap(("0" : GoUInt64));
 	}, function():Void {
 		swapUintptr((null : Pointer<GoUIntptr>), (0 : GoUIntptr));
 	}, function():Void {
-		((null : Uintptr) : Ref<Uintptr>).swap((0 : GoUIntptr));
+		(null : Ref<Uintptr>).swap((0 : GoUIntptr));
 	}, function():Void {
 		swapPointer((null : Pointer<stdgo.unsafe.Unsafe.UnsafePointer>), null);
 	}, function():Void {
@@ -4499,43 +4499,43 @@ function testNilDeref(_t:Ref<stdgo.testing.Testing.T>):Void {
 	}, function():Void {
 		addInt32((null : Pointer<GoInt32>), (0 : GoInt32));
 	}, function():Void {
-		((null : Int32) : Ref<Int32>).add((0 : GoInt32));
+		(null : Ref<Int32>).add((0 : GoInt32));
 	}, function():Void {
 		addUint32((null : Pointer<GoUInt32>), ("0" : GoUInt32));
 	}, function():Void {
-		((null : Uint32) : Ref<Uint32>).add(("0" : GoUInt32));
+		(null : Ref<Uint32>).add(("0" : GoUInt32));
 	}, function():Void {
 		addInt64((null : Pointer<GoInt64>), ("0" : GoInt64));
 	}, function():Void {
-		((null : Int64_) : Ref<Int64_>).add(("0" : GoInt64));
+		(null : Ref<Int64_>).add(("0" : GoInt64));
 	}, function():Void {
 		addUint64((null : Pointer<GoUInt64>), ("0" : GoUInt64));
 	}, function():Void {
-		((null : Uint64) : Ref<Uint64>).add(("0" : GoUInt64));
+		(null : Ref<Uint64>).add(("0" : GoUInt64));
 	}, function():Void {
 		addUintptr((null : Pointer<GoUIntptr>), (0 : GoUIntptr));
 	}, function():Void {
-		((null : Uintptr) : Ref<Uintptr>).add((0 : GoUIntptr));
+		(null : Ref<Uintptr>).add((0 : GoUIntptr));
 	}, function():Void {
 		loadInt32((null : Pointer<GoInt32>));
 	}, function():Void {
-		((null : Int32) : Ref<Int32>).load();
+		(null : Ref<Int32>).load();
 	}, function():Void {
 		loadInt64((null : Pointer<GoInt64>));
 	}, function():Void {
-		((null : Int64_) : Ref<Int64_>).load();
+		(null : Ref<Int64_>).load();
 	}, function():Void {
 		loadUint32((null : Pointer<GoUInt32>));
 	}, function():Void {
-		((null : Uint32) : Ref<Uint32>).load();
+		(null : Ref<Uint32>).load();
 	}, function():Void {
 		loadUint64((null : Pointer<GoUInt64>));
 	}, function():Void {
-		((null : Uint64) : Ref<Uint64>).load();
+		(null : Ref<Uint64>).load();
 	}, function():Void {
 		loadUintptr((null : Pointer<GoUIntptr>));
 	}, function():Void {
-		((null : Uintptr) : Ref<Uintptr>).load();
+		(null : Ref<Uintptr>).load();
 	}, function():Void {
 		loadPointer((null : Pointer<stdgo.unsafe.Unsafe.UnsafePointer>));
 	}, function():Void {
@@ -4543,23 +4543,23 @@ function testNilDeref(_t:Ref<stdgo.testing.Testing.T>):Void {
 	}, function():Void {
 		storeInt32((null : Pointer<GoInt32>), (0 : GoInt32));
 	}, function():Void {
-		((null : Int32) : Ref<Int32>).store((0 : GoInt32));
+		(null : Ref<Int32>).store((0 : GoInt32));
 	}, function():Void {
 		storeInt64((null : Pointer<GoInt64>), ("0" : GoInt64));
 	}, function():Void {
-		((null : Int64_) : Ref<Int64_>).store(("0" : GoInt64));
+		(null : Ref<Int64_>).store(("0" : GoInt64));
 	}, function():Void {
 		storeUint32((null : Pointer<GoUInt32>), ("0" : GoUInt32));
 	}, function():Void {
-		((null : Uint32) : Ref<Uint32>).store(("0" : GoUInt32));
+		(null : Ref<Uint32>).store(("0" : GoUInt32));
 	}, function():Void {
 		storeUint64((null : Pointer<GoUInt64>), ("0" : GoUInt64));
 	}, function():Void {
-		((null : Uint64) : Ref<Uint64>).store(("0" : GoUInt64));
+		(null : Ref<Uint64>).store(("0" : GoUInt64));
 	}, function():Void {
 		storeUintptr((null : Pointer<GoUIntptr>), (0 : GoUIntptr));
 	}, function():Void {
-		((null : Uintptr) : Ref<Uintptr>).store((0 : GoUIntptr));
+		(null : Ref<Uintptr>).store((0 : GoUIntptr));
 	}, function():Void {
 		storePointer((null : Pointer<stdgo.unsafe.Unsafe.UnsafePointer>), null);
 	}, function():Void {
@@ -4673,7 +4673,7 @@ function exampleValue_readMostly():Void {
 	var _mu:stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
 	var _read:GoString->GoString = function(_key:GoString):GoString {
 		var _val:GoString = ("" : GoString);
-		var _m1:stdgo.sync.atomic_test.Atomic_test.Map_exampleValue_readMostly_0 = Go.typeAssert((_m.load() : Map_exampleValue_readMostly_0));
+		var _m1:stdgo.sync.atomic_test.Atomic_test.Map_exampleValue_readMostly_0 = (Go.typeAssert((_m.load() : Map_exampleValue_readMostly_0)) : Map_exampleValue_readMostly_0);
 		return _m1[_key];
 	};
 	var _insert:(GoString, GoString) -> Void = function(_key:GoString, _val:GoString):Void {
@@ -4681,7 +4681,7 @@ function exampleValue_readMostly():Void {
 		_mu.lock();
 		try {
 			__deferstack__.unshift(() -> _mu.unlock());
-			var _m1:stdgo.sync.atomic_test.Atomic_test.Map_exampleValue_readMostly_0 = Go.typeAssert((_m.load() : Map_exampleValue_readMostly_0));
+			var _m1:stdgo.sync.atomic_test.Atomic_test.Map_exampleValue_readMostly_0 = (Go.typeAssert((_m.load() : Map_exampleValue_readMostly_0)) : Map_exampleValue_readMostly_0);
 			var _m2:stdgo.sync.atomic_test.Atomic_test.Map_exampleValue_readMostly_0 = (new GoObjectMap<GoString,
 				GoString>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_test.Atomic_test.Map_exampleValue_readMostly_0",
 					[], stdgo.internal.reflect.Reflect.GoType.mapType({
@@ -4731,7 +4731,7 @@ function testValue(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _x:AnyInterface = _v.load();
 	{
 		var __tmp__ = try {
-			{value: Go.typeAssert((_x : GoInt)), ok: true};
+			{value: (Go.typeAssert((_x : GoInt)) : GoInt), ok: true};
 		} catch (_) {
 			{value: (0 : GoInt), ok: false};
 		}, _xx = __tmp__.value, _ok = __tmp__.ok;
@@ -4743,7 +4743,7 @@ function testValue(_t:Ref<stdgo.testing.Testing.T>):Void {
 	_x = _v.load();
 	{
 		var __tmp__ = try {
-			{value: Go.typeAssert((_x : GoInt)), ok: true};
+			{value: (Go.typeAssert((_x : GoInt)) : GoInt), ok: true};
 		} catch (_) {
 			{value: (0 : GoInt), ok: false};
 		}, _xx = __tmp__.value, _ok = __tmp__.ok;
@@ -4759,7 +4759,7 @@ function testValueLarge(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _x:AnyInterface = _v.load();
 	{
 		var __tmp__ = try {
-			{value: Go.typeAssert((_x : GoString)), ok: true};
+			{value: (Go.typeAssert((_x : GoString)) : GoString), ok: true};
 		} catch (_) {
 			{value: ("" : GoString), ok: false};
 		}, _xx = __tmp__.value, _ok = __tmp__.ok;
@@ -4771,7 +4771,7 @@ function testValueLarge(_t:Ref<stdgo.testing.Testing.T>):Void {
 	_x = _v.load();
 	{
 		var __tmp__ = try {
-			{value: Go.typeAssert((_x : GoString)), ok: true};
+			{value: (Go.typeAssert((_x : GoString)) : GoString), ok: true};
 		} catch (_) {
 			{value: ("" : GoString), ok: false};
 		}, _xx = __tmp__.value, _ok = __tmp__.ok;
@@ -4985,7 +4985,7 @@ function benchmarkValueRead(_b:Ref<stdgo.testing.Testing.B>):Void {
 	_v.store(Go.toInterface(Go.pointer((0 : GoInt))));
 	_b.runParallel(function(_pb:Ref<stdgo.testing.Testing.PB>):Void {
 		while (_pb.next()) {
-			var _x = Go.typeAssert((_v.load() : Pointer<GoInt>));
+			var _x = (Go.typeAssert((_v.load() : Pointer<GoInt>)) : Pointer<GoInt>);
 			if (_x.value != ((0 : GoInt))) {
 				_b.fatalf(Go.str("wrong value: got %v, want 0"), Go.toInterface(_x.value));
 			};
@@ -5078,7 +5078,7 @@ function testValueSwapConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void {
 							{
 								var _old:AnyInterface = _v.swap(Go.toInterface(_new));
 								if (_old != null) {
-									_c = _c + (Go.typeAssert((_old : GoUInt64)));
+									_c = _c + ((Go.typeAssert((_old : GoUInt64)) : GoUInt64));
 								};
 							};
 						});
@@ -5093,7 +5093,7 @@ function testValueSwapConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void {
 	_g.wait_();
 	{
 		var _want:GoUInt64 = (((_m * _n) - (("1" : GoUInt64) : GoUInt64)) * (_m * _n)) / ("2" : GoUInt64),
-			_got:GoUInt64 = _count + Go.typeAssert((_v.load() : GoUInt64));
+			_got:GoUInt64 = _count + (Go.typeAssert((_v.load() : GoUInt64)) : GoUInt64);
 		if (_got != (_want)) {
 			_t.errorf(Go.str("sum from 0 to %d was %d, want %v"), Go.toInterface((_m * _n) - ("1" : GoUInt64)), Go.toInterface(_got), Go.toInterface(_want));
 		};
@@ -5188,7 +5188,7 @@ function testValueCompareAndSwapConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void
 	};
 	_w.wait_();
 	{
-		var _stop:GoInt = Go.typeAssert((_v.load() : GoInt));
+		var _stop:GoInt = (Go.typeAssert((_v.load() : GoInt)) : GoInt);
 		if (_stop != (_m * _n)) {
 			_t.errorf(Go.str("did not get to %v, stopped at %v"), Go.toInterface(_m * _n), Go.toInterface(_stop));
 		};

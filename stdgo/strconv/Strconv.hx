@@ -1272,9 +1272,9 @@ function _convErr(_err:Error, _s:GoString):{var _0:Error; var _1:Error;} {
 	var _syntax:Error = (null : Error), _range_:Error = (null : Error);
 	{
 		var __tmp__ = try {
-			{value: Go.typeAssert((Go.toInterface(_err) : Ref<NumError>)), ok: true};
+			{value: (Go.typeAssert((Go.toInterface(_err) : Ref<NumError>)) : Ref<NumError>), ok: true};
 		} catch (_) {
-			{value: (null : NumError), ok: false};
+			{value: (null : Ref<NumError>), ok: false};
 		}, _x = __tmp__.value, _ok = __tmp__.ok;
 		if (_ok) {
 			_x.func = Go.str("ParseComplex");
@@ -1998,7 +1998,8 @@ function parseFloat(_s:GoString, _bitSize:GoInt):{var _0:GoFloat64; var _1:Error
 		_n:GoInt = __tmp__._1,
 		_err:Error = __tmp__._2;
 	if ((_n != (_s.length))
-		&& ((_err == null) || (Go.toInterface(Go.typeAssert((Go.toInterface(_err) : Ref<NumError>)).err) != Go.toInterface(errSyntax)))) {
+		&& ((_err == null)
+			|| (Go.toInterface((Go.typeAssert((Go.toInterface(_err) : Ref<NumError>)) : Ref<NumError>).err) != Go.toInterface(errSyntax)))) {
 		return {_0: (0 : GoFloat64), _1: Go.asInterface(_syntaxError(Go.str("ParseFloat"), _s))};
 	};
 	return {_0: _f, _1: _err};
@@ -2167,9 +2168,10 @@ function parseInt(_s:GoString, _base:GoInt, _bitSize:GoInt):{var _0:GoInt64; var
 		_un = __tmp__._0;
 		_err = __tmp__._1;
 	};
-	if ((_err != null) && (Go.toInterface(Go.typeAssert((Go.toInterface(_err) : Ref<NumError>)).err) != Go.toInterface(errRange))) {
-		Go.typeAssert((Go.toInterface(_err) : Ref<NumError>)).func = Go.str("ParseInt");
-		Go.typeAssert((Go.toInterface(_err) : Ref<NumError>)).num = _s0;
+	if ((_err != null)
+		&& (Go.toInterface((Go.typeAssert((Go.toInterface(_err) : Ref<NumError>)) : Ref<NumError>).err) != Go.toInterface(errRange))) {
+		(Go.typeAssert((Go.toInterface(_err) : Ref<NumError>)) : Ref<NumError>).func = Go.str("ParseInt");
+		(Go.typeAssert((Go.toInterface(_err) : Ref<NumError>)) : Ref<NumError>).num = _s0;
 		return {_0: ("0" : GoInt64), _1: _err};
 	};
 	if (_bitSize == ((0 : GoInt))) {
@@ -2221,9 +2223,9 @@ function atoi(_s:GoString):{var _0:GoInt; var _1:Error;} {
 		_err:Error = __tmp__._1;
 	{
 		var __tmp__ = try {
-			{value: Go.typeAssert((Go.toInterface(_err) : Ref<NumError>)), ok: true};
+			{value: (Go.typeAssert((Go.toInterface(_err) : Ref<NumError>)) : Ref<NumError>), ok: true};
 		} catch (_) {
-			{value: (null : NumError), ok: false};
+			{value: (null : Ref<NumError>), ok: false};
 		}, _nerr = __tmp__.value, _ok = __tmp__.ok;
 		if (_ok) {
 			_nerr.func = Go.str("Atoi");
@@ -2609,7 +2611,7 @@ function appendFloat(_dst:Slice<GoByte>, _f:GoFloat64, _fmt:GoByte, _prec:GoInt,
 
 function _genericFtoa(_dst:Slice<GoByte>, _val:GoFloat64, _fmt:GoByte, _prec:GoInt, _bitSize:GoInt):Slice<GoByte> {
 	var _bits:GoUInt64 = (0 : GoUInt64);
-	var _flt:Ref<T_floatInfo> = (null : T_floatInfo);
+	var _flt:Ref<T_floatInfo> = (null : Ref<T_floatInfo>);
 	if (_bitSize == ((32 : GoInt))) {
 		_bits = (stdgo.math.Math.float32bits((_val : GoFloat32)) : GoUInt64);
 		_flt = (_float32info : Ref<T_floatInfo>);

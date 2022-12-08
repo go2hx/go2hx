@@ -2245,7 +2245,7 @@ function testParseBool(_t:Ref<stdgo.testing.Testing.T>):Void {
 			if (_e == null) {
 				_t.errorf(Go.str("%s: expected %s but got nil"), Go.toInterface(_test._in), Go.toInterface(_test._err));
 			} else {
-				if (Go.toInterface(_test._err) != (Go.toInterface(Go.typeAssert((Go.toInterface(_e) : Ref<NumError>)).err))) {
+				if (Go.toInterface(_test._err) != (Go.toInterface((Go.typeAssert((Go.toInterface(_e) : Ref<NumError>)) : Ref<NumError>).err))) {
 					_t.errorf(Go.str("%s: expected %s but got %s"), Go.toInterface(_test._in), Go.toInterface(_test._err), Go.toInterface(_e));
 				};
 			};
@@ -3028,7 +3028,7 @@ function testAtoi(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _testErr:Error = (null : Error);
 			if (_test._err != null) {
 				_testErr = Go.asInterface(((new NumError(Go.str("Atoi"), _test._in,
-					Go.typeAssert((Go.toInterface(_test._err) : Ref<NumError>)).err) : NumError) : Ref<NumError>));
+					(Go.typeAssert((Go.toInterface(_test._err) : Ref<NumError>)) : Ref<NumError>).err) : NumError) : Ref<NumError>));
 			};
 			if (((_test._out : GoInt) != _out) || !stdgo.reflect.Reflect.deepEqual(Go.toInterface(_testErr), Go.toInterface(_err))) {
 				_t.errorf(Go.str("Atoi(%q) = %v, %v want %v, %v"), Go.toInterface(_test._in), Go.toInterface(_out), Go.toInterface(_err),
@@ -3044,7 +3044,7 @@ function testAtoi(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _testErr:Error = (null : Error);
 			if (_test._err != null) {
 				_testErr = Go.asInterface(((new NumError(Go.str("Atoi"), _test._in,
-					Go.typeAssert((Go.toInterface(_test._err) : Ref<NumError>)).err) : NumError) : Ref<NumError>));
+					(Go.typeAssert((Go.toInterface(_test._err) : Ref<NumError>)) : Ref<NumError>).err) : NumError) : Ref<NumError>));
 			};
 			if ((_test._out != (_out : GoInt64)) || !stdgo.reflect.Reflect.deepEqual(Go.toInterface(_testErr), Go.toInterface(_err))) {
 				_t.errorf(Go.str("Atoi(%q) = %v, %v want %v, %v"), Go.toInterface(_test._in), Go.toInterface(_out), Go.toInterface(_err),
@@ -3752,7 +3752,7 @@ function exampleNumError():Void {
 			_0:GoFloat64 = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			var _e = Go.typeAssert((Go.toInterface(_err) : Ref<NumError>));
+			var _e = (Go.typeAssert((Go.toInterface(_err) : Ref<NumError>)) : Ref<NumError>);
 			stdgo.fmt.Fmt.println(Go.str("Func:"), _e.func);
 			stdgo.fmt.Fmt.println(Go.str("Num:"), _e.num);
 			stdgo.fmt.Fmt.println(Go.str("Err:"), _e.err);
@@ -4612,9 +4612,9 @@ function testErrorPrefixes(_t:Ref<stdgo.testing.Testing.T>):Void {
 		({_err: _errInt64, _want: Go.str("ParseInt")} : T__struct_6), ({_err: _errUint64, _want: Go.str("ParseUint")} : T__struct_6)) : Slice<T__struct_6>);
 	for (_5 => _v in _vectors) {
 		var __tmp__ = try {
-			{value: Go.typeAssert((Go.toInterface(_v._err) : Ref<NumError>)), ok: true};
+			{value: (Go.typeAssert((Go.toInterface(_v._err) : Ref<NumError>)) : Ref<NumError>), ok: true};
 		} catch (_) {
-			{value: (null : NumError), ok: false};
+			{value: (null : Ref<NumError>), ok: false};
 		}, _nerr = __tmp__.value, _ok = __tmp__.ok;
 		if (!_ok) {
 			_t.errorf(Go.str("test %s, error was not a *NumError"), Go.toInterface(_v._want));

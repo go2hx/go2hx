@@ -464,14 +464,14 @@ private var _rngCooked:GoArray<GoInt64> = (new GoArray<GoInt64>(("-4181792142133
 	("-6278469401177312761" : GoInt64), ("-2171292963361310674" : GoInt64), ("8382142935188824023" : GoInt64), ("9103922860780351547" : GoInt64),
 	("4152330101494654406" : GoInt64)) : GoArray<GoInt64>);
 
-private var _globalRand:Ref<Rand> = new_(Go.asInterface((({_src: Go.typeAssert((Go.toInterface(newSource(("1" : GoInt64))) : Ref<T_rngSource>))} : T_lockedSource) : Ref<T_lockedSource>)));
+private var _globalRand:Ref<Rand> = new_(Go.asInterface((({_src: (Go.typeAssert((Go.toInterface(newSource(("1" : GoInt64))) : Ref<T_rngSource>)) : Ref<T_rngSource>)} : T_lockedSource) : Ref<T_lockedSource>)));
 private final _re:GoFloat64 = (7.69711747013105 : GoFloat64);
 private final _rn:GoFloat64 = (3.442619855899 : GoFloat64);
 
 /**
 	// Type assert that globalRand's source is a lockedSource whose src is a *rngSource.
 **/
-private var _1:Ref<T_rngSource> = Go.typeAssert((Go.toInterface(_globalRand._src) : Ref<T_lockedSource>))._src;
+private var _1:Ref<T_rngSource> = (Go.typeAssert((Go.toInterface(_globalRand._src) : Ref<T_lockedSource>)) : Ref<T_lockedSource>)._src;
 
 private final _rngLen:GoUInt64 = ("607" : GoUInt64);
 private final _rngTap:GoUInt64 = ("273" : GoUInt64);
@@ -544,7 +544,7 @@ typedef Source64 = StructType & {
 
 @:structInit @:using(stdgo.math.rand.Rand.T_lockedSource_static_extension) private class T_lockedSource {
 	public var _lk:stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
-	public var _src:Ref<T_rngSource> = (null : T_rngSource);
+	public var _src:Ref<T_rngSource> = (null : Ref<T_rngSource>);
 
 	public function new(?_lk:stdgo.sync.Sync.Mutex, ?_src:Ref<T_rngSource>) {
 		if (_lk != null)
@@ -592,7 +592,7 @@ typedef Source64 = StructType & {
 	// A Zipf generates Zipf distributed variates.
 **/
 @:structInit @:using(stdgo.math.rand.Rand.Zipf_static_extension) class Zipf {
-	public var _r:Ref<Rand> = (null : Rand);
+	public var _r:Ref<Rand> = (null : Ref<Rand>);
 	public var _imax:GoFloat64 = 0;
 	public var _v:GoFloat64 = 0;
 	public var _q:GoFloat64 = 0;
@@ -685,7 +685,7 @@ function newSource(_seed:GoInt64):Source {
 **/
 function new_(_src:Source):Ref<Rand> {
 	var __tmp__ = try {
-		{value: Go.typeAssert((Go.toInterface(_src) : Source64)), ok: true};
+		{value: (Go.typeAssert((Go.toInterface(_src) : Source64)) : Source64), ok: true};
 	} catch (_) {
 		{value: (null : Source64), ok: false};
 	}, _s64 = __tmp__.value, _0 = __tmp__.ok;
@@ -697,9 +697,9 @@ function _read(_p:Slice<GoByte>, _src:Source, _readVal:Pointer<GoInt64>, _readPo
 	var _pos:GoInt8 = _readPos.value;
 	var _val:GoInt64 = _readVal.value;
 	var __tmp__ = try {
-		{value: Go.typeAssert((Go.toInterface(_src) : Ref<T_rngSource>)), ok: true};
+		{value: (Go.typeAssert((Go.toInterface(_src) : Ref<T_rngSource>)) : Ref<T_rngSource>), ok: true};
 	} catch (_) {
-		{value: (null : T_rngSource), ok: false};
+		{value: (null : Ref<T_rngSource>), ok: false};
 	}, _rng = __tmp__.value, _0 = __tmp__.ok;
 	{
 		_n = (0 : GoInt);
@@ -1080,9 +1080,9 @@ class Rand_asInterface {
 		var _n:GoInt = (0 : GoInt), _err:Error = (null : Error);
 		{
 			var __tmp__ = try {
-				{value: Go.typeAssert((Go.toInterface(_r._src) : Ref<T_lockedSource>)), ok: true};
+				{value: (Go.typeAssert((Go.toInterface(_r._src) : Ref<T_lockedSource>)) : Ref<T_lockedSource>), ok: true};
 			} catch (_) {
-				{value: (null : T_lockedSource), ok: false};
+				{value: (null : Ref<T_lockedSource>), ok: false};
 			}, _lk = __tmp__.value, _ok = __tmp__.ok;
 			if (_ok) {
 				return _lk._read(_p, Go.pointer(_r._readVal), Go.pointer(_r._readPos));
@@ -1292,9 +1292,9 @@ class Rand_asInterface {
 	static public function seed(_r:Ref<Rand>, _seed:GoInt64):Void {
 		{
 			var __tmp__ = try {
-				{value: Go.typeAssert((Go.toInterface(_r._src) : Ref<T_lockedSource>)), ok: true};
+				{value: (Go.typeAssert((Go.toInterface(_r._src) : Ref<T_lockedSource>)) : Ref<T_lockedSource>), ok: true};
 			} catch (_) {
-				{value: (null : T_lockedSource), ok: false};
+				{value: (null : Ref<T_lockedSource>), ok: false};
 			}, _lk = __tmp__.value, _ok = __tmp__.ok;
 			if (_ok) {
 				_lk._seedPos(_seed, Go.pointer(_r._readPos));

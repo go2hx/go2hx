@@ -606,7 +606,7 @@ function _globWithLimit(_fsys:FS, _pattern:GoString, _depth:GoInt):{var _0:Slice
 	};
 	{
 		var __tmp__ = try {
-			{value: Go.typeAssert((Go.toInterface(_fsys) : GlobFS)), ok: true};
+			{value: (Go.typeAssert((Go.toInterface(_fsys) : GlobFS)) : GlobFS), ok: true};
 		} catch (_) {
 			{value: (null : GlobFS), ok: false};
 		}, _fsys = __tmp__.value, _ok = __tmp__.ok;
@@ -737,7 +737,7 @@ function readDir(_fsys:FS, _name:GoString):{var _0:Slice<DirEntry>; var _1:Error
 	var __deferstack__:Array<Void->Void> = [];
 	{
 		var __tmp__ = try {
-			{value: Go.typeAssert((Go.toInterface(_fsys) : ReadDirFS)), ok: true};
+			{value: (Go.typeAssert((Go.toInterface(_fsys) : ReadDirFS)) : ReadDirFS), ok: true};
 		} catch (_) {
 			{value: (null : ReadDirFS), ok: false};
 		}, _fsys = __tmp__.value, _ok = __tmp__.ok;
@@ -754,7 +754,7 @@ function readDir(_fsys:FS, _name:GoString):{var _0:Slice<DirEntry>; var _1:Error
 	try {
 		__deferstack__.unshift(() -> _file.close());
 		var __tmp__ = try {
-			{value: Go.typeAssert((Go.toInterface(_file) : ReadDirFile)), ok: true};
+			{value: (Go.typeAssert((Go.toInterface(_file) : ReadDirFile)) : ReadDirFile), ok: true};
 		} catch (_) {
 			{value: (null : ReadDirFile), ok: false};
 		}, _dir = __tmp__.value, _ok = __tmp__.ok;
@@ -828,7 +828,7 @@ function readFile(_fsys:FS, _name:GoString):{var _0:Slice<GoByte>; var _1:Error;
 	var __deferstack__:Array<Void->Void> = [];
 	{
 		var __tmp__ = try {
-			{value: Go.typeAssert((Go.toInterface(_fsys) : ReadFileFS)), ok: true};
+			{value: (Go.typeAssert((Go.toInterface(_fsys) : ReadFileFS)) : ReadFileFS), ok: true};
 		} catch (_) {
 			{value: (null : ReadFileFS), ok: false};
 		}, _fsys = __tmp__.value, _ok = __tmp__.ok;
@@ -912,7 +912,7 @@ function stat(_fsys:FS, _name:GoString):{var _0:FileInfo; var _1:Error;} {
 	var __deferstack__:Array<Void->Void> = [];
 	{
 		var __tmp__ = try {
-			{value: Go.typeAssert((Go.toInterface(_fsys) : StatFS)), ok: true};
+			{value: (Go.typeAssert((Go.toInterface(_fsys) : StatFS)) : StatFS), ok: true};
 		} catch (_) {
 			{value: (null : StatFS), ok: false};
 		}, _fsys = __tmp__.value, _ok = __tmp__.ok;
@@ -984,7 +984,7 @@ function sub(_fsys:FS, _dir:GoString):{var _0:FS; var _1:Error;} {
 	};
 	{
 		var __tmp__ = try {
-			{value: Go.typeAssert((Go.toInterface(_fsys) : SubFS)), ok: true};
+			{value: (Go.typeAssert((Go.toInterface(_fsys) : SubFS)) : SubFS), ok: true};
 		} catch (_) {
 			{value: (null : SubFS), ok: false};
 		}, _fsys = __tmp__.value, _ok = __tmp__.ok;
@@ -1101,7 +1101,7 @@ class PathError_asInterface {
 	@:keep
 	static public function timeout(_e:Ref<PathError>):Bool {
 		var __tmp__ = try {
-			{value: Go.typeAssert((Go.toInterface(_e.err) : T__interface_0)), ok: true};
+			{value: (Go.typeAssert((Go.toInterface(_e.err) : T__interface_0)) : T__interface_0), ok: true};
 		} catch (_) {
 			{value: (null : T__interface_0), ok: false};
 		}, _t = __tmp__.value, _ok = __tmp__.ok;
@@ -1323,9 +1323,9 @@ private class T_subFS_asInterface {
 	static public function _fixErr(_f:Ref<T_subFS>, _err:Error):Error {
 		{
 			var __tmp__ = try {
-				{value: Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)), ok: true};
+				{value: (Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)) : Ref<PathError>), ok: true};
 			} catch (_) {
-				{value: (null : PathError), ok: false};
+				{value: (null : Ref<PathError>), ok: false};
 			}, _e = __tmp__.value, _ok = __tmp__.ok;
 			if (_ok) {
 				{

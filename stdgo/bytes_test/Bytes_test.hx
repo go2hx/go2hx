@@ -1491,7 +1491,7 @@ function testCapWithSliceAndWrittenData(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testNil(_t:Ref<stdgo.testing.Testing.T>):Void {
-	var _b:Ref<Buffer> = (null : Buffer);
+	var _b:Ref<Buffer> = (null : Ref<Buffer>);
 	if ((_b.string() : GoString) != (Go.str("<nil>"))) {
 		_t.errorf(Go.str("expected <nil>; got %q"), Go.toInterface((_b.string() : GoString)));
 	};

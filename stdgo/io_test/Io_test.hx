@@ -1136,9 +1136,9 @@ function _testReadAtLeast(_t:Ref<stdgo.testing.Testing.T>, _rb:ReadWriter):Void 
 	var _want:Error = errUnexpectedEOF;
 	{
 		var __tmp__ = try {
-			{value: Go.typeAssert((Go.toInterface(_rb) : Ref<T_dataAndErrorBuffer>)), ok: true};
+			{value: (Go.typeAssert((Go.toInterface(_rb) : Ref<T_dataAndErrorBuffer>)) : Ref<T_dataAndErrorBuffer>), ok: true};
 		} catch (_) {
-			{value: (null : stdgo.io_test.Io_test.T_dataAndErrorBuffer), ok: false};
+			{value: (null : Ref<stdgo.io_test.Io_test.T_dataAndErrorBuffer>), ok: false};
 		}, _rb = __tmp__.value, _ok = __tmp__.ok;
 		if (_ok && (Go.toInterface(_rb._err) != Go.toInterface(eof))) {
 			_want = _rb._err;
@@ -1413,12 +1413,12 @@ function testNopCloserWriterToForwarding(_t:Ref<stdgo.testing.Testing.T>):Void {
 		({name: Go.str("a WriterTo"), _r: ({reader: (null : Reader), writerTo: (null : WriterTo)} : T__struct_4)} : T__struct_3)) : GoArray<T__struct_3>)) {
 		var _nc:ReadCloser = nopCloser(_tc._r);
 		var __tmp__ = try {
-			{value: Go.typeAssert((Go.toInterface(_tc._r) : WriterTo)), ok: true};
+			{value: (Go.typeAssert((Go.toInterface(_tc._r) : WriterTo)) : WriterTo), ok: true};
 		} catch (_) {
 			{value: (null : WriterTo), ok: false};
 		}, _1 = __tmp__.value, _expected = __tmp__.ok;
 		var __tmp__ = try {
-			{value: Go.typeAssert((Go.toInterface(_nc) : WriterTo)), ok: true};
+			{value: (Go.typeAssert((Go.toInterface(_nc) : WriterTo)) : WriterTo), ok: true};
 		} catch (_) {
 			{value: (null : WriterTo), ok: false};
 		}, _2 = __tmp__.value, _got = __tmp__.ok;
@@ -1477,7 +1477,7 @@ function testMultiReaderAsWriterTo(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _mr:Reader = multiReader(Go.asInterface(stdgo.strings.Strings.newReader(Go.str("foo "))),
 		multiReader(Go.asInterface(stdgo.strings.Strings.newReader(Go.str())), Go.asInterface(stdgo.strings.Strings.newReader(Go.str("bar")))));
 	var __tmp__ = try {
-		{value: Go.typeAssert((Go.toInterface(_mr) : WriterTo)), ok: true};
+		{value: (Go.typeAssert((Go.toInterface(_mr) : WriterTo)) : WriterTo), ok: true};
 	} catch (_) {
 		{value: (null : WriterTo), ok: false};
 	}, _mrAsWriterTo = __tmp__.value, _ok = __tmp__.ok;

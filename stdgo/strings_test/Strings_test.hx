@@ -2597,7 +2597,7 @@ function _oldHTMLEscape(_s:GoString):GoString {
 }
 
 @:structInit private class T_testCase_testReplacer_0 {
-	public var _r:Ref<Replacer> = (null : Replacer);
+	public var _r:Ref<Replacer> = (null : Ref<Replacer>);
 	public var _in:GoString = "";
 	public var _out:GoString = "";
 

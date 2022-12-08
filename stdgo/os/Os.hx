@@ -138,7 +138,7 @@ private var _errWriteAtInAppendMode:Error = (null : Error);
 	// closing Stderr may cause those messages to go elsewhere, perhaps
 	// to a file opened later.
 **/
-var stdin:Ref<File> = (null : File);
+var stdin:Ref<File> = (null : Ref<File>);
 
 /**
 	// Stdin, Stdout, and Stderr are open Files pointing to the standard input,
@@ -148,7 +148,7 @@ var stdin:Ref<File> = (null : File);
 	// closing Stderr may cause those messages to go elsewhere, perhaps
 	// to a file opened later.
 **/
-var stdout:Ref<File> = (null : File);
+var stdout:Ref<File> = (null : Ref<File>);
 
 /**
 	// Stdin, Stdout, and Stderr are open Files pointing to the standard input,
@@ -158,7 +158,7 @@ var stdout:Ref<File> = (null : File);
 	// closing Stderr may cause those messages to go elsewhere, perhaps
 	// to a file opened later.
 **/
-var stderr:Ref<File> = (null : File);
+var stderr:Ref<File> = (null : Ref<File>);
 
 private var _errPatternHasSeparator:Error = (null : Error);
 
@@ -175,10 +175,10 @@ var atime:stdgo.io.fs.Fs.FileInfo->stdgo.time.Time.Time = null;
 var lstatP:Ref<GoString -> {
 	var _0:stdgo.io.fs.Fs.FileInfo;
 	var _1:Error;
-}> = (null : GoString -> {
+}> = (null : Ref<GoString -> {
 	var _0:stdgo.io.fs.Fs.FileInfo;
 	var _1:Error;
-});
+}>);
 
 var errWriteAtInAppendMode:Error = (null : Error);
 var testingForceReadDirLstat:Pointer<Bool> = (null : Pointer<Bool>);
@@ -586,7 +586,7 @@ typedef Signal = StructType & {
 		// may not execute properly or even compile on some
 		// operating systems.
 	**/
-	public var sys:Ref<stdgo.syscall.Syscall.SysProcAttr> = (null : stdgo.syscall.Syscall.SysProcAttr);
+	public var sys:Ref<stdgo.syscall.Syscall.SysProcAttr> = (null : Ref<stdgo.syscall.Syscall.SysProcAttr>);
 
 	public function new(?dir:GoString, ?env:Slice<GoString>, ?files:Slice<Ref<File>>, ?sys:Ref<stdgo.syscall.Syscall.SysProcAttr>) {
 		if (dir != null)
@@ -618,7 +618,7 @@ typedef Signal = StructType & {
 	**/
 	public var _status:stdgo.syscall.Syscall.WaitStatus = ((0 : GoUInt32) : stdgo.syscall.Syscall.WaitStatus);
 
-	public var _rusage:Ref<stdgo.syscall.Syscall.Rusage> = (null : stdgo.syscall.Syscall.Rusage);
+	public var _rusage:Ref<stdgo.syscall.Syscall.Rusage> = (null : Ref<stdgo.syscall.Syscall.Rusage>);
 
 	public function new(?_pid:GoInt, ?_status:stdgo.syscall.Syscall.WaitStatus, ?_rusage:Ref<stdgo.syscall.Syscall.Rusage>) {
 		if (_pid != null)
@@ -691,7 +691,7 @@ typedef Signal = StructType & {
 	/**
 		// nil unless directory being read
 	**/
-	public var _dirinfo:Ref<T_dirInfo> = (null : T_dirInfo);
+	public var _dirinfo:Ref<T_dirInfo> = (null : Ref<T_dirInfo>);
 
 	/**
 		// whether we set nonblocking mode
@@ -754,7 +754,7 @@ typedef Signal = StructType & {
 	// rawConn implements syscall.RawConn.
 **/
 @:structInit @:using(stdgo.os.Os.T_rawConn_static_extension) private class T_rawConn {
-	public var _file:Ref<File> = (null : File);
+	public var _file:Ref<File> = (null : Ref<File>);
 
 	public function new(?_file:Ref<File>) {
 		if (_file != null)
@@ -774,7 +774,7 @@ typedef Signal = StructType & {
 		// os specific
 	**/
 	@:embedded
-	public var _file:Ref<T_file> = (null : T_file);
+	public var _file:Ref<T_file> = (null : Ref<T_file>);
 
 	public function new(?_file:Ref<T_file>) {
 		if (_file != null)

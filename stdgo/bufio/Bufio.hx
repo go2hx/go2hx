@@ -164,9 +164,9 @@ private final _startBufSize:GoUInt64 = ("4096" : GoUInt64);
 **/
 @:structInit @:using(stdgo.bufio.Bufio.ReadWriter_static_extension) class ReadWriter {
 	@:embedded
-	public var reader:Ref<Reader> = (null : Reader);
+	public var reader:Ref<Reader> = (null : Ref<Reader>);
 	@:embedded
-	public var writer:Ref<Writer> = (null : Writer);
+	public var writer:Ref<Writer> = (null : Ref<Writer>);
 
 	public function new(?reader:Ref<Reader>, ?writer:Ref<Writer>) {
 		if (reader != null)
@@ -426,9 +426,9 @@ private final _startBufSize:GoUInt64 = ("4096" : GoUInt64);
 **/
 function newReaderSize(_rd:stdgo.io.Io.Reader, _size:GoInt):Ref<Reader> {
 	var __tmp__ = try {
-		{value: Go.typeAssert((Go.toInterface(_rd) : Ref<Reader>)), ok: true};
+		{value: (Go.typeAssert((Go.toInterface(_rd) : Ref<Reader>)) : Ref<Reader>), ok: true};
 	} catch (_) {
-		{value: (null : Reader), ok: false};
+		{value: (null : Ref<Reader>), ok: false};
 	}, _b = __tmp__.value, _ok = __tmp__.ok;
 	if (_ok && (_b._buf.length >= _size)) {
 		return _b;
@@ -455,9 +455,9 @@ function newReader(_rd:stdgo.io.Io.Reader):Ref<Reader> {
 **/
 function newWriterSize(_w:stdgo.io.Io.Writer, _size:GoInt):Ref<Writer> {
 	var __tmp__ = try {
-		{value: Go.typeAssert((Go.toInterface(_w) : Ref<Writer>)), ok: true};
+		{value: (Go.typeAssert((Go.toInterface(_w) : Ref<Writer>)) : Ref<Writer>), ok: true};
 	} catch (_) {
-		{value: (null : Writer), ok: false};
+		{value: (null : Ref<Writer>), ok: false};
 	}, _b = __tmp__.value, _ok = __tmp__.ok;
 	if (_ok && (_b._buf.length >= _size)) {
 		return _b;
@@ -908,7 +908,7 @@ class Reader_asInterface {
 		};
 		{
 			var __tmp__ = try {
-				{value: Go.typeAssert((Go.toInterface(_b._rd) : stdgo.io.Io.WriterTo)), ok: true};
+				{value: (Go.typeAssert((Go.toInterface(_b._rd) : stdgo.io.Io.WriterTo)) : stdgo.io.Io.WriterTo), ok: true};
 			} catch (_) {
 				{value: (null : stdgo.io.Io.WriterTo), ok: false};
 			}, _r = __tmp__.value, _ok = __tmp__.ok;
@@ -922,7 +922,7 @@ class Reader_asInterface {
 		};
 		{
 			var __tmp__ = try {
-				{value: Go.typeAssert((Go.toInterface(_w) : stdgo.io.Io.ReaderFrom)), ok: true};
+				{value: (Go.typeAssert((Go.toInterface(_w) : stdgo.io.Io.ReaderFrom)) : stdgo.io.Io.ReaderFrom), ok: true};
 			} catch (_) {
 				{value: (null : stdgo.io.Io.ReaderFrom), ok: false};
 			}, _w = __tmp__.value, _ok = __tmp__.ok;
@@ -1605,7 +1605,7 @@ class Writer_asInterface {
 			return {_0: ("0" : GoInt64), _1: _b._err};
 		};
 		var __tmp__ = try {
-			{value: Go.typeAssert((Go.toInterface(_b._wr) : stdgo.io.Io.ReaderFrom)), ok: true};
+			{value: (Go.typeAssert((Go.toInterface(_b._wr) : stdgo.io.Io.ReaderFrom)) : stdgo.io.Io.ReaderFrom), ok: true};
 		} catch (_) {
 			{value: (null : stdgo.io.Io.ReaderFrom), ok: false};
 		}, _readerFrom = __tmp__.value, _readerFromOK = __tmp__.ok;
@@ -1674,7 +1674,7 @@ class Writer_asInterface {
 			if (((_b.buffered() == (0 : GoInt)) && (_sw == null)) && _tryStringWriter) {
 				{
 					var __tmp__ = try {
-						{value: Go.typeAssert((Go.toInterface(_b._wr) : stdgo.io.Io.StringWriter)), ok: true};
+						{value: (Go.typeAssert((Go.toInterface(_b._wr) : stdgo.io.Io.StringWriter)) : stdgo.io.Io.StringWriter), ok: true};
 					} catch (_) {
 						{value: (null : stdgo.io.Io.StringWriter), ok: false};
 					};

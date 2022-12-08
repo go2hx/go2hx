@@ -109,8 +109,8 @@ final seekEnd:GoUInt64 = ("2" : GoUInt64);
 **/
 private var _3:ReaderFrom = Go.asInterface((new T_discard() : T_discard));
 
-private var _4:WriterTo = Go.asInterface(((null : T_multiReader) : Ref<T_multiReader>));
-private var _5:StringWriter = Go.asInterface(((null : T_multiWriter) : Ref<T_multiWriter>));
+private var _4:WriterTo = Go.asInterface((null : Ref<T_multiReader>));
+private var _5:StringWriter = Go.asInterface((null : Ref<T_multiWriter>));
 
 /**
 	// Reader is the interface that wraps the basic Read method.
@@ -650,7 +650,7 @@ typedef StringWriter = StructType & {
 	// A PipeReader is the read half of a pipe.
 **/
 @:structInit @:using(stdgo.io.Io.PipeReader_static_extension) class PipeReader {
-	public var _p:Ref<T_pipe> = (null : T_pipe);
+	public var _p:Ref<T_pipe> = (null : Ref<T_pipe>);
 
 	public function new(?_p:Ref<T_pipe>) {
 		if (_p != null)
@@ -666,7 +666,7 @@ typedef StringWriter = StructType & {
 	// A PipeWriter is the write half of a pipe.
 **/
 @:structInit @:using(stdgo.io.Io.PipeWriter_static_extension) class PipeWriter {
-	public var _p:Ref<T_pipe> = (null : T_pipe);
+	public var _p:Ref<T_pipe> = (null : Ref<T_pipe>);
 
 	public function new(?_p:Ref<T_pipe>) {
 		if (_p != null)
@@ -689,7 +689,7 @@ function writeString(_w:Writer, _s:GoString):{var _0:GoInt; var _1:Error;} {
 	var _n:GoInt = (0 : GoInt), _err:Error = (null : Error);
 	{
 		var __tmp__ = try {
-			{value: Go.typeAssert((Go.toInterface(_w) : StringWriter)), ok: true};
+			{value: (Go.typeAssert((Go.toInterface(_w) : StringWriter)) : StringWriter), ok: true};
 		} catch (_) {
 			{value: (null : StringWriter), ok: false};
 		}, _sw = __tmp__.value, _ok = __tmp__.ok;
@@ -815,7 +815,7 @@ function _copyBuffer(_dst:Writer, _src:Reader, _buf:Slice<GoByte>):{var _0:GoInt
 	var _written:GoInt64 = (0 : GoInt64), _err:Error = (null : Error);
 	{
 		var __tmp__ = try {
-			{value: Go.typeAssert((Go.toInterface(_src) : WriterTo)), ok: true};
+			{value: (Go.typeAssert((Go.toInterface(_src) : WriterTo)) : WriterTo), ok: true};
 		} catch (_) {
 			{value: (null : WriterTo), ok: false};
 		}, _wt = __tmp__.value, _ok = __tmp__.ok;
@@ -825,7 +825,7 @@ function _copyBuffer(_dst:Writer, _src:Reader, _buf:Slice<GoByte>):{var _0:GoInt
 	};
 	{
 		var __tmp__ = try {
-			{value: Go.typeAssert((Go.toInterface(_dst) : ReaderFrom)), ok: true};
+			{value: (Go.typeAssert((Go.toInterface(_dst) : ReaderFrom)) : ReaderFrom), ok: true};
 		} catch (_) {
 			{value: (null : ReaderFrom), ok: false};
 		}, _rt = __tmp__.value, _ok = __tmp__.ok;
@@ -837,9 +837,9 @@ function _copyBuffer(_dst:Writer, _src:Reader, _buf:Slice<GoByte>):{var _0:GoInt
 		var _size:GoInt = (32768 : GoInt);
 		{
 			var __tmp__ = try {
-				{value: Go.typeAssert((Go.toInterface(_src) : Ref<LimitedReader>)), ok: true};
+				{value: (Go.typeAssert((Go.toInterface(_src) : Ref<LimitedReader>)) : Ref<LimitedReader>), ok: true};
 			} catch (_) {
-				{value: (null : LimitedReader), ok: false};
+				{value: (null : Ref<LimitedReader>), ok: false};
 			}, _l = __tmp__.value, _ok = __tmp__.ok;
 			if (_ok && ((_size : GoInt64) > _l.n)) {
 				if (_l.n < ("1":GoInt64)) {
@@ -929,7 +929,7 @@ function teeReader(_r:Reader, _w:Writer):Reader {
 function nopCloser(_r:Reader):ReadCloser {
 	{
 		var __tmp__ = try {
-			{value: Go.typeAssert((Go.toInterface(_r) : WriterTo)), ok: true};
+			{value: (Go.typeAssert((Go.toInterface(_r) : WriterTo)) : WriterTo), ok: true};
 		} catch (_) {
 			{value: (null : WriterTo), ok: false};
 		}, _0 = __tmp__.value, _ok = __tmp__.ok;
@@ -992,9 +992,9 @@ function multiWriter(_writers:haxe.Rest<Writer>):Writer {
 	for (_0 => _w in _writers) {
 		{
 			var __tmp__ = try {
-				{value: Go.typeAssert((Go.toInterface(_w) : Ref<T_multiWriter>)), ok: true};
+				{value: (Go.typeAssert((Go.toInterface(_w) : Ref<T_multiWriter>)) : Ref<T_multiWriter>), ok: true};
 			} catch (_) {
-				{value: (null : T_multiWriter), ok: false};
+				{value: (null : Ref<T_multiWriter>), ok: false};
 			}, _mw = __tmp__.value, _ok = __tmp__.ok;
 			if (_ok) {
 				_allWriters = _allWriters.__appendref__(..._mw._writers.__toArray__());
@@ -1248,7 +1248,7 @@ private class T_discard_asInterface {
 	@:keep
 	static public function readFrom(_:T_discard, _r:Reader):{var _0:GoInt64; var _1:Error;} {
 		var _n:GoInt64 = (0 : GoInt64), _err:Error = (null : Error);
-		var _bufp = Go.typeAssert((_blackHolePool.get() : Ref<Slice<GoByte>>));
+		var _bufp = (Go.typeAssert((_blackHolePool.get() : Ref<Slice<GoByte>>)) : Ref<Slice<GoByte>>);
 		var _readSize:GoInt = (0 : GoInt);
 		while (true) {
 			{
@@ -1343,7 +1343,7 @@ private class T_nopCloserWriterTo_asInterface {
 	@:keep
 	static public function writeTo(_c:T_nopCloserWriterTo, _w:Writer):{var _0:GoInt64; var _1:Error;} {
 		var _n:GoInt64 = (0 : GoInt64), _err:Error = (null : Error);
-		return Go.typeAssert((Go.toInterface(_c.reader) : WriterTo)).writeTo(_w);
+		return (Go.typeAssert((Go.toInterface(_c.reader) : WriterTo)) : WriterTo).writeTo(_w);
 	}
 
 	@:keep
@@ -1417,9 +1417,9 @@ private class T_multiReader_asInterface {
 			var _n:GoInt64 = (0 : GoInt64);
 			{
 				var __tmp__ = try {
-					{value: Go.typeAssert((Go.toInterface(_r) : Ref<T_multiReader>)), ok: true};
+					{value: (Go.typeAssert((Go.toInterface(_r) : Ref<T_multiReader>)) : Ref<T_multiReader>), ok: true};
 				} catch (_) {
-					{value: (null : T_multiReader), ok: false};
+					{value: (null : Ref<T_multiReader>), ok: false};
 				}, _subMr = __tmp__.value, _ok = __tmp__.ok;
 				if (_ok) {
 					{
@@ -1459,9 +1459,9 @@ private class T_multiReader_asInterface {
 			if ((_mr._readers.length) == ((1 : GoInt))) {
 				{
 					var __tmp__ = try {
-						{value: Go.typeAssert((Go.toInterface(_mr._readers[(0 : GoInt)]) : Ref<T_multiReader>)), ok: true};
+						{value: (Go.typeAssert((Go.toInterface(_mr._readers[(0 : GoInt)]) : Ref<T_multiReader>)) : Ref<T_multiReader>), ok: true};
 					} catch (_) {
-						{value: (null : T_multiReader), ok: false};
+						{value: (null : Ref<T_multiReader>), ok: false};
 					}, _r = __tmp__.value, _ok = __tmp__.ok;
 					if (_ok) {
 						_mr._readers = _r._readers;
@@ -1520,7 +1520,7 @@ private class T_multiWriter_asInterface {
 		for (_0 => _w in _t._writers) {
 			{
 				var __tmp__ = try {
-					{value: Go.typeAssert((Go.toInterface(_w) : StringWriter)), ok: true};
+					{value: (Go.typeAssert((Go.toInterface(_w) : StringWriter)) : StringWriter), ok: true};
 				} catch (_) {
 					{value: (null : StringWriter), ok: false};
 				}, _sw = __tmp__.value, _ok = __tmp__.ok;

@@ -22,7 +22,7 @@ private var _expandTests:Slice<T__struct_1> = (null : Slice<T__struct_1>);
 private var _isExistTests:Slice<stdgo.os_test.Os_test.T_isExistTest> = (null : Slice<stdgo.os_test.Os_test.T_isExistTest>);
 private var _isPermissionTests:Slice<stdgo.os_test.Os_test.T_isPermissionTest> = (null : Slice<stdgo.os_test.Os_test.T_isPermissionTest>);
 private var _dot:Slice<GoString> = (null : Slice<GoString>);
-private var _sysdir:Ref<stdgo.os_test.Os_test.T_sysDir> = (null : stdgo.os_test.Os_test.T_sysDir);
+private var _sysdir:Ref<stdgo.os_test.Os_test.T_sysDir> = (null : Ref<stdgo.os_test.Os_test.T_sysDir>);
 private var _sfdir:GoString = ("" : GoString);
 private var _sfname:GoString = ("" : GoString);
 private var _openErrorTests:Slice<stdgo.os_test.Os_test.T_openErrorTest> = (null : Slice<stdgo.os_test.Os_test.T_openErrorTest>);
@@ -1290,7 +1290,7 @@ function _localTmp():GoString {
 }
 
 function _newFile(_testName:GoString, _t:Ref<stdgo.testing.Testing.T>):Ref<File> {
-	var _f:Ref<File> = (null : File);
+	var _f:Ref<File> = (null : Ref<File>);
 	var __tmp__ = stdgo.os.Os.createTemp(_localTmp(), Go.str("_Go_") + _testName),
 		_f:Ref<File> = __tmp__._0,
 		_err:Error = __tmp__._1;
@@ -1344,9 +1344,9 @@ function testStatError(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 		{
 			var __tmp__ = try {
-				{value: Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)), ok: true};
+				{value: (Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)) : Ref<PathError>), ok: true};
 			} catch (_) {
-				{value: (null : stdgo.io.fs.Fs.PathError), ok: false};
+				{value: (null : Ref<stdgo.io.fs.Fs.PathError>), ok: false};
 			}, _perr = __tmp__.value, _ok = __tmp__.ok;
 			if (!_ok) {
 				_t.errorf(Go.str("got %T, want %T"), Go.toInterface(_err), Go.toInterface(_perr));
@@ -1371,9 +1371,9 @@ function testStatError(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 		{
 			var __tmp__ = try {
-				{value: Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)), ok: true};
+				{value: (Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)) : Ref<PathError>), ok: true};
 			} catch (_) {
-				{value: (null : stdgo.io.fs.Fs.PathError), ok: false};
+				{value: (null : Ref<stdgo.io.fs.Fs.PathError>), ok: false};
 			}, _perr = __tmp__.value, _ok = __tmp__.ok;
 			if (!_ok) {
 				_t.errorf(Go.str("got %T, want %T"), Go.toInterface(_err), Go.toInterface(_perr));
@@ -1430,9 +1430,9 @@ function testStatSymlinkLoop(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 		{
 			var __tmp__ = try {
-				{value: Go.typeAssert((Go.toInterface(_err) : Ref<stdgo.io.fs.Fs.PathError>)), ok: true};
+				{value: (Go.typeAssert((Go.toInterface(_err) : Ref<stdgo.io.fs.Fs.PathError>)) : Ref<stdgo.io.fs.Fs.PathError>), ok: true};
 			} catch (_) {
-				{value: (null : stdgo.io.fs.Fs.PathError), ok: false};
+				{value: (null : Ref<stdgo.io.fs.Fs.PathError>), ok: false};
 			}, _0 = __tmp__.value, _ok = __tmp__.ok;
 			if (!_ok) {
 				_t.errorf(Go.str("expected *PathError, got %T: %v\n"), Go.toInterface(_err), Go.toInterface(_err));
@@ -1599,9 +1599,9 @@ function testReadClosed(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_err = __tmp__._1;
 	};
 	var __tmp__ = try {
-		{value: Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)), ok: true};
+		{value: (Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)) : Ref<PathError>), ok: true};
 	} catch (_) {
-		{value: (null : stdgo.io.fs.Fs.PathError), ok: false};
+		{value: (null : Ref<stdgo.io.fs.Fs.PathError>), ok: false};
 	}, _e = __tmp__.value, _ok = __tmp__.ok;
 	if (!_ok) {
 		_t.fatalf(Go.str("Read: %T(%v), want PathError"), Go.toInterface(_e), Go.toInterface(_e));
@@ -2092,7 +2092,7 @@ function testReaddirNValues(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_f.close();
 		});
 	};
-	var _d:Ref<File> = (null : File);
+	var _d:Ref<File> = (null : Ref<File>);
 	var _openDir:() -> Void = function():Void {
 		var _err:Error = (null : Error);
 		{
@@ -2335,7 +2335,7 @@ function testReaddirOfFile(_t:Ref<stdgo.testing.Testing.T>):Void {
 		if (_err == null) {
 			_t.error(Go.toInterface(Go.str("Readdirnames succeeded; want non-nil error")));
 		};
-		var _pe:Ref<PathError> = (null : stdgo.io.fs.Fs.PathError);
+		var _pe:Ref<PathError> = (null : Ref<stdgo.io.fs.Fs.PathError>);
 		if (!stdgo.errors.Errors.as(_err, Go.toInterface((_pe : Ref<Ref<stdgo.io.fs.Fs.PathError>>))) || (_pe.path != _f.name())) {
 			_t.errorf(Go.str("Readdirnames returned %q; want a PathError with path %q"), Go.toInterface(_err), Go.toInterface(_f.name()));
 		};
@@ -2393,9 +2393,9 @@ function testHardLink(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_err = link(_none, _none);
 		{
 			var __tmp__ = try {
-				{value: Go.typeAssert((Go.toInterface(_err) : Ref<LinkError>)), ok: true};
+				{value: (Go.typeAssert((Go.toInterface(_err) : Ref<LinkError>)) : Ref<LinkError>), ok: true};
 			} catch (_) {
-				{value: (null : LinkError), ok: false};
+				{value: (null : Ref<LinkError>), ok: false};
 			}, _lerr = __tmp__.value, _ok = __tmp__.ok;
 			if (!_ok || (_lerr.error() == Go.str())) {
 				_t.errorf(Go.str("link %q, %q failed to return a valid error"), Go.toInterface(_none), Go.toInterface(_none));
@@ -3733,9 +3733,9 @@ function testSeek(_t:Ref<stdgo.testing.Testing.T>):Void {
 			if ((_off != _tt._out) || (_err != null)) {
 				{
 					var __tmp__ = try {
-						{value: Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)), ok: true};
+						{value: (Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)) : Ref<PathError>), ok: true};
 					} catch (_) {
-						{value: (null : stdgo.io.fs.Fs.PathError), ok: false};
+						{value: (null : Ref<stdgo.io.fs.Fs.PathError>), ok: false};
 					}, _e = __tmp__.value, _ok = __tmp__.ok;
 					if (((_ok && (Go.toInterface(_e.err) == Go.toInterface(Go.asInterface((22 : stdgo.syscall.Syscall.Errno)))))
 						&& (_tt._out > (("4294967296" : GoInt64) : GoInt64)))
@@ -3796,9 +3796,9 @@ function testSeekError(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	{
 		var __tmp__ = try {
-			{value: Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)), ok: true};
+			{value: (Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)) : Ref<PathError>), ok: true};
 		} catch (_) {
-			{value: (null : stdgo.io.fs.Fs.PathError), ok: false};
+			{value: (null : Ref<stdgo.io.fs.Fs.PathError>), ok: false};
 		}, _perr = __tmp__.value, _ok = __tmp__.ok;
 		if (!_ok || (Go.toInterface(_perr.err) != Go.toInterface(Go.asInterface((29 : stdgo.syscall.Syscall.Errno))))) {
 			_t.errorf(Go.str("Seek returned error %v, want &PathError{Err: syscall.ESPIPE}"), Go.toInterface(_err));
@@ -3813,9 +3813,9 @@ function testSeekError(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	{
 		var __tmp__ = try {
-			{value: Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)), ok: true};
+			{value: (Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)) : Ref<PathError>), ok: true};
 		} catch (_) {
-			{value: (null : stdgo.io.fs.Fs.PathError), ok: false};
+			{value: (null : Ref<stdgo.io.fs.Fs.PathError>), ok: false};
 		}, _perr = __tmp__.value, _ok = __tmp__.ok;
 		if (!_ok || (Go.toInterface(_perr.err) != Go.toInterface(Go.asInterface((29 : stdgo.syscall.Syscall.Errno))))) {
 			_t.errorf(Go.str("Seek returned error %v, want &PathError{Err: syscall.ESPIPE}"), Go.toInterface(_err));
@@ -3834,9 +3834,9 @@ function testOpenError(_t:Ref<stdgo.testing.Testing.T>):Void {
 			continue;
 		};
 		var __tmp__ = try {
-			{value: Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)), ok: true};
+			{value: (Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)) : Ref<PathError>), ok: true};
 		} catch (_) {
-			{value: (null : stdgo.io.fs.Fs.PathError), ok: false};
+			{value: (null : Ref<stdgo.io.fs.Fs.PathError>), ok: false};
 		}, _perr = __tmp__.value, _ok = __tmp__.ok;
 		if (!_ok) {
 			_t.errorf(Go.str("Open(%q, %d) returns error of %T type; want *PathError"), Go.toInterface(_tt._path), Go.toInterface(_tt._mode),
@@ -4403,7 +4403,7 @@ function testStatDirWithTrailingSlash(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testNilProcessStateString(_t:Ref<stdgo.testing.Testing.T>):Void {
-	var _ps:Ref<ProcessState> = (null : ProcessState);
+	var _ps:Ref<ProcessState> = (null : Ref<ProcessState>);
 	var _s:GoString = (_ps.string() : GoString);
 	if (_s != (Go.str("<nil>"))) {
 		_t.errorf(Go.str("(*ProcessState)(nil).String() = %q, want %q"), Go.toInterface(_s), Go.toInterface(Go.str("<nil>")));
@@ -4637,7 +4637,7 @@ function testStatStdin(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_t.fatalf(Go.str("unexpected Stdin mode (%v), want ModeCharDevice or ModeNamedPipe"), Go.toInterface(Go.asInterface(_mode)));
 		};
 	};
-	var _cmd:Ref<stdgo.os.exec.Exec.Cmd> = (null : stdgo.os.exec.Exec.Cmd);
+	var _cmd:Ref<stdgo.os.exec.Exec.Cmd> = (null : Ref<stdgo.os.exec.Exec.Cmd>);
 	if (false) {
 		_cmd = stdgo.os.exec.Exec.command(Go.str("cmd"), Go.str("/c"), (Go.str("echo output | ") + args[(0 : GoInt)]) + Go.str(" -test.run=TestStatStdin"));
 	} else {
@@ -5010,7 +5010,7 @@ function testKillFindProcess(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testNilFileMethods(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _nilFileMethodTests) {
-		var _file:Ref<File> = (null : File);
+		var _file:Ref<File> = (null : Ref<File>);
 		var _got:Error = _tt._f(_file);
 		if (Go.toInterface(_got) != (Go.toInterface(errInvalid))) {
 			_t.errorf(Go.str("%v should fail when f is nil; got %v"), Go.toInterface(_tt._name), Go.toInterface(_got));
@@ -5152,8 +5152,8 @@ function testPipeThreads(_t:Ref<stdgo.testing.Testing.T>):Void {
 		if (false) {
 			_threads = (50 : GoInt);
 		};
-		var _r = new Slice<Ref<File>>((_threads : GoInt).toBasic(), 0, ...[for (i in 0...(_threads : GoInt).toBasic()) (null : File)]);
-		var _w = new Slice<Ref<File>>((_threads : GoInt).toBasic(), 0, ...[for (i in 0...(_threads : GoInt).toBasic()) (null : File)]);
+		var _r = new Slice<Ref<File>>((_threads : GoInt).toBasic(), 0, ...[for (i in 0...(_threads : GoInt).toBasic()) (null : Ref<File>)]);
+		var _w = new Slice<Ref<File>>((_threads : GoInt).toBasic(), 0, ...[for (i in 0...(_threads : GoInt).toBasic()) (null : Ref<File>)]);
 		{
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_i < _threads, _i++, {
@@ -5275,9 +5275,9 @@ function _testDoubleCloseError(_t:Ref<stdgo.testing.Testing.T>, _path:GoString):
 			_t.error(Go.toInterface(Go.str("second Close did not fail")));
 		} else {
 			var __tmp__ = try {
-				{value: Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)), ok: true};
+				{value: (Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)) : Ref<PathError>), ok: true};
 			} catch (_) {
-				{value: (null : stdgo.io.fs.Fs.PathError), ok: false};
+				{value: (null : Ref<stdgo.io.fs.Fs.PathError>), ok: false};
 			}, _pe = __tmp__.value, _ok = __tmp__.ok;
 			if (!_ok) {
 				_t.errorf(Go.str("second Close returned unexpected error type %T; expected fs.PathError"), Go.toInterface(_pe));
@@ -5625,7 +5625,7 @@ function _checkUidGid(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _uid:GoIn
 	if (_err != null) {
 		_t.fatalf(Go.str("Lstat %q (looking for uid/gid %d/%d): %s"), Go.toInterface(_path), Go.toInterface(_uid), Go.toInterface(_gid), Go.toInterface(_err));
 	};
-	var _sys = Go.typeAssert((_dir.sys() : Ref<stdgo.syscall.Syscall.Stat_t>));
+	var _sys = (Go.typeAssert((_dir.sys() : Ref<stdgo.syscall.Syscall.Stat_t>)) : Ref<stdgo.syscall.Syscall.Stat_t>);
 	if ((_sys.uid : GoInt) != (_uid)) {
 		_t.errorf(Go.str("Lstat %q: uid %d want %d"), Go.toInterface(_path), Go.toInterface(_sys.uid), Go.toInterface(_uid));
 	};
@@ -5657,7 +5657,7 @@ function testChown(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_t.fatalf(Go.str("chown %s -1 %d: %s"), Go.toInterface(_f.name()), Go.toInterface(_gid), Go.toInterface(_err));
 			};
 		};
-		var _sys = Go.typeAssert((_dir.sys() : Ref<stdgo.syscall.Syscall.Stat_t>));
+		var _sys = (Go.typeAssert((_dir.sys() : Ref<stdgo.syscall.Syscall.Stat_t>)) : Ref<stdgo.syscall.Syscall.Stat_t>);
 		_checkUidGid(_t, _f.name(), (_sys.uid : GoInt), _gid);
 		var __tmp__ = getgroups(),
 			_groups:Slice<GoInt> = __tmp__._0,
@@ -5729,7 +5729,7 @@ function testFileChown(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_t.fatalf(Go.str("fchown %s -1 %d: %s"), Go.toInterface(_f.name()), Go.toInterface(_gid), Go.toInterface(_err));
 			};
 		};
-		var _sys = Go.typeAssert((_dir.sys() : Ref<stdgo.syscall.Syscall.Stat_t>));
+		var _sys = (Go.typeAssert((_dir.sys() : Ref<stdgo.syscall.Syscall.Stat_t>)) : Ref<stdgo.syscall.Syscall.Stat_t>);
 		_checkUidGid(_t, _f.name(), (_sys.uid : GoInt), _gid);
 		var __tmp__ = getgroups(),
 			_groups:Slice<GoInt> = __tmp__._0,
@@ -5814,9 +5814,9 @@ function testLchown(_t:Ref<stdgo.testing.Testing.T>):Void {
 			if (_err != null) {
 				{
 					var __tmp__ = try {
-						{value: Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)), ok: true};
+						{value: (Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)) : Ref<PathError>), ok: true};
 					} catch (_) {
-						{value: (null : stdgo.io.fs.Fs.PathError), ok: false};
+						{value: (null : Ref<stdgo.io.fs.Fs.PathError>), ok: false};
 					}, _err = __tmp__.value, _ok = __tmp__.ok;
 					if (_ok && (Go.toInterface(_err.err) == Go.toInterface(Go.asInterface((38 : stdgo.syscall.Syscall.Errno))))) {
 						_t.skip(Go.toInterface(Go.str("lchown is unavailable")));
@@ -5825,7 +5825,7 @@ function testLchown(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_t.fatalf(Go.str("lchown %s -1 %d: %s"), Go.toInterface(_linkname), Go.toInterface(_gid), Go.toInterface(_err));
 			};
 		};
-		var _sys = Go.typeAssert((_dir.sys() : Ref<stdgo.syscall.Syscall.Stat_t>));
+		var _sys = (Go.typeAssert((_dir.sys() : Ref<stdgo.syscall.Syscall.Stat_t>)) : Ref<stdgo.syscall.Syscall.Stat_t>);
 		_checkUidGid(_t, _linkname, (_sys.uid : GoInt), _gid);
 		var __tmp__ = getgroups(),
 			_groups:Slice<GoInt> = __tmp__._0,
@@ -6161,9 +6161,9 @@ function testMkdirAll(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_t.fatalf(Go.str("MkdirAll %q: no error"), Go.toInterface(_fpath));
 		};
 		var __tmp__ = try {
-			{value: Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)), ok: true};
+			{value: (Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)) : Ref<PathError>), ok: true};
 		} catch (_) {
-			{value: (null : stdgo.io.fs.Fs.PathError), ok: false};
+			{value: (null : Ref<stdgo.io.fs.Fs.PathError>), ok: false};
 		}, _perr = __tmp__.value, _ok = __tmp__.ok;
 		if (!_ok) {
 			_t.fatalf(Go.str("MkdirAll %q returned %T, not *PathError"), Go.toInterface(_fpath), Go.toInterface(_err));
@@ -6179,9 +6179,9 @@ function testMkdirAll(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 		{
 			var __tmp__ = try {
-				{value: Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)), ok: true};
+				{value: (Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)) : Ref<PathError>), ok: true};
 			} catch (_) {
-				{value: (null : stdgo.io.fs.Fs.PathError), ok: false};
+				{value: (null : Ref<stdgo.io.fs.Fs.PathError>), ok: false};
 			};
 			_perr = __tmp__.value;
 			_ok = __tmp__.ok;
@@ -6259,9 +6259,9 @@ function testMkdirAllAtSlash(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _err:Error = mkdirAll(Go.str("/_go_os_test/dir"), (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 	if (_err != null) {
 		var __tmp__ = try {
-			{value: Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)), ok: true};
+			{value: (Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)) : Ref<PathError>), ok: true};
 		} catch (_) {
-			{value: (null : stdgo.io.fs.Fs.PathError), ok: false};
+			{value: (null : Ref<stdgo.io.fs.Fs.PathError>), ok: false};
 		}, _pathErr = __tmp__.value, _ok = __tmp__.ok;
 		if (_ok
 			&& ((Go.toInterface(_pathErr.err) == Go.toInterface(Go.asInterface((13 : stdgo.syscall.Syscall.Errno))))
@@ -6941,9 +6941,9 @@ function testRemoveAllButReadOnlyAndPathError(_t:Ref<stdgo.testing.Testing.T>):V
 		};
 		{
 			var __tmp__ = try {
-				{value: Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)), ok: true};
+				{value: (Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)) : Ref<PathError>), ok: true};
 			} catch (_) {
-				{value: (null : stdgo.io.fs.Fs.PathError), ok: false};
+				{value: (null : Ref<stdgo.io.fs.Fs.PathError>), ok: false};
 			}, _pathErr = __tmp__.value, _ok = __tmp__.ok;
 			if (_ok) {
 				var _want:GoString = stdgo.path.filepath.Filepath.join(_tempDir, Go.str("b"), Go.str("y"));
@@ -7758,9 +7758,9 @@ function testMkdirTempBadDir(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 		{
 			var __tmp__ = try {
-				{value: Go.typeAssert((Go.toInterface(_err) : Ref<stdgo.io.fs.Fs.PathError>)), ok: true};
+				{value: (Go.typeAssert((Go.toInterface(_err) : Ref<stdgo.io.fs.Fs.PathError>)) : Ref<stdgo.io.fs.Fs.PathError>), ok: true};
 			} catch (_) {
-				{value: (null : stdgo.io.fs.Fs.PathError), ok: false};
+				{value: (null : Ref<stdgo.io.fs.Fs.PathError>), ok: false};
 			}, _pe = __tmp__.value, _ok = __tmp__.ok;
 			if ((!_ok || !isNotExist(_err)) || (_pe.path != _badDir)) {
 				_t.errorf(Go.str("TempDir error = %#v; want PathError for path %q satisfying IsNotExist"), Go.toInterface(_err), Go.toInterface(_badDir));

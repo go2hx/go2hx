@@ -825,9 +825,9 @@ function _expectValueError(_t:Ref<stdgo.testing.Testing.T>, _fn:() -> Void):Void
 			});
 			{
 				var __tmp__ = try {
-					{value: Go.typeAssert((_err : Ref<ValueError>)), ok: true};
+					{value: (Go.typeAssert((_err : Ref<ValueError>)) : Ref<ValueError>), ok: true};
 				} catch (_) {
-					{value: (null : ValueError), ok: false};
+					{value: (null : Ref<ValueError>), ok: false};
 				}, _0 = __tmp__.value, _ok = __tmp__.ok;
 				if (!_ok) {
 					_t.errorf(Go.str("expected *js.ValueError, got %T"), _err);

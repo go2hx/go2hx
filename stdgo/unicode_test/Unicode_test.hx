@@ -928,7 +928,7 @@ function testCategories(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _test in _inCategoryTest) {
 		{
 			var __tmp__ = (categories != null
-				&& categories.__exists__(_test._script) ? {value: categories[_test._script], ok: true} : {value: (null : RangeTable), ok: false}),
+				&& categories.__exists__(_test._script) ? {value: categories[_test._script], ok: true} : {value: (null : Ref<RangeTable>), ok: false}),
 				_1:Ref<RangeTable> = __tmp__.value,
 				_ok:Bool = __tmp__.ok;
 			if (!_ok) {
@@ -956,7 +956,7 @@ function testProperties(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _test in _inPropTest) {
 		{
 			var __tmp__ = (properties != null
-				&& properties.__exists__(_test._script) ? {value: properties[_test._script], ok: true} : {value: (null : RangeTable), ok: false}),
+				&& properties.__exists__(_test._script) ? {value: properties[_test._script], ok: true} : {value: (null : Ref<RangeTable>), ok: false}),
 				_1:Ref<RangeTable> = __tmp__.value,
 				_ok:Bool = __tmp__.ok;
 			if (!_ok) {

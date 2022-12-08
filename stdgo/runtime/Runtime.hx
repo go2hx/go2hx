@@ -760,7 +760,7 @@ typedef T_error = StructType & {
 		// Func is the Func value of this call frame. This may be nil
 		// for non-Go code or fully inlined functions.
 	**/
-	public var func:Ref<Func> = (null : Func);
+	public var func:Ref<Func> = (null : Ref<Func>);
 
 	/**
 		// Function is the package path-qualified function name of

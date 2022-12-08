@@ -2405,7 +2405,7 @@ private var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 		// The nil location means UTC.
 		// All UTC times are represented with loc==nil, never loc==&utcLoc.
 	**/
-	public var _loc:Ref<Location> = (null : Location);
+	public var _loc:Ref<Location> = (null : Ref<Location>);
 
 	public function new(?_wall:GoUInt64, ?_ext:GoInt64, ?_loc:Ref<Location>) {
 		if (_wall != null)
@@ -2455,7 +2455,7 @@ private var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 	public var _cacheStart:GoInt64 = 0;
 
 	public var _cacheEnd:GoInt64 = 0;
-	public var _cacheZone:Ref<T_zone> = (null : T_zone);
+	public var _cacheZone:Ref<T_zone> = (null : Ref<T_zone>);
 
 	public function new(?_name:GoString, ?_zone:Slice<T_zone>, ?_tx:Slice<T_zoneTrans>, ?_extend:GoString, ?_cacheStart:GoInt64, ?_cacheEnd:GoInt64,
 			?_cacheZone:Ref<T_zone>) {
@@ -3158,7 +3158,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Ref<Location
 		_min:GoInt = (0 : GoInt),
 		_sec:GoInt = (0 : GoInt),
 		_nsec:GoInt = (0 : GoInt),
-		_z:Ref<Location> = (null : Location),
+		_z:Ref<Location> = (null : Ref<Location>),
 		_zoneOffset:GoInt = (-1 : GoInt),
 		_zoneName:GoString = ("" : GoString);
 	while (true) {
@@ -4164,7 +4164,7 @@ function newTimer(_d:Duration):Ref<Timer> {
 	// sendTime does a non-blocking send of the current time on c.
 **/
 function _sendTime(_c:AnyInterface, _seq:GoUIntptr):Void {
-	Go.select([Go.typeAssert((_c : Chan<Time>)).__send__(now()) => {}, {}]);
+	Go.select([(Go.typeAssert((_c : Chan<Time>)) : Chan<Time>).__send__(now()) => {}, {}]);
 }
 
 /**
@@ -4191,7 +4191,7 @@ function afterFunc(_d:Duration, _f:() -> Void):Ref<Timer> {
 }
 
 function _goFunc(_arg:AnyInterface, _seq:GoUIntptr):Void {
-	Go.routine(() -> Go.typeAssert((_arg : () -> Void))());
+	Go.routine(() -> (Go.typeAssert((_arg : () -> Void)) : () -> Void)());
 }
 
 /**
@@ -5859,7 +5859,8 @@ function _loadTzinfo(_name:GoString, _source:GoString):{var _0:Slice<GoByte>; va
 	// and parsed is returned as a Location.
 **/
 function _loadLocation(_name:GoString, _sources:Slice<GoString>):{var _0:Ref<Location>; var _1:Error;} {
-	var _z:Ref<Location> = (null : Location), _firstErr:Error = (null : Error);
+	var _z:Ref<Location> = (null : Ref<Location>),
+		_firstErr:Error = (null : Error);
 	for (_0 => _source in _sources) {
 		var __tmp__ = _loadTzinfo(_name, _source),
 			_zoneData:Slice<GoUInt8> = __tmp__._0,

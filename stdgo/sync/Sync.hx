@@ -618,13 +618,13 @@ typedef Locker = StructType & {
 		// head is the poolDequeue to push to. This is only accessed
 		// by the producer, so doesn't need to be synchronized.
 	**/
-	public var _head:Ref<T_poolChainElt> = (null : T_poolChainElt);
+	public var _head:Ref<T_poolChainElt> = (null : Ref<T_poolChainElt>);
 
 	/**
 		// tail is the poolDequeue to popTail from. This is accessed
 		// by consumers, so reads and writes must be atomic.
 	**/
-	public var _tail:Ref<T_poolChainElt> = (null : T_poolChainElt);
+	public var _tail:Ref<T_poolChainElt> = (null : Ref<T_poolChainElt>);
 
 	public function new(?_head:Ref<T_poolChainElt>, ?_tail:Ref<T_poolChainElt>) {
 		if (_head != null)
@@ -654,9 +654,9 @@ typedef Locker = StructType & {
 		// atomically by the producer. It only transitions from
 		// non-nil to nil.
 	**/
-	public var _next:Ref<T_poolChainElt> = (null : T_poolChainElt);
+	public var _next:Ref<T_poolChainElt> = (null : Ref<T_poolChainElt>);
 
-	public var _prev:Ref<T_poolChainElt> = (null : T_poolChainElt);
+	public var _prev:Ref<T_poolChainElt> = (null : Ref<T_poolChainElt>);
 
 	public function new(?_poolDequeue:T_poolDequeue, ?_next:Ref<T_poolChainElt>, ?_prev:Ref<T_poolChainElt>) {
 		if (_poolDequeue != null)

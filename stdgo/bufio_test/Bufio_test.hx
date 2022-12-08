@@ -2590,7 +2590,7 @@ function benchmarkReaderWriteToOptimal(_b:Ref<stdgo.testing.Testing.B>):Void {
 		(1024 : GoInt));
 	{
 		var __tmp__ = try {
-			{value: Go.typeAssert((Go.toInterface(stdgo.io.Io.discard) : stdgo.io.Io.ReaderFrom)), ok: true};
+			{value: (Go.typeAssert((Go.toInterface(stdgo.io.Io.discard) : stdgo.io.Io.ReaderFrom)) : stdgo.io.Io.ReaderFrom), ok: true};
 		} catch (_) {
 			{value: (null : stdgo.io.Io.ReaderFrom), ok: false};
 		}, _0 = __tmp__.value, _ok = __tmp__.ok;
@@ -3359,7 +3359,7 @@ function testDontLoopForever(_t:Ref<stdgo.testing.Testing.T>):Void {
 				};
 				{
 					var __tmp__ = try {
-						{value: Go.typeAssert((_err : GoString)), ok: true};
+						{value: (Go.typeAssert((_err : GoString)) : GoString), ok: true};
 					} catch (_) {
 						{value: ("" : GoString), ok: false};
 					}, _msg = __tmp__.value, _ok = __tmp__.ok;

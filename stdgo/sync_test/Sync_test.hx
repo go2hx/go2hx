@@ -429,7 +429,7 @@ function testCondCopy(_t:Ref<stdgo.testing.Testing.T>):Void {
 				Go.recover_exception = null;
 				r;
 			});
-			if ((_err == null) || (Go.typeAssert((_err : GoString)) != Go.str("sync.Cond is copied"))) {
+			if ((_err == null) || ((Go.typeAssert((_err : GoString)) : GoString) != Go.str("sync.Cond is copied"))) {
 				_t.fatalf(Go.str("got %v, expect sync.Cond is copied"), _err);
 			};
 		};
@@ -548,7 +548,7 @@ function _timeNow():stdgo.time.Time.Time {
 }
 
 function log(_w:stdgo.io.Io.Writer, _key:GoString, _val:GoString):Void {
-	var _b = Go.typeAssert((_bufPool.get() : Ref<stdgo.bytes.Bytes.Buffer>));
+	var _b = (Go.typeAssert((_bufPool.get() : Ref<stdgo.bytes.Bytes.Buffer>)) : Ref<stdgo.bytes.Bytes.Buffer>);
 	_b.reset();
 	_b.writeString(_timeNow().utc().format(Go.str("2006-01-02T15:04:05Z07:00")));
 	_b.writeByte((" ".code : GoRune));
@@ -640,7 +640,8 @@ function _benchMap(_b:Ref<stdgo.testing.Testing.B>, _bench:T_bench):Void {
 		Go.asInterface(((new stdgo.sync_test.Sync_test.RWMutexMap() : stdgo.sync_test.Sync_test.RWMutexMap) : Ref<stdgo.sync_test.Sync_test.RWMutexMap>)),
 		Go.asInterface(((new Map_() : Map_) : Ref<Map_>))) : GoArray<stdgo.sync_test.Sync_test.T_mapInterface>)) {
 		_b.run(stdgo.fmt.Fmt.sprintf(Go.str("%T"), Go.toInterface(_m)), function(_b:Ref<stdgo.testing.Testing.B>):Void {
-			_m = Go.typeAssert((stdgo.reflect.Reflect.new_(stdgo.reflect.Reflect.typeOf(Go.toInterface(_m)).elem()).interface_() : T_mapInterface));
+			_m = (Go.typeAssert((stdgo.reflect.Reflect.new_(stdgo.reflect.Reflect.typeOf(Go.toInterface(_m)).elem())
+				.interface_() : T_mapInterface)) : T_mapInterface);
 			if (_bench._setup != null) {
 				_bench._setup(_b, _m);
 			};
@@ -710,9 +711,9 @@ function benchmarkLoadOrStoreBalanced(_b:Ref<stdgo.testing.Testing.B>):Void {
 		_setup: function(_b:Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
 			{
 				var __tmp__ = try {
-					{value: Go.typeAssert((Go.toInterface(_m) : Ref<DeepCopyMap>)), ok: true};
+					{value: (Go.typeAssert((Go.toInterface(_m) : Ref<DeepCopyMap>)) : Ref<DeepCopyMap>), ok: true};
 				} catch (_) {
-					{value: (null : stdgo.sync_test.Sync_test.DeepCopyMap), ok: false};
+					{value: (null : Ref<stdgo.sync_test.Sync_test.DeepCopyMap>), ok: false};
 				}, _0 = __tmp__.value, _ok = __tmp__.ok;
 				if (_ok) {
 					_b.skip(Go.toInterface(Go.str("DeepCopyMap has quadratic running time.")));
@@ -763,9 +764,9 @@ function benchmarkLoadOrStoreUnique(_b:Ref<stdgo.testing.Testing.B>):Void {
 		_setup: function(_b:Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
 			{
 				var __tmp__ = try {
-					{value: Go.typeAssert((Go.toInterface(_m) : Ref<DeepCopyMap>)), ok: true};
+					{value: (Go.typeAssert((Go.toInterface(_m) : Ref<DeepCopyMap>)) : Ref<DeepCopyMap>), ok: true};
 				} catch (_) {
-					{value: (null : stdgo.sync_test.Sync_test.DeepCopyMap), ok: false};
+					{value: (null : Ref<stdgo.sync_test.Sync_test.DeepCopyMap>), ok: false};
 				}, _0 = __tmp__.value, _ok = __tmp__.ok;
 				if (_ok) {
 					_b.skip(Go.toInterface(Go.str("DeepCopyMap has quadratic running time.")));
@@ -799,9 +800,9 @@ function benchmarkLoadAndDeleteBalanced(_b:Ref<stdgo.testing.Testing.B>):Void {
 		_setup: function(_b:Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
 			{
 				var __tmp__ = try {
-					{value: Go.typeAssert((Go.toInterface(_m) : Ref<DeepCopyMap>)), ok: true};
+					{value: (Go.typeAssert((Go.toInterface(_m) : Ref<DeepCopyMap>)) : Ref<DeepCopyMap>), ok: true};
 				} catch (_) {
-					{value: (null : stdgo.sync_test.Sync_test.DeepCopyMap), ok: false};
+					{value: (null : Ref<stdgo.sync_test.Sync_test.DeepCopyMap>), ok: false};
 				}, _0 = __tmp__.value, _ok = __tmp__.ok;
 				if (_ok) {
 					_b.skip(Go.toInterface(Go.str("DeepCopyMap has quadratic running time.")));
@@ -838,9 +839,9 @@ function benchmarkLoadAndDeleteUnique(_b:Ref<stdgo.testing.Testing.B>):Void {
 		_setup: function(_b:Ref<stdgo.testing.Testing.B>, _m:T_mapInterface):Void {
 			{
 				var __tmp__ = try {
-					{value: Go.typeAssert((Go.toInterface(_m) : Ref<DeepCopyMap>)), ok: true};
+					{value: (Go.typeAssert((Go.toInterface(_m) : Ref<DeepCopyMap>)) : Ref<DeepCopyMap>), ok: true};
 				} catch (_) {
-					{value: (null : stdgo.sync_test.Sync_test.DeepCopyMap), ok: false};
+					{value: (null : Ref<stdgo.sync_test.Sync_test.DeepCopyMap>), ok: false};
 				}, _0 = __tmp__.value, _ok = __tmp__.ok;
 				if (_ok) {
 					_b.skip(Go.toInterface(Go.str("DeepCopyMap has quadratic running time.")));
@@ -1112,8 +1113,8 @@ function testConcurrentRange(_t:Ref<stdgo.testing.Testing.T>):Void {
 			Go.cfor(_n > (0 : GoInt), _n--, {
 				var _seen = new Map<Int, Bool>();
 				_m.range(function(_ki:AnyInterface, _vi:AnyInterface):Bool {
-					var _k:GoInt64 = Go.typeAssert((_ki : GoInt64)),
-						_v:GoInt64 = Go.typeAssert((_vi : GoInt64));
+					var _k:GoInt64 = (Go.typeAssert((_ki : GoInt64)) : GoInt64),
+						_v:GoInt64 = (Go.typeAssert((_vi : GoInt64)) : GoInt64);
 					if (_v % _k != (("0" : GoInt64))) {
 						_t.fatalf(Go.str("while Storing multiples of %v, Range saw value %v"), Go.toInterface(_k), Go.toInterface(_v));
 					};
@@ -1924,7 +1925,7 @@ function testPoolStress(_t:Ref<stdgo.testing.Testing.T>):Void {
 							};
 							_p.put(_v);
 							_v = _p.get();
-							if ((_v != null) && (Go.typeAssert((_v : GoInt)) != (0 : GoInt))) {
+							if ((_v != null) && ((Go.typeAssert((_v : GoInt)) : GoInt) != (0 : GoInt))) {
 								_t.errorf(Go.str("expect 0, got %v"), _v);
 								break;
 							};
@@ -1978,7 +1979,7 @@ function _testPoolDequeue(_t:Ref<stdgo.testing.Testing.T>, _d:PoolDequeue):Void 
 						var __tmp__ = _d.popTail(), _val:AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
 						if (_ok) {
 							_fail = (0 : GoInt);
-							_record(Go.typeAssert((_val : GoInt)));
+							_record((Go.typeAssert((_val : GoInt)) : GoInt));
 						} else {
 							{
 								_fail++;
@@ -2008,7 +2009,7 @@ function _testPoolDequeue(_t:Ref<stdgo.testing.Testing.T>, _d:PoolDequeue):Void 
 						var __tmp__ = _d.popHead(), _val:AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
 						if (_ok) {
 							_nPopHead++;
-							_record(Go.typeAssert((_val : GoInt)));
+							_record((Go.typeAssert((_val : GoInt)) : GoInt));
 						};
 					};
 				});
@@ -3211,7 +3212,7 @@ class DeepCopyMap_asInterface {
 	@:keep
 	static public function _dirty(_m:Ref<DeepCopyMap>):GoMap<AnyInterface, AnyInterface> {
 		var __tmp__ = try {
-			{value: Go.typeAssert((_m._clean.load() : GoMap<AnyInterface, AnyInterface>)), ok: true};
+			{value: (Go.typeAssert((_m._clean.load() : GoMap<AnyInterface, AnyInterface>)) : GoMap<AnyInterface, AnyInterface>), ok: true};
 		} catch (_) {
 			{value: (null : GoMap<AnyInterface, AnyInterface>), ok: false};
 		}, _clean = __tmp__.value, _0 = __tmp__.ok;
@@ -3228,7 +3229,7 @@ class DeepCopyMap_asInterface {
 	@:keep
 	static public function range(_m:Ref<DeepCopyMap>, _f:(_key:AnyInterface, _value:AnyInterface) -> Bool):Void {
 		var __tmp__ = try {
-			{value: Go.typeAssert((_m._clean.load() : GoMap<AnyInterface, AnyInterface>)), ok: true};
+			{value: (Go.typeAssert((_m._clean.load() : GoMap<AnyInterface, AnyInterface>)) : GoMap<AnyInterface, AnyInterface>), ok: true};
 		} catch (_) {
 			{value: (null : GoMap<AnyInterface, AnyInterface>), ok: false};
 		}, _clean = __tmp__.value, _0 = __tmp__.ok;
@@ -3271,7 +3272,7 @@ class DeepCopyMap_asInterface {
 	static public function loadOrStore(_m:Ref<DeepCopyMap>, _key:AnyInterface, _value:AnyInterface):{var _0:AnyInterface; var _1:Bool;} {
 		var _actual:AnyInterface = (null : AnyInterface), _loaded:Bool = false;
 		var __tmp__ = try {
-			{value: Go.typeAssert((_m._clean.load() : GoMap<AnyInterface, AnyInterface>)), ok: true};
+			{value: (Go.typeAssert((_m._clean.load() : GoMap<AnyInterface, AnyInterface>)) : GoMap<AnyInterface, AnyInterface>), ok: true};
 		} catch (_) {
 			{value: (null : GoMap<AnyInterface, AnyInterface>), ok: false};
 		}, _clean = __tmp__.value, _0 = __tmp__.ok;
@@ -3287,7 +3288,7 @@ class DeepCopyMap_asInterface {
 		_m._mu.lock();
 		{
 			var __tmp__ = try {
-				{value: Go.typeAssert((_m._clean.load() : GoMap<AnyInterface, AnyInterface>)), ok: true};
+				{value: (Go.typeAssert((_m._clean.load() : GoMap<AnyInterface, AnyInterface>)) : GoMap<AnyInterface, AnyInterface>), ok: true};
 			} catch (_) {
 				{value: (null : GoMap<AnyInterface, AnyInterface>), ok: false};
 			};
@@ -3322,7 +3323,7 @@ class DeepCopyMap_asInterface {
 	static public function load(_m:Ref<DeepCopyMap>, _key:AnyInterface):{var _0:AnyInterface; var _1:Bool;} {
 		var _value:AnyInterface = (null : AnyInterface), _ok:Bool = false;
 		var __tmp__ = try {
-			{value: Go.typeAssert((_m._clean.load() : GoMap<AnyInterface, AnyInterface>)), ok: true};
+			{value: (Go.typeAssert((_m._clean.load() : GoMap<AnyInterface, AnyInterface>)) : GoMap<AnyInterface, AnyInterface>), ok: true};
 		} catch (_) {
 			{value: (null : GoMap<AnyInterface, AnyInterface>), ok: false};
 		}, _clean = __tmp__.value, _0 = __tmp__.ok;

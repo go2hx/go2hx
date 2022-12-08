@@ -113,7 +113,7 @@ private final _encodeURL:GoString = Go.str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij
 
 @:structInit @:using(stdgo.encoding.base64.Base64.T_encoder_static_extension) private class T_encoder {
 	public var _err:Error = (null : Error);
-	public var _enc:Ref<Encoding> = (null : Encoding);
+	public var _enc:Ref<Encoding> = (null : Ref<Encoding>);
 	public var _w:stdgo.io.Io.Writer = (null : stdgo.io.Io.Writer);
 
 	/**
@@ -159,7 +159,7 @@ private final _encodeURL:GoString = Go.str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij
 	**/
 	public var _readErr:Error = (null : Error);
 
-	public var _enc:Ref<Encoding> = (null : Encoding);
+	public var _enc:Ref<Encoding> = (null : Ref<Encoding>);
 	public var _r:stdgo.io.Io.Reader = (null : stdgo.io.Io.Reader);
 
 	/**
@@ -234,7 +234,7 @@ private final _encodeURL:GoString = Go.str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij
 	/**
 		// Encoding to test
 	**/
-	public var _enc:Ref<Encoding> = (null : Encoding);
+	public var _enc:Ref<Encoding> = (null : Ref<Encoding>);
 
 	/**
 		// Reference string converter

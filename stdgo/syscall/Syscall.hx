@@ -1796,7 +1796,7 @@ typedef Conn = StructType & {
 	public var dir:GoString = "";
 	public var env:Slice<GoString> = (null : Slice<GoString>);
 	public var files:Slice<GoUIntptr> = (null : Slice<GoUIntptr>);
-	public var sys:Ref<SysProcAttr> = (null : SysProcAttr);
+	public var sys:Ref<SysProcAttr> = (null : Ref<SysProcAttr>);
 
 	public function new(?dir:GoString, ?env:Slice<GoString>, ?files:Slice<GoUIntptr>, ?sys:Ref<SysProcAttr>) {
 		if (dir != null)

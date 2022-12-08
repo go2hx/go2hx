@@ -382,8 +382,16 @@ abstract GoFloat64(Float) from Float {
 	@:from static function fromString(x:String):GoFloat64
 		return Std.parseFloat(x);
 
-	@:to inline function toFloat32():GoFloat32
+	@:to inline function toFloat32():GoFloat32 {
+		#if interp
+		// lose precision
+		final array = new haxe.io.Float32Array(1);
+		array.set(0, this);
+		return array.get(0);
+		#else
 		return this;
+		#end
+	}
 
 	@:to inline function toInt64():GoInt64 {
 		if (std.Math.isNaN(this))

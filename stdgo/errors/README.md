@@ -14,17 +14,17 @@ Package errors implements functions to manipulate errors.  The New function crea
 
 ```
 === RUN   TestNewEqual
---- PASS: TestNewEqual (0.000173091888427734)
+--- PASS: TestNewEqual (0.00020909309387207)
 === RUN   TestErrorMethod
---- PASS: TestErrorMethod (1.31130218505859e-05)
+--- PASS: TestErrorMethod (1.21593475341797e-05)
 === RUN   TestIs
---- PASS: TestIs (0.000136137008666992)
+--- PASS: TestIs (0.0001220703125)
 === RUN   TestAs
---- PASS: TestAs (0.00124716758728027)
+--- PASS: TestAs (0.000972986221313477)
 === RUN   TestAsValidation
---- PASS: TestAsValidation (8.79764556884766e-05)
+--- PASS: TestAsValidation (7.29560852050781e-05)
 === RUN   TestUnwrap
---- PASS: TestUnwrap (0.00018000602722168)
+--- PASS: TestUnwrap (0.000152826309204102)
 ```
 </p>
 </details>
@@ -34,17 +34,17 @@ Package errors implements functions to manipulate errors.  The New function crea
 
 ```
 === RUN   TestNewEqual
---- PASS: TestNewEqual (0.000155925750732421875)
+--- PASS: TestNewEqual (0.00018405914306640625)
 === RUN   TestErrorMethod
---- PASS: TestErrorMethod (2.193450927734375e-05)
+--- PASS: TestErrorMethod (2.50339508056640625e-05)
 === RUN   TestIs
---- PASS: TestIs (0.0003108978271484375)
+--- PASS: TestIs (0.000254154205322265625)
 === RUN   TestAs
---- PASS: TestAs (0.00110101699829101562)
+--- PASS: TestAs (0.00113892555236816406)
 === RUN   TestAsValidation
---- PASS: TestAsValidation (0.000154972076416015625)
+--- PASS: TestAsValidation (0.000141859054565429688)
 === RUN   TestUnwrap
---- PASS: TestUnwrap (0.00028705596923828125)
+--- PASS: TestUnwrap (0.000277042388916015625)
 ```
 </p>
 </details>
@@ -114,7 +114,7 @@ function exampleAs():Void {
 			_0:Ref<stdgo.os.Os.File> = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			var _pathError:Ref<stdgo.io.fs.Fs.PathError> = (null : stdgo.io.fs.Fs.PathError);
+			var _pathError:Ref<stdgo.io.fs.Fs.PathError> = (null : Ref<stdgo.io.fs.Fs.PathError>);
 			if (stdgo.errors.Errors.as(_err, Go.toInterface((_pathError : Ref<Ref<stdgo.io.fs.Fs.PathError>>)))) {
 				stdgo.fmt.Fmt.println(Go.str("Failed at path:"), _pathError.path);
 			} else {
@@ -130,7 +130,7 @@ function exampleAs():Void {
 </details>
 
 
-[\(view code\)](<./Errors.hx#L186>)
+[\(view code\)](<./Errors.hx#L185>)
 
 
 ## function is\_
@@ -144,7 +144,7 @@ function is_(_err:stdgo.Error, _target:stdgo.Error):Bool
 Is reports whether any error in err's chain matches target.  The chain consists of err itself followed by the sequence of errors obtained by repeatedly calling Unwrap.  An error is considered to match a target if it is equal to that target or if it implements a method Is\(error\) bool such that Is\(target\) returns true.  An error type might provide an Is method so it can be treated as equivalent to an existing error. For example, if MyError defines  func \(m MyError\) Is\(target error\) bool \{ return target == fs.ErrExist \}  then Is\(MyError\{\}, fs.ErrExist\) returns true. See syscall.Errno.Is for an example in the standard library. An Is method should only shallowly compare err and the target and not call Unwrap on either. 
 
 
-[\(view code\)](<./Errors.hx#L140>)
+[\(view code\)](<./Errors.hx#L139>)
 
 
 ## function new\_
@@ -158,7 +158,7 @@ function new_(_text:stdgo.GoString):stdgo.Error
 New returns an error that formats as the given text. Each call to New returns a distinct error value even if the text is identical. 
 
 
-[\(view code\)](<./Errors.hx#L101>)
+[\(view code\)](<./Errors.hx#L100>)
 
 
 ## function unwrap
@@ -193,7 +193,7 @@ function exampleUnwrap():Void {
 </details>
 
 
-[\(view code\)](<./Errors.hx#L110>)
+[\(view code\)](<./Errors.hx#L109>)
 
 
 # Classes
@@ -221,6 +221,6 @@ function error(_e:stdgo.Ref<stdgo.errors._Errors.T_errorString>):stdgo.GoString
  
 
 
-[\(view code\)](<./Errors.hx#L243>)
+[\(view code\)](<./Errors.hx#L242>)
 
 

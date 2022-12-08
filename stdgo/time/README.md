@@ -1,50 +1,57 @@
 # Module stdgo.time has compilation errors, please do not use:
 ```
-stdgo/time_test/Time_test.hx:2852: characters 85-117 : Type not found : stdgo.testing.quick.Quick
-stdgo/time_test/Time_test.hx:2854: characters 20-45 : Type not found : stdgo.testing.quick.Quick
-stdgo/time_test/Time_test.hx:2860: characters 20-45 : Type not found : stdgo.testing.quick.Quick
-stdgo/time_test/Time_test.hx:3574: characters 5-16 : stdgo.Ref<stdgo.testing.B> has no field runParallel (Suggestion: runParrallel)
-stdgo/time_test/Time_test.hx:3841: characters 57-122 : Module stdgo.StdGoTypes does not define type GoInt64_asInterface
-stdgo/time_test/Time_test.hx:3841: characters 57-122 : ... For function argument 'args'
-stdgo/time_test/Time_test.hx:3798: lines 3798-3806 : ... Called from macro here
-stdgo/time_test/Time_test.hx:4166: characters 44-62 : Module stdgo.testing.Testing does not define type T_asInterface
-stdgo/time_test/Time_test.hx:4166: characters 44-62 : ... For function argument 't'
-stdgo/time_test/Time_test.hx:4298: lines 4298-4300 : Object requires field _1
-stdgo/time_test/Time_test.hx:4298: lines 4298-4300 : ... For function argument 'x'
-stdgo/time_test/Time_test.hx:4374: lines 4374-4377 : Object requires field _1
-stdgo/time_test/Time_test.hx:4374: lines 4374-4377 : ... For function argument 'x'
-stdgo/time_test/Time_test.hx:4530: characters 20-73 : Module stdgo.StdGoTypes does not define type GoInt64_asInterface
-stdgo/time_test/Time_test.hx:4530: characters 20-73 : ... For function argument 'args'
-stdgo/time_test/Time_test.hx:4845: characters 85-117 : Type not found : stdgo.testing.quick.Quick
-stdgo/time_test/Time_test.hx:4847: characters 20-45 : Type not found : stdgo.testing.quick.Quick
+stdgo/time_test/Time_test.hx:2855: characters 85-117 : Type not found : stdgo.testing.quick.Quick
+stdgo/time_test/Time_test.hx:2857: characters 20-45 : Type not found : stdgo.testing.quick.Quick
+stdgo/time_test/Time_test.hx:2863: characters 20-45 : Type not found : stdgo.testing.quick.Quick
+stdgo/time_test/Time_test.hx:3577: characters 5-16 : stdgo.Ref<stdgo.testing.B> has no field runParallel (Suggestion: runParrallel)
+stdgo/time_test/Time_test.hx:3844: characters 57-122 : Module stdgo.StdGoTypes does not define type GoInt64_asInterface
+stdgo/time_test/Time_test.hx:3844: characters 57-122 : ... For function argument 'args'
+stdgo/time_test/Time_test.hx:3801: lines 3801-3809 : ... Called from macro here
+stdgo/time_test/Time_test.hx:4169: characters 44-62 : Module stdgo.testing.Testing does not define type T_asInterface
+stdgo/time_test/Time_test.hx:4169: characters 44-62 : ... For function argument 't'
+stdgo/time_test/Time_test.hx:4301: lines 4301-4303 : Object requires field _1
+stdgo/time_test/Time_test.hx:4301: lines 4301-4303 : ... For function argument 'x'
+stdgo/time_test/Time_test.hx:4377: lines 4377-4380 : Object requires field _1
+stdgo/time_test/Time_test.hx:4377: lines 4377-4380 : ... For function argument 'x'
+stdgo/time_test/Time_test.hx:4536: characters 20-73 : Module stdgo.StdGoTypes does not define type GoInt64_asInterface
+stdgo/time_test/Time_test.hx:4536: characters 20-73 : ... For function argument 'args'
+stdgo/time_test/Time_test.hx:4851: characters 85-117 : Type not found : stdgo.testing.quick.Quick
 stdgo/time_test/Time_test.hx:4853: characters 20-45 : Type not found : stdgo.testing.quick.Quick
-stdgo/time_test/Time_test.hx:4869: characters 85-117 : Type not found : stdgo.testing.quick.Quick
-stdgo/time_test/Time_test.hx:4871: characters 20-45 : Type not found : stdgo.testing.quick.Quick
+stdgo/time_test/Time_test.hx:4859: characters 20-45 : Type not found : stdgo.testing.quick.Quick
+stdgo/time_test/Time_test.hx:4875: characters 85-117 : Type not found : stdgo.testing.quick.Quick
 stdgo/time_test/Time_test.hx:4877: characters 20-45 : Type not found : stdgo.testing.quick.Quick
-stdgo/time_test/Time_test.hx:4889: characters 85-117 : Type not found : stdgo.testing.quick.Quick
-stdgo/time_test/Time_test.hx:4891: characters 20-45 : Type not found : stdgo.testing.quick.Quick
-stdgo/time_test/Time_test.hx:4903: characters 85-117 : Type not found : stdgo.testing.quick.Quick
-stdgo/time_test/Time_test.hx:4905: characters 20-45 : Type not found : stdgo.testing.quick.Quick
-stdgo/time_test/Time_test.hx:4942: characters 16-39 : Type not found : stdgo.math.big.Big
-stdgo/time_test/Time_test.hx:4943: characters 14-37 : Type not found : stdgo.math.big.Big
-stdgo/time_test/Time_test.hx:4944: characters 11-34 : Type not found : stdgo.math.big.Big
-stdgo/time_test/Time_test.hx:4945: characters 11-34 : Type not found : stdgo.math.big.Big
-stdgo/time_test/Time_test.hx:4946: characters 11-34 : Type not found : stdgo.math.big.Big
-stdgo/time_test/Time_test.hx:4947: characters 11-34 : Type not found : stdgo.math.big.Big
+stdgo/time_test/Time_test.hx:4883: characters 20-45 : Type not found : stdgo.testing.quick.Quick
+stdgo/time_test/Time_test.hx:4895: characters 85-117 : Type not found : stdgo.testing.quick.Quick
+stdgo/time_test/Time_test.hx:4897: characters 20-45 : Type not found : stdgo.testing.quick.Quick
+stdgo/time_test/Time_test.hx:4909: characters 85-117 : Type not found : stdgo.testing.quick.Quick
+stdgo/time_test/Time_test.hx:4911: characters 20-45 : Type not found : stdgo.testing.quick.Quick
 stdgo/time_test/Time_test.hx:4948: characters 13-36 : Type not found : stdgo.math.big.Big
-stdgo/time_test/Time_test.hx:5018: characters 86-118 : Type not found : stdgo.testing.quick.Quick
-stdgo/time_test/Time_test.hx:5035: characters 2-27 : Type not found : stdgo.testing.quick.Quick
-stdgo/time_test/Time_test.hx:5044: characters 2-27 : Type not found : stdgo.testing.quick.Quick
+stdgo/time_test/Time_test.hx:4949: characters 10-33 : Type not found : stdgo.math.big.Big
+stdgo/time_test/Time_test.hx:4950: characters 10-33 : Type not found : stdgo.math.big.Big
+stdgo/time_test/Time_test.hx:4951: characters 10-33 : Type not found : stdgo.math.big.Big
+stdgo/time_test/Time_test.hx:4952: characters 10-33 : Type not found : stdgo.math.big.Big
+stdgo/time_test/Time_test.hx:4953: characters 10-33 : Type not found : stdgo.math.big.Big
+stdgo/time_test/Time_test.hx:4954: characters 10-33 : Type not found : stdgo.math.big.Big
+stdgo/time_test/Time_test.hx:4955: characters 13-36 : Type not found : stdgo.math.big.Big
+stdgo/time_test/Time_test.hx:4956: characters 11-34 : Type not found : stdgo.math.big.Big
+stdgo/time_test/Time_test.hx:4957: characters 11-34 : Type not found : stdgo.math.big.Big
+stdgo/time_test/Time_test.hx:4958: characters 11-34 : Type not found : stdgo.math.big.Big
+stdgo/time_test/Time_test.hx:4959: characters 11-34 : Type not found : stdgo.math.big.Big
+stdgo/time_test/Time_test.hx:4960: characters 14-37 : Type not found : stdgo.math.big.Big
+stdgo/time_test/Time_test.hx:4961: characters 13-36 : Type not found : stdgo.math.big.Big
+stdgo/time_test/Time_test.hx:5031: characters 86-118 : Type not found : stdgo.testing.quick.Quick
+stdgo/time_test/Time_test.hx:5049: characters 2-27 : Type not found : stdgo.testing.quick.Quick
 stdgo/time_test/Time_test.hx:5058: characters 2-27 : Type not found : stdgo.testing.quick.Quick
-stdgo/time_test/Time_test.hx:5063: characters 2-27 : Type not found : stdgo.testing.quick.Quick
-stdgo/time_test/Time_test.hx:5135: characters 36-42 : stdgo.GoInt64 has no field string
-stdgo/time_test/Time_test.hx:5206: characters 13-35 : Type not found : stdgo.encoding.gob.Gob
-stdgo/time_test/Time_test.hx:5207: characters 13-35 : Type not found : stdgo.encoding.gob.Gob
-stdgo/time_test/Time_test.hx:5264: characters 18-42 : Type not found : stdgo.encoding.json.Json
-stdgo/time_test/Time_test.hx:5273: characters 12-36 : Type not found : stdgo.encoding.json.Json
-stdgo/time_test/Time_test.hx:5286: characters 19-43 : Type not found : stdgo.encoding.json.Json
-stdgo/time_test/Time_test.hx:6612: characters 50-80 : Module stdgo.internal.testenv.Testenv does not define type Testenv
-stdgo/time_test/Time_test.hx:6612: characters 50-80 : ... For function argument ''
+stdgo/time_test/Time_test.hx:5072: characters 2-27 : Type not found : stdgo.testing.quick.Quick
+stdgo/time_test/Time_test.hx:5077: characters 2-27 : Type not found : stdgo.testing.quick.Quick
+stdgo/time_test/Time_test.hx:5149: characters 36-42 : stdgo.GoInt64 has no field string
+stdgo/time_test/Time_test.hx:5220: characters 13-35 : Type not found : stdgo.encoding.gob.Gob
+stdgo/time_test/Time_test.hx:5221: characters 13-35 : Type not found : stdgo.encoding.gob.Gob
+stdgo/time_test/Time_test.hx:5278: characters 18-42 : Type not found : stdgo.encoding.json.Json
+stdgo/time_test/Time_test.hx:5287: characters 12-36 : Type not found : stdgo.encoding.json.Json
+stdgo/time_test/Time_test.hx:5300: characters 19-43 : Type not found : stdgo.encoding.json.Json
+stdgo/time_test/Time_test.hx:6632: characters 50-80 : Module stdgo.internal.testenv.Testenv does not define type Testenv
+stdgo/time_test/Time_test.hx:6632: characters 50-80 : ... For function argument ''
 
 ```
 

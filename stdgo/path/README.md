@@ -131,7 +131,7 @@ function _getEsc(_chunk:stdgo.GoString):{_2:stdgo.Error, _1:stdgo.GoString, _0:s
 getEsc gets a possibly\-escaped character from chunk, for a character class. 
 
 
-[\(view code\)](<./Path.hx#L321>)
+[\(view code\)](<./Path.hx#L323>)
 
 
 ## function \_lastSlash
@@ -145,7 +145,7 @@ function _lastSlash(_s:stdgo.GoString):stdgo.GoInt
 lastSlash\(s\) is strings.LastIndex\(s, "/"\) but we can't import strings. 
 
 
-[\(view code\)](<./Path.hx#L427>)
+[\(view code\)](<./Path.hx#L432>)
 
 
 ## function \_matchChunk
@@ -207,7 +207,7 @@ function exampleBase():Void {
 </details>
 
 
-[\(view code\)](<./Path.hx#L500>)
+[\(view code\)](<./Path.hx#L505>)
 
 
 ## function clean
@@ -243,7 +243,7 @@ function exampleClean():Void {
 </details>
 
 
-[\(view code\)](<./Path.hx#L370>)
+[\(view code\)](<./Path.hx#L372>)
 
 
 ## function dir
@@ -280,7 +280,7 @@ function exampleDir():Void {
 </details>
 
 
-[\(view code\)](<./Path.hx#L535>)
+[\(view code\)](<./Path.hx#L540>)
 
 
 ## function ext
@@ -314,7 +314,7 @@ function exampleExt():Void {
 </details>
 
 
-[\(view code\)](<./Path.hx#L482>)
+[\(view code\)](<./Path.hx#L487>)
 
 
 ## function isAbs
@@ -346,7 +346,7 @@ function exampleIsAbs():Void {
 </details>
 
 
-[\(view code\)](<./Path.hx#L522>)
+[\(view code\)](<./Path.hx#L527>)
 
 
 ## function join
@@ -384,7 +384,7 @@ function exampleJoin():Void {
 </details>
 
 
-[\(view code\)](<./Path.hx#L455>)
+[\(view code\)](<./Path.hx#L460>)
 
 
 ## function match
@@ -465,7 +465,7 @@ function exampleSplit():Void {
 </details>
 
 
-[\(view code\)](<./Path.hx#L442>)
+[\(view code\)](<./Path.hx#L447>)
 
 
 # Classes
@@ -493,7 +493,7 @@ function _append(_b:stdgo.Ref<stdgo.path._Path.T_lazybuf>, _c:stdgo.GoByte):Void
  
 
 
-[\(view code\)](<./Path.hx#L579>)
+[\(view code\)](<./Path.hx#L584>)
 
 
 ### T\_lazybuf\_static\_extension function \_index
@@ -507,7 +507,7 @@ function _index(_b:stdgo.Ref<stdgo.path._Path.T_lazybuf>, _i:stdgo.GoInt):stdgo.
  
 
 
-[\(view code\)](<./Path.hx#L593>)
+[\(view code\)](<./Path.hx#L598>)
 
 
 ### T\_lazybuf\_static\_extension function \_string
@@ -521,6 +521,6 @@ function _string(_b:stdgo.Ref<stdgo.path._Path.T_lazybuf>):stdgo.GoString
  
 
 
-[\(view code\)](<./Path.hx#L571>)
+[\(view code\)](<./Path.hx#L576>)
 
 

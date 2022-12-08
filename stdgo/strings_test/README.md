@@ -507,7 +507,7 @@ function _benchmarkBuilder(_b:stdgo.Ref<stdgo.testing.B>, _f:(_b:stdgo.Ref<stdgo
  
 
 
-[\(view code\)](<./Strings.hx#L1649>)
+[\(view code\)](<./Strings.hx#L1652>)
 
 
 ## function \_benchmarkCountHard
@@ -521,7 +521,7 @@ function _benchmarkCountHard(_b:stdgo.Ref<stdgo.testing.B>, _sep:stdgo.GoString)
  
 
 
-[\(view code\)](<./Strings.hx#L4357>)
+[\(view code\)](<./Strings.hx#L4363>)
 
 
 ## function \_benchmarkIndexHard
@@ -535,7 +535,7 @@ function _benchmarkIndexHard(_b:stdgo.Ref<stdgo.testing.B>, _sep:stdgo.GoString)
  
 
 
-[\(view code\)](<./Strings.hx#L4339>)
+[\(view code\)](<./Strings.hx#L4345>)
 
 
 ## function \_benchmarkLastIndexHard
@@ -549,7 +549,7 @@ function _benchmarkLastIndexHard(_b:stdgo.Ref<stdgo.testing.B>, _sep:stdgo.GoStr
  
 
 
-[\(view code\)](<./Strings.hx#L4348>)
+[\(view code\)](<./Strings.hx#L4354>)
 
 
 ## function \_benchmarkSingleString
@@ -563,7 +563,7 @@ function _benchmarkSingleString(_b:stdgo.Ref<stdgo.testing.B>, _pattern:stdgo.Go
  
 
 
-[\(view code\)](<./Strings.hx#L2948>)
+[\(view code\)](<./Strings.hx#L2954>)
 
 
 ## function \_check
@@ -591,7 +591,7 @@ function _eq(_a:stdgo.Slice<stdgo.GoString>, _b:stdgo.Slice<stdgo.GoString>):Boo
  
 
 
-[\(view code\)](<./Strings.hx#L3215>)
+[\(view code\)](<./Strings.hx#L3221>)
 
 
 ## function \_equal
@@ -605,7 +605,7 @@ function _equal(_m:stdgo.GoString, _s1:stdgo.GoString, _s2:stdgo.GoString, _t:st
  
 
 
-[\(view code\)](<./Strings.hx#L3914>)
+[\(view code\)](<./Strings.hx#L3920>)
 
 
 ## function \_makeBenchInputHard
@@ -619,7 +619,7 @@ function _makeBenchInputHard():stdgo.GoString
  
 
 
-[\(view code\)](<./Strings.hx#L4337>)
+[\(view code\)](<./Strings.hx#L4343>)
 
 
 ## function \_not
@@ -633,7 +633,7 @@ function _not(_p:stdgo.strings_test._Strings_test.T_predicate):stdgo.strings_tes
  
 
 
-[\(view code\)](<./Strings.hx#L3878>)
+[\(view code\)](<./Strings.hx#L3884>)
 
 
 ## function \_oldHTMLEscape
@@ -647,7 +647,7 @@ function _oldHTMLEscape(_s:stdgo.GoString):stdgo.GoString
 The http package's old HTML escaping function. 
 
 
-[\(view code\)](<./Strings.hx#L2590>)
+[\(view code\)](<./Strings.hx#L2596>)
 
 
 ## function \_repeat
@@ -661,7 +661,7 @@ function _repeat(_s:stdgo.GoString, _count:stdgo.GoInt):stdgo.Error
  
 
 
-[\(view code\)](<./Strings.hx#L3980>)
+[\(view code\)](<./Strings.hx#L3986>)
 
 
 ## function \_rot13
@@ -675,7 +675,7 @@ function _rot13(_r:stdgo.GoRune):stdgo.GoRune
 User\-defined self\-inverse mapping function 
 
 
-[\(view code\)](<./Strings.hx#L3587>)
+[\(view code\)](<./Strings.hx#L3593>)
 
 
 ## function \_runIndexTests
@@ -689,7 +689,7 @@ function _runIndexTests(_t:stdgo.Ref<stdgo.testing.T>, _f:(_s:stdgo.GoString, _s
 Execute f on each test case.  funcName should be the name of f; it's used in failure reports. 
 
 
-[\(view code\)](<./Strings.hx#L3234>)
+[\(view code\)](<./Strings.hx#L3240>)
 
 
 ## function \_runStringTests
@@ -703,7 +703,7 @@ function _runStringTests(_t:stdgo.Ref<stdgo.testing.T>, _f:(), _funcName:stdgo.G
 Execute f on each test case.  funcName should be the name of f; it's used in failure reports. 
 
 
-[\(view code\)](<./Strings.hx#L3567>)
+[\(view code\)](<./Strings.hx#L3573>)
 
 
 ## function \_runesEqual
@@ -717,7 +717,7 @@ function _runesEqual(_a:stdgo.Slice<stdgo.GoRune>, _b:stdgo.Slice<stdgo.GoRune>)
  
 
 
-[\(view code\)](<./Strings.hx#L4071>)
+[\(view code\)](<./Strings.hx#L4077>)
 
 
 ## function \_simpleIndex
@@ -731,7 +731,7 @@ function _simpleIndex(_s:stdgo.GoString, _sep:stdgo.GoString):stdgo.GoInt
  
 
 
-[\(view code\)](<./Strings.hx#L3293>)
+[\(view code\)](<./Strings.hx#L3299>)
 
 
 ## function \_tenRunes
@@ -745,7 +745,7 @@ function _tenRunes(_ch:stdgo.GoRune):stdgo.GoString
  
 
 
-[\(view code\)](<./Strings.hx#L3576>)
+[\(view code\)](<./Strings.hx#L3582>)
 
 
 ## function benchmarkBuildString\_Builder
@@ -759,7 +759,7 @@ function benchmarkBuildString_Builder(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L1664>)
+[\(view code\)](<./Strings.hx#L1667>)
 
 
 ## function benchmarkBuildString\_ByteBuffer
@@ -773,7 +773,7 @@ function benchmarkBuildString_ByteBuffer(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L1685>)
+[\(view code\)](<./Strings.hx#L1688>)
 
 
 ## function benchmarkByteByteMap
@@ -787,7 +787,7 @@ function benchmarkByteByteMap(_b:stdgo.Ref<stdgo.testing.B>):Void
 BenchmarkByteByteMap compares byteByteImpl against Map. 
 
 
-[\(view code\)](<./Strings.hx#L3062>)
+[\(view code\)](<./Strings.hx#L3068>)
 
 
 ## function benchmarkByteByteMatch
@@ -801,7 +801,7 @@ function benchmarkByteByteMatch(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L2982>)
+[\(view code\)](<./Strings.hx#L2988>)
 
 
 ## function benchmarkByteByteNoMatch
@@ -815,7 +815,7 @@ function benchmarkByteByteNoMatch(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L2972>)
+[\(view code\)](<./Strings.hx#L2978>)
 
 
 ## function benchmarkByteByteReplaces
@@ -829,7 +829,7 @@ function benchmarkByteByteReplaces(_b:stdgo.Ref<stdgo.testing.B>):Void
 BenchmarkByteByteReplaces compares byteByteImpl against multiple Replaces. 
 
 
-[\(view code\)](<./Strings.hx#L3049>)
+[\(view code\)](<./Strings.hx#L3055>)
 
 
 ## function benchmarkByteReplacerWriteString
@@ -843,7 +843,7 @@ function benchmarkByteReplacerWriteString(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3034>)
+[\(view code\)](<./Strings.hx#L3040>)
 
 
 ## function benchmarkByteStringMatch
@@ -857,7 +857,7 @@ function benchmarkByteStringMatch(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L2992>)
+[\(view code\)](<./Strings.hx#L2998>)
 
 
 ## function benchmarkByteStringReplacerWriteString
@@ -871,7 +871,7 @@ function benchmarkByteStringReplacerWriteString(_b:stdgo.Ref<stdgo.testing.B>):V
  
 
 
-[\(view code\)](<./Strings.hx#L3022>)
+[\(view code\)](<./Strings.hx#L3028>)
 
 
 ## function benchmarkClone
@@ -885,7 +885,7 @@ function benchmarkClone(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L1772>)
+[\(view code\)](<./Strings.hx#L1775>)
 
 
 ## function benchmarkCountByte
@@ -899,7 +899,7 @@ function benchmarkCountByte(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4435>)
+[\(view code\)](<./Strings.hx#L4441>)
 
 
 ## function benchmarkCountHard1
@@ -913,7 +913,7 @@ function benchmarkCountHard1(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4394>)
+[\(view code\)](<./Strings.hx#L4400>)
 
 
 ## function benchmarkCountHard2
@@ -927,7 +927,7 @@ function benchmarkCountHard2(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4398>)
+[\(view code\)](<./Strings.hx#L4404>)
 
 
 ## function benchmarkCountHard3
@@ -941,7 +941,7 @@ function benchmarkCountHard3(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4402>)
+[\(view code\)](<./Strings.hx#L4408>)
 
 
 ## function benchmarkCountTorture
@@ -955,7 +955,7 @@ function benchmarkCountTorture(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4415>)
+[\(view code\)](<./Strings.hx#L4421>)
 
 
 ## function benchmarkCountTortureOverlapping
@@ -969,7 +969,7 @@ function benchmarkCountTortureOverlapping(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4424>)
+[\(view code\)](<./Strings.hx#L4430>)
 
 
 ## function benchmarkEqualFold
@@ -983,7 +983,7 @@ function benchmarkEqualFold(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4293>)
+[\(view code\)](<./Strings.hx#L4299>)
 
 
 ## function benchmarkFields
@@ -997,7 +997,7 @@ function benchmarkFields(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4455>)
+[\(view code\)](<./Strings.hx#L4461>)
 
 
 ## function benchmarkFieldsFunc
@@ -1011,7 +1011,7 @@ function benchmarkFieldsFunc(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4478>)
+[\(view code\)](<./Strings.hx#L4484>)
 
 
 ## function benchmarkGenericMatch1
@@ -1025,7 +1025,7 @@ function benchmarkGenericMatch1(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L2927>)
+[\(view code\)](<./Strings.hx#L2933>)
 
 
 ## function benchmarkGenericMatch2
@@ -1039,7 +1039,7 @@ function benchmarkGenericMatch2(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L2938>)
+[\(view code\)](<./Strings.hx#L2944>)
 
 
 ## function benchmarkGenericNoMatch
@@ -1053,7 +1053,7 @@ function benchmarkGenericNoMatch(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L2916>)
+[\(view code\)](<./Strings.hx#L2922>)
 
 
 ## function benchmarkHTMLEscapeNew
@@ -1067,7 +1067,7 @@ function benchmarkHTMLEscapeNew(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3002>)
+[\(view code\)](<./Strings.hx#L3008>)
 
 
 ## function benchmarkHTMLEscapeOld
@@ -1081,7 +1081,7 @@ function benchmarkHTMLEscapeOld(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3012>)
+[\(view code\)](<./Strings.hx#L3018>)
 
 
 ## function benchmarkIndex
@@ -1095,7 +1095,7 @@ function benchmarkIndex(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3440>)
+[\(view code\)](<./Strings.hx#L3446>)
 
 
 ## function benchmarkIndexAnyASCII
@@ -1109,7 +1109,7 @@ function benchmarkIndexAnyASCII(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4562>)
+[\(view code\)](<./Strings.hx#L4568>)
 
 
 ## function benchmarkIndexAnyUTF8
@@ -1123,7 +1123,7 @@ function benchmarkIndexAnyUTF8(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4585>)
+[\(view code\)](<./Strings.hx#L4591>)
 
 
 ## function benchmarkIndexByte
@@ -1137,7 +1137,7 @@ function benchmarkIndexByte(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3470>)
+[\(view code\)](<./Strings.hx#L3476>)
 
 
 ## function benchmarkIndexHard1
@@ -1151,7 +1151,7 @@ function benchmarkIndexHard1(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4366>)
+[\(view code\)](<./Strings.hx#L4372>)
 
 
 ## function benchmarkIndexHard2
@@ -1165,7 +1165,7 @@ function benchmarkIndexHard2(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4370>)
+[\(view code\)](<./Strings.hx#L4376>)
 
 
 ## function benchmarkIndexHard3
@@ -1179,7 +1179,7 @@ function benchmarkIndexHard3(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4374>)
+[\(view code\)](<./Strings.hx#L4380>)
 
 
 ## function benchmarkIndexHard4
@@ -1193,7 +1193,7 @@ function benchmarkIndexHard4(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4378>)
+[\(view code\)](<./Strings.hx#L4384>)
 
 
 ## function benchmarkIndexPeriodic
@@ -1207,7 +1207,7 @@ function benchmarkIndexPeriodic(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4687>)
+[\(view code\)](<./Strings.hx#L4693>)
 
 
 ## function benchmarkIndexRune
@@ -1221,7 +1221,7 @@ function benchmarkIndexRune(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3395>)
+[\(view code\)](<./Strings.hx#L3401>)
 
 
 ## function benchmarkIndexRuneFastPath
@@ -1235,7 +1235,7 @@ function benchmarkIndexRuneFastPath(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3425>)
+[\(view code\)](<./Strings.hx#L3431>)
 
 
 ## function benchmarkIndexRuneLongString
@@ -1249,7 +1249,7 @@ function benchmarkIndexRuneLongString(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3410>)
+[\(view code\)](<./Strings.hx#L3416>)
 
 
 ## function benchmarkIndexTorture
@@ -1263,7 +1263,7 @@ function benchmarkIndexTorture(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4406>)
+[\(view code\)](<./Strings.hx#L4412>)
 
 
 ## function benchmarkJoin
@@ -1277,7 +1277,7 @@ function benchmarkJoin(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4702>)
+[\(view code\)](<./Strings.hx#L4708>)
 
 
 ## function benchmarkLastIndex
@@ -1291,7 +1291,7 @@ function benchmarkLastIndex(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3455>)
+[\(view code\)](<./Strings.hx#L3461>)
 
 
 ## function benchmarkLastIndexAnyASCII
@@ -1305,7 +1305,7 @@ function benchmarkLastIndexAnyASCII(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4608>)
+[\(view code\)](<./Strings.hx#L4614>)
 
 
 ## function benchmarkLastIndexAnyUTF8
@@ -1319,7 +1319,7 @@ function benchmarkLastIndexAnyUTF8(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4631>)
+[\(view code\)](<./Strings.hx#L4637>)
 
 
 ## function benchmarkLastIndexHard1
@@ -1333,7 +1333,7 @@ function benchmarkLastIndexHard1(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4382>)
+[\(view code\)](<./Strings.hx#L4388>)
 
 
 ## function benchmarkLastIndexHard2
@@ -1347,7 +1347,7 @@ function benchmarkLastIndexHard2(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4386>)
+[\(view code\)](<./Strings.hx#L4392>)
 
 
 ## function benchmarkLastIndexHard3
@@ -1361,7 +1361,7 @@ function benchmarkLastIndexHard3(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4390>)
+[\(view code\)](<./Strings.hx#L4396>)
 
 
 ## function benchmarkMap
@@ -1375,7 +1375,7 @@ function benchmarkMap(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3080>)
+[\(view code\)](<./Strings.hx#L3086>)
 
 
 ## function benchmarkMapNoChanges
@@ -1389,7 +1389,7 @@ function benchmarkMapNoChanges(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3767>)
+[\(view code\)](<./Strings.hx#L3773>)
 
 
 ## function benchmarkRepeat
@@ -1403,7 +1403,7 @@ function benchmarkRepeat(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4546>)
+[\(view code\)](<./Strings.hx#L4552>)
 
 
 ## function benchmarkReplaceAll
@@ -1417,7 +1417,7 @@ function benchmarkReplaceAll(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4739>)
+[\(view code\)](<./Strings.hx#L4745>)
 
 
 ## function benchmarkSingleLongSuffixFail
@@ -1431,7 +1431,7 @@ function benchmarkSingleLongSuffixFail(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L2964>)
+[\(view code\)](<./Strings.hx#L2970>)
 
 
 ## function benchmarkSingleMatch
@@ -1445,7 +1445,7 @@ function benchmarkSingleMatch(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L2968>)
+[\(view code\)](<./Strings.hx#L2974>)
 
 
 ## function benchmarkSingleMaxSkipping
@@ -1459,7 +1459,7 @@ function benchmarkSingleMaxSkipping(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L2960>)
+[\(view code\)](<./Strings.hx#L2966>)
 
 
 ## function benchmarkSplitEmptySeparator
@@ -1473,7 +1473,7 @@ function benchmarkSplitEmptySeparator(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4501>)
+[\(view code\)](<./Strings.hx#L4507>)
 
 
 ## function benchmarkSplitMultiByteSeparator
@@ -1487,7 +1487,7 @@ function benchmarkSplitMultiByteSeparator(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4519>)
+[\(view code\)](<./Strings.hx#L4525>)
 
 
 ## function benchmarkSplitNMultiByteSeparator
@@ -1501,7 +1501,7 @@ function benchmarkSplitNMultiByteSeparator(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4537>)
+[\(view code\)](<./Strings.hx#L4543>)
 
 
 ## function benchmarkSplitNSingleByteSeparator
@@ -1515,7 +1515,7 @@ function benchmarkSplitNSingleByteSeparator(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4528>)
+[\(view code\)](<./Strings.hx#L4534>)
 
 
 ## function benchmarkSplitSingleByteSeparator
@@ -1529,7 +1529,7 @@ function benchmarkSplitSingleByteSeparator(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4510>)
+[\(view code\)](<./Strings.hx#L4516>)
 
 
 ## function benchmarkToLower
@@ -1543,7 +1543,7 @@ function benchmarkToLower(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3751>)
+[\(view code\)](<./Strings.hx#L3757>)
 
 
 ## function benchmarkToUpper
@@ -1557,7 +1557,7 @@ function benchmarkToUpper(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3735>)
+[\(view code\)](<./Strings.hx#L3741>)
 
 
 ## function benchmarkToValidUTF8
@@ -1571,7 +1571,7 @@ function benchmarkToValidUTF8(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3860>)
+[\(view code\)](<./Strings.hx#L3866>)
 
 
 ## function benchmarkTrim
@@ -1585,7 +1585,7 @@ function benchmarkTrim(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3829>)
+[\(view code\)](<./Strings.hx#L3835>)
 
 
 ## function benchmarkTrimASCII
@@ -1599,7 +1599,7 @@ function benchmarkTrimASCII(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4654>)
+[\(view code\)](<./Strings.hx#L4660>)
 
 
 ## function benchmarkTrimByte
@@ -1613,7 +1613,7 @@ function benchmarkTrimByte(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4677>)
+[\(view code\)](<./Strings.hx#L4683>)
 
 
 ## function benchmarkTrimSpace
@@ -1627,7 +1627,7 @@ function benchmarkTrimSpace(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4722>)
+[\(view code\)](<./Strings.hx#L4728>)
 
 
 ## function exampleBuilder
@@ -1641,7 +1641,7 @@ function exampleBuilder():Void
  
 
 
-[\(view code\)](<./Strings.hx#L1873>)
+[\(view code\)](<./Strings.hx#L1879>)
 
 
 ## function exampleCompare
@@ -1655,7 +1655,7 @@ function exampleCompare():Void
  
 
 
-[\(view code\)](<./Strings.hx#L1885>)
+[\(view code\)](<./Strings.hx#L1891>)
 
 
 ## function exampleContains
@@ -1669,7 +1669,7 @@ function exampleContains():Void
  
 
 
-[\(view code\)](<./Strings.hx#L1891>)
+[\(view code\)](<./Strings.hx#L1897>)
 
 
 ## function exampleContainsAny
@@ -1683,7 +1683,7 @@ function exampleContainsAny():Void
  
 
 
-[\(view code\)](<./Strings.hx#L1898>)
+[\(view code\)](<./Strings.hx#L1904>)
 
 
 ## function exampleContainsRune
@@ -1697,7 +1697,7 @@ function exampleContainsRune():Void
  
 
 
-[\(view code\)](<./Strings.hx#L1907>)
+[\(view code\)](<./Strings.hx#L1913>)
 
 
 ## function exampleCount
@@ -1711,7 +1711,7 @@ function exampleCount():Void
  
 
 
-[\(view code\)](<./Strings.hx#L1912>)
+[\(view code\)](<./Strings.hx#L1918>)
 
 
 ## function exampleCut
@@ -1725,7 +1725,7 @@ function exampleCut():Void
  
 
 
-[\(view code\)](<./Strings.hx#L1917>)
+[\(view code\)](<./Strings.hx#L1923>)
 
 
 ## function exampleEqualFold
@@ -1739,7 +1739,7 @@ function exampleEqualFold():Void
  
 
 
-[\(view code\)](<./Strings.hx#L1929>)
+[\(view code\)](<./Strings.hx#L1935>)
 
 
 ## function exampleFields
@@ -1753,7 +1753,7 @@ function exampleFields():Void
  
 
 
-[\(view code\)](<./Strings.hx#L1935>)
+[\(view code\)](<./Strings.hx#L1941>)
 
 
 ## function exampleFieldsFunc
@@ -1767,7 +1767,7 @@ function exampleFieldsFunc():Void
  
 
 
-[\(view code\)](<./Strings.hx#L1939>)
+[\(view code\)](<./Strings.hx#L1945>)
 
 
 ## function exampleHasPrefix
@@ -1781,7 +1781,7 @@ function exampleHasPrefix():Void
  
 
 
-[\(view code\)](<./Strings.hx#L1946>)
+[\(view code\)](<./Strings.hx#L1952>)
 
 
 ## function exampleHasSuffix
@@ -1795,7 +1795,7 @@ function exampleHasSuffix():Void
  
 
 
-[\(view code\)](<./Strings.hx#L1952>)
+[\(view code\)](<./Strings.hx#L1958>)
 
 
 ## function exampleIndex
@@ -1809,7 +1809,7 @@ function exampleIndex():Void
  
 
 
-[\(view code\)](<./Strings.hx#L1959>)
+[\(view code\)](<./Strings.hx#L1965>)
 
 
 ## function exampleIndexAny
@@ -1823,7 +1823,7 @@ function exampleIndexAny():Void
  
 
 
-[\(view code\)](<./Strings.hx#L1972>)
+[\(view code\)](<./Strings.hx#L1978>)
 
 
 ## function exampleIndexByte
@@ -1837,7 +1837,7 @@ function exampleIndexByte():Void
  
 
 
-[\(view code\)](<./Strings.hx#L1977>)
+[\(view code\)](<./Strings.hx#L1983>)
 
 
 ## function exampleIndexFunc
@@ -1851,7 +1851,7 @@ function exampleIndexFunc():Void
  
 
 
-[\(view code\)](<./Strings.hx#L1964>)
+[\(view code\)](<./Strings.hx#L1970>)
 
 
 ## function exampleIndexRune
@@ -1865,7 +1865,7 @@ function exampleIndexRune():Void
  
 
 
-[\(view code\)](<./Strings.hx#L1983>)
+[\(view code\)](<./Strings.hx#L1989>)
 
 
 ## function exampleJoin
@@ -1879,7 +1879,7 @@ function exampleJoin():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2012>)
+[\(view code\)](<./Strings.hx#L2018>)
 
 
 ## function exampleLastIndex
@@ -1893,7 +1893,7 @@ function exampleLastIndex():Void
  
 
 
-[\(view code\)](<./Strings.hx#L1988>)
+[\(view code\)](<./Strings.hx#L1994>)
 
 
 ## function exampleLastIndexAny
@@ -1907,7 +1907,7 @@ function exampleLastIndexAny():Void
  
 
 
-[\(view code\)](<./Strings.hx#L1994>)
+[\(view code\)](<./Strings.hx#L2000>)
 
 
 ## function exampleLastIndexByte
@@ -1921,7 +1921,7 @@ function exampleLastIndexByte():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2000>)
+[\(view code\)](<./Strings.hx#L2006>)
 
 
 ## function exampleLastIndexFunc
@@ -1935,7 +1935,7 @@ function exampleLastIndexFunc():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2006>)
+[\(view code\)](<./Strings.hx#L2012>)
 
 
 ## function exampleMap
@@ -1949,7 +1949,7 @@ function exampleMap():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2067>)
+[\(view code\)](<./Strings.hx#L2073>)
 
 
 ## function exampleNewReplacer
@@ -1963,7 +1963,7 @@ function exampleNewReplacer():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2079>)
+[\(view code\)](<./Strings.hx#L2085>)
 
 
 ## function exampleRepeat
@@ -1977,7 +1977,7 @@ function exampleRepeat():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2017>)
+[\(view code\)](<./Strings.hx#L2023>)
 
 
 ## function exampleReplace
@@ -1991,7 +1991,7 @@ function exampleReplace():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2021>)
+[\(view code\)](<./Strings.hx#L2027>)
 
 
 ## function exampleReplaceAll
@@ -2005,7 +2005,7 @@ function exampleReplaceAll():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2026>)
+[\(view code\)](<./Strings.hx#L2032>)
 
 
 ## function exampleSplit
@@ -2019,7 +2019,7 @@ function exampleSplit():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2030>)
+[\(view code\)](<./Strings.hx#L2036>)
 
 
 ## function exampleSplitAfter
@@ -2033,7 +2033,7 @@ function exampleSplitAfter():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2043>)
+[\(view code\)](<./Strings.hx#L2049>)
 
 
 ## function exampleSplitAfterN
@@ -2047,7 +2047,7 @@ function exampleSplitAfterN():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2047>)
+[\(view code\)](<./Strings.hx#L2053>)
 
 
 ## function exampleSplitN
@@ -2061,7 +2061,7 @@ function exampleSplitN():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2037>)
+[\(view code\)](<./Strings.hx#L2043>)
 
 
 ## function exampleTitle
@@ -2075,7 +2075,7 @@ function exampleTitle():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2051>)
+[\(view code\)](<./Strings.hx#L2057>)
 
 
 ## function exampleToLower
@@ -2089,7 +2089,7 @@ function exampleToLower():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2092>)
+[\(view code\)](<./Strings.hx#L2098>)
 
 
 ## function exampleToLowerSpecial
@@ -2103,7 +2103,7 @@ function exampleToLowerSpecial():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2096>)
+[\(view code\)](<./Strings.hx#L2102>)
 
 
 ## function exampleToTitle
@@ -2117,7 +2117,7 @@ function exampleToTitle():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2057>)
+[\(view code\)](<./Strings.hx#L2063>)
 
 
 ## function exampleToTitleSpecial
@@ -2131,7 +2131,7 @@ function exampleToTitleSpecial():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2063>)
+[\(view code\)](<./Strings.hx#L2069>)
 
 
 ## function exampleToUpper
@@ -2145,7 +2145,7 @@ function exampleToUpper():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2084>)
+[\(view code\)](<./Strings.hx#L2090>)
 
 
 ## function exampleToUpperSpecial
@@ -2159,7 +2159,7 @@ function exampleToUpperSpecial():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2088>)
+[\(view code\)](<./Strings.hx#L2094>)
 
 
 ## function exampleTrim
@@ -2173,7 +2173,7 @@ function exampleTrim():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2100>)
+[\(view code\)](<./Strings.hx#L2106>)
 
 
 ## function exampleTrimFunc
@@ -2187,7 +2187,7 @@ function exampleTrimFunc():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2122>)
+[\(view code\)](<./Strings.hx#L2128>)
 
 
 ## function exampleTrimLeft
@@ -2201,7 +2201,7 @@ function exampleTrimLeft():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2128>)
+[\(view code\)](<./Strings.hx#L2134>)
 
 
 ## function exampleTrimLeftFunc
@@ -2215,7 +2215,7 @@ function exampleTrimLeftFunc():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2132>)
+[\(view code\)](<./Strings.hx#L2138>)
 
 
 ## function exampleTrimPrefix
@@ -2229,7 +2229,7 @@ function exampleTrimPrefix():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2108>)
+[\(view code\)](<./Strings.hx#L2114>)
 
 
 ## function exampleTrimRight
@@ -2243,7 +2243,7 @@ function exampleTrimRight():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2138>)
+[\(view code\)](<./Strings.hx#L2144>)
 
 
 ## function exampleTrimRightFunc
@@ -2257,7 +2257,7 @@ function exampleTrimRightFunc():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2142>)
+[\(view code\)](<./Strings.hx#L2148>)
 
 
 ## function exampleTrimSpace
@@ -2271,7 +2271,7 @@ function exampleTrimSpace():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2104>)
+[\(view code\)](<./Strings.hx#L2110>)
 
 
 ## function exampleTrimSuffix
@@ -2285,7 +2285,7 @@ function exampleTrimSuffix():Void
  
 
 
-[\(view code\)](<./Strings.hx#L2115>)
+[\(view code\)](<./Strings.hx#L2121>)
 
 
 ## function testBuilder
@@ -2313,7 +2313,7 @@ function testBuilderAllocs(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L1571>)
+[\(view code\)](<./Strings.hx#L1574>)
 
 
 ## function testBuilderCopyPanic
@@ -2327,7 +2327,7 @@ function testBuilderCopyPanic(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L1583>)
+[\(view code\)](<./Strings.hx#L1586>)
 
 
 ## function testBuilderGrow
@@ -2383,7 +2383,7 @@ function testBuilderWrite2(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L1495>)
+[\(view code\)](<./Strings.hx#L1498>)
 
 
 ## function testBuilderWriteByte
@@ -2397,7 +2397,7 @@ function testBuilderWriteByte(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L1554>)
+[\(view code\)](<./Strings.hx#L1557>)
 
 
 ## function testBuilderWriteInvalidRune
@@ -2411,7 +2411,7 @@ function testBuilderWriteInvalidRune(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L1641>)
+[\(view code\)](<./Strings.hx#L1644>)
 
 
 ## function testCaseConsistency
@@ -2425,7 +2425,7 @@ function testCaseConsistency(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3937>)
+[\(view code\)](<./Strings.hx#L3943>)
 
 
 ## function testClone
@@ -2439,7 +2439,7 @@ function testClone(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L1706>)
+[\(view code\)](<./Strings.hx#L1709>)
 
 
 ## function testCompare
@@ -2453,7 +2453,7 @@ function testCompare(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L1783>)
+[\(view code\)](<./Strings.hx#L1786>)
 
 
 ## function testCompareIdenticalString
@@ -2467,7 +2467,7 @@ function testCompareIdenticalString(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L1792>)
+[\(view code\)](<./Strings.hx#L1795>)
 
 
 ## function testCompareStrings
@@ -2481,7 +2481,7 @@ function testCompareStrings(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L1802>)
+[\(view code\)](<./Strings.hx#L1805>)
 
 
 ## function testContains
@@ -2495,7 +2495,7 @@ function testContains(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4247>)
+[\(view code\)](<./Strings.hx#L4253>)
 
 
 ## function testContainsAny
@@ -2509,7 +2509,7 @@ function testContainsAny(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4256>)
+[\(view code\)](<./Strings.hx#L4262>)
 
 
 ## function testContainsRune
@@ -2523,7 +2523,7 @@ function testContainsRune(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4265>)
+[\(view code\)](<./Strings.hx#L4271>)
 
 
 ## function testCount
@@ -2537,7 +2537,7 @@ function testCount(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4309>)
+[\(view code\)](<./Strings.hx#L4315>)
 
 
 ## function testCut
@@ -2551,7 +2551,7 @@ function testCut(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4321>)
+[\(view code\)](<./Strings.hx#L4327>)
 
 
 ## function testEmptyReaderConcurrent
@@ -2565,7 +2565,7 @@ function testEmptyReaderConcurrent(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L2365>)
+[\(view code\)](<./Strings.hx#L2371>)
 
 
 ## function testEqualFold
@@ -2579,7 +2579,7 @@ function testEqualFold(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4274>)
+[\(view code\)](<./Strings.hx#L4280>)
 
 
 ## function testFields
@@ -2593,7 +2593,7 @@ function testFields(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3534>)
+[\(view code\)](<./Strings.hx#L3540>)
 
 
 ## function testFieldsFunc
@@ -2607,7 +2607,7 @@ function testFieldsFunc(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3544>)
+[\(view code\)](<./Strings.hx#L3550>)
 
 
 ## function testFinderCreation
@@ -2621,7 +2621,7 @@ function testFinderCreation(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3145>)
+[\(view code\)](<./Strings.hx#L3151>)
 
 
 ## function testFinderNext
@@ -2635,7 +2635,7 @@ function testFinderNext(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3119>)
+[\(view code\)](<./Strings.hx#L3125>)
 
 
 ## function testGenericTrieBuilding
@@ -2649,7 +2649,7 @@ function testGenericTrieBuilding(_t:stdgo.Ref<stdgo.testing.T>):Void
 TestGenericTrieBuilding verifies the structure of the generated trie. There is one node per line, and the key ending with the current line is in the trie if it ends with a "\+". 
 
 
-[\(view code\)](<./Strings.hx#L2883>)
+[\(view code\)](<./Strings.hx#L2889>)
 
 
 ## function testIndex
@@ -2663,7 +2663,7 @@ function testIndex(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3244>)
+[\(view code\)](<./Strings.hx#L3250>)
 
 
 ## function testIndexAny
@@ -2677,7 +2677,7 @@ function testIndexAny(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3252>)
+[\(view code\)](<./Strings.hx#L3258>)
 
 
 ## function testIndexByte
@@ -2691,7 +2691,7 @@ function testIndexByte(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3260>)
+[\(view code\)](<./Strings.hx#L3266>)
 
 
 ## function testIndexFunc
@@ -2705,7 +2705,7 @@ function testIndexFunc(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3899>)
+[\(view code\)](<./Strings.hx#L3905>)
 
 
 ## function testIndexRandom
@@ -2719,7 +2719,7 @@ function testIndexRandom(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3306>)
+[\(view code\)](<./Strings.hx#L3312>)
 
 
 ## function testIndexRune
@@ -2733,7 +2733,7 @@ function testIndexRune(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3345>)
+[\(view code\)](<./Strings.hx#L3351>)
 
 
 ## function testLastIndex
@@ -2747,7 +2747,7 @@ function testLastIndex(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3248>)
+[\(view code\)](<./Strings.hx#L3254>)
 
 
 ## function testLastIndexAny
@@ -2761,7 +2761,7 @@ function testLastIndexAny(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3256>)
+[\(view code\)](<./Strings.hx#L3262>)
 
 
 ## function testLastIndexByte
@@ -2775,7 +2775,7 @@ function testLastIndexByte(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3273>)
+[\(view code\)](<./Strings.hx#L3279>)
 
 
 ## function testMap
@@ -2789,7 +2789,7 @@ function testMap(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3598>)
+[\(view code\)](<./Strings.hx#L3604>)
 
 
 ## function testPickAlgorithm
@@ -2803,7 +2803,7 @@ function testPickAlgorithm(_t:stdgo.Ref<stdgo.testing.T>):Void
 TestPickAlgorithm tests that NewReplacer picks the correct algorithm. 
 
 
-[\(view code\)](<./Strings.hx#L2853>)
+[\(view code\)](<./Strings.hx#L2859>)
 
 
 ## function testReadAfterBigSeek
@@ -2817,7 +2817,7 @@ function testReadAfterBigSeek(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L2253>)
+[\(view code\)](<./Strings.hx#L2259>)
 
 
 ## function testReadByte
@@ -2831,7 +2831,7 @@ function testReadByte(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4099>)
+[\(view code\)](<./Strings.hx#L4105>)
 
 
 ## function testReadRune
@@ -2845,7 +2845,7 @@ function testReadRune(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4145>)
+[\(view code\)](<./Strings.hx#L4151>)
 
 
 ## function testReader
@@ -2859,7 +2859,7 @@ function testReader(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L2148>)
+[\(view code\)](<./Strings.hx#L2154>)
 
 
 ## function testReaderAt
@@ -2873,7 +2873,7 @@ function testReaderAt(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L2273>)
+[\(view code\)](<./Strings.hx#L2279>)
 
 
 ## function testReaderAtConcurrent
@@ -2887,7 +2887,7 @@ function testReaderAtConcurrent(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L2321>)
+[\(view code\)](<./Strings.hx#L2327>)
 
 
 ## function testReaderLenSize
@@ -2901,7 +2901,7 @@ function testReaderLenSize(_t:stdgo.Ref<stdgo.testing.T>):Void
 tests that Len is affected by reads, but Size is not. 
 
 
-[\(view code\)](<./Strings.hx#L2473>)
+[\(view code\)](<./Strings.hx#L2479>)
 
 
 ## function testReaderReset
@@ -2915,7 +2915,7 @@ function testReaderReset(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L2484>)
+[\(view code\)](<./Strings.hx#L2490>)
 
 
 ## function testReaderZero
@@ -2929,7 +2929,7 @@ function testReaderZero(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L2517>)
+[\(view code\)](<./Strings.hx#L2523>)
 
 
 ## function testRepeat
@@ -2943,7 +2943,7 @@ function testRepeat(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3969>)
+[\(view code\)](<./Strings.hx#L3975>)
 
 
 ## function testRepeatCatchesOverflow
@@ -2957,7 +2957,7 @@ function testRepeatCatchesOverflow(_t:stdgo.Ref<stdgo.testing.T>):Void
 See Issue golang.org/issue/16237 
 
 
-[\(view code\)](<./Strings.hx#L4039>)
+[\(view code\)](<./Strings.hx#L4045>)
 
 
 ## function testReplace
@@ -2971,7 +2971,7 @@ function testReplace(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4217>)
+[\(view code\)](<./Strings.hx#L4223>)
 
 
 ## function testReplacer
@@ -2985,7 +2985,7 @@ function testReplacer(_t:stdgo.Ref<stdgo.testing.T>):Void
 TestReplacer tests the replacer implementations. 
 
 
-[\(view code\)](<./Strings.hx#L2621>)
+[\(view code\)](<./Strings.hx#L2627>)
 
 
 ## function testRunes
@@ -2999,7 +2999,7 @@ function testRunes(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4083>)
+[\(view code\)](<./Strings.hx#L4089>)
 
 
 ## function testSpecialCase
@@ -3013,7 +3013,7 @@ function testSpecialCase(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3779>)
+[\(view code\)](<./Strings.hx#L3785>)
 
 
 ## function testSplit
@@ -3027,7 +3027,7 @@ function testSplit(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3485>)
+[\(view code\)](<./Strings.hx#L3491>)
 
 
 ## function testSplitAfter
@@ -3041,7 +3041,7 @@ function testSplitAfter(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3511>)
+[\(view code\)](<./Strings.hx#L3517>)
 
 
 ## function testTitle
@@ -3055,7 +3055,7 @@ function testTitle(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4236>)
+[\(view code\)](<./Strings.hx#L4242>)
 
 
 ## function testToLower
@@ -3069,7 +3069,7 @@ function testToLower(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3721>)
+[\(view code\)](<./Strings.hx#L3727>)
 
 
 ## function testToUpper
@@ -3083,7 +3083,7 @@ function testToUpper(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3717>)
+[\(view code\)](<./Strings.hx#L3723>)
 
 
 ## function testToValidUTF8
@@ -3097,7 +3097,7 @@ function testToValidUTF8(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3725>)
+[\(view code\)](<./Strings.hx#L3731>)
 
 
 ## function testTrim
@@ -3111,7 +3111,7 @@ function testTrim(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3804>)
+[\(view code\)](<./Strings.hx#L3810>)
 
 
 ## function testTrimFunc
@@ -3125,7 +3125,7 @@ function testTrimFunc(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3884>)
+[\(view code\)](<./Strings.hx#L3890>)
 
 
 ## function testTrimSpace
@@ -3139,7 +3139,7 @@ function testTrimSpace(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L3800>)
+[\(view code\)](<./Strings.hx#L3806>)
 
 
 ## function testUnreadRuneError
@@ -3153,7 +3153,7 @@ function testUnreadRuneError(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L4197>)
+[\(view code\)](<./Strings.hx#L4203>)
 
 
 ## function testWriteStringError
@@ -3167,7 +3167,7 @@ function testWriteStringError(_t:stdgo.Ref<stdgo.testing.T>):Void
 TestWriteStringError tests that WriteString returns an error received from the underlying io.Writer. 
 
 
-[\(view code\)](<./Strings.hx#L2866>)
+[\(view code\)](<./Strings.hx#L2872>)
 
 
 ## function testWriteTo
@@ -3181,7 +3181,7 @@ function testWriteTo(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strings.hx#L2440>)
+[\(view code\)](<./Strings.hx#L2446>)
 
 
 ## function main
@@ -3358,6 +3358,6 @@ function write(_:stdgo.strings_test._Strings_test.T_errWriter, _p:stdgo.Slice<st
  
 
 
-[\(view code\)](<./Strings_test.hx#L4770>)
+[\(view code\)](<./Strings_test.hx#L4776>)
 
 

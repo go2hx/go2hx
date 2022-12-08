@@ -225,7 +225,7 @@ function new(value:Any, type:stdgo.internal.reflect._Type):Void
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L1755>)
+[\(view code\)](<./StdGoTypes.hx#L1763>)
 
 
 ### AnyInterfaceData function toString
@@ -239,7 +239,7 @@ function toString():String
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L1761>)
+[\(view code\)](<./StdGoTypes.hx#L1769>)
 
 
 ## class ChanData
@@ -579,7 +579,7 @@ function hasNext():Bool
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L1913>)
+[\(view code\)](<./StdGoTypes.hx#L1921>)
 
 
 ### GoIntIterator function new
@@ -593,7 +593,7 @@ function new(min:stdgo.GoInt, max:stdgo.GoInt):Void
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L1908>)
+[\(view code\)](<./StdGoTypes.hx#L1916>)
 
 
 ### GoIntIterator function next
@@ -607,7 +607,7 @@ function next():stdgo.GoInt
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L1917>)
+[\(view code\)](<./StdGoTypes.hx#L1925>)
 
 
 ## class GoObjectMap

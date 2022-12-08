@@ -4932,9 +4932,9 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef { //
 	// non anyInterface conversions are always known to work at compile time
 	final t = typeof(expr.type, info, false);
 	if (isAnyInterface(fromType))
-		return (macro Go.typeAssert(($e : $ct))).expr;
+		return (macro (Go.typeAssert(($e : $ct)) : $ct)).expr;
 	e = toAnyInterface(e, fromType, info);
-	return (macro Go.typeAssert(($e : $ct))).expr;
+	return (macro (Go.typeAssert(($e : $ct)) : $ct)).expr;
 }
 
 private function destructureExpr(x:Expr, t:GoType):{x:Expr, t:GoType} {
@@ -5480,7 +5480,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			if (hasTypeParam(ct)) {
 				macro null;
 			} else {
-				macro(null : $ct); // pointer can be nil
+				macro(null : Ref<$ct>); // pointer can be nil
 			}
 		case named(path, _, underlying, alias):
 			switch underlying {

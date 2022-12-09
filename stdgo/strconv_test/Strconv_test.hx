@@ -3868,6 +3868,10 @@ function _myatof32(_s:GoString):{var _0:GoFloat32; var _1:Bool;} {
 }
 
 function testFp(_t:Ref<stdgo.testing.Testing.T>):Void {
+	#if (interp || hl || jvm) {
+		trace("testFp" + " skip targets: " + "interp, hl, jvm");
+		return;
+	} #else null #end;
 	var __deferstack__:Array<Void->Void> = [];
 	var __tmp__ = stdgo.os.Os.open(Go.str("testdata/testfp.txt")),
 		_f:Ref<stdgo.os.Os.File> = __tmp__._0,
@@ -3991,6 +3995,10 @@ function testFtoa(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testFtoaPowersOfTwo(_t:Ref<stdgo.testing.Testing.T>):Void {
+	#if (interp || hl || jvm) {
+		trace("testFtoaPowersOfTwo" + " skip targets: " + "interp, hl, jvm");
+		return;
+	} #else null #end;
 	{
 		var _exp:GoInt = (-2048 : GoInt);
 		Go.cfor(_exp <= (2048 : GoInt), _exp++, {
@@ -4507,6 +4515,10 @@ function testUnquote(_t:Ref<stdgo.testing.Testing.T>):Void {
 	// Issue 23685: invalid UTF-8 should not go through the fast path.
 **/
 function testUnquoteInvalidUTF8(_t:Ref<stdgo.testing.Testing.T>):Void {
+	#if (interp || hl || jvm) {
+		trace("testUnquoteInvalidUTF8" + " skip targets: " + "interp, hl, jvm");
+		return;
+	} #else null #end;
 	var _tests = (new Slice<T__struct_4>(0, 0, ({_in: ("" : GoString), _want: ("" : GoString), _wantErr: (null : Error)} : T__struct_4),
 		({_in: ("" : GoString), _want: ("" : GoString), _wantErr: (null : Error)} : T__struct_4),
 		({_in: ("" : GoString), _want: ("" : GoString), _wantErr: (null : Error)} : T__struct_4),

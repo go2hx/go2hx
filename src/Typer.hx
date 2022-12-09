@@ -5066,7 +5066,10 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 			switch block.expr {
 				case EBlock(exprs):
 					final targets = makeString("(" + cond.join(" || ") + ")");
+					final deferBool = info.deferBool;
+					info.deferBool = false;
 					final e = toExpr(typeReturnStmt({results: [], returnPos: 0}, info));
+					info.deferBool = deferBool;
 					exprs.unshift(macro @:define($targets) {
 						trace($e{makeExpr(name)} + " skip targets: " + $e{makeString(cond.join(", "))});
 						$e;

@@ -817,8 +817,24 @@ class _Type {
 	static public function bits(t:_Type):GoInt
 		throw "not implemented";
 
-	static public function comparable(t:_Type):Bool
-		throw "not implemented";
+	static public function comparable(t:_Type):Bool {
+		return switch (t._common()) {
+			case sliceType(_), signature(_, _, _, _), mapType(_, _):
+				return false;
+			case arrayType(_.get() => elem, _):
+				return new _Type(elem).comparable();
+			case structType(fields):
+				for (field in fields) {
+					if (!new _Type(field.type).comparable())
+						return false;
+				}
+				return true;
+			case named(_, _, type):
+				return new _Type(type).comparable();
+			default:
+				return true;
+		}
+	}
 
 	static public function convertibleTo(t:_Type, _u:Type):Bool
 		throw "not implemented";

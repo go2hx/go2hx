@@ -513,6 +513,9 @@ final skipTargets = [
 	"math_test:testNextafter32" => ["interp"],
 	// "math_test:testSignbit" => ["interp"],
 	"math_test:testGamma" => ["interp"],
+	"strconv_test:testFp" => ["interp", "hl", "jvm"], // uses os read
+	"strconv_test:testFtoaPowersOfTwo" => ["interp", "hl", "jvm"], // imprecise float
+	"strconv_test:testUnquoteInvalidUTF8" => ["interp","hl","jvm"], // go does not pass in isolation
 ];
 
 final structs = [

@@ -387,7 +387,7 @@ function _fdiv(_a:stdgo.GoFloat64, _b:stdgo.GoFloat64):stdgo.GoFloat64
  
 
 
-[\(view code\)](<./Strconv.hx#L3955>)
+[\(view code\)](<./Strconv.hx#L3959>)
 
 
 ## function \_initAtof
@@ -499,7 +499,7 @@ function _testUnquote(_t:stdgo.Ref<stdgo.testing.T>, _in:stdgo.GoString, _want:s
  
 
 
-[\(view code\)](<./Strconv.hx#L4520>)
+[\(view code\)](<./Strconv.hx#L4532>)
 
 
 ## function benchmarkAppendFloat
@@ -513,7 +513,7 @@ function benchmarkAppendFloat(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4111>)
+[\(view code\)](<./Strconv.hx#L4119>)
 
 
 ## function benchmarkAppendInt
@@ -527,7 +527,7 @@ function benchmarkAppendInt(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4220>)
+[\(view code\)](<./Strconv.hx#L4228>)
 
 
 ## function benchmarkAppendIntSmall
@@ -541,7 +541,7 @@ function benchmarkAppendIntSmall(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4273>)
+[\(view code\)](<./Strconv.hx#L4281>)
 
 
 ## function benchmarkAppendQuote
@@ -555,7 +555,7 @@ function benchmarkAppendQuote(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4410>)
+[\(view code\)](<./Strconv.hx#L4418>)
 
 
 ## function benchmarkAppendQuoteRune
@@ -569,7 +569,7 @@ function benchmarkAppendQuoteRune(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4420>)
+[\(view code\)](<./Strconv.hx#L4428>)
 
 
 ## function benchmarkAppendUint
@@ -583,7 +583,7 @@ function benchmarkAppendUint(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4245>)
+[\(view code\)](<./Strconv.hx#L4253>)
 
 
 ## function benchmarkAppendUintVarlen
@@ -597,7 +597,7 @@ function benchmarkAppendUintVarlen(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4285>)
+[\(view code\)](<./Strconv.hx#L4293>)
 
 
 ## function benchmarkAtof32Decimal
@@ -793,7 +793,7 @@ function benchmarkFormatFloat(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4098>)
+[\(view code\)](<./Strconv.hx#L4106>)
 
 
 ## function benchmarkFormatInt
@@ -807,7 +807,7 @@ function benchmarkFormatInt(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4208>)
+[\(view code\)](<./Strconv.hx#L4216>)
 
 
 ## function benchmarkFormatIntSmall
@@ -821,7 +821,7 @@ function benchmarkFormatIntSmall(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4258>)
+[\(view code\)](<./Strconv.hx#L4266>)
 
 
 ## function benchmarkFormatUint
@@ -835,7 +835,7 @@ function benchmarkFormatUint(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4233>)
+[\(view code\)](<./Strconv.hx#L4241>)
 
 
 ## function benchmarkParseInt
@@ -863,7 +863,7 @@ function benchmarkQuote(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4392>)
+[\(view code\)](<./Strconv.hx#L4400>)
 
 
 ## function benchmarkQuoteRune
@@ -877,7 +877,7 @@ function benchmarkQuoteRune(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4401>)
+[\(view code\)](<./Strconv.hx#L4409>)
 
 
 ## function benchmarkUnquoteEasy
@@ -891,7 +891,7 @@ function benchmarkUnquoteEasy(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4554>)
+[\(view code\)](<./Strconv.hx#L4566>)
 
 
 ## function benchmarkUnquoteHard
@@ -905,7 +905,7 @@ function benchmarkUnquoteHard(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4563>)
+[\(view code\)](<./Strconv.hx#L4575>)
 
 
 ## function exampleAppendBool
@@ -1409,7 +1409,7 @@ function testCanBackquote(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4483>)
+[\(view code\)](<./Strconv.hx#L4491>)
 
 
 ## function testCountMallocs
@@ -1423,7 +1423,7 @@ function testCountMallocs(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4572>)
+[\(view code\)](<./Strconv.hx#L4584>)
 
 
 ## function testDecimalRound
@@ -1479,7 +1479,7 @@ function testErrorPrefixes(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4594>)
+[\(view code\)](<./Strconv.hx#L4606>)
 
 
 ## function testFormatBool
@@ -1535,7 +1535,7 @@ function testFormatFloatInvalidBitSize(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4055>)
+[\(view code\)](<./Strconv.hx#L4063>)
 
 
 ## function testFormatUintVarlen
@@ -1549,7 +1549,7 @@ function testFormatUintVarlen(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4199>)
+[\(view code\)](<./Strconv.hx#L4207>)
 
 
 ## function testFp
@@ -1577,7 +1577,7 @@ function testFtoa(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L3959>)
+[\(view code\)](<./Strconv.hx#L3963>)
 
 
 ## function testFtoaPowersOfTwo
@@ -1591,7 +1591,7 @@ function testFtoaPowersOfTwo(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L3993>)
+[\(view code\)](<./Strconv.hx#L3997>)
 
 
 ## function testFtoaRandom
@@ -1605,7 +1605,7 @@ function testFtoaRandom(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4025>)
+[\(view code\)](<./Strconv.hx#L4033>)
 
 
 ## function testIsGraphic
@@ -1619,7 +1619,7 @@ function testIsGraphic(_t:stdgo.Ref<stdgo.testing.T>):Void
 Verify that our IsGraphic agrees with unicode.IsGraphic. 
 
 
-[\(view code\)](<./Strconv.hx#L4322>)
+[\(view code\)](<./Strconv.hx#L4330>)
 
 
 ## function testIsPrint
@@ -1633,7 +1633,7 @@ function testIsPrint(_t:stdgo.Ref<stdgo.testing.T>):Void
 Verify that our IsPrint agrees with unicode.IsPrint. 
 
 
-[\(view code\)](<./Strconv.hx#L4303>)
+[\(view code\)](<./Strconv.hx#L4311>)
 
 
 ## function testItoa
@@ -1647,7 +1647,7 @@ function testItoa(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4151>)
+[\(view code\)](<./Strconv.hx#L4159>)
 
 
 ## function testMulByLog10Log2
@@ -1661,7 +1661,7 @@ function testMulByLog10Log2(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4138>)
+[\(view code\)](<./Strconv.hx#L4146>)
 
 
 ## function testMulByLog2Log10
@@ -1675,7 +1675,7 @@ function testMulByLog2Log10(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4125>)
+[\(view code\)](<./Strconv.hx#L4133>)
 
 
 ## function testNumError
@@ -1955,7 +1955,7 @@ function testQuote(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4338>)
+[\(view code\)](<./Strconv.hx#L4346>)
 
 
 ## function testQuoteRune
@@ -1969,7 +1969,7 @@ function testQuoteRune(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4429>)
+[\(view code\)](<./Strconv.hx#L4437>)
 
 
 ## function testQuoteRuneToASCII
@@ -1983,7 +1983,7 @@ function testQuoteRuneToASCII(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4447>)
+[\(view code\)](<./Strconv.hx#L4455>)
 
 
 ## function testQuoteRuneToGraphic
@@ -1997,7 +1997,7 @@ function testQuoteRuneToGraphic(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4465>)
+[\(view code\)](<./Strconv.hx#L4473>)
 
 
 ## function testQuoteToASCII
@@ -2011,7 +2011,7 @@ function testQuoteToASCII(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4356>)
+[\(view code\)](<./Strconv.hx#L4364>)
 
 
 ## function testQuoteToGraphic
@@ -2025,7 +2025,7 @@ function testQuoteToGraphic(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4374>)
+[\(view code\)](<./Strconv.hx#L4382>)
 
 
 ## function testRoundTrip
@@ -2067,7 +2067,7 @@ function testUitoa(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4184>)
+[\(view code\)](<./Strconv.hx#L4192>)
 
 
 ## function testUnquote
@@ -2081,7 +2081,7 @@ function testUnquote(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Strconv.hx#L4494>)
+[\(view code\)](<./Strconv.hx#L4502>)
 
 
 ## function testUnquoteInvalidUTF8
@@ -2095,7 +2095,7 @@ function testUnquoteInvalidUTF8(_t:stdgo.Ref<stdgo.testing.T>):Void
 Issue 23685: invalid UTF\-8 should not go through the fast path. 
 
 
-[\(view code\)](<./Strconv.hx#L4509>)
+[\(view code\)](<./Strconv.hx#L4517>)
 
 
 ## function main

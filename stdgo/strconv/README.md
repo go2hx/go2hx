@@ -15,62 +15,80 @@ Package strconv implements conversions to and from string representations of bas
 ```
 Error: Command failed with error 1
 === RUN   TestParseBool
---- PASS: TestParseBool (0.000211954116821289)
+--- PASS: TestParseBool (0.000205039978027344)
 === RUN   TestFormatBool
---- PASS: TestFormatBool (2.78949737548828e-05)
+--- PASS: TestFormatBool (4.50611114501953e-05)
 === RUN   TestAppendBool
---- PASS: TestAppendBool (1.71661376953125e-05)
+--- PASS: TestAppendBool (2.90870666503906e-05)
 === RUN   TestParseComplex
---- PASS: TestParseComplex (0.220071077346802)
+--- PASS: TestParseComplex (0.263779163360596)
 === RUN   TestParseComplexIncorrectBitSize
---- PASS: TestParseComplexIncorrectBitSize (0.000533103942871094)
+--- PASS: TestParseComplexIncorrectBitSize (0.000573873519897461)
 === RUN   TestParseFloatPrefix
---- PASS: TestParseFloatPrefix (1.30889701843262)
+--- PASS: TestParseFloatPrefix (1.58235096931458)
 === RUN   TestAtof
---- PASS: TestAtof (1.36138415336609)
+--- PASS: TestAtof (1.73501801490784)
 === RUN   TestAtofSlow
---- PASS: TestAtofSlow (2.31742405891418)
+--- PASS: TestAtofSlow (2.77125811576843)
 === RUN   TestAtofRandom
---- PASS: TestAtofRandom (0.00940394401550293)
+--- PASS: TestAtofRandom (0.0144178867340088)
 === RUN   TestRoundTrip
---- PASS: TestRoundTrip (0.00607800483703613)
+--- PASS: TestRoundTrip (0.00642108917236328)
 === RUN   TestRoundTrip32
---- PASS: TestRoundTrip32 (9.12295293807983)
+--- PASS: TestRoundTrip32 (11.2275989055634)
 === RUN   TestParseFloatIncorrectBitSize
---- PASS: TestParseFloatIncorrectBitSize (0.000287055969238281)
+--- PASS: TestParseFloatIncorrectBitSize (0.000298976898193359)
 === RUN   TestParseUint32
---- PASS: TestParseUint32 (0.00036311149597168)
+--- PASS: TestParseUint32 (0.000418901443481445)
 === RUN   TestParseUint64
---- PASS: TestParseUint64 (0.000414848327636719)
+--- PASS: TestParseUint64 (0.000489950180053711)
 === RUN   TestParseUint64Base
---- PASS: TestParseUint64Base (0.00782299041748047)
+--- PASS: TestParseUint64Base (0.00899505615234375)
 === RUN   TestParseInt32
---- PASS: TestParseInt32 (0.00214409828186035)
+--- PASS: TestParseInt32 (0.00243997573852539)
 === RUN   TestParseInt64
---- PASS: TestParseInt64 (0.00100302696228027)
+--- PASS: TestParseInt64 (0.00121688842773438)
 === RUN   TestParseInt64Base
---- PASS: TestParseInt64Base (0.00700616836547852)
+--- PASS: TestParseInt64Base (0.0101380348205566)
 === RUN   TestParseUint
---- PASS: TestParseUint (0.000314950942993164)
+--- PASS: TestParseUint (0.000540971755981445)
 === RUN   TestParseInt
---- PASS: TestParseInt (0.00216507911682129)
+--- PASS: TestParseInt (0.00301313400268555)
 === RUN   TestAtoi
---- PASS: TestAtoi (0.00076603889465332)
+--- PASS: TestAtoi (0.000928878784179688)
 === RUN   TestParseIntBitSize
---- PASS: TestParseIntBitSize (0.000484943389892578)
+--- PASS: TestParseIntBitSize (0.000672101974487305)
 === RUN   TestParseUintBitSize
---- PASS: TestParseUintBitSize (0.000337123870849609)
+--- PASS: TestParseUintBitSize (0.000432968139648438)
 === RUN   TestParseIntBase
---- PASS: TestParseIntBase (0.000648021697998047)
+--- PASS: TestParseIntBase (0.000868082046508789)
 === RUN   TestParseUintBase
---- PASS: TestParseUintBase (0.00149321556091309)
+--- PASS: TestParseUintBase (0.00195503234863281)
 === RUN   TestNumError
---- PASS: TestNumError (7.70092010498047e-05)
+--- PASS: TestNumError (6.60419464111328e-05)
 === RUN   TestNumErrorUnwrap
-Exception: not implemented
-Called from stdgo.internal.reflect._Type_asInterface.comparable (stdgo/internal/reflect/Reflect.hx line 1062)
-Called from stdgo.errors._Errors.$Errors_Fields_.is_ (stdgo/errors/Errors.hx line 143)
-Called from stdgo.strconv_test._Strconv_test.$Strconv_test_Fields_.testNumErrorUnwrap (stdgo/strconv_test/Strconv_test.hx line 3146)
+--- PASS: TestNumErrorUnwrap (0.0001068115234375)
+=== RUN   TestFormatComplex
+--- PASS: TestFormatComplex (0.00521302223205566)
+=== RUN   TestFormatComplexInvalidBitSize
+--- PASS: TestFormatComplexInvalidBitSize (3.60012054443359e-05)
+=== RUN   TestDecimalShift
+--- PASS: TestDecimalShift (0.00135302543640137)
+=== RUN   TestDecimalRound
+--- PASS: TestDecimalRound (0.00991415977478027)
+=== RUN   TestDecimalRoundedInteger
+--- PASS: TestDecimalRoundedInteger (0.00121903419494629)
+=== RUN   TestFp
+strconv_test/Strconv_test.hx:3872: testFp skip targets: interp, hl, jvm
+--- PASS: TestFp (4.29153442382812e-05)
+=== RUN   TestFtoa
+Exception: slice out of bounds, index: 13 length: 13
+Called from stdgo.SliceData.set (stdgo/Slice.hx line 248)
+Called from stdgo.strconv._Strconv.$Strconv_Fields_._fmtE (stdgo/Slice.hx line 141)
+Called from stdgo.strconv._Strconv.$Strconv_Fields_._formatDigits (stdgo/strconv/Strconv.hx line 2739)
+Called from stdgo.strconv._Strconv.$Strconv_Fields_._genericFtoa (stdgo/strconv/Strconv.hx line 2699)
+Called from stdgo.strconv._Strconv.$Strconv_Fields_.appendFloat (stdgo/strconv/Strconv.hx line 2615)
+Called from stdgo.strconv_test._Strconv_test.$Strconv_test_Fields_.testFtoa (stdgo/strconv_test/Strconv_test.hx line 3973)
 Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 353)
 Called from stdgo.strconv_test._Strconv.$Strconv_Fields_.main (stdgo/strconv_test/Strconv.hx line 231)
 ```
@@ -82,25 +100,25 @@ Called from stdgo.strconv_test._Strconv.$Strconv_Fields_.main (stdgo/strconv_tes
 
 ```
 === RUN   TestParseBool
---- PASS: TestParseBool (0.000560045242309570312)
+--- PASS: TestParseBool (0.00146508216857910156)
 === RUN   TestFormatBool
 --- PASS: TestFormatBool (8.51154327392578125e-05)
 === RUN   TestAppendBool
---- PASS: TestAppendBool (6.89029693603515625e-05)
+--- PASS: TestAppendBool (9.41753387451171875e-05)
 === RUN   TestParseComplex
---- PASS: TestParseComplex (1.37381196022033691)
+--- PASS: TestParseComplex (1.99235796928405762)
 === RUN   TestParseComplexIncorrectBitSize
---- PASS: TestParseComplexIncorrectBitSize (0.00386500358581542969)
+--- PASS: TestParseComplexIncorrectBitSize (0.00493001937866210938)
 === RUN   TestParseFloatPrefix
---- PASS: TestParseFloatPrefix (7.5114288330078125)
+--- PASS: TestParseFloatPrefix (10.2492620944976807)
 === RUN   TestAtof
---- PASS: TestAtof (7.27420902252197266)
+--- PASS: TestAtof (9.09930300712585449)
 === RUN   TestAtofSlow
---- PASS: TestAtofSlow (13.8036048412323)
+--- PASS: TestAtofSlow (18.0455410480499268)
 === RUN   TestAtofRandom
---- PASS: TestAtofRandom (0.0537228584289550781)
+--- PASS: TestAtofRandom (0.0642781257629394531)
 === RUN   TestRoundTrip
---- PASS: TestRoundTrip (0.0248899459838867188)
+--- PASS: TestRoundTrip (0.0310819149017334)
 === RUN   TestRoundTrip32
 ParseFloat(-2.44997e-05, 32) = -2.44997e-05, not a float32 (nearest is -2.44997008849168196e-05)
 ```

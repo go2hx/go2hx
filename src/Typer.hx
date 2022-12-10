@@ -971,6 +971,13 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef { // for s
 	var value = stmt.value == null ? macro _ : typeExpr(stmt.value, info); // value of x[key]
 	var body = {expr: typeBlockStmt(stmt.body, info, false), pos: null};
 	var assign = false;
+	if (stmt.value == null) {
+		switch xType {
+			case arrayType(_,_), sliceType(_):
+			return (macro for ($key in 0...$x.length.toBasic()) $body).expr;
+			default:
+		}
+	}
 	// both key and value
 	if (stmt.tok == ASSIGN) { // non var
 		switch body.expr {
@@ -1169,6 +1176,8 @@ private function createNamedObjectDecl(fields:Array<FieldType>, f:(field:String,
 	final objectFields:Array<ObjectField> = [];
 	for (i in 0...fields.length) {
 		final field = fields[i].name;
+		if (fields[i].optional)
+			continue;
 		objectFields.push({
 			field: field,
 			expr: f(field, fields[i].type),
@@ -3690,6 +3699,7 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 						type: typeof(field.type, info, false, paths.copy()),
 						embedded: field.embedded,
 						tag: field.tag == null ? "" : field.tag,
+						optional: field.name == "_",
 					}
 
 			]);
@@ -4469,6 +4479,8 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 				if (elt.id == "KeyValueExpr") {
 					var elt:Ast.KeyValueExpr = elt;
 					index = Std.parseInt(elt.key.value);
+					if (index == null)
+						index = (elt.key.value : String).charCodeAt(0);
 					exprs.push(run(elt.value));
 					keyValueBool = true;
 				} else {
@@ -4517,9 +4529,9 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 				for (elt in expr.elts) {
 					if (elt.id == "KeyValueExpr") { // array expansion syntax uses KeyValue, value being a string word representation of the number
 						var elt:Ast.KeyValueExpr = elt;
-						var int = Std.parseInt(elt.key.value);
-						if (int != null)
-							index = int;
+						index = Std.parseInt(elt.key.value);
+						if (index == null)
+							index = (elt.key.value : String).charCodeAt(0);
 						exprs.push(run(elt.value));
 						keyValueBool = true;
 					} else {
@@ -5065,15 +5077,20 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		if (cond != null) {
 			switch block.expr {
 				case EBlock(exprs):
-					final targets = makeString("(" + cond.join(" || ") + ")");
 					final deferBool = info.deferBool;
 					info.deferBool = false;
 					final e = toExpr(typeReturnStmt({results: [], returnPos: 0}, info));
 					info.deferBool = deferBool;
+					if (cond.length == 0) {
+						exprs.unshift(e);
+						exprs.unshift(macro trace($e{makeExpr(name)} + " skip function"));
+					}else{
+					final targets = makeString("(" + cond.join(" || ") + ")");
 					exprs.unshift(macro @:define($targets) {
 						trace($e{makeExpr(name)} + " skip targets: " + $e{makeString(cond.join(", "))});
 						$e;
 					});
+				}
 				default:
 			}
 		}
@@ -5586,6 +5603,8 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 				return macro {};
 			var fs:Array<ObjectField> = [];
 			for (field in fields) {
+				if (field.optional)
+					continue;
 				fs.push({
 					field: field.name,
 					expr: defaultValue(field.type, info, true),
@@ -5789,6 +5808,8 @@ private function typeFields(list:Array<FieldType>, info:Info, access:Array<Acces
 		}
 		if (field.tag != "")
 			meta.push({name: ":tag", pos: null, params: [makeString(field.tag)]});
+		if (field.optional)
+			meta.push({name: ":optional", pos: null});
 		var doc:String = getDoc({doc: docs == null ? null : docs[i]}) + getComment({comment: comments == null ? null : comments[i]});
 		fields.push({
 			name: name,
@@ -5834,6 +5855,7 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 				type: type,
 				tag: tag,
 				embedded: true,
+				optional: false,
 			});
 		} else {
 			for (n in field.names) {
@@ -5843,6 +5865,7 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 					type: type,
 					embedded: false,
 					tag: tag,
+					optional: n.name == "_",
 				});
 			}
 		}
@@ -6563,7 +6586,6 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 			if (type == null) {
 				type = toComplexType(typeof(value.values[i], info, false), info);
 			}
-
 			var name = nameIdent(value.names[i].name, false, true, info);
 			var doc:String = getComment(value) + getDoc(value); // + getSource(value, info);
 			var access = [];

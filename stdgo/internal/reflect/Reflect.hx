@@ -322,12 +322,17 @@ class FieldType {
 	public var type:GoType;
 	public var tag:String;
 	public var embedded:Bool;
+	public var optional:Bool;
 
-	public function new(name, type, tag, embedded) {
+	public function new(name, type, tag, embedded,optional) {
 		this.name = name;
 		this.type = type;
 		this.tag = tag;
 		this.embedded = embedded;
+		this.optional = optional;
+	}
+	public function toString():String {
+		return '$name opt: $optional';
 	}
 }
 
@@ -601,6 +606,7 @@ private function unroll(parent:GoType, child:GoType):GoType {
 						type: unroll(parent, field.type),
 						tag: field.tag,
 						embedded: field.embedded,
+						optional: field.optional,
 					}
 			]);
 		case sliceType(_.get() => elem):

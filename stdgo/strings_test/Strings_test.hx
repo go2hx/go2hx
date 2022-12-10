@@ -1466,6 +1466,10 @@ function testBuilderReset(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testBuilderGrow(_t:Ref<stdgo.testing.Testing.T>):Void {
+	#if (interp || hl || jvm) {
+		trace("testBuilderGrow" + " skip targets: " + "interp, hl, jvm");
+		return;
+	} #else null #end;
 	for (_0 => _growLen in (new Slice<GoInt>(0, 0, (0 : GoInt), (100 : GoInt), (1000 : GoInt), (10000 : GoInt), (100000 : GoInt)) : Slice<GoInt>)) {
 		var _p = stdgo.bytes.Bytes.repeat((new Slice<GoUInt8>(0, 0, ("a".code : GoRune)) : Slice<GoUInt8>), _growLen);
 		var _allocs:GoFloat64 = stdgo.testing.Testing.allocsPerRun((100 : GoInt), function():Void {

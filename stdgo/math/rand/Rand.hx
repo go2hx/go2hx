@@ -795,9 +795,8 @@ function int31n(_n:GoInt32):GoInt32 {
 	// from the default Source.
 	// It panics if n <= 0.
 **/
-function intn(_n:GoInt):GoInt {
-	return _globalRand.intn(_n);
-}
+function intn(_n:GoInt):GoInt
+	return Std.random(_n);
 
 /**
 	// Float64 returns, as a float64, a pseudo-random number in the half-open interval [0.0,1.0)

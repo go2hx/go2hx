@@ -505,7 +505,9 @@ final list = [
 			return;
 		@:privateAccess _o._done = 1;
 		_f();
-	}
+	},
+	// stdgo/math/rand
+	"math.rand:intn" => macro return Std.random(_n),
 ];
 
 final skipTargets = [
@@ -516,6 +518,7 @@ final skipTargets = [
 	"strconv_test:testFp" => ["interp", "hl", "jvm"], // uses os read
 	"strconv_test:testFtoaPowersOfTwo" => ["interp", "hl", "jvm"], // imprecise float
 	"strconv_test:testUnquoteInvalidUTF8" => ["interp","hl","jvm"], // go does not pass in isolation
+	"strings_test:testBuilderGrow" => ["interp","hl","jvm"], // checks runtime allocations
 ];
 
 final structs = [

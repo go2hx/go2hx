@@ -1065,6 +1065,7 @@ class Go {
 						type: $t,
 						embedded: false,
 						tag: "",
+						optional: false,
 					});
 				}
 				final methods = macro $a{methods};
@@ -1112,7 +1113,7 @@ class Go {
 					var t = gtDecode(field.type, expr, marked);
 					final embedded = field.meta.has(":embedded") ? macro true : macro false;
 					final tag = field.meta.has(":tag") ? field.meta.extract(":tag")[0].params[0] : macro "";
-					fields.push(macro new stdgo.internal.reflect.Reflect.FieldType($v{fieldName}, $t, $tag, $embedded));
+					fields.push(macro new stdgo.internal.reflect.Reflect.FieldType($v{fieldName}, $t, $tag, $embedded, false));
 			}
 		}
 		var fields = macro $a{fields};

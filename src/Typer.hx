@@ -4478,9 +4478,12 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 			for (elt in expr.elts) {
 				if (elt.id == "KeyValueExpr") {
 					var elt:Ast.KeyValueExpr = elt;
-					index = Std.parseInt(elt.key.value);
-					if (index == null)
+					var int = Std.parseInt(elt.key.value);
+					if (int == null) {
 						index = (elt.key.value : String).charCodeAt(0);
+					}else{
+						index = int;
+					}
 					exprs.push(run(elt.value));
 					keyValueBool = true;
 				} else {
@@ -4529,9 +4532,12 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 				for (elt in expr.elts) {
 					if (elt.id == "KeyValueExpr") { // array expansion syntax uses KeyValue, value being a string word representation of the number
 						var elt:Ast.KeyValueExpr = elt;
-						index = Std.parseInt(elt.key.value);
-						if (index == null)
+						var int = Std.parseInt(elt.key.value);
+						if (int == null) {
 							index = (elt.key.value : String).charCodeAt(0);
+						}else{
+							index = int;
+						}
 						exprs.push(run(elt.value));
 						keyValueBool = true;
 					} else {

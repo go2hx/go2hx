@@ -15,72 +15,72 @@ Package strconv implements conversions to and from string representations of bas
 ```
 Error: Command failed with error 1
 === RUN   TestParseBool
---- PASS: TestParseBool (0.000205039978027344)
+--- PASS: TestParseBool (0.000766992568969727)
 === RUN   TestFormatBool
---- PASS: TestFormatBool (4.50611114501953e-05)
+--- PASS: TestFormatBool (4.69684600830078e-05)
 === RUN   TestAppendBool
---- PASS: TestAppendBool (2.90870666503906e-05)
+--- PASS: TestAppendBool (2.47955322265625e-05)
 === RUN   TestParseComplex
---- PASS: TestParseComplex (0.263779163360596)
+--- PASS: TestParseComplex (0.229305982589722)
 === RUN   TestParseComplexIncorrectBitSize
---- PASS: TestParseComplexIncorrectBitSize (0.000573873519897461)
+--- PASS: TestParseComplexIncorrectBitSize (0.000571012496948242)
 === RUN   TestParseFloatPrefix
---- PASS: TestParseFloatPrefix (1.58235096931458)
+--- PASS: TestParseFloatPrefix (1.41209411621094)
 === RUN   TestAtof
---- PASS: TestAtof (1.73501801490784)
+--- PASS: TestAtof (1.46702909469604)
 === RUN   TestAtofSlow
---- PASS: TestAtofSlow (2.77125811576843)
+--- PASS: TestAtofSlow (2.48887896537781)
 === RUN   TestAtofRandom
---- PASS: TestAtofRandom (0.0144178867340088)
+--- PASS: TestAtofRandom (0.0102980136871338)
 === RUN   TestRoundTrip
---- PASS: TestRoundTrip (0.00642108917236328)
+--- PASS: TestRoundTrip (0.00565099716186523)
 === RUN   TestRoundTrip32
---- PASS: TestRoundTrip32 (11.2275989055634)
+--- PASS: TestRoundTrip32 (9.76616501808167)
 === RUN   TestParseFloatIncorrectBitSize
---- PASS: TestParseFloatIncorrectBitSize (0.000298976898193359)
+--- PASS: TestParseFloatIncorrectBitSize (0.000325918197631836)
 === RUN   TestParseUint32
---- PASS: TestParseUint32 (0.000418901443481445)
+--- PASS: TestParseUint32 (0.000357151031494141)
 === RUN   TestParseUint64
---- PASS: TestParseUint64 (0.000489950180053711)
+--- PASS: TestParseUint64 (0.000441074371337891)
 === RUN   TestParseUint64Base
---- PASS: TestParseUint64Base (0.00899505615234375)
+--- PASS: TestParseUint64Base (0.00869894027709961)
 === RUN   TestParseInt32
---- PASS: TestParseInt32 (0.00243997573852539)
+--- PASS: TestParseInt32 (0.00227904319763184)
 === RUN   TestParseInt64
---- PASS: TestParseInt64 (0.00121688842773438)
+--- PASS: TestParseInt64 (0.000931024551391602)
 === RUN   TestParseInt64Base
---- PASS: TestParseInt64Base (0.0101380348205566)
+--- PASS: TestParseInt64Base (0.00768208503723145)
 === RUN   TestParseUint
---- PASS: TestParseUint (0.000540971755981445)
+--- PASS: TestParseUint (0.000339984893798828)
 === RUN   TestParseInt
---- PASS: TestParseInt (0.00301313400268555)
+--- PASS: TestParseInt (0.0012819766998291)
 === RUN   TestAtoi
---- PASS: TestAtoi (0.000928878784179688)
+--- PASS: TestAtoi (0.00192713737487793)
 === RUN   TestParseIntBitSize
---- PASS: TestParseIntBitSize (0.000672101974487305)
+--- PASS: TestParseIntBitSize (0.00049591064453125)
 === RUN   TestParseUintBitSize
---- PASS: TestParseUintBitSize (0.000432968139648438)
+--- PASS: TestParseUintBitSize (0.000353097915649414)
 === RUN   TestParseIntBase
---- PASS: TestParseIntBase (0.000868082046508789)
+--- PASS: TestParseIntBase (0.000715017318725586)
 === RUN   TestParseUintBase
---- PASS: TestParseUintBase (0.00195503234863281)
+--- PASS: TestParseUintBase (0.000483989715576172)
 === RUN   TestNumError
---- PASS: TestNumError (6.60419464111328e-05)
+--- PASS: TestNumError (5.50746917724609e-05)
 === RUN   TestNumErrorUnwrap
---- PASS: TestNumErrorUnwrap (0.0001068115234375)
+--- PASS: TestNumErrorUnwrap (8.10623168945312e-05)
 === RUN   TestFormatComplex
---- PASS: TestFormatComplex (0.00521302223205566)
+--- PASS: TestFormatComplex (0.00596094131469727)
 === RUN   TestFormatComplexInvalidBitSize
---- PASS: TestFormatComplexInvalidBitSize (3.60012054443359e-05)
+--- PASS: TestFormatComplexInvalidBitSize (3.40938568115234e-05)
 === RUN   TestDecimalShift
---- PASS: TestDecimalShift (0.00135302543640137)
+--- PASS: TestDecimalShift (0.00124287605285645)
 === RUN   TestDecimalRound
---- PASS: TestDecimalRound (0.00991415977478027)
+--- PASS: TestDecimalRound (0.00888609886169434)
 === RUN   TestDecimalRoundedInteger
---- PASS: TestDecimalRoundedInteger (0.00121903419494629)
+--- PASS: TestDecimalRoundedInteger (0.00105404853820801)
 === RUN   TestFp
 strconv_test/Strconv_test.hx:3872: testFp skip targets: interp, hl, jvm
---- PASS: TestFp (4.29153442382812e-05)
+--- PASS: TestFp (5.88893890380859e-05)
 === RUN   TestFtoa
 Exception: slice out of bounds, index: 13 length: 13
 Called from stdgo.SliceData.set (stdgo/Slice.hx line 248)
@@ -100,25 +100,25 @@ Called from stdgo.strconv_test._Strconv.$Strconv_Fields_.main (stdgo/strconv_tes
 
 ```
 === RUN   TestParseBool
---- PASS: TestParseBool (0.00146508216857910156)
+--- PASS: TestParseBool (0.0005779266357421875)
 === RUN   TestFormatBool
---- PASS: TestFormatBool (8.51154327392578125e-05)
+--- PASS: TestFormatBool (8.79764556884765625e-05)
 === RUN   TestAppendBool
---- PASS: TestAppendBool (9.41753387451171875e-05)
+--- PASS: TestAppendBool (7.70092010498046875e-05)
 === RUN   TestParseComplex
---- PASS: TestParseComplex (1.99235796928405762)
+--- PASS: TestParseComplex (1.4781029224395752)
 === RUN   TestParseComplexIncorrectBitSize
---- PASS: TestParseComplexIncorrectBitSize (0.00493001937866210938)
+--- PASS: TestParseComplexIncorrectBitSize (0.00394201278686523438)
 === RUN   TestParseFloatPrefix
---- PASS: TestParseFloatPrefix (10.2492620944976807)
+--- PASS: TestParseFloatPrefix (8.00159502029419)
 === RUN   TestAtof
---- PASS: TestAtof (9.09930300712585449)
+--- PASS: TestAtof (7.3852229118347168)
 === RUN   TestAtofSlow
---- PASS: TestAtofSlow (18.0455410480499268)
+--- PASS: TestAtofSlow (15.3397300243377686)
 === RUN   TestAtofRandom
---- PASS: TestAtofRandom (0.0642781257629394531)
+--- PASS: TestAtofRandom (0.05426788330078125)
 === RUN   TestRoundTrip
---- PASS: TestRoundTrip (0.0310819149017334)
+--- PASS: TestRoundTrip (0.0259668827056884766)
 === RUN   TestRoundTrip32
 ParseFloat(-2.44997e-05, 32) = -2.44997e-05, not a float32 (nearest is -2.44997008849168196e-05)
 ```

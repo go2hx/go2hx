@@ -1,9 +1,9 @@
 # Module stdgo.io has compilation errors, please do not use:
 ```
-stdgo/io/fs_test/Fs_test.hx:31390: characters 2-4 : Unknown identifier : fs
-stdgo/io/fs_test/Fs_test.hx:95584: characters 62-90 : Type not found : stdgo.path.filepath.Filepath
-stdgo/io/fs_test/Fs_test.hx:95593: characters 23-51 : Type not found : stdgo.path.filepath.Filepath
-stdgo/io/fs_test/Fs_test.hx:95608: characters 12-40 : Type not found : stdgo.path.filepath.Filepath
+stdgo/io/fs_test/Fs_test.hx:32743: characters 2-4 : Unknown identifier : fs
+stdgo/io/fs_test/Fs_test.hx:99643: characters 62-90 : Type not found : stdgo.path.filepath.Filepath
+stdgo/io/fs_test/Fs_test.hx:99652: characters 23-51 : Type not found : stdgo.path.filepath.Filepath
+stdgo/io/fs_test/Fs_test.hx:99667: characters 12-40 : Type not found : stdgo.path.filepath.Filepath
 stdgo/io_test/Io_test.hx:1419: characters 37-107 : stdgo.io_test._Io_test.T__struct_4 should be stdgo.io.Reader
 stdgo/io_test/Io_test.hx:1419: characters 37-107 : ... { writerTo : stdgo.io.WriterTo, reader : stdgo.io.Reader } has no field __underlying__
 stdgo/io_test/Io_test.hx:1419: characters 37-107 : ... For function argument 'args'

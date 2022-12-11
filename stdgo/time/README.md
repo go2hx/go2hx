@@ -1,18 +1,14 @@
 # Module stdgo.time has compilation errors, please do not use:
 ```
-stdgo/time_test/Time_test.hx:2855: characters 85-117 : Type not found : stdgo.testing.quick.Quick
-stdgo/time_test/Time_test.hx:2857: characters 20-45 : Type not found : stdgo.testing.quick.Quick
-stdgo/time_test/Time_test.hx:2863: characters 20-45 : Type not found : stdgo.testing.quick.Quick
-stdgo/time_test/Time_test.hx:3577: characters 5-16 : stdgo.Ref<stdgo.testing.B> has no field runParallel (Suggestion: runParrallel)
-stdgo/time_test/Time_test.hx:3844: characters 57-122 : Module stdgo.StdGoTypes does not define type GoInt64_asInterface
-stdgo/time_test/Time_test.hx:3844: characters 57-122 : ... For function argument 'args'
-stdgo/time_test/Time_test.hx:3801: lines 3801-3809 : ... Called from macro here
-stdgo/time_test/Time_test.hx:4169: characters 44-62 : Module stdgo.testing.Testing does not define type T_asInterface
-stdgo/time_test/Time_test.hx:4169: characters 44-62 : ... For function argument 't'
-stdgo/time_test/Time_test.hx:4301: lines 4301-4303 : Object requires field _1
-stdgo/time_test/Time_test.hx:4301: lines 4301-4303 : ... For function argument 'x'
-stdgo/time_test/Time_test.hx:4377: lines 4377-4380 : Object requires field _1
-stdgo/time_test/Time_test.hx:4377: lines 4377-4380 : ... For function argument 'x'
+stdgo/time_test/Time_test.hx:2856: characters 85-117 : Type not found : stdgo.testing.quick.Quick
+stdgo/time_test/Time_test.hx:2858: characters 20-45 : Type not found : stdgo.testing.quick.Quick
+stdgo/time_test/Time_test.hx:2864: characters 20-45 : Type not found : stdgo.testing.quick.Quick
+stdgo/time_test/Time_test.hx:3578: characters 5-16 : stdgo.Ref<stdgo.testing.B> has no field runParallel (Suggestion: runParrallel)
+stdgo/time_test/Time_test.hx:3845: characters 57-122 : Module stdgo.StdGoTypes does not define type GoInt64_asInterface
+stdgo/time_test/Time_test.hx:3845: characters 57-122 : ... For function argument 'args'
+stdgo/time_test/Time_test.hx:3802: lines 3802-3810 : ... Called from macro here
+stdgo/time_test/Time_test.hx:4170: characters 44-62 : Module stdgo.testing.Testing does not define type T_asInterface
+stdgo/time_test/Time_test.hx:4170: characters 44-62 : ... For function argument 't'
 stdgo/time_test/Time_test.hx:4536: characters 20-73 : Module stdgo.StdGoTypes does not define type GoInt64_asInterface
 stdgo/time_test/Time_test.hx:4536: characters 20-73 : ... For function argument 'args'
 stdgo/time_test/Time_test.hx:4851: characters 85-117 : Type not found : stdgo.testing.quick.Quick

@@ -3503,6 +3503,7 @@ private function toReflectType(t:GoType, info:Info, paths:Array<String>):Expr {
 					embedded: $embedded,
 					tag: $tag,
 					type: $t,
+					optional: false,
 				});
 			}
 			var expr = macro $a{exprs};
@@ -6222,9 +6223,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 			}
 			sets.push(macro return this);
 			var meta:Metadata = [{name: ":structInit", pos: null}];
-			if (name == "Value") {
-				trace(spec.methods.length);
-			}
 			for (method in spec.methods) { // covers both embedded interfaces and structures
 				// embedded methods
 				if (structAddFieldsIndex > -1 && structAddFieldsIndex <= method.index[0])

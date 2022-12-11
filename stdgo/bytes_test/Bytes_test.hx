@@ -715,7 +715,7 @@ var containsRuneTests:Slice<T__struct_10> = (new Slice<T__struct_10>(0, 0,
 
 private var _makeFieldsInput:() -> Slice<GoUInt8> = function():Slice<GoByte> {
 	var _x = new Slice<GoUInt8>((1048576 : GoInt).toBasic(), 0, ...[for (i in 0...(1048576 : GoInt).toBasic()) (0 : GoUInt8)]);
-	for (_i => _ in _x) {
+	for (_i in 0..._x.length.toBasic()) {
 		{
 			var __switchIndex__ = -1;
 			while (true) {
@@ -746,7 +746,7 @@ private var _makeFieldsInput:() -> Slice<GoUInt8> = function():Slice<GoByte> {
 
 private var _makeFieldsInputASCII:() -> Slice<GoUInt8> = function():Slice<GoByte> {
 	var _x = new Slice<GoUInt8>((1048576 : GoInt).toBasic(), 0, ...[for (i in 0...(1048576 : GoInt).toBasic()) (0 : GoUInt8)]);
-	for (_i => _ in _x) {
+	for (_i in 0..._x.length.toBasic()) {
 		if (stdgo.math.rand.Rand.intn((10 : GoInt)) == ((0 : GoInt))) {
 			_x[_i] = (" ".code : GoRune);
 		} else {
@@ -3057,7 +3057,7 @@ function _runStringTests(_t:Ref<stdgo.testing.Testing.T>, _f:Slice<GoByte>->Slic
 
 function _tenRunes(_r:GoRune):GoString {
 	var _runes = new Slice<GoInt32>((10 : GoInt).toBasic(), 0, ...[for (i in 0...(10 : GoInt).toBasic()) (0 : GoInt32)]);
-	for (_i => _ in _runes) {
+	for (_i in 0..._runes.length.toBasic()) {
 		_runes[_i] = _r;
 	};
 	return (_runes : GoString);

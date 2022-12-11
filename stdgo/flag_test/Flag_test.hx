@@ -176,13 +176,15 @@ function testEverything(_t:Ref<stdgo.testing.Testing.T>):Void {
 					name: "name",
 					embedded: false,
 					tag: "",
-					type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
+					type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind),
+					optional: false
 				},
 				{
 					name: "usage",
 					embedded: false,
 					tag: "",
-					type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
+					type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind),
+					optional: false
 				},
 				{
 					name: "value",
@@ -237,13 +239,15 @@ function testEverything(_t:Ref<stdgo.testing.Testing.T>):Void {
 								{get: () -> [stdgo.internal.reflect.Reflect.GoType.basic(string_kind)]},
 								{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})},
 							{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})
-						]))
+						])),
+					optional: false
 				},
 				{
 					name: "defValue",
 					embedded: false,
 					tag: "",
-					type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
+					type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind),
+					optional: false
 				}
 			])))}))) : GoMap<GoString, Ref<Flag>>);
 	var _desired:GoString = Go.str("0");
@@ -281,13 +285,15 @@ function testEverything(_t:Ref<stdgo.testing.Testing.T>):Void {
 					name: "name",
 					embedded: false,
 					tag: "",
-					type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
+					type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind),
+					optional: false
 				},
 				{
 					name: "usage",
 					embedded: false,
 					tag: "",
-					type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
+					type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind),
+					optional: false
 				},
 				{
 					name: "value",
@@ -342,13 +348,15 @@ function testEverything(_t:Ref<stdgo.testing.Testing.T>):Void {
 								{get: () -> [stdgo.internal.reflect.Reflect.GoType.basic(string_kind)]},
 								{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})},
 							{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})
-						]))
+						])),
+					optional: false
 				},
 				{
 					name: "defValue",
 					embedded: false,
 					tag: "",
-					type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
+					type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind),
+					optional: false
 				}
 			])))}))) : GoMap<GoString, Ref<Flag>>);
 	visit(_visitor);

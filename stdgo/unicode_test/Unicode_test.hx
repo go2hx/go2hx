@@ -803,7 +803,7 @@ function _fakeTable(_n:GoInt):Slice<Range16> {
 }
 
 function _linear(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
-	for (_i => _ in _ranges) {
+	for (_i in 0..._ranges.length.toBasic()) {
 		var _range_ = (_ranges[_i] : Ref<Range16>);
 		if (_r < _range_.lo) {
 			return false;

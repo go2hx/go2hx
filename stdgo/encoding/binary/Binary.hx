@@ -258,11 +258,15 @@ typedef AppendByteOrder = StructType & {
 
 @:structInit class BlankFields {
 	public var a:GoUInt32 = 0;
+	@:optional
 	public var _4:GoInt32 = 0;
 	public var b:GoFloat64 = 0;
+	@:optional
 	public var _5:GoArray<GoInt16> = new GoArray<GoInt16>(...[for (i in 0...4) (0 : GoInt16)]);
 	public var c:GoUInt8 = 0;
+	@:optional
 	public var _6:GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0...7) (0 : GoUInt8)]);
+	@:optional
 	public var _7:{var _f:GoArray<GoFloat32>;} = {_f: new GoArray<GoFloat32>(...[for (i in 0...8) (0 : GoFloat32)])};
 
 	public function new(?a:GoUInt32, ?_4:GoInt32, ?b:GoFloat64, ?_5:GoArray<GoInt16>, ?c:GoUInt8, ?_6:GoArray<GoUInt8>, ?_7:{var _f:GoArray<GoFloat32>;}) {
@@ -470,44 +474,44 @@ function read(_r:stdgo.io.Io.Reader, _order:ByteOrder, _data:AnyInterface):Error
 				Go.copySlice(_data, _bs);
 			} else if (Go.typeEquals((_data : Slice<GoInt16>))) {
 				var _data:Slice<GoInt16> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
-				for (_i => _ in _data) {
+				for (_i in 0..._data.length.toBasic()) {
 					_data[_i] = (_order.uint16((_bs.__slice__((2 : GoInt) * _i) : Slice<GoUInt8>)) : GoInt16);
 				};
 			} else if (Go.typeEquals((_data : Slice<GoUInt16>))) {
 				var _data:Slice<GoUInt16> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
-				for (_i => _ in _data) {
+				for (_i in 0..._data.length.toBasic()) {
 					_data[_i] = _order.uint16((_bs.__slice__((2 : GoInt) * _i) : Slice<GoUInt8>));
 				};
 			} else if (Go.typeEquals((_data : Slice<GoInt32>))) {
 				var _data:Slice<GoInt32> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
-				for (_i => _ in _data) {
+				for (_i in 0..._data.length.toBasic()) {
 					_data[_i] = (_order.uint32((_bs.__slice__((4 : GoInt) * _i) : Slice<GoUInt8>)) : GoInt32);
 				};
 			} else if (Go.typeEquals((_data : Slice<GoUInt32>))) {
 				var _data:Slice<GoUInt32> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
-				for (_i => _ in _data) {
+				for (_i in 0..._data.length.toBasic()) {
 					_data[_i] = _order.uint32((_bs.__slice__((4 : GoInt) * _i) : Slice<GoUInt8>));
 				};
 			} else if (Go.typeEquals((_data : Slice<GoInt64>))) {
 				var _data:Slice<GoInt64> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
-				for (_i => _ in _data) {
+				for (_i in 0..._data.length.toBasic()) {
 					_data[_i] = (_order.uint64((_bs.__slice__((8 : GoInt) * _i) : Slice<GoUInt8>)) : GoInt64);
 				};
 			} else if (Go.typeEquals((_data : Slice<GoUInt64>))) {
 				var _data:Slice<GoUInt64> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
-				for (_i => _ in _data) {
+				for (_i in 0..._data.length.toBasic()) {
 					_data[_i] = _order.uint64((_bs.__slice__((8 : GoInt) * _i) : Slice<GoUInt8>));
 				};
 			} else if (Go.typeEquals((_data : Slice<GoFloat32>))) {
 				var _data:Slice<GoFloat32> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__()
 					.value;
-				for (_i => _ in _data) {
+				for (_i in 0..._data.length.toBasic()) {
 					_data[_i] = stdgo.math.Math.float32frombits(_order.uint32((_bs.__slice__((4 : GoInt) * _i) : Slice<GoUInt8>)));
 				};
 			} else if (Go.typeEquals((_data : Slice<GoFloat64>))) {
 				var _data:Slice<GoFloat64> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__()
 					.value;
-				for (_i => _ in _data) {
+				for (_i in 0..._data.length.toBasic()) {
 					_data[_i] = stdgo.math.Math.float64frombits(_order.uint64((_bs.__slice__((8 : GoInt) * _i) : Slice<GoUInt8>)));
 				};
 			} else {
@@ -2769,7 +2773,7 @@ private class T_encoder_asInterface {
 	static public function _skip(_e:Ref<T_encoder>, _v:stdgo.reflect.Reflect.Value):Void {
 		var _n:GoInt = _dataSize((_v == null ? null : _v.__copy__()));
 		var _zero = (_e._buf.__slice__(_e._offset, _e._offset + _n) : Slice<GoUInt8>);
-		for (_i => _ in _zero) {
+		for (_i in 0..._zero.length.toBasic()) {
 			_zero[_i] = (0 : GoUInt8);
 		};
 		_e._offset = _e._offset + (_n);

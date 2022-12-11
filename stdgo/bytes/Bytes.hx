@@ -26,12 +26,12 @@ private var _errUnreadByte:Error = stdgo.errors.Errors.new_(Go.str("bytes.Buffer
 
 private var _asciiSpace:GoArray<GoUInt8> = {
 	var s:GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0...256) 0]);
-	s[0] = (1 : GoUInt8);
-	s[1] = (1 : GoUInt8);
-	s[2] = (1 : GoUInt8);
-	s[3] = (1 : GoUInt8);
-	s[4] = (1 : GoUInt8);
-	s[5] = (1 : GoUInt8);
+	s[92] = (1 : GoUInt8);
+	s[92] = (1 : GoUInt8);
+	s[92] = (1 : GoUInt8);
+	s[92] = (1 : GoUInt8);
+	s[92] = (1 : GoUInt8);
+	s[32] = (1 : GoUInt8);
 	s;
 };
 

@@ -19,12 +19,12 @@ private var __go2hxdoc__package:Bool;
 
 private var _asciiSpace:GoArray<GoUInt8> = {
 	var s:GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0...256) 0]);
-	s[0] = (1 : GoUInt8);
-	s[1] = (1 : GoUInt8);
-	s[2] = (1 : GoUInt8);
-	s[3] = (1 : GoUInt8);
-	s[4] = (1 : GoUInt8);
-	s[5] = (1 : GoUInt8);
+	s[92] = (1 : GoUInt8);
+	s[92] = (1 : GoUInt8);
+	s[92] = (1 : GoUInt8);
+	s[92] = (1 : GoUInt8);
+	s[92] = (1 : GoUInt8);
+	s[32] = (1 : GoUInt8);
 	s;
 };
 
@@ -532,7 +532,7 @@ function _makeStringFinder(_pattern:GoString):Ref<T_stringFinder> {
 	var _f = (({_pattern: _pattern, _goodSuffixSkip: new Slice<GoInt>((_pattern.length : GoInt).toBasic(), 0,
 		...[for (i in 0...(_pattern.length : GoInt).toBasic()) (0 : GoInt)])} : T_stringFinder) : Ref<T_stringFinder>);
 	var _last:GoInt = (_pattern.length) - (1 : GoInt);
-	for (_i => _ in _f._badCharSkip) {
+	for (_i in 0..._f._badCharSkip.length.toBasic()) {
 		_f._badCharSkip[_i] = (_pattern.length);
 	};
 	{

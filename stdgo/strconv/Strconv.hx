@@ -2303,7 +2303,7 @@ function formatComplex(_c:GoComplex128, _fmt:GoByte, _prec:GoInt, _bitSize:GoInt
 }
 
 function _digitZero(_dst:Slice<GoByte>):GoInt {
-	for (_i => _ in _dst) {
+	for (_i in 0..._dst.length.toBasic()) {
 		_dst[_i] = ("0".code : GoRune);
 	};
 	return (_dst.length);

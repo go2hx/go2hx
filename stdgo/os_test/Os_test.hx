@@ -4584,7 +4584,7 @@ function testLargeWriteToConsole(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_t.skip(Go.toInterface(Go.str("skipping console-flooding test; enable with -large_write")));
 	};
 	var _b = new Slice<GoUInt8>((32000 : GoInt).toBasic(), 0, ...[for (i in 0...(32000 : GoInt).toBasic()) (0 : GoUInt8)]);
-	for (_i => _ in _b) {
+	for (_i in 0..._b.length.toBasic()) {
 		_b[_i] = (".".code : GoRune);
 	};
 	_b[(_b.length) - (1 : GoInt)] = ("\n".code : GoRune);

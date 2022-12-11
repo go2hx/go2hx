@@ -1419,13 +1419,15 @@ class FlagSet_asInterface {
 							name: "name",
 							embedded: false,
 							tag: "",
-							type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
+							type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind),
+							optional: false
 						},
 						{
 							name: "usage",
 							embedded: false,
 							tag: "",
-							type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
+							type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind),
+							optional: false
 						},
 						{
 							name: "value",
@@ -1482,13 +1484,15 @@ class FlagSet_asInterface {
 											{get: () -> [stdgo.internal.reflect.Reflect.GoType.basic(string_kind)]},
 											{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})},
 										{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})
-								])))
+								]))),
+							optional: false
 						},
 						{
 							name: "defValue",
 							embedded: false,
 							tag: "",
-							type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
+							type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind),
+							optional: false
 						}
 					])))}))) : GoMap<GoString, Ref<Flag>>);
 		};
@@ -1571,13 +1575,15 @@ class FlagSet_asInterface {
 							name: "name",
 							embedded: false,
 							tag: "",
-							type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
+							type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind),
+							optional: false
 						},
 						{
 							name: "usage",
 							embedded: false,
 							tag: "",
-							type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
+							type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind),
+							optional: false
 						},
 						{
 							name: "value",
@@ -1634,13 +1640,15 @@ class FlagSet_asInterface {
 											{get: () -> [stdgo.internal.reflect.Reflect.GoType.basic(string_kind)]},
 											{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})},
 										{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})
-								])))
+								]))),
+							optional: false
 						},
 						{
 							name: "defValue",
 							embedded: false,
 							tag: "",
-							type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
+							type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind),
+							optional: false
 						}
 					])))}))) : GoMap<GoString, Ref<Flag>>);
 		};
@@ -1969,13 +1977,15 @@ class FlagSet_asInterface {
 							name: "name",
 							embedded: false,
 							tag: "",
-							type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
+							type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind),
+							optional: false
 						},
 						{
 							name: "usage",
 							embedded: false,
 							tag: "",
-							type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
+							type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind),
+							optional: false
 						},
 						{
 							name: "value",
@@ -2032,13 +2042,15 @@ class FlagSet_asInterface {
 											{get: () -> [stdgo.internal.reflect.Reflect.GoType.basic(string_kind)]},
 											{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})},
 										{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})
-								])))
+								]))),
+							optional: false
 						},
 						{
 							name: "defValue",
 							embedded: false,
 							tag: "",
-							type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
+							type: stdgo.internal.reflect.Reflect.GoType.basic(string_kind),
+							optional: false
 						}
 					])))}))) : GoMap<GoString, Ref<Flag>>);
 		};

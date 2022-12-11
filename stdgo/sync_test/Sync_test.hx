@@ -967,7 +967,7 @@ function benchmarkDeleteCollision(_b:Ref<stdgo.testing.Testing.B>):Void {
 
 function _randValue(_r:Ref<stdgo.math.rand.Rand.Rand>):AnyInterface {
 	var _b = new Slice<GoUInt8>((_r.intn((4 : GoInt)) : GoInt).toBasic(), 0, ...[for (i in 0...(_r.intn((4 : GoInt)) : GoInt).toBasic()) (0 : GoUInt8)]);
-	for (_i => _ in _b) {
+	for (_i in 0..._b.length.toBasic()) {
 		_b[_i] = ("a".code : GoRune) + (stdgo.math.rand.Rand.intn((26 : GoInt)) : GoByte);
 	};
 	return Go.toInterface((_b : GoString));
@@ -2183,7 +2183,7 @@ function benchmarkPoolExpensiveNew(_b:Ref<stdgo.testing.Testing.B>):Void {
 			var _items = new Slice<AnyInterface>((100 : GoInt).toBasic(), 0, ...[for (i in 0...(100 : GoInt).toBasic()) (null : AnyInterface)]);
 			var _sink:Slice<GoByte> = (null : Slice<GoUInt8>);
 			while (_pb.next()) {
-				for (_i => _ in _items) {
+				for (_i in 0..._items.length.toBasic()) {
 					_items[_i] = _p.get();
 					_sink = new Slice<GoUInt8>((32768 : GoInt).toBasic(), 0, ...[for (i in 0...(32768 : GoInt).toBasic()) (0 : GoUInt8)]);
 				};

@@ -2470,7 +2470,7 @@ function testParseComplex(_t:Ref<stdgo.testing.Testing.T>):Void {
 			errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("1e+4294967296-1e+4294967296i"), _infpm,
 			errRange) : stdgo.strconv_test.Strconv_test.T_atocTest)) : Slice<stdgo.strconv_test.Strconv_test.T_atocTest>);
-	for (_i => _ in _tests) {
+	for (_i in 0..._tests.length.toBasic()) {
 		var _test = (_tests[_i] : Ref<stdgo.strconv_test.Strconv_test.T_atocTest>);
 		if (_test._err != null) {
 			_test._err = Go.asInterface((({func: Go.str("ParseComplex"), num: _test._in, err: _test._err} : NumError) : Ref<NumError>));
@@ -2529,13 +2529,13 @@ function _initAtof():Void {
 }
 
 function _initAtofOnce():Void {
-	for (_i => _ in _atoftests) {
+	for (_i in 0..._atoftests.length.toBasic()) {
 		var _test = (_atoftests[_i] : Ref<stdgo.strconv_test.Strconv_test.T_atofTest>);
 		if (_test._err != null) {
 			_test._err = Go.asInterface(((new NumError(Go.str("ParseFloat"), _test._in, _test._err) : NumError) : Ref<NumError>));
 		};
 	};
-	for (_i => _ in _atof32tests) {
+	for (_i in 0..._atof32tests.length.toBasic()) {
 		var _test = (_atof32tests[_i] : Ref<stdgo.strconv_test.Strconv_test.T_atofTest>);
 		if (_test._err != null) {
 			_test._err = Go.asInterface(((new NumError(Go.str("ParseFloat"), _test._in, _test._err) : NumError) : Ref<NumError>));
@@ -2551,25 +2551,25 @@ function _initAtofOnce():Void {
 			for (i in 0...(10000 : GoInt).toBasic()) ({} : stdgo.strconv_test.Strconv_test.T_atofSimpleTest)
 		]);
 	};
-	for (_i => _ in _atofRandomTests) {
+	for (_i in 0..._atofRandomTests.length.toBasic()) {
 		var _n:GoUInt64 = ((stdgo.math.rand.Rand.uint32() : GoUInt64) << (("32" : GoUInt64) : GoUInt64)) | (stdgo.math.rand.Rand.uint32() : GoUInt64);
 		var _x:GoFloat64 = stdgo.math.Math.float64frombits(_n);
 		var _s:GoString = formatFloat(_x, ("g".code : GoRune), (-1 : GoInt), (64 : GoInt));
 		_atofRandomTests[_i] = (new stdgo.strconv_test.Strconv_test.T_atofSimpleTest(_x, _s) : stdgo.strconv_test.Strconv_test.T_atofSimpleTest);
 	};
-	for (_i => _ in _benchmarksRandomBits) {
+	for (_i in 0..._benchmarksRandomBits.length.toBasic()) {
 		var _bits:GoUInt64 = ((stdgo.math.rand.Rand.uint32() : GoUInt64) << (("32" : GoUInt64) : GoUInt64)) | (stdgo.math.rand.Rand.uint32() : GoUInt64);
 		var _x:GoFloat64 = stdgo.math.Math.float64frombits(_bits);
 		_benchmarksRandomBits[_i] = formatFloat(_x, ("g".code : GoRune), (-1 : GoInt), (64 : GoInt));
 	};
-	for (_i => _ in _benchmarksRandomNormal) {
+	for (_i in 0..._benchmarksRandomNormal.length.toBasic()) {
 		var _x:GoFloat64 = stdgo.math.rand.Rand.normFloat64();
 		_benchmarksRandomNormal[_i] = formatFloat(_x, ("g".code : GoRune), (-1 : GoInt), (64 : GoInt));
 	};
 }
 
 function testParseFloatPrefix(_t:Ref<stdgo.testing.Testing.T>):Void {
-	for (_i => _ in _atoftests) {
+	for (_i in 0..._atoftests.length.toBasic()) {
 		var _test = (_atoftests[_i] : Ref<stdgo.strconv_test.Strconv_test.T_atofTest>);
 		if (_test._err != null) {
 			continue;
@@ -2859,7 +2859,7 @@ function benchmarkAtof32FloatExp(_b:Ref<stdgo.testing.Testing.B>):Void {
 function benchmarkAtof32Random(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _n:GoUInt32 = (("997" : GoUInt32) : GoUInt32);
 	var _float32strings:GoArray<GoString> = new GoArray<GoString>(...[for (i in 0...4096) ("" : GoString)]);
-	for (_i => _ in _float32strings) {
+	for (_i in 0..._float32strings.length.toBasic()) {
 		_n = (((("99991" : GoUInt32) : GoUInt32) * _n) + (("42" : GoUInt32) : GoUInt32)) % ("2139095040" : GoUInt32);
 		_float32strings[_i] = formatFloat((stdgo.math.Math.float32frombits(_n) : GoFloat64), ("g".code : GoRune), (-1 : GoInt), (32 : GoInt));
 	};
@@ -2875,7 +2875,7 @@ function benchmarkAtof32Random(_b:Ref<stdgo.testing.Testing.B>):Void {
 function benchmarkAtof32RandomLong(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _n:GoUInt32 = (("997" : GoUInt32) : GoUInt32);
 	var _float32strings:GoArray<GoString> = new GoArray<GoString>(...[for (i in 0...4096) ("" : GoString)]);
-	for (_i => _ in _float32strings) {
+	for (_i in 0..._float32strings.length.toBasic()) {
 		_n = (((("99991" : GoUInt32) : GoUInt32) * _n) + (("42" : GoUInt32) : GoUInt32)) % ("2139095040" : GoUInt32);
 		_float32strings[_i] = formatFloat((stdgo.math.Math.float32frombits(_n) : GoFloat64), ("g".code : GoRune), (20 : GoInt), (32 : GoInt));
 	};
@@ -2889,7 +2889,7 @@ function benchmarkAtof32RandomLong(_b:Ref<stdgo.testing.Testing.B>):Void {
 }
 
 function testParseUint32(_t:Ref<stdgo.testing.Testing.T>):Void {
-	for (_i => _ in _parseUint32Tests) {
+	for (_i in 0..._parseUint32Tests.length.toBasic()) {
 		var _test = (_parseUint32Tests[_i] : Ref<stdgo.strconv_test.Strconv_test.T_parseUint32Test>);
 		var __tmp__ = parseUint(_test._in, (10 : GoInt), (32 : GoInt)),
 			_out:GoUInt64 = __tmp__._0,
@@ -2902,7 +2902,7 @@ function testParseUint32(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testParseUint64(_t:Ref<stdgo.testing.Testing.T>):Void {
-	for (_i => _ in _parseUint64Tests) {
+	for (_i in 0..._parseUint64Tests.length.toBasic()) {
 		var _test = (_parseUint64Tests[_i] : Ref<stdgo.strconv_test.Strconv_test.T_parseUint64Test>);
 		var __tmp__ = parseUint(_test._in, (10 : GoInt), (64 : GoInt)),
 			_out:GoUInt64 = __tmp__._0,
@@ -2915,7 +2915,7 @@ function testParseUint64(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testParseUint64Base(_t:Ref<stdgo.testing.Testing.T>):Void {
-	for (_i => _ in _parseUint64BaseTests) {
+	for (_i in 0..._parseUint64BaseTests.length.toBasic()) {
 		var _test = (_parseUint64BaseTests[_i] : Ref<stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest>);
 		var __tmp__ = parseUint(_test._in, _test._base, (64 : GoInt)),
 			_out:GoUInt64 = __tmp__._0,
@@ -2928,7 +2928,7 @@ function testParseUint64Base(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testParseInt32(_t:Ref<stdgo.testing.Testing.T>):Void {
-	for (_i => _ in _parseInt32Tests) {
+	for (_i in 0..._parseInt32Tests.length.toBasic()) {
 		var _test = (_parseInt32Tests[_i] : Ref<stdgo.strconv_test.Strconv_test.T_parseInt32Test>);
 		var __tmp__ = parseInt(_test._in, (10 : GoInt), (32 : GoInt)),
 			_out:GoInt64 = __tmp__._0,
@@ -2941,7 +2941,7 @@ function testParseInt32(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testParseInt64(_t:Ref<stdgo.testing.Testing.T>):Void {
-	for (_i => _ in _parseInt64Tests) {
+	for (_i in 0..._parseInt64Tests.length.toBasic()) {
 		var _test = (_parseInt64Tests[_i] : Ref<stdgo.strconv_test.Strconv_test.T_parseInt64Test>);
 		var __tmp__ = parseInt(_test._in, (10 : GoInt), (64 : GoInt)),
 			_out:GoInt64 = __tmp__._0,
@@ -2954,7 +2954,7 @@ function testParseInt64(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testParseInt64Base(_t:Ref<stdgo.testing.Testing.T>):Void {
-	for (_i => _ in _parseInt64BaseTests) {
+	for (_i in 0..._parseInt64BaseTests.length.toBasic()) {
 		var _test = (_parseInt64BaseTests[_i] : Ref<stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest>);
 		var __tmp__ = parseInt(_test._in, _test._base, (64 : GoInt)),
 			_out:GoInt64 = __tmp__._0,
@@ -2968,7 +2968,7 @@ function testParseInt64Base(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testParseUint(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if ((32 : GoInt) == ((32 : GoInt))) {
-		for (_i => _ in _parseUint32Tests) {
+		for (_i in 0..._parseUint32Tests.length.toBasic()) {
 			var _test = (_parseUint32Tests[_i] : Ref<stdgo.strconv_test.Strconv_test.T_parseUint32Test>);
 			var __tmp__ = parseUint(_test._in, (10 : GoInt), (0 : GoInt)),
 				_out:GoUInt64 = __tmp__._0,
@@ -2979,7 +2979,7 @@ function testParseUint(_t:Ref<stdgo.testing.Testing.T>):Void {
 			};
 		};
 	} else if ((32 : GoInt) == ((64 : GoInt))) {
-		for (_i => _ in _parseUint64Tests) {
+		for (_i in 0..._parseUint64Tests.length.toBasic()) {
 			var _test = (_parseUint64Tests[_i] : Ref<stdgo.strconv_test.Strconv_test.T_parseUint64Test>);
 			var __tmp__ = parseUint(_test._in, (10 : GoInt), (0 : GoInt)),
 				_out:GoUInt64 = __tmp__._0,
@@ -2994,7 +2994,7 @@ function testParseUint(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testParseInt(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if ((32 : GoInt) == ((32 : GoInt))) {
-		for (_i => _ in _parseInt32Tests) {
+		for (_i in 0..._parseInt32Tests.length.toBasic()) {
 			var _test = (_parseInt32Tests[_i] : Ref<stdgo.strconv_test.Strconv_test.T_parseInt32Test>);
 			var __tmp__ = parseInt(_test._in, (10 : GoInt), (0 : GoInt)),
 				_out:GoInt64 = __tmp__._0,
@@ -3005,7 +3005,7 @@ function testParseInt(_t:Ref<stdgo.testing.Testing.T>):Void {
 			};
 		};
 	} else if ((32 : GoInt) == ((64 : GoInt))) {
-		for (_i => _ in _parseInt64Tests) {
+		for (_i in 0..._parseInt64Tests.length.toBasic()) {
 			var _test = (_parseInt64Tests[_i] : Ref<stdgo.strconv_test.Strconv_test.T_parseInt64Test>);
 			var __tmp__ = parseInt(_test._in, (10 : GoInt), (0 : GoInt)),
 				_out:GoInt64 = __tmp__._0,
@@ -3020,7 +3020,7 @@ function testParseInt(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testAtoi(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if ((32 : GoInt) == ((32 : GoInt))) {
-		for (_i => _ in _parseInt32Tests) {
+		for (_i in 0..._parseInt32Tests.length.toBasic()) {
 			var _test = (_parseInt32Tests[_i] : Ref<stdgo.strconv_test.Strconv_test.T_parseInt32Test>);
 			var __tmp__ = atoi(_test._in),
 				_out:GoInt = __tmp__._0,
@@ -3036,7 +3036,7 @@ function testAtoi(_t:Ref<stdgo.testing.Testing.T>):Void {
 			};
 		};
 	} else if ((32 : GoInt) == ((64 : GoInt))) {
-		for (_i => _ in _parseInt64Tests) {
+		for (_i in 0..._parseInt64Tests.length.toBasic()) {
 			var _test = (_parseInt64Tests[_i] : Ref<stdgo.strconv_test.Strconv_test.T_parseInt64Test>);
 			var __tmp__ = atoi(_test._in),
 				_out:GoInt = __tmp__._0,
@@ -3077,7 +3077,7 @@ function _equalError(_a:Error, _b:Error):Bool {
 }
 
 function testParseIntBitSize(_t:Ref<stdgo.testing.Testing.T>):Void {
-	for (_i => _ in _parseBitSizeTests) {
+	for (_i in 0..._parseBitSizeTests.length.toBasic()) {
 		var _test = (_parseBitSizeTests[_i] : Ref<stdgo.strconv_test.Strconv_test.T_parseErrorTest>);
 		var _testErr:Error = _test._errStub(Go.str("ParseInt"), _test._arg);
 		var __tmp__ = parseInt(Go.str("0"), (0 : GoInt), _test._arg),
@@ -3090,7 +3090,7 @@ function testParseIntBitSize(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testParseUintBitSize(_t:Ref<stdgo.testing.Testing.T>):Void {
-	for (_i => _ in _parseBitSizeTests) {
+	for (_i in 0..._parseBitSizeTests.length.toBasic()) {
 		var _test = (_parseBitSizeTests[_i] : Ref<stdgo.strconv_test.Strconv_test.T_parseErrorTest>);
 		var _testErr:Error = _test._errStub(Go.str("ParseUint"), _test._arg);
 		var __tmp__ = parseUint(Go.str("0"), (0 : GoInt), _test._arg),
@@ -3103,7 +3103,7 @@ function testParseUintBitSize(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testParseIntBase(_t:Ref<stdgo.testing.Testing.T>):Void {
-	for (_i => _ in _parseBaseTests) {
+	for (_i in 0..._parseBaseTests.length.toBasic()) {
 		var _test = (_parseBaseTests[_i] : Ref<stdgo.strconv_test.Strconv_test.T_parseErrorTest>);
 		var _testErr:Error = _test._errStub(Go.str("ParseInt"), _test._arg);
 		var __tmp__ = parseInt(Go.str("0"), _test._arg, (0 : GoInt)),
@@ -3116,7 +3116,7 @@ function testParseIntBase(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testParseUintBase(_t:Ref<stdgo.testing.Testing.T>):Void {
-	for (_i => _ in _parseBaseTests) {
+	for (_i in 0..._parseBaseTests.length.toBasic()) {
 		var _test = (_parseBaseTests[_i] : Ref<stdgo.strconv_test.Strconv_test.T_parseErrorTest>);
 		var _testErr:Error = _test._errStub(Go.str("ParseUint"), _test._arg);
 		var __tmp__ = parseUint(Go.str("0"), _test._arg, (0 : GoInt)),
@@ -4589,7 +4589,7 @@ function testCountMallocs(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_t.skip(Go.toInterface(Go.str("skipping; GOMAXPROCS>1")));
 	};
 	_oneMB = new Slice<GoUInt8>((1000000 : GoInt).toBasic(), 0, ...[for (i in 0...(1000000 : GoInt).toBasic()) (0 : GoUInt8)]);
-	for (_i => _ in _oneMB) {
+	for (_i in 0..._oneMB.length.toBasic()) {
 		_oneMB[_i] = (_i : GoByte);
 	};
 	for (_0 => _mt in _mallocTest) {
@@ -4643,37 +4643,37 @@ function testErrorPrefixes(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 @:keep var _ = {
 	try {
-		for (_i => _ in _parseUint64Tests) {
+		for (_i in 0..._parseUint64Tests.length.toBasic()) {
 			var _test = (_parseUint64Tests[_i] : Ref<stdgo.strconv_test.Strconv_test.T_parseUint64Test>);
 			if (_test._err != null) {
 				_test._err = Go.asInterface(((new NumError(Go.str("ParseUint"), _test._in, _test._err) : NumError) : Ref<NumError>));
 			};
 		};
-		for (_i => _ in _parseUint64BaseTests) {
+		for (_i in 0..._parseUint64BaseTests.length.toBasic()) {
 			var _test = (_parseUint64BaseTests[_i] : Ref<stdgo.strconv_test.Strconv_test.T_parseUint64BaseTest>);
 			if (_test._err != null) {
 				_test._err = Go.asInterface(((new NumError(Go.str("ParseUint"), _test._in, _test._err) : NumError) : Ref<NumError>));
 			};
 		};
-		for (_i => _ in _parseInt64Tests) {
+		for (_i in 0..._parseInt64Tests.length.toBasic()) {
 			var _test = (_parseInt64Tests[_i] : Ref<stdgo.strconv_test.Strconv_test.T_parseInt64Test>);
 			if (_test._err != null) {
 				_test._err = Go.asInterface(((new NumError(Go.str("ParseInt"), _test._in, _test._err) : NumError) : Ref<NumError>));
 			};
 		};
-		for (_i => _ in _parseInt64BaseTests) {
+		for (_i in 0..._parseInt64BaseTests.length.toBasic()) {
 			var _test = (_parseInt64BaseTests[_i] : Ref<stdgo.strconv_test.Strconv_test.T_parseInt64BaseTest>);
 			if (_test._err != null) {
 				_test._err = Go.asInterface(((new NumError(Go.str("ParseInt"), _test._in, _test._err) : NumError) : Ref<NumError>));
 			};
 		};
-		for (_i => _ in _parseUint32Tests) {
+		for (_i in 0..._parseUint32Tests.length.toBasic()) {
 			var _test = (_parseUint32Tests[_i] : Ref<stdgo.strconv_test.Strconv_test.T_parseUint32Test>);
 			if (_test._err != null) {
 				_test._err = Go.asInterface(((new NumError(Go.str("ParseUint"), _test._in, _test._err) : NumError) : Ref<NumError>));
 			};
 		};
-		for (_i => _ in _parseInt32Tests) {
+		for (_i in 0..._parseInt32Tests.length.toBasic()) {
 			var _test = (_parseInt32Tests[_i] : Ref<stdgo.strconv_test.Strconv_test.T_parseInt32Test>);
 			if (_test._err != null) {
 				_test._err = Go.asInterface(((new NumError(Go.str("ParseInt"), _test._in, _test._err) : NumError) : Ref<NumError>));

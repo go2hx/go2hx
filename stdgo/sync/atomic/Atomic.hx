@@ -63,6 +63,7 @@ private var _firstStoreInProgress:GoByte = (0 : GoUInt8);
 	// The zero value is false.
 **/
 @:structInit @:using(stdgo.sync.atomic.Atomic.Bool__static_extension) class Bool_ {
+	@:optional
 	public var _1:T_noCopy = ({} : T_noCopy);
 	public var _v:GoUInt32 = 0;
 
@@ -82,6 +83,7 @@ private var _firstStoreInProgress:GoByte = (0 : GoUInt8);
 	// A Pointer is an atomic pointer of type *T. The zero value is a nil *T.
 **/
 @:structInit @:using(stdgo.sync.atomic.Atomic.Pointer__static_extension) class Pointer_<T> {
+	@:optional
 	public var _3:T_noCopy = ({} : T_noCopy);
 	public var _v:stdgo.unsafe.Unsafe.UnsafePointer = null;
 
@@ -101,6 +103,7 @@ private var _firstStoreInProgress:GoByte = (0 : GoUInt8);
 	// An Int32 is an atomic int32. The zero value is zero.
 **/
 @:structInit @:using(stdgo.sync.atomic.Atomic.Int32_static_extension) class Int32 {
+	@:optional
 	public var _5:T_noCopy = ({} : T_noCopy);
 	public var _v:GoInt32 = 0;
 
@@ -120,7 +123,9 @@ private var _firstStoreInProgress:GoByte = (0 : GoUInt8);
 	// An Int64 is an atomic int64. The zero value is zero.
 **/
 @:structInit @:using(stdgo.sync.atomic.Atomic.Int64__static_extension) class Int64_ {
+	@:optional
 	public var _8:T_noCopy = ({} : T_noCopy);
+	@:optional
 	public var _9:T_align64 = ({} : T_align64);
 	public var _v:GoInt64 = 0;
 
@@ -142,6 +147,7 @@ private var _firstStoreInProgress:GoByte = (0 : GoUInt8);
 	// An Uint32 is an atomic uint32. The zero value is zero.
 **/
 @:structInit @:using(stdgo.sync.atomic.Atomic.Uint32_static_extension) class Uint32 {
+	@:optional
 	public var _10:T_noCopy = ({} : T_noCopy);
 	public var _v:GoUInt32 = 0;
 
@@ -161,7 +167,9 @@ private var _firstStoreInProgress:GoByte = (0 : GoUInt8);
 	// An Uint64 is an atomic uint64. The zero value is zero.
 **/
 @:structInit @:using(stdgo.sync.atomic.Atomic.Uint64_static_extension) class Uint64 {
+	@:optional
 	public var _13:T_noCopy = ({} : T_noCopy);
+	@:optional
 	public var _14:T_align64 = ({} : T_align64);
 	public var _v:GoUInt64 = 0;
 
@@ -183,6 +191,7 @@ private var _firstStoreInProgress:GoByte = (0 : GoUInt8);
 	// An Uintptr is an atomic uintptr. The zero value is zero.
 **/
 @:structInit @:using(stdgo.sync.atomic.Atomic.Uintptr_static_extension) class Uintptr {
+	@:optional
 	public var _16:T_noCopy = ({} : T_noCopy);
 	public var _v:GoUIntptr = 0;
 

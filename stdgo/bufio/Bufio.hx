@@ -999,7 +999,7 @@ class Reader_asInterface {
 			_err:Error = __tmp__._3;
 		var _buf = new Slice<GoUInt8>((_n : GoInt).toBasic(), 0, ...[for (i in 0...(_n : GoInt).toBasic()) (0 : GoUInt8)]);
 		_n = (0 : GoInt);
-		for (_i => _ in _full) {
+		for (_i in 0..._full.length.toBasic()) {
 			_n = _n + (Go.copySlice((_buf.__slice__(_n) : Slice<GoUInt8>), _full[_i]));
 		};
 		Go.copySlice((_buf.__slice__(_n) : Slice<GoUInt8>), _frag);

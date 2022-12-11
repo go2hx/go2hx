@@ -1766,6 +1766,7 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	/**
 		// cache line padding
 	**/
+	@:optional
 	public var _1:GoArray<GoInt64>;
 };
 
@@ -3534,7 +3535,7 @@ function _benchmark(_b:Ref<stdgo.testing.Testing.B>, _bench:(_n:GoInt) -> Void):
 	var _garbageAll = new Slice<Slice<Ref<Timer>>>((stdgo.runtime.Runtime.gomaxprocs((0 : GoInt)) : GoInt).toBasic(), 0, ...[
 		for (i in 0...(stdgo.runtime.Runtime.gomaxprocs((0 : GoInt)) : GoInt).toBasic()) (null : Slice<Ref<Timer>>)
 	]);
-	for (_i => _ in _garbageAll) {
+	for (_i in 0..._garbageAll.length.toBasic()) {
 		_wg.add((1 : GoInt));
 		Go.routine(() -> {
 			var a = function(_i:GoInt):Void {
@@ -3542,7 +3543,7 @@ function _benchmark(_b:Ref<stdgo.testing.Testing.B>, _bench:(_n:GoInt) -> Void):
 				__deferstack__.unshift(() -> _wg.done());
 				try {
 					var _garbage = new Slice<Ref<Timer>>((32768 : GoInt).toBasic(), 0, ...[for (i in 0...(32768 : GoInt).toBasic()) (null : Ref<Timer>)]);
-					for (_j => _ in _garbage) {
+					for (_j in 0..._garbage.length.toBasic()) {
 						_garbage[_j] = afterFunc((("3600000000000" : GoInt64) : Duration), null);
 					};
 					_garbageAll[_i] = _garbage;
@@ -3826,12 +3827,12 @@ function _testAfterQueuing(_delta:Duration):Error {
 	};
 	var _order:Slice<GoInt> = (null : Slice<GoInt>);
 	var _times:Slice<Time> = (null : Slice<Time>);
-	for (_ => _ in _slots) {
+	for (_ in 0..._slots.length.toBasic()) {
 		var _r:stdgo.time_test.Time_test.T_afterResult = (_result.__get__() == null ? null : _result.__get__().__copy__());
 		_order = _order.__appendref__(_r._slot);
 		_times = _times.__appendref__((_r._t == null ? null : _r._t.__copy__()));
 	};
-	for (_i => _ in _order) {
+	for (_i in 0..._order.length.toBasic()) {
 		if ((_i > (0 : GoInt)) && (_order[_i] < _order[_i - (1 : GoInt)])) {
 			return stdgo.fmt.Fmt.errorf(Go.str("After calls returned out of order: %v"), Go.toInterface(_order));
 		};
@@ -4299,7 +4300,7 @@ function benchmarkParallelTimerLatency(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _timerCount:GoInt = _gmp - (1 : GoInt);
 	var _stats = new Slice<T__struct_7>((_timerCount : GoInt).toBasic(), 0, ...[
 		for (i in 0...(_timerCount : GoInt).toBasic()) ({
-			_sum:(0 : GoFloat64), _max:((0 : GoInt64) : Duration), _count:(0 : GoInt64), _0:new GoArray<GoInt64>(...[for (i in 0...5) (0 : GoInt64)])
+			_sum:(0 : GoFloat64), _max:((0 : GoInt64) : Duration), _count:(0 : GoInt64)
 		} : T__struct_7)
 	]);
 	_warmupScheduler(_gmp);
@@ -4375,8 +4376,7 @@ function benchmarkStaggeredTickerLatency(_b:Ref<stdgo.testing.Testing.B>):Void {
 					_b.run(stdgo.fmt.Fmt.sprintf(Go.str("tickers-per-P=%d"), Go.toInterface(_tickersPerP)), function(_b:Ref<stdgo.testing.Testing.B>):Void {
 						var _stats = new Slice<T__struct_7>((_tickerCount : GoInt).toBasic(), 0, ...[
 							for (i in 0...(_tickerCount : GoInt).toBasic()) ({
-								_sum:(0 : GoFloat64), _max:((0 : GoInt64) : Duration), _count:(0 : GoInt64),
-								_0:new GoArray<GoInt64>(...[for (i in 0...5) (0 : GoInt64)])
+								_sum:(0 : GoFloat64), _max:((0 : GoInt64) : Duration), _count:(0 : GoInt64)
 							} : T__struct_7)
 						]);
 						_warmupScheduler(_gmp);

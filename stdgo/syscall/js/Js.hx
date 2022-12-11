@@ -182,6 +182,7 @@ final typeFunction:Type = ((0 : GoInt) : Type);
 	/**
 		// uncomparable; to make == not compile
 	**/
+	@:optional
 	public var _10:GoArray<() -> Void> = new GoArray<() -> Void>(...[for (i in 0...0) null]);
 
 	/**

@@ -1043,7 +1043,7 @@ private var _benchNeedleTorture:GoString = repeat(Go.str("ABC"), (1025 : GoInt))
 
 private var _makeFieldsInput:() -> GoString = function():GoString {
 	var _x = new Slice<GoUInt8>((1048576 : GoInt).toBasic(), 0, ...[for (i in 0...(1048576 : GoInt).toBasic()) (0 : GoUInt8)]);
-	for (_i => _ in _x) {
+	for (_i in 0..._x.length.toBasic()) {
 		{
 			var __switchIndex__ = -1;
 			while (true) {
@@ -1074,7 +1074,7 @@ private var _makeFieldsInput:() -> GoString = function():GoString {
 
 private var _makeFieldsInputASCII:() -> GoString = function():GoString {
 	var _x = new Slice<GoUInt8>((1048576 : GoInt).toBasic(), 0, ...[for (i in 0...(1048576 : GoInt).toBasic()) (0 : GoUInt8)]);
-	for (_i => _ in _x) {
+	for (_i in 0..._x.length.toBasic()) {
 		if (stdgo.math.rand.Rand.intn((10 : GoInt)) == ((0 : GoInt))) {
 			_x[_i] = (" ".code : GoRune);
 		} else {
@@ -1726,13 +1726,15 @@ function testClone(_t:Ref<stdgo.testing.Testing.T>):Void {
 				name: "data",
 				embedded: false,
 				tag: "",
-				type: stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)
+				type: stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind),
+				optional: false
 			},
 			{
 				name: "len",
 				embedded: false,
 				tag: "",
-				type: stdgo.internal.reflect.Reflect.GoType.basic(int_kind)
+				type: stdgo.internal.reflect.Reflect.GoType.basic(int_kind),
+				optional: false
 			}
 		])))) : Ref<stdgo.reflect.Reflect.StringHeader>);
 		var _cloneHeader = ((Go.toInterface(Go.pointer(_clone)) : stdgo.unsafe.Unsafe.UnsafePointer)
@@ -1742,13 +1744,15 @@ function testClone(_t:Ref<stdgo.testing.Testing.T>):Void {
 				name: "data",
 				embedded: false,
 				tag: "",
-				type: stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)
+				type: stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind),
+				optional: false
 			},
 			{
 				name: "len",
 				embedded: false,
 				tag: "",
-				type: stdgo.internal.reflect.Reflect.GoType.basic(int_kind)
+				type: stdgo.internal.reflect.Reflect.GoType.basic(int_kind),
+				optional: false
 			}
 		])))) : Ref<stdgo.reflect.Reflect.StringHeader>);
 		if ((_input.length != (0 : GoInt)) && (_cloneHeader.data == _inputHeader.data)) {
@@ -1761,13 +1765,15 @@ function testClone(_t:Ref<stdgo.testing.Testing.T>):Void {
 				name: "data",
 				embedded: false,
 				tag: "",
-				type: stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)
+				type: stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind),
+				optional: false
 			},
 			{
 				name: "len",
 				embedded: false,
 				tag: "",
-				type: stdgo.internal.reflect.Reflect.GoType.basic(int_kind)
+				type: stdgo.internal.reflect.Reflect.GoType.basic(int_kind),
+				optional: false
 			}
 		])))) : Ref<stdgo.reflect.Reflect.StringHeader>);
 		if ((_input.length == (0 : GoInt)) && (_cloneHeader.data != _emptyHeader.data)) {
@@ -2745,7 +2751,7 @@ function testReplacer(_t:Ref<stdgo.testing.Testing.T>):Void {
 		(new stdgo.strings_test.Strings_test.T_testCase_testReplacer_0(_foo4, Go.str(),
 			Go.str()) : stdgo.strings_test.Strings_test.T_testCase_testReplacer_0));
 	var _allBytes = new Slice<GoUInt8>((256 : GoInt).toBasic(), 0, ...[for (i in 0...(256 : GoInt).toBasic()) (0 : GoUInt8)]);
-	for (_i => _ in _allBytes) {
+	for (_i in 0..._allBytes.length.toBasic()) {
 		_allBytes[_i] = (_i : GoByte);
 	};
 	var _allString:GoString = (_allBytes : GoString);
@@ -3157,9 +3163,9 @@ function testFinderCreation(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_pattern: Go.str("abc"),
 		_bad: {
 			var s:GoArray<GoInt> = new GoArray<GoInt>(...[for (i in 0...256) 0]);
-			s[0] = (2 : GoInt);
-			s[1] = (1 : GoInt);
-			s[2] = (3 : GoInt);
+			s[97] = (2 : GoInt);
+			s[98] = (1 : GoInt);
+			s[99] = (3 : GoInt);
 			s;
 		},
 		_suf: (new Slice<GoInt>(0, 0, (5 : GoInt), (4 : GoInt), (1 : GoInt)) : Slice<GoInt>)
@@ -3167,9 +3173,9 @@ function testFinderCreation(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_pattern: Go.str("mississi"),
 		_bad: {
 			var s:GoArray<GoInt> = new GoArray<GoInt>(...[for (i in 0...256) 0]);
-			s[0] = (3 : GoInt);
-			s[1] = (7 : GoInt);
-			s[2] = (1 : GoInt);
+			s[105] = (3 : GoInt);
+			s[109] = (7 : GoInt);
+			s[115] = (1 : GoInt);
 			s;
 		},
 		_suf: (new Slice<GoInt>(0, 0, (15 : GoInt), (14 : GoInt), (13 : GoInt), (7 : GoInt), (11 : GoInt), (10 : GoInt), (7 : GoInt),
@@ -3178,10 +3184,10 @@ function testFinderCreation(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_pattern: Go.str("abcxxxabc"),
 		_bad: {
 			var s:GoArray<GoInt> = new GoArray<GoInt>(...[for (i in 0...256) 0]);
-			s[0] = (2 : GoInt);
-			s[1] = (1 : GoInt);
-			s[2] = (6 : GoInt);
-			s[3] = (3 : GoInt);
+			s[97] = (2 : GoInt);
+			s[98] = (1 : GoInt);
+			s[99] = (6 : GoInt);
+			s[120] = (3 : GoInt);
 			s;
 		},
 		_suf: (new Slice<GoInt>(0, 0, (14 : GoInt), (13 : GoInt), (12 : GoInt), (11 : GoInt), (10 : GoInt), (9 : GoInt), (11 : GoInt), (10 : GoInt),
@@ -3190,13 +3196,13 @@ function testFinderCreation(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_pattern: Go.str("abyxcdeyx"),
 		_bad: {
 			var s:GoArray<GoInt> = new GoArray<GoInt>(...[for (i in 0...256) 0]);
-			s[0] = (8 : GoInt);
-			s[1] = (7 : GoInt);
-			s[2] = (4 : GoInt);
-			s[3] = (3 : GoInt);
-			s[4] = (2 : GoInt);
-			s[5] = (1 : GoInt);
-			s[6] = (5 : GoInt);
+			s[97] = (8 : GoInt);
+			s[98] = (7 : GoInt);
+			s[99] = (4 : GoInt);
+			s[100] = (3 : GoInt);
+			s[101] = (2 : GoInt);
+			s[121] = (1 : GoInt);
+			s[120] = (5 : GoInt);
 			s;
 		},
 		_suf: (new Slice<GoInt>(0, 0, (17 : GoInt), (16 : GoInt), (15 : GoInt), (14 : GoInt), (13 : GoInt), (12 : GoInt), (7 : GoInt), (10 : GoInt),
@@ -3322,7 +3328,7 @@ function testIndexRandom(_t:Ref<stdgo.testing.Testing.T>):Void {
 				var _strLen:GoInt = (5 : GoInt) + stdgo.math.rand.Rand.intn((5 : GoInt));
 				Go.cfor(_strLen < (140:GoInt), _strLen = _strLen + ((10 : GoInt)), {
 					var _s1 = new Slice<GoUInt8>((_strLen : GoInt).toBasic(), 0, ...[for (i in 0...(_strLen : GoInt).toBasic()) (0 : GoUInt8)]);
-					for (_i => _ in _s1) {
+					for (_i in 0..._s1.length.toBasic()) {
 						_s1[_i] = Go.str("abcdefghijklmnopqrstuvwxyz0123456789")[
 							stdgo.math.rand.Rand.intn((Go.str("abcdefghijklmnopqrstuvwxyz0123456789").length))
 						];
@@ -3585,7 +3591,7 @@ function _runStringTests(_t:Ref<stdgo.testing.Testing.T>, _f:GoString->GoString,
 
 function _tenRunes(_ch:GoRune):GoString {
 	var _r = new Slice<GoInt32>((10 : GoInt).toBasic(), 0, ...[for (i in 0...(10 : GoInt).toBasic()) (0 : GoInt32)]);
-	for (_i => _ in _r) {
+	for (_i in 0..._r.length.toBasic()) {
 		_r[_i] = _ch;
 	};
 	return (_r : GoString);
@@ -3656,13 +3662,15 @@ function testMap(_t:Ref<stdgo.testing.Testing.T>):Void {
 				name: "data",
 				embedded: false,
 				tag: "",
-				type: stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)
+				type: stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind),
+				optional: false
 			},
 			{
 				name: "len",
 				embedded: false,
 				tag: "",
-				type: stdgo.internal.reflect.Reflect.GoType.basic(int_kind)
+				type: stdgo.internal.reflect.Reflect.GoType.basic(int_kind),
+				optional: false
 			}
 		])))) : Ref<stdgo.reflect.Reflect.StringHeader>).data != (((Go.toInterface(Go.pointer(_m)) : stdgo.unsafe.Unsafe.UnsafePointer)
 		.__convert__(stdgo.internal.reflect.Reflect.GoType.refType(stdgo.internal.reflect.Reflect.GoType.named("stdgo.reflect.Reflect.StringHeader", [],
@@ -3671,13 +3679,15 @@ function testMap(_t:Ref<stdgo.testing.Testing.T>):Void {
 			name: "data",
 			embedded: false,
 			tag: "",
-			type: stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind)
+			type: stdgo.internal.reflect.Reflect.GoType.basic(uintptr_kind),
+			optional: false
 		},
 		{
 			name: "len",
 			embedded: false,
 			tag: "",
-			type: stdgo.internal.reflect.Reflect.GoType.basic(int_kind)
+			type: stdgo.internal.reflect.Reflect.GoType.basic(int_kind),
+			optional: false
 		}
 		])))) : Ref<stdgo.reflect.Reflect.StringHeader>).data)) {
 			_t.error(Go.toInterface(Go.str("unexpected copy during identity map")));
@@ -3950,7 +3960,7 @@ function testCaseConsistency(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_numRunes = (1000 : GoInt);
 	};
 	var _a = new Slice<GoInt32>((_numRunes : GoInt).toBasic(), 0, ...[for (i in 0...(_numRunes : GoInt).toBasic()) (0 : GoInt32)]);
-	for (_i => _ in _a) {
+	for (_i in 0..._a.length.toBasic()) {
 		_a[_i] = (_i : GoRune);
 	};
 	var _s:GoString = (_a : GoString);

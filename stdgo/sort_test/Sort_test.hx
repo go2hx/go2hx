@@ -1271,7 +1271,7 @@ function testReverseSortIntSlice(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testBreakPatterns(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _data = new Slice<GoInt>((30 : GoInt).toBasic(), 0, ...[for (i in 0...(30 : GoInt).toBasic()) (0 : GoInt)]);
-	for (_i => _ in _data) {
+	for (_i in 0..._data.length.toBasic()) {
 		_data[_i] = (10 : GoInt);
 	};
 	_data[(_data.length / (4 : GoInt)) * (1 : GoInt)] = (0 : GoInt);
@@ -1353,7 +1353,7 @@ function testNonDeterministicComparison(_t:Ref<stdgo.testing.Testing.T>):Void {
 function benchmarkSortString1K(_b:Ref<stdgo.testing.Testing.B>):Void {
 	_b.stopTimer();
 	var _unsorted = new Slice<GoString>((1024 : GoInt).toBasic(), 0, ...[for (i in 0...(1024 : GoInt).toBasic()) ("" : GoString)]);
-	for (_i => _ in _unsorted) {
+	for (_i in 0..._unsorted.length.toBasic()) {
 		_unsorted[_i] = stdgo.strconv.Strconv.itoa(_i ^ (716 : GoInt));
 	};
 	var _data = new Slice<GoString>((_unsorted.length : GoInt).toBasic(), 0, ...[for (i in 0...(_unsorted.length : GoInt).toBasic()) ("" : GoString)]);
@@ -1371,7 +1371,7 @@ function benchmarkSortString1K(_b:Ref<stdgo.testing.Testing.B>):Void {
 function benchmarkSortString1K_Slice(_b:Ref<stdgo.testing.Testing.B>):Void {
 	_b.stopTimer();
 	var _unsorted = new Slice<GoString>((1024 : GoInt).toBasic(), 0, ...[for (i in 0...(1024 : GoInt).toBasic()) ("" : GoString)]);
-	for (_i => _ in _unsorted) {
+	for (_i in 0..._unsorted.length.toBasic()) {
 		_unsorted[_i] = stdgo.strconv.Strconv.itoa(_i ^ (716 : GoInt));
 	};
 	var _data = new Slice<GoString>((_unsorted.length : GoInt).toBasic(), 0, ...[for (i in 0...(_unsorted.length : GoInt).toBasic()) ("" : GoString)]);
@@ -1391,7 +1391,7 @@ function benchmarkSortString1K_Slice(_b:Ref<stdgo.testing.Testing.B>):Void {
 function benchmarkStableString1K(_b:Ref<stdgo.testing.Testing.B>):Void {
 	_b.stopTimer();
 	var _unsorted = new Slice<GoString>((1024 : GoInt).toBasic(), 0, ...[for (i in 0...(1024 : GoInt).toBasic()) ("" : GoString)]);
-	for (_i => _ in _unsorted) {
+	for (_i in 0..._unsorted.length.toBasic()) {
 		_unsorted[_i] = stdgo.strconv.Strconv.itoa(_i ^ (716 : GoInt));
 	};
 	var _data = new Slice<GoString>((_unsorted.length : GoInt).toBasic(), 0, ...[for (i in 0...(_unsorted.length : GoInt).toBasic()) ("" : GoString)]);
@@ -1485,7 +1485,7 @@ function benchmarkSortInt1K_Mod8(_b:Ref<stdgo.testing.Testing.B>):Void {
 function benchmarkStableInt1K(_b:Ref<stdgo.testing.Testing.B>):Void {
 	_b.stopTimer();
 	var _unsorted = new Slice<GoInt>((1024 : GoInt).toBasic(), 0, ...[for (i in 0...(1024 : GoInt).toBasic()) (0 : GoInt)]);
-	for (_i => _ in _unsorted) {
+	for (_i in 0..._unsorted.length.toBasic()) {
 		_unsorted[_i] = _i ^ (716 : GoInt);
 	};
 	var _data = new Slice<GoInt>((_unsorted.length : GoInt).toBasic(), 0, ...[for (i in 0...(_unsorted.length : GoInt).toBasic()) (0 : GoInt)]);
@@ -1503,7 +1503,7 @@ function benchmarkStableInt1K(_b:Ref<stdgo.testing.Testing.B>):Void {
 function benchmarkStableInt1K_Slice(_b:Ref<stdgo.testing.Testing.B>):Void {
 	_b.stopTimer();
 	var _unsorted = new Slice<GoInt>((1024 : GoInt).toBasic(), 0, ...[for (i in 0...(1024 : GoInt).toBasic()) (0 : GoInt)]);
-	for (_i => _ in _unsorted) {
+	for (_i in 0..._unsorted.length.toBasic()) {
 		_unsorted[_i] = _i ^ (716 : GoInt);
 	};
 	var _data = new Slice<GoInt>((_unsorted.length : GoInt).toBasic(), 0, ...[for (i in 0...(_unsorted.length : GoInt).toBasic()) (0 : GoInt)]);

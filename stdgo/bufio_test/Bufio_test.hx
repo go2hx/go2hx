@@ -1065,7 +1065,7 @@ function testUnreadRuneError(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (_err != null) {
 		_t.error(Go.toInterface(Go.str("unexpected error on ReadRune (2):")), Go.toInterface(_err));
 	};
-	for (_ => _ in _buf) {
+	for (_ in 0..._buf.length.toBasic()) {
 		{
 			var __tmp__ = _r.readByte();
 			_err = __tmp__._1;
@@ -1758,7 +1758,7 @@ function _testReadLineNewlines(_t:Ref<stdgo.testing.Testing.T>, _input:GoString,
 
 function _createTestInput(_n:GoInt):Slice<GoByte> {
 	var _input = new Slice<GoUInt8>((_n : GoInt).toBasic(), 0, ...[for (i in 0...(_n : GoInt).toBasic()) (0 : GoUInt8)]);
-	for (_i => _ in _input) {
+	for (_i in 0..._input.length.toBasic()) {
 		_input[_i] = (_i % (251 : GoInt) : GoByte);
 		if (_i % (101 : GoInt) == ((0 : GoInt))) {
 			_input[_i] = _input[_i] ^ ((_i / (101 : GoInt) : GoByte));

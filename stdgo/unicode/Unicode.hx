@@ -3702,21 +3702,25 @@ var categories:GoMap<GoString, Ref<RangeTable>> = {
 								name: "lo",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind),
+								optional: false
 							},
 							{
 								name: "hi",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind),
+								optional: false
 							},
 							{
 								name: "stride",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind),
+								optional: false
 							}
-						]))})
+						]))}),
+					optional: false
 				},
 				{
 					name: "r32",
@@ -3728,27 +3732,32 @@ var categories:GoMap<GoString, Ref<RangeTable>> = {
 								name: "lo",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind),
+								optional: false
 							},
 							{
 								name: "hi",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind),
+								optional: false
 							},
 							{
 								name: "stride",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind),
+								optional: false
 							}
-						]))})
+						]))}),
+					optional: false
 				},
 				{
 					name: "latinOffset",
 					embedded: false,
 					tag: "",
-					type: stdgo.internal.reflect.Reflect.GoType.basic(int_kind)
+					type: stdgo.internal.reflect.Reflect.GoType.basic(int_kind),
+					optional: false
 				}
 			])))})));
 	@:privateAccess x._keys = [
@@ -5763,21 +5772,25 @@ var scripts:GoMap<GoString, Ref<RangeTable>> = {
 								name: "lo",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind),
+								optional: false
 							},
 							{
 								name: "hi",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind),
+								optional: false
 							},
 							{
 								name: "stride",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind),
+								optional: false
 							}
-						]))})
+						]))}),
+					optional: false
 				},
 				{
 					name: "r32",
@@ -5789,27 +5802,32 @@ var scripts:GoMap<GoString, Ref<RangeTable>> = {
 								name: "lo",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind),
+								optional: false
 							},
 							{
 								name: "hi",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind),
+								optional: false
 							},
 							{
 								name: "stride",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind),
+								optional: false
 							}
-						]))})
+						]))}),
+					optional: false
 				},
 				{
 					name: "latinOffset",
 					embedded: false,
 					tag: "",
-					type: stdgo.internal.reflect.Reflect.GoType.basic(int_kind)
+					type: stdgo.internal.reflect.Reflect.GoType.basic(int_kind),
+					optional: false
 				}
 			])))})));
 	@:privateAccess x._keys = [
@@ -7159,21 +7177,25 @@ var properties:GoMap<GoString, Ref<RangeTable>> = {
 								name: "lo",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind),
+								optional: false
 							},
 							{
 								name: "hi",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind),
+								optional: false
 							},
 							{
 								name: "stride",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind),
+								optional: false
 							}
-						]))})
+						]))}),
+					optional: false
 				},
 				{
 					name: "r32",
@@ -7185,27 +7207,32 @@ var properties:GoMap<GoString, Ref<RangeTable>> = {
 								name: "lo",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind),
+								optional: false
 							},
 							{
 								name: "hi",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind),
+								optional: false
 							},
 							{
 								name: "stride",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind),
+								optional: false
 							}
-						]))})
+						]))}),
+					optional: false
 				},
 				{
 					name: "latinOffset",
 					embedded: false,
 					tag: "",
-					type: stdgo.internal.reflect.Reflect.GoType.basic(int_kind)
+					type: stdgo.internal.reflect.Reflect.GoType.basic(int_kind),
+					optional: false
 				}
 			])))})));
 	@:privateAccess x._keys = [
@@ -8275,21 +8302,25 @@ var foldCategory:GoMap<GoString, Ref<RangeTable>> = {
 								name: "lo",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind),
+								optional: false
 							},
 							{
 								name: "hi",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind),
+								optional: false
 							},
 							{
 								name: "stride",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind),
+								optional: false
 							}
-						]))})
+						]))}),
+					optional: false
 				},
 				{
 					name: "r32",
@@ -8301,27 +8332,32 @@ var foldCategory:GoMap<GoString, Ref<RangeTable>> = {
 								name: "lo",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind),
+								optional: false
 							},
 							{
 								name: "hi",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind),
+								optional: false
 							},
 							{
 								name: "stride",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind),
+								optional: false
 							}
-						]))})
+						]))}),
+					optional: false
 				},
 				{
 					name: "latinOffset",
 					embedded: false,
 					tag: "",
-					type: stdgo.internal.reflect.Reflect.GoType.basic(int_kind)
+					type: stdgo.internal.reflect.Reflect.GoType.basic(int_kind),
+					optional: false
 				}
 			])))})));
 	@:privateAccess x._keys = [Go.str("L"), Go.str("Ll"), Go.str("Lt"), Go.str("Lu"), Go.str("M"), Go.str("Mn")];
@@ -8360,21 +8396,25 @@ var foldScript:GoMap<GoString, Ref<RangeTable>> = {
 								name: "lo",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind),
+								optional: false
 							},
 							{
 								name: "hi",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind),
+								optional: false
 							},
 							{
 								name: "stride",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind),
+								optional: false
 							}
-						]))})
+						]))}),
+					optional: false
 				},
 				{
 					name: "r32",
@@ -8386,27 +8426,32 @@ var foldScript:GoMap<GoString, Ref<RangeTable>> = {
 								name: "lo",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind),
+								optional: false
 							},
 							{
 								name: "hi",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind),
+								optional: false
 							},
 							{
 								name: "stride",
 								embedded: false,
 								tag: "",
-								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)
+								type: stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind),
+								optional: false
 							}
-						]))})
+						]))}),
+					optional: false
 				},
 				{
 					name: "latinOffset",
 					embedded: false,
 					tag: "",
-					type: stdgo.internal.reflect.Reflect.GoType.basic(int_kind)
+					type: stdgo.internal.reflect.Reflect.GoType.basic(int_kind),
+					optional: false
 				}
 			])))})));
 	@:privateAccess x._keys = [Go.str("Common"), Go.str("Greek"), Go.str("Inherited")];
@@ -8815,7 +8860,7 @@ function isSymbol(_r:GoRune):Bool {
 **/
 function _is16(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
 	if ((_ranges.length <= (18 : GoInt)) || (_r <= (255 : GoUInt16))) {
-		for (_i => _ in _ranges) {
+		for (_i in 0..._ranges.length.toBasic()) {
 			var _range_ = (_ranges[_i] : Ref<Range16>);
 			if (_r < _range_.lo) {
 				return false;
@@ -8848,7 +8893,7 @@ function _is16(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
 **/
 function _is32(_ranges:Slice<Range32>, _r:GoUInt32):Bool {
 	if ((_ranges.length) <= (18 : GoInt)) {
-		for (_i => _ in _ranges) {
+		for (_i in 0..._ranges.length.toBasic()) {
 			var _range_ = (_ranges[_i] : Ref<Range32>);
 			if (_r < _range_.lo) {
 				return false;

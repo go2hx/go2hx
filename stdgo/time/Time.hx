@@ -5565,7 +5565,7 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Ref
 		return {_0: null, _1: _badData};
 	};
 	var _zones = new Slice<T_zone>((_nzone : GoInt).toBasic(), 0, ...[for (i in 0...(_nzone : GoInt).toBasic()) ({} : T_zone)]);
-	for (_i => _ in _zones) {
+	for (_i in 0..._zones.length.toBasic()) {
 		var _ok:Bool = false;
 		var _n:GoUInt32 = (0 : GoUInt32);
 		{
@@ -5614,7 +5614,7 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Ref
 		};
 	};
 	var _tx = new Slice<T_zoneTrans>((_n[(3 : GoInt)] : GoInt).toBasic(), 0, ...[for (i in 0...(_n[(3 : GoInt)] : GoInt).toBasic()) ({} : T_zoneTrans)]);
-	for (_i => _ in _tx) {
+	for (_i in 0..._tx.length.toBasic()) {
 		var _n:GoInt64 = (0 : GoInt64);
 		if (!_is64) {
 			{
@@ -5664,7 +5664,7 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Ref
 		_sec:GoInt64 = __tmp__._0,
 		_0:GoInt32 = __tmp__._1,
 		_1:GoInt64 = __tmp__._2;
-	for (_i => _ in _tx) {
+	for (_i in 0..._tx.length.toBasic()) {
 		if ((_tx[_i]._when <= _sec) && (((_i + (1 : GoInt)) == (_tx.length)) || (_sec < _tx[_i + (1 : GoInt)]._when))) {
 			_l._cacheStart = _tx[_i]._when;
 			_l._cacheEnd = ("9223372036854775807" : GoInt64);
@@ -8083,7 +8083,7 @@ class Location_asInterface {
 	static public function _lookupName(_l:Ref<Location>, _name:GoString, _unix:GoInt64):{var _0:GoInt; var _1:Bool;} {
 		var _offset:GoInt = (0 : GoInt), _ok:Bool = false;
 		_l = _l._get();
-		for (_i => _ in _l._zone) {
+		for (_i in 0..._l._zone.length.toBasic()) {
 			var _zone = (_l._zone[_i] : Ref<T_zone>);
 			if (_zone._name == (_name)) {
 				var __tmp__ = _l._lookup(_unix - (_zone._offset : GoInt64)),
@@ -8097,7 +8097,7 @@ class Location_asInterface {
 				};
 			};
 		};
-		for (_i => _ in _l._zone) {
+		for (_i in 0..._l._zone.length.toBasic()) {
 			var _zone = (_l._zone[_i] : Ref<T_zone>);
 			if (_zone._name == (_name)) {
 				return {_0: _zone._offset, _1: true};
@@ -8152,7 +8152,7 @@ class Location_asInterface {
 				});
 			};
 		};
-		for (_zi => _ in _l._zone) {
+		for (_zi in 0..._l._zone.length.toBasic()) {
 			if (!_l._zone[_zi]._isDST) {
 				return _zi;
 			};

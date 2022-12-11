@@ -320,7 +320,7 @@ function exampleShuffle_slicesInUnison():Void {
 			_letters[_j] = __tmp__1;
 		};
 	});
-	for (_i => _ in _numbers) {
+	for (_i in 0..._numbers.length.toBasic()) {
 		stdgo.fmt.Fmt.printf(Go.str("%c: %c\n"), Go.toInterface(_letters[_i]), Go.toInterface(_numbers[_i]));
 	};
 }
@@ -486,7 +486,7 @@ function _checkSampleSliceDistributions(_t:Ref<stdgo.testing.Testing.T>, _sample
 function _generateNormalSamples(_nsamples:GoInt, _mean:GoFloat64, _stddev:GoFloat64, _seed:GoInt64):Slice<GoFloat64> {
 	var _r = new_(newSource(_seed));
 	var _samples = new Slice<GoFloat64>((_nsamples : GoInt).toBasic(), 0, ...[for (i in 0...(_nsamples : GoInt).toBasic()) (0 : GoFloat64)]);
-	for (_i => _ in _samples) {
+	for (_i in 0..._samples.length.toBasic()) {
 		_samples[_i] = (_r.normFloat64() * _stddev) + _mean;
 	};
 	return _samples;
@@ -536,7 +536,7 @@ function testNonStandardNormalValues(_t:Ref<stdgo.testing.Testing.T>):Void {
 function _generateExponentialSamples(_nsamples:GoInt, _rate:GoFloat64, _seed:GoInt64):Slice<GoFloat64> {
 	var _r = new_(newSource(_seed));
 	var _samples = new Slice<GoFloat64>((_nsamples : GoInt).toBasic(), 0, ...[for (i in 0...(_nsamples : GoInt).toBasic()) (0 : GoFloat64)]);
-	for (_i => _ in _samples) {
+	for (_i in 0..._samples.length.toBasic()) {
 		_samples[_i] = _r.expFloat64() / _rate;
 	};
 	return _samples;
@@ -654,7 +654,7 @@ function _compareUint32Slices(_s1:Slice<GoUInt32>, _s2:Slice<GoUInt32>):GoInt {
 		};
 		return (_s1.length) + (1 : GoInt);
 	};
-	for (_i => _ in _s1) {
+	for (_i in 0..._s1.length.toBasic()) {
 		if (_s1[_i] != (_s2[_i])) {
 			return _i;
 		};
@@ -674,7 +674,7 @@ function _compareFloat32Slices(_s1:Slice<GoFloat32>, _s2:Slice<GoFloat32>):GoInt
 		};
 		return (_s1.length) + (1 : GoInt);
 	};
-	for (_i => _ in _s1) {
+	for (_i in 0..._s1.length.toBasic()) {
 		if (!_nearEqual((_s1[_i] : GoFloat64), (_s2[_i] : GoFloat64), (0 : GoFloat64), (1e-07 : GoFloat64))) {
 			return _i;
 		};
@@ -927,7 +927,7 @@ function testUniformFactorial(_t:Ref<stdgo.testing.Testing.T>):Void {
 						};
 						var _samples = new Slice<GoFloat64>((_nsamples : GoInt).toBasic(), 0,
 							...[for (i in 0...(_nsamples : GoInt).toBasic()) (0 : GoFloat64)]);
-						for (_i => _ in _samples) {
+						for (_i in 0..._samples.length.toBasic()) {
 							{};
 							var _counts = new Slice<GoInt>((_nfact : GoInt).toBasic(), 0, ...[for (i in 0...(_nfact : GoInt).toBasic()) (0 : GoInt)]);
 							{
@@ -1062,7 +1062,7 @@ function benchmarkPerm30ViaShuffle(_b:Ref<stdgo.testing.Testing.B>):Void {
 		var _n:GoInt = _b.n;
 		Go.cfor(_n > (0 : GoInt), _n--, {
 			var _p = new Slice<GoInt>((30 : GoInt).toBasic(), 0, ...[for (i in 0...(30 : GoInt).toBasic()) (0 : GoInt)]);
-			for (_i => _ in _p) {
+			for (_i in 0..._p.length.toBasic()) {
 				_p[_i] = _i;
 			};
 			_r.shuffle((30 : GoInt), function(_i:GoInt, _j:GoInt):Void {

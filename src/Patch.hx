@@ -515,10 +515,21 @@ final skipTargets = [
 	"math_test:testNextafter32" => ["interp"],
 	// "math_test:testSignbit" => ["interp"],
 	"math_test:testGamma" => ["interp"],
-	"strconv_test:testFp" => ["interp", "hl", "jvm"], // uses os read
-	"strconv_test:testFtoaPowersOfTwo" => ["interp", "hl", "jvm"], // imprecise float
-	"strconv_test:testUnquoteInvalidUTF8" => ["interp","hl","jvm"], // go does not pass in isolation
-	"strings_test:testBuilderGrow" => ["interp","hl","jvm"], // checks runtime allocations
+	"strconv_test:testFp" => [], // uses os read
+	"strconv_test:testFtoaPowersOfTwo" => [], // imprecise float
+	"strconv_test:testUnquoteInvalidUTF8" => [], // go does not pass in isolation
+	"strings_test:testBuilderGrow" => [], // checks runtime allocations num
+	"strings_test:testBuilderAllocs" => [], // checks runtime allocations num
+	"strings_test:testClone" => [], // uses unsafe pointer conversions
+	"strings_test:testBuilderCopyPanic" => [], // TODO: implement - uses complex functionality of recover in a go routine
+	"strings_test:testCompareStrings" => [], // uses unsafe pointer conversions
+	"strings_test:testReaderLenSize" => [], // TODO: implement - uses io
+	"strings_test:testReplacer" => [], // TODO: implement - uses bytes.Buffer
+	"strings_test:testPickAlgorithm" => [], // TODO: implement - uses fmt.Sprintf
+	"strings_test:testLastIndex" => [], // go does not pass in isolation
+	"strings_test:testIndexAny" => [], // go does not pass in isolation
+	"strings_test:testLastIndexAny" => [], // NOT TESTED YET
+	"strings_test:testIndexRune" => [], // NOT TESTED YET
 ];
 
 final structs = [

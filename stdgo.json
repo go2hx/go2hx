@@ -155,6 +155,7 @@
     "internal/testenv",
     "internal",
     "internal/bytealg",
+    "internal/cpu",
     "internal/itoa",
     "internal/oserror",
     "internal/reflectlite",

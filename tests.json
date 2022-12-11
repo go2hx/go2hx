@@ -36,5 +36,7 @@
     "reflect",
     "math/cmplx",
     "sync/atomic",
-    "sync"
+    "sync",
+    "internal/bytealg",
+    "internal/cpu"
 ]

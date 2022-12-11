@@ -124,7 +124,7 @@ function clean() {
 				for (path2 in FileSystem.readDirectory('stdgo/$path')) {
 					if (FileSystem.isDirectory('stdgo/$path/$path2')) {
 						switch path2 {
-							case "poll", "reflectlite", "bytealg", "testenv", "reflect":
+							case "poll", "reflectlite", "testenv", "reflect":
 							default:
 								deleteDirectoryRecursively('stdgo/$path/$path2');
 						}

@@ -16,7 +16,7 @@ function main() {
 	for (data in list) {
 		libs.push(data.split("-")[0]);
 	}
-	// libs = ["sync", "sync/atomic"];
+	//libs = ["internal/cpu","internal/bytealg","strings"];
 	trace(libs);
 	libCount = libs.length;
 	Main.setup(0, 1); // amount of processes to spawn
@@ -91,6 +91,8 @@ final noMain = [
 	"encoding",
 	"internal/testenv",
 	"reflect",
+	"internal/bytealg",
+	"internal/cpu",
 ];
 
 final externs = [

@@ -15,6 +15,7 @@
 | [stdgo.internal](./internal/README.md) | ❌ | no |  |  |  |  |
 | [stdgo.internal.abi](./internal/abi/README.md) | ❌ | no |  |  |  |  |
 | [stdgo.internal.bytealg](./internal/bytealg/README.md) | ✅ | no |  |  |  |  |
+| [stdgo.internal.cpu](./internal/cpu/README.md) | ✅ | no |  |  |  |  |
 | [stdgo.internal.fuzz](./internal/fuzz/README.md) | ❌ | no |  |  |  |  |
 | [stdgo.internal.goarch](./internal/goarch/README.md) | ✅ | no |  |  |  |  |
 | [stdgo.internal.godebug](./internal/godebug/README.md) | ✅ | no |  |  |  |  |

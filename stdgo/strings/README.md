@@ -15,7 +15,7 @@ Package strings implements simple functions to manipulate UTF\-8 encoded strings
 ```
 Error: Command failed with error 1
 === RUN   TestBuilder
---- PASS: TestBuilder (8.79764556884766e-05)
+--- PASS: TestBuilder (0.000144004821777344)
 === RUN   TestBuilderString
 Exception: slice out of bounds, index: 8 length: 8
 Called from stdgo.SliceData.set (stdgo/Slice.hx line 248)
@@ -32,7 +32,7 @@ Called from stdgo.strings_test._Strings.$Strings_Fields_.main (stdgo/strings_tes
 
 ```
 === RUN   TestBuilder
---- PASS: TestBuilder (0.0002040863037109375)
+--- PASS: TestBuilder (0.000178813934326171875)
 === RUN   TestBuilderString
 Exception: slice out of bounds, index: 8 length: 8
 Called from stdgo.strings_test._Strings_test.Strings_test_Fields_.testBuilderString (stdgo/strings_test/Strings_test.hx line 1424 column 2)

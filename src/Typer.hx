@@ -4358,7 +4358,7 @@ private function hasTypeParam(ct:ComplexType):Bool {
 }
 
 function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:Info):ExprDef {
-	var keyValueBool:Bool = hasKeyValueExpr(expr.elts);
+	final keyValueBool:Bool = hasKeyValueExpr(expr.elts);
 	final underlying = getUnderlying(type);
 	if (isInvalid(underlying)) {
 		return (macro @:invalid_compositelit null).expr;
@@ -4461,126 +4461,10 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 					}
 				}
 			}
-		case sliceType(elem):
-			final p = getTypePath(ct);
-			var exprs:Array<{index:Int, expr:Expr}> = [];
-			var index:Int = 0;
-			var max:Int = 0;
-			var keyValueBool:Bool = false;
-			function run(elt:Ast.Expr) {
-				if (elt.id == "CompositeLit") {
-					if (elt.type == null) {
-						// trace("elem: " + elem.get());
-						return {index: index, expr: toExpr(compositeLit(elem.get(), complexTypeElem(ct), elt, info))};
-					}
-				}
-				return {index: index, expr: typeExpr(elt, info)};
-			}
-			for (elt in expr.elts) {
-				if (elt.id == "KeyValueExpr") {
-					var elt:Ast.KeyValueExpr = elt;
-					var int = Std.parseInt(elt.key.value);
-					if (int == null) {
-						index = (elt.key.value : String).charCodeAt(0);
-					}else{
-						index = int;
-					}
-					exprs.push(run(elt.value));
-					keyValueBool = true;
-				} else {
-					exprs.push(run(elt));
-				}
-				index++;
-				if (index > max)
-					max = index;
-			}
-			var length = toExpr(EConst(CInt('$max')));
-			var value = defaultValue(elem.get(), info, false);
-			if (keyValueBool) {
-				var sets:Array<Expr> = [];
-				for (i in 0...exprs.length) {
-					var index = toExpr(EConst(CInt('${exprs[i].index}')));
-					var e = exprs[i].expr;
-					e = assignTranslate(typeof(expr.elts[i], info, false), elem.get(), e, info);
-					sets.push(macro s[$index] = $e);
-				}
-				sets.push(macro s);
-				return EBlock([macro var s:$ct = new $p(0, 0, ...([for (i in 0...$length) $value]))].concat(sets));
-			} else {
-				var params:Array<Expr> = [];
-				for (i in 0...exprs.length) {
-					var e = exprs[i].expr;
-					final t = typeof(expr.elts[i], info, false);
-					e = assignTranslate(t, elem.get(), e, info);
-					params.push(e);
-				}
-				params.unshift(macro 0);
-				params.unshift(macro 0);
-				return (macro(new $p($a{params}) : $ct)).expr;
-			}
-		case arrayType(elem, len):
-			final p = getTypePath(toComplexType(underlying, info));
-			if (keyValueBool) {
-				var exprs:Array<{index:Int, expr:Expr}> = [];
-				var index:Int = 0;
-				function run(elt:Ast.Expr) {
-					if (elt.id == "CompositeLit") {
-						if (elt.type == null)
-							return {index: index, expr: toExpr(compositeLit(elem.get(), complexTypeElem(ct), elt, info))};
-					}
-					return {index: index, expr: typeExpr(elt, info)};
-				}
-				for (elt in expr.elts) {
-					if (elt.id == "KeyValueExpr") { // array expansion syntax uses KeyValue, value being a string word representation of the number
-						var elt:Ast.KeyValueExpr = elt;
-						var int = Std.parseInt(elt.key.value);
-						if (int == null) {
-							index = (elt.key.value : String).charCodeAt(0);
-						}else{
-							index = int;
-						}
-						exprs.push(run(elt.value));
-						keyValueBool = true;
-					} else {
-						exprs.push(run(elt));
-					}
-					index++;
-				}
-				var length = toExpr(EConst(CInt('$len')));
-				final elem = elem.get();
-				var value = defaultValue(elem, info, false);
-				var sets:Array<Expr> = [];
-				for (i in 0...exprs.length) {
-					var index = toExpr(EConst(CInt('${exprs[i].index}')));
-					var value = exprs[i].expr;
-					value = assignTranslate(typeof(expr.elts[i], info, false), elem, value, info);
-					sets.push(macro s[$index] = $value);
-				}
-				sets.push(macro s);
-				return EBlock([macro var s:$ct = new $p(...[for (i in 0...$length) $value])].concat(sets));
-			} else {
-				var exprs:Array<Expr> = [];
-				for (elt in expr.elts) {
-					if (elt.id == "CompositeLit") {
-						if (elt.type == null) {
-							var e = toExpr(compositeLit(elem.get(), complexTypeElem(ct), elt, info));
-							e = assignTranslate(typeof(elt, info, false), elem.get(), e, info);
-							exprs.push(e);
-							continue;
-						}
-					}
-					var e = typeExpr(elt, info);
-					e = assignTranslate(typeof(elt, info, false), elem.get(), e, info);
-					exprs.push(e);
-				}
-				if (len == exprs.length)
-					return (macro(new $p($a{exprs}) : $ct)).expr;
-				var diff = len - exprs.length;
-				var len = toExpr(EConst(CInt('$diff')));
-				var value = defaultValue(elem.get(), info, true);
-				var values = macro [for (i in 0...$len) $value];
-				return (macro(new $p(...($a{exprs}.concat($values))) : $ct)).expr;
-			}
+		case sliceType(_.get() => elem):
+			return compositeLitList(elem,keyValueBool,-1,underlying,ct,expr,info).expr;
+		case arrayType(_.get() => elem, len):
+			return compositeLitList(elem,keyValueBool,len,underlying,ct,expr,info).expr;
 		case mapType(_.get() => var keyType, _.get() => valueType):
 			var t = toReflectType(type, info, []);
 			var params:Array<Expr> = [];
@@ -4621,6 +4505,72 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 		// return (macro Go.map($a{params})).expr;
 		default:
 			throw "not supported CompositeLit type: " + type;
+	}
+}
+
+private function compositeLitList(elem:GoType,keyValueBool:Bool, len:Int, underlying:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:Info):Expr {
+	final p = getTypePath(toComplexType(underlying, info));
+	if (keyValueBool) {
+		var exprs:Array<{index:Expr, expr:Expr}> = [];
+		function run(elt:Ast.Expr,index:Expr) {
+			if (elt.id == "CompositeLit") {
+				if (elt.type == null)
+					return {index: index, expr: toExpr(compositeLit(elem, complexTypeElem(ct), elt, info))};
+			}
+			return {index: index, expr: typeExpr(elt, info)};
+		}
+		var index:Int = 0;
+		for (elt in expr.elts) {
+			if (elt.id == "KeyValueExpr") { // array expansion syntax uses KeyValue, value being a string word representation of the number
+				var elt:Ast.KeyValueExpr = elt;
+				final index = typeExpr(elt.key,info);
+				exprs.push(run(elt.value,index));
+			} else {
+				exprs.push(run(elt,makeExpr(index)));
+			}
+			index++;
+		}
+		if (len == -1)
+			len = 0;
+		var length = toExpr(EConst(CInt('$len')));
+		final elem = elem;
+		var value = defaultValue(elem, info, false);
+		var sets:Array<Expr> = [];
+		for (i in 0...exprs.length) {
+			var index = exprs[i].index; //toExpr(EConst(CInt('${exprs[i].index}')));
+			var value = exprs[i].expr;
+			value = assignTranslate(typeof(expr.elts[i], info, false), elem, value, info);
+			sets.push(macro s[$index] = $value);
+		}
+		sets.push(macro s);
+		return toExpr(EBlock([macro var s:$ct = new $p(...[for (i in 0...$length) $value])].concat(sets)));
+	} else {
+		var exprs:Array<Expr> = [];
+		for (elt in expr.elts) {
+			if (elt.id == "CompositeLit") {
+				if (elt.type == null) {
+					var e = toExpr(compositeLit(elem, complexTypeElem(ct), elt, info));
+					e = assignTranslate(typeof(elt, info, false), elem, e, info);
+					exprs.push(e);
+					continue;
+				}
+			}
+			var e = typeExpr(elt, info);
+			e = assignTranslate(typeof(elt, info, false), elem, e, info);
+			exprs.push(e);
+		}
+		if (len == -1 || len == exprs.length) {
+			if (len == -1) {
+				exprs.unshift(macro 0);
+				exprs.unshift(macro 0);
+			}
+			return macro(new $p($a{exprs}) : $ct);
+		}
+		var diff = len - exprs.length;
+		var len = toExpr(EConst(CInt('$diff')));
+		var value = defaultValue(elem, info, true);
+		var values = macro [for (i in 0...$len) $value];
+		return macro(new $p(...($a{exprs}.concat($values))) : $ct);
 	}
 }
 

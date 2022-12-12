@@ -508,6 +508,21 @@ final list = [
 	},
 	// stdgo/math/rand
 	"math.rand:intn" => macro return Std.random(_n),
+	// stdgo/internal/bytealg
+	"internal.bytealg:indexByteString" => macro {
+		for (i in 0..._s.length.toBasic()) {
+			if (_s[i] == _c)
+				return i;
+		}
+		return -1;
+	},
+	"internal.bytealg:indexByte" => macro {
+		for (i in 0..._b.length.toBasic()) {
+			if (_b[i] == _c)
+				return i;
+		}
+		return -1;
+	}
 ];
 
 final skipTargets = [

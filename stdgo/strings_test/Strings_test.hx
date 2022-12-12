@@ -1466,10 +1466,8 @@ function testBuilderReset(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testBuilderGrow(_t:Ref<stdgo.testing.Testing.T>):Void {
-	#if (interp || hl || jvm) {
-		trace("testBuilderGrow" + " skip targets: " + "interp, hl, jvm");
-		return;
-	} #else null #end;
+	trace("testBuilderGrow" + " skip function");
+	return;
 	for (_0 => _growLen in (new Slice<GoInt>(0, 0, (0 : GoInt), (100 : GoInt), (1000 : GoInt), (10000 : GoInt), (100000 : GoInt)) : Slice<GoInt>)) {
 		var _p = stdgo.bytes.Bytes.repeat((new Slice<GoUInt8>(0, 0, ("a".code : GoRune)) : Slice<GoUInt8>), _growLen);
 		var _allocs:GoFloat64 = stdgo.testing.Testing.allocsPerRun((100 : GoInt), function():Void {
@@ -1576,6 +1574,8 @@ function testBuilderWriteByte(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testBuilderAllocs(_t:Ref<stdgo.testing.Testing.T>):Void {
+	trace("testBuilderAllocs" + " skip function");
+	return;
 	var _n:GoFloat64 = stdgo.testing.Testing.allocsPerRun((10000 : GoInt), function():Void {
 		var _b:Builder = ({} : Builder);
 		_b.grow((5 : GoInt));
@@ -1588,6 +1588,8 @@ function testBuilderAllocs(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testBuilderCopyPanic(_t:Ref<stdgo.testing.Testing.T>):Void {
+	trace("testBuilderCopyPanic" + " skip function");
+	return;
 	var _tests = (new Slice<T__struct_1>(0, 0, ({_name: ("" : GoString), _fn: null, _wantPanic: false} : T__struct_1),
 		({_name: ("" : GoString), _fn: null, _wantPanic: false} : T__struct_1), ({_name: ("" : GoString), _fn: null, _wantPanic: false} : T__struct_1),
 		({_name: ("" : GoString), _fn: null, _wantPanic: false} : T__struct_1), ({_name: ("" : GoString), _fn: null, _wantPanic: false} : T__struct_1),
@@ -1711,6 +1713,8 @@ function benchmarkBuildString_ByteBuffer(_b:Ref<stdgo.testing.Testing.B>):Void {
 }
 
 function testClone(_t:Ref<stdgo.testing.Testing.T>):Void {
+	trace("testClone" + " skip function");
+	return;
 	var _cloneTests:Slice<GoString> = (new Slice<GoString>(0, 0, Go.str(), stdgo.strings.Strings.clone(Go.str()),
 		(stdgo.strings.Strings.repeat(Go.str("a"), (42 : GoInt)).__slice__(0, (0 : GoInt)) : GoString), Go.str("short"),
 		stdgo.strings.Strings.repeat(Go.str("a"), (42 : GoInt))) : Slice<GoString>);
@@ -1813,6 +1817,8 @@ function testCompareIdenticalString(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testCompareStrings(_t:Ref<stdgo.testing.Testing.T>):Void {
+	trace("testCompareStrings" + " skip function");
+	return;
 	var _unsafeString = function(_b:Slice<GoByte>):GoString {
 		return ((Go.toInterface((_b : Ref<Slice<GoUInt8>>)) : stdgo.unsafe.Unsafe.UnsafePointer)
 			.__convert__(stdgo.internal.reflect.Reflect.GoType.pointerType(stdgo.internal.reflect.Reflect.GoType.basic(string_kind))) : Pointer<GoString>)
@@ -2487,6 +2493,8 @@ function testWriteTo(_t:Ref<stdgo.testing.Testing.T>):Void {
 	// tests that Len is affected by reads, but Size is not.
 **/
 function testReaderLenSize(_t:Ref<stdgo.testing.Testing.T>):Void {
+	trace("testReaderLenSize" + " skip function");
+	return;
 	var _r = stdgo.strings.Strings.newReader(Go.str("abc"));
 	stdgo.io.Io.copyN(stdgo.io.Io.discard, Go.asInterface(_r), ("1" : GoInt64));
 	if (_r.len() != ((2 : GoInt))) {
@@ -2635,6 +2643,8 @@ function _oldHTMLEscape(_s:GoString):GoString {
 	// TestReplacer tests the replacer implementations.
 **/
 function testReplacer(_t:Ref<stdgo.testing.Testing.T>):Void {
+	trace("testReplacer" + " skip function");
+	return;
 	{};
 	var _testCases:Slice<T_testCase_testReplacer_0> = (null : Slice<stdgo.strings_test.Strings_test.T_testCase_testReplacer_0>);
 	var _str:GoUInt8->GoString = function(_b:GoByte):GoString {
@@ -2867,6 +2877,8 @@ function testReplacer(_t:Ref<stdgo.testing.Testing.T>):Void {
 	// TestPickAlgorithm tests that NewReplacer picks the correct algorithm.
 **/
 function testPickAlgorithm(_t:Ref<stdgo.testing.Testing.T>):Void {
+	trace("testPickAlgorithm" + " skip function");
+	return;
 	for (_i => _tc in _algorithmTestCases) {
 		var _got:GoString = stdgo.fmt.Fmt.sprintf(Go.str("%T"), _tc._r.replacer());
 		if (_got != (_tc._want)) {
@@ -3262,14 +3274,20 @@ function testIndex(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testLastIndex(_t:Ref<stdgo.testing.Testing.T>):Void {
+	trace("testLastIndex" + " skip function");
+	return;
 	_runIndexTests(_t, lastIndex, Go.str("LastIndex"), _lastIndexTests);
 }
 
 function testIndexAny(_t:Ref<stdgo.testing.Testing.T>):Void {
+	trace("testIndexAny" + " skip function");
+	return;
 	_runIndexTests(_t, indexAny, Go.str("IndexAny"), _indexAnyTests);
 }
 
 function testLastIndexAny(_t:Ref<stdgo.testing.Testing.T>):Void {
+	trace("testLastIndexAny" + " skip function");
+	return;
 	_runIndexTests(_t, lastIndexAny, Go.str("LastIndexAny"), _lastIndexAnyTests);
 }
 
@@ -3359,6 +3377,8 @@ function testIndexRandom(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testIndexRune(_t:Ref<stdgo.testing.Testing.T>):Void {
+	trace("testIndexRune" + " skip function");
+	return;
 	var _tests = (new Slice<T__struct_10>(0, 0, ({_in: Go.str(), _rune: ("a".code : GoRune), _want: (-1 : GoInt)} : T__struct_10),
 		({_in: Go.str(), _rune: ("☺".code : GoRune), _want: (-1 : GoInt)} : T__struct_10),
 		({_in: Go.str("foo"), _rune: ("☹".code : GoRune), _want: (-1 : GoInt)} : T__struct_10),

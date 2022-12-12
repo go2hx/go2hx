@@ -3,6 +3,7 @@
  "hl|math",
  "hl|math/bits",
  "hl|sort",
+ "hl|strconv",
  "hl|unicode",
  "hl|unicode/utf16",
  "hl|unicode/utf8",

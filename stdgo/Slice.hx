@@ -125,15 +125,15 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		if (this == null)
 			this = new SliceData<T>(0, 0);
 		final startOffset = this.length;
-		final growCapacity = args.length - this.capacity + this.length + this.offset;
-		if (growCapacity <= 0) {
+		final growCapacity = args.length - this.capacity + this.length + this.offset + 1;
+		if (growCapacity <= 1) {
 			this.length += args.length;
 			for (i in 0...args.length) {
 				this.set(startOffset + i, args[i]);
 			}
 			return this;
 		} else {
-			this.length += growCapacity;
+			this.length += args.length;
 			this.capacity += growCapacity;
 			this.capacity += this.capacity >> 2;
 			this.grow(); // allocation
@@ -147,8 +147,8 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	public function __append__(args:Rest<T>):Slice<T> {
 		final slice:SliceData<T> = __ref__(); // no allocation
 		final startOffset = slice.length;
-		final growCapacity = args.length - slice.capacity + slice.length + slice.offset;
-		if (growCapacity <= 0) {
+		final growCapacity = args.length - slice.capacity + slice.length + slice.offset + 1;
+		if (growCapacity <= 1) {
 			slice.vector = slice.vector.copy(); // allocation
 			slice.length += args.length;
 			for (i in 0...args.length) {
@@ -156,7 +156,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 			}
 			return slice;
 		}
-		slice.length += growCapacity;
+		slice.length += args.length;
 		slice.capacity += growCapacity;
 		slice.capacity += slice.capacity >> 2;
 		slice.grow(); // allocation
@@ -218,7 +218,7 @@ class SliceData<T> {
 
 	public inline function new(length:Int, capacity:Int, args:Rest<T>) {
 		if (capacity != -1) {
-			final vectorLength = if (args.length > this.capacity) {
+			final vectorLength = if (args.length > capacity) {
 				args.length;
 			} else {
 				capacity;

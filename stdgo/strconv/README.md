@@ -9,88 +9,123 @@
 Package strconv implements conversions to and from string representations of basic data types.  \# Numeric Conversions  The most common numeric conversions are Atoi \(string to int\) and Itoa \(int to string\).  i, err := strconv.Atoi\("\-42"\) s := strconv.Itoa\(\-42\)  These assume decimal and the Go int type.  ParseBool, ParseFloat, ParseInt, and ParseUint convert strings to values:  b, err := strconv.ParseBool\("true"\) f, err := strconv.ParseFloat\("3.1415", 64\) i, err := strconv.ParseInt\("\-42", 10, 64\) u, err := strconv.ParseUint\("42", 10, 64\)  The parse functions return the widest type \(float64, int64, and uint64\), but if the size argument specifies a narrower width the result can be converted to that narrower type without data loss:  s := "2147483647" // biggest int32 i64, err := strconv.ParseInt\(s, 10, 32\) ... i := int32\(i64\)  FormatBool, FormatFloat, FormatInt, and FormatUint convert values to strings:  s := strconv.FormatBool\(true\) s := strconv.FormatFloat\(3.1415, 'E', \-1, 64\) s := strconv.FormatInt\(\-42, 16\) s := strconv.FormatUint\(42, 16\)  AppendBool, AppendFloat, AppendInt, and AppendUint are similar but append the formatted value to a destination slice.  \# String Conversions  Quote and QuoteToASCII convert strings to quoted Go string literals. The latter guarantees that the result is an ASCII string, by escaping any non\-ASCII Unicode with \\u:  q := strconv.Quote\("Hello, 世界"\) q := strconv.QuoteToASCII\("Hello, 世界"\)  QuoteRune and QuoteRuneToASCII are similar but accept runes and return quoted Go rune literals.  Unquote and UnquoteChar unquote Go string and rune literals. 
 
 
-<details><summary>hl tests failed</summary>
+<details><summary>hl tests passed</summary>
 <p>
 
 ```
-Error: Command failed with error 1
 === RUN   TestParseBool
---- PASS: TestParseBool (0.000266075134277344)
+--- PASS: TestParseBool (0.000256061553955078)
 === RUN   TestFormatBool
---- PASS: TestFormatBool (6.4849853515625e-05)
+--- PASS: TestFormatBool (3.09944152832031e-05)
 === RUN   TestAppendBool
---- PASS: TestAppendBool (3.50475311279297e-05)
+--- PASS: TestAppendBool (1.78813934326172e-05)
 === RUN   TestParseComplex
---- PASS: TestParseComplex (0.214401006698608)
+--- PASS: TestParseComplex (0.230736970901489)
 === RUN   TestParseComplexIncorrectBitSize
---- PASS: TestParseComplexIncorrectBitSize (0.000584125518798828)
+--- PASS: TestParseComplexIncorrectBitSize (0.00055694580078125)
 === RUN   TestParseFloatPrefix
---- PASS: TestParseFloatPrefix (1.31412601470947)
+--- PASS: TestParseFloatPrefix (1.40637183189392)
 === RUN   TestAtof
---- PASS: TestAtof (1.38030886650085)
+--- PASS: TestAtof (1.46315598487854)
 === RUN   TestAtofSlow
---- PASS: TestAtofSlow (2.29638409614563)
+--- PASS: TestAtofSlow (2.51456713676453)
 === RUN   TestAtofRandom
---- PASS: TestAtofRandom (0.00980591773986816)
+--- PASS: TestAtofRandom (0.010261058807373)
 === RUN   TestRoundTrip
---- PASS: TestRoundTrip (0.00531888008117676)
+--- PASS: TestRoundTrip (0.00556802749633789)
 === RUN   TestRoundTrip32
---- PASS: TestRoundTrip32 (9.17904901504517)
+--- PASS: TestRoundTrip32 (9.77440500259399)
 === RUN   TestParseFloatIncorrectBitSize
---- PASS: TestParseFloatIncorrectBitSize (0.000269889831542969)
+--- PASS: TestParseFloatIncorrectBitSize (0.000329017639160156)
 === RUN   TestParseUint32
---- PASS: TestParseUint32 (0.000396966934204102)
+--- PASS: TestParseUint32 (0.000360012054443359)
 === RUN   TestParseUint64
---- PASS: TestParseUint64 (0.000417947769165039)
+--- PASS: TestParseUint64 (0.000445842742919922)
 === RUN   TestParseUint64Base
---- PASS: TestParseUint64Base (0.00773000717163086)
+--- PASS: TestParseUint64Base (0.00860691070556641)
 === RUN   TestParseInt32
---- PASS: TestParseInt32 (0.00110507011413574)
+--- PASS: TestParseInt32 (0.00234603881835938)
 === RUN   TestParseInt64
---- PASS: TestParseInt64 (0.00201606750488281)
+--- PASS: TestParseInt64 (0.000936985015869141)
 === RUN   TestParseInt64Base
---- PASS: TestParseInt64Base (0.00701379776000977)
+--- PASS: TestParseInt64Base (0.00769591331481934)
 === RUN   TestParseUint
---- PASS: TestParseUint (0.000329017639160156)
+--- PASS: TestParseUint (0.000329971313476562)
 === RUN   TestParseInt
---- PASS: TestParseInt (0.00121092796325684)
+--- PASS: TestParseInt (0.00128889083862305)
 === RUN   TestAtoi
---- PASS: TestAtoi (0.00182008743286133)
+--- PASS: TestAtoi (0.00190997123718262)
 === RUN   TestParseIntBitSize
---- PASS: TestParseIntBitSize (0.000490903854370117)
+--- PASS: TestParseIntBitSize (0.000478982925415039)
 === RUN   TestParseUintBitSize
---- PASS: TestParseUintBitSize (0.000332832336425781)
+--- PASS: TestParseUintBitSize (0.000353097915649414)
 === RUN   TestParseIntBase
---- PASS: TestParseIntBase (0.000711202621459961)
+--- PASS: TestParseIntBase (0.000725030899047852)
 === RUN   TestParseUintBase
---- PASS: TestParseUintBase (0.000452995300292969)
+--- PASS: TestParseUintBase (0.000483989715576172)
 === RUN   TestNumError
---- PASS: TestNumError (5.29289245605469e-05)
+--- PASS: TestNumError (5.60283660888672e-05)
 === RUN   TestNumErrorUnwrap
---- PASS: TestNumErrorUnwrap (7.10487365722656e-05)
+--- PASS: TestNumErrorUnwrap (0.000146865844726562)
 === RUN   TestFormatComplex
---- PASS: TestFormatComplex (0.00564789772033691)
+--- PASS: TestFormatComplex (0.00592613220214844)
 === RUN   TestFormatComplexInvalidBitSize
---- PASS: TestFormatComplexInvalidBitSize (3.00407409667969e-05)
+--- PASS: TestFormatComplexInvalidBitSize (3.38554382324219e-05)
 === RUN   TestDecimalShift
---- PASS: TestDecimalShift (0.00113892555236816)
+--- PASS: TestDecimalShift (0.0013120174407959)
 === RUN   TestDecimalRound
---- PASS: TestDecimalRound (0.00714588165283203)
+--- PASS: TestDecimalRound (0.0087888240814209)
 === RUN   TestDecimalRoundedInteger
---- PASS: TestDecimalRoundedInteger (0.00191497802734375)
+--- PASS: TestDecimalRoundedInteger (0.00111508369445801)
 === RUN   TestFp
 strconv_test/Strconv_test.hx:3871: testFp skip function
---- PASS: TestFp (3.60012054443359e-05)
+--- PASS: TestFp (6.00814819335938e-05)
 === RUN   TestFtoa
-Exception: slice out of bounds, index: 13 length: 13
-Called from stdgo.SliceData.set (stdgo/Slice.hx line 248)
-Called from stdgo.strconv._Strconv.$Strconv_Fields_._fmtE (stdgo/Slice.hx line 141)
-Called from stdgo.strconv._Strconv.$Strconv_Fields_._formatDigits (stdgo/strconv/Strconv.hx line 2739)
-Called from stdgo.strconv._Strconv.$Strconv_Fields_._genericFtoa (stdgo/strconv/Strconv.hx line 2699)
-Called from stdgo.strconv._Strconv.$Strconv_Fields_.appendFloat (stdgo/strconv/Strconv.hx line 2615)
-Called from stdgo.strconv_test._Strconv_test.$Strconv_test_Fields_.testFtoa (stdgo/strconv_test/Strconv_test.hx line 3971)
-Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 353)
-Called from stdgo.strconv_test._Strconv.$Strconv_Fields_.main (stdgo/strconv_test/Strconv.hx line 231)
+--- PASS: TestFtoa (0.0797350406646729)
+=== RUN   TestFtoaPowersOfTwo
+strconv_test/Strconv_test.hx:3996: testFtoaPowersOfTwo skip function
+--- PASS: TestFtoaPowersOfTwo (2.59876251220703e-05)
+=== RUN   TestFtoaRandom
+--- PASS: TestFtoaRandom (1.69279003143311)
+=== RUN   TestFormatFloatInvalidBitSize
+--- PASS: TestFormatFloatInvalidBitSize (3.50475311279297e-05)
+=== RUN   TestMulByLog2Log10
+--- PASS: TestMulByLog2Log10 (0.00667095184326172)
+=== RUN   TestMulByLog10Log2
+--- PASS: TestMulByLog10Log2 (0.00138211250305176)
+=== RUN   TestItoa
+--- PASS: TestItoa (0.00704097747802734)
+=== RUN   TestUitoa
+--- PASS: TestUitoa (0.00119686126708984)
+=== RUN   TestFormatUintVarlen
+--- PASS: TestFormatUintVarlen (0.000875949859619141)
+=== RUN   TestIsPrint
+--- PASS: TestIsPrint (29.5806300640106)
+=== RUN   TestIsGraphic
+--- PASS: TestIsGraphic (29.6596300601959)
+=== RUN   TestQuote
+--- PASS: TestQuote (0.00212192535400391)
+=== RUN   TestQuoteToASCII
+--- PASS: TestQuoteToASCII (0.00135207176208496)
+=== RUN   TestQuoteToGraphic
+--- PASS: TestQuoteToGraphic (0.000570058822631836)
+=== RUN   TestQuoteRune
+--- PASS: TestQuoteRune (0.000401973724365234)
+=== RUN   TestQuoteRuneToASCII
+--- PASS: TestQuoteRuneToASCII (0.000246047973632812)
+=== RUN   TestQuoteRuneToGraphic
+--- PASS: TestQuoteRuneToGraphic (0.00048518180847168)
+=== RUN   TestCanBackquote
+--- PASS: TestCanBackquote (0.000487089157104492)
+=== RUN   TestUnquote
+--- PASS: TestUnquote (0.00339102745056152)
+=== RUN   TestUnquoteInvalidUTF8
+strconv_test/Strconv_test.hx:4514: testUnquoteInvalidUTF8 skip function
+--- PASS: TestUnquoteInvalidUTF8 (4.29153442382812e-05)
+=== RUN   TestCountMallocs
+--- PASS: TestCountMallocs (0.284384965896606)
+=== RUN   TestErrorPrefixes
+--- PASS: TestErrorPrefixes (0.00031280517578125)
 ```
 </p>
 </details>
@@ -100,25 +135,25 @@ Called from stdgo.strconv_test._Strconv.$Strconv_Fields_.main (stdgo/strconv_tes
 
 ```
 === RUN   TestParseBool
---- PASS: TestParseBool (0.000794172286987304688)
+--- PASS: TestParseBool (0.000531911849975585938)
 === RUN   TestFormatBool
---- PASS: TestFormatBool (8.678436279296875e-05)
+--- PASS: TestFormatBool (8.08238983154296875e-05)
 === RUN   TestAppendBool
---- PASS: TestAppendBool (6.8187713623046875e-05)
+--- PASS: TestAppendBool (6.9141387939453125e-05)
 === RUN   TestParseComplex
---- PASS: TestParseComplex (1.50054597854614258)
+--- PASS: TestParseComplex (1.48264884948730469)
 === RUN   TestParseComplexIncorrectBitSize
---- PASS: TestParseComplexIncorrectBitSize (0.00407099723815918)
+--- PASS: TestParseComplexIncorrectBitSize (0.00395894050598144531)
 === RUN   TestParseFloatPrefix
---- PASS: TestParseFloatPrefix (7.51289200782775879)
+--- PASS: TestParseFloatPrefix (8.03916001319885254)
 === RUN   TestAtof
---- PASS: TestAtof (7.07458591461181641)
+--- PASS: TestAtof (7.37596702575683594)
 === RUN   TestAtofSlow
---- PASS: TestAtofSlow (13.8812019824981689)
+--- PASS: TestAtofSlow (15.1383588314056396)
 === RUN   TestAtofRandom
---- PASS: TestAtofRandom (0.0555350780487060547)
+--- PASS: TestAtofRandom (0.0535109043121337891)
 === RUN   TestRoundTrip
---- PASS: TestRoundTrip (0.0261790752410888672)
+--- PASS: TestRoundTrip (0.025691986083984375)
 === RUN   TestRoundTrip32
 ParseFloat(-2.44997e-05, 32) = -2.44997e-05, not a float32 (nearest is -2.44997008849168196e-05)
 ```

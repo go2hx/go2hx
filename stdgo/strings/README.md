@@ -15,14 +15,95 @@ Package strings implements simple functions to manipulate UTF\-8 encoded strings
 ```
 Error: Command failed with error 1
 === RUN   TestBuilder
---- PASS: TestBuilder (0.000144004821777344)
+--- PASS: TestBuilder (8.20159912109375e-05)
 === RUN   TestBuilderString
-Exception: slice out of bounds, index: 8 length: 8
-Called from stdgo.SliceData.set (stdgo/Slice.hx line 248)
-Called from stdgo.strings.$Builder_static_extension.writeString (stdgo/Slice.hx line 141)
-Called from stdgo.strings_test._Strings_test.$Strings_test_Fields_.testBuilderString (stdgo/strings_test/Strings_test.hx line 1424)
-Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 353)
-Called from stdgo.strings_test._Strings.$Strings_Fields_.main (stdgo/strings_test/Strings.hx line 336)
+--- PASS: TestBuilderString (3.69548797607422e-05)
+=== RUN   TestBuilderReset
+--- PASS: TestBuilderReset (4.29153442382812e-05)
+=== RUN   TestBuilderGrow
+strings_test/Strings_test.hx:1469: testBuilderGrow skip function
+--- PASS: TestBuilderGrow (4.60147857666016e-05)
+=== RUN   TestBuilderWrite2
+--- PASS: TestBuilderWrite2 (1.59740447998047e-05)
+=== RUN   TestBuilderWriteByte
+--- PASS: TestBuilderWriteByte (3.38554382324219e-05)
+=== RUN   TestBuilderAllocs
+strings_test/Strings_test.hx:1577: testBuilderAllocs skip function
+--- PASS: TestBuilderAllocs (3.31401824951172e-05)
+=== RUN   TestBuilderCopyPanic
+strings_test/Strings_test.hx:1591: testBuilderCopyPanic skip function
+--- PASS: TestBuilderCopyPanic (3.31401824951172e-05)
+=== RUN   TestBuilderWriteInvalidRune
+--- PASS: TestBuilderWriteInvalidRune (3.814697265625e-05)
+=== RUN   TestClone
+strings_test/Strings_test.hx:1716: testClone skip function
+--- PASS: TestClone (1.40666961669922e-05)
+=== RUN   TestCompare
+--- PASS: TestCompare (2.59876251220703e-05)
+=== RUN   TestCompareIdenticalString
+--- PASS: TestCompareIdenticalString (1.21593475341797e-05)
+=== RUN   TestCompareStrings
+strings_test/Strings_test.hx:1820: testCompareStrings skip function
+--- PASS: TestCompareStrings (3.40938568115234e-05)
+=== RUN   TestReader
+--- PASS: TestReader (9.41753387451172e-05)
+=== RUN   TestReadAfterBigSeek
+--- PASS: TestReadAfterBigSeek (3.91006469726562e-05)
+=== RUN   TestReaderAt
+--- PASS: TestReaderAt (0.00020909309387207)
+=== RUN   TestReaderAtConcurrent
+--- PASS: TestReaderAtConcurrent (0.000361204147338867)
+=== RUN   TestEmptyReaderConcurrent
+--- PASS: TestEmptyReaderConcurrent (0.00091099739074707)
+=== RUN   TestWriteTo
+--- PASS: TestWriteTo (0.000817060470581055)
+=== RUN   TestReaderLenSize
+strings_test/Strings_test.hx:2496: testReaderLenSize skip function
+--- PASS: TestReaderLenSize (2.38418579101562e-05)
+=== RUN   TestReaderReset
+--- PASS: TestReaderReset (0.000169992446899414)
+=== RUN   TestReaderZero
+--- PASS: TestReaderZero (7.39097595214844e-05)
+=== RUN   TestReplacer
+strings_test/Strings_test.hx:2646: testReplacer skip function
+--- PASS: TestReplacer (2.50339508056641e-05)
+=== RUN   TestPickAlgorithm
+strings_test/Strings_test.hx:2880: testPickAlgorithm skip function
+--- PASS: TestPickAlgorithm (1.69277191162109e-05)
+=== RUN   TestWriteStringError
+--- PASS: TestWriteStringError (0.00163698196411133)
+=== RUN   TestGenericTrieBuilding
+--- PASS: TestGenericTrieBuilding (0.0061190128326416)
+=== RUN   TestFinderNext
+--- PASS: TestFinderNext (0.000818967819213867)
+=== RUN   TestFinderCreation
+--- PASS: TestFinderCreation (0.000828981399536133)
+=== RUN   TestIndex
+--- PASS: TestIndex (0.000298976898193359)
+=== RUN   TestLastIndex
+strings_test/Strings_test.hx:3277: testLastIndex skip function
+--- PASS: TestLastIndex (1.97887420654297e-05)
+=== RUN   TestIndexAny
+strings_test/Strings_test.hx:3283: testIndexAny skip function
+--- PASS: TestIndexAny (1.59740447998047e-05)
+=== RUN   TestLastIndexAny
+strings_test/Strings_test.hx:3289: testLastIndexAny skip function
+--- PASS: TestLastIndexAny (1.71661376953125e-05)
+=== RUN   TestIndexByte
+--- PASS: TestIndexByte (1.19209289550781e-05)
+=== RUN   TestLastIndexByte
+--- PASS: TestLastIndexByte (2.09808349609375e-05)
+=== RUN   TestIndexRandom
+--- PASS: TestIndexRandom (0.250324010848999)
+=== RUN   TestIndexRune
+strings_test/Strings_test.hx:3380: testIndexRune skip function
+--- PASS: TestIndexRune (2.40802764892578e-05)
+=== RUN   TestSplit
+--- PASS: TestSplit (0.00090789794921875)
+=== RUN   TestSplitAfter
+--- PASS: TestSplitAfter (0.000685214996337891)
+=== RUN   TestFields
+Fields( 	 ) = [	]; want []
 ```
 </p>
 </details>
@@ -32,13 +113,95 @@ Called from stdgo.strings_test._Strings.$Strings_Fields_.main (stdgo/strings_tes
 
 ```
 === RUN   TestBuilder
---- PASS: TestBuilder (0.000178813934326171875)
+--- PASS: TestBuilder (0.0001850128173828125)
 === RUN   TestBuilderString
-Exception: slice out of bounds, index: 8 length: 8
-Called from stdgo.strings_test._Strings_test.Strings_test_Fields_.testBuilderString (stdgo/strings_test/Strings_test.hx line 1424 column 2)
-Called from stdgo.strings.Builder_static_extension.writeString (stdgo/strings/Strings.hx line 121 column 3)
-Called from stdgo.SliceData.set (stdgo/Slice.hx line 248 column 3)
-Called from stdgo.SliceData.boundsCheck (stdgo/Slice.hx line 237 column 4)
+--- PASS: TestBuilderString (0.000200033187866210938)
+=== RUN   TestBuilderReset
+--- PASS: TestBuilderReset (7.0095062255859375e-05)
+=== RUN   TestBuilderGrow
+strings_test/Strings_test.hx:1469: testBuilderGrow skip function
+--- PASS: TestBuilderGrow (1.59740447998046875e-05)
+=== RUN   TestBuilderWrite2
+--- PASS: TestBuilderWrite2 (4.1961669921875e-05)
+=== RUN   TestBuilderWriteByte
+--- PASS: TestBuilderWriteByte (2.384185791015625e-05)
+=== RUN   TestBuilderAllocs
+strings_test/Strings_test.hx:1577: testBuilderAllocs skip function
+--- PASS: TestBuilderAllocs (8.8214874267578125e-06)
+=== RUN   TestBuilderCopyPanic
+strings_test/Strings_test.hx:1591: testBuilderCopyPanic skip function
+--- PASS: TestBuilderCopyPanic (9.059906005859375e-06)
+=== RUN   TestBuilderWriteInvalidRune
+--- PASS: TestBuilderWriteInvalidRune (0.000157117843627929688)
+=== RUN   TestClone
+strings_test/Strings_test.hx:1716: testClone skip function
+--- PASS: TestClone (1.50203704833984375e-05)
+=== RUN   TestCompare
+--- PASS: TestCompare (4.8160552978515625e-05)
+=== RUN   TestCompareIdenticalString
+--- PASS: TestCompareIdenticalString (1.59740447998046875e-05)
+=== RUN   TestCompareStrings
+strings_test/Strings_test.hx:1820: testCompareStrings skip function
+--- PASS: TestCompareStrings (1.21593475341796875e-05)
+=== RUN   TestReader
+--- PASS: TestReader (0.000259160995483398438)
+=== RUN   TestReadAfterBigSeek
+--- PASS: TestReadAfterBigSeek (9.0122222900390625e-05)
+=== RUN   TestReaderAt
+--- PASS: TestReaderAt (0.000461816787719726562)
+=== RUN   TestReaderAtConcurrent
+--- PASS: TestReaderAtConcurrent (0.0007801055908203125)
+=== RUN   TestEmptyReaderConcurrent
+--- PASS: TestEmptyReaderConcurrent (0.00193095207214355469)
+=== RUN   TestWriteTo
+--- PASS: TestWriteTo (0.0010280609130859375)
+=== RUN   TestReaderLenSize
+strings_test/Strings_test.hx:2496: testReaderLenSize skip function
+--- PASS: TestReaderLenSize (1.88350677490234375e-05)
+=== RUN   TestReaderReset
+--- PASS: TestReaderReset (0.000548124313354492188)
+=== RUN   TestReaderZero
+--- PASS: TestReaderZero (0.000186920166015625)
+=== RUN   TestReplacer
+strings_test/Strings_test.hx:2646: testReplacer skip function
+--- PASS: TestReplacer (1.69277191162109375e-05)
+=== RUN   TestPickAlgorithm
+strings_test/Strings_test.hx:2880: testPickAlgorithm skip function
+--- PASS: TestPickAlgorithm (1.0013580322265625e-05)
+=== RUN   TestWriteStringError
+--- PASS: TestWriteStringError (0.0026187896728515625)
+=== RUN   TestGenericTrieBuilding
+--- PASS: TestGenericTrieBuilding (0.00617694854736328125)
+=== RUN   TestFinderNext
+--- PASS: TestFinderNext (0.00315785408020019531)
+=== RUN   TestFinderCreation
+--- PASS: TestFinderCreation (0.00361990928649902344)
+=== RUN   TestIndex
+--- PASS: TestIndex (0.00175213813781738281)
+=== RUN   TestLastIndex
+strings_test/Strings_test.hx:3277: testLastIndex skip function
+--- PASS: TestLastIndex (1.811981201171875e-05)
+=== RUN   TestIndexAny
+strings_test/Strings_test.hx:3283: testIndexAny skip function
+--- PASS: TestIndexAny (1.1920928955078125e-05)
+=== RUN   TestLastIndexAny
+strings_test/Strings_test.hx:3289: testLastIndexAny skip function
+--- PASS: TestLastIndexAny (1.0967254638671875e-05)
+=== RUN   TestIndexByte
+--- PASS: TestIndexByte (8.08238983154296875e-05)
+=== RUN   TestLastIndexByte
+--- PASS: TestLastIndexByte (4.9114227294921875e-05)
+=== RUN   TestIndexRandom
+--- PASS: TestIndexRandom (0.576337814331054688)
+=== RUN   TestIndexRune
+strings_test/Strings_test.hx:3380: testIndexRune skip function
+--- PASS: TestIndexRune (1.88350677490234375e-05)
+=== RUN   TestSplit
+--- PASS: TestSplit (0.00327396392822265625)
+=== RUN   TestSplitAfter
+--- PASS: TestSplitAfter (0.00232100486755371094)
+=== RUN   TestFields
+Fields( 	 ) = [	]; want []
 ```
 </p>
 </details>

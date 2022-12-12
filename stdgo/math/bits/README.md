@@ -14,57 +14,57 @@ Package bits implements bit counting and manipulation functions for the predecla
 
 ```
 === RUN   TestUintSize
---- PASS: TestUintSize (5.10215759277344e-05)
+--- PASS: TestUintSize (5.79357147216797e-05)
 === RUN   TestLeadingZeros
---- PASS: TestLeadingZeros (0.57206916809082)
+--- PASS: TestLeadingZeros (0.620999097824097)
 === RUN   TestTrailingZeros
---- PASS: TestTrailingZeros (0.483248949050903)
+--- PASS: TestTrailingZeros (0.530451059341431)
 === RUN   TestOnesCount
---- PASS: TestOnesCount (1.31474590301514)
+--- PASS: TestOnesCount (1.41848397254944)
 === RUN   TestRotateLeft
---- PASS: TestRotateLeft (0.00258398056030273)
+--- PASS: TestRotateLeft (0.00288796424865723)
 === RUN   TestReverse
---- PASS: TestReverse (0.0181500911712646)
+--- PASS: TestReverse (0.0197429656982422)
 === RUN   TestReverseBytes
---- PASS: TestReverseBytes (0.00100088119506836)
+--- PASS: TestReverseBytes (0.00107192993164062)
 === RUN   TestLen
---- PASS: TestLen (0.561748027801514)
+--- PASS: TestLen (0.610888957977295)
 === RUN   TestAddSubUint
---- PASS: TestAddSubUint (0.000245809555053711)
+--- PASS: TestAddSubUint (0.000256061553955078)
 === RUN   TestAddSubUint32
---- PASS: TestAddSubUint32 (0.000452041625976562)
+--- PASS: TestAddSubUint32 (0.000562906265258789)
 === RUN   TestAddSubUint64
---- PASS: TestAddSubUint64 (0.000370979309082031)
+--- PASS: TestAddSubUint64 (0.000395059585571289)
 === RUN   TestAdd64OverflowPanic
---- PASS: TestAdd64OverflowPanic (0.000461101531982422)
+--- PASS: TestAdd64OverflowPanic (0.000482797622680664)
 === RUN   TestSub64OverflowPanic
---- PASS: TestSub64OverflowPanic (0.000449895858764648)
+--- PASS: TestSub64OverflowPanic (0.000465869903564453)
 === RUN   TestMulDiv
---- PASS: TestMulDiv (0.000295162200927734)
+--- PASS: TestMulDiv (0.00031590461730957)
 === RUN   TestMulDiv32
---- PASS: TestMulDiv32 (0.000548124313354492)
+--- PASS: TestMulDiv32 (0.000636100769042969)
 === RUN   TestMulDiv64
---- PASS: TestMulDiv64 (0.00158286094665527)
+--- PASS: TestMulDiv64 (0.00165987014770508)
 === RUN   TestDivPanicOverflow
---- PASS: TestDivPanicOverflow (6.79492950439453e-05)
+--- PASS: TestDivPanicOverflow (8.29696655273438e-05)
 === RUN   TestDiv32PanicOverflow
---- PASS: TestDiv32PanicOverflow (5.41210174560547e-05)
+--- PASS: TestDiv32PanicOverflow (6.41345977783203e-05)
 === RUN   TestDiv64PanicOverflow
---- PASS: TestDiv64PanicOverflow (4.50611114501953e-05)
+--- PASS: TestDiv64PanicOverflow (4.88758087158203e-05)
 === RUN   TestDivPanicZero
---- PASS: TestDivPanicZero (4.50611114501953e-05)
+--- PASS: TestDivPanicZero (4.98294830322266e-05)
 === RUN   TestDiv32PanicZero
---- PASS: TestDiv32PanicZero (4.38690185546875e-05)
+--- PASS: TestDiv32PanicZero (4.60147857666016e-05)
 === RUN   TestDiv64PanicZero
---- PASS: TestDiv64PanicZero (4.29153442382812e-05)
+--- PASS: TestDiv64PanicZero (4.60147857666016e-05)
 === RUN   TestRem32
---- PASS: TestRem32 (0.0471491813659668)
+--- PASS: TestRem32 (0.052105188369751)
 === RUN   TestRem32Overflow
---- PASS: TestRem32Overflow (0.114089012145996)
+--- PASS: TestRem32Overflow (0.12577486038208)
 === RUN   TestRem64
---- PASS: TestRem64 (0.304486036300659)
+--- PASS: TestRem64 (0.336930990219116)
 === RUN   TestRem64Overflow
---- PASS: TestRem64Overflow (0.000741004943847656)
+--- PASS: TestRem64Overflow (0.000774860382080078)
 ```
 </p>
 </details>
@@ -74,57 +74,57 @@ Package bits implements bit counting and manipulation functions for the predecla
 
 ```
 === RUN   TestUintSize
---- PASS: TestUintSize (4.1961669921875e-05)
+--- PASS: TestUintSize (4.88758087158203125e-05)
 === RUN   TestLeadingZeros
---- PASS: TestLeadingZeros (3.01857900619506836)
+--- PASS: TestLeadingZeros (3.06099200248718262)
 === RUN   TestTrailingZeros
---- PASS: TestTrailingZeros (2.81505918502807617)
+--- PASS: TestTrailingZeros (2.83414006233215332)
 === RUN   TestOnesCount
---- PASS: TestOnesCount (7.07442998886108398)
+--- PASS: TestOnesCount (7.24215388298034668)
 === RUN   TestRotateLeft
---- PASS: TestRotateLeft (0.0142800807952880859)
+--- PASS: TestRotateLeft (0.0149030685424804688)
 === RUN   TestReverse
---- PASS: TestReverse (0.0868661403656005859)
+--- PASS: TestReverse (0.0893008708953857422)
 === RUN   TestReverseBytes
---- PASS: TestReverseBytes (0.00664496421813964844)
+--- PASS: TestReverseBytes (0.00667500495910644531)
 === RUN   TestLen
---- PASS: TestLen (2.96372413635253906)
+--- PASS: TestLen (2.98657393455505371)
 === RUN   TestAddSubUint
---- PASS: TestAddSubUint (0.00135707855224609375)
+--- PASS: TestAddSubUint (0.00138497352600097656)
 === RUN   TestAddSubUint32
 --- PASS: TestAddSubUint32 (0.000775814056396484375)
 === RUN   TestAddSubUint64
---- PASS: TestAddSubUint64 (0.00221800804138183594)
+--- PASS: TestAddSubUint64 (0.00229883193969726562)
 === RUN   TestAdd64OverflowPanic
---- PASS: TestAdd64OverflowPanic (0.00244092941284179688)
+--- PASS: TestAdd64OverflowPanic (0.0025119781494140625)
 === RUN   TestSub64OverflowPanic
---- PASS: TestSub64OverflowPanic (0.00204491615295410156)
+--- PASS: TestSub64OverflowPanic (0.00206279754638671875)
 === RUN   TestMulDiv
---- PASS: TestMulDiv (0.00167012214660644531)
+--- PASS: TestMulDiv (0.00165390968322753906)
 === RUN   TestMulDiv32
---- PASS: TestMulDiv32 (0.00115418434143066406)
+--- PASS: TestMulDiv32 (0.00113892555236816406)
 === RUN   TestMulDiv64
---- PASS: TestMulDiv64 (0.00998687744140625)
+--- PASS: TestMulDiv64 (0.00999593734741211)
 === RUN   TestDivPanicOverflow
---- PASS: TestDivPanicOverflow (0.00014495849609375)
+--- PASS: TestDivPanicOverflow (0.000170946121215820312)
 === RUN   TestDiv32PanicOverflow
---- PASS: TestDiv32PanicOverflow (7.51018524169921875e-05)
+--- PASS: TestDiv32PanicOverflow (7.41481781005859375e-05)
 === RUN   TestDiv64PanicOverflow
---- PASS: TestDiv64PanicOverflow (8.9168548583984375e-05)
+--- PASS: TestDiv64PanicOverflow (9.0122222900390625e-05)
 === RUN   TestDivPanicZero
---- PASS: TestDivPanicZero (0.0001049041748046875)
+--- PASS: TestDivPanicZero (0.00010395050048828125)
 === RUN   TestDiv32PanicZero
---- PASS: TestDiv32PanicZero (0.00010585784912109375)
+--- PASS: TestDiv32PanicZero (0.000107049942016601562)
 === RUN   TestDiv64PanicZero
---- PASS: TestDiv64PanicZero (8.79764556884765625e-05)
+--- PASS: TestDiv64PanicZero (8.70227813720703125e-05)
 === RUN   TestRem32
---- PASS: TestRem32 (0.224725008010864258)
+--- PASS: TestRem32 (0.218729972839355469)
 === RUN   TestRem32Overflow
---- PASS: TestRem32Overflow (0.635514974594116211)
+--- PASS: TestRem32Overflow (0.637003898620605469)
 === RUN   TestRem64
---- PASS: TestRem64 (1.63017010688781738)
+--- PASS: TestRem64 (1.62822604179382324)
 === RUN   TestRem64Overflow
---- PASS: TestRem64Overflow (0.00468611717224121094)
+--- PASS: TestRem64Overflow (0.00474405288696289062)
 ```
 </p>
 </details>

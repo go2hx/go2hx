@@ -616,6 +616,19 @@ private function unroll(parent:GoType, child:GoType):GoType {
 	}
 }
 
+function getUnderlyingRefNamed(gt:GoType, once:Bool = false) {
+	return switch gt {
+		case named(_, _, type), refType(type):
+			if (once) {
+				type;
+			} else {
+				getUnderlying(type);
+			}
+		default:
+			gt;
+	}
+}
+
 function getUnderlying(gt:GoType, once:Bool = false) {
 	return switch gt {
 		case named(_, _, type):

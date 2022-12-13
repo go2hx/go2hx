@@ -275,7 +275,7 @@ func parseLocalFile(file *ast.File, pkg *packages.Package) {
 func parseLocalConstants(file *ast.File, pkg *packages.Package) {
 	apply := func(cursor *astutil.Cursor) bool {
 		switch node := cursor.Node().(type) {
-		case *ast.BinaryExpr, *ast.Ident, *ast.UnaryExpr, *ast.SelectorExpr, *ast.ParenExpr, *ast.TypeAssertExpr:
+		case *ast.BinaryExpr, *ast.Ident, *ast.UnaryExpr, *ast.SelectorExpr, *ast.ParenExpr, *ast.TypeAssertExpr, *ast.BasicLit:
 			// constant folding
 			typeAndValue := checker.Types[node.(ast.Expr)]
 			if value := typeAndValue.Value; value != nil {

@@ -4511,8 +4511,8 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 private function compositeLitList(elem:GoType,keyValueBool:Bool, len:Int, underlying:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:Info):Expr {
 	final p = getTypePath(toComplexType(underlying, info));
 	if (keyValueBool) {
-		var exprs:Array<{index:Expr, expr:Expr}> = [];
-		function run(elt:Ast.Expr,index:Expr) {
+		var exprs:Array<{expr:Expr, index:Int}> = [];
+		function run(elt:Ast.Expr,index:Int) {
 			if (elt.id == "CompositeLit") {
 				if (elt.type == null)
 					return {index: index, expr: toExpr(compositeLit(elem, complexTypeElem(ct), elt, info))};
@@ -4523,27 +4523,33 @@ private function compositeLitList(elem:GoType,keyValueBool:Bool, len:Int, underl
 		for (elt in expr.elts) {
 			if (elt.id == "KeyValueExpr") { // array expansion syntax uses KeyValue, value being a string word representation of the number
 				var elt:Ast.KeyValueExpr = elt;
-				final index = typeExpr(elt.key,info);
+				final index = Std.parseInt(elt.key.value);
 				exprs.push(run(elt.value,index));
 			} else {
-				exprs.push(run(elt,makeExpr(index)));
+				exprs.push(run(elt,index));
 			}
 			index++;
 		}
-		if (len == -1)
-			len = 0;
-		var length = toExpr(EConst(CInt('$len')));
+		var length = makeExpr(len);
 		final elem = elem;
 		var value = defaultValue(elem, info, false);
 		var sets:Array<Expr> = [];
+		var max = 0;
 		for (i in 0...exprs.length) {
-			var index = exprs[i].index; //toExpr(EConst(CInt('${exprs[i].index}')));
+			var index = exprs[i].index;
+			if (index > max)
+				max = index;
 			var value = exprs[i].expr;
 			value = assignTranslate(typeof(expr.elts[i], info, false), elem, value, info);
-			sets.push(macro s[$index] = $value);
+			sets.push(macro s[${makeExpr(index)}] = $value);
 		}
 		sets.push(macro s);
-		return toExpr(EBlock([macro var s:$ct = new $p(...[for (i in 0...$length) $value])].concat(sets)));
+		if (len == -1) {
+			length = makeExpr(max);
+			return toExpr(EBlock([macro var s:$ct = new $p(0, 0, ...([for (i in 0...$length) $value]))].concat(sets)));
+		}else{
+			return toExpr(EBlock([macro var s:$ct = new $p(...[for (i in 0...$length) $value])].concat(sets)));
+		}
 	} else {
 		var exprs:Array<Expr> = [];
 		for (elt in expr.elts) {

@@ -5520,6 +5520,11 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 				case sliceType(_):
 					var t = namedTypePath(path, info);
 					macro new $t(0, 0);
+				case arrayType(_.get() => elem,len):
+					final t = namedTypePath(path,info);
+					final elem = defaultValue(elem,info);
+					final len = makeExpr(len);
+					macro new $t(...[for (i in 0...$len) $elem]);
 				default:
 					var t = namedTypePath(path, info);
 					macro new $t();

@@ -8666,7 +8666,7 @@ final version:GoString = Go.str("13.0.0");
 @:structInit class CaseRange {
 	public var lo:GoUInt32 = 0;
 	public var hi:GoUInt32 = 0;
-	public var delta:T_d = new T_d();
+	public var delta:T_d = new T_d(...[for (i in 0...3) (0 : GoInt32)]);
 
 	public function new(?lo:GoUInt32, ?hi:GoUInt32, ?delta:T_d) {
 		if (lo != null)

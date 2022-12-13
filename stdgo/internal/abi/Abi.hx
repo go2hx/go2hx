@@ -82,7 +82,7 @@ final effectiveFloatRegSize:GoUInt64 = (0 : GoUInt64);
 		// a reflectcall. The i'th bit indicates whether the i'th
 		// register contains or will contain a valid Go pointer.
 	**/
-	public var returnIsPtr:IntArgRegBitmap = new IntArgRegBitmap();
+	public var returnIsPtr:IntArgRegBitmap = new IntArgRegBitmap(...[for (i in 0...0) (0 : GoUInt8)]);
 
 	public function new(?ints:GoArray<GoUIntptr>, ?floats:GoArray<GoUInt64>, ?ptrs:GoArray<stdgo.unsafe.Unsafe.UnsafePointer>, ?returnIsPtr:IntArgRegBitmap) {
 		if (ints != null)

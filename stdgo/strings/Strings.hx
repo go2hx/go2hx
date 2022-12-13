@@ -1481,7 +1481,8 @@ function _lastIndexFunc(_s:GoString, _f:GoRune->Bool, _truth:Bool):GoInt {
 	// characters in chars are ASCII.
 **/
 function _makeASCIISet(_chars:GoString):{var _0:T_asciiSet; var _1:Bool;} {
-	var _as:T_asciiSet = new T_asciiSet(), _ok:Bool = false;
+	var _as:T_asciiSet = new T_asciiSet(...[for (i in 0...8) (0 : GoUInt32)]),
+		_ok:Bool = false;
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_chars.length), _i++, {

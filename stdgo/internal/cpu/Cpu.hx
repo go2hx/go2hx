@@ -408,7 +408,7 @@ function _processOptions(_env:GoString):Void {
 	stdgo.internal.Macro.controlFlow({
 		@:label("field") while (_env != (Go.str())) {
 			var _field:GoString = Go.str();
-			var _i:GoInt = _indexByte(_env, (",".code : GoRune));
+			var _i:GoInt = _indexByte(_env, (44 : GoUInt8));
 			if (_i < (0:GoInt)) {
 				{
 					final __tmp__0 = _env;
@@ -427,7 +427,7 @@ function _processOptions(_env:GoString):Void {
 			if ((_field.length < (4:GoInt)) || ((_field.__slice__(0, (4 : GoInt)) : GoString) != Go.str("cpu."))) {
 				continue;
 			};
-			_i = _indexByte(_field, ("=".code : GoRune));
+			_i = _indexByte(_field, (61 : GoUInt8));
 			if (_i < (0:GoInt)) {
 				stdgo.fmt.Fmt.print(Go.str("GODEBUG: no value specified for \""), _field, Go.str("\"\n"));
 				continue;

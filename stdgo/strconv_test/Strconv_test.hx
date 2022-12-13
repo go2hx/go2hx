@@ -912,11 +912,11 @@ private var _parseInt32Tests:Slice<stdgo.strconv_test.Strconv_test.T_parseInt32T
 
 private var _numErrorTests:Slice<stdgo.strconv_test.Strconv_test.T_numErrorTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_numErrorTest>(0, 0,
 	(new stdgo.strconv_test.Strconv_test.T_numErrorTest(Go.str("0"),
-		"strconv.ParseFloat: parsing \"0\": failed") : stdgo.strconv_test.Strconv_test.T_numErrorTest),
+		Go.str("strconv.ParseFloat: parsing \"0\": failed")) : stdgo.strconv_test.Strconv_test.T_numErrorTest),
 	(new stdgo.strconv_test.Strconv_test.T_numErrorTest(Go.str("`"),
 		Go.str("strconv.ParseFloat: parsing \"`\": failed")) : stdgo.strconv_test.Strconv_test.T_numErrorTest),
 	(new stdgo.strconv_test.Strconv_test.T_numErrorTest(Go.str("1", 0, ".2"),
-		"strconv.ParseFloat: parsing \"1\\x00.2\": failed") : stdgo.strconv_test.Strconv_test.T_numErrorTest)) : Slice<stdgo.strconv_test.Strconv_test.T_numErrorTest>);
+		Go.str("strconv.ParseFloat: parsing \"1\\x00.2\": failed")) : stdgo.strconv_test.Strconv_test.T_numErrorTest)) : Slice<stdgo.strconv_test.Strconv_test.T_numErrorTest>);
 
 private var _parseBitSizeTests:Slice<stdgo.strconv_test.Strconv_test.T_parseErrorTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_parseErrorTest>(0, 0,
 	(new stdgo.strconv_test.Strconv_test.T_parseErrorTest((-1 : GoInt), _bitSizeErrStub) : stdgo.strconv_test.Strconv_test.T_parseErrorTest),
@@ -992,387 +992,382 @@ private var _roundinttests:Slice<stdgo.strconv_test.Strconv_test.T_roundIntTest>
 		("1000" : GoUInt64)) : stdgo.strconv_test.Strconv_test.T_roundIntTest)) : Slice<stdgo.strconv_test.Strconv_test.T_roundIntTest>);
 
 private var _ftoatests:Slice<stdgo.strconv_test.Strconv_test.T_ftoaTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_ftoaTest>(0, 0,
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1 : GoFloat64), ("e".code : GoRune), (5 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1 : GoFloat64), (101 : GoUInt8), (5 : GoInt),
 		Go.str("1.00000e+00")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1 : GoFloat64), ("f".code : GoRune), (5 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1 : GoFloat64), (102 : GoUInt8), (5 : GoInt),
 		Go.str("1.00000")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1 : GoFloat64), ("g".code : GoRune), (5 : GoInt),
-		Go.str("1")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1 : GoFloat64), ("g".code : GoRune), (-1 : GoInt),
-		Go.str("1")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1 : GoFloat64), ("x".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1 : GoFloat64), (103 : GoUInt8), (5 : GoInt), Go.str("1")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1 : GoFloat64), (103 : GoUInt8), (-1 : GoInt), Go.str("1")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1 : GoFloat64), (120 : GoUInt8), (-1 : GoInt),
 		Go.str("0x1p+00")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1 : GoFloat64), ("x".code : GoRune), (5 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1 : GoFloat64), (120 : GoUInt8), (5 : GoInt),
 		Go.str("0x1.00000p+00")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((20 : GoFloat64), ("g".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((20 : GoFloat64), (103 : GoUInt8), (-1 : GoInt),
 		Go.str("20")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((20 : GoFloat64), ("x".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((20 : GoFloat64), (120 : GoUInt8), (-1 : GoInt),
 		Go.str("0x1.4p+04")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.2345678e+06 : GoFloat64), ("g".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.2345678e+06 : GoFloat64), (103 : GoUInt8), (-1 : GoInt),
 		Go.str("1.2345678e+06")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.2345678e+06 : GoFloat64), ("x".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.2345678e+06 : GoFloat64), (120 : GoUInt8), (-1 : GoInt),
 		Go.str("0x1.2d687cccccccdp+20")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((200000 : GoFloat64), ("g".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((200000 : GoFloat64), (103 : GoUInt8), (-1 : GoInt),
 		Go.str("200000")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((200000 : GoFloat64), ("x".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((200000 : GoFloat64), (120 : GoUInt8), (-1 : GoInt),
 		Go.str("0x1.86ap+17")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((200000 : GoFloat64), ("X".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((200000 : GoFloat64), (88 : GoUInt8), (-1 : GoInt),
 		Go.str("0X1.86AP+17")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((2e+06 : GoFloat64), ("g".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((2e+06 : GoFloat64), (103 : GoUInt8), (-1 : GoInt),
 		Go.str("2e+06")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1e+10 : GoFloat64), ("g".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1e+10 : GoFloat64), (103 : GoUInt8), (-1 : GoInt),
 		Go.str("1e+10")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((400 : GoFloat64), ("g".code : GoRune), (2 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((400 : GoFloat64), (103 : GoUInt8), (2 : GoInt),
 		Go.str("4e+02")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((40 : GoFloat64), ("g".code : GoRune), (2 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((40 : GoFloat64), (103 : GoUInt8), (2 : GoInt),
 		Go.str("40")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((4 : GoFloat64), ("g".code : GoRune), (2 : GoInt),
-		Go.str("4")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0.4 : GoFloat64), ("g".code : GoRune), (2 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((4 : GoFloat64), (103 : GoUInt8), (2 : GoInt), Go.str("4")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0.4 : GoFloat64), (103 : GoUInt8), (2 : GoInt),
 		Go.str("0.4")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0.04 : GoFloat64), ("g".code : GoRune), (2 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0.04 : GoFloat64), (103 : GoUInt8), (2 : GoInt),
 		Go.str("0.04")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0.004 : GoFloat64), ("g".code : GoRune), (2 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0.004 : GoFloat64), (103 : GoUInt8), (2 : GoInt),
 		Go.str("0.004")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0.0004 : GoFloat64), ("g".code : GoRune), (2 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0.0004 : GoFloat64), (103 : GoUInt8), (2 : GoInt),
 		Go.str("0.0004")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((4e-05 : GoFloat64), ("g".code : GoRune), (2 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((4e-05 : GoFloat64), (103 : GoUInt8), (2 : GoInt),
 		Go.str("4e-05")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((4e-06 : GoFloat64), ("g".code : GoRune), (2 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((4e-06 : GoFloat64), (103 : GoUInt8), (2 : GoInt),
 		Go.str("4e-06")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0 : GoFloat64), ("e".code : GoRune), (5 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0 : GoFloat64), (101 : GoUInt8), (5 : GoInt),
 		Go.str("0.00000e+00")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0 : GoFloat64), ("f".code : GoRune), (5 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0 : GoFloat64), (102 : GoUInt8), (5 : GoInt),
 		Go.str("0.00000")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0 : GoFloat64), ("g".code : GoRune), (5 : GoInt),
-		Go.str("0")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0 : GoFloat64), ("g".code : GoRune), (-1 : GoInt),
-		Go.str("0")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0 : GoFloat64), ("x".code : GoRune), (5 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0 : GoFloat64), (103 : GoUInt8), (5 : GoInt), Go.str("0")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0 : GoFloat64), (103 : GoUInt8), (-1 : GoInt), Go.str("0")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0 : GoFloat64), (120 : GoUInt8), (5 : GoInt),
 		Go.str("0x0.00000p+00")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((-1 : GoFloat64), ("e".code : GoRune), (5 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((-1 : GoFloat64), (101 : GoUInt8), (5 : GoInt),
 		Go.str("-1.00000e+00")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((-1 : GoFloat64), ("f".code : GoRune), (5 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((-1 : GoFloat64), (102 : GoUInt8), (5 : GoInt),
 		Go.str("-1.00000")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((-1 : GoFloat64), ("g".code : GoRune), (5 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((-1 : GoFloat64), (103 : GoUInt8), (5 : GoInt),
 		Go.str("-1")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((-1 : GoFloat64), ("g".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((-1 : GoFloat64), (103 : GoUInt8), (-1 : GoInt),
 		Go.str("-1")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((12 : GoFloat64), ("e".code : GoRune), (5 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((12 : GoFloat64), (101 : GoUInt8), (5 : GoInt),
 		Go.str("1.20000e+01")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((12 : GoFloat64), ("f".code : GoRune), (5 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((12 : GoFloat64), (102 : GoUInt8), (5 : GoInt),
 		Go.str("12.00000")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((12 : GoFloat64), ("g".code : GoRune), (5 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((12 : GoFloat64), (103 : GoUInt8), (5 : GoInt),
 		Go.str("12")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((12 : GoFloat64), ("g".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((12 : GoFloat64), (103 : GoUInt8), (-1 : GoInt),
 		Go.str("12")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.234567e+08 : GoFloat64), ("e".code : GoRune), (5 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.234567e+08 : GoFloat64), (101 : GoUInt8), (5 : GoInt),
 		Go.str("1.23457e+08")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.234567e+08 : GoFloat64), ("f".code : GoRune), (5 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.234567e+08 : GoFloat64), (102 : GoUInt8), (5 : GoInt),
 		Go.str("123456700.00000")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.234567e+08 : GoFloat64), ("g".code : GoRune), (5 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.234567e+08 : GoFloat64), (103 : GoUInt8), (5 : GoInt),
 		Go.str("1.2346e+08")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.234567e+08 : GoFloat64), ("g".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.234567e+08 : GoFloat64), (103 : GoUInt8), (-1 : GoInt),
 		Go.str("1.234567e+08")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.2345e+06 : GoFloat64), ("e".code : GoRune), (5 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.2345e+06 : GoFloat64), (101 : GoUInt8), (5 : GoInt),
 		Go.str("1.23450e+06")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.2345e+06 : GoFloat64), ("f".code : GoRune), (5 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.2345e+06 : GoFloat64), (102 : GoUInt8), (5 : GoInt),
 		Go.str("1234500.00000")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.2345e+06 : GoFloat64), ("g".code : GoRune), (5 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.2345e+06 : GoFloat64), (103 : GoUInt8), (5 : GoInt),
 		Go.str("1.2345e+06")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.2345e+06 : GoFloat64), ("e".code : GoRune), (3 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.2345e+06 : GoFloat64), (101 : GoUInt8), (3 : GoInt),
 		Go.str("1.234e+06")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.2355e+06 : GoFloat64), ("e".code : GoRune), (3 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.2355e+06 : GoFloat64), (101 : GoUInt8), (3 : GoInt),
 		Go.str("1.236e+06")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.2345 : GoFloat64), ("f".code : GoRune), (3 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.2345 : GoFloat64), (102 : GoUInt8), (3 : GoInt),
 		Go.str("1.234")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.2355 : GoFloat64), ("f".code : GoRune), (3 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.2355 : GoFloat64), (102 : GoUInt8), (3 : GoInt),
 		Go.str("1.236")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.2345678901234565e+15 : GoFloat64), ("e".code : GoRune), (15 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.2345678901234565e+15 : GoFloat64), (101 : GoUInt8), (15 : GoInt),
 		Go.str("1.234567890123456e+15")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.2345678901234575e+15 : GoFloat64), ("e".code : GoRune), (15 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.2345678901234575e+15 : GoFloat64), (101 : GoUInt8), (15 : GoInt),
 		Go.str("1.234567890123458e+15")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.0867823635813762e+14 : GoFloat64), ("g".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.0867823635813762e+14 : GoFloat64), (103 : GoUInt8), (-1 : GoInt),
 		Go.str("1.0867823635813762e+14")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1e+23 : GoFloat64), ("e".code : GoRune), (17 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1e+23 : GoFloat64), (101 : GoUInt8), (17 : GoInt),
 		Go.str("9.99999999999999916e+22")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1e+23 : GoFloat64), ("f".code : GoRune), (17 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1e+23 : GoFloat64), (102 : GoUInt8), (17 : GoInt),
 		Go.str("99999999999999991611392.00000000000000000")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1e+23 : GoFloat64), ("g".code : GoRune), (17 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1e+23 : GoFloat64), (103 : GoUInt8), (17 : GoInt),
 		Go.str("9.9999999999999992e+22")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1e+23 : GoFloat64), ("e".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1e+23 : GoFloat64), (101 : GoUInt8), (-1 : GoInt),
 		Go.str("1e+23")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1e+23 : GoFloat64), ("f".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1e+23 : GoFloat64), (102 : GoUInt8), (-1 : GoInt),
 		Go.str("100000000000000000000000")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1e+23 : GoFloat64), ("g".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1e+23 : GoFloat64), (103 : GoUInt8), (-1 : GoInt),
 		Go.str("1e+23")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((9.999999999999997e+22 : GoFloat64), ("e".code : GoRune), (17 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((9.999999999999997e+22 : GoFloat64), (101 : GoUInt8), (17 : GoInt),
 		Go.str("9.99999999999999748e+22")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((9.999999999999997e+22 : GoFloat64), ("f".code : GoRune), (17 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((9.999999999999997e+22 : GoFloat64), (102 : GoUInt8), (17 : GoInt),
 		Go.str("99999999999999974834176.00000000000000000")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((9.999999999999997e+22 : GoFloat64), ("g".code : GoRune), (17 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((9.999999999999997e+22 : GoFloat64), (103 : GoUInt8), (17 : GoInt),
 		Go.str("9.9999999999999975e+22")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((9.999999999999997e+22 : GoFloat64), ("e".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((9.999999999999997e+22 : GoFloat64), (101 : GoUInt8), (-1 : GoInt),
 		Go.str("9.999999999999997e+22")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((9.999999999999997e+22 : GoFloat64), ("f".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((9.999999999999997e+22 : GoFloat64), (102 : GoUInt8), (-1 : GoInt),
 		Go.str("99999999999999970000000")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((9.999999999999997e+22 : GoFloat64), ("g".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((9.999999999999997e+22 : GoFloat64), (103 : GoUInt8), (-1 : GoInt),
 		Go.str("9.999999999999997e+22")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.0000000000000001e+23 : GoFloat64), ("e".code : GoRune), (17 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.0000000000000001e+23 : GoFloat64), (101 : GoUInt8), (17 : GoInt),
 		Go.str("1.00000000000000008e+23")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.0000000000000001e+23 : GoFloat64), ("f".code : GoRune), (17 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.0000000000000001e+23 : GoFloat64), (102 : GoUInt8), (17 : GoInt),
 		Go.str("100000000000000008388608.00000000000000000")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.0000000000000001e+23 : GoFloat64), ("g".code : GoRune), (17 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.0000000000000001e+23 : GoFloat64), (103 : GoUInt8), (17 : GoInt),
 		Go.str("1.0000000000000001e+23")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.0000000000000001e+23 : GoFloat64), ("e".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.0000000000000001e+23 : GoFloat64), (101 : GoUInt8), (-1 : GoInt),
 		Go.str("1.0000000000000001e+23")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.0000000000000001e+23 : GoFloat64), ("f".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.0000000000000001e+23 : GoFloat64), (102 : GoUInt8), (-1 : GoInt),
 		Go.str("100000000000000010000000")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.0000000000000001e+23 : GoFloat64), ("g".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.0000000000000001e+23 : GoFloat64), (103 : GoUInt8), (-1 : GoInt),
 		Go.str("1.0000000000000001e+23")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest(_fdiv((5e-304 : GoFloat64), (1e+20 : GoFloat64)), ("g".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest(_fdiv((5e-304 : GoFloat64), (1e+20 : GoFloat64)), (103 : GoUInt8), (-1 : GoInt),
 		Go.str("5e-324")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest(_fdiv((-5e-304 : GoFloat64), (1e+20 : GoFloat64)), ("g".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest(_fdiv((-5e-304 : GoFloat64), (1e+20 : GoFloat64)), (103 : GoUInt8), (-1 : GoInt),
 		Go.str("-5e-324")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((32 : GoFloat64), ("g".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((32 : GoFloat64), (103 : GoUInt8), (-1 : GoInt),
 		Go.str("32")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((32 : GoFloat64), ("g".code : GoRune), (0 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((32 : GoFloat64), (103 : GoUInt8), (0 : GoInt),
 		Go.str("3e+01")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((100 : GoFloat64), ("x".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((100 : GoFloat64), (120 : GoUInt8), (-1 : GoInt),
 		Go.str("0x1.9p+06")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((100 : GoFloat64), ("y".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((100 : GoFloat64), (121 : GoUInt8), (-1 : GoInt),
 		Go.str("%y")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest(stdgo.math.Math.naN(), ("g".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest(stdgo.math.Math.naN(), (103 : GoUInt8), (-1 : GoInt),
 		Go.str("NaN")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest(-stdgo.math.Math.naN(), ("g".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest(-stdgo.math.Math.naN(), (103 : GoUInt8), (-1 : GoInt),
 		Go.str("NaN")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest(stdgo.math.Math.inf((0 : GoInt)), ("g".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest(stdgo.math.Math.inf((0 : GoInt)), (103 : GoUInt8), (-1 : GoInt),
 		Go.str("+Inf")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest(stdgo.math.Math.inf((-1 : GoInt)), ("g".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest(stdgo.math.Math.inf((-1 : GoInt)), (103 : GoUInt8), (-1 : GoInt),
 		Go.str("-Inf")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest(-stdgo.math.Math.inf((0 : GoInt)), ("g".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest(-stdgo.math.Math.inf((0 : GoInt)), (103 : GoUInt8), (-1 : GoInt),
 		Go.str("-Inf")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((-1 : GoFloat64), ("b".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((-1 : GoFloat64), (98 : GoUInt8), (-1 : GoInt),
 		Go.str("-4503599627370496p-52")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0.9 : GoFloat64), ("f".code : GoRune), (1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0.9 : GoFloat64), (102 : GoUInt8), (1 : GoInt),
 		Go.str("0.9")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0.09 : GoFloat64), ("f".code : GoRune), (1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0.09 : GoFloat64), (102 : GoUInt8), (1 : GoInt),
 		Go.str("0.1")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0.0999 : GoFloat64), ("f".code : GoRune), (1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0.0999 : GoFloat64), (102 : GoUInt8), (1 : GoInt),
 		Go.str("0.1")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0.05 : GoFloat64), ("f".code : GoRune), (1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0.05 : GoFloat64), (102 : GoUInt8), (1 : GoInt),
 		Go.str("0.1")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0.05 : GoFloat64), ("f".code : GoRune), (0 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0.05 : GoFloat64), (102 : GoUInt8), (0 : GoInt),
 		Go.str("0")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0.5 : GoFloat64), ("f".code : GoRune), (1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0.5 : GoFloat64), (102 : GoUInt8), (1 : GoInt),
 		Go.str("0.5")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0.5 : GoFloat64), ("f".code : GoRune), (0 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((0.5 : GoFloat64), (102 : GoUInt8), (0 : GoInt),
 		Go.str("0")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.5 : GoFloat64), ("f".code : GoRune), (0 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((1.5 : GoFloat64), (102 : GoUInt8), (0 : GoInt),
 		Go.str("2")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((2.2250738585072014e-308 : GoFloat64), ("g".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((2.2250738585072014e-308 : GoFloat64), (103 : GoUInt8), (-1 : GoInt),
 		Go.str("2.2250738585072014e-308")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((2.225073858507201e-308 : GoFloat64), ("g".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((2.225073858507201e-308 : GoFloat64), (103 : GoUInt8), (-1 : GoInt),
 		Go.str("2.225073858507201e-308")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((3.8326057576481645e+17 : GoFloat64), ("f".code : GoRune), (0 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((3.8326057576481645e+17 : GoFloat64), (102 : GoUInt8), (0 : GoInt),
 		Go.str("383260575764816448")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((3.8326057576481645e+17 : GoFloat64), ("g".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((3.8326057576481645e+17 : GoFloat64), (103 : GoUInt8), (-1 : GoInt),
 		Go.str("3.8326057576481645e+17")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((4.9848468198408557e+17 : GoFloat64), ("f".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((4.9848468198408557e+17 : GoFloat64), (102 : GoUInt8), (-1 : GoInt),
 		Go.str("498484681984085570")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((-5.8339553793802237e+23 : GoFloat64), ("g".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((-5.8339553793802237e+23 : GoFloat64), (103 : GoUInt8), (-1 : GoInt),
 		Go.str("-5.8339553793802237e+23")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((123.45 : GoFloat64), ("?".code : GoRune), (0 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((123.45 : GoFloat64), (63 : GoUInt8), (0 : GoInt),
 		Go.str("%?")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((123.45 : GoFloat64), ("?".code : GoRune), (1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((123.45 : GoFloat64), (63 : GoUInt8), (1 : GoInt),
 		Go.str("%?")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((123.45 : GoFloat64), ("?".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((123.45 : GoFloat64), (63 : GoUInt8), (-1 : GoInt),
 		Go.str("%?")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((2.275555555555555 : GoFloat64), ("x".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((2.275555555555555 : GoFloat64), (120 : GoUInt8), (-1 : GoInt),
 		Go.str("0x1.23456789abcdep+01")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((2.275555555555555 : GoFloat64), ("x".code : GoRune), (0 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((2.275555555555555 : GoFloat64), (120 : GoUInt8), (0 : GoInt),
 		Go.str("0x1p+01")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((2.275555555555555 : GoFloat64), ("x".code : GoRune), (2 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((2.275555555555555 : GoFloat64), (120 : GoUInt8), (2 : GoInt),
 		Go.str("0x1.23p+01")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((2.275555555555555 : GoFloat64), ("x".code : GoRune), (16 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((2.275555555555555 : GoFloat64), (120 : GoUInt8), (16 : GoInt),
 		Go.str("0x1.23456789abcde000p+01")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((2.275555555555555 : GoFloat64), ("x".code : GoRune), (21 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((2.275555555555555 : GoFloat64), (120 : GoUInt8), (21 : GoInt),
 		Go.str("0x1.23456789abcde00000000p+01")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((2.2755555510520935 : GoFloat64), ("x".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((2.2755555510520935 : GoFloat64), (120 : GoUInt8), (-1 : GoInt),
 		Go.str("0x1.2345678p+01")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((2.2755555510520935 : GoFloat64), ("x".code : GoRune), (6 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((2.2755555510520935 : GoFloat64), (120 : GoUInt8), (6 : GoInt),
 		Go.str("0x1.234568p+01")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((2.275555431842804 : GoFloat64), ("x".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((2.275555431842804 : GoFloat64), (120 : GoUInt8), (-1 : GoInt),
 		Go.str("0x1.2345668p+01")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((2.275555431842804 : GoFloat64), ("x".code : GoRune), (6 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((2.275555431842804 : GoFloat64), (120 : GoUInt8), (6 : GoInt),
 		Go.str("0x1.234566p+01")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((3.999969482421875 : GoFloat64), ("x".code : GoRune), (-1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((3.999969482421875 : GoFloat64), (120 : GoUInt8), (-1 : GoInt),
 		Go.str("0x1.ffffp+01")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((3.999969482421875 : GoFloat64), ("x".code : GoRune), (4 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((3.999969482421875 : GoFloat64), (120 : GoUInt8), (4 : GoInt),
 		Go.str("0x1.ffffp+01")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((3.999969482421875 : GoFloat64), ("x".code : GoRune), (3 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((3.999969482421875 : GoFloat64), (120 : GoUInt8), (3 : GoInt),
 		Go.str("0x1.000p+02")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((3.999969482421875 : GoFloat64), ("x".code : GoRune), (2 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((3.999969482421875 : GoFloat64), (120 : GoUInt8), (2 : GoInt),
 		Go.str("0x1.00p+02")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((3.999969482421875 : GoFloat64), ("x".code : GoRune), (1 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((3.999969482421875 : GoFloat64), (120 : GoUInt8), (1 : GoInt),
 		Go.str("0x1.0p+02")) : stdgo.strconv_test.Strconv_test.T_ftoaTest),
-	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((3.999969482421875 : GoFloat64), ("x".code : GoRune), (0 : GoInt),
+	(new stdgo.strconv_test.Strconv_test.T_ftoaTest((3.999969482421875 : GoFloat64), (120 : GoUInt8), (0 : GoInt),
 		Go.str("0x1p+02")) : stdgo.strconv_test.Strconv_test.T_ftoaTest)) : Slice<stdgo.strconv_test.Strconv_test.T_ftoaTest>);
 
 private var _ftoaBenches:Slice<T__struct_2> = (new Slice<T__struct_2>(0, 0, ({
 	_name: Go.str("Decimal"),
 	_float: (33909 : GoFloat64),
-	_fmt: ("g".code : GoRune),
+	_fmt: (103 : GoUInt8),
 	_prec: (-1 : GoInt),
 	_bitSize: (64 : GoInt)
 } : T__struct_2), ({
 	_name: Go.str("Float"),
 	_float: (339.7784 : GoFloat64),
-	_fmt: ("g".code : GoRune),
+	_fmt: (103 : GoUInt8),
 	_prec: (-1 : GoInt),
 	_bitSize: (64 : GoInt)
 	} : T__struct_2), ({
 	_name: Go.str("Exp"),
 	_float: (-5.09e+75 : GoFloat64),
-	_fmt: ("g".code : GoRune),
+	_fmt: (103 : GoUInt8),
 	_prec: (-1 : GoInt),
 	_bitSize: (64 : GoInt)
 	} : T__struct_2), ({
 	_name: Go.str("NegExp"),
 	_float: (-5.11e-95 : GoFloat64),
-	_fmt: ("g".code : GoRune),
+	_fmt: (103 : GoUInt8),
 	_prec: (-1 : GoInt),
 	_bitSize: (64 : GoInt)
 	} : T__struct_2), ({
 	_name: Go.str("LongExp"),
 	_float: (1.234567890123456e-78 : GoFloat64),
-	_fmt: ("g".code : GoRune),
+	_fmt: (103 : GoUInt8),
 	_prec: (-1 : GoInt),
 	_bitSize: (64 : GoInt)
 	} : T__struct_2), ({
 	_name: Go.str("Big"),
 	_float: (1.2345678912345679e+26 : GoFloat64),
-	_fmt: ("g".code : GoRune),
+	_fmt: (103 : GoUInt8),
 	_prec: (-1 : GoInt),
 	_bitSize: (64 : GoInt)
 	} : T__struct_2), ({
 	_name: Go.str("BinaryExp"),
 	_float: (-1 : GoFloat64),
-	_fmt: ("b".code : GoRune),
+	_fmt: (98 : GoUInt8),
 	_prec: (-1 : GoInt),
 	_bitSize: (64 : GoInt)
 	} : T__struct_2), ({
 	_name: Go.str("32Integer"),
 	_float: (33909 : GoFloat64),
-	_fmt: ("g".code : GoRune),
+	_fmt: (103 : GoUInt8),
 	_prec: (-1 : GoInt),
 	_bitSize: (32 : GoInt)
 	} : T__struct_2), ({
 	_name: Go.str("32ExactFraction"),
 	_float: (3.375 : GoFloat64),
-	_fmt: ("g".code : GoRune),
+	_fmt: (103 : GoUInt8),
 	_prec: (-1 : GoInt),
 	_bitSize: (32 : GoInt)
 	} : T__struct_2), ({
 	_name: Go.str("32Point"),
 	_float: (339.7784 : GoFloat64),
-	_fmt: ("g".code : GoRune),
+	_fmt: (103 : GoUInt8),
 	_prec: (-1 : GoInt),
 	_bitSize: (32 : GoInt)
 	} : T__struct_2), ({
 	_name: Go.str("32Exp"),
 	_float: (-5.09e+25 : GoFloat64),
-	_fmt: ("g".code : GoRune),
+	_fmt: (103 : GoUInt8),
 	_prec: (-1 : GoInt),
 	_bitSize: (32 : GoInt)
 	} : T__struct_2), ({
 	_name: Go.str("32NegExp"),
 	_float: (-5.11e-25 : GoFloat64),
-	_fmt: ("g".code : GoRune),
+	_fmt: (103 : GoUInt8),
 	_prec: (-1 : GoInt),
 	_bitSize: (32 : GoInt)
 	} : T__struct_2), ({
 	_name: Go.str("32Shortest"),
 	_float: (1.234567e-08 : GoFloat64),
-	_fmt: ("g".code : GoRune),
+	_fmt: (103 : GoUInt8),
 	_prec: (-1 : GoInt),
 	_bitSize: (32 : GoInt)
 	} : T__struct_2), ({
 	_name: Go.str("32Fixed8Hard"),
 	_float: stdgo.math.Math.ldexp((1.5961084e+07 : GoFloat64), (-125 : GoInt)),
-	_fmt: ("e".code : GoRune),
+	_fmt: (101 : GoUInt8),
 	_prec: (8 : GoInt),
 	_bitSize: (32 : GoInt)
 	} : T__struct_2), ({
 	_name: Go.str("32Fixed9Hard"),
 	_float: stdgo.math.Math.ldexp((1.4855922e+07 : GoFloat64), (-83 : GoInt)),
-	_fmt: ("e".code : GoRune),
+	_fmt: (101 : GoUInt8),
 	_prec: (9 : GoInt),
 	_bitSize: (32 : GoInt)
 	} : T__struct_2), ({
 	_name: Go.str("64Fixed1"),
 	_float: (123456 : GoFloat64),
-	_fmt: ("e".code : GoRune),
+	_fmt: (101 : GoUInt8),
 	_prec: (3 : GoInt),
 	_bitSize: (64 : GoInt)
 	} : T__struct_2), ({
 	_name: Go.str("64Fixed2"),
 	_float: (123.456 : GoFloat64),
-	_fmt: ("e".code : GoRune),
+	_fmt: (101 : GoUInt8),
 	_prec: (3 : GoInt),
 	_bitSize: (64 : GoInt)
 	} : T__struct_2), ({
 	_name: Go.str("64Fixed3"),
 	_float: (1.23456e+78 : GoFloat64),
-	_fmt: ("e".code : GoRune),
+	_fmt: (101 : GoUInt8),
 	_prec: (3 : GoInt),
 	_bitSize: (64 : GoInt)
 	} : T__struct_2), ({
 	_name: Go.str("64Fixed4"),
 	_float: (1.23456e-78 : GoFloat64),
-	_fmt: ("e".code : GoRune),
+	_fmt: (101 : GoUInt8),
 	_prec: (3 : GoInt),
 	_bitSize: (64 : GoInt)
 	} : T__struct_2), ({
 	_name: Go.str("64Fixed12"),
 	_float: (1.23456e-78 : GoFloat64),
-	_fmt: ("e".code : GoRune),
+	_fmt: (101 : GoUInt8),
 	_prec: (12 : GoInt),
 	_bitSize: (64 : GoInt)
 	} : T__struct_2), ({
 	_name: Go.str("64Fixed16"),
 	_float: (1.23456e-78 : GoFloat64),
-	_fmt: ("e".code : GoRune),
+	_fmt: (101 : GoUInt8),
 	_prec: (16 : GoInt),
 	_bitSize: (64 : GoInt)
 	} : T__struct_2), ({
 	_name: Go.str("64Fixed12Hard"),
 	_float: stdgo.math.Math.ldexp((6.965949469487146e+15 : GoFloat64), (-249 : GoInt)),
-	_fmt: ("e".code : GoRune),
+	_fmt: (101 : GoUInt8),
 	_prec: (12 : GoInt),
 	_bitSize: (64 : GoInt)
 	} : T__struct_2), ({
 	_name: Go.str("64Fixed17Hard"),
 	_float: stdgo.math.Math.ldexp((8.887055249355788e+15 : GoFloat64), (665 : GoInt)),
-	_fmt: ("e".code : GoRune),
+	_fmt: (101 : GoUInt8),
 	_prec: (17 : GoInt),
 	_bitSize: (64 : GoInt)
 	} : T__struct_2), ({
 	_name: Go.str("64Fixed18Hard"),
 	_float: stdgo.math.Math.ldexp((6.994187472632449e+15 : GoFloat64), (690 : GoInt)),
-	_fmt: ("e".code : GoRune),
+	_fmt: (101 : GoUInt8),
 	_prec: (18 : GoInt),
 	_bitSize: (64 : GoInt)
 	} : T__struct_2), ({
 	_name: Go.str("Slowpath64"),
 	_float: (8.034137530808823e+43 : GoFloat64),
-	_fmt: ("e".code : GoRune),
+	_fmt: (101 : GoUInt8),
 	_prec: (-1 : GoInt),
 	_bitSize: (64 : GoInt)
 	} : T__struct_2), ({
 	_name: Go.str("SlowpathDenormal64"),
 	_float: (6.226662346353213e-309 : GoFloat64),
-	_fmt: ("e".code : GoRune),
+	_fmt: (101 : GoUInt8),
 	_prec: (-1 : GoInt),
 	_bitSize: (64 : GoInt)
 	} : T__struct_2)) : Slice<T__struct_2>);
@@ -1475,43 +1470,49 @@ private var _varlenUints:Slice<T__struct_3> = (new Slice<T__struct_3>(0, 0, ({_i
 	({_in: ("12345678901234567890" : GoUInt64), _out: Go.str("12345678901234567890")} : T__struct_3)) : Slice<T__struct_3>);
 
 private var _quotetests:Slice<stdgo.strconv_test.Strconv_test.T_quoteTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_quoteTest>(0, 0,
-	(new stdgo.strconv_test.Strconv_test.T_quoteTest(Go.str("\x07\x08\x0C\r\n\t\x0B"), "\"\\a\\b\\f\\r\\n\\t\\v\"", "\"\\a\\b\\f\\r\\n\\t\\v\"",
-		"\"\\a\\b\\f\\r\\n\\t\\v\"") : stdgo.strconv_test.Strconv_test.T_quoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_quoteTest(Go.str("\\"), "\"\\\\\"", "\"\\\\\"", "\"\\\\\"") : stdgo.strconv_test.Strconv_test.T_quoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_quoteTest(Go.str("abc", 255, "def"), "\"abc\\xffdef\"", "\"abc\\xffdef\"",
-		"\"abc\\xffdef\"") : stdgo.strconv_test.Strconv_test.T_quoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_quoteTest(Go.str("\u263a"), "\"☺\"", "\"\\u263a\"", "\"☺\"") : stdgo.strconv_test.Strconv_test.T_quoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_quoteTest(Go.str("\u{0010ffff}"), "\"\\U0010ffff\"", "\"\\U0010ffff\"",
-		"\"\\U0010ffff\"") : stdgo.strconv_test.Strconv_test.T_quoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_quoteTest(Go.str(4), "\"\\x04\"", "\"\\x04\"", "\"\\x04\"") : stdgo.strconv_test.Strconv_test.T_quoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_quoteTest(Go.str("!\u00a0!\u2000!\u3000!"), "\"!\\u00a0!\\u2000!\\u3000!\"", "\"!\\u00a0!\\u2000!\\u3000!\"",
-		Go.str("\"!\u00a0!\u2000!\u3000!\"")) : stdgo.strconv_test.Strconv_test.T_quoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_quoteTest(Go.str(127), "\"\\x7f\"", "\"\\x7f\"",
-		"\"\\x7f\"") : stdgo.strconv_test.Strconv_test.T_quoteTest)) : Slice<stdgo.strconv_test.Strconv_test.T_quoteTest>);
+	(new stdgo.strconv_test.Strconv_test.T_quoteTest(Go.str("\x07\x08\x0C\r\n\t\x0B"), Go.str("\"\\a\\b\\f\\r\\n\\t\\v\""),
+		Go.str("\"\\a\\b\\f\\r\\n\\t\\v\""), Go.str("\"\\a\\b\\f\\r\\n\\t\\v\"")) : stdgo.strconv_test.Strconv_test.T_quoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_quoteTest(Go.str("\\"), Go.str("\"\\\\\""), Go.str("\"\\\\\""),
+		Go.str("\"\\\\\"")) : stdgo.strconv_test.Strconv_test.T_quoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_quoteTest(Go.str("abc", 255, "def"), Go.str("\"abc\\xffdef\""), Go.str("\"abc\\xffdef\""),
+		Go.str("\"abc\\xffdef\"")) : stdgo.strconv_test.Strconv_test.T_quoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_quoteTest(Go.str("☺"), Go.str("\"☺\""), Go.str("\"\\u263a\""),
+		Go.str("\"☺\"")) : stdgo.strconv_test.Strconv_test.T_quoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_quoteTest(Go.str("\u{0010ffff}"), Go.str("\"\\U0010ffff\""), Go.str("\"\\U0010ffff\""),
+		Go.str("\"\\U0010ffff\"")) : stdgo.strconv_test.Strconv_test.T_quoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_quoteTest(Go.str(4), Go.str("\"\\x04\""), Go.str("\"\\x04\""),
+		Go.str("\"\\x04\"")) : stdgo.strconv_test.Strconv_test.T_quoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_quoteTest(Go.str("!\u00a0!\u2000!\u3000!"), Go.str("\"!\\u00a0!\\u2000!\\u3000!\""),
+		Go.str("\"!\\u00a0!\\u2000!\\u3000!\""), Go.str("\"!\u00a0!\u2000!\u3000!\"")) : stdgo.strconv_test.Strconv_test.T_quoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_quoteTest(Go.str(127), Go.str("\"\\x7f\""), Go.str("\"\\x7f\""),
+		Go.str("\"\\x7f\"")) : stdgo.strconv_test.Strconv_test.T_quoteTest)) : Slice<stdgo.strconv_test.Strconv_test.T_quoteTest>);
 
 private var _quoterunetests:Slice<stdgo.strconv_test.Strconv_test.T_quoteRuneTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_quoteRuneTest>(0, 0,
-	(new stdgo.strconv_test.Strconv_test.T_quoteRuneTest(("a".code : GoRune), "\'a\'", "\'a\'", "\'a\'") : stdgo.strconv_test.Strconv_test.T_quoteRuneTest),
-	(new stdgo.strconv_test.Strconv_test.T_quoteRuneTest(("\x07".code : GoRune), "\'\\a\'", "\'\\a\'",
-		"\'\\a\'") : stdgo.strconv_test.Strconv_test.T_quoteRuneTest),
-	(new stdgo.strconv_test.Strconv_test.T_quoteRuneTest(("\\".code : GoRune), "\'\\\\\'", "\'\\\\\'",
-		"\'\\\\\'") : stdgo.strconv_test.Strconv_test.T_quoteRuneTest),
-	(new stdgo.strconv_test.Strconv_test.T_quoteRuneTest((255 : GoInt32), "\'ÿ\'", "\'\\u00ff\'", "\'ÿ\'") : stdgo.strconv_test.Strconv_test.T_quoteRuneTest),
-	(new stdgo.strconv_test.Strconv_test.T_quoteRuneTest((9786 : GoInt32), "\'☺\'", "\'\\u263a\'", "\'☺\'") : stdgo.strconv_test.Strconv_test.T_quoteRuneTest),
-	(new stdgo.strconv_test.Strconv_test.T_quoteRuneTest((57005 : GoInt32), "\'�\'", "\'\\ufffd\'",
-		"\'�\'") : stdgo.strconv_test.Strconv_test.T_quoteRuneTest),
-	(new stdgo.strconv_test.Strconv_test.T_quoteRuneTest((65533 : GoInt32), "\'�\'", "\'\\ufffd\'",
-		"\'�\'") : stdgo.strconv_test.Strconv_test.T_quoteRuneTest),
-	(new stdgo.strconv_test.Strconv_test.T_quoteRuneTest((1114111 : GoInt32), "\'\\U0010ffff\'", "\'\\U0010ffff\'",
-		"\'\\U0010ffff\'") : stdgo.strconv_test.Strconv_test.T_quoteRuneTest),
-	(new stdgo.strconv_test.Strconv_test.T_quoteRuneTest((1114112 : GoInt32), "\'�\'", "\'\\ufffd\'",
-		"\'�\'") : stdgo.strconv_test.Strconv_test.T_quoteRuneTest),
-	(new stdgo.strconv_test.Strconv_test.T_quoteRuneTest((4 : GoInt32), "\'\\x04\'", "\'\\x04\'",
-		"\'\\x04\'") : stdgo.strconv_test.Strconv_test.T_quoteRuneTest),
-	(new stdgo.strconv_test.Strconv_test.T_quoteRuneTest(("\u00a0".code : GoRune), "\'\\u00a0\'", "\'\\u00a0\'",
+	(new stdgo.strconv_test.Strconv_test.T_quoteRuneTest((97 : GoInt32), Go.str("\'a\'"), Go.str("\'a\'"),
+		Go.str("\'a\'")) : stdgo.strconv_test.Strconv_test.T_quoteRuneTest),
+	(new stdgo.strconv_test.Strconv_test.T_quoteRuneTest((7 : GoInt32), Go.str("\'\\a\'"), Go.str("\'\\a\'"),
+		Go.str("\'\\a\'")) : stdgo.strconv_test.Strconv_test.T_quoteRuneTest),
+	(new stdgo.strconv_test.Strconv_test.T_quoteRuneTest((92 : GoInt32), Go.str("\'\\\\\'"), Go.str("\'\\\\\'"),
+		Go.str("\'\\\\\'")) : stdgo.strconv_test.Strconv_test.T_quoteRuneTest),
+	(new stdgo.strconv_test.Strconv_test.T_quoteRuneTest((255 : GoInt32), Go.str("\'ÿ\'"), Go.str("\'\\u00ff\'"),
+		Go.str("\'ÿ\'")) : stdgo.strconv_test.Strconv_test.T_quoteRuneTest),
+	(new stdgo.strconv_test.Strconv_test.T_quoteRuneTest((9786 : GoInt32), Go.str("\'☺\'"), Go.str("\'\\u263a\'"),
+		Go.str("\'☺\'")) : stdgo.strconv_test.Strconv_test.T_quoteRuneTest),
+	(new stdgo.strconv_test.Strconv_test.T_quoteRuneTest((57005 : GoInt32), Go.str("\'�\'"), Go.str("\'\\ufffd\'"),
+		Go.str("\'�\'")) : stdgo.strconv_test.Strconv_test.T_quoteRuneTest),
+	(new stdgo.strconv_test.Strconv_test.T_quoteRuneTest((65533 : GoInt32), Go.str("\'�\'"), Go.str("\'\\ufffd\'"),
+		Go.str("\'�\'")) : stdgo.strconv_test.Strconv_test.T_quoteRuneTest),
+	(new stdgo.strconv_test.Strconv_test.T_quoteRuneTest((1114111 : GoInt32), Go.str("\'\\U0010ffff\'"), Go.str("\'\\U0010ffff\'"),
+		Go.str("\'\\U0010ffff\'")) : stdgo.strconv_test.Strconv_test.T_quoteRuneTest),
+	(new stdgo.strconv_test.Strconv_test.T_quoteRuneTest((1114112 : GoInt32), Go.str("\'�\'"), Go.str("\'\\ufffd\'"),
+		Go.str("\'�\'")) : stdgo.strconv_test.Strconv_test.T_quoteRuneTest),
+	(new stdgo.strconv_test.Strconv_test.T_quoteRuneTest((4 : GoInt32), Go.str("\'\\x04\'"), Go.str("\'\\x04\'"),
+		Go.str("\'\\x04\'")) : stdgo.strconv_test.Strconv_test.T_quoteRuneTest),
+	(new stdgo.strconv_test.Strconv_test.T_quoteRuneTest((160 : GoInt32), Go.str("\'\\u00a0\'"), Go.str("\'\\u00a0\'"),
 		Go.str("\'\u00a0\'")) : stdgo.strconv_test.Strconv_test.T_quoteRuneTest),
-	(new stdgo.strconv_test.Strconv_test.T_quoteRuneTest(("\u2000".code : GoRune), "\'\\u2000\'", "\'\\u2000\'",
+	(new stdgo.strconv_test.Strconv_test.T_quoteRuneTest((8192 : GoInt32), Go.str("\'\\u2000\'"), Go.str("\'\\u2000\'"),
 		Go.str("\'\u2000\'")) : stdgo.strconv_test.Strconv_test.T_quoteRuneTest),
-	(new stdgo.strconv_test.Strconv_test.T_quoteRuneTest(("\u3000".code : GoRune), "\'\\u3000\'", "\'\\u3000\'",
+	(new stdgo.strconv_test.Strconv_test.T_quoteRuneTest((12288 : GoInt32), Go.str("\'\\u3000\'"), Go.str("\'\\u3000\'"),
 		Go.str("\'\u3000\'")) : stdgo.strconv_test.Strconv_test.T_quoteRuneTest)) : Slice<stdgo.strconv_test.Strconv_test.T_quoteRuneTest>);
 
 private var _canbackquotetests:Slice<stdgo.strconv_test.Strconv_test.T_canBackquoteTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_canBackquoteTest>(0,
@@ -1581,12 +1582,12 @@ private var _canbackquotetests:Slice<stdgo.strconv_test.Strconv_test.T_canBackqu
 		false) : stdgo.strconv_test.Strconv_test.T_canBackquoteTest),
 	(new stdgo.strconv_test.Strconv_test.T_canBackquoteTest((((127 : GoInt32) : GoRune) : GoString),
 		false) : stdgo.strconv_test.Strconv_test.T_canBackquoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_canBackquoteTest("\' !\"#$%&\'()*+,-./:;<=>?@[\\]^_{|}~",
+	(new stdgo.strconv_test.Strconv_test.T_canBackquoteTest(Go.str("\' !\"#$$%&\'()*+,-./:;<=>?@[\\]^_{|}~"),
 		true) : stdgo.strconv_test.Strconv_test.T_canBackquoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_canBackquoteTest("0123456789", true) : stdgo.strconv_test.Strconv_test.T_canBackquoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_canBackquoteTest("ABCDEFGHIJKLMNOPQRSTUVWXYZ", true) : stdgo.strconv_test.Strconv_test.T_canBackquoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_canBackquoteTest("abcdefghijklmnopqrstuvwxyz", true) : stdgo.strconv_test.Strconv_test.T_canBackquoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_canBackquoteTest("☺", true) : stdgo.strconv_test.Strconv_test.T_canBackquoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_canBackquoteTest(Go.str("0123456789"), true) : stdgo.strconv_test.Strconv_test.T_canBackquoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_canBackquoteTest(Go.str("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), true) : stdgo.strconv_test.Strconv_test.T_canBackquoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_canBackquoteTest(Go.str("abcdefghijklmnopqrstuvwxyz"), true) : stdgo.strconv_test.Strconv_test.T_canBackquoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_canBackquoteTest(Go.str("☺"), true) : stdgo.strconv_test.Strconv_test.T_canBackquoteTest),
 	(new stdgo.strconv_test.Strconv_test.T_canBackquoteTest(Go.str(128), false) : stdgo.strconv_test.Strconv_test.T_canBackquoteTest),
 	(new stdgo.strconv_test.Strconv_test.T_canBackquoteTest(Go.str("a", 224, 160, "z"), false) : stdgo.strconv_test.Strconv_test.T_canBackquoteTest),
 	(new stdgo.strconv_test.Strconv_test.T_canBackquoteTest(Go.str("\ufeffabc"), false) : stdgo.strconv_test.Strconv_test.T_canBackquoteTest),
@@ -1594,47 +1595,49 @@ private var _canbackquotetests:Slice<stdgo.strconv_test.Strconv_test.T_canBackqu
 		false) : stdgo.strconv_test.Strconv_test.T_canBackquoteTest)) : Slice<stdgo.strconv_test.Strconv_test.T_canBackquoteTest>);
 
 private var _unquotetests:Slice<stdgo.strconv_test.Strconv_test.T_unQuoteTest> = (new Slice<stdgo.strconv_test.Strconv_test.T_unQuoteTest>(0, 0,
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest("\"\"", Go.str()) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest("\"a\"", Go.str("a")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest("\"abc\"", Go.str("abc")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest("\"☺\"", Go.str("☺")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest("\"hello world\"", Go.str("hello world")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest("\"\\xFF\"", Go.str(255)) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest("\"\\377\"", Go.str(255)) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest("\"\\u1234\"", Go.str("\u1234")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest("\"\\U00010111\"", Go.str("\u{00010111}")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest("\"\\U0001011111\"", Go.str("\u{00010111}11")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest("\"\\a\\b\\f\\n\\r\\t\\v\\\\\\\"\"",
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("\"\""), Go.str()) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("\"a\""), Go.str("a")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("\"abc\""), Go.str("abc")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("\"☺\""), Go.str("☺")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("\"hello world\""), Go.str("hello world")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("\"\\xFF\""), Go.str(255)) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("\"\\377\""), Go.str(255)) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("\"\\u1234\""), Go.str("ሴ")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("\"\\U00010111\""), Go.str("𐄑")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("\"\\U0001011111\""), Go.str("𐄑11")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("\"\\a\\b\\f\\n\\r\\t\\v\\\\\\\"\""),
 		Go.str("\x07\x08\x0C\n\r\t\x0B\\\"")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest("\"\'\"", Go.str("\'")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest("\'a\'", Go.str("a")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest("\'☹\'", Go.str("☹")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest("\'\\a\'", Go.str("\x07")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest("\'\\x10\'", Go.str(16)) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest("\'\\377\'", Go.str(255)) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest("\'\\u1234\'", Go.str("\u1234")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest("\'\\U00010111\'", Go.str("\u{00010111}")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest("\'\\t\'", Go.str("\t")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest("\' \'", Go.str(" ")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest("\'\\\'\'", Go.str("\'")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest("\'\"\'", Go.str("\"")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("``"), "") : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("`a`"), "a") : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("`abc`"), "abc") : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("`☺`"), "☺") : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("`hello world`"), "hello world") : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("`\\xFF`"), "\\xFF") : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("`\\377`"), "\\377") : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("`\\`"), "\\") : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("\"\'\""), Go.str("\'")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("\'a\'"), Go.str("a")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("\'☹\'"), Go.str("☹")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("\'\\a\'"), Go.str("\x07")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("\'\\x10\'"), Go.str(16)) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("\'\\377\'"), Go.str(255)) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("\'\\u1234\'"), Go.str("ሴ")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("\'\\U00010111\'"), Go.str("𐄑")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("\'\\t\'"), Go.str("\t")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("\' \'"), Go.str(" ")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("\'\\\'\'"), Go.str("\'")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("\'\"\'"), Go.str("\"")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("``"), Go.str()) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("`a`"), Go.str("a")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("`abc`"), Go.str("abc")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("`☺`"), Go.str("☺")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("`hello world`"), Go.str("hello world")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("`\\xFF`"), Go.str("\\xFF")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("`\\377`"), Go.str("\\377")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("`\\`"), Go.str("\\")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
 	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("`\n`"), Go.str("\n")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("`\t`"), "\t") : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
-	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("` `"), " ") : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("`\t`"), Go.str("\t")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
+	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("` `"), Go.str(" ")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest),
 	(new stdgo.strconv_test.Strconv_test.T_unQuoteTest(Go.str("`a\rb`"),
 		Go.str("ab")) : stdgo.strconv_test.Strconv_test.T_unQuoteTest)) : Slice<stdgo.strconv_test.Strconv_test.T_unQuoteTest>);
 
-private var _misquoted:Slice<GoString> = (new Slice<GoString>(0, 0, "", "\"", "\"a", "\"\'", "b\"", "\"\\\"", "\"\\9\"", "\"\\19\"", "\"\\129\"", "\'\\\'",
-	"\'\\9\'", "\'\\19\'", "\'\\129\'", "\'ab\'", "\"\\x1!\"", "\"\\U12345678\"", "\"\\z\"", Go.str("`"), Go.str("`xxx"), Go.str("``x\r"), Go.str("`\""),
-	"\"\\\'\"", "\'\\\"\'", Go.str("\"\n\""), Go.str("\"\\n\n\""), Go.str("\'\n\'"), "\"\\udead\"", "\"\\ud83d\\ude4f\"") : Slice<GoString>);
+private var _misquoted:Slice<GoString> = (new Slice<GoString>(0, 0, Go.str(), Go.str("\""), Go.str("\"a"), Go.str("\"\'"), Go.str("b\""), Go.str("\"\\\""),
+	Go.str("\"\\9\""), Go.str("\"\\19\""), Go.str("\"\\129\""), Go.str("\'\\\'"), Go.str("\'\\9\'"), Go.str("\'\\19\'"), Go.str("\'\\129\'"),
+	Go.str("\'ab\'"), Go.str("\"\\x1!\""), Go.str("\"\\U12345678\""), Go.str("\"\\z\""), Go.str("`"), Go.str("`xxx"), Go.str("``x\r"), Go.str("`\""),
+	Go.str("\"\\\'\""), Go.str("\'\\\"\'"), Go.str("\"\n\""), Go.str("\"\\n\n\""), Go.str("\'\n\'"), Go.str("\"\\udead\""),
+	Go.str("\"\\ud83d\\ude4f\"")) : Slice<GoString>);
 
 private var _nextToOne:GoString = (Go.str("1.00000000000000011102230246251565404236316680908203125")
 	+ stdgo.strings.Strings.repeat(Go.str("0"), (10000 : GoInt)))
@@ -1642,57 +1645,57 @@ private var _nextToOne:GoString = (Go.str("1.00000000000000011102230246251565404
 
 private var _mallocTest:Slice<T__struct_5> = (new Slice<T__struct_5>(0, 0, ({
 	_count: (0 : GoInt),
-	_desc: "AppendInt(localBuf[:0], 123, 10)",
+	_desc: Go.str("AppendInt(localBuf[:0], 123, 10)"),
 	_fn: function():Void {
 		var _localBuf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0...64) (0 : GoUInt8)]);
 		appendInt((_localBuf.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>), ("123" : GoInt64), (10 : GoInt));
 	}
 } : T__struct_5), ({
 	_count: (0 : GoInt),
-	_desc: "AppendInt(globalBuf[:0], 123, 10)",
+	_desc: Go.str("AppendInt(globalBuf[:0], 123, 10)"),
 	_fn: function():Void {
 		appendInt((_globalBuf.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>), ("123" : GoInt64), (10 : GoInt));
 	}
 	} : T__struct_5), ({
 	_count: (0 : GoInt),
-	_desc: "AppendFloat(localBuf[:0], 1.23, \'g\', 5, 64)",
+	_desc: Go.str("AppendFloat(localBuf[:0], 1.23, \'g\', 5, 64)"),
 	_fn: function():Void {
 		var _localBuf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0...64) (0 : GoUInt8)]);
-		appendFloat((_localBuf.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>), (1.23 : GoFloat64), ("g".code : GoRune), (5 : GoInt), (64 : GoInt));
+		appendFloat((_localBuf.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>), (1.23 : GoFloat64), (103 : GoUInt8), (5 : GoInt), (64 : GoInt));
 	}
 	} : T__struct_5), ({
 	_count: (0 : GoInt),
-	_desc: "AppendFloat(globalBuf[:0], 1.23, \'g\', 5, 64)",
+	_desc: Go.str("AppendFloat(globalBuf[:0], 1.23, \'g\', 5, 64)"),
 	_fn: function():Void {
-		appendFloat((_globalBuf.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>), (1.23 : GoFloat64), ("g".code : GoRune), (5 : GoInt), (64 : GoInt));
+		appendFloat((_globalBuf.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>), (1.23 : GoFloat64), (103 : GoUInt8), (5 : GoInt), (64 : GoInt));
 	}
 	} : T__struct_5), ({
 	_count: (10 : GoInt),
-	_desc: "AppendQuoteToASCII(nil, oneMB)",
+	_desc: Go.str("AppendQuoteToASCII(nil, oneMB)"),
 	_fn: function():Void {
 		appendQuoteToASCII((null : Slice<GoUInt8>), (_oneMB : GoString));
 	}
 	} : T__struct_5), ({
 	_count: (0 : GoInt),
-	_desc: "ParseFloat(\"123.45\", 64)",
+	_desc: Go.str("ParseFloat(\"123.45\", 64)"),
 	_fn: function():Void {
 		parseFloat(Go.str("123.45"), (64 : GoInt));
 	}
 	} : T__struct_5), ({
 	_count: (0 : GoInt),
-	_desc: "ParseFloat(\"123.456789123456789\", 64)",
+	_desc: Go.str("ParseFloat(\"123.456789123456789\", 64)"),
 	_fn: function():Void {
 		parseFloat(Go.str("123.456789123456789"), (64 : GoInt));
 	}
 	} : T__struct_5), ({
 	_count: (0 : GoInt),
-	_desc: "ParseFloat(\"1.000000000000000111022302462515654042363166809082031251\", 64)",
+	_desc: Go.str("ParseFloat(\"1.000000000000000111022302462515654042363166809082031251\", 64)"),
 	_fn: function():Void {
 		parseFloat(Go.str("1.000000000000000111022302462515654042363166809082031251"), (64 : GoInt));
 	}
 	} : T__struct_5), ({
 	_count: (0 : GoInt),
-	_desc: "ParseFloat(\"1.0000000000000001110223024625156540423631668090820312500...001\", 64)",
+	_desc: Go.str("ParseFloat(\"1.0000000000000001110223024625156540423631668090820312500...001\", 64)"),
 	_fn: function():Void {
 		parseFloat(_nextToOne, (64 : GoInt));
 	}
@@ -2265,7 +2268,7 @@ function testFormatBool(_t:Ref<stdgo.testing.Testing.T>):Void {
 		{
 			var _f:GoString = formatBool(_b);
 			if (_f != (_s)) {
-				_t.errorf("FormatBool(%v): expected %q but got %q", Go.toInterface(_b), Go.toInterface(_s), Go.toInterface(_f));
+				_t.errorf(Go.str("FormatBool(%v): expected %q but got %q"), Go.toInterface(_b), Go.toInterface(_s), Go.toInterface(_f));
 			};
 		};
 	};
@@ -2283,36 +2286,58 @@ function testAppendBool(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testParseComplex(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _tests = (new Slice<stdgo.strconv_test.Strconv_test.T_atocTest>(0, 0,
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str(), new GoComplex128(0, 0), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str(" "), new GoComplex128(0, 0), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("("), new GoComplex128(0, 0), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str(")"), new GoComplex128(0, 0), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("i"), new GoComplex128(0, 0), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+i"), new GoComplex128(0, 0), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("-i"), new GoComplex128(0, 0), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("1I"), new GoComplex128(0, 0), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("10  + 5i"), new GoComplex128(0, 0), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("3+"), new GoComplex128(0, 0), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("3+5"), new GoComplex128(0, 0), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("3+5+5i"), new GoComplex128(0, 0), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("()"), new GoComplex128(0, 0), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("(i)"), new GoComplex128(0, 0), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("(0)"), new GoComplex128(0, 0), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("(1i)"), new GoComplex128(0, 1), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str(), ((0 : GoFloat64) + new GoComplex128(0, 0)),
+			errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str(" "), ((0 : GoFloat64) + new GoComplex128(0, 0)),
+			errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("("), ((0 : GoFloat64) + new GoComplex128(0, 0)),
+			errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str(")"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
+			errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("i"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
+			errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+i"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
+			errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("-i"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
+			errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("1I"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
+			errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("10  + 5i"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
+			errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("3+"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
+			errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("3+5"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
+			errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("3+5+5i"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
+			errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("()"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
+			errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("(i)"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
+			errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("(0)"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
+			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("(1i)"), ((0 : GoFloat64) + new GoComplex128(0, 1)),
+			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("(3.0+5.5i)"), ((3 : GoFloat64) + new GoComplex128(0, 5.5)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("(1)+1i"), new GoComplex128(0, 0), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("(3.0+5.5i"), new GoComplex128(0, 0), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("3.0+5.5i)"), new GoComplex128(0, 0), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("(1)+1i"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
+			errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("(3.0+5.5i"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
+			errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("3.0+5.5i)"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
+			errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("NaN"), new GoComplex128(stdgo.math.Math.naN(), (0 : GoFloat64)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("NANi"), new GoComplex128((0 : GoFloat64), stdgo.math.Math.naN()),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("nan+nAni"), new GoComplex128(stdgo.math.Math.naN(), stdgo.math.Math.naN()),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+NaN"), new GoComplex128(0, 0), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("-NaN"), new GoComplex128(0, 0), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("NaN-NaNi"), new GoComplex128(0, 0), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+NaN"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
+			errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("-NaN"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
+			errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("NaN-NaNi"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
+			errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("Inf"), _infp0, (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+inf"), _infp0, (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("-inf"), _infm0, (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
@@ -2324,43 +2349,52 @@ function testParseComplex(_t:Ref<stdgo.testing.Testing.T>):Void {
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("Inf+Infi"), _infpp, (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+Inf-Infi"), _infpm, (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("-Infinity+Infi"), _infmp, (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("inf-inf"), new GoComplex128(0, 0), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0"), new GoComplex128(0, 0), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0i"), new GoComplex128(0, 0), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("-0.0i"), new GoComplex128(0, 0), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0+0.0i"), new GoComplex128(0, 0),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("inf-inf"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
+			errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0e+0i"), new GoComplex128(0, 0), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0e-0+0i"), new GoComplex128(0, 0),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0i"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("-0.0-0.0i"), new GoComplex128(0, 0),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("-0.0i"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0e+012345"), new GoComplex128(0, 0),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0+0.0i"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0x0p+012345i"), new GoComplex128(0, 0),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0e+0i"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0x0.00p-012345i"), new GoComplex128(0, 0),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0e-0+0i"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+0e-0+0e-0i"), new GoComplex128(0, 0),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("-0.0-0.0i"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0e+0+0e+0i"), new GoComplex128(0, 0),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0e+012345"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("-0e+0-0e+0i"), new GoComplex128(0, 0),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0x0p+012345i"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0.1"), new GoComplex128(0.1, 0), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0x0.00p-012345i"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
+			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+0e-0+0e-0i"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
+			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0e+0+0e+0i"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
+			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("-0e+0-0e+0i"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
+			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0.1"), ((0.1 : GoFloat64) + new GoComplex128(0, 0)),
+			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0.1i"), ((0 : GoFloat64) + new GoComplex128(0, 0.1)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0.123"), new GoComplex128(0.123, 0),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0.123"), ((0.123 : GoFloat64) + new GoComplex128(0, 0)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0.123i"), ((0 : GoFloat64) + new GoComplex128(0, 0.123)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0.123+0.123i"), ((0.123 : GoFloat64) + new GoComplex128(0, 0.123)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("99"), new GoComplex128(99, 0), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+99"), new GoComplex128(99, 0), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("99"), ((99 : GoFloat64) + new GoComplex128(0, 0)),
+			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+99"), ((99 : GoFloat64) + new GoComplex128(0, 0)),
+			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("-99"), ((-99 : GoFloat64) + new GoComplex128(0, 0)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+1i"), new GoComplex128(0, 1), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+1i"), ((0 : GoFloat64) + new GoComplex128(0, 1)),
+			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("-1i"), ((0 : GoFloat64) + new GoComplex128(0, -1)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+3+1i"), ((3 : GoFloat64) + new GoComplex128(0, 1)),
@@ -2371,16 +2405,17 @@ function testParseComplex(_t:Ref<stdgo.testing.Testing.T>):Void {
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+3e+3+3e+3i"), ((3000 : GoFloat64) + new GoComplex128(0, 3000)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+3e+3+3e+3i+"), new GoComplex128(0, 0),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+3e+3+3e+3i+"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
 			errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0.1"), new GoComplex128(0.1, 0), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0.1"), ((0.1 : GoFloat64) + new GoComplex128(0, 0)),
+			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0.1i"), ((0 : GoFloat64) + new GoComplex128(0, 0.1)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0.1_2_3"), new GoComplex128(0.123, 0),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0.1_2_3"), ((0.123 : GoFloat64) + new GoComplex128(0, 0)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+0x_3p3i"), new GoComplex128(0, 24),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+0x_3p3i"), ((0 : GoFloat64) + new GoComplex128(0, 24)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0_0+0x_0p0i"), new GoComplex128(0, 0),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0_0+0x_0p0i"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0x_10.3p-8+0x3p3i"), ((0.063232421875 : GoFloat64) + new GoComplex128(0, 24)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
@@ -2394,19 +2429,24 @@ function testParseComplex(_t:Ref<stdgo.testing.Testing.T>):Void {
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0x10.3p+8-0x3p3i"), ((4144 : GoFloat64) + new GoComplex128(0, -24)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0x1p0"), new GoComplex128(1, 0), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0x1p1"), new GoComplex128(2, 0), (null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0x1p-1"), new GoComplex128(0.5, 0),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0x1p0"), ((1 : GoFloat64) + new GoComplex128(0, 0)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0x1ep-1"), new GoComplex128(15, 0),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0x1p1"), ((2 : GoFloat64) + new GoComplex128(0, 0)),
+			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0x1p-1"), ((0.5 : GoFloat64) + new GoComplex128(0, 0)),
+			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0x1ep-1"), ((15 : GoFloat64) + new GoComplex128(0, 0)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("-0x1ep-1"), ((-15 : GoFloat64) + new GoComplex128(0, 0)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("-0x2p3"), ((-16 : GoFloat64) + new GoComplex128(0, 0)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0x1e2"), new GoComplex128(0, 0), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("1p2"), new GoComplex128(0, 0), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0x1e2i"), new GoComplex128(0, 0), errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0x1e2"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
+			errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("1p2"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
+			errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("0x1e2i"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
+			errSyntax) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+0x1p1024"), _infp0, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("-0x1p1024"), _infm0, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+0x1p1024i"), _inf0p, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
@@ -2454,15 +2494,15 @@ function testParseComplex(_t:Ref<stdgo.testing.Testing.T>):Void {
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("+1e310-1e310i"), _infpm, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("-1e310+1e310i"), _infmp, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("-1e310-1e310i"), _infmm, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("1e-4294967296"), new GoComplex128(0, 0),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("1e-4294967296"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("1e-4294967296i"), new GoComplex128(0, 0),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("1e-4294967296i"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("1e-4294967296+1i"), new GoComplex128(0, 1),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("1e-4294967296+1i"), ((0 : GoFloat64) + new GoComplex128(0, 1)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("1+1e-4294967296i"), new GoComplex128(1, 0),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("1+1e-4294967296i"), ((1 : GoFloat64) + new GoComplex128(0, 0)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
-		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("1e-4294967296+1e-4294967296i"), new GoComplex128(0, 0),
+		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("1e-4294967296+1e-4294967296i"), ((0 : GoFloat64) + new GoComplex128(0, 0)),
 			(null : Error)) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("1e+4294967296"), _infp0, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
 		(new stdgo.strconv_test.Strconv_test.T_atocTest(Go.str("1e+4294967296i"), _inf0p, errRange) : stdgo.strconv_test.Strconv_test.T_atocTest),
@@ -2554,17 +2594,17 @@ function _initAtofOnce():Void {
 	for (_i in 0..._atofRandomTests.length.toBasic()) {
 		var _n:GoUInt64 = ((stdgo.math.rand.Rand.uint32() : GoUInt64) << (("32" : GoUInt64) : GoUInt64)) | (stdgo.math.rand.Rand.uint32() : GoUInt64);
 		var _x:GoFloat64 = stdgo.math.Math.float64frombits(_n);
-		var _s:GoString = formatFloat(_x, ("g".code : GoRune), (-1 : GoInt), (64 : GoInt));
+		var _s:GoString = formatFloat(_x, (103 : GoUInt8), (-1 : GoInt), (64 : GoInt));
 		_atofRandomTests[_i] = (new stdgo.strconv_test.Strconv_test.T_atofSimpleTest(_x, _s) : stdgo.strconv_test.Strconv_test.T_atofSimpleTest);
 	};
 	for (_i in 0..._benchmarksRandomBits.length.toBasic()) {
 		var _bits:GoUInt64 = ((stdgo.math.rand.Rand.uint32() : GoUInt64) << (("32" : GoUInt64) : GoUInt64)) | (stdgo.math.rand.Rand.uint32() : GoUInt64);
 		var _x:GoFloat64 = stdgo.math.Math.float64frombits(_bits);
-		_benchmarksRandomBits[_i] = formatFloat(_x, ("g".code : GoRune), (-1 : GoInt), (64 : GoInt));
+		_benchmarksRandomBits[_i] = formatFloat(_x, (103 : GoUInt8), (-1 : GoInt), (64 : GoInt));
 	};
 	for (_i in 0..._benchmarksRandomNormal.length.toBasic()) {
 		var _x:GoFloat64 = stdgo.math.rand.Rand.normFloat64();
-		_benchmarksRandomNormal[_i] = formatFloat(_x, ("g".code : GoRune), (-1 : GoInt), (64 : GoInt));
+		_benchmarksRandomNormal[_i] = formatFloat(_x, (103 : GoUInt8), (-1 : GoInt), (64 : GoInt));
 	};
 }
 
@@ -2601,7 +2641,7 @@ function _testAtof(_t:Ref<stdgo.testing.Testing.T>, _opt:Bool):Void {
 			var __tmp__ = parseFloat(_test._in, (64 : GoInt)),
 				_out:GoFloat64 = __tmp__._0,
 				_err:Error = __tmp__._1;
-			var _outs:GoString = formatFloat(_out, ("g".code : GoRune), (-1 : GoInt), (64 : GoInt));
+			var _outs:GoString = formatFloat(_out, (103 : GoUInt8), (-1 : GoInt), (64 : GoInt));
 			if ((_outs != _test._out) || !stdgo.reflect.Reflect.deepEqual(Go.toInterface(_err), Go.toInterface(_test._err))) {
 				_t.errorf(Go.str("ParseFloat(%v, 64) = %v, %v want %v, %v"), Go.toInterface(_test._in), Go.toInterface(_out), Go.toInterface(_err),
 					Go.toInterface(_test._out), Go.toInterface(_test._err));
@@ -2616,7 +2656,7 @@ function _testAtof(_t:Ref<stdgo.testing.Testing.T>, _opt:Bool):Void {
 						Go.toInterface((_out32 : GoFloat64)));
 					continue;
 				};
-				var _outs:GoString = formatFloat((_out32 : GoFloat64), ("g".code : GoRune), (-1 : GoInt), (32 : GoInt));
+				var _outs:GoString = formatFloat((_out32 : GoFloat64), (103 : GoUInt8), (-1 : GoInt), (32 : GoInt));
 				if ((_outs != _test._out) || !stdgo.reflect.Reflect.deepEqual(Go.toInterface(_err), Go.toInterface(_test._err))) {
 					_t.errorf(Go.str("ParseFloat(%v, 32) = %v, %v want %v, %v  # %v"), Go.toInterface(_test._in), Go.toInterface(_out32),
 						Go.toInterface(_err), Go.toInterface(_test._out), Go.toInterface(_test._err), Go.toInterface(_out));
@@ -2634,7 +2674,7 @@ function _testAtof(_t:Ref<stdgo.testing.Testing.T>, _opt:Bool):Void {
 				Go.toInterface((_out32 : GoFloat64)));
 			continue;
 		};
-		var _outs:GoString = formatFloat((_out32 : GoFloat64), ("g".code : GoRune), (-1 : GoInt), (32 : GoInt));
+		var _outs:GoString = formatFloat((_out32 : GoFloat64), (103 : GoUInt8), (-1 : GoInt), (32 : GoInt));
 		if ((_outs != _test._out) || !stdgo.reflect.Reflect.deepEqual(Go.toInterface(_err), Go.toInterface(_test._err))) {
 			_t.errorf(Go.str("ParseFloat(%v, 32) = %v, %v want %v, %v  # %v"), Go.toInterface(_test._in), Go.toInterface(_out32), Go.toInterface(_err),
 				Go.toInterface(_test._out), Go.toInterface(_test._err), Go.toInterface(_out));
@@ -2665,7 +2705,7 @@ function testAtofRandom(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testRoundTrip(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _roundTripCases) {
 		var _old:Bool = setOptimize(false);
-		var _s:GoString = formatFloat(_tt._f, ("g".code : GoRune), (-1 : GoInt), (64 : GoInt));
+		var _s:GoString = formatFloat(_tt._f, (103 : GoUInt8), (-1 : GoInt), (64 : GoInt));
 		if (_s != (_tt._s)) {
 			_t.errorf(Go.str("no-opt FormatFloat(%b) = %s, want %s"), Go.toInterface(_tt._f), Go.toInterface(_s), Go.toInterface(_tt._s));
 		};
@@ -2677,7 +2717,7 @@ function testRoundTrip(_t:Ref<stdgo.testing.Testing.T>):Void {
 				Go.toInterface(_tt._f));
 		};
 		setOptimize(true);
-		_s = formatFloat(_tt._f, ("g".code : GoRune), (-1 : GoInt), (64 : GoInt));
+		_s = formatFloat(_tt._f, (103 : GoUInt8), (-1 : GoInt), (64 : GoInt));
 		if (_s != (_tt._s)) {
 			_t.errorf(Go.str("opt FormatFloat(%b) = %s, want %s"), Go.toInterface(_tt._f), Go.toInterface(_s), Go.toInterface(_tt._s));
 		};
@@ -2710,7 +2750,7 @@ function testRoundTrip32(_t:Ref<stdgo.testing.Testing.T>):Void {
 			if (_i & ("1" : GoUInt32) == (("1" : GoUInt32))) {
 				_f = -_f;
 			};
-			var _s:GoString = formatFloat((_f : GoFloat64), ("g".code : GoRune), (-1 : GoInt), (32 : GoInt));
+			var _s:GoString = formatFloat((_f : GoFloat64), (103 : GoUInt8), (-1 : GoInt), (32 : GoInt));
 			var __tmp__ = parseFloat(_s, (32 : GoInt)),
 				_parsed:GoFloat64 = __tmp__._0,
 				_err:Error = __tmp__._1;
@@ -2813,7 +2853,7 @@ function benchmarkAtof64RandomLongFloats(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _samples = new Slice<GoString>((_atofRandomTests.length : GoInt).toBasic(), 0,
 		...[for (i in 0...(_atofRandomTests.length : GoInt).toBasic()) ("" : GoString)]);
 	for (_i => _t in _atofRandomTests) {
-		_samples[_i] = formatFloat(_t._x, ("g".code : GoRune), (20 : GoInt), (64 : GoInt));
+		_samples[_i] = formatFloat(_t._x, (103 : GoUInt8), (20 : GoInt), (64 : GoInt));
 	};
 	_b.resetTimer();
 	var _idx:GoInt = (0 : GoInt);
@@ -2861,7 +2901,7 @@ function benchmarkAtof32Random(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _float32strings:GoArray<GoString> = new GoArray<GoString>(...[for (i in 0...4096) ("" : GoString)]);
 	for (_i in 0..._float32strings.length.toBasic()) {
 		_n = (((("99991" : GoUInt32) : GoUInt32) * _n) + (("42" : GoUInt32) : GoUInt32)) % ("2139095040" : GoUInt32);
-		_float32strings[_i] = formatFloat((stdgo.math.Math.float32frombits(_n) : GoFloat64), ("g".code : GoRune), (-1 : GoInt), (32 : GoInt));
+		_float32strings[_i] = formatFloat((stdgo.math.Math.float32frombits(_n) : GoFloat64), (103 : GoUInt8), (-1 : GoInt), (32 : GoInt));
 	};
 	_b.resetTimer();
 	{
@@ -2877,7 +2917,7 @@ function benchmarkAtof32RandomLong(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _float32strings:GoArray<GoString> = new GoArray<GoString>(...[for (i in 0...4096) ("" : GoString)]);
 	for (_i in 0..._float32strings.length.toBasic()) {
 		_n = (((("99991" : GoUInt32) : GoUInt32) * _n) + (("42" : GoUInt32) : GoUInt32)) % ("2139095040" : GoUInt32);
-		_float32strings[_i] = formatFloat((stdgo.math.Math.float32frombits(_n) : GoFloat64), ("g".code : GoRune), (20 : GoInt), (32 : GoInt));
+		_float32strings[_i] = formatFloat((stdgo.math.Math.float32frombits(_n) : GoFloat64), (103 : GoUInt8), (20 : GoInt), (32 : GoInt));
 	};
 	_b.resetTimer();
 	{
@@ -3134,7 +3174,7 @@ function testNumError(_t:Ref<stdgo.testing.Testing.T>):Void {
 		{
 			var _got:GoString = _err.error();
 			if (_got != (_test._want)) {
-				_t.errorf("(&NumError{\"ParseFloat\", %q, \"failed\"}).Error() = %v, want %v", Go.toInterface(_test._num), Go.toInterface(_got),
+				_t.errorf(Go.str("(&NumError{\"ParseFloat\", %q, \"failed\"}).Error() = %v, want %v"), Go.toInterface(_test._num), Go.toInterface(_got),
 					Go.toInterface(_test._want));
 			};
 		};
@@ -3222,55 +3262,55 @@ function _benchmarkAtoi(_b:Ref<stdgo.testing.Testing.B>, _neg:GoInt):Void {
 function testFormatComplex(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _tests = (new Slice<T__struct_1>(0, 0, ({
 		_c: ((1 : GoFloat64) + new GoComplex128(0, 2)),
-		_fmt: ("g".code : GoRune),
+		_fmt: (103 : GoUInt8),
 		_prec: (-1 : GoInt),
 		_bitSize: (128 : GoInt),
 		_out: Go.str("(1+2i)")
 	} : T__struct_1), ({
 		_c: ((3 : GoFloat64) + new GoComplex128(0, -4)),
-		_fmt: ("g".code : GoRune),
+		_fmt: (103 : GoUInt8),
 		_prec: (-1 : GoInt),
 		_bitSize: (128 : GoInt),
 		_out: Go.str("(3-4i)")
 		} : T__struct_1), ({
 		_c: ((-5 : GoFloat64) + new GoComplex128(0, 6)),
-		_fmt: ("g".code : GoRune),
+		_fmt: (103 : GoUInt8),
 		_prec: (-1 : GoInt),
 		_bitSize: (128 : GoInt),
 		_out: Go.str("(-5+6i)")
 		} : T__struct_1), ({
 		_c: ((-7 : GoFloat64) + new GoComplex128(0, -8)),
-		_fmt: ("g".code : GoRune),
+		_fmt: (103 : GoUInt8),
 		_prec: (-1 : GoInt),
 		_bitSize: (128 : GoInt),
 		_out: Go.str("(-7-8i)")
 		} : T__struct_1), ({
 		_c: ((3.14159 : GoFloat64) + new GoComplex128(0, 0.00123)),
-		_fmt: ("e".code : GoRune),
+		_fmt: (101 : GoUInt8),
 		_prec: (3 : GoInt),
 		_bitSize: (128 : GoInt),
 		_out: Go.str("(3.142e+00+1.230e-03i)")
 		} : T__struct_1), ({
 		_c: ((3.14159 : GoFloat64) + new GoComplex128(0, 0.00123)),
-		_fmt: ("f".code : GoRune),
+		_fmt: (102 : GoUInt8),
 		_prec: (3 : GoInt),
 		_bitSize: (128 : GoInt),
 		_out: Go.str("(3.142+0.001i)")
 		} : T__struct_1), ({
 		_c: ((3.14159 : GoFloat64) + new GoComplex128(0, 0.00123)),
-		_fmt: ("g".code : GoRune),
+		_fmt: (103 : GoUInt8),
 		_prec: (3 : GoInt),
 		_bitSize: (128 : GoInt),
 		_out: Go.str("(3.14+0.00123i)")
 		} : T__struct_1), ({
 		_c: ((1.2345678901234567 : GoFloat64) + new GoComplex128(0, 9.876543210987654)),
-		_fmt: ("f".code : GoRune),
+		_fmt: (102 : GoUInt8),
 		_prec: (-1 : GoInt),
 		_bitSize: (128 : GoInt),
 		_out: Go.str("(1.2345678901234567+9.876543210987654i)")
 		} : T__struct_1), ({
 		_c: ((1.2345678901234567 : GoFloat64) + new GoComplex128(0, 9.876543210987654)),
-		_fmt: ("f".code : GoRune),
+		_fmt: (102 : GoUInt8),
 		_prec: (-1 : GoInt),
 		_bitSize: (64 : GoInt),
 		_out: Go.str("(1.2345679+9.876543i)")
@@ -3302,7 +3342,7 @@ function testFormatComplexInvalidBitSize(_t:Ref<stdgo.testing.Testing.T>):Void {
 		a();
 	});
 	try {
-		formatComplex(((1 : GoFloat64) + new GoComplex128(0, 2)), ("g".code : GoRune), (-1 : GoInt), (100 : GoInt));
+		formatComplex(((1 : GoFloat64) + new GoComplex128(0, 2)), (103 : GoUInt8), (-1 : GoInt), (100 : GoInt));
 		for (defer in __deferstack__) {
 			defer();
 		};
@@ -3397,10 +3437,10 @@ function exampleAppendBool():Void {
 
 function exampleAppendFloat():Void {
 	var _b32 = (Go.str("float32:") : Slice<GoByte>);
-	_b32 = stdgo.strconv.Strconv.appendFloat(_b32, (3.1415926535 : GoFloat64), ("E".code : GoRune), (-1 : GoInt), (32 : GoInt));
+	_b32 = stdgo.strconv.Strconv.appendFloat(_b32, (3.1415926535 : GoFloat64), (69 : GoUInt8), (-1 : GoInt), (32 : GoInt));
 	stdgo.fmt.Fmt.println((_b32 : GoString));
 	var _b64 = (Go.str("float64:") : Slice<GoByte>);
-	_b64 = stdgo.strconv.Strconv.appendFloat(_b64, (3.1415926535 : GoFloat64), ("E".code : GoRune), (-1 : GoInt), (64 : GoInt));
+	_b64 = stdgo.strconv.Strconv.appendFloat(_b64, (3.1415926535 : GoFloat64), (69 : GoUInt8), (-1 : GoInt), (64 : GoInt));
 	stdgo.fmt.Fmt.println((_b64 : GoString));
 }
 
@@ -3415,25 +3455,25 @@ function exampleAppendInt():Void {
 
 function exampleAppendQuote():Void {
 	var _b = (Go.str("quote:") : Slice<GoByte>);
-	_b = stdgo.strconv.Strconv.appendQuote(_b, "\"Fran & Freddie\'s Diner\"");
+	_b = stdgo.strconv.Strconv.appendQuote(_b, Go.str("\"Fran & Freddie\'s Diner\""));
 	stdgo.fmt.Fmt.println((_b : GoString));
 }
 
 function exampleAppendQuoteRune():Void {
 	var _b = (Go.str("rune:") : Slice<GoByte>);
-	_b = stdgo.strconv.Strconv.appendQuoteRune(_b, ("☺".code : GoRune));
+	_b = stdgo.strconv.Strconv.appendQuoteRune(_b, (9786 : GoInt32));
 	stdgo.fmt.Fmt.println((_b : GoString));
 }
 
 function exampleAppendQuoteRuneToASCII():Void {
 	var _b = (Go.str("rune (ascii):") : Slice<GoByte>);
-	_b = stdgo.strconv.Strconv.appendQuoteRuneToASCII(_b, ("☺".code : GoRune));
+	_b = stdgo.strconv.Strconv.appendQuoteRuneToASCII(_b, (9786 : GoInt32));
 	stdgo.fmt.Fmt.println((_b : GoString));
 }
 
 function exampleAppendQuoteToASCII():Void {
 	var _b = (Go.str("quote (ascii):") : Slice<GoByte>);
-	_b = stdgo.strconv.Strconv.appendQuoteToASCII(_b, "\"Fran & Freddie\'s Diner\"");
+	_b = stdgo.strconv.Strconv.appendQuoteToASCII(_b, Go.str("\"Fran & Freddie\'s Diner\""));
 	stdgo.fmt.Fmt.println((_b : GoString));
 }
 
@@ -3471,9 +3511,9 @@ function exampleFormatBool():Void {
 
 function exampleFormatFloat():Void {
 	var _v:GoFloat64 = (3.1415926535 : GoFloat64);
-	var _s32:GoString = stdgo.strconv.Strconv.formatFloat(_v, ("E".code : GoRune), (-1 : GoInt), (32 : GoInt));
+	var _s32:GoString = stdgo.strconv.Strconv.formatFloat(_v, (69 : GoUInt8), (-1 : GoInt), (32 : GoInt));
 	stdgo.fmt.Fmt.printf(Go.str("%T, %v\n"), Go.toInterface(_s32), Go.toInterface(_s32));
-	var _s64:GoString = stdgo.strconv.Strconv.formatFloat(_v, ("E".code : GoRune), (-1 : GoInt), (64 : GoInt));
+	var _s64:GoString = stdgo.strconv.Strconv.formatFloat(_v, (69 : GoUInt8), (-1 : GoInt), (64 : GoInt));
 	stdgo.fmt.Fmt.printf(Go.str("%T, %v\n"), Go.toInterface(_s64), Go.toInterface(_s64));
 }
 
@@ -3494,18 +3534,18 @@ function exampleFormatUint():Void {
 }
 
 function exampleIsGraphic():Void {
-	var _shamrock:Bool = stdgo.strconv.Strconv.isGraphic(("☘".code : GoRune));
+	var _shamrock:Bool = stdgo.strconv.Strconv.isGraphic((9752 : GoInt32));
 	stdgo.fmt.Fmt.println(_shamrock);
-	var _a:Bool = stdgo.strconv.Strconv.isGraphic(("a".code : GoRune));
+	var _a:Bool = stdgo.strconv.Strconv.isGraphic((97 : GoInt32));
 	stdgo.fmt.Fmt.println(_a);
-	var _bel:Bool = stdgo.strconv.Strconv.isGraphic(("\u0007".code : GoRune));
+	var _bel:Bool = stdgo.strconv.Strconv.isGraphic((7 : GoInt32));
 	stdgo.fmt.Fmt.println(_bel);
 }
 
 function exampleIsPrint():Void {
-	var _c:Bool = stdgo.strconv.Strconv.isPrint(("\u263a".code : GoRune));
+	var _c:Bool = stdgo.strconv.Strconv.isPrint((9786 : GoInt32));
 	stdgo.fmt.Fmt.println(_c);
-	var _bel:Bool = stdgo.strconv.Strconv.isPrint(("\u0007".code : GoRune));
+	var _bel:Bool = stdgo.strconv.Strconv.isPrint((7 : GoInt32));
 	stdgo.fmt.Fmt.println(_bel);
 }
 
@@ -3661,42 +3701,42 @@ function exampleParseUint():Void {
 }
 
 function exampleQuote():Void {
-	var _s:GoString = stdgo.strconv.Strconv.quote("\"Fran & Freddie\'s Diner\t☺\"");
+	var _s:GoString = stdgo.strconv.Strconv.quote(Go.str("\"Fran & Freddie\'s Diner\t☺\""));
 	stdgo.fmt.Fmt.println(_s);
 }
 
 function exampleQuoteRune():Void {
-	var _s:GoString = stdgo.strconv.Strconv.quoteRune(("☺".code : GoRune));
+	var _s:GoString = stdgo.strconv.Strconv.quoteRune((9786 : GoInt32));
 	stdgo.fmt.Fmt.println(_s);
 }
 
 function exampleQuoteRuneToASCII():Void {
-	var _s:GoString = stdgo.strconv.Strconv.quoteRuneToASCII(("☺".code : GoRune));
+	var _s:GoString = stdgo.strconv.Strconv.quoteRuneToASCII((9786 : GoInt32));
 	stdgo.fmt.Fmt.println(_s);
 }
 
 function exampleQuoteRuneToGraphic():Void {
-	var _s:GoString = stdgo.strconv.Strconv.quoteRuneToGraphic(("☺".code : GoRune));
+	var _s:GoString = stdgo.strconv.Strconv.quoteRuneToGraphic((9786 : GoInt32));
 	stdgo.fmt.Fmt.println(_s);
-	_s = stdgo.strconv.Strconv.quoteRuneToGraphic(("\u263a".code : GoRune));
+	_s = stdgo.strconv.Strconv.quoteRuneToGraphic((9786 : GoInt32));
 	stdgo.fmt.Fmt.println(_s);
-	_s = stdgo.strconv.Strconv.quoteRuneToGraphic(("\u000a".code : GoRune));
+	_s = stdgo.strconv.Strconv.quoteRuneToGraphic((10 : GoInt32));
 	stdgo.fmt.Fmt.println(_s);
-	_s = stdgo.strconv.Strconv.quoteRuneToGraphic(("\t".code : GoRune));
+	_s = stdgo.strconv.Strconv.quoteRuneToGraphic((9 : GoInt32));
 	stdgo.fmt.Fmt.println(_s);
 }
 
 function exampleQuoteToASCII():Void {
-	var _s:GoString = stdgo.strconv.Strconv.quoteToASCII("\"Fran & Freddie\'s Diner\t☺\"");
+	var _s:GoString = stdgo.strconv.Strconv.quoteToASCII(Go.str("\"Fran & Freddie\'s Diner\t☺\""));
 	stdgo.fmt.Fmt.println(_s);
 }
 
 function exampleQuoteToGraphic():Void {
 	var _s:GoString = stdgo.strconv.Strconv.quoteToGraphic(Go.str("☺"));
 	stdgo.fmt.Fmt.println(_s);
-	_s = stdgo.strconv.Strconv.quoteToGraphic(Go.str("This is a \u263a\t\u000a"));
+	_s = stdgo.strconv.Strconv.quoteToGraphic(Go.str("This is a ☺\t\n"));
 	stdgo.fmt.Fmt.println(_s);
-	_s = stdgo.strconv.Strconv.quoteToGraphic("\" This is a ☺ \\n \"");
+	_s = stdgo.strconv.Strconv.quoteToGraphic(Go.str("\" This is a ☺ \\n \""));
 	stdgo.fmt.Fmt.println(_s);
 }
 
@@ -3718,13 +3758,13 @@ function exampleUnquote():Void {
 	};
 	stdgo.fmt.Fmt.printf(Go.str("%q, %v\n"), Go.toInterface(_s), Go.toInterface(_err));
 	{
-		var __tmp__ = stdgo.strconv.Strconv.unquote(Go.str("\'\u263a\'"));
+		var __tmp__ = stdgo.strconv.Strconv.unquote(Go.str("\'☺\'"));
 		_s = __tmp__._0;
 		_err = __tmp__._1;
 	};
 	stdgo.fmt.Fmt.printf(Go.str("%q, %v\n"), Go.toInterface(_s), Go.toInterface(_err));
 	{
-		var __tmp__ = stdgo.strconv.Strconv.unquote(Go.str("\'\u2639\u2639\'"));
+		var __tmp__ = stdgo.strconv.Strconv.unquote(Go.str("\'☹☹\'"));
 		_s = __tmp__._0;
 		_err = __tmp__._1;
 	};
@@ -3732,7 +3772,7 @@ function exampleUnquote():Void {
 }
 
 function exampleUnquoteChar():Void {
-	var __tmp__ = stdgo.strconv.Strconv.unquoteChar("\\\"Fran & Freddie\'s Diner\\\"", ("\"".code : GoRune)),
+	var __tmp__ = stdgo.strconv.Strconv.unquoteChar(Go.str("\\\"Fran & Freddie\'s Diner\\\""), (34 : GoUInt8)),
 		_v:GoInt32 = __tmp__._0,
 		_mb:Bool = __tmp__._1,
 		_t:GoString = __tmp__._2,
@@ -3884,7 +3924,7 @@ function testFp(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _lineno:GoInt = (1 : GoInt);
 			Go.cfor(_s.scan(), _lineno++, {
 				var _line:GoString = _s.text();
-				if ((_line.length == (0 : GoInt)) || (_line[(0 : GoInt)] == ("#".code : GoRune))) {
+				if ((_line.length == (0 : GoInt)) || (_line[(0 : GoInt)] == (35 : GoUInt8))) {
 					continue;
 				};
 				var _a = stdgo.strings.Strings.split(_line, Go.str(" "));
@@ -3974,7 +4014,7 @@ function testFtoa(_t:Ref<stdgo.testing.Testing.T>):Void {
 					Go.toInterface(_test._prec), Go.toInterface(Go.str("want")), Go.toInterface(Go.str("abc") + _test._s), Go.toInterface(Go.str("got")),
 					Go.toInterface((_x : GoString)));
 			};
-			if ((((_test._f : GoFloat32) : GoFloat64) == _test._f) && (_test._fmt != ("b".code : GoRune))) {
+			if ((((_test._f : GoFloat32) : GoFloat64) == _test._f) && (_test._fmt != (98 : GoUInt8))) {
 				var _s:GoString = formatFloat(_test._f, _test._fmt, _test._prec, (32 : GoInt));
 				if (_s != (_test._s)) {
 					_t.error(Go.toInterface(Go.str("testN=32")), Go.toInterface(_test._f), Go.toInterface((_test._fmt : GoString)),
@@ -4000,7 +4040,7 @@ function testFtoaPowersOfTwo(_t:Ref<stdgo.testing.Testing.T>):Void {
 		Go.cfor(_exp <= (2048 : GoInt), _exp++, {
 			var _f:GoFloat64 = stdgo.math.Math.ldexp((1 : GoFloat64), _exp);
 			if (!stdgo.math.Math.isInf(_f, (0 : GoInt))) {
-				var _s:GoString = formatFloat(_f, ("e".code : GoRune), (-1 : GoInt), (64 : GoInt));
+				var _s:GoString = formatFloat(_f, (101 : GoUInt8), (-1 : GoInt), (64 : GoInt));
 				{
 					var __tmp__ = parseFloat(_s, (64 : GoInt)),
 						_x:GoFloat64 = __tmp__._0,
@@ -4012,7 +4052,7 @@ function testFtoaPowersOfTwo(_t:Ref<stdgo.testing.Testing.T>):Void {
 			};
 			var _f32:GoFloat32 = (_f : GoFloat32);
 			if (!stdgo.math.Math.isInf((_f32 : GoFloat64), (0 : GoInt))) {
-				var _s:GoString = formatFloat((_f32 : GoFloat64), ("e".code : GoRune), (-1 : GoInt), (32 : GoInt));
+				var _s:GoString = formatFloat((_f32 : GoFloat64), (101 : GoUInt8), (-1 : GoInt), (32 : GoInt));
 				{
 					var __tmp__ = parseFloat(_s, (32 : GoInt)),
 						_x:GoFloat64 = __tmp__._0,
@@ -4037,17 +4077,17 @@ function testFtoaRandom(_t:Ref<stdgo.testing.Testing.T>):Void {
 		Go.cfor(_i < n, _i++, {
 			var _bits:GoUInt64 = ((stdgo.math.rand.Rand.uint32() : GoUInt64) << (("32" : GoUInt64) : GoUInt64)) | (stdgo.math.rand.Rand.uint32() : GoUInt64);
 			var _x:GoFloat64 = stdgo.math.Math.float64frombits(_bits);
-			var _shortFast:GoString = formatFloat(_x, ("g".code : GoRune), (-1 : GoInt), (64 : GoInt));
+			var _shortFast:GoString = formatFloat(_x, (103 : GoUInt8), (-1 : GoInt), (64 : GoInt));
 			setOptimize(false);
-			var _shortSlow:GoString = formatFloat(_x, ("g".code : GoRune), (-1 : GoInt), (64 : GoInt));
+			var _shortSlow:GoString = formatFloat(_x, (103 : GoUInt8), (-1 : GoInt), (64 : GoInt));
 			setOptimize(true);
 			if (_shortSlow != (_shortFast)) {
 				_t.errorf(Go.str("%b printed as %s, want %s"), Go.toInterface(_x), Go.toInterface(_shortFast), Go.toInterface(_shortSlow));
 			};
 			var _prec:GoInt = stdgo.math.rand.Rand.intn((12 : GoInt)) + (5 : GoInt);
-			_shortFast = formatFloat(_x, ("e".code : GoRune), _prec, (64 : GoInt));
+			_shortFast = formatFloat(_x, (101 : GoUInt8), _prec, (64 : GoInt));
 			setOptimize(false);
-			_shortSlow = formatFloat(_x, ("e".code : GoRune), _prec, (64 : GoInt));
+			_shortSlow = formatFloat(_x, (101 : GoUInt8), _prec, (64 : GoInt));
 			setOptimize(true);
 			if (_shortSlow != (_shortFast)) {
 				_t.errorf(Go.str("%b printed as %s, want %s"), Go.toInterface(_x), Go.toInterface(_shortFast), Go.toInterface(_shortSlow));
@@ -4074,7 +4114,7 @@ function testFormatFloatInvalidBitSize(_t:Ref<stdgo.testing.Testing.T>):Void {
 		a();
 	});
 	try {
-		formatFloat((3.14 : GoFloat64), ("g".code : GoRune), (-1 : GoInt), (100 : GoInt));
+		formatFloat((3.14 : GoFloat64), (103 : GoUInt8), (-1 : GoInt), (100 : GoInt));
 		for (defer in __deferstack__) {
 			defer();
 		};
@@ -4406,7 +4446,7 @@ function benchmarkQuoteRune(_b:Ref<stdgo.testing.Testing.B>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < _b.n, _i++, {
-			quoteRune(("\x07".code : GoRune));
+			quoteRune((7 : GoInt32));
 		});
 	};
 }
@@ -4425,7 +4465,7 @@ function benchmarkAppendQuoteRune(_b:Ref<stdgo.testing.Testing.B>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < _b.n, _i++, {
-			_benchQuoteRuneBuf = appendQuoteRune((_benchQuoteRuneBuf.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>), ("\x07".code : GoRune));
+			_benchQuoteRuneBuf = appendQuoteRune((_benchQuoteRuneBuf.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>), (7 : GoInt32));
 		});
 	};
 }
@@ -4561,7 +4601,7 @@ function benchmarkUnquoteEasy(_b:Ref<stdgo.testing.Testing.B>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < _b.n, _i++, {
-			unquote("\"Give me a rock, paper and scissors and I will move the world.\"");
+			unquote(Go.str("\"Give me a rock, paper and scissors and I will move the world.\""));
 		});
 	};
 }
@@ -4570,7 +4610,7 @@ function benchmarkUnquoteHard(_b:Ref<stdgo.testing.Testing.B>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < _b.n, _i++, {
-			unquote("\"\\x47ive me a \\x72ock, \\x70aper and \\x73cissors and \\x49 will move the world.\"");
+			unquote(Go.str("\"\\x47ive me a \\x72ock, \\x70aper and \\x73cissors and \\x49 will move the world.\""));
 		});
 	};
 }

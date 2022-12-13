@@ -117,21 +117,21 @@ private typedef T__interface_3 = StructType & {
 
 function testNewEqual(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (Go.toInterface(stdgo.errors.Errors.new_(Go.str("abc"))) == (Go.toInterface(stdgo.errors.Errors.new_(Go.str("abc"))))) {
-		_t.errorf("New(\"abc\") == New(\"abc\")");
+		_t.errorf(Go.str("New(\"abc\") == New(\"abc\")"));
 	};
 	if (Go.toInterface(stdgo.errors.Errors.new_(Go.str("abc"))) == (Go.toInterface(stdgo.errors.Errors.new_(Go.str("xyz"))))) {
-		_t.errorf("New(\"abc\") == New(\"xyz\")");
+		_t.errorf(Go.str("New(\"abc\") == New(\"xyz\")"));
 	};
 	var _err:Error = stdgo.errors.Errors.new_(Go.str("jkl"));
 	if (Go.toInterface(_err) != (Go.toInterface(_err))) {
-		_t.errorf("err != err");
+		_t.errorf(Go.str("err != err"));
 	};
 }
 
 function testErrorMethod(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _err:Error = stdgo.errors.Errors.new_(Go.str("abc"));
 	if (_err.error() != (Go.str("abc"))) {
-		_t.errorf("New(\"abc\").Error() = %q, want %q", Go.toInterface(_err.error()), Go.toInterface(Go.str("abc")));
+		_t.errorf(Go.str("New(\"abc\").Error() = %q, want %q"), Go.toInterface(_err.error()), Go.toInterface(Go.str("abc")));
 	};
 }
 

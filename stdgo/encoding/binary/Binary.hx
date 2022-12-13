@@ -1530,8 +1530,8 @@ function benchmarkReadInts(_b:Ref<stdgo.testing.Testing.B>):Void {
 	var _want:Struct = (_s == null ? null : _s.__copy__());
 	_want.float32 = (0 : GoFloat64);
 	_want.float64 = (0 : GoFloat64);
-	_want.complex64 = new GoComplex128(0, 0);
-	_want.complex128 = new GoComplex128(0, 0);
+	_want.complex64 = ((0 : GoFloat64) + new GoComplex128(0, 0));
+	_want.complex128 = ((0 : GoFloat64) + new GoComplex128(0, 0));
 	_want.array = (new GoArray<GoUInt8>((0 : GoUInt8), (0 : GoUInt8), (0 : GoUInt8), (0 : GoUInt8)) : GoArray<GoUInt8>);
 	_want.bool_ = false;
 	_want.boolArray = (new GoArray<Bool>(false, false, false, false) : GoArray<Bool>);
@@ -1726,8 +1726,8 @@ function benchmarkReadFloats(_b:Ref<stdgo.testing.Testing.B>):Void {
 	_want.uint16 = (0 : GoUInt16);
 	_want.uint32 = ("0" : GoUInt32);
 	_want.uint64 = ("0" : GoUInt64);
-	_want.complex64 = new GoComplex128(0, 0);
-	_want.complex128 = new GoComplex128(0, 0);
+	_want.complex64 = ((0 : GoFloat64) + new GoComplex128(0, 0));
+	_want.complex128 = ((0 : GoFloat64) + new GoComplex128(0, 0));
 	_want.array = (new GoArray<GoUInt8>((0 : GoUInt8), (0 : GoUInt8), (0 : GoUInt8), (0 : GoUInt8)) : GoArray<GoUInt8>);
 	_want.bool_ = false;
 	_want.boolArray = (new GoArray<Bool>(false, false, false, false) : GoArray<Bool>);

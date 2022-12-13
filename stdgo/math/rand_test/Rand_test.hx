@@ -240,7 +240,7 @@ function example_rand():Void {
 	var __deferstack__:Array<Void->Void> = [];
 	var _r = stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource(("99" : GoInt64)));
 	try {
-		var _w = stdgo.text.tabwriter.Tabwriter.newWriter(Go.asInterface(stdgo.os.Os.stdout), (1 : GoInt), (1 : GoInt), (1 : GoInt), (" ".code : GoRune),
+		var _w = stdgo.text.tabwriter.Tabwriter.newWriter(Go.asInterface(stdgo.os.Os.stdout), (1 : GoInt), (1 : GoInt), (1 : GoInt), (32 : GoUInt8),
 			("0" : GoUInt));
 		__deferstack__.unshift(() -> _w.flush());
 		var _show:(GoString, AnyInterface, AnyInterface,

@@ -19,11 +19,11 @@ private var __go2hxdoc__package:Bool;
 
 private var _asciiSpace:GoArray<GoUInt8> = {
 	var s:GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0...256) 0]);
-	s[92] = (1 : GoUInt8);
-	s[92] = (1 : GoUInt8);
-	s[92] = (1 : GoUInt8);
-	s[92] = (1 : GoUInt8);
-	s[92] = (1 : GoUInt8);
+	s[9] = (1 : GoUInt8);
+	s[10] = (1 : GoUInt8);
+	s[11] = (1 : GoUInt8);
+	s[12] = (1 : GoUInt8);
+	s[13] = (1 : GoUInt8);
 	s[32] = (1 : GoUInt8);
 	s;
 };
@@ -1197,7 +1197,7 @@ function toUpper(_s:GoString):GoString {
 				_isASCII = false;
 				break;
 			};
-			_hasLower = _hasLower || ((("a".code : GoRune) <= _c) && (_c <= ("z".code : GoRune)));
+			_hasLower = _hasLower || (((97 : GoUInt8) <= _c) && (_c <= (122 : GoUInt8)));
 		});
 	};
 	if (_isASCII) {
@@ -1210,7 +1210,7 @@ function toUpper(_s:GoString):GoString {
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_i < (_s.length), _i++, {
 				var _c:GoUInt8 = _s[_i];
-				if ((("a".code : GoRune) <= _c) && (_c <= ("z".code : GoRune))) {
+				if (((97 : GoUInt8) <= _c) && (_c <= (122 : GoUInt8))) {
 					_c = _c - ((32 : GoUInt8));
 				};
 				_b.writeByte(_c);
@@ -1237,7 +1237,7 @@ function toLower(_s:GoString):GoString {
 				_isASCII = false;
 				break;
 			};
-			_hasUpper = _hasUpper || ((("A".code : GoRune) <= _c) && (_c <= ("Z".code : GoRune)));
+			_hasUpper = _hasUpper || (((65 : GoUInt8) <= _c) && (_c <= (90 : GoUInt8)));
 		});
 	};
 	if (_isASCII) {
@@ -1250,7 +1250,7 @@ function toLower(_s:GoString):GoString {
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_i < (_s.length), _i++, {
 				var _c:GoUInt8 = _s[_i];
-				if ((("A".code : GoRune) <= _c) && (_c <= ("Z".code : GoRune))) {
+				if (((65 : GoUInt8) <= _c) && (_c <= (90 : GoUInt8))) {
 					_c = _c + ((32 : GoUInt8));
 				};
 				_b.writeByte(_c);
@@ -1352,13 +1352,13 @@ function toValidUTF8(_s:GoString, _replacement:GoString):GoString {
 **/
 function _isSeparator(_r:GoRune):Bool {
 	if (_r <= (127 : GoInt32)) {
-		if ((("0".code : GoRune) <= _r) && (_r <= ("9".code : GoRune))) {
+		if (((48 : GoInt32) <= _r) && (_r <= (57 : GoInt32))) {
 			return false;
-		} else if ((("a".code : GoRune) <= _r) && (_r <= ("z".code : GoRune))) {
+		} else if (((97 : GoInt32) <= _r) && (_r <= (122 : GoInt32))) {
 			return false;
-		} else if ((("A".code : GoRune) <= _r) && (_r <= ("Z".code : GoRune))) {
+		} else if (((65 : GoInt32) <= _r) && (_r <= (90 : GoInt32))) {
 			return false;
-		} else if (_r == (("_".code : GoRune))) {
+		} else if (_r == ((95 : GoInt32))) {
 			return false;
 		};
 		return true;
@@ -1377,7 +1377,7 @@ function _isSeparator(_r:GoRune):Bool {
 	// punctuation properly. Use golang.org/x/text/cases instead.
 **/
 function title(_s:GoString):GoString {
-	var _prev:GoInt32 = (" ".code : GoRune);
+	var _prev:GoInt32 = (32 : GoInt32);
 	return map(function(_r:GoRune):GoRune {
 		if (_isSeparator(_prev)) {
 			_prev = _r;
@@ -1807,8 +1807,7 @@ function equalFold(_s:GoString, _t:GoString):Bool {
 			};
 		};
 		if (_tr < (128:GoInt32)) {
-			if (((("A".code : GoRune) <= _sr) && (_sr <= ("Z".code : GoRune)))
-				&& (_tr == (_sr + ("a".code : GoRune) - ("A".code : GoRune)))) {
+			if ((((65 : GoInt32) <= _sr) && (_sr <= (90 : GoInt32))) && (_tr == (_sr + (97 : GoInt32) - (65 : GoInt32)))) {
 				continue;
 			};
 			return false;

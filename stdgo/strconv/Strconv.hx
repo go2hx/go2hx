@@ -1315,8 +1315,7 @@ function parseComplex(_s:GoString, _bitSize:GoInt):{var _0:GoComplex128; var _1:
 		_size = (32 : GoInt);
 	};
 	var _orig:GoString = _s;
-	if (((_s.length >= (2 : GoInt)) && (_s[(0 : GoInt)] == ("(".code : GoRune)))
-		&& (_s[(_s.length) - (1 : GoInt)] == (")".code : GoRune))) {
+	if (((_s.length >= (2 : GoInt)) && (_s[(0 : GoInt)] == (40 : GoUInt8))) && (_s[(_s.length) - (1 : GoInt)] == (41 : GoUInt8))) {
 		_s = (_s.__slice__((1 : GoInt), (_s.length) - (1 : GoInt)) : GoString);
 	};
 	var _pending:Error = (null : Error);
@@ -1331,7 +1330,7 @@ function parseComplex(_s:GoString, _bitSize:GoInt):{var _0:GoComplex128; var _1:
 			_pending = __tmp__._1;
 		};
 		if (_err != null) {
-			return {_0: new GoComplex128(0, 0), _1: _err};
+			return {_0: ((0 : GoFloat64) + new GoComplex128(0, 0)), _1: _err};
 		};
 	};
 	_s = (_s.__slice__(_n) : GoString);
@@ -1341,15 +1340,15 @@ function parseComplex(_s:GoString, _bitSize:GoInt):{var _0:GoComplex128; var _1:
 	{
 		var __switchIndex__ = -1;
 		while (true) {
-			if (__switchIndex__ == 0 || (__switchIndex__ == -1 && _s[(0 : GoInt)] == (("+".code : GoRune)))) {
-				if ((_s.length > (1 : GoInt)) && (_s[(1 : GoInt)] != ("+".code : GoRune))) {
+			if (__switchIndex__ == 0 || (__switchIndex__ == -1 && _s[(0 : GoInt)] == ((43 : GoUInt8)))) {
+				if ((_s.length > (1 : GoInt)) && (_s[(1 : GoInt)] != (43 : GoUInt8))) {
 					_s = (_s.__slice__((1 : GoInt)) : GoString);
 				};
 				break;
 				break;
-			} else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && _s[(0 : GoInt)] == (("-".code : GoRune)))) {
+			} else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && _s[(0 : GoInt)] == ((45 : GoUInt8)))) {
 				break;
-			} else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && _s[(0 : GoInt)] == (("i".code : GoRune)))) {
+			} else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && _s[(0 : GoInt)] == ((105 : GoUInt8)))) {
 				if ((_s.length) == ((1 : GoInt))) {
 					return {_0: new GoComplex128((0 : GoFloat64), _re), _1: _pending};
 				};
@@ -1359,7 +1358,7 @@ function parseComplex(_s:GoString, _bitSize:GoInt):{var _0:GoComplex128; var _1:
 				};
 				break;
 			} else {
-				return {_0: new GoComplex128(0, 0), _1: Go.asInterface(_syntaxError(Go.str("ParseComplex"), _orig))};
+				return {_0: ((0 : GoFloat64) + new GoComplex128(0, 0)), _1: Go.asInterface(_syntaxError(Go.str("ParseComplex"), _orig))};
 				break;
 			};
 			break;
@@ -1376,12 +1375,12 @@ function parseComplex(_s:GoString, _bitSize:GoInt):{var _0:GoComplex128; var _1:
 			_pending = __tmp__._1;
 		};
 		if (_err != null) {
-			return {_0: new GoComplex128(0, 0), _1: _err};
+			return {_0: ((0 : GoFloat64) + new GoComplex128(0, 0)), _1: _err};
 		};
 	};
 	_s = (_s.__slice__(_n) : GoString);
 	if (_s != (Go.str("i"))) {
-		return {_0: new GoComplex128(0, 0), _1: Go.asInterface(_syntaxError(Go.str("ParseComplex"), _orig))};
+		return {_0: ((0 : GoFloat64) + new GoComplex128(0, 0)), _1: Go.asInterface(_syntaxError(Go.str("ParseComplex"), _orig))};
 	};
 	return {_0: new GoComplex128(_re, _im), _1: _pending};
 }
@@ -1400,7 +1399,7 @@ function _commonPrefixLenIgnoreCase(_s:GoString, _prefix:GoString):GoInt {
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < _n, _i++, {
 			var _c:GoUInt8 = _s[_i];
-			if ((("A".code : GoRune) <= _c) && (_c <= ("Z".code : GoRune))) {
+			if (((65 : GoUInt8) <= _c) && (_c <= (90 : GoUInt8))) {
 				_c = _c + ((32 : GoUInt8));
 			};
 			if (_c != (_prefix[_i])) {
@@ -1431,8 +1430,8 @@ function _special(_s:GoString):{var _0:GoFloat64; var _1:GoInt; var _2:Bool;} {
 		var __switchIndex__ = -1;
 		while (true) {
 			if (__switchIndex__ == 0
-				|| (__switchIndex__ == -1 && _s[(0 : GoInt)] == (("+".code : GoRune)) || _s[(0 : GoInt)] == (("-".code : GoRune)))) {
-				if (_s[(0 : GoInt)] == (("-".code : GoRune))) {
+				|| (__switchIndex__ == -1 && _s[(0 : GoInt)] == ((43 : GoUInt8)) || _s[(0 : GoInt)] == ((45 : GoUInt8)))) {
+				if (_s[(0 : GoInt)] == ((45 : GoUInt8))) {
 					_sign = (-1 : GoInt);
 				};
 				_nsign = (1 : GoInt);
@@ -1443,7 +1442,7 @@ function _special(_s:GoString):{var _0:GoFloat64; var _1:GoInt; var _2:Bool;} {
 				};
 				break;
 			} else if (__switchIndex__ == 1
-				|| (__switchIndex__ == -1 && _s[(0 : GoInt)] == (("i".code : GoRune)) || _s[(0 : GoInt)] == (("I".code : GoRune)))) {
+				|| (__switchIndex__ == -1 && _s[(0 : GoInt)] == ((105 : GoUInt8)) || _s[(0 : GoInt)] == ((73 : GoUInt8)))) {
 				var _n:GoInt = _commonPrefixLenIgnoreCase(_s, Go.str("infinity"));
 				if (((3 : GoInt) < _n) && (_n < (8:GoInt))) {
 					_n = (3 : GoInt);
@@ -1454,7 +1453,7 @@ function _special(_s:GoString):{var _0:GoFloat64; var _1:GoInt; var _2:Bool;} {
 				break;
 				break;
 			} else if (__switchIndex__ == 2
-				|| (__switchIndex__ == -1 && _s[(0 : GoInt)] == (("n".code : GoRune)) || _s[(0 : GoInt)] == (("N".code : GoRune)))) {
+				|| (__switchIndex__ == -1 && _s[(0 : GoInt)] == ((110 : GoUInt8)) || _s[(0 : GoInt)] == ((78 : GoUInt8)))) {
 				if (_commonPrefixLenIgnoreCase(_s, Go.str("nan")) == ((3 : GoInt))) {
 					return {_0: stdgo.math.Math.naN(), _1: (3 : GoInt), _2: true};
 				};
@@ -1502,21 +1501,20 @@ function _readFloat(_s:GoString):{
 				_6: _ok
 			};
 		};
-		if (_s[_i] == (("+".code : GoRune))) {
+		if (_s[_i] == ((43 : GoUInt8))) {
 			_i++;
-		} else if (_s[_i] == (("-".code : GoRune))) {
+		} else if (_s[_i] == ((45 : GoUInt8))) {
 			_neg = true;
 			_i++;
 		};
 		var _base:GoUInt64 = (("10" : GoUInt64) : GoUInt64);
 		var _maxMantDigits:GoInt = (19 : GoInt);
-		var _expChar:GoUInt8 = (("e".code : GoRune) : GoByte);
-		if ((((_i + (2 : GoInt)) < _s.length) && (_s[_i] == ("0".code : GoRune)))
-			&& (_lower(_s[_i + (1 : GoInt)]) == ("x".code : GoRune))) {
+		var _expChar:GoUInt8 = ((101 : GoUInt8) : GoByte);
+		if ((((_i + (2 : GoInt)) < _s.length) && (_s[_i] == (48 : GoUInt8))) && (_lower(_s[_i + (1 : GoInt)]) == (120 : GoUInt8))) {
 			_base = ("16" : GoUInt64);
 			_maxMantDigits = (16 : GoInt);
 			_i = _i + ((2 : GoInt));
-			_expChar = ("p".code : GoRune);
+			_expChar = (112 : GoUInt8);
 			_hex = true;
 		};
 		var _sawdot:Bool = false;
@@ -1531,14 +1529,14 @@ function _readFloat(_s:GoString):{
 					var __continue__ = false;
 					var __switchIndex__ = -1;
 					while (true) {
-						if (true == (_c == ("_".code : GoRune))) {
+						if (true == (_c == (95 : GoUInt8))) {
 							_underscores = true;
 							{
 								__continue__ = true;
 								break;
 							};
 							break;
-						} else if (true == (_c == (".".code : GoRune))) {
+						} else if (true == (_c == (46 : GoUInt8))) {
 							if (_sawdot) {
 								@:break {
 									____exit____ = true;
@@ -1553,9 +1551,9 @@ function _readFloat(_s:GoString):{
 								break;
 							};
 							break;
-						} else if (true == ((("0".code : GoRune) <= _c) && (_c <= ("9".code : GoRune)))) {
+						} else if (true == (((48 : GoUInt8) <= _c) && (_c <= (57 : GoUInt8)))) {
 							_sawdigits = true;
-							if ((_c == ("0".code : GoRune)) && (_nd == (0 : GoInt))) {
+							if ((_c == (48 : GoUInt8)) && (_nd == (0 : GoInt))) {
 								_dp--;
 								{
 									__continue__ = true;
@@ -1565,9 +1563,9 @@ function _readFloat(_s:GoString):{
 							_nd++;
 							if (_ndMant < _maxMantDigits) {
 								_mantissa = _mantissa * (_base);
-								_mantissa = _mantissa + ((_c - ("0".code : GoRune) : GoUInt64));
+								_mantissa = _mantissa + ((_c - (48 : GoUInt8) : GoUInt64));
 								_ndMant++;
-							} else if (_c != (("0".code : GoRune))) {
+							} else if (_c != ((48 : GoUInt8))) {
 								_trunc = true;
 							};
 							{
@@ -1575,13 +1573,13 @@ function _readFloat(_s:GoString):{
 								break;
 							};
 							break;
-						} else if (true == (((_base == ("16" : GoUInt64)) && (("a".code : GoRune) <= _lower(_c)))
-							&& (_lower(_c) <= ("f".code : GoRune)))) {
+						} else if (true == (((_base == ("16" : GoUInt64)) && ((97 : GoUInt8) <= _lower(_c)))
+							&& (_lower(_c) <= (102 : GoUInt8)))) {
 							_sawdigits = true;
 							_nd++;
 							if (_ndMant < _maxMantDigits) {
 								_mantissa = _mantissa * (("16" : GoUInt64));
-								_mantissa = _mantissa + (((_lower(_c) - ("a".code : GoRune)) + (10 : GoUInt8) : GoUInt64));
+								_mantissa = _mantissa + (((_lower(_c) - (97 : GoUInt8)) + (10 : GoUInt8) : GoUInt64));
 								_ndMant++;
 							} else {
 								_trunc = true;
@@ -1632,13 +1630,13 @@ function _readFloat(_s:GoString):{
 				};
 			};
 			var _esign:GoInt = (1 : GoInt);
-			if (_s[_i] == (("+".code : GoRune))) {
+			if (_s[_i] == ((43 : GoUInt8))) {
 				_i++;
-			} else if (_s[_i] == (("-".code : GoRune))) {
+			} else if (_s[_i] == ((45 : GoUInt8))) {
 				_i++;
 				_esign = (-1 : GoInt);
 			};
-			if (((_i >= _s.length) || (_s[_i] < ("0".code : GoRune))) || (_s[_i] > ("9".code : GoRune))) {
+			if (((_i >= _s.length) || (_s[_i] < (48 : GoUInt8))) || (_s[_i] > (57 : GoUInt8))) {
 				return {
 					_0: _mantissa,
 					_1: _exp,
@@ -1650,16 +1648,15 @@ function _readFloat(_s:GoString):{
 				};
 			};
 			var _e:GoInt = (0 : GoInt);
-			Go.cfor((_i < _s.length)
-				&& (((("0".code : GoRune) <= _s[_i]) && (_s[_i] <= ("9".code : GoRune))) || (_s[_i] == ("_".code : GoRune))), _i++, {
-					if (_s[_i] == (("_".code : GoRune))) {
-						_underscores = true;
-						continue;
-					};
-					if (_e < (10000:GoInt)) {
-						_e = ((_e * (10 : GoInt)) + (_s[_i] : GoInt)) - ("0".code : GoRune);
-					};
-				});
+			Go.cfor((_i < _s.length) && ((((48 : GoUInt8) <= _s[_i]) && (_s[_i] <= (57 : GoUInt8))) || (_s[_i] == (95 : GoUInt8))), _i++, {
+				if (_s[_i] == ((95 : GoUInt8))) {
+					_underscores = true;
+					continue;
+				};
+				if (_e < (10000:GoInt)) {
+					_e = ((_e * (10 : GoInt)) + (_s[_i] : GoInt)) - (48 : GoInt);
+				};
+			});
 			_dp = _dp + (_e * _esign);
 		} else if (_base == (("16" : GoUInt64))) {
 			return {
@@ -2056,14 +2053,14 @@ function parseUint(_s:GoString, _base:GoInt, _bitSize:GoInt):{var _0:GoUInt64; v
 	var _s0:GoString = _s;
 	if (((2 : GoInt) <= _base) && (_base <= (36 : GoInt))) {} else if (_base == ((0 : GoInt))) {
 		_base = (10 : GoInt);
-		if (_s[(0 : GoInt)] == (("0".code : GoRune))) {
-			if ((_s.length >= (3 : GoInt)) && (_lower(_s[(1 : GoInt)]) == ("b".code : GoRune))) {
+		if (_s[(0 : GoInt)] == ((48 : GoUInt8))) {
+			if ((_s.length >= (3 : GoInt)) && (_lower(_s[(1 : GoInt)]) == (98 : GoUInt8))) {
 				_base = (2 : GoInt);
 				_s = (_s.__slice__((2 : GoInt)) : GoString);
-			} else if ((_s.length >= (3 : GoInt)) && (_lower(_s[(1 : GoInt)]) == ("o".code : GoRune))) {
+			} else if ((_s.length >= (3 : GoInt)) && (_lower(_s[(1 : GoInt)]) == (111 : GoUInt8))) {
 				_base = (8 : GoInt);
 				_s = (_s.__slice__((2 : GoInt)) : GoString);
-			} else if ((_s.length >= (3 : GoInt)) && (_lower(_s[(1 : GoInt)]) == ("x".code : GoRune))) {
+			} else if ((_s.length >= (3 : GoInt)) && (_lower(_s[(1 : GoInt)]) == (120 : GoUInt8))) {
 				_base = (16 : GoInt);
 				_s = (_s.__slice__((2 : GoInt)) : GoString);
 			} else {
@@ -2092,13 +2089,13 @@ function parseUint(_s:GoString, _base:GoInt, _bitSize:GoInt):{var _0:GoUInt64; v
 	var _n:GoUInt64 = (0 : GoUInt64);
 	for (_0 => _c in (_s : Slice<GoByte>)) {
 		var _d:GoByte = (0 : GoUInt8);
-		if ((_c == ("_".code : GoRune)) && _base0) {
+		if ((_c == (95 : GoUInt8)) && _base0) {
 			_underscores = true;
 			continue;
-		} else if ((("0".code : GoRune) <= _c) && (_c <= ("9".code : GoRune))) {
-			_d = _c - ("0".code : GoRune);
-		} else if ((("a".code : GoRune) <= _lower(_c)) && (_lower(_c) <= ("z".code : GoRune))) {
-			_d = (_lower(_c) - ("a".code : GoRune)) + (10 : GoUInt8);
+		} else if (((48 : GoUInt8) <= _c) && (_c <= (57 : GoUInt8))) {
+			_d = _c - (48 : GoUInt8);
+		} else if (((97 : GoUInt8) <= _lower(_c)) && (_lower(_c) <= (122 : GoUInt8))) {
+			_d = (_lower(_c) - (97 : GoUInt8)) + (10 : GoUInt8);
 		} else {
 			return {_0: ("0" : GoUInt64), _1: Go.asInterface(_syntaxError(Go.str("ParseUint"), _s0))};
 		};
@@ -2156,9 +2153,9 @@ function parseInt(_s:GoString, _base:GoInt, _bitSize:GoInt):{var _0:GoInt64; var
 	};
 	var _s0:GoString = _s;
 	var _neg:Bool = false;
-	if (_s[(0 : GoInt)] == (("+".code : GoRune))) {
+	if (_s[(0 : GoInt)] == ((43 : GoUInt8))) {
 		_s = (_s.__slice__((1 : GoInt)) : GoString);
-	} else if (_s[(0 : GoInt)] == (("-".code : GoRune))) {
+	} else if (_s[(0 : GoInt)] == ((45 : GoUInt8))) {
 		_neg = true;
 		_s = (_s.__slice__((1 : GoInt)) : GoString);
 	};
@@ -2199,7 +2196,7 @@ function atoi(_s:GoString):{var _0:GoInt; var _1:Error;} {
 	var _sLen:GoInt = (_s.length);
 	if ((true && (((0 : GoInt) < _sLen) && (_sLen < (10:GoInt)))) || (false && (((0 : GoInt) < _sLen) && (_sLen < (19:GoInt))))) {
 		var _s0:GoString = _s;
-		if ((_s[(0 : GoInt)] == ("-".code : GoRune)) || (_s[(0 : GoInt)] == ("+".code : GoRune))) {
+		if ((_s[(0 : GoInt)] == (45 : GoUInt8)) || (_s[(0 : GoInt)] == (43 : GoUInt8))) {
 			_s = (_s.__slice__((1 : GoInt)) : GoString);
 			if ((_s.length) < (1 : GoInt)) {
 				return {_0: (0 : GoInt), _1: Go.asInterface(((new NumError(Go.str("Atoi"), _s0, errSyntax) : NumError) : Ref<NumError>))};
@@ -2207,13 +2204,13 @@ function atoi(_s:GoString):{var _0:GoInt; var _1:Error;} {
 		};
 		var _n:GoInt = (0 : GoInt);
 		for (_0 => _ch in (_s : Slice<GoByte>)) {
-			_ch = _ch - (("0".code : GoRune));
+			_ch = _ch - ((48 : GoUInt8));
 			if (_ch > (9 : GoUInt8)) {
 				return {_0: (0 : GoInt), _1: Go.asInterface(((new NumError(Go.str("Atoi"), _s0, errSyntax) : NumError) : Ref<NumError>))};
 			};
 			_n = (_n * (10 : GoInt)) + (_ch : GoInt);
 		};
-		if (_s0[(0 : GoInt)] == (("-".code : GoRune))) {
+		if (_s0[(0 : GoInt)] == ((45 : GoUInt8))) {
 			_n = -_n;
 		};
 		return {_0: _n, _1: (null : Error)};
@@ -2240,38 +2237,38 @@ function atoi(_s:GoString):{var _0:GoInt; var _1:Error;} {
 	// Underscore must appear only between digits or between a base prefix and a digit.
 **/
 function _underscoreOK(_s:GoString):Bool {
-	var _saw:GoInt32 = ("^".code : GoRune);
+	var _saw:GoInt32 = (94 : GoInt32);
 	var _i:GoInt = (0 : GoInt);
-	if ((_s.length >= (1 : GoInt)) && ((_s[(0 : GoInt)] == ("-".code : GoRune)) || (_s[(0 : GoInt)] == ("+".code : GoRune)))) {
+	if ((_s.length >= (1 : GoInt)) && ((_s[(0 : GoInt)] == (45 : GoUInt8)) || (_s[(0 : GoInt)] == (43 : GoUInt8)))) {
 		_s = (_s.__slice__((1 : GoInt)) : GoString);
 	};
 	var _hex:Bool = false;
-	if (((_s.length >= (2 : GoInt)) && (_s[(0 : GoInt)] == ("0".code : GoRune)))
-		&& (((_lower(_s[(1 : GoInt)]) == ("b".code : GoRune)) || (_lower(_s[(1 : GoInt)]) == ("o".code : GoRune)))
-			|| (_lower(_s[(1 : GoInt)]) == ("x".code : GoRune)))) {
+	if (((_s.length >= (2 : GoInt)) && (_s[(0 : GoInt)] == (48 : GoUInt8)))
+		&& (((_lower(_s[(1 : GoInt)]) == (98 : GoUInt8)) || (_lower(_s[(1 : GoInt)]) == (111 : GoUInt8)))
+			|| (_lower(_s[(1 : GoInt)]) == (120 : GoUInt8)))) {
 		_i = (2 : GoInt);
-		_saw = ("0".code : GoRune);
-		_hex = _lower(_s[(1 : GoInt)]) == (("x".code : GoRune));
+		_saw = (48 : GoInt32);
+		_hex = _lower(_s[(1 : GoInt)]) == ((120 : GoUInt8));
 	};
 	Go.cfor(_i < (_s.length), _i++, {
-		if (((("0".code : GoRune) <= _s[_i]) && (_s[_i] <= ("9".code : GoRune)))
-			|| ((_hex && (("a".code : GoRune) <= _lower(_s[_i]))) && (_lower(_s[_i]) <= ("f".code : GoRune)))) {
-			_saw = ("0".code : GoRune);
+		if ((((48 : GoUInt8) <= _s[_i]) && (_s[_i] <= (57 : GoUInt8)))
+			|| ((_hex && ((97 : GoUInt8) <= _lower(_s[_i]))) && (_lower(_s[_i]) <= (102 : GoUInt8)))) {
+			_saw = (48 : GoInt32);
 			continue;
 		};
-		if (_s[_i] == (("_".code : GoRune))) {
-			if (_saw != (("0".code : GoRune))) {
+		if (_s[_i] == ((95 : GoUInt8))) {
+			if (_saw != ((48 : GoInt32))) {
 				return false;
 			};
-			_saw = ("_".code : GoRune);
+			_saw = (95 : GoInt32);
 			continue;
 		};
-		if (_saw == (("_".code : GoRune))) {
+		if (_saw == ((95 : GoInt32))) {
 			return false;
 		};
-		_saw = ("!".code : GoRune);
+		_saw = (33 : GoInt32);
 	});
-	return _saw != (("_".code : GoRune));
+	return _saw != ((95 : GoInt32));
 }
 
 /**
@@ -2296,7 +2293,7 @@ function formatComplex(_c:GoComplex128, _fmt:GoByte, _prec:GoInt, _bitSize:GoInt
 	};
 	_bitSize = _bitSize >> (("1" : GoUInt64));
 	var _im:GoString = formatFloat(_c.imag, _fmt, _prec, _bitSize);
-	if ((_im[(0 : GoInt)] != ("+".code : GoRune)) && (_im[(0 : GoInt)] != ("-".code : GoRune))) {
+	if ((_im[(0 : GoInt)] != (43 : GoUInt8)) && (_im[(0 : GoInt)] != (45 : GoUInt8))) {
 		_im = Go.str("+") + _im;
 	};
 	return ((Go.str("(") + formatFloat(_c.real, _fmt, _prec, _bitSize)) + _im) + Go.str("i)");
@@ -2304,7 +2301,7 @@ function formatComplex(_c:GoComplex128, _fmt:GoByte, _prec:GoInt, _bitSize:GoInt
 
 function _digitZero(_dst:Slice<GoByte>):GoInt {
 	for (_i in 0..._dst.length.toBasic()) {
-		_dst[_i] = ("0".code : GoRune);
+		_dst[_i] = (48 : GoUInt8);
 	};
 	return (_dst.length);
 }
@@ -2315,7 +2312,7 @@ function _digitZero(_dst:Slice<GoByte>):GoInt {
 	// independent of the number of digits.)
 **/
 function _trim(_a:Ref<T_decimal>):Void {
-	while ((_a._nd > (0 : GoInt)) && (_a._d[_a._nd - (1 : GoInt)] == ("0".code : GoRune))) {
+	while ((_a._nd > (0 : GoInt)) && (_a._d[_a._nd - (1 : GoInt)] == (48 : GoUInt8))) {
 		_a._nd--;
 	};
 	if (_a._nd == ((0 : GoInt))) {
@@ -2343,7 +2340,7 @@ function _rightShift(_a:Ref<T_decimal>, _k:GoUInt):Void {
 			break;
 		};
 		var _c:GoUInt = (_a._d[_r] : GoUInt);
-		_n = ((_n * (("10" : GoUInt) : GoUInt)) + _c) - ("0".code : GoRune);
+		_n = ((_n * (("10" : GoUInt) : GoUInt)) + _c) - ("48" : GoUInt);
 	});
 	_a._dp = _a._dp - (_r - (1 : GoInt));
 	var _mask:GoUInt = ((("1" : GoUInt) : GoUInt) << _k) - ("1" : GoUInt);
@@ -2351,15 +2348,15 @@ function _rightShift(_a:Ref<T_decimal>, _k:GoUInt):Void {
 		var _c:GoUInt = (_a._d[_r] : GoUInt);
 		var _dig:GoUInt = _n >> _k;
 		_n = _n & (_mask);
-		_a._d[_w] = (_dig + ("0".code : GoRune) : GoByte);
+		_a._d[_w] = (_dig + ("48" : GoUInt) : GoByte);
 		_w++;
-		_n = ((_n * (("10" : GoUInt) : GoUInt)) + _c) - ("0".code : GoRune);
+		_n = ((_n * (("10" : GoUInt) : GoUInt)) + _c) - ("48" : GoUInt);
 	});
 	while (_n > ("0" : GoUInt)) {
 		var _dig:GoUInt = _n >> _k;
 		_n = _n & (_mask);
 		if (_w < (_a._d.length)) {
-			_a._d[_w] = (_dig + ("0".code : GoRune) : GoByte);
+			_a._d[_w] = (_dig + ("48" : GoUInt) : GoByte);
 			_w++;
 		} else if (_dig > ("0" : GoUInt)) {
 			_a._trunc = true;
@@ -2402,12 +2399,12 @@ function _leftShift(_a:Ref<T_decimal>, _k:GoUInt):Void {
 	{
 		_r--;
 		Go.cfor(_r >= (0 : GoInt), _r--, {
-			_n = _n + (((_a._d[_r] : GoUInt) - ("0".code : GoRune)) << _k);
+			_n = _n + (((_a._d[_r] : GoUInt) - (("48" : GoUInt) : GoUInt)) << _k);
 			var _quo:GoUInt = _n / ("10" : GoUInt);
 			var _rem:GoUInt = _n - ((("10" : GoUInt) : GoUInt) * _quo);
 			_w--;
 			if (_w < (_a._d.length)) {
-				_a._d[_w] = (_rem + ("0".code : GoRune) : GoByte);
+				_a._d[_w] = (_rem + ("48" : GoUInt) : GoByte);
 			} else if (_rem != (("0" : GoUInt))) {
 				_a._trunc = true;
 			};
@@ -2419,7 +2416,7 @@ function _leftShift(_a:Ref<T_decimal>, _k:GoUInt):Void {
 		var _rem:GoUInt = _n - ((("10" : GoUInt) : GoUInt) * _quo);
 		_w--;
 		if (_w < (_a._d.length)) {
-			_a._d[_w] = (_rem + ("0".code : GoRune) : GoByte);
+			_a._d[_w] = (_rem + ("48" : GoUInt) : GoByte);
 		} else if (_rem != (("0" : GoUInt))) {
 			_a._trunc = true;
 		};
@@ -2440,13 +2437,13 @@ function _shouldRoundUp(_a:Ref<T_decimal>, _nd:GoInt):Bool {
 	if ((_nd < (0:GoInt)) || (_nd >= _a._nd)) {
 		return false;
 	};
-	if ((_a._d[_nd] == ("5".code : GoRune)) && ((_nd + (1 : GoInt)) == _a._nd)) {
+	if ((_a._d[_nd] == (53 : GoUInt8)) && ((_nd + (1 : GoInt)) == _a._nd)) {
 		if (_a._trunc) {
 			return true;
 		};
-		return (_nd > (0 : GoInt)) && (((_a._d[_nd - (1 : GoInt)] - ("0".code : GoRune)) % (2 : GoUInt8)) != (0 : GoUInt8));
+		return (_nd > (0 : GoInt)) && (((_a._d[_nd - (1 : GoInt)] - (48 : GoUInt8)) % (2 : GoUInt8)) != (0 : GoUInt8));
 	};
-	return _a._d[_nd] >= ("5".code : GoRune);
+	return _a._d[_nd] >= (53 : GoUInt8);
 }
 
 function _eiselLemire64(_man:GoUInt64, _exp10:GoInt, _neg:Bool):{var _0:GoFloat64; var _1:Bool;} {
@@ -2646,10 +2643,10 @@ function _genericFtoa(_dst:Slice<GoByte>, _val:GoFloat64, _fmt:GoByte, _prec:GoI
 		_mant = _mant | (((("1" : GoUInt64) : GoUInt64) : GoUInt64) << _flt._mantbits);
 	};
 	_exp = _exp + (_flt._bias);
-	if (_fmt == (("b".code : GoRune))) {
+	if (_fmt == ((98 : GoUInt8))) {
 		return _fmtB(_dst, _neg, _mant, _exp, _flt);
 	};
-	if ((_fmt == ("x".code : GoRune)) || (_fmt == ("X".code : GoRune))) {
+	if ((_fmt == (120 : GoUInt8)) || (_fmt == (88 : GoUInt8))) {
 		return _fmtX(_dst, _prec, _fmt, _neg, _mant, _exp, _flt);
 	};
 	if (!_optimize) {
@@ -2663,18 +2660,18 @@ function _genericFtoa(_dst:Slice<GoByte>, _val:GoFloat64, _fmt:GoByte, _prec:GoI
 		_digs._d = (_buf.__slice__(0) : Slice<GoUInt8>);
 		_ryuFtoaShortest((_digs : Ref<T_decimalSlice>), _mant, _exp - (_flt._mantbits : GoInt), _flt);
 		_ok = true;
-		if (_fmt == (("e".code : GoRune)) || _fmt == (("E".code : GoRune))) {
+		if (_fmt == ((101 : GoUInt8)) || _fmt == ((69 : GoUInt8))) {
 			_prec = _max(_digs._nd - (1 : GoInt), (0 : GoInt));
-		} else if (_fmt == (("f".code : GoRune))) {
+		} else if (_fmt == ((102 : GoUInt8))) {
 			_prec = _max(_digs._nd - _digs._dp, (0 : GoInt));
-		} else if (_fmt == (("g".code : GoRune)) || _fmt == (("G".code : GoRune))) {
+		} else if (_fmt == ((103 : GoUInt8)) || _fmt == ((71 : GoUInt8))) {
 			_prec = _digs._nd;
 		};
-	} else if (_fmt != (("f".code : GoRune))) {
+	} else if (_fmt != ((102 : GoUInt8))) {
 		var _digits:GoInt = _prec;
-		if (_fmt == (("e".code : GoRune)) || _fmt == (("E".code : GoRune))) {
+		if (_fmt == ((101 : GoUInt8)) || _fmt == ((69 : GoUInt8))) {
 			_digits++;
-		} else if (_fmt == (("g".code : GoRune)) || _fmt == (("G".code : GoRune))) {
+		} else if (_fmt == ((103 : GoUInt8)) || _fmt == ((71 : GoUInt8))) {
 			if (_prec == ((0 : GoInt))) {
 				_prec = (1 : GoInt);
 			};
@@ -2711,19 +2708,19 @@ function _bigFtoa(_dst:Slice<GoByte>, _prec:GoInt, _fmt:GoByte, _neg:Bool, _mant
 	if (_shortest) {
 		_roundShortest(_d, _mant, _exp, _flt);
 		_digs = ({_d: (_d._d.__slice__(0) : Slice<GoUInt8>), _nd: _d._nd, _dp: _d._dp} : T_decimalSlice);
-		if (_fmt == (("e".code : GoRune)) || _fmt == (("E".code : GoRune))) {
+		if (_fmt == ((101 : GoUInt8)) || _fmt == ((69 : GoUInt8))) {
 			_prec = _digs._nd - (1 : GoInt);
-		} else if (_fmt == (("f".code : GoRune))) {
+		} else if (_fmt == ((102 : GoUInt8))) {
 			_prec = _max(_digs._nd - _digs._dp, (0 : GoInt));
-		} else if (_fmt == (("g".code : GoRune)) || _fmt == (("G".code : GoRune))) {
+		} else if (_fmt == ((103 : GoUInt8)) || _fmt == ((71 : GoUInt8))) {
 			_prec = _digs._nd;
 		};
 	} else {
-		if (_fmt == (("e".code : GoRune)) || _fmt == (("E".code : GoRune))) {
+		if (_fmt == ((101 : GoUInt8)) || _fmt == ((69 : GoUInt8))) {
 			_d.round(_prec + (1 : GoInt));
-		} else if (_fmt == (("f".code : GoRune))) {
+		} else if (_fmt == ((102 : GoUInt8))) {
 			_d.round(_d._dp + _prec);
-		} else if (_fmt == (("g".code : GoRune)) || _fmt == (("G".code : GoRune))) {
+		} else if (_fmt == ((103 : GoUInt8)) || _fmt == ((71 : GoUInt8))) {
 			if (_prec == ((0 : GoInt))) {
 				_prec = (1 : GoInt);
 			};
@@ -2735,11 +2732,11 @@ function _bigFtoa(_dst:Slice<GoByte>, _prec:GoInt, _fmt:GoByte, _neg:Bool, _mant
 }
 
 function _formatDigits(_dst:Slice<GoByte>, _shortest:Bool, _neg:Bool, _digs:T_decimalSlice, _prec:GoInt, _fmt:GoByte):Slice<GoByte> {
-	if (_fmt == (("e".code : GoRune)) || _fmt == (("E".code : GoRune))) {
+	if (_fmt == ((101 : GoUInt8)) || _fmt == ((69 : GoUInt8))) {
 		return _fmtE(_dst, _neg, (_digs == null ? null : _digs.__copy__()), _prec, _fmt);
-	} else if (_fmt == (("f".code : GoRune))) {
+	} else if (_fmt == ((102 : GoUInt8))) {
 		return _fmtF(_dst, _neg, (_digs == null ? null : _digs.__copy__()), _prec);
-	} else if (_fmt == (("g".code : GoRune)) || _fmt == (("G".code : GoRune))) {
+	} else if (_fmt == ((103 : GoUInt8)) || _fmt == ((71 : GoUInt8))) {
 		var _eprec:GoInt = _prec;
 		if ((_eprec > _digs._nd) && (_digs._nd >= _digs._dp)) {
 			_eprec = _digs._nd;
@@ -2752,14 +2749,14 @@ function _formatDigits(_dst:Slice<GoByte>, _shortest:Bool, _neg:Bool, _digs:T_de
 			if (_prec > _digs._nd) {
 				_prec = _digs._nd;
 			};
-			return _fmtE(_dst, _neg, (_digs == null ? null : _digs.__copy__()), _prec - (1 : GoInt), (_fmt + ("e".code : GoRune)) - ("g".code : GoRune));
+			return _fmtE(_dst, _neg, (_digs == null ? null : _digs.__copy__()), _prec - (1 : GoInt), (_fmt + (101 : GoUInt8)) - (103 : GoUInt8));
 		};
 		if (_prec > _digs._dp) {
 			_prec = _digs._nd;
 		};
 		return _fmtF(_dst, _neg, (_digs == null ? null : _digs.__copy__()), _max(_prec - _digs._dp, (0 : GoInt)));
 	};
-	return (_dst.__append__(("%".code : GoRune), _fmt));
+	return (_dst.__append__((37 : GoUInt8), _fmt));
 }
 
 /**
@@ -2800,15 +2797,15 @@ function _roundShortest(_d:Ref<T_decimal>, _mant:GoUInt64, _exp:GoInt, _flt:Ref<
 				break;
 			};
 			var _li:GoInt = (_ui - _upper._dp) + _lower._dp;
-			var _l:GoUInt8 = (("0".code : GoRune) : GoByte);
+			var _l:GoUInt8 = ((48 : GoUInt8) : GoByte);
 			if ((_li >= (0 : GoInt)) && (_li < _lower._nd)) {
 				_l = _lower._d[_li];
 			};
-			var _m:GoUInt8 = (("0".code : GoRune) : GoByte);
+			var _m:GoUInt8 = ((48 : GoUInt8) : GoByte);
 			if (_mi >= (0 : GoInt)) {
 				_m = _d._d[_mi];
 			};
-			var _u:GoUInt8 = (("0".code : GoRune) : GoByte);
+			var _u:GoUInt8 = ((48 : GoUInt8) : GoByte);
 			if (_ui < _upper._nd) {
 				_u = _upper._d[_ui];
 			};
@@ -2817,7 +2814,7 @@ function _roundShortest(_d:Ref<T_decimal>, _mant:GoUInt64, _exp:GoInt, _flt:Ref<
 				_upperdelta = (2 : GoUInt8);
 			} else if ((_upperdelta == (0 : GoUInt8)) && (_m != _u)) {
 				_upperdelta = (1 : GoUInt8);
-			} else if ((_upperdelta == (1 : GoUInt8)) && ((_m != ("9".code : GoRune)) || (_u != ("0".code : GoRune)))) {
+			} else if ((_upperdelta == (1 : GoUInt8)) && ((_m != (57 : GoUInt8)) || (_u != (48 : GoUInt8)))) {
 				_upperdelta = (2 : GoUInt8);
 			};
 			var _okup:Bool = (_upperdelta > (0 : GoUInt8))
@@ -2841,15 +2838,15 @@ function _roundShortest(_d:Ref<T_decimal>, _mant:GoUInt64, _exp:GoInt, _flt:Ref<
 **/
 function _fmtE(_dst:Slice<GoByte>, _neg:Bool, _d:T_decimalSlice, _prec:GoInt, _fmt:GoByte):Slice<GoByte> {
 	if (_neg) {
-		_dst = _dst.__appendref__(("-".code : GoRune));
+		_dst = _dst.__appendref__((45 : GoUInt8));
 	};
-	var _ch:GoUInt8 = (("0".code : GoRune) : GoByte);
+	var _ch:GoUInt8 = ((48 : GoUInt8) : GoByte);
 	if (_d._nd != ((0 : GoInt))) {
 		_ch = _d._d[(0 : GoInt)];
 	};
 	_dst = _dst.__appendref__(_ch);
 	if (_prec > (0 : GoInt)) {
-		_dst = _dst.__appendref__((".".code : GoRune));
+		_dst = _dst.__appendref__((46 : GoUInt8));
 		var _i:GoInt = (1 : GoInt);
 		var _m:GoInt = _min(_d._nd, _prec + (1 : GoInt));
 		if (_i < _m) {
@@ -2857,7 +2854,7 @@ function _fmtE(_dst:Slice<GoByte>, _neg:Bool, _d:T_decimalSlice, _prec:GoInt, _f
 			_i = _m;
 		};
 		Go.cfor(_i <= _prec, _i++, {
-			_dst = _dst.__appendref__(("0".code : GoRune));
+			_dst = _dst.__appendref__((48 : GoUInt8));
 		});
 	};
 	_dst = _dst.__appendref__(_fmt);
@@ -2866,22 +2863,22 @@ function _fmtE(_dst:Slice<GoByte>, _neg:Bool, _d:T_decimalSlice, _prec:GoInt, _f
 		_exp = (0 : GoInt);
 	};
 	if (_exp < (0:GoInt)) {
-		_ch = ("-".code : GoRune);
+		_ch = (45 : GoUInt8);
 		_exp = -_exp;
 	} else {
-		_ch = ("+".code : GoRune);
+		_ch = (43 : GoUInt8);
 	};
 	_dst = _dst.__appendref__(_ch);
 	if (_exp < (10:GoInt)) {
-		_dst = _dst.__appendref__(("0".code : GoRune), (_exp : GoByte) + ("0".code : GoRune));
+		_dst = _dst.__appendref__((48 : GoUInt8), (_exp : GoByte) + (48 : GoUInt8));
 	} else if (_exp < (100:GoInt)) {
-		_dst = _dst.__appendref__((_exp / (10 : GoInt) : GoByte) + ("0".code : GoRune), (_exp % (10 : GoInt) : GoByte) + ("0".code : GoRune));
+		_dst = _dst.__appendref__((_exp / (10 : GoInt) : GoByte) + (48 : GoUInt8), (_exp % (10 : GoInt) : GoByte) + (48 : GoUInt8));
 	} else {
 		_dst = _dst.__appendref__((_exp / (100 : GoInt) : GoByte)
-			+ ("0".code : GoRune),
-			((_exp / (10 : GoInt) : GoByte) % (10 : GoUInt8))
-			+ ("0".code : GoRune), (_exp % (10 : GoInt) : GoByte)
-			+ ("0".code : GoRune));
+			+ (48 : GoUInt8), ((_exp / (10 : GoInt) : GoByte) % (10 : GoUInt8))
+			+ (48 : GoUInt8),
+			(_exp % (10 : GoInt) : GoByte)
+			+ (48 : GoUInt8));
 	};
 	return _dst;
 }
@@ -2891,23 +2888,23 @@ function _fmtE(_dst:Slice<GoByte>, _neg:Bool, _d:T_decimalSlice, _prec:GoInt, _f
 **/
 function _fmtF(_dst:Slice<GoByte>, _neg:Bool, _d:T_decimalSlice, _prec:GoInt):Slice<GoByte> {
 	if (_neg) {
-		_dst = _dst.__appendref__(("-".code : GoRune));
+		_dst = _dst.__appendref__((45 : GoUInt8));
 	};
 	if (_d._dp > (0 : GoInt)) {
 		var _m:GoInt = _min(_d._nd, _d._dp);
 		_dst = _dst.__appendref__(...(_d._d.__slice__(0, _m) : Slice<GoUInt8>).__toArray__());
 		Go.cfor(_m < _d._dp, _m++, {
-			_dst = _dst.__appendref__(("0".code : GoRune));
+			_dst = _dst.__appendref__((48 : GoUInt8));
 		});
 	} else {
-		_dst = _dst.__appendref__(("0".code : GoRune));
+		_dst = _dst.__appendref__((48 : GoUInt8));
 	};
 	if (_prec > (0 : GoInt)) {
-		_dst = _dst.__appendref__((".".code : GoRune));
+		_dst = _dst.__appendref__((46 : GoUInt8));
 		{
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_i < _prec, _i++, {
-				var _ch:GoUInt8 = (("0".code : GoRune) : GoByte);
+				var _ch:GoUInt8 = ((48 : GoUInt8) : GoByte);
 				{
 					var _j:GoInt = _d._dp + _i;
 					if (((0 : GoInt) <= _j) && (_j < _d._nd)) {
@@ -2926,16 +2923,16 @@ function _fmtF(_dst:Slice<GoByte>, _neg:Bool, _d:T_decimalSlice, _prec:GoInt):Sl
 **/
 function _fmtB(_dst:Slice<GoByte>, _neg:Bool, _mant:GoUInt64, _exp:GoInt, _flt:Ref<T_floatInfo>):Slice<GoByte> {
 	if (_neg) {
-		_dst = _dst.__appendref__(("-".code : GoRune));
+		_dst = _dst.__appendref__((45 : GoUInt8));
 	};
 	{
 		var __tmp__ = _formatBits(_dst, _mant, (10 : GoInt), false, true);
 		_dst = __tmp__._0;
 	};
-	_dst = _dst.__appendref__(("p".code : GoRune));
+	_dst = _dst.__appendref__((112 : GoUInt8));
 	_exp = _exp - ((_flt._mantbits : GoInt));
 	if (_exp >= (0 : GoInt)) {
-		_dst = _dst.__appendref__(("+".code : GoRune));
+		_dst = _dst.__appendref__((43 : GoUInt8));
 	};
 	{
 		var __tmp__ = _formatBits(_dst, (_exp : GoUInt64), (10 : GoInt), _exp < (0:GoInt), true);
@@ -2970,22 +2967,22 @@ function _fmtX(_dst:Slice<GoByte>, _prec:GoInt, _fmt:GoByte, _neg:Bool, _mant:Go
 		};
 	};
 	var _hex:GoString = Go.str("0123456789abcdef");
-	if (_fmt == (("X".code : GoRune))) {
+	if (_fmt == ((88 : GoUInt8))) {
 		_hex = Go.str("0123456789ABCDEF");
 	};
 	if (_neg) {
-		_dst = _dst.__appendref__(("-".code : GoRune));
+		_dst = _dst.__appendref__((45 : GoUInt8));
 	};
-	_dst = _dst.__appendref__(("0".code : GoRune), _fmt, ("0".code : GoRune) + ((_mant >> (("60" : GoUInt64) : GoUInt64)) & ("1" : GoUInt64) : GoByte));
+	_dst = _dst.__appendref__((48 : GoUInt8), _fmt, (48 : GoUInt8) + ((_mant >> (("60" : GoUInt64) : GoUInt64)) & ("1" : GoUInt64) : GoByte));
 	_mant = _mant << (("4" : GoUInt64));
 	if ((_prec < (0:GoInt)) && (_mant != ("0" : GoUInt64))) {
-		_dst = _dst.__appendref__((".".code : GoRune));
+		_dst = _dst.__appendref__((46 : GoUInt8));
 		while (_mant != (("0" : GoUInt64))) {
 			_dst = _dst.__appendref__(_hex[(_mant >> (("60" : GoUInt64) : GoUInt64)) & ("15" : GoUInt64)]);
 			_mant = _mant << (("4" : GoUInt64));
 		};
 	} else if (_prec > (0 : GoInt)) {
-		_dst = _dst.__appendref__((".".code : GoRune));
+		_dst = _dst.__appendref__((46 : GoUInt8));
 		{
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_i < _prec, _i++, {
@@ -2994,34 +2991,33 @@ function _fmtX(_dst:Slice<GoByte>, _prec:GoInt, _fmt:GoByte, _neg:Bool, _mant:Go
 			});
 		};
 	};
-	var _ch:GoUInt8 = (("P".code : GoRune) : GoByte);
+	var _ch:GoUInt8 = ((80 : GoUInt8) : GoByte);
 	if (_fmt == (_lower(_fmt))) {
-		_ch = ("p".code : GoRune);
+		_ch = (112 : GoUInt8);
 	};
 	_dst = _dst.__appendref__(_ch);
 	if (_exp < (0:GoInt)) {
-		_ch = ("-".code : GoRune);
+		_ch = (45 : GoUInt8);
 		_exp = -_exp;
 	} else {
-		_ch = ("+".code : GoRune);
+		_ch = (43 : GoUInt8);
 	};
 	_dst = _dst.__appendref__(_ch);
 	if (_exp < (100:GoInt)) {
-		_dst = _dst.__appendref__((_exp / (10 : GoInt) : GoByte) + ("0".code : GoRune), (_exp % (10 : GoInt) : GoByte) + ("0".code : GoRune));
+		_dst = _dst.__appendref__((_exp / (10 : GoInt) : GoByte) + (48 : GoUInt8), (_exp % (10 : GoInt) : GoByte) + (48 : GoUInt8));
 	} else if (_exp < (1000:GoInt)) {
 		_dst = _dst.__appendref__((_exp / (100 : GoInt) : GoByte)
-			+ ("0".code : GoRune),
-			((_exp / (10 : GoInt)) % (10 : GoInt) : GoByte)
-			+ ("0".code : GoRune), (_exp % (10 : GoInt) : GoByte)
-			+ ("0".code : GoRune));
+			+ (48 : GoUInt8), ((_exp / (10 : GoInt)) % (10 : GoInt) : GoByte)
+			+ (48 : GoUInt8),
+			(_exp % (10 : GoInt) : GoByte)
+			+ (48 : GoUInt8));
 	} else {
 		_dst = _dst.__appendref__((_exp / (1000 : GoInt) : GoByte)
-			+ ("0".code : GoRune),
-			((_exp / (100 : GoInt) : GoByte) % (10 : GoUInt8))
-			+ ("0".code : GoRune), ((_exp / (10 : GoInt)) % (10 : GoInt) : GoByte)
-			+ ("0".code : GoRune),
-			(_exp % (10 : GoInt) : GoByte)
-			+ ("0".code : GoRune));
+			+ (48 : GoUInt8), ((_exp / (100 : GoInt) : GoByte) % (10 : GoUInt8))
+			+ (48 : GoUInt8),
+			((_exp / (10 : GoInt)) % (10 : GoInt) : GoByte)
+			+ (48 : GoUInt8), (_exp % (10 : GoInt) : GoByte)
+			+ (48 : GoUInt8));
 	};
 	return _dst;
 }
@@ -3233,7 +3229,7 @@ function _formatDecimal(_d:Ref<T_decimalSlice>, _m:GoUInt64, _trunc:Bool, _round
 		_n--;
 		_d._d[_n] = Go.str("00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899")[("2" : GoUInt64) * _v];
 	};
-	while (_d._d[_d._nd - (1 : GoInt)] == (("0".code : GoRune))) {
+	while (_d._d[_d._nd - (1 : GoInt)] == ((48 : GoUInt8))) {
 		_d._nd--;
 		_trimmed++;
 	};
@@ -3495,17 +3491,17 @@ function _ryuDigits(_d:Ref<T_decimalSlice>, _lower:GoUInt64, _central:GoUInt64, 
 					_v1:GoUInt32 = _0;
 				_v = _v1;
 				_n--;
-				_d._d[_n] = (_v2 + ("0".code : GoRune) : GoByte);
+				_d._d[_n] = (_v2 + ("48" : GoUInt32) : GoByte);
 			};
 		};
 		_d._d = (_d._d.__slice__(_n) : Slice<GoUInt8>);
 		_d._nd = (("9" : GoUInt) - _n : GoInt);
 		_ryuDigits32(_d, _llo, _clo, _ulo, _c0, _cup, _d._nd + (8 : GoInt));
 	};
-	while ((_d._nd > (0 : GoInt)) && (_d._d[_d._nd - (1 : GoInt)] == ("0".code : GoRune))) {
+	while ((_d._nd > (0 : GoInt)) && (_d._d[_d._nd - (1 : GoInt)] == (48 : GoUInt8))) {
 		_d._nd--;
 	};
-	while ((_d._nd > (0 : GoInt)) && (_d._d[(0 : GoInt)] == ("0".code : GoRune))) {
+	while ((_d._nd > (0 : GoInt)) && (_d._d[(0 : GoInt)] == (48 : GoUInt8))) {
 		_d._nd--;
 		_d._dp--;
 		_d._d = (_d._d.__slice__((1 : GoInt)) : Slice<GoUInt8>);
@@ -3573,7 +3569,7 @@ function _ryuDigits32(_d:Ref<T_decimalSlice>, _lower:GoUInt32, _central:GoUInt32
 		_v = _v1;
 	};
 	if (_n == (_d._nd)) {
-		_d._d[_n] = (_v + ("0".code : GoRune) : GoByte);
+		_d._d[_n] = (_v + ("48" : GoUInt32) : GoByte);
 	};
 	_d._nd = _endindex + (1 : GoInt);
 	_d._dp = _d._nd + _trimmed;
@@ -3872,7 +3868,7 @@ function _formatBits(_dst:Slice<GoByte>, _u:GoUInt64, _base:GoInt, _neg:Bool, _a
 	};
 	if (_neg) {
 		_i--;
-		_a[_i] = ("-".code : GoRune);
+		_a[_i] = (45 : GoUInt8);
 	};
 	if (_append_) {
 		_d = (_dst.__append__(...(_a.__slice__(_i) : Slice<GoUInt8>).__toArray__()));
@@ -3924,7 +3920,7 @@ function _appendQuotedWith(_buf:Slice<GoByte>, _s:GoString, _quote:GoByte, ascii
 				};
 			};
 			if ((_width == (1 : GoInt)) && (_r == (65533 : GoInt32))) {
-				_buf = _buf.__appendref__(...("\\x" : GoString).__toArray__());
+				_buf = _buf.__appendref__(...Go.str("\\x").__toArray__());
 				_buf = _buf.__appendref__(Go.str("0123456789abcdef")[_s[(0 : GoInt)] >> ("4" : GoUInt64)]);
 				_buf = _buf.__appendref__(Go.str("0123456789abcdef")[_s[(0 : GoInt)] & (15 : GoUInt8)]);
 				continue;
@@ -3948,8 +3944,8 @@ function _appendQuotedRuneWith(_buf:Slice<GoByte>, _r:GoRune, _quote:GoByte, asc
 
 function _appendEscapedRune(_buf:Slice<GoByte>, _r:GoRune, _quote:GoByte, asciionly:Bool, _graphicOnly:Bool):Slice<GoByte> {
 	var _runeTmp:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0...4) (0 : GoUInt8)]);
-	if ((_r == (_quote : GoRune)) || (_r == ("\\".code : GoRune))) {
-		_buf = _buf.__appendref__(("\\".code : GoRune));
+	if ((_r == (_quote : GoRune)) || (_r == (92 : GoInt32))) {
+		_buf = _buf.__appendref__((92 : GoUInt8));
 		_buf = _buf.__appendref__((_r : GoByte));
 		return _buf;
 	};
@@ -3966,33 +3962,33 @@ function _appendEscapedRune(_buf:Slice<GoByte>, _r:GoRune, _quote:GoByte, asciio
 	{
 		var __switchIndex__ = -1;
 		while (true) {
-			if (_r == (("\x07".code : GoRune))) {
-				_buf = _buf.__appendref__(...("\\a" : GoString).__toArray__());
+			if (_r == ((7 : GoInt32))) {
+				_buf = _buf.__appendref__(...Go.str("\\a").__toArray__());
 				break;
-			} else if (_r == (("\u0008".code : GoRune))) {
-				_buf = _buf.__appendref__(...("\\b" : GoString).__toArray__());
+			} else if (_r == ((8 : GoInt32))) {
+				_buf = _buf.__appendref__(...Go.str("\\b").__toArray__());
 				break;
-			} else if (_r == (("\x0C".code : GoRune))) {
-				_buf = _buf.__appendref__(...("\\f" : GoString).__toArray__());
+			} else if (_r == ((12 : GoInt32))) {
+				_buf = _buf.__appendref__(...Go.str("\\f").__toArray__());
 				break;
-			} else if (_r == (("\n".code : GoRune))) {
-				_buf = _buf.__appendref__(...("\\n" : GoString).__toArray__());
+			} else if (_r == ((10 : GoInt32))) {
+				_buf = _buf.__appendref__(...Go.str("\\n").__toArray__());
 				break;
-			} else if (_r == (("\r".code : GoRune))) {
-				_buf = _buf.__appendref__(...("\\r" : GoString).__toArray__());
+			} else if (_r == ((13 : GoInt32))) {
+				_buf = _buf.__appendref__(...Go.str("\\r").__toArray__());
 				break;
-			} else if (_r == (("\t".code : GoRune))) {
-				_buf = _buf.__appendref__(...("\\t" : GoString).__toArray__());
+			} else if (_r == ((9 : GoInt32))) {
+				_buf = _buf.__appendref__(...Go.str("\\t").__toArray__());
 				break;
-			} else if (_r == (("\x0B".code : GoRune))) {
-				_buf = _buf.__appendref__(...("\\v" : GoString).__toArray__());
+			} else if (_r == ((11 : GoInt32))) {
+				_buf = _buf.__appendref__(...Go.str("\\v").__toArray__());
 				break;
 			} else {
 				{
 					var __switchIndex__ = -1;
 					while (true) {
-						if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (_r < (" ".code:GoRune)) || (_r == (127 : GoInt32)))) {
-							_buf = _buf.__appendref__(...("\\x" : GoString).__toArray__());
+						if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (_r < (32:GoInt32)) || (_r == (127 : GoInt32)))) {
+							_buf = _buf.__appendref__(...Go.str("\\x").__toArray__());
 							_buf = _buf.__appendref__(Go.str("0123456789abcdef")[(_r : GoByte) >> ("4" : GoUInt64)]);
 							_buf = _buf.__appendref__(Go.str("0123456789abcdef")[(_r : GoByte) & (15 : GoUInt8)]);
 							break;
@@ -4005,7 +4001,7 @@ function _appendEscapedRune(_buf:Slice<GoByte>, _r:GoRune, _quote:GoByte, asciio
 							};
 							break;
 						} else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && _r < (65536:GoInt32))) {
-							_buf = _buf.__appendref__(...("\\u" : GoString).__toArray__());
+							_buf = _buf.__appendref__(...Go.str("\\u").__toArray__());
 							{
 								var _s:GoInt = (12 : GoInt);
 								Go.cfor(_s >= (0 : GoInt), _s = _s - ((4 : GoInt)), {
@@ -4015,7 +4011,7 @@ function _appendEscapedRune(_buf:Slice<GoByte>, _r:GoRune, _quote:GoByte, asciio
 							break;
 							break;
 						} else {
-							_buf = _buf.__appendref__(...("\\U" : GoString).__toArray__());
+							_buf = _buf.__appendref__(...Go.str("\\U").__toArray__());
 							{
 								var _s:GoInt = (28 : GoInt);
 								Go.cfor(_s >= (0 : GoInt), _s = _s - ((4 : GoInt)), {
@@ -4041,7 +4037,7 @@ function _appendEscapedRune(_buf:Slice<GoByte>, _r:GoRune, _quote:GoByte, asciio
 	// IsPrint.
 **/
 function quote(_s:GoString):GoString {
-	return _quoteWith(_s, ("\"".code : GoRune), false, false);
+	return _quoteWith(_s, (34 : GoUInt8), false, false);
 }
 
 /**
@@ -4049,7 +4045,7 @@ function quote(_s:GoString):GoString {
 	// as generated by Quote, to dst and returns the extended buffer.
 **/
 function appendQuote(_dst:Slice<GoByte>, _s:GoString):Slice<GoByte> {
-	return _appendQuotedWith(_dst, _s, ("\"".code : GoRune), false, false);
+	return _appendQuotedWith(_dst, _s, (34 : GoUInt8), false, false);
 }
 
 /**
@@ -4058,7 +4054,7 @@ function appendQuote(_dst:Slice<GoByte>, _s:GoString):Slice<GoByte> {
 	// non-ASCII characters and non-printable characters as defined by IsPrint.
 **/
 function quoteToASCII(_s:GoString):GoString {
-	return _quoteWith(_s, ("\"".code : GoRune), true, false);
+	return _quoteWith(_s, (34 : GoUInt8), true, false);
 }
 
 /**
@@ -4066,7 +4062,7 @@ function quoteToASCII(_s:GoString):GoString {
 	// as generated by QuoteToASCII, to dst and returns the extended buffer.
 **/
 function appendQuoteToASCII(_dst:Slice<GoByte>, _s:GoString):Slice<GoByte> {
-	return _appendQuotedWith(_dst, _s, ("\"".code : GoRune), true, false);
+	return _appendQuotedWith(_dst, _s, (34 : GoUInt8), true, false);
 }
 
 /**
@@ -4076,7 +4072,7 @@ function appendQuoteToASCII(_dst:Slice<GoByte>, _s:GoString):Slice<GoByte> {
 	// for non-graphic characters.
 **/
 function quoteToGraphic(_s:GoString):GoString {
-	return _quoteWith(_s, ("\"".code : GoRune), false, true);
+	return _quoteWith(_s, (34 : GoUInt8), false, true);
 }
 
 /**
@@ -4084,7 +4080,7 @@ function quoteToGraphic(_s:GoString):GoString {
 	// as generated by QuoteToGraphic, to dst and returns the extended buffer.
 **/
 function appendQuoteToGraphic(_dst:Slice<GoByte>, _s:GoString):Slice<GoByte> {
-	return _appendQuotedWith(_dst, _s, ("\"".code : GoRune), false, true);
+	return _appendQuotedWith(_dst, _s, (34 : GoUInt8), false, true);
 }
 
 /**
@@ -4095,7 +4091,7 @@ function appendQuoteToGraphic(_dst:Slice<GoByte>, _s:GoString):Slice<GoByte> {
 	// replacement character U+FFFD.
 **/
 function quoteRune(_r:GoRune):GoString {
-	return _quoteRuneWith(_r, ("\'".code : GoRune), false, false);
+	return _quoteRuneWith(_r, (39 : GoUInt8), false, false);
 }
 
 /**
@@ -4103,7 +4099,7 @@ function quoteRune(_r:GoRune):GoString {
 	// as generated by QuoteRune, to dst and returns the extended buffer.
 **/
 function appendQuoteRune(_dst:Slice<GoByte>, _r:GoRune):Slice<GoByte> {
-	return _appendQuotedRuneWith(_dst, _r, ("\'".code : GoRune), false, false);
+	return _appendQuotedRuneWith(_dst, _r, (39 : GoUInt8), false, false);
 }
 
 /**
@@ -4115,7 +4111,7 @@ function appendQuoteRune(_dst:Slice<GoByte>, _r:GoRune):Slice<GoByte> {
 	// replacement character U+FFFD.
 **/
 function quoteRuneToASCII(_r:GoRune):GoString {
-	return _quoteRuneWith(_r, ("\'".code : GoRune), true, false);
+	return _quoteRuneWith(_r, (39 : GoUInt8), true, false);
 }
 
 /**
@@ -4123,7 +4119,7 @@ function quoteRuneToASCII(_r:GoRune):GoString {
 	// as generated by QuoteRuneToASCII, to dst and returns the extended buffer.
 **/
 function appendQuoteRuneToASCII(_dst:Slice<GoByte>, _r:GoRune):Slice<GoByte> {
-	return _appendQuotedRuneWith(_dst, _r, ("\'".code : GoRune), true, false);
+	return _appendQuotedRuneWith(_dst, _r, (39 : GoUInt8), true, false);
 }
 
 /**
@@ -4135,7 +4131,7 @@ function appendQuoteRuneToASCII(_dst:Slice<GoByte>, _r:GoRune):Slice<GoByte> {
 	// replacement character U+FFFD.
 **/
 function quoteRuneToGraphic(_r:GoRune):GoString {
-	return _quoteRuneWith(_r, ("\'".code : GoRune), false, true);
+	return _quoteRuneWith(_r, (39 : GoUInt8), false, true);
 }
 
 /**
@@ -4143,7 +4139,7 @@ function quoteRuneToGraphic(_r:GoRune):GoString {
 	// as generated by QuoteRuneToGraphic, to dst and returns the extended buffer.
 **/
 function appendQuoteRuneToGraphic(_dst:Slice<GoByte>, _r:GoRune):Slice<GoByte> {
-	return _appendQuotedRuneWith(_dst, _r, ("\'".code : GoRune), false, true);
+	return _appendQuotedRuneWith(_dst, _r, (39 : GoUInt8), false, true);
 }
 
 /**
@@ -4158,7 +4154,7 @@ function canBackquote(_s:GoString):Bool {
 			_wid:GoInt = __tmp__._1;
 		_s = (_s.__slice__(_wid) : GoString);
 		if (_wid > (1 : GoInt)) {
-			if (_r == (("\ufeff".code : GoRune))) {
+			if (_r == ((65279 : GoInt32))) {
 				return false;
 			};
 			continue;
@@ -4166,8 +4162,7 @@ function canBackquote(_s:GoString):Bool {
 		if (_r == ((65533 : GoInt32))) {
 			return false;
 		};
-		if ((((_r < (" ".code:GoRune)) && (_r != ("\t".code : GoRune))) || (_r == ("`".code : GoRune)))
-			|| (_r == ("\u007F".code : GoRune))) {
+		if ((((_r < (32:GoInt32)) && (_r != (9 : GoInt32))) || (_r == (96 : GoInt32))) || (_r == (127 : GoInt32))) {
 			return false;
 		};
 	};
@@ -4177,12 +4172,12 @@ function canBackquote(_s:GoString):Bool {
 function _unhex(_b:GoByte):{var _0:GoRune; var _1:Bool;} {
 	var _v:GoRune = (0 : GoInt32), _ok:Bool = false;
 	var _c:GoInt32 = (_b : GoRune);
-	if ((("0".code : GoRune) <= _c) && (_c <= ("9".code : GoRune))) {
-		return {_0: _c - ("0".code : GoRune), _1: true};
-	} else if ((("a".code : GoRune) <= _c) && (_c <= ("f".code : GoRune))) {
-		return {_0: (_c - ("a".code : GoRune)) + (10 : GoInt32), _1: true};
-	} else if ((("A".code : GoRune) <= _c) && (_c <= ("F".code : GoRune))) {
-		return {_0: (_c - ("A".code : GoRune)) + (10 : GoInt32), _1: true};
+	if (((48 : GoInt32) <= _c) && (_c <= (57 : GoInt32))) {
+		return {_0: _c - (48 : GoInt32), _1: true};
+	} else if (((97 : GoInt32) <= _c) && (_c <= (102 : GoInt32))) {
+		return {_0: (_c - (97 : GoInt32)) + (10 : GoInt32), _1: true};
+	} else if (((65 : GoInt32) <= _c) && (_c <= (70 : GoInt32))) {
+		return {_0: (_c - (65 : GoInt32)) + (10 : GoInt32), _1: true};
 	};
 	return {_0: _v, _1: _ok};
 }
@@ -4224,7 +4219,7 @@ function unquoteChar(_s:GoString, _quote:GoByte):{
 	};
 	{
 		var _c:GoUInt8 = _s[(0 : GoInt)];
-		if ((_c == _quote) && ((_quote == ("\'".code : GoRune)) || (_quote == ("\"".code : GoRune)))) {
+		if ((_c == _quote) && ((_quote == (39 : GoUInt8)) || (_quote == (34 : GoUInt8)))) {
 			_err = errSyntax;
 			return {
 				_0: _value,
@@ -4242,7 +4237,7 @@ function unquoteChar(_s:GoString, _quote:GoByte):{
 				_2: (_s.__slice__(_size) : GoString),
 				_3: (null : Error)
 			};
-		} else if (_c != (("\\".code : GoRune))) {
+		} else if (_c != ((92 : GoUInt8))) {
 			return {
 				_0: (_s[(0 : GoInt)] : GoRune),
 				_1: false,
@@ -4265,34 +4260,34 @@ function unquoteChar(_s:GoString, _quote:GoByte):{
 	{
 		var __switchIndex__ = -1;
 		while (true) {
-			if (_c == (("a".code : GoRune))) {
-				_value = ("\x07".code : GoRune);
+			if (_c == ((97 : GoUInt8))) {
+				_value = (7 : GoInt32);
 				break;
-			} else if (_c == (("b".code : GoRune))) {
-				_value = ("\u0008".code : GoRune);
+			} else if (_c == ((98 : GoUInt8))) {
+				_value = (8 : GoInt32);
 				break;
-			} else if (_c == (("f".code : GoRune))) {
-				_value = ("\x0C".code : GoRune);
+			} else if (_c == ((102 : GoUInt8))) {
+				_value = (12 : GoInt32);
 				break;
-			} else if (_c == (("n".code : GoRune))) {
-				_value = ("\n".code : GoRune);
+			} else if (_c == ((110 : GoUInt8))) {
+				_value = (10 : GoInt32);
 				break;
-			} else if (_c == (("r".code : GoRune))) {
-				_value = ("\r".code : GoRune);
+			} else if (_c == ((114 : GoUInt8))) {
+				_value = (13 : GoInt32);
 				break;
-			} else if (_c == (("t".code : GoRune))) {
-				_value = ("\t".code : GoRune);
+			} else if (_c == ((116 : GoUInt8))) {
+				_value = (9 : GoInt32);
 				break;
-			} else if (_c == (("v".code : GoRune))) {
-				_value = ("\x0B".code : GoRune);
+			} else if (_c == ((118 : GoUInt8))) {
+				_value = (11 : GoInt32);
 				break;
-			} else if (_c == (("x".code : GoRune)) || _c == (("u".code : GoRune)) || _c == (("U".code : GoRune))) {
+			} else if (_c == ((120 : GoUInt8)) || _c == ((117 : GoUInt8)) || _c == ((85 : GoUInt8))) {
 				var _n:GoInt = (0 : GoInt);
-				if (_c == (("x".code : GoRune))) {
+				if (_c == ((120 : GoUInt8))) {
 					_n = (2 : GoInt);
-				} else if (_c == (("u".code : GoRune))) {
+				} else if (_c == ((117 : GoUInt8))) {
 					_n = (4 : GoInt);
-				} else if (_c == (("U".code : GoRune))) {
+				} else if (_c == ((85 : GoUInt8))) {
 					_n = (8 : GoInt);
 				};
 				var _v:GoRune = (0 : GoInt32);
@@ -4324,7 +4319,7 @@ function unquoteChar(_s:GoString, _quote:GoByte):{
 					});
 				};
 				_s = (_s.__slice__(_n) : GoString);
-				if (_c == (("x".code : GoRune))) {
+				if (_c == ((120 : GoUInt8))) {
 					_value = _v;
 					break;
 				};
@@ -4340,9 +4335,9 @@ function unquoteChar(_s:GoString, _quote:GoByte):{
 				_value = _v;
 				_multibyte = true;
 				break;
-			} else if (_c == (("0".code : GoRune)) || _c == (("1".code : GoRune)) || _c == (("2".code : GoRune)) || _c == (("3".code : GoRune))
-				|| _c == (("4".code : GoRune)) || _c == (("5".code : GoRune)) || _c == (("6".code : GoRune)) || _c == (("7".code : GoRune))) {
-				var _v:GoInt32 = (_c : GoRune) - ("0".code : GoRune);
+			} else if (_c == ((48 : GoUInt8)) || _c == ((49 : GoUInt8)) || _c == ((50 : GoUInt8)) || _c == ((51 : GoUInt8)) || _c == ((52 : GoUInt8))
+				|| _c == ((53 : GoUInt8)) || _c == ((54 : GoUInt8)) || _c == ((55 : GoUInt8))) {
+				var _v:GoInt32 = (_c : GoRune) - (48 : GoInt32);
 				if ((_s.length) < (2 : GoInt)) {
 					_err = errSyntax;
 					return {
@@ -4355,7 +4350,7 @@ function unquoteChar(_s:GoString, _quote:GoByte):{
 				{
 					var _j:GoInt = (0 : GoInt);
 					Go.cfor(_j < (2:GoInt), _j++, {
-						var _x:GoInt32 = (_s[_j] : GoRune) - ("0".code : GoRune);
+						var _x:GoInt32 = (_s[_j] : GoRune) - (48 : GoInt32);
 						if ((_x < (0:GoInt32)) || (_x > (7 : GoInt32))) {
 							_err = errSyntax;
 							return {
@@ -4380,10 +4375,10 @@ function unquoteChar(_s:GoString, _quote:GoByte):{
 				};
 				_value = _v;
 				break;
-			} else if (_c == (("\\".code : GoRune))) {
-				_value = ("\\".code : GoRune);
+			} else if (_c == ((92 : GoUInt8))) {
+				_value = (92 : GoInt32);
 				break;
-			} else if (_c == (("\'".code : GoRune)) || _c == (("\"".code : GoRune))) {
+			} else if (_c == ((39 : GoUInt8)) || _c == ((34 : GoUInt8))) {
 				if (_c != (_quote)) {
 					_err = errSyntax;
 					return {
@@ -4468,10 +4463,10 @@ function _unquote(_in:GoString, _unescape:Bool):{var _0:GoString; var _1:GoStrin
 	{
 		var __switchIndex__ = -1;
 		while (true) {
-			if (_quote == (("`".code : GoRune))) {
+			if (_quote == ((96 : GoUInt8))) {
 				if (!_unescape) {
 					_out = (_in.__slice__(0, _end) : GoString);
-				} else if (!_contains((_in.__slice__(0, _end) : GoString), ("\r".code : GoRune))) {
+				} else if (!_contains((_in.__slice__(0, _end) : GoString), (13 : GoUInt8))) {
 					_out = (_in.__slice__((Go.str("`").length), _end - (Go.str("`").length)) : GoString);
 				} else {
 					var _buf = new Slice<GoUInt8>((0 : GoInt).toBasic(), ((_end - Go.str("`").length) - Go.str("\r").length) - (Go.str("`").length),
@@ -4479,7 +4474,7 @@ function _unquote(_in:GoString, _unescape:Bool):{var _0:GoString; var _1:GoStrin
 					{
 						var _i:GoInt = (Go.str("`").length);
 						Go.cfor(_i < (_end - Go.str("`").length), _i++, {
-							if (_in[_i] != (("\r".code : GoRune))) {
+							if (_in[_i] != ((13 : GoUInt8))) {
 								_buf = _buf.__appendref__(_in[_i]);
 							};
 						});
@@ -4488,13 +4483,13 @@ function _unquote(_in:GoString, _unescape:Bool):{var _0:GoString; var _1:GoStrin
 				};
 				return {_0: _out, _1: (_in.__slice__(_end) : GoString), _2: (null : Error)};
 				break;
-			} else if (_quote == (("\"".code : GoRune)) || _quote == (("\'".code : GoRune))) {
-				if (!_contains((_in.__slice__(0, _end) : GoString), ("\\".code : GoRune))
-					&& !_contains((_in.__slice__(0, _end) : GoString), ("\n".code : GoRune))) {
+			} else if (_quote == ((34 : GoUInt8)) || _quote == ((39 : GoUInt8))) {
+				if (!_contains((_in.__slice__(0, _end) : GoString), (92 : GoUInt8))
+					&& !_contains((_in.__slice__(0, _end) : GoString), (10 : GoUInt8))) {
 					var _valid:Bool = false;
-					if (_quote == (("\"".code : GoRune))) {
-						_valid = stdgo.unicode.utf8.Utf8.validString((_in.__slice__(("\"".length), _end - ("\"".length)) : GoString));
-					} else if (_quote == (("\'".code : GoRune))) {
+					if (_quote == ((34 : GoUInt8))) {
+						_valid = stdgo.unicode.utf8.Utf8.validString((_in.__slice__((Go.str("\"").length), _end - (Go.str("\"").length)) : GoString));
+					} else if (_quote == ((39 : GoUInt8))) {
 						var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString((_in.__slice__((Go.str("\'").length),
 							_end - (Go.str("\'").length)) : GoString)),
 							_r:GoInt32 = __tmp__._0,
@@ -4523,7 +4518,7 @@ function _unquote(_in:GoString, _unescape:Bool):{var _0:GoString; var _1:GoStrin
 						_multibyte:Bool = __tmp__._1,
 						_rem:GoString = __tmp__._2,
 						_err:Error = __tmp__._3;
-					if ((_in[(0 : GoInt)] == ("\n".code : GoRune)) || (_err != null)) {
+					if ((_in[(0 : GoInt)] == (10 : GoUInt8)) || (_err != null)) {
 						return {_0: Go.str(), _1: _in0, _2: errSyntax};
 					};
 					_in = _rem;
@@ -4536,7 +4531,7 @@ function _unquote(_in:GoString, _unescape:Bool):{var _0:GoString; var _1:GoStrin
 							_buf = _buf.__appendref__(...(_arr.__slice__(0, _n) : Slice<GoUInt8>).__toArray__());
 						};
 					};
-					if (_quote == (("\'".code : GoRune))) {
+					if (_quote == ((39 : GoUInt8))) {
 						break;
 					};
 				};
@@ -4794,7 +4789,7 @@ private class T_decimal_asInterface {
 		{
 			_i = (0 : GoInt);
 			Go.cfor((_i < _a._dp) && (_i < _a._nd), _i++, {
-				_n = (_n * (("10" : GoUInt64) : GoUInt64)) + (_a._d[_i] - ("0".code : GoRune): GoUInt64);
+				_n = (_n * (("10" : GoUInt64) : GoUInt64)) + (_a._d[_i] - (48 : GoUInt8): GoUInt64);
 			});
 		};
 		Go.cfor(_i < _a._dp, _i++, {
@@ -4818,14 +4813,14 @@ private class T_decimal_asInterface {
 			var _i:GoInt = _nd - (1 : GoInt);
 			Go.cfor(_i >= (0 : GoInt), _i--, {
 				var _c:GoUInt8 = _a._d[_i];
-				if (_c < ("9".code:GoRune)) {
+				if (_c < (57:GoUInt8)) {
 					_a._d[_i]++;
 					_a._nd = _i + (1 : GoInt);
 					return;
 				};
 			});
 		};
-		_a._d[(0 : GoInt)] = ("1".code : GoRune);
+		_a._d[(0 : GoInt)] = (49 : GoUInt8);
 		_a._nd = (1 : GoInt);
 		_a._dp++;
 	}
@@ -4890,7 +4885,7 @@ private class T_decimal_asInterface {
 		while (_v > ("0" : GoUInt64)) {
 			var _v1:GoUInt64 = _v / ("10" : GoUInt64);
 			_v = _v - ((("10" : GoUInt64) : GoUInt64) * _v1);
-			_buf[_n] = (_v + ("0".code : GoRune) : GoByte);
+			_buf[_n] = (_v + ("48" : GoUInt64) : GoByte);
 			_n++;
 			_v = _v1;
 		};
@@ -4920,15 +4915,15 @@ private class T_decimal_asInterface {
 		if (_a._nd == ((0 : GoInt))) {
 			return Go.str("0");
 		} else if (_a._dp <= (0 : GoInt)) {
-			_buf[_w] = ("0".code : GoRune);
+			_buf[_w] = (48 : GoUInt8);
 			_w++;
-			_buf[_w] = (".".code : GoRune);
+			_buf[_w] = (46 : GoUInt8);
 			_w++;
 			_w = _w + (_digitZero((_buf.__slice__(_w, _w + -_a._dp) : Slice<GoUInt8>)));
 			_w = _w + (Go.copySlice((_buf.__slice__(_w) : Slice<GoUInt8>), (_a._d.__slice__((0 : GoInt), _a._nd) : Slice<GoUInt8>)));
 		} else if (_a._dp < _a._nd) {
 			_w = _w + (Go.copySlice((_buf.__slice__(_w) : Slice<GoUInt8>), (_a._d.__slice__((0 : GoInt), _a._dp) : Slice<GoUInt8>)));
-			_buf[_w] = (".".code : GoRune);
+			_buf[_w] = (46 : GoUInt8);
 			_w++;
 			_w = _w + (Go.copySlice((_buf.__slice__(_w) : Slice<GoUInt8>), (_a._d.__slice__(_a._dp, _a._nd) : Slice<GoUInt8>)));
 		} else {
@@ -4968,7 +4963,7 @@ private class T_decimal_asInterface {
 				_d.shift(-_n);
 				_exp = _exp + (_n);
 			};
-			while ((_d._dp < (0:GoInt)) || ((_d._dp == (0 : GoInt)) && (_d._d[(0 : GoInt)] < ("5".code : GoRune)))) {
+			while ((_d._dp < (0:GoInt)) || ((_d._dp == (0 : GoInt)) && (_d._d[(0 : GoInt)] < (53 : GoUInt8)))) {
 				var _n:GoInt = (0 : GoInt);
 				if (-_d._dp >= (_powtab.length)) {
 					_n = (27 : GoInt);
@@ -5021,34 +5016,34 @@ private class T_decimal_asInterface {
 		if (_i >= (_s.length)) {
 			return _ok;
 		};
-		if (_s[_i] == (("+".code : GoRune))) {
+		if (_s[_i] == ((43 : GoUInt8))) {
 			_i++;
-		} else if (_s[_i] == (("-".code : GoRune))) {
+		} else if (_s[_i] == ((45 : GoUInt8))) {
 			_b._neg = true;
 			_i++;
 		};
 		var _sawdot:Bool = false;
 		var _sawdigits:Bool = false;
 		Go.cfor(_i < (_s.length), _i++, {
-			if (_s[_i] == (("_".code : GoRune))) {
+			if (_s[_i] == ((95 : GoUInt8))) {
 				continue;
-			} else if (_s[_i] == ((".".code : GoRune))) {
+			} else if (_s[_i] == ((46 : GoUInt8))) {
 				if (_sawdot) {
 					return _ok;
 				};
 				_sawdot = true;
 				_b._dp = _b._nd;
 				continue;
-			} else if ((("0".code : GoRune) <= _s[_i]) && (_s[_i] <= ("9".code : GoRune))) {
+			} else if (((48 : GoUInt8) <= _s[_i]) && (_s[_i] <= (57 : GoUInt8))) {
 				_sawdigits = true;
-				if ((_s[_i] == ("0".code : GoRune)) && (_b._nd == (0 : GoInt))) {
+				if ((_s[_i] == (48 : GoUInt8)) && (_b._nd == (0 : GoInt))) {
 					_b._dp--;
 					continue;
 				};
 				if (_b._nd < (_b._d.length)) {
 					_b._d[_b._nd] = _s[_i];
 					_b._nd++;
-				} else if (_s[_i] != (("0".code : GoRune))) {
+				} else if (_s[_i] != ((48 : GoUInt8))) {
 					_b._trunc = true;
 				};
 				continue;
@@ -5061,31 +5056,30 @@ private class T_decimal_asInterface {
 		if (!_sawdot) {
 			_b._dp = _b._nd;
 		};
-		if ((_i < _s.length) && (_lower(_s[_i]) == ("e".code : GoRune))) {
+		if ((_i < _s.length) && (_lower(_s[_i]) == (101 : GoUInt8))) {
 			_i++;
 			if (_i >= (_s.length)) {
 				return _ok;
 			};
 			var _esign:GoInt = (1 : GoInt);
-			if (_s[_i] == (("+".code : GoRune))) {
+			if (_s[_i] == ((43 : GoUInt8))) {
 				_i++;
-			} else if (_s[_i] == (("-".code : GoRune))) {
+			} else if (_s[_i] == ((45 : GoUInt8))) {
 				_i++;
 				_esign = (-1 : GoInt);
 			};
-			if (((_i >= _s.length) || (_s[_i] < ("0".code : GoRune))) || (_s[_i] > ("9".code : GoRune))) {
+			if (((_i >= _s.length) || (_s[_i] < (48 : GoUInt8))) || (_s[_i] > (57 : GoUInt8))) {
 				return _ok;
 			};
 			var _e:GoInt = (0 : GoInt);
-			Go.cfor((_i < _s.length)
-				&& (((("0".code : GoRune) <= _s[_i]) && (_s[_i] <= ("9".code : GoRune))) || (_s[_i] == ("_".code : GoRune))), _i++, {
-					if (_s[_i] == (("_".code : GoRune))) {
-						continue;
-					};
-					if (_e < (10000:GoInt)) {
-						_e = ((_e * (10 : GoInt)) + (_s[_i] : GoInt)) - ("0".code : GoRune);
-					};
-				});
+			Go.cfor((_i < _s.length) && ((((48 : GoUInt8) <= _s[_i]) && (_s[_i] <= (57 : GoUInt8))) || (_s[_i] == (95 : GoUInt8))), _i++, {
+				if (_s[_i] == ((95 : GoUInt8))) {
+					continue;
+				};
+				if (_e < (10000:GoInt)) {
+					_e = ((_e * (10 : GoInt)) + (_s[_i] : GoInt)) - (48 : GoInt);
+				};
+			});
 			_b._dp = _b._dp + (_e * _esign);
 		};
 		if (_i != ((_s.length))) {

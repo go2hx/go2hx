@@ -90,13 +90,14 @@ private var _goStringTests:Slice<T__struct_0> = (new Slice<T__struct_0>(0, 0,
 		fixedZone(Go.str("Europe/Berlin"),
 			(10800 : GoInt))) == null ? null : date((2009 : GoInt), (2 : Month), (5 : GoInt), (5 : GoInt), (0 : GoInt), (57 : GoInt), (12345600 : GoInt),
 			fixedZone(Go.str("Europe/Berlin"),
-				(10800 : GoInt))).__copy__()), _want: "time.Date(2009, time.February, 5, 5, 0, 57, 12345600, time.Location(\"Europe/Berlin\"))"} : T__struct_0),
+				(10800 : GoInt))).__copy__()),
+		_want: Go.str("time.Date(2009, time.February, 5, 5, 0, 57, 12345600, time.Location(\"Europe/Berlin\"))")} : T__struct_0),
 	({_in: (date((2009 : GoInt), (2 : Month), (5 : GoInt), (5 : GoInt), (0 : GoInt), (57 : GoInt), (12345600 : GoInt),
 		fixedZone(Go.str("Non-ASCII character ⏰"),
 			(10800 : GoInt))) == null ? null : date((2009 : GoInt), (2 : Month), (5 : GoInt), (5 : GoInt), (0 : GoInt), (57 : GoInt), (12345600 : GoInt),
 			fixedZone(Go.str("Non-ASCII character ⏰"),
 				(10800 : GoInt))).__copy__()),
-		_want: "time.Date(2009, time.February, 5, 5, 0, 57, 12345600, time.Location(\"Non-ASCII character \\xe2\\x8f\\xb0\"))"} : T__struct_0)) : Slice<T__struct_0>);
+		_want: Go.str("time.Date(2009, time.February, 5, 5, 0, 57, 12345600, time.Location(\"Non-ASCII character \\xe2\\x8f\\xb0\"))")} : T__struct_0)) : Slice<T__struct_0>);
 
 private var _parseTests:Slice<stdgo.time_test.Time_test.ParseTest> = (new Slice<stdgo.time_test.Time_test.ParseTest>(0, 0,
 	(new stdgo.time_test.Time_test.ParseTest(Go.str("ANSIC"), Go.str("Mon Jan _2 15:04:05 2006"), Go.str("Thu Feb  4 21:00:57 2010"), false, true,
@@ -285,17 +286,17 @@ private var _parseErrorTests:Slice<stdgo.time_test.Time_test.ParseErrorTest> = (
 	(new stdgo.time_test.Time_test.ParseErrorTest(Go.str("Mon Jan _2 15:04:05.000 2006"), Go.str("Thu Feb  4 23:00:59.-123 2010"),
 		Go.str("fractional second out of range")) : stdgo.time_test.Time_test.ParseErrorTest),
 	(new stdgo.time_test.Time_test.ParseErrorTest(Go.str("Jan _2 15:04:05.000000000"), Go.str("Dec  7 11:22:01.000000"),
-		"cannot parse \".000000\" as \".000000000\"") : stdgo.time_test.Time_test.ParseErrorTest),
+		Go.str("cannot parse \".000000\" as \".000000000\"")) : stdgo.time_test.Time_test.ParseErrorTest),
 	(new stdgo.time_test.Time_test.ParseErrorTest(Go.str("Jan _2 15:04:05.000000000"), Go.str("Dec  7 11:22:01.0000000000"),
-		"extra text: \"0\"") : stdgo.time_test.Time_test.ParseErrorTest),
+		Go.str("extra text: \"0\"")) : stdgo.time_test.Time_test.ParseErrorTest),
 	(new stdgo.time_test.Time_test.ParseErrorTest(Go.str("2006-01-02T15:04:05Z07:00"), Go.str("2006-01-02T15:04:05Z07:00"),
-		"parsing time \"2006-01-02T15:04:05Z07:00\": extra text: \"07:00\"") : stdgo.time_test.Time_test.ParseErrorTest),
+		Go.str("parsing time \"2006-01-02T15:04:05Z07:00\": extra text: \"07:00\"")) : stdgo.time_test.Time_test.ParseErrorTest),
 	(new stdgo.time_test.Time_test.ParseErrorTest(Go.str("2006-01-02T15:04:05Z07:00"), Go.str("2006-01-02T15:04_abc"),
-		"parsing time \"2006-01-02T15:04_abc\" as \"2006-01-02T15:04:05Z07:00\": cannot parse \"_abc\" as \":\"") : stdgo.time_test.Time_test.ParseErrorTest),
+		Go.str("parsing time \"2006-01-02T15:04_abc\" as \"2006-01-02T15:04:05Z07:00\": cannot parse \"_abc\" as \":\"")) : stdgo.time_test.Time_test.ParseErrorTest),
 	(new stdgo.time_test.Time_test.ParseErrorTest(Go.str("2006-01-02T15:04:05Z07:00"), Go.str("2006-01-02T15:04:05_abc"),
-		"parsing time \"2006-01-02T15:04:05_abc\" as \"2006-01-02T15:04:05Z07:00\": cannot parse \"_abc\" as \"Z07:00\"") : stdgo.time_test.Time_test.ParseErrorTest),
+		Go.str("parsing time \"2006-01-02T15:04:05_abc\" as \"2006-01-02T15:04:05Z07:00\": cannot parse \"_abc\" as \"Z07:00\"")) : stdgo.time_test.Time_test.ParseErrorTest),
 	(new stdgo.time_test.Time_test.ParseErrorTest(Go.str("2006-01-02T15:04:05Z07:00"), Go.str("2006-01-02T15:04:05Z_abc"),
-		"parsing time \"2006-01-02T15:04:05Z_abc\": extra text: \"_abc\"") : stdgo.time_test.Time_test.ParseErrorTest),
+		Go.str("parsing time \"2006-01-02T15:04:05Z_abc\": extra text: \"_abc\"")) : stdgo.time_test.Time_test.ParseErrorTest),
 	(new stdgo.time_test.Time_test.ParseErrorTest(Go.str("2006-01-02T15:04:05Z07:00"), Go.str("2010-02-04T21:00:67.012345678-08:00"),
 		Go.str("second out of range")) : stdgo.time_test.Time_test.ParseErrorTest),
 	(new stdgo.time_test.Time_test.ParseErrorTest(Go.str("_2 Jan 06 15:04 MST"), Go.str("4 --- 00 00:00 GMT"),
@@ -306,10 +307,10 @@ private var _parseErrorTests:Slice<stdgo.time_test.Time_test.ParseErrorTest> = (
 		Go.str("day-of-year does not match day")) : stdgo.time_test.Time_test.ParseErrorTest),
 	(new stdgo.time_test.Time_test.ParseErrorTest(Go.str("Jan _2 002 2006"), Go.str("Feb  4 004 2006"),
 		Go.str("day-of-year does not match month")) : stdgo.time_test.Time_test.ParseErrorTest),
-	(new stdgo.time_test.Time_test.ParseErrorTest("\"2006-01-02T15:04:05Z07:00\"", Go.str("0"),
-		"parsing time \"0\" as \"\\\"2006-01-02T15:04:05Z07:00\\\"\": cannot parse \"0\" as \"\\\"\"") : stdgo.time_test.Time_test.ParseErrorTest),
+	(new stdgo.time_test.Time_test.ParseErrorTest(Go.str("\"2006-01-02T15:04:05Z07:00\""), Go.str("0"),
+		Go.str("parsing time \"0\" as \"\\\"2006-01-02T15:04:05Z07:00\\\"\": cannot parse \"0\" as \"\\\"\"")) : stdgo.time_test.Time_test.ParseErrorTest),
 	(new stdgo.time_test.Time_test.ParseErrorTest(Go.str("2006-01-02T15:04:05Z07:00"), Go.str("\""),
-		"parsing time \"\\\"\" as \"2006-01-02T15:04:05Z07:00\": cannot parse \"\\\"\" as \"2006\"") : stdgo.time_test.Time_test.ParseErrorTest)) : Slice<stdgo.time_test.Time_test.ParseErrorTest>);
+		Go.str("parsing time \"\\\"\" as \"2006-01-02T15:04:05Z07:00\": cannot parse \"\\\"\" as \"2006\"")) : stdgo.time_test.Time_test.ParseErrorTest)) : Slice<stdgo.time_test.Time_test.ParseErrorTest>);
 
 private var _secondsTimeZoneOffsetTests:Slice<stdgo.time_test.Time_test.SecondsTimeZoneOffsetTest> = (new Slice<stdgo.time_test.Time_test.SecondsTimeZoneOffsetTest>(0,
 	0,
@@ -912,14 +913,14 @@ private var _notEncodableTimes:Slice<T__struct_15> = (new Slice<T__struct_15>(0,
 private var _jsonTests:Slice<T__struct_16> = (new Slice<T__struct_16>(0, 0,
 	({_time: (date((9999 : GoInt), (4 : Month), (12 : GoInt), (23 : GoInt), (20 : GoInt), (50 : GoInt), (520000000 : GoInt),
 		utc) == null ? null : date((9999 : GoInt), (4 : Month), (12 : GoInt), (23 : GoInt), (20 : GoInt), (50 : GoInt), (520000000 : GoInt),
-			utc).__copy__()), _json: "\"9999-04-12T23:20:50.52Z\""} : T__struct_16),
+			utc).__copy__()), _json: Go.str("\"9999-04-12T23:20:50.52Z\"")} : T__struct_16),
 	({_time: (date((1996 : GoInt), (12 : Month), (19 : GoInt), (16 : GoInt), (39 : GoInt), (57 : GoInt), (0 : GoInt),
 		local) == null ? null : date((1996 : GoInt), (12 : Month), (19 : GoInt), (16 : GoInt), (39 : GoInt), (57 : GoInt), (0 : GoInt),
-			local).__copy__()), _json: "\"1996-12-19T16:39:57-08:00\""} : T__struct_16),
+			local).__copy__()), _json: Go.str("\"1996-12-19T16:39:57-08:00\"")} : T__struct_16),
 	({_time: (date((0 : GoInt), (1 : Month), (1 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt), (1 : GoInt),
 		fixedZone(Go.str(),
 			(60 : GoInt))) == null ? null : date((0 : GoInt), (1 : Month), (1 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt), (1 : GoInt),
-			fixedZone(Go.str(), (60 : GoInt))).__copy__()), _json: "\"0000-01-01T00:00:00.000000001+00:01\""} : T__struct_16)) : Slice<T__struct_16>);
+			fixedZone(Go.str(), (60 : GoInt))).__copy__()), _json: Go.str("\"0000-01-01T00:00:00.000000001+00:01\"")} : T__struct_16)) : Slice<T__struct_16>);
 
 private var _notJSONEncodableTimes:Slice<T__struct_15> = (new Slice<T__struct_15>(0, 0,
 	({_time: (date((10000 : GoInt), (1 : Month), (1 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt),
@@ -972,44 +973,44 @@ private var _parseDurationTests:Slice<T__struct_17> = (new Slice<T__struct_17>(0
 	({_in: Go.str("0.100000000000000000000h"), _want: (("360000000000" : GoInt64) : Duration)} : T__struct_17),
 	({_in: Go.str("0.830103483285477580700h"), _want: (("2988372539827" : GoInt64) : Duration)} : T__struct_17)) : Slice<T__struct_17>);
 
-private var _parseDurationErrorTests:Slice<T__struct_18> = (new Slice<T__struct_18>(0, 0, ({_in: Go.str(), _expect: "\"\""} : T__struct_18),
-	({_in: Go.str("3"), _expect: "\"3\""} : T__struct_18), ({_in: Go.str("-"), _expect: "\"-\""} : T__struct_18),
-	({_in: Go.str("s"), _expect: "\"s\""} : T__struct_18), ({_in: Go.str("."), _expect: "\".\""} : T__struct_18),
-	({_in: Go.str("-."), _expect: "\"-.\""} : T__struct_18), ({_in: Go.str(".s"), _expect: "\".s\""} : T__struct_18),
-	({_in: Go.str("+.s"), _expect: "\"+.s\""} : T__struct_18), ({_in: Go.str("1d"), _expect: "\"1d\""} : T__struct_18),
-	({_in: Go.str(133, 133), _expect: "\"\\x85\\x85\""} : T__struct_18), ({_in: Go.str(255, "ff"), _expect: "\"\\xffff\""} : T__struct_18),
-	({_in: Go.str("hello ", 255, "ff world"), _expect: "\"hello \\xffff world\""} : T__struct_18),
-	({_in: Go.str("\uFFFD"), _expect: "\"\\xef\\xbf\\xbd\""} : T__struct_18),
-	({_in: Go.str("\uFFFD hello \uFFFD world"), _expect: "\"\\xef\\xbf\\xbd hello \\xef\\xbf\\xbd world\""} : T__struct_18),
-	({_in: Go.str("9223372036854775810ns"), _expect: "\"9223372036854775810ns\""} : T__struct_18),
-	({_in: Go.str("9223372036854775808ns"), _expect: "\"9223372036854775808ns\""} : T__struct_18),
-	({_in: Go.str("-9223372036854775809ns"), _expect: "\"-9223372036854775809ns\""} : T__struct_18),
-	({_in: Go.str("9223372036854776us"), _expect: "\"9223372036854776us\""} : T__struct_18),
-	({_in: Go.str("3000000h"), _expect: "\"3000000h\""} : T__struct_18),
-	({_in: Go.str("9223372036854775.808us"), _expect: "\"9223372036854775.808us\""} : T__struct_18),
-	({_in: Go.str("9223372036854ms775us808ns"), _expect: "\"9223372036854ms775us808ns\""} : T__struct_18)) : Slice<T__struct_18>);
+private var _parseDurationErrorTests:Slice<T__struct_18> = (new Slice<T__struct_18>(0, 0, ({_in: Go.str(), _expect: Go.str("\"\"")} : T__struct_18),
+	({_in: Go.str("3"), _expect: Go.str("\"3\"")} : T__struct_18), ({_in: Go.str("-"), _expect: Go.str("\"-\"")} : T__struct_18),
+	({_in: Go.str("s"), _expect: Go.str("\"s\"")} : T__struct_18), ({_in: Go.str("."), _expect: Go.str("\".\"")} : T__struct_18),
+	({_in: Go.str("-."), _expect: Go.str("\"-.\"")} : T__struct_18), ({_in: Go.str(".s"), _expect: Go.str("\".s\"")} : T__struct_18),
+	({_in: Go.str("+.s"), _expect: Go.str("\"+.s\"")} : T__struct_18), ({_in: Go.str("1d"), _expect: Go.str("\"1d\"")} : T__struct_18),
+	({_in: Go.str(133, 133), _expect: Go.str("\"\\x85\\x85\"")} : T__struct_18), ({_in: Go.str(255, "ff"), _expect: Go.str("\"\\xffff\"")} : T__struct_18),
+	({_in: Go.str("hello ", 255, "ff world"), _expect: Go.str("\"hello \\xffff world\"")} : T__struct_18),
+	({_in: Go.str("�"), _expect: Go.str("\"\\xef\\xbf\\xbd\"")} : T__struct_18),
+	({_in: Go.str("� hello � world"), _expect: Go.str("\"\\xef\\xbf\\xbd hello \\xef\\xbf\\xbd world\"")} : T__struct_18),
+	({_in: Go.str("9223372036854775810ns"), _expect: Go.str("\"9223372036854775810ns\"")} : T__struct_18),
+	({_in: Go.str("9223372036854775808ns"), _expect: Go.str("\"9223372036854775808ns\"")} : T__struct_18),
+	({_in: Go.str("-9223372036854775809ns"), _expect: Go.str("\"-9223372036854775809ns\"")} : T__struct_18),
+	({_in: Go.str("9223372036854776us"), _expect: Go.str("\"9223372036854776us\"")} : T__struct_18),
+	({_in: Go.str("3000000h"), _expect: Go.str("\"3000000h\"")} : T__struct_18),
+	({_in: Go.str("9223372036854775.808us"), _expect: Go.str("\"9223372036854775.808us\"")} : T__struct_18),
+	({_in: Go.str("9223372036854ms775us808ns"), _expect: Go.str("\"9223372036854ms775us808ns\"")} : T__struct_18)) : Slice<T__struct_18>);
 
 private var _mallocTest:Slice<T__struct_19> = (new Slice<T__struct_19>(0, 0, ({
 	_count: (0 : GoInt),
-	_desc: "time.Now()",
+	_desc: Go.str("time.Now()"),
 	_fn: function():Void {
 		_t = (now() == null ? null : now().__copy__());
 	}
 } : T__struct_19), ({
 	_count: (0 : GoInt),
-	_desc: "time.Now().UnixNano()",
+	_desc: Go.str("time.Now().UnixNano()"),
 	_fn: function():Void {
 		_u = now().unixNano();
 	}
 	} : T__struct_19), ({
 	_count: (0 : GoInt),
-	_desc: "time.Now().UnixMilli()",
+	_desc: Go.str("time.Now().UnixMilli()"),
 	_fn: function():Void {
 		_u = now().unixMilli();
 	}
 	} : T__struct_19), ({
 	_count: (0 : GoInt),
-	_desc: "time.Now().UnixMicro()",
+	_desc: Go.str("time.Now().UnixMicro()"),
 	_fn: function():Void {
 		_u = now().unixMicro();
 	}
@@ -2549,7 +2550,7 @@ function testNextStdChunk(_t:Ref<stdgo.testing.Testing.T>):Void {
 		return _out;
 	};
 	var _noParens:GoInt32->GoInt32 = function(_r:GoRune):GoRune {
-		if ((_r == ("(".code : GoRune)) || (_r == (")".code : GoRune))) {
+		if ((_r == (40 : GoInt32)) || (_r == (41 : GoInt32))) {
 			return (-1 : GoInt32);
 		};
 		return _r;
@@ -3143,11 +3144,11 @@ function testParseYday(_t:Ref<stdgo.testing.Testing.T>):Void {
 	// Issue 45391.
 **/
 function testQuote(_t:Ref<stdgo.testing.Testing.T>):Void {
-	var _tests = (new Slice<T__struct_4>(0, 0, ({_s: "\"", _want: "\"\\\"\""} : T__struct_4), ({_s: "abc\"xyz\"", _want: "\"abc\\\"xyz\\\"\""} : T__struct_4),
-		({_s: Go.str(), _want: "\"\""} : T__struct_4), ({_s: Go.str("abc"), _want: "\"abc\""} : T__struct_4),
-		({_s: "☺", _want: "\"\\xe2\\x98\\xba\""} : T__struct_4),
-		({_s: "☺ hello ☺ hello", _want: "\"\\xe2\\x98\\xba hello \\xe2\\x98\\xba hello\""} : T__struct_4),
-		({_s: Go.str(4), _want: "\"\\x04\""} : T__struct_4)) : Slice<T__struct_4>);
+	var _tests = (new Slice<T__struct_4>(0, 0, ({_s: Go.str("\""), _want: Go.str("\"\\\"\"")} : T__struct_4),
+		({_s: Go.str("abc\"xyz\""), _want: Go.str("\"abc\\\"xyz\\\"\"")} : T__struct_4), ({_s: Go.str(), _want: Go.str("\"\"")} : T__struct_4),
+		({_s: Go.str("abc"), _want: Go.str("\"abc\"")} : T__struct_4), ({_s: Go.str("☺"), _want: Go.str("\"\\xe2\\x98\\xba\"")} : T__struct_4),
+		({_s: Go.str("☺ hello ☺ hello"), _want: Go.str("\"\\xe2\\x98\\xba hello \\xe2\\x98\\xba hello\"")} : T__struct_4),
+		({_s: Go.str(4), _want: Go.str("\"\\x04\"")} : T__struct_4)) : Slice<T__struct_4>);
 	for (_0 => _tt in _tests) {
 		{
 			var _q:GoString = quote(_tt._s);
@@ -3162,9 +3163,10 @@ function testQuote(_t:Ref<stdgo.testing.Testing.T>):Void {
 	// Issue 48037
 **/
 function testFormatFractionalSecondSeparators(_t:Ref<stdgo.testing.Testing.T>):Void {
-	var _tests = (new Slice<T__struct_4>(0, 0, ({_s: "15:04:05.000", _want: "21:00:57.012"} : T__struct_4),
-		({_s: "15:04:05.999", _want: "21:00:57.012"} : T__struct_4), ({_s: "15:04:05,000", _want: "21:00:57,012"} : T__struct_4),
-		({_s: "15:04:05,999", _want: "21:00:57,012"} : T__struct_4)) : Slice<T__struct_4>);
+	var _tests = (new Slice<T__struct_4>(0, 0, ({_s: Go.str("15:04:05.000"), _want: Go.str("21:00:57.012")} : T__struct_4),
+		({_s: Go.str("15:04:05.999"), _want: Go.str("21:00:57.012")} : T__struct_4),
+		({_s: Go.str("15:04:05,000"), _want: Go.str("21:00:57,012")} : T__struct_4),
+		({_s: Go.str("15:04:05,999"), _want: Go.str("21:00:57,012")} : T__struct_4)) : Slice<T__struct_4>);
 	var _time:Time = (unix(("0" : GoInt64),
 		("1233810057012345600" : GoInt64)) == null ? null : unix(("0" : GoInt64), ("1233810057012345600" : GoInt64)).__copy__());
 	for (_0 => _tt in _tests) {
@@ -3235,7 +3237,7 @@ function testHasMonotonicClock(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __tmp__ = parse(Go.str("Mon Jan _2 15:04:05 MST 2006"), Go.str("Sat Mar  7 11:06:39 PST 2015")),
 		_tp:Time = __tmp__._0,
 		_0:Error = __tmp__._1;
-	_no("Parse(UnixDate, \"Sat Mar  7 11:06:39 PST 2015\")", (_tp == null ? null : _tp.__copy__()));
+	_no(Go.str("Parse(UnixDate, \"Sat Mar  7 11:06:39 PST 2015\")"), (_tp == null ? null : _tp.__copy__()));
 	_no(Go.str("Unix(1486057371, 0)"),
 		(unix(("1486057371" : GoInt64), ("0" : GoInt64)) == null ? null : unix(("1486057371" : GoInt64), ("0" : GoInt64)).__copy__()));
 	_yes(Go.str("Now()"), (now() == null ? null : now().__copy__()));
@@ -5125,11 +5127,11 @@ function testYearDay(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_dt1:Time = __tmp__._0,
 				_err:Error = __tmp__._1;
 			if (_err != null) {
-				_t.errorf("Parse(\"2006-01-02 002 -0700\", %q): %v", Go.toInterface(_f), Go.toInterface(_err));
+				_t.errorf(Go.str("Parse(\"2006-01-02 002 -0700\", %q): %v"), Go.toInterface(_f), Go.toInterface(_err));
 				continue;
 			};
 			if (!_dt1.equal((_dt == null ? null : _dt.__copy__()))) {
-				_t.errorf("Parse(\"2006-01-02 002 -0700\", %q) = %v, want %v", Go.toInterface(_f), Go.toInterface(Go.asInterface(_dt1)),
+				_t.errorf(Go.str("Parse(\"2006-01-02 002 -0700\", %q) = %v, want %v"), Go.toInterface(_f), Go.toInterface(Go.asInterface(_dt1)),
 					Go.toInterface(Go.asInterface(_dt)));
 			};
 		};
@@ -5297,7 +5299,7 @@ function testTimeJSON(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testInvalidTimeJSON(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _tt:Time = ({} : Time);
-	var _err:Error = stdgo.encoding.json.Json.unmarshal(("{\"now is the time\":\"buddy\"}" : Slice<GoByte>), Go.toInterface((_tt : Ref<Time>)));
+	var _err:Error = stdgo.encoding.json.Json.unmarshal((Go.str("{\"now is the time\":\"buddy\"}") : Slice<GoByte>), Go.toInterface((_tt : Ref<Time>)));
 	var __tmp__ = try {
 		{value: (Go.typeAssert((Go.toInterface(_err) : Ref<ParseError>)) : Ref<ParseError>), ok: true};
 	} catch (_) {
@@ -6610,10 +6612,10 @@ function testFirstZone(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testLocationNames(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if ((stdgo.time.Time.local.string() : GoString) != (Go.str("Local"))) {
-		_t.errorf("invalid Local location name: got %q want \"Local\"", Go.toInterface(stdgo.time.Time.local));
+		_t.errorf(Go.str("invalid Local location name: got %q want \"Local\""), Go.toInterface(stdgo.time.Time.local));
 	};
 	if ((stdgo.time.Time.utc.string() : GoString) != (Go.str("UTC"))) {
-		_t.errorf("invalid UTC location name: got %q want \"UTC\"", Go.toInterface(stdgo.time.Time.utc));
+		_t.errorf(Go.str("invalid UTC location name: got %q want \"UTC\""), Go.toInterface(stdgo.time.Time.utc));
 	};
 }
 

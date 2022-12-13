@@ -41,7 +41,7 @@ var rawStdEncoding:Ref<Encoding> = stdEncoding.withPadding((-1 : GoInt32));
 **/
 var rawURLEncoding:Ref<Encoding> = urlencoding.withPadding((-1 : GoInt32));
 
-private var _pairs:Slice<T_testpair> = (new Slice<T_testpair>(0, 0, (new T_testpair(Go.str(20, 251, 156, 3, 217, 126), Go.str("FPucA9l+")) : T_testpair),
+private var _pairs:Slice<T_testpair> = (new Slice<T_testpair>(0, 0, (new T_testpair(Go.str(20, 251, 156, 3, 217, "~"), Go.str("FPucA9l+")) : T_testpair),
 	(new T_testpair(Go.str(20, 251, 156, 3, 217), Go.str("FPucA9k=")) : T_testpair),
 	(new T_testpair(Go.str(20, 251, 156, 3), Go.str("FPucAw==")) : T_testpair), (new T_testpair(Go.str(), Go.str()) : T_testpair),
 	(new T_testpair(Go.str("f"), Go.str("Zg==")) : T_testpair), (new T_testpair(Go.str("fo"), Go.str("Zm8=")) : T_testpair),
@@ -57,7 +57,7 @@ private var _pairs:Slice<T_testpair> = (new Slice<T_testpair>(0, 0, (new T_testp
 	// A nonstandard encoding with a funny padding character, for testing
 **/
 private var _funnyEncoding:Ref<Encoding> = newEncoding(Go.str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"))
-	.withPadding(("@".code : GoRune));
+	.withPadding(((64 : GoInt32) : GoRune));
 
 private var _encodingTests:Slice<T_encodingTest> = (new Slice<T_encodingTest>(0, 0, (new T_encodingTest(stdEncoding, _stdRef) : T_encodingTest),
 	(new T_encodingTest(urlencoding, _urlRef) : T_encodingTest), (new T_encodingTest(rawStdEncoding, _rawRef) : T_encodingTest),
@@ -72,7 +72,7 @@ private var _bigtest:T_testpair = (new T_testpair(Go.str("Twas brillig, and the 
 /**
 	// Standard padding character
 **/
-final stdPadding:GoRune = ("=".code : GoRune);
+final stdPadding:GoRune = (61 : GoInt32);
 
 /**
 	// No padding
@@ -327,7 +327,7 @@ function newEncoding(_encoder:GoString):Ref<Encoding> {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_encoder.length), _i++, {
-			if ((_encoder[_i] == ("\n".code : GoRune)) || (_encoder[_i] == ("\r".code : GoRune))) {
+			if ((_encoder[_i] == (10 : GoUInt8)) || (_encoder[_i] == (13 : GoUInt8))) {
 				throw Go.toInterface(Go.str("encoding alphabet contains newline character"));
 			};
 		});
@@ -800,7 +800,7 @@ function testDecoderIssue3577(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testDecoderIssue4779(_t:Ref<stdgo.testing.Testing.T>):Void {
-	var _encoded:GoString = "CP/EAT8AAAEF\nAQEBAQEBAAAAAAAAAAMAAQIEBQYHCAkKCwEAAQUBAQEBAQEAAAAAAAAAAQACAwQFBgcICQoLEAAB\nBAEDAgQCBQcGCAUDDDMBAAIRAwQhEjEFQVFhEyJxgTIGFJGhsUIjJBVSwWIzNHKC0UMHJZJT8OHx\nY3M1FqKygyZEk1RkRcKjdDYX0lXiZfKzhMPTdePzRieUpIW0lcTU5PSltcXV5fVWZnaGlqa2xtbm\n9jdHV2d3h5ent8fX5/cRAAICAQIEBAMEBQYHBwYFNQEAAhEDITESBEFRYXEiEwUygZEUobFCI8FS\n0fAzJGLhcoKSQ1MVY3M08SUGFqKygwcmNcLSRJNUoxdkRVU2dGXi8rOEw9N14/NGlKSFtJXE1OT0\npbXF1eX1VmZ2hpamtsbW5vYnN0dXZ3eHl6e3x//aAAwDAQACEQMRAD8A9VSSSSUpJJJJSkkkJ+Tj\n1kiy1jCJJDnAcCTykpKkuQ6p/jN6FgmxlNduXawwAzaGH+V6jn/R/wCt71zdn+N/qL3kVYFNYB4N\nji6PDVjWpKp9TSXnvTf8bFNjg3qOEa2n6VlLpj/rT/pf567DpX1i6L1hs9Py67X8mqdtg/rUWbbf\n+gkp0kkkklKSSSSUpJJJJT//0PVUkkklKVLq3WMDpGI7KzrNjADtYNXvI/Mqr/Pd/q9W3vaxjnvM\nNaCXE9gNSvGPrf8AWS3qmba5jjsJhoB0DAf0NDf6sevf+/lf8Hj0JJATfWT6/dV6oXU1uOLQeKKn\nEQP+Hubtfe/+R7Mf/g7f5xcocp++Z11JMCJPgFBxOg7/AOuqDx8I/ikpkXkmSdU8mJIJA/O8EMAy\nj+mSARB/17pKVXYWHXjsj7yIex0PadzXMO1zT5KHoNA3HT8ietoGhgjsfA+CSnvvqh/jJtqsrwOv\n2b6NGNzXfTYexzJ+nU7/ALkf4P8Awv6P9KvTQQ4AgyDqCF85Pho3CTB7eHwXoH+LT65uZbX9X+o2\nbqbPb06551Y4\n";
+	var _encoded:GoString = Go.str("CP/EAT8AAAEF\nAQEBAQEBAAAAAAAAAAMAAQIEBQYHCAkKCwEAAQUBAQEBAQEAAAAAAAAAAQACAwQFBgcICQoLEAAB\nBAEDAgQCBQcGCAUDDDMBAAIRAwQhEjEFQVFhEyJxgTIGFJGhsUIjJBVSwWIzNHKC0UMHJZJT8OHx\nY3M1FqKygyZEk1RkRcKjdDYX0lXiZfKzhMPTdePzRieUpIW0lcTU5PSltcXV5fVWZnaGlqa2xtbm\n9jdHV2d3h5ent8fX5/cRAAICAQIEBAMEBQYHBwYFNQEAAhEDITESBEFRYXEiEwUygZEUobFCI8FS\n0fAzJGLhcoKSQ1MVY3M08SUGFqKygwcmNcLSRJNUoxdkRVU2dGXi8rOEw9N14/NGlKSFtJXE1OT0\npbXF1eX1VmZ2hpamtsbW5vYnN0dXZ3eHl6e3x//aAAwDAQACEQMRAD8A9VSSSSUpJJJJSkkkJ+Tj\n1kiy1jCJJDnAcCTykpKkuQ6p/jN6FgmxlNduXawwAzaGH+V6jn/R/wCt71zdn+N/qL3kVYFNYB4N\nji6PDVjWpKp9TSXnvTf8bFNjg3qOEa2n6VlLpj/rT/pf567DpX1i6L1hs9Py67X8mqdtg/rUWbbf\n+gkp0kkkklKSSSSUpJJJJT//0PVUkkklKVLq3WMDpGI7KzrNjADtYNXvI/Mqr/Pd/q9W3vaxjnvM\nNaCXE9gNSvGPrf8AWS3qmba5jjsJhoB0DAf0NDf6sevf+/lf8Hj0JJATfWT6/dV6oXU1uOLQeKKn\nEQP+Hubtfe/+R7Mf/g7f5xcocp++Z11JMCJPgFBxOg7/AOuqDx8I/ikpkXkmSdU8mJIJA/O8EMAy\nj+mSARB/17pKVXYWHXjsj7yIex0PadzXMO1zT5KHoNA3HT8ietoGhgjsfA+CSnvvqh/jJtqsrwOv\n2b6NGNzXfTYexzJ+nU7/ALkf4P8Awv6P9KvTQQ4AgyDqCF85Pho3CTB7eHwXoH+LT65uZbX9X+o2\nbqbPb06551Y4\n");
 	var _encodedShort:GoString = stdgo.strings.Strings.replaceAll(_encoded, Go.str("\n"), Go.str());
 	var _dec:stdgo.io.Io.Reader = newDecoder(stdEncoding, Go.asInterface(stdgo.strings.Strings.newReader(_encoded)));
 	var __tmp__ = stdgo.io.Io.readAll(_dec),
@@ -1167,7 +1167,7 @@ class Encoding_asInterface {
 					_dbuf[_j] = _out;
 					continue;
 				};
-				if ((_in == ("\n".code : GoRune)) || (_in == ("\r".code : GoRune))) {
+				if ((_in == (10 : GoUInt8)) || (_in == (13 : GoUInt8))) {
 					_j--;
 					continue;
 				};
@@ -1177,7 +1177,7 @@ class Encoding_asInterface {
 				if (_j == ((0 : GoInt)) || _j == ((1 : GoInt))) {
 					return {_0: _si, _1: (0 : GoInt), _2: Go.asInterface((_si - (1 : GoInt) : CorruptInputError))};
 				} else if (_j == ((2 : GoInt))) {
-					while ((_si < _src.length) && ((_src[_si] == ("\n".code : GoRune)) || (_src[_si] == ("\r".code : GoRune)))) {
+					while ((_si < _src.length) && ((_src[_si] == (10 : GoUInt8)) || (_src[_si] == (13 : GoUInt8)))) {
 						_si++;
 					};
 					if (_si == ((_src.length))) {
@@ -1188,7 +1188,7 @@ class Encoding_asInterface {
 					};
 					_si++;
 				};
-				while ((_si < _src.length) && ((_src[_si] == ("\n".code : GoRune)) || (_src[_si] == ("\r".code : GoRune)))) {
+				while ((_si < _src.length) && ((_src[_si] == (10 : GoUInt8)) || (_src[_si] == (13 : GoUInt8)))) {
 					_si++;
 				};
 				if (_si < (_src.length)) {
@@ -1341,7 +1341,7 @@ class Encoding_asInterface {
 	**/
 	@:keep
 	static public function withPadding(_enc:Encoding, _padding:GoRune):Ref<Encoding> {
-		if (((_padding == ("\r".code : GoRune)) || (_padding == ("\n".code : GoRune))) || (_padding > (255 : GoInt32))) {
+		if (((_padding == (13 : GoInt32)) || (_padding == (10 : GoInt32))) || (_padding > (255 : GoInt32))) {
 			throw Go.toInterface(Go.str("invalid padding"));
 		};
 		{
@@ -1583,7 +1583,7 @@ private class T_newlineFilteringReader_asInterface {
 		while (_n > (0 : GoInt)) {
 			var _offset:GoInt = (0 : GoInt);
 			for (_i => _b in (_p.__slice__(0, _n) : Slice<GoUInt8>)) {
-				if ((_b != ("\r".code : GoRune)) && (_b != ("\n".code : GoRune))) {
+				if ((_b != (13 : GoUInt8)) && (_b != (10 : GoUInt8))) {
 					if (_i != (_offset)) {
 						_p[_offset] = _b;
 					};

@@ -551,9 +551,9 @@ function log(_w:stdgo.io.Io.Writer, _key:GoString, _val:GoString):Void {
 	var _b = (Go.typeAssert((_bufPool.get() : Ref<stdgo.bytes.Bytes.Buffer>)) : Ref<stdgo.bytes.Bytes.Buffer>);
 	_b.reset();
 	_b.writeString(_timeNow().utc().format(Go.str("2006-01-02T15:04:05Z07:00")));
-	_b.writeByte((" ".code : GoRune));
+	_b.writeByte((32 : GoUInt8));
 	_b.writeString(_key);
-	_b.writeByte(("=".code : GoRune));
+	_b.writeByte((61 : GoUInt8));
 	_b.writeString(_val);
 	_w.write(_b.bytes());
 	_bufPool.put(Go.toInterface(_b));
@@ -968,7 +968,7 @@ function benchmarkDeleteCollision(_b:Ref<stdgo.testing.Testing.B>):Void {
 function _randValue(_r:Ref<stdgo.math.rand.Rand.Rand>):AnyInterface {
 	var _b = new Slice<GoUInt8>((_r.intn((4 : GoInt)) : GoInt).toBasic(), 0, ...[for (i in 0...(_r.intn((4 : GoInt)) : GoInt).toBasic()) (0 : GoUInt8)]);
 	for (_i in 0..._b.length.toBasic()) {
-		_b[_i] = ("a".code : GoRune) + (stdgo.math.rand.Rand.intn((26 : GoInt)) : GoByte);
+		_b[_i] = (97 : GoUInt8) + (stdgo.math.rand.Rand.intn((26 : GoInt)) : GoByte);
 	};
 	return Go.toInterface((_b : GoString));
 }

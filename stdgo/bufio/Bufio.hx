@@ -540,7 +540,7 @@ function scanRunes(_data:Slice<GoByte>, _atEOF:Bool):{var _0:GoInt; var _1:Slice
 	// dropCR drops a terminal \r from the data.
 **/
 function _dropCR(_data:Slice<GoByte>):Slice<GoByte> {
-	if ((_data.length > (0 : GoInt)) && (_data[(_data.length) - (1 : GoInt)] == ("\r".code : GoRune))) {
+	if ((_data.length > (0 : GoInt)) && (_data[(_data.length) - (1 : GoInt)] == (13 : GoUInt8))) {
 		return (_data.__slice__((0 : GoInt), (_data.length) - (1 : GoInt)) : Slice<GoUInt8>);
 	};
 	return _data;
@@ -562,7 +562,7 @@ function scanLines(_data:Slice<GoByte>, _atEOF:Bool):{var _0:GoInt; var _1:Slice
 		return {_0: (0 : GoInt), _1: (null : Slice<GoUInt8>), _2: (null : Error)};
 	};
 	{
-		var _i:GoInt = stdgo.bytes.Bytes.indexByte(_data, ("\n".code : GoRune));
+		var _i:GoInt = stdgo.bytes.Bytes.indexByte(_data, (10 : GoUInt8));
 		if (_i >= (0 : GoInt)) {
 			return {_0: _i + (1 : GoInt), _1: _dropCR((_data.__slice__((0 : GoInt), _i) : Slice<GoUInt8>)), _2: (null : Error)};
 		};
@@ -579,20 +579,20 @@ function scanLines(_data:Slice<GoByte>, _atEOF:Bool):{var _0:GoInt; var _1:Slice
 	// in the tests.
 **/
 function _isSpace(_r:GoRune):Bool {
-	if (_r <= ("\u00FF".code : GoRune)) {
-		if (_r == ((" ".code : GoRune)) || _r == (("\t".code : GoRune)) || _r == (("\n".code : GoRune)) || _r == (("\x0B".code : GoRune))
-			|| _r == (("\x0C".code : GoRune)) || _r == (("\r".code : GoRune))) {
+	if (_r <= (255 : GoInt32)) {
+		if (_r == ((32 : GoInt32)) || _r == ((9 : GoInt32)) || _r == ((10 : GoInt32)) || _r == ((11 : GoInt32)) || _r == ((12 : GoInt32))
+			|| _r == ((13 : GoInt32))) {
 			return true;
-		} else if (_r == (("\u0085".code : GoRune)) || _r == (("\u00A0".code : GoRune))) {
+		} else if (_r == ((133 : GoInt32)) || _r == ((160 : GoInt32))) {
 			return true;
 		};
 		return false;
 	};
-	if ((("\u2000".code : GoRune) <= _r) && (_r <= ("\u200a".code : GoRune))) {
+	if (((8192 : GoInt32) <= _r) && (_r <= (8202 : GoInt32))) {
 		return true;
 	};
-	if (_r == (("\u1680".code : GoRune)) || _r == (("\u2028".code : GoRune)) || _r == (("\u2029".code : GoRune)) || _r == (("\u202f".code : GoRune))
-		|| _r == (("\u205f".code : GoRune)) || _r == (("\u3000".code : GoRune))) {
+	if (_r == ((5760 : GoInt32)) || _r == ((8232 : GoInt32)) || _r == ((8233 : GoInt32)) || _r == ((8239 : GoInt32)) || _r == ((8287 : GoInt32))
+		|| _r == ((12288 : GoInt32))) {
 		return true;
 	};
 	return false;
@@ -1079,12 +1079,12 @@ class Reader_asInterface {
 			_isPrefix:Bool = false,
 			_err:Error = (null : Error);
 		{
-			var __tmp__ = _b.readSlice(("\n".code : GoRune));
+			var __tmp__ = _b.readSlice((10 : GoUInt8));
 			_line = __tmp__._0;
 			_err = __tmp__._1;
 		};
 		if (Go.toInterface(_err) == (Go.toInterface(errBufferFull))) {
-			if ((_line.length > (0 : GoInt)) && (_line[(_line.length) - (1 : GoInt)] == ("\r".code : GoRune))) {
+			if ((_line.length > (0 : GoInt)) && (_line[(_line.length) - (1 : GoInt)] == (13 : GoUInt8))) {
 				if (_b._r == ((0 : GoInt))) {
 					throw Go.toInterface(Go.str("bufio: tried to rewind past start of buffer"));
 				};
@@ -1100,9 +1100,9 @@ class Reader_asInterface {
 			return {_0: _line, _1: _isPrefix, _2: _err};
 		};
 		_err = (null : Error);
-		if (_line[(_line.length) - (1 : GoInt)] == (("\n".code : GoRune))) {
+		if (_line[(_line.length) - (1 : GoInt)] == ((10 : GoUInt8))) {
 			var _drop:GoInt = (1 : GoInt);
-			if ((_line.length > (1 : GoInt)) && (_line[(_line.length) - (2 : GoInt)] == ("\r".code : GoRune))) {
+			if ((_line.length > (1 : GoInt)) && (_line[(_line.length) - (2 : GoInt)] == (13 : GoUInt8))) {
 				_drop = (2 : GoInt);
 			};
 			_line = (_line.__slice__(0, (_line.length) - _drop) : Slice<GoUInt8>);

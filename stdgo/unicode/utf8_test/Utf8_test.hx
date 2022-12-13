@@ -14,37 +14,37 @@ import stdgo.Chan;
 private var _utf8map:Slice<stdgo.unicode.utf8_test.Utf8_test.Utf8Map> = (new Slice<stdgo.unicode.utf8_test.Utf8_test.Utf8Map>(0, 0,
 	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((0 : GoInt32), Go.str(0)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
 	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((1 : GoInt32), Go.str(1)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
-	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((126 : GoInt32), Go.str(126)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
+	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((126 : GoInt32), Go.str("~")) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
 	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((127 : GoInt32), Go.str(127)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
-	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((128 : GoInt32), Go.str(194, 128)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
-	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((129 : GoInt32), Go.str(194, 129)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
-	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((191 : GoInt32), Go.str(194, 191)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
-	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((192 : GoInt32), Go.str(195, 128)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
-	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((193 : GoInt32), Go.str(195, 129)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
-	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((200 : GoInt32), Go.str(195, 136)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
-	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((208 : GoInt32), Go.str(195, 144)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
-	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((224 : GoInt32), Go.str(195, 160)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
-	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((240 : GoInt32), Go.str(195, 176)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
-	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((248 : GoInt32), Go.str(195, 184)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
-	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((255 : GoInt32), Go.str(195, 191)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
-	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((256 : GoInt32), Go.str(196, 128)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
-	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((2047 : GoInt32), Go.str(223, 191)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
-	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((1024 : GoInt32), Go.str(208, 128)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
-	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((2048 : GoInt32), Go.str(224, 160, 128)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
-	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((2049 : GoInt32), Go.str(224, 160, 129)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
-	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((4096 : GoInt32), Go.str(225, 128, 128)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
-	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((53248 : GoInt32), Go.str(237, 128, 128)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
-	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((55295 : GoInt32), Go.str(237, 159, 191)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
-	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((57344 : GoInt32), Go.str(238, 128, 128)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
-	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((65534 : GoInt32), Go.str(239, 191, 190)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
-	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((65535 : GoInt32), Go.str(239, 191, 191)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
-	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((65536 : GoInt32), Go.str(240, 144, 128, 128)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
-	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((65537 : GoInt32), Go.str(240, 144, 128, 129)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
-	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((262144 : GoInt32), Go.str(241, 128, 128, 128)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
-	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((1114110 : GoInt32), Go.str(244, 143, 191, 190)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
-	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((1114111 : GoInt32), Go.str(244, 143, 191, 191)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
+	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((128 : GoInt32), Go.str("\u0080")) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
+	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((129 : GoInt32), Go.str("\u0081")) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
+	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((191 : GoInt32), Go.str("¿")) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
+	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((192 : GoInt32), Go.str("À")) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
+	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((193 : GoInt32), Go.str("Á")) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
+	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((200 : GoInt32), Go.str("È")) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
+	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((208 : GoInt32), Go.str("Ð")) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
+	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((224 : GoInt32), Go.str("à")) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
+	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((240 : GoInt32), Go.str("ð")) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
+	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((248 : GoInt32), Go.str("ø")) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
+	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((255 : GoInt32), Go.str("ÿ")) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
+	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((256 : GoInt32), Go.str("Ā")) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
+	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((2047 : GoInt32), Go.str("߿")) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
+	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((1024 : GoInt32), Go.str("Ѐ")) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
+	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((2048 : GoInt32), Go.str("ࠀ")) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
+	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((2049 : GoInt32), Go.str("ࠁ")) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
+	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((4096 : GoInt32), Go.str("က")) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
+	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((53248 : GoInt32), Go.str("퀀")) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
+	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((55295 : GoInt32), Go.str("\ud7ff")) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
+	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((57344 : GoInt32), Go.str("\ue000")) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
+	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((65534 : GoInt32), Go.str("\ufffe")) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
+	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((65535 : GoInt32), Go.str("\uffff")) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
+	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((65536 : GoInt32), Go.str("𐀀")) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
+	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((65537 : GoInt32), Go.str("𐀁")) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
+	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((262144 : GoInt32), Go.str("\u{00040000}")) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
+	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((1114110 : GoInt32), Go.str("\u{0010fffe}")) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
+	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((1114111 : GoInt32), Go.str("\u{0010ffff}")) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
 	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((65533 : GoInt32),
-		Go.str(239, 191, 189)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map)) : Slice<stdgo.unicode.utf8_test.Utf8_test.Utf8Map>);
+		Go.str("�")) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map)) : Slice<stdgo.unicode.utf8_test.Utf8_test.Utf8Map>);
 
 private var _surrogateMap:Slice<stdgo.unicode.utf8_test.Utf8_test.Utf8Map> = (new Slice<stdgo.unicode.utf8_test.Utf8_test.Utf8Map>(0, 0,
 	(new stdgo.unicode.utf8_test.Utf8_test.Utf8Map((55296 : GoInt32), Go.str(237, 160, 128)) : stdgo.unicode.utf8_test.Utf8_test.Utf8Map),
@@ -75,9 +75,9 @@ private var _runecounttests:Slice<stdgo.unicode.utf8_test.Utf8_test.RuneCountTes
 
 private var _runelentests:Slice<stdgo.unicode.utf8_test.Utf8_test.RuneLenTest> = (new Slice<stdgo.unicode.utf8_test.Utf8_test.RuneLenTest>(0, 0,
 	(new stdgo.unicode.utf8_test.Utf8_test.RuneLenTest((0 : GoInt32), (1 : GoInt)) : stdgo.unicode.utf8_test.Utf8_test.RuneLenTest),
-	(new stdgo.unicode.utf8_test.Utf8_test.RuneLenTest(("e".code : GoRune), (1 : GoInt)) : stdgo.unicode.utf8_test.Utf8_test.RuneLenTest),
-	(new stdgo.unicode.utf8_test.Utf8_test.RuneLenTest(("é".code : GoRune), (2 : GoInt)) : stdgo.unicode.utf8_test.Utf8_test.RuneLenTest),
-	(new stdgo.unicode.utf8_test.Utf8_test.RuneLenTest(("☺".code : GoRune), (3 : GoInt)) : stdgo.unicode.utf8_test.Utf8_test.RuneLenTest),
+	(new stdgo.unicode.utf8_test.Utf8_test.RuneLenTest((101 : GoInt32), (1 : GoInt)) : stdgo.unicode.utf8_test.Utf8_test.RuneLenTest),
+	(new stdgo.unicode.utf8_test.Utf8_test.RuneLenTest((233 : GoInt32), (2 : GoInt)) : stdgo.unicode.utf8_test.Utf8_test.RuneLenTest),
+	(new stdgo.unicode.utf8_test.Utf8_test.RuneLenTest((9786 : GoInt32), (3 : GoInt)) : stdgo.unicode.utf8_test.Utf8_test.RuneLenTest),
 	(new stdgo.unicode.utf8_test.Utf8_test.RuneLenTest((65533 : GoInt32), (3 : GoInt)) : stdgo.unicode.utf8_test.Utf8_test.RuneLenTest),
 	(new stdgo.unicode.utf8_test.Utf8_test.RuneLenTest((1114111 : GoInt32), (4 : GoInt)) : stdgo.unicode.utf8_test.Utf8_test.RuneLenTest),
 	(new stdgo.unicode.utf8_test.Utf8_test.RuneLenTest((55296 : GoInt32), (-1 : GoInt)) : stdgo.unicode.utf8_test.Utf8_test.RuneLenTest),
@@ -99,8 +99,8 @@ private var _validTests:Slice<stdgo.unicode.utf8_test.Utf8_test.ValidTest> = (ne
 		false) : stdgo.unicode.utf8_test.Utf8_test.ValidTest),
 	(new stdgo.unicode.utf8_test.Utf8_test.ValidTest(((new Slice<GoUInt8>(0, 0, (66 : GoUInt8), (250 : GoUInt8), (67 : GoUInt8)) : Slice<GoUInt8>) : GoString),
 		false) : stdgo.unicode.utf8_test.Utf8_test.ValidTest),
-	(new stdgo.unicode.utf8_test.Utf8_test.ValidTest(Go.str("a\uFFFDb"), true) : stdgo.unicode.utf8_test.Utf8_test.ValidTest),
-	(new stdgo.unicode.utf8_test.Utf8_test.ValidTest((Go.str(244, 143, 191, 191) : GoString), true) : stdgo.unicode.utf8_test.Utf8_test.ValidTest),
+	(new stdgo.unicode.utf8_test.Utf8_test.ValidTest(Go.str("a�b"), true) : stdgo.unicode.utf8_test.Utf8_test.ValidTest),
+	(new stdgo.unicode.utf8_test.Utf8_test.ValidTest((Go.str("\u{0010ffff}") : GoString), true) : stdgo.unicode.utf8_test.Utf8_test.ValidTest),
 	(new stdgo.unicode.utf8_test.Utf8_test.ValidTest((Go.str(244, 144, 128, 128) : GoString), false) : stdgo.unicode.utf8_test.Utf8_test.ValidTest),
 	(new stdgo.unicode.utf8_test.Utf8_test.ValidTest((Go.str(247, 191, 191, 191) : GoString), false) : stdgo.unicode.utf8_test.Utf8_test.ValidTest),
 	(new stdgo.unicode.utf8_test.Utf8_test.ValidTest((Go.str(251, 191, 191, 191, 191) : GoString), false) : stdgo.unicode.utf8_test.Utf8_test.ValidTest),
@@ -111,9 +111,9 @@ private var _validTests:Slice<stdgo.unicode.utf8_test.Utf8_test.ValidTest> = (ne
 
 private var _validrunetests:Slice<stdgo.unicode.utf8_test.Utf8_test.ValidRuneTest> = (new Slice<stdgo.unicode.utf8_test.Utf8_test.ValidRuneTest>(0, 0,
 	(new stdgo.unicode.utf8_test.Utf8_test.ValidRuneTest((0 : GoInt32), true) : stdgo.unicode.utf8_test.Utf8_test.ValidRuneTest),
-	(new stdgo.unicode.utf8_test.Utf8_test.ValidRuneTest(("e".code : GoRune), true) : stdgo.unicode.utf8_test.Utf8_test.ValidRuneTest),
-	(new stdgo.unicode.utf8_test.Utf8_test.ValidRuneTest(("é".code : GoRune), true) : stdgo.unicode.utf8_test.Utf8_test.ValidRuneTest),
-	(new stdgo.unicode.utf8_test.Utf8_test.ValidRuneTest(("☺".code : GoRune), true) : stdgo.unicode.utf8_test.Utf8_test.ValidRuneTest),
+	(new stdgo.unicode.utf8_test.Utf8_test.ValidRuneTest((101 : GoInt32), true) : stdgo.unicode.utf8_test.Utf8_test.ValidRuneTest),
+	(new stdgo.unicode.utf8_test.Utf8_test.ValidRuneTest((233 : GoInt32), true) : stdgo.unicode.utf8_test.Utf8_test.ValidRuneTest),
+	(new stdgo.unicode.utf8_test.Utf8_test.ValidRuneTest((9786 : GoInt32), true) : stdgo.unicode.utf8_test.Utf8_test.ValidRuneTest),
 	(new stdgo.unicode.utf8_test.Utf8_test.ValidRuneTest((65533 : GoInt32), true) : stdgo.unicode.utf8_test.Utf8_test.ValidRuneTest),
 	(new stdgo.unicode.utf8_test.Utf8_test.ValidRuneTest((1114111 : GoInt32), true) : stdgo.unicode.utf8_test.Utf8_test.ValidRuneTest),
 	(new stdgo.unicode.utf8_test.Utf8_test.ValidRuneTest((55295 : GoInt32), true) : stdgo.unicode.utf8_test.Utf8_test.ValidRuneTest),
@@ -272,7 +272,7 @@ function exampleDecodeRuneInString():Void {
 }
 
 function exampleEncodeRune():Void {
-	var _r:GoInt32 = ("世".code : GoRune);
+	var _r:GoInt32 = (19990 : GoInt32);
 	var _buf = new Slice<GoUInt8>((3 : GoInt).toBasic(), 0, ...[for (i in 0...(3 : GoInt).toBasic()) (0 : GoUInt8)]);
 	var _n:GoInt = stdgo.unicode.utf8.Utf8.encodeRune(_buf, _r);
 	stdgo.fmt.Fmt.println(_buf);
@@ -313,8 +313,8 @@ function exampleRuneCountInString():Void {
 }
 
 function exampleRuneLen():Void {
-	stdgo.fmt.Fmt.println(stdgo.unicode.utf8.Utf8.runeLen(("a".code : GoRune)));
-	stdgo.fmt.Fmt.println(stdgo.unicode.utf8.Utf8.runeLen(("界".code : GoRune)));
+	stdgo.fmt.Fmt.println(stdgo.unicode.utf8.Utf8.runeLen((97 : GoInt32)));
+	stdgo.fmt.Fmt.println(stdgo.unicode.utf8.Utf8.runeLen((30028 : GoInt32)));
 }
 
 function exampleRuneStart():Void {
@@ -332,7 +332,7 @@ function exampleValid():Void {
 }
 
 function exampleValidRune():Void {
-	var _valid:GoInt32 = ("a".code : GoRune);
+	var _valid:GoInt32 = (97 : GoInt32);
 	var _invalid:GoInt32 = ((268435455 : GoInt32) : GoRune);
 	stdgo.fmt.Fmt.println(stdgo.unicode.utf8.Utf8.validRune(_valid));
 	stdgo.fmt.Fmt.println(stdgo.unicode.utf8.Utf8.validRune(_invalid));
@@ -928,7 +928,7 @@ function benchmarkEncodeASCIIRune(_b:Ref<stdgo.testing.Testing.B>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < _b.n, _i++, {
-			encodeRune(_buf, ("a".code : GoRune));
+			encodeRune(_buf, (97 : GoInt32));
 		});
 	};
 }
@@ -938,7 +938,7 @@ function benchmarkEncodeJapaneseRune(_b:Ref<stdgo.testing.Testing.B>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < _b.n, _i++, {
-			encodeRune(_buf, ("本".code : GoRune));
+			encodeRune(_buf, (26412 : GoInt32));
 		});
 	};
 }
@@ -948,7 +948,7 @@ function benchmarkAppendASCIIRune(_b:Ref<stdgo.testing.Testing.B>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < _b.n, _i++, {
-			appendRune((_buf.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>), ("a".code : GoRune));
+			appendRune((_buf.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>), (97 : GoInt32));
 		});
 	};
 }
@@ -958,13 +958,13 @@ function benchmarkAppendJapaneseRune(_b:Ref<stdgo.testing.Testing.B>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < _b.n, _i++, {
-			appendRune((_buf.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>), ("本".code : GoRune));
+			appendRune((_buf.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>), (26412 : GoInt32));
 		});
 	};
 }
 
 function benchmarkDecodeASCIIRune(_b:Ref<stdgo.testing.Testing.B>):Void {
-	var _a = (new Slice<GoUInt8>(0, 0, ("a".code : GoRune)) : Slice<GoUInt8>);
+	var _a = (new Slice<GoUInt8>(0, 0, (97 : GoUInt8)) : Slice<GoUInt8>);
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < _b.n, _i++, {

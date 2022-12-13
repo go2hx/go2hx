@@ -543,7 +543,7 @@ function validPath(_name:GoString):Bool {
 	};
 	while (true) {
 		var _i:GoInt = (0 : GoInt);
-		while ((_i < _name.length) && (_name[_i] != ("/".code : GoRune))) {
+		while ((_i < _name.length) && (_name[_i] != (47 : GoUInt8))) {
 			_i++;
 		};
 		var _elem:GoString = (_name.__slice__(0, _i) : GoString);
@@ -716,8 +716,7 @@ function _hasMeta(_path:GoString):Bool {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_path.length), _i++, {
-			if (_path[_i] == (("*".code : GoRune)) || _path[_i] == (("?".code : GoRune)) || _path[_i] == (("[".code : GoRune))
-				|| _path[_i] == (("\\".code : GoRune))) {
+			if (_path[_i] == ((42 : GoUInt8)) || _path[_i] == ((63 : GoUInt8)) || _path[_i] == ((91 : GoUInt8)) || _path[_i] == ((92 : GoUInt8))) {
 				return true;
 			};
 		});
@@ -1350,7 +1349,7 @@ private class T_subFS_asInterface {
 		if (_name == (_f._dir)) {
 			return {_0: Go.str("."), _1: true};
 		};
-		if (((_name.length >= (_f._dir.length + (2 : GoInt))) && (_name[(_f._dir.length)] == ("/".code : GoRune)))
+		if (((_name.length >= (_f._dir.length + (2 : GoInt))) && (_name[(_f._dir.length)] == (47 : GoUInt8)))
 			&& ((_name.__slice__(0, (_f._dir.length)) : GoString) == _f._dir)) {
 			return {_0: (_name.__slice__((_f._dir.length) + (1 : GoInt)) : GoString), _1: true};
 		};
@@ -1519,7 +1518,7 @@ class FileMode_asInterface {
 			};
 		};
 		if (_w == ((0 : GoInt))) {
-			_buf[_w] = ("-".code : GoRune);
+			_buf[_w] = (45 : GoUInt8);
 			_w++;
 		};
 		{};
@@ -1527,7 +1526,7 @@ class FileMode_asInterface {
 			if (_m & ((("1" : GoUInt32) : FileMode) << ((8 : GoInt) - _i : GoUInt)) != ((("0" : GoUInt32) : FileMode))) {
 				_buf[_w] = (_c : GoByte);
 			} else {
-				_buf[_w] = ("-".code : GoRune);
+				_buf[_w] = (45 : GoUInt8);
 			};
 			_w++;
 		};

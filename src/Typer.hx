@@ -4545,7 +4545,7 @@ private function compositeLitList(elem:GoType,keyValueBool:Bool, len:Int, underl
 		}
 		sets.push(macro s);
 		if (len == -1) {
-			length = makeExpr(max);
+			length = makeExpr(max + 1);
 			return toExpr(EBlock([macro var s:$ct = new $p(0, 0, ...([for (i in 0...$length) $value]))].concat(sets)));
 		}else{
 			return toExpr(EBlock([macro var s:$ct = new $p(...[for (i in 0...$length) $value])].concat(sets)));

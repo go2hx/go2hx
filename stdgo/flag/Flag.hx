@@ -565,11 +565,11 @@ function unquoteUsage(_flag:Ref<Flag>):{var _0:GoString; var _1:GoString;} {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_usage.length), _i++, {
-			if (_usage[_i] == (("`".code : GoRune))) {
+			if (_usage[_i] == ((96 : GoUInt8))) {
 				{
 					var _j:GoInt = _i + (1 : GoInt);
 					Go.cfor(_j < (_usage.length), _j++, {
-						if (_usage[_j] == (("`".code : GoRune))) {
+						if (_usage[_j] == ((96 : GoUInt8))) {
 							_name = (_usage.__slice__(_i + (1 : GoInt), _j) : GoString);
 							_usage = ((_usage.__slice__(0, _i) : GoString) + _name) + (_usage.__slice__(_j + (1 : GoInt)) : GoString);
 							return {_0: _name, _1: _usage};
@@ -1323,11 +1323,11 @@ class FlagSet_asInterface {
 			return {_0: false, _1: (null : Error)};
 		};
 		var _s:GoString = _f._args[(0 : GoInt)];
-		if ((_s.length < (2:GoInt)) || (_s[(0 : GoInt)] != ("-".code : GoRune))) {
+		if ((_s.length < (2:GoInt)) || (_s[(0 : GoInt)] != (45 : GoUInt8))) {
 			return {_0: false, _1: (null : Error)};
 		};
 		var _numMinuses:GoInt = (1 : GoInt);
-		if (_s[(1 : GoInt)] == (("-".code : GoRune))) {
+		if (_s[(1 : GoInt)] == ((45 : GoUInt8))) {
 			_numMinuses++;
 			if ((_s.length) == ((2 : GoInt))) {
 				_f._args = (_f._args.__slice__((1 : GoInt)) : Slice<GoString>);
@@ -1335,8 +1335,7 @@ class FlagSet_asInterface {
 			};
 		};
 		var _name:GoString = (_s.__slice__(_numMinuses) : GoString);
-		if (((_name.length == (0 : GoInt)) || (_name[(0 : GoInt)] == ("-".code : GoRune)))
-			|| (_name[(0 : GoInt)] == ("=".code : GoRune))) {
+		if (((_name.length == (0 : GoInt)) || (_name[(0 : GoInt)] == (45 : GoUInt8))) || (_name[(0 : GoInt)] == (61 : GoUInt8))) {
 			return {_0: false, _1: _f._failf(Go.str("bad flag syntax: %s"), Go.toInterface(_s))};
 		};
 		_f._args = (_f._args.__slice__((1 : GoInt)) : Slice<GoString>);
@@ -1345,7 +1344,7 @@ class FlagSet_asInterface {
 		{
 			var _i:GoInt = (1 : GoInt);
 			Go.cfor(_i < (_name.length), _i++, {
-				if (_name[_i] == (("=".code : GoRune))) {
+				if (_name[_i] == ((61 : GoUInt8))) {
 					_value = (_name.__slice__(_i + (1 : GoInt)) : GoString);
 					_hasValue = true;
 					_name = (_name.__slice__((0 : GoInt), _i) : GoString);
@@ -2507,7 +2506,7 @@ private class T_float64Value_asInterface {
 	@:keep
 	@:pointer
 	static public function string(____:T_float64Value, _f:Pointer<T_float64Value>):GoString {
-		return stdgo.strconv.Strconv.formatFloat((_f.value : GoFloat64), ("g".code : GoRune), (-1 : GoInt), (64 : GoInt));
+		return stdgo.strconv.Strconv.formatFloat((_f.value : GoFloat64), (103 : GoUInt8), (-1 : GoInt), (64 : GoInt));
 	}
 
 	@:keep

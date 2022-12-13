@@ -66,7 +66,7 @@ private var _acceptRanges:GoArray<T_acceptRange> = {
 /**
 	// the "error" Rune or "Unicode replacement character"// Numbers fundamental to the encoding.
 **/
-final runeError:GoInt32 = ("\uFFFD".code : GoRune);
+final runeError:GoInt32 = (65533 : GoInt32);
 
 /**
 	// characters below RuneSelf are represented as themselves in a single byte.// Numbers fundamental to the encoding.
@@ -76,7 +76,7 @@ final runeSelf:GoUInt64 = ("128" : GoUInt64);
 /**
 	// Maximum valid Unicode code point.// Numbers fundamental to the encoding.
 **/
-final maxRune:GoInt32 = ("\u{0010FFFF}".code : GoRune);
+final maxRune:GoInt32 = (1114111 : GoInt32);
 
 /**
 	// maximum number of bytes of a UTF-8 encoded Unicode character.// Numbers fundamental to the encoding.

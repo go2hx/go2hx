@@ -45,7 +45,7 @@ function testBool(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testString(_t:Ref<stdgo.testing.Testing.T>):Void {
-	var _want:GoString = Go.str("abc\u1234");
+	var _want:GoString = Go.str("abcሴ");
 	var _o:Value = (_dummys.get(Go.str("someString")) == null ? null : _dummys.get(Go.str("someString")).__copy__());
 	{
 		var _got:GoString = (_o.string() : GoString);

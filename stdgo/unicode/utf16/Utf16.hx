@@ -28,12 +28,12 @@ final replacementChar:GoInt32 = (65533 : GoInt32);
 /**
 	// Unicode replacement character
 **/
-private final _replacementChar:GoInt32 = ("\uFFFD".code : GoRune);
+private final _replacementChar:GoInt32 = (65533 : GoInt32);
 
 /**
 	// Maximum valid Unicode code point.
 **/
-private final _maxRune:GoInt32 = ("\u{0010FFFF}".code : GoRune);
+private final _maxRune:GoInt32 = (1114111 : GoInt32);
 
 /**
 	// 0xd800-0xdc00 encodes the high 10 bits of a pair.

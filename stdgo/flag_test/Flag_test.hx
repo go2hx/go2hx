@@ -31,7 +31,7 @@ private var _u:Ref<stdgo.net.url.Url.URL> = ((new stdgo.net.url.Url.URL() : stdg
 private var _gopherType:GoString = ("" : GoString);
 
 private var _intervalFlag:T_interval = new stdgo.flag_test.Flag_test.T_interval(0, 0);
-private final _defaultOutput:GoString = "  -A\tfor bootstrapping, allow \'any\' type\n  -Alongflagname\n    \tdisable bounds checking\n  -C\ta boolean defaulting to true (default true)\n  -D path\n    \tset relative path for local imports\n  -E string\n    \tissue 23543 (default \"0\")\n  -F number\n    \ta non-zero number (default 2.7)\n  -G float\n    \ta float that defaults to zero\n  -M string\n    \ta multiline\n    \thelp\n    \tstring\n  -N int\n    \ta non-zero int (default 27)\n  -O\ta flag\n    \tmultiline help string (default true)\n  -V list\n    \ta list of strings (default [a b])\n  -Z int\n    \tan int that defaults to zero\n  -ZP0 value\n    \ta flag whose String method panics when it is zero\n  -ZP1 value\n    \ta flag whose String method panics when it is zero\n  -maxT timeout\n    \tset timeout for dial\n\npanic calling String method on zero flag_test.zeroPanicker for flag ZP0: panic!\npanic calling String method on zero flag_test.zeroPanicker for flag ZP1: panic!\n";
+private final _defaultOutput:GoString = Go.str("  -A\tfor bootstrapping, allow \'any\' type\n  -Alongflagname\n    \tdisable bounds checking\n  -C\ta boolean defaulting to true (default true)\n  -D path\n    \tset relative path for local imports\n  -E string\n    \tissue 23543 (default \"0\")\n  -F number\n    \ta non-zero number (default 2.7)\n  -G float\n    \ta float that defaults to zero\n  -M string\n    \ta multiline\n    \thelp\n    \tstring\n  -N int\n    \ta non-zero int (default 27)\n  -O\ta flag\n    \tmultiline help string (default true)\n  -V list\n    \ta list of strings (default [a b])\n  -Z int\n    \tan int that defaults to zero\n  -ZP0 value\n    \ta flag whose String method panics when it is zero\n  -ZP1 value\n    \ta flag whose String method panics when it is zero\n  -maxT timeout\n    \tset timeout for dial\n\npanic calling String method on zero flag_test.zeroPanicker for flag ZP0: panic!\npanic calling String method on zero flag_test.zeroPanicker for flag ZP1: panic!\n");
 
 @:structInit @:using(stdgo.flag_test.Flag_test.URLValue_static_extension) class URLValue {
 	public var url:Ref<stdgo.net.url.Url.URL> = (null : Ref<stdgo.net.url.Url.URL>);
@@ -145,7 +145,7 @@ function exampleValue():Void {
 	_fs.var_(Go.asInterface(((new stdgo.flag_test.Flag_test.URLValue(_u) : stdgo.flag_test.Flag_test.URLValue) : Ref<stdgo.flag_test.Flag_test.URLValue>)),
 		Go.str("url"), Go.str("URL to parse"));
 	_fs.parse((new Slice<GoString>(0, 0, Go.str("-url"), Go.str("https://golang.org/pkg/flag/")) : Slice<GoString>));
-	stdgo.fmt.Fmt.printf("{scheme: %q, host: %q, path: %q}", Go.toInterface(_u.scheme), Go.toInterface(_u.host), Go.toInterface(_u.path));
+	stdgo.fmt.Fmt.printf(Go.str("{scheme: %q, host: %q, path: %q}"), Go.toInterface(_u.scheme), Go.toInterface(_u.host), Go.toInterface(_u.path));
 }
 
 function _boolString(_s:GoString):GoString {
@@ -594,7 +594,7 @@ function testUserDefinedFunc(_t:Ref<stdgo.testing.Testing.T>):Void {
 		} else {
 			var _errMsg:GoString = _err.error();
 			if (!stdgo.strings.Strings.contains(_errMsg, Go.str("test error"))) {
-				_t.errorf("error should contain \"test error\"; got %q", Go.toInterface(_errMsg));
+				_t.errorf(Go.str("error should contain \"test error\"; got %q"), Go.toInterface(_errMsg));
 			};
 		};
 	};
@@ -767,7 +767,7 @@ function testPrintDefaults(_t:Ref<stdgo.testing.Testing.T>):Void {
 	_fs.string(Go.str("M"), Go.str(), Go.str("a multiline\nhelp\nstring"));
 	_fs.int_(Go.str("N"), (27 : GoInt), Go.str("a non-zero int"));
 	_fs.bool_(Go.str("O"), true, Go.str("a flag\nmultiline help string"));
-	_fs.var_(Go.asInterface(((new stdgo.flag_test.Flag_test.T_flagVar(0, 0, Go.str("a"),
+	_fs.var_(Go.asInterface(((new Slice<GoString>(0, 0, Go.str("a"),
 		Go.str("b")) : stdgo.flag_test.Flag_test.T_flagVar) : Ref<stdgo.flag_test.Flag_test.T_flagVar>)),
 		Go.str("V"), Go.str("a `list` of strings"));
 	_fs.int_(Go.str("Z"), (0 : GoInt), Go.str("an int that defaults to zero"));

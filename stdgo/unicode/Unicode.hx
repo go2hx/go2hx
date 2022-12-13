@@ -16,7 +16,7 @@ import stdgo.Chan;
 **/
 private var __go2hxdoc__package:Bool;
 
-private var __TurkishCase:SpecialCase = (new SpecialCase(0, 0,
+private var __TurkishCase:SpecialCase = (new Slice<CaseRange>(0, 0,
 	(new CaseRange(("73" : GoUInt32), ("73" : GoUInt32), (new GoArray<GoInt32>((0 : GoInt32), (232 : GoInt32), (0 : GoInt32)) : T_d)) : CaseRange),
 	(new CaseRange(("105" : GoUInt32), ("105" : GoUInt32), (new GoArray<GoInt32>((199 : GoInt32), (0 : GoInt32), (199 : GoInt32)) : T_d)) : CaseRange),
 	(new CaseRange(("304" : GoUInt32), ("304" : GoUInt32), (new GoArray<GoInt32>((0 : GoInt32), (-199 : GoInt32), (0 : GoInt32)) : T_d)) : CaseRange),
@@ -8517,22 +8517,22 @@ private final _pLmask:GoUInt64 = ("96" : GoUInt64);
 /**
 	// Maximum valid Unicode code point.
 **/
-final maxRune:GoInt32 = ("\u{0010FFFF}".code : GoRune);
+final maxRune:GoInt32 = (1114111 : GoInt32);
 
 /**
 	// Represents invalid code points.
 **/
-final replacementChar:GoInt32 = ("\uFFFD".code : GoRune);
+final replacementChar:GoInt32 = (65533 : GoInt32);
 
 /**
 	// maximum ASCII value.
 **/
-final maxASCII:GoInt32 = ("\u007F".code : GoRune);
+final maxASCII:GoInt32 = (127 : GoInt32);
 
 /**
 	// maximum Latin-1 value.
 **/
-final maxLatin1:GoInt32 = ("\u00FF".code : GoRune);
+final maxLatin1:GoInt32 = (255 : GoInt32);
 
 /**
 	// Indices into the Delta arrays inside CaseRanges for case mapping.
@@ -8717,7 +8717,7 @@ final version:GoString = Go.str("13.0.0");
 **/
 function isDigit(_r:GoRune):Bool {
 	if (_r <= (255 : GoInt32)) {
-		return (("0".code : GoRune) <= _r) && (_r <= ("9".code : GoRune));
+		return ((48 : GoInt32) <= _r) && (_r <= (57 : GoInt32));
 	};
 	return _isExcludingLatin(digit, _r);
 }
@@ -8836,8 +8836,8 @@ function isPunct(_r:GoRune):Bool {
 **/
 function isSpace(_r:GoRune):Bool {
 	if ((_r : GoUInt32) <= ("255" : GoUInt32)) {
-		if (_r == (("\t".code : GoRune)) || _r == (("\n".code : GoRune)) || _r == (("\x0B".code : GoRune)) || _r == (("\x0C".code : GoRune))
-			|| _r == (("\r".code : GoRune)) || _r == ((" ".code : GoRune)) || _r == ((133 : GoInt32)) || _r == ((160 : GoInt32))) {
+		if (_r == ((9 : GoInt32)) || _r == ((10 : GoInt32)) || _r == ((11 : GoInt32)) || _r == ((12 : GoInt32)) || _r == ((13 : GoInt32))
+			|| _r == ((32 : GoInt32)) || _r == ((133 : GoInt32)) || _r == ((160 : GoInt32))) {
 			return true;
 		};
 		return false;
@@ -9027,7 +9027,7 @@ function to(__case:GoInt, _r:GoRune):GoRune {
 **/
 function toUpper(_r:GoRune):GoRune {
 	if (_r <= (127 : GoInt32)) {
-		if ((("a".code : GoRune) <= _r) && (_r <= ("z".code : GoRune))) {
+		if (((97 : GoInt32) <= _r) && (_r <= (122 : GoInt32))) {
 			_r = _r - ((32 : GoInt32));
 		};
 		return _r;
@@ -9040,7 +9040,7 @@ function toUpper(_r:GoRune):GoRune {
 **/
 function toLower(_r:GoRune):GoRune {
 	if (_r <= (127 : GoInt32)) {
-		if ((("A".code : GoRune) <= _r) && (_r <= ("Z".code : GoRune))) {
+		if (((65 : GoInt32) <= _r) && (_r <= (90 : GoInt32))) {
 			_r = _r + ((32 : GoInt32));
 		};
 		return _r;
@@ -9053,7 +9053,7 @@ function toLower(_r:GoRune):GoRune {
 **/
 function toTitle(_r:GoRune):GoRune {
 	if (_r <= (127 : GoInt32)) {
-		if ((("a".code : GoRune) <= _r) && (_r <= ("z".code : GoRune))) {
+		if (((97 : GoInt32) <= _r) && (_r <= (122 : GoInt32))) {
 			_r = _r - ((32 : GoInt32));
 		};
 		return _r;

@@ -244,10 +244,11 @@ private var _hugeIn:Slice<GoComplex128> = (new Slice<GoComplex128>(0, 0, ((2.684
 	// Results for tanHuge[i] calculated with https://github.com/robpike/ivy
 	// using 4096 bits of working precision.
 **/
-private var _tanHuge:Slice<GoComplex128> = (new Slice<GoComplex128>(0, 0, new GoComplex128(5.956418979396394, 0),
+private var _tanHuge:Slice<GoComplex128> = (new Slice<GoComplex128>(0, 0, ((5.956418979396394 : GoFloat64) + new GoComplex128(0, 0)),
 	((-0.3455106923343039 : GoFloat64) + new GoComplex128(0, 0)), ((-0.7846966133192004 : GoFloat64) + new GoComplex128(0, 0)),
-	new GoComplex128(0.8427638587087598, 0), new GoComplex128(0.40806638884180424, 0), ((-0.37603456702698074 : GoFloat64) + new GoComplex128(0, 0)),
-	new GoComplex128(4.60901287677811, 0), new GoComplex128(3.391359650547799, 0), ((-6.76813854009065 : GoFloat64) + new GoComplex128(0, 0)),
+	((0.8427638587087598 : GoFloat64) + new GoComplex128(0, 0)), ((0.40806638884180424 : GoFloat64) + new GoComplex128(0, 0)),
+	((-0.37603456702698074 : GoFloat64) + new GoComplex128(0, 0)), ((4.60901287677811 : GoFloat64) + new GoComplex128(0, 0)),
+	((3.391359650547799 : GoFloat64) + new GoComplex128(0, 0)), ((-6.76813854009065 : GoFloat64) + new GoComplex128(0, 0)),
 	((-0.7641769501660493 : GoFloat64) + new GoComplex128(0, 0))) : Slice<GoComplex128>);
 
 /**
@@ -278,7 +279,7 @@ private var _vcPolarSC:Slice<GoComplex128> = (new Slice<GoComplex128>(0, 0, naN(
 private var _polarSC:Slice<T_ff> = (new Slice<T_ff>(0, 0, (new T_ff(stdgo.math.Math.naN(), stdgo.math.Math.naN()) : T_ff)) : Slice<T_ff>);
 
 private var _vcPowSC:Slice<GoArray<GoComplex128>> = (new Slice<GoArray<GoComplex128>>(0, 0, (new GoArray<GoComplex128>(naN(), naN()) : GoArray<GoComplex128>),
-	(new GoArray<GoComplex128>(new GoComplex128(0, 0), naN()) : GoArray<GoComplex128>)) : Slice<GoArray<GoComplex128>>);
+	(new GoArray<GoComplex128>(((0 : GoFloat64) + new GoComplex128(0, 0)), naN()) : GoArray<GoComplex128>)) : Slice<GoArray<GoComplex128>>);
 
 private var _powSC:Slice<GoComplex128> = (new Slice<GoComplex128>(0, 0, naN(), naN()) : Slice<GoComplex128>);
 private var _zero:GoFloat64 = (0 : GoFloat64);
@@ -642,7 +643,7 @@ function acos(_x:GoComplex128):GoComplex128 {
 	// Acosh returns the inverse hyperbolic cosine of x.
 **/
 function acosh(_x:GoComplex128):GoComplex128 {
-	if (_x == (new GoComplex128(0, 0))) {
+	if (_x == (((0 : GoFloat64) + new GoComplex128(0, 0)))) {
 		return new GoComplex128((0 : GoFloat64), stdgo.math.Math.copysign((1.5707963267948966 : GoFloat64), _x.imag));
 	};
 	var _w:GoComplex128 = acos(_x);
@@ -732,7 +733,7 @@ function _alike(_a:GoFloat64, _b:GoFloat64):Bool {
 
 function _cTolerance(_a:GoComplex128, _b:GoComplex128, _e:GoFloat64):Bool {
 	var _d:GoFloat64 = abs(_a - _b);
-	if (_b != (new GoComplex128(0, 0))) {
+	if (_b != (((0 : GoFloat64) + new GoComplex128(0, 0)))) {
 		_e = _e * abs(_b);
 		if (_e < (0:GoFloat64)) {
 			_e = -_e;
@@ -1343,8 +1344,8 @@ function testPolar(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testPow(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _zero:GoComplex128 = new GoComplex128(("0" : GoUInt64), ("0" : GoUInt64));
 	var _zeroPowers = (new Slice<GoArray<GoComplex128>>(0, 0,
-		(new GoArray<GoComplex128>(new GoComplex128(0, 0), ((1 : GoFloat64) + new GoComplex128(0, 0))) : GoArray<GoComplex128>),
-		(new GoArray<GoComplex128>(new GoComplex128(1.5, 0), ((0 : GoFloat64) + new GoComplex128(0, 0))) : GoArray<GoComplex128>),
+		(new GoArray<GoComplex128>(((0 : GoFloat64) + new GoComplex128(0, 0)), ((1 : GoFloat64) + new GoComplex128(0, 0))) : GoArray<GoComplex128>),
+		(new GoArray<GoComplex128>(((1.5 : GoFloat64) + new GoComplex128(0, 0)), ((0 : GoFloat64) + new GoComplex128(0, 0))) : GoArray<GoComplex128>),
 		(new GoArray<GoComplex128>(((-1.5 : GoFloat64) + new GoComplex128(0, 0)),
 			new GoComplex128(stdgo.math.Math.inf((0 : GoInt)), (0 : GoFloat64))) : GoArray<GoComplex128>),
 		(new GoArray<GoComplex128>(((-1.5 : GoFloat64) + new GoComplex128(0, 1.5)), inf()) : GoArray<GoComplex128>)) : Slice<GoArray<GoComplex128>>);
@@ -1383,8 +1384,8 @@ function testPow(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	for (_1 => _pt in _branchPoints) {
 		{
-			var _0:GoComplex128 = pow(_pt[(0 : GoInt)], new GoComplex128(0.1, 0)),
-				_1:GoComplex128 = pow(_pt[(1 : GoInt)], new GoComplex128(0.1, 0)),
+			var _0:GoComplex128 = pow(_pt[(0 : GoInt)], ((0.1 : GoFloat64) + new GoComplex128(0, 0))),
+				_1:GoComplex128 = pow(_pt[(1 : GoInt)], ((0.1 : GoFloat64) + new GoComplex128(0, 0))),
 				_f1:GoComplex128 = _1,
 				_f0:GoComplex128 = _0;
 			if (!_cVeryclose(_f0, _f1)) {
@@ -1629,7 +1630,7 @@ function testTanh(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testInfiniteLoopIntanSeries(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _want:GoComplex128 = inf();
 	{
-		var _got:GoComplex128 = cot(new GoComplex128(0, 0));
+		var _got:GoComplex128 = cot(((0 : GoFloat64) + new GoComplex128(0, 0)));
 		if (_got != (_want)) {
 			_t.errorf(Go.str("Cot(0): got %g, want %g"), Go.toInterface(_got), Go.toInterface(_want));
 		};
@@ -1964,7 +1965,7 @@ function polar(_x:GoComplex128):{var _0:GoFloat64; var _1:GoFloat64;} {
 	//	Pow(0, c) for real(c)<0 returns Inf+0i if imag(c) is zero, otherwise Inf+Inf i.
 **/
 function pow(_x:GoComplex128, _y:GoComplex128):GoComplex128 {
-	if (_x == (new GoComplex128(0, 0))) {
+	if (_x == (((0 : GoFloat64) + new GoComplex128(0, 0)))) {
 		if (isNaN(_y)) {
 			return naN();
 		};
@@ -1973,14 +1974,14 @@ function pow(_x:GoComplex128, _y:GoComplex128):GoComplex128 {
 			_i:GoFloat64 = _1,
 			_r:GoFloat64 = _0;
 		if (_r == (0 : GoFloat64)) {
-			return new GoComplex128(1, 0);
+			return ((1 : GoFloat64) + new GoComplex128(0, 0));
 		} else if (_r < (0:GoFloat64)) {
 			if (_i == (0 : GoFloat64)) {
 				return new GoComplex128(stdgo.math.Math.inf((1 : GoInt)), (0 : GoFloat64));
 			};
 			return inf();
 		} else if (_r > (0 : GoFloat64)) {
-			return new GoComplex128(0, 0);
+			return ((0 : GoFloat64) + new GoComplex128(0, 0));
 		};
 		throw Go.toInterface(Go.str("not reached"));
 	};

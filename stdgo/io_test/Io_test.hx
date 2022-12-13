@@ -1503,7 +1503,7 @@ function testMultiReaderAsWriterTo(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _result:GoString = (_sink.string() : GoString);
 		if (_result != (Go.str("foo bar"))) {
-			_t.errorf("expected \"foo bar\"; got %q", Go.toInterface(_result));
+			_t.errorf(Go.str("expected \"foo bar\"; got %q"), Go.toInterface(_result));
 		};
 	};
 }
@@ -1713,8 +1713,8 @@ function testMultiReaderFlatten(_t:Ref<stdgo.testing.Testing.T>):Void {
 	// This used to yield bytes forever; issue 16795.
 **/
 function testMultiReaderSingleByteWithEOF(_t:Ref<stdgo.testing.Testing.T>):Void {
-	var __tmp__ = readAll(limitReader(multiReader(Go.asInterface((("a".code : GoRune) : T_byteAndEOFReader)),
-		Go.asInterface((("b".code : GoRune) : T_byteAndEOFReader))),
+	var __tmp__ = readAll(limitReader(multiReader(Go.asInterface(((97 : stdgo.io_test.Io_test.T_byteAndEOFReader) : T_byteAndEOFReader)),
+		Go.asInterface(((98 : stdgo.io_test.Io_test.T_byteAndEOFReader) : T_byteAndEOFReader))),
 		("10" : GoInt64))),
 		_got:Slice<GoUInt8> = __tmp__._0,
 		_err:Error = __tmp__._1;
@@ -1734,7 +1734,7 @@ function testMultiReaderSingleByteWithEOF(_t:Ref<stdgo.testing.Testing.T>):Void 
 **/
 function testMultiReaderFinalEOF(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _r:Reader = multiReader(Go.asInterface(stdgo.bytes.Bytes.newReader((null : Slice<GoUInt8>))),
-		Go.asInterface((("a".code : GoRune) : T_byteAndEOFReader)));
+		Go.asInterface(((97 : stdgo.io_test.Io_test.T_byteAndEOFReader) : T_byteAndEOFReader)));
 	var _buf = new Slice<GoUInt8>((2 : GoInt).toBasic(), 0, ...[for (i in 0...(2 : GoInt).toBasic()) (0 : GoUInt8)]);
 	var __tmp__ = _r.read(_buf),
 		_n:GoInt = __tmp__._0,
@@ -1765,7 +1765,7 @@ function testMultiReaderFreesExhaustedReaders(_t:Ref<stdgo.testing.Testing.T>):V
 			_n:GoInt = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if ((_err != null) || ((_buf : GoString) != Go.str("foob"))) {
-			_t.fatalf("ReadFull = %d (%q), %v; want 3, \"foo\", nil", Go.toInterface(_n), Go.toInterface((_buf.__slice__(0, _n) : Slice<GoUInt8>)),
+			_t.fatalf(Go.str("ReadFull = %d (%q), %v; want 3, \"foo\", nil"), Go.toInterface(_n), Go.toInterface((_buf.__slice__(0, _n) : Slice<GoUInt8>)),
 				Go.toInterface(_err));
 		};
 	};
@@ -1781,7 +1781,7 @@ function testMultiReaderFreesExhaustedReaders(_t:Ref<stdgo.testing.Testing.T>):V
 			_n:GoInt = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if ((_err != null) || (((_buf.__slice__(0, (2 : GoInt)) : Slice<GoUInt8>) : GoString) != Go.str("ar"))) {
-			_t.fatalf("ReadFull = %d (%q), %v; want 2, \"ar\", nil", Go.toInterface(_n), Go.toInterface((_buf.__slice__(0, _n) : Slice<GoUInt8>)),
+			_t.fatalf(Go.str("ReadFull = %d (%q), %v; want 2, \"ar\", nil"), Go.toInterface(_n), Go.toInterface((_buf.__slice__(0, _n) : Slice<GoUInt8>)),
 				Go.toInterface(_err));
 		};
 	};
@@ -1799,7 +1799,7 @@ function testInterleavedMultiReader(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _got:GoString = ((_buf.__slice__(0, _n) : Slice<GoUInt8>) : GoString);
 		if ((_got != Go.str("1234")) || (_err != null)) {
-			_t.errorf("ReadFull(mr2) = (%q, %v), want (\"1234\", nil)", Go.toInterface(_got), Go.toInterface(_err));
+			_t.errorf(Go.str("ReadFull(mr2) = (%q, %v), want (\"1234\", nil)"), Go.toInterface(_got), Go.toInterface(_err));
 		};
 	};
 	{
@@ -1810,7 +1810,7 @@ function testInterleavedMultiReader(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _got:GoString = ((_buf.__slice__(0, _n) : Slice<GoUInt8>) : GoString);
 		if ((_got != Go.str("5678")) || (_err != null)) {
-			_t.errorf("ReadFull(mr1) = (%q, %v), want (\"5678\", nil)", Go.toInterface(_got), Go.toInterface(_err));
+			_t.errorf(Go.str("ReadFull(mr1) = (%q, %v), want (\"5678\", nil)"), Go.toInterface(_got), Go.toInterface(_err));
 		};
 	};
 }

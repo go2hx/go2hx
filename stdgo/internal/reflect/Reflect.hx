@@ -622,7 +622,7 @@ function getUnderlyingRefNamed(gt:GoType, once:Bool = false) {
 			if (once) {
 				type;
 			} else {
-				getUnderlying(type);
+				getUnderlyingRefNamed(type);
 			}
 		default:
 			gt;

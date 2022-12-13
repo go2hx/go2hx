@@ -4380,18 +4380,17 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 			}
 			if (keyValueBool) {
 				for (field in fields) {
-					var value = defaultValue(field.type, info, true);
 					for (i in 0...expr.elts.length) {
 						final elt:Ast.KeyValueExpr = expr.elts[i];
 						final key = formatHaxeFieldName(elt.key.name, info);
 						if (field.name == key) {
-							value = assignTranslate(typeof(elt.value, info, false), field.type, typeExpr(elt.value, info), info);
+							final value = assignTranslate(typeof(elt.value, info, false), field.type, typeExpr(elt.value, info), info);
+							objectFields.push({
+								field: field.name,
+								expr: value,
+							});
 						}
 					}
-					objectFields.push({
-						field: field.name,
-						expr: value,
-					});
 				}
 				var e = toExpr(EObjectDecl(objectFields));
 				return (macro($e : $ct)).expr;

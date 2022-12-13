@@ -4379,45 +4379,19 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 				default:
 			}
 			if (keyValueBool) {
-				if (isAlias) {
-					for (field in fields) {
-						var value = defaultValue(field.type, info, true);
-						for (i in 0...expr.elts.length) {
-							var elt:Ast.KeyValueExpr = expr.elts[i];
-							var key = elt.key.name;
-							var value = typeExpr(elt.value, info);
-							if (field.name == key) {
-								value = assignTranslate(typeof(elt.value, info, false), field.type, value, info);
-							}
-						}
-						objectFields.push({
-							field: field.name,
-							expr: value,
-						});
-					}
-				} else {
+				for (field in fields) {
+					var value = defaultValue(field.type, info, true);
 					for (i in 0...expr.elts.length) {
-						var elt:Ast.KeyValueExpr = expr.elts[i];
-						var key = formatHaxeFieldName(elt.key.name, info);
-						var value = typeExpr(elt.value, info);
-						var removed = false;
-						for (field in fields) {
-							if (field.name == "_")
-								continue;
-							if (field.name == key) {
-								value = assignTranslate(typeof(elt.value, info, false), field.type, value, info);
-								objectFields.push({
-									field: key,
-									expr: value, // macro ($value : $fieldType),
-								});
-								fields.remove(field);
-								removed = true;
-								break;
-							}
+						final elt:Ast.KeyValueExpr = expr.elts[i];
+						final key = formatHaxeFieldName(elt.key.name, info);
+						if (field.name == key) {
+							value = assignTranslate(typeof(elt.value, info, false), field.type, typeExpr(elt.value, info), info);
 						}
-						if (!removed)
-							throw "cannot find field type of name: " + key + " in names: " + [for (field in fields) field.name];
 					}
+					objectFields.push({
+						field: field.name,
+						expr: value,
+					});
 				}
 				var e = toExpr(EObjectDecl(objectFields));
 				return (macro($e : $ct)).expr;

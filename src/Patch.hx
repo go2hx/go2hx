@@ -532,7 +532,6 @@ final skipTargets = [
 	"math_test:testGamma" => ["interp"],
 	"strconv_test:testFp" => [], // uses os read
 	"strconv_test:testFtoaPowersOfTwo" => [], // imprecise float
-	"strconv_test:testUnquoteInvalidUTF8" => [], // go does not pass in isolation
 	"strings_test:testBuilderGrow" => [], // checks runtime allocations num
 	"strings_test:testBuilderAllocs" => [], // checks runtime allocations num
 	"strings_test:testClone" => [], // uses unsafe pointer conversions
@@ -541,10 +540,7 @@ final skipTargets = [
 	"strings_test:testReaderLenSize" => [], // TODO: implement - uses io
 	"strings_test:testReplacer" => [], // TODO: implement - uses bytes.Buffer
 	"strings_test:testPickAlgorithm" => [], // TODO: implement - uses fmt.Sprintf
-	"strings_test:testLastIndex" => [], // go does not pass in isolation
-	"strings_test:testIndexAny" => [], // go does not pass in isolation
-	"strings_test:testLastIndexAny" => [], // NOT TESTED YET
-	"strings_test:testIndexRune" => [], // NOT TESTED YET
+	"strings_test:testMap" => [], // uses unsafe pointer conversions
 ];
 
 final structs = [

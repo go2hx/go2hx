@@ -540,10 +540,24 @@ private var _branchPoints:Slice<GoArray<GoComplex128>> = (new Slice<GoArray<GoCo
 	}
 }
 
-@:local private typedef T__struct_0 = {
-	public var _in:GoComplex128;
-	public var _want:GoComplex128;
-};
+@:structInit @:local private class T__struct_0 {
+	public var _in:GoComplex128 = new GoComplex128(0, 0);
+	public var _want:GoComplex128 = new GoComplex128(0, 0);
+
+	public function string():String
+		return "{" + Go.string(_in) + " " + Go.string(_want) + "}";
+
+	public function new(?_in:GoComplex128, ?_want:GoComplex128, ?string) {
+		if (_in != null)
+			this._in = _in;
+		if (_want != null)
+			this._want = _want;
+	}
+
+	public function __copy__() {
+		return new T__struct_0(_in, _want);
+	}
+}
 
 /**
 	// Abs returns the absolute value (also called the modulus) of x.

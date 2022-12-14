@@ -296,20 +296,50 @@ private final _encodeURL:GoString = Go.str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij
 	}
 }
 
-@:local private typedef T__struct_0 = {
-	public var _input:GoString;
+@:structInit @:local private class T__struct_0 {
+	public var _input:GoString = "";
 
 	/**
 		// -1 means no corruption.
 	**/
-	public var _offset:GoInt;
-};
+	public var _offset:GoInt = 0;
 
-@:local private typedef T__struct_1 = {
-	public var _enc:Ref<Encoding>;
-	public var _n:GoInt;
-	public var _want:GoInt;
-};
+	public function string():String
+		return "{" + Go.string(_input) + " " + Go.string(_offset) + "}";
+
+	public function new(?_input:GoString, ?_offset:GoInt, ?string) {
+		if (_input != null)
+			this._input = _input;
+		if (_offset != null)
+			this._offset = _offset;
+	}
+
+	public function __copy__() {
+		return new T__struct_0(_input, _offset);
+	}
+}
+
+@:structInit @:local private class T__struct_1 {
+	public var _enc:Ref<Encoding> = (null : Ref<Encoding>);
+	public var _n:GoInt = 0;
+	public var _want:GoInt = 0;
+
+	public function string():String
+		return "{" + Go.string(_enc) + " " + Go.string(_n) + " " + Go.string(_want) + "}";
+
+	public function new(?_enc:Ref<Encoding>, ?_n:GoInt, ?_want:GoInt, ?string) {
+		if (_enc != null)
+			this._enc = _enc;
+		if (_n != null)
+			this._n = _n;
+		if (_want != null)
+			this._want = _want;
+	}
+
+	public function __copy__() {
+		return new T__struct_1(_enc, _n, _want);
+	}
+}
 
 @:named @:using(stdgo.encoding.base64.Base64.CorruptInputError_static_extension) typedef CorruptInputError = GoInt64;
 

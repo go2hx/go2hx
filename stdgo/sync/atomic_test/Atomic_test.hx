@@ -28,109 +28,389 @@ private final _magic64:GoUInt64 = (0 : GoUInt64);
 private var _global:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0...1024) (0 : GoUInt8)]);
 private final _arch32:InvalidType = null;
 
-@:local private typedef T__struct_0 = {
-	public var _before:GoInt32;
-	public var _i:GoInt32;
-	public var _after:GoInt32;
-};
+@:structInit @:local private class T__struct_0 {
+	public var _before:GoInt32 = 0;
+	public var _i:GoInt32 = 0;
+	public var _after:GoInt32 = 0;
 
-@:local private typedef T__struct_1 = {
-	public var _before:GoInt32;
-	public var _i:Int32;
-	public var _after:GoInt32;
-};
+	public function string():String
+		return "{" + Go.string(_before) + " " + Go.string(_i) + " " + Go.string(_after) + "}";
 
-@:local private typedef T__struct_2 = {
-	public var _before:GoUInt32;
-	public var _i:GoUInt32;
-	public var _after:GoUInt32;
-};
+	public function new(?_before:GoInt32, ?_i:GoInt32, ?_after:GoInt32, ?string) {
+		if (_before != null)
+			this._before = _before;
+		if (_i != null)
+			this._i = _i;
+		if (_after != null)
+			this._after = _after;
+	}
 
-@:local private typedef T__struct_3 = {
-	public var _before:GoUInt32;
-	public var _i:Uint32;
-	public var _after:GoUInt32;
-};
+	public function __copy__() {
+		return new T__struct_0(_before, _i, _after);
+	}
+}
 
-@:local private typedef T__struct_4 = {
-	public var _before:GoInt64;
-	public var _i:GoInt64;
-	public var _after:GoInt64;
-};
+@:structInit @:local private class T__struct_1 {
+	public var _before:GoInt32 = 0;
+	public var _i:Int32 = ({} : Int32);
+	public var _after:GoInt32 = 0;
 
-@:local private typedef T__struct_5 = {
-	public var _before:GoInt64;
-	public var _i:Int64_;
-	public var _after:GoInt64;
-};
+	public function string():String
+		return "{" + Go.string(_before) + " " + Go.string(_i) + " " + Go.string(_after) + "}";
 
-@:local private typedef T__struct_6 = {
-	public var _before:GoUInt64;
-	public var _i:GoUInt64;
-	public var _after:GoUInt64;
-};
+	public function new(?_before:GoInt32, ?_i:Int32, ?_after:GoInt32, ?string) {
+		if (_before != null)
+			this._before = _before;
+		if (_i != null)
+			this._i = _i;
+		if (_after != null)
+			this._after = _after;
+	}
 
-@:local private typedef T__struct_7 = {
-	public var _before:GoUInt64;
-	public var _i:Uint64;
-	public var _after:GoUInt64;
-};
+	public function __copy__() {
+		return new T__struct_1(_before, _i, _after);
+	}
+}
 
-@:local private typedef T__struct_8 = {
-	public var _before:GoUIntptr;
-	public var _i:GoUIntptr;
-	public var _after:GoUIntptr;
-};
+@:structInit @:local private class T__struct_2 {
+	public var _before:GoUInt32 = 0;
+	public var _i:GoUInt32 = 0;
+	public var _after:GoUInt32 = 0;
 
-@:local private typedef T__struct_9 = {
-	public var _before:GoUIntptr;
-	public var _i:Uintptr;
-	public var _after:GoUIntptr;
-};
+	public function string():String
+		return "{" + Go.string(_before) + " " + Go.string(_i) + " " + Go.string(_after) + "}";
 
-@:local private typedef T__struct_10 = {
-	public var _before:GoUIntptr;
-	public var _i:stdgo.unsafe.Unsafe.UnsafePointer;
-	public var _after:GoUIntptr;
-};
+	public function new(?_before:GoUInt32, ?_i:GoUInt32, ?_after:GoUInt32, ?string) {
+		if (_before != null)
+			this._before = _before;
+		if (_i != null)
+			this._i = _i;
+		if (_after != null)
+			this._after = _after;
+	}
 
-@:local private typedef T__struct_11 = {
-	public var _before:GoUIntptr;
-	public var _i:Pointer_<T>;
-	public var _after:GoUIntptr;
-};
+	public function __copy__() {
+		return new T__struct_2(_before, _i, _after);
+	}
+}
 
-@:local private typedef T__struct_12 = {
+@:structInit @:local private class T__struct_3 {
+	public var _before:GoUInt32 = 0;
+	public var _i:Uint32 = ({} : Uint32);
+	public var _after:GoUInt32 = 0;
+
+	public function string():String
+		return "{" + Go.string(_before) + " " + Go.string(_i) + " " + Go.string(_after) + "}";
+
+	public function new(?_before:GoUInt32, ?_i:Uint32, ?_after:GoUInt32, ?string) {
+		if (_before != null)
+			this._before = _before;
+		if (_i != null)
+			this._i = _i;
+		if (_after != null)
+			this._after = _after;
+	}
+
+	public function __copy__() {
+		return new T__struct_3(_before, _i, _after);
+	}
+}
+
+@:structInit @:local private class T__struct_4 {
+	public var _before:GoInt64 = 0;
+	public var _i:GoInt64 = 0;
+	public var _after:GoInt64 = 0;
+
+	public function string():String
+		return "{" + Go.string(_before) + " " + Go.string(_i) + " " + Go.string(_after) + "}";
+
+	public function new(?_before:GoInt64, ?_i:GoInt64, ?_after:GoInt64, ?string) {
+		if (_before != null)
+			this._before = _before;
+		if (_i != null)
+			this._i = _i;
+		if (_after != null)
+			this._after = _after;
+	}
+
+	public function __copy__() {
+		return new T__struct_4(_before, _i, _after);
+	}
+}
+
+@:structInit @:local private class T__struct_5 {
+	public var _before:GoInt64 = 0;
+	public var _i:Int64_ = ({} : Int64_);
+	public var _after:GoInt64 = 0;
+
+	public function string():String
+		return "{" + Go.string(_before) + " " + Go.string(_i) + " " + Go.string(_after) + "}";
+
+	public function new(?_before:GoInt64, ?_i:Int64_, ?_after:GoInt64, ?string) {
+		if (_before != null)
+			this._before = _before;
+		if (_i != null)
+			this._i = _i;
+		if (_after != null)
+			this._after = _after;
+	}
+
+	public function __copy__() {
+		return new T__struct_5(_before, _i, _after);
+	}
+}
+
+@:structInit @:local private class T__struct_6 {
+	public var _before:GoUInt64 = 0;
+	public var _i:GoUInt64 = 0;
+	public var _after:GoUInt64 = 0;
+
+	public function string():String
+		return "{" + Go.string(_before) + " " + Go.string(_i) + " " + Go.string(_after) + "}";
+
+	public function new(?_before:GoUInt64, ?_i:GoUInt64, ?_after:GoUInt64, ?string) {
+		if (_before != null)
+			this._before = _before;
+		if (_i != null)
+			this._i = _i;
+		if (_after != null)
+			this._after = _after;
+	}
+
+	public function __copy__() {
+		return new T__struct_6(_before, _i, _after);
+	}
+}
+
+@:structInit @:local private class T__struct_7 {
+	public var _before:GoUInt64 = 0;
+	public var _i:Uint64 = ({} : Uint64);
+	public var _after:GoUInt64 = 0;
+
+	public function string():String
+		return "{" + Go.string(_before) + " " + Go.string(_i) + " " + Go.string(_after) + "}";
+
+	public function new(?_before:GoUInt64, ?_i:Uint64, ?_after:GoUInt64, ?string) {
+		if (_before != null)
+			this._before = _before;
+		if (_i != null)
+			this._i = _i;
+		if (_after != null)
+			this._after = _after;
+	}
+
+	public function __copy__() {
+		return new T__struct_7(_before, _i, _after);
+	}
+}
+
+@:structInit @:local private class T__struct_8 {
+	public var _before:GoUIntptr = 0;
+	public var _i:GoUIntptr = 0;
+	public var _after:GoUIntptr = 0;
+
+	public function string():String
+		return "{" + Go.string(_before) + " " + Go.string(_i) + " " + Go.string(_after) + "}";
+
+	public function new(?_before:GoUIntptr, ?_i:GoUIntptr, ?_after:GoUIntptr, ?string) {
+		if (_before != null)
+			this._before = _before;
+		if (_i != null)
+			this._i = _i;
+		if (_after != null)
+			this._after = _after;
+	}
+
+	public function __copy__() {
+		return new T__struct_8(_before, _i, _after);
+	}
+}
+
+@:structInit @:local private class T__struct_9 {
+	public var _before:GoUIntptr = 0;
+	public var _i:Uintptr = ({} : Uintptr);
+	public var _after:GoUIntptr = 0;
+
+	public function string():String
+		return "{" + Go.string(_before) + " " + Go.string(_i) + " " + Go.string(_after) + "}";
+
+	public function new(?_before:GoUIntptr, ?_i:Uintptr, ?_after:GoUIntptr, ?string) {
+		if (_before != null)
+			this._before = _before;
+		if (_i != null)
+			this._i = _i;
+		if (_after != null)
+			this._after = _after;
+	}
+
+	public function __copy__() {
+		return new T__struct_9(_before, _i, _after);
+	}
+}
+
+@:structInit @:local private class T__struct_10 {
+	public var _before:GoUIntptr = 0;
+	public var _i:stdgo.unsafe.Unsafe.UnsafePointer = null;
+	public var _after:GoUIntptr = 0;
+
+	public function string():String
+		return "{" + Go.string(_before) + " " + Go.string(_i) + " " + Go.string(_after) + "}";
+
+	public function new(?_before:GoUIntptr, ?_i:stdgo.unsafe.Unsafe.UnsafePointer, ?_after:GoUIntptr, ?string) {
+		if (_before != null)
+			this._before = _before;
+		if (_i != null)
+			this._i = _i;
+		if (_after != null)
+			this._after = _after;
+	}
+
+	public function __copy__() {
+		return new T__struct_10(_before, _i, _after);
+	}
+}
+
+@:structInit @:local private class T__struct_11 {
+	public var _before:GoUIntptr = 0;
+	public var _i:Pointer_<T> = {};
+	public var _after:GoUIntptr = 0;
+
+	public function string():String
+		return "{" + Go.string(_before) + " " + Go.string(_i) + " " + Go.string(_after) + "}";
+
+	public function new(?_before:GoUIntptr, ?_i:Pointer_<T>, ?_after:GoUIntptr, ?string) {
+		if (_before != null)
+			this._before = _before;
+		if (_i != null)
+			this._i = _i;
+		if (_after != null)
+			this._after = _after;
+	}
+
+	public function __copy__() {
+		return new T__struct_11(_before, _i, _after);
+	}
+}
+
+@:structInit @:local private class T__struct_12 {
 	@:optional
-	public var _19:GoUInt32;
-	public var _i:Int64_;
-};
+	public var _19:GoUInt32 = 0;
+	public var _i:Int64_ = ({} : Int64_);
 
-@:local private typedef T__struct_13 = {
+	public function string():String
+		return "{" + Go.string(_19) + " " + Go.string(_i) + "}";
+
+	public function new(?_19:GoUInt32, ?_i:Int64_, ?string) {
+		if (_19 != null)
+			this._19 = _19;
+		if (_i != null)
+			this._i = _i;
+	}
+
+	public function __copy__() {
+		return new T__struct_12(_19, _i);
+	}
+}
+
+@:structInit @:local private class T__struct_13 {
 	@:optional
-	public var _25:GoUInt32;
-	public var _i:Uint64;
-};
+	public var _25:GoUInt32 = 0;
+	public var _i:Uint64 = ({} : Uint64);
 
-@:local private typedef T__struct_14 = {
-	public var _init:AnyInterface;
-	public var _new:AnyInterface;
-	public var _want:AnyInterface;
-	public var _err:AnyInterface;
-};
+	public function string():String
+		return "{" + Go.string(_25) + " " + Go.string(_i) + "}";
 
-@:local private typedef T__struct_15 = {
+	public function new(?_25:GoUInt32, ?_i:Uint64, ?string) {
+		if (_25 != null)
+			this._25 = _25;
+		if (_i != null)
+			this._i = _i;
+	}
+
+	public function __copy__() {
+		return new T__struct_13(_25, _i);
+	}
+}
+
+@:structInit @:local private class T__struct_14 {
+	public var _init:AnyInterface = (null : AnyInterface);
+	public var _new:AnyInterface = (null : AnyInterface);
+	public var _want:AnyInterface = (null : AnyInterface);
+	public var _err:AnyInterface = (null : AnyInterface);
+
+	public function string():String
+		return "{" + Go.string(_init) + " " + Go.string(_new) + " " + Go.string(_want) + " " + Go.string(_err) + "}";
+
+	public function new(?_init:AnyInterface, ?_new:AnyInterface, ?_want:AnyInterface, ?_err:AnyInterface, ?string) {
+		if (_init != null)
+			this._init = _init;
+		if (_new != null)
+			this._new = _new;
+		if (_want != null)
+			this._want = _want;
+		if (_err != null)
+			this._err = _err;
+	}
+
+	public function __copy__() {
+		return new T__struct_14(_init, _new, _want, _err);
+	}
+}
+
+@:structInit @:local @:using(stdgo.sync.atomic_test.Atomic_test.T__struct_15_static_extension) private class T__struct_15 {
 	@:embedded
-	public var _uint:GoUInt;
-};
+	public var _uint:GoUInt = 0;
 
-@:local private typedef T__struct_16 = {
-	public var _init:AnyInterface;
-	public var _new:AnyInterface;
-	public var _old:AnyInterface;
-	public var _want:Bool;
-	public var _err:AnyInterface;
-};
+	public function string():String
+		return "{" + Go.string(_uint) + "}";
+
+	public function new(?_uint:GoUInt, ?string) {
+		if (_uint != null)
+			this._uint = _uint;
+	}
+
+	public function __copy__() {
+		return new T__struct_15(_uint);
+	}
+}
+
+@:structInit @:local private class T__struct_16 {
+	public var _init:AnyInterface = (null : AnyInterface);
+	public var _new:AnyInterface = (null : AnyInterface);
+	public var _old:AnyInterface = (null : AnyInterface);
+	public var _want:Bool = false;
+	public var _err:AnyInterface = (null : AnyInterface);
+
+	public function string():String
+		return "{"
+			+ Go.string(_init)
+			+ " "
+			+ Go.string(_new)
+			+ " "
+			+ Go.string(_old)
+			+ " "
+			+ Go.string(_want)
+			+ " "
+			+ Go.string(_err)
+			+ "}";
+
+	public function new(?_init:AnyInterface, ?_new:AnyInterface, ?_old:AnyInterface, ?_want:Bool, ?_err:AnyInterface, ?string) {
+		if (_init != null)
+			this._init = _init;
+		if (_new != null)
+			this._new = _new;
+		if (_old != null)
+			this._old = _old;
+		if (_want != null)
+			this._want = _want;
+		if (_err != null)
+			this._err = _err;
+	}
+
+	public function __copy__() {
+		return new T__struct_16(_init, _new, _old, _want, _err);
+	}
+}
 
 function testSwapInt32(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _x:T__struct_0 = ({_before: (0 : GoInt32), _i: (0 : GoInt32), _after: (0 : GoInt32)} : T__struct_0);
@@ -5308,3 +5588,20 @@ function testValueCompareAndSwapConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void
 			throw __exception__;
 	true;
 };
+
+private class T__struct_15_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
+	}
+
+	public function __underlying__()
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
+
+	var __self__:Pointer<T__struct_15>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
+}
+
+@:keep @:allow(stdgo.sync.atomic_test.Atomic_test.T__struct_15_asInterface) class T__struct_15_static_extension {}

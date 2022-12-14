@@ -773,15 +773,43 @@ private final _meta:GoString = ("" : GoString);
 	}
 }
 
-@:local private typedef T__struct_0 = {
-	public var regexp:GoString;
-	public var prog:GoString;
-};
+@:structInit @:local private class T__struct_0 {
+	public var regexp:GoString = "";
+	public var prog:GoString = "";
 
-@:local private typedef T__struct_1 = {
-	public var regexp:GoString;
-	public var simple:GoString;
-};
+	public function string():String
+		return "{" + Go.string(regexp) + " " + Go.string(prog) + "}";
+
+	public function new(?regexp:GoString, ?prog:GoString, ?string) {
+		if (regexp != null)
+			this.regexp = regexp;
+		if (prog != null)
+			this.prog = prog;
+	}
+
+	public function __copy__() {
+		return new T__struct_0(regexp, prog);
+	}
+}
+
+@:structInit @:local private class T__struct_1 {
+	public var regexp:GoString = "";
+	public var simple:GoString = "";
+
+	public function string():String
+		return "{" + Go.string(regexp) + " " + Go.string(simple) + "}";
+
+	public function new(?regexp:GoString, ?simple:GoString, ?string) {
+		if (regexp != null)
+			this.regexp = regexp;
+		if (simple != null)
+			this.simple = simple;
+	}
+
+	public function __copy__() {
+		return new T__struct_1(regexp, simple);
+	}
+}
 
 /**
 	// An ErrorCode describes a failure to parse a regular expression.

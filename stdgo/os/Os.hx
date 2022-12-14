@@ -818,11 +818,45 @@ typedef Signal = StructType & {
 	}
 }
 
-@:local private typedef T__struct_0 = {
+@:structInit @:local @:using(stdgo.os.Os.T__struct_0_static_extension) private class T__struct_0 {
 	@:embedded
-	public var mutex:stdgo.sync.Sync.Mutex;
-	public var _dir:GoString;
-};
+	public var mutex:stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
+	public var _dir:GoString = "";
+
+	public function string():String
+		return "{" + Go.string(mutex) + " " + Go.string(_dir) + "}";
+
+	public function new(?mutex:stdgo.sync.Sync.Mutex, ?_dir:GoString, ?string) {
+		if (mutex != null)
+			this.mutex = mutex;
+		if (_dir != null)
+			this._dir = _dir;
+	}
+
+	@:embedded
+	public function lock()
+		null;
+
+	@:embedded
+	public function tryLock():Bool
+		return false;
+
+	@:embedded
+	public function unlock()
+		null;
+
+	@:embedded
+	public function _lockSlow()
+		null;
+
+	@:embedded
+	public function _unlockSlow(__0:GoInt32)
+		null;
+
+	public function __copy__() {
+		return new T__struct_0(mutex, _dir);
+	}
+}
 
 @:named private typedef T_readdirMode = GoInt;
 
@@ -3224,6 +3258,63 @@ private class T_fileStat_asInterface {
 	@:keep
 	static public function name(_fs:Ref<T_fileStat>):GoString
 		throw "os.name is not yet implemented";
+}
+
+private class T__struct_0_asInterface {
+	@:embedded
+	public function _unlockSlow(__0:GoInt32):Void
+		__self__.value._unlockSlow(__0);
+
+	@:embedded
+	public function _lockSlow():Void
+		__self__.value._lockSlow();
+
+	@:embedded
+	public function unlock():Void
+		__self__.value.unlock();
+
+	@:embedded
+	public function tryLock():Bool
+		return __self__.value.tryLock();
+
+	@:embedded
+	public function lock():Void
+		__self__.value.lock();
+
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
+	}
+
+	public function __underlying__()
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
+
+	var __self__:Pointer<T__struct_0>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
+}
+
+@:keep @:allow(stdgo.os.Os.T__struct_0_asInterface) class T__struct_0_static_extension {
+	@:embedded
+	public static function _unlockSlow(__self__:T__struct_0, __0:GoInt32)
+		__self__._unlockSlow(__0);
+
+	@:embedded
+	public static function _lockSlow(__self__:T__struct_0)
+		__self__._lockSlow();
+
+	@:embedded
+	public static function unlock(__self__:T__struct_0)
+		__self__.unlock();
+
+	@:embedded
+	public static function tryLock(__self__:T__struct_0):Bool
+		return __self__.tryLock();
+
+	@:embedded
+	public static function lock(__self__:T__struct_0)
+		__self__.lock();
 }
 
 private class T_dirFS_asInterface {

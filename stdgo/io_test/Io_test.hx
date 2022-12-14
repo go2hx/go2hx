@@ -501,41 +501,147 @@ private typedef T__interface_0 = StructType & {
 	}
 }
 
-@:local private typedef T__struct_1 = {
-	public var _data:GoString;
-	public var _off:GoInt;
-	public var _n:GoInt;
-	public var _bufLen:GoInt;
-	public var _at:GoInt;
-	public var _exp:GoString;
-	public var _err:Error;
-};
+@:structInit @:local private class T__struct_1 {
+	public var _data:GoString = "";
+	public var _off:GoInt = 0;
+	public var _n:GoInt = 0;
+	public var _bufLen:GoInt = 0;
+	public var _at:GoInt = 0;
+	public var _exp:GoString = "";
+	public var _err:Error = (null : Error);
 
-@:local private typedef T__struct_2 = {
-	public var _data:GoString;
-	public var _want:GoInt64;
-};
+	public function string():String
+		return "{" + Go.string(_data) + " " + Go.string(_off) + " " + Go.string(_n) + " " + Go.string(_bufLen) + " " + Go.string(_at) + " "
+			+ Go.string(_exp) + " " + Go.string(_err) + "}";
 
-@:local private typedef T__struct_3 = {
-	public var name:GoString;
-	public var _r:Reader;
-};
+	public function new(?_data:GoString, ?_off:GoInt, ?_n:GoInt, ?_bufLen:GoInt, ?_at:GoInt, ?_exp:GoString, ?_err:Error, ?string) {
+		if (_data != null)
+			this._data = _data;
+		if (_off != null)
+			this._off = _off;
+		if (_n != null)
+			this._n = _n;
+		if (_bufLen != null)
+			this._bufLen = _bufLen;
+		if (_at != null)
+			this._at = _at;
+		if (_exp != null)
+			this._exp = _exp;
+		if (_err != null)
+			this._err = _err;
+	}
 
-@:local private typedef T__struct_4 = {
+	public function __copy__() {
+		return new T__struct_1(_data, _off, _n, _bufLen, _at, _exp, _err);
+	}
+}
+
+@:structInit @:local private class T__struct_2 {
+	public var _data:GoString = "";
+	public var _want:GoInt64 = 0;
+
+	public function string():String
+		return "{" + Go.string(_data) + " " + Go.string(_want) + "}";
+
+	public function new(?_data:GoString, ?_want:GoInt64, ?string) {
+		if (_data != null)
+			this._data = _data;
+		if (_want != null)
+			this._want = _want;
+	}
+
+	public function __copy__() {
+		return new T__struct_2(_data, _want);
+	}
+}
+
+@:structInit @:local private class T__struct_3 {
+	public var name:GoString = "";
+	public var _r:Reader = (null : Reader);
+
+	public function string():String
+		return "{" + Go.string(name) + " " + Go.string(_r) + "}";
+
+	public function new(?name:GoString, ?_r:Reader, ?string) {
+		if (name != null)
+			this.name = name;
+		if (_r != null)
+			this._r = _r;
+	}
+
+	public function __copy__() {
+		return new T__struct_3(name, _r);
+	}
+}
+
+@:structInit @:local @:using(stdgo.io_test.Io_test.T__struct_4_static_extension) private class T__struct_4 {
 	@:embedded
-	public var reader:Reader;
+	public var reader:Reader = (null : Reader);
 	@:embedded
-	public var writerTo:WriterTo;
-};
+	public var writerTo:WriterTo = (null : WriterTo);
 
-@:local private typedef T__struct_5 = {
-	@:embedded
-	public var writer:Writer;
-	@:embedded
-	public var stringer:stdgo.fmt.Fmt.Stringer;
-};
+	public function string():String
+		return "{" + Go.string(reader) + " " + Go.string(writerTo) + "}";
 
-@:local private typedef T__struct_6 = {};
+	public function new(?reader:Reader, ?writerTo:WriterTo, ?string) {
+		if (reader != null)
+			this.reader = reader;
+		if (writerTo != null)
+			this.writerTo = writerTo;
+	}
+
+	@:embedded
+	public function read(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
+		return reader.read(_b);
+
+	@:embedded
+	public function writeTo(_w:Writer):{var _0:GoInt64; var _1:Error;}
+		return writerTo.writeTo(_w);
+
+	public function __copy__() {
+		return new T__struct_4(reader, writerTo);
+	}
+}
+
+@:structInit @:local @:using(stdgo.io_test.Io_test.T__struct_5_static_extension) private class T__struct_5 {
+	@:embedded
+	public var writer:Writer = (null : Writer);
+	@:embedded
+	public var stringer:stdgo.fmt.Fmt.Stringer = (null : stdgo.fmt.Fmt.Stringer);
+
+	public function string():String
+		return "{" + Go.string(writer) + " " + Go.string(stringer) + "}";
+
+	public function new(?writer:Writer, ?stringer:stdgo.fmt.Fmt.Stringer, ?string) {
+		if (writer != null)
+			this.writer = writer;
+		if (stringer != null)
+			this.stringer = stringer;
+	}
+
+	@:embedded
+	public function string():GoString
+		return stringer.string();
+
+	@:embedded
+	public function write(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
+		return writer.write(_b);
+
+	public function __copy__() {
+		return new T__struct_5(writer, stringer);
+	}
+}
+
+@:structInit @:local private class T__struct_6 {
+	public function string():String
+		return "{" + "}";
+
+	public function new(?string) {}
+
+	public function __copy__() {
+		return new T__struct_6();
+	}
+}
 
 /**
 	// writerFunc is a Writer implemented by the underlying func.
@@ -1205,101 +1311,101 @@ function testTeeReader(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testSectionReader_ReadAt(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _dat:GoString = Go.str("a long sample data, 1234567890");
 	var _tests = (new Slice<T__struct_1>(0, 0, ({
-		_data: ("" : GoString),
+		_data: Go.str(),
 		_off: (0 : GoInt),
-		_n: (0 : GoInt),
-		_bufLen: (0 : GoInt),
+		_n: (10 : GoInt),
+		_bufLen: (2 : GoInt),
 		_at: (0 : GoInt),
-		_exp: ("" : GoString),
-		_err: (null : Error)
+		_exp: Go.str(),
+		_err: eof
 	} : T__struct_1), ({
-		_data: ("" : GoString),
+		_data: _dat,
 		_off: (0 : GoInt),
-		_n: (0 : GoInt),
+		_n: (_dat.length),
 		_bufLen: (0 : GoInt),
 		_at: (0 : GoInt),
-		_exp: ("" : GoString),
+		_exp: Go.str(),
 		_err: (null : Error)
 		} : T__struct_1), ({
-		_data: ("" : GoString),
-		_off: (0 : GoInt),
-		_n: (0 : GoInt),
-		_bufLen: (0 : GoInt),
+		_data: _dat,
+		_off: (_dat.length),
+		_n: (1 : GoInt),
+		_bufLen: (1 : GoInt),
 		_at: (0 : GoInt),
-		_exp: ("" : GoString),
+		_exp: Go.str(),
+		_err: eof
+		} : T__struct_1), ({
+		_data: _dat,
+		_off: (0 : GoInt),
+		_n: (_dat.length) + (2 : GoInt),
+		_bufLen: (_dat.length),
+		_at: (0 : GoInt),
+		_exp: _dat,
 		_err: (null : Error)
 		} : T__struct_1), ({
-		_data: ("" : GoString),
+		_data: _dat,
 		_off: (0 : GoInt),
-		_n: (0 : GoInt),
-		_bufLen: (0 : GoInt),
+		_n: (_dat.length),
+		_bufLen: (_dat.length) / (2 : GoInt),
 		_at: (0 : GoInt),
-		_exp: ("" : GoString),
+		_exp: (_dat.__slice__(0, (_dat.length) / (2 : GoInt)) : GoString),
 		_err: (null : Error)
 		} : T__struct_1), ({
-		_data: ("" : GoString),
+		_data: _dat,
 		_off: (0 : GoInt),
-		_n: (0 : GoInt),
-		_bufLen: (0 : GoInt),
+		_n: (_dat.length),
+		_bufLen: (_dat.length),
 		_at: (0 : GoInt),
-		_exp: ("" : GoString),
+		_exp: _dat,
 		_err: (null : Error)
 		} : T__struct_1), ({
-		_data: ("" : GoString),
+		_data: _dat,
 		_off: (0 : GoInt),
-		_n: (0 : GoInt),
-		_bufLen: (0 : GoInt),
-		_at: (0 : GoInt),
-		_exp: ("" : GoString),
+		_n: (_dat.length),
+		_bufLen: (_dat.length) / (2 : GoInt),
+		_at: (2 : GoInt),
+		_exp: (_dat.__slice__((2 : GoInt), (2 : GoInt) + (_dat.length / (2 : GoInt))) : GoString),
 		_err: (null : Error)
 		} : T__struct_1), ({
-		_data: ("" : GoString),
-		_off: (0 : GoInt),
-		_n: (0 : GoInt),
-		_bufLen: (0 : GoInt),
-		_at: (0 : GoInt),
-		_exp: ("" : GoString),
+		_data: _dat,
+		_off: (3 : GoInt),
+		_n: (_dat.length),
+		_bufLen: (_dat.length) / (2 : GoInt),
+		_at: (2 : GoInt),
+		_exp: (_dat.__slice__((5 : GoInt), (5 : GoInt) + (_dat.length / (2 : GoInt))) : GoString),
 		_err: (null : Error)
 		} : T__struct_1), ({
-		_data: ("" : GoString),
-		_off: (0 : GoInt),
-		_n: (0 : GoInt),
-		_bufLen: (0 : GoInt),
-		_at: (0 : GoInt),
-		_exp: ("" : GoString),
+		_data: _dat,
+		_off: (3 : GoInt),
+		_n: (_dat.length) / (2 : GoInt),
+		_bufLen: (_dat.length / (2 : GoInt)) - (2 : GoInt),
+		_at: (2 : GoInt),
+		_exp: (_dat.__slice__((5 : GoInt), ((5 : GoInt) + (_dat.length / (2 : GoInt))) - (2 : GoInt)) : GoString),
 		_err: (null : Error)
 		} : T__struct_1), ({
-		_data: ("" : GoString),
-		_off: (0 : GoInt),
-		_n: (0 : GoInt),
-		_bufLen: (0 : GoInt),
-		_at: (0 : GoInt),
-		_exp: ("" : GoString),
-		_err: (null : Error)
+		_data: _dat,
+		_off: (3 : GoInt),
+		_n: (_dat.length) / (2 : GoInt),
+		_bufLen: (_dat.length / (2 : GoInt)) + (2 : GoInt),
+		_at: (2 : GoInt),
+		_exp: (_dat.__slice__((5 : GoInt), ((5 : GoInt) + (_dat.length / (2 : GoInt))) - (2 : GoInt)) : GoString),
+		_err: eof
 		} : T__struct_1), ({
-		_data: ("" : GoString),
+		_data: _dat,
 		_off: (0 : GoInt),
 		_n: (0 : GoInt),
 		_bufLen: (0 : GoInt),
-		_at: (0 : GoInt),
-		_exp: ("" : GoString),
-		_err: (null : Error)
+		_at: (-1 : GoInt),
+		_exp: Go.str(),
+		_err: eof
 		} : T__struct_1), ({
-		_data: ("" : GoString),
+		_data: _dat,
 		_off: (0 : GoInt),
 		_n: (0 : GoInt),
 		_bufLen: (0 : GoInt),
-		_at: (0 : GoInt),
-		_exp: ("" : GoString),
-		_err: (null : Error)
-		} : T__struct_1), ({
-		_data: ("" : GoString),
-		_off: (0 : GoInt),
-		_n: (0 : GoInt),
-		_bufLen: (0 : GoInt),
-		_at: (0 : GoInt),
-		_exp: ("" : GoString),
-		_err: (null : Error)
+		_at: (1 : GoInt),
+		_exp: Go.str(),
+		_err: eof
 		} : T__struct_1)) : Slice<T__struct_1>);
 	for (_i => _tt in _tests) {
 		var _r = stdgo.strings.Strings.newReader(_tt._data);
@@ -1877,7 +1983,7 @@ function testPipe2(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __tmp__ = pipe(),
 		_r:Ref<PipeReader> = __tmp__._0,
 		_w:Ref<PipeWriter> = __tmp__._1;
-	Go.routine(() -> _reader(_t, Go.asInterface(_r), _c));
+	Go.routine(() -> reader(_t, Go.asInterface(_r), _c));
 	var _buf:Slice<GoUInt8> = new Slice<GoUInt8>((64 : GoInt).toBasic(), 0, ...[for (i in 0...(64 : GoInt).toBasic()) (0 : GoUInt8)]);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -1928,7 +2034,7 @@ function testPipe3(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_wdat[_i] = (_i : GoByte);
 		});
 	};
-	Go.routine(() -> _writer(Go.asInterface(_w), _wdat, _c));
+	Go.routine(() -> writer(Go.asInterface(_w), _wdat, _c));
 	var _rdat:Slice<GoUInt8> = new Slice<GoUInt8>((1024 : GoInt).toBasic(), 0, ...[for (i in 0...(1024 : GoInt).toBasic()) (0 : GoUInt8)]);
 	var _tot:GoInt = (0 : GoInt);
 	{
@@ -3200,6 +3306,72 @@ private class T_pipeTest_asInterface {
 		return stdgo.fmt.Fmt.sprintf(Go.str("async=%v err=%v closeWithError=%v"), Go.toInterface(_p._async), Go.toInterface(_p._err),
 			Go.toInterface(_p._closeWithError));
 	}
+}
+
+private class T__struct_4_asInterface {
+	@:embedded
+	public function writeTo(_w:Writer):{var _0:GoInt64; var _1:Error;}
+		return __self__.value.writeTo(_w);
+
+	@:embedded
+	public function read(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
+		return __self__.value.read(_b);
+
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
+	}
+
+	public function __underlying__()
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
+
+	var __self__:Pointer<T__struct_4>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
+}
+
+@:keep @:allow(stdgo.io_test.Io_test.T__struct_4_asInterface) class T__struct_4_static_extension {
+	@:embedded
+	public static function writeTo(__self__:T__struct_4, _w:Writer):{var _0:GoInt64; var _1:Error;}
+		return __self__.writeTo(_w);
+
+	@:embedded
+	public static function read(__self__:T__struct_4, _b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
+		return __self__.read(_b);
+}
+
+private class T__struct_5_asInterface {
+	@:embedded
+	public function write(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
+		return __self__.value.write(_b);
+
+	@:embedded
+	public function string():GoString
+		return __self__.value.string();
+
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
+	}
+
+	public function __underlying__()
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
+
+	var __self__:Pointer<T__struct_5>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
+}
+
+@:keep @:allow(stdgo.io_test.Io_test.T__struct_5_asInterface) class T__struct_5_static_extension {
+	@:embedded
+	public static function write(__self__:T__struct_5, _b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
+		return __self__.write(_b);
+
+	@:embedded
+	public static function string(__self__:T__struct_5):GoString
+		return __self__.string();
 }
 
 private class T_writerFunc_asInterface {

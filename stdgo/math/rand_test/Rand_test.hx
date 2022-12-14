@@ -217,10 +217,24 @@ var __tmp__1 = getExponentialDistributionParameters();
 	}
 }
 
-@:local private typedef T__struct_0 = {
-	public var _name:GoString;
-	public var _fn:() -> GoInt;
-};
+@:structInit @:local private class T__struct_0 {
+	public var _name:GoString = "";
+	public var _fn:() -> GoInt = null;
+
+	public function string():String
+		return "{" + Go.string(_name) + " " + Go.string(_fn) + "}";
+
+	public function new(?_name:GoString, ?_fn:() -> GoInt, ?string) {
+		if (_name != null)
+			this._name = _name;
+		if (_fn != null)
+			this._fn = _fn;
+	}
+
+	public function __copy__() {
+		return new T__struct_0(_name, _fn);
+	}
+}
 
 function example():Void {
 	stdgo.math.rand.Rand.seed(("42" : GoInt64));
@@ -916,9 +930,38 @@ function testUniformFactorial(_t:Ref<stdgo.testing.Testing.T>):Void {
 					});
 				};
 				var _p = new Slice<GoInt>((_n : GoInt).toBasic(), 0, ...[for (i in 0...(_n : GoInt).toBasic()) (0 : GoInt)]);
-				var _tests = (new GoArray<T__struct_0>(({_name: ("" : GoString), _fn: null} : T__struct_0),
-					({_name: ("" : GoString), _fn: null} : T__struct_0), ({_name: ("" : GoString), _fn: null} : T__struct_0),
-					({_name: ("" : GoString), _fn: null} : T__struct_0)) : GoArray<T__struct_0>);
+				var _tests = (new GoArray<T__struct_0>(({
+					_name: Go.str("Int31n"),
+					_fn: function():GoInt {
+						return (_r.int31n((_nfact : GoInt32)) : GoInt);
+					}
+				} : T__struct_0), ({
+					_name: Go.str("int31n"),
+					_fn: function():GoInt {
+						return (int31nForTest(_r, (_nfact : GoInt32)) : GoInt);
+					}
+					} : T__struct_0), ({
+					_name: Go.str("Perm"),
+					_fn: function():GoInt {
+						return _encodePerm(_r.perm(_n));
+					}
+					} : T__struct_0), ({
+					_name: Go.str("Shuffle"),
+					_fn: function():GoInt {
+						for (_i in 0..._p.length.toBasic()) {
+							_p[_i] = _i;
+						};
+						_r.shuffle(_n, function(_i:GoInt, _j:GoInt):Void {
+							{
+								final __tmp__0 = _p[_j];
+								final __tmp__1 = _p[_i];
+								_p[_i] = __tmp__0;
+								_p[_j] = __tmp__1;
+							};
+						});
+						return _encodePerm(_p);
+					}
+					} : T__struct_0)) : GoArray<T__struct_0>);
 				for (_0 => _test in _tests) {
 					_t.run(_test._name, function(_t:Ref<stdgo.testing.Testing.T>):Void {
 						var _nsamples:GoInt = (10 : GoInt) * _nfact;

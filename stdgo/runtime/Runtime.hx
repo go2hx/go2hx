@@ -819,12 +819,12 @@ typedef T_error = StructType & {
 	}
 }
 
-@:local private typedef T__struct_0 = {
+@:structInit @:local private class T__struct_0 {
 	/**
 		// Size is the maximum byte size of an object in this
 		// size class.
 	**/
-	public var size:GoUInt32;
+	public var size:GoUInt32 = 0;
 
 	/**
 		// Mallocs is the cumulative count of heap objects
@@ -832,14 +832,30 @@ typedef T_error = StructType & {
 		// of allocation is Size*Mallocs. The number of live
 		// objects in this size class is Mallocs - Frees.
 	**/
-	public var mallocs:GoUInt64;
+	public var mallocs:GoUInt64 = 0;
 
 	/**
 		// Frees is the cumulative count of heap objects freed
 		// in this size class.
 	**/
-	public var frees:GoUInt64;
-};
+	public var frees:GoUInt64 = 0;
+
+	public function string():String
+		return "{" + Go.string(size) + " " + Go.string(mallocs) + " " + Go.string(frees) + "}";
+
+	public function new(?size:GoUInt32, ?mallocs:GoUInt64, ?frees:GoUInt64, ?string) {
+		if (size != null)
+			this.size = size;
+		if (mallocs != null)
+			this.mallocs = mallocs;
+		if (frees != null)
+			this.frees = frees;
+	}
+
+	public function __copy__() {
+		return new T__struct_0(size, mallocs, frees);
+	}
+}
 
 /**
 	// SetCPUProfileRate sets the CPU profiling rate to hz samples per second.

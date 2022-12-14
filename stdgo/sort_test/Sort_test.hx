@@ -511,35 +511,115 @@ private final __NMode:InvalidType = ("6" : GoUInt64);
 	}
 }
 
-@:local private typedef T__struct_0 = {
-	public var name:GoString;
-	public var age:GoInt;
-};
+@:structInit @:local private class T__struct_0 {
+	public var name:GoString = "";
+	public var age:GoInt = 0;
 
-@:local private typedef T__struct_1 = {
-	public var _name:GoString;
-	public var _n:GoInt;
-	public var _f:GoInt->Bool;
-	public var _i:GoInt;
-};
+	public function string():String
+		return "{" + Go.string(name) + " " + Go.string(age) + "}";
 
-@:local private typedef T__struct_2 = {
-	public var _data:Slice<GoString>;
-	public var _target:GoString;
-	public var _wantPos:GoInt;
-	public var _wantFound:Bool;
-};
+	public function new(?name:GoString, ?age:GoInt, ?string) {
+		if (name != null)
+			this.name = name;
+		if (age != null)
+			this.age = age;
+	}
 
-@:local private typedef T__struct_3 = {
-	public var _name:GoString;
-	public var _result:GoInt;
-	public var _i:GoInt;
-};
+	public function __copy__() {
+		return new T__struct_0(name, age);
+	}
+}
 
-@:local private typedef T__struct_4 = {
-	public var _a:GoInt;
-	public var _b:GoInt;
-};
+@:structInit @:local private class T__struct_1 {
+	public var _name:GoString = "";
+	public var _n:GoInt = 0;
+	public var _f:GoInt->Bool = null;
+	public var _i:GoInt = 0;
+
+	public function string():String
+		return "{" + Go.string(_name) + " " + Go.string(_n) + " " + Go.string(_f) + " " + Go.string(_i) + "}";
+
+	public function new(?_name:GoString, ?_n:GoInt, ?_f:GoInt->Bool, ?_i:GoInt, ?string) {
+		if (_name != null)
+			this._name = _name;
+		if (_n != null)
+			this._n = _n;
+		if (_f != null)
+			this._f = _f;
+		if (_i != null)
+			this._i = _i;
+	}
+
+	public function __copy__() {
+		return new T__struct_1(_name, _n, _f, _i);
+	}
+}
+
+@:structInit @:local private class T__struct_2 {
+	public var _data:Slice<GoString> = (null : Slice<GoString>);
+	public var _target:GoString = "";
+	public var _wantPos:GoInt = 0;
+	public var _wantFound:Bool = false;
+
+	public function string():String
+		return "{" + Go.string(_data) + " " + Go.string(_target) + " " + Go.string(_wantPos) + " " + Go.string(_wantFound) + "}";
+
+	public function new(?_data:Slice<GoString>, ?_target:GoString, ?_wantPos:GoInt, ?_wantFound:Bool, ?string) {
+		if (_data != null)
+			this._data = _data;
+		if (_target != null)
+			this._target = _target;
+		if (_wantPos != null)
+			this._wantPos = _wantPos;
+		if (_wantFound != null)
+			this._wantFound = _wantFound;
+	}
+
+	public function __copy__() {
+		return new T__struct_2(_data, _target, _wantPos, _wantFound);
+	}
+}
+
+@:structInit @:local private class T__struct_3 {
+	public var _name:GoString = "";
+	public var _result:GoInt = 0;
+	public var _i:GoInt = 0;
+
+	public function string():String
+		return "{" + Go.string(_name) + " " + Go.string(_result) + " " + Go.string(_i) + "}";
+
+	public function new(?_name:GoString, ?_result:GoInt, ?_i:GoInt, ?string) {
+		if (_name != null)
+			this._name = _name;
+		if (_result != null)
+			this._result = _result;
+		if (_i != null)
+			this._i = _i;
+	}
+
+	public function __copy__() {
+		return new T__struct_3(_name, _result, _i);
+	}
+}
+
+@:structInit @:local private class T__struct_4 {
+	public var _a:GoInt = 0;
+	public var _b:GoInt = 0;
+
+	public function string():String
+		return "{" + Go.string(_a) + " " + Go.string(_b) + "}";
+
+	public function new(?_a:GoInt, ?_b:GoInt, ?string) {
+		if (_a != null)
+			this._a = _a;
+		if (_b != null)
+			this._b = _b;
+	}
+
+	public function __copy__() {
+		return new T__struct_4(_a, _b);
+	}
+}
 
 /**
 	// ByAge implements sort.Interface for []Person based on

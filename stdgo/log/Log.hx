@@ -289,7 +289,7 @@ final rshortfile:GoString = Go.str("[A-Za-z0-9_\\-]+\\.go:(61|63):");
 	// The flag argument defines the logging properties.
 **/
 function new_(_out:stdgo.io.Io.Writer, _prefix:GoString, _flag:GoInt):Ref<Logger> {
-	var _l = (({_out: _out, _prefix: _prefix, _flag: _flag} : Logger) : Ref<Logger>);
+	var _l = (({_prefix: _prefix, _flag: _flag, _out: _out} : Logger) : Ref<Logger>);
 	if (Go.toInterface(_out) == (Go.toInterface(stdgo.io.Io.discard))) {
 		_l._isDiscard = (1 : GoInt32);
 	};

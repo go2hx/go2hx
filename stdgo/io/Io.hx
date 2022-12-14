@@ -678,7 +678,16 @@ typedef StringWriter = StructType & {
 	}
 }
 
-@:local private typedef T__struct_0 = {};
+@:structInit @:local private class T__struct_0 {
+	public function string():String
+		return "{" + "}";
+
+	public function new(?string) {}
+
+	public function __copy__() {
+		return new T__struct_0();
+	}
+}
 
 /**
 	// WriteString writes the contents of the string s to w, which accepts a slice of bytes.

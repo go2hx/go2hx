@@ -844,46 +844,158 @@ private typedef T_input = StructType & {
 	}
 }
 
-@:local private typedef T__struct_0 = {
-	public var _s:GoString;
-	public var _r:GoString;
-	public var _n:GoInt;
-	public var _out:Slice<GoString>;
-};
+@:structInit @:local private class T__struct_0 {
+	public var _s:GoString = "";
+	public var _r:GoString = "";
+	public var _n:GoInt = 0;
+	public var _out:Slice<GoString> = (null : Slice<GoString>);
 
-@:local private typedef T__struct_1 = {
-	public var _name:GoString;
-	public var _re:GoString;
-};
+	public function string():String
+		return "{" + Go.string(_s) + " " + Go.string(_r) + " " + Go.string(_n) + " " + Go.string(_out) + "}";
 
-@:local private typedef T__struct_2 = {
-	public var regexp:GoString;
-	public var _min:GoInt;
-};
+	public function new(?_s:GoString, ?_r:GoString, ?_n:GoInt, ?_out:Slice<GoString>, ?string) {
+		if (_s != null)
+			this._s = _s;
+		if (_r != null)
+			this._r = _r;
+		if (_n != null)
+			this._n = _n;
+		if (_out != null)
+			this._out = _out;
+	}
 
-@:local private typedef T__struct_3 = {
-	public var _name:GoString;
-	public var _n:GoInt;
-};
+	public function __copy__() {
+		return new T__struct_0(_s, _r, _n, _out);
+	}
+}
 
-@:local private typedef T__struct_4 = {
-	public var _left:Slice<GoInt32>;
-	public var _right:Slice<GoInt32>;
-	public var _merged:Slice<GoInt32>;
-	public var _next:Slice<GoUInt32>;
-	public var _leftPC:GoUInt32;
-	public var _rightPC:GoUInt32;
-};
+@:structInit @:local private class T__struct_1 {
+	public var _name:GoString = "";
+	public var _re:GoString = "";
 
-@:local private typedef T__struct_5 = {
-	public var _re:GoString;
-	public var _isOnePass:Bool;
-};
+	public function string():String
+		return "{" + Go.string(_name) + " " + Go.string(_re) + "}";
 
-@:local private typedef T__struct_6 = {
-	public var _re:GoString;
-	public var _match:GoString;
-};
+	public function new(?_name:GoString, ?_re:GoString, ?string) {
+		if (_name != null)
+			this._name = _name;
+		if (_re != null)
+			this._re = _re;
+	}
+
+	public function __copy__() {
+		return new T__struct_1(_name, _re);
+	}
+}
+
+@:structInit @:local private class T__struct_2 {
+	public var regexp:GoString = "";
+	public var _min:GoInt = 0;
+
+	public function string():String
+		return "{" + Go.string(regexp) + " " + Go.string(_min) + "}";
+
+	public function new(?regexp:GoString, ?_min:GoInt, ?string) {
+		if (regexp != null)
+			this.regexp = regexp;
+		if (_min != null)
+			this._min = _min;
+	}
+
+	public function __copy__() {
+		return new T__struct_2(regexp, _min);
+	}
+}
+
+@:structInit @:local private class T__struct_3 {
+	public var _name:GoString = "";
+	public var _n:GoInt = 0;
+
+	public function string():String
+		return "{" + Go.string(_name) + " " + Go.string(_n) + "}";
+
+	public function new(?_name:GoString, ?_n:GoInt, ?string) {
+		if (_name != null)
+			this._name = _name;
+		if (_n != null)
+			this._n = _n;
+	}
+
+	public function __copy__() {
+		return new T__struct_3(_name, _n);
+	}
+}
+
+@:structInit @:local private class T__struct_4 {
+	public var _left:Slice<GoInt32> = (null : Slice<GoInt32>);
+	public var _right:Slice<GoInt32> = (null : Slice<GoInt32>);
+	public var _merged:Slice<GoInt32> = (null : Slice<GoInt32>);
+	public var _next:Slice<GoUInt32> = (null : Slice<GoUInt32>);
+	public var _leftPC:GoUInt32 = 0;
+	public var _rightPC:GoUInt32 = 0;
+
+	public function string():String
+		return "{" + Go.string(_left) + " " + Go.string(_right) + " " + Go.string(_merged) + " " + Go.string(_next) + " " + Go.string(_leftPC) + " "
+			+ Go.string(_rightPC) + "}";
+
+	public function new(?_left:Slice<GoInt32>, ?_right:Slice<GoInt32>, ?_merged:Slice<GoInt32>, ?_next:Slice<GoUInt32>, ?_leftPC:GoUInt32, ?_rightPC:GoUInt32,
+			?string) {
+		if (_left != null)
+			this._left = _left;
+		if (_right != null)
+			this._right = _right;
+		if (_merged != null)
+			this._merged = _merged;
+		if (_next != null)
+			this._next = _next;
+		if (_leftPC != null)
+			this._leftPC = _leftPC;
+		if (_rightPC != null)
+			this._rightPC = _rightPC;
+	}
+
+	public function __copy__() {
+		return new T__struct_4(_left, _right, _merged, _next, _leftPC, _rightPC);
+	}
+}
+
+@:structInit @:local private class T__struct_5 {
+	public var _re:GoString = "";
+	public var _isOnePass:Bool = false;
+
+	public function string():String
+		return "{" + Go.string(_re) + " " + Go.string(_isOnePass) + "}";
+
+	public function new(?_re:GoString, ?_isOnePass:Bool, ?string) {
+		if (_re != null)
+			this._re = _re;
+		if (_isOnePass != null)
+			this._isOnePass = _isOnePass;
+	}
+
+	public function __copy__() {
+		return new T__struct_5(_re, _isOnePass);
+	}
+}
+
+@:structInit @:local private class T__struct_6 {
+	public var _re:GoString = "";
+	public var _match:GoString = "";
+
+	public function string():String
+		return "{" + Go.string(_re) + " " + Go.string(_match) + "}";
+
+	public function new(?_re:GoString, ?_match:GoString, ?string) {
+		if (_re != null)
+			this._re = _re;
+		if (_match != null)
+			this._match = _match;
+	}
+
+	public function __copy__() {
+		return new T__struct_6(_re, _match);
+	}
+}
 
 /**
 	// A lazyFlag is a lazily-evaluated syntax.EmptyOp,

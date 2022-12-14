@@ -12,13 +12,39 @@ import stdgo.Chan;
 
 private var _dummys:Value = ({} : Value);
 private var _copyTests:Slice<T__struct_1> = (null : Slice<T__struct_1>);
-@:local private typedef T__struct_0 = {};
 
-@:local private typedef T__struct_1 = {
-	public var _srcLen:GoInt;
-	public var _dstLen:GoInt;
-	public var _copyLen:GoInt;
-};
+@:structInit @:local private class T__struct_0 {
+	public function string():String
+		return "{" + "}";
+
+	public function new(?string) {}
+
+	public function __copy__() {
+		return new T__struct_0();
+	}
+}
+
+@:structInit @:local private class T__struct_1 {
+	public var _srcLen:GoInt = 0;
+	public var _dstLen:GoInt = 0;
+	public var _copyLen:GoInt = 0;
+
+	public function string():String
+		return "{" + Go.string(_srcLen) + " " + Go.string(_dstLen) + " " + Go.string(_copyLen) + "}";
+
+	public function new(?_srcLen:GoInt, ?_dstLen:GoInt, ?_copyLen:GoInt, ?string) {
+		if (_srcLen != null)
+			this._srcLen = _srcLen;
+		if (_dstLen != null)
+			this._dstLen = _dstLen;
+		if (_copyLen != null)
+			this._copyLen = _copyLen;
+	}
+
+	public function __copy__() {
+		return new T__struct_1(_srcLen, _dstLen, _copyLen);
+	}
+}
 
 @:follow private typedef T_object = GoMap<GoString, AnyInterface>;
 @:follow private typedef T_array = Slice<AnyInterface>;

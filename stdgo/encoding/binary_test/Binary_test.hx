@@ -10,12 +10,30 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-@:local private typedef T__struct_7 = {
-	public var pi:GoFloat64;
-	public var uate:GoUInt8;
-	public var mine:GoArray<GoUInt8>;
-	public var too:GoUInt16;
-};
+@:structInit @:local private class T__struct_7 {
+	public var pi:GoFloat64 = 0;
+	public var uate:GoUInt8 = 0;
+	public var mine:GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0...3) (0 : GoUInt8)]);
+	public var too:GoUInt16 = 0;
+
+	public function string():String
+		return "{" + Go.string(pi) + " " + Go.string(uate) + " " + Go.string(mine) + " " + Go.string(too) + "}";
+
+	public function new(?pi:GoFloat64, ?uate:GoUInt8, ?mine:GoArray<GoUInt8>, ?too:GoUInt16, ?string) {
+		if (pi != null)
+			this.pi = pi;
+		if (uate != null)
+			this.uate = uate;
+		if (mine != null)
+			this.mine = mine;
+		if (too != null)
+			this.too = too;
+	}
+
+	public function __copy__() {
+		return new T__struct_7(pi, uate, mine, too);
+	}
+}
 
 function exampleWrite():Void {
 	var _buf = ({} : stdgo.bytes.Bytes.Buffer);

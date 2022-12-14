@@ -87,16 +87,46 @@ private var _surrogateTests:Slice<T__struct_1> = (new Slice<T__struct_1>(0, 0, (
 	}
 }
 
-@:local private typedef T__struct_0 = {
-	public var _r1:GoInt32;
-	public var _r2:GoInt32;
-	public var _want:GoInt32;
-};
+@:structInit @:local private class T__struct_0 {
+	public var _r1:GoInt32 = 0;
+	public var _r2:GoInt32 = 0;
+	public var _want:GoInt32 = 0;
 
-@:local private typedef T__struct_1 = {
-	public var _r:GoInt32;
-	public var _want:Bool;
-};
+	public function string():String
+		return "{" + Go.string(_r1) + " " + Go.string(_r2) + " " + Go.string(_want) + "}";
+
+	public function new(?_r1:GoInt32, ?_r2:GoInt32, ?_want:GoInt32, ?string) {
+		if (_r1 != null)
+			this._r1 = _r1;
+		if (_r2 != null)
+			this._r2 = _r2;
+		if (_want != null)
+			this._want = _want;
+	}
+
+	public function __copy__() {
+		return new T__struct_0(_r1, _r2, _want);
+	}
+}
+
+@:structInit @:local private class T__struct_1 {
+	public var _r:GoInt32 = 0;
+	public var _want:Bool = false;
+
+	public function string():String
+		return "{" + Go.string(_r) + " " + Go.string(_want) + "}";
+
+	public function new(?_r:GoInt32, ?_want:Bool, ?string) {
+		if (_r != null)
+			this._r = _r;
+		if (_want != null)
+			this._want = _want;
+	}
+
+	public function __copy__() {
+		return new T__struct_1(_r, _want);
+	}
+}
 
 /**
 	// Validate the constants redefined from unicode.

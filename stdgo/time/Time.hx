@@ -5650,9 +5650,9 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Ref
 		_tx = _tx.__appendref__(({_when: ("-9223372036854775808" : GoInt64), _index: (0 : GoUInt8)} : T_zoneTrans));
 	};
 	var _l = (({
+		_name: _name,
 		_zone: _zones,
 		_tx: _tx,
-		_name: _name,
 		_extend: _extend
 	} : Location) : Ref<Location>);
 	var __tmp__ = _now(),

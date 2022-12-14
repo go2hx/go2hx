@@ -1370,29 +1370,45 @@ private var _defaultLocTests:Slice<T__struct_25> = (new Slice<T__struct_25>(0, 0
 private var _zones:Slice<GoString> = (new Slice<GoString>(0, 0, Go.str("Asia/Jerusalem"), Go.str("America/Los_Angeles")) : Slice<GoString>);
 
 private var _slimTests:Slice<T__struct_30> = (new Slice<T__struct_30>(0, 0, ({
-	_zoneName: ("" : GoString),
-	_fileName: ("" : GoString),
-	_date: null,
-	_wantName: ("" : GoString),
-	_wantOffset: (0 : GoInt)
+	_zoneName: Go.str("Europe/Berlin"),
+	_fileName: Go.str("2020b_Europe_Berlin"),
+	_date: function(_loc:Ref<Location>):Time {
+		return (stdgo.time.Time.date((2020 : GoInt), (10 : Month), (29 : GoInt), (15 : GoInt), (30 : GoInt), (0 : GoInt), (0 : GoInt),
+			_loc) == null ? null : stdgo.time.Time.date((2020 : GoInt), (10 : Month), (29 : GoInt), (15 : GoInt), (30 : GoInt), (0 : GoInt), (0 : GoInt), _loc)
+			.__copy__());
+	},
+	_wantName: Go.str("CET"),
+	_wantOffset: (3600 : GoInt)
 } : T__struct_30), ({
-	_zoneName: ("" : GoString),
-	_fileName: ("" : GoString),
-	_date: null,
-	_wantName: ("" : GoString),
-	_wantOffset: (0 : GoInt)
+	_zoneName: Go.str("America/Nuuk"),
+	_fileName: Go.str("2021a_America_Nuuk"),
+	_date: function(_loc:Ref<Location>):Time {
+		return (stdgo.time.Time.date((2020 : GoInt), (10 : Month), (29 : GoInt), (15 : GoInt), (30 : GoInt), (0 : GoInt), (0 : GoInt),
+			_loc) == null ? null : stdgo.time.Time.date((2020 : GoInt), (10 : Month), (29 : GoInt), (15 : GoInt), (30 : GoInt), (0 : GoInt), (0 : GoInt), _loc)
+			.__copy__());
+	},
+	_wantName: Go.str("-03"),
+	_wantOffset: (-10800 : GoInt)
 	} : T__struct_30), ({
-	_zoneName: ("" : GoString),
-	_fileName: ("" : GoString),
-	_date: null,
-	_wantName: ("" : GoString),
-	_wantOffset: (0 : GoInt)
+	_zoneName: Go.str("Asia/Gaza"),
+	_fileName: Go.str("2021a_Asia_Gaza"),
+	_date: function(_loc:Ref<Location>):Time {
+		return (stdgo.time.Time.date((2020 : GoInt), (10 : Month), (29 : GoInt), (15 : GoInt), (30 : GoInt), (0 : GoInt), (0 : GoInt),
+			_loc) == null ? null : stdgo.time.Time.date((2020 : GoInt), (10 : Month), (29 : GoInt), (15 : GoInt), (30 : GoInt), (0 : GoInt), (0 : GoInt), _loc)
+			.__copy__());
+	},
+	_wantName: Go.str("EET"),
+	_wantOffset: (7200 : GoInt)
 	} : T__struct_30), ({
-	_zoneName: ("" : GoString),
-	_fileName: ("" : GoString),
-	_date: null,
-	_wantName: ("" : GoString),
-	_wantOffset: (0 : GoInt)
+	_zoneName: Go.str("Europe/Dublin"),
+	_fileName: Go.str("2021a_Europe_Dublin"),
+	_date: function(_loc:Ref<Location>):Time {
+		return (stdgo.time.Time.date((2021 : GoInt), (4 : Month), (2 : GoInt), (11 : GoInt), (12 : GoInt), (13 : GoInt), (0 : GoInt),
+			_loc) == null ? null : stdgo.time.Time.date((2021 : GoInt), (4 : Month), (2 : GoInt), (11 : GoInt), (12 : GoInt), (13 : GoInt), (0 : GoInt), _loc)
+			.__copy__());
+	},
+	_wantName: Go.str("IST"),
+	_wantOffset: (3600 : GoInt)
 	} : T__struct_30)) : Slice<T__struct_30>);
 
 private var _c:Chan<GoInt> = (null : Chan<GoInt>);
@@ -1723,219 +1739,782 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	}
 }
 
-@:local private typedef T__struct_0 = {
-	public var _in:Time;
-	public var _want:GoString;
-};
+@:structInit @:local private class T__struct_0 {
+	public var _in:Time = ({} : Time);
+	public var _want:GoString = "";
 
-@:local private typedef T__struct_1 = {
-	public var _date:GoString;
-	public var _ok:Bool;
-};
+	public function string():String
+		return "{" + Go.string(_in) + " " + Go.string(_want) + "}";
 
-@:local private typedef T__struct_2 = {
-	public var _format:GoString;
-	public var _value:GoString;
-	public var _valueElemPrefix:GoString;
-};
+	public function new(?_in:Time, ?_want:GoString, ?string) {
+		if (_in != null)
+			this._in = _in;
+		if (_want != null)
+			this._want = _want;
+	}
 
-@:local private typedef T__struct_3 = {
-	public var _value:GoString;
-	public var _ok:Bool;
-};
+	public function __copy__() {
+		return new T__struct_0(_in, _want);
+	}
+}
 
-@:local private typedef T__struct_4 = {
-	public var _s:GoString;
-	public var _want:GoString;
-};
+@:structInit @:local private class T__struct_1 {
+	public var _date:GoString = "";
+	public var _ok:Bool = false;
 
-@:local private typedef T__struct_5 = {
-	public var _s:GoString;
-	public var _want:GoInt;
-};
+	public function string():String
+		return "{" + Go.string(_date) + " " + Go.string(_ok) + "}";
 
-@:local private typedef T__struct_6 = {
-	public var _mono:GoInt64;
-	public var _want:GoString;
-};
+	public function new(?_date:GoString, ?_ok:Bool, ?string) {
+		if (_date != null)
+			this._date = _date;
+		if (_ok != null)
+			this._ok = _ok;
+	}
 
-@:local private typedef T__struct_7 = {
-	public var _sum:GoFloat64;
-	public var _max:Duration;
-	public var _count:GoInt64;
+	public function __copy__() {
+		return new T__struct_1(_date, _ok);
+	}
+}
+
+@:structInit @:local private class T__struct_2 {
+	public var _format:GoString = "";
+	public var _value:GoString = "";
+	public var _valueElemPrefix:GoString = "";
+
+	public function string():String
+		return "{" + Go.string(_format) + " " + Go.string(_value) + " " + Go.string(_valueElemPrefix) + "}";
+
+	public function new(?_format:GoString, ?_value:GoString, ?_valueElemPrefix:GoString, ?string) {
+		if (_format != null)
+			this._format = _format;
+		if (_value != null)
+			this._value = _value;
+		if (_valueElemPrefix != null)
+			this._valueElemPrefix = _valueElemPrefix;
+	}
+
+	public function __copy__() {
+		return new T__struct_2(_format, _value, _valueElemPrefix);
+	}
+}
+
+@:structInit @:local private class T__struct_3 {
+	public var _value:GoString = "";
+	public var _ok:Bool = false;
+
+	public function string():String
+		return "{" + Go.string(_value) + " " + Go.string(_ok) + "}";
+
+	public function new(?_value:GoString, ?_ok:Bool, ?string) {
+		if (_value != null)
+			this._value = _value;
+		if (_ok != null)
+			this._ok = _ok;
+	}
+
+	public function __copy__() {
+		return new T__struct_3(_value, _ok);
+	}
+}
+
+@:structInit @:local private class T__struct_4 {
+	public var _s:GoString = "";
+	public var _want:GoString = "";
+
+	public function string():String
+		return "{" + Go.string(_s) + " " + Go.string(_want) + "}";
+
+	public function new(?_s:GoString, ?_want:GoString, ?string) {
+		if (_s != null)
+			this._s = _s;
+		if (_want != null)
+			this._want = _want;
+	}
+
+	public function __copy__() {
+		return new T__struct_4(_s, _want);
+	}
+}
+
+@:structInit @:local private class T__struct_5 {
+	public var _s:GoString = "";
+	public var _want:GoInt = 0;
+
+	public function string():String
+		return "{" + Go.string(_s) + " " + Go.string(_want) + "}";
+
+	public function new(?_s:GoString, ?_want:GoInt, ?string) {
+		if (_s != null)
+			this._s = _s;
+		if (_want != null)
+			this._want = _want;
+	}
+
+	public function __copy__() {
+		return new T__struct_5(_s, _want);
+	}
+}
+
+@:structInit @:local private class T__struct_6 {
+	public var _mono:GoInt64 = 0;
+	public var _want:GoString = "";
+
+	public function string():String
+		return "{" + Go.string(_mono) + " " + Go.string(_want) + "}";
+
+	public function new(?_mono:GoInt64, ?_want:GoString, ?string) {
+		if (_mono != null)
+			this._mono = _mono;
+		if (_want != null)
+			this._want = _want;
+	}
+
+	public function __copy__() {
+		return new T__struct_6(_mono, _want);
+	}
+}
+
+@:structInit @:local private class T__struct_7 {
+	public var _sum:GoFloat64 = 0;
+	public var _max:Duration = ((0 : GoInt64) : Duration);
+	public var _count:GoInt64 = 0;
 
 	/**
 		// cache line padding
 	**/
 	@:optional
-	public var _1:GoArray<GoInt64>;
-};
+	public var _1:GoArray<GoInt64> = new GoArray<GoInt64>(...[for (i in 0...5) (0 : GoInt64)]);
 
-@:local private typedef T__struct_8 = {
-	public var _count:GoInt;
-	public var _delta:Duration;
-};
+	public function string():String
+		return "{" + Go.string(_sum) + " " + Go.string(_max) + " " + Go.string(_count) + " " + Go.string(_1) + "}";
 
-@:local private typedef T__struct_9 = {
-	public var _t:Time;
-	public var _d:Duration;
-};
+	public function new(?_sum:GoFloat64, ?_max:Duration, ?_count:GoInt64, ?_1:GoArray<GoInt64>, ?string) {
+		if (_sum != null)
+			this._sum = _sum;
+		if (_max != null)
+			this._max = _max;
+		if (_count != null)
+			this._count = _count;
+		if (_1 != null)
+			this._1 = _1;
+	}
 
-@:local private typedef T__struct_10 = {
-	public var _str:GoString;
-	public var _d:Duration;
-};
+	public function __copy__() {
+		return new T__struct_7(_sum, _max, _count, _1);
+	}
+}
 
-@:local private typedef T__struct_11 = {
-	public var _year:GoInt;
-	public var _month:GoInt;
-	public var _day:GoInt;
-	public var _hour:GoInt;
-	public var _min:GoInt;
-	public var _sec:GoInt;
-	public var _nsec:GoInt;
-	public var _z:Ref<Location>;
-	public var _unix:GoInt64;
-};
+@:structInit @:local private class T__struct_8 {
+	public var _count:GoInt = 0;
+	public var _delta:Duration = ((0 : GoInt64) : Duration);
 
-@:local private typedef T__struct_12 = {
-	public var _years:GoInt;
-	public var _months:GoInt;
-	public var _days:GoInt;
-};
+	public function string():String
+		return "{" + Go.string(_count) + " " + Go.string(_delta) + "}";
 
-@:local private typedef T__struct_13 = {
-	public var _year:GoInt;
-	public var _month:GoInt;
-	public var _di:GoInt;
-};
+	public function new(?_count:GoInt, ?_delta:Duration, ?string) {
+		if (_count != null)
+			this._count = _count;
+		if (_delta != null)
+			this._delta = _delta;
+	}
 
-@:local private typedef T__struct_14 = {
-	public var _bytes:Slice<GoUInt8>;
-	public var _want:GoString;
-};
+	public function __copy__() {
+		return new T__struct_8(_count, _delta);
+	}
+}
 
-@:local private typedef T__struct_15 = {
-	public var _time:Time;
-	public var _want:GoString;
-};
+@:structInit @:local private class T__struct_9 {
+	public var _t:Time = ({} : Time);
+	public var _d:Duration = ((0 : GoInt64) : Duration);
 
-@:local private typedef T__struct_16 = {
-	public var _time:Time;
-	public var _json:GoString;
-};
+	public function string():String
+		return "{" + Go.string(_t) + " " + Go.string(_d) + "}";
 
-@:local private typedef T__struct_17 = {
-	public var _in:GoString;
-	public var _want:Duration;
-};
+	public function new(?_t:Time, ?_d:Duration, ?string) {
+		if (_t != null)
+			this._t = _t;
+		if (_d != null)
+			this._d = _d;
+	}
 
-@:local private typedef T__struct_18 = {
-	public var _in:GoString;
-	public var _expect:GoString;
-};
+	public function __copy__() {
+		return new T__struct_9(_t, _d);
+	}
+}
 
-@:local private typedef T__struct_19 = {
-	public var _count:GoInt;
-	public var _desc:GoString;
-	public var _fn:() -> Void;
-};
+@:structInit @:local private class T__struct_10 {
+	public var _str:GoString = "";
+	public var _d:Duration = ((0 : GoInt64) : Duration);
 
-@:local private typedef T__struct_20 = {
-	public var _t:Time;
-	public var _u:Time;
-	public var _d:Duration;
-};
+	public function string():String
+		return "{" + Go.string(_str) + " " + Go.string(_d) + "}";
 
-@:local private typedef T__struct_21 = {
-	public var _d:Duration;
-	public var _want:GoInt64;
-};
+	public function new(?_str:GoString, ?_d:Duration, ?string) {
+		if (_str != null)
+			this._str = _str;
+		if (_d != null)
+			this._d = _d;
+	}
 
-@:local private typedef T__struct_22 = {
-	public var _d:Duration;
-	public var _want:GoFloat64;
-};
+	public function __copy__() {
+		return new T__struct_10(_str, _d);
+	}
+}
 
-@:local private typedef T__struct_23 = {
-	public var _d:Duration;
-	public var _m:Duration;
-	public var _want:Duration;
-};
+@:structInit @:local private class T__struct_11 {
+	public var _year:GoInt = 0;
+	public var _month:GoInt = 0;
+	public var _day:GoInt = 0;
+	public var _hour:GoInt = 0;
+	public var _min:GoInt = 0;
+	public var _sec:GoInt = 0;
+	public var _nsec:GoInt = 0;
+	public var _z:Ref<Location> = (null : Ref<Location>);
+	public var _unix:GoInt64 = 0;
 
-@:local private typedef T__struct_24 = {
-	public var _d:Duration;
-	public var _want:Duration;
-};
+	public function string():String
+		return "{" + Go.string(_year) + " " + Go.string(_month) + " " + Go.string(_day) + " " + Go.string(_hour) + " " + Go.string(_min) + " "
+			+ Go.string(_sec) + " " + Go.string(_nsec) + " " + Go.string(_z) + " " + Go.string(_unix) + "}";
 
-@:local private typedef T__struct_25 = {
-	public var _name:GoString;
-	public var _f:(Time, Time) -> Bool;
-};
+	public function new(?_year:GoInt, ?_month:GoInt, ?_day:GoInt, ?_hour:GoInt, ?_min:GoInt, ?_sec:GoInt, ?_nsec:GoInt, ?_z:Ref<Location>, ?_unix:GoInt64,
+			?string) {
+		if (_year != null)
+			this._year = _year;
+		if (_month != null)
+			this._month = _month;
+		if (_day != null)
+			this._day = _day;
+		if (_hour != null)
+			this._hour = _hour;
+		if (_min != null)
+			this._min = _min;
+		if (_sec != null)
+			this._sec = _sec;
+		if (_nsec != null)
+			this._nsec = _nsec;
+		if (_z != null)
+			this._z = _z;
+		if (_unix != null)
+			this._unix = _unix;
+	}
 
-@:local private typedef T__struct_26 = {
-	public var _time:Time;
-	public var _want:Bool;
-};
+	public function __copy__() {
+		return new T__struct_11(_year, _month, _day, _hour, _min, _sec, _nsec, _z, _unix);
+	}
+}
 
-@:local private typedef T__struct_27 = {
-	public var _give:Time;
-	public var _want:Time;
-};
+@:structInit @:local private class T__struct_12 {
+	public var _years:GoInt = 0;
+	public var _months:GoInt = 0;
+	public var _days:GoInt = 0;
 
-@:local private typedef T__struct_28 = {
-	public var _giveTime:Time;
-	public var _wantStart:Time;
-	public var _wantEnd:Time;
-};
+	public function string():String
+		return "{" + Go.string(_years) + " " + Go.string(_months) + " " + Go.string(_days) + "}";
 
-@:local private typedef T__struct_29 = {
-	public var _zone:GoString;
-	public var _unix:GoInt64;
-	public var _want1:GoString;
-	public var _want2:GoString;
-};
+	public function new(?_years:GoInt, ?_months:GoInt, ?_days:GoInt, ?string) {
+		if (_years != null)
+			this._years = _years;
+		if (_months != null)
+			this._months = _months;
+		if (_days != null)
+			this._days = _days;
+	}
 
-@:local private typedef T__struct_30 = {
-	public var _zoneName:GoString;
-	public var _fileName:GoString;
-	public var _date:Ref<Location>->Time;
-	public var _wantName:GoString;
-	public var _wantOffset:GoInt;
-};
+	public function __copy__() {
+		return new T__struct_12(_years, _months, _days);
+	}
+}
 
-@:local private typedef T__struct_31 = {
-	public var _inStr:GoString;
-	public var _inEnd:GoInt64;
-	public var _inSec:GoInt64;
-	public var _name:GoString;
-	public var _off:GoInt;
-	public var _start:GoInt64;
-	public var _end:GoInt64;
-	public var _isDST:Bool;
-	public var _ok:Bool;
-};
+@:structInit @:local private class T__struct_13 {
+	public var _year:GoInt = 0;
+	public var _month:GoInt = 0;
+	public var _di:GoInt = 0;
 
-@:local private typedef T__struct_32 = {
-	public var _in:GoString;
-	public var _name:GoString;
-	public var _out:GoString;
-	public var _ok:Bool;
-};
+	public function string():String
+		return "{" + Go.string(_year) + " " + Go.string(_month) + " " + Go.string(_di) + "}";
 
-@:local private typedef T__struct_33 = {
-	public var _in:GoString;
-	public var _off:GoInt;
-	public var _out:GoString;
-	public var _ok:Bool;
-};
+	public function new(?_year:GoInt, ?_month:GoInt, ?_di:GoInt, ?string) {
+		if (_year != null)
+			this._year = _year;
+		if (_month != null)
+			this._month = _month;
+		if (_di != null)
+			this._di = _di;
+	}
 
-@:local private typedef T__struct_34 = {
-	public var _in:GoString;
-	public var _r:Rule;
-	public var _out:GoString;
-	public var _ok:Bool;
-};
+	public function __copy__() {
+		return new T__struct_13(_year, _month, _di);
+	}
+}
+
+@:structInit @:local private class T__struct_14 {
+	public var _bytes:Slice<GoUInt8> = (null : Slice<GoUInt8>);
+	public var _want:GoString = "";
+
+	public function string():String
+		return "{" + Go.string(_bytes) + " " + Go.string(_want) + "}";
+
+	public function new(?_bytes:Slice<GoUInt8>, ?_want:GoString, ?string) {
+		if (_bytes != null)
+			this._bytes = _bytes;
+		if (_want != null)
+			this._want = _want;
+	}
+
+	public function __copy__() {
+		return new T__struct_14(_bytes, _want);
+	}
+}
+
+@:structInit @:local private class T__struct_15 {
+	public var _time:Time = ({} : Time);
+	public var _want:GoString = "";
+
+	public function string():String
+		return "{" + Go.string(_time) + " " + Go.string(_want) + "}";
+
+	public function new(?_time:Time, ?_want:GoString, ?string) {
+		if (_time != null)
+			this._time = _time;
+		if (_want != null)
+			this._want = _want;
+	}
+
+	public function __copy__() {
+		return new T__struct_15(_time, _want);
+	}
+}
+
+@:structInit @:local private class T__struct_16 {
+	public var _time:Time = ({} : Time);
+	public var _json:GoString = "";
+
+	public function string():String
+		return "{" + Go.string(_time) + " " + Go.string(_json) + "}";
+
+	public function new(?_time:Time, ?_json:GoString, ?string) {
+		if (_time != null)
+			this._time = _time;
+		if (_json != null)
+			this._json = _json;
+	}
+
+	public function __copy__() {
+		return new T__struct_16(_time, _json);
+	}
+}
+
+@:structInit @:local private class T__struct_17 {
+	public var _in:GoString = "";
+	public var _want:Duration = ((0 : GoInt64) : Duration);
+
+	public function string():String
+		return "{" + Go.string(_in) + " " + Go.string(_want) + "}";
+
+	public function new(?_in:GoString, ?_want:Duration, ?string) {
+		if (_in != null)
+			this._in = _in;
+		if (_want != null)
+			this._want = _want;
+	}
+
+	public function __copy__() {
+		return new T__struct_17(_in, _want);
+	}
+}
+
+@:structInit @:local private class T__struct_18 {
+	public var _in:GoString = "";
+	public var _expect:GoString = "";
+
+	public function string():String
+		return "{" + Go.string(_in) + " " + Go.string(_expect) + "}";
+
+	public function new(?_in:GoString, ?_expect:GoString, ?string) {
+		if (_in != null)
+			this._in = _in;
+		if (_expect != null)
+			this._expect = _expect;
+	}
+
+	public function __copy__() {
+		return new T__struct_18(_in, _expect);
+	}
+}
+
+@:structInit @:local private class T__struct_19 {
+	public var _count:GoInt = 0;
+	public var _desc:GoString = "";
+	public var _fn:() -> Void = null;
+
+	public function string():String
+		return "{" + Go.string(_count) + " " + Go.string(_desc) + " " + Go.string(_fn) + "}";
+
+	public function new(?_count:GoInt, ?_desc:GoString, ?_fn:() -> Void, ?string) {
+		if (_count != null)
+			this._count = _count;
+		if (_desc != null)
+			this._desc = _desc;
+		if (_fn != null)
+			this._fn = _fn;
+	}
+
+	public function __copy__() {
+		return new T__struct_19(_count, _desc, _fn);
+	}
+}
+
+@:structInit @:local private class T__struct_20 {
+	public var _t:Time = ({} : Time);
+	public var _u:Time = ({} : Time);
+	public var _d:Duration = ((0 : GoInt64) : Duration);
+
+	public function string():String
+		return "{" + Go.string(_t) + " " + Go.string(_u) + " " + Go.string(_d) + "}";
+
+	public function new(?_t:Time, ?_u:Time, ?_d:Duration, ?string) {
+		if (_t != null)
+			this._t = _t;
+		if (_u != null)
+			this._u = _u;
+		if (_d != null)
+			this._d = _d;
+	}
+
+	public function __copy__() {
+		return new T__struct_20(_t, _u, _d);
+	}
+}
+
+@:structInit @:local private class T__struct_21 {
+	public var _d:Duration = ((0 : GoInt64) : Duration);
+	public var _want:GoInt64 = 0;
+
+	public function string():String
+		return "{" + Go.string(_d) + " " + Go.string(_want) + "}";
+
+	public function new(?_d:Duration, ?_want:GoInt64, ?string) {
+		if (_d != null)
+			this._d = _d;
+		if (_want != null)
+			this._want = _want;
+	}
+
+	public function __copy__() {
+		return new T__struct_21(_d, _want);
+	}
+}
+
+@:structInit @:local private class T__struct_22 {
+	public var _d:Duration = ((0 : GoInt64) : Duration);
+	public var _want:GoFloat64 = 0;
+
+	public function string():String
+		return "{" + Go.string(_d) + " " + Go.string(_want) + "}";
+
+	public function new(?_d:Duration, ?_want:GoFloat64, ?string) {
+		if (_d != null)
+			this._d = _d;
+		if (_want != null)
+			this._want = _want;
+	}
+
+	public function __copy__() {
+		return new T__struct_22(_d, _want);
+	}
+}
+
+@:structInit @:local private class T__struct_23 {
+	public var _d:Duration = ((0 : GoInt64) : Duration);
+	public var _m:Duration = ((0 : GoInt64) : Duration);
+	public var _want:Duration = ((0 : GoInt64) : Duration);
+
+	public function string():String
+		return "{" + Go.string(_d) + " " + Go.string(_m) + " " + Go.string(_want) + "}";
+
+	public function new(?_d:Duration, ?_m:Duration, ?_want:Duration, ?string) {
+		if (_d != null)
+			this._d = _d;
+		if (_m != null)
+			this._m = _m;
+		if (_want != null)
+			this._want = _want;
+	}
+
+	public function __copy__() {
+		return new T__struct_23(_d, _m, _want);
+	}
+}
+
+@:structInit @:local private class T__struct_24 {
+	public var _d:Duration = ((0 : GoInt64) : Duration);
+	public var _want:Duration = ((0 : GoInt64) : Duration);
+
+	public function string():String
+		return "{" + Go.string(_d) + " " + Go.string(_want) + "}";
+
+	public function new(?_d:Duration, ?_want:Duration, ?string) {
+		if (_d != null)
+			this._d = _d;
+		if (_want != null)
+			this._want = _want;
+	}
+
+	public function __copy__() {
+		return new T__struct_24(_d, _want);
+	}
+}
+
+@:structInit @:local private class T__struct_25 {
+	public var _name:GoString = "";
+	public var _f:(Time, Time) -> Bool = null;
+
+	public function string():String
+		return "{" + Go.string(_name) + " " + Go.string(_f) + "}";
+
+	public function new(?_name:GoString, ?_f:(Time, Time) -> Bool, ?string) {
+		if (_name != null)
+			this._name = _name;
+		if (_f != null)
+			this._f = _f;
+	}
+
+	public function __copy__() {
+		return new T__struct_25(_name, _f);
+	}
+}
+
+@:structInit @:local private class T__struct_26 {
+	public var _time:Time = ({} : Time);
+	public var _want:Bool = false;
+
+	public function string():String
+		return "{" + Go.string(_time) + " " + Go.string(_want) + "}";
+
+	public function new(?_time:Time, ?_want:Bool, ?string) {
+		if (_time != null)
+			this._time = _time;
+		if (_want != null)
+			this._want = _want;
+	}
+
+	public function __copy__() {
+		return new T__struct_26(_time, _want);
+	}
+}
+
+@:structInit @:local private class T__struct_27 {
+	public var _give:Time = ({} : Time);
+	public var _want:Time = ({} : Time);
+
+	public function string():String
+		return "{" + Go.string(_give) + " " + Go.string(_want) + "}";
+
+	public function new(?_give:Time, ?_want:Time, ?string) {
+		if (_give != null)
+			this._give = _give;
+		if (_want != null)
+			this._want = _want;
+	}
+
+	public function __copy__() {
+		return new T__struct_27(_give, _want);
+	}
+}
+
+@:structInit @:local private class T__struct_28 {
+	public var _giveTime:Time = ({} : Time);
+	public var _wantStart:Time = ({} : Time);
+	public var _wantEnd:Time = ({} : Time);
+
+	public function string():String
+		return "{" + Go.string(_giveTime) + " " + Go.string(_wantStart) + " " + Go.string(_wantEnd) + "}";
+
+	public function new(?_giveTime:Time, ?_wantStart:Time, ?_wantEnd:Time, ?string) {
+		if (_giveTime != null)
+			this._giveTime = _giveTime;
+		if (_wantStart != null)
+			this._wantStart = _wantStart;
+		if (_wantEnd != null)
+			this._wantEnd = _wantEnd;
+	}
+
+	public function __copy__() {
+		return new T__struct_28(_giveTime, _wantStart, _wantEnd);
+	}
+}
+
+@:structInit @:local private class T__struct_29 {
+	public var _zone:GoString = "";
+	public var _unix:GoInt64 = 0;
+	public var _want1:GoString = "";
+	public var _want2:GoString = "";
+
+	public function string():String
+		return "{" + Go.string(_zone) + " " + Go.string(_unix) + " " + Go.string(_want1) + " " + Go.string(_want2) + "}";
+
+	public function new(?_zone:GoString, ?_unix:GoInt64, ?_want1:GoString, ?_want2:GoString, ?string) {
+		if (_zone != null)
+			this._zone = _zone;
+		if (_unix != null)
+			this._unix = _unix;
+		if (_want1 != null)
+			this._want1 = _want1;
+		if (_want2 != null)
+			this._want2 = _want2;
+	}
+
+	public function __copy__() {
+		return new T__struct_29(_zone, _unix, _want1, _want2);
+	}
+}
+
+@:structInit @:local private class T__struct_30 {
+	public var _zoneName:GoString = "";
+	public var _fileName:GoString = "";
+	public var _date:Ref<Location>->Time = null;
+	public var _wantName:GoString = "";
+	public var _wantOffset:GoInt = 0;
+
+	public function string():String
+		return "{" + Go.string(_zoneName) + " " + Go.string(_fileName) + " " + Go.string(_date) + " " + Go.string(_wantName) + " " + Go.string(_wantOffset)
+			+ "}";
+
+	public function new(?_zoneName:GoString, ?_fileName:GoString, ?_date:Ref<Location>->Time, ?_wantName:GoString, ?_wantOffset:GoInt, ?string) {
+		if (_zoneName != null)
+			this._zoneName = _zoneName;
+		if (_fileName != null)
+			this._fileName = _fileName;
+		if (_date != null)
+			this._date = _date;
+		if (_wantName != null)
+			this._wantName = _wantName;
+		if (_wantOffset != null)
+			this._wantOffset = _wantOffset;
+	}
+
+	public function __copy__() {
+		return new T__struct_30(_zoneName, _fileName, _date, _wantName, _wantOffset);
+	}
+}
+
+@:structInit @:local private class T__struct_31 {
+	public var _inStr:GoString = "";
+	public var _inEnd:GoInt64 = 0;
+	public var _inSec:GoInt64 = 0;
+	public var _name:GoString = "";
+	public var _off:GoInt = 0;
+	public var _start:GoInt64 = 0;
+	public var _end:GoInt64 = 0;
+	public var _isDST:Bool = false;
+	public var _ok:Bool = false;
+
+	public function string():String
+		return "{" + Go.string(_inStr) + " " + Go.string(_inEnd) + " " + Go.string(_inSec) + " " + Go.string(_name) + " " + Go.string(_off) + " "
+			+ Go.string(_start) + " " + Go.string(_end) + " " + Go.string(_isDST) + " " + Go.string(_ok) + "}";
+
+	public function new(?_inStr:GoString, ?_inEnd:GoInt64, ?_inSec:GoInt64, ?_name:GoString, ?_off:GoInt, ?_start:GoInt64, ?_end:GoInt64, ?_isDST:Bool,
+			?_ok:Bool, ?string) {
+		if (_inStr != null)
+			this._inStr = _inStr;
+		if (_inEnd != null)
+			this._inEnd = _inEnd;
+		if (_inSec != null)
+			this._inSec = _inSec;
+		if (_name != null)
+			this._name = _name;
+		if (_off != null)
+			this._off = _off;
+		if (_start != null)
+			this._start = _start;
+		if (_end != null)
+			this._end = _end;
+		if (_isDST != null)
+			this._isDST = _isDST;
+		if (_ok != null)
+			this._ok = _ok;
+	}
+
+	public function __copy__() {
+		return new T__struct_31(_inStr, _inEnd, _inSec, _name, _off, _start, _end, _isDST, _ok);
+	}
+}
+
+@:structInit @:local private class T__struct_32 {
+	public var _in:GoString = "";
+	public var _name:GoString = "";
+	public var _out:GoString = "";
+	public var _ok:Bool = false;
+
+	public function string():String
+		return "{" + Go.string(_in) + " " + Go.string(_name) + " " + Go.string(_out) + " " + Go.string(_ok) + "}";
+
+	public function new(?_in:GoString, ?_name:GoString, ?_out:GoString, ?_ok:Bool, ?string) {
+		if (_in != null)
+			this._in = _in;
+		if (_name != null)
+			this._name = _name;
+		if (_out != null)
+			this._out = _out;
+		if (_ok != null)
+			this._ok = _ok;
+	}
+
+	public function __copy__() {
+		return new T__struct_32(_in, _name, _out, _ok);
+	}
+}
+
+@:structInit @:local private class T__struct_33 {
+	public var _in:GoString = "";
+	public var _off:GoInt = 0;
+	public var _out:GoString = "";
+	public var _ok:Bool = false;
+
+	public function string():String
+		return "{" + Go.string(_in) + " " + Go.string(_off) + " " + Go.string(_out) + " " + Go.string(_ok) + "}";
+
+	public function new(?_in:GoString, ?_off:GoInt, ?_out:GoString, ?_ok:Bool, ?string) {
+		if (_in != null)
+			this._in = _in;
+		if (_off != null)
+			this._off = _off;
+		if (_out != null)
+			this._out = _out;
+		if (_ok != null)
+			this._ok = _ok;
+	}
+
+	public function __copy__() {
+		return new T__struct_33(_in, _off, _out, _ok);
+	}
+}
+
+@:structInit @:local private class T__struct_34 {
+	public var _in:GoString = "";
+	public var _r:Rule = ({} : Rule);
+	public var _out:GoString = "";
+	public var _ok:Bool = false;
+
+	public function string():String
+		return "{" + Go.string(_in) + " " + Go.string(_r) + " " + Go.string(_out) + " " + Go.string(_ok) + "}";
+
+	public function new(?_in:GoString, ?_r:Rule, ?_out:GoString, ?_ok:Bool, ?string) {
+		if (_in != null)
+			this._in = _in;
+		if (_r != null)
+			this._r = _r;
+		if (_out != null)
+			this._out = _out;
+		if (_ok != null)
+			this._ok = _ok;
+	}
+
+	public function __copy__() {
+		return new T__struct_34(_in, _r, _out, _ok);
+	}
+}
 
 function _expensiveCall():Void {}
 
@@ -4506,8 +5085,8 @@ function testTicker(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_t.log(Go.toInterface(_e));
 		};
 	};
-	for (_0 => _test in (new Slice<T__struct_8>(0, 0, ({_count: (0 : GoInt), _delta: ((0 : GoInt64) : Duration)} : T__struct_8),
-		({_count: (0 : GoInt), _delta: ((0 : GoInt64) : Duration)} : T__struct_8)) : Slice<T__struct_8>)) {
+	for (_0 => _test in (new Slice<T__struct_8>(0, 0, ({_count: _baseCount, _delta: _baseDelta} : T__struct_8),
+		({_count: (8 : GoInt), _delta: (("1000000000" : GoInt64) : Duration)} : T__struct_8)) : Slice<T__struct_8>)) {
 		var _0:GoInt = _test._count,
 			_1:Duration = _test._delta,
 			_delta:Duration = _1,
@@ -6998,9 +7577,9 @@ function testTzsetRule(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_in: Go.str("M1.2.3"),
 		_r: ({
 			kind: (2 : RuleKind),
-			mon: (1 : GoInt),
-			week: (2 : GoInt),
 			day: (3 : GoInt),
+			week: (2 : GoInt),
+			mon: (1 : GoInt),
 			time: (7200 : GoInt)
 		} : Rule),
 		_out: Go.str(),
@@ -7014,9 +7593,9 @@ function testTzsetRule(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_in: Go.str("M4.5.6/03:00:00"),
 		_r: ({
 			kind: (2 : RuleKind),
-			mon: (4 : GoInt),
-			week: (5 : GoInt),
 			day: (6 : GoInt),
+			week: (5 : GoInt),
+			mon: (4 : GoInt),
 			time: (10800 : GoInt)
 		} : Rule),
 		_out: Go.str(),
@@ -7030,9 +7609,9 @@ function testTzsetRule(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_in: Go.str("M4.5.6/-04"),
 		_r: ({
 			kind: (2 : RuleKind),
-			mon: (4 : GoInt),
-			week: (5 : GoInt),
 			day: (6 : GoInt),
+			week: (5 : GoInt),
+			mon: (4 : GoInt),
 			time: (-14400 : GoInt)
 		} : Rule),
 		_out: Go.str(),

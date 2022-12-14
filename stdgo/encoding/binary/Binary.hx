@@ -348,40 +348,151 @@ typedef AppendByteOrder = StructType & {
 	}
 }
 
-@:local private typedef T__struct_0 = {
-	public var _f:GoArray<GoFloat32>;
-};
+@:structInit @:local private class T__struct_0 {
+	public var _f:GoArray<GoFloat32> = new GoArray<GoFloat32>(...[for (i in 0...8) (0 : GoFloat32)]);
 
-@:local private typedef T__struct_1 = {
-	public var f:GoArray<GoFloat32>;
-};
+	public function string():String
+		return "{" + Go.string(_f) + "}";
 
-@:local private typedef T__struct_2 = {
-	public var _val:AnyInterface;
-	public var _want:GoInt;
-};
+	public function new(?_f:GoArray<GoFloat32>, ?string) {
+		if (_f != null)
+			this._f = _f;
+	}
 
-@:local private typedef T__struct_3 = {
-	public var a:Struct;
-};
+	public function __copy__() {
+		return new T__struct_0(_f);
+	}
+}
 
-@:local private typedef T__struct_4 = {};
+@:structInit @:local private class T__struct_1 {
+	public var f:GoArray<GoFloat32> = new GoArray<GoFloat32>(...[for (i in 0...8) (0 : GoFloat32)]);
 
-@:local private typedef T__struct_5 = {
-	public var a:GoUInt8;
-	public var b:GoUInt8;
-	public var c:GoUInt8;
-	public var d:GoUInt8;
-	public var e:GoInt32;
-	public var f:GoFloat64;
-};
+	public function string():String
+		return "{" + Go.string(f) + "}";
 
-@:local private typedef T__struct_6 = {
-	public var _in:Slice<GoUInt8>;
-	public var _name:GoString;
-	public var _wantN:GoInt;
-	public var _wantValue:GoUInt64;
-};
+	public function new(?f:GoArray<GoFloat32>, ?string) {
+		if (f != null)
+			this.f = f;
+	}
+
+	public function __copy__() {
+		return new T__struct_1(f);
+	}
+}
+
+@:structInit @:local private class T__struct_2 {
+	public var _val:AnyInterface = (null : AnyInterface);
+	public var _want:GoInt = 0;
+
+	public function string():String
+		return "{" + Go.string(_val) + " " + Go.string(_want) + "}";
+
+	public function new(?_val:AnyInterface, ?_want:GoInt, ?string) {
+		if (_val != null)
+			this._val = _val;
+		if (_want != null)
+			this._want = _want;
+	}
+
+	public function __copy__() {
+		return new T__struct_2(_val, _want);
+	}
+}
+
+@:structInit @:local private class T__struct_3 {
+	public var a:Struct = ({} : Struct);
+
+	public function string():String
+		return "{" + Go.string(a) + "}";
+
+	public function new(?a:Struct, ?string) {
+		if (a != null)
+			this.a = a;
+	}
+
+	public function __copy__() {
+		return new T__struct_3(a);
+	}
+}
+
+@:structInit @:local private class T__struct_4 {
+	public function string():String
+		return "{" + "}";
+
+	public function new(?string) {}
+
+	public function __copy__() {
+		return new T__struct_4();
+	}
+}
+
+@:structInit @:local private class T__struct_5 {
+	public var a:GoUInt8 = 0;
+	public var b:GoUInt8 = 0;
+	public var c:GoUInt8 = 0;
+	public var d:GoUInt8 = 0;
+	public var e:GoInt32 = 0;
+	public var f:GoFloat64 = 0;
+
+	public function string():String
+		return "{"
+			+ Go.string(a)
+			+ " "
+			+ Go.string(b)
+			+ " "
+			+ Go.string(c)
+			+ " "
+			+ Go.string(d)
+			+ " "
+			+ Go.string(e)
+			+ " "
+			+ Go.string(f)
+			+ "}";
+
+	public function new(?a:GoUInt8, ?b:GoUInt8, ?c:GoUInt8, ?d:GoUInt8, ?e:GoInt32, ?f:GoFloat64, ?string) {
+		if (a != null)
+			this.a = a;
+		if (b != null)
+			this.b = b;
+		if (c != null)
+			this.c = c;
+		if (d != null)
+			this.d = d;
+		if (e != null)
+			this.e = e;
+		if (f != null)
+			this.f = f;
+	}
+
+	public function __copy__() {
+		return new T__struct_5(a, b, c, d, e, f);
+	}
+}
+
+@:structInit @:local private class T__struct_6 {
+	public var _in:Slice<GoUInt8> = (null : Slice<GoUInt8>);
+	public var _name:GoString = "";
+	public var _wantN:GoInt = 0;
+	public var _wantValue:GoUInt64 = 0;
+
+	public function string():String
+		return "{" + Go.string(_in) + " " + Go.string(_name) + " " + Go.string(_wantN) + " " + Go.string(_wantValue) + "}";
+
+	public function new(?_in:Slice<GoUInt8>, ?_name:GoString, ?_wantN:GoInt, ?_wantValue:GoUInt64, ?string) {
+		if (_in != null)
+			this._in = _in;
+		if (_name != null)
+			this._name = _name;
+		if (_wantN != null)
+			this._wantN = _wantN;
+		if (_wantValue != null)
+			this._wantValue = _wantValue;
+	}
+
+	public function __copy__() {
+		return new T__struct_6(_in, _name, _wantN, _wantValue);
+	}
+}
 
 @:named @:using(stdgo.encoding.binary.Binary.T_decoder_static_extension) private typedef T_decoder = T_coder;
 @:named @:using(stdgo.encoding.binary.Binary.T_encoder_static_extension) private typedef T_encoder = T_coder;
@@ -2085,25 +2196,38 @@ function testBufferTooSmall(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testBufferTooBigWithOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _tests = (new Slice<T__struct_6>(0, 0, ({
-		_in: (null : Slice<GoUInt8>),
-		_name: ("" : GoString),
-		_wantN: (0 : GoInt),
-		_wantValue: (0 : GoUInt64)
+		_in: {
+			var a = function():Slice<GoByte> {
+				var _b = new Slice<GoUInt8>((1000 : GoInt).toBasic(), 0, ...[for (i in 0...(1000 : GoInt).toBasic()) (0 : GoUInt8)]);
+				for (_i in 0..._b.length.toBasic()) {
+					_b[_i] = (255 : GoUInt8);
+				};
+				_b[(999 : GoInt)] = (0 : GoUInt8);
+				return _b;
+			};
+			a();
+		},
+		_name: Go.str("invalid: 1000 bytes"),
+		_wantN: (-11 : GoInt),
+		_wantValue: ("0" : GoUInt64)
 	} : T__struct_6), ({
-		_in: (null : Slice<GoUInt8>),
-		_name: ("" : GoString),
-		_wantN: (0 : GoInt),
-		_wantValue: (0 : GoUInt64)
+		_in: (new Slice<GoUInt8>(0, 0, (215 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8),
+			(255 : GoUInt8), (255 : GoUInt8), (1 : GoUInt8)) : Slice<GoUInt8>),
+		_name: Go.str("valid: math.MaxUint64-40"),
+		_wantN: (10 : GoInt),
+		_wantValue: ("18446744073709551575" : GoUInt64)
 		} : T__struct_6), ({
-		_in: (null : Slice<GoUInt8>),
-		_name: ("" : GoString),
-		_wantN: (0 : GoInt),
-		_wantValue: (0 : GoUInt64)
+		_in: (new Slice<GoUInt8>(0, 0, (215 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8),
+			(255 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8), (1 : GoUInt8)) : Slice<GoUInt8>),
+		_name: Go.str("invalid: with more than MaxVarintLen64 bytes"),
+		_wantN: (-11 : GoInt),
+		_wantValue: ("0" : GoUInt64)
 		} : T__struct_6), ({
-		_in: (null : Slice<GoUInt8>),
-		_name: ("" : GoString),
-		_wantN: (0 : GoInt),
-		_wantValue: (0 : GoUInt64)
+		_in: (new Slice<GoUInt8>(0, 0, (215 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8),
+			(255 : GoUInt8), (255 : GoUInt8), (127 : GoUInt8)) : Slice<GoUInt8>),
+		_name: Go.str("invalid: 10th byte"),
+		_wantN: (-10 : GoInt),
+		_wantValue: ("0" : GoUInt64)
 		} : T__struct_6)) : Slice<T__struct_6>);
 	for (_0 => _tt in _tests) {
 		var _tt:T__struct_6 = {

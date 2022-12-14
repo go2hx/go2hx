@@ -1395,7 +1395,17 @@ private typedef T_mutatorRand = StructType & {
 	}
 }
 
-@:local private typedef T__struct_0 = {};
+@:structInit @:local private class T__struct_0 {
+	public function string():String
+		return "{" + "}";
+
+	public function new(?string) {}
+
+	public function __copy__() {
+		return new T__struct_0();
+	}
+}
+
 @:named private typedef T_byteSliceMutator = (Ref<T_mutator>, Slice<GoUInt8>) -> Slice<GoUInt8>;
 
 /**

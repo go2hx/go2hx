@@ -121,45 +121,158 @@ private final _testExecutableDeletion:GoString = ("" : GoString);
 	}
 }
 
-@:local private typedef T__struct_1 = {
-	public var _in:GoString;
-	public var _out:GoString;
-};
+@:structInit @:local private class T__struct_1 {
+	public var _in:GoString = "";
+	public var _out:GoString = "";
 
-@:local private typedef T__struct_2 = {
-	public var _name:GoString;
-	public var _create:() -> Error;
-};
+	public function string():String
+		return "{" + Go.string(_in) + " " + Go.string(_out) + "}";
 
-@:local private typedef T__struct_3 = {
-	public var _name:GoString;
-	public var _f:Ref<File>->Error;
-};
+	public function new(?_in:GoString, ?_out:GoString, ?string) {
+		if (_in != null)
+			this._in = _in;
+		if (_out != null)
+			this._out = _out;
+	}
 
-@:local private typedef T__struct_4 = {};
+	public function __copy__() {
+		return new T__struct_1(_in, _out);
+	}
+}
 
-@:local private typedef T__struct_5 = {
-	public var _path:GoString;
-	public var _wantDir:GoString;
-	public var _wantBase:GoString;
-};
+@:structInit @:local private class T__struct_2 {
+	public var _name:GoString = "";
+	public var _create:() -> Error = null;
 
-@:local private typedef T__struct_6 = {
-	public var _pattern:GoString;
-	public var _prefix:GoString;
-	public var _suffix:GoString;
-};
+	public function string():String
+		return "{" + Go.string(_name) + " " + Go.string(_create) + "}";
 
-@:local private typedef T__struct_7 = {
-	public var _pattern:GoString;
-	public var _wantErr:Bool;
-};
+	public function new(?_name:GoString, ?_create:() -> Error, ?string) {
+		if (_name != null)
+			this._name = _name;
+		if (_create != null)
+			this._create = _create;
+	}
 
-@:local private typedef T__struct_8 = {
-	public var _pattern:GoString;
-	public var _wantPrefix:GoString;
-	public var _wantSuffix:GoString;
-};
+	public function __copy__() {
+		return new T__struct_2(_name, _create);
+	}
+}
+
+@:structInit @:local private class T__struct_3 {
+	public var _name:GoString = "";
+	public var _f:Ref<File>->Error = null;
+
+	public function string():String
+		return "{" + Go.string(_name) + " " + Go.string(_f) + "}";
+
+	public function new(?_name:GoString, ?_f:Ref<File>->Error, ?string) {
+		if (_name != null)
+			this._name = _name;
+		if (_f != null)
+			this._f = _f;
+	}
+
+	public function __copy__() {
+		return new T__struct_3(_name, _f);
+	}
+}
+
+@:structInit @:local private class T__struct_4 {
+	public function string():String
+		return "{" + "}";
+
+	public function new(?string) {}
+
+	public function __copy__() {
+		return new T__struct_4();
+	}
+}
+
+@:structInit @:local private class T__struct_5 {
+	public var _path:GoString = "";
+	public var _wantDir:GoString = "";
+	public var _wantBase:GoString = "";
+
+	public function string():String
+		return "{" + Go.string(_path) + " " + Go.string(_wantDir) + " " + Go.string(_wantBase) + "}";
+
+	public function new(?_path:GoString, ?_wantDir:GoString, ?_wantBase:GoString, ?string) {
+		if (_path != null)
+			this._path = _path;
+		if (_wantDir != null)
+			this._wantDir = _wantDir;
+		if (_wantBase != null)
+			this._wantBase = _wantBase;
+	}
+
+	public function __copy__() {
+		return new T__struct_5(_path, _wantDir, _wantBase);
+	}
+}
+
+@:structInit @:local private class T__struct_6 {
+	public var _pattern:GoString = "";
+	public var _prefix:GoString = "";
+	public var _suffix:GoString = "";
+
+	public function string():String
+		return "{" + Go.string(_pattern) + " " + Go.string(_prefix) + " " + Go.string(_suffix) + "}";
+
+	public function new(?_pattern:GoString, ?_prefix:GoString, ?_suffix:GoString, ?string) {
+		if (_pattern != null)
+			this._pattern = _pattern;
+		if (_prefix != null)
+			this._prefix = _prefix;
+		if (_suffix != null)
+			this._suffix = _suffix;
+	}
+
+	public function __copy__() {
+		return new T__struct_6(_pattern, _prefix, _suffix);
+	}
+}
+
+@:structInit @:local private class T__struct_7 {
+	public var _pattern:GoString = "";
+	public var _wantErr:Bool = false;
+
+	public function string():String
+		return "{" + Go.string(_pattern) + " " + Go.string(_wantErr) + "}";
+
+	public function new(?_pattern:GoString, ?_wantErr:Bool, ?string) {
+		if (_pattern != null)
+			this._pattern = _pattern;
+		if (_wantErr != null)
+			this._wantErr = _wantErr;
+	}
+
+	public function __copy__() {
+		return new T__struct_7(_pattern, _wantErr);
+	}
+}
+
+@:structInit @:local private class T__struct_8 {
+	public var _pattern:GoString = "";
+	public var _wantPrefix:GoString = "";
+	public var _wantSuffix:GoString = "";
+
+	public function string():String
+		return "{" + Go.string(_pattern) + " " + Go.string(_wantPrefix) + " " + Go.string(_wantSuffix) + "}";
+
+	public function new(?_pattern:GoString, ?_wantPrefix:GoString, ?_wantSuffix:GoString, ?string) {
+		if (_pattern != null)
+			this._pattern = _pattern;
+		if (_wantPrefix != null)
+			this._wantPrefix = _wantPrefix;
+		if (_wantSuffix != null)
+			this._wantSuffix = _wantSuffix;
+	}
+
+	public function __copy__() {
+		return new T__struct_8(_pattern, _wantPrefix, _wantSuffix);
+	}
+}
 
 /**
 	// For TestRawConnReadWrite.

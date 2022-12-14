@@ -222,10 +222,24 @@ private var _boolSink:Bool = false;
 	}
 }
 
-@:local private typedef T__struct_0 = {
-	public var _name:GoString;
-	public var _data:Slice<GoUInt8>;
-};
+@:structInit @:local private class T__struct_0 {
+	public var _name:GoString = "";
+	public var _data:Slice<GoUInt8> = (null : Slice<GoUInt8>);
+
+	public function string():String
+		return "{" + Go.string(_name) + " " + Go.string(_data) + "}";
+
+	public function new(?_name:GoString, ?_data:Slice<GoUInt8>, ?string) {
+		if (_name != null)
+			this._name = _name;
+		if (_data != null)
+			this._data = _data;
+	}
+
+	public function __copy__() {
+		return new T__struct_0(_name, _data);
+	}
+}
 
 function exampleDecodeLastRune():Void {
 	var _b = (Go.str("Hello, 世界") : Slice<GoByte>);

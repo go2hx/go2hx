@@ -1108,106 +1108,383 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 	}
 }
 
-@:local private typedef T__struct_0 = {
-	public var _buffer:GoString;
-	public var _delim:GoUInt8;
-	public var _expected:Slice<GoString>;
-	public var _err:Error;
-};
+@:structInit @:local private class T__struct_0 {
+	public var _buffer:GoString = "";
+	public var _delim:GoUInt8 = 0;
+	public var _expected:Slice<GoString> = (null : Slice<GoString>);
+	public var _err:Error = (null : Error);
 
-@:local private typedef T__struct_1 = {
-	public var _a:Slice<GoUInt8>;
-	public var _b:Slice<GoUInt8>;
-	public var _i:GoInt;
-};
+	public function string():String
+		return "{" + Go.string(_buffer) + " " + Go.string(_delim) + " " + Go.string(_expected) + " " + Go.string(_err) + "}";
 
-@:local private typedef T__struct_2 = {
-	public var _in:GoString;
-	public var _rune:GoInt32;
-	public var _want:GoInt;
-};
+	public function new(?_buffer:GoString, ?_delim:GoUInt8, ?_expected:Slice<GoString>, ?_err:Error, ?string) {
+		if (_buffer != null)
+			this._buffer = _buffer;
+		if (_delim != null)
+			this._delim = _delim;
+		if (_expected != null)
+			this._expected = _expected;
+		if (_err != null)
+			this._err = _err;
+	}
 
-@:local private typedef T__struct_3 = {
-	public var _in:GoString;
-	public var _repl:GoString;
-	public var _out:GoString;
-};
+	public function __copy__() {
+		return new T__struct_0(_buffer, _delim, _expected, _err);
+	}
+}
 
-@:local private typedef T__struct_4 = {
-	public var _s:GoString;
-	public var _count:GoInt;
-	public var _errStr:GoString;
-};
+@:structInit @:local private class T__struct_1 {
+	public var _a:Slice<GoUInt8> = (null : Slice<GoUInt8>);
+	public var _b:Slice<GoUInt8> = (null : Slice<GoUInt8>);
+	public var _i:GoInt = 0;
 
-@:local private typedef T__struct_5 = {
-	public var _name:GoString;
-	public var _trim:(Slice<GoUInt8>, GoInt32->Bool) -> Slice<GoUInt8>;
-	public var _out:Slice<GoUInt8>;
-};
+	public function string():String
+		return "{" + Go.string(_a) + " " + Go.string(_b) + " " + Go.string(_i) + "}";
 
-@:local private typedef T__struct_6 = {
-	public var _s:GoString;
-	public var _t:GoString;
-	public var _out:Bool;
-};
+	public function new(?_a:Slice<GoUInt8>, ?_b:Slice<GoUInt8>, ?_i:GoInt, ?string) {
+		if (_a != null)
+			this._a = _a;
+		if (_b != null)
+			this._b = _b;
+		if (_i != null)
+			this._i = _i;
+	}
 
-@:local private typedef T__struct_7 = {
-	public var _s:GoString;
-	public var _sep:GoString;
-	public var _before:GoString;
-	public var _after:GoString;
-	public var _found:Bool;
-};
+	public function __copy__() {
+		return new T__struct_1(_a, _b, _i);
+	}
+}
 
-@:local private typedef T__struct_8 = {
-	public var _b:Slice<GoUInt8>;
-	public var _subslice:Slice<GoUInt8>;
-	public var _want:Bool;
-};
+@:structInit @:local private class T__struct_2 {
+	public var _in:GoString = "";
+	public var _rune:GoInt32 = 0;
+	public var _want:GoInt = 0;
 
-@:local private typedef T__struct_9 = {
-	public var _b:Slice<GoUInt8>;
-	public var _substr:GoString;
-	public var _expected:Bool;
-};
+	public function string():String
+		return "{" + Go.string(_in) + " " + Go.string(_rune) + " " + Go.string(_want) + "}";
 
-@:local private typedef T__struct_10 = {
-	public var _b:Slice<GoUInt8>;
-	public var _r:GoInt32;
-	public var _expected:Bool;
-};
+	public function new(?_in:GoString, ?_rune:GoInt32, ?_want:GoInt, ?string) {
+		if (_in != null)
+			this._in = _in;
+		if (_rune != null)
+			this._rune = _rune;
+		if (_want != null)
+			this._want = _want;
+	}
 
-@:local private typedef T__struct_11 = {
-	public var _name:GoString;
-	public var _data:Slice<GoUInt8>;
-};
+	public function __copy__() {
+		return new T__struct_2(_in, _rune, _want);
+	}
+}
 
-@:local private typedef T__struct_12 = {
-	public var _name:GoString;
-	public var _input:Slice<GoUInt8>;
-};
+@:structInit @:local private class T__struct_3 {
+	public var _in:GoString = "";
+	public var _repl:GoString = "";
+	public var _out:GoString = "";
 
-@:local private typedef T__struct_13 = {
-	public var _off:GoInt64;
-	public var _seek:GoInt;
-	public var _n:GoInt;
-	public var _want:GoString;
-	public var _wantpos:GoInt64;
-	public var _readerr:Error;
-	public var _seekerr:GoString;
-};
+	public function string():String
+		return "{" + Go.string(_in) + " " + Go.string(_repl) + " " + Go.string(_out) + "}";
 
-@:local private typedef T__struct_14 = {
-	public var _off:GoInt64;
-	public var _n:GoInt;
-	public var _want:GoString;
-	public var _wanterr:AnyInterface;
-};
+	public function new(?_in:GoString, ?_repl:GoString, ?_out:GoString, ?string) {
+		if (_in != null)
+			this._in = _in;
+		if (_repl != null)
+			this._repl = _repl;
+		if (_out != null)
+			this._out = _out;
+	}
 
-@:local private typedef T__struct_15 = {
-	public var _name:GoString;
-	public var _f:Ref<Reader>->Void;
-};
+	public function __copy__() {
+		return new T__struct_3(_in, _repl, _out);
+	}
+}
+
+@:structInit @:local private class T__struct_4 {
+	public var _s:GoString = "";
+	public var _count:GoInt = 0;
+	public var _errStr:GoString = "";
+
+	public function string():String
+		return "{" + Go.string(_s) + " " + Go.string(_count) + " " + Go.string(_errStr) + "}";
+
+	public function new(?_s:GoString, ?_count:GoInt, ?_errStr:GoString, ?string) {
+		if (_s != null)
+			this._s = _s;
+		if (_count != null)
+			this._count = _count;
+		if (_errStr != null)
+			this._errStr = _errStr;
+	}
+
+	public function __copy__() {
+		return new T__struct_4(_s, _count, _errStr);
+	}
+}
+
+@:structInit @:local private class T__struct_5 {
+	public var _name:GoString = "";
+	public var _trim:(Slice<GoUInt8>, GoInt32->Bool) -> Slice<GoUInt8> = null;
+	public var _out:Slice<GoUInt8> = (null : Slice<GoUInt8>);
+
+	public function string():String
+		return "{" + Go.string(_name) + " " + Go.string(_trim) + " " + Go.string(_out) + "}";
+
+	public function new(?_name:GoString, ?_trim:(Slice<GoUInt8>, GoInt32->Bool) -> Slice<GoUInt8>, ?_out:Slice<GoUInt8>, ?string) {
+		if (_name != null)
+			this._name = _name;
+		if (_trim != null)
+			this._trim = _trim;
+		if (_out != null)
+			this._out = _out;
+	}
+
+	public function __copy__() {
+		return new T__struct_5(_name, _trim, _out);
+	}
+}
+
+@:structInit @:local private class T__struct_6 {
+	public var _s:GoString = "";
+	public var _t:GoString = "";
+	public var _out:Bool = false;
+
+	public function string():String
+		return "{" + Go.string(_s) + " " + Go.string(_t) + " " + Go.string(_out) + "}";
+
+	public function new(?_s:GoString, ?_t:GoString, ?_out:Bool, ?string) {
+		if (_s != null)
+			this._s = _s;
+		if (_t != null)
+			this._t = _t;
+		if (_out != null)
+			this._out = _out;
+	}
+
+	public function __copy__() {
+		return new T__struct_6(_s, _t, _out);
+	}
+}
+
+@:structInit @:local private class T__struct_7 {
+	public var _s:GoString = "";
+	public var _sep:GoString = "";
+	public var _before:GoString = "";
+	public var _after:GoString = "";
+	public var _found:Bool = false;
+
+	public function string():String
+		return "{"
+			+ Go.string(_s)
+			+ " "
+			+ Go.string(_sep)
+			+ " "
+			+ Go.string(_before)
+			+ " "
+			+ Go.string(_after)
+			+ " "
+			+ Go.string(_found)
+			+ "}";
+
+	public function new(?_s:GoString, ?_sep:GoString, ?_before:GoString, ?_after:GoString, ?_found:Bool, ?string) {
+		if (_s != null)
+			this._s = _s;
+		if (_sep != null)
+			this._sep = _sep;
+		if (_before != null)
+			this._before = _before;
+		if (_after != null)
+			this._after = _after;
+		if (_found != null)
+			this._found = _found;
+	}
+
+	public function __copy__() {
+		return new T__struct_7(_s, _sep, _before, _after, _found);
+	}
+}
+
+@:structInit @:local private class T__struct_8 {
+	public var _b:Slice<GoUInt8> = (null : Slice<GoUInt8>);
+	public var _subslice:Slice<GoUInt8> = (null : Slice<GoUInt8>);
+	public var _want:Bool = false;
+
+	public function string():String
+		return "{" + Go.string(_b) + " " + Go.string(_subslice) + " " + Go.string(_want) + "}";
+
+	public function new(?_b:Slice<GoUInt8>, ?_subslice:Slice<GoUInt8>, ?_want:Bool, ?string) {
+		if (_b != null)
+			this._b = _b;
+		if (_subslice != null)
+			this._subslice = _subslice;
+		if (_want != null)
+			this._want = _want;
+	}
+
+	public function __copy__() {
+		return new T__struct_8(_b, _subslice, _want);
+	}
+}
+
+@:structInit @:local private class T__struct_9 {
+	public var _b:Slice<GoUInt8> = (null : Slice<GoUInt8>);
+	public var _substr:GoString = "";
+	public var _expected:Bool = false;
+
+	public function string():String
+		return "{" + Go.string(_b) + " " + Go.string(_substr) + " " + Go.string(_expected) + "}";
+
+	public function new(?_b:Slice<GoUInt8>, ?_substr:GoString, ?_expected:Bool, ?string) {
+		if (_b != null)
+			this._b = _b;
+		if (_substr != null)
+			this._substr = _substr;
+		if (_expected != null)
+			this._expected = _expected;
+	}
+
+	public function __copy__() {
+		return new T__struct_9(_b, _substr, _expected);
+	}
+}
+
+@:structInit @:local private class T__struct_10 {
+	public var _b:Slice<GoUInt8> = (null : Slice<GoUInt8>);
+	public var _r:GoInt32 = 0;
+	public var _expected:Bool = false;
+
+	public function string():String
+		return "{" + Go.string(_b) + " " + Go.string(_r) + " " + Go.string(_expected) + "}";
+
+	public function new(?_b:Slice<GoUInt8>, ?_r:GoInt32, ?_expected:Bool, ?string) {
+		if (_b != null)
+			this._b = _b;
+		if (_r != null)
+			this._r = _r;
+		if (_expected != null)
+			this._expected = _expected;
+	}
+
+	public function __copy__() {
+		return new T__struct_10(_b, _r, _expected);
+	}
+}
+
+@:structInit @:local private class T__struct_11 {
+	public var _name:GoString = "";
+	public var _data:Slice<GoUInt8> = (null : Slice<GoUInt8>);
+
+	public function string():String
+		return "{" + Go.string(_name) + " " + Go.string(_data) + "}";
+
+	public function new(?_name:GoString, ?_data:Slice<GoUInt8>, ?string) {
+		if (_name != null)
+			this._name = _name;
+		if (_data != null)
+			this._data = _data;
+	}
+
+	public function __copy__() {
+		return new T__struct_11(_name, _data);
+	}
+}
+
+@:structInit @:local private class T__struct_12 {
+	public var _name:GoString = "";
+	public var _input:Slice<GoUInt8> = (null : Slice<GoUInt8>);
+
+	public function string():String
+		return "{" + Go.string(_name) + " " + Go.string(_input) + "}";
+
+	public function new(?_name:GoString, ?_input:Slice<GoUInt8>, ?string) {
+		if (_name != null)
+			this._name = _name;
+		if (_input != null)
+			this._input = _input;
+	}
+
+	public function __copy__() {
+		return new T__struct_12(_name, _input);
+	}
+}
+
+@:structInit @:local private class T__struct_13 {
+	public var _off:GoInt64 = 0;
+	public var _seek:GoInt = 0;
+	public var _n:GoInt = 0;
+	public var _want:GoString = "";
+	public var _wantpos:GoInt64 = 0;
+	public var _readerr:Error = (null : Error);
+	public var _seekerr:GoString = "";
+
+	public function string():String
+		return "{" + Go.string(_off) + " " + Go.string(_seek) + " " + Go.string(_n) + " " + Go.string(_want) + " " + Go.string(_wantpos) + " "
+			+ Go.string(_readerr) + " " + Go.string(_seekerr) + "}";
+
+	public function new(?_off:GoInt64, ?_seek:GoInt, ?_n:GoInt, ?_want:GoString, ?_wantpos:GoInt64, ?_readerr:Error, ?_seekerr:GoString, ?string) {
+		if (_off != null)
+			this._off = _off;
+		if (_seek != null)
+			this._seek = _seek;
+		if (_n != null)
+			this._n = _n;
+		if (_want != null)
+			this._want = _want;
+		if (_wantpos != null)
+			this._wantpos = _wantpos;
+		if (_readerr != null)
+			this._readerr = _readerr;
+		if (_seekerr != null)
+			this._seekerr = _seekerr;
+	}
+
+	public function __copy__() {
+		return new T__struct_13(_off, _seek, _n, _want, _wantpos, _readerr, _seekerr);
+	}
+}
+
+@:structInit @:local private class T__struct_14 {
+	public var _off:GoInt64 = 0;
+	public var _n:GoInt = 0;
+	public var _want:GoString = "";
+	public var _wanterr:AnyInterface = (null : AnyInterface);
+
+	public function string():String
+		return "{" + Go.string(_off) + " " + Go.string(_n) + " " + Go.string(_want) + " " + Go.string(_wanterr) + "}";
+
+	public function new(?_off:GoInt64, ?_n:GoInt, ?_want:GoString, ?_wanterr:AnyInterface, ?string) {
+		if (_off != null)
+			this._off = _off;
+		if (_n != null)
+			this._n = _n;
+		if (_want != null)
+			this._want = _want;
+		if (_wanterr != null)
+			this._wanterr = _wanterr;
+	}
+
+	public function __copy__() {
+		return new T__struct_14(_off, _n, _want, _wanterr);
+	}
+}
+
+@:structInit @:local private class T__struct_15 {
+	public var _name:GoString = "";
+	public var _f:Ref<Reader>->Void = null;
+
+	public function string():String
+		return "{" + Go.string(_name) + " " + Go.string(_f) + "}";
+
+	public function new(?_name:GoString, ?_f:Ref<Reader>->Void, ?string) {
+		if (_name != null)
+			this._name = _name;
+		if (_f != null)
+			this._f = _f;
+	}
+
+	public function __copy__() {
+		return new T__struct_15(_name, _f);
+	}
+}
 
 /**
 	// Verify that contents of buf match the string s.
@@ -4717,77 +4994,40 @@ function exampleToUpperSpecial():Void {
 function testReader(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _r = newReader((Go.str("0123456789") : Slice<GoByte>));
 	var _tests = (new Slice<T__struct_13>(0, 0, ({
-		_off: (0 : GoInt64),
+		_off: ("0" : GoInt64),
 		_seek: (0 : GoInt),
-		_n: (0 : GoInt),
-		_want: ("" : GoString),
-		_wantpos: (0 : GoInt64),
-		_readerr: (null : Error),
-		_seekerr: ("" : GoString)
+		_n: (20 : GoInt),
+		_want: Go.str("0123456789")
 	} : T__struct_13), ({
-		_off: (0 : GoInt64),
+		_off: ("1" : GoInt64),
 		_seek: (0 : GoInt),
-		_n: (0 : GoInt),
-		_want: ("" : GoString),
-		_wantpos: (0 : GoInt64),
-		_readerr: (null : Error),
-		_seekerr: ("" : GoString)
+		_n: (1 : GoInt),
+		_want: Go.str("1")
 		} : T__struct_13), ({
-		_off: (0 : GoInt64),
-		_seek: (0 : GoInt),
-		_n: (0 : GoInt),
-		_want: ("" : GoString),
-		_wantpos: (0 : GoInt64),
-		_readerr: (null : Error),
-		_seekerr: ("" : GoString)
+		_off: ("1" : GoInt64),
+		_seek: (1 : GoInt),
+		_n: (2 : GoInt),
+		_want: Go.str("34"),
+		_wantpos: ("3" : GoInt64)
+		} : T__struct_13),
+		({_off: ("-1" : GoInt64), _seek: (0 : GoInt), _seekerr: Go.str("bytes.Reader.Seek: negative position")} : T__struct_13), ({
+			_off: ("8589934592" : GoInt64),
+			_seek: (0 : GoInt),
+			_wantpos: ("8589934592" : GoInt64),
+			_readerr: stdgo.io.Io.eof
 		} : T__struct_13), ({
-		_off: (0 : GoInt64),
-		_seek: (0 : GoInt),
-		_n: (0 : GoInt),
-		_want: ("" : GoString),
-		_wantpos: (0 : GoInt64),
-		_readerr: (null : Error),
-		_seekerr: ("" : GoString)
-		} : T__struct_13), ({
-		_off: (0 : GoInt64),
-		_seek: (0 : GoInt),
-		_n: (0 : GoInt),
-		_want: ("" : GoString),
-		_wantpos: (0 : GoInt64),
-		_readerr: (null : Error),
-		_seekerr: ("" : GoString)
-		} : T__struct_13), ({
-		_off: (0 : GoInt64),
-		_seek: (0 : GoInt),
-		_n: (0 : GoInt),
-		_want: ("" : GoString),
-		_wantpos: (0 : GoInt64),
-		_readerr: (null : Error),
-		_seekerr: ("" : GoString)
-		} : T__struct_13), ({
-		_off: (0 : GoInt64),
-		_seek: (0 : GoInt),
-		_n: (0 : GoInt),
-		_want: ("" : GoString),
-		_wantpos: (0 : GoInt64),
-		_readerr: (null : Error),
-		_seekerr: ("" : GoString)
-		} : T__struct_13), ({
-		_off: (0 : GoInt64),
-		_seek: (0 : GoInt),
-		_n: (0 : GoInt),
-		_want: ("" : GoString),
-		_wantpos: (0 : GoInt64),
-		_readerr: (null : Error),
-		_seekerr: ("" : GoString)
-		} : T__struct_13), ({
-		_off: (0 : GoInt64),
-		_seek: (0 : GoInt),
-		_n: (0 : GoInt),
-		_want: ("" : GoString),
-		_wantpos: (0 : GoInt64),
-		_readerr: (null : Error),
-		_seekerr: ("" : GoString)
+			_off: ("1" : GoInt64),
+			_seek: (1 : GoInt),
+			_wantpos: ("8589934593" : GoInt64),
+			_readerr: stdgo.io.Io.eof
+		} : T__struct_13),
+		({_seek: (0 : GoInt), _n: (5 : GoInt), _want: Go.str("01234")} : T__struct_13),
+		({_seek: (1 : GoInt), _n: (5 : GoInt), _want: Go.str("56789")} : T__struct_13), ({
+			_off: ("-1" : GoInt64),
+			_seek: (2 : GoInt),
+			_n: (1 : GoInt),
+			_want: Go.str("9"),
+			_wantpos: ("9" : GoInt64)
 		} : T__struct_13)) : Slice<T__struct_13>);
 	for (_i => _tt in _tests) {
 		var __tmp__ = _r.seek(_tt._off, _tt._seek),

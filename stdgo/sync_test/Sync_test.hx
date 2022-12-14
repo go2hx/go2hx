@@ -143,12 +143,35 @@ private typedef T_mapInterface = StructType & {
 	}
 }
 
-@:local private typedef T__struct_1 = {};
+@:structInit @:local private class T__struct_1 {
+	public function string():String
+		return "{" + "}";
 
-@:local private typedef T__struct_2 = {
-	public var _name:GoString;
-	public var _f:() -> Void;
-};
+	public function new(?string) {}
+
+	public function __copy__() {
+		return new T__struct_1();
+	}
+}
+
+@:structInit @:local private class T__struct_2 {
+	public var _name:GoString = "";
+	public var _f:() -> Void = null;
+
+	public function string():String
+		return "{" + Go.string(_name) + " " + Go.string(_f) + "}";
+
+	public function new(?_name:GoString, ?_f:() -> Void, ?string) {
+		if (_name != null)
+			this._name = _name;
+		if (_f != null)
+			this._f = _f;
+	}
+
+	public function __copy__() {
+		return new T__struct_2(_name, _f);
+	}
+}
 
 @:named private typedef T_mapOp = GoString;
 @:named @:using(stdgo.sync_test.Sync_test.T_one_static_extension) private typedef T_one = GoInt;

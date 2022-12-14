@@ -82,21 +82,65 @@ private final _defaultOutput:GoString = Go.str("  -A\tfor bootstrapping, allow \
 	}
 }
 
-@:local private typedef T__struct_0 = {
-	public var _flag:GoString;
-	public var _flagHandle:GoString;
-	public var _expectExit:GoInt;
-};
+@:structInit @:local private class T__struct_0 {
+	public var _flag:GoString = "";
+	public var _flagHandle:GoString = "";
+	public var _expectExit:GoInt = 0;
 
-@:local private typedef T__struct_1 = {
-	public var _flag:GoString;
-	public var _errorMsg:GoString;
-};
+	public function string():String
+		return "{" + Go.string(_flag) + " " + Go.string(_flagHandle) + " " + Go.string(_expectExit) + "}";
 
-@:local private typedef T__struct_2 = {
-	public var _flagSetName:GoString;
-	public var _errorMsg:GoString;
-};
+	public function new(?_flag:GoString, ?_flagHandle:GoString, ?_expectExit:GoInt, ?string) {
+		if (_flag != null)
+			this._flag = _flag;
+		if (_flagHandle != null)
+			this._flagHandle = _flagHandle;
+		if (_expectExit != null)
+			this._expectExit = _expectExit;
+	}
+
+	public function __copy__() {
+		return new T__struct_0(_flag, _flagHandle, _expectExit);
+	}
+}
+
+@:structInit @:local private class T__struct_1 {
+	public var _flag:GoString = "";
+	public var _errorMsg:GoString = "";
+
+	public function string():String
+		return "{" + Go.string(_flag) + " " + Go.string(_errorMsg) + "}";
+
+	public function new(?_flag:GoString, ?_errorMsg:GoString, ?string) {
+		if (_flag != null)
+			this._flag = _flag;
+		if (_errorMsg != null)
+			this._errorMsg = _errorMsg;
+	}
+
+	public function __copy__() {
+		return new T__struct_1(_flag, _errorMsg);
+	}
+}
+
+@:structInit @:local private class T__struct_2 {
+	public var _flagSetName:GoString = "";
+	public var _errorMsg:GoString = "";
+
+	public function string():String
+		return "{" + Go.string(_flagSetName) + " " + Go.string(_errorMsg) + "}";
+
+	public function new(?_flagSetName:GoString, ?_errorMsg:GoString, ?string) {
+		if (_flagSetName != null)
+			this._flagSetName = _flagSetName;
+		if (_errorMsg != null)
+			this._errorMsg = _errorMsg;
+	}
+
+	public function __copy__() {
+		return new T__struct_2(_flagSetName, _errorMsg);
+	}
+}
 
 /**
 	// Example 3: A user-defined flag type, a slice of durations.
@@ -951,11 +995,10 @@ function testExitCode(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_fs.parse((new Slice<GoString>(0, 0, stdgo.os.Os.getenv(Go.str("GO_CHILD_FLAG"))) : Slice<GoString>));
 		Sys.exit(_magic);
 	};
-	var _tests = (new Slice<T__struct_0>(0, 0, ({_flag: ("" : GoString), _flagHandle: ("" : GoString), _expectExit: (0 : GoInt)} : T__struct_0),
-		({_flag: ("" : GoString), _flagHandle: ("" : GoString), _expectExit: (0 : GoInt)} : T__struct_0),
-		({_flag: ("" : GoString), _flagHandle: ("" : GoString), _expectExit: (0 : GoInt)} : T__struct_0),
-		({_flag: ("" : GoString), _flagHandle: ("" : GoString), _expectExit: (0 : GoInt)} : T__struct_0),
-		({_flag: ("" : GoString), _flagHandle: ("" : GoString), _expectExit: (0 : GoInt)} : T__struct_0)) : Slice<T__struct_0>);
+	var _tests = (new Slice<T__struct_0>(0, 0, ({_flag: Go.str("-h"), _expectExit: (0 : GoInt)} : T__struct_0),
+		({_flag: Go.str("-help"), _expectExit: (0 : GoInt)} : T__struct_0), ({_flag: Go.str("-undefined"), _expectExit: (2 : GoInt)} : T__struct_0),
+		({_flag: Go.str("-h"), _flagHandle: Go.str("h"), _expectExit: _magic} : T__struct_0),
+		({_flag: Go.str("-help"), _flagHandle: Go.str("help"), _expectExit: _magic} : T__struct_0)) : Slice<T__struct_0>);
 	for (_0 => _test in _tests) {
 		var _cmd = stdgo.os.exec.Exec.command(stdgo.os.Os.args[(0 : GoInt)], Go.str("-test.run=TestExitCode"));
 		_cmd.env = (stdgo.os.Os.environ().__append__(Go.str("GO_CHILD_FLAG=") + _test._flag, Go.str("GO_CHILD_FLAG_HANDLE=") + _test._flagHandle));
@@ -1059,8 +1102,8 @@ function _mustPanic(_t:Ref<stdgo.testing.Testing.T>, _testName:GoString, _expect
 }
 
 function testInvalidFlags(_t:Ref<stdgo.testing.Testing.T>):Void {
-	var _tests = (new Slice<T__struct_1>(0, 0, ({_flag: ("" : GoString), _errorMsg: ("" : GoString)} : T__struct_1),
-		({_flag: ("" : GoString), _errorMsg: ("" : GoString)} : T__struct_1)) : Slice<T__struct_1>);
+	var _tests = (new Slice<T__struct_1>(0, 0, ({_flag: Go.str("-foo"), _errorMsg: Go.str("flag \"-foo\" begins with -")} : T__struct_1),
+		({_flag: Go.str("foo=bar"), _errorMsg: Go.str("flag \"foo=bar\" contains =")} : T__struct_1)) : Slice<T__struct_1>);
 	for (_0 => _test in _tests) {
 		var _testName:GoString = stdgo.fmt.Fmt.sprintf(Go.str("FlagSet.Var(&v, %q, \"\")"), Go.toInterface(_test._flag));
 		var _fs = newFlagSet(Go.str(), (0 : ErrorHandling));
@@ -1080,8 +1123,8 @@ function testInvalidFlags(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testRedefinedFlags(_t:Ref<stdgo.testing.Testing.T>):Void {
-	var _tests = (new Slice<T__struct_2>(0, 0, ({_flagSetName: ("" : GoString), _errorMsg: ("" : GoString)} : T__struct_2),
-		({_flagSetName: ("" : GoString), _errorMsg: ("" : GoString)} : T__struct_2)) : Slice<T__struct_2>);
+	var _tests = (new Slice<T__struct_2>(0, 0, ({_flagSetName: Go.str(), _errorMsg: Go.str("flag redefined: foo")} : T__struct_2),
+		({_flagSetName: Go.str("fs"), _errorMsg: Go.str("fs flag redefined: foo")} : T__struct_2)) : Slice<T__struct_2>);
 	for (_0 => _test in _tests) {
 		var _testName:GoString = stdgo.fmt.Fmt.sprintf(Go.str("flag redefined in FlagSet(%q)"), Go.toInterface(_test._flagSetName));
 		var _fs = newFlagSet(_test._flagSetName, (0 : ErrorHandling));

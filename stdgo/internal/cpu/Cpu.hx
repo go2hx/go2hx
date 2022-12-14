@@ -178,212 +178,421 @@ final cacheLinePadSize:GoUInt64 = ("64" : GoUInt64);
 	}
 }
 
-@:local private typedef T__struct_0 = {
+@:structInit @:local private class T__struct_0 {
 	@:optional
-	public var _7:CacheLinePad;
-	public var hasAES:Bool;
-	public var hasADX:Bool;
-	public var hasAVX:Bool;
-	public var hasAVX2:Bool;
-	public var hasBMI1:Bool;
-	public var hasBMI2:Bool;
-	public var hasERMS:Bool;
-	public var hasFMA:Bool;
-	public var hasOSXSAVE:Bool;
-	public var hasPCLMULQDQ:Bool;
-	public var hasPOPCNT:Bool;
-	public var hasRDTSCP:Bool;
-	public var hasSSE3:Bool;
-	public var hasSSSE3:Bool;
-	public var hasSSE41:Bool;
-	public var hasSSE42:Bool;
+	public var _7:CacheLinePad = ({} : CacheLinePad);
+	public var hasAES:Bool = false;
+	public var hasADX:Bool = false;
+	public var hasAVX:Bool = false;
+	public var hasAVX2:Bool = false;
+	public var hasBMI1:Bool = false;
+	public var hasBMI2:Bool = false;
+	public var hasERMS:Bool = false;
+	public var hasFMA:Bool = false;
+	public var hasOSXSAVE:Bool = false;
+	public var hasPCLMULQDQ:Bool = false;
+	public var hasPOPCNT:Bool = false;
+	public var hasRDTSCP:Bool = false;
+	public var hasSSE3:Bool = false;
+	public var hasSSSE3:Bool = false;
+	public var hasSSE41:Bool = false;
+	public var hasSSE42:Bool = false;
 	@:optional
-	public var _9:CacheLinePad;
-};
+	public var _9:CacheLinePad = ({} : CacheLinePad);
 
-@:local private typedef T__struct_1 = {
-	@:optional
-	public var _15:CacheLinePad;
-	public var hasVFPv4:Bool;
-	public var hasIDIVA:Bool;
-	@:optional
-	public var _17:CacheLinePad;
-};
+	public function string():String
+		return "{" + Go.string(_7) + " " + Go.string(hasAES) + " " + Go.string(hasADX) + " " + Go.string(hasAVX) + " " + Go.string(hasAVX2) + " "
+			+ Go.string(hasBMI1) + " " + Go.string(hasBMI2) + " " + Go.string(hasERMS) + " " + Go.string(hasFMA) + " " + Go.string(hasOSXSAVE) + " "
+			+ Go.string(hasPCLMULQDQ) + " " + Go.string(hasPOPCNT) + " " + Go.string(hasRDTSCP) + " " + Go.string(hasSSE3) + " " + Go.string(hasSSSE3) + " "
+			+ Go.string(hasSSE41) + " " + Go.string(hasSSE42) + " " + Go.string(_9) + "}";
 
-@:local private typedef T__struct_2 = {
-	@:optional
-	public var _23:CacheLinePad;
-	public var hasAES:Bool;
-	public var hasPMULL:Bool;
-	public var hasSHA1:Bool;
-	public var hasSHA2:Bool;
-	public var hasCRC32:Bool;
-	public var hasATOMICS:Bool;
-	public var hasCPUID:Bool;
-	public var isNeoverseN1:Bool;
-	public var isZeus:Bool;
-	@:optional
-	public var _25:CacheLinePad;
-};
+	public function new(?_7:CacheLinePad, ?hasAES:Bool, ?hasADX:Bool, ?hasAVX:Bool, ?hasAVX2:Bool, ?hasBMI1:Bool, ?hasBMI2:Bool, ?hasERMS:Bool, ?hasFMA:Bool,
+			?hasOSXSAVE:Bool, ?hasPCLMULQDQ:Bool, ?hasPOPCNT:Bool, ?hasRDTSCP:Bool, ?hasSSE3:Bool, ?hasSSSE3:Bool, ?hasSSE41:Bool, ?hasSSE42:Bool,
+			?_9:CacheLinePad, ?string) {
+		if (_7 != null)
+			this._7 = _7;
+		if (hasAES != null)
+			this.hasAES = hasAES;
+		if (hasADX != null)
+			this.hasADX = hasADX;
+		if (hasAVX != null)
+			this.hasAVX = hasAVX;
+		if (hasAVX2 != null)
+			this.hasAVX2 = hasAVX2;
+		if (hasBMI1 != null)
+			this.hasBMI1 = hasBMI1;
+		if (hasBMI2 != null)
+			this.hasBMI2 = hasBMI2;
+		if (hasERMS != null)
+			this.hasERMS = hasERMS;
+		if (hasFMA != null)
+			this.hasFMA = hasFMA;
+		if (hasOSXSAVE != null)
+			this.hasOSXSAVE = hasOSXSAVE;
+		if (hasPCLMULQDQ != null)
+			this.hasPCLMULQDQ = hasPCLMULQDQ;
+		if (hasPOPCNT != null)
+			this.hasPOPCNT = hasPOPCNT;
+		if (hasRDTSCP != null)
+			this.hasRDTSCP = hasRDTSCP;
+		if (hasSSE3 != null)
+			this.hasSSE3 = hasSSE3;
+		if (hasSSSE3 != null)
+			this.hasSSSE3 = hasSSSE3;
+		if (hasSSE41 != null)
+			this.hasSSE41 = hasSSE41;
+		if (hasSSE42 != null)
+			this.hasSSE42 = hasSSE42;
+		if (_9 != null)
+			this._9 = _9;
+	}
 
-@:local private typedef T__struct_3 = {
+	public function __copy__() {
+		return new T__struct_0(_7, hasAES, hasADX, hasAVX, hasAVX2, hasBMI1, hasBMI2, hasERMS, hasFMA, hasOSXSAVE, hasPCLMULQDQ, hasPOPCNT, hasRDTSCP,
+			hasSSE3, hasSSSE3, hasSSE41, hasSSE42, _9);
+	}
+}
+
+@:structInit @:local private class T__struct_1 {
 	@:optional
-	public var _31:CacheLinePad;
+	public var _15:CacheLinePad = ({} : CacheLinePad);
+	public var hasVFPv4:Bool = false;
+	public var hasIDIVA:Bool = false;
+	@:optional
+	public var _17:CacheLinePad = ({} : CacheLinePad);
+
+	public function string():String
+		return "{" + Go.string(_15) + " " + Go.string(hasVFPv4) + " " + Go.string(hasIDIVA) + " " + Go.string(_17) + "}";
+
+	public function new(?_15:CacheLinePad, ?hasVFPv4:Bool, ?hasIDIVA:Bool, ?_17:CacheLinePad, ?string) {
+		if (_15 != null)
+			this._15 = _15;
+		if (hasVFPv4 != null)
+			this.hasVFPv4 = hasVFPv4;
+		if (hasIDIVA != null)
+			this.hasIDIVA = hasIDIVA;
+		if (_17 != null)
+			this._17 = _17;
+	}
+
+	public function __copy__() {
+		return new T__struct_1(_15, hasVFPv4, hasIDIVA, _17);
+	}
+}
+
+@:structInit @:local private class T__struct_2 {
+	@:optional
+	public var _23:CacheLinePad = ({} : CacheLinePad);
+	public var hasAES:Bool = false;
+	public var hasPMULL:Bool = false;
+	public var hasSHA1:Bool = false;
+	public var hasSHA2:Bool = false;
+	public var hasCRC32:Bool = false;
+	public var hasATOMICS:Bool = false;
+	public var hasCPUID:Bool = false;
+	public var isNeoverseN1:Bool = false;
+	public var isZeus:Bool = false;
+	@:optional
+	public var _25:CacheLinePad = ({} : CacheLinePad);
+
+	public function string():String
+		return "{" + Go.string(_23) + " " + Go.string(hasAES) + " " + Go.string(hasPMULL) + " " + Go.string(hasSHA1) + " " + Go.string(hasSHA2) + " "
+			+ Go.string(hasCRC32) + " " + Go.string(hasATOMICS) + " " + Go.string(hasCPUID) + " " + Go.string(isNeoverseN1) + " " + Go.string(isZeus) + " "
+			+ Go.string(_25) + "}";
+
+	public function new(?_23:CacheLinePad, ?hasAES:Bool, ?hasPMULL:Bool, ?hasSHA1:Bool, ?hasSHA2:Bool, ?hasCRC32:Bool, ?hasATOMICS:Bool, ?hasCPUID:Bool,
+			?isNeoverseN1:Bool, ?isZeus:Bool, ?_25:CacheLinePad, ?string) {
+		if (_23 != null)
+			this._23 = _23;
+		if (hasAES != null)
+			this.hasAES = hasAES;
+		if (hasPMULL != null)
+			this.hasPMULL = hasPMULL;
+		if (hasSHA1 != null)
+			this.hasSHA1 = hasSHA1;
+		if (hasSHA2 != null)
+			this.hasSHA2 = hasSHA2;
+		if (hasCRC32 != null)
+			this.hasCRC32 = hasCRC32;
+		if (hasATOMICS != null)
+			this.hasATOMICS = hasATOMICS;
+		if (hasCPUID != null)
+			this.hasCPUID = hasCPUID;
+		if (isNeoverseN1 != null)
+			this.isNeoverseN1 = isNeoverseN1;
+		if (isZeus != null)
+			this.isZeus = isZeus;
+		if (_25 != null)
+			this._25 = _25;
+	}
+
+	public function __copy__() {
+		return new T__struct_2(_23, hasAES, hasPMULL, hasSHA1, hasSHA2, hasCRC32, hasATOMICS, hasCPUID, isNeoverseN1, isZeus, _25);
+	}
+}
+
+@:structInit @:local private class T__struct_3 {
+	@:optional
+	public var _31:CacheLinePad = ({} : CacheLinePad);
 
 	/**
 		// MIPS SIMD architecture
 	**/
-	public var hasMSA:Bool;
+	public var hasMSA:Bool = false;
 
 	@:optional
-	public var _33:CacheLinePad;
-};
+	public var _33:CacheLinePad = ({} : CacheLinePad);
 
-@:local private typedef T__struct_4 = {
+	public function string():String
+		return "{" + Go.string(_31) + " " + Go.string(hasMSA) + " " + Go.string(_33) + "}";
+
+	public function new(?_31:CacheLinePad, ?hasMSA:Bool, ?_33:CacheLinePad, ?string) {
+		if (_31 != null)
+			this._31 = _31;
+		if (hasMSA != null)
+			this.hasMSA = hasMSA;
+		if (_33 != null)
+			this._33 = _33;
+	}
+
+	public function __copy__() {
+		return new T__struct_3(_31, hasMSA, _33);
+	}
+}
+
+@:structInit @:local private class T__struct_4 {
 	@:optional
-	public var _39:CacheLinePad;
+	public var _39:CacheLinePad = ({} : CacheLinePad);
 
 	/**
 		// Hardware random number generator (requires kernel enablement)
 	**/
-	public var hasDARN:Bool;
+	public var hasDARN:Bool = false;
 
 	/**
 		// Syscall vectored (requires kernel enablement)
 	**/
-	public var hasSCV:Bool;
+	public var hasSCV:Bool = false;
 
 	/**
 		// ISA v2.07 (POWER8)
 	**/
-	public var isPOWER8:Bool;
+	public var isPOWER8:Bool = false;
 
 	/**
 		// ISA v3.00 (POWER9)
 	**/
-	public var isPOWER9:Bool;
+	public var isPOWER9:Bool = false;
 
 	/**
 		// ISA v3.1  (POWER10)
 	**/
-	public var isPOWER10:Bool;
+	public var isPOWER10:Bool = false;
 
 	@:optional
-	public var _41:CacheLinePad;
-};
+	public var _41:CacheLinePad = ({} : CacheLinePad);
 
-@:local private typedef T__struct_5 = {
+	public function string():String
+		return "{" + Go.string(_39) + " " + Go.string(hasDARN) + " " + Go.string(hasSCV) + " " + Go.string(isPOWER8) + " " + Go.string(isPOWER9) + " "
+			+ Go.string(isPOWER10) + " " + Go.string(_41) + "}";
+
+	public function new(?_39:CacheLinePad, ?hasDARN:Bool, ?hasSCV:Bool, ?isPOWER8:Bool, ?isPOWER9:Bool, ?isPOWER10:Bool, ?_41:CacheLinePad, ?string) {
+		if (_39 != null)
+			this._39 = _39;
+		if (hasDARN != null)
+			this.hasDARN = hasDARN;
+		if (hasSCV != null)
+			this.hasSCV = hasSCV;
+		if (isPOWER8 != null)
+			this.isPOWER8 = isPOWER8;
+		if (isPOWER9 != null)
+			this.isPOWER9 = isPOWER9;
+		if (isPOWER10 != null)
+			this.isPOWER10 = isPOWER10;
+		if (_41 != null)
+			this._41 = _41;
+	}
+
+	public function __copy__() {
+		return new T__struct_4(_39, hasDARN, hasSCV, isPOWER8, isPOWER9, isPOWER10, _41);
+	}
+}
+
+@:structInit @:local private class T__struct_5 {
 	@:optional
-	public var _47:CacheLinePad;
+	public var _47:CacheLinePad = ({} : CacheLinePad);
 
 	/**
 		// z architecture mode is active [mandatory]
 	**/
-	public var hasZARCH:Bool;
+	public var hasZARCH:Bool = false;
 
 	/**
 		// store facility list extended [mandatory]
 	**/
-	public var hasSTFLE:Bool;
+	public var hasSTFLE:Bool = false;
 
 	/**
 		// long (20-bit) displacements [mandatory]
 	**/
-	public var hasLDISP:Bool;
+	public var hasLDISP:Bool = false;
 
 	/**
 		// 32-bit immediates [mandatory]
 	**/
-	public var hasEIMM:Bool;
+	public var hasEIMM:Bool = false;
 
 	/**
 		// decimal floating point
 	**/
-	public var hasDFP:Bool;
+	public var hasDFP:Bool = false;
 
 	/**
 		// ETF-3 enhanced
 	**/
-	public var hasETF3EH:Bool;
+	public var hasETF3EH:Bool = false;
 
 	/**
 		// message security assist (CPACF)
 	**/
-	public var hasMSA:Bool;
+	public var hasMSA:Bool = false;
 
 	/**
 		// KM-AES{128,192,256} functions
 	**/
-	public var hasAES:Bool;
+	public var hasAES:Bool = false;
 
 	/**
 		// KMC-AES{128,192,256} functions
 	**/
-	public var hasAESCBC:Bool;
+	public var hasAESCBC:Bool = false;
 
 	/**
 		// KMCTR-AES{128,192,256} functions
 	**/
-	public var hasAESCTR:Bool;
+	public var hasAESCTR:Bool = false;
 
 	/**
 		// KMA-GCM-AES{128,192,256} functions
 	**/
-	public var hasAESGCM:Bool;
+	public var hasAESGCM:Bool = false;
 
 	/**
 		// KIMD-GHASH function
 	**/
-	public var hasGHASH:Bool;
+	public var hasGHASH:Bool = false;
 
 	/**
 		// K{I,L}MD-SHA-1 functions
 	**/
-	public var hasSHA1:Bool;
+	public var hasSHA1:Bool = false;
 
 	/**
 		// K{I,L}MD-SHA-256 functions
 	**/
-	public var hasSHA256:Bool;
+	public var hasSHA256:Bool = false;
 
 	/**
 		// K{I,L}MD-SHA-512 functions
 	**/
-	public var hasSHA512:Bool;
+	public var hasSHA512:Bool = false;
 
 	/**
 		// K{I,L}MD-SHA3-{224,256,384,512} and K{I,L}MD-SHAKE-{128,256} functions
 	**/
-	public var hasSHA3:Bool;
+	public var hasSHA3:Bool = false;
 
 	/**
 		// vector facility. Note: the runtime sets this when it processes auxv records.
 	**/
-	public var hasVX:Bool;
+	public var hasVX:Bool = false;
 
 	/**
 		// vector-enhancements facility 1
 	**/
-	public var hasVXE:Bool;
+	public var hasVXE:Bool = false;
 
 	/**
 		// elliptic curve functions
 	**/
-	public var hasKDSA:Bool;
+	public var hasKDSA:Bool = false;
 
 	/**
 		// NIST curves
 	**/
-	public var hasECDSA:Bool;
+	public var hasECDSA:Bool = false;
 
 	/**
 		// Edwards curves
 	**/
-	public var hasEDDSA:Bool;
+	public var hasEDDSA:Bool = false;
 
 	@:optional
-	public var _49:CacheLinePad;
-};
+	public var _49:CacheLinePad = ({} : CacheLinePad);
+
+	public function string():String
+		return "{" + Go.string(_47) + " " + Go.string(hasZARCH) + " " + Go.string(hasSTFLE) + " " + Go.string(hasLDISP) + " " + Go.string(hasEIMM) + " "
+			+ Go.string(hasDFP) + " " + Go.string(hasETF3EH) + " " + Go.string(hasMSA) + " " + Go.string(hasAES) + " " + Go.string(hasAESCBC) + " "
+			+ Go.string(hasAESCTR) + " " + Go.string(hasAESGCM) + " " + Go.string(hasGHASH) + " " + Go.string(hasSHA1) + " " + Go.string(hasSHA256) + " "
+			+ Go.string(hasSHA512) + " " + Go.string(hasSHA3) + " " + Go.string(hasVX) + " " + Go.string(hasVXE) + " " + Go.string(hasKDSA) + " "
+			+ Go.string(hasECDSA) + " " + Go.string(hasEDDSA) + " " + Go.string(_49) + "}";
+
+	public function new(?_47:CacheLinePad, ?hasZARCH:Bool, ?hasSTFLE:Bool, ?hasLDISP:Bool, ?hasEIMM:Bool, ?hasDFP:Bool, ?hasETF3EH:Bool, ?hasMSA:Bool,
+			?hasAES:Bool, ?hasAESCBC:Bool, ?hasAESCTR:Bool, ?hasAESGCM:Bool, ?hasGHASH:Bool, ?hasSHA1:Bool, ?hasSHA256:Bool, ?hasSHA512:Bool, ?hasSHA3:Bool,
+			?hasVX:Bool, ?hasVXE:Bool, ?hasKDSA:Bool, ?hasECDSA:Bool, ?hasEDDSA:Bool, ?_49:CacheLinePad, ?string) {
+		if (_47 != null)
+			this._47 = _47;
+		if (hasZARCH != null)
+			this.hasZARCH = hasZARCH;
+		if (hasSTFLE != null)
+			this.hasSTFLE = hasSTFLE;
+		if (hasLDISP != null)
+			this.hasLDISP = hasLDISP;
+		if (hasEIMM != null)
+			this.hasEIMM = hasEIMM;
+		if (hasDFP != null)
+			this.hasDFP = hasDFP;
+		if (hasETF3EH != null)
+			this.hasETF3EH = hasETF3EH;
+		if (hasMSA != null)
+			this.hasMSA = hasMSA;
+		if (hasAES != null)
+			this.hasAES = hasAES;
+		if (hasAESCBC != null)
+			this.hasAESCBC = hasAESCBC;
+		if (hasAESCTR != null)
+			this.hasAESCTR = hasAESCTR;
+		if (hasAESGCM != null)
+			this.hasAESGCM = hasAESGCM;
+		if (hasGHASH != null)
+			this.hasGHASH = hasGHASH;
+		if (hasSHA1 != null)
+			this.hasSHA1 = hasSHA1;
+		if (hasSHA256 != null)
+			this.hasSHA256 = hasSHA256;
+		if (hasSHA512 != null)
+			this.hasSHA512 = hasSHA512;
+		if (hasSHA3 != null)
+			this.hasSHA3 = hasSHA3;
+		if (hasVX != null)
+			this.hasVX = hasVX;
+		if (hasVXE != null)
+			this.hasVXE = hasVXE;
+		if (hasKDSA != null)
+			this.hasKDSA = hasKDSA;
+		if (hasECDSA != null)
+			this.hasECDSA = hasECDSA;
+		if (hasEDDSA != null)
+			this.hasEDDSA = hasEDDSA;
+		if (_49 != null)
+			this._49 = _49;
+	}
+
+	public function __copy__() {
+		return new T__struct_5(_47, hasZARCH, hasSTFLE, hasLDISP, hasEIMM, hasDFP, hasETF3EH, hasMSA, hasAES, hasAESCBC, hasAESCTR, hasAESGCM, hasGHASH,
+			hasSHA1, hasSHA256, hasSHA512, hasSHA3, hasVX, hasVXE, hasKDSA, hasECDSA, hasEDDSA, _49);
+	}
+}
 
 /**
 	// Initialize examines the processor and sets the relevant variables above.

@@ -93,27 +93,75 @@ private typedef T__interface_3 = StructType & {
 	}
 }
 
-@:local private typedef T__struct_0 = {
-	public var _err:Error;
-	public var _target:Error;
-	public var _match:Bool;
-};
+@:structInit @:local private class T__struct_0 {
+	public var _err:Error = (null : Error);
+	public var _target:Error = (null : Error);
+	public var _match:Bool = false;
 
-@:local private typedef T__struct_1 = {
-	public var _err:Error;
-	public var _target:AnyInterface;
-	public var _match:Bool;
+	public function string():String
+		return "{" + Go.string(_err) + " " + Go.string(_target) + " " + Go.string(_match) + "}";
+
+	public function new(?_err:Error, ?_target:Error, ?_match:Bool, ?string) {
+		if (_err != null)
+			this._err = _err;
+		if (_target != null)
+			this._target = _target;
+		if (_match != null)
+			this._match = _match;
+	}
+
+	public function __copy__() {
+		return new T__struct_0(_err, _target, _match);
+	}
+}
+
+@:structInit @:local private class T__struct_1 {
+	public var _err:Error = (null : Error);
+	public var _target:AnyInterface = (null : AnyInterface);
+	public var _match:Bool = false;
 
 	/**
 		// value of target on match
 	**/
-	public var _want:AnyInterface;
-};
+	public var _want:AnyInterface = (null : AnyInterface);
 
-@:local private typedef T__struct_2 = {
-	public var _err:Error;
-	public var _want:Error;
-};
+	public function string():String
+		return "{" + Go.string(_err) + " " + Go.string(_target) + " " + Go.string(_match) + " " + Go.string(_want) + "}";
+
+	public function new(?_err:Error, ?_target:AnyInterface, ?_match:Bool, ?_want:AnyInterface, ?string) {
+		if (_err != null)
+			this._err = _err;
+		if (_target != null)
+			this._target = _target;
+		if (_match != null)
+			this._match = _match;
+		if (_want != null)
+			this._want = _want;
+	}
+
+	public function __copy__() {
+		return new T__struct_1(_err, _target, _match, _want);
+	}
+}
+
+@:structInit @:local private class T__struct_2 {
+	public var _err:Error = (null : Error);
+	public var _want:Error = (null : Error);
+
+	public function string():String
+		return "{" + Go.string(_err) + " " + Go.string(_want) + "}";
+
+	public function new(?_err:Error, ?_want:Error, ?string) {
+		if (_err != null)
+			this._err = _err;
+		if (_want != null)
+			this._want = _want;
+	}
+
+	public function __copy__() {
+		return new T__struct_2(_err, _want);
+	}
+}
 
 function testNewEqual(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (Go.toInterface(stdgo.errors.Errors.new_(Go.str("abc"))) == (Go.toInterface(stdgo.errors.Errors.new_(Go.str("abc"))))) {

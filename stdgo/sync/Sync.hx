@@ -859,7 +859,16 @@ typedef Locker = StructType & {
 	}
 }
 
-@:local private typedef T__struct_0 = {};
+@:structInit @:local private class T__struct_0 {
+	public function string():String
+		return "{" + "}";
+
+	public function new(?string) {}
+
+	public function __copy__() {
+		return new T__struct_0();
+	}
+}
 
 /**
 	// copyChecker holds back pointer to itself to detect object copying.

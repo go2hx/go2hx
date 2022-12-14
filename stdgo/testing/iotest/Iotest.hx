@@ -176,12 +176,30 @@ private var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>
 	}
 }
 
-@:local private typedef T__struct_0 = {
-	public var _in:GoString;
-	public var _want:GoString;
-	public var _trunc:GoInt64;
-	public var _n:GoInt;
-};
+@:structInit @:local private class T__struct_0 {
+	public var _in:GoString = "";
+	public var _want:GoString = "";
+	public var _trunc:GoInt64 = 0;
+	public var _n:GoInt = 0;
+
+	public function string():String
+		return "{" + Go.string(_in) + " " + Go.string(_want) + " " + Go.string(_trunc) + " " + Go.string(_n) + "}";
+
+	public function new(?_in:GoString, ?_want:GoString, ?_trunc:GoInt64, ?_n:GoInt, ?string) {
+		if (_in != null)
+			this._in = _in;
+		if (_want != null)
+			this._want = _want;
+		if (_trunc != null)
+			this._trunc = _trunc;
+		if (_n != null)
+			this._n = _n;
+	}
+
+	public function __copy__() {
+		return new T__struct_0(_in, _want, _trunc, _n);
+	}
+}
 
 /**
 	// NewWriteLogger returns a writer that behaves like w except

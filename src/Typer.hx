@@ -6042,24 +6042,9 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 		case "StructType":
 			var struct:Ast.StructType = spec.type;
 			var fields = typeFieldListFields(struct.fields, info, [APublic], true);
+			var meta:Metadata = [{name: ":structInit", pos: null}];
 			if (local) {
-				fields = fields.map(field -> {
-					switch field.kind {
-						case FVar(t, e):
-							field.kind = FVar(t, null);
-						default:
-					}
-					field;
-				});
-				final cl:TypeDefinition = {
-					name: name,
-					pack: [],
-					pos: null,
-					fields: [],
-					meta: [{name: ":local", pos: null, params: []}],
-					kind: TDAlias(TAnonymous(fields)),
-				}
-				return cl;
+				meta.push({name: ":local", pos: null});
 			}
 			info.renameIdents[spec.name.name] = name + "_static_extension";
 			info.classNames[spec.name.name] = name + "_static_extension";
@@ -6153,7 +6138,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				}
 			}
 			sets.push(macro return this);
-			var meta:Metadata = [{name: ":structInit", pos: null}];
 			for (method in spec.methods) { // covers both embedded interfaces and structures
 				// embedded methods
 				if (structAddFieldsIndex > -1 && structAddFieldsIndex <= method.index[0])

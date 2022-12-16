@@ -14,59 +14,59 @@ Package sort provides primitives for sorting slices and user\-defined collection
 
 ```
 === RUN   TestSearch
---- PASS: TestSearch (0.000295162200927734)
+--- PASS: TestSearch (0.000249862670898438)
 === RUN   TestFind
---- PASS: TestFind (4.38690185546875e-05)
+--- PASS: TestFind (4.79221343994141e-05)
 === RUN   TestSearchEfficiency
---- PASS: TestSearchEfficiency (0.0196561813354492)
+--- PASS: TestSearchEfficiency (0.0191960334777832)
 === RUN   TestSearchWrappers
---- PASS: TestSearchWrappers (1.00135803222656e-05)
+--- PASS: TestSearchWrappers (1.09672546386719e-05)
 === RUN   TestSearchWrappersDontAlloc
---- PASS: TestSearchWrappersDontAlloc (9.05990600585938e-06)
+--- PASS: TestSearchWrappersDontAlloc (2.09808349609375e-05)
 === RUN   TestSearchExhaustive
---- PASS: TestSearchExhaustive (0.0405499935150146)
+--- PASS: TestSearchExhaustive (0.040194034576416)
 === RUN   TestFindExhaustive
---- PASS: TestFindExhaustive (0.0819730758666992)
+--- PASS: TestFindExhaustive (0.0813980102539062)
 === RUN   TestSortIntSlice
---- PASS: TestSortIntSlice (5.91278076171875e-05)
+--- PASS: TestSortIntSlice (5.60283660888672e-05)
 === RUN   TestSortFloat64Slice
---- PASS: TestSortFloat64Slice (6.98566436767578e-05)
+--- PASS: TestSortFloat64Slice (4.1961669921875e-05)
 === RUN   TestSortStringSlice
---- PASS: TestSortStringSlice (8.20159912109375e-05)
+--- PASS: TestSortStringSlice (0.000100135803222656)
 === RUN   TestInts
---- PASS: TestInts (3.60012054443359e-05)
+--- PASS: TestInts (3.69548797607422e-05)
 === RUN   TestFloat64s
 --- PASS: TestFloat64s (4.10079956054688e-05)
 === RUN   TestStrings
---- PASS: TestStrings (6.22272491455078e-05)
+--- PASS: TestStrings (6.50882720947266e-05)
 === RUN   TestSlice
---- PASS: TestSlice (0.000185012817382812)
+--- PASS: TestSlice (0.000751018524169922)
 === RUN   TestSortLarge_Random
---- PASS: TestSortLarge_Random (0.0149130821228027)
+--- PASS: TestSortLarge_Random (0.0158360004425049)
 === RUN   TestReverseSortIntSlice
---- PASS: TestReverseSortIntSlice (7.70092010498047e-05)
+--- PASS: TestReverseSortIntSlice (7.51018524169922e-05)
 === RUN   TestBreakPatterns
---- PASS: TestBreakPatterns (0.000114202499389648)
+--- PASS: TestBreakPatterns (8.20159912109375e-05)
 === RUN   TestReverseRange
---- PASS: TestReverseRange (7.10487365722656e-05)
+--- PASS: TestReverseRange (6.41345977783203e-05)
 === RUN   TestNonDeterministicComparison
---- PASS: TestNonDeterministicComparison (5.50196194648743)
+--- PASS: TestNonDeterministicComparison (5.45222592353821)
 === RUN   TestSortBM
---- PASS: TestSortBM (0.229462862014771)
+--- PASS: TestSortBM (0.222769021987915)
 === RUN   TestHeapsortBM
---- PASS: TestHeapsortBM (0.382584095001221)
+--- PASS: TestHeapsortBM (0.388088941574097)
 === RUN   TestStableBM
---- PASS: TestStableBM (0.594721078872681)
+--- PASS: TestStableBM (0.604095935821533)
 === RUN   TestAdversary
---- PASS: TestAdversary (0.0222139358520508)
+--- PASS: TestAdversary (0.0228219032287598)
 === RUN   TestStableInts
---- PASS: TestStableInts (6.19888305664062e-05)
+--- PASS: TestStableInts (4.00543212890625e-05)
 === RUN   TestStability
---- PASS: TestStability (0.0262670516967773)
+--- PASS: TestStability (0.033128023147583)
 === RUN   TestCountStableOps
---- PASS: TestCountStableOps (0.391741037368774)
+--- PASS: TestCountStableOps (0.393725156784058)
 === RUN   TestCountSortOps
---- PASS: TestCountSortOps (0.0343000888824463)
+--- PASS: TestCountSortOps (0.0364758968353271)
 ```
 </p>
 </details>
@@ -76,59 +76,59 @@ Package sort provides primitives for sorting slices and user\-defined collection
 
 ```
 === RUN   TestSearch
---- PASS: TestSearch (0.00147008895874023438)
+--- PASS: TestSearch (0.00157308578491210938)
 === RUN   TestFind
---- PASS: TestFind (0.000106096267700195312)
+--- PASS: TestFind (0.000174999237060546875)
 === RUN   TestSearchEfficiency
---- PASS: TestSearchEfficiency (0.0850269794464111328)
+--- PASS: TestSearchEfficiency (0.0865299701690673828)
 === RUN   TestSearchWrappers
 --- PASS: TestSearchWrappers (2.50339508056640625e-05)
 === RUN   TestSearchWrappersDontAlloc
---- PASS: TestSearchWrappersDontAlloc (1.50203704833984375e-05)
+--- PASS: TestSearchWrappersDontAlloc (1.811981201171875e-05)
 === RUN   TestSearchExhaustive
---- PASS: TestSearchExhaustive (0.178537845611572266)
+--- PASS: TestSearchExhaustive (0.181802988052368164)
 === RUN   TestFindExhaustive
---- PASS: TestFindExhaustive (0.386554956436157227)
+--- PASS: TestFindExhaustive (0.393513917922973633)
 === RUN   TestSortIntSlice
---- PASS: TestSortIntSlice (0.000275135040283203125)
+--- PASS: TestSortIntSlice (0.0002899169921875)
 === RUN   TestSortFloat64Slice
---- PASS: TestSortFloat64Slice (0.000262022018432617188)
+--- PASS: TestSortFloat64Slice (0.000281095504760742188)
 === RUN   TestSortStringSlice
---- PASS: TestSortStringSlice (0.000169038772583007812)
+--- PASS: TestSortStringSlice (0.000195026397705078125)
 === RUN   TestInts
---- PASS: TestInts (0.000195026397705078125)
+--- PASS: TestInts (0.00020122528076171875)
 === RUN   TestFloat64s
---- PASS: TestFloat64s (0.00024700164794921875)
+--- PASS: TestFloat64s (0.000270843505859375)
 === RUN   TestStrings
---- PASS: TestStrings (0.000130891799926757812)
+--- PASS: TestStrings (0.00014209747314453125)
 === RUN   TestSlice
---- PASS: TestSlice (0.000488996505737304688)
+--- PASS: TestSlice (0.000510931015014648438)
 === RUN   TestSortLarge_Random
---- PASS: TestSortLarge_Random (0.173069000244140625)
+--- PASS: TestSortLarge_Random (0.174132108688354492)
 === RUN   TestReverseSortIntSlice
---- PASS: TestReverseSortIntSlice (0.000447988510131835938)
+--- PASS: TestReverseSortIntSlice (0.000504016876220703125)
 === RUN   TestBreakPatterns
---- PASS: TestBreakPatterns (0.00055980682373046875)
+--- PASS: TestBreakPatterns (0.00059413909912109375)
 === RUN   TestReverseRange
---- PASS: TestReverseRange (7.31945037841796875e-05)
+--- PASS: TestReverseRange (7.41481781005859375e-05)
 === RUN   TestNonDeterministicComparison
---- PASS: TestNonDeterministicComparison (31.9720470905303955)
+--- PASS: TestNonDeterministicComparison (32.0877690315246582)
 === RUN   TestSortBM
---- PASS: TestSortBM (1.86017799377441406)
+--- PASS: TestSortBM (1.86668896675109863)
 === RUN   TestHeapsortBM
---- PASS: TestHeapsortBM (4.21085691452026367)
+--- PASS: TestHeapsortBM (4.21195697784423828)
 === RUN   TestStableBM
---- PASS: TestStableBM (4.22174501419067383)
+--- PASS: TestStableBM (4.23055696487426758)
 === RUN   TestAdversary
---- PASS: TestAdversary (0.253862142562866211)
+--- PASS: TestAdversary (0.25421595573425293)
 === RUN   TestStableInts
---- PASS: TestStableInts (0.000225067138671875)
+--- PASS: TestStableInts (0.000230073928833007812)
 === RUN   TestStability
---- PASS: TestStability (0.181943893432617188)
+--- PASS: TestStability (0.195705890655517578)
 === RUN   TestCountStableOps
---- PASS: TestCountStableOps (2.58258795738220215)
+--- PASS: TestCountStableOps (2.58705782890319824)
 === RUN   TestCountSortOps
---- PASS: TestCountSortOps (0.377083063125610352)
+--- PASS: TestCountSortOps (0.403779983520507812)
 ```
 </p>
 </details>
@@ -387,7 +387,7 @@ function _breakPatterns(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoI
 ```
 
 
-breakPatterns scatters some elements around in an attempt to break some patterns that might cause imbalanced partitions in quicksort. 
+breakPatterns scatters some elements around in an attempt to break some patterns��// that might cause imbalanced partitions in quicksort. 
 
 
 [\(view code\)](<./Sort.hx#L1189>)
@@ -401,7 +401,7 @@ function _breakPatterns_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, 
 ```
 
 
-breakPatterns\_func scatters some elements around in an attempt to break some patterns that might cause imbalanced partitions in quicksort. 
+breakPatterns\_func scatters some elements around in an attempt to break some patterns��// that might cause imbalanced partitions in quicksort. 
 
 
 [\(view code\)](<./Sort.hx#L679>)
@@ -415,7 +415,7 @@ function _choosePivot(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt
 ```
 
 
-choosePivot chooses a pivot in data\[a:b\].  \[0,8\): chooses a static pivot. \[8,shortestNinther\): uses the simple median\-of\-three method. \[shortestNinther,∞\): uses the Tukey ninther method. 
+choosePivot chooses a pivot in data\[a:b\].��//��// \[0,8\): chooses a static pivot.��// \[8,shortestNinther\): uses the simple median\-of\-three method.��// \[shortestNinther,∞\): uses the Tukey ninther method. 
 
 
 [\(view code\)](<./Sort.hx#L1214>)
@@ -429,7 +429,7 @@ function _choosePivot_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b
 ```
 
 
-choosePivot\_func chooses a pivot in data\[a:b\].  \[0,8\): chooses a static pivot. \[8,shortestNinther\): uses the simple median\-of\-three method. \[shortestNinther,∞\): uses the Tukey ninther method. 
+choosePivot\_func chooses a pivot in data\[a:b\].��//��// \[0,8\): chooses a static pivot.��// \[8,shortestNinther\): uses the simple median\-of\-three method.��// \[shortestNinther,∞\): uses the Tukey ninther method. 
 
 
 [\(view code\)](<./Sort.hx#L704>)
@@ -639,7 +639,7 @@ function _partition(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, 
 ```
 
 
-partition does one quicksort partition. Let p = data\[pivot\] Moves elements in data\[a:b\] around, so that data\[i\]\<p and data\[j\]\>=p for i\<newpivot and j\>newpivot. On return, data\[newpivot\] = p 
+partition does one quicksort partition.��// Let p = data\[pivot\]��// Moves elements in data\[a:b\] around, so that data\[i\]\<p and data\[j\]\>=p for i\<newpivot and j\>newpivot.��// On return, data\[newpivot\] = p 
 
 
 [\(view code\)](<./Sort.hx#L1073>)
@@ -653,7 +653,7 @@ function _partitionEqual(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.Go
 ```
 
 
-partitionEqual partitions data\[a:b\] into elements equal to data\[pivot\] followed by elements greater than data\[pivot\]. It assumed that data\[a:b\] does not contain elements smaller than the data\[pivot\]. 
+partitionEqual partitions data\[a:b\] into elements equal to data\[pivot\] followed by elements greater than data\[pivot\].��// It assumed that data\[a:b\] does not contain elements smaller than the data\[pivot\]. 
 
 
 [\(view code\)](<./Sort.hx#L1115>)
@@ -667,7 +667,7 @@ function _partitionEqual_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt,
 ```
 
 
-partitionEqual\_func partitions data\[a:b\] into elements equal to data\[pivot\] followed by elements greater than data\[pivot\]. It assumed that data\[a:b\] does not contain elements smaller than the data\[pivot\]. 
+partitionEqual\_func partitions data\[a:b\] into elements equal to data\[pivot\] followed by elements greater than data\[pivot\].��// It assumed that data\[a:b\] does not contain elements smaller than the data\[pivot\]. 
 
 
 [\(view code\)](<./Sort.hx#L605>)
@@ -681,7 +681,7 @@ function _partition_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:s
 ```
 
 
-partition\_func does one quicksort partition. Let p = data\[pivot\] Moves elements in data\[a:b\] around, so that data\[i\]\<p and data\[j\]\>=p for i\<newpivot and j\>newpivot. On return, data\[newpivot\] = p 
+partition\_func does one quicksort partition.��// Let p = data\[pivot\]��// Moves elements in data\[a:b\] around, so that data\[i\]\<p and data\[j\]\>=p for i\<newpivot and j\>newpivot.��// On return, data\[newpivot\] = p 
 
 
 [\(view code\)](<./Sort.hx#L563>)
@@ -695,7 +695,7 @@ function _pdqsort(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _l
 ```
 
 
-pdqsort sorts data\[a:b\]. The algorithm based on pattern\-defeating quicksort\(pdqsort\), but without the optimizations from BlockQuicksort. pdqsort paper: https://arxiv.org/pdf/2106.05123.pdf C\+\+ implementation: https://github.com/orlp/pdqsort Rust implementation: https://docs.rs/pdqsort/latest/pdqsort/ limit is the number of allowed bad \(very unbalanced\) pivots before falling back to heapsort. 
+pdqsort sorts data\[a:b\].��// The algorithm based on pattern\-defeating quicksort\(pdqsort\), but without the optimizations from BlockQuicksort.��// pdqsort paper: https://arxiv.org/pdf/2106.05123.pdf��// C\+\+ implementation: https://github.com/orlp/pdqsort��// Rust implementation: https://docs.rs/pdqsort/latest/pdqsort/��// limit is the number of allowed bad \(very unbalanced\) pivots before falling back to heapsort. 
 
 
 [\(view code\)](<./Sort.hx#L1008>)
@@ -709,7 +709,7 @@ function _pdqsort_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:std
 ```
 
 
-pdqsort\_func sorts data\[a:b\]. The algorithm based on pattern\-defeating quicksort\(pdqsort\), but without the optimizations from BlockQuicksort. pdqsort paper: https://arxiv.org/pdf/2106.05123.pdf C\+\+ implementation: https://github.com/orlp/pdqsort Rust implementation: https://docs.rs/pdqsort/latest/pdqsort/ limit is the number of allowed bad \(very unbalanced\) pivots before falling back to heapsort. 
+pdqsort\_func sorts data\[a:b\].��// The algorithm based on pattern\-defeating quicksort\(pdqsort\), but without the optimizations from BlockQuicksort.��// pdqsort paper: https://arxiv.org/pdf/2106.05123.pdf��// C\+\+ implementation: https://github.com/orlp/pdqsort��// Rust implementation: https://docs.rs/pdqsort/latest/pdqsort/��// limit is the number of allowed bad \(very unbalanced\) pivots before falling back to heapsort. 
 
 
 [\(view code\)](<./Sort.hx#L498>)
@@ -751,7 +751,7 @@ function _rotate(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _m:stdgo.GoInt, _b:
 ```
 
 
-rotate rotates two consecutive blocks u = data\[a:m\] and v = data\[m:b\] in data: Data of the form 'x u v y' is changed to 'x v u y'. rotate performs at most b\-a many calls to data.Swap, and it assumes non\-degenerate arguments: a \< m && m \< b. 
+rotate rotates two consecutive blocks u = data\[a:m\] and v = data\[m:b\] in data:��// Data of the form 'x u v y' is changed to 'x v u y'.��// rotate performs at most b\-a many calls to data.Swap,��// and it assumes non\-degenerate arguments: a \< m && m \< b. 
 
 
 [\(view code\)](<./Sort.hx#L1437>)
@@ -765,7 +765,7 @@ function _rotate_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _m:stdg
 ```
 
 
-rotate\_func rotates two consecutive blocks u = data\[a:m\] and v = data\[m:b\] in data: Data of the form 'x u v y' is changed to 'x v u y'. rotate performs at most b\-a many calls to data.Swap, and it assumes non\-degenerate arguments: a \< m && m \< b. 
+rotate\_func rotates two consecutive blocks u = data\[a:m\] and v = data\[m:b\] in data:��// Data of the form 'x u v y' is changed to 'x v u y'.��// rotate performs at most b\-a many calls to data.Swap,��// and it assumes non\-degenerate arguments: a \< m && m \< b. 
 
 
 [\(view code\)](<./Sort.hx#L927>)
@@ -779,7 +779,7 @@ function _siftDown(_data:stdgo.sort.Interface, _lo:stdgo.GoInt, _hi:stdgo.GoInt,
 ```
 
 
-siftDown implements the heap property on data\[lo:hi\]. first is an offset into the array where the root of the heap lies. 
+siftDown implements the heap property on data\[lo:hi\].��// first is an offset into the array where the root of the heap lies. 
 
 
 [\(view code\)](<./Sort.hx#L963>)
@@ -793,7 +793,7 @@ function _siftDown_func(_data:stdgo.sort._Sort.T_lessSwap, _lo:stdgo.GoInt, _hi:
 ```
 
 
-siftDown\_func implements the heap property on data\[lo:hi\]. first is an offset into the array where the root of the heap lies. 
+siftDown\_func implements the heap property on data\[lo:hi\].��// first is an offset into the array where the root of the heap lies. 
 
 
 [\(view code\)](<./Sort.hx#L453>)
@@ -863,7 +863,7 @@ function _symMerge(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _m:stdgo.GoInt, _
 ```
 
 
-symMerge merges the two sorted subsequences data\[a:m\] and data\[m:b\] using the SymMerge algorithm from Pok\-Son Kim and Arne Kutzner, "Stable Minimum Storage Merging by Symmetric Comparisons", in Susanne Albers and Tomasz Radzik, editors, Algorithms \- ESA 2004, volume 3221 of Lecture Notes in Computer Science, pages 714\-723. Springer, 2004.  Let M = m\-a and N = b\-n. Wolog M \< N. The recursion depth is bound by ceil\(log\(N\+M\)\). The algorithm needs O\(M\*log\(N/M \+ 1\)\) calls to data.Less. The algorithm needs O\(\(M\+N\)\*log\(M\)\) calls to data.Swap.  The paper gives O\(\(M\+N\)\*log\(M\)\) as the number of assignments assuming a rotation algorithm which uses O\(M\+N\+gcd\(M\+N\)\) assignments. The argumentation in the paper carries through for Swap operations, especially as the block swapping rotate uses only O\(M\+N\) Swaps.  symMerge assumes non\-degenerate arguments: a \< m && m \< b. Having the caller check this condition eliminates many leaf recursion calls, which improves performance. 
+symMerge merges the two sorted subsequences data\[a:m\] and data\[m:b\] using��// the SymMerge algorithm from Pok\-Son Kim and Arne Kutzner, "Stable Minimum��// Storage Merging by Symmetric Comparisons", in Susanne Albers and Tomasz��// Radzik, editors, Algorithms \- ESA 2004, volume 3221 of Lecture Notes in��// Computer Science, pages 714\-723. Springer, 2004.��//��// Let M = m\-a and N = b\-n. Wolog M \< N.��// The recursion depth is bound by ceil\(log\(N\+M\)\).��// The algorithm needs O\(M\*log\(N/M \+ 1\)\) calls to data.Less.��// The algorithm needs O\(\(M\+N\)\*log\(M\)\) calls to data.Swap.��//��// The paper gives O\(\(M\+N\)\*log\(M\)\) as the number of assignments assuming a��// rotation algorithm which uses O\(M\+N\+gcd\(M\+N\)\) assignments. The argumentation��// in the paper carries through for Swap operations, especially as the block��// swapping rotate uses only O\(M\+N\) Swaps.��//��// symMerge assumes non\-degenerate arguments: a \< m && m \< b.��// Having the caller check this condition eliminates many leaf recursion calls,��// which improves performance. 
 
 
 [\(view code\)](<./Sort.hx#L1358>)
@@ -877,7 +877,7 @@ function _symMerge_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _m:st
 ```
 
 
-symMerge\_func merges the two sorted subsequences data\[a:m\] and data\[m:b\] using the SymMerge algorithm from Pok\-Son Kim and Arne Kutzner, "Stable Minimum Storage Merging by Symmetric Comparisons", in Susanne Albers and Tomasz Radzik, editors, Algorithms \- ESA 2004, volume 3221 of Lecture Notes in Computer Science, pages 714\-723. Springer, 2004.  Let M = m\-a and N = b\-n. Wolog M \< N. The recursion depth is bound by ceil\(log\(N\+M\)\). The algorithm needs O\(M\*log\(N/M \+ 1\)\) calls to data.Less. The algorithm needs O\(\(M\+N\)\*log\(M\)\) calls to data.Swap.  The paper gives O\(\(M\+N\)\*log\(M\)\) as the number of assignments assuming a rotation algorithm which uses O\(M\+N\+gcd\(M\+N\)\) assignments. The argumentation in the paper carries through for Swap operations, especially as the block swapping rotate uses only O\(M\+N\) Swaps.  symMerge assumes non\-degenerate arguments: a \< m && m \< b. Having the caller check this condition eliminates many leaf recursion calls, which improves performance. 
+symMerge\_func merges the two sorted subsequences data\[a:m\] and data\[m:b\] using��// the SymMerge algorithm from Pok\-Son Kim and Arne Kutzner, "Stable Minimum��// Storage Merging by Symmetric Comparisons", in Susanne Albers and Tomasz��// Radzik, editors, Algorithms \- ESA 2004, volume 3221 of Lecture Notes in��// Computer Science, pages 714\-723. Springer, 2004.��//��// Let M = m\-a and N = b\-n. Wolog M \< N.��// The recursion depth is bound by ceil\(log\(N\+M\)\).��// The algorithm needs O\(M\*log\(N/M \+ 1\)\) calls to data.Less.��// The algorithm needs O\(\(M\+N\)\*log\(M\)\) calls to data.Swap.��//��// The paper gives O\(\(M\+N\)\*log\(M\)\) as the number of assignments assuming a��// rotation algorithm which uses O\(M\+N\+gcd\(M\+N\)\) assignments. The argumentation��// in the paper carries through for Swap operations, especially as the block��// swapping rotate uses only O\(M\+N\) Swaps.��//��// symMerge assumes non\-degenerate arguments: a \< m && m \< b.��// Having the caller check this condition eliminates many leaf recursion calls,��// which improves performance. 
 
 
 [\(view code\)](<./Sort.hx#L848>)
@@ -891,7 +891,7 @@ function find(_n:stdgo.GoInt, _cmp:()):{_1:Bool, _0:stdgo.GoInt}
 ```
 
 
-Find uses binary search to find and return the smallest index i in \[0, n\) at which cmp\(i\) \<= 0. If there is no such index i, Find returns i = n. The found result is true if i \< n and cmp\(i\) == 0. Find calls cmp\(i\) only for i in the range \[0, n\).  To permit binary search, Find requires that cmp\(i\) \> 0 for a leading prefix of the range, cmp\(i\) == 0 in the middle, and cmp\(i\) \< 0 for the final suffix of the range. \(Each subrange could be empty.\) The usual way to establish this condition is to interpret cmp\(i\) as a comparison of a desired target value t against entry i in an underlying indexed data structure x, returning \<0, 0, and \>0 when t \< x\[i\], t == x\[i\], and t \> x\[i\], respectively.  For example, to look for a particular string in a sorted, random\-access list of strings:  i, found := sort.Find\(x.Len\(\), func\(i int\) int \{ return strings.Compare\(target, x.At\(i\)\) \}\) if found \{ fmt.Printf\("found %s at entry %d\\n", target, i\) \} else \{ fmt.Printf\("%s not found, would insert at %d", target, i\) \} 
+Find uses binary search to find and return the smallest index i in \[0, n\)��// at which cmp\(i\) \<= 0. If there is no such index i, Find returns i = n.��// The found result is true if i \< n and cmp\(i\) == 0.��// Find calls cmp\(i\) only for i in the range \[0, n\).��//��// To permit binary search, Find requires that cmp\(i\) \> 0 for a leading��// prefix of the range, cmp\(i\) == 0 in the middle, and cmp\(i\) \< 0 for��// the final suffix of the range. \(Each subrange could be empty.\)��// The usual way to establish this condition is to interpret cmp\(i\)��// as a comparison of a desired target value t against entry i in an��// underlying indexed data structure x, returning \<0, 0, and \>0��// when t \< x\[i\], t == x\[i\], and t \> x\[i\], respectively.��//��// For example, to look for a particular string in a sorted, random\-access��// list of strings:��//��//�i, found := sort.Find\(x.Len\(\), func\(i int\) int \{��//�    return strings.Compare\(target, x.At\(i\)\)��//�\}\)��//�if found \{��//�    fmt.Printf\("found %s at entry %d\\n", target, i\)��//�\} else \{��//�    fmt.Printf\("%s not found, would insert at %d", target, i\)��//�\} 
 
 
 [\(view code\)](<./Sort.hx#L227>)
@@ -905,7 +905,7 @@ function float64s(_x:stdgo.Slice<stdgo.GoFloat64>):Void
 ```
 
 
-Float64s sorts a slice of float64s in increasing order. Not\-a\-number \(NaN\) values are ordered before other values. 
+Float64s sorts a slice of float64s in increasing order.��// Not\-a\-number \(NaN\) values are ordered before other values. 
 
 
 ### exampleFloat64s
@@ -943,7 +943,7 @@ function float64sAreSorted(_x:stdgo.Slice<stdgo.GoFloat64>):Bool
 ```
 
 
-Float64sAreSorted reports whether the slice x is sorted in increasing order, with not\-a\-number \(NaN\) values before any other values. 
+Float64sAreSorted reports whether the slice x is sorted in increasing order,��// with not\-a\-number \(NaN\) values before any other values. 
 
 
 ### exampleFloat64sAreSorted
@@ -1127,7 +1127,7 @@ function search(_n:stdgo.GoInt, _f:()):stdgo.GoInt
 ```
 
 
-Search uses binary search to find and return the smallest index i in \[0, n\) at which f\(i\) is true, assuming that on the range \[0, n\), f\(i\) == true implies f\(i\+1\) == true. That is, Search requires that f is false for some \(possibly empty\) prefix of the input range \[0, n\) and then true for the \(possibly empty\) remainder; Search returns the first true index. If there is no such index, Search returns n. \(Note that the "not found" return value is not \-1 as in, for instance, strings.Index.\) Search calls f\(i\) only for i in the range \[0, n\).  A common use of Search is to find the index i for a value x in a sorted, indexable data structure such as an array or slice. In this case, the argument f, typically a closure, captures the value to be searched for, and how the data structure is indexed and ordered.  For instance, given a slice data sorted in ascending order, the call Search\(len\(data\), func\(i int\) bool \{ return data\[i\] \>= 23 \}\) returns the smallest index i such that data\[i\] \>= 23. If the caller wants to find whether 23 is in the slice, it must test data\[i\] == 23 separately.  Searching data sorted in descending order would use the \<= operator instead of the \>= operator.  To complete the example above, the following code tries to find the value x in an integer slice data sorted in ascending order:  x := 23 i := sort.Search\(len\(data\), func\(i int\) bool \{ return data\[i\] \>= x \}\) if i \< len\(data\) && data\[i\] == x \{ // x is present at data\[i\] \} else \{ // x is not present in data, // but i is the index where it would be inserted. \}  As a more whimsical example, this program guesses your number:  func GuessingGame\(\) \{ var s string fmt.Printf\("Pick an integer from 0 to 100.\\n"\) answer := sort.Search\(100, func\(i int\) bool \{ fmt.Printf\("Is your number \<= %d? ", i\) fmt.Scanf\("%s", &s\) return s \!= "" && s\[0\] == 'y' \}\) fmt.Printf\("Your number is %d.\\n", answer\) \} 
+Search uses binary search to find and return the smallest index i��// in \[0, n\) at which f\(i\) is true, assuming that on the range \[0, n\),��// f\(i\) == true implies f\(i\+1\) == true. That is, Search requires that��// f is false for some \(possibly empty\) prefix of the input range \[0, n\)��// and then true for the \(possibly empty\) remainder; Search returns��// the first true index. If there is no such index, Search returns n.��// \(Note that the "not found" return value is not \-1 as in, for instance,��// strings.Index.\)��// Search calls f\(i\) only for i in the range \[0, n\).��//��// A common use of Search is to find the index i for a value x in��// a sorted, indexable data structure such as an array or slice.��// In this case, the argument f, typically a closure, captures the value��// to be searched for, and how the data structure is indexed and��// ordered.��//��// For instance, given a slice data sorted in ascending order,��// the call Search\(len\(data\), func\(i int\) bool \{ return data\[i\] \>= 23 \}\)��// returns the smallest index i such that data\[i\] \>= 23. If the caller��// wants to find whether 23 is in the slice, it must test data\[i\] == 23��// separately.��//��// Searching data sorted in descending order would use the \<=��// operator instead of the \>= operator.��//��// To complete the example above, the following code tries to find the value��// x in an integer slice data sorted in ascending order:��//��//�x := 23��//�i := sort.Search\(len\(data\), func\(i int\) bool \{ return data\[i\] \>= x \}\)��//�if i \< len\(data\) && data\[i\] == x \{��//��// x is present at data\[i\]��//�\} else \{��//��// x is not present in data,��//��// but i is the index where it would be inserted.��//�\}��//��// As a more whimsical example, this program guesses your number:��//��//�func GuessingGame\(\) \{��//��var s string��//��fmt.Printf\("Pick an integer from 0 to 100.\\n"\)��//��answer := sort.Search\(100, func\(i int\) bool \{��//���fmt.Printf\("Is your number \<= %d? ", i\)��//���fmt.Scanf\("%s", &s\)��//���return s \!= "" && s\[0\] == 'y'��//��\}\)��//��fmt.Printf\("Your number is %d.\\n", answer\)��//�\} 
 
 
 ### exampleSearch
@@ -1197,7 +1197,7 @@ function searchFloat64s(_a:stdgo.Slice<stdgo.GoFloat64>, _x:stdgo.GoFloat64):std
 ```
 
 
-SearchFloat64s searches for x in a sorted slice of float64s and returns the index as specified by Search. The return value is the index to insert x if x is not present \(it could be len\(a\)\). The slice must be sorted in ascending order. 
+SearchFloat64s searches for x in a sorted slice of float64s and returns the index��// as specified by Search. The return value is the index to insert x if x is not��// present \(it could be len\(a\)\).��// The slice must be sorted in ascending order. 
 
 
 ### exampleSearchFloat64s
@@ -1236,7 +1236,7 @@ function searchInts(_a:stdgo.Slice<stdgo.GoInt>, _x:stdgo.GoInt):stdgo.GoInt
 ```
 
 
-SearchInts searches for x in a sorted slice of ints and returns the index as specified by Search. The return value is the index to insert x if x is not present \(it could be len\(a\)\). The slice must be sorted in ascending order. 
+SearchInts searches for x in a sorted slice of ints and returns the index��// as specified by Search. The return value is the index to insert x if x is��// not present \(it could be len\(a\)\).��// The slice must be sorted in ascending order. 
 
 
 ### exampleSearchInts
@@ -1274,7 +1274,7 @@ function searchStrings(_a:stdgo.Slice<stdgo.GoString>, _x:stdgo.GoString):stdgo.
 ```
 
 
-SearchStrings searches for x in a sorted slice of strings and returns the index as specified by Search. The return value is the index to insert x if x is not present \(it could be len\(a\)\). The slice must be sorted in ascending order. 
+SearchStrings searches for x in a sorted slice of strings and returns the index��// as specified by Search. The return value is the index to insert x if x is not��// present \(it could be len\(a\)\).��// The slice must be sorted in ascending order. 
 
 
 [\(view code\)](<./Sort.hx#L271>)
@@ -1288,7 +1288,7 @@ function slice(_x:stdgo.AnyInterface, _less:(_i:stdgo.GoInt, _j:stdgo.GoInt):Boo
 ```
 
 
-Slice sorts the slice x given the provided less function. It panics if x is not a slice.  The sort is not guaranteed to be stable: equal elements may be reversed from their original order. For a stable sort, use SliceStable.  The less function must satisfy the same requirements as the Interface type's Less method. 
+Slice sorts the slice x given the provided less function.��// It panics if x is not a slice.��//��// The sort is not guaranteed to be stable: equal elements��// may be reversed from their original order.��// For a stable sort, use SliceStable.��//��// The less function must satisfy the same requirements as��// the Interface type's Less method. 
 
 
 ### exampleSlice
@@ -1329,7 +1329,7 @@ function sliceIsSorted(_x:stdgo.AnyInterface, _less:(_i:stdgo.GoInt, _j:stdgo.Go
 ```
 
 
-SliceIsSorted reports whether the slice x is sorted according to the provided less function. It panics if x is not a slice. 
+SliceIsSorted reports whether the slice x is sorted according to the provided less function.��// It panics if x is not a slice. 
 
 
 [\(view code\)](<./Sort.hx#L314>)
@@ -1343,7 +1343,7 @@ function sliceStable(_x:stdgo.AnyInterface, _less:(_i:stdgo.GoInt, _j:stdgo.GoIn
 ```
 
 
-SliceStable sorts the slice x using the provided less function, keeping equal elements in their original order. It panics if x is not a slice.  The less function must satisfy the same requirements as the Interface type's Less method. 
+SliceStable sorts the slice x using the provided less��// function, keeping equal elements in their original order.��// It panics if x is not a slice.��//��// The less function must satisfy the same requirements as��// the Interface type's Less method. 
 
 
 ### exampleSliceStable
@@ -1386,7 +1386,7 @@ function sort(_data:stdgo.sort.Interface):Void
 ```
 
 
-Sort sorts data in ascending order as determined by the Less method. It makes one call to data.Len to determine n and O\(n\*log\(n\)\) calls to data.Less and data.Swap. The sort is not guaranteed to be stable. 
+Sort sorts data in ascending order as determined by the Less method.��// It makes one call to data.Len to determine n and O\(n\*log\(n\)\) calls to��// data.Less and data.Swap. The sort is not guaranteed to be stable. 
 
 
 [\(view code\)](<./Sort.hx#L333>)
@@ -1400,7 +1400,7 @@ function stable(_data:stdgo.sort.Interface):Void
 ```
 
 
-Stable sorts data in ascending order as determined by the Less method, while keeping the original order of equal elements.  It makes one call to data.Len to determine n, O\(n\*log\(n\)\) calls to data.Less and O\(n\*log\(n\)\*log\(n\)\) calls to data.Swap. 
+Stable sorts data in ascending order as determined by the Less method,��// while keeping the original order of equal elements.��//��// It makes one call to data.Len to determine n, O\(n\*log\(n\)\) calls to��// data.Less and O\(n\*log\(n\)\*log\(n\)\) calls to data.Swap. 
 
 
 [\(view code\)](<./Sort.hx#L428>)
@@ -1490,7 +1490,7 @@ function less( _i:stdgo.GoInt, _j:stdgo.GoInt):Bool
 ```
 
 
-Less reports whether x\[i\] should be ordered before x\[j\], as required by the sort Interface. Note that floating\-point comparison by itself is not a transitive relation: it does not report a consistent ordering for not\-a\-number \(NaN\) values. This implementation of Less places NaN values before any others, by using:  x\[i\] \< x\[j\] || \(math.IsNaN\(x\[i\]\) && \!math.IsNaN\(x\[j\]\)\) 
+Less reports whether x\[i\] should be ordered before x\[j\], as required by the sort Interface.���// Note that floating\-point comparison by itself is not a transitive relation: it does not���// report a consistent ordering for not\-a\-number \(NaN\) values.���// This implementation of Less places NaN values before any others, by using:���//���//�x\[i\] \< x\[j\] || \(math.IsNaN\(x\[i\]\) && \!math.IsNaN\(x\[j\]\)\) 
 
 
 [\(view code\)](<./Sort.hx#L1687>)
@@ -1774,7 +1774,7 @@ typedef Float64Slice = var x:stdgo.GoFloat64
 ```
 
 
-Float64Slice implements Interface for a \[\]float64, sorting in increasing order, with not\-a\-number \(NaN\) values ordered before other values. 
+Float64Slice implements Interface for a \[\]float64, sorting in increasing order,��// with not\-a\-number \(NaN\) values ordered before other values. 
 
 
 ### Float64Slice function len
@@ -1799,7 +1799,7 @@ function less( _i:stdgo.GoInt, _j:stdgo.GoInt):Bool
 ```
 
 
-Less reports whether x\[i\] should be ordered before x\[j\], as required by the sort Interface. Note that floating\-point comparison by itself is not a transitive relation: it does not report a consistent ordering for not\-a\-number \(NaN\) values. This implementation of Less places NaN values before any others, by using:  x\[i\] \< x\[j\] || \(math.IsNaN\(x\[i\]\) && \!math.IsNaN\(x\[j\]\)\) 
+Less reports whether x\[i\] should be ordered before x\[j\], as required by the sort Interface.���// Note that floating\-point comparison by itself is not a transitive relation: it does not���// report a consistent ordering for not\-a\-number \(NaN\) values.���// This implementation of Less places NaN values before any others, by using:���//���//�x\[i\] \< x\[j\] || \(math.IsNaN\(x\[i\]\) && \!math.IsNaN\(x\[j\]\)\) 
 
 
 [\(view code\)](<./Sort.hx#L1687>)
@@ -1936,7 +1936,7 @@ typedef Interface = var a:{<__underlying__> | (_i:stdgo.GoInt, _j:stdgo.GoInt):V
 ```
 
 
-An implementation of Interface can be sorted by the routines in this package. The methods refer to elements of the underlying collection by integer index. 
+An implementation of Interface can be sorted by the routines in this package.��// The methods refer to elements of the underlying collection by integer index. 
 
 
 ## typedef StringSlice

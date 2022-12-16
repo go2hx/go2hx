@@ -6,7 +6,7 @@
 # Overview
 
 
-Package path implements utility routines for manipulating slash\-separated paths.  The path package should only be used for paths separated by forward slashes, such as the paths in URLs. This package does not deal with Windows paths with drive letters or backslashes; to manipulate operating system paths, use the path/filepath package. 
+Package path implements utility routines for manipulating slash\-separated��// paths.��//��// The path package should only be used for paths separated by forward��// slashes, such as the paths in URLs. This package does not deal with��// Windows paths with drive letters or backslashes; to manipulate��// operating system paths, use the path/filepath package. 
 
 
 <details><summary>hl tests failed</summary>
@@ -145,7 +145,7 @@ function _lastSlash(_s:stdgo.GoString):stdgo.GoInt
 lastSlash\(s\) is strings.LastIndex\(s, "/"\) but we can't import strings. 
 
 
-[\(view code\)](<./Path.hx#L432>)
+[\(view code\)](<./Path.hx#L431>)
 
 
 ## function \_matchChunk
@@ -156,7 +156,7 @@ function _matchChunk(_chunk:stdgo.GoString, _s:stdgo.GoString):{_2:stdgo.Error, 
 ```
 
 
-matchChunk checks whether chunk matches the beginning of s. If so, it returns the remainder of s \(after the match\). Chunk is all single\-character operators: literals, char classes, and ?. 
+matchChunk checks whether chunk matches the beginning of s.��// If so, it returns the remainder of s \(after the match\).��// Chunk is all single\-character operators: literals, char classes, and ?. 
 
 
 [\(view code\)](<./Path.hx#L202>)
@@ -170,7 +170,7 @@ function _scanChunk(_pattern:stdgo.GoString):{_2:stdgo.GoString, _1:stdgo.GoStri
 ```
 
 
-scanChunk gets the next segment of pattern, which is a non\-star string possibly preceded by a star. 
+scanChunk gets the next segment of pattern, which is a non\-star string��// possibly preceded by a star. 
 
 
 [\(view code\)](<./Path.hx#L150>)
@@ -184,7 +184,7 @@ function base(_path:stdgo.GoString):stdgo.GoString
 ```
 
 
-Base returns the last element of path. Trailing slashes are removed before extracting the last element. If the path is empty, Base returns ".". If the path consists entirely of slashes, Base returns "/". 
+Base returns the last element of path.��// Trailing slashes are removed before extracting the last element.��// If the path is empty, Base returns ".".��// If the path consists entirely of slashes, Base returns "/". 
 
 
 ### exampleBase
@@ -207,7 +207,7 @@ function exampleBase():Void {
 </details>
 
 
-[\(view code\)](<./Path.hx#L505>)
+[\(view code\)](<./Path.hx#L504>)
 
 
 ## function clean
@@ -218,7 +218,7 @@ function clean(_path:stdgo.GoString):stdgo.GoString
 ```
 
 
-Clean returns the shortest path name equivalent to path by purely lexical processing. It applies the following rules iteratively until no further processing can be done:  1. Replace multiple slashes with a single slash. 2. Eliminate each . path name element \(the current directory\). 3. Eliminate each inner .. path name element \(the parent directory\) along with the non\-.. element that precedes it. 4. Eliminate .. elements that begin a rooted path: that is, replace "/.." by "/" at the beginning of a path.  The returned path ends in a slash only if it is the root "/".  If the result of this process is an empty string, Clean returns the string ".".  See also Rob Pike, “Lexical File Names in Plan 9 or Getting Dot\-Dot Right,” https://9p.io/sys/doc/lexnames.html 
+Clean returns the shortest path name equivalent to path��// by purely lexical processing. It applies the following rules��// iteratively until no further processing can be done:��//��//  1. Replace multiple slashes with a single slash.��//  2. Eliminate each . path name element \(the current directory\).��//  3. Eliminate each inner .. path name element \(the parent directory\)��//     along with the non\-.. element that precedes it.��//  4. Eliminate .. elements that begin a rooted path:��//     that is, replace "/.." by "/" at the beginning of a path.��//��// The returned path ends in a slash only if it is the root "/".��//��// If the result of this process is an empty string, Clean��// returns the string ".".��//��// See also Rob Pike, “Lexical File Names in Plan 9 or��// Getting Dot\-Dot Right,”��// https://9p.io/sys/doc/lexnames.html 
 
 
 ### exampleClean
@@ -254,7 +254,7 @@ function dir(_path:stdgo.GoString):stdgo.GoString
 ```
 
 
-Dir returns all but the last element of path, typically the path's directory. After dropping the final element using Split, the path is Cleaned and trailing slashes are removed. If the path is empty, Dir returns ".". If the path consists entirely of slashes followed by non\-slash bytes, Dir returns a single slash. In any other case, the returned path does not end in a slash. 
+Dir returns all but the last element of path, typically the path's directory.��// After dropping the final element using Split, the path is Cleaned and trailing��// slashes are removed.��// If the path is empty, Dir returns ".".��// If the path consists entirely of slashes followed by non\-slash bytes, Dir��// returns a single slash. In any other case, the returned path does not end in a��// slash. 
 
 
 ### exampleDir
@@ -280,7 +280,7 @@ function exampleDir():Void {
 </details>
 
 
-[\(view code\)](<./Path.hx#L540>)
+[\(view code\)](<./Path.hx#L539>)
 
 
 ## function ext
@@ -291,7 +291,7 @@ function ext(_path:stdgo.GoString):stdgo.GoString
 ```
 
 
-Ext returns the file name extension used by path. The extension is the suffix beginning at the final dot in the final slash\-separated element of path; it is empty if there is no dot. 
+Ext returns the file name extension used by path.��// The extension is the suffix beginning at the final dot��// in the final slash\-separated element of path;��// it is empty if there is no dot. 
 
 
 ### exampleExt
@@ -314,7 +314,7 @@ function exampleExt():Void {
 </details>
 
 
-[\(view code\)](<./Path.hx#L487>)
+[\(view code\)](<./Path.hx#L486>)
 
 
 ## function isAbs
@@ -346,7 +346,7 @@ function exampleIsAbs():Void {
 </details>
 
 
-[\(view code\)](<./Path.hx#L527>)
+[\(view code\)](<./Path.hx#L526>)
 
 
 ## function join
@@ -357,7 +357,7 @@ function join(_elem:haxe.Rest<stdgo.GoString>):stdgo.GoString
 ```
 
 
-Join joins any number of path elements into a single path, separating them with slashes. Empty elements are ignored. The result is Cleaned. However, if the argument list is empty or all its elements are empty, Join returns an empty string. 
+Join joins any number of path elements into a single path,��// separating them with slashes. Empty elements are ignored.��// The result is Cleaned. However, if the argument list is��// empty or all its elements are empty, Join returns��// an empty string. 
 
 
 ### exampleJoin
@@ -384,7 +384,7 @@ function exampleJoin():Void {
 </details>
 
 
-[\(view code\)](<./Path.hx#L460>)
+[\(view code\)](<./Path.hx#L459>)
 
 
 ## function match
@@ -395,7 +395,7 @@ function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{_1:stdgo.Error, _
 ```
 
 
-Match reports whether name matches the shell pattern. The pattern syntax is:  pattern: \{ term \} term: '\*'         matches any sequence of non\-/ characters '?'         matches any single non\-/ character '\[' \[ '^' \] \{ character\-range \} '\]' character class \(must be non\-empty\) c           matches character c \(c \!= '\*', '?', '\\\\', '\['\) '\\\\' c      matches character c  character\-range: c           matches character c \(c \!= '\\\\', '\-', '\]'\) '\\\\' c      matches character c lo '\-' hi   matches character c for lo \<= c \<= hi  Match requires pattern to match all of name, not just a substring. The only possible returned error is ErrBadPattern, when pattern is malformed. 
+Match reports whether name matches the shell pattern.��// The pattern syntax is:��//��//�pattern:��//��\{ term \}��//�term:��//��'\*'         matches any sequence of non\-/ characters��//��'?'         matches any single non\-/ character��//��'\[' \[ '^' \] \{ character\-range \} '\]'��//��            character class \(must be non\-empty\)��//��c           matches character c \(c \!= '\*', '?', '\\\\', '\['\)��//��'\\\\' c      matches character c��//��//�character\-range:��//��c           matches character c \(c \!= '\\\\', '\-', '\]'\)��//��'\\\\' c      matches character c��//��lo '\-' hi   matches character c for lo \<= c \<= hi��//��// Match requires pattern to match all of name, not just a substring.��// The only possible returned error is ErrBadPattern, when pattern��// is malformed. 
 
 
 ### exampleMatch
@@ -438,7 +438,7 @@ function split(_path:stdgo.GoString):{_1:stdgo.GoString, _0:stdgo.GoString}
 ```
 
 
-Split splits path immediately following the final slash, separating it into a directory and file name component. If there is no slash in path, Split returns an empty dir and file set to path. The returned values have the property that path = dir\+file. 
+Split splits path immediately following the final slash,��// separating it into a directory and file name component.��// If there is no slash in path, Split returns an empty dir and��// file set to path.��// The returned values have the property that path = dir\+file. 
 
 
 ### exampleSplit
@@ -465,7 +465,7 @@ function exampleSplit():Void {
 </details>
 
 
-[\(view code\)](<./Path.hx#L447>)
+[\(view code\)](<./Path.hx#L446>)
 
 
 # Classes
@@ -493,7 +493,7 @@ function _append(_b:stdgo.Ref<stdgo.path._Path.T_lazybuf>, _c:stdgo.GoByte):Void
  
 
 
-[\(view code\)](<./Path.hx#L584>)
+[\(view code\)](<./Path.hx#L583>)
 
 
 ### T\_lazybuf\_static\_extension function \_index
@@ -507,7 +507,7 @@ function _index(_b:stdgo.Ref<stdgo.path._Path.T_lazybuf>, _i:stdgo.GoInt):stdgo.
  
 
 
-[\(view code\)](<./Path.hx#L598>)
+[\(view code\)](<./Path.hx#L597>)
 
 
 ### T\_lazybuf\_static\_extension function \_string
@@ -521,6 +521,6 @@ function _string(_b:stdgo.Ref<stdgo.path._Path.T_lazybuf>):stdgo.GoString
  
 
 
-[\(view code\)](<./Path.hx#L576>)
+[\(view code\)](<./Path.hx#L575>)
 
 

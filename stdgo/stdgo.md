@@ -42,7 +42,7 @@
 | [stdgo.runtime](./runtime/README.md) | ✅ | no |  |  |  |  |
 | [stdgo.sort](./sort/README.md) | ✅ | yes |  | ✅ | ✅ | ❌ |
 | [stdgo.strconv](./strconv/README.md) | ✅ | yes |  | ✅ | ❌ | ❌ |
-| [stdgo.strings](./strings/README.md) | ✅ | yes |  | ❌ | ❌ | ❌ |
+| [stdgo.strings](./strings/README.md) | ✅ | yes |  | ✅ | ✅ | ❌ |
 | [stdgo.sync](./sync/README.md) | ❌ | yes |  |  |  |  |
 | [stdgo.sync.atomic](./sync/atomic/README.md) | ❌ | yes |  |  |  |  |
 | [stdgo.syscall](./syscall/README.md) | ❌ | yes |  |  |  |  |

@@ -6,7 +6,7 @@
 # Overview
 
 
-|\* Package syntax parses regular expressions into parse trees and compiles parse trees into programs. Most clients of regular expressions will use the facilities of package regexp \(such as Compile and Match\) instead of this package.  \# Syntax  The regular expression syntax understood by this package when parsing with the Perl flag is as follows. Parts of the syntax can be disabled by passing alternate flags to Parse.  Single characters:  .              any character, possibly including newline \(flag s=true\) \[xyz\]          character class \[^xyz\]         negated character class \\d             Perl character class \\D             negated Perl character class \[\[:alpha:\]\]    ASCII character class \[\[:^alpha:\]\]   negated ASCII character class \\pN            Unicode character class \(one\-letter name\) \\p\{Greek\}      Unicode character class \\PN            negated Unicode character class \(one\-letter name\) \\P\{Greek\}      negated Unicode character class  Composites:  xy             x followed by y x|y            x or y \(prefer x\)  Repetitions:  x\*             zero or more x, prefer more x\+             one or more x, prefer more x?             zero or one x, prefer one x\{n,m\}         n or n\+1 or ... or m x, prefer more x\{n,\}          n or more x, prefer more x\{n\}           exactly n x x\*?            zero or more x, prefer fewer x\+?            one or more x, prefer fewer x??            zero or one x, prefer zero x\{n,m\}?        n or n\+1 or ... or m x, prefer fewer x\{n,\}?         n or more x, prefer fewer x\{n\}?          exactly n x  Implementation restriction: The counting forms x\{n,m\}, x\{n,\}, and x\{n\} reject forms that create a minimum or maximum repetition count above 1000. Unlimited repetitions are not subject to this restriction.  Grouping:  \(re\)           numbered capturing group \(submatch\) \(?P\<name\>re\)   named & numbered capturing group \(submatch\) \(?:re\)         non\-capturing group \(?flags\)       set flags within current group; non\-capturing \(?flags:re\)    set flags during re; non\-capturing  Flag syntax is xyz \(set\) or \-xyz \(clear\) or xy\-z \(set xy, clear z\). The flags are:  i              case\-insensitive \(default false\) m              multi\-line mode: ^ and $ match begin/end line in addition to begin/end text \(default false\) s              let . match \\n \(default false\) U              ungreedy: swap meaning of x\* and x\*?, x\+ and x\+?, etc \(default false\)  Empty strings:  ^              at beginning of text or line \(flag m=true\) $              at end of text \(like \\z not \\Z\) or line \(flag m=true\) \\A             at beginning of text \\b             at ASCII word boundary \(\\w on one side and \\W, \\A, or \\z on the other\) \\B             not at ASCII word boundary \\z             at end of text  Escape sequences:  \\a             bell \(== \\007\) \\f             form feed \(== \\014\) \\t             horizontal tab \(== \\011\) \\n             newline \(== \\012\) \\r             carriage return \(== \\015\) \\v             vertical tab character \(== \\013\) \\\*             literal \*, for any punctuation character \* \\123           octal character code \(up to three digits\) \\x7F           hex character code \(exactly two digits\) \\x\{10FFFF\}     hex character code \\Q...\\E        literal text ... even if ... has punctuation  Character class elements:  x              single character A\-Z            character range \(inclusive\) \\d             Perl character class \[:foo:\]        ASCII character class foo \\p\{Foo\}        Unicode character class Foo \\pF            Unicode character class F \(one\-letter name\)  Named character classes as character class elements:  \[\\d\]           digits \(== \\d\) \[^\\d\]          not digits \(== \\D\) \[\\D\]           not digits \(== \\D\) \[^\\D\]          not not digits \(== \\d\) \[\[:name:\]\]     named ASCII class inside character class \(== \[:name:\]\) \[^\[:name:\]\]    named ASCII class inside negated character class \(== \[:^name:\]\) \[\\p\{Name\}\]     named Unicode property inside character class \(== \\p\{Name\}\) \[^\\p\{Name\}\]    named Unicode property inside negated character class \(== \\P\{Name\}\)  Perl character classes \(all ASCII\-only\):  \\d             digits \(== \[0\-9\]\) \\D             not digits \(== \[^0\-9\]\) \\s             whitespace \(== \[\\t\\n\\f\\r \]\) \\S             not whitespace \(== \[^\\t\\n\\f\\r \]\) \\w             word characters \(== \[0\-9A\-Za\-z\_\]\) \\W             not word characters \(== \[^0\-9A\-Za\-z\_\]\)  ASCII character classes:  \[\[:alnum:\]\]    alphanumeric \(== \[0\-9A\-Za\-z\]\) \[\[:alpha:\]\]    alphabetic \(== \[A\-Za\-z\]\) \[\[:ascii:\]\]    ASCII \(== \[\\x00\-\\x7F\]\) \[\[:blank:\]\]    blank \(== \[\\t \]\) \[\[:cntrl:\]\]    control \(== \[\\x00\-\\x1F\\x7F\]\) \[\[:digit:\]\]    digits \(== \[0\-9\]\) \[\[:graph:\]\]    graphical \(== \[\!\-\~\] == \[A\-Za\-z0\-9\!"\#$%&'\(\)\*\+,\\\-./:;\<=\>?@\[\\\\\\\]^\_\`\{|\}\~\]\) \[\[:lower:\]\]    lower case \(== \[a\-z\]\) \[\[:print:\]\]    printable \(== \[ \-\~\] == \[ \[:graph:\]\]\) \[\[:punct:\]\]    punctuation \(== \[\!\-/:\-@\[\-\`\{\-\~\]\) \[\[:space:\]\]    whitespace \(== \[\\t\\n\\v\\f\\r \]\) \[\[:upper:\]\]    upper case \(== \[A\-Z\]\) \[\[:word:\]\]     word characters \(== \[0\-9A\-Za\-z\_\]\) \[\[:xdigit:\]\]   hex digit \(== \[0\-9A\-Fa\-f\]\)  Unicode character classes are those in unicode.Categories and unicode.Scripts. \*|/ 
+|\*��Package syntax parses regular expressions into parse trees and compiles��parse trees into programs. Most clients of regular expressions will use the��facilities of package regexp \(such as Compile and Match\) instead of this package.���\# Syntax���The regular expression syntax understood by this package when parsing with the Perl flag is as follows.��Parts of the syntax can be disabled by passing alternate flags to Parse.���Single characters:����.              any character, possibly including newline \(flag s=true\)���\[xyz\]          character class���\[^xyz\]         negated character class���\\d             Perl character class���\\D             negated Perl character class���\[\[:alpha:\]\]    ASCII character class���\[\[:^alpha:\]\]   negated ASCII character class���\\pN            Unicode character class \(one\-letter name\)���\\p\{Greek\}      Unicode character class���\\PN            negated Unicode character class \(one\-letter name\)���\\P\{Greek\}      negated Unicode character class���Composites:����xy             x followed by y���x|y            x or y \(prefer x\)���Repetitions:����x\*             zero or more x, prefer more���x\+             one or more x, prefer more���x?             zero or one x, prefer one���x\{n,m\}         n or n\+1 or ... or m x, prefer more���x\{n,\}          n or more x, prefer more���x\{n\}           exactly n x���x\*?            zero or more x, prefer fewer���x\+?            one or more x, prefer fewer���x??            zero or one x, prefer zero���x\{n,m\}?        n or n\+1 or ... or m x, prefer fewer���x\{n,\}?         n or more x, prefer fewer���x\{n\}?          exactly n x���Implementation restriction: The counting forms x\{n,m\}, x\{n,\}, and x\{n\}��reject forms that create a minimum or maximum repetition count above 1000.��Unlimited repetitions are not subject to this restriction.���Grouping:����\(re\)           numbered capturing group \(submatch\)���\(?P\<name\>re\)   named & numbered capturing group \(submatch\)���\(?:re\)         non\-capturing group���\(?flags\)       set flags within current group; non\-capturing���\(?flags:re\)    set flags during re; non\-capturing����Flag syntax is xyz \(set\) or \-xyz \(clear\) or xy\-z \(set xy, clear z\). The flags are:����i              case\-insensitive \(default false\)���m              multi\-line mode: ^ and $ match begin/end line in addition to begin/end text \(default false\)���s              let . match \\n \(default false\)���U              ungreedy: swap meaning of x\* and x\*?, x\+ and x\+?, etc \(default false\)���Empty strings:����^              at beginning of text or line \(flag m=true\)���$              at end of text \(like \\z not \\Z\) or line \(flag m=true\)���\\A             at beginning of text���\\b             at ASCII word boundary \(\\w on one side and \\W, \\A, or \\z on the other\)���\\B             not at ASCII word boundary���\\z             at end of text���Escape sequences:����\\a             bell \(== \\007\)���\\f             form feed \(== \\014\)���\\t             horizontal tab \(== \\011\)���\\n             newline \(== \\012\)���\\r             carriage return \(== \\015\)���\\v             vertical tab character \(== \\013\)���\\\*             literal \*, for any punctuation character \*���\\123           octal character code \(up to three digits\)���\\x7F           hex character code \(exactly two digits\)���\\x\{10FFFF\}     hex character code���\\Q...\\E        literal text ... even if ... has punctuation���Character class elements:����x              single character���A\-Z            character range \(inclusive\)���\\d             Perl character class���\[:foo:\]        ASCII character class foo���\\p\{Foo\}        Unicode character class Foo���\\pF            Unicode character class F \(one\-letter name\)���Named character classes as character class elements:����\[\\d\]           digits \(== \\d\)���\[^\\d\]          not digits \(== \\D\)���\[\\D\]           not digits \(== \\D\)���\[^\\D\]          not not digits \(== \\d\)���\[\[:name:\]\]     named ASCII class inside character class \(== \[:name:\]\)���\[^\[:name:\]\]    named ASCII class inside negated character class \(== \[:^name:\]\)���\[\\p\{Name\}\]     named Unicode property inside character class \(== \\p\{Name\}\)���\[^\\p\{Name\}\]    named Unicode property inside negated character class \(== \\P\{Name\}\)���Perl character classes \(all ASCII\-only\):����\\d             digits \(== \[0\-9\]\)���\\D             not digits \(== \[^0\-9\]\)���\\s             whitespace \(== \[\\t\\n\\f\\r \]\)���\\S             not whitespace \(== \[^\\t\\n\\f\\r \]\)���\\w             word characters \(== \[0\-9A\-Za\-z\_\]\)���\\W             not word characters \(== \[^0\-9A\-Za\-z\_\]\)���ASCII character classes:����\[\[:alnum:\]\]    alphanumeric \(== \[0\-9A\-Za\-z\]\)���\[\[:alpha:\]\]    alphabetic \(== \[A\-Za\-z\]\)���\[\[:ascii:\]\]    ASCII \(== \[\\x00\-\\x7F\]\)���\[\[:blank:\]\]    blank \(== \[\\t \]\)���\[\[:cntrl:\]\]    control \(== \[\\x00\-\\x1F\\x7F\]\)���\[\[:digit:\]\]    digits \(== \[0\-9\]\)���\[\[:graph:\]\]    graphical \(== \[\!\-\~\] == \[A\-Za\-z0\-9\!"\#$%&'\(\)\*\+,\\\-./:;\<=\>?@\[\\\\\\\]^\_\`\{|\}\~\]\)���\[\[:lower:\]\]    lower case \(== \[a\-z\]\)���\[\[:print:\]\]    printable \(== \[ \-\~\] == \[ \[:graph:\]\]\)���\[\[:punct:\]\]    punctuation \(== \[\!\-/:\-@\[\-\`\{\-\~\]\)���\[\[:space:\]\]    whitespace \(== \[\\t\\n\\v\\f\\r \]\)���\[\[:upper:\]\]    upper case \(== \[A\-Z\]\)���\[\[:word:\]\]     word characters \(== \[0\-9A\-Za\-z\_\]\)���\[\[:xdigit:\]\]   hex digit \(== \[0\-9A\-Fa\-f\]\)���Unicode character classes are those in unicode.Categories and unicode.Scripts.��\*|/ 
 
 
 <details><summary>hl tests failed</summary>
@@ -822,10 +822,10 @@ function _appendClass(_r:stdgo.Slice<stdgo.GoRune>, _x:stdgo.Slice<stdgo.GoRune>
 ```
 
 
-appendClass returns the result of appending the class x to the class r. It assume x is clean. 
+appendClass returns the result of appending the class x to the class r.��// It assume x is clean. 
 
 
-[\(view code\)](<./Syntax.hx#L930>)
+[\(view code\)](<./Syntax.hx#L958>)
 
 
 ## function \_appendFoldedClass
@@ -839,7 +839,7 @@ function _appendFoldedClass(_r:stdgo.Slice<stdgo.GoRune>, _x:stdgo.Slice<stdgo.G
 appendFolded returns the result of appending the case folding of the class x to the class r. 
 
 
-[\(view code\)](<./Syntax.hx#L936>)
+[\(view code\)](<./Syntax.hx#L964>)
 
 
 ## function \_appendFoldedRange
@@ -850,10 +850,10 @@ function _appendFoldedRange(_r:stdgo.Slice<stdgo.GoRune>, _lo:stdgo.GoRune, _hi:
 ```
 
 
-appendFoldedRange returns the result of appending the range lo\-hi and its case folding\-equivalent runes to the class r. 
+appendFoldedRange returns the result of appending the range lo\-hi��// and its case folding\-equivalent runes to the class r. 
 
 
-[\(view code\)](<./Syntax.hx#L923>)
+[\(view code\)](<./Syntax.hx#L951>)
 
 
 ## function \_appendLiteral
@@ -867,7 +867,7 @@ function _appendLiteral(_r:stdgo.Slice<stdgo.GoRune>, _x:stdgo.GoRune, _flags:st
 appendLiteral returns the result of appending the literal x to the class r. 
 
 
-[\(view code\)](<./Syntax.hx#L910>)
+[\(view code\)](<./Syntax.hx#L938>)
 
 
 ## function \_appendNegatedClass
@@ -878,10 +878,10 @@ function _appendNegatedClass(_r:stdgo.Slice<stdgo.GoRune>, _x:stdgo.Slice<stdgo.
 ```
 
 
-appendNegatedClass returns the result of appending the negation of the class x to the class r. It assumes x is clean. 
+appendNegatedClass returns the result of appending the negation of the class x to the class r.��// It assumes x is clean. 
 
 
-[\(view code\)](<./Syntax.hx#L943>)
+[\(view code\)](<./Syntax.hx#L971>)
 
 
 ## function \_appendNegatedTable
@@ -895,7 +895,7 @@ function _appendNegatedTable(_r:stdgo.Slice<stdgo.GoRune>, _x:stdgo.Ref<stdgo.un
 appendNegatedTable returns the result of appending the negation of x to the class r. 
 
 
-[\(view code\)](<./Syntax.hx#L955>)
+[\(view code\)](<./Syntax.hx#L983>)
 
 
 ## function \_appendRange
@@ -909,7 +909,7 @@ function _appendRange(_r:stdgo.Slice<stdgo.GoRune>, _lo:stdgo.GoRune, _hi:stdgo.
 appendRange returns the result of appending the range lo\-hi to the class r. 
 
 
-[\(view code\)](<./Syntax.hx#L916>)
+[\(view code\)](<./Syntax.hx#L944>)
 
 
 ## function \_appendTable
@@ -923,7 +923,7 @@ function _appendTable(_r:stdgo.Slice<stdgo.GoRune>, _x:stdgo.Ref<stdgo.unicode.R
 appendTable returns the result of appending x to the class r. 
 
 
-[\(view code\)](<./Syntax.hx#L949>)
+[\(view code\)](<./Syntax.hx#L977>)
 
 
 ## function \_bw
@@ -937,7 +937,7 @@ function _bw(_b:stdgo.Ref<stdgo.strings.Builder>, _args:haxe.Rest<stdgo.GoString
  
 
 
-[\(view code\)](<./Syntax.hx#L1050>)
+[\(view code\)](<./Syntax.hx#L1078>)
 
 
 ## function \_checkUTF8
@@ -951,7 +951,7 @@ function _checkUTF8(_s:stdgo.GoString):stdgo.Error
  
 
 
-[\(view code\)](<./Syntax.hx#L965>)
+[\(view code\)](<./Syntax.hx#L993>)
 
 
 ## function \_cleanAlt
@@ -965,7 +965,7 @@ function _cleanAlt(_re:stdgo.Ref<stdgo.regexp.syntax.Regexp>):Void
 cleanAlt cleans re for eventual inclusion in an alternation. 
 
 
-[\(view code\)](<./Syntax.hx#L845>)
+[\(view code\)](<./Syntax.hx#L873>)
 
 
 ## function \_cleanClass
@@ -976,10 +976,10 @@ function _cleanClass(_rp:stdgo.Ref<stdgo.Slice<stdgo.GoRune>>):stdgo.Slice<stdgo
 ```
 
 
-cleanClass sorts the ranges \(pairs of elements of r\), merges them, and eliminates duplicates. 
+cleanClass sorts the ranges \(pairs of elements of r\),��// merges them, and eliminates duplicates. 
 
 
-[\(view code\)](<./Syntax.hx#L904>)
+[\(view code\)](<./Syntax.hx#L932>)
 
 
 ## function \_dump
@@ -990,10 +990,10 @@ function _dump(_re:stdgo.Ref<stdgo.regexp.syntax.Regexp>):stdgo.GoString
 ```
 
 
-dump prints a string representation of the regexp showing the structure explicitly. 
+dump prints a string representation of the regexp showing��// the structure explicitly. 
 
 
-[\(view code\)](<./Syntax.hx#L1002>)
+[\(view code\)](<./Syntax.hx#L1030>)
 
 
 ## function \_dumpInst
@@ -1007,7 +1007,7 @@ function _dumpInst(_b:stdgo.Ref<stdgo.strings.Builder>, _i:stdgo.Ref<stdgo.regex
  
 
 
-[\(view code\)](<./Syntax.hx#L1059>)
+[\(view code\)](<./Syntax.hx#L1087>)
 
 
 ## function \_dumpProg
@@ -1021,7 +1021,7 @@ function _dumpProg(_b:stdgo.Ref<stdgo.strings.Builder>, _p:stdgo.Ref<stdgo.regex
  
 
 
-[\(view code\)](<./Syntax.hx#L1053>)
+[\(view code\)](<./Syntax.hx#L1081>)
 
 
 ## function \_dumpRegexp
@@ -1032,10 +1032,10 @@ function _dumpRegexp(_b:stdgo.Ref<stdgo.strings.Builder>, _re:stdgo.Ref<stdgo.re
 ```
 
 
-dumpRegexp writes an encoding of the syntax tree for the regexp re to b. It is used during testing to distinguish between parses that might print the same using re's String method. 
+dumpRegexp writes an encoding of the syntax tree for the regexp re to b.��// It is used during testing to distinguish between parses that might print��// the same using re's String method. 
 
 
-[\(view code\)](<./Syntax.hx#L1010>)
+[\(view code\)](<./Syntax.hx#L1038>)
 
 
 ## function \_escape
@@ -1049,7 +1049,7 @@ function _escape(_b:stdgo.Ref<stdgo.strings.Builder>, _r:stdgo.GoRune, _force:Bo
  
 
 
-[\(view code\)](<./Syntax.hx#L1074>)
+[\(view code\)](<./Syntax.hx#L1102>)
 
 
 ## function \_isCharClass
@@ -1060,10 +1060,10 @@ function _isCharClass(_re:stdgo.Ref<stdgo.regexp.syntax.Regexp>):Bool
 ```
 
 
-can this be represented as a character class? single\-rune literal string, char class, ., and .|\\n. 
+can this be represented as a character class?��// single\-rune literal string, char class, ., and .|\\n. 
 
 
-[\(view code\)](<./Syntax.hx#L876>)
+[\(view code\)](<./Syntax.hx#L904>)
 
 
 ## function \_isUpperFold
@@ -1077,7 +1077,7 @@ function _isUpperFold(_r:stdgo.GoRune):Bool
  
 
 
-[\(view code\)](<./Syntax.hx#L1016>)
+[\(view code\)](<./Syntax.hx#L1044>)
 
 
 ## function \_isValidCaptureName
@@ -1088,10 +1088,10 @@ function _isValidCaptureName(_name:stdgo.GoString):Bool
 ```
 
 
-isValidCaptureName reports whether name is a valid capture name: \[A\-Za\-z0\-9\_\]\+. PCRE limits names to 32 bytes. Python rejects names starting with digits. We don't enforce either of those. 
+isValidCaptureName reports whether name��// is a valid capture name: \[A\-Za\-z0\-9\_\]\+.��// PCRE limits names to 32 bytes.��// Python rejects names starting with digits.��// We don't enforce either of those. 
 
 
-[\(view code\)](<./Syntax.hx#L869>)
+[\(view code\)](<./Syntax.hx#L897>)
 
 
 ## function \_isalnum
@@ -1105,7 +1105,7 @@ function _isalnum(_c:stdgo.GoRune):Bool
  
 
 
-[\(view code\)](<./Syntax.hx#L971>)
+[\(view code\)](<./Syntax.hx#L999>)
 
 
 ## function \_literalRegexp
@@ -1119,7 +1119,7 @@ function _literalRegexp(_s:stdgo.GoString, _flags:stdgo.regexp.syntax.Flags):std
  
 
 
-[\(view code\)](<./Syntax.hx#L848>)
+[\(view code\)](<./Syntax.hx#L876>)
 
 
 ## function \_makePatchList
@@ -1133,7 +1133,7 @@ function _makePatchList(_n:stdgo.GoUInt32):stdgo.regexp.syntax._Syntax.T_patchLi
  
 
 
-[\(view code\)](<./Syntax.hx#L812>)
+[\(view code\)](<./Syntax.hx#L840>)
 
 
 ## function \_matchRune
@@ -1147,7 +1147,7 @@ function _matchRune(_re:stdgo.Ref<stdgo.regexp.syntax.Regexp>, _r:stdgo.GoRune):
 does re match r? 
 
 
-[\(view code\)](<./Syntax.hx#L882>)
+[\(view code\)](<./Syntax.hx#L910>)
 
 
 ## function \_mergeCharClass
@@ -1158,10 +1158,10 @@ function _mergeCharClass(_dst:stdgo.Ref<stdgo.regexp.syntax.Regexp>, _src:stdgo.
 ```
 
 
-mergeCharClass makes dst = dst|src. The caller must ensure that dst.Op \>= src.Op, to reduce the amount of copying. 
+mergeCharClass makes dst = dst|src.��// The caller must ensure that dst.Op \>= src.Op,��// to reduce the amount of copying. 
 
 
-[\(view code\)](<./Syntax.hx#L890>)
+[\(view code\)](<./Syntax.hx#L918>)
 
 
 ## function \_minFoldRune
@@ -1175,7 +1175,7 @@ function _minFoldRune(_r:stdgo.GoRune):stdgo.GoRune
 minFoldRune returns the minimum rune fold\-equivalent to r. 
 
 
-[\(view code\)](<./Syntax.hx#L825>)
+[\(view code\)](<./Syntax.hx#L853>)
 
 
 ## function \_mkCharClass
@@ -1189,7 +1189,7 @@ function _mkCharClass(_f:()):stdgo.GoString
  
 
 
-[\(view code\)](<./Syntax.hx#L1013>)
+[\(view code\)](<./Syntax.hx#L1041>)
 
 
 ## function \_negateClass
@@ -1200,10 +1200,10 @@ function _negateClass(_r:stdgo.Slice<stdgo.GoRune>):stdgo.Slice<stdgo.GoRune>
 ```
 
 
-negateClass overwrites r and returns r's negation. It assumes the class r is already clean. 
+negateClass overwrites r and returns r's negation.��// It assumes the class r is already clean. 
 
 
-[\(view code\)](<./Syntax.hx#L962>)
+[\(view code\)](<./Syntax.hx#L990>)
 
 
 ## function \_nextRune
@@ -1217,7 +1217,7 @@ function _nextRune(_s:stdgo.GoString):{_2:stdgo.Error, _1:stdgo.GoString, _0:std
  
 
 
-[\(view code\)](<./Syntax.hx#L968>)
+[\(view code\)](<./Syntax.hx#L996>)
 
 
 ## function \_parse
@@ -1231,7 +1231,7 @@ function _parse(_s:stdgo.GoString, _flags:stdgo.regexp.syntax.Flags):{_1:stdgo.E
  
 
 
-[\(view code\)](<./Syntax.hx#L859>)
+[\(view code\)](<./Syntax.hx#L887>)
 
 
 ## function \_repeatIsValid
@@ -1242,10 +1242,10 @@ function _repeatIsValid(_re:stdgo.Ref<stdgo.regexp.syntax.Regexp>, _n:stdgo.GoIn
 ```
 
 
-repeatIsValid reports whether the repetition re is valid. Valid means that the combination of the top\-level repetition and any inner repetitions does not exceed n copies of the innermost thing. This function rewalks the regexp tree and is called for every repetition, so we have to worry about inducing quadratic behavior in the parser. We avoid this by only calling repeatIsValid when min or max \>= 2. In that case the depth of any \>= 2 nesting can only get to 9 without triggering a parse error, so each subtree can only be rewalked 9 times. 
+repeatIsValid reports whether the repetition re is valid.��// Valid means that the combination of the top\-level repetition��// and any inner repetitions does not exceed n copies of the��// innermost thing.��// This function rewalks the regexp tree and is called for every repetition,��// so we have to worry about inducing quadratic behavior in the parser.��// We avoid this by only calling repeatIsValid when min or max \>= 2.��// In that case the depth of any \>= 2 nesting can only get to 9 without��// triggering a parse error, so each subtree can only be rewalked 9 times. 
 
 
-[\(view code\)](<./Syntax.hx#L839>)
+[\(view code\)](<./Syntax.hx#L867>)
 
 
 ## function \_simplify1
@@ -1256,10 +1256,10 @@ function _simplify1(_op:stdgo.regexp.syntax.Op, _flags:stdgo.regexp.syntax.Flags
 ```
 
 
-simplify1 implements Simplify for the unary OpStar, OpPlus, and OpQuest operators. It returns the simple regexp equivalent to  Regexp\{Op: op, Flags: flags, Sub: \{sub\}\}  under the assumption that sub is already simple, and without first allocating that structure. If the regexp to be returned turns out to be equivalent to re, simplify1 returns re instead.  simplify1 is factored out of Simplify because the implementation for other operators generates these unary expressions. Letting them call simplify1 makes sure the expressions they generate are simple. 
+simplify1 implements Simplify for the unary OpStar,��// OpPlus, and OpQuest operators. It returns the simple regexp��// equivalent to��//��//�Regexp\{Op: op, Flags: flags, Sub: \{sub\}\}��//��// under the assumption that sub is already simple, and��// without first allocating that structure. If the regexp��// to be returned turns out to be equivalent to re, simplify1��// returns re instead.��//��// simplify1 is factored out of Simplify because the implementation��// for other operators generates these unary expressions.��// Letting them call simplify1 makes sure the expressions they��// generate are simple. 
 
 
-[\(view code\)](<./Syntax.hx#L1094>)
+[\(view code\)](<./Syntax.hx#L1122>)
 
 
 ## function \_testParseDump
@@ -1273,7 +1273,7 @@ function _testParseDump(_t:stdgo.Ref<stdgo.testing.T>, _tests:stdgo.Slice<stdgo.
 Test Parse \-\> Dump. 
 
 
-[\(view code\)](<./Syntax.hx#L995>)
+[\(view code\)](<./Syntax.hx#L1023>)
 
 
 ## function \_u32
@@ -1287,7 +1287,7 @@ function _u32(_i:stdgo.GoUInt32):stdgo.GoString
  
 
 
-[\(view code\)](<./Syntax.hx#L1056>)
+[\(view code\)](<./Syntax.hx#L1084>)
 
 
 ## function \_unhex
@@ -1301,7 +1301,7 @@ function _unhex(_c:stdgo.GoRune):stdgo.GoRune
  
 
 
-[\(view code\)](<./Syntax.hx#L974>)
+[\(view code\)](<./Syntax.hx#L1002>)
 
 
 ## function \_unicodeTable
@@ -1312,10 +1312,10 @@ function _unicodeTable(_name:stdgo.GoString):{_1:stdgo.Ref<stdgo.unicode.RangeTa
 ```
 
 
-unicodeTable returns the unicode.RangeTable identified by name and the table of additional fold\-equivalent code points. 
+unicodeTable returns the unicode.RangeTable identified by name��// and the table of additional fold\-equivalent code points. 
 
 
-[\(view code\)](<./Syntax.hx#L897>)
+[\(view code\)](<./Syntax.hx#L925>)
 
 
 ## function \_writeRegexp
@@ -1329,7 +1329,7 @@ function _writeRegexp(_b:stdgo.Ref<stdgo.strings.Builder>, _re:stdgo.Ref<stdgo.r
 writeRegexp writes the Perl syntax for the regular expression re to b. 
 
 
-[\(view code\)](<./Syntax.hx#L1071>)
+[\(view code\)](<./Syntax.hx#L1099>)
 
 
 ## function benchmarkEmptyOpContext
@@ -1343,7 +1343,7 @@ function benchmarkEmptyOpContext(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Syntax.hx#L1065>)
+[\(view code\)](<./Syntax.hx#L1093>)
 
 
 ## function compile
@@ -1354,10 +1354,10 @@ function compile(_re:stdgo.Ref<stdgo.regexp.syntax.Regexp>):{_1:stdgo.Error, _0:
 ```
 
 
-Compile compiles the regexp into a program to be executed. The regexp should have been simplified already \(returned from re.Simplify\). 
+Compile compiles the regexp into a program to be executed.��// The regexp should have been simplified already \(returned from re.Simplify\). 
 
 
-[\(view code\)](<./Syntax.hx#L819>)
+[\(view code\)](<./Syntax.hx#L847>)
 
 
 ## function emptyOpContext
@@ -1368,10 +1368,10 @@ function emptyOpContext(_r1:stdgo.GoRune, _r2:stdgo.GoRune):stdgo.regexp.syntax.
 ```
 
 
-EmptyOpContext returns the zero\-width assertions satisfied at the position between the runes r1 and r2. Passing r1 == \-1 indicates that the position is at the beginning of the text. Passing r2 == \-1 indicates that the position is at the end of the text. 
+EmptyOpContext returns the zero\-width assertions��// satisfied at the position between the runes r1 and r2.��// Passing r1 == \-1 indicates that the position is��// at the beginning of the text.��// Passing r2 == \-1 indicates that the position is��// at the end of the text. 
 
 
-[\(view code\)](<./Syntax.hx#L1039>)
+[\(view code\)](<./Syntax.hx#L1067>)
 
 
 ## function isWordChar
@@ -1382,10 +1382,10 @@ function isWordChar(_r:stdgo.GoRune):Bool
 ```
 
 
-IsWordChar reports whether r is considered a “word character” during the evaluation of the \\b and \\B zero\-width assertions. These assertions are ASCII\-only: the word characters are \[A\-Za\-z0\-9\_\]. 
+IsWordChar reports whether r is considered a “word character”��// during the evaluation of the \\b and \\B zero\-width assertions.��// These assertions are ASCII\-only: the word characters are \[A\-Za\-z0\-9\_\]. 
 
 
-[\(view code\)](<./Syntax.hx#L1047>)
+[\(view code\)](<./Syntax.hx#L1075>)
 
 
 ## function parse
@@ -1396,10 +1396,10 @@ function parse(_s:stdgo.GoString, _flags:stdgo.regexp.syntax.Flags):{_1:stdgo.Er
 ```
 
 
-Parse parses a regular expression string s, controlled by the specified Flags, and returns a regular expression parse tree. The syntax is described in the top\-level comment. 
+Parse parses a regular expression string s, controlled by the specified��// Flags, and returns a regular expression parse tree. The syntax is��// described in the top\-level comment. 
 
 
-[\(view code\)](<./Syntax.hx#L856>)
+[\(view code\)](<./Syntax.hx#L884>)
 
 
 ## function testAppendRangeCollapse
@@ -1413,7 +1413,7 @@ function testAppendRangeCollapse(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Syntax.hx#L1022>)
+[\(view code\)](<./Syntax.hx#L1050>)
 
 
 ## function testCompile
@@ -1427,7 +1427,7 @@ function testCompile(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Syntax.hx#L1062>)
+[\(view code\)](<./Syntax.hx#L1090>)
 
 
 ## function testFoldConstants
@@ -1441,7 +1441,7 @@ function testFoldConstants(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Syntax.hx#L1019>)
+[\(view code\)](<./Syntax.hx#L1047>)
 
 
 ## function testParseFoldCase
@@ -1455,7 +1455,7 @@ function testParseFoldCase(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Syntax.hx#L980>)
+[\(view code\)](<./Syntax.hx#L1008>)
 
 
 ## function testParseInvalidRegexps
@@ -1469,7 +1469,7 @@ function testParseInvalidRegexps(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Syntax.hx#L1025>)
+[\(view code\)](<./Syntax.hx#L1053>)
 
 
 ## function testParseLiteral
@@ -1483,7 +1483,7 @@ function testParseLiteral(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Syntax.hx#L983>)
+[\(view code\)](<./Syntax.hx#L1011>)
 
 
 ## function testParseMatchNL
@@ -1497,7 +1497,7 @@ function testParseMatchNL(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Syntax.hx#L986>)
+[\(view code\)](<./Syntax.hx#L1014>)
 
 
 ## function testParseNoMatchNL
@@ -1511,7 +1511,7 @@ function testParseNoMatchNL(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Syntax.hx#L989>)
+[\(view code\)](<./Syntax.hx#L1017>)
 
 
 ## function testParseSimple
@@ -1525,7 +1525,7 @@ function testParseSimple(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Syntax.hx#L977>)
+[\(view code\)](<./Syntax.hx#L1005>)
 
 
 ## function testSimplify
@@ -1539,7 +1539,7 @@ function testSimplify(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Syntax.hx#L1097>)
+[\(view code\)](<./Syntax.hx#L1125>)
 
 
 ## function testToStringEquivalentParse
@@ -1553,7 +1553,7 @@ function testToStringEquivalentParse(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Syntax.hx#L1028>)
+[\(view code\)](<./Syntax.hx#L1056>)
 
 
 # Classes
@@ -1581,7 +1581,7 @@ function string():stdgo.GoString
  
 
 
-[\(view code\)](<./Syntax.hx#L2148>)
+[\(view code\)](<./Syntax.hx#L2176>)
 
 
 ## class Inst
@@ -1641,7 +1641,7 @@ function _op():stdgo.regexp.syntax.InstOp
 op returns i.Op but merges all the Rune special cases into InstRune 
 
 
-[\(view code\)](<./Syntax.hx#L2022>)
+[\(view code\)](<./Syntax.hx#L2050>)
 
 
 ### Inst function matchEmptyWidth
@@ -1652,10 +1652,10 @@ function matchEmptyWidth( _before:stdgo.GoRune, _after:stdgo.GoRune):Bool
 ```
 
 
-MatchEmptyWidth reports whether the instruction matches an empty string between the runes before and after. It should only be called when i.Op == InstEmptyWidth. 
+MatchEmptyWidth reports whether the instruction matches���// an empty string between the runes before and after.���// It should only be called when i.Op == InstEmptyWidth. 
 
 
-[\(view code\)](<./Syntax.hx#L1996>)
+[\(view code\)](<./Syntax.hx#L2024>)
 
 
 ### Inst function matchRune
@@ -1666,10 +1666,10 @@ function matchRune( _r:stdgo.GoRune):Bool
 ```
 
 
-MatchRune reports whether the instruction matches \(and consumes\) r. It should only be called when i.Op == InstRune. 
+MatchRune reports whether the instruction matches \(and consumes\) r.���// It should only be called when i.Op == InstRune. 
 
 
-[\(view code\)](<./Syntax.hx#L2015>)
+[\(view code\)](<./Syntax.hx#L2043>)
 
 
 ### Inst function matchRunePos
@@ -1680,10 +1680,10 @@ function matchRunePos( _r:stdgo.GoRune):stdgo.GoInt
 ```
 
 
-MatchRunePos checks whether the instruction matches \(and consumes\) r. If so, MatchRunePos returns the index of the matching rune pair \(or, when len\(i.Rune\) == 1, rune singleton\). If not, MatchRunePos returns \-1. MatchRunePos should only be called when i.Op == InstRune. 
+MatchRunePos checks whether the instruction matches \(and consumes\) r.���// If so, MatchRunePos returns the index of the matching rune pair���// \(or, when len\(i.Rune\) == 1, rune singleton\).���// If not, MatchRunePos returns \-1.���// MatchRunePos should only be called when i.Op == InstRune. 
 
 
-[\(view code\)](<./Syntax.hx#L2007>)
+[\(view code\)](<./Syntax.hx#L2035>)
 
 
 ### Inst function string
@@ -1697,7 +1697,7 @@ function string():stdgo.GoString
  
 
 
-[\(view code\)](<./Syntax.hx#L1987>)
+[\(view code\)](<./Syntax.hx#L2015>)
 
 
 ## class InstOp\_static\_extension
@@ -1717,7 +1717,7 @@ function string():stdgo.GoString
  
 
 
-[\(view code\)](<./Syntax.hx#L2173>)
+[\(view code\)](<./Syntax.hx#L2201>)
 
 
 ## class Inst\_static\_extension
@@ -1737,7 +1737,7 @@ function _op():stdgo.regexp.syntax.InstOp
 op returns i.Op but merges all the Rune special cases into InstRune 
 
 
-[\(view code\)](<./Syntax.hx#L2022>)
+[\(view code\)](<./Syntax.hx#L2050>)
 
 
 ### Inst\_static\_extension function matchEmptyWidth
@@ -1748,10 +1748,10 @@ function matchEmptyWidth( _before:stdgo.GoRune, _after:stdgo.GoRune):Bool
 ```
 
 
-MatchEmptyWidth reports whether the instruction matches an empty string between the runes before and after. It should only be called when i.Op == InstEmptyWidth. 
+MatchEmptyWidth reports whether the instruction matches���// an empty string between the runes before and after.���// It should only be called when i.Op == InstEmptyWidth. 
 
 
-[\(view code\)](<./Syntax.hx#L1996>)
+[\(view code\)](<./Syntax.hx#L2024>)
 
 
 ### Inst\_static\_extension function matchRune
@@ -1762,10 +1762,10 @@ function matchRune( _r:stdgo.GoRune):Bool
 ```
 
 
-MatchRune reports whether the instruction matches \(and consumes\) r. It should only be called when i.Op == InstRune. 
+MatchRune reports whether the instruction matches \(and consumes\) r.���// It should only be called when i.Op == InstRune. 
 
 
-[\(view code\)](<./Syntax.hx#L2015>)
+[\(view code\)](<./Syntax.hx#L2043>)
 
 
 ### Inst\_static\_extension function matchRunePos
@@ -1776,10 +1776,10 @@ function matchRunePos( _r:stdgo.GoRune):stdgo.GoInt
 ```
 
 
-MatchRunePos checks whether the instruction matches \(and consumes\) r. If so, MatchRunePos returns the index of the matching rune pair \(or, when len\(i.Rune\) == 1, rune singleton\). If not, MatchRunePos returns \-1. MatchRunePos should only be called when i.Op == InstRune. 
+MatchRunePos checks whether the instruction matches \(and consumes\) r.���// If so, MatchRunePos returns the index of the matching rune pair���// \(or, when len\(i.Rune\) == 1, rune singleton\).���// If not, MatchRunePos returns \-1.���// MatchRunePos should only be called when i.Op == InstRune. 
 
 
-[\(view code\)](<./Syntax.hx#L2007>)
+[\(view code\)](<./Syntax.hx#L2035>)
 
 
 ### Inst\_static\_extension function string
@@ -1793,7 +1793,7 @@ function string():stdgo.GoString
  
 
 
-[\(view code\)](<./Syntax.hx#L1987>)
+[\(view code\)](<./Syntax.hx#L2015>)
 
 
 ## class Op\_static\_extension
@@ -1813,7 +1813,7 @@ function string(_i:stdgo.regexp.syntax.Op):stdgo.GoString
  
 
 
-[\(view code\)](<./Syntax.hx#L2198>)
+[\(view code\)](<./Syntax.hx#L2226>)
 
 
 ## class Prog
@@ -1868,7 +1868,7 @@ function _skipNop( _pc:stdgo.GoUInt32):stdgo.Ref<stdgo.regexp.syntax.Inst>
 skipNop follows any no\-op or capturing instructions. 
 
 
-[\(view code\)](<./Syntax.hx#L1923>)
+[\(view code\)](<./Syntax.hx#L1951>)
 
 
 ### Prog function prefix
@@ -1879,10 +1879,10 @@ function prefix():{_1:Bool, _0:stdgo.GoString}
 ```
 
 
-Prefix returns a literal string that all matches for the regexp must start with. Complete is true if the prefix is the entire match. 
+Prefix returns a literal string that all matches for the���// regexp must start with. Complete is true if the prefix���// is the entire match. 
 
 
-[\(view code\)](<./Syntax.hx#L1916>)
+[\(view code\)](<./Syntax.hx#L1944>)
 
 
 ### Prog function startCond
@@ -1893,10 +1893,10 @@ function startCond():stdgo.regexp.syntax.EmptyOp
 ```
 
 
-StartCond returns the leading empty\-width conditions that must be true in any match. It returns ^EmptyOp\(0\) if no matches are possible. 
+StartCond returns the leading empty\-width conditions that must���// be true in any match. It returns ^EmptyOp\(0\) if no matches are possible. 
 
 
-[\(view code\)](<./Syntax.hx#L1907>)
+[\(view code\)](<./Syntax.hx#L1935>)
 
 
 ### Prog function string
@@ -1910,7 +1910,7 @@ function string():stdgo.GoString
  
 
 
-[\(view code\)](<./Syntax.hx#L1927>)
+[\(view code\)](<./Syntax.hx#L1955>)
 
 
 ## class Prog\_static\_extension
@@ -1930,7 +1930,7 @@ function _skipNop( _pc:stdgo.GoUInt32):stdgo.Ref<stdgo.regexp.syntax.Inst>
 skipNop follows any no\-op or capturing instructions. 
 
 
-[\(view code\)](<./Syntax.hx#L1923>)
+[\(view code\)](<./Syntax.hx#L1951>)
 
 
 ### Prog\_static\_extension function prefix
@@ -1941,10 +1941,10 @@ function prefix():{_1:Bool, _0:stdgo.GoString}
 ```
 
 
-Prefix returns a literal string that all matches for the regexp must start with. Complete is true if the prefix is the entire match. 
+Prefix returns a literal string that all matches for the���// regexp must start with. Complete is true if the prefix���// is the entire match. 
 
 
-[\(view code\)](<./Syntax.hx#L1916>)
+[\(view code\)](<./Syntax.hx#L1944>)
 
 
 ### Prog\_static\_extension function startCond
@@ -1955,10 +1955,10 @@ function startCond():stdgo.regexp.syntax.EmptyOp
 ```
 
 
-StartCond returns the leading empty\-width conditions that must be true in any match. It returns ^EmptyOp\(0\) if no matches are possible. 
+StartCond returns the leading empty\-width conditions that must���// be true in any match. It returns ^EmptyOp\(0\) if no matches are possible. 
 
 
-[\(view code\)](<./Syntax.hx#L1907>)
+[\(view code\)](<./Syntax.hx#L1935>)
 
 
 ### Prog\_static\_extension function string
@@ -1972,7 +1972,7 @@ function string():stdgo.GoString
  
 
 
-[\(view code\)](<./Syntax.hx#L1927>)
+[\(view code\)](<./Syntax.hx#L1955>)
 
 
 ## class Regexp
@@ -2080,7 +2080,7 @@ function _capNames( _names:stdgo.Slice<stdgo.GoString>):Void
  
 
 
-[\(view code\)](<./Syntax.hx#L2098>)
+[\(view code\)](<./Syntax.hx#L2126>)
 
 
 ### Regexp function capNames
@@ -2094,7 +2094,7 @@ function capNames():stdgo.Slice<stdgo.GoString>
 CapNames walks the regexp to find the names of capturing groups. 
 
 
-[\(view code\)](<./Syntax.hx#L2105>)
+[\(view code\)](<./Syntax.hx#L2133>)
 
 
 ### Regexp function equal
@@ -2108,7 +2108,7 @@ function equal( _y:stdgo.Ref<stdgo.regexp.syntax.Regexp>):Bool
 Equal reports whether x and y have identical structure. 
 
 
-[\(view code\)](<./Syntax.hx#L2123>)
+[\(view code\)](<./Syntax.hx#L2151>)
 
 
 ### Regexp function maxCap
@@ -2122,7 +2122,7 @@ function maxCap():stdgo.GoInt
 MaxCap walks the regexp to find the maximum capture index. 
 
 
-[\(view code\)](<./Syntax.hx#L2112>)
+[\(view code\)](<./Syntax.hx#L2140>)
 
 
 ### Regexp function simplify
@@ -2133,10 +2133,10 @@ function simplify():stdgo.Ref<stdgo.regexp.syntax.Regexp>
 ```
 
 
-Simplify returns a regexp equivalent to re but without counted repetitions and with various other simplifications, such as rewriting /\(?:a\+\)\+/ to /a\+/. The resulting regexp will execute correctly but its string representation will not produce the same parse tree, because capturing parentheses may have been duplicated or removed. For example, the simplified form for /\(x\)\{1,2\}/ is /\(x\)\(x\)?/ but both parentheses capture as $1. The returned regexp may share structure with or be the original. 
+Simplify returns a regexp equivalent to re but without counted repetitions���// and with various other simplifications, such as rewriting /\(?:a\+\)\+/ to /a\+/.���// The resulting regexp will execute correctly but its string representation���// will not produce the same parse tree, because capturing parentheses���// may have been duplicated or removed. For example, the simplified form���// for /\(x\)\{1,2\}/ is /\(x\)\(x\)?/ but both parentheses capture as $1.���// The returned regexp may share structure with or be the original. 
 
 
-[\(view code\)](<./Syntax.hx#L2094>)
+[\(view code\)](<./Syntax.hx#L2122>)
 
 
 ### Regexp function string
@@ -2150,7 +2150,7 @@ function string():stdgo.GoString
  
 
 
-[\(view code\)](<./Syntax.hx#L2116>)
+[\(view code\)](<./Syntax.hx#L2144>)
 
 
 ## class Regexp\_static\_extension
@@ -2170,7 +2170,7 @@ function _capNames( _names:stdgo.Slice<stdgo.GoString>):Void
  
 
 
-[\(view code\)](<./Syntax.hx#L2098>)
+[\(view code\)](<./Syntax.hx#L2126>)
 
 
 ### Regexp\_static\_extension function capNames
@@ -2184,7 +2184,7 @@ function capNames():stdgo.Slice<stdgo.GoString>
 CapNames walks the regexp to find the names of capturing groups. 
 
 
-[\(view code\)](<./Syntax.hx#L2105>)
+[\(view code\)](<./Syntax.hx#L2133>)
 
 
 ### Regexp\_static\_extension function equal
@@ -2198,7 +2198,7 @@ function equal( _y:stdgo.Ref<stdgo.regexp.syntax.Regexp>):Bool
 Equal reports whether x and y have identical structure. 
 
 
-[\(view code\)](<./Syntax.hx#L2123>)
+[\(view code\)](<./Syntax.hx#L2151>)
 
 
 ### Regexp\_static\_extension function maxCap
@@ -2212,7 +2212,7 @@ function maxCap():stdgo.GoInt
 MaxCap walks the regexp to find the maximum capture index. 
 
 
-[\(view code\)](<./Syntax.hx#L2112>)
+[\(view code\)](<./Syntax.hx#L2140>)
 
 
 ### Regexp\_static\_extension function simplify
@@ -2223,10 +2223,10 @@ function simplify():stdgo.Ref<stdgo.regexp.syntax.Regexp>
 ```
 
 
-Simplify returns a regexp equivalent to re but without counted repetitions and with various other simplifications, such as rewriting /\(?:a\+\)\+/ to /a\+/. The resulting regexp will execute correctly but its string representation will not produce the same parse tree, because capturing parentheses may have been duplicated or removed. For example, the simplified form for /\(x\)\{1,2\}/ is /\(x\)\(x\)?/ but both parentheses capture as $1. The returned regexp may share structure with or be the original. 
+Simplify returns a regexp equivalent to re but without counted repetitions���// and with various other simplifications, such as rewriting /\(?:a\+\)\+/ to /a\+/.���// The resulting regexp will execute correctly but its string representation���// will not produce the same parse tree, because capturing parentheses���// may have been duplicated or removed. For example, the simplified form���// for /\(x\)\{1,2\}/ is /\(x\)\(x\)?/ but both parentheses capture as $1.���// The returned regexp may share structure with or be the original. 
 
 
-[\(view code\)](<./Syntax.hx#L2094>)
+[\(view code\)](<./Syntax.hx#L2122>)
 
 
 ### Regexp\_static\_extension function string
@@ -2240,7 +2240,7 @@ function string():stdgo.GoString
  
 
 
-[\(view code\)](<./Syntax.hx#L2116>)
+[\(view code\)](<./Syntax.hx#L2144>)
 
 
 ## class T\_compiler\_static\_extension
@@ -2260,7 +2260,7 @@ function _alt(_c:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_compiler>, _f1:stdgo.re
  
 
 
-[\(view code\)](<./Syntax.hx#L1244>)
+[\(view code\)](<./Syntax.hx#L1272>)
 
 
 ### T\_compiler\_static\_extension function \_cap
@@ -2274,7 +2274,7 @@ function _cap(_c:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_compiler>, _arg:stdgo.G
  
 
 
-[\(view code\)](<./Syntax.hx#L1252>)
+[\(view code\)](<./Syntax.hx#L1280>)
 
 
 ### T\_compiler\_static\_extension function \_cat
@@ -2288,7 +2288,7 @@ function _cat(_c:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_compiler>, _f1:stdgo.re
  
 
 
-[\(view code\)](<./Syntax.hx#L1248>)
+[\(view code\)](<./Syntax.hx#L1276>)
 
 
 ### T\_compiler\_static\_extension function \_compile
@@ -2302,7 +2302,7 @@ function _compile(_c:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_compiler>, _re:stdg
  
 
 
-[\(view code\)](<./Syntax.hx#L1268>)
+[\(view code\)](<./Syntax.hx#L1296>)
 
 
 ### T\_compiler\_static\_extension function \_empty
@@ -2316,7 +2316,7 @@ function _empty(_c:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_compiler>, _op:stdgo.
  
 
 
-[\(view code\)](<./Syntax.hx#L1217>)
+[\(view code\)](<./Syntax.hx#L1245>)
 
 
 ### T\_compiler\_static\_extension function \_fail
@@ -2330,7 +2330,7 @@ function _fail(_c:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_compiler>):stdgo.regex
  
 
 
-[\(view code\)](<./Syntax.hx#L1256>)
+[\(view code\)](<./Syntax.hx#L1284>)
 
 
 ### T\_compiler\_static\_extension function \_init
@@ -2344,7 +2344,7 @@ function _init(_c:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_compiler>):Void
  
 
 
-[\(view code\)](<./Syntax.hx#L1272>)
+[\(view code\)](<./Syntax.hx#L1300>)
 
 
 ### T\_compiler\_static\_extension function \_inst
@@ -2358,7 +2358,7 @@ function _inst(_c:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_compiler>, _op:stdgo.r
  
 
 
-[\(view code\)](<./Syntax.hx#L1264>)
+[\(view code\)](<./Syntax.hx#L1292>)
 
 
 ### T\_compiler\_static\_extension function \_loop
@@ -2369,10 +2369,10 @@ function _loop(_c:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_compiler>, _f1:stdgo.r
 ```
 
 
-loop returns the fragment for the main loop of a plus or star. For plus, it can be used after changing the entry to f1.i. For star, it can be used directly when f1 can't match an empty string. \(When f1 can match an empty string, f1\* must be implemented as \(f1\+\)? to get the priority match order correct.\) 
+loop returns the fragment for the main loop of a plus or star.���// For plus, it can be used after changing the entry to f1.i.���// For star, it can be used directly when f1 can't match an empty string.���// \(When f1 can match an empty string, f1\* must be implemented as \(f1\+\)?���// to get the priority match order correct.\) 
 
 
-[\(view code\)](<./Syntax.hx#L1236>)
+[\(view code\)](<./Syntax.hx#L1264>)
 
 
 ### T\_compiler\_static\_extension function \_nop
@@ -2386,7 +2386,7 @@ function _nop(_c:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_compiler>):stdgo.regexp
  
 
 
-[\(view code\)](<./Syntax.hx#L1260>)
+[\(view code\)](<./Syntax.hx#L1288>)
 
 
 ### T\_compiler\_static\_extension function \_plus
@@ -2400,7 +2400,7 @@ function _plus(_c:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_compiler>, _f1:stdgo.r
  
 
 
-[\(view code\)](<./Syntax.hx#L1221>)
+[\(view code\)](<./Syntax.hx#L1249>)
 
 
 ### T\_compiler\_static\_extension function \_quest
@@ -2414,7 +2414,7 @@ function _quest(_c:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_compiler>, _f1:stdgo.
  
 
 
-[\(view code\)](<./Syntax.hx#L1240>)
+[\(view code\)](<./Syntax.hx#L1268>)
 
 
 ### T\_compiler\_static\_extension function \_rune
@@ -2428,7 +2428,7 @@ function _rune(_c:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_compiler>, _r:stdgo.Sl
  
 
 
-[\(view code\)](<./Syntax.hx#L1213>)
+[\(view code\)](<./Syntax.hx#L1241>)
 
 
 ### T\_compiler\_static\_extension function \_star
@@ -2442,13 +2442,13 @@ function _star(_c:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_compiler>, _f1:stdgo.r
  
 
 
-[\(view code\)](<./Syntax.hx#L1225>)
+[\(view code\)](<./Syntax.hx#L1253>)
 
 
 ## class T\_error
 
 
-An Error describes a failure to parse a regular expression and gives the offending expression. 
+An Error describes a failure to parse a regular expression��// and gives the offending expression. 
 
 
 ```haxe
@@ -2486,7 +2486,7 @@ function error():stdgo.GoString
  
 
 
-[\(view code\)](<./Syntax.hx#L1297>)
+[\(view code\)](<./Syntax.hx#L1325>)
 
 
 ## class T\_error\_static\_extension
@@ -2506,7 +2506,7 @@ function error():stdgo.GoString
  
 
 
-[\(view code\)](<./Syntax.hx#L1297>)
+[\(view code\)](<./Syntax.hx#L1325>)
 
 
 ## class T\_parser\_static\_extension
@@ -2526,7 +2526,7 @@ function _alternate(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser>):stdgo.Re
 alternate replaces the top of the stack \(above the topmost '\('\) with its alternation. 
 
 
-[\(view code\)](<./Syntax.hx#L1742>)
+[\(view code\)](<./Syntax.hx#L1770>)
 
 
 ### T\_parser\_static\_extension function \_appendGroup
@@ -2540,7 +2540,7 @@ function _appendGroup(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser>, _r:std
  
 
 
-[\(view code\)](<./Syntax.hx#L1584>)
+[\(view code\)](<./Syntax.hx#L1612>)
 
 
 ### T\_parser\_static\_extension function \_calcHeight
@@ -2554,7 +2554,7 @@ function _calcHeight(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser>, _re:std
  
 
 
-[\(view code\)](<./Syntax.hx#L1801>)
+[\(view code\)](<./Syntax.hx#L1829>)
 
 
 ### T\_parser\_static\_extension function \_checkHeight
@@ -2568,7 +2568,7 @@ function _checkHeight(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser>, _re:st
  
 
 
-[\(view code\)](<./Syntax.hx#L1805>)
+[\(view code\)](<./Syntax.hx#L1833>)
 
 
 ### T\_parser\_static\_extension function \_collapse
@@ -2579,10 +2579,10 @@ function _collapse(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser>, _subs:std
 ```
 
 
-collapse returns the result of applying op to sub. If sub contains op nodes, they all get hoisted up so that there is never a concat of a concat or an alternate of an alternate. 
+collapse returns the result of applying op to sub.���// If sub contains op nodes, they all get hoisted up���// so that there is never a concat of a concat or an���// alternate of an alternate. 
 
 
-[\(view code\)](<./Syntax.hx#L1735>)
+[\(view code\)](<./Syntax.hx#L1763>)
 
 
 ### T\_parser\_static\_extension function \_concat
@@ -2596,7 +2596,7 @@ function _concat(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser>):stdgo.Ref<s
 concat replaces the top of the stack \(above the topmost '|' or '\('\) with its concatenation. 
 
 
-[\(view code\)](<./Syntax.hx#L1749>)
+[\(view code\)](<./Syntax.hx#L1777>)
 
 
 ### T\_parser\_static\_extension function \_factor
@@ -2607,10 +2607,10 @@ function _factor(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser>, _sub:stdgo.
 ```
 
 
-factor factors common prefixes from the alternation list sub. It returns a replacement list that reuses the same storage and frees \(passes to p.reuse\) any removed \*Regexps.  For example,  ABC|ABD|AEF|BCX|BCY  simplifies by literal prefix extraction to  A\(B\(C|D\)|EF\)|BC\(X|Y\)  which simplifies by character class introduction to  A\(B\[CD\]|EF\)|BC\[XY\] 
+factor factors common prefixes from the alternation list sub.���// It returns a replacement list that reuses the same storage and���// frees \(passes to p.reuse\) any removed \*Regexps.���//���// For example,���//���//�ABC|ABD|AEF|BCX|BCY���//���// simplifies by literal prefix extraction to���//���//�A\(B\(C|D\)|EF\)|BC\(X|Y\)���//���// which simplifies by character class introduction to���//���//�A\(B\[CD\]|EF\)|BC\[XY\] 
 
 
-[\(view code\)](<./Syntax.hx#L1725>)
+[\(view code\)](<./Syntax.hx#L1753>)
 
 
 ### T\_parser\_static\_extension function \_leadingRegexp
@@ -2621,10 +2621,10 @@ function _leadingRegexp(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser>, _re:
 ```
 
 
-leadingRegexp returns the leading regexp that re begins with. The regexp refers to storage in re or its children. 
+leadingRegexp returns the leading regexp that re begins with.���// The regexp refers to storage in re or its children. 
 
 
-[\(view code\)](<./Syntax.hx#L1688>)
+[\(view code\)](<./Syntax.hx#L1716>)
 
 
 ### T\_parser\_static\_extension function \_leadingString
@@ -2635,10 +2635,10 @@ function _leadingString(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser>, _re:
 ```
 
 
-leadingString returns the leading literal string that re begins with. The string refers to storage in re or its children. 
+leadingString returns the leading literal string that re begins with.���// The string refers to storage in re or its children. 
 
 
-[\(view code\)](<./Syntax.hx#L1704>)
+[\(view code\)](<./Syntax.hx#L1732>)
 
 
 ### T\_parser\_static\_extension function \_literal
@@ -2652,7 +2652,7 @@ function _literal(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser>, _r:stdgo.G
 literal pushes a literal regexp for the rune r on the stack. 
 
 
-[\(view code\)](<./Syntax.hx#L1775>)
+[\(view code\)](<./Syntax.hx#L1803>)
 
 
 ### T\_parser\_static\_extension function \_maybeConcat
@@ -2663,10 +2663,10 @@ function _maybeConcat(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser>, _r:std
 ```
 
 
-maybeConcat implements incremental concatenation of literal runes into string nodes. The parser calls this before each push, so only the top fragment of the stack might need processing. Since this is called before a push, the topmost literal is no longer subject to operators like \* \(Otherwise ab\* would turn into \(ab\)\*.\) If r \>= 0 and there's a node left over, maybeConcat uses it to push r with the given flags. maybeConcat reports whether r was pushed. 
+maybeConcat implements incremental concatenation���// of literal runes into string nodes. The parser calls this���// before each push, so only the top fragment of the stack���// might need processing. Since this is called before a push,���// the topmost literal is no longer subject to operators like \*���// \(Otherwise ab\* would turn into \(ab\)\*.\)���// If r \>= 0 and there's a node left over, maybeConcat uses it���// to push r with the given flags.���// maybeConcat reports whether r was pushed. 
 
 
-[\(view code\)](<./Syntax.hx#L1790>)
+[\(view code\)](<./Syntax.hx#L1818>)
 
 
 ### T\_parser\_static\_extension function \_newRegexp
@@ -2680,7 +2680,7 @@ function _newRegexp(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser>, _op:stdg
  
 
 
-[\(view code\)](<./Syntax.hx#L1813>)
+[\(view code\)](<./Syntax.hx#L1841>)
 
 
 ### T\_parser\_static\_extension function \_op
@@ -2691,10 +2691,10 @@ function _op(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser>, _op:stdgo.regex
 ```
 
 
-op pushes a regexp with the given op onto the stack and returns that regexp. 
+op pushes a regexp with the given op onto the stack���// and returns that regexp. 
 
 
-[\(view code\)](<./Syntax.hx#L1768>)
+[\(view code\)](<./Syntax.hx#L1796>)
 
 
 ### T\_parser\_static\_extension function \_parseClass
@@ -2705,10 +2705,10 @@ function _parseClass(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser>, _s:stdg
 ```
 
 
-parseClass parses a character class at the beginning of s and pushes it onto the parse stack. 
+parseClass parses a character class at the beginning of s���// and pushes it onto the parse stack. 
 
 
-[\(view code\)](<./Syntax.hx#L1571>)
+[\(view code\)](<./Syntax.hx#L1599>)
 
 
 ### T\_parser\_static\_extension function \_parseClassChar
@@ -2719,10 +2719,10 @@ function _parseClassChar(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser>, _s:
 ```
 
 
-parseClassChar parses a character class character at the beginning of s and returns it. 
+parseClassChar parses a character class character at the beginning of s���// and returns it. 
 
 
-[\(view code\)](<./Syntax.hx#L1610>)
+[\(view code\)](<./Syntax.hx#L1638>)
 
 
 ### T\_parser\_static\_extension function \_parseEscape
@@ -2733,10 +2733,10 @@ function _parseEscape(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser>, _s:std
 ```
 
 
-parseEscape parses an escape sequence at the beginning of s and returns the rune. 
+parseEscape parses an escape sequence at the beginning of s���// and returns the rune. 
 
 
-[\(view code\)](<./Syntax.hx#L1618>)
+[\(view code\)](<./Syntax.hx#L1646>)
 
 
 ### T\_parser\_static\_extension function \_parseInt
@@ -2750,7 +2750,7 @@ function _parseInt(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser>, _s:stdgo.
 parseInt parses a decimal integer. 
 
 
-[\(view code\)](<./Syntax.hx#L1648>)
+[\(view code\)](<./Syntax.hx#L1676>)
 
 
 ### T\_parser\_static\_extension function \_parseNamedClass
@@ -2761,10 +2761,10 @@ function _parseNamedClass(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser>, _s
 ```
 
 
-parseNamedClass parses a leading POSIX named character class like \[:alnum:\] from the beginning of s. If one is present, it appends the characters to r and returns the new slice r and the remainder of the string. 
+parseNamedClass parses a leading POSIX named character class like \[:alnum:\]���// from the beginning of s. If one is present, it appends the characters to r���// and returns the new slice r and the remainder of the string. 
 
 
-[\(view code\)](<./Syntax.hx#L1593>)
+[\(view code\)](<./Syntax.hx#L1621>)
 
 
 ### T\_parser\_static\_extension function \_parsePerlClassEscape
@@ -2775,10 +2775,10 @@ function _parsePerlClassEscape(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser
 ```
 
 
-parsePerlClassEscape parses a leading Perl character class escape like \\d from the beginning of s. If one is present, it appends the characters to r and returns the new slice r and the remainder of the string. 
+parsePerlClassEscape parses a leading Perl character class escape like \\d���// from the beginning of s. If one is present, it appends the characters to r���// and returns the new slice r and the remainder of the string. 
 
 
-[\(view code\)](<./Syntax.hx#L1602>)
+[\(view code\)](<./Syntax.hx#L1630>)
 
 
 ### T\_parser\_static\_extension function \_parsePerlFlags
@@ -2789,10 +2789,10 @@ function _parsePerlFlags(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser>, _s:
 ```
 
 
-parsePerlFlags parses a Perl flag setting or non\-capturing group or both, like \(?i\) or \(?: or \(?i:.  It removes the prefix from s and updates the parse state. The caller must have ensured that s begins with "\(?". 
+parsePerlFlags parses a Perl flag setting or non\-capturing group or both,���// like \(?i\) or \(?: or \(?i:.  It removes the prefix from s and updates the parse state.���// The caller must have ensured that s begins with "\(?". 
 
 
-[\(view code\)](<./Syntax.hx#L1657>)
+[\(view code\)](<./Syntax.hx#L1685>)
 
 
 ### T\_parser\_static\_extension function \_parseRepeat
@@ -2803,10 +2803,10 @@ function _parseRepeat(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser>, _s:std
 ```
 
 
-parseRepeat parses \{min\} \(max=min\) or \{min,\} \(max=\-1\) or \{min,max\}. If s is not of that form, it returns ok == false. If s has the right form but the values are too big, it returns min == \-1, ok == true. 
+parseRepeat parses \{min\} \(max=min\) or \{min,\} \(max=\-1\) or \{min,max\}.���// If s is not of that form, it returns ok == false.���// If s has the right form but the values are too big, it returns min == \-1, ok == true. 
 
 
-[\(view code\)](<./Syntax.hx#L1671>)
+[\(view code\)](<./Syntax.hx#L1699>)
 
 
 ### T\_parser\_static\_extension function \_parseRightParen
@@ -2820,7 +2820,7 @@ function _parseRightParen(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser>):st
 parseRightParen handles a \) in the input. 
 
 
-[\(view code\)](<./Syntax.hx#L1625>)
+[\(view code\)](<./Syntax.hx#L1653>)
 
 
 ### T\_parser\_static\_extension function \_parseUnicodeClass
@@ -2831,10 +2831,10 @@ function _parseUnicodeClass(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser>, 
 ```
 
 
-parseUnicodeClass parses a leading Unicode character class like \\p\{Han\} from the beginning of s. If one is present, it appends the characters to r and returns the new slice r and the remainder of the string. 
+parseUnicodeClass parses a leading Unicode character class like \\p\{Han\}���// from the beginning of s. If one is present, it appends the characters to r���// and returns the new slice r and the remainder of the string. 
 
 
-[\(view code\)](<./Syntax.hx#L1580>)
+[\(view code\)](<./Syntax.hx#L1608>)
 
 
 ### T\_parser\_static\_extension function \_parseVerticalBar
@@ -2848,7 +2848,7 @@ function _parseVerticalBar(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser>):s
 parseVerticalBar handles a | in the input. 
 
 
-[\(view code\)](<./Syntax.hx#L1641>)
+[\(view code\)](<./Syntax.hx#L1669>)
 
 
 ### T\_parser\_static\_extension function \_push
@@ -2862,7 +2862,7 @@ function _push(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser>, _re:stdgo.Ref
 push pushes the regexp re onto the parse stack and returns the regexp. 
 
 
-[\(view code\)](<./Syntax.hx#L1797>)
+[\(view code\)](<./Syntax.hx#L1825>)
 
 
 ### T\_parser\_static\_extension function \_removeLeadingRegexp
@@ -2873,10 +2873,10 @@ function _removeLeadingRegexp(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser>
 ```
 
 
-removeLeadingRegexp removes the leading regexp in re. It returns the replacement for re. If reuse is true, it passes the removed regexp \(if no longer needed\) to p.reuse. 
+removeLeadingRegexp removes the leading regexp in re.���// It returns the replacement for re.���// If reuse is true, it passes the removed regexp \(if no longer needed\) to p.reuse. 
 
 
-[\(view code\)](<./Syntax.hx#L1680>)
+[\(view code\)](<./Syntax.hx#L1708>)
 
 
 ### T\_parser\_static\_extension function \_removeLeadingString
@@ -2887,10 +2887,10 @@ function _removeLeadingString(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser>
 ```
 
 
-removeLeadingString removes the first n leading runes from the beginning of re. It returns the replacement for re. 
+removeLeadingString removes the first n leading runes���// from the beginning of re. It returns the replacement for re. 
 
 
-[\(view code\)](<./Syntax.hx#L1696>)
+[\(view code\)](<./Syntax.hx#L1724>)
 
 
 ### T\_parser\_static\_extension function \_repeat
@@ -2901,10 +2901,10 @@ function _repeat(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser>, _op:stdgo.r
 ```
 
 
-repeat replaces the top stack element with itself repeated according to op, min, max. before is the regexp suffix starting at the repetition operator. after is the regexp suffix following after the repetition operator. repeat returns an updated 'after' and an error, if any. 
+repeat replaces the top stack element with itself repeated according to op, min, max.���// before is the regexp suffix starting at the repetition operator.���// after is the regexp suffix following after the repetition operator.���// repeat returns an updated 'after' and an error, if any. 
 
 
-[\(view code\)](<./Syntax.hx#L1760>)
+[\(view code\)](<./Syntax.hx#L1788>)
 
 
 ### T\_parser\_static\_extension function \_reuse
@@ -2918,7 +2918,7 @@ function _reuse(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser>, _re:stdgo.Re
  
 
 
-[\(view code\)](<./Syntax.hx#L1809>)
+[\(view code\)](<./Syntax.hx#L1837>)
 
 
 ### T\_parser\_static\_extension function \_swapVerticalBar
@@ -2929,10 +2929,10 @@ function _swapVerticalBar(_p:stdgo.Ref<stdgo.regexp.syntax._Syntax.T_parser>):Bo
 ```
 
 
-If the top of the stack is an element followed by an opVerticalBar swapVerticalBar swaps the two and returns true. Otherwise it returns false. 
+If the top of the stack is an element followed by an opVerticalBar���// swapVerticalBar swaps the two and returns true.���// Otherwise it returns false. 
 
 
-[\(view code\)](<./Syntax.hx#L1634>)
+[\(view code\)](<./Syntax.hx#L1662>)
 
 
 ## class T\_patchList\_static\_extension
@@ -2952,7 +2952,7 @@ function _append(_l1:stdgo.regexp.syntax._Syntax.T_patchList, _p:stdgo.Ref<stdgo
  
 
 
-[\(view code\)](<./Syntax.hx#L1125>)
+[\(view code\)](<./Syntax.hx#L1153>)
 
 
 ### T\_patchList\_static\_extension function \_patch
@@ -2966,7 +2966,7 @@ function _patch(_l:stdgo.regexp.syntax._Syntax.T_patchList, _p:stdgo.Ref<stdgo.r
  
 
 
-[\(view code\)](<./Syntax.hx#L1129>)
+[\(view code\)](<./Syntax.hx#L1157>)
 
 
 ## class T\_ranges\_static\_extension
@@ -2986,7 +2986,7 @@ function len(_ra:stdgo.regexp.syntax._Syntax.T_ranges):stdgo.GoInt
  
 
 
-[\(view code\)](<./Syntax.hx#L1850>)
+[\(view code\)](<./Syntax.hx#L1878>)
 
 
 ### T\_ranges\_static\_extension function less
@@ -3000,7 +3000,7 @@ function less(_ra:stdgo.regexp.syntax._Syntax.T_ranges, _i:stdgo.GoInt, _j:stdgo
  
 
 
-[\(view code\)](<./Syntax.hx#L1854>)
+[\(view code\)](<./Syntax.hx#L1882>)
 
 
 ### T\_ranges\_static\_extension function swap
@@ -3014,7 +3014,7 @@ function swap(_ra:stdgo.regexp.syntax._Syntax.T_ranges, _i:stdgo.GoInt, _j:stdgo
  
 
 
-[\(view code\)](<./Syntax.hx#L1846>)
+[\(view code\)](<./Syntax.hx#L1874>)
 
 
 # Typedefs
@@ -3058,7 +3058,7 @@ function string():stdgo.GoString
  
 
 
-[\(view code\)](<./Syntax.hx#L2148>)
+[\(view code\)](<./Syntax.hx#L2176>)
 
 
 ## typedef Flags
@@ -3094,7 +3094,7 @@ function string():stdgo.GoString
  
 
 
-[\(view code\)](<./Syntax.hx#L2173>)
+[\(view code\)](<./Syntax.hx#L2201>)
 
 
 ## typedef Op
@@ -3119,6 +3119,6 @@ function string():stdgo.GoString
  
 
 
-[\(view code\)](<./Syntax.hx#L2173>)
+[\(view code\)](<./Syntax.hx#L2201>)
 
 

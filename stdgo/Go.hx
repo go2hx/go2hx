@@ -417,6 +417,14 @@ class Go {
 					f(ct,params);
 				case TInst(_.get() => ct, params):
 					f(ct,params);
+				case TAbstract(_.get() => ct,params):
+					if (ct.name == "Pointer" && ct.pack != null && ct.pack[0] == "stdgo") {
+						t = params[0];
+						selfPointer = true;
+						return run();
+					}
+					Context.error("invalid type: " + t, Context.currentPos());
+					null;
 				default:
 					Context.error("invalid type: " + t, Context.currentPos());
 					null;

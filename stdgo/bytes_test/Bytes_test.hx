@@ -1853,7 +1853,7 @@ function testReadFromNegativeReader(_t:Ref<stdgo.testing.Testing.T>):Void {
 						final r = Go.recover_exception;
 						Go.recover_exception = null;
 						r;
-					}) == null ? null : ({
+					}) == null ? (null : AnyInterface) : ({
 						final r = Go.recover_exception;
 						Go.recover_exception = null;
 						r;
@@ -1868,15 +1868,15 @@ function testReadFromNegativeReader(_t:Ref<stdgo.testing.Testing.T>):Void {
 						final r = Go.recover_exception;
 						Go.recover_exception = null;
 						r;
-					}) == null ? null : ({
+					}) == null ? (null : Error) : ({
 						final r = Go.recover_exception;
 						Go.recover_exception = null;
 						r;
-					}).__underlying__() == null ? null : ({
+					}).__underlying__() == null ? (null : Error) : ({
 						final r = Go.recover_exception;
 						Go.recover_exception = null;
 						r;
-					}) == null ? null : ({
+					}) == null ? (null : Error) : ({
 						final r = Go.recover_exception;
 						Go.recover_exception = null;
 						r;
@@ -3478,7 +3478,8 @@ function _repeat(_b:Slice<GoByte>, _count:GoInt):Error {
 				});
 				if (_r != null) {
 					if (Go.typeEquals((_r : Error))) {
-						var _v:Error = _r == null ? null : _r.__underlying__() == null ? null : _r == null ? null : _r.__underlying__().value;
+						var _v:Error = _r == null ? (null : Error) : _r.__underlying__() == null ? (null : Error) : _r == null ? (null : Error) : _r.__underlying__()
+							.value;
 						_err = _v;
 					} else {
 						var _v:AnyInterface = _r == null ? null : _r.__underlying__();

@@ -4533,7 +4533,8 @@ function _repeat(_s:GoString, _count:GoInt):Error {
 				});
 				if (_r != null) {
 					if (Go.typeEquals((_r : Error))) {
-						var _v:Error = _r == null ? null : _r.__underlying__() == null ? null : _r == null ? null : _r.__underlying__().value;
+						var _v:Error = _r == null ? (null : Error) : _r.__underlying__() == null ? (null : Error) : _r == null ? (null : Error) : _r.__underlying__()
+							.value;
 						_err = _v;
 					} else {
 						var _v:AnyInterface = _r == null ? null : _r.__underlying__();

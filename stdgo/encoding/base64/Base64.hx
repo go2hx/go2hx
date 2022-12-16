@@ -635,7 +635,8 @@ function testDecodeCorrupt(_t:Ref<stdgo.testing.Testing.T>):Void {
 			continue;
 		};
 		if (Go.typeEquals((_err : CorruptInputError))) {
-			var _err:CorruptInputError = _err == null ? null : _err.__underlying__() == null ? null : _err == null ? null : _err.__underlying__().value;
+			var _err:CorruptInputError = _err == null ? ((0 : GoInt64) : CorruptInputError) : _err.__underlying__() == null ? ((0 : GoInt64) : CorruptInputError) : _err == null ? ((0 : GoInt64) : CorruptInputError) : _err.__underlying__()
+				.value;
 			_testEqual(_t, Go.str("Corruption in %q at offset %v, want %v"), Go.toInterface(_tc._input), Go.toInterface((_err : GoInt)),
 				Go.toInterface(_tc._offset));
 		} else {

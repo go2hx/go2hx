@@ -2537,7 +2537,8 @@ function testHardLink(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 		_err = link(_to, _from);
 		if (Go.typeEquals((_err : Ref<LinkError>))) {
-			var _err:Ref<LinkError> = _err == null ? null : _err.__underlying__() == null ? null : _err == null ? null : _err.__underlying__().value;
+			var _err:Ref<LinkError> = _err == null ? (null : Ref<LinkError>) : _err.__underlying__() == null ? (null : Ref<LinkError>) : _err == null ? (null : Ref<LinkError>) : _err.__underlying__()
+				.value;
 			if (_err.op != (Go.str("link"))) {
 				_t.errorf(Go.str("Link(%q, %q) err.Op = %q; want %q"), Go.toInterface(_to), Go.toInterface(_from), Go.toInterface(_err.op),
 					Go.toInterface(Go.str("link")));
@@ -2555,7 +2556,7 @@ function testHardLink(_t:Ref<stdgo.testing.Testing.T>):Void {
 					Go.toInterface(Go.str("file exists error")));
 			};
 		} else if (_err == null) {
-			var _err:AnyInterface = _err == null ? null : _err.__underlying__();
+			var _err:AnyInterface = _err == null ? (null : AnyInterface) : _err.__underlying__();
 			_t.errorf(Go.str("link %q, %q: expected error, got nil"), Go.toInterface(_from), Go.toInterface(_to));
 		} else {
 			var _err:Error = _err == null ? null : _err.__underlying__() == null ? null : _err == null ? null : _err.__underlying__().value;
@@ -2908,7 +2909,8 @@ function testRenameFailed(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_from:GoString = _0;
 		var _err:Error = rename(_from, _to);
 		if (Go.typeEquals((_err : Ref<LinkError>))) {
-			var _err:Ref<LinkError> = _err == null ? null : _err.__underlying__() == null ? null : _err == null ? null : _err.__underlying__().value;
+			var _err:Ref<LinkError> = _err == null ? (null : Ref<LinkError>) : _err.__underlying__() == null ? (null : Ref<LinkError>) : _err == null ? (null : Ref<LinkError>) : _err.__underlying__()
+				.value;
 			if (_err.op != (Go.str("rename"))) {
 				_t.errorf(Go.str("rename %q, %q: err.Op: want %q, got %q"), Go.toInterface(_from), Go.toInterface(_to), Go.toInterface(Go.str("rename")),
 					Go.toInterface(_err.op));
@@ -2922,7 +2924,7 @@ function testRenameFailed(_t:Ref<stdgo.testing.Testing.T>):Void {
 					Go.toInterface(_err.new_));
 			};
 		} else if (_err == null) {
-			var _err:AnyInterface = _err == null ? null : _err.__underlying__();
+			var _err:AnyInterface = _err == null ? (null : AnyInterface) : _err.__underlying__();
 			_t.errorf(Go.str("rename %q, %q: expected error, got nil"), Go.toInterface(_from), Go.toInterface(_to));
 		} else {
 			var _err:Error = _err == null ? null : _err.__underlying__() == null ? null : _err == null ? null : _err.__underlying__().value;
@@ -3004,7 +3006,8 @@ function testRenameToDirFailed(_t:Ref<stdgo.testing.Testing.T>):Void {
 		mkdir(_to, (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 		var _err:Error = rename(_from, _to);
 		if (Go.typeEquals((_err : Ref<LinkError>))) {
-			var _err:Ref<LinkError> = _err == null ? null : _err.__underlying__() == null ? null : _err == null ? null : _err.__underlying__().value;
+			var _err:Ref<LinkError> = _err == null ? (null : Ref<LinkError>) : _err.__underlying__() == null ? (null : Ref<LinkError>) : _err == null ? (null : Ref<LinkError>) : _err.__underlying__()
+				.value;
 			if (_err.op != (Go.str("rename"))) {
 				_t.errorf(Go.str("rename %q, %q: err.Op: want %q, got %q"), Go.toInterface(_from), Go.toInterface(_to), Go.toInterface(Go.str("rename")),
 					Go.toInterface(_err.op));
@@ -3018,7 +3021,7 @@ function testRenameToDirFailed(_t:Ref<stdgo.testing.Testing.T>):Void {
 					Go.toInterface(_err.new_));
 			};
 		} else if (_err == null) {
-			var _err:AnyInterface = _err == null ? null : _err.__underlying__();
+			var _err:AnyInterface = _err == null ? (null : AnyInterface) : _err.__underlying__();
 			_t.errorf(Go.str("rename %q, %q: expected error, got nil"), Go.toInterface(_from), Go.toInterface(_to));
 		} else {
 			var _err:Error = _err == null ? null : _err.__underlying__() == null ? null : _err == null ? null : _err.__underlying__().value;

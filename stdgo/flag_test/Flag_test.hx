@@ -1029,7 +1029,7 @@ function _mustPanic(_t:Ref<stdgo.testing.Testing.T>, _testName:GoString, _expect
 						final r = Go.recover_exception;
 						Go.recover_exception = null;
 						r;
-					}) == null ? null : ({
+					}) == null ? (null : AnyInterface) : ({
 						final r = Go.recover_exception;
 						Go.recover_exception = null;
 						r;
@@ -1044,15 +1044,15 @@ function _mustPanic(_t:Ref<stdgo.testing.Testing.T>, _testName:GoString, _expect
 						final r = Go.recover_exception;
 						Go.recover_exception = null;
 						r;
-					}) == null ? null : ({
+					}) == null ? "" : ({
 						final r = Go.recover_exception;
 						Go.recover_exception = null;
 						r;
-					}).__underlying__() == null ? null : ({
+					}).__underlying__() == null ? "" : ({
 						final r = Go.recover_exception;
 						Go.recover_exception = null;
 						r;
-					}) == null ? null : ({
+					}) == null ? "" : ({
 						final r = Go.recover_exception;
 						Go.recover_exception = null;
 						r;

@@ -529,98 +529,109 @@ function read(_r:stdgo.io.Io.Reader, _order:ByteOrder, _data:AnyInterface):Error
 				};
 			};
 			if (Go.typeEquals((_data : Pointer<Bool>))) {
-				var _data:Pointer<Bool> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _data:Pointer<Bool> = _data == null ? (null : Pointer<Bool>) : _data.__underlying__() == null ? (null : Pointer<Bool>) : _data == null ? (null : Pointer<Bool>) : _data.__underlying__()
+					.value;
 				_data.value = _bs[(0 : GoInt)] != ((0 : GoUInt8));
 			} else if (Go.typeEquals((_data : Pointer<GoInt8>))) {
-				var _data:Pointer<GoInt8> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _data:Pointer<GoInt8> = _data == null ? (null : Pointer<GoInt8>) : _data.__underlying__() == null ? (null : Pointer<GoInt8>) : _data == null ? (null : Pointer<GoInt8>) : _data.__underlying__()
+					.value;
 				_data.value = (_bs[(0 : GoInt)] : GoInt8);
 			} else if (Go.typeEquals((_data : Pointer<GoUInt8>))) {
-				var _data:Pointer<GoUInt8> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__()
+				var _data:Pointer<GoUInt8> = _data == null ? (null : Pointer<GoUInt8>) : _data.__underlying__() == null ? (null : Pointer<GoUInt8>) : _data == null ? (null : Pointer<GoUInt8>) : _data.__underlying__()
 					.value;
 				_data.value = _bs[(0 : GoInt)];
 			} else if (Go.typeEquals((_data : Pointer<GoInt16>))) {
-				var _data:Pointer<GoInt16> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__()
+				var _data:Pointer<GoInt16> = _data == null ? (null : Pointer<GoInt16>) : _data.__underlying__() == null ? (null : Pointer<GoInt16>) : _data == null ? (null : Pointer<GoInt16>) : _data.__underlying__()
 					.value;
 				_data.value = (_order.uint16(_bs) : GoInt16);
 			} else if (Go.typeEquals((_data : Pointer<GoUInt16>))) {
-				var _data:Pointer<GoUInt16> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__()
+				var _data:Pointer<GoUInt16> = _data == null ? (null : Pointer<GoUInt16>) : _data.__underlying__() == null ? (null : Pointer<GoUInt16>) : _data == null ? (null : Pointer<GoUInt16>) : _data.__underlying__()
 					.value;
 				_data.value = _order.uint16(_bs);
 			} else if (Go.typeEquals((_data : Pointer<GoInt32>))) {
-				var _data:Pointer<GoInt32> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__()
+				var _data:Pointer<GoInt32> = _data == null ? (null : Pointer<GoInt32>) : _data.__underlying__() == null ? (null : Pointer<GoInt32>) : _data == null ? (null : Pointer<GoInt32>) : _data.__underlying__()
 					.value;
 				_data.value = (_order.uint32(_bs) : GoInt32);
 			} else if (Go.typeEquals((_data : Pointer<GoUInt32>))) {
-				var _data:Pointer<GoUInt32> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__()
+				var _data:Pointer<GoUInt32> = _data == null ? (null : Pointer<GoUInt32>) : _data.__underlying__() == null ? (null : Pointer<GoUInt32>) : _data == null ? (null : Pointer<GoUInt32>) : _data.__underlying__()
 					.value;
 				_data.value = _order.uint32(_bs);
 			} else if (Go.typeEquals((_data : Pointer<GoInt64>))) {
-				var _data:Pointer<GoInt64> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__()
+				var _data:Pointer<GoInt64> = _data == null ? (null : Pointer<GoInt64>) : _data.__underlying__() == null ? (null : Pointer<GoInt64>) : _data == null ? (null : Pointer<GoInt64>) : _data.__underlying__()
 					.value;
 				_data.value = (_order.uint64(_bs) : GoInt64);
 			} else if (Go.typeEquals((_data : Pointer<GoUInt64>))) {
-				var _data:Pointer<GoUInt64> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__()
+				var _data:Pointer<GoUInt64> = _data == null ? (null : Pointer<GoUInt64>) : _data.__underlying__() == null ? (null : Pointer<GoUInt64>) : _data == null ? (null : Pointer<GoUInt64>) : _data.__underlying__()
 					.value;
 				_data.value = _order.uint64(_bs);
 			} else if (Go.typeEquals((_data : Pointer<GoFloat32>))) {
-				var _data:Pointer<GoFloat32> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__()
+				var _data:Pointer<GoFloat32> = _data == null ? (null : Pointer<GoFloat32>) : _data.__underlying__() == null ? (null : Pointer<GoFloat32>) : _data == null ? (null : Pointer<GoFloat32>) : _data.__underlying__()
 					.value;
 				_data.value = stdgo.math.Math.float32frombits(_order.uint32(_bs));
 			} else if (Go.typeEquals((_data : Pointer<GoFloat64>))) {
-				var _data:Pointer<GoFloat64> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__()
+				var _data:Pointer<GoFloat64> = _data == null ? (null : Pointer<GoFloat64>) : _data.__underlying__() == null ? (null : Pointer<GoFloat64>) : _data == null ? (null : Pointer<GoFloat64>) : _data.__underlying__()
 					.value;
 				_data.value = stdgo.math.Math.float64frombits(_order.uint64(_bs));
 			} else if (Go.typeEquals((_data : Slice<Bool>))) {
-				var _data:Slice<Bool> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _data:Slice<Bool> = _data == null ? (null : Slice<Bool>) : _data.__underlying__() == null ? (null : Slice<Bool>) : _data == null ? (null : Slice<Bool>) : _data.__underlying__()
+					.value;
 				for (_i => _x in _bs) {
 					_data[_i] = _x != ((0 : GoUInt8));
 				};
 			} else if (Go.typeEquals((_data : Slice<GoInt8>))) {
-				var _data:Slice<GoInt8> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _data:Slice<GoInt8> = _data == null ? (null : Slice<GoInt8>) : _data.__underlying__() == null ? (null : Slice<GoInt8>) : _data == null ? (null : Slice<GoInt8>) : _data.__underlying__()
+					.value;
 				for (_i => _x in _bs) {
 					_data[_i] = (_x : GoInt8);
 				};
 			} else if (Go.typeEquals((_data : Slice<GoUInt8>))) {
-				var _data:Slice<GoUInt8> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _data:Slice<GoUInt8> = _data == null ? (null : Slice<GoUInt8>) : _data.__underlying__() == null ? (null : Slice<GoUInt8>) : _data == null ? (null : Slice<GoUInt8>) : _data.__underlying__()
+					.value;
 				Go.copySlice(_data, _bs);
 			} else if (Go.typeEquals((_data : Slice<GoInt16>))) {
-				var _data:Slice<GoInt16> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _data:Slice<GoInt16> = _data == null ? (null : Slice<GoInt16>) : _data.__underlying__() == null ? (null : Slice<GoInt16>) : _data == null ? (null : Slice<GoInt16>) : _data.__underlying__()
+					.value;
 				for (_i in 0..._data.length.toBasic()) {
 					_data[_i] = (_order.uint16((_bs.__slice__((2 : GoInt) * _i) : Slice<GoUInt8>)) : GoInt16);
 				};
 			} else if (Go.typeEquals((_data : Slice<GoUInt16>))) {
-				var _data:Slice<GoUInt16> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _data:Slice<GoUInt16> = _data == null ? (null : Slice<GoUInt16>) : _data.__underlying__() == null ? (null : Slice<GoUInt16>) : _data == null ? (null : Slice<GoUInt16>) : _data.__underlying__()
+					.value;
 				for (_i in 0..._data.length.toBasic()) {
 					_data[_i] = _order.uint16((_bs.__slice__((2 : GoInt) * _i) : Slice<GoUInt8>));
 				};
 			} else if (Go.typeEquals((_data : Slice<GoInt32>))) {
-				var _data:Slice<GoInt32> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _data:Slice<GoInt32> = _data == null ? (null : Slice<GoInt32>) : _data.__underlying__() == null ? (null : Slice<GoInt32>) : _data == null ? (null : Slice<GoInt32>) : _data.__underlying__()
+					.value;
 				for (_i in 0..._data.length.toBasic()) {
 					_data[_i] = (_order.uint32((_bs.__slice__((4 : GoInt) * _i) : Slice<GoUInt8>)) : GoInt32);
 				};
 			} else if (Go.typeEquals((_data : Slice<GoUInt32>))) {
-				var _data:Slice<GoUInt32> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _data:Slice<GoUInt32> = _data == null ? (null : Slice<GoUInt32>) : _data.__underlying__() == null ? (null : Slice<GoUInt32>) : _data == null ? (null : Slice<GoUInt32>) : _data.__underlying__()
+					.value;
 				for (_i in 0..._data.length.toBasic()) {
 					_data[_i] = _order.uint32((_bs.__slice__((4 : GoInt) * _i) : Slice<GoUInt8>));
 				};
 			} else if (Go.typeEquals((_data : Slice<GoInt64>))) {
-				var _data:Slice<GoInt64> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _data:Slice<GoInt64> = _data == null ? (null : Slice<GoInt64>) : _data.__underlying__() == null ? (null : Slice<GoInt64>) : _data == null ? (null : Slice<GoInt64>) : _data.__underlying__()
+					.value;
 				for (_i in 0..._data.length.toBasic()) {
 					_data[_i] = (_order.uint64((_bs.__slice__((8 : GoInt) * _i) : Slice<GoUInt8>)) : GoInt64);
 				};
 			} else if (Go.typeEquals((_data : Slice<GoUInt64>))) {
-				var _data:Slice<GoUInt64> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _data:Slice<GoUInt64> = _data == null ? (null : Slice<GoUInt64>) : _data.__underlying__() == null ? (null : Slice<GoUInt64>) : _data == null ? (null : Slice<GoUInt64>) : _data.__underlying__()
+					.value;
 				for (_i in 0..._data.length.toBasic()) {
 					_data[_i] = _order.uint64((_bs.__slice__((8 : GoInt) * _i) : Slice<GoUInt8>));
 				};
 			} else if (Go.typeEquals((_data : Slice<GoFloat32>))) {
-				var _data:Slice<GoFloat32> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__()
+				var _data:Slice<GoFloat32> = _data == null ? (null : Slice<GoFloat32>) : _data.__underlying__() == null ? (null : Slice<GoFloat32>) : _data == null ? (null : Slice<GoFloat32>) : _data.__underlying__()
 					.value;
 				for (_i in 0..._data.length.toBasic()) {
 					_data[_i] = stdgo.math.Math.float32frombits(_order.uint32((_bs.__slice__((4 : GoInt) * _i) : Slice<GoUInt8>)));
 				};
 			} else if (Go.typeEquals((_data : Slice<GoFloat64>))) {
-				var _data:Slice<GoFloat64> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__()
+				var _data:Slice<GoFloat64> = _data == null ? (null : Slice<GoFloat64>) : _data.__underlying__() == null ? (null : Slice<GoFloat64>) : _data == null ? (null : Slice<GoFloat64>) : _data.__underlying__()
 					.value;
 				for (_i in 0..._data.length.toBasic()) {
 					_data[_i] = stdgo.math.Math.float64frombits(_order.uint64((_bs.__slice__((8 : GoInt) * _i) : Slice<GoUInt8>)));
@@ -675,21 +686,23 @@ function write(_w:stdgo.io.Io.Writer, _order:ByteOrder, _data:AnyInterface):Erro
 		if (_n != ((0 : GoInt))) {
 			var _bs = new Slice<GoUInt8>((_n : GoInt).toBasic(), 0, ...[for (i in 0...(_n : GoInt).toBasic()) (0 : GoUInt8)]);
 			if (Go.typeEquals((_data : Pointer<Bool>))) {
-				var _v:Pointer<Bool> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:Pointer<Bool> = _data == null ? (null : Pointer<Bool>) : _data.__underlying__() == null ? (null : Pointer<Bool>) : _data == null ? (null : Pointer<Bool>) : _data.__underlying__()
+					.value;
 				if (_v.value) {
 					_bs[(0 : GoInt)] = (1 : GoUInt8);
 				} else {
 					_bs[(0 : GoInt)] = (0 : GoUInt8);
 				};
 			} else if (Go.typeEquals((_data : Bool))) {
-				var _v:Bool = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:Bool = _data == null ? false : _data.__underlying__() == null ? false : _data == null ? false : _data.__underlying__().value;
 				if (_v) {
 					_bs[(0 : GoInt)] = (1 : GoUInt8);
 				} else {
 					_bs[(0 : GoInt)] = (0 : GoUInt8);
 				};
 			} else if (Go.typeEquals((_data : Slice<Bool>))) {
-				var _v:Slice<Bool> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:Slice<Bool> = _data == null ? (null : Slice<Bool>) : _data.__underlying__() == null ? (null : Slice<Bool>) : _data == null ? (null : Slice<Bool>) : _data.__underlying__()
+					.value;
 				for (_i => _x in _v) {
 					if (_x) {
 						_bs[_i] = (1 : GoUInt8);
@@ -698,110 +711,130 @@ function write(_w:stdgo.io.Io.Writer, _order:ByteOrder, _data:AnyInterface):Erro
 					};
 				};
 			} else if (Go.typeEquals((_data : Pointer<GoInt8>))) {
-				var _v:Pointer<GoInt8> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:Pointer<GoInt8> = _data == null ? (null : Pointer<GoInt8>) : _data.__underlying__() == null ? (null : Pointer<GoInt8>) : _data == null ? (null : Pointer<GoInt8>) : _data.__underlying__()
+					.value;
 				_bs[(0 : GoInt)] = (_v.value : GoByte);
 			} else if (Go.typeEquals((_data : GoInt8))) {
-				var _v:GoInt8 = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:GoInt8 = _data == null ? 0 : _data.__underlying__() == null ? 0 : _data == null ? 0 : _data.__underlying__().value;
 				_bs[(0 : GoInt)] = (_v : GoByte);
 			} else if (Go.typeEquals((_data : Slice<GoInt8>))) {
-				var _v:Slice<GoInt8> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:Slice<GoInt8> = _data == null ? (null : Slice<GoInt8>) : _data.__underlying__() == null ? (null : Slice<GoInt8>) : _data == null ? (null : Slice<GoInt8>) : _data.__underlying__()
+					.value;
 				for (_i => _x in _v) {
 					_bs[_i] = (_x : GoByte);
 				};
 			} else if (Go.typeEquals((_data : Pointer<GoUInt8>))) {
-				var _v:Pointer<GoUInt8> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:Pointer<GoUInt8> = _data == null ? (null : Pointer<GoUInt8>) : _data.__underlying__() == null ? (null : Pointer<GoUInt8>) : _data == null ? (null : Pointer<GoUInt8>) : _data.__underlying__()
+					.value;
 				_bs[(0 : GoInt)] = _v.value;
 			} else if (Go.typeEquals((_data : GoUInt8))) {
-				var _v:GoUInt8 = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:GoUInt8 = _data == null ? 0 : _data.__underlying__() == null ? 0 : _data == null ? 0 : _data.__underlying__().value;
 				_bs[(0 : GoInt)] = _v;
 			} else if (Go.typeEquals((_data : Slice<GoUInt8>))) {
-				var _v:Slice<GoUInt8> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:Slice<GoUInt8> = _data == null ? (null : Slice<GoUInt8>) : _data.__underlying__() == null ? (null : Slice<GoUInt8>) : _data == null ? (null : Slice<GoUInt8>) : _data.__underlying__()
+					.value;
 				_bs = _v;
 			} else if (Go.typeEquals((_data : Pointer<GoInt16>))) {
-				var _v:Pointer<GoInt16> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:Pointer<GoInt16> = _data == null ? (null : Pointer<GoInt16>) : _data.__underlying__() == null ? (null : Pointer<GoInt16>) : _data == null ? (null : Pointer<GoInt16>) : _data.__underlying__()
+					.value;
 				_order.putUint16(_bs, (_v.value : GoUInt16));
 			} else if (Go.typeEquals((_data : GoInt16))) {
-				var _v:GoInt16 = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:GoInt16 = _data == null ? 0 : _data.__underlying__() == null ? 0 : _data == null ? 0 : _data.__underlying__().value;
 				_order.putUint16(_bs, (_v : GoUInt16));
 			} else if (Go.typeEquals((_data : Slice<GoInt16>))) {
-				var _v:Slice<GoInt16> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:Slice<GoInt16> = _data == null ? (null : Slice<GoInt16>) : _data.__underlying__() == null ? (null : Slice<GoInt16>) : _data == null ? (null : Slice<GoInt16>) : _data.__underlying__()
+					.value;
 				for (_i => _x in _v) {
 					_order.putUint16((_bs.__slice__((2 : GoInt) * _i) : Slice<GoUInt8>), (_x : GoUInt16));
 				};
 			} else if (Go.typeEquals((_data : Pointer<GoUInt16>))) {
-				var _v:Pointer<GoUInt16> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:Pointer<GoUInt16> = _data == null ? (null : Pointer<GoUInt16>) : _data.__underlying__() == null ? (null : Pointer<GoUInt16>) : _data == null ? (null : Pointer<GoUInt16>) : _data.__underlying__()
+					.value;
 				_order.putUint16(_bs, _v.value);
 			} else if (Go.typeEquals((_data : GoUInt16))) {
-				var _v:GoUInt16 = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:GoUInt16 = _data == null ? 0 : _data.__underlying__() == null ? 0 : _data == null ? 0 : _data.__underlying__().value;
 				_order.putUint16(_bs, _v);
 			} else if (Go.typeEquals((_data : Slice<GoUInt16>))) {
-				var _v:Slice<GoUInt16> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:Slice<GoUInt16> = _data == null ? (null : Slice<GoUInt16>) : _data.__underlying__() == null ? (null : Slice<GoUInt16>) : _data == null ? (null : Slice<GoUInt16>) : _data.__underlying__()
+					.value;
 				for (_i => _x in _v) {
 					_order.putUint16((_bs.__slice__((2 : GoInt) * _i) : Slice<GoUInt8>), _x);
 				};
 			} else if (Go.typeEquals((_data : Pointer<GoInt32>))) {
-				var _v:Pointer<GoInt32> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:Pointer<GoInt32> = _data == null ? (null : Pointer<GoInt32>) : _data.__underlying__() == null ? (null : Pointer<GoInt32>) : _data == null ? (null : Pointer<GoInt32>) : _data.__underlying__()
+					.value;
 				_order.putUint32(_bs, (_v.value : GoUInt32));
 			} else if (Go.typeEquals((_data : GoInt32))) {
-				var _v:GoInt32 = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:GoInt32 = _data == null ? 0 : _data.__underlying__() == null ? 0 : _data == null ? 0 : _data.__underlying__().value;
 				_order.putUint32(_bs, (_v : GoUInt32));
 			} else if (Go.typeEquals((_data : Slice<GoInt32>))) {
-				var _v:Slice<GoInt32> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:Slice<GoInt32> = _data == null ? (null : Slice<GoInt32>) : _data.__underlying__() == null ? (null : Slice<GoInt32>) : _data == null ? (null : Slice<GoInt32>) : _data.__underlying__()
+					.value;
 				for (_i => _x in _v) {
 					_order.putUint32((_bs.__slice__((4 : GoInt) * _i) : Slice<GoUInt8>), (_x : GoUInt32));
 				};
 			} else if (Go.typeEquals((_data : Pointer<GoUInt32>))) {
-				var _v:Pointer<GoUInt32> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:Pointer<GoUInt32> = _data == null ? (null : Pointer<GoUInt32>) : _data.__underlying__() == null ? (null : Pointer<GoUInt32>) : _data == null ? (null : Pointer<GoUInt32>) : _data.__underlying__()
+					.value;
 				_order.putUint32(_bs, _v.value);
 			} else if (Go.typeEquals((_data : GoUInt32))) {
-				var _v:GoUInt32 = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:GoUInt32 = _data == null ? 0 : _data.__underlying__() == null ? 0 : _data == null ? 0 : _data.__underlying__().value;
 				_order.putUint32(_bs, _v);
 			} else if (Go.typeEquals((_data : Slice<GoUInt32>))) {
-				var _v:Slice<GoUInt32> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:Slice<GoUInt32> = _data == null ? (null : Slice<GoUInt32>) : _data.__underlying__() == null ? (null : Slice<GoUInt32>) : _data == null ? (null : Slice<GoUInt32>) : _data.__underlying__()
+					.value;
 				for (_i => _x in _v) {
 					_order.putUint32((_bs.__slice__((4 : GoInt) * _i) : Slice<GoUInt8>), _x);
 				};
 			} else if (Go.typeEquals((_data : Pointer<GoInt64>))) {
-				var _v:Pointer<GoInt64> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:Pointer<GoInt64> = _data == null ? (null : Pointer<GoInt64>) : _data.__underlying__() == null ? (null : Pointer<GoInt64>) : _data == null ? (null : Pointer<GoInt64>) : _data.__underlying__()
+					.value;
 				_order.putUint64(_bs, (_v.value : GoUInt64));
 			} else if (Go.typeEquals((_data : GoInt64))) {
-				var _v:GoInt64 = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:GoInt64 = _data == null ? 0 : _data.__underlying__() == null ? 0 : _data == null ? 0 : _data.__underlying__().value;
 				_order.putUint64(_bs, (_v : GoUInt64));
 			} else if (Go.typeEquals((_data : Slice<GoInt64>))) {
-				var _v:Slice<GoInt64> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:Slice<GoInt64> = _data == null ? (null : Slice<GoInt64>) : _data.__underlying__() == null ? (null : Slice<GoInt64>) : _data == null ? (null : Slice<GoInt64>) : _data.__underlying__()
+					.value;
 				for (_i => _x in _v) {
 					_order.putUint64((_bs.__slice__((8 : GoInt) * _i) : Slice<GoUInt8>), (_x : GoUInt64));
 				};
 			} else if (Go.typeEquals((_data : Pointer<GoUInt64>))) {
-				var _v:Pointer<GoUInt64> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:Pointer<GoUInt64> = _data == null ? (null : Pointer<GoUInt64>) : _data.__underlying__() == null ? (null : Pointer<GoUInt64>) : _data == null ? (null : Pointer<GoUInt64>) : _data.__underlying__()
+					.value;
 				_order.putUint64(_bs, _v.value);
 			} else if (Go.typeEquals((_data : GoUInt64))) {
-				var _v:GoUInt64 = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:GoUInt64 = _data == null ? 0 : _data.__underlying__() == null ? 0 : _data == null ? 0 : _data.__underlying__().value;
 				_order.putUint64(_bs, _v);
 			} else if (Go.typeEquals((_data : Slice<GoUInt64>))) {
-				var _v:Slice<GoUInt64> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:Slice<GoUInt64> = _data == null ? (null : Slice<GoUInt64>) : _data.__underlying__() == null ? (null : Slice<GoUInt64>) : _data == null ? (null : Slice<GoUInt64>) : _data.__underlying__()
+					.value;
 				for (_i => _x in _v) {
 					_order.putUint64((_bs.__slice__((8 : GoInt) * _i) : Slice<GoUInt8>), _x);
 				};
 			} else if (Go.typeEquals((_data : Pointer<GoFloat32>))) {
-				var _v:Pointer<GoFloat32> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:Pointer<GoFloat32> = _data == null ? (null : Pointer<GoFloat32>) : _data.__underlying__() == null ? (null : Pointer<GoFloat32>) : _data == null ? (null : Pointer<GoFloat32>) : _data.__underlying__()
+					.value;
 				_order.putUint32(_bs, stdgo.math.Math.float32bits(_v.value));
 			} else if (Go.typeEquals((_data : GoFloat32))) {
-				var _v:GoFloat32 = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:GoFloat32 = _data == null ? 0 : _data.__underlying__() == null ? 0 : _data == null ? 0 : _data.__underlying__().value;
 				_order.putUint32(_bs, stdgo.math.Math.float32bits(_v));
 			} else if (Go.typeEquals((_data : Slice<GoFloat32>))) {
-				var _v:Slice<GoFloat32> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:Slice<GoFloat32> = _data == null ? (null : Slice<GoFloat32>) : _data.__underlying__() == null ? (null : Slice<GoFloat32>) : _data == null ? (null : Slice<GoFloat32>) : _data.__underlying__()
+					.value;
 				for (_i => _x in _v) {
 					_order.putUint32((_bs.__slice__((4 : GoInt) * _i) : Slice<GoUInt8>), stdgo.math.Math.float32bits(_x));
 				};
 			} else if (Go.typeEquals((_data : Pointer<GoFloat64>))) {
-				var _v:Pointer<GoFloat64> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:Pointer<GoFloat64> = _data == null ? (null : Pointer<GoFloat64>) : _data.__underlying__() == null ? (null : Pointer<GoFloat64>) : _data == null ? (null : Pointer<GoFloat64>) : _data.__underlying__()
+					.value;
 				_order.putUint64(_bs, stdgo.math.Math.float64bits(_v.value));
 			} else if (Go.typeEquals((_data : GoFloat64))) {
-				var _v:GoFloat64 = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:GoFloat64 = _data == null ? 0 : _data.__underlying__() == null ? 0 : _data == null ? 0 : _data.__underlying__().value;
 				_order.putUint64(_bs, stdgo.math.Math.float64bits(_v));
 			} else if (Go.typeEquals((_data : Slice<GoFloat64>))) {
-				var _v:Slice<GoFloat64> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+				var _v:Slice<GoFloat64> = _data == null ? (null : Slice<GoFloat64>) : _data.__underlying__() == null ? (null : Slice<GoFloat64>) : _data == null ? (null : Slice<GoFloat64>) : _data.__underlying__()
+					.value;
 				for (_i => _x in _v) {
 					_order.putUint64((_bs.__slice__((8 : GoInt) * _i) : Slice<GoUInt8>), stdgo.math.Math.float64bits(_x));
 				};
@@ -933,13 +966,16 @@ function _intDataSize(_data:AnyInterface):GoInt {
 		var _data:AnyInterface = _data == null ? null : _data.__underlying__();
 		return (1 : GoInt);
 	} else if (Go.typeEquals((_data : Slice<Bool>))) {
-		var _data:Slice<Bool> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+		var _data:Slice<Bool> = _data == null ? (null : Slice<Bool>) : _data.__underlying__() == null ? (null : Slice<Bool>) : _data == null ? (null : Slice<Bool>) : _data.__underlying__()
+			.value;
 		return (_data.length);
 	} else if (Go.typeEquals((_data : Slice<GoInt8>))) {
-		var _data:Slice<GoInt8> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+		var _data:Slice<GoInt8> = _data == null ? (null : Slice<GoInt8>) : _data.__underlying__() == null ? (null : Slice<GoInt8>) : _data == null ? (null : Slice<GoInt8>) : _data.__underlying__()
+			.value;
 		return (_data.length);
 	} else if (Go.typeEquals((_data : Slice<GoUInt8>))) {
-		var _data:Slice<GoUInt8> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+		var _data:Slice<GoUInt8> = _data == null ? (null : Slice<GoUInt8>) : _data.__underlying__() == null ? (null : Slice<GoUInt8>) : _data == null ? (null : Slice<GoUInt8>) : _data.__underlying__()
+			.value;
 		return (_data.length);
 	} else if (Go.typeEquals((_data : GoInt16))
 		|| Go.typeEquals((_data : GoUInt16))
@@ -948,10 +984,12 @@ function _intDataSize(_data:AnyInterface):GoInt {
 		var _data:AnyInterface = _data == null ? null : _data.__underlying__();
 		return (2 : GoInt);
 	} else if (Go.typeEquals((_data : Slice<GoInt16>))) {
-		var _data:Slice<GoInt16> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+		var _data:Slice<GoInt16> = _data == null ? (null : Slice<GoInt16>) : _data.__underlying__() == null ? (null : Slice<GoInt16>) : _data == null ? (null : Slice<GoInt16>) : _data.__underlying__()
+			.value;
 		return (2 : GoInt) * (_data.length);
 	} else if (Go.typeEquals((_data : Slice<GoUInt16>))) {
-		var _data:Slice<GoUInt16> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+		var _data:Slice<GoUInt16> = _data == null ? (null : Slice<GoUInt16>) : _data.__underlying__() == null ? (null : Slice<GoUInt16>) : _data == null ? (null : Slice<GoUInt16>) : _data.__underlying__()
+			.value;
 		return (2 : GoInt) * (_data.length);
 	} else if (Go.typeEquals((_data : GoInt32))
 		|| Go.typeEquals((_data : GoUInt32))
@@ -960,10 +998,12 @@ function _intDataSize(_data:AnyInterface):GoInt {
 		var _data:AnyInterface = _data == null ? null : _data.__underlying__();
 		return (4 : GoInt);
 	} else if (Go.typeEquals((_data : Slice<GoInt32>))) {
-		var _data:Slice<GoInt32> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+		var _data:Slice<GoInt32> = _data == null ? (null : Slice<GoInt32>) : _data.__underlying__() == null ? (null : Slice<GoInt32>) : _data == null ? (null : Slice<GoInt32>) : _data.__underlying__()
+			.value;
 		return (4 : GoInt) * (_data.length);
 	} else if (Go.typeEquals((_data : Slice<GoUInt32>))) {
-		var _data:Slice<GoUInt32> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+		var _data:Slice<GoUInt32> = _data == null ? (null : Slice<GoUInt32>) : _data.__underlying__() == null ? (null : Slice<GoUInt32>) : _data == null ? (null : Slice<GoUInt32>) : _data.__underlying__()
+			.value;
 		return (4 : GoInt) * (_data.length);
 	} else if (Go.typeEquals((_data : GoInt64))
 		|| Go.typeEquals((_data : GoUInt64))
@@ -972,10 +1012,12 @@ function _intDataSize(_data:AnyInterface):GoInt {
 		var _data:AnyInterface = _data == null ? null : _data.__underlying__();
 		return (8 : GoInt);
 	} else if (Go.typeEquals((_data : Slice<GoInt64>))) {
-		var _data:Slice<GoInt64> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+		var _data:Slice<GoInt64> = _data == null ? (null : Slice<GoInt64>) : _data.__underlying__() == null ? (null : Slice<GoInt64>) : _data == null ? (null : Slice<GoInt64>) : _data.__underlying__()
+			.value;
 		return (8 : GoInt) * (_data.length);
 	} else if (Go.typeEquals((_data : Slice<GoUInt64>))) {
-		var _data:Slice<GoUInt64> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+		var _data:Slice<GoUInt64> = _data == null ? (null : Slice<GoUInt64>) : _data.__underlying__() == null ? (null : Slice<GoUInt64>) : _data == null ? (null : Slice<GoUInt64>) : _data.__underlying__()
+			.value;
 		return (8 : GoInt) * (_data.length);
 	} else if (Go.typeEquals((_data : GoFloat32)) || Go.typeEquals((_data : Pointer<GoFloat32>))) {
 		var _data:AnyInterface = _data == null ? null : _data.__underlying__();
@@ -984,10 +1026,12 @@ function _intDataSize(_data:AnyInterface):GoInt {
 		var _data:AnyInterface = _data == null ? null : _data.__underlying__();
 		return (8 : GoInt);
 	} else if (Go.typeEquals((_data : Slice<GoFloat32>))) {
-		var _data:Slice<GoFloat32> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+		var _data:Slice<GoFloat32> = _data == null ? (null : Slice<GoFloat32>) : _data.__underlying__() == null ? (null : Slice<GoFloat32>) : _data == null ? (null : Slice<GoFloat32>) : _data.__underlying__()
+			.value;
 		return (4 : GoInt) * (_data.length);
 	} else if (Go.typeEquals((_data : Slice<GoFloat64>))) {
-		var _data:Slice<GoFloat64> = _data == null ? null : _data.__underlying__() == null ? null : _data == null ? null : _data.__underlying__().value;
+		var _data:Slice<GoFloat64> = _data == null ? (null : Slice<GoFloat64>) : _data.__underlying__() == null ? (null : Slice<GoFloat64>) : _data == null ? (null : Slice<GoFloat64>) : _data.__underlying__()
+			.value;
 		return (8 : GoInt) * (_data.length);
 	};
 	return (0 : GoInt);

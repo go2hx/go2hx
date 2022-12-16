@@ -538,7 +538,7 @@ private class T_poser_asInterface {
 				.value;
 			_x = _p;
 		} else if (Go.typeEquals((_err : Ref<T_errorT>))) {
-			var _x:Ref<stdgo.errors_test.Errors_test.T_errorT> = _err == null ? null : _err.__underlying__() == null ? null : _err == null ? null : _err.__underlying__()
+			var _x:Ref<stdgo.errors_test.Errors_test.T_errorT> = _err == null ? (null : Ref<stdgo.errors_test.Errors_test.T_errorT>) : _err.__underlying__() == null ? (null : Ref<stdgo.errors_test.Errors_test.T_errorT>) : _err == null ? (null : Ref<stdgo.errors_test.Errors_test.T_errorT>) : _err.__underlying__()
 				.value;
 			{
 				var __tmp__ = (new stdgo.errors_test.Errors_test.T_errorT(Go.str("poser")) : stdgo.errors_test.Errors_test.T_errorT);

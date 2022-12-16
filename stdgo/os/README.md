@@ -27,9 +27,9 @@ stdgo/os_test/Os_test.hx:2302: characters 14-42 : Type not found : stdgo.path.fi
 stdgo/os_test/Os_test.hx:2303: characters 14-42 : Type not found : stdgo.path.filepath.Filepath
 stdgo/os_test/Os_test.hx:2488: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
 stdgo/os_test/Os_test.hx:2626: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
-stdgo/os_test/Os_test.hx:2657: characters 20-105 : Module stdgo.StdGoTypes does not define type GoUInt32_asInterface
+stdgo/os_test/Os_test.hx:2657: characters 20-105 : invalid type: TAbstract(stdgo.GoUInt32,[])
 stdgo/os_test/Os_test.hx:2657: characters 20-105 : ... For function argument 'args'
-stdgo/os_test/Os_test.hx:2693: characters 20-107 : Module stdgo.StdGoTypes does not define type GoUInt32_asInterface
+stdgo/os_test/Os_test.hx:2693: characters 20-107 : invalid type: TAbstract(stdgo.GoUInt32,[])
 stdgo/os_test/Os_test.hx:2693: characters 20-107 : ... For function argument 'args'
 stdgo/os_test/Os_test.hx:2739: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
 stdgo/os_test/Os_test.hx:3211: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
@@ -45,7 +45,7 @@ stdgo/os_test/Os_test.hx:4035: characters 38-56 : Type not found : stdgo.os.exec
 stdgo/os_test/Os_test.hx:4105: characters 13-31 : Type not found : stdgo.os.exec.Exec
 stdgo/os_test/Os_test.hx:4137: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
 stdgo/os_test/Os_test.hx:4620: characters 23-51 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:4746: characters 19-94 : Module stdgo.StdGoTypes does not define type GoUInt32_asInterface
+stdgo/os_test/Os_test.hx:4746: characters 19-94 : invalid type: TAbstract(stdgo.GoUInt32,[])
 stdgo/os_test/Os_test.hx:4746: characters 19-94 : ... For function argument 'args'
 stdgo/os_test/Os_test.hx:4754: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
 stdgo/os_test/Os_test.hx:4779: characters 15-37 : Type not found : stdgo.os.exec.Exec

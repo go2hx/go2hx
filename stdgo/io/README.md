@@ -16,12 +16,12 @@ stdgo/io_test/Io_test.hx:1674: characters 12-32 : Type not found : stdgo.hash.Ha
 stdgo/io_test/Io_test.hx:1691: characters 13-19 : stdgo.io_test._Io_test.T__interface_0 has no field string
 stdgo/io_test/Io_test.hx:1692: characters 97-103 : stdgo.io_test._Io_test.T__interface_0 has no field string
 stdgo/io_test/Io_test.hx:1692: characters 97-103 : ... For function argument 'args'
-stdgo/Go.hx:421: characters 21-39 : stdgo.bytes.Buffer_asInterface should be Null<stdgo.fmt.Stringer>
-stdgo/Go.hx:421: characters 21-39 : ... stdgo.bytes.Buffer_asInterface has no field toString
-stdgo/Go.hx:421: characters 21-39 : ... For function argument '_sink'
-stdgo/Go.hx:421: characters 21-39 : stdgo.bytes.Buffer_asInterface should be stdgo.io_test._Io_test.T__interface_0
-stdgo/Go.hx:421: characters 21-39 : ... stdgo.bytes.Buffer_asInterface has no field toString
-stdgo/Go.hx:421: characters 21-39 : ... For function argument '_sink'
+stdgo/Go.hx:401: characters 22-40 : stdgo.bytes.Buffer_asInterface should be Null<stdgo.fmt.Stringer>
+stdgo/Go.hx:401: characters 22-40 : ... stdgo.bytes.Buffer_asInterface has no field toString
+stdgo/Go.hx:401: characters 22-40 : ... For function argument '_sink'
+stdgo/Go.hx:401: characters 22-40 : stdgo.bytes.Buffer_asInterface should be stdgo.io_test._Io_test.T__interface_0
+stdgo/Go.hx:401: characters 22-40 : ... stdgo.bytes.Buffer_asInterface has no field toString
+stdgo/Go.hx:401: characters 22-40 : ... For function argument '_sink'
 stdgo/io_test/Io_test.hx:1986: characters 19-25 : Unknown identifier : reader
 stdgo/io_test/Io_test.hx:2037: characters 19-25 : Unknown identifier : writer
 

@@ -3,12 +3,12 @@
 stdgo/time_test/Time_test.hx:3436: characters 85-117 : Type not found : stdgo.testing.quick.Quick
 stdgo/time_test/Time_test.hx:3438: characters 20-45 : Type not found : stdgo.testing.quick.Quick
 stdgo/time_test/Time_test.hx:3444: characters 20-45 : Type not found : stdgo.testing.quick.Quick
-stdgo/time_test/Time_test.hx:4426: characters 57-122 : Module stdgo.StdGoTypes does not define type GoInt64_asInterface
+stdgo/time_test/Time_test.hx:4426: characters 57-122 : invalid type: TAbstract(stdgo.GoInt64,[])
 stdgo/time_test/Time_test.hx:4426: characters 57-122 : ... For function argument 'args'
 stdgo/time_test/Time_test.hx:4383: lines 4383-4391 : ... Called from macro here
 stdgo/time_test/Time_test.hx:4751: characters 44-62 : Module stdgo.testing.Testing does not define type T_asInterface
 stdgo/time_test/Time_test.hx:4751: characters 44-62 : ... For function argument 't'
-stdgo/time_test/Time_test.hx:5117: characters 20-73 : Module stdgo.StdGoTypes does not define type GoInt64_asInterface
+stdgo/time_test/Time_test.hx:5117: characters 20-73 : invalid type: TAbstract(stdgo.GoInt64,[])
 stdgo/time_test/Time_test.hx:5117: characters 20-73 : ... For function argument 'args'
 stdgo/time_test/Time_test.hx:5432: characters 85-117 : Type not found : stdgo.testing.quick.Quick
 stdgo/time_test/Time_test.hx:5434: characters 20-45 : Type not found : stdgo.testing.quick.Quick

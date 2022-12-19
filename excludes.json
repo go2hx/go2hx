@@ -2,7 +2,6 @@
     "internal/reflectlite",
     "internal/unsafeheader",
     "unsafe",
-    "runtime/debug",
     "runtime/pprof",
     "runtime/internal/sys",
     "runtime/internal/atomic",

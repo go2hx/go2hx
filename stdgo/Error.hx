@@ -25,7 +25,7 @@ typedef Error = StructType & {
 **/
 @:named @:using(Error.T_errorString_static_extension) private typedef T_errorString = GoString;
 
-private class T_errorString_asInterface {
+class T_errorString_asInterface {
 	@:keep
 	public function error():GoString
 		return __self__.value.error();

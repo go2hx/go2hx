@@ -10,10 +10,10 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	public var capacity(get, never):GoInt;
 
 	public function iterator():SliceIterator<T>
-		return this.iterator();
+		return new SliceIterator<T>(this);
 
 	public function keyValueIterator():SliceKeyValueIterator<T>
-		return this.keyValueIterator();
+		return new SliceKeyValueIterator<T>(this);
 
 	@:from
 	public static function fromStringRunes(str:String):Slice<GoRune> {
@@ -148,8 +148,8 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		final slice:SliceData<T> = __ref__(); // no allocation
 		final startOffset = slice.length;
 		final growCapacity = args.length - slice.capacity + slice.length + slice.offset + 1;
+		slice.vector = slice.vector.copy(); // allocation
 		if (growCapacity <= 1) {
-			slice.vector = slice.vector.copy(); // allocation
 			slice.length += args.length;
 			for (i in 0...args.length) {
 				slice.set(startOffset + i, args[i]);
@@ -249,22 +249,11 @@ class SliceData<T> {
 		return vector.set(index + offset, value);
 	}
 
-	public function iterator()
-		return new SliceIterator(this);
-
-	public function keyValueIterator()
-		return new SliceKeyValueIterator(this);
-
 	public function toArray():Array<T> { // unrolling
 		return [for (i in 0...length) get(i)];
 	}
 
 	public function toVector():haxe.ds.Vector<T> {
-		if (offset != 0) {
-			final obj = new haxe.ds.Vector<T>(length);
-			haxe.ds.Vector.blit(obj, offset, obj, 0, obj.length);
-			return obj;
-		}
 		return vector;
 	}
 

@@ -634,14 +634,18 @@ function testDecodeCorrupt(_t:Ref<stdgo.testing.Testing.T>):Void {
 			};
 			continue;
 		};
-		if (Go.typeEquals((_err : CorruptInputError))) {
-			var _err:CorruptInputError = _err == null ? ((0 : GoInt64) : CorruptInputError) : _err.__underlying__() == null ? ((0 : GoInt64) : CorruptInputError) : _err == null ? ((0 : GoInt64) : CorruptInputError) : _err.__underlying__()
-				.value;
-			_testEqual(_t, Go.str("Corruption in %q at offset %v, want %v"), Go.toInterface(_tc._input), Go.toInterface((_err : GoInt)),
-				Go.toInterface(_tc._offset));
-		} else {
-			var _err:Error = _err == null ? null : _err.__underlying__() == null ? null : _err == null ? null : _err.__underlying__().value;
-			_t.error(Go.toInterface(Go.str("Decoder failed to detect corruption in")), Go.toInterface(_tc));
+		{
+			final __type__ = _err;
+			if (Go.typeEquals((__type__ : CorruptInputError))) {
+				var _err:CorruptInputError = __type__ == null ? ((0 : GoInt64) : CorruptInputError) : __type__.__underlying__() == null ? ((0 : GoInt64) : CorruptInputError) : __type__ == null ? ((0 : GoInt64) : CorruptInputError) : __type__.__underlying__()
+					.value;
+				_testEqual(_t, Go.str("Corruption in %q at offset %v, want %v"), Go.toInterface(_tc._input), Go.toInterface((_err : GoInt)),
+					Go.toInterface(_tc._offset));
+			} else {
+				var _err:Error = __type__ == null ? null : __type__.__underlying__() == null ? null : __type__ == null ? null : __type__.__underlying__()
+					.value;
+				_t.error(Go.toInterface(Go.str("Decoder failed to detect corruption in")), Go.toInterface(_tc));
+			};
 		};
 	};
 }
@@ -1388,7 +1392,7 @@ class Encoding_asInterface {
 	}
 }
 
-private class T_encoder_asInterface {
+class T_encoder_asInterface {
 	/**
 		// Close flushes any pending output from the encoder.
 		// It is an error to call Write after calling Close.
@@ -1491,7 +1495,7 @@ private class T_encoder_asInterface {
 	}
 }
 
-private class T_decoder_asInterface {
+class T_decoder_asInterface {
 	@:keep
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_p);
@@ -1586,7 +1590,7 @@ private class T_decoder_asInterface {
 	}
 }
 
-private class T_newlineFilteringReader_asInterface {
+class T_newlineFilteringReader_asInterface {
 	@:keep
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_p);
@@ -1634,7 +1638,7 @@ private class T_newlineFilteringReader_asInterface {
 	}
 }
 
-private class T_faultInjectReader_asInterface {
+class T_faultInjectReader_asInterface {
 	@:keep
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_p);

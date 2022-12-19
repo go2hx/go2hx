@@ -218,7 +218,7 @@ function as(_err:Error, _target:AnyInterface):Bool {
 	return false;
 }
 
-private class T_errorString_asInterface {
+class T_errorString_asInterface {
 	@:keep
 	public function error():GoString
 		return __self__.value.error();

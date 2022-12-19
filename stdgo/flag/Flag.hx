@@ -581,18 +581,21 @@ function unquoteUsage(_flag:Ref<Flag>):{var _0:GoString; var _1:GoString;} {
 		});
 	};
 	_name = Go.str("value");
-	if (Go.typeEquals((_flag.value : T_boolFlag))) {
-		_name = Go.str();
-	} else if (Go.typeEquals((_flag.value : Pointer<T_durationValue>))) {
-		_name = Go.str("duration");
-	} else if (Go.typeEquals((_flag.value : Pointer<T_float64Value>))) {
-		_name = Go.str("float");
-	} else if (Go.typeEquals((_flag.value : Pointer<T_intValue>)) || Go.typeEquals((_flag.value : Pointer<T_int64Value>))) {
-		_name = Go.str("int");
-	} else if (Go.typeEquals((_flag.value : Pointer<T_stringValue>))) {
-		_name = Go.str("string");
-	} else if (Go.typeEquals((_flag.value : Pointer<T_uintValue>)) || Go.typeEquals((_flag.value : Pointer<T_uint64Value>))) {
-		_name = Go.str("uint");
+	{
+		final __type__ = _flag.value;
+		if (Go.typeEquals((__type__ : T_boolFlag))) {
+			_name = Go.str();
+		} else if (Go.typeEquals((__type__ : Pointer<T_durationValue>))) {
+			_name = Go.str("duration");
+		} else if (Go.typeEquals((__type__ : Pointer<T_float64Value>))) {
+			_name = Go.str("float");
+		} else if (Go.typeEquals((__type__ : Pointer<T_intValue>)) || Go.typeEquals((__type__ : Pointer<T_int64Value>))) {
+			_name = Go.str("int");
+		} else if (Go.typeEquals((__type__ : Pointer<T_stringValue>))) {
+			_name = Go.str("string");
+		} else if (Go.typeEquals((__type__ : Pointer<T_uintValue>)) || Go.typeEquals((__type__ : Pointer<T_uint64Value>))) {
+			_name = Go.str("uint");
+		};
 	};
 	return {_0: _name, _1: _usage};
 }
@@ -860,7 +863,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):Ref<FlagSet> {
 	true;
 };
 
-private class T_textValue_asInterface {
+class T_textValue_asInterface {
 	@:keep
 	public function string():GoString
 		return __self__.value.string();
@@ -2125,7 +2128,7 @@ class FlagSet_asInterface {
 	}
 }
 
-private class T_boolValue_asInterface {
+class T_boolValue_asInterface {
 	@:keep
 	@:pointer
 	public function isBoolFlag():Bool
@@ -2193,7 +2196,7 @@ private class T_boolValue_asInterface {
 	}
 }
 
-private class T_intValue_asInterface {
+class T_intValue_asInterface {
 	@:keep
 	@:pointer
 	public function string():GoString
@@ -2250,7 +2253,7 @@ private class T_intValue_asInterface {
 	}
 }
 
-private class T_int64Value_asInterface {
+class T_int64Value_asInterface {
 	@:keep
 	@:pointer
 	public function string():GoString
@@ -2307,7 +2310,7 @@ private class T_int64Value_asInterface {
 	}
 }
 
-private class T_uintValue_asInterface {
+class T_uintValue_asInterface {
 	@:keep
 	@:pointer
 	public function string():GoString
@@ -2364,7 +2367,7 @@ private class T_uintValue_asInterface {
 	}
 }
 
-private class T_uint64Value_asInterface {
+class T_uint64Value_asInterface {
 	@:keep
 	@:pointer
 	public function string():GoString
@@ -2421,7 +2424,7 @@ private class T_uint64Value_asInterface {
 	}
 }
 
-private class T_stringValue_asInterface {
+class T_stringValue_asInterface {
 	@:keep
 	@:pointer
 	public function string():GoString
@@ -2472,7 +2475,7 @@ private class T_stringValue_asInterface {
 	}
 }
 
-private class T_float64Value_asInterface {
+class T_float64Value_asInterface {
 	@:keep
 	@:pointer
 	public function string():GoString
@@ -2529,7 +2532,7 @@ private class T_float64Value_asInterface {
 	}
 }
 
-private class T_durationValue_asInterface {
+class T_durationValue_asInterface {
 	@:keep
 	@:pointer
 	public function string():GoString
@@ -2587,7 +2590,7 @@ private class T_durationValue_asInterface {
 	}
 }
 
-private class T_funcValue_asInterface {
+class T_funcValue_asInterface {
 	@:keep
 	public function string():GoString
 		return __self__.value.string();

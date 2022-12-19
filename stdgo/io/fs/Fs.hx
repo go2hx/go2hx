@@ -1118,7 +1118,7 @@ class PathError_asInterface {
 	}
 }
 
-private class T_dirInfo_asInterface {
+class T_dirInfo_asInterface {
 	@:keep
 	public function name():GoString
 		return __self__.value.name();
@@ -1171,7 +1171,7 @@ private class T_dirInfo_asInterface {
 	}
 }
 
-private class T_subFS_asInterface {
+class T_subFS_asInterface {
 	@:keep
 	public function sub(_dir:GoString):{var _0:FS; var _1:Error;}
 		return __self__.value.sub(_dir);
@@ -1369,7 +1369,7 @@ private class T_subFS_asInterface {
 	}
 }
 
-private class T_statDirEntry_asInterface {
+class T_statDirEntry_asInterface {
 	@:keep
 	public function info():{var _0:FileInfo; var _1:Error;}
 		return __self__.value.info();

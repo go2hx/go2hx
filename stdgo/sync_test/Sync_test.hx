@@ -3036,7 +3036,7 @@ function benchmarkWaitGroupActuallyWait(_b:Ref<stdgo.testing.Testing.B>):Void {
 	true;
 };
 
-private class T_httpPkg_asInterface {
+class T_httpPkg_asInterface {
 	@:keep
 	public function get(_url:GoString):Void
 		__self__.value.get(_url);
@@ -3374,7 +3374,7 @@ class DeepCopyMap_asInterface {
 	}
 }
 
-private class T_mapCall_asInterface {
+class T_mapCall_asInterface {
 	@:keep
 	public function generate(_r:Ref<stdgo.math.rand.Rand.Rand>, _size:GoInt):stdgo.reflect.Reflect.Value
 		return __self__.value.generate(_r, _size);
@@ -3430,7 +3430,7 @@ private class T_mapCall_asInterface {
 	}
 }
 
-private class T_one_asInterface {
+class T_one_asInterface {
 	@:keep
 	@:pointer
 	public function increment():Void

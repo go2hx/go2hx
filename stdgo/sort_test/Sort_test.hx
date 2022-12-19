@@ -2042,7 +2042,7 @@ class Person_asInterface {
 	}
 }
 
-private class T_planetSorter_asInterface {
+class T_planetSorter_asInterface {
 	/**
 		// Less is part of sort.Interface. It is implemented by calling the "by" closure in the sorter.
 	**/
@@ -2109,7 +2109,7 @@ private class T_planetSorter_asInterface {
 	}
 }
 
-private class T_multiSorter_asInterface {
+class T_multiSorter_asInterface {
 	/**
 		// Less is part of sort.Interface. It is implemented by looping along the
 		// less functions until it finds a comparison that discriminates between
@@ -2302,7 +2302,7 @@ class ByWeight_asInterface {
 		return __self__.len();
 }
 
-private class T_nonDeterministicTestingData_asInterface {
+class T_nonDeterministicTestingData_asInterface {
 	@:keep
 	public function swap(_i:GoInt, _j:GoInt):Void
 		__self__.value.swap(_i, _j);
@@ -2351,7 +2351,7 @@ private class T_nonDeterministicTestingData_asInterface {
 	}
 }
 
-private class T_testingData_asInterface {
+class T_testingData_asInterface {
 	@:keep
 	public function swap(_i:GoInt, _j:GoInt):Void
 		__self__.value.swap(_i, _j);
@@ -2406,7 +2406,7 @@ private class T_testingData_asInterface {
 	}
 }
 
-private class T_adversaryTestingData_asInterface {
+class T_adversaryTestingData_asInterface {
 	@:keep
 	public function swap(_i:GoInt, _j:GoInt):Void
 		__self__.value.swap(_i, _j);
@@ -2621,7 +2621,7 @@ class Organs_asInterface {
 	}
 }
 
-private class T_intPairs_asInterface {
+class T_intPairs_asInterface {
 	/**
 		// InOrder checks if a-equal elements were not reordered.
 	**/

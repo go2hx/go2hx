@@ -1291,7 +1291,7 @@ function testRegress(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 }
 
-private class T_statsResults_asInterface {
+class T_statsResults_asInterface {
 	/**
 		// checkSimilarDistribution returns success if the mean and stddev of the
 		// two statsResults are similar.

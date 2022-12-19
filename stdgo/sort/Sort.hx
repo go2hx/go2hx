@@ -1449,7 +1449,7 @@ function _rotate(_data:Interface, _a:GoInt, _m:GoInt, _b:GoInt):Void {
 	_swapRange(_data, _m - _i, _m, _i);
 }
 
-private class T_reverse_asInterface {
+class T_reverse_asInterface {
 	/**
 		// Less returns the opposite of the embedded implementation's Less method.
 	**/
@@ -1497,7 +1497,7 @@ private class T_reverse_asInterface {
 		return __self__.len();
 }
 
-private class T_xorshift_asInterface {
+class T_xorshift_asInterface {
 	@:keep
 	@:pointer
 	public function next():GoUInt64

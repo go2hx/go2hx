@@ -1589,7 +1589,7 @@ function _extract(_str:GoString):{
 }
 	throw "regexp._extract is not yet implemented";
 
-private class T_bitState_asInterface {
+class T_bitState_asInterface {
 	/**
 		// push pushes (pc, pos, arg) onto the job stack if it should be
 		// visited.
@@ -1656,7 +1656,7 @@ private class T_bitState_asInterface {
 		throw "regexp._reset is not yet implemented";
 }
 
-private class T_machine_asInterface {
+class T_machine_asInterface {
 	/**
 		// add adds an entry to q for pc, unless the q already has such an entry.
 		// It also recursively adds an entry for all instructions reachable from pc by following
@@ -1773,7 +1773,7 @@ private class T_machine_asInterface {
 		throw "regexp._init is not yet implemented";
 }
 
-private class T_inputs_asInterface {
+class T_inputs_asInterface {
 	@:keep
 	public function _init(_r:stdgo.io.Io.RuneReader, _b:Slice<GoByte>, _s:GoString):{var _0:T_input; var _1:GoInt;}
 		return __self__.value._init(_r, _b, _s);
@@ -1855,7 +1855,7 @@ class FindTest_asInterface {
 		throw "regexp.string is not yet implemented";
 }
 
-private class T_onePassInst_asInterface {
+class T_onePassInst_asInterface {
 	@:embedded
 	public function _op():stdgo.regexp.syntax.Syntax.InstOp
 		return __self__.value._op();
@@ -1912,7 +1912,7 @@ private class T_onePassInst_asInterface {
 		return __self__.matchEmptyWidth(_before, _after);
 }
 
-private class T_queueOnePass_asInterface {
+class T_queueOnePass_asInterface {
 	@:keep
 	public function _insertNew(_u:GoUInt32):Void
 		__self__.value._insertNew(_u);
@@ -2950,7 +2950,7 @@ class Regexp_asInterface {
 		throw "regexp._tryBacktrack is not yet implemented";
 }
 
-private class T_inputString_asInterface {
+class T_inputString_asInterface {
 	@:keep
 	public function _context(_pos:GoInt):T_lazyFlag
 		return __self__.value._context(_pos);
@@ -3007,7 +3007,7 @@ private class T_inputString_asInterface {
 		throw "regexp._step is not yet implemented";
 }
 
-private class T_inputBytes_asInterface {
+class T_inputBytes_asInterface {
 	@:keep
 	public function _context(_pos:GoInt):T_lazyFlag
 		return __self__.value._context(_pos);
@@ -3064,7 +3064,7 @@ private class T_inputBytes_asInterface {
 		throw "regexp._step is not yet implemented";
 }
 
-private class T_inputReader_asInterface {
+class T_inputReader_asInterface {
 	@:keep
 	public function _context(_pos:GoInt):T_lazyFlag
 		return __self__.value._context(_pos);
@@ -3121,7 +3121,7 @@ private class T_inputReader_asInterface {
 		throw "regexp._step is not yet implemented";
 }
 
-private class T_lazyFlag_asInterface {
+class T_lazyFlag_asInterface {
 	@:keep
 	public function _match(_op:stdgo.regexp.syntax.Syntax.EmptyOp):Bool
 		return __self__.value._match(_op);
@@ -3146,7 +3146,7 @@ private class T_lazyFlag_asInterface {
 		throw "regexp._match is not yet implemented";
 }
 
-private class T_runeSlice_asInterface {
+class T_runeSlice_asInterface {
 	@:keep
 	public function swap(_i:GoInt, _j:GoInt):Void
 		__self__.value.swap(_i, _j);

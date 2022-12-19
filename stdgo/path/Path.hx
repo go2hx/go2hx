@@ -543,7 +543,7 @@ function dir(_path:GoString):GoString {
 	return clean(_dir);
 }
 
-private class T_lazybuf_asInterface {
+class T_lazybuf_asInterface {
 	@:keep
 	public function _string():GoString
 		return __self__.value._string();

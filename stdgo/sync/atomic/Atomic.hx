@@ -1424,7 +1424,7 @@ class Uintptr_asInterface {
 		throw "sync.atomic.load is not yet implemented";
 }
 
-private class T_noCopy_asInterface {
+class T_noCopy_asInterface {
 	@:keep
 	public function unlock():Void
 		__self__.value.unlock();

@@ -4532,13 +4532,16 @@ function _repeat(_s:GoString, _count:GoInt):Error {
 					r;
 				});
 				if (_r != null) {
-					if (Go.typeEquals((_r : Error))) {
-						var _v:Error = _r == null ? (null : Error) : _r.__underlying__() == null ? (null : Error) : _r == null ? (null : Error) : _r.__underlying__()
-							.value;
-						_err = _v;
-					} else {
-						var _v:AnyInterface = _r == null ? null : _r.__underlying__();
-						_err = stdgo.fmt.Fmt.errorf(Go.str("%s"), _v);
+					{
+						final __type__ = _r;
+						if (Go.typeEquals((__type__ : Error))) {
+							var _v:Error = __type__ == null ? (null : Error) : __type__.__underlying__() == null ? (null : Error) : __type__ == null ? (null : Error) : __type__.__underlying__()
+								.value;
+							_err = _v;
+						} else {
+							var _v:AnyInterface = __type__ == null ? null : __type__.__underlying__();
+							_err = stdgo.fmt.Fmt.errorf(Go.str("%s"), _v);
+						};
 					};
 				};
 			};
@@ -5290,7 +5293,7 @@ function benchmarkReplaceAll(_b:Ref<stdgo.testing.Testing.B>):Void {
 	};
 }
 
-private class T_errWriter_asInterface {
+class T_errWriter_asInterface {
 	@:keep
 	public function write(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.write(_p);

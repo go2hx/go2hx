@@ -2565,7 +2565,7 @@ class Replacer_asInterface {
 	}
 }
 
-private class T_trieNode_asInterface {
+class T_trieNode_asInterface {
 	@:keep
 	public function _add(_key:GoString, _val:GoString, _priority:GoInt, _r:Ref<T_genericReplacer>):Void
 		__self__.value._add(_key, _val, _priority, _r);
@@ -2638,7 +2638,7 @@ private class T_trieNode_asInterface {
 	}
 }
 
-private class T_genericReplacer_asInterface {
+class T_genericReplacer_asInterface {
 	@:keep
 	public function writeString(_w:stdgo.io.Io.Writer, _s:GoString):{var _0:GoInt; var _1:Error;}
 		return __self__.value.writeString(_w, _s);
@@ -2799,7 +2799,7 @@ private class T_genericReplacer_asInterface {
 	}
 }
 
-private class T_stringWriter_asInterface {
+class T_stringWriter_asInterface {
 	@:keep
 	public function writeString(_s:GoString):{var _0:GoInt; var _1:Error;}
 		return __self__.value.writeString(_s);
@@ -2825,7 +2825,7 @@ private class T_stringWriter_asInterface {
 	}
 }
 
-private class T_singleStringReplacer_asInterface {
+class T_singleStringReplacer_asInterface {
 	@:keep
 	public function writeString(_w:stdgo.io.Io.Writer, _s:GoString):{var _0:GoInt; var _1:Error;}
 		return __self__.value.writeString(_w, _s);
@@ -2917,7 +2917,7 @@ private class T_singleStringReplacer_asInterface {
 	}
 }
 
-private class T_byteStringReplacer_asInterface {
+class T_byteStringReplacer_asInterface {
 	@:keep
 	public function writeString(_w:stdgo.io.Io.Writer, _s:GoString):{var _0:GoInt; var _1:Error;}
 		return __self__.value.writeString(_w, _s);
@@ -3031,7 +3031,7 @@ private class T_byteStringReplacer_asInterface {
 	}
 }
 
-private class T_stringFinder_asInterface {
+class T_stringFinder_asInterface {
 	/**
 		// next returns the index in text of the first occurrence of the pattern. If
 		// the pattern is not found, it returns -1.
@@ -3077,7 +3077,7 @@ private class T_stringFinder_asInterface {
 	}
 }
 
-private class T_appendSliceWriter_asInterface {
+class T_appendSliceWriter_asInterface {
 	/**
 		// WriteString writes to the buffer without string->[]byte->string allocations.
 	**/
@@ -3126,7 +3126,7 @@ private class T_appendSliceWriter_asInterface {
 	}
 }
 
-private class T_byteReplacer_asInterface {
+class T_byteReplacer_asInterface {
 	@:keep
 	public function writeString(_w:stdgo.io.Io.Writer, _s:GoString):{var _0:GoInt; var _1:Error;}
 		return __self__.value.writeString(_w, _s);
@@ -3197,7 +3197,7 @@ private class T_byteReplacer_asInterface {
 	}
 }
 
-private class T_asciiSet_asInterface {
+class T_asciiSet_asInterface {
 	/**
 		// contains reports whether c is inside the set.
 	**/

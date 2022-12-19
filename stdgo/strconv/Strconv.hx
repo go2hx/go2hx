@@ -4701,7 +4701,7 @@ class NumError_asInterface {
 	}
 }
 
-private class T_decimal_asInterface {
+class T_decimal_asInterface {
 	/**
 		// Extract integer part, rounded appropriately.
 		// No guarantees about overflow.

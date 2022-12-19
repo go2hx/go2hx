@@ -350,7 +350,7 @@ function testSymlink(_t:Ref<stdgo.testing.Testing.T>):Void
 function testDash(_t:Ref<stdgo.testing.Testing.T>):Void
 	throw "testing.fstest.testDash is not yet implemented";
 
-private class T_fsOnly_asInterface {
+class T_fsOnly_asInterface {
 	@:embedded
 	public function open(_pattern:GoString):{var _0:stdgo.io.fs.Fs.File; var _1:Error;}
 		return __self__.value.open(_pattern);
@@ -375,7 +375,7 @@ private class T_fsOnly_asInterface {
 		return __self__.open(_pattern);
 }
 
-private class T_noSub_asInterface {
+class T_noSub_asInterface {
 	@:keep
 	public function sub():Void
 		__self__.value.sub();
@@ -440,7 +440,7 @@ private class T_noSub_asInterface {
 		return __self__.glob(_pattern);
 }
 
-private class T_mapFileInfo_asInterface {
+class T_mapFileInfo_asInterface {
 	@:keep
 	public function info():{var _0:stdgo.io.fs.Fs.FileInfo; var _1:Error;}
 		return __self__.value.info();
@@ -521,7 +521,7 @@ private class T_mapFileInfo_asInterface {
 		throw "testing.fstest.name is not yet implemented";
 }
 
-private class T_openMapFile_asInterface {
+class T_openMapFile_asInterface {
 	@:keep
 	public function readAt(_b:Slice<GoByte>, _offset:GoInt64):{var _0:GoInt; var _1:Error;}
 		return __self__.value.readAt(_b, _offset);
@@ -642,7 +642,7 @@ private class T_openMapFile_asInterface {
 		return __self__.info();
 }
 
-private class T_mapDir_asInterface {
+class T_mapDir_asInterface {
 	@:keep
 	public function readDir(_count:GoInt):{var _0:Slice<stdgo.io.fs.Fs.DirEntry>; var _1:Error;}
 		return __self__.value.readDir(_count);
@@ -755,7 +755,7 @@ private class T_mapDir_asInterface {
 		return __self__.info();
 }
 
-private class T_fsTester_asInterface {
+class T_fsTester_asInterface {
 	/**
 		// checkBadPath checks that various invalid forms of file's name cannot be opened using open.
 	**/

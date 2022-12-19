@@ -245,7 +245,7 @@ class TestDeps_asInterface {
 		throw "testing.internal.testdeps.matchString is not yet implemented";
 }
 
-private class T_testLog_asInterface {
+class T_testLog_asInterface {
 	/**
 		// add adds the (op, name) pair to the test log.
 	**/

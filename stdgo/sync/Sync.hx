@@ -1140,7 +1140,7 @@ class Cond_asInterface {
 		throw "sync.wait_ is not yet implemented";
 }
 
-private class T_noCopy_asInterface {
+class T_noCopy_asInterface {
 	@:keep
 	public function unlock():Void
 		__self__.value.unlock();
@@ -1326,7 +1326,7 @@ class Map__asInterface {
 		throw "sync.load is not yet implemented";
 }
 
-private class T_entry_asInterface {
+class T_entry_asInterface {
 	@:keep
 	public function _tryExpungeLocked():Bool
 		return __self__.value._tryExpungeLocked();
@@ -1719,7 +1719,7 @@ class Pool_asInterface {
 		throw "sync.put is not yet implemented";
 }
 
-private class T_poolLocal_asInterface {
+class T_poolLocal_asInterface {
 	public function new(__self__, __type__) {
 		this.__self__ = __self__;
 		this.__type__ = __type__;
@@ -1736,7 +1736,7 @@ private class T_poolLocal_asInterface {
 
 @:keep @:allow(stdgo.sync.Sync.T_poolLocal_asInterface) class T_poolLocal_static_extension {}
 
-private class T_poolDequeue_asInterface {
+class T_poolDequeue_asInterface {
 	/**
 		// popTail removes and returns the element at the tail of the queue.
 		// It returns false if the queue is empty. It may be called by any
@@ -1845,7 +1845,7 @@ private class T_poolDequeue_asInterface {
 		throw "sync.pushHead is not yet implemented";
 }
 
-private class T_poolChain_asInterface {
+class T_poolChain_asInterface {
 	@:keep
 	public function _popTail():{var _0:AnyInterface; var _1:Bool;}
 		return __self__.value._popTail();
@@ -1910,7 +1910,7 @@ private class T_poolChain_asInterface {
 		throw "sync.pushHead is not yet implemented";
 }
 
-private class T_poolChainElt_asInterface {
+class T_poolChainElt_asInterface {
 	@:embedded
 	public function _unpack(__0:GoUInt64):{var _0:GoUInt32; var _1:GoUInt32;}
 		return __self__.value._unpack(__0);
@@ -2263,7 +2263,7 @@ class WaitGroup_asInterface {
 		throw "sync._state is not yet implemented";
 }
 
-private class T_copyChecker_asInterface {
+class T_copyChecker_asInterface {
 	@:keep
 	@:pointer
 	public function _check():Void
@@ -2290,7 +2290,7 @@ private class T_copyChecker_asInterface {
 		throw "sync._check is not yet implemented";
 }
 
-private class T_rlocker_asInterface {
+class T_rlocker_asInterface {
 	@:keep
 	public function unlock():Void
 		__self__.value.unlock();

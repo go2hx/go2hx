@@ -1773,7 +1773,7 @@ function _writeToMem(_vals:Slice<AnyInterface>, _mem:Ref<T_sharedMem>):Void
 function _newWorkerClient(_comm:T_workerComm, _m:Ref<T_mutator>):Ref<T_workerClient>
 	throw "internal.fuzz._newWorkerClient is not yet implemented";
 
-private class T_crashError_asInterface {
+class T_crashError_asInterface {
 	@:keep
 	public function crashPath():GoString
 		return __self__.value.crashPath();
@@ -1814,7 +1814,7 @@ private class T_crashError_asInterface {
 		throw "internal.fuzz.error is not yet implemented";
 }
 
-private class T_coordinator_asInterface {
+class T_coordinator_asInterface {
 	/**
 		// readCache creates a combined corpus from seed values and values in the cache
 		// (in GOCACHE/fuzz).
@@ -2104,7 +2104,7 @@ class MalformedCorpusError_asInterface {
 		throw "internal.fuzz.error is not yet implemented";
 }
 
-private class T_sharedMem_asInterface {
+class T_sharedMem_asInterface {
 	@:keep
 	public function close():Error
 		return __self__.value.close();
@@ -2215,7 +2215,7 @@ private class T_sharedMem_asInterface {
 		throw "internal.fuzz._header is not yet implemented";
 }
 
-private class T_mutator_asInterface {
+class T_mutator_asInterface {
 	@:keep
 	public function _mutateBytes(_ptrB:Ref<Slice<GoByte>>):Void
 		__self__.value._mutateBytes(_ptrB);
@@ -2310,7 +2310,7 @@ private class T_mutator_asInterface {
 		throw "internal.fuzz._rand is not yet implemented";
 }
 
-private class T_pcgRand_asInterface {
+class T_pcgRand_asInterface {
 	/**
 		// bool generates a random bool.
 	**/
@@ -2431,7 +2431,7 @@ private class T_pcgRand_asInterface {
 		throw "internal.fuzz._step is not yet implemented";
 }
 
-private class T_noCopy_asInterface {
+class T_noCopy_asInterface {
 	@:keep
 	public function _unlock():Void
 		__self__.value._unlock();
@@ -2470,7 +2470,7 @@ private class T_noCopy_asInterface {
 		throw "internal.fuzz._lock is not yet implemented";
 }
 
-private class T_queue_asInterface {
+class T_queue_asInterface {
 	@:keep
 	public function _clear():Void
 		__self__.value._clear();
@@ -2535,7 +2535,7 @@ private class T_queue_asInterface {
 		throw "internal.fuzz._cap is not yet implemented";
 }
 
-private class T_worker_asInterface {
+class T_worker_asInterface {
 	/**
 		// stop tells the worker process to exit by closing w.client, then blocks until
 		// it terminates. If the worker doesn't terminate after a short time, stop
@@ -2716,7 +2716,7 @@ private class T_worker_asInterface {
 		throw "internal.fuzz._cleanup is not yet implemented";
 }
 
-private class T_workerServer_asInterface {
+class T_workerServer_asInterface {
 	/**
 		// ping does nothing. The coordinator calls this method to ensure the worker
 		// has called F.Fuzz and can communicate.
@@ -2848,7 +2848,7 @@ private class T_workerServer_asInterface {
 		throw "internal.fuzz._serve is not yet implemented";
 }
 
-private class T_workerClient_asInterface {
+class T_workerClient_asInterface {
 	/**
 		// callLocked sends an RPC from the coordinator to the worker process and waits
 		// for the response. The callLocked may be cancelled with ctx.
@@ -2955,7 +2955,7 @@ private class T_workerClient_asInterface {
 		throw "internal.fuzz.close is not yet implemented";
 }
 
-private class T_contextReader_asInterface {
+class T_contextReader_asInterface {
 	@:keep
 	public function read(_b:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_b);

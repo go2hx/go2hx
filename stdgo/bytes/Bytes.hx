@@ -2780,7 +2780,7 @@ class Reader_asInterface {
 	}
 }
 
-private class T_asciiSet_asInterface {
+class T_asciiSet_asInterface {
 	/**
 		// contains reports whether c is inside the set.
 	**/

@@ -5589,7 +5589,7 @@ function testValueCompareAndSwapConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void
 	true;
 };
 
-private class T__struct_15_asInterface {
+class T__struct_15_asInterface {
 	public function new(__self__, __type__) {
 		this.__self__ = __self__;
 		this.__type__ = __type__;

@@ -231,8 +231,35 @@ function indexRabinKarp(_s:GoString, _substr:GoString):GoInt {
 /**
 	//go:noescape
 **/
-function compare(_a:Slice<GoByte>, _b:Slice<GoByte>):GoInt
-	throw "not implemented";
+function compare(_a:Slice<GoByte>, _b:Slice<GoByte>):GoInt {
+	var l = _a.length;
+	if (_b.length < l) {
+		l = _b.length;
+	};
+	function samebytes() {
+		if (_a.length < _b.length) {
+			return -1;
+		};
+		if (_a.length > _b.length) {
+			return 1;
+		};
+		return 0;
+	};
+	if (l == 0 || Go.pointer(_a[0]) == (Go.pointer(_b[0]))) {
+		return samebytes();
+	};
+	for (i in 0...l) {
+		var c1 = _a[i];
+		var c2 = _b[i];
+		if (c1 < c2) {
+			return -1;
+		};
+		if (c1 > c2) {
+			return 1;
+		};
+	};
+	return samebytes();
+}
 
 /**
 	//go:linkname abigen_runtime_cmpstring runtime.cmpstring

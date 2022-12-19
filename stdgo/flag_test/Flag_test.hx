@@ -1020,58 +1020,26 @@ function _mustPanic(_t:Ref<stdgo.testing.Testing.T>, _testName:GoString, _expect
 	try {
 		__deferstack__.unshift(() -> {
 			var a = function():Void {
-				if (({
-					final r = Go.recover_exception;
-					Go.recover_exception = null;
-					r;
-				}) == null) {
-					var _msg:AnyInterface = ({
+				{
+					final __type__ = ({
 						final r = Go.recover_exception;
 						Go.recover_exception = null;
 						r;
-					}) == null ? (null : AnyInterface) : ({
-						final r = Go.recover_exception;
-						Go.recover_exception = null;
-						r;
-					}).__underlying__();
-					_t.errorf(Go.str("%s\n: expected panic(%q), but did not panic"), Go.toInterface(_testName), Go.toInterface(_expected));
-				} else if (Go.typeEquals(({
-					final r = Go.recover_exception;
-					Go.recover_exception = null;
-					r;
-				} : GoString))) {
-					var _msg:GoString = ({
-						final r = Go.recover_exception;
-						Go.recover_exception = null;
-						r;
-					}) == null ? "" : ({
-						final r = Go.recover_exception;
-						Go.recover_exception = null;
-						r;
-					}).__underlying__() == null ? "" : ({
-						final r = Go.recover_exception;
-						Go.recover_exception = null;
-						r;
-					}) == null ? "" : ({
-						final r = Go.recover_exception;
-						Go.recover_exception = null;
-						r;
-					}).__underlying__().value;
-					if (_msg != (_expected)) {
-						_t.errorf(Go.str("%s\n: expected panic(%q), but got panic(%q)"), Go.toInterface(_testName), Go.toInterface(_expected),
-							Go.toInterface(_msg));
+					});
+					if (__type__ == null) {
+						var _msg:AnyInterface = __type__ == null ? (null : AnyInterface) : __type__.__underlying__();
+						_t.errorf(Go.str("%s\n: expected panic(%q), but did not panic"), Go.toInterface(_testName), Go.toInterface(_expected));
+					} else if (Go.typeEquals((__type__ : GoString))) {
+						var _msg:GoString = __type__ == null ? "" : __type__.__underlying__() == null ? "" : __type__ == null ? "" : __type__.__underlying__()
+							.value;
+						if (_msg != (_expected)) {
+							_t.errorf(Go.str("%s\n: expected panic(%q), but got panic(%q)"), Go.toInterface(_testName), Go.toInterface(_expected),
+								Go.toInterface(_msg));
+						};
+					} else {
+						var _msg:AnyInterface = __type__ == null ? null : __type__.__underlying__();
+						_t.errorf(Go.str("%s\n: expected panic(%q), but got panic(%T%v)"), Go.toInterface(_testName), Go.toInterface(_expected), _msg, _msg);
 					};
-				} else {
-					var _msg:AnyInterface = ({
-						final r = Go.recover_exception;
-						Go.recover_exception = null;
-						r;
-					}) == null ? null : ({
-						final r = Go.recover_exception;
-						Go.recover_exception = null;
-						r;
-					}).__underlying__();
-					_t.errorf(Go.str("%s\n: expected panic(%q), but got panic(%T%v)"), Go.toInterface(_testName), Go.toInterface(_expected), _msg, _msg);
 				};
 			};
 			a();
@@ -1218,7 +1186,7 @@ class URLValue_asInterface {
 	}
 }
 
-private class T_boolFlagVar_asInterface {
+class T_boolFlagVar_asInterface {
 	@:keep
 	public function isBoolFlag():Bool
 		return __self__.value.isBoolFlag();
@@ -1265,7 +1233,7 @@ private class T_boolFlagVar_asInterface {
 	}
 }
 
-private class T_zeroPanicker_asInterface {
+class T_zeroPanicker_asInterface {
 	@:keep
 	public function string():GoString
 		return __self__.value.string();
@@ -1304,7 +1272,7 @@ private class T_zeroPanicker_asInterface {
 	}
 }
 
-private class T_interval_asInterface {
+class T_interval_asInterface {
 	/**
 		// Set is the method to set the flag value, part of the flag.Value interface.
 		// Set's argument is a string to be parsed to set the flag.
@@ -1369,7 +1337,7 @@ private class T_interval_asInterface {
 	}
 }
 
-private class T_flagVar_asInterface {
+class T_flagVar_asInterface {
 	@:keep
 	public function set(_value:GoString):Error
 		return __self__.value.set(_value);

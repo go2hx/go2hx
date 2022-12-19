@@ -1797,7 +1797,7 @@ function _sameFile(_fs1:Ref<T_fileStat>, _fs2:Ref<T_fileStat>):Bool
 	true;
 };
 
-private class T_dirInfo_asInterface {
+class T_dirInfo_asInterface {
 	@:keep
 	public function _close():Void
 		__self__.value._close();
@@ -2272,7 +2272,7 @@ class LinkError_asInterface {
 		throw "os.error is not yet implemented";
 }
 
-private class T_onlyWriter_asInterface {
+class T_onlyWriter_asInterface {
 	@:embedded
 	public function write(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.write(_b);
@@ -2297,7 +2297,7 @@ private class T_onlyWriter_asInterface {
 		return __self__.write(_b);
 }
 
-private class T_file_asInterface {
+class T_file_asInterface {
 	@:keep
 	public function _close():Error
 		return __self__.value._close();
@@ -2322,7 +2322,7 @@ private class T_file_asInterface {
 		throw "os._close is not yet implemented";
 }
 
-private class T_unixDirent_asInterface {
+class T_unixDirent_asInterface {
 	@:keep
 	public function info():{var _0:FileInfo; var _1:Error;}
 		return __self__.value.info();
@@ -2371,7 +2371,7 @@ private class T_unixDirent_asInterface {
 		throw "os.name is not yet implemented";
 }
 
-private class T_rawConn_asInterface {
+class T_rawConn_asInterface {
 	@:keep
 	public function write(_f:GoUIntptr->Bool):Error
 		return __self__.value.write(_f);
@@ -3195,7 +3195,7 @@ class File_asInterface {
 		return __self__._close();
 }
 
-private class T_fileStat_asInterface {
+class T_fileStat_asInterface {
 	@:keep
 	public function sys():AnyInterface
 		return __self__.value.sys();
@@ -3260,7 +3260,7 @@ private class T_fileStat_asInterface {
 		throw "os.name is not yet implemented";
 }
 
-private class T__struct_0_asInterface {
+class T__struct_0_asInterface {
 	@:embedded
 	public function _unlockSlow(__0:GoInt32):Void
 		__self__.value._unlockSlow(__0);
@@ -3317,7 +3317,7 @@ private class T__struct_0_asInterface {
 		__self__.lock();
 }
 
-private class T_dirFS_asInterface {
+class T_dirFS_asInterface {
 	@:keep
 	public function stat(_name:GoString):{var _0:stdgo.io.fs.Fs.FileInfo; var _1:Error;}
 		return __self__.value.stat(_name);

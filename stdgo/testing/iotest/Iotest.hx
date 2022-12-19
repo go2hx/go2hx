@@ -318,7 +318,7 @@ function truncateWriter(_w:stdgo.io.Io.Writer, _n:GoInt64):stdgo.io.Io.Writer
 function testTruncateWriter(_t:Ref<stdgo.testing.Testing.T>):Void
 	throw "testing.iotest.testTruncateWriter is not yet implemented";
 
-private class T_writeLogger_asInterface {
+class T_writeLogger_asInterface {
 	@:keep
 	public function write(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.write(_p);
@@ -343,7 +343,7 @@ private class T_writeLogger_asInterface {
 		throw "testing.iotest.write is not yet implemented";
 }
 
-private class T_readLogger_asInterface {
+class T_readLogger_asInterface {
 	@:keep
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_p);
@@ -368,7 +368,7 @@ private class T_readLogger_asInterface {
 		throw "testing.iotest.read is not yet implemented";
 }
 
-private class T_errWriter_asInterface {
+class T_errWriter_asInterface {
 	@:keep
 	public function write(_0:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.write(_0);
@@ -393,7 +393,7 @@ private class T_errWriter_asInterface {
 		throw "testing.iotest.write is not yet implemented";
 }
 
-private class T_oneByteReader_asInterface {
+class T_oneByteReader_asInterface {
 	@:keep
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_p);
@@ -418,7 +418,7 @@ private class T_oneByteReader_asInterface {
 		throw "testing.iotest.read is not yet implemented";
 }
 
-private class T_halfReader_asInterface {
+class T_halfReader_asInterface {
 	@:keep
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_p);
@@ -443,7 +443,7 @@ private class T_halfReader_asInterface {
 		throw "testing.iotest.read is not yet implemented";
 }
 
-private class T_dataErrReader_asInterface {
+class T_dataErrReader_asInterface {
 	@:keep
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_p);
@@ -468,7 +468,7 @@ private class T_dataErrReader_asInterface {
 		throw "testing.iotest.read is not yet implemented";
 }
 
-private class T_timeoutReader_asInterface {
+class T_timeoutReader_asInterface {
 	@:keep
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_p);
@@ -493,7 +493,7 @@ private class T_timeoutReader_asInterface {
 		throw "testing.iotest.read is not yet implemented";
 }
 
-private class T_errReader_asInterface {
+class T_errReader_asInterface {
 	@:keep
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_p);
@@ -518,7 +518,7 @@ private class T_errReader_asInterface {
 		throw "testing.iotest.read is not yet implemented";
 }
 
-private class T_smallByteReader_asInterface {
+class T_smallByteReader_asInterface {
 	@:keep
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_p);
@@ -543,7 +543,7 @@ private class T_smallByteReader_asInterface {
 		throw "testing.iotest.read is not yet implemented";
 }
 
-private class T_truncateWriter_asInterface {
+class T_truncateWriter_asInterface {
 	@:keep
 	public function write(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.write(_p);

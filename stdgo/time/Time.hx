@@ -8297,7 +8297,7 @@ class Location_asInterface {
 	}
 }
 
-private class T_dataIO_asInterface {
+class T_dataIO_asInterface {
 	/**
 		// read returns the read of the data in the buffer.
 	**/
@@ -8758,7 +8758,7 @@ class Duration_asInterface {
 	}
 }
 
-private class T_fileSizeError_asInterface {
+class T_fileSizeError_asInterface {
 	@:keep
 	public function error():GoString
 		return __self__.value.error();

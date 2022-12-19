@@ -1969,57 +1969,25 @@ function testNegativeRead(_t:Ref<stdgo.testing.Testing.T>):Void {
 	try {
 		__deferstack__.unshift(() -> {
 			var a = function():Void {
-				if (({
-					final r = Go.recover_exception;
-					Go.recover_exception = null;
-					r;
-				}) == null) {
-					var _err:AnyInterface = ({
+				{
+					final __type__ = ({
 						final r = Go.recover_exception;
 						Go.recover_exception = null;
 						r;
-					}) == null ? (null : AnyInterface) : ({
-						final r = Go.recover_exception;
-						Go.recover_exception = null;
-						r;
-					}).__underlying__();
-					_t.fatal(Go.toInterface(Go.str("read did not panic")));
-				} else if (Go.typeEquals(({
-					final r = Go.recover_exception;
-					Go.recover_exception = null;
-					r;
-				} : Error))) {
-					var _err:Error = ({
-						final r = Go.recover_exception;
-						Go.recover_exception = null;
-						r;
-					}) == null ? (null : Error) : ({
-						final r = Go.recover_exception;
-						Go.recover_exception = null;
-						r;
-					}).__underlying__() == null ? (null : Error) : ({
-						final r = Go.recover_exception;
-						Go.recover_exception = null;
-						r;
-					}) == null ? (null : Error) : ({
-						final r = Go.recover_exception;
-						Go.recover_exception = null;
-						r;
-					}).__underlying__().value;
-					if (!stdgo.strings.Strings.contains(_err.error(), Go.str("reader returned negative count from Read"))) {
-						_t.fatalf(Go.str("wrong panic: %v"), Go.toInterface(_err));
+					});
+					if (__type__ == null) {
+						var _err:AnyInterface = __type__ == null ? (null : AnyInterface) : __type__.__underlying__();
+						_t.fatal(Go.toInterface(Go.str("read did not panic")));
+					} else if (Go.typeEquals((__type__ : Error))) {
+						var _err:Error = __type__ == null ? (null : Error) : __type__.__underlying__() == null ? (null : Error) : __type__ == null ? (null : Error) : __type__.__underlying__()
+							.value;
+						if (!stdgo.strings.Strings.contains(_err.error(), Go.str("reader returned negative count from Read"))) {
+							_t.fatalf(Go.str("wrong panic: %v"), Go.toInterface(_err));
+						};
+					} else {
+						var _err:AnyInterface = __type__ == null ? null : __type__.__underlying__();
+						_t.fatalf(Go.str("unexpected panic value: %T(%v)"), _err, _err);
 					};
-				} else {
-					var _err:AnyInterface = ({
-						final r = Go.recover_exception;
-						Go.recover_exception = null;
-						r;
-					}) == null ? null : ({
-						final r = Go.recover_exception;
-						Go.recover_exception = null;
-						r;
-					}).__underlying__();
-					_t.fatalf(Go.str("unexpected panic value: %T(%v)"), _err, _err);
 				};
 			};
 			a();
@@ -3563,7 +3531,7 @@ function testLargeReader(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 }
 
-private class T_rot13Reader_asInterface {
+class T_rot13Reader_asInterface {
 	@:keep
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_p);
@@ -3603,7 +3571,7 @@ private class T_rot13Reader_asInterface {
 	}
 }
 
-private class T_zeroReader_asInterface {
+class T_zeroReader_asInterface {
 	@:keep
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_p);
@@ -3663,7 +3631,7 @@ class StringReader_asInterface {
 	}
 }
 
-private class T_errorWriterTest_asInterface {
+class T_errorWriterTest_asInterface {
 	@:keep
 	public function write(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.write(_p);
@@ -3689,7 +3657,7 @@ private class T_errorWriterTest_asInterface {
 	}
 }
 
-private class T_teststringwriter_asInterface {
+class T_teststringwriter_asInterface {
 	@:keep
 	public function _check(_t:Ref<stdgo.testing.Testing.T>, _write:GoString, _writeString:GoString):Void
 		__self__.value._check(_t, _write, _writeString);
@@ -3741,7 +3709,7 @@ private class T_teststringwriter_asInterface {
 	}
 }
 
-private class T_testReader_asInterface {
+class T_testReader_asInterface {
 	@:keep
 	public function read(_buf:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_buf);
@@ -3780,7 +3748,7 @@ private class T_testReader_asInterface {
 	}
 }
 
-private class T_errorWriterToTest_asInterface {
+class T_errorWriterToTest_asInterface {
 	@:keep
 	public function write(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.write(_p);
@@ -3815,7 +3783,7 @@ private class T_errorWriterToTest_asInterface {
 	}
 }
 
-private class T_errorReaderFromTest_asInterface {
+class T_errorReaderFromTest_asInterface {
 	@:keep
 	public function write(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.write(_p);
@@ -3850,7 +3818,7 @@ private class T_errorReaderFromTest_asInterface {
 	}
 }
 
-private class T_errorThenGoodReader_asInterface {
+class T_errorThenGoodReader_asInterface {
 	@:keep
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_p);
@@ -3881,7 +3849,7 @@ private class T_errorThenGoodReader_asInterface {
 	}
 }
 
-private class T_emptyThenNonEmptyReader_asInterface {
+class T_emptyThenNonEmptyReader_asInterface {
 	@:keep
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_p);
@@ -3911,7 +3879,7 @@ private class T_emptyThenNonEmptyReader_asInterface {
 	}
 }
 
-private class T_readFromWriter_asInterface {
+class T_readFromWriter_asInterface {
 	@:keep
 	public function readFrom(_r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:Error;}
 		return __self__.value.readFrom(_r);
@@ -3953,7 +3921,7 @@ private class T_readFromWriter_asInterface {
 	}
 }
 
-private class T_onlyReader_asInterface {
+class T_onlyReader_asInterface {
 	@:embedded
 	public function read(_p:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_p);
@@ -3978,7 +3946,7 @@ private class T_onlyReader_asInterface {
 		return __self__.read(_p);
 }
 
-private class T_onlyWriter_asInterface {
+class T_onlyWriter_asInterface {
 	@:embedded
 	public function write(_p:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.write(_p);
@@ -4003,7 +3971,7 @@ private class T_onlyWriter_asInterface {
 		return __self__.write(_p);
 }
 
-private class T_eofReader_asInterface {
+class T_eofReader_asInterface {
 	@:keep
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_p);
@@ -4034,7 +4002,7 @@ private class T_eofReader_asInterface {
 	}
 }
 
-private class T_writerWithReadFromError_asInterface {
+class T_writerWithReadFromError_asInterface {
 	@:keep
 	public function write(_b:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.write(_b);
@@ -4070,7 +4038,7 @@ private class T_writerWithReadFromError_asInterface {
 	}
 }
 
-private class T_writeErrorOnlyWriter_asInterface {
+class T_writeErrorOnlyWriter_asInterface {
 	@:keep
 	public function write(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.write(_p);
@@ -4097,7 +4065,7 @@ private class T_writeErrorOnlyWriter_asInterface {
 	}
 }
 
-private class T_slowReader_asInterface {
+class T_slowReader_asInterface {
 	@:keep
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_p);
@@ -4127,7 +4095,7 @@ private class T_slowReader_asInterface {
 	}
 }
 
-private class T_alwaysError_asInterface {
+class T_alwaysError_asInterface {
 	@:keep
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_p);
@@ -4153,7 +4121,7 @@ private class T_alwaysError_asInterface {
 	}
 }
 
-private class T_endlessZeros_asInterface {
+class T_endlessZeros_asInterface {
 	@:keep
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_p);
@@ -4179,7 +4147,7 @@ private class T_endlessZeros_asInterface {
 	}
 }
 
-private class T_largeReader_asInterface {
+class T_largeReader_asInterface {
 	@:keep
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_p);
@@ -4205,7 +4173,7 @@ private class T_largeReader_asInterface {
 	}
 }
 
-private class T_dataAndEOFReader_asInterface {
+class T_dataAndEOFReader_asInterface {
 	@:keep
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_p);
@@ -4231,7 +4199,7 @@ private class T_dataAndEOFReader_asInterface {
 	}
 }
 
-private class T_writeCountingDiscard_asInterface {
+class T_writeCountingDiscard_asInterface {
 	@:keep
 	@:pointer
 	public function write(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
@@ -4260,7 +4228,7 @@ private class T_writeCountingDiscard_asInterface {
 	}
 }
 
-private class T_negativeReader_asInterface {
+class T_negativeReader_asInterface {
 	@:keep
 	@:pointer
 	public function read(_0:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
@@ -4288,7 +4256,7 @@ private class T_negativeReader_asInterface {
 	}
 }
 
-private class T_scriptedReader_asInterface {
+class T_scriptedReader_asInterface {
 	@:keep
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_p);
@@ -4320,7 +4288,7 @@ private class T_scriptedReader_asInterface {
 	}
 }
 
-private class T_countdown_asInterface {
+class T_countdown_asInterface {
 	@:keep
 	@:pointer
 	public function _split(_data:Slice<GoByte>, _atEOF:Bool):{var _0:GoInt; var _1:Slice<GoByte>; var _2:Error;}
@@ -4356,7 +4324,7 @@ private class T_countdown_asInterface {
 	}
 }
 
-private class T_negativeEOFReader_asInterface {
+class T_negativeEOFReader_asInterface {
 	@:keep
 	@:pointer
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}

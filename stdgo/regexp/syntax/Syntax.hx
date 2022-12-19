@@ -1124,7 +1124,7 @@ function _simplify1(_op:Op, _flags:Flags, _sub:Ref<Regexp>, _re:Ref<Regexp>):Ref
 function testSimplify(_t:Ref<stdgo.testing.Testing.T>):Void
 	throw "regexp.syntax.testSimplify is not yet implemented";
 
-private class T_patchList_asInterface {
+class T_patchList_asInterface {
 	@:keep
 	public function _append(_p:Ref<Prog>, _l2:T_patchList):T_patchList
 		return __self__.value._append(_p, _l2);
@@ -1157,7 +1157,7 @@ private class T_patchList_asInterface {
 		throw "regexp.syntax._patch is not yet implemented";
 }
 
-private class T_compiler_asInterface {
+class T_compiler_asInterface {
 	@:keep
 	public function _rune(_r:Slice<GoRune>, _flags:Flags):T_frag
 		return __self__.value._rune(_r, _flags);
@@ -1325,7 +1325,7 @@ class T_error_asInterface {
 		throw "regexp.syntax.error is not yet implemented";
 }
 
-private class T_parser_asInterface {
+class T_parser_asInterface {
 	/**
 		// parseClass parses a character class at the beginning of s
 		// and pushes it onto the parse stack.
@@ -1841,7 +1841,7 @@ private class T_parser_asInterface {
 		throw "regexp.syntax._newRegexp is not yet implemented";
 }
 
-private class T_ranges_asInterface {
+class T_ranges_asInterface {
 	@:keep
 	public function swap(_i:GoInt, _j:GoInt):Void
 		__self__.value.swap(_i, _j);

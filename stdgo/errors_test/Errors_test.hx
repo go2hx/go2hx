@@ -503,7 +503,7 @@ class MyError_asInterface {
 	}
 }
 
-private class T_poser_asInterface {
+class T_poser_asInterface {
 	@:keep
 	public function as(_err:AnyInterface):Bool
 		return __self__.value.as(_err);
@@ -533,24 +533,27 @@ private class T_poser_asInterface {
 @:keep @:allow(stdgo.errors_test.Errors_test.T_poser_asInterface) class T_poser_static_extension {
 	@:keep
 	static public function as(_p:Ref<T_poser>, _err:AnyInterface):Bool {
-		if (Go.typeEquals((_err : Ref<Ref<T_poser>>))) {
-			var _x:Ref<Ref<stdgo.errors_test.Errors_test.T_poser>> = _err == null ? null : _err.__underlying__() == null ? null : _err == null ? null : _err.__underlying__()
-				.value;
-			_x = _p;
-		} else if (Go.typeEquals((_err : Ref<T_errorT>))) {
-			var _x:Ref<stdgo.errors_test.Errors_test.T_errorT> = _err == null ? (null : Ref<stdgo.errors_test.Errors_test.T_errorT>) : _err.__underlying__() == null ? (null : Ref<stdgo.errors_test.Errors_test.T_errorT>) : _err == null ? (null : Ref<stdgo.errors_test.Errors_test.T_errorT>) : _err.__underlying__()
-				.value;
-			{
-				var __tmp__ = (new stdgo.errors_test.Errors_test.T_errorT(Go.str("poser")) : stdgo.errors_test.Errors_test.T_errorT);
-				_x._s = __tmp__._s;
+		{
+			final __type__ = _err;
+			if (Go.typeEquals((__type__ : Ref<Ref<T_poser>>))) {
+				var _x:Ref<Ref<stdgo.errors_test.Errors_test.T_poser>> = __type__ == null ? null : __type__.__underlying__() == null ? null : __type__ == null ? null : __type__.__underlying__()
+					.value;
+				_x = _p;
+			} else if (Go.typeEquals((__type__ : Ref<T_errorT>))) {
+				var _x:Ref<stdgo.errors_test.Errors_test.T_errorT> = __type__ == null ? (null : Ref<stdgo.errors_test.Errors_test.T_errorT>) : __type__.__underlying__() == null ? (null : Ref<stdgo.errors_test.Errors_test.T_errorT>) : __type__ == null ? (null : Ref<stdgo.errors_test.Errors_test.T_errorT>) : __type__.__underlying__()
+					.value;
+				{
+					var __tmp__ = (new stdgo.errors_test.Errors_test.T_errorT(Go.str("poser")) : stdgo.errors_test.Errors_test.T_errorT);
+					_x._s = __tmp__._s;
+				};
+			} else if (Go.typeEquals((__type__ : Ref<Ref<stdgo.io.fs.Fs.PathError>>))) {
+				var _x:Ref<Ref<stdgo.io.fs.Fs.PathError>> = __type__ == null ? null : __type__.__underlying__() == null ? null : __type__ == null ? null : __type__.__underlying__()
+					.value;
+				_x = _poserPathErr;
+			} else {
+				var _x:AnyInterface = __type__ == null ? null : __type__.__underlying__();
+				return false;
 			};
-		} else if (Go.typeEquals((_err : Ref<Ref<stdgo.io.fs.Fs.PathError>>))) {
-			var _x:Ref<Ref<stdgo.io.fs.Fs.PathError>> = _err == null ? null : _err.__underlying__() == null ? null : _err == null ? null : _err.__underlying__()
-				.value;
-			_x = _poserPathErr;
-		} else {
-			var _x:AnyInterface = _err == null ? null : _err.__underlying__();
-			return false;
 		};
 		return true;
 	}
@@ -566,7 +569,7 @@ private class T_poser_asInterface {
 	}
 }
 
-private class T_errorT_asInterface {
+class T_errorT_asInterface {
 	@:keep
 	public function error():GoString
 		return __self__.value.error();
@@ -592,7 +595,7 @@ private class T_errorT_asInterface {
 	}
 }
 
-private class T_wrapped_asInterface {
+class T_wrapped_asInterface {
 	@:keep
 	public function unwrap():Error
 		return __self__.value.unwrap();
@@ -627,7 +630,7 @@ private class T_wrapped_asInterface {
 	}
 }
 
-private class T_errorUncomparable_asInterface {
+class T_errorUncomparable_asInterface {
 	@:keep
 	public function is_(_target:Error):Bool
 		return __self__.value.is_(_target);

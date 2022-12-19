@@ -1184,7 +1184,7 @@ class SectionReader_asInterface {
 	}
 }
 
-private class T_teeReader_asInterface {
+class T_teeReader_asInterface {
 	@:keep
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_p);
@@ -1226,7 +1226,7 @@ private class T_teeReader_asInterface {
 	}
 }
 
-private class T_discard_asInterface {
+class T_discard_asInterface {
 	@:keep
 	public function readFrom(_r:Reader):{var _0:GoInt64; var _1:Error;}
 		return __self__.value.readFrom(_r);
@@ -1287,7 +1287,7 @@ private class T_discard_asInterface {
 	}
 }
 
-private class T_nopCloser_asInterface {
+class T_nopCloser_asInterface {
 	@:keep
 	public function close():Error
 		return __self__.value.close();
@@ -1321,7 +1321,7 @@ private class T_nopCloser_asInterface {
 		return __self__.read(_p_);
 }
 
-private class T_nopCloserWriterTo_asInterface {
+class T_nopCloserWriterTo_asInterface {
 	@:keep
 	public function writeTo(_w:Writer):{var _0:GoInt64; var _1:Error;}
 		return __self__.value.writeTo(_w);
@@ -1365,7 +1365,7 @@ private class T_nopCloserWriterTo_asInterface {
 		return __self__.read(_p_);
 }
 
-private class T_eofReader_asInterface {
+class T_eofReader_asInterface {
 	@:keep
 	public function read(_0:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_0);
@@ -1391,7 +1391,7 @@ private class T_eofReader_asInterface {
 	}
 }
 
-private class T_multiReader_asInterface {
+class T_multiReader_asInterface {
 	@:keep
 	public function _writeToWithBuffer(_w:Writer, _buf:Slice<GoByte>):{var _0:GoInt64; var _1:Error;}
 		return __self__.value._writeToWithBuffer(_w, _buf);
@@ -1498,7 +1498,7 @@ private class T_multiReader_asInterface {
 	}
 }
 
-private class T_multiWriter_asInterface {
+class T_multiWriter_asInterface {
 	@:keep
 	public function writeString(_s:GoString):{var _0:GoInt; var _1:Error;}
 		return __self__.value.writeString(_s);
@@ -1582,7 +1582,7 @@ private class T_multiWriter_asInterface {
 	}
 }
 
-private class T_onceError_asInterface {
+class T_onceError_asInterface {
 	@:keep
 	public function load():Error
 		return __self__.value.load();
@@ -1722,7 +1722,7 @@ private class T_onceError_asInterface {
 		__self__.lock();
 }
 
-private class T_pipe_asInterface {
+class T_pipe_asInterface {
 	/**
 		// writeCloseError is considered internal to the pipe type.
 	**/

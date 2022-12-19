@@ -2666,7 +2666,7 @@ class Buffer_asInterface {
 		return __self__.bytes();
 }
 
-private class T_writeToChecker_asInterface {
+class T_writeToChecker_asInterface {
 	@:keep
 	public function writeTo(_w:Writer):{var _0:GoInt64; var _1:Error;}
 		return __self__.value.writeTo(_w);
@@ -2885,7 +2885,7 @@ private class T_writeToChecker_asInterface {
 		return __self__.bytes();
 }
 
-private class T_zeroErrReader_asInterface {
+class T_zeroErrReader_asInterface {
 	@:keep
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_p);
@@ -2911,7 +2911,7 @@ private class T_zeroErrReader_asInterface {
 	}
 }
 
-private class T_errWriter_asInterface {
+class T_errWriter_asInterface {
 	@:keep
 	public function write(_0:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.write(_0);
@@ -2937,7 +2937,7 @@ private class T_errWriter_asInterface {
 	}
 }
 
-private class T_noReadFrom_asInterface {
+class T_noReadFrom_asInterface {
 	@:keep
 	public function write(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.write(_p);
@@ -2964,7 +2964,7 @@ private class T_noReadFrom_asInterface {
 	}
 }
 
-private class T_wantedAndErrReader_asInterface {
+class T_wantedAndErrReader_asInterface {
 	@:keep
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_p);
@@ -2990,7 +2990,7 @@ private class T_wantedAndErrReader_asInterface {
 	}
 }
 
-private class T_dataAndErrorBuffer_asInterface {
+class T_dataAndErrorBuffer_asInterface {
 	@:keep
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_p);
@@ -3217,7 +3217,7 @@ private class T_dataAndErrorBuffer_asInterface {
 		return __self__.bytes();
 }
 
-private class T_largeWriter_asInterface {
+class T_largeWriter_asInterface {
 	@:keep
 	public function write(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.write(_p);
@@ -3243,7 +3243,7 @@ private class T_largeWriter_asInterface {
 	}
 }
 
-private class T_writeStringChecker_asInterface {
+class T_writeStringChecker_asInterface {
 	@:keep
 	public function write(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.write(_p);
@@ -3281,7 +3281,7 @@ private class T_writeStringChecker_asInterface {
 	}
 }
 
-private class T_pipeTest_asInterface {
+class T_pipeTest_asInterface {
 	@:keep
 	public function string():GoString
 		return __self__.value.string();
@@ -3308,7 +3308,7 @@ private class T_pipeTest_asInterface {
 	}
 }
 
-private class T__struct_4_asInterface {
+class T__struct_4_asInterface {
 	@:embedded
 	public function writeTo(_w:Writer):{var _0:GoInt64; var _1:Error;}
 		return __self__.value.writeTo(_w);
@@ -3341,7 +3341,7 @@ private class T__struct_4_asInterface {
 		return __self__.read(_b);
 }
 
-private class T__struct_5_asInterface {
+class T__struct_5_asInterface {
 	@:embedded
 	public function write(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.write(_b);
@@ -3374,7 +3374,7 @@ private class T__struct_5_asInterface {
 		return __self__.string();
 }
 
-private class T_writerFunc_asInterface {
+class T_writerFunc_asInterface {
 	@:keep
 	public function write(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.write(_p);
@@ -3400,7 +3400,7 @@ private class T_writerFunc_asInterface {
 	}
 }
 
-private class T_readerFunc_asInterface {
+class T_readerFunc_asInterface {
 	@:keep
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_p);
@@ -3426,7 +3426,7 @@ private class T_readerFunc_asInterface {
 	}
 }
 
-private class T_byteAndEOFReader_asInterface {
+class T_byteAndEOFReader_asInterface {
 	@:keep
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_p);
@@ -3457,7 +3457,7 @@ private class T_byteAndEOFReader_asInterface {
 	}
 }
 
-private class T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0_asInterface {
+class T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0_asInterface {
 	@:embedded
 	public function write(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.write(_b);
@@ -3482,7 +3482,7 @@ private class T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0_asInterfac
 		return __self__.write(_b);
 }
 
-private class T_testError1_testPipeCloseError_0_asInterface {
+class T_testError1_testPipeCloseError_0_asInterface {
 	@:embedded
 	public function error():GoString
 		return __self__.value.error();
@@ -3507,7 +3507,7 @@ private class T_testError1_testPipeCloseError_0_asInterface {
 		return __self__.error();
 }
 
-private class T_testError2_testPipeCloseError_1_asInterface {
+class T_testError2_testPipeCloseError_1_asInterface {
 	@:embedded
 	public function error():GoString
 		return __self__.value.error();

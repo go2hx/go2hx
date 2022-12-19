@@ -1844,58 +1844,26 @@ function testReadFromNegativeReader(_t:Ref<stdgo.testing.Testing.T>):Void {
 	try {
 		__deferstack__.unshift(() -> {
 			var a = function():Void {
-				if (({
-					final r = Go.recover_exception;
-					Go.recover_exception = null;
-					r;
-				}) == null) {
-					var _err:AnyInterface = ({
+				{
+					final __type__ = ({
 						final r = Go.recover_exception;
 						Go.recover_exception = null;
 						r;
-					}) == null ? (null : AnyInterface) : ({
-						final r = Go.recover_exception;
-						Go.recover_exception = null;
-						r;
-					}).__underlying__();
-					_t.fatal(Go.toInterface(Go.str("bytes.Buffer.ReadFrom didn\'t panic")));
-				} else if (Go.typeEquals(({
-					final r = Go.recover_exception;
-					Go.recover_exception = null;
-					r;
-				} : Error))) {
-					var _err:Error = ({
-						final r = Go.recover_exception;
-						Go.recover_exception = null;
-						r;
-					}) == null ? (null : Error) : ({
-						final r = Go.recover_exception;
-						Go.recover_exception = null;
-						r;
-					}).__underlying__() == null ? (null : Error) : ({
-						final r = Go.recover_exception;
-						Go.recover_exception = null;
-						r;
-					}) == null ? (null : Error) : ({
-						final r = Go.recover_exception;
-						Go.recover_exception = null;
-						r;
-					}).__underlying__().value;
-					var _wantError:GoString = Go.str("bytes.Buffer: reader returned negative count from Read");
-					if (_err.error() != (_wantError)) {
-						_t.fatalf(Go.str("recovered panic: got %v, want %v"), Go.toInterface(_err.error()), Go.toInterface(_wantError));
+					});
+					if (__type__ == null) {
+						var _err:AnyInterface = __type__ == null ? (null : AnyInterface) : __type__.__underlying__();
+						_t.fatal(Go.toInterface(Go.str("bytes.Buffer.ReadFrom didn\'t panic")));
+					} else if (Go.typeEquals((__type__ : Error))) {
+						var _err:Error = __type__ == null ? (null : Error) : __type__.__underlying__() == null ? (null : Error) : __type__ == null ? (null : Error) : __type__.__underlying__()
+							.value;
+						var _wantError:GoString = Go.str("bytes.Buffer: reader returned negative count from Read");
+						if (_err.error() != (_wantError)) {
+							_t.fatalf(Go.str("recovered panic: got %v, want %v"), Go.toInterface(_err.error()), Go.toInterface(_wantError));
+						};
+					} else {
+						var _err:AnyInterface = __type__ == null ? null : __type__.__underlying__();
+						_t.fatalf(Go.str("unexpected panic value: %#v"), _err);
 					};
-				} else {
-					var _err:AnyInterface = ({
-						final r = Go.recover_exception;
-						Go.recover_exception = null;
-						r;
-					}) == null ? null : ({
-						final r = Go.recover_exception;
-						Go.recover_exception = null;
-						r;
-					}).__underlying__();
-					_t.fatalf(Go.str("unexpected panic value: %#v"), _err);
 				};
 			};
 			a();
@@ -2146,6 +2114,8 @@ function benchmarkReadString(_b:Ref<stdgo.testing.Testing.B>):Void {
 }
 
 function testGrow(_t:Ref<stdgo.testing.Testing.T>):Void {
+	trace("testGrow" + " skip function");
+	return;
 	var _x = (new Slice<GoUInt8>(0, 0, (120 : GoUInt8)) : Slice<GoUInt8>);
 	var _y = (new Slice<GoUInt8>(0, 0, (121 : GoUInt8)) : Slice<GoUInt8>);
 	var _tmp = new Slice<GoUInt8>((72 : GoInt).toBasic(), 0, ...[for (i in 0...(72 : GoInt).toBasic()) (0 : GoUInt8)]);
@@ -3477,13 +3447,16 @@ function _repeat(_b:Slice<GoByte>, _count:GoInt):Error {
 					r;
 				});
 				if (_r != null) {
-					if (Go.typeEquals((_r : Error))) {
-						var _v:Error = _r == null ? (null : Error) : _r.__underlying__() == null ? (null : Error) : _r == null ? (null : Error) : _r.__underlying__()
-							.value;
-						_err = _v;
-					} else {
-						var _v:AnyInterface = _r == null ? null : _r.__underlying__();
-						_err = stdgo.fmt.Fmt.errorf(Go.str("%s"), _v);
+					{
+						final __type__ = _r;
+						if (Go.typeEquals((__type__ : Error))) {
+							var _v:Error = __type__ == null ? (null : Error) : __type__.__underlying__() == null ? (null : Error) : __type__ == null ? (null : Error) : __type__.__underlying__()
+								.value;
+							_err = _v;
+						} else {
+							var _v:AnyInterface = __type__ == null ? null : __type__.__underlying__();
+							_err = stdgo.fmt.Fmt.errorf(Go.str("%s"), _v);
+						};
 					};
 				};
 			};
@@ -4381,6 +4354,8 @@ function testCompareIdenticalSlice(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testCompareBytes(_t:Ref<stdgo.testing.Testing.T>):Void {
+	trace("testCompareBytes" + " skip function");
+	return;
 	var _lengths = new Slice<GoInt>((0 : GoInt).toBasic(), 0, ...[for (i in 0...(0 : GoInt).toBasic()) (0 : GoInt)]);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -5458,6 +5433,8 @@ function testReaderCopyNothing(_t:Ref<stdgo.testing.Testing.T>):Void {
 	// tests that Len is affected by reads, but Size is not.
 **/
 function testReaderLenSize(_t:Ref<stdgo.testing.Testing.T>):Void {
+	trace("testReaderLenSize" + " skip function");
+	return;
 	var _r = newReader((Go.str("abc") : Slice<GoByte>));
 	stdgo.io.Io.copyN(stdgo.io.Io.discard, Go.asInterface(_r), ("1" : GoInt64));
 	if (_r.len() != ((2 : GoInt))) {
@@ -5587,7 +5564,7 @@ function testReaderZero(_t:Ref<stdgo.testing.Testing.T>):Void {
 	true;
 };
 
-private class T_negativeReader_asInterface {
+class T_negativeReader_asInterface {
 	@:keep
 	public function read(_0:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_0);
@@ -5613,7 +5590,7 @@ private class T_negativeReader_asInterface {
 	}
 }
 
-private class T_panicReader_asInterface {
+class T_panicReader_asInterface {
 	@:keep
 	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(_p);
@@ -5642,7 +5619,7 @@ private class T_panicReader_asInterface {
 	}
 }
 
-private class T_justReader_testReaderCopyNothing_1_asInterface {
+class T_justReader_testReaderCopyNothing_1_asInterface {
 	@:embedded
 	public function read(__0:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.read(__0);
@@ -5667,7 +5644,7 @@ private class T_justReader_testReaderCopyNothing_1_asInterface {
 		return __self__.read(__0);
 }
 
-private class T_justWriter_testReaderCopyNothing_2_asInterface {
+class T_justWriter_testReaderCopyNothing_2_asInterface {
 	@:embedded
 	public function write(__0:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
 		return __self__.value.write(__0);

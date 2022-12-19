@@ -1370,7 +1370,7 @@ class Rand_asInterface {
 	}
 }
 
-private class T_lockedSource_asInterface {
+class T_lockedSource_asInterface {
 	/**
 		// read implements Read for a lockedSource without a race condition.
 	**/
@@ -1465,7 +1465,7 @@ private class T_lockedSource_asInterface {
 	}
 }
 
-private class T_rngSource_asInterface {
+class T_rngSource_asInterface {
 	/**
 		// Uint64 returns a non-negative pseudo-random 64-bit integer as an uint64.
 	**/

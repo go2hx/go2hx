@@ -522,6 +522,35 @@ final list = [
 				return i;
 		}
 		return -1;
+	},
+	"internal.bytealg:compare" => macro {
+		var l = _a.length;
+		if (_b.length < l) {
+			l = _b.length;
+		}
+		function samebytes() {
+			if (_a.length < _b.length) {
+				return -1;
+			}
+			if (_a.length > _b.length) {
+				return 1;
+			}
+			return 0;
+		}
+		if (l == 0 || Go.pointer(_a[0]) == (Go.pointer(_b[0]))) {
+			return samebytes();
+		}
+		for (i in 0...l) {
+			var c1 = _a[i];
+			var c2 = _b[i];
+			if (c1 < c2) {
+				return -1;
+			}
+			if (c1 > c2) {
+				return 1;
+			}
+		}
+		return samebytes();
 	}
 ];
 
@@ -537,10 +566,13 @@ final skipTargets = [
 	"strings_test:testClone" => [], // uses unsafe pointer conversions
 	"strings_test:testBuilderCopyPanic" => [], // TODO: implement - uses complex functionality of recover in a go routine
 	"strings_test:testCompareStrings" => [], // uses unsafe pointer conversions
-	"strings_test:testReaderLenSize" => [], // TODO: implement - uses io
+	"strings_test:testReaderLenSize" => [], // TODO: implement - io
 	"strings_test:testReplacer" => [], // TODO: implement - uses bytes.Buffer
 	"strings_test:testPickAlgorithm" => [], // TODO: implement - uses fmt.Sprintf
 	"strings_test:testMap" => [], // uses unsafe pointer conversions
+	"bytes_test:testGrow" => [], // checks runtime allocations num
+	"bytes_test:testReaderLenSize" => [], // TODO: implement - sync
+	"bytes_test:testCompareBytes" => [], // very slow but passes
 ];
 
 final structs = [

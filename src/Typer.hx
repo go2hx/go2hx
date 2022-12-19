@@ -427,7 +427,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 					],
 				};
 				final wrapper = createWrapper(wrapperName, ct);
-				wrapper.isExtern = def.isExtern;
+				wrapper.isExtern = true;
 				wrapper.params = def.params;
 				file.defs.push(wrapper);
 				final fieldExtension = [info.global.filePath, staticExtensionName];
@@ -1337,11 +1337,11 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 			return null;
 		final value = if (obj.list[i].name == "nil") {
 			types.push(interfaceType(true, []));
-			macro $assign == null;
+			macro __type__ == null;
 		} else {
 			final type = typeExprType(obj.list[i], info);
 			types.push(typeof(obj.list[i], info, false));
-			macro Go.typeEquals(($assign : $type));
+			macro Go.typeEquals((__type__ : $type));
 		}
 		if (i + 1 >= obj.list.length)
 			return value;
@@ -1359,11 +1359,11 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 				case EBlock(exprs):
 					var type:ComplexType = toComplexType(assignType, info);
 					var defValue = defaultValue(assignType,info,false);
-					var set = macro $assign == null ? null : $assign.__underlying__();
+					var set = macro __type__ == null ? null : __type__.__underlying__();
 					if (types.length == 1) {
 						type = toComplexType(types[0], info);
 						defValue = defaultValue(types[0],info,false);
-						set = macro $assign == null ? $defValue : $assign.__underlying__();
+						set = macro __type__ == null ? $defValue : __type__.__underlying__();
 						if (!isAnyInterface(types[0]))
 							set = macro $set == null ? $defValue : $set.value;
 					} else {
@@ -1424,18 +1424,25 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 			}
 		}
 	}
-	if (init != null)
-		expr = switch expr.expr {
+	final t = macro final __type__ = $assign;
+	if (init != null) {
+		return (switch expr.expr {
 			case EBlock(exprs):
 				exprs.unshift(init);
+				exprs.unshift(t);
 				macro $b{exprs};
 			default:
 				macro {
 					$init;
+					$t;
 					$expr;
 				}
-		}
-	return expr.expr;
+		}).expr;
+	}
+	return (macro {
+		$t;
+		$expr;
+	}).expr;
 }
 
 private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, info:Info):Expr {

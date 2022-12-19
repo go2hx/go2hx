@@ -1857,6 +1857,8 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 					final fieldValue2 = std.Reflect.field(bValue, name);
 
 					if (fieldValue == null || fieldValue2 == null) {
+						if (fieldValue == null && fieldValue2 == null)
+							return true;
 						trace(fieldValue, fieldValue2);
 						trace(aValue, bValue);
 						throw "struct issue with field name: " + name;

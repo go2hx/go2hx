@@ -26,109 +26,107 @@ stdgo/os_test/Os_test.hx:2301: characters 14-42 : Type not found : stdgo.path.fi
 stdgo/os_test/Os_test.hx:2302: characters 14-42 : Type not found : stdgo.path.filepath.Filepath
 stdgo/os_test/Os_test.hx:2303: characters 14-42 : Type not found : stdgo.path.filepath.Filepath
 stdgo/os_test/Os_test.hx:2488: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
-stdgo/os_test/Os_test.hx:2626: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
-stdgo/os_test/Os_test.hx:2657: characters 20-105 : invalid type: TAbstract(stdgo.GoUInt32,[])
-stdgo/os_test/Os_test.hx:2657: characters 20-105 : ... For function argument 'args'
-stdgo/os_test/Os_test.hx:2693: characters 20-107 : invalid type: TAbstract(stdgo.GoUInt32,[])
-stdgo/os_test/Os_test.hx:2693: characters 20-107 : ... For function argument 'args'
-stdgo/os_test/Os_test.hx:2739: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
-stdgo/os_test/Os_test.hx:3211: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
-stdgo/os_test/Os_test.hx:3226: characters 18-36 : Type not found : stdgo.os.exec.Exec
-stdgo/os_test/Os_test.hx:3237: characters 16-44 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:3250: characters 97-118 : Module stdgo.os.Os does not define type FileMode_asInterface
-stdgo/os_test/Os_test.hx:3250: characters 97-118 : ... For function argument 'args'
-stdgo/os_test/Os_test.hx:3254: characters 19-40 : Module stdgo.os.Os does not define type FileMode_asInterface
-stdgo/os_test/Os_test.hx:3254: characters 19-40 : ... For function argument 'args'
-stdgo/os_test/Os_test.hx:3644: characters 19-47 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:4031: characters 17-35 : Type not found : stdgo.os.exec.Exec
-stdgo/os_test/Os_test.hx:4035: characters 38-56 : Type not found : stdgo.os.exec.Exec
-stdgo/os_test/Os_test.hx:4105: characters 13-31 : Type not found : stdgo.os.exec.Exec
-stdgo/os_test/Os_test.hx:4137: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
-stdgo/os_test/Os_test.hx:4620: characters 23-51 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:4746: characters 19-94 : invalid type: TAbstract(stdgo.GoUInt32,[])
-stdgo/os_test/Os_test.hx:4746: characters 19-94 : ... For function argument 'args'
-stdgo/os_test/Os_test.hx:4754: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
-stdgo/os_test/Os_test.hx:4779: characters 15-37 : Type not found : stdgo.os.exec.Exec
-stdgo/os_test/Os_test.hx:4781: characters 10-28 : Type not found : stdgo.os.exec.Exec
-stdgo/os_test/Os_test.hx:4783: characters 10-28 : Type not found : stdgo.os.exec.Exec
-stdgo/os_test/Os_test.hx:4800: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
-stdgo/os_test/Os_test.hx:4803: characters 26-54 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:4817: characters 24-52 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:4818: characters 18-46 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:4833: characters 39-67 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:4968: characters 9-39 : Module stdgo.internal.testenv.Testenv does not define type Testenv
-stdgo/os_test/Os_test.hx:4977: characters 9-39 : Module stdgo.internal.testenv.Testenv does not define type Testenv
-stdgo/os_test/Os_test.hx:5040: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
-stdgo/os_test/Os_test.hx:5043: characters 14-32 : Type not found : stdgo.os.exec.Exec
-stdgo/os_test/Os_test.hx:5112: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
-stdgo/os_test/Os_test.hx:5117: characters 13-31 : Type not found : stdgo.os.exec.Exec
-stdgo/os_test/Os_test.hx:5168: characters 24-52 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:5191: characters 45-63 : Module stdgo.testing.Testing does not define type T_asInterface
-stdgo/os_test/Os_test.hx:5191: characters 45-63 : ... For function argument 't'
-stdgo/os_test/Os_test.hx:5318: characters 14-39 : Type not found : stdgo.runtime.debug.Debug
-stdgo/os_test/Os_test.hx:5319: characters 33-58 : Type not found : stdgo.runtime.debug.Debug
-stdgo/os_test/Os_test.hx:5433: characters 28-56 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:5460: characters 44-62 : Module stdgo.testing.Testing does not define type T_asInterface
-stdgo/os_test/Os_test.hx:5460: characters 44-62 : ... For function argument 't'
-stdgo/os_test/Os_test.hx:5507: characters 44-62 : Module stdgo.testing.Testing does not define type T_asInterface
-stdgo/os_test/Os_test.hx:5507: characters 44-62 : ... For function argument 't'
-stdgo/os_test/Os_test.hx:5513: characters 21-49 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:5565: characters 23-51 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:5617: characters 21-49 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:5668: characters 42-70 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:5675: characters 42-70 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:5723: characters 24-52 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:6038: characters 43-71 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:6105: characters 21-49 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:6310: characters 7-35 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:6331: characters 7-35 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:6367: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
-stdgo/os_test/Os_test.hx:6517: characters 28-56 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:6601: characters 23-51 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:6602: characters 23-51 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:6603: characters 24-52 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:6604: characters 24-52 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:6758: characters 23-51 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:6942: characters 25-53 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:6943: characters 28-56 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:6951: characters 30-58 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:6976: characters 26-54 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:7048: characters 19-47 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:7049: characters 9-37 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:7057: characters 28-56 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:7064: characters 22-50 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:7088: characters 26-54 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:7097: characters 23-51 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:7143: characters 25-53 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:7157: characters 30-58 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:7174: characters 24-52 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:7184: characters 27-55 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:7361: characters 29-57 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:7388: characters 24-52 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:7521: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
-stdgo/os_test/Os_test.hx:7523: characters 22-50 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:7531: characters 26-54 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:7540: characters 27-55 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:7552: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
-stdgo/os_test/Os_test.hx:7554: characters 23-51 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:7562: characters 27-55 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:7571: characters 27-55 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:7586: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
-stdgo/os_test/Os_test.hx:7588: characters 22-50 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:7595: characters 26-54 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:7640: characters 34-62 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:7689: characters 25-53 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:7819: characters 22-50 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:7861: characters 77-105 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:7869: characters 75-103 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:7893: characters 26-54 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:8034: characters 13-41 : Type not found : stdgo.path.filepath.Filepath
-stdgo/os_test/Os_test.hx:8040: characters 28-46 : stdgo.Ref<stdgo.os.File> should be stdgo.io.Writer
-stdgo/os_test/Os_test.hx:8040: characters 28-46 : ... stdgo.os.File has no field __underlying__
-stdgo/os_test/Os_test.hx:8040: characters 28-46 : ... For function argument 'w'
-stdgo/os_test/Os_test.hx:8042: characters 28-46 : stdgo.Ref<stdgo.os.File> should be stdgo.io.Writer
-stdgo/os_test/Os_test.hx:8042: characters 28-46 : ... stdgo.os.File has no field __underlying__
-stdgo/os_test/Os_test.hx:8042: characters 28-46 : ... For function argument 'w'
+stdgo/os_test/Os_test.hx:2630: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
+stdgo/os_test/Os_test.hx:2661: characters 20-105 : invalid type: TAbstract(stdgo.GoUInt32,[])
+stdgo/os_test/Os_test.hx:2661: characters 20-105 : ... For function argument 'args'
+stdgo/os_test/Os_test.hx:2697: characters 20-107 : invalid type: TAbstract(stdgo.GoUInt32,[])
+stdgo/os_test/Os_test.hx:2697: characters 20-107 : ... For function argument 'args'
+stdgo/os_test/Os_test.hx:2743: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
+stdgo/os_test/Os_test.hx:3223: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
+stdgo/os_test/Os_test.hx:3238: characters 18-36 : Type not found : stdgo.os.exec.Exec
+stdgo/os_test/Os_test.hx:3249: characters 16-44 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:3262: characters 97-118 : Module stdgo.os.Os does not define type FileMode_asInterface
+stdgo/os_test/Os_test.hx:3262: characters 97-118 : ... For function argument 'args'
+stdgo/os_test/Os_test.hx:3266: characters 19-40 : Module stdgo.os.Os does not define type FileMode_asInterface
+stdgo/os_test/Os_test.hx:3266: characters 19-40 : ... For function argument 'args'
+stdgo/os_test/Os_test.hx:3656: characters 19-47 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:4043: characters 17-35 : Type not found : stdgo.os.exec.Exec
+stdgo/os_test/Os_test.hx:4047: characters 38-56 : Type not found : stdgo.os.exec.Exec
+stdgo/os_test/Os_test.hx:4117: characters 13-31 : Type not found : stdgo.os.exec.Exec
+stdgo/os_test/Os_test.hx:4149: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
+stdgo/os_test/Os_test.hx:4632: characters 23-51 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:4758: characters 19-94 : invalid type: TAbstract(stdgo.GoUInt32,[])
+stdgo/os_test/Os_test.hx:4758: characters 19-94 : ... For function argument 'args'
+stdgo/os_test/Os_test.hx:4766: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
+stdgo/os_test/Os_test.hx:4791: characters 15-37 : Type not found : stdgo.os.exec.Exec
+stdgo/os_test/Os_test.hx:4793: characters 10-28 : Type not found : stdgo.os.exec.Exec
+stdgo/os_test/Os_test.hx:4795: characters 10-28 : Type not found : stdgo.os.exec.Exec
+stdgo/os_test/Os_test.hx:4812: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
+stdgo/os_test/Os_test.hx:4815: characters 26-54 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:4829: characters 24-52 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:4830: characters 18-46 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:4845: characters 39-67 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:4980: characters 9-39 : Module stdgo.internal.testenv.Testenv does not define type Testenv
+stdgo/os_test/Os_test.hx:4989: characters 9-39 : Module stdgo.internal.testenv.Testenv does not define type Testenv
+stdgo/os_test/Os_test.hx:5052: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
+stdgo/os_test/Os_test.hx:5055: characters 14-32 : Type not found : stdgo.os.exec.Exec
+stdgo/os_test/Os_test.hx:5124: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
+stdgo/os_test/Os_test.hx:5129: characters 13-31 : Type not found : stdgo.os.exec.Exec
+stdgo/os_test/Os_test.hx:5180: characters 24-52 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:5203: characters 45-63 : Module stdgo.testing.Testing does not define type T_asInterface
+stdgo/os_test/Os_test.hx:5203: characters 45-63 : ... For function argument 't'
+stdgo/os_test/Os_test.hx:5445: characters 28-56 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:5472: characters 44-62 : Module stdgo.testing.Testing does not define type T_asInterface
+stdgo/os_test/Os_test.hx:5472: characters 44-62 : ... For function argument 't'
+stdgo/os_test/Os_test.hx:5519: characters 44-62 : Module stdgo.testing.Testing does not define type T_asInterface
+stdgo/os_test/Os_test.hx:5519: characters 44-62 : ... For function argument 't'
+stdgo/os_test/Os_test.hx:5525: characters 21-49 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:5577: characters 23-51 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:5629: characters 21-49 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:5680: characters 42-70 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:5687: characters 42-70 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:5735: characters 24-52 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:6050: characters 43-71 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:6117: characters 21-49 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:6322: characters 7-35 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:6343: characters 7-35 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:6379: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
+stdgo/os_test/Os_test.hx:6529: characters 28-56 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:6613: characters 23-51 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:6614: characters 23-51 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:6615: characters 24-52 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:6616: characters 24-52 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:6770: characters 23-51 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:6954: characters 25-53 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:6955: characters 28-56 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:6963: characters 30-58 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:6988: characters 26-54 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:7060: characters 19-47 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:7061: characters 9-37 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:7069: characters 28-56 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:7076: characters 22-50 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:7100: characters 26-54 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:7109: characters 23-51 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:7155: characters 25-53 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:7169: characters 30-58 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:7186: characters 24-52 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:7196: characters 27-55 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:7373: characters 29-57 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:7400: characters 24-52 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:7533: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
+stdgo/os_test/Os_test.hx:7535: characters 22-50 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:7543: characters 26-54 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:7552: characters 27-55 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:7564: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
+stdgo/os_test/Os_test.hx:7566: characters 23-51 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:7574: characters 27-55 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:7583: characters 27-55 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:7598: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv
+stdgo/os_test/Os_test.hx:7600: characters 22-50 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:7607: characters 26-54 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:7652: characters 34-62 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:7701: characters 25-53 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:7831: characters 22-50 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:7873: characters 77-105 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:7881: characters 75-103 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:7905: characters 26-54 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:8046: characters 13-41 : Type not found : stdgo.path.filepath.Filepath
+stdgo/os_test/Os_test.hx:8052: characters 28-46 : stdgo.Ref<stdgo.os.File> should be stdgo.io.Writer
+stdgo/os_test/Os_test.hx:8052: characters 28-46 : ... stdgo.os.File has no field __underlying__
+stdgo/os_test/Os_test.hx:8052: characters 28-46 : ... For function argument 'w'
+stdgo/os_test/Os_test.hx:8054: characters 28-46 : stdgo.Ref<stdgo.os.File> should be stdgo.io.Writer
+stdgo/os_test/Os_test.hx:8054: characters 28-46 : ... stdgo.os.File has no field __underlying__
+stdgo/os_test/Os_test.hx:8054: characters 28-46 : ... For function argument 'w'
 
 ```
 

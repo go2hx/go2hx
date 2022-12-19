@@ -6,26 +6,26 @@ stdgo/bufio_test/Bufio_test.hx:1010: characters 24-32 : You can't iterate on a D
 stdgo/bufio_test/Bufio_test.hx:1028: characters 48-68 : unknown abstract type: Any
 stdgo/bufio_test/Bufio_test.hx:1042: characters 70-90 : unknown abstract type: Any
 stdgo/bufio_test/Bufio_test.hx:1055: characters 53-73 : unknown abstract type: Any
-stdgo/bufio_test/Bufio_test.hx:3494: characters 11-20 : (_c : stdgo.Pointer<stdgo.bufio_test._Bufio_test.T_countdown>, _data : stdgo.Slice<stdgo.GoByte>, _atEOF : Bool) -> { _2 : stdgo.Error, _1 : stdgo.Slice<stdgo.GoByte>, _0 : stdgo.GoInt } should be stdgo.bufio.SplitFunc
-stdgo/bufio_test/Bufio_test.hx:3494: characters 11-20 : ... For function argument '_split'
-stdgo/bufio_test/Bufio_test.hx:2805: characters 23-25 : stdgo.Ref<stdgo.bufio.Writer> should be stdgo.io.Writer
-stdgo/bufio_test/Bufio_test.hx:2805: characters 23-25 : ... stdgo.bufio.Writer has no field __underlying__
-stdgo/bufio_test/Bufio_test.hx:2805: characters 23-25 : ... For function argument 'w'
-stdgo/bufio_test/Bufio_test.hx:2806: characters 23-25 : stdgo.Ref<stdgo.bufio.Writer> should be stdgo.io.Writer
-stdgo/bufio_test/Bufio_test.hx:2806: characters 23-25 : ... stdgo.bufio.Writer has no field __underlying__
-stdgo/bufio_test/Bufio_test.hx:2806: characters 23-25 : ... For function argument 'w'
-stdgo/bufio_test/Bufio_test.hx:2848: characters 27-45 : stdgo.Ref<stdgo.os.File> should be stdgo.io.Writer
-stdgo/bufio_test/Bufio_test.hx:2848: characters 27-45 : ... stdgo.os.File has no field __underlying__
-stdgo/bufio_test/Bufio_test.hx:2848: characters 27-45 : ... For function argument 'w'
-stdgo/bufio_test/Bufio_test.hx:2868: characters 27-45 : stdgo.Ref<stdgo.os.File> should be stdgo.io.Writer
-stdgo/bufio_test/Bufio_test.hx:2868: characters 27-45 : ... stdgo.os.File has no field __underlying__
-stdgo/bufio_test/Bufio_test.hx:2868: characters 27-45 : ... For function argument 'w'
-stdgo/bufio_test/Bufio_test.hx:2938: characters 27-45 : stdgo.Ref<stdgo.os.File> should be stdgo.io.Writer
-stdgo/bufio_test/Bufio_test.hx:2938: characters 27-45 : ... stdgo.os.File has no field __underlying__
-stdgo/bufio_test/Bufio_test.hx:2938: characters 27-45 : ... For function argument 'w'
-stdgo/bufio_test/Bufio_test.hx:2832: characters 27-45 : stdgo.Ref<stdgo.os.File> should be stdgo.io.Writer
-stdgo/bufio_test/Bufio_test.hx:2832: characters 27-45 : ... stdgo.os.File has no field __underlying__
-stdgo/bufio_test/Bufio_test.hx:2832: characters 27-45 : ... For function argument 'w'
+stdgo/bufio_test/Bufio_test.hx:3462: characters 11-20 : (_c : stdgo.Pointer<stdgo.bufio_test._Bufio_test.T_countdown>, _data : stdgo.Slice<stdgo.GoByte>, _atEOF : Bool) -> { _2 : stdgo.Error, _1 : stdgo.Slice<stdgo.GoByte>, _0 : stdgo.GoInt } should be stdgo.bufio.SplitFunc
+stdgo/bufio_test/Bufio_test.hx:3462: characters 11-20 : ... For function argument '_split'
+stdgo/bufio_test/Bufio_test.hx:2773: characters 23-25 : stdgo.Ref<stdgo.bufio.Writer> should be stdgo.io.Writer
+stdgo/bufio_test/Bufio_test.hx:2773: characters 23-25 : ... stdgo.bufio.Writer has no field __underlying__
+stdgo/bufio_test/Bufio_test.hx:2773: characters 23-25 : ... For function argument 'w'
+stdgo/bufio_test/Bufio_test.hx:2774: characters 23-25 : stdgo.Ref<stdgo.bufio.Writer> should be stdgo.io.Writer
+stdgo/bufio_test/Bufio_test.hx:2774: characters 23-25 : ... stdgo.bufio.Writer has no field __underlying__
+stdgo/bufio_test/Bufio_test.hx:2774: characters 23-25 : ... For function argument 'w'
+stdgo/bufio_test/Bufio_test.hx:2816: characters 27-45 : stdgo.Ref<stdgo.os.File> should be stdgo.io.Writer
+stdgo/bufio_test/Bufio_test.hx:2816: characters 27-45 : ... stdgo.os.File has no field __underlying__
+stdgo/bufio_test/Bufio_test.hx:2816: characters 27-45 : ... For function argument 'w'
+stdgo/bufio_test/Bufio_test.hx:2836: characters 27-45 : stdgo.Ref<stdgo.os.File> should be stdgo.io.Writer
+stdgo/bufio_test/Bufio_test.hx:2836: characters 27-45 : ... stdgo.os.File has no field __underlying__
+stdgo/bufio_test/Bufio_test.hx:2836: characters 27-45 : ... For function argument 'w'
+stdgo/bufio_test/Bufio_test.hx:2906: characters 27-45 : stdgo.Ref<stdgo.os.File> should be stdgo.io.Writer
+stdgo/bufio_test/Bufio_test.hx:2906: characters 27-45 : ... stdgo.os.File has no field __underlying__
+stdgo/bufio_test/Bufio_test.hx:2906: characters 27-45 : ... For function argument 'w'
+stdgo/bufio_test/Bufio_test.hx:2800: characters 27-45 : stdgo.Ref<stdgo.os.File> should be stdgo.io.Writer
+stdgo/bufio_test/Bufio_test.hx:2800: characters 27-45 : ... stdgo.os.File has no field __underlying__
+stdgo/bufio_test/Bufio_test.hx:2800: characters 27-45 : ... For function argument 'w'
 
 ```
 

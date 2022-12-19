@@ -108,7 +108,7 @@ function _abigen_runtime_cmpstring(_a:stdgo.GoString, _b:stdgo.GoString):stdgo.G
 go:linkname abigen\_runtime\_cmpstring runtime.cmpstring 
 
 
-[\(view code\)](<./Bytealg.hx#L241>)
+[\(view code\)](<./Bytealg.hx#L268>)
 
 
 ## function \_abigen\_runtime\_memequal
@@ -122,7 +122,7 @@ function _abigen_runtime_memequal(_a:stdgo.unsafe.UnsafePointer, _b:stdgo.unsafe
 go:linkname abigen\_runtime\_memequal runtime.memequal 
 
 
-[\(view code\)](<./Bytealg.hx#L283>)
+[\(view code\)](<./Bytealg.hx#L310>)
 
 
 ## function \_abigen\_runtime\_memequal\_varlen
@@ -136,7 +136,7 @@ function _abigen_runtime_memequal_varlen(_a:stdgo.unsafe.UnsafePointer, _b:stdgo
 go:linkname abigen\_runtime\_memequal\_varlen runtime.memequal\_varlen 
 
 
-[\(view code\)](<./Bytealg.hx#L289>)
+[\(view code\)](<./Bytealg.hx#L316>)
 
 
 ## function compare
@@ -150,7 +150,7 @@ function compare(_a:stdgo.Slice<stdgo.GoByte>, _b:stdgo.Slice<stdgo.GoByte>):std
 go:noescape 
 
 
-[\(view code\)](<./Bytealg.hx#L235>)
+[\(view code\)](<./Bytealg.hx#L234>)
 
 
 ## function count
@@ -164,7 +164,7 @@ function count(_b:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.GoInt
  
 
 
-[\(view code\)](<./Bytealg.hx#L243>)
+[\(view code\)](<./Bytealg.hx#L270>)
 
 
 ## function countString
@@ -178,7 +178,7 @@ function countString(_s:stdgo.GoString, _c:stdgo.GoByte):stdgo.GoInt
  
 
 
-[\(view code\)](<./Bytealg.hx#L253>)
+[\(view code\)](<./Bytealg.hx#L280>)
 
 
 ## function cutover
@@ -192,7 +192,7 @@ function cutover(_n:stdgo.GoInt):stdgo.GoInt
 Cutover reports the number of failures of IndexByte we should tolerate��// before switching over to Index.��// n is the number of bytes processed so far.��// See the bytes.Index implementation for details. 
 
 
-[\(view code\)](<./Bytealg.hx#L313>)
+[\(view code\)](<./Bytealg.hx#L340>)
 
 
 ## function equal
@@ -206,7 +206,7 @@ function equal(_a:stdgo.Slice<stdgo.GoByte>, _b:stdgo.Slice<stdgo.GoByte>):Bool
 Equal reports whether a and b��// are the same length and contain the same bytes.��// A nil argument is equivalent to an empty slice.��//��// Equal is equivalent to bytes.Equal.��// It is provided here for convenience,��// because some packages cannot depend on bytes. 
 
 
-[\(view code\)](<./Bytealg.hx#L275>)
+[\(view code\)](<./Bytealg.hx#L302>)
 
 
 ## function hashStr
@@ -276,7 +276,7 @@ function index(_a:stdgo.Slice<stdgo.GoByte>, _b:stdgo.Slice<stdgo.GoByte>):stdgo
 Index returns the index of the first instance of b in a, or \-1 if b is not present in a.��// Requires 2 \<= len\(b\) \<= MaxLen. 
 
 
-[\(view code\)](<./Bytealg.hx#L295>)
+[\(view code\)](<./Bytealg.hx#L322>)
 
 
 ## function indexByte
@@ -290,7 +290,7 @@ function indexByte(_b:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.GoInt
 go:noescape 
 
 
-[\(view code\)](<./Bytealg.hx#L320>)
+[\(view code\)](<./Bytealg.hx#L347>)
 
 
 ## function indexByteString
@@ -304,7 +304,7 @@ function indexByteString(_s:stdgo.GoString, _c:stdgo.GoByte):stdgo.GoInt
 go:noescape 
 
 
-[\(view code\)](<./Bytealg.hx#L331>)
+[\(view code\)](<./Bytealg.hx#L358>)
 
 
 ## function indexRabinKarp
@@ -346,6 +346,6 @@ function indexString(_a:stdgo.GoString, _b:stdgo.GoString):stdgo.GoInt
 IndexString returns the index of the first instance of b in a, or \-1 if b is not present in a.��// Requires 2 \<= len\(b\) \<= MaxLen. 
 
 
-[\(view code\)](<./Bytealg.hx#L303>)
+[\(view code\)](<./Bytealg.hx#L330>)
 
 

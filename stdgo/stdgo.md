@@ -5,9 +5,9 @@
 | module | compile | tests | cpp | hl | interp | jvm | 
 | --- | --- | --- | --- | --- | --- | --- |
 | [stdgo.bufio](./bufio/README.md) | ❌ | yes |  |  |  |  |
-| [stdgo.bytes](./bytes/README.md) | ❌ | yes |  |  |  |  |
+| [stdgo.bytes](./bytes/README.md) | ✅ | yes |  | ❌ | ❌ | ❌ |
 | [stdgo.encoding](./encoding/README.md) | ❌ | no |  |  |  |  |
-| [stdgo.encoding.base64](./encoding/base64/README.md) | ❌ | yes |  |  |  |  |
+| [stdgo.encoding.base64](./encoding/base64/README.md) | ✅ | yes |  | ❌ | ❌ | ❌ |
 | [stdgo.encoding.binary](./encoding/binary/README.md) | ❌ | yes |  |  |  |  |
 | [stdgo.errors](./errors/README.md) | ✅ | yes |  | ✅ | ✅ | ❌ |
 | [stdgo.flag](./flag/README.md) | ❌ | yes |  |  |  |  |
@@ -40,6 +40,7 @@
 | [stdgo.regexp](./regexp/README.md) | ❌ | yes |  |  |  |  |
 | [stdgo.regexp.syntax](./regexp/syntax/README.md) | ✅ | yes |  | ❌ | ❌ | ❌ |
 | [stdgo.runtime](./runtime/README.md) | ✅ | no |  |  |  |  |
+| [stdgo.runtime.debug](./runtime/debug/README.md) | ✅ | no |  |  |  |  |
 | [stdgo.sort](./sort/README.md) | ✅ | yes |  | ✅ | ✅ | ❌ |
 | [stdgo.strconv](./strconv/README.md) | ✅ | yes |  | ✅ | ❌ | ❌ |
 | [stdgo.strings](./strings/README.md) | ✅ | yes |  | ✅ | ✅ | ❌ |

@@ -382,7 +382,7 @@ function error(_e:stdgo.errors_test._Errors_test.T_errorT):stdgo.GoString
  
 
 
-[\(view code\)](<./Errors_test.hx#L590>)
+[\(view code\)](<./Errors_test.hx#L593>)
 
 
 ## class T\_errorUncomparable\_static\_extension
@@ -402,7 +402,7 @@ function error(_:stdgo.errors_test._Errors_test.T_errorUncomparable):stdgo.GoStr
  
 
 
-[\(view code\)](<./Errors_test.hx#L665>)
+[\(view code\)](<./Errors_test.hx#L668>)
 
 
 ### T\_errorUncomparable\_static\_extension function is\_
@@ -416,7 +416,7 @@ function is_(_:stdgo.errors_test._Errors_test.T_errorUncomparable, _target:stdgo
  
 
 
-[\(view code\)](<./Errors_test.hx#L655>)
+[\(view code\)](<./Errors_test.hx#L658>)
 
 
 ## class T\_poser\_static\_extension
@@ -450,7 +450,7 @@ function error(_p:stdgo.Ref<stdgo.errors_test._Errors_test.T_poser>):stdgo.GoStr
  
 
 
-[\(view code\)](<./Errors_test.hx#L564>)
+[\(view code\)](<./Errors_test.hx#L567>)
 
 
 ### T\_poser\_static\_extension function is\_
@@ -464,7 +464,7 @@ function is_(_p:stdgo.Ref<stdgo.errors_test._Errors_test.T_poser>, _err:stdgo.Er
  
 
 
-[\(view code\)](<./Errors_test.hx#L559>)
+[\(view code\)](<./Errors_test.hx#L562>)
 
 
 ## class T\_wrapped\_static\_extension
@@ -484,7 +484,7 @@ function error(_e:stdgo.errors_test._Errors_test.T_wrapped):stdgo.GoString
  
 
 
-[\(view code\)](<./Errors_test.hx#L625>)
+[\(view code\)](<./Errors_test.hx#L628>)
 
 
 ### T\_wrapped\_static\_extension function unwrap
@@ -498,6 +498,6 @@ function unwrap(_e:stdgo.errors_test._Errors_test.T_wrapped):stdgo.Error
  
 
 
-[\(view code\)](<./Errors_test.hx#L620>)
+[\(view code\)](<./Errors_test.hx#L623>)
 
 

@@ -5,7 +5,7 @@
 | module | compile | tests | cpp | hl | interp | jvm | 
 | --- | --- | --- | --- | --- | --- | --- |
 | [stdgo.bufio](./bufio/README.md) | ❌ | yes |  |  |  |  |
-| [stdgo.bytes](./bytes/README.md) | ✅ | yes |  | ❌ | ❌ | ❌ |
+| [stdgo.bytes](./bytes/README.md) | ✅ | yes |  | ✅ | ❌ | ❌ |
 | [stdgo.encoding](./encoding/README.md) | ❌ | no |  |  |  |  |
 | [stdgo.encoding.base64](./encoding/base64/README.md) | ✅ | yes |  | ❌ | ❌ | ❌ |
 | [stdgo.encoding.binary](./encoding/binary/README.md) | ❌ | yes |  |  |  |  |

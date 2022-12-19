@@ -14,17 +14,17 @@ Package errors implements functions to manipulate errors.��//��// The Ne
 
 ```
 === RUN   TestNewEqual
---- PASS: TestNewEqual (0.000128984451293945)
+--- PASS: TestNewEqual (0.000133991241455078)
 === RUN   TestErrorMethod
---- PASS: TestErrorMethod (0.000593900680541992)
+--- PASS: TestErrorMethod (1.59740447998047e-05)
 === RUN   TestIs
---- PASS: TestIs (0.00062108039855957)
+--- PASS: TestIs (0.000748157501220703)
 === RUN   TestAs
---- PASS: TestAs (0.000577926635742188)
+--- PASS: TestAs (0.000681161880493164)
 === RUN   TestAsValidation
---- PASS: TestAsValidation (9.29832458496094e-05)
+--- PASS: TestAsValidation (0.000114917755126953)
 === RUN   TestUnwrap
---- PASS: TestUnwrap (0.00018000602722168)
+--- PASS: TestUnwrap (0.000396966934204102)
 ```
 </p>
 </details>
@@ -34,17 +34,17 @@ Package errors implements functions to manipulate errors.��//��// The Ne
 
 ```
 === RUN   TestNewEqual
---- PASS: TestNewEqual (0.000247955322265625)
+--- PASS: TestNewEqual (0.000154972076416015625)
 === RUN   TestErrorMethod
---- PASS: TestErrorMethod (3.0994415283203125e-05)
+--- PASS: TestErrorMethod (2.288818359375e-05)
 === RUN   TestIs
---- PASS: TestIs (0.00031185150146484375)
+--- PASS: TestIs (0.000298023223876953125)
 === RUN   TestAs
---- PASS: TestAs (0.00101900100708007812)
+--- PASS: TestAs (0.00108695030212402344)
 === RUN   TestAsValidation
---- PASS: TestAsValidation (0.000112056732177734375)
+--- PASS: TestAsValidation (0.000105142593383789062)
 === RUN   TestUnwrap
---- PASS: TestUnwrap (0.000303983688354492188)
+--- PASS: TestUnwrap (0.000339984893798828125)
 ```
 </p>
 </details>

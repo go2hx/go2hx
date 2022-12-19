@@ -14,17 +14,17 @@ Package utf16 implements encoding and decoding of UTF\-16 sequences.
 
 ```
 === RUN   TestConstants
---- PASS: TestConstants (6.07967376708984e-05)
+--- PASS: TestConstants (0.000110864639282227)
 === RUN   TestEncode
---- PASS: TestEncode (0.000831842422485352)
+--- PASS: TestEncode (0.00104188919067383)
 === RUN   TestEncodeRune
---- PASS: TestEncodeRune (2.50339508056641e-05)
+--- PASS: TestEncodeRune (4.1961669921875e-05)
 === RUN   TestDecode
---- PASS: TestDecode (0.000211954116821289)
+--- PASS: TestDecode (0.000241994857788086)
 === RUN   TestDecodeRune
---- PASS: TestDecodeRune (1.19209289550781e-05)
+--- PASS: TestDecodeRune (1.40666961669922e-05)
 === RUN   TestIsSurrogate
---- PASS: TestIsSurrogate (8.10623168945312e-06)
+--- PASS: TestIsSurrogate (2.69412994384766e-05)
 ```
 </p>
 </details>
@@ -34,17 +34,17 @@ Package utf16 implements encoding and decoding of UTF\-16 sequences.
 
 ```
 === RUN   TestConstants
---- PASS: TestConstants (4.8160552978515625e-05)
+--- PASS: TestConstants (4.9114227294921875e-05)
 === RUN   TestEncode
---- PASS: TestEncode (0.00102782249450683594)
+--- PASS: TestEncode (0.00118899345397949219)
 === RUN   TestEncodeRune
---- PASS: TestEncodeRune (0.000128984451293945312)
+--- PASS: TestEncodeRune (0.000149965286254882812)
 === RUN   TestDecode
---- PASS: TestDecode (0.000558137893676757812)
+--- PASS: TestDecode (0.000659942626953125)
 === RUN   TestDecodeRune
---- PASS: TestDecodeRune (6.198883056640625e-05)
+--- PASS: TestDecodeRune (7.41481781005859375e-05)
 === RUN   TestIsSurrogate
---- PASS: TestIsSurrogate (2.12192535400390625e-05)
+--- PASS: TestIsSurrogate (2.50339508056640625e-05)
 ```
 </p>
 </details>

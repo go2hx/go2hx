@@ -33,6 +33,7 @@
     "regexp",
     "regexp/syntax",
     "encoding/binary",
+    "encoding/base64",
     "reflect",
     "math/cmplx",
     "sync/atomic",

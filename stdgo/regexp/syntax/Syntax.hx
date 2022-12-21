@@ -777,15 +777,15 @@ private final _meta:GoString = ("" : GoString);
 	public var regexp:GoString = "";
 	public var prog:GoString = "";
 
-	public function string():String
-		return "{" + Go.string(regexp) + " " + Go.string(prog) + "}";
-
-	public function new(?regexp:GoString, ?prog:GoString, ?string) {
+	public function new(?regexp:GoString, ?prog:GoString) {
 		if (regexp != null)
 			this.regexp = regexp;
 		if (prog != null)
 			this.prog = prog;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_0(regexp, prog);
@@ -796,15 +796,15 @@ private final _meta:GoString = ("" : GoString);
 	public var regexp:GoString = "";
 	public var simple:GoString = "";
 
-	public function string():String
-		return "{" + Go.string(regexp) + " " + Go.string(simple) + "}";
-
-	public function new(?regexp:GoString, ?simple:GoString, ?string) {
+	public function new(?regexp:GoString, ?simple:GoString) {
 		if (regexp != null)
 			this.regexp = regexp;
 		if (simple != null)
 			this.simple = simple;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_1(regexp, simple);

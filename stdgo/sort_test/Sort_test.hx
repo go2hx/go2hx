@@ -515,15 +515,15 @@ private final __NMode:InvalidType = ("6" : GoUInt64);
 	public var name:GoString = "";
 	public var age:GoInt = 0;
 
-	public function string():String
-		return "{" + Go.string(name) + " " + Go.string(age) + "}";
-
-	public function new(?name:GoString, ?age:GoInt, ?string) {
+	public function new(?name:GoString, ?age:GoInt) {
 		if (name != null)
 			this.name = name;
 		if (age != null)
 			this.age = age;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_0(name, age);
@@ -536,10 +536,7 @@ private final __NMode:InvalidType = ("6" : GoUInt64);
 	public var _f:GoInt->Bool = null;
 	public var _i:GoInt = 0;
 
-	public function string():String
-		return "{" + Go.string(_name) + " " + Go.string(_n) + " " + Go.string(_f) + " " + Go.string(_i) + "}";
-
-	public function new(?_name:GoString, ?_n:GoInt, ?_f:GoInt->Bool, ?_i:GoInt, ?string) {
+	public function new(?_name:GoString, ?_n:GoInt, ?_f:GoInt->Bool, ?_i:GoInt) {
 		if (_name != null)
 			this._name = _name;
 		if (_n != null)
@@ -549,6 +546,9 @@ private final __NMode:InvalidType = ("6" : GoUInt64);
 		if (_i != null)
 			this._i = _i;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_1(_name, _n, _f, _i);
@@ -561,10 +561,7 @@ private final __NMode:InvalidType = ("6" : GoUInt64);
 	public var _wantPos:GoInt = 0;
 	public var _wantFound:Bool = false;
 
-	public function string():String
-		return "{" + Go.string(_data) + " " + Go.string(_target) + " " + Go.string(_wantPos) + " " + Go.string(_wantFound) + "}";
-
-	public function new(?_data:Slice<GoString>, ?_target:GoString, ?_wantPos:GoInt, ?_wantFound:Bool, ?string) {
+	public function new(?_data:Slice<GoString>, ?_target:GoString, ?_wantPos:GoInt, ?_wantFound:Bool) {
 		if (_data != null)
 			this._data = _data;
 		if (_target != null)
@@ -574,6 +571,9 @@ private final __NMode:InvalidType = ("6" : GoUInt64);
 		if (_wantFound != null)
 			this._wantFound = _wantFound;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_2(_data, _target, _wantPos, _wantFound);
@@ -585,10 +585,7 @@ private final __NMode:InvalidType = ("6" : GoUInt64);
 	public var _result:GoInt = 0;
 	public var _i:GoInt = 0;
 
-	public function string():String
-		return "{" + Go.string(_name) + " " + Go.string(_result) + " " + Go.string(_i) + "}";
-
-	public function new(?_name:GoString, ?_result:GoInt, ?_i:GoInt, ?string) {
+	public function new(?_name:GoString, ?_result:GoInt, ?_i:GoInt) {
 		if (_name != null)
 			this._name = _name;
 		if (_result != null)
@@ -596,6 +593,9 @@ private final __NMode:InvalidType = ("6" : GoUInt64);
 		if (_i != null)
 			this._i = _i;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_3(_name, _result, _i);
@@ -606,15 +606,15 @@ private final __NMode:InvalidType = ("6" : GoUInt64);
 	public var _a:GoInt = 0;
 	public var _b:GoInt = 0;
 
-	public function string():String
-		return "{" + Go.string(_a) + " " + Go.string(_b) + "}";
-
-	public function new(?_a:GoInt, ?_b:GoInt, ?string) {
+	public function new(?_a:GoInt, ?_b:GoInt) {
 		if (_a != null)
 			this._a = _a;
 		if (_b != null)
 			this._b = _b;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_4(_a, _b);

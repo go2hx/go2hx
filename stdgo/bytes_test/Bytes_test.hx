@@ -1114,10 +1114,7 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 	public var _expected:Slice<GoString> = (null : Slice<GoString>);
 	public var _err:Error = (null : Error);
 
-	public function string():String
-		return "{" + Go.string(_buffer) + " " + Go.string(_delim) + " " + Go.string(_expected) + " " + Go.string(_err) + "}";
-
-	public function new(?_buffer:GoString, ?_delim:GoUInt8, ?_expected:Slice<GoString>, ?_err:Error, ?string) {
+	public function new(?_buffer:GoString, ?_delim:GoUInt8, ?_expected:Slice<GoString>, ?_err:Error) {
 		if (_buffer != null)
 			this._buffer = _buffer;
 		if (_delim != null)
@@ -1127,6 +1124,9 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 		if (_err != null)
 			this._err = _err;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_0(_buffer, _delim, _expected, _err);
@@ -1138,10 +1138,7 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 	public var _b:Slice<GoUInt8> = (null : Slice<GoUInt8>);
 	public var _i:GoInt = 0;
 
-	public function string():String
-		return "{" + Go.string(_a) + " " + Go.string(_b) + " " + Go.string(_i) + "}";
-
-	public function new(?_a:Slice<GoUInt8>, ?_b:Slice<GoUInt8>, ?_i:GoInt, ?string) {
+	public function new(?_a:Slice<GoUInt8>, ?_b:Slice<GoUInt8>, ?_i:GoInt) {
 		if (_a != null)
 			this._a = _a;
 		if (_b != null)
@@ -1149,6 +1146,9 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 		if (_i != null)
 			this._i = _i;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_1(_a, _b, _i);
@@ -1160,10 +1160,7 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 	public var _rune:GoInt32 = 0;
 	public var _want:GoInt = 0;
 
-	public function string():String
-		return "{" + Go.string(_in) + " " + Go.string(_rune) + " " + Go.string(_want) + "}";
-
-	public function new(?_in:GoString, ?_rune:GoInt32, ?_want:GoInt, ?string) {
+	public function new(?_in:GoString, ?_rune:GoInt32, ?_want:GoInt) {
 		if (_in != null)
 			this._in = _in;
 		if (_rune != null)
@@ -1171,6 +1168,9 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 		if (_want != null)
 			this._want = _want;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_2(_in, _rune, _want);
@@ -1182,10 +1182,7 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 	public var _repl:GoString = "";
 	public var _out:GoString = "";
 
-	public function string():String
-		return "{" + Go.string(_in) + " " + Go.string(_repl) + " " + Go.string(_out) + "}";
-
-	public function new(?_in:GoString, ?_repl:GoString, ?_out:GoString, ?string) {
+	public function new(?_in:GoString, ?_repl:GoString, ?_out:GoString) {
 		if (_in != null)
 			this._in = _in;
 		if (_repl != null)
@@ -1193,6 +1190,9 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 		if (_out != null)
 			this._out = _out;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_3(_in, _repl, _out);
@@ -1204,10 +1204,7 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 	public var _count:GoInt = 0;
 	public var _errStr:GoString = "";
 
-	public function string():String
-		return "{" + Go.string(_s) + " " + Go.string(_count) + " " + Go.string(_errStr) + "}";
-
-	public function new(?_s:GoString, ?_count:GoInt, ?_errStr:GoString, ?string) {
+	public function new(?_s:GoString, ?_count:GoInt, ?_errStr:GoString) {
 		if (_s != null)
 			this._s = _s;
 		if (_count != null)
@@ -1215,6 +1212,9 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 		if (_errStr != null)
 			this._errStr = _errStr;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_4(_s, _count, _errStr);
@@ -1226,10 +1226,7 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 	public var _trim:(Slice<GoUInt8>, GoInt32->Bool) -> Slice<GoUInt8> = null;
 	public var _out:Slice<GoUInt8> = (null : Slice<GoUInt8>);
 
-	public function string():String
-		return "{" + Go.string(_name) + " " + Go.string(_trim) + " " + Go.string(_out) + "}";
-
-	public function new(?_name:GoString, ?_trim:(Slice<GoUInt8>, GoInt32->Bool) -> Slice<GoUInt8>, ?_out:Slice<GoUInt8>, ?string) {
+	public function new(?_name:GoString, ?_trim:(Slice<GoUInt8>, GoInt32->Bool) -> Slice<GoUInt8>, ?_out:Slice<GoUInt8>) {
 		if (_name != null)
 			this._name = _name;
 		if (_trim != null)
@@ -1237,6 +1234,9 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 		if (_out != null)
 			this._out = _out;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_5(_name, _trim, _out);
@@ -1248,10 +1248,7 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 	public var _t:GoString = "";
 	public var _out:Bool = false;
 
-	public function string():String
-		return "{" + Go.string(_s) + " " + Go.string(_t) + " " + Go.string(_out) + "}";
-
-	public function new(?_s:GoString, ?_t:GoString, ?_out:Bool, ?string) {
+	public function new(?_s:GoString, ?_t:GoString, ?_out:Bool) {
 		if (_s != null)
 			this._s = _s;
 		if (_t != null)
@@ -1259,6 +1256,9 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 		if (_out != null)
 			this._out = _out;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_6(_s, _t, _out);
@@ -1272,20 +1272,7 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 	public var _after:GoString = "";
 	public var _found:Bool = false;
 
-	public function string():String
-		return "{"
-			+ Go.string(_s)
-			+ " "
-			+ Go.string(_sep)
-			+ " "
-			+ Go.string(_before)
-			+ " "
-			+ Go.string(_after)
-			+ " "
-			+ Go.string(_found)
-			+ "}";
-
-	public function new(?_s:GoString, ?_sep:GoString, ?_before:GoString, ?_after:GoString, ?_found:Bool, ?string) {
+	public function new(?_s:GoString, ?_sep:GoString, ?_before:GoString, ?_after:GoString, ?_found:Bool) {
 		if (_s != null)
 			this._s = _s;
 		if (_sep != null)
@@ -1298,6 +1285,9 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 			this._found = _found;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T__struct_7(_s, _sep, _before, _after, _found);
 	}
@@ -1308,10 +1298,7 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 	public var _subslice:Slice<GoUInt8> = (null : Slice<GoUInt8>);
 	public var _want:Bool = false;
 
-	public function string():String
-		return "{" + Go.string(_b) + " " + Go.string(_subslice) + " " + Go.string(_want) + "}";
-
-	public function new(?_b:Slice<GoUInt8>, ?_subslice:Slice<GoUInt8>, ?_want:Bool, ?string) {
+	public function new(?_b:Slice<GoUInt8>, ?_subslice:Slice<GoUInt8>, ?_want:Bool) {
 		if (_b != null)
 			this._b = _b;
 		if (_subslice != null)
@@ -1319,6 +1306,9 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 		if (_want != null)
 			this._want = _want;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_8(_b, _subslice, _want);
@@ -1330,10 +1320,7 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 	public var _substr:GoString = "";
 	public var _expected:Bool = false;
 
-	public function string():String
-		return "{" + Go.string(_b) + " " + Go.string(_substr) + " " + Go.string(_expected) + "}";
-
-	public function new(?_b:Slice<GoUInt8>, ?_substr:GoString, ?_expected:Bool, ?string) {
+	public function new(?_b:Slice<GoUInt8>, ?_substr:GoString, ?_expected:Bool) {
 		if (_b != null)
 			this._b = _b;
 		if (_substr != null)
@@ -1341,6 +1328,9 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 		if (_expected != null)
 			this._expected = _expected;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_9(_b, _substr, _expected);
@@ -1352,10 +1342,7 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 	public var _r:GoInt32 = 0;
 	public var _expected:Bool = false;
 
-	public function string():String
-		return "{" + Go.string(_b) + " " + Go.string(_r) + " " + Go.string(_expected) + "}";
-
-	public function new(?_b:Slice<GoUInt8>, ?_r:GoInt32, ?_expected:Bool, ?string) {
+	public function new(?_b:Slice<GoUInt8>, ?_r:GoInt32, ?_expected:Bool) {
 		if (_b != null)
 			this._b = _b;
 		if (_r != null)
@@ -1363,6 +1350,9 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 		if (_expected != null)
 			this._expected = _expected;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_10(_b, _r, _expected);
@@ -1373,15 +1363,15 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 	public var _name:GoString = "";
 	public var _data:Slice<GoUInt8> = (null : Slice<GoUInt8>);
 
-	public function string():String
-		return "{" + Go.string(_name) + " " + Go.string(_data) + "}";
-
-	public function new(?_name:GoString, ?_data:Slice<GoUInt8>, ?string) {
+	public function new(?_name:GoString, ?_data:Slice<GoUInt8>) {
 		if (_name != null)
 			this._name = _name;
 		if (_data != null)
 			this._data = _data;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_11(_name, _data);
@@ -1392,15 +1382,15 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 	public var _name:GoString = "";
 	public var _input:Slice<GoUInt8> = (null : Slice<GoUInt8>);
 
-	public function string():String
-		return "{" + Go.string(_name) + " " + Go.string(_input) + "}";
-
-	public function new(?_name:GoString, ?_input:Slice<GoUInt8>, ?string) {
+	public function new(?_name:GoString, ?_input:Slice<GoUInt8>) {
 		if (_name != null)
 			this._name = _name;
 		if (_input != null)
 			this._input = _input;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_12(_name, _input);
@@ -1416,11 +1406,7 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 	public var _readerr:Error = (null : Error);
 	public var _seekerr:GoString = "";
 
-	public function string():String
-		return "{" + Go.string(_off) + " " + Go.string(_seek) + " " + Go.string(_n) + " " + Go.string(_want) + " " + Go.string(_wantpos) + " "
-			+ Go.string(_readerr) + " " + Go.string(_seekerr) + "}";
-
-	public function new(?_off:GoInt64, ?_seek:GoInt, ?_n:GoInt, ?_want:GoString, ?_wantpos:GoInt64, ?_readerr:Error, ?_seekerr:GoString, ?string) {
+	public function new(?_off:GoInt64, ?_seek:GoInt, ?_n:GoInt, ?_want:GoString, ?_wantpos:GoInt64, ?_readerr:Error, ?_seekerr:GoString) {
 		if (_off != null)
 			this._off = _off;
 		if (_seek != null)
@@ -1437,6 +1423,9 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 			this._seekerr = _seekerr;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T__struct_13(_off, _seek, _n, _want, _wantpos, _readerr, _seekerr);
 	}
@@ -1448,10 +1437,7 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 	public var _want:GoString = "";
 	public var _wanterr:AnyInterface = (null : AnyInterface);
 
-	public function string():String
-		return "{" + Go.string(_off) + " " + Go.string(_n) + " " + Go.string(_want) + " " + Go.string(_wanterr) + "}";
-
-	public function new(?_off:GoInt64, ?_n:GoInt, ?_want:GoString, ?_wanterr:AnyInterface, ?string) {
+	public function new(?_off:GoInt64, ?_n:GoInt, ?_want:GoString, ?_wanterr:AnyInterface) {
 		if (_off != null)
 			this._off = _off;
 		if (_n != null)
@@ -1462,6 +1448,9 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 			this._wanterr = _wanterr;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T__struct_14(_off, _n, _want, _wanterr);
 	}
@@ -1471,15 +1460,15 @@ private final _space:GoString = Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000")
 	public var _name:GoString = "";
 	public var _f:Ref<Reader>->Void = null;
 
-	public function string():String
-		return "{" + Go.string(_name) + " " + Go.string(_f) + "}";
-
-	public function new(?_name:GoString, ?_f:Ref<Reader>->Void, ?string) {
+	public function new(?_name:GoString, ?_f:Ref<Reader>->Void) {
 		if (_name != null)
 			this._name = _name;
 		if (_f != null)
 			this._f = _f;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_15(_name, _f);

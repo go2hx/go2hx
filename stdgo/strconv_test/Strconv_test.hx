@@ -2188,15 +2188,15 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 	public var _f:GoFloat64 = 0;
 	public var _s:GoString = "";
 
-	public function string():String
-		return "{" + Go.string(_f) + " " + Go.string(_s) + "}";
-
-	public function new(?_f:GoFloat64, ?_s:GoString, ?string) {
+	public function new(?_f:GoFloat64, ?_s:GoString) {
 		if (_f != null)
 			this._f = _f;
 		if (_s != null)
 			this._s = _s;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_0(_f, _s);
@@ -2210,20 +2210,7 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 	public var _bitSize:GoInt = 0;
 	public var _out:GoString = "";
 
-	public function string():String
-		return "{"
-			+ Go.string(_c)
-			+ " "
-			+ Go.string(_fmt)
-			+ " "
-			+ Go.string(_prec)
-			+ " "
-			+ Go.string(_bitSize)
-			+ " "
-			+ Go.string(_out)
-			+ "}";
-
-	public function new(?_c:GoComplex128, ?_fmt:GoUInt8, ?_prec:GoInt, ?_bitSize:GoInt, ?_out:GoString, ?string) {
+	public function new(?_c:GoComplex128, ?_fmt:GoUInt8, ?_prec:GoInt, ?_bitSize:GoInt, ?_out:GoString) {
 		if (_c != null)
 			this._c = _c;
 		if (_fmt != null)
@@ -2235,6 +2222,9 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 		if (_out != null)
 			this._out = _out;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_1(_c, _fmt, _prec, _bitSize, _out);
@@ -2248,20 +2238,7 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 	public var _prec:GoInt = 0;
 	public var _bitSize:GoInt = 0;
 
-	public function string():String
-		return "{"
-			+ Go.string(_name)
-			+ " "
-			+ Go.string(_float)
-			+ " "
-			+ Go.string(_fmt)
-			+ " "
-			+ Go.string(_prec)
-			+ " "
-			+ Go.string(_bitSize)
-			+ "}";
-
-	public function new(?_name:GoString, ?_float:GoFloat64, ?_fmt:GoUInt8, ?_prec:GoInt, ?_bitSize:GoInt, ?string) {
+	public function new(?_name:GoString, ?_float:GoFloat64, ?_fmt:GoUInt8, ?_prec:GoInt, ?_bitSize:GoInt) {
 		if (_name != null)
 			this._name = _name;
 		if (_float != null)
@@ -2274,6 +2251,9 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 			this._bitSize = _bitSize;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T__struct_2(_name, _float, _fmt, _prec, _bitSize);
 	}
@@ -2283,15 +2263,15 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 	public var _in:GoUInt64 = 0;
 	public var _out:GoString = "";
 
-	public function string():String
-		return "{" + Go.string(_in) + " " + Go.string(_out) + "}";
-
-	public function new(?_in:GoUInt64, ?_out:GoString, ?string) {
+	public function new(?_in:GoUInt64, ?_out:GoString) {
 		if (_in != null)
 			this._in = _in;
 		if (_out != null)
 			this._out = _out;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_3(_in, _out);
@@ -2308,10 +2288,7 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 
 	public var _wantErr:Error = (null : Error);
 
-	public function string():String
-		return "{" + Go.string(_in) + " " + Go.string(_want) + " " + Go.string(_wantErr) + "}";
-
-	public function new(?_in:GoString, ?_want:GoString, ?_wantErr:Error, ?string) {
+	public function new(?_in:GoString, ?_want:GoString, ?_wantErr:Error) {
 		if (_in != null)
 			this._in = _in;
 		if (_want != null)
@@ -2319,6 +2296,9 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 		if (_wantErr != null)
 			this._wantErr = _wantErr;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_4(_in, _want, _wantErr);
@@ -2330,10 +2310,7 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 	public var _desc:GoString = "";
 	public var _fn:() -> Void = null;
 
-	public function string():String
-		return "{" + Go.string(_count) + " " + Go.string(_desc) + " " + Go.string(_fn) + "}";
-
-	public function new(?_count:GoInt, ?_desc:GoString, ?_fn:() -> Void, ?string) {
+	public function new(?_count:GoInt, ?_desc:GoString, ?_fn:() -> Void) {
 		if (_count != null)
 			this._count = _count;
 		if (_desc != null)
@@ -2341,6 +2318,9 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 		if (_fn != null)
 			this._fn = _fn;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_5(_count, _desc, _fn);
@@ -2358,15 +2338,15 @@ private var _oneMB:Slice<GoByte> = (null : Slice<GoUInt8>);
 	**/
 	public var _want:GoString = "";
 
-	public function string():String
-		return "{" + Go.string(_err) + " " + Go.string(_want) + "}";
-
-	public function new(?_err:Error, ?_want:GoString, ?string) {
+	public function new(?_err:Error, ?_want:GoString) {
 		if (_err != null)
 			this._err = _err;
 		if (_want != null)
 			this._want = _want;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_6(_err, _want);

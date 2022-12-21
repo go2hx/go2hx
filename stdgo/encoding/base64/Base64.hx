@@ -304,15 +304,15 @@ private final _encodeURL:GoString = Go.str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij
 	**/
 	public var _offset:GoInt = 0;
 
-	public function string():String
-		return "{" + Go.string(_input) + " " + Go.string(_offset) + "}";
-
-	public function new(?_input:GoString, ?_offset:GoInt, ?string) {
+	public function new(?_input:GoString, ?_offset:GoInt) {
 		if (_input != null)
 			this._input = _input;
 		if (_offset != null)
 			this._offset = _offset;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_0(_input, _offset);
@@ -324,10 +324,7 @@ private final _encodeURL:GoString = Go.str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij
 	public var _n:GoInt = 0;
 	public var _want:GoInt = 0;
 
-	public function string():String
-		return "{" + Go.string(_enc) + " " + Go.string(_n) + " " + Go.string(_want) + "}";
-
-	public function new(?_enc:Ref<Encoding>, ?_n:GoInt, ?_want:GoInt, ?string) {
+	public function new(?_enc:Ref<Encoding>, ?_n:GoInt, ?_want:GoInt) {
 		if (_enc != null)
 			this._enc = _enc;
 		if (_n != null)
@@ -335,6 +332,9 @@ private final _encodeURL:GoString = Go.str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij
 		if (_want != null)
 			this._want = _want;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_1(_enc, _n, _want);

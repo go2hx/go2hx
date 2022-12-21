@@ -182,10 +182,7 @@ private var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>
 	public var _trunc:GoInt64 = 0;
 	public var _n:GoInt = 0;
 
-	public function string():String
-		return "{" + Go.string(_in) + " " + Go.string(_want) + " " + Go.string(_trunc) + " " + Go.string(_n) + "}";
-
-	public function new(?_in:GoString, ?_want:GoString, ?_trunc:GoInt64, ?_n:GoInt, ?string) {
+	public function new(?_in:GoString, ?_want:GoString, ?_trunc:GoInt64, ?_n:GoInt) {
 		if (_in != null)
 			this._in = _in;
 		if (_want != null)
@@ -195,6 +192,9 @@ private var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>
 		if (_n != null)
 			this._n = _n;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_0(_in, _want, _trunc, _n);

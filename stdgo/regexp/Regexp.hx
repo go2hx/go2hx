@@ -850,10 +850,7 @@ private typedef T_input = StructType & {
 	public var _n:GoInt = 0;
 	public var _out:Slice<GoString> = (null : Slice<GoString>);
 
-	public function string():String
-		return "{" + Go.string(_s) + " " + Go.string(_r) + " " + Go.string(_n) + " " + Go.string(_out) + "}";
-
-	public function new(?_s:GoString, ?_r:GoString, ?_n:GoInt, ?_out:Slice<GoString>, ?string) {
+	public function new(?_s:GoString, ?_r:GoString, ?_n:GoInt, ?_out:Slice<GoString>) {
 		if (_s != null)
 			this._s = _s;
 		if (_r != null)
@@ -864,6 +861,9 @@ private typedef T_input = StructType & {
 			this._out = _out;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T__struct_0(_s, _r, _n, _out);
 	}
@@ -873,15 +873,15 @@ private typedef T_input = StructType & {
 	public var _name:GoString = "";
 	public var _re:GoString = "";
 
-	public function string():String
-		return "{" + Go.string(_name) + " " + Go.string(_re) + "}";
-
-	public function new(?_name:GoString, ?_re:GoString, ?string) {
+	public function new(?_name:GoString, ?_re:GoString) {
 		if (_name != null)
 			this._name = _name;
 		if (_re != null)
 			this._re = _re;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_1(_name, _re);
@@ -892,15 +892,15 @@ private typedef T_input = StructType & {
 	public var regexp:GoString = "";
 	public var _min:GoInt = 0;
 
-	public function string():String
-		return "{" + Go.string(regexp) + " " + Go.string(_min) + "}";
-
-	public function new(?regexp:GoString, ?_min:GoInt, ?string) {
+	public function new(?regexp:GoString, ?_min:GoInt) {
 		if (regexp != null)
 			this.regexp = regexp;
 		if (_min != null)
 			this._min = _min;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_2(regexp, _min);
@@ -911,15 +911,15 @@ private typedef T_input = StructType & {
 	public var _name:GoString = "";
 	public var _n:GoInt = 0;
 
-	public function string():String
-		return "{" + Go.string(_name) + " " + Go.string(_n) + "}";
-
-	public function new(?_name:GoString, ?_n:GoInt, ?string) {
+	public function new(?_name:GoString, ?_n:GoInt) {
 		if (_name != null)
 			this._name = _name;
 		if (_n != null)
 			this._n = _n;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_3(_name, _n);
@@ -934,12 +934,8 @@ private typedef T_input = StructType & {
 	public var _leftPC:GoUInt32 = 0;
 	public var _rightPC:GoUInt32 = 0;
 
-	public function string():String
-		return "{" + Go.string(_left) + " " + Go.string(_right) + " " + Go.string(_merged) + " " + Go.string(_next) + " " + Go.string(_leftPC) + " "
-			+ Go.string(_rightPC) + "}";
-
-	public function new(?_left:Slice<GoInt32>, ?_right:Slice<GoInt32>, ?_merged:Slice<GoInt32>, ?_next:Slice<GoUInt32>, ?_leftPC:GoUInt32, ?_rightPC:GoUInt32,
-			?string) {
+	public function new(?_left:Slice<GoInt32>, ?_right:Slice<GoInt32>, ?_merged:Slice<GoInt32>, ?_next:Slice<GoUInt32>, ?_leftPC:GoUInt32,
+			?_rightPC:GoUInt32) {
 		if (_left != null)
 			this._left = _left;
 		if (_right != null)
@@ -954,6 +950,9 @@ private typedef T_input = StructType & {
 			this._rightPC = _rightPC;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T__struct_4(_left, _right, _merged, _next, _leftPC, _rightPC);
 	}
@@ -963,15 +962,15 @@ private typedef T_input = StructType & {
 	public var _re:GoString = "";
 	public var _isOnePass:Bool = false;
 
-	public function string():String
-		return "{" + Go.string(_re) + " " + Go.string(_isOnePass) + "}";
-
-	public function new(?_re:GoString, ?_isOnePass:Bool, ?string) {
+	public function new(?_re:GoString, ?_isOnePass:Bool) {
 		if (_re != null)
 			this._re = _re;
 		if (_isOnePass != null)
 			this._isOnePass = _isOnePass;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_5(_re, _isOnePass);
@@ -982,15 +981,15 @@ private typedef T_input = StructType & {
 	public var _re:GoString = "";
 	public var _match:GoString = "";
 
-	public function string():String
-		return "{" + Go.string(_re) + " " + Go.string(_match) + "}";
-
-	public function new(?_re:GoString, ?_match:GoString, ?string) {
+	public function new(?_re:GoString, ?_match:GoString) {
 		if (_re != null)
 			this._re = _re;
 		if (_match != null)
 			this._match = _match;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_6(_re, _match);

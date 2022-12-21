@@ -87,10 +87,7 @@ private final _defaultOutput:GoString = Go.str("  -A\tfor bootstrapping, allow \
 	public var _flagHandle:GoString = "";
 	public var _expectExit:GoInt = 0;
 
-	public function string():String
-		return "{" + Go.string(_flag) + " " + Go.string(_flagHandle) + " " + Go.string(_expectExit) + "}";
-
-	public function new(?_flag:GoString, ?_flagHandle:GoString, ?_expectExit:GoInt, ?string) {
+	public function new(?_flag:GoString, ?_flagHandle:GoString, ?_expectExit:GoInt) {
 		if (_flag != null)
 			this._flag = _flag;
 		if (_flagHandle != null)
@@ -98,6 +95,9 @@ private final _defaultOutput:GoString = Go.str("  -A\tfor bootstrapping, allow \
 		if (_expectExit != null)
 			this._expectExit = _expectExit;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_0(_flag, _flagHandle, _expectExit);
@@ -108,15 +108,15 @@ private final _defaultOutput:GoString = Go.str("  -A\tfor bootstrapping, allow \
 	public var _flag:GoString = "";
 	public var _errorMsg:GoString = "";
 
-	public function string():String
-		return "{" + Go.string(_flag) + " " + Go.string(_errorMsg) + "}";
-
-	public function new(?_flag:GoString, ?_errorMsg:GoString, ?string) {
+	public function new(?_flag:GoString, ?_errorMsg:GoString) {
 		if (_flag != null)
 			this._flag = _flag;
 		if (_errorMsg != null)
 			this._errorMsg = _errorMsg;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_1(_flag, _errorMsg);
@@ -127,15 +127,15 @@ private final _defaultOutput:GoString = Go.str("  -A\tfor bootstrapping, allow \
 	public var _flagSetName:GoString = "";
 	public var _errorMsg:GoString = "";
 
-	public function string():String
-		return "{" + Go.string(_flagSetName) + " " + Go.string(_errorMsg) + "}";
-
-	public function new(?_flagSetName:GoString, ?_errorMsg:GoString, ?string) {
+	public function new(?_flagSetName:GoString, ?_errorMsg:GoString) {
 		if (_flagSetName != null)
 			this._flagSetName = _flagSetName;
 		if (_errorMsg != null)
 			this._errorMsg = _errorMsg;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_2(_flagSetName, _errorMsg);

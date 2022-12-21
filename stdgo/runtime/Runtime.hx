@@ -840,10 +840,7 @@ typedef T_error = StructType & {
 	**/
 	public var frees:GoUInt64 = 0;
 
-	public function string():String
-		return "{" + Go.string(size) + " " + Go.string(mallocs) + " " + Go.string(frees) + "}";
-
-	public function new(?size:GoUInt32, ?mallocs:GoUInt64, ?frees:GoUInt64, ?string) {
+	public function new(?size:GoUInt32, ?mallocs:GoUInt64, ?frees:GoUInt64) {
 		if (size != null)
 			this.size = size;
 		if (mallocs != null)
@@ -851,6 +848,9 @@ typedef T_error = StructType & {
 		if (frees != null)
 			this.frees = frees;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_0(size, mallocs, frees);

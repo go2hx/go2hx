@@ -200,15 +200,9 @@ final cacheLinePadSize:GoUInt64 = ("64" : GoUInt64);
 	@:optional
 	public var _9:CacheLinePad = ({} : CacheLinePad);
 
-	public function string():String
-		return "{" + Go.string(_7) + " " + Go.string(hasAES) + " " + Go.string(hasADX) + " " + Go.string(hasAVX) + " " + Go.string(hasAVX2) + " "
-			+ Go.string(hasBMI1) + " " + Go.string(hasBMI2) + " " + Go.string(hasERMS) + " " + Go.string(hasFMA) + " " + Go.string(hasOSXSAVE) + " "
-			+ Go.string(hasPCLMULQDQ) + " " + Go.string(hasPOPCNT) + " " + Go.string(hasRDTSCP) + " " + Go.string(hasSSE3) + " " + Go.string(hasSSSE3) + " "
-			+ Go.string(hasSSE41) + " " + Go.string(hasSSE42) + " " + Go.string(_9) + "}";
-
 	public function new(?_7:CacheLinePad, ?hasAES:Bool, ?hasADX:Bool, ?hasAVX:Bool, ?hasAVX2:Bool, ?hasBMI1:Bool, ?hasBMI2:Bool, ?hasERMS:Bool, ?hasFMA:Bool,
 			?hasOSXSAVE:Bool, ?hasPCLMULQDQ:Bool, ?hasPOPCNT:Bool, ?hasRDTSCP:Bool, ?hasSSE3:Bool, ?hasSSSE3:Bool, ?hasSSE41:Bool, ?hasSSE42:Bool,
-			?_9:CacheLinePad, ?string) {
+			?_9:CacheLinePad) {
 		if (_7 != null)
 			this._7 = _7;
 		if (hasAES != null)
@@ -247,6 +241,9 @@ final cacheLinePadSize:GoUInt64 = ("64" : GoUInt64);
 			this._9 = _9;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T__struct_0(_7, hasAES, hasADX, hasAVX, hasAVX2, hasBMI1, hasBMI2, hasERMS, hasFMA, hasOSXSAVE, hasPCLMULQDQ, hasPOPCNT, hasRDTSCP,
 			hasSSE3, hasSSSE3, hasSSE41, hasSSE42, _9);
@@ -261,10 +258,7 @@ final cacheLinePadSize:GoUInt64 = ("64" : GoUInt64);
 	@:optional
 	public var _17:CacheLinePad = ({} : CacheLinePad);
 
-	public function string():String
-		return "{" + Go.string(_15) + " " + Go.string(hasVFPv4) + " " + Go.string(hasIDIVA) + " " + Go.string(_17) + "}";
-
-	public function new(?_15:CacheLinePad, ?hasVFPv4:Bool, ?hasIDIVA:Bool, ?_17:CacheLinePad, ?string) {
+	public function new(?_15:CacheLinePad, ?hasVFPv4:Bool, ?hasIDIVA:Bool, ?_17:CacheLinePad) {
 		if (_15 != null)
 			this._15 = _15;
 		if (hasVFPv4 != null)
@@ -274,6 +268,9 @@ final cacheLinePadSize:GoUInt64 = ("64" : GoUInt64);
 		if (_17 != null)
 			this._17 = _17;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_1(_15, hasVFPv4, hasIDIVA, _17);
@@ -295,13 +292,8 @@ final cacheLinePadSize:GoUInt64 = ("64" : GoUInt64);
 	@:optional
 	public var _25:CacheLinePad = ({} : CacheLinePad);
 
-	public function string():String
-		return "{" + Go.string(_23) + " " + Go.string(hasAES) + " " + Go.string(hasPMULL) + " " + Go.string(hasSHA1) + " " + Go.string(hasSHA2) + " "
-			+ Go.string(hasCRC32) + " " + Go.string(hasATOMICS) + " " + Go.string(hasCPUID) + " " + Go.string(isNeoverseN1) + " " + Go.string(isZeus) + " "
-			+ Go.string(_25) + "}";
-
 	public function new(?_23:CacheLinePad, ?hasAES:Bool, ?hasPMULL:Bool, ?hasSHA1:Bool, ?hasSHA2:Bool, ?hasCRC32:Bool, ?hasATOMICS:Bool, ?hasCPUID:Bool,
-			?isNeoverseN1:Bool, ?isZeus:Bool, ?_25:CacheLinePad, ?string) {
+			?isNeoverseN1:Bool, ?isZeus:Bool, ?_25:CacheLinePad) {
 		if (_23 != null)
 			this._23 = _23;
 		if (hasAES != null)
@@ -326,6 +318,9 @@ final cacheLinePadSize:GoUInt64 = ("64" : GoUInt64);
 			this._25 = _25;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T__struct_2(_23, hasAES, hasPMULL, hasSHA1, hasSHA2, hasCRC32, hasATOMICS, hasCPUID, isNeoverseN1, isZeus, _25);
 	}
@@ -343,10 +338,7 @@ final cacheLinePadSize:GoUInt64 = ("64" : GoUInt64);
 	@:optional
 	public var _33:CacheLinePad = ({} : CacheLinePad);
 
-	public function string():String
-		return "{" + Go.string(_31) + " " + Go.string(hasMSA) + " " + Go.string(_33) + "}";
-
-	public function new(?_31:CacheLinePad, ?hasMSA:Bool, ?_33:CacheLinePad, ?string) {
+	public function new(?_31:CacheLinePad, ?hasMSA:Bool, ?_33:CacheLinePad) {
 		if (_31 != null)
 			this._31 = _31;
 		if (hasMSA != null)
@@ -354,6 +346,9 @@ final cacheLinePadSize:GoUInt64 = ("64" : GoUInt64);
 		if (_33 != null)
 			this._33 = _33;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_3(_31, hasMSA, _33);
@@ -392,11 +387,7 @@ final cacheLinePadSize:GoUInt64 = ("64" : GoUInt64);
 	@:optional
 	public var _41:CacheLinePad = ({} : CacheLinePad);
 
-	public function string():String
-		return "{" + Go.string(_39) + " " + Go.string(hasDARN) + " " + Go.string(hasSCV) + " " + Go.string(isPOWER8) + " " + Go.string(isPOWER9) + " "
-			+ Go.string(isPOWER10) + " " + Go.string(_41) + "}";
-
-	public function new(?_39:CacheLinePad, ?hasDARN:Bool, ?hasSCV:Bool, ?isPOWER8:Bool, ?isPOWER9:Bool, ?isPOWER10:Bool, ?_41:CacheLinePad, ?string) {
+	public function new(?_39:CacheLinePad, ?hasDARN:Bool, ?hasSCV:Bool, ?isPOWER8:Bool, ?isPOWER9:Bool, ?isPOWER10:Bool, ?_41:CacheLinePad) {
 		if (_39 != null)
 			this._39 = _39;
 		if (hasDARN != null)
@@ -412,6 +403,9 @@ final cacheLinePadSize:GoUInt64 = ("64" : GoUInt64);
 		if (_41 != null)
 			this._41 = _41;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_4(_39, hasDARN, hasSCV, isPOWER8, isPOWER9, isPOWER10, _41);
@@ -530,16 +524,9 @@ final cacheLinePadSize:GoUInt64 = ("64" : GoUInt64);
 	@:optional
 	public var _49:CacheLinePad = ({} : CacheLinePad);
 
-	public function string():String
-		return "{" + Go.string(_47) + " " + Go.string(hasZARCH) + " " + Go.string(hasSTFLE) + " " + Go.string(hasLDISP) + " " + Go.string(hasEIMM) + " "
-			+ Go.string(hasDFP) + " " + Go.string(hasETF3EH) + " " + Go.string(hasMSA) + " " + Go.string(hasAES) + " " + Go.string(hasAESCBC) + " "
-			+ Go.string(hasAESCTR) + " " + Go.string(hasAESGCM) + " " + Go.string(hasGHASH) + " " + Go.string(hasSHA1) + " " + Go.string(hasSHA256) + " "
-			+ Go.string(hasSHA512) + " " + Go.string(hasSHA3) + " " + Go.string(hasVX) + " " + Go.string(hasVXE) + " " + Go.string(hasKDSA) + " "
-			+ Go.string(hasECDSA) + " " + Go.string(hasEDDSA) + " " + Go.string(_49) + "}";
-
 	public function new(?_47:CacheLinePad, ?hasZARCH:Bool, ?hasSTFLE:Bool, ?hasLDISP:Bool, ?hasEIMM:Bool, ?hasDFP:Bool, ?hasETF3EH:Bool, ?hasMSA:Bool,
 			?hasAES:Bool, ?hasAESCBC:Bool, ?hasAESCTR:Bool, ?hasAESGCM:Bool, ?hasGHASH:Bool, ?hasSHA1:Bool, ?hasSHA256:Bool, ?hasSHA512:Bool, ?hasSHA3:Bool,
-			?hasVX:Bool, ?hasVXE:Bool, ?hasKDSA:Bool, ?hasECDSA:Bool, ?hasEDDSA:Bool, ?_49:CacheLinePad, ?string) {
+			?hasVX:Bool, ?hasVXE:Bool, ?hasKDSA:Bool, ?hasECDSA:Bool, ?hasEDDSA:Bool, ?_49:CacheLinePad) {
 		if (_47 != null)
 			this._47 = _47;
 		if (hasZARCH != null)
@@ -587,6 +574,9 @@ final cacheLinePadSize:GoUInt64 = ("64" : GoUInt64);
 		if (_49 != null)
 			this._49 = _49;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_5(_47, hasZARCH, hasSTFLE, hasLDISP, hasEIMM, hasDFP, hasETF3EH, hasMSA, hasAES, hasAESCBC, hasAESCTR, hasAESGCM, hasGHASH,

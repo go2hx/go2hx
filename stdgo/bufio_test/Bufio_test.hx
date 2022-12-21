@@ -524,15 +524,15 @@ private final _smallMaxTokenSize:GoUInt64 = ("256" : GoUInt64);
 	public var _input:GoString = "";
 	public var _expect:Slice<stdgo.bufio_test.Bufio_test.T_readLineResult> = (null : Slice<stdgo.bufio_test.Bufio_test.T_readLineResult>);
 
-	public function string():String
-		return "{" + Go.string(_input) + " " + Go.string(_expect) + "}";
-
-	public function new(?_input:GoString, ?_expect:Slice<stdgo.bufio_test.Bufio_test.T_readLineResult>, ?string) {
+	public function new(?_input:GoString, ?_expect:Slice<stdgo.bufio_test.Bufio_test.T_readLineResult>) {
 		if (_input != null)
 			this._input = _input;
 		if (_expect != null)
 			this._expect = _expect;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_0(_input, _expect);
@@ -567,12 +567,8 @@ private final _smallMaxTokenSize:GoUInt64 = ("256" : GoUInt64);
 
 	public var _wantBuffered:GoInt = 0;
 
-	public function string():String
-		return "{" + Go.string(_name) + " " + Go.string(_r) + " " + Go.string(_bufSize) + " " + Go.string(_peekSize) + " " + Go.string(_n) + " "
-			+ Go.string(_want) + " " + Go.string(_wantErr) + " " + Go.string(_wantBuffered) + "}";
-
 	public function new(?_name:GoString, ?_r:stdgo.io.Io.Reader, ?_bufSize:GoInt, ?_peekSize:GoInt, ?_n:GoInt, ?_want:GoInt, ?_wantErr:Error,
-			?_wantBuffered:GoInt, ?string) {
+			?_wantBuffered:GoInt) {
 		if (_name != null)
 			this._name = _name;
 		if (_r != null)
@@ -590,6 +586,9 @@ private final _smallMaxTokenSize:GoUInt64 = ("256" : GoUInt64);
 		if (_wantBuffered != null)
 			this._wantBuffered = _wantBuffered;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_1(_name, _r, _bufSize, _peekSize, _n, _want, _wantErr, _wantBuffered);

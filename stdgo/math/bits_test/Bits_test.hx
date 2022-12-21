@@ -50,15 +50,15 @@ private var _tab:GoArray<T_entry> = new GoArray<T_entry>(...[
 	public var _x:GoUInt64 = 0;
 	public var _r:GoUInt64 = 0;
 
-	public function string():String
-		return "{" + Go.string(_x) + " " + Go.string(_r) + "}";
-
-	public function new(?_x:GoUInt64, ?_r:GoUInt64, ?string) {
+	public function new(?_x:GoUInt64, ?_r:GoUInt64) {
 		if (_x != null)
 			this._x = _x;
 		if (_r != null)
 			this._r = _r;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_0(_x, _r);
@@ -72,10 +72,7 @@ private var _tab:GoArray<T_entry> = new GoArray<T_entry>(...[
 	public var _z:GoUInt = 0;
 	public var _cout:GoUInt = 0;
 
-	public function string():String
-		return "{" + Go.string(_x) + " " + Go.string(_y) + " " + Go.string(_c) + " " + Go.string(_z) + " " + Go.string(_cout) + "}";
-
-	public function new(?_x:GoUInt, ?_y:GoUInt, ?_c:GoUInt, ?_z:GoUInt, ?_cout:GoUInt, ?string) {
+	public function new(?_x:GoUInt, ?_y:GoUInt, ?_c:GoUInt, ?_z:GoUInt, ?_cout:GoUInt) {
 		if (_x != null)
 			this._x = _x;
 		if (_y != null)
@@ -87,6 +84,9 @@ private var _tab:GoArray<T_entry> = new GoArray<T_entry>(...[
 		if (_cout != null)
 			this._cout = _cout;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_1(_x, _y, _c, _z, _cout);
@@ -100,10 +100,7 @@ private var _tab:GoArray<T_entry> = new GoArray<T_entry>(...[
 	public var _z:GoUInt32 = 0;
 	public var _cout:GoUInt32 = 0;
 
-	public function string():String
-		return "{" + Go.string(_x) + " " + Go.string(_y) + " " + Go.string(_c) + " " + Go.string(_z) + " " + Go.string(_cout) + "}";
-
-	public function new(?_x:GoUInt32, ?_y:GoUInt32, ?_c:GoUInt32, ?_z:GoUInt32, ?_cout:GoUInt32, ?string) {
+	public function new(?_x:GoUInt32, ?_y:GoUInt32, ?_c:GoUInt32, ?_z:GoUInt32, ?_cout:GoUInt32) {
 		if (_x != null)
 			this._x = _x;
 		if (_y != null)
@@ -115,6 +112,9 @@ private var _tab:GoArray<T_entry> = new GoArray<T_entry>(...[
 		if (_cout != null)
 			this._cout = _cout;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_2(_x, _y, _c, _z, _cout);
@@ -128,10 +128,7 @@ private var _tab:GoArray<T_entry> = new GoArray<T_entry>(...[
 	public var _z:GoUInt64 = 0;
 	public var _cout:GoUInt64 = 0;
 
-	public function string():String
-		return "{" + Go.string(_x) + " " + Go.string(_y) + " " + Go.string(_c) + " " + Go.string(_z) + " " + Go.string(_cout) + "}";
-
-	public function new(?_x:GoUInt64, ?_y:GoUInt64, ?_c:GoUInt64, ?_z:GoUInt64, ?_cout:GoUInt64, ?string) {
+	public function new(?_x:GoUInt64, ?_y:GoUInt64, ?_c:GoUInt64, ?_z:GoUInt64, ?_cout:GoUInt64) {
 		if (_x != null)
 			this._x = _x;
 		if (_y != null)
@@ -143,6 +140,9 @@ private var _tab:GoArray<T_entry> = new GoArray<T_entry>(...[
 		if (_cout != null)
 			this._cout = _cout;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_3(_x, _y, _c, _z, _cout);
@@ -156,10 +156,7 @@ private var _tab:GoArray<T_entry> = new GoArray<T_entry>(...[
 	public var _lo:GoUInt = 0;
 	public var _r:GoUInt = 0;
 
-	public function string():String
-		return "{" + Go.string(_x) + " " + Go.string(_y) + " " + Go.string(_hi) + " " + Go.string(_lo) + " " + Go.string(_r) + "}";
-
-	public function new(?_x:GoUInt, ?_y:GoUInt, ?_hi:GoUInt, ?_lo:GoUInt, ?_r:GoUInt, ?string) {
+	public function new(?_x:GoUInt, ?_y:GoUInt, ?_hi:GoUInt, ?_lo:GoUInt, ?_r:GoUInt) {
 		if (_x != null)
 			this._x = _x;
 		if (_y != null)
@@ -171,6 +168,9 @@ private var _tab:GoArray<T_entry> = new GoArray<T_entry>(...[
 		if (_r != null)
 			this._r = _r;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_4(_x, _y, _hi, _lo, _r);
@@ -184,10 +184,7 @@ private var _tab:GoArray<T_entry> = new GoArray<T_entry>(...[
 	public var _lo:GoUInt32 = 0;
 	public var _r:GoUInt32 = 0;
 
-	public function string():String
-		return "{" + Go.string(_x) + " " + Go.string(_y) + " " + Go.string(_hi) + " " + Go.string(_lo) + " " + Go.string(_r) + "}";
-
-	public function new(?_x:GoUInt32, ?_y:GoUInt32, ?_hi:GoUInt32, ?_lo:GoUInt32, ?_r:GoUInt32, ?string) {
+	public function new(?_x:GoUInt32, ?_y:GoUInt32, ?_hi:GoUInt32, ?_lo:GoUInt32, ?_r:GoUInt32) {
 		if (_x != null)
 			this._x = _x;
 		if (_y != null)
@@ -199,6 +196,9 @@ private var _tab:GoArray<T_entry> = new GoArray<T_entry>(...[
 		if (_r != null)
 			this._r = _r;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_5(_x, _y, _hi, _lo, _r);
@@ -212,10 +212,7 @@ private var _tab:GoArray<T_entry> = new GoArray<T_entry>(...[
 	public var _lo:GoUInt64 = 0;
 	public var _r:GoUInt64 = 0;
 
-	public function string():String
-		return "{" + Go.string(_x) + " " + Go.string(_y) + " " + Go.string(_hi) + " " + Go.string(_lo) + " " + Go.string(_r) + "}";
-
-	public function new(?_x:GoUInt64, ?_y:GoUInt64, ?_hi:GoUInt64, ?_lo:GoUInt64, ?_r:GoUInt64, ?string) {
+	public function new(?_x:GoUInt64, ?_y:GoUInt64, ?_hi:GoUInt64, ?_lo:GoUInt64, ?_r:GoUInt64) {
 		if (_x != null)
 			this._x = _x;
 		if (_y != null)
@@ -228,6 +225,9 @@ private var _tab:GoArray<T_entry> = new GoArray<T_entry>(...[
 			this._r = _r;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T__struct_6(_x, _y, _hi, _lo, _r);
 	}
@@ -239,10 +239,7 @@ private var _tab:GoArray<T_entry> = new GoArray<T_entry>(...[
 	public var _y:GoUInt64 = 0;
 	public var _rem:GoUInt64 = 0;
 
-	public function string():String
-		return "{" + Go.string(_hi) + " " + Go.string(_lo) + " " + Go.string(_y) + " " + Go.string(_rem) + "}";
-
-	public function new(?_hi:GoUInt64, ?_lo:GoUInt64, ?_y:GoUInt64, ?_rem:GoUInt64, ?string) {
+	public function new(?_hi:GoUInt64, ?_lo:GoUInt64, ?_y:GoUInt64, ?_rem:GoUInt64) {
 		if (_hi != null)
 			this._hi = _hi;
 		if (_lo != null)
@@ -252,6 +249,9 @@ private var _tab:GoArray<T_entry> = new GoArray<T_entry>(...[
 		if (_rem != null)
 			this._rem = _rem;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_7(_hi, _lo, _y, _rem);

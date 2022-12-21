@@ -860,10 +860,10 @@ typedef Locker = StructType & {
 }
 
 @:structInit @:local private class T__struct_0 {
-	public function string():String
-		return "{" + "}";
+	public function new() {}
 
-	public function new(?string) {}
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_0();

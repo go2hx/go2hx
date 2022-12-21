@@ -226,15 +226,15 @@ private var _boolSink:Bool = false;
 	public var _name:GoString = "";
 	public var _data:Slice<GoUInt8> = (null : Slice<GoUInt8>);
 
-	public function string():String
-		return "{" + Go.string(_name) + " " + Go.string(_data) + "}";
-
-	public function new(?_name:GoString, ?_data:Slice<GoUInt8>, ?string) {
+	public function new(?_name:GoString, ?_data:Slice<GoUInt8>) {
 		if (_name != null)
 			this._name = _name;
 		if (_data != null)
 			this._data = _data;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_0(_name, _data);

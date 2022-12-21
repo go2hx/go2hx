@@ -15,28 +15,236 @@ import stdgo.Chan;
 /**
 	// Do the 64-bit functions panic? If so, don't bother testing.
 **/
-private var _test64err:AnyInterface = (null : AnyInterface);
+private var _test64err:AnyInterface = {
+	var a = function():AnyInterface {
+		var __deferstack__:Array<Void->Void> = [];
+		var _err:AnyInterface = (null : AnyInterface);
+		__deferstack__.unshift(() -> {
+			var a = function():Void {
+				_err = ({
+					final r = Go.recover_exception;
+					Go.recover_exception = null;
+					r;
+				});
+			};
+			a();
+		});
+		try {
+			var _x:GoInt64 = (0 : GoInt64);
+			addInt64(Go.pointer(_x), ("1" : GoInt64));
+			{
+				for (defer in __deferstack__) {
+					defer();
+				};
+				return (null : AnyInterface);
+			};
+			for (defer in __deferstack__) {
+				defer();
+			};
+			{
+				for (defer in __deferstack__) {
+					defer();
+				};
+				if (Go.recover_exception != null)
+					throw Go.recover_exception;
+				return _err;
+			};
+		} catch (__exception__) {
+			if (!(__exception__.native is AnyInterfaceData))
+				throw __exception__;
+			Go.recover_exception = __exception__.native;
+			for (defer in __deferstack__) {
+				defer();
+			};
+			if (Go.recover_exception != null)
+				throw Go.recover_exception;
+			return _err;
+		};
+	};
+	a();
+};
 
-private var _hammer32:GoMap<GoString, (Pointer<GoUInt32>, GoInt) -> Void> = (null : GoMap<GoString, (Pointer<GoUInt32>, GoInt) -> Void>);
-private var _hammer64:GoMap<GoString, (Pointer<GoUInt64>, GoInt) -> Void> = (null : GoMap<GoString, (Pointer<GoUInt64>, GoInt) -> Void>);
-var value_SwapTests:Slice<T__struct_14> = (null : Slice<T__struct_14>);
-private var _heapA:T__struct_15 = ({_uint: (0 : GoUInt)} : T__struct_15);
-private var _heapB:T__struct_15 = ({_uint: (0 : GoUInt)} : T__struct_15);
-var value_CompareAndSwapTests:Slice<T__struct_16> = (null : Slice<T__struct_16>);
-private final _magic32:GoUInt64 = (0 : GoUInt64);
-private final _magic64:GoUInt64 = (0 : GoUInt64);
+private var _hammer32:GoMap<GoString, (Pointer<GoUInt32>, GoInt) -> Void> = {
+	final x = new stdgo.GoMap.GoObjectMap<GoString, (Pointer<GoUInt32>,
+			GoInt) -> Void>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({
+			get: () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
+		},
+			{get: () -> stdgo.internal.reflect.Reflect.GoType.signature(false, {get: () -> [
+				stdgo.internal.reflect.Reflect.GoType.pointerType(stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)),
+				stdgo.internal.reflect.Reflect.GoType.basic(int_kind)
+			]}, {get: () -> []},
+				{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})})));
+	@:privateAccess x._keys = [
+		Go.str("SwapInt32"),
+		Go.str("SwapUint32"),
+		Go.str("SwapUintptr"),
+		Go.str("AddInt32"),
+		Go.str("AddUint32"),
+		Go.str("AddUintptr"),
+		Go.str("CompareAndSwapInt32"),
+		Go.str("CompareAndSwapUint32"),
+		Go.str("CompareAndSwapUintptr"),
+		Go.str("SwapInt32Method"),
+		Go.str("SwapUint32Method"),
+		Go.str("SwapUintptrMethod"),
+		Go.str("AddInt32Method"),
+		Go.str("AddUint32Method"),
+		Go.str("AddUintptrMethod"),
+		Go.str("CompareAndSwapInt32Method"),
+		Go.str("CompareAndSwapUint32Method"),
+		Go.str("CompareAndSwapUintptrMethod")
+	];
+	@:privateAccess x._values = [
+		_hammerSwapInt32,
+		_hammerSwapUint32,
+		_hammerSwapUintptr32,
+		_hammerAddInt32,
+		_hammerAddUint32,
+		_hammerAddUintptr32,
+		_hammerCompareAndSwapInt32,
+		_hammerCompareAndSwapUint32,
+		_hammerCompareAndSwapUintptr32,
+		_hammerSwapInt32Method,
+		_hammerSwapUint32Method,
+		_hammerSwapUintptr32Method,
+		_hammerAddInt32Method,
+		_hammerAddUint32Method,
+		_hammerAddUintptr32Method,
+		_hammerCompareAndSwapInt32Method,
+		_hammerCompareAndSwapUint32Method,
+		_hammerCompareAndSwapUintptr32Method
+	];
+	x;
+};
+
+private var _hammer64:GoMap<GoString, (Pointer<GoUInt64>, GoInt) -> Void> = {
+	final x = new stdgo.GoMap.GoObjectMap<GoString, (Pointer<GoUInt64>,
+			GoInt) -> Void>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({
+			get: () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
+		},
+			{get: () -> stdgo.internal.reflect.Reflect.GoType.signature(false, {get: () -> [
+				stdgo.internal.reflect.Reflect.GoType.pointerType(stdgo.internal.reflect.Reflect.GoType.basic(uint64_kind)),
+				stdgo.internal.reflect.Reflect.GoType.basic(int_kind)
+			]}, {get: () -> []},
+				{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType})})));
+	@:privateAccess x._keys = [
+		Go.str("SwapInt64"),
+		Go.str("SwapUint64"),
+		Go.str("SwapUintptr"),
+		Go.str("AddInt64"),
+		Go.str("AddUint64"),
+		Go.str("AddUintptr"),
+		Go.str("CompareAndSwapInt64"),
+		Go.str("CompareAndSwapUint64"),
+		Go.str("CompareAndSwapUintptr"),
+		Go.str("SwapInt64Method"),
+		Go.str("SwapUint64Method"),
+		Go.str("SwapUintptrMethod"),
+		Go.str("AddInt64Method"),
+		Go.str("AddUint64Method"),
+		Go.str("AddUintptrMethod"),
+		Go.str("CompareAndSwapInt64Method"),
+		Go.str("CompareAndSwapUint64Method"),
+		Go.str("CompareAndSwapUintptrMethod")
+	];
+	@:privateAccess x._values = [
+		_hammerSwapInt64,
+		_hammerSwapUint64,
+		_hammerSwapUintptr64,
+		_hammerAddInt64,
+		_hammerAddUint64,
+		_hammerAddUintptr64,
+		_hammerCompareAndSwapInt64,
+		_hammerCompareAndSwapUint64,
+		_hammerCompareAndSwapUintptr64,
+		_hammerSwapInt64Method,
+		_hammerSwapUint64Method,
+		_hammerSwapUintptr64Method,
+		_hammerAddInt64Method,
+		_hammerAddUint64Method,
+		_hammerAddUintptr64Method,
+		_hammerCompareAndSwapInt64Method,
+		_hammerCompareAndSwapUint64Method,
+		_hammerCompareAndSwapUintptr64Method
+	];
+	x;
+};
+
+var value_SwapTests:Slice<T__struct_14> = (new Slice<T__struct_14>(0, 0,
+	({_init: (null : AnyInterface), _new: (null : AnyInterface), _err: Go.toInterface(Go.str("sync/atomic: swap of nil value into Value"))} : T__struct_14), ({
+		_init: (null : AnyInterface),
+		_new: Go.toInterface(true),
+		_want: (null : AnyInterface),
+		_err: (null : AnyInterface)
+	} : T__struct_14),
+	({_init: Go.toInterface(true), _new: Go.toInterface(Go.str()),
+		_err: Go.toInterface(Go.str("sync/atomic: swap of inconsistently typed value into Value"))} : T__struct_14),
+	({
+		_init: Go.toInterface(true),
+		_new: Go.toInterface(false),
+		_want: Go.toInterface(true),
+		_err: (null : AnyInterface)
+	} : T__struct_14)) : Slice<T__struct_14>);
+
+private var _heapA:T__struct_15 = ({_uint: ("0" : GoUInt)} : T__struct_15);
+private var _heapB:T__struct_15 = ({_uint: ("0" : GoUInt)} : T__struct_15);
+
+var value_CompareAndSwapTests:Slice<T__struct_16> = (new Slice<T__struct_16>(0, 0, ({
+	_init: (null : AnyInterface),
+	_new: (null : AnyInterface),
+	_old: (null : AnyInterface),
+	_err: Go.toInterface(Go.str("sync/atomic: compare and swap of nil value into Value"))
+} : T__struct_16), ({
+	_init: (null : AnyInterface),
+	_new: Go.toInterface(true),
+	_old: Go.toInterface(Go.str()),
+	_err: Go.toInterface(Go.str("sync/atomic: compare and swap of inconsistently typed values into Value"))
+	} : T__struct_16), ({
+	_init: (null : AnyInterface),
+	_new: Go.toInterface(true),
+	_old: Go.toInterface(true),
+	_want: false,
+	_err: (null : AnyInterface)
+	} : T__struct_16), ({
+	_init: (null : AnyInterface),
+	_new: Go.toInterface(true),
+	_old: (null : AnyInterface),
+	_want: true,
+	_err: (null : AnyInterface)
+	} : T__struct_16),
+	({_init: Go.toInterface(true), _new: Go.toInterface(Go.str()),
+		_err: Go.toInterface(Go.str("sync/atomic: compare and swap of inconsistently typed value into Value"))} : T__struct_16),
+	({
+		_init: Go.toInterface(true),
+		_new: Go.toInterface(true),
+		_old: Go.toInterface(false),
+		_want: false,
+		_err: (null : AnyInterface)
+	} : T__struct_16), ({
+		_init: Go.toInterface(true),
+		_new: Go.toInterface(true),
+		_old: Go.toInterface(true),
+		_want: true,
+		_err: (null : AnyInterface)
+	} : T__struct_16), ({
+		_init: Go.toInterface(_heapA),
+		_new: Go.toInterface(({_uint: ("1" : GoUInt)} : T__struct_15)),
+		_old: Go.toInterface(_heapB),
+		_want: true,
+		_err: (null : AnyInterface)
+	} : T__struct_16)) : Slice<T__struct_16>);
+
+private final _magic32:GoUInt64 = ("233684719" : GoUInt64);
+private final _magic64:GoUInt64 = ("1003703129787580143" : GoUInt64);
 private var _global:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0...1024) (0 : GoUInt8)]);
-private final _arch32:InvalidType = null;
+private final _arch32:InvalidType = true;
 
 @:structInit @:local private class T__struct_0 {
 	public var _before:GoInt32 = 0;
 	public var _i:GoInt32 = 0;
 	public var _after:GoInt32 = 0;
 
-	public function string():String
-		return "{" + Go.string(_before) + " " + Go.string(_i) + " " + Go.string(_after) + "}";
-
-	public function new(?_before:GoInt32, ?_i:GoInt32, ?_after:GoInt32, ?string) {
+	public function new(?_before:GoInt32, ?_i:GoInt32, ?_after:GoInt32) {
 		if (_before != null)
 			this._before = _before;
 		if (_i != null)
@@ -44,6 +252,9 @@ private final _arch32:InvalidType = null;
 		if (_after != null)
 			this._after = _after;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_0(_before, _i, _after);
@@ -55,10 +266,7 @@ private final _arch32:InvalidType = null;
 	public var _i:Int32 = ({} : Int32);
 	public var _after:GoInt32 = 0;
 
-	public function string():String
-		return "{" + Go.string(_before) + " " + Go.string(_i) + " " + Go.string(_after) + "}";
-
-	public function new(?_before:GoInt32, ?_i:Int32, ?_after:GoInt32, ?string) {
+	public function new(?_before:GoInt32, ?_i:Int32, ?_after:GoInt32) {
 		if (_before != null)
 			this._before = _before;
 		if (_i != null)
@@ -66,6 +274,9 @@ private final _arch32:InvalidType = null;
 		if (_after != null)
 			this._after = _after;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_1(_before, _i, _after);
@@ -77,10 +288,7 @@ private final _arch32:InvalidType = null;
 	public var _i:GoUInt32 = 0;
 	public var _after:GoUInt32 = 0;
 
-	public function string():String
-		return "{" + Go.string(_before) + " " + Go.string(_i) + " " + Go.string(_after) + "}";
-
-	public function new(?_before:GoUInt32, ?_i:GoUInt32, ?_after:GoUInt32, ?string) {
+	public function new(?_before:GoUInt32, ?_i:GoUInt32, ?_after:GoUInt32) {
 		if (_before != null)
 			this._before = _before;
 		if (_i != null)
@@ -88,6 +296,9 @@ private final _arch32:InvalidType = null;
 		if (_after != null)
 			this._after = _after;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_2(_before, _i, _after);
@@ -99,10 +310,7 @@ private final _arch32:InvalidType = null;
 	public var _i:Uint32 = ({} : Uint32);
 	public var _after:GoUInt32 = 0;
 
-	public function string():String
-		return "{" + Go.string(_before) + " " + Go.string(_i) + " " + Go.string(_after) + "}";
-
-	public function new(?_before:GoUInt32, ?_i:Uint32, ?_after:GoUInt32, ?string) {
+	public function new(?_before:GoUInt32, ?_i:Uint32, ?_after:GoUInt32) {
 		if (_before != null)
 			this._before = _before;
 		if (_i != null)
@@ -110,6 +318,9 @@ private final _arch32:InvalidType = null;
 		if (_after != null)
 			this._after = _after;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_3(_before, _i, _after);
@@ -121,10 +332,7 @@ private final _arch32:InvalidType = null;
 	public var _i:GoInt64 = 0;
 	public var _after:GoInt64 = 0;
 
-	public function string():String
-		return "{" + Go.string(_before) + " " + Go.string(_i) + " " + Go.string(_after) + "}";
-
-	public function new(?_before:GoInt64, ?_i:GoInt64, ?_after:GoInt64, ?string) {
+	public function new(?_before:GoInt64, ?_i:GoInt64, ?_after:GoInt64) {
 		if (_before != null)
 			this._before = _before;
 		if (_i != null)
@@ -132,6 +340,9 @@ private final _arch32:InvalidType = null;
 		if (_after != null)
 			this._after = _after;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_4(_before, _i, _after);
@@ -143,10 +354,7 @@ private final _arch32:InvalidType = null;
 	public var _i:Int64_ = ({} : Int64_);
 	public var _after:GoInt64 = 0;
 
-	public function string():String
-		return "{" + Go.string(_before) + " " + Go.string(_i) + " " + Go.string(_after) + "}";
-
-	public function new(?_before:GoInt64, ?_i:Int64_, ?_after:GoInt64, ?string) {
+	public function new(?_before:GoInt64, ?_i:Int64_, ?_after:GoInt64) {
 		if (_before != null)
 			this._before = _before;
 		if (_i != null)
@@ -154,6 +362,9 @@ private final _arch32:InvalidType = null;
 		if (_after != null)
 			this._after = _after;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_5(_before, _i, _after);
@@ -165,10 +376,7 @@ private final _arch32:InvalidType = null;
 	public var _i:GoUInt64 = 0;
 	public var _after:GoUInt64 = 0;
 
-	public function string():String
-		return "{" + Go.string(_before) + " " + Go.string(_i) + " " + Go.string(_after) + "}";
-
-	public function new(?_before:GoUInt64, ?_i:GoUInt64, ?_after:GoUInt64, ?string) {
+	public function new(?_before:GoUInt64, ?_i:GoUInt64, ?_after:GoUInt64) {
 		if (_before != null)
 			this._before = _before;
 		if (_i != null)
@@ -176,6 +384,9 @@ private final _arch32:InvalidType = null;
 		if (_after != null)
 			this._after = _after;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_6(_before, _i, _after);
@@ -187,10 +398,7 @@ private final _arch32:InvalidType = null;
 	public var _i:Uint64 = ({} : Uint64);
 	public var _after:GoUInt64 = 0;
 
-	public function string():String
-		return "{" + Go.string(_before) + " " + Go.string(_i) + " " + Go.string(_after) + "}";
-
-	public function new(?_before:GoUInt64, ?_i:Uint64, ?_after:GoUInt64, ?string) {
+	public function new(?_before:GoUInt64, ?_i:Uint64, ?_after:GoUInt64) {
 		if (_before != null)
 			this._before = _before;
 		if (_i != null)
@@ -198,6 +406,9 @@ private final _arch32:InvalidType = null;
 		if (_after != null)
 			this._after = _after;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_7(_before, _i, _after);
@@ -209,10 +420,7 @@ private final _arch32:InvalidType = null;
 	public var _i:GoUIntptr = 0;
 	public var _after:GoUIntptr = 0;
 
-	public function string():String
-		return "{" + Go.string(_before) + " " + Go.string(_i) + " " + Go.string(_after) + "}";
-
-	public function new(?_before:GoUIntptr, ?_i:GoUIntptr, ?_after:GoUIntptr, ?string) {
+	public function new(?_before:GoUIntptr, ?_i:GoUIntptr, ?_after:GoUIntptr) {
 		if (_before != null)
 			this._before = _before;
 		if (_i != null)
@@ -220,6 +428,9 @@ private final _arch32:InvalidType = null;
 		if (_after != null)
 			this._after = _after;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_8(_before, _i, _after);
@@ -231,10 +442,7 @@ private final _arch32:InvalidType = null;
 	public var _i:Uintptr = ({} : Uintptr);
 	public var _after:GoUIntptr = 0;
 
-	public function string():String
-		return "{" + Go.string(_before) + " " + Go.string(_i) + " " + Go.string(_after) + "}";
-
-	public function new(?_before:GoUIntptr, ?_i:Uintptr, ?_after:GoUIntptr, ?string) {
+	public function new(?_before:GoUIntptr, ?_i:Uintptr, ?_after:GoUIntptr) {
 		if (_before != null)
 			this._before = _before;
 		if (_i != null)
@@ -242,6 +450,9 @@ private final _arch32:InvalidType = null;
 		if (_after != null)
 			this._after = _after;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_9(_before, _i, _after);
@@ -253,10 +464,7 @@ private final _arch32:InvalidType = null;
 	public var _i:stdgo.unsafe.Unsafe.UnsafePointer = null;
 	public var _after:GoUIntptr = 0;
 
-	public function string():String
-		return "{" + Go.string(_before) + " " + Go.string(_i) + " " + Go.string(_after) + "}";
-
-	public function new(?_before:GoUIntptr, ?_i:stdgo.unsafe.Unsafe.UnsafePointer, ?_after:GoUIntptr, ?string) {
+	public function new(?_before:GoUIntptr, ?_i:stdgo.unsafe.Unsafe.UnsafePointer, ?_after:GoUIntptr) {
 		if (_before != null)
 			this._before = _before;
 		if (_i != null)
@@ -264,6 +472,9 @@ private final _arch32:InvalidType = null;
 		if (_after != null)
 			this._after = _after;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_10(_before, _i, _after);
@@ -275,10 +486,7 @@ private final _arch32:InvalidType = null;
 	public var _i:Pointer_<T> = {};
 	public var _after:GoUIntptr = 0;
 
-	public function string():String
-		return "{" + Go.string(_before) + " " + Go.string(_i) + " " + Go.string(_after) + "}";
-
-	public function new(?_before:GoUIntptr, ?_i:Pointer_<T>, ?_after:GoUIntptr, ?string) {
+	public function new(?_before:GoUIntptr, ?_i:Pointer_<T>, ?_after:GoUIntptr) {
 		if (_before != null)
 			this._before = _before;
 		if (_i != null)
@@ -286,6 +494,9 @@ private final _arch32:InvalidType = null;
 		if (_after != null)
 			this._after = _after;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_11(_before, _i, _after);
@@ -297,15 +508,15 @@ private final _arch32:InvalidType = null;
 	public var _19:GoUInt32 = 0;
 	public var _i:Int64_ = ({} : Int64_);
 
-	public function string():String
-		return "{" + Go.string(_19) + " " + Go.string(_i) + "}";
-
-	public function new(?_19:GoUInt32, ?_i:Int64_, ?string) {
+	public function new(?_19:GoUInt32, ?_i:Int64_) {
 		if (_19 != null)
 			this._19 = _19;
 		if (_i != null)
 			this._i = _i;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_12(_19, _i);
@@ -317,15 +528,15 @@ private final _arch32:InvalidType = null;
 	public var _25:GoUInt32 = 0;
 	public var _i:Uint64 = ({} : Uint64);
 
-	public function string():String
-		return "{" + Go.string(_25) + " " + Go.string(_i) + "}";
-
-	public function new(?_25:GoUInt32, ?_i:Uint64, ?string) {
+	public function new(?_25:GoUInt32, ?_i:Uint64) {
 		if (_25 != null)
 			this._25 = _25;
 		if (_i != null)
 			this._i = _i;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_13(_25, _i);
@@ -338,10 +549,7 @@ private final _arch32:InvalidType = null;
 	public var _want:AnyInterface = (null : AnyInterface);
 	public var _err:AnyInterface = (null : AnyInterface);
 
-	public function string():String
-		return "{" + Go.string(_init) + " " + Go.string(_new) + " " + Go.string(_want) + " " + Go.string(_err) + "}";
-
-	public function new(?_init:AnyInterface, ?_new:AnyInterface, ?_want:AnyInterface, ?_err:AnyInterface, ?string) {
+	public function new(?_init:AnyInterface, ?_new:AnyInterface, ?_want:AnyInterface, ?_err:AnyInterface) {
 		if (_init != null)
 			this._init = _init;
 		if (_new != null)
@@ -352,6 +560,9 @@ private final _arch32:InvalidType = null;
 			this._err = _err;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T__struct_14(_init, _new, _want, _err);
 	}
@@ -361,13 +572,13 @@ private final _arch32:InvalidType = null;
 	@:embedded
 	public var _uint:GoUInt = 0;
 
-	public function string():String
-		return "{" + Go.string(_uint) + "}";
-
-	public function new(?_uint:GoUInt, ?string) {
+	public function new(?_uint:GoUInt) {
 		if (_uint != null)
 			this._uint = _uint;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_15(_uint);
@@ -381,20 +592,7 @@ private final _arch32:InvalidType = null;
 	public var _want:Bool = false;
 	public var _err:AnyInterface = (null : AnyInterface);
 
-	public function string():String
-		return "{"
-			+ Go.string(_init)
-			+ " "
-			+ Go.string(_new)
-			+ " "
-			+ Go.string(_old)
-			+ " "
-			+ Go.string(_want)
-			+ " "
-			+ Go.string(_err)
-			+ "}";
-
-	public function new(?_init:AnyInterface, ?_new:AnyInterface, ?_old:AnyInterface, ?_want:Bool, ?_err:AnyInterface, ?string) {
+	public function new(?_init:AnyInterface, ?_new:AnyInterface, ?_old:AnyInterface, ?_want:Bool, ?_err:AnyInterface) {
 		if (_init != null)
 			this._init = _init;
 		if (_new != null)
@@ -406,6 +604,9 @@ private final _arch32:InvalidType = null;
 		if (_err != null)
 			this._err = _err;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_16(_init, _new, _old, _want, _err);

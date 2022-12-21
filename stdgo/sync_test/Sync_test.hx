@@ -17,15 +17,79 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-private var _bufPool:Pool = ({} : Pool);
-private var _mapOps:GoArray<stdgo.sync_test.Sync_test.T_mapOp> = new GoArray<stdgo.sync_test.Sync_test.T_mapOp>(...[for (i in 0...5) (("" : GoString) : stdgo.sync_test.Sync_test.T_mapOp)]);
-private var _misuseTests:Slice<T__struct_2> = (null : Slice<T__struct_2>);
+private var _bufPool:Pool = ({
+	new_: function():AnyInterface {
+		return Go.toInterface(({} : stdgo.bytes.Bytes.Buffer));
+	}
+} : Pool);
+
+private var _mapOps:GoArray<stdgo.sync_test.Sync_test.T_mapOp> = (new GoArray<stdgo.sync_test.Sync_test.T_mapOp>(Go.str("Load"), Go.str("Store"),
+	Go.str("LoadOrStore"), Go.str("LoadAndDelete"), Go.str("Delete")) : GoArray<stdgo.sync_test.Sync_test.T_mapOp>);
+
+private var _misuseTests:Slice<T__struct_2> = (new Slice<T__struct_2>(0, 0, ({
+	_name: Go.str("Mutex.Unlock"),
+	_f: function():Void {
+		var _mu:Mutex = ({} : Mutex);
+		_mu.unlock();
+	}
+} : T__struct_2), ({
+	_name: Go.str("Mutex.Unlock2"),
+	_f: function():Void {
+		var _mu:Mutex = ({} : Mutex);
+		_mu.lock();
+		_mu.unlock();
+		_mu.unlock();
+	}
+	} : T__struct_2), ({
+	_name: Go.str("RWMutex.Unlock"),
+	_f: function():Void {
+		var _mu:RWMutex = ({} : RWMutex);
+		_mu.unlock();
+	}
+	} : T__struct_2), ({
+	_name: Go.str("RWMutex.Unlock2"),
+	_f: function():Void {
+		var _mu:RWMutex = ({} : RWMutex);
+		_mu.rlock();
+		_mu.unlock();
+	}
+	} : T__struct_2), ({
+	_name: Go.str("RWMutex.Unlock3"),
+	_f: function():Void {
+		var _mu:RWMutex = ({} : RWMutex);
+		_mu.lock();
+		_mu.unlock();
+		_mu.unlock();
+	}
+	} : T__struct_2), ({
+	_name: Go.str("RWMutex.RUnlock"),
+	_f: function():Void {
+		var _mu:RWMutex = ({} : RWMutex);
+		_mu.runlock();
+	}
+	} : T__struct_2), ({
+	_name: Go.str("RWMutex.RUnlock2"),
+	_f: function():Void {
+		var _mu:RWMutex = ({} : RWMutex);
+		_mu.lock();
+		_mu.runlock();
+	}
+	} : T__struct_2), ({
+	_name: Go.str("RWMutex.RUnlock3"),
+	_f: function():Void {
+		var _mu:RWMutex = ({} : RWMutex);
+		_mu.rlock();
+		_mu.runlock();
+		_mu.runlock();
+	}
+	} : T__struct_2)) : Slice<T__struct_2>);
+
 private var _http:T_httpPkg = ({} : stdgo.sync_test.Sync_test.T_httpPkg);
-private final _opLoad:stdgo.sync_test.Sync_test.T_mapOp = (("" : GoString) : stdgo.sync_test.Sync_test.T_mapOp);
-private final _opStore:stdgo.sync_test.Sync_test.T_mapOp = (("" : GoString) : stdgo.sync_test.Sync_test.T_mapOp);
-private final _opLoadOrStore:stdgo.sync_test.Sync_test.T_mapOp = (("" : GoString) : stdgo.sync_test.Sync_test.T_mapOp);
-private final _opLoadAndDelete:stdgo.sync_test.Sync_test.T_mapOp = (("" : GoString) : stdgo.sync_test.Sync_test.T_mapOp);
-private final _opDelete:stdgo.sync_test.Sync_test.T_mapOp = (("" : GoString) : stdgo.sync_test.Sync_test.T_mapOp);
+private final _opLoad:stdgo.sync_test.Sync_test.T_mapOp = (Go.str("Load") : T_mapOp);
+private final _opStore:stdgo.sync_test.Sync_test.T_mapOp = (Go.str("Store") : T_mapOp);
+private final _opLoadOrStore:stdgo.sync_test.Sync_test.T_mapOp = (Go.str("LoadOrStore") : T_mapOp);
+private final _opLoadAndDelete:stdgo.sync_test.Sync_test.T_mapOp = (Go.str("LoadAndDelete") : T_mapOp);
+private final _opDelete:stdgo.sync_test.Sync_test.T_mapOp = (Go.str("Delete") : T_mapOp);
 private var _globalSink:AnyInterface = (null : AnyInterface);
 
 /**
@@ -144,10 +208,10 @@ private typedef T_mapInterface = StructType & {
 }
 
 @:structInit @:local private class T__struct_1 {
-	public function string():String
-		return "{" + "}";
+	public function new() {}
 
-	public function new(?string) {}
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_1();
@@ -158,15 +222,15 @@ private typedef T_mapInterface = StructType & {
 	public var _name:GoString = "";
 	public var _f:() -> Void = null;
 
-	public function string():String
-		return "{" + Go.string(_name) + " " + Go.string(_f) + "}";
-
-	public function new(?_name:GoString, ?_f:() -> Void, ?string) {
+	public function new(?_name:GoString, ?_f:() -> Void) {
 		if (_name != null)
 			this._name = _name;
 		if (_f != null)
 			this._f = _f;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_2(_name, _f);
@@ -1492,23 +1556,23 @@ function testMutexFairness(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 	@:embedded
 	public function lock()
-		null;
+		mutex.lock();
 
 	@:embedded
 	public function tryLock():Bool
-		return false;
+		return mutex.tryLock();
 
 	@:embedded
 	public function unlock()
-		null;
+		mutex.unlock();
 
 	@:embedded
 	public function _lockSlow()
-		null;
+		mutex._lockSlow();
 
 	@:embedded
 	public function _unlockSlow(__0:GoInt32)
-		null;
+		mutex._unlockSlow(__0);
 
 	public function __copy__() {
 		return new PaddedMutex_benchmarkMutexUncontended_0(mutex, _pad);
@@ -2627,35 +2691,35 @@ function testRLocker(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 	@:embedded
 	public function lock()
-		null;
+		rwmutex.lock();
 
 	@:embedded
 	public function rlock()
-		null;
+		rwmutex.rlock();
 
 	@:embedded
 	public function rlocker():Locker
-		return (null : Locker);
+		return rwmutex.rlocker();
 
 	@:embedded
 	public function runlock()
-		null;
+		rwmutex.runlock();
 
 	@:embedded
 	public function tryLock():Bool
-		return false;
+		return rwmutex.tryLock();
 
 	@:embedded
 	public function tryRLock():Bool
-		return false;
+		return rwmutex.tryRLock();
 
 	@:embedded
 	public function unlock()
-		null;
+		rwmutex.unlock();
 
 	@:embedded
 	public function _rUnlockSlow(__0:GoInt32)
-		null;
+		rwmutex._rUnlockSlow(__0);
 
 	public function __copy__() {
 		return new PaddedRWMutex_benchmarkRWMutexUncontended_0(rwmutex, _pad);
@@ -2886,19 +2950,19 @@ function testWaitGroupAlign(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 	@:embedded
 	public function add(__0:GoInt)
-		null;
+		waitGroup.add(__0);
 
 	@:embedded
 	public function done()
-		null;
+		waitGroup.done();
 
 	@:embedded
 	public function wait_()
-		null;
+		waitGroup.wait_();
 
 	@:embedded
 	public function _state():{var _0:Pointer<GoUInt64>; var _1:Pointer<GoUInt32>;}
-		return null;
+		return waitGroup._state();
 
 	public function __copy__() {
 		return new PaddedWaitGroup_benchmarkWaitGroupUncontended_0(waitGroup, _pad);

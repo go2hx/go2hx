@@ -16,10 +16,7 @@ import stdgo.Chan;
 	public var mine:GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0...3) (0 : GoUInt8)]);
 	public var too:GoUInt16 = 0;
 
-	public function string():String
-		return "{" + Go.string(pi) + " " + Go.string(uate) + " " + Go.string(mine) + " " + Go.string(too) + "}";
-
-	public function new(?pi:GoFloat64, ?uate:GoUInt8, ?mine:GoArray<GoUInt8>, ?too:GoUInt16, ?string) {
+	public function new(?pi:GoFloat64, ?uate:GoUInt8, ?mine:GoArray<GoUInt8>, ?too:GoUInt16) {
 		if (pi != null)
 			this.pi = pi;
 		if (uate != null)
@@ -29,6 +26,9 @@ import stdgo.Chan;
 		if (too != null)
 			this.too = too;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_7(pi, uate, mine, too);

@@ -10,10 +10,21 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-private var _tests:Slice<stdgo.testing.Testing.InternalTest> = (null : Slice<stdgo.testing.Testing.InternalTest>);
-private var _benchmarks:Slice<stdgo.testing.Testing.InternalBenchmark> = (null : Slice<stdgo.testing.Testing.InternalBenchmark>);
-private var _fuzzTargets:Slice<stdgo.testing.Testing.InternalFuzzTarget> = (null : Slice<stdgo.testing.Testing.InternalFuzzTarget>);
-private var _examples:Slice<stdgo.testing.Testing.InternalExample> = (null : Slice<stdgo.testing.Testing.InternalExample>);
+private var _tests:Slice<stdgo.testing.Testing.InternalTest> = (new Slice<stdgo.testing.Testing.InternalTest>(0, 0,
+	(new stdgo.testing.Testing.InternalTest(Go.str("TestEnv"), stdgo.syscall_test.Syscall_test.testEnv) : stdgo.testing.Testing.InternalTest),
+	(new stdgo.testing.Testing.InternalTest(Go.str("TestExecErrPermutedFds"),
+		stdgo.syscall_test.Syscall_test.testExecErrPermutedFds) : stdgo.testing.Testing.InternalTest),
+	(new stdgo.testing.Testing.InternalTest(Go.str("TestGettimeofday"),
+		stdgo.syscall_test.Syscall_test.testGettimeofday) : stdgo.testing.Testing.InternalTest)) : Slice<stdgo.testing.Testing.InternalTest>);
+
+private var _benchmarks:Slice<stdgo.testing.Testing.InternalBenchmark> = (new Slice<stdgo.testing.Testing.InternalBenchmark>(0,
+	0) : Slice<stdgo.testing.Testing.InternalBenchmark>);
+
+private var _fuzzTargets:Slice<stdgo.testing.Testing.InternalFuzzTarget> = (new Slice<stdgo.testing.Testing.InternalFuzzTarget>(0,
+	0) : Slice<stdgo.testing.Testing.InternalFuzzTarget>);
+
+private var _examples:Slice<stdgo.testing.Testing.InternalExample> = (new Slice<stdgo.testing.Testing.InternalExample>(0,
+	0) : Slice<stdgo.testing.Testing.InternalExample>);
 
 function main():Void {
 	var _m = stdgo.testing.Testing.mainStart(Go.asInterface((new stdgo.testing.internal.testdeps.Testdeps.TestDeps() : stdgo.testing.internal.testdeps.Testdeps.TestDeps)),

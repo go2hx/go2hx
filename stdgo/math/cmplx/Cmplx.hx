@@ -544,15 +544,15 @@ private var _branchPoints:Slice<GoArray<GoComplex128>> = (new Slice<GoArray<GoCo
 	public var _in:GoComplex128 = new GoComplex128(0, 0);
 	public var _want:GoComplex128 = new GoComplex128(0, 0);
 
-	public function string():String
-		return "{" + Go.string(_in) + " " + Go.string(_want) + "}";
-
-	public function new(?_in:GoComplex128, ?_want:GoComplex128, ?string) {
+	public function new(?_in:GoComplex128, ?_want:GoComplex128) {
 		if (_in != null)
 			this._in = _in;
 		if (_want != null)
 			this._want = _want;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_0(_in, _want);

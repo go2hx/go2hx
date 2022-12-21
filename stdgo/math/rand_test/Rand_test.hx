@@ -221,15 +221,15 @@ var __tmp__1 = getExponentialDistributionParameters();
 	public var _name:GoString = "";
 	public var _fn:() -> GoInt = null;
 
-	public function string():String
-		return "{" + Go.string(_name) + " " + Go.string(_fn) + "}";
-
-	public function new(?_name:GoString, ?_fn:() -> GoInt, ?string) {
+	public function new(?_name:GoString, ?_fn:() -> GoInt) {
 		if (_name != null)
 			this._name = _name;
 		if (_fn != null)
 			this._fn = _fn;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_0(_name, _fn);

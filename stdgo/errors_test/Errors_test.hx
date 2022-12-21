@@ -98,10 +98,7 @@ private typedef T__interface_3 = StructType & {
 	public var _target:Error = (null : Error);
 	public var _match:Bool = false;
 
-	public function string():String
-		return "{" + Go.string(_err) + " " + Go.string(_target) + " " + Go.string(_match) + "}";
-
-	public function new(?_err:Error, ?_target:Error, ?_match:Bool, ?string) {
+	public function new(?_err:Error, ?_target:Error, ?_match:Bool) {
 		if (_err != null)
 			this._err = _err;
 		if (_target != null)
@@ -109,6 +106,9 @@ private typedef T__interface_3 = StructType & {
 		if (_match != null)
 			this._match = _match;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_0(_err, _target, _match);
@@ -125,10 +125,7 @@ private typedef T__interface_3 = StructType & {
 	**/
 	public var _want:AnyInterface = (null : AnyInterface);
 
-	public function string():String
-		return "{" + Go.string(_err) + " " + Go.string(_target) + " " + Go.string(_match) + " " + Go.string(_want) + "}";
-
-	public function new(?_err:Error, ?_target:AnyInterface, ?_match:Bool, ?_want:AnyInterface, ?string) {
+	public function new(?_err:Error, ?_target:AnyInterface, ?_match:Bool, ?_want:AnyInterface) {
 		if (_err != null)
 			this._err = _err;
 		if (_target != null)
@@ -139,6 +136,9 @@ private typedef T__interface_3 = StructType & {
 			this._want = _want;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T__struct_1(_err, _target, _match, _want);
 	}
@@ -148,15 +148,15 @@ private typedef T__interface_3 = StructType & {
 	public var _err:Error = (null : Error);
 	public var _want:Error = (null : Error);
 
-	public function string():String
-		return "{" + Go.string(_err) + " " + Go.string(_want) + "}";
-
-	public function new(?_err:Error, ?_want:Error, ?string) {
+	public function new(?_err:Error, ?_want:Error) {
 		if (_err != null)
 			this._err = _err;
 		if (_want != null)
 			this._want = _want;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_2(_err, _want);

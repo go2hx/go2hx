@@ -10,14 +10,19 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-private var _dummys:Value = ({} : Value);
-private var _copyTests:Slice<T__struct_1> = (null : Slice<T__struct_1>);
+private var _dummys:Value = stdgo.syscall.js.Js.global()
+	.call(Go.str("eval"),
+		Go.toInterface(Go.str("({\n\tsomeBool: true,\n\tsomeString: \"abc\\u1234\",\n\tsomeInt: 42,\n\tsomeFloat: 42.123,\n\tsomeArray: [41, 42, 43],\n\tsomeDate: new Date(),\n\tadd: function(a, b) {\n\t\treturn a + b;\n\t},\n\tzero: 0,\n\tstringZero: \"0\",\n\tNaN: NaN,\n\temptyObj: {},\n\temptyArray: [],\n\tInfinity: Infinity,\n\tNegInfinity: -Infinity,\n\tobjNumber0: new Number(0),\n\tobjBooleanFalse: new Boolean(false),\n})")));
+
+private var _copyTests:Slice<T__struct_1> = (new Slice<T__struct_1>(0, 0, ({_srcLen: (5 : GoInt), _dstLen: (3 : GoInt), _copyLen: (3 : GoInt)} : T__struct_1),
+	({_srcLen: (3 : GoInt), _dstLen: (5 : GoInt), _copyLen: (3 : GoInt)} : T__struct_1),
+	({_srcLen: (0 : GoInt), _dstLen: (0 : GoInt), _copyLen: (0 : GoInt)} : T__struct_1)) : Slice<T__struct_1>);
 
 @:structInit @:local private class T__struct_0 {
-	public function string():String
-		return "{" + "}";
+	public function new() {}
 
-	public function new(?string) {}
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_0();
@@ -29,10 +34,7 @@ private var _copyTests:Slice<T__struct_1> = (null : Slice<T__struct_1>);
 	public var _dstLen:GoInt = 0;
 	public var _copyLen:GoInt = 0;
 
-	public function string():String
-		return "{" + Go.string(_srcLen) + " " + Go.string(_dstLen) + " " + Go.string(_copyLen) + "}";
-
-	public function new(?_srcLen:GoInt, ?_dstLen:GoInt, ?_copyLen:GoInt, ?string) {
+	public function new(?_srcLen:GoInt, ?_dstLen:GoInt, ?_copyLen:GoInt) {
 		if (_srcLen != null)
 			this._srcLen = _srcLen;
 		if (_dstLen != null)
@@ -40,6 +42,9 @@ private var _copyTests:Slice<T__struct_1> = (null : Slice<T__struct_1>);
 		if (_copyLen != null)
 			this._copyLen = _copyLen;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_1(_srcLen, _dstLen, _copyLen);

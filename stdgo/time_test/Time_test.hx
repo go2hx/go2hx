@@ -1743,15 +1743,15 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _in:Time = ({} : Time);
 	public var _want:GoString = "";
 
-	public function string():String
-		return "{" + Go.string(_in) + " " + Go.string(_want) + "}";
-
-	public function new(?_in:Time, ?_want:GoString, ?string) {
+	public function new(?_in:Time, ?_want:GoString) {
 		if (_in != null)
 			this._in = _in;
 		if (_want != null)
 			this._want = _want;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_0(_in, _want);
@@ -1762,15 +1762,15 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _date:GoString = "";
 	public var _ok:Bool = false;
 
-	public function string():String
-		return "{" + Go.string(_date) + " " + Go.string(_ok) + "}";
-
-	public function new(?_date:GoString, ?_ok:Bool, ?string) {
+	public function new(?_date:GoString, ?_ok:Bool) {
 		if (_date != null)
 			this._date = _date;
 		if (_ok != null)
 			this._ok = _ok;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_1(_date, _ok);
@@ -1782,10 +1782,7 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _value:GoString = "";
 	public var _valueElemPrefix:GoString = "";
 
-	public function string():String
-		return "{" + Go.string(_format) + " " + Go.string(_value) + " " + Go.string(_valueElemPrefix) + "}";
-
-	public function new(?_format:GoString, ?_value:GoString, ?_valueElemPrefix:GoString, ?string) {
+	public function new(?_format:GoString, ?_value:GoString, ?_valueElemPrefix:GoString) {
 		if (_format != null)
 			this._format = _format;
 		if (_value != null)
@@ -1793,6 +1790,9 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 		if (_valueElemPrefix != null)
 			this._valueElemPrefix = _valueElemPrefix;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_2(_format, _value, _valueElemPrefix);
@@ -1803,15 +1803,15 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _value:GoString = "";
 	public var _ok:Bool = false;
 
-	public function string():String
-		return "{" + Go.string(_value) + " " + Go.string(_ok) + "}";
-
-	public function new(?_value:GoString, ?_ok:Bool, ?string) {
+	public function new(?_value:GoString, ?_ok:Bool) {
 		if (_value != null)
 			this._value = _value;
 		if (_ok != null)
 			this._ok = _ok;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_3(_value, _ok);
@@ -1822,15 +1822,15 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _s:GoString = "";
 	public var _want:GoString = "";
 
-	public function string():String
-		return "{" + Go.string(_s) + " " + Go.string(_want) + "}";
-
-	public function new(?_s:GoString, ?_want:GoString, ?string) {
+	public function new(?_s:GoString, ?_want:GoString) {
 		if (_s != null)
 			this._s = _s;
 		if (_want != null)
 			this._want = _want;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_4(_s, _want);
@@ -1841,15 +1841,15 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _s:GoString = "";
 	public var _want:GoInt = 0;
 
-	public function string():String
-		return "{" + Go.string(_s) + " " + Go.string(_want) + "}";
-
-	public function new(?_s:GoString, ?_want:GoInt, ?string) {
+	public function new(?_s:GoString, ?_want:GoInt) {
 		if (_s != null)
 			this._s = _s;
 		if (_want != null)
 			this._want = _want;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_5(_s, _want);
@@ -1860,15 +1860,15 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _mono:GoInt64 = 0;
 	public var _want:GoString = "";
 
-	public function string():String
-		return "{" + Go.string(_mono) + " " + Go.string(_want) + "}";
-
-	public function new(?_mono:GoInt64, ?_want:GoString, ?string) {
+	public function new(?_mono:GoInt64, ?_want:GoString) {
 		if (_mono != null)
 			this._mono = _mono;
 		if (_want != null)
 			this._want = _want;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_6(_mono, _want);
@@ -1886,10 +1886,7 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	@:optional
 	public var _1:GoArray<GoInt64> = new GoArray<GoInt64>(...[for (i in 0...5) (0 : GoInt64)]);
 
-	public function string():String
-		return "{" + Go.string(_sum) + " " + Go.string(_max) + " " + Go.string(_count) + " " + Go.string(_1) + "}";
-
-	public function new(?_sum:GoFloat64, ?_max:Duration, ?_count:GoInt64, ?_1:GoArray<GoInt64>, ?string) {
+	public function new(?_sum:GoFloat64, ?_max:Duration, ?_count:GoInt64, ?_1:GoArray<GoInt64>) {
 		if (_sum != null)
 			this._sum = _sum;
 		if (_max != null)
@@ -1900,6 +1897,9 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 			this._1 = _1;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T__struct_7(_sum, _max, _count, _1);
 	}
@@ -1909,15 +1909,15 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _count:GoInt = 0;
 	public var _delta:Duration = ((0 : GoInt64) : Duration);
 
-	public function string():String
-		return "{" + Go.string(_count) + " " + Go.string(_delta) + "}";
-
-	public function new(?_count:GoInt, ?_delta:Duration, ?string) {
+	public function new(?_count:GoInt, ?_delta:Duration) {
 		if (_count != null)
 			this._count = _count;
 		if (_delta != null)
 			this._delta = _delta;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_8(_count, _delta);
@@ -1928,15 +1928,15 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _t:Time = ({} : Time);
 	public var _d:Duration = ((0 : GoInt64) : Duration);
 
-	public function string():String
-		return "{" + Go.string(_t) + " " + Go.string(_d) + "}";
-
-	public function new(?_t:Time, ?_d:Duration, ?string) {
+	public function new(?_t:Time, ?_d:Duration) {
 		if (_t != null)
 			this._t = _t;
 		if (_d != null)
 			this._d = _d;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_9(_t, _d);
@@ -1947,15 +1947,15 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _str:GoString = "";
 	public var _d:Duration = ((0 : GoInt64) : Duration);
 
-	public function string():String
-		return "{" + Go.string(_str) + " " + Go.string(_d) + "}";
-
-	public function new(?_str:GoString, ?_d:Duration, ?string) {
+	public function new(?_str:GoString, ?_d:Duration) {
 		if (_str != null)
 			this._str = _str;
 		if (_d != null)
 			this._d = _d;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_10(_str, _d);
@@ -1973,12 +1973,7 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _z:Ref<Location> = (null : Ref<Location>);
 	public var _unix:GoInt64 = 0;
 
-	public function string():String
-		return "{" + Go.string(_year) + " " + Go.string(_month) + " " + Go.string(_day) + " " + Go.string(_hour) + " " + Go.string(_min) + " "
-			+ Go.string(_sec) + " " + Go.string(_nsec) + " " + Go.string(_z) + " " + Go.string(_unix) + "}";
-
-	public function new(?_year:GoInt, ?_month:GoInt, ?_day:GoInt, ?_hour:GoInt, ?_min:GoInt, ?_sec:GoInt, ?_nsec:GoInt, ?_z:Ref<Location>, ?_unix:GoInt64,
-			?string) {
+	public function new(?_year:GoInt, ?_month:GoInt, ?_day:GoInt, ?_hour:GoInt, ?_min:GoInt, ?_sec:GoInt, ?_nsec:GoInt, ?_z:Ref<Location>, ?_unix:GoInt64) {
 		if (_year != null)
 			this._year = _year;
 		if (_month != null)
@@ -1999,6 +1994,9 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 			this._unix = _unix;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T__struct_11(_year, _month, _day, _hour, _min, _sec, _nsec, _z, _unix);
 	}
@@ -2009,10 +2007,7 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _months:GoInt = 0;
 	public var _days:GoInt = 0;
 
-	public function string():String
-		return "{" + Go.string(_years) + " " + Go.string(_months) + " " + Go.string(_days) + "}";
-
-	public function new(?_years:GoInt, ?_months:GoInt, ?_days:GoInt, ?string) {
+	public function new(?_years:GoInt, ?_months:GoInt, ?_days:GoInt) {
 		if (_years != null)
 			this._years = _years;
 		if (_months != null)
@@ -2020,6 +2015,9 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 		if (_days != null)
 			this._days = _days;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_12(_years, _months, _days);
@@ -2031,10 +2029,7 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _month:GoInt = 0;
 	public var _di:GoInt = 0;
 
-	public function string():String
-		return "{" + Go.string(_year) + " " + Go.string(_month) + " " + Go.string(_di) + "}";
-
-	public function new(?_year:GoInt, ?_month:GoInt, ?_di:GoInt, ?string) {
+	public function new(?_year:GoInt, ?_month:GoInt, ?_di:GoInt) {
 		if (_year != null)
 			this._year = _year;
 		if (_month != null)
@@ -2042,6 +2037,9 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 		if (_di != null)
 			this._di = _di;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_13(_year, _month, _di);
@@ -2052,15 +2050,15 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _bytes:Slice<GoUInt8> = (null : Slice<GoUInt8>);
 	public var _want:GoString = "";
 
-	public function string():String
-		return "{" + Go.string(_bytes) + " " + Go.string(_want) + "}";
-
-	public function new(?_bytes:Slice<GoUInt8>, ?_want:GoString, ?string) {
+	public function new(?_bytes:Slice<GoUInt8>, ?_want:GoString) {
 		if (_bytes != null)
 			this._bytes = _bytes;
 		if (_want != null)
 			this._want = _want;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_14(_bytes, _want);
@@ -2071,15 +2069,15 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _time:Time = ({} : Time);
 	public var _want:GoString = "";
 
-	public function string():String
-		return "{" + Go.string(_time) + " " + Go.string(_want) + "}";
-
-	public function new(?_time:Time, ?_want:GoString, ?string) {
+	public function new(?_time:Time, ?_want:GoString) {
 		if (_time != null)
 			this._time = _time;
 		if (_want != null)
 			this._want = _want;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_15(_time, _want);
@@ -2090,15 +2088,15 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _time:Time = ({} : Time);
 	public var _json:GoString = "";
 
-	public function string():String
-		return "{" + Go.string(_time) + " " + Go.string(_json) + "}";
-
-	public function new(?_time:Time, ?_json:GoString, ?string) {
+	public function new(?_time:Time, ?_json:GoString) {
 		if (_time != null)
 			this._time = _time;
 		if (_json != null)
 			this._json = _json;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_16(_time, _json);
@@ -2109,15 +2107,15 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _in:GoString = "";
 	public var _want:Duration = ((0 : GoInt64) : Duration);
 
-	public function string():String
-		return "{" + Go.string(_in) + " " + Go.string(_want) + "}";
-
-	public function new(?_in:GoString, ?_want:Duration, ?string) {
+	public function new(?_in:GoString, ?_want:Duration) {
 		if (_in != null)
 			this._in = _in;
 		if (_want != null)
 			this._want = _want;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_17(_in, _want);
@@ -2128,15 +2126,15 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _in:GoString = "";
 	public var _expect:GoString = "";
 
-	public function string():String
-		return "{" + Go.string(_in) + " " + Go.string(_expect) + "}";
-
-	public function new(?_in:GoString, ?_expect:GoString, ?string) {
+	public function new(?_in:GoString, ?_expect:GoString) {
 		if (_in != null)
 			this._in = _in;
 		if (_expect != null)
 			this._expect = _expect;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_18(_in, _expect);
@@ -2148,10 +2146,7 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _desc:GoString = "";
 	public var _fn:() -> Void = null;
 
-	public function string():String
-		return "{" + Go.string(_count) + " " + Go.string(_desc) + " " + Go.string(_fn) + "}";
-
-	public function new(?_count:GoInt, ?_desc:GoString, ?_fn:() -> Void, ?string) {
+	public function new(?_count:GoInt, ?_desc:GoString, ?_fn:() -> Void) {
 		if (_count != null)
 			this._count = _count;
 		if (_desc != null)
@@ -2159,6 +2154,9 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 		if (_fn != null)
 			this._fn = _fn;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_19(_count, _desc, _fn);
@@ -2170,10 +2168,7 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _u:Time = ({} : Time);
 	public var _d:Duration = ((0 : GoInt64) : Duration);
 
-	public function string():String
-		return "{" + Go.string(_t) + " " + Go.string(_u) + " " + Go.string(_d) + "}";
-
-	public function new(?_t:Time, ?_u:Time, ?_d:Duration, ?string) {
+	public function new(?_t:Time, ?_u:Time, ?_d:Duration) {
 		if (_t != null)
 			this._t = _t;
 		if (_u != null)
@@ -2181,6 +2176,9 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 		if (_d != null)
 			this._d = _d;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_20(_t, _u, _d);
@@ -2191,15 +2189,15 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _d:Duration = ((0 : GoInt64) : Duration);
 	public var _want:GoInt64 = 0;
 
-	public function string():String
-		return "{" + Go.string(_d) + " " + Go.string(_want) + "}";
-
-	public function new(?_d:Duration, ?_want:GoInt64, ?string) {
+	public function new(?_d:Duration, ?_want:GoInt64) {
 		if (_d != null)
 			this._d = _d;
 		if (_want != null)
 			this._want = _want;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_21(_d, _want);
@@ -2210,15 +2208,15 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _d:Duration = ((0 : GoInt64) : Duration);
 	public var _want:GoFloat64 = 0;
 
-	public function string():String
-		return "{" + Go.string(_d) + " " + Go.string(_want) + "}";
-
-	public function new(?_d:Duration, ?_want:GoFloat64, ?string) {
+	public function new(?_d:Duration, ?_want:GoFloat64) {
 		if (_d != null)
 			this._d = _d;
 		if (_want != null)
 			this._want = _want;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_22(_d, _want);
@@ -2230,10 +2228,7 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _m:Duration = ((0 : GoInt64) : Duration);
 	public var _want:Duration = ((0 : GoInt64) : Duration);
 
-	public function string():String
-		return "{" + Go.string(_d) + " " + Go.string(_m) + " " + Go.string(_want) + "}";
-
-	public function new(?_d:Duration, ?_m:Duration, ?_want:Duration, ?string) {
+	public function new(?_d:Duration, ?_m:Duration, ?_want:Duration) {
 		if (_d != null)
 			this._d = _d;
 		if (_m != null)
@@ -2241,6 +2236,9 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 		if (_want != null)
 			this._want = _want;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_23(_d, _m, _want);
@@ -2251,15 +2249,15 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _d:Duration = ((0 : GoInt64) : Duration);
 	public var _want:Duration = ((0 : GoInt64) : Duration);
 
-	public function string():String
-		return "{" + Go.string(_d) + " " + Go.string(_want) + "}";
-
-	public function new(?_d:Duration, ?_want:Duration, ?string) {
+	public function new(?_d:Duration, ?_want:Duration) {
 		if (_d != null)
 			this._d = _d;
 		if (_want != null)
 			this._want = _want;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_24(_d, _want);
@@ -2270,15 +2268,15 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _name:GoString = "";
 	public var _f:(Time, Time) -> Bool = null;
 
-	public function string():String
-		return "{" + Go.string(_name) + " " + Go.string(_f) + "}";
-
-	public function new(?_name:GoString, ?_f:(Time, Time) -> Bool, ?string) {
+	public function new(?_name:GoString, ?_f:(Time, Time) -> Bool) {
 		if (_name != null)
 			this._name = _name;
 		if (_f != null)
 			this._f = _f;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_25(_name, _f);
@@ -2289,15 +2287,15 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _time:Time = ({} : Time);
 	public var _want:Bool = false;
 
-	public function string():String
-		return "{" + Go.string(_time) + " " + Go.string(_want) + "}";
-
-	public function new(?_time:Time, ?_want:Bool, ?string) {
+	public function new(?_time:Time, ?_want:Bool) {
 		if (_time != null)
 			this._time = _time;
 		if (_want != null)
 			this._want = _want;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_26(_time, _want);
@@ -2308,15 +2306,15 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _give:Time = ({} : Time);
 	public var _want:Time = ({} : Time);
 
-	public function string():String
-		return "{" + Go.string(_give) + " " + Go.string(_want) + "}";
-
-	public function new(?_give:Time, ?_want:Time, ?string) {
+	public function new(?_give:Time, ?_want:Time) {
 		if (_give != null)
 			this._give = _give;
 		if (_want != null)
 			this._want = _want;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_27(_give, _want);
@@ -2328,10 +2326,7 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _wantStart:Time = ({} : Time);
 	public var _wantEnd:Time = ({} : Time);
 
-	public function string():String
-		return "{" + Go.string(_giveTime) + " " + Go.string(_wantStart) + " " + Go.string(_wantEnd) + "}";
-
-	public function new(?_giveTime:Time, ?_wantStart:Time, ?_wantEnd:Time, ?string) {
+	public function new(?_giveTime:Time, ?_wantStart:Time, ?_wantEnd:Time) {
 		if (_giveTime != null)
 			this._giveTime = _giveTime;
 		if (_wantStart != null)
@@ -2339,6 +2334,9 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 		if (_wantEnd != null)
 			this._wantEnd = _wantEnd;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_28(_giveTime, _wantStart, _wantEnd);
@@ -2351,10 +2349,7 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _want1:GoString = "";
 	public var _want2:GoString = "";
 
-	public function string():String
-		return "{" + Go.string(_zone) + " " + Go.string(_unix) + " " + Go.string(_want1) + " " + Go.string(_want2) + "}";
-
-	public function new(?_zone:GoString, ?_unix:GoInt64, ?_want1:GoString, ?_want2:GoString, ?string) {
+	public function new(?_zone:GoString, ?_unix:GoInt64, ?_want1:GoString, ?_want2:GoString) {
 		if (_zone != null)
 			this._zone = _zone;
 		if (_unix != null)
@@ -2364,6 +2359,9 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 		if (_want2 != null)
 			this._want2 = _want2;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_29(_zone, _unix, _want1, _want2);
@@ -2377,11 +2375,7 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _wantName:GoString = "";
 	public var _wantOffset:GoInt = 0;
 
-	public function string():String
-		return "{" + Go.string(_zoneName) + " " + Go.string(_fileName) + " " + Go.string(_date) + " " + Go.string(_wantName) + " " + Go.string(_wantOffset)
-			+ "}";
-
-	public function new(?_zoneName:GoString, ?_fileName:GoString, ?_date:Ref<Location>->Time, ?_wantName:GoString, ?_wantOffset:GoInt, ?string) {
+	public function new(?_zoneName:GoString, ?_fileName:GoString, ?_date:Ref<Location>->Time, ?_wantName:GoString, ?_wantOffset:GoInt) {
 		if (_zoneName != null)
 			this._zoneName = _zoneName;
 		if (_fileName != null)
@@ -2393,6 +2387,9 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 		if (_wantOffset != null)
 			this._wantOffset = _wantOffset;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_30(_zoneName, _fileName, _date, _wantName, _wantOffset);
@@ -2410,12 +2407,8 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _isDST:Bool = false;
 	public var _ok:Bool = false;
 
-	public function string():String
-		return "{" + Go.string(_inStr) + " " + Go.string(_inEnd) + " " + Go.string(_inSec) + " " + Go.string(_name) + " " + Go.string(_off) + " "
-			+ Go.string(_start) + " " + Go.string(_end) + " " + Go.string(_isDST) + " " + Go.string(_ok) + "}";
-
 	public function new(?_inStr:GoString, ?_inEnd:GoInt64, ?_inSec:GoInt64, ?_name:GoString, ?_off:GoInt, ?_start:GoInt64, ?_end:GoInt64, ?_isDST:Bool,
-			?_ok:Bool, ?string) {
+			?_ok:Bool) {
 		if (_inStr != null)
 			this._inStr = _inStr;
 		if (_inEnd != null)
@@ -2436,6 +2429,9 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 			this._ok = _ok;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T__struct_31(_inStr, _inEnd, _inSec, _name, _off, _start, _end, _isDST, _ok);
 	}
@@ -2447,10 +2443,7 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _out:GoString = "";
 	public var _ok:Bool = false;
 
-	public function string():String
-		return "{" + Go.string(_in) + " " + Go.string(_name) + " " + Go.string(_out) + " " + Go.string(_ok) + "}";
-
-	public function new(?_in:GoString, ?_name:GoString, ?_out:GoString, ?_ok:Bool, ?string) {
+	public function new(?_in:GoString, ?_name:GoString, ?_out:GoString, ?_ok:Bool) {
 		if (_in != null)
 			this._in = _in;
 		if (_name != null)
@@ -2460,6 +2453,9 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 		if (_ok != null)
 			this._ok = _ok;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_32(_in, _name, _out, _ok);
@@ -2472,10 +2468,7 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _out:GoString = "";
 	public var _ok:Bool = false;
 
-	public function string():String
-		return "{" + Go.string(_in) + " " + Go.string(_off) + " " + Go.string(_out) + " " + Go.string(_ok) + "}";
-
-	public function new(?_in:GoString, ?_off:GoInt, ?_out:GoString, ?_ok:Bool, ?string) {
+	public function new(?_in:GoString, ?_off:GoInt, ?_out:GoString, ?_ok:Bool) {
 		if (_in != null)
 			this._in = _in;
 		if (_off != null)
@@ -2485,6 +2478,9 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 		if (_ok != null)
 			this._ok = _ok;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_33(_in, _off, _out, _ok);
@@ -2497,10 +2493,7 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 	public var _out:GoString = "";
 	public var _ok:Bool = false;
 
-	public function string():String
-		return "{" + Go.string(_in) + " " + Go.string(_r) + " " + Go.string(_out) + " " + Go.string(_ok) + "}";
-
-	public function new(?_in:GoString, ?_r:Rule, ?_out:GoString, ?_ok:Bool, ?string) {
+	public function new(?_in:GoString, ?_r:Rule, ?_out:GoString, ?_ok:Bool) {
 		if (_in != null)
 			this._in = _in;
 		if (_r != null)
@@ -2510,6 +2503,9 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 		if (_ok != null)
 			this._ok = _ok;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_34(_in, _r, _out, _ok);

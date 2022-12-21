@@ -510,11 +510,7 @@ private typedef T__interface_0 = StructType & {
 	public var _exp:GoString = "";
 	public var _err:Error = (null : Error);
 
-	public function string():String
-		return "{" + Go.string(_data) + " " + Go.string(_off) + " " + Go.string(_n) + " " + Go.string(_bufLen) + " " + Go.string(_at) + " "
-			+ Go.string(_exp) + " " + Go.string(_err) + "}";
-
-	public function new(?_data:GoString, ?_off:GoInt, ?_n:GoInt, ?_bufLen:GoInt, ?_at:GoInt, ?_exp:GoString, ?_err:Error, ?string) {
+	public function new(?_data:GoString, ?_off:GoInt, ?_n:GoInt, ?_bufLen:GoInt, ?_at:GoInt, ?_exp:GoString, ?_err:Error) {
 		if (_data != null)
 			this._data = _data;
 		if (_off != null)
@@ -531,6 +527,9 @@ private typedef T__interface_0 = StructType & {
 			this._err = _err;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T__struct_1(_data, _off, _n, _bufLen, _at, _exp, _err);
 	}
@@ -540,15 +539,15 @@ private typedef T__interface_0 = StructType & {
 	public var _data:GoString = "";
 	public var _want:GoInt64 = 0;
 
-	public function string():String
-		return "{" + Go.string(_data) + " " + Go.string(_want) + "}";
-
-	public function new(?_data:GoString, ?_want:GoInt64, ?string) {
+	public function new(?_data:GoString, ?_want:GoInt64) {
 		if (_data != null)
 			this._data = _data;
 		if (_want != null)
 			this._want = _want;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_2(_data, _want);
@@ -559,15 +558,15 @@ private typedef T__interface_0 = StructType & {
 	public var name:GoString = "";
 	public var _r:Reader = (null : Reader);
 
-	public function string():String
-		return "{" + Go.string(name) + " " + Go.string(_r) + "}";
-
-	public function new(?name:GoString, ?_r:Reader, ?string) {
+	public function new(?name:GoString, ?_r:Reader) {
 		if (name != null)
 			this.name = name;
 		if (_r != null)
 			this._r = _r;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_3(name, _r);
@@ -580,15 +579,15 @@ private typedef T__interface_0 = StructType & {
 	@:embedded
 	public var writerTo:WriterTo = (null : WriterTo);
 
-	public function string():String
-		return "{" + Go.string(reader) + " " + Go.string(writerTo) + "}";
-
-	public function new(?reader:Reader, ?writerTo:WriterTo, ?string) {
+	public function new(?reader:Reader, ?writerTo:WriterTo) {
 		if (reader != null)
 			this.reader = reader;
 		if (writerTo != null)
 			this.writerTo = writerTo;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	@:embedded
 	public function read(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
@@ -609,15 +608,15 @@ private typedef T__interface_0 = StructType & {
 	@:embedded
 	public var stringer:stdgo.fmt.Fmt.Stringer = (null : stdgo.fmt.Fmt.Stringer);
 
-	public function string():String
-		return "{" + Go.string(writer) + " " + Go.string(stringer) + "}";
-
-	public function new(?writer:Writer, ?stringer:stdgo.fmt.Fmt.Stringer, ?string) {
+	public function new(?writer:Writer, ?stringer:stdgo.fmt.Fmt.Stringer) {
 		if (writer != null)
 			this.writer = writer;
 		if (stringer != null)
 			this.stringer = stringer;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	@:embedded
 	public function string():GoString
@@ -633,10 +632,10 @@ private typedef T__interface_0 = StructType & {
 }
 
 @:structInit @:local private class T__struct_6 {
-	public function string():String
-		return "{" + "}";
+	public function new() {}
 
-	public function new(?string) {}
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_6();

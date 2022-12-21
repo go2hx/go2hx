@@ -823,15 +823,15 @@ typedef Signal = StructType & {
 	public var mutex:stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
 	public var _dir:GoString = "";
 
-	public function string():String
-		return "{" + Go.string(mutex) + " " + Go.string(_dir) + "}";
-
-	public function new(?mutex:stdgo.sync.Sync.Mutex, ?_dir:GoString, ?string) {
+	public function new(?mutex:stdgo.sync.Sync.Mutex, ?_dir:GoString) {
 		if (mutex != null)
 			this.mutex = mutex;
 		if (_dir != null)
 			this._dir = _dir;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	@:embedded
 	public function lock()

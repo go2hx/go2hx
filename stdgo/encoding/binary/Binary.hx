@@ -351,13 +351,13 @@ typedef AppendByteOrder = StructType & {
 @:structInit @:local private class T__struct_0 {
 	public var _f:GoArray<GoFloat32> = new GoArray<GoFloat32>(...[for (i in 0...8) (0 : GoFloat32)]);
 
-	public function string():String
-		return "{" + Go.string(_f) + "}";
-
-	public function new(?_f:GoArray<GoFloat32>, ?string) {
+	public function new(?_f:GoArray<GoFloat32>) {
 		if (_f != null)
 			this._f = _f;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_0(_f);
@@ -367,13 +367,13 @@ typedef AppendByteOrder = StructType & {
 @:structInit @:local private class T__struct_1 {
 	public var f:GoArray<GoFloat32> = new GoArray<GoFloat32>(...[for (i in 0...8) (0 : GoFloat32)]);
 
-	public function string():String
-		return "{" + Go.string(f) + "}";
-
-	public function new(?f:GoArray<GoFloat32>, ?string) {
+	public function new(?f:GoArray<GoFloat32>) {
 		if (f != null)
 			this.f = f;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_1(f);
@@ -384,15 +384,15 @@ typedef AppendByteOrder = StructType & {
 	public var _val:AnyInterface = (null : AnyInterface);
 	public var _want:GoInt = 0;
 
-	public function string():String
-		return "{" + Go.string(_val) + " " + Go.string(_want) + "}";
-
-	public function new(?_val:AnyInterface, ?_want:GoInt, ?string) {
+	public function new(?_val:AnyInterface, ?_want:GoInt) {
 		if (_val != null)
 			this._val = _val;
 		if (_want != null)
 			this._want = _want;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_2(_val, _want);
@@ -402,13 +402,13 @@ typedef AppendByteOrder = StructType & {
 @:structInit @:local private class T__struct_3 {
 	public var a:Struct = ({} : Struct);
 
-	public function string():String
-		return "{" + Go.string(a) + "}";
-
-	public function new(?a:Struct, ?string) {
+	public function new(?a:Struct) {
 		if (a != null)
 			this.a = a;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_3(a);
@@ -416,10 +416,10 @@ typedef AppendByteOrder = StructType & {
 }
 
 @:structInit @:local private class T__struct_4 {
-	public function string():String
-		return "{" + "}";
+	public function new() {}
 
-	public function new(?string) {}
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_4();
@@ -434,22 +434,7 @@ typedef AppendByteOrder = StructType & {
 	public var e:GoInt32 = 0;
 	public var f:GoFloat64 = 0;
 
-	public function string():String
-		return "{"
-			+ Go.string(a)
-			+ " "
-			+ Go.string(b)
-			+ " "
-			+ Go.string(c)
-			+ " "
-			+ Go.string(d)
-			+ " "
-			+ Go.string(e)
-			+ " "
-			+ Go.string(f)
-			+ "}";
-
-	public function new(?a:GoUInt8, ?b:GoUInt8, ?c:GoUInt8, ?d:GoUInt8, ?e:GoInt32, ?f:GoFloat64, ?string) {
+	public function new(?a:GoUInt8, ?b:GoUInt8, ?c:GoUInt8, ?d:GoUInt8, ?e:GoInt32, ?f:GoFloat64) {
 		if (a != null)
 			this.a = a;
 		if (b != null)
@@ -464,6 +449,9 @@ typedef AppendByteOrder = StructType & {
 			this.f = f;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T__struct_5(a, b, c, d, e, f);
 	}
@@ -475,10 +463,7 @@ typedef AppendByteOrder = StructType & {
 	public var _wantN:GoInt = 0;
 	public var _wantValue:GoUInt64 = 0;
 
-	public function string():String
-		return "{" + Go.string(_in) + " " + Go.string(_name) + " " + Go.string(_wantN) + " " + Go.string(_wantValue) + "}";
-
-	public function new(?_in:Slice<GoUInt8>, ?_name:GoString, ?_wantN:GoInt, ?_wantValue:GoUInt64, ?string) {
+	public function new(?_in:Slice<GoUInt8>, ?_name:GoString, ?_wantN:GoInt, ?_wantValue:GoUInt64) {
 		if (_in != null)
 			this._in = _in;
 		if (_name != null)
@@ -488,6 +473,9 @@ typedef AppendByteOrder = StructType & {
 		if (_wantValue != null)
 			this._wantValue = _wantValue;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T__struct_6(_in, _name, _wantN, _wantValue);

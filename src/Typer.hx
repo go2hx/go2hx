@@ -5011,7 +5011,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	}
 	info.restricted = restricted;
 	final patchName = info.global.module.path + ":" + name;
-	var block:Expr = if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
+	var block:Expr = if (info.global.externBool && !StringTools.endsWith(info.global.module.path,"_test")) {
 		info.returnNamed = false;
 		macro throw ${makeString(info.global.path + "." + name + " is not yet implemented")};
 	} else {
@@ -6097,25 +6097,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 					macro if ($i{name} != null)
 						this.$name = $i{name}
 			];
-			if (StringTools.startsWith(name, "T__struct_")) {
-				var e = macro "{";
-				for (i in 0...fields.length) {
-					e = macro $e + Go.string($i{fields[i].name});
-					if (i < fields.length - 1)
-						e = macro $e + " ";
-				}
-				e = macro $e + "}";
-				fields.push({
-					name: "string",
-					access: [APublic],
-					pos: null,
-					kind: FFun({
-						ret: TPath({name: "String", pack: []}),
-						args: [],
-						expr: macro return $e,
-					})
-				});
-			}
 			fields.push({
 				name: "new",
 				pos: null,
@@ -6135,6 +6116,17 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 					expr: macro $b{exprs},
 				}),
 			});
+			if (local) {
+				fields.push({
+					name: "__underlying__",
+					pos: null,
+					access: [APublic],
+					kind: FFun({
+						args: [],
+						expr: macro return Go.toInterface(this),
+					})
+				});
+			}
 			var p:TypePath = {name: name, pack: []};
 			var args:Array<Expr> = [];
 			var sets:Array<Expr> = [];
@@ -6224,7 +6216,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						}
 						final methodName = nameIdent(method.name, false, false, info);
 						var expr = macro $i{name}.$fieldName($a{args});
-						if (info.global.externBool) {
+						if (info.global.externBool && !StringTools.endsWith(info.global.module.path,"_test")) {
 							expr = results.length == 1 ? defaultValue(results[0], info) : macro null;
 						}
 						fields.push({
@@ -6486,7 +6478,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 				if (type != null) {
 					expr = defaultValue(typeof(value.type, info, false), info);
 				} else {
-					if (!info.global.externBool) {
+					if (!info.global.externBool || StringTools.endsWith(info.global.module.path,"_test") || StringTools.endsWith(info.global.module.path,"_test")) {
 						expr = typeExpr(info.lastValue, info);
 						expr = assignTranslate(typeof(info.lastValue, info, false), info.lastType, expr, info);
 					} else {
@@ -6498,7 +6490,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 				info.lastValue = value.values[i];
 				info.lastType = typeof(value.type, info, false);
 				final t = typeof(value.values[i], info, false);
-				if (!info.global.externBool) {
+				if (!info.global.externBool || StringTools.endsWith(info.global.module.path,"_test")) {
 					expr = typeExpr(value.values[i], info);
 					expr = assignTranslate(t, info.lastType, expr, info);
 				} else {

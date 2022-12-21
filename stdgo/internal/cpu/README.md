@@ -128,7 +128,7 @@ function _doinit():Void
  
 
 
-[\(view code\)](<./Cpu.hx#L714>)
+[\(view code\)](<./Cpu.hx#L704>)
 
 
 ## function \_indexByte
@@ -142,7 +142,7 @@ function _indexByte(_s:stdgo.GoString, _c:stdgo.GoByte):stdgo.GoInt
 indexByte returns the index of the first instance of c in s,��// or \-1 if c is not present in s. 
 
 
-[\(view code\)](<./Cpu.hx#L690>)
+[\(view code\)](<./Cpu.hx#L680>)
 
 
 ## function \_processOptions
@@ -156,7 +156,7 @@ function _processOptions(_env:stdgo.GoString):Void
 processOptions enables or disables CPU feature values based on the parsed env string.��// The env string is expected to be of the form cpu.feature1=value1,cpu.feature2=value2...��// where feature names is one of the architecture specific list stored in the��// cpu packages options variable and values are either 'on' or 'off'.��// If env contains cpu.all=off then all cpu features referenced through the options��// variable are disabled. Other feature names and values result in warning messages. 
 
 
-[\(view code\)](<./Cpu.hx#L616>)
+[\(view code\)](<./Cpu.hx#L606>)
 
 
 ## function initialize
@@ -170,7 +170,7 @@ function initialize(_env:stdgo.GoString):Void
 Initialize examines the processor and sets the relevant variables above.��// This is called by the runtime package early in program initialization,��// before normal init functions are run. env is set by runtime if the OS supports��// cpu feature options in GODEBUG. 
 
 
-[\(view code\)](<./Cpu.hx#L603>)
+[\(view code\)](<./Cpu.hx#L593>)
 
 
 ## function name
@@ -184,7 +184,7 @@ function name():stdgo.GoString
 Name returns the CPU name given by the vendor��// if it can be read directly from memory or by CPU instructions.��// If the CPU name can not be determined an empty string is returned.��//��// Implementations that use the Operating System \(e.g. sysctl or /sys/\)��// to gather CPU information for display should be placed in internal/sysinfo. 
 
 
-[\(view code\)](<./Cpu.hx#L710>)
+[\(view code\)](<./Cpu.hx#L700>)
 
 
 # Classes

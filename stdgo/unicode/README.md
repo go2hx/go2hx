@@ -14,61 +14,61 @@ Package unicode provides data and functions to test some properties of��// U
 
 ```
 === RUN   TestDigit
---- PASS: TestDigit (0.000186920166015625)
+--- PASS: TestDigit (0.000139951705932617)
 === RUN   TestDigitOptimization
---- PASS: TestDigitOptimization (6.19888305664062e-05)
+--- PASS: TestDigitOptimization (5.19752502441406e-05)
 === RUN   TestIsControlLatin1
---- PASS: TestIsControlLatin1 (0.000191926956176758)
+--- PASS: TestIsControlLatin1 (0.000168085098266602)
 === RUN   TestIsLetterLatin1
---- PASS: TestIsLetterLatin1 (0.000292062759399414)
+--- PASS: TestIsLetterLatin1 (0.000214099884033203)
 === RUN   TestIsUpperLatin1
---- PASS: TestIsUpperLatin1 (0.000262975692749023)
+--- PASS: TestIsUpperLatin1 (0.000200986862182617)
 === RUN   TestIsLowerLatin1
---- PASS: TestIsLowerLatin1 (0.000213146209716797)
+--- PASS: TestIsLowerLatin1 (0.000198125839233398)
 === RUN   TestNumberLatin1
---- PASS: TestNumberLatin1 (0.000252008438110352)
+--- PASS: TestNumberLatin1 (0.000240087509155273)
 === RUN   TestIsPrintLatin1
---- PASS: TestIsPrintLatin1 (0.00200986862182617)
+--- PASS: TestIsPrintLatin1 (0.00200510025024414)
 === RUN   TestIsGraphicLatin1
---- PASS: TestIsGraphicLatin1 (0.000982999801635742)
+--- PASS: TestIsGraphicLatin1 (0.000791788101196289)
 === RUN   TestIsPunctLatin1
---- PASS: TestIsPunctLatin1 (0.00026702880859375)
+--- PASS: TestIsPunctLatin1 (0.000249147415161133)
 === RUN   TestIsSpaceLatin1
---- PASS: TestIsSpaceLatin1 (0.000258922576904297)
+--- PASS: TestIsSpaceLatin1 (0.000187873840332031)
 === RUN   TestIsSymbolLatin1
---- PASS: TestIsSymbolLatin1 (0.000284194946289062)
+--- PASS: TestIsSymbolLatin1 (0.000234127044677734)
 === RUN   TestIsLetter
---- PASS: TestIsLetter (0.000120878219604492)
+--- PASS: TestIsLetter (0.0001220703125)
 === RUN   TestIsUpper
---- PASS: TestIsUpper (6.60419464111328e-05)
+--- PASS: TestIsUpper (6.58035278320312e-05)
 === RUN   TestTo
---- PASS: TestTo (0.00108003616333008)
+--- PASS: TestTo (0.000867128372192383)
 === RUN   TestToUpperCase
---- PASS: TestToUpperCase (0.000226974487304688)
+--- PASS: TestToUpperCase (0.000235795974731445)
 === RUN   TestToLowerCase
---- PASS: TestToLowerCase (0.000357866287231445)
+--- PASS: TestToLowerCase (0.000305891036987305)
 === RUN   TestToTitleCase
---- PASS: TestToTitleCase (0.000319004058837891)
+--- PASS: TestToTitleCase (0.000260114669799805)
 === RUN   TestIsSpace
---- PASS: TestIsSpace (3.69548797607422e-05)
+--- PASS: TestIsSpace (3.814697265625e-05)
 === RUN   TestLetterOptimizations
---- PASS: TestLetterOptimizations (0.01894211769104)
+--- PASS: TestLetterOptimizations (0.0161459445953369)
 === RUN   TestTurkishCase
---- PASS: TestTurkishCase (0.00124692916870117)
+--- PASS: TestTurkishCase (0.00112199783325195)
 === RUN   TestSimpleFold
---- PASS: TestSimpleFold (0.000185966491699219)
+--- PASS: TestSimpleFold (0.000190019607543945)
 === RUN   TestCalibrate
---- PASS: TestCalibrate (1.00135803222656e-05)
+--- PASS: TestCalibrate (9.05990600585938e-06)
 === RUN   TestLatinOffset
---- PASS: TestLatinOffset (0.0761749744415283)
+--- PASS: TestLatinOffset (0.0721340179443359)
 === RUN   TestSpecialCaseNoMapping
---- PASS: TestSpecialCaseNoMapping (6.60419464111328e-05)
+--- PASS: TestSpecialCaseNoMapping (6.19888305664062e-05)
 === RUN   TestNegativeRune
---- PASS: TestNegativeRune (0.00443005561828613)
+--- PASS: TestNegativeRune (0.00406408309936523)
 === RUN   TestCategories
---- PASS: TestCategories (0.0154249668121338)
+--- PASS: TestCategories (0.0138058662414551)
 === RUN   TestProperties
---- PASS: TestProperties (0.0135068893432617)
+--- PASS: TestProperties (0.0134360790252686)
 ```
 </p>
 </details>
@@ -78,61 +78,61 @@ Package unicode provides data and functions to test some properties of��// U
 
 ```
 === RUN   TestDigit
---- PASS: TestDigit (0.00116515159606933594)
+--- PASS: TestDigit (0.00136899948120117188)
 === RUN   TestDigitOptimization
---- PASS: TestDigitOptimization (0.00123310089111328125)
+--- PASS: TestDigitOptimization (0.00121092796325683594)
 === RUN   TestIsControlLatin1
---- PASS: TestIsControlLatin1 (0.00125098228454589844)
+--- PASS: TestIsControlLatin1 (0.00119185447692871094)
 === RUN   TestIsLetterLatin1
---- PASS: TestIsLetterLatin1 (0.00226807594299316406)
+--- PASS: TestIsLetterLatin1 (0.00215101242065429688)
 === RUN   TestIsUpperLatin1
---- PASS: TestIsUpperLatin1 (0.00215506553649902344)
+--- PASS: TestIsUpperLatin1 (0.00267791748046875)
 === RUN   TestIsLowerLatin1
---- PASS: TestIsLowerLatin1 (0.00221896171569824219)
+--- PASS: TestIsLowerLatin1 (0.00193810462951660156)
 === RUN   TestNumberLatin1
---- PASS: TestNumberLatin1 (0.00208401679992675781)
+--- PASS: TestNumberLatin1 (0.00212407112121582031)
 === RUN   TestIsPrintLatin1
---- PASS: TestIsPrintLatin1 (0.00609707832336425781)
+--- PASS: TestIsPrintLatin1 (0.00576281547546386719)
 === RUN   TestIsGraphicLatin1
---- PASS: TestIsGraphicLatin1 (0.00650906562805175781)
+--- PASS: TestIsGraphicLatin1 (0.00634622573852539062)
 === RUN   TestIsPunctLatin1
---- PASS: TestIsPunctLatin1 (0.00321102142333984375)
+--- PASS: TestIsPunctLatin1 (0.00293302536010742188)
 === RUN   TestIsSpaceLatin1
---- PASS: TestIsSpaceLatin1 (0.00197911262512207031)
+--- PASS: TestIsSpaceLatin1 (0.00193095207214355469)
 === RUN   TestIsSymbolLatin1
---- PASS: TestIsSymbolLatin1 (0.00280308723449707031)
+--- PASS: TestIsSymbolLatin1 (0.00285005569458007812)
 === RUN   TestIsLetter
---- PASS: TestIsLetter (0.00118207931518554688)
+--- PASS: TestIsLetter (0.0010528564453125)
 === RUN   TestIsUpper
---- PASS: TestIsUpper (0.0006389617919921875)
+--- PASS: TestIsUpper (0.00057697296142578125)
 === RUN   TestTo
---- PASS: TestTo (0.00233197212219238281)
+--- PASS: TestTo (0.002101898193359375)
 === RUN   TestToUpperCase
---- PASS: TestToUpperCase (0.00069713592529296875)
+--- PASS: TestToUpperCase (0.000665903091430664062)
 === RUN   TestToLowerCase
---- PASS: TestToLowerCase (0.000633001327514648438)
+--- PASS: TestToLowerCase (0.000726938247680664062)
 === RUN   TestToTitleCase
---- PASS: TestToTitleCase (0.000603914260864257812)
+--- PASS: TestToTitleCase (0.000623941421508789062)
 === RUN   TestIsSpace
---- PASS: TestIsSpace (0.000303983688354492188)
+--- PASS: TestIsSpace (0.000293970108032226562)
 === RUN   TestLetterOptimizations
---- PASS: TestLetterOptimizations (0.0423669815063476562)
+--- PASS: TestLetterOptimizations (0.0408010482788085938)
 === RUN   TestTurkishCase
---- PASS: TestTurkishCase (0.00387692451477050781)
+--- PASS: TestTurkishCase (0.00473999977111816406)
 === RUN   TestSimpleFold
---- PASS: TestSimpleFold (0.00102591514587402344)
+--- PASS: TestSimpleFold (0.00114107131958007812)
 === RUN   TestCalibrate
 --- PASS: TestCalibrate (1.1920928955078125e-05)
 === RUN   TestLatinOffset
---- PASS: TestLatinOffset (0.106059074401855469)
+--- PASS: TestLatinOffset (0.0996980667114257812)
 === RUN   TestSpecialCaseNoMapping
---- PASS: TestSpecialCaseNoMapping (0.000437974929809570312)
+--- PASS: TestSpecialCaseNoMapping (0.000280141830444335938)
 === RUN   TestNegativeRune
---- PASS: TestNegativeRune (0.0301580429077148438)
+--- PASS: TestNegativeRune (0.0259640216827392578)
 === RUN   TestCategories
---- PASS: TestCategories (0.0216248035430908203)
+--- PASS: TestCategories (0.0209980010986328125)
 === RUN   TestProperties
---- PASS: TestProperties (0.0198109149932861328)
+--- PASS: TestProperties (0.0189609527587890625)
 ```
 </p>
 </details>

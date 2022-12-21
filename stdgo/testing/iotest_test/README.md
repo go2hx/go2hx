@@ -14,15 +14,15 @@
 
 - [Variables](<#variables>)
 
-- [`function main():Void`](<#function-main>)
-
 - [`function exampleErrReader():Void`](<#function-exampleerrreader>)
+
+- [`function main():Void`](<#function-main>)
 
 # Variables
 
 
 ```haxe
-import stdgo.testing.iotest_test.Iotest_test
+import stdgo.testing.iotest_test.Iotest
 ```
 
 
@@ -35,22 +35,8 @@ var _:Bool
 
 
 ```haxe
-import stdgo.testing.iotest_test.Iotest_test
+import stdgo.testing.iotest_test.Iotest
 ```
-
-
-## function main
-
-
-```haxe
-function main():Void
-```
-
-
- 
-
-
-[\(view code\)](<./Iotest_test.hx#L18>)
 
 
 ## function exampleErrReader
@@ -64,6 +50,20 @@ function exampleErrReader():Void
  
 
 
-[\(view code\)](<./Iotest_test.hx#L13>)
+[\(view code\)](<./Iotest.hx#L13>)
+
+
+## function main
+
+
+```haxe
+function main():Void
+```
+
+
+ 
+
+
+[\(view code\)](<./Iotest.hx#L51>)
 
 

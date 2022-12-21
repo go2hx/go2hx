@@ -14,11 +14,10 @@ Package iotest implements Readers and Writers useful mainly for testing.
 
 ```
 Error: Command failed with error 1
-Uncaught exception: Null access
-Called from stdgo._Slice.$Slice_Impl_.__toArray__(stdgo/Slice.hx:170)
-Called from stdgo.testing._Testing.$Testing_Fields_.mainStart(stdgo/testing/Testing.hx:482)
-Called from stdgo.testing.iotest_test._Iotest.$Iotest_Fields_.main(stdgo/testing/iotest_test/Iotest.hx:19)
-Called from .init(?:1)
+=== RUN   TestWriteLogger
+Exception: testing.iotest.testWriteLogger is not yet implemented
+Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 353)
+Called from stdgo.testing.iotest_test._Iotest.$Iotest_Fields_.main (stdgo/testing/iotest_test/Iotest.hx line 55)
 ```
 </p>
 </details>
@@ -27,11 +26,9 @@ Called from .init(?:1)
 <p>
 
 ```
-Uncaught exception Null Access
-stdgo/Slice.hx:1: character 1 : Called from here
-stdgo/Slice.hx:170: characters 10-24 : Called from here
-stdgo/testing/Testing.hx:482: characters 14-33 : Called from here
-stdgo/testing/iotest_test/Iotest.hx:19: lines 19-21 : Called from here
+=== RUN   TestWriteLogger
+Exception: testing.iotest.testWriteLogger is not yet implemented
+Called from stdgo.testing.iotest._Iotest.Iotest_Fields_.testWriteLogger (stdgo/testing/iotest/Iotest.hx line 221 column 2)
 ```
 </p>
 </details>

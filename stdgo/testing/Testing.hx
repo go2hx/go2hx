@@ -107,7 +107,7 @@ class B {
 	public function cleanup(f:Void->Void) {}
 
 	public function error(args:Rest<AnyInterface>) {
-		stdgo.fmt.Fmt.println(args);
+		stdgo.fmt.Fmt.println(...args);
 		fail();
 	}
 
@@ -143,7 +143,7 @@ class B {
 
 	public function reportMetric(n:GoFloat64, uint:GoString) {}
 
-	public function runParrallel(body:PB->Void) {
+	public function runParallel(body:PB->Void) {
 		return null;
 	}
 

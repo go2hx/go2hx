@@ -47,7 +47,6 @@ stdgo/time_test/Time_test.hx:5864: characters 12-36 : Type not found : stdgo.enc
 stdgo/time_test/Time_test.hx:5877: characters 19-43 : Type not found : stdgo.encoding.json.Json
 stdgo/time_test/Time_test.hx:7209: characters 50-80 : Module stdgo.internal.testenv.Testenv does not define type Testenv
 stdgo/time_test/Time_test.hx:7209: characters 50-80 : ... For function argument ''
-stdgo/time_test/Time_test.hx:4155: characters 5-16 : stdgo.Ref<stdgo.testing.B> has no field runParallel (Suggestion: runParrallel)
 
 ```
 

@@ -60,7 +60,7 @@
 
   - [`function run(name:stdgo.GoString, f:()):Bool`](<#b-function-run>)
 
-  - [`function runParrallel(body:()):{<unknown>}`](<#b-function-runparrallel>)
+  - [`function runParallel(body:()):{<unknown>}`](<#b-function-runparallel>)
 
   - [`function setBytes(n:stdgo.GoInt64):Void`](<#b-function-setbytes>)
 
@@ -575,11 +575,11 @@ function run(name:stdgo.GoString, f:()):Bool
 [\(view code\)](<./Testing.hx#L100>)
 
 
-### B function runParrallel
+### B function runParallel
 
 
 ```haxe
-function runParrallel(body:()):{<unknown>}
+function runParallel(body:()):{<unknown>}
 ```
 
 

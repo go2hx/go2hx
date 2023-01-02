@@ -1822,8 +1822,23 @@ class Value_asInterface {
 		// method implicitly but instead prints the concrete values they hold.
 	**/
 	@:keep
-	static public function string(_v:Value):GoString
-		throw "reflect.string is not yet implemented";
+	static public function string(_v:Value):GoString {
+		var value = @:privateAccess _v.value.value;
+		final t = @:privateAccess _v.value.type._common();
+		final underlyingType = stdgo.internal.reflect.Reflect.getUnderlying(t);
+		switch (underlyingType) {
+			case stdgo.internal.reflect.Reflect.GoType.basic(kind):
+				switch kind {
+					case string_kind:
+						return value;
+					default:
+						var _ = 0;
+				};
+			default:
+				var _ = 0;
+		};
+		return "<" + _v.type().string() + ">";
+	}
 
 	/**
 		// Slice3 is the 3-index form of the slice operation: it returns v[i:j:k].
@@ -2175,10 +2190,15 @@ class Value_asInterface {
 	**/
 	@:keep
 	static public function len(_v:Value):GoInt {
+		final _v = _v.__copy__();
 		var value = @:privateAccess _v.value.value;
 		final t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
 		if (stdgo.internal.reflect.Reflect.isNamed(t))
 			value = (value : Dynamic);
+		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
+			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
+			value = (value : Dynamic).value;
+		};
 		final k = _v.kind();
 		return switch k {
 			case stdgo.internal.reflect.Reflect.KindType.array:
@@ -2192,6 +2212,7 @@ class Value_asInterface {
 			case stdgo.internal.reflect.Reflect.KindType.string:
 				(value : Dynamic).length;
 			default:
+				trace(k.string());
 				throw "not supported";
 		};
 	}
@@ -2407,8 +2428,21 @@ class Value_asInterface {
 		// It panics if v's Kind is not Struct or i is out of range.
 	**/
 	@:keep
-	static public function field(_v:Value, _i:GoInt):Value
-		throw "reflect.field is not yet implemented";
+	static public function field(_v:Value, _i:GoInt):Value {
+		final gt = @:privateAccess stdgo.internal.reflect.Reflect.getUnderlying(_v.value.type._common());
+		return switch gt {
+			case structType(fields):
+				final field = fields[_i.toBasic()];
+				final fieldValue = std.Reflect.field(@:privateAccess _v.value.value, field.name);
+				final valueType = new Value(new AnyInterface(fieldValue, @:privateAccess
+					(cast _v.value.type.field(_i).type : stdgo.internal.reflect.Reflect._Type_asInterface).__type__));
+				if (field.name.charAt(0) == "_")
+					@:privateAccess valueType.notSetBool = false;
+				valueType;
+			default:
+				throw "unsupported: " + gt;
+		};
+	}
 
 	/**
 		// Elem returns the value that the interface v contains
@@ -2424,7 +2458,7 @@ class Value_asInterface {
 		switch k {
 			case ptr:
 				switch stdgo.internal.reflect.Reflect.getUnderlying(t) {
-					case stdgo.internal.reflect.Reflect.GoType.refType(elem):
+					case stdgo.internal.reflect.Reflect.GoType.refType(_.get() => elem):
 						final value = new Value(new AnyInterface(value, new stdgo.internal.reflect.Reflect._Type(elem)), null);
 						@:privateAccess value.canAddrBool = true;
 						return value;

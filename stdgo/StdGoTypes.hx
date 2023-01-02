@@ -1852,7 +1852,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 					final name = fields[i].name;
 					if (StringTools.startsWith(name, "__blank__"))
 						continue;
-					final type = fields[i].type;
+					final type = fields[i].type.get();
 					final fieldValue = std.Reflect.field(aValue, name);
 					final fieldValue2 = std.Reflect.field(bValue, name);
 

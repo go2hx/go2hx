@@ -279,7 +279,10 @@ func parseLocalConstants(file *ast.File, pkg *packages.Package) {
 			// constant folding
 			typeAndValue := checker.Types[node.(ast.Expr)]
 			if value := typeAndValue.Value; value != nil {
-				basic := checker.TypeOf(node.(ast.Expr)).Underlying().(*types.Basic)
+				basic, ok := checker.TypeOf(node.(ast.Expr)).Underlying().(*types.Basic)
+				if !ok {
+					return false
+				}
 				var e ast.Expr
 				_ = basic
 				kind := basic.Kind()

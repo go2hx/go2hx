@@ -11,6 +11,40 @@ import haxe.macro.TypeTools;
 using Lambda;
 
 class Macro {
+	#if macro
+	public static function init() {
+		var run = false;
+		Context.onAfterTyping(_ -> {
+				if (run)
+					return;
+				run = true;
+				final exprs:Array<Expr> = [];
+				//var count = 4;
+				for (name => e in @:privateAccess Go.nameTypes) {
+					exprs.push(macro $v{name} => $e);
+					//if (--count <= 0)
+					//	break;
+				}
+				final e = macro $a{exprs};
+				//trace(@:privateAccess Lambda.count(Go.nameTypes));
+				final cl = macro class TypeInfoData {
+					public var names:Map<String,stdgo.internal.reflect.Reflect.GoType> = null;
+					public function new() {
+						try {
+							names = $e;
+							//trace(Lambda.count(names));
+						}catch(e) {
+							trace(e.details());
+						}
+					}
+				}
+				Context.defineType(cl);
+				sys.io.File.saveContent("TestTypeInfoData.hx","function main() {trace(new TypeInfoData().names);}\n" + new haxe.macro.Printer().printTypeDefinition(cl));
+				Sys.command("haxelib run formatter -s TestTypeInfoData.hx");
+				//trace("defineType");
+			});
+	}
+	#end
 
 	public static macro function controlFlow(body:Expr) {
 		final selectionName = "____select____";

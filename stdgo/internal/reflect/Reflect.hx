@@ -4,6 +4,7 @@ import stdgo.Pointer;
 import stdgo.StdGoTypes;
 import stdgo.reflect.Reflect;
 
+
 enum abstract KindType(stdgo.reflect.Reflect.Kind) from Int from stdgo.reflect.Reflect.Kind to stdgo.reflect.Reflect.Kind {
 	var invalid = 0;
 	var bool = 1;
@@ -44,7 +45,7 @@ function formatGoFieldName(name:String):String {
 
 function namedUnderlying(obj:AnyInterface):AnyInterface {
 	return switch @:privateAccess obj.type._common() {
-		case named(_, _, type):
+		case named(_, _, type,_,_):
 			new AnyInterface((obj.value : Dynamic).__t__, new _Type(type));
 		default:
 			obj;
@@ -180,8 +181,8 @@ function directlyAssignable(t:Type, v:Type):Bool {
 					if (fields.length != fields2.length)
 						return false;
 					for (i in 0...fields.length) {
-						final i2 = new _Type_asInterface(Go.pointer(new _Type(fields[i].type)), new _Type(fields[i].type));
-						final i3 = new _Type_asInterface(Go.pointer(new _Type(fields2[i].type)), new _Type(fields2[i].type));
+						final i2 = new _Type_asInterface(Go.pointer(new _Type(fields[i].type.get())), new _Type(fields[i].type.get()));
+						final i3 = new _Type_asInterface(Go.pointer(new _Type(fields2[i].type.get())), new _Type(fields2[i].type.get()));
 						if (!directlyAssignable(i2, i3))
 							return false;
 					}
@@ -233,9 +234,9 @@ function directlyAssignable(t:Type, v:Type):Bool {
 				default:
 					false;
 			}
-		case pointerType(e), refType(e):
+		case pointerType(e), refType(_.get() => e):
 			switch vgt {
-				case pointerType(e2), refType(e2):
+				case pointerType(e2), refType(_.get() => e2):
 					final i = new _Type_asInterface(Go.pointer(new _Type(e)), new _Type(e));
 					final i2 = new _Type_asInterface(Go.pointer(new _Type(e2)), new _Type(e2));
 					directlyAssignable(i, i2);
@@ -319,7 +320,7 @@ class MethodType {
 @:structInit
 class FieldType {
 	public var name:String;
-	public var type:GoType;
+	public var type:Ref<GoType>;
 	public var tag:String;
 	public var embedded:Bool;
 	public var optional:Bool;
@@ -341,18 +342,18 @@ enum GoType {
 	invalidType;
 	signature(variadic:Bool, params:Ref<Array<GoType>>, results:Ref<Array<GoType>>, recv:Ref<GoType>, ?typeParams:Ref<Array<GoType>>);
 	basic(kind:BasicKind);
-	_var(name:String, type:GoType);
-	tuple(len:Int, vars:Array<GoType>);
+	_var(name:String, type:Ref<GoType>);
+	tuple(len:Int, vars:Ref<Array<GoType>>);
 	interfaceType(empty:Bool, methods:Array<MethodType>);
 	sliceType(elem:Ref<GoType>);
-	named(path:String, methods:Array<MethodType>, type:GoType, ?alias:Bool, ?params:Array<GoType>);
+	named(path:String, methods:Array<MethodType>, type:GoType, alias:Bool, params:Ref<Array<GoType>>);
 	previouslyNamed(path:String);
 	structType(fields:Array<FieldType>);
 	pointerType(elem:GoType);
 	arrayType(elem:Ref<GoType>, len:Int);
 	mapType(key:Ref<GoType>, value:Ref<GoType>);
 	chanType(dir:Int, elem:Ref<GoType>);
-	refType(elem:GoType);
+	refType(elem:Ref<GoType>); // can hold named type therefore will ref the TypeInfo map
 }
 
 function isSignature(type:GoType, underlyingBool:Bool = true):Bool {
@@ -361,7 +362,7 @@ function isSignature(type:GoType, underlyingBool:Bool = true):Bool {
 	return switch type {
 		case signature(_, _, _):
 			true;
-		case named(_, _, underlying):
+		case named(_, _, underlying,_,_):
 			if (underlyingBool) {
 				isSignature(underlying, underlyingBool);
 			} else {
@@ -374,16 +375,14 @@ function isSignature(type:GoType, underlyingBool:Bool = true):Bool {
 
 // named doesn't count for interfaces
 function isNamed(type:GoType):Bool {
-	if (type == null)
-		return false;
 	return switch type {
-		case refType(underlying):
+		case refType(_.get() => underlying):
 			isNamed(underlying);
-		case named(_, _, underlying):
+		case named(_, _, underlying,_,_):
 			switch underlying {
 				case structType(_): true;
 				case interfaceType(_, _): false;
-				case named(_, _, underlying): isNamed(underlying);
+				case named(_, _, underlying,_,_): isNamed(underlying);
 				default:
 					true;
 			}
@@ -400,12 +399,10 @@ function isTitle(string:String):Bool {
 }
 
 function isStruct(type:GoType):Bool {
-	if (type == null)
-		return false;
 	return switch type {
-		case refType(type):
+		case refType(_.get() => type):
 			isStruct(type);
-		case named(_, _, underlying):
+		case named(_, _, underlying,_,_):
 			isStruct(underlying);
 		case structType(_):
 			true;
@@ -414,8 +411,6 @@ function isStruct(type:GoType):Bool {
 }
 
 function isPointerStruct(type:GoType):Bool {
-	if (type == null)
-		return false;
 	return switch type {
 		case pointerType(elem): isStruct(elem);
 		default: false;
@@ -435,7 +430,7 @@ function isInvalid(type:GoType):Bool {
 				default:
 					false;
 			}
-		case named(_, _, underlying):
+		case named(_, _, underlying,_,_):
 			isInvalid(underlying);
 		default:
 			false;
@@ -446,11 +441,11 @@ function getElem(type:GoType):GoType {
 	if (type == null)
 		return type;
 	return switch type {
-		case named(_, _, type):
+		case named(_, _, type,_,_):
 			type;
-		case _var(_, type):
+		case _var(_, _.get() => type):
 			getElem(type);
-		case arrayType(_.get() => elem, _), sliceType(_.get() => elem), pointerType(elem), refType(elem):
+		case arrayType(_.get() => elem, _), sliceType(_.get() => elem), pointerType(elem), refType(_.get() => elem):
 			elem;
 		default:
 			type;
@@ -461,7 +456,7 @@ function getVar(type:GoType):GoType {
 	if (type == null)
 		return type;
 	return switch type {
-		case _var(_, type):
+		case _var(_, _.get() => type):
 			type;
 		default:
 			type;
@@ -474,7 +469,7 @@ function getSignature(type:GoType):GoType {
 	return switch type {
 		case signature(_, _, _):
 			type;
-		case named(_, _, underlying):
+		case named(_, _, underlying,_,_):
 			getSignature(underlying);
 		default:
 			null;
@@ -482,10 +477,8 @@ function getSignature(type:GoType):GoType {
 }
 
 function isUnsafePointer(type:GoType):Bool {
-	if (type == null)
-		return false;
 	return switch type {
-		case named(_, _, elem):
+		case named(_, _, elem,_,_):
 			isUnsafePointer(elem);
 		case basic(kind):
 			switch kind {
@@ -498,12 +491,10 @@ function isUnsafePointer(type:GoType):Bool {
 }
 
 function isPointer(type:GoType):Bool {
-	if (type == null)
-		return false;
 	return switch type {
-		case _var(_, elem):
+		case _var(_, _.get() => elem):
 			isPointer(elem);
-		case named(_, _, elem):
+		case named(_, _, elem,_,_):
 			isPointer(elem);
 		case pointerType(_):
 			true;
@@ -550,10 +541,8 @@ function pointerUnwrap(type:GoType):GoType {
 }
 
 function isAnyInterface(type:GoType):Bool {
-	if (type == null)
-		return false;
 	return switch type {
-		case named(_, _, elem):
+		case named(_, _, elem,_,_):
 			isAnyInterface(elem);
 		case interfaceType(empty, _):
 			empty;
@@ -563,12 +552,10 @@ function isAnyInterface(type:GoType):Bool {
 }
 
 function isInterface(type:GoType):Bool {
-	if (type == null)
-		return false;
 	return switch type {
-		case refType(elem):
+		case refType(_.get() => elem):
 			isInterface(elem);
-		case named(_, _, elem):
+		case named(_, _, elem,_,_):
 			isInterface(elem);
 		case interfaceType(_):
 			true;
@@ -596,14 +583,14 @@ private function unroll(parent:GoType, child:GoType):GoType {
 		case basic(_):
 			child;
 		case interfaceType(_): child;
-		case named(path, methods, type):
-			named(path, methods, unroll(parent, type));
+		case named(path, methods, type,_,_):
+			named(path, methods, unroll(parent, type),false,{get: () -> null});
 		case structType(fields):
 			structType([
 				for (field in fields)
 					{
 						name: field.name,
-						type: unroll(parent, field.type),
+						type: {get: () -> unroll(parent, field.type.get())},
 						tag: field.tag,
 						embedded: field.embedded,
 						optional: field.optional,
@@ -618,7 +605,7 @@ private function unroll(parent:GoType, child:GoType):GoType {
 
 function getUnderlyingRefNamed(gt:GoType, once:Bool = false) {
 	return switch gt {
-		case named(_, _, type), refType(type):
+		case named(_, _, type,_,_), refType(_.get() => type):
 			if (once) {
 				type;
 			} else {
@@ -630,8 +617,10 @@ function getUnderlyingRefNamed(gt:GoType, once:Bool = false) {
 }
 
 function getUnderlying(gt:GoType, once:Bool = false) {
+	if (gt == null)
+		return null;
 	return switch gt {
-		case named(_, _, type):
+		case named(_, _, type,_,_):
 			if (once) {
 				type;
 			} else {
@@ -690,7 +679,7 @@ function defaultValue(typ:Type):Any {
 				case complex128_kind: (0 : GoComplex128);
 				default: 0;
 			}
-		case named(path, methods, type):
+		case named(path, methods, type,_,_):
 			switch type {
 				case structType(_):
 					var cl = std.Type.resolveClass(path);
@@ -737,7 +726,7 @@ function defaultValueInternal(typ:_Type):Any {
 				case complex128_kind: (0 : GoComplex128);
 				default: 0;
 			}
-		case named(path, methods, type):
+		case named(path, methods, type,_,_):
 			switch type {
 				case structType(_):
 					var cl = std.Type.resolveClass(path);
@@ -785,8 +774,15 @@ class _Type {
 	static public function numOut(t:_Type):GoInt
 		throw "not implemented";
 
-	static public function numIn(t:_Type):GoInt
-		throw "not implemented";
+	static public function numIn(t:_Type):GoInt {
+		final gt = t._common();
+		return switch gt {
+			case signature(_, _.get() => params, _, _, _):
+				params.length;
+			default:
+				throw "issue";
+		}
+	}
 
 	static public function numField(t:_Type):GoInt
 		throw "not implemented";
@@ -797,8 +793,16 @@ class _Type {
 	static public function key(t:_Type):Type
 		throw "not implemented";
 
-	static public function in_(t:_Type, _i:GoInt):Type
-		throw "not implemented";
+	static public function in_(t:_Type, _i:GoInt):Type {
+		final gt = t._common();
+		return switch gt {
+			case signature(_, _.get() => params, _, _, _):
+				var t = new _Type(params[_i.toBasic()]);
+				new _Type_asInterface(Go.pointer(t),t);
+			default:
+				throw "issue";
+		}
+	}
 
 	static public function fieldByNameFunc(t:_Type, _match:GoString->Bool):{var _0:StructField; var _1:Bool;}
 		throw "not implemented";
@@ -809,13 +813,34 @@ class _Type {
 	static public function fieldByIndex(t:_Type, _index:Slice<GoInt>):StructField
 		throw "not implemented";
 
-	static public function field(t:_Type, _i:GoInt):StructField
-		throw "not implemented";
+	static public function field(t:_Type, _i:GoInt):StructField {
+			var module = "";
+			final gt = t._common();
+			final underlyingType:GoType = getUnderlying(gt);
+	
+			switch underlyingType {
+				case structType(fields):
+					var field = fields[_i.toBasic()];
+					var name = field.name;
+					name = formatGoFieldName(name);
+					var t = new _Type(unroll(gt, field.type.get()));
+					return {
+						name: name,
+						pkgPath: module,
+						type: new _Type_asInterface(Go.pointer(t),t),
+						tag: field.tag,
+						index: new Slice(_i, _i),
+						anonymous: field.embedded,
+					};
+				default:
+					throw "cannot get struct: " + gt;
+			}
+	}
 
 	static public function elem(t:_Type):Type {
 		final gt:GoType = getUnderlying(cast t._common());
 		switch (gt) {
-			case chanType(_, _.get() => elem), refType(elem), pointerType(elem), sliceType(_.get() => elem), arrayType(_.get() => elem, _):
+			case chanType(_, _.get() => elem), refType(_.get() => elem), pointerType(elem), sliceType(_.get() => elem), arrayType(_.get() => elem, _):
 				var t = new _Type(elem);
 				// set internal Type
 				return new _Type_asInterface(new Pointer(() -> t, value -> t = value), t);
@@ -844,11 +869,11 @@ class _Type {
 				return new _Type(elem).comparable();
 			case structType(fields):
 				for (field in fields) {
-					if (!new _Type(field.type).comparable())
+					if (!new _Type(field.type.get()).comparable())
 						return false;
 				}
 				return true;
-			case named(_, _, type):
+			case named(_, _, type,_,_):
 				return new _Type(type).comparable();
 			default:
 				return true;
@@ -877,7 +902,8 @@ class _Type {
 	}
 
 	static public function kind(t:_Type):Kind {
-		final gt:GoType = getUnderlying(cast t._common());
+		var gt:GoType = cast t._common();
+		gt = getUnderlying(gt);
 		return switch gt {
 			case typeParam(_, _):
 				0;
@@ -908,7 +934,7 @@ class _Type {
 			case arrayType(_, _): 17;
 			case invalidType: 0;
 			case mapType(_, _): 21;
-			case named(_, _, type), _var(_, type): new _Type(type).kind();
+			case named(_, _, type,_,_), _var(_, _.get() => type): new _Type(type).kind();
 			case pointerType(_), refType(_): 22;
 			case previouslyNamed(_): throw "previouslyNamed type to kind not supported should be unrolled before access";
 			case sliceType(_): 23;
@@ -929,18 +955,18 @@ class _Type {
 				name;
 			case previouslyNamed(name):
 				name;
-			case named(path, _, type, alias):
+			case named(path, _, type, alias,_):
 				if (alias) {
 					new _Type(type).string();
 				} else {
 					path;
 				}
-			case pointerType(elem), refType(elem):
+			case pointerType(elem), refType(_.get() => elem):
 				"*" + new _Type(elem).string();
 			case structType(fields):
 				"struct { " + [
 					for (field in fields)
-						formatGoFieldName(field.name) + " " + new _Type(field.type).string()
+						formatGoFieldName(field.name) + " " + new _Type(field.type.get()).string()
 				].join("; ") + " }";
 			case arrayType(_.get() => typ, len):
 				"[" + Std.string(len) + "]" + new _Type(typ).string();

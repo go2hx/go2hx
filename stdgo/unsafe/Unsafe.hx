@@ -15,7 +15,7 @@ abstract UnsafePointer(AnyInterface) from AnyInterface {
 		var fromType:GoType = (this.type : Dynamic)._common();
 		var f = null;
 		f = t -> switch t {
-			case refType(elem):
+			case refType(_.get() => elem):
 				f(elem);
 			default:
 				t;

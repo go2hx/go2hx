@@ -1,4 +1,5 @@
 final list = [
+	"errors:_errorType" => macro @:define("!macro") stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface((null : Ref<Error>))).elem(),
 	// stdgo/os
 	"os:_runtime_args" => macro {
 		@:define("js") return new Slice<GoString>(0, 0);
@@ -223,6 +224,17 @@ final list = [
 		throw "os.open is not yet implemented";
 		return {_0: null, _1: null};
 	},
+	"os:stdin" => macro new File(Sys.stdin(),null),
+	"os:stdout" => macro new File(null,Sys.stdout()),
+	"os:stderr" => macro new File(null,Sys.stderr()),
+	"os.File:writeString" => macro return _f.write(_s),
+	"os.File:write" => macro {
+		final i = @:privateAccess _f._output.writeBytes(_b.toBytes(),0,_b.length.toBasic());
+		if (i != _b.length.toBasic())
+			return {_0: i, _1: stdgo.errors.Errors.new_("invalid write")};
+		return {_0: i, _1: null};
+	},
+	"os:_fastrand" => macro return Std.random(1) > 0 ? -Std.random(2147483647) - 1 : Std.random(2147483647),
 	// stdgo/math_bits
 	"math.bits:_overflowError" => macro @:privateAccess stdgo.Error._overflowError,
 	"math.bits:_divideError" => macro @:privateAccess stdgo.Error._divideError,
@@ -272,11 +284,31 @@ final list = [
 			value = (value : Dynamic);
 		return value != null ? 1 : 0;
 	},
+	"reflect.Value:field" => macro {
+		final gt = @:privateAccess stdgo.internal.reflect.Reflect.getUnderlying(_v.value.type._common());
+		return switch gt {
+			case structType(fields):
+				final field = fields[_i.toBasic()];
+				final fieldValue = std.Reflect.field(@:privateAccess _v.value.value, field.name);
+				final valueType = new Value(new AnyInterface(fieldValue, @:privateAccess (cast _v.value.type.field(_i).type : stdgo.internal.reflect.Reflect._Type_asInterface).__type__));
+				if (field.name.charAt(0) == "_")
+					@:privateAccess valueType.notSetBool = false;
+				valueType;
+			default:
+				throw "unsupported: " + gt;
+		};
+	},
+
 	"reflect.Value:len" => macro {
+		final _v = _v.__copy__();
 		var value = @:privateAccess _v.value.value;
 		final t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
 		if (stdgo.internal.reflect.Reflect.isNamed(t))
 			value = (value : Dynamic);
+		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
+			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
+			value = (value : Dynamic).value;
+		}
 		final k = _v.kind();
 		return switch k {
 			case stdgo.internal.reflect.Reflect.KindType.array:
@@ -287,9 +319,10 @@ final list = [
 				(value : Slice<Dynamic>).length;
 			case stdgo.internal.reflect.Reflect.KindType.map:
 				(value : GoMap<Dynamic, Dynamic>).length;
-			case stdgo.internal.reflect.Reflect.KindType.string: // string_:
+			case stdgo.internal.reflect.Reflect.KindType.string:
 				(value : Dynamic).length;
 			default:
+				trace(k.string());
 				throw "not supported";
 		}
 	},
@@ -378,6 +411,23 @@ final list = [
 				stdgo.internal.reflect.Reflect._set(_v);
 		}
 	},
+	"reflect.Value:string" => macro {
+		var value = @:privateAccess _v.value.value;
+		final t = @:privateAccess _v.value.type._common();
+		final underlyingType = stdgo.internal.reflect.Reflect.getUnderlying(t);
+		switch (underlyingType) {
+			case stdgo.internal.reflect.Reflect.GoType.basic(kind):
+				switch kind {
+					case string_kind:
+						return value;
+					default:
+						var _ = 0;
+				};
+			default:
+				var _ = 0;
+		};
+		return "<" + _v.type().string() + ">";
+	},
 	"reflect.Value:interface_" => macro return @:privateAccess _v.value,
 	"reflect.Value:isNil" => macro {
 		var value = @:privateAccess _v.value.value;
@@ -418,7 +468,7 @@ final list = [
 		switch k {
 			case ptr:
 				switch stdgo.internal.reflect.Reflect.getUnderlying(t) {
-					case stdgo.internal.reflect.Reflect.GoType.refType(elem):
+					case stdgo.internal.reflect.Reflect.GoType.refType(_.get() => elem):
 						final value = new Value(new AnyInterface(value, new stdgo.internal.reflect.Reflect._Type(elem)), null);
 						@:privateAccess value.canAddrBool = true;
 						return value;
@@ -477,13 +527,13 @@ final list = [
 	},
 	// stdgo/sync
 	"sync.Pool:get" => macro {
-		var obj = @:privateAccess _p.pool.pop(true);
+		var obj = @:privateAccess _p.pool.pop(false);
 		if (obj == null && @:privateAccess _p.new_ != null)
 			obj = @:privateAccess _p.new_();
 		return obj;
 	},
-	"sync.Pool.put" => macro {
-		@:privateAccess _p.pool.push(_p);
+	"sync.Pool:put" => macro {
+		@:privateAccess _p.pool.push(_x);
 	},
 	"sync.Mutex:lock" => macro @:privateAccess _m.mutex.acquire(),
 	"sync.Mutex:tryLock" => macro @:privateAccess return _m.mutex.tryAcquire(),
@@ -576,6 +626,14 @@ final skipTargets = [
 ];
 
 final structs = [
+	"os:File" => macro {
+		@:local
+		var _input:haxe.io.Input = null;
+		@:local
+		var _output:haxe.io.Output = null;
+		// FileInput + FileOutput: seek, tell
+		// FileInput only: eof
+	},
 	"reflect:Value" => macro {
 		var value:stdgo.StdGoTypes.AnyInterface;
 		@:local
@@ -585,28 +643,23 @@ final structs = [
 		var underlyingKey:Dynamic = null;
 		var canAddrBool:Bool = false;
 		var notSetBool:Bool = false;
-		0;
 	},
 	"sync:WaitGroup" => macro {
 		@:local
 		var lock = new sys.thread.Lock();
 		var counter:GoUInt = 0;
-		0;
 	},
 	"sync:Mutex" => macro {
 		@:local
 		var mutex = new sys.thread.Mutex();
-		0;
 	},
 	"sync:RWMutex" => macro {
 		@:local
 		var mutex = new sys.thread.Mutex();
-		0;
 	},
 	"sync:Pool" => macro {
 		@:local
 		var pool = new sys.thread.Deque<AnyInterface>();
-		0;
 	}
 ];
 

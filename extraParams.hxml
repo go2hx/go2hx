@@ -1,4 +1,5 @@
 --macro define('go2hx')
+--macro stdgo.internal.Macro.init()
 -D js-es=6
 -D source-map
 -D shallow-expose

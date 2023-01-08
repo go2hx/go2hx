@@ -335,6 +335,8 @@ function main(data:DataType, instance:Main.InstanceData) {
 		for (file in module.files) {
 			final defs = file.defs.copy();
 			for (def in defs) {
+				if (StringTools.endsWith(def.name,"_asInterface") || StringTools.endsWith(def.name,"_static_extension"))
+					continue;
 				var local:Array<{func:Ast.FuncDecl, sel:String}> = [];
 				final names:Array<{name:String, sel:String}> = [{name: def.name, sel: ""}];
 				final methods:Array<Field> = [];
@@ -451,7 +453,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 								break;
 							}
 						}
-						if (embedded) {
+						if (embedded) { // embedded method already exists create it for staticExtension
 							switch field.kind {
 								case FFun(fun):
 									final t = TPath({name: def.name, pack: []});
@@ -476,6 +478,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 											fun.expr = macro return ${fun.expr};
 										default:
 									}
+									// embedded named
 									addLocalMethod(fieldName, field.pos, field.meta, field.doc, field.access, fun, staticExtension, wrapper,
 										true, def.params != null
 										&& def.params.length > 0);
@@ -505,6 +508,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 									}
 									if (Patch.funcInline.indexOf(patchName) != -1 && access.indexOf(AInline) == -1)
 										access.push(AInline);
+									// recv func named
 									addLocalMethod(func.name, func.pos, func.meta, func.doc, access, fun, staticExtension, wrapper,
 										true, def.params != null && def.params.length > 0);
 								default:
@@ -544,7 +548,7 @@ private function createWrapper(wrapperName:String, ct:ComplexType) {
 private function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Array<Access>, fun:Function, staticExtension:TypeDefinition,
 		wrapper:TypeDefinition, embedded:Bool, hasParams:Bool) {
 	var isPointerArg = false;
-	if (fun.args.length > 0 && meta != null) {
+	if (fun.args.length > 0 && meta != null && fun.args[0].meta != null) {
 		for (meta in fun.args[0].meta) {
 			if (meta.name == ":pointer") {
 				fun.args[0].meta.remove(meta);
@@ -615,7 +619,7 @@ private function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Arr
 	var e = macro $e.value.$funcName($a{fieldCallArgs});
 	if (!isVoid(fieldRet))
 		e = macro return $e;
-
+	
 	final field:Field = {
 		name: funcName,
 		access: [APublic],
@@ -818,15 +822,17 @@ private function typeGoto(label:Expr):Expr {
 private function typeBranchStmt(stmt:Ast.BranchStmt, info:Info):ExprDef {
 	return switch stmt.tok {
 		case CONTINUE:
-			EContinue;
+			if (stmt.label != null) {
+				final label = makeExpr(stmt.label.name);
+				(macro @:jump($label) continue).expr;
+			}else{
+				EContinue;
+			}
 		case BREAK:
 			info.global.hasBreak = true;
 			if (stmt.label != null) {
-				(macro @:break {
-					____exit____ = true;
-					____break____ = true;
-					break;
-				}).expr;
+				final label = makeExpr(stmt.label.name);
+				(macro @:jump($label) break).expr;
 			} else {
 				EBreak;
 			}
@@ -914,16 +920,20 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 	return EBlock(exprs);
 }
 
+private function exprToString(e:Expr):String {
+	switch e.expr {
+		case EConst(CString(s)):
+			return s;
+		default:
+			throw "invalid expr for exprToString: " + e.expr;
+	}
+}
+
 private function typeLabeledStmt(stmt:Ast.LabeledStmt, info:Info):ExprDef {
 	final name = makeString(stmt.label.name);
-	var stmt = typeStmt(stmt.stmt, info);
-	switch stmt.expr {
-		case EVars(_):
-			stmt = macro ${stmt};
-		default:
-	}
+	var stmtExpr = typeStmt(stmt.stmt, info);
 	info.gotoSystem = true;
-	return (macro @:label($name) $stmt).expr;
+	return (macro @:label($name) $stmtExpr).expr;
 }
 
 private function typeIncDecStmt(stmt:Ast.IncDecStmt, info:Info):ExprDef {
@@ -2211,8 +2221,8 @@ private function wrapper(t:GoType, y:Expr, info:Info):Expr {
 		t = getElem(t);
 	}
 	switch t {
-		case named(name, methods, type, _, params):
-			if (methods.length == 0)
+		case named(name, methods, type, alias, params):
+			if (!alias && methods.length == 0)
 				return y;
 			if (type == invalidType)
 				return y;
@@ -4365,7 +4375,7 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 			var fields = fields.copy();
 			var isAlias = false;
 			switch type {
-				case named(_, _, _, alias,_):
+				case named(path, _, _, alias,_):
 					if (alias) {
 						isAlias = true;
 					}
@@ -4373,6 +4383,7 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 			}
 			if (keyValueBool) {
 				for (field in fields) {
+					var set = false;
 					for (i in 0...expr.elts.length) {
 						final elt:Ast.KeyValueExpr = expr.elts[i];
 						final key = formatHaxeFieldName(elt.key.name, info);
@@ -4382,7 +4393,15 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 								field: field.name,
 								expr: value,
 							});
+							set = true;
+							break;
 						}
+					}
+					if (isAlias && !set) {
+						objectFields.push({
+							field: field.name,
+							expr: defaultValue(field.type.get(), info, true),
+						});
 					}
 				}
 				var e = toExpr(EObjectDecl(objectFields));
@@ -6036,33 +6055,13 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 			var struct:Ast.StructType = spec.type;
 			var fields = typeFieldListFields(struct.fields, info, [APublic], true);
 			var meta:Metadata = [{name: ":structInit", pos: null}];
-			if (local) {
-				fields = fields.map(field -> {
-					switch field.kind {
-						case FVar(t, e):
-							field.kind = FVar(t, null);
-						default:
-					}
-					field;
-				});
-				final cl:TypeDefinition = {
-					name: name,
-					pack: [],
-					pos: null,
-					fields: [],
-					meta: [{name: ":local", pos: null, params: []}],
-					kind: TDAlias(TAnonymous(fields)),
-				}
-				return cl;
-				//meta.push({name: ":local", pos: null});
-			}
 			info.renameIdents[spec.name.name] = name + "_static_extension";
 			info.classNames[spec.name.name] = name + "_static_extension";
 			// add to fields patch structs
 			final patchName = info.global.module.path + ":" + name;
 			final struct = Patch.structs[patchName];
 			var structAddFieldsIndex = -1;
-			if (struct != null) {
+			if (struct != null) { // patch modify struct
 				switch struct.expr {
 					case EBlock(exprs):
 						// exprs.pop();
@@ -6097,26 +6096,27 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 					macro if ($i{name} != null)
 						this.$name = $i{name}
 			];
-			fields.push({
-				name: "new",
-				pos: null,
-				access: [APublic],
-				kind: FFun({
-					args: [
-						for (field in fields)
-							{
-								name: field.name,
-								opt: true,
-								type: switch field.kind {
-									case FVar(t, _): t;
-									default: null;
+			if (!local) {
+				fields.push({
+					name: "new",
+					pos: null,
+					access: [APublic],
+					kind: FFun({
+						args: [
+							for (field in fields)
+								{
+									name: field.name,
+									opt: true,
+									type: switch field.kind {
+										case FVar(t, _): t;
+										default: null;
+									}
 								}
-							}
-					],
-					expr: macro $b{exprs},
-				}),
-			});
-			if (local) {
+						],
+						expr: macro $b{exprs},
+					}),
+				});
+			
 				fields.push({
 					name: "__underlying__",
 					pos: null,
@@ -6140,6 +6140,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				}
 			}
 			sets.push(macro return this);
+			final localEmbeddedFields:Array<Field> = [];
 			for (method in spec.methods) { // covers both embedded interfaces and structures
 				// embedded methods
 				if (structAddFieldsIndex > -1 && structAddFieldsIndex <= method.index[0])
@@ -6219,7 +6220,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						if (info.global.externBool && !StringTools.endsWith(info.global.module.path,"_test")) {
 							expr = results.length == 1 ? defaultValue(results[0], info) : macro null;
 						}
-						fields.push({
+						final field:Field = {
 							name: methodName,
 							meta: [{name: ":embedded", pos: null}],
 							pos: null,
@@ -6229,13 +6230,142 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 								ret: ret,
 								expr: isVoid(ret) ? expr : macro return $expr,
 							}),
-						});
+						};
+						if (local) {
+							localEmbeddedFields.push(field);
+						}else{
+							fields.push(field);
+						}
 					default:
 						throw "method not a signature";
 				}
 				info.restricted = [];
 			}
 			final params = getParams(spec.params, info, true);
+			if (local) {
+				final def:TypeDefinition = {
+					name: name,
+					pack: [],
+					pos: null,
+					fields: [],
+					meta: [{name: ":local", pos: null, params: []}],
+					kind: TDAlias(TAnonymous(fields.map(field -> {
+						switch field.kind {
+							case FVar(t, e):
+								field.kind = FVar(t, null);
+							default:
+						}
+						field;
+					}))),
+				}
+				//if (localEmbeddedFields.length > 0) {
+					final ct:ComplexType = TPath({
+						name: "Pointer",
+						pack: [],
+						params: [
+							TPType(TPath({
+								name: def.name,
+								pack: [],
+								params: def.params == null ? [] : def.params.map(p -> TPType(TPath({
+									name: p.name,
+									pack: []
+								})))
+							}))
+						]
+					});
+					final staticExtensionName = def.name + "_static_extension";
+					final wrapperName = def.name + "_asInterface";
+					final fieldWrapper = [info.global.filePath, wrapperName];
+					final globalPath = getGlobalPath(info);
+					if (globalPath != "")
+						fieldWrapper.unshift(globalPath);
+					if (stdgoList.indexOf(toGoPath(globalPath)) != -1) { // haxe only type, otherwise the go code refrences Haxe
+						fieldWrapper.unshift("stdgo");
+					}
+					final staticExtension:TypeDefinition = {
+						name: staticExtensionName,
+						pos: null,
+						pack: [],
+						kind: TDClass(),
+						fields: [],
+						isExtern: true,
+						meta: [
+							{name: ":keep", pos: null},
+							{name: ":allow", pos: null, params: [toExpr(EConst(CIdent(fieldWrapper.join("."))))]}
+						],
+					};
+					final wrapper = createWrapper(wrapperName, ct);
+					wrapper.isExtern = true;
+					wrapper.params = def.params;
+					info.data.defs.push(wrapper);
+					final fieldExtension = [info.global.filePath, staticExtensionName];
+					final globalPath = getGlobalPath(info);
+					if (globalPath != "")
+						fieldExtension.unshift(globalPath);
+					if (stdgoList.indexOf(toGoPath(globalPath)) != -1) { // haxe only type, otherwise the go code refrences Haxe
+						fieldExtension.unshift("stdgo");
+					}
+					def.meta.push({name: ":using", params: [macro $p{fieldExtension}], pos: null});
+					info.data.defs.push(staticExtension);
+					var embedded = false;
+					for (field in localEmbeddedFields) { // embedded
+						if (field.meta != null) {
+							embedded = false;
+							for (meta in field.meta) {
+								if (meta.name == ":embedded") {
+									embedded = true;
+									break;
+								}
+							}
+							if (embedded) { // embedded method already exists create it for staticExtension
+								switch field.kind {
+									case FFun(fun):
+										final t = TPath({name: def.name, pack: []});
+										fun.args.unshift({
+											name: "__self__",
+											type: t,
+											meta: [],
+										});
+										final expr = {expr: fun.expr.expr, pos: null};
+										final fieldName = field.name;
+										final args = fun.args.slice(1).map(a -> macro $i{a.name});
+										switch fun.args[fun.args.length - 1].type {
+											case TPath(p):
+												if (p.name == "Rest" && p.pack.length == 1 && p.pack[0] == "haxe") args[args.length - 1] = macro...$e{
+													args[args.length - 1]
+												};
+											default:
+										}
+										function modify(expr) {
+											return switch expr.expr {
+												case EReturn(expr):
+													macro return ${modify(expr)};
+												case ECall({expr: EField({expr: EConst(CIdent(s)), pos: _},field), pos: _}, params):
+													macro __self__.$s.$field($a{params});
+												default:
+													trace(printer.printExpr(expr));
+													expr;
+											}
+										}
+										fun.expr = modify(fun.expr);
+										switch expr.expr {
+											case EReturn(_):
+												fun.expr = macro return ${fun.expr};
+											default:
+										}
+										// embedded unnamed structs
+										addLocalMethod(field.name, field.pos, field.meta, field.doc, field.access, fun, staticExtension, wrapper,
+											true, def.params != null
+											&& def.params.length > 0);
+									default:
+								}
+							}
+						}
+					}
+				//}
+				return def;
+				//meta.push({name: ":local", pos: null});
+			}
 			var cl:TypeDefinition = {
 				name: name,
 				pos: null,
@@ -6356,6 +6486,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 								}
 							}
 							f.args.unshift({name: "t", type: TPath({name: "_" + name, pack: []})});
+							// interface struct creation
 							addLocalMethod(field.name, field.pos, field.meta, null, [], f, staticExtension, wrapper, false, false);
 							f.expr = null;
 							f.args.shift();

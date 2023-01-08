@@ -19,35 +19,37 @@ class Macro {
 					return;
 				run = true;
 				final exprs:Array<Expr> = [];
-				//var count = 4;
 				for (name => e in @:privateAccess Go.nameTypes) {
 					exprs.push(macro $v{name} => $e);
-					//if (--count <= 0)
-					//	break;
 				}
 				final e = macro $a{exprs};
-				//trace(@:privateAccess Lambda.count(Go.nameTypes));
 				final cl = macro class TypeInfoData {
 					public var names:Map<String,stdgo.internal.reflect.Reflect.GoType> = null;
 					public function new() {
 						try {
 							names = $e;
-							//trace(Lambda.count(names));
 						}catch(e) {
 							trace(e.details());
 						}
 					}
 				}
 				Context.defineType(cl);
-				sys.io.File.saveContent("TestTypeInfoData.hx","function main() {trace(new TypeInfoData().names);}\n" + new haxe.macro.Printer().printTypeDefinition(cl));
-				Sys.command("haxelib run formatter -s TestTypeInfoData.hx");
-				//trace("defineType");
 			});
 	}
 	#end
 
+	private static function exprToString(e:Expr):String {
+		switch e.expr {
+			case EConst(CString(s)):
+				return s;
+			default:
+				throw "invalid expr for exprToString: " + e.expr;
+		}
+	}
+
 	public static macro function controlFlow(body:Expr) {
-		final selectionName = "____select____";
+		final selectName = "____select____";
+		final innerName = "____inner____";
 		final exitName = "____exit____";
 		final breakName = "____break____";
 		var func = null;
@@ -65,48 +67,91 @@ class Macro {
 				}
 			default:
 		}
-
-		function loop(e:Expr, inLoop:Bool):Expr {
-			return macro {
-				$e;
-				if ($i{exitName})
-					${
-						inLoop?macro break:macro if (!$i{breakName})
-							continue
-					};
-			}
+		function loop(e:Expr, inLoop:Bool,label:Expr):Expr {
+			final exprs = [e,macro if ($i{exitName})
+			${
+				inLoop?macro break:macro if (!$i{breakName})
+					continue
+			}];
+			if (inLoop)
+				exprs.push(macro if ($i{innerName}) {
+					if ($i{selectName} == $label) {
+						if ($i{breakName}) {
+							break;
+						}else{
+							continue;
+						}
+					}else{
+						break;
+					}
+				});
+			return macro $b{exprs};
 		}
-		func = function(expr:haxe.macro.Expr, inLoop:Bool, scopeIndex:Int):Expr {
+		func = function(expr:haxe.macro.Expr, inLoop:Bool, scopeIndex:Int,label:Expr,initLabelSet:Bool,previousLabel:Expr):Expr {
 			return switch (expr.expr) {
 				case EMeta(s, e):
 					switch s.name {
+						case ":label":
+							{
+								expr: EMeta(s, func(e, inLoop, scopeIndex,s.params[0],true,label)),
+								pos: Context.currentPos(),
+							};
+						case ":jump":
+							final name:Expr= s.params[0];
+							final noJump = exprToString(name) == exprToString(label);
+							switch e.expr {
+								case EContinue:
+									if (noJump) {
+										macro continue;
+									}else{
+										macro {
+											$i{selectName} = $name;
+											$i{innerName} = true;
+											$i{breakName} = false;
+											break;
+										}
+									}
+								case EBreak:
+									if (noJump) {
+										macro break;
+									}else{
+										macro {
+											$i{selectName} = $name;
+											$i{innerName} = true;
+											$i{breakName} = true;
+											break;
+										}
+									}
+								default:
+									throw "invalid jump expr: " + e.expr;
+							}
 						case ":goto":
 							macro {
-								$i{selectionName} = $e;
+								$i{selectName} = $e;
 								${inLoop ? macro {$i{exitName} = true; break;} : macro continue};
 							};
 						default:
 							{
-								expr: EMeta(s, func(e, inLoop, scopeIndex)),
+								expr: EMeta(s, func(e, inLoop, scopeIndex,label,initLabelSet,previousLabel)),
 								pos: Context.currentPos(),
 							};
 					}
 				case EWhile(econd, e, normalWhile):
-					expr.expr = EWhile(econd, func(e, true, scopeIndex), normalWhile);
-					expr = loop(expr, inLoop);
+					expr.expr = EWhile(econd, func(e,true,scopeIndex, label,false,null), normalWhile);
+					expr = loop(expr, inLoop,initLabelSet ? previousLabel : label);
 					expr;
 				case EFor(it, e):
-					expr.expr = EFor(it, func(e, true, scopeIndex));
-					expr = loop(expr, inLoop);
+					expr.expr = EFor(it, func(e,true,scopeIndex, label,false,null));
+					expr = loop(expr, inLoop,initLabelSet ? previousLabel : label);
 					expr;
 				case EBlock(exprs):
 					scopeIndex++;
 					for (i in 0...exprs.length)
-						exprs[i] = func(exprs[i], inLoop, scopeIndex);
+						exprs[i] = func(exprs[i], inLoop, scopeIndex,label,initLabelSet,previousLabel);
 					expr.expr = EBlock(exprs);
 					expr;
 				case EIf(econd, eif, eelse):
-					expr.expr = EIf(econd, func(eif, inLoop, scopeIndex), eelse == null ? null : func(eelse, inLoop, scopeIndex));
+					expr.expr = EIf(econd, func(eif, inLoop, scopeIndex,label,initLabelSet,previousLabel), eelse == null ? null : func(eelse, inLoop, scopeIndex,label,initLabelSet,previousLabel));
 					expr;
 				case EVars(v):
 					if (scopeIndex == 0) {
@@ -129,10 +174,10 @@ class Macro {
 					final str = printer.printExpr(e);
 					if (str == "Go.cfor") {
 						var block = params.pop();
-						block = func(block, true, scopeIndex);
+						block = func(block,true,scopeIndex,label,false,null);
 						params.push(block);
 						expr.expr = ECall(e, params);
-						expr = loop(expr, inLoop);
+						expr = loop(expr, inLoop,initLabelSet ? previousLabel : label);
 						expr;
 					}
 					expr;
@@ -140,7 +185,7 @@ class Macro {
 					expr;
 			}
 		}
-		body = func(body, false, -1);
+		body = func(body, false, -1, macro "",false,null);
 		switch body.expr {
 			case EBlock(exprs):
 				for (i in 0...exprs.length) {
@@ -172,26 +217,30 @@ class Macro {
 				body.expr = EBlock(exprs);
 			default:
 		}
+		if (cases.length == 0) {
+			cases.push({values: [macro ""], expr: body});
+		}
 		for (i in 0...cases.length) {
 			switch cases[i].expr.expr {
 				case EBlock(exprs):
 					final name = i == cases.length - 1 ? macro "" : cases[i + 1].values[0];
-					exprs.push(macro $i{selectionName} = $name);
+					exprs.push(macro $i{selectName} = $name);
 					cases[i].expr.expr = EBlock(exprs);
 				default:
 			}
 		}
-		var switchStmt:Expr = {expr: ESwitch(macro $i{selectionName}, cases, null), pos: Context.currentPos()};
+		var switchStmt:Expr = {expr: ESwitch(macro $i{selectName}, cases, null), pos: Context.currentPos()};
 		final v:Expr = {expr: EVars(vars), pos: Context.currentPos()};
 		final e = macro {
-			var $selectionName = "";
+			var $selectName = "";
 			var $exitName = false;
 			var $breakName = false;
+			var $innerName = false;
 			$v;
 			do {
 				$i{exitName} = false;
 				$switchStmt;
-			} while ($i{selectionName} != "");
+			} while ($i{selectName} != "");
 		};
 		if (ret != null) {
 			switch e.expr {
@@ -201,6 +250,7 @@ class Macro {
 				default:
 			}
 		}
+		//trace(new haxe.macro.Printer().printExpr(e),Context.currentPos());
 		return e;
 	}
 

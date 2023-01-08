@@ -131,7 +131,7 @@ function _getEsc(_chunk:stdgo.GoString):{_2:stdgo.Error, _1:stdgo.GoString, _0:s
 getEsc gets a possibly\-escaped character from chunk, for a character class. 
 
 
-[\(view code\)](<./Path.hx#L323>)
+[\(view code\)](<./Path.hx#L322>)
 
 
 ## function \_lastSlash
@@ -159,7 +159,7 @@ function _matchChunk(_chunk:stdgo.GoString, _s:stdgo.GoString):{_2:stdgo.Error, 
 matchChunk checks whether chunk matches the beginning of s.��// If so, it returns the remainder of s \(after the match\).��// Chunk is all single\-character operators: literals, char classes, and ?. 
 
 
-[\(view code\)](<./Path.hx#L202>)
+[\(view code\)](<./Path.hx#L201>)
 
 
 ## function \_scanChunk
@@ -173,7 +173,7 @@ function _scanChunk(_pattern:stdgo.GoString):{_2:stdgo.GoString, _1:stdgo.GoStri
 scanChunk gets the next segment of pattern, which is a non\-star string��// possibly preceded by a star. 
 
 
-[\(view code\)](<./Path.hx#L150>)
+[\(view code\)](<./Path.hx#L153>)
 
 
 ## function base
@@ -196,9 +196,9 @@ Base returns the last element of path.��// Trailing slashes are removed befo
 
 ```haxe
 function exampleBase():Void {
-	stdgo.fmt.Fmt.println(stdgo.path.Path.base(Go.str("/a/b")));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.base(Go.str("/")));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.base(Go.str()));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.base(Go.str("/a/b"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.base(Go.str("/"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.base(Go.str())));
 }
 ```
 
@@ -243,7 +243,7 @@ function exampleClean():Void {
 </details>
 
 
-[\(view code\)](<./Path.hx#L372>)
+[\(view code\)](<./Path.hx#L371>)
 
 
 ## function dir
@@ -266,12 +266,12 @@ Dir returns all but the last element of path, typically the path's directory.�
 
 ```haxe
 function exampleDir():Void {
-	stdgo.fmt.Fmt.println(stdgo.path.Path.dir(Go.str("/a/b/c")));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.dir(Go.str("a/b/c")));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.dir(Go.str("/a/")));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.dir(Go.str("a/")));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.dir(Go.str("/")));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.dir(Go.str()));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(Go.str("/a/b/c"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(Go.str("a/b/c"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(Go.str("/a/"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(Go.str("a/"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(Go.str("/"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(Go.str())));
 }
 ```
 
@@ -303,9 +303,9 @@ Ext returns the file name extension used by path.��// The extension is the s
 
 ```haxe
 function exampleExt():Void {
-	stdgo.fmt.Fmt.println(stdgo.path.Path.ext(Go.str("/a/b/c/bar.css")));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.ext(Go.str("/")));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.ext(Go.str()));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.ext(Go.str("/a/b/c/bar.css"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.ext(Go.str("/"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.ext(Go.str())));
 }
 ```
 
@@ -337,7 +337,7 @@ IsAbs reports whether the path is absolute.
 
 ```haxe
 function exampleIsAbs():Void {
-	stdgo.fmt.Fmt.println(stdgo.path.Path.isAbs(Go.str("/dev/null")));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.isAbs(Go.str("/dev/null"))));
 }
 ```
 
@@ -369,13 +369,13 @@ Join joins any number of path elements into a single path,��// separating th
 
 ```haxe
 function exampleJoin():Void {
-	stdgo.fmt.Fmt.println(stdgo.path.Path.join(Go.str("a"), Go.str("b"), Go.str("c")));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.join(Go.str("a"), Go.str("b/c")));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.join(Go.str("a/b"), Go.str("c")));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.join(Go.str("a/b"), Go.str("../../../xyz")));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.join(Go.str(), Go.str()));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.join(Go.str("a"), Go.str()));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.join(Go.str(), Go.str("a")));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str("a"), Go.str("b"), Go.str("c"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str("a"), Go.str("b/c"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str("a/b"), Go.str("c"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str("a/b"), Go.str("../../../xyz"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str(), Go.str())));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str("a"), Go.str())));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str(), Go.str("a"))));
 }
 ```
 
@@ -409,15 +409,15 @@ Match reports whether name matches the shell pattern.��// The pattern syntax
 function exampleMatch():Void {
 	{
 		var __tmp__ = stdgo.path.Path.match(Go.str("abc"), Go.str("abc"));
-		stdgo.fmt.Fmt.println((__tmp__._0 : Bool), (__tmp__._1 : Error));
+		stdgo.fmt.Fmt.println(Go.toInterface((__tmp__._0 : Bool)), Go.toInterface((__tmp__._1 : Error)));
 	};
 	{
 		var __tmp__ = stdgo.path.Path.match(Go.str("a*"), Go.str("abc"));
-		stdgo.fmt.Fmt.println((__tmp__._0 : Bool), (__tmp__._1 : Error));
+		stdgo.fmt.Fmt.println(Go.toInterface((__tmp__._0 : Bool)), Go.toInterface((__tmp__._1 : Error)));
 	};
 	{
 		var __tmp__ = stdgo.path.Path.match(Go.str("a*/b"), Go.str("a/c/b"));
-		stdgo.fmt.Fmt.println((__tmp__._0 : Bool), (__tmp__._1 : Error));
+		stdgo.fmt.Fmt.println(Go.toInterface((__tmp__._0 : Bool)), Go.toInterface((__tmp__._1 : Error)));
 	};
 }
 ```
@@ -427,7 +427,7 @@ function exampleMatch():Void {
 </details>
 
 
-[\(view code\)](<./Path.hx#L77>)
+[\(view code\)](<./Path.hx#L80>)
 
 
 ## function split

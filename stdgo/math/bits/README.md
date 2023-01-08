@@ -14,57 +14,57 @@ Package bits implements bit counting and manipulation��// functions for the 
 
 ```
 === RUN   TestUintSize
---- PASS: TestUintSize (4.91142272949219e-05)
+--- PASS: TestUintSize (6.58035278320312e-05)
 === RUN   TestLeadingZeros
---- PASS: TestLeadingZeros (0.623131990432739)
+--- PASS: TestLeadingZeros (0.795392036437988)
 === RUN   TestTrailingZeros
---- PASS: TestTrailingZeros (0.524067878723145)
+--- PASS: TestTrailingZeros (0.674347162246704)
 === RUN   TestOnesCount
---- PASS: TestOnesCount (1.37400007247925)
+--- PASS: TestOnesCount (1.85275197029114)
 === RUN   TestRotateLeft
---- PASS: TestRotateLeft (0.00253200531005859)
+--- PASS: TestRotateLeft (0.0022580623626709)
 === RUN   TestReverse
---- PASS: TestReverse (0.0188288688659668)
+--- PASS: TestReverse (0.0240869522094727)
 === RUN   TestReverseBytes
---- PASS: TestReverseBytes (0.00151705741882324)
+--- PASS: TestReverseBytes (0.0010840892791748)
 === RUN   TestLen
---- PASS: TestLen (0.600213050842285)
+--- PASS: TestLen (0.77879810333252)
 === RUN   TestAddSubUint
---- PASS: TestAddSubUint (0.000249862670898438)
+--- PASS: TestAddSubUint (0.000292778015136719)
 === RUN   TestAddSubUint32
---- PASS: TestAddSubUint32 (0.000124931335449219)
+--- PASS: TestAddSubUint32 (0.000155925750732422)
 === RUN   TestAddSubUint64
---- PASS: TestAddSubUint64 (0.000387907028198242)
+--- PASS: TestAddSubUint64 (0.000483036041259766)
 === RUN   TestAdd64OverflowPanic
---- PASS: TestAdd64OverflowPanic (0.000950098037719727)
+--- PASS: TestAdd64OverflowPanic (0.0014650821685791)
 === RUN   TestSub64OverflowPanic
---- PASS: TestSub64OverflowPanic (0.000436067581176758)
+--- PASS: TestSub64OverflowPanic (0.000504016876220703)
 === RUN   TestMulDiv
---- PASS: TestMulDiv (0.000325202941894531)
+--- PASS: TestMulDiv (0.000353097915649414)
 === RUN   TestMulDiv32
---- PASS: TestMulDiv32 (0.000223875045776367)
+--- PASS: TestMulDiv32 (0.000247955322265625)
 === RUN   TestMulDiv64
---- PASS: TestMulDiv64 (0.00207304954528809)
+--- PASS: TestMulDiv64 (0.00272798538208008)
 === RUN   TestDivPanicOverflow
---- PASS: TestDivPanicOverflow (7.51018524169922e-05)
+--- PASS: TestDivPanicOverflow (8.70227813720703e-05)
 === RUN   TestDiv32PanicOverflow
---- PASS: TestDiv32PanicOverflow (4.57763671875e-05)
+--- PASS: TestDiv32PanicOverflow (5.19752502441406e-05)
 === RUN   TestDiv64PanicOverflow
---- PASS: TestDiv64PanicOverflow (4.50611114501953e-05)
+--- PASS: TestDiv64PanicOverflow (5.29289245605469e-05)
 === RUN   TestDivPanicZero
---- PASS: TestDivPanicZero (4.81605529785156e-05)
+--- PASS: TestDivPanicZero (7.58171081542969e-05)
 === RUN   TestDiv32PanicZero
---- PASS: TestDiv32PanicZero (4.60147857666016e-05)
+--- PASS: TestDiv32PanicZero (5.57899475097656e-05)
 === RUN   TestDiv64PanicZero
---- PASS: TestDiv64PanicZero (4.50611114501953e-05)
+--- PASS: TestDiv64PanicZero (5.10215759277344e-05)
 === RUN   TestRem32
---- PASS: TestRem32 (0.0535271167755127)
+--- PASS: TestRem32 (0.0668079853057861)
 === RUN   TestRem32Overflow
---- PASS: TestRem32Overflow (0.126546144485474)
+--- PASS: TestRem32Overflow (0.162442207336426)
 === RUN   TestRem64
---- PASS: TestRem64 (0.33765697479248)
+--- PASS: TestRem64 (0.434999942779541)
 === RUN   TestRem64Overflow
---- PASS: TestRem64Overflow (0.000769138336181641)
+--- PASS: TestRem64Overflow (0.0019080638885498)
 ```
 </p>
 </details>
@@ -74,57 +74,57 @@ Package bits implements bit counting and manipulation��// functions for the 
 
 ```
 === RUN   TestUintSize
---- PASS: TestUintSize (4.38690185546875e-05)
+--- PASS: TestUintSize (6.103515625e-05)
 === RUN   TestLeadingZeros
---- PASS: TestLeadingZeros (3.08005094528198242)
+--- PASS: TestLeadingZeros (3.68300604820251465)
 === RUN   TestTrailingZeros
---- PASS: TestTrailingZeros (2.86910700798034668)
+--- PASS: TestTrailingZeros (3.49947619438171387)
 === RUN   TestOnesCount
---- PASS: TestOnesCount (7.55814194679260254)
+--- PASS: TestOnesCount (8.71986818313598633)
 === RUN   TestRotateLeft
---- PASS: TestRotateLeft (0.0154478549957275391)
+--- PASS: TestRotateLeft (0.0176091194152832031)
 === RUN   TestReverse
---- PASS: TestReverse (0.0922391414642334)
+--- PASS: TestReverse (0.105689048767089844)
 === RUN   TestReverseBytes
---- PASS: TestReverseBytes (0.00696897506713867188)
+--- PASS: TestReverseBytes (0.00785803794860839844)
 === RUN   TestLen
---- PASS: TestLen (3.06488204002380371)
+--- PASS: TestLen (3.58694005012512207)
 === RUN   TestAddSubUint
---- PASS: TestAddSubUint (0.00155615806579589844)
+--- PASS: TestAddSubUint (0.00153589248657226562)
 === RUN   TestAddSubUint32
---- PASS: TestAddSubUint32 (0.000856161117553710938)
+--- PASS: TestAddSubUint32 (0.000931024551391601562)
 === RUN   TestAddSubUint64
---- PASS: TestAddSubUint64 (0.00248193740844726562)
+--- PASS: TestAddSubUint64 (0.0028629302978515625)
 === RUN   TestAdd64OverflowPanic
---- PASS: TestAdd64OverflowPanic (0.0025539398193359375)
+--- PASS: TestAdd64OverflowPanic (0.00466394424438476562)
 === RUN   TestSub64OverflowPanic
---- PASS: TestSub64OverflowPanic (0.0021190643310546875)
+--- PASS: TestSub64OverflowPanic (0.00236916542053222656)
 === RUN   TestMulDiv
---- PASS: TestMulDiv (0.00174689292907714844)
+--- PASS: TestMulDiv (0.00185608863830566406)
 === RUN   TestMulDiv32
---- PASS: TestMulDiv32 (0.00118398666381835938)
+--- PASS: TestMulDiv32 (0.00130701065063476562)
 === RUN   TestMulDiv64
---- PASS: TestMulDiv64 (0.0104839801788330078)
+--- PASS: TestMulDiv64 (0.0121400356292724609)
 === RUN   TestDivPanicOverflow
---- PASS: TestDivPanicOverflow (0.000154972076416015625)
+--- PASS: TestDivPanicOverflow (0.000172853469848632812)
 === RUN   TestDiv32PanicOverflow
---- PASS: TestDiv32PanicOverflow (8.0108642578125e-05)
+--- PASS: TestDiv32PanicOverflow (8.58306884765625e-05)
 === RUN   TestDiv64PanicOverflow
---- PASS: TestDiv64PanicOverflow (9.70363616943359375e-05)
+--- PASS: TestDiv64PanicOverflow (0.0001220703125)
 === RUN   TestDivPanicZero
---- PASS: TestDivPanicZero (0.000111103057861328125)
+--- PASS: TestDivPanicZero (0.000110864639282226562)
 === RUN   TestDiv32PanicZero
---- PASS: TestDiv32PanicZero (9.70363616943359375e-05)
+--- PASS: TestDiv32PanicZero (0.000105142593383789062)
 === RUN   TestDiv64PanicZero
---- PASS: TestDiv64PanicZero (9.1075897216796875e-05)
+--- PASS: TestDiv64PanicZero (0.000117063522338867188)
 === RUN   TestRem32
---- PASS: TestRem32 (0.222791910171508789)
+--- PASS: TestRem32 (0.279960870742797852)
 === RUN   TestRem32Overflow
---- PASS: TestRem32Overflow (0.64894413948059082)
+--- PASS: TestRem32Overflow (0.74602508544921875)
 === RUN   TestRem64
---- PASS: TestRem64 (1.64040303230285645)
+--- PASS: TestRem64 (1.88856697082519531)
 === RUN   TestRem64Overflow
---- PASS: TestRem64Overflow (0.00495505332946777344)
+--- PASS: TestRem64Overflow (0.00538611412048339844)
 ```
 </p>
 </details>
@@ -357,7 +357,7 @@ function add(_x:stdgo.GoUInt, _y:stdgo.GoUInt, _carry:stdgo.GoUInt):{_1:stdgo.Go
 Add returns the sum with carry of x, y and carry: sum = x \+ y \+ carry.��// The carry input must be 0 or 1; otherwise the behavior is undefined.��// The carryOut output is guaranteed to be 0 or 1.��//��// This function's execution time does not depend on the inputs. 
 
 
-[\(view code\)](<./Bits.hx#L548>)
+[\(view code\)](<./Bits.hx#L552>)
 
 
 ## function add32
@@ -411,7 +411,7 @@ function exampleAdd32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L569>)
+[\(view code\)](<./Bits.hx#L573>)
 
 
 ## function add64
@@ -465,7 +465,7 @@ function exampleAdd64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L584>)
+[\(view code\)](<./Bits.hx#L588>)
 
 
 ## function div
@@ -479,7 +479,7 @@ function div(_hi:stdgo.GoUInt, _lo:stdgo.GoUInt, _y:stdgo.GoUInt):{_1:stdgo.GoUI
 Div returns the quotient and remainder of \(hi, lo\) divided by y:��// quo = \(hi, lo\)/y, rem = \(hi, lo\)%y with the dividend bits' upper��// half in parameter hi and the lower half in parameter lo.��// Div panics for y == 0 \(division by zero\) or y \<= hi \(quotient overflow\). 
 
 
-[\(view code\)](<./Bits.hx#L710>)
+[\(view code\)](<./Bits.hx#L714>)
 
 
 ## function div32
@@ -528,7 +528,7 @@ function exampleDiv32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L730>)
+[\(view code\)](<./Bits.hx#L734>)
 
 
 ## function div64
@@ -577,7 +577,7 @@ function exampleDiv64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L751>)
+[\(view code\)](<./Bits.hx#L755>)
 
 
 ## function leadingZeros
@@ -736,7 +736,7 @@ function len(_x:stdgo.GoUInt):stdgo.GoInt
 Len returns the minimum number of bits required to represent x; the result is 0 for x == 0. 
 
 
-[\(view code\)](<./Bits.hx#L468>)
+[\(view code\)](<./Bits.hx#L472>)
 
 
 ## function len16
@@ -768,7 +768,7 @@ function exampleLen16():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L487>)
+[\(view code\)](<./Bits.hx#L491>)
 
 
 ## function len32
@@ -800,7 +800,7 @@ function exampleLen32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L502>)
+[\(view code\)](<./Bits.hx#L506>)
 
 
 ## function len64
@@ -832,7 +832,7 @@ function exampleLen64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L521>)
+[\(view code\)](<./Bits.hx#L525>)
 
 
 ## function len8
@@ -864,7 +864,7 @@ function exampleLen8():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L478>)
+[\(view code\)](<./Bits.hx#L482>)
 
 
 ## function mul
@@ -878,7 +878,7 @@ function mul(_x:stdgo.GoUInt, _y:stdgo.GoUInt):{_1:stdgo.GoUInt, _0:stdgo.GoUInt
 Mul returns the full\-width product of x and y: \(hi, lo\) = x \* y��// with the product bits' upper half returned in hi and the lower��// half returned in lo.��//��// This function's execution time does not depend on the inputs. 
 
 
-[\(view code\)](<./Bits.hx#L647>)
+[\(view code\)](<./Bits.hx#L651>)
 
 
 ## function mul32
@@ -925,7 +925,7 @@ function exampleMul32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L668>)
+[\(view code\)](<./Bits.hx#L672>)
 
 
 ## function mul64
@@ -972,7 +972,7 @@ function exampleMul64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L687>)
+[\(view code\)](<./Bits.hx#L691>)
 
 
 ## function onesCount
@@ -1004,7 +1004,7 @@ function exampleOnesCount():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L207>)
+[\(view code\)](<./Bits.hx#L209>)
 
 
 ## function onesCount16
@@ -1036,7 +1036,7 @@ function exampleOnesCount16():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L229>)
+[\(view code\)](<./Bits.hx#L231>)
 
 
 ## function onesCount32
@@ -1069,7 +1069,7 @@ function exampleOnesCount32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L247>)
+[\(view code\)](<./Bits.hx#L249>)
 
 
 ## function onesCount64
@@ -1102,7 +1102,7 @@ function exampleOnesCount64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L277>)
+[\(view code\)](<./Bits.hx#L281>)
 
 
 ## function onesCount8
@@ -1134,7 +1134,7 @@ function exampleOnesCount8():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L217>)
+[\(view code\)](<./Bits.hx#L219>)
 
 
 ## function rem
@@ -1148,7 +1148,7 @@ function rem(_hi:stdgo.GoUInt, _lo:stdgo.GoUInt, _y:stdgo.GoUInt):stdgo.GoUInt
 Rem returns the remainder of \(hi, lo\) divided by y. Rem panics for��// y == 0 \(division by zero\) but, unlike Div, it doesn't panic on a��// quotient overflow. 
 
 
-[\(view code\)](<./Bits.hx#L795>)
+[\(view code\)](<./Bits.hx#L799>)
 
 
 ## function rem32
@@ -1162,7 +1162,7 @@ function rem32(_hi:stdgo.GoUInt32, _lo:stdgo.GoUInt32, _y:stdgo.GoUInt32):stdgo.
 Rem32 returns the remainder of \(hi, lo\) divided by y. Rem32 panics��// for y == 0 \(division by zero\) but, unlike Div32, it doesn't panic��// on a quotient overflow. 
 
 
-[\(view code\)](<./Bits.hx#L807>)
+[\(view code\)](<./Bits.hx#L811>)
 
 
 ## function rem64
@@ -1176,7 +1176,7 @@ function rem64(_hi:stdgo.GoUInt64, _lo:stdgo.GoUInt64, _y:stdgo.GoUInt64):stdgo.
 Rem64 returns the remainder of \(hi, lo\) divided by y. Rem64 panics��// for y == 0 \(division by zero\) but, unlike Div64, it doesn't panic��// on a quotient overflow. 
 
 
-[\(view code\)](<./Bits.hx#L816>)
+[\(view code\)](<./Bits.hx#L820>)
 
 
 ## function reverse
@@ -1190,7 +1190,7 @@ function reverse(_x:stdgo.GoUInt):stdgo.GoUInt
 Reverse returns the value of x with its bits in reversed order. 
 
 
-[\(view code\)](<./Bits.hx#L352>)
+[\(view code\)](<./Bits.hx#L356>)
 
 
 ## function reverse16
@@ -1223,7 +1223,7 @@ function exampleReverse16():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L377>)
+[\(view code\)](<./Bits.hx#L381>)
 
 
 ## function reverse32
@@ -1256,7 +1256,7 @@ function exampleReverse32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L402>)
+[\(view code\)](<./Bits.hx#L406>)
 
 
 ## function reverse64
@@ -1289,7 +1289,7 @@ function exampleReverse64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L413>)
+[\(view code\)](<./Bits.hx#L417>)
 
 
 ## function reverse8
@@ -1322,7 +1322,7 @@ function exampleReverse8():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L362>)
+[\(view code\)](<./Bits.hx#L366>)
 
 
 ## function reverseBytes
@@ -1336,7 +1336,7 @@ function reverseBytes(_x:stdgo.GoUInt):stdgo.GoUInt
 ReverseBytes returns the value of x with its bytes in reversed order.��//��// This function's execution time does not depend on the inputs. 
 
 
-[\(view code\)](<./Bits.hx#L426>)
+[\(view code\)](<./Bits.hx#L430>)
 
 
 ## function reverseBytes16
@@ -1369,7 +1369,7 @@ function exampleReverseBytes16():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L438>)
+[\(view code\)](<./Bits.hx#L442>)
 
 
 ## function reverseBytes32
@@ -1402,7 +1402,7 @@ function exampleReverseBytes32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L447>)
+[\(view code\)](<./Bits.hx#L451>)
 
 
 ## function reverseBytes64
@@ -1435,7 +1435,7 @@ function exampleReverseBytes64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L458>)
+[\(view code\)](<./Bits.hx#L462>)
 
 
 ## function rotateLeft
@@ -1449,7 +1449,7 @@ function rotateLeft(_x:stdgo.GoUInt, _k:stdgo.GoInt):stdgo.GoUInt
 RotateLeft returns the value of x rotated left by \(k mod UintSize\) bits.��// To rotate x right by k bits, call RotateLeft\(x, \-k\).��//��// This function's execution time does not depend on the inputs. 
 
 
-[\(view code\)](<./Bits.hx#L294>)
+[\(view code\)](<./Bits.hx#L298>)
 
 
 ## function rotateLeft16
@@ -1483,7 +1483,7 @@ function exampleRotateLeft16():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L319>)
+[\(view code\)](<./Bits.hx#L323>)
 
 
 ## function rotateLeft32
@@ -1517,7 +1517,7 @@ function exampleRotateLeft32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L331>)
+[\(view code\)](<./Bits.hx#L335>)
 
 
 ## function rotateLeft64
@@ -1551,7 +1551,7 @@ function exampleRotateLeft64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L343>)
+[\(view code\)](<./Bits.hx#L347>)
 
 
 ## function rotateLeft8
@@ -1585,7 +1585,7 @@ function exampleRotateLeft8():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L307>)
+[\(view code\)](<./Bits.hx#L311>)
 
 
 ## function sub
@@ -1599,7 +1599,7 @@ function sub(_x:stdgo.GoUInt, _y:stdgo.GoUInt, _borrow:stdgo.GoUInt):{_1:stdgo.G
 Sub returns the difference of x, y and borrow: diff = x \- y \- borrow.��// The borrow input must be 0 or 1; otherwise the behavior is undefined.��// The borrowOut output is guaranteed to be 0 or 1.��//��// This function's execution time does not depend on the inputs. 
 
 
-[\(view code\)](<./Bits.hx#L598>)
+[\(view code\)](<./Bits.hx#L602>)
 
 
 ## function sub32
@@ -1653,7 +1653,7 @@ function exampleSub32():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L619>)
+[\(view code\)](<./Bits.hx#L623>)
 
 
 ## function sub64
@@ -1707,7 +1707,7 @@ function exampleSub64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L633>)
+[\(view code\)](<./Bits.hx#L637>)
 
 
 ## function trailingZeros
@@ -1820,7 +1820,7 @@ function exampleTrailingZeros64():Void {
 </details>
 
 
-[\(view code\)](<./Bits.hx#L195>)
+[\(view code\)](<./Bits.hx#L197>)
 
 
 ## function trailingZeros8

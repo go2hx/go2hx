@@ -129,7 +129,7 @@ function _add(_l:stdgo.Ref<stdgo.testing.internal.testdeps._Testdeps.T_testLog>,
 add adds the \(op, name\) pair to the test log. 
 
 
-[\(view code\)](<./Testdeps.hx#L292>)
+[\(view code\)](<./Testdeps.hx#L298>)
 
 
 ### T\_testLog\_static\_extension function chdir
@@ -143,7 +143,7 @@ function chdir(_l:stdgo.Ref<stdgo.testing.internal.testdeps._Testdeps.T_testLog>
  
 
 
-[\(view code\)](<./Testdeps.hx#L296>)
+[\(view code\)](<./Testdeps.hx#L302>)
 
 
 ### T\_testLog\_static\_extension function getenv
@@ -157,7 +157,7 @@ function getenv(_l:stdgo.Ref<stdgo.testing.internal.testdeps._Testdeps.T_testLog
  
 
 
-[\(view code\)](<./Testdeps.hx#L308>)
+[\(view code\)](<./Testdeps.hx#L314>)
 
 
 ### T\_testLog\_static\_extension function open
@@ -171,7 +171,7 @@ function open(_l:stdgo.Ref<stdgo.testing.internal.testdeps._Testdeps.T_testLog>,
  
 
 
-[\(view code\)](<./Testdeps.hx#L304>)
+[\(view code\)](<./Testdeps.hx#L310>)
 
 
 ### T\_testLog\_static\_extension function stat
@@ -185,7 +185,7 @@ function stat(_l:stdgo.Ref<stdgo.testing.internal.testdeps._Testdeps.T_testLog>,
  
 
 
-[\(view code\)](<./Testdeps.hx#L300>)
+[\(view code\)](<./Testdeps.hx#L306>)
 
 
 ## class TestDeps
@@ -219,7 +219,7 @@ function checkCorpus( _vals:stdgo.Slice<stdgo.AnyInterface>, _types:stdgo.Slice<
  
 
 
-[\(view code\)](<./Testdeps.hx#L175>)
+[\(view code\)](<./Testdeps.hx#L181>)
 
 
 ### TestDeps function coordinateFuzzing
@@ -233,7 +233,7 @@ function coordinateFuzzing( _timeout:stdgo.time.Duration, _limit:stdgo.GoInt64, 
  
 
 
-[\(view code\)](<./Testdeps.hx#L210>)
+[\(view code\)](<./Testdeps.hx#L216>)
 
 
 ### TestDeps function importPath
@@ -247,7 +247,7 @@ function importPath():stdgo.GoString
  
 
 
-[\(view code\)](<./Testdeps.hx#L229>)
+[\(view code\)](<./Testdeps.hx#L235>)
 
 
 ### TestDeps function matchString
@@ -261,7 +261,7 @@ function matchString( _pat:stdgo.GoString, _str:stdgo.GoString):{_1:stdgo.Error,
  
 
 
-[\(view code\)](<./Testdeps.hx#L245>)
+[\(view code\)](<./Testdeps.hx#L251>)
 
 
 ### TestDeps function readCorpus
@@ -275,7 +275,7 @@ function readCorpus( _dir:stdgo.GoString, _types:stdgo.Slice<stdgo.reflect.Type>
  
 
 
-[\(view code\)](<./Testdeps.hx#L186>)
+[\(view code\)](<./Testdeps.hx#L192>)
 
 
 ### TestDeps function resetCoverage
@@ -289,7 +289,7 @@ function resetCoverage():Void
  
 
 
-[\(view code\)](<./Testdeps.hx#L171>)
+[\(view code\)](<./Testdeps.hx#L177>)
 
 
 ### TestDeps function runFuzzWorker
@@ -303,7 +303,7 @@ function runFuzzWorker( _fn:()):stdgo.Error
  
 
 
-[\(view code\)](<./Testdeps.hx#L197>)
+[\(view code\)](<./Testdeps.hx#L203>)
 
 
 ### TestDeps function setPanicOnExit0
@@ -317,7 +317,7 @@ function setPanicOnExit0( _v:Bool):Void
 SetPanicOnExit0 tells the os package whether to panic on os.Exit\(0\). 
 
 
-[\(view code\)](<./Testdeps.hx#L217>)
+[\(view code\)](<./Testdeps.hx#L223>)
 
 
 ### TestDeps function snapshotCoverage
@@ -331,7 +331,7 @@ function snapshotCoverage():Void
  
 
 
-[\(view code\)](<./Testdeps.hx#L167>)
+[\(view code\)](<./Testdeps.hx#L173>)
 
 
 ### TestDeps function startCPUProfile
@@ -345,7 +345,7 @@ function startCPUProfile( _w:stdgo.io.Writer):stdgo.Error
  
 
 
-[\(view code\)](<./Testdeps.hx#L241>)
+[\(view code\)](<./Testdeps.hx#L247>)
 
 
 ### TestDeps function startTestLog
@@ -359,7 +359,7 @@ function startTestLog( _w:stdgo.io.Writer):Void
  
 
 
-[\(view code\)](<./Testdeps.hx#L225>)
+[\(view code\)](<./Testdeps.hx#L231>)
 
 
 ### TestDeps function stopCPUProfile
@@ -373,7 +373,7 @@ function stopCPUProfile():Void
  
 
 
-[\(view code\)](<./Testdeps.hx#L237>)
+[\(view code\)](<./Testdeps.hx#L243>)
 
 
 ### TestDeps function stopTestLog
@@ -387,7 +387,7 @@ function stopTestLog():stdgo.Error
  
 
 
-[\(view code\)](<./Testdeps.hx#L221>)
+[\(view code\)](<./Testdeps.hx#L227>)
 
 
 ### TestDeps function writeProfileTo
@@ -401,7 +401,7 @@ function writeProfileTo( _name:stdgo.GoString, _w:stdgo.io.Writer, _debug:stdgo.
  
 
 
-[\(view code\)](<./Testdeps.hx#L233>)
+[\(view code\)](<./Testdeps.hx#L239>)
 
 
 ## class TestDeps\_static\_extension
@@ -421,7 +421,7 @@ function checkCorpus( _vals:stdgo.Slice<stdgo.AnyInterface>, _types:stdgo.Slice<
  
 
 
-[\(view code\)](<./Testdeps.hx#L175>)
+[\(view code\)](<./Testdeps.hx#L181>)
 
 
 ### TestDeps\_static\_extension function coordinateFuzzing
@@ -435,7 +435,7 @@ function coordinateFuzzing( _timeout:stdgo.time.Duration, _limit:stdgo.GoInt64, 
  
 
 
-[\(view code\)](<./Testdeps.hx#L210>)
+[\(view code\)](<./Testdeps.hx#L216>)
 
 
 ### TestDeps\_static\_extension function importPath
@@ -449,7 +449,7 @@ function importPath():stdgo.GoString
  
 
 
-[\(view code\)](<./Testdeps.hx#L229>)
+[\(view code\)](<./Testdeps.hx#L235>)
 
 
 ### TestDeps\_static\_extension function matchString
@@ -463,7 +463,7 @@ function matchString( _pat:stdgo.GoString, _str:stdgo.GoString):{_1:stdgo.Error,
  
 
 
-[\(view code\)](<./Testdeps.hx#L245>)
+[\(view code\)](<./Testdeps.hx#L251>)
 
 
 ### TestDeps\_static\_extension function readCorpus
@@ -477,7 +477,7 @@ function readCorpus( _dir:stdgo.GoString, _types:stdgo.Slice<stdgo.reflect.Type>
  
 
 
-[\(view code\)](<./Testdeps.hx#L186>)
+[\(view code\)](<./Testdeps.hx#L192>)
 
 
 ### TestDeps\_static\_extension function resetCoverage
@@ -491,7 +491,7 @@ function resetCoverage():Void
  
 
 
-[\(view code\)](<./Testdeps.hx#L171>)
+[\(view code\)](<./Testdeps.hx#L177>)
 
 
 ### TestDeps\_static\_extension function runFuzzWorker
@@ -505,7 +505,7 @@ function runFuzzWorker( _fn:()):stdgo.Error
  
 
 
-[\(view code\)](<./Testdeps.hx#L197>)
+[\(view code\)](<./Testdeps.hx#L203>)
 
 
 ### TestDeps\_static\_extension function setPanicOnExit0
@@ -519,7 +519,7 @@ function setPanicOnExit0( _v:Bool):Void
 SetPanicOnExit0 tells the os package whether to panic on os.Exit\(0\). 
 
 
-[\(view code\)](<./Testdeps.hx#L217>)
+[\(view code\)](<./Testdeps.hx#L223>)
 
 
 ### TestDeps\_static\_extension function snapshotCoverage
@@ -533,7 +533,7 @@ function snapshotCoverage():Void
  
 
 
-[\(view code\)](<./Testdeps.hx#L167>)
+[\(view code\)](<./Testdeps.hx#L173>)
 
 
 ### TestDeps\_static\_extension function startCPUProfile
@@ -547,7 +547,7 @@ function startCPUProfile( _w:stdgo.io.Writer):stdgo.Error
  
 
 
-[\(view code\)](<./Testdeps.hx#L241>)
+[\(view code\)](<./Testdeps.hx#L247>)
 
 
 ### TestDeps\_static\_extension function startTestLog
@@ -561,7 +561,7 @@ function startTestLog( _w:stdgo.io.Writer):Void
  
 
 
-[\(view code\)](<./Testdeps.hx#L225>)
+[\(view code\)](<./Testdeps.hx#L231>)
 
 
 ### TestDeps\_static\_extension function stopCPUProfile
@@ -575,7 +575,7 @@ function stopCPUProfile():Void
  
 
 
-[\(view code\)](<./Testdeps.hx#L237>)
+[\(view code\)](<./Testdeps.hx#L243>)
 
 
 ### TestDeps\_static\_extension function stopTestLog
@@ -589,7 +589,7 @@ function stopTestLog():stdgo.Error
  
 
 
-[\(view code\)](<./Testdeps.hx#L221>)
+[\(view code\)](<./Testdeps.hx#L227>)
 
 
 ### TestDeps\_static\_extension function writeProfileTo
@@ -603,6 +603,6 @@ function writeProfileTo( _name:stdgo.GoString, _w:stdgo.io.Writer, _debug:stdgo.
  
 
 
-[\(view code\)](<./Testdeps.hx#L233>)
+[\(view code\)](<./Testdeps.hx#L239>)
 
 

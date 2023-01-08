@@ -14,17 +14,17 @@ Package errors implements functions to manipulate errors.��//��// The Ne
 
 ```
 === RUN   TestNewEqual
---- PASS: TestNewEqual (0.000106096267700195)
+--- PASS: TestNewEqual (0.000129938125610352)
 === RUN   TestErrorMethod
---- PASS: TestErrorMethod (1.81198120117188e-05)
+--- PASS: TestErrorMethod (1.40666961669922e-05)
 === RUN   TestIs
---- PASS: TestIs (0.000599861145019531)
+--- PASS: TestIs (8.10623168945312e-05)
 === RUN   TestAs
---- PASS: TestAs (0.000550985336303711)
+--- PASS: TestAs (0.00172209739685059)
 === RUN   TestAsValidation
---- PASS: TestAsValidation (9.08374786376953e-05)
+--- PASS: TestAsValidation (0.000123023986816406)
 === RUN   TestUnwrap
---- PASS: TestUnwrap (0.000169992446899414)
+--- PASS: TestUnwrap (0.000161170959472656)
 ```
 </p>
 </details>
@@ -34,17 +34,17 @@ Package errors implements functions to manipulate errors.��//��// The Ne
 
 ```
 === RUN   TestNewEqual
---- PASS: TestNewEqual (0.000138998031616210938)
+--- PASS: TestNewEqual (0.0002079010009765625)
 === RUN   TestErrorMethod
---- PASS: TestErrorMethod (2.09808349609375e-05)
+--- PASS: TestErrorMethod (2.7179718017578125e-05)
 === RUN   TestIs
---- PASS: TestIs (0.00024509429931640625)
+--- PASS: TestIs (0.000179767608642578125)
 === RUN   TestAs
---- PASS: TestAs (0.000942945480346679688)
+--- PASS: TestAs (0.000931024551391601562)
 === RUN   TestAsValidation
 --- PASS: TestAsValidation (8.70227813720703125e-05)
 === RUN   TestUnwrap
---- PASS: TestUnwrap (0.000261783599853515625)
+--- PASS: TestUnwrap (0.000322818756103515625)
 ```
 </p>
 </details>
@@ -116,9 +116,9 @@ function exampleAs():Void {
 		if (_err != null) {
 			var _pathError:Ref<stdgo.io.fs.Fs.PathError> = (null : Ref<stdgo.io.fs.Fs.PathError>);
 			if (stdgo.errors.Errors.as(_err, Go.toInterface((_pathError : Ref<Ref<stdgo.io.fs.Fs.PathError>>)))) {
-				stdgo.fmt.Fmt.println(Go.str("Failed at path:"), _pathError.path);
+				stdgo.fmt.Fmt.println(Go.toInterface(Go.str("Failed at path:")), Go.toInterface(_pathError.path));
 			} else {
-				stdgo.fmt.Fmt.println(_err);
+				stdgo.fmt.Fmt.println(Go.toInterface(_err));
 			};
 		};
 	};
@@ -130,7 +130,7 @@ function exampleAs():Void {
 </details>
 
 
-[\(view code\)](<./Errors.hx#L185>)
+[\(view code\)](<./Errors.hx#L189>)
 
 
 ## function is\_
@@ -144,7 +144,7 @@ function is_(_err:stdgo.Error, _target:stdgo.Error):Bool
 Is reports whether any error in err's chain matches target.��//��// The chain consists of err itself followed by the sequence of errors obtained by��// repeatedly calling Unwrap.��//��// An error is considered to match a target if it is equal to that target or if��// it implements a method Is\(error\) bool such that Is\(target\) returns true.��//��// An error type might provide an Is method so it can be treated as equivalent��// to an existing error. For example, if MyError defines��//��//�func \(m MyError\) Is\(target error\) bool \{ return target == fs.ErrExist \}��//��// then Is\(MyError\{\}, fs.ErrExist\) returns true. See syscall.Errno.Is for��// an example in the standard library. An Is method should only shallowly��// compare err and the target and not call Unwrap on either. 
 
 
-[\(view code\)](<./Errors.hx#L139>)
+[\(view code\)](<./Errors.hx#L143>)
 
 
 ## function new\_
@@ -158,7 +158,7 @@ function new_(_text:stdgo.GoString):stdgo.Error
 New returns an error that formats as the given text.��// Each call to New returns a distinct error value even if the text is identical. 
 
 
-[\(view code\)](<./Errors.hx#L100>)
+[\(view code\)](<./Errors.hx#L104>)
 
 
 ## function unwrap
@@ -183,8 +183,8 @@ Unwrap returns the result of calling the Unwrap method on err, if err's��// 
 function exampleUnwrap():Void {
 	var _err1:Error = stdgo.errors.Errors.new_(Go.str("error1"));
 	var _err2:Error = stdgo.fmt.Fmt.errorf(Go.str("error2: [%w]"), Go.toInterface(_err1));
-	stdgo.fmt.Fmt.println(_err2);
-	stdgo.fmt.Fmt.println(stdgo.errors.Errors.unwrap(_err2));
+	stdgo.fmt.Fmt.println(Go.toInterface(_err2));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.errors.Errors.unwrap(_err2)));
 }
 ```
 
@@ -193,7 +193,7 @@ function exampleUnwrap():Void {
 </details>
 
 
-[\(view code\)](<./Errors.hx#L109>)
+[\(view code\)](<./Errors.hx#L113>)
 
 
 # Classes
@@ -221,6 +221,6 @@ function error(_e:stdgo.Ref<stdgo.errors._Errors.T_errorString>):stdgo.GoString
  
 
 
-[\(view code\)](<./Errors.hx#L242>)
+[\(view code\)](<./Errors.hx#L246>)
 
 

@@ -1,6 +1,6 @@
 # Module stdgo.internal has compilation errors, please do not use:
 ```
-stdgo/internal/abi/Abi.hx:107: character 17 : `package stdgo.internal.abi;` in /home/runner/work/go2hx/go2hx/stdgo/internal/abi/Abi.hx should be `package internal.abi;`
+stdgo/internal/fuzz/Fuzz.hx:1495: character 17 : `package stdgo.internal.fuzz;` in /home/runner/work/go2hx/go2hx/stdgo/internal/fuzz/Fuzz.hx should be `package internal.fuzz;`
 
 ```
 

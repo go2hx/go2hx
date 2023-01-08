@@ -28,7 +28,7 @@ Called from stdgo.testing.iotest_test._Iotest.$Iotest_Fields_.main (stdgo/testin
 ```
 === RUN   TestWriteLogger
 Exception: testing.iotest.testWriteLogger is not yet implemented
-Called from stdgo.testing.iotest._Iotest.Iotest_Fields_.testWriteLogger (stdgo/testing/iotest/Iotest.hx line 221 column 2)
+Called from stdgo.testing.iotest._Iotest.Iotest_Fields_.testWriteLogger (stdgo/testing/iotest/Iotest.hx line 250 column 2)
 ```
 </p>
 </details>
@@ -95,6 +95,8 @@ IO.Overflow("write_ui16")
 - [`function timeoutReader(_r:stdgo.io.Reader):stdgo.io.Reader`](<#function-timeoutreader>)
 
 - [`function truncateWriter(_w:stdgo.io.Writer, _n:stdgo.GoInt64):stdgo.io.Writer`](<#function-truncatewriter>)
+
+- [class T\_\_struct\_0\_static\_extension](<#class-t__struct_0_static_extension>)
 
 - [class T\_dataErrReader\_static\_extension](<#class-t_dataerrreader_static_extension>)
 
@@ -176,7 +178,7 @@ function dataErrReader(_r:stdgo.io.Reader):stdgo.io.Reader
 DataErrReader changes the way errors are handled by a Reader. Normally, a��// Reader returns an error \(typically EOF\) from the first Read call after the��// last piece of data is read. DataErrReader wraps a Reader and changes its��// behavior so the final error is returned along with the final data, instead��// of in the first call after the final data. 
 
 
-[\(view code\)](<./Iotest.hx#L254>)
+[\(view code\)](<./Iotest.hx#L283>)
 
 
 ## function errReader
@@ -212,7 +214,7 @@ function exampleErrReader():Void {
 </details>
 
 
-[\(view code\)](<./Iotest.hx#L267>)
+[\(view code\)](<./Iotest.hx#L296>)
 
 
 ## function halfReader
@@ -226,7 +228,7 @@ function halfReader(_r:stdgo.io.Reader):stdgo.io.Reader
 HalfReader returns a Reader that implements Read��// by reading half as many requested bytes from r. 
 
 
-[\(view code\)](<./Iotest.hx#L244>)
+[\(view code\)](<./Iotest.hx#L273>)
 
 
 ## function newReadLogger
@@ -240,7 +242,7 @@ function newReadLogger(_prefix:stdgo.GoString, _r:stdgo.io.Reader):stdgo.io.Read
 NewReadLogger returns a reader that behaves like r except��// that it logs \(using log.Printf\) each read to standard error,��// printing the prefix and the hexadecimal data read. 
 
 
-[\(view code\)](<./Iotest.hx#L218>)
+[\(view code\)](<./Iotest.hx#L247>)
 
 
 ## function newWriteLogger
@@ -254,7 +256,7 @@ function newWriteLogger(_prefix:stdgo.GoString, _w:stdgo.io.Writer):stdgo.io.Wri
 NewWriteLogger returns a writer that behaves like w except��// that it logs \(using log.Printf\) each write to standard error,��// printing the prefix and the hexadecimal data written. 
 
 
-[\(view code\)](<./Iotest.hx#L210>)
+[\(view code\)](<./Iotest.hx#L239>)
 
 
 ## function oneByteReader
@@ -268,7 +270,7 @@ function oneByteReader(_r:stdgo.io.Reader):stdgo.io.Reader
 OneByteReader returns a Reader that implements��// each non\-empty Read by reading one byte from r. 
 
 
-[\(view code\)](<./Iotest.hx#L237>)
+[\(view code\)](<./Iotest.hx#L266>)
 
 
 ## function testDataErrReader\_emptyReader
@@ -282,7 +284,7 @@ function testDataErrReader_emptyReader(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Iotest.hx#L303>)
+[\(view code\)](<./Iotest.hx#L332>)
 
 
 ## function testDataErrReader\_nonEmptyReader
@@ -296,7 +298,7 @@ function testDataErrReader_nonEmptyReader(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Iotest.hx#L300>)
+[\(view code\)](<./Iotest.hx#L329>)
 
 
 ## function testErrReader
@@ -310,7 +312,7 @@ function testErrReader(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Iotest.hx#L306>)
+[\(view code\)](<./Iotest.hx#L335>)
 
 
 ## function testHalfReader\_emptyReader
@@ -324,7 +326,7 @@ function testHalfReader_emptyReader(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Iotest.hx#L291>)
+[\(view code\)](<./Iotest.hx#L320>)
 
 
 ## function testHalfReader\_nonEmptyReader
@@ -338,7 +340,7 @@ function testHalfReader_nonEmptyReader(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Iotest.hx#L288>)
+[\(view code\)](<./Iotest.hx#L317>)
 
 
 ## function testOneByteReader\_emptyReader
@@ -352,7 +354,7 @@ function testOneByteReader_emptyReader(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Iotest.hx#L285>)
+[\(view code\)](<./Iotest.hx#L314>)
 
 
 ## function testOneByteReader\_nonEmptyReader
@@ -366,7 +368,7 @@ function testOneByteReader_nonEmptyReader(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Iotest.hx#L282>)
+[\(view code\)](<./Iotest.hx#L311>)
 
 
 ## function testReadLogger
@@ -380,7 +382,7 @@ function testReadLogger(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Iotest.hx#L227>)
+[\(view code\)](<./Iotest.hx#L256>)
 
 
 ## function testReadLogger\_errorOnRead
@@ -394,7 +396,7 @@ function testReadLogger_errorOnRead(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Iotest.hx#L230>)
+[\(view code\)](<./Iotest.hx#L259>)
 
 
 ## function testReader
@@ -408,7 +410,7 @@ function testReader(_r:stdgo.io.Reader, _content:stdgo.Slice<stdgo.GoByte>):stdg
 TestReader tests that reading from r returns the expected file content.��// It does reads of different sizes, until EOF.��// If r implements io.ReaderAt or io.Seeker, TestReader also checks��// that those operations behave as they should.��//��// If TestReader finds any misbehaviors, it returns an error reporting them.��// The error text may span multiple lines. 
 
 
-[\(view code\)](<./Iotest.hx#L279>)
+[\(view code\)](<./Iotest.hx#L308>)
 
 
 ## function testStringsReader
@@ -422,7 +424,7 @@ function testStringsReader(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Iotest.hx#L309>)
+[\(view code\)](<./Iotest.hx#L338>)
 
 
 ## function testTimeOutReader\_emptyReader
@@ -436,7 +438,7 @@ function testTimeOutReader_emptyReader(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Iotest.hx#L297>)
+[\(view code\)](<./Iotest.hx#L326>)
 
 
 ## function testTimeOutReader\_nonEmptyReader
@@ -450,7 +452,7 @@ function testTimeOutReader_nonEmptyReader(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Iotest.hx#L294>)
+[\(view code\)](<./Iotest.hx#L323>)
 
 
 ## function testTruncateWriter
@@ -464,7 +466,7 @@ function testTruncateWriter(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Iotest.hx#L319>)
+[\(view code\)](<./Iotest.hx#L348>)
 
 
 ## function testWriteLogger
@@ -478,7 +480,7 @@ function testWriteLogger(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Iotest.hx#L221>)
+[\(view code\)](<./Iotest.hx#L250>)
 
 
 ## function testWriteLogger\_errorOnWrite
@@ -492,7 +494,7 @@ function testWriteLogger_errorOnWrite(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Iotest.hx#L224>)
+[\(view code\)](<./Iotest.hx#L253>)
 
 
 ## function timeoutReader
@@ -506,7 +508,7 @@ function timeoutReader(_r:stdgo.io.Reader):stdgo.io.Reader
 TimeoutReader returns ErrTimeout on the second read��// with no data. Subsequent calls to read succeed. 
 
 
-[\(view code\)](<./Iotest.hx#L261>)
+[\(view code\)](<./Iotest.hx#L290>)
 
 
 ## function truncateWriter
@@ -520,7 +522,7 @@ function truncateWriter(_w:stdgo.io.Writer, _n:stdgo.GoInt64):stdgo.io.Writer
 TruncateWriter returns a Writer that writes to w��// but stops silently after n bytes. 
 
 
-[\(view code\)](<./Iotest.hx#L316>)
+[\(view code\)](<./Iotest.hx#L345>)
 
 
 # Classes
@@ -529,6 +531,12 @@ TruncateWriter returns a Writer that writes to w��// but stops silently afte
 ```haxe
 import stdgo.testing.iotest.*
 ```
+
+
+## class T\_\_struct\_0\_static\_extension
+
+
+ 
 
 
 ## class T\_dataErrReader\_static\_extension
@@ -548,7 +556,7 @@ function read(_r:stdgo.Ref<stdgo.testing.iotest._Iotest.T_dataErrReader>, _p:std
  
 
 
-[\(view code\)](<./Iotest.hx#L468>)
+[\(view code\)](<./Iotest.hx#L497>)
 
 
 ## class T\_errReader\_static\_extension
@@ -568,7 +576,7 @@ function read(_r:stdgo.Ref<stdgo.testing.iotest._Iotest.T_errReader>, _p:stdgo.S
  
 
 
-[\(view code\)](<./Iotest.hx#L518>)
+[\(view code\)](<./Iotest.hx#L547>)
 
 
 ## class T\_errWriter\_static\_extension
@@ -588,7 +596,7 @@ function write(_w:stdgo.testing.iotest._Iotest.T_errWriter, _0:stdgo.Slice<stdgo
  
 
 
-[\(view code\)](<./Iotest.hx#L393>)
+[\(view code\)](<./Iotest.hx#L422>)
 
 
 ## class T\_halfReader\_static\_extension
@@ -608,7 +616,7 @@ function read(_r:stdgo.Ref<stdgo.testing.iotest._Iotest.T_halfReader>, _p:stdgo.
  
 
 
-[\(view code\)](<./Iotest.hx#L443>)
+[\(view code\)](<./Iotest.hx#L472>)
 
 
 ## class T\_oneByteReader\_static\_extension
@@ -628,7 +636,7 @@ function read(_r:stdgo.Ref<stdgo.testing.iotest._Iotest.T_oneByteReader>, _p:std
  
 
 
-[\(view code\)](<./Iotest.hx#L418>)
+[\(view code\)](<./Iotest.hx#L447>)
 
 
 ## class T\_readLogger\_static\_extension
@@ -648,7 +656,7 @@ function read(_l:stdgo.Ref<stdgo.testing.iotest._Iotest.T_readLogger>, _p:stdgo.
  
 
 
-[\(view code\)](<./Iotest.hx#L368>)
+[\(view code\)](<./Iotest.hx#L397>)
 
 
 ## class T\_smallByteReader\_static\_extension
@@ -668,7 +676,7 @@ function read(_r:stdgo.Ref<stdgo.testing.iotest._Iotest.T_smallByteReader>, _p:s
  
 
 
-[\(view code\)](<./Iotest.hx#L543>)
+[\(view code\)](<./Iotest.hx#L572>)
 
 
 ## class T\_timeoutReader\_static\_extension
@@ -688,7 +696,7 @@ function read(_r:stdgo.Ref<stdgo.testing.iotest._Iotest.T_timeoutReader>, _p:std
  
 
 
-[\(view code\)](<./Iotest.hx#L493>)
+[\(view code\)](<./Iotest.hx#L522>)
 
 
 ## class T\_truncateWriter\_static\_extension
@@ -708,7 +716,7 @@ function write(_t:stdgo.Ref<stdgo.testing.iotest._Iotest.T_truncateWriter>, _p:s
  
 
 
-[\(view code\)](<./Iotest.hx#L568>)
+[\(view code\)](<./Iotest.hx#L597>)
 
 
 ## class T\_writeLogger\_static\_extension
@@ -728,6 +736,6 @@ function write(_l:stdgo.Ref<stdgo.testing.iotest._Iotest.T_writeLogger>, _p:stdg
  
 
 
-[\(view code\)](<./Iotest.hx#L343>)
+[\(view code\)](<./Iotest.hx#L372>)
 
 

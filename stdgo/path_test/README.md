@@ -106,7 +106,7 @@ function exampleBase():Void
  
 
 
-[\(view code\)](<./Path.hx#L294>)
+[\(view code\)](<./Path.hx#L312>)
 
 
 ## function exampleClean
@@ -120,7 +120,7 @@ function exampleClean():Void
  
 
 
-[\(view code\)](<./Path.hx#L300>)
+[\(view code\)](<./Path.hx#L318>)
 
 
 ## function exampleDir
@@ -134,7 +134,7 @@ function exampleDir():Void
  
 
 
-[\(view code\)](<./Path.hx#L308>)
+[\(view code\)](<./Path.hx#L326>)
 
 
 ## function exampleExt
@@ -148,7 +148,7 @@ function exampleExt():Void
  
 
 
-[\(view code\)](<./Path.hx#L317>)
+[\(view code\)](<./Path.hx#L335>)
 
 
 ## function exampleIsAbs
@@ -162,7 +162,7 @@ function exampleIsAbs():Void
  
 
 
-[\(view code\)](<./Path.hx#L323>)
+[\(view code\)](<./Path.hx#L341>)
 
 
 ## function exampleJoin
@@ -176,7 +176,7 @@ function exampleJoin():Void
  
 
 
-[\(view code\)](<./Path.hx#L327>)
+[\(view code\)](<./Path.hx#L345>)
 
 
 ## function exampleMatch
@@ -190,7 +190,7 @@ function exampleMatch():Void
  
 
 
-[\(view code\)](<./Path.hx#L337>)
+[\(view code\)](<./Path.hx#L355>)
 
 
 ## function exampleSplit
@@ -204,7 +204,7 @@ function exampleSplit():Void
  
 
 
-[\(view code\)](<./Path.hx#L352>)
+[\(view code\)](<./Path.hx#L370>)
 
 
 ## function testBase
@@ -218,7 +218,7 @@ function testBase(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Path.hx#L445>)
+[\(view code\)](<./Path.hx#L463>)
 
 
 ## function testClean
@@ -232,7 +232,7 @@ function testClean(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Path.hx#L374>)
+[\(view code\)](<./Path.hx#L392>)
 
 
 ## function testCleanMallocs
@@ -246,7 +246,7 @@ function testCleanMallocs(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Path.hx#L391>)
+[\(view code\)](<./Path.hx#L409>)
 
 
 ## function testDir
@@ -260,7 +260,7 @@ function testDir(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Path.hx#L456>)
+[\(view code\)](<./Path.hx#L474>)
 
 
 ## function testExt
@@ -274,7 +274,7 @@ function testExt(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Path.hx#L434>)
+[\(view code\)](<./Path.hx#L452>)
 
 
 ## function testIsAbs
@@ -288,7 +288,7 @@ function testIsAbs(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Path.hx#L467>)
+[\(view code\)](<./Path.hx#L485>)
 
 
 ## function testJoin
@@ -302,7 +302,7 @@ function testJoin(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Path.hx#L423>)
+[\(view code\)](<./Path.hx#L441>)
 
 
 ## function testMatch
@@ -316,7 +316,7 @@ function testMatch(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Path.hx#L362>)
+[\(view code\)](<./Path.hx#L380>)
 
 
 ## function testSplit
@@ -330,7 +330,7 @@ function testSplit(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Path.hx#L409>)
+[\(view code\)](<./Path.hx#L427>)
 
 
 ## function main
@@ -382,7 +382,7 @@ function new(?_path:stdgo.GoString, ?_ext:stdgo.GoString):Void
  
 
 
-[\(view code\)](<./Path_test.hx#L266>)
+[\(view code\)](<./Path_test.hx#L278>)
 
 
 ## class IsAbsTest
@@ -412,7 +412,7 @@ function new(?_path:stdgo.GoString, ?_isAbs:Bool):Void
  
 
 
-[\(view code\)](<./Path_test.hx#L282>)
+[\(view code\)](<./Path_test.hx#L297>)
 
 
 ## class JoinTest
@@ -442,7 +442,7 @@ function new(?_elem:stdgo.Slice<stdgo.GoString>, ?_path:stdgo.GoString):Void
  
 
 
-[\(view code\)](<./Path_test.hx#L250>)
+[\(view code\)](<./Path_test.hx#L259>)
 
 
 ## class MatchTest
@@ -512,7 +512,7 @@ function new(?_path:stdgo.GoString, ?_result:stdgo.GoString):Void
  
 
 
-[\(view code\)](<./Path_test.hx#L215>)
+[\(view code\)](<./Path_test.hx#L218>)
 
 
 ## class SplitTest
@@ -547,6 +547,6 @@ function new(?_path:stdgo.GoString, ?_dir:stdgo.GoString, ?_file:stdgo.GoString)
  
 
 
-[\(view code\)](<./Path_test.hx#L232>)
+[\(view code\)](<./Path_test.hx#L238>)
 
 

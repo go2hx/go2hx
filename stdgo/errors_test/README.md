@@ -52,6 +52,12 @@
 
   - [`function error():stdgo.GoString`](<#myerror_static_extension-function-error>)
 
+- [class T\_\_struct\_0\_static\_extension](<#class-t__struct_0_static_extension>)
+
+- [class T\_\_struct\_1\_static\_extension](<#class-t__struct_1_static_extension>)
+
+- [class T\_\_struct\_2\_static\_extension](<#class-t__struct_2_static_extension>)
+
 - [class T\_errorT\_static\_extension](<#class-t_errort_static_extension>)
 
   - [`function error(_e:stdgo.errors_test._Errors_test.T_errorT):stdgo.GoString`](<#t_errort_static_extension-function-error>)
@@ -108,7 +114,7 @@ function _oops():stdgo.Error
  
 
 
-[\(view code\)](<./Errors.hx#L205>)
+[\(view code\)](<./Errors.hx#L223>)
 
 
 ## function example
@@ -122,7 +128,7 @@ function example():Void
  
 
 
-[\(view code\)](<./Errors.hx#L214>)
+[\(view code\)](<./Errors.hx#L232>)
 
 
 ## function exampleAs
@@ -136,7 +142,7 @@ function exampleAs():Void
  
 
 
-[\(view code\)](<./Errors.hx#L457>)
+[\(view code\)](<./Errors.hx#L475>)
 
 
 ## function exampleIs
@@ -150,7 +156,7 @@ function exampleIs():Void
  
 
 
-[\(view code\)](<./Errors.hx#L442>)
+[\(view code\)](<./Errors.hx#L460>)
 
 
 ## function exampleNew
@@ -164,7 +170,7 @@ function exampleNew():Void
  
 
 
-[\(view code\)](<./Errors.hx#L186>)
+[\(view code\)](<./Errors.hx#L204>)
 
 
 ## function exampleNew\_errorf
@@ -178,7 +184,7 @@ function exampleNew_errorf():Void
 The fmt package's Errorf function lets us use the package's formatting��// features to create descriptive error messages. 
 
 
-[\(view code\)](<./Errors.hx#L197>)
+[\(view code\)](<./Errors.hx#L215>)
 
 
 ## function exampleUnwrap
@@ -192,7 +198,7 @@ function exampleUnwrap():Void
  
 
 
-[\(view code\)](<./Errors.hx#L473>)
+[\(view code\)](<./Errors.hx#L491>)
 
 
 ## function testAs
@@ -206,7 +212,7 @@ function testAs(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Errors.hx#L273>)
+[\(view code\)](<./Errors.hx#L291>)
 
 
 ## function testAsValidation
@@ -220,7 +226,7 @@ function testAsValidation(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Errors.hx#L367>)
+[\(view code\)](<./Errors.hx#L385>)
 
 
 ## function testErrorMethod
@@ -234,7 +240,7 @@ function testErrorMethod(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Errors.hx#L179>)
+[\(view code\)](<./Errors.hx#L197>)
 
 
 ## function testIs
@@ -248,7 +254,7 @@ function testIs(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Errors.hx#L223>)
+[\(view code\)](<./Errors.hx#L241>)
 
 
 ## function testNewEqual
@@ -262,7 +268,7 @@ function testNewEqual(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Errors.hx#L166>)
+[\(view code\)](<./Errors.hx#L184>)
 
 
 ## function testUnwrap
@@ -276,7 +282,7 @@ function testUnwrap(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Errors.hx#L422>)
+[\(view code\)](<./Errors.hx#L440>)
 
 
 ## function main
@@ -342,7 +348,7 @@ function error():stdgo.GoString
  
 
 
-[\(view code\)](<./Errors_test.hx#L501>)
+[\(view code\)](<./Errors_test.hx#L519>)
 
 
 ## class MyError\_static\_extension
@@ -362,7 +368,25 @@ function error():stdgo.GoString
  
 
 
-[\(view code\)](<./Errors_test.hx#L501>)
+[\(view code\)](<./Errors_test.hx#L519>)
+
+
+## class T\_\_struct\_0\_static\_extension
+
+
+ 
+
+
+## class T\_\_struct\_1\_static\_extension
+
+
+ 
+
+
+## class T\_\_struct\_2\_static\_extension
+
+
+ 
 
 
 ## class T\_errorT\_static\_extension
@@ -382,7 +406,7 @@ function error(_e:stdgo.errors_test._Errors_test.T_errorT):stdgo.GoString
  
 
 
-[\(view code\)](<./Errors_test.hx#L593>)
+[\(view code\)](<./Errors_test.hx#L611>)
 
 
 ## class T\_errorUncomparable\_static\_extension
@@ -402,7 +426,7 @@ function error(_:stdgo.errors_test._Errors_test.T_errorUncomparable):stdgo.GoStr
  
 
 
-[\(view code\)](<./Errors_test.hx#L668>)
+[\(view code\)](<./Errors_test.hx#L686>)
 
 
 ### T\_errorUncomparable\_static\_extension function is\_
@@ -416,7 +440,7 @@ function is_(_:stdgo.errors_test._Errors_test.T_errorUncomparable, _target:stdgo
  
 
 
-[\(view code\)](<./Errors_test.hx#L658>)
+[\(view code\)](<./Errors_test.hx#L676>)
 
 
 ## class T\_poser\_static\_extension
@@ -436,7 +460,7 @@ function as(_p:stdgo.Ref<stdgo.errors_test._Errors_test.T_poser>, _err:stdgo.Any
  
 
 
-[\(view code\)](<./Errors_test.hx#L535>)
+[\(view code\)](<./Errors_test.hx#L553>)
 
 
 ### T\_poser\_static\_extension function error
@@ -450,7 +474,7 @@ function error(_p:stdgo.Ref<stdgo.errors_test._Errors_test.T_poser>):stdgo.GoStr
  
 
 
-[\(view code\)](<./Errors_test.hx#L567>)
+[\(view code\)](<./Errors_test.hx#L585>)
 
 
 ### T\_poser\_static\_extension function is\_
@@ -464,7 +488,7 @@ function is_(_p:stdgo.Ref<stdgo.errors_test._Errors_test.T_poser>, _err:stdgo.Er
  
 
 
-[\(view code\)](<./Errors_test.hx#L562>)
+[\(view code\)](<./Errors_test.hx#L580>)
 
 
 ## class T\_wrapped\_static\_extension
@@ -484,7 +508,7 @@ function error(_e:stdgo.errors_test._Errors_test.T_wrapped):stdgo.GoString
  
 
 
-[\(view code\)](<./Errors_test.hx#L628>)
+[\(view code\)](<./Errors_test.hx#L646>)
 
 
 ### T\_wrapped\_static\_extension function unwrap
@@ -498,6 +522,6 @@ function unwrap(_e:stdgo.errors_test._Errors_test.T_wrapped):stdgo.Error
  
 
 
-[\(view code\)](<./Errors_test.hx#L623>)
+[\(view code\)](<./Errors_test.hx#L641>)
 
 

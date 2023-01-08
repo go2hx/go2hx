@@ -14,33 +14,33 @@ Package utf8 implements functions and constants to support text encoded in��
 
 ```
 === RUN   TestConstants
---- PASS: TestConstants (7.20024108886719e-05)
+--- PASS: TestConstants (7.39097595214844e-05)
 === RUN   TestFullRune
---- PASS: TestFullRune (0.000249147415161133)
+--- PASS: TestFullRune (0.000240087509155273)
 === RUN   TestEncodeRune
---- PASS: TestEncodeRune (0.000375032424926758)
+--- PASS: TestEncodeRune (0.00031590461730957)
 === RUN   TestAppendRune
---- PASS: TestAppendRune (0.000415802001953125)
+--- PASS: TestAppendRune (0.000468969345092773)
 === RUN   TestDecodeRune
---- PASS: TestDecodeRune (0.00174617767333984)
+--- PASS: TestDecodeRune (0.00103187561035156)
 === RUN   TestDecodeSurrogateRune
---- PASS: TestDecodeSurrogateRune (1.9073486328125e-05)
+--- PASS: TestDecodeSurrogateRune (3.48091125488281e-05)
 === RUN   TestSequencing
---- PASS: TestSequencing (0.311213970184326)
+--- PASS: TestSequencing (0.387135982513428)
 === RUN   TestRuntimeConversion
---- PASS: TestRuntimeConversion (0.00152587890625)
+--- PASS: TestRuntimeConversion (0.00159621238708496)
 === RUN   TestDecodeInvalidSequence
---- PASS: TestDecodeInvalidSequence (0.000838994979858398)
+--- PASS: TestDecodeInvalidSequence (0.000487089157104492)
 === RUN   TestNegativeRune
---- PASS: TestNegativeRune (2.59876251220703e-05)
+--- PASS: TestNegativeRune (2.69412994384766e-05)
 === RUN   TestRuneCount
---- PASS: TestRuneCount (2.78949737548828e-05)
+--- PASS: TestRuneCount (3.31401824951172e-05)
 === RUN   TestRuneLen
---- PASS: TestRuneLen (8.82148742675781e-06)
+--- PASS: TestRuneLen (1.09672546386719e-05)
 === RUN   TestValid
---- PASS: TestValid (0.00014185905456543)
+--- PASS: TestValid (0.000181198120117188)
 === RUN   TestValidRune
---- PASS: TestValidRune (8.10623168945312e-06)
+--- PASS: TestValidRune (9.05990600585938e-06)
 ```
 </p>
 </details>
@@ -50,33 +50,33 @@ Package utf8 implements functions and constants to support text encoded in��
 
 ```
 === RUN   TestConstants
---- PASS: TestConstants (4.50611114501953125e-05)
+--- PASS: TestConstants (4.00543212890625e-05)
 === RUN   TestFullRune
---- PASS: TestFullRune (0.00122594833374023438)
+--- PASS: TestFullRune (0.00162601470947265625)
 === RUN   TestEncodeRune
---- PASS: TestEncodeRune (0.00124192237854003906)
+--- PASS: TestEncodeRune (0.00150704383850097656)
 === RUN   TestAppendRune
---- PASS: TestAppendRune (0.00208806991577148438)
+--- PASS: TestAppendRune (0.00265407562255859375)
 === RUN   TestDecodeRune
---- PASS: TestDecodeRune (0.00544500350952148438)
+--- PASS: TestDecodeRune (0.00652313232421875)
 === RUN   TestDecodeSurrogateRune
---- PASS: TestDecodeSurrogateRune (8.0108642578125e-05)
+--- PASS: TestDecodeSurrogateRune (9.51290130615234375e-05)
 === RUN   TestSequencing
---- PASS: TestSequencing (1.61973690986633301)
+--- PASS: TestSequencing (1.99821782112121582)
 === RUN   TestRuntimeConversion
---- PASS: TestRuntimeConversion (0.00889492034912109375)
+--- PASS: TestRuntimeConversion (0.0100688934326171875)
 === RUN   TestDecodeInvalidSequence
---- PASS: TestDecodeInvalidSequence (0.00202298164367675781)
+--- PASS: TestDecodeInvalidSequence (0.00238299369812011719)
 === RUN   TestNegativeRune
---- PASS: TestNegativeRune (0.000109910964965820312)
+--- PASS: TestNegativeRune (0.0001239776611328125)
 === RUN   TestRuneCount
---- PASS: TestRuneCount (0.00016689300537109375)
+--- PASS: TestRuneCount (0.000197887420654296875)
 === RUN   TestRuneLen
---- PASS: TestRuneLen (2.59876251220703125e-05)
+--- PASS: TestRuneLen (3.60012054443359375e-05)
 === RUN   TestValid
---- PASS: TestValid (0.000952005386352539062)
+--- PASS: TestValid (0.00123310089111328125)
 === RUN   TestValidRune
---- PASS: TestValidRune (6.103515625e-05)
+--- PASS: TestValidRune (4.00543212890625e-05)
 ```
 </p>
 </details>
@@ -222,7 +222,7 @@ function _appendRuneNonASCII(_p:stdgo.Slice<stdgo.GoByte>, _r:stdgo.GoRune):stdg
  
 
 
-[\(view code\)](<./Utf8.hx#L524>)
+[\(view code\)](<./Utf8.hx#L527>)
 
 
 ## function appendRune
@@ -247,8 +247,8 @@ AppendRune appends the UTF\-8 encoding of r to the end of p and��// returns 
 function exampleAppendRune():Void {
 	var _buf1 = stdgo.unicode.utf8.Utf8.appendRune((null : Slice<GoUInt8>), (65536 : GoInt32));
 	var _buf2 = stdgo.unicode.utf8.Utf8.appendRune((Go.str("init") : Slice<GoByte>), (65536 : GoInt32));
-	stdgo.fmt.Fmt.println((_buf1 : GoString));
-	stdgo.fmt.Fmt.println((_buf2 : GoString));
+	stdgo.fmt.Fmt.println(Go.toInterface((_buf1 : GoString)));
+	stdgo.fmt.Fmt.println(Go.toInterface((_buf2 : GoString)));
 }
 ```
 
@@ -257,7 +257,7 @@ function exampleAppendRune():Void {
 </details>
 
 
-[\(view code\)](<./Utf8.hx#L517>)
+[\(view code\)](<./Utf8.hx#L520>)
 
 
 ## function decodeLastRune
@@ -296,7 +296,7 @@ function exampleDecodeLastRune():Void {
 </details>
 
 
-[\(view code\)](<./Utf8.hx#L349>)
+[\(view code\)](<./Utf8.hx#L352>)
 
 
 ## function decodeLastRuneInString
@@ -335,7 +335,7 @@ function exampleDecodeLastRuneInString():Void {
 </details>
 
 
-[\(view code\)](<./Utf8.hx#L396>)
+[\(view code\)](<./Utf8.hx#L399>)
 
 
 ## function decodeRune
@@ -374,7 +374,7 @@ function exampleDecodeRune():Void {
 </details>
 
 
-[\(view code\)](<./Utf8.hx#L245>)
+[\(view code\)](<./Utf8.hx#L248>)
 
 
 ## function decodeRuneInString
@@ -413,7 +413,7 @@ function exampleDecodeRuneInString():Void {
 </details>
 
 
-[\(view code\)](<./Utf8.hx#L297>)
+[\(view code\)](<./Utf8.hx#L300>)
 
 
 ## function encodeRune
@@ -439,8 +439,8 @@ function exampleEncodeRune():Void {
 	var _r:GoInt32 = (19990 : GoInt32);
 	var _buf = new Slice<GoUInt8>((3 : GoInt).toBasic(), 0, ...[for (i in 0...(3 : GoInt).toBasic()) (0 : GoUInt8)]);
 	var _n:GoInt = stdgo.unicode.utf8.Utf8.encodeRune(_buf, _r);
-	stdgo.fmt.Fmt.println(_buf);
-	stdgo.fmt.Fmt.println(_n);
+	stdgo.fmt.Fmt.println(Go.toInterface(_buf));
+	stdgo.fmt.Fmt.println(Go.toInterface(_n));
 }
 ```
 
@@ -472,7 +472,7 @@ function exampleEncodeRune_outOfRange():Void {
 </details>
 
 
-[\(view code\)](<./Utf8.hx#L459>)
+[\(view code\)](<./Utf8.hx#L462>)
 
 
 ## function fullRune
@@ -496,8 +496,8 @@ FullRune reports whether the bytes in p begin with a full UTF\-8 encoding of a r
 ```haxe
 function exampleFullRune():Void {
 	var _buf = (new Slice<GoUInt8>(0, 0, (228 : GoUInt8), (184 : GoUInt8), (150 : GoUInt8)) : Slice<GoUInt8>);
-	stdgo.fmt.Fmt.println(stdgo.unicode.utf8.Utf8.fullRune(_buf));
-	stdgo.fmt.Fmt.println(stdgo.unicode.utf8.Utf8.fullRune((_buf.__slice__(0, (2 : GoInt)) : Slice<GoUInt8>)));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.fullRune(_buf)));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.fullRune((_buf.__slice__(0, (2 : GoInt)) : Slice<GoUInt8>))));
 }
 ```
 
@@ -506,7 +506,7 @@ function exampleFullRune():Void {
 </details>
 
 
-[\(view code\)](<./Utf8.hx#L196>)
+[\(view code\)](<./Utf8.hx#L199>)
 
 
 ## function fullRuneInString
@@ -530,8 +530,8 @@ FullRuneInString is like FullRune but its input is a string.
 ```haxe
 function exampleFullRuneInString():Void {
 	var _str:GoString = Go.str("世");
-	stdgo.fmt.Fmt.println(stdgo.unicode.utf8.Utf8.fullRuneInString(_str));
-	stdgo.fmt.Fmt.println(stdgo.unicode.utf8.Utf8.fullRuneInString((_str.__slice__(0, (2 : GoInt)) : GoString)));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.fullRuneInString(_str)));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.fullRuneInString((_str.__slice__(0, (2 : GoInt)) : GoString))));
 }
 ```
 
@@ -540,7 +540,7 @@ function exampleFullRuneInString():Void {
 </details>
 
 
-[\(view code\)](<./Utf8.hx#L217>)
+[\(view code\)](<./Utf8.hx#L220>)
 
 
 ## function runeCount
@@ -564,8 +564,8 @@ RuneCount returns the number of runes in p. Erroneous and short��// encoding
 ```haxe
 function exampleRuneCount():Void {
 	var _buf = (Go.str("Hello, 世界") : Slice<GoByte>);
-	stdgo.fmt.Fmt.println(Go.str("bytes ="), (_buf.length));
-	stdgo.fmt.Fmt.println(Go.str("runes ="), stdgo.unicode.utf8.Utf8.runeCount(_buf));
+	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("bytes =")), Go.toInterface((_buf.length)));
+	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("runes =")), Go.toInterface(stdgo.unicode.utf8.Utf8.runeCount(_buf)));
 }
 ```
 
@@ -574,7 +574,7 @@ function exampleRuneCount():Void {
 </details>
 
 
-[\(view code\)](<./Utf8.hx#L567>)
+[\(view code\)](<./Utf8.hx#L570>)
 
 
 ## function runeCountInString
@@ -598,8 +598,8 @@ RuneCountInString is like RuneCount but its input is a string.
 ```haxe
 function exampleRuneCountInString():Void {
 	var _str:GoString = Go.str("Hello, 世界");
-	stdgo.fmt.Fmt.println(Go.str("bytes ="), (_str.length));
-	stdgo.fmt.Fmt.println(Go.str("runes ="), stdgo.unicode.utf8.Utf8.runeCountInString(_str));
+	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("bytes =")), Go.toInterface((_str.length)));
+	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("runes =")), Go.toInterface(stdgo.unicode.utf8.Utf8.runeCountInString(_str)));
 }
 ```
 
@@ -608,7 +608,7 @@ function exampleRuneCountInString():Void {
 </details>
 
 
-[\(view code\)](<./Utf8.hx#L615>)
+[\(view code\)](<./Utf8.hx#L618>)
 
 
 ## function runeLen
@@ -631,8 +631,8 @@ RuneLen returns the number of bytes required to encode the rune.��// It retu
 
 ```haxe
 function exampleRuneLen():Void {
-	stdgo.fmt.Fmt.println(stdgo.unicode.utf8.Utf8.runeLen((97 : GoInt32)));
-	stdgo.fmt.Fmt.println(stdgo.unicode.utf8.Utf8.runeLen((30028 : GoInt32)));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.runeLen((97 : GoInt32))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.runeLen((30028 : GoInt32))));
 }
 ```
 
@@ -641,7 +641,7 @@ function exampleRuneLen():Void {
 </details>
 
 
-[\(view code\)](<./Utf8.hx#L437>)
+[\(view code\)](<./Utf8.hx#L440>)
 
 
 ## function runeStart
@@ -665,9 +665,9 @@ RuneStart reports whether the byte could be the first byte of an encoded,��/
 ```haxe
 function exampleRuneStart():Void {
 	var _buf = (Go.str("a界") : Slice<GoByte>);
-	stdgo.fmt.Fmt.println(stdgo.unicode.utf8.Utf8.runeStart(_buf[(0 : GoInt)]));
-	stdgo.fmt.Fmt.println(stdgo.unicode.utf8.Utf8.runeStart(_buf[(1 : GoInt)]));
-	stdgo.fmt.Fmt.println(stdgo.unicode.utf8.Utf8.runeStart(_buf[(2 : GoInt)]));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.runeStart(_buf[(0 : GoInt)])));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.runeStart(_buf[(1 : GoInt)])));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.runeStart(_buf[(2 : GoInt)])));
 }
 ```
 
@@ -676,7 +676,7 @@ function exampleRuneStart():Void {
 </details>
 
 
-[\(view code\)](<./Utf8.hx#L664>)
+[\(view code\)](<./Utf8.hx#L667>)
 
 
 ## function valid
@@ -701,8 +701,8 @@ Valid reports whether p consists entirely of valid UTF\-8\-encoded runes.
 function exampleValid():Void {
 	var _valid = (Go.str("Hello, 世界") : Slice<GoByte>);
 	var _invalid = (new Slice<GoUInt8>(0, 0, (255 : GoUInt8), (254 : GoUInt8), (253 : GoUInt8)) : Slice<GoUInt8>);
-	stdgo.fmt.Fmt.println(stdgo.unicode.utf8.Utf8.valid(_valid));
-	stdgo.fmt.Fmt.println(stdgo.unicode.utf8.Utf8.valid(_invalid));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.valid(_valid)));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.valid(_invalid)));
 }
 ```
 
@@ -711,7 +711,7 @@ function exampleValid():Void {
 </details>
 
 
-[\(view code\)](<./Utf8.hx#L671>)
+[\(view code\)](<./Utf8.hx#L674>)
 
 
 ## function validRune
@@ -736,8 +736,8 @@ ValidRune reports whether r can be legally encoded as UTF\-8.��// Code point
 function exampleValidRune():Void {
 	var _valid:GoInt32 = (97 : GoInt32);
 	var _invalid:GoInt32 = ((268435455 : GoInt32) : GoRune);
-	stdgo.fmt.Fmt.println(stdgo.unicode.utf8.Utf8.validRune(_valid));
-	stdgo.fmt.Fmt.println(stdgo.unicode.utf8.Utf8.validRune(_invalid));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.validRune(_valid)));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.validRune(_invalid)));
 }
 ```
 
@@ -746,7 +746,7 @@ function exampleValidRune():Void {
 </details>
 
 
-[\(view code\)](<./Utf8.hx#L777>)
+[\(view code\)](<./Utf8.hx#L780>)
 
 
 ## function validString
@@ -771,8 +771,8 @@ ValidString reports whether s consists entirely of valid UTF\-8\-encoded runes.
 function exampleValidString():Void {
 	var _valid:GoString = Go.str("Hello, 世界");
 	var _invalid:GoString = ((new Slice<GoUInt8>(0, 0, (255 : GoUInt8), (254 : GoUInt8), (253 : GoUInt8)) : Slice<GoUInt8>) : GoString);
-	stdgo.fmt.Fmt.println(stdgo.unicode.utf8.Utf8.validString(_valid));
-	stdgo.fmt.Fmt.println(stdgo.unicode.utf8.Utf8.validString(_invalid));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.validString(_valid)));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.validString(_invalid)));
 }
 ```
 
@@ -781,6 +781,6 @@ function exampleValidString():Void {
 </details>
 
 
-[\(view code\)](<./Utf8.hx#L724>)
+[\(view code\)](<./Utf8.hx#L727>)
 
 

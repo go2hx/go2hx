@@ -40,6 +40,10 @@
 
 - [`function main():Void`](<#function-main>)
 
+- [class T\_\_struct\_0\_static\_extension](<#class-t__struct_0_static_extension>)
+
+- [class T\_\_struct\_1\_static\_extension](<#class-t__struct_1_static_extension>)
+
 # Variables
 
 
@@ -72,7 +76,7 @@ function benchmarkDecodeRune(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Utf16.hx#L242>)
+[\(view code\)](<./Utf16.hx#L252>)
 
 
 ## function benchmarkDecodeValidASCII
@@ -86,7 +90,7 @@ function benchmarkDecodeValidASCII(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Utf16.hx#L220>)
+[\(view code\)](<./Utf16.hx#L230>)
 
 
 ## function benchmarkDecodeValidJapaneseChars
@@ -100,7 +104,7 @@ function benchmarkDecodeValidJapaneseChars(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Utf16.hx#L231>)
+[\(view code\)](<./Utf16.hx#L241>)
 
 
 ## function benchmarkEncodeRune
@@ -114,7 +118,7 @@ function benchmarkEncodeRune(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Utf16.hx#L286>)
+[\(view code\)](<./Utf16.hx#L296>)
 
 
 ## function benchmarkEncodeValidASCII
@@ -128,7 +132,7 @@ function benchmarkEncodeValidASCII(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Utf16.hx#L266>)
+[\(view code\)](<./Utf16.hx#L276>)
 
 
 ## function benchmarkEncodeValidJapaneseChars
@@ -142,7 +146,7 @@ function benchmarkEncodeValidJapaneseChars(_b:stdgo.Ref<stdgo.testing.B>):Void
  
 
 
-[\(view code\)](<./Utf16.hx#L276>)
+[\(view code\)](<./Utf16.hx#L286>)
 
 
 ## function testConstants
@@ -156,7 +160,7 @@ function testConstants(_t:stdgo.Ref<stdgo.testing.T>):Void
 Validate the constants redefined from unicode. 
 
 
-[\(view code\)](<./Utf16.hx#L134>)
+[\(view code\)](<./Utf16.hx#L144>)
 
 
 ## function testDecode
@@ -170,7 +174,7 @@ function testDecode(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Utf16.hx#L191>)
+[\(view code\)](<./Utf16.hx#L201>)
 
 
 ## function testDecodeRune
@@ -184,7 +188,7 @@ function testDecodeRune(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Utf16.hx#L200>)
+[\(view code\)](<./Utf16.hx#L210>)
 
 
 ## function testEncode
@@ -198,7 +202,7 @@ function testEncode(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Utf16.hx#L143>)
+[\(view code\)](<./Utf16.hx#L153>)
 
 
 ## function testEncodeRune
@@ -212,7 +216,7 @@ function testEncodeRune(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Utf16.hx#L152>)
+[\(view code\)](<./Utf16.hx#L162>)
 
 
 ## function testIsSurrogate
@@ -226,7 +230,7 @@ function testIsSurrogate(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Utf16.hx#L210>)
+[\(view code\)](<./Utf16.hx#L220>)
 
 
 ## function main
@@ -241,5 +245,25 @@ function main():Void
 
 
 [\(view code\)](<./Utf16.hx#L44>)
+
+
+# Classes
+
+
+```haxe
+import stdgo.unicode.utf16_test.*
+```
+
+
+## class T\_\_struct\_0\_static\_extension
+
+
+ 
+
+
+## class T\_\_struct\_1\_static\_extension
+
+
+ 
 
 

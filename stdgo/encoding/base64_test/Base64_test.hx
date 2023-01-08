@@ -13,21 +13,21 @@ import stdgo.Chan;
 function example():Void {
 	var _msg:GoString = Go.str("Hello, 世界");
 	var _encoded:GoString = stdgo.encoding.base64.Base64.stdEncoding.encodeToString((_msg : Slice<GoByte>));
-	stdgo.fmt.Fmt.println(_encoded);
+	stdgo.fmt.Fmt.println(Go.toInterface(_encoded));
 	var __tmp__ = stdgo.encoding.base64.Base64.stdEncoding.decodeString(_encoded),
 		_decoded:Slice<GoUInt8> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		stdgo.fmt.Fmt.println(Go.str("decode error:"), _err);
+		stdgo.fmt.Fmt.println(Go.toInterface(Go.str("decode error:")), Go.toInterface(_err));
 		return;
 	};
-	stdgo.fmt.Fmt.println((_decoded : GoString));
+	stdgo.fmt.Fmt.println(Go.toInterface((_decoded : GoString)));
 }
 
 function exampleEncoding_EncodeToString():Void {
 	var _data = (Go.str("any + old & data") : Slice<GoByte>);
 	var _str:GoString = stdgo.encoding.base64.Base64.stdEncoding.encodeToString(_data);
-	stdgo.fmt.Fmt.println(_str);
+	stdgo.fmt.Fmt.println(Go.toInterface(_str));
 }
 
 function exampleEncoding_Encode():Void {
@@ -36,7 +36,7 @@ function exampleEncoding_Encode():Void {
 		for (i in 0...(stdgo.encoding.base64.Base64.stdEncoding.encodedLen((_data.length)) : GoInt).toBasic()) (0 : GoUInt8)
 	]);
 	stdgo.encoding.base64.Base64.stdEncoding.encode(_dst, _data);
-	stdgo.fmt.Fmt.println((_dst : GoString));
+	stdgo.fmt.Fmt.println(Go.toInterface((_dst : GoString)));
 }
 
 function exampleEncoding_DecodeString():Void {
@@ -45,7 +45,7 @@ function exampleEncoding_DecodeString():Void {
 		_data:Slice<GoUInt8> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		stdgo.fmt.Fmt.println(Go.str("error:"), _err);
+		stdgo.fmt.Fmt.println(Go.toInterface(Go.str("error:")), Go.toInterface(_err));
 		return;
 	};
 	stdgo.fmt.Fmt.printf(Go.str("%q\n"), Go.toInterface(_data));
@@ -60,7 +60,7 @@ function exampleEncoding_Decode():Void {
 		_n:GoInt = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		stdgo.fmt.Fmt.println(Go.str("decode error:"), _err);
+		stdgo.fmt.Fmt.println(Go.toInterface(Go.str("decode error:")), Go.toInterface(_err));
 		return;
 	};
 	_dst = (_dst.__slice__(0, _n) : Slice<GoUInt8>);

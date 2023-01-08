@@ -74,6 +74,9 @@ private var _firstStoreInProgress:GoByte = (0 : GoUInt8);
 			this._v = _v;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new Bool_(_1, _v);
 	}
@@ -94,6 +97,9 @@ private var _firstStoreInProgress:GoByte = (0 : GoUInt8);
 			this._v = _v;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new Pointer_(_3, _v);
 	}
@@ -113,6 +119,9 @@ private var _firstStoreInProgress:GoByte = (0 : GoUInt8);
 		if (_v != null)
 			this._v = _v;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Int32(_5, _v);
@@ -138,6 +147,9 @@ private var _firstStoreInProgress:GoByte = (0 : GoUInt8);
 			this._v = _v;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new Int64_(_8, _9, _v);
 	}
@@ -157,6 +169,9 @@ private var _firstStoreInProgress:GoByte = (0 : GoUInt8);
 		if (_v != null)
 			this._v = _v;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Uint32(_10, _v);
@@ -182,6 +197,9 @@ private var _firstStoreInProgress:GoByte = (0 : GoUInt8);
 			this._v = _v;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new Uint64(_13, _14, _v);
 	}
@@ -202,6 +220,9 @@ private var _firstStoreInProgress:GoByte = (0 : GoUInt8);
 			this._v = _v;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new Uintptr(_16, _v);
 	}
@@ -219,6 +240,9 @@ private var _firstStoreInProgress:GoByte = (0 : GoUInt8);
 @:structInit @:using(stdgo.sync.atomic.Atomic.T_noCopy_static_extension) private class T_noCopy {
 	public function new() {}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_noCopy();
 	}
@@ -231,6 +255,9 @@ private var _firstStoreInProgress:GoByte = (0 : GoUInt8);
 **/
 @:structInit private class T_align64 {
 	public function new() {}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_align64();
@@ -252,6 +279,9 @@ private var _firstStoreInProgress:GoByte = (0 : GoUInt8);
 			this._v = _v;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new Value(_v);
 	}
@@ -270,6 +300,9 @@ private var _firstStoreInProgress:GoByte = (0 : GoUInt8);
 		if (_data != null)
 			this._data = _data;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_ifaceWords(_typ, _data);
@@ -597,7 +630,7 @@ class Pointer__asInterface<T> {
 			className += haxe.macro.Context.signature(haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(_old))) + "_";
 			className += haxe.macro.Context.signature(haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(_new))) + "_";
 		};
-		final pack = ["stdgo", "generic", className.toLowerCase()];
+		final pack = ["stdgo", "internal", "generic", className.toLowerCase()];
 		try {
 			haxe.macro.Context.getType(className);
 		} catch (____exec____) {
@@ -715,7 +748,7 @@ class Pointer__asInterface<T> {
 			className += haxe.macro.Context.signature(haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(_x))) + "_";
 			className += haxe.macro.Context.signature(haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(_new))) + "_";
 		};
-		final pack = ["stdgo", "generic", className.toLowerCase()];
+		final pack = ["stdgo", "internal", "generic", className.toLowerCase()];
 		try {
 			haxe.macro.Context.getType(className);
 		} catch (____exec____) {
@@ -816,7 +849,7 @@ class Pointer__asInterface<T> {
 			className += haxe.macro.Context.signature(haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(_x))) + "_";
 			className += haxe.macro.Context.signature(haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(_val))) + "_";
 		};
-		final pack = ["stdgo", "generic", className.toLowerCase()];
+		final pack = ["stdgo", "internal", "generic", className.toLowerCase()];
 		try {
 			haxe.macro.Context.getType(className);
 		} catch (____exec____) {
@@ -916,7 +949,7 @@ class Pointer__asInterface<T> {
 		{
 			className += haxe.macro.Context.signature(haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(_x))) + "_";
 		};
-		final pack = ["stdgo", "generic", className.toLowerCase()];
+		final pack = ["stdgo", "internal", "generic", className.toLowerCase()];
 		try {
 			haxe.macro.Context.getType(className);
 		} catch (____exec____) {

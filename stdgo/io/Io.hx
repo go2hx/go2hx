@@ -433,6 +433,9 @@ typedef StringWriter = StructType & {
 			this.n = n;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new LimitedReader(r, n);
 	}
@@ -459,6 +462,9 @@ typedef StringWriter = StructType & {
 			this._limit = _limit;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new SectionReader(_r, _base, _off, _limit);
 	}
@@ -475,6 +481,9 @@ typedef StringWriter = StructType & {
 			this._w = _w;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_teeReader(_r, _w);
 	}
@@ -482,6 +491,9 @@ typedef StringWriter = StructType & {
 
 @:structInit @:using(stdgo.io.Io.T_discard_static_extension) private class T_discard {
 	public function new() {}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_discard();
@@ -496,6 +508,9 @@ typedef StringWriter = StructType & {
 		if (reader != null)
 			this.reader = reader;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	@:embedded
 	public function read(_p_:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
@@ -515,6 +530,9 @@ typedef StringWriter = StructType & {
 			this.reader = reader;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	@:embedded
 	public function read(_p_:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
 		return reader.read(_p_);
@@ -526,6 +544,9 @@ typedef StringWriter = StructType & {
 
 @:structInit @:using(stdgo.io.Io.T_eofReader_static_extension) private class T_eofReader {
 	public function new() {}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_eofReader();
@@ -540,6 +561,9 @@ typedef StringWriter = StructType & {
 			this._readers = _readers;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_multiReader(_readers);
 	}
@@ -552,6 +576,9 @@ typedef StringWriter = StructType & {
 		if (_writers != null)
 			this._writers = _writers;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_multiWriter(_writers);
@@ -576,6 +603,9 @@ typedef StringWriter = StructType & {
 		if (_err != null)
 			this._err = _err;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	@:embedded
 	public function lock()
@@ -641,6 +671,9 @@ typedef StringWriter = StructType & {
 			this._werr = _werr;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_pipe(_wrMu, _wrCh, _rdCh, _once, _done, _rerr, _werr);
 	}
@@ -656,6 +689,9 @@ typedef StringWriter = StructType & {
 		if (_p != null)
 			this._p = _p;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new PipeReader(_p);
@@ -673,21 +709,31 @@ typedef StringWriter = StructType & {
 			this._p = _p;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new PipeWriter(_p);
 	}
 }
 
-@:structInit @:local private class T__struct_0 {
-	public function new() {}
+class T__struct_0_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_0();
-	}
+	var __self__:Pointer<T__struct_0>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
+
+@:keep @:allow(stdgo.io.Io.T__struct_0_asInterface) class T__struct_0_static_extension {}
+@:local @:using(stdgo.io.Io.T__struct_0_static_extension) private typedef T__struct_0 = {};
 
 /**
 	// WriteString writes the contents of the string s to w, which accepts a slice of bytes.
@@ -1449,7 +1495,7 @@ class T_multiReader_asInterface {
 				_mr._readers = (_mr._readers.__slice__(_i) : Slice<Reader>);
 				return {_0: _sum, _1: _err};
 			};
-			_mr._readers[_i] = (null : Reader);
+			_mr._readers[(_i : GoInt)] = (null : Reader);
 		};
 		_mr._readers = (null : Slice<Reader>);
 		return {_0: _sum, _1: (null : Error)};

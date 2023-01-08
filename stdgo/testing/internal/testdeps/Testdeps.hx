@@ -37,6 +37,9 @@ private var _log:T_testLog = ({} : T_testLog);
 @:structInit @:using(stdgo.testing.internal.testdeps.Testdeps.TestDeps_static_extension) class TestDeps {
 	public function new() {}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new TestDeps();
 	}
@@ -58,6 +61,9 @@ private var _log:T_testLog = ({} : T_testLog);
 		if (_set != null)
 			this._set = _set;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_testLog(_mu, _w, _set);

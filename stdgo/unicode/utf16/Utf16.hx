@@ -94,17 +94,17 @@ function encode(_s:Slice<GoRune>):Slice<GoUInt16> {
 	_n = (0 : GoInt);
 	for (_1 => _v in _s) {
 		if (((0 : GoInt32) <= _v) && (_v < (55296:GoInt32)) || ((57344 : GoInt32) <= _v) && (_v < (65536:GoInt32))) {
-			_a[_n] = (_v : GoUInt16);
+			_a[(_n : GoInt)] = (_v : GoUInt16);
 			_n++;
 		} else if (((65536 : GoInt32) <= _v) && (_v <= (1114111 : GoInt32))) {
 			var __tmp__ = encodeRune(_v),
 				_r1:GoInt32 = __tmp__._0,
 				_r2:GoInt32 = __tmp__._1;
-			_a[_n] = (_r1 : GoUInt16);
-			_a[_n + (1 : GoInt)] = (_r2 : GoUInt16);
+			_a[(_n : GoInt)] = (_r1 : GoUInt16);
+			_a[(_n + (1 : GoInt) : GoInt)] = (_r2 : GoUInt16);
 			_n = _n + ((2 : GoInt));
 		} else {
-			_a[_n] = (65533 : GoUInt16);
+			_a[(_n : GoInt)] = (65533 : GoUInt16);
 			_n++;
 		};
 	};
@@ -122,16 +122,16 @@ function decode(_s:Slice<GoUInt16>):Slice<GoRune> {
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_s.length), _i++, {
 			{
-				var _r:GoUInt16 = _s[_i];
+				var _r:GoUInt16 = _s[(_i : GoInt)];
 				if (_r < (55296:GoUInt16) || (57344 : GoUInt16) <= _r) {
-					_a[_n] = (_r : GoRune);
+					_a[(_n : GoInt)] = (_r : GoRune);
 				} else if ((((((55296 : GoUInt16) <= _r) && (_r < (56320:GoUInt16))) && ((_i + (1 : GoInt)) < _s.length))
-					&& ((56320 : GoUInt16) <= _s[_i + (1 : GoInt)]))
-					&& (_s[_i + (1 : GoInt)] < (57344 : GoUInt16))) {
-					_a[_n] = decodeRune((_r : GoRune), (_s[_i + (1 : GoInt)] : GoRune));
+					&& ((56320 : GoUInt16) <= _s[(_i + (1 : GoInt) : GoInt)]))
+					&& (_s[(_i + (1 : GoInt) : GoInt)] < (57344 : GoUInt16))) {
+					_a[(_n : GoInt)] = decodeRune((_r : GoRune), (_s[(_i + (1 : GoInt) : GoInt)] : GoRune));
 					_i++;
 				} else {
-					_a[_n] = (65533 : GoInt32);
+					_a[(_n : GoInt)] = (65533 : GoInt32);
 				};
 			};
 			_n++;

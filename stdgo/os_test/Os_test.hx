@@ -258,6 +258,9 @@ private final _testExecutableDeletion:GoString = Go.str("package main\n\nimport 
 			this._isnot = _isnot;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_isExistTest(_err, _is, _isnot);
 	}
@@ -274,6 +277,9 @@ private final _testExecutableDeletion:GoString = Go.str("package main\n\nimport 
 			this._want = _want;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_isPermissionTest(_err, _want);
 	}
@@ -287,6 +293,9 @@ private final _testExecutableDeletion:GoString = Go.str("package main\n\nimport 
 		if (_error != null)
 			this._error = _error;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	@:embedded
 	public function error():GoString
@@ -308,6 +317,9 @@ private final _testExecutableDeletion:GoString = Go.str("package main\n\nimport 
 			this._files = _files;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_sysDir(_name, _files);
 	}
@@ -327,163 +339,188 @@ private final _testExecutableDeletion:GoString = Go.str("package main\n\nimport 
 			this._error = _error;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_openErrorTest(_path, _mode, _error);
 	}
 }
 
-@:structInit @:local private class T__struct_1 {
-	public var _in:GoString = "";
-	public var _out:GoString = "";
-
-	public function new(?_in:GoString, ?_out:GoString) {
-		if (_in != null)
-			this._in = _in;
-		if (_out != null)
-			this._out = _out;
+class T__struct_1_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_1(_in, _out);
-	}
+	var __self__:Pointer<T__struct_1>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_2 {
-	public var _name:GoString = "";
-	public var _create:() -> Error = null;
+@:keep @:allow(stdgo.os_test.Os_test.T__struct_1_asInterface) class T__struct_1_static_extension {}
 
-	public function new(?_name:GoString, ?_create:() -> Error) {
-		if (_name != null)
-			this._name = _name;
-		if (_create != null)
-			this._create = _create;
+@:local @:using(stdgo.os_test.Os_test.T__struct_1_static_extension) private typedef T__struct_1 = {
+	public var _in:GoString;
+	public var _out:GoString;
+};
+
+class T__struct_2_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_2(_name, _create);
-	}
+	var __self__:Pointer<T__struct_2>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_3 {
-	public var _name:GoString = "";
-	public var _f:Ref<File>->Error = null;
+@:keep @:allow(stdgo.os_test.Os_test.T__struct_2_asInterface) class T__struct_2_static_extension {}
 
-	public function new(?_name:GoString, ?_f:Ref<File>->Error) {
-		if (_name != null)
-			this._name = _name;
-		if (_f != null)
-			this._f = _f;
+@:local @:using(stdgo.os_test.Os_test.T__struct_2_static_extension) private typedef T__struct_2 = {
+	public var _name:GoString;
+	public var _create:() -> Error;
+};
+
+class T__struct_3_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_3(_name, _f);
-	}
+	var __self__:Pointer<T__struct_3>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_4 {
-	public function new() {}
+@:keep @:allow(stdgo.os_test.Os_test.T__struct_3_asInterface) class T__struct_3_static_extension {}
 
-	public function __underlying__()
-		return Go.toInterface(this);
+@:local @:using(stdgo.os_test.Os_test.T__struct_3_static_extension) private typedef T__struct_3 = {
+	public var _name:GoString;
+	public var _f:Ref<File>->Error;
+};
 
-	public function __copy__() {
-		return new T__struct_4();
-	}
-}
-
-@:structInit @:local private class T__struct_5 {
-	public var _path:GoString = "";
-	public var _wantDir:GoString = "";
-	public var _wantBase:GoString = "";
-
-	public function new(?_path:GoString, ?_wantDir:GoString, ?_wantBase:GoString) {
-		if (_path != null)
-			this._path = _path;
-		if (_wantDir != null)
-			this._wantDir = _wantDir;
-		if (_wantBase != null)
-			this._wantBase = _wantBase;
+class T__struct_4_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_5(_path, _wantDir, _wantBase);
-	}
+	var __self__:Pointer<T__struct_4>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_6 {
-	public var _pattern:GoString = "";
-	public var _prefix:GoString = "";
-	public var _suffix:GoString = "";
+@:keep @:allow(stdgo.os_test.Os_test.T__struct_4_asInterface) class T__struct_4_static_extension {}
+@:local @:using(stdgo.os_test.Os_test.T__struct_4_static_extension) private typedef T__struct_4 = {};
 
-	public function new(?_pattern:GoString, ?_prefix:GoString, ?_suffix:GoString) {
-		if (_pattern != null)
-			this._pattern = _pattern;
-		if (_prefix != null)
-			this._prefix = _prefix;
-		if (_suffix != null)
-			this._suffix = _suffix;
+class T__struct_5_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_6(_pattern, _prefix, _suffix);
-	}
+	var __self__:Pointer<T__struct_5>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_7 {
-	public var _pattern:GoString = "";
-	public var _wantErr:Bool = false;
+@:keep @:allow(stdgo.os_test.Os_test.T__struct_5_asInterface) class T__struct_5_static_extension {}
 
-	public function new(?_pattern:GoString, ?_wantErr:Bool) {
-		if (_pattern != null)
-			this._pattern = _pattern;
-		if (_wantErr != null)
-			this._wantErr = _wantErr;
+@:local @:using(stdgo.os_test.Os_test.T__struct_5_static_extension) private typedef T__struct_5 = {
+	public var _path:GoString;
+	public var _wantDir:GoString;
+	public var _wantBase:GoString;
+};
+
+class T__struct_6_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_7(_pattern, _wantErr);
-	}
+	var __self__:Pointer<T__struct_6>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_8 {
-	public var _pattern:GoString = "";
-	public var _wantPrefix:GoString = "";
-	public var _wantSuffix:GoString = "";
+@:keep @:allow(stdgo.os_test.Os_test.T__struct_6_asInterface) class T__struct_6_static_extension {}
 
-	public function new(?_pattern:GoString, ?_wantPrefix:GoString, ?_wantSuffix:GoString) {
-		if (_pattern != null)
-			this._pattern = _pattern;
-		if (_wantPrefix != null)
-			this._wantPrefix = _wantPrefix;
-		if (_wantSuffix != null)
-			this._wantSuffix = _wantSuffix;
+@:local @:using(stdgo.os_test.Os_test.T__struct_6_static_extension) private typedef T__struct_6 = {
+	public var _pattern:GoString;
+	public var _prefix:GoString;
+	public var _suffix:GoString;
+};
+
+class T__struct_7_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_8(_pattern, _wantPrefix, _wantSuffix);
-	}
+	var __self__:Pointer<T__struct_7>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
+
+@:keep @:allow(stdgo.os_test.Os_test.T__struct_7_asInterface) class T__struct_7_static_extension {}
+
+@:local @:using(stdgo.os_test.Os_test.T__struct_7_static_extension) private typedef T__struct_7 = {
+	public var _pattern:GoString;
+	public var _wantErr:Bool;
+};
+
+class T__struct_8_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
+	}
+
+	public function __underlying__()
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
+
+	var __self__:Pointer<T__struct_8>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
+}
+
+@:keep @:allow(stdgo.os_test.Os_test.T__struct_8_asInterface) class T__struct_8_static_extension {}
+
+@:local @:using(stdgo.os_test.Os_test.T__struct_8_static_extension) private typedef T__struct_8 = {
+	public var _pattern:GoString;
+	public var _wantPrefix:GoString;
+	public var _wantSuffix:GoString;
+};
 
 /**
 	// For TestRawConnReadWrite.
@@ -1091,13 +1128,13 @@ function exampleFileMode():Void {
 	{
 		var _mode:stdgo.io.fs.Fs.FileMode = _fi.mode();
 		if (_mode.isRegular()) {
-			stdgo.fmt.Fmt.println(Go.str("regular file"));
+			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("regular file")));
 		} else if (_mode.isDir()) {
-			stdgo.fmt.Fmt.println(Go.str("directory"));
+			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("directory")));
 		} else if (_mode & (("134217728" : GoUInt32) : stdgo.io.fs.Fs.FileMode) != ((("0" : GoUInt32) : stdgo.io.fs.Fs.FileMode))) {
-			stdgo.fmt.Fmt.println(Go.str("symbolic link"));
+			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("symbolic link")));
 		} else if (_mode & (("33554432" : GoUInt32) : stdgo.io.fs.Fs.FileMode) != ((("0" : GoUInt32) : stdgo.io.fs.Fs.FileMode))) {
-			stdgo.fmt.Fmt.println(Go.str("named pipe"));
+			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("named pipe")));
 		};
 	};
 }
@@ -1109,7 +1146,7 @@ function exampleErrNotExist():Void {
 			_0:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (stdgo.errors.Errors.is_(_err, stdgo.io.fs.Fs.errNotExist)) {
-			stdgo.fmt.Fmt.println(Go.str("file does not exist"));
+			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("file does not exist")));
 		};
 	};
 }
@@ -1123,13 +1160,13 @@ function exampleExpand():Void {
 		};
 		return Go.str();
 	};
-	stdgo.fmt.Fmt.println(stdgo.os.Os.expand(Go.str("Good $${DAY_PART}, $$NAME!"), _mapper));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.os.Os.expand(Go.str("Good $${DAY_PART}, $$NAME!"), _mapper)));
 }
 
 function exampleExpandEnv():Void {
 	stdgo.os.Os.setenv(Go.str("NAME"), Go.str("gopher"));
 	stdgo.os.Os.setenv(Go.str("BURROW"), Go.str("/usr/gopher"));
-	stdgo.fmt.Fmt.println(stdgo.os.Os.expandEnv(Go.str("$$NAME lives in $${BURROW}.")));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.os.Os.expandEnv(Go.str("$$NAME lives in $${BURROW}."))));
 }
 
 function exampleLookupEnv():Void {
@@ -1195,7 +1232,7 @@ function exampleReadDir():Void {
 		stdgo.log.Log.fatal(Go.toInterface(_err));
 	};
 	for (_0 => _file in _files) {
-		stdgo.fmt.Fmt.println(_file.name());
+		stdgo.fmt.Fmt.println(Go.toInterface(_file.name()));
 	};
 }
 
@@ -2316,7 +2353,7 @@ function _smallReaddirnames(_file:Ref<File>, _length:GoInt, _t:Ref<stdgo.testing
 		if ((_d.length) == ((0 : GoInt))) {
 			_t.fatalf(Go.str("readdirnames %q returned empty slice and no error"), Go.toInterface(_file.name()));
 		};
-		_names[_count] = _d[(0 : GoInt)];
+		_names[(_count : GoInt)] = _d[(0 : GoInt)];
 		_count++;
 	};
 	return (_names.__slice__((0 : GoInt), _count) : Slice<GoString>);
@@ -2370,8 +2407,8 @@ function testReaddirnamesOneAtATime(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_t.fatalf(Go.str("len(small) is %d, less than %d"), Go.toInterface((_small.length)), Go.toInterface((_all.length)));
 		};
 		for (_i => _n in _all) {
-			if (_small[_i] != (_n)) {
-				_t.errorf(Go.str("small read %q mismatch: %v"), Go.toInterface(_small[_i]), Go.toInterface(_n));
+			if (_small[(_i : GoInt)] != (_n)) {
+				_t.errorf(Go.str("small read %q mismatch: %v"), Go.toInterface(_small[(_i : GoInt)]), Go.toInterface(_n));
 			};
 		};
 		for (defer in __deferstack__) {
@@ -2575,7 +2612,7 @@ function testReaddirStatFailures(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var _names = function(_fis:Slice<FileInfo>):Slice<GoString> {
 			var _s = new Slice<GoString>((_fis.length : GoInt).toBasic(), 0, ...[for (i in 0...(_fis.length : GoInt).toBasic()) ("" : GoString)]);
 			for (_i => _fi in _fis) {
-				_s[_i] = _fi.name();
+				_s[(_i : GoInt)] = _fi.name();
 			};
 			stdgo.sort.Sort.strings(_s);
 			return _s;
@@ -4051,6 +4088,9 @@ function testProgWideChdir(_t:Ref<stdgo.testing.Testing.T>):Void {
 			this._out = _out;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_test_testSeek_0(_in, _whence, _out);
 	}
@@ -4287,7 +4327,7 @@ function _runBinHostname(_t:Ref<stdgo.testing.Testing.T>):GoString {
 		var _output:GoString = (_b.string() : GoString);
 		{
 			var _n:GoInt = (_output.length);
-			if ((_n > (0 : GoInt)) && (_output[_n - (1 : GoInt)] == (10 : GoUInt8))) {
+			if ((_n > (0 : GoInt)) && (_output[(_n - (1 : GoInt) : GoInt)] == (10 : GoUInt8))) {
 				_output = (_output.__slice__((0 : GoInt), _n - (1 : GoInt)) : GoString);
 			};
 		};
@@ -4498,7 +4538,8 @@ function testReadAtNegativeOffset(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_n:GoInt = __tmp__._0,
 			_err:Error = __tmp__._1;
 		{};
-		if (!stdgo.strings.Strings.contains(stdgo.fmt.Fmt.sprint(_err), Go.str("negative offset")) || (_n != (0 : GoInt))) {
+		if (!stdgo.strings.Strings.contains(stdgo.fmt.Fmt.sprint(Go.toInterface(_err)), Go.str("negative offset"))
+			|| (_n != (0 : GoInt))) {
 			_t.errorf(Go.str("ReadAt(-10) = %v, %v; want 0, ...%q..."), Go.toInterface(_n), Go.toInterface(_err), Go.toInterface(Go.str("negative offset")));
 		};
 		for (defer in __deferstack__) {
@@ -4591,7 +4632,8 @@ function testWriteAtNegativeOffset(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_n:GoInt = __tmp__._0,
 			_err:Error = __tmp__._1;
 		{};
-		if (!stdgo.strings.Strings.contains(stdgo.fmt.Fmt.sprint(_err), Go.str("negative offset")) || (_n != (0 : GoInt))) {
+		if (!stdgo.strings.Strings.contains(stdgo.fmt.Fmt.sprint(Go.toInterface(_err)), Go.str("negative offset"))
+			|| (_n != (0 : GoInt))) {
 			_t.errorf(Go.str("WriteAt(-10) = %v, %v; want 0, ...%q..."), Go.toInterface(_n), Go.toInterface(_err), Go.toInterface(Go.str("negative offset")));
 		};
 		for (defer in __deferstack__) {
@@ -4924,9 +4966,9 @@ function testLargeWriteToConsole(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	var _b = new Slice<GoUInt8>((32000 : GoInt).toBasic(), 0, ...[for (i in 0...(32000 : GoInt).toBasic()) (0 : GoUInt8)]);
 	for (_i in 0..._b.length.toBasic()) {
-		_b[_i] = (46 : GoUInt8);
+		_b[(_i : GoInt)] = (46 : GoUInt8);
 	};
-	_b[(_b.length) - (1 : GoInt)] = (10 : GoUInt8);
+	_b[((_b.length) - (1 : GoInt) : GoInt)] = (10 : GoUInt8);
 	var __tmp__ = stdout.write(_b),
 		_n:GoInt = __tmp__._0,
 		_err:Error = __tmp__._1;
@@ -4982,7 +5024,7 @@ function testStatStdin(_t:Ref<stdgo.testing.Testing.T>):Void {
 		if (_err != null) {
 			_t.fatalf(Go.str("Stat failed: %v"), Go.toInterface(_err));
 		};
-		stdgo.fmt.Fmt.println(_st.mode() & (("33554432" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
+		stdgo.fmt.Fmt.println(Go.toInterface(Go.asInterface(_st.mode() & (("33554432" : GoUInt32) : stdgo.io.fs.Fs.FileMode))));
 		exit((0 : GoInt));
 	};
 	var __tmp__ = stdin.stat(),
@@ -5334,7 +5376,7 @@ function testGetppid(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	stdgo.internal.testenv.Testenv.mustHaveExec(Go.asInterface(_t));
 	if (getenv(Go.str("GO_WANT_HELPER_PROCESS")) == (Go.str("1"))) {
-		stdgo.fmt.Fmt.print(getppid());
+		stdgo.fmt.Fmt.print(Go.toInterface(getppid()));
 		exit((0 : GoInt));
 	};
 	var _cmd = stdgo.os.exec.Exec.command(args[(0 : GoInt)], Go.str("-test.run=TestGetppid"));
@@ -5527,14 +5569,14 @@ function testPipeThreads(_t:Ref<stdgo.testing.Testing.T>):Void {
 					{
 						var _j:GoInt = (0 : GoInt);
 						Go.cfor(_j < _i, _j++, {
-							_r[_j].close();
-							_w[_j].close();
+							_r[(_j : GoInt)].close();
+							_w[(_j : GoInt)].close();
 						});
 					};
 					_t.fatal(Go.toInterface(_err));
 				};
-				_r[_i] = _rp;
-				_w[_i] = _wp;
+				_r[(_i : GoInt)] = _rp;
+				_w[(_i : GoInt)] = _wp;
 			});
 		};
 		{
@@ -5551,13 +5593,13 @@ function testPipeThreads(_t:Ref<stdgo.testing.Testing.T>):Void {
 						var _b:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0...1) (0 : GoUInt8)]);
 						_creading.__send__(true);
 						{
-							var __tmp__ = _r[_i].read((_b.__slice__(0) : Slice<GoUInt8>)), _0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+							var __tmp__ = _r[(_i : GoInt)].read((_b.__slice__(0) : Slice<GoUInt8>)), _0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
 							if (_err != null) {
 								_t.error(Go.toInterface(_err));
 							};
 						};
 						{
-							var _err:Error = _r[_i].close();
+							var _err:Error = _r[(_i : GoInt)].close();
 							if (_err != null) {
 								_t.error(Go.toInterface(_err));
 							};
@@ -5578,7 +5620,7 @@ function testPipeThreads(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_i < _threads, _i++, {
 				{
-					var __tmp__ = _w[_i].write((new Slice<GoUInt8>(0, 0, (0 : GoUInt8)) : Slice<GoUInt8>)),
+					var __tmp__ = _w[(_i : GoInt)].write((new Slice<GoUInt8>(0, 0, (0 : GoUInt8)) : Slice<GoUInt8>)),
 						_0:GoInt = __tmp__._0,
 						_err:Error = __tmp__._1;
 					if (_err != null) {
@@ -5586,7 +5628,7 @@ function testPipeThreads(_t:Ref<stdgo.testing.Testing.T>):Void {
 					};
 				};
 				{
-					var _err:Error = _w[_i].close();
+					var _err:Error = _w[(_i : GoInt)].close();
 					if (_err != null) {
 						_t.error(Go.toInterface(_err));
 					};
@@ -5718,7 +5760,7 @@ function testDirSeek(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_t.fatalf(Go.str("listings have different lengths: %d and %d\n"), Go.toInterface((_dirnames1.length)), Go.toInterface((_dirnames2.length)));
 	};
 	for (_i => _n1 in _dirnames1) {
-		var _n2:GoString = _dirnames2[_i];
+		var _n2:GoString = _dirnames2[(_i : GoInt)];
 		if (_n1 != (_n2)) {
 			_t.fatalf(Go.str("different name i=%d n1=%s n2=%s\n"), Go.toInterface(_i), Go.toInterface(_n1), Go.toInterface(_n2));
 		};
@@ -5931,7 +5973,7 @@ function testReadFileProc(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (_err != null) {
 		_t.fatal(Go.toInterface(_err));
 	};
-	if ((_data.length == (0 : GoInt)) || (_data[(_data.length) - (1 : GoInt)] != (10 : GoUInt8))) {
+	if ((_data.length == (0 : GoInt)) || (_data[((_data.length) - (1 : GoInt) : GoInt)] != (10 : GoUInt8))) {
 		_t.fatalf(Go.str("read %s: not newline-terminated: %q"), Go.toInterface(_name), Go.toInterface(_data));
 	};
 }
@@ -7573,7 +7615,7 @@ function _testStatAndLstat(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _isL
 				_t.errorf(Go.str("stat of opened %q file and lstat of %q should be the same"), Go.toInterface(_path), Go.toInterface(_path));
 			};
 		};
-		if ((_path.length > (0 : GoInt)) && stdgo.os.Os.isPathSeparator(_path[(_path.length) - (1 : GoInt)])) {
+		if ((_path.length > (0 : GoInt)) && stdgo.os.Os.isPathSeparator(_path[((_path.length) - (1 : GoInt) : GoInt)])) {
 			{
 				for (defer in __deferstack__) {
 					defer();
@@ -8260,9 +8302,9 @@ function testMkdirTempBadPattern(_t:Ref<stdgo.testing.Testing.T>):Void {
 				{
 					var __tmp__ = stdgo.os.Os.executable(), _ep:GoString = __tmp__._0, _err:Error = __tmp__._1;
 					if (_err != null) {
-						stdgo.fmt.Fmt.fprint(stdgo.os.Os.stderr, Go.str("ERROR: "), _err);
+						stdgo.fmt.Fmt.fprint(Go.asInterface(stdgo.os.Os.stderr), Go.toInterface(Go.str("ERROR: ")), Go.toInterface(_err));
 					} else {
-						stdgo.fmt.Fmt.fprint(stdgo.os.Os.stderr, _ep);
+						stdgo.fmt.Fmt.fprint(Go.asInterface(stdgo.os.Os.stderr), Go.toInterface(_ep));
 					};
 				};
 				Sys.exit((0 : GoInt));

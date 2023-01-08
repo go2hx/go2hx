@@ -274,6 +274,9 @@ typedef T_error = StructType & {
 @:structInit @:using(stdgo.runtime.Runtime.TypeAssertionError_static_extension) class TypeAssertionError {
 	public function new() {}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new TypeAssertionError();
 	}
@@ -292,6 +295,9 @@ typedef T_error = StructType & {
 		if (stack0 != null)
 			this.stack0 = stack0;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new StackRecord(stack0);
@@ -334,6 +340,9 @@ typedef T_error = StructType & {
 			this.stack0 = stack0;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new MemProfileRecord(allocBytes, freeBytes, allocObjects, freeObjects, stack0);
 	}
@@ -357,6 +366,9 @@ typedef T_error = StructType & {
 		if (stackRecord != null)
 			this.stackRecord = stackRecord;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	@:embedded
 	public function stack():Slice<GoUIntptr>
@@ -724,6 +736,9 @@ typedef T_error = StructType & {
 			this.bySize = bySize;
 		}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new MemStats(alloc, totalAlloc, sys, lookups, mallocs, frees, heapAlloc, heapSys, heapIdle, heapInuse, heapReleased, heapObjects, stackInuse,
 			stackSys, mspanInuse, mspanSys, mcacheInuse, mcacheSys, buckHashSys, gcsys, otherSys, nextGC, lastGC, pauseTotalNs, pauseNs, pauseEnd, numGC,
@@ -737,6 +752,9 @@ typedef T_error = StructType & {
 **/
 @:structInit @:using(stdgo.runtime.Runtime.Frames_static_extension) class Frames {
 	public function new() {}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Frames();
@@ -803,6 +821,9 @@ typedef T_error = StructType & {
 			this.entry = entry;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new Frame(pc, func, function_, file, line, entry);
 	}
@@ -814,17 +835,37 @@ typedef T_error = StructType & {
 @:structInit @:using(stdgo.runtime.Runtime.Func_static_extension) class Func {
 	public function new() {}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new Func();
 	}
 }
 
-@:structInit @:local private class T__struct_0 {
+class T__struct_0_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
+	}
+
+	public function __underlying__()
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
+
+	var __self__:Pointer<T__struct_0>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
+}
+
+@:keep @:allow(stdgo.runtime.Runtime.T__struct_0_asInterface) class T__struct_0_static_extension {}
+
+@:local @:using(stdgo.runtime.Runtime.T__struct_0_static_extension) private typedef T__struct_0 = {
 	/**
 		// Size is the maximum byte size of an object in this
 		// size class.
 	**/
-	public var size:GoUInt32 = 0;
+	public var size:GoUInt32;
 
 	/**
 		// Mallocs is the cumulative count of heap objects
@@ -832,30 +873,14 @@ typedef T_error = StructType & {
 		// of allocation is Size*Mallocs. The number of live
 		// objects in this size class is Mallocs - Frees.
 	**/
-	public var mallocs:GoUInt64 = 0;
+	public var mallocs:GoUInt64;
 
 	/**
 		// Frees is the cumulative count of heap objects freed
 		// in this size class.
 	**/
-	public var frees:GoUInt64 = 0;
-
-	public function new(?size:GoUInt32, ?mallocs:GoUInt64, ?frees:GoUInt64) {
-		if (size != null)
-			this.size = size;
-		if (mallocs != null)
-			this.mallocs = mallocs;
-		if (frees != null)
-			this.frees = frees;
-	}
-
-	public function __underlying__()
-		return Go.toInterface(this);
-
-	public function __copy__() {
-		return new T__struct_0(size, mallocs, frees);
-	}
-}
+	public var frees:GoUInt64;
+};
 
 /**
 	// SetCPUProfileRate sets the CPU profiling rate to hz samples per second.

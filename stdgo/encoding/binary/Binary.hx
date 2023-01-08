@@ -145,6 +145,9 @@ typedef AppendByteOrder = StructType & {
 @:structInit @:using(stdgo.encoding.binary.Binary.T_littleEndian_static_extension) private class T_littleEndian {
 	public function new() {}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_littleEndian();
 	}
@@ -152,6 +155,9 @@ typedef AppendByteOrder = StructType & {
 
 @:structInit @:using(stdgo.encoding.binary.Binary.T_bigEndian_static_extension) private class T_bigEndian {
 	public function new() {}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_bigEndian();
@@ -171,6 +177,9 @@ typedef AppendByteOrder = StructType & {
 		if (_offset != null)
 			this._offset = _offset;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_coder(_order, _buf, _offset);
@@ -229,6 +238,9 @@ typedef AppendByteOrder = StructType & {
 			this.boolArray = boolArray;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new Struct(int8, int16, int32, int64, uint8, uint16, uint32, uint64, float32, float64, complex64, complex128, array, bool_, boolArray);
 	}
@@ -250,6 +262,9 @@ typedef AppendByteOrder = StructType & {
 		if (array != null)
 			this.array = array;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T(int_, uint, uintptr, array);
@@ -286,6 +301,9 @@ typedef AppendByteOrder = StructType & {
 			this._7 = _7;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new BlankFields(a, _4, b, _5, c, _6, _7);
 	}
@@ -317,6 +335,9 @@ typedef AppendByteOrder = StructType & {
 			this.p3 = p3;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new BlankFieldsProbe(a, p0, b, p1, c, p2, p3);
 	}
@@ -329,6 +350,9 @@ typedef AppendByteOrder = StructType & {
 		if (_a != null)
 			this._a = _a;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Unexported(_a);
@@ -343,144 +367,166 @@ typedef AppendByteOrder = StructType & {
 			this._remain = _remain;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_byteSliceReader(_remain);
 	}
 }
 
-@:structInit @:local private class T__struct_0 {
-	public var _f:GoArray<GoFloat32> = new GoArray<GoFloat32>(...[for (i in 0...8) (0 : GoFloat32)]);
-
-	public function new(?_f:GoArray<GoFloat32>) {
-		if (_f != null)
-			this._f = _f;
+class T__struct_0_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_0(_f);
-	}
+	var __self__:Pointer<T__struct_0>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_1 {
-	public var f:GoArray<GoFloat32> = new GoArray<GoFloat32>(...[for (i in 0...8) (0 : GoFloat32)]);
+@:keep @:allow(stdgo.encoding.binary.Binary.T__struct_0_asInterface) class T__struct_0_static_extension {}
 
-	public function new(?f:GoArray<GoFloat32>) {
-		if (f != null)
-			this.f = f;
+@:local @:using(stdgo.encoding.binary.Binary.T__struct_0_static_extension) private typedef T__struct_0 = {
+	public var _f:GoArray<GoFloat32>;
+};
+
+class T__struct_1_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_1(f);
-	}
+	var __self__:Pointer<T__struct_1>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_2 {
-	public var _val:AnyInterface = (null : AnyInterface);
-	public var _want:GoInt = 0;
+@:keep @:allow(stdgo.encoding.binary.Binary.T__struct_1_asInterface) class T__struct_1_static_extension {}
 
-	public function new(?_val:AnyInterface, ?_want:GoInt) {
-		if (_val != null)
-			this._val = _val;
-		if (_want != null)
-			this._want = _want;
+@:local @:using(stdgo.encoding.binary.Binary.T__struct_1_static_extension) private typedef T__struct_1 = {
+	public var f:GoArray<GoFloat32>;
+};
+
+class T__struct_2_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_2(_val, _want);
-	}
+	var __self__:Pointer<T__struct_2>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_3 {
-	public var a:Struct = ({} : Struct);
+@:keep @:allow(stdgo.encoding.binary.Binary.T__struct_2_asInterface) class T__struct_2_static_extension {}
 
-	public function new(?a:Struct) {
-		if (a != null)
-			this.a = a;
+@:local @:using(stdgo.encoding.binary.Binary.T__struct_2_static_extension) private typedef T__struct_2 = {
+	public var _val:AnyInterface;
+	public var _want:GoInt;
+};
+
+class T__struct_3_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_3(a);
-	}
+	var __self__:Pointer<T__struct_3>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_4 {
-	public function new() {}
+@:keep @:allow(stdgo.encoding.binary.Binary.T__struct_3_asInterface) class T__struct_3_static_extension {}
 
-	public function __underlying__()
-		return Go.toInterface(this);
+@:local @:using(stdgo.encoding.binary.Binary.T__struct_3_static_extension) private typedef T__struct_3 = {
+	public var a:Struct;
+};
 
-	public function __copy__() {
-		return new T__struct_4();
-	}
-}
-
-@:structInit @:local private class T__struct_5 {
-	public var a:GoUInt8 = 0;
-	public var b:GoUInt8 = 0;
-	public var c:GoUInt8 = 0;
-	public var d:GoUInt8 = 0;
-	public var e:GoInt32 = 0;
-	public var f:GoFloat64 = 0;
-
-	public function new(?a:GoUInt8, ?b:GoUInt8, ?c:GoUInt8, ?d:GoUInt8, ?e:GoInt32, ?f:GoFloat64) {
-		if (a != null)
-			this.a = a;
-		if (b != null)
-			this.b = b;
-		if (c != null)
-			this.c = c;
-		if (d != null)
-			this.d = d;
-		if (e != null)
-			this.e = e;
-		if (f != null)
-			this.f = f;
+class T__struct_4_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_5(a, b, c, d, e, f);
-	}
+	var __self__:Pointer<T__struct_4>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_6 {
-	public var _in:Slice<GoUInt8> = (null : Slice<GoUInt8>);
-	public var _name:GoString = "";
-	public var _wantN:GoInt = 0;
-	public var _wantValue:GoUInt64 = 0;
+@:keep @:allow(stdgo.encoding.binary.Binary.T__struct_4_asInterface) class T__struct_4_static_extension {}
+@:local @:using(stdgo.encoding.binary.Binary.T__struct_4_static_extension) private typedef T__struct_4 = {};
 
-	public function new(?_in:Slice<GoUInt8>, ?_name:GoString, ?_wantN:GoInt, ?_wantValue:GoUInt64) {
-		if (_in != null)
-			this._in = _in;
-		if (_name != null)
-			this._name = _name;
-		if (_wantN != null)
-			this._wantN = _wantN;
-		if (_wantValue != null)
-			this._wantValue = _wantValue;
+class T__struct_5_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_6(_in, _name, _wantN, _wantValue);
-	}
+	var __self__:Pointer<T__struct_5>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
+
+@:keep @:allow(stdgo.encoding.binary.Binary.T__struct_5_asInterface) class T__struct_5_static_extension {}
+
+@:local @:using(stdgo.encoding.binary.Binary.T__struct_5_static_extension) private typedef T__struct_5 = {
+	public var a:GoUInt8;
+	public var b:GoUInt8;
+	public var c:GoUInt8;
+	public var d:GoUInt8;
+	public var e:GoInt32;
+	public var f:GoFloat64;
+};
+
+class T__struct_6_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
+	}
+
+	public function __underlying__()
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
+
+	var __self__:Pointer<T__struct_6>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
+}
+
+@:keep @:allow(stdgo.encoding.binary.Binary.T__struct_6_asInterface) class T__struct_6_static_extension {}
+
+@:local @:using(stdgo.encoding.binary.Binary.T__struct_6_static_extension) private typedef T__struct_6 = {
+	public var _in:Slice<GoUInt8>;
+	public var _name:GoString;
+	public var _wantN:GoInt;
+	public var _wantValue:GoUInt64;
+};
 
 @:named @:using(stdgo.encoding.binary.Binary.T_decoder_static_extension) private typedef T_decoder = T_coder;
 @:named @:using(stdgo.encoding.binary.Binary.T_encoder_static_extension) private typedef T_encoder = T_coder;
@@ -566,13 +612,13 @@ function read(_r:stdgo.io.Io.Reader, _order:ByteOrder, _data:AnyInterface):Error
 					var _data:Slice<Bool> = __type__ == null ? (null : Slice<Bool>) : __type__.__underlying__() == null ? (null : Slice<Bool>) : __type__ == null ? (null : Slice<Bool>) : __type__.__underlying__()
 						.value;
 					for (_i => _x in _bs) {
-						_data[_i] = _x != ((0 : GoUInt8));
+						_data[(_i : GoInt)] = _x != ((0 : GoUInt8));
 					};
 				} else if (Go.typeEquals((__type__ : Slice<GoInt8>))) {
 					var _data:Slice<GoInt8> = __type__ == null ? (null : Slice<GoInt8>) : __type__.__underlying__() == null ? (null : Slice<GoInt8>) : __type__ == null ? (null : Slice<GoInt8>) : __type__.__underlying__()
 						.value;
 					for (_i => _x in _bs) {
-						_data[_i] = (_x : GoInt8);
+						_data[(_i : GoInt)] = (_x : GoInt8);
 					};
 				} else if (Go.typeEquals((__type__ : Slice<GoUInt8>))) {
 					var _data:Slice<GoUInt8> = __type__ == null ? (null : Slice<GoUInt8>) : __type__.__underlying__() == null ? (null : Slice<GoUInt8>) : __type__ == null ? (null : Slice<GoUInt8>) : __type__.__underlying__()
@@ -582,49 +628,49 @@ function read(_r:stdgo.io.Io.Reader, _order:ByteOrder, _data:AnyInterface):Error
 					var _data:Slice<GoInt16> = __type__ == null ? (null : Slice<GoInt16>) : __type__.__underlying__() == null ? (null : Slice<GoInt16>) : __type__ == null ? (null : Slice<GoInt16>) : __type__.__underlying__()
 						.value;
 					for (_i in 0..._data.length.toBasic()) {
-						_data[_i] = (_order.uint16((_bs.__slice__((2 : GoInt) * _i) : Slice<GoUInt8>)) : GoInt16);
+						_data[(_i : GoInt)] = (_order.uint16((_bs.__slice__((2 : GoInt) * _i) : Slice<GoUInt8>)) : GoInt16);
 					};
 				} else if (Go.typeEquals((__type__ : Slice<GoUInt16>))) {
 					var _data:Slice<GoUInt16> = __type__ == null ? (null : Slice<GoUInt16>) : __type__.__underlying__() == null ? (null : Slice<GoUInt16>) : __type__ == null ? (null : Slice<GoUInt16>) : __type__.__underlying__()
 						.value;
 					for (_i in 0..._data.length.toBasic()) {
-						_data[_i] = _order.uint16((_bs.__slice__((2 : GoInt) * _i) : Slice<GoUInt8>));
+						_data[(_i : GoInt)] = _order.uint16((_bs.__slice__((2 : GoInt) * _i) : Slice<GoUInt8>));
 					};
 				} else if (Go.typeEquals((__type__ : Slice<GoInt32>))) {
 					var _data:Slice<GoInt32> = __type__ == null ? (null : Slice<GoInt32>) : __type__.__underlying__() == null ? (null : Slice<GoInt32>) : __type__ == null ? (null : Slice<GoInt32>) : __type__.__underlying__()
 						.value;
 					for (_i in 0..._data.length.toBasic()) {
-						_data[_i] = (_order.uint32((_bs.__slice__((4 : GoInt) * _i) : Slice<GoUInt8>)) : GoInt32);
+						_data[(_i : GoInt)] = (_order.uint32((_bs.__slice__((4 : GoInt) * _i) : Slice<GoUInt8>)) : GoInt32);
 					};
 				} else if (Go.typeEquals((__type__ : Slice<GoUInt32>))) {
 					var _data:Slice<GoUInt32> = __type__ == null ? (null : Slice<GoUInt32>) : __type__.__underlying__() == null ? (null : Slice<GoUInt32>) : __type__ == null ? (null : Slice<GoUInt32>) : __type__.__underlying__()
 						.value;
 					for (_i in 0..._data.length.toBasic()) {
-						_data[_i] = _order.uint32((_bs.__slice__((4 : GoInt) * _i) : Slice<GoUInt8>));
+						_data[(_i : GoInt)] = _order.uint32((_bs.__slice__((4 : GoInt) * _i) : Slice<GoUInt8>));
 					};
 				} else if (Go.typeEquals((__type__ : Slice<GoInt64>))) {
 					var _data:Slice<GoInt64> = __type__ == null ? (null : Slice<GoInt64>) : __type__.__underlying__() == null ? (null : Slice<GoInt64>) : __type__ == null ? (null : Slice<GoInt64>) : __type__.__underlying__()
 						.value;
 					for (_i in 0..._data.length.toBasic()) {
-						_data[_i] = (_order.uint64((_bs.__slice__((8 : GoInt) * _i) : Slice<GoUInt8>)) : GoInt64);
+						_data[(_i : GoInt)] = (_order.uint64((_bs.__slice__((8 : GoInt) * _i) : Slice<GoUInt8>)) : GoInt64);
 					};
 				} else if (Go.typeEquals((__type__ : Slice<GoUInt64>))) {
 					var _data:Slice<GoUInt64> = __type__ == null ? (null : Slice<GoUInt64>) : __type__.__underlying__() == null ? (null : Slice<GoUInt64>) : __type__ == null ? (null : Slice<GoUInt64>) : __type__.__underlying__()
 						.value;
 					for (_i in 0..._data.length.toBasic()) {
-						_data[_i] = _order.uint64((_bs.__slice__((8 : GoInt) * _i) : Slice<GoUInt8>));
+						_data[(_i : GoInt)] = _order.uint64((_bs.__slice__((8 : GoInt) * _i) : Slice<GoUInt8>));
 					};
 				} else if (Go.typeEquals((__type__ : Slice<GoFloat32>))) {
 					var _data:Slice<GoFloat32> = __type__ == null ? (null : Slice<GoFloat32>) : __type__.__underlying__() == null ? (null : Slice<GoFloat32>) : __type__ == null ? (null : Slice<GoFloat32>) : __type__.__underlying__()
 						.value;
 					for (_i in 0..._data.length.toBasic()) {
-						_data[_i] = stdgo.math.Math.float32frombits(_order.uint32((_bs.__slice__((4 : GoInt) * _i) : Slice<GoUInt8>)));
+						_data[(_i : GoInt)] = stdgo.math.Math.float32frombits(_order.uint32((_bs.__slice__((4 : GoInt) * _i) : Slice<GoUInt8>)));
 					};
 				} else if (Go.typeEquals((__type__ : Slice<GoFloat64>))) {
 					var _data:Slice<GoFloat64> = __type__ == null ? (null : Slice<GoFloat64>) : __type__.__underlying__() == null ? (null : Slice<GoFloat64>) : __type__ == null ? (null : Slice<GoFloat64>) : __type__.__underlying__()
 						.value;
 					for (_i in 0..._data.length.toBasic()) {
-						_data[_i] = stdgo.math.Math.float64frombits(_order.uint64((_bs.__slice__((8 : GoInt) * _i) : Slice<GoUInt8>)));
+						_data[(_i : GoInt)] = stdgo.math.Math.float64frombits(_order.uint64((_bs.__slice__((8 : GoInt) * _i) : Slice<GoUInt8>)));
 					};
 				} else {
 					var _data:AnyInterface = __type__ == null ? null : __type__.__underlying__();
@@ -699,9 +745,9 @@ function write(_w:stdgo.io.Io.Writer, _order:ByteOrder, _data:AnyInterface):Erro
 						.value;
 					for (_i => _x in _v) {
 						if (_x) {
-							_bs[_i] = (1 : GoUInt8);
+							_bs[(_i : GoInt)] = (1 : GoUInt8);
 						} else {
-							_bs[_i] = (0 : GoUInt8);
+							_bs[(_i : GoInt)] = (0 : GoUInt8);
 						};
 					};
 				} else if (Go.typeEquals((__type__ : Pointer<GoInt8>))) {
@@ -715,7 +761,7 @@ function write(_w:stdgo.io.Io.Writer, _order:ByteOrder, _data:AnyInterface):Erro
 					var _v:Slice<GoInt8> = __type__ == null ? (null : Slice<GoInt8>) : __type__.__underlying__() == null ? (null : Slice<GoInt8>) : __type__ == null ? (null : Slice<GoInt8>) : __type__.__underlying__()
 						.value;
 					for (_i => _x in _v) {
-						_bs[_i] = (_x : GoByte);
+						_bs[(_i : GoInt)] = (_x : GoByte);
 					};
 				} else if (Go.typeEquals((__type__ : Pointer<GoUInt8>))) {
 					var _v:Pointer<GoUInt8> = __type__ == null ? (null : Pointer<GoUInt8>) : __type__.__underlying__() == null ? (null : Pointer<GoUInt8>) : __type__ == null ? (null : Pointer<GoUInt8>) : __type__.__underlying__()
@@ -1244,6 +1290,9 @@ function testBlankFields(_t:Ref<stdgo.testing.Testing.T>):Void {
 			this.a = a;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_foo_testSizeStructCache_0(a);
 	}
@@ -1262,6 +1311,9 @@ function testBlankFields(_t:Ref<stdgo.testing.Testing.T>):Void {
 		if (c != null)
 			this.c = c;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_bar_testSizeStructCache_1(a, b, c);
@@ -1990,11 +2042,11 @@ function appendUvarint(_buf:Slice<GoByte>, _x:GoUInt64):Slice<GoByte> {
 function putUvarint(_buf:Slice<GoByte>, _x:GoUInt64):GoInt {
 	var _i:GoInt = (0 : GoInt);
 	while (_x >= ("128" : GoUInt64)) {
-		_buf[_i] = (_x : GoByte) | (128 : GoUInt8);
+		_buf[(_i : GoInt)] = (_x : GoByte) | (128 : GoUInt8);
 		_x = _x >> (("7" : GoUInt64));
 		_i++;
 	};
-	_buf[_i] = (_x : GoByte);
+	_buf[(_i : GoInt)] = (_x : GoByte);
 	return _i + (1 : GoInt);
 }
 
@@ -2242,7 +2294,7 @@ function testBufferTooBigWithOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var a = function():Slice<GoByte> {
 				var _b = new Slice<GoUInt8>((1000 : GoInt).toBasic(), 0, ...[for (i in 0...(1000 : GoInt).toBasic()) (0 : GoUInt8)]);
 				for (_i in 0..._b.length.toBasic()) {
-					_b[_i] = (255 : GoUInt8);
+					_b[(_i : GoInt)] = (255 : GoUInt8);
 				};
 				_b[(999 : GoInt)] = (0 : GoUInt8);
 				return _b;
@@ -2862,14 +2914,14 @@ class T_decoder_asInterface {
 
 	@:keep
 	static public function _uint8(_d:Ref<T_decoder>):GoUInt8 {
-		var _x:GoUInt8 = _d._buf[_d._offset];
+		var _x:GoUInt8 = _d._buf[(_d._offset : GoInt)];
 		_d._offset++;
 		return _x;
 	}
 
 	@:keep
 	static public function _bool(_d:Ref<T_decoder>):Bool {
-		var _x:GoUInt8 = _d._buf[_d._offset];
+		var _x:GoUInt8 = _d._buf[(_d._offset : GoInt)];
 		_d._offset++;
 		return _x != ((0 : GoUInt8));
 	}
@@ -2940,7 +2992,7 @@ class T_encoder_asInterface {
 		var _n:GoInt = _dataSize((_v == null ? null : _v.__copy__()));
 		var _zero = (_e._buf.__slice__(_e._offset, _e._offset + _n) : Slice<GoUInt8>);
 		for (_i in 0..._zero.length.toBasic()) {
-			_zero[_i] = (0 : GoUInt8);
+			_zero[(_i : GoInt)] = (0 : GoUInt8);
 		};
 		_e._offset = _e._offset + (_n);
 	}
@@ -3071,16 +3123,16 @@ class T_encoder_asInterface {
 
 	@:keep
 	static public function _uint8(_e:Ref<T_encoder>, _x:GoUInt8):Void {
-		_e._buf[_e._offset] = _x;
+		_e._buf[(_e._offset : GoInt)] = _x;
 		_e._offset++;
 	}
 
 	@:keep
 	static public function _bool(_e:Ref<T_encoder>, _x:Bool):Void {
 		if (_x) {
-			_e._buf[_e._offset] = (1 : GoUInt8);
+			_e._buf[(_e._offset : GoInt)] = (1 : GoUInt8);
 		} else {
-			_e._buf[_e._offset] = (0 : GoUInt8);
+			_e._buf[(_e._offset : GoInt)] = (0 : GoUInt8);
 		};
 		_e._offset++;
 	}

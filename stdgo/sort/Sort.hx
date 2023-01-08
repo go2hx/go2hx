@@ -72,6 +72,9 @@ typedef Interface = StructType & {
 			this.swap = swap;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_lessSwap(less, swap);
 	}
@@ -89,6 +92,9 @@ typedef Interface = StructType & {
 		if (interface_ != null)
 			this.interface_ = interface_;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	@:embedded
 	public function len():GoInt
@@ -246,7 +252,7 @@ function find(_n:GoInt, _cmp:GoInt->GoInt):{var _0:GoInt; var _1:Bool;} {
 **/
 function searchInts(_a:Slice<GoInt>, _x:GoInt):GoInt {
 	return search((_a.length), function(_i:GoInt):Bool {
-		return _a[_i] >= _x;
+		return _a[(_i : GoInt)] >= _x;
 	});
 }
 
@@ -258,7 +264,7 @@ function searchInts(_a:Slice<GoInt>, _x:GoInt):GoInt {
 **/
 function searchFloat64s(_a:Slice<GoFloat64>, _x:GoFloat64):GoInt {
 	return search((_a.length), function(_i:GoInt):Bool {
-		return _a[_i] >= _x;
+		return _a[(_i : GoInt)] >= _x;
 	});
 }
 
@@ -270,7 +276,7 @@ function searchFloat64s(_a:Slice<GoFloat64>, _x:GoFloat64):GoInt {
 **/
 function searchStrings(_a:Slice<GoString>, _x:GoString):GoInt {
 	return search((_a.length), function(_i:GoInt):Bool {
-		return _a[_i] >= _x;
+		return _a[(_i : GoInt)] >= _x;
 	});
 }
 
@@ -1581,16 +1587,16 @@ class IntSlice_asInterface {
 	@:keep
 	static public function swap(_x:IntSlice, _i:GoInt, _j:GoInt):Void {
 		{
-			final __tmp__0 = _x[_j];
-			final __tmp__1 = _x[_i];
-			_x[_i] = __tmp__0;
-			_x[_j] = __tmp__1;
+			final __tmp__0 = _x[(_j : GoInt)];
+			final __tmp__1 = _x[(_i : GoInt)];
+			_x[(_i : GoInt)] = __tmp__0;
+			_x[(_j : GoInt)] = __tmp__1;
 		};
 	}
 
 	@:keep
 	static public function less(_x:IntSlice, _i:GoInt, _j:GoInt):Bool {
-		return _x[_i] < _x[_j];
+		return _x[(_i : GoInt)] < _x[(_j : GoInt)];
 	}
 
 	@:keep
@@ -1668,10 +1674,10 @@ class Float64Slice_asInterface {
 	@:keep
 	static public function swap(_x:Float64Slice, _i:GoInt, _j:GoInt):Void {
 		{
-			final __tmp__0 = _x[_j];
-			final __tmp__1 = _x[_i];
-			_x[_i] = __tmp__0;
-			_x[_j] = __tmp__1;
+			final __tmp__0 = _x[(_j : GoInt)];
+			final __tmp__1 = _x[(_i : GoInt)];
+			_x[(_i : GoInt)] = __tmp__0;
+			_x[(_j : GoInt)] = __tmp__1;
 		};
 	}
 
@@ -1685,7 +1691,7 @@ class Float64Slice_asInterface {
 	**/
 	@:keep
 	static public function less(_x:Float64Slice, _i:GoInt, _j:GoInt):Bool {
-		return (_x[_i] < _x[_j]) || (_isNaN(_x[_i]) && !_isNaN(_x[_j]));
+		return (_x[(_i : GoInt)] < _x[(_j : GoInt)]) || (_isNaN(_x[(_i : GoInt)]) && !_isNaN(_x[(_j : GoInt)]));
 	}
 
 	@:keep
@@ -1755,16 +1761,16 @@ class StringSlice_asInterface {
 	@:keep
 	static public function swap(_x:StringSlice, _i:GoInt, _j:GoInt):Void {
 		{
-			final __tmp__0 = _x[_j];
-			final __tmp__1 = _x[_i];
-			_x[_i] = __tmp__0;
-			_x[_j] = __tmp__1;
+			final __tmp__0 = _x[(_j : GoInt)];
+			final __tmp__1 = _x[(_i : GoInt)];
+			_x[(_i : GoInt)] = __tmp__0;
+			_x[(_j : GoInt)] = __tmp__1;
 		};
 	}
 
 	@:keep
 	static public function less(_x:StringSlice, _i:GoInt, _j:GoInt):Bool {
-		return _x[_i] < _x[_j];
+		return _x[(_i : GoInt)] < _x[(_j : GoInt)];
 	}
 
 	@:keep

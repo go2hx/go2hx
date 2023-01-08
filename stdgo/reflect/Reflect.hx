@@ -374,6 +374,9 @@ typedef Type = StructType & {
 			this.index = index;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new Method(name, pkgPath, type, func, index);
 	}
@@ -437,6 +440,9 @@ typedef Type = StructType & {
 			this.anonymous = anonymous;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new StructField(name, pkgPath, type, tag, offset, index, anonymous);
 	}
@@ -491,6 +497,9 @@ typedef Type = StructType & {
 			this.notSetBool = notSetBool;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new Value(value, underlyingValue, underlyingIndex, underlyingKey, canAddrBool, notSetBool);
 	}
@@ -512,6 +521,9 @@ typedef Type = StructType & {
 			this.kind = kind;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new ValueError(method, kind);
 	}
@@ -523,6 +535,9 @@ typedef Type = StructType & {
 **/
 @:structInit @:using(stdgo.reflect.Reflect.MapIter_static_extension) class MapIter {
 	public function new() {}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new MapIter();
@@ -547,6 +562,9 @@ typedef Type = StructType & {
 		if (len != null)
 			this.len = len;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new StringHeader(data, len);
@@ -574,6 +592,9 @@ typedef Type = StructType & {
 		if (cap != null)
 			this.cap = cap;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new SliceHeader(data, len, cap);
@@ -622,6 +643,9 @@ typedef Type = StructType & {
 		if (send != null)
 			this.send = send;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new SelectCase(dir, chan, send);

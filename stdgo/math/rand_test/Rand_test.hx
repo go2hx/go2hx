@@ -212,29 +212,35 @@ var __tmp__1 = getExponentialDistributionParameters();
 			this._maxError = _maxError;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_statsResults(_mean, _stddev, _closeEnough, _maxError);
 	}
 }
 
-@:structInit @:local private class T__struct_0 {
-	public var _name:GoString = "";
-	public var _fn:() -> GoInt = null;
-
-	public function new(?_name:GoString, ?_fn:() -> GoInt) {
-		if (_name != null)
-			this._name = _name;
-		if (_fn != null)
-			this._fn = _fn;
+class T__struct_0_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_0(_name, _fn);
-	}
+	var __self__:Pointer<T__struct_0>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
+
+@:keep @:allow(stdgo.math.rand_test.Rand_test.T__struct_0_asInterface) class T__struct_0_static_extension {}
+
+@:local @:using(stdgo.math.rand_test.Rand_test.T__struct_0_static_extension) private typedef T__struct_0 = {
+	public var _name:GoString;
+	public var _fn:() -> GoInt;
+};
 
 function example():Void {
 	stdgo.math.rand.Rand.seed(("42" : GoInt64));
@@ -243,7 +249,7 @@ function example():Void {
 		Go.str("Reply hazy try again"), Go.str("Ask again later"), Go.str("Better not tell you now"), Go.str("Cannot predict now"),
 		Go.str("Concentrate and ask again"), Go.str("Don\'t count on it"), Go.str("My reply is no"), Go.str("My sources say no"),
 		Go.str("Outlook not so good"), Go.str("Very doubtful")) : Slice<GoString>);
-	stdgo.fmt.Fmt.println(Go.str("Magic 8-Ball says:"), _answers[stdgo.math.rand.Rand.intn((_answers.length))]);
+	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("Magic 8-Ball says:")), Go.toInterface(_answers[(stdgo.math.rand.Rand.intn((_answers.length)) : GoInt)]));
 }
 
 /**
@@ -300,7 +306,7 @@ function example_rand():Void {
 
 function examplePerm():Void {
 	for (_0 => _value in stdgo.math.rand.Rand.perm((3 : GoInt))) {
-		stdgo.fmt.Fmt.println(_value);
+		stdgo.fmt.Fmt.println(Go.toInterface(_value));
 	};
 }
 
@@ -308,13 +314,13 @@ function exampleShuffle():Void {
 	var _words = stdgo.strings.Strings.fields(Go.str("ink runs from the corners of my mouth"));
 	stdgo.math.rand.Rand.shuffle((_words.length), function(_i:GoInt, _j:GoInt):Void {
 		{
-			final __tmp__0 = _words[_j];
-			final __tmp__1 = _words[_i];
-			_words[_i] = __tmp__0;
-			_words[_j] = __tmp__1;
+			final __tmp__0 = _words[(_j : GoInt)];
+			final __tmp__1 = _words[(_i : GoInt)];
+			_words[(_i : GoInt)] = __tmp__0;
+			_words[(_j : GoInt)] = __tmp__1;
 		};
 	});
-	stdgo.fmt.Fmt.println(_words);
+	stdgo.fmt.Fmt.println(Go.toInterface(_words));
 }
 
 function exampleShuffle_slicesInUnison():Void {
@@ -322,28 +328,28 @@ function exampleShuffle_slicesInUnison():Void {
 	var _letters = (Go.str("ABCDE") : Slice<GoByte>);
 	stdgo.math.rand.Rand.shuffle((_numbers.length), function(_i:GoInt, _j:GoInt):Void {
 		{
-			final __tmp__0 = _numbers[_j];
-			final __tmp__1 = _numbers[_i];
-			_numbers[_i] = __tmp__0;
-			_numbers[_j] = __tmp__1;
+			final __tmp__0 = _numbers[(_j : GoInt)];
+			final __tmp__1 = _numbers[(_i : GoInt)];
+			_numbers[(_i : GoInt)] = __tmp__0;
+			_numbers[(_j : GoInt)] = __tmp__1;
 		};
 		{
-			final __tmp__0 = _letters[_j];
-			final __tmp__1 = _letters[_i];
-			_letters[_i] = __tmp__0;
-			_letters[_j] = __tmp__1;
+			final __tmp__0 = _letters[(_j : GoInt)];
+			final __tmp__1 = _letters[(_i : GoInt)];
+			_letters[(_i : GoInt)] = __tmp__0;
+			_letters[(_j : GoInt)] = __tmp__1;
 		};
 	});
 	for (_i in 0..._numbers.length.toBasic()) {
-		stdgo.fmt.Fmt.printf(Go.str("%c: %c\n"), Go.toInterface(_letters[_i]), Go.toInterface(_numbers[_i]));
+		stdgo.fmt.Fmt.printf(Go.str("%c: %c\n"), Go.toInterface(_letters[(_i : GoInt)]), Go.toInterface(_numbers[(_i : GoInt)]));
 	};
 }
 
 function exampleIntn():Void {
 	stdgo.math.rand.Rand.seed(("86" : GoInt64));
-	stdgo.fmt.Fmt.println(stdgo.math.rand.Rand.intn((100 : GoInt)));
-	stdgo.fmt.Fmt.println(stdgo.math.rand.Rand.intn((100 : GoInt)));
-	stdgo.fmt.Fmt.println(stdgo.math.rand.Rand.intn((100 : GoInt)));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.math.rand.Rand.intn((100 : GoInt))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.math.rand.Rand.intn((100 : GoInt))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.math.rand.Rand.intn((100 : GoInt))));
 }
 
 /**
@@ -501,7 +507,7 @@ function _generateNormalSamples(_nsamples:GoInt, _mean:GoFloat64, _stddev:GoFloa
 	var _r = new_(newSource(_seed));
 	var _samples = new Slice<GoFloat64>((_nsamples : GoInt).toBasic(), 0, ...[for (i in 0...(_nsamples : GoInt).toBasic()) (0 : GoFloat64)]);
 	for (_i in 0..._samples.length.toBasic()) {
-		_samples[_i] = (_r.normFloat64() * _stddev) + _mean;
+		_samples[(_i : GoInt)] = (_r.normFloat64() * _stddev) + _mean;
 	};
 	return _samples;
 }
@@ -551,7 +557,7 @@ function _generateExponentialSamples(_nsamples:GoInt, _rate:GoFloat64, _seed:GoI
 	var _r = new_(newSource(_seed));
 	var _samples = new Slice<GoFloat64>((_nsamples : GoInt).toBasic(), 0, ...[for (i in 0...(_nsamples : GoInt).toBasic()) (0 : GoFloat64)]);
 	for (_i in 0..._samples.length.toBasic()) {
-		_samples[_i] = _r.expFloat64() / _rate;
+		_samples[(_i : GoInt)] = _r.expFloat64() / _rate;
 	};
 	return _samples;
 }
@@ -613,10 +619,10 @@ function _initNorm():{var _0:Slice<GoUInt32>; var _1:Slice<GoFloat32>; var _2:Sl
 		var _i:GoInt = (126 : GoInt);
 		Go.cfor(_i >= (1 : GoInt), _i--, {
 			_dn = stdgo.math.Math.sqrt((-2 : GoFloat64) * stdgo.math.Math.log((_vn / _dn) + stdgo.math.Math.exp(((-0.5 : GoFloat64) * _dn) * _dn)));
-			_testKn[_i + (1 : GoInt)] = ((_dn / _tn) * (2.147483648e+09 : GoFloat64) : GoUInt32);
+			_testKn[(_i + (1 : GoInt) : GoInt)] = ((_dn / _tn) * (2.147483648e+09 : GoFloat64) : GoUInt32);
 			_tn = _dn;
-			_testFn[_i] = (stdgo.math.Math.exp(((-0.5 : GoFloat64) * _dn) * _dn) : GoFloat32);
-			_testWn[_i] = (_dn / (2.147483648e+09 : GoFloat64) : GoFloat32);
+			_testFn[(_i : GoInt)] = (stdgo.math.Math.exp(((-0.5 : GoFloat64) * _dn) * _dn) : GoFloat32);
+			_testWn[(_i : GoInt)] = (_dn / (2.147483648e+09 : GoFloat64) : GoFloat32);
 		});
 	};
 	return {_0: _testKn, _1: _testWn, _2: _testFn};
@@ -647,10 +653,10 @@ function _initExp():{var _0:Slice<GoUInt32>; var _1:Slice<GoFloat32>; var _2:Sli
 		var _i:GoInt = (254 : GoInt);
 		Go.cfor(_i >= (1 : GoInt), _i--, {
 			_de = -stdgo.math.Math.log((_ve / _de) + stdgo.math.Math.exp(-_de));
-			_testKe[_i + (1 : GoInt)] = ((_de / _te) * (4.294967296e+09 : GoFloat64) : GoUInt32);
+			_testKe[(_i + (1 : GoInt) : GoInt)] = ((_de / _te) * (4.294967296e+09 : GoFloat64) : GoUInt32);
 			_te = _de;
-			_testFe[_i] = (stdgo.math.Math.exp(-_de) : GoFloat32);
-			_testWe[_i] = (_de / (4.294967296e+09 : GoFloat64) : GoFloat32);
+			_testFe[(_i : GoInt)] = (stdgo.math.Math.exp(-_de) : GoFloat32);
+			_testWe[(_i : GoInt)] = (_de / (4.294967296e+09 : GoFloat64) : GoFloat32);
 		});
 	};
 	return {_0: _testKe, _1: _testWe, _2: _testFe};
@@ -669,7 +675,7 @@ function _compareUint32Slices(_s1:Slice<GoUInt32>, _s2:Slice<GoUInt32>):GoInt {
 		return (_s1.length) + (1 : GoInt);
 	};
 	for (_i in 0..._s1.length.toBasic()) {
-		if (_s1[_i] != (_s2[_i])) {
+		if (_s1[(_i : GoInt)] != (_s2[(_i : GoInt)])) {
 			return _i;
 		};
 	};
@@ -689,7 +695,7 @@ function _compareFloat32Slices(_s1:Slice<GoFloat32>, _s2:Slice<GoFloat32>):GoInt
 		return (_s1.length) + (1 : GoInt);
 	};
 	for (_i in 0..._s1.length.toBasic()) {
-		if (!_nearEqual((_s1[_i] : GoFloat64), (_s2[_i] : GoFloat64), (0 : GoFloat64), (1e-07 : GoFloat64))) {
+		if (!_nearEqual((_s1[(_i : GoInt)] : GoFloat64), (_s2[(_i : GoInt)] : GoFloat64), (0 : GoFloat64), (1e-07 : GoFloat64))) {
 			return _i;
 		};
 	};
@@ -704,19 +710,22 @@ function testNormTables(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoInt = _compareUint32Slices((_kn.__slice__((0 : GoInt)) : Slice<GoUInt32>), _testKn);
 		if (_i >= (0 : GoInt)) {
-			_t.errorf(Go.str("kn disagrees at index %v; %v != %v"), Go.toInterface(_i), Go.toInterface(_kn[_i]), Go.toInterface(_testKn[_i]));
+			_t.errorf(Go.str("kn disagrees at index %v; %v != %v"), Go.toInterface(_i), Go.toInterface(_kn[(_i : GoInt)]),
+				Go.toInterface(_testKn[(_i : GoInt)]));
 		};
 	};
 	{
 		var _i:GoInt = _compareFloat32Slices((_wn.__slice__((0 : GoInt)) : Slice<GoFloat32>), _testWn);
 		if (_i >= (0 : GoInt)) {
-			_t.errorf(Go.str("wn disagrees at index %v; %v != %v"), Go.toInterface(_i), Go.toInterface(_wn[_i]), Go.toInterface(_testWn[_i]));
+			_t.errorf(Go.str("wn disagrees at index %v; %v != %v"), Go.toInterface(_i), Go.toInterface(_wn[(_i : GoInt)]),
+				Go.toInterface(_testWn[(_i : GoInt)]));
 		};
 	};
 	{
 		var _i:GoInt = _compareFloat32Slices((_fn.__slice__((0 : GoInt)) : Slice<GoFloat32>), _testFn);
 		if (_i >= (0 : GoInt)) {
-			_t.errorf(Go.str("fn disagrees at index %v; %v != %v"), Go.toInterface(_i), Go.toInterface(_fn[_i]), Go.toInterface(_testFn[_i]));
+			_t.errorf(Go.str("fn disagrees at index %v; %v != %v"), Go.toInterface(_i), Go.toInterface(_fn[(_i : GoInt)]),
+				Go.toInterface(_testFn[(_i : GoInt)]));
 		};
 	};
 }
@@ -729,19 +738,22 @@ function testExpTables(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoInt = _compareUint32Slices((_ke.__slice__((0 : GoInt)) : Slice<GoUInt32>), _testKe);
 		if (_i >= (0 : GoInt)) {
-			_t.errorf(Go.str("ke disagrees at index %v; %v != %v"), Go.toInterface(_i), Go.toInterface(_ke[_i]), Go.toInterface(_testKe[_i]));
+			_t.errorf(Go.str("ke disagrees at index %v; %v != %v"), Go.toInterface(_i), Go.toInterface(_ke[(_i : GoInt)]),
+				Go.toInterface(_testKe[(_i : GoInt)]));
 		};
 	};
 	{
 		var _i:GoInt = _compareFloat32Slices((_we.__slice__((0 : GoInt)) : Slice<GoFloat32>), _testWe);
 		if (_i >= (0 : GoInt)) {
-			_t.errorf(Go.str("we disagrees at index %v; %v != %v"), Go.toInterface(_i), Go.toInterface(_we[_i]), Go.toInterface(_testWe[_i]));
+			_t.errorf(Go.str("we disagrees at index %v; %v != %v"), Go.toInterface(_i), Go.toInterface(_we[(_i : GoInt)]),
+				Go.toInterface(_testWe[(_i : GoInt)]));
 		};
 	};
 	{
 		var _i:GoInt = _compareFloat32Slices((_fe.__slice__((0 : GoInt)) : Slice<GoFloat32>), _testFe);
 		if (_i >= (0 : GoInt)) {
-			_t.errorf(Go.str("fe disagrees at index %v; %v != %v"), Go.toInterface(_i), Go.toInterface(_fe[_i]), Go.toInterface(_testFe[_i]));
+			_t.errorf(Go.str("fe disagrees at index %v; %v != %v"), Go.toInterface(_i), Go.toInterface(_fe[(_i : GoInt)]),
+				Go.toInterface(_testFe[(_i : GoInt)]));
 		};
 	};
 }
@@ -798,7 +810,7 @@ function _testReadUniformity(_t:Ref<stdgo.testing.Testing.T>, _n:GoInt, _seed:Go
 		(0.08 : GoFloat64) * _errorScale) : stdgo.math.rand_test.Rand_test.T_statsResults) : Ref<stdgo.math.rand_test.Rand_test.T_statsResults>);
 	var _samples = new Slice<GoFloat64>((_n : GoInt).toBasic(), 0, ...[for (i in 0...(_n : GoInt).toBasic()) (0 : GoFloat64)]);
 	for (_i => _val in _buf) {
-		_samples[_i] = (_val : GoFloat64);
+		_samples[(_i : GoInt)] = (_val : GoFloat64);
 	};
 	_checkSampleDistribution(_t, _samples, _expected);
 }
@@ -893,7 +905,7 @@ function _encodePerm(_s:Slice<GoInt>):GoInt {
 		var _r = (_s.__slice__(_i + (1 : GoInt)) : Slice<GoInt>);
 		for (_j => _y in _r) {
 			if (_y > _x) {
-				_r[_j]--;
+				_r[(_j : GoInt)]--;
 			};
 		};
 	};
@@ -902,7 +914,7 @@ function _encodePerm(_s:Slice<GoInt>):GoInt {
 	{
 		var _i:GoInt = (_s.length) - (1 : GoInt);
 		Go.cfor(_i >= (0 : GoInt), _i--, {
-			_m = _m + (_s[_i] * _fact);
+			_m = _m + (_s[(_i : GoInt)] * _fact);
 			_fact = _fact * (_s.length - _i);
 		});
 	};
@@ -949,14 +961,14 @@ function testUniformFactorial(_t:Ref<stdgo.testing.Testing.T>):Void {
 					_name: Go.str("Shuffle"),
 					_fn: function():GoInt {
 						for (_i in 0..._p.length.toBasic()) {
-							_p[_i] = _i;
+							_p[(_i : GoInt)] = _i;
 						};
 						_r.shuffle(_n, function(_i:GoInt, _j:GoInt):Void {
 							{
-								final __tmp__0 = _p[_j];
-								final __tmp__1 = _p[_i];
-								_p[_i] = __tmp__0;
-								_p[_j] = __tmp__1;
+								final __tmp__0 = _p[(_j : GoInt)];
+								final __tmp__1 = _p[(_i : GoInt)];
+								_p[(_i : GoInt)] = __tmp__0;
+								_p[(_j : GoInt)] = __tmp__1;
 							};
 						});
 						return _encodePerm(_p);
@@ -976,7 +988,7 @@ function testUniformFactorial(_t:Ref<stdgo.testing.Testing.T>):Void {
 							{
 								var _i:GoInt = (0 : GoInt);
 								Go.cfor(_i < (1000:GoInt), _i++, {
-									_counts[_test._fn()]++;
+									_counts[(_test._fn() : GoInt)]++;
 								});
 							};
 							var _want:GoFloat64 = (1000 : GoFloat64) / (_nfact : GoFloat64);
@@ -986,7 +998,7 @@ function testUniformFactorial(_t:Ref<stdgo.testing.Testing.T>):Void {
 								__9672 = __9672 + (_err * _err);
 							};
 							__9672 = __9672 / (_want);
-							_samples[_i] = __9672;
+							_samples[(_i : GoInt)] = __9672;
 						};
 						var _dof:GoFloat64 = (_nfact - (1 : GoInt) : GoFloat64);
 						var _expected = (({_mean: _dof,
@@ -1106,14 +1118,14 @@ function benchmarkPerm30ViaShuffle(_b:Ref<stdgo.testing.Testing.B>):Void {
 		Go.cfor(_n > (0 : GoInt), _n--, {
 			var _p = new Slice<GoInt>((30 : GoInt).toBasic(), 0, ...[for (i in 0...(30 : GoInt).toBasic()) (0 : GoInt)]);
 			for (_i in 0..._p.length.toBasic()) {
-				_p[_i] = _i;
+				_p[(_i : GoInt)] = _i;
 			};
 			_r.shuffle((30 : GoInt), function(_i:GoInt, _j:GoInt):Void {
 				{
-					final __tmp__0 = _p[_j];
-					final __tmp__1 = _p[_i];
-					_p[_i] = __tmp__0;
-					_p[_j] = __tmp__1;
+					final __tmp__0 = _p[(_j : GoInt)];
+					final __tmp__1 = _p[(_i : GoInt)];
+					_p[(_i : GoInt)] = __tmp__0;
+					_p[(_j : GoInt)] = __tmp__1;
 				};
 			});
 		});
@@ -1214,10 +1226,10 @@ function testRegress(_t:Ref<stdgo.testing.Testing.T>):Void {
 							while (true) {
 								if (_mt.in_((0 : GoInt)).kind() == ((("2" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
 									if (_m.name == (Go.str("Perm"))) {
-										_x = Go.toInterface(_permSizes[_repeat % (_permSizes.length)]);
+										_x = Go.toInterface(_permSizes[(_repeat % (_permSizes.length) : GoInt)]);
 										break;
 									};
-									var _big:GoInt64 = _int64s[_repeat % (_int64s.length)];
+									var _big:GoInt64 = _int64s[(_repeat % (_int64s.length) : GoInt)];
 									if (((_big : GoInt) : GoInt64) != (_big)) {
 										_r.int63n(_big);
 										if (_printgolden.value) {
@@ -1232,14 +1244,14 @@ function testRegress(_t:Ref<stdgo.testing.Testing.T>):Void {
 									_x = Go.toInterface((_big : GoInt));
 									break;
 								} else if (_mt.in_((0 : GoInt)).kind() == ((("5" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-									_x = Go.toInterface(_int32s[_repeat % (_int32s.length)]);
+									_x = Go.toInterface(_int32s[(_repeat % (_int32s.length) : GoInt)]);
 									break;
 								} else if (_mt.in_((0 : GoInt)).kind() == ((("6" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-									_x = Go.toInterface(_int64s[_repeat % (_int64s.length)]);
+									_x = Go.toInterface(_int64s[(_repeat % (_int64s.length) : GoInt)]);
 									break;
 								} else if (_mt.in_((0 : GoInt)).kind() == ((("23" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
 									if (_m.name == (Go.str("Read"))) {
-										var _n:GoInt = _readBufferSizes[_repeat % (_readBufferSizes.length)];
+										var _n:GoInt = _readBufferSizes[(_repeat % (_readBufferSizes.length) : GoInt)];
 										_x = Go.toInterface(new Slice<GoUInt8>((_n : GoInt).toBasic(), 0,
 											...[for (i in 0...(_n : GoInt).toBasic()) (0 : GoUInt8)]));
 									};
@@ -1273,7 +1285,7 @@ function testRegress(_t:Ref<stdgo.testing.Testing.T>):Void {
 						};
 						stdgo.fmt.Fmt.printf(Go.str("\t%s, // %s(%s)\n"), Go.toInterface(_val), Go.toInterface(_m.name), Go.toInterface(_argstr));
 					} else {
-						var _want:AnyInterface = _regressGolden[_p];
+						var _want:AnyInterface = _regressGolden[(_p : GoInt)];
 						if (_m.name == (Go.str("Int"))) {
 							_want = Go.toInterface((((((Go.typeAssert((_want : GoInt64)) : GoInt64) : GoUInt) << (("1" : GoUInt64) : GoUInt64)) >> ("1" : GoUInt64) : GoInt) : GoInt64));
 						};
@@ -1324,13 +1336,13 @@ class T_statsResults_asInterface {
 		if (!_nearEqual(_this._mean, _expected._mean, _expected._closeEnough, _expected._maxError)) {
 			var _s:GoString = stdgo.fmt.Fmt.sprintf(Go.str("mean %v != %v (allowed error %v, %v)"), Go.toInterface(_this._mean),
 				Go.toInterface(_expected._mean), Go.toInterface(_expected._closeEnough), Go.toInterface(_expected._maxError));
-			stdgo.fmt.Fmt.println(_s);
+			stdgo.fmt.Fmt.println(Go.toInterface(_s));
 			return stdgo.errors.Errors.new_(_s);
 		};
 		if (!_nearEqual(_this._stddev, _expected._stddev, _expected._closeEnough, _expected._maxError)) {
 			var _s:GoString = stdgo.fmt.Fmt.sprintf(Go.str("stddev %v != %v (allowed error %v, %v)"), Go.toInterface(_this._stddev),
 				Go.toInterface(_expected._stddev), Go.toInterface(_expected._closeEnough), Go.toInterface(_expected._maxError));
-			stdgo.fmt.Fmt.println(_s);
+			stdgo.fmt.Fmt.println(Go.toInterface(_s));
 			return stdgo.errors.Errors.new_(_s);
 		};
 		return (null : Error);

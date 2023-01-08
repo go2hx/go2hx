@@ -537,6 +537,9 @@ typedef Source64 = StructType & {
 			this._readPos = _readPos;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new Rand(_src, _s64, _readVal, _readPos);
 	}
@@ -552,6 +555,9 @@ typedef Source64 = StructType & {
 		if (_src != null)
 			this._src = _src;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_lockedSource(_lk, _src);
@@ -582,6 +588,9 @@ typedef Source64 = StructType & {
 		if (_vec != null)
 			this._vec = _vec;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_rngSource(_tap, _feed, _vec);
@@ -623,6 +632,9 @@ typedef Source64 = StructType & {
 		if (_hx0minusHxm != null)
 			this._hx0minusHxm = _hx0minusHxm;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Zipf(_r, _imax, _v, _q, _s, _oneminusQ, _oneminusQinv, _hxm, _hx0minusHxm);
@@ -712,7 +724,7 @@ function _read(_p:Slice<GoByte>, _src:Source, _readVal:Pointer<GoInt64>, _readPo
 				};
 				_pos = (7 : GoInt8);
 			};
-			_p[_n] = (_val : GoByte);
+			_p[(_n : GoInt)] = (_val : GoByte);
 			_val = _val >> (("8" : GoUInt64));
 			_pos--;
 		});
@@ -1122,8 +1134,8 @@ class Rand_asInterface {
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_i < _n, _i++, {
 				var _j:GoInt = _r.intn(_i + (1 : GoInt));
-				_m[_i] = _m[_j];
-				_m[_j] = _i;
+				_m[(_i : GoInt)] = _m[(_j : GoInt)];
+				_m[(_j : GoInt)] = _i;
 			});
 		};
 		return _m;
@@ -1318,8 +1330,8 @@ class Rand_asInterface {
 		while (true) {
 			var _j:GoInt32 = (_r.uint32() : GoInt32);
 			var _i:GoInt32 = _j & (127 : GoInt32);
-			var _x:GoFloat64 = (_j : GoFloat64) * (_wn[_i] : GoFloat64);
-			if (_absInt32(_j) < _kn[_i]) {
+			var _x:GoFloat64 = (_j : GoFloat64) * (_wn[(_i : GoInt)] : GoFloat64);
+			if (_absInt32(_j) < _kn[(_i : GoInt)]) {
 				return _x;
 			};
 			if (_i == ((0 : GoInt32))) {
@@ -1335,8 +1347,9 @@ class Rand_asInterface {
 				};
 				return (-3.442619855899 : GoFloat64) - _x;
 			};
-			if ((_fn[_i]
-				+ ((_r.float64() : GoFloat32) * (_fn[_i - (1 : GoInt32)] - _fn[_i]))) < (stdgo.math.Math.exp(((-0.5 : GoFloat64) * _x) * _x) : GoFloat32)) {
+			if ((_fn[(_i : GoInt)]
+				+
+				((_r.float64() : GoFloat32) * (_fn[(_i - (1 : GoInt32) : GoInt)] - _fn[(_i : GoInt)]))) < (stdgo.math.Math.exp(((-0.5 : GoFloat64) * _x) * _x) : GoFloat32)) {
 				return _x;
 			};
 		};
@@ -1356,14 +1369,15 @@ class Rand_asInterface {
 		while (true) {
 			var _j:GoUInt32 = _r.uint32();
 			var _i:GoUInt32 = _j & ("255" : GoUInt32);
-			var _x:GoFloat64 = (_j : GoFloat64) * (_we[_i] : GoFloat64);
-			if (_j < _ke[_i]) {
+			var _x:GoFloat64 = (_j : GoFloat64) * (_we[(_i : GoInt)] : GoFloat64);
+			if (_j < _ke[(_i : GoInt)]) {
 				return _x;
 			};
 			if (_i == (("0" : GoUInt32))) {
 				return (7.69711747013105 : GoFloat64) - stdgo.math.Math.log(_r.float64());
 			};
-			if ((_fe[_i] + ((_r.float64() : GoFloat32) * (_fe[_i - ("1" : GoUInt32)] - _fe[_i]))) < (stdgo.math.Math.exp(-_x) : GoFloat32)) {
+			if ((_fe[(_i : GoInt)]
+				+ ((_r.float64() : GoFloat32) * (_fe[(_i - ("1" : GoUInt32) : GoInt)] - _fe[(_i : GoInt)]))) < (stdgo.math.Math.exp(-_x) : GoFloat32)) {
 				return _x;
 			};
 		};
@@ -1515,8 +1529,8 @@ class T_rngSource_asInterface {
 		if (_rng._feed < (0:GoInt)) {
 			_rng._feed = _rng._feed + ((607 : GoInt));
 		};
-		var _x:GoInt64 = _rng._vec[_rng._feed] + _rng._vec[_rng._tap];
-		_rng._vec[_rng._feed] = _x;
+		var _x:GoInt64 = _rng._vec[(_rng._feed : GoInt)] + _rng._vec[(_rng._tap : GoInt)];
+		_rng._vec[(_rng._feed : GoInt)] = _x;
 		return (_x : GoUInt64);
 	}
 
@@ -1554,8 +1568,8 @@ class T_rngSource_asInterface {
 					_u = _u ^ ((_x : GoInt64) << (("20" : GoUInt64) : GoUInt64));
 					_x = _seedrand(_x);
 					_u = _u ^ ((_x : GoInt64));
-					_u = _u ^ (_rngCooked[_i]);
-					_rng._vec[_i] = _u;
+					_u = _u ^ (_rngCooked[(_i : GoInt)]);
+					_rng._vec[(_i : GoInt)] = _u;
 				};
 			});
 		};

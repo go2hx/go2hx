@@ -33,6 +33,9 @@ private var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>
 			this._w = _w;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_writeLogger(_prefix, _w);
 	}
@@ -49,6 +52,9 @@ private var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>
 			this._r = _r;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_readLogger(_prefix, _r);
 	}
@@ -61,6 +67,9 @@ private var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>
 		if (_err != null)
 			this._err = _err;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_errWriter(_err);
@@ -75,6 +84,9 @@ private var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>
 			this._r = _r;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_oneByteReader(_r);
 	}
@@ -87,6 +99,9 @@ private var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>
 		if (_r != null)
 			this._r = _r;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_halfReader(_r);
@@ -107,6 +122,9 @@ private var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>
 			this._data = _data;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_dataErrReader(_r, _unread, _data);
 	}
@@ -123,6 +141,9 @@ private var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>
 			this._count = _count;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_timeoutReader(_r, _count);
 	}
@@ -135,6 +156,9 @@ private var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>
 		if (_err != null)
 			this._err = _err;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_errReader(_err);
@@ -155,6 +179,9 @@ private var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>
 			this._n = _n;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_smallByteReader(_r, _off, _n);
 	}
@@ -171,35 +198,37 @@ private var _truncateWriterTests:Slice<T__struct_0> = (null : Slice<T__struct_0>
 			this._n = _n;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_truncateWriter(_w, _n);
 	}
 }
 
-@:structInit @:local private class T__struct_0 {
-	public var _in:GoString = "";
-	public var _want:GoString = "";
-	public var _trunc:GoInt64 = 0;
-	public var _n:GoInt = 0;
-
-	public function new(?_in:GoString, ?_want:GoString, ?_trunc:GoInt64, ?_n:GoInt) {
-		if (_in != null)
-			this._in = _in;
-		if (_want != null)
-			this._want = _want;
-		if (_trunc != null)
-			this._trunc = _trunc;
-		if (_n != null)
-			this._n = _n;
+class T__struct_0_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_0(_in, _want, _trunc, _n);
-	}
+	var __self__:Pointer<T__struct_0>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
+
+@:keep @:allow(stdgo.testing.iotest.Iotest.T__struct_0_asInterface) class T__struct_0_static_extension {}
+
+@:local @:using(stdgo.testing.iotest.Iotest.T__struct_0_static_extension) private typedef T__struct_0 = {
+	public var _in:GoString;
+	public var _want:GoString;
+	public var _trunc:GoInt64;
+	public var _n:GoInt;
+};
 
 /**
 	// NewWriteLogger returns a writer that behaves like w except

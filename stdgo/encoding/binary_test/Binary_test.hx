@@ -10,37 +10,36 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 
-@:structInit @:local private class T__struct_7 {
-	public var pi:GoFloat64 = 0;
-	public var uate:GoUInt8 = 0;
-	public var mine:GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0...3) (0 : GoUInt8)]);
-	public var too:GoUInt16 = 0;
-
-	public function new(?pi:GoFloat64, ?uate:GoUInt8, ?mine:GoArray<GoUInt8>, ?too:GoUInt16) {
-		if (pi != null)
-			this.pi = pi;
-		if (uate != null)
-			this.uate = uate;
-		if (mine != null)
-			this.mine = mine;
-		if (too != null)
-			this.too = too;
+class T__struct_7_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_7(pi, uate, mine, too);
-	}
+	var __self__:Pointer<T__struct_7>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
+
+@:keep @:allow(stdgo.encoding.binary_test.Binary_test.T__struct_7_asInterface) class T__struct_7_static_extension {}
+
+@:local @:using(stdgo.encoding.binary_test.Binary_test.T__struct_7_static_extension) private typedef T__struct_7 = {
+	public var pi:GoFloat64;
+	public var uate:GoUInt8;
+	public var mine:GoArray<GoUInt8>;
+	public var too:GoUInt16;
+};
 
 function exampleWrite():Void {
 	var _buf = ({} : stdgo.bytes.Bytes.Buffer);
 	var _pi:GoFloat64 = (3.141592653589793 : GoFloat64);
 	var _err:Error = stdgo.encoding.binary.Binary.write(Go.asInterface(_buf), Go.asInterface(stdgo.encoding.binary.Binary.littleEndian), Go.toInterface(_pi));
 	if (_err != null) {
-		stdgo.fmt.Fmt.println(Go.str("binary.Write failed:"), _err);
+		stdgo.fmt.Fmt.println(Go.toInterface(Go.str("binary.Write failed:")), Go.toInterface(_err));
 	};
 	stdgo.fmt.Fmt.printf(Go.str("% x"), Go.toInterface(_buf.bytes()));
 }
@@ -52,7 +51,7 @@ function exampleWrite_multi():Void {
 	for (_0 => _v in _data) {
 		var _err:Error = stdgo.encoding.binary.Binary.write(Go.asInterface(_buf), Go.asInterface(stdgo.encoding.binary.Binary.littleEndian), _v);
 		if (_err != null) {
-			stdgo.fmt.Fmt.println(Go.str("binary.Write failed:"), _err);
+			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("binary.Write failed:")), Go.toInterface(_err));
 		};
 	};
 	stdgo.fmt.Fmt.printf(Go.str("%x"), Go.toInterface(_buf.bytes()));
@@ -66,9 +65,9 @@ function exampleRead():Void {
 	var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_buf), Go.asInterface(stdgo.encoding.binary.Binary.littleEndian),
 		Go.toInterface(Go.pointer(_pi)));
 	if (_err != null) {
-		stdgo.fmt.Fmt.println(Go.str("binary.Read failed:"), _err);
+		stdgo.fmt.Fmt.println(Go.toInterface(Go.str("binary.Read failed:")), Go.toInterface(_err));
 	};
-	stdgo.fmt.Fmt.print(_pi);
+	stdgo.fmt.Fmt.print(Go.toInterface(_pi));
 }
 
 function exampleRead_multi():Void {
@@ -85,13 +84,13 @@ function exampleRead_multi():Void {
 		var _err:Error = stdgo.encoding.binary.Binary.read(Go.asInterface(_r), Go.asInterface(stdgo.encoding.binary.Binary.littleEndian),
 			Go.toInterface((_data : Ref<T__struct_7>)));
 		if (_err != null) {
-			stdgo.fmt.Fmt.println(Go.str("binary.Read failed:"), _err);
+			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("binary.Read failed:")), Go.toInterface(_err));
 		};
 	};
-	stdgo.fmt.Fmt.println(_data.pi);
-	stdgo.fmt.Fmt.println(_data.uate);
+	stdgo.fmt.Fmt.println(Go.toInterface(_data.pi));
+	stdgo.fmt.Fmt.println(Go.toInterface(_data.uate));
 	stdgo.fmt.Fmt.printf(Go.str("% x\n"), Go.toInterface(_data.mine));
-	stdgo.fmt.Fmt.println(_data.too);
+	stdgo.fmt.Fmt.println(Go.toInterface(_data.too));
 }
 
 function exampleByteOrder_put():Void {
@@ -137,9 +136,9 @@ function exampleUvarint():Void {
 			_x:GoUInt64 = __tmp__._0,
 			_n:GoInt = __tmp__._1;
 		if (_n != ((_b.length))) {
-			stdgo.fmt.Fmt.println(Go.str("Uvarint did not consume all of in"));
+			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("Uvarint did not consume all of in")));
 		};
-		stdgo.fmt.Fmt.println(Std.string(_x.toBasic()));
+		stdgo.fmt.Fmt.println(Go.toInterface(_x));
 	};
 }
 
@@ -155,8 +154,8 @@ function exampleVarint():Void {
 			_x:GoInt64 = __tmp__._0,
 			_n:GoInt = __tmp__._1;
 		if (_n != ((_b.length))) {
-			stdgo.fmt.Fmt.println(Go.str("Varint did not consume all of in"));
+			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("Varint did not consume all of in")));
 		};
-		stdgo.fmt.Fmt.println(_x);
+		stdgo.fmt.Fmt.println(Go.toInterface(_x));
 	};
 }

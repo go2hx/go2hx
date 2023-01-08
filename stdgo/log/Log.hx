@@ -253,6 +253,9 @@ final rshortfile:GoString = Go.str("[A-Za-z0-9_\\-]+\\.go:(61|63):");
 			this._isDiscard = _isDiscard;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new Logger(_mu, _prefix, _flag, _out, _buf, _isDiscard);
 	}
@@ -275,6 +278,9 @@ final rshortfile:GoString = Go.str("[A-Za-z0-9_\\-]+\\.go:(61|63):");
 		if (_pattern != null)
 			this._pattern = _pattern;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_tester(_flag, _prefix, _pattern);
@@ -312,11 +318,11 @@ function _itoa(_buf:Ref<Slice<GoByte>>, _i:GoInt, _wid:GoInt):Void {
 	while ((_i >= (10 : GoInt)) || (_wid > (1 : GoInt))) {
 		_wid--;
 		var _q:GoInt = _i / (10 : GoInt);
-		_b[_bp] = (((48 : GoInt) + _i) - (_q * (10 : GoInt)) : GoByte);
+		_b[(_bp : GoInt)] = (((48 : GoInt) + _i) - (_q * (10 : GoInt)) : GoByte);
 		_bp--;
 		_i = _q;
 	};
-	_b[_bp] = ((48 : GoInt) + _i : GoByte);
+	_b[(_bp : GoInt)] = ((48 : GoInt) + _i : GoByte);
 	_buf = _buf.__appendref__(...(_b.__slice__(_bp) : Slice<GoUInt8>).__toArray__());
 }
 
@@ -1149,7 +1155,7 @@ class Logger_asInterface {
 			_l._buf = (_l._buf.__slice__(0, (0 : GoInt)) : Slice<GoUInt8>);
 			_l._formatHeader((_l._buf : Ref<Slice<GoUInt8>>), (_now == null ? null : _now.__copy__()), _file, _line);
 			_l._buf = _l._buf.__appendref__(..._s.__toArray__());
-			if ((_s.length == (0 : GoInt)) || (_s[(_s.length) - (1 : GoInt)] != (10 : GoUInt8))) {
+			if ((_s.length == (0 : GoInt)) || (_s[((_s.length) - (1 : GoInt) : GoInt)] != (10 : GoUInt8))) {
 				_l._buf = _l._buf.__appendref__((10 : GoUInt8));
 			};
 			var __tmp__ = _l._out.write(_l._buf),
@@ -1236,7 +1242,7 @@ class Logger_asInterface {
 				{
 					var _i:GoInt = (_file.length) - (1 : GoInt);
 					Go.cfor(_i > (0 : GoInt), _i--, {
-						if (_file[_i] == ((47 : GoUInt8))) {
+						if (_file[(_i : GoInt)] == ((47 : GoUInt8))) {
 							_short = (_file.__slice__(_i + (1 : GoInt)) : GoString);
 							break;
 						};

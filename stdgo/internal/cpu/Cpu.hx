@@ -140,6 +140,9 @@ final cacheLinePadSize:GoUInt64 = ("64" : GoUInt64);
 			this._1 = _1;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new CacheLinePad(_1);
 	}
@@ -173,416 +176,322 @@ final cacheLinePadSize:GoUInt64 = ("64" : GoUInt64);
 			this.enable = enable;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_option(name, feature, specified, enable);
 	}
 }
 
-@:structInit @:local private class T__struct_0 {
-	@:optional
-	public var _7:CacheLinePad = ({} : CacheLinePad);
-	public var hasAES:Bool = false;
-	public var hasADX:Bool = false;
-	public var hasAVX:Bool = false;
-	public var hasAVX2:Bool = false;
-	public var hasBMI1:Bool = false;
-	public var hasBMI2:Bool = false;
-	public var hasERMS:Bool = false;
-	public var hasFMA:Bool = false;
-	public var hasOSXSAVE:Bool = false;
-	public var hasPCLMULQDQ:Bool = false;
-	public var hasPOPCNT:Bool = false;
-	public var hasRDTSCP:Bool = false;
-	public var hasSSE3:Bool = false;
-	public var hasSSSE3:Bool = false;
-	public var hasSSE41:Bool = false;
-	public var hasSSE42:Bool = false;
-	@:optional
-	public var _9:CacheLinePad = ({} : CacheLinePad);
-
-	public function new(?_7:CacheLinePad, ?hasAES:Bool, ?hasADX:Bool, ?hasAVX:Bool, ?hasAVX2:Bool, ?hasBMI1:Bool, ?hasBMI2:Bool, ?hasERMS:Bool, ?hasFMA:Bool,
-			?hasOSXSAVE:Bool, ?hasPCLMULQDQ:Bool, ?hasPOPCNT:Bool, ?hasRDTSCP:Bool, ?hasSSE3:Bool, ?hasSSSE3:Bool, ?hasSSE41:Bool, ?hasSSE42:Bool,
-			?_9:CacheLinePad) {
-		if (_7 != null)
-			this._7 = _7;
-		if (hasAES != null)
-			this.hasAES = hasAES;
-		if (hasADX != null)
-			this.hasADX = hasADX;
-		if (hasAVX != null)
-			this.hasAVX = hasAVX;
-		if (hasAVX2 != null)
-			this.hasAVX2 = hasAVX2;
-		if (hasBMI1 != null)
-			this.hasBMI1 = hasBMI1;
-		if (hasBMI2 != null)
-			this.hasBMI2 = hasBMI2;
-		if (hasERMS != null)
-			this.hasERMS = hasERMS;
-		if (hasFMA != null)
-			this.hasFMA = hasFMA;
-		if (hasOSXSAVE != null)
-			this.hasOSXSAVE = hasOSXSAVE;
-		if (hasPCLMULQDQ != null)
-			this.hasPCLMULQDQ = hasPCLMULQDQ;
-		if (hasPOPCNT != null)
-			this.hasPOPCNT = hasPOPCNT;
-		if (hasRDTSCP != null)
-			this.hasRDTSCP = hasRDTSCP;
-		if (hasSSE3 != null)
-			this.hasSSE3 = hasSSE3;
-		if (hasSSSE3 != null)
-			this.hasSSSE3 = hasSSSE3;
-		if (hasSSE41 != null)
-			this.hasSSE41 = hasSSE41;
-		if (hasSSE42 != null)
-			this.hasSSE42 = hasSSE42;
-		if (_9 != null)
-			this._9 = _9;
+class T__struct_0_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_0(_7, hasAES, hasADX, hasAVX, hasAVX2, hasBMI1, hasBMI2, hasERMS, hasFMA, hasOSXSAVE, hasPCLMULQDQ, hasPOPCNT, hasRDTSCP,
-			hasSSE3, hasSSSE3, hasSSE41, hasSSE42, _9);
-	}
+	var __self__:Pointer<T__struct_0>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_1 {
-	@:optional
-	public var _15:CacheLinePad = ({} : CacheLinePad);
-	public var hasVFPv4:Bool = false;
-	public var hasIDIVA:Bool = false;
-	@:optional
-	public var _17:CacheLinePad = ({} : CacheLinePad);
+@:keep @:allow(stdgo.internal.cpu.Cpu.T__struct_0_asInterface) class T__struct_0_static_extension {}
 
-	public function new(?_15:CacheLinePad, ?hasVFPv4:Bool, ?hasIDIVA:Bool, ?_17:CacheLinePad) {
-		if (_15 != null)
-			this._15 = _15;
-		if (hasVFPv4 != null)
-			this.hasVFPv4 = hasVFPv4;
-		if (hasIDIVA != null)
-			this.hasIDIVA = hasIDIVA;
-		if (_17 != null)
-			this._17 = _17;
+@:local @:using(stdgo.internal.cpu.Cpu.T__struct_0_static_extension) private typedef T__struct_0 = {
+	@:optional
+	public var _5:CacheLinePad;
+	public var hasAES:Bool;
+	public var hasADX:Bool;
+	public var hasAVX:Bool;
+	public var hasAVX2:Bool;
+	public var hasBMI1:Bool;
+	public var hasBMI2:Bool;
+	public var hasERMS:Bool;
+	public var hasFMA:Bool;
+	public var hasOSXSAVE:Bool;
+	public var hasPCLMULQDQ:Bool;
+	public var hasPOPCNT:Bool;
+	public var hasRDTSCP:Bool;
+	public var hasSSE3:Bool;
+	public var hasSSSE3:Bool;
+	public var hasSSE41:Bool;
+	public var hasSSE42:Bool;
+	@:optional
+	public var _7:CacheLinePad;
+};
+
+class T__struct_1_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_1(_15, hasVFPv4, hasIDIVA, _17);
-	}
+	var __self__:Pointer<T__struct_1>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_2 {
-	@:optional
-	public var _23:CacheLinePad = ({} : CacheLinePad);
-	public var hasAES:Bool = false;
-	public var hasPMULL:Bool = false;
-	public var hasSHA1:Bool = false;
-	public var hasSHA2:Bool = false;
-	public var hasCRC32:Bool = false;
-	public var hasATOMICS:Bool = false;
-	public var hasCPUID:Bool = false;
-	public var isNeoverseN1:Bool = false;
-	public var isZeus:Bool = false;
-	@:optional
-	public var _25:CacheLinePad = ({} : CacheLinePad);
+@:keep @:allow(stdgo.internal.cpu.Cpu.T__struct_1_asInterface) class T__struct_1_static_extension {}
 
-	public function new(?_23:CacheLinePad, ?hasAES:Bool, ?hasPMULL:Bool, ?hasSHA1:Bool, ?hasSHA2:Bool, ?hasCRC32:Bool, ?hasATOMICS:Bool, ?hasCPUID:Bool,
-			?isNeoverseN1:Bool, ?isZeus:Bool, ?_25:CacheLinePad) {
-		if (_23 != null)
-			this._23 = _23;
-		if (hasAES != null)
-			this.hasAES = hasAES;
-		if (hasPMULL != null)
-			this.hasPMULL = hasPMULL;
-		if (hasSHA1 != null)
-			this.hasSHA1 = hasSHA1;
-		if (hasSHA2 != null)
-			this.hasSHA2 = hasSHA2;
-		if (hasCRC32 != null)
-			this.hasCRC32 = hasCRC32;
-		if (hasATOMICS != null)
-			this.hasATOMICS = hasATOMICS;
-		if (hasCPUID != null)
-			this.hasCPUID = hasCPUID;
-		if (isNeoverseN1 != null)
-			this.isNeoverseN1 = isNeoverseN1;
-		if (isZeus != null)
-			this.isZeus = isZeus;
-		if (_25 != null)
-			this._25 = _25;
+@:local @:using(stdgo.internal.cpu.Cpu.T__struct_1_static_extension) private typedef T__struct_1 = {
+	@:optional
+	public var _11:CacheLinePad;
+	public var hasVFPv4:Bool;
+	public var hasIDIVA:Bool;
+	@:optional
+	public var _13:CacheLinePad;
+};
+
+class T__struct_2_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_2(_23, hasAES, hasPMULL, hasSHA1, hasSHA2, hasCRC32, hasATOMICS, hasCPUID, isNeoverseN1, isZeus, _25);
-	}
+	var __self__:Pointer<T__struct_2>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_3 {
+@:keep @:allow(stdgo.internal.cpu.Cpu.T__struct_2_asInterface) class T__struct_2_static_extension {}
+
+@:local @:using(stdgo.internal.cpu.Cpu.T__struct_2_static_extension) private typedef T__struct_2 = {
 	@:optional
-	public var _31:CacheLinePad = ({} : CacheLinePad);
+	public var _17:CacheLinePad;
+	public var hasAES:Bool;
+	public var hasPMULL:Bool;
+	public var hasSHA1:Bool;
+	public var hasSHA2:Bool;
+	public var hasCRC32:Bool;
+	public var hasATOMICS:Bool;
+	public var hasCPUID:Bool;
+	public var isNeoverseN1:Bool;
+	public var isZeus:Bool;
+	@:optional
+	public var _19:CacheLinePad;
+};
+
+class T__struct_3_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
+	}
+
+	public function __underlying__()
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
+
+	var __self__:Pointer<T__struct_3>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
+}
+
+@:keep @:allow(stdgo.internal.cpu.Cpu.T__struct_3_asInterface) class T__struct_3_static_extension {}
+
+@:local @:using(stdgo.internal.cpu.Cpu.T__struct_3_static_extension) private typedef T__struct_3 = {
+	@:optional
+	public var _23:CacheLinePad;
 
 	/**
 		// MIPS SIMD architecture
 	**/
-	public var hasMSA:Bool = false;
+	public var hasMSA:Bool;
 
 	@:optional
-	public var _33:CacheLinePad = ({} : CacheLinePad);
+	public var _25:CacheLinePad;
+};
 
-	public function new(?_31:CacheLinePad, ?hasMSA:Bool, ?_33:CacheLinePad) {
-		if (_31 != null)
-			this._31 = _31;
-		if (hasMSA != null)
-			this.hasMSA = hasMSA;
-		if (_33 != null)
-			this._33 = _33;
+class T__struct_4_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_3(_31, hasMSA, _33);
-	}
+	var __self__:Pointer<T__struct_4>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_4 {
+@:keep @:allow(stdgo.internal.cpu.Cpu.T__struct_4_asInterface) class T__struct_4_static_extension {}
+
+@:local @:using(stdgo.internal.cpu.Cpu.T__struct_4_static_extension) private typedef T__struct_4 = {
 	@:optional
-	public var _39:CacheLinePad = ({} : CacheLinePad);
+	public var _29:CacheLinePad;
 
 	/**
 		// Hardware random number generator (requires kernel enablement)
 	**/
-	public var hasDARN:Bool = false;
+	public var hasDARN:Bool;
 
 	/**
 		// Syscall vectored (requires kernel enablement)
 	**/
-	public var hasSCV:Bool = false;
+	public var hasSCV:Bool;
 
 	/**
 		// ISA v2.07 (POWER8)
 	**/
-	public var isPOWER8:Bool = false;
+	public var isPOWER8:Bool;
 
 	/**
 		// ISA v3.00 (POWER9)
 	**/
-	public var isPOWER9:Bool = false;
+	public var isPOWER9:Bool;
 
 	/**
 		// ISA v3.1  (POWER10)
 	**/
-	public var isPOWER10:Bool = false;
+	public var isPOWER10:Bool;
 
 	@:optional
-	public var _41:CacheLinePad = ({} : CacheLinePad);
+	public var _31:CacheLinePad;
+};
 
-	public function new(?_39:CacheLinePad, ?hasDARN:Bool, ?hasSCV:Bool, ?isPOWER8:Bool, ?isPOWER9:Bool, ?isPOWER10:Bool, ?_41:CacheLinePad) {
-		if (_39 != null)
-			this._39 = _39;
-		if (hasDARN != null)
-			this.hasDARN = hasDARN;
-		if (hasSCV != null)
-			this.hasSCV = hasSCV;
-		if (isPOWER8 != null)
-			this.isPOWER8 = isPOWER8;
-		if (isPOWER9 != null)
-			this.isPOWER9 = isPOWER9;
-		if (isPOWER10 != null)
-			this.isPOWER10 = isPOWER10;
-		if (_41 != null)
-			this._41 = _41;
+class T__struct_5_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_4(_39, hasDARN, hasSCV, isPOWER8, isPOWER9, isPOWER10, _41);
-	}
+	var __self__:Pointer<T__struct_5>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_5 {
+@:keep @:allow(stdgo.internal.cpu.Cpu.T__struct_5_asInterface) class T__struct_5_static_extension {}
+
+@:local @:using(stdgo.internal.cpu.Cpu.T__struct_5_static_extension) private typedef T__struct_5 = {
 	@:optional
-	public var _47:CacheLinePad = ({} : CacheLinePad);
+	public var _35:CacheLinePad;
 
 	/**
 		// z architecture mode is active [mandatory]
 	**/
-	public var hasZARCH:Bool = false;
+	public var hasZARCH:Bool;
 
 	/**
 		// store facility list extended [mandatory]
 	**/
-	public var hasSTFLE:Bool = false;
+	public var hasSTFLE:Bool;
 
 	/**
 		// long (20-bit) displacements [mandatory]
 	**/
-	public var hasLDISP:Bool = false;
+	public var hasLDISP:Bool;
 
 	/**
 		// 32-bit immediates [mandatory]
 	**/
-	public var hasEIMM:Bool = false;
+	public var hasEIMM:Bool;
 
 	/**
 		// decimal floating point
 	**/
-	public var hasDFP:Bool = false;
+	public var hasDFP:Bool;
 
 	/**
 		// ETF-3 enhanced
 	**/
-	public var hasETF3EH:Bool = false;
+	public var hasETF3EH:Bool;
 
 	/**
 		// message security assist (CPACF)
 	**/
-	public var hasMSA:Bool = false;
+	public var hasMSA:Bool;
 
 	/**
 		// KM-AES{128,192,256} functions
 	**/
-	public var hasAES:Bool = false;
+	public var hasAES:Bool;
 
 	/**
 		// KMC-AES{128,192,256} functions
 	**/
-	public var hasAESCBC:Bool = false;
+	public var hasAESCBC:Bool;
 
 	/**
 		// KMCTR-AES{128,192,256} functions
 	**/
-	public var hasAESCTR:Bool = false;
+	public var hasAESCTR:Bool;
 
 	/**
 		// KMA-GCM-AES{128,192,256} functions
 	**/
-	public var hasAESGCM:Bool = false;
+	public var hasAESGCM:Bool;
 
 	/**
 		// KIMD-GHASH function
 	**/
-	public var hasGHASH:Bool = false;
+	public var hasGHASH:Bool;
 
 	/**
 		// K{I,L}MD-SHA-1 functions
 	**/
-	public var hasSHA1:Bool = false;
+	public var hasSHA1:Bool;
 
 	/**
 		// K{I,L}MD-SHA-256 functions
 	**/
-	public var hasSHA256:Bool = false;
+	public var hasSHA256:Bool;
 
 	/**
 		// K{I,L}MD-SHA-512 functions
 	**/
-	public var hasSHA512:Bool = false;
+	public var hasSHA512:Bool;
 
 	/**
 		// K{I,L}MD-SHA3-{224,256,384,512} and K{I,L}MD-SHAKE-{128,256} functions
 	**/
-	public var hasSHA3:Bool = false;
+	public var hasSHA3:Bool;
 
 	/**
 		// vector facility. Note: the runtime sets this when it processes auxv records.
 	**/
-	public var hasVX:Bool = false;
+	public var hasVX:Bool;
 
 	/**
 		// vector-enhancements facility 1
 	**/
-	public var hasVXE:Bool = false;
+	public var hasVXE:Bool;
 
 	/**
 		// elliptic curve functions
 	**/
-	public var hasKDSA:Bool = false;
+	public var hasKDSA:Bool;
 
 	/**
 		// NIST curves
 	**/
-	public var hasECDSA:Bool = false;
+	public var hasECDSA:Bool;
 
 	/**
 		// Edwards curves
 	**/
-	public var hasEDDSA:Bool = false;
+	public var hasEDDSA:Bool;
 
 	@:optional
-	public var _49:CacheLinePad = ({} : CacheLinePad);
-
-	public function new(?_47:CacheLinePad, ?hasZARCH:Bool, ?hasSTFLE:Bool, ?hasLDISP:Bool, ?hasEIMM:Bool, ?hasDFP:Bool, ?hasETF3EH:Bool, ?hasMSA:Bool,
-			?hasAES:Bool, ?hasAESCBC:Bool, ?hasAESCTR:Bool, ?hasAESGCM:Bool, ?hasGHASH:Bool, ?hasSHA1:Bool, ?hasSHA256:Bool, ?hasSHA512:Bool, ?hasSHA3:Bool,
-			?hasVX:Bool, ?hasVXE:Bool, ?hasKDSA:Bool, ?hasECDSA:Bool, ?hasEDDSA:Bool, ?_49:CacheLinePad) {
-		if (_47 != null)
-			this._47 = _47;
-		if (hasZARCH != null)
-			this.hasZARCH = hasZARCH;
-		if (hasSTFLE != null)
-			this.hasSTFLE = hasSTFLE;
-		if (hasLDISP != null)
-			this.hasLDISP = hasLDISP;
-		if (hasEIMM != null)
-			this.hasEIMM = hasEIMM;
-		if (hasDFP != null)
-			this.hasDFP = hasDFP;
-		if (hasETF3EH != null)
-			this.hasETF3EH = hasETF3EH;
-		if (hasMSA != null)
-			this.hasMSA = hasMSA;
-		if (hasAES != null)
-			this.hasAES = hasAES;
-		if (hasAESCBC != null)
-			this.hasAESCBC = hasAESCBC;
-		if (hasAESCTR != null)
-			this.hasAESCTR = hasAESCTR;
-		if (hasAESGCM != null)
-			this.hasAESGCM = hasAESGCM;
-		if (hasGHASH != null)
-			this.hasGHASH = hasGHASH;
-		if (hasSHA1 != null)
-			this.hasSHA1 = hasSHA1;
-		if (hasSHA256 != null)
-			this.hasSHA256 = hasSHA256;
-		if (hasSHA512 != null)
-			this.hasSHA512 = hasSHA512;
-		if (hasSHA3 != null)
-			this.hasSHA3 = hasSHA3;
-		if (hasVX != null)
-			this.hasVX = hasVX;
-		if (hasVXE != null)
-			this.hasVXE = hasVXE;
-		if (hasKDSA != null)
-			this.hasKDSA = hasKDSA;
-		if (hasECDSA != null)
-			this.hasECDSA = hasECDSA;
-		if (hasEDDSA != null)
-			this.hasEDDSA = hasEDDSA;
-		if (_49 != null)
-			this._49 = _49;
-	}
-
-	public function __underlying__()
-		return Go.toInterface(this);
-
-	public function __copy__() {
-		return new T__struct_5(_47, hasZARCH, hasSTFLE, hasLDISP, hasEIMM, hasDFP, hasETF3EH, hasMSA, hasAES, hasAESCBC, hasAESCTR, hasAESGCM, hasGHASH,
-			hasSHA1, hasSHA256, hasSHA512, hasSHA3, hasVX, hasVXE, hasKDSA, hasECDSA, hasEDDSA, _49);
-	}
-}
+	public var _37:CacheLinePad;
+};
 
 /**
 	// Initialize examines the processor and sets the relevant variables above.
@@ -628,7 +537,7 @@ function _processOptions(_env:GoString):Void {
 			};
 			_i = _indexByte(_field, (61 : GoUInt8));
 			if (_i < (0:GoInt)) {
-				stdgo.fmt.Fmt.print(Go.str("GODEBUG: no value specified for \""), _field, Go.str("\"\n"));
+				trace(Go.str("GODEBUG: no value specified for \""), _field, Go.str("\"\n"));
 				continue;
 			};
 			var _0:GoString = (_field.__slice__((4 : GoInt), _i) : GoString),
@@ -641,31 +550,31 @@ function _processOptions(_env:GoString):Void {
 			} else if (_value == (Go.str("off"))) {
 				_enable = false;
 			} else {
-				stdgo.fmt.Fmt.print(Go.str("GODEBUG: value \""), _value, Go.str("\" not supported for cpu option \""), _key, Go.str("\"\n"));
-				continue;
+				trace(Go.str("GODEBUG: value \""), _value, Go.str("\" not supported for cpu option \""), _key, Go.str("\"\n"));
+				@:jump("field") continue;
 			};
 			if (_key == (Go.str("all"))) {
 				for (_i in 0..._options.length.toBasic()) {
-					_options[_i].specified = true;
-					_options[_i].enable = _enable;
+					_options[(_i : GoInt)].specified = true;
+					_options[(_i : GoInt)].enable = _enable;
 				};
-				continue;
+				@:jump("field") continue;
 			};
 			for (_i in 0..._options.length.toBasic()) {
-				if (_options[_i].name == (_key)) {
-					_options[_i].specified = true;
-					_options[_i].enable = _enable;
-					continue;
+				if (_options[(_i : GoInt)].name == (_key)) {
+					_options[(_i : GoInt)].specified = true;
+					_options[(_i : GoInt)].enable = _enable;
+					@:jump("field") continue;
 				};
 			};
-			stdgo.fmt.Fmt.print(Go.str("GODEBUG: unknown cpu feature \""), _key, Go.str("\"\n"));
+			trace(Go.str("GODEBUG: unknown cpu feature \""), _key, Go.str("\"\n"));
 		};
 		for (_0 => _o in _options) {
 			if (!_o.specified) {
 				continue;
 			};
 			if (_o.enable && !_o.feature.value) {
-				stdgo.fmt.Fmt.print(Go.str("GODEBUG: can not enable \""), _o.name, Go.str("\", missing CPU support\n"));
+				trace(Go.str("GODEBUG: can not enable \""), _o.name, Go.str("\", missing CPU support\n"));
 				continue;
 			};
 			_o.feature.value = _o.enable;
@@ -681,7 +590,7 @@ function _indexByte(_s:GoString, _c:GoByte):GoInt {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_s.length), _i++, {
-			if (_s[_i] == (_c)) {
+			if (_s[(_i : GoInt)] == (_c)) {
 				return _i;
 			};
 		});

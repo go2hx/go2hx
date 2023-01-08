@@ -30,6 +30,9 @@ private typedef T__interface_3 = StructType & {
 			this.what = what;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new MyError(when, what);
 	}
@@ -46,6 +49,9 @@ private typedef T__interface_3 = StructType & {
 			this._f = _f;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_poser(_msg, _f);
 	}
@@ -58,6 +64,9 @@ private typedef T__interface_3 = StructType & {
 		if (_s != null)
 			this._s = _s;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_errorT(_s);
@@ -75,6 +84,9 @@ private typedef T__interface_3 = StructType & {
 			this._err = _err;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_wrapped(_msg, _err);
 	}
@@ -88,80 +100,86 @@ private typedef T__interface_3 = StructType & {
 			this._f = _f;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_errorUncomparable(_f);
 	}
 }
 
-@:structInit @:local private class T__struct_0 {
-	public var _err:Error = (null : Error);
-	public var _target:Error = (null : Error);
-	public var _match:Bool = false;
-
-	public function new(?_err:Error, ?_target:Error, ?_match:Bool) {
-		if (_err != null)
-			this._err = _err;
-		if (_target != null)
-			this._target = _target;
-		if (_match != null)
-			this._match = _match;
+class T__struct_0_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_0(_err, _target, _match);
-	}
+	var __self__:Pointer<T__struct_0>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_1 {
-	public var _err:Error = (null : Error);
-	public var _target:AnyInterface = (null : AnyInterface);
-	public var _match:Bool = false;
+@:keep @:allow(stdgo.errors_test.Errors_test.T__struct_0_asInterface) class T__struct_0_static_extension {}
+
+@:local @:using(stdgo.errors_test.Errors_test.T__struct_0_static_extension) private typedef T__struct_0 = {
+	public var _err:Error;
+	public var _target:Error;
+	public var _match:Bool;
+};
+
+class T__struct_1_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
+	}
+
+	public function __underlying__()
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
+
+	var __self__:Pointer<T__struct_1>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
+}
+
+@:keep @:allow(stdgo.errors_test.Errors_test.T__struct_1_asInterface) class T__struct_1_static_extension {}
+
+@:local @:using(stdgo.errors_test.Errors_test.T__struct_1_static_extension) private typedef T__struct_1 = {
+	public var _err:Error;
+	public var _target:AnyInterface;
+	public var _match:Bool;
 
 	/**
 		// value of target on match
 	**/
-	public var _want:AnyInterface = (null : AnyInterface);
+	public var _want:AnyInterface;
+};
 
-	public function new(?_err:Error, ?_target:AnyInterface, ?_match:Bool, ?_want:AnyInterface) {
-		if (_err != null)
-			this._err = _err;
-		if (_target != null)
-			this._target = _target;
-		if (_match != null)
-			this._match = _match;
-		if (_want != null)
-			this._want = _want;
+class T__struct_2_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_1(_err, _target, _match, _want);
-	}
+	var __self__:Pointer<T__struct_2>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_2 {
-	public var _err:Error = (null : Error);
-	public var _want:Error = (null : Error);
+@:keep @:allow(stdgo.errors_test.Errors_test.T__struct_2_asInterface) class T__struct_2_static_extension {}
 
-	public function new(?_err:Error, ?_want:Error) {
-		if (_err != null)
-			this._err = _err;
-		if (_want != null)
-			this._want = _want;
-	}
-
-	public function __underlying__()
-		return Go.toInterface(this);
-
-	public function __copy__() {
-		return new T__struct_2(_err, _want);
-	}
-}
+@:local @:using(stdgo.errors_test.Errors_test.T__struct_2_static_extension) private typedef T__struct_2 = {
+	public var _err:Error;
+	public var _want:Error;
+};
 
 function testNewEqual(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (Go.toInterface(stdgo.errors.Errors.new_(Go.str("abc"))) == (Go.toInterface(stdgo.errors.Errors.new_(Go.str("abc"))))) {
@@ -186,7 +204,7 @@ function testErrorMethod(_t:Ref<stdgo.testing.Testing.T>):Void {
 function exampleNew():Void {
 	var _err:Error = stdgo.errors.Errors.new_(Go.str("emit macho dwarf: elf header corrupted"));
 	if (_err != null) {
-		stdgo.fmt.Fmt.print(_err);
+		stdgo.fmt.Fmt.print(Go.toInterface(_err));
 	};
 }
 
@@ -198,7 +216,7 @@ function exampleNew_errorf():Void {
 	{};
 	var _err:Error = stdgo.fmt.Fmt.errorf(Go.str("user %q (id %d) not found"), Go.toInterface(Go.str("bimmler")), Go.toInterface((17 : GoInt)));
 	if (_err != null) {
-		stdgo.fmt.Fmt.print(_err);
+		stdgo.fmt.Fmt.print(Go.toInterface(_err));
 	};
 }
 
@@ -215,7 +233,7 @@ function example():Void {
 	{
 		var _err:Error = _oops();
 		if (_err != null) {
-			stdgo.fmt.Fmt.println(_err);
+			stdgo.fmt.Fmt.println(Go.toInterface(_err));
 		};
 	};
 }
@@ -446,9 +464,9 @@ function exampleIs():Void {
 			_err:Error = __tmp__._1;
 		if (_err != null) {
 			if (stdgo.errors.Errors.is_(_err, stdgo.io.fs.Fs.errNotExist)) {
-				stdgo.fmt.Fmt.println(Go.str("file does not exist"));
+				stdgo.fmt.Fmt.println(Go.toInterface(Go.str("file does not exist")));
 			} else {
-				stdgo.fmt.Fmt.println(_err);
+				stdgo.fmt.Fmt.println(Go.toInterface(_err));
 			};
 		};
 	};
@@ -462,9 +480,9 @@ function exampleAs():Void {
 		if (_err != null) {
 			var _pathError:Ref<stdgo.io.fs.Fs.PathError> = (null : Ref<stdgo.io.fs.Fs.PathError>);
 			if (stdgo.errors.Errors.as(_err, Go.toInterface((_pathError : Ref<Ref<stdgo.io.fs.Fs.PathError>>)))) {
-				stdgo.fmt.Fmt.println(Go.str("Failed at path:"), _pathError.path);
+				stdgo.fmt.Fmt.println(Go.toInterface(Go.str("Failed at path:")), Go.toInterface(_pathError.path));
 			} else {
-				stdgo.fmt.Fmt.println(_err);
+				stdgo.fmt.Fmt.println(Go.toInterface(_err));
 			};
 		};
 	};
@@ -473,8 +491,8 @@ function exampleAs():Void {
 function exampleUnwrap():Void {
 	var _err1:Error = stdgo.errors.Errors.new_(Go.str("error1"));
 	var _err2:Error = stdgo.fmt.Fmt.errorf(Go.str("error2: [%w]"), Go.toInterface(_err1));
-	stdgo.fmt.Fmt.println(_err2);
-	stdgo.fmt.Fmt.println(stdgo.errors.Errors.unwrap(_err2));
+	stdgo.fmt.Fmt.println(Go.toInterface(_err2));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.errors.Errors.unwrap(_err2)));
 }
 
 class MyError_asInterface {

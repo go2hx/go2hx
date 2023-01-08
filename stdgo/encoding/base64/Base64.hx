@@ -106,6 +106,9 @@ private final _encodeURL:GoString = Go.str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij
 			this._strict = _strict;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new Encoding(_encode, _decodeMap, _padChar, _strict);
 	}
@@ -145,6 +148,9 @@ private final _encodeURL:GoString = Go.str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij
 		if (_out != null)
 			this._out = _out;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_encoder(_err, _enc, _w, _buf, _nbuf, _out);
@@ -196,6 +202,9 @@ private final _encodeURL:GoString = Go.str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij
 			this._outbuf = _outbuf;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_decoder(_err, _readErr, _enc, _r, _buf, _nbuf, _out, _outbuf);
 	}
@@ -208,6 +217,9 @@ private final _encodeURL:GoString = Go.str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij
 		if (_wrapped != null)
 			this._wrapped = _wrapped;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_newlineFilteringReader(_wrapped);
@@ -224,6 +236,9 @@ private final _encodeURL:GoString = Go.str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij
 		if (_encoded != null)
 			this._encoded = _encoded;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_testpair(_decoded, _encoded);
@@ -248,6 +263,9 @@ private final _encodeURL:GoString = Go.str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij
 			this._conv = _conv;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_encodingTest(_enc, _conv);
 	}
@@ -271,6 +289,9 @@ private final _encodeURL:GoString = Go.str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij
 			this._err = _err;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_nextRead(_n, _err);
 	}
@@ -291,55 +312,62 @@ private final _encodeURL:GoString = Go.str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij
 			this._nextc = _nextc;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_faultInjectReader(_source, _nextc);
 	}
 }
 
-@:structInit @:local private class T__struct_0 {
-	public var _input:GoString = "";
+class T__struct_0_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
+	}
+
+	public function __underlying__()
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
+
+	var __self__:Pointer<T__struct_0>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
+}
+
+@:keep @:allow(stdgo.encoding.base64.Base64.T__struct_0_asInterface) class T__struct_0_static_extension {}
+
+@:local @:using(stdgo.encoding.base64.Base64.T__struct_0_static_extension) private typedef T__struct_0 = {
+	public var _input:GoString;
 
 	/**
 		// -1 means no corruption.
 	**/
-	public var _offset:GoInt = 0;
+	public var _offset:GoInt;
+};
 
-	public function new(?_input:GoString, ?_offset:GoInt) {
-		if (_input != null)
-			this._input = _input;
-		if (_offset != null)
-			this._offset = _offset;
+class T__struct_1_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_0(_input, _offset);
-	}
+	var __self__:Pointer<T__struct_1>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_1 {
-	public var _enc:Ref<Encoding> = (null : Ref<Encoding>);
-	public var _n:GoInt = 0;
-	public var _want:GoInt = 0;
+@:keep @:allow(stdgo.encoding.base64.Base64.T__struct_1_asInterface) class T__struct_1_static_extension {}
 
-	public function new(?_enc:Ref<Encoding>, ?_n:GoInt, ?_want:GoInt) {
-		if (_enc != null)
-			this._enc = _enc;
-		if (_n != null)
-			this._n = _n;
-		if (_want != null)
-			this._want = _want;
-	}
-
-	public function __underlying__()
-		return Go.toInterface(this);
-
-	public function __copy__() {
-		return new T__struct_1(_enc, _n, _want);
-	}
-}
+@:local @:using(stdgo.encoding.base64.Base64.T__struct_1_static_extension) private typedef T__struct_1 = {
+	public var _enc:Ref<Encoding>;
+	public var _n:GoInt;
+	public var _want:GoInt;
+};
 
 @:named @:using(stdgo.encoding.base64.Base64.CorruptInputError_static_extension) typedef CorruptInputError = GoInt64;
 
@@ -357,7 +385,7 @@ function newEncoding(_encoder:GoString):Ref<Encoding> {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_encoder.length), _i++, {
-			if ((_encoder[_i] == (10 : GoUInt8)) || (_encoder[_i] == (13 : GoUInt8))) {
+			if ((_encoder[(_i : GoInt)] == (10 : GoUInt8)) || (_encoder[(_i : GoInt)] == (13 : GoUInt8))) {
 				throw Go.toInterface(Go.str("encoding alphabet contains newline character"));
 			};
 		});
@@ -368,13 +396,13 @@ function newEncoding(_encoder:GoString):Ref<Encoding> {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_e._decodeMap.length), _i++, {
-			_e._decodeMap[_i] = (255 : GoUInt8);
+			_e._decodeMap[(_i : GoInt)] = (255 : GoUInt8);
 		});
 	};
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_encoder.length), _i++, {
-			_e._decodeMap[_encoder[_i]] = (_i : GoByte);
+			_e._decodeMap[(_encoder[(_i : GoInt)] : GoInt)] = (_i : GoByte);
 		});
 	};
 	return _e;
@@ -466,7 +494,7 @@ function _funnyRef(_ref:GoString):GoString {
 function _testEqual(_t:Ref<stdgo.testing.Testing.T>, _msg:GoString, _args:haxe.Rest<AnyInterface>):Bool {
 	var _args = new Slice<AnyInterface>(0, 0, ..._args);
 	_t.helper();
-	if (Go.toInterface(_args[(_args.length) - (2 : GoInt)]) != (Go.toInterface(_args[(_args.length) - (1 : GoInt)]))) {
+	if (Go.toInterface(_args[((_args.length) - (2 : GoInt) : GoInt)]) != (Go.toInterface(_args[((_args.length) - (1 : GoInt) : GoInt)]))) {
 		_t.errorf(_msg, ..._args.__toArray__());
 		return false;
 	};
@@ -644,7 +672,7 @@ function testDecodeCorrupt(_t:Ref<stdgo.testing.Testing.T>):Void {
 			} else {
 				var _err:Error = __type__ == null ? null : __type__.__underlying__() == null ? null : __type__ == null ? null : __type__.__underlying__()
 					.value;
-				_t.error(Go.toInterface(Go.str("Decoder failed to detect corruption in")), Go.toInterface(_tc));
+				_t.error(Go.toInterface(Go.str("Decoder failed to detect corruption in")), Go.toInterface(Go.asInterface(_tc)));
 			};
 		};
 	};
@@ -743,8 +771,8 @@ function testBig(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < _n, _i++, {
-			_raw[_i] = Go.str("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")[
-				_i % (Go.str("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ").length)
+			_raw[(_i : GoInt)] = Go.str("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")[
+				(_i % (Go.str("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ").length) : GoInt)
 			];
 		});
 	};
@@ -771,7 +799,7 @@ function testBig(_t:Ref<stdgo.testing.Testing.T>):Void {
 		{
 			_i = (0 : GoInt);
 			Go.cfor((_i < _decoded.length) && (_i < _raw.length), _i++, {
-				if (_decoded[_i] != (_raw[_i])) {
+				if (_decoded[(_i : GoInt)] != (_raw[(_i : GoInt)])) {
 					break;
 				};
 			});
@@ -1089,9 +1117,10 @@ class Encoding_asInterface {
 		while ((false && ((_src.length - _si) >= (8 : GoInt))) && ((_dst.length - _n) >= (8 : GoInt))) {
 			var _src2 = (_src.__slice__(_si, _si + (8 : GoInt)) : Slice<GoUInt8>);
 			{
-				var __tmp__ = _assemble64(_enc._decodeMap[_src2[(0 : GoInt)]], _enc._decodeMap[_src2[(1 : GoInt)]], _enc._decodeMap[_src2[(2 : GoInt)]],
-					_enc._decodeMap[_src2[(3 : GoInt)]], _enc._decodeMap[_src2[(4 : GoInt)]], _enc._decodeMap[_src2[(5 : GoInt)]],
-					_enc._decodeMap[_src2[(6 : GoInt)]], _enc._decodeMap[_src2[(7 : GoInt)]]),
+				var __tmp__ = _assemble64(_enc._decodeMap[(_src2[(0 : GoInt)] : GoInt)], _enc._decodeMap[(_src2[(1 : GoInt)] : GoInt)],
+					_enc._decodeMap[(_src2[(2 : GoInt)] : GoInt)], _enc._decodeMap[(_src2[(3 : GoInt)] : GoInt)],
+					_enc._decodeMap[(_src2[(4 : GoInt)] : GoInt)], _enc._decodeMap[(_src2[(5 : GoInt)] : GoInt)],
+					_enc._decodeMap[(_src2[(6 : GoInt)] : GoInt)], _enc._decodeMap[(_src2[(7 : GoInt)] : GoInt)]),
 					_dn:GoUInt64 = __tmp__._0,
 					_ok:Bool = __tmp__._1;
 				if (_ok) {
@@ -1116,8 +1145,8 @@ class Encoding_asInterface {
 		while (((_src.length - _si) >= (4 : GoInt)) && ((_dst.length - _n) >= (4 : GoInt))) {
 			var _src2 = (_src.__slice__(_si, _si + (4 : GoInt)) : Slice<GoUInt8>);
 			{
-				var __tmp__ = _assemble32(_enc._decodeMap[_src2[(0 : GoInt)]], _enc._decodeMap[_src2[(1 : GoInt)]], _enc._decodeMap[_src2[(2 : GoInt)]],
-					_enc._decodeMap[_src2[(3 : GoInt)]]),
+				var __tmp__ = _assemble32(_enc._decodeMap[(_src2[(0 : GoInt)] : GoInt)], _enc._decodeMap[(_src2[(1 : GoInt)] : GoInt)],
+					_enc._decodeMap[(_src2[(2 : GoInt)] : GoInt)], _enc._decodeMap[(_src2[(3 : GoInt)] : GoInt)]),
 					_dn:GoUInt32 = __tmp__._0,
 					_ok:Bool = __tmp__._1;
 				if (_ok) {
@@ -1195,11 +1224,11 @@ class Encoding_asInterface {
 					_dlen = _j;
 					break;
 				};
-				var _in:GoUInt8 = _src[_si];
+				var _in:GoUInt8 = _src[(_si : GoInt)];
 				_si++;
-				var _out:GoUInt8 = _enc._decodeMap[_in];
+				var _out:GoUInt8 = _enc._decodeMap[(_in : GoInt)];
 				if (_out != ((255 : GoUInt8))) {
-					_dbuf[_j] = _out;
+					_dbuf[(_j : GoInt)] = _out;
 					continue;
 				};
 				if ((_in == (10 : GoUInt8)) || (_in == (13 : GoUInt8))) {
@@ -1212,18 +1241,18 @@ class Encoding_asInterface {
 				if (_j == ((0 : GoInt)) || _j == ((1 : GoInt))) {
 					return {_0: _si, _1: (0 : GoInt), _2: Go.asInterface((_si - (1 : GoInt) : CorruptInputError))};
 				} else if (_j == ((2 : GoInt))) {
-					while ((_si < _src.length) && ((_src[_si] == (10 : GoUInt8)) || (_src[_si] == (13 : GoUInt8)))) {
+					while ((_si < _src.length) && ((_src[(_si : GoInt)] == (10 : GoUInt8)) || (_src[(_si : GoInt)] == (13 : GoUInt8)))) {
 						_si++;
 					};
 					if (_si == ((_src.length))) {
 						return {_0: _si, _1: (0 : GoInt), _2: Go.asInterface((_src.length : CorruptInputError))};
 					};
-					if ((_src[_si] : GoRune) != (_enc._padChar)) {
+					if ((_src[(_si : GoInt)] : GoRune) != (_enc._padChar)) {
 						return {_0: _si, _1: (0 : GoInt), _2: Go.asInterface((_si - (1 : GoInt) : CorruptInputError))};
 					};
 					_si++;
 				};
-				while ((_si < _src.length) && ((_src[_si] == (10 : GoUInt8)) || (_src[_si] == (13 : GoUInt8)))) {
+				while ((_si < _src.length) && ((_src[(_si : GoInt)] == (10 : GoUInt8)) || (_src[(_si : GoInt)] == (13 : GoUInt8)))) {
 					_si++;
 				};
 				if (_si < (_src.length)) {
@@ -1321,12 +1350,13 @@ class Encoding_asInterface {
 			_di:GoInt = _0;
 		var _n:GoInt = (_src.length / (3 : GoInt)) * (3 : GoInt);
 		while (_si < _n) {
-			var _val:GoUInt = (((_src[_si + (0 : GoInt)] : GoUInt) << (("16" : GoUInt64) : GoUInt64)) | ((_src[_si + (1 : GoInt)] : GoUInt) << (("8" : GoUInt64) : GoUInt64))) | (_src[_si
-				+ (2 : GoInt)] : GoUInt);
-			_dst[_di + (0 : GoInt)] = _enc._encode[(_val >> (("18" : GoUInt64) : GoUInt64)) & ("63" : GoUInt)];
-			_dst[_di + (1 : GoInt)] = _enc._encode[(_val >> (("12" : GoUInt64) : GoUInt64)) & ("63" : GoUInt)];
-			_dst[_di + (2 : GoInt)] = _enc._encode[(_val >> (("6" : GoUInt64) : GoUInt64)) & ("63" : GoUInt)];
-			_dst[_di + (3 : GoInt)] = _enc._encode[_val & ("63" : GoUInt)];
+			var _val:GoUInt = (((_src[(_si + (0 : GoInt) : GoInt)] : GoUInt) << (("16" : GoUInt64) : GoUInt64)) | ((_src[(_si +
+				(1 : GoInt) : GoInt)] : GoUInt) << (("8" : GoUInt64) : GoUInt64))) | (_src[(_si
+				+ (2 : GoInt) : GoInt)] : GoUInt);
+			_dst[(_di + (0 : GoInt) : GoInt)] = _enc._encode[((_val >> (("18" : GoUInt64) : GoUInt64)) & ("63" : GoUInt) : GoInt)];
+			_dst[(_di + (1 : GoInt) : GoInt)] = _enc._encode[((_val >> (("12" : GoUInt64) : GoUInt64)) & ("63" : GoUInt) : GoInt)];
+			_dst[(_di + (2 : GoInt) : GoInt)] = _enc._encode[((_val >> (("6" : GoUInt64) : GoUInt64)) & ("63" : GoUInt) : GoInt)];
+			_dst[(_di + (3 : GoInt) : GoInt)] = _enc._encode[(_val & ("63" : GoUInt) : GoInt)];
 			_si = _si + ((3 : GoInt));
 			_di = _di + ((4 : GoInt));
 		};
@@ -1334,21 +1364,21 @@ class Encoding_asInterface {
 		if (_remain == ((0 : GoInt))) {
 			return;
 		};
-		var _val:GoUInt = (_src[_si + (0 : GoInt)] : GoUInt) << ("16" : GoUInt64);
+		var _val:GoUInt = (_src[(_si + (0 : GoInt) : GoInt)] : GoUInt) << ("16" : GoUInt64);
 		if (_remain == ((2 : GoInt))) {
-			_val = _val | ((_src[_si + (1 : GoInt)] : GoUInt) << (("8" : GoUInt64) : GoUInt64));
+			_val = _val | ((_src[(_si + (1 : GoInt) : GoInt)] : GoUInt) << (("8" : GoUInt64) : GoUInt64));
 		};
-		_dst[_di + (0 : GoInt)] = _enc._encode[(_val >> (("18" : GoUInt64) : GoUInt64)) & ("63" : GoUInt)];
-		_dst[_di + (1 : GoInt)] = _enc._encode[(_val >> (("12" : GoUInt64) : GoUInt64)) & ("63" : GoUInt)];
+		_dst[(_di + (0 : GoInt) : GoInt)] = _enc._encode[((_val >> (("18" : GoUInt64) : GoUInt64)) & ("63" : GoUInt) : GoInt)];
+		_dst[(_di + (1 : GoInt) : GoInt)] = _enc._encode[((_val >> (("12" : GoUInt64) : GoUInt64)) & ("63" : GoUInt) : GoInt)];
 		if (_remain == ((2 : GoInt))) {
-			_dst[_di + (2 : GoInt)] = _enc._encode[(_val >> (("6" : GoUInt64) : GoUInt64)) & ("63" : GoUInt)];
+			_dst[(_di + (2 : GoInt) : GoInt)] = _enc._encode[((_val >> (("6" : GoUInt64) : GoUInt64)) & ("63" : GoUInt) : GoInt)];
 			if (_enc._padChar != ((-1 : GoInt32))) {
-				_dst[_di + (3 : GoInt)] = (_enc._padChar : GoByte);
+				_dst[(_di + (3 : GoInt) : GoInt)] = (_enc._padChar : GoByte);
 			};
 		} else if (_remain == ((1 : GoInt))) {
 			if (_enc._padChar != ((-1 : GoInt32))) {
-				_dst[_di + (2 : GoInt)] = (_enc._padChar : GoByte);
-				_dst[_di + (3 : GoInt)] = (_enc._padChar : GoByte);
+				_dst[(_di + (2 : GoInt) : GoInt)] = (_enc._padChar : GoByte);
+				_dst[(_di + (3 : GoInt) : GoInt)] = (_enc._padChar : GoByte);
 			};
 		};
 	}
@@ -1382,7 +1412,7 @@ class Encoding_asInterface {
 		{
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_i < (_enc._encode.length), _i++, {
-				if ((_enc._encode[_i] : GoRune) == (_padding)) {
+				if ((_enc._encode[(_i : GoInt)] : GoRune) == (_padding)) {
 					throw Go.toInterface(Go.str("padding contained in alphabet"));
 				};
 			});
@@ -1448,7 +1478,7 @@ class T_encoder_asInterface {
 			{
 				_i = (0 : GoInt);
 				Go.cfor((_i < _p.length) && (_e._nbuf < (3:GoInt)), _i++, {
-					_e._buf[_e._nbuf] = _p[_i];
+					_e._buf[(_e._nbuf : GoInt)] = _p[(_i : GoInt)];
 					_e._nbuf++;
 				});
 			};
@@ -1620,7 +1650,7 @@ class T_newlineFilteringReader_asInterface {
 			for (_i => _b in (_p.__slice__(0, _n) : Slice<GoUInt8>)) {
 				if ((_b != (13 : GoUInt8)) && (_b != (10 : GoUInt8))) {
 					if (_i != (_offset)) {
-						_p[_offset] = _b;
+						_p[(_offset : GoInt)] = _b;
 					};
 					_offset++;
 				};

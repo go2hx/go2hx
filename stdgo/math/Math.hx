@@ -3915,10 +3915,10 @@ function _pow(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
 **/
 function pow10(_n:GoInt):GoFloat64 {
 	if (((0 : GoInt) <= _n) && (_n <= (308 : GoInt))) {
-		return _pow10postab32[(_n : GoUInt) / ("32" : GoUInt)] * _pow10tab[(_n : GoUInt) % ("32" : GoUInt)];
+		return _pow10postab32[((_n : GoUInt) / ("32" : GoUInt) : GoInt)] * _pow10tab[((_n : GoUInt) % ("32" : GoUInt) : GoInt)];
 	};
 	if (((-323 : GoInt) <= _n) && (_n <= (0 : GoInt))) {
-		return _pow10negtab32[(-_n : GoUInt) / ("32" : GoUInt)] / _pow10tab[(-_n : GoUInt) % ("32" : GoUInt)];
+		return _pow10negtab32[((-_n : GoUInt) / ("32" : GoUInt) : GoInt)] / _pow10tab[((-_n : GoUInt) % ("32" : GoUInt) : GoInt)];
 	};
 	if (_n > (0 : GoInt)) {
 		return inf((1 : GoInt));
@@ -4426,9 +4426,11 @@ function _trigReduce(_x:GoFloat64):{var _0:GoUInt64; var _1:GoFloat64;} {
 		_1:GoUInt = (_exp + (61 : GoInt) : GoUInt) % ("64" : GoUInt),
 		_bitshift:GoUInt = _1,
 		_digit:GoUInt = _0;
-	var _z0:GoUInt64 = (_mPi4[_digit] << _bitshift) | (_mPi4[_digit + ("1" : GoUInt)] >> ((("64" : GoUInt) : GoUInt) - _bitshift));
-	var _z1:GoUInt64 = (_mPi4[_digit + ("1" : GoUInt)] << _bitshift) | (_mPi4[_digit + ("2" : GoUInt)] >> ((("64" : GoUInt) : GoUInt) - _bitshift));
-	var _z2:GoUInt64 = (_mPi4[_digit + ("2" : GoUInt)] << _bitshift) | (_mPi4[_digit + ("3" : GoUInt)] >> ((("64" : GoUInt) : GoUInt) - _bitshift));
+	var _z0:GoUInt64 = (_mPi4[(_digit : GoInt)] << _bitshift) | (_mPi4[(_digit + ("1" : GoUInt) : GoInt)] >> ((("64" : GoUInt) : GoUInt) - _bitshift));
+	var _z1:GoUInt64 = (_mPi4[(_digit + ("1" : GoUInt) : GoInt)] << _bitshift) | (_mPi4[(_digit + ("2" : GoUInt) : GoInt)] >> ((("64" : GoUInt) : GoUInt)
+		- _bitshift));
+	var _z2:GoUInt64 = (_mPi4[(_digit + ("2" : GoUInt) : GoInt)] << _bitshift) | (_mPi4[(_digit + ("3" : GoUInt) : GoInt)] >> ((("64" : GoUInt) : GoUInt)
+		- _bitshift));
 	var __tmp__ = stdgo.math.bits.Bits.mul64(_z2, _ix),
 		_z2hi:GoUInt64 = __tmp__._0,
 		_0:GoUInt64 = __tmp__._1;

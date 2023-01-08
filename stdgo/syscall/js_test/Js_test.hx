@@ -18,38 +18,46 @@ private var _copyTests:Slice<T__struct_1> = (new Slice<T__struct_1>(0, 0, ({_src
 	({_srcLen: (3 : GoInt), _dstLen: (5 : GoInt), _copyLen: (3 : GoInt)} : T__struct_1),
 	({_srcLen: (0 : GoInt), _dstLen: (0 : GoInt), _copyLen: (0 : GoInt)} : T__struct_1)) : Slice<T__struct_1>);
 
-@:structInit @:local private class T__struct_0 {
-	public function new() {}
-
-	public function __underlying__()
-		return Go.toInterface(this);
-
-	public function __copy__() {
-		return new T__struct_0();
-	}
-}
-
-@:structInit @:local private class T__struct_1 {
-	public var _srcLen:GoInt = 0;
-	public var _dstLen:GoInt = 0;
-	public var _copyLen:GoInt = 0;
-
-	public function new(?_srcLen:GoInt, ?_dstLen:GoInt, ?_copyLen:GoInt) {
-		if (_srcLen != null)
-			this._srcLen = _srcLen;
-		if (_dstLen != null)
-			this._dstLen = _dstLen;
-		if (_copyLen != null)
-			this._copyLen = _copyLen;
+class T__struct_0_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_1(_srcLen, _dstLen, _copyLen);
-	}
+	var __self__:Pointer<T__struct_0>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
+
+@:keep @:allow(stdgo.syscall.js_test.Js_test.T__struct_0_asInterface) class T__struct_0_static_extension {}
+@:local @:using(stdgo.syscall.js_test.Js_test.T__struct_0_static_extension) private typedef T__struct_0 = {};
+
+class T__struct_1_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
+	}
+
+	public function __underlying__()
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
+
+	var __self__:Pointer<T__struct_1>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
+}
+
+@:keep @:allow(stdgo.syscall.js_test.Js_test.T__struct_1_asInterface) class T__struct_1_static_extension {}
+
+@:local @:using(stdgo.syscall.js_test.Js_test.T__struct_1_static_extension) private typedef T__struct_1 = {
+	public var _srcLen:GoInt;
+	public var _dstLen:GoInt;
+	public var _copyLen:GoInt;
+};
 
 @:follow private typedef T_object = GoMap<GoString, AnyInterface>;
 @:follow private typedef T_array = Slice<AnyInterface>;
@@ -573,14 +581,14 @@ function testValueOf(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_t.errorf(Go.str("got %v, want %v"), Go.toInterface(_got), Go.toInterface((42 : GoInt)));
 		};
 	};
-	var _o:Value = (stdgo.syscall.js.Js.valueOf(Go.toInterface({
+	var _o:Value = (stdgo.syscall.js.Js.valueOf(Go.toInterface(({
 		final x = new stdgo.GoMap.GoObjectMap<GoString,
 			AnyInterface>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({get: () ->
 				stdgo.internal.reflect.Reflect.GoType.basic(string_kind)},
 			{get: () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, [])})));
 		@:privateAccess x._keys = [Go.str("x")];
 		@:privateAccess x._values = [
-			Go.toInterface({
+			Go.toInterface(({
 				final x = new stdgo.GoMap.GoObjectMap<GoString,
 					AnyInterface>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({
 					get: () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
@@ -588,17 +596,17 @@ function testValueOf(_t:Ref<stdgo.testing.Testing.T>):Void {
 				@:privateAccess x._keys = [Go.str("y")];
 				@:privateAccess x._values = [Go.toInterface((42 : GoInt))];
 				x;
-			})
+			} : stdgo.GoMap<GoString, AnyInterface>))
 		];
 		x;
-	})) == null ? null : stdgo.syscall.js.Js.valueOf(Go.toInterface({
+	} : stdgo.GoMap<GoString, AnyInterface>))) == null ? null : stdgo.syscall.js.Js.valueOf(Go.toInterface(({
 		final x = new stdgo.GoMap.GoObjectMap<GoString,
 			AnyInterface>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({get: () ->
 				stdgo.internal.reflect.Reflect.GoType.basic(string_kind)},
 			{get: () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, [])})));
 		@:privateAccess x._keys = [Go.str("x")];
 		@:privateAccess x._values = [
-			Go.toInterface({
+			Go.toInterface(({
 				final x = new stdgo.GoMap.GoObjectMap<GoString,
 					AnyInterface>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({
 					get: () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind)
@@ -606,10 +614,10 @@ function testValueOf(_t:Ref<stdgo.testing.Testing.T>):Void {
 				@:privateAccess x._keys = [Go.str("y")];
 				@:privateAccess x._values = [Go.toInterface((42 : GoInt))];
 				x;
-			})
+			} : stdgo.GoMap<GoString, AnyInterface>))
 		];
 		x;
-	})).__copy__());
+		} : stdgo.GoMap<GoString, AnyInterface>))).__copy__());
 	{
 		var _got:GoInt = _o.get(Go.str("x")).get(Go.str("y")).int_();
 		if (_got != ((42 : GoInt))) {
@@ -816,11 +824,11 @@ function testInterleavedFunctions(_t:Ref<stdgo.testing.Testing.T>):Void {
 function exampleFuncOf():Void {
 	var _cb:Func = ({} : Func);
 	_cb = (stdgo.syscall.js.Js.funcOf(function(_this:Value, _args:Slice<Value>):AnyInterface {
-		stdgo.fmt.Fmt.println(Go.str("button clicked"));
+		stdgo.fmt.Fmt.println(Go.toInterface(Go.str("button clicked")));
 		_cb.release();
 		return (null : AnyInterface);
 	}) == null ? null : stdgo.syscall.js.Js.funcOf(function(_this:Value, _args:Slice<Value>):AnyInterface {
-		stdgo.fmt.Fmt.println(Go.str("button clicked"));
+		stdgo.fmt.Fmt.println(Go.toInterface(Go.str("button clicked")));
 		_cb.release();
 		return (null : AnyInterface);
 	}).__copy__());

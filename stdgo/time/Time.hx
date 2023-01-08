@@ -122,7 +122,7 @@ private var _errBad:Error = stdgo.errors.Errors.new_(Go.str("bad value for field
 **/
 private var _errLeadingInt:Error = stdgo.errors.Errors.new_(Go.str("time: bad [0-9]*"));
 
-private var _unitMap:GoMap<GoString, GoUInt64> = {
+private var _unitMap:GoMap<GoString, GoUInt64> = ({
 	final x = new stdgo.GoMap.GoObjectMap<GoString,
 		GoUInt64>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({get: () ->
 			stdgo.internal.reflect.Reflect.GoType.basic(string_kind)}, {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint64_kind)})));
@@ -147,7 +147,7 @@ private var _unitMap:GoMap<GoString, GoUInt64> = {
 		((("3600000000000" : GoInt64) : Duration) : GoUInt64)
 	];
 	x;
-};
+} : stdgo.GoMap<GoString, GoUInt64>);
 
 /**
 	// daysBefore[m] counts the number of days in a non-leap year
@@ -251,7 +251,7 @@ var tzsetOffset:GoString -> {
 /**
 	// StdChunkNames maps from nextStdChunk results to the matched strings.
 **/
-var stdChunkNames:GoMap<GoInt, GoString> = {
+var stdChunkNames:GoMap<GoInt, GoString> = ({
 	final x = new stdgo.GoMap.GoObjectMap<GoInt, GoString>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({get: () ->
 		stdgo.internal.reflect.Reflect.GoType.basic(int_kind)}, {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind)})));
 	@:privateAccess x._keys = [
@@ -269,7 +269,7 @@ var stdChunkNames:GoMap<GoInt, GoString> = {
 		Go.str(".0000"), Go.str(".00000"), Go.str(".000000"), Go.str(".0000000"), Go.str(".00000000"), Go.str(".000000000"), Go.str(".9"), Go.str(".99"),
 		Go.str(".999"), Go.str(".9999"), Go.str(".99999"), Go.str(".999999"), Go.str(".9999999"), Go.str(".99999999"), Go.str(".999999999")];
 	x;
-};
+} : stdgo.GoMap<GoInt, GoString>);
 
 var quote:GoString->GoString = _quote;
 private var _origPlatformZoneSources:Slice<GoString> = _platformZoneSources;
@@ -2212,6 +2212,9 @@ private var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 			this.time = time;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new Rule(kind, day, week, mon, time);
 	}
@@ -2239,6 +2242,9 @@ private var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 		if (message != null)
 			this.message = message;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new ParseError(layout, value, layoutElem, valueElem, message);
@@ -2284,6 +2290,9 @@ private var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 			this._status = _status;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_runtimeTimer(_pp, _when, _period, _f, _arg, _seq, _nextwhen, _status);
 	}
@@ -2305,6 +2314,9 @@ private var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 		if (_r != null)
 			this._r = _r;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Timer(c, _r);
@@ -2329,6 +2341,9 @@ private var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 		if (_r != null)
 			this._r = _r;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Ticker(c, _r);
@@ -2416,6 +2431,9 @@ private var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 			this._loc = _loc;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new Time(_wall, _ext, _loc);
 	}
@@ -2475,6 +2493,9 @@ private var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 			this._cacheZone = _cacheZone;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new Location(_name, _zone, _tx, _extend, _cacheStart, _cacheEnd, _cacheZone);
 	}
@@ -2507,6 +2528,9 @@ private var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 		if (_isDST != null)
 			this._isDST = _isDST;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_zone(_name, _offset, _isDST);
@@ -2545,6 +2569,9 @@ private var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 			this._isutc = _isutc;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_zoneTrans(_when, _index, _isstd, _isutc);
 	}
@@ -2577,6 +2604,9 @@ private var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 			this._time = _time;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_rule(_kind, _day, _week, _mon, _time);
 	}
@@ -2595,6 +2625,9 @@ private var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 		if (_error != null)
 			this._error = _error;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_dataIO(_p, _error);
@@ -2686,7 +2719,7 @@ function _nextStdChunk(_layout:GoString):{var _0:GoString; var _1:GoInt; var _2:
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_layout.length), _i++, {
 			{
-				var _c:GoInt = (_layout[_i] : GoInt);
+				var _c:GoInt = (_layout[(_i : GoInt)] : GoInt);
 				if (_c == ((74 : GoInt))) {
 					if ((_layout.length >= (_i + (3 : GoInt)))
 						&& ((_layout.__slice__(_i, _i + (3 : GoInt)) : GoString) == Go.str("Jan"))) {
@@ -2719,17 +2752,18 @@ function _nextStdChunk(_layout:GoString):{var _0:GoString; var _1:GoInt; var _2:
 						};
 					};
 				} else if (_c == ((48 : GoInt))) {
-					if (((_layout.length >= (_i + (2 : GoInt))) && ((49 : GoUInt8) <= _layout[_i + (1 : GoInt)]))
-						&& (_layout[_i + (1 : GoInt)] <= (54 : GoUInt8))) {
+					if (((_layout.length >= (_i + (2 : GoInt))) && ((49 : GoUInt8) <= _layout[(_i + (1 : GoInt) : GoInt)]))
+						&& (_layout[(_i + (1 : GoInt) : GoInt)] <= (54 : GoUInt8))) {
 						return {_0: (_layout.__slice__((0 : GoInt),
-							_i) : GoString), _1: _std0x[_layout[_i + (1 : GoInt)] - (49 : GoUInt8)], _2: (_layout.__slice__(_i + (2 : GoInt)) : GoString)};
+							_i) : GoString), _1: _std0x[(_layout[(_i + (1 : GoInt) : GoInt)] - (49 : GoUInt8): GoInt)], _2: (_layout.__slice__(_i +
+								(2 : GoInt)) : GoString)};
 					};
-					if (((_layout.length >= (_i + (3 : GoInt))) && (_layout[_i + (1 : GoInt)] == (48 : GoUInt8)))
-						&& (_layout[_i + (2 : GoInt)] == (50 : GoUInt8))) {
+					if (((_layout.length >= (_i + (3 : GoInt))) && (_layout[(_i + (1 : GoInt) : GoInt)] == (48 : GoUInt8)))
+						&& (_layout[(_i + (2 : GoInt) : GoInt)] == (50 : GoUInt8))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (267 : GoInt), _2: (_layout.__slice__(_i + (3 : GoInt)) : GoString)};
 					};
 				} else if (_c == ((49 : GoInt))) {
-					if ((_layout.length >= (_i + (2 : GoInt))) && (_layout[_i + (1 : GoInt)] == (53 : GoUInt8))) {
+					if ((_layout.length >= (_i + (2 : GoInt))) && (_layout[(_i + (1 : GoInt) : GoInt)] == (53 : GoUInt8))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (524 : GoInt), _2: (_layout.__slice__(_i + (2 : GoInt)) : GoString)};
 					};
 					return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (259 : GoInt), _2: (_layout.__slice__(_i + (1 : GoInt)) : GoString)};
@@ -2740,7 +2774,7 @@ function _nextStdChunk(_layout:GoString):{var _0:GoString; var _1:GoInt; var _2:
 					};
 					return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (263 : GoInt), _2: (_layout.__slice__(_i + (1 : GoInt)) : GoString)};
 				} else if (_c == ((95 : GoInt))) {
-					if ((_layout.length >= (_i + (2 : GoInt))) && (_layout[_i + (1 : GoInt)] == (50 : GoUInt8))) {
+					if ((_layout.length >= (_i + (2 : GoInt))) && (_layout[(_i + (1 : GoInt) : GoInt)] == (50 : GoUInt8))) {
 						if ((_layout.length >= (_i + (5 : GoInt)))
 							&& ((_layout.__slice__(_i + (1 : GoInt), _i + (5 : GoInt)) : GoString) == Go.str("2006"))) {
 							return {_0: (_layout.__slice__((0 : GoInt),
@@ -2748,8 +2782,8 @@ function _nextStdChunk(_layout:GoString):{var _0:GoString; var _1:GoInt; var _2:
 						};
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (264 : GoInt), _2: (_layout.__slice__(_i + (2 : GoInt)) : GoString)};
 					};
-					if (((_layout.length >= (_i + (3 : GoInt))) && (_layout[_i + (1 : GoInt)] == (95 : GoUInt8)))
-						&& (_layout[_i + (2 : GoInt)] == (50 : GoUInt8))) {
+					if (((_layout.length >= (_i + (3 : GoInt))) && (_layout[(_i + (1 : GoInt) : GoInt)] == (95 : GoUInt8)))
+						&& (_layout[(_i + (2 : GoInt) : GoInt)] == (50 : GoUInt8))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (266 : GoInt), _2: (_layout.__slice__(_i + (3 : GoInt)) : GoString)};
 					};
 				} else if (_c == ((51 : GoInt))) {
@@ -2759,11 +2793,11 @@ function _nextStdChunk(_layout:GoString):{var _0:GoString; var _1:GoInt; var _2:
 				} else if (_c == ((53 : GoInt))) {
 					return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (529 : GoInt), _2: (_layout.__slice__(_i + (1 : GoInt)) : GoString)};
 				} else if (_c == ((80 : GoInt))) {
-					if ((_layout.length >= (_i + (2 : GoInt))) && (_layout[_i + (1 : GoInt)] == (77 : GoUInt8))) {
+					if ((_layout.length >= (_i + (2 : GoInt))) && (_layout[(_i + (1 : GoInt) : GoInt)] == (77 : GoUInt8))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (533 : GoInt), _2: (_layout.__slice__(_i + (2 : GoInt)) : GoString)};
 					};
 				} else if (_c == ((112 : GoInt))) {
-					if ((_layout.length >= (_i + (2 : GoInt))) && (_layout[_i + (1 : GoInt)] == (109 : GoUInt8))) {
+					if ((_layout.length >= (_i + (2 : GoInt))) && (_layout[(_i + (1 : GoInt) : GoInt)] == (109 : GoUInt8))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (534 : GoInt), _2: (_layout.__slice__(_i + (2 : GoInt)) : GoString)};
 					};
 				} else if (_c == ((45 : GoInt))) {
@@ -2810,15 +2844,16 @@ function _nextStdChunk(_layout:GoString):{var _0:GoString; var _1:GoInt; var _2:
 					};
 				} else if (_c == ((46 : GoInt)) || _c == ((44 : GoInt))) {
 					if (((_i + (1 : GoInt)) < _layout.length)
-						&& ((_layout[_i + (1 : GoInt)] == (48 : GoUInt8)) || (_layout[_i + (1 : GoInt)] == (57 : GoUInt8)))) {
-						var _ch:GoUInt8 = _layout[_i + (1 : GoInt)];
+						&& ((_layout[(_i + (1 : GoInt) : GoInt)] == (48 : GoUInt8))
+							|| (_layout[(_i + (1 : GoInt) : GoInt)] == (57 : GoUInt8)))) {
+						var _ch:GoUInt8 = _layout[(_i + (1 : GoInt) : GoInt)];
 						var _j:GoInt = _i + (1 : GoInt);
-						while ((_j < _layout.length) && (_layout[_j] == _ch)) {
+						while ((_j < _layout.length) && (_layout[(_j : GoInt)] == _ch)) {
 							_j++;
 						};
 						if (!_isDigit(_layout, _j)) {
 							var _code:GoInt = (34 : GoInt);
-							if (_layout[_i + (1 : GoInt)] == ((57 : GoUInt8))) {
+							if (_layout[(_i + (1 : GoInt) : GoInt)] == ((57 : GoUInt8))) {
 								_code = (35 : GoInt);
 							};
 							var _std:GoInt = _stdFracSecond(_code, _j - (_i + (1 : GoInt)), _c);
@@ -2840,8 +2875,8 @@ function _match(_s1:GoString, _s2:GoString):Bool {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_s1.length), _i++, {
-			var _c1:GoUInt8 = _s1[_i];
-			var _c2:GoUInt8 = _s2[_i];
+			var _c1:GoUInt8 = _s1[(_i : GoInt)];
+			var _c2:GoUInt8 = _s2[(_i : GoInt)];
 			if (_c1 != (_c2)) {
 				_c1 = _c1 | ((32 : GoUInt8));
 				_c2 = _c2 | ((32 : GoUInt8));
@@ -2879,11 +2914,11 @@ function _appendInt(_b:Slice<GoByte>, _x:GoInt, _width:GoInt):Slice<GoByte> {
 	while (_u >= ("10" : GoUInt)) {
 		_i--;
 		var _q:GoUInt = _u / ("10" : GoUInt);
-		_buf[_i] = (((("48" : GoUInt) : GoUInt) + _u) - (_q * (("10" : GoUInt) : GoUInt)) : GoByte);
+		_buf[(_i : GoInt)] = (((("48" : GoUInt) : GoUInt) + _u) - (_q * (("10" : GoUInt) : GoUInt)) : GoByte);
 		_u = _q;
 	};
 	_i--;
-	_buf[_i] = (("48" : GoUInt) + _u : GoByte);
+	_buf[(_i : GoInt)] = (("48" : GoUInt) + _u : GoByte);
 	{
 		var _w:GoInt = (_buf.length) - _i;
 		Go.cfor(_w < _width, _w++, {
@@ -2957,7 +2992,7 @@ function _formatNano(_b:Slice<GoByte>, _nanosec:GoUInt, _std:GoInt):Slice<GoByte
 		var _start:GoInt = (_buf.length);
 		while (_start > (0 : GoInt)) {
 			_start--;
-			_buf[_start] = ((_u % (("10" : GoUInt) : GoUInt)) + ("48" : GoUInt) : GoByte);
+			_buf[(_start : GoInt)] = ((_u % (("10" : GoUInt) : GoUInt)) + ("48" : GoUInt) : GoByte);
 			_u = _u / (("10" : GoUInt));
 		};
 	};
@@ -2965,7 +3000,7 @@ function _formatNano(_b:Slice<GoByte>, _nanosec:GoUInt, _std:GoInt):Slice<GoByte
 		_n = (9 : GoInt);
 	};
 	if (_trim) {
-		while ((_n > (0 : GoInt)) && (_buf[_n - (1 : GoInt)] == (48 : GoUInt8))) {
+		while ((_n > (0 : GoInt)) && (_buf[(_n - (1 : GoInt) : GoInt)] == (48 : GoUInt8))) {
 			_n--;
 		};
 		if (_n == ((0 : GoInt))) {
@@ -2995,8 +3030,8 @@ function _quote(_s:GoString):GoString {
 				var _j:GoInt = (0 : GoInt);
 				Go.cfor(_j < _width, _j++, {
 					_buf = _buf.__appendref__(...Go.str("\\x").__toArray__());
-					_buf = _buf.__appendref__(Go.str("0123456789abcdef")[_s[_i + _j] >> ("4" : GoUInt64)]);
-					_buf = _buf.__appendref__(Go.str("0123456789abcdef")[_s[_i + _j] & (15 : GoUInt8)]);
+					_buf = _buf.__appendref__(Go.str("0123456789abcdef")[(_s[(_i + _j : GoInt)] >> ("4" : GoUInt64) : GoInt)]);
+					_buf = _buf.__appendref__(Go.str("0123456789abcdef")[(_s[(_i + _j : GoInt)] & (15 : GoUInt8) : GoInt)]);
 				});
 			};
 		} else {
@@ -3017,7 +3052,7 @@ function _isDigit(_s:GoString, _i:GoInt):Bool {
 	if ((_s.length) <= _i) {
 		return false;
 	};
-	var _c:GoUInt8 = _s[_i];
+	var _c:GoUInt8 = _s[(_i : GoInt)];
 	return ((48 : GoUInt8) <= _c) && (_c <= (57 : GoUInt8));
 }
 
@@ -3053,7 +3088,7 @@ function _getnum3(_s:GoString, _fixed:Bool):{var _0:GoInt; var _1:GoString; var 
 	{
 		_i = (0 : GoInt);
 		Go.cfor((_i < (3:GoInt)) && _isDigit(_s, _i), _i++, {
-			_n = (_n * (10 : GoInt)) + (_s[_i] - (48 : GoUInt8): GoInt);
+			_n = (_n * (10 : GoInt)) + (_s[(_i : GoInt)] - (48 : GoUInt8): GoInt);
 		});
 	};
 	if ((_i == (0 : GoInt)) || (_fixed && (_i != (3 : GoInt)))) {
@@ -3613,8 +3648,9 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Ref<Location
 						break;
 					};
 					var _i:GoInt = (0 : GoInt);
-					while ((((_i < (9:GoInt)) && ((_i + (1 : GoInt)) < _value.length)) && ((48 : GoUInt8) <= _value[_i + (1 : GoInt)]))
-						&& (_value[_i + (1 : GoInt)] <= (57 : GoUInt8))) {
+					while ((((_i < (9:GoInt)) && ((_i + (1 : GoInt)) < _value.length))
+						&& ((48 : GoUInt8) <= _value[(_i + (1 : GoInt) : GoInt)]))
+						&& (_value[(_i + (1 : GoInt) : GoInt)] <= (57 : GoUInt8))) {
 						_i++;
 					};
 					{
@@ -3660,10 +3696,10 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Ref<Location
 		};
 		if (_m == ((0 : GoInt))) {
 			_m = ((_yday - (1 : GoInt)) / (31 : GoInt)) + (1 : GoInt);
-			if ((_daysBefore[_m] : GoInt) < _yday) {
+			if ((_daysBefore[(_m : GoInt)] : GoInt) < _yday) {
 				_m++;
 			};
-			_d = _yday - (_daysBefore[_m - (1 : GoInt)] : GoInt);
+			_d = _yday - (_daysBefore[(_m - (1 : GoInt) : GoInt)] : GoInt);
 		};
 		if ((_month >= (0 : GoInt)) && (_month != _m)) {
 			return {_0: (new Time() : Time), _1: Go.asInterface(((new ParseError(_alayout, _avalue, Go.str(), _value,
@@ -3772,7 +3808,7 @@ function _parseTimeZone(_value:GoString):{var _0:GoInt; var _1:Bool;} {
 				break;
 			};
 			{
-				var _c:GoUInt8 = _value[_nUpper];
+				var _c:GoUInt8 = _value[(_nUpper : GoInt)];
 				if ((_c < (65:GoUInt8)) || ((90 : GoUInt8) < _c)) {
 					break;
 				};
@@ -3880,7 +3916,7 @@ function _leadingInt(_s:GoString):{var _0:GoUInt64; var _1:GoString; var _2:Erro
 		_err:Error = (null : Error);
 	var _i:GoInt = (0 : GoInt);
 	Go.cfor(_i < (_s.length), _i++, {
-		var _c:GoUInt8 = _s[_i];
+		var _c:GoUInt8 = _s[(_i : GoInt)];
 		if ((_c < (48:GoUInt8)) || (_c > (57 : GoUInt8))) {
 			break;
 		};
@@ -3908,7 +3944,7 @@ function _leadingFraction(_s:GoString):{var _0:GoUInt64; var _1:GoFloat64; var _
 	_scale = (1 : GoFloat64);
 	var _overflow:Bool = false;
 	Go.cfor(_i < (_s.length), _i++, {
-		var _c:GoUInt8 = _s[_i];
+		var _c:GoUInt8 = _s[(_i : GoInt)];
 		if ((_c < (48:GoUInt8)) || (_c > (57 : GoUInt8))) {
 			break;
 		};
@@ -3993,7 +4029,7 @@ function parseDuration(_s:GoString):{var _0:Duration; var _1:Error;} {
 		};
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_s.length), _i++, {
-			var _c:GoUInt8 = _s[_i];
+			var _c:GoUInt8 = _s[(_i : GoInt)];
 			if ((_c == (46 : GoUInt8)) || (((48 : GoUInt8) <= _c) && (_c <= (57 : GoUInt8)))) {
 				break;
 			};
@@ -4350,14 +4386,14 @@ function _fmtFrac(_buf:Slice<GoByte>, _v:GoUInt64, _prec:GoInt):{var _0:GoInt; v
 			_print = _print || (_digit != ("0" : GoUInt64));
 			if (_print) {
 				_w--;
-				_buf[_w] = (_digit : GoByte) + (48 : GoUInt8);
+				_buf[(_w : GoInt)] = (_digit : GoByte) + (48 : GoUInt8);
 			};
 			_v = _v / (("10" : GoUInt64));
 		});
 	};
 	if (_print) {
 		_w--;
-		_buf[_w] = (46 : GoUInt8);
+		_buf[(_w : GoInt)] = (46 : GoUInt8);
 	};
 	return {_0: _w, _1: _v};
 }
@@ -4370,11 +4406,11 @@ function _fmtInt(_buf:Slice<GoByte>, _v:GoUInt64):GoInt {
 	var _w:GoInt = (_buf.length);
 	if (_v == (("0" : GoUInt64))) {
 		_w--;
-		_buf[_w] = (48 : GoUInt8);
+		_buf[(_w : GoInt)] = (48 : GoUInt8);
 	} else {
 		while (_v > ("0" : GoUInt64)) {
 			_w--;
-			_buf[_w] = (_v % ("10" : GoUInt64) : GoByte) + (48 : GoUInt8);
+			_buf[(_w : GoInt)] = (_v % ("10" : GoUInt64) : GoByte) + (48 : GoUInt8);
 			_v = _v / (("10" : GoUInt64));
 		};
 	};
@@ -4471,13 +4507,13 @@ function _absDate(_abs:GoUInt64, _full:Bool):{
 		};
 	};
 	_month = (_day / (31 : GoInt) : Month);
-	var _end:GoInt = (_daysBefore[_month + (1 : Month)] : GoInt);
+	var _end:GoInt = (_daysBefore[(_month + (1 : Month) : GoInt)] : GoInt);
 	var _begin:GoInt = (0 : GoInt);
 	if (_day >= _end) {
 		_month++;
 		_begin = _end;
 	} else {
-		_begin = (_daysBefore[_month] : GoInt);
+		_begin = (_daysBefore[(_month : GoInt)] : GoInt);
 	};
 	_month++;
 	_day = (_day - _begin) + (1 : GoInt);
@@ -4493,7 +4529,7 @@ function _daysIn(_m:Month, _year:GoInt):GoInt {
 	if ((_m == (2 : Month)) && _isLeap(_year)) {
 		return (29 : GoInt);
 	};
-	return (_daysBefore[_m] - _daysBefore[_m - (1 : Month)]: GoInt);
+	return (_daysBefore[(_m : GoInt)] - _daysBefore[(_m - (1 : Month) : GoInt)]: GoInt);
 }
 
 /**
@@ -4674,7 +4710,7 @@ function date(_year:GoInt, _month:Month, _day:GoInt, _hour:GoInt, _min:GoInt, _s
 		_hour = __tmp__._1;
 	};
 	var _d:GoUInt64 = _daysSinceEpoch(_year);
-	_d = _d + ((_daysBefore[_month - (1 : Month)] : GoUInt64));
+	_d = _d + ((_daysBefore[(_month - (1 : Month) : GoInt)] : GoUInt64));
 	if (_isLeap(_year) && (_month >= (3 : Month))) {
 		_d++;
 	};
@@ -5297,7 +5333,7 @@ function _tzruleTime(_year:GoInt, _r:T_rule, _off:GoInt):GoInt {
 						_d = _d + ((7 : GoInt));
 					});
 				};
-				_d = _d + ((_daysBefore[_r._mon - (1 : GoInt)] : GoInt));
+				_d = _d + ((_daysBefore[(_r._mon - (1 : GoInt):GoInt)] : GoInt));
 				if (_isLeap(_year) && (_r._mon > (2 : GoInt))) {
 					_d++;
 				};
@@ -5387,7 +5423,7 @@ function _containsDotDot(_s:GoString):Bool {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_s.length - (1 : GoInt)), _i++, {
-			if ((_s[_i] == (46 : GoUInt8)) && (_s[_i + (1 : GoInt)] == (46 : GoUInt8))) {
+			if ((_s[(_i : GoInt)] == (46 : GoUInt8)) && (_s[(_i + (1 : GoInt) : GoInt)] == (46 : GoUInt8))) {
 				return true;
 			};
 		});
@@ -5453,7 +5489,7 @@ function _byteString(_p:Slice<GoByte>):GoString {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_p.length), _i++, {
-			if (_p[_i] == ((0 : GoUInt8))) {
+			if (_p[(_i : GoInt)] == ((0 : GoUInt8))) {
 				return ((_p.__slice__((0 : GoInt), _i) : Slice<GoUInt8>) : GoString);
 			};
 		});
@@ -5507,7 +5543,7 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Ref
 			if (((_nn : GoInt) : GoUInt32) != (_nn)) {
 				return {_0: null, _1: _badData};
 			};
-			_n[_i] = (_nn : GoInt);
+			_n[(_i : GoInt)] = (_nn : GoInt);
 		});
 	};
 	var _is64:Bool = false;
@@ -5531,7 +5567,7 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Ref
 				if (((_nn : GoInt) : GoUInt32) != (_nn)) {
 					return {_0: null, _1: _badData};
 				};
-				_n[_i] = (_nn : GoInt);
+				_n[(_i : GoInt)] = (_nn : GoInt);
 			});
 		};
 	};
@@ -5552,7 +5588,7 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Ref
 	var _extend:GoString = ("" : GoString);
 	var _rest = _d._rest();
 	if (((_rest.length > (2 : GoInt)) && (_rest[(0 : GoInt)] == (10 : GoUInt8)))
-		&& (_rest[(_rest.length) - (1 : GoInt)] == (10 : GoUInt8))) {
+		&& (_rest[((_rest.length) - (1 : GoInt) : GoInt)] == (10 : GoUInt8))) {
 		_extend = ((_rest.__slice__((1 : GoInt), (_rest.length) - (1 : GoInt)) : Slice<GoUInt8>) : GoString);
 	};
 	var _nzone:GoInt = _n[(4 : GoInt)];
@@ -5576,7 +5612,7 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Ref
 		if (((_n : GoInt) : GoUInt32) != (_n)) {
 			return {_0: null, _1: _badData};
 		};
-		_zones[_i]._offset = ((_n : GoInt32) : GoInt);
+		_zones[(_i : GoInt)]._offset = ((_n : GoInt32) : GoInt);
 		var _b:GoByte = (0 : GoUInt8);
 		{
 			{
@@ -5588,7 +5624,7 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Ref
 				return {_0: null, _1: _badData};
 			};
 		};
-		_zones[_i]._isDST = _b != ((0 : GoUInt8));
+		_zones[(_i : GoInt)]._isDST = _b != ((0 : GoUInt8));
 		{
 			{
 				var __tmp__ = _zonedata._byte();
@@ -5599,12 +5635,12 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Ref
 				return {_0: null, _1: _badData};
 			};
 		};
-		_zones[_i]._name = _byteString((_abbrev.__slice__(_b) : Slice<GoUInt8>));
+		_zones[(_i : GoInt)]._name = _byteString((_abbrev.__slice__(_b) : Slice<GoUInt8>));
 		if ((false && (_name.length > (8 : GoInt)))
 			&& (((_name.__slice__(0, (8 : GoInt)) : GoString) == Go.str("Etc/GMT+"))
 				|| ((_name.__slice__(0, (8 : GoInt)) : GoString) == Go.str("Etc/GMT-")))) {
 			if (_name != (Go.str("Etc/GMT+0"))) {
-				_zones[_i]._name = (_name.__slice__((4 : GoInt)) : GoString);
+				_zones[(_i : GoInt)]._name = (_name.__slice__((4 : GoInt)) : GoString);
 			};
 		};
 	};
@@ -5634,16 +5670,16 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Ref
 				};
 			};
 		};
-		_tx[_i]._when = _n;
-		if ((_txzones[_i] : GoInt) >= (_zones.length)) {
+		_tx[(_i : GoInt)]._when = _n;
+		if ((_txzones[(_i : GoInt)] : GoInt) >= (_zones.length)) {
 			return {_0: null, _1: _badData};
 		};
-		_tx[_i]._index = _txzones[_i];
+		_tx[(_i : GoInt)]._index = _txzones[(_i : GoInt)];
 		if (_i < (_isstd.length)) {
-			_tx[_i]._isstd = _isstd[_i] != ((0 : GoUInt8));
+			_tx[(_i : GoInt)]._isstd = _isstd[(_i : GoInt)] != ((0 : GoUInt8));
 		};
 		if (_i < (_isutc.length)) {
-			_tx[_i]._isutc = _isutc[_i] != ((0 : GoUInt8));
+			_tx[(_i : GoInt)]._isutc = _isutc[(_i : GoInt)] != ((0 : GoUInt8));
 		};
 	};
 	if ((_tx.length) == ((0 : GoInt))) {
@@ -5660,12 +5696,13 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Ref
 		_0:GoInt32 = __tmp__._1,
 		_1:GoInt64 = __tmp__._2;
 	for (_i in 0..._tx.length.toBasic()) {
-		if ((_tx[_i]._when <= _sec) && (((_i + (1 : GoInt)) == (_tx.length)) || (_sec < _tx[_i + (1 : GoInt)]._when))) {
-			_l._cacheStart = _tx[_i]._when;
+		if ((_tx[(_i : GoInt)]._when <= _sec)
+			&& (((_i + (1 : GoInt)) == (_tx.length)) || (_sec < _tx[(_i + (1 : GoInt) : GoInt)]._when))) {
+			_l._cacheStart = _tx[(_i : GoInt)]._when;
 			_l._cacheEnd = ("9223372036854775807" : GoInt64);
-			_l._cacheZone = (_l._zone[_tx[_i]._index] : Ref<T_zone>);
+			_l._cacheZone = (_l._zone[(_tx[(_i : GoInt)]._index : GoInt)] : Ref<T_zone>);
 			if ((_i + (1 : GoInt)) < (_tx.length)) {
-				_l._cacheEnd = _tx[_i + (1 : GoInt)]._when;
+				_l._cacheEnd = _tx[(_i + (1 : GoInt) : GoInt)]._when;
 			} else if (_l._extend != (Go.str())) {
 				{
 					var __tmp__ = _tzset(_l._extend, _l._cacheEnd, _sec),
@@ -5681,7 +5718,7 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Ref
 						{
 							var _zoneIdx:GoInt = _findZone(_l._zone, _name, _offset, _isDST);
 							if (_zoneIdx != ((-1 : GoInt))) {
-								_l._cacheZone = (_l._zone[_zoneIdx] : Ref<T_zone>);
+								_l._cacheZone = (_l._zone[(_zoneIdx : GoInt)] : Ref<T_zone>);
 							} else {
 								_l._cacheZone = (({_name: _name, _offset: _offset, _isDST: _isDST} : T_zone) : Ref<T_zone>);
 							};
@@ -8079,7 +8116,7 @@ class Location_asInterface {
 		var _offset:GoInt = (0 : GoInt), _ok:Bool = false;
 		_l = _l._get();
 		for (_i in 0..._l._zone.length.toBasic()) {
-			var _zone = (_l._zone[_i] : Ref<T_zone>);
+			var _zone = (_l._zone[(_i : GoInt)] : Ref<T_zone>);
 			if (_zone._name == (_name)) {
 				var __tmp__ = _l._lookup(_unix - (_zone._offset : GoInt64)),
 					_nam:GoString = __tmp__._0,
@@ -8093,7 +8130,7 @@ class Location_asInterface {
 			};
 		};
 		for (_i in 0..._l._zone.length.toBasic()) {
-			var _zone = (_l._zone[_i] : Ref<T_zone>);
+			var _zone = (_l._zone[(_i : GoInt)] : Ref<T_zone>);
 			if (_zone._name == (_name)) {
 				return {_0: _zone._offset, _1: true};
 			};
@@ -8137,18 +8174,18 @@ class Location_asInterface {
 		if (!_l._firstZoneUsed()) {
 			return (0 : GoInt);
 		};
-		if ((_l._tx.length > (0 : GoInt)) && _l._zone[_l._tx[(0 : GoInt)]._index]._isDST) {
+		if ((_l._tx.length > (0 : GoInt)) && _l._zone[(_l._tx[(0 : GoInt)]._index : GoInt)]._isDST) {
 			{
 				var _zi:GoInt = (_l._tx[(0 : GoInt)]._index : GoInt) - (1 : GoInt);
 				Go.cfor(_zi >= (0 : GoInt), _zi--, {
-					if (!_l._zone[_zi]._isDST) {
+					if (!_l._zone[(_zi : GoInt)]._isDST) {
 						return _zi;
 					};
 				});
 			};
 		};
 		for (_zi in 0..._l._zone.length.toBasic()) {
-			if (!_l._zone[_zi]._isDST) {
+			if (!_l._zone[(_zi : GoInt)]._isDST) {
 				return _zi;
 			};
 		};
@@ -8210,7 +8247,7 @@ class Location_asInterface {
 			};
 		};
 		if ((_l._tx.length == (0 : GoInt)) || (_sec < _l._tx[(0 : GoInt)]._when)) {
-			var _zone = (_l._zone[_l._lookupFirstZone()] : Ref<T_zone>);
+			var _zone = (_l._zone[(_l._lookupFirstZone() : GoInt)] : Ref<T_zone>);
 			_name = _zone._name;
 			_offset = _zone._offset;
 			_start = ("-9223372036854775808" : GoInt64);
@@ -8234,7 +8271,7 @@ class Location_asInterface {
 		var _hi:GoInt = (_tx.length);
 		while ((_hi - _lo) > (1 : GoInt)) {
 			var _m:GoInt = _lo + ((_hi - _lo) / (2 : GoInt));
-			var _lim:GoInt64 = _tx[_m]._when;
+			var _lim:GoInt64 = _tx[(_m : GoInt)]._when;
 			if (_sec < _lim) {
 				_end = _lim;
 				_hi = _m;
@@ -8242,10 +8279,10 @@ class Location_asInterface {
 				_lo = _m;
 			};
 		};
-		var _zone = (_l._zone[_tx[_lo]._index] : Ref<T_zone>);
+		var _zone = (_l._zone[(_tx[(_lo : GoInt)]._index : GoInt)] : Ref<T_zone>);
 		_name = _zone._name;
 		_offset = _zone._offset;
-		_start = _tx[_lo]._when;
+		_start = _tx[(_lo : GoInt)]._when;
 		_isDST = _zone._isDST;
 		if ((_lo == (_tx.length - (1 : GoInt))) && (_l._extend != Go.str())) {
 			{
@@ -8428,7 +8465,7 @@ class Month_asInterface {
 	@:keep
 	static public function string(_m:Month):GoString {
 		if (((1 : Month) <= _m) && (_m <= (12 : Month))) {
-			return _longMonthNames[_m - (1 : Month)];
+			return _longMonthNames[(_m - (1 : Month) : GoInt)];
 		};
 		var _buf = new Slice<GoUInt8>((20 : GoInt).toBasic(), 0, ...[for (i in 0...(20 : GoInt).toBasic()) (0 : GoUInt8)]);
 		var _n:GoInt = _fmtInt(_buf, (_m : GoUInt64));
@@ -8465,7 +8502,7 @@ class Weekday_asInterface {
 	@:keep
 	static public function string(_d:Weekday):GoString {
 		if (((0 : Weekday) <= _d) && (_d <= (6 : Weekday))) {
-			return _longDayNames[_d];
+			return _longDayNames[(_d : GoInt)];
 		};
 		var _buf = new Slice<GoUInt8>((20 : GoInt).toBasic(), 0, ...[for (i in 0...(20 : GoInt).toBasic()) (0 : GoUInt8)]);
 		var _n:GoInt = _fmtInt(_buf, (_d : GoUInt64));
@@ -8707,20 +8744,20 @@ class Duration_asInterface {
 		if (_u < ((("1000000000" : GoInt64) : Duration) : GoUInt64)) {
 			var _prec:GoInt = (0 : GoInt);
 			_w--;
-			_buf[_w] = (115 : GoUInt8);
+			_buf[(_w : GoInt)] = (115 : GoUInt8);
 			_w--;
 			if (_u == (("0" : GoUInt64))) {
 				return Go.str("0s");
 			} else if (_u < ((("1000" : GoInt64) : Duration) : GoUInt64)) {
 				_prec = (0 : GoInt);
-				_buf[_w] = (110 : GoUInt8);
+				_buf[(_w : GoInt)] = (110 : GoUInt8);
 			} else if (_u < ((("1000000" : GoInt64) : Duration) : GoUInt64)) {
 				_prec = (3 : GoInt);
 				_w--;
 				Go.copySlice((_buf.__slice__(_w) : Slice<GoUInt8>), Go.str("µ"));
 			} else {
 				_prec = (6 : GoInt);
-				_buf[_w] = (109 : GoUInt8);
+				_buf[(_w : GoInt)] = (109 : GoUInt8);
 			};
 			{
 				var __tmp__ = _fmtFrac((_buf.__slice__(0, _w) : Slice<GoUInt8>), _u, _prec);
@@ -8730,7 +8767,7 @@ class Duration_asInterface {
 			_w = _fmtInt((_buf.__slice__(0, _w) : Slice<GoUInt8>), _u);
 		} else {
 			_w--;
-			_buf[_w] = (115 : GoUInt8);
+			_buf[(_w : GoInt)] = (115 : GoUInt8);
 			{
 				var __tmp__ = _fmtFrac((_buf.__slice__(0, _w) : Slice<GoUInt8>), _u, (9 : GoInt));
 				_w = __tmp__._0;
@@ -8740,19 +8777,19 @@ class Duration_asInterface {
 			_u = _u / (("60" : GoUInt64));
 			if (_u > ("0" : GoUInt64)) {
 				_w--;
-				_buf[_w] = (109 : GoUInt8);
+				_buf[(_w : GoInt)] = (109 : GoUInt8);
 				_w = _fmtInt((_buf.__slice__(0, _w) : Slice<GoUInt8>), _u % ("60" : GoUInt64));
 				_u = _u / (("60" : GoUInt64));
 				if (_u > ("0" : GoUInt64)) {
 					_w--;
-					_buf[_w] = (104 : GoUInt8);
+					_buf[(_w : GoInt)] = (104 : GoUInt8);
 					_w = _fmtInt((_buf.__slice__(0, _w) : Slice<GoUInt8>), _u);
 				};
 			};
 		};
 		if (_neg) {
 			_w--;
-			_buf[_w] = (45 : GoUInt8);
+			_buf[(_w : GoInt)] = (45 : GoUInt8);
 		};
 		return ((_buf.__slice__(_w) : Slice<GoUInt8>) : GoString);
 	}

@@ -221,6 +221,9 @@ private typedef T_input = StructType & {
 			this._err = _err;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_stringError(_re, _err);
 	}
@@ -242,6 +245,9 @@ private typedef T_input = StructType & {
 		if (_output != null)
 			this._output = _output;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new ReplaceTest(_pattern, _replacement, _input, _output);
@@ -265,6 +271,9 @@ private typedef T_input = StructType & {
 			this._output = _output;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new ReplaceFuncTest(_pattern, _replacement, _input, _output);
 	}
@@ -287,6 +296,9 @@ private typedef T_input = StructType & {
 			this._isLiteral = _isLiteral;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new MetaTest(_pattern, _output, _literal, _isLiteral);
 	}
@@ -302,6 +314,9 @@ private typedef T_input = StructType & {
 		if (_index != null)
 			this._index = _index;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_subexpIndex(_name, _index);
@@ -325,6 +340,9 @@ private typedef T_input = StructType & {
 			this._indices = _indices;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_subexpCase(_input, _num, _names, _indices);
 	}
@@ -347,6 +365,9 @@ private typedef T_input = StructType & {
 		if (_pos != null)
 			this._pos = _pos;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_job(_pc, _arg, _pos);
@@ -379,6 +400,9 @@ private typedef T_input = StructType & {
 			this._inputs = _inputs;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_bitState(_end, _cap, _matchcap, _jobs, _visited, _inputs);
 	}
@@ -398,6 +422,9 @@ private typedef T_input = StructType & {
 		if (_dense != null)
 			this._dense = _dense;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_queue(_sparse, _dense);
@@ -421,6 +448,9 @@ private typedef T_input = StructType & {
 			this._t = _t;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_entry(_pc, _t);
 	}
@@ -441,6 +471,9 @@ private typedef T_input = StructType & {
 		if (_cap != null)
 			this._cap = _cap;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_thread(_inst, _cap);
@@ -504,6 +537,9 @@ private typedef T_input = StructType & {
 			this._inputs = _inputs;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_machine(_re, _p, _q0, _q1, _pool, _matched, _matchcap, _inputs);
 	}
@@ -527,6 +563,9 @@ private typedef T_input = StructType & {
 			this._reader = _reader;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_inputs(_bytes, _string, _reader);
 	}
@@ -542,6 +581,9 @@ private typedef T_input = StructType & {
 		if (_matchcap != null)
 			this._matchcap = _matchcap;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_onePassMachine(_inputs, _matchcap);
@@ -568,6 +610,9 @@ private typedef T_input = StructType & {
 		if (_matches != null)
 			this._matches = _matches;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new FindTest(_pat, _text, _matches);
@@ -600,6 +645,9 @@ private typedef T_input = StructType & {
 			this.numCap = numCap;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_onePassProg(inst, start, numCap);
 	}
@@ -620,6 +668,9 @@ private typedef T_input = StructType & {
 		if (next != null)
 			this.next = next;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	@:embedded
 	public function matchEmptyWidth(_before:GoInt32, _after:GoInt32):Bool
@@ -665,6 +716,9 @@ private typedef T_input = StructType & {
 		if (_nextIndex != null)
 			this._nextIndex = _nextIndex;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_queueOnePass(_sparse, _dense, _size, _nextIndex);
@@ -784,6 +838,9 @@ private typedef T_input = StructType & {
 			this._longest = _longest;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new Regexp(_expr, _prog, _onepass, _numSubexp, _maxBitStateLen, _subexpNames, _prefix, _prefixBytes, _prefixRune, _prefixEnd, _mpool,
 			_matchcap, _prefixComplete, _cond, _minInputLen, _longest);
@@ -801,6 +858,9 @@ private typedef T_input = StructType & {
 			this._str = _str;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_inputString(_str);
 	}
@@ -816,6 +876,9 @@ private typedef T_input = StructType & {
 		if (_str != null)
 			this._str = _str;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_inputBytes(_str);
@@ -839,162 +902,173 @@ private typedef T_input = StructType & {
 			this._pos = _pos;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_inputReader(_r, _atEOT, _pos);
 	}
 }
 
-@:structInit @:local private class T__struct_0 {
-	public var _s:GoString = "";
-	public var _r:GoString = "";
-	public var _n:GoInt = 0;
-	public var _out:Slice<GoString> = (null : Slice<GoString>);
-
-	public function new(?_s:GoString, ?_r:GoString, ?_n:GoInt, ?_out:Slice<GoString>) {
-		if (_s != null)
-			this._s = _s;
-		if (_r != null)
-			this._r = _r;
-		if (_n != null)
-			this._n = _n;
-		if (_out != null)
-			this._out = _out;
+class T__struct_0_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_0(_s, _r, _n, _out);
-	}
+	var __self__:Pointer<T__struct_0>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_1 {
-	public var _name:GoString = "";
-	public var _re:GoString = "";
+@:keep @:allow(stdgo.regexp.Regexp.T__struct_0_asInterface) class T__struct_0_static_extension {}
 
-	public function new(?_name:GoString, ?_re:GoString) {
-		if (_name != null)
-			this._name = _name;
-		if (_re != null)
-			this._re = _re;
+@:local @:using(stdgo.regexp.Regexp.T__struct_0_static_extension) private typedef T__struct_0 = {
+	public var _s:GoString;
+	public var _r:GoString;
+	public var _n:GoInt;
+	public var _out:Slice<GoString>;
+};
+
+class T__struct_1_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_1(_name, _re);
-	}
+	var __self__:Pointer<T__struct_1>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_2 {
-	public var regexp:GoString = "";
-	public var _min:GoInt = 0;
+@:keep @:allow(stdgo.regexp.Regexp.T__struct_1_asInterface) class T__struct_1_static_extension {}
 
-	public function new(?regexp:GoString, ?_min:GoInt) {
-		if (regexp != null)
-			this.regexp = regexp;
-		if (_min != null)
-			this._min = _min;
+@:local @:using(stdgo.regexp.Regexp.T__struct_1_static_extension) private typedef T__struct_1 = {
+	public var _name:GoString;
+	public var _re:GoString;
+};
+
+class T__struct_2_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_2(regexp, _min);
-	}
+	var __self__:Pointer<T__struct_2>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_3 {
-	public var _name:GoString = "";
-	public var _n:GoInt = 0;
+@:keep @:allow(stdgo.regexp.Regexp.T__struct_2_asInterface) class T__struct_2_static_extension {}
 
-	public function new(?_name:GoString, ?_n:GoInt) {
-		if (_name != null)
-			this._name = _name;
-		if (_n != null)
-			this._n = _n;
+@:local @:using(stdgo.regexp.Regexp.T__struct_2_static_extension) private typedef T__struct_2 = {
+	public var regexp:GoString;
+	public var _min:GoInt;
+};
+
+class T__struct_3_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_3(_name, _n);
-	}
+	var __self__:Pointer<T__struct_3>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_4 {
-	public var _left:Slice<GoInt32> = (null : Slice<GoInt32>);
-	public var _right:Slice<GoInt32> = (null : Slice<GoInt32>);
-	public var _merged:Slice<GoInt32> = (null : Slice<GoInt32>);
-	public var _next:Slice<GoUInt32> = (null : Slice<GoUInt32>);
-	public var _leftPC:GoUInt32 = 0;
-	public var _rightPC:GoUInt32 = 0;
+@:keep @:allow(stdgo.regexp.Regexp.T__struct_3_asInterface) class T__struct_3_static_extension {}
 
-	public function new(?_left:Slice<GoInt32>, ?_right:Slice<GoInt32>, ?_merged:Slice<GoInt32>, ?_next:Slice<GoUInt32>, ?_leftPC:GoUInt32,
-			?_rightPC:GoUInt32) {
-		if (_left != null)
-			this._left = _left;
-		if (_right != null)
-			this._right = _right;
-		if (_merged != null)
-			this._merged = _merged;
-		if (_next != null)
-			this._next = _next;
-		if (_leftPC != null)
-			this._leftPC = _leftPC;
-		if (_rightPC != null)
-			this._rightPC = _rightPC;
+@:local @:using(stdgo.regexp.Regexp.T__struct_3_static_extension) private typedef T__struct_3 = {
+	public var _name:GoString;
+	public var _n:GoInt;
+};
+
+class T__struct_4_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_4(_left, _right, _merged, _next, _leftPC, _rightPC);
-	}
+	var __self__:Pointer<T__struct_4>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_5 {
-	public var _re:GoString = "";
-	public var _isOnePass:Bool = false;
+@:keep @:allow(stdgo.regexp.Regexp.T__struct_4_asInterface) class T__struct_4_static_extension {}
 
-	public function new(?_re:GoString, ?_isOnePass:Bool) {
-		if (_re != null)
-			this._re = _re;
-		if (_isOnePass != null)
-			this._isOnePass = _isOnePass;
+@:local @:using(stdgo.regexp.Regexp.T__struct_4_static_extension) private typedef T__struct_4 = {
+	public var _left:Slice<GoInt32>;
+	public var _right:Slice<GoInt32>;
+	public var _merged:Slice<GoInt32>;
+	public var _next:Slice<GoUInt32>;
+	public var _leftPC:GoUInt32;
+	public var _rightPC:GoUInt32;
+};
+
+class T__struct_5_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_5(_re, _isOnePass);
-	}
+	var __self__:Pointer<T__struct_5>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_6 {
-	public var _re:GoString = "";
-	public var _match:GoString = "";
+@:keep @:allow(stdgo.regexp.Regexp.T__struct_5_asInterface) class T__struct_5_static_extension {}
 
-	public function new(?_re:GoString, ?_match:GoString) {
-		if (_re != null)
-			this._re = _re;
-		if (_match != null)
-			this._match = _match;
+@:local @:using(stdgo.regexp.Regexp.T__struct_5_static_extension) private typedef T__struct_5 = {
+	public var _re:GoString;
+	public var _isOnePass:Bool;
+};
+
+class T__struct_6_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_6(_re, _match);
-	}
+	var __self__:Pointer<T__struct_6>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
+
+@:keep @:allow(stdgo.regexp.Regexp.T__struct_6_asInterface) class T__struct_6_static_extension {}
+
+@:local @:using(stdgo.regexp.Regexp.T__struct_6_static_extension) private typedef T__struct_6 = {
+	public var _re:GoString;
+	public var _match:GoString;
+};
 
 /**
 	// A lazyFlag is a lazily-evaluated syntax.EmptyOp,

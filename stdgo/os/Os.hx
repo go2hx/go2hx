@@ -138,7 +138,7 @@ private var _errWriteAtInAppendMode:Error = (null : Error);
 	// closing Stderr may cause those messages to go elsewhere, perhaps
 	// to a file opened later.
 **/
-var stdin:Ref<File> = (null : Ref<File>);
+var stdin:Ref<File> = new File(Sys.stdin(), null);
 
 /**
 	// Stdin, Stdout, and Stderr are open Files pointing to the standard input,
@@ -148,7 +148,7 @@ var stdin:Ref<File> = (null : Ref<File>);
 	// closing Stderr may cause those messages to go elsewhere, perhaps
 	// to a file opened later.
 **/
-var stdout:Ref<File> = (null : Ref<File>);
+var stdout:Ref<File> = new File(null, Sys.stdout());
 
 /**
 	// Stdin, Stdout, and Stderr are open Files pointing to the standard input,
@@ -158,7 +158,7 @@ var stdout:Ref<File> = (null : Ref<File>);
 	// closing Stderr may cause those messages to go elsewhere, perhaps
 	// to a file opened later.
 **/
-var stderr:Ref<File> = (null : Ref<File>);
+var stderr:Ref<File> = new File(null, Sys.stderr());
 
 private var _errPatternHasSeparator:Error = (null : Error);
 
@@ -489,6 +489,9 @@ typedef Signal = StructType & {
 			this._bufp = _bufp;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_dirInfo(_buf, _nbuf, _bufp);
 	}
@@ -507,6 +510,9 @@ typedef Signal = StructType & {
 		if (err != null)
 			this.err = err;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new SyscallError(syscall, err);
@@ -544,6 +550,9 @@ typedef Signal = StructType & {
 		if (_sigMu != null)
 			this._sigMu = _sigMu;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Process(pid, _handle, _isdone, _sigMu);
@@ -599,6 +608,9 @@ typedef Signal = StructType & {
 			this.sys = sys;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new ProcAttr(dir, env, files, sys);
 	}
@@ -629,6 +641,9 @@ typedef Signal = StructType & {
 			this._rusage = _rusage;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new ProcessState(_pid, _status, _rusage);
 	}
@@ -655,6 +670,9 @@ typedef Signal = StructType & {
 			this.err = err;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new LinkError(op, old, new_, err);
 	}
@@ -668,6 +686,9 @@ typedef Signal = StructType & {
 		if (writer != null)
 			this.writer = writer;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	@:embedded
 	public function write(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
@@ -723,6 +744,9 @@ typedef Signal = StructType & {
 			this._appendMode = _appendMode;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_file(_pfd, _name, _dirinfo, _nonblock, _stdoutOrErr, _appendMode);
 	}
@@ -745,6 +769,9 @@ typedef Signal = StructType & {
 			this._info = _info;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_unixDirent(_parent, _name, _typ, _info);
 	}
@@ -761,6 +788,9 @@ typedef Signal = StructType & {
 			this._file = _file;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_rawConn(_file);
 	}
@@ -776,17 +806,29 @@ typedef Signal = StructType & {
 	@:embedded
 	public var _file:Ref<T_file> = (null : Ref<T_file>);
 
-	public function new(?_file:Ref<T_file>) {
+	@:local
+	var _input:haxe.io.Input = null;
+	@:local
+	var _output:haxe.io.Output = null;
+
+	public function new(?_file:Ref<T_file>, ?_input:haxe.io.Input, ?_output:haxe.io.Output) {
 		if (_file != null)
 			this._file = _file;
+		if (_input != null)
+			this._input = _input;
+		if (_output != null)
+			this._output = _output;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	@:embedded
 	public function _close():Error
 		return (null : Error);
 
 	public function __copy__() {
-		return new File(_file);
+		return new File(_file, _input, _output);
 	}
 }
 
@@ -813,50 +855,76 @@ typedef Signal = StructType & {
 			this._sys = _sys;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_fileStat(_name, _size, _mode, _modTime, _sys);
 	}
 }
 
-@:structInit @:local @:using(stdgo.os.Os.T__struct_0_static_extension) private class T__struct_0 {
+class T__struct_0_asInterface {
 	@:embedded
-	public var mutex:stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
-	public var _dir:GoString = "";
-
-	public function new(?mutex:stdgo.sync.Sync.Mutex, ?_dir:GoString) {
-		if (mutex != null)
-			this.mutex = mutex;
-		if (_dir != null)
-			this._dir = _dir;
-	}
-
-	public function __underlying__()
-		return Go.toInterface(this);
+	public function _unlockSlow(__0:GoInt32):Void
+		__self__.value._unlockSlow(__0);
 
 	@:embedded
-	public function lock()
-		null;
+	public function _lockSlow():Void
+		__self__.value._lockSlow();
+
+	@:embedded
+	public function unlock():Void
+		__self__.value.unlock();
 
 	@:embedded
 	public function tryLock():Bool
-		return false;
+		return __self__.value.tryLock();
 
 	@:embedded
-	public function unlock()
-		null;
+	public function lock():Void
+		__self__.value.lock();
 
-	@:embedded
-	public function _lockSlow()
-		null;
-
-	@:embedded
-	public function _unlockSlow(__0:GoInt32)
-		null;
-
-	public function __copy__() {
-		return new T__struct_0(mutex, _dir);
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
+
+	public function __underlying__()
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
+
+	var __self__:Pointer<T__struct_0>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
+
+@:keep @:allow(stdgo.os.Os.T__struct_0_asInterface) class T__struct_0_static_extension {
+	@:embedded
+	public static function _unlockSlow(__self__:T__struct_0, __0:GoInt32)
+		null;
+
+	@:embedded
+	public static function _lockSlow(__self__:T__struct_0)
+		null;
+
+	@:embedded
+	public static function unlock(__self__:T__struct_0)
+		null;
+
+	@:embedded
+	public static function tryLock(__self__:T__struct_0):Bool
+		return return false;
+
+	@:embedded
+	public static function lock(__self__:T__struct_0)
+		null;
+}
+
+@:local @:using(stdgo.os.Os.T__struct_0_static_extension) private typedef T__struct_0 = {
+	@:embedded
+	public var mutex:stdgo.sync.Sync.Mutex;
+	public var _dir:GoString;
+};
 
 @:named private typedef T_readdirMode = GoInt;
 
@@ -1722,7 +1790,7 @@ function _hostname():{var _0:GoString; var _1:Error;}
 	// TempFile to a minimum.
 **/
 function _fastrand():GoUInt32
-	throw "os._fastrand is not yet implemented";
+	return Std.random(1) > 0 ? -Std.random(2147483647) - 1 : Std.random(2147483647);
 
 function _nextRandom():GoString
 	throw "os._nextRandom is not yet implemented";
@@ -3051,7 +3119,7 @@ class File_asInterface {
 	**/
 	@:keep
 	static public function writeString(_f:Ref<File>, _s:GoString):{var _0:GoInt; var _1:Error;}
-		throw "os.writeString is not yet implemented";
+		return _f.write(_s);
 
 	/**
 		// Seek sets the offset for the next Read or Write on file to offset, interpreted
@@ -3085,8 +3153,12 @@ class File_asInterface {
 		// Write returns a non-nil error when n != len(b).
 	**/
 	@:keep
-	static public function write(_f:Ref<File>, _b:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
-		throw "os.write is not yet implemented";
+	static public function write(_f:Ref<File>, _b:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
+		final i = @:privateAccess _f._output.writeBytes(_b.toBytes(), 0, _b.length.toBasic());
+		if (i != _b.length.toBasic())
+			return {_0: i, _1: stdgo.errors.Errors.new_("invalid write")};
+		return {_0: i, _1: null};
+	}
 
 	/**
 		// ReadFrom implements io.ReaderFrom.
@@ -3258,63 +3330,6 @@ class T_fileStat_asInterface {
 	@:keep
 	static public function name(_fs:Ref<T_fileStat>):GoString
 		throw "os.name is not yet implemented";
-}
-
-class T__struct_0_asInterface {
-	@:embedded
-	public function _unlockSlow(__0:GoInt32):Void
-		__self__.value._unlockSlow(__0);
-
-	@:embedded
-	public function _lockSlow():Void
-		__self__.value._lockSlow();
-
-	@:embedded
-	public function unlock():Void
-		__self__.value.unlock();
-
-	@:embedded
-	public function tryLock():Bool
-		return __self__.value.tryLock();
-
-	@:embedded
-	public function lock():Void
-		__self__.value.lock();
-
-	public function new(__self__, __type__) {
-		this.__self__ = __self__;
-		this.__type__ = __type__;
-	}
-
-	public function __underlying__()
-		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
-			__type__);
-
-	var __self__:Pointer<T__struct_0>;
-	var __type__:stdgo.internal.reflect.Reflect._Type;
-}
-
-@:keep @:allow(stdgo.os.Os.T__struct_0_asInterface) class T__struct_0_static_extension {
-	@:embedded
-	public static function _unlockSlow(__self__:T__struct_0, __0:GoInt32)
-		__self__._unlockSlow(__0);
-
-	@:embedded
-	public static function _lockSlow(__self__:T__struct_0)
-		__self__._lockSlow();
-
-	@:embedded
-	public static function unlock(__self__:T__struct_0)
-		__self__.unlock();
-
-	@:embedded
-	public static function tryLock(__self__:T__struct_0):Bool
-		return __self__.tryLock();
-
-	@:embedded
-	public static function lock(__self__:T__struct_0)
-		__self__.lock();
 }
 
 class T_dirFS_asInterface {

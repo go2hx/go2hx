@@ -81,6 +81,9 @@ final typeFunction:Type = ((0 : GoInt) : Type);
 			this._id = _id;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	@:embedded
 	public function bool_():Bool
 		return false;
@@ -183,7 +186,7 @@ final typeFunction:Type = ((0 : GoInt) : Type);
 		// uncomparable; to make == not compile
 	**/
 	@:optional
-	public var _10:GoArray<() -> Void> = new GoArray<() -> Void>(...[for (i in 0...0) null]);
+	public var _9:GoArray<() -> Void> = new GoArray<() -> Void>(...[for (i in 0...0) null]);
 
 	/**
 		// identifies a JavaScript value, see ref type
@@ -195,17 +198,20 @@ final typeFunction:Type = ((0 : GoInt) : Type);
 	**/
 	public var _gcPtr:Pointer<T_ref> = (null : Pointer<T_ref>);
 
-	public function new(?_10:GoArray<() -> Void>, ?_ref:T_ref, ?_gcPtr:Pointer<T_ref>) {
-		if (_10 != null)
-			this._10 = _10;
+	public function new(?_9:GoArray<() -> Void>, ?_ref:T_ref, ?_gcPtr:Pointer<T_ref>) {
+		if (_9 != null)
+			this._9 = _9;
 		if (_ref != null)
 			this._ref = _ref;
 		if (_gcPtr != null)
 			this._gcPtr = _gcPtr;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
-		return new Value(_10, _ref, _gcPtr);
+		return new Value(_9, _ref, _gcPtr);
 	}
 }
 
@@ -223,6 +229,9 @@ final typeFunction:Type = ((0 : GoInt) : Type);
 		if (value != null)
 			this.value = value;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	@:embedded
 	public function bool_():Bool
@@ -332,6 +341,9 @@ final typeFunction:Type = ((0 : GoInt) : Type);
 		if (type != null)
 			this.type = type;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new ValueError(method, type);

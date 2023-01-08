@@ -123,6 +123,9 @@ private final _startBufSize:GoUInt64 = ("4096" : GoUInt64);
 			this._lastRuneSize = _lastRuneSize;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new Reader(_buf, _rd, _r, _w, _err, _lastByte, _lastRuneSize);
 	}
@@ -153,6 +156,9 @@ private final _startBufSize:GoUInt64 = ("4096" : GoUInt64);
 			this._wr = _wr;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new Writer(_err, _buf, _n, _wr);
 	}
@@ -174,6 +180,9 @@ private final _startBufSize:GoUInt64 = ("4096" : GoUInt64);
 		if (writer != null)
 			this.writer = writer;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	@:embedded
 	public function available():GoInt
@@ -384,6 +393,9 @@ private final _startBufSize:GoUInt64 = ("4096" : GoUInt64);
 			this._done = _done;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new Scanner(_r, _split, _maxTokenSize, _token, _buf, _start, _end, _err, _empties, _scanCalled, _done);
 	}
@@ -540,7 +552,7 @@ function scanRunes(_data:Slice<GoByte>, _atEOF:Bool):{var _0:GoInt; var _1:Slice
 	// dropCR drops a terminal \r from the data.
 **/
 function _dropCR(_data:Slice<GoByte>):Slice<GoByte> {
-	if ((_data.length > (0 : GoInt)) && (_data[(_data.length) - (1 : GoInt)] == (13 : GoUInt8))) {
+	if ((_data.length > (0 : GoInt)) && (_data[((_data.length) - (1 : GoInt) : GoInt)] == (13 : GoUInt8))) {
 		return (_data.__slice__((0 : GoInt), (_data.length) - (1 : GoInt)) : Slice<GoUInt8>);
 	};
 	return _data;
@@ -1000,7 +1012,7 @@ class Reader_asInterface {
 		var _buf = new Slice<GoUInt8>((_n : GoInt).toBasic(), 0, ...[for (i in 0...(_n : GoInt).toBasic()) (0 : GoUInt8)]);
 		_n = (0 : GoInt);
 		for (_i in 0..._full.length.toBasic()) {
-			_n = _n + (Go.copySlice((_buf.__slice__(_n) : Slice<GoUInt8>), _full[_i]));
+			_n = _n + (Go.copySlice((_buf.__slice__(_n) : Slice<GoUInt8>), _full[(_i : GoInt)]));
 		};
 		Go.copySlice((_buf.__slice__(_n) : Slice<GoUInt8>), _frag);
 		return {_0: _buf, _1: _err};
@@ -1084,7 +1096,7 @@ class Reader_asInterface {
 			_err = __tmp__._1;
 		};
 		if (Go.toInterface(_err) == (Go.toInterface(errBufferFull))) {
-			if ((_line.length > (0 : GoInt)) && (_line[(_line.length) - (1 : GoInt)] == (13 : GoUInt8))) {
+			if ((_line.length > (0 : GoInt)) && (_line[((_line.length) - (1 : GoInt) : GoInt)] == (13 : GoUInt8))) {
 				if (_b._r == ((0 : GoInt))) {
 					throw Go.toInterface(Go.str("bufio: tried to rewind past start of buffer"));
 				};
@@ -1100,9 +1112,9 @@ class Reader_asInterface {
 			return {_0: _line, _1: _isPrefix, _2: _err};
 		};
 		_err = (null : Error);
-		if (_line[(_line.length) - (1 : GoInt)] == ((10 : GoUInt8))) {
+		if (_line[((_line.length) - (1 : GoInt) : GoInt)] == ((10 : GoUInt8))) {
 			var _drop:GoInt = (1 : GoInt);
-			if ((_line.length > (1 : GoInt)) && (_line[(_line.length) - (2 : GoInt)] == (13 : GoUInt8))) {
+			if ((_line.length > (1 : GoInt)) && (_line[((_line.length) - (2 : GoInt) : GoInt)] == (13 : GoUInt8))) {
 				_drop = (2 : GoInt);
 			};
 			_line = (_line.__slice__(0, (_line.length) - _drop) : Slice<GoUInt8>);
@@ -1155,7 +1167,7 @@ class Reader_asInterface {
 		{
 			var _i:GoInt = (_line.length) - (1 : GoInt);
 			if (_i >= (0 : GoInt)) {
-				_b._lastByte = (_line[_i] : GoInt);
+				_b._lastByte = (_line[(_i : GoInt)] : GoInt);
 				_b._lastRuneSize = (-1 : GoInt);
 			};
 		};
@@ -1207,7 +1219,7 @@ class Reader_asInterface {
 			return {_0: (0 : GoInt32), _1: (0 : GoInt), _2: _b._readErr()};
 		};
 		{
-			final __tmp__0 = (_b._buf[_b._r] : GoRune);
+			final __tmp__0 = (_b._buf[(_b._r : GoInt)] : GoRune);
 			final __tmp__1 = (1 : GoInt);
 			_r = __tmp__0;
 			_size = __tmp__1;
@@ -1220,7 +1232,7 @@ class Reader_asInterface {
 			};
 		};
 		_b._r = _b._r + (_size);
-		_b._lastByte = (_b._buf[_b._r - (1 : GoInt)] : GoInt);
+		_b._lastByte = (_b._buf[(_b._r - (1 : GoInt):GoInt)] : GoInt);
 		_b._lastRuneSize = _size;
 		return {_0: _r, _1: _size, _2: (null : Error)};
 	}
@@ -1242,7 +1254,7 @@ class Reader_asInterface {
 		} else {
 			_b._w = (1 : GoInt);
 		};
-		_b._buf[_b._r] = (_b._lastByte : GoByte);
+		_b._buf[(_b._r : GoInt)] = (_b._lastByte : GoByte);
 		_b._lastByte = (-1 : GoInt);
 		_b._lastRuneSize = (-1 : GoInt);
 		return (null : Error);
@@ -1261,7 +1273,7 @@ class Reader_asInterface {
 			};
 			_b._fill();
 		};
-		var _c:GoUInt8 = _b._buf[_b._r];
+		var _c:GoUInt8 = _b._buf[(_b._r : GoInt)];
 		_b._r++;
 		_b._lastByte = (_c : GoInt);
 		return {_0: _c, _1: (null : Error)};
@@ -1300,7 +1312,7 @@ class Reader_asInterface {
 					throw Go.toInterface(_errNegativeRead);
 				};
 				if (_n > (0 : GoInt)) {
-					_b._lastByte = (_p[_n - (1 : GoInt)] : GoInt);
+					_b._lastByte = (_p[(_n - (1 : GoInt) : GoInt)] : GoInt);
 					_b._lastRuneSize = (-1 : GoInt);
 				};
 				return {_0: _n, _1: _b._readErr()};
@@ -1322,7 +1334,7 @@ class Reader_asInterface {
 		};
 		_n = Go.copySlice(_p, (_b._buf.__slice__(_b._r, _b._w) : Slice<GoUInt8>));
 		_b._r = _b._r + (_n);
-		_b._lastByte = (_b._buf[_b._r - (1 : GoInt)] : GoInt);
+		_b._lastByte = (_b._buf[(_b._r - (1 : GoInt):GoInt)] : GoInt);
 		_b._lastRuneSize = (-1 : GoInt);
 		return {_0: _n, _1: (null : Error)};
 	}
@@ -1754,7 +1766,7 @@ class Writer_asInterface {
 		if ((_b.available() <= (0 : GoInt)) && (_b.flush() != null)) {
 			return _b._err;
 		};
-		_b._buf[_b._n] = _c;
+		_b._buf[(_b._n : GoInt)] = _c;
 		_b._n++;
 		return (null : Error);
 	}

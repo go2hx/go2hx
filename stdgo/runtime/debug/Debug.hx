@@ -63,6 +63,9 @@ private var __go2hxdoc__package:Bool;
 			this.pauseQuantiles = pauseQuantiles;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new GCStats(lastGC, numGC, pauseTotal, pause, pauseEnd, pauseQuantiles);
 	}
@@ -110,6 +113,9 @@ private var __go2hxdoc__package:Bool;
 			this.settings = settings;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new BuildInfo(goVersion, path, _Main, deps, settings);
 	}
@@ -150,6 +156,9 @@ private var __go2hxdoc__package:Bool;
 			this.replace = replace;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new Module(path, version, sum, replace);
 	}
@@ -175,6 +184,9 @@ private var __go2hxdoc__package:Bool;
 		if (value != null)
 			this.value = value;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new BuildSetting(key, value);

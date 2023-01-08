@@ -450,6 +450,9 @@ private final _meta:GoString = ("" : GoString);
 			this._tail = _tail;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_patchList(_head, _tail);
 	}
@@ -483,6 +486,9 @@ private final _meta:GoString = ("" : GoString);
 			this._nullable = _nullable;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_frag(_i, _out, _nullable);
 	}
@@ -495,6 +501,9 @@ private final _meta:GoString = ("" : GoString);
 		if (_p != null)
 			this._p = _p;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_compiler(_p);
@@ -515,6 +524,9 @@ private final _meta:GoString = ("" : GoString);
 		if (expr != null)
 			this.expr = expr;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_error(code, expr);
@@ -576,6 +588,9 @@ private final _meta:GoString = ("" : GoString);
 			this._height = _height;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_parser(_flags, _stack, _free, _numCap, _wholeRegexp, _tmpClass, _numRegexp, _height);
 	}
@@ -591,6 +606,9 @@ private final _meta:GoString = ("" : GoString);
 		if (_class != null)
 			this._class = _class;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_charGroup(_sign, _class);
@@ -611,6 +629,9 @@ private final _meta:GoString = ("" : GoString);
 			this._p = _p;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_ranges(_p);
 	}
@@ -626,6 +647,9 @@ private final _meta:GoString = ("" : GoString);
 		if (dump != null)
 			this.dump = dump;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_parseTest(regexp, dump);
@@ -656,6 +680,9 @@ private final _meta:GoString = ("" : GoString);
 		if (numCap != null)
 			this.numCap = numCap;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Prog(inst, start, numCap);
@@ -690,6 +717,9 @@ private final _meta:GoString = ("" : GoString);
 		if (rune != null)
 			this.rune = rune;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Inst(op, out, arg, rune);
@@ -768,48 +798,57 @@ private final _meta:GoString = ("" : GoString);
 			this.name = name;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new Regexp(op, flags, sub, sub0, rune, rune0, min, max, cap, name);
 	}
 }
 
-@:structInit @:local private class T__struct_0 {
-	public var regexp:GoString = "";
-	public var prog:GoString = "";
-
-	public function new(?regexp:GoString, ?prog:GoString) {
-		if (regexp != null)
-			this.regexp = regexp;
-		if (prog != null)
-			this.prog = prog;
+class T__struct_0_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_0(regexp, prog);
-	}
+	var __self__:Pointer<T__struct_0>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_1 {
-	public var regexp:GoString = "";
-	public var simple:GoString = "";
+@:keep @:allow(stdgo.regexp.syntax.Syntax.T__struct_0_asInterface) class T__struct_0_static_extension {}
 
-	public function new(?regexp:GoString, ?simple:GoString) {
-		if (regexp != null)
-			this.regexp = regexp;
-		if (simple != null)
-			this.simple = simple;
+@:local @:using(stdgo.regexp.syntax.Syntax.T__struct_0_static_extension) private typedef T__struct_0 = {
+	public var regexp:GoString;
+	public var prog:GoString;
+};
+
+class T__struct_1_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_1(regexp, simple);
-	}
+	var __self__:Pointer<T__struct_1>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
+
+@:keep @:allow(stdgo.regexp.syntax.Syntax.T__struct_1_asInterface) class T__struct_1_static_extension {}
+
+@:local @:using(stdgo.regexp.syntax.Syntax.T__struct_1_static_extension) private typedef T__struct_1 = {
+	public var regexp:GoString;
+	public var simple:GoString;
+};
 
 /**
 	// An ErrorCode describes a failure to parse a regular expression.

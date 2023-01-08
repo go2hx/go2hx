@@ -227,6 +227,9 @@ private var _inPropTest:Slice<stdgo.unicode_test.Unicode_test.T> = (new Slice<st
 			this._out = _out;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_caseT(_cas, _in, _out);
 	}
@@ -242,6 +245,9 @@ private var _inPropTest:Slice<stdgo.unicode_test.Unicode_test.T> = (new Slice<st
 		if (_script != null)
 			this._script = _script;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T(_rune, _script);
@@ -284,46 +290,46 @@ function example_is():Void {
 	for (_0 => _c in Go.str("\x085Ὂg̀9! ℃ᾭG")) {
 		stdgo.fmt.Fmt.printf(Go.str("For %q:\n"), Go.toInterface(_c));
 		if (stdgo.unicode.Unicode.isControl(_c)) {
-			stdgo.fmt.Fmt.println(Go.str("\tis control rune"));
+			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("\tis control rune")));
 		};
 		if (stdgo.unicode.Unicode.isDigit(_c)) {
-			stdgo.fmt.Fmt.println(Go.str("\tis digit rune"));
+			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("\tis digit rune")));
 		};
 		if (stdgo.unicode.Unicode.isGraphic(_c)) {
-			stdgo.fmt.Fmt.println(Go.str("\tis graphic rune"));
+			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("\tis graphic rune")));
 		};
 		if (stdgo.unicode.Unicode.isLetter(_c)) {
-			stdgo.fmt.Fmt.println(Go.str("\tis letter rune"));
+			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("\tis letter rune")));
 		};
 		if (stdgo.unicode.Unicode.isLower(_c)) {
-			stdgo.fmt.Fmt.println(Go.str("\tis lower case rune"));
+			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("\tis lower case rune")));
 		};
 		if (stdgo.unicode.Unicode.isMark(_c)) {
-			stdgo.fmt.Fmt.println(Go.str("\tis mark rune"));
+			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("\tis mark rune")));
 		};
 		if (stdgo.unicode.Unicode.isNumber(_c)) {
-			stdgo.fmt.Fmt.println(Go.str("\tis number rune"));
+			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("\tis number rune")));
 		};
 		if (stdgo.unicode.Unicode.isPrint(_c)) {
-			stdgo.fmt.Fmt.println(Go.str("\tis printable rune"));
+			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("\tis printable rune")));
 		};
 		if (!stdgo.unicode.Unicode.isPrint(_c)) {
-			stdgo.fmt.Fmt.println(Go.str("\tis not printable rune"));
+			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("\tis not printable rune")));
 		};
 		if (stdgo.unicode.Unicode.isPunct(_c)) {
-			stdgo.fmt.Fmt.println(Go.str("\tis punct rune"));
+			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("\tis punct rune")));
 		};
 		if (stdgo.unicode.Unicode.isSpace(_c)) {
-			stdgo.fmt.Fmt.println(Go.str("\tis space rune"));
+			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("\tis space rune")));
 		};
 		if (stdgo.unicode.Unicode.isSymbol(_c)) {
-			stdgo.fmt.Fmt.println(Go.str("\tis symbol rune"));
+			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("\tis symbol rune")));
 		};
 		if (stdgo.unicode.Unicode.isTitle(_c)) {
-			stdgo.fmt.Fmt.println(Go.str("\tis title case rune"));
+			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("\tis title case rune")));
 		};
 		if (stdgo.unicode.Unicode.isUpper(_c)) {
-			stdgo.fmt.Fmt.println(Go.str("\tis upper case rune"));
+			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("\tis upper case rune")));
 		};
 	};
 }
@@ -696,7 +702,7 @@ function testTurkishCase(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _lower = (Go.str("abcçdefgğhıijklmnoöprsştuüvyz") : Slice<GoRune>);
 	var _upper = (Go.str("ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ") : Slice<GoRune>);
 	for (_i => _l in _lower) {
-		var _u:GoInt32 = _upper[_i];
+		var _u:GoInt32 = _upper[(_i : GoInt)];
 		if (turkishCase.toLower(_l) != (_l)) {
 			_t.errorf(Go.str("lower(U+%04X) is U+%04X not U+%04X"), Go.toInterface(_l), Go.toInterface(turkishCase.toLower(_l)), Go.toInterface(_l));
 		};
@@ -721,7 +727,7 @@ function testTurkishCase(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testSimpleFold(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tt in _simpleFoldTests) {
 		var _cycle = (_tt : Slice<GoRune>);
-		var _r:GoInt32 = _cycle[(_cycle.length) - (1 : GoInt)];
+		var _r:GoInt32 = _cycle[((_cycle.length) - (1 : GoInt) : GoInt)];
 		for (_1 => _out in _cycle) {
 			{
 				var _r:GoInt32 = simpleFold(_r);
@@ -804,7 +810,7 @@ function _fakeTable(_n:GoInt):Slice<Range16> {
 
 function _linear(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
 	for (_i in 0..._ranges.length.toBasic()) {
-		var _range_ = (_ranges[_i] : Ref<Range16>);
+		var _range_ = (_ranges[(_i : GoInt)] : Ref<Range16>);
 		if (_r < _range_.lo) {
 			return false;
 		};
@@ -820,7 +826,7 @@ function _binary(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
 	var _hi:GoInt = (_ranges.length);
 	while (_lo < _hi) {
 		var _m:GoInt = _lo + ((_hi - _lo) / (2 : GoInt));
-		var _range_ = (_ranges[_m] : Ref<Range16>);
+		var _range_ = (_ranges[(_m : GoInt)] : Ref<Range16>);
 		if ((_range_.lo <= _r) && (_r <= _range_.hi)) {
 			return (_r - _range_.lo) % _range_.stride == ((0 : GoUInt16));
 		};
@@ -839,7 +845,7 @@ function testLatinOffset(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _m in _maps) {
 		for (_name => _tab in _m) {
 			var _i:GoInt = (0 : GoInt);
-			while ((_i < _tab.r16.length) && (_tab.r16[_i].hi <= (255 : GoUInt16))) {
+			while ((_i < _tab.r16.length) && (_tab.r16[(_i : GoInt)].hi <= (255 : GoUInt16))) {
 				_i++;
 			};
 			if (_tab.latinOffset != (_i)) {
@@ -869,7 +875,7 @@ function testNegativeRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 		Go.cfor(_i < ((255 : GoInt) + _nonLatin1.length), _i++, {
 			var _base:GoUInt32 = (_i : GoUInt32);
 			if (_i >= (255 : GoInt)) {
-				_base = _nonLatin1[_i - (255 : GoInt)];
+				_base = _nonLatin1[(_i - (255 : GoInt) : GoInt)];
 			};
 			var _r:GoInt32 = (_base - ("2147483648" : GoUInt32) : GoRune);
 			if (is_(letter, _r)) {

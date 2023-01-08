@@ -95,6 +95,9 @@ final effectiveFloatRegSize:GoUInt64 = (0 : GoUInt64);
 			this.returnIsPtr = returnIsPtr;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new RegArgs(ints, floats, ptrs, returnIsPtr);
 	}

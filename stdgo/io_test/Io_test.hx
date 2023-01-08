@@ -59,6 +59,9 @@ private typedef T__interface_0 = StructType & {
 			this.writerTo = writerTo;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	@:embedded
 	public function bytes():Slice<GoUInt8>
 		return buffer.bytes();
@@ -171,6 +174,9 @@ private typedef T__interface_0 = StructType & {
 			this._writeToCalled = _writeToCalled;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	@:embedded
 	public function bytes():Slice<GoUInt8>
 		return buffer.bytes();
@@ -280,6 +286,9 @@ private typedef T__interface_0 = StructType & {
 			this._err = _err;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_zeroErrReader(_err);
 	}
@@ -292,6 +301,9 @@ private typedef T__interface_0 = StructType & {
 		if (_err != null)
 			this._err = _err;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_errWriter(_err);
@@ -306,6 +318,9 @@ private typedef T__interface_0 = StructType & {
 			this._w = _w;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_noReadFrom(_w);
 	}
@@ -313,6 +328,9 @@ private typedef T__interface_0 = StructType & {
 
 @:structInit @:using(stdgo.io_test.Io_test.T_wantedAndErrReader_static_extension) private class T_wantedAndErrReader {
 	public function new() {}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_wantedAndErrReader();
@@ -334,6 +352,9 @@ private typedef T__interface_0 = StructType & {
 		if (buffer != null)
 			this.buffer = buffer;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	@:embedded
 	public function bytes():Slice<GoUInt8>
@@ -448,6 +469,9 @@ private typedef T__interface_0 = StructType & {
 			this._err = _err;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_largeWriter(_err);
 	}
@@ -460,6 +484,9 @@ private typedef T__interface_0 = StructType & {
 		if (_called != null)
 			this._called = _called;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_writeStringChecker(_called);
@@ -476,6 +503,9 @@ private typedef T__interface_0 = StructType & {
 		if (_err != null)
 			this._err = _err;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_pipeReturn(_n, _err);
@@ -496,151 +526,182 @@ private typedef T__interface_0 = StructType & {
 			this._closeWithError = _closeWithError;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_pipeTest(_async, _err, _closeWithError);
 	}
 }
 
-@:structInit @:local private class T__struct_1 {
-	public var _data:GoString = "";
-	public var _off:GoInt = 0;
-	public var _n:GoInt = 0;
-	public var _bufLen:GoInt = 0;
-	public var _at:GoInt = 0;
-	public var _exp:GoString = "";
-	public var _err:Error = (null : Error);
-
-	public function new(?_data:GoString, ?_off:GoInt, ?_n:GoInt, ?_bufLen:GoInt, ?_at:GoInt, ?_exp:GoString, ?_err:Error) {
-		if (_data != null)
-			this._data = _data;
-		if (_off != null)
-			this._off = _off;
-		if (_n != null)
-			this._n = _n;
-		if (_bufLen != null)
-			this._bufLen = _bufLen;
-		if (_at != null)
-			this._at = _at;
-		if (_exp != null)
-			this._exp = _exp;
-		if (_err != null)
-			this._err = _err;
+class T__struct_1_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_1(_data, _off, _n, _bufLen, _at, _exp, _err);
-	}
+	var __self__:Pointer<T__struct_1>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_2 {
-	public var _data:GoString = "";
-	public var _want:GoInt64 = 0;
+@:keep @:allow(stdgo.io_test.Io_test.T__struct_1_asInterface) class T__struct_1_static_extension {}
 
-	public function new(?_data:GoString, ?_want:GoInt64) {
-		if (_data != null)
-			this._data = _data;
-		if (_want != null)
-			this._want = _want;
+@:local @:using(stdgo.io_test.Io_test.T__struct_1_static_extension) private typedef T__struct_1 = {
+	public var _data:GoString;
+	public var _off:GoInt;
+	public var _n:GoInt;
+	public var _bufLen:GoInt;
+	public var _at:GoInt;
+	public var _exp:GoString;
+	public var _err:Error;
+};
+
+class T__struct_2_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_2(_data, _want);
-	}
+	var __self__:Pointer<T__struct_2>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_3 {
-	public var name:GoString = "";
-	public var _r:Reader = (null : Reader);
+@:keep @:allow(stdgo.io_test.Io_test.T__struct_2_asInterface) class T__struct_2_static_extension {}
 
-	public function new(?name:GoString, ?_r:Reader) {
-		if (name != null)
-			this.name = name;
-		if (_r != null)
-			this._r = _r;
+@:local @:using(stdgo.io_test.Io_test.T__struct_2_static_extension) private typedef T__struct_2 = {
+	public var _data:GoString;
+	public var _want:GoInt64;
+};
+
+class T__struct_3_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_3(name, _r);
-	}
+	var __self__:Pointer<T__struct_3>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local @:using(stdgo.io_test.Io_test.T__struct_4_static_extension) private class T__struct_4 {
+@:keep @:allow(stdgo.io_test.Io_test.T__struct_3_asInterface) class T__struct_3_static_extension {}
+
+@:local @:using(stdgo.io_test.Io_test.T__struct_3_static_extension) private typedef T__struct_3 = {
+	public var name:GoString;
+	public var _r:Reader;
+};
+
+class T__struct_4_asInterface {
 	@:embedded
-	public var reader:Reader = (null : Reader);
-	@:embedded
-	public var writerTo:WriterTo = (null : WriterTo);
-
-	public function new(?reader:Reader, ?writerTo:WriterTo) {
-		if (reader != null)
-			this.reader = reader;
-		if (writerTo != null)
-			this.writerTo = writerTo;
-	}
-
-	public function __underlying__()
-		return Go.toInterface(this);
+	public function writeTo(_w:Writer):{var _0:GoInt64; var _1:Error;}
+		return __self__.value.writeTo(_w);
 
 	@:embedded
 	public function read(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
-		return reader.read(_b);
+		return __self__.value.read(_b);
 
-	@:embedded
-	public function writeTo(_w:Writer):{var _0:GoInt64; var _1:Error;}
-		return writerTo.writeTo(_w);
-
-	public function __copy__() {
-		return new T__struct_4(reader, writerTo);
-	}
-}
-
-@:structInit @:local @:using(stdgo.io_test.Io_test.T__struct_5_static_extension) private class T__struct_5 {
-	@:embedded
-	public var writer:Writer = (null : Writer);
-	@:embedded
-	public var stringer:stdgo.fmt.Fmt.Stringer = (null : stdgo.fmt.Fmt.Stringer);
-
-	public function new(?writer:Writer, ?stringer:stdgo.fmt.Fmt.Stringer) {
-		if (writer != null)
-			this.writer = writer;
-		if (stringer != null)
-			this.stringer = stringer;
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
+
+	var __self__:Pointer<T__struct_4>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
+}
+
+@:keep @:allow(stdgo.io_test.Io_test.T__struct_4_asInterface) class T__struct_4_static_extension {
+	@:embedded
+	public static function writeTo(__self__:T__struct_4, _w:Writer):{var _0:GoInt64; var _1:Error;}
+		return return __self__.writerTo.writeTo(_w);
+
+	@:embedded
+	public static function read(__self__:T__struct_4, _b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
+		return return __self__.reader.read(_b);
+}
+
+@:local @:using(stdgo.io_test.Io_test.T__struct_4_static_extension) private typedef T__struct_4 = {
+	@:embedded
+	public var reader:Reader;
+	@:embedded
+	public var writerTo:WriterTo;
+};
+
+class T__struct_5_asInterface {
+	@:embedded
+	public function write(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
+		return __self__.value.write(_b);
 
 	@:embedded
 	public function string():GoString
-		return stringer.string();
+		return __self__.value.string();
 
-	@:embedded
-	public function write(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
-		return writer.write(_b);
-
-	public function __copy__() {
-		return new T__struct_5(writer, stringer);
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
-}
-
-@:structInit @:local private class T__struct_6 {
-	public function new() {}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_6();
-	}
+	var __self__:Pointer<T__struct_5>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
+
+@:keep @:allow(stdgo.io_test.Io_test.T__struct_5_asInterface) class T__struct_5_static_extension {
+	@:embedded
+	public static function write(__self__:T__struct_5, _b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
+		return return __self__.writer.write(_b);
+
+	@:embedded
+	public static function string(__self__:T__struct_5):GoString
+		return return __self__.stringer.string();
+}
+
+@:local @:using(stdgo.io_test.Io_test.T__struct_5_static_extension) private typedef T__struct_5 = {
+	@:embedded
+	public var writer:Writer;
+	@:embedded
+	public var stringer:stdgo.fmt.Fmt.Stringer;
+};
+
+class T__struct_6_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
+	}
+
+	public function __underlying__()
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
+
+	var __self__:Pointer<T__struct_6>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
+}
+
+@:keep @:allow(stdgo.io_test.Io_test.T__struct_6_asInterface) class T__struct_6_static_extension {}
+@:local @:using(stdgo.io_test.Io_test.T__struct_6_static_extension) private typedef T__struct_6 = {};
 
 /**
 	// writerFunc is a Writer implemented by the underlying func.
@@ -728,7 +789,7 @@ function exampleReadAtLeast():Void {
 			_1:GoInt = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			stdgo.fmt.Fmt.println(Go.str("error:"), _err);
+			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("error:")), Go.toInterface(_err));
 		};
 	};
 	var _longBuf = new Slice<GoUInt8>((64 : GoInt).toBasic(), 0, ...[for (i in 0...(64 : GoInt).toBasic()) (0 : GoUInt8)]);
@@ -737,7 +798,7 @@ function exampleReadAtLeast():Void {
 			_2:GoInt = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			stdgo.fmt.Fmt.println(Go.str("error:"), _err);
+			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("error:")), Go.toInterface(_err));
 		};
 	};
 }
@@ -760,7 +821,7 @@ function exampleReadFull():Void {
 			_1:GoInt = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			stdgo.fmt.Fmt.println(Go.str("error:"), _err);
+			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("error:")), Go.toInterface(_err));
 		};
 	};
 }
@@ -884,7 +945,7 @@ function exampleSectionReader_Seek():Void {
 function exampleSectionReader_Size():Void {
 	var _r = stdgo.strings.Strings.newReader(Go.str("some io.Reader stream to be read\n"));
 	var _s = stdgo.io.Io.newSectionReader(Go.asInterface(_r), ("5" : GoInt64), ("17" : GoInt64));
-	stdgo.fmt.Fmt.println(_s.size());
+	stdgo.fmt.Fmt.println(Go.toInterface(_s.size()));
 }
 
 function exampleSeeker_Seek():Void {
@@ -924,8 +985,8 @@ function exampleMultiWriter():Void {
 			stdgo.log.Log.fatal(Go.toInterface(_err));
 		};
 	};
-	stdgo.fmt.Fmt.print((_buf1.string() : GoString));
-	stdgo.fmt.Fmt.print((_buf2.string() : GoString));
+	stdgo.fmt.Fmt.print(Go.toInterface((_buf1.string() : GoString)));
+	stdgo.fmt.Fmt.print(Go.toInterface((_buf2.string() : GoString)));
 }
 
 function examplePipe():Void {
@@ -934,7 +995,7 @@ function examplePipe():Void {
 		_w:Ref<PipeWriter> = __tmp__._1;
 	Go.routine(() -> {
 		var a = function():Void {
-			stdgo.fmt.Fmt.fprint(_w, Go.str("some io.Reader stream to be read\n"));
+			stdgo.fmt.Fmt.fprint(Go.asInterface(_w), Go.toInterface(Go.str("some io.Reader stream to be read\n")));
 			_w.close();
 		};
 		a();
@@ -1521,7 +1582,8 @@ function testCopyLargeWriter(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testNopCloserWriterToForwarding(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _tc in (new GoArray<T__struct_3>(({name: Go.str("not a WriterTo"), _r: (null : Reader)} : T__struct_3),
-		({name: Go.str("a WriterTo"), _r: ({reader: (null : Reader), writerTo: (null : WriterTo)} : T__struct_4)} : T__struct_3)) : GoArray<T__struct_3>)) {
+		({name: Go.str("a WriterTo"), _r: Go.asInterface(({reader: (null : Reader),
+			writerTo: (null : WriterTo)} : T__struct_4))} : T__struct_3)) : GoArray<T__struct_3>)) {
 		var _nc:ReadCloser = nopCloser(_tc._r);
 		var __tmp__ = try {
 			{value: (Go.typeAssert((Go.toInterface(_tc._r) : WriterTo)) : WriterTo), ok: true};
@@ -1615,7 +1677,7 @@ function testMultiReaderAsWriterTo(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testMultiWriter(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _sink = ({} : stdgo.bytes.Bytes.Buffer);
-	_testMultiWriter(_t, ({writer: Go.asInterface(_sink), stringer: Go.asInterface(_sink)} : T__struct_5));
+	_testMultiWriter(_t, Go.asInterface(({writer: Go.asInterface(_sink), stringer: Go.asInterface(_sink)} : T__struct_5)));
 }
 
 function testMultiWriter_String(_t:Ref<stdgo.testing.Testing.T>):Void {
@@ -1630,6 +1692,9 @@ function testMultiWriter_String(_t:Ref<stdgo.testing.Testing.T>):Void {
 		if (writer != null)
 			this.writer = writer;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	@:embedded
 	public function write(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
@@ -1670,7 +1735,7 @@ function testMultiWriter_StringCheckCall(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function _testMultiWriter(_t:Ref<stdgo.testing.Testing.T>, _sink:T__interface_0):Void {
-	var _sha1:stdgo.hash.Hash.Hash = _sha1.new_();
+	var _sha1:stdgo.hash.Hash.Hash = stdgo.crypto.sha1.Sha1.new_();
 	var _mw:Writer = multiWriter(_sha1, _sink);
 	var _sourceString:GoString = Go.str("My input text.");
 	var _source = stdgo.strings.Strings.newReader(_sourceString);
@@ -2030,7 +2095,7 @@ function testPipe3(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_wdat.length), _i++, {
-			_wdat[_i] = (_i : GoByte);
+			_wdat[(_i : GoInt)] = (_i : GoByte);
 		});
 	};
 	Go.routine(() -> writer(Go.asInterface(_w), _wdat, _c));
@@ -2070,8 +2135,8 @@ function testPipe3(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (128:GoInt), _i++, {
-			if (_rdat[_i] != ((_i : GoByte))) {
-				_t.fatalf(Go.str("rdat[%d] = %d"), Go.toInterface(_i), Go.toInterface(_rdat[_i]));
+			if (_rdat[(_i : GoInt)] != ((_i : GoByte))) {
+				_t.fatalf(Go.str("rdat[%d] = %d"), Go.toInterface(_i), Go.toInterface(_rdat[(_i : GoInt)]));
 			};
 		});
 	};
@@ -2278,6 +2343,9 @@ function testWriteAfterWriterClose(_t:Ref<stdgo.testing.Testing.T>):Void {
 			this._error = _error;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	@:embedded
 	public function error():GoString
 		return _error.error();
@@ -2295,6 +2363,9 @@ function testWriteAfterWriterClose(_t:Ref<stdgo.testing.Testing.T>):Void {
 		if (_error != null)
 			this._error = _error;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	@:embedded
 	public function error():GoString
@@ -2459,7 +2530,7 @@ function _sortBytesInGroups(_b:Slice<GoByte>, _n:GoInt):Slice<GoByte> {
 		_b = (_b.__slice__(_n) : Slice<GoUInt8>);
 	};
 	stdgo.sort.Sort.slice(Go.toInterface(_groups), function(_i:GoInt, _j:GoInt):Bool {
-		return stdgo.bytes.Bytes.compare(_groups[_i], _groups[_j]) < (0:GoInt);
+		return stdgo.bytes.Bytes.compare(_groups[(_i : GoInt)], _groups[(_j : GoInt)]) < (0:GoInt);
 	});
 	return stdgo.bytes.Bytes.join(_groups, (null : Slice<GoUInt8>));
 }
@@ -3305,72 +3376,6 @@ class T_pipeTest_asInterface {
 		return stdgo.fmt.Fmt.sprintf(Go.str("async=%v err=%v closeWithError=%v"), Go.toInterface(_p._async), Go.toInterface(_p._err),
 			Go.toInterface(_p._closeWithError));
 	}
-}
-
-class T__struct_4_asInterface {
-	@:embedded
-	public function writeTo(_w:Writer):{var _0:GoInt64; var _1:Error;}
-		return __self__.value.writeTo(_w);
-
-	@:embedded
-	public function read(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
-		return __self__.value.read(_b);
-
-	public function new(__self__, __type__) {
-		this.__self__ = __self__;
-		this.__type__ = __type__;
-	}
-
-	public function __underlying__()
-		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
-			__type__);
-
-	var __self__:Pointer<T__struct_4>;
-	var __type__:stdgo.internal.reflect.Reflect._Type;
-}
-
-@:keep @:allow(stdgo.io_test.Io_test.T__struct_4_asInterface) class T__struct_4_static_extension {
-	@:embedded
-	public static function writeTo(__self__:T__struct_4, _w:Writer):{var _0:GoInt64; var _1:Error;}
-		return __self__.writeTo(_w);
-
-	@:embedded
-	public static function read(__self__:T__struct_4, _b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
-		return __self__.read(_b);
-}
-
-class T__struct_5_asInterface {
-	@:embedded
-	public function write(_b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
-		return __self__.value.write(_b);
-
-	@:embedded
-	public function string():GoString
-		return __self__.value.string();
-
-	public function new(__self__, __type__) {
-		this.__self__ = __self__;
-		this.__type__ = __type__;
-	}
-
-	public function __underlying__()
-		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
-			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
-			__type__);
-
-	var __self__:Pointer<T__struct_5>;
-	var __type__:stdgo.internal.reflect.Reflect._Type;
-}
-
-@:keep @:allow(stdgo.io_test.Io_test.T__struct_5_asInterface) class T__struct_5_static_extension {
-	@:embedded
-	public static function write(__self__:T__struct_5, _b:Slice<GoUInt8>):{var _0:GoInt; var _1:Error;}
-		return __self__.write(_b);
-
-	@:embedded
-	public static function string(__self__:T__struct_5):GoString
-		return __self__.string();
 }
 
 class T_writerFunc_asInterface {

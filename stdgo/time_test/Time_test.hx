@@ -1450,6 +1450,9 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 			this._formattedValue = _formattedValue;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new TimeFormatTest(_time, _formattedValue);
 	}
@@ -1468,6 +1471,9 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 		if (_result != null)
 			this._result = _result;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new FormatTest(_name, _format, _result);
@@ -1516,6 +1522,9 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 			this._fracDigits = _fracDigits;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new ParseTest(_name, _format, _value, _hasTZ, _hasWD, _yearSign, _fracDigits);
 	}
@@ -1534,6 +1543,9 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 		if (_ok != null)
 			this._ok = _ok;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new ParseTimeZoneTest(_value, _length, _ok);
@@ -1558,6 +1570,9 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 			this._expect = _expect;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new ParseErrorTest(_format, _value, _expect);
 	}
@@ -1577,6 +1592,9 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 			this._expectedoffset = _expectedoffset;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new SecondsTimeZoneOffsetTest(_format, _value, _expectedoffset);
 	}
@@ -1592,6 +1610,9 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 		if (_t != null)
 			this._t = _t;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_afterResult(_slot, _t);
@@ -1655,6 +1676,9 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 			this.zone = zone;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_parsedTime(year, month, day, hour, minute, second, nanosecond, weekday, zoneOffset, zone);
 	}
@@ -1670,6 +1694,9 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 		if (_golden != null)
 			this._golden = _golden;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new TimeTest(_seconds, _golden);
@@ -1712,6 +1739,9 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 			this._wex = _wex;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new ISOWeekTest(_year, _month, _day, _yex, _wex);
 	}
@@ -1734,783 +1764,822 @@ private final _maxDuration:Duration = (("9223372036854775807" : GoInt64) : Durat
 			this._yday = _yday;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new YearDayTest(_year, _month, _day, _yday);
 	}
 }
 
-@:structInit @:local private class T__struct_0 {
-	public var _in:Time = ({} : Time);
-	public var _want:GoString = "";
-
-	public function new(?_in:Time, ?_want:GoString) {
-		if (_in != null)
-			this._in = _in;
-		if (_want != null)
-			this._want = _want;
+class T__struct_0_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_0(_in, _want);
-	}
+	var __self__:Pointer<T__struct_0>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_1 {
-	public var _date:GoString = "";
-	public var _ok:Bool = false;
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_0_asInterface) class T__struct_0_static_extension {}
 
-	public function new(?_date:GoString, ?_ok:Bool) {
-		if (_date != null)
-			this._date = _date;
-		if (_ok != null)
-			this._ok = _ok;
+@:local @:using(stdgo.time_test.Time_test.T__struct_0_static_extension) private typedef T__struct_0 = {
+	public var _in:Time;
+	public var _want:GoString;
+};
+
+class T__struct_1_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_1(_date, _ok);
-	}
+	var __self__:Pointer<T__struct_1>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_2 {
-	public var _format:GoString = "";
-	public var _value:GoString = "";
-	public var _valueElemPrefix:GoString = "";
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_1_asInterface) class T__struct_1_static_extension {}
 
-	public function new(?_format:GoString, ?_value:GoString, ?_valueElemPrefix:GoString) {
-		if (_format != null)
-			this._format = _format;
-		if (_value != null)
-			this._value = _value;
-		if (_valueElemPrefix != null)
-			this._valueElemPrefix = _valueElemPrefix;
+@:local @:using(stdgo.time_test.Time_test.T__struct_1_static_extension) private typedef T__struct_1 = {
+	public var _date:GoString;
+	public var _ok:Bool;
+};
+
+class T__struct_2_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_2(_format, _value, _valueElemPrefix);
-	}
+	var __self__:Pointer<T__struct_2>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_3 {
-	public var _value:GoString = "";
-	public var _ok:Bool = false;
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_2_asInterface) class T__struct_2_static_extension {}
 
-	public function new(?_value:GoString, ?_ok:Bool) {
-		if (_value != null)
-			this._value = _value;
-		if (_ok != null)
-			this._ok = _ok;
+@:local @:using(stdgo.time_test.Time_test.T__struct_2_static_extension) private typedef T__struct_2 = {
+	public var _format:GoString;
+	public var _value:GoString;
+	public var _valueElemPrefix:GoString;
+};
+
+class T__struct_3_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_3(_value, _ok);
-	}
+	var __self__:Pointer<T__struct_3>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_4 {
-	public var _s:GoString = "";
-	public var _want:GoString = "";
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_3_asInterface) class T__struct_3_static_extension {}
 
-	public function new(?_s:GoString, ?_want:GoString) {
-		if (_s != null)
-			this._s = _s;
-		if (_want != null)
-			this._want = _want;
+@:local @:using(stdgo.time_test.Time_test.T__struct_3_static_extension) private typedef T__struct_3 = {
+	public var _value:GoString;
+	public var _ok:Bool;
+};
+
+class T__struct_4_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_4(_s, _want);
-	}
+	var __self__:Pointer<T__struct_4>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_5 {
-	public var _s:GoString = "";
-	public var _want:GoInt = 0;
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_4_asInterface) class T__struct_4_static_extension {}
 
-	public function new(?_s:GoString, ?_want:GoInt) {
-		if (_s != null)
-			this._s = _s;
-		if (_want != null)
-			this._want = _want;
+@:local @:using(stdgo.time_test.Time_test.T__struct_4_static_extension) private typedef T__struct_4 = {
+	public var _s:GoString;
+	public var _want:GoString;
+};
+
+class T__struct_5_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_5(_s, _want);
-	}
+	var __self__:Pointer<T__struct_5>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_6 {
-	public var _mono:GoInt64 = 0;
-	public var _want:GoString = "";
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_5_asInterface) class T__struct_5_static_extension {}
 
-	public function new(?_mono:GoInt64, ?_want:GoString) {
-		if (_mono != null)
-			this._mono = _mono;
-		if (_want != null)
-			this._want = _want;
+@:local @:using(stdgo.time_test.Time_test.T__struct_5_static_extension) private typedef T__struct_5 = {
+	public var _s:GoString;
+	public var _want:GoInt;
+};
+
+class T__struct_6_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_6(_mono, _want);
-	}
+	var __self__:Pointer<T__struct_6>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_7 {
-	public var _sum:GoFloat64 = 0;
-	public var _max:Duration = ((0 : GoInt64) : Duration);
-	public var _count:GoInt64 = 0;
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_6_asInterface) class T__struct_6_static_extension {}
+
+@:local @:using(stdgo.time_test.Time_test.T__struct_6_static_extension) private typedef T__struct_6 = {
+	public var _mono:GoInt64;
+	public var _want:GoString;
+};
+
+class T__struct_7_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
+	}
+
+	public function __underlying__()
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
+
+	var __self__:Pointer<T__struct_7>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
+}
+
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_7_asInterface) class T__struct_7_static_extension {}
+
+@:local @:using(stdgo.time_test.Time_test.T__struct_7_static_extension) private typedef T__struct_7 = {
+	public var _sum:GoFloat64;
+	public var _max:Duration;
+	public var _count:GoInt64;
 
 	/**
 		// cache line padding
 	**/
 	@:optional
-	public var _1:GoArray<GoInt64> = new GoArray<GoInt64>(...[for (i in 0...5) (0 : GoInt64)]);
+	public var _1:GoArray<GoInt64>;
+};
 
-	public function new(?_sum:GoFloat64, ?_max:Duration, ?_count:GoInt64, ?_1:GoArray<GoInt64>) {
-		if (_sum != null)
-			this._sum = _sum;
-		if (_max != null)
-			this._max = _max;
-		if (_count != null)
-			this._count = _count;
-		if (_1 != null)
-			this._1 = _1;
+class T__struct_8_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_7(_sum, _max, _count, _1);
-	}
+	var __self__:Pointer<T__struct_8>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_8 {
-	public var _count:GoInt = 0;
-	public var _delta:Duration = ((0 : GoInt64) : Duration);
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_8_asInterface) class T__struct_8_static_extension {}
 
-	public function new(?_count:GoInt, ?_delta:Duration) {
-		if (_count != null)
-			this._count = _count;
-		if (_delta != null)
-			this._delta = _delta;
+@:local @:using(stdgo.time_test.Time_test.T__struct_8_static_extension) private typedef T__struct_8 = {
+	public var _count:GoInt;
+	public var _delta:Duration;
+};
+
+class T__struct_9_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_8(_count, _delta);
-	}
+	var __self__:Pointer<T__struct_9>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_9 {
-	public var _t:Time = ({} : Time);
-	public var _d:Duration = ((0 : GoInt64) : Duration);
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_9_asInterface) class T__struct_9_static_extension {}
 
-	public function new(?_t:Time, ?_d:Duration) {
-		if (_t != null)
-			this._t = _t;
-		if (_d != null)
-			this._d = _d;
+@:local @:using(stdgo.time_test.Time_test.T__struct_9_static_extension) private typedef T__struct_9 = {
+	public var _t:Time;
+	public var _d:Duration;
+};
+
+class T__struct_10_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_9(_t, _d);
-	}
+	var __self__:Pointer<T__struct_10>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_10 {
-	public var _str:GoString = "";
-	public var _d:Duration = ((0 : GoInt64) : Duration);
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_10_asInterface) class T__struct_10_static_extension {}
 
-	public function new(?_str:GoString, ?_d:Duration) {
-		if (_str != null)
-			this._str = _str;
-		if (_d != null)
-			this._d = _d;
+@:local @:using(stdgo.time_test.Time_test.T__struct_10_static_extension) private typedef T__struct_10 = {
+	public var _str:GoString;
+	public var _d:Duration;
+};
+
+class T__struct_11_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_10(_str, _d);
-	}
+	var __self__:Pointer<T__struct_11>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_11 {
-	public var _year:GoInt = 0;
-	public var _month:GoInt = 0;
-	public var _day:GoInt = 0;
-	public var _hour:GoInt = 0;
-	public var _min:GoInt = 0;
-	public var _sec:GoInt = 0;
-	public var _nsec:GoInt = 0;
-	public var _z:Ref<Location> = (null : Ref<Location>);
-	public var _unix:GoInt64 = 0;
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_11_asInterface) class T__struct_11_static_extension {}
 
-	public function new(?_year:GoInt, ?_month:GoInt, ?_day:GoInt, ?_hour:GoInt, ?_min:GoInt, ?_sec:GoInt, ?_nsec:GoInt, ?_z:Ref<Location>, ?_unix:GoInt64) {
-		if (_year != null)
-			this._year = _year;
-		if (_month != null)
-			this._month = _month;
-		if (_day != null)
-			this._day = _day;
-		if (_hour != null)
-			this._hour = _hour;
-		if (_min != null)
-			this._min = _min;
-		if (_sec != null)
-			this._sec = _sec;
-		if (_nsec != null)
-			this._nsec = _nsec;
-		if (_z != null)
-			this._z = _z;
-		if (_unix != null)
-			this._unix = _unix;
+@:local @:using(stdgo.time_test.Time_test.T__struct_11_static_extension) private typedef T__struct_11 = {
+	public var _year:GoInt;
+	public var _month:GoInt;
+	public var _day:GoInt;
+	public var _hour:GoInt;
+	public var _min:GoInt;
+	public var _sec:GoInt;
+	public var _nsec:GoInt;
+	public var _z:Ref<Location>;
+	public var _unix:GoInt64;
+};
+
+class T__struct_12_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_11(_year, _month, _day, _hour, _min, _sec, _nsec, _z, _unix);
-	}
+	var __self__:Pointer<T__struct_12>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_12 {
-	public var _years:GoInt = 0;
-	public var _months:GoInt = 0;
-	public var _days:GoInt = 0;
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_12_asInterface) class T__struct_12_static_extension {}
 
-	public function new(?_years:GoInt, ?_months:GoInt, ?_days:GoInt) {
-		if (_years != null)
-			this._years = _years;
-		if (_months != null)
-			this._months = _months;
-		if (_days != null)
-			this._days = _days;
+@:local @:using(stdgo.time_test.Time_test.T__struct_12_static_extension) private typedef T__struct_12 = {
+	public var _years:GoInt;
+	public var _months:GoInt;
+	public var _days:GoInt;
+};
+
+class T__struct_13_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_12(_years, _months, _days);
-	}
+	var __self__:Pointer<T__struct_13>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_13 {
-	public var _year:GoInt = 0;
-	public var _month:GoInt = 0;
-	public var _di:GoInt = 0;
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_13_asInterface) class T__struct_13_static_extension {}
 
-	public function new(?_year:GoInt, ?_month:GoInt, ?_di:GoInt) {
-		if (_year != null)
-			this._year = _year;
-		if (_month != null)
-			this._month = _month;
-		if (_di != null)
-			this._di = _di;
+@:local @:using(stdgo.time_test.Time_test.T__struct_13_static_extension) private typedef T__struct_13 = {
+	public var _year:GoInt;
+	public var _month:GoInt;
+	public var _di:GoInt;
+};
+
+class T__struct_14_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_13(_year, _month, _di);
-	}
+	var __self__:Pointer<T__struct_14>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_14 {
-	public var _bytes:Slice<GoUInt8> = (null : Slice<GoUInt8>);
-	public var _want:GoString = "";
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_14_asInterface) class T__struct_14_static_extension {}
 
-	public function new(?_bytes:Slice<GoUInt8>, ?_want:GoString) {
-		if (_bytes != null)
-			this._bytes = _bytes;
-		if (_want != null)
-			this._want = _want;
+@:local @:using(stdgo.time_test.Time_test.T__struct_14_static_extension) private typedef T__struct_14 = {
+	public var _bytes:Slice<GoUInt8>;
+	public var _want:GoString;
+};
+
+class T__struct_15_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_14(_bytes, _want);
-	}
+	var __self__:Pointer<T__struct_15>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_15 {
-	public var _time:Time = ({} : Time);
-	public var _want:GoString = "";
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_15_asInterface) class T__struct_15_static_extension {}
 
-	public function new(?_time:Time, ?_want:GoString) {
-		if (_time != null)
-			this._time = _time;
-		if (_want != null)
-			this._want = _want;
+@:local @:using(stdgo.time_test.Time_test.T__struct_15_static_extension) private typedef T__struct_15 = {
+	public var _time:Time;
+	public var _want:GoString;
+};
+
+class T__struct_16_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_15(_time, _want);
-	}
+	var __self__:Pointer<T__struct_16>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_16 {
-	public var _time:Time = ({} : Time);
-	public var _json:GoString = "";
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_16_asInterface) class T__struct_16_static_extension {}
 
-	public function new(?_time:Time, ?_json:GoString) {
-		if (_time != null)
-			this._time = _time;
-		if (_json != null)
-			this._json = _json;
+@:local @:using(stdgo.time_test.Time_test.T__struct_16_static_extension) private typedef T__struct_16 = {
+	public var _time:Time;
+	public var _json:GoString;
+};
+
+class T__struct_17_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_16(_time, _json);
-	}
+	var __self__:Pointer<T__struct_17>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_17 {
-	public var _in:GoString = "";
-	public var _want:Duration = ((0 : GoInt64) : Duration);
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_17_asInterface) class T__struct_17_static_extension {}
 
-	public function new(?_in:GoString, ?_want:Duration) {
-		if (_in != null)
-			this._in = _in;
-		if (_want != null)
-			this._want = _want;
+@:local @:using(stdgo.time_test.Time_test.T__struct_17_static_extension) private typedef T__struct_17 = {
+	public var _in:GoString;
+	public var _want:Duration;
+};
+
+class T__struct_18_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_17(_in, _want);
-	}
+	var __self__:Pointer<T__struct_18>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_18 {
-	public var _in:GoString = "";
-	public var _expect:GoString = "";
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_18_asInterface) class T__struct_18_static_extension {}
 
-	public function new(?_in:GoString, ?_expect:GoString) {
-		if (_in != null)
-			this._in = _in;
-		if (_expect != null)
-			this._expect = _expect;
+@:local @:using(stdgo.time_test.Time_test.T__struct_18_static_extension) private typedef T__struct_18 = {
+	public var _in:GoString;
+	public var _expect:GoString;
+};
+
+class T__struct_19_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_18(_in, _expect);
-	}
+	var __self__:Pointer<T__struct_19>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_19 {
-	public var _count:GoInt = 0;
-	public var _desc:GoString = "";
-	public var _fn:() -> Void = null;
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_19_asInterface) class T__struct_19_static_extension {}
 
-	public function new(?_count:GoInt, ?_desc:GoString, ?_fn:() -> Void) {
-		if (_count != null)
-			this._count = _count;
-		if (_desc != null)
-			this._desc = _desc;
-		if (_fn != null)
-			this._fn = _fn;
+@:local @:using(stdgo.time_test.Time_test.T__struct_19_static_extension) private typedef T__struct_19 = {
+	public var _count:GoInt;
+	public var _desc:GoString;
+	public var _fn:() -> Void;
+};
+
+class T__struct_20_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_19(_count, _desc, _fn);
-	}
+	var __self__:Pointer<T__struct_20>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_20 {
-	public var _t:Time = ({} : Time);
-	public var _u:Time = ({} : Time);
-	public var _d:Duration = ((0 : GoInt64) : Duration);
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_20_asInterface) class T__struct_20_static_extension {}
 
-	public function new(?_t:Time, ?_u:Time, ?_d:Duration) {
-		if (_t != null)
-			this._t = _t;
-		if (_u != null)
-			this._u = _u;
-		if (_d != null)
-			this._d = _d;
+@:local @:using(stdgo.time_test.Time_test.T__struct_20_static_extension) private typedef T__struct_20 = {
+	public var _t:Time;
+	public var _u:Time;
+	public var _d:Duration;
+};
+
+class T__struct_21_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_20(_t, _u, _d);
-	}
+	var __self__:Pointer<T__struct_21>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_21 {
-	public var _d:Duration = ((0 : GoInt64) : Duration);
-	public var _want:GoInt64 = 0;
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_21_asInterface) class T__struct_21_static_extension {}
 
-	public function new(?_d:Duration, ?_want:GoInt64) {
-		if (_d != null)
-			this._d = _d;
-		if (_want != null)
-			this._want = _want;
+@:local @:using(stdgo.time_test.Time_test.T__struct_21_static_extension) private typedef T__struct_21 = {
+	public var _d:Duration;
+	public var _want:GoInt64;
+};
+
+class T__struct_22_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_21(_d, _want);
-	}
+	var __self__:Pointer<T__struct_22>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_22 {
-	public var _d:Duration = ((0 : GoInt64) : Duration);
-	public var _want:GoFloat64 = 0;
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_22_asInterface) class T__struct_22_static_extension {}
 
-	public function new(?_d:Duration, ?_want:GoFloat64) {
-		if (_d != null)
-			this._d = _d;
-		if (_want != null)
-			this._want = _want;
+@:local @:using(stdgo.time_test.Time_test.T__struct_22_static_extension) private typedef T__struct_22 = {
+	public var _d:Duration;
+	public var _want:GoFloat64;
+};
+
+class T__struct_23_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_22(_d, _want);
-	}
+	var __self__:Pointer<T__struct_23>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_23 {
-	public var _d:Duration = ((0 : GoInt64) : Duration);
-	public var _m:Duration = ((0 : GoInt64) : Duration);
-	public var _want:Duration = ((0 : GoInt64) : Duration);
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_23_asInterface) class T__struct_23_static_extension {}
 
-	public function new(?_d:Duration, ?_m:Duration, ?_want:Duration) {
-		if (_d != null)
-			this._d = _d;
-		if (_m != null)
-			this._m = _m;
-		if (_want != null)
-			this._want = _want;
+@:local @:using(stdgo.time_test.Time_test.T__struct_23_static_extension) private typedef T__struct_23 = {
+	public var _d:Duration;
+	public var _m:Duration;
+	public var _want:Duration;
+};
+
+class T__struct_24_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_23(_d, _m, _want);
-	}
+	var __self__:Pointer<T__struct_24>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_24 {
-	public var _d:Duration = ((0 : GoInt64) : Duration);
-	public var _want:Duration = ((0 : GoInt64) : Duration);
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_24_asInterface) class T__struct_24_static_extension {}
 
-	public function new(?_d:Duration, ?_want:Duration) {
-		if (_d != null)
-			this._d = _d;
-		if (_want != null)
-			this._want = _want;
+@:local @:using(stdgo.time_test.Time_test.T__struct_24_static_extension) private typedef T__struct_24 = {
+	public var _d:Duration;
+	public var _want:Duration;
+};
+
+class T__struct_25_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_24(_d, _want);
-	}
+	var __self__:Pointer<T__struct_25>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_25 {
-	public var _name:GoString = "";
-	public var _f:(Time, Time) -> Bool = null;
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_25_asInterface) class T__struct_25_static_extension {}
 
-	public function new(?_name:GoString, ?_f:(Time, Time) -> Bool) {
-		if (_name != null)
-			this._name = _name;
-		if (_f != null)
-			this._f = _f;
+@:local @:using(stdgo.time_test.Time_test.T__struct_25_static_extension) private typedef T__struct_25 = {
+	public var _name:GoString;
+	public var _f:(Time, Time) -> Bool;
+};
+
+class T__struct_26_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_25(_name, _f);
-	}
+	var __self__:Pointer<T__struct_26>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_26 {
-	public var _time:Time = ({} : Time);
-	public var _want:Bool = false;
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_26_asInterface) class T__struct_26_static_extension {}
 
-	public function new(?_time:Time, ?_want:Bool) {
-		if (_time != null)
-			this._time = _time;
-		if (_want != null)
-			this._want = _want;
+@:local @:using(stdgo.time_test.Time_test.T__struct_26_static_extension) private typedef T__struct_26 = {
+	public var _time:Time;
+	public var _want:Bool;
+};
+
+class T__struct_27_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_26(_time, _want);
-	}
+	var __self__:Pointer<T__struct_27>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_27 {
-	public var _give:Time = ({} : Time);
-	public var _want:Time = ({} : Time);
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_27_asInterface) class T__struct_27_static_extension {}
 
-	public function new(?_give:Time, ?_want:Time) {
-		if (_give != null)
-			this._give = _give;
-		if (_want != null)
-			this._want = _want;
+@:local @:using(stdgo.time_test.Time_test.T__struct_27_static_extension) private typedef T__struct_27 = {
+	public var _give:Time;
+	public var _want:Time;
+};
+
+class T__struct_28_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_27(_give, _want);
-	}
+	var __self__:Pointer<T__struct_28>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_28 {
-	public var _giveTime:Time = ({} : Time);
-	public var _wantStart:Time = ({} : Time);
-	public var _wantEnd:Time = ({} : Time);
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_28_asInterface) class T__struct_28_static_extension {}
 
-	public function new(?_giveTime:Time, ?_wantStart:Time, ?_wantEnd:Time) {
-		if (_giveTime != null)
-			this._giveTime = _giveTime;
-		if (_wantStart != null)
-			this._wantStart = _wantStart;
-		if (_wantEnd != null)
-			this._wantEnd = _wantEnd;
+@:local @:using(stdgo.time_test.Time_test.T__struct_28_static_extension) private typedef T__struct_28 = {
+	public var _giveTime:Time;
+	public var _wantStart:Time;
+	public var _wantEnd:Time;
+};
+
+class T__struct_29_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_28(_giveTime, _wantStart, _wantEnd);
-	}
+	var __self__:Pointer<T__struct_29>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_29 {
-	public var _zone:GoString = "";
-	public var _unix:GoInt64 = 0;
-	public var _want1:GoString = "";
-	public var _want2:GoString = "";
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_29_asInterface) class T__struct_29_static_extension {}
 
-	public function new(?_zone:GoString, ?_unix:GoInt64, ?_want1:GoString, ?_want2:GoString) {
-		if (_zone != null)
-			this._zone = _zone;
-		if (_unix != null)
-			this._unix = _unix;
-		if (_want1 != null)
-			this._want1 = _want1;
-		if (_want2 != null)
-			this._want2 = _want2;
+@:local @:using(stdgo.time_test.Time_test.T__struct_29_static_extension) private typedef T__struct_29 = {
+	public var _zone:GoString;
+	public var _unix:GoInt64;
+	public var _want1:GoString;
+	public var _want2:GoString;
+};
+
+class T__struct_30_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_29(_zone, _unix, _want1, _want2);
-	}
+	var __self__:Pointer<T__struct_30>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_30 {
-	public var _zoneName:GoString = "";
-	public var _fileName:GoString = "";
-	public var _date:Ref<Location>->Time = null;
-	public var _wantName:GoString = "";
-	public var _wantOffset:GoInt = 0;
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_30_asInterface) class T__struct_30_static_extension {}
 
-	public function new(?_zoneName:GoString, ?_fileName:GoString, ?_date:Ref<Location>->Time, ?_wantName:GoString, ?_wantOffset:GoInt) {
-		if (_zoneName != null)
-			this._zoneName = _zoneName;
-		if (_fileName != null)
-			this._fileName = _fileName;
-		if (_date != null)
-			this._date = _date;
-		if (_wantName != null)
-			this._wantName = _wantName;
-		if (_wantOffset != null)
-			this._wantOffset = _wantOffset;
+@:local @:using(stdgo.time_test.Time_test.T__struct_30_static_extension) private typedef T__struct_30 = {
+	public var _zoneName:GoString;
+	public var _fileName:GoString;
+	public var _date:Ref<Location>->Time;
+	public var _wantName:GoString;
+	public var _wantOffset:GoInt;
+};
+
+class T__struct_31_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_30(_zoneName, _fileName, _date, _wantName, _wantOffset);
-	}
+	var __self__:Pointer<T__struct_31>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_31 {
-	public var _inStr:GoString = "";
-	public var _inEnd:GoInt64 = 0;
-	public var _inSec:GoInt64 = 0;
-	public var _name:GoString = "";
-	public var _off:GoInt = 0;
-	public var _start:GoInt64 = 0;
-	public var _end:GoInt64 = 0;
-	public var _isDST:Bool = false;
-	public var _ok:Bool = false;
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_31_asInterface) class T__struct_31_static_extension {}
 
-	public function new(?_inStr:GoString, ?_inEnd:GoInt64, ?_inSec:GoInt64, ?_name:GoString, ?_off:GoInt, ?_start:GoInt64, ?_end:GoInt64, ?_isDST:Bool,
-			?_ok:Bool) {
-		if (_inStr != null)
-			this._inStr = _inStr;
-		if (_inEnd != null)
-			this._inEnd = _inEnd;
-		if (_inSec != null)
-			this._inSec = _inSec;
-		if (_name != null)
-			this._name = _name;
-		if (_off != null)
-			this._off = _off;
-		if (_start != null)
-			this._start = _start;
-		if (_end != null)
-			this._end = _end;
-		if (_isDST != null)
-			this._isDST = _isDST;
-		if (_ok != null)
-			this._ok = _ok;
+@:local @:using(stdgo.time_test.Time_test.T__struct_31_static_extension) private typedef T__struct_31 = {
+	public var _inStr:GoString;
+	public var _inEnd:GoInt64;
+	public var _inSec:GoInt64;
+	public var _name:GoString;
+	public var _off:GoInt;
+	public var _start:GoInt64;
+	public var _end:GoInt64;
+	public var _isDST:Bool;
+	public var _ok:Bool;
+};
+
+class T__struct_32_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_31(_inStr, _inEnd, _inSec, _name, _off, _start, _end, _isDST, _ok);
-	}
+	var __self__:Pointer<T__struct_32>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_32 {
-	public var _in:GoString = "";
-	public var _name:GoString = "";
-	public var _out:GoString = "";
-	public var _ok:Bool = false;
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_32_asInterface) class T__struct_32_static_extension {}
 
-	public function new(?_in:GoString, ?_name:GoString, ?_out:GoString, ?_ok:Bool) {
-		if (_in != null)
-			this._in = _in;
-		if (_name != null)
-			this._name = _name;
-		if (_out != null)
-			this._out = _out;
-		if (_ok != null)
-			this._ok = _ok;
+@:local @:using(stdgo.time_test.Time_test.T__struct_32_static_extension) private typedef T__struct_32 = {
+	public var _in:GoString;
+	public var _name:GoString;
+	public var _out:GoString;
+	public var _ok:Bool;
+};
+
+class T__struct_33_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_32(_in, _name, _out, _ok);
-	}
+	var __self__:Pointer<T__struct_33>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_33 {
-	public var _in:GoString = "";
-	public var _off:GoInt = 0;
-	public var _out:GoString = "";
-	public var _ok:Bool = false;
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_33_asInterface) class T__struct_33_static_extension {}
 
-	public function new(?_in:GoString, ?_off:GoInt, ?_out:GoString, ?_ok:Bool) {
-		if (_in != null)
-			this._in = _in;
-		if (_off != null)
-			this._off = _off;
-		if (_out != null)
-			this._out = _out;
-		if (_ok != null)
-			this._ok = _ok;
+@:local @:using(stdgo.time_test.Time_test.T__struct_33_static_extension) private typedef T__struct_33 = {
+	public var _in:GoString;
+	public var _off:GoInt;
+	public var _out:GoString;
+	public var _ok:Bool;
+};
+
+class T__struct_34_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_33(_in, _off, _out, _ok);
-	}
+	var __self__:Pointer<T__struct_34>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_34 {
-	public var _in:GoString = "";
-	public var _r:Rule = ({} : Rule);
-	public var _out:GoString = "";
-	public var _ok:Bool = false;
+@:keep @:allow(stdgo.time_test.Time_test.T__struct_34_asInterface) class T__struct_34_static_extension {}
 
-	public function new(?_in:GoString, ?_r:Rule, ?_out:GoString, ?_ok:Bool) {
-		if (_in != null)
-			this._in = _in;
-		if (_r != null)
-			this._r = _r;
-		if (_out != null)
-			this._out = _out;
-		if (_ok != null)
-			this._ok = _ok;
-	}
-
-	public function __underlying__()
-		return Go.toInterface(this);
-
-	public function __copy__() {
-		return new T__struct_34(_in, _r, _out, _ok);
-	}
-}
+@:local @:using(stdgo.time_test.Time_test.T__struct_34_static_extension) private typedef T__struct_34 = {
+	public var _in:GoString;
+	public var _r:Rule;
+	public var _out:GoString;
+	public var _ok:Bool;
+};
 
 function _expensiveCall():Void {}
 
@@ -2537,8 +2606,8 @@ function exampleDuration_Round():Void {
 }
 
 function exampleDuration_String():Void {
-	stdgo.fmt.Fmt.println((("3720300000000" : GoInt64) : Duration));
-	stdgo.fmt.Fmt.println((("300000000" : GoInt64) : Duration));
+	stdgo.fmt.Fmt.println(Go.toInterface(Go.asInterface((("3720300000000" : GoInt64) : Duration))));
+	stdgo.fmt.Fmt.println(Go.toInterface(Go.asInterface((("300000000" : GoInt64) : Duration))));
 }
 
 function exampleDuration_Truncate():Void {
@@ -2569,8 +2638,8 @@ function exampleParseDuration():Void {
 	var __tmp__ = stdgo.time.Time.parseDuration(Go.str("1us")),
 		_micro2:Duration = __tmp__._0,
 		_3:Error = __tmp__._1;
-	stdgo.fmt.Fmt.println(_hours);
-	stdgo.fmt.Fmt.println(_complex);
+	stdgo.fmt.Fmt.println(Go.toInterface(Go.asInterface(_hours)));
+	stdgo.fmt.Fmt.println(Go.toInterface(Go.asInterface(_complex)));
 	stdgo.fmt.Fmt.printf(Go.str("There are %.0f seconds in %v.\n"), Go.toInterface(_complex.seconds()), Go.toInterface(Go.asInterface(_complex)));
 	stdgo.fmt.Fmt.printf(Go.str("There are %d nanoseconds in %v.\n"), Go.toInterface(_micro.nanoseconds()), Go.toInterface(Go.asInterface(_micro)));
 	stdgo.fmt.Fmt.printf(Go.str("There are %6.2e seconds in %v.\n"), Go.toInterface(_micro2.seconds()), Go.toInterface(Go.asInterface(_micro)));
@@ -2623,7 +2692,7 @@ function _handle(_0:GoInt):Void {}
 function exampleAfter():Void {
 	Go.select([
 		stdgo.time.Time.after((("10000000000" : GoInt64) : Duration)).__get__() => {
-			stdgo.fmt.Fmt.println(Go.str("timed out"));
+			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("timed out")));
 		},
 		var _m = _c.__get__() => {
 			_handle(_m);
@@ -2652,7 +2721,7 @@ function exampleMonth():Void {
 		_month:Month = __tmp__._1,
 		_day:GoInt = __tmp__._2;
 	if ((_month == (11 : Month)) && (_day == (10 : GoInt))) {
-		stdgo.fmt.Fmt.println(Go.str("Happy Go day!"));
+		stdgo.fmt.Fmt.println(Go.toInterface(Go.str("Happy Go day!")));
 	};
 }
 
@@ -2680,10 +2749,10 @@ function exampleNewTicker():Void {
 		while (true) {
 			Go.select([
 				var _t = _ticker.c.__get__() => {
-					stdgo.fmt.Fmt.println(Go.str("Current time: "), _t);
+					stdgo.fmt.Fmt.println(Go.toInterface(Go.str("Current time: ")), Go.toInterface(Go.asInterface(_t)));
 				}, _done
 				.__get__() => {
-					stdgo.fmt.Fmt.println(Go.str("Done!"));
+					stdgo.fmt.Fmt.println(Go.toInterface(Go.str("Done!")));
 					{
 						for (defer in __deferstack__) {
 							defer();
@@ -2730,11 +2799,12 @@ function exampleTime_Format():Void {
 	if (_err != null) {
 		throw Go.toInterface(_err);
 	};
-	stdgo.fmt.Fmt.println(Go.str("default format:"), _t);
-	stdgo.fmt.Fmt.println(Go.str("Unix format:"), _t.format(Go.str("Mon Jan _2 15:04:05 MST 2006")));
-	stdgo.fmt.Fmt.println(Go.str("Same, in UTC:"), _t.utc().format(Go.str("Mon Jan _2 15:04:05 MST 2006")));
-	stdgo.fmt.Fmt.println(Go.str("in Shanghai with seconds:"), _t.in_(_tz).format(Go.str("2006-01-02T15:04:05 -070000")));
-	stdgo.fmt.Fmt.println(Go.str("in Shanghai with colon seconds:"), _t.in_(_tz).format(Go.str("2006-01-02T15:04:05 -07:00:00")));
+	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("default format:")), Go.toInterface(Go.asInterface(_t)));
+	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("Unix format:")), Go.toInterface(_t.format(Go.str("Mon Jan _2 15:04:05 MST 2006"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("Same, in UTC:")), Go.toInterface(_t.utc().format(Go.str("Mon Jan _2 15:04:05 MST 2006"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("in Shanghai with seconds:")), Go.toInterface(_t.in_(_tz).format(Go.str("2006-01-02T15:04:05 -070000"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("in Shanghai with colon seconds:")),
+		Go.toInterface(_t.in_(_tz).format(Go.str("2006-01-02T15:04:05 -07:00:00"))));
 	var _do:(GoString, GoString, GoString) -> Void = function(_name:GoString, _layout:GoString, _want:GoString):Void {
 		var _got:GoString = _t.format(_layout);
 		if (_want != (_got)) {
@@ -2787,16 +2857,16 @@ function exampleTime_GoString():Void {
 		stdgo.time.Time.utc) == null ? null : stdgo.time.Time.date((2009 : GoInt), (11 : Month), (10 : GoInt), (23 : GoInt), (0 : GoInt), (0 : GoInt),
 			(0 : GoInt), stdgo.time.Time.utc)
 		.__copy__());
-	stdgo.fmt.Fmt.println(_t.goString());
+	stdgo.fmt.Fmt.println(Go.toInterface(_t.goString()));
 	_t = (_t.add((("60000000000" : GoInt64) : Duration)) == null ? null : _t.add((("60000000000" : GoInt64) : Duration)).__copy__());
-	stdgo.fmt.Fmt.println(_t.goString());
+	stdgo.fmt.Fmt.println(Go.toInterface(_t.goString()));
 	_t = (_t.addDate((0 : GoInt), (1 : GoInt), (0 : GoInt)) == null ? null : _t.addDate((0 : GoInt), (1 : GoInt), (0 : GoInt)).__copy__());
-	stdgo.fmt.Fmt.println(_t.goString());
+	stdgo.fmt.Fmt.println(Go.toInterface(_t.goString()));
 	{
 		var __tmp__ = stdgo.time.Time.parse(Go.str("Jan 2, 2006 at 3:04pm (MST)"), Go.str("Feb 3, 2013 at 7:54pm (UTC)"));
 		_t = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
 	};
-	stdgo.fmt.Fmt.println(_t.goString());
+	stdgo.fmt.Fmt.println(Go.toInterface(_t.goString()));
 }
 
 function exampleParse():Void {
@@ -2804,27 +2874,27 @@ function exampleParse():Void {
 	var __tmp__ = stdgo.time.Time.parse(Go.str("Jan 2, 2006 at 3:04pm (MST)"), Go.str("Feb 3, 2013 at 7:54pm (PST)")),
 		_t:Time = __tmp__._0,
 		_0:Error = __tmp__._1;
-	stdgo.fmt.Fmt.println(_t);
+	stdgo.fmt.Fmt.println(Go.toInterface(Go.asInterface(_t)));
 	{};
 	{
 		var __tmp__ = stdgo.time.Time.parse(Go.str("2006-Jan-02"), Go.str("2013-Feb-03"));
 		_t = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
 	};
-	stdgo.fmt.Fmt.println(_t);
+	stdgo.fmt.Fmt.println(Go.toInterface(Go.asInterface(_t)));
 	{
 		var __tmp__ = stdgo.time.Time.parse(Go.str("2006-01-02T15:04:05Z07:00"), Go.str("2006-01-02T15:04:05Z"));
 		_t = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
 	};
-	stdgo.fmt.Fmt.println(_t);
+	stdgo.fmt.Fmt.println(Go.toInterface(Go.asInterface(_t)));
 	{
 		var __tmp__ = stdgo.time.Time.parse(Go.str("2006-01-02T15:04:05Z07:00"), Go.str("2006-01-02T15:04:05+07:00"));
 		_t = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
 	};
-	stdgo.fmt.Fmt.println(_t);
+	stdgo.fmt.Fmt.println(Go.toInterface(Go.asInterface(_t)));
 	var __tmp__ = stdgo.time.Time.parse(Go.str("2006-01-02T15:04:05Z07:00"), Go.str("2006-01-02T15:04:05Z07:00")),
 		_1:Time = __tmp__._0,
 		_err:Error = __tmp__._1;
-	stdgo.fmt.Fmt.println(Go.str("error"), _err);
+	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("error")), Go.toInterface(_err));
 }
 
 function exampleParseInLocation():Void {
@@ -2835,13 +2905,13 @@ function exampleParseInLocation():Void {
 	var __tmp__ = stdgo.time.Time.parseInLocation(Go.str("Jan 2, 2006 at 3:04pm (MST)"), Go.str("Jul 9, 2012 at 5:02am (CEST)"), _loc),
 		_t:Time = __tmp__._0,
 		_1:Error = __tmp__._1;
-	stdgo.fmt.Fmt.println(_t);
+	stdgo.fmt.Fmt.println(Go.toInterface(Go.asInterface(_t)));
 	{};
 	{
 		var __tmp__ = stdgo.time.Time.parseInLocation(Go.str("2006-Jan-02"), Go.str("2012-Jul-09"), _loc);
 		_t = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
 	};
-	stdgo.fmt.Fmt.println(_t);
+	stdgo.fmt.Fmt.println(Go.toInterface(Go.asInterface(_t)));
 }
 
 function exampleUnix():Void {
@@ -2849,12 +2919,12 @@ function exampleUnix():Void {
 		stdgo.time.Time.utc) == null ? null : stdgo.time.Time.date((2009 : GoInt), (11 : Month), (10 : GoInt), (23 : GoInt), (0 : GoInt), (0 : GoInt),
 			(0 : GoInt), stdgo.time.Time.utc)
 		.__copy__());
-	stdgo.fmt.Fmt.println(_unixTime.unix());
+	stdgo.fmt.Fmt.println(Go.toInterface(_unixTime.unix()));
 	var _t:Time = (stdgo.time.Time.unix(_unixTime.unix(), ("0" : GoInt64))
 		.utc() == null ? null : stdgo.time.Time.unix(_unixTime.unix(), ("0" : GoInt64))
 		.utc()
 		.__copy__());
-	stdgo.fmt.Fmt.println(_t);
+	stdgo.fmt.Fmt.println(Go.toInterface(Go.asInterface(_t)));
 }
 
 function exampleUnixMicro():Void {
@@ -2862,12 +2932,12 @@ function exampleUnixMicro():Void {
 		stdgo.time.Time.utc) == null ? null : stdgo.time.Time.date((2009 : GoInt), (11 : Month), (10 : GoInt), (23 : GoInt), (0 : GoInt), (0 : GoInt),
 			(0 : GoInt), stdgo.time.Time.utc)
 		.__copy__());
-	stdgo.fmt.Fmt.println(_umt.unixMicro());
+	stdgo.fmt.Fmt.println(Go.toInterface(_umt.unixMicro()));
 	var _t:Time = (stdgo.time.Time.unixMicro(_umt.unixMicro())
 		.utc() == null ? null : stdgo.time.Time.unixMicro(_umt.unixMicro())
 		.utc()
 		.__copy__());
-	stdgo.fmt.Fmt.println(_t);
+	stdgo.fmt.Fmt.println(Go.toInterface(Go.asInterface(_t)));
 }
 
 function exampleUnixMilli():Void {
@@ -2875,24 +2945,24 @@ function exampleUnixMilli():Void {
 		stdgo.time.Time.utc) == null ? null : stdgo.time.Time.date((2009 : GoInt), (11 : Month), (10 : GoInt), (23 : GoInt), (0 : GoInt), (0 : GoInt),
 			(0 : GoInt), stdgo.time.Time.utc)
 		.__copy__());
-	stdgo.fmt.Fmt.println(_umt.unixMilli());
+	stdgo.fmt.Fmt.println(Go.toInterface(_umt.unixMilli()));
 	var _t:Time = (stdgo.time.Time.unixMilli(_umt.unixMilli())
 		.utc() == null ? null : stdgo.time.Time.unixMilli(_umt.unixMilli())
 		.utc()
 		.__copy__());
-	stdgo.fmt.Fmt.println(_t);
+	stdgo.fmt.Fmt.println(Go.toInterface(Go.asInterface(_t)));
 }
 
 function exampleTime_Unix():Void {
-	stdgo.fmt.Fmt.println(stdgo.time.Time.unix(("1000000000" : GoInt64), ("0" : GoInt64)).utc());
-	stdgo.fmt.Fmt.println(stdgo.time.Time.unix(("0" : GoInt64), ("1000000000000000000" : GoInt64)).utc());
-	stdgo.fmt.Fmt.println(stdgo.time.Time.unix(("2000000000" : GoInt64), ("-1000000000000000000" : GoInt64)).utc());
+	stdgo.fmt.Fmt.println(Go.toInterface(Go.asInterface(stdgo.time.Time.unix(("1000000000" : GoInt64), ("0" : GoInt64)).utc())));
+	stdgo.fmt.Fmt.println(Go.toInterface(Go.asInterface(stdgo.time.Time.unix(("0" : GoInt64), ("1000000000000000000" : GoInt64)).utc())));
+	stdgo.fmt.Fmt.println(Go.toInterface(Go.asInterface(stdgo.time.Time.unix(("2000000000" : GoInt64), ("-1000000000000000000" : GoInt64)).utc())));
 	var _t:Time = (stdgo.time.Time.date((2001 : GoInt), (9 : Month), (9 : GoInt), (1 : GoInt), (46 : GoInt), (40 : GoInt), (0 : GoInt),
 		stdgo.time.Time.utc) == null ? null : stdgo.time.Time.date((2001 : GoInt), (9 : Month), (9 : GoInt), (1 : GoInt), (46 : GoInt), (40 : GoInt),
 			(0 : GoInt), stdgo.time.Time.utc)
 		.__copy__());
-	stdgo.fmt.Fmt.println(_t.unix());
-	stdgo.fmt.Fmt.println(_t.unixNano());
+	stdgo.fmt.Fmt.println(Go.toInterface(_t.unix()));
+	stdgo.fmt.Fmt.println(Go.toInterface(_t.unixNano()));
 }
 
 function exampleTime_Round():Void {
@@ -2938,7 +3008,7 @@ function exampleLoadLocation():Void {
 		stdgo.time.Time.utc) == null ? null : stdgo.time.Time.date((2018 : GoInt), (8 : Month), (30 : GoInt), (12 : GoInt), (0 : GoInt), (0 : GoInt),
 			(0 : GoInt), stdgo.time.Time.utc)
 		.__copy__());
-	stdgo.fmt.Fmt.println(_timeInUTC.in_(_location));
+	stdgo.fmt.Fmt.println(Go.toInterface(Go.asInterface(_timeInUTC.in_(_location))));
 }
 
 function exampleLocation():Void {
@@ -2953,7 +3023,7 @@ function exampleLocation():Void {
 			_beijing)
 		.__copy__());
 	var _timesAreEqual:Bool = _timeInUTC.equal((_sameTimeInBeijing == null ? null : _sameTimeInBeijing.__copy__()));
-	stdgo.fmt.Fmt.println(_timesAreEqual);
+	stdgo.fmt.Fmt.println(Go.toInterface(_timesAreEqual));
 }
 
 function exampleTime_Add():Void {
@@ -3097,7 +3167,7 @@ function exampleTime_AppendFormat():Void {
 		.__copy__());
 	var _text = (Go.str("Time: ") : Slice<GoByte>);
 	_text = _t.appendFormat(_text, Go.str("3:04PM"));
-	stdgo.fmt.Fmt.println((_text : GoString));
+	stdgo.fmt.Fmt.println(Go.toInterface((_text : GoString)));
 }
 
 function exampleFixedZone():Void {
@@ -3105,7 +3175,7 @@ function exampleFixedZone():Void {
 	var _t:Time = (stdgo.time.Time.date((2009 : GoInt), (11 : Month), (10 : GoInt), (23 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt),
 		_loc) == null ? null : stdgo.time.Time.date((2009 : GoInt), (11 : Month), (10 : GoInt), (23 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt), _loc)
 		.__copy__());
-	stdgo.fmt.Fmt.println(Go.str("The time is:"), _t.format(Go.str("02 Jan 06 15:04 MST")));
+	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("The time is:")), Go.toInterface(_t.format(Go.str("02 Jan 06 15:04 MST"))));
 }
 
 function testNextStdChunk(_t:Ref<stdgo.testing.Testing.T>):Void {
@@ -4121,9 +4191,9 @@ function _benchmark(_b:Ref<stdgo.testing.Testing.B>, _bench:(_n:GoInt) -> Void):
 				try {
 					var _garbage = new Slice<Ref<Timer>>((32768 : GoInt).toBasic(), 0, ...[for (i in 0...(32768 : GoInt).toBasic()) (null : Ref<Timer>)]);
 					for (_j in 0..._garbage.length.toBasic()) {
-						_garbage[_j] = afterFunc((("3600000000000" : GoInt64) : Duration), null);
+						_garbage[(_j : GoInt)] = afterFunc((("3600000000000" : GoInt64) : Duration), null);
 					};
-					_garbageAll[_i] = _garbage;
+					_garbageAll[(_i : GoInt)] = _garbage;
 					for (defer in __deferstack__) {
 						defer();
 					};
@@ -4224,13 +4294,13 @@ function benchmarkStartStop(_b:Ref<stdgo.testing.Testing.B>):Void {
 		{
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_i < _n, _i++, {
-				_timers[_i] = afterFunc((("3600000000000" : GoInt64) : Duration), null);
+				_timers[(_i : GoInt)] = afterFunc((("3600000000000" : GoInt64) : Duration), null);
 			});
 		};
 		{
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_i < _n, _i++, {
-				_timers[_i].stop();
+				_timers[(_i : GoInt)].stop();
 			});
 		};
 	});
@@ -4410,13 +4480,13 @@ function _testAfterQueuing(_delta:Duration):Error {
 		_times = _times.__appendref__((_r._t == null ? null : _r._t.__copy__()));
 	};
 	for (_i in 0..._order.length.toBasic()) {
-		if ((_i > (0 : GoInt)) && (_order[_i] < _order[_i - (1 : GoInt)])) {
+		if ((_i > (0 : GoInt)) && (_order[(_i : GoInt)] < _order[(_i - (1 : GoInt) : GoInt)])) {
 			return stdgo.fmt.Fmt.errorf(Go.str("After calls returned out of order: %v"), Go.toInterface(_order));
 		};
 	};
 	for (_i => _t in _times) {
 		var _dt:Duration = _t.sub((_t0 == null ? null : _t0.__copy__()));
-		var _target:Duration = (_order[_i] : Duration) * _delta;
+		var _target:Duration = (_order[(_i : GoInt)] : Duration) * _delta;
 		if ((_dt < (_target - (_delta / (("2" : GoInt64) : Duration)))) || (_dt > (_target + (_delta * (("10" : GoInt64) : Duration))))) {
 			return stdgo.fmt.Fmt.errorf(Go.str("After(%s) arrived at %s, expected [%s,%s]"), Go.toInterface(Go.asInterface(_target)),
 				Go.toInterface(Go.asInterface(_dt)), Go.toInterface(Go.asInterface(_target - (_delta / (("2" : GoInt64) : Duration)))),
@@ -4821,12 +4891,12 @@ function testAdjustTimers(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _indices = _rnd.perm((_timers.length));
 	while ((_indices.length) != ((0 : GoInt))) {
 		var _ii:GoInt = _rnd.intn((_indices.length));
-		var _i:GoInt = _indices[_ii];
-		var _timer:Ref<Timer> = _timers[_i];
-		var _state:GoInt = _states[_i];
-		_states[_i]++;
+		var _i:GoInt = _indices[(_ii : GoInt)];
+		var _timer:Ref<Timer> = _timers[(_i : GoInt)];
+		var _state:GoInt = _states[(_i : GoInt)];
+		_states[(_i : GoInt)]++;
 		if (_state == ((0 : GoInt))) {
-			_timers[_i] = newTimer((("0" : GoInt64) : Duration));
+			_timers[(_i : GoInt)] = newTimer((("0" : GoInt64) : Duration));
 		} else if (_state == ((1 : GoInt))) {
 			_timer.c.__get__();
 		} else if (_state == ((2 : GoInt))) {
@@ -4858,7 +4928,7 @@ function testAdjustTimers(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_t.errorf(Go.str("timer %d took %v to complete"), Go.toInterface(_i), Go.toInterface(Go.asInterface(_dur)));
 			};
 		} else if (_state == ((10 : GoInt))) {
-			_indices[_ii] = _indices[(_indices.length) - (1 : GoInt)];
+			_indices[(_ii : GoInt)] = _indices[((_indices.length) - (1 : GoInt) : GoInt)];
 			_indices = (_indices.__slice__(0, (_indices.length) - (1 : GoInt)) : Slice<GoInt>);
 		};
 	};
@@ -4903,10 +4973,10 @@ function benchmarkParallelTimerLatency(_b:Ref<stdgo.testing.Testing.B>):Void {
 						if (_late < (("0" : GoInt64) : Duration)) {
 							_late = (("0" : GoInt64) : Duration);
 						};
-						_stats[_j]._count++;
-						_stats[_j]._sum = _stats[_j]._sum + ((_late.nanoseconds() : GoFloat64));
-						if (_late > _stats[_j]._max) {
-							_stats[_j]._max = _late;
+						_stats[(_j : GoInt)]._count++;
+						_stats[(_j : GoInt)]._sum = _stats[(_j : GoInt)]._sum + ((_late.nanoseconds() : GoFloat64));
+						if (_late > _stats[(_j : GoInt)]._max) {
+							_stats[(_j : GoInt)]._max = _late;
 						};
 						stdgo.sync.atomic.Atomic.addInt32(Go.pointer(_count), (1 : GoInt32));
 						while (stdgo.sync.atomic.Atomic.loadInt32(Go.pointer(_count)) < (_timerCount:GoInt32)) {};
@@ -4980,10 +5050,10 @@ function benchmarkStaggeredTickerLatency(_b:Ref<stdgo.testing.Testing.B>):Void {
 												if (_late < (("0" : GoInt64) : Duration)) {
 													_late = (("0" : GoInt64) : Duration);
 												};
-												_stats[_j]._count++;
-												_stats[_j]._sum = _stats[_j]._sum + ((_late.nanoseconds() : GoFloat64));
-												if (_late > _stats[_j]._max) {
-													_stats[_j]._max = _late;
+												_stats[(_j : GoInt)]._count++;
+												_stats[(_j : GoInt)]._sum = _stats[(_j : GoInt)]._sum + ((_late.nanoseconds() : GoFloat64));
+												if (_late > _stats[(_j : GoInt)]._max) {
+													_stats[(_j : GoInt)]._max = _late;
 												};
 												_expectedWakeup = (_expectedWakeup.add((("3000000" : GoInt64) : Duration)) == null ? null : _expectedWakeup.add((("3000000" : GoInt64) : Duration))
 													.__copy__());

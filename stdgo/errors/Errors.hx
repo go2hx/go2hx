@@ -63,7 +63,8 @@ import stdgo.Chan;
 **/
 private var __go2hxdoc__package:Bool;
 
-private var _errorType:stdgo.internal.reflectlite.Reflectlite.Type = stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface((null : Ref<Error>))).elem();
+private var _errorType:stdgo.internal.reflectlite.Reflectlite.Type = #if !macro stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface((null : Ref<Error>)))
+	.elem() #else null #end;
 
 private typedef T__interface_0 = StructType & {
 	public function unwrap():Error;
@@ -87,6 +88,9 @@ private typedef T__interface_2 = StructType & {
 		if (_s != null)
 			this._s = _s;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_errorString(_s);

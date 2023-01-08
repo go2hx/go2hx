@@ -412,6 +412,9 @@ private typedef T__interface_0 = StructType & {
 			this.err = err;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new PathError(op, path, err);
 	}
@@ -427,6 +430,9 @@ private typedef T__interface_0 = StructType & {
 		if (_fileInfo != null)
 			this._fileInfo = _fileInfo;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_dirInfo(_fileInfo);
@@ -444,6 +450,9 @@ private typedef T__interface_0 = StructType & {
 			this._dir = _dir;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_subFS(_fsys, _dir);
 	}
@@ -456,6 +465,9 @@ private typedef T__interface_0 = StructType & {
 		if (_info != null)
 			this._info = _info;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_statDirEntry(_info);
@@ -543,7 +555,7 @@ function validPath(_name:GoString):Bool {
 	};
 	while (true) {
 		var _i:GoInt = (0 : GoInt);
-		while ((_i < _name.length) && (_name[_i] != (47 : GoUInt8))) {
+		while ((_i < _name.length) && (_name[(_i : GoInt)] != (47 : GoUInt8))) {
 			_i++;
 		};
 		var _elem:GoString = (_name.__slice__(0, _i) : GoString);
@@ -716,7 +728,10 @@ function _hasMeta(_path:GoString):Bool {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_path.length), _i++, {
-			if (_path[_i] == ((42 : GoUInt8)) || _path[_i] == ((63 : GoUInt8)) || _path[_i] == ((91 : GoUInt8)) || _path[_i] == ((92 : GoUInt8))) {
+			if (_path[(_i : GoInt)] == ((42 : GoUInt8))
+				|| _path[(_i : GoInt)] == ((63 : GoUInt8))
+				|| _path[(_i : GoInt)] == ((91 : GoUInt8))
+				|| _path[(_i : GoInt)] == ((92 : GoUInt8))) {
 				return true;
 			};
 		});
@@ -770,7 +785,7 @@ function readDir(_fsys:FS, _name:GoString):{var _0:Slice<DirEntry>; var _1:Error
 			_list:Slice<DirEntry> = __tmp__._0,
 			_err:Error = __tmp__._1;
 		stdgo.sort.Sort.slice(Go.toInterface(_list), function(_i:GoInt, _j:GoInt):Bool {
-			return _list[_i].name() < _list[_j].name();
+			return _list[(_i : GoInt)].name() < _list[(_j : GoInt)].name();
 		});
 		{
 			for (defer in __deferstack__) {
@@ -1268,7 +1283,7 @@ class T_subFS_asInterface {
 					+ Go.str(" not in "))
 					+ _f._dir)};
 			};
-			_list[_i] = _name;
+			_list[(_i : GoInt)] = _name;
 		};
 		return {_0: _list, _1: _f._fixErr(_err)};
 	}
@@ -1349,7 +1364,7 @@ class T_subFS_asInterface {
 		if (_name == (_f._dir)) {
 			return {_0: Go.str("."), _1: true};
 		};
-		if (((_name.length >= (_f._dir.length + (2 : GoInt))) && (_name[(_f._dir.length)] == (47 : GoUInt8)))
+		if (((_name.length >= (_f._dir.length + (2 : GoInt))) && (_name[(_f._dir.length : GoInt)] == (47 : GoUInt8)))
 			&& ((_name.__slice__(0, (_f._dir.length)) : GoString) == _f._dir)) {
 			return {_0: (_name.__slice__((_f._dir.length) + (1 : GoInt)) : GoString), _1: true};
 		};
@@ -1513,20 +1528,20 @@ class FileMode_asInterface {
 		var _w:GoInt = (0 : GoInt);
 		for (_i => _c in Go.str("dalTLDpSugct?")) {
 			if (_m & ((("1" : GoUInt32) : FileMode) << ((31 : GoInt) - _i : GoUInt)) != ((("0" : GoUInt32) : FileMode))) {
-				_buf[_w] = (_c : GoByte);
+				_buf[(_w : GoInt)] = (_c : GoByte);
 				_w++;
 			};
 		};
 		if (_w == ((0 : GoInt))) {
-			_buf[_w] = (45 : GoUInt8);
+			_buf[(_w : GoInt)] = (45 : GoUInt8);
 			_w++;
 		};
 		{};
 		for (_i => _c in Go.str("rwxrwxrwx")) {
 			if (_m & ((("1" : GoUInt32) : FileMode) << ((8 : GoInt) - _i : GoUInt)) != ((("0" : GoUInt32) : FileMode))) {
-				_buf[_w] = (_c : GoByte);
+				_buf[(_w : GoInt)] = (_c : GoByte);
 			} else {
-				_buf[_w] = (45 : GoUInt8);
+				_buf[(_w : GoInt)] = (45 : GoUInt8);
 			};
 			_w++;
 		};

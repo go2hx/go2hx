@@ -66,6 +66,9 @@ private var _surrogateTests:Slice<T__struct_1> = (new Slice<T__struct_1>(0, 0, (
 			this._out = _out;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_encodeTest(_in, _out);
 	}
@@ -82,51 +85,58 @@ private var _surrogateTests:Slice<T__struct_1> = (new Slice<T__struct_1>(0, 0, (
 			this._out = _out;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_decodeTest(_in, _out);
 	}
 }
 
-@:structInit @:local private class T__struct_0 {
-	public var _r1:GoInt32 = 0;
-	public var _r2:GoInt32 = 0;
-	public var _want:GoInt32 = 0;
-
-	public function new(?_r1:GoInt32, ?_r2:GoInt32, ?_want:GoInt32) {
-		if (_r1 != null)
-			this._r1 = _r1;
-		if (_r2 != null)
-			this._r2 = _r2;
-		if (_want != null)
-			this._want = _want;
+class T__struct_0_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_0(_r1, _r2, _want);
-	}
+	var __self__:Pointer<T__struct_0>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_1 {
-	public var _r:GoInt32 = 0;
-	public var _want:Bool = false;
+@:keep @:allow(stdgo.unicode.utf16_test.Utf16_test.T__struct_0_asInterface) class T__struct_0_static_extension {}
 
-	public function new(?_r:GoInt32, ?_want:Bool) {
-		if (_r != null)
-			this._r = _r;
-		if (_want != null)
-			this._want = _want;
+@:local @:using(stdgo.unicode.utf16_test.Utf16_test.T__struct_0_static_extension) private typedef T__struct_0 = {
+	public var _r1:GoInt32;
+	public var _r2:GoInt32;
+	public var _want:GoInt32;
+};
+
+class T__struct_1_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_1(_r, _want);
-	}
+	var __self__:Pointer<T__struct_1>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
+
+@:keep @:allow(stdgo.unicode.utf16_test.Utf16_test.T__struct_1_asInterface) class T__struct_1_static_extension {}
+
+@:local @:using(stdgo.unicode.utf16_test.Utf16_test.T__struct_1_static_extension) private typedef T__struct_1 = {
+	public var _r:GoInt32;
+	public var _want:Bool;
+};
 
 /**
 	// Validate the constants redefined from unicode.
@@ -170,9 +180,9 @@ function testEncodeRune(_t:Ref<stdgo.testing.Testing.T>):Void {
 					_t.errorf(Go.str("#%d: ran out of tt.out"), Go.toInterface(_i));
 					break;
 				};
-				if ((_r1 != (_tt._out[_j] : GoRune)) || (_r2 != (_tt._out[_j + (1 : GoInt)] : GoRune))) {
+				if ((_r1 != (_tt._out[(_j : GoInt)] : GoRune)) || (_r2 != (_tt._out[(_j + (1 : GoInt) : GoInt)] : GoRune))) {
 					_t.errorf(Go.str("EncodeRune(%#x) = %#x, %#x; want %#x, %#x"), Go.toInterface(_r), Go.toInterface(_r1), Go.toInterface(_r2),
-						Go.toInterface(_tt._out[_j]), Go.toInterface(_tt._out[_j + (1 : GoInt)]));
+						Go.toInterface(_tt._out[(_j : GoInt)]), Go.toInterface(_tt._out[(_j + (1 : GoInt) : GoInt)]));
 				};
 				_j = _j + ((2 : GoInt));
 				var _dec:GoInt32 = decodeRune(_r1, _r2);
@@ -245,8 +255,8 @@ function benchmarkDecodeRune(_b:Ref<stdgo.testing.Testing.B>):Void {
 		(120020 : GoInt32)) : Slice<GoInt32>)) {
 		{
 			var __tmp__ = encodeRune(_u);
-			_rs[(2 : GoInt) * _i] = __tmp__._0;
-			_rs[((2 : GoInt) * _i) + (1 : GoInt)] = __tmp__._1;
+			_rs[((2 : GoInt) * _i : GoInt)] = __tmp__._0;
+			_rs[(((2 : GoInt) * _i) + (1 : GoInt) : GoInt)] = __tmp__._1;
 		};
 	};
 	_b.resetTimer();
@@ -256,7 +266,7 @@ function benchmarkDecodeRune(_b:Ref<stdgo.testing.Testing.B>):Void {
 			{
 				var _j:GoInt = (0 : GoInt);
 				Go.cfor(_j < (5:GoInt), _j++, {
-					decodeRune(_rs[(2 : GoInt) * _j], _rs[((2 : GoInt) * _j) + (1 : GoInt)]);
+					decodeRune(_rs[((2 : GoInt) * _j : GoInt)], _rs[(((2 : GoInt) * _j) + (1 : GoInt) : GoInt)]);
 				});
 			};
 		});

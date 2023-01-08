@@ -166,6 +166,9 @@ typedef Locker = StructType & {
 			this._checker = _checker;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new Cond(_noCopy, l, _notify, _checker);
 	}
@@ -182,6 +185,9 @@ typedef Locker = StructType & {
 **/
 @:structInit @:using(stdgo.sync.Sync.T_noCopy_static_extension) private class T_noCopy {
 	public function new() {}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_noCopy();
@@ -263,6 +269,9 @@ typedef Locker = StructType & {
 			this._misses = _misses;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new Map_(_mu, _read, _dirty, _misses);
 	}
@@ -285,6 +294,9 @@ typedef Locker = StructType & {
 		if (_amended != null)
 			this._amended = _amended;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_readOnly(_m, _amended);
@@ -323,6 +335,9 @@ typedef Locker = StructType & {
 			this._p = _p;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_entry(_p);
 	}
@@ -357,6 +372,9 @@ typedef Locker = StructType & {
 			this.mutex = mutex;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new Mutex(_state, _sema, mutex);
 	}
@@ -389,6 +407,9 @@ typedef Locker = StructType & {
 		if (_m != null)
 			this._m = _m;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new Once(_done, _m);
@@ -483,6 +504,9 @@ typedef Locker = StructType & {
 			this.pool = pool;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new Pool(_noCopy, _local, _localSize, _victim, _victimSize, new_, pool);
 	}
@@ -509,6 +533,9 @@ typedef Locker = StructType & {
 			this._shared = _shared;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_poolLocalInternal(_private, _shared);
 	}
@@ -530,6 +557,9 @@ typedef Locker = StructType & {
 		if (_pad != null)
 			this._pad = _pad;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_poolLocal(_poolLocalInternal, _pad);
@@ -583,6 +613,9 @@ typedef Locker = StructType & {
 			this._vals = _vals;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_poolDequeue(_headTail, _vals);
 	}
@@ -598,6 +631,9 @@ typedef Locker = StructType & {
 		if (_val != null)
 			this._val = _val;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_eface(_typ, _val);
@@ -633,6 +669,9 @@ typedef Locker = StructType & {
 			this._tail = _tail;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_poolChain(_head, _tail);
 	}
@@ -666,6 +705,9 @@ typedef Locker = StructType & {
 		if (_prev != null)
 			this._prev = _prev;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	@:embedded
 	public function popHead():{var _0:AnyInterface; var _1:Bool;}
@@ -733,6 +775,9 @@ typedef Locker = StructType & {
 		if (_tail != null)
 			this._tail = _tail;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_notifyList(_wait, _notify, _lock, _head, _tail);
@@ -805,6 +850,9 @@ typedef Locker = StructType & {
 			this.mutex = mutex;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new RWMutex(_w, _writerSem, _readerSem, _readerCount, _readerWait, mutex);
 	}
@@ -854,21 +902,31 @@ typedef Locker = StructType & {
 			this.counter = counter;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new WaitGroup(_noCopy, _state1, _state2, lock, counter);
 	}
 }
 
-@:structInit @:local private class T__struct_0 {
-	public function new() {}
+class T__struct_0_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
+	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_0();
-	}
+	var __self__:Pointer<T__struct_0>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
+
+@:keep @:allow(stdgo.sync.Sync.T__struct_0_asInterface) class T__struct_0_static_extension {}
+@:local @:using(stdgo.sync.Sync.T__struct_0_static_extension) private typedef T__struct_0 = {};
 
 /**
 	// copyChecker holds back pointer to itself to detect object copying.
@@ -1705,7 +1763,7 @@ class Pool_asInterface {
 	**/
 	@:keep
 	static public function get(_p:Ref<Pool>):AnyInterface {
-		var obj = @:privateAccess _p.pool.pop(true);
+		var obj = @:privateAccess _p.pool.pop(false);
 		if (obj == null && @:privateAccess _p.new_ != null)
 			obj = @:privateAccess _p.new_();
 		return obj;
@@ -1715,8 +1773,9 @@ class Pool_asInterface {
 		// Put adds x to the pool.
 	**/
 	@:keep
-	static public function put(_p:Ref<Pool>, _x:AnyInterface):Void
-		throw "sync.put is not yet implemented";
+	static public function put(_p:Ref<Pool>, _x:AnyInterface):Void {
+		@:privateAccess _p.pool.push(_x);
+	}
 }
 
 class T_poolLocal_asInterface {

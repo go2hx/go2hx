@@ -46,217 +46,201 @@ private var _tab:GoArray<T_entry> = new GoArray<T_entry>(...[
 	var _pop:GoInt;
 };
 
-@:structInit @:local private class T__struct_0 {
-	public var _x:GoUInt64 = 0;
-	public var _r:GoUInt64 = 0;
-
-	public function new(?_x:GoUInt64, ?_r:GoUInt64) {
-		if (_x != null)
-			this._x = _x;
-		if (_r != null)
-			this._r = _r;
+class T__struct_0_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_0(_x, _r);
-	}
+	var __self__:Pointer<T__struct_0>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_1 {
-	public var _x:GoUInt = 0;
-	public var _y:GoUInt = 0;
-	public var _c:GoUInt = 0;
-	public var _z:GoUInt = 0;
-	public var _cout:GoUInt = 0;
+@:keep @:allow(stdgo.math.bits_test.Bits_test.T__struct_0_asInterface) class T__struct_0_static_extension {}
 
-	public function new(?_x:GoUInt, ?_y:GoUInt, ?_c:GoUInt, ?_z:GoUInt, ?_cout:GoUInt) {
-		if (_x != null)
-			this._x = _x;
-		if (_y != null)
-			this._y = _y;
-		if (_c != null)
-			this._c = _c;
-		if (_z != null)
-			this._z = _z;
-		if (_cout != null)
-			this._cout = _cout;
+@:local @:using(stdgo.math.bits_test.Bits_test.T__struct_0_static_extension) private typedef T__struct_0 = {
+	public var _x:GoUInt64;
+	public var _r:GoUInt64;
+};
+
+class T__struct_1_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_1(_x, _y, _c, _z, _cout);
-	}
+	var __self__:Pointer<T__struct_1>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_2 {
-	public var _x:GoUInt32 = 0;
-	public var _y:GoUInt32 = 0;
-	public var _c:GoUInt32 = 0;
-	public var _z:GoUInt32 = 0;
-	public var _cout:GoUInt32 = 0;
+@:keep @:allow(stdgo.math.bits_test.Bits_test.T__struct_1_asInterface) class T__struct_1_static_extension {}
 
-	public function new(?_x:GoUInt32, ?_y:GoUInt32, ?_c:GoUInt32, ?_z:GoUInt32, ?_cout:GoUInt32) {
-		if (_x != null)
-			this._x = _x;
-		if (_y != null)
-			this._y = _y;
-		if (_c != null)
-			this._c = _c;
-		if (_z != null)
-			this._z = _z;
-		if (_cout != null)
-			this._cout = _cout;
+@:local @:using(stdgo.math.bits_test.Bits_test.T__struct_1_static_extension) private typedef T__struct_1 = {
+	public var _x:GoUInt;
+	public var _y:GoUInt;
+	public var _c:GoUInt;
+	public var _z:GoUInt;
+	public var _cout:GoUInt;
+};
+
+class T__struct_2_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_2(_x, _y, _c, _z, _cout);
-	}
+	var __self__:Pointer<T__struct_2>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_3 {
-	public var _x:GoUInt64 = 0;
-	public var _y:GoUInt64 = 0;
-	public var _c:GoUInt64 = 0;
-	public var _z:GoUInt64 = 0;
-	public var _cout:GoUInt64 = 0;
+@:keep @:allow(stdgo.math.bits_test.Bits_test.T__struct_2_asInterface) class T__struct_2_static_extension {}
 
-	public function new(?_x:GoUInt64, ?_y:GoUInt64, ?_c:GoUInt64, ?_z:GoUInt64, ?_cout:GoUInt64) {
-		if (_x != null)
-			this._x = _x;
-		if (_y != null)
-			this._y = _y;
-		if (_c != null)
-			this._c = _c;
-		if (_z != null)
-			this._z = _z;
-		if (_cout != null)
-			this._cout = _cout;
+@:local @:using(stdgo.math.bits_test.Bits_test.T__struct_2_static_extension) private typedef T__struct_2 = {
+	public var _x:GoUInt32;
+	public var _y:GoUInt32;
+	public var _c:GoUInt32;
+	public var _z:GoUInt32;
+	public var _cout:GoUInt32;
+};
+
+class T__struct_3_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_3(_x, _y, _c, _z, _cout);
-	}
+	var __self__:Pointer<T__struct_3>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_4 {
-	public var _x:GoUInt = 0;
-	public var _y:GoUInt = 0;
-	public var _hi:GoUInt = 0;
-	public var _lo:GoUInt = 0;
-	public var _r:GoUInt = 0;
+@:keep @:allow(stdgo.math.bits_test.Bits_test.T__struct_3_asInterface) class T__struct_3_static_extension {}
 
-	public function new(?_x:GoUInt, ?_y:GoUInt, ?_hi:GoUInt, ?_lo:GoUInt, ?_r:GoUInt) {
-		if (_x != null)
-			this._x = _x;
-		if (_y != null)
-			this._y = _y;
-		if (_hi != null)
-			this._hi = _hi;
-		if (_lo != null)
-			this._lo = _lo;
-		if (_r != null)
-			this._r = _r;
+@:local @:using(stdgo.math.bits_test.Bits_test.T__struct_3_static_extension) private typedef T__struct_3 = {
+	public var _x:GoUInt64;
+	public var _y:GoUInt64;
+	public var _c:GoUInt64;
+	public var _z:GoUInt64;
+	public var _cout:GoUInt64;
+};
+
+class T__struct_4_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_4(_x, _y, _hi, _lo, _r);
-	}
+	var __self__:Pointer<T__struct_4>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_5 {
-	public var _x:GoUInt32 = 0;
-	public var _y:GoUInt32 = 0;
-	public var _hi:GoUInt32 = 0;
-	public var _lo:GoUInt32 = 0;
-	public var _r:GoUInt32 = 0;
+@:keep @:allow(stdgo.math.bits_test.Bits_test.T__struct_4_asInterface) class T__struct_4_static_extension {}
 
-	public function new(?_x:GoUInt32, ?_y:GoUInt32, ?_hi:GoUInt32, ?_lo:GoUInt32, ?_r:GoUInt32) {
-		if (_x != null)
-			this._x = _x;
-		if (_y != null)
-			this._y = _y;
-		if (_hi != null)
-			this._hi = _hi;
-		if (_lo != null)
-			this._lo = _lo;
-		if (_r != null)
-			this._r = _r;
+@:local @:using(stdgo.math.bits_test.Bits_test.T__struct_4_static_extension) private typedef T__struct_4 = {
+	public var _x:GoUInt;
+	public var _y:GoUInt;
+	public var _hi:GoUInt;
+	public var _lo:GoUInt;
+	public var _r:GoUInt;
+};
+
+class T__struct_5_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_5(_x, _y, _hi, _lo, _r);
-	}
+	var __self__:Pointer<T__struct_5>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_6 {
-	public var _x:GoUInt64 = 0;
-	public var _y:GoUInt64 = 0;
-	public var _hi:GoUInt64 = 0;
-	public var _lo:GoUInt64 = 0;
-	public var _r:GoUInt64 = 0;
+@:keep @:allow(stdgo.math.bits_test.Bits_test.T__struct_5_asInterface) class T__struct_5_static_extension {}
 
-	public function new(?_x:GoUInt64, ?_y:GoUInt64, ?_hi:GoUInt64, ?_lo:GoUInt64, ?_r:GoUInt64) {
-		if (_x != null)
-			this._x = _x;
-		if (_y != null)
-			this._y = _y;
-		if (_hi != null)
-			this._hi = _hi;
-		if (_lo != null)
-			this._lo = _lo;
-		if (_r != null)
-			this._r = _r;
+@:local @:using(stdgo.math.bits_test.Bits_test.T__struct_5_static_extension) private typedef T__struct_5 = {
+	public var _x:GoUInt32;
+	public var _y:GoUInt32;
+	public var _hi:GoUInt32;
+	public var _lo:GoUInt32;
+	public var _r:GoUInt32;
+};
+
+class T__struct_6_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_6(_x, _y, _hi, _lo, _r);
-	}
+	var __self__:Pointer<T__struct_6>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:structInit @:local private class T__struct_7 {
-	public var _hi:GoUInt64 = 0;
-	public var _lo:GoUInt64 = 0;
-	public var _y:GoUInt64 = 0;
-	public var _rem:GoUInt64 = 0;
+@:keep @:allow(stdgo.math.bits_test.Bits_test.T__struct_6_asInterface) class T__struct_6_static_extension {}
 
-	public function new(?_hi:GoUInt64, ?_lo:GoUInt64, ?_y:GoUInt64, ?_rem:GoUInt64) {
-		if (_hi != null)
-			this._hi = _hi;
-		if (_lo != null)
-			this._lo = _lo;
-		if (_y != null)
-			this._y = _y;
-		if (_rem != null)
-			this._rem = _rem;
+@:local @:using(stdgo.math.bits_test.Bits_test.T__struct_6_static_extension) private typedef T__struct_6 = {
+	public var _x:GoUInt64;
+	public var _y:GoUInt64;
+	public var _hi:GoUInt64;
+	public var _lo:GoUInt64;
+	public var _r:GoUInt64;
+};
+
+class T__struct_7_asInterface {
+	public function new(__self__, __type__) {
+		this.__self__ = __self__;
+		this.__type__ = __type__;
 	}
 
 	public function __underlying__()
-		return Go.toInterface(this);
+		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
+			__type__);
 
-	public function __copy__() {
-		return new T__struct_7(_hi, _lo, _y, _rem);
-	}
+	var __self__:Pointer<T__struct_7>;
+	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
+
+@:keep @:allow(stdgo.math.bits_test.Bits_test.T__struct_7_asInterface) class T__struct_7_static_extension {}
+
+@:local @:using(stdgo.math.bits_test.Bits_test.T__struct_7_static_extension) private typedef T__struct_7 = {
+	public var _hi:GoUInt64;
+	public var _lo:GoUInt64;
+	public var _y:GoUInt64;
+	public var _rem:GoUInt64;
+};
 
 function testUintSize(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _x:GoUInt = (0 : GoUInt);
@@ -272,7 +256,7 @@ function testLeadingZeros(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (256:GoInt), _i++, {
-			var _nlz:GoInt = _tab[_i]._nlz;
+			var _nlz:GoInt = _tab[(_i : GoInt)]._nlz;
 			{
 				var _k:GoInt = (0 : GoInt);
 				Go.cfor(_k < (56:GoInt), _k++, {
@@ -394,7 +378,7 @@ function testTrailingZeros(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (256:GoInt), _i++, {
-			var _ntz:GoInt = _tab[_i]._ntz;
+			var _ntz:GoInt = _tab[(_i : GoInt)]._ntz;
 			{
 				var _k:GoInt = (0 : GoInt);
 				Go.cfor(_k < (56:GoInt), _k++, {
@@ -531,7 +515,7 @@ function testOnesCount(_t:Ref<stdgo.testing.Testing.T>):Void {
 			{
 				var _k:GoInt = (0 : GoInt);
 				Go.cfor(_k < (56:GoInt), _k++, {
-					_testOnesCount(_t, (_i : GoUInt64) << (_k : GoUInt), _tab[_i]._pop);
+					_testOnesCount(_t, (_i : GoUInt64) << (_k : GoUInt), _tab[(_i : GoInt)]._pop);
 				});
 			};
 		});
@@ -996,7 +980,7 @@ function testLen(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (256:GoInt), _i++, {
-			var _len:GoInt = (8 : GoInt) - _tab[_i]._nlz;
+			var _len:GoInt = (8 : GoInt) - _tab[(_i : GoInt)]._nlz;
 			{
 				var _k:GoInt = (0 : GoInt);
 				Go.cfor(_k < (56:GoInt), _k++, {
@@ -2769,21 +2753,21 @@ function exampleLen64():Void {
 					_n++;
 					_x = _x << (("1" : GoUInt64));
 				};
-				_tab[_i]._nlz = _n;
+				_tab[(_i : GoInt)]._nlz = _n;
 				_x = _i;
 				_n = (0 : GoInt);
 				while (_x & (1 : GoInt) == ((0 : GoInt))) {
 					_n++;
 					_x = _x >> (("1" : GoUInt64));
 				};
-				_tab[_i]._ntz = _n;
+				_tab[(_i : GoInt)]._ntz = _n;
 				_x = _i;
 				_n = (0 : GoInt);
 				while (_x != ((0 : GoInt))) {
 					_n = _n + ((_x & (1 : GoInt) : GoInt));
 					_x = _x >> (("1" : GoUInt64));
 				};
-				_tab[_i]._pop = _n;
+				_tab[(_i : GoInt)]._pop = _n;
 			});
 		};
 	} catch (__exception__)

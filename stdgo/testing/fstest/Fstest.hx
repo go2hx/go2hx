@@ -53,6 +53,9 @@ private var _3:stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
 			this.sys = sys;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new MapFile(data, mode, modTime, sys);
 	}
@@ -75,6 +78,9 @@ private var _3:stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
 			this.fs = fs;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	@:embedded
 	public function open(_pattern:GoString):{var _0:stdgo.io.fs.Fs.File; var _1:Error;}
 		return null;
@@ -92,6 +98,9 @@ private var _3:stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
 		if (mapFS != null)
 			this.mapFS = mapFS;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	@:embedded
 	public function glob(_pattern:GoString):{var _0:Slice<GoString>; var _1:Error;}
@@ -132,6 +141,9 @@ private var _3:stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
 			this._f = _f;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new T_mapFileInfo(_name, _f);
 	}
@@ -154,6 +166,9 @@ private var _3:stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
 		if (_offset != null)
 			this._offset = _offset;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	@:embedded
 	public function info():{var _0:stdgo.io.fs.Fs.FileInfo; var _1:Error;}
@@ -213,6 +228,9 @@ private var _3:stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
 			this._offset = _offset;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	@:embedded
 	public function info():{var _0:stdgo.io.fs.Fs.FileInfo; var _1:Error;}
 		return null;
@@ -269,6 +287,9 @@ private var _3:stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
 		if (_files != null)
 			this._files = _files;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new T_fsTester(_fsys, _errText, _dirs, _files);

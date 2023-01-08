@@ -16,7 +16,7 @@ function exampleLogger():Void {
 		_logger:Ref<Logger> = _1,
 		_buf:stdgo.bytes.Bytes.Buffer = _0;
 	_logger.print(Go.toInterface(Go.str("Hello, log file!")));
-	stdgo.fmt.Fmt.print((_buf : Ref<stdgo.bytes.Bytes.Buffer>));
+	stdgo.fmt.Fmt.print(Go.toInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>)));
 }
 
 function exampleLogger_Output():Void {
@@ -29,5 +29,5 @@ function exampleLogger_Output():Void {
 		_logger:Ref<Logger> = _1,
 		_buf:stdgo.bytes.Bytes.Buffer = _0;
 	_infof(Go.str("Hello world"));
-	stdgo.fmt.Fmt.print((_buf : Ref<stdgo.bytes.Bytes.Buffer>));
+	stdgo.fmt.Fmt.print(Go.toInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>)));
 }

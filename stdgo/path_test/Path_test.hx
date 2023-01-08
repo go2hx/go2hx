@@ -203,6 +203,9 @@ private var _isAbsTests:Slice<stdgo.path_test.Path_test.IsAbsTest> = (new Slice<
 			this._err = _err;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new MatchTest(_pattern, _s, _match, _err);
 	}
@@ -218,6 +221,9 @@ private var _isAbsTests:Slice<stdgo.path_test.Path_test.IsAbsTest> = (new Slice<
 		if (_result != null)
 			this._result = _result;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new PathTest(_path, _result);
@@ -238,6 +244,9 @@ private var _isAbsTests:Slice<stdgo.path_test.Path_test.IsAbsTest> = (new Slice<
 			this._file = _file;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new SplitTest(_path, _dir, _file);
 	}
@@ -253,6 +262,9 @@ private var _isAbsTests:Slice<stdgo.path_test.Path_test.IsAbsTest> = (new Slice<
 		if (_path != null)
 			this._path = _path;
 	}
+
+	public function __underlying__()
+		return Go.toInterface(this);
 
 	public function __copy__() {
 		return new JoinTest(_elem, _path);
@@ -270,6 +282,9 @@ private var _isAbsTests:Slice<stdgo.path_test.Path_test.IsAbsTest> = (new Slice<
 			this._ext = _ext;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new ExtTest(_path, _ext);
 	}
@@ -286,15 +301,18 @@ private var _isAbsTests:Slice<stdgo.path_test.Path_test.IsAbsTest> = (new Slice<
 			this._isAbs = _isAbs;
 	}
 
+	public function __underlying__()
+		return Go.toInterface(this);
+
 	public function __copy__() {
 		return new IsAbsTest(_path, _isAbs);
 	}
 }
 
 function exampleBase():Void {
-	stdgo.fmt.Fmt.println(stdgo.path.Path.base(Go.str("/a/b")));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.base(Go.str("/")));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.base(Go.str()));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.base(Go.str("/a/b"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.base(Go.str("/"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.base(Go.str())));
 }
 
 function exampleClean():Void {
@@ -306,46 +324,46 @@ function exampleClean():Void {
 }
 
 function exampleDir():Void {
-	stdgo.fmt.Fmt.println(stdgo.path.Path.dir(Go.str("/a/b/c")));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.dir(Go.str("a/b/c")));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.dir(Go.str("/a/")));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.dir(Go.str("a/")));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.dir(Go.str("/")));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.dir(Go.str()));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(Go.str("/a/b/c"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(Go.str("a/b/c"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(Go.str("/a/"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(Go.str("a/"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(Go.str("/"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(Go.str())));
 }
 
 function exampleExt():Void {
-	stdgo.fmt.Fmt.println(stdgo.path.Path.ext(Go.str("/a/b/c/bar.css")));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.ext(Go.str("/")));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.ext(Go.str()));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.ext(Go.str("/a/b/c/bar.css"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.ext(Go.str("/"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.ext(Go.str())));
 }
 
 function exampleIsAbs():Void {
-	stdgo.fmt.Fmt.println(stdgo.path.Path.isAbs(Go.str("/dev/null")));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.isAbs(Go.str("/dev/null"))));
 }
 
 function exampleJoin():Void {
-	stdgo.fmt.Fmt.println(stdgo.path.Path.join(Go.str("a"), Go.str("b"), Go.str("c")));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.join(Go.str("a"), Go.str("b/c")));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.join(Go.str("a/b"), Go.str("c")));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.join(Go.str("a/b"), Go.str("../../../xyz")));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.join(Go.str(), Go.str()));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.join(Go.str("a"), Go.str()));
-	stdgo.fmt.Fmt.println(stdgo.path.Path.join(Go.str(), Go.str("a")));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str("a"), Go.str("b"), Go.str("c"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str("a"), Go.str("b/c"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str("a/b"), Go.str("c"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str("a/b"), Go.str("../../../xyz"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str(), Go.str())));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str("a"), Go.str())));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str(), Go.str("a"))));
 }
 
 function exampleMatch():Void {
 	{
 		var __tmp__ = stdgo.path.Path.match(Go.str("abc"), Go.str("abc"));
-		stdgo.fmt.Fmt.println((__tmp__._0 : Bool), (__tmp__._1 : Error));
+		stdgo.fmt.Fmt.println(Go.toInterface((__tmp__._0 : Bool)), Go.toInterface((__tmp__._1 : Error)));
 	};
 	{
 		var __tmp__ = stdgo.path.Path.match(Go.str("a*"), Go.str("abc"));
-		stdgo.fmt.Fmt.println((__tmp__._0 : Bool), (__tmp__._1 : Error));
+		stdgo.fmt.Fmt.println(Go.toInterface((__tmp__._0 : Bool)), Go.toInterface((__tmp__._1 : Error)));
 	};
 	{
 		var __tmp__ = stdgo.path.Path.match(Go.str("a*/b"), Go.str("a/c/b"));
-		stdgo.fmt.Fmt.println((__tmp__._0 : Bool), (__tmp__._1 : Error));
+		stdgo.fmt.Fmt.println(Go.toInterface((__tmp__._0 : Bool)), Go.toInterface((__tmp__._1 : Error)));
 	};
 }
 

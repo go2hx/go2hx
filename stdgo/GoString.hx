@@ -54,6 +54,8 @@ abstract GoString(Bytes) from Bytes to Bytes {
 		return new GoString(x);
 
 	@:from static function ofRune(x:GoRune):GoString {
+		if (x == 0x110000)
+			return "�";
 		return String.fromCharCode(x.toBasic());
 	}
 

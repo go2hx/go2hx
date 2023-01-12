@@ -1,7 +1,6 @@
 package stdgo;
 
 import haxe.Rest;
-import haxe.io.Bytes;
 import stdgo.StdGoTypes;
 
 @:forward.new
@@ -26,7 +25,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	}
 
 	@:from
-	public static function fromBytes(bytes:Bytes):Slice<GoByte> {
+	public static function fromBytes(bytes:haxe.io.Bytes):Slice<GoByte> {
 		return new Slice<GoByte>(0, 0, ...[
 			for (i in 0...bytes.length)
 				bytes.get(i)
@@ -34,8 +33,8 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	}
 
 	@:to
-	public static function toBytes(slice:Slice<GoByte>):Bytes {
-		final bytes = Bytes.alloc(slice.length.toBasic());
+	public static function toBytes(slice:Slice<GoByte>):haxe.io.Bytes {
+		final bytes = haxe.io.Bytes.alloc(slice.length.toBasic());
 		for (i in 0...bytes.length)
 			bytes.set(i, slice[i].toBasic());
 		return bytes;
@@ -167,7 +166,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	}
 
 	public function __toArray__() {
-		return this.toArray();
+		return this == null ? [] : this.toArray();
 	}
 
 	public function __toVector__() {

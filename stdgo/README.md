@@ -802,7 +802,7 @@ function indexOf(s:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int):Int
  
 
 
-[\(view code\)](<./GoString.hx#L251>)
+[\(view code\)](<./GoString.hx#L253>)
 
 
 ### GoStringTools function lastIndexOf
@@ -816,7 +816,7 @@ function lastIndexOf(s:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int):Int
  
 
 
-[\(view code\)](<./GoString.hx#L248>)
+[\(view code\)](<./GoString.hx#L250>)
 
 
 ### GoStringTools function substr
@@ -830,7 +830,7 @@ function substr(str:stdgo.GoString, pos:Int, ?len:Int):stdgo.GoString
  
 
 
-[\(view code\)](<./GoString.hx#L254>)
+[\(view code\)](<./GoString.hx#L256>)
 
 
 ### GoStringTools function toString
@@ -844,7 +844,7 @@ function toString(str:stdgo.GoString):String
  
 
 
-[\(view code\)](<./GoString.hx#L257>)
+[\(view code\)](<./GoString.hx#L259>)
 
 
 ## class PointerData
@@ -987,7 +987,7 @@ function get(index:Int):stdgo.SliceData.T
  
 
 
-[\(view code\)](<./Slice.hx#L242>)
+[\(view code\)](<./Slice.hx#L241>)
 
 
 ### SliceData function grow
@@ -1001,7 +1001,7 @@ function grow():Void
  
 
 
-[\(view code\)](<./Slice.hx#L268>)
+[\(view code\)](<./Slice.hx#L267>)
 
 
 ### SliceData function new
@@ -1015,7 +1015,7 @@ function new(length:Int, capacity:Int, args:haxe.Rest<stdgo.SliceData.T>):Void
  
 
 
-[\(view code\)](<./Slice.hx#L219>)
+[\(view code\)](<./Slice.hx#L218>)
 
 
 ### SliceData function set
@@ -1029,7 +1029,7 @@ function set(index:Int, value:stdgo.SliceData.T):stdgo.SliceData.T
  
 
 
-[\(view code\)](<./Slice.hx#L247>)
+[\(view code\)](<./Slice.hx#L246>)
 
 
 ### SliceData function toArray
@@ -1043,7 +1043,7 @@ function toArray():Array<stdgo.SliceData.T>
  
 
 
-[\(view code\)](<./Slice.hx#L252>)
+[\(view code\)](<./Slice.hx#L251>)
 
 
 ### SliceData function toString
@@ -1057,7 +1057,7 @@ function toString():String
  
 
 
-[\(view code\)](<./Slice.hx#L260>)
+[\(view code\)](<./Slice.hx#L259>)
 
 
 ### SliceData function toVector
@@ -1071,7 +1071,7 @@ function toVector():haxe.ds.Vector<stdgo.SliceData.T>
  
 
 
-[\(view code\)](<./Slice.hx#L256>)
+[\(view code\)](<./Slice.hx#L255>)
 
 
 ## class T\_errorString\_static\_extension

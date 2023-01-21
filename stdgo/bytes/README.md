@@ -14,172 +14,172 @@ Package bytes implements functions for the manipulation of byte slices.��// 
 
 ```
 === RUN   TestNewBuffer
---- PASS: TestNewBuffer (0.000895023345947266)
+--- PASS: TestNewBuffer (0.00073695182800293)
 === RUN   TestNewBufferString
---- PASS: TestNewBufferString (0.00180697441101074)
+--- PASS: TestNewBufferString (0.00145506858825684)
 === RUN   TestBasicOperations
---- PASS: TestBasicOperations (0.000549077987670898)
+--- PASS: TestBasicOperations (0.00032496452331543)
 === RUN   TestLargeStringWrites
---- PASS: TestLargeStringWrites (0.231087923049927)
+--- PASS: TestLargeStringWrites (0.168897151947021)
 === RUN   TestLargeByteWrites
---- PASS: TestLargeByteWrites (0.241580009460449)
+--- PASS: TestLargeByteWrites (0.185061931610107)
 === RUN   TestLargeStringReads
---- PASS: TestLargeStringReads (0.0622470378875732)
+--- PASS: TestLargeStringReads (0.0534601211547852)
 === RUN   TestLargeByteReads
---- PASS: TestLargeByteReads (0.0926151275634766)
+--- PASS: TestLargeByteReads (0.0641078948974609)
 === RUN   TestMixedReadsAndWrites
---- PASS: TestMixedReadsAndWrites (0.251032829284668)
+--- PASS: TestMixedReadsAndWrites (0.324131011962891)
 === RUN   TestCapWithPreallocatedSlice
---- PASS: TestCapWithPreallocatedSlice (1.9073486328125e-05)
+--- PASS: TestCapWithPreallocatedSlice (1.40666961669922e-05)
 === RUN   TestCapWithSliceAndWrittenData
---- PASS: TestCapWithSliceAndWrittenData (1.50203704833984e-05)
+--- PASS: TestCapWithSliceAndWrittenData (1.31130218505859e-05)
 === RUN   TestNil
---- PASS: TestNil (1.19209289550781e-05)
+--- PASS: TestNil (8.10623168945312e-06)
 === RUN   TestReadFrom
---- PASS: TestReadFrom (0.152822017669678)
+--- PASS: TestReadFrom (0.107943058013916)
 === RUN   TestReadFromPanicReader
---- PASS: TestReadFromPanicReader (0.000336885452270508)
+--- PASS: TestReadFromPanicReader (0.000549077987670898)
 === RUN   TestReadFromNegativeReader
---- PASS: TestReadFromNegativeReader (0.000265836715698242)
+--- PASS: TestReadFromNegativeReader (0.000161886215209961)
 === RUN   TestWriteTo
---- PASS: TestWriteTo (0.137532949447632)
+--- PASS: TestWriteTo (0.0967698097229004)
 === RUN   TestRuneIO
---- PASS: TestRuneIO (0.0225620269775391)
+--- PASS: TestRuneIO (0.0221049785614014)
 === RUN   TestWriteInvalidRune
---- PASS: TestWriteInvalidRune (6.91413879394531e-05)
+--- PASS: TestWriteInvalidRune (6.41345977783203e-05)
 === RUN   TestNext
---- PASS: TestNext (0.000442981719970703)
+--- PASS: TestNext (0.000281095504760742)
 === RUN   TestReadBytes
---- PASS: TestReadBytes (0.000116825103759766)
+--- PASS: TestReadBytes (9.60826873779297e-05)
 === RUN   TestReadString
---- PASS: TestReadString (0.000819921493530273)
+--- PASS: TestReadString (5.88893890380859e-05)
 === RUN   TestGrow
 bytes_test/Bytes_test.hx:2157: testGrow skip function
---- PASS: TestGrow (3.60012054443359e-05)
+--- PASS: TestGrow (3.09944152832031e-05)
 === RUN   TestGrowOverflow
---- PASS: TestGrowOverflow (5.69820404052734e-05)
+--- PASS: TestGrowOverflow (3.31401824951172e-05)
 === RUN   TestReadEmptyAtEOF
---- PASS: TestReadEmptyAtEOF (1.59740447998047e-05)
+--- PASS: TestReadEmptyAtEOF (8.82148742675781e-06)
 === RUN   TestUnreadByte
---- PASS: TestUnreadByte (2.88486480712891e-05)
+--- PASS: TestUnreadByte (2.31266021728516e-05)
 === RUN   TestBufferGrowth
---- PASS: TestBufferGrowth (2.00707101821899)
+--- PASS: TestBufferGrowth (1.47918510437012)
 === RUN   TestEqual
---- PASS: TestEqual (1.28746032714844e-05)
+--- PASS: TestEqual (1.09672546386719e-05)
 === RUN   TestEqualExhaustive
---- PASS: TestEqualExhaustive (0.123466968536377)
+--- PASS: TestEqualExhaustive (0.122412919998169)
 === RUN   TestNotEqual
---- PASS: TestNotEqual (0.50581693649292)
+--- PASS: TestNotEqual (0.376662969589233)
 === RUN   TestIndex
---- PASS: TestIndex (0.00169205665588379)
+--- PASS: TestIndex (0.00137710571289062)
 === RUN   TestLastIndex
---- PASS: TestLastIndex (8.89301300048828e-05)
+--- PASS: TestLastIndex (6.98566436767578e-05)
 === RUN   TestIndexAny
---- PASS: TestIndexAny (0.000179052352905273)
+--- PASS: TestIndexAny (0.000143051147460938)
 === RUN   TestLastIndexAny
---- PASS: TestLastIndexAny (0.000200033187866211)
+--- PASS: TestLastIndexAny (0.00026702880859375)
 === RUN   TestIndexByte
---- PASS: TestIndexByte (4.1961669921875e-05)
+--- PASS: TestIndexByte (3.19480895996094e-05)
 === RUN   TestLastIndexByte
---- PASS: TestLastIndexByte (3.09944152832031e-05)
+--- PASS: TestLastIndexByte (2.47955322265625e-05)
 === RUN   TestIndexByteBig
---- PASS: TestIndexByteBig (0.0840530395507812)
+--- PASS: TestIndexByteBig (0.0623400211334229)
 === RUN   TestIndexByteSmall
---- PASS: TestIndexByteSmall (0.161346912384033)
+--- PASS: TestIndexByteSmall (0.13522481918335)
 === RUN   TestIndexRune
---- PASS: TestIndexRune (0.000206947326660156)
+--- PASS: TestIndexRune (0.00015711784362793)
 === RUN   TestCountByte
---- PASS: TestCountByte (2.93441987037659)
+--- PASS: TestCountByte (2.1844310760498)
 === RUN   TestCountByteNoMatch
---- PASS: TestCountByteNoMatch (1.02580404281616)
+--- PASS: TestCountByteNoMatch (0.728256940841675)
 === RUN   TestSplit
---- PASS: TestSplit (0.00174903869628906)
+--- PASS: TestSplit (0.0012822151184082)
 === RUN   TestSplitAfter
---- PASS: TestSplitAfter (0.00190019607543945)
+--- PASS: TestSplitAfter (0.00157499313354492)
 === RUN   TestFields
---- PASS: TestFields (0.000198841094970703)
+--- PASS: TestFields (0.000163078308105469)
 === RUN   TestFieldsFunc
---- PASS: TestFieldsFunc (0.000206947326660156)
+--- PASS: TestFieldsFunc (0.000241994857788086)
 === RUN   TestMap
---- PASS: TestMap (0.000293970108032227)
+--- PASS: TestMap (0.000240802764892578)
 === RUN   TestToUpper
---- PASS: TestToUpper (0.000459194183349609)
+--- PASS: TestToUpper (0.000281095504760742)
 === RUN   TestToLower
---- PASS: TestToLower (0.000854015350341797)
+--- PASS: TestToLower (0.00023198127746582)
 === RUN   TestToValidUTF8
---- PASS: TestToValidUTF8 (0.00026702880859375)
+--- PASS: TestToValidUTF8 (0.000288963317871094)
 === RUN   TestTrimSpace
---- PASS: TestTrimSpace (0.000324010848999023)
+--- PASS: TestTrimSpace (0.000174999237060547)
 === RUN   TestRepeat
---- PASS: TestRepeat (3.60012054443359e-05)
+--- PASS: TestRepeat (3.00407409667969e-05)
 === RUN   TestRepeatCatchesOverflow
---- PASS: TestRepeatCatchesOverflow (0.000274181365966797)
+--- PASS: TestRepeatCatchesOverflow (0.000212192535400391)
 === RUN   TestRunes
---- PASS: TestRunes (0.0001220703125)
+--- PASS: TestRunes (9.70363616943359e-05)
 === RUN   TestTrim
---- PASS: TestTrim (0.000385046005249023)
+--- PASS: TestTrim (0.00038909912109375)
 === RUN   TestTrimFunc
---- PASS: TestTrimFunc (0.000583171844482422)
+--- PASS: TestTrimFunc (0.000428915023803711)
 === RUN   TestIndexFunc
---- PASS: TestIndexFunc (0.000175952911376953)
+--- PASS: TestIndexFunc (0.000137090682983398)
 === RUN   TestReplace
---- PASS: TestReplace (0.000613927841186523)
+--- PASS: TestReplace (0.000411033630371094)
 === RUN   TestTitle
---- PASS: TestTitle (0.000286102294921875)
+--- PASS: TestTitle (0.000251054763793945)
 === RUN   TestToTitle
---- PASS: TestToTitle (0.000128030776977539)
+--- PASS: TestToTitle (9.98973846435547e-05)
 === RUN   TestEqualFold
---- PASS: TestEqualFold (0.000270843505859375)
+--- PASS: TestEqualFold (0.000218868255615234)
 === RUN   TestCut
---- PASS: TestCut (2.90870666503906e-05)
+--- PASS: TestCut (2.288818359375e-05)
 === RUN   TestBufferGrowNegative
---- PASS: TestBufferGrowNegative (2.40802764892578e-05)
+--- PASS: TestBufferGrowNegative (2.09808349609375e-05)
 === RUN   TestBufferTruncateNegative
---- PASS: TestBufferTruncateNegative (2.00271606445312e-05)
+--- PASS: TestBufferTruncateNegative (5.38825988769531e-05)
 === RUN   TestBufferTruncateOutOfRange
---- PASS: TestBufferTruncateOutOfRange (2.71797180175781e-05)
+--- PASS: TestBufferTruncateOutOfRange (2.40802764892578e-05)
 === RUN   TestContains
---- PASS: TestContains (1.38282775878906e-05)
+--- PASS: TestContains (1.09672546386719e-05)
 === RUN   TestContainsAny
---- PASS: TestContainsAny (9.29832458496094e-05)
+--- PASS: TestContainsAny (6.91413879394531e-05)
 === RUN   TestContainsRune
---- PASS: TestContainsRune (2.59876251220703e-05)
+--- PASS: TestContainsRune (1.9073486328125e-05)
 === RUN   TestCompare
---- PASS: TestCompare (0.000896930694580078)
+--- PASS: TestCompare (0.000651121139526367)
 === RUN   TestCompareIdenticalSlice
---- PASS: TestCompareIdenticalSlice (1.71661376953125e-05)
+--- PASS: TestCompareIdenticalSlice (1.19209289550781e-05)
 === RUN   TestCompareBytes
 bytes_test/Bytes_test.hx:4397: testCompareBytes skip function
---- PASS: TestCompareBytes (2.19345092773438e-05)
+--- PASS: TestCompareBytes (3.91006469726562e-05)
 === RUN   TestEndianBaseCompare
---- PASS: TestEndianBaseCompare (0.130563020706177)
+--- PASS: TestEndianBaseCompare (0.0930399894714355)
 === RUN   TestReader
---- PASS: TestReader (0.000174999237060547)
+--- PASS: TestReader (0.000134944915771484)
 === RUN   TestReadAfterBigSeek
---- PASS: TestReadAfterBigSeek (3.19480895996094e-05)
+--- PASS: TestReadAfterBigSeek (2.59876251220703e-05)
 === RUN   TestReaderAt
---- PASS: TestReaderAt (0.000169038772583008)
+--- PASS: TestReaderAt (0.000144004821777344)
 === RUN   TestReaderAtConcurrent
---- PASS: TestReaderAtConcurrent (0.00092005729675293)
+--- PASS: TestReaderAtConcurrent (0.000620126724243164)
 === RUN   TestEmptyReaderConcurrent
---- PASS: TestEmptyReaderConcurrent (0.000730991363525391)
+--- PASS: TestEmptyReaderConcurrent (0.000663995742797852)
 === RUN   TestReaderWriteTo
---- PASS: TestReaderWriteTo (0.00473618507385254)
+--- PASS: TestReaderWriteTo (0.00399994850158691)
 === RUN   TestReaderLen
---- PASS: TestReaderLen (2.40802764892578e-05)
+--- PASS: TestReaderLen (2.09808349609375e-05)
 === RUN   TestUnreadRuneError
---- PASS: TestUnreadRuneError (7.00950622558594e-05)
+--- PASS: TestUnreadRuneError (5.60283660888672e-05)
 === RUN   TestReaderDoubleUnreadRune
---- PASS: TestReaderDoubleUnreadRune (1.81198120117188e-05)
+--- PASS: TestReaderDoubleUnreadRune (3.69548797607422e-05)
 === RUN   TestReaderCopyNothing
---- PASS: TestReaderCopyNothing (0.00462484359741211)
+--- PASS: TestReaderCopyNothing (0.00404191017150879)
 === RUN   TestReaderLenSize
 bytes_test/Bytes_test.hx:5525: testReaderLenSize skip function
---- PASS: TestReaderLenSize (2.21729278564453e-05)
+--- PASS: TestReaderLenSize (4.31537628173828e-05)
 === RUN   TestReaderReset
---- PASS: TestReaderReset (6.60419464111328e-05)
+--- PASS: TestReaderReset (6.103515625e-05)
 === RUN   TestReaderZero
---- PASS: TestReaderZero (7.10487365722656e-05)
+--- PASS: TestReaderZero (5.69820404052734e-05)
 ```
 </p>
 </details>
@@ -190,163 +190,163 @@ bytes_test/Bytes_test.hx:5525: testReaderLenSize skip function
 ```
 Invalid_argument("index out of bounds")
 === RUN   TestNewBuffer
---- PASS: TestNewBuffer (0.0127031803131103516)
+--- PASS: TestNewBuffer (0.010089874267578125)
 === RUN   TestNewBufferString
---- PASS: TestNewBufferString (0.0215561389923095703)
+--- PASS: TestNewBufferString (0.0165150165557861328)
 === RUN   TestBasicOperations
---- PASS: TestBasicOperations (0.00256299972534179688)
+--- PASS: TestBasicOperations (0.001708984375)
 === RUN   TestLargeStringWrites
---- PASS: TestLargeStringWrites (2.28404498100280762)
+--- PASS: TestLargeStringWrites (1.72703003883361816)
 === RUN   TestLargeByteWrites
---- PASS: TestLargeByteWrites (2.36368989944458)
+--- PASS: TestLargeByteWrites (1.77502608299255371)
 === RUN   TestLargeStringReads
---- PASS: TestLargeStringReads (0.396908044815063477)
+--- PASS: TestLargeStringReads (0.294024944305419922)
 === RUN   TestLargeByteReads
---- PASS: TestLargeByteReads (0.391157150268554688)
+--- PASS: TestLargeByteReads (0.295627117156982422)
 === RUN   TestMixedReadsAndWrites
---- PASS: TestMixedReadsAndWrites (2.06837701797485352)
+--- PASS: TestMixedReadsAndWrites (1.31942605972290039)
 === RUN   TestCapWithPreallocatedSlice
---- PASS: TestCapWithPreallocatedSlice (2.09808349609375e-05)
+--- PASS: TestCapWithPreallocatedSlice (1.59740447998046875e-05)
 === RUN   TestCapWithSliceAndWrittenData
---- PASS: TestCapWithSliceAndWrittenData (3.50475311279296875e-05)
+--- PASS: TestCapWithSliceAndWrittenData (2.50339508056640625e-05)
 === RUN   TestNil
---- PASS: TestNil (1.2874603271484375e-05)
+--- PASS: TestNil (1.1920928955078125e-05)
 === RUN   TestReadFrom
---- PASS: TestReadFrom (0.548959016799926758)
+--- PASS: TestReadFrom (0.417567014694213867)
 === RUN   TestReadFromPanicReader
---- PASS: TestReadFromPanicReader (0.00120711326599121094)
+--- PASS: TestReadFromPanicReader (0.00090694427490234375)
 === RUN   TestReadFromNegativeReader
---- PASS: TestReadFromNegativeReader (0.000547885894775390625)
+--- PASS: TestReadFromNegativeReader (0.000568866729736328125)
 === RUN   TestWriteTo
---- PASS: TestWriteTo (0.464344024658203125)
+--- PASS: TestWriteTo (0.358042001724243164)
 === RUN   TestRuneIO
---- PASS: TestRuneIO (0.130028963088989258)
+--- PASS: TestRuneIO (0.102895021438598633)
 === RUN   TestWriteInvalidRune
---- PASS: TestWriteInvalidRune (0.000238180160522460938)
+--- PASS: TestWriteInvalidRune (0.000190973281860351562)
 === RUN   TestNext
---- PASS: TestNext (0.00156497955322265625)
+--- PASS: TestNext (0.00128602981567382812)
 === RUN   TestReadBytes
---- PASS: TestReadBytes (0.000386953353881835938)
+--- PASS: TestReadBytes (0.000333070755004882812)
 === RUN   TestReadString
---- PASS: TestReadString (0.000281810760498046875)
+--- PASS: TestReadString (0.000241994857788085938)
 === RUN   TestGrow
 bytes_test/Bytes_test.hx:2157: testGrow skip function
---- PASS: TestGrow (2.09808349609375e-05)
+--- PASS: TestGrow (1.78813934326171875e-05)
 === RUN   TestGrowOverflow
---- PASS: TestGrowOverflow (6.79492950439453125e-05)
+--- PASS: TestGrowOverflow (5.60283660888671875e-05)
 === RUN   TestReadEmptyAtEOF
---- PASS: TestReadEmptyAtEOF (1.40666961669921875e-05)
+--- PASS: TestReadEmptyAtEOF (1.1920928955078125e-05)
 === RUN   TestUnreadByte
---- PASS: TestUnreadByte (7.2002410888671875e-05)
+--- PASS: TestUnreadByte (6.4849853515625e-05)
 === RUN   TestBufferGrowth
---- PASS: TestBufferGrowth (8.1266930103302)
+--- PASS: TestBufferGrowth (5.95647215843200684)
 === RUN   TestEqual
---- PASS: TestEqual (1.621246337890625e-05)
+--- PASS: TestEqual (1.2874603271484375e-05)
 === RUN   TestEqualExhaustive
---- PASS: TestEqualExhaustive (0.808979034423828125)
+--- PASS: TestEqualExhaustive (0.580357074737548828)
 === RUN   TestNotEqual
---- PASS: TestNotEqual (3.7763829231262207)
+--- PASS: TestNotEqual (2.73705410957336426)
 === RUN   TestIndex
---- PASS: TestIndex (0.0105240345001220703)
+--- PASS: TestIndex (0.00871396064758300781)
 === RUN   TestLastIndex
---- PASS: TestLastIndex (0.000497102737426757812)
+--- PASS: TestLastIndex (0.000377178192138671875)
 === RUN   TestIndexAny
---- PASS: TestIndexAny (0.00118613243103027344)
+--- PASS: TestIndexAny (0.001007080078125)
 === RUN   TestLastIndexAny
---- PASS: TestLastIndexAny (0.00128388404846191406)
+--- PASS: TestLastIndexAny (0.00112700462341308594)
 === RUN   TestIndexByte
---- PASS: TestIndexByte (0.000252962112426757812)
+--- PASS: TestIndexByte (0.000198125839233398438)
 === RUN   TestLastIndexByte
---- PASS: TestLastIndexByte (9.1075897216796875e-05)
+--- PASS: TestLastIndexByte (9.08374786376953125e-05)
 === RUN   TestIndexByteBig
---- PASS: TestIndexByteBig (1.35315489768981934)
+--- PASS: TestIndexByteBig (0.923868894577026367)
 === RUN   TestIndexByteSmall
---- PASS: TestIndexByteSmall (1.22256898880004883)
+--- PASS: TestIndexByteSmall (0.868391990661621094)
 === RUN   TestIndexRune
---- PASS: TestIndexRune (0.002223968505859375)
+--- PASS: TestIndexRune (0.000843048095703125)
 === RUN   TestCountByte
---- PASS: TestCountByte (32.1097748279571533)
+--- PASS: TestCountByte (22.5754468441009521)
 === RUN   TestCountByteNoMatch
---- PASS: TestCountByteNoMatch (5.23801898956298828)
+--- PASS: TestCountByteNoMatch (4.01038098335266113)
 === RUN   TestSplit
---- PASS: TestSplit (0.00548481941223144531)
+--- PASS: TestSplit (0.00419402122497558594)
 === RUN   TestSplitAfter
---- PASS: TestSplitAfter (0.00497198104858398438)
+--- PASS: TestSplitAfter (0.00420498847961425781)
 === RUN   TestFields
---- PASS: TestFields (0.00151920318603515625)
+--- PASS: TestFields (0.00112509727478027344)
 === RUN   TestFieldsFunc
---- PASS: TestFieldsFunc (0.00136709213256835938)
+--- PASS: TestFieldsFunc (0.00110292434692382812)
 === RUN   TestMap
---- PASS: TestMap (0.00195097923278808594)
+--- PASS: TestMap (0.00168895721435546875)
 === RUN   TestToUpper
---- PASS: TestToUpper (0.00191497802734375)
+--- PASS: TestToUpper (0.00160503387451171875)
 === RUN   TestToLower
---- PASS: TestToLower (0.00163602828979492188)
+--- PASS: TestToLower (0.00141215324401855469)
 === RUN   TestToValidUTF8
---- PASS: TestToValidUTF8 (0.00163292884826660156)
+--- PASS: TestToValidUTF8 (0.00136399269104003906)
 === RUN   TestTrimSpace
---- PASS: TestTrimSpace (0.00159597396850585938)
+--- PASS: TestTrimSpace (0.00133800506591796875)
 === RUN   TestRepeat
---- PASS: TestRepeat (0.00014781951904296875)
+--- PASS: TestRepeat (0.000169992446899414062)
 === RUN   TestRepeatCatchesOverflow
---- PASS: TestRepeatCatchesOverflow (0.00076389312744140625)
+--- PASS: TestRepeatCatchesOverflow (0.000566005706787109375)
 === RUN   TestRunes
---- PASS: TestRunes (0.000833988189697265625)
+--- PASS: TestRunes (0.000734806060791015625)
 === RUN   TestTrim
---- PASS: TestTrim (0.00232410430908203125)
+--- PASS: TestTrim (0.00202584266662597656)
 === RUN   TestTrimFunc
---- PASS: TestTrimFunc (0.00415492057800293)
+--- PASS: TestTrimFunc (0.0033740997314453125)
 === RUN   TestIndexFunc
---- PASS: TestIndexFunc (0.00125217437744140625)
+--- PASS: TestIndexFunc (0.00101709365844726562)
 === RUN   TestReplace
---- PASS: TestReplace (0.00321793556213378906)
+--- PASS: TestReplace (0.0025119781494140625)
 === RUN   TestTitle
---- PASS: TestTitle (0.00126814842224121094)
+--- PASS: TestTitle (0.00109696388244628906)
 === RUN   TestToTitle
---- PASS: TestToTitle (0.000722169876098632812)
+--- PASS: TestToTitle (0.000598907470703125)
 === RUN   TestEqualFold
---- PASS: TestEqualFold (0.00174283981323242188)
+--- PASS: TestEqualFold (0.00140213966369628906)
 === RUN   TestCut
---- PASS: TestCut (0.000113010406494140625)
+--- PASS: TestCut (9.89437103271484375e-05)
 === RUN   TestBufferGrowNegative
---- PASS: TestBufferGrowNegative (3.40938568115234375e-05)
+--- PASS: TestBufferGrowNegative (3.0994415283203125e-05)
 === RUN   TestBufferTruncateNegative
---- PASS: TestBufferTruncateNegative (2.78949737548828125e-05)
+--- PASS: TestBufferTruncateNegative (2.002716064453125e-05)
 === RUN   TestBufferTruncateOutOfRange
---- PASS: TestBufferTruncateOutOfRange (5.31673431396484375e-05)
+--- PASS: TestBufferTruncateOutOfRange (4.1961669921875e-05)
 === RUN   TestContains
---- PASS: TestContains (5.1021575927734375e-05)
+--- PASS: TestContains (4.482269287109375e-05)
 === RUN   TestContainsAny
---- PASS: TestContainsAny (0.000522851943969726562)
+--- PASS: TestContainsAny (0.000458002090454101562)
 === RUN   TestContainsRune
---- PASS: TestContainsRune (0.000154972076416015625)
+--- PASS: TestContainsRune (0.000115156173706054688)
 === RUN   TestCompare
---- PASS: TestCompare (0.0035037994384765625)
+--- PASS: TestCompare (0.00272607803344726562)
 === RUN   TestCompareIdenticalSlice
---- PASS: TestCompareIdenticalSlice (3.40938568115234375e-05)
+--- PASS: TestCompareIdenticalSlice (3.0994415283203125e-05)
 === RUN   TestCompareBytes
 bytes_test/Bytes_test.hx:4397: testCompareBytes skip function
---- PASS: TestCompareBytes (1.811981201171875e-05)
+--- PASS: TestCompareBytes (1.50203704833984375e-05)
 === RUN   TestEndianBaseCompare
---- PASS: TestEndianBaseCompare (0.383970975875854492)
+--- PASS: TestEndianBaseCompare (0.267302036285400391)
 === RUN   TestReader
---- PASS: TestReader (0.000603914260864257812)
+--- PASS: TestReader (0.000528097152709960938)
 === RUN   TestReadAfterBigSeek
---- PASS: TestReadAfterBigSeek (8.60691070556640625e-05)
+--- PASS: TestReadAfterBigSeek (7.41481781005859375e-05)
 === RUN   TestReaderAt
---- PASS: TestReaderAt (0.00061798095703125)
+--- PASS: TestReaderAt (0.0002899169921875)
 === RUN   TestReaderAtConcurrent
---- PASS: TestReaderAtConcurrent (0.0012359619140625)
+--- PASS: TestReaderAtConcurrent (0.000766038894653320312)
 === RUN   TestEmptyReaderConcurrent
---- PASS: TestEmptyReaderConcurrent (0.00119900703430175781)
+--- PASS: TestEmptyReaderConcurrent (0.00153493881225585938)
 === RUN   TestReaderWriteTo
---- PASS: TestReaderWriteTo (0.0269768238067626953)
+--- PASS: TestReaderWriteTo (0.0214509963989257812)
 === RUN   TestReaderLen
---- PASS: TestReaderLen (0.000427007675170898438)
+--- PASS: TestReaderLen (8.487701416015625e-05)
 === RUN   TestUnreadRuneError
---- PASS: TestUnreadRuneError (0.000299930572509765625)
+--- PASS: TestUnreadRuneError (0.00020313262939453125)
 === RUN   TestReaderDoubleUnreadRune
---- PASS: TestReaderDoubleUnreadRune (3.910064697265625e-05)
+--- PASS: TestReaderDoubleUnreadRune (2.9087066650390625e-05)
 === RUN   TestReaderCopyNothing
 ```
 </p>

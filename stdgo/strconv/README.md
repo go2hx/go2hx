@@ -14,117 +14,117 @@ Package strconv implements conversions to and from string representations��/
 
 ```
 === RUN   TestParseBool
---- PASS: TestParseBool (0.0002288818359375)
+--- PASS: TestParseBool (0.000153064727783203)
 === RUN   TestFormatBool
---- PASS: TestFormatBool (4.79221343994141e-05)
+--- PASS: TestFormatBool (2.78949737548828e-05)
 === RUN   TestAppendBool
---- PASS: TestAppendBool (3.38554382324219e-05)
+--- PASS: TestAppendBool (1.71661376953125e-05)
 === RUN   TestParseComplex
---- PASS: TestParseComplex (0.544830083847046)
+--- PASS: TestParseComplex (0.435906171798706)
 === RUN   TestParseComplexIncorrectBitSize
---- PASS: TestParseComplexIncorrectBitSize (0.000630855560302734)
+--- PASS: TestParseComplexIncorrectBitSize (0.000527143478393555)
 === RUN   TestParseFloatPrefix
---- PASS: TestParseFloatPrefix (2.87814903259277)
+--- PASS: TestParseFloatPrefix (2.24481201171875)
 === RUN   TestAtof
---- PASS: TestAtof (2.15055704116821)
+--- PASS: TestAtof (1.64322805404663)
 === RUN   TestAtofSlow
---- PASS: TestAtofSlow (6.32777190208435)
+--- PASS: TestAtofSlow (4.84329986572266)
 === RUN   TestAtofRandom
---- PASS: TestAtofRandom (0.013045072555542)
+--- PASS: TestAtofRandom (0.00984811782836914)
 === RUN   TestRoundTrip
---- PASS: TestRoundTrip (0.00799989700317383)
+--- PASS: TestRoundTrip (0.00653791427612305)
 === RUN   TestRoundTrip32
---- PASS: TestRoundTrip32 (12.0633850097656)
+--- PASS: TestRoundTrip32 (9.10045194625854)
 === RUN   TestParseFloatIncorrectBitSize
---- PASS: TestParseFloatIncorrectBitSize (0.000329017639160156)
+--- PASS: TestParseFloatIncorrectBitSize (0.0002899169921875)
 === RUN   TestParseUint32
---- PASS: TestParseUint32 (0.00040888786315918)
+--- PASS: TestParseUint32 (0.000369071960449219)
 === RUN   TestParseUint64
---- PASS: TestParseUint64 (0.00239801406860352)
+--- PASS: TestParseUint64 (0.000397920608520508)
 === RUN   TestParseUint64Base
---- PASS: TestParseUint64Base (0.00875997543334961)
+--- PASS: TestParseUint64Base (0.00780081748962402)
 === RUN   TestParseInt32
---- PASS: TestParseInt32 (0.00306892395019531)
+--- PASS: TestParseInt32 (0.00094294548034668)
 === RUN   TestParseInt64
---- PASS: TestParseInt64 (0.000946998596191406)
+--- PASS: TestParseInt64 (0.00189995765686035)
 === RUN   TestParseInt64Base
---- PASS: TestParseInt64Base (0.0100510120391846)
+--- PASS: TestParseInt64Base (0.00581812858581543)
 === RUN   TestParseUint
---- PASS: TestParseUint (0.000380992889404297)
+--- PASS: TestParseUint (0.000355005264282227)
 === RUN   TestParseInt
---- PASS: TestParseInt (0.00301980972290039)
+--- PASS: TestParseInt (0.00104188919067383)
 === RUN   TestAtoi
---- PASS: TestAtoi (0.000863790512084961)
+--- PASS: TestAtoi (0.00163602828979492)
 === RUN   TestParseIntBitSize
---- PASS: TestParseIntBitSize (0.000695943832397461)
+--- PASS: TestParseIntBitSize (0.000407218933105469)
 === RUN   TestParseUintBitSize
---- PASS: TestParseUintBitSize (0.00047612190246582)
+--- PASS: TestParseUintBitSize (0.000314950942993164)
 === RUN   TestParseIntBase
---- PASS: TestParseIntBase (0.00100088119506836)
+--- PASS: TestParseIntBase (0.000572919845581055)
 === RUN   TestParseUintBase
---- PASS: TestParseUintBase (0.000526905059814453)
+--- PASS: TestParseUintBase (0.000446081161499023)
 === RUN   TestNumError
---- PASS: TestNumError (0.00169086456298828)
+--- PASS: TestNumError (7.89165496826172e-05)
 === RUN   TestNumErrorUnwrap
---- PASS: TestNumErrorUnwrap (9.98973846435547e-05)
+--- PASS: TestNumErrorUnwrap (6.31809234619141e-05)
 === RUN   TestFormatComplex
---- PASS: TestFormatComplex (0.00614213943481445)
+--- PASS: TestFormatComplex (0.00486397743225098)
 === RUN   TestFormatComplexInvalidBitSize
---- PASS: TestFormatComplexInvalidBitSize (3.29017639160156e-05)
+--- PASS: TestFormatComplexInvalidBitSize (5.00679016113281e-05)
 === RUN   TestDecimalShift
---- PASS: TestDecimalShift (0.00219202041625977)
+--- PASS: TestDecimalShift (0.00238299369812012)
 === RUN   TestDecimalRound
---- PASS: TestDecimalRound (0.0106887817382812)
+--- PASS: TestDecimalRound (0.00764608383178711)
 === RUN   TestDecimalRoundedInteger
---- PASS: TestDecimalRoundedInteger (0.0031280517578125)
+--- PASS: TestDecimalRoundedInteger (0.00217890739440918)
 === RUN   TestFp
 strconv_test/Strconv_test.hx:4102: testFp skip function
---- PASS: TestFp (8.29696655273438e-05)
+--- PASS: TestFp (4.41074371337891e-05)
 === RUN   TestFtoa
---- PASS: TestFtoa (0.104279041290283)
+--- PASS: TestFtoa (0.0775079727172852)
 === RUN   TestFtoaPowersOfTwo
 strconv_test/Strconv_test.hx:4227: testFtoaPowersOfTwo skip function
---- PASS: TestFtoaPowersOfTwo (3.814697265625e-05)
+--- PASS: TestFtoaPowersOfTwo (3.60012054443359e-05)
 === RUN   TestFtoaRandom
---- PASS: TestFtoaRandom (4.57033491134644)
+--- PASS: TestFtoaRandom (3.13385200500488)
 === RUN   TestFormatFloatInvalidBitSize
---- PASS: TestFormatFloatInvalidBitSize (3.60012054443359e-05)
+--- PASS: TestFormatFloatInvalidBitSize (3.79085540771484e-05)
 === RUN   TestMulByLog2Log10
---- PASS: TestMulByLog2Log10 (0.00652909278869629)
+--- PASS: TestMulByLog2Log10 (0.00521707534790039)
 === RUN   TestMulByLog10Log2
---- PASS: TestMulByLog10Log2 (0.00156402587890625)
+--- PASS: TestMulByLog10Log2 (0.00132012367248535)
 === RUN   TestItoa
---- PASS: TestItoa (0.00908017158508301)
+--- PASS: TestItoa (0.00685906410217285)
 === RUN   TestUitoa
---- PASS: TestUitoa (0.0017540454864502)
+--- PASS: TestUitoa (0.0011448860168457)
 === RUN   TestFormatUintVarlen
---- PASS: TestFormatUintVarlen (0.00103187561035156)
+--- PASS: TestFormatUintVarlen (0.000828027725219727)
 === RUN   TestIsPrint
---- PASS: TestIsPrint (35.8901059627533)
+--- PASS: TestIsPrint (27.7527241706848)
 === RUN   TestIsGraphic
---- PASS: TestIsGraphic (35.4776699542999)
+--- PASS: TestIsGraphic (27.7807538509369)
 === RUN   TestQuote
---- PASS: TestQuote (0.000501871109008789)
+--- PASS: TestQuote (0.000442981719970703)
 === RUN   TestQuoteToASCII
---- PASS: TestQuoteToASCII (0.000355005264282227)
+--- PASS: TestQuoteToASCII (0.000337839126586914)
 === RUN   TestQuoteToGraphic
---- PASS: TestQuoteToGraphic (0.000680923461914062)
+--- PASS: TestQuoteToGraphic (0.00163507461547852)
 === RUN   TestQuoteRune
---- PASS: TestQuoteRune (0.00227689743041992)
+--- PASS: TestQuoteRune (0.000412940979003906)
 === RUN   TestQuoteRuneToASCII
---- PASS: TestQuoteRuneToASCII (0.00020599365234375)
+--- PASS: TestQuoteRuneToASCII (0.000174999237060547)
 === RUN   TestQuoteRuneToGraphic
---- PASS: TestQuoteRuneToGraphic (0.000488996505737305)
+--- PASS: TestQuoteRuneToGraphic (0.000454902648925781)
 === RUN   TestCanBackquote
---- PASS: TestCanBackquote (0.000564813613891602)
+--- PASS: TestCanBackquote (0.000483989715576172)
 === RUN   TestUnquote
---- PASS: TestUnquote (0.00275993347167969)
+--- PASS: TestUnquote (0.00247812271118164)
 === RUN   TestUnquoteInvalidUTF8
---- PASS: TestUnquoteInvalidUTF8 (0.000243186950683594)
+--- PASS: TestUnquoteInvalidUTF8 (0.000192880630493164)
 === RUN   TestCountMallocs
---- PASS: TestCountMallocs (0.360885858535767)
+--- PASS: TestCountMallocs (0.254738092422485)
 === RUN   TestErrorPrefixes
---- PASS: TestErrorPrefixes (0.000304937362670898)
+--- PASS: TestErrorPrefixes (0.000249147415161133)
 ```
 </p>
 </details>
@@ -134,25 +134,25 @@ strconv_test/Strconv_test.hx:4227: testFtoaPowersOfTwo skip function
 
 ```
 === RUN   TestParseBool
---- PASS: TestParseBool (0.00115203857421875)
+--- PASS: TestParseBool (0.000897884368896484375)
 === RUN   TestFormatBool
---- PASS: TestFormatBool (0.000112056732177734375)
+--- PASS: TestFormatBool (8.392333984375e-05)
 === RUN   TestAppendBool
---- PASS: TestAppendBool (0.000108003616333007812)
+--- PASS: TestAppendBool (6.79492950439453125e-05)
 === RUN   TestParseComplex
---- PASS: TestParseComplex (2.97122883796691895)
+--- PASS: TestParseComplex (2.32387304306030273)
 === RUN   TestParseComplexIncorrectBitSize
---- PASS: TestParseComplexIncorrectBitSize (0.00404310226440429688)
+--- PASS: TestParseComplexIncorrectBitSize (0.00379991531372070312)
 === RUN   TestParseFloatPrefix
---- PASS: TestParseFloatPrefix (14.0376770496368408)
+--- PASS: TestParseFloatPrefix (10.6484429836273193)
 === RUN   TestAtof
---- PASS: TestAtof (10.9980719089508057)
+--- PASS: TestAtof (8.21340107917785645)
 === RUN   TestAtofSlow
---- PASS: TestAtofSlow (29.9428110122680664)
+--- PASS: TestAtofSlow (22.4640190601348877)
 === RUN   TestAtofRandom
---- PASS: TestAtofRandom (0.0691359043121337891)
+--- PASS: TestAtofRandom (0.0543792247772216797)
 === RUN   TestRoundTrip
---- PASS: TestRoundTrip (0.0470139980316162109)
+--- PASS: TestRoundTrip (0.03163909912109375)
 === RUN   TestRoundTrip32
 ParseFloat(-2.44997e-05, 32) = -2.44997e-05, not a float32 (nearest is -2.44997008849168196e-05)
 ```

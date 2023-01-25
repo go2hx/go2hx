@@ -6,7 +6,7 @@
 # Overview
 
 
-Package bits implements bit counting and manipulation��// functions for the predeclared unsigned integer types. 
+Package bits implements bit counting and manipulation  functions for the predeclared unsigned integer types. 
 
 
 <details><summary>hl tests passed</summary>
@@ -14,57 +14,57 @@ Package bits implements bit counting and manipulation��// functions for the 
 
 ```
 === RUN   TestUintSize
---- PASS: TestUintSize (4.69684600830078e-05)
+--- PASS: TestUintSize (5.10215759277344e-05)
 === RUN   TestLeadingZeros
---- PASS: TestLeadingZeros (0.608329057693481)
+--- PASS: TestLeadingZeros (0.60975193977356)
 === RUN   TestTrailingZeros
---- PASS: TestTrailingZeros (0.519644021987915)
+--- PASS: TestTrailingZeros (0.520138025283813)
 === RUN   TestOnesCount
---- PASS: TestOnesCount (1.39113116264343)
+--- PASS: TestOnesCount (1.39667820930481)
 === RUN   TestRotateLeft
---- PASS: TestRotateLeft (0.00199794769287109)
+--- PASS: TestRotateLeft (0.00199198722839355)
 === RUN   TestReverse
---- PASS: TestReverse (0.0188770294189453)
+--- PASS: TestReverse (0.0189568996429443)
 === RUN   TestReverseBytes
---- PASS: TestReverseBytes (0.000941038131713867)
+--- PASS: TestReverseBytes (0.000952005386352539)
 === RUN   TestLen
---- PASS: TestLen (0.598394870758057)
+--- PASS: TestLen (0.599833011627197)
 === RUN   TestAddSubUint
---- PASS: TestAddSubUint (0.000236988067626953)
+--- PASS: TestAddSubUint (0.000252008438110352)
 === RUN   TestAddSubUint32
---- PASS: TestAddSubUint32 (0.000126838684082031)
+--- PASS: TestAddSubUint32 (0.000131130218505859)
 === RUN   TestAddSubUint64
---- PASS: TestAddSubUint64 (0.000377893447875977)
+--- PASS: TestAddSubUint64 (0.000380992889404297)
 === RUN   TestAdd64OverflowPanic
---- PASS: TestAdd64OverflowPanic (0.00108194351196289)
+--- PASS: TestAdd64OverflowPanic (0.0010840892791748)
 === RUN   TestSub64OverflowPanic
---- PASS: TestSub64OverflowPanic (0.000422954559326172)
+--- PASS: TestSub64OverflowPanic (0.000464916229248047)
 === RUN   TestMulDiv
---- PASS: TestMulDiv (0.000313043594360352)
+--- PASS: TestMulDiv (0.000324010848999023)
 === RUN   TestMulDiv32
---- PASS: TestMulDiv32 (0.000215053558349609)
+--- PASS: TestMulDiv32 (0.000216960906982422)
 === RUN   TestMulDiv64
---- PASS: TestMulDiv64 (0.00214385986328125)
+--- PASS: TestMulDiv64 (0.00217890739440918)
 === RUN   TestDivPanicOverflow
---- PASS: TestDivPanicOverflow (8.20159912109375e-05)
+--- PASS: TestDivPanicOverflow (0.000106096267700195)
 === RUN   TestDiv32PanicOverflow
---- PASS: TestDiv32PanicOverflow (4.79221343994141e-05)
+--- PASS: TestDiv32PanicOverflow (4.69684600830078e-05)
 === RUN   TestDiv64PanicOverflow
 --- PASS: TestDiv64PanicOverflow (4.79221343994141e-05)
 === RUN   TestDivPanicZero
---- PASS: TestDivPanicZero (4.88758087158203e-05)
+--- PASS: TestDivPanicZero (4.98294830322266e-05)
 === RUN   TestDiv32PanicZero
---- PASS: TestDiv32PanicZero (4.48226928710938e-05)
+--- PASS: TestDiv32PanicZero (4.69684600830078e-05)
 === RUN   TestDiv64PanicZero
---- PASS: TestDiv64PanicZero (5.50746917724609e-05)
+--- PASS: TestDiv64PanicZero (4.29153442382812e-05)
 === RUN   TestRem32
---- PASS: TestRem32 (0.0513710975646973)
+--- PASS: TestRem32 (0.0517289638519287)
 === RUN   TestRem32Overflow
---- PASS: TestRem32Overflow (0.121531963348389)
+--- PASS: TestRem32Overflow (0.122426986694336)
 === RUN   TestRem64
---- PASS: TestRem64 (0.328413009643555)
+--- PASS: TestRem64 (0.328006029129028)
 === RUN   TestRem64Overflow
---- PASS: TestRem64Overflow (0.00131702423095703)
+--- PASS: TestRem64Overflow (0.00131797790527344)
 ```
 </p>
 </details>
@@ -74,57 +74,57 @@ Package bits implements bit counting and manipulation��// functions for the 
 
 ```
 === RUN   TestUintSize
---- PASS: TestUintSize (3.69548797607421875e-05)
+--- PASS: TestUintSize (4.100799560546875e-05)
 === RUN   TestLeadingZeros
---- PASS: TestLeadingZeros (3.00604486465454102)
+--- PASS: TestLeadingZeros (3.01024913787841797)
 === RUN   TestTrailingZeros
---- PASS: TestTrailingZeros (2.80674004554748535)
+--- PASS: TestTrailingZeros (2.81573486328125)
 === RUN   TestOnesCount
---- PASS: TestOnesCount (7.04417991638183594)
+--- PASS: TestOnesCount (7.0615079402923584)
 === RUN   TestRotateLeft
---- PASS: TestRotateLeft (0.0139610767364501953)
+--- PASS: TestRotateLeft (0.0140848159790039062)
 === RUN   TestReverse
---- PASS: TestReverse (0.0863959789276123)
+--- PASS: TestReverse (0.0865650177001953125)
 === RUN   TestReverseBytes
---- PASS: TestReverseBytes (0.00651884078979492188)
+--- PASS: TestReverseBytes (0.00659418106079101562)
 === RUN   TestLen
---- PASS: TestLen (2.92613506317138672)
+--- PASS: TestLen (2.93194389343261719)
 === RUN   TestAddSubUint
---- PASS: TestAddSubUint (0.0013980865478515625)
+--- PASS: TestAddSubUint (0.00138807296752929688)
 === RUN   TestAddSubUint32
---- PASS: TestAddSubUint32 (0.00078582763671875)
+--- PASS: TestAddSubUint32 (0.000771999359130859375)
 === RUN   TestAddSubUint64
---- PASS: TestAddSubUint64 (0.00223207473754882812)
+--- PASS: TestAddSubUint64 (0.002223968505859375)
 === RUN   TestAdd64OverflowPanic
---- PASS: TestAdd64OverflowPanic (0.00283312797546386719)
+--- PASS: TestAdd64OverflowPanic (0.00275087356567382812)
 === RUN   TestSub64OverflowPanic
---- PASS: TestSub64OverflowPanic (0.00205016136169433594)
+--- PASS: TestSub64OverflowPanic (0.00204706192016601562)
 === RUN   TestMulDiv
---- PASS: TestMulDiv (0.00168180465698242188)
+--- PASS: TestMulDiv (0.0016498565673828125)
 === RUN   TestMulDiv32
---- PASS: TestMulDiv32 (0.00115084648132324219)
+--- PASS: TestMulDiv32 (0.00116801261901855469)
 === RUN   TestMulDiv64
---- PASS: TestMulDiv64 (0.0100870132446289062)
+--- PASS: TestMulDiv64 (0.0100200176239013672)
 === RUN   TestDivPanicOverflow
---- PASS: TestDivPanicOverflow (0.000157833099365234375)
+--- PASS: TestDivPanicOverflow (0.000154018402099609375)
 === RUN   TestDiv32PanicOverflow
---- PASS: TestDiv32PanicOverflow (7.4863433837890625e-05)
+--- PASS: TestDiv32PanicOverflow (7.2956085205078125e-05)
 === RUN   TestDiv64PanicOverflow
---- PASS: TestDiv64PanicOverflow (8.70227813720703125e-05)
+--- PASS: TestDiv64PanicOverflow (8.60691070556640625e-05)
 === RUN   TestDivPanicZero
---- PASS: TestDivPanicZero (0.000118970870971679688)
+--- PASS: TestDivPanicZero (0.00012302398681640625)
 === RUN   TestDiv32PanicZero
---- PASS: TestDiv32PanicZero (9.08374786376953125e-05)
+--- PASS: TestDiv32PanicZero (8.79764556884765625e-05)
 === RUN   TestDiv64PanicZero
---- PASS: TestDiv64PanicZero (8.51154327392578125e-05)
+--- PASS: TestDiv64PanicZero (8.106231689453125e-05)
 === RUN   TestRem32
---- PASS: TestRem32 (0.221225976943969727)
+--- PASS: TestRem32 (0.221365928649902344)
 === RUN   TestRem32Overflow
---- PASS: TestRem32Overflow (0.626460790634155273)
+--- PASS: TestRem32Overflow (0.627593040466308594)
 === RUN   TestRem64
---- PASS: TestRem64 (1.57082200050354)
+--- PASS: TestRem64 (1.57578682899475098)
 === RUN   TestRem64Overflow
---- PASS: TestRem64Overflow (0.00460410118103027344)
+--- PASS: TestRem64Overflow (0.00461792945861816406)
 ```
 </p>
 </details>
@@ -354,7 +354,7 @@ function add(_x:stdgo.GoUInt, _y:stdgo.GoUInt, _carry:stdgo.GoUInt):{_1:stdgo.Go
 ```
 
 
-Add returns the sum with carry of x, y and carry: sum = x \+ y \+ carry.��// The carry input must be 0 or 1; otherwise the behavior is undefined.��// The carryOut output is guaranteed to be 0 or 1.��//��// This function's execution time does not depend on the inputs. 
+Add returns the sum with carry of x, y and carry: sum = x \+ y \+ carry.  The carry input must be 0 or 1; otherwise the behavior is undefined.  The carryOut output is guaranteed to be 0 or 1.    This function's execution time does not depend on the inputs. 
 
 
 [\(view code\)](<./Bits.hx#L552>)
@@ -368,7 +368,7 @@ function add32(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32, _carry:stdgo.GoUInt32):{_1:
 ```
 
 
-Add32 returns the sum with carry of x, y and carry: sum = x \+ y \+ carry.��// The carry input must be 0 or 1; otherwise the behavior is undefined.��// The carryOut output is guaranteed to be 0 or 1.��//��// This function's execution time does not depend on the inputs. 
+Add32 returns the sum with carry of x, y and carry: sum = x \+ y \+ carry.  The carry input must be 0 or 1; otherwise the behavior is undefined.  The carryOut output is guaranteed to be 0 or 1.    This function's execution time does not depend on the inputs. 
 
 
 ### exampleAdd32
@@ -422,7 +422,7 @@ function add64(_x:stdgo.GoUInt64, _y:stdgo.GoUInt64, _carry:stdgo.GoUInt64):{_1:
 ```
 
 
-Add64 returns the sum with carry of x, y and carry: sum = x \+ y \+ carry.��// The carry input must be 0 or 1; otherwise the behavior is undefined.��// The carryOut output is guaranteed to be 0 or 1.��//��// This function's execution time does not depend on the inputs. 
+Add64 returns the sum with carry of x, y and carry: sum = x \+ y \+ carry.  The carry input must be 0 or 1; otherwise the behavior is undefined.  The carryOut output is guaranteed to be 0 or 1.    This function's execution time does not depend on the inputs. 
 
 
 ### exampleAdd64
@@ -476,7 +476,7 @@ function div(_hi:stdgo.GoUInt, _lo:stdgo.GoUInt, _y:stdgo.GoUInt):{_1:stdgo.GoUI
 ```
 
 
-Div returns the quotient and remainder of \(hi, lo\) divided by y:��// quo = \(hi, lo\)/y, rem = \(hi, lo\)%y with the dividend bits' upper��// half in parameter hi and the lower half in parameter lo.��// Div panics for y == 0 \(division by zero\) or y \<= hi \(quotient overflow\). 
+Div returns the quotient and remainder of \(hi, lo\) divided by y:  quo = \(hi, lo\)/y, rem = \(hi, lo\)%y with the dividend bits' upper  half in parameter hi and the lower half in parameter lo.  Div panics for y == 0 \(division by zero\) or y \<= hi \(quotient overflow\). 
 
 
 [\(view code\)](<./Bits.hx#L714>)
@@ -490,7 +490,7 @@ function div32(_hi:stdgo.GoUInt32, _lo:stdgo.GoUInt32, _y:stdgo.GoUInt32):{_1:st
 ```
 
 
-Div32 returns the quotient and remainder of \(hi, lo\) divided by y:��// quo = \(hi, lo\)/y, rem = \(hi, lo\)%y with the dividend bits' upper��// half in parameter hi and the lower half in parameter lo.��// Div32 panics for y == 0 \(division by zero\) or y \<= hi \(quotient overflow\). 
+Div32 returns the quotient and remainder of \(hi, lo\) divided by y:  quo = \(hi, lo\)/y, rem = \(hi, lo\)%y with the dividend bits' upper  half in parameter hi and the lower half in parameter lo.  Div32 panics for y == 0 \(division by zero\) or y \<= hi \(quotient overflow\). 
 
 
 ### exampleDiv32
@@ -539,7 +539,7 @@ function div64(_hi:stdgo.GoUInt64, _lo:stdgo.GoUInt64, _y:stdgo.GoUInt64):{_1:st
 ```
 
 
-Div64 returns the quotient and remainder of \(hi, lo\) divided by y:��// quo = \(hi, lo\)/y, rem = \(hi, lo\)%y with the dividend bits' upper��// half in parameter hi and the lower half in parameter lo.��// Div64 panics for y == 0 \(division by zero\) or y \<= hi \(quotient overflow\). 
+Div64 returns the quotient and remainder of \(hi, lo\) divided by y:  quo = \(hi, lo\)/y, rem = \(hi, lo\)%y with the dividend bits' upper  half in parameter hi and the lower half in parameter lo.  Div64 panics for y == 0 \(division by zero\) or y \<= hi \(quotient overflow\). 
 
 
 ### exampleDiv64
@@ -875,7 +875,7 @@ function mul(_x:stdgo.GoUInt, _y:stdgo.GoUInt):{_1:stdgo.GoUInt, _0:stdgo.GoUInt
 ```
 
 
-Mul returns the full\-width product of x and y: \(hi, lo\) = x \* y��// with the product bits' upper half returned in hi and the lower��// half returned in lo.��//��// This function's execution time does not depend on the inputs. 
+Mul returns the full\-width product of x and y: \(hi, lo\) = x \* y  with the product bits' upper half returned in hi and the lower  half returned in lo.    This function's execution time does not depend on the inputs. 
 
 
 [\(view code\)](<./Bits.hx#L651>)
@@ -889,7 +889,7 @@ function mul32(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32):{_1:stdgo.GoUInt32, _0:stdg
 ```
 
 
-Mul32 returns the 64\-bit product of x and y: \(hi, lo\) = x \* y��// with the product bits' upper half returned in hi and the lower��// half returned in lo.��//��// This function's execution time does not depend on the inputs. 
+Mul32 returns the 64\-bit product of x and y: \(hi, lo\) = x \* y  with the product bits' upper half returned in hi and the lower  half returned in lo.    This function's execution time does not depend on the inputs. 
 
 
 ### exampleMul32
@@ -936,7 +936,7 @@ function mul64(_x:stdgo.GoUInt64, _y:stdgo.GoUInt64):{_1:stdgo.GoUInt64, _0:stdg
 ```
 
 
-Mul64 returns the 128\-bit product of x and y: \(hi, lo\) = x \* y��// with the product bits' upper half returned in hi and the lower��// half returned in lo.��//��// This function's execution time does not depend on the inputs. 
+Mul64 returns the 128\-bit product of x and y: \(hi, lo\) = x \* y  with the product bits' upper half returned in hi and the lower  half returned in lo.    This function's execution time does not depend on the inputs. 
 
 
 ### exampleMul64
@@ -1145,7 +1145,7 @@ function rem(_hi:stdgo.GoUInt, _lo:stdgo.GoUInt, _y:stdgo.GoUInt):stdgo.GoUInt
 ```
 
 
-Rem returns the remainder of \(hi, lo\) divided by y. Rem panics for��// y == 0 \(division by zero\) but, unlike Div, it doesn't panic on a��// quotient overflow. 
+Rem returns the remainder of \(hi, lo\) divided by y. Rem panics for  y == 0 \(division by zero\) but, unlike Div, it doesn't panic on a  quotient overflow. 
 
 
 [\(view code\)](<./Bits.hx#L799>)
@@ -1159,7 +1159,7 @@ function rem32(_hi:stdgo.GoUInt32, _lo:stdgo.GoUInt32, _y:stdgo.GoUInt32):stdgo.
 ```
 
 
-Rem32 returns the remainder of \(hi, lo\) divided by y. Rem32 panics��// for y == 0 \(division by zero\) but, unlike Div32, it doesn't panic��// on a quotient overflow. 
+Rem32 returns the remainder of \(hi, lo\) divided by y. Rem32 panics  for y == 0 \(division by zero\) but, unlike Div32, it doesn't panic  on a quotient overflow. 
 
 
 [\(view code\)](<./Bits.hx#L811>)
@@ -1173,7 +1173,7 @@ function rem64(_hi:stdgo.GoUInt64, _lo:stdgo.GoUInt64, _y:stdgo.GoUInt64):stdgo.
 ```
 
 
-Rem64 returns the remainder of \(hi, lo\) divided by y. Rem64 panics��// for y == 0 \(division by zero\) but, unlike Div64, it doesn't panic��// on a quotient overflow. 
+Rem64 returns the remainder of \(hi, lo\) divided by y. Rem64 panics  for y == 0 \(division by zero\) but, unlike Div64, it doesn't panic  on a quotient overflow. 
 
 
 [\(view code\)](<./Bits.hx#L820>)
@@ -1333,7 +1333,7 @@ function reverseBytes(_x:stdgo.GoUInt):stdgo.GoUInt
 ```
 
 
-ReverseBytes returns the value of x with its bytes in reversed order.��//��// This function's execution time does not depend on the inputs. 
+ReverseBytes returns the value of x with its bytes in reversed order.    This function's execution time does not depend on the inputs. 
 
 
 [\(view code\)](<./Bits.hx#L430>)
@@ -1347,7 +1347,7 @@ function reverseBytes16(_x:stdgo.GoUInt16):stdgo.GoUInt16
 ```
 
 
-ReverseBytes16 returns the value of x with its bytes in reversed order.��//��// This function's execution time does not depend on the inputs. 
+ReverseBytes16 returns the value of x with its bytes in reversed order.    This function's execution time does not depend on the inputs. 
 
 
 ### exampleReverseBytes16
@@ -1380,7 +1380,7 @@ function reverseBytes32(_x:stdgo.GoUInt32):stdgo.GoUInt32
 ```
 
 
-ReverseBytes32 returns the value of x with its bytes in reversed order.��//��// This function's execution time does not depend on the inputs. 
+ReverseBytes32 returns the value of x with its bytes in reversed order.    This function's execution time does not depend on the inputs. 
 
 
 ### exampleReverseBytes32
@@ -1413,7 +1413,7 @@ function reverseBytes64(_x:stdgo.GoUInt64):stdgo.GoUInt64
 ```
 
 
-ReverseBytes64 returns the value of x with its bytes in reversed order.��//��// This function's execution time does not depend on the inputs. 
+ReverseBytes64 returns the value of x with its bytes in reversed order.    This function's execution time does not depend on the inputs. 
 
 
 ### exampleReverseBytes64
@@ -1446,7 +1446,7 @@ function rotateLeft(_x:stdgo.GoUInt, _k:stdgo.GoInt):stdgo.GoUInt
 ```
 
 
-RotateLeft returns the value of x rotated left by \(k mod UintSize\) bits.��// To rotate x right by k bits, call RotateLeft\(x, \-k\).��//��// This function's execution time does not depend on the inputs. 
+RotateLeft returns the value of x rotated left by \(k mod UintSize\) bits.  To rotate x right by k bits, call RotateLeft\(x, \-k\).    This function's execution time does not depend on the inputs. 
 
 
 [\(view code\)](<./Bits.hx#L298>)
@@ -1460,7 +1460,7 @@ function rotateLeft16(_x:stdgo.GoUInt16, _k:stdgo.GoInt):stdgo.GoUInt16
 ```
 
 
-RotateLeft16 returns the value of x rotated left by \(k mod 16\) bits.��// To rotate x right by k bits, call RotateLeft16\(x, \-k\).��//��// This function's execution time does not depend on the inputs. 
+RotateLeft16 returns the value of x rotated left by \(k mod 16\) bits.  To rotate x right by k bits, call RotateLeft16\(x, \-k\).    This function's execution time does not depend on the inputs. 
 
 
 ### exampleRotateLeft16
@@ -1494,7 +1494,7 @@ function rotateLeft32(_x:stdgo.GoUInt32, _k:stdgo.GoInt):stdgo.GoUInt32
 ```
 
 
-RotateLeft32 returns the value of x rotated left by \(k mod 32\) bits.��// To rotate x right by k bits, call RotateLeft32\(x, \-k\).��//��// This function's execution time does not depend on the inputs. 
+RotateLeft32 returns the value of x rotated left by \(k mod 32\) bits.  To rotate x right by k bits, call RotateLeft32\(x, \-k\).    This function's execution time does not depend on the inputs. 
 
 
 ### exampleRotateLeft32
@@ -1528,7 +1528,7 @@ function rotateLeft64(_x:stdgo.GoUInt64, _k:stdgo.GoInt):stdgo.GoUInt64
 ```
 
 
-RotateLeft64 returns the value of x rotated left by \(k mod 64\) bits.��// To rotate x right by k bits, call RotateLeft64\(x, \-k\).��//��// This function's execution time does not depend on the inputs. 
+RotateLeft64 returns the value of x rotated left by \(k mod 64\) bits.  To rotate x right by k bits, call RotateLeft64\(x, \-k\).    This function's execution time does not depend on the inputs. 
 
 
 ### exampleRotateLeft64
@@ -1562,7 +1562,7 @@ function rotateLeft8(_x:stdgo.GoUInt8, _k:stdgo.GoInt):stdgo.GoUInt8
 ```
 
 
-RotateLeft8 returns the value of x rotated left by \(k mod 8\) bits.��// To rotate x right by k bits, call RotateLeft8\(x, \-k\).��//��// This function's execution time does not depend on the inputs. 
+RotateLeft8 returns the value of x rotated left by \(k mod 8\) bits.  To rotate x right by k bits, call RotateLeft8\(x, \-k\).    This function's execution time does not depend on the inputs. 
 
 
 ### exampleRotateLeft8
@@ -1596,7 +1596,7 @@ function sub(_x:stdgo.GoUInt, _y:stdgo.GoUInt, _borrow:stdgo.GoUInt):{_1:stdgo.G
 ```
 
 
-Sub returns the difference of x, y and borrow: diff = x \- y \- borrow.��// The borrow input must be 0 or 1; otherwise the behavior is undefined.��// The borrowOut output is guaranteed to be 0 or 1.��//��// This function's execution time does not depend on the inputs. 
+Sub returns the difference of x, y and borrow: diff = x \- y \- borrow.  The borrow input must be 0 or 1; otherwise the behavior is undefined.  The borrowOut output is guaranteed to be 0 or 1.    This function's execution time does not depend on the inputs. 
 
 
 [\(view code\)](<./Bits.hx#L602>)
@@ -1610,7 +1610,7 @@ function sub32(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32, _borrow:stdgo.GoUInt32):{_1
 ```
 
 
-Sub32 returns the difference of x, y and borrow, diff = x \- y \- borrow.��// The borrow input must be 0 or 1; otherwise the behavior is undefined.��// The borrowOut output is guaranteed to be 0 or 1.��//��// This function's execution time does not depend on the inputs. 
+Sub32 returns the difference of x, y and borrow, diff = x \- y \- borrow.  The borrow input must be 0 or 1; otherwise the behavior is undefined.  The borrowOut output is guaranteed to be 0 or 1.    This function's execution time does not depend on the inputs. 
 
 
 ### exampleSub32
@@ -1664,7 +1664,7 @@ function sub64(_x:stdgo.GoUInt64, _y:stdgo.GoUInt64, _borrow:stdgo.GoUInt64):{_1
 ```
 
 
-Sub64 returns the difference of x, y and borrow: diff = x \- y \- borrow.��// The borrow input must be 0 or 1; otherwise the behavior is undefined.��// The borrowOut output is guaranteed to be 0 or 1.��//��// This function's execution time does not depend on the inputs. 
+Sub64 returns the difference of x, y and borrow: diff = x \- y \- borrow.  The borrow input must be 0 or 1; otherwise the behavior is undefined.  The borrowOut output is guaranteed to be 0 or 1.    This function's execution time does not depend on the inputs. 
 
 
 ### exampleSub64

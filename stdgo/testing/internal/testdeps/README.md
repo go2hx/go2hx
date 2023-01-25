@@ -6,7 +6,7 @@
 # Overview
 
 
-Package testdeps provides access to dependencies needed by test execution.��//��// This package is imported by the generated main package, which passes��// TestDeps into testing.Main. This allows tests to use packages at run time��// without making those packages direct dependencies of package testing.��// Direct dependencies of package testing are harder to write tests for. 
+Package testdeps provides access to dependencies needed by test execution.    This package is imported by the generated main package, which passes  TestDeps into testing.Main. This allows tests to use packages at run time  without making those packages direct dependencies of package testing.  Direct dependencies of package testing are harder to write tests for. 
 
 
 # Index
@@ -191,7 +191,7 @@ function stat(_l:stdgo.Ref<stdgo.testing.internal.testdeps._Testdeps.T_testLog>,
 ## class TestDeps
 
 
-TestDeps is an implementation of the testing.testDeps interface,��// suitable for passing to testing.MainStart. 
+TestDeps is an implementation of the testing.testDeps interface,  suitable for passing to testing.MainStart. 
 
 
 ### TestDeps function new

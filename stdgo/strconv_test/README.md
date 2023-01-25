@@ -440,7 +440,7 @@ function _myatof32(_s:stdgo.GoString):{_1:Bool, _0:stdgo.GoFloat32}
 ```
 
 
-Wrapper around strconv.ParseFloat\(x, 32\).  Handles dddddp\+ddd \(binary exponent\)��// itself, passes the rest on to strconv.ParseFloat. 
+Wrapper around strconv.ParseFloat\(x, 32\).  Handles dddddp\+ddd \(binary exponent\)  itself, passes the rest on to strconv.ParseFloat. 
 
 
 [\(view code\)](<./Strconv.hx#L4066>)
@@ -454,7 +454,7 @@ function _myatof64(_s:stdgo.GoString):{_1:Bool, _0:stdgo.GoFloat64}
 ```
 
 
-Wrapper around strconv.ParseFloat\(x, 64\).  Handles dddddp\+ddd \(binary exponent\)��// itself, passes the rest on to strconv.ParseFloat. 
+Wrapper around strconv.ParseFloat\(x, 64\).  Handles dddddp\+ddd \(binary exponent\)  itself, passes the rest on to strconv.ParseFloat. 
 
 
 [\(view code\)](<./Strconv.hx#L4010>)
@@ -1770,7 +1770,7 @@ function testParseFloatIncorrectBitSize(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-Issue 42297: a lot of code in the wild accidentally calls ParseFloat\(s, 10\)��// or ParseFloat\(s, 0\), so allow bitSize values other than 32 and 64. 
+Issue 42297: a lot of code in the wild accidentally calls ParseFloat\(s, 10\)  or ParseFloat\(s, 0\), so allow bitSize values other than 32 and 64. 
 
 
 [\(view code\)](<./Strconv.hx#L2967>)

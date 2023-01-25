@@ -175,7 +175,7 @@ function dataErrReader(_r:stdgo.io.Reader):stdgo.io.Reader
 ```
 
 
-DataErrReader changes the way errors are handled by a Reader. Normally, a��// Reader returns an error \(typically EOF\) from the first Read call after the��// last piece of data is read. DataErrReader wraps a Reader and changes its��// behavior so the final error is returned along with the final data, instead��// of in the first call after the final data. 
+DataErrReader changes the way errors are handled by a Reader. Normally, a  Reader returns an error \(typically EOF\) from the first Read call after the  last piece of data is read. DataErrReader wraps a Reader and changes its  behavior so the final error is returned along with the final data, instead  of in the first call after the final data. 
 
 
 [\(view code\)](<./Iotest.hx#L283>)
@@ -225,7 +225,7 @@ function halfReader(_r:stdgo.io.Reader):stdgo.io.Reader
 ```
 
 
-HalfReader returns a Reader that implements Read��// by reading half as many requested bytes from r. 
+HalfReader returns a Reader that implements Read  by reading half as many requested bytes from r. 
 
 
 [\(view code\)](<./Iotest.hx#L273>)
@@ -239,7 +239,7 @@ function newReadLogger(_prefix:stdgo.GoString, _r:stdgo.io.Reader):stdgo.io.Read
 ```
 
 
-NewReadLogger returns a reader that behaves like r except��// that it logs \(using log.Printf\) each read to standard error,��// printing the prefix and the hexadecimal data read. 
+NewReadLogger returns a reader that behaves like r except  that it logs \(using log.Printf\) each read to standard error,  printing the prefix and the hexadecimal data read. 
 
 
 [\(view code\)](<./Iotest.hx#L247>)
@@ -253,7 +253,7 @@ function newWriteLogger(_prefix:stdgo.GoString, _w:stdgo.io.Writer):stdgo.io.Wri
 ```
 
 
-NewWriteLogger returns a writer that behaves like w except��// that it logs \(using log.Printf\) each write to standard error,��// printing the prefix and the hexadecimal data written. 
+NewWriteLogger returns a writer that behaves like w except  that it logs \(using log.Printf\) each write to standard error,  printing the prefix and the hexadecimal data written. 
 
 
 [\(view code\)](<./Iotest.hx#L239>)
@@ -267,7 +267,7 @@ function oneByteReader(_r:stdgo.io.Reader):stdgo.io.Reader
 ```
 
 
-OneByteReader returns a Reader that implements��// each non\-empty Read by reading one byte from r. 
+OneByteReader returns a Reader that implements  each non\-empty Read by reading one byte from r. 
 
 
 [\(view code\)](<./Iotest.hx#L266>)
@@ -407,7 +407,7 @@ function testReader(_r:stdgo.io.Reader, _content:stdgo.Slice<stdgo.GoByte>):stdg
 ```
 
 
-TestReader tests that reading from r returns the expected file content.��// It does reads of different sizes, until EOF.��// If r implements io.ReaderAt or io.Seeker, TestReader also checks��// that those operations behave as they should.��//��// If TestReader finds any misbehaviors, it returns an error reporting them.��// The error text may span multiple lines. 
+TestReader tests that reading from r returns the expected file content.  It does reads of different sizes, until EOF.  If r implements io.ReaderAt or io.Seeker, TestReader also checks  that those operations behave as they should.    If TestReader finds any misbehaviors, it returns an error reporting them.  The error text may span multiple lines. 
 
 
 [\(view code\)](<./Iotest.hx#L308>)
@@ -505,7 +505,7 @@ function timeoutReader(_r:stdgo.io.Reader):stdgo.io.Reader
 ```
 
 
-TimeoutReader returns ErrTimeout on the second read��// with no data. Subsequent calls to read succeed. 
+TimeoutReader returns ErrTimeout on the second read  with no data. Subsequent calls to read succeed. 
 
 
 [\(view code\)](<./Iotest.hx#L290>)
@@ -519,7 +519,7 @@ function truncateWriter(_w:stdgo.io.Writer, _n:stdgo.GoInt64):stdgo.io.Writer
 ```
 
 
-TruncateWriter returns a Writer that writes to w��// but stops silently after n bytes. 
+TruncateWriter returns a Writer that writes to w  but stops silently after n bytes. 
 
 
 [\(view code\)](<./Iotest.hx#L345>)

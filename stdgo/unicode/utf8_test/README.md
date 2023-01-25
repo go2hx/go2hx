@@ -880,7 +880,7 @@ function testRuntimeConversion(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-Check that a range loop, len\(\[\]rune\(string\)\) optimization and��// \[\]rune conversions visit the same runes.��// Not really a test of this package, but the assumption is used here and��// it's good to verify. 
+Check that a range loop, len\(\[\]rune\(string\)\) optimization and  \[\]rune conversions visit the same runes.  Not really a test of this package, but the assumption is used here and  it's good to verify. 
 
 
 [\(view code\)](<./Utf8.hx#L596>)
@@ -894,7 +894,7 @@ function testSequencing(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-Check that DecodeRune and DecodeLastRune correspond to��// the equivalent range loop. 
+Check that DecodeRune and DecodeLastRune correspond to  the equivalent range loop. 
 
 
 [\(view code\)](<./Utf8.hx#L576>)

@@ -266,7 +266,7 @@ var input:stdgo.GoUInt64
 ```
 
 
-Exported \(global\) variable serving as input for some��// of the benchmarks to ensure side\-effect free calls��// are not optimized away. 
+Exported \(global\) variable serving as input for some  of the benchmarks to ensure side\-effect free calls  are not optimized away. 
 
 
 ```haxe
@@ -274,7 +274,7 @@ var output:stdgo.GoInt
 ```
 
 
-Exported \(global\) variable to store function results��// during benchmarking to ensure side\-effect free calls��// are not optimized away. 
+Exported \(global\) variable to store function results  during benchmarking to ensure side\-effect free calls  are not optimized away. 
 
 
 ```haxe

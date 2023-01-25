@@ -421,7 +421,7 @@ function _log2(_x:stdgo.GoInt):stdgo.GoInt
 ```
 
 
-log2 computes the binary logarithm of x, rounded up to the next integer.��// \(log2\(0\) == 0, log2\(1\) == 0, log2\(2\) == 1, log2\(3\) == 2, etc.\) 
+log2 computes the binary logarithm of x, rounded up to the next integer.  \(log2\(0\) == 0, log2\(1\) == 0, log2\(2\) == 1, log2\(3\) == 2, etc.\) 
 
 
 [\(view code\)](<./Sort.hx#L1140>)
@@ -897,7 +897,7 @@ function exampleSearch_descendingOrder():Void
 ```
 
 
-This example demonstrates searching a list sorted in descending order.��// The approach is the same as searching a list in ascending order,��// but with the condition inverted. 
+This example demonstrates searching a list sorted in descending order.  The approach is the same as searching a list in ascending order,  but with the condition inverted. 
 
 
 [\(view code\)](<./Sort.hx#L788>)
@@ -967,7 +967,7 @@ function example_sortMultiKeys():Void
 ```
 
 
-ExampleMultiKeys demonstrates a technique for sorting a struct type using different��// sets of multiple fields in the comparison. We chain together "Less" functions, each of��// which compares a single field. 
+ExampleMultiKeys demonstrates a technique for sorting a struct type using different  sets of multiple fields in the comparison. We chain together "Less" functions, each of  which compares a single field. 
 
 
 [\(view code\)](<./Sort.hx#L741>)
@@ -995,7 +995,7 @@ function orderedBy(_less:haxe.Rest<stdgo.sort_test._Sort_test.T_lessFunc>):stdgo
 ```
 
 
-OrderedBy returns a Sorter that sorts using the less functions, in order.��// Call its Sort method to sort the data. 
+OrderedBy returns a Sorter that sorts using the less functions, in order.  Call its Sort method to sort the data. 
 
 
 [\(view code\)](<./Sort.hx#L731>)
@@ -1205,7 +1205,7 @@ function testSearchExhaustive(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-Abstract exhaustive test: all sizes up to 100,��// all possible return values. If there are any small��// corner cases, this test exercises them. 
+Abstract exhaustive test: all sizes up to 100,  all possible return values. If there are any small  corner cases, this test exercises them. 
 
 
 [\(view code\)](<./Sort.hx#L1225>)
@@ -1452,7 +1452,7 @@ function swap( _i:stdgo.GoInt, _j:stdgo.GoInt):Void
 ## class ByName
 
 
-ByName implements sort.Interface by providing Less and using the Len and��// Swap methods of the embedded Organs value. 
+ByName implements sort.Interface by providing Less and using the Len and  Swap methods of the embedded Organs value. 
 
 
 ```haxe
@@ -1595,7 +1595,7 @@ function swap( _i:stdgo.GoInt, _j:stdgo.GoInt):Void
 ## class ByWeight
 
 
-ByWeight implements sort.Interface by providing Less and using the Len and��// Swap methods of the embedded Organs value. 
+ByWeight implements sort.Interface by providing Less and using the Len and  Swap methods of the embedded Organs value. 
 
 
 ```haxe
@@ -2155,7 +2155,7 @@ function less(_ms:stdgo.Ref<stdgo.sort_test._Sort_test.T_multiSorter>, _i:stdgo.
 ```
 
 
-Less is part of sort.Interface. It is implemented by looping along the���// less functions until it finds a comparison that discriminates between���// the two items \(one is less than the other\). Note that it can call the���// less functions twice per call. We could change the functions to return���// \-1, 0, 1 and reduce the number of calls for greater efficiency: an���// exercise for the reader. 
+Less is part of sort.Interface. It is implemented by looping along the   less functions until it finds a comparison that discriminates between   the two items \(one is less than the other\). Note that it can call the   less functions twice per call. We could change the functions to return   \-1, 0, 1 and reduce the number of calls for greater efficiency: an   exercise for the reader. 
 
 
 [\(view code\)](<./Sort_test.hx#L2209>)
@@ -2374,7 +2374,7 @@ typedef ByAge = var x:stdgo.sort_test.Person
 ```
 
 
-ByAge implements sort.Interface for \[\]Person based on��// the Age field. 
+ByAge implements sort.Interface for \[\]Person based on  the Age field. 
 
 
 ### ByAge function len

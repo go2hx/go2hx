@@ -740,7 +740,7 @@ function _runIndexTests(_t:stdgo.Ref<stdgo.testing.T>, _f:(_s:stdgo.GoString, _s
 ```
 
 
-Execute f on each test case.  funcName should be the name of f; it's used��// in failure reports. 
+Execute f on each test case.  funcName should be the name of f; it's used  in failure reports. 
 
 
 [\(view code\)](<./Strings.hx#L3816>)
@@ -754,7 +754,7 @@ function _runStringTests(_t:stdgo.Ref<stdgo.testing.T>, _f:(), _funcName:stdgo.G
 ```
 
 
-Execute f on each test case.  funcName should be the name of f; it's used��// in failure reports. 
+Execute f on each test case.  funcName should be the name of f; it's used  in failure reports. 
 
 
 [\(view code\)](<./Strings.hx#L4149>)
@@ -2700,7 +2700,7 @@ function testGenericTrieBuilding(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-TestGenericTrieBuilding verifies the structure of the generated trie. There��// is one node per line, and the key ending with the current line is in the��// trie if it ends with a "\+". 
+TestGenericTrieBuilding verifies the structure of the generated trie. There  is one node per line, and the key ending with the current line is in the  trie if it ends with a "\+". 
 
 
 [\(view code\)](<./Strings.hx#L3465>)
@@ -3218,7 +3218,7 @@ function testWriteStringError(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-TestWriteStringError tests that WriteString returns an error��// received from the underlying io.Writer. 
+TestWriteStringError tests that WriteString returns an error  received from the underlying io.Writer. 
 
 
 [\(view code\)](<./Strings.hx#L3448>)

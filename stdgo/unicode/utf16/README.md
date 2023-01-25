@@ -14,17 +14,17 @@ Package utf16 implements encoding and decoding of UTF\-16 sequences.
 
 ```
 === RUN   TestConstants
---- PASS: TestConstants (6.38961791992188e-05)
+--- PASS: TestConstants (6.41345977783203e-05)
 === RUN   TestEncode
---- PASS: TestEncode (0.00038909912109375)
+--- PASS: TestEncode (0.00037693977355957)
 === RUN   TestEncodeRune
---- PASS: TestEncodeRune (2.09808349609375e-05)
+--- PASS: TestEncodeRune (3.50475311279297e-05)
 === RUN   TestDecode
---- PASS: TestDecode (0.000247955322265625)
+--- PASS: TestDecode (0.000234127044677734)
 === RUN   TestDecodeRune
---- PASS: TestDecodeRune (1.21593475341797e-05)
+--- PASS: TestDecodeRune (1.28746032714844e-05)
 === RUN   TestIsSurrogate
---- PASS: TestIsSurrogate (8.82148742675781e-06)
+--- PASS: TestIsSurrogate (8.10623168945312e-06)
 ```
 </p>
 </details>
@@ -34,17 +34,17 @@ Package utf16 implements encoding and decoding of UTF\-16 sequences.
 
 ```
 === RUN   TestConstants
---- PASS: TestConstants (3.910064697265625e-05)
+--- PASS: TestConstants (4.00543212890625e-05)
 === RUN   TestEncode
---- PASS: TestEncode (0.00101208686828613281)
+--- PASS: TestEncode (0.000979900360107421875)
 === RUN   TestEncodeRune
---- PASS: TestEncodeRune (0.000119924545288085938)
+--- PASS: TestEncodeRune (0.000116825103759765625)
 === RUN   TestDecode
---- PASS: TestDecode (0.0005359649658203125)
+--- PASS: TestDecode (0.000523090362548828125)
 === RUN   TestDecodeRune
---- PASS: TestDecodeRune (5.0067901611328125e-05)
+--- PASS: TestDecodeRune (5.41210174560546875e-05)
 === RUN   TestIsSurrogate
---- PASS: TestIsSurrogate (2.002716064453125e-05)
+--- PASS: TestIsSurrogate (2.193450927734375e-05)
 ```
 </p>
 </details>
@@ -114,7 +114,7 @@ function decode(_s:stdgo.Slice<stdgo.GoUInt16>):stdgo.Slice<stdgo.GoRune>
 ```
 
 
-Decode returns the Unicode code point sequence represented��// by the UTF\-16 encoding s. 
+Decode returns the Unicode code point sequence represented  by the UTF\-16 encoding s. 
 
 
 [\(view code\)](<./Utf16.hx#L118>)
@@ -128,7 +128,7 @@ function decodeRune(_r1:stdgo.GoRune, _r2:stdgo.GoRune):stdgo.GoRune
 ```
 
 
-DecodeRune returns the UTF\-16 decoding of a surrogate pair.��// If the pair is not a valid UTF\-16 surrogate pair, DecodeRune returns��// the Unicode replacement code point U\+FFFD. 
+DecodeRune returns the UTF\-16 decoding of a surrogate pair.  If the pair is not a valid UTF\-16 surrogate pair, DecodeRune returns  the Unicode replacement code point U\+FFFD. 
 
 
 [\(view code\)](<./Utf16.hx#L62>)
@@ -156,7 +156,7 @@ function encodeRune(_r:stdgo.GoRune):{_1:stdgo.GoRune, _0:stdgo.GoRune}
 ```
 
 
-EncodeRune returns the UTF\-16 surrogate pair r1, r2 for the given rune.��// If the rune is not a valid Unicode code point or does not need encoding,��// EncodeRune returns U\+FFFD, U\+FFFD. 
+EncodeRune returns the UTF\-16 surrogate pair r1, r2 for the given rune.  If the rune is not a valid Unicode code point or does not need encoding,  EncodeRune returns U\+FFFD, U\+FFFD. 
 
 
 [\(view code\)](<./Utf16.hx#L74>)
@@ -170,7 +170,7 @@ function isSurrogate(_r:stdgo.GoRune):Bool
 ```
 
 
-IsSurrogate reports whether the specified Unicode code point��// can appear in a surrogate pair. 
+IsSurrogate reports whether the specified Unicode code point  can appear in a surrogate pair. 
 
 
 [\(view code\)](<./Utf16.hx#L53>)

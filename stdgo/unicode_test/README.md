@@ -379,7 +379,7 @@ function example_is():Void
 ```
 
 
-Functions starting with "Is" can be used to inspect which table of range a��// rune belongs to. Note that runes may fit into more than one range. 
+Functions starting with "Is" can be used to inspect which table of range a  rune belongs to. Note that runes may fit into more than one range. 
 
 
 [\(view code\)](<./Unicode.hx#L288>)
@@ -631,7 +631,7 @@ function testLetterOptimizations(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-Check that the optimizations for IsLetter etc. agree with the tables.��// We only need to check the Latin\-1 range. 
+Check that the optimizations for IsLetter etc. agree with the tables.  We only need to check the Latin\-1 range. 
 
 
 [\(view code\)](<./Unicode.hx#L669>)

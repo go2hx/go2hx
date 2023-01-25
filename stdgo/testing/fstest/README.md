@@ -294,7 +294,7 @@ function testFS(_fsys:stdgo.io.fs.FS, _expected:haxe.Rest<stdgo.GoString>):stdgo
 ```
 
 
-TestFS tests a file system implementation.��// It walks the entire tree of files in fsys,��// opening and checking that each file behaves correctly.��// It also checks that the file system contains at least the expected files.��// As a special case, if no expected files are listed, fsys must be empty.��// Otherwise, fsys must contain at least the listed files; it can also contain others.��// The contents of fsys must not change concurrently with TestFS.��//��// If TestFS finds any misbehaviors, it returns an error reporting all of them.��// The error text spans multiple lines, one per detected misbehavior.��//��// Typical usage inside a test is:��//��//�if err := fstest.TestFS\(myFS, "file/that/should/be/present"\); err \!= nil \{��//��t.Fatal\(err\)��//�\} 
+TestFS tests a file system implementation.  It walks the entire tree of files in fsys,  opening and checking that each file behaves correctly.  It also checks that the file system contains at least the expected files.  As a special case, if no expected files are listed, fsys must be empty.  Otherwise, fsys must contain at least the listed files; it can also contain others.  The contents of fsys must not change concurrently with TestFS.    If TestFS finds any misbehaviors, it returns an error reporting all of them.  The error text spans multiple lines, one per detected misbehavior.    Typical usage inside a test is:     if err := fstest.TestFS\(myFS, "file/that/should/be/present"\); err \!= nil \{    t.Fatal\(err\)   \} 
 
 
 [\(view code\)](<./Fstest.hx#L345>)
@@ -540,7 +540,7 @@ function _checkDir(_t:stdgo.Ref<stdgo.testing.fstest._Fstest.T_fsTester>, _dir:s
 ```
 
 
-checkDir checks the directory dir, which is expected to exist���// \(it is either the root or was found in a directory listing with IsDir true\). 
+checkDir checks the directory dir, which is expected to exist   \(it is either the root or was found in a directory listing with IsDir true\). 
 
 
 [\(view code\)](<./Fstest.hx#L917>)
@@ -554,7 +554,7 @@ function _checkDirList(_t:stdgo.Ref<stdgo.testing.fstest._Fstest.T_fsTester>, _d
 ```
 
 
-checkDirList checks that two directory lists contain the same files and file info.���// The order of the lists need not match. 
+checkDirList checks that two directory lists contain the same files and file info.   The order of the lists need not match. 
 
 
 [\(view code\)](<./Fstest.hx#L894>)
@@ -624,7 +624,7 @@ function _checkStat(_t:stdgo.Ref<stdgo.testing.fstest._Fstest.T_fsTester>, _path
 ```
 
 
-checkStat checks that a direct stat of path matches entry,���// which was found in the parent's directory listing. 
+checkStat checks that a direct stat of path matches entry,   which was found in the parent's directory listing. 
 
 
 [\(view code\)](<./Fstest.hx#L902>)
@@ -1244,7 +1244,7 @@ typedef MapFS = var x:stdgo.Ref<stdgo.testing.fstest.MapFile>
 ```
 
 
-A MapFS is a simple in\-memory file system for use in tests,��// represented as a map from path names \(arguments to Open\)��// to information about the files or directories they represent.��//��// The map need not include parent directories for files contained��// in the map; those will be synthesized if needed.��// But a directory can still be included by setting the MapFile.Mode's ModeDir bit;��// this may be necessary for detailed control over the directory's FileInfo��// or to create an empty directory.��//��// File system operations read directly from the map,��// so that the file system can be changed by editing the map as needed.��// An implication is that file system operations must not run concurrently��// with changes to the map, which would be a race.��// Another implication is that opening or reading a directory requires��// iterating over the entire map, so a MapFS should typically be used with not more��// than a few hundred entries or directory reads. 
+A MapFS is a simple in\-memory file system for use in tests,  represented as a map from path names \(arguments to Open\)  to information about the files or directories they represent.    The map need not include parent directories for files contained  in the map; those will be synthesized if needed.  But a directory can still be included by setting the MapFile.Mode's ModeDir bit;  this may be necessary for detailed control over the directory's FileInfo  or to create an empty directory.    File system operations read directly from the map,  so that the file system can be changed by editing the map as needed.  An implication is that file system operations must not run concurrently  with changes to the map, which would be a race.  Another implication is that opening or reading a directory requires  iterating over the entire map, so a MapFS should typically be used with not more  than a few hundred entries or directory reads. 
 
 
 ### MapFS function glob

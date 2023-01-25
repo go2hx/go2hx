@@ -771,7 +771,7 @@ function _empty(_t:stdgo.Ref<stdgo.testing.T>, _testname:stdgo.GoString, _buf:st
 ```
 
 
-Empty buf through repeated reads into fub.��// The initial contents of buf corresponds to the string s. 
+Empty buf through repeated reads into fub.  The initial contents of buf corresponds to the string s. 
 
 
 [\(view code\)](<./Bytes.hx#L1611>)
@@ -799,7 +799,7 @@ function _fillBytes(_t:stdgo.Ref<stdgo.testing.T>, _testname:stdgo.GoString, _bu
 ```
 
 
-Fill buf through n writes of byte slice fub.��// The initial contents of buf corresponds to the string s;��// the result is the final contents of buf returned as a string. 
+Fill buf through n writes of byte slice fub.  The initial contents of buf corresponds to the string s;  the result is the final contents of buf returned as a string. 
 
 
 [\(view code\)](<./Bytes.hx#L1579>)
@@ -813,7 +813,7 @@ function _fillString(_t:stdgo.Ref<stdgo.testing.T>, _testname:stdgo.GoString, _b
 ```
 
 
-Fill buf through n writes of string fus.��// The initial contents of buf corresponds to the string s;��// the result is the final contents of buf returned as a string. 
+Fill buf through n writes of string fus.  The initial contents of buf corresponds to the string s;  the result is the final contents of buf returned as a string. 
 
 
 [\(view code\)](<./Bytes.hx#L1556>)
@@ -897,7 +897,7 @@ function _runIndexTests(_t:stdgo.Ref<stdgo.testing.T>, _f:(_s:stdgo.Slice<stdgo.
 ```
 
 
-Execute f on each test case.  funcName should be the name of f; it's used��// in failure reports. 
+Execute f on each test case.  funcName should be the name of f; it's used  in failure reports. 
 
 
 [\(view code\)](<./Bytes.hx#L2555>)
@@ -911,7 +911,7 @@ function _runStringTests(_t:stdgo.Ref<stdgo.testing.T>, _f:(), _funcName:stdgo.G
 ```
 
 
-Execute f on each test case.  funcName should be the name of f; it's used��// in failure reports. 
+Execute f on each test case.  funcName should be the name of f; it's used  in failure reports. 
 
 
 [\(view code\)](<./Bytes.hx#L3324>)
@@ -3179,7 +3179,7 @@ function testNotEqual(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-make sure Equal returns false for minimally different strings. The data��// is all zeros except for a single one in one location. 
+make sure Equal returns false for minimally different strings. The data  is all zeros except for a single one in one location. 
 
 
 [\(view code\)](<./Bytes.hx#L2514>)
@@ -3263,7 +3263,7 @@ function testReadFromPanicReader(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-Make sure that an empty Buffer remains empty when��// it is "grown" before a Read that panics 
+Make sure that an empty Buffer remains empty when  it is "grown" before a Read that panics 
 
 
 [\(view code\)](<./Bytes.hx#L1830>)
@@ -3333,7 +3333,7 @@ function testReaderCopyNothing(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-verify that copying from an empty reader always has the same results,��// regardless of the presence of a WriteTo method. 
+verify that copying from an empty reader always has the same results,  regardless of the presence of a WriteTo method. 
 
 
 [\(view code\)](<./Bytes.hx#L5496>)
@@ -3974,7 +3974,7 @@ function new(?_s:stdgo.GoString, ?_sep:stdgo.GoString, ?_n:Null<stdgo.GoInt>, ?_
 ## class StringTest
 
 
-Test case for any function which accepts and returns a byte slice.��// For ease of creation, we write the input byte slice as a string. 
+Test case for any function which accepts and returns a byte slice.  For ease of creation, we write the input byte slice as a string. 
 
 
 ```haxe

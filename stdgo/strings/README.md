@@ -6,7 +6,7 @@
 # Overview
 
 
-Package strings implements simple functions to manipulate UTF\-8 encoded strings.��//��// For information about UTF\-8 strings in Go, see https://blog.golang.org/strings. 
+Package strings implements simple functions to manipulate UTF\-8 encoded strings.    For information about UTF\-8 strings in Go, see https://blog.golang.org/strings. 
 
 
 <details><summary>hl tests passed</summary>
@@ -14,142 +14,142 @@ Package strings implements simple functions to manipulate UTF\-8 encoded strings
 
 ```
 === RUN   TestBuilder
---- PASS: TestBuilder (0.000118017196655273)
+--- PASS: TestBuilder (7.51018524169922e-05)
 === RUN   TestBuilderString
---- PASS: TestBuilderString (3.40938568115234e-05)
+--- PASS: TestBuilderString (3.60012054443359e-05)
 === RUN   TestBuilderReset
---- PASS: TestBuilderReset (3.00407409667969e-05)
+--- PASS: TestBuilderReset (6.50882720947266e-05)
 === RUN   TestBuilderGrow
 strings_test/Strings_test.hx:1941: testBuilderGrow skip function
---- PASS: TestBuilderGrow (2.59876251220703e-05)
+--- PASS: TestBuilderGrow (2.09808349609375e-05)
 === RUN   TestBuilderWrite2
 --- PASS: TestBuilderWrite2 (1.50203704833984e-05)
 === RUN   TestBuilderWriteByte
---- PASS: TestBuilderWriteByte (1.40666961669922e-05)
+--- PASS: TestBuilderWriteByte (1.69277191162109e-05)
 === RUN   TestBuilderAllocs
 strings_test/Strings_test.hx:2049: testBuilderAllocs skip function
---- PASS: TestBuilderAllocs (1.59740447998047e-05)
+--- PASS: TestBuilderAllocs (1.28746032714844e-05)
 === RUN   TestBuilderCopyPanic
 strings_test/Strings_test.hx:2063: testBuilderCopyPanic skip function
 --- PASS: TestBuilderCopyPanic (1.19209289550781e-05)
 === RUN   TestBuilderWriteInvalidRune
---- PASS: TestBuilderWriteInvalidRune (3.60012054443359e-05)
+--- PASS: TestBuilderWriteInvalidRune (3.40938568115234e-05)
 === RUN   TestClone
 strings_test/Strings_test.hx:2265: testClone skip function
---- PASS: TestClone (4.48226928710938e-05)
+--- PASS: TestClone (1.31130218505859e-05)
 === RUN   TestCompare
---- PASS: TestCompare (2.09808349609375e-05)
+--- PASS: TestCompare (1.9073486328125e-05)
 === RUN   TestCompareIdenticalString
---- PASS: TestCompareIdenticalString (2.59876251220703e-05)
+--- PASS: TestCompareIdenticalString (1.09672546386719e-05)
 === RUN   TestCompareStrings
 strings_test/Strings_test.hx:2370: testCompareStrings skip function
---- PASS: TestCompareStrings (1.31130218505859e-05)
+--- PASS: TestCompareStrings (1.19209289550781e-05)
 === RUN   TestReader
---- PASS: TestReader (0.000124931335449219)
+--- PASS: TestReader (0.000120162963867188)
 === RUN   TestReadAfterBigSeek
---- PASS: TestReadAfterBigSeek (2.50339508056641e-05)
+--- PASS: TestReadAfterBigSeek (4.10079956054688e-05)
 === RUN   TestReaderAt
---- PASS: TestReaderAt (0.000215053558349609)
+--- PASS: TestReaderAt (0.000213861465454102)
 === RUN   TestReaderAtConcurrent
 --- PASS: TestReaderAtConcurrent (0.000633001327514648)
 === RUN   TestEmptyReaderConcurrent
---- PASS: TestEmptyReaderConcurrent (0.000754117965698242)
+--- PASS: TestEmptyReaderConcurrent (0.000557184219360352)
 === RUN   TestWriteTo
---- PASS: TestWriteTo (0.000334978103637695)
+--- PASS: TestWriteTo (0.000349998474121094)
 === RUN   TestReaderLenSize
 strings_test/Strings_test.hx:3047: testReaderLenSize skip function
---- PASS: TestReaderLenSize (2.09808349609375e-05)
+--- PASS: TestReaderLenSize (1.81198120117188e-05)
 === RUN   TestReaderReset
---- PASS: TestReaderReset (5.00679016113281e-05)
+--- PASS: TestReaderReset (4.69684600830078e-05)
 === RUN   TestReaderZero
---- PASS: TestReaderZero (5.69820404052734e-05)
+--- PASS: TestReaderZero (5.60283660888672e-05)
 === RUN   TestReplacer
 strings_test/Strings_test.hx:3200: testReplacer skip function
---- PASS: TestReplacer (1.81198120117188e-05)
+--- PASS: TestReplacer (1.50203704833984e-05)
 === RUN   TestPickAlgorithm
 strings_test/Strings_test.hx:3434: testPickAlgorithm skip function
---- PASS: TestPickAlgorithm (1.59740447998047e-05)
+--- PASS: TestPickAlgorithm (2.50339508056641e-05)
 === RUN   TestWriteStringError
---- PASS: TestWriteStringError (0.00130605697631836)
+--- PASS: TestWriteStringError (0.00119304656982422)
 === RUN   TestGenericTrieBuilding
---- PASS: TestGenericTrieBuilding (0.00339198112487793)
+--- PASS: TestGenericTrieBuilding (0.00332307815551758)
 === RUN   TestFinderNext
---- PASS: TestFinderNext (0.000894069671630859)
+--- PASS: TestFinderNext (0.000928163528442383)
 === RUN   TestFinderCreation
---- PASS: TestFinderCreation (0.000950098037719727)
+--- PASS: TestFinderCreation (0.000948905944824219)
 === RUN   TestIndex
---- PASS: TestIndex (0.000300168991088867)
+--- PASS: TestIndex (0.0002899169921875)
 === RUN   TestLastIndex
---- PASS: TestLastIndex (3.19480895996094e-05)
+--- PASS: TestLastIndex (3.31401824951172e-05)
 === RUN   TestIndexAny
---- PASS: TestIndexAny (0.0002288818359375)
+--- PASS: TestIndexAny (0.000221014022827148)
 === RUN   TestLastIndexAny
---- PASS: TestLastIndexAny (0.000143051147460938)
+--- PASS: TestLastIndexAny (0.000139951705932617)
 === RUN   TestIndexByte
---- PASS: TestIndexByte (1.00135803222656e-05)
+--- PASS: TestIndexByte (1.09672546386719e-05)
 === RUN   TestLastIndexByte
---- PASS: TestLastIndexByte (1.9073486328125e-05)
+--- PASS: TestLastIndexByte (1.78813934326172e-05)
 === RUN   TestIndexRandom
---- PASS: TestIndexRandom (0.25738787651062)
+--- PASS: TestIndexRandom (0.260771989822388)
 === RUN   TestIndexRune
---- PASS: TestIndexRune (0.000121116638183594)
+--- PASS: TestIndexRune (0.000112056732177734)
 === RUN   TestSplit
---- PASS: TestSplit (0.000926017761230469)
+--- PASS: TestSplit (0.000919103622436523)
 === RUN   TestSplitAfter
---- PASS: TestSplitAfter (0.000679969787597656)
+--- PASS: TestSplitAfter (0.00067901611328125)
 === RUN   TestFields
---- PASS: TestFields (0.000314950942993164)
+--- PASS: TestFields (0.000304937362670898)
 === RUN   TestFieldsFunc
---- PASS: TestFieldsFunc (0.000568151473999023)
+--- PASS: TestFieldsFunc (0.000511884689331055)
 === RUN   TestMap
 strings_test/Strings_test.hx:4181: testMap skip function
---- PASS: TestMap (2.19345092773438e-05)
+--- PASS: TestMap (1.97887420654297e-05)
 === RUN   TestToUpper
---- PASS: TestToUpper (0.000411033630371094)
+--- PASS: TestToUpper (0.000404119491577148)
 === RUN   TestToLower
---- PASS: TestToLower (0.000353097915649414)
+--- PASS: TestToLower (0.000365972518920898)
 === RUN   TestToValidUTF8
---- PASS: TestToValidUTF8 (0.000410795211791992)
+--- PASS: TestToValidUTF8 (0.00135898590087891)
 === RUN   TestSpecialCase
---- PASS: TestSpecialCase (0.00213384628295898)
+--- PASS: TestSpecialCase (0.00104999542236328)
 === RUN   TestTrimSpace
---- PASS: TestTrimSpace (0.000222921371459961)
+--- PASS: TestTrimSpace (0.000210046768188477)
 === RUN   TestTrim
---- PASS: TestTrim (0.00018310546875)
+--- PASS: TestTrim (0.000177860260009766)
 === RUN   TestTrimFunc
---- PASS: TestTrimFunc (0.000741958618164062)
+--- PASS: TestTrimFunc (0.000763893127441406)
 === RUN   TestIndexFunc
---- PASS: TestIndexFunc (0.000236988067626953)
+--- PASS: TestIndexFunc (0.00023198127746582)
 === RUN   TestCaseConsistency
---- PASS: TestCaseConsistency (0.0736408233642578)
+--- PASS: TestCaseConsistency (0.0724208354949951)
 === RUN   TestRepeat
---- PASS: TestRepeat (7.98702239990234e-05)
+--- PASS: TestRepeat (7.79628753662109e-05)
 === RUN   TestRepeatCatchesOverflow
---- PASS: TestRepeatCatchesOverflow (0.000236988067626953)
+--- PASS: TestRepeatCatchesOverflow (0.000232934951782227)
 === RUN   TestRunes
---- PASS: TestRunes (0.000107049942016602)
+--- PASS: TestRunes (0.000108003616333008)
 === RUN   TestReadByte
 --- PASS: TestReadByte (0.000111103057861328)
 === RUN   TestReadRune
---- PASS: TestReadRune (0.000123023986816406)
+--- PASS: TestReadRune (0.000123977661132812)
 === RUN   TestUnreadRuneError
---- PASS: TestUnreadRuneError (6.41345977783203e-05)
+--- PASS: TestUnreadRuneError (6.98566436767578e-05)
 === RUN   TestReplace
---- PASS: TestReplace (0.000536918640136719)
+--- PASS: TestReplace (0.0014500617980957)
 === RUN   TestTitle
---- PASS: TestTitle (0.000448226928710938)
+--- PASS: TestTitle (0.0004119873046875)
 === RUN   TestContains
---- PASS: TestContains (7.48634338378906e-05)
+--- PASS: TestContains (7.58171081542969e-05)
 === RUN   TestContainsAny
---- PASS: TestContainsAny (9.39369201660156e-05)
+--- PASS: TestContainsAny (9.01222229003906e-05)
 === RUN   TestContainsRune
---- PASS: TestContainsRune (1.38282775878906e-05)
+--- PASS: TestContainsRune (1.40666961669922e-05)
 === RUN   TestEqualFold
---- PASS: TestEqualFold (0.000429153442382812)
+--- PASS: TestEqualFold (0.000432014465332031)
 === RUN   TestCount
 --- PASS: TestCount (2.00271606445312e-05)
 === RUN   TestCut
---- PASS: TestCut (2.19345092773438e-05)
+--- PASS: TestCut (2.09808349609375e-05)
 ```
 </p>
 </details>
@@ -159,142 +159,142 @@ strings_test/Strings_test.hx:4181: testMap skip function
 
 ```
 === RUN   TestBuilder
---- PASS: TestBuilder (0.000139951705932617188)
+--- PASS: TestBuilder (0.000138998031616210938)
 === RUN   TestBuilderString
---- PASS: TestBuilderString (0.000134944915771484375)
+--- PASS: TestBuilderString (0.000133991241455078125)
 === RUN   TestBuilderReset
 --- PASS: TestBuilderReset (6.89029693603515625e-05)
 === RUN   TestBuilderGrow
 strings_test/Strings_test.hx:1941: testBuilderGrow skip function
---- PASS: TestBuilderGrow (1.9073486328125e-05)
+--- PASS: TestBuilderGrow (1.1920928955078125e-05)
 === RUN   TestBuilderWrite2
---- PASS: TestBuilderWrite2 (3.60012054443359375e-05)
+--- PASS: TestBuilderWrite2 (3.31401824951171875e-05)
 === RUN   TestBuilderWriteByte
---- PASS: TestBuilderWriteByte (2.47955322265625e-05)
+--- PASS: TestBuilderWriteByte (2.69412994384765625e-05)
 === RUN   TestBuilderAllocs
 strings_test/Strings_test.hx:2049: testBuilderAllocs skip function
---- PASS: TestBuilderAllocs (1.0967254638671875e-05)
+--- PASS: TestBuilderAllocs (9.059906005859375e-06)
 === RUN   TestBuilderCopyPanic
 strings_test/Strings_test.hx:2063: testBuilderCopyPanic skip function
---- PASS: TestBuilderCopyPanic (8.106231689453125e-06)
+--- PASS: TestBuilderCopyPanic (9.059906005859375e-06)
 === RUN   TestBuilderWriteInvalidRune
---- PASS: TestBuilderWriteInvalidRune (0.00014495849609375)
+--- PASS: TestBuilderWriteInvalidRune (0.000148057937622070312)
 === RUN   TestClone
 strings_test/Strings_test.hx:2265: testClone skip function
---- PASS: TestClone (1.2874603271484375e-05)
+--- PASS: TestClone (1.40666961669921875e-05)
 === RUN   TestCompare
---- PASS: TestCompare (4.100799560546875e-05)
+--- PASS: TestCompare (4.1961669921875e-05)
 === RUN   TestCompareIdenticalString
---- PASS: TestCompareIdenticalString (4.60147857666015625e-05)
+--- PASS: TestCompareIdenticalString (4.69684600830078125e-05)
 === RUN   TestCompareStrings
 strings_test/Strings_test.hx:2370: testCompareStrings skip function
---- PASS: TestCompareStrings (9.059906005859375e-06)
+--- PASS: TestCompareStrings (1.0013580322265625e-05)
 === RUN   TestReader
---- PASS: TestReader (0.000458002090454101562)
+--- PASS: TestReader (0.000458955764770507812)
 === RUN   TestReadAfterBigSeek
---- PASS: TestReadAfterBigSeek (6.8187713623046875e-05)
+--- PASS: TestReadAfterBigSeek (6.79492950439453125e-05)
 === RUN   TestReaderAt
---- PASS: TestReaderAt (0.00030994415283203125)
+--- PASS: TestReaderAt (0.000314950942993164062)
 === RUN   TestReaderAtConcurrent
---- PASS: TestReaderAtConcurrent (0.000558137893676757812)
+--- PASS: TestReaderAtConcurrent (0.000607013702392578125)
 === RUN   TestEmptyReaderConcurrent
---- PASS: TestEmptyReaderConcurrent (0.00126695632934570312)
+--- PASS: TestEmptyReaderConcurrent (0.0012359619140625)
 === RUN   TestWriteTo
---- PASS: TestWriteTo (0.000756978988647460938)
+--- PASS: TestWriteTo (0.000771999359130859375)
 === RUN   TestReaderLenSize
 strings_test/Strings_test.hx:3047: testReaderLenSize skip function
---- PASS: TestReaderLenSize (1.811981201171875e-05)
+--- PASS: TestReaderLenSize (0.00026702880859375)
 === RUN   TestReaderReset
---- PASS: TestReaderReset (0.000174999237060546875)
+--- PASS: TestReaderReset (0.000167131423950195312)
 === RUN   TestReaderZero
---- PASS: TestReaderZero (0.000158071517944335938)
+--- PASS: TestReaderZero (0.000262975692749023438)
 === RUN   TestReplacer
 strings_test/Strings_test.hx:3200: testReplacer skip function
---- PASS: TestReplacer (1.31130218505859375e-05)
+--- PASS: TestReplacer (1.3828277587890625e-05)
 === RUN   TestPickAlgorithm
 strings_test/Strings_test.hx:3434: testPickAlgorithm skip function
---- PASS: TestPickAlgorithm (1.1920928955078125e-05)
+--- PASS: TestPickAlgorithm (9.059906005859375e-06)
 === RUN   TestWriteStringError
---- PASS: TestWriteStringError (0.00191903114318847656)
+--- PASS: TestWriteStringError (0.00221014022827148438)
 === RUN   TestGenericTrieBuilding
---- PASS: TestGenericTrieBuilding (0.00480413436889648438)
+--- PASS: TestGenericTrieBuilding (0.00481915473937988281)
 === RUN   TestFinderNext
---- PASS: TestFinderNext (0.00232291221618652344)
+--- PASS: TestFinderNext (0.00233221054077148438)
 === RUN   TestFinderCreation
---- PASS: TestFinderCreation (0.0029010772705078125)
+--- PASS: TestFinderCreation (0.00294089317321777344)
 === RUN   TestIndex
---- PASS: TestIndex (0.00159883499145507812)
+--- PASS: TestIndex (0.00163292884826660156)
 === RUN   TestLastIndex
---- PASS: TestLastIndex (0.000157117843627929688)
+--- PASS: TestLastIndex (0.000159978866577148438)
 === RUN   TestIndexAny
---- PASS: TestIndexAny (0.00127816200256347656)
+--- PASS: TestIndexAny (0.00127911567687988281)
 === RUN   TestLastIndexAny
---- PASS: TestLastIndexAny (0.000758886337280273438)
+--- PASS: TestLastIndexAny (0.000735044479370117188)
 === RUN   TestIndexByte
---- PASS: TestIndexByte (7.3909759521484375e-05)
+--- PASS: TestIndexByte (0.000113964080810546875)
 === RUN   TestLastIndexByte
---- PASS: TestLastIndexByte (4.60147857666015625e-05)
+--- PASS: TestLastIndexByte (4.79221343994140625e-05)
 === RUN   TestIndexRandom
---- PASS: TestIndexRandom (0.562595129013061523)
+--- PASS: TestIndexRandom (0.562927961349487305)
 === RUN   TestIndexRune
---- PASS: TestIndexRune (0.00053501129150390625)
+--- PASS: TestIndexRune (0.00051212310791015625)
 === RUN   TestSplit
---- PASS: TestSplit (0.00313806533813476562)
+--- PASS: TestSplit (0.00315213203430175781)
 === RUN   TestSplitAfter
---- PASS: TestSplitAfter (0.00227689743041992188)
+--- PASS: TestSplitAfter (0.0022640228271484375)
 === RUN   TestFields
---- PASS: TestFields (0.00201106071472167969)
+--- PASS: TestFields (0.00201296806335449219)
 === RUN   TestFieldsFunc
---- PASS: TestFieldsFunc (0.00301098823547363281)
+--- PASS: TestFieldsFunc (0.00302791595458984375)
 === RUN   TestMap
 strings_test/Strings_test.hx:4181: testMap skip function
---- PASS: TestMap (2.002716064453125e-05)
+--- PASS: TestMap (1.78813934326171875e-05)
 === RUN   TestToUpper
---- PASS: TestToUpper (0.00208115577697753906)
+--- PASS: TestToUpper (0.002056121826171875)
 === RUN   TestToLower
---- PASS: TestToLower (0.00183510780334472656)
+--- PASS: TestToLower (0.00184011459350585938)
 === RUN   TestToValidUTF8
---- PASS: TestToValidUTF8 (0.00201702117919921875)
+--- PASS: TestToValidUTF8 (0.00199413299560546875)
 === RUN   TestSpecialCase
---- PASS: TestSpecialCase (0.0046100616455078125)
+--- PASS: TestSpecialCase (0.00458288192749023438)
 === RUN   TestTrimSpace
---- PASS: TestTrimSpace (0.00110006332397460938)
+--- PASS: TestTrimSpace (0.001094818115234375)
 === RUN   TestTrim
---- PASS: TestTrim (0.000913858413696289062)
+--- PASS: TestTrim (0.0009098052978515625)
 === RUN   TestTrimFunc
---- PASS: TestTrimFunc (0.00413489341735839844)
+--- PASS: TestTrimFunc (0.00409984588623046875)
 === RUN   TestIndexFunc
---- PASS: TestIndexFunc (0.00132894515991210938)
+--- PASS: TestIndexFunc (0.00131106376647949219)
 === RUN   TestCaseConsistency
---- PASS: TestCaseConsistency (0.237531185150146484)
+--- PASS: TestCaseConsistency (0.237396955490112305)
 === RUN   TestRepeat
---- PASS: TestRepeat (0.000221967697143554688)
+--- PASS: TestRepeat (0.000225067138671875)
 === RUN   TestRepeatCatchesOverflow
---- PASS: TestRepeatCatchesOverflow (0.000666141510009765625)
+--- PASS: TestRepeatCatchesOverflow (0.000633001327514648438)
 === RUN   TestRunes
---- PASS: TestRunes (0.000562906265258789062)
+--- PASS: TestRunes (0.000550985336303710938)
 === RUN   TestReadByte
---- PASS: TestReadByte (0.000505924224853515625)
+--- PASS: TestReadByte (0.0005359649658203125)
 === RUN   TestReadRune
---- PASS: TestReadRune (0.000545024871826171875)
+--- PASS: TestReadRune (0.00055599212646484375)
 === RUN   TestUnreadRuneError
---- PASS: TestUnreadRuneError (0.000195980072021484375)
+--- PASS: TestUnreadRuneError (0.000201940536499023438)
 === RUN   TestReplace
---- PASS: TestReplace (0.00223898887634277344)
+--- PASS: TestReplace (0.00221991539001464844)
 === RUN   TestTitle
---- PASS: TestTitle (0.00247883796691894531)
+--- PASS: TestTitle (0.00247097015380859375)
 === RUN   TestContains
---- PASS: TestContains (0.000353097915649414062)
+--- PASS: TestContains (0.000355005264282226562)
 === RUN   TestContainsAny
---- PASS: TestContainsAny (0.000550031661987304688)
+--- PASS: TestContainsAny (0.000548839569091796875)
 === RUN   TestContainsRune
---- PASS: TestContainsRune (5.41210174560546875e-05)
+--- PASS: TestContainsRune (5.0067901611328125e-05)
 === RUN   TestEqualFold
---- PASS: TestEqualFold (0.00114011764526367188)
+--- PASS: TestEqualFold (0.00113320350646972656)
 === RUN   TestCount
---- PASS: TestCount (8.20159912109375e-05)
+--- PASS: TestCount (8.89301300048828125e-05)
 === RUN   TestCut
---- PASS: TestCut (5.50746917724609375e-05)
+--- PASS: TestCut (5.60283660888671875e-05)
 ```
 </p>
 </details>
@@ -743,7 +743,7 @@ function _explode(_s:stdgo.GoString, _n:stdgo.GoInt):stdgo.Slice<stdgo.GoString>
 ```
 
 
-explode splits s into a slice of UTF\-8 strings,��// one string per Unicode character up to a maximum of n \(n \< 0 means no limit\).��// Invalid UTF\-8 sequences become correct encodings of U\+FFFD. 
+explode splits s into a slice of UTF\-8 strings,  one string per Unicode character up to a maximum of n \(n \< 0 means no limit\).  Invalid UTF\-8 sequences become correct encodings of U\+FFFD. 
 
 
 [\(view code\)](<./Strings.hx#L615>)
@@ -757,7 +757,7 @@ function _genSplit(_s:stdgo.GoString, _sep:stdgo.GoString, _sepSave:stdgo.GoInt,
 ```
 
 
-Generic split: splits after each instance of sep,��// including sepSave bytes of sep in the subarrays. 
+Generic split: splits after each instance of sep,  including sepSave bytes of sep in the subarrays. 
 
 
 [\(view code\)](<./Strings.hx#L889>)
@@ -785,7 +785,7 @@ function _indexFunc(_s:stdgo.GoString, _f:(), _truth:Bool):stdgo.GoInt
 ```
 
 
-indexFunc is the same as IndexFunc except that if��// truth==false, the sense of the predicate function is��// inverted. 
+indexFunc is the same as IndexFunc except that if  truth==false, the sense of the predicate function is  inverted. 
 
 
 [\(view code\)](<./Strings.hx#L1479>)
@@ -799,7 +799,7 @@ function _isSeparator(_r:stdgo.GoRune):Bool
 ```
 
 
-isSeparator reports whether the rune could mark a word boundary.��// TODO: update when package unicode captures more of the properties. 
+isSeparator reports whether the rune could mark a word boundary.  TODO: update when package unicode captures more of the properties. 
 
 
 [\(view code\)](<./Strings.hx#L1383>)
@@ -813,7 +813,7 @@ function _lastIndexFunc(_s:stdgo.GoString, _f:(), _truth:Bool):stdgo.GoInt
 ```
 
 
-lastIndexFunc is the same as LastIndexFunc except that if��// truth==false, the sense of the predicate function is��// inverted. 
+lastIndexFunc is the same as LastIndexFunc except that if  truth==false, the sense of the predicate function is  inverted. 
 
 
 [\(view code\)](<./Strings.hx#L1493>)
@@ -841,7 +841,7 @@ function _makeASCIISet(_chars:stdgo.GoString):{_1:Bool, _0:stdgo.strings._String
 ```
 
 
-makeASCIISet creates a set of ASCII characters and reports whether all��// characters in chars are ASCII. 
+makeASCIISet creates a set of ASCII characters and reports whether all  characters in chars are ASCII. 
 
 
 [\(view code\)](<./Strings.hx#L1513>)
@@ -911,7 +911,7 @@ function _noescape(_p:stdgo.unsafe.UnsafePointer):stdgo.unsafe.UnsafePointer
 ```
 
 
-noescape hides a pointer from escape analysis. It is the identity function��// but escape analysis doesn't think the output depends on the input.��// noescape is inlined and currently compiles down to zero instructions.��// USE CAREFULLY\!��// This was copied from the runtime; see issues 23382 and 7921.��//��//go:nosplit��//go:nocheckptr 
+noescape hides a pointer from escape analysis. It is the identity function  but escape analysis doesn't think the output depends on the input.  noescape is inlined and currently compiles down to zero instructions.  USE CAREFULLY\!  This was copied from the runtime; see issues 23382 and 7921.    go:nosplit  go:nocheckptr 
 
 
 [\(view code\)](<./Strings.hx#L427>)
@@ -1009,7 +1009,7 @@ function clone(_s:stdgo.GoString):stdgo.GoString
 ```
 
 
-Clone returns a fresh copy of s.��// It guarantees to make a copy of s into a new allocation,��// which can be important when retaining only a small substring��// of a much larger string. Using Clone can help such programs��// use less memory. Of course, since using Clone makes a copy,��// overuse of Clone can make programs use more memory.��// Clone should typically be used only rarely, and only when��// profiling indicates that it is needed.��// For strings of length zero the string "" will be returned��// and no allocation is made. 
+Clone returns a fresh copy of s.  It guarantees to make a copy of s into a new allocation,  which can be important when retaining only a small substring  of a much larger string. Using Clone can help such programs  use less memory. Of course, since using Clone makes a copy,  overuse of Clone can make programs use more memory.  Clone should typically be used only rarely, and only when  profiling indicates that it is needed.  For strings of length zero the string "" will be returned  and no allocation is made. 
 
 
 [\(view code\)](<./Strings.hx#L444>)
@@ -1023,7 +1023,7 @@ function compare(_a:stdgo.GoString, _b:stdgo.GoString):stdgo.GoInt
 ```
 
 
-Compare returns an integer comparing two strings lexicographically.��// The result will be 0 if a == b, \-1 if a \< b, and \+1 if a \> b.��//��// Compare is included only for symmetry with package bytes.��// It is usually clearer and always faster to use the built\-in��// string comparison operators ==, \<, \>, and so on. 
+Compare returns an integer comparing two strings lexicographically.  The result will be 0 if a == b, \-1 if a \< b, and \+1 if a \> b.    Compare is included only for symmetry with package bytes.  It is usually clearer and always faster to use the built\-in  string comparison operators ==, \<, \>, and so on. 
 
 
 ### exampleCompare
@@ -1162,7 +1162,7 @@ function count(_s:stdgo.GoString, _substr:stdgo.GoString):stdgo.GoInt
 ```
 
 
-Count counts the number of non\-overlapping instances of substr in s.��// If substr is an empty string, Count returns 1 \+ the number of Unicode code points in s. 
+Count counts the number of non\-overlapping instances of substr in s.  If substr is an empty string, Count returns 1 \+ the number of Unicode code points in s. 
 
 
 ### exampleCount
@@ -1195,7 +1195,7 @@ function cut(_s:stdgo.GoString, _sep:stdgo.GoString):{_2:Bool, _1:stdgo.GoString
 ```
 
 
-Cut slices s around the first instance of sep,��// returning the text before and after sep.��// The found result reports whether sep appears in s.��// If sep does not appear in s, cut returns s, "", false. 
+Cut slices s around the first instance of sep,  returning the text before and after sep.  The found result reports whether sep appears in s.  If sep does not appear in s, cut returns s, "", false. 
 
 
 ### exampleCut
@@ -1249,7 +1249,7 @@ function equalFold(_s:stdgo.GoString, _t:stdgo.GoString):Bool
 ```
 
 
-EqualFold reports whether s and t, interpreted as UTF\-8 strings,��// are equal under simple Unicode case\-folding, which is a more general��// form of case\-insensitivity. 
+EqualFold reports whether s and t, interpreted as UTF\-8 strings,  are equal under simple Unicode case\-folding, which is a more general  form of case\-insensitivity. 
 
 
 ### exampleEqualFold
@@ -1283,7 +1283,7 @@ function fields(_s:stdgo.GoString):stdgo.Slice<stdgo.GoString>
 ```
 
 
-Fields splits the string s around each instance of one or more consecutive white space��// characters, as defined by unicode.IsSpace, returning a slice of substrings of s or an��// empty slice if s contains only white space. 
+Fields splits the string s around each instance of one or more consecutive white space  characters, as defined by unicode.IsSpace, returning a slice of substrings of s or an  empty slice if s contains only white space. 
 
 
 ### exampleFields
@@ -1315,7 +1315,7 @@ function fieldsFunc(_s:stdgo.GoString, _f:()):stdgo.Slice<stdgo.GoString>
 ```
 
 
-FieldsFunc splits the string s at each run of Unicode code points c satisfying f\(c\)��// and returns an array of slices of s. If all code points in s satisfy f\(c\) or the��// string is empty, an empty slice is returned.��//��// FieldsFunc makes no guarantees about the order in which it calls f\(c\)��// and assumes that f always returns the same value for a given c. 
+FieldsFunc splits the string s at each run of Unicode code points c satisfying f\(c\)  and returns an array of slices of s. If all code points in s satisfy f\(c\) or the  string is empty, an empty slice is returned.    FieldsFunc makes no guarantees about the order in which it calls f\(c\)  and assumes that f always returns the same value for a given c. 
 
 
 ### exampleFieldsFunc
@@ -1452,7 +1452,7 @@ function indexAny(_s:stdgo.GoString, _chars:stdgo.GoString):stdgo.GoInt
 ```
 
 
-IndexAny returns the index of the first instance of any Unicode code point��// from chars in s, or \-1 if no Unicode code point from chars is present in s. 
+IndexAny returns the index of the first instance of any Unicode code point  from chars in s, or \-1 if no Unicode code point from chars is present in s. 
 
 
 ### exampleIndexAny
@@ -1519,7 +1519,7 @@ function indexFunc(_s:stdgo.GoString, _f:()):stdgo.GoInt
 ```
 
 
-IndexFunc returns the index into s of the first Unicode��// code point satisfying f\(c\), or \-1 if none do. 
+IndexFunc returns the index into s of the first Unicode  code point satisfying f\(c\), or \-1 if none do. 
 
 
 ### exampleIndexFunc
@@ -1555,7 +1555,7 @@ function indexRune(_s:stdgo.GoString, _r:stdgo.GoRune):stdgo.GoInt
 ```
 
 
-IndexRune returns the index of the first instance of the Unicode code point��// r, or \-1 if rune is not present in s.��// If r is utf8.RuneError, it returns the first instance of any��// invalid UTF\-8 byte sequence. 
+IndexRune returns the index of the first instance of the Unicode code point  r, or \-1 if rune is not present in s.  If r is utf8.RuneError, it returns the first instance of any  invalid UTF\-8 byte sequence. 
 
 
 ### exampleIndexRune
@@ -1588,7 +1588,7 @@ function join(_elems:stdgo.Slice<stdgo.GoString>, _sep:stdgo.GoString):stdgo.GoS
 ```
 
 
-Join concatenates the elements of its first argument to create a single string. The separator��// string sep is placed between elements in the resulting string. 
+Join concatenates the elements of its first argument to create a single string. The separator  string sep is placed between elements in the resulting string. 
 
 
 ### exampleJoin
@@ -1655,7 +1655,7 @@ function lastIndexAny(_s:stdgo.GoString, _chars:stdgo.GoString):stdgo.GoInt
 ```
 
 
-LastIndexAny returns the index of the last instance of any Unicode code��// point from chars in s, or \-1 if no Unicode code point from chars is��// present in s. 
+LastIndexAny returns the index of the last instance of any Unicode code  point from chars in s, or \-1 if no Unicode code point from chars is  present in s. 
 
 
 ### exampleLastIndexAny
@@ -1723,7 +1723,7 @@ function lastIndexFunc(_s:stdgo.GoString, _f:()):stdgo.GoInt
 ```
 
 
-LastIndexFunc returns the index into s of the last��// Unicode code point satisfying f\(c\), or \-1 if none do. 
+LastIndexFunc returns the index into s of the last  Unicode code point satisfying f\(c\), or \-1 if none do. 
 
 
 ### exampleLastIndexFunc
@@ -1757,7 +1757,7 @@ function map(_mapping:(), _s:stdgo.GoString):stdgo.GoString
 ```
 
 
-Map returns a copy of the string s with all its characters modified��// according to the mapping function. If mapping returns a negative value, the character is��// dropped from the string with no replacement. 
+Map returns a copy of the string s with all its characters modified  according to the mapping function. If mapping returns a negative value, the character is  dropped from the string with no replacement. 
 
 
 ### exampleMap
@@ -1797,7 +1797,7 @@ function newReader(_s:stdgo.GoString):stdgo.Ref<stdgo.strings.Reader>
 ```
 
 
-NewReader returns a new Reader reading from s.��// It is similar to bytes.NewBufferString but more efficient and read\-only. 
+NewReader returns a new Reader reading from s.  It is similar to bytes.NewBufferString but more efficient and read\-only. 
 
 
 [\(view code\)](<./Strings.hx#L485>)
@@ -1811,7 +1811,7 @@ function newReplacer(_oldnew:haxe.Rest<stdgo.GoString>):stdgo.Ref<stdgo.strings.
 ```
 
 
-NewReplacer returns a new Replacer from a list of old, new string��// pairs. Replacements are performed in the order they appear in the��// target string, without overlapping matches. The old string��// comparisons are done in argument order.��//��// NewReplacer panics if given an odd number of arguments. 
+NewReplacer returns a new Replacer from a list of old, new string  pairs. Replacements are performed in the order they appear in the  target string, without overlapping matches. The old string  comparisons are done in argument order.    NewReplacer panics if given an odd number of arguments. 
 
 
 ### exampleNewReplacer
@@ -1844,7 +1844,7 @@ function repeat(_s:stdgo.GoString, _count:stdgo.GoInt):stdgo.GoString
 ```
 
 
-Repeat returns a new string consisting of count copies of the string s.��//��// It panics if count is negative or if��// the result of \(len\(s\) \* count\) overflows. 
+Repeat returns a new string consisting of count copies of the string s.    It panics if count is negative or if  the result of \(len\(s\) \* count\) overflows. 
 
 
 ### exampleRepeat
@@ -1876,7 +1876,7 @@ function replace(_s:stdgo.GoString, _old:stdgo.GoString, _new:stdgo.GoString, _n
 ```
 
 
-Replace returns a copy of the string s with the first n��// non\-overlapping instances of old replaced by new.��// If old is empty, it matches at the beginning of the string��// and after each UTF\-8 sequence, yielding up to k\+1 replacements��// for a k\-rune string.��// If n \< 0, there is no limit on the number of replacements. 
+Replace returns a copy of the string s with the first n  non\-overlapping instances of old replaced by new.  If old is empty, it matches at the beginning of the string  and after each UTF\-8 sequence, yielding up to k\+1 replacements  for a k\-rune string.  If n \< 0, there is no limit on the number of replacements. 
 
 
 ### exampleReplace
@@ -1909,7 +1909,7 @@ function replaceAll(_s:stdgo.GoString, _old:stdgo.GoString, _new:stdgo.GoString)
 ```
 
 
-ReplaceAll returns a copy of the string s with all��// non\-overlapping instances of old replaced by new.��// If old is empty, it matches at the beginning of the string��// and after each UTF\-8 sequence, yielding up to k\+1 replacements��// for a k\-rune string. 
+ReplaceAll returns a copy of the string s with all  non\-overlapping instances of old replaced by new.  If old is empty, it matches at the beginning of the string  and after each UTF\-8 sequence, yielding up to k\+1 replacements  for a k\-rune string. 
 
 
 ### exampleReplaceAll
@@ -1941,7 +1941,7 @@ function split(_s:stdgo.GoString, _sep:stdgo.GoString):stdgo.Slice<stdgo.GoStrin
 ```
 
 
-Split slices s into all substrings separated by sep and returns a slice of��// the substrings between those separators.��//��// If s does not contain sep and sep is not empty, Split returns a��// slice of length 1 whose only element is s.��//��// If sep is empty, Split splits after each UTF\-8 sequence. If both s��// and sep are empty, Split returns an empty slice.��//��// It is equivalent to SplitN with a count of \-1.��//��// To split around the first instance of a separator, see Cut. 
+Split slices s into all substrings separated by sep and returns a slice of  the substrings between those separators.    If s does not contain sep and sep is not empty, Split returns a  slice of length 1 whose only element is s.    If sep is empty, Split splits after each UTF\-8 sequence. If both s  and sep are empty, Split returns an empty slice.    It is equivalent to SplitN with a count of \-1.    To split around the first instance of a separator, see Cut. 
 
 
 ### exampleSplit
@@ -1976,7 +1976,7 @@ function splitAfter(_s:stdgo.GoString, _sep:stdgo.GoString):stdgo.Slice<stdgo.Go
 ```
 
 
-SplitAfter slices s into all substrings after each instance of sep and��// returns a slice of those substrings.��//��// If s does not contain sep and sep is not empty, SplitAfter returns��// a slice of length 1 whose only element is s.��//��// If sep is empty, SplitAfter splits after each UTF\-8 sequence. If��// both s and sep are empty, SplitAfter returns an empty slice.��//��// It is equivalent to SplitAfterN with a count of \-1. 
+SplitAfter slices s into all substrings after each instance of sep and  returns a slice of those substrings.    If s does not contain sep and sep is not empty, SplitAfter returns  a slice of length 1 whose only element is s.    If sep is empty, SplitAfter splits after each UTF\-8 sequence. If  both s and sep are empty, SplitAfter returns an empty slice.    It is equivalent to SplitAfterN with a count of \-1. 
 
 
 ### exampleSplitAfter
@@ -2008,7 +2008,7 @@ function splitAfterN(_s:stdgo.GoString, _sep:stdgo.GoString, _n:stdgo.GoInt):std
 ```
 
 
-SplitAfterN slices s into substrings after each instance of sep and��// returns a slice of those substrings.��//��// The count determines the number of substrings to return:��//��//�n \> 0: at most n substrings; the last substring will be the unsplit remainder.��//�n == 0: the result is nil \(zero substrings\)��//�n \< 0: all substrings��//��// Edge cases for s and sep \(for example, empty strings\) are handled��// as described in the documentation for SplitAfter. 
+SplitAfterN slices s into substrings after each instance of sep and  returns a slice of those substrings.    The count determines the number of substrings to return:     n \> 0: at most n substrings; the last substring will be the unsplit remainder.   n == 0: the result is nil \(zero substrings\)   n \< 0: all substrings    Edge cases for s and sep \(for example, empty strings\) are handled  as described in the documentation for SplitAfter. 
 
 
 ### exampleSplitAfterN
@@ -2040,7 +2040,7 @@ function splitN(_s:stdgo.GoString, _sep:stdgo.GoString, _n:stdgo.GoInt):stdgo.Sl
 ```
 
 
-SplitN slices s into substrings separated by sep and returns a slice of��// the substrings between those separators.��//��// The count determines the number of substrings to return:��//��//�n \> 0: at most n substrings; the last substring will be the unsplit remainder.��//�n == 0: the result is nil \(zero substrings\)��//�n \< 0: all substrings��//��// Edge cases for s and sep \(for example, empty strings\) are handled��// as described in the documentation for Split.��//��// To split around the first instance of a separator, see Cut. 
+SplitN slices s into substrings separated by sep and returns a slice of  the substrings between those separators.    The count determines the number of substrings to return:     n \> 0: at most n substrings; the last substring will be the unsplit remainder.   n == 0: the result is nil \(zero substrings\)   n \< 0: all substrings    Edge cases for s and sep \(for example, empty strings\) are handled  as described in the documentation for Split.    To split around the first instance of a separator, see Cut. 
 
 
 ### exampleSplitN
@@ -2088,7 +2088,7 @@ function title(_s:stdgo.GoString):stdgo.GoString
 ```
 
 
-Title returns a copy of the string s with all Unicode letters that begin words��// mapped to their Unicode title case.��//��// Deprecated: The rule Title uses for word boundaries does not handle Unicode��// punctuation properly. Use golang.org/x/text/cases instead. 
+Title returns a copy of the string s with all Unicode letters that begin words  mapped to their Unicode title case.    Deprecated: The rule Title uses for word boundaries does not handle Unicode  punctuation properly. Use golang.org/x/text/cases instead. 
 
 
 ### exampleTitle
@@ -2154,7 +2154,7 @@ function toLowerSpecial(_c:stdgo.unicode.SpecialCase, _s:stdgo.GoString):stdgo.G
 ```
 
 
-ToLowerSpecial returns a copy of the string s with all Unicode letters mapped to their��// lower case using the case mapping specified by c. 
+ToLowerSpecial returns a copy of the string s with all Unicode letters mapped to their  lower case using the case mapping specified by c. 
 
 
 ### exampleToLowerSpecial
@@ -2186,7 +2186,7 @@ function toTitle(_s:stdgo.GoString):stdgo.GoString
 ```
 
 
-ToTitle returns a copy of the string s with all Unicode letters mapped to��// their Unicode title case. 
+ToTitle returns a copy of the string s with all Unicode letters mapped to  their Unicode title case. 
 
 
 ### exampleToTitle
@@ -2220,7 +2220,7 @@ function toTitleSpecial(_c:stdgo.unicode.SpecialCase, _s:stdgo.GoString):stdgo.G
 ```
 
 
-ToTitleSpecial returns a copy of the string s with all Unicode letters mapped to their��// Unicode title case, giving priority to the special casing rules. 
+ToTitleSpecial returns a copy of the string s with all Unicode letters mapped to their  Unicode title case, giving priority to the special casing rules. 
 
 
 ### exampleToTitleSpecial
@@ -2285,7 +2285,7 @@ function toUpperSpecial(_c:stdgo.unicode.SpecialCase, _s:stdgo.GoString):stdgo.G
 ```
 
 
-ToUpperSpecial returns a copy of the string s with all Unicode letters mapped to their��// upper case using the case mapping specified by c. 
+ToUpperSpecial returns a copy of the string s with all Unicode letters mapped to their  upper case using the case mapping specified by c. 
 
 
 ### exampleToUpperSpecial
@@ -2317,7 +2317,7 @@ function toValidUTF8(_s:stdgo.GoString, _replacement:stdgo.GoString):stdgo.GoStr
 ```
 
 
-ToValidUTF8 returns a copy of the string s with each run of invalid UTF\-8 byte sequences��// replaced by the replacement string, which may be empty. 
+ToValidUTF8 returns a copy of the string s with each run of invalid UTF\-8 byte sequences  replaced by the replacement string, which may be empty. 
 
 
 [\(view code\)](<./Strings.hx#L1330>)
@@ -2331,7 +2331,7 @@ function trim(_s:stdgo.GoString, _cutset:stdgo.GoString):stdgo.GoString
 ```
 
 
-Trim returns a slice of the string s with all leading and��// trailing Unicode code points contained in cutset removed. 
+Trim returns a slice of the string s with all leading and  trailing Unicode code points contained in cutset removed. 
 
 
 ### exampleTrim
@@ -2363,7 +2363,7 @@ function trimFunc(_s:stdgo.GoString, _f:()):stdgo.GoString
 ```
 
 
-TrimFunc returns a slice of the string s with all leading��// and trailing Unicode code points c satisfying f\(c\) removed. 
+TrimFunc returns a slice of the string s with all leading  and trailing Unicode code points c satisfying f\(c\) removed. 
 
 
 ### exampleTrimFunc
@@ -2397,7 +2397,7 @@ function trimLeft(_s:stdgo.GoString, _cutset:stdgo.GoString):stdgo.GoString
 ```
 
 
-TrimLeft returns a slice of the string s with all leading��// Unicode code points contained in cutset removed.��//��// To remove a prefix, use TrimPrefix instead. 
+TrimLeft returns a slice of the string s with all leading  Unicode code points contained in cutset removed.    To remove a prefix, use TrimPrefix instead. 
 
 
 ### exampleTrimLeft
@@ -2429,7 +2429,7 @@ function trimLeftFunc(_s:stdgo.GoString, _f:()):stdgo.GoString
 ```
 
 
-TrimLeftFunc returns a slice of the string s with all leading��// Unicode code points c satisfying f\(c\) removed. 
+TrimLeftFunc returns a slice of the string s with all leading  Unicode code points c satisfying f\(c\) removed. 
 
 
 ### exampleTrimLeftFunc
@@ -2463,7 +2463,7 @@ function trimPrefix(_s:stdgo.GoString, _prefix:stdgo.GoString):stdgo.GoString
 ```
 
 
-TrimPrefix returns s without the provided leading prefix string.��// If s doesn't start with prefix, s is returned unchanged. 
+TrimPrefix returns s without the provided leading prefix string.  If s doesn't start with prefix, s is returned unchanged. 
 
 
 ### exampleTrimPrefix
@@ -2498,7 +2498,7 @@ function trimRight(_s:stdgo.GoString, _cutset:stdgo.GoString):stdgo.GoString
 ```
 
 
-TrimRight returns a slice of the string s, with all trailing��// Unicode code points contained in cutset removed.��//��// To remove a suffix, use TrimSuffix instead. 
+TrimRight returns a slice of the string s, with all trailing  Unicode code points contained in cutset removed.    To remove a suffix, use TrimSuffix instead. 
 
 
 ### exampleTrimRight
@@ -2530,7 +2530,7 @@ function trimRightFunc(_s:stdgo.GoString, _f:()):stdgo.GoString
 ```
 
 
-TrimRightFunc returns a slice of the string s with all trailing��// Unicode code points c satisfying f\(c\) removed. 
+TrimRightFunc returns a slice of the string s with all trailing  Unicode code points c satisfying f\(c\) removed. 
 
 
 ### exampleTrimRightFunc
@@ -2564,7 +2564,7 @@ function trimSpace(_s:stdgo.GoString):stdgo.GoString
 ```
 
 
-TrimSpace returns a slice of the string s, with all leading��// and trailing white space removed, as defined by Unicode. 
+TrimSpace returns a slice of the string s, with all leading  and trailing white space removed, as defined by Unicode. 
 
 
 ### exampleTrimSpace
@@ -2596,7 +2596,7 @@ function trimSuffix(_s:stdgo.GoString, _suffix:stdgo.GoString):stdgo.GoString
 ```
 
 
-TrimSuffix returns s without the provided trailing suffix string.��// If s doesn't end with suffix, s is returned unchanged. 
+TrimSuffix returns s without the provided trailing suffix string.  If s doesn't end with suffix, s is returned unchanged. 
 
 
 ### exampleTrimSuffix
@@ -2634,7 +2634,7 @@ import stdgo.strings.*
 ## class Builder
 
 
-A Builder is used to efficiently build a string using Write methods.��// It minimizes memory copying. The zero value is ready to use.��// Do not copy a non\-zero Builder. 
+A Builder is used to efficiently build a string using Write methods.  It minimizes memory copying. The zero value is ready to use.  Do not copy a non\-zero Builder. 
 
 
 ```haxe
@@ -2686,7 +2686,7 @@ function _grow( _n:stdgo.GoInt):Void
 ```
 
 
-grow copies the buffer to a new, larger buffer so that there are at least n���// bytes of capacity beyond len\(b.buf\). 
+grow copies the buffer to a new, larger buffer so that there are at least n   bytes of capacity beyond len\(b.buf\). 
 
 
 [\(view code\)](<./Strings.hx#L2127>)
@@ -2700,7 +2700,7 @@ function cap():stdgo.GoInt
 ```
 
 
-Cap returns the capacity of the builder's underlying byte slice. It is the���// total space allocated for the string being built and includes any bytes���// already written. 
+Cap returns the capacity of the builder's underlying byte slice. It is the   total space allocated for the string being built and includes any bytes   already written. 
 
 
 [\(view code\)](<./Strings.hx#L2149>)
@@ -2714,7 +2714,7 @@ function grow( _n:stdgo.GoInt):Void
 ```
 
 
-Grow grows b's capacity, if necessary, to guarantee space for���// another n bytes. After Grow\(n\), at least n bytes can be written to b���// without another allocation. If n is negative, Grow panics. 
+Grow grows b's capacity, if necessary, to guarantee space for   another n bytes. After Grow\(n\), at least n bytes can be written to b   without another allocation. If n is negative, Grow panics. 
 
 
 [\(view code\)](<./Strings.hx#L2112>)
@@ -2770,7 +2770,7 @@ function write( _p:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}
 ```
 
 
-Write appends the contents of p to b's buffer.���// Write always returns len\(p\), nil. 
+Write appends the contents of p to b's buffer.   Write always returns len\(p\), nil. 
 
 
 [\(view code\)](<./Strings.hx#L2100>)
@@ -2784,7 +2784,7 @@ function writeByte( _c:stdgo.GoByte):stdgo.Error
 ```
 
 
-WriteByte appends the byte c to b's buffer.���// The returned error is always nil. 
+WriteByte appends the byte c to b's buffer.   The returned error is always nil. 
 
 
 [\(view code\)](<./Strings.hx#L2089>)
@@ -2798,7 +2798,7 @@ function writeRune( _r:stdgo.GoRune):{_1:stdgo.Error, _0:stdgo.GoInt}
 ```
 
 
-WriteRune appends the UTF\-8 encoding of Unicode code point r to b's buffer.���// It returns the length of r and a nil error. 
+WriteRune appends the UTF\-8 encoding of Unicode code point r to b's buffer.   It returns the length of r and a nil error. 
 
 
 [\(view code\)](<./Strings.hx#L2069>)
@@ -2812,7 +2812,7 @@ function writeString( _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}
 ```
 
 
-WriteString appends the contents of s to b's buffer.���// It returns the length of s and a nil error. 
+WriteString appends the contents of s to b's buffer.   It returns the length of s and a nil error. 
 
 
 [\(view code\)](<./Strings.hx#L2058>)
@@ -2846,7 +2846,7 @@ function _grow( _n:stdgo.GoInt):Void
 ```
 
 
-grow copies the buffer to a new, larger buffer so that there are at least n���// bytes of capacity beyond len\(b.buf\). 
+grow copies the buffer to a new, larger buffer so that there are at least n   bytes of capacity beyond len\(b.buf\). 
 
 
 [\(view code\)](<./Strings.hx#L2127>)
@@ -2860,7 +2860,7 @@ function cap():stdgo.GoInt
 ```
 
 
-Cap returns the capacity of the builder's underlying byte slice. It is the���// total space allocated for the string being built and includes any bytes���// already written. 
+Cap returns the capacity of the builder's underlying byte slice. It is the   total space allocated for the string being built and includes any bytes   already written. 
 
 
 [\(view code\)](<./Strings.hx#L2149>)
@@ -2874,7 +2874,7 @@ function grow( _n:stdgo.GoInt):Void
 ```
 
 
-Grow grows b's capacity, if necessary, to guarantee space for���// another n bytes. After Grow\(n\), at least n bytes can be written to b���// without another allocation. If n is negative, Grow panics. 
+Grow grows b's capacity, if necessary, to guarantee space for   another n bytes. After Grow\(n\), at least n bytes can be written to b   without another allocation. If n is negative, Grow panics. 
 
 
 [\(view code\)](<./Strings.hx#L2112>)
@@ -2930,7 +2930,7 @@ function write( _p:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}
 ```
 
 
-Write appends the contents of p to b's buffer.���// Write always returns len\(p\), nil. 
+Write appends the contents of p to b's buffer.   Write always returns len\(p\), nil. 
 
 
 [\(view code\)](<./Strings.hx#L2100>)
@@ -2944,7 +2944,7 @@ function writeByte( _c:stdgo.GoByte):stdgo.Error
 ```
 
 
-WriteByte appends the byte c to b's buffer.���// The returned error is always nil. 
+WriteByte appends the byte c to b's buffer.   The returned error is always nil. 
 
 
 [\(view code\)](<./Strings.hx#L2089>)
@@ -2958,7 +2958,7 @@ function writeRune( _r:stdgo.GoRune):{_1:stdgo.Error, _0:stdgo.GoInt}
 ```
 
 
-WriteRune appends the UTF\-8 encoding of Unicode code point r to b's buffer.���// It returns the length of r and a nil error. 
+WriteRune appends the UTF\-8 encoding of Unicode code point r to b's buffer.   It returns the length of r and a nil error. 
 
 
 [\(view code\)](<./Strings.hx#L2069>)
@@ -2972,7 +2972,7 @@ function writeString( _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}
 ```
 
 
-WriteString appends the contents of s to b's buffer.���// It returns the length of s and a nil error. 
+WriteString appends the contents of s to b's buffer.   It returns the length of s and a nil error. 
 
 
 [\(view code\)](<./Strings.hx#L2058>)
@@ -2981,7 +2981,7 @@ WriteString appends the contents of s to b's buffer.���// It returns the l
 ## class Reader
 
 
-A Reader implements the io.Reader, io.ReaderAt, io.ByteReader, io.ByteScanner,��// io.RuneReader, io.RuneScanner, io.Seeker, and io.WriterTo interfaces by reading��// from a string.��// The zero value for Reader operates like a Reader of an empty string. 
+A Reader implements the io.Reader, io.ReaderAt, io.ByteReader, io.ByteScanner,  io.RuneReader, io.RuneScanner, io.Seeker, and io.WriterTo interfaces by reading  from a string.  The zero value for Reader operates like a Reader of an empty string. 
 
 
 ```haxe
@@ -3027,7 +3027,7 @@ function len():stdgo.GoInt
 ```
 
 
-Len returns the number of bytes of the unread portion of the���// string. 
+Len returns the number of bytes of the unread portion of the   string. 
 
 
 [\(view code\)](<./Strings.hx#L2456>)
@@ -3125,7 +3125,7 @@ function size():stdgo.GoInt64
 ```
 
 
-Size returns the original length of the underlying string.���// Size is the number of bytes available for reading via ReadAt.���// The returned value is always the same and is not affected by calls���// to any other method. 
+Size returns the original length of the underlying string.   Size is the number of bytes available for reading via ReadAt.   The returned value is always the same and is not affected by calls   to any other method. 
 
 
 [\(view code\)](<./Strings.hx#L2447>)
@@ -3187,7 +3187,7 @@ function len():stdgo.GoInt
 ```
 
 
-Len returns the number of bytes of the unread portion of the���// string. 
+Len returns the number of bytes of the unread portion of the   string. 
 
 
 [\(view code\)](<./Strings.hx#L2456>)
@@ -3285,7 +3285,7 @@ function size():stdgo.GoInt64
 ```
 
 
-Size returns the original length of the underlying string.���// Size is the number of bytes available for reading via ReadAt.���// The returned value is always the same and is not affected by calls���// to any other method. 
+Size returns the original length of the underlying string.   Size is the number of bytes available for reading via ReadAt.   The returned value is always the same and is not affected by calls   to any other method. 
 
 
 [\(view code\)](<./Strings.hx#L2447>)
@@ -3336,7 +3336,7 @@ WriteTo implements the io.WriterTo interface.
 ## class Replacer
 
 
-Replacer replaces a list of strings with replacements.��// It is safe for concurrent use by multiple goroutines. 
+Replacer replaces a list of strings with replacements.  It is safe for concurrent use by multiple goroutines. 
 
 
 ```haxe
@@ -3777,7 +3777,7 @@ function _next(_f:stdgo.Ref<stdgo.strings._Strings.T_stringFinder>, _text:stdgo.
 ```
 
 
-next returns the index in text of the first occurrence of the pattern. If���// the pattern is not found, it returns \-1. 
+next returns the index in text of the first occurrence of the pattern. If   the pattern is not found, it returns \-1. 
 
 
 [\(view code\)](<./Strings.hx#L3093>)

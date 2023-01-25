@@ -181,7 +181,7 @@ function exampleNew_errorf():Void
 ```
 
 
-The fmt package's Errorf function lets us use the package's formatting��// features to create descriptive error messages. 
+The fmt package's Errorf function lets us use the package's formatting  features to create descriptive error messages. 
 
 
 [\(view code\)](<./Errors.hx#L215>)

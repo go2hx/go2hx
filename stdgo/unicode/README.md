@@ -6,7 +6,7 @@
 # Overview
 
 
-Package unicode provides data and functions to test some properties of��// Unicode code points. 
+Package unicode provides data and functions to test some properties of  Unicode code points. 
 
 
 <details><summary>hl tests passed</summary>
@@ -14,61 +14,61 @@ Package unicode provides data and functions to test some properties of��// U
 
 ```
 === RUN   TestDigit
---- PASS: TestDigit (0.000159978866577148)
+--- PASS: TestDigit (0.000104904174804688)
 === RUN   TestDigitOptimization
---- PASS: TestDigitOptimization (6.29425048828125e-05)
+--- PASS: TestDigitOptimization (4.69684600830078e-05)
 === RUN   TestIsControlLatin1
---- PASS: TestIsControlLatin1 (0.000154972076416016)
+--- PASS: TestIsControlLatin1 (0.000123977661132812)
 === RUN   TestIsLetterLatin1
---- PASS: TestIsLetterLatin1 (0.000210046768188477)
+--- PASS: TestIsLetterLatin1 (0.000173091888427734)
 === RUN   TestIsUpperLatin1
---- PASS: TestIsUpperLatin1 (0.000201940536499023)
+--- PASS: TestIsUpperLatin1 (0.000165939331054688)
 === RUN   TestIsLowerLatin1
---- PASS: TestIsLowerLatin1 (0.000195026397705078)
+--- PASS: TestIsLowerLatin1 (0.000156879425048828)
 === RUN   TestNumberLatin1
---- PASS: TestNumberLatin1 (0.000196933746337891)
+--- PASS: TestNumberLatin1 (0.000166893005371094)
 === RUN   TestIsPrintLatin1
---- PASS: TestIsPrintLatin1 (0.000664949417114258)
+--- PASS: TestIsPrintLatin1 (0.000626087188720703)
 === RUN   TestIsGraphicLatin1
---- PASS: TestIsGraphicLatin1 (0.000781059265136719)
+--- PASS: TestIsGraphicLatin1 (0.000742912292480469)
 === RUN   TestIsPunctLatin1
---- PASS: TestIsPunctLatin1 (0.000240087509155273)
+--- PASS: TestIsPunctLatin1 (0.000197887420654297)
 === RUN   TestIsSpaceLatin1
---- PASS: TestIsSpaceLatin1 (0.000190019607543945)
+--- PASS: TestIsSpaceLatin1 (0.000154972076416016)
 === RUN   TestIsSymbolLatin1
---- PASS: TestIsSymbolLatin1 (0.00021815299987793)
+--- PASS: TestIsSymbolLatin1 (0.000182867050170898)
 === RUN   TestIsLetter
---- PASS: TestIsLetter (0.000135183334350586)
+--- PASS: TestIsLetter (9.70363616943359e-05)
 === RUN   TestIsUpper
---- PASS: TestIsUpper (9.01222229003906e-05)
+--- PASS: TestIsUpper (5.41210174560547e-05)
 === RUN   TestTo
---- PASS: TestTo (0.000826835632324219)
+--- PASS: TestTo (0.000791072845458984)
 === RUN   TestToUpperCase
---- PASS: TestToUpperCase (0.000234127044677734)
+--- PASS: TestToUpperCase (0.000195980072021484)
 === RUN   TestToLowerCase
---- PASS: TestToLowerCase (0.000304937362670898)
+--- PASS: TestToLowerCase (0.000274896621704102)
 === RUN   TestToTitleCase
---- PASS: TestToTitleCase (0.000217914581298828)
+--- PASS: TestToTitleCase (0.000174999237060547)
 === RUN   TestIsSpace
---- PASS: TestIsSpace (5.88893890380859e-05)
+--- PASS: TestIsSpace (3.31401824951172e-05)
 === RUN   TestLetterOptimizations
---- PASS: TestLetterOptimizations (0.0143129825592041)
+--- PASS: TestLetterOptimizations (0.0143439769744873)
 === RUN   TestTurkishCase
---- PASS: TestTurkishCase (0.00103306770324707)
+--- PASS: TestTurkishCase (0.00103616714477539)
 === RUN   TestSimpleFold
---- PASS: TestSimpleFold (0.000202178955078125)
+--- PASS: TestSimpleFold (0.000161886215209961)
 === RUN   TestCalibrate
---- PASS: TestCalibrate (2.88486480712891e-05)
+--- PASS: TestCalibrate (6.91413879394531e-06)
 === RUN   TestLatinOffset
---- PASS: TestLatinOffset (0.0598101615905762)
+--- PASS: TestLatinOffset (0.0602250099182129)
 === RUN   TestSpecialCaseNoMapping
---- PASS: TestSpecialCaseNoMapping (0.00010991096496582)
+--- PASS: TestSpecialCaseNoMapping (6.69956207275391e-05)
 === RUN   TestNegativeRune
---- PASS: TestNegativeRune (0.00257110595703125)
+--- PASS: TestNegativeRune (0.00258588790893555)
 === RUN   TestCategories
---- PASS: TestCategories (0.0118088722229004)
+--- PASS: TestCategories (0.0114929676055908)
 === RUN   TestProperties
---- PASS: TestProperties (0.0110809803009033)
+--- PASS: TestProperties (0.0110790729522705)
 ```
 </p>
 </details>
@@ -78,61 +78,61 @@ Package unicode provides data and functions to test some properties of��// U
 
 ```
 === RUN   TestDigit
---- PASS: TestDigit (0.0008411407470703125)
+--- PASS: TestDigit (0.000827074050903320312)
 === RUN   TestDigitOptimization
---- PASS: TestDigitOptimization (0.000778913497924804688)
+--- PASS: TestDigitOptimization (0.00078105926513671875)
 === RUN   TestIsControlLatin1
---- PASS: TestIsControlLatin1 (0.000921964645385742188)
+--- PASS: TestIsControlLatin1 (0.000936031341552734375)
 === RUN   TestIsLetterLatin1
---- PASS: TestIsLetterLatin1 (0.00173401832580566406)
+--- PASS: TestIsLetterLatin1 (0.00174093246459960938)
 === RUN   TestIsUpperLatin1
---- PASS: TestIsUpperLatin1 (0.00156116485595703125)
+--- PASS: TestIsUpperLatin1 (0.00158905982971191406)
 === RUN   TestIsLowerLatin1
---- PASS: TestIsLowerLatin1 (0.00155401229858398438)
+--- PASS: TestIsLowerLatin1 (0.001583099365234375)
 === RUN   TestNumberLatin1
---- PASS: TestNumberLatin1 (0.00163006782531738281)
+--- PASS: TestNumberLatin1 (0.00165081024169921875)
 === RUN   TestIsPrintLatin1
---- PASS: TestIsPrintLatin1 (0.00451993942260742188)
+--- PASS: TestIsPrintLatin1 (0.00451493263244628906)
 === RUN   TestIsGraphicLatin1
---- PASS: TestIsGraphicLatin1 (0.0047130584716796875)
+--- PASS: TestIsGraphicLatin1 (0.0047779083251953125)
 === RUN   TestIsPunctLatin1
---- PASS: TestIsPunctLatin1 (0.00229692459106445312)
+--- PASS: TestIsPunctLatin1 (0.002307891845703125)
 === RUN   TestIsSpaceLatin1
---- PASS: TestIsSpaceLatin1 (0.00157094001770019531)
+--- PASS: TestIsSpaceLatin1 (0.00156497955322265625)
 === RUN   TestIsSymbolLatin1
---- PASS: TestIsSymbolLatin1 (0.00204205513000488281)
+--- PASS: TestIsSymbolLatin1 (0.00203108787536621094)
 === RUN   TestIsLetter
---- PASS: TestIsLetter (0.000852823257446289062)
+--- PASS: TestIsLetter (0.0008640289306640625)
 === RUN   TestIsUpper
---- PASS: TestIsUpper (0.000458002090454101562)
+--- PASS: TestIsUpper (0.000471830368041992188)
 === RUN   TestTo
---- PASS: TestTo (0.0017070770263671875)
+--- PASS: TestTo (0.00172400474548339844)
 === RUN   TestToUpperCase
---- PASS: TestToUpperCase (0.000541925430297851562)
+--- PASS: TestToUpperCase (0.000547170639038085938)
 === RUN   TestToLowerCase
---- PASS: TestToLowerCase (0.000517129898071289062)
+--- PASS: TestToLowerCase (0.000509023666381835938)
 === RUN   TestToTitleCase
---- PASS: TestToTitleCase (0.00049114227294921875)
+--- PASS: TestToTitleCase (0.000488996505737304688)
 === RUN   TestIsSpace
---- PASS: TestIsSpace (0.000224828720092773438)
+--- PASS: TestIsSpace (0.000225067138671875)
 === RUN   TestLetterOptimizations
---- PASS: TestLetterOptimizations (0.0319161415100097656)
+--- PASS: TestLetterOptimizations (0.0320248603820800781)
 === RUN   TestTurkishCase
---- PASS: TestTurkishCase (0.00330901145935058594)
+--- PASS: TestTurkishCase (0.00331377983093261719)
 === RUN   TestSimpleFold
---- PASS: TestSimpleFold (0.000912904739379882812)
+--- PASS: TestSimpleFold (0.000937938690185546875)
 === RUN   TestCalibrate
---- PASS: TestCalibrate (1.31130218505859375e-05)
+--- PASS: TestCalibrate (1.40666961669921875e-05)
 === RUN   TestLatinOffset
---- PASS: TestLatinOffset (0.0821130275726318359)
+--- PASS: TestLatinOffset (0.0817899703979492188)
 === RUN   TestSpecialCaseNoMapping
---- PASS: TestSpecialCaseNoMapping (0.000225782394409179688)
+--- PASS: TestSpecialCaseNoMapping (0.0002269744873046875)
 === RUN   TestNegativeRune
---- PASS: TestNegativeRune (0.0190219879150390625)
+--- PASS: TestNegativeRune (0.0189969539642334)
 === RUN   TestCategories
---- PASS: TestCategories (0.0172979831695556641)
+--- PASS: TestCategories (0.0172510147094726562)
 === RUN   TestProperties
---- PASS: TestProperties (0.0160310268402099609)
+--- PASS: TestProperties (0.0159449577331542969)
 ```
 </p>
 </details>
@@ -342,7 +342,7 @@ final upperLower:stdgo.GoInt32 = ((1114112 : GoInt32))
 ```
 
 
-\(Cannot be a valid delta.\)// If the Delta field of a CaseRange is UpperLower, it means��// this CaseRange represents a sequence of the form \(say\)��// Upper Lower Upper Lower. 
+\(Cannot be a valid delta.\)// If the Delta field of a CaseRange is UpperLower, it means  this CaseRange represents a sequence of the form \(say\)  Upper Lower Upper Lower. 
 
 
 ```haxe
@@ -547,7 +547,7 @@ var caseRanges:stdgo.Slice<stdgo.unicode.CaseRange>
 ```
 
 
-CaseRanges is the table describing case mappings for all letters with��// non\-self mappings. 
+CaseRanges is the table describing case mappings for all letters with  non\-self mappings. 
 
 
 ```haxe
@@ -787,7 +787,7 @@ var foldCategory:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo.unicode.RangeTable>
 ```
 
 
-FoldCategory maps a category name to a table of��// code points outside the category that are equivalent under��// simple case folding to code points inside the category.��// If there is no entry for a category name, there are no such points. 
+FoldCategory maps a category name to a table of  code points outside the category that are equivalent under  simple case folding to code points inside the category.  If there is no entry for a category name, there are no such points. 
 
 
 ```haxe
@@ -795,7 +795,7 @@ var foldScript:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo.unicode.RangeTable>>
 ```
 
 
-FoldScript maps a script name to a table of��// code points outside the script that are equivalent under��// simple case folding to code points inside the script.��// If there is no entry for a script name, there are no such points. 
+FoldScript maps a script name to a table of  code points outside the script that are equivalent under  simple case folding to code points inside the script.  If there is no entry for a script name, there are no such points. 
 
 
 ```haxe
@@ -1819,7 +1819,7 @@ var printRanges:stdgo.Slice<stdgo.Ref<stdgo.unicode.RangeTable>>
 ```
 
 
-PrintRanges defines the set of printable characters according to Go.��// ASCII space, U\+0020, is handled separately. 
+PrintRanges defines the set of printable characters according to Go.  ASCII space, U\+0020, is handled separately. 
 
 
 ```haxe
@@ -2397,7 +2397,7 @@ function _to(__case:stdgo.GoInt, _r:stdgo.GoRune, _caseRange:stdgo.Slice<stdgo.u
 ```
 
 
-to maps the rune using the specified case mapping.��// It additionally reports whether caseRange contained a mapping for r. 
+to maps the rune using the specified case mapping.  It additionally reports whether caseRange contained a mapping for r. 
 
 
 [\(view code\)](<./Unicode.hx#L9003>)
@@ -2425,7 +2425,7 @@ function isControl(_r:stdgo.GoRune):Bool
 ```
 
 
-IsControl reports whether the rune is a control character.��// The C \(Other\) Unicode category includes more code points��// such as surrogates; use Is\(C, r\) to test for them. 
+IsControl reports whether the rune is a control character.  The C \(Other\) Unicode category includes more code points  such as surrogates; use Is\(C, r\) to test for them. 
 
 
 [\(view code\)](<./Unicode.hx#L8797>)
@@ -2472,7 +2472,7 @@ function isGraphic(_r:stdgo.GoRune):Bool
 ```
 
 
-IsGraphic reports whether the rune is defined as a Graphic by Unicode.��// Such characters include letters, marks, numbers, punctuation, symbols, and��// spaces, from categories L, M, N, P, S, Zs. 
+IsGraphic reports whether the rune is defined as a Graphic by Unicode.  Such characters include letters, marks, numbers, punctuation, symbols, and  spaces, from categories L, M, N, P, S, Zs. 
 
 
 [\(view code\)](<./Unicode.hx#L8745>)
@@ -2599,7 +2599,7 @@ function isOneOf(_ranges:stdgo.Slice<stdgo.Ref<stdgo.unicode.RangeTable>>, _r:st
 ```
 
 
-IsOneOf reports whether the rune is a member of one of the ranges.��// The function "In" provides a nicer signature and should be used in preference to IsOneOf. 
+IsOneOf reports whether the rune is a member of one of the ranges.  The function "In" provides a nicer signature and should be used in preference to IsOneOf. 
 
 
 [\(view code\)](<./Unicode.hx#L8770>)
@@ -2613,7 +2613,7 @@ function isPrint(_r:stdgo.GoRune):Bool
 ```
 
 
-IsPrint reports whether the rune is defined as printable by Go. Such��// characters include letters, marks, numbers, punctuation, symbols, and the��// ASCII space character, from categories L, M, N, P, S and the ASCII space��// character. This categorization is the same as IsGraphic except that the��// only spacing character is ASCII space, U\+0020. 
+IsPrint reports whether the rune is defined as printable by Go. Such  characters include letters, marks, numbers, punctuation, symbols, and the  ASCII space character, from categories L, M, N, P, S and the ASCII space  character. This categorization is the same as IsGraphic except that the  only spacing character is ASCII space, U\+0020. 
 
 
 [\(view code\)](<./Unicode.hx#L8759>)
@@ -2627,7 +2627,7 @@ function isPunct(_r:stdgo.GoRune):Bool
 ```
 
 
-IsPunct reports whether the rune is a Unicode punctuation character��// \(category P\). 
+IsPunct reports whether the rune is a Unicode punctuation character  \(category P\). 
 
 
 [\(view code\)](<./Unicode.hx#L8835>)
@@ -2641,7 +2641,7 @@ function isSpace(_r:stdgo.GoRune):Bool
 ```
 
 
-IsSpace reports whether the rune is a space character as defined��// by Unicode's White Space property; in the Latin\-1 space��// this is��//��//�'\\t', '\\n', '\\v', '\\f', '\\r', ' ', U\+0085 \(NEL\), U\+00A0 \(NBSP\).��//��// Other definitions of spacing characters are set by category��// Z and property Pattern\_White\_Space. 
+IsSpace reports whether the rune is a space character as defined  by Unicode's White Space property; in the Latin\-1 space  this is     '\\t', '\\n', '\\v', '\\f', '\\r', ' ', U\+0085 \(NEL\), U\+00A0 \(NBSP\).    Other definitions of spacing characters are set by category  Z and property Pattern\_White\_Space. 
 
 
 ### exampleIsSpace
@@ -2770,7 +2770,7 @@ function simpleFold(_r:stdgo.GoRune):stdgo.GoRune
 ```
 
 
-SimpleFold iterates over Unicode code points equivalent under��// the Unicode\-defined simple case folding. Among the code points��// equivalent to rune \(including rune itself\), SimpleFold returns the��// smallest rune \> r if one exists, or else the smallest rune \>= 0.��// If r is not a valid Unicode code point, SimpleFold\(r\) returns r.��//��// For example:��//��//�SimpleFold\('A'\) = 'a'��//�SimpleFold\('a'\) = 'A'��//��//�SimpleFold\('K'\) = 'k'��//�SimpleFold\('k'\) = '\\u212A' \(Kelvin symbol, K\)��//�SimpleFold\('\\u212A'\) = 'K'��//��//�SimpleFold\('1'\) = '1'��//��//�SimpleFold\(\-2\) = \-2 
+SimpleFold iterates over Unicode code points equivalent under  the Unicode\-defined simple case folding. Among the code points  equivalent to rune \(including rune itself\), SimpleFold returns the  smallest rune \> r if one exists, or else the smallest rune \>= 0.  If r is not a valid Unicode code point, SimpleFold\(r\) returns r.    For example:     SimpleFold\('A'\) = 'a'   SimpleFold\('a'\) = 'A'     SimpleFold\('K'\) = 'k'   SimpleFold\('k'\) = '\\u212A' \(Kelvin symbol, K\)   SimpleFold\('\\u212A'\) = 'K'     SimpleFold\('1'\) = '1'     SimpleFold\(\-2\) = \-2 
 
 
 ### exampleSimpleFold
@@ -2948,7 +2948,7 @@ import stdgo.unicode.*
 ## class CaseRange
 
 
-CaseRange represents a range of Unicode code points for simple \(one��// code point to one code point\) case conversion.��// The range runs from Lo to Hi inclusive, with a fixed stride of 1. Deltas��// are the number to add to the code point to reach the code point for a��// different case for that character. They may be negative. If zero, it��// means the character is in the corresponding case. There is a special��// case representing sequences of alternating corresponding Upper and Lower��// pairs. It appears with a fixed Delta of��//��//�\{UpperLower, UpperLower, UpperLower\}��//��// The constant UpperLower has an otherwise impossible delta value. 
+CaseRange represents a range of Unicode code points for simple \(one  code point to one code point\) case conversion.  The range runs from Lo to Hi inclusive, with a fixed stride of 1. Deltas  are the number to add to the code point to reach the code point for a  different case for that character. They may be negative. If zero, it  means the character is in the corresponding case. There is a special  case representing sequences of alternating corresponding Upper and Lower  pairs. It appears with a fixed Delta of     \{UpperLower, UpperLower, UpperLower\}    The constant UpperLower has an otherwise impossible delta value. 
 
 
 ```haxe
@@ -2983,7 +2983,7 @@ function new(?lo:stdgo.GoUInt32, ?hi:stdgo.GoUInt32, ?delta:Null<stdgo.unicode._
 ## class Range16
 
 
-Range16 represents of a range of 16\-bit Unicode code points. The range runs from Lo to Hi��// inclusive and has the specified stride. 
+Range16 represents of a range of 16\-bit Unicode code points. The range runs from Lo to Hi  inclusive and has the specified stride. 
 
 
 ```haxe
@@ -3018,7 +3018,7 @@ function new(?lo:stdgo.GoUInt16, ?hi:stdgo.GoUInt16, ?stride:stdgo.GoUInt16):Voi
 ## class Range32
 
 
-Range32 represents of a range of Unicode code points and is used when one or��// more of the values will not fit in 16 bits. The range runs from Lo to Hi��// inclusive and has the specified stride. Lo and Hi must always be \>= 1\<\<16. 
+Range32 represents of a range of Unicode code points and is used when one or  more of the values will not fit in 16 bits. The range runs from Lo to Hi  inclusive and has the specified stride. Lo and Hi must always be \>= 1\<\<16. 
 
 
 ```haxe
@@ -3053,7 +3053,7 @@ function new(?lo:stdgo.GoUInt32, ?hi:stdgo.GoUInt32, ?stride:stdgo.GoUInt32):Voi
 ## class RangeTable
 
 
-RangeTable defines a set of Unicode code points by listing the ranges of��// code points within the set. The ranges are listed in two slices��// to save space: a slice of 16\-bit ranges and a slice of 32\-bit ranges.��// The two slices must be in sorted order and non\-overlapping.��// Also, R32 should contain only values \>= 0x10000 \(1\<\<16\). 
+RangeTable defines a set of Unicode code points by listing the ranges of  code points within the set. The ranges are listed in two slices  to save space: a slice of 16\-bit ranges and a slice of 32\-bit ranges.  The two slices must be in sorted order and non\-overlapping.  Also, R32 should contain only values \>= 0x10000 \(1\<\<16\). 
 
 
 ```haxe
@@ -3152,7 +3152,7 @@ typedef SpecialCase = var x:stdgo.unicode.CaseRange
 ```
 
 
-SpecialCase represents language\-specific case mappings such as Turkish.��// Methods of SpecialCase customize \(by overriding\) the standard mappings. 
+SpecialCase represents language\-specific case mappings such as Turkish.  Methods of SpecialCase customize \(by overriding\) the standard mappings. 
 
 
 ### exampleSpecialCase

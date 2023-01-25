@@ -6,7 +6,7 @@
 # Overview
 
 
-Package cmplx provides basic constants and mathematical functions for��// complex numbers. Special case handling conforms to the C99 standard��// Annex G IEC 60559\-compatible complex arithmetic. 
+Package cmplx provides basic constants and mathematical functions for  complex numbers. Special case handling conforms to the C99 standard  Annex G IEC 60559\-compatible complex arithmetic. 
 
 
 <details><summary>hl tests failed</summary>
@@ -15,7 +15,7 @@ Package cmplx provides basic constants and mathematical functions for��// co
 ```
 Error: Command failed with error 1
 === RUN   TestAbs
---- PASS: TestAbs (4.91142272949219e-05)
+--- PASS: TestAbs (5.29289245605469e-05)
 === RUN   TestAcos
 Acos((0+0i)) = (1.5707963267949+0i), want (1.5707963267949+-0i)
 ```
@@ -27,7 +27,7 @@ Acos((0+0i)) = (1.5707963267949+0i), want (1.5707963267949+-0i)
 
 ```
 === RUN   TestAbs
---- PASS: TestAbs (9.89437103271484375e-05)
+--- PASS: TestAbs (0.000128030776977539062)
 === RUN   TestAcos
 Acos((0+0i)) = (1.57079632679489656+0i), want (1.57079632679489656+-0i)
 ```
@@ -326,7 +326,7 @@ function _reducePi(_x:stdgo.GoFloat64):stdgo.GoFloat64
 ```
 
 
-reducePi reduces the input argument x to the range \(\-Pi/2, Pi/2\].��// x must be greater than or equal to 0. For small arguments it��// uses Cody\-Waite reduction in 3 float64 parts based on:��// "Elementary Function Evaluation:  Algorithms and Implementation"��// Jean\-Michel Muller, 1997.��// For very large arguments it uses Payne\-Hanek range reduction based on:��// "ARGUMENT REDUCTION FOR HUGE ARGUMENTS: Good to the Last Bit"��// K. C. Ng et al, March 24, 1992. 
+reducePi reduces the input argument x to the range \(\-Pi/2, Pi/2\].  x must be greater than or equal to 0. For small arguments it  uses Cody\-Waite reduction in 3 float64 parts based on:  "Elementary Function Evaluation:  Algorithms and Implementation"  Jean\-Michel Muller, 1997.  For very large arguments it uses Payne\-Hanek range reduction based on:  "ARGUMENT REDUCTION FOR HUGE ARGUMENTS: Good to the Last Bit"  K. C. Ng et al, March 24, 1992. 
 
 
 [\(view code\)](<./Cmplx.hx#L2291>)
@@ -937,7 +937,7 @@ function isNaN(_x:stdgo.GoComplex128):Bool
 ```
 
 
-IsNaN reports whether either real\(x\) or imag\(x\) is NaN��// and neither is an infinity. 
+IsNaN reports whether either real\(x\) or imag\(x\) is NaN  and neither is an infinity. 
 
 
 [\(view code\)](<./Cmplx.hx#L1934>)
@@ -993,7 +993,7 @@ function phase(_x:stdgo.GoComplex128):stdgo.GoFloat64
 ```
 
 
-Phase returns the phase \(also called the argument\) of x.��// The returned value is in the range \[\-Pi, Pi\]. 
+Phase returns the phase \(also called the argument\) of x.  The returned value is in the range \[\-Pi, Pi\]. 
 
 
 [\(view code\)](<./Cmplx.hx#L1970>)
@@ -1007,7 +1007,7 @@ function polar(_x:stdgo.GoComplex128):{_1:stdgo.GoFloat64, _0:stdgo.GoFloat64}
 ```
 
 
-Polar returns the absolute value r and phase θ of x,��// such that x = r \* e\*\*θi.��// The phase is in the range \[\-Pi, Pi\]. 
+Polar returns the absolute value r and phase θ of x,  such that x = r \* e\*\*θi.  The phase is in the range \[\-Pi, Pi\]. 
 
 
 ### examplePolar
@@ -1042,7 +1042,7 @@ function pow(_x:stdgo.GoComplex128, _y:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-Pow returns x\*\*y, the base\-x exponential of y.��// For generalized compatibility with math.Pow:��//��//�Pow\(0, ±0\) returns 1\+0i��//�Pow\(0, c\) for real\(c\)\<0 returns Inf\+0i if imag\(c\) is zero, otherwise Inf\+Inf i. 
+Pow returns x\*\*y, the base\-x exponential of y.  For generalized compatibility with math.Pow:     Pow\(0, ±0\) returns 1\+0i   Pow\(0, c\) for real\(c\)\<0 returns Inf\+0i if imag\(c\) is zero, otherwise Inf\+Inf i. 
 
 
 [\(view code\)](<./Cmplx.hx#L1991>)
@@ -1098,7 +1098,7 @@ function sqrt(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-Sqrt returns the square root of x.��// The result r is chosen so that real\(r\) ≥ 0 and imag\(r\) has the same sign as imag\(x\). 
+Sqrt returns the square root of x.  The result r is chosen so that real\(r\) ≥ 0 and imag\(r\) has the same sign as imag\(x\). 
 
 
 [\(view code\)](<./Cmplx.hx#L2177>)

@@ -171,9 +171,10 @@ private class ChanBuffer<T> {
 	public function pop():T {
 		var value:T = null;
 		while (true) {
-			value = buffer.pop(false);
-			if (value != null)
+			if (length > 0) {
+				value = buffer.pop(true);
 				break;
+			}
 			Async.tick();
 			Sys.sleep(0.01);
 		}

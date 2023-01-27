@@ -33,6 +33,7 @@ class Macro {
 						}
 					}
 				}
+				trace("define");
 				Context.defineType(cl);
 			});
 	}
@@ -76,6 +77,7 @@ class Macro {
 			if (inLoop)
 				exprs.push(macro if ($i{innerName}) {
 					if ($i{selectName} == $label) {
+						$i{innerName} = false;
 						if ($i{breakName}) {
 							break;
 						}else{
@@ -98,7 +100,7 @@ class Macro {
 							};
 						case ":jump":
 							final name:Expr= s.params[0];
-							final noJump = exprToString(name) == exprToString(label);
+							final noJump = label == null ? false : exprToString(name) == exprToString(label);
 							switch e.expr {
 								case EContinue:
 									if (noJump) {
@@ -123,7 +125,7 @@ class Macro {
 										}
 									}
 								default:
-									throw "invalid jump expr: " + e.expr;
+									throw "invalid jump expr: " + new haxe.macro.Printer().printExpr(e);
 							}
 						case ":goto":
 							macro {
@@ -137,11 +139,11 @@ class Macro {
 							};
 					}
 				case EWhile(econd, e, normalWhile):
-					expr.expr = EWhile(econd, func(e,true,scopeIndex, label,false,null), normalWhile);
+					expr.expr = EWhile(econd, func(e,true,scopeIndex, initLabelSet ? label : null,false,null), normalWhile);
 					expr = loop(expr, inLoop,initLabelSet ? previousLabel : label);
 					expr;
 				case EFor(it, e):
-					expr.expr = EFor(it, func(e,true,scopeIndex, label,false,null));
+					expr.expr = EFor(it, func(e,true,scopeIndex, initLabelSet ? label : null,false,null));
 					expr = loop(expr, inLoop,initLabelSet ? previousLabel : label);
 					expr;
 				case EBlock(exprs):
@@ -174,7 +176,7 @@ class Macro {
 					final str = printer.printExpr(e);
 					if (str == "Go.cfor") {
 						var block = params.pop();
-						block = func(block,true,scopeIndex,label,false,null);
+						block = func(block,true,scopeIndex,initLabelSet ? label : null,false,null);
 						params.push(block);
 						expr.expr = ECall(e, params);
 						expr = loop(expr, inLoop,initLabelSet ? previousLabel : label);

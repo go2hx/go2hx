@@ -21,32 +21,35 @@ enum abstract ObjKind(Int) {
 }
 
 enum abstract BasicKind(Int) {
-	public final bool = 0;
-	public final int = 1;
-	public final int8 = 2;
-	public final int16 = 3;
-	public final int32 = 4;
-	public final int64 = 5;
-	public final uint = 6;
-	public final uint8 = 7;
-	public final uint16 = 8;
-	public final uint32 = 9;
-	public final uint64 = 10;
-	public final uintptr = 11;
-	public final float32 = 12;
-	public final float64 = 13;
-	public final complex64 = 14;
-	public final complex128 = 15;
-	public final string = 16;
-	public final unsafePointer = 17;
-	// types for untyped values
-	public final untypedBool = 18;
-	public final untypedInt = 19;
-	public final untypedRune = 20;
-	public final untypedFloat = 21;
-	public final untypedComplex = 22;
-	public final untypedString = 23;
-	public final untypedNil = 24;
+	public final bool_kind = 0;
+	public final int_kind = 1;
+	public final int8_kind = 2;
+	public final int16_kind = 3;
+	public final int32_kind = 4;
+	public final int64_kind = 5;
+	public final uint_kind = 6;
+	public final uint8_kind = 7;
+	public final uint16_kind = 8;
+	public final uint32_kind = 9;
+	public final uint64_kind = 10;
+	public final uintptr_kind = 11;
+	public final float32_kind = 12;
+	public final float64_kind = 13;
+	public final complex64_kind = 14;
+	public final complex128_kind = 15;
+	public final string_kind = 16;
+	public final unsafepointer_kind = 17;
+
+	public final untyped_bool_kind = 18;
+	public final untyped_int_kind = 19;
+	public final untyped_rune_kind = 20;
+	public final untyped_float_kind = 21;
+	public final untyped_complex_kind = 22;
+	public final untyped_string_kind = 23;
+	public final untyped_nil_kind = 24;
+	// aliases
+	// byte = uint8
+	// rune = int32
 }
 
 enum abstract BasicInfo(Int) from Int to Int {

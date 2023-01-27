@@ -7,7 +7,6 @@ import haxe.Resource;
 import haxe.ds.Vector;
 import haxe.io.Bytes;
 import haxe.io.Path;
-import stdgo.StdGoTypes;
 import sys.io.File;
 
 final cwd = Sys.getCwd();

@@ -2,8 +2,9 @@ import haxe.DynamicAccess;
 import haxe.io.Path;
 import haxe.macro.Expr;
 import shared.Util;
-import stdgo.internal.reflect.Reflect;
 import sys.io.File;
+import Types;
+import Ast.BasicKind;
 
 var stdgoList:Array<String> = haxe.Json.parse(File.getContent("./stdgo.json"));
 var excludesList:Array<String> = haxe.Json.parse(File.getContent("./excludes.json"));
@@ -3453,8 +3454,8 @@ private function toReflectType(t:GoType, info:Info, paths:Array<String>):Expr {
 			final elem = toReflectType(elem, info, paths.copy());
 			macro stdgo.internal.reflect.Reflect.GoType.sliceType({get: () -> $elem});
 		case basic(kind):
-			final name = macro $i{kind.getName()};
-			macro stdgo.internal.reflect.Reflect.GoType.basic($name);
+			final kind = makeExpr(kind);
+			macro stdgo.internal.reflect.Reflect.GoType.basic($kind);
 		case _var(name, _.get() => type):
 			toReflectType(type, info, paths.copy());
 		case chanType(dir, _.get() => elem):
@@ -3649,7 +3650,7 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 			if (e.kind == 0) {
 				invalidType;
 			} else {
-				var kind = BasicKind.createByIndex(e.kind);
+				var kind:Ast.BasicKind = e.kind;
 				switch kind {
 					case untyped_int_kind:
 						kind = uint64_kind;
@@ -3906,7 +3907,6 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 					untyped_string_kind: throw "untyped kind: "
 						+ kind;
 				case untyped_nil_kind: null;
-				case invalid_kind: null;
 				case unsafepointer_kind: TPath({pack: ["stdgo", "unsafe", "Unsafe"], name: "UnsafePointer"});
 				default:
 					throw "unknown kind to complexType: " + kind;
@@ -4691,7 +4691,7 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info, walk:Bool = true
 							token: Ast.Token.INT,
 							type: {
 								id: "Basic",
-								kind: BasicKind.int32_kind.getIndex()
+								kind: int32_kind
 							}
 						},
 						op: Ast.Token.XOR,

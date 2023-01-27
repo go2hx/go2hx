@@ -5,7 +5,7 @@ import shared.Util;
 import stdgo.internal.reflect.Reflect;
 import sys.io.File;
 
-var stdgoList:Array<String> = stdgoList = haxe.Json.parse(File.getContent("./stdgo.json"));
+var stdgoList:Array<String> = haxe.Json.parse(File.getContent("./stdgo.json"));
 var excludesList:Array<String> = haxe.Json.parse(File.getContent("./excludes.json"));
 var externs:Bool = false;
 
@@ -1216,8 +1216,9 @@ private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTyp
 					case CIdent(i):
 						if (i == "null") {
 							var value = defaultValue(toType, info);
-							if (ct != null)
+							if (ct != null) {
 								return macro($value : $ct);
+							}
 						}
 					default:
 				}
@@ -1463,7 +1464,7 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 		$expr;
 	}).expr;
 }
-
+// make Go equality exprs work in Haxe
 private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, info:Info):Expr {
 	switch typeX {
 		case named(path, _, _, _):
@@ -1534,22 +1535,24 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 	switch t {
 		case structType(_):
 			return toExpr(EBinop(op, toAnyInterface(x, typeX, info), toAnyInterface(y, typeY, info)));
-		case arrayType(elem, len):
-			var e = macro {
-				var bool = true;
-				for (i in 0...$x.length.toBasic()) {
-					if (Go.toInterface($x[i]) != Go.toInterface($y[i])) {
-						bool = false;
-						break;
-					};
+		case arrayType(_, _), sliceType(_), refType(_):
+			var run = true;
+			if (isRef(t)) {
+				switch getElem(t) {
+					case sliceType(_):
+						// pointer slice is redunant as slice acts already like a pointer
+					default:
+						run = false;
 				}
-				bool;
-			};
-			switch op {
-				case OpNotEq:
-					return (macro !$e);
-				default:
-					return e;
+			}
+			if (run) {
+				var e = macro ($x.__toVector__() == $y.__toVector__());
+				switch op {
+					case OpNotEq:
+						return (macro !$e);
+					default:
+						return e;
+				}
 			}
 		default:
 	}
@@ -1635,7 +1638,7 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 		if (hasFallThrough) {
 			final index:Expr = makeExpr(i);
 			if (cond != null)
-				cond = macro __switchIndex__ == $index || (__switchIndex__ == -1 && $cond);
+				cond = macro __switchIndex__ == $index || (__switchIndex__ == -1 && ($cond));
 		}
 		if (i + 1 >= stmt.body.list.length) {
 			if (cond == null)
@@ -1728,7 +1731,7 @@ private function continueInsideSwitch(expr:Expr):Bool {
 			var f = null;
 			f = expr -> return switch expr.expr {
 				case EMeta(s, _):
-					if (s.name == ":fallthrough") {
+					if (s.name == ":fallthrough" || s.name == ":jump") {
 						expr;
 					} else {
 						haxe.macro.ExprTools.map(expr, f);
@@ -2373,13 +2376,9 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 							default:
 						}
 						switch callExpr.expr {
-							case ECall(e, params):
-								switch e.expr {
-									case EField(e, field):
-										if (field == "__append__" && printer.printExpr(e) == printer.printExpr(x)) {
-											y.expr = ECall({expr: EField(e, "__appendref__"), pos: null}, params);
-										}
-									default:
+							case ECall({expr: EField(e,field), pos: _}, params):
+								if (field == "__append__" && removeStrParens(printer.printExpr(e)) == removeStrParens(printer.printExpr(x))) {
+									y.expr = ECall({expr: EField(e, "__appendref__"), pos: null}, params);
 								}
 							default:
 						}
@@ -2415,21 +2414,21 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 						}
 					}
 					if (stmt.lhs[i].id == "StarExpr" && !isPointer(toType)) {
-						// set underlying
-						if (isStruct(toType)) {
-							toType = getUnderlying(toType);
-							switch toType {
-								case structType(fields):
-									final exprs:Array<Expr> = [
-										for (field in fields) {
-											final field = field.name;
-											macro $x.$field = __tmp__.$field;
-										}
-									];
-									exprs.unshift(macro var __tmp__ = $y);
-									return (macro $b{exprs}).expr;
-								default:
-							}
+						// set underlying not the ref
+						final underlyingType = getUnderlying(toType);
+						switch underlyingType {
+							case sliceType(_):
+								return (macro $x.__setData__($y)).expr;
+							case structType(fields):
+								final exprs:Array<Expr> = [
+									for (field in fields) {
+										final field = field.name;
+										macro $x.$field = __tmp__.$field;
+									}
+								];
+								exprs.unshift(macro var __tmp__ = $y);
+								return (macro $b{exprs}).expr;
+							default:
 						}
 					}
 					if (x == null || y == null)
@@ -2594,6 +2593,14 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 		default:
 			throw "type assign tok not found: " + stmt.tok;
 	}
+}
+
+private function removeStrParens(s:String):String {
+	if (s.charAt(0) == "(")
+		s = s.substr(1);
+	if (s.charAt(s.length - 1) == ")")
+		s = s.substr(0,s.length - 1);
+	return s;
 }
 
 private function typeExprStmt(stmt:Ast.ExprStmt, info:Info):ExprDef {
@@ -3632,7 +3639,8 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 				}
 				if (e.params != null && e.params.length > 0) {
 					for (param in(e.params : Array<Dynamic>)) {
-						params.push(typeof(param, info, false, paths.copy()));
+						final t = typeof(param, info, false, paths.copy());
+						params.push(t);
 					}
 				}
 			}
@@ -3965,8 +3973,13 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 			TFunction(args, ret);
 		case _var(_, _.get() => type):
 			toComplexType(type, info);
-		case typeParam(name, _):
-			TPath({name: name, pack: []});
+		case typeParam(name, params):
+			// TPath({name: name, pack: []});
+			if (params.length == 1 && isAnyInterface(params[0])) {
+				TPath({name: "Dynamic", pack: []});
+			}else{
+				TPath({name: name, pack: []});
+			}
 		default:
 			throw "unknown goType to complexType: " + e;
 	}
@@ -4696,7 +4709,7 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info, walk:Bool = true
 	y = toGoType(y);
 	x = toGoType(x);
 	switch op {
-		case OpEq, OpNotEq:
+		case OpEq, OpNotEq: // op == and op !=
 			return translateEquals(x, y, typeX, typeY, op, info).expr;
 		default:
 	}
@@ -6042,6 +6055,13 @@ private function makeStringLit(values:Array<{?s:String, ?code:Int}>):Expr {
 		}
 		exprs.push(expr);
 	}
+	if (exprs.length == 1) {
+		switch exprs[0].expr {
+			case EConst(CString(_)):
+				return macro (${exprs[0]} : GoString);
+			default:
+		}
+	}
 	return macro Go.str($a{exprs});
 }
 
@@ -6067,6 +6087,13 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						// exprs.pop();
 						for (expr in exprs) {
 							switch expr.expr {
+								case EFunction(FNamed(name,_),f):
+									fields.push({
+										name: name,
+										pos: null,
+										access: [ADynamic,APublic],
+										kind: FFun(f)
+									});
 								case EMeta(s, {expr: EVars(_[0] => v), pos: _}):
 									if (structAddFieldsIndex == -1)
 										structAddFieldsIndex = fields.length;

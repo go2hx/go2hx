@@ -25,7 +25,6 @@ package stdgo;
 import haxe.Int32;
 import haxe.Int64;
 import stdgo.Pointer.PointerData;
-import stdgo.internal.reflect.Reflect;
 
 using stdgo.StdGoTypes.UInt64;
 
@@ -1782,8 +1781,8 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 	@:op(A == B) public static function equals(a:AnyInterface, b:AnyInterface):Bool {
 		if (a == null || b == null) // null check
 			return a == null && b == null;
-		var gt:GoType = @:privateAccess (a.type : Dynamic)._common();
-		var gt2:GoType = @:privateAccess (b.type : Dynamic)._common();
+		var gt:stdgo.internal.reflect.Reflect.GoType = @:privateAccess (a.type : Dynamic)._common();
+		var gt2:stdgo.internal.reflect.Reflect.GoType = @:privateAccess (b.type : Dynamic)._common();
 
 		if (gt.match(invalidType) || gt2.match(invalidType))
 			return gt.match(invalidType) && gt2.match(invalidType);
@@ -1883,11 +1882,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 				var t:Dynamic = new stdgo.internal.reflect.Reflect._Type(elem);
 				if (a.length != b.length)
 					return false;
-				for (i in 0...a.length.toBasic()) {
-					if (AnyInterface.notEquals(new AnyInterface(a[i], t), new AnyInterface(b[i], t)))
-						return false;
-				}
-				true;
+				a.__toVector__() == b.__toVector__();
 			case interfaceType(_, _):
 				aValue == bValue;
 			case arrayType(_.get() => elem, _):

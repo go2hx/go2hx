@@ -514,11 +514,17 @@ typedef Type = StructType & {
 	public var method:GoString = "";
 	public var kind:Kind = ((0 : GoUInt) : Kind);
 
-	public function new(?method:GoString, ?kind:Kind) {
+	dynamic public function toString():String {
+		return "" + method;
+	}
+
+	public function new(?method:GoString, ?kind:Kind, ?toString) {
 		if (method != null)
 			this.method = method;
 		if (kind != null)
 			this.kind = kind;
+		if (toString != null)
+			this.toString = toString;
 	}
 
 	public function __underlying__()
@@ -1799,15 +1805,55 @@ class Value_asInterface {
 		// It panics if v's Kind is not Uint, Uintptr, Uint8, Uint16, Uint32, or Uint64.
 	**/
 	@:keep
-	static public function uint(_v:Value):GoUInt64
-		throw "reflect.uint is not yet implemented";
+	static public function uint(_v:Value):GoUInt64 {
+		var value = @:privateAccess _v.value.value;
+		final t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
+		if (stdgo.internal.reflect.Reflect.isNamed(t)) {
+			switch std.Type.typeof(value) {
+				case TClass(c):
+					final name = std.Type.getClassName(c);
+					if (StringTools.endsWith(name, "_asInterface"))
+						value = (value : Dynamic).__underlying__().value;
+				default:
+					var _ = 0;
+			};
+		};
+		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
+			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
+			value = (value : Dynamic).value;
+		};
+		final value:GoUInt64 = switch _v.kind() {
+			case stdgo.internal.reflect.Reflect.KindType.uint:
+				(value : GoUInt8);
+			case stdgo.internal.reflect.Reflect.KindType.uint8:
+				(value : GoUInt8);
+			case stdgo.internal.reflect.Reflect.KindType.uint16:
+				(value : GoUInt16);
+			case stdgo.internal.reflect.Reflect.KindType.uint32:
+				(value : GoUInt32);
+			case stdgo.internal.reflect.Reflect.KindType.uint64:
+				(value : GoUInt64);
+			case stdgo.internal.reflect.Reflect.KindType.uintptr:
+				(value : GoUIntptr);
+			default:
+				throw new ValueError("reflect.Value.Uint", _v.kind());
+		};
+		return value;
+	}
 
 	/**
 		// CanUint reports whether Uint can be used without panicking.
 	**/
 	@:keep
-	static public function canUint(_v:Value):Bool
-		throw "reflect.canUint is not yet implemented";
+	static public function canUint(_v:Value):Bool {
+		return switch _v.kind() {
+			case stdgo.internal.reflect.Reflect.KindType.uint, stdgo.internal.reflect.Reflect.KindType.uint8, stdgo.internal.reflect.Reflect.KindType.uint16,
+				stdgo.internal.reflect.Reflect.KindType.uint32, stdgo.internal.reflect.Reflect.KindType.uint64, stdgo.internal.reflect.Reflect.KindType.uintptr:
+				true;
+			default:
+				false;
+		};
+	}
 
 	/**
 		// Type returns v's type.
@@ -1848,7 +1894,21 @@ class Value_asInterface {
 	@:keep
 	static public function string(_v:Value):GoString {
 		var value = @:privateAccess _v.value.value;
-		final t = @:privateAccess _v.value.type._common();
+		final t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
+		if (stdgo.internal.reflect.Reflect.isNamed(t)) {
+			switch std.Type.typeof(value) {
+				case TClass(c):
+					final name = std.Type.getClassName(c);
+					if (StringTools.endsWith(name, "_asInterface"))
+						value = (value : Dynamic).__underlying__().value;
+				default:
+					var _ = 0;
+			};
+		};
+		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
+			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
+			value = (value : Dynamic).value;
+		};
 		final underlyingType = stdgo.internal.reflect.Reflect.getUnderlying(t);
 		switch (underlyingType) {
 			case stdgo.internal.reflect.Reflect.GoType.basic(kind):
@@ -1879,8 +1939,38 @@ class Value_asInterface {
 		// or if the indexes are out of bounds.
 	**/
 	@:keep
-	static public function slice(_v:Value, _i:GoInt, _j:GoInt):Value
-		throw "reflect.slice is not yet implemented";
+	static public function slice(_v:Value, _i:GoInt, _j:GoInt):Value {
+		var value = @:privateAccess _v.value.value;
+		var t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
+		if (stdgo.internal.reflect.Reflect.isNamed(t)) {
+			switch std.Type.typeof(value) {
+				case TClass(c):
+					final name = std.Type.getClassName(c);
+					if (StringTools.endsWith(name, "_asInterface"))
+						value = (value : Dynamic).__underlying__().value;
+				default:
+					var _ = 0;
+			};
+		};
+		switch t {
+			case stdgo.internal.reflect.Reflect.GoType.arrayType(elem, _):
+				t = stdgo.internal.reflect.Reflect.GoType.sliceType(elem);
+			case stdgo.internal.reflect.Reflect.GoType.named(path, methods, stdgo.internal.reflect.Reflect.GoType.arrayType(elem, _), alias, params):
+				t = stdgo.internal.reflect.Reflect.GoType.named(path, methods, stdgo.internal.reflect.Reflect.GoType.sliceType(elem), alias, params);
+			default:
+				var _ = 0;
+		};
+		final k = _v.kind();
+		value = switch k {
+			case stdgo.internal.reflect.Reflect.KindType.slice:
+				(value : Slice<Dynamic>).__slice__(_i, _j);
+			case stdgo.internal.reflect.Reflect.KindType.array:
+				(value : GoArray<Dynamic>).__slice__(_i, _j);
+			default:
+				throw new ValueError("reflect.Value.Slice", k);
+		};
+		return new Value(new AnyInterface(value, new stdgo.internal.reflect.Reflect._Type(t)));
+	}
 
 	/**
 		// SetString sets v's underlying value to x.
@@ -2072,8 +2162,6 @@ class Value_asInterface {
 	@:keep
 	static public function pointer(_v:Value):GoUIntptr {
 		var value = @:privateAccess _v.value.value;
-		if (stdgo.internal.reflect.Reflect.isNamed(@:privateAccess _v.value.type._common()))
-			value = (value : Dynamic);
 		return value != null ? 1 : 0;
 	}
 
@@ -2114,8 +2202,9 @@ class Value_asInterface {
 		// It panics if v's Kind is not Struct.
 	**/
 	@:keep
-	static public function numField(_v:Value):GoInt
-		throw "reflect.numField is not yet implemented";
+	static public function numField(_v:Value):GoInt {
+		return _v.type().numField();
+	}
 
 	/**
 		// MethodByName returns a function value corresponding to the method
@@ -2217,8 +2306,16 @@ class Value_asInterface {
 		final _v = _v.__copy__();
 		var value = @:privateAccess _v.value.value;
 		final t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
-		if (stdgo.internal.reflect.Reflect.isNamed(t))
-			value = (value : Dynamic);
+		if (stdgo.internal.reflect.Reflect.isNamed(t)) {
+			switch std.Type.typeof(value) {
+				case TClass(c):
+					final name = std.Type.getClassName(c);
+					if (StringTools.endsWith(name, "_asInterface"))
+						value = (value : Dynamic).__underlying__().value;
+				default:
+					var _ = 0;
+			};
+		};
 		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
 			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
 			value = (value : Dynamic).value;
@@ -2265,8 +2362,18 @@ class Value_asInterface {
 		// If one does, its documentation states the conditions explicitly.
 	**/
 	@:keep
-	static public function isValid(_v:Value):Bool
-		return @:privateAccess _v.value.type._common() != stdgo.internal.reflect.Reflect.GoType.invalidType;
+	static public function isValid(_v:Value):Bool {
+		if (@:privateAccess _v.value == null)
+			return false;
+		if (@:privateAccess _v.value.type._common() != stdgo.internal.reflect.Reflect.GoType.invalidType)
+			return true;
+		return switch @:privateAccess _v.value.type._common() {
+			case stdgo.internal.reflect.Reflect.GoType.basic(stdgo.internal.reflect.Reflect.BasicKind.untyped_nil_kind):
+				false;
+			default:
+				true;
+		};
+	}
 
 	/**
 		// IsNil reports whether its argument v is nil. The argument must be
@@ -2343,16 +2450,48 @@ class Value_asInterface {
 		// CanInterface reports whether Interface can be used without panicking.
 	**/
 	@:keep
-	static public function canInterface(_v:Value):Bool
-		throw "reflect.canInterface is not yet implemented";
+	static public function canInterface(_v:Value):Bool {
+		return true;
+	}
 
 	/**
 		// Int returns v's underlying value, as an int64.
 		// It panics if v's Kind is not Int, Int8, Int16, Int32, or Int64.
 	**/
 	@:keep
-	static public function int_(_v:Value):GoInt64
-		throw "reflect.int_ is not yet implemented";
+	static public function int_(_v:Value):GoInt64 {
+		var value = @:privateAccess _v.value.value;
+		final t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
+		if (stdgo.internal.reflect.Reflect.isNamed(t)) {
+			switch std.Type.typeof(value) {
+				case TClass(c):
+					final name = std.Type.getClassName(c);
+					if (StringTools.endsWith(name, "_asInterface"))
+						value = (value : Dynamic).__underlying__().value;
+				default:
+					var _ = 0;
+			};
+		};
+		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
+			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
+			value = (value : Dynamic).value;
+		};
+		final value:GoUInt64 = switch _v.kind() {
+			case stdgo.internal.reflect.Reflect.KindType.int:
+				(value : GoInt8);
+			case stdgo.internal.reflect.Reflect.KindType.int8:
+				(value : GoInt8);
+			case stdgo.internal.reflect.Reflect.KindType.int16:
+				(value : GoInt16);
+			case stdgo.internal.reflect.Reflect.KindType.int32:
+				(value : GoInt32);
+			case stdgo.internal.reflect.Reflect.KindType.int64:
+				(value : GoInt64);
+			default:
+				throw new ValueError("reflect.Value.Int", _v.kind());
+		};
+		return value;
+	}
 
 	/**
 		// CanInt reports whether Int can be used without panicking.
@@ -2367,7 +2506,23 @@ class Value_asInterface {
 	**/
 	@:keep
 	static public function index(_v:Value, _i:GoInt):Value {
+		final _v = _v.__copy__();
 		var value = @:privateAccess _v.value.value;
+		final t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
+		if (stdgo.internal.reflect.Reflect.isNamed(t)) {
+			switch std.Type.typeof(value) {
+				case TClass(c):
+					final name = std.Type.getClassName(c);
+					if (StringTools.endsWith(name, "_asInterface"))
+						value = (value : Dynamic).__underlying__().value;
+				default:
+					var _ = 0;
+			};
+		};
+		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
+			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
+			value = (value : Dynamic).value;
+		};
 		final gt = stdgo.internal.reflect.Reflect.getUnderlying(@:privateAccess _v.value.type._common());
 		return switch gt {
 			case stdgo.internal.reflect.Reflect.GoType.arrayType(_.get() => elem, _):
@@ -2399,8 +2554,33 @@ class Value_asInterface {
 		// It panics if v's Kind is not Float32 or Float64
 	**/
 	@:keep
-	static public function float_(_v:Value):GoFloat64
-		throw "reflect.float_ is not yet implemented";
+	static public function float_(_v:Value):GoFloat64 {
+		var value = @:privateAccess _v.value.value;
+		final t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
+		if (stdgo.internal.reflect.Reflect.isNamed(t)) {
+			switch std.Type.typeof(value) {
+				case TClass(c):
+					final name = std.Type.getClassName(c);
+					if (StringTools.endsWith(name, "_asInterface"))
+						value = (value : Dynamic).__underlying__().value;
+				default:
+					var _ = 0;
+			};
+		};
+		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
+			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
+			value = (value : Dynamic).value;
+		};
+		final value:GoFloat64 = switch _v.kind() {
+			case stdgo.internal.reflect.Reflect.KindType.float64:
+				(value : GoFloat64);
+			case stdgo.internal.reflect.Reflect.KindType.float32:
+				(value : GoFloat32);
+			default:
+				throw new ValueError("reflect.Value.Float", _v.kind());
+		};
+		return value;
+	}
 
 	/**
 		// CanFloat reports whether Float can be used without panicking.
@@ -2457,9 +2637,10 @@ class Value_asInterface {
 		return switch gt {
 			case structType(fields):
 				final field = fields[_i.toBasic()];
-				final fieldValue = std.Reflect.field(@:privateAccess _v.value.value, field.name);
-				final valueType = new Value(new AnyInterface(fieldValue, @:privateAccess
-					(cast _v.value.type.field(_i).type : stdgo.internal.reflect.Reflect._Type_asInterface).__type__));
+				final t = @:privateAccess (cast _v.value.type.field(_i).type : stdgo.internal.reflect.Reflect._Type_asInterface).__type__;
+				var fieldValue = std.Reflect.field(@:privateAccess _v.value.value, field.name);
+				fieldValue = stdgo.internal.reflect.Reflect.anyInterface(fieldValue, t._common());
+				final valueType = new Value(new AnyInterface(fieldValue, t));
 				if (field.name.charAt(0) == "_")
 					@:privateAccess valueType.notSetBool = false;
 				valueType;
@@ -2476,14 +2657,31 @@ class Value_asInterface {
 	**/
 	@:keep
 	static public function elem(_v:Value):Value {
-		var value = @:privateAccess _v.value;
+		var value = @:privateAccess _v.value.value;
+		final t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
+		if (stdgo.internal.reflect.Reflect.isNamed(t)) {
+			switch std.Type.typeof(value) {
+				case TClass(c):
+					final name = std.Type.getClassName(c);
+					if (StringTools.endsWith(name, "_asInterface")) {
+						@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
+						value = (value : Dynamic).__underlying__().value;
+					};
+				default:
+					var _ = 0;
+			};
+		};
+		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
+			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
+			value = (value : Dynamic).value;
+		};
 		var k = _v.kind();
-		final t = @:privateAccess _v.value.type._common();
 		switch k {
-			case ptr:
-				switch stdgo.internal.reflect.Reflect.getUnderlying(t) {
+			case stdgo.internal.reflect.Reflect.KindType.pointer:
+				final t = stdgo.internal.reflect.Reflect.getUnderlying(t);
+				switch t {
 					case stdgo.internal.reflect.Reflect.GoType.refType(_.get() => elem):
-						final value = new Value(new AnyInterface(value, new stdgo.internal.reflect.Reflect._Type(elem)), null);
+						final value = new Value(new AnyInterface(value, new stdgo.internal.reflect.Reflect._Type(elem)), value);
 						@:privateAccess value.canAddrBool = true;
 						return value;
 					case stdgo.internal.reflect.Reflect.GoType.pointerType(elem):
@@ -2499,10 +2697,10 @@ class Value_asInterface {
 					default:
 						var _ = 0;
 				};
-			case interface_:
-				final value = _v.__copy__();
-				@:privateAccess value.canAddrBool = true;
-				return value;
+			case stdgo.internal.reflect.Reflect.KindType.interface_:
+				if (value == null)
+					return new Value();
+				return new Value(value, @:privateAccess _v.value.type);
 		};
 		throw new ValueError("reflect.Value.Elem", k);
 	}
@@ -2584,8 +2782,9 @@ class Value_asInterface {
 		// If CanAddr returns false, calling Addr will panic.
 	**/
 	@:keep
-	static public function canAddr(_v:Value):Bool
-		throw "reflect.canAddr is not yet implemented";
+	static public function canAddr(_v:Value):Bool {
+		return @:privateAccess _v.canAddrBool;
+	}
 
 	/**
 		// Bytes returns v's underlying value.
@@ -2593,16 +2792,74 @@ class Value_asInterface {
 		// an addressable array of bytes.
 	**/
 	@:keep
-	static public function bytes(_v:Value):Slice<GoByte>
-		throw "reflect.bytes is not yet implemented";
+	static public function bytes(_v:Value):Slice<GoByte> {
+		final _v = _v.__copy__();
+		var value = @:privateAccess _v.value.value;
+		final t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
+		if (stdgo.internal.reflect.Reflect.isNamed(t)) {
+			switch std.Type.typeof(value) {
+				case TClass(c):
+					final name = std.Type.getClassName(c);
+					if (StringTools.endsWith(name, "_asInterface"))
+						value = (value : Dynamic).__underlying__().value;
+				default:
+					var _ = 0;
+			};
+		};
+		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
+			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
+			value = (value : Dynamic).value;
+		};
+		switch t {
+			case stdgo.internal.reflect.Reflect.GoType.arrayType(_.get() => elem, _):
+				switch elem {
+					case stdgo.internal.reflect.Reflect.GoType.basic(stdgo.internal.reflect.Reflect.BasicKind.uint8_kind):
+						return (value : GoArray<GoByte>).__slice__(0);
+					default:
+						throw new ValueError("reflect.Value.Bytes", @:privateAccess _v.kind());
+				};
+			case stdgo.internal.reflect.Reflect.GoType.sliceType(_.get() => elem):
+				switch elem {
+					case stdgo.internal.reflect.Reflect.GoType.basic(stdgo.internal.reflect.Reflect.BasicKind.uint8_kind):
+						return value;
+					default:
+						throw new ValueError("reflect.Value.Bytes", @:privateAccess _v.kind());
+				};
+			default:
+				throw new ValueError("reflect.Value.Bytes", @:privateAccess _v.kind());
+		};
+	}
 
 	/**
 		// Bool returns v's underlying value.
 		// It panics if v's kind is not Bool.
 	**/
 	@:keep
-	static public function bool_(_v:Value):Bool
-		throw "reflect.bool_ is not yet implemented";
+	static public function bool_(_v:Value):Bool {
+		var value = @:privateAccess _v.value.value;
+		final t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
+		if (stdgo.internal.reflect.Reflect.isNamed(t)) {
+			switch std.Type.typeof(value) {
+				case TClass(c):
+					final name = std.Type.getClassName(c);
+					if (StringTools.endsWith(name, "_asInterface"))
+						value = (value : Dynamic).__underlying__().value;
+				default:
+					var _ = 0;
+			};
+		};
+		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
+			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
+			value = (value : Dynamic).value;
+		};
+		final value:Bool = switch _v.kind() {
+			case stdgo.internal.reflect.Reflect.KindType.bool:
+				value;
+			default:
+				throw new ValueError("reflect.Value.Bool", _v.kind());
+		};
+		return value;
+	}
 
 	/**
 		// Addr returns a pointer value representing the address of v.

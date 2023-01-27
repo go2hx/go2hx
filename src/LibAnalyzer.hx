@@ -2,7 +2,6 @@ package;
 
 import sys.io.Process;
 import sys.io.File;
-import sys.thread.Deque;
 
 
 function main() {

@@ -172,6 +172,13 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	public function __toVector__() {
 		return this.toVector();
 	}
+
+	public function __setData__(data:SliceData<T>) {
+		this.length = data.length;
+		this.capacity = data.capacity;
+		this.vector = data.vector;
+		this.offset = data.offset;
+	}
 }
 
 private class SliceKeyValueIterator<T> {

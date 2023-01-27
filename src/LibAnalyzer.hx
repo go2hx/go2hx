@@ -17,12 +17,14 @@ var stdList:Array<String> = [];
 var stdPassingList:Array<String> = [];
 
 function init() {
+    #if !js
     final proc = new Process("go list std");
     if (proc.exitCode(true) != 0) {
         throw "go list std command failed";
     }
     stdPassingList = haxe.Json.parse(File.getContent("tests/std.json"));
     stdList = proc.stdout.readAll().toString().split("\n");
+    #end
 }
 
 function isStd(path:String):Bool
@@ -119,6 +121,7 @@ function runLibs(libs:Array<String>,stdLibs:Array<String>,all:Array<String>) {
 function lib(path:String):String {
     if (path == "C") // not a valid pkg
         return "";
+    #if !js
     var proc = new Process('go get $path');
     var code = proc.exitCode(true);
     if (code != 0) {
@@ -140,4 +143,7 @@ function lib(path:String):String {
     final line = proc.stdout.readLine();
     proc.close();
     return line;
+    #else
+    return "";
+    #end
 }

@@ -20,8 +20,11 @@ enum abstract ObjKind(Int) {
 	public final lbl = 7; // label
 }
 
+
+
 enum abstract BasicKind(Int) to Int {
-	public final bool_kind = 0;
+	public final invalid_kind = 0;
+	public final bool_kind;
 	public final int_kind;
 	public final int8_kind;
 	public final int16_kind;

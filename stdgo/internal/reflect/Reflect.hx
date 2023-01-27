@@ -6,33 +6,33 @@ import stdgo.reflect.Reflect;
 
 
 enum abstract KindType(stdgo.reflect.Reflect.Kind) from Int from stdgo.reflect.Reflect.Kind to stdgo.reflect.Reflect.Kind {
-	var invalid = 0;
-	var bool = 1;
-	var int = 2;
-	var int8 = 3;
-	var int16 = 4;
-	var int32 = 5;
-	var int64 = 6;
-	var uint = 7;
-	var uint8 = 8;
-	var uint16 = 9;
-	var uint32 = 10;
-	var uint64 = 11;
-	var uintptr = 12;
-	var float32 = 13;
-	var float64 = 14;
-	var complex64 = 15;
-	var complex128 = 16;
-	var array = 17;
-	var chan = 18;
-	var func = 19;
-	var interface_ = 20;
-	var map = 21;
-	var pointer = 22;
-	var slice = 23;
-	var string = 24;
-	var struct = 25;
-	var unsafePointer = 26;
+	final invalid = 0;
+	final bool;
+	final int;
+	final int8;
+	final int16;
+	final int32;
+	final int64;
+	final uint;
+	final uint8;
+	final uint16;
+	final uint32;
+	final uint64;
+	final uintptr;
+	final float32;
+	final float64;
+	final complex64;
+	final complex128;
+	final array;
+	final chan;
+	final func;
+	final interface_;
+	final map;
+	final pointer;
+	final slice;
+	final string;
+	final struct;
+	final unsafePointer;
 }
 
 var useHaxePath = true;
@@ -682,7 +682,8 @@ function getUnderlying(gt:GoType, once:Bool = false) {
 }
 
 enum abstract BasicKind(Int) to Int {
-	public final bool_kind = 0;
+	public final invalid_kind = 0;
+	public final bool_kind;
 	public final int_kind;
 	public final int8_kind;
 	public final int16_kind;

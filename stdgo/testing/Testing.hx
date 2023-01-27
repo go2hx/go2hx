@@ -185,7 +185,7 @@ class F {
 	public function cleanup(f:Void->Void) {}
 
 	public function error(args:Rest<AnyInterface>) {
-		stdgo.fmt.Fmt.println(args);
+		stdgo.fmt.Fmt.println(...args);
 		fail();
 	}
 
@@ -263,7 +263,7 @@ class T {
 	public function cleanup(f:Void->Void) {}
 
 	public function error(args:Rest<AnyInterface>) {
-		stdgo.fmt.Fmt.println(args);
+		stdgo.fmt.Fmt.println(...args);
 		fail();
 	}
 
@@ -342,18 +342,20 @@ class M {
 	}
 
 	public function run():GoInt {
+		// use go version of path for passing go tests
+		stdgo.internal.reflect.Reflect.useHaxePath = false;
 		numRun++;
 		for (test in tests) {
 			var error = false;
 			final output = new StringBuf();
 			var t = new T_(output);
 			final stamp = Sys.time();
-			stdgo.fmt.Fmt.println("=== RUN  ", test.name);
+			Sys.println("=== RUN  " + test.name);
 			try {
 				test.f(t);
 			} catch (e) {
 				if (e.message != "__fail__") {
-					stdgo.fmt.Fmt.println(e.details());
+					Sys.println(e.details());
 				}
 				Sys.exit(1);
 				error = true;
@@ -369,7 +371,7 @@ class M {
 					stdgo.fmt.Fmt.printf(format, Go.toInterface("PASS"), Go.toInterface(test.name), Go.toInterface(dstr));
 				}
 			}
-			stdgo.fmt.Fmt.print(output.toString());
+			Sys.println(output.toString());
 		}
 		return exitCode;
 	}

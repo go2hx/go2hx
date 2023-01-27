@@ -76,9 +76,11 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 		}
 		#end
 	}
-
-	@:op([]) public function __set__(index:GoInt, value:T):T
+	// maybe bound checks are not required, because the length is already known for GoArrays
+	@:op([]) public function __set__(index:GoInt, value:T):T {
+		__boundsCheck__(index.toBasic());
 		return this.set(index.toBasic(), value);
+	}
 
 	@:op([]) public function __get__(index:GoInt):T {
 		__boundsCheck__(index.toBasic());
@@ -121,7 +123,7 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 	}
 
 	public function __copy__() {
-		final array = new GoArray<T>();
+		var array = new GoArray<T>();
 		array.__setSize__(array.length.toBasic());
 		array.__setVector__(this.vector.copy());
 		return array;

@@ -20,36 +20,33 @@ enum abstract ObjKind(Int) {
 	public final lbl = 7; // label
 }
 
-enum abstract BasicKind(Int) {
+enum abstract BasicKind(Int) to Int {
 	public final bool_kind = 0;
-	public final int_kind = 1;
-	public final int8_kind = 2;
-	public final int16_kind = 3;
-	public final int32_kind = 4;
-	public final int64_kind = 5;
-	public final uint_kind = 6;
-	public final uint8_kind = 7;
-	public final uint16_kind = 8;
-	public final uint32_kind = 9;
-	public final uint64_kind = 10;
-	public final uintptr_kind = 11;
-	public final float32_kind = 12;
-	public final float64_kind = 13;
-	public final complex64_kind = 14;
-	public final complex128_kind = 15;
-	public final string_kind = 16;
-	public final unsafepointer_kind = 17;
+	public final int_kind;
+	public final int8_kind;
+	public final int16_kind;
+	public final int32_kind;
+	public final int64_kind;
+	public final uint_kind;
+	public final uint8_kind;
+	public final uint16_kind;
+	public final uint32_kind;
+	public final uint64_kind;
+	public final uintptr_kind;
+	public final float32_kind;
+	public final float64_kind;
+	public final complex64_kind;
+	public final complex128_kind;
+	public final string_kind;
+	public final unsafepointer_kind;
 
-	public final untyped_bool_kind = 18;
-	public final untyped_int_kind = 19;
-	public final untyped_rune_kind = 20;
-	public final untyped_float_kind = 21;
-	public final untyped_complex_kind = 22;
-	public final untyped_string_kind = 23;
-	public final untyped_nil_kind = 24;
-	// aliases
-	// byte = uint8
-	// rune = int32
+	public final untyped_bool_kind;
+	public final untyped_int_kind;
+	public final untyped_rune_kind;
+	public final untyped_float_kind;
+	public final untyped_complex_kind;
+	public final untyped_string_kind;
+	public final untyped_nil_kind;
 }
 
 enum abstract BasicInfo(Int) from Int to Int {

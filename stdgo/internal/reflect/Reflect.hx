@@ -204,19 +204,19 @@ function directlyAssignable(t:Type, v:Type):Bool {
 			switch vgt {
 				case basic(kind2):
 					function untype(kind:BasicKind, kind2:BasicKind):Bool {
-						final index = kind2.getIndex();
+						final index:Int = kind2;
 						var min = 0;
 						var max = 0;
 						switch kind {
 							case untyped_int_kind:
-								min = int_kind.getIndex();
-								max = int64_kind.getIndex();
+								min = int_kind;
+								max = int64_kind;
 							case untyped_float_kind:
-								min = float32_kind.getIndex();
-								max = float64_kind.getIndex();
+								min = float32_kind;
+								max = float64_kind;
 							case untyped_complex_kind:
-								min = complex64_kind.getIndex();
-								max = complex128_kind.getIndex();
+								min = complex64_kind;
+								max = complex128_kind;
 							default:
 								return false;
 						}
@@ -226,7 +226,7 @@ function directlyAssignable(t:Type, v:Type):Bool {
 						return true;
 					if (untype(kind2, kind))
 						return true;
-					kind.getIndex() == kind2.getIndex();
+					kind == kind2;
 				default:
 					false;
 			}
@@ -681,37 +681,33 @@ function getUnderlying(gt:GoType, once:Bool = false) {
 	}
 }
 
-enum BasicKind {
-	invalid_kind;
-	bool_kind;
-	int_kind;
-	int8_kind;
-	int16_kind;
-	int32_kind;
-	int64_kind;
-	uint_kind;
-	uint8_kind;
-	uint16_kind;
-	uint32_kind;
-	uint64_kind;
-	uintptr_kind;
-	float32_kind;
-	float64_kind;
-	complex64_kind;
-	complex128_kind;
-	string_kind;
-	unsafepointer_kind;
+enum abstract BasicKind(Int) to Int {
+	public final bool_kind = 0;
+	public final int_kind;
+	public final int8_kind;
+	public final int16_kind;
+	public final int32_kind;
+	public final int64_kind;
+	public final uint_kind;
+	public final uint8_kind;
+	public final uint16_kind;
+	public final uint32_kind;
+	public final uint64_kind;
+	public final uintptr_kind;
+	public final float32_kind;
+	public final float64_kind;
+	public final complex64_kind;
+	public final complex128_kind;
+	public final string_kind;
+	public final unsafepointer_kind;
 
-	untyped_bool_kind;
-	untyped_int_kind;
-	untyped_rune_kind;
-	untyped_float_kind;
-	untyped_complex_kind;
-	untyped_string_kind;
-	untyped_nil_kind;
-	// aliases
-	// byte = uint8
-	// rune = int32
+	public final untyped_bool_kind;
+	public final untyped_int_kind;
+	public final untyped_rune_kind;
+	public final untyped_float_kind;
+	public final untyped_complex_kind;
+	public final untyped_string_kind;
+	public final untyped_nil_kind;
 }
 
 function defaultValue(typ:Type):Any {
@@ -967,7 +963,6 @@ class _Type {
 				0;
 			case basic(kind):
 				switch kind {
-					case invalid_kind: KindType.invalid;
 					case bool_kind, untyped_bool_kind: KindType.bool;
 					case int_kind: KindType.int;
 					case int8_kind: KindType.int8;
@@ -987,6 +982,7 @@ class _Type {
 					case string_kind, untyped_string_kind: KindType.string;
 					case untyped_nil_kind: KindType.unsafePointer;
 					case unsafepointer_kind: KindType.unsafePointer;
+					default: throw 'Unknown BasicKind: $kind';
 				}
 			case chanType(_, _): 18;
 			case interfaceType(_, _): 20;
@@ -1029,9 +1025,46 @@ class _Type {
 					case untyped_nil_kind:
 						"nil";
 					default:
-						var name = kind.getName();
-						name = name.substr(0, name.length - 5);
-						name;
+						switch kind {
+							case bool_kind:
+								"bool";
+							case int_kind:
+								"int";
+							case int8_kind:
+								"int8";
+							case int16_kind:
+								"int16";
+							case int32_kind:
+								"int32";
+							case int64_kind:
+								"int64";
+							case uint_kind:
+								"uint";
+							case uint8_kind:
+								"uint8";
+							case uint16_kind:
+								"uint16";
+							case uint32_kind:
+								"uint32";
+							case uint64_kind:
+								"uint64";
+							case uintptr_kind:
+								"uintptr";
+							case float32_kind:
+								"float32";
+							case float64_kind:
+								"float64";
+							case complex64_kind:
+								"complex64";
+							case complex128_kind:
+								"complex128";
+							case string_kind:
+								"string";
+							case unsafepointer_kind:
+								"unsafepointer";
+							default:
+								"unknown";
+						}
 				}
 			case previouslyNamed(name):
 				formatGoPath(name);

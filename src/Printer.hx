@@ -69,7 +69,7 @@ class Printer extends haxe.macro.Printer {
 					switch e1.expr {
 						case EParenthesis(e):
 							switch e.expr {
-								case EBinop(_, _, _):
+								case EBinop(_, _, _), EBlock(_):
 									e1;
 								default:
 									e;

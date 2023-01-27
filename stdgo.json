@@ -159,5 +159,8 @@
     "internal/itoa",
     "internal/oserror",
     "internal/reflectlite",
-    "internal/poll"
+    "internal/poll",
+    "internal/fmtsort",
+    "net/netip",
+    "go/doc/comment"
 ]

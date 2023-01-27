@@ -39,5 +39,11 @@
     "sync/atomic",
     "sync",
     "internal/bytealg",
-    "internal/cpu"
+    "internal/cpu",
+    "testing/quick",
+    "hash",
+    "crypto/sha1",
+    "crypto/rand",
+    "fmt",
+    "internal/fmtsort"
 ]

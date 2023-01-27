@@ -2639,7 +2639,7 @@ class Value_asInterface {
 				final field = fields[_i.toBasic()];
 				final t = @:privateAccess (cast _v.value.type.field(_i).type : stdgo.internal.reflect.Reflect._Type_asInterface).__type__;
 				var fieldValue = std.Reflect.field(@:privateAccess _v.value.value, field.name);
-				fieldValue = stdgo.internal.reflect.Reflect.anyInterface(fieldValue, t._common());
+				fieldValue = stdgo.internal.reflect.Reflect.asInterface(fieldValue, t._common());
 				final valueType = new Value(new AnyInterface(fieldValue, t));
 				if (field.name.charAt(0) == "_")
 					@:privateAccess valueType.notSetBool = false;

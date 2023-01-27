@@ -35,6 +35,8 @@ enum abstract KindType(stdgo.reflect.Reflect.Kind) from Int from stdgo.reflect.R
 	var unsafePointer = 26;
 }
 
+var useHaxePath = true;
+
 function isExported(name:String):Bool {
 	return name.charCodeAt(0) != "_".code;
 }
@@ -150,29 +152,23 @@ function directlyAssignable(t:Type, v:Type):Bool {
 		case chanType(_, _.get() => elem), sliceType(_.get() => elem):
 			switch vgt {
 				case chanType(_,
-					_.get() => elem2), sliceType(_.get() => elem2): new _Type(elem).assignableTo(new _Type_asInterface(Go.pointer(new _Type(elem2)),
-						new _Type(elem2)));
-				default: false;
+					_.get() => elem2), sliceType(_.get() => elem2):
+					identicalType(elem,elem2);
+				default: 
+					false;
 			}
 		case arrayType(_.get() => elem, len):
 			switch vgt {
 				case arrayType(_.get() => elem2, len2):
 					if (len != len2)
 						return false;
-					final i = new _Type_asInterface(Go.pointer(new _Type(elem2)), new _Type(elem2));
-					new _Type(elem).assignableTo(i);
+					identicalType(elem,elem2);
 				default: false;
 			}
 		case mapType(_.get() => key, _.get() => value):
 			switch vgt {
 				case mapType(_.get() => key2, _.get() => value2):
-					final i = new _Type_asInterface(Go.pointer(new _Type(key2)), new _Type(key2));
-					if (!new _Type(key).assignableTo(i))
-						return false;
-					final i2 = new _Type_asInterface(Go.pointer(new _Type(value2)), new _Type(value2));
-					if (!new _Type(value).assignableTo(i2))
-						return false;
-					true;
+					identicalType(key,key2) && identicalType(value,value2);
 				default: false;
 			}
 		case structType(fields):
@@ -237,9 +233,7 @@ function directlyAssignable(t:Type, v:Type):Bool {
 		case pointerType(e), refType(_.get() => e):
 			switch vgt {
 				case pointerType(e2), refType(_.get() => e2):
-					final i = new _Type_asInterface(Go.pointer(new _Type(e)), new _Type(e));
-					final i2 = new _Type_asInterface(Go.pointer(new _Type(e2)), new _Type(e2));
-					directlyAssignable(i, i2);
+					identicalType(e,e2);
 				default:
 					false;
 			}
@@ -252,6 +246,49 @@ function directlyAssignable(t:Type, v:Type):Bool {
 			}
 		default:
 			throw "unable to check for assignability: " + tgt;
+	}
+}
+
+private function identicalType(t:GoType,v:GoType):Bool {
+	return switch t {
+		case named(path,_,_,_,_):
+			switch v {
+				case named(path2,_,_,_,_):
+					path == path2;
+				default:
+					false;
+			}
+		case basic(kind):
+			switch v {
+				case basic(kind2):
+					kind == kind2;
+				default:
+					false;
+			}
+		case pointerType(t), refType(_.get() => t), sliceType(_.get() => t):
+			switch v {
+				case pointerType(t2), refType(_.get() => t2), sliceType(_.get() => t2):
+					t.getIndex() == t2.getIndex() && identicalType(t,t2);
+				default:
+					false;
+			}
+		case arrayType(_.get() => elem, len):
+			switch v {
+				case arrayType(_.get() => elem2, len2):
+					len == len2 && identicalType(elem,elem2);
+				default:
+					false;
+			}
+		case chanType(len, _.get() => elem):
+			switch v {
+				case chanType(len2, _.get() => elem2):
+					len == len2 && identicalType(elem,elem2);
+				default:
+					false;
+			}
+		default:
+			trace(t);
+			false;
 	}
 }
 
@@ -540,6 +577,19 @@ function pointerUnwrap(type:GoType):GoType {
 	}
 }
 
+function asInterface(value:Dynamic, gt:GoType):Dynamic {
+	switch gt {
+		case named(path,_,_,_,_):
+			final cl = std.Type.resolveClass(path + "_asInterface");
+			if (cl == null)
+				return value;
+			return std.Type.createInstance(cl,[Go.pointer(value),new stdgo.internal.reflect.Reflect._Type(gt)]);
+			
+		default:
+	}
+	return value;
+}
+
 function isAnyInterface(type:GoType):Bool {
 	return switch type {
 		case named(_, _, elem,_,_):
@@ -784,8 +834,16 @@ class _Type {
 		}
 	}
 
-	static public function numField(t:_Type):GoInt
-		throw "not implemented";
+	static public function numField(t:_Type):GoInt {
+		var type:stdgo.internal.reflect.Reflect.GoType = @:privateAccess t._common();
+		type = getUnderlying(type);
+		switch type {
+			case structType(fields):
+				return fields.length;
+			default:
+				throw "reflect.NumField not implemented for " + t.string();
+		}
+	}
 
 	static public function len(t:_Type):GoInt
 		throw "not implemented";
@@ -909,7 +967,7 @@ class _Type {
 				0;
 			case basic(kind):
 				switch kind {
-					case invalid_kind, untyped_nil_kind: KindType.invalid;
+					case invalid_kind: KindType.invalid;
 					case bool_kind, untyped_bool_kind: KindType.bool;
 					case int_kind: KindType.int;
 					case int8_kind: KindType.int8;
@@ -927,6 +985,7 @@ class _Type {
 					case complex64_kind: KindType.complex64;
 					case complex128_kind, untyped_complex_kind: KindType.complex128;
 					case string_kind, untyped_string_kind: KindType.string;
+					case untyped_nil_kind: KindType.unsafePointer;
 					case unsafepointer_kind: KindType.unsafePointer;
 				}
 			case chanType(_, _): 18;
@@ -944,22 +1003,43 @@ class _Type {
 		}
 	}
 
+	static private function formatGoPath(path:String):String {
+		if (useHaxePath)
+			return path;
+		final stdgo = "stdgo.";
+		var index = path.indexOf(stdgo);
+		if (index == 0)
+			path = path.substr(stdgo.length);
+		final list = path.split(".");
+		var cl = list.pop();
+		if (cl.indexOf("T_") == 0)
+			cl = cl.substr(2);
+		list.pop(); // FileName, not needed only pkg
+		list.push(cl);
+		return list.join(".");
+	}
+
 	static public function string(t:_Type):GoString {
 		final gt:GoType = (t : Dynamic)._common();
 		return switch (gt) {
 			case basic(kind):
 				if (kind == untyped_int_kind)
 					kind = int_kind;
-				var name = kind.getName();
-				name = name.substr(0, name.length - 5);
-				name;
+				switch kind {
+					case untyped_nil_kind:
+						"nil";
+					default:
+						var name = kind.getName();
+						name = name.substr(0, name.length - 5);
+						name;
+				}
 			case previouslyNamed(name):
-				name;
+				formatGoPath(name);
 			case named(path, _, type, alias,_):
 				if (alias) {
 					new _Type(type).string();
 				} else {
-					path;
+					formatGoPath(path);
 				}
 			case pointerType(elem), refType(_.get() => elem):
 				"*" + new _Type(elem).string();
@@ -1012,7 +1092,7 @@ class _Type {
 				}
 				r;
 			case invalidType:
-				return "<null>";
+				return "<nil>";
 			case interfaceType(empty, methods):
 				var r = "";
 				if (empty)

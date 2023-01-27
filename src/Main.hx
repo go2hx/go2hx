@@ -98,7 +98,7 @@ function compileArgs(args:Array<String>):InstanceData {
 		["-hxml", "--hxml"] => out -> instance.hxmlPath = out,
 		@doc("add go code as a comment to the generated Haxe code")
 		["-printgocode", "--printgocode"] => () -> instance.printGoCode = true,
-		@doc("all non main packages wrapped as a haxelib library to be used\n\nTarget:")
+		@doc("all non main packages wrapped as a haxelib library\n\nTarget:")
 		["-libwrap", "--libwrap"] => () -> instance.libwrap = true,
 		@doc('generate C++ code into target directory')
 		["-cpp", "--cpp"] => out -> {
@@ -158,7 +158,7 @@ function compileArgs(args:Array<String>):InstanceData {
 				break;
 		}
 	}
-	for (option in argHandler.options) {
+	for (option in (argHandler.options : Array<Dynamic>)) {
 		if (passthroughArgs.indexOf(option.flags[0]) != -1)
 			continue;
 		for (i in 0...args.length) {
@@ -522,15 +522,19 @@ function runTarget(target:String, out:String, args:Array<String>, main:String):S
 }
 
 function compile(instance:InstanceData):Bool {
+	LibAnalyzer.init();
 	if (instance.localPath == "")
 		instance.localPath = instance.args[instance.args.length - 1];
 	var httpsString = "https://";
 	for (i in 0...instance.args.length - 1) {
 		var path = instance.args[i];
+		if (path.charAt(0) == "-")
+			continue; // skip flags
 		if (StringTools.startsWith(path, httpsString)) {
 			path = path.substr(httpsString.length);
 			instance.args[i] = path;
 		}
+		LibAnalyzer.list(path,LibAnalyzer.lib(path));
 		if (Path.extension(path) == "go" || path.charAt(0) == "." || path.indexOf("/") == -1)
 			continue;
 		var command = 'go get $path';

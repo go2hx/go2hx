@@ -122,7 +122,6 @@ class Go {
 		};
 		return e;
 	}
-
 	public static macro function str(exprs:Array<Expr>):Expr {
 		var length = 0;
 		var index = 0;
@@ -317,7 +316,6 @@ class Go {
 		final t = gtDecode(t, null, []);
 		return macro stdgo.internal.reflect.Reflect.defaultValue(Go.asInterface(new stdgo.internal.reflect.Reflect._Type($t)));
 	}
-
 	public static macro function asInterface(expr) {
 		// trace(new haxe.macro.Printer().printExpr(expr));
 		final gt = gtDecode(Context.typeof(expr), expr, []);
@@ -399,6 +397,7 @@ class Go {
 					if (!selfPointer)
 						expr = macro Go.pointer($expr);
 					final e = macro new $p($expr, $rt);
+					//trace(new haxe.macro.Printer().printExpr(e));
 					return e;
 				}
 			default:
@@ -531,7 +530,6 @@ class Go {
 					if (!b)
 						throw "unable to assert";
 					// interface kind check
-					//trace(t.kind().string(),t.kind());
 					if (t.kind() == 20) {
 						($e.value : $t);
 					} else {
@@ -883,7 +881,8 @@ class Go {
 							switch t {
 								case TInst(_.get() => ct,_):
 									if (ct.pack != null && ct.pack[0] == "stdgo" && ct.pack[1] == "reflect" && ct.name == "Value") {
-										len = macro $expr.len().toBasic();
+										//len = macro $expr.len().toBasic();
+										len = macro -1;
 									}
 								case TFun(_):
 								case TAbstract(_.get() => ct,_):
@@ -1139,7 +1138,7 @@ class Go {
 				default:
 					final fieldName = field.name;
 					if (fieldName == "__self__") {
-						return macro $expr.__underlying__().type._common();
+						return macro @:privateAccess $expr.__type__._common();//__underlying__().type._common();
 					}
 					if (fieldName == "__t__") {
 						underlyingType = field.type;

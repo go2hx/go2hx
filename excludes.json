@@ -23,7 +23,6 @@
     "go/doc",
     "internal/lazyregexp",
     "text/template",
-    "internal/fmtsort",
     "text/template/parse",
     "net",
     "net/http",

@@ -2964,7 +2964,9 @@ private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
 			return (macro @:define("!macro") Go.typeFunction($x)).expr;
 		default:
 			trace("invalid_index: " + t);
-			index = macro @:invalid_index 0;
+			trace(expr.x);
+			trace(typeExprType(expr.x,info));
+			throw "invalid index";
 	}
 	final e = macro $x[$index];
 	return e.expr;
@@ -3454,8 +3456,8 @@ private function toReflectType(t:GoType, info:Info, paths:Array<String>):Expr {
 			final elem = toReflectType(elem, info, paths.copy());
 			macro stdgo.internal.reflect.Reflect.GoType.sliceType({get: () -> $elem});
 		case basic(kind):
-			final kind = makeExpr(kind);
-			macro stdgo.internal.reflect.Reflect.GoType.basic($kind);
+			final kind:String = kind;
+			macro stdgo.internal.reflect.Reflect.GoType.basic($i{kind});
 		case _var(name, _.get() => type):
 			toReflectType(type, info, paths.copy());
 		case chanType(dir, _.get() => elem):

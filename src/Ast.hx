@@ -50,6 +50,64 @@ enum abstract BasicKind(Int) to Int {
 	public final untyped_complex_kind;
 	public final untyped_string_kind;
 	public final untyped_nil_kind;
+
+	@:to
+	static function toString(x:Int):String {
+		return switch x {
+			case invalid_kind:
+				"invalid_kind";
+			case bool_kind:
+				"bool_kind";
+			case int_kind:
+				"int_kind";
+			case int8_kind:
+				"int8_kind";
+			case int16_kind:
+				"int16_kind";
+			case int32_kind:
+				"int32_kind";
+			case int64_kind:
+				"int64_kind";
+			case uint_kind:
+				"uint_kind";
+			case uint8_kind:
+				"uint8_kind";
+			case uint16_kind:
+				"uint16_kind";
+			case uint32_kind:
+				"uint32_kind";
+			case uint64_kind:
+				"uint64_kind";
+			case uintptr_kind:
+				"uintptr_kind";
+			case float32_kind:
+				"float32_kind";
+			case float64_kind:
+				"float64_kind";
+			case complex64_kind:
+				"complex64_kind";
+			case complex128_kind:
+				"complex128_kind";
+			case string_kind:
+				"string_kind";
+			case unsafepointer_kind:
+				"unsafepointer_kind";
+			case untyped_bool_kind:
+				"untyped_bool_kind";
+			case untyped_int_kind:
+				"untyped_int_kind";
+			case untyped_float_kind:
+				"untyped_float_kind";
+			case untyped_complex_kind:
+				"untyped_complex_kind";
+			case untyped_string_kind:
+				"untyped_string_kind";
+			case untyped_nil_kind:
+				"untyped_nil_kind";
+			default:
+				throw 'Unknown BasicKind';
+		}
+	}
 }
 
 enum abstract BasicInfo(Int) from Int to Int {

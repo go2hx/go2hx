@@ -157,7 +157,7 @@ function compileArgs(args:Array<String>):InstanceData {
 				break;
 		}
 	}
-	for (option in (argHandler.options : Array<Dynamic>)) {
+	for (option in argHandler.options) {
 		if (passthroughArgs.indexOf(option.flags[0]) != -1)
 			continue;
 		for (i in 0...args.length) {
@@ -533,7 +533,8 @@ function compile(instance:InstanceData):Bool {
 			path = path.substr(httpsString.length);
 			instance.args[i] = path;
 		}
-		LibAnalyzer.list(path,LibAnalyzer.lib(path));
+		LibAnalyzer.list(path,LibAnalyzer.lib(path,false),false);
+
 		if (Path.extension(path) == "go" || path.charAt(0) == "." || path.indexOf("/") == -1)
 			continue;
 		var command = 'go get $path';

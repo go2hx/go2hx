@@ -8,7 +8,7 @@ function main() {
     init();
     final libs:Array<String> = haxe.Json.parse(File.getContent("libs.json"));
     for (path in libs) {
-        list(path,lib(path));
+        list(path,lib(path,true),true);
     }
 }
 
@@ -33,11 +33,11 @@ function isStd(path:String):Bool
 inline function extractLine(line:String):Array<String>
     return line == "" ? [] : line.substr(1,-1).split(" ");
 
-function list(path:String,line:String):Bool {
+function list(path:String,line:String,getLibs:Bool):Bool {
     final stdLibs:Array<String> = [];
     final all:Array<String> = [];
     final libs = extractLine(line);
-    runLibs(libs,stdLibs,all);
+    runLibs(libs,stdLibs,all,getLibs);
     if (stdLibs.length == 0) {
         // no libs being used
         return true;
@@ -104,7 +104,7 @@ function list(path:String,line:String):Bool {
     return allTestsPassing;
 }
 
-function runLibs(libs:Array<String>,stdLibs:Array<String>,all:Array<String>) {
+function runLibs(libs:Array<String>,stdLibs:Array<String>,all:Array<String>,getLibs:Bool) {
     for (path in libs) {
         if (all.indexOf(path) != -1) // prevent duplicates
             continue;
@@ -113,23 +113,27 @@ function runLibs(libs:Array<String>,stdLibs:Array<String>,all:Array<String>) {
         if (isStd(path)) {
             stdLibs.push(path);
         }else{
-            runLibs(extractLine(lib(path)),stdLibs,all);
+            runLibs(extractLine(lib(path,getLibs)),stdLibs,all,getLibs);
         }
     }
 }
 
-function lib(path:String):String {
+function lib(path:String,getLibs:Bool):String {
+    #if !js
     if (path == "C") // not a valid pkg
         return "";
-    #if !js
-    var proc = new Process('go get $path');
-    var code = proc.exitCode(true);
-    if (code != 0) {
-        // fail
-        Sys.println(path);
-        Sys.println(proc.stderr.readAll());
-        proc.close();
-        Sys.exit(code);
+    var proc:Process;
+    var code:Null<Int> = 0;
+    if (getLibs) {
+        proc = new Process('go get $path');
+        code = proc.exitCode(true);
+        if (code != 0) {
+            // fail
+            Sys.println(path);
+            Sys.println(proc.stderr.readAll());
+            proc.close();
+            Sys.exit(code);
+        }
     }
     proc = new Process("go list -f '{{ .Imports }}' " + path);
     code = proc.exitCode(true);

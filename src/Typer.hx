@@ -5201,7 +5201,27 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 					for (genericName in genericNames) {
 						if (genericName != p.name)
 							continue;
-						var e = macro haxe.macro.Context.toComplexType(haxe.macro.Context.typeof($i{name}));
+						var e = macro {
+							final t = haxe.macro.Context.typeof($i{name});
+							switch t {
+								case TInst(_,params), TType(_,params):
+									for (i in 0...params.length) {
+										params[i] = switch params[i] {
+											case TMono(_.get() => t):
+												if (t == null) {
+													TDynamic(null);
+												}else{
+													t;
+												}
+											default:
+												params[i];
+										}
+									}
+								default:
+									var _ = 0;
+							}
+							haxe.macro.Context.toComplexType(t);
+						};
 						// e = macro($e.getParameters()[0] : haxe.macro.Expr.TypePath).params;
 						// reverse.unshift(0);
 						for (index in reverse) {

@@ -74,21 +74,34 @@ class Macro {
 				inLoop?macro break:macro if (!$i{breakName})
 					continue
 			}];
-			if (inLoop)
-				exprs.push(macro if ($i{innerName}) {
-					if ($i{selectName} == $label) {
+			if (inLoop) {
+				if (label != null) {
+					exprs.push(macro if ($i{innerName}) {
+						if ($i{selectName} == $label) {
+							$i{innerName} = false;
+							if ($i{breakName}) {
+								break;
+							}else{
+								continue;
+							}
+						}else{
+							break;
+						}
+					});
+				}else{
+					exprs.push(macro if ($i{innerName}) {
 						$i{innerName} = false;
 						if ($i{breakName}) {
 							break;
 						}else{
 							continue;
 						}
-					}else{
-						break;
-					}
-				});
+					});
+				}
+			}
 			return macro $b{exprs};
 		}
+		// label:Expr
 		func = function(expr:haxe.macro.Expr, inLoop:Bool, scopeIndex:Int,label:Expr,initLabelSet:Bool,previousLabel:Expr):Expr {
 			return switch (expr.expr) {
 				case EMeta(s, e):

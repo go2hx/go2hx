@@ -988,7 +988,7 @@ class _Type {
 			case chanType(_, _): 18;
 			case interfaceType(_, _): 20;
 			case arrayType(_, _): 17;
-			case invalidType: 0;
+			case invalidType: KindType.unsafePointer;
 			case mapType(_, _): 21;
 			case named(_, _, type,_,_), _var(_, _.get() => type): new _Type(type).kind();
 			case pointerType(_), refType(_): 22;

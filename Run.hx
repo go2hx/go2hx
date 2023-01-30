@@ -122,7 +122,7 @@ function clean() {
 		if (!FileSystem.isDirectory('stdgo/$path'))
 			continue;
 		switch path {
-			case "reflect", "fmt", "unsafe":
+			case "unsafe":
 				continue;
 			case "internal", "testing":
 				for (path2 in FileSystem.readDirectory('stdgo/$path')) {

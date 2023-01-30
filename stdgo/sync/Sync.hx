@@ -24,7 +24,7 @@ private var __go2hxdoc__package:Bool;
 	// expunged is an arbitrary pointer that marks entries which have been deleted
 	// from the dirty map.
 **/
-private var _expunged:stdgo.unsafe.Unsafe.UnsafePointer = null;
+private var _expunged:Ref<AnyInterface> = (null : Ref<AnyInterface>);
 
 /**
 	// Export for testing.
@@ -230,9 +230,9 @@ typedef Locker = StructType & {
 		//
 		// Entries stored in read may be updated concurrently without mu, but updating
 		// a previously-expunged entry requires that the entry be copied to the dirty
-		// map and unexpunged with mu held.// readOnly
+		// map and unexpunged with mu held.
 	**/
-	public var _read:stdgo.sync.atomic.Atomic.Value = ({} : stdgo.sync.atomic.Atomic.Value);
+	public var _read:stdgo.sync.atomic.Atomic.Pointer_<Dynamic> = {};
 
 	/**
 		// dirty contains the portion of the map's contents that require mu to be
@@ -258,7 +258,7 @@ typedef Locker = StructType & {
 	**/
 	public var _misses:GoInt = 0;
 
-	public function new(?_mu:Mutex, ?_read:stdgo.sync.atomic.Atomic.Value, ?_dirty:GoMap<AnyInterface, Ref<T_entry>>, ?_misses:GoInt) {
+	public function new(?_mu:Mutex, ?_read:stdgo.sync.atomic.Atomic.Pointer_<Dynamic>, ?_dirty:GoMap<AnyInterface, Ref<T_entry>>, ?_misses:GoInt) {
 		if (_mu != null)
 			this._mu = _mu;
 		if (_read != null)
@@ -326,11 +326,11 @@ typedef Locker = StructType & {
 		// An entry's associated value can be updated by atomic replacement, provided
 		// p != expunged. If p == expunged, an entry's associated value can be updated
 		// only after first setting m.dirty[key] = e so that lookups using the dirty
-		// map find the entry.// *interface{}
+		// map find the entry.
 	**/
-	public var _p:stdgo.unsafe.Unsafe.UnsafePointer = null;
+	public var _p:stdgo.sync.atomic.Atomic.Pointer_<Dynamic> = {};
 
-	public function new(?_p:stdgo.unsafe.Unsafe.UnsafePointer) {
+	public function new(?_p:stdgo.sync.atomic.Atomic.Pointer_<Dynamic>) {
 		if (_p != null)
 			this._p = _p;
 	}
@@ -361,7 +361,7 @@ typedef Locker = StructType & {
 	public var _sema:GoUInt32 = 0;
 
 	@:local
-	var mutex = new sys.thread.Mutex();
+	var mutex = #if !js new sys.thread.Mutex() #else (null : Dynamic) #end;
 
 	public function new(?_state:GoInt32, ?_sema:GoUInt32, ?mutex) {
 		if (_state != null)
@@ -484,7 +484,7 @@ typedef Locker = StructType & {
 	public var new_:() -> AnyInterface = null;
 
 	@:local
-	var pool = new sys.thread.Deque<AnyInterface>();
+	var pool = #if !js new sys.thread.Deque<AnyInterface>() #else new Array<AnyInterface>() #end;
 
 	public function new(?_noCopy:T_noCopy, ?_local:stdgo.unsafe.Unsafe.UnsafePointer, ?_localSize:GoUIntptr, ?_victim:stdgo.unsafe.Unsafe.UnsafePointer,
 			?_victimSize:GoUIntptr, ?new_:() -> AnyInterface, ?pool) {
@@ -825,17 +825,18 @@ typedef Locker = StructType & {
 	/**
 		// number of pending readers
 	**/
-	public var _readerCount:GoInt32 = 0;
+	public var _readerCount:stdgo.sync.atomic.Atomic.Int32 = ({} : stdgo.sync.atomic.Atomic.Int32);
 
 	/**
 		// number of departing readers
 	**/
-	public var _readerWait:GoInt32 = 0;
+	public var _readerWait:stdgo.sync.atomic.Atomic.Int32 = ({} : stdgo.sync.atomic.Atomic.Int32);
 
 	@:local
-	var mutex = new sys.thread.Mutex();
+	var mutex = #if !js new sys.thread.Mutex() #else (null : Dynamic) #end;
 
-	public function new(?_w:Mutex, ?_writerSem:GoUInt32, ?_readerSem:GoUInt32, ?_readerCount:GoInt32, ?_readerWait:GoInt32, ?mutex) {
+	public function new(?_w:Mutex, ?_writerSem:GoUInt32, ?_readerSem:GoUInt32, ?_readerCount:stdgo.sync.atomic.Atomic.Int32,
+			?_readerWait:stdgo.sync.atomic.Atomic.Int32, ?mutex) {
 		if (_w != null)
 			this._w = _w;
 		if (_writerSem != null)
@@ -874,28 +875,23 @@ typedef Locker = StructType & {
 	public var _noCopy:T_noCopy = ({} : T_noCopy);
 
 	/**
-		// 64-bit value: high 32 bits are counter, low 32 bits are waiter count.
-		// 64-bit atomic operations require 64-bit alignment, but 32-bit
-		// compilers only guarantee that 64-bit fields are 32-bit aligned.
-		// For this reason on 32 bit architectures we need to check in state()
-		// if state1 is aligned or not, and dynamically "swap" the field order if
-		// needed.
+		// high 32 bits are counter, low 32 bits are waiter count.
 	**/
-	public var _state1:GoUInt64 = 0;
+	public var _state:stdgo.sync.atomic.Atomic.Uint64 = ({} : stdgo.sync.atomic.Atomic.Uint64);
 
-	public var _state2:GoUInt32 = 0;
+	public var _sema:GoUInt32 = 0;
 
 	@:local
-	var lock = new sys.thread.Lock();
+	var lock = #if !js new sys.thread.Lock() #else (null : Dynamic) #end;
 	var counter:GoUInt = 0;
 
-	public function new(?_noCopy:T_noCopy, ?_state1:GoUInt64, ?_state2:GoUInt32, ?lock, ?counter:GoUInt) {
+	public function new(?_noCopy:T_noCopy, ?_state:stdgo.sync.atomic.Atomic.Uint64, ?_sema:GoUInt32, ?lock, ?counter:GoUInt) {
 		if (_noCopy != null)
 			this._noCopy = _noCopy;
-		if (_state1 != null)
-			this._state1 = _state1;
-		if (_state2 != null)
-			this._state2 = _state2;
+		if (_state != null)
+			this._state = _state;
+		if (_sema != null)
+			this._sema = _sema;
 		if (lock != null)
 			this.lock = lock;
 		if (counter != null)
@@ -906,7 +902,7 @@ typedef Locker = StructType & {
 		return Go.toInterface(this);
 
 	public function __copy__() {
-		return new WaitGroup(_noCopy, _state1, _state2, lock, counter);
+		return new WaitGroup(_noCopy, _state, _sema, lock, counter);
 	}
 }
 
@@ -1027,13 +1023,23 @@ function _runtime_Semacquire(_s:Pointer<GoUInt32>):Void
 	throw "sync._runtime_Semacquire is not yet implemented";
 
 /**
-	// SemacquireMutex is like Semacquire, but for profiling contended Mutexes.
+	// Semacquire(RW)Mutex(R) is like Semacquire, but for profiling contended
+	// Mutexes and RWMutexes.
 	// If lifo is true, queue waiter at the head of wait queue.
 	// skipframes is the number of frames to omit during tracing, counting from
 	// runtime_SemacquireMutex's caller.
+	// The different forms of this function just tell the runtime how to present
+	// the reason for waiting in a backtrace, and is used to compute some metrics.
+	// Otherwise they're functionally identical.
 **/
 function _runtime_SemacquireMutex(_s:Pointer<GoUInt32>, _lifo:Bool, _skipframes:GoInt):Void
 	throw "sync._runtime_SemacquireMutex is not yet implemented";
+
+function _runtime_SemacquireRWMutexR(_s:Pointer<GoUInt32>, _lifo:Bool, _skipframes:GoInt):Void
+	throw "sync._runtime_SemacquireRWMutexR is not yet implemented";
+
+function _runtime_SemacquireRWMutex(_s:Pointer<GoUInt32>, _lifo:Bool, _skipframes:GoInt):Void
+	throw "sync._runtime_SemacquireRWMutex is not yet implemented";
 
 /**
 	// Semrelease atomically increments *s and notifies a waiting goroutine
@@ -1123,7 +1129,7 @@ class Cond_asInterface {
 		// Wait locks c.L before returning. Unlike in other systems,
 		// Wait cannot return unless awoken by Broadcast or Signal.
 		//
-		// Because c.L is not locked when Wait first resumes, the caller
+		// Because c.L is not locked while Wait is waiting, the caller
 		// typically cannot assume that the condition is true when
 		// Wait returns. Instead, the caller should Wait in a loop:
 		//
@@ -1182,7 +1188,7 @@ class Cond_asInterface {
 		// Wait locks c.L before returning. Unlike in other systems,
 		// Wait cannot return unless awoken by Broadcast or Signal.
 		//
-		// Because c.L is not locked when Wait first resumes, the caller
+		// Because c.L is not locked while Wait is waiting, the caller
 		// typically cannot assume that the condition is true when
 		// Wait returns. Instead, the caller should Wait in a loop:
 		//
@@ -1264,6 +1270,34 @@ class Map__asInterface {
 		__self__.value.range(_f);
 
 	/**
+		// CompareAndDelete deletes the entry for key if its value is equal to old.
+		// The old value must be of a comparable type.
+		//
+		// If there is no current value for key in the map, CompareAndDelete
+		// returns false (even if the old value is the nil interface value).
+	**/
+	@:keep
+	public function compareAndDelete(_key:AnyInterface, _old:AnyInterface):Bool
+		return __self__.value.compareAndDelete(_key, _old);
+
+	/**
+		// CompareAndSwap swaps the old and new values for key
+		// if the value stored in the map is equal to old.
+		// The old value must be of a comparable type.
+	**/
+	@:keep
+	public function compareAndSwap(_key:AnyInterface, _old:AnyInterface, _new:AnyInterface):Bool
+		return __self__.value.compareAndSwap(_key, _old, _new);
+
+	/**
+		// Swap swaps the value for a key and returns the previous value if any.
+		// The loaded result reports whether the key was present.
+	**/
+	@:keep
+	public function swap(_key:AnyInterface, _value:AnyInterface):{var _0:AnyInterface; var _1:Bool;}
+		return __self__.value.swap(_key, _value);
+
+	/**
 		// Delete deletes the value for a key.
 	**/
 	@:keep
@@ -1302,6 +1336,10 @@ class Map__asInterface {
 	@:keep
 	public function load(_key:AnyInterface):{var _0:AnyInterface; var _1:Bool;}
 		return __self__.value.load(_key);
+
+	@:keep
+	public function _loadReadOnly():T_readOnly
+		return __self__.value._loadReadOnly();
 
 	public function new(__self__, __type__) {
 		this.__self__ = __self__;
@@ -1344,6 +1382,34 @@ class Map__asInterface {
 		throw "sync.range is not yet implemented";
 
 	/**
+		// CompareAndDelete deletes the entry for key if its value is equal to old.
+		// The old value must be of a comparable type.
+		//
+		// If there is no current value for key in the map, CompareAndDelete
+		// returns false (even if the old value is the nil interface value).
+	**/
+	@:keep
+	static public function compareAndDelete(_m:Ref<Map_>, _key:AnyInterface, _old:AnyInterface):Bool
+		throw "sync.compareAndDelete is not yet implemented";
+
+	/**
+		// CompareAndSwap swaps the old and new values for key
+		// if the value stored in the map is equal to old.
+		// The old value must be of a comparable type.
+	**/
+	@:keep
+	static public function compareAndSwap(_m:Ref<Map_>, _key:AnyInterface, _old:AnyInterface, _new:AnyInterface):Bool
+		throw "sync.compareAndSwap is not yet implemented";
+
+	/**
+		// Swap swaps the value for a key and returns the previous value if any.
+		// The loaded result reports whether the key was present.
+	**/
+	@:keep
+	static public function swap(_m:Ref<Map_>, _key:AnyInterface, _value:AnyInterface):{var _0:AnyInterface; var _1:Bool;}
+		throw "sync.swap is not yet implemented";
+
+	/**
 		// Delete deletes the value for a key.
 	**/
 	@:keep
@@ -1382,12 +1448,26 @@ class Map__asInterface {
 	@:keep
 	static public function load(_m:Ref<Map_>, _key:AnyInterface):{var _0:AnyInterface; var _1:Bool;}
 		throw "sync.load is not yet implemented";
+
+	@:keep
+	static public function _loadReadOnly(_m:Ref<Map_>):T_readOnly
+		throw "sync._loadReadOnly is not yet implemented";
 }
 
 class T_entry_asInterface {
 	@:keep
 	public function _tryExpungeLocked():Bool
 		return __self__.value._tryExpungeLocked();
+
+	/**
+		// trySwap swaps a value if the entry has not been expunged.
+		//
+		// If the entry is expunged, trySwap returns false and leaves the entry
+		// unchanged.
+	**/
+	@:keep
+	public function _trySwap(_i:Ref<AnyInterface>):{var _0:Ref<AnyInterface>; var _1:Bool;}
+		return __self__.value._trySwap(_i);
 
 	@:keep
 	public function _delete():{var _0:AnyInterface; var _1:Bool;}
@@ -1405,13 +1485,13 @@ class T_entry_asInterface {
 		return __self__.value._tryLoadOrStore(_i);
 
 	/**
-		// storeLocked unconditionally stores a value to the entry.
+		// swapLocked unconditionally swaps a value into the entry.
 		//
 		// The entry must be known not to be expunged.
 	**/
 	@:keep
-	public function _storeLocked(_i:Ref<AnyInterface>):Void
-		__self__.value._storeLocked(_i);
+	public function _swapLocked(_i:Ref<AnyInterface>):Ref<AnyInterface>
+		return __self__.value._swapLocked(_i);
 
 	/**
 		// unexpungeLocked ensures that the entry is not marked as expunged.
@@ -1424,14 +1504,16 @@ class T_entry_asInterface {
 		return __self__.value._unexpungeLocked();
 
 	/**
-		// tryStore stores a value if the entry has not been expunged.
+		// tryCompareAndSwap compare the entry with the given old value and swaps
+		// it with a new value if the entry is equal to the old value, and the entry
+		// has not been expunged.
 		//
-		// If the entry is expunged, tryStore returns false and leaves the entry
-		// unchanged.
+		// If the entry is expunged, tryCompareAndSwap returns false and leaves
+		// the entry unchanged.
 	**/
 	@:keep
-	public function _tryStore(_i:Ref<AnyInterface>):Bool
-		return __self__.value._tryStore(_i);
+	public function _tryCompareAndSwap(_old:AnyInterface, _new:AnyInterface):Bool
+		return __self__.value._tryCompareAndSwap(_old, _new);
 
 	@:keep
 	public function _load():{var _0:AnyInterface; var _1:Bool;}
@@ -1456,6 +1538,16 @@ class T_entry_asInterface {
 	static public function _tryExpungeLocked(_e:Ref<T_entry>):Bool
 		throw "sync._tryExpungeLocked is not yet implemented";
 
+	/**
+		// trySwap swaps a value if the entry has not been expunged.
+		//
+		// If the entry is expunged, trySwap returns false and leaves the entry
+		// unchanged.
+	**/
+	@:keep
+	static public function _trySwap(_e:Ref<T_entry>, _i:Ref<AnyInterface>):{var _0:Ref<AnyInterface>; var _1:Bool;}
+		throw "sync._trySwap is not yet implemented";
+
 	@:keep
 	static public function _delete(_e:Ref<T_entry>):{var _0:AnyInterface; var _1:Bool;}
 		throw "sync._delete is not yet implemented";
@@ -1472,13 +1564,13 @@ class T_entry_asInterface {
 		throw "sync._tryLoadOrStore is not yet implemented";
 
 	/**
-		// storeLocked unconditionally stores a value to the entry.
+		// swapLocked unconditionally swaps a value into the entry.
 		//
 		// The entry must be known not to be expunged.
 	**/
 	@:keep
-	static public function _storeLocked(_e:Ref<T_entry>, _i:Ref<AnyInterface>):Void
-		throw "sync._storeLocked is not yet implemented";
+	static public function _swapLocked(_e:Ref<T_entry>, _i:Ref<AnyInterface>):Ref<AnyInterface>
+		throw "sync._swapLocked is not yet implemented";
 
 	/**
 		// unexpungeLocked ensures that the entry is not marked as expunged.
@@ -1491,14 +1583,16 @@ class T_entry_asInterface {
 		throw "sync._unexpungeLocked is not yet implemented";
 
 	/**
-		// tryStore stores a value if the entry has not been expunged.
+		// tryCompareAndSwap compare the entry with the given old value and swaps
+		// it with a new value if the entry is equal to the old value, and the entry
+		// has not been expunged.
 		//
-		// If the entry is expunged, tryStore returns false and leaves the entry
-		// unchanged.
+		// If the entry is expunged, tryCompareAndSwap returns false and leaves
+		// the entry unchanged.
 	**/
 	@:keep
-	static public function _tryStore(_e:Ref<T_entry>, _i:Ref<AnyInterface>):Bool
-		throw "sync._tryStore is not yet implemented";
+	static public function _tryCompareAndSwap(_e:Ref<T_entry>, _old:AnyInterface, _new:AnyInterface):Bool
+		throw "sync._tryCompareAndSwap is not yet implemented";
 
 	@:keep
 	static public function _load(_e:Ref<T_entry>):{var _0:AnyInterface; var _1:Bool;}
@@ -1574,7 +1668,7 @@ class Mutex_asInterface {
 		// arrange for another goroutine to unlock it.
 	**/
 	@:keep
-	static public function unlock(_m:Ref<Mutex>):Void @:privateAccess _m.mutex.release();
+	static public function unlock(_m:Ref<Mutex>):Void @:privateAccess #if !js _m.mutex.release() #else null #end;
 
 	@:keep
 	static public function _lockSlow(_m:Ref<Mutex>):Void
@@ -1588,7 +1682,7 @@ class Mutex_asInterface {
 		// in a particular use of mutexes.
 	**/
 	@:keep
-	static public function tryLock(_m:Ref<Mutex>):Bool @:privateAccess return _m.mutex.tryAcquire();
+	static public function tryLock(_m:Ref<Mutex>):Bool @:privateAccess return #if !js _m.mutex.tryAcquire() #else true #end;
 
 	/**
 		// Lock locks m.
@@ -1596,7 +1690,7 @@ class Mutex_asInterface {
 		// blocks until the mutex is available.
 	**/
 	@:keep
-	static public function lock(_m:Ref<Mutex>):Void @:privateAccess _m.mutex.acquire();
+	static public function lock(_m:Ref<Mutex>):Void @:privateAccess #if !js _m.mutex.acquire() #else null #end;
 }
 
 class Once_asInterface {
@@ -1763,7 +1857,7 @@ class Pool_asInterface {
 	**/
 	@:keep
 	static public function get(_p:Ref<Pool>):AnyInterface {
-		var obj = @:privateAccess _p.pool.pop(false);
+		var obj = #if !js @:privateAccess _p.pool.pop(false) #else @:privateAccess _p.pool.pop() #end;
 		if (obj == null && @:privateAccess _p.new_ != null)
 			obj = @:privateAccess _p.new_();
 		return obj;
@@ -2253,13 +2347,6 @@ class WaitGroup_asInterface {
 	public function add(_delta:GoInt):Void
 		__self__.value.add(_delta);
 
-	/**
-		// state returns pointers to the state and sema fields stored within wg.state*.
-	**/
-	@:keep
-	public function _state():{var _0:Pointer<GoUInt64>; var _1:Pointer<GoUInt32>;}
-		return __self__.value._state();
-
 	public function new(__self__, __type__) {
 		this.__self__ = __self__;
 		this.__type__ = __type__;
@@ -2279,7 +2366,7 @@ class WaitGroup_asInterface {
 		// Wait blocks until the WaitGroup counter is zero.
 	**/
 	@:keep
-	static public function wait_(_wg:Ref<WaitGroup>):Void @:privateAccess _wg.lock.wait();
+	static public function wait_(_wg:Ref<WaitGroup>):Void @:privateAccess #if !js _wg.lock.wait() #else null #end;
 
 	/**
 		// Done decrements the WaitGroup counter by one.
@@ -2288,7 +2375,7 @@ class WaitGroup_asInterface {
 	static public function done(_wg:Ref<WaitGroup>):Void {
 		@:privateAccess _wg.counter--;
 		if (@:privateAccess _wg.counter <= 0) {
-			@:privateAccess _wg.lock.release();
+			@:privateAccess #if !js _wg.lock.release() #else null #end;
 		};
 	}
 
@@ -2313,13 +2400,6 @@ class WaitGroup_asInterface {
 		if (@:privateAccess _wg.counter < 0)
 			throw "sync: negative WaitGroup counter";
 	}
-
-	/**
-		// state returns pointers to the state and sema fields stored within wg.state*.
-	**/
-	@:keep
-	static public function _state(_wg:Ref<WaitGroup>):{var _0:Pointer<GoUInt64>; var _1:Pointer<GoUInt32>;}
-		throw "sync._state is not yet implemented";
 }
 
 class T_copyChecker_asInterface {

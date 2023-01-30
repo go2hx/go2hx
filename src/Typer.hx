@@ -1633,14 +1633,14 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 	function ifs(i:Int = 0) {
 		var obj:Ast.CaseClause = stmt.body.list[i];
 		var cond = condition(obj);
-		info.switchIndex = i;
 		// info.switchNextTag = stmt.body.list.length <= i + 1 ? null : stmt.body.list[i + 1].list[0];
-		var block = toExpr(typeStmtList(obj.body, info, false));
 		if (hasFallThrough) {
 			final index:Expr = makeExpr(i);
 			if (cond != null)
 				cond = macro __switchIndex__ == $index || (__switchIndex__ == -1 && ($cond));
+			info.switchIndex = i;
 		}
+		var block = toExpr(typeStmtList(obj.body, info, false));
 		if (i + 1 >= stmt.body.list.length) {
 			if (cond == null)
 				return block;
@@ -6392,7 +6392,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 												case ECall({expr: EField({expr: EConst(CIdent(s)), pos: _},field), pos: _}, params):
 													macro __self__.$s.$field($a{params});
 												default:
-													trace(printer.printExpr(expr));
 													expr;
 											}
 										}

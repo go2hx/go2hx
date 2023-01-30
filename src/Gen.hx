@@ -12,10 +12,12 @@ function create(outputPath:String, module:Module, root:String) {
 		root += ".";
 	var pkgPath = 'package $root${module.path};\n';
 	var content = "";
+	var macroContent = "";
 	var count = module.files.length;
-
+	var hasMacroDef = false;
 	for (file in module.files) {
 		content = pkgPath;
+		macroContent = pkgPath;
 		for (imp in file.imports) {
 			if (imp == null)
 				continue;
@@ -24,10 +26,41 @@ function create(outputPath:String, module:Module, root:String) {
 				content += " as " + imp.alias;
 			content += ";\n";
 		}
+		var macroFields:Array<haxe.macro.Expr.Field> = [];
 		for (def in file.defs) {
+			macroFields = [];
+			for (field in def.fields) {
+				if (field.access != null && field.access.indexOf(AMacro) != -1) {
+					switch field.kind {
+						case FFun(f):
+							macroFields.push({
+								name: field.name,
+								access: field.access,
+								pos: field.pos,
+								kind: FFun({args: f.args,ret: f.ret,expr: f.expr ,params: f.params}),
+							});
+							f.expr = null;
+							field.kind = FFun(f);
+						default:
+					}
+				}
+			}
+			if (macroFields.length > 0) {
+				hasMacroDef = true;
+				macroContent += Typer.printer.printTypeDefinition({
+					name: def.name,
+					pos: def.pos,
+					pack: def.pack,
+					fields: macroFields,
+					kind: def.kind,
+					isExtern: true,
+				},false) + "\n";
+			}
 			content += Typer.printer.printTypeDefinition(def, false) + "\n";
 		}
 		save(outputPath + actualPath + "/", file.name, content);
+		if (hasMacroDef)
+			save(outputPath + actualPath + "/",file.name, macroContent, ".macro");
 	}
 }
 
@@ -74,11 +107,11 @@ private function runCmd(cmd:String) {
 	#end
 }
 
-private function save(dir:String, name:String, content:String) {
+private function save(dir:String, name:String, content:String, extension:String="") {
 	if (!FileSystem.exists(dir))
 		FileSystem.createDirectory(dir);
-	final path = dir + name + ".hx";
+	final path = dir + name + extension + ".hx";
 	File.saveContent(path, content);
 	runFormatter(path);
-	Sys.println("Generated: " + dir + name + ".hx - " + shared.Util.kbCount(content) + "kb");
+	Sys.println("Generated: " + dir + name + extension + ".hx - " + shared.Util.kbCount(content) + "kb");
 }

@@ -221,7 +221,7 @@ private class ChanIterator<T> {
 }
 #else
 class Chan<T> {
-	public function new(a, b) {}
+	public function new(length:GoInt, defaultValue:Void->T) {}
 
 	public var capacity(get, never):GoInt;
 
@@ -233,16 +233,20 @@ class Chan<T> {
 	public function __isSend__(reset:Bool = true):Bool
 		return false;
 
-	public function __get__() {}
+	public function __get__():T
+		return null;
 
 	public var __mutex__:Dynamic = null;
 
 	public var __getBool__:Bool = false;
+	public var __sendBool__:Bool = false;
 
-	public function __sendBool__(reset:Bool = true):Bool
-		return false;
+	public function __send__(a:T) {}
 
-	public function __send__(a) {}
+	public function __close__() {}
+
+	public function __isGet__(reset:Bool = true):Bool
+		return true;
 
 	public function acquire() {}
 }

@@ -67,12 +67,14 @@ function main() {
 		Sys.command("haxe build-interp.hxml --help");
 		return;
 	}
+	code = 1;
+	try {
+		process = new Process("node -v");
+		code = process.exitCode();
+		process.close();
+	}catch(_) {}
 
-	process = new Process("node -v");
-	code = process.exitCode();
-	process.close();
-
-	if (code == 0 && false) {
+	if (code == 0) {
 		// run nodejs
 		if (!FileSystem.exists("build.js") || rebuild) {
 			Sys.command("haxe build-js.hxml");
@@ -83,10 +85,12 @@ function main() {
 		Sys.command("node", args);
 		return;
 	}
-
-	process = new Process("hl", ["--version"]);
-	code = process.exitCode();
-	process.close();
+	code = 1;
+	try {
+		process = new Process("hl", ["--version"]);
+		code = process.exitCode();
+		process.close();
+	}catch(_) {}
 
 	if (code == 0) {
 		// run hashlink

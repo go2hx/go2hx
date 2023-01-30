@@ -806,7 +806,7 @@ final list = [
 	},
 	// stdgo/sync
 	"sync.Pool:get" => macro {
-		var obj = @:privateAccess _p.pool.pop(false);
+		var obj = @:define("!js",@:privateAccess _p.pool.pop()) @:privateAccess _p.pool.pop(false);
 		if (obj == null && @:privateAccess _p.new_ != null)
 			obj = @:privateAccess _p.new_();
 		return obj;
@@ -814,9 +814,9 @@ final list = [
 	"sync.Pool:put" => macro {
 		@:privateAccess _p.pool.push(_x);
 	},
-	"sync.Mutex:lock" => macro @:privateAccess _m.mutex.acquire(),
-	"sync.Mutex:tryLock" => macro @:privateAccess return _m.mutex.tryAcquire(),
-	"sync.Mutex:unlock" => macro @:privateAccess _m.mutex.release(),
+	"sync.Mutex:lock" => macro @:privateAccess @:define("!js") _m.mutex.acquire(),
+	"sync.Mutex:tryLock" => macro @:privateAccess return @:define("!js",true) _m.mutex.tryAcquire(),
+	"sync.Mutex:unlock" => macro @:privateAccess @:define("!js") _m.mutex.release(),
 	"sync.WaitGroup:add" => macro {
 		@:privateAccess _wg.counter += _delta;
 		if (@:privateAccess _wg.counter < 0)
@@ -825,10 +825,10 @@ final list = [
 	"sync.WaitGroup:done" => macro {
 		@:privateAccess _wg.counter--;
 		if (@:privateAccess _wg.counter <= 0) {
-			@:privateAccess _wg.lock.release();
+			@:privateAccess @:define("!js") _wg.lock.release();
 		}
 	},
-	"sync.WaitGroup:wait_" => macro @:privateAccess _wg.lock.wait(),
+	"sync.WaitGroup:wait_" => macro @:privateAccess @:define("!js") _wg.lock.wait(),
 	"sync.Once:do_" => macro {
 		if (@:privateAccess _o._done == 1)
 			return;
@@ -925,20 +925,20 @@ final structs = [
 	},
 	"sync:WaitGroup" => macro {
 		@:local
-		var lock = new sys.thread.Lock();
+		var lock = @:define("!js") new sys.thread.Lock();
 		var counter:GoUInt = 0;
 	},
 	"sync:Mutex" => macro {
 		@:local
-		var mutex = new sys.thread.Mutex();
+		var mutex = @:define("!js") new sys.thread.Mutex();
 	},
 	"sync:RWMutex" => macro {
 		@:local
-		var mutex = new sys.thread.Mutex();
+		var mutex = @:define("!js") new sys.thread.Mutex();
 	},
 	"sync:Pool" => macro {
 		@:local
-		var pool = new sys.thread.Deque<AnyInterface>();
+		var pool = @:define("!js",new Array<AnyInterface>()) new sys.thread.Deque<AnyInterface>();
 	},
 	"reflect:ValueError" => macro {
 		function toString():String {

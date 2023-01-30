@@ -33,7 +33,11 @@ class Printer extends haxe.macro.Printer {
 			case EMeta({name: ":define", params: params}, e):
 				switch params[0].expr {
 					case EConst(CString(s)):
-						'#if $s ' + printExpr(e) + " #else null #end";
+						if (params.length == 2) {
+							'#if $s ' + printExpr(e) + ' #else ${printExpr(params[1])} #end';
+						}else{
+							'#if $s ' + printExpr(e) + " #else null #end";
+						}
 					default:
 						throw "invalid param expr: " + params[0].expr;
 				}

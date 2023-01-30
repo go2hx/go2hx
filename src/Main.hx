@@ -490,7 +490,7 @@ function buildTarget(target:String, out:String, main:String):String {
 	if (index != -1)
 		main = main.substr(index + 1);
 	return switch target {
-		case "hl", "jvm", "cpp", "cs":
+		case "hl", "jvm", "cpp", "cs", "js":
 			'--$target $out';
 		case "interp":
 			"--interp";
@@ -512,6 +512,8 @@ function runTarget(target:String, out:String, args:Array<String>, main:String):S
 			'java -jar $out';
 		case "cpp":
 			"./" + out + "/" + main;
+		case "js":
+			'node $out';
 		default:
 			throw "unknown target: " + target;
 	};

@@ -5313,15 +5313,23 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		}
 		final className = "T_" + info.className + "_" + info.funcName + "_";
 		final call = macro $p{["$p{pack.concat([className])}", info.funcName]}($a{nameArgs});
+		final globalPath = getGlobalPath(info);
+		final defImportPath:Array<Expr> = [macro {pos: haxe.macro.Context.currentPos(), name: ${makeExpr(globalPath)}}];
+		if (stdgoList.indexOf(toGoPath(globalPath)) != -1) { // haxe only type, otherwise the go code refrences Haxe
+			defImportPath.unshift(macro {pos: haxe.macro.Context.currentPos(), name: "stdgo"});
+		}
+		defImportPath.push(macro {pos: haxe.macro.Context.currentPos(), name: ${makeExpr(info.global.filePath)}});
+		final defPack:Array<Expr> = ["stdgo", "internal", "generic"].concat(getGlobalPath(info).split(".")).map(s -> makeExpr(s));
 		block = macro {
 			final tds = [];
 			final block = @:macro $block;
 			var className = ${makeString(className)};
-			$b{extension};
-			final pack = ["stdgo", "internal", "generic", className.toLowerCase()];
+			final pack = $a{defPack};
+			pack.push(className.toLowerCase());
+			pack.push(${makeString(info.funcName)});
 			// $b{extensionDebug};
 			try {
-				haxe.macro.Context.getType(className);
+				haxe.macro.Context.getType(pack.concat([className]).join("."));
 			} catch (____exec____) {
 				final td:haxe.macro.Expr.TypeDefinition = {
 					name: className,
@@ -5345,7 +5353,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 				$b{nonGenericTypes};
 				tds.push(td);
 				// trace(new haxe.macro.Printer().printTypeDefinition(td));
-				haxe.macro.Context.defineModule(pack.concat([className]).join("."), tds, haxe.macro.Context.getLocalImports());
+				haxe.macro.Context.defineModule(pack.concat([className]).join("."), tds, haxe.macro.Context.getLocalImports().concat([{mode: INormal, path: $a{defImportPath}}]));
 			}
 			return @:macro $call;
 		};

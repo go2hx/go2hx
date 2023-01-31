@@ -5314,12 +5314,15 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		final className = "T_" + info.className + "_" + info.funcName + "_";
 		final call = macro $p{["$p{pack.concat([className])}", info.funcName]}($a{nameArgs});
 		final globalPath = getGlobalPath(info);
-		final defImportPath:Array<Expr> = [macro {pos: haxe.macro.Context.currentPos(), name: ${makeExpr(globalPath)}}];
+		final defImportPath:Array<Expr> = globalPath.split(".").map(s -> macro {pos: haxe.macro.Context.currentPos(), name: ${makeString(s)}});
 		if (stdgoList.indexOf(toGoPath(globalPath)) != -1) { // haxe only type, otherwise the go code refrences Haxe
 			defImportPath.unshift(macro {pos: haxe.macro.Context.currentPos(), name: "stdgo"});
 		}
 		defImportPath.push(macro {pos: haxe.macro.Context.currentPos(), name: ${makeExpr(info.global.filePath)}});
-		final defPack:Array<Expr> = ["stdgo", "internal", "generic"].concat(getGlobalPath(info).split(".")).map(s -> makeExpr(s));
+		final defPack:Array<Expr> = ["stdgo", "internal", "generic"].concat(globalPath.split(".")).map(s -> makeString(s));
+		//if (info.global.root != "") {
+		//	defPack.unshift(makeString(info.global.root));
+		//}
 		block = macro {
 			final tds = [];
 			final block = @:macro $block;

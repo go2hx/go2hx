@@ -2962,9 +2962,13 @@ private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
 				return return (macro @:define("!macro") Go.typeFunction($x($a{args}))).expr;
 			}
 			return (macro @:define("!macro") Go.typeFunction($x)).expr;
+		case typeParam(_, _):
+			// nothing
+			index = macro @:param_index $index;
 		default:
 			trace("invalid_index: " + t);
 			trace(expr.x);
+			trace(hashTypeToExprType(expr.x.type,info));
 			trace(typeExprType(expr.x,info));
 			throw "invalid index";
 	}

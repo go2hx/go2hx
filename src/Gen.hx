@@ -29,6 +29,22 @@ function create(outputPath:String, module:Module, root:String) {
 		var macroFields:Array<haxe.macro.Expr.Field> = [];
 		for (def in file.defs) {
 			macroFields = [];
+			switch def.kind {
+				case TDField(kind, access):
+					if (access != null && access.indexOf(AMacro) != -1) {
+						switch kind {
+							case FFun(f):
+								final isExtern = def.isExtern;
+								def.isExtern = true;
+								hasMacroDef = true;
+								macroContent += Typer.printer.printTypeDefinition(def, false) + "\n";
+								def.isExtern = isExtern;
+								f.expr = null;
+							default:
+						}
+					}
+				default:
+			}
 			for (field in def.fields) {
 				if (field.access != null && field.access.indexOf(AMacro) != -1) {
 					switch field.kind {

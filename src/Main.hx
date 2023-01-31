@@ -523,7 +523,6 @@ function runTarget(target:String, out:String, args:Array<String>, main:String):S
 }
 
 function compile(instance:InstanceData):Bool {
-	LibAnalyzer.init();
 	if (instance.localPath == "")
 		instance.localPath = instance.args[instance.args.length - 1];
 	var httpsString = "https://";
@@ -535,7 +534,6 @@ function compile(instance:InstanceData):Bool {
 			path = path.substr(httpsString.length);
 			instance.args[i] = path;
 		}
-		LibAnalyzer.list(path,LibAnalyzer.lib(path,false),false);
 
 		if (Path.extension(path) == "go" || path.charAt(0) == "." || path.indexOf("/") == -1)
 			continue;

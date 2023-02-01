@@ -2140,7 +2140,7 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 		return expr;
 
 	if (isGeneric(toType)) {
-		y = macro @:define("!macro") Go.typeFunction($y);
+		y = macro Go.typeFunction($y);
 	}
 
 	switch fromType {
@@ -2710,6 +2710,8 @@ private function typeExprType(expr:Dynamic, info:Info):ComplexType { // get the 
 		case "IndexExpr": return indexType(expr, info); // t type
 		case "IndexListExpr": return indexListType(expr, info);
 		case "BinaryExpr": return binaryType(expr, info); // Union type
+		case "HashType": return typeExprType(hashTypeToExprType(expr,info),info);
+		case "BasicLit": return toComplexType(typeof(expr.type, info, false, []),info);
 		default:
 			throw "Type expr unknown: " + expr.id;
 			null;
@@ -2925,9 +2927,9 @@ private function typeIndexListExpr(expr:Ast.IndexListExpr, info:Info):ExprDef {
 		case signature(_, _.get() => params, _, _, _.get() => typeParams):
 			final args = genericIndices(expr.indices, params, typeParams, info);
 			if (args.length > 0) {
-				return return (macro @:define("!macro") Go.typeFunction($x($a{args}))).expr;
+				return return (macro Go.typeFunction($x($a{args}))).expr;
 			}
-			return (macro @:define("!macro") Go.typeFunction($x)).expr;
+			return (macro Go.typeFunction($x)).expr;
 		default:
 	}
 	return (macro $x).expr;
@@ -2959,9 +2961,9 @@ private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
 		case signature(_, _.get() => params, _, _, _.get() => typeParams): // generic param
 			final args = genericIndices([expr.index], params, typeParams, info);
 			if (args.length > 0) {
-				return return (macro @:define("!macro") Go.typeFunction($x($a{args}))).expr;
+				return return (macro Go.typeFunction($x($a{args}))).expr;
 			}
-			return (macro @:define("!macro") Go.typeFunction($x)).expr;
+			return (macro Go.typeFunction($x)).expr;
 		case typeParam(_, _):
 			// nothing
 			index = macro @:param_index $index;
@@ -3188,7 +3190,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 									e = macro $e.value;
 								e = macro $e.$sel($a{args});
 								if (genericBool)
-									e = macro @:define("!macro") $e;
+									e = macro $e;
 								return returnExpr(e);
 							}
 						default:
@@ -3383,7 +3385,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		genArgs(true, 0);
 	e = macro $e($a{args});
 	if (genericBool)
-		e = macro @:define("!macro") $e;
+		e = macro $e;
 	return returnExpr(e);
 }
 
@@ -3988,7 +3990,7 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 			if (params.length == 1 && isAnyInterface(params[0])) {
 				TPath({name: "Dynamic", pack: []});
 			}else{
-				TPath({name: name, pack: []});
+				TPath({name: name, pack: [], params: [for (param in params) TPType(toComplexType(param,info))]});
 			}
 		default:
 			throw "unknown goType to complexType: " + e;
@@ -4087,7 +4089,7 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 			default:
 				EConst(CInt(expr.value));
 		});
-		final ct = toComplexType(t, info);
+		final ct = typeExprType(expr,info);//toComplexType(t, info);
 		if (hasTypeParam(ct)) {
 			e.expr;
 		} else {
@@ -4351,8 +4353,8 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 	if (expr.type == null)
 		return (macro @:invalid_compositelit_null null).expr;
 	var type = typeof(expr.type, info, false);
-	// var ct = typeExprType(expr.type, info);
-	var ct = toComplexType(type, info);
+	var ct = typeExprType(expr.type, info);
+	//var ct = toComplexType(type, info);
 	final e = compositeLit(type, ct, expr, info);
 	// trace(printer.printExpr({expr: e, pos: null}));
 	return e;
@@ -4450,14 +4452,9 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 					var e = toExpr(EObjectDecl(objectFields));
 					return (macro($e : $ct)).expr;
 				} else {
-					switch ct {
-						case TAnonymous(_):
-							return (macro @:unknown_anon_compositelit null).expr;
-						default:
-					}
 					final p = getTypePath(ct);
 					final b = hasTypeParam(ct);
-					p.params = null;
+					//p.params = null;
 					final e = macro new $p($a{args});
 					if (b) {
 						return e.expr;
@@ -5102,6 +5099,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		if (Patch.funcInline.indexOf(patchName) != -1 && access.indexOf(AInline) == -1)
 			access.push(AInline);
 	}
+	final identifierNames:Array<String> = [];
 	var nonGenericParams:Array<TypeParamDecl> = []; // params
 	if (decl.type.typeParams != null || recvGeneric) {
 		for (arg in args) {
@@ -5134,20 +5132,9 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 								nonGenericParams.push({
 									name: p.name,
 								});
-								nonGenericTypes.push(macro {
-									final t:haxe.macro.Expr.ComplexType = ${complexTypeToExpr(t)};
-									final pos = haxe.macro.Context.currentPos();
-									final td:haxe.macro.Expr.TypeDefinition = {
-										name: $e{makeExpr(p.name)},
-										pos: pos,
-										pack: [],
-										fields: [],
-										meta: [{name: ":follow", pos: pos}],
-										kind: TDAlias(t),
-									};
-									// trace(new haxe.macro.Printer().printTypeDefinition(td));
-									tds.push(td);
-								});
+								final typeName = p.name;
+								identifierNames.push(typeName);
+								nonGenericTypes.push(macro final $typeName:haxe.macro.Expr.ComplexType = ${complexTypeToExpr(t)});
 							default:
 								throw "issue";
 						}
@@ -5186,10 +5173,6 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 			for (arg in args)
 				macro $i{"$" + arg.name}
 		];
-		final extension = [
-			for (arg in args)
-				macro className += haxe.macro.Context.signature(haxe.macro.Context.toComplexType(haxe.macro.Context.typeof($i{arg.name}))) + "_"
-		];
 		final genericNames = params == null ? [] : params.map(param -> param.name);
 		final genericTypes = [];
 		function findGeneric(name:String, reverse:Array<Int>, t:ComplexType) {
@@ -5215,11 +5198,11 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 								case TInst(_,params), TType(_,params):
 									for (i in 0...params.length) {
 										params[i] = switch params[i] {
-											case TMono(_.get() => t):
-												if (t == null) {
-													TDynamic(null);
+											case TMono(_.get() => mono):
+												if (mono == null) {
+													throw "Param TMONO null: " + t; 
 												}else{
-													t;
+													mono;
 												}
 											default:
 												params[i];
@@ -5246,19 +5229,9 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 							};
 							// e = macro($e[$e{makeExpr(index)}].getParameters()[0] : haxe.macro.Expr.ComplexType);
 						}
-						genericTypes.push(macro {
-							final t:haxe.macro.Expr.ComplexType = $e;
-							final pos = haxe.macro.Context.currentPos();
-							final td:haxe.macro.Expr.TypeDefinition = {
-								name: $e{makeExpr(genericName)},
-								pos: pos,
-								pack: [],
-								fields: [],
-								meta: [{name: ":follow", pos: pos}],
-								kind: TDAlias(t),
-							};
-							tds.push(td);
-						});
+						final typeName = genericName;
+						identifierNames.push(typeName);
+						genericTypes.push(macro final $typeName:haxe.macro.Expr.ComplexType = $e);
 						genericNames.remove(genericName);
 					}
 				default:
@@ -5315,55 +5288,119 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 				}
 			}
 		}
-		final className = "T_" + info.className + "_" + info.funcName + "_";
-		final call = macro $p{["$p{pack.concat([className])}", info.funcName]}($a{nameArgs});
-		final globalPath = getGlobalPath(info);
-		final defImportPath:Array<Expr> = globalPath.split(".").map(s -> macro {pos: haxe.macro.Context.currentPos(), name: ${makeString(s)}});
-		if (stdgoList.indexOf(toGoPath(globalPath)) != -1) { // haxe only type, otherwise the go code refrences Haxe
-			defImportPath.unshift(macro {pos: haxe.macro.Context.currentPos(), name: "stdgo"});
-		}
-		defImportPath.push(macro {pos: haxe.macro.Context.currentPos(), name: ${makeExpr(info.global.filePath)}});
-		final defPack:Array<Expr> = ["stdgo", "internal", "generic"].concat(globalPath.split(".")).map(s -> makeString(s));
-		//if (info.global.root != "") {
-		//	defPack.unshift(makeString(info.global.root));
-		//}
-		block = macro {
-			final tds = [];
-			final block = @:macro $block;
-			var className = ${makeString(className)};
-			final pack = $a{defPack};
-			pack.push(className.toLowerCase());
-			pack.push(${makeString(info.funcName)});
-			// $b{extensionDebug};
-			try {
-				haxe.macro.Context.getType(pack.concat([className]).join("."));
-			} catch (____exec____) {
-				final td:haxe.macro.Expr.TypeDefinition = {
-					name: className,
-					pos: haxe.macro.Context.currentPos(),
-					pack: [],
-					fields: [
-						{
-							name: ${makeString(info.funcName)},
-							pos: haxe.macro.Context.currentPos(),
-							kind: FFun({
-								expr: block,
-								args: $a{funcArgs},
-								ret: $retExpr,
-							}),
-							access: [APublic, AStatic],
-						}
-					],
-					kind: TDClass(),
-				};
-				$b{genericTypes};
-				$b{nonGenericTypes};
-				tds.push(td);
-				// trace(new haxe.macro.Printer().printTypeDefinition(td));
-				haxe.macro.Context.defineModule(pack.concat([className]).join("."), tds, haxe.macro.Context.getLocalImports().concat([{mode: INormal, path: $a{defImportPath}}]));
+		final funcName = info.funcName;
+		final funcArgs = args.map(arg -> {
+			final t = switch arg.type {
+				case TPath(p):
+					switch p.params[0] {
+						case TPType(t):
+							t;
+						default:
+							throw "invalid p param";
+					}
+				default:
+					throw "invalid p not TPath";
+			};
+			({
+				name: arg.name,
+				opt: arg.opt,
+				meta: arg.meta,
+				value: arg.value,
+				type: t, 
+			} : FunctionArg);
+		});
+		final func = toExpr(EFunction(FNamed("f",false),{
+			args: funcArgs,
+			expr: block,
+		}));
+		function setGenericParam(t:TypeParamDecl):TypeParamDecl {
+			if (t == null)
+				return t;
+			var name = t.name;
+			if (identifierNames.indexOf(t.name) != -1) {
+				name = "$" + t.name;
 			}
-			return @:macro $call;
-		};
+			return {
+				params: t.params == null ? [] : [for (param in t.params) setGenericParam(param)],
+				name: name,
+				meta: t.meta,
+				constraints: t.constraints,
+			};
+		}
+		function setGenericType(t:ComplexType):ComplexType {
+			if (t == null)
+				return t;
+			switch t {
+				case TPath(p):
+					var params:Array<TypeParam> = [];
+					if (p.params != null) {
+						params = [for (param in p.params) {
+							if (param == null) {
+								null;
+							}else{
+								switch param {
+									case TPType(t):
+										TPType(setGenericType(t));
+									default:
+										param;
+								}
+							}
+						}];
+					}
+					if (p.pack.length == 0 && identifierNames.indexOf(p.name) != -1) {
+						return TPath({
+							name: "$" + p.name,
+							sub: p.sub,
+							pack: [],
+							params: params,
+						});
+					}else{
+						return TPath({
+							name: p.name,
+							sub: p.sub,
+							pack: p.pack,
+							params: params,
+						});
+					}
+				default:
+			}
+			return t;
+		}
+		function findGenericTypes(e:Expr) {
+			switch e.expr {
+				case ENew(t,_):
+					setGenericType(TPath(t));
+				case EFunction(_,f):
+					f.ret = setGenericType(f.ret);
+					f.args = [for (arg in f.args) {
+						value: arg.value,
+						opt: arg.opt,
+						name: arg.name,
+						meta: arg.meta,
+						type: setGenericType(arg.type),
+					}];
+					if (f.params != null) {
+						f.params = [for (param in f.params) setGenericParam(param)];
+					}
+					haxe.macro.ExprTools.iter(f.expr,findGenericTypes);
+				case ECheckType(_,t), EIs(_,t):
+					setGenericType(t);
+				case EVars(vars):
+					for (v in vars) {
+						setGenericType(v.type);
+					}
+				default:
+					haxe.macro.ExprTools.iter(e,findGenericTypes);
+			}
+		}
+		findGenericTypes(func);
+		var call = macro f($a{nameArgs});
+		block = macro $b{genericTypes.concat(nonGenericTypes).concat([macro {
+			return @:macro {
+				$func;
+				$call;
+			}
+		}])};
 	}
 	/*if (name == "main" && info.data.isMain) {
 		switch block.expr {

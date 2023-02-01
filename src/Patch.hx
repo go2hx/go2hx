@@ -328,7 +328,7 @@ final list = [
 					if (StringTools.endsWith(name,"_asInterface"))
 						value = (value : Dynamic).__underlying__().value;
 				default:
-					var _ = 0;
+					final _ = false;
 	
 			}
 		}
@@ -368,7 +368,7 @@ final list = [
 					if (StringTools.endsWith(name,"_asInterface"))
 						value = (value : Dynamic).__underlying__().value;
 				default:
-					var _ = 0;
+					final _ = false;
 	
 			}
 		}
@@ -378,7 +378,7 @@ final list = [
 			case stdgo.internal.reflect.Reflect.GoType.named(path, methods, stdgo.internal.reflect.Reflect.GoType.arrayType(elem,_), alias, params):
 				t = stdgo.internal.reflect.Reflect.GoType.named(path, methods, stdgo.internal.reflect.Reflect.GoType.sliceType(elem), alias, params);
 			default:
-				var _ = 0;
+				final _ = false;
 		};
 		final k = _v.kind();
 		value = switch k {
@@ -402,7 +402,7 @@ final list = [
 					if (StringTools.endsWith(name,"_asInterface"))
 						value = (value : Dynamic).__underlying__().value;
 				default:
-					var _ = 0;
+					final _ = false;
 	
 			}
 		}
@@ -445,7 +445,7 @@ final list = [
 					if (StringTools.endsWith(name,"_asInterface"))
 						value = (value : Dynamic).__underlying__().value;
 				default:
-					var _ = 0;
+					final _ = false;
 	
 			}
 		}
@@ -471,7 +471,7 @@ final list = [
 					if (StringTools.endsWith(name,"_asInterface"))
 						value = (value : Dynamic).__underlying__().value;
 				default:
-					var _ = 0;
+					final _ = false;
 	
 			}
 		}
@@ -507,7 +507,7 @@ final list = [
 					if (StringTools.endsWith(name,"_asInterface"))
 						value = (value : Dynamic).__underlying__().value;
 				default:
-					var _ = 0;
+					final _ = false;
 	
 			}
 		}
@@ -535,7 +535,7 @@ final list = [
 					if (StringTools.endsWith(name,"_asInterface"))
 						value = (value : Dynamic).__underlying__().value;
 				default:
-					var _ = 0;
+					final _ = false;
 	
 			}
 		}
@@ -570,7 +570,7 @@ final list = [
 					if (StringTools.endsWith(name,"_asInterface"))
 						value = (value : Dynamic).__underlying__().value;
 				default:
-					var _ = 0;
+					final _ = false;
 	
 			}
 		}
@@ -628,7 +628,7 @@ final list = [
 							std.Reflect.setField(value, field.name, fieldValue);
 						}
 					default:
-						var _ = 0;
+						final _ = false;
 				};
 			case stdgo.internal.reflect.Reflect.KindType.int8:
 				_v.setInt((value : GoInt8));
@@ -667,7 +667,7 @@ final list = [
 					if (StringTools.endsWith(name,"_asInterface"))
 						value = (value : Dynamic).__underlying__().value;
 				default:
-					var _ = 0;
+					final _ = false;
 	
 			}
 		}
@@ -682,10 +682,10 @@ final list = [
 					case string_kind:
 						return value;
 					default:
-						var _ = 0;
+						final _ = false;
 				};
 			default:
-				var _ = 0;
+				final _ = false;
 		};
 		return "<" + _v.type().string() + ">";
 	},
@@ -734,7 +734,7 @@ final list = [
 						value = (value : Dynamic).__underlying__().value;
 					}
 				default:
-					var _ = 0;
+					final _ = false;
 	
 			}
 		}
@@ -762,7 +762,7 @@ final list = [
 						@:privateAccess value.canAddrBool = true;
 						return value;
 					default:
-						var _ = 0;
+						final _ = false;
 				};
 			case stdgo.internal.reflect.Reflect.KindType.interface_:
 				if (value == null)

@@ -2140,7 +2140,6 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 
 	if (fromType == null)
 		return expr;
-
 	if (isGeneric(toType)) {
 		y = macro Go.typeFunction($y);
 	}
@@ -3151,8 +3150,11 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		}
 		return returnExpr(checkType(e, ct, fromType, toType, info));
 	}
-	var genericBool = false;
 	switch expr.fun.id {
+		case "IndexExpr", "IndexListExpr":
+			var expr = typeExpr(expr.fun.x, info);
+			genArgs(true);
+			return (macro $expr($a{args})).expr;
 		case "ArrayType":
 			return typeAssertExpr({
 				type: expr.fun,
@@ -3162,7 +3164,6 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 			}, info);
 		case "SelectorExpr":
 			final selType = typeof(expr.fun, info, false);
-			genericBool = isGeneric(selType);
 			switch selType {
 				case signature(_, params, results, _):
 					final recv = typeof(expr.fun.recv, info, false);
@@ -3191,8 +3192,6 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 								if (xTypePointer)
 									e = macro $e.value;
 								e = macro $e.$sel($a{args});
-								if (genericBool)
-									e = macro $e;
 								return returnExpr(e);
 							}
 						default:
@@ -3386,8 +3385,6 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	if (args.length == 0)
 		genArgs(true, 0);
 	e = macro $e($a{args});
-	if (genericBool)
-		e = macro $e;
 	return returnExpr(e);
 }
 
@@ -4091,7 +4088,7 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 			default:
 				EConst(CInt(expr.value));
 		});
-		final ct = typeExprType(expr,info);//toComplexType(t, info);
+		final ct = toComplexType(t, info);
 		if (hasTypeParam(ct)) {
 			e.expr;
 		} else {
@@ -4355,8 +4352,8 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 	if (expr.type == null)
 		return (macro @:invalid_compositelit_null null).expr;
 	var type = typeof(expr.type, info, false);
-	var ct = typeExprType(expr.type, info);
-	//var ct = toComplexType(type, info);
+	// var ct = typeExprType(expr.type, info);
+	var ct = toComplexType(type, info);
 	final e = compositeLit(type, ct, expr, info);
 	// trace(printer.printExpr({expr: e, pos: null}));
 	return e;
@@ -5171,10 +5168,6 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 			}
 		];
 		final retExpr = macro haxe.macro.Context.getExpectedType() == null ? null : haxe.macro.Context.toComplexType(haxe.macro.Context.getExpectedType());
-		final nameArgs = [
-			for (arg in args)
-				macro $i{"$" + arg.name}
-		];
 		final genericNames = params == null ? [] : params.map(param -> param.name);
 		final genericTypes = [];
 		function findGeneric(name:String, reverse:Array<Int>, t:ComplexType) {
@@ -5389,13 +5382,17 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 					setGenericType(t);
 				case EVars(vars):
 					for (v in vars) {
-						setGenericType(v.type);
+						v.type = setGenericType(v.type);
 					}
 				default:
 					haxe.macro.ExprTools.iter(e,findGenericTypes);
 			}
 		}
 		findGenericTypes(func);
+		final nameArgs = [
+			for (arg in args)
+				macro $i{"$" + arg.name}
+		];
 		var call = macro f($a{nameArgs});
 		block = macro $b{genericTypes.concat(nonGenericTypes).concat([macro {
 			return @:macro {

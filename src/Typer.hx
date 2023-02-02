@@ -5421,6 +5421,8 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	if (nonGenericParams.length > 0) {
 		params = params.concat(nonGenericParams);
 	}
+	if (!isTitle(decl.name.name))
+		access.push(APrivate);
 	final def:TypeDefinition = {
 		name: name,
 		pos: null,
@@ -5428,7 +5430,6 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		fields: [],
 		doc: info.global.noCommentsBool ? "" : finalDoc,
 		meta: meta,
-		isExtern: isTitle(decl.name.name),
 		kind: TDField(FFun({
 			ret: ret,
 			expr: block,

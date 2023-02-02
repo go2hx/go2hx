@@ -122,6 +122,8 @@ class Printer extends haxe.macro.Printer {
 		switch t.kind {
 			case TDAbstract(tthis, from, to):
 				return super.printTypeDefinition(t, printPackage);
+			case TDField(kind, access):
+				return super.printTypeDefinition(t, printPackage);
 			default:
 		}
 		var old = tabs;
@@ -160,14 +162,6 @@ class Printer extends haxe.macro.Printer {
 						case _: printComplexType(ct);
 					})
 					+ ";";
-				case TDField(kind, access):
-					tabs = old;
-					(access != null && access.length > 0 ? access.map(printAccess).join(" ") + " " : "")
-					+ switch (kind) {
-						case FVar(type, eo): ((access != null && access.indexOf(AFinal) != -1) ? '' : 'var ') + '${t.name}' + opt(type, printComplexType, " : ") + opt(eo, printExpr, " = ") + ";";
-						case FProp(get, set, type, eo): 'var ${t.name}($get, $set)' + opt(type, printComplexType, " : ") + opt(eo, printExpr, " = ") + ";";
-						case FFun(func): 'function ${t.name}' + printFunction(func) + switch func.expr { case {expr: EBlock(_)}: ""; case _: ";"; };
-					}
 				default:
 					return super.printTypeDefinition(t, printPackage);
 			}

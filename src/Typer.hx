@@ -585,8 +585,10 @@ private function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Arr
 	var staticFieldExpr:Expr = {expr: fun.expr.expr, pos: null};
 	final staticFieldAccess = access.copy();
 	staticFieldAccess.push(AStatic);
-	if (staticFieldAccess.indexOf(APublic) == -1)
+	if (staticFieldAccess.indexOf(APublic) == -1) {
+		staticFieldAccess.remove(APrivate);
 		staticFieldAccess.push(APublic);
+	}
 	// trace(staticArgs.map(arg -> printer.printFunctionArg(arg)));
 	final staticField:Field = {
 		name: funcName,

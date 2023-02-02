@@ -3152,9 +3152,15 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	}
 	switch expr.fun.id {
 		case "IndexExpr", "IndexListExpr":
-			var expr = typeExpr(expr.fun.x, info);
-			genArgs(true);
-			return (macro $expr($a{args})).expr;
+			var t = typeof(expr.fun.x, info, false);
+			t = getUnderlyingRefNamed(t);
+			switch t {
+				case signature(_, _, _, _, _): // generic param
+					final expr = typeExpr(expr.fun.x, info);
+					genArgs(true);
+					return (macro $expr($a{args})).expr;
+				default:
+			}
 		case "ArrayType":
 			return typeAssertExpr({
 				type: expr.fun,

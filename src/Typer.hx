@@ -2270,6 +2270,17 @@ private function replaceInvalidType(t:GoType, replace:GoType):GoType {
 	}
 }
 
+private function isTypeParam(t:GoType):Bool {
+	return switch t {
+		case _var(_,_.get() => t):
+			isTypeParam(t);
+		case typeParam(_,_):
+			true;
+		default:
+			false;
+	}
+}
+
 private function isGeneric(t:GoType):Bool {
 	if (t == null)
 		return false;
@@ -3415,10 +3426,34 @@ private function genericIndices(indices:Array<Ast.Expr>, params:Array<GoType>, t
 	for (i in 0...argTypes.length) {
 		for (genericExpr in genericExprs) {
 			final a = argTypes[i];
-			final b = typeExprType(genericExpr, info);
-			if (compareComplexType(a, b)) { // checking if arg already has type matching for macro to use
-				genericExprs.remove(genericExpr);
-				break;
+			final b = typeExprType(genericExpr,info);
+			switch a {
+				case TPath(p):
+					if (isTypeParam(params[i])) {
+						if (p.params == null) {
+							genericExprs.remove(genericExpr);
+							break;
+						}
+						var next = false;
+						for (param in p.params) {
+							switch param {
+								case TPType(a):
+									if (compareComplexType(a, b)) { // checking if arg already has type matching for macro to use
+										genericExprs.remove(genericExpr);
+										break;
+									}
+								default:
+							}
+						}
+						if (next)
+							break;
+					}else{
+						if (compareComplexType(a, b)) { // checking if arg already has type matching for macro to use
+							genericExprs.remove(genericExpr);
+							break;
+						}
+					}
+				default:
 			}
 		}
 	}
@@ -3547,22 +3582,31 @@ private function getLocalType(hash:UInt, underlying:GoType, info:Info):GoType {
 	return info.locals.exists(hash) ? info.locals.get(hash) : underlying;
 }
 
-private function getTuple(e:Dynamic, info:Info):Array<GoType> {
-	if (e == null)
-		return [];
-	var vars:Array<Dynamic> = e.vars;
+private function getTuple(vars:Array<Dynamic>, info:Info):Array<GoType> {
 	var tuples:Array<GoType> = [];
+	if (vars == null)
+		return [];
 	var index = 0;
 	for (v in vars) {
 		final t = typeof(v.type, info, false);
-		if (t == invalidType)
-			trace("v:", v.type.id, "\n", t);
-		if (v.name == "_" || v.name == "") {
-			tuples.push(_var("_" + index, {get: () -> t}));
-			index++;
-			continue;
+		if (v.names != null) {
+			if (v.names.length == 0) {
+				tuples.push(t);
+				continue;
+			}
+			for (name in (v.names : Array<String>)) {
+				tuples.push(_var(name,{get: () -> t}));
+			}
+		}else{
+			if (t == invalidType)
+				trace("v:", v.type.id, "\n", t);
+			if (v.name == "_" || v.name == "") {
+				tuples.push(_var("_" + index, {get: () -> t}));
+				index++;
+				continue;
+			}
+			tuples.push(_var(v.name, {get: () -> t}));
 		}
-		tuples.push(_var(v.name, {get: () -> t}));
 	}
 	return tuples;
 }
@@ -3587,15 +3631,16 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 		case "HashType":
 			typeof(info.global.hashMap[e.hash], info, isNamed, paths.copy());
 		case "TypeParam":
-			if (e.constraint != null && e.constraint.embeds == null) {
-				e.constraint = e.constraint.underlying;
+			var constraint = hashTypeToExprType(e.constraint,info);
+			if (constraint != null && constraint.embeds == null) {
+				constraint = hashTypeToExprType(constraint.underlying, info);
 			}
-			if (e.constraint == null || e.constraint.embeds == null || e.constraint.embeds.length == 0) {
+			if (constraint == null || constraint.embeds == null || constraint.embeds.length == 0) {
 				typeParam(e.name, [interfaceType(true, [])]);
 			} else {
-				final terms:Array<Dynamic> = e.constraint.embeds[0].terms;
+				final terms:Array<Dynamic> = hashTypeToExprType(constraint.embeds[0], info).terms;
 				if (terms == null) {
-					typeof(e.constraint.embeds[0], info, false, paths.copy());
+					typeof(constraint.embeds[0], info, false, paths.copy());
 				} else {
 					typeParam(e.name, [
 						for (term in terms) {
@@ -3605,14 +3650,14 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 				}
 			}
 		case "Signature":
-			final params = {get: () -> getTuple(hashTypeToExprType(e.params, info), info)};
-			final results = {get: () -> getTuple(hashTypeToExprType(e.results, info), info)};
+			final params = {get: () -> getTuple(hashTypeToExprType(e.params, info)?.vars, info)};
+			final results = {get: () -> getTuple(hashTypeToExprType(e.results, info)?.vars, info)};
 			final recv = {get: () -> typeof(e.recv, info, false, paths.copy())};
 			final sigTypeParams:Array<Dynamic> = e.typeParams;
 			final typeParams = {
 				get: () -> {
 					final typeParams = [];
-					if (sigTypeParams != null && sigTypeParams.length > 0) {
+					if (sigTypeParams != null) {
 						for (param in sigTypeParams) {
 							typeParams.push(typeof(param, info, false, paths.copy()));
 						}
@@ -3743,7 +3788,7 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 		case null:
 			return invalidType;
 		case "CallExpr":
-			var e:Ast.CallExpr = e;
+			final e:Ast.CallExpr = e;
 			var type = typeof(e.type, info, false, paths.copy());
 			switch type {
 				case signature(_, _, _.get() => results, _):
@@ -3754,13 +3799,13 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 		case "BasicLit":
 			typeof(e.type, info, false, paths.copy());
 		case "Ident":
-			var e:Ast.Ident = e;
+			final e:Ast.Ident = e;
 			typeof(e.type, info, false, paths.copy());
 		case "CompositeLit":
-			var e:Ast.CompositeLit = e;
+			final e:Ast.CompositeLit = e;
 			typeof(e.type, info, false, paths.copy());
 		case "SelectorExpr":
-			var e:Ast.SelectorExpr = e;
+			final e:Ast.SelectorExpr = e;
 			var t = typeof(e.type, info, false, paths.copy());
 			if (e.recv != null) {
 				final recv = typeof(e.recv, info, false, paths.copy());
@@ -3774,20 +3819,20 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 			}
 			t;
 		case "IndexExpr":
-			var e:Ast.IndexExpr = e;
+			final e:Ast.IndexExpr = e;
 			typeof(e.type, info, false, paths.copy());
 		case "IndexListExpr":
-			var e:Ast.IndexListExpr = e;
+			final e:Ast.IndexListExpr = e;
 			typeof(e.type, info, false, paths.copy());
 
 		case "BinaryExpr":
-			var e:Ast.BinaryExpr = e;
+			final e:Ast.BinaryExpr = e;
 			typeof(e.type, info, false, paths.copy());
 		case "StarExpr":
-			var e:Ast.StarExpr = e;
+			final e:Ast.StarExpr = e;
 			typeof(e.type, info, false, paths.copy());
 		case "UnaryExpr":
-			var e:Ast.UnaryExpr = e;
+			final e:Ast.UnaryExpr = e;
 			switch e.op {
 				case ARROW:
 					getElem(typeof(e.x, info, false, paths.copy()));
@@ -3797,37 +3842,58 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 					typeof(e.x, info, false, paths.copy());
 			}
 		case "TypeAssertExpr":
-			var e:Ast.TypeAssertExpr = e;
+			final e:Ast.TypeAssertExpr = e;
 			typeof(e.type, info, false, paths.copy());
 		case "FuncLit":
 			var e:Ast.FuncLit = e;
 			typeof(e.type.type, info, false, paths.copy());
 		case "KeyValueExpr":
-			var e:Ast.KeyValueExpr = e;
+			final e:Ast.KeyValueExpr = e;
 			mapType({get: () -> typeof(e.key, info, false, paths.copy())}, {get: () -> typeof(e.value, info, false, paths.copy())});
 		case "SliceExpr":
-			var e:Ast.SliceExpr = e;
+			final e:Ast.SliceExpr = e;
 			typeof(e.type, info, false, paths.copy());
 		case "ParenExpr":
-			var e:Ast.ParenExpr = e;
+			final e:Ast.ParenExpr = e;
 			typeof(e.x, info, false, paths.copy());
 		case "InterfaceType":
 			typeof(e.type, info, false, paths.copy());
 		case "ArrayType":
-			var e:Ast.ArrayType = e;
-			typeof(e.type, info, false, paths.copy());
+			final e:Ast.ArrayType = e;
+			final elem = typeof(e.elt,info,false,paths.copy());
+			final id = hashTypeToExprType(e.type,info).id;
+			switch id {
+				case "Array":
+					final len = switch e.len.id {
+						case "BasicLit":
+							Std.parseInt(e.len.value);
+						default:
+							-1;
+					}
+					arrayType({get: () -> elem},len);
+				case "Slice":
+					sliceType({get: () -> elem});
+				default:
+					throw "unknown Array id: " + id;
+			}
 		case "MapType":
-			var e:Ast.MapType = e;
-			mapType({get: () -> typeof(e.key, info, false, paths.copy())}, {get: () -> typeof(e.value, info, false, paths.copy())});
+			final e:Ast.MapType = e;
+			final keyType = typeof(e.key,info,false,paths.copy());
+			final valueType = typeof(e.value,info,false,paths.copy());
+			mapType({get: () -> keyType}, {get: () -> valueType});
 		case "ChanType":
-			var e:Ast.ChanType = e;
-			typeof(e.type, info, false, paths.copy());
+			final e:Ast.ChanType = e;
+			chanType(e.type.dir,{get: () -> typeof(e.value,info,false,paths.copy())});
 		case "StructType":
-			var e:Ast.StructType = e;
-			typeof(e.type, info, false, paths.copy());
+			final e:Ast.StructType = e;
+			structType(typeFieldListFieldTypes(e.fields,info));
 		case "FuncType":
-			var e:Ast.FuncType = e;
-			typeof(e.type, info, false, paths.copy());
+			final e:Ast.FuncType = e;
+			final params = {get: () -> getTuple(hashTypeToExprType(e.params.list, info), info)};
+			final results = e.results == null ? {get: () -> []} : {get: () -> getTuple(hashTypeToExprType(e.results.list, info), info)};
+			final recv = {get: () -> typeof(e.type.recv, info, false, paths.copy())};
+			signature(e.type.variadic,params,results,recv,params);
+			//typeof(e.type, info, false, paths.copy());
 		default:
 			throw "unknown typeof expr: " + e.id;
 	}
@@ -3991,12 +4057,9 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 		case _var(_, _.get() => type):
 			toComplexType(type, info);
 		case typeParam(name, params):
-			// TPath({name: name, pack: []});
-			if (params.length == 1 && isAnyInterface(params[0])) {
-				TPath({name: "Dynamic", pack: []});
-			}else{
-				TPath({name: name, pack: [], params: [for (param in params) TPType(toComplexType(param,info))]});
-			}
+			trace(params);
+			final p = namedTypePath(name, info);
+			TPath(p);
 		default:
 			throw "unknown goType to complexType: " + e;
 	}
@@ -4358,8 +4421,8 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 	if (expr.type == null)
 		return (macro @:invalid_compositelit_null null).expr;
 	var type = typeof(expr.type, info, false);
-	// var ct = typeExprType(expr.type, info);
-	var ct = toComplexType(type, info);
+	var ct = typeExprType(expr.type, info);
+	//var ct = toComplexType(type, info);
 	final e = compositeLit(type, ct, expr, info);
 	// trace(printer.printExpr({expr: e, pos: null}));
 	return e;
@@ -4405,11 +4468,19 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 			var fields = fields.copy();
 			var isAlias = false;
 			switch type {
-				case named(path, _, _, alias,_):
+				case named(_, _, _, alias,_):
 					if (alias) {
 						isAlias = true;
 					}
 				default:
+			}
+			if (!isAlias) {
+				switch ct {
+					case TPath(p):
+						if (p.pack.length == 0 && StringTools.startsWith(p.name,"T__struct_"))
+							isAlias = true;
+					default:
+				}
 			}
 			if (keyValueBool) {
 				for (field in fields) {
@@ -4459,7 +4530,6 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 				} else {
 					final p = getTypePath(ct);
 					final b = hasTypeParam(ct);
-					//p.params = null;
 					final e = macro new $p($a{args});
 					if (b) {
 						return e.expr;
@@ -4562,7 +4632,7 @@ private function compositeLitList(elem:GoType,keyValueBool:Bool, len:Int, underl
 		for (elt in expr.elts) {
 			if (elt.id == "CompositeLit") {
 				if (elt.type == null) {
-					var e = toExpr(compositeLit(elem, complexTypeElem(ct), elt, info));
+					var e = toExpr(compositeLit(elem, toComplexType(elem,info)/*complexTypeElem(ct)*/, elt, info));
 					e = assignTranslate(typeof(elt, info, false), elem, e, info);
 					exprs.push(e);
 					continue;
@@ -4577,7 +4647,7 @@ private function compositeLitList(elem:GoType,keyValueBool:Bool, len:Int, underl
 				exprs.unshift(macro 0);
 				exprs.unshift(macro 0);
 			}
-			return macro(new $p($a{exprs}) : $ct);
+			return macro(new $p($a{exprs}));
 		}
 		var diff = len - exprs.length;
 		var len = toExpr(EConst(CInt('$diff')));
@@ -5310,7 +5380,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 				type: t, 
 			} : FunctionArg);
 		});
-		final func = toExpr(EFunction(FNamed("f",false),{
+		var func = toExpr(EFunction(FNamed("f",false),{
 			args: funcArgs,
 			expr: block,
 		}));
@@ -5332,6 +5402,11 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 			if (t == null)
 				return t;
 			switch t {
+				case TFunction(args,ret):
+					for (i in 0...args.length) {
+						args[i] = setGenericType(args[i]);
+					}
+					TFunction(args,setGenericType(ret));
 				case TPath(p):
 					var params:Array<TypeParam> = [];
 					if (p.params != null) {
@@ -5367,34 +5442,49 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 			}
 			return t;
 		}
-		function findGenericTypes(e:Expr) {
-			switch e.expr {
-				case ENew(t,_):
-					setGenericType(TPath(t));
-				case EFunction(_,f):
-					f.ret = setGenericType(f.ret);
-					f.args = [for (arg in f.args) {
-						value: arg.value,
-						opt: arg.opt,
-						name: arg.name,
-						meta: arg.meta,
-						type: setGenericType(arg.type),
-					}];
-					if (f.params != null) {
-						f.params = [for (param in f.params) setGenericParam(param)];
+		function findGenericTypes(e:Expr):Expr {
+			return switch e.expr {
+				case ENew(p,params):
+					if (p.pack.length == 0 && identifierNames.indexOf(p.name) != -1) {
+						p.name = "$" + p.name;
 					}
-					haxe.macro.ExprTools.iter(f.expr,findGenericTypes);
-				case ECheckType(_,t), EIs(_,t):
-					setGenericType(t);
+					if (p.params != null) {
+						p.params = [for (param in p.params) switch param {
+							case TPType(t):
+								TPType(setGenericType(t));
+							default:
+								param;
+						}];
+					}
+					toExpr(ENew(p,[for (i in 0...params.length) {
+						findGenericTypes(params[i]);
+					}]));
+				case EFunction(kind,f):
+					toExpr(EFunction(kind, {
+						ret: setGenericType(f.ret),
+						args: [for (arg in f.args) {
+							value: arg.value,
+							opt: arg.opt,
+							name: arg.name,
+							meta: arg.meta,
+							type: setGenericType(arg.type),
+						}],
+						params: f.params == null ? null : [for (param in f.params) setGenericParam(param)],
+						expr: findGenericTypes(f.expr),
+					}));
+				case ECheckType(e,t), EIs(e,t):
+					toExpr(ECheckType(findGenericTypes(e),setGenericType(t)));
 				case EVars(vars):
-					for (v in vars) {
-						v.type = setGenericType(v.type);
-					}
+					toExpr(EVars([for (v in vars) {
+						name: v.name,
+						type: setGenericType(v.type),
+						expr: findGenericTypes(v.expr),
+					}]));
 				default:
-					haxe.macro.ExprTools.iter(e,findGenericTypes);
+					haxe.macro.ExprTools.map(e,findGenericTypes);
 			}
 		}
-		findGenericTypes(func);
+		func = findGenericTypes(func);
 		final nameArgs = [
 			for (arg in args)
 				macro $i{"$" + arg.name}
@@ -5870,7 +5960,7 @@ private function typeFields(list:Array<FieldType>, info:Info, access:Array<Acces
 	return fields;
 }
 
-private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array<Access> = null, defaultBool:Bool):Array<Field> {
+private function typeFieldListFieldTypes(list:Ast.FieldList,info:Info,access:Array<Access> = null, defaultBool:Bool=false,docs:Array<Ast.CommentGroup>=null,comments:Array<Ast.CommentGroup>=null):Array<FieldType> {
 	var fields:Array<Field> = [];
 	var fieldList:Array<FieldType> = [];
 	function getName(type:Ast.Expr) {
@@ -5882,7 +5972,6 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 			default: throw "unknown embedded: " + type.id;
 		}
 	}
-	final docs = [];
 	final comments = [];
 	for (field in list.list) {
 		var type = typeof(field.type, info, false);
@@ -5890,8 +5979,10 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 		if (field.tag != "") {
 			tag = field.tag;
 		}
-		docs.push(field.doc);
-		comments.push(field.comment);
+		if (docs != null)
+			docs.push(field.doc);
+		if (comments != null)
+			comments.push(field.comment);
 		if (field.names.length == 0) {
 			// embedded
 			var name:String = formatHaxeFieldName(getName(field.type), info);
@@ -5917,6 +6008,12 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 			}
 		}
 	}
+	return fieldList;
+}
+private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array<Access> = null, defaultBool:Bool):Array<Field> {
+	final docs:Array<Ast.CommentGroup> = [];
+	final comments:Array<Ast.CommentGroup> = [];
+	final fieldList = typeFieldListFieldTypes(list,info,access,defaultBool,docs,comments);
 	return typeFields(fieldList, info, access, defaultBool, docs, comments);
 }
 

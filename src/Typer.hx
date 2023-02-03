@@ -3864,12 +3864,7 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 			final id = hashTypeToExprType(e.type,info).id;
 			switch id {
 				case "Array":
-					final len = switch e.len.id {
-						case "BasicLit":
-							Std.parseInt(e.len.value);
-						default:
-							-1;
-					}
+					final len = hashTypeToExprType(e.type, info).len;
 					arrayType({get: () -> elem},len);
 				case "Slice":
 					sliceType({get: () -> elem});
@@ -4057,7 +4052,6 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 		case _var(_, _.get() => type):
 			toComplexType(type, info);
 		case typeParam(name, params):
-			trace(params);
 			final p = namedTypePath(name, info);
 			TPath(p);
 		default:

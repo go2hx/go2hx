@@ -237,6 +237,7 @@ final list = [
 		return {_0: i, _1: null};
 	},
 	"os:_fastrand" => macro return Std.random(1) > 0 ? -Std.random(2147483647) - 1 : Std.random(2147483647),
+	"rand:_fastrand64" => macro return haxe.Int64.make(Std.random(1) > 0 ? -Std.random(2147483647) - 1 : Std.random(2147483647),Std.random(1) > 0 ? -Std.random(2147483647) - 1 : Std.random(2147483647)),
 	// stdgo/math_bits
 	"math.bits:_overflowError" => macro @:privateAccess stdgo.Error._overflowError,
 	"math.bits:_divideError" => macro @:privateAccess stdgo.Error._divideError,
@@ -718,6 +719,8 @@ final list = [
 				false;
 			case stdgo.internal.reflect.Reflect.KindType.invalid:
 				false;
+			case stdgo.internal.reflect.Reflect.KindType.unsafePointer:
+				value == null;
 			default:
 				throw "nil check not supported kind: " + _v.kind().string();
 		}
@@ -725,22 +728,17 @@ final list = [
 	"reflect.Value:elem" => macro {
 		var value = @:privateAccess _v.value.value;
 		final t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
-		if (stdgo.internal.reflect.Reflect.isNamed(t)) {
+		if (stdgo.internal.reflect.Reflect.isNamed(t) && !stdgo.internal.reflect.Reflect.isRef(t) && !stdgo.internal.reflect.Reflect.isPointer(t)) {
 			switch std.Type.typeof(value) {
 				case TClass(c):
 					final name = std.Type.getClassName(c);
-					if (StringTools.endsWith(name,"_asInterface")) {
+					if (StringTools.endsWith(name, "_asInterface")) {
 						@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
 						value = (value : Dynamic).__underlying__().value;
-					}
+					};
 				default:
 					final _ = false;
-	
-			}
-		}
-		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
-			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-			value = (value : Dynamic).value;
+			};
 		};
 		var k = _v.kind();
 		switch k {
@@ -767,8 +765,8 @@ final list = [
 			case stdgo.internal.reflect.Reflect.KindType.interface_:
 				if (value == null)
 					return new Value();
-				return new Value(value,@:privateAccess _v.value.type);
-		}
+				return new Value(value, @:privateAccess _v.value.type);
+		};
 		throw new ValueError("reflect.Value.Elem", k);
 	},
 	"reflect.Kind:string" => macro {
@@ -837,6 +835,9 @@ final list = [
 	},
 	// stdgo/math/rand
 	"math.rand:intn" => macro return Std.random(_n),
+	// stdgo/internal/godebug
+	"internal.godebug:new_" => macro return new Setting(),
+	"internal.godebug.Setting:value" => macro return "",
 	// stdgo/internal/bytealg
 	"internal.bytealg:indexByteString" => macro {
 		for (i in 0..._s.length.toBasic()) {

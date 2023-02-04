@@ -3893,6 +3893,8 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 			final recv = {get: () -> typeof(e.type.recv, info, false, paths.copy())};
 			signature(e.type.variadic,params,results,recv,params);
 			//typeof(e.type, info, false, paths.copy());
+		case "Ellipsis":
+			typeof(e.type,info,false,paths.copy());
 		default:
 			throw "unknown typeof expr: " + e.id;
 	}

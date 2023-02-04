@@ -863,7 +863,7 @@ private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, isFunc:Bool):ExprD
 	if (stmt.list == null) {
 		if (isFunc && info.returnTypes.length > 0) {
 			final s = makeString("not implemented: " + info.funcName);
-			return (macro $s).expr;
+			return (macro throw $s).expr;
 		}
 		return (macro {}).expr;
 	}

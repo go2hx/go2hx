@@ -1389,7 +1389,7 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 						type = toComplexType(types[0], info);
 						defValue = defaultValue(types[0],info,false);
 						set = macro __type__ == null ? $defValue : __type__.__underlying__();
-						if (isInterface(types[0]) && isInterface(assignType)) {
+						if (!isAnyInterface(assignType) && isInterface(types[0]) && isInterface(assignType)) {
 							// hard cast if interface to interface (typedef anon)
 							set = macro __type__ == null ? $defValue : cast __type__;
 						}else if (!isAnyInterface(types[0])) {

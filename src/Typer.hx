@@ -4643,7 +4643,7 @@ private function compositeLitList(elem:GoType,keyValueBool:Bool, len:Int, underl
 				exprs.unshift(macro 0);
 				exprs.unshift(macro 0);
 			}
-			return macro(new $p($a{exprs}));
+			return macro(new $p($a{exprs}) : $ct);
 		}
 		var diff = len - exprs.length;
 		var len = toExpr(EConst(CInt('$diff')));

@@ -3469,6 +3469,8 @@ private function genericIndices(indices:Array<Ast.Expr>, params:Array<GoType>, t
 }
 
 private function toAnyInterface(x:Expr, t:GoType, info:Info):Expr {
+	if (isRef(t))
+		t = getElem(t);
 	switch t {
 		case named(_, _, _, _):
 			if (!isInterface(t) && !isAnyInterface(t))

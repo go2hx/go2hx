@@ -4537,9 +4537,9 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 				}
 			}
 		case sliceType(_.get() => elem):
-			return compositeLitList(elem,keyValueBool,-1,underlying,ct,expr,info).expr;
+			return compositeLitList(elem,keyValueBool,-1,underlying,toComplexType(type,info),expr,info).expr;
 		case arrayType(_.get() => elem, len):
-			return compositeLitList(elem,keyValueBool,len,underlying,ct,expr,info).expr;
+			return compositeLitList(elem,keyValueBool,len,underlying,toComplexType(type,info),expr,info).expr;
 		case mapType(_.get() => var keyType, _.get() => valueType):
 			var t = toReflectType(type, info, [], true);
 			var params:Array<Expr> = [];

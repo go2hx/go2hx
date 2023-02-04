@@ -537,6 +537,8 @@ function compile(instance:InstanceData):Bool {
 
 		if (Path.extension(path) == "go" || path.charAt(0) == "." || path.indexOf("/") == -1)
 			continue;
+		if (Typer.stdgoList.indexOf(path) != -1) 
+			continue;
 		var command = 'go get $path';
 		Sys.command(command);
 	}

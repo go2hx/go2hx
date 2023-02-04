@@ -1,0 +1,3 @@
+-m stdgo.compress.zlib_test.Zlib
+-lib go2hx
+-cp stdgo

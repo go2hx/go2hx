@@ -264,8 +264,8 @@ function compare(_a:Slice<GoByte>, _b:Slice<GoByte>):GoInt {
 /**
 	//go:linkname abigen_runtime_cmpstring runtime.cmpstring
 **/
-function _abigen_runtime_cmpstring(_a:GoString, _b:GoString):GoInt
-	throw "not implemented";
+private function _abigen_runtime_cmpstring(_a:GoString, _b:GoString):GoInt
+	throw "not implemented: _abigen_runtime_cmpstring";
 
 function count(_b:Slice<GoByte>, _c:GoByte):GoInt {
 	var _n:GoInt = (0 : GoInt);
@@ -306,21 +306,21 @@ function equal(_a:Slice<GoByte>, _b:Slice<GoByte>):Bool {
 /**
 	//go:linkname abigen_runtime_memequal runtime.memequal
 **/
-function _abigen_runtime_memequal(_a:stdgo.unsafe.Unsafe.UnsafePointer, _b:stdgo.unsafe.Unsafe.UnsafePointer, _size:GoUIntptr):Bool
-	throw "not implemented";
+private function _abigen_runtime_memequal(_a:stdgo.unsafe.Unsafe.UnsafePointer, _b:stdgo.unsafe.Unsafe.UnsafePointer, _size:GoUIntptr):Bool
+	throw "not implemented: _abigen_runtime_memequal";
 
 /**
 	//go:linkname abigen_runtime_memequal_varlen runtime.memequal_varlen
 **/
-function _abigen_runtime_memequal_varlen(_a:stdgo.unsafe.Unsafe.UnsafePointer, _b:stdgo.unsafe.Unsafe.UnsafePointer):Bool
-	throw "not implemented";
+private function _abigen_runtime_memequal_varlen(_a:stdgo.unsafe.Unsafe.UnsafePointer, _b:stdgo.unsafe.Unsafe.UnsafePointer):Bool
+	throw "not implemented: _abigen_runtime_memequal_varlen";
 
 /**
 	// Index returns the index of the first instance of b in a, or -1 if b is not present in a.
 	// Requires 2 <= len(b) <= MaxLen.
 **/
 function index(_a:Slice<GoByte>, _b:Slice<GoByte>):GoInt {
-	throw Go.toInterface(Go.str("unimplemented"));
+	throw Go.toInterface(("unimplemented" : GoString));
 }
 
 /**
@@ -328,7 +328,7 @@ function index(_a:Slice<GoByte>, _b:Slice<GoByte>):GoInt {
 	// Requires 2 <= len(b) <= MaxLen.
 **/
 function indexString(_a:GoString, _b:GoString):GoInt {
-	throw Go.toInterface(Go.str("unimplemented"));
+	throw Go.toInterface(("unimplemented" : GoString));
 }
 
 /**
@@ -338,7 +338,7 @@ function indexString(_a:GoString, _b:GoString):GoInt {
 	// See the bytes.Index implementation for details.
 **/
 function cutover(_n:GoInt):GoInt {
-	throw Go.toInterface(Go.str("unimplemented"));
+	throw Go.toInterface(("unimplemented" : GoString));
 }
 
 /**

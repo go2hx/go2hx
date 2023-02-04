@@ -17,8 +17,8 @@ import stdgo.Chan;
 **/
 private var __go2hxdoc__package:Bool;
 
-var errInvalid:Error = stdgo.errors.Errors.new_(Go.str("invalid argument"));
-var errPermission:Error = stdgo.errors.Errors.new_(Go.str("permission denied"));
-var errExist:Error = stdgo.errors.Errors.new_(Go.str("file already exists"));
-var errNotExist:Error = stdgo.errors.Errors.new_(Go.str("file does not exist"));
-var errClosed:Error = stdgo.errors.Errors.new_(Go.str("file already closed"));
+var errInvalid:Error = stdgo.errors.Errors.new_(("invalid argument" : GoString));
+var errPermission:Error = stdgo.errors.Errors.new_(("permission denied" : GoString));
+var errExist:Error = stdgo.errors.Errors.new_(("file already exists" : GoString));
+var errNotExist:Error = stdgo.errors.Errors.new_(("file does not exist" : GoString));
+var errClosed:Error = stdgo.errors.Errors.new_(("file already closed" : GoString));

@@ -11,26 +11,26 @@ import stdgo.GoMap;
 import stdgo.Chan;
 
 function example():Void {
-	var _validID:Ref<Regexp> = stdgo.regexp.Regexp.mustCompile(Go.str("^[a-z]+\\[[0-9]+\\]$$"));
-	stdgo.fmt.Fmt.println(Go.toInterface(_validID.matchString(Go.str("adam[23]"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(_validID.matchString(Go.str("eve[7]"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(_validID.matchString(Go.str("Job[48]"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(_validID.matchString(Go.str("snakey"))));
+	var _validID:Ref<Regexp> = stdgo.regexp.Regexp.mustCompile(("^[a-z]+\\[[0-9]+\\]$$" : GoString));
+	stdgo.fmt.Fmt.println(Go.toInterface(_validID.matchString(("adam[23]" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_validID.matchString(("eve[7]" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_validID.matchString(("Job[48]" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_validID.matchString(("snakey" : GoString))));
 }
 
 function exampleMatch():Void {
-	var __tmp__ = stdgo.regexp.Regexp.match(Go.str("foo.*"), (Go.str("seafood") : Slice<GoByte>)),
+	var __tmp__ = stdgo.regexp.Regexp.match(("foo.*" : GoString), (("seafood" : GoString) : Slice<GoByte>)),
 		_matched:Bool = __tmp__._0,
 		_err:Error = __tmp__._1;
 	stdgo.fmt.Fmt.println(Go.toInterface(_matched), Go.toInterface(_err));
 	{
-		var __tmp__ = stdgo.regexp.Regexp.match(Go.str("bar.*"), (Go.str("seafood") : Slice<GoByte>));
+		var __tmp__ = stdgo.regexp.Regexp.match(("bar.*" : GoString), (("seafood" : GoString) : Slice<GoByte>));
 		_matched = __tmp__._0;
 		_err = __tmp__._1;
 	};
 	stdgo.fmt.Fmt.println(Go.toInterface(_matched), Go.toInterface(_err));
 	{
-		var __tmp__ = stdgo.regexp.Regexp.match(Go.str("a(b"), (Go.str("seafood") : Slice<GoByte>));
+		var __tmp__ = stdgo.regexp.Regexp.match(("a(b" : GoString), (("seafood" : GoString) : Slice<GoByte>));
 		_matched = __tmp__._0;
 		_err = __tmp__._1;
 	};
@@ -38,18 +38,18 @@ function exampleMatch():Void {
 }
 
 function exampleMatchString():Void {
-	var __tmp__ = stdgo.regexp.Regexp.matchString(Go.str("foo.*"), Go.str("seafood")),
+	var __tmp__ = stdgo.regexp.Regexp.matchString(("foo.*" : GoString), ("seafood" : GoString)),
 		_matched:Bool = __tmp__._0,
 		_err:Error = __tmp__._1;
 	stdgo.fmt.Fmt.println(Go.toInterface(_matched), Go.toInterface(_err));
 	{
-		var __tmp__ = stdgo.regexp.Regexp.matchString(Go.str("bar.*"), Go.str("seafood"));
+		var __tmp__ = stdgo.regexp.Regexp.matchString(("bar.*" : GoString), ("seafood" : GoString));
 		_matched = __tmp__._0;
 		_err = __tmp__._1;
 	};
 	stdgo.fmt.Fmt.println(Go.toInterface(_matched), Go.toInterface(_err));
 	{
-		var __tmp__ = stdgo.regexp.Regexp.matchString(Go.str("a(b"), Go.str("seafood"));
+		var __tmp__ = stdgo.regexp.Regexp.matchString(("a(b" : GoString), ("seafood" : GoString));
 		_matched = __tmp__._0;
 		_err = __tmp__._1;
 	};
@@ -57,172 +57,175 @@ function exampleMatchString():Void {
 }
 
 function exampleQuoteMeta():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.regexp.Regexp.quoteMeta(Go.str("Escaping symbols like: .+*?()|[]{}^$$"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.regexp.Regexp.quoteMeta(("Escaping symbols like: .+*?()|[]{}^$$" : GoString))));
 }
 
 function exampleRegexp_Find():Void {
-	var _re = stdgo.regexp.Regexp.mustCompile(Go.str("foo.?"));
-	stdgo.fmt.Fmt.printf(Go.str("%q\n"), Go.toInterface(_re.find((Go.str("seafood fool") : Slice<GoByte>))));
+	var _re = stdgo.regexp.Regexp.mustCompile(("foo.?" : GoString));
+	stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(_re.find((("seafood fool" : GoString) : Slice<GoByte>))));
 }
 
 function exampleRegexp_FindAll():Void {
-	var _re = stdgo.regexp.Regexp.mustCompile(Go.str("foo.?"));
-	stdgo.fmt.Fmt.printf(Go.str("%q\n"), Go.toInterface(_re.findAll((Go.str("seafood fool") : Slice<GoByte>), (-1 : GoInt))));
+	var _re = stdgo.regexp.Regexp.mustCompile(("foo.?" : GoString));
+	stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(_re.findAll((("seafood fool" : GoString) : Slice<GoByte>), (-1 : GoInt))));
 }
 
 function exampleRegexp_FindAllSubmatch():Void {
-	var _re = stdgo.regexp.Regexp.mustCompile(Go.str("foo(.?)"));
-	stdgo.fmt.Fmt.printf(Go.str("%q\n"), Go.toInterface(_re.findAllSubmatch((Go.str("seafood fool") : Slice<GoByte>), (-1 : GoInt))));
+	var _re = stdgo.regexp.Regexp.mustCompile(("foo(.?)" : GoString));
+	stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(_re.findAllSubmatch((("seafood fool" : GoString) : Slice<GoByte>), (-1 : GoInt))));
 }
 
 function exampleRegexp_FindSubmatch():Void {
-	var _re = stdgo.regexp.Regexp.mustCompile(Go.str("foo(.?)"));
-	stdgo.fmt.Fmt.printf(Go.str("%q\n"), Go.toInterface(_re.findSubmatch((Go.str("seafood fool") : Slice<GoByte>))));
+	var _re = stdgo.regexp.Regexp.mustCompile(("foo(.?)" : GoString));
+	stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(_re.findSubmatch((("seafood fool" : GoString) : Slice<GoByte>))));
 }
 
 function exampleRegexp_Match():Void {
-	var _re = stdgo.regexp.Regexp.mustCompile(Go.str("foo.?"));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.match((Go.str("seafood fool") : Slice<GoByte>))));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.match((Go.str("something else") : Slice<GoByte>))));
+	var _re = stdgo.regexp.Regexp.mustCompile(("foo.?" : GoString));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.match((("seafood fool" : GoString) : Slice<GoByte>))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.match((("something else" : GoString) : Slice<GoByte>))));
 }
 
 function exampleRegexp_FindString():Void {
-	var _re = stdgo.regexp.Regexp.mustCompile(Go.str("foo.?"));
-	stdgo.fmt.Fmt.printf(Go.str("%q\n"), Go.toInterface(_re.findString(Go.str("seafood fool"))));
-	stdgo.fmt.Fmt.printf(Go.str("%q\n"), Go.toInterface(_re.findString(Go.str("meat"))));
+	var _re = stdgo.regexp.Regexp.mustCompile(("foo.?" : GoString));
+	stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(_re.findString(("seafood fool" : GoString))));
+	stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(_re.findString(("meat" : GoString))));
 }
 
 function exampleRegexp_FindStringIndex():Void {
-	var _re = stdgo.regexp.Regexp.mustCompile(Go.str("ab?"));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.findStringIndex(Go.str("tablett"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.findStringIndex(Go.str("foo")) == null));
+	var _re = stdgo.regexp.Regexp.mustCompile(("ab?" : GoString));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.findStringIndex(("tablett" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.findStringIndex(("foo" : GoString)) == null));
 }
 
 function exampleRegexp_FindStringSubmatch():Void {
-	var _re = stdgo.regexp.Regexp.mustCompile(Go.str("a(x*)b(y|z)c"));
-	stdgo.fmt.Fmt.printf(Go.str("%q\n"), Go.toInterface(_re.findStringSubmatch(Go.str("-axxxbyc-"))));
-	stdgo.fmt.Fmt.printf(Go.str("%q\n"), Go.toInterface(_re.findStringSubmatch(Go.str("-abzc-"))));
+	var _re = stdgo.regexp.Regexp.mustCompile(("a(x*)b(y|z)c" : GoString));
+	stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(_re.findStringSubmatch(("-axxxbyc-" : GoString))));
+	stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(_re.findStringSubmatch(("-abzc-" : GoString))));
 }
 
 function exampleRegexp_FindAllString():Void {
-	var _re = stdgo.regexp.Regexp.mustCompile(Go.str("a."));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.findAllString(Go.str("paranormal"), (-1 : GoInt))));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.findAllString(Go.str("paranormal"), (2 : GoInt))));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.findAllString(Go.str("graal"), (-1 : GoInt))));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.findAllString(Go.str("none"), (-1 : GoInt))));
+	var _re = stdgo.regexp.Regexp.mustCompile(("a." : GoString));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.findAllString(("paranormal" : GoString), (-1 : GoInt))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.findAllString(("paranormal" : GoString), (2 : GoInt))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.findAllString(("graal" : GoString), (-1 : GoInt))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.findAllString(("none" : GoString), (-1 : GoInt))));
 }
 
 function exampleRegexp_FindAllStringSubmatch():Void {
-	var _re = stdgo.regexp.Regexp.mustCompile(Go.str("a(x*)b"));
-	stdgo.fmt.Fmt.printf(Go.str("%q\n"), Go.toInterface(_re.findAllStringSubmatch(Go.str("-ab-"), (-1 : GoInt))));
-	stdgo.fmt.Fmt.printf(Go.str("%q\n"), Go.toInterface(_re.findAllStringSubmatch(Go.str("-axxb-"), (-1 : GoInt))));
-	stdgo.fmt.Fmt.printf(Go.str("%q\n"), Go.toInterface(_re.findAllStringSubmatch(Go.str("-ab-axb-"), (-1 : GoInt))));
-	stdgo.fmt.Fmt.printf(Go.str("%q\n"), Go.toInterface(_re.findAllStringSubmatch(Go.str("-axxb-ab-"), (-1 : GoInt))));
+	var _re = stdgo.regexp.Regexp.mustCompile(("a(x*)b" : GoString));
+	stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(_re.findAllStringSubmatch(("-ab-" : GoString), (-1 : GoInt))));
+	stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(_re.findAllStringSubmatch(("-axxb-" : GoString), (-1 : GoInt))));
+	stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(_re.findAllStringSubmatch(("-ab-axb-" : GoString), (-1 : GoInt))));
+	stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(_re.findAllStringSubmatch(("-axxb-ab-" : GoString), (-1 : GoInt))));
 }
 
 function exampleRegexp_FindAllStringSubmatchIndex():Void {
-	var _re = stdgo.regexp.Regexp.mustCompile(Go.str("a(x*)b"));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.findAllStringSubmatchIndex(Go.str("-ab-"), (-1 : GoInt))));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.findAllStringSubmatchIndex(Go.str("-axxb-"), (-1 : GoInt))));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.findAllStringSubmatchIndex(Go.str("-ab-axb-"), (-1 : GoInt))));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.findAllStringSubmatchIndex(Go.str("-axxb-ab-"), (-1 : GoInt))));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.findAllStringSubmatchIndex(Go.str("-foo-"), (-1 : GoInt))));
+	var _re = stdgo.regexp.Regexp.mustCompile(("a(x*)b" : GoString));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.findAllStringSubmatchIndex(("-ab-" : GoString), (-1 : GoInt))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.findAllStringSubmatchIndex(("-axxb-" : GoString), (-1 : GoInt))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.findAllStringSubmatchIndex(("-ab-axb-" : GoString), (-1 : GoInt))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.findAllStringSubmatchIndex(("-axxb-ab-" : GoString), (-1 : GoInt))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.findAllStringSubmatchIndex(("-foo-" : GoString), (-1 : GoInt))));
 }
 
 function exampleRegexp_FindSubmatchIndex():Void {
-	var _re = stdgo.regexp.Regexp.mustCompile(Go.str("a(x*)b"));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.findSubmatchIndex((Go.str("-ab-") : Slice<GoByte>))));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.findSubmatchIndex((Go.str("-axxb-") : Slice<GoByte>))));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.findSubmatchIndex((Go.str("-ab-axb-") : Slice<GoByte>))));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.findSubmatchIndex((Go.str("-axxb-ab-") : Slice<GoByte>))));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.findSubmatchIndex((Go.str("-foo-") : Slice<GoByte>))));
+	var _re = stdgo.regexp.Regexp.mustCompile(("a(x*)b" : GoString));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.findSubmatchIndex((("-ab-" : GoString) : Slice<GoByte>))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.findSubmatchIndex((("-axxb-" : GoString) : Slice<GoByte>))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.findSubmatchIndex((("-ab-axb-" : GoString) : Slice<GoByte>))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.findSubmatchIndex((("-axxb-ab-" : GoString) : Slice<GoByte>))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.findSubmatchIndex((("-foo-" : GoString) : Slice<GoByte>))));
 }
 
 function exampleRegexp_Longest():Void {
-	var _re = stdgo.regexp.Regexp.mustCompile(Go.str("a(|b)"));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.findString(Go.str("ab"))));
+	var _re = stdgo.regexp.Regexp.mustCompile(("a(|b)" : GoString));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.findString(("ab" : GoString))));
 	_re.longest();
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.findString(Go.str("ab"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.findString(("ab" : GoString))));
 }
 
 function exampleRegexp_MatchString():Void {
-	var _re = stdgo.regexp.Regexp.mustCompile(Go.str("(gopher){2}"));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.matchString(Go.str("gopher"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.matchString(Go.str("gophergopher"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.matchString(Go.str("gophergophergopher"))));
+	var _re = stdgo.regexp.Regexp.mustCompile(("(gopher){2}" : GoString));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.matchString(("gopher" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.matchString(("gophergopher" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.matchString(("gophergophergopher" : GoString))));
 }
 
 function exampleRegexp_NumSubexp():Void {
-	var _re0 = stdgo.regexp.Regexp.mustCompile(Go.str("a."));
-	stdgo.fmt.Fmt.printf(Go.str("%d\n"), Go.toInterface(_re0.numSubexp()));
-	var _re = stdgo.regexp.Regexp.mustCompile(Go.str("(.*)((a)b)(.*)a"));
+	var _re0 = stdgo.regexp.Regexp.mustCompile(("a." : GoString));
+	stdgo.fmt.Fmt.printf(("%d\n" : GoString), Go.toInterface(_re0.numSubexp()));
+	var _re = stdgo.regexp.Regexp.mustCompile(("(.*)((a)b)(.*)a" : GoString));
 	stdgo.fmt.Fmt.println(Go.toInterface(_re.numSubexp()));
 }
 
 function exampleRegexp_ReplaceAll():Void {
-	var _re = stdgo.regexp.Regexp.mustCompile(Go.str("a(x*)b"));
-	stdgo.fmt.Fmt.printf(Go.str("%s\n"), Go.toInterface(_re.replaceAll((Go.str("-ab-axxb-") : Slice<GoByte>), (Go.str("T") : Slice<GoByte>))));
-	stdgo.fmt.Fmt.printf(Go.str("%s\n"), Go.toInterface(_re.replaceAll((Go.str("-ab-axxb-") : Slice<GoByte>), (Go.str("$$1") : Slice<GoByte>))));
-	stdgo.fmt.Fmt.printf(Go.str("%s\n"), Go.toInterface(_re.replaceAll((Go.str("-ab-axxb-") : Slice<GoByte>), (Go.str("$$1W") : Slice<GoByte>))));
-	stdgo.fmt.Fmt.printf(Go.str("%s\n"), Go.toInterface(_re.replaceAll((Go.str("-ab-axxb-") : Slice<GoByte>), (Go.str("$${1}W") : Slice<GoByte>))));
+	var _re = stdgo.regexp.Regexp.mustCompile(("a(x*)b" : GoString));
+	stdgo.fmt.Fmt.printf(("%s\n" : GoString), Go.toInterface(_re.replaceAll((("-ab-axxb-" : GoString) : Slice<GoByte>), (("T" : GoString) : Slice<GoByte>))));
+	stdgo.fmt.Fmt.printf(("%s\n" : GoString),
+		Go.toInterface(_re.replaceAll((("-ab-axxb-" : GoString) : Slice<GoByte>), (("$$1" : GoString) : Slice<GoByte>))));
+	stdgo.fmt.Fmt.printf(("%s\n" : GoString),
+		Go.toInterface(_re.replaceAll((("-ab-axxb-" : GoString) : Slice<GoByte>), (("$$1W" : GoString) : Slice<GoByte>))));
+	stdgo.fmt.Fmt.printf(("%s\n" : GoString),
+		Go.toInterface(_re.replaceAll((("-ab-axxb-" : GoString) : Slice<GoByte>), (("$${1}W" : GoString) : Slice<GoByte>))));
 }
 
 function exampleRegexp_ReplaceAllLiteralString():Void {
-	var _re = stdgo.regexp.Regexp.mustCompile(Go.str("a(x*)b"));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.replaceAllLiteralString(Go.str("-ab-axxb-"), Go.str("T"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.replaceAllLiteralString(Go.str("-ab-axxb-"), Go.str("$$1"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.replaceAllLiteralString(Go.str("-ab-axxb-"), Go.str("$${1}"))));
+	var _re = stdgo.regexp.Regexp.mustCompile(("a(x*)b" : GoString));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.replaceAllLiteralString(("-ab-axxb-" : GoString), ("T" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.replaceAllLiteralString(("-ab-axxb-" : GoString), ("$$1" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.replaceAllLiteralString(("-ab-axxb-" : GoString), ("$${1}" : GoString))));
 }
 
 function exampleRegexp_ReplaceAllString():Void {
-	var _re = stdgo.regexp.Regexp.mustCompile(Go.str("a(x*)b"));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.replaceAllString(Go.str("-ab-axxb-"), Go.str("T"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.replaceAllString(Go.str("-ab-axxb-"), Go.str("$$1"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.replaceAllString(Go.str("-ab-axxb-"), Go.str("$$1W"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.replaceAllString(Go.str("-ab-axxb-"), Go.str("$${1}W"))));
+	var _re = stdgo.regexp.Regexp.mustCompile(("a(x*)b" : GoString));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.replaceAllString(("-ab-axxb-" : GoString), ("T" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.replaceAllString(("-ab-axxb-" : GoString), ("$$1" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.replaceAllString(("-ab-axxb-" : GoString), ("$$1W" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.replaceAllString(("-ab-axxb-" : GoString), ("$${1}W" : GoString))));
 }
 
 function exampleRegexp_ReplaceAllStringFunc():Void {
-	var _re = stdgo.regexp.Regexp.mustCompile(Go.str("[^aeiou]"));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.replaceAllStringFunc(Go.str("seafood fool"), stdgo.strings.Strings.toUpper)));
+	var _re = stdgo.regexp.Regexp.mustCompile(("[^aeiou]" : GoString));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.replaceAllStringFunc(("seafood fool" : GoString), stdgo.strings.Strings.toUpper)));
 }
 
 function exampleRegexp_SubexpNames():Void {
-	var _re = stdgo.regexp.Regexp.mustCompile(Go.str("(?P<first>[a-zA-Z]+) (?P<last>[a-zA-Z]+)"));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.matchString(Go.str("Alan Turing"))));
-	stdgo.fmt.Fmt.printf(Go.str("%q\n"), Go.toInterface(_re.subexpNames()));
-	var _reversed:GoString = stdgo.fmt.Fmt.sprintf(Go.str("$${%s} $${%s}"), Go.toInterface(_re.subexpNames()[(2 : GoInt)]),
+	var _re = stdgo.regexp.Regexp.mustCompile(("(?P<first>[a-zA-Z]+) (?P<last>[a-zA-Z]+)" : GoString));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.matchString(("Alan Turing" : GoString))));
+	stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(_re.subexpNames()));
+	var _reversed:GoString = stdgo.fmt.Fmt.sprintf(("$${%s} $${%s}" : GoString), Go.toInterface(_re.subexpNames()[(2 : GoInt)]),
 		Go.toInterface(_re.subexpNames()[(1 : GoInt)]));
 	stdgo.fmt.Fmt.println(Go.toInterface(_reversed));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.replaceAllString(Go.str("Alan Turing"), _reversed)));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.replaceAllString(("Alan Turing" : GoString), _reversed)));
 }
 
 function exampleRegexp_SubexpIndex():Void {
-	var _re = stdgo.regexp.Regexp.mustCompile(Go.str("(?P<first>[a-zA-Z]+) (?P<last>[a-zA-Z]+)"));
-	stdgo.fmt.Fmt.println(Go.toInterface(_re.matchString(Go.str("Alan Turing"))));
-	var _matches = _re.findStringSubmatch(Go.str("Alan Turing"));
-	var _lastIndex:GoInt = _re.subexpIndex(Go.str("last"));
-	stdgo.fmt.Fmt.printf(Go.str("last => %d\n"), Go.toInterface(_lastIndex));
+	var _re = stdgo.regexp.Regexp.mustCompile(("(?P<first>[a-zA-Z]+) (?P<last>[a-zA-Z]+)" : GoString));
+	stdgo.fmt.Fmt.println(Go.toInterface(_re.matchString(("Alan Turing" : GoString))));
+	var _matches = _re.findStringSubmatch(("Alan Turing" : GoString));
+	var _lastIndex:GoInt = _re.subexpIndex(("last" : GoString));
+	stdgo.fmt.Fmt.printf(("last => %d\n" : GoString), Go.toInterface(_lastIndex));
 	stdgo.fmt.Fmt.println(Go.toInterface(_matches[(_lastIndex : GoInt)]));
 }
 
 function exampleRegexp_Split():Void {
-	var _a = stdgo.regexp.Regexp.mustCompile(Go.str("a"));
-	stdgo.fmt.Fmt.println(Go.toInterface(_a.split(Go.str("banana"), (-1 : GoInt))));
-	stdgo.fmt.Fmt.println(Go.toInterface(_a.split(Go.str("banana"), (0 : GoInt))));
-	stdgo.fmt.Fmt.println(Go.toInterface(_a.split(Go.str("banana"), (1 : GoInt))));
-	stdgo.fmt.Fmt.println(Go.toInterface(_a.split(Go.str("banana"), (2 : GoInt))));
-	var _zp = stdgo.regexp.Regexp.mustCompile(Go.str("z+"));
-	stdgo.fmt.Fmt.println(Go.toInterface(_zp.split(Go.str("pizza"), (-1 : GoInt))));
-	stdgo.fmt.Fmt.println(Go.toInterface(_zp.split(Go.str("pizza"), (0 : GoInt))));
-	stdgo.fmt.Fmt.println(Go.toInterface(_zp.split(Go.str("pizza"), (1 : GoInt))));
-	stdgo.fmt.Fmt.println(Go.toInterface(_zp.split(Go.str("pizza"), (2 : GoInt))));
+	var _a = stdgo.regexp.Regexp.mustCompile(("a" : GoString));
+	stdgo.fmt.Fmt.println(Go.toInterface(_a.split(("banana" : GoString), (-1 : GoInt))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_a.split(("banana" : GoString), (0 : GoInt))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_a.split(("banana" : GoString), (1 : GoInt))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_a.split(("banana" : GoString), (2 : GoInt))));
+	var _zp = stdgo.regexp.Regexp.mustCompile(("z+" : GoString));
+	stdgo.fmt.Fmt.println(Go.toInterface(_zp.split(("pizza" : GoString), (-1 : GoInt))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_zp.split(("pizza" : GoString), (0 : GoInt))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_zp.split(("pizza" : GoString), (1 : GoInt))));
+	stdgo.fmt.Fmt.println(Go.toInterface(_zp.split(("pizza" : GoString), (2 : GoInt))));
 }
 
 function exampleRegexp_Expand():Void {
-	var _content = (Go.str("\n\t# comment line\n\toption1: value1\n\toption2: value2\n\n\t# another comment line\n\toption3: value3\n") : Slice<GoByte>);
-	var _pattern = stdgo.regexp.Regexp.mustCompile(Go.str("(?m)(?P<key>\\w+):\\s+(?P<value>\\w+)$$"));
-	var _template = (Go.str("$$key=$$value\n") : Slice<GoByte>);
+	var _content = (("\n\t# comment line\n\toption1: value1\n\toption2: value2\n\n\t# another comment line\n\toption3: value3\n" : GoString) : Slice<GoByte>);
+	var _pattern = stdgo.regexp.Regexp.mustCompile(("(?m)(?P<key>\\w+):\\s+(?P<value>\\w+)$$" : GoString));
+	var _template = (("$$key=$$value\n" : GoString) : Slice<GoByte>);
 	var _result = (new Slice<GoUInt8>(0, 0) : Slice<GoUInt8>);
 	for (_0 => _submatches in _pattern.findAllSubmatchIndex(_content, (-1 : GoInt))) {
 		_result = _pattern.expand(_result, _template, _content, _submatches);
@@ -231,9 +234,9 @@ function exampleRegexp_Expand():Void {
 }
 
 function exampleRegexp_ExpandString():Void {
-	var _content:GoString = Go.str("\n\t# comment line\n\toption1: value1\n\toption2: value2\n\n\t# another comment line\n\toption3: value3\n");
-	var _pattern = stdgo.regexp.Regexp.mustCompile(Go.str("(?m)(?P<key>\\w+):\\s+(?P<value>\\w+)$$"));
-	var _template:GoString = Go.str("$$key=$$value\n");
+	var _content:GoString = ("\n\t# comment line\n\toption1: value1\n\toption2: value2\n\n\t# another comment line\n\toption3: value3\n" : GoString);
+	var _pattern = stdgo.regexp.Regexp.mustCompile(("(?m)(?P<key>\\w+):\\s+(?P<value>\\w+)$$" : GoString));
+	var _template:GoString = ("$$key=$$value\n" : GoString);
 	var _result = (new Slice<GoUInt8>(0, 0) : Slice<GoUInt8>);
 	for (_0 => _submatches in _pattern.findAllStringSubmatchIndex(_content, (-1 : GoInt))) {
 		_result = _pattern.expandString(_result, _template, _content, _submatches);
@@ -242,16 +245,16 @@ function exampleRegexp_ExpandString():Void {
 }
 
 function exampleRegexp_FindIndex():Void {
-	var _content = (Go.str("\n\t# comment line\n\toption1: value1\n\toption2: value2\n") : Slice<GoByte>);
-	var _pattern = stdgo.regexp.Regexp.mustCompile(Go.str("(?m)(?P<key>\\w+):\\s+(?P<value>\\w+)$$"));
+	var _content = (("\n\t# comment line\n\toption1: value1\n\toption2: value2\n" : GoString) : Slice<GoByte>);
+	var _pattern = stdgo.regexp.Regexp.mustCompile(("(?m)(?P<key>\\w+):\\s+(?P<value>\\w+)$$" : GoString));
 	var _loc = _pattern.findIndex(_content);
 	stdgo.fmt.Fmt.println(Go.toInterface(_loc));
 	stdgo.fmt.Fmt.println(Go.toInterface(((_content.__slice__(_loc[(0 : GoInt)], _loc[(1 : GoInt)]) : Slice<GoUInt8>) : GoString)));
 }
 
 function exampleRegexp_FindAllSubmatchIndex():Void {
-	var _content = (Go.str("\n\t# comment line\n\toption1: value1\n\toption2: value2\n") : Slice<GoByte>);
-	var _pattern = stdgo.regexp.Regexp.mustCompile(Go.str("(?m)(?P<key>\\w+):\\s+(?P<value>\\w+)$$"));
+	var _content = (("\n\t# comment line\n\toption1: value1\n\toption2: value2\n" : GoString) : Slice<GoByte>);
+	var _pattern = stdgo.regexp.Regexp.mustCompile(("(?m)(?P<key>\\w+):\\s+(?P<value>\\w+)$$" : GoString));
 	var _allIndexes = _pattern.findAllSubmatchIndex(_content, (-1 : GoInt));
 	for (_0 => _loc in _allIndexes) {
 		stdgo.fmt.Fmt.println(Go.toInterface(_loc));
@@ -262,8 +265,8 @@ function exampleRegexp_FindAllSubmatchIndex():Void {
 }
 
 function exampleRegexp_FindAllIndex():Void {
-	var _content = (Go.str("London") : Slice<GoByte>);
-	var _re = stdgo.regexp.Regexp.mustCompile(Go.str("o."));
+	var _content = (("London" : GoString) : Slice<GoByte>);
+	var _re = stdgo.regexp.Regexp.mustCompile(("o." : GoString));
 	stdgo.fmt.Fmt.println(Go.toInterface(_re.findAllIndex(_content, (1 : GoInt))));
 	stdgo.fmt.Fmt.println(Go.toInterface(_re.findAllIndex(_content, (-1 : GoInt))));
 }

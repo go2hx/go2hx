@@ -154,15 +154,7 @@ final cacheLinePadSize:GoUInt64 = ("64" : GoUInt64);
 @:structInit private class T_option {
 	public var name:GoString = "";
 	public var feature:Pointer<Bool> = (null : Pointer<Bool>);
-
-	/**
-		// whether feature value was specified in GODEBUG
-	**/
 	public var specified:Bool = false;
-
-	/**
-		// whether feature should be enabled
-	**/
 	public var enable:Bool = false;
 
 	public function new(?name:GoString, ?feature:Pointer<Bool>, ?specified:Bool, ?enable:Bool) {
@@ -203,7 +195,7 @@ class T__struct_0_asInterface {
 
 @:local @:using(stdgo.internal.cpu.Cpu.T__struct_0_static_extension) private typedef T__struct_0 = {
 	@:optional
-	public var _5:CacheLinePad;
+	public var _7:CacheLinePad;
 	public var hasAES:Bool;
 	public var hasADX:Bool;
 	public var hasAVX:Bool;
@@ -221,7 +213,7 @@ class T__struct_0_asInterface {
 	public var hasSSE41:Bool;
 	public var hasSSE42:Bool;
 	@:optional
-	public var _7:CacheLinePad;
+	public var _9:CacheLinePad;
 };
 
 class T__struct_1_asInterface {
@@ -243,11 +235,11 @@ class T__struct_1_asInterface {
 
 @:local @:using(stdgo.internal.cpu.Cpu.T__struct_1_static_extension) private typedef T__struct_1 = {
 	@:optional
-	public var _11:CacheLinePad;
+	public var _15:CacheLinePad;
 	public var hasVFPv4:Bool;
 	public var hasIDIVA:Bool;
 	@:optional
-	public var _13:CacheLinePad;
+	public var _17:CacheLinePad;
 };
 
 class T__struct_2_asInterface {
@@ -269,7 +261,7 @@ class T__struct_2_asInterface {
 
 @:local @:using(stdgo.internal.cpu.Cpu.T__struct_2_static_extension) private typedef T__struct_2 = {
 	@:optional
-	public var _17:CacheLinePad;
+	public var _23:CacheLinePad;
 	public var hasAES:Bool;
 	public var hasPMULL:Bool;
 	public var hasSHA1:Bool;
@@ -280,7 +272,7 @@ class T__struct_2_asInterface {
 	public var isNeoverseN1:Bool;
 	public var isZeus:Bool;
 	@:optional
-	public var _19:CacheLinePad;
+	public var _25:CacheLinePad;
 };
 
 class T__struct_3_asInterface {
@@ -302,15 +294,10 @@ class T__struct_3_asInterface {
 
 @:local @:using(stdgo.internal.cpu.Cpu.T__struct_3_static_extension) private typedef T__struct_3 = {
 	@:optional
-	public var _23:CacheLinePad;
-
-	/**
-		// MIPS SIMD architecture
-	**/
+	public var _31:CacheLinePad;
 	public var hasMSA:Bool;
-
 	@:optional
-	public var _25:CacheLinePad;
+	public var _33:CacheLinePad;
 };
 
 class T__struct_4_asInterface {
@@ -332,35 +319,14 @@ class T__struct_4_asInterface {
 
 @:local @:using(stdgo.internal.cpu.Cpu.T__struct_4_static_extension) private typedef T__struct_4 = {
 	@:optional
-	public var _29:CacheLinePad;
-
-	/**
-		// Hardware random number generator (requires kernel enablement)
-	**/
+	public var _39:CacheLinePad;
 	public var hasDARN:Bool;
-
-	/**
-		// Syscall vectored (requires kernel enablement)
-	**/
 	public var hasSCV:Bool;
-
-	/**
-		// ISA v2.07 (POWER8)
-	**/
 	public var isPOWER8:Bool;
-
-	/**
-		// ISA v3.00 (POWER9)
-	**/
 	public var isPOWER9:Bool;
-
-	/**
-		// ISA v3.1  (POWER10)
-	**/
 	public var isPOWER10:Bool;
-
 	@:optional
-	public var _31:CacheLinePad;
+	public var _41:CacheLinePad;
 };
 
 class T__struct_5_asInterface {
@@ -382,115 +348,30 @@ class T__struct_5_asInterface {
 
 @:local @:using(stdgo.internal.cpu.Cpu.T__struct_5_static_extension) private typedef T__struct_5 = {
 	@:optional
-	public var _35:CacheLinePad;
-
-	/**
-		// z architecture mode is active [mandatory]
-	**/
+	public var _47:CacheLinePad;
 	public var hasZARCH:Bool;
-
-	/**
-		// store facility list extended [mandatory]
-	**/
 	public var hasSTFLE:Bool;
-
-	/**
-		// long (20-bit) displacements [mandatory]
-	**/
 	public var hasLDISP:Bool;
-
-	/**
-		// 32-bit immediates [mandatory]
-	**/
 	public var hasEIMM:Bool;
-
-	/**
-		// decimal floating point
-	**/
 	public var hasDFP:Bool;
-
-	/**
-		// ETF-3 enhanced
-	**/
 	public var hasETF3EH:Bool;
-
-	/**
-		// message security assist (CPACF)
-	**/
 	public var hasMSA:Bool;
-
-	/**
-		// KM-AES{128,192,256} functions
-	**/
 	public var hasAES:Bool;
-
-	/**
-		// KMC-AES{128,192,256} functions
-	**/
 	public var hasAESCBC:Bool;
-
-	/**
-		// KMCTR-AES{128,192,256} functions
-	**/
 	public var hasAESCTR:Bool;
-
-	/**
-		// KMA-GCM-AES{128,192,256} functions
-	**/
 	public var hasAESGCM:Bool;
-
-	/**
-		// KIMD-GHASH function
-	**/
 	public var hasGHASH:Bool;
-
-	/**
-		// K{I,L}MD-SHA-1 functions
-	**/
 	public var hasSHA1:Bool;
-
-	/**
-		// K{I,L}MD-SHA-256 functions
-	**/
 	public var hasSHA256:Bool;
-
-	/**
-		// K{I,L}MD-SHA-512 functions
-	**/
 	public var hasSHA512:Bool;
-
-	/**
-		// K{I,L}MD-SHA3-{224,256,384,512} and K{I,L}MD-SHAKE-{128,256} functions
-	**/
 	public var hasSHA3:Bool;
-
-	/**
-		// vector facility. Note: the runtime sets this when it processes auxv records.
-	**/
 	public var hasVX:Bool;
-
-	/**
-		// vector-enhancements facility 1
-	**/
 	public var hasVXE:Bool;
-
-	/**
-		// elliptic curve functions
-	**/
 	public var hasKDSA:Bool;
-
-	/**
-		// NIST curves
-	**/
 	public var hasECDSA:Bool;
-
-	/**
-		// Edwards curves
-	**/
 	public var hasEDDSA:Bool;
-
 	@:optional
-	public var _37:CacheLinePad;
+	public var _49:CacheLinePad;
 };
 
 /**
@@ -512,7 +393,7 @@ function initialize(_env:GoString):Void {
 	// If env contains cpu.all=off then all cpu features referenced through the options
 	// variable are disabled. Other feature names and values result in warning messages.
 **/
-function _processOptions(_env:GoString):Void {
+private function _processOptions(_env:GoString):Void {
 	stdgo.internal.Macro.controlFlow({
 		@:label("field") while (_env != (Go.str())) {
 			var _field:GoString = Go.str();
@@ -532,12 +413,12 @@ function _processOptions(_env:GoString):Void {
 					_env = __tmp__1;
 				};
 			};
-			if ((_field.length < (4:GoInt)) || ((_field.__slice__(0, (4 : GoInt)) : GoString) != Go.str("cpu."))) {
+			if ((_field.length < (4:GoInt)) || ((_field.__slice__(0, (4 : GoInt)) : GoString) != ("cpu." : GoString))) {
 				continue;
 			};
 			_i = _indexByte(_field, (61 : GoUInt8));
 			if (_i < (0:GoInt)) {
-				trace(Go.str("GODEBUG: no value specified for \""), _field, Go.str("\"\n"));
+				trace(("GODEBUG: no value specified for \"" : GoString), _field, ("\"\n" : GoString));
 				continue;
 			};
 			var _0:GoString = (_field.__slice__((4 : GoInt), _i) : GoString),
@@ -545,15 +426,15 @@ function _processOptions(_env:GoString):Void {
 				_value:GoString = _1,
 				_key:GoString = _0;
 			var _enable:Bool = false;
-			if (_value == (Go.str("on"))) {
+			if (_value == (("on" : GoString))) {
 				_enable = true;
-			} else if (_value == (Go.str("off"))) {
+			} else if (_value == (("off" : GoString))) {
 				_enable = false;
 			} else {
-				trace(Go.str("GODEBUG: value \""), _value, Go.str("\" not supported for cpu option \""), _key, Go.str("\"\n"));
+				trace(("GODEBUG: value \"" : GoString), _value, ("\" not supported for cpu option \"" : GoString), _key, ("\"\n" : GoString));
 				@:jump("field") continue;
 			};
-			if (_key == (Go.str("all"))) {
+			if (_key == (("all" : GoString))) {
 				for (_i in 0..._options.length.toBasic()) {
 					_options[(_i : GoInt)].specified = true;
 					_options[(_i : GoInt)].enable = _enable;
@@ -567,14 +448,14 @@ function _processOptions(_env:GoString):Void {
 					@:jump("field") continue;
 				};
 			};
-			trace(Go.str("GODEBUG: unknown cpu feature \""), _key, Go.str("\"\n"));
+			trace(("GODEBUG: unknown cpu feature \"" : GoString), _key, ("\"\n" : GoString));
 		};
 		for (_0 => _o in _options) {
 			if (!_o.specified) {
 				continue;
 			};
 			if (_o.enable && !_o.feature.value) {
-				trace(Go.str("GODEBUG: can not enable \""), _o.name, Go.str("\", missing CPU support\n"));
+				trace(("GODEBUG: can not enable \"" : GoString), _o.name, ("\", missing CPU support\n" : GoString));
 				continue;
 			};
 			_o.feature.value = _o.enable;
@@ -586,7 +467,7 @@ function _processOptions(_env:GoString):Void {
 	// indexByte returns the index of the first instance of c in s,
 	// or -1 if c is not present in s.
 **/
-function _indexByte(_s:GoString, _c:GoByte):GoInt {
+private function _indexByte(_s:GoString, _c:GoByte):GoInt {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_s.length), _i++, {
@@ -610,4 +491,4 @@ function name():GoString {
 	return Go.str();
 }
 
-function _doinit():Void {}
+private function _doinit():Void {}

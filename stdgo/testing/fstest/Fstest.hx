@@ -22,24 +22,9 @@ private var _3:stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
 	// A MapFile describes a single file in a MapFS.
 **/
 @:structInit class MapFile {
-	/**
-		// file content
-	**/
 	public var data:Slice<GoUInt8> = (null : Slice<GoUInt8>);
-
-	/**
-		// FileInfo.Mode
-	**/
 	public var mode:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
-
-	/**
-		// FileInfo.ModTime
-	**/
 	public var modTime:stdgo.time.Time.Time = ({} : stdgo.time.Time.Time);
-
-	/**
-		// FileInfo.Sys
-	**/
 	public var sys:AnyInterface = (null : AnyInterface);
 
 	public function new(?data:Slice<GoUInt8>, ?mode:stdgo.io.fs.Fs.FileMode, ?modTime:stdgo.time.Time.Time, ?sys:AnyInterface) {
@@ -344,25 +329,25 @@ function testMapFSChmodDot(_t:Ref<stdgo.testing.Testing.T>):Void
 function testFS(_fsys:stdgo.io.fs.Fs.FS, _expected:haxe.Rest<GoString>):Error
 	throw "testing.fstest.testFS is not yet implemented";
 
-function _testFS(_fsys:stdgo.io.fs.Fs.FS, _expected:haxe.Rest<GoString>):Error
+private function _testFS(_fsys:stdgo.io.fs.Fs.FS, _expected:haxe.Rest<GoString>):Error
 	throw "testing.fstest._testFS is not yet implemented";
 
 /**
 	// formatEntry formats an fs.DirEntry into a string for error messages and comparison.
 **/
-function _formatEntry(_entry:stdgo.io.fs.Fs.DirEntry):GoString
+private function _formatEntry(_entry:stdgo.io.fs.Fs.DirEntry):GoString
 	throw "testing.fstest._formatEntry is not yet implemented";
 
 /**
 	// formatInfoEntry formats an fs.FileInfo into a string like the result of formatEntry, for error messages and comparison.
 **/
-function _formatInfoEntry(_info:stdgo.io.fs.Fs.FileInfo):GoString
+private function _formatInfoEntry(_info:stdgo.io.fs.Fs.FileInfo):GoString
 	throw "testing.fstest._formatInfoEntry is not yet implemented";
 
 /**
 	// formatInfo formats an fs.FileInfo into a string for error messages and comparison.
 **/
-function _formatInfo(_info:stdgo.io.fs.Fs.FileInfo):GoString
+private function _formatInfo(_info:stdgo.io.fs.Fs.FileInfo):GoString
 	throw "testing.fstest._formatInfo is not yet implemented";
 
 function testSymlink(_t:Ref<stdgo.testing.Testing.T>):Void

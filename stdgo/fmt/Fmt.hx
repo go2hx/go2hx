@@ -394,7 +394,7 @@ private var __go2hxdoc__package:Bool;
 
 private var _ppFree:stdgo.sync.Sync.Pool = ({
 	new_: function():AnyInterface {
-		return Go.toInterface(({} : T_pp));
+		return Go.toInterface(Go.asInterface(({} : T_pp)));
 	}
 } : stdgo.sync.Sync.Pool);
 
@@ -416,7 +416,7 @@ private var _space:Slice<GoArray<GoUInt16>> = (new Slice<GoArray<GoUInt16>>(0, 0
 
 private var _ssFree:stdgo.sync.Sync.Pool = ({
 	new_: function():AnyInterface {
-		return Go.toInterface(({} : T_ss));
+		return Go.toInterface(Go.asInterface(({} : T_ss)));
 	}
 } : stdgo.sync.Sync.Pool);
 
@@ -758,15 +758,7 @@ typedef Scanner = StructType & {
 	public var _buf:Ref<T_buffer> = (null : Ref<T_buffer>);
 	@:embedded
 	public var _fmtFlags:T_fmtFlags = ({} : T_fmtFlags);
-
-	/**
-		// width
-	**/
 	public var _wid:GoInt = 0;
-
-	/**
-		// precision
-	**/
 	public var _prec:GoInt = 0;
 
 	/**
@@ -903,26 +895,10 @@ typedef Scanner = StructType & {
 	// ss is the internal implementation of ScanState.
 **/
 @:structInit @:using(stdgo.fmt.Fmt.T_ss_static_extension) private class T_ss {
-	/**
-		// where to read input
-	**/
 	public var _rs:stdgo.io.Io.RuneScanner = (null : stdgo.io.Io.RuneScanner);
-
-	/**
-		// token accumulator
-	**/
 	public var _buf:T_buffer = new T_buffer(0, 0);
-
-	/**
-		// runes consumed so far.
-	**/
 	public var _count:GoInt = 0;
-
-	/**
-		// already read EOF
-	**/
 	public var _atEOF:Bool = false;
-
 	@:embedded
 	public var _ssave:T_ssave = ({} : T_ssave);
 
@@ -952,34 +928,11 @@ typedef Scanner = StructType & {
 	// saved and restored on recursive scans.
 **/
 @:structInit private class T_ssave {
-	/**
-		// is or was a part of an actual ss.
-	**/
 	public var _validSave:Bool = false;
-
-	/**
-		// whether newline terminates scan
-	**/
 	public var _nlIsEnd:Bool = false;
-
-	/**
-		// whether newline counts as white space
-	**/
 	public var _nlIsSpace:Bool = false;
-
-	/**
-		// max value of ss.count for this arg; argLimit <= limit
-	**/
 	public var _argLimit:GoInt = 0;
-
-	/**
-		// max value of ss.count.
-	**/
 	public var _limit:GoInt = 0;
-
-	/**
-		// width of this arg.
-	**/
 	public var _maxWid:GoInt = 0;
 
 	public function new(?_validSave:Bool, ?_nlIsEnd:Bool, ?_nlIsSpace:Bool, ?_argLimit:GoInt, ?_limit:GoInt, ?_maxWid:GoInt) {
@@ -1012,25 +965,9 @@ typedef Scanner = StructType & {
 **/
 @:structInit @:using(stdgo.fmt.Fmt.T_readRune_static_extension) private class T_readRune {
 	public var _reader:stdgo.io.Io.Reader = (null : stdgo.io.Io.Reader);
-
-	/**
-		// used only inside ReadRune
-	**/
 	public var _buf:GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0...4) (0 : GoUInt8)]);
-
-	/**
-		// number of bytes in pendBuf; only >0 for bad UTF-8
-	**/
 	public var _pending:GoInt = 0;
-
-	/**
-		// bytes left over
-	**/
 	public var _pendBuf:GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0...4) (0 : GoUInt8)]);
-
-	/**
-		// if >=0 next rune; when <0 is ^(previous Rune)
-	**/
 	public var _peekRune:GoInt32 = 0;
 
 	public function new(?_reader:stdgo.io.Io.Reader, ?_buf:GoArray<GoUInt8>, ?_pending:GoInt, ?_pendBuf:GoArray<GoUInt8>, ?_peekRune:GoInt32) {
@@ -1090,7 +1027,7 @@ function errorf(_format:GoString, _a:haxe.Rest<AnyInterface>):Error {
 /**
 	// newPrinter allocates a new pp struct or grabs a cached one.
 **/
-function _newPrinter():Ref<T_pp> {
+private function _newPrinter():Ref<T_pp> {
 	var _p = (Go.typeAssert((_ppFree.get() : Ref<T_pp>)) : Ref<T_pp>);
 	_p._panicking = false;
 	_p._erroring = false;
@@ -1270,7 +1207,7 @@ function appendln(_b:Slice<GoByte>, _a:haxe.Rest<AnyInterface>):Slice<GoByte> {
 	// If the field is itself is an interface, return a value for
 	// the thing inside the interface, not the interface itself.
 **/
-function _getField(_v:stdgo.reflect.Reflect.Value, _i:GoInt):stdgo.reflect.Reflect.Value {
+private function _getField(_v:stdgo.reflect.Reflect.Value, _i:GoInt):stdgo.reflect.Reflect.Value {
 	var _val:stdgo.reflect.Reflect.Value = (_v.field(_i) == null ? null : _v.field(_i).__copy__());
 	if ((_val.kind() == (("20" : GoUInt) : stdgo.reflect.Reflect.Kind)) && !_val.isNil()) {
 		_val = (_val.elem() == null ? null : _val.elem().__copy__());
@@ -1282,7 +1219,7 @@ function _getField(_v:stdgo.reflect.Reflect.Value, _i:GoInt):stdgo.reflect.Refle
 	// tooLarge reports whether the magnitude of the integer is
 	// too large to be used as a formatting width or precision.
 **/
-function _tooLarge(_x:GoInt):Bool {
+private function _tooLarge(_x:GoInt):Bool {
 	{};
 	return (_x > (1000000 : GoInt)) || (_x < (-1000000:GoInt));
 }
@@ -1290,7 +1227,7 @@ function _tooLarge(_x:GoInt):Bool {
 /**
 	// parsenum converts ASCII to integer.  num is 0 (and isnum is false) if no number present.
 **/
-function _parsenum(_s:GoString, _start:GoInt, _end:GoInt):{var _0:GoInt; var _1:Bool; var _2:GoInt;} {
+private function _parsenum(_s:GoString, _start:GoInt, _end:GoInt):{var _0:GoInt; var _1:Bool; var _2:GoInt;} {
 	var _num:GoInt = (0 : GoInt),
 		_isnum:Bool = false,
 		_newi:GoInt = (0 : GoInt);
@@ -1313,7 +1250,7 @@ function _parsenum(_s:GoString, _start:GoInt, _end:GoInt):{var _0:GoInt; var _1:
 /**
 	// intFromArg gets the argNumth element of a. On return, isInt reports whether the argument has integer type.
 **/
-function _intFromArg(_a:Slice<AnyInterface>, _argNum:GoInt):{var _0:GoInt; var _1:Bool; var _2:GoInt;} {
+private function _intFromArg(_a:Slice<AnyInterface>, _argNum:GoInt):{var _0:GoInt; var _1:Bool; var _2:GoInt;} {
 	var _num:GoInt = (0 : GoInt),
 		_isInt:Bool = false,
 		_newArgNum:GoInt = (0 : GoInt);
@@ -1373,7 +1310,7 @@ function _intFromArg(_a:Slice<AnyInterface>, _argNum:GoInt):{var _0:GoInt; var _
 	// up to the closing paren, if present, and whether the number parsed
 	// ok. The bytes to consume will be 1 if no closing paren is present.
 **/
-function _parseArgNumber(_format:GoString):{var _0:GoInt; var _1:GoInt; var _2:Bool;} {
+private function _parseArgNumber(_format:GoString):{var _0:GoInt; var _1:GoInt; var _2:Bool;} {
 	var _index:GoInt = (0 : GoInt), _wid:GoInt = (0 : GoInt), _ok:Bool = false;
 	if ((_format.length) < (3 : GoInt)) {
 		return {_0: (0 : GoInt), _1: (1 : GoInt), _2: false};
@@ -1534,7 +1471,7 @@ function fscanf(_r:stdgo.io.Io.Reader, _format:GoString, _a:haxe.Rest<AnyInterfa
 	return {_0: _n, _1: _err};
 }
 
-function _isSpace(_r:GoRune):Bool {
+private function _isSpace(_r:GoRune):Bool {
 	if (_r >= (65536 : GoInt32)) {
 		return false;
 	};
@@ -1553,14 +1490,14 @@ function _isSpace(_r:GoRune):Bool {
 /**
 	// notSpace is the default scanning function used in Token.
 **/
-function _notSpace(_r:GoRune):Bool {
+private function _notSpace(_r:GoRune):Bool {
 	return !_isSpace(_r);
 }
 
 /**
 	// newScanState allocates a new ss struct or grab a cached one.
 **/
-function _newScanState(_r:stdgo.io.Io.Reader, _nlIsSpace:Bool, _nlIsEnd:Bool):{var _0:Ref<T_ss>; var _1:T_ssave;} {
+private function _newScanState(_r:stdgo.io.Io.Reader, _nlIsSpace:Bool, _nlIsEnd:Bool):{var _0:Ref<T_ss>; var _1:T_ssave;} {
 	var _s:Ref<T_ss> = (null : Ref<T_ss>), _old:T_ssave = ({} : T_ssave);
 	_s = (Go.typeAssert((_ssFree.get() : Ref<T_ss>)) : Ref<T_ss>);
 	{
@@ -1586,7 +1523,7 @@ function _newScanState(_r:stdgo.io.Io.Reader, _nlIsSpace:Bool, _nlIsEnd:Bool):{v
 	return {_0: _s, _1: _old};
 }
 
-function _indexRune(_s:GoString, _r:GoRune):GoInt {
+private function _indexRune(_s:GoString, _r:GoRune):GoInt {
 	for (_i => _c in _s) {
 		if (_c == (_r)) {
 			return _i;
@@ -1595,7 +1532,7 @@ function _indexRune(_s:GoString, _r:GoRune):GoInt {
 	return (-1 : GoInt);
 }
 
-function _hasX(_s:GoString):Bool {
+private function _hasX(_s:GoString):Bool {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_s.length), _i++, {
@@ -1610,7 +1547,7 @@ function _hasX(_s:GoString):Bool {
 /**
 	// hexDigit returns the value of the hexadecimal digit.
 **/
-function _hexDigit(_d:GoRune):{var _0:GoInt; var _1:Bool;} {
+private function _hexDigit(_d:GoRune):{var _0:GoInt; var _1:Bool;} {
 	var _digit:GoInt = (_d : GoInt);
 	if (_digit == ((48 : GoInt)) || _digit == ((49 : GoInt)) || _digit == ((50 : GoInt)) || _digit == ((51 : GoInt)) || _digit == ((52 : GoInt))
 		|| _digit == ((53 : GoInt)) || _digit == ((54 : GoInt)) || _digit == ((55 : GoInt)) || _digit == ((56 : GoInt)) || _digit == ((57 : GoInt))) {
@@ -1628,7 +1565,7 @@ function _hexDigit(_d:GoRune):{var _0:GoInt; var _1:Bool;} {
 /**
 	// errorHandler turns local panics into error returns.
 **/
-function _errorHandler(_errp:Ref<Error>):Void {
+private function _errorHandler(_errp:Ref<Error>):Void {
 	{
 		var _e:AnyInterface = ({
 			final r = Go.recover_exception;
@@ -2586,14 +2523,9 @@ class T_pp_asInterface {
 			var _argNum:GoInt = (0 : GoInt);
 			var _afterIndex:Bool = false;
 			_p._reordered = false;
-			var _k:GoInt = (0 : GoInt);
 			@:label("formatLoop") {
 				var _i:GoInt = (0 : GoInt);
 				while (_i < _end) {
-					_k++;
-					if (_k > (20 : GoInt)) {
-						throw Go.toInterface(("done" : GoString));
-					};
 					_p._goodArgNum = true;
 					var _lasti:GoInt = _i;
 					while ((_i < _end) && (_format[(_i : GoInt)] != (37 : GoUInt8))) {
@@ -3061,18 +2993,20 @@ class T_pp_asInterface {
 					} else if (__switchIndex__ == 13
 						|| (__switchIndex__ == -1 && (_value.kind() == (("22" : GoUInt) : stdgo.reflect.Reflect.Kind)))) {
 						if ((_depth == (0 : GoInt)) && (_f.pointer() != (0 : GoUIntptr))) {
-							var _a:stdgo.reflect.Reflect.Value = (_f.elem() == null ? null : _f.elem().__copy__());
-							if (_a.kind() == ((("17" : GoUInt) : stdgo.reflect.Reflect.Kind))
-								|| _a.kind() == ((("23" : GoUInt) : stdgo.reflect.Reflect.Kind))
-								|| _a.kind() == ((("25" : GoUInt) : stdgo.reflect.Reflect.Kind))
-								|| _a.kind() == ((("21" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
-								_p._buf._writeByte((38 : GoUInt8));
-								_p._printValue((_a == null ? null : _a.__copy__()), _verb, _depth + (1 : GoInt));
-								return;
+							{
+								var _a:stdgo.reflect.Reflect.Value = (_f.elem() == null ? null : _f.elem().__copy__());
+								if (_a.kind() == ((("17" : GoUInt) : stdgo.reflect.Reflect.Kind))
+									|| _a.kind() == ((("23" : GoUInt) : stdgo.reflect.Reflect.Kind))
+									|| _a.kind() == ((("25" : GoUInt) : stdgo.reflect.Reflect.Kind))
+									|| _a.kind() == ((("21" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
+									_p._buf._writeByte((38 : GoUInt8));
+									_p._printValue((_a == null ? null : _a.__copy__()), _verb, _depth + (1 : GoInt));
+									return;
+								};
 							};
 						};
 						@:fallthrough {
-							__switchIndex__ = 1;
+							__switchIndex__ = 14;
 							continue;
 						};
 						break;
@@ -3085,7 +3019,6 @@ class T_pp_asInterface {
 						break;
 						break;
 					} else {
-						println(Go.toInterface(("unknown type" : GoString)));
 						_p._unknownType((_f == null ? null : _f.__copy__()));
 						break;
 					};
@@ -3666,7 +3599,7 @@ class T_pp_asInterface {
 		_p._arg = (null : AnyInterface);
 		_p._value = (new stdgo.reflect.Reflect.Value() : stdgo.reflect.Reflect.Value);
 		_p._wrappedErr = (null : Error);
-		_ppFree.put(Go.toInterface(_p));
+		_ppFree.put(Go.toInterface(Go.asInterface(_p)));
 	}
 }
 
@@ -4961,7 +4894,7 @@ class T_ss_asInterface {
 		};
 		_s._buf = (_s._buf.__slice__(0, (0 : GoInt)) : T_buffer);
 		_s._rs = (null : stdgo.io.Io.RuneScanner);
-		_ssFree.put(Go.toInterface(_s));
+		_ssFree.put(Go.toInterface(Go.asInterface(_s)));
 	}
 
 	@:keep

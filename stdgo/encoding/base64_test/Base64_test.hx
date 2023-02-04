@@ -11,27 +11,27 @@ import stdgo.GoMap;
 import stdgo.Chan;
 
 function example():Void {
-	var _msg:GoString = Go.str("Hello, 世界");
+	var _msg:GoString = ("Hello, 世界" : GoString);
 	var _encoded:GoString = stdgo.encoding.base64.Base64.stdEncoding.encodeToString((_msg : Slice<GoByte>));
 	stdgo.fmt.Fmt.println(Go.toInterface(_encoded));
 	var __tmp__ = stdgo.encoding.base64.Base64.stdEncoding.decodeString(_encoded),
 		_decoded:Slice<GoUInt8> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		stdgo.fmt.Fmt.println(Go.toInterface(Go.str("decode error:")), Go.toInterface(_err));
+		stdgo.fmt.Fmt.println(Go.toInterface(("decode error:" : GoString)), Go.toInterface(_err));
 		return;
 	};
 	stdgo.fmt.Fmt.println(Go.toInterface((_decoded : GoString)));
 }
 
 function exampleEncoding_EncodeToString():Void {
-	var _data = (Go.str("any + old & data") : Slice<GoByte>);
+	var _data = (("any + old & data" : GoString) : Slice<GoByte>);
 	var _str:GoString = stdgo.encoding.base64.Base64.stdEncoding.encodeToString(_data);
 	stdgo.fmt.Fmt.println(Go.toInterface(_str));
 }
 
 function exampleEncoding_Encode():Void {
-	var _data = (Go.str("Hello, world!") : Slice<GoByte>);
+	var _data = (("Hello, world!" : GoString) : Slice<GoByte>);
 	var _dst = new Slice<GoUInt8>((stdgo.encoding.base64.Base64.stdEncoding.encodedLen((_data.length)) : GoInt).toBasic(), 0, ...[
 		for (i in 0...(stdgo.encoding.base64.Base64.stdEncoding.encodedLen((_data.length)) : GoInt).toBasic()) (0 : GoUInt8)
 	]);
@@ -40,19 +40,19 @@ function exampleEncoding_Encode():Void {
 }
 
 function exampleEncoding_DecodeString():Void {
-	var _str:GoString = Go.str("c29tZSBkYXRhIHdpdGggACBhbmQg77u/");
+	var _str:GoString = ("c29tZSBkYXRhIHdpdGggACBhbmQg77u/" : GoString);
 	var __tmp__ = stdgo.encoding.base64.Base64.stdEncoding.decodeString(_str),
 		_data:Slice<GoUInt8> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		stdgo.fmt.Fmt.println(Go.toInterface(Go.str("error:")), Go.toInterface(_err));
+		stdgo.fmt.Fmt.println(Go.toInterface(("error:" : GoString)), Go.toInterface(_err));
 		return;
 	};
-	stdgo.fmt.Fmt.printf(Go.str("%q\n"), Go.toInterface(_data));
+	stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(_data));
 }
 
 function exampleEncoding_Decode():Void {
-	var _str:GoString = Go.str("SGVsbG8sIHdvcmxkIQ==");
+	var _str:GoString = ("SGVsbG8sIHdvcmxkIQ==" : GoString);
 	var _dst = new Slice<GoUInt8>((stdgo.encoding.base64.Base64.stdEncoding.decodedLen((_str.length)) : GoInt).toBasic(), 0, ...[
 		for (i in 0...(stdgo.encoding.base64.Base64.stdEncoding.decodedLen((_str.length)) : GoInt).toBasic()) (0 : GoUInt8)
 	]);
@@ -60,11 +60,11 @@ function exampleEncoding_Decode():Void {
 		_n:GoInt = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		stdgo.fmt.Fmt.println(Go.toInterface(Go.str("decode error:")), Go.toInterface(_err));
+		stdgo.fmt.Fmt.println(Go.toInterface(("decode error:" : GoString)), Go.toInterface(_err));
 		return;
 	};
 	_dst = (_dst.__slice__(0, _n) : Slice<GoUInt8>);
-	stdgo.fmt.Fmt.printf(Go.str("%q\n"), Go.toInterface(_dst));
+	stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(_dst));
 }
 
 function exampleNewEncoder():Void {

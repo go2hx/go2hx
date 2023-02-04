@@ -89,7 +89,7 @@ function sort(_mapValue:stdgo.reflect.Reflect.Value):Ref<SortedMap> {
 	// If the types differ, it returns -1.
 	// See the comment on Sort for the comparison rules.
 **/
-function _compare(_aVal:stdgo.reflect.Reflect.Value, _bVal:stdgo.reflect.Reflect.Value):GoInt {
+private function _compare(_aVal:stdgo.reflect.Reflect.Value, _bVal:stdgo.reflect.Reflect.Value):GoInt {
 	var _0:stdgo.reflect.Reflect.Type = _aVal.type(),
 		_1:stdgo.reflect.Reflect.Type = _bVal.type(),
 		_bType:stdgo.reflect.Reflect.Type = _1,
@@ -249,7 +249,7 @@ function _compare(_aVal:stdgo.reflect.Reflect.Value, _bVal:stdgo.reflect.Reflect
 		};
 		return _compare((_aVal.elem() == null ? null : _aVal.elem().__copy__()), (_bVal.elem() == null ? null : _bVal.elem().__copy__()));
 	} else {
-		throw Go.toInterface(Go.str("bad type in compare: ") + (_aType.string() : GoString));
+		throw Go.toInterface(("bad type in compare: " : GoString) + (_aType.string() : GoString));
 	};
 }
 
@@ -260,7 +260,7 @@ function _compare(_aVal:stdgo.reflect.Reflect.Value, _bVal:stdgo.reflect.Reflect
 	// nil value compares low. Both arguments must represent a chan, func,
 	// interface, map, pointer, or slice.
 **/
-function _nilCompare(_aVal:stdgo.reflect.Reflect.Value, _bVal:stdgo.reflect.Reflect.Value):{var _0:GoInt; var _1:Bool;} {
+private function _nilCompare(_aVal:stdgo.reflect.Reflect.Value, _bVal:stdgo.reflect.Reflect.Value):{var _0:GoInt; var _1:Bool;} {
 	if (_aVal.isNil()) {
 		if (_bVal.isNil()) {
 			return {_0: (0 : GoInt), _1: true};
@@ -276,7 +276,7 @@ function _nilCompare(_aVal:stdgo.reflect.Reflect.Value, _bVal:stdgo.reflect.Refl
 /**
 	// floatCompare compares two floating-point values. NaNs compare low.
 **/
-function _floatCompare(_a:GoFloat64, _b:GoFloat64):GoInt {
+private function _floatCompare(_a:GoFloat64, _b:GoFloat64):GoInt {
 	if (_isNaN(_a)) {
 		return (-1 : GoInt);
 	} else if (_isNaN(_b)) {
@@ -289,7 +289,7 @@ function _floatCompare(_a:GoFloat64, _b:GoFloat64):GoInt {
 	return (0 : GoInt);
 }
 
-function _isNaN(_a:GoFloat64):Bool {
+private function _isNaN(_a:GoFloat64):Bool {
 	return _a != (_a);
 }
 

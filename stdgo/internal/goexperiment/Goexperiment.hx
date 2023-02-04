@@ -52,22 +52,22 @@ import stdgo.Chan;
 **/
 private var __go2hxdoc__package:Bool;
 
-final boringCrypto:InvalidType = null;
-final boringCryptoInt:GoUInt64 = (0 : GoUInt64);
-final fieldTrack:InvalidType = null;
-final fieldTrackInt:GoUInt64 = (0 : GoUInt64);
-final heapMinimum512KiB:InvalidType = null;
-final heapMinimum512KiBInt:GoUInt64 = (0 : GoUInt64);
-final preemptibleLoops:InvalidType = null;
-final preemptibleLoopsInt:GoUInt64 = (0 : GoUInt64);
-final regabiArgs:InvalidType = null;
-final regabiArgsInt:GoUInt64 = (0 : GoUInt64);
-final regabiWrappers:InvalidType = null;
-final regabiWrappersInt:GoUInt64 = (0 : GoUInt64);
-final staticLockRanking:InvalidType = null;
-final staticLockRankingInt:GoUInt64 = (0 : GoUInt64);
-final unified:InvalidType = null;
-final unifiedInt:GoUInt64 = (0 : GoUInt64);
+final boringCrypto:InvalidType = false;
+final boringCryptoInt:GoUInt64 = ("0" : GoUInt64);
+final fieldTrack:InvalidType = false;
+final fieldTrackInt:GoUInt64 = ("0" : GoUInt64);
+final heapMinimum512KiB:InvalidType = false;
+final heapMinimum512KiBInt:GoUInt64 = ("0" : GoUInt64);
+final preemptibleLoops:InvalidType = false;
+final preemptibleLoopsInt:GoUInt64 = ("0" : GoUInt64);
+final regabiArgs:InvalidType = false;
+final regabiArgsInt:GoUInt64 = ("0" : GoUInt64);
+final regabiWrappers:InvalidType = false;
+final regabiWrappersInt:GoUInt64 = ("0" : GoUInt64);
+final staticLockRanking:InvalidType = false;
+final staticLockRankingInt:GoUInt64 = ("0" : GoUInt64);
+final unified:InvalidType = false;
+final unifiedInt:GoUInt64 = ("0" : GoUInt64);
 
 /**
 	// Flags is the set of experiments that can be enabled or disabled in

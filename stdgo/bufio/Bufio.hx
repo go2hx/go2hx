@@ -17,32 +17,32 @@ import stdgo.Chan;
 **/
 private var __go2hxdoc__package:Bool;
 
-var errInvalidUnreadByte:Error = stdgo.errors.Errors.new_(Go.str("bufio: invalid use of UnreadByte"));
-var errInvalidUnreadRune:Error = stdgo.errors.Errors.new_(Go.str("bufio: invalid use of UnreadRune"));
-var errBufferFull:Error = stdgo.errors.Errors.new_(Go.str("bufio: buffer full"));
-var errNegativeCount:Error = stdgo.errors.Errors.new_(Go.str("bufio: negative count"));
-private var _errNegativeRead:Error = stdgo.errors.Errors.new_(Go.str("bufio: reader returned negative count from Read"));
-private var _errNegativeWrite:Error = stdgo.errors.Errors.new_(Go.str("bufio: writer returned negative count from Write"));
+var errInvalidUnreadByte:Error = stdgo.errors.Errors.new_(("bufio: invalid use of UnreadByte" : GoString));
+var errInvalidUnreadRune:Error = stdgo.errors.Errors.new_(("bufio: invalid use of UnreadRune" : GoString));
+var errBufferFull:Error = stdgo.errors.Errors.new_(("bufio: buffer full" : GoString));
+var errNegativeCount:Error = stdgo.errors.Errors.new_(("bufio: negative count" : GoString));
+private var _errNegativeRead:Error = stdgo.errors.Errors.new_(("bufio: reader returned negative count from Read" : GoString));
+private var _errNegativeWrite:Error = stdgo.errors.Errors.new_(("bufio: writer returned negative count from Write" : GoString));
 
 /**
 	// Errors returned by Scanner.
 **/
-var errTooLong:Error = stdgo.errors.Errors.new_(Go.str("bufio.Scanner: token too long"));
+var errTooLong:Error = stdgo.errors.Errors.new_(("bufio.Scanner: token too long" : GoString));
 
 /**
 	// Errors returned by Scanner.
 **/
-var errNegativeAdvance:Error = stdgo.errors.Errors.new_(Go.str("bufio.Scanner: SplitFunc returns negative advance count"));
+var errNegativeAdvance:Error = stdgo.errors.Errors.new_(("bufio.Scanner: SplitFunc returns negative advance count" : GoString));
 
 /**
 	// Errors returned by Scanner.
 **/
-var errAdvanceTooFar:Error = stdgo.errors.Errors.new_(Go.str("bufio.Scanner: SplitFunc returns advance count beyond input"));
+var errAdvanceTooFar:Error = stdgo.errors.Errors.new_(("bufio.Scanner: SplitFunc returns advance count beyond input" : GoString));
 
 /**
 	// Errors returned by Scanner.
 **/
-var errBadReadCount:Error = stdgo.errors.Errors.new_(Go.str("bufio.Scanner: Read returned impossible count"));
+var errBadReadCount:Error = stdgo.errors.Errors.new_(("bufio.Scanner: Read returned impossible count" : GoString));
 
 /**
 	// ErrFinalToken is a special sentinel error value. It is intended to be
@@ -54,7 +54,7 @@ var errBadReadCount:Error = stdgo.errors.Errors.new_(Go.str("bufio.Scanner: Read
 	// with a custom error value but providing one here is tidier.
 	// See the emptyFinalToken example for a use of this value.
 **/
-var errFinalToken:Error = stdgo.errors.Errors.new_(Go.str("final token"));
+var errFinalToken:Error = stdgo.errors.Errors.new_(("final token" : GoString));
 
 private var _errorRune:Slice<GoUInt8> = (((65533 : GoInt32) : GoString) : Slice<GoByte>);
 var isSpace:GoInt32->Bool = _isSpace;
@@ -81,29 +81,11 @@ private final _startBufSize:GoUInt64 = ("4096" : GoUInt64);
 **/
 @:structInit @:using(stdgo.bufio.Bufio.Reader_static_extension) class Reader {
 	public var _buf:Slice<GoUInt8> = (null : Slice<GoUInt8>);
-
-	/**
-		// reader provided by the client
-	**/
 	public var _rd:stdgo.io.Io.Reader = (null : stdgo.io.Io.Reader);
-
-	/**
-		// buf read and write positions
-	**/
 	public var _r:GoInt = 0;
-
 	public var _w:GoInt = 0;
-
-	/**
-		// last byte read for UnreadByte; -1 means invalid
-	**/
 	public var _err:Error = (null : Error);
-
-	/**
-		// size of last rune read for UnreadRune; -1 means invalid
-	**/
 	public var _lastByte:GoInt = 0;
-
 	public var _lastRuneSize:GoInt = 0;
 
 	public function new(?_buf:Slice<GoUInt8>, ?_rd:stdgo.io.Io.Reader, ?_r:GoInt, ?_w:GoInt, ?_err:Error, ?_lastByte:GoInt, ?_lastRuneSize:GoInt) {
@@ -312,59 +294,16 @@ private final _startBufSize:GoUInt64 = ("4096" : GoUInt64);
 	// on a reader, should use bufio.Reader instead.
 **/
 @:structInit @:using(stdgo.bufio.Bufio.Scanner_static_extension) class Scanner {
-	/**
-		// The reader provided by the client.
-	**/
 	public var _r:stdgo.io.Io.Reader = (null : stdgo.io.Io.Reader);
-
-	/**
-		// The function to split the tokens.
-	**/
 	public var _split:SplitFunc = (null : SplitFunc);
-
-	/**
-		// Maximum size of a token; modified by tests.
-	**/
 	public var _maxTokenSize:GoInt = 0;
-
-	/**
-		// Last token returned by split.
-	**/
 	public var _token:Slice<GoUInt8> = (null : Slice<GoUInt8>);
-
-	/**
-		// Buffer used as argument to split.
-	**/
 	public var _buf:Slice<GoUInt8> = (null : Slice<GoUInt8>);
-
-	/**
-		// First non-processed byte in buf.
-	**/
 	public var _start:GoInt = 0;
-
-	/**
-		// End of data in buf.
-	**/
 	public var _end:GoInt = 0;
-
-	/**
-		// Sticky error.
-	**/
 	public var _err:Error = (null : Error);
-
-	/**
-		// Count of successive empty tokens.
-	**/
 	public var _empties:GoInt = 0;
-
-	/**
-		// Scan has been called; buffer is in use.
-	**/
 	public var _scanCalled:Bool = false;
-
-	/**
-		// Scan has finished.
-	**/
 	public var _done:Bool = false;
 
 	public function new(?_r:stdgo.io.Io.Reader, ?_split:SplitFunc, ?_maxTokenSize:GoInt, ?_token:Slice<GoUInt8>, ?_buf:Slice<GoUInt8>, ?_start:GoInt,
@@ -551,7 +490,7 @@ function scanRunes(_data:Slice<GoByte>, _atEOF:Bool):{var _0:GoInt; var _1:Slice
 /**
 	// dropCR drops a terminal \r from the data.
 **/
-function _dropCR(_data:Slice<GoByte>):Slice<GoByte> {
+private function _dropCR(_data:Slice<GoByte>):Slice<GoByte> {
 	if ((_data.length > (0 : GoInt)) && (_data[((_data.length) - (1 : GoInt) : GoInt)] == (13 : GoUInt8))) {
 		return (_data.__slice__((0 : GoInt), (_data.length) - (1 : GoInt)) : Slice<GoUInt8>);
 	};
@@ -590,7 +529,7 @@ function scanLines(_data:Slice<GoByte>, _atEOF:Bool):{var _0:GoInt; var _1:Slice
 	// We avoid dependency on the unicode package, but check validity of the implementation
 	// in the tests.
 **/
-function _isSpace(_r:GoRune):Bool {
+private function _isSpace(_r:GoRune):Bool {
 	if (_r <= (255 : GoInt32)) {
 		if (_r == ((32 : GoInt32)) || _r == ((9 : GoInt32)) || _r == ((10 : GoInt32)) || _r == ((11 : GoInt32)) || _r == ((12 : GoInt32))
 			|| _r == ((13 : GoInt32))) {
@@ -1098,7 +1037,7 @@ class Reader_asInterface {
 		if (Go.toInterface(_err) == (Go.toInterface(errBufferFull))) {
 			if ((_line.length > (0 : GoInt)) && (_line[((_line.length) - (1 : GoInt) : GoInt)] == (13 : GoUInt8))) {
 				if (_b._r == ((0 : GoInt))) {
-					throw Go.toInterface(Go.str("bufio: tried to rewind past start of buffer"));
+					throw Go.toInterface(("bufio: tried to rewind past start of buffer" : GoString));
 				};
 				_b._r--;
 				_line = (_line.__slice__(0, (_line.length) - (1 : GoInt)) : Slice<GoUInt8>);
@@ -1432,7 +1371,7 @@ class Reader_asInterface {
 			_b._r = (0 : GoInt);
 		};
 		if (_b._w >= (_b._buf.length)) {
-			throw Go.toInterface(Go.str("bufio: tried to fill full buffer"));
+			throw Go.toInterface(("bufio: tried to fill full buffer" : GoString));
 		};
 		{
 			var _i:GoInt = (100 : GoInt);
@@ -2227,7 +2166,7 @@ class Scanner_asInterface {
 	@:keep
 	static public function split(_s:Ref<Scanner>, _split:SplitFunc):Void {
 		if (_s._scanCalled) {
-			throw Go.toInterface(Go.str("Split called after Scan"));
+			throw Go.toInterface(("Split called after Scan" : GoString));
 		};
 		_s._split = _split;
 	}
@@ -2246,7 +2185,7 @@ class Scanner_asInterface {
 	@:keep
 	static public function buffer(_s:Ref<Scanner>, _buf:Slice<GoByte>, _max:GoInt):Void {
 		if (_s._scanCalled) {
-			throw Go.toInterface(Go.str("Buffer called after Scan"));
+			throw Go.toInterface(("Buffer called after Scan" : GoString));
 		};
 		_s._buf = (_buf.__slice__((0 : GoInt), _buf.capacity) : Slice<GoUInt8>);
 		_s._maxTokenSize = _max;
@@ -2321,7 +2260,7 @@ class Scanner_asInterface {
 					} else {
 						_s._empties++;
 						if (_s._empties > (100 : GoInt)) {
-							throw Go.toInterface(Go.str("bufio.Scan: too many empty tokens without progressing"));
+							throw Go.toInterface(("bufio.Scan: too many empty tokens without progressing" : GoString));
 						};
 					};
 					return true;
@@ -2426,7 +2365,7 @@ class Scanner_asInterface {
 	@:keep
 	static public function maxTokenSize(_s:Ref<Scanner>, _n:GoInt):Void {
 		if ((_n < (4:GoInt)) || (_n > (1000000000 : GoInt))) {
-			throw Go.toInterface(Go.str("bad max token size"));
+			throw Go.toInterface(("bad max token size" : GoString));
 		};
 		if (_n < (_s._buf.length)) {
 			_s._buf = new Slice<GoUInt8>((_n : GoInt).toBasic(), 0, ...[for (i in 0...(_n : GoInt).toBasic()) (0 : GoUInt8)]);

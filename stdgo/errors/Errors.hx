@@ -63,8 +63,7 @@ import stdgo.Chan;
 **/
 private var __go2hxdoc__package:Bool;
 
-private var _errorType:stdgo.internal.reflectlite.Reflectlite.Type = #if !macro stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface((null : Ref<Error>)))
-	.elem() #else null #end;
+private var _errorType:stdgo.internal.reflectlite.Reflectlite.Type = stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface((null : Ref<Error>))).elem();
 
 private typedef T__interface_0 = StructType & {
 	public function unwrap():Error;
@@ -188,17 +187,17 @@ function is_(_err:Error, _target:Error):Bool {
 **/
 function as(_err:Error, _target:AnyInterface):Bool {
 	if (_target == null) {
-		throw Go.toInterface(Go.str("errors: target cannot be nil"));
+		throw Go.toInterface(("errors: target cannot be nil" : GoString));
 	};
 	var _val:stdgo.internal.reflectlite.Reflectlite.Value = (stdgo.internal.reflectlite.Reflectlite.valueOf(_target) == null ? null : stdgo.internal.reflectlite.Reflectlite.valueOf(_target)
 		.__copy__());
 	var _typ:stdgo.internal.reflectlite.Reflectlite.Type = _val.type();
 	if ((_typ.kind() != (("22" : GoUInt) : stdgo.internal.reflectlite.Reflectlite.Kind)) || _val.isNil()) {
-		throw Go.toInterface(Go.str("errors: target must be a non-nil pointer"));
+		throw Go.toInterface(("errors: target must be a non-nil pointer" : GoString));
 	};
 	var _targetType:stdgo.internal.reflectlite.Reflectlite.Type = _typ.elem();
 	if ((_targetType.kind() != (("20" : GoUInt) : stdgo.internal.reflectlite.Reflectlite.Kind)) && !_targetType.implements_(_errorType)) {
-		throw Go.toInterface(Go.str("errors: *target must be interface or implement error"));
+		throw Go.toInterface(("errors: *target must be interface or implement error" : GoString));
 	};
 	while (_err != null) {
 		if (stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface(_err)).assignableTo(_targetType)) {

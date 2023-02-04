@@ -346,19 +346,8 @@ typedef Type = StructType & {
 	**/
 	public var pkgPath:GoString = "";
 
-	/**
-		// method type
-	**/
 	public var type:Type = (null : Type);
-
-	/**
-		// func with receiver as first argument
-	**/
 	public var func:Value = ({} : Value);
-
-	/**
-		// index for Type.Method
-	**/
 	public var index:GoInt = 0;
 
 	public function new(?name:GoString, ?pkgPath:GoString, ?type:Type, ?func:Value, ?index:GoInt) {
@@ -398,29 +387,10 @@ typedef Type = StructType & {
 	**/
 	public var pkgPath:GoString = "";
 
-	/**
-		// field type
-	**/
 	public var type:Type = (null : Type);
-
-	/**
-		// field tag string
-	**/
 	public var tag:StructTag = (("" : GoString) : StructTag);
-
-	/**
-		// offset within struct, in bytes
-	**/
 	public var offset:GoUIntptr = 0;
-
-	/**
-		// index sequence for Type.FieldByIndex
-	**/
 	public var index:Slice<GoInt> = (null : Slice<GoInt>);
-
-	/**
-		// is an embedded field
-	**/
 	public var anonymous:Bool = false;
 
 	public function new(?name:GoString, ?pkgPath:GoString, ?type:Type, ?tag:StructTag, ?offset:GoUIntptr, ?index:Slice<GoInt>, ?anonymous:Bool) {
@@ -626,19 +596,8 @@ typedef Type = StructType & {
 	// When a receive operation is selected, the received Value is returned by Select.
 **/
 @:structInit class SelectCase {
-	/**
-		// direction of case
-	**/
 	public var dir:SelectDir = ((0 : GoInt) : SelectDir);
-
-	/**
-		// channel to use (for send or receive)
-	**/
 	public var chan:Value = ({} : Value);
-
-	/**
-		// value to send (for send)
-	**/
 	public var send:Value = ({} : Value);
 
 	public function new(?dir:SelectDir, ?chan:Value, ?send:Value) {
@@ -1815,7 +1774,7 @@ class Value_asInterface {
 					if (StringTools.endsWith(name, "_asInterface"))
 						value = (value : Dynamic).__underlying__().value;
 				default:
-					var _ = 0;
+					final _ = false;
 			};
 		};
 		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
@@ -1902,7 +1861,7 @@ class Value_asInterface {
 					if (StringTools.endsWith(name, "_asInterface"))
 						value = (value : Dynamic).__underlying__().value;
 				default:
-					var _ = 0;
+					final _ = false;
 			};
 		};
 		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
@@ -1916,10 +1875,10 @@ class Value_asInterface {
 					case string_kind:
 						return value;
 					default:
-						var _ = 0;
+						final _ = false;
 				};
 			default:
-				var _ = 0;
+				final _ = false;
 		};
 		return "<" + _v.type().string() + ">";
 	}
@@ -1949,7 +1908,7 @@ class Value_asInterface {
 					if (StringTools.endsWith(name, "_asInterface"))
 						value = (value : Dynamic).__underlying__().value;
 				default:
-					var _ = 0;
+					final _ = false;
 			};
 		};
 		switch t {
@@ -1958,7 +1917,7 @@ class Value_asInterface {
 			case stdgo.internal.reflect.Reflect.GoType.named(path, methods, stdgo.internal.reflect.Reflect.GoType.arrayType(elem, _), alias, params):
 				t = stdgo.internal.reflect.Reflect.GoType.named(path, methods, stdgo.internal.reflect.Reflect.GoType.sliceType(elem), alias, params);
 			default:
-				var _ = 0;
+				final _ = false;
 		};
 		final k = _v.kind();
 		value = switch k {
@@ -2091,7 +2050,7 @@ class Value_asInterface {
 							std.Reflect.setField(value, field.name, fieldValue);
 						};
 					default:
-						var _ = 0;
+						final _ = false;
 				};
 			case stdgo.internal.reflect.Reflect.KindType.int8:
 				_v.setInt((value : GoInt8));
@@ -2313,7 +2272,7 @@ class Value_asInterface {
 					if (StringTools.endsWith(name, "_asInterface"))
 						value = (value : Dynamic).__underlying__().value;
 				default:
-					var _ = 0;
+					final _ = false;
 			};
 		};
 		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
@@ -2413,6 +2372,8 @@ class Value_asInterface {
 				false;
 			case stdgo.internal.reflect.Reflect.KindType.invalid:
 				false;
+			case stdgo.internal.reflect.Reflect.KindType.unsafePointer:
+				value == null;
 			default:
 				throw "nil check not supported kind: " + _v.kind().string();
 		};
@@ -2469,7 +2430,7 @@ class Value_asInterface {
 					if (StringTools.endsWith(name, "_asInterface"))
 						value = (value : Dynamic).__underlying__().value;
 				default:
-					var _ = 0;
+					final _ = false;
 			};
 		};
 		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
@@ -2516,7 +2477,7 @@ class Value_asInterface {
 					if (StringTools.endsWith(name, "_asInterface"))
 						value = (value : Dynamic).__underlying__().value;
 				default:
-					var _ = 0;
+					final _ = false;
 			};
 		};
 		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
@@ -2564,7 +2525,7 @@ class Value_asInterface {
 					if (StringTools.endsWith(name, "_asInterface"))
 						value = (value : Dynamic).__underlying__().value;
 				default:
-					var _ = 0;
+					final _ = false;
 			};
 		};
 		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
@@ -2659,7 +2620,9 @@ class Value_asInterface {
 	static public function elem(_v:Value):Value {
 		var value = @:privateAccess _v.value.value;
 		final t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
-		if (stdgo.internal.reflect.Reflect.isNamed(t)) {
+		if (stdgo.internal.reflect.Reflect.isNamed(t)
+			&& !stdgo.internal.reflect.Reflect.isRef(t)
+			&& !stdgo.internal.reflect.Reflect.isPointer(t)) {
 			switch std.Type.typeof(value) {
 				case TClass(c):
 					final name = std.Type.getClassName(c);
@@ -2668,12 +2631,8 @@ class Value_asInterface {
 						value = (value : Dynamic).__underlying__().value;
 					};
 				default:
-					var _ = 0;
+					final _ = false;
 			};
-		};
-		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
-			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-			value = (value : Dynamic).value;
 		};
 		var k = _v.kind();
 		switch k {
@@ -2695,7 +2654,7 @@ class Value_asInterface {
 						@:privateAccess value.canAddrBool = true;
 						return value;
 					default:
-						var _ = 0;
+						final _ = false;
 				};
 			case stdgo.internal.reflect.Reflect.KindType.interface_:
 				if (value == null)
@@ -2803,7 +2762,7 @@ class Value_asInterface {
 					if (StringTools.endsWith(name, "_asInterface"))
 						value = (value : Dynamic).__underlying__().value;
 				default:
-					var _ = 0;
+					final _ = false;
 			};
 		};
 		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
@@ -2845,7 +2804,7 @@ class Value_asInterface {
 					if (StringTools.endsWith(name, "_asInterface"))
 						value = (value : Dynamic).__underlying__().value;
 				default:
-					var _ = 0;
+					final _ = false;
 			};
 		};
 		if (stdgo.internal.reflect.Reflect.isPointer(t)) {

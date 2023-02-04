@@ -19,21 +19,21 @@ import stdgo.Chan;
 
 private var _bufPool:Pool = ({
 	new_: function():AnyInterface {
-		return Go.toInterface(({} : stdgo.bytes.Bytes.Buffer));
+		return Go.toInterface(Go.asInterface(({} : stdgo.bytes.Bytes.Buffer)));
 	}
 } : Pool);
 
-private var _mapOps:GoArray<stdgo.sync_test.Sync_test.T_mapOp> = (new GoArray<stdgo.sync_test.Sync_test.T_mapOp>(Go.str("Load"), Go.str("Store"),
-	Go.str("LoadOrStore"), Go.str("LoadAndDelete"), Go.str("Delete")) : GoArray<stdgo.sync_test.Sync_test.T_mapOp>);
+private var _mapOps:GoArray<stdgo.sync_test.Sync_test.T_mapOp> = (new GoArray<stdgo.sync_test.Sync_test.T_mapOp>(("Load" : GoString), ("Store" : GoString),
+	("LoadOrStore" : GoString), ("LoadAndDelete" : GoString), ("Delete" : GoString)) : GoArray<stdgo.sync_test.Sync_test.T_mapOp>);
 
 private var _misuseTests:Slice<T__struct_2> = (new Slice<T__struct_2>(0, 0, ({
-	_name: Go.str("Mutex.Unlock"),
+	_name: ("Mutex.Unlock" : GoString),
 	_f: function():Void {
 		var _mu:Mutex = ({} : Mutex);
 		_mu.unlock();
 	}
 } : T__struct_2), ({
-	_name: Go.str("Mutex.Unlock2"),
+	_name: ("Mutex.Unlock2" : GoString),
 	_f: function():Void {
 		var _mu:Mutex = ({} : Mutex);
 		_mu.lock();
@@ -41,20 +41,20 @@ private var _misuseTests:Slice<T__struct_2> = (new Slice<T__struct_2>(0, 0, ({
 		_mu.unlock();
 	}
 	} : T__struct_2), ({
-	_name: Go.str("RWMutex.Unlock"),
+	_name: ("RWMutex.Unlock" : GoString),
 	_f: function():Void {
 		var _mu:RWMutex = ({} : RWMutex);
 		_mu.unlock();
 	}
 	} : T__struct_2), ({
-	_name: Go.str("RWMutex.Unlock2"),
+	_name: ("RWMutex.Unlock2" : GoString),
 	_f: function():Void {
 		var _mu:RWMutex = ({} : RWMutex);
 		_mu.rlock();
 		_mu.unlock();
 	}
 	} : T__struct_2), ({
-	_name: Go.str("RWMutex.Unlock3"),
+	_name: ("RWMutex.Unlock3" : GoString),
 	_f: function():Void {
 		var _mu:RWMutex = ({} : RWMutex);
 		_mu.lock();
@@ -62,20 +62,20 @@ private var _misuseTests:Slice<T__struct_2> = (new Slice<T__struct_2>(0, 0, ({
 		_mu.unlock();
 	}
 	} : T__struct_2), ({
-	_name: Go.str("RWMutex.RUnlock"),
+	_name: ("RWMutex.RUnlock" : GoString),
 	_f: function():Void {
 		var _mu:RWMutex = ({} : RWMutex);
 		_mu.runlock();
 	}
 	} : T__struct_2), ({
-	_name: Go.str("RWMutex.RUnlock2"),
+	_name: ("RWMutex.RUnlock2" : GoString),
 	_f: function():Void {
 		var _mu:RWMutex = ({} : RWMutex);
 		_mu.lock();
 		_mu.runlock();
 	}
 	} : T__struct_2), ({
-	_name: Go.str("RWMutex.RUnlock3"),
+	_name: ("RWMutex.RUnlock3" : GoString),
 	_f: function():Void {
 		var _mu:RWMutex = ({} : RWMutex);
 		_mu.rlock();
@@ -85,11 +85,11 @@ private var _misuseTests:Slice<T__struct_2> = (new Slice<T__struct_2>(0, 0, ({
 	} : T__struct_2)) : Slice<T__struct_2>);
 
 private var _http:T_httpPkg = ({} : stdgo.sync_test.Sync_test.T_httpPkg);
-private final _opLoad:stdgo.sync_test.Sync_test.T_mapOp = (Go.str("Load") : T_mapOp);
-private final _opStore:stdgo.sync_test.Sync_test.T_mapOp = (Go.str("Store") : T_mapOp);
-private final _opLoadOrStore:stdgo.sync_test.Sync_test.T_mapOp = (Go.str("LoadOrStore") : T_mapOp);
-private final _opLoadAndDelete:stdgo.sync_test.Sync_test.T_mapOp = (Go.str("LoadAndDelete") : T_mapOp);
-private final _opDelete:stdgo.sync_test.Sync_test.T_mapOp = (Go.str("Delete") : T_mapOp);
+private final _opLoad:stdgo.sync_test.Sync_test.T_mapOp = (("Load" : GoString) : T_mapOp);
+private final _opStore:stdgo.sync_test.Sync_test.T_mapOp = (("Store" : GoString) : T_mapOp);
+private final _opLoadOrStore:stdgo.sync_test.Sync_test.T_mapOp = (("LoadOrStore" : GoString) : T_mapOp);
+private final _opLoadAndDelete:stdgo.sync_test.Sync_test.T_mapOp = (("LoadAndDelete" : GoString) : T_mapOp);
+private final _opDelete:stdgo.sync_test.Sync_test.T_mapOp = (("Delete" : GoString) : T_mapOp);
 private var _globalSink:AnyInterface = (null : AnyInterface);
 
 /**
@@ -298,7 +298,7 @@ function testCondSignal(_t:Ref<stdgo.testing.Testing.T>):Void {
 	while (_n > (0 : GoInt)) {
 		Go.select([
 			_awake.__get__() => {
-				_t.fatal(Go.toInterface(Go.str("goroutine not asleep")));
+				_t.fatal(Go.toInterface(("goroutine not asleep" : GoString)));
 			},
 			{}
 		]);
@@ -308,7 +308,7 @@ function testCondSignal(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_awake.__get__();
 		Go.select([
 			_awake.__get__() => {
-				_t.fatal(Go.toInterface(Go.str("too many goroutines awake")));
+				_t.fatal(Go.toInterface(("too many goroutines awake" : GoString)));
 			},
 			{}
 		]);
@@ -339,7 +339,7 @@ function testCondSignalGenerations(_t:Ref<stdgo.testing.Testing.T>):Void {
 			if (_i > (0 : GoInt)) {
 				var _a:GoInt = _awake.__get__();
 				if (_a != (_i - (1 : GoInt))) {
-					_t.fatalf(Go.str("wrong goroutine woke up: want %d, got %d"), Go.toInterface(_i - (1 : GoInt)), Go.toInterface(_a));
+					_t.fatalf(("wrong goroutine woke up: want %d, got %d" : GoString), Go.toInterface(_i - (1 : GoInt)), Go.toInterface(_a));
 				};
 			};
 			_running.__get__();
@@ -390,7 +390,7 @@ function testCondBroadcast(_t:Ref<stdgo.testing.Testing.T>):Void {
 			};
 			Go.select([
 				_awake.__get__() => {
-					_t.fatal(Go.toInterface(Go.str("goroutine not asleep")));
+					_t.fatal(Go.toInterface(("goroutine not asleep" : GoString)));
 				},
 				{}
 			]);
@@ -403,7 +403,7 @@ function testCondBroadcast(_t:Ref<stdgo.testing.Testing.T>):Void {
 				Go.cfor(_i < _n, _i++, {
 					var _g:GoInt = _awake.__get__();
 					if (_seen[(_g : GoInt)]) {
-						_t.fatal(Go.toInterface(Go.str("goroutine woke up twice")));
+						_t.fatal(Go.toInterface(("goroutine woke up twice" : GoString)));
 					};
 					_seen[(_g : GoInt)] = true;
 				});
@@ -412,7 +412,7 @@ function testCondBroadcast(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	Go.select([
 		_running.__get__() => {
-			_t.fatal(Go.toInterface(Go.str("goroutine did not exit")));
+			_t.fatal(Go.toInterface(("goroutine did not exit" : GoString)));
 		},
 		{}
 	]);
@@ -429,7 +429,7 @@ function testRace(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_x = (1 : GoInt);
 			_c.wait_();
 			if (_x != ((2 : GoInt))) {
-				_t.error(Go.toInterface(Go.str("want 2")));
+				_t.error(Go.toInterface(("want 2" : GoString)));
 			};
 			_x = (3 : GoInt);
 			_c.signal();
@@ -463,7 +463,7 @@ function testRace(_t:Ref<stdgo.testing.Testing.T>):Void {
 				if (_x == ((2 : GoInt))) {
 					_c.wait_();
 					if (_x != ((3 : GoInt))) {
-						_t.error(Go.toInterface(Go.str("want 3")));
+						_t.error(Go.toInterface(("want 3" : GoString)));
 					};
 					break;
 				};
@@ -494,10 +494,10 @@ function testCondSignalStealing(_t:Ref<stdgo.testing.Testing.T>):Void {
 			Go.routine(() -> {
 				var a = function():Void {
 					_m.lock();
-					_ch.__send__((new T_httpPkg() : T_httpPkg));
+					_ch.__send__(({} : T__struct_1));
 					_cond.wait_();
 					_m.unlock();
-					_ch.__send__((new T_httpPkg() : T_httpPkg));
+					_ch.__send__(({} : T__struct_1));
 				};
 				a();
 			});
@@ -523,7 +523,7 @@ function testCondSignalStealing(_t:Ref<stdgo.testing.Testing.T>):Void {
 			});
 			Go.select([
 				stdgo.time.Time.after((("2000000000" : GoInt64) : stdgo.time.Time.Duration)).__get__() => {
-					_t.fatalf(Go.str("First waiter didn\'t get broadcast."));
+					_t.fatalf(("First waiter didn\'t get broadcast." : GoString));
 				},
 				_ch.__get__() => {}
 			]);
@@ -544,8 +544,8 @@ function testCondCopy(_t:Ref<stdgo.testing.Testing.T>):Void {
 				Go.recover_exception = null;
 				r;
 			});
-			if ((_err == null) || ((Go.typeAssert((_err : GoString)) : GoString) != Go.str("sync.Cond is copied"))) {
-				_t.fatalf(Go.str("got %v, expect sync.Cond is copied"), _err);
+			if ((_err == null) || ((Go.typeAssert((_err : GoString)) : GoString) != ("sync.Cond is copied" : GoString))) {
+				_t.fatalf(("got %v, expect sync.Cond is copied" : GoString), _err);
 			};
 		};
 		a();
@@ -554,10 +554,10 @@ function testCondCopy(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var _c:Cond = ({l: Go.asInterface(((new Mutex() : Mutex) : Ref<Mutex>))} : Cond);
 		_c.signal();
 		var _c2:Cond = ({} : Cond);
-		stdgo.reflect.Reflect.valueOf(Go.toInterface((_c2 : Ref<Cond>)))
+		stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((_c2 : Ref<Cond>))))
 			.elem()
-			.set((stdgo.reflect.Reflect.valueOf(Go.toInterface((_c : Ref<Cond>)))
-				.elem() == null ? null : stdgo.reflect.Reflect.valueOf(Go.toInterface((_c : Ref<Cond>)))
+			.set((stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((_c : Ref<Cond>))))
+				.elem() == null ? null : stdgo.reflect.Reflect.valueOf(Go.toInterface(Go.asInterface((_c : Ref<Cond>))))
 				.elem()
 				.__copy__()));
 		_c2.signal();
@@ -609,7 +609,7 @@ function benchmarkCond32(_b:Ref<stdgo.testing.Testing.B>):Void {
 	_benchmarkCond(_b, (32 : GoInt));
 }
 
-function _benchmarkCond(_b:Ref<stdgo.testing.Testing.B>, _waiters:GoInt):Void {
+private function _benchmarkCond(_b:Ref<stdgo.testing.Testing.B>, _waiters:GoInt):Void {
 	var _c = newCond(Go.asInterface(((new Mutex() : Mutex) : Ref<Mutex>)));
 	var _done = new Chan<Bool>(0, () -> false);
 	var _id:GoInt = (0 : GoInt);
@@ -657,7 +657,7 @@ function _benchmarkCond(_b:Ref<stdgo.testing.Testing.B>, _waiters:GoInt):Void {
 /**
 	// timeNow is a fake version of time.Now for tests.
 **/
-function _timeNow():stdgo.time.Time.Time {
+private function _timeNow():stdgo.time.Time.Time {
 	return (stdgo.time.Time.unix(("1136214245" : GoInt64),
 		("0" : GoInt64)) == null ? null : stdgo.time.Time.unix(("1136214245" : GoInt64), ("0" : GoInt64)).__copy__());
 }
@@ -665,17 +665,17 @@ function _timeNow():stdgo.time.Time.Time {
 function log(_w:stdgo.io.Io.Writer, _key:GoString, _val:GoString):Void {
 	var _b = (Go.typeAssert((_bufPool.get() : Ref<stdgo.bytes.Bytes.Buffer>)) : Ref<stdgo.bytes.Bytes.Buffer>);
 	_b.reset();
-	_b.writeString(_timeNow().utc().format(Go.str("2006-01-02T15:04:05Z07:00")));
+	_b.writeString(_timeNow().utc().format(("2006-01-02T15:04:05Z07:00" : GoString)));
 	_b.writeByte((32 : GoUInt8));
 	_b.writeString(_key);
 	_b.writeByte((61 : GoUInt8));
 	_b.writeString(_val);
 	_w.write(_b.bytes());
-	_bufPool.put(Go.toInterface(_b));
+	_bufPool.put(Go.toInterface(Go.asInterface(_b)));
 }
 
 function examplePool():Void {
-	log(Go.asInterface(stdgo.os.Os.stdout), Go.str("path"), Go.str("/search?q=flowers"));
+	log(Go.asInterface(stdgo.os.Os.stdout), ("path" : GoString), ("/search?q=flowers" : GoString));
 }
 
 /**
@@ -684,8 +684,8 @@ function examplePool():Void {
 **/
 function exampleWaitGroup():Void {
 	var _wg:WaitGroup = ({} : WaitGroup);
-	var _urls:Slice<GoString> = (new Slice<GoString>(0, 0, Go.str("http://www.golang.org/"), Go.str("http://www.google.com/"),
-		Go.str("http://www.example.com/")) : Slice<GoString>);
+	var _urls:Slice<GoString> = (new Slice<GoString>(0, 0, ("http://www.golang.org/" : GoString), ("http://www.google.com/" : GoString),
+		("http://www.example.com/" : GoString)) : Slice<GoString>);
 	for (_0 => _url in _urls) {
 		_wg.add((1 : GoInt));
 		Go.routine(() -> {
@@ -726,7 +726,7 @@ function exampleWaitGroup():Void {
 function exampleOnce():Void {
 	var _once:Once = ({} : Once);
 	var _onceBody:() -> Void = function():Void {
-		stdgo.fmt.Fmt.println(Go.toInterface(Go.str("Only once")));
+		stdgo.fmt.Fmt.println(Go.toInterface(("Only once" : GoString)));
 	};
 	var _done = new Chan<Bool>(0, () -> false);
 	{
@@ -749,12 +749,12 @@ function exampleOnce():Void {
 	};
 }
 
-function _benchMap(_b:Ref<stdgo.testing.Testing.B>, _bench:T_bench):Void {
+private function _benchMap(_b:Ref<stdgo.testing.Testing.B>, _bench:T_bench):Void {
 	for (_0 =>
-		_m in (new GoArray<stdgo.sync_test.Sync_test.T_mapInterface>(Go.asInterface(((new stdgo.sync_test.Sync_test.DeepCopyMap() : stdgo.sync_test.Sync_test.DeepCopyMap) : Ref<stdgo.sync_test.Sync_test.DeepCopyMap>)),
-		Go.asInterface(((new stdgo.sync_test.Sync_test.RWMutexMap() : stdgo.sync_test.Sync_test.RWMutexMap) : Ref<stdgo.sync_test.Sync_test.RWMutexMap>)),
+		_m in (new GoArray<stdgo.sync_test.Sync_test.T_mapInterface>(Go.asInterface(((new DeepCopyMap() : DeepCopyMap) : Ref<stdgo.sync_test.Sync_test.DeepCopyMap>)),
+		Go.asInterface(((new RWMutexMap() : RWMutexMap) : Ref<stdgo.sync_test.Sync_test.RWMutexMap>)),
 		Go.asInterface(((new Map_() : Map_) : Ref<Map_>))) : GoArray<stdgo.sync_test.Sync_test.T_mapInterface>)) {
-		_b.run(stdgo.fmt.Fmt.sprintf(Go.str("%T"), Go.toInterface(_m)), function(_b:Ref<stdgo.testing.Testing.B>):Void {
+		_b.run(stdgo.fmt.Fmt.sprintf(("%T" : GoString), Go.toInterface(_m)), function(_b:Ref<stdgo.testing.Testing.B>):Void {
 			_m = (Go.typeAssert((stdgo.reflect.Reflect.new_(stdgo.reflect.Reflect.typeOf(Go.toInterface(_m)).elem())
 				.interface_() : T_mapInterface)) : T_mapInterface);
 			if (_bench._setup != null) {
@@ -792,7 +792,7 @@ function benchmarkLoadMostlyHits(_b:Ref<stdgo.testing.Testing.B>):Void {
 				_m.load(Go.toInterface(_i % (1024 : GoInt)));
 			});
 		}
-	} : stdgo.sync_test.Sync_test.T_bench));
+	} : T_bench));
 }
 
 function benchmarkLoadMostlyMisses(_b:Ref<stdgo.testing.Testing.B>):Void {
@@ -817,7 +817,7 @@ function benchmarkLoadMostlyMisses(_b:Ref<stdgo.testing.Testing.B>):Void {
 				_m.load(Go.toInterface(_i % (1024 : GoInt)));
 			});
 		}
-	} : stdgo.sync_test.Sync_test.T_bench));
+	} : T_bench));
 }
 
 function benchmarkLoadOrStoreBalanced(_b:Ref<stdgo.testing.Testing.B>):Void {
@@ -831,7 +831,7 @@ function benchmarkLoadOrStoreBalanced(_b:Ref<stdgo.testing.Testing.B>):Void {
 					{value: (null : Ref<stdgo.sync_test.Sync_test.DeepCopyMap>), ok: false};
 				}, _0 = __tmp__.value, _ok = __tmp__.ok;
 				if (_ok) {
-					_b.skip(Go.toInterface(Go.str("DeepCopyMap has quadratic running time.")));
+					_b.skip(Go.toInterface(("DeepCopyMap has quadratic running time." : GoString)));
 				};
 			};
 			{
@@ -856,7 +856,7 @@ function benchmarkLoadOrStoreBalanced(_b:Ref<stdgo.testing.Testing.B>):Void {
 							_0:AnyInterface = __tmp__._0,
 							_ok:Bool = __tmp__._1;
 						if (!_ok) {
-							_b.fatalf(Go.str("unexpected miss for %v"), Go.toInterface(_j));
+							_b.fatalf(("unexpected miss for %v" : GoString), Go.toInterface(_j));
 						};
 					};
 				} else {
@@ -865,13 +865,13 @@ function benchmarkLoadOrStoreBalanced(_b:Ref<stdgo.testing.Testing.B>):Void {
 							_v:AnyInterface = __tmp__._0,
 							_loaded:Bool = __tmp__._1;
 						if (_loaded) {
-							_b.fatalf(Go.str("failed to store %v: existing value %v"), Go.toInterface(_i), _v);
+							_b.fatalf(("failed to store %v: existing value %v" : GoString), Go.toInterface(_i), _v);
 						};
 					};
 				};
 			});
 		}
-	} : stdgo.sync_test.Sync_test.T_bench));
+	} : T_bench));
 }
 
 function benchmarkLoadOrStoreUnique(_b:Ref<stdgo.testing.Testing.B>):Void {
@@ -884,7 +884,7 @@ function benchmarkLoadOrStoreUnique(_b:Ref<stdgo.testing.Testing.B>):Void {
 					{value: (null : Ref<stdgo.sync_test.Sync_test.DeepCopyMap>), ok: false};
 				}, _0 = __tmp__.value, _ok = __tmp__.ok;
 				if (_ok) {
-					_b.skip(Go.toInterface(Go.str("DeepCopyMap has quadratic running time.")));
+					_b.skip(Go.toInterface(("DeepCopyMap has quadratic running time." : GoString)));
 				};
 			};
 		},
@@ -893,7 +893,7 @@ function benchmarkLoadOrStoreUnique(_b:Ref<stdgo.testing.Testing.B>):Void {
 				_m.loadOrStore(Go.toInterface(_i), Go.toInterface(_i));
 			});
 		}
-	} : stdgo.sync_test.Sync_test.T_bench));
+	} : T_bench));
 }
 
 function benchmarkLoadOrStoreCollision(_b:Ref<stdgo.testing.Testing.B>):Void {
@@ -906,7 +906,7 @@ function benchmarkLoadOrStoreCollision(_b:Ref<stdgo.testing.Testing.B>):Void {
 				_m.loadOrStore(Go.toInterface((0 : GoInt)), Go.toInterface((0 : GoInt)));
 			});
 		}
-	} : stdgo.sync_test.Sync_test.T_bench));
+	} : T_bench));
 }
 
 function benchmarkLoadAndDeleteBalanced(_b:Ref<stdgo.testing.Testing.B>):Void {
@@ -920,7 +920,7 @@ function benchmarkLoadAndDeleteBalanced(_b:Ref<stdgo.testing.Testing.B>):Void {
 					{value: (null : Ref<stdgo.sync_test.Sync_test.DeepCopyMap>), ok: false};
 				}, _0 = __tmp__.value, _ok = __tmp__.ok;
 				if (_ok) {
-					_b.skip(Go.toInterface(Go.str("DeepCopyMap has quadratic running time.")));
+					_b.skip(Go.toInterface(("DeepCopyMap has quadratic running time." : GoString)));
 				};
 			};
 			{
@@ -946,7 +946,7 @@ function benchmarkLoadAndDeleteBalanced(_b:Ref<stdgo.testing.Testing.B>):Void {
 				};
 			});
 		}
-	} : stdgo.sync_test.Sync_test.T_bench));
+	} : T_bench));
 }
 
 function benchmarkLoadAndDeleteUnique(_b:Ref<stdgo.testing.Testing.B>):Void {
@@ -959,7 +959,7 @@ function benchmarkLoadAndDeleteUnique(_b:Ref<stdgo.testing.Testing.B>):Void {
 					{value: (null : Ref<stdgo.sync_test.Sync_test.DeepCopyMap>), ok: false};
 				}, _0 = __tmp__.value, _ok = __tmp__.ok;
 				if (_ok) {
-					_b.skip(Go.toInterface(Go.str("DeepCopyMap has quadratic running time.")));
+					_b.skip(Go.toInterface(("DeepCopyMap has quadratic running time." : GoString)));
 				};
 			};
 		},
@@ -968,7 +968,7 @@ function benchmarkLoadAndDeleteUnique(_b:Ref<stdgo.testing.Testing.B>):Void {
 				_m.loadAndDelete(Go.toInterface(_i));
 			});
 		}
-	} : stdgo.sync_test.Sync_test.T_bench));
+	} : T_bench));
 }
 
 function benchmarkLoadAndDeleteCollision(_b:Ref<stdgo.testing.Testing.B>):Void {
@@ -981,7 +981,7 @@ function benchmarkLoadAndDeleteCollision(_b:Ref<stdgo.testing.Testing.B>):Void {
 				_m.loadAndDelete(Go.toInterface((0 : GoInt)));
 			});
 		}
-	} : stdgo.sync_test.Sync_test.T_bench));
+	} : T_bench));
 }
 
 function benchmarkRange(_b:Ref<stdgo.testing.Testing.B>):Void {
@@ -1002,7 +1002,7 @@ function benchmarkRange(_b:Ref<stdgo.testing.Testing.B>):Void {
 				});
 			});
 		}
-	} : stdgo.sync_test.Sync_test.T_bench));
+	} : T_bench));
 }
 
 /**
@@ -1031,7 +1031,7 @@ function benchmarkAdversarialAlloc(_b:Ref<stdgo.testing.Testing.B>):Void {
 				};
 			});
 		}
-	} : stdgo.sync_test.Sync_test.T_bench));
+	} : T_bench));
 }
 
 /**
@@ -1064,7 +1064,7 @@ function benchmarkAdversarialDelete(_b:Ref<stdgo.testing.Testing.B>):Void {
 				};
 			});
 		}
-	} : stdgo.sync_test.Sync_test.T_bench));
+	} : T_bench));
 }
 
 function benchmarkDeleteCollision(_b:Ref<stdgo.testing.Testing.B>):Void {
@@ -1077,10 +1077,10 @@ function benchmarkDeleteCollision(_b:Ref<stdgo.testing.Testing.B>):Void {
 				_m.delete(Go.toInterface((0 : GoInt)));
 			});
 		}
-	} : stdgo.sync_test.Sync_test.T_bench));
+	} : T_bench));
 }
 
-function _randValue(_r:Ref<stdgo.math.rand.Rand.Rand>):AnyInterface {
+private function _randValue(_r:Ref<stdgo.math.rand.Rand.Rand>):AnyInterface {
 	var _b = new Slice<GoUInt8>((_r.intn((4 : GoInt)) : GoInt).toBasic(), 0, ...[for (i in 0...(_r.intn((4 : GoInt)) : GoInt).toBasic()) (0 : GoUInt8)]);
 	for (_i in 0..._b.length.toBasic()) {
 		_b[(_i : GoInt)] = (97 : GoUInt8) + (stdgo.math.rand.Rand.intn((26 : GoInt)) : GoByte);
@@ -1088,14 +1088,14 @@ function _randValue(_r:Ref<stdgo.math.rand.Rand.Rand>):AnyInterface {
 	return Go.toInterface((_b : GoString));
 }
 
-function _applyCalls(_m:T_mapInterface, _calls:Slice<T_mapCall>):{var _0:Slice<T_mapResult>; var _1:GoMap<AnyInterface, AnyInterface>;} {
+private function _applyCalls(_m:T_mapInterface, _calls:Slice<T_mapCall>):{var _0:Slice<T_mapResult>; var _1:GoMap<AnyInterface, AnyInterface>;} {
 	var _results:Slice<T_mapResult> = (null : Slice<stdgo.sync_test.Sync_test.T_mapResult>),
 		_final:GoMap<AnyInterface, AnyInterface> = (null : GoMap<AnyInterface, AnyInterface>);
 	for (_0 => _c in _calls) {
 		var __tmp__ = _c._apply(_m),
 			_v:AnyInterface = __tmp__._0,
 			_ok:Bool = __tmp__._1;
-		_results = _results.__appendref__((new stdgo.sync_test.Sync_test.T_mapResult(_v, _ok) : stdgo.sync_test.Sync_test.T_mapResult));
+		_results = _results.__appendref__((new T_mapResult(_v, _ok) : T_mapResult));
 	};
 	_final = (new GoObjectMap<AnyInterface, AnyInterface>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({get: () ->
 		stdgo.internal.reflect.Reflect.GoType.interfaceType(true, [])},
@@ -1107,15 +1107,15 @@ function _applyCalls(_m:T_mapInterface, _calls:Slice<T_mapCall>):{var _0:Slice<T
 	return {_0: _results, _1: _final};
 }
 
-function _applyMap(_calls:Slice<T_mapCall>):{var _0:Slice<T_mapResult>; var _1:GoMap<AnyInterface, AnyInterface>;} {
+private function _applyMap(_calls:Slice<T_mapCall>):{var _0:Slice<T_mapResult>; var _1:GoMap<AnyInterface, AnyInterface>;} {
 	return _applyCalls(Go.asInterface(({} : Map_)), _calls);
 }
 
-function _applyRWMutexMap(_calls:Slice<T_mapCall>):{var _0:Slice<T_mapResult>; var _1:GoMap<AnyInterface, AnyInterface>;} {
+private function _applyRWMutexMap(_calls:Slice<T_mapCall>):{var _0:Slice<T_mapResult>; var _1:GoMap<AnyInterface, AnyInterface>;} {
 	return _applyCalls(Go.asInterface(({} : stdgo.sync_test.Sync_test.RWMutexMap)), _calls);
 }
 
-function _applyDeepCopyMap(_calls:Slice<T_mapCall>):{var _0:Slice<T_mapResult>; var _1:GoMap<AnyInterface, AnyInterface>;} {
+private function _applyDeepCopyMap(_calls:Slice<T_mapCall>):{var _0:Slice<T_mapResult>; var _1:GoMap<AnyInterface, AnyInterface>;} {
 	return _applyCalls(Go.asInterface(({} : stdgo.sync_test.Sync_test.DeepCopyMap)), _calls);
 }
 
@@ -1237,16 +1237,16 @@ function testConcurrentRange(_t:Ref<stdgo.testing.Testing.T>):Void {
 						_v:GoInt64 = _1,
 						_k:GoInt64 = _0;
 					if (_v % _k != (("0" : GoInt64))) {
-						_t.fatalf(Go.str("while Storing multiples of %v, Range saw value %v"), Go.toInterface(_k), Go.toInterface(_v));
+						_t.fatalf(("while Storing multiples of %v, Range saw value %v" : GoString), Go.toInterface(_k), Go.toInterface(_v));
 					};
 					if (_seen[_k]) {
-						_t.fatalf(Go.str("Range visited key %v twice"), Go.toInterface(_k));
+						_t.fatalf(("Range visited key %v twice" : GoString), Go.toInterface(_k));
 					};
 					_seen[_k] = true;
 					return true;
 				});
 				if ((_seen.length) != ((1024 : GoInt))) {
-					_t.fatalf(Go.str("Range visited %v elements of %v-element Map"), Go.toInterface((_seen.length)), Go.toInterface((1024 : GoInt)));
+					_t.fatalf(("Range visited %v elements of %v-element Map" : GoString), Go.toInterface((_seen.length)), Go.toInterface((1024 : GoInt)));
 				};
 			});
 		};
@@ -1276,14 +1276,14 @@ function testConcurrentRange(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testIssue40999(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _m:Map_ = ({} : Map_);
-	_m.store((null : AnyInterface), Go.toInterface((new T_httpPkg() : T_httpPkg)));
+	_m.store((null : AnyInterface), Go.toInterface(({} : T__struct_1)));
 	var _finalized:GoUInt32 = (0 : GoUInt32);
 	while (stdgo.sync.atomic.Atomic.loadUint32(Go.pointer(_finalized)) == (("0" : GoUInt32))) {
 		var _p = Go.pointer((0 : GoInt));
 		stdgo.runtime.Runtime.setFinalizer(Go.toInterface(_p), Go.toInterface(function(_0:Pointer<GoInt>):Void {
 			stdgo.sync.atomic.Atomic.addUint32(Go.pointer(_finalized), ("1" : GoUInt32));
 		}));
-		_m.store(Go.toInterface(_p), Go.toInterface((new T_httpPkg() : T_httpPkg)));
+		_m.store(Go.toInterface(_p), Go.toInterface(({} : T__struct_1)));
 		_m.delete(Go.toInterface(_p));
 		stdgo.runtime.Runtime.gc();
 	};
@@ -1291,7 +1291,7 @@ function testIssue40999(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testMapRangeNestedCall(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _m:Map_ = ({} : Map_);
-	for (_i => _v in (new GoArray<GoString>(Go.str("hello"), Go.str("world"), Go.str("Go")) : GoArray<GoString>)) {
+	for (_i => _v in (new GoArray<GoString>(("hello" : GoString), ("world" : GoString), ("Go" : GoString)) : GoArray<GoString>)) {
 		_m.store(Go.toInterface(_i), Go.toInterface(_v));
 	};
 	_m.range(function(_key:AnyInterface, _value:AnyInterface):Bool {
@@ -1301,25 +1301,25 @@ function testMapRangeNestedCall(_t:Ref<stdgo.testing.Testing.T>):Void {
 					_v:AnyInterface = __tmp__._0,
 					_ok:Bool = __tmp__._1;
 				if (!_ok || !stdgo.reflect.Reflect.deepEqual(_v, _value)) {
-					_t.fatalf(Go.str("Nested Range loads unexpected value, got %+v want %+v"), _v, _value);
+					_t.fatalf(("Nested Range loads unexpected value, got %+v want %+v" : GoString), _v, _value);
 				};
 			};
 			{
-				var __tmp__ = _m.loadOrStore(Go.toInterface((42 : GoInt)), Go.toInterface(Go.str("dummy"))),
+				var __tmp__ = _m.loadOrStore(Go.toInterface((42 : GoInt)), Go.toInterface(("dummy" : GoString))),
 					_0:AnyInterface = __tmp__._0,
 					_loaded:Bool = __tmp__._1;
 				if (_loaded) {
-					_t.fatalf(Go.str("Nested Range loads unexpected value, want store a new value"));
+					_t.fatalf(("Nested Range loads unexpected value, want store a new value" : GoString));
 				};
 			};
-			var _val:GoString = Go.str("sync.Map");
+			var _val:GoString = ("sync.Map" : GoString);
 			_m.store(Go.toInterface((42 : GoInt)), Go.toInterface(_val));
 			{
 				var __tmp__ = _m.loadAndDelete(Go.toInterface((42 : GoInt))),
 					_v:AnyInterface = __tmp__._0,
 					_loaded:Bool = __tmp__._1;
 				if (!_loaded || !stdgo.reflect.Reflect.deepEqual(_v, Go.toInterface(_val))) {
-					_t.fatalf(Go.str("Nested Range loads unexpected value, got %v, want %v"), _v, Go.toInterface(_val));
+					_t.fatalf(("Nested Range loads unexpected value, got %v, want %v" : GoString), _v, Go.toInterface(_val));
 				};
 			};
 			return true;
@@ -1333,7 +1333,7 @@ function testMapRangeNestedCall(_t:Ref<stdgo.testing.Testing.T>):Void {
 		return true;
 	});
 	if (_length != ((0 : GoInt))) {
-		_t.fatalf(Go.str("Unexpected sync.Map size, got %v want %v"), Go.toInterface(_length), Go.toInterface((0 : GoInt)));
+		_t.fatalf(("Unexpected sync.Map size, got %v want %v" : GoString), Go.toInterface(_length), Go.toInterface((0 : GoInt)));
 	};
 }
 
@@ -1434,7 +1434,7 @@ function testMutex(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _n:GoInt = stdgo.runtime.Runtime.setMutexProfileFraction((1 : GoInt));
 		if (_n != ((0 : GoInt))) {
-			_t.logf(Go.str("got mutexrate %d expected 0"), Go.toInterface(_n));
+			_t.logf(("got mutexrate %d expected 0" : GoString), Go.toInterface(_n));
 		};
 	};
 	try {
@@ -1445,11 +1445,11 @@ function testMutex(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var _m = ({} : Mutex);
 		_m.lock();
 		if (_m.tryLock()) {
-			_t.fatalf(Go.str("TryLock succeeded with mutex locked"));
+			_t.fatalf(("TryLock succeeded with mutex locked" : GoString));
 		};
 		_m.unlock();
 		if (!_m.tryLock()) {
-			_t.fatalf(Go.str("TryLock failed with mutex unlocked"));
+			_t.fatalf(("TryLock failed with mutex unlocked" : GoString));
 		};
 		_m.unlock();
 		var _c = new Chan<Bool>(0, () -> false);
@@ -1492,11 +1492,11 @@ function testMutex(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testMutexMisuse(_t:Ref<stdgo.testing.Testing.T>):Void {
 	stdgo.internal.testenv.Testenv.mustHaveExec(Go.asInterface(_t));
 	for (_0 => _test in _misuseTests) {
-		var __tmp__ = stdgo.os.exec.Exec.command(stdgo.os.Os.args[(0 : GoInt)], Go.str("TESTMISUSE"), _test._name).combinedOutput(),
+		var __tmp__ = stdgo.os.exec.Exec.command(stdgo.os.Os.args[(0 : GoInt)], ("TESTMISUSE" : GoString), _test._name).combinedOutput(),
 			_out:Slice<GoUInt8> = __tmp__._0,
 			_err:Error = __tmp__._1;
-		if ((_err == null) || !stdgo.strings.Strings.contains((_out : GoString), Go.str("unlocked"))) {
-			_t.errorf(Go.str("%s: did not find failure with message about unlocked lock: %s\n%s\n"), Go.toInterface(_test._name), Go.toInterface(_err),
+		if ((_err == null) || !stdgo.strings.Strings.contains((_out : GoString), ("unlocked" : GoString))) {
+			_t.errorf(("%s: did not find failure with message about unlocked lock: %s\n%s\n" : GoString), Go.toInterface(_test._name), Go.toInterface(_err),
 				Go.toInterface(_out));
 		};
 	};
@@ -1544,7 +1544,7 @@ function testMutexFairness(_t:Ref<stdgo.testing.Testing.T>):Void {
 		});
 		Go.select([
 			stdgo.time.Time.after((("10000000000" : GoInt64) : stdgo.time.Time.Duration)).__get__() => {
-				_t.fatalf(Go.str("can\'t acquire Mutex in 10 seconds"));
+				_t.fatalf(("can\'t acquire Mutex in 10 seconds" : GoString));
 			},
 			_done.__get__() => {}
 		]);
@@ -1623,7 +1623,7 @@ function benchmarkMutexUncontended(_b:Ref<stdgo.testing.Testing.B>):Void {
 	});
 }
 
-function _benchmarkMutex(_b:Ref<stdgo.testing.Testing.B>, _slack:Bool, _work:Bool):Void {
+private function _benchmarkMutex(_b:Ref<stdgo.testing.Testing.B>, _slack:Bool, _work:Bool):Void {
 	var _mu:Mutex = ({} : Mutex);
 	if (_slack) {
 		_b.setParallelism((10 : GoInt));
@@ -1727,14 +1727,14 @@ function benchmarkMutexSpin(_b:Ref<stdgo.testing.Testing.B>):Void {
 	});
 }
 
-function _run(_t:Ref<stdgo.testing.Testing.T>, _once:Ref<Once>, _o:Pointer<T_one>, _c:Chan<Bool>):Void {
+private function _run(_t:Ref<stdgo.testing.Testing.T>, _once:Ref<Once>, _o:Pointer<T_one>, _c:Chan<Bool>):Void {
 	_once.do_(function():Void {
 		_o.value.increment(_o);
 	});
 	{
 		var _v:stdgo.sync_test.Sync_test.T_one = _o.value;
 		if (_v != ((1 : stdgo.sync_test.Sync_test.T_one))) {
-			_t.errorf(Go.str("once failed inside run: %d is not 1"), Go.toInterface(Go.asInterface(_v)));
+			_t.errorf(("once failed inside run: %d is not 1" : GoString), Go.toInterface(Go.asInterface(_v)));
 		};
 	};
 	_c.__send__(true);
@@ -1758,7 +1758,7 @@ function testOnce(_t:Ref<stdgo.testing.Testing.T>):Void {
 		});
 	};
 	if (_o.value != ((1 : stdgo.sync_test.Sync_test.T_one))) {
-		_t.errorf(Go.str("once failed outside run: %d is not 1"), Go.toInterface(Go.asInterface(_o.value)));
+		_t.errorf(("once failed outside run: %d is not 1" : GoString), Go.toInterface(Go.asInterface(_o.value)));
 	};
 }
 
@@ -1776,7 +1776,7 @@ function testOncePanic(_t:Ref<stdgo.testing.Testing.T>):Void {
 							r;
 						});
 						if (_r == null) {
-							_t.fatalf(Go.str("Once.Do did not panic"));
+							_t.fatalf(("Once.Do did not panic" : GoString));
 						};
 					};
 				};
@@ -1784,7 +1784,7 @@ function testOncePanic(_t:Ref<stdgo.testing.Testing.T>):Void {
 			});
 			try {
 				_once.do_(function():Void {
-					throw Go.toInterface(Go.str("failed"));
+					throw Go.toInterface(("failed" : GoString));
 				});
 				for (defer in __deferstack__) {
 					defer();
@@ -1812,7 +1812,7 @@ function testOncePanic(_t:Ref<stdgo.testing.Testing.T>):Void {
 		a();
 	};
 	_once.do_(function():Void {
-		_t.fatalf(Go.str("Once.Do called twice"));
+		_t.fatalf(("Once.Do called twice" : GoString));
 	});
 }
 
@@ -1835,48 +1835,48 @@ function testPool(_t:Ref<stdgo.testing.Testing.T>):Void {
 	try {
 		var _p:Pool = ({} : Pool);
 		if (_p.get() != null) {
-			_t.fatal(Go.toInterface(Go.str("expected empty")));
+			_t.fatal(Go.toInterface(("expected empty" : GoString)));
 		};
 		runtime_procPin();
-		_p.put(Go.toInterface(Go.str("a")));
-		_p.put(Go.toInterface(Go.str("b")));
+		_p.put(Go.toInterface(("a" : GoString)));
+		_p.put(Go.toInterface(("b" : GoString)));
 		{
 			var _g:AnyInterface = _p.get();
-			if (Go.toInterface(_g) != (Go.toInterface(Go.str("a")))) {
-				_t.fatalf(Go.str("got %#v; want a"), _g);
+			if (Go.toInterface(_g) != (Go.toInterface(("a" : GoString)))) {
+				_t.fatalf(("got %#v; want a" : GoString), _g);
 			};
 		};
 		{
 			var _g:AnyInterface = _p.get();
-			if (Go.toInterface(_g) != (Go.toInterface(Go.str("b")))) {
-				_t.fatalf(Go.str("got %#v; want b"), _g);
+			if (Go.toInterface(_g) != (Go.toInterface(("b" : GoString)))) {
+				_t.fatalf(("got %#v; want b" : GoString), _g);
 			};
 		};
 		{
 			var _g:AnyInterface = _p.get();
 			if (_g != null) {
-				_t.fatalf(Go.str("got %#v; want nil"), _g);
+				_t.fatalf(("got %#v; want nil" : GoString), _g);
 			};
 		};
 		runtime_procUnpin();
 		{
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_i < (100:GoInt), _i++, {
-				_p.put(Go.toInterface(Go.str("c")));
+				_p.put(Go.toInterface(("c" : GoString)));
 			});
 		};
 		stdgo.runtime.Runtime.gc();
 		{
 			var _g:AnyInterface = _p.get();
-			if (Go.toInterface(_g) != (Go.toInterface(Go.str("c")))) {
-				_t.fatalf(Go.str("got %#v; want c after GC"), _g);
+			if (Go.toInterface(_g) != (Go.toInterface(("c" : GoString)))) {
+				_t.fatalf(("got %#v; want c after GC" : GoString), _g);
 			};
 		};
 		stdgo.runtime.Runtime.gc();
 		{
 			var _g:AnyInterface = _p.get();
 			if (_g != null) {
-				_t.fatalf(Go.str("got %#v; want nil after second GC"), _g);
+				_t.fatalf(("got %#v; want nil after second GC" : GoString), _g);
 			};
 		};
 		for (defer in __deferstack__) {
@@ -1920,13 +1920,13 @@ function testPoolNew(_t:Ref<stdgo.testing.Testing.T>):Void {
 		{
 			var _v:AnyInterface = _p.get();
 			if (Go.toInterface(_v) != (Go.toInterface((1 : GoInt)))) {
-				_t.fatalf(Go.str("got %v; want 1"), _v);
+				_t.fatalf(("got %v; want 1" : GoString), _v);
 			};
 		};
 		{
 			var _v:AnyInterface = _p.get();
 			if (Go.toInterface(_v) != (Go.toInterface((2 : GoInt)))) {
-				_t.fatalf(Go.str("got %v; want 2"), _v);
+				_t.fatalf(("got %v; want 2" : GoString), _v);
 			};
 		};
 		runtime_procPin();
@@ -1934,14 +1934,14 @@ function testPoolNew(_t:Ref<stdgo.testing.Testing.T>):Void {
 		{
 			var _v:AnyInterface = _p.get();
 			if (Go.toInterface(_v) != (Go.toInterface((42 : GoInt)))) {
-				_t.fatalf(Go.str("got %v; want 42"), _v);
+				_t.fatalf(("got %v; want 42" : GoString), _v);
 			};
 		};
 		runtime_procUnpin();
 		{
 			var _v:AnyInterface = _p.get();
 			if (Go.toInterface(_v) != (Go.toInterface((3 : GoInt)))) {
-				_t.fatalf(Go.str("got %v; want 3"), _v);
+				_t.fatalf(("got %v; want 3" : GoString), _v);
 			};
 		};
 		for (defer in __deferstack__) {
@@ -1982,7 +1982,7 @@ function testPoolRelease(_t:Ref<stdgo.testing.Testing.T>):Void {
 	_testPool(_t, false);
 }
 
-function _testPool(_t:Ref<stdgo.testing.Testing.T>, _drain:Bool):Void {
+private function _testPool(_t:Ref<stdgo.testing.Testing.T>, _drain:Bool):Void {
 	stdgo.internal.Macro.controlFlow({
 		var _p:Pool = ({} : Pool);
 		{};
@@ -2028,7 +2028,7 @@ function _testPool(_t:Ref<stdgo.testing.Testing.T>, _drain:Bool):Void {
 						};
 					});
 				};
-				_t.fatalf(Go.str("only %v out of %v resources are finalized on try %v"), Go.toInterface(_fin1), Go.toInterface((100 : GoInt)),
+				_t.fatalf(("only %v out of %v resources are finalized on try %v" : GoString), Go.toInterface(_fin1), Go.toInterface((100 : GoInt)),
 					Go.toInterface(_try));
 			});
 		};
@@ -2058,7 +2058,7 @@ function testPoolStress(_t:Ref<stdgo.testing.Testing.T>):Void {
 							_p.put(_v);
 							_v = _p.get();
 							if ((_v != null) && ((Go.typeAssert((_v : GoInt)) : GoInt) != (0 : GoInt))) {
-								_t.errorf(Go.str("expect 0, got %v"), _v);
+								_t.errorf(("expect 0, got %v" : GoString), _v);
 								break;
 							};
 						});
@@ -2085,7 +2085,7 @@ function testPoolChain(_t:Ref<stdgo.testing.Testing.T>):Void {
 	_testPoolDequeue(_t, newPoolChain());
 }
 
-function _testPoolDequeue(_t:Ref<stdgo.testing.Testing.T>, _d:PoolDequeue):Void {
+private function _testPoolDequeue(_t:Ref<stdgo.testing.Testing.T>, _d:PoolDequeue):Void {
 	{};
 	var n:GoInt = (2000000 : GoInt);
 	if (stdgo.testing.Testing.short()) {
@@ -2153,11 +2153,11 @@ function _testPoolDequeue(_t:Ref<stdgo.testing.Testing.T>, _d:PoolDequeue):Void 
 	_wg.wait_();
 	for (_i => _count in _have) {
 		if (_count != ((1 : GoInt32))) {
-			_t.errorf(Go.str("expected have[%d] = 1, got %d"), Go.toInterface(_i), Go.toInterface(_count));
+			_t.errorf(("expected have[%d] = 1, got %d" : GoString), Go.toInterface(_i), Go.toInterface(_count));
 		};
 	};
 	if (!stdgo.testing.Testing.short() && (_nPopHead == (0 : GoInt))) {
-		_t.errorf(Go.str("popHead never succeeded"));
+		_t.errorf(("popHead never succeeded" : GoString));
 	};
 }
 
@@ -2250,9 +2250,9 @@ function benchmarkPoolSTW(_b:Ref<stdgo.testing.Testing.B>):Void {
 		for (_0 => _ns in _pauses) {
 			_total = _total + (_ns);
 		};
-		_b.reportMetric((_total : GoFloat64) / (_b.n : GoFloat64), Go.str("ns/op"));
-		_b.reportMetric((_pauses[((_pauses.length * (95 : GoInt)) / (100 : GoInt) : GoInt)] : GoFloat64), Go.str("p95-ns/STW"));
-		_b.reportMetric((_pauses[((_pauses.length * (50 : GoInt)) / (100 : GoInt) : GoInt)] : GoFloat64), Go.str("p50-ns/STW"));
+		_b.reportMetric((_total : GoFloat64) / (_b.n : GoFloat64), ("ns/op" : GoString));
+		_b.reportMetric((_pauses[((_pauses.length * (95 : GoInt)) / (100 : GoInt) : GoInt)] : GoFloat64), ("p95-ns/STW" : GoString));
+		_b.reportMetric((_pauses[((_pauses.length * (50 : GoInt)) / (100 : GoInt) : GoInt)] : GoFloat64), ("p50-ns/STW" : GoString));
 		for (defer in __deferstack__) {
 			defer();
 		};
@@ -2315,8 +2315,8 @@ function benchmarkPoolExpensiveNew(_b:Ref<stdgo.testing.Testing.B>):Void {
 			_sink;
 		});
 		stdgo.runtime.Runtime.readMemStats((_mstats2 : Ref<stdgo.runtime.Runtime.MemStats>));
-		_b.reportMetric((_mstats2.numGC - _mstats1.numGC:GoFloat64) / (_b.n : GoFloat64), Go.str("GCs/op"));
-		_b.reportMetric((_nNew : GoFloat64) / (_b.n : GoFloat64), Go.str("New/op"));
+		_b.reportMetric((_mstats2.numGC - _mstats1.numGC:GoFloat64) / (_b.n : GoFloat64), ("GCs/op" : GoString));
+		_b.reportMetric((_nNew : GoFloat64) / (_b.n : GoFloat64), ("New/op" : GoString));
 		for (defer in __deferstack__) {
 			defer();
 		};
@@ -2371,7 +2371,7 @@ function benchmarkSemaUncontended(_b:Ref<stdgo.testing.Testing.B>):Void {
 	});
 }
 
-function _benchmarkSema(_b:Ref<stdgo.testing.Testing.B>, _block:Bool, _work:Bool):Void {
+private function _benchmarkSema(_b:Ref<stdgo.testing.Testing.B>, _block:Bool, _work:Bool):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	if (_b.n == ((0 : GoInt))) {
 		return;
@@ -2457,7 +2457,7 @@ function benchmarkSemaWorkBlock(_b:Ref<stdgo.testing.Testing.B>):Void {
 	_benchmarkSema(_b, true, true);
 }
 
-function _parallelReader(_m:Ref<RWMutex>, _clocked:Chan<Bool>, _cunlock:Chan<Bool>, _cdone:Chan<Bool>):Void {
+private function _parallelReader(_m:Ref<RWMutex>, _clocked:Chan<Bool>, _cunlock:Chan<Bool>, _cdone:Chan<Bool>):Void {
 	_m.rlock();
 	_clocked.__send__(true);
 	_cunlock.__get__();
@@ -2465,7 +2465,7 @@ function _parallelReader(_m:Ref<RWMutex>, _clocked:Chan<Bool>, _cunlock:Chan<Boo
 	_cdone.__send__(true);
 }
 
-function _doTestParallelReaders(_numReaders:GoInt, _gomaxprocs:GoInt):Void {
+private function _doTestParallelReaders(_numReaders:GoInt, _gomaxprocs:GoInt):Void {
 	stdgo.runtime.Runtime.gomaxprocs(_gomaxprocs);
 	var _m:RWMutex = ({} : RWMutex);
 	var _clocked = new Chan<Bool>(0, () -> false);
@@ -2531,7 +2531,7 @@ function testParallelReaders(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 }
 
-function _reader(_rwm:Ref<RWMutex>, _num_iterations:GoInt, _activity:Pointer<GoInt32>, _cdone:Chan<Bool>):Void {
+private function _reader(_rwm:Ref<RWMutex>, _num_iterations:GoInt, _activity:Pointer<GoInt32>, _cdone:Chan<Bool>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < _num_iterations, _i++, {
@@ -2539,7 +2539,7 @@ function _reader(_rwm:Ref<RWMutex>, _num_iterations:GoInt, _activity:Pointer<GoI
 			var _n:GoInt32 = stdgo.sync.atomic.Atomic.addInt32(_activity, (1 : GoInt32));
 			if ((_n < (1:GoInt32)) || (_n >= (10000 : GoInt32))) {
 				_rwm.runlock();
-				throw Go.toInterface(stdgo.fmt.Fmt.sprintf(Go.str("wlock(%d)\n"), Go.toInterface(_n)));
+				throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("wlock(%d)\n" : GoString), Go.toInterface(_n)));
 			};
 			{
 				var _i:GoInt = (0 : GoInt);
@@ -2552,7 +2552,7 @@ function _reader(_rwm:Ref<RWMutex>, _num_iterations:GoInt, _activity:Pointer<GoI
 	_cdone.__send__(true);
 }
 
-function _writer(_rwm:Ref<RWMutex>, _num_iterations:GoInt, _activity:Pointer<GoInt32>, _cdone:Chan<Bool>):Void {
+private function _writer(_rwm:Ref<RWMutex>, _num_iterations:GoInt, _activity:Pointer<GoInt32>, _cdone:Chan<Bool>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < _num_iterations, _i++, {
@@ -2560,7 +2560,7 @@ function _writer(_rwm:Ref<RWMutex>, _num_iterations:GoInt, _activity:Pointer<GoI
 			var _n:GoInt32 = stdgo.sync.atomic.Atomic.addInt32(_activity, (10000 : GoInt32));
 			if (_n != ((10000 : GoInt32))) {
 				_rwm.unlock();
-				throw Go.toInterface(stdgo.fmt.Fmt.sprintf(Go.str("wlock(%d)\n"), Go.toInterface(_n)));
+				throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("wlock(%d)\n" : GoString), Go.toInterface(_n)));
 			};
 			{
 				var _i:GoInt = (0 : GoInt);
@@ -2604,24 +2604,24 @@ function testRWMutex(_t:Ref<stdgo.testing.Testing.T>):Void {
 	try {
 		_m.lock();
 		if (_m.tryLock()) {
-			_t.fatalf(Go.str("TryLock succeeded with mutex locked"));
+			_t.fatalf(("TryLock succeeded with mutex locked" : GoString));
 		};
 		if (_m.tryRLock()) {
-			_t.fatalf(Go.str("TryRLock succeeded with mutex locked"));
+			_t.fatalf(("TryRLock succeeded with mutex locked" : GoString));
 		};
 		_m.unlock();
 		if (!_m.tryLock()) {
-			_t.fatalf(Go.str("TryLock failed with mutex unlocked"));
+			_t.fatalf(("TryLock failed with mutex unlocked" : GoString));
 		};
 		_m.unlock();
 		if (!_m.tryRLock()) {
-			_t.fatalf(Go.str("TryRLock failed with mutex unlocked"));
+			_t.fatalf(("TryRLock failed with mutex unlocked" : GoString));
 		};
 		if (!_m.tryRLock()) {
-			_t.fatalf(Go.str("TryRLock failed with mutex rlocked"));
+			_t.fatalf(("TryRLock failed with mutex rlocked" : GoString));
 		};
 		if (_m.tryLock()) {
-			_t.fatalf(Go.str("TryLock succeeded with mutex rlocked"));
+			_t.fatalf(("TryLock succeeded with mutex rlocked" : GoString));
 		};
 		_m.runlock();
 		_m.runlock();
@@ -2696,7 +2696,7 @@ function testRLocker(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_rl.unlock();
 			Go.select([
 				_wlocked.__get__() => {
-					_t.fatal(Go.toInterface(Go.str("RLocker() didn\'t read-lock it")));
+					_t.fatal(Go.toInterface(("RLocker() didn\'t read-lock it" : GoString)));
 				},
 				{}
 			]);
@@ -2704,7 +2704,7 @@ function testRLocker(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_wlocked.__get__();
 			Go.select([
 				_rlocked.__get__() => {
-					_t.fatal(Go.toInterface(Go.str("RLocker() didn\'t respect the write lock")));
+					_t.fatal(Go.toInterface(("RLocker() didn\'t respect the write lock" : GoString)));
 				},
 				{}
 			]);
@@ -2780,7 +2780,7 @@ function benchmarkRWMutexUncontended(_b:Ref<stdgo.testing.Testing.B>):Void {
 	});
 }
 
-function _benchmarkRWMutex(_b:Ref<stdgo.testing.Testing.B>, _localWork:GoInt, _writeRatio:GoInt):Void {
+private function _benchmarkRWMutex(_b:Ref<stdgo.testing.Testing.B>, _localWork:GoInt, _writeRatio:GoInt):Void {
 	var _rwm:RWMutex = ({} : RWMutex);
 	_b.runParallel(function(_pb:Ref<stdgo.testing.Testing.PB>):Void {
 		var _foo:GoInt = (0 : GoInt);
@@ -2821,7 +2821,7 @@ function benchmarkRWMutexWorkWrite10(_b:Ref<stdgo.testing.Testing.B>):Void {
 	_benchmarkRWMutex(_b, (100 : GoInt), (10 : GoInt));
 }
 
-function _testWaitGroup(_t:Ref<stdgo.testing.Testing.T>, _wg1:Ref<WaitGroup>, _wg2:Ref<WaitGroup>):Void {
+private function _testWaitGroup(_t:Ref<stdgo.testing.Testing.T>, _wg1:Ref<WaitGroup>, _wg2:Ref<WaitGroup>):Void {
 	var _n:GoInt = (16 : GoInt);
 	_wg1.add(_n);
 	_wg2.add(_n);
@@ -2845,7 +2845,7 @@ function _testWaitGroup(_t:Ref<stdgo.testing.Testing.T>, _wg1:Ref<WaitGroup>, _w
 		Go.cfor(_i != (_n), _i++, {
 			Go.select([
 				_exited.__get__() => {
-					_t.fatal(Go.toInterface(Go.str("WaitGroup released group too soon")));
+					_t.fatal(Go.toInterface(("WaitGroup released group too soon" : GoString)));
 				},
 				{}
 			]);
@@ -2880,8 +2880,8 @@ function testWaitGroupMisuse(_t:Ref<stdgo.testing.Testing.T>):Void {
 				Go.recover_exception = null;
 				r;
 			});
-			if (Go.toInterface(_err) != (Go.toInterface(Go.str("sync: negative WaitGroup counter")))) {
-				_t.fatalf(Go.str("Unexpected panic: %#v"), _err);
+			if (Go.toInterface(_err) != (Go.toInterface(("sync: negative WaitGroup counter" : GoString)))) {
+				_t.fatalf(("Unexpected panic: %#v" : GoString), _err);
 			};
 		};
 		a();
@@ -2891,7 +2891,7 @@ function testWaitGroupMisuse(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_wg.add((1 : GoInt));
 		_wg.done();
 		_wg.done();
-		_t.fatal(Go.toInterface(Go.str("Should panic")));
+		_t.fatal(Go.toInterface(("Should panic" : GoString)));
 		for (defer in __deferstack__) {
 			defer();
 		};
@@ -2940,7 +2940,7 @@ function testWaitGroupRace(_t:Ref<stdgo.testing.Testing.T>):Void {
 			});
 			_wg.wait_();
 			if (stdgo.sync.atomic.Atomic.loadInt32(_n) != ((2 : GoInt32))) {
-				_t.fatal(Go.toInterface(Go.str("Spurious wakeup from Wait")));
+				_t.fatal(Go.toInterface(("Spurious wakeup from Wait" : GoString)));
 			};
 		});
 	};
@@ -3026,7 +3026,7 @@ function benchmarkWaitGroupUncontended(_b:Ref<stdgo.testing.Testing.B>):Void {
 	});
 }
 
-function _benchmarkWaitGroupAddDone(_b:Ref<stdgo.testing.Testing.B>, _localWork:GoInt):Void {
+private function _benchmarkWaitGroupAddDone(_b:Ref<stdgo.testing.Testing.B>, _localWork:GoInt):Void {
 	var _wg:WaitGroup = ({} : WaitGroup);
 	_b.runParallel(function(_pb:Ref<stdgo.testing.Testing.PB>):Void {
 		var _foo:GoInt = (0 : GoInt);
@@ -3053,7 +3053,7 @@ function benchmarkWaitGroupAddDoneWork(_b:Ref<stdgo.testing.Testing.B>):Void {
 	_benchmarkWaitGroupAddDone(_b, (100 : GoInt));
 }
 
-function _benchmarkWaitGroupWait(_b:Ref<stdgo.testing.Testing.B>, _localWork:GoInt):Void {
+private function _benchmarkWaitGroupWait(_b:Ref<stdgo.testing.Testing.B>, _localWork:GoInt):Void {
 	var _wg:WaitGroup = ({} : WaitGroup);
 	_b.runParallel(function(_pb:Ref<stdgo.testing.Testing.PB>):Void {
 		var _foo:GoInt = (0 : GoInt);
@@ -3098,7 +3098,7 @@ function benchmarkWaitGroupActuallyWait(_b:Ref<stdgo.testing.Testing.B>):Void {
 
 @:keep var _ = {
 	try {
-		if ((stdgo.os.Os.args.length == (3 : GoInt)) && (stdgo.os.Os.args[(1 : GoInt)] == Go.str("TESTMISUSE"))) {
+		if ((stdgo.os.Os.args.length == (3 : GoInt)) && (stdgo.os.Os.args[(1 : GoInt)] == ("TESTMISUSE" : GoString))) {
 			for (_0 => _test in _misuseTests) {
 				if (_test._name == (stdgo.os.Os.args[((2 : GoInt) : GoInt)])) {
 					{
@@ -3132,11 +3132,11 @@ function benchmarkWaitGroupActuallyWait(_b:Ref<stdgo.testing.Testing.B>):Void {
 						};
 						a();
 					};
-					stdgo.fmt.Fmt.printf(Go.str("test completed\n"));
+					stdgo.fmt.Fmt.printf(("test completed\n" : GoString));
 					Sys.exit((0 : GoInt));
 				};
 			};
-			stdgo.fmt.Fmt.printf(Go.str("unknown test\n"));
+			stdgo.fmt.Fmt.printf(("unknown test\n" : GoString));
 			Sys.exit((0 : GoInt));
 		};
 	} catch (__exception__)
@@ -3509,9 +3509,8 @@ class T_mapCall_asInterface {
 @:keep @:allow(stdgo.sync_test.Sync_test.T_mapCall_asInterface) class T_mapCall_static_extension {
 	@:keep
 	static public function generate(_:T_mapCall, _r:Ref<stdgo.math.rand.Rand.Rand>, _size:GoInt):stdgo.reflect.Reflect.Value {
-		var _c:stdgo.sync_test.Sync_test.T_mapCall = ({_op: _mapOps[(stdgo.math.rand.Rand.intn((_mapOps.length)) : GoInt)],
-			_k: _randValue(_r)} : stdgo.sync_test.Sync_test.T_mapCall);
-		if (_c._op == (Go.str("Store")) || _c._op == (Go.str("LoadOrStore"))) {
+		var _c:stdgo.sync_test.Sync_test.T_mapCall = ({_op: _mapOps[(stdgo.math.rand.Rand.intn((_mapOps.length)) : GoInt)], _k: _randValue(_r)} : T_mapCall);
+		if (_c._op == (("Store" : GoString)) || _c._op == (("LoadOrStore" : GoString))) {
 			_c._v = _randValue(_r);
 		};
 		return
@@ -3521,20 +3520,20 @@ class T_mapCall_asInterface {
 
 	@:keep
 	static public function _apply(_c:T_mapCall, _m:T_mapInterface):{var _0:AnyInterface; var _1:Bool;} {
-		if (_c._op == (Go.str("Load"))) {
+		if (_c._op == (("Load" : GoString))) {
 			return _m.load(_c._k);
-		} else if (_c._op == (Go.str("Store"))) {
+		} else if (_c._op == (("Store" : GoString))) {
 			_m.store(_c._k, _c._v);
 			return {_0: (null : AnyInterface), _1: false};
-		} else if (_c._op == (Go.str("LoadOrStore"))) {
+		} else if (_c._op == (("LoadOrStore" : GoString))) {
 			return _m.loadOrStore(_c._k, _c._v);
-		} else if (_c._op == (Go.str("LoadAndDelete"))) {
+		} else if (_c._op == (("LoadAndDelete" : GoString))) {
 			return _m.loadAndDelete(_c._k);
-		} else if (_c._op == (Go.str("Delete"))) {
+		} else if (_c._op == (("Delete" : GoString))) {
 			_m.delete(_c._k);
 			return {_0: (null : AnyInterface), _1: false};
 		} else {
-			throw Go.toInterface(Go.str("invalid mapOp"));
+			throw Go.toInterface(("invalid mapOp" : GoString));
 		};
 	}
 }

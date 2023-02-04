@@ -3690,81 +3690,14 @@ var categories:GoMap<GoString, Ref<RangeTable>> = ({
 	final x = new stdgo.GoMap.GoObjectMap<GoString,
 		Ref<RangeTable>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({get: () ->
 			stdgo.internal.reflect.Reflect.GoType.basic(string_kind)},
-		{get: () -> stdgo.internal.reflect.Reflect.GoType.refType({get: () -> stdgo.internal.reflect.Reflect.GoType.named("RangeTable", [],
-			stdgo.internal.reflect.Reflect.GoType.structType([
-				{
-					name: "r16",
-					embedded: false,
-					tag: "",
-					type: {get: () -> stdgo.internal.reflect.Reflect.GoType.sliceType({get: () -> stdgo.internal.reflect.Reflect.GoType.named("Range16", [],
-						stdgo.internal.reflect.Reflect.GoType.structType([
-							{
-								name: "lo",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)},
-								optional: false
-							},
-							{
-								name: "hi",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)},
-								optional: false
-							},
-							{
-								name: "stride",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)},
-								optional: false
-							}
-						]), false, {get: () -> null})})},
-					optional: false
-				},
-				{
-					name: "r32",
-					embedded: false,
-					tag: "",
-					type: {get: () -> stdgo.internal.reflect.Reflect.GoType.sliceType({get: () -> stdgo.internal.reflect.Reflect.GoType.named("Range32", [],
-						stdgo.internal.reflect.Reflect.GoType.structType([
-							{
-								name: "lo",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)},
-								optional: false
-							},
-							{
-								name: "hi",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)},
-								optional: false
-							},
-							{
-								name: "stride",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)},
-								optional: false
-							}
-						]), false, {get: () -> null})})},
-					optional: false
-				},
-				{
-					name: "latinOffset",
-					embedded: false,
-					tag: "",
-					type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind)},
-					optional: false
-				}
-			]), false, {get: () -> null})})})));
+		{get: () -> stdgo.internal.reflect.Reflect.GoType.refType({get: () -> stdgo.internal.reflect.Reflect.GoType.named("RangeTable", [], null, false,
+			{get: () -> null})})})));
 	@:privateAccess x._keys = [
-		Go.str("C"), Go.str("Cc"), Go.str("Cf"), Go.str("Co"), Go.str("Cs"), Go.str("L"), Go.str("Ll"), Go.str("Lm"), Go.str("Lo"), Go.str("Lt"),
-		Go.str("Lu"), Go.str("M"), Go.str("Mc"), Go.str("Me"), Go.str("Mn"), Go.str("N"), Go.str("Nd"), Go.str("Nl"), Go.str("No"), Go.str("P"), Go.str("Pc"),
-		Go.str("Pd"), Go.str("Pe"), Go.str("Pf"), Go.str("Pi"), Go.str("Po"), Go.str("Ps"), Go.str("S"), Go.str("Sc"), Go.str("Sk"), Go.str("Sm"),
-		Go.str("So"), Go.str("Z"), Go.str("Zl"), Go.str("Zp"), Go.str("Zs")];
+		("C" : GoString), ("Cc" : GoString), ("Cf" : GoString), ("Co" : GoString), ("Cs" : GoString), ("L" : GoString), ("Ll" : GoString), ("Lm" : GoString),
+		("Lo" : GoString), ("Lt" : GoString), ("Lu" : GoString), ("M" : GoString), ("Mc" : GoString), ("Me" : GoString), ("Mn" : GoString), ("N" : GoString),
+		("Nd" : GoString), ("Nl" : GoString), ("No" : GoString), ("P" : GoString), ("Pc" : GoString), ("Pd" : GoString), ("Pe" : GoString), ("Pf" : GoString),
+		("Pi" : GoString), ("Po" : GoString), ("Ps" : GoString), ("S" : GoString), ("Sc" : GoString), ("Sk" : GoString), ("Sm" : GoString), ("So" : GoString),
+		("Z" : GoString), ("Zl" : GoString), ("Zp" : GoString), ("Zs" : GoString)];
 	@:privateAccess x._values = [
 		c, cc, cf, co, cs, l, ll, lm, lo, lt, lu, m, mc, me, mn, n, nd, nl, no, p, pc, pd, pe, pf, pi, po, ps, s, sc, sk, sm, so, z, zl, zp, zs
 	];
@@ -5760,233 +5693,165 @@ var scripts:GoMap<GoString, Ref<RangeTable>> = ({
 	final x = new stdgo.GoMap.GoObjectMap<GoString,
 		Ref<RangeTable>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({get: () ->
 			stdgo.internal.reflect.Reflect.GoType.basic(string_kind)},
-		{get: () -> stdgo.internal.reflect.Reflect.GoType.refType({get: () -> stdgo.internal.reflect.Reflect.GoType.named("RangeTable", [],
-			stdgo.internal.reflect.Reflect.GoType.structType([
-				{
-					name: "r16",
-					embedded: false,
-					tag: "",
-					type: {get: () -> stdgo.internal.reflect.Reflect.GoType.sliceType({get: () -> stdgo.internal.reflect.Reflect.GoType.named("Range16", [],
-						stdgo.internal.reflect.Reflect.GoType.structType([
-							{
-								name: "lo",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)},
-								optional: false
-							},
-							{
-								name: "hi",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)},
-								optional: false
-							},
-							{
-								name: "stride",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)},
-								optional: false
-							}
-						]), false, {get: () -> null})})},
-					optional: false
-				},
-				{
-					name: "r32",
-					embedded: false,
-					tag: "",
-					type: {get: () -> stdgo.internal.reflect.Reflect.GoType.sliceType({get: () -> stdgo.internal.reflect.Reflect.GoType.named("Range32", [],
-						stdgo.internal.reflect.Reflect.GoType.structType([
-							{
-								name: "lo",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)},
-								optional: false
-							},
-							{
-								name: "hi",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)},
-								optional: false
-							},
-							{
-								name: "stride",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)},
-								optional: false
-							}
-						]), false, {get: () -> null})})},
-					optional: false
-				},
-				{
-					name: "latinOffset",
-					embedded: false,
-					tag: "",
-					type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind)},
-					optional: false
-				}
-			]), false, {get: () -> null})})})));
+		{get: () -> stdgo.internal.reflect.Reflect.GoType.refType({get: () -> stdgo.internal.reflect.Reflect.GoType.named("RangeTable", [], null, false,
+			{get: () -> null})})})));
 	@:privateAccess x._keys = [
-		Go.str("Adlam"),
-		Go.str("Ahom"),
-		Go.str("Anatolian_Hieroglyphs"),
-		Go.str("Arabic"),
-		Go.str("Armenian"),
-		Go.str("Avestan"),
-		Go.str("Balinese"),
-		Go.str("Bamum"),
-		Go.str("Bassa_Vah"),
-		Go.str("Batak"),
-		Go.str("Bengali"),
-		Go.str("Bhaiksuki"),
-		Go.str("Bopomofo"),
-		Go.str("Brahmi"),
-		Go.str("Braille"),
-		Go.str("Buginese"),
-		Go.str("Buhid"),
-		Go.str("Canadian_Aboriginal"),
-		Go.str("Carian"),
-		Go.str("Caucasian_Albanian"),
-		Go.str("Chakma"),
-		Go.str("Cham"),
-		Go.str("Cherokee"),
-		Go.str("Chorasmian"),
-		Go.str("Common"),
-		Go.str("Coptic"),
-		Go.str("Cuneiform"),
-		Go.str("Cypriot"),
-		Go.str("Cyrillic"),
-		Go.str("Deseret"),
-		Go.str("Devanagari"),
-		Go.str("Dives_Akuru"),
-		Go.str("Dogra"),
-		Go.str("Duployan"),
-		Go.str("Egyptian_Hieroglyphs"),
-		Go.str("Elbasan"),
-		Go.str("Elymaic"),
-		Go.str("Ethiopic"),
-		Go.str("Georgian"),
-		Go.str("Glagolitic"),
-		Go.str("Gothic"),
-		Go.str("Grantha"),
-		Go.str("Greek"),
-		Go.str("Gujarati"),
-		Go.str("Gunjala_Gondi"),
-		Go.str("Gurmukhi"),
-		Go.str("Han"),
-		Go.str("Hangul"),
-		Go.str("Hanifi_Rohingya"),
-		Go.str("Hanunoo"),
-		Go.str("Hatran"),
-		Go.str("Hebrew"),
-		Go.str("Hiragana"),
-		Go.str("Imperial_Aramaic"),
-		Go.str("Inherited"),
-		Go.str("Inscriptional_Pahlavi"),
-		Go.str("Inscriptional_Parthian"),
-		Go.str("Javanese"),
-		Go.str("Kaithi"),
-		Go.str("Kannada"),
-		Go.str("Katakana"),
-		Go.str("Kayah_Li"),
-		Go.str("Kharoshthi"),
-		Go.str("Khitan_Small_Script"),
-		Go.str("Khmer"),
-		Go.str("Khojki"),
-		Go.str("Khudawadi"),
-		Go.str("Lao"),
-		Go.str("Latin"),
-		Go.str("Lepcha"),
-		Go.str("Limbu"),
-		Go.str("Linear_A"),
-		Go.str("Linear_B"),
-		Go.str("Lisu"),
-		Go.str("Lycian"),
-		Go.str("Lydian"),
-		Go.str("Mahajani"),
-		Go.str("Makasar"),
-		Go.str("Malayalam"),
-		Go.str("Mandaic"),
-		Go.str("Manichaean"),
-		Go.str("Marchen"),
-		Go.str("Masaram_Gondi"),
-		Go.str("Medefaidrin"),
-		Go.str("Meetei_Mayek"),
-		Go.str("Mende_Kikakui"),
-		Go.str("Meroitic_Cursive"),
-		Go.str("Meroitic_Hieroglyphs"),
-		Go.str("Miao"),
-		Go.str("Modi"),
-		Go.str("Mongolian"),
-		Go.str("Mro"),
-		Go.str("Multani"),
-		Go.str("Myanmar"),
-		Go.str("Nabataean"),
-		Go.str("Nandinagari"),
-		Go.str("New_Tai_Lue"),
-		Go.str("Newa"),
-		Go.str("Nko"),
-		Go.str("Nushu"),
-		Go.str("Nyiakeng_Puachue_Hmong"),
-		Go.str("Ogham"),
-		Go.str("Ol_Chiki"),
-		Go.str("Old_Hungarian"),
-		Go.str("Old_Italic"),
-		Go.str("Old_North_Arabian"),
-		Go.str("Old_Permic"),
-		Go.str("Old_Persian"),
-		Go.str("Old_Sogdian"),
-		Go.str("Old_South_Arabian"),
-		Go.str("Old_Turkic"),
-		Go.str("Oriya"),
-		Go.str("Osage"),
-		Go.str("Osmanya"),
-		Go.str("Pahawh_Hmong"),
-		Go.str("Palmyrene"),
-		Go.str("Pau_Cin_Hau"),
-		Go.str("Phags_Pa"),
-		Go.str("Phoenician"),
-		Go.str("Psalter_Pahlavi"),
-		Go.str("Rejang"),
-		Go.str("Runic"),
-		Go.str("Samaritan"),
-		Go.str("Saurashtra"),
-		Go.str("Sharada"),
-		Go.str("Shavian"),
-		Go.str("Siddham"),
-		Go.str("SignWriting"),
-		Go.str("Sinhala"),
-		Go.str("Sogdian"),
-		Go.str("Sora_Sompeng"),
-		Go.str("Soyombo"),
-		Go.str("Sundanese"),
-		Go.str("Syloti_Nagri"),
-		Go.str("Syriac"),
-		Go.str("Tagalog"),
-		Go.str("Tagbanwa"),
-		Go.str("Tai_Le"),
-		Go.str("Tai_Tham"),
-		Go.str("Tai_Viet"),
-		Go.str("Takri"),
-		Go.str("Tamil"),
-		Go.str("Tangut"),
-		Go.str("Telugu"),
-		Go.str("Thaana"),
-		Go.str("Thai"),
-		Go.str("Tibetan"),
-		Go.str("Tifinagh"),
-		Go.str("Tirhuta"),
-		Go.str("Ugaritic"),
-		Go.str("Vai"),
-		Go.str("Wancho"),
-		Go.str("Warang_Citi"),
-		Go.str("Yezidi"),
-		Go.str("Yi"),
-		Go.str("Zanabazar_Square")
+		("Adlam" : GoString),
+		("Ahom" : GoString),
+		("Anatolian_Hieroglyphs" : GoString),
+		("Arabic" : GoString),
+		("Armenian" : GoString),
+		("Avestan" : GoString),
+		("Balinese" : GoString),
+		("Bamum" : GoString),
+		("Bassa_Vah" : GoString),
+		("Batak" : GoString),
+		("Bengali" : GoString),
+		("Bhaiksuki" : GoString),
+		("Bopomofo" : GoString),
+		("Brahmi" : GoString),
+		("Braille" : GoString),
+		("Buginese" : GoString),
+		("Buhid" : GoString),
+		("Canadian_Aboriginal" : GoString),
+		("Carian" : GoString),
+		("Caucasian_Albanian" : GoString),
+		("Chakma" : GoString),
+		("Cham" : GoString),
+		("Cherokee" : GoString),
+		("Chorasmian" : GoString),
+		("Common" : GoString),
+		("Coptic" : GoString),
+		("Cuneiform" : GoString),
+		("Cypriot" : GoString),
+		("Cyrillic" : GoString),
+		("Deseret" : GoString),
+		("Devanagari" : GoString),
+		("Dives_Akuru" : GoString),
+		("Dogra" : GoString),
+		("Duployan" : GoString),
+		("Egyptian_Hieroglyphs" : GoString),
+		("Elbasan" : GoString),
+		("Elymaic" : GoString),
+		("Ethiopic" : GoString),
+		("Georgian" : GoString),
+		("Glagolitic" : GoString),
+		("Gothic" : GoString),
+		("Grantha" : GoString),
+		("Greek" : GoString),
+		("Gujarati" : GoString),
+		("Gunjala_Gondi" : GoString),
+		("Gurmukhi" : GoString),
+		("Han" : GoString),
+		("Hangul" : GoString),
+		("Hanifi_Rohingya" : GoString),
+		("Hanunoo" : GoString),
+		("Hatran" : GoString),
+		("Hebrew" : GoString),
+		("Hiragana" : GoString),
+		("Imperial_Aramaic" : GoString),
+		("Inherited" : GoString),
+		("Inscriptional_Pahlavi" : GoString),
+		("Inscriptional_Parthian" : GoString),
+		("Javanese" : GoString),
+		("Kaithi" : GoString),
+		("Kannada" : GoString),
+		("Katakana" : GoString),
+		("Kayah_Li" : GoString),
+		("Kharoshthi" : GoString),
+		("Khitan_Small_Script" : GoString),
+		("Khmer" : GoString),
+		("Khojki" : GoString),
+		("Khudawadi" : GoString),
+		("Lao" : GoString),
+		("Latin" : GoString),
+		("Lepcha" : GoString),
+		("Limbu" : GoString),
+		("Linear_A" : GoString),
+		("Linear_B" : GoString),
+		("Lisu" : GoString),
+		("Lycian" : GoString),
+		("Lydian" : GoString),
+		("Mahajani" : GoString),
+		("Makasar" : GoString),
+		("Malayalam" : GoString),
+		("Mandaic" : GoString),
+		("Manichaean" : GoString),
+		("Marchen" : GoString),
+		("Masaram_Gondi" : GoString),
+		("Medefaidrin" : GoString),
+		("Meetei_Mayek" : GoString),
+		("Mende_Kikakui" : GoString),
+		("Meroitic_Cursive" : GoString),
+		("Meroitic_Hieroglyphs" : GoString),
+		("Miao" : GoString),
+		("Modi" : GoString),
+		("Mongolian" : GoString),
+		("Mro" : GoString),
+		("Multani" : GoString),
+		("Myanmar" : GoString),
+		("Nabataean" : GoString),
+		("Nandinagari" : GoString),
+		("New_Tai_Lue" : GoString),
+		("Newa" : GoString),
+		("Nko" : GoString),
+		("Nushu" : GoString),
+		("Nyiakeng_Puachue_Hmong" : GoString),
+		("Ogham" : GoString),
+		("Ol_Chiki" : GoString),
+		("Old_Hungarian" : GoString),
+		("Old_Italic" : GoString),
+		("Old_North_Arabian" : GoString),
+		("Old_Permic" : GoString),
+		("Old_Persian" : GoString),
+		("Old_Sogdian" : GoString),
+		("Old_South_Arabian" : GoString),
+		("Old_Turkic" : GoString),
+		("Oriya" : GoString),
+		("Osage" : GoString),
+		("Osmanya" : GoString),
+		("Pahawh_Hmong" : GoString),
+		("Palmyrene" : GoString),
+		("Pau_Cin_Hau" : GoString),
+		("Phags_Pa" : GoString),
+		("Phoenician" : GoString),
+		("Psalter_Pahlavi" : GoString),
+		("Rejang" : GoString),
+		("Runic" : GoString),
+		("Samaritan" : GoString),
+		("Saurashtra" : GoString),
+		("Sharada" : GoString),
+		("Shavian" : GoString),
+		("Siddham" : GoString),
+		("SignWriting" : GoString),
+		("Sinhala" : GoString),
+		("Sogdian" : GoString),
+		("Sora_Sompeng" : GoString),
+		("Soyombo" : GoString),
+		("Sundanese" : GoString),
+		("Syloti_Nagri" : GoString),
+		("Syriac" : GoString),
+		("Tagalog" : GoString),
+		("Tagbanwa" : GoString),
+		("Tai_Le" : GoString),
+		("Tai_Tham" : GoString),
+		("Tai_Viet" : GoString),
+		("Takri" : GoString),
+		("Tamil" : GoString),
+		("Tangut" : GoString),
+		("Telugu" : GoString),
+		("Thaana" : GoString),
+		("Thai" : GoString),
+		("Tibetan" : GoString),
+		("Tifinagh" : GoString),
+		("Tirhuta" : GoString),
+		("Ugaritic" : GoString),
+		("Vai" : GoString),
+		("Wancho" : GoString),
+		("Warang_Citi" : GoString),
+		("Yezidi" : GoString),
+		("Yi" : GoString),
+		("Zanabazar_Square" : GoString)
 	];
 	@:privateAccess x._values = [
 		adlam, ahom, anatolian_Hieroglyphs, arabic, armenian, avestan, balinese, bamum, bassa_Vah, batak, bengali, bhaiksuki, bopomofo, brahmi, braille,
@@ -7165,112 +7030,44 @@ var properties:GoMap<GoString, Ref<RangeTable>> = ({
 	final x = new stdgo.GoMap.GoObjectMap<GoString,
 		Ref<RangeTable>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({get: () ->
 			stdgo.internal.reflect.Reflect.GoType.basic(string_kind)},
-		{get: () -> stdgo.internal.reflect.Reflect.GoType.refType({get: () -> stdgo.internal.reflect.Reflect.GoType.named("RangeTable", [],
-			stdgo.internal.reflect.Reflect.GoType.structType([
-				{
-					name: "r16",
-					embedded: false,
-					tag: "",
-					type: {get: () -> stdgo.internal.reflect.Reflect.GoType.sliceType({get: () -> stdgo.internal.reflect.Reflect.GoType.named("Range16", [],
-						stdgo.internal.reflect.Reflect.GoType.structType([
-							{
-								name: "lo",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)},
-								optional: false
-							},
-							{
-								name: "hi",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)},
-								optional: false
-							},
-							{
-								name: "stride",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)},
-								optional: false
-							}
-						]), false, {get: () -> null})})},
-					optional: false
-				},
-				{
-					name: "r32",
-					embedded: false,
-					tag: "",
-					type: {get: () -> stdgo.internal.reflect.Reflect.GoType.sliceType({get: () -> stdgo.internal.reflect.Reflect.GoType.named("Range32", [],
-						stdgo.internal.reflect.Reflect.GoType.structType([
-							{
-								name: "lo",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)},
-								optional: false
-							},
-							{
-								name: "hi",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)},
-								optional: false
-							},
-							{
-								name: "stride",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)},
-								optional: false
-							}
-						]), false, {get: () -> null})})},
-					optional: false
-				},
-				{
-					name: "latinOffset",
-					embedded: false,
-					tag: "",
-					type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind)},
-					optional: false
-				}
-			]), false, {get: () -> null})})})));
+		{get: () -> stdgo.internal.reflect.Reflect.GoType.refType({get: () -> stdgo.internal.reflect.Reflect.GoType.named("RangeTable", [], null, false,
+			{get: () -> null})})})));
 	@:privateAccess x._keys = [
-		Go.str("ASCII_Hex_Digit"),
-		Go.str("Bidi_Control"),
-		Go.str("Dash"),
-		Go.str("Deprecated"),
-		Go.str("Diacritic"),
-		Go.str("Extender"),
-		Go.str("Hex_Digit"),
-		Go.str("Hyphen"),
-		Go.str("IDS_Binary_Operator"),
-		Go.str("IDS_Trinary_Operator"),
-		Go.str("Ideographic"),
-		Go.str("Join_Control"),
-		Go.str("Logical_Order_Exception"),
-		Go.str("Noncharacter_Code_Point"),
-		Go.str("Other_Alphabetic"),
-		Go.str("Other_Default_Ignorable_Code_Point"),
-		Go.str("Other_Grapheme_Extend"),
-		Go.str("Other_ID_Continue"),
-		Go.str("Other_ID_Start"),
-		Go.str("Other_Lowercase"),
-		Go.str("Other_Math"),
-		Go.str("Other_Uppercase"),
-		Go.str("Pattern_Syntax"),
-		Go.str("Pattern_White_Space"),
-		Go.str("Prepended_Concatenation_Mark"),
-		Go.str("Quotation_Mark"),
-		Go.str("Radical"),
-		Go.str("Regional_Indicator"),
-		Go.str("Sentence_Terminal"),
-		Go.str("STerm"),
-		Go.str("Soft_Dotted"),
-		Go.str("Terminal_Punctuation"),
-		Go.str("Unified_Ideograph"),
-		Go.str("Variation_Selector"),
-		Go.str("White_Space")
+		("ASCII_Hex_Digit" : GoString),
+		("Bidi_Control" : GoString),
+		("Dash" : GoString),
+		("Deprecated" : GoString),
+		("Diacritic" : GoString),
+		("Extender" : GoString),
+		("Hex_Digit" : GoString),
+		("Hyphen" : GoString),
+		("IDS_Binary_Operator" : GoString),
+		("IDS_Trinary_Operator" : GoString),
+		("Ideographic" : GoString),
+		("Join_Control" : GoString),
+		("Logical_Order_Exception" : GoString),
+		("Noncharacter_Code_Point" : GoString),
+		("Other_Alphabetic" : GoString),
+		("Other_Default_Ignorable_Code_Point" : GoString),
+		("Other_Grapheme_Extend" : GoString),
+		("Other_ID_Continue" : GoString),
+		("Other_ID_Start" : GoString),
+		("Other_Lowercase" : GoString),
+		("Other_Math" : GoString),
+		("Other_Uppercase" : GoString),
+		("Pattern_Syntax" : GoString),
+		("Pattern_White_Space" : GoString),
+		("Prepended_Concatenation_Mark" : GoString),
+		("Quotation_Mark" : GoString),
+		("Radical" : GoString),
+		("Regional_Indicator" : GoString),
+		("Sentence_Terminal" : GoString),
+		("STerm" : GoString),
+		("Soft_Dotted" : GoString),
+		("Terminal_Punctuation" : GoString),
+		("Unified_Ideograph" : GoString),
+		("Variation_Selector" : GoString),
+		("White_Space" : GoString)
 	];
 	@:privateAccess x._values = [
 		ascii_Hex_Digit,
@@ -8290,77 +8087,16 @@ var foldCategory:GoMap<GoString, Ref<RangeTable>> = ({
 	final x = new stdgo.GoMap.GoObjectMap<GoString,
 		Ref<RangeTable>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({get: () ->
 			stdgo.internal.reflect.Reflect.GoType.basic(string_kind)},
-		{get: () -> stdgo.internal.reflect.Reflect.GoType.refType({get: () -> stdgo.internal.reflect.Reflect.GoType.named("RangeTable", [],
-			stdgo.internal.reflect.Reflect.GoType.structType([
-				{
-					name: "r16",
-					embedded: false,
-					tag: "",
-					type: {get: () -> stdgo.internal.reflect.Reflect.GoType.sliceType({get: () -> stdgo.internal.reflect.Reflect.GoType.named("Range16", [],
-						stdgo.internal.reflect.Reflect.GoType.structType([
-							{
-								name: "lo",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)},
-								optional: false
-							},
-							{
-								name: "hi",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)},
-								optional: false
-							},
-							{
-								name: "stride",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)},
-								optional: false
-							}
-						]), false, {get: () -> null})})},
-					optional: false
-				},
-				{
-					name: "r32",
-					embedded: false,
-					tag: "",
-					type: {get: () -> stdgo.internal.reflect.Reflect.GoType.sliceType({get: () -> stdgo.internal.reflect.Reflect.GoType.named("Range32", [],
-						stdgo.internal.reflect.Reflect.GoType.structType([
-							{
-								name: "lo",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)},
-								optional: false
-							},
-							{
-								name: "hi",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)},
-								optional: false
-							},
-							{
-								name: "stride",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)},
-								optional: false
-							}
-						]), false, {get: () -> null})})},
-					optional: false
-				},
-				{
-					name: "latinOffset",
-					embedded: false,
-					tag: "",
-					type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind)},
-					optional: false
-				}
-			]), false, {get: () -> null})})})));
-	@:privateAccess x._keys = [Go.str("L"), Go.str("Ll"), Go.str("Lt"), Go.str("Lu"), Go.str("M"), Go.str("Mn")];
+		{get: () -> stdgo.internal.reflect.Reflect.GoType.refType({get: () -> stdgo.internal.reflect.Reflect.GoType.named("RangeTable", [], null, false,
+			{get: () -> null})})})));
+	@:privateAccess x._keys = [
+		("L" : GoString),
+		("Ll" : GoString),
+		("Lt" : GoString),
+		("Lu" : GoString),
+		("M" : GoString),
+		("Mn" : GoString)
+	];
 	@:privateAccess x._values = [_foldL, _foldLl, _foldLt, _foldLu, _foldM, _foldMn];
 	x;
 } : stdgo.GoMap<GoString, Ref<RangeTable>>);
@@ -8384,77 +8120,9 @@ var foldScript:GoMap<GoString, Ref<RangeTable>> = ({
 	final x = new stdgo.GoMap.GoObjectMap<GoString,
 		Ref<RangeTable>>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({get: () ->
 			stdgo.internal.reflect.Reflect.GoType.basic(string_kind)},
-		{get: () -> stdgo.internal.reflect.Reflect.GoType.refType({get: () -> stdgo.internal.reflect.Reflect.GoType.named("RangeTable", [],
-			stdgo.internal.reflect.Reflect.GoType.structType([
-				{
-					name: "r16",
-					embedded: false,
-					tag: "",
-					type: {get: () -> stdgo.internal.reflect.Reflect.GoType.sliceType({get: () -> stdgo.internal.reflect.Reflect.GoType.named("Range16", [],
-						stdgo.internal.reflect.Reflect.GoType.structType([
-							{
-								name: "lo",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)},
-								optional: false
-							},
-							{
-								name: "hi",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)},
-								optional: false
-							},
-							{
-								name: "stride",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint16_kind)},
-								optional: false
-							}
-						]), false, {get: () -> null})})},
-					optional: false
-				},
-				{
-					name: "r32",
-					embedded: false,
-					tag: "",
-					type: {get: () -> stdgo.internal.reflect.Reflect.GoType.sliceType({get: () -> stdgo.internal.reflect.Reflect.GoType.named("Range32", [],
-						stdgo.internal.reflect.Reflect.GoType.structType([
-							{
-								name: "lo",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)},
-								optional: false
-							},
-							{
-								name: "hi",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)},
-								optional: false
-							},
-							{
-								name: "stride",
-								embedded: false,
-								tag: "",
-								type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(uint32_kind)},
-								optional: false
-							}
-						]), false, {get: () -> null})})},
-					optional: false
-				},
-				{
-					name: "latinOffset",
-					embedded: false,
-					tag: "",
-					type: {get: () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind)},
-					optional: false
-				}
-			]), false, {get: () -> null})})})));
-	@:privateAccess x._keys = [Go.str("Common"), Go.str("Greek"), Go.str("Inherited")];
+		{get: () -> stdgo.internal.reflect.Reflect.GoType.refType({get: () -> stdgo.internal.reflect.Reflect.GoType.named("RangeTable", [], null, false,
+			{get: () -> null})})})));
+	@:privateAccess x._keys = [("Common" : GoString), ("Greek" : GoString), ("Inherited" : GoString)];
 	@:privateAccess x._values = [_foldCommon, _foldGreek, _foldInherited];
 	x;
 } : stdgo.GoMap<GoString, Ref<RangeTable>>);
@@ -8570,7 +8238,7 @@ private final _linearMax:GoUInt64 = ("18" : GoUInt64);
 /**
 	// Version is the Unicode edition from which the tables are derived.
 **/
-final version:GoString = Go.str("13.0.0");
+final version:GoString = ("13.0.0" : GoString);
 
 /**
 	// RangeTable defines a set of Unicode code points by listing the ranges of
@@ -8582,10 +8250,6 @@ final version:GoString = Go.str("13.0.0");
 @:structInit class RangeTable {
 	public var r16:Slice<Range16> = (null : Slice<Range16>);
 	public var r32:Slice<Range32> = (null : Slice<Range32>);
-
-	/**
-		// number of entries in R16 with Hi <= MaxLatin1
-	**/
 	public var latinOffset:GoInt = 0;
 
 	public function new(?r16:Slice<Range16>, ?r32:Slice<Range32>, ?latinOffset:GoInt) {
@@ -8873,7 +8537,7 @@ function isSymbol(_r:GoRune):Bool {
 /**
 	// is16 reports whether r is in the sorted slice of 16-bit ranges.
 **/
-function _is16(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
+private function _is16(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
 	if ((_ranges.length <= (18 : GoInt)) || (_r <= (255 : GoUInt16))) {
 		for (_i in 0..._ranges.length.toBasic()) {
 			var _range_ = (_ranges[(_i : GoInt)] : Ref<Range16>);
@@ -8906,7 +8570,7 @@ function _is16(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
 /**
 	// is32 reports whether r is in the sorted slice of 32-bit ranges.
 **/
-function _is32(_ranges:Slice<Range32>, _r:GoUInt32):Bool {
+private function _is32(_ranges:Slice<Range32>, _r:GoUInt32):Bool {
 	if ((_ranges.length) <= (18 : GoInt)) {
 		for (_i in 0..._ranges.length.toBasic()) {
 			var _range_ = (_ranges[(_i : GoInt)] : Ref<Range32>);
@@ -8951,7 +8615,7 @@ function is_(_rangeTab:Ref<RangeTable>, _r:GoRune):Bool {
 	return false;
 }
 
-function _isExcludingLatin(_rangeTab:Ref<RangeTable>, _r:GoRune):Bool {
+private function _isExcludingLatin(_rangeTab:Ref<RangeTable>, _r:GoRune):Bool {
 	var _r16 = _rangeTab.r16;
 	{
 		var _off:GoInt = _rangeTab.latinOffset;
@@ -9000,7 +8664,7 @@ function isTitle(_r:GoRune):Bool {
 	// to maps the rune using the specified case mapping.
 	// It additionally reports whether caseRange contained a mapping for r.
 **/
-function _to(__case:GoInt, _r:GoRune, _caseRange:Slice<CaseRange>):{var _0:GoRune; var _1:Bool;} {
+private function _to(__case:GoInt, _r:GoRune, _caseRange:Slice<CaseRange>):{var _0:GoRune; var _1:Bool;} {
 	var _mappedRune:GoRune = (0 : GoInt32), _foundMapping:Bool = false;
 	if ((__case < (0:GoInt)) || ((3 : GoInt) <= __case)) {
 		return {_0: (65533 : GoInt32), _1: false};

@@ -24,7 +24,7 @@ private var __go2hxdoc__package:Bool;
 /**
 	// ErrBadPattern indicates a pattern was malformed.
 **/
-var errBadPattern:Error = stdgo.errors.Errors.new_(Go.str("syntax error in pattern"));
+var errBadPattern:Error = stdgo.errors.Errors.new_(("syntax error in pattern" : GoString));
 
 /**
 	// A lazybuf is a lazily constructed path buffer.
@@ -150,7 +150,7 @@ function match(_pattern:GoString, _name:GoString):{var _0:Bool; var _1:Error;} {
 	// scanChunk gets the next segment of pattern, which is a non-star string
 	// possibly preceded by a star.
 **/
-function _scanChunk(_pattern:GoString):{var _0:Bool; var _1:GoString; var _2:GoString;} {
+private function _scanChunk(_pattern:GoString):{var _0:Bool; var _1:GoString; var _2:GoString;} {
 	return stdgo.internal.Macro.controlFlow({
 		var _star:Bool = false,
 			_chunk:GoString = ("" : GoString),
@@ -198,7 +198,7 @@ function _scanChunk(_pattern:GoString):{var _0:Bool; var _1:GoString; var _2:GoS
 	// If so, it returns the remainder of s (after the match).
 	// Chunk is all single-character operators: literals, char classes, and ?.
 **/
-function _matchChunk(_chunk:GoString, _s:GoString):{var _0:GoString; var _1:Bool; var _2:Error;} {
+private function _matchChunk(_chunk:GoString, _s:GoString):{var _0:GoString; var _1:Bool; var _2:Error;} {
 	var _rest:GoString = ("" : GoString),
 		_ok:Bool = false,
 		_err:Error = (null : Error);
@@ -210,7 +210,7 @@ function _matchChunk(_chunk:GoString, _s:GoString):{var _0:GoString; var _1:Bool
 		{
 			var __switchIndex__ = -1;
 			while (true) {
-				if (__switchIndex__ == 0 || (__switchIndex__ == -1 && _chunk[(0 : GoInt)] == ((91 : GoUInt8)))) {
+				if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (_chunk[(0 : GoInt)] == (91 : GoUInt8)))) {
 					var _r:GoRune = (0 : GoInt32);
 					if (!_failed) {
 						var _n:GoInt = (0 : GoInt);
@@ -273,7 +273,7 @@ function _matchChunk(_chunk:GoString, _s:GoString):{var _0:GoString; var _1:Bool
 					};
 					break;
 					break;
-				} else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && _chunk[(0 : GoInt)] == ((63 : GoUInt8)))) {
+				} else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && (_chunk[(0 : GoInt)] == (63 : GoUInt8)))) {
 					if (!_failed) {
 						if (_s[(0 : GoInt)] == ((47 : GoUInt8))) {
 							_failed = true;
@@ -286,7 +286,7 @@ function _matchChunk(_chunk:GoString, _s:GoString):{var _0:GoString; var _1:Bool
 					_chunk = (_chunk.__slice__((1 : GoInt)) : GoString);
 					break;
 					break;
-				} else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && _chunk[(0 : GoInt)] == ((92 : GoUInt8)))) {
+				} else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (_chunk[(0 : GoInt)] == (92 : GoUInt8)))) {
 					_chunk = (_chunk.__slice__((1 : GoInt)) : GoString);
 					if ((_chunk.length) == ((0 : GoInt))) {
 						return {_0: Go.str(), _1: false, _2: errBadPattern};
@@ -319,7 +319,7 @@ function _matchChunk(_chunk:GoString, _s:GoString):{var _0:GoString; var _1:Bool
 /**
 	// getEsc gets a possibly-escaped character from chunk, for a character class.
 **/
-function _getEsc(_chunk:GoString):{var _0:GoRune; var _1:GoString; var _2:Error;} {
+private function _getEsc(_chunk:GoString):{var _0:GoRune; var _1:GoString; var _2:Error;} {
 	var _r:GoRune = (0 : GoInt32),
 		_nchunk:GoString = ("" : GoString),
 		_err:Error = (null : Error);
@@ -370,7 +370,7 @@ function _getEsc(_chunk:GoString):{var _0:GoRune; var _1:GoString; var _2:Error;
 **/
 function clean(_path:GoString):GoString {
 	if (_path == (Go.str())) {
-		return Go.str(".");
+		return ("." : GoString);
 	};
 	var _rooted:Bool = _path[(0 : GoInt)] == ((47 : GoUInt8));
 	var _n:GoInt = (_path.length);
@@ -420,7 +420,7 @@ function clean(_path:GoString):GoString {
 		};
 	};
 	if (_out._w == ((0 : GoInt))) {
-		return Go.str(".");
+		return ("." : GoString);
 	};
 	return _out._string();
 }
@@ -428,7 +428,7 @@ function clean(_path:GoString):GoString {
 /**
 	// lastSlash(s) is strings.LastIndex(s, "/") but we can't import strings.
 **/
-function _lastSlash(_s:GoString):GoInt {
+private function _lastSlash(_s:GoString):GoInt {
 	var _i:GoInt = (_s.length) - (1 : GoInt);
 	while ((_i >= (0 : GoInt)) && (_s[(_i : GoInt)] != (47 : GoUInt8))) {
 		_i--;
@@ -503,7 +503,7 @@ function ext(_path:GoString):GoString {
 **/
 function base(_path:GoString):GoString {
 	if (_path == (Go.str())) {
-		return Go.str(".");
+		return ("." : GoString);
 	};
 	while ((_path.length > (0 : GoInt)) && (_path[((_path.length) - (1 : GoInt) : GoInt)] == (47 : GoUInt8))) {
 		_path = (_path.__slice__((0 : GoInt), (_path.length) - (1 : GoInt)) : GoString);
@@ -515,7 +515,7 @@ function base(_path:GoString):GoString {
 		};
 	};
 	if (_path == (Go.str())) {
-		return Go.str("/");
+		return ("/" : GoString);
 	};
 	return _path;
 }

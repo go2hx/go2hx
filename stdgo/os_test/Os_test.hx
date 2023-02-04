@@ -19,16 +19,19 @@ import stdgo.GoMap;
 import stdgo.Chan;
 
 private var _expandTests:Slice<T__struct_1> = (new Slice<T__struct_1>(0, 0, ({_in: Go.str(), _out: Go.str()} : T__struct_1),
-	({_in: Go.str("$$*"), _out: Go.str("all the args")} : T__struct_1), ({_in: Go.str("$$$$"), _out: Go.str("PID")} : T__struct_1),
-	({_in: Go.str("$${*}"), _out: Go.str("all the args")} : T__struct_1), ({_in: Go.str("$$1"), _out: Go.str("ARGUMENT1")} : T__struct_1),
-	({_in: Go.str("$${1}"), _out: Go.str("ARGUMENT1")} : T__struct_1), ({_in: Go.str("now is the time"), _out: Go.str("now is the time")} : T__struct_1),
-	({_in: Go.str("$$HOME"), _out: Go.str("/usr/gopher")} : T__struct_1), ({_in: Go.str("$$home_1"), _out: Go.str("/usr/foo")} : T__struct_1),
-	({_in: Go.str("$${HOME}"), _out: Go.str("/usr/gopher")} : T__struct_1), ({_in: Go.str("$${H}OME"), _out: Go.str("(Value of H)OME")} : T__struct_1),
-	({_in: Go.str("A$$$$$$#$$1$$H$$home_1*B"), _out: Go.str("APIDNARGSARGUMENT1(Value of H)/usr/foo*B")} : T__struct_1),
-	({_in: Go.str("start$$+middle$$^end$$"), _out: Go.str("start$$+middle$$^end$$")} : T__struct_1),
-	({_in: Go.str("mixed$$|bag$$$$$$"), _out: Go.str("mixed$$|bagPID$$")} : T__struct_1), ({_in: Go.str("$$"), _out: Go.str("$$")} : T__struct_1),
-	({_in: Go.str("$$}"), _out: Go.str("$$}")} : T__struct_1), ({_in: Go.str("$${"), _out: Go.str()} : T__struct_1),
-	({_in: Go.str("$${}"), _out: Go.str()} : T__struct_1)) : Slice<T__struct_1>);
+	({_in: ("$$*" : GoString), _out: ("all the args" : GoString)} : T__struct_1), ({_in: ("$$$$" : GoString), _out: ("PID" : GoString)} : T__struct_1),
+	({_in: ("$${*}" : GoString), _out: ("all the args" : GoString)} : T__struct_1), ({_in: ("$$1" : GoString), _out: ("ARGUMENT1" : GoString)} : T__struct_1),
+	({_in: ("$${1}" : GoString), _out: ("ARGUMENT1" : GoString)} : T__struct_1),
+	({_in: ("now is the time" : GoString), _out: ("now is the time" : GoString)} : T__struct_1),
+	({_in: ("$$HOME" : GoString), _out: ("/usr/gopher" : GoString)} : T__struct_1),
+	({_in: ("$$home_1" : GoString), _out: ("/usr/foo" : GoString)} : T__struct_1),
+	({_in: ("$${HOME}" : GoString), _out: ("/usr/gopher" : GoString)} : T__struct_1),
+	({_in: ("$${H}OME" : GoString), _out: ("(Value of H)OME" : GoString)} : T__struct_1),
+	({_in: ("A$$$$$$#$$1$$H$$home_1*B" : GoString), _out: ("APIDNARGSARGUMENT1(Value of H)/usr/foo*B" : GoString)} : T__struct_1),
+	({_in: ("start$$+middle$$^end$$" : GoString), _out: ("start$$+middle$$^end$$" : GoString)} : T__struct_1),
+	({_in: ("mixed$$|bag$$$$$$" : GoString), _out: ("mixed$$|bagPID$$" : GoString)} : T__struct_1),
+	({_in: ("$$" : GoString), _out: ("$$" : GoString)} : T__struct_1), ({_in: ("$$}" : GoString), _out: ("$$}" : GoString)} : T__struct_1),
+	({_in: ("$${" : GoString), _out: Go.str()} : T__struct_1), ({_in: ("$${}" : GoString), _out: Go.str()} : T__struct_1)) : Slice<T__struct_1>);
 
 private var _isExistTests:Slice<stdgo.os_test.Os_test.T_isExistTest> = (new Slice<stdgo.os_test.Os_test.T_isExistTest>(0, 0,
 	(new stdgo.os_test.Os_test.T_isExistTest(Go.asInterface((({
@@ -75,27 +78,28 @@ private var _isPermissionTests:Slice<stdgo.os_test.Os_test.T_isPermissionTest> =
 	} : SyscallError) : Ref<SyscallError>)),
 		true) : stdgo.os_test.Os_test.T_isPermissionTest)) : Slice<stdgo.os_test.Os_test.T_isPermissionTest>);
 
-private var _dot:Slice<GoString> = (new Slice<GoString>(0, 0, Go.str("dir_unix.go"), Go.str("env.go"), Go.str("error.go"), Go.str("file.go"),
-	Go.str("os_test.go"), Go.str("types.go"), Go.str("stat_darwin.go"), Go.str("stat_linux.go")) : Slice<GoString>);
+private var _dot:Slice<GoString> = (new Slice<GoString>(0, 0, ("dir_unix.go" : GoString), ("env.go" : GoString), ("error.go" : GoString),
+	("file.go" : GoString), ("os_test.go" : GoString), ("types.go" : GoString), ("stat_darwin.go" : GoString),
+	("stat_linux.go" : GoString)) : Slice<GoString>);
 
 private var _sysdir:Ref<stdgo.os_test.Os_test.T_sysDir> = {
 	var a = function():Ref<T_sysDir> {
 		{
 			var __switchIndex__ = -1;
 			while (true) {
-				if (Go.str("js") == (Go.str("android"))) {
-					return ((new stdgo.os_test.Os_test.T_sysDir(Go.str("/system/lib"),
-						(new Slice<GoString>(0, 0, Go.str("libmedia.so"),
-							Go.str("libpowermanager.so")) : Slice<GoString>)) : stdgo.os_test.Os_test.T_sysDir) : Ref<stdgo.os_test.Os_test.T_sysDir>);
+				if (("js" : GoString) == (("android" : GoString))) {
+					return ((new T_sysDir(("/system/lib" : GoString),
+						(new Slice<GoString>(0, 0, ("libmedia.so" : GoString),
+							("libpowermanager.so" : GoString)) : Slice<GoString>)) : T_sysDir) : Ref<stdgo.os_test.Os_test.T_sysDir>);
 					break;
-				} else if (Go.str("js") == (Go.str("ios"))) {
+				} else if (("js" : GoString) == (("ios" : GoString))) {
 					var __tmp__ = stdgo.syscall.Syscall.getwd(), _wd:GoString = __tmp__._0, _err:Error = __tmp__._1;
 					if (_err != null) {
 						_wd = _err.error();
 					};
-					var _sd = ((new stdgo.os_test.Os_test.T_sysDir(stdgo.path.filepath.Filepath.join(_wd, Go.str(".."), Go.str("..")),
-						(new Slice<GoString>(0, 0, Go.str("ResourceRules.plist"),
-							Go.str("Info.plist")) : Slice<GoString>)) : stdgo.os_test.Os_test.T_sysDir) : Ref<stdgo.os_test.Os_test.T_sysDir>);
+					var _sd = ((new T_sysDir(stdgo.path.filepath.Filepath.join(_wd, (".." : GoString), (".." : GoString)),
+						(new Slice<GoString>(0, 0, ("ResourceRules.plist" : GoString),
+							("Info.plist" : GoString)) : Slice<GoString>)) : T_sysDir) : Ref<stdgo.os_test.Os_test.T_sysDir>);
 					var _found:Bool = true;
 					for (_0 => _f in _sd._files) {
 						var _path:GoString = stdgo.path.filepath.Filepath.join(_sd._name, _f);
@@ -111,23 +115,23 @@ private var _sysdir:Ref<stdgo.os_test.Os_test.T_sysDir> = {
 						return _sd;
 					};
 					break;
-				} else if (Go.str("js") == (Go.str("windows"))) {
-					return ((new stdgo.os_test.Os_test.T_sysDir(getenv(Go.str("SystemRoot")) + Go.str("\\system32\\drivers\\etc"),
-						(new Slice<GoString>(0, 0, Go.str("networks"), Go.str("protocol"),
-							Go.str("services")) : Slice<GoString>)) : stdgo.os_test.Os_test.T_sysDir) : Ref<stdgo.os_test.Os_test.T_sysDir>);
+				} else if (("js" : GoString) == (("windows" : GoString))) {
+					return ((new T_sysDir(getenv(("SystemRoot" : GoString)) + ("\\system32\\drivers\\etc" : GoString),
+						(new Slice<GoString>(0, 0, ("networks" : GoString), ("protocol" : GoString),
+							("services" : GoString)) : Slice<GoString>)) : T_sysDir) : Ref<stdgo.os_test.Os_test.T_sysDir>);
 					break;
-				} else if (Go.str("js") == (Go.str("plan9"))) {
-					return ((new stdgo.os_test.Os_test.T_sysDir(Go.str("/lib/ndb"),
-						(new Slice<GoString>(0, 0, Go.str("common"),
-							Go.str("local")) : Slice<GoString>)) : stdgo.os_test.Os_test.T_sysDir) : Ref<stdgo.os_test.Os_test.T_sysDir>);
+				} else if (("js" : GoString) == (("plan9" : GoString))) {
+					return ((new T_sysDir(("/lib/ndb" : GoString),
+						(new Slice<GoString>(0, 0, ("common" : GoString),
+							("local" : GoString)) : Slice<GoString>)) : T_sysDir) : Ref<stdgo.os_test.Os_test.T_sysDir>);
 					break;
 				};
 				break;
 			};
 		};
-		return ((new stdgo.os_test.Os_test.T_sysDir(Go.str("/etc"),
-			(new Slice<GoString>(0, 0, Go.str("group"), Go.str("hosts"),
-				Go.str("passwd")) : Slice<GoString>)) : stdgo.os_test.Os_test.T_sysDir) : Ref<stdgo.os_test.Os_test.T_sysDir>);
+		return ((new T_sysDir(("/etc" : GoString),
+			(new Slice<GoString>(0, 0, ("group" : GoString), ("hosts" : GoString),
+				("passwd" : GoString)) : Slice<GoString>)) : T_sysDir) : Ref<stdgo.os_test.Os_test.T_sysDir>);
 	};
 	a();
 };
@@ -136,100 +140,100 @@ private var _sfdir:GoString = _sysdir._name;
 private var _sfname:GoString = _sysdir._files[(0 : GoInt)];
 
 private var _openErrorTests:Slice<stdgo.os_test.Os_test.T_openErrorTest> = (new Slice<stdgo.os_test.Os_test.T_openErrorTest>(0, 0,
-	(new stdgo.os_test.Os_test.T_openErrorTest(_sfdir + Go.str("/no-such-file"), (0 : GoInt),
+	(new stdgo.os_test.Os_test.T_openErrorTest(_sfdir + ("/no-such-file" : GoString), (0 : GoInt),
 		Go.asInterface((2 : stdgo.syscall.Syscall.Errno))) : stdgo.os_test.Os_test.T_openErrorTest),
 	(new stdgo.os_test.Os_test.T_openErrorTest(_sfdir, (1 : GoInt),
 		Go.asInterface((21 : stdgo.syscall.Syscall.Errno))) : stdgo.os_test.Os_test.T_openErrorTest),
-	(new stdgo.os_test.Os_test.T_openErrorTest(((_sfdir + Go.str("/")) + _sfname) + Go.str("/no-such-file"), (1 : GoInt),
+	(new stdgo.os_test.Os_test.T_openErrorTest(((_sfdir + ("/" : GoString)) + _sfname) + ("/no-such-file" : GoString), (1 : GoInt),
 		Go.asInterface((20 : stdgo.syscall.Syscall.Errno))) : stdgo.os_test.Os_test.T_openErrorTest)) : Slice<stdgo.os_test.Os_test.T_openErrorTest>);
 
-private var _testLargeWrite:Pointer<Bool> = stdgo.flag.Flag.bool_(Go.str("large_write"), false,
-	Go.str("run TestLargeWriteToConsole test that floods console with output"));
+private var _testLargeWrite:Pointer<Bool> = stdgo.flag.Flag.bool_(("large_write" : GoString), false,
+	("run TestLargeWriteToConsole test that floods console with output" : GoString));
 
 private var _nilFileMethodTests:Slice<T__struct_3> = (new Slice<T__struct_3>(0, 0, ({
-	_name: Go.str("Chdir"),
+	_name: ("Chdir" : GoString),
 	_f: function(_f:Ref<File>):Error {
 		return _f.chdir();
 	}
 } : T__struct_3), ({
-	_name: Go.str("Close"),
+	_name: ("Close" : GoString),
 	_f: function(_f:Ref<File>):Error {
 		return _f.close();
 	}
 	} : T__struct_3), ({
-	_name: Go.str("Chmod"),
+	_name: ("Chmod" : GoString),
 	_f: function(_f:Ref<File>):Error {
 		return _f.chmod((("0" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 	}
 	} : T__struct_3), ({
-	_name: Go.str("Chown"),
+	_name: ("Chown" : GoString),
 	_f: function(_f:Ref<File>):Error {
 		return _f.chown((0 : GoInt), (0 : GoInt));
 	}
 	} : T__struct_3), ({
-	_name: Go.str("Read"),
+	_name: ("Read" : GoString),
 	_f: function(_f:Ref<File>):Error {
 		var __tmp__ = _f.read(new Slice<GoUInt8>((0 : GoInt).toBasic(), 0,
 			...[for (i in 0...(0 : GoInt).toBasic()) (0 : GoUInt8)])), _0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
 		return _err;
 	}
 	} : T__struct_3), ({
-	_name: Go.str("ReadAt"),
+	_name: ("ReadAt" : GoString),
 	_f: function(_f:Ref<File>):Error {
 		var __tmp__ = _f.readAt(new Slice<GoUInt8>((0 : GoInt).toBasic(), 0, ...[for (i in 0...(0 : GoInt).toBasic()) (0 : GoUInt8)]),
 			("0" : GoInt64)), _0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
 		return _err;
 	}
 	} : T__struct_3), ({
-	_name: Go.str("Readdir"),
+	_name: ("Readdir" : GoString),
 	_f: function(_f:Ref<File>):Error {
 		var __tmp__ = _f.readdir((1 : GoInt)), _0:Slice<stdgo.io.fs.Fs.FileInfo> = __tmp__._0, _err:Error = __tmp__._1;
 		return _err;
 	}
 	} : T__struct_3), ({
-	_name: Go.str("Readdirnames"),
+	_name: ("Readdirnames" : GoString),
 	_f: function(_f:Ref<File>):Error {
 		var __tmp__ = _f.readdirnames((1 : GoInt)), _0:Slice<GoString> = __tmp__._0, _err:Error = __tmp__._1;
 		return _err;
 	}
 	} : T__struct_3), ({
-	_name: Go.str("Seek"),
+	_name: ("Seek" : GoString),
 	_f: function(_f:Ref<File>):Error {
 		var __tmp__ = _f.seek(("0" : GoInt64), (0 : GoInt)), _0:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
 		return _err;
 	}
 	} : T__struct_3), ({
-	_name: Go.str("Stat"),
+	_name: ("Stat" : GoString),
 	_f: function(_f:Ref<File>):Error {
 		var __tmp__ = _f.stat(), _0:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:Error = __tmp__._1;
 		return _err;
 	}
 	} : T__struct_3), ({
-	_name: Go.str("Sync"),
+	_name: ("Sync" : GoString),
 	_f: function(_f:Ref<File>):Error {
 		return _f.sync();
 	}
 	} : T__struct_3), ({
-	_name: Go.str("Truncate"),
+	_name: ("Truncate" : GoString),
 	_f: function(_f:Ref<File>):Error {
 		return _f.truncate(("0" : GoInt64));
 	}
 	} : T__struct_3), ({
-	_name: Go.str("Write"),
+	_name: ("Write" : GoString),
 	_f: function(_f:Ref<File>):Error {
 		var __tmp__ = _f.write(new Slice<GoUInt8>((0 : GoInt).toBasic(), 0,
 			...[for (i in 0...(0 : GoInt).toBasic()) (0 : GoUInt8)])), _0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
 		return _err;
 	}
 	} : T__struct_3), ({
-	_name: Go.str("WriteAt"),
+	_name: ("WriteAt" : GoString),
 	_f: function(_f:Ref<File>):Error {
 		var __tmp__ = _f.writeAt(new Slice<GoUInt8>((0 : GoInt).toBasic(), 0, ...[for (i in 0...(0 : GoInt).toBasic()) (0 : GoUInt8)]),
 			("0" : GoInt64)), _0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
 		return _err;
 	}
 	} : T__struct_3), ({
-	_name: Go.str("WriteString"),
+	_name: ("WriteString" : GoString),
 	_f: function(_f:Ref<File>):Error {
 		var __tmp__ = _f.writeString(Go.str()), _0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
 		return _err;
@@ -241,8 +245,8 @@ private var _isReadonlyError:Error->Bool = function(_0:Error):Bool {
 };
 
 private var _global:AnyInterface = (null : AnyInterface);
-private final _executable_EnvVar:GoString = Go.str("OSTEST_OUTPUT_EXECPATH");
-private final _testExecutableDeletion:GoString = Go.str("package main\n\nimport (\n\t\"fmt\"\n\t\"os\"\n)\n\nfunc main() {\n\tbefore, err := os.Executable()\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to read executable name before deletion: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\terr = os.Remove(before)\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to remove executable: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\tafter, err := os.Executable()\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to read executable name after deletion: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\tif before != after {\n\t\tfmt.Fprintf(os.Stderr, \"before and after do not match: %v != %v\\n\", before, after)\n\t\tos.Exit(1)\n\t}\n}\n");
+private final _executable_EnvVar:GoString = ("OSTEST_OUTPUT_EXECPATH" : GoString);
+private final _testExecutableDeletion:GoString = ("package main\n\nimport (\n\t\"fmt\"\n\t\"os\"\n)\n\nfunc main() {\n\tbefore, err := os.Executable()\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to read executable name before deletion: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\terr = os.Remove(before)\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to remove executable: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\tafter, err := os.Executable()\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to read executable name after deletion: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\tif before != after {\n\t\tfmt.Fprintf(os.Stderr, \"before and after do not match: %v != %v\\n\", before, after)\n\t\tos.Exit(1)\n\t}\n}\n" : GoString);
 
 @:structInit private class T_isExistTest {
 	public var _err:Error = (null : Error);
@@ -530,23 +534,23 @@ class T__struct_8_asInterface {
 /**
 	// testGetenv gives us a controlled set of variables for testing Expand.
 **/
-function _testGetenv(_s:GoString):GoString {
-	if (_s == (Go.str("*"))) {
-		return Go.str("all the args");
-	} else if (_s == (Go.str("#"))) {
-		return Go.str("NARGS");
-	} else if (_s == (Go.str("$$"))) {
-		return Go.str("PID");
-	} else if (_s == (Go.str("1"))) {
-		return Go.str("ARGUMENT1");
-	} else if (_s == (Go.str("HOME"))) {
-		return Go.str("/usr/gopher");
-	} else if (_s == (Go.str("H"))) {
-		return Go.str("(Value of H)");
-	} else if (_s == (Go.str("home_1"))) {
-		return Go.str("/usr/foo");
-	} else if (_s == (Go.str("_"))) {
-		return Go.str("underscore");
+private function _testGetenv(_s:GoString):GoString {
+	if (_s == (("*" : GoString))) {
+		return ("all the args" : GoString);
+	} else if (_s == (("#" : GoString))) {
+		return ("NARGS" : GoString);
+	} else if (_s == (("$$" : GoString))) {
+		return ("PID" : GoString);
+	} else if (_s == (("1" : GoString))) {
+		return ("ARGUMENT1" : GoString);
+	} else if (_s == (("HOME" : GoString))) {
+		return ("/usr/gopher" : GoString);
+	} else if (_s == (("H" : GoString))) {
+		return ("(Value of H)" : GoString);
+	} else if (_s == (("home_1" : GoString))) {
+		return ("/usr/foo" : GoString);
+	} else if (_s == (("_" : GoString))) {
+		return ("underscore" : GoString);
 	};
 	return Go.str();
 }
@@ -555,33 +559,33 @@ function testExpand(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _test in _expandTests) {
 		var _result:GoString = expand(_test._in, _testGetenv);
 		if (_result != (_test._out)) {
-			_t.errorf(Go.str("Expand(%q)=%q; expected %q"), Go.toInterface(_test._in), Go.toInterface(_result), Go.toInterface(_test._out));
+			_t.errorf(("Expand(%q)=%q; expected %q" : GoString), Go.toInterface(_test._in), Go.toInterface(_result), Go.toInterface(_test._out));
 		};
 	};
 }
 
 function benchmarkExpand(_b:Ref<stdgo.testing.Testing.B>):Void {
-	_b.run(Go.str("noop"), function(_b:Ref<stdgo.testing.Testing.B>):Void {
+	_b.run(("noop" : GoString), function(_b:Ref<stdgo.testing.Testing.B>):Void {
 		var _s:GoString = ("" : GoString);
 		_b.reportAllocs();
 		{
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_i < _b.n, _i++, {
-				_s = expand(Go.str("tick tick tick tick"), function(_0:GoString):GoString {
+				_s = expand(("tick tick tick tick" : GoString), function(_0:GoString):GoString {
 					return Go.str();
 				});
 			});
 		};
 		_global = Go.toInterface(_s);
 	});
-	_b.run(Go.str("multiple"), function(_b:Ref<stdgo.testing.Testing.B>):Void {
+	_b.run(("multiple" : GoString), function(_b:Ref<stdgo.testing.Testing.B>):Void {
 		var _s:GoString = ("" : GoString);
 		_b.reportAllocs();
 		{
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_i < _b.n, _i++, {
-				_s = expand(Go.str("$$a $$a $$a $$a"), function(_0:GoString):GoString {
-					return Go.str("boom");
+				_s = expand(("$$a $$a $$a $$a" : GoString), function(_0:GoString):GoString {
+					return ("boom" : GoString);
 				});
 			});
 		};
@@ -596,7 +600,7 @@ function testConsistentEnviron(_t:Ref<stdgo.testing.Testing.T>):Void {
 		Go.cfor(_i < (10:GoInt), _i++, {
 			var _e1 = environ();
 			if (!stdgo.reflect.Reflect.deepEqual(Go.toInterface(_e0), Go.toInterface(_e1))) {
-				_t.fatalf(Go.str("environment changed"));
+				_t.fatalf(("environment changed" : GoString));
 			};
 		});
 	};
@@ -605,7 +609,7 @@ function testConsistentEnviron(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testUnsetenv(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{};
 	var _set:() -> Bool = function():Bool {
-		var _prefix:GoString = Go.str("GO_TEST_UNSETENV=");
+		var _prefix:GoString = ("GO_TEST_UNSETENV=" : GoString);
 		for (_0 => _key in environ()) {
 			if (stdgo.strings.Strings.hasPrefix(_key, _prefix)) {
 				return true;
@@ -614,22 +618,22 @@ function testUnsetenv(_t:Ref<stdgo.testing.Testing.T>):Void {
 		return false;
 	};
 	{
-		var _err:Error = setenv(Go.str("GO_TEST_UNSETENV"), Go.str("1"));
+		var _err:Error = setenv(("GO_TEST_UNSETENV" : GoString), ("1" : GoString));
 		if (_err != null) {
-			_t.fatalf(Go.str("Setenv: %v"), Go.toInterface(_err));
+			_t.fatalf(("Setenv: %v" : GoString), Go.toInterface(_err));
 		};
 	};
 	if (!_set()) {
-		_t.error(Go.toInterface(Go.str("Setenv didn\'t set TestUnsetenv")));
+		_t.error(Go.toInterface(("Setenv didn\'t set TestUnsetenv" : GoString)));
 	};
 	{
-		var _err:Error = unsetenv(Go.str("GO_TEST_UNSETENV"));
+		var _err:Error = unsetenv(("GO_TEST_UNSETENV" : GoString));
 		if (_err != null) {
-			_t.fatalf(Go.str("Unsetenv: %v"), Go.toInterface(_err));
+			_t.fatalf(("Unsetenv: %v" : GoString), Go.toInterface(_err));
 		};
 	};
 	if (_set()) {
-		_t.fatal(Go.toInterface(Go.str("Unsetenv didn\'t clear TestUnsetenv")));
+		_t.fatal(Go.toInterface(("Unsetenv didn\'t clear TestUnsetenv" : GoString)));
 	};
 }
 
@@ -643,11 +647,11 @@ function testClearenv(_t:Ref<stdgo.testing.Testing.T>):Void {
 			__deferstack__.unshift(() -> {
 				var a = function(_origEnv:Slice<GoString>):Void {
 					for (_0 => _pair in _origEnv) {
-						var _i:GoInt = stdgo.strings.Strings.index((_pair.__slice__((1 : GoInt)) : GoString), Go.str("=")) + (1 : GoInt);
+						var _i:GoInt = stdgo.strings.Strings.index((_pair.__slice__((1 : GoInt)) : GoString), ("=" : GoString)) + (1 : GoInt);
 						{
 							var _err:Error = setenv((_pair.__slice__(0, _i) : GoString), (_pair.__slice__(_i + (1 : GoInt)) : GoString));
 							if (_err != null) {
-								_t.errorf(Go.str("Setenv(%q, %q) failed during reset: %v"), Go.toInterface((_pair.__slice__(0, _i) : GoString)),
+								_t.errorf(("Setenv(%q, %q) failed during reset: %v" : GoString), Go.toInterface((_pair.__slice__(0, _i) : GoString)),
 									Go.toInterface((_pair.__slice__(_i + (1 : GoInt)) : GoString)), Go.toInterface(_err));
 							};
 						};
@@ -657,27 +661,29 @@ function testClearenv(_t:Ref<stdgo.testing.Testing.T>):Void {
 			});
 		};
 		{
-			var _err:Error = setenv(Go.str("GO_TEST_CLEARENV"), Go.str("1"));
+			var _err:Error = setenv(("GO_TEST_CLEARENV" : GoString), ("1" : GoString));
 			if (_err != null) {
-				_t.fatalf(Go.str("Setenv(%q, %q) failed: %v"), Go.toInterface(Go.str("GO_TEST_CLEARENV")), Go.toInterface(Go.str("1")), Go.toInterface(_err));
+				_t.fatalf(("Setenv(%q, %q) failed: %v" : GoString), Go.toInterface(("GO_TEST_CLEARENV" : GoString)), Go.toInterface(("1" : GoString)),
+					Go.toInterface(_err));
 			};
 		};
 		{
-			var __tmp__ = lookupEnv(Go.str("GO_TEST_CLEARENV")),
+			var __tmp__ = lookupEnv(("GO_TEST_CLEARENV" : GoString)),
 				_0:GoString = __tmp__._0,
 				_ok:Bool = __tmp__._1;
 			if (!_ok) {
-				_t.errorf(Go.str("Setenv(%q, %q) didn\'t set $$%s"), Go.toInterface(Go.str("GO_TEST_CLEARENV")), Go.toInterface(Go.str("1")),
-					Go.toInterface(Go.str("GO_TEST_CLEARENV")));
+				_t.errorf(("Setenv(%q, %q) didn\'t set $$%s" : GoString), Go.toInterface(("GO_TEST_CLEARENV" : GoString)), Go.toInterface(("1" : GoString)),
+					Go.toInterface(("GO_TEST_CLEARENV" : GoString)));
 			};
 		};
 		clearenv();
 		{
-			var __tmp__ = lookupEnv(Go.str("GO_TEST_CLEARENV")),
+			var __tmp__ = lookupEnv(("GO_TEST_CLEARENV" : GoString)),
 				_val:GoString = __tmp__._0,
 				_ok:Bool = __tmp__._1;
 			if (_ok) {
-				_t.errorf(Go.str("Clearenv() didn\'t clear $$%s, remained with value %q"), Go.toInterface(Go.str("GO_TEST_CLEARENV")), Go.toInterface(_val));
+				_t.errorf(("Clearenv() didn\'t clear $$%s, remained with value %q" : GoString), Go.toInterface(("GO_TEST_CLEARENV" : GoString)),
+					Go.toInterface(_val));
 			};
 		};
 		for (defer in __deferstack__) {
@@ -708,26 +714,26 @@ function testLookupEnv(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	{};
 	try {
-		var __tmp__ = lookupEnv(Go.str("SMALLPOX")),
+		var __tmp__ = lookupEnv(("SMALLPOX" : GoString)),
 			_value:GoString = __tmp__._0,
 			_ok:Bool = __tmp__._1;
 		if (_ok || (_value != Go.str())) {
-			_t.fatalf(Go.str("%s=%q"), Go.toInterface(Go.str("SMALLPOX")), Go.toInterface(_value));
+			_t.fatalf(("%s=%q" : GoString), Go.toInterface(("SMALLPOX" : GoString)), Go.toInterface(_value));
 		};
 		{
-			var _a0 = Go.str("SMALLPOX");
+			var _a0 = ("SMALLPOX" : GoString);
 			__deferstack__.unshift(() -> unsetenv(_a0));
 		};
-		var _err:Error = setenv(Go.str("SMALLPOX"), Go.str("virus"));
+		var _err:Error = setenv(("SMALLPOX" : GoString), ("virus" : GoString));
 		if (_err != null) {
-			_t.fatalf(Go.str("failed to release smallpox virus"));
+			_t.fatalf(("failed to release smallpox virus" : GoString));
 		};
 		{
-			var __tmp__ = lookupEnv(Go.str("SMALLPOX"));
+			var __tmp__ = lookupEnv(("SMALLPOX" : GoString));
 			_ok = __tmp__._1;
 		};
 		if (!_ok) {
-			_t.errorf(Go.str("smallpox release failed; world remains safe but LookupEnv is broken"));
+			_t.errorf(("smallpox release failed; world remains safe but LookupEnv is broken" : GoString));
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -760,12 +766,12 @@ function testLookupEnv(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testEnvironConsistency(_t:Ref<stdgo.testing.Testing.T>):Void {
 	for (_0 => _kv in environ()) {
-		var _i:GoInt = stdgo.strings.Strings.index(_kv, Go.str("="));
+		var _i:GoInt = stdgo.strings.Strings.index(_kv, ("=" : GoString));
 		if (_i == ((0 : GoInt))) {
-			_i = stdgo.strings.Strings.index((_kv.__slice__((1 : GoInt)) : GoString), Go.str("=")) + (1 : GoInt);
+			_i = stdgo.strings.Strings.index((_kv.__slice__((1 : GoInt)) : GoString), ("=" : GoString)) + (1 : GoInt);
 		};
 		if (_i < (0:GoInt)) {
-			_t.errorf(Go.str("Environ entry missing \'=\': %q"), Go.toInterface(_kv));
+			_t.errorf(("Environ entry missing \'=\': %q" : GoString), Go.toInterface(_kv));
 		};
 		var _k:GoString = (_kv.__slice__(0, _i) : GoString);
 		var _v:GoString = (_kv.__slice__(_i + (1 : GoInt)) : GoString);
@@ -773,17 +779,17 @@ function testEnvironConsistency(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_v2:GoString = __tmp__._0,
 			_ok:Bool = __tmp__._1;
 		if (_ok && (_v == _v2)) {
-			_t.logf(Go.str("LookupEnv(%q) = %q, %t"), Go.toInterface(_k), Go.toInterface(_v2), Go.toInterface(_ok));
+			_t.logf(("LookupEnv(%q) = %q, %t" : GoString), Go.toInterface(_k), Go.toInterface(_v2), Go.toInterface(_ok));
 		} else {
-			_t.errorf(Go.str("Environ contains %q, but LookupEnv(%q) = %q, %t"), Go.toInterface(_kv), Go.toInterface(_k), Go.toInterface(_v2),
+			_t.errorf(("Environ contains %q, but LookupEnv(%q) = %q, %t" : GoString), Go.toInterface(_kv), Go.toInterface(_k), Go.toInterface(_v2),
 				Go.toInterface(_ok));
 		};
 		{
 			var _err:Error = setenv(_k, _v);
 			if (_err == null) {
-				_t.logf(Go.str("Setenv(%q, %q)"), Go.toInterface(_k), Go.toInterface(_v));
+				_t.logf(("Setenv(%q, %q)" : GoString), Go.toInterface(_k), Go.toInterface(_v));
 			} else {
-				_t.errorf(Go.str("Environ contains %q, but SetEnv(%q, %q) = %q"), Go.toInterface(_kv), Go.toInterface(_k), Go.toInterface(_v),
+				_t.errorf(("Environ contains %q, but SetEnv(%q, %q) = %q" : GoString), Go.toInterface(_kv), Go.toInterface(_k), Go.toInterface(_v),
 					Go.toInterface(_err));
 			};
 		};
@@ -792,12 +798,12 @@ function testEnvironConsistency(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testErrIsExist(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	var __tmp__ = stdgo.os.Os.createTemp(Go.str(), Go.str("_Go_ErrIsExist")),
+	var __tmp__ = stdgo.os.Os.createTemp(Go.str(), ("_Go_ErrIsExist" : GoString)),
 		_f:Ref<File> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	try {
 		if (_err != null) {
-			_t.fatalf(Go.str("open ErrIsExist tempfile: %s"), Go.toInterface(_err));
+			_t.fatalf(("open ErrIsExist tempfile: %s" : GoString), Go.toInterface(_err));
 			return;
 		};
 		{
@@ -810,7 +816,7 @@ function testErrIsExist(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_err:Error = __tmp__._1;
 		if (_err == null) {
 			_f2.close();
-			_t.fatal(Go.toInterface(Go.str("Open should have failed")));
+			_t.fatal(Go.toInterface(("Open should have failed" : GoString)));
 			{
 				for (defer in __deferstack__) {
 					defer();
@@ -819,7 +825,7 @@ function testErrIsExist(_t:Ref<stdgo.testing.Testing.T>):Void {
 			};
 		};
 		{
-			var _s:GoString = _checkErrorPredicate(Go.str("os.IsExist"), stdgo.os.Os.isExist, _err, stdgo.io.fs.Fs.errExist);
+			var _s:GoString = _checkErrorPredicate(("os.IsExist" : GoString), stdgo.os.Os.isExist, _err, stdgo.io.fs.Fs.errExist);
 			if (_s != (Go.str())) {
 				_t.fatal(Go.toInterface(_s));
 				{
@@ -854,7 +860,7 @@ function testErrIsExist(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 }
 
-function _testErrNotExist(_t:Ref<stdgo.testing.Testing.T>, _name:GoString):GoString {
+private function _testErrNotExist(_t:Ref<stdgo.testing.Testing.T>, _name:GoString):GoString {
 	var __tmp__ = stdgo.os.Os.getwd(),
 		_originalWD:GoString = __tmp__._0,
 		_err:Error = __tmp__._1;
@@ -866,10 +872,10 @@ function _testErrNotExist(_t:Ref<stdgo.testing.Testing.T>, _name:GoString):GoStr
 		_err:Error = __tmp__._1;
 	if (_err == null) {
 		_f.close();
-		return Go.str("Open should have failed");
+		return ("Open should have failed" : GoString);
 	};
 	{
-		var _s:GoString = _checkErrorPredicate(Go.str("os.IsNotExist"), stdgo.os.Os.isNotExist, _err, stdgo.io.fs.Fs.errNotExist);
+		var _s:GoString = _checkErrorPredicate(("os.IsNotExist" : GoString), stdgo.os.Os.isNotExist, _err, stdgo.io.fs.Fs.errNotExist);
 		if (_s != (Go.str())) {
 			return _s;
 		};
@@ -879,13 +885,13 @@ function _testErrNotExist(_t:Ref<stdgo.testing.Testing.T>, _name:GoString):GoStr
 		{
 			var _err:Error = stdgo.os.Os.chdir(_originalWD);
 			if (_err != null) {
-				_t.fatalf(Go.str("Chdir should have failed, failed to restore original working directory: %v"), Go.toInterface(_err));
+				_t.fatalf(("Chdir should have failed, failed to restore original working directory: %v" : GoString), Go.toInterface(_err));
 			};
 		};
-		return Go.str("Chdir should have failed, restored original working directory");
+		return ("Chdir should have failed, restored original working directory" : GoString);
 	};
 	{
-		var _s:GoString = _checkErrorPredicate(Go.str("os.IsNotExist"), stdgo.os.Os.isNotExist, _err, stdgo.io.fs.Fs.errNotExist);
+		var _s:GoString = _checkErrorPredicate(("os.IsNotExist" : GoString), stdgo.os.Os.isNotExist, _err, stdgo.io.fs.Fs.errNotExist);
 		if (_s != (Go.str())) {
 			return _s;
 		};
@@ -895,7 +901,7 @@ function _testErrNotExist(_t:Ref<stdgo.testing.Testing.T>, _name:GoString):GoStr
 
 function testErrIsNotExist(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _tmpDir:GoString = _t.tempDir();
-	var _name:GoString = stdgo.path.filepath.Filepath.join(_tmpDir, Go.str("NotExists"));
+	var _name:GoString = stdgo.path.filepath.Filepath.join(_tmpDir, ("NotExists" : GoString));
 	{
 		var _s:GoString = _testErrNotExist(_t, _name);
 		if (_s != (Go.str())) {
@@ -903,7 +909,7 @@ function testErrIsNotExist(_t:Ref<stdgo.testing.Testing.T>):Void {
 			return;
 		};
 	};
-	_name = stdgo.path.filepath.Filepath.join(_name, Go.str("NotExists2"));
+	_name = stdgo.path.filepath.Filepath.join(_name, ("NotExists2" : GoString));
 	{
 		var _s:GoString = _testErrNotExist(_t, _name);
 		if (_s != (Go.str())) {
@@ -913,12 +919,12 @@ function testErrIsNotExist(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 }
 
-function _checkErrorPredicate(_predName:GoString, _pred:Error->Bool, _err:Error, _target:Error):GoString {
+private function _checkErrorPredicate(_predName:GoString, _pred:Error->Bool, _err:Error, _target:Error):GoString {
 	if (!_pred(_err)) {
-		return stdgo.fmt.Fmt.sprintf(Go.str("%s does not work as expected for %#v"), Go.toInterface(_predName), Go.toInterface(_err));
+		return stdgo.fmt.Fmt.sprintf(("%s does not work as expected for %#v" : GoString), Go.toInterface(_predName), Go.toInterface(_err));
 	};
 	if (!stdgo.errors.Errors.is_(_err, _target)) {
-		return stdgo.fmt.Fmt.sprintf(Go.str("errors.Is(%#v, %#v) = false, want true"), Go.toInterface(_err), Go.toInterface(_target));
+		return stdgo.fmt.Fmt.sprintf(("errors.Is(%#v, %#v) = false, want true" : GoString), Go.toInterface(_err), Go.toInterface(_target));
 	};
 	return Go.str();
 }
@@ -928,28 +934,28 @@ function testIsExist(_t:Ref<stdgo.testing.Testing.T>):Void {
 		{
 			var _is:Bool = stdgo.os.Os.isExist(_tt._err);
 			if (_is != (_tt._is)) {
-				_t.errorf(Go.str("os.IsExist(%T %v) = %v, want %v"), Go.toInterface(_tt._err), Go.toInterface(_tt._err), Go.toInterface(_is),
+				_t.errorf(("os.IsExist(%T %v) = %v, want %v" : GoString), Go.toInterface(_tt._err), Go.toInterface(_tt._err), Go.toInterface(_is),
 					Go.toInterface(_tt._is));
 			};
 		};
 		{
 			var _is:Bool = stdgo.errors.Errors.is_(_tt._err, stdgo.io.fs.Fs.errExist);
 			if (_is != (_tt._is)) {
-				_t.errorf(Go.str("errors.Is(%T %v, fs.ErrExist) = %v, want %v"), Go.toInterface(_tt._err), Go.toInterface(_tt._err), Go.toInterface(_is),
+				_t.errorf(("errors.Is(%T %v, fs.ErrExist) = %v, want %v" : GoString), Go.toInterface(_tt._err), Go.toInterface(_tt._err), Go.toInterface(_is),
 					Go.toInterface(_tt._is));
 			};
 		};
 		{
 			var _isnot:Bool = stdgo.os.Os.isNotExist(_tt._err);
 			if (_isnot != (_tt._isnot)) {
-				_t.errorf(Go.str("os.IsNotExist(%T %v) = %v, want %v"), Go.toInterface(_tt._err), Go.toInterface(_tt._err), Go.toInterface(_isnot),
+				_t.errorf(("os.IsNotExist(%T %v) = %v, want %v" : GoString), Go.toInterface(_tt._err), Go.toInterface(_tt._err), Go.toInterface(_isnot),
 					Go.toInterface(_tt._isnot));
 			};
 		};
 		{
 			var _isnot:Bool = stdgo.errors.Errors.is_(_tt._err, stdgo.io.fs.Fs.errNotExist);
 			if (_isnot != (_tt._isnot)) {
-				_t.errorf(Go.str("errors.Is(%T %v, fs.ErrNotExist) = %v, want %v"), Go.toInterface(_tt._err), Go.toInterface(_tt._err),
+				_t.errorf(("errors.Is(%T %v, fs.ErrNotExist) = %v, want %v" : GoString), Go.toInterface(_tt._err), Go.toInterface(_tt._err),
 					Go.toInterface(_isnot), Go.toInterface(_tt._isnot));
 			};
 		};
@@ -961,13 +967,14 @@ function testIsPermission(_t:Ref<stdgo.testing.Testing.T>):Void {
 		{
 			var _got:Bool = stdgo.os.Os.isPermission(_tt._err);
 			if (_got != (_tt._want)) {
-				_t.errorf(Go.str("os.IsPermission(%#v) = %v; want %v"), Go.toInterface(_tt._err), Go.toInterface(_got), Go.toInterface(_tt._want));
+				_t.errorf(("os.IsPermission(%#v) = %v; want %v" : GoString), Go.toInterface(_tt._err), Go.toInterface(_got), Go.toInterface(_tt._want));
 			};
 		};
 		{
 			var _got:Bool = stdgo.errors.Errors.is_(_tt._err, stdgo.io.fs.Fs.errPermission);
 			if (_got != (_tt._want)) {
-				_t.errorf(Go.str("errors.Is(%#v, fs.ErrPermission) = %v; want %v"), Go.toInterface(_tt._err), Go.toInterface(_got), Go.toInterface(_tt._want));
+				_t.errorf(("errors.Is(%#v, fs.ErrPermission) = %v; want %v" : GoString), Go.toInterface(_tt._err), Go.toInterface(_got),
+					Go.toInterface(_tt._want));
 			};
 		};
 	};
@@ -981,15 +988,15 @@ function testErrPathNUL(_t:Ref<stdgo.testing.Testing.T>):Void {
 	try {
 		if (_err == null) {
 			_f.close();
-			_t.fatal(Go.toInterface(Go.str("TempFile should have failed")));
+			_t.fatal(Go.toInterface(("TempFile should have failed" : GoString)));
 		};
 		{
-			var __tmp__ = stdgo.os.Os.createTemp(Go.str(), Go.str("_Go_ErrPathNUL"));
+			var __tmp__ = stdgo.os.Os.createTemp(Go.str(), ("_Go_ErrPathNUL" : GoString));
 			_f = __tmp__._0;
 			_err = __tmp__._1;
 		};
 		if (_err != null) {
-			_t.fatalf(Go.str("open ErrPathNUL tempfile: %s"), Go.toInterface(_err));
+			_t.fatalf(("open ErrPathNUL tempfile: %s" : GoString), Go.toInterface(_err));
 		};
 		{
 			var _a0 = _f.name();
@@ -1000,7 +1007,7 @@ function testErrPathNUL(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_f2:Ref<File> = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("open ErrPathNUL: %s"), Go.toInterface(_err));
+			_t.fatalf(("open ErrPathNUL: %s" : GoString), Go.toInterface(_err));
 		};
 		_f2.close();
 		{
@@ -1010,7 +1017,7 @@ function testErrPathNUL(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 		if (_err == null) {
 			_f2.close();
-			_t.fatal(Go.toInterface(Go.str("Open should have failed")));
+			_t.fatal(Go.toInterface(("Open should have failed" : GoString)));
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -1039,18 +1046,18 @@ function testErrPathNUL(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testPathErrorUnwrap(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _pe = (({err: stdgo.io.fs.Fs.errInvalid} : stdgo.io.fs.Fs.PathError) : Ref<stdgo.io.fs.Fs.PathError>);
 	if (!stdgo.errors.Errors.is_(Go.asInterface(_pe), stdgo.io.fs.Fs.errInvalid)) {
-		_t.error(Go.toInterface(Go.str("errors.Is failed, wanted success")));
+		_t.error(Go.toInterface(("errors.Is failed, wanted success" : GoString)));
 	};
 }
 
 function testErrorIsMethods(_t:Ref<stdgo.testing.Testing.T>):Void {
-	if (stdgo.os.Os.isPermission(Go.asInterface((new stdgo.os_test.Os_test.T_myErrorIs(stdgo.io.fs.Fs.errPermission) : stdgo.os_test.Os_test.T_myErrorIs)))) {
-		_t.error(Go.toInterface(Go.str("os.IsPermission(err) = true when err.Is(fs.ErrPermission), wanted false")));
+	if (stdgo.os.Os.isPermission(Go.asInterface((new T_myErrorIs(stdgo.io.fs.Fs.errPermission) : T_myErrorIs)))) {
+		_t.error(Go.toInterface(("os.IsPermission(err) = true when err.Is(fs.ErrPermission), wanted false" : GoString)));
 	};
 }
 
 function exampleOpenFile():Void {
-	var __tmp__ = stdgo.os.Os.openFile(Go.str("notes.txt"), (66 : GoInt), (("493" : GoUInt32) : stdgo.io.fs.Fs.FileMode)),
+	var __tmp__ = stdgo.os.Os.openFile(("notes.txt" : GoString), (66 : GoInt), (("493" : GoUInt32) : stdgo.io.fs.Fs.FileMode)),
 		_f:Ref<File> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
@@ -1065,14 +1072,14 @@ function exampleOpenFile():Void {
 }
 
 function exampleOpenFile_append():Void {
-	var __tmp__ = stdgo.os.Os.openFile(Go.str("access.log"), (1089 : GoInt), (("420" : GoUInt32) : stdgo.io.fs.Fs.FileMode)),
+	var __tmp__ = stdgo.os.Os.openFile(("access.log" : GoString), (1089 : GoInt), (("420" : GoUInt32) : stdgo.io.fs.Fs.FileMode)),
 		_f:Ref<File> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
 		stdgo.log.Log.fatal(Go.toInterface(_err));
 	};
 	{
-		var __tmp__ = _f.write((Go.str("appended some data\n") : Slice<GoByte>)),
+		var __tmp__ = _f.write((("appended some data\n" : GoString) : Slice<GoByte>)),
 			_0:GoInt = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
@@ -1090,7 +1097,7 @@ function exampleOpenFile_append():Void {
 
 function exampleChmod():Void {
 	{
-		var _err:Error = stdgo.os.Os.chmod(Go.str("some-filename"), (("420" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
+		var _err:Error = stdgo.os.Os.chmod(("some-filename" : GoString), (("420" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 		if (_err != null) {
 			stdgo.log.Log.fatal(Go.toInterface(_err));
 		};
@@ -1109,7 +1116,7 @@ function exampleChtimes():Void {
 			(6 : GoInt), (0 : GoInt), stdgo.time.Time.utc)
 		.__copy__());
 	{
-		var _err:Error = stdgo.os.Os.chtimes(Go.str("some-filename"), (_atime == null ? null : _atime.__copy__()),
+		var _err:Error = stdgo.os.Os.chtimes(("some-filename" : GoString), (_atime == null ? null : _atime.__copy__()),
 			(_mtime == null ? null : _mtime.__copy__()));
 		if (_err != null) {
 			stdgo.log.Log.fatal(Go.toInterface(_err));
@@ -1118,86 +1125,86 @@ function exampleChtimes():Void {
 }
 
 function exampleFileMode():Void {
-	var __tmp__ = stdgo.os.Os.lstat(Go.str("some-filename")),
+	var __tmp__ = stdgo.os.Os.lstat(("some-filename" : GoString)),
 		_fi:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
 		stdgo.log.Log.fatal(Go.toInterface(_err));
 	};
-	stdgo.fmt.Fmt.printf(Go.str("permissions: %#o\n"), Go.toInterface(Go.asInterface(_fi.mode().perm())));
+	stdgo.fmt.Fmt.printf(("permissions: %#o\n" : GoString), Go.toInterface(Go.asInterface(_fi.mode().perm())));
 	{
 		var _mode:stdgo.io.fs.Fs.FileMode = _fi.mode();
 		if (_mode.isRegular()) {
-			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("regular file")));
+			stdgo.fmt.Fmt.println(Go.toInterface(("regular file" : GoString)));
 		} else if (_mode.isDir()) {
-			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("directory")));
+			stdgo.fmt.Fmt.println(Go.toInterface(("directory" : GoString)));
 		} else if (_mode & (("134217728" : GoUInt32) : stdgo.io.fs.Fs.FileMode) != ((("0" : GoUInt32) : stdgo.io.fs.Fs.FileMode))) {
-			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("symbolic link")));
+			stdgo.fmt.Fmt.println(Go.toInterface(("symbolic link" : GoString)));
 		} else if (_mode & (("33554432" : GoUInt32) : stdgo.io.fs.Fs.FileMode) != ((("0" : GoUInt32) : stdgo.io.fs.Fs.FileMode))) {
-			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("named pipe")));
+			stdgo.fmt.Fmt.println(Go.toInterface(("named pipe" : GoString)));
 		};
 	};
 }
 
 function exampleErrNotExist():Void {
-	var _filename:GoString = Go.str("a-nonexistent-file");
+	var _filename:GoString = ("a-nonexistent-file" : GoString);
 	{
 		var __tmp__ = stdgo.os.Os.stat(_filename),
 			_0:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (stdgo.errors.Errors.is_(_err, stdgo.io.fs.Fs.errNotExist)) {
-			stdgo.fmt.Fmt.println(Go.toInterface(Go.str("file does not exist")));
+			stdgo.fmt.Fmt.println(Go.toInterface(("file does not exist" : GoString)));
 		};
 	};
 }
 
 function exampleExpand():Void {
 	var _mapper:GoString->GoString = function(_placeholderName:GoString):GoString {
-		if (_placeholderName == (Go.str("DAY_PART"))) {
-			return Go.str("morning");
-		} else if (_placeholderName == (Go.str("NAME"))) {
-			return Go.str("Gopher");
+		if (_placeholderName == (("DAY_PART" : GoString))) {
+			return ("morning" : GoString);
+		} else if (_placeholderName == (("NAME" : GoString))) {
+			return ("Gopher" : GoString);
 		};
 		return Go.str();
 	};
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.os.Os.expand(Go.str("Good $${DAY_PART}, $$NAME!"), _mapper)));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.os.Os.expand(("Good $${DAY_PART}, $$NAME!" : GoString), _mapper)));
 }
 
 function exampleExpandEnv():Void {
-	stdgo.os.Os.setenv(Go.str("NAME"), Go.str("gopher"));
-	stdgo.os.Os.setenv(Go.str("BURROW"), Go.str("/usr/gopher"));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.os.Os.expandEnv(Go.str("$$NAME lives in $${BURROW}."))));
+	stdgo.os.Os.setenv(("NAME" : GoString), ("gopher" : GoString));
+	stdgo.os.Os.setenv(("BURROW" : GoString), ("/usr/gopher" : GoString));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.os.Os.expandEnv(("$$NAME lives in $${BURROW}." : GoString))));
 }
 
 function exampleLookupEnv():Void {
 	var _show:GoString->Void = function(_key:GoString):Void {
 		var __tmp__ = stdgo.os.Os.lookupEnv(_key), _val:GoString = __tmp__._0, _ok:Bool = __tmp__._1;
 		if (!_ok) {
-			stdgo.fmt.Fmt.printf(Go.str("%s not set\n"), Go.toInterface(_key));
+			stdgo.fmt.Fmt.printf(("%s not set\n" : GoString), Go.toInterface(_key));
 		} else {
-			stdgo.fmt.Fmt.printf(Go.str("%s=%s\n"), Go.toInterface(_key), Go.toInterface(_val));
+			stdgo.fmt.Fmt.printf(("%s=%s\n" : GoString), Go.toInterface(_key), Go.toInterface(_val));
 		};
 	};
-	stdgo.os.Os.setenv(Go.str("SOME_KEY"), Go.str("value"));
-	stdgo.os.Os.setenv(Go.str("EMPTY_KEY"), Go.str());
-	_show(Go.str("SOME_KEY"));
-	_show(Go.str("EMPTY_KEY"));
-	_show(Go.str("MISSING_KEY"));
+	stdgo.os.Os.setenv(("SOME_KEY" : GoString), ("value" : GoString));
+	stdgo.os.Os.setenv(("EMPTY_KEY" : GoString), Go.str());
+	_show(("SOME_KEY" : GoString));
+	_show(("EMPTY_KEY" : GoString));
+	_show(("MISSING_KEY" : GoString));
 }
 
 function exampleGetenv():Void {
-	stdgo.os.Os.setenv(Go.str("NAME"), Go.str("gopher"));
-	stdgo.os.Os.setenv(Go.str("BURROW"), Go.str("/usr/gopher"));
-	stdgo.fmt.Fmt.printf(Go.str("%s lives in %s.\n"), Go.toInterface(stdgo.os.Os.getenv(Go.str("NAME"))),
-		Go.toInterface(stdgo.os.Os.getenv(Go.str("BURROW"))));
+	stdgo.os.Os.setenv(("NAME" : GoString), ("gopher" : GoString));
+	stdgo.os.Os.setenv(("BURROW" : GoString), ("/usr/gopher" : GoString));
+	stdgo.fmt.Fmt.printf(("%s lives in %s.\n" : GoString), Go.toInterface(stdgo.os.Os.getenv(("NAME" : GoString))),
+		Go.toInterface(stdgo.os.Os.getenv(("BURROW" : GoString))));
 }
 
 function exampleUnsetenv():Void {
 	var __deferstack__:Array<Void->Void> = [];
-	stdgo.os.Os.setenv(Go.str("TMPDIR"), Go.str("/my/tmp"));
+	stdgo.os.Os.setenv(("TMPDIR" : GoString), ("/my/tmp" : GoString));
 	try {
 		{
-			var _a0 = Go.str("TMPDIR");
+			var _a0 = ("TMPDIR" : GoString);
 			__deferstack__.unshift(() -> stdgo.os.Os.unsetenv(_a0));
 		};
 		for (defer in __deferstack__) {
@@ -1225,7 +1232,7 @@ function exampleUnsetenv():Void {
 }
 
 function exampleReadDir():Void {
-	var __tmp__ = stdgo.os.Os.readDir(Go.str(".")),
+	var __tmp__ = stdgo.os.Os.readDir(("." : GoString)),
 		_files:Slice<stdgo.io.fs.Fs.DirEntry> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
@@ -1238,7 +1245,7 @@ function exampleReadDir():Void {
 
 function exampleMkdirTemp():Void {
 	var __deferstack__:Array<Void->Void> = [];
-	var __tmp__ = stdgo.os.Os.mkdirTemp(Go.str(), Go.str("example")),
+	var __tmp__ = stdgo.os.Os.mkdirTemp(Go.str(), ("example" : GoString)),
 		_dir:GoString = __tmp__._0,
 		_err:Error = __tmp__._1;
 	try {
@@ -1249,9 +1256,9 @@ function exampleMkdirTemp():Void {
 			var _a0 = _dir;
 			__deferstack__.unshift(() -> stdgo.os.Os.removeAll(_a0));
 		};
-		var _file:GoString = stdgo.path.filepath.Filepath.join(_dir, Go.str("tmpfile"));
+		var _file:GoString = stdgo.path.filepath.Filepath.join(_dir, ("tmpfile" : GoString));
 		{
-			var _err:Error = stdgo.os.Os.writeFile(_file, (Go.str("content") : Slice<GoByte>), (("438" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
+			var _err:Error = stdgo.os.Os.writeFile(_file, (("content" : GoString) : Slice<GoByte>), (("438" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 			if (_err != null) {
 				stdgo.log.Log.fatal(Go.toInterface(_err));
 			};
@@ -1282,7 +1289,7 @@ function exampleMkdirTemp():Void {
 
 function exampleMkdirTemp_suffix():Void {
 	var __deferstack__:Array<Void->Void> = [];
-	var __tmp__ = stdgo.os.Os.mkdirTemp(Go.str(), Go.str("*-logs")),
+	var __tmp__ = stdgo.os.Os.mkdirTemp(Go.str(), ("*-logs" : GoString)),
 		_logsDir:GoString = __tmp__._0,
 		_err:Error = __tmp__._1;
 	try {
@@ -1293,18 +1300,18 @@ function exampleMkdirTemp_suffix():Void {
 			var _a0 = _logsDir;
 			__deferstack__.unshift(() -> stdgo.os.Os.removeAll(_a0));
 		};
-		var _globPattern:GoString = stdgo.path.filepath.Filepath.join(stdgo.os.Os.tempDir(), Go.str("*-logs"));
+		var _globPattern:GoString = stdgo.path.filepath.Filepath.join(stdgo.os.Os.tempDir(), ("*-logs" : GoString));
 		var __tmp__ = stdgo.path.filepath.Filepath.glob(_globPattern),
 			_matches:Slice<GoString> = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			stdgo.log.Log.fatalf(Go.str("Failed to match %q: %v"), Go.toInterface(_globPattern), Go.toInterface(_err));
+			stdgo.log.Log.fatalf(("Failed to match %q: %v" : GoString), Go.toInterface(_globPattern), Go.toInterface(_err));
 		};
 		for (_0 => _match in _matches) {
 			{
 				var _err:Error = stdgo.os.Os.removeAll(_match);
 				if (_err != null) {
-					stdgo.log.Log.printf(Go.str("Failed to remove %q: %v"), Go.toInterface(_match), Go.toInterface(_err));
+					stdgo.log.Log.printf(("Failed to remove %q: %v" : GoString), Go.toInterface(_match), Go.toInterface(_err));
 				};
 			};
 		};
@@ -1334,7 +1341,7 @@ function exampleMkdirTemp_suffix():Void {
 
 function exampleCreateTemp():Void {
 	var __deferstack__:Array<Void->Void> = [];
-	var __tmp__ = stdgo.os.Os.createTemp(Go.str(), Go.str("example")),
+	var __tmp__ = stdgo.os.Os.createTemp(Go.str(), ("example" : GoString)),
 		_f:Ref<File> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	try {
@@ -1346,7 +1353,7 @@ function exampleCreateTemp():Void {
 			__deferstack__.unshift(() -> stdgo.os.Os.remove(_a0));
 		};
 		{
-			var __tmp__ = _f.write((Go.str("content") : Slice<GoByte>)),
+			var __tmp__ = _f.write((("content" : GoString) : Slice<GoByte>)),
 				_0:GoInt = __tmp__._0,
 				_err:Error = __tmp__._1;
 			if (_err != null) {
@@ -1385,7 +1392,7 @@ function exampleCreateTemp():Void {
 
 function exampleCreateTemp_suffix():Void {
 	var __deferstack__:Array<Void->Void> = [];
-	var __tmp__ = stdgo.os.Os.createTemp(Go.str(), Go.str("example.*.txt")),
+	var __tmp__ = stdgo.os.Os.createTemp(Go.str(), ("example.*.txt" : GoString)),
 		_f:Ref<File> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	try {
@@ -1397,7 +1404,7 @@ function exampleCreateTemp_suffix():Void {
 			__deferstack__.unshift(() -> stdgo.os.Os.remove(_a0));
 		};
 		{
-			var __tmp__ = _f.write((Go.str("content") : Slice<GoByte>)),
+			var __tmp__ = _f.write((("content" : GoString) : Slice<GoByte>)),
 				_0:GoInt = __tmp__._0,
 				_err:Error = __tmp__._1;
 			if (_err != null) {
@@ -1436,7 +1443,7 @@ function exampleCreateTemp_suffix():Void {
 }
 
 function exampleReadFile():Void {
-	var __tmp__ = stdgo.os.Os.readFile(Go.str("testdata/hello")),
+	var __tmp__ = stdgo.os.Os.readFile(("testdata/hello" : GoString)),
 		_data:Slice<GoUInt8> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
@@ -1446,7 +1453,7 @@ function exampleReadFile():Void {
 }
 
 function exampleWriteFile():Void {
-	var _err:Error = stdgo.os.Os.writeFile(Go.str("testdata/hello"), (Go.str("Hello, Gophers!") : Slice<GoByte>),
+	var _err:Error = stdgo.os.Os.writeFile(("testdata/hello" : GoString), (("Hello, Gophers!" : GoString) : Slice<GoByte>),
 		(("438" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 	if (_err != null) {
 		stdgo.log.Log.fatal(Go.toInterface(_err));
@@ -1454,22 +1461,23 @@ function exampleWriteFile():Void {
 }
 
 function exampleMkdir():Void {
-	var _err:Error = stdgo.os.Os.mkdir(Go.str("testdir"), (("488" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
+	var _err:Error = stdgo.os.Os.mkdir(("testdir" : GoString), (("488" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 	if ((_err != null) && !stdgo.os.Os.isExist(_err)) {
 		stdgo.log.Log.fatal(Go.toInterface(_err));
 	};
-	_err = stdgo.os.Os.writeFile(Go.str("testdir/testfile.txt"), (Go.str("Hello, Gophers!") : Slice<GoByte>), (("432" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
+	_err = stdgo.os.Os.writeFile(("testdir/testfile.txt" : GoString), (("Hello, Gophers!" : GoString) : Slice<GoByte>),
+		(("432" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 	if (_err != null) {
 		stdgo.log.Log.fatal(Go.toInterface(_err));
 	};
 }
 
 function exampleMkdirAll():Void {
-	var _err:Error = stdgo.os.Os.mkdirAll(Go.str("test/subdir"), (("488" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
+	var _err:Error = stdgo.os.Os.mkdirAll(("test/subdir" : GoString), (("488" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 	if ((_err != null) && !stdgo.os.Os.isExist(_err)) {
 		stdgo.log.Log.fatal(Go.toInterface(_err));
 	};
-	_err = stdgo.os.Os.writeFile(Go.str("test/subdir/testfile.txt"), (Go.str("Hello, Gophers!") : Slice<GoByte>),
+	_err = stdgo.os.Os.writeFile(("test/subdir/testfile.txt" : GoString), (("Hello, Gophers!" : GoString) : Slice<GoByte>),
 		(("432" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 	if (_err != null) {
 		stdgo.log.Log.fatal(Go.toInterface(_err));
@@ -1482,39 +1490,39 @@ function testExecutable(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_ep:GoString = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		_t.fatalf(Go.str("Executable failed: %v"), Go.toInterface(_err));
+		_t.fatalf(("Executable failed: %v" : GoString), Go.toInterface(_err));
 	};
 	var _dir:GoString = stdgo.path.filepath.Filepath.dir(stdgo.path.filepath.Filepath.dir(_ep));
 	var __tmp__ = stdgo.path.filepath.Filepath.rel(_dir, _ep),
 		_fn:GoString = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		_t.fatalf(Go.str("filepath.Rel: %v"), Go.toInterface(_err));
+		_t.fatalf(("filepath.Rel: %v" : GoString), Go.toInterface(_err));
 	};
 	var _cmd = ((new stdgo.os.exec.Exec.Cmd() : stdgo.os.exec.Exec.Cmd) : Ref<stdgo.os.exec.Exec.Cmd>);
 	_cmd.dir = _dir;
 	_cmd.path = _fn;
-	_cmd.args = (new Slice<GoString>(0, 0, Go.str("-"), Go.str("-test.run=XXXX")) : Slice<GoString>);
+	_cmd.args = (new Slice<GoString>(0, 0, ("-" : GoString), ("-test.run=XXXX" : GoString)) : Slice<GoString>);
 	if (false) {
 		_cmd.args[(0 : GoInt)] = _fn;
 	};
-	_cmd.env = (stdgo.os.Os.environ().__append__(stdgo.fmt.Fmt.sprintf(Go.str("%s=1"), Go.toInterface(Go.str("OSTEST_OUTPUT_EXECPATH")))));
+	_cmd.env = (stdgo.os.Os.environ().__append__(stdgo.fmt.Fmt.sprintf(("%s=1" : GoString), Go.toInterface(("OSTEST_OUTPUT_EXECPATH" : GoString)))));
 	var __tmp__ = _cmd.combinedOutput(),
 		_out:Slice<GoUInt8> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		_t.fatalf(Go.str("exec(self) failed: %v"), Go.toInterface(_err));
+		_t.fatalf(("exec(self) failed: %v" : GoString), Go.toInterface(_err));
 	};
 	var _outs:GoString = (_out : GoString);
 	if (!stdgo.path.filepath.Filepath.isAbs(_outs)) {
-		_t.fatalf(Go.str("Child returned %q, want an absolute path"), Go.toInterface(_out));
+		_t.fatalf(("Child returned %q, want an absolute path" : GoString), Go.toInterface(_out));
 	};
 	if (!_sameFile(_outs, _ep)) {
-		_t.fatalf(Go.str("Child returned %q, not the same file as %q"), Go.toInterface(_out), Go.toInterface(_ep));
+		_t.fatalf(("Child returned %q, not the same file as %q" : GoString), Go.toInterface(_out), Go.toInterface(_ep));
 	};
 }
 
-function _sameFile(_fn1:GoString, _fn2:GoString):Bool {
+private function _sameFile(_fn1:GoString, _fn2:GoString):Bool {
 	var __tmp__ = stdgo.os.Os.stat(_fn1),
 		_fi1:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 		_err:Error = __tmp__._1;
@@ -1532,25 +1540,27 @@ function _sameFile(_fn1:GoString, _fn2:GoString):Bool {
 
 function testExecutableDeleted(_t:Ref<stdgo.testing.Testing.T>):Void {
 	stdgo.internal.testenv.Testenv.mustHaveExec(Go.asInterface(_t));
-	if (Go.str("js") == (Go.str("windows")) || Go.str("js") == (Go.str("plan9"))) {
-		_t.skipf(Go.str("%v does not support deleting running binary"), Go.toInterface(Go.str("js")));
-	} else if (Go.str("js") == (Go.str("openbsd")) || Go.str("js") == (Go.str("freebsd")) || Go.str("js") == (Go.str("aix"))) {
-		_t.skipf(Go.str("%v does not support reading deleted binary name"), Go.toInterface(Go.str("js")));
+	if (("js" : GoString) == (("windows" : GoString)) || ("js" : GoString) == (("plan9" : GoString))) {
+		_t.skipf(("%v does not support deleting running binary" : GoString), Go.toInterface(("js" : GoString)));
+	} else if (("js" : GoString) == (("openbsd" : GoString))
+		|| ("js" : GoString) == (("freebsd" : GoString)) || ("js" : GoString) == (("aix" : GoString))) {
+		_t.skipf(("%v does not support reading deleted binary name" : GoString), Go.toInterface(("js" : GoString)));
 	};
 	var _dir:GoString = _t.tempDir();
-	var _src:GoString = stdgo.path.filepath.Filepath.join(_dir, Go.str("testdel.go"));
-	var _exe:GoString = stdgo.path.filepath.Filepath.join(_dir, Go.str("testdel.exe"));
+	var _src:GoString = stdgo.path.filepath.Filepath.join(_dir, ("testdel.go" : GoString));
+	var _exe:GoString = stdgo.path.filepath.Filepath.join(_dir, ("testdel.exe" : GoString));
 	var _err:Error = stdgo.os.Os.writeFile(_src,
-		(Go.str("package main\n\nimport (\n\t\"fmt\"\n\t\"os\"\n)\n\nfunc main() {\n\tbefore, err := os.Executable()\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to read executable name before deletion: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\terr = os.Remove(before)\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to remove executable: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\tafter, err := os.Executable()\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to read executable name after deletion: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\tif before != after {\n\t\tfmt.Fprintf(os.Stderr, \"before and after do not match: %v != %v\\n\", before, after)\n\t\tos.Exit(1)\n\t}\n}\n") : Slice<GoByte>),
+		(("package main\n\nimport (\n\t\"fmt\"\n\t\"os\"\n)\n\nfunc main() {\n\tbefore, err := os.Executable()\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to read executable name before deletion: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\terr = os.Remove(before)\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to remove executable: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\tafter, err := os.Executable()\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to read executable name after deletion: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\tif before != after {\n\t\tfmt.Fprintf(os.Stderr, \"before and after do not match: %v != %v\\n\", before, after)\n\t\tos.Exit(1)\n\t}\n}\n" : GoString) : Slice<GoByte>),
 		(("438" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 	if (_err != null) {
 		_t.fatal(Go.toInterface(_err));
 	};
-	var __tmp__ = stdgo.os.exec.Exec.command(stdgo.internal.testenv.Testenv.goToolPath(Go.asInterface(_t)), Go.str("build"), Go.str("-o"), _exe, _src)
+	var __tmp__ = stdgo.os.exec.Exec.command(stdgo.internal.testenv.Testenv.goToolPath(Go.asInterface(_t)), ("build" : GoString), ("-o" : GoString), _exe,
+		_src)
 		.combinedOutput(),
 		_out:Slice<GoUInt8> = __tmp__._0,
 		_err:Error = __tmp__._1;
-	_t.logf(Go.str("build output:\n%s"), Go.toInterface(_out));
+	_t.logf(("build output:\n%s" : GoString), Go.toInterface(_out));
 	if (_err != null) {
 		_t.fatal(Go.toInterface(_err));
 	};
@@ -1559,14 +1569,14 @@ function testExecutableDeleted(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_out = __tmp__._0;
 		_err = __tmp__._1;
 	};
-	_t.logf(Go.str("exec output:\n%s"), Go.toInterface(_out));
+	_t.logf(("exec output:\n%s" : GoString), Go.toInterface(_out));
 	if (_err != null) {
 		_t.fatal(Go.toInterface(_err));
 	};
 }
 
 function testMain(_m:Ref<stdgo.testing.Testing.M>):Void {
-	if (getenv(Go.str("GO_OS_TEST_DRAIN_STDIN")) == (Go.str("1"))) {
+	if (getenv(("GO_OS_TEST_DRAIN_STDIN" : GoString)) == (("1" : GoString))) {
 		stdgo.os.Os.stdout.close();
 		stdgo.io.Io.copy(stdgo.io.Io.discard, Go.asInterface(stdgo.os.Os.stdin));
 		exit((0 : GoInt));
@@ -1574,13 +1584,13 @@ function testMain(_m:Ref<stdgo.testing.Testing.M>):Void {
 	exit(_m.run());
 }
 
-function _size(_name:GoString, _t:Ref<stdgo.testing.Testing.T>):GoInt64 {
+private function _size(_name:GoString, _t:Ref<stdgo.testing.Testing.T>):GoInt64 {
 	var __deferstack__:Array<Void->Void> = [];
 	var __tmp__ = open(_name),
 		_file:Ref<File> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		_t.fatal(Go.toInterface(Go.str("open failed:")), Go.toInterface(_err));
+		_t.fatal(Go.toInterface(("open failed:" : GoString)), Go.toInterface(_err));
 	};
 	try {
 		__deferstack__.unshift(() -> {
@@ -1630,9 +1640,9 @@ function _size(_name:GoString, _t:Ref<stdgo.testing.Testing.T>):GoInt64 {
 	};
 }
 
-function _equal(_name1:GoString, _name2:GoString):Bool {
+private function _equal(_name1:GoString, _name2:GoString):Bool {
 	var _r:Bool = false;
-	if (Go.str("js") == (Go.str("windows"))) {
+	if (("js" : GoString) == (("windows" : GoString))) {
 		_r = stdgo.strings.Strings.toLower(_name1) == (stdgo.strings.Strings.toLower(_name2));
 	} else {
 		_r = _name1 == (_name2);
@@ -1643,49 +1653,50 @@ function _equal(_name1:GoString, _name2:GoString):Bool {
 /**
 	// localTmp returns a local temporary directory not on NFS.
 **/
-function _localTmp():GoString {
-	if (Go.str("js") == (Go.str("android")) || Go.str("js") == (Go.str("ios")) || Go.str("js") == (Go.str("windows"))) {
+private function _localTmp():GoString {
+	if (("js" : GoString) == (("android" : GoString))
+		|| ("js" : GoString) == (("ios" : GoString)) || ("js" : GoString) == (("windows" : GoString))) {
 		return tempDir();
 	};
-	return Go.str("/tmp");
+	return ("/tmp" : GoString);
 }
 
-function _newFile(_testName:GoString, _t:Ref<stdgo.testing.Testing.T>):Ref<File> {
+private function _newFile(_testName:GoString, _t:Ref<stdgo.testing.Testing.T>):Ref<File> {
 	var _f:Ref<File> = (null : Ref<File>);
-	var __tmp__ = stdgo.os.Os.createTemp(_localTmp(), Go.str("_Go_") + _testName),
+	var __tmp__ = stdgo.os.Os.createTemp(_localTmp(), ("_Go_" : GoString) + _testName),
 		_f:Ref<File> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		_t.fatalf(Go.str("TempFile %s: %s"), Go.toInterface(_testName), Go.toInterface(_err));
+		_t.fatalf(("TempFile %s: %s" : GoString), Go.toInterface(_testName), Go.toInterface(_err));
 	};
 	return _f;
 }
 
-function _newDir(_testName:GoString, _t:Ref<stdgo.testing.Testing.T>):GoString {
+private function _newDir(_testName:GoString, _t:Ref<stdgo.testing.Testing.T>):GoString {
 	var _name:GoString = ("" : GoString);
-	var __tmp__ = stdgo.os.Os.mkdirTemp(_localTmp(), Go.str("_Go_") + _testName),
+	var __tmp__ = stdgo.os.Os.mkdirTemp(_localTmp(), ("_Go_" : GoString) + _testName),
 		_name:GoString = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		_t.fatalf(Go.str("TempDir %s: %s"), Go.toInterface(_testName), Go.toInterface(_err));
+		_t.fatalf(("TempDir %s: %s" : GoString), Go.toInterface(_testName), Go.toInterface(_err));
 	};
 	return _name;
 }
 
 function testStat(_t:Ref<stdgo.testing.Testing.T>):Void {
-	var _path:GoString = (_sfdir + Go.str("/")) + _sfname;
+	var _path:GoString = (_sfdir + ("/" : GoString)) + _sfname;
 	var __tmp__ = stat(_path),
 		_dir:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		_t.fatal(Go.toInterface(Go.str("stat failed:")), Go.toInterface(_err));
+		_t.fatal(Go.toInterface(("stat failed:" : GoString)), Go.toInterface(_err));
 	};
 	if (!_equal(_sfname, _dir.name())) {
-		_t.error(Go.toInterface(Go.str("name should be ")), Go.toInterface(_sfname), Go.toInterface(Go.str("; is")), Go.toInterface(_dir.name()));
+		_t.error(Go.toInterface(("name should be " : GoString)), Go.toInterface(_sfname), Go.toInterface(("; is" : GoString)), Go.toInterface(_dir.name()));
 	};
 	var _filesize:GoInt64 = _size(_path, _t);
 	if (_dir.size() != (_filesize)) {
-		_t.error(Go.toInterface(Go.str("size should be")), Go.toInterface(_filesize), Go.toInterface(Go.str("; is")), Go.toInterface(_dir.size()));
+		_t.error(Go.toInterface(("size should be" : GoString)), Go.toInterface(_filesize), Go.toInterface(("; is" : GoString)), Go.toInterface(_dir.size()));
 	};
 }
 
@@ -1693,15 +1704,15 @@ function testStatError(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	__deferstack__.unshift(() -> _chtmpdir(_t)());
 	try {
-		var _path:GoString = Go.str("no-such-file");
+		var _path:GoString = ("no-such-file" : GoString);
 		var __tmp__ = stat(_path),
 			_fi:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err == null) {
-			_t.fatal(Go.toInterface(Go.str("got nil, want error")));
+			_t.fatal(Go.toInterface(("got nil, want error" : GoString)));
 		};
 		if (_fi != null) {
-			_t.errorf(Go.str("got %v, want nil"), Go.toInterface(_fi));
+			_t.errorf(("got %v, want nil" : GoString), Go.toInterface(_fi));
 		};
 		{
 			var __tmp__ = try {
@@ -1710,11 +1721,11 @@ function testStatError(_t:Ref<stdgo.testing.Testing.T>):Void {
 				{value: (null : Ref<stdgo.io.fs.Fs.PathError>), ok: false};
 			}, _perr = __tmp__.value, _ok = __tmp__.ok;
 			if (!_ok) {
-				_t.errorf(Go.str("got %T, want %T"), Go.toInterface(_err), Go.toInterface(_perr));
+				_t.errorf(("got %T, want %T" : GoString), Go.toInterface(_err), Go.toInterface(Go.asInterface(_perr)));
 			};
 		};
 		stdgo.internal.testenv.Testenv.mustHaveSymlink(Go.asInterface(_t));
-		var _link:GoString = Go.str("symlink");
+		var _link:GoString = ("symlink" : GoString);
 		_err = symlink(_path, _link);
 		if (_err != null) {
 			_t.fatal(Go.toInterface(_err));
@@ -1725,10 +1736,10 @@ function testStatError(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_err = __tmp__._1;
 		};
 		if (_err == null) {
-			_t.fatal(Go.toInterface(Go.str("got nil, want error")));
+			_t.fatal(Go.toInterface(("got nil, want error" : GoString)));
 		};
 		if (_fi != null) {
-			_t.errorf(Go.str("got %v, want nil"), Go.toInterface(_fi));
+			_t.errorf(("got %v, want nil" : GoString), Go.toInterface(_fi));
 		};
 		{
 			var __tmp__ = try {
@@ -1737,7 +1748,7 @@ function testStatError(_t:Ref<stdgo.testing.Testing.T>):Void {
 				{value: (null : Ref<stdgo.io.fs.Fs.PathError>), ok: false};
 			}, _perr = __tmp__.value, _ok = __tmp__.ok;
 			if (!_ok) {
-				_t.errorf(Go.str("got %T, want %T"), Go.toInterface(_err), Go.toInterface(_perr));
+				_t.errorf(("got %T, want %T" : GoString), Go.toInterface(_err), Go.toInterface(Go.asInterface(_perr)));
 			};
 		};
 		for (defer in __deferstack__) {
@@ -1769,24 +1780,24 @@ function testStatSymlinkLoop(_t:Ref<stdgo.testing.Testing.T>):Void {
 	stdgo.internal.testenv.Testenv.mustHaveSymlink(Go.asInterface(_t));
 	try {
 		__deferstack__.unshift(() -> _chtmpdir(_t)());
-		var _err:Error = stdgo.os.Os.symlink(Go.str("x"), Go.str("y"));
+		var _err:Error = stdgo.os.Os.symlink(("x" : GoString), ("y" : GoString));
 		if (_err != null) {
 			_t.fatal(Go.toInterface(_err));
 		};
 		{
-			var _a0 = Go.str("y");
+			var _a0 = ("y" : GoString);
 			__deferstack__.unshift(() -> stdgo.os.Os.remove(_a0));
 		};
-		_err = stdgo.os.Os.symlink(Go.str("y"), Go.str("x"));
+		_err = stdgo.os.Os.symlink(("y" : GoString), ("x" : GoString));
 		if (_err != null) {
 			_t.fatal(Go.toInterface(_err));
 		};
 		{
-			var _a0 = Go.str("x");
+			var _a0 = ("x" : GoString);
 			__deferstack__.unshift(() -> stdgo.os.Os.remove(_a0));
 		};
 		{
-			var __tmp__ = stdgo.os.Os.stat(Go.str("x"));
+			var __tmp__ = stdgo.os.Os.stat(("x" : GoString));
 			_err = __tmp__._1;
 		};
 		{
@@ -1796,7 +1807,7 @@ function testStatSymlinkLoop(_t:Ref<stdgo.testing.Testing.T>):Void {
 				{value: (null : Ref<stdgo.io.fs.Fs.PathError>), ok: false};
 			}, _0 = __tmp__.value, _ok = __tmp__.ok;
 			if (!_ok) {
-				_t.errorf(Go.str("expected *PathError, got %T: %v\n"), Go.toInterface(_err), Go.toInterface(_err));
+				_t.errorf(("expected *PathError, got %T: %v\n" : GoString), Go.toInterface(_err), Go.toInterface(_err));
 			};
 		};
 		for (defer in __deferstack__) {
@@ -1825,27 +1836,29 @@ function testStatSymlinkLoop(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testFstat(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	var _path:GoString = (_sfdir + Go.str("/")) + _sfname;
+	var _path:GoString = (_sfdir + ("/" : GoString)) + _sfname;
 	try {
 		var __tmp__ = open(_path),
 			_file:Ref<File> = __tmp__._0,
 			_err1:Error = __tmp__._1;
 		if (_err1 != null) {
-			_t.fatal(Go.toInterface(Go.str("open failed:")), Go.toInterface(_err1));
+			_t.fatal(Go.toInterface(("open failed:" : GoString)), Go.toInterface(_err1));
 		};
 		__deferstack__.unshift(() -> _file.close());
 		var __tmp__ = _file.stat(),
 			_dir:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 			_err2:Error = __tmp__._1;
 		if (_err2 != null) {
-			_t.fatal(Go.toInterface(Go.str("fstat failed:")), Go.toInterface(_err2));
+			_t.fatal(Go.toInterface(("fstat failed:" : GoString)), Go.toInterface(_err2));
 		};
 		if (!_equal(_sfname, _dir.name())) {
-			_t.error(Go.toInterface(Go.str("name should be ")), Go.toInterface(_sfname), Go.toInterface(Go.str("; is")), Go.toInterface(_dir.name()));
+			_t.error(Go.toInterface(("name should be " : GoString)), Go.toInterface(_sfname), Go.toInterface(("; is" : GoString)),
+				Go.toInterface(_dir.name()));
 		};
 		var _filesize:GoInt64 = _size(_path, _t);
 		if (_dir.size() != (_filesize)) {
-			_t.error(Go.toInterface(Go.str("size should be")), Go.toInterface(_filesize), Go.toInterface(Go.str("; is")), Go.toInterface(_dir.size()));
+			_t.error(Go.toInterface(("size should be" : GoString)), Go.toInterface(_filesize), Go.toInterface(("; is" : GoString)),
+				Go.toInterface(_dir.size()));
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -1872,19 +1885,19 @@ function testFstat(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testLstat(_t:Ref<stdgo.testing.Testing.T>):Void {
-	var _path:GoString = (_sfdir + Go.str("/")) + _sfname;
+	var _path:GoString = (_sfdir + ("/" : GoString)) + _sfname;
 	var __tmp__ = lstat(_path),
 		_dir:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		_t.fatal(Go.toInterface(Go.str("lstat failed:")), Go.toInterface(_err));
+		_t.fatal(Go.toInterface(("lstat failed:" : GoString)), Go.toInterface(_err));
 	};
 	if (!_equal(_sfname, _dir.name())) {
-		_t.error(Go.toInterface(Go.str("name should be ")), Go.toInterface(_sfname), Go.toInterface(Go.str("; is")), Go.toInterface(_dir.name()));
+		_t.error(Go.toInterface(("name should be " : GoString)), Go.toInterface(_sfname), Go.toInterface(("; is" : GoString)), Go.toInterface(_dir.name()));
 	};
 	var _filesize:GoInt64 = _size(_path, _t);
 	if (_dir.size() != (_filesize)) {
-		_t.error(Go.toInterface(Go.str("size should be")), Go.toInterface(_filesize), Go.toInterface(Go.str("; is")), Go.toInterface(_dir.size()));
+		_t.error(Go.toInterface(("size should be" : GoString)), Go.toInterface(_filesize), Go.toInterface(("; is" : GoString)), Go.toInterface(_dir.size()));
 	};
 }
 
@@ -1893,13 +1906,13 @@ function testLstat(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testRead0(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	var _path:GoString = (_sfdir + Go.str("/")) + _sfname;
+	var _path:GoString = (_sfdir + ("/" : GoString)) + _sfname;
 	try {
 		var __tmp__ = open(_path),
 			_f:Ref<File> = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatal(Go.toInterface(Go.str("open failed:")), Go.toInterface(_err));
+			_t.fatal(Go.toInterface(("open failed:" : GoString)), Go.toInterface(_err));
 		};
 		__deferstack__.unshift(() -> _f.close());
 		var _b = new Slice<GoUInt8>((0 : GoInt).toBasic(), 0, ...[for (i in 0...(0 : GoInt).toBasic()) (0 : GoUInt8)]);
@@ -1907,7 +1920,7 @@ function testRead0(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_n:GoInt = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if ((_n != (0 : GoInt)) || (_err != null)) {
-			_t.errorf(Go.str("Read(0) = %d, %v, want 0, nil"), Go.toInterface(_n), Go.toInterface(_err));
+			_t.errorf(("Read(0) = %d, %v, want 0, nil" : GoString), Go.toInterface(_n), Go.toInterface(_err));
 		};
 		_b = new Slice<GoUInt8>((100 : GoInt).toBasic(), 0, ...[for (i in 0...(100 : GoInt).toBasic()) (0 : GoUInt8)]);
 		{
@@ -1916,7 +1929,7 @@ function testRead0(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_err = __tmp__._1;
 		};
 		if ((_n <= (0 : GoInt)) || (_err != null)) {
-			_t.errorf(Go.str("Read(100) = %d, %v, want >0, nil"), Go.toInterface(_n), Go.toInterface(_err));
+			_t.errorf(("Read(100) = %d, %v, want >0, nil" : GoString), Go.toInterface(_n), Go.toInterface(_err));
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -1946,12 +1959,12 @@ function testRead0(_t:Ref<stdgo.testing.Testing.T>):Void {
 	// Reading a closed file should return ErrClosed error
 **/
 function testReadClosed(_t:Ref<stdgo.testing.Testing.T>):Void {
-	var _path:GoString = (_sfdir + Go.str("/")) + _sfname;
+	var _path:GoString = (_sfdir + ("/" : GoString)) + _sfname;
 	var __tmp__ = open(_path),
 		_file:Ref<File> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		_t.fatal(Go.toInterface(Go.str("open failed:")), Go.toInterface(_err));
+		_t.fatal(Go.toInterface(("open failed:" : GoString)), Go.toInterface(_err));
 	};
 	_file.close();
 	var _b = new Slice<GoUInt8>((100 : GoInt).toBasic(), 0, ...[for (i in 0...(100 : GoInt).toBasic()) (0 : GoUInt8)]);
@@ -1965,49 +1978,49 @@ function testReadClosed(_t:Ref<stdgo.testing.Testing.T>):Void {
 		{value: (null : Ref<stdgo.io.fs.Fs.PathError>), ok: false};
 	}, _e = __tmp__.value, _ok = __tmp__.ok;
 	if (!_ok) {
-		_t.fatalf(Go.str("Read: %T(%v), want PathError"), Go.toInterface(_e), Go.toInterface(_e));
+		_t.fatalf(("Read: %T(%v), want PathError" : GoString), Go.toInterface(Go.asInterface(_e)), Go.toInterface(Go.asInterface(_e)));
 	};
 	if (Go.toInterface(_e.err) != (Go.toInterface(errClosed))) {
-		_t.errorf(Go.str("Read: %v, want PathError(ErrClosed)"), Go.toInterface(_e));
+		_t.errorf(("Read: %v, want PathError(ErrClosed)" : GoString), Go.toInterface(Go.asInterface(_e)));
 	};
 }
 
-function _testReaddirnames(_dir:GoString, _contents:Slice<GoString>, _t:Ref<stdgo.testing.Testing.T>):Void {
+private function _testReaddirnames(_dir:GoString, _contents:Slice<GoString>, _t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	var __tmp__ = open(_dir),
 		_file:Ref<File> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	try {
 		if (_err != null) {
-			_t.fatalf(Go.str("open %q failed: %v"), Go.toInterface(_dir), Go.toInterface(_err));
+			_t.fatalf(("open %q failed: %v" : GoString), Go.toInterface(_dir), Go.toInterface(_err));
 		};
 		__deferstack__.unshift(() -> _file.close());
 		var __tmp__ = _file.readdirnames((-1 : GoInt)),
 			_s:Slice<GoString> = __tmp__._0,
 			_err2:Error = __tmp__._1;
 		if (_err2 != null) {
-			_t.fatalf(Go.str("Readdirnames %q failed: %v"), Go.toInterface(_dir), Go.toInterface(_err2));
+			_t.fatalf(("Readdirnames %q failed: %v" : GoString), Go.toInterface(_dir), Go.toInterface(_err2));
 		};
 		for (_0 => _m in _contents) {
 			var _found:Bool = false;
 			for (_1 => _n in _s) {
-				if ((_n == Go.str(".")) || (_n == Go.str(".."))) {
-					_t.errorf(Go.str("got %q in directory"), Go.toInterface(_n));
+				if ((_n == ("." : GoString)) || (_n == (".." : GoString))) {
+					_t.errorf(("got %q in directory" : GoString), Go.toInterface(_n));
 				};
 				if (!_equal(_m, _n)) {
 					continue;
 				};
 				if (_found) {
-					_t.error(Go.toInterface(Go.str("present twice:")), Go.toInterface(_m));
+					_t.error(Go.toInterface(("present twice:" : GoString)), Go.toInterface(_m));
 				};
 				_found = true;
 			};
 			if (!_found) {
-				_t.error(Go.toInterface(Go.str("could not find")), Go.toInterface(_m));
+				_t.error(Go.toInterface(("could not find" : GoString)), Go.toInterface(_m));
 			};
 		};
 		if (_s == null) {
-			_t.error(Go.toInterface(Go.str("Readdirnames returned nil instead of empty slice")));
+			_t.error(Go.toInterface(("Readdirnames returned nil instead of empty slice" : GoString)));
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -2033,42 +2046,42 @@ function _testReaddirnames(_dir:GoString, _contents:Slice<GoString>, _t:Ref<stdg
 	};
 }
 
-function _testReaddir(_dir:GoString, _contents:Slice<GoString>, _t:Ref<stdgo.testing.Testing.T>):Void {
+private function _testReaddir(_dir:GoString, _contents:Slice<GoString>, _t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	var __tmp__ = open(_dir),
 		_file:Ref<File> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	try {
 		if (_err != null) {
-			_t.fatalf(Go.str("open %q failed: %v"), Go.toInterface(_dir), Go.toInterface(_err));
+			_t.fatalf(("open %q failed: %v" : GoString), Go.toInterface(_dir), Go.toInterface(_err));
 		};
 		__deferstack__.unshift(() -> _file.close());
 		var __tmp__ = _file.readdir((-1 : GoInt)),
 			_s:Slice<stdgo.io.fs.Fs.FileInfo> = __tmp__._0,
 			_err2:Error = __tmp__._1;
 		if (_err2 != null) {
-			_t.fatalf(Go.str("Readdir %q failed: %v"), Go.toInterface(_dir), Go.toInterface(_err2));
+			_t.fatalf(("Readdir %q failed: %v" : GoString), Go.toInterface(_dir), Go.toInterface(_err2));
 		};
 		for (_0 => _m in _contents) {
 			var _found:Bool = false;
 			for (_1 => _n in _s) {
-				if ((_n.name() == Go.str(".")) || (_n.name() == Go.str(".."))) {
-					_t.errorf(Go.str("got %q in directory"), Go.toInterface(_n.name()));
+				if ((_n.name() == ("." : GoString)) || (_n.name() == (".." : GoString))) {
+					_t.errorf(("got %q in directory" : GoString), Go.toInterface(_n.name()));
 				};
 				if (!_equal(_m, _n.name())) {
 					continue;
 				};
 				if (_found) {
-					_t.error(Go.toInterface(Go.str("present twice:")), Go.toInterface(_m));
+					_t.error(Go.toInterface(("present twice:" : GoString)), Go.toInterface(_m));
 				};
 				_found = true;
 			};
 			if (!_found) {
-				_t.error(Go.toInterface(Go.str("could not find")), Go.toInterface(_m));
+				_t.error(Go.toInterface(("could not find" : GoString)), Go.toInterface(_m));
 			};
 		};
 		if (_s == null) {
-			_t.error(Go.toInterface(Go.str("Readdir returned nil instead of empty slice")));
+			_t.error(Go.toInterface(("Readdir returned nil instead of empty slice" : GoString)));
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -2094,65 +2107,65 @@ function _testReaddir(_dir:GoString, _contents:Slice<GoString>, _t:Ref<stdgo.tes
 	};
 }
 
-function _testReadDir(_dir:GoString, _contents:Slice<GoString>, _t:Ref<stdgo.testing.Testing.T>):Void {
+private function _testReadDir(_dir:GoString, _contents:Slice<GoString>, _t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	var __tmp__ = open(_dir),
 		_file:Ref<File> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	try {
 		if (_err != null) {
-			_t.fatalf(Go.str("open %q failed: %v"), Go.toInterface(_dir), Go.toInterface(_err));
+			_t.fatalf(("open %q failed: %v" : GoString), Go.toInterface(_dir), Go.toInterface(_err));
 		};
 		__deferstack__.unshift(() -> _file.close());
 		var __tmp__ = _file.readDir((-1 : GoInt)),
 			_s:Slice<stdgo.io.fs.Fs.DirEntry> = __tmp__._0,
 			_err2:Error = __tmp__._1;
 		if (_err2 != null) {
-			_t.fatalf(Go.str("ReadDir %q failed: %v"), Go.toInterface(_dir), Go.toInterface(_err2));
+			_t.fatalf(("ReadDir %q failed: %v" : GoString), Go.toInterface(_dir), Go.toInterface(_err2));
 		};
 		for (_0 => _m in _contents) {
 			var _found:Bool = false;
 			for (_1 => _n in _s) {
-				if ((_n.name() == Go.str(".")) || (_n.name() == Go.str(".."))) {
-					_t.errorf(Go.str("got %q in directory"), Go.toInterface(_n));
+				if ((_n.name() == ("." : GoString)) || (_n.name() == (".." : GoString))) {
+					_t.errorf(("got %q in directory" : GoString), Go.toInterface(_n));
 				};
 				if (!_equal(_m, _n.name())) {
 					continue;
 				};
 				if (_found) {
-					_t.error(Go.toInterface(Go.str("present twice:")), Go.toInterface(_m));
+					_t.error(Go.toInterface(("present twice:" : GoString)), Go.toInterface(_m));
 				};
 				_found = true;
-				var __tmp__ = lstat((_dir + Go.str("/")) + _m),
+				var __tmp__ = lstat((_dir + ("/" : GoString)) + _m),
 					_lstat:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 					_err:Error = __tmp__._1;
 				if (_err != null) {
 					_t.fatal(Go.toInterface(_err));
 				};
 				if (_n.isDir() != (_lstat.isDir())) {
-					_t.errorf(Go.str("%s: IsDir=%v, want %v"), Go.toInterface(_m), Go.toInterface(_n.isDir()), Go.toInterface(_lstat.isDir()));
+					_t.errorf(("%s: IsDir=%v, want %v" : GoString), Go.toInterface(_m), Go.toInterface(_n.isDir()), Go.toInterface(_lstat.isDir()));
 				};
 				if (_n.type() != (_lstat.mode().type())) {
-					_t.errorf(Go.str("%s: IsDir=%v, want %v"), Go.toInterface(_m), Go.toInterface(Go.asInterface(_n.type())),
+					_t.errorf(("%s: IsDir=%v, want %v" : GoString), Go.toInterface(_m), Go.toInterface(Go.asInterface(_n.type())),
 						Go.toInterface(Go.asInterface(_lstat.mode().type())));
 				};
 				var __tmp__ = _n.info(),
 					_info:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 					_err:Error = __tmp__._1;
 				if (_err != null) {
-					_t.errorf(Go.str("%s: Info: %v"), Go.toInterface(_m), Go.toInterface(_err));
+					_t.errorf(("%s: Info: %v" : GoString), Go.toInterface(_m), Go.toInterface(_err));
 					continue;
 				};
 				if (!sameFile(_info, _lstat)) {
-					_t.errorf(Go.str("%s: Info: SameFile(info, lstat) = false"), Go.toInterface(_m));
+					_t.errorf(("%s: Info: SameFile(info, lstat) = false" : GoString), Go.toInterface(_m));
 				};
 			};
 			if (!_found) {
-				_t.error(Go.toInterface(Go.str("could not find")), Go.toInterface(_m));
+				_t.error(Go.toInterface(("could not find" : GoString)), Go.toInterface(_m));
 			};
 		};
 		if (_s == null) {
-			_t.error(Go.toInterface(Go.str("ReadDir returned nil instead of empty slice")));
+			_t.error(Go.toInterface(("ReadDir returned nil instead of empty slice" : GoString)));
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -2179,24 +2192,24 @@ function _testReadDir(_dir:GoString, _contents:Slice<GoString>, _t:Ref<stdgo.tes
 }
 
 function testFileReaddirnames(_t:Ref<stdgo.testing.Testing.T>):Void {
-	_testReaddirnames(Go.str("."), _dot, _t);
+	_testReaddirnames(("." : GoString), _dot, _t);
 	_testReaddirnames(_sysdir._name, _sysdir._files, _t);
 	_testReaddirnames(_t.tempDir(), (null : Slice<GoString>), _t);
 }
 
 function testFileReaddir(_t:Ref<stdgo.testing.Testing.T>):Void {
-	_testReaddir(Go.str("."), _dot, _t);
+	_testReaddir(("." : GoString), _dot, _t);
 	_testReaddir(_sysdir._name, _sysdir._files, _t);
 	_testReaddir(_t.tempDir(), (null : Slice<GoString>), _t);
 }
 
 function testFileReadDir(_t:Ref<stdgo.testing.Testing.T>):Void {
-	_testReadDir(Go.str("."), _dot, _t);
+	_testReadDir(("." : GoString), _dot, _t);
 	_testReadDir(_sysdir._name, _sysdir._files, _t);
 	_testReadDir(_t.tempDir(), (null : Slice<GoString>), _t);
 }
 
-function _benchmarkReaddirname(_path:GoString, _b:Ref<stdgo.testing.Testing.B>):Void {
+private function _benchmarkReaddirname(_path:GoString, _b:Ref<stdgo.testing.Testing.B>):Void {
 	var _nentries:GoInt = (0 : GoInt);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -2205,22 +2218,22 @@ function _benchmarkReaddirname(_path:GoString, _b:Ref<stdgo.testing.Testing.B>):
 				_f:Ref<File> = __tmp__._0,
 				_err:Error = __tmp__._1;
 			if (_err != null) {
-				_b.fatalf(Go.str("open %q failed: %v"), Go.toInterface(_path), Go.toInterface(_err));
+				_b.fatalf(("open %q failed: %v" : GoString), Go.toInterface(_path), Go.toInterface(_err));
 			};
 			var __tmp__ = _f.readdirnames((-1 : GoInt)),
 				_ns:Slice<GoString> = __tmp__._0,
 				_err:Error = __tmp__._1;
 			_f.close();
 			if (_err != null) {
-				_b.fatalf(Go.str("readdirnames %q failed: %v"), Go.toInterface(_path), Go.toInterface(_err));
+				_b.fatalf(("readdirnames %q failed: %v" : GoString), Go.toInterface(_path), Go.toInterface(_err));
 			};
 			_nentries = (_ns.length);
 		});
 	};
-	_b.logf(Go.str("benchmarkReaddirname %q: %d entries"), Go.toInterface(_path), Go.toInterface(_nentries));
+	_b.logf(("benchmarkReaddirname %q: %d entries" : GoString), Go.toInterface(_path), Go.toInterface(_nentries));
 }
 
-function _benchmarkReaddir(_path:GoString, _b:Ref<stdgo.testing.Testing.B>):Void {
+private function _benchmarkReaddir(_path:GoString, _b:Ref<stdgo.testing.Testing.B>):Void {
 	var _nentries:GoInt = (0 : GoInt);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -2229,22 +2242,22 @@ function _benchmarkReaddir(_path:GoString, _b:Ref<stdgo.testing.Testing.B>):Void
 				_f:Ref<File> = __tmp__._0,
 				_err:Error = __tmp__._1;
 			if (_err != null) {
-				_b.fatalf(Go.str("open %q failed: %v"), Go.toInterface(_path), Go.toInterface(_err));
+				_b.fatalf(("open %q failed: %v" : GoString), Go.toInterface(_path), Go.toInterface(_err));
 			};
 			var __tmp__ = _f.readdir((-1 : GoInt)),
 				_fs:Slice<stdgo.io.fs.Fs.FileInfo> = __tmp__._0,
 				_err:Error = __tmp__._1;
 			_f.close();
 			if (_err != null) {
-				_b.fatalf(Go.str("readdir %q failed: %v"), Go.toInterface(_path), Go.toInterface(_err));
+				_b.fatalf(("readdir %q failed: %v" : GoString), Go.toInterface(_path), Go.toInterface(_err));
 			};
 			_nentries = (_fs.length);
 		});
 	};
-	_b.logf(Go.str("benchmarkReaddir %q: %d entries"), Go.toInterface(_path), Go.toInterface(_nentries));
+	_b.logf(("benchmarkReaddir %q: %d entries" : GoString), Go.toInterface(_path), Go.toInterface(_nentries));
 }
 
-function _benchmarkReadDir(_path:GoString, _b:Ref<stdgo.testing.Testing.B>):Void {
+private function _benchmarkReadDir(_path:GoString, _b:Ref<stdgo.testing.Testing.B>):Void {
 	var _nentries:GoInt = (0 : GoInt);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -2253,34 +2266,34 @@ function _benchmarkReadDir(_path:GoString, _b:Ref<stdgo.testing.Testing.B>):Void
 				_f:Ref<File> = __tmp__._0,
 				_err:Error = __tmp__._1;
 			if (_err != null) {
-				_b.fatalf(Go.str("open %q failed: %v"), Go.toInterface(_path), Go.toInterface(_err));
+				_b.fatalf(("open %q failed: %v" : GoString), Go.toInterface(_path), Go.toInterface(_err));
 			};
 			var __tmp__ = _f.readDir((-1 : GoInt)),
 				_fs:Slice<stdgo.io.fs.Fs.DirEntry> = __tmp__._0,
 				_err:Error = __tmp__._1;
 			_f.close();
 			if (_err != null) {
-				_b.fatalf(Go.str("readdir %q failed: %v"), Go.toInterface(_path), Go.toInterface(_err));
+				_b.fatalf(("readdir %q failed: %v" : GoString), Go.toInterface(_path), Go.toInterface(_err));
 			};
 			_nentries = (_fs.length);
 		});
 	};
-	_b.logf(Go.str("benchmarkReadDir %q: %d entries"), Go.toInterface(_path), Go.toInterface(_nentries));
+	_b.logf(("benchmarkReadDir %q: %d entries" : GoString), Go.toInterface(_path), Go.toInterface(_nentries));
 }
 
 function benchmarkReaddirname(_b:Ref<stdgo.testing.Testing.B>):Void {
-	_benchmarkReaddirname(Go.str("."), _b);
+	_benchmarkReaddirname(("." : GoString), _b);
 }
 
 function benchmarkReaddir(_b:Ref<stdgo.testing.Testing.B>):Void {
-	_benchmarkReaddir(Go.str("."), _b);
+	_benchmarkReaddir(("." : GoString), _b);
 }
 
 function benchmarkReadDir(_b:Ref<stdgo.testing.Testing.B>):Void {
-	_benchmarkReadDir(Go.str("."), _b);
+	_benchmarkReadDir(("." : GoString), _b);
 }
 
-function _benchmarkStat(_b:Ref<stdgo.testing.Testing.B>, _path:GoString):Void {
+private function _benchmarkStat(_b:Ref<stdgo.testing.Testing.B>, _path:GoString):Void {
 	_b.resetTimer();
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -2289,13 +2302,13 @@ function _benchmarkStat(_b:Ref<stdgo.testing.Testing.B>, _path:GoString):Void {
 				_0:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 				_err:Error = __tmp__._1;
 			if (_err != null) {
-				_b.fatalf(Go.str("Stat(%q) failed: %v"), Go.toInterface(_path), Go.toInterface(_err));
+				_b.fatalf(("Stat(%q) failed: %v" : GoString), Go.toInterface(_path), Go.toInterface(_err));
 			};
 		});
 	};
 }
 
-function _benchmarkLstat(_b:Ref<stdgo.testing.Testing.B>, _path:GoString):Void {
+private function _benchmarkLstat(_b:Ref<stdgo.testing.Testing.B>, _path:GoString):Void {
 	_b.resetTimer();
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -2304,40 +2317,40 @@ function _benchmarkLstat(_b:Ref<stdgo.testing.Testing.B>, _path:GoString):Void {
 				_0:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 				_err:Error = __tmp__._1;
 			if (_err != null) {
-				_b.fatalf(Go.str("Lstat(%q) failed: %v"), Go.toInterface(_path), Go.toInterface(_err));
+				_b.fatalf(("Lstat(%q) failed: %v" : GoString), Go.toInterface(_path), Go.toInterface(_err));
 			};
 		});
 	};
 }
 
 function benchmarkStatDot(_b:Ref<stdgo.testing.Testing.B>):Void {
-	_benchmarkStat(_b, Go.str("."));
+	_benchmarkStat(_b, ("." : GoString));
 }
 
 function benchmarkStatFile(_b:Ref<stdgo.testing.Testing.B>):Void {
-	_benchmarkStat(_b, stdgo.path.filepath.Filepath.join(stdgo.runtime.Runtime.goroot(), Go.str("src/os/os_test.go")));
+	_benchmarkStat(_b, stdgo.path.filepath.Filepath.join(stdgo.runtime.Runtime.goroot(), ("src/os/os_test.go" : GoString)));
 }
 
 function benchmarkStatDir(_b:Ref<stdgo.testing.Testing.B>):Void {
-	_benchmarkStat(_b, stdgo.path.filepath.Filepath.join(stdgo.runtime.Runtime.goroot(), Go.str("src/os")));
+	_benchmarkStat(_b, stdgo.path.filepath.Filepath.join(stdgo.runtime.Runtime.goroot(), ("src/os" : GoString)));
 }
 
 function benchmarkLstatDot(_b:Ref<stdgo.testing.Testing.B>):Void {
-	_benchmarkLstat(_b, Go.str("."));
+	_benchmarkLstat(_b, ("." : GoString));
 }
 
 function benchmarkLstatFile(_b:Ref<stdgo.testing.Testing.B>):Void {
-	_benchmarkLstat(_b, stdgo.path.filepath.Filepath.join(stdgo.runtime.Runtime.goroot(), Go.str("src/os/os_test.go")));
+	_benchmarkLstat(_b, stdgo.path.filepath.Filepath.join(stdgo.runtime.Runtime.goroot(), ("src/os/os_test.go" : GoString)));
 }
 
 function benchmarkLstatDir(_b:Ref<stdgo.testing.Testing.B>):Void {
-	_benchmarkLstat(_b, stdgo.path.filepath.Filepath.join(stdgo.runtime.Runtime.goroot(), Go.str("src/os")));
+	_benchmarkLstat(_b, stdgo.path.filepath.Filepath.join(stdgo.runtime.Runtime.goroot(), ("src/os" : GoString)));
 }
 
 /**
 	// Read the directory one entry at a time.
 **/
-function _smallReaddirnames(_file:Ref<File>, _length:GoInt, _t:Ref<stdgo.testing.Testing.T>):Slice<GoString> {
+private function _smallReaddirnames(_file:Ref<File>, _length:GoInt, _t:Ref<stdgo.testing.Testing.T>):Slice<GoString> {
 	var _names = new Slice<GoString>((_length : GoInt).toBasic(), 0, ...[for (i in 0...(_length : GoInt).toBasic()) ("" : GoString)]);
 	var _count:GoInt = (0 : GoInt);
 	while (true) {
@@ -2348,10 +2361,10 @@ function _smallReaddirnames(_file:Ref<File>, _length:GoInt, _t:Ref<stdgo.testing
 			break;
 		};
 		if (_err != null) {
-			_t.fatalf(Go.str("readdirnames %q failed: %v"), Go.toInterface(_file.name()), Go.toInterface(_err));
+			_t.fatalf(("readdirnames %q failed: %v" : GoString), Go.toInterface(_file.name()), Go.toInterface(_err));
 		};
 		if ((_d.length) == ((0 : GoInt))) {
-			_t.fatalf(Go.str("readdirnames %q returned empty slice and no error"), Go.toInterface(_file.name()));
+			_t.fatalf(("readdirnames %q returned empty slice and no error" : GoString), Go.toInterface(_file.name()));
 		};
 		_names[(_count : GoInt)] = _d[(0 : GoInt)];
 		_count++;
@@ -2365,11 +2378,11 @@ function _smallReaddirnames(_file:Ref<File>, _length:GoInt, _t:Ref<stdgo.testing
 **/
 function testReaddirnamesOneAtATime(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	var _dir:GoString = Go.str("/usr/bin");
+	var _dir:GoString = ("/usr/bin" : GoString);
 	try {
-		if (Go.str("js") == (Go.str("android"))) {
-			_dir = Go.str("/system/bin");
-		} else if (Go.str("js") == (Go.str("ios"))) {
+		if (("js" : GoString) == (("android" : GoString))) {
+			_dir = ("/system/bin" : GoString);
+		} else if (("js" : GoString) == (("ios" : GoString))) {
 			var __tmp__ = getwd(),
 				_wd:GoString = __tmp__._0,
 				_err:Error = __tmp__._1;
@@ -2377,38 +2390,38 @@ function testReaddirnamesOneAtATime(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_t.fatal(Go.toInterface(_err));
 			};
 			_dir = _wd;
-		} else if (Go.str("js") == (Go.str("plan9"))) {
-			_dir = Go.str("/bin");
-		} else if (Go.str("js") == (Go.str("windows"))) {
-			_dir = getenv(Go.str("SystemRoot")) + Go.str("\\system32");
+		} else if (("js" : GoString) == (("plan9" : GoString))) {
+			_dir = ("/bin" : GoString);
+		} else if (("js" : GoString) == (("windows" : GoString))) {
+			_dir = getenv(("SystemRoot" : GoString)) + ("\\system32" : GoString);
 		};
 		var __tmp__ = open(_dir),
 			_file:Ref<File> = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("open %q failed: %v"), Go.toInterface(_dir), Go.toInterface(_err));
+			_t.fatalf(("open %q failed: %v" : GoString), Go.toInterface(_dir), Go.toInterface(_err));
 		};
 		__deferstack__.unshift(() -> _file.close());
 		var __tmp__ = _file.readdirnames((-1 : GoInt)),
 			_all:Slice<GoString> = __tmp__._0,
 			_err1:Error = __tmp__._1;
 		if (_err1 != null) {
-			_t.fatalf(Go.str("readdirnames %q failed: %v"), Go.toInterface(_dir), Go.toInterface(_err1));
+			_t.fatalf(("readdirnames %q failed: %v" : GoString), Go.toInterface(_dir), Go.toInterface(_err1));
 		};
 		var __tmp__ = open(_dir),
 			_file1:Ref<File> = __tmp__._0,
 			_err2:Error = __tmp__._1;
 		if (_err2 != null) {
-			_t.fatalf(Go.str("open %q failed: %v"), Go.toInterface(_dir), Go.toInterface(_err2));
+			_t.fatalf(("open %q failed: %v" : GoString), Go.toInterface(_dir), Go.toInterface(_err2));
 		};
 		__deferstack__.unshift(() -> _file1.close());
 		var _small = _smallReaddirnames(_file1, (_all.length) + (100 : GoInt), _t);
 		if ((_small.length) < (_all.length)) {
-			_t.fatalf(Go.str("len(small) is %d, less than %d"), Go.toInterface((_small.length)), Go.toInterface((_all.length)));
+			_t.fatalf(("len(small) is %d, less than %d" : GoString), Go.toInterface((_small.length)), Go.toInterface((_all.length)));
 		};
 		for (_i => _n in _all) {
 			if (_small[(_i : GoInt)] != (_n)) {
-				_t.errorf(Go.str("small read %q mismatch: %v"), Go.toInterface(_small[(_i : GoInt)]), Go.toInterface(_n));
+				_t.errorf(("small read %q mismatch: %v" : GoString), Go.toInterface(_small[(_i : GoInt)]), Go.toInterface(_n));
 			};
 		};
 		for (defer in __deferstack__) {
@@ -2437,19 +2450,19 @@ function testReaddirnamesOneAtATime(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testReaddirNValues(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (stdgo.testing.Testing.short()) {
-		_t.skip(Go.toInterface(Go.str("test.short; skipping")));
+		_t.skip(Go.toInterface(("test.short; skipping" : GoString)));
 	};
 	var _dir:GoString = _t.tempDir();
 	{
 		var _i:GoInt = (1 : GoInt);
 		Go.cfor(_i <= (105 : GoInt), _i++, {
-			var __tmp__ = create(stdgo.path.filepath.Filepath.join(_dir, stdgo.fmt.Fmt.sprintf(Go.str("%d"), Go.toInterface(_i)))),
+			var __tmp__ = create(stdgo.path.filepath.Filepath.join(_dir, stdgo.fmt.Fmt.sprintf(("%d" : GoString), Go.toInterface(_i)))),
 				_f:Ref<File> = __tmp__._0,
 				_err:Error = __tmp__._1;
 			if (_err != null) {
-				_t.fatalf(Go.str("Create: %v"), Go.toInterface(_err));
+				_t.fatalf(("Create: %v" : GoString), Go.toInterface(_err));
 			};
-			_f.write((stdgo.strings.Strings.repeat(Go.str("X"), _i) : Slice<GoByte>));
+			_f.write((stdgo.strings.Strings.repeat(("X" : GoString), _i) : Slice<GoByte>));
 			_f.close();
 		});
 	};
@@ -2462,19 +2475,19 @@ function testReaddirNValues(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_err = __tmp__._1;
 		};
 		if (_err != null) {
-			_t.fatalf(Go.str("Open directory: %v"), Go.toInterface(_err));
+			_t.fatalf(("Open directory: %v" : GoString), Go.toInterface(_err));
 		};
 	};
 	var _readdirExpect:(GoInt, GoInt, Error) -> Void = function(_n:GoInt, _want:GoInt, _wantErr:Error):Void {
 		_t.helper();
 		var __tmp__ = _d.readdir(_n), _fi:Slice<stdgo.io.fs.Fs.FileInfo> = __tmp__._0, _err:Error = __tmp__._1;
 		if (Go.toInterface(_err) != (Go.toInterface(_wantErr))) {
-			_t.fatalf(Go.str("Readdir of %d got error %v, want %v"), Go.toInterface(_n), Go.toInterface(_err), Go.toInterface(_wantErr));
+			_t.fatalf(("Readdir of %d got error %v, want %v" : GoString), Go.toInterface(_n), Go.toInterface(_err), Go.toInterface(_wantErr));
 		};
 		{
 			var _0:GoInt = (_fi.length), _1:GoInt = _want, _e:GoInt = _1, _g:GoInt = _0;
 			if (_g != (_e)) {
-				_t.errorf(Go.str("Readdir of %d got %d files, want %d"), Go.toInterface(_n), Go.toInterface(_g), Go.toInterface(_e));
+				_t.errorf(("Readdir of %d got %d files, want %d" : GoString), Go.toInterface(_n), Go.toInterface(_g), Go.toInterface(_e));
 			};
 		};
 	};
@@ -2482,12 +2495,12 @@ function testReaddirNValues(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_t.helper();
 		var __tmp__ = _d.readDir(_n), _de:Slice<stdgo.io.fs.Fs.DirEntry> = __tmp__._0, _err:Error = __tmp__._1;
 		if (Go.toInterface(_err) != (Go.toInterface(_wantErr))) {
-			_t.fatalf(Go.str("ReadDir of %d got error %v, want %v"), Go.toInterface(_n), Go.toInterface(_err), Go.toInterface(_wantErr));
+			_t.fatalf(("ReadDir of %d got error %v, want %v" : GoString), Go.toInterface(_n), Go.toInterface(_err), Go.toInterface(_wantErr));
 		};
 		{
 			var _0:GoInt = (_de.length), _1:GoInt = _want, _e:GoInt = _1, _g:GoInt = _0;
 			if (_g != (_e)) {
-				_t.errorf(Go.str("ReadDir of %d got %d files, want %d"), Go.toInterface(_n), Go.toInterface(_g), Go.toInterface(_e));
+				_t.errorf(("ReadDir of %d got %d files, want %d" : GoString), Go.toInterface(_n), Go.toInterface(_g), Go.toInterface(_e));
 			};
 		};
 	};
@@ -2495,12 +2508,12 @@ function testReaddirNValues(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_t.helper();
 		var __tmp__ = _d.readdirnames(_n), _fi:Slice<GoString> = __tmp__._0, _err:Error = __tmp__._1;
 		if (Go.toInterface(_err) != (Go.toInterface(_wantErr))) {
-			_t.fatalf(Go.str("Readdirnames of %d got error %v, want %v"), Go.toInterface(_n), Go.toInterface(_err), Go.toInterface(_wantErr));
+			_t.fatalf(("Readdirnames of %d got error %v, want %v" : GoString), Go.toInterface(_n), Go.toInterface(_err), Go.toInterface(_wantErr));
 		};
 		{
 			var _0:GoInt = (_fi.length), _1:GoInt = _want, _e:GoInt = _1, _g:GoInt = _0;
 			if (_g != (_e)) {
-				_t.errorf(Go.str("Readdirnames of %d got %d files, want %d"), Go.toInterface(_n), Go.toInterface(_g), Go.toInterface(_e));
+				_t.errorf(("Readdirnames of %d got %d files, want %d" : GoString), Go.toInterface(_n), Go.toInterface(_g), Go.toInterface(_e));
 			};
 		};
 	};
@@ -2524,7 +2537,7 @@ function testReaddirNValues(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 }
 
-function _touch(_t:Ref<stdgo.testing.Testing.T>, _name:GoString):Void {
+private function _touch(_t:Ref<stdgo.testing.Testing.T>, _name:GoString):Void {
 	var __tmp__ = create(_name),
 		_f:Ref<File> = __tmp__._0,
 		_err:Error = __tmp__._1;
@@ -2541,14 +2554,14 @@ function _touch(_t:Ref<stdgo.testing.Testing.T>, _name:GoString):Void {
 
 function testReaddirStatFailures(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	if (Go.str("js") == (Go.str("windows")) || Go.str("js") == (Go.str("plan9"))) {
-		_t.skipf(Go.str("skipping test on %v"), Go.toInterface(Go.str("js")));
+	if (("js" : GoString) == (("windows" : GoString)) || ("js" : GoString) == (("plan9" : GoString))) {
+		_t.skipf(("skipping test on %v" : GoString), Go.toInterface(("js" : GoString)));
 	};
 	try {
 		var _dir:GoString = _t.tempDir();
-		_touch(_t, stdgo.path.filepath.Filepath.join(_dir, Go.str("good1")));
-		_touch(_t, stdgo.path.filepath.Filepath.join(_dir, Go.str("x")));
-		_touch(_t, stdgo.path.filepath.Filepath.join(_dir, Go.str("good2")));
+		_touch(_t, stdgo.path.filepath.Filepath.join(_dir, ("good1" : GoString)));
+		_touch(_t, stdgo.path.filepath.Filepath.join(_dir, ("x" : GoString)));
+		_touch(_t, stdgo.path.filepath.Filepath.join(_dir, ("good2" : GoString)));
 		__deferstack__.unshift(() -> {
 			var a = function():Void {
 				lstatP = lstat;
@@ -2557,7 +2570,7 @@ function testReaddirStatFailures(_t:Ref<stdgo.testing.Testing.T>):Void {
 		});
 		var _xerr:Error = (null : Error);
 		lstatP = function(_path:GoString):{var _0:FileInfo; var _1:Error;} {
-			if ((_xerr != null) && stdgo.strings.Strings.hasSuffix(_path, Go.str("x"))) {
+			if ((_xerr != null) && stdgo.strings.Strings.hasSuffix(_path, ("x" : GoString))) {
 				return {_0: (null : stdgo.io.fs.Fs.FileInfo), _1: _xerr};
 			};
 			return lstat(_path);
@@ -2605,7 +2618,7 @@ function testReaddirStatFailures(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var _mustReadDir = function(_testName:GoString):Slice<FileInfo> {
 			var __tmp__ = _readDir(), _fis:Slice<stdgo.io.fs.Fs.FileInfo> = __tmp__._0, _err:Error = __tmp__._1;
 			if (_err != null) {
-				_t.fatalf(Go.str("%s: Readdir: %v"), Go.toInterface(_testName), Go.toInterface(_err));
+				_t.fatalf(("%s: Readdir: %v" : GoString), Go.toInterface(_testName), Go.toInterface(_err));
 			};
 			return _fis;
 		};
@@ -2618,31 +2631,31 @@ function testReaddirStatFailures(_t:Ref<stdgo.testing.Testing.T>):Void {
 			return _s;
 		};
 		{
-			var _0 = _names(_mustReadDir(Go.str("initial readdir"))),
-				_1 = (new Slice<GoString>(0, 0, Go.str("good1"), Go.str("good2"), Go.str("x")) : Slice<GoString>),
+			var _0 = _names(_mustReadDir(("initial readdir" : GoString))),
+				_1 = (new Slice<GoString>(0, 0, ("good1" : GoString), ("good2" : GoString), ("x" : GoString)) : Slice<GoString>),
 				_want = _1,
 				_got = _0;
 			if (!stdgo.reflect.Reflect.deepEqual(Go.toInterface(_got), Go.toInterface(_want))) {
-				_t.errorf(Go.str("initial readdir got %q; want %q"), Go.toInterface(_got), Go.toInterface(_want));
+				_t.errorf(("initial readdir got %q; want %q" : GoString), Go.toInterface(_got), Go.toInterface(_want));
 			};
 		};
 		_xerr = errNotExist;
 		{
-			var _0 = _names(_mustReadDir(Go.str("with x disappearing"))),
-				_1 = (new Slice<GoString>(0, 0, Go.str("good1"), Go.str("good2")) : Slice<GoString>),
+			var _0 = _names(_mustReadDir(("with x disappearing" : GoString))),
+				_1 = (new Slice<GoString>(0, 0, ("good1" : GoString), ("good2" : GoString)) : Slice<GoString>),
 				_want = _1,
 				_got = _0;
 			if (!stdgo.reflect.Reflect.deepEqual(Go.toInterface(_got), Go.toInterface(_want))) {
-				_t.errorf(Go.str("with x disappearing, got %q; want %q"), Go.toInterface(_got), Go.toInterface(_want));
+				_t.errorf(("with x disappearing, got %q; want %q" : GoString), Go.toInterface(_got), Go.toInterface(_want));
 			};
 		};
-		_xerr = stdgo.errors.Errors.new_(Go.str("some real error"));
+		_xerr = stdgo.errors.Errors.new_(("some real error" : GoString));
 		{
 			var __tmp__ = _readDir(),
 				_0:Slice<stdgo.io.fs.Fs.FileInfo> = __tmp__._0,
 				_err:Error = __tmp__._1;
 			if (Go.toInterface(_err) != (Go.toInterface(_xerr))) {
-				_t.errorf(Go.str("with a non-ErrNotExist error, got error %v; want %v"), Go.toInterface(_err), Go.toInterface(_xerr));
+				_t.errorf(("with a non-ErrNotExist error, got error %v; want %v" : GoString), Go.toInterface(_err), Go.toInterface(_xerr));
 			};
 		};
 		for (defer in __deferstack__) {
@@ -2674,7 +2687,7 @@ function testReaddirStatFailures(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testReaddirOfFile(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	var __tmp__ = stdgo.os.Os.createTemp(Go.str(), Go.str("_Go_ReaddirOfFile")),
+	var __tmp__ = stdgo.os.Os.createTemp(Go.str(), ("_Go_ReaddirOfFile" : GoString)),
 		_f:Ref<File> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	try {
@@ -2685,7 +2698,7 @@ function testReaddirOfFile(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _a0 = _f.name();
 			__deferstack__.unshift(() -> remove(_a0));
 		};
-		_f.write((Go.str("foo") : Slice<GoByte>));
+		_f.write((("foo" : GoString) : Slice<GoByte>));
 		_f.close();
 		var __tmp__ = open(_f.name()),
 			_reg:Ref<File> = __tmp__._0,
@@ -2698,14 +2711,14 @@ function testReaddirOfFile(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_names:Slice<GoString> = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err == null) {
-			_t.error(Go.toInterface(Go.str("Readdirnames succeeded; want non-nil error")));
+			_t.error(Go.toInterface(("Readdirnames succeeded; want non-nil error" : GoString)));
 		};
 		var _pe:Ref<PathError> = (null : Ref<stdgo.io.fs.Fs.PathError>);
 		if (!stdgo.errors.Errors.as(_err, Go.toInterface((_pe : Ref<Ref<stdgo.io.fs.Fs.PathError>>))) || (_pe.path != _f.name())) {
-			_t.errorf(Go.str("Readdirnames returned %q; want a PathError with path %q"), Go.toInterface(_err), Go.toInterface(_f.name()));
+			_t.errorf(("Readdirnames returned %q; want a PathError with path %q" : GoString), Go.toInterface(_err), Go.toInterface(_f.name()));
 		};
 		if ((_names.length) > (0 : GoInt)) {
-			_t.errorf(Go.str("unexpected dir names in regular file: %q"), Go.toInterface(_names));
+			_t.errorf(("unexpected dir names in regular file: %q" : GoString), Go.toInterface(_names));
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -2736,27 +2749,27 @@ function testHardLink(_t:Ref<stdgo.testing.Testing.T>):Void {
 	stdgo.internal.testenv.Testenv.mustHaveLink(Go.asInterface(_t));
 	try {
 		__deferstack__.unshift(() -> _chtmpdir(_t)());
-		var _0:GoString = Go.str("hardlinktestfrom"),
-			_1:GoString = Go.str("hardlinktestto"),
+		var _0:GoString = ("hardlinktestfrom" : GoString),
+			_1:GoString = ("hardlinktestto" : GoString),
 			_to:GoString = _1,
 			_from:GoString = _0;
 		var __tmp__ = create(_to),
 			_file:Ref<File> = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("open %q failed: %v"), Go.toInterface(_to), Go.toInterface(_err));
+			_t.fatalf(("open %q failed: %v" : GoString), Go.toInterface(_to), Go.toInterface(_err));
 		};
 		{
 			_err = _file.close();
 			if (_err != null) {
-				_t.errorf(Go.str("close %q failed: %v"), Go.toInterface(_to), Go.toInterface(_err));
+				_t.errorf(("close %q failed: %v" : GoString), Go.toInterface(_to), Go.toInterface(_err));
 			};
 		};
 		_err = link(_to, _from);
 		if (_err != null) {
-			_t.fatalf(Go.str("link %q, %q failed: %v"), Go.toInterface(_to), Go.toInterface(_from), Go.toInterface(_err));
+			_t.fatalf(("link %q, %q failed: %v" : GoString), Go.toInterface(_to), Go.toInterface(_from), Go.toInterface(_err));
 		};
-		var _none:GoString = Go.str("hardlinktestnone");
+		var _none:GoString = ("hardlinktestnone" : GoString);
 		_err = link(_none, _none);
 		{
 			var __tmp__ = try {
@@ -2765,23 +2778,23 @@ function testHardLink(_t:Ref<stdgo.testing.Testing.T>):Void {
 				{value: (null : Ref<LinkError>), ok: false};
 			}, _lerr = __tmp__.value, _ok = __tmp__.ok;
 			if (!_ok || (_lerr.error() == Go.str())) {
-				_t.errorf(Go.str("link %q, %q failed to return a valid error"), Go.toInterface(_none), Go.toInterface(_none));
+				_t.errorf(("link %q, %q failed to return a valid error" : GoString), Go.toInterface(_none), Go.toInterface(_none));
 			};
 		};
 		var __tmp__ = stat(_to),
 			_tostat:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("stat %q failed: %v"), Go.toInterface(_to), Go.toInterface(_err));
+			_t.fatalf(("stat %q failed: %v" : GoString), Go.toInterface(_to), Go.toInterface(_err));
 		};
 		var __tmp__ = stat(_from),
 			_fromstat:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("stat %q failed: %v"), Go.toInterface(_from), Go.toInterface(_err));
+			_t.fatalf(("stat %q failed: %v" : GoString), Go.toInterface(_from), Go.toInterface(_err));
 		};
 		if (!sameFile(_tostat, _fromstat)) {
-			_t.errorf(Go.str("link %q, %q did not create hard link"), Go.toInterface(_to), Go.toInterface(_from));
+			_t.errorf(("link %q, %q did not create hard link" : GoString), Go.toInterface(_to), Go.toInterface(_from));
 		};
 		_err = link(_to, _from);
 		{
@@ -2789,30 +2802,29 @@ function testHardLink(_t:Ref<stdgo.testing.Testing.T>):Void {
 			if (Go.typeEquals((__type__ : Ref<LinkError>))) {
 				var _err:Ref<LinkError> = __type__ == null ? (null : Ref<LinkError>) : __type__.__underlying__() == null ? (null : Ref<LinkError>) : __type__ == null ? (null : Ref<LinkError>) : __type__.__underlying__()
 					.value;
-				if (_err.op != (Go.str("link"))) {
-					_t.errorf(Go.str("Link(%q, %q) err.Op = %q; want %q"), Go.toInterface(_to), Go.toInterface(_from), Go.toInterface(_err.op),
-						Go.toInterface(Go.str("link")));
+				if (_err.op != (("link" : GoString))) {
+					_t.errorf(("Link(%q, %q) err.Op = %q; want %q" : GoString), Go.toInterface(_to), Go.toInterface(_from), Go.toInterface(_err.op),
+						Go.toInterface(("link" : GoString)));
 				};
 				if (_err.old != (_to)) {
-					_t.errorf(Go.str("Link(%q, %q) err.Old = %q; want %q"), Go.toInterface(_to), Go.toInterface(_from), Go.toInterface(_err.old),
+					_t.errorf(("Link(%q, %q) err.Old = %q; want %q" : GoString), Go.toInterface(_to), Go.toInterface(_from), Go.toInterface(_err.old),
 						Go.toInterface(_to));
 				};
 				if (_err.new_ != (_from)) {
-					_t.errorf(Go.str("Link(%q, %q) err.New = %q; want %q"), Go.toInterface(_to), Go.toInterface(_from), Go.toInterface(_err.new_),
+					_t.errorf(("Link(%q, %q) err.New = %q; want %q" : GoString), Go.toInterface(_to), Go.toInterface(_from), Go.toInterface(_err.new_),
 						Go.toInterface(_from));
 				};
 				if (!isExist(_err.err)) {
-					_t.errorf(Go.str("Link(%q, %q) err.Err = %q; want %q"), Go.toInterface(_to), Go.toInterface(_from), Go.toInterface(_err.err),
-						Go.toInterface(Go.str("file exists error")));
+					_t.errorf(("Link(%q, %q) err.Err = %q; want %q" : GoString), Go.toInterface(_to), Go.toInterface(_from), Go.toInterface(_err.err),
+						Go.toInterface(("file exists error" : GoString)));
 				};
 			} else if (__type__ == null) {
-				var _err:AnyInterface = __type__ == null ? (null : AnyInterface) : __type__.__underlying__();
-				_t.errorf(Go.str("link %q, %q: expected error, got nil"), Go.toInterface(_from), Go.toInterface(_to));
+				var _err:AnyInterface = __type__ == null ? (null : AnyInterface) : cast __type__;
+				_t.errorf(("link %q, %q: expected error, got nil" : GoString), Go.toInterface(_from), Go.toInterface(_to));
 			} else {
-				var _err:Error = __type__ == null ? null : __type__.__underlying__() == null ? null : __type__ == null ? null : __type__.__underlying__()
-					.value;
-				_t.errorf(Go.str("link %q, %q: expected %T, got %T %v"), Go.toInterface(_from), Go.toInterface(_to), Go.toInterface(({} : LinkError)),
-					Go.toInterface(_err), Go.toInterface(_err));
+				var _err:Error = __type__ == null ? (null : Error) : cast __type__;
+				_t.errorf(("link %q, %q: expected %T, got %T %v" : GoString), Go.toInterface(_from), Go.toInterface(_to),
+					Go.toInterface(Go.asInterface(({} : LinkError))), Go.toInterface(_err), Go.toInterface(_err));
 			};
 		};
 		for (defer in __deferstack__) {
@@ -2843,30 +2855,30 @@ function testHardLink(_t:Ref<stdgo.testing.Testing.T>):Void {
 	// chtmpdir changes the working directory to a new temporary directory and
 	// provides a cleanup function.
 **/
-function _chtmpdir(_t:Ref<stdgo.testing.Testing.T>):() -> Void {
+private function _chtmpdir(_t:Ref<stdgo.testing.Testing.T>):() -> Void {
 	var __tmp__ = getwd(),
 		_oldwd:GoString = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		_t.fatalf(Go.str("chtmpdir: %v"), Go.toInterface(_err));
+		_t.fatalf(("chtmpdir: %v" : GoString), Go.toInterface(_err));
 	};
-	var __tmp__ = stdgo.os.Os.mkdirTemp(Go.str(), Go.str("test")),
+	var __tmp__ = stdgo.os.Os.mkdirTemp(Go.str(), ("test" : GoString)),
 		_d:GoString = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		_t.fatalf(Go.str("chtmpdir: %v"), Go.toInterface(_err));
+		_t.fatalf(("chtmpdir: %v" : GoString), Go.toInterface(_err));
 	};
 	{
 		var _err:Error = chdir(_d);
 		if (_err != null) {
-			_t.fatalf(Go.str("chtmpdir: %v"), Go.toInterface(_err));
+			_t.fatalf(("chtmpdir: %v" : GoString), Go.toInterface(_err));
 		};
 	};
 	return function():Void {
 		{
 			var _err:Error = chdir(_oldwd);
 			if (_err != null) {
-				_t.fatalf(Go.str("chtmpdir: %v"), Go.toInterface(_err));
+				_t.fatalf(("chtmpdir: %v" : GoString), Go.toInterface(_err));
 			};
 		};
 		removeAll(_d);
@@ -2878,44 +2890,44 @@ function testSymlink(_t:Ref<stdgo.testing.Testing.T>):Void {
 	stdgo.internal.testenv.Testenv.mustHaveSymlink(Go.asInterface(_t));
 	try {
 		__deferstack__.unshift(() -> _chtmpdir(_t)());
-		var _0:GoString = Go.str("symlinktestfrom"),
-			_1:GoString = Go.str("symlinktestto"),
+		var _0:GoString = ("symlinktestfrom" : GoString),
+			_1:GoString = ("symlinktestto" : GoString),
 			_to:GoString = _1,
 			_from:GoString = _0;
 		var __tmp__ = create(_to),
 			_file:Ref<File> = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("Create(%q) failed: %v"), Go.toInterface(_to), Go.toInterface(_err));
+			_t.fatalf(("Create(%q) failed: %v" : GoString), Go.toInterface(_to), Go.toInterface(_err));
 		};
 		{
 			_err = _file.close();
 			if (_err != null) {
-				_t.errorf(Go.str("Close(%q) failed: %v"), Go.toInterface(_to), Go.toInterface(_err));
+				_t.errorf(("Close(%q) failed: %v" : GoString), Go.toInterface(_to), Go.toInterface(_err));
 			};
 		};
 		_err = symlink(_to, _from);
 		if (_err != null) {
-			_t.fatalf(Go.str("Symlink(%q, %q) failed: %v"), Go.toInterface(_to), Go.toInterface(_from), Go.toInterface(_err));
+			_t.fatalf(("Symlink(%q, %q) failed: %v" : GoString), Go.toInterface(_to), Go.toInterface(_from), Go.toInterface(_err));
 		};
 		var __tmp__ = lstat(_to),
 			_tostat:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("Lstat(%q) failed: %v"), Go.toInterface(_to), Go.toInterface(_err));
+			_t.fatalf(("Lstat(%q) failed: %v" : GoString), Go.toInterface(_to), Go.toInterface(_err));
 		};
 		if (_tostat.mode() & (("134217728" : GoUInt32) : stdgo.io.fs.Fs.FileMode) != ((("0" : GoUInt32) : stdgo.io.fs.Fs.FileMode))) {
-			_t.fatalf(Go.str("Lstat(%q).Mode()&ModeSymlink = %v, want 0"), Go.toInterface(_to),
+			_t.fatalf(("Lstat(%q).Mode()&ModeSymlink = %v, want 0" : GoString), Go.toInterface(_to),
 				Go.toInterface(Go.asInterface(_tostat.mode() & (("134217728" : GoUInt32) : stdgo.io.fs.Fs.FileMode))));
 		};
 		var __tmp__ = stat(_from),
 			_fromstat:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("Stat(%q) failed: %v"), Go.toInterface(_from), Go.toInterface(_err));
+			_t.fatalf(("Stat(%q) failed: %v" : GoString), Go.toInterface(_from), Go.toInterface(_err));
 		};
 		if (!sameFile(_tostat, _fromstat)) {
-			_t.errorf(Go.str("Symlink(%q, %q) did not create symlink"), Go.toInterface(_to), Go.toInterface(_from));
+			_t.errorf(("Symlink(%q, %q) did not create symlink" : GoString), Go.toInterface(_to), Go.toInterface(_from));
 		};
 		{
 			var __tmp__ = lstat(_from);
@@ -2923,10 +2935,10 @@ function testSymlink(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_err = __tmp__._1;
 		};
 		if (_err != null) {
-			_t.fatalf(Go.str("Lstat(%q) failed: %v"), Go.toInterface(_from), Go.toInterface(_err));
+			_t.fatalf(("Lstat(%q) failed: %v" : GoString), Go.toInterface(_from), Go.toInterface(_err));
 		};
 		if (_fromstat.mode() & (("134217728" : GoUInt32) : stdgo.io.fs.Fs.FileMode) == ((("0" : GoUInt32) : stdgo.io.fs.Fs.FileMode))) {
-			_t.fatalf(Go.str("Lstat(%q).Mode()&ModeSymlink = 0, want %v"), Go.toInterface(_from),
+			_t.fatalf(("Lstat(%q).Mode()&ModeSymlink = 0, want %v" : GoString), Go.toInterface(_from),
 				Go.toInterface(Go.asInterface((("134217728" : GoUInt32) : stdgo.io.fs.Fs.FileMode))));
 		};
 		{
@@ -2935,23 +2947,23 @@ function testSymlink(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_err = __tmp__._1;
 		};
 		if (_err != null) {
-			_t.fatalf(Go.str("Stat(%q) failed: %v"), Go.toInterface(_from), Go.toInterface(_err));
+			_t.fatalf(("Stat(%q) failed: %v" : GoString), Go.toInterface(_from), Go.toInterface(_err));
 		};
 		if (_fromstat.name() != (_from)) {
-			_t.errorf(Go.str("Stat(%q).Name() = %q, want %q"), Go.toInterface(_from), Go.toInterface(_fromstat.name()), Go.toInterface(_from));
+			_t.errorf(("Stat(%q).Name() = %q, want %q" : GoString), Go.toInterface(_from), Go.toInterface(_fromstat.name()), Go.toInterface(_from));
 		};
 		if (_fromstat.mode() & (("134217728" : GoUInt32) : stdgo.io.fs.Fs.FileMode) != ((("0" : GoUInt32) : stdgo.io.fs.Fs.FileMode))) {
-			_t.fatalf(Go.str("Stat(%q).Mode()&ModeSymlink = %v, want 0"), Go.toInterface(_from),
+			_t.fatalf(("Stat(%q).Mode()&ModeSymlink = %v, want 0" : GoString), Go.toInterface(_from),
 				Go.toInterface(Go.asInterface(_fromstat.mode() & (("134217728" : GoUInt32) : stdgo.io.fs.Fs.FileMode))));
 		};
 		var __tmp__ = readlink(_from),
 			_s:GoString = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("Readlink(%q) failed: %v"), Go.toInterface(_from), Go.toInterface(_err));
+			_t.fatalf(("Readlink(%q) failed: %v" : GoString), Go.toInterface(_from), Go.toInterface(_err));
 		};
 		if (_s != (_to)) {
-			_t.fatalf(Go.str("Readlink(%q) = %q, want %q"), Go.toInterface(_from), Go.toInterface(_s), Go.toInterface(_to));
+			_t.fatalf(("Readlink(%q) = %q, want %q" : GoString), Go.toInterface(_from), Go.toInterface(_s), Go.toInterface(_to));
 		};
 		{
 			var __tmp__ = open(_from);
@@ -2959,7 +2971,7 @@ function testSymlink(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_err = __tmp__._1;
 		};
 		if (_err != null) {
-			_t.fatalf(Go.str("Open(%q) failed: %v"), Go.toInterface(_from), Go.toInterface(_err));
+			_t.fatalf(("Open(%q) failed: %v" : GoString), Go.toInterface(_from), Go.toInterface(_err));
 		};
 		_file.close();
 		for (defer in __deferstack__) {
@@ -2991,21 +3003,21 @@ function testLongSymlink(_t:Ref<stdgo.testing.Testing.T>):Void {
 	stdgo.internal.testenv.Testenv.mustHaveSymlink(Go.asInterface(_t));
 	try {
 		__deferstack__.unshift(() -> _chtmpdir(_t)());
-		var _s:GoString = Go.str("0123456789abcdef");
+		var _s:GoString = ("0123456789abcdef" : GoString);
 		_s = (((((((((((((_s + _s) + _s) + _s) + _s) + _s) + _s) + _s) + _s) + _s) + _s) + _s) + _s) + _s) + _s;
-		var _from:GoString = Go.str("longsymlinktestfrom");
+		var _from:GoString = ("longsymlinktestfrom" : GoString);
 		var _err:Error = symlink(_s, _from);
 		if (_err != null) {
-			_t.fatalf(Go.str("symlink %q, %q failed: %v"), Go.toInterface(_s), Go.toInterface(_from), Go.toInterface(_err));
+			_t.fatalf(("symlink %q, %q failed: %v" : GoString), Go.toInterface(_s), Go.toInterface(_from), Go.toInterface(_err));
 		};
 		var __tmp__ = readlink(_from),
 			_r:GoString = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("readlink %q failed: %v"), Go.toInterface(_from), Go.toInterface(_err));
+			_t.fatalf(("readlink %q failed: %v" : GoString), Go.toInterface(_from), Go.toInterface(_err));
 		};
 		if (_r != (_s)) {
-			_t.fatalf(Go.str("after symlink %q != %q"), Go.toInterface(_r), Go.toInterface(_s));
+			_t.fatalf(("after symlink %q != %q" : GoString), Go.toInterface(_r), Go.toInterface(_s));
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -3035,32 +3047,32 @@ function testRename(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	__deferstack__.unshift(() -> _chtmpdir(_t)());
 	try {
-		var _0:GoString = Go.str("renamefrom"),
-			_1:GoString = Go.str("renameto"),
+		var _0:GoString = ("renamefrom" : GoString),
+			_1:GoString = ("renameto" : GoString),
 			_to:GoString = _1,
 			_from:GoString = _0;
 		var __tmp__ = create(_from),
 			_file:Ref<File> = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("open %q failed: %v"), Go.toInterface(_from), Go.toInterface(_err));
+			_t.fatalf(("open %q failed: %v" : GoString), Go.toInterface(_from), Go.toInterface(_err));
 		};
 		{
 			_err = _file.close();
 			if (_err != null) {
-				_t.errorf(Go.str("close %q failed: %v"), Go.toInterface(_from), Go.toInterface(_err));
+				_t.errorf(("close %q failed: %v" : GoString), Go.toInterface(_from), Go.toInterface(_err));
 			};
 		};
 		_err = rename(_from, _to);
 		if (_err != null) {
-			_t.fatalf(Go.str("rename %q, %q failed: %v"), Go.toInterface(_to), Go.toInterface(_from), Go.toInterface(_err));
+			_t.fatalf(("rename %q, %q failed: %v" : GoString), Go.toInterface(_to), Go.toInterface(_from), Go.toInterface(_err));
 		};
 		{
 			var __tmp__ = stat(_to);
 			_err = __tmp__._1;
 		};
 		if (_err != null) {
-			_t.errorf(Go.str("stat %q failed: %v"), Go.toInterface(_to), Go.toInterface(_err));
+			_t.errorf(("stat %q failed: %v" : GoString), Go.toInterface(_to), Go.toInterface(_err));
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -3090,42 +3102,42 @@ function testRenameOverwriteDest(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	__deferstack__.unshift(() -> _chtmpdir(_t)());
 	try {
-		var _0:GoString = Go.str("renamefrom"),
-			_1:GoString = Go.str("renameto"),
+		var _0:GoString = ("renamefrom" : GoString),
+			_1:GoString = ("renameto" : GoString),
 			_to:GoString = _1,
 			_from:GoString = _0;
-		var _toData = (Go.str("to") : Slice<GoByte>);
-		var _fromData = (Go.str("from") : Slice<GoByte>);
+		var _toData = (("to" : GoString) : Slice<GoByte>);
+		var _fromData = (("from" : GoString) : Slice<GoByte>);
 		var _err:Error = stdgo.os.Os.writeFile(_to, _toData, (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 		if (_err != null) {
-			_t.fatalf(Go.str("write file %q failed: %v"), Go.toInterface(_to), Go.toInterface(_err));
+			_t.fatalf(("write file %q failed: %v" : GoString), Go.toInterface(_to), Go.toInterface(_err));
 		};
 		_err = stdgo.os.Os.writeFile(_from, _fromData, (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 		if (_err != null) {
-			_t.fatalf(Go.str("write file %q failed: %v"), Go.toInterface(_from), Go.toInterface(_err));
+			_t.fatalf(("write file %q failed: %v" : GoString), Go.toInterface(_from), Go.toInterface(_err));
 		};
 		_err = rename(_from, _to);
 		if (_err != null) {
-			_t.fatalf(Go.str("rename %q, %q failed: %v"), Go.toInterface(_to), Go.toInterface(_from), Go.toInterface(_err));
+			_t.fatalf(("rename %q, %q failed: %v" : GoString), Go.toInterface(_to), Go.toInterface(_from), Go.toInterface(_err));
 		};
 		{
 			var __tmp__ = stat(_from);
 			_err = __tmp__._1;
 		};
 		if (_err == null) {
-			_t.errorf(Go.str("from file %q still exists"), Go.toInterface(_from));
+			_t.errorf(("from file %q still exists" : GoString), Go.toInterface(_from));
 		};
 		if ((_err != null) && !isNotExist(_err)) {
-			_t.fatalf(Go.str("stat from: %v"), Go.toInterface(_err));
+			_t.fatalf(("stat from: %v" : GoString), Go.toInterface(_err));
 		};
 		var __tmp__ = stat(_to),
 			_toFi:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("stat %q failed: %v"), Go.toInterface(_to), Go.toInterface(_err));
+			_t.fatalf(("stat %q failed: %v" : GoString), Go.toInterface(_to), Go.toInterface(_err));
 		};
 		if (_toFi.size() != ((_fromData.length : GoInt64))) {
-			_t.errorf(Go.str("\"to\" size = %d; want %d (old \"from\" size)"), Go.toInterface(_toFi.size()), Go.toInterface((_fromData.length)));
+			_t.errorf(("\"to\" size = %d; want %d (old \"from\" size)" : GoString), Go.toInterface(_toFi.size()), Go.toInterface((_fromData.length)));
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -3155,8 +3167,8 @@ function testRenameFailed(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	__deferstack__.unshift(() -> _chtmpdir(_t)());
 	try {
-		var _0:GoString = Go.str("renamefrom"),
-			_1:GoString = Go.str("renameto"),
+		var _0:GoString = ("renamefrom" : GoString),
+			_1:GoString = ("renameto" : GoString),
 			_to:GoString = _1,
 			_from:GoString = _0;
 		var _err:Error = rename(_from, _to);
@@ -3165,26 +3177,25 @@ function testRenameFailed(_t:Ref<stdgo.testing.Testing.T>):Void {
 			if (Go.typeEquals((__type__ : Ref<LinkError>))) {
 				var _err:Ref<LinkError> = __type__ == null ? (null : Ref<LinkError>) : __type__.__underlying__() == null ? (null : Ref<LinkError>) : __type__ == null ? (null : Ref<LinkError>) : __type__.__underlying__()
 					.value;
-				if (_err.op != (Go.str("rename"))) {
-					_t.errorf(Go.str("rename %q, %q: err.Op: want %q, got %q"), Go.toInterface(_from), Go.toInterface(_to), Go.toInterface(Go.str("rename")),
-						Go.toInterface(_err.op));
+				if (_err.op != (("rename" : GoString))) {
+					_t.errorf(("rename %q, %q: err.Op: want %q, got %q" : GoString), Go.toInterface(_from), Go.toInterface(_to),
+						Go.toInterface(("rename" : GoString)), Go.toInterface(_err.op));
 				};
 				if (_err.old != (_from)) {
-					_t.errorf(Go.str("rename %q, %q: err.Old: want %q, got %q"), Go.toInterface(_from), Go.toInterface(_to), Go.toInterface(_from),
+					_t.errorf(("rename %q, %q: err.Old: want %q, got %q" : GoString), Go.toInterface(_from), Go.toInterface(_to), Go.toInterface(_from),
 						Go.toInterface(_err.old));
 				};
 				if (_err.new_ != (_to)) {
-					_t.errorf(Go.str("rename %q, %q: err.New: want %q, got %q"), Go.toInterface(_from), Go.toInterface(_to), Go.toInterface(_to),
+					_t.errorf(("rename %q, %q: err.New: want %q, got %q" : GoString), Go.toInterface(_from), Go.toInterface(_to), Go.toInterface(_to),
 						Go.toInterface(_err.new_));
 				};
 			} else if (__type__ == null) {
-				var _err:AnyInterface = __type__ == null ? (null : AnyInterface) : __type__.__underlying__();
-				_t.errorf(Go.str("rename %q, %q: expected error, got nil"), Go.toInterface(_from), Go.toInterface(_to));
+				var _err:AnyInterface = __type__ == null ? (null : AnyInterface) : cast __type__;
+				_t.errorf(("rename %q, %q: expected error, got nil" : GoString), Go.toInterface(_from), Go.toInterface(_to));
 			} else {
-				var _err:Error = __type__ == null ? null : __type__.__underlying__() == null ? null : __type__ == null ? null : __type__.__underlying__()
-					.value;
-				_t.errorf(Go.str("rename %q, %q: expected %T, got %T %v"), Go.toInterface(_from), Go.toInterface(_to), Go.toInterface(({} : LinkError)),
-					Go.toInterface(_err), Go.toInterface(_err));
+				var _err:Error = __type__ == null ? (null : Error) : cast __type__;
+				_t.errorf(("rename %q, %q: expected %T, got %T %v" : GoString), Go.toInterface(_from), Go.toInterface(_to),
+					Go.toInterface(Go.asInterface(({} : LinkError))), Go.toInterface(_err), Go.toInterface(_err));
 			};
 		};
 		for (defer in __deferstack__) {
@@ -3215,15 +3226,15 @@ function testRenameNotExisting(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	__deferstack__.unshift(() -> _chtmpdir(_t)());
 	try {
-		var _0:GoString = Go.str("doesnt-exist"),
-			_1:GoString = Go.str("dest"),
+		var _0:GoString = ("doesnt-exist" : GoString),
+			_1:GoString = ("dest" : GoString),
 			_to:GoString = _1,
 			_from:GoString = _0;
 		mkdir(_to, (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 		{
 			var _err:Error = rename(_from, _to);
 			if (!isNotExist(_err)) {
-				_t.errorf(Go.str("Rename(%q, %q) = %v; want an IsNotExist error"), Go.toInterface(_from), Go.toInterface(_to), Go.toInterface(_err));
+				_t.errorf(("Rename(%q, %q) = %v; want an IsNotExist error" : GoString), Go.toInterface(_from), Go.toInterface(_to), Go.toInterface(_err));
 			};
 		};
 		for (defer in __deferstack__) {
@@ -3254,8 +3265,8 @@ function testRenameToDirFailed(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	__deferstack__.unshift(() -> _chtmpdir(_t)());
 	try {
-		var _0:GoString = Go.str("renamefrom"),
-			_1:GoString = Go.str("renameto"),
+		var _0:GoString = ("renamefrom" : GoString),
+			_1:GoString = ("renameto" : GoString),
 			_to:GoString = _1,
 			_from:GoString = _0;
 		mkdir(_from, (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
@@ -3266,26 +3277,25 @@ function testRenameToDirFailed(_t:Ref<stdgo.testing.Testing.T>):Void {
 			if (Go.typeEquals((__type__ : Ref<LinkError>))) {
 				var _err:Ref<LinkError> = __type__ == null ? (null : Ref<LinkError>) : __type__.__underlying__() == null ? (null : Ref<LinkError>) : __type__ == null ? (null : Ref<LinkError>) : __type__.__underlying__()
 					.value;
-				if (_err.op != (Go.str("rename"))) {
-					_t.errorf(Go.str("rename %q, %q: err.Op: want %q, got %q"), Go.toInterface(_from), Go.toInterface(_to), Go.toInterface(Go.str("rename")),
-						Go.toInterface(_err.op));
+				if (_err.op != (("rename" : GoString))) {
+					_t.errorf(("rename %q, %q: err.Op: want %q, got %q" : GoString), Go.toInterface(_from), Go.toInterface(_to),
+						Go.toInterface(("rename" : GoString)), Go.toInterface(_err.op));
 				};
 				if (_err.old != (_from)) {
-					_t.errorf(Go.str("rename %q, %q: err.Old: want %q, got %q"), Go.toInterface(_from), Go.toInterface(_to), Go.toInterface(_from),
+					_t.errorf(("rename %q, %q: err.Old: want %q, got %q" : GoString), Go.toInterface(_from), Go.toInterface(_to), Go.toInterface(_from),
 						Go.toInterface(_err.old));
 				};
 				if (_err.new_ != (_to)) {
-					_t.errorf(Go.str("rename %q, %q: err.New: want %q, got %q"), Go.toInterface(_from), Go.toInterface(_to), Go.toInterface(_to),
+					_t.errorf(("rename %q, %q: err.New: want %q, got %q" : GoString), Go.toInterface(_from), Go.toInterface(_to), Go.toInterface(_to),
 						Go.toInterface(_err.new_));
 				};
 			} else if (__type__ == null) {
-				var _err:AnyInterface = __type__ == null ? (null : AnyInterface) : __type__.__underlying__();
-				_t.errorf(Go.str("rename %q, %q: expected error, got nil"), Go.toInterface(_from), Go.toInterface(_to));
+				var _err:AnyInterface = __type__ == null ? (null : AnyInterface) : cast __type__;
+				_t.errorf(("rename %q, %q: expected error, got nil" : GoString), Go.toInterface(_from), Go.toInterface(_to));
 			} else {
-				var _err:Error = __type__ == null ? null : __type__.__underlying__() == null ? null : __type__ == null ? null : __type__.__underlying__()
-					.value;
-				_t.errorf(Go.str("rename %q, %q: expected %T, got %T %v"), Go.toInterface(_from), Go.toInterface(_to), Go.toInterface(({} : LinkError)),
-					Go.toInterface(_err), Go.toInterface(_err));
+				var _err:Error = __type__ == null ? (null : Error) : cast __type__;
+				_t.errorf(("rename %q, %q: expected %T, got %T %v" : GoString), Go.toInterface(_from), Go.toInterface(_to),
+					Go.toInterface(Go.asInterface(({} : LinkError))), Go.toInterface(_err), Go.toInterface(_err));
 			};
 		};
 		for (defer in __deferstack__) {
@@ -3313,17 +3323,17 @@ function testRenameToDirFailed(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testRenameCaseDifference(_pt:Ref<stdgo.testing.Testing.T>):Void {
-	var _0:GoString = Go.str("renameFROM"),
-		_1:GoString = Go.str("RENAMEfrom"),
+	var _0:GoString = ("renameFROM" : GoString),
+		_1:GoString = ("RENAMEfrom" : GoString),
 		_to:GoString = _1,
 		_from:GoString = _0;
 	var _tests = (new Slice<T__struct_2>(0, 0, ({
-		_name: Go.str("dir"),
+		_name: ("dir" : GoString),
 		_create: function():Error {
 			return mkdir(_from, (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 		}
 	} : T__struct_2), ({
-		_name: Go.str("file"),
+		_name: ("file" : GoString),
 		_create: function():Error {
 			var __tmp__ = create(_from), _fd:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
 			if (_err != null) {
@@ -3340,7 +3350,7 @@ function testRenameCaseDifference(_pt:Ref<stdgo.testing.Testing.T>):Void {
 				{
 					var _err:Error = _test._create();
 					if (_err != null) {
-						_t.fatalf(Go.str("failed to create test file: %s"), Go.toInterface(_err));
+						_t.fatalf(("failed to create test file: %s" : GoString), Go.toInterface(_err));
 					};
 				};
 				{
@@ -3349,38 +3359,38 @@ function testRenameCaseDifference(_pt:Ref<stdgo.testing.Testing.T>):Void {
 						_err:Error = __tmp__._1;
 					if (_err != null) {
 						if (isNotExist(_err)) {
-							_t.skipf(Go.str("case sensitive filesystem"));
+							_t.skipf(("case sensitive filesystem" : GoString));
 						};
-						_t.fatalf(Go.str("stat %q, got: %q"), Go.toInterface(_to), Go.toInterface(_err));
+						_t.fatalf(("stat %q, got: %q" : GoString), Go.toInterface(_to), Go.toInterface(_err));
 					};
 				};
 				{
 					var _err:Error = rename(_from, _to);
 					if (_err != null) {
-						_t.fatalf(Go.str("unexpected error when renaming from %q to %q: %s"), Go.toInterface(_from), Go.toInterface(_to),
+						_t.fatalf(("unexpected error when renaming from %q to %q: %s" : GoString), Go.toInterface(_from), Go.toInterface(_to),
 							Go.toInterface(_err));
 					};
 				};
-				var __tmp__ = open(Go.str(".")),
+				var __tmp__ = open(("." : GoString)),
 					_fd:Ref<File> = __tmp__._0,
 					_err:Error = __tmp__._1;
 				if (_err != null) {
-					_t.fatalf(Go.str("Open .: %s"), Go.toInterface(_err));
+					_t.fatalf(("Open .: %s" : GoString), Go.toInterface(_err));
 				};
 				var __tmp__ = _fd.readdirnames((-1 : GoInt)),
 					_dirNames:Slice<GoString> = __tmp__._0,
 					_err:Error = __tmp__._1;
 				if (_err != null) {
-					_t.fatalf(Go.str("readdirnames: %s"), Go.toInterface(_err));
+					_t.fatalf(("readdirnames: %s" : GoString), Go.toInterface(_err));
 				};
 				{
 					var _dirNamesLen:GoInt = (_dirNames.length);
 					if (_dirNamesLen != ((1 : GoInt))) {
-						_t.fatalf(Go.str("unexpected dirNames len, got %q, want %q"), Go.toInterface(_dirNamesLen), Go.toInterface((1 : GoInt)));
+						_t.fatalf(("unexpected dirNames len, got %q, want %q" : GoString), Go.toInterface(_dirNamesLen), Go.toInterface((1 : GoInt)));
 					};
 				};
 				if (_dirNames[(0 : GoInt)] != (_to)) {
-					_t.errorf(Go.str("unexpected name, got %q, want %q"), Go.toInterface(_dirNames[(0 : GoInt)]), Go.toInterface(_to));
+					_t.errorf(("unexpected name, got %q, want %q" : GoString), Go.toInterface(_dirNames[(0 : GoInt)]), Go.toInterface(_to));
 				};
 				for (defer in __deferstack__) {
 					defer();
@@ -3408,7 +3418,7 @@ function testRenameCaseDifference(_pt:Ref<stdgo.testing.Testing.T>):Void {
 	};
 }
 
-function _exec(_t:Ref<stdgo.testing.Testing.T>, _dir:GoString, _cmd:GoString, _args:Slice<GoString>, _expect:GoString):Void {
+private function _exec(_t:Ref<stdgo.testing.Testing.T>, _dir:GoString, _cmd:GoString, _args:Slice<GoString>, _expect:GoString):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	var __tmp__ = pipe(),
 		_r:Ref<File> = __tmp__._0,
@@ -3416,7 +3426,7 @@ function _exec(_t:Ref<stdgo.testing.Testing.T>, _dir:GoString, _cmd:GoString, _a
 		_err:Error = __tmp__._2;
 	try {
 		if (_err != null) {
-			_t.fatalf(Go.str("Pipe: %v"), Go.toInterface(_err));
+			_t.fatalf(("Pipe: %v" : GoString), Go.toInterface(_err));
 		};
 		__deferstack__.unshift(() -> _r.close());
 		var _attr = (({dir: _dir, files: (new Slice<Ref<File>>(0, 0, null, _w, stderr) : Slice<Ref<File>>)} : ProcAttr) : Ref<ProcAttr>);
@@ -3424,7 +3434,7 @@ function _exec(_t:Ref<stdgo.testing.Testing.T>, _dir:GoString, _cmd:GoString, _a
 			_p:Ref<Process> = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("StartProcess: %v"), Go.toInterface(_err));
+			_t.fatalf(("StartProcess: %v" : GoString), Go.toInterface(_err));
 		};
 		_w.close();
 		var _b:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
@@ -3437,9 +3447,9 @@ function _exec(_t:Ref<stdgo.testing.Testing.T>, _dir:GoString, _cmd:GoString, _a
 			_fi2:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 			_1:Error = __tmp__._1;
 		if (!sameFile(_fi1, _fi2)) {
-			_t.errorf(Go.str("exec %q returned %q wanted %q"),
+			_t.errorf(("exec %q returned %q wanted %q" : GoString),
 				Go.toInterface(stdgo.strings.Strings.join(((new Slice<GoString>(0, 0, _cmd) : Slice<GoString>).__append__(..._args.__toArray__())),
-					Go.str(" "))),
+					(" " : GoString))),
 				Go.toInterface(_output), Go.toInterface(_expect));
 		};
 		_p.wait_();
@@ -3474,25 +3484,25 @@ function testStartProcess(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_cmd:GoString = _1,
 		_dir:GoString = _0;
 	var _args:Slice<GoString> = (null : Slice<GoString>);
-	if (Go.str("js") == (Go.str("android"))) {
-		_t.skip(Go.toInterface(Go.str("android doesn\'t have /bin/pwd")));
-	} else if (Go.str("js") == (Go.str("windows"))) {
-		_cmd = getenv(Go.str("COMSPEC"));
-		_dir = getenv(Go.str("SystemRoot"));
-		_args = (new Slice<GoString>(0, 0, Go.str("/c"), Go.str("cd")) : Slice<GoString>);
+	if (("js" : GoString) == (("android" : GoString))) {
+		_t.skip(Go.toInterface(("android doesn\'t have /bin/pwd" : GoString)));
+	} else if (("js" : GoString) == (("windows" : GoString))) {
+		_cmd = getenv(("COMSPEC" : GoString));
+		_dir = getenv(("SystemRoot" : GoString));
+		_args = (new Slice<GoString>(0, 0, ("/c" : GoString), ("cd" : GoString)) : Slice<GoString>);
 	} else {
 		var _err:Error = (null : Error);
 		{
-			var __tmp__ = stdgo.os.exec.Exec.lookPath(Go.str("pwd"));
+			var __tmp__ = stdgo.os.exec.Exec.lookPath(("pwd" : GoString));
 			_cmd = __tmp__._0;
 			_err = __tmp__._1;
 		};
 		if (_err != null) {
-			_t.fatalf(Go.str("Can\'t find pwd: %v"), Go.toInterface(_err));
+			_t.fatalf(("Can\'t find pwd: %v" : GoString), Go.toInterface(_err));
 		};
-		_dir = Go.str("/");
+		_dir = ("/" : GoString);
 		_args = (new Slice<GoString>(0, 0) : Slice<GoString>);
-		_t.logf(Go.str("Testing with %v"), Go.toInterface(_cmd));
+		_t.logf(("Testing with %v" : GoString), Go.toInterface(_cmd));
 	};
 	var __tmp__ = stdgo.path.filepath.Filepath.split(_cmd),
 		_cmddir:GoString = __tmp__._0,
@@ -3502,22 +3512,22 @@ function testStartProcess(_t:Ref<stdgo.testing.Testing.T>):Void {
 	_exec(_t, _cmddir, _cmdbase, _args, _cmddir);
 }
 
-function _checkMode(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _mode:FileMode):Void {
+private function _checkMode(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _mode:FileMode):Void {
 	var __tmp__ = stat(_path),
 		_dir:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		_t.fatalf(Go.str("Stat %q (looking for mode %#o): %s"), Go.toInterface(_path), Go.toInterface(Go.asInterface(_mode)), Go.toInterface(_err));
+		_t.fatalf(("Stat %q (looking for mode %#o): %s" : GoString), Go.toInterface(_path), Go.toInterface(Go.asInterface(_mode)), Go.toInterface(_err));
 	};
 	if (_dir.mode() & (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode) != (_mode)) {
-		_t.errorf(Go.str("Stat %q: mode %#o want %#o"), Go.toInterface(_path), Go.toInterface(Go.asInterface(_dir.mode())),
+		_t.errorf(("Stat %q: mode %#o want %#o" : GoString), Go.toInterface(_path), Go.toInterface(Go.asInterface(_dir.mode())),
 			Go.toInterface(Go.asInterface(_mode)));
 	};
 }
 
 function testChmod(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	var _f = _newFile(Go.str("TestChmod"), _t);
+	var _f = _newFile(("TestChmod" : GoString), _t);
 	try {
 		{
 			var _a0 = _f.name();
@@ -3531,7 +3541,7 @@ function testChmod(_t:Ref<stdgo.testing.Testing.T>):Void {
 		{
 			var _err:Error = chmod(_f.name(), _fm);
 			if (_err != null) {
-				_t.fatalf(Go.str("chmod %s %#o: %s"), Go.toInterface(_f.name()), Go.toInterface(Go.asInterface(_fm)), Go.toInterface(_err));
+				_t.fatalf(("chmod %s %#o: %s" : GoString), Go.toInterface(_f.name()), Go.toInterface(Go.asInterface(_fm)), Go.toInterface(_err));
 			};
 		};
 		_checkMode(_t, _f.name(), _fm);
@@ -3542,7 +3552,7 @@ function testChmod(_t:Ref<stdgo.testing.Testing.T>):Void {
 		{
 			var _err:Error = _f.chmod(_fm);
 			if (_err != null) {
-				_t.fatalf(Go.str("chmod %s %#o: %s"), Go.toInterface(_f.name()), Go.toInterface(Go.asInterface(_fm)), Go.toInterface(_err));
+				_t.fatalf(("chmod %s %#o: %s" : GoString), Go.toInterface(_f.name()), Go.toInterface(Go.asInterface(_fm)), Go.toInterface(_err));
 			};
 		};
 		_checkMode(_t, _f.name(), _fm);
@@ -3570,22 +3580,22 @@ function testChmod(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 }
 
-function _checkSize(_t:Ref<stdgo.testing.Testing.T>, _f:Ref<File>, _size:GoInt64):Void {
+private function _checkSize(_t:Ref<stdgo.testing.Testing.T>, _f:Ref<File>, _size:GoInt64):Void {
 	_t.helper();
 	var __tmp__ = _f.stat(),
 		_dir:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		_t.fatalf(Go.str("Stat %q (looking for size %d): %s"), Go.toInterface(_f.name()), Go.toInterface(_size), Go.toInterface(_err));
+		_t.fatalf(("Stat %q (looking for size %d): %s" : GoString), Go.toInterface(_f.name()), Go.toInterface(_size), Go.toInterface(_err));
 	};
 	if (_dir.size() != (_size)) {
-		_t.errorf(Go.str("Stat %q: size %d want %d"), Go.toInterface(_f.name()), Go.toInterface(_dir.size()), Go.toInterface(_size));
+		_t.errorf(("Stat %q: size %d want %d" : GoString), Go.toInterface(_f.name()), Go.toInterface(_dir.size()), Go.toInterface(_size));
 	};
 }
 
 function testFTruncate(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	var _f = _newFile(Go.str("TestFTruncate"), _t);
+	var _f = _newFile(("TestFTruncate" : GoString), _t);
 	try {
 		{
 			var _a0 = _f.name();
@@ -3593,7 +3603,7 @@ function testFTruncate(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 		__deferstack__.unshift(() -> _f.close());
 		_checkSize(_t, _f, ("0" : GoInt64));
-		_f.write((Go.str("hello, world\n") : Slice<GoByte>));
+		_f.write((("hello, world\n" : GoString) : Slice<GoByte>));
 		_checkSize(_t, _f, ("13" : GoInt64));
 		_f.truncate(("10" : GoInt64));
 		_checkSize(_t, _f, ("10" : GoInt64));
@@ -3601,7 +3611,7 @@ function testFTruncate(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_checkSize(_t, _f, ("1024" : GoInt64));
 		_f.truncate(("0" : GoInt64));
 		_checkSize(_t, _f, ("0" : GoInt64));
-		var __tmp__ = _f.write((Go.str("surprise!") : Slice<GoByte>)),
+		var __tmp__ = _f.write((("surprise!" : GoString) : Slice<GoByte>)),
 			_0:GoInt = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err == null) {
@@ -3633,7 +3643,7 @@ function testFTruncate(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testTruncate(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	var _f = _newFile(Go.str("TestTruncate"), _t);
+	var _f = _newFile(("TestTruncate" : GoString), _t);
 	try {
 		{
 			var _a0 = _f.name();
@@ -3641,7 +3651,7 @@ function testTruncate(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 		__deferstack__.unshift(() -> _f.close());
 		_checkSize(_t, _f, ("0" : GoInt64));
-		_f.write((Go.str("hello, world\n") : Slice<GoByte>));
+		_f.write((("hello, world\n" : GoString) : Slice<GoByte>));
 		_checkSize(_t, _f, ("13" : GoInt64));
 		truncate(_f.name(), ("10" : GoInt64));
 		_checkSize(_t, _f, ("10" : GoInt64));
@@ -3649,7 +3659,7 @@ function testTruncate(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_checkSize(_t, _f, ("1024" : GoInt64));
 		truncate(_f.name(), ("0" : GoInt64));
 		_checkSize(_t, _f, ("0" : GoInt64));
-		var __tmp__ = _f.write((Go.str("surprise!") : Slice<GoByte>)),
+		var __tmp__ = _f.write((("surprise!" : GoString) : Slice<GoByte>)),
 			_0:GoInt = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err == null) {
@@ -3687,13 +3697,13 @@ function testTruncate(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testChtimes(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	var _f = _newFile(Go.str("TestChtimes"), _t);
+	var _f = _newFile(("TestChtimes" : GoString), _t);
 	try {
 		{
 			var _a0 = _f.name();
 			__deferstack__.unshift(() -> remove(_a0));
 		};
-		_f.write((Go.str("hello, world\n") : Slice<GoByte>));
+		_f.write((("hello, world\n" : GoString) : Slice<GoByte>));
 		_f.close();
 		_testChtimes(_t, _f.name());
 		for (defer in __deferstack__) {
@@ -3728,7 +3738,7 @@ function testChtimes(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testChtimesDir(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	var _name:GoString = _newDir(Go.str("TestChtimes"), _t);
+	var _name:GoString = _newDir(("TestChtimes" : GoString), _t);
 	try {
 		{
 			var _a0 = _name;
@@ -3759,12 +3769,12 @@ function testChtimesDir(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 }
 
-function _testChtimes(_t:Ref<stdgo.testing.Testing.T>, _name:GoString):Void {
+private function _testChtimes(_t:Ref<stdgo.testing.Testing.T>, _name:GoString):Void {
 	var __tmp__ = stat(_name),
 		_st:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		_t.fatalf(Go.str("Stat %s: %s"), Go.toInterface(_name), Go.toInterface(_err));
+		_t.fatalf(("Stat %s: %s" : GoString), Go.toInterface(_name), Go.toInterface(_err));
 	};
 	var _preStat:stdgo.io.fs.Fs.FileInfo = _st;
 	var _at:stdgo.time.Time.Time = (atime(_preStat) == null ? null : atime(_preStat).__copy__());
@@ -3775,7 +3785,7 @@ function _testChtimes(_t:Ref<stdgo.testing.Testing.T>, _name:GoString):Void {
 		(_mt.add((("-1000000000" : GoInt64) : stdgo.time.Time.Duration)) == null ? null : _mt.add((("-1000000000" : GoInt64) : stdgo.time.Time.Duration))
 			.__copy__()));
 	if (_err != null) {
-		_t.fatalf(Go.str("Chtimes %s: %s"), Go.toInterface(_name), Go.toInterface(_err));
+		_t.fatalf(("Chtimes %s: %s" : GoString), Go.toInterface(_name), Go.toInterface(_err));
 	};
 	{
 		var __tmp__ = stat(_name);
@@ -3783,28 +3793,29 @@ function _testChtimes(_t:Ref<stdgo.testing.Testing.T>, _name:GoString):Void {
 		_err = __tmp__._1;
 	};
 	if (_err != null) {
-		_t.fatalf(Go.str("second Stat %s: %s"), Go.toInterface(_name), Go.toInterface(_err));
+		_t.fatalf(("second Stat %s: %s" : GoString), Go.toInterface(_name), Go.toInterface(_err));
 	};
 	var _postStat:stdgo.io.fs.Fs.FileInfo = _st;
 	var _pat:stdgo.time.Time.Time = (atime(_postStat) == null ? null : atime(_postStat).__copy__());
 	var _pmt:stdgo.time.Time.Time = (_postStat.modTime() == null ? null : _postStat.modTime().__copy__());
 	if (!_pat.before((_at == null ? null : _at.__copy__()))) {
-		if (Go.str("js") == (Go.str("plan9"))) {} else if (Go.str("js") == (Go.str("netbsd"))) {
-			var __tmp__ = stdgo.os.Os.readFile(Go.str("/proc/mounts")),
+		if (("js" : GoString) == (("plan9" : GoString))) {} else if (("js" : GoString) == (("netbsd" : GoString))) {
+			var __tmp__ = stdgo.os.Os.readFile(("/proc/mounts" : GoString)),
 				_mounts:Slice<GoUInt8> = __tmp__._0,
 				_0:Error = __tmp__._1;
-			if (stdgo.strings.Strings.contains((_mounts : GoString), Go.str("noatime"))) {
-				_t.logf(Go.str("AccessTime didn\'t go backwards, but see a filesystem mounted noatime; ignoring. Issue 19293."));
+			if (stdgo.strings.Strings.contains((_mounts : GoString), ("noatime" : GoString))) {
+				_t.logf(("AccessTime didn\'t go backwards, but see a filesystem mounted noatime; ignoring. Issue 19293." : GoString));
 			} else {
-				_t.logf(Go.str("AccessTime didn\'t go backwards; was=%v, after=%v (Ignoring on NetBSD, assuming noatime, Issue 19293)"),
+				_t.logf(("AccessTime didn\'t go backwards; was=%v, after=%v (Ignoring on NetBSD, assuming noatime, Issue 19293)" : GoString),
 					Go.toInterface(Go.asInterface(_at)), Go.toInterface(Go.asInterface(_pat)));
 			};
 		} else {
-			_t.errorf(Go.str("AccessTime didn\'t go backwards; was=%v, after=%v"), Go.toInterface(Go.asInterface(_at)), Go.toInterface(Go.asInterface(_pat)));
+			_t.errorf(("AccessTime didn\'t go backwards; was=%v, after=%v" : GoString), Go.toInterface(Go.asInterface(_at)),
+				Go.toInterface(Go.asInterface(_pat)));
 		};
 	};
 	if (!_pmt.before((_mt == null ? null : _mt.__copy__()))) {
-		_t.errorf(Go.str("ModTime didn\'t go backwards; was=%v, after=%v"), Go.toInterface(Go.asInterface(_mt)), Go.toInterface(Go.asInterface(_pmt)));
+		_t.errorf(("ModTime didn\'t go backwards; was=%v, after=%v" : GoString), Go.toInterface(Go.asInterface(_mt)), Go.toInterface(Go.asInterface(_pmt)));
 	};
 }
 
@@ -3818,39 +3829,39 @@ function testFileChdir(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_wd:GoString = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("Getwd: %s"), Go.toInterface(_err));
+			_t.fatalf(("Getwd: %s" : GoString), Go.toInterface(_err));
 		};
 		{
 			var _a0 = _wd;
 			__deferstack__.unshift(() -> chdir(_a0));
 		};
-		var __tmp__ = open(Go.str(".")),
+		var __tmp__ = open(("." : GoString)),
 			_fd:Ref<File> = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("Open .: %s"), Go.toInterface(_err));
+			_t.fatalf(("Open .: %s" : GoString), Go.toInterface(_err));
 		};
 		__deferstack__.unshift(() -> _fd.close());
 		{
-			var _err:Error = chdir(Go.str("/"));
+			var _err:Error = chdir(("/" : GoString));
 			if (_err != null) {
-				_t.fatalf(Go.str("Chdir /: %s"), Go.toInterface(_err));
+				_t.fatalf(("Chdir /: %s" : GoString), Go.toInterface(_err));
 			};
 		};
 		{
 			var _err:Error = _fd.chdir();
 			if (_err != null) {
-				_t.fatalf(Go.str("fd.Chdir: %s"), Go.toInterface(_err));
+				_t.fatalf(("fd.Chdir: %s" : GoString), Go.toInterface(_err));
 			};
 		};
 		var __tmp__ = getwd(),
 			_wdNew:GoString = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("Getwd: %s"), Go.toInterface(_err));
+			_t.fatalf(("Getwd: %s" : GoString), Go.toInterface(_err));
 		};
 		if (_wdNew != (_wd)) {
-			_t.fatalf(Go.str("fd.Chdir failed, got %s, want %s"), Go.toInterface(_wdNew), Go.toInterface(_wd));
+			_t.fatalf(("fd.Chdir failed, got %s, want %s" : GoString), Go.toInterface(_wdNew), Go.toInterface(_wd));
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -3880,25 +3891,25 @@ function testChdirAndGetwd(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (false) {
 		return;
 	};
-	var __tmp__ = open(Go.str(".")),
+	var __tmp__ = open(("." : GoString)),
 		_fd:Ref<File> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		_t.fatalf(Go.str("Open .: %s"), Go.toInterface(_err));
+		_t.fatalf(("Open .: %s" : GoString), Go.toInterface(_err));
 	};
-	var _dirs = (new Slice<GoString>(0, 0, Go.str("/"), Go.str("/usr/bin"), Go.str("/tmp")) : Slice<GoString>);
-	if (Go.str("js") == (Go.str("android"))) {
-		_dirs = (new Slice<GoString>(0, 0, Go.str("/system/bin")) : Slice<GoString>);
-	} else if (Go.str("js") == (Go.str("plan9"))) {
-		_dirs = (new Slice<GoString>(0, 0, Go.str("/"), Go.str("/usr")) : Slice<GoString>);
-	} else if (Go.str("js") == (Go.str("ios"))) {
+	var _dirs = (new Slice<GoString>(0, 0, ("/" : GoString), ("/usr/bin" : GoString), ("/tmp" : GoString)) : Slice<GoString>);
+	if (("js" : GoString) == (("android" : GoString))) {
+		_dirs = (new Slice<GoString>(0, 0, ("/system/bin" : GoString)) : Slice<GoString>);
+	} else if (("js" : GoString) == (("plan9" : GoString))) {
+		_dirs = (new Slice<GoString>(0, 0, ("/" : GoString), ("/usr" : GoString)) : Slice<GoString>);
+	} else if (("js" : GoString) == (("ios" : GoString))) {
 		_dirs = (null : Slice<GoString>);
-		for (_0 => _d in (new Slice<GoString>(0, 0, Go.str("d1"), Go.str("d2")) : Slice<GoString>)) {
+		for (_0 => _d in (new Slice<GoString>(0, 0, ("d1" : GoString), ("d2" : GoString)) : Slice<GoString>)) {
 			var __tmp__ = stdgo.os.Os.mkdirTemp(Go.str(), _d),
 				_dir:GoString = __tmp__._0,
 				_err:Error = __tmp__._1;
 			if (_err != null) {
-				_t.fatalf(Go.str("TempDir: %v"), Go.toInterface(_err));
+				_t.fatalf(("TempDir: %v" : GoString), Go.toInterface(_err));
 			};
 			{
 				var __tmp__ = stdgo.path.filepath.Filepath.evalSymlinks(_dir);
@@ -3906,12 +3917,12 @@ function testChdirAndGetwd(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_err = __tmp__._1;
 			};
 			if (_err != null) {
-				_t.fatalf(Go.str("EvalSymlinks: %v"), Go.toInterface(_err));
+				_t.fatalf(("EvalSymlinks: %v" : GoString), Go.toInterface(_err));
 			};
 			_dirs = _dirs.__appendref__(_dir);
 		};
 	};
-	var _oldwd:GoString = getenv(Go.str("PWD"));
+	var _oldwd:GoString = getenv(("PWD" : GoString));
 	{
 		var _mode:GoInt = (0 : GoInt);
 		Go.cfor(_mode < (2:GoInt), _mode++, {
@@ -3923,35 +3934,35 @@ function testChdirAndGetwd(_t:Ref<stdgo.testing.Testing.T>):Void {
 						_fd1:Ref<File> = __tmp__._0,
 						_err1:Error = __tmp__._1;
 					if (_err1 != null) {
-						_t.errorf(Go.str("Open %s: %s"), Go.toInterface(_d), Go.toInterface(_err1));
+						_t.errorf(("Open %s: %s" : GoString), Go.toInterface(_d), Go.toInterface(_err1));
 						continue;
 					};
 					_err = _fd1.chdir();
 					_fd1.close();
 				};
-				if (_d == (Go.str("/tmp"))) {
-					setenv(Go.str("PWD"), Go.str("/tmp"));
+				if (_d == (("/tmp" : GoString))) {
+					setenv(("PWD" : GoString), ("/tmp" : GoString));
 				};
 				var __tmp__ = getwd(),
 					_pwd:GoString = __tmp__._0,
 					_err1:Error = __tmp__._1;
-				setenv(Go.str("PWD"), _oldwd);
+				setenv(("PWD" : GoString), _oldwd);
 				var _err2:Error = _fd.chdir();
 				if (_err2 != null) {
-					stdgo.fmt.Fmt.fprintf(Go.asInterface(stderr), Go.str("fchdir back to dot failed: %s\n"), Go.toInterface(_err2));
+					stdgo.fmt.Fmt.fprintf(Go.asInterface(stderr), ("fchdir back to dot failed: %s\n" : GoString), Go.toInterface(_err2));
 					exit((1 : GoInt));
 				};
 				if (_err != null) {
 					_fd.close();
-					_t.fatalf(Go.str("Chdir %s: %s"), Go.toInterface(_d), Go.toInterface(_err));
+					_t.fatalf(("Chdir %s: %s" : GoString), Go.toInterface(_d), Go.toInterface(_err));
 				};
 				if (_err1 != null) {
 					_fd.close();
-					_t.fatalf(Go.str("Getwd in %s: %s"), Go.toInterface(_d), Go.toInterface(_err1));
+					_t.fatalf(("Getwd in %s: %s" : GoString), Go.toInterface(_d), Go.toInterface(_err1));
 				};
 				if (_pwd != (_d)) {
 					_fd.close();
-					_t.fatalf(Go.str("Getwd returned %q want %q"), Go.toInterface(_pwd), Go.toInterface(_d));
+					_t.fatalf(("Getwd returned %q want %q" : GoString), Go.toInterface(_pwd), Go.toInterface(_d));
 				};
 			};
 		});
@@ -3979,13 +3990,13 @@ function testProgWideChdir(_t:Ref<stdgo.testing.Testing.T>):Void {
 						};
 						var __tmp__ = _c.__smartGet__(), _hasErr = __tmp__.value, _closed = __tmp__.ok;
 						if (!_closed && _hasErr) {
-							_cpwd.__send__(Go.str("Error!"));
+							_cpwd.__send__(("Error!" : GoString));
 							return;
 						};
 						var __tmp__ = getwd(), _pwd:GoString = __tmp__._0, _err:Error = __tmp__._1;
 						if (_err != null) {
-							_t.errorf(Go.str("Getwd on goroutine %d: %v"), Go.toInterface(_i), Go.toInterface(_err));
-							_cpwd.__send__(Go.str("Error!"));
+							_t.errorf(("Getwd on goroutine %d: %v" : GoString), Go.toInterface(_i), Go.toInterface(_err));
+							_cpwd.__send__(("Error!" : GoString));
 							return;
 						};
 						_cpwd.__send__(_pwd);
@@ -3999,21 +4010,21 @@ function testProgWideChdir(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_err:Error = __tmp__._1;
 		if (_err != null) {
 			_c.__send__(true);
-			_t.fatalf(Go.str("Getwd: %v"), Go.toInterface(_err));
+			_t.fatalf(("Getwd: %v" : GoString), Go.toInterface(_err));
 		};
-		var __tmp__ = stdgo.os.Os.mkdirTemp(Go.str(), Go.str("test")),
+		var __tmp__ = stdgo.os.Os.mkdirTemp(Go.str(), ("test" : GoString)),
 			_d:GoString = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
 			_c.__send__(true);
-			_t.fatalf(Go.str("TempDir: %v"), Go.toInterface(_err));
+			_t.fatalf(("TempDir: %v" : GoString), Go.toInterface(_err));
 		};
 		__deferstack__.unshift(() -> {
 			var a = function():Void {
 				{
 					var _err:Error = chdir(_oldwd);
 					if (_err != null) {
-						_t.fatalf(Go.str("Chdir: %v"), Go.toInterface(_err));
+						_t.fatalf(("Chdir: %v" : GoString), Go.toInterface(_err));
 					};
 				};
 				removeAll(_d);
@@ -4024,7 +4035,7 @@ function testProgWideChdir(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _err:Error = chdir(_d);
 			if (_err != null) {
 				_c.__send__(true);
-				_t.fatalf(Go.str("Chdir: %v"), Go.toInterface(_err));
+				_t.fatalf(("Chdir: %v" : GoString), Go.toInterface(_err));
 			};
 		};
 		{
@@ -4034,7 +4045,7 @@ function testProgWideChdir(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 		if (_err != null) {
 			_c.__send__(true);
-			_t.fatalf(Go.str("Getwd: %v"), Go.toInterface(_err));
+			_t.fatalf(("Getwd: %v" : GoString), Go.toInterface(_err));
 		};
 		if (_c != null)
 			_c.__close__();
@@ -4042,11 +4053,11 @@ function testProgWideChdir(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_i < (10:GoInt), _i++, {
 				var _pwd:GoString = _cpwd.__get__();
-				if (_pwd == (Go.str("Error!"))) {
+				if (_pwd == (("Error!" : GoString))) {
 					_t.failNow();
 				};
 				if (_pwd != (_d)) {
-					_t.errorf(Go.str("Getwd returned %q; want %q"), Go.toInterface(_pwd), Go.toInterface(_d));
+					_t.errorf(("Getwd returned %q; want %q" : GoString), Go.toInterface(_pwd), Go.toInterface(_d));
 				};
 			});
 		};
@@ -4098,7 +4109,7 @@ function testProgWideChdir(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testSeek(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	var _f = _newFile(Go.str("TestSeek"), _t);
+	var _f = _newFile(("TestSeek" : GoString), _t);
 	try {
 		{
 			var _a0 = _f.name();
@@ -4106,15 +4117,15 @@ function testSeek(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 		__deferstack__.unshift(() -> _f.close());
 		{};
-		stdgo.io.Io.writeString(Go.asInterface(_f), Go.str("hello, world\n"));
+		stdgo.io.Io.writeString(Go.asInterface(_f), ("hello, world\n" : GoString));
 		{};
 		var _tests:Slice<stdgo.os_test.Os_test.T_test_testSeek_0> = (new Slice<stdgo.os_test.Os_test.T_test_testSeek_0>(0, 0,
 			(new stdgo.os_test.Os_test.T_test_testSeek_0(("0" : GoInt64), (1 : GoInt),
-				(Go.str("hello, world\n").length : GoInt64)) : stdgo.os_test.Os_test.T_test_testSeek_0),
+				(("hello, world\n" : GoString).length : GoInt64)) : stdgo.os_test.Os_test.T_test_testSeek_0),
 			(new stdgo.os_test.Os_test.T_test_testSeek_0(("0" : GoInt64), (0 : GoInt), ("0" : GoInt64)) : stdgo.os_test.Os_test.T_test_testSeek_0),
 			(new stdgo.os_test.Os_test.T_test_testSeek_0(("5" : GoInt64), (0 : GoInt), ("5" : GoInt64)) : stdgo.os_test.Os_test.T_test_testSeek_0),
 			(new stdgo.os_test.Os_test.T_test_testSeek_0(("0" : GoInt64), (2 : GoInt),
-				(Go.str("hello, world\n").length : GoInt64)) : stdgo.os_test.Os_test.T_test_testSeek_0),
+				(("hello, world\n" : GoString).length : GoInt64)) : stdgo.os_test.Os_test.T_test_testSeek_0),
 			(new stdgo.os_test.Os_test.T_test_testSeek_0(("0" : GoInt64), (0 : GoInt), ("0" : GoInt64)) : stdgo.os_test.Os_test.T_test_testSeek_0),
 			(new stdgo.os_test.Os_test.T_test_testSeek_0(("-1" : GoInt64), (2 : GoInt), ("12" : GoInt64)) : stdgo.os_test.Os_test.T_test_testSeek_0),
 			(new stdgo.os_test.Os_test.T_test_testSeek_0(("8589934592" : GoInt64), (0 : GoInt),
@@ -4142,15 +4153,15 @@ function testSeek(_t:Ref<stdgo.testing.Testing.T>):Void {
 					if (((_ok && (Go.toInterface(_e.err) == Go.toInterface(Go.asInterface((22 : stdgo.syscall.Syscall.Errno)))))
 						&& (_tt._out > (("4294967296" : GoInt64) : GoInt64)))
 						&& false) {
-						var __tmp__ = stdgo.os.Os.readFile(Go.str("/proc/mounts")),
+						var __tmp__ = stdgo.os.Os.readFile(("/proc/mounts" : GoString)),
 							_mounts:Slice<GoUInt8> = __tmp__._0,
 							_0:Error = __tmp__._1;
-						if (stdgo.strings.Strings.contains((_mounts : GoString), Go.str("reiserfs"))) {
-							_t.skipf(Go.str("skipping test known to fail on reiserfs; https://golang.org/issue/91"));
+						if (stdgo.strings.Strings.contains((_mounts : GoString), ("reiserfs" : GoString))) {
+							_t.skipf(("skipping test known to fail on reiserfs; https://golang.org/issue/91" : GoString));
 						};
 					};
 				};
-				_t.errorf(Go.str("#%d: Seek(%v, %v) = %v, %v want %v, nil"), Go.toInterface(_i), Go.toInterface(_tt._in), Go.toInterface(_tt._whence),
+				_t.errorf(("#%d: Seek(%v, %v) = %v, %v want %v, nil" : GoString), Go.toInterface(_i), Go.toInterface(_tt._in), Go.toInterface(_tt._whence),
 					Go.toInterface(_off), Go.toInterface(_err), Go.toInterface(_tt._out));
 			};
 		};
@@ -4179,8 +4190,8 @@ function testSeek(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testSeekError(_t:Ref<stdgo.testing.Testing.T>):Void {
-	if (Go.str("js") == (Go.str("js")) || Go.str("js") == (Go.str("plan9"))) {
-		_t.skipf(Go.str("skipping test on %v"), Go.toInterface(Go.str("js")));
+	if (("js" : GoString) == (("js" : GoString)) || ("js" : GoString) == (("plan9" : GoString))) {
+		_t.skipf(("skipping test on %v" : GoString), Go.toInterface(("js" : GoString)));
 	};
 	var __tmp__ = pipe(),
 		_r:Ref<File> = __tmp__._0,
@@ -4194,7 +4205,7 @@ function testSeekError(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_err = __tmp__._1;
 	};
 	if (_err == null) {
-		_t.fatal(Go.toInterface(Go.str("Seek on pipe should fail")));
+		_t.fatal(Go.toInterface(("Seek on pipe should fail" : GoString)));
 	};
 	{
 		var __tmp__ = try {
@@ -4203,7 +4214,7 @@ function testSeekError(_t:Ref<stdgo.testing.Testing.T>):Void {
 			{value: (null : Ref<stdgo.io.fs.Fs.PathError>), ok: false};
 		}, _perr = __tmp__.value, _ok = __tmp__.ok;
 		if (!_ok || (Go.toInterface(_perr.err) != Go.toInterface(Go.asInterface((29 : stdgo.syscall.Syscall.Errno))))) {
-			_t.errorf(Go.str("Seek returned error %v, want &PathError{Err: syscall.ESPIPE}"), Go.toInterface(_err));
+			_t.errorf(("Seek returned error %v, want &PathError{Err: syscall.ESPIPE}" : GoString), Go.toInterface(_err));
 		};
 	};
 	{
@@ -4211,7 +4222,7 @@ function testSeekError(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_err = __tmp__._1;
 	};
 	if (_err == null) {
-		_t.fatal(Go.toInterface(Go.str("Seek on pipe should fail")));
+		_t.fatal(Go.toInterface(("Seek on pipe should fail" : GoString)));
 	};
 	{
 		var __tmp__ = try {
@@ -4220,7 +4231,7 @@ function testSeekError(_t:Ref<stdgo.testing.Testing.T>):Void {
 			{value: (null : Ref<stdgo.io.fs.Fs.PathError>), ok: false};
 		}, _perr = __tmp__.value, _ok = __tmp__.ok;
 		if (!_ok || (Go.toInterface(_perr.err) != Go.toInterface(Go.asInterface((29 : stdgo.syscall.Syscall.Errno))))) {
-			_t.errorf(Go.str("Seek returned error %v, want &PathError{Err: syscall.ESPIPE}"), Go.toInterface(_err));
+			_t.errorf(("Seek returned error %v, want &PathError{Err: syscall.ESPIPE}" : GoString), Go.toInterface(_err));
 		};
 	};
 }
@@ -4231,7 +4242,7 @@ function testOpenError(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_f:Ref<File> = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err == null) {
-			_t.errorf(Go.str("Open(%q, %d) succeeded"), Go.toInterface(_tt._path), Go.toInterface(_tt._mode));
+			_t.errorf(("Open(%q, %d) succeeded" : GoString), Go.toInterface(_tt._path), Go.toInterface(_tt._mode));
 			_f.close();
 			continue;
 		};
@@ -4241,19 +4252,19 @@ function testOpenError(_t:Ref<stdgo.testing.Testing.T>):Void {
 			{value: (null : Ref<stdgo.io.fs.Fs.PathError>), ok: false};
 		}, _perr = __tmp__.value, _ok = __tmp__.ok;
 		if (!_ok) {
-			_t.errorf(Go.str("Open(%q, %d) returns error of %T type; want *PathError"), Go.toInterface(_tt._path), Go.toInterface(_tt._mode),
+			_t.errorf(("Open(%q, %d) returns error of %T type; want *PathError" : GoString), Go.toInterface(_tt._path), Go.toInterface(_tt._mode),
 				Go.toInterface(_err));
 		};
 		if (Go.toInterface(_perr.err) != (Go.toInterface(_tt._error))) {
 			if (false) {
 				var _syscallErrStr:GoString = _perr.err.error();
-				var _expectedErrStr:GoString = stdgo.strings.Strings.replace(_tt._error.error(), Go.str("file "), Go.str(), (1 : GoInt));
+				var _expectedErrStr:GoString = stdgo.strings.Strings.replace(_tt._error.error(), ("file " : GoString), Go.str(), (1 : GoInt));
 				if (!stdgo.strings.Strings.hasSuffix(_syscallErrStr, _expectedErrStr)) {
 					if ((Go.toInterface(_tt._error) == Go.toInterface(Go.asInterface((21 : stdgo.syscall.Syscall.Errno))))
 						&& stdgo.strings.Strings.hasSuffix(_syscallErrStr, (13 : stdgo.syscall.Syscall.Errno).error())) {
 						continue;
 					};
-					_t.errorf(Go.str("Open(%q, %d) = _, %q; want suffix %q"), Go.toInterface(_tt._path), Go.toInterface(_tt._mode),
+					_t.errorf(("Open(%q, %d) = _, %q; want suffix %q" : GoString), Go.toInterface(_tt._path), Go.toInterface(_tt._mode),
 						Go.toInterface(_syscallErrStr), Go.toInterface(_expectedErrStr));
 				};
 				continue;
@@ -4264,7 +4275,7 @@ function testOpenError(_t:Ref<stdgo.testing.Testing.T>):Void {
 					continue;
 				};
 			};
-			_t.errorf(Go.str("Open(%q, %d) = _, %q; want %q"), Go.toInterface(_tt._path), Go.toInterface(_tt._mode), Go.toInterface(_perr.err.error()),
+			_t.errorf(("Open(%q, %d) = _, %q; want %q" : GoString), Go.toInterface(_tt._path), Go.toInterface(_tt._mode), Go.toInterface(_perr.err.error()),
 				Go.toInterface(_tt._error.error()));
 		};
 	};
@@ -4276,11 +4287,11 @@ function testOpenNoName(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_err:Error = __tmp__._1;
 	if (_err == null) {
 		_f.close();
-		_t.fatal(Go.toInterface(Go.str("Open(\"\") succeeded")));
+		_t.fatal(Go.toInterface(("Open(\"\") succeeded" : GoString)));
 	};
 }
 
-function _runBinHostname(_t:Ref<stdgo.testing.Testing.T>):GoString {
+private function _runBinHostname(_t:Ref<stdgo.testing.Testing.T>):GoString {
 	var __deferstack__:Array<Void->Void> = [];
 	var __tmp__ = pipe(),
 		_r:Ref<File> = __tmp__._0,
@@ -4291,18 +4302,18 @@ function _runBinHostname(_t:Ref<stdgo.testing.Testing.T>):GoString {
 	};
 	try {
 		__deferstack__.unshift(() -> _r.close());
-		var __tmp__ = stdgo.os.exec.Exec.lookPath(Go.str("hostname")),
+		var __tmp__ = stdgo.os.exec.Exec.lookPath(("hostname" : GoString)),
 			_path:GoString = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
 			if (stdgo.errors.Errors.is_(_err, stdgo.os.exec.Exec.errNotFound)) {
-				_t.skip(Go.toInterface(Go.str("skipping test; test requires hostname but it does not exist")));
+				_t.skip(Go.toInterface(("skipping test; test requires hostname but it does not exist" : GoString)));
 			};
 			_t.fatal(Go.toInterface(_err));
 		};
-		var _argv = (new Slice<GoString>(0, 0, Go.str("hostname")) : Slice<GoString>);
+		var _argv = (new Slice<GoString>(0, 0, ("hostname" : GoString)) : Slice<GoString>);
 		if (false) {
-			_argv = (new Slice<GoString>(0, 0, Go.str("hostname"), Go.str("-s")) : Slice<GoString>);
+			_argv = (new Slice<GoString>(0, 0, ("hostname" : GoString), ("-s" : GoString)) : Slice<GoString>);
 		};
 		var __tmp__ = startProcess(_path, _argv, (({files: (new Slice<Ref<File>>(0, 0, null, _w, stderr) : Slice<Ref<File>>)} : ProcAttr) : Ref<ProcAttr>)),
 			_p:Ref<Process> = __tmp__._0,
@@ -4318,11 +4329,11 @@ function _runBinHostname(_t:Ref<stdgo.testing.Testing.T>):GoString {
 			_err = __tmp__._1;
 		};
 		if (_err != null) {
-			_t.fatalf(Go.str("run hostname Wait: %v"), Go.toInterface(_err));
+			_t.fatalf(("run hostname Wait: %v" : GoString), Go.toInterface(_err));
 		};
 		_err = _p.kill();
 		if (_err == null) {
-			_t.errorf(Go.str("expected an error from Kill running \'hostname\'"));
+			_t.errorf(("expected an error from Kill running \'hostname\'" : GoString));
 		};
 		var _output:GoString = (_b.string() : GoString);
 		{
@@ -4332,7 +4343,7 @@ function _runBinHostname(_t:Ref<stdgo.testing.Testing.T>):GoString {
 			};
 		};
 		if (_output == (Go.str())) {
-			_t.fatalf(Go.str("/bin/hostname produced no output"));
+			_t.fatalf(("/bin/hostname produced no output" : GoString));
 		};
 		{
 			for (defer in __deferstack__) {
@@ -4364,17 +4375,17 @@ function _runBinHostname(_t:Ref<stdgo.testing.Testing.T>):GoString {
 	};
 }
 
-function _testWindowsHostname(_t:Ref<stdgo.testing.Testing.T>, _hostname:GoString):Void {
-	var _cmd = stdgo.os.exec.Exec.command(Go.str("hostname"));
+private function _testWindowsHostname(_t:Ref<stdgo.testing.Testing.T>, _hostname:GoString):Void {
+	var _cmd = stdgo.os.exec.Exec.command(("hostname" : GoString));
 	var __tmp__ = _cmd.output(),
 		_out:Slice<GoUInt8> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		_t.fatalf(Go.str("Failed to execute hostname command: %v %s"), Go.toInterface(_err), Go.toInterface(_out));
+		_t.fatalf(("Failed to execute hostname command: %v %s" : GoString), Go.toInterface(_err), Go.toInterface(_out));
 	};
-	var _want:GoString = stdgo.strings.Strings.trim((_out : GoString), Go.str("\r\n"));
+	var _want:GoString = stdgo.strings.Strings.trim((_out : GoString), ("\r\n" : GoString));
 	if (_hostname != (_want)) {
-		_t.fatalf(Go.str("Hostname() = %q != system hostname of %q"), Go.toInterface(_hostname), Go.toInterface(_want));
+		_t.fatalf(("Hostname() = %q != system hostname of %q" : GoString), Go.toInterface(_hostname), Go.toInterface(_want));
 	};
 }
 
@@ -4386,33 +4397,33 @@ function testHostname(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_t.fatal(Go.toInterface(_err));
 	};
 	if (_hostname == (Go.str())) {
-		_t.fatal(Go.toInterface(Go.str("Hostname returned empty string and no error")));
+		_t.fatal(Go.toInterface(("Hostname returned empty string and no error" : GoString)));
 	};
 	if (stdgo.strings.Strings.contains(_hostname, Go.str(0))) {
-		_t.fatalf(Go.str("unexpected zero byte in hostname: %q"), Go.toInterface(_hostname));
+		_t.fatalf(("unexpected zero byte in hostname: %q" : GoString), Go.toInterface(_hostname));
 	};
-	if (Go.str("js") == (Go.str("android")) || Go.str("js") == (Go.str("plan9"))) {
+	if (("js" : GoString) == (("android" : GoString)) || ("js" : GoString) == (("plan9" : GoString))) {
 		return;
-	} else if (Go.str("js") == (Go.str("windows"))) {
+	} else if (("js" : GoString) == (("windows" : GoString))) {
 		_testWindowsHostname(_t, _hostname);
 		return;
 	};
 	stdgo.internal.testenv.Testenv.mustHaveExec(Go.asInterface(_t));
 	var _want:GoString = _runBinHostname(_t);
 	if (_hostname != (_want)) {
-		var __tmp__ = stdgo.strings.Strings.cut(_hostname, Go.str(".")),
+		var __tmp__ = stdgo.strings.Strings.cut(_hostname, ("." : GoString)),
 			_host:GoString = __tmp__._0,
 			_0:GoString = __tmp__._1,
 			_ok:Bool = __tmp__._2;
 		if (!_ok || (_host != _want)) {
-			_t.errorf(Go.str("Hostname() = %q, want %q"), Go.toInterface(_hostname), Go.toInterface(_want));
+			_t.errorf(("Hostname() = %q, want %q" : GoString), Go.toInterface(_hostname), Go.toInterface(_want));
 		};
 	};
 }
 
 function testReadAt(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	var _f = _newFile(Go.str("TestReadAt"), _t);
+	var _f = _newFile(("TestReadAt" : GoString), _t);
 	try {
 		{
 			var _a0 = _f.name();
@@ -4420,16 +4431,16 @@ function testReadAt(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 		__deferstack__.unshift(() -> _f.close());
 		{};
-		stdgo.io.Io.writeString(Go.asInterface(_f), Go.str("hello, world\n"));
+		stdgo.io.Io.writeString(Go.asInterface(_f), ("hello, world\n" : GoString));
 		var _b = new Slice<GoUInt8>((5 : GoInt).toBasic(), 0, ...[for (i in 0...(5 : GoInt).toBasic()) (0 : GoUInt8)]);
 		var __tmp__ = _f.readAt(_b, ("7" : GoInt64)),
 			_n:GoInt = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if ((_err != null) || (_n != (_b.length))) {
-			_t.fatalf(Go.str("ReadAt 7: %d, %v"), Go.toInterface(_n), Go.toInterface(_err));
+			_t.fatalf(("ReadAt 7: %d, %v" : GoString), Go.toInterface(_n), Go.toInterface(_err));
 		};
-		if ((_b : GoString) != (Go.str("world"))) {
-			_t.fatalf(Go.str("ReadAt 7: have %q want %q"), Go.toInterface((_b : GoString)), Go.toInterface(Go.str("world")));
+		if ((_b : GoString) != (("world" : GoString))) {
+			_t.fatalf(("ReadAt 7: have %q want %q" : GoString), Go.toInterface((_b : GoString)), Go.toInterface(("world" : GoString)));
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -4463,7 +4474,7 @@ function testReadAt(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testReadAtOffset(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	var _f = _newFile(Go.str("TestReadAtOffset"), _t);
+	var _f = _newFile(("TestReadAtOffset" : GoString), _t);
 	try {
 		{
 			var _a0 = _f.name();
@@ -4471,17 +4482,17 @@ function testReadAtOffset(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 		__deferstack__.unshift(() -> _f.close());
 		{};
-		stdgo.io.Io.writeString(Go.asInterface(_f), Go.str("hello, world\n"));
+		stdgo.io.Io.writeString(Go.asInterface(_f), ("hello, world\n" : GoString));
 		_f.seek(("0" : GoInt64), (0 : GoInt));
 		var _b = new Slice<GoUInt8>((5 : GoInt).toBasic(), 0, ...[for (i in 0...(5 : GoInt).toBasic()) (0 : GoUInt8)]);
 		var __tmp__ = _f.readAt(_b, ("7" : GoInt64)),
 			_n:GoInt = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if ((_err != null) || (_n != (_b.length))) {
-			_t.fatalf(Go.str("ReadAt 7: %d, %v"), Go.toInterface(_n), Go.toInterface(_err));
+			_t.fatalf(("ReadAt 7: %d, %v" : GoString), Go.toInterface(_n), Go.toInterface(_err));
 		};
-		if ((_b : GoString) != (Go.str("world"))) {
-			_t.fatalf(Go.str("ReadAt 7: have %q want %q"), Go.toInterface((_b : GoString)), Go.toInterface(Go.str("world")));
+		if ((_b : GoString) != (("world" : GoString))) {
+			_t.fatalf(("ReadAt 7: have %q want %q" : GoString), Go.toInterface((_b : GoString)), Go.toInterface(("world" : GoString)));
 		};
 		{
 			var __tmp__ = _f.read(_b);
@@ -4489,10 +4500,10 @@ function testReadAtOffset(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_err = __tmp__._1;
 		};
 		if ((_err != null) || (_n != (_b.length))) {
-			_t.fatalf(Go.str("Read: %d, %v"), Go.toInterface(_n), Go.toInterface(_err));
+			_t.fatalf(("Read: %d, %v" : GoString), Go.toInterface(_n), Go.toInterface(_err));
 		};
-		if ((_b : GoString) != (Go.str("hello"))) {
-			_t.fatalf(Go.str("Read: have %q want %q"), Go.toInterface((_b : GoString)), Go.toInterface(Go.str("hello")));
+		if ((_b : GoString) != (("hello" : GoString))) {
+			_t.fatalf(("Read: have %q want %q" : GoString), Go.toInterface((_b : GoString)), Go.toInterface(("hello" : GoString)));
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -4523,7 +4534,7 @@ function testReadAtOffset(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testReadAtNegativeOffset(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	var _f = _newFile(Go.str("TestReadAtNegativeOffset"), _t);
+	var _f = _newFile(("TestReadAtNegativeOffset" : GoString), _t);
 	try {
 		{
 			var _a0 = _f.name();
@@ -4531,16 +4542,17 @@ function testReadAtNegativeOffset(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 		__deferstack__.unshift(() -> _f.close());
 		{};
-		stdgo.io.Io.writeString(Go.asInterface(_f), Go.str("hello, world\n"));
+		stdgo.io.Io.writeString(Go.asInterface(_f), ("hello, world\n" : GoString));
 		_f.seek(("0" : GoInt64), (0 : GoInt));
 		var _b = new Slice<GoUInt8>((5 : GoInt).toBasic(), 0, ...[for (i in 0...(5 : GoInt).toBasic()) (0 : GoUInt8)]);
 		var __tmp__ = _f.readAt(_b, ("-10" : GoInt64)),
 			_n:GoInt = __tmp__._0,
 			_err:Error = __tmp__._1;
 		{};
-		if (!stdgo.strings.Strings.contains(stdgo.fmt.Fmt.sprint(Go.toInterface(_err)), Go.str("negative offset"))
+		if (!stdgo.strings.Strings.contains(stdgo.fmt.Fmt.sprint(Go.toInterface(_err)), ("negative offset" : GoString))
 			|| (_n != (0 : GoInt))) {
-			_t.errorf(Go.str("ReadAt(-10) = %v, %v; want 0, ...%q..."), Go.toInterface(_n), Go.toInterface(_err), Go.toInterface(Go.str("negative offset")));
+			_t.errorf(("ReadAt(-10) = %v, %v; want 0, ...%q..." : GoString), Go.toInterface(_n), Go.toInterface(_err),
+				Go.toInterface(("negative offset" : GoString)));
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -4568,7 +4580,7 @@ function testReadAtNegativeOffset(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testWriteAt(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	var _f = _newFile(Go.str("TestWriteAt"), _t);
+	var _f = _newFile(("TestWriteAt" : GoString), _t);
 	try {
 		{
 			var _a0 = _f.name();
@@ -4576,21 +4588,21 @@ function testWriteAt(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 		__deferstack__.unshift(() -> _f.close());
 		{};
-		stdgo.io.Io.writeString(Go.asInterface(_f), Go.str("hello, world\n"));
-		var __tmp__ = _f.writeAt((Go.str("WORLD") : Slice<GoByte>), ("7" : GoInt64)),
+		stdgo.io.Io.writeString(Go.asInterface(_f), ("hello, world\n" : GoString));
+		var __tmp__ = _f.writeAt((("WORLD" : GoString) : Slice<GoByte>), ("7" : GoInt64)),
 			_n:GoInt = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if ((_err != null) || (_n != (5 : GoInt))) {
-			_t.fatalf(Go.str("WriteAt 7: %d, %v"), Go.toInterface(_n), Go.toInterface(_err));
+			_t.fatalf(("WriteAt 7: %d, %v" : GoString), Go.toInterface(_n), Go.toInterface(_err));
 		};
 		var __tmp__ = stdgo.os.Os.readFile(_f.name()),
 			_b:Slice<GoUInt8> = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("ReadFile %s: %v"), Go.toInterface(_f.name()), Go.toInterface(_err));
+			_t.fatalf(("ReadFile %s: %v" : GoString), Go.toInterface(_f.name()), Go.toInterface(_err));
 		};
-		if ((_b : GoString) != (Go.str("hello, WORLD\n"))) {
-			_t.fatalf(Go.str("after write: have %q want %q"), Go.toInterface((_b : GoString)), Go.toInterface(Go.str("hello, WORLD\n")));
+		if ((_b : GoString) != (("hello, WORLD\n" : GoString))) {
+			_t.fatalf(("after write: have %q want %q" : GoString), Go.toInterface((_b : GoString)), Go.toInterface(("hello, WORLD\n" : GoString)));
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -4621,20 +4633,21 @@ function testWriteAt(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testWriteAtNegativeOffset(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	var _f = _newFile(Go.str("TestWriteAtNegativeOffset"), _t);
+	var _f = _newFile(("TestWriteAtNegativeOffset" : GoString), _t);
 	try {
 		{
 			var _a0 = _f.name();
 			__deferstack__.unshift(() -> remove(_a0));
 		};
 		__deferstack__.unshift(() -> _f.close());
-		var __tmp__ = _f.writeAt((Go.str("WORLD") : Slice<GoByte>), ("-10" : GoInt64)),
+		var __tmp__ = _f.writeAt((("WORLD" : GoString) : Slice<GoByte>), ("-10" : GoInt64)),
 			_n:GoInt = __tmp__._0,
 			_err:Error = __tmp__._1;
 		{};
-		if (!stdgo.strings.Strings.contains(stdgo.fmt.Fmt.sprint(Go.toInterface(_err)), Go.str("negative offset"))
+		if (!stdgo.strings.Strings.contains(stdgo.fmt.Fmt.sprint(Go.toInterface(_err)), ("negative offset" : GoString))
 			|| (_n != (0 : GoInt))) {
-			_t.errorf(Go.str("WriteAt(-10) = %v, %v; want 0, ...%q..."), Go.toInterface(_n), Go.toInterface(_err), Go.toInterface(Go.str("negative offset")));
+			_t.errorf(("WriteAt(-10) = %v, %v; want 0, ...%q..." : GoString), Go.toInterface(_n), Go.toInterface(_err),
+				Go.toInterface(("negative offset" : GoString)));
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -4667,11 +4680,11 @@ function testWriteAtInAppendMode(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	__deferstack__.unshift(() -> _chtmpdir(_t)());
 	try {
-		var __tmp__ = openFile(Go.str("write_at_in_append_mode.txt"), (1088 : GoInt), (("438" : GoUInt32) : stdgo.io.fs.Fs.FileMode)),
+		var __tmp__ = openFile(("write_at_in_append_mode.txt" : GoString), (1088 : GoInt), (("438" : GoUInt32) : stdgo.io.fs.Fs.FileMode)),
 			_f:Ref<File> = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("OpenFile: %v"), Go.toInterface(_err));
+			_t.fatalf(("OpenFile: %v" : GoString), Go.toInterface(_err));
 		};
 		__deferstack__.unshift(() -> _f.close());
 		{
@@ -4679,7 +4692,7 @@ function testWriteAtInAppendMode(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_err = __tmp__._1;
 		};
 		if (Go.toInterface(_err) != (Go.toInterface(errWriteAtInAppendMode))) {
-			_t.fatalf(Go.str("f.WriteAt returned %v, expected %v"), Go.toInterface(_err), Go.toInterface(errWriteAtInAppendMode));
+			_t.fatalf(("f.WriteAt returned %v, expected %v" : GoString), Go.toInterface(_err), Go.toInterface(errWriteAtInAppendMode));
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -4705,25 +4718,25 @@ function testWriteAtInAppendMode(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 }
 
-function _writeFile(_t:Ref<stdgo.testing.Testing.T>, _fname:GoString, _flag:GoInt, _text:GoString):GoString {
+private function _writeFile(_t:Ref<stdgo.testing.Testing.T>, _fname:GoString, _flag:GoInt, _text:GoString):GoString {
 	var __tmp__ = openFile(_fname, _flag, (("438" : GoUInt32) : stdgo.io.fs.Fs.FileMode)),
 		_f:Ref<File> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		_t.fatalf(Go.str("Open: %v"), Go.toInterface(_err));
+		_t.fatalf(("Open: %v" : GoString), Go.toInterface(_err));
 	};
 	var __tmp__ = stdgo.io.Io.writeString(Go.asInterface(_f), _text),
 		_n:GoInt = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		_t.fatalf(Go.str("WriteString: %d, %v"), Go.toInterface(_n), Go.toInterface(_err));
+		_t.fatalf(("WriteString: %d, %v" : GoString), Go.toInterface(_n), Go.toInterface(_err));
 	};
 	_f.close();
 	var __tmp__ = stdgo.os.Os.readFile(_fname),
 		_data:Slice<GoUInt8> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		_t.fatalf(Go.str("ReadFile: %v"), Go.toInterface(_err));
+		_t.fatalf(("ReadFile: %v" : GoString), Go.toInterface(_err));
 	};
 	return (_data : GoString);
 }
@@ -4733,33 +4746,33 @@ function testAppend(_t:Ref<stdgo.testing.Testing.T>):Void {
 	__deferstack__.unshift(() -> _chtmpdir(_t)());
 	try {
 		{};
-		var _s:GoString = _writeFile(_t, Go.str("append.txt"), (578 : GoInt), Go.str("new"));
-		if (_s != (Go.str("new"))) {
-			_t.fatalf(Go.str("writeFile: have %q want %q"), Go.toInterface(_s), Go.toInterface(Go.str("new")));
+		var _s:GoString = _writeFile(_t, ("append.txt" : GoString), (578 : GoInt), ("new" : GoString));
+		if (_s != (("new" : GoString))) {
+			_t.fatalf(("writeFile: have %q want %q" : GoString), Go.toInterface(_s), Go.toInterface(("new" : GoString)));
 		};
-		_s = _writeFile(_t, Go.str("append.txt"), (1026 : GoInt), Go.str("|append"));
-		if (_s != (Go.str("new|append"))) {
-			_t.fatalf(Go.str("writeFile: have %q want %q"), Go.toInterface(_s), Go.toInterface(Go.str("new|append")));
+		_s = _writeFile(_t, ("append.txt" : GoString), (1026 : GoInt), ("|append" : GoString));
+		if (_s != (("new|append" : GoString))) {
+			_t.fatalf(("writeFile: have %q want %q" : GoString), Go.toInterface(_s), Go.toInterface(("new|append" : GoString)));
 		};
-		_s = _writeFile(_t, Go.str("append.txt"), (1090 : GoInt), Go.str("|append"));
-		if (_s != (Go.str("new|append|append"))) {
-			_t.fatalf(Go.str("writeFile: have %q want %q"), Go.toInterface(_s), Go.toInterface(Go.str("new|append|append")));
+		_s = _writeFile(_t, ("append.txt" : GoString), (1090 : GoInt), ("|append" : GoString));
+		if (_s != (("new|append|append" : GoString))) {
+			_t.fatalf(("writeFile: have %q want %q" : GoString), Go.toInterface(_s), Go.toInterface(("new|append|append" : GoString)));
 		};
-		var _err:Error = remove(Go.str("append.txt"));
+		var _err:Error = remove(("append.txt" : GoString));
 		if (_err != null) {
-			_t.fatalf(Go.str("Remove: %v"), Go.toInterface(_err));
+			_t.fatalf(("Remove: %v" : GoString), Go.toInterface(_err));
 		};
-		_s = _writeFile(_t, Go.str("append.txt"), (1090 : GoInt), Go.str("new&append"));
-		if (_s != (Go.str("new&append"))) {
-			_t.fatalf(Go.str("writeFile: after append have %q want %q"), Go.toInterface(_s), Go.toInterface(Go.str("new&append")));
+		_s = _writeFile(_t, ("append.txt" : GoString), (1090 : GoInt), ("new&append" : GoString));
+		if (_s != (("new&append" : GoString))) {
+			_t.fatalf(("writeFile: after append have %q want %q" : GoString), Go.toInterface(_s), Go.toInterface(("new&append" : GoString)));
 		};
-		_s = _writeFile(_t, Go.str("append.txt"), (66 : GoInt), Go.str("old"));
-		if (_s != (Go.str("old&append"))) {
-			_t.fatalf(Go.str("writeFile: after create have %q want %q"), Go.toInterface(_s), Go.toInterface(Go.str("old&append")));
+		_s = _writeFile(_t, ("append.txt" : GoString), (66 : GoInt), ("old" : GoString));
+		if (_s != (("old&append" : GoString))) {
+			_t.fatalf(("writeFile: after create have %q want %q" : GoString), Go.toInterface(_s), Go.toInterface(("old&append" : GoString)));
 		};
-		_s = _writeFile(_t, Go.str("append.txt"), (578 : GoInt), Go.str("new"));
-		if (_s != (Go.str("new"))) {
-			_t.fatalf(Go.str("writeFile: after truncate have %q want %q"), Go.toInterface(_s), Go.toInterface(Go.str("new")));
+		_s = _writeFile(_t, ("append.txt" : GoString), (578 : GoInt), ("new" : GoString));
+		if (_s != (("new" : GoString))) {
+			_t.fatalf(("writeFile: after truncate have %q want %q" : GoString), Go.toInterface(_s), Go.toInterface(("new" : GoString)));
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -4792,16 +4805,16 @@ function testStatDirWithTrailingSlash(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_0:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("stat %s failed: %s"), Go.toInterface(_path), Go.toInterface(_err));
+			_t.fatalf(("stat %s failed: %s" : GoString), Go.toInterface(_path), Go.toInterface(_err));
 		};
 	};
-	_path = _path + (Go.str("/"));
+	_path = _path + (("/" : GoString));
 	{
 		var __tmp__ = stat(_path),
 			_1:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("stat %s failed: %s"), Go.toInterface(_path), Go.toInterface(_err));
+			_t.fatalf(("stat %s failed: %s" : GoString), Go.toInterface(_path), Go.toInterface(_err));
 		};
 	};
 }
@@ -4809,8 +4822,8 @@ function testStatDirWithTrailingSlash(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testNilProcessStateString(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _ps:Ref<ProcessState> = (null : Ref<ProcessState>);
 	var _s:GoString = (_ps.string() : GoString);
-	if (_s != (Go.str("<nil>"))) {
-		_t.errorf(Go.str("(*ProcessState)(nil).String() = %q, want %q"), Go.toInterface(_s), Go.toInterface(Go.str("<nil>")));
+	if (_s != (("<nil>" : GoString))) {
+		_t.errorf(("(*ProcessState)(nil).String() = %q, want %q" : GoString), Go.toInterface(_s), Go.toInterface(("<nil>" : GoString)));
 	};
 }
 
@@ -4818,43 +4831,43 @@ function testSameFile(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	__deferstack__.unshift(() -> _chtmpdir(_t)());
 	try {
-		var __tmp__ = create(Go.str("a")),
+		var __tmp__ = create(("a" : GoString)),
 			_fa:Ref<File> = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("Create(a): %v"), Go.toInterface(_err));
+			_t.fatalf(("Create(a): %v" : GoString), Go.toInterface(_err));
 		};
 		_fa.close();
-		var __tmp__ = create(Go.str("b")),
+		var __tmp__ = create(("b" : GoString)),
 			_fb:Ref<File> = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("Create(b): %v"), Go.toInterface(_err));
+			_t.fatalf(("Create(b): %v" : GoString), Go.toInterface(_err));
 		};
 		_fb.close();
-		var __tmp__ = stat(Go.str("a")),
+		var __tmp__ = stat(("a" : GoString)),
 			_ia1:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("Stat(a): %v"), Go.toInterface(_err));
+			_t.fatalf(("Stat(a): %v" : GoString), Go.toInterface(_err));
 		};
-		var __tmp__ = stat(Go.str("a")),
+		var __tmp__ = stat(("a" : GoString)),
 			_ia2:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("Stat(a): %v"), Go.toInterface(_err));
+			_t.fatalf(("Stat(a): %v" : GoString), Go.toInterface(_err));
 		};
 		if (!sameFile(_ia1, _ia2)) {
-			_t.errorf(Go.str("files should be same"));
+			_t.errorf(("files should be same" : GoString));
 		};
-		var __tmp__ = stat(Go.str("b")),
+		var __tmp__ = stat(("b" : GoString)),
 			_ib:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("Stat(b): %v"), Go.toInterface(_err));
+			_t.fatalf(("Stat(b): %v" : GoString), Go.toInterface(_err));
 		};
 		if (sameFile(_ia1, _ib)) {
-			_t.errorf(Go.str("files should be different"));
+			_t.errorf(("files should be different" : GoString));
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -4880,58 +4893,58 @@ function testSameFile(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 }
 
-function _testDevNullFileInfo(_t:Ref<stdgo.testing.Testing.T>, _statname:GoString, _devNullName:GoString, _fi:FileInfo, _ignoreCase:Bool):Void {
-	var _pre:GoString = stdgo.fmt.Fmt.sprintf(Go.str("%s(%q): "), Go.toInterface(_statname), Go.toInterface(_devNullName));
+private function _testDevNullFileInfo(_t:Ref<stdgo.testing.Testing.T>, _statname:GoString, _devNullName:GoString, _fi:FileInfo, _ignoreCase:Bool):Void {
+	var _pre:GoString = stdgo.fmt.Fmt.sprintf(("%s(%q): " : GoString), Go.toInterface(_statname), Go.toInterface(_devNullName));
 	var _name:GoString = stdgo.path.filepath.Filepath.base(_devNullName);
 	if (_ignoreCase) {
 		if (stdgo.strings.Strings.toUpper(_fi.name()) != (stdgo.strings.Strings.toUpper(_name))) {
-			_t.errorf(_pre + Go.str("wrong file name have %v want %v"), Go.toInterface(_fi.name()), Go.toInterface(_name));
+			_t.errorf(_pre + ("wrong file name have %v want %v" : GoString), Go.toInterface(_fi.name()), Go.toInterface(_name));
 		};
 	} else {
 		if (_fi.name() != (_name)) {
-			_t.errorf(_pre + Go.str("wrong file name have %v want %v"), Go.toInterface(_fi.name()), Go.toInterface(_name));
+			_t.errorf(_pre + ("wrong file name have %v want %v" : GoString), Go.toInterface(_fi.name()), Go.toInterface(_name));
 		};
 	};
 	if (_fi.size() != (("0" : GoInt64))) {
-		_t.errorf(_pre + Go.str("wrong file size have %d want 0"), Go.toInterface(_fi.size()));
+		_t.errorf(_pre + ("wrong file size have %d want 0" : GoString), Go.toInterface(_fi.size()));
 	};
 	if (_fi.mode() & (("67108864" : GoUInt32) : stdgo.io.fs.Fs.FileMode) == ((("0" : GoUInt32) : stdgo.io.fs.Fs.FileMode))) {
-		_t.errorf(_pre + Go.str("wrong file mode %q: ModeDevice is not set"), Go.toInterface(Go.asInterface(_fi.mode())));
+		_t.errorf(_pre + ("wrong file mode %q: ModeDevice is not set" : GoString), Go.toInterface(Go.asInterface(_fi.mode())));
 	};
 	if (_fi.mode() & (("2097152" : GoUInt32) : stdgo.io.fs.Fs.FileMode) == ((("0" : GoUInt32) : stdgo.io.fs.Fs.FileMode))) {
-		_t.errorf(_pre + Go.str("wrong file mode %q: ModeCharDevice is not set"), Go.toInterface(Go.asInterface(_fi.mode())));
+		_t.errorf(_pre + ("wrong file mode %q: ModeCharDevice is not set" : GoString), Go.toInterface(Go.asInterface(_fi.mode())));
 	};
 	if (_fi.mode().isRegular()) {
-		_t.errorf(_pre + Go.str("wrong file mode %q: IsRegular returns true"), Go.toInterface(Go.asInterface(_fi.mode())));
+		_t.errorf(_pre + ("wrong file mode %q: IsRegular returns true" : GoString), Go.toInterface(Go.asInterface(_fi.mode())));
 	};
 }
 
-function _testDevNullFile(_t:Ref<stdgo.testing.Testing.T>, _devNullName:GoString, _ignoreCase:Bool):Void {
+private function _testDevNullFile(_t:Ref<stdgo.testing.Testing.T>, _devNullName:GoString, _ignoreCase:Bool):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	var __tmp__ = open(_devNullName),
 		_f:Ref<File> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	try {
 		if (_err != null) {
-			_t.fatalf(Go.str("Open(%s): %v"), Go.toInterface(_devNullName), Go.toInterface(_err));
+			_t.fatalf(("Open(%s): %v" : GoString), Go.toInterface(_devNullName), Go.toInterface(_err));
 		};
 		__deferstack__.unshift(() -> _f.close());
 		var __tmp__ = _f.stat(),
 			_fi:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("Stat(%s): %v"), Go.toInterface(_devNullName), Go.toInterface(_err));
+			_t.fatalf(("Stat(%s): %v" : GoString), Go.toInterface(_devNullName), Go.toInterface(_err));
 		};
-		_testDevNullFileInfo(_t, Go.str("f.Stat"), _devNullName, _fi, _ignoreCase);
+		_testDevNullFileInfo(_t, ("f.Stat" : GoString), _devNullName, _fi, _ignoreCase);
 		{
 			var __tmp__ = stat(_devNullName);
 			_fi = __tmp__._0;
 			_err = __tmp__._1;
 		};
 		if (_err != null) {
-			_t.fatalf(Go.str("Stat(%s): %v"), Go.toInterface(_devNullName), Go.toInterface(_err));
+			_t.fatalf(("Stat(%s): %v" : GoString), Go.toInterface(_devNullName), Go.toInterface(_err));
 		};
-		_testDevNullFileInfo(_t, Go.str("Stat"), _devNullName, _fi, _ignoreCase);
+		_testDevNullFileInfo(_t, ("Stat" : GoString), _devNullName, _fi, _ignoreCase);
 		for (defer in __deferstack__) {
 			defer();
 		};
@@ -4957,12 +4970,12 @@ function _testDevNullFile(_t:Ref<stdgo.testing.Testing.T>, _devNullName:GoString
 }
 
 function testDevNullFile(_t:Ref<stdgo.testing.Testing.T>):Void {
-	_testDevNullFile(_t, Go.str("/dev/null"), false);
+	_testDevNullFile(_t, ("/dev/null" : GoString), false);
 }
 
 function testLargeWriteToConsole(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (!_testLargeWrite.value) {
-		_t.skip(Go.toInterface(Go.str("skipping console-flooding test; enable with -large_write")));
+		_t.skip(Go.toInterface(("skipping console-flooding test; enable with -large_write" : GoString)));
 	};
 	var _b = new Slice<GoUInt8>((32000 : GoInt).toBasic(), 0, ...[for (i in 0...(32000 : GoInt).toBasic()) (0 : GoUInt8)]);
 	for (_i in 0..._b.length.toBasic()) {
@@ -4973,10 +4986,10 @@ function testLargeWriteToConsole(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_n:GoInt = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		_t.fatalf(Go.str("Write to os.Stdout failed: %v"), Go.toInterface(_err));
+		_t.fatalf(("Write to os.Stdout failed: %v" : GoString), Go.toInterface(_err));
 	};
 	if (_n != ((_b.length))) {
-		_t.errorf(Go.str("Write to os.Stdout should return %d; got %d"), Go.toInterface((_b.length)), Go.toInterface(_n));
+		_t.errorf(("Write to os.Stdout should return %d; got %d" : GoString), Go.toInterface((_b.length)), Go.toInterface(_n));
 	};
 	{
 		var __tmp__ = stderr.write(_b);
@@ -4984,10 +4997,10 @@ function testLargeWriteToConsole(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_err = __tmp__._1;
 	};
 	if (_err != null) {
-		_t.fatalf(Go.str("Write to os.Stderr failed: %v"), Go.toInterface(_err));
+		_t.fatalf(("Write to os.Stderr failed: %v" : GoString), Go.toInterface(_err));
 	};
 	if (_n != ((_b.length))) {
-		_t.errorf(Go.str("Write to os.Stderr should return %d; got %d"), Go.toInterface((_b.length)), Go.toInterface(_n));
+		_t.errorf(("Write to os.Stderr should return %d; got %d" : GoString), Go.toInterface((_b.length)), Go.toInterface(_n));
 	};
 }
 
@@ -4997,32 +5010,32 @@ function testStatDirModeExec(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _err:Error = chmod(_path, (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 		if (_err != null) {
-			_t.fatalf(Go.str("Chmod %q 0777: %v"), Go.toInterface(_path), Go.toInterface(_err));
+			_t.fatalf(("Chmod %q 0777: %v" : GoString), Go.toInterface(_path), Go.toInterface(_err));
 		};
 	};
 	var __tmp__ = stat(_path),
 		_dir:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		_t.fatalf(Go.str("Stat %q (looking for mode %#o): %s"), Go.toInterface(_path), Go.toInterface((73 : GoInt)), Go.toInterface(_err));
+		_t.fatalf(("Stat %q (looking for mode %#o): %s" : GoString), Go.toInterface(_path), Go.toInterface((73 : GoInt)), Go.toInterface(_err));
 	};
 	if (_dir.mode() & (("73" : GoUInt32) : stdgo.io.fs.Fs.FileMode) != ((("73" : GoUInt32) : stdgo.io.fs.Fs.FileMode))) {
-		_t.errorf(Go.str("Stat %q: mode %#o want %#o"), Go.toInterface(_path),
+		_t.errorf(("Stat %q: mode %#o want %#o" : GoString), Go.toInterface(_path),
 			Go.toInterface(Go.asInterface(_dir.mode() & (("73" : GoUInt32) : stdgo.io.fs.Fs.FileMode))), Go.toInterface((73 : GoInt)));
 	};
 }
 
 function testStatStdin(_t:Ref<stdgo.testing.Testing.T>):Void {
-	if (Go.str("js") == (Go.str("android")) || Go.str("js") == (Go.str("plan9"))) {
-		_t.skipf(Go.str("%s doesn\'t have /bin/sh"), Go.toInterface(Go.str("js")));
+	if (("js" : GoString) == (("android" : GoString)) || ("js" : GoString) == (("plan9" : GoString))) {
+		_t.skipf(("%s doesn\'t have /bin/sh" : GoString), Go.toInterface(("js" : GoString)));
 	};
 	stdgo.internal.testenv.Testenv.mustHaveExec(Go.asInterface(_t));
-	if (getenv(Go.str("GO_WANT_HELPER_PROCESS")) == (Go.str("1"))) {
+	if (getenv(("GO_WANT_HELPER_PROCESS" : GoString)) == (("1" : GoString))) {
 		var __tmp__ = stdin.stat(),
 			_st:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("Stat failed: %v"), Go.toInterface(_err));
+			_t.fatalf(("Stat failed: %v" : GoString), Go.toInterface(_err));
 		};
 		stdgo.fmt.Fmt.println(Go.toInterface(Go.asInterface(_st.mode() & (("33554432" : GoUInt32) : stdgo.io.fs.Fs.FileMode))));
 		exit((0 : GoInt));
@@ -5038,25 +5051,26 @@ function testStatStdin(_t:Ref<stdgo.testing.Testing.T>):Void {
 		if (((_mode & (("2097152" : GoUInt32) : stdgo.io.fs.Fs.FileMode)) != (("0" : GoUInt32) : stdgo.io.fs.Fs.FileMode))
 			&& ((_mode & (("67108864" : GoUInt32) : stdgo.io.fs.Fs.FileMode)) != (("0" : GoUInt32) : stdgo.io.fs.Fs.FileMode))) {} else
 			if (_mode & (("33554432" : GoUInt32) : stdgo.io.fs.Fs.FileMode) != ((("0" : GoUInt32) : stdgo.io.fs.Fs.FileMode))) {} else {
-			_t.fatalf(Go.str("unexpected Stdin mode (%v), want ModeCharDevice or ModeNamedPipe"), Go.toInterface(Go.asInterface(_mode)));
+			_t.fatalf(("unexpected Stdin mode (%v), want ModeCharDevice or ModeNamedPipe" : GoString), Go.toInterface(Go.asInterface(_mode)));
 		};
 	};
 	var _cmd:Ref<stdgo.os.exec.Exec.Cmd> = (null : Ref<stdgo.os.exec.Exec.Cmd>);
 	if (false) {
-		_cmd = stdgo.os.exec.Exec.command(Go.str("cmd"), Go.str("/c"), (Go.str("echo output | ") + args[(0 : GoInt)]) + Go.str(" -test.run=TestStatStdin"));
+		_cmd = stdgo.os.exec.Exec.command(("cmd" : GoString), ("/c" : GoString),
+			(("echo output | " : GoString) + args[(0 : GoInt)]) + (" -test.run=TestStatStdin" : GoString));
 	} else {
-		_cmd = stdgo.os.exec.Exec.command(Go.str("/bin/sh"), Go.str("-c"),
-			(Go.str("echo output | ") + args[(0 : GoInt)]) + Go.str(" -test.run=TestStatStdin"));
+		_cmd = stdgo.os.exec.Exec.command(("/bin/sh" : GoString), ("-c" : GoString),
+			(("echo output | " : GoString) + args[(0 : GoInt)]) + (" -test.run=TestStatStdin" : GoString));
 	};
-	_cmd.env = (environ().__append__(Go.str("GO_WANT_HELPER_PROCESS=1")));
+	_cmd.env = (environ().__append__(("GO_WANT_HELPER_PROCESS=1" : GoString)));
 	var __tmp__ = _cmd.combinedOutput(),
 		_output:Slice<GoUInt8> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		_t.fatalf(Go.str("Failed to spawn child process: %v %q"), Go.toInterface(_err), Go.toInterface((_output : GoString)));
+		_t.fatalf(("Failed to spawn child process: %v %q" : GoString), Go.toInterface(_err), Go.toInterface((_output : GoString)));
 	};
 	if ((_output.length < (1:GoInt)) || (_output[(0 : GoInt)] != (112 : GoUInt8))) {
-		_t.fatalf(Go.str("Child process reports stdin is not pipe \'%v\'"), Go.toInterface((_output : GoString)));
+		_t.fatalf(("Child process reports stdin is not pipe \'%v\'" : GoString), Go.toInterface((_output : GoString)));
 	};
 }
 
@@ -5065,7 +5079,7 @@ function testStatRelativeSymlink(_t:Ref<stdgo.testing.Testing.T>):Void {
 	stdgo.internal.testenv.Testenv.mustHaveSymlink(Go.asInterface(_t));
 	try {
 		var _tmpdir:GoString = _t.tempDir();
-		var _target:GoString = stdgo.path.filepath.Filepath.join(_tmpdir, Go.str("target"));
+		var _target:GoString = stdgo.path.filepath.Filepath.join(_tmpdir, ("target" : GoString));
 		var __tmp__ = create(_target),
 			_f:Ref<File> = __tmp__._0,
 			_err:Error = __tmp__._1;
@@ -5079,7 +5093,7 @@ function testStatRelativeSymlink(_t:Ref<stdgo.testing.Testing.T>):Void {
 		if (_err != null) {
 			_t.fatal(Go.toInterface(_err));
 		};
-		var _link:GoString = stdgo.path.filepath.Filepath.join(_tmpdir, Go.str("link"));
+		var _link:GoString = stdgo.path.filepath.Filepath.join(_tmpdir, ("link" : GoString));
 		_err = symlink(stdgo.path.filepath.Filepath.base(_target), _link);
 		if (_err != null) {
 			_t.fatal(Go.toInterface(_err));
@@ -5091,7 +5105,7 @@ function testStatRelativeSymlink(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_t.fatal(Go.toInterface(_err));
 		};
 		if (!sameFile(_st, _st1)) {
-			_t.error(Go.toInterface(Go.str("Stat doesn\'t follow relative symlink")));
+			_t.error(Go.toInterface(("Stat doesn\'t follow relative symlink" : GoString)));
 		};
 		if (false) {
 			remove(_link);
@@ -5106,7 +5120,7 @@ function testStatRelativeSymlink(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_t.fatal(Go.toInterface(_err));
 			};
 			if (!sameFile(_st, _st1)) {
-				_t.error(Go.toInterface(Go.str("Stat doesn\'t follow relative symlink")));
+				_t.error(Go.toInterface(("Stat doesn\'t follow relative symlink" : GoString)));
 			};
 		};
 		for (defer in __deferstack__) {
@@ -5135,7 +5149,7 @@ function testStatRelativeSymlink(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testReadAtEOF(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	var _f = _newFile(Go.str("TestReadAtEOF"), _t);
+	var _f = _newFile(("TestReadAtEOF" : GoString), _t);
 	try {
 		{
 			var _a0 = _f.name();
@@ -5146,9 +5160,9 @@ function testReadAtEOF(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_0:GoInt = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (Go.toInterface(_err) == (Go.toInterface(stdgo.io.Io.eof))) {} else if (_err == null) {
-			_t.fatalf(Go.str("ReadAt succeeded"));
+			_t.fatalf(("ReadAt succeeded" : GoString));
 		} else {
-			_t.fatalf(Go.str("ReadAt failed: %s"), Go.toInterface(_err));
+			_t.fatalf(("ReadAt failed: %s" : GoString), Go.toInterface(_err));
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -5176,7 +5190,7 @@ function testReadAtEOF(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testLongPath(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	var _tmpdir:GoString = _newDir(Go.str("TestLongPath"), _t);
+	var _tmpdir:GoString = _newDir(("TestLongPath" : GoString), _t);
 	try {
 		{
 			var _a0 = _tmpdir;
@@ -5185,7 +5199,7 @@ function testLongPath(_t:Ref<stdgo.testing.Testing.T>):Void {
 					{
 						var _err:Error = removeAll(_d);
 						if (_err != null) {
-							_t.fatalf(Go.str("RemoveAll failed: %v"), Go.toInterface(_err));
+							_t.fatalf(("RemoveAll failed: %v" : GoString), Go.toInterface(_err));
 						};
 					};
 				};
@@ -5194,28 +5208,28 @@ function testLongPath(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 		var _sizes = (new Slice<GoInt>(0, 0, (247 : GoInt), (248 : GoInt), (249 : GoInt), (400 : GoInt)) : Slice<GoInt>);
 		while ((_tmpdir.length) < (400 : GoInt)) {
-			_tmpdir = _tmpdir + (Go.str("/dir3456789"));
+			_tmpdir = _tmpdir + (("/dir3456789" : GoString));
 		};
 		for (_0 => _sz in _sizes) {
-			_t.run(stdgo.fmt.Fmt.sprintf(Go.str("length=%d"), Go.toInterface(_sz)), function(_t:Ref<stdgo.testing.Testing.T>):Void {
-				var _sizedTempDir:GoString = (_tmpdir.__slice__(0, _sz - (1 : GoInt)) : GoString) + Go.str("x");
+			_t.run(stdgo.fmt.Fmt.sprintf(("length=%d" : GoString), Go.toInterface(_sz)), function(_t:Ref<stdgo.testing.Testing.T>):Void {
+				var _sizedTempDir:GoString = (_tmpdir.__slice__(0, _sz - (1 : GoInt)) : GoString) + ("x" : GoString);
 				{
 					var _err:Error = mkdirAll(_sizedTempDir, (("493" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 					if (_err != null) {
-						_t.fatalf(Go.str("MkdirAll failed: %v"), Go.toInterface(_err));
+						_t.fatalf(("MkdirAll failed: %v" : GoString), Go.toInterface(_err));
 					};
 				};
-				var _data = (Go.str("hello world\n") : Slice<GoByte>);
+				var _data = (("hello world\n" : GoString) : Slice<GoByte>);
 				{
-					var _err:Error = stdgo.os.Os.writeFile(_sizedTempDir + Go.str("/foo.txt"), _data, (("420" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
+					var _err:Error = stdgo.os.Os.writeFile(_sizedTempDir + ("/foo.txt" : GoString), _data, (("420" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 					if (_err != null) {
-						_t.fatalf(Go.str("os.WriteFile() failed: %v"), Go.toInterface(_err));
+						_t.fatalf(("os.WriteFile() failed: %v" : GoString), Go.toInterface(_err));
 					};
 				};
 				{
-					var _err:Error = rename(_sizedTempDir + Go.str("/foo.txt"), _sizedTempDir + Go.str("/bar.txt"));
+					var _err:Error = rename(_sizedTempDir + ("/foo.txt" : GoString), _sizedTempDir + ("/bar.txt" : GoString));
 					if (_err != null) {
-						_t.fatalf(Go.str("Rename failed: %v"), Go.toInterface(_err));
+						_t.fatalf(("Rename failed: %v" : GoString), Go.toInterface(_err));
 					};
 				};
 				var _mtime:stdgo.time.Time.Time = (stdgo.time.Time.now()
@@ -5223,54 +5237,54 @@ function testLongPath(_t:Ref<stdgo.testing.Testing.T>):Void {
 					.truncate((("60000000000" : GoInt64) : stdgo.time.Time.Duration))
 					.__copy__());
 				{
-					var _err:Error = chtimes(_sizedTempDir + Go.str("/bar.txt"), (_mtime == null ? null : _mtime.__copy__()),
+					var _err:Error = chtimes(_sizedTempDir + ("/bar.txt" : GoString), (_mtime == null ? null : _mtime.__copy__()),
 						(_mtime == null ? null : _mtime.__copy__()));
 					if (_err != null) {
-						_t.fatalf(Go.str("Chtimes failed: %v"), Go.toInterface(_err));
+						_t.fatalf(("Chtimes failed: %v" : GoString), Go.toInterface(_err));
 					};
 				};
-				var _names = (new Slice<GoString>(0, 0, Go.str("bar.txt")) : Slice<GoString>);
+				var _names = (new Slice<GoString>(0, 0, ("bar.txt" : GoString)) : Slice<GoString>);
 				if (stdgo.internal.testenv.Testenv.hasSymlink()) {
 					{
-						var _err:Error = symlink(_sizedTempDir + Go.str("/bar.txt"), _sizedTempDir + Go.str("/symlink.txt"));
+						var _err:Error = symlink(_sizedTempDir + ("/bar.txt" : GoString), _sizedTempDir + ("/symlink.txt" : GoString));
 						if (_err != null) {
-							_t.fatalf(Go.str("Symlink failed: %v"), Go.toInterface(_err));
+							_t.fatalf(("Symlink failed: %v" : GoString), Go.toInterface(_err));
 						};
 					};
-					_names = _names.__appendref__(Go.str("symlink.txt"));
+					_names = _names.__appendref__(("symlink.txt" : GoString));
 				};
 				if (stdgo.internal.testenv.Testenv.hasLink()) {
 					{
-						var _err:Error = link(_sizedTempDir + Go.str("/bar.txt"), _sizedTempDir + Go.str("/link.txt"));
+						var _err:Error = link(_sizedTempDir + ("/bar.txt" : GoString), _sizedTempDir + ("/link.txt" : GoString));
 						if (_err != null) {
-							_t.fatalf(Go.str("Link failed: %v"), Go.toInterface(_err));
+							_t.fatalf(("Link failed: %v" : GoString), Go.toInterface(_err));
 						};
 					};
-					_names = _names.__appendref__(Go.str("link.txt"));
+					_names = _names.__appendref__(("link.txt" : GoString));
 				};
 				for (_0 => _wantSize in (new Slice<GoInt64>(0, 0, (_data.length : GoInt64), ("0" : GoInt64)) : Slice<GoInt64>)) {
 					for (_1 => _name in _names) {
-						var _path:GoString = (_sizedTempDir + Go.str("/")) + _name;
+						var _path:GoString = (_sizedTempDir + ("/" : GoString)) + _name;
 						var __tmp__ = stat(_path),
 							_dir:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 							_err:Error = __tmp__._1;
 						if (_err != null) {
-							_t.fatalf(Go.str("Stat(%q) failed: %v"), Go.toInterface(_path), Go.toInterface(_err));
+							_t.fatalf(("Stat(%q) failed: %v" : GoString), Go.toInterface(_path), Go.toInterface(_err));
 						};
 						var _filesize:GoInt64 = _size(_path, _t);
 						if ((_dir.size() != _filesize) || (_filesize != _wantSize)) {
-							_t.errorf(Go.str("Size(%q) is %d, len(ReadFile()) is %d, want %d"), Go.toInterface(_path), Go.toInterface(_dir.size()),
+							_t.errorf(("Size(%q) is %d, len(ReadFile()) is %d, want %d" : GoString), Go.toInterface(_path), Go.toInterface(_dir.size()),
 								Go.toInterface(_filesize), Go.toInterface(_wantSize));
 						};
 						_err = chmod(_path, _dir.mode());
 						if (_err != null) {
-							_t.fatalf(Go.str("Chmod(%q) failed: %v"), Go.toInterface(_path), Go.toInterface(_err));
+							_t.fatalf(("Chmod(%q) failed: %v" : GoString), Go.toInterface(_path), Go.toInterface(_err));
 						};
 					};
 					{
-						var _err:Error = truncate(_sizedTempDir + Go.str("/bar.txt"), ("0" : GoInt64));
+						var _err:Error = truncate(_sizedTempDir + ("/bar.txt" : GoString), ("0" : GoInt64));
 						if (_err != null) {
-							_t.fatalf(Go.str("Truncate failed: %v"), Go.toInterface(_err));
+							_t.fatalf(("Truncate failed: %v" : GoString), Go.toInterface(_err));
 						};
 					};
 				};
@@ -5300,13 +5314,13 @@ function testLongPath(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 }
 
-function _testKillProcess(_t:Ref<stdgo.testing.Testing.T>, _processKiller:(_p:Ref<Process>) -> Void):Void {
+private function _testKillProcess(_t:Ref<stdgo.testing.Testing.T>, _processKiller:(_p:Ref<Process>) -> Void):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	stdgo.internal.testenv.Testenv.mustHaveExec(Go.asInterface(_t));
 	try {
 		_t.parallel();
 		var _cmd = stdgo.os.exec.Exec.command(args[(0 : GoInt)]);
-		_cmd.env = (stdgo.os.Os.environ().__append__(Go.str("GO_OS_TEST_DRAIN_STDIN=1")));
+		_cmd.env = (stdgo.os.Os.environ().__append__(("GO_OS_TEST_DRAIN_STDIN=1" : GoString)));
 		var __tmp__ = _cmd.stdoutPipe(),
 			_stdout:stdgo.io.Io.ReadCloser = __tmp__._0,
 			_err:Error = __tmp__._1;
@@ -5321,14 +5335,14 @@ function _testKillProcess(_t:Ref<stdgo.testing.Testing.T>, _processKiller:(_p:Re
 		};
 		_err = _cmd.start();
 		if (_err != null) {
-			_t.fatalf(Go.str("Failed to start test process: %v"), Go.toInterface(_err));
+			_t.fatalf(("Failed to start test process: %v" : GoString), Go.toInterface(_err));
 		};
 		__deferstack__.unshift(() -> {
 			var a = function():Void {
 				{
 					var _err:Error = _cmd.wait_();
 					if (_err == null) {
-						_t.errorf(Go.str("Test process succeeded, but expected to fail"));
+						_t.errorf(("Test process succeeded, but expected to fail" : GoString));
 					};
 				};
 				_stdin.close();
@@ -5365,32 +5379,32 @@ function testKillStartProcess(_t:Ref<stdgo.testing.Testing.T>):Void {
 	_testKillProcess(_t, function(_p:Ref<Process>):Void {
 		var _err:Error = _p.kill();
 		if (_err != null) {
-			_t.fatalf(Go.str("Failed to kill test process: %v"), Go.toInterface(_err));
+			_t.fatalf(("Failed to kill test process: %v" : GoString), Go.toInterface(_err));
 		};
 	});
 }
 
 function testGetppid(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (false) {
-		_t.skipf(Go.str("skipping test on plan9; see issue 8206"));
+		_t.skipf(("skipping test on plan9; see issue 8206" : GoString));
 	};
 	stdgo.internal.testenv.Testenv.mustHaveExec(Go.asInterface(_t));
-	if (getenv(Go.str("GO_WANT_HELPER_PROCESS")) == (Go.str("1"))) {
+	if (getenv(("GO_WANT_HELPER_PROCESS" : GoString)) == (("1" : GoString))) {
 		stdgo.fmt.Fmt.print(Go.toInterface(getppid()));
 		exit((0 : GoInt));
 	};
-	var _cmd = stdgo.os.exec.Exec.command(args[(0 : GoInt)], Go.str("-test.run=TestGetppid"));
-	_cmd.env = (environ().__append__(Go.str("GO_WANT_HELPER_PROCESS=1")));
+	var _cmd = stdgo.os.exec.Exec.command(args[(0 : GoInt)], ("-test.run=TestGetppid" : GoString));
+	_cmd.env = (environ().__append__(("GO_WANT_HELPER_PROCESS=1" : GoString)));
 	var __tmp__ = _cmd.combinedOutput(),
 		_output:Slice<GoUInt8> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		_t.fatalf(Go.str("Failed to spawn child process: %v %q"), Go.toInterface(_err), Go.toInterface((_output : GoString)));
+		_t.fatalf(("Failed to spawn child process: %v %q" : GoString), Go.toInterface(_err), Go.toInterface((_output : GoString)));
 	};
 	var _childPpid:GoString = (_output : GoString);
-	var _ourPid:GoString = stdgo.fmt.Fmt.sprintf(Go.str("%d"), Go.toInterface(getpid()));
+	var _ourPid:GoString = stdgo.fmt.Fmt.sprintf(("%d" : GoString), Go.toInterface(getpid()));
 	if (_childPpid != (_ourPid)) {
-		_t.fatalf(Go.str("Child process reports parent process id \'%v\', expected \'%v\'"), Go.toInterface(_childPpid), Go.toInterface(_ourPid));
+		_t.fatalf(("Child process reports parent process id \'%v\', expected \'%v\'" : GoString), Go.toInterface(_childPpid), Go.toInterface(_ourPid));
 	};
 }
 
@@ -5400,11 +5414,11 @@ function testKillFindProcess(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_p2:Ref<Process> = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("Failed to find test process: %v"), Go.toInterface(_err));
+			_t.fatalf(("Failed to find test process: %v" : GoString), Go.toInterface(_err));
 		};
 		_err = _p2.kill();
 		if (_err != null) {
-			_t.fatalf(Go.str("Failed to kill test process: %v"), Go.toInterface(_err));
+			_t.fatalf(("Failed to kill test process: %v" : GoString), Go.toInterface(_err));
 		};
 	});
 }
@@ -5417,12 +5431,12 @@ function testNilFileMethods(_t:Ref<stdgo.testing.Testing.T>):Void {
 		var _file:Ref<File> = (null : Ref<File>);
 		var _got:Error = _tt._f(_file);
 		if (Go.toInterface(_got) != (Go.toInterface(errInvalid))) {
-			_t.errorf(Go.str("%v should fail when f is nil; got %v"), Go.toInterface(_tt._name), Go.toInterface(_got));
+			_t.errorf(("%v should fail when f is nil; got %v" : GoString), Go.toInterface(_tt._name), Go.toInterface(_got));
 		};
 	};
 }
 
-function _mkdirTree(_t:Ref<stdgo.testing.Testing.T>, _root:GoString, _level:GoInt, _max:GoInt):Void {
+private function _mkdirTree(_t:Ref<stdgo.testing.Testing.T>, _root:GoString, _level:GoInt, _max:GoInt):Void {
 	if (_level >= _max) {
 		return;
 	};
@@ -5449,7 +5463,7 @@ function _mkdirTree(_t:Ref<stdgo.testing.Testing.T>, _root:GoString, _level:GoIn
 function testRemoveAllRace(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	if (false) {
-		_t.skip(Go.toInterface(Go.str("skipping on windows")));
+		_t.skip(Go.toInterface(("skipping on windows" : GoString)));
 	};
 	try {
 		if (false) {
@@ -5460,7 +5474,7 @@ function testRemoveAllRace(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _a0 = _n;
 			__deferstack__.unshift(() -> stdgo.runtime.Runtime.gomaxprocs(_a0));
 		};
-		var __tmp__ = stdgo.os.Os.mkdirTemp(Go.str(), Go.str("issue")),
+		var __tmp__ = stdgo.os.Os.mkdirTemp(Go.str(), ("issue" : GoString)),
 			_root:GoString = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
@@ -5481,7 +5495,7 @@ function testRemoveAllRace(_t:Ref<stdgo.testing.Testing.T>):Void {
 							_hold.__get__();
 							var _err:Error = removeAll(_root);
 							if (_err != null) {
-								_t.errorf(Go.str("unexpected error: %T, %q"), Go.toInterface(_err), Go.toInterface(_err));
+								_t.errorf(("unexpected error: %T, %q" : GoString), Go.toInterface(_err), Go.toInterface(_err));
 							};
 							for (defer in __deferstack__) {
 								defer();
@@ -5542,14 +5556,14 @@ function testRemoveAllRace(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testPipeThreads(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	if (Go.str("js") == (Go.str("illumos")) || Go.str("js") == (Go.str("solaris"))) {
-		_t.skip(Go.toInterface(Go.str("skipping on Solaris and illumos; issue 19111")));
-	} else if (Go.str("js") == (Go.str("windows"))) {
-		_t.skip(Go.toInterface(Go.str("skipping on Windows; issue 19098")));
-	} else if (Go.str("js") == (Go.str("plan9"))) {
-		_t.skip(Go.toInterface(Go.str("skipping on Plan 9; does not support runtime poller")));
-	} else if (Go.str("js") == (Go.str("js"))) {
-		_t.skip(Go.toInterface(Go.str("skipping on js; no support for os.Pipe")));
+	if (("js" : GoString) == (("illumos" : GoString)) || ("js" : GoString) == (("solaris" : GoString))) {
+		_t.skip(Go.toInterface(("skipping on Solaris and illumos; issue 19111" : GoString)));
+	} else if (("js" : GoString) == (("windows" : GoString))) {
+		_t.skip(Go.toInterface(("skipping on Windows; issue 19098" : GoString)));
+	} else if (("js" : GoString) == (("plan9" : GoString))) {
+		_t.skip(Go.toInterface(("skipping on Plan 9; does not support runtime poller" : GoString)));
+	} else if (("js" : GoString) == (("js" : GoString))) {
+		_t.skip(Go.toInterface(("skipping on js; no support for os.Pipe" : GoString)));
 	};
 	try {
 		var _threads:GoInt = (100 : GoInt);
@@ -5660,7 +5674,7 @@ function testPipeThreads(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 }
 
-function _testDoubleCloseError(_t:Ref<stdgo.testing.Testing.T>, _path:GoString):Void {
+private function _testDoubleCloseError(_t:Ref<stdgo.testing.Testing.T>, _path:GoString):Void {
 	var __tmp__ = open(_path),
 		_file:Ref<File> = __tmp__._0,
 		_err:Error = __tmp__._1;
@@ -5670,13 +5684,13 @@ function _testDoubleCloseError(_t:Ref<stdgo.testing.Testing.T>, _path:GoString):
 	{
 		var _err:Error = _file.close();
 		if (_err != null) {
-			_t.fatalf(Go.str("unexpected error from Close: %v"), Go.toInterface(_err));
+			_t.fatalf(("unexpected error from Close: %v" : GoString), Go.toInterface(_err));
 		};
 	};
 	{
 		var _err:Error = _file.close();
 		if (_err == null) {
-			_t.error(Go.toInterface(Go.str("second Close did not fail")));
+			_t.error(Go.toInterface(("second Close did not fail" : GoString)));
 		} else {
 			var __tmp__ = try {
 				{value: (Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)) : Ref<PathError>), ok: true};
@@ -5684,11 +5698,11 @@ function _testDoubleCloseError(_t:Ref<stdgo.testing.Testing.T>, _path:GoString):
 				{value: (null : Ref<stdgo.io.fs.Fs.PathError>), ok: false};
 			}, _pe = __tmp__.value, _ok = __tmp__.ok;
 			if (!_ok) {
-				_t.errorf(Go.str("second Close returned unexpected error type %T; expected fs.PathError"), Go.toInterface(_pe));
+				_t.errorf(("second Close returned unexpected error type %T; expected fs.PathError" : GoString), Go.toInterface(Go.asInterface(_pe)));
 			} else if (Go.toInterface(_pe.err) != (Go.toInterface(errClosed))) {
-				_t.errorf(Go.str("second Close returned %q, wanted %q"), Go.toInterface(_err), Go.toInterface(errClosed));
+				_t.errorf(("second Close returned %q, wanted %q" : GoString), Go.toInterface(_err), Go.toInterface(errClosed));
 			} else {
-				_t.logf(Go.str("second close returned expected error %q"), Go.toInterface(_err));
+				_t.logf(("second close returned expected error %q" : GoString), Go.toInterface(_err));
 			};
 		};
 	};
@@ -5704,10 +5718,10 @@ function testUserHomeDir(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_dir:GoString = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if ((_dir == Go.str()) && (_err == null)) {
-		_t.fatal(Go.toInterface(Go.str("UserHomeDir returned an empty string but no error")));
+		_t.fatal(Go.toInterface(("UserHomeDir returned an empty string but no error" : GoString)));
 	};
 	if (_err != null) {
-		_t.skipf(Go.str("UserHomeDir failed: %v"), Go.toInterface(_err));
+		_t.skipf(("UserHomeDir failed: %v" : GoString), Go.toInterface(_err));
 	};
 	var __tmp__ = stat(_dir),
 		_fi:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
@@ -5716,7 +5730,7 @@ function testUserHomeDir(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_t.fatal(Go.toInterface(_err));
 	};
 	if (!_fi.isDir()) {
-		_t.fatalf(Go.str("dir %s is not directory; type = %v"), Go.toInterface(_dir), Go.toInterface(Go.asInterface(_fi.mode())));
+		_t.fatalf(("dir %s is not directory; type = %v" : GoString), Go.toInterface(_dir), Go.toInterface(Go.asInterface(_fi.mode())));
 	};
 }
 
@@ -5747,7 +5761,7 @@ function testDirSeek(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_t.fatal(Go.toInterface(_err));
 	};
 	if (_ret != (("0" : GoInt64))) {
-		_t.fatalf(Go.str("seek result not zero: %d"), Go.toInterface(_ret));
+		_t.fatalf(("seek result not zero: %d" : GoString), Go.toInterface(_ret));
 	};
 	var __tmp__ = _f.readdirnames((0 : GoInt)),
 		_dirnames2:Slice<GoString> = __tmp__._0,
@@ -5757,12 +5771,12 @@ function testDirSeek(_t:Ref<stdgo.testing.Testing.T>):Void {
 		return;
 	};
 	if ((_dirnames1.length) != ((_dirnames2.length))) {
-		_t.fatalf(Go.str("listings have different lengths: %d and %d\n"), Go.toInterface((_dirnames1.length)), Go.toInterface((_dirnames2.length)));
+		_t.fatalf(("listings have different lengths: %d and %d\n" : GoString), Go.toInterface((_dirnames1.length)), Go.toInterface((_dirnames2.length)));
 	};
 	for (_i => _n1 in _dirnames1) {
 		var _n2:GoString = _dirnames2[(_i : GoInt)];
 		if (_n1 != (_n2)) {
-			_t.fatalf(Go.str("different name i=%d n1=%s n2=%s\n"), Go.toInterface(_i), Go.toInterface(_n1), Go.toInterface(_n2));
+			_t.fatalf(("different name i=%d n1=%s n2=%s\n" : GoString), Go.toInterface(_i), Go.toInterface(_n1), Go.toInterface(_n2));
 		};
 	};
 }
@@ -5775,7 +5789,7 @@ function testReaddirSmallSeek(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (_err != null) {
 		_t.fatal(Go.toInterface(_err));
 	};
-	var __tmp__ = open(stdgo.path.filepath.Filepath.join(_wd, Go.str("testdata"), Go.str("issue37161"))),
+	var __tmp__ = open(stdgo.path.filepath.Filepath.join(_wd, ("testdata" : GoString), ("issue37161" : GoString))),
 		_df:Ref<File> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
@@ -5803,7 +5817,7 @@ function testReaddirSmallSeek(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_t.fatal(Go.toInterface(_err));
 	};
 	if ((_names2.length) != ((3 : GoInt))) {
-		_t.fatalf(Go.str("first names: %v, second names: %v"), Go.toInterface(_names1), Go.toInterface(_names2));
+		_t.fatalf(("first names: %v, second names: %v" : GoString), Go.toInterface(_names1), Go.toInterface(_names2));
 	};
 }
 
@@ -5811,7 +5825,7 @@ function testReaddirSmallSeek(_t:Ref<stdgo.testing.Testing.T>):Void {
 	// isDeadlineExceeded reports whether err is or wraps os.ErrDeadlineExceeded.
 	// We also check that the error has a Timeout method that returns true.
 **/
-function _isDeadlineExceeded(_err:Error):Bool {
+private function _isDeadlineExceeded(_err:Error):Bool {
 	if (!isTimeout(_err)) {
 		return false;
 	};
@@ -5827,7 +5841,7 @@ function _isDeadlineExceeded(_err:Error):Bool {
 function testOpenFileKeepsPermissions(_t:Ref<stdgo.testing.Testing.T>):Void {
 	_t.parallel();
 	var _dir:GoString = _t.tempDir();
-	var _name:GoString = stdgo.path.filepath.Filepath.join(_dir, Go.str("x"));
+	var _name:GoString = stdgo.path.filepath.Filepath.join(_dir, ("x" : GoString));
 	var __tmp__ = create(_name),
 		_f:Ref<File> = __tmp__._0,
 		_err:Error = __tmp__._1;
@@ -5855,7 +5869,7 @@ function testOpenFileKeepsPermissions(_t:Ref<stdgo.testing.Testing.T>):Void {
 		if (_err != null) {
 			_t.error(Go.toInterface(_err));
 		} else if (_fi.mode() & (("146" : GoUInt32) : stdgo.io.fs.Fs.FileMode) == ((("0" : GoUInt32) : stdgo.io.fs.Fs.FileMode))) {
-			_t.errorf(Go.str("f.Stat.Mode after OpenFile is %v, should be writable"), Go.toInterface(Go.asInterface(_fi.mode())));
+			_t.errorf(("f.Stat.Mode after OpenFile is %v, should be writable" : GoString), Go.toInterface(Go.asInterface(_fi.mode())));
 		};
 	};
 	{
@@ -5871,7 +5885,7 @@ function testOpenFileKeepsPermissions(_t:Ref<stdgo.testing.Testing.T>):Void {
 		if (_err != null) {
 			_t.error(Go.toInterface(_err));
 		} else if (_fi.mode() & (("146" : GoUInt32) : stdgo.io.fs.Fs.FileMode) == ((("0" : GoUInt32) : stdgo.io.fs.Fs.FileMode))) {
-			_t.errorf(Go.str("Stat after OpenFile is %v, should be writable"), Go.toInterface(Go.asInterface(_fi.mode())));
+			_t.errorf(("Stat after OpenFile is %v, should be writable" : GoString), Go.toInterface(Go.asInterface(_fi.mode())));
 		};
 	};
 }
@@ -5879,7 +5893,7 @@ function testOpenFileKeepsPermissions(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testDirFS(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (false) {
 		{
-			var _err:Error = stdgo.path.filepath.Filepath.walkDir(Go.str("./testdata/dirfs"),
+			var _err:Error = stdgo.path.filepath.Filepath.walkDir(("./testdata/dirfs" : GoString),
 				function(_path:GoString, _d:stdgo.io.fs.Fs.DirEntry, _err:Error):Error {
 					if (_err != null) {
 						_t.fatal(Go.toInterface(_err));
@@ -5910,45 +5924,45 @@ function testDirFS(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 	};
 	{
-		var _err:Error = stdgo.testing.fstest.Fstest.testFS(dirFS(Go.str("./testdata/dirfs")), Go.str("a"), Go.str("b"), Go.str("dir/x"));
+		var _err:Error = stdgo.testing.fstest.Fstest.testFS(dirFS(("./testdata/dirfs" : GoString)), ("a" : GoString), ("b" : GoString), ("dir/x" : GoString));
 		if (_err != null) {
 			_t.fatal(Go.toInterface(_err));
 		};
 	};
-	var _d:stdgo.io.fs.Fs.FS = dirFS(Go.str("."));
-	var __tmp__ = _d.open(Go.str("testdata\\dirfs")),
+	var _d:stdgo.io.fs.Fs.FS = dirFS(("." : GoString));
+	var __tmp__ = _d.open(("testdata\\dirfs" : GoString)),
 		_0:stdgo.io.fs.Fs.File = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err == null) {
-		_t.fatalf(Go.str("Open testdata\\dirfs succeeded"));
+		_t.fatalf(("Open testdata\\dirfs succeeded" : GoString));
 	};
 }
 
 function testDirFSPathsValid(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (false) {
-		_t.skipf(Go.str("skipping on Windows"));
+		_t.skipf(("skipping on Windows" : GoString));
 	};
 	var _d:GoString = _t.tempDir();
 	{
-		var _err:Error = stdgo.os.Os.writeFile(stdgo.path.filepath.Filepath.join(_d, Go.str("control.txt")),
-			((Go.str("Hello, world!") : GoString) : Slice<GoByte>), (("420" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
+		var _err:Error = stdgo.os.Os.writeFile(stdgo.path.filepath.Filepath.join(_d, ("control.txt" : GoString)),
+			((("Hello, world!" : GoString) : GoString) : Slice<GoByte>), (("420" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 		if (_err != null) {
 			_t.fatal(Go.toInterface(_err));
 		};
 	};
 	{
-		var _err:Error = stdgo.os.Os.writeFile(stdgo.path.filepath.Filepath.join(_d, Go.str("e:xperi\\ment.txt")),
-			((Go.str("Hello, colon and backslash!") : GoString) : Slice<GoByte>), (("420" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
+		var _err:Error = stdgo.os.Os.writeFile(stdgo.path.filepath.Filepath.join(_d, ("e:xperi\\ment.txt" : GoString)),
+			((("Hello, colon and backslash!" : GoString) : GoString) : Slice<GoByte>), (("420" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 		if (_err != null) {
 			_t.fatal(Go.toInterface(_err));
 		};
 	};
 	var _fsys:stdgo.io.fs.Fs.FS = stdgo.os.Os.dirFS(_d);
-	var _err:Error = stdgo.io.fs.Fs.walkDir(_fsys, Go.str("."), function(_path:GoString, _e:stdgo.io.fs.Fs.DirEntry, _err:Error):Error {
+	var _err:Error = stdgo.io.fs.Fs.walkDir(_fsys, ("." : GoString), function(_path:GoString, _e:stdgo.io.fs.Fs.DirEntry, _err:Error):Error {
 		if (stdgo.io.fs.Fs.validPath(_e.name())) {
-			_t.logf(Go.str("%q ok"), Go.toInterface(_e.name()));
+			_t.logf(("%q ok" : GoString), Go.toInterface(_e.name()));
 		} else {
-			_t.errorf(Go.str("%q INVALID"), Go.toInterface(_e.name()));
+			_t.errorf(("%q INVALID" : GoString), Go.toInterface(_e.name()));
 		};
 		return (null : Error);
 	});
@@ -5958,7 +5972,7 @@ function testDirFSPathsValid(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testReadFileProc(_t:Ref<stdgo.testing.Testing.T>):Void {
-	var _name:GoString = Go.str("/proc/sys/fs/pipe-max-size");
+	var _name:GoString = ("/proc/sys/fs/pipe-max-size" : GoString);
 	{
 		var __tmp__ = stat(_name),
 			_0:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
@@ -5974,18 +5988,18 @@ function testReadFileProc(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_t.fatal(Go.toInterface(_err));
 	};
 	if ((_data.length == (0 : GoInt)) || (_data[((_data.length) - (1 : GoInt) : GoInt)] != (10 : GoUInt8))) {
-		_t.fatalf(Go.str("read %s: not newline-terminated: %q"), Go.toInterface(_name), Go.toInterface(_data));
+		_t.fatalf(("read %s: not newline-terminated: %q" : GoString), Go.toInterface(_name), Go.toInterface(_data));
 	};
 }
 
 function testWriteStringAlloc(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	if (true) {
-		_t.skip(Go.toInterface(Go.str("js allocates a lot during File.WriteString")));
+		_t.skip(Go.toInterface(("js allocates a lot during File.WriteString" : GoString)));
 	};
 	try {
 		var _d:GoString = _t.tempDir();
-		var __tmp__ = create(stdgo.path.filepath.Filepath.join(_d, Go.str("whiteboard.txt"))),
+		var __tmp__ = create(stdgo.path.filepath.Filepath.join(_d, ("whiteboard.txt" : GoString))),
 			_f:Ref<File> = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
@@ -5993,10 +6007,10 @@ function testWriteStringAlloc(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 		__deferstack__.unshift(() -> _f.close());
 		var _allocs:GoFloat64 = stdgo.testing.Testing.allocsPerRun((100 : GoInt), function():Void {
-			_f.writeString(Go.str("I will not allocate when passed a string longer than 32 bytes.\n"));
+			_f.writeString(("I will not allocate when passed a string longer than 32 bytes.\n" : GoString));
 		});
 		if (_allocs != (0 : GoFloat64)) {
-			_t.errorf(Go.str("expected 0 allocs for File.WriteString, got %v"), Go.toInterface(_allocs));
+			_t.errorf(("expected 0 allocs for File.WriteString, got %v" : GoString), Go.toInterface(_allocs));
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -6022,25 +6036,26 @@ function testWriteStringAlloc(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 }
 
-function _checkUidGid(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _uid:GoInt, _gid:GoInt):Void {
+private function _checkUidGid(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _uid:GoInt, _gid:GoInt):Void {
 	var __tmp__ = lstat(_path),
 		_dir:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		_t.fatalf(Go.str("Lstat %q (looking for uid/gid %d/%d): %s"), Go.toInterface(_path), Go.toInterface(_uid), Go.toInterface(_gid), Go.toInterface(_err));
+		_t.fatalf(("Lstat %q (looking for uid/gid %d/%d): %s" : GoString), Go.toInterface(_path), Go.toInterface(_uid), Go.toInterface(_gid),
+			Go.toInterface(_err));
 	};
 	var _sys = (Go.typeAssert((_dir.sys() : Ref<stdgo.syscall.Syscall.Stat_t>)) : Ref<stdgo.syscall.Syscall.Stat_t>);
 	if ((_sys.uid : GoInt) != (_uid)) {
-		_t.errorf(Go.str("Lstat %q: uid %d want %d"), Go.toInterface(_path), Go.toInterface(_sys.uid), Go.toInterface(_uid));
+		_t.errorf(("Lstat %q: uid %d want %d" : GoString), Go.toInterface(_path), Go.toInterface(_sys.uid), Go.toInterface(_uid));
 	};
 	if ((_sys.gid : GoInt) != (_gid)) {
-		_t.errorf(Go.str("Lstat %q: gid %d want %d"), Go.toInterface(_path), Go.toInterface(_sys.gid), Go.toInterface(_gid));
+		_t.errorf(("Lstat %q: gid %d want %d" : GoString), Go.toInterface(_path), Go.toInterface(_sys.gid), Go.toInterface(_gid));
 	};
 }
 
 function testChown(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	var _f = _newFile(Go.str("TestChown"), _t);
+	var _f = _newFile(("TestChown" : GoString), _t);
 	try {
 		{
 			var _a0 = _f.name();
@@ -6051,14 +6066,14 @@ function testChown(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_dir:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("stat %s: %s"), Go.toInterface(_f.name()), Go.toInterface(_err));
+			_t.fatalf(("stat %s: %s" : GoString), Go.toInterface(_f.name()), Go.toInterface(_err));
 		};
 		var _gid:GoInt = getgid();
-		_t.log(Go.toInterface(Go.str("gid:")), Go.toInterface(_gid));
+		_t.log(Go.toInterface(("gid:" : GoString)), Go.toInterface(_gid));
 		{
 			_err = chown(_f.name(), (-1 : GoInt), _gid);
 			if (_err != null) {
-				_t.fatalf(Go.str("chown %s -1 %d: %s"), Go.toInterface(_f.name()), Go.toInterface(_gid), Go.toInterface(_err));
+				_t.fatalf(("chown %s -1 %d: %s" : GoString), Go.toInterface(_f.name()), Go.toInterface(_gid), Go.toInterface(_err));
 			};
 		};
 		var _sys = (Go.typeAssert((_dir.sys() : Ref<stdgo.syscall.Syscall.Stat_t>)) : Ref<stdgo.syscall.Syscall.Stat_t>);
@@ -6067,21 +6082,21 @@ function testChown(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_groups:Slice<GoInt> = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("getgroups: %s"), Go.toInterface(_err));
+			_t.fatalf(("getgroups: %s" : GoString), Go.toInterface(_err));
 		};
-		_t.log(Go.toInterface(Go.str("groups: ")), Go.toInterface(_groups));
+		_t.log(Go.toInterface(("groups: " : GoString)), Go.toInterface(_groups));
 		for (_0 => _g in _groups) {
 			{
 				_err = chown(_f.name(), (-1 : GoInt), _g);
 				if (_err != null) {
-					_t.fatalf(Go.str("chown %s -1 %d: %s"), Go.toInterface(_f.name()), Go.toInterface(_g), Go.toInterface(_err));
+					_t.fatalf(("chown %s -1 %d: %s" : GoString), Go.toInterface(_f.name()), Go.toInterface(_g), Go.toInterface(_err));
 				};
 			};
 			_checkUidGid(_t, _f.name(), (_sys.uid : GoInt), _g);
 			{
 				_err = _f.chown((-1 : GoInt), _gid);
 				if (_err != null) {
-					_t.fatalf(Go.str("fchown %s -1 %d: %s"), Go.toInterface(_f.name()), Go.toInterface(_gid), Go.toInterface(_err));
+					_t.fatalf(("fchown %s -1 %d: %s" : GoString), Go.toInterface(_f.name()), Go.toInterface(_gid), Go.toInterface(_err));
 				};
 			};
 			_checkUidGid(_t, _f.name(), (_sys.uid : GoInt), _gid);
@@ -6112,7 +6127,7 @@ function testChown(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testFileChown(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	var _f = _newFile(Go.str("TestFileChown"), _t);
+	var _f = _newFile(("TestFileChown" : GoString), _t);
 	try {
 		{
 			var _a0 = _f.name();
@@ -6123,14 +6138,14 @@ function testFileChown(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_dir:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("stat %s: %s"), Go.toInterface(_f.name()), Go.toInterface(_err));
+			_t.fatalf(("stat %s: %s" : GoString), Go.toInterface(_f.name()), Go.toInterface(_err));
 		};
 		var _gid:GoInt = getgid();
-		_t.log(Go.toInterface(Go.str("gid:")), Go.toInterface(_gid));
+		_t.log(Go.toInterface(("gid:" : GoString)), Go.toInterface(_gid));
 		{
 			_err = _f.chown((-1 : GoInt), _gid);
 			if (_err != null) {
-				_t.fatalf(Go.str("fchown %s -1 %d: %s"), Go.toInterface(_f.name()), Go.toInterface(_gid), Go.toInterface(_err));
+				_t.fatalf(("fchown %s -1 %d: %s" : GoString), Go.toInterface(_f.name()), Go.toInterface(_gid), Go.toInterface(_err));
 			};
 		};
 		var _sys = (Go.typeAssert((_dir.sys() : Ref<stdgo.syscall.Syscall.Stat_t>)) : Ref<stdgo.syscall.Syscall.Stat_t>);
@@ -6139,21 +6154,21 @@ function testFileChown(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_groups:Slice<GoInt> = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("getgroups: %s"), Go.toInterface(_err));
+			_t.fatalf(("getgroups: %s" : GoString), Go.toInterface(_err));
 		};
-		_t.log(Go.toInterface(Go.str("groups: ")), Go.toInterface(_groups));
+		_t.log(Go.toInterface(("groups: " : GoString)), Go.toInterface(_groups));
 		for (_0 => _g in _groups) {
 			{
 				_err = _f.chown((-1 : GoInt), _g);
 				if (_err != null) {
-					_t.fatalf(Go.str("fchown %s -1 %d: %s"), Go.toInterface(_f.name()), Go.toInterface(_g), Go.toInterface(_err));
+					_t.fatalf(("fchown %s -1 %d: %s" : GoString), Go.toInterface(_f.name()), Go.toInterface(_g), Go.toInterface(_err));
 				};
 			};
 			_checkUidGid(_t, _f.name(), (_sys.uid : GoInt), _g);
 			{
 				_err = _f.chown((-1 : GoInt), _gid);
 				if (_err != null) {
-					_t.fatalf(Go.str("fchown %s -1 %d: %s"), Go.toInterface(_f.name()), Go.toInterface(_gid), Go.toInterface(_err));
+					_t.fatalf(("fchown %s -1 %d: %s" : GoString), Go.toInterface(_f.name()), Go.toInterface(_gid), Go.toInterface(_err));
 				};
 			};
 			_checkUidGid(_t, _f.name(), (_sys.uid : GoInt), _gid);
@@ -6184,7 +6199,7 @@ function testFileChown(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testLchown(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	var _f = _newFile(Go.str("TestLchown"), _t);
+	var _f = _newFile(("TestLchown" : GoString), _t);
 	try {
 		{
 			var _a0 = _f.name();
@@ -6195,16 +6210,16 @@ function testLchown(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_dir:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("stat %s: %s"), Go.toInterface(_f.name()), Go.toInterface(_err));
+			_t.fatalf(("stat %s: %s" : GoString), Go.toInterface(_f.name()), Go.toInterface(_err));
 		};
-		var _linkname:GoString = _f.name() + Go.str("2");
+		var _linkname:GoString = _f.name() + ("2" : GoString);
 		{
 			var _err:Error = symlink(_f.name(), _linkname);
 			if (_err != null) {
 				if (false && isPermission(_err)) {
-					_t.skip(Go.toInterface(Go.str("skipping test on Android; permission error creating symlink")));
+					_t.skip(Go.toInterface(("skipping test on Android; permission error creating symlink" : GoString)));
 				};
-				_t.fatalf(Go.str("link %s -> %s: %v"), Go.toInterface(_f.name()), Go.toInterface(_linkname), Go.toInterface(_err));
+				_t.fatalf(("link %s -> %s: %v" : GoString), Go.toInterface(_f.name()), Go.toInterface(_linkname), Go.toInterface(_err));
 			};
 		};
 		{
@@ -6212,7 +6227,7 @@ function testLchown(_t:Ref<stdgo.testing.Testing.T>):Void {
 			__deferstack__.unshift(() -> remove(_a0));
 		};
 		var _gid:GoInt = getgid();
-		_t.log(Go.toInterface(Go.str("gid:")), Go.toInterface(_gid));
+		_t.log(Go.toInterface(("gid:" : GoString)), Go.toInterface(_gid));
 		{
 			_err = lchown(_linkname, (-1 : GoInt), _gid);
 			if (_err != null) {
@@ -6223,10 +6238,10 @@ function testLchown(_t:Ref<stdgo.testing.Testing.T>):Void {
 						{value: (null : Ref<stdgo.io.fs.Fs.PathError>), ok: false};
 					}, _err = __tmp__.value, _ok = __tmp__.ok;
 					if (_ok && (Go.toInterface(_err.err) == Go.toInterface(Go.asInterface((38 : stdgo.syscall.Syscall.Errno))))) {
-						_t.skip(Go.toInterface(Go.str("lchown is unavailable")));
+						_t.skip(Go.toInterface(("lchown is unavailable" : GoString)));
 					};
 				};
-				_t.fatalf(Go.str("lchown %s -1 %d: %s"), Go.toInterface(_linkname), Go.toInterface(_gid), Go.toInterface(_err));
+				_t.fatalf(("lchown %s -1 %d: %s" : GoString), Go.toInterface(_linkname), Go.toInterface(_gid), Go.toInterface(_err));
 			};
 		};
 		var _sys = (Go.typeAssert((_dir.sys() : Ref<stdgo.syscall.Syscall.Stat_t>)) : Ref<stdgo.syscall.Syscall.Stat_t>);
@@ -6235,14 +6250,14 @@ function testLchown(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_groups:Slice<GoInt> = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("getgroups: %s"), Go.toInterface(_err));
+			_t.fatalf(("getgroups: %s" : GoString), Go.toInterface(_err));
 		};
-		_t.log(Go.toInterface(Go.str("groups: ")), Go.toInterface(_groups));
+		_t.log(Go.toInterface(("groups: " : GoString)), Go.toInterface(_groups));
 		for (_0 => _g in _groups) {
 			{
 				_err = lchown(_linkname, (-1 : GoInt), _g);
 				if (_err != null) {
-					_t.fatalf(Go.str("lchown %s -1 %d: %s"), Go.toInterface(_linkname), Go.toInterface(_g), Go.toInterface(_err));
+					_t.fatalf(("lchown %s -1 %d: %s" : GoString), Go.toInterface(_linkname), Go.toInterface(_g), Go.toInterface(_err));
 				};
 			};
 			_checkUidGid(_t, _linkname, (_sys.uid : GoInt), _g);
@@ -6289,18 +6304,18 @@ function testReaddirRemoveRace(_t:Ref<stdgo.testing.Testing.T>):Void {
 			a();
 		});
 		lstatP = function(_name:GoString):{var _0:FileInfo; var _1:Error;} {
-			if (stdgo.strings.Strings.hasSuffix(_name, Go.str("some-file"))) {
+			if (stdgo.strings.Strings.hasSuffix(_name, ("some-file" : GoString))) {
 				return {_0: (null : stdgo.io.fs.Fs.FileInfo), _1: errNotExist};
 			};
 			return _oldStat(_name);
 		};
-		var _dir:GoString = _newDir(Go.str("TestReaddirRemoveRace"), _t);
+		var _dir:GoString = _newDir(("TestReaddirRemoveRace" : GoString), _t);
 		{
 			var _a0 = _dir;
 			__deferstack__.unshift(() -> removeAll(_a0));
 		};
 		{
-			var _err:Error = stdgo.os.Os.writeFile(stdgo.path.filepath.Filepath.join(_dir, Go.str("some-file")), (Go.str("hello") : Slice<GoByte>),
+			var _err:Error = stdgo.os.Os.writeFile(stdgo.path.filepath.Filepath.join(_dir, ("some-file" : GoString)), (("hello" : GoString) : Slice<GoByte>),
 				(("420" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 			if (_err != null) {
 				_t.fatal(Go.toInterface(_err));
@@ -6317,12 +6332,12 @@ function testReaddirRemoveRace(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_fis:Slice<stdgo.io.fs.Fs.FileInfo> = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if ((_fis.length == (0 : GoInt)) && (_err == null)) {
-			_t.fatal(Go.toInterface(Go.str("Readdir = empty slice & err == nil")));
+			_t.fatal(Go.toInterface(("Readdir = empty slice & err == nil" : GoString)));
 		};
 		if ((_fis.length != (0 : GoInt)) || (Go.toInterface(_err) != Go.toInterface(stdgo.io.Io.eof))) {
-			_t.errorf(Go.str("Readdir = %d entries: %v; want 0, io.EOF"), Go.toInterface((_fis.length)), Go.toInterface(_err));
+			_t.errorf(("Readdir = %d entries: %v; want 0, io.EOF" : GoString), Go.toInterface((_fis.length)), Go.toInterface(_err));
 			for (_i => _fi in _fis) {
-				_t.errorf(Go.str("  entry[%d]: %q, %v"), Go.toInterface(_i), Go.toInterface(_fi.name()), Go.toInterface(Go.asInterface(_fi.mode())));
+				_t.errorf(("  entry[%d]: %q, %v" : GoString), Go.toInterface(_i), Go.toInterface(_fi.name()), Go.toInterface(Go.asInterface(_fi.mode())));
 			};
 			_t.failNow();
 		};
@@ -6357,7 +6372,7 @@ function testMkdirStickyUmask(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	{};
 	try {
-		var _dir:GoString = _newDir(Go.str("TestMkdirStickyUmask"), _t);
+		var _dir:GoString = _newDir(("TestMkdirStickyUmask" : GoString), _t);
 		{
 			var _a0 = _dir;
 			__deferstack__.unshift(() -> removeAll(_a0));
@@ -6367,7 +6382,7 @@ function testMkdirStickyUmask(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _a0 = _oldUmask;
 			__deferstack__.unshift(() -> stdgo.syscall.Syscall.umask(_a0));
 		};
-		var _p:GoString = stdgo.path.filepath.Filepath.join(_dir, Go.str("dir1"));
+		var _p:GoString = stdgo.path.filepath.Filepath.join(_dir, ("dir1" : GoString));
 		{
 			var _err:Error = mkdir(_p, (("1049069" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 			if (_err != null) {
@@ -6384,7 +6399,7 @@ function testMkdirStickyUmask(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _mode:stdgo.io.fs.Fs.FileMode = _fi.mode();
 			if (((_mode & (("63" : GoUInt32) : stdgo.io.fs.Fs.FileMode)) != (("0" : GoUInt32) : stdgo.io.fs.Fs.FileMode))
 				|| ((_mode & ((("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode) ^ (-1 : GoInt))) != (("2148532224" : GoUInt32) : stdgo.io.fs.Fs.FileMode))) {
-				_t.errorf(Go.str("unexpected mode %s"), Go.toInterface(Go.asInterface(_mode)));
+				_t.errorf(("unexpected mode %s" : GoString), Go.toInterface(Go.asInterface(_mode)));
 			};
 		};
 		for (defer in __deferstack__) {
@@ -6414,17 +6429,17 @@ function testMkdirStickyUmask(_t:Ref<stdgo.testing.Testing.T>):Void {
 /**
 	// See also issues: 22939, 24331
 **/
-function _newFileTest(_t:Ref<stdgo.testing.Testing.T>, _blocking:Bool):Void {
+private function _newFileTest(_t:Ref<stdgo.testing.Testing.T>, _blocking:Bool):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	if (true) {
-		_t.skipf(Go.str("syscall.Pipe is not available on %s."), Go.toInterface(Go.str("js")));
+		_t.skipf(("syscall.Pipe is not available on %s." : GoString), Go.toInterface(("js" : GoString)));
 	};
 	try {
 		var _p = new Slice<GoInt>((2 : GoInt).toBasic(), 0, ...[for (i in 0...(2 : GoInt).toBasic()) (0 : GoInt)]);
 		{
 			var _err:Error = stdgo.syscall.Syscall.pipe(_p);
 			if (_err != null) {
-				_t.fatalf(Go.str("pipe: %v"), Go.toInterface(_err));
+				_t.fatalf(("pipe: %v" : GoString), Go.toInterface(_err));
 			};
 		};
 		{
@@ -6436,14 +6451,14 @@ function _newFileTest(_t:Ref<stdgo.testing.Testing.T>, _blocking:Bool):Void {
 				var _err:Error = stdgo.syscall.Syscall.setNonblock(_p[(0 : GoInt)], true);
 				if (_err != null) {
 					stdgo.syscall.Syscall.close(_p[(0 : GoInt)]);
-					_t.fatalf(Go.str("SetNonblock: %v"), Go.toInterface(_err));
+					_t.fatalf(("SetNonblock: %v" : GoString), Go.toInterface(_err));
 				};
 			};
 		};
-		var _file = newFile((_p[(0 : GoInt)] : GoUIntptr), Go.str("notapipe"));
+		var _file = newFile((_p[(0 : GoInt)] : GoUIntptr), ("notapipe" : GoString));
 		if (_file == null) {
 			stdgo.syscall.Syscall.close(_p[(0 : GoInt)]);
-			_t.fatalf(Go.str("failed to convert fd to file!"));
+			_t.fatalf(("failed to convert fd to file!" : GoString));
 		};
 		__deferstack__.unshift(() -> _file.close());
 		var _timeToWrite:stdgo.time.Time.Duration = (("100000000" : GoInt64) : stdgo.time.Time.Duration);
@@ -6453,7 +6468,7 @@ function _newFileTest(_t:Ref<stdgo.testing.Testing.T>, _blocking:Bool):Void {
 		};
 		var _b = new Slice<GoUInt8>((1 : GoInt).toBasic(), 0, ...[for (i in 0...(1 : GoInt).toBasic()) (0 : GoUInt8)]);
 		var _timer = stdgo.time.Time.afterFunc(_timeToWrite, function():Void {
-			stdgo.syscall.Syscall.write(_p[(1 : GoInt)], (Go.str("a") : Slice<GoByte>));
+			stdgo.syscall.Syscall.write(_p[(1 : GoInt)], (("a" : GoString) : Slice<GoByte>));
 		});
 		__deferstack__.unshift(() -> _timer.stop());
 		_file.setReadDeadline((stdgo.time.Time.now()
@@ -6465,11 +6480,11 @@ function _newFileTest(_t:Ref<stdgo.testing.Testing.T>, _blocking:Bool):Void {
 			_err:Error = __tmp__._1;
 		if (!_blocking) {
 			if (!_isDeadlineExceeded(_err)) {
-				_t.fatalf(Go.str("No timeout reading from file: %v"), Go.toInterface(_err));
+				_t.fatalf(("No timeout reading from file: %v" : GoString), Go.toInterface(_err));
 			};
 		} else {
 			if (_err != null) {
-				_t.fatalf(Go.str("Error reading from file: %v"), Go.toInterface(_err));
+				_t.fatalf(("Error reading from file: %v" : GoString), Go.toInterface(_err));
 			};
 		};
 		for (defer in __deferstack__) {
@@ -6508,27 +6523,27 @@ function testNewFileNonBlock(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testSplitPath(_t:Ref<stdgo.testing.Testing.T>):Void {
 	_t.parallel();
-	for (_0 => _tt in (new Slice<T__struct_5>(0, 0, ({_path: Go.str("a"), _wantDir: Go.str("."), _wantBase: Go.str("a")} : T__struct_5),
-		({_path: Go.str("a/"), _wantDir: Go.str("."), _wantBase: Go.str("a")} : T__struct_5),
-		({_path: Go.str("a//"), _wantDir: Go.str("."), _wantBase: Go.str("a")} : T__struct_5),
-		({_path: Go.str("a/b"), _wantDir: Go.str("a"), _wantBase: Go.str("b")} : T__struct_5),
-		({_path: Go.str("a/b/"), _wantDir: Go.str("a"), _wantBase: Go.str("b")} : T__struct_5),
-		({_path: Go.str("a/b/c"), _wantDir: Go.str("a/b"), _wantBase: Go.str("c")} : T__struct_5),
-		({_path: Go.str("/a"), _wantDir: Go.str("/"), _wantBase: Go.str("a")} : T__struct_5),
-		({_path: Go.str("/a/"), _wantDir: Go.str("/"), _wantBase: Go.str("a")} : T__struct_5),
-		({_path: Go.str("/a/b"), _wantDir: Go.str("/a"), _wantBase: Go.str("b")} : T__struct_5),
-		({_path: Go.str("/a/b/"), _wantDir: Go.str("/a"), _wantBase: Go.str("b")} : T__struct_5),
-		({_path: Go.str("/a/b/c"), _wantDir: Go.str("/a/b"), _wantBase: Go.str("c")} : T__struct_5),
-		({_path: Go.str("//a"), _wantDir: Go.str("/"), _wantBase: Go.str("a")} : T__struct_5),
-		({_path: Go.str("//a/"), _wantDir: Go.str("/"), _wantBase: Go.str("a")} : T__struct_5),
-		({_path: Go.str("///a"), _wantDir: Go.str("/"), _wantBase: Go.str("a")} : T__struct_5),
-		({_path: Go.str("///a/"), _wantDir: Go.str("/"), _wantBase: Go.str("a")} : T__struct_5)) : Slice<T__struct_5>)) {
+	for (_0 => _tt in (new Slice<T__struct_5>(0, 0, ({_path: ("a" : GoString), _wantDir: ("." : GoString), _wantBase: ("a" : GoString)} : T__struct_5),
+		({_path: ("a/" : GoString), _wantDir: ("." : GoString), _wantBase: ("a" : GoString)} : T__struct_5),
+		({_path: ("a//" : GoString), _wantDir: ("." : GoString), _wantBase: ("a" : GoString)} : T__struct_5),
+		({_path: ("a/b" : GoString), _wantDir: ("a" : GoString), _wantBase: ("b" : GoString)} : T__struct_5),
+		({_path: ("a/b/" : GoString), _wantDir: ("a" : GoString), _wantBase: ("b" : GoString)} : T__struct_5),
+		({_path: ("a/b/c" : GoString), _wantDir: ("a/b" : GoString), _wantBase: ("c" : GoString)} : T__struct_5),
+		({_path: ("/a" : GoString), _wantDir: ("/" : GoString), _wantBase: ("a" : GoString)} : T__struct_5),
+		({_path: ("/a/" : GoString), _wantDir: ("/" : GoString), _wantBase: ("a" : GoString)} : T__struct_5),
+		({_path: ("/a/b" : GoString), _wantDir: ("/a" : GoString), _wantBase: ("b" : GoString)} : T__struct_5),
+		({_path: ("/a/b/" : GoString), _wantDir: ("/a" : GoString), _wantBase: ("b" : GoString)} : T__struct_5),
+		({_path: ("/a/b/c" : GoString), _wantDir: ("/a/b" : GoString), _wantBase: ("c" : GoString)} : T__struct_5),
+		({_path: ("//a" : GoString), _wantDir: ("/" : GoString), _wantBase: ("a" : GoString)} : T__struct_5),
+		({_path: ("//a/" : GoString), _wantDir: ("/" : GoString), _wantBase: ("a" : GoString)} : T__struct_5),
+		({_path: ("///a" : GoString), _wantDir: ("/" : GoString), _wantBase: ("a" : GoString)} : T__struct_5),
+		({_path: ("///a/" : GoString), _wantDir: ("/" : GoString), _wantBase: ("a" : GoString)} : T__struct_5)) : Slice<T__struct_5>)) {
 		{
 			var __tmp__ = splitPath(_tt._path),
 				_dir:GoString = __tmp__._0,
 				_base:GoString = __tmp__._1;
 			if ((_dir != _tt._wantDir) || (_base != _tt._wantBase)) {
-				_t.errorf(Go.str("splitPath(%q) = %q, %q, want %q, %q"), Go.toInterface(_tt._path), Go.toInterface(_dir), Go.toInterface(_base),
+				_t.errorf(("splitPath(%q) = %q, %q, want %q, %q" : GoString), Go.toInterface(_tt._path), Go.toInterface(_dir), Go.toInterface(_base),
 					Go.toInterface(_tt._wantDir), Go.toInterface(_tt._wantBase));
 			};
 		};
@@ -6539,30 +6554,30 @@ function testMkdirAll(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	var _tmpDir:GoString = tempDir();
 	try {
-		var _path:GoString = _tmpDir + Go.str("/_TestMkdirAll_/dir/./dir2");
+		var _path:GoString = _tmpDir + ("/_TestMkdirAll_/dir/./dir2" : GoString);
 		var _err:Error = mkdirAll(_path, (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 		if (_err != null) {
-			_t.fatalf(Go.str("MkdirAll %q: %s"), Go.toInterface(_path), Go.toInterface(_err));
+			_t.fatalf(("MkdirAll %q: %s" : GoString), Go.toInterface(_path), Go.toInterface(_err));
 		};
 		{
-			var _a0 = _tmpDir + Go.str("/_TestMkdirAll_");
+			var _a0 = _tmpDir + ("/_TestMkdirAll_" : GoString);
 			__deferstack__.unshift(() -> removeAll(_a0));
 		};
 		_err = mkdirAll(_path, (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 		if (_err != null) {
-			_t.fatalf(Go.str("MkdirAll %q (second time): %s"), Go.toInterface(_path), Go.toInterface(_err));
+			_t.fatalf(("MkdirAll %q (second time): %s" : GoString), Go.toInterface(_path), Go.toInterface(_err));
 		};
-		var _fpath:GoString = _path + Go.str("/file");
+		var _fpath:GoString = _path + ("/file" : GoString);
 		var __tmp__ = create(_fpath),
 			_f:Ref<File> = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("create %q: %s"), Go.toInterface(_fpath), Go.toInterface(_err));
+			_t.fatalf(("create %q: %s" : GoString), Go.toInterface(_fpath), Go.toInterface(_err));
 		};
 		__deferstack__.unshift(() -> _f.close());
 		_err = mkdirAll(_fpath, (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 		if (_err == null) {
-			_t.fatalf(Go.str("MkdirAll %q: no error"), Go.toInterface(_fpath));
+			_t.fatalf(("MkdirAll %q: no error" : GoString), Go.toInterface(_fpath));
 		};
 		var __tmp__ = try {
 			{value: (Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)) : Ref<PathError>), ok: true};
@@ -6570,16 +6585,16 @@ function testMkdirAll(_t:Ref<stdgo.testing.Testing.T>):Void {
 			{value: (null : Ref<stdgo.io.fs.Fs.PathError>), ok: false};
 		}, _perr = __tmp__.value, _ok = __tmp__.ok;
 		if (!_ok) {
-			_t.fatalf(Go.str("MkdirAll %q returned %T, not *PathError"), Go.toInterface(_fpath), Go.toInterface(_err));
+			_t.fatalf(("MkdirAll %q returned %T, not *PathError" : GoString), Go.toInterface(_fpath), Go.toInterface(_err));
 		};
 		if (stdgo.path.filepath.Filepath.clean(_perr.path) != (stdgo.path.filepath.Filepath.clean(_fpath))) {
-			_t.fatalf(Go.str("MkdirAll %q returned wrong error path: %q not %q"), Go.toInterface(_fpath),
+			_t.fatalf(("MkdirAll %q returned wrong error path: %q not %q" : GoString), Go.toInterface(_fpath),
 				Go.toInterface(stdgo.path.filepath.Filepath.clean(_perr.path)), Go.toInterface(stdgo.path.filepath.Filepath.clean(_fpath)));
 		};
-		var _ffpath:GoString = _fpath + Go.str("/subdir");
+		var _ffpath:GoString = _fpath + ("/subdir" : GoString);
 		_err = mkdirAll(_ffpath, (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 		if (_err == null) {
-			_t.fatalf(Go.str("MkdirAll %q: no error"), Go.toInterface(_ffpath));
+			_t.fatalf(("MkdirAll %q: no error" : GoString), Go.toInterface(_ffpath));
 		};
 		{
 			var __tmp__ = try {
@@ -6591,17 +6606,17 @@ function testMkdirAll(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_ok = __tmp__.ok;
 		};
 		if (!_ok) {
-			_t.fatalf(Go.str("MkdirAll %q returned %T, not *PathError"), Go.toInterface(_ffpath), Go.toInterface(_err));
+			_t.fatalf(("MkdirAll %q returned %T, not *PathError" : GoString), Go.toInterface(_ffpath), Go.toInterface(_err));
 		};
 		if (stdgo.path.filepath.Filepath.clean(_perr.path) != (stdgo.path.filepath.Filepath.clean(_fpath))) {
-			_t.fatalf(Go.str("MkdirAll %q returned wrong error path: %q not %q"), Go.toInterface(_ffpath),
+			_t.fatalf(("MkdirAll %q returned wrong error path: %q not %q" : GoString), Go.toInterface(_ffpath),
 				Go.toInterface(stdgo.path.filepath.Filepath.clean(_perr.path)), Go.toInterface(stdgo.path.filepath.Filepath.clean(_fpath)));
 		};
 		if (false) {
-			var _path:GoString = _tmpDir + Go.str("\\_TestMkdirAll_\\dir\\.\\dir2\\");
+			var _path:GoString = _tmpDir + ("\\_TestMkdirAll_\\dir\\.\\dir2\\" : GoString);
 			var _err:Error = mkdirAll(_path, (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 			if (_err != null) {
-				_t.fatalf(Go.str("MkdirAll %q: %s"), Go.toInterface(_path), Go.toInterface(_err));
+				_t.fatalf(("MkdirAll %q: %s" : GoString), Go.toInterface(_path), Go.toInterface(_err));
 			};
 		};
 		for (defer in __deferstack__) {
@@ -6631,36 +6646,38 @@ function testMkdirAll(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testMkdirAllWithSymlink(_t:Ref<stdgo.testing.Testing.T>):Void {
 	stdgo.internal.testenv.Testenv.mustHaveSymlink(Go.asInterface(_t));
 	var _tmpDir:GoString = _t.tempDir();
-	var _dir:GoString = _tmpDir + Go.str("/dir");
+	var _dir:GoString = _tmpDir + ("/dir" : GoString);
 	{
 		var _err:Error = mkdir(_dir, (("493" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 		if (_err != null) {
-			_t.fatalf(Go.str("Mkdir %s: %s"), Go.toInterface(_dir), Go.toInterface(_err));
+			_t.fatalf(("Mkdir %s: %s" : GoString), Go.toInterface(_dir), Go.toInterface(_err));
 		};
 	};
-	var _link:GoString = _tmpDir + Go.str("/link");
+	var _link:GoString = _tmpDir + ("/link" : GoString);
 	{
-		var _err:Error = symlink(Go.str("dir"), _link);
+		var _err:Error = symlink(("dir" : GoString), _link);
 		if (_err != null) {
-			_t.fatalf(Go.str("Symlink %s: %s"), Go.toInterface(_link), Go.toInterface(_err));
+			_t.fatalf(("Symlink %s: %s" : GoString), Go.toInterface(_link), Go.toInterface(_err));
 		};
 	};
-	var _path:GoString = _link + Go.str("/foo");
+	var _path:GoString = _link + ("/foo" : GoString);
 	{
 		var _err:Error = mkdirAll(_path, (("493" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 		if (_err != null) {
-			_t.errorf(Go.str("MkdirAll %q: %s"), Go.toInterface(_path), Go.toInterface(_err));
+			_t.errorf(("MkdirAll %q: %s" : GoString), Go.toInterface(_path), Go.toInterface(_err));
 		};
 	};
 }
 
 function testMkdirAllAtSlash(_t:Ref<stdgo.testing.Testing.T>):Void {
-	if (Go.str("js") == (Go.str("android")) || Go.str("js") == (Go.str("ios")) || Go.str("js") == (Go.str("plan9")) || Go.str("js") == (Go.str("windows"))) {
-		_t.skipf(Go.str("skipping on %s"), Go.toInterface(Go.str("js")));
+	if (("js" : GoString) == (("android" : GoString))
+		|| ("js" : GoString) == (("ios" : GoString))
+			|| ("js" : GoString) == (("plan9" : GoString)) || ("js" : GoString) == (("windows" : GoString))) {
+		_t.skipf(("skipping on %s" : GoString), Go.toInterface(("js" : GoString)));
 	};
-	removeAll(Go.str("/_go_os_test"));
+	removeAll(("/_go_os_test" : GoString));
 	{};
-	var _err:Error = mkdirAll(Go.str("/_go_os_test/dir"), (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
+	var _err:Error = mkdirAll(("/_go_os_test/dir" : GoString), (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 	if (_err != null) {
 		var __tmp__ = try {
 			{value: (Go.typeAssert((Go.toInterface(_err) : Ref<PathError>)) : Ref<PathError>), ok: true};
@@ -6670,48 +6687,48 @@ function testMkdirAllAtSlash(_t:Ref<stdgo.testing.Testing.T>):Void {
 		if (_ok
 			&& ((Go.toInterface(_pathErr.err) == Go.toInterface(Go.asInterface((13 : stdgo.syscall.Syscall.Errno))))
 				|| _isReadonlyError(_pathErr.err))) {
-			_t.skipf(Go.str("could not create %v: %v"), Go.toInterface(Go.str("/_go_os_test/dir")), Go.toInterface(_err));
+			_t.skipf(("could not create %v: %v" : GoString), Go.toInterface(("/_go_os_test/dir" : GoString)), Go.toInterface(_err));
 		};
-		_t.fatalf(Go.str("MkdirAll \"/_go_os_test/dir\": %v, %s"), Go.toInterface(_err), Go.toInterface(_pathErr.err));
+		_t.fatalf(("MkdirAll \"/_go_os_test/dir\": %v, %s" : GoString), Go.toInterface(_err), Go.toInterface(_pathErr.err));
 	};
-	removeAll(Go.str("/_go_os_test"));
+	removeAll(("/_go_os_test" : GoString));
 }
 
-function _checkNamedSize(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _size:GoInt64):Void {
+private function _checkNamedSize(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _size:GoInt64):Void {
 	var __tmp__ = stat(_path),
 		_dir:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		_t.fatalf(Go.str("Stat %q (looking for size %d): %s"), Go.toInterface(_path), Go.toInterface(_size), Go.toInterface(_err));
+		_t.fatalf(("Stat %q (looking for size %d): %s" : GoString), Go.toInterface(_path), Go.toInterface(_size), Go.toInterface(_err));
 	};
 	if (_dir.size() != (_size)) {
-		_t.errorf(Go.str("Stat %q: size %d want %d"), Go.toInterface(_path), Go.toInterface(_dir.size()), Go.toInterface(_size));
+		_t.errorf(("Stat %q: size %d want %d" : GoString), Go.toInterface(_path), Go.toInterface(_dir.size()), Go.toInterface(_size));
 	};
 }
 
 function testReadFile(_t:Ref<stdgo.testing.Testing.T>):Void {
-	var _filename:GoString = Go.str("rumpelstilzchen");
+	var _filename:GoString = ("rumpelstilzchen" : GoString);
 	var __tmp__ = readFile(_filename),
 		_contents:Slice<GoUInt8> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err == null) {
-		_t.fatalf(Go.str("ReadFile %s: error expected, none found"), Go.toInterface(_filename));
+		_t.fatalf(("ReadFile %s: error expected, none found" : GoString), Go.toInterface(_filename));
 	};
-	_filename = Go.str("read_test.go");
+	_filename = ("read_test.go" : GoString);
 	{
 		var __tmp__ = readFile(_filename);
 		_contents = __tmp__._0;
 		_err = __tmp__._1;
 	};
 	if (_err != null) {
-		_t.fatalf(Go.str("ReadFile %s: %v"), Go.toInterface(_filename), Go.toInterface(_err));
+		_t.fatalf(("ReadFile %s: %v" : GoString), Go.toInterface(_filename), Go.toInterface(_err));
 	};
 	_checkNamedSize(_t, _filename, (_contents.length : GoInt64));
 }
 
 function testWriteFile(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	var __tmp__ = createTemp(Go.str(), Go.str("ioutil-test")),
+	var __tmp__ = createTemp(Go.str(), ("ioutil-test" : GoString)),
 		_f:Ref<File> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	try {
@@ -6723,21 +6740,21 @@ function testWriteFile(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _a0 = _f.name();
 			__deferstack__.unshift(() -> remove(_a0));
 		};
-		var _msg:GoString = Go.str("Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the Universe trying to produce bigger and better idiots. So far, the Universe is winning.");
+		var _msg:GoString = ("Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the Universe trying to produce bigger and better idiots. So far, the Universe is winning." : GoString);
 		{
 			var _err:Error = writeFile(_f.name(), (_msg : Slice<GoByte>), (("420" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 			if (_err != null) {
-				_t.fatalf(Go.str("WriteFile %s: %v"), Go.toInterface(_f.name()), Go.toInterface(_err));
+				_t.fatalf(("WriteFile %s: %v" : GoString), Go.toInterface(_f.name()), Go.toInterface(_err));
 			};
 		};
 		var __tmp__ = readFile(_f.name()),
 			_data:Slice<GoUInt8> = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("ReadFile %s: %v"), Go.toInterface(_f.name()), Go.toInterface(_err));
+			_t.fatalf(("ReadFile %s: %v" : GoString), Go.toInterface(_f.name()), Go.toInterface(_err));
 		};
 		if ((_data : GoString) != (_msg)) {
-			_t.fatalf(Go.str("ReadFile: wrong data:\nhave %q\nwant %q"), Go.toInterface((_data : GoString)), Go.toInterface(_msg));
+			_t.fatalf(("ReadFile: wrong data:\nhave %q\nwant %q" : GoString), Go.toInterface((_data : GoString)), Go.toInterface(_msg));
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -6766,7 +6783,7 @@ function testWriteFile(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testReadOnlyWriteFile(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	if (getuid() == ((0 : GoInt))) {
-		_t.skipf(Go.str("Root can write to read-only files anyway, so skip the read-only test."));
+		_t.skipf(("Root can write to read-only files anyway, so skip the read-only test." : GoString));
 	};
 	try {
 		var __tmp__ = mkdirTemp(Go.str(), _t.name()),
@@ -6779,25 +6796,25 @@ function testReadOnlyWriteFile(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _a0 = _tempDir;
 			__deferstack__.unshift(() -> removeAll(_a0));
 		};
-		var _filename:GoString = stdgo.path.filepath.Filepath.join(_tempDir, Go.str("blurp.txt"));
-		var _shmorp = (Go.str("shmorp") : Slice<GoByte>);
-		var _florp = (Go.str("florp") : Slice<GoByte>);
+		var _filename:GoString = stdgo.path.filepath.Filepath.join(_tempDir, ("blurp.txt" : GoString));
+		var _shmorp = (("shmorp" : GoString) : Slice<GoByte>);
+		var _florp = (("florp" : GoString) : Slice<GoByte>);
 		_err = writeFile(_filename, _shmorp, (("292" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 		if (_err != null) {
-			_t.fatalf(Go.str("WriteFile %s: %v"), Go.toInterface(_filename), Go.toInterface(_err));
+			_t.fatalf(("WriteFile %s: %v" : GoString), Go.toInterface(_filename), Go.toInterface(_err));
 		};
 		_err = writeFile(_filename, _florp, (("292" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 		if (_err == null) {
-			_t.fatalf(Go.str("Expected an error when writing to read-only file %s"), Go.toInterface(_filename));
+			_t.fatalf(("Expected an error when writing to read-only file %s" : GoString), Go.toInterface(_filename));
 		};
 		var __tmp__ = readFile(_filename),
 			_got:Slice<GoUInt8> = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("ReadFile %s: %v"), Go.toInterface(_filename), Go.toInterface(_err));
+			_t.fatalf(("ReadFile %s: %v" : GoString), Go.toInterface(_filename), Go.toInterface(_err));
 		};
 		if (!stdgo.bytes.Bytes.equal(_got, _shmorp)) {
-			_t.fatalf(Go.str("want %s, got %s"), Go.toInterface(_shmorp), Go.toInterface(_got));
+			_t.fatalf(("want %s, got %s" : GoString), Go.toInterface(_shmorp), Go.toInterface(_got));
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -6824,34 +6841,34 @@ function testReadOnlyWriteFile(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testReadDir(_t:Ref<stdgo.testing.Testing.T>):Void {
-	var _dirname:GoString = Go.str("rumpelstilzchen");
+	var _dirname:GoString = ("rumpelstilzchen" : GoString);
 	var __tmp__ = readDir(_dirname),
 		_0:Slice<stdgo.io.fs.Fs.DirEntry> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err == null) {
-		_t.fatalf(Go.str("ReadDir %s: error expected, none found"), Go.toInterface(_dirname));
+		_t.fatalf(("ReadDir %s: error expected, none found" : GoString), Go.toInterface(_dirname));
 	};
-	_dirname = Go.str(".");
+	_dirname = ("." : GoString);
 	var __tmp__ = readDir(_dirname),
 		_list:Slice<stdgo.io.fs.Fs.DirEntry> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		_t.fatalf(Go.str("ReadDir %s: %v"), Go.toInterface(_dirname), Go.toInterface(_err));
+		_t.fatalf(("ReadDir %s: %v" : GoString), Go.toInterface(_dirname), Go.toInterface(_err));
 	};
 	var _foundFile:Bool = false;
 	var _foundSubDir:Bool = false;
 	for (_1 => _dir in _list) {
-		if (!_dir.isDir() && (_dir.name() == Go.str("read_test.go"))) {
+		if (!_dir.isDir() && (_dir.name() == ("read_test.go" : GoString))) {
 			_foundFile = true;
-		} else if (_dir.isDir() && (_dir.name() == Go.str("exec"))) {
+		} else if (_dir.isDir() && (_dir.name() == ("exec" : GoString))) {
 			_foundSubDir = true;
 		};
 	};
 	if (!_foundFile) {
-		_t.fatalf(Go.str("ReadDir %s: read_test.go file not found"), Go.toInterface(_dirname));
+		_t.fatalf(("ReadDir %s: read_test.go file not found" : GoString), Go.toInterface(_dirname));
 	};
 	if (!_foundSubDir) {
-		_t.fatalf(Go.str("ReadDir %s: exec directory not found"), Go.toInterface(_dirname));
+		_t.fatalf(("ReadDir %s: exec directory not found" : GoString), Go.toInterface(_dirname));
 	};
 }
 
@@ -6860,24 +6877,24 @@ function testRemoveAll(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _err:Error = removeAll(Go.str());
 		if (_err != null) {
-			_t.errorf(Go.str("RemoveAll(\"\"): %v; want nil"), Go.toInterface(_err));
+			_t.errorf(("RemoveAll(\"\"): %v; want nil" : GoString), Go.toInterface(_err));
 		};
 	};
-	var _file:GoString = stdgo.path.filepath.Filepath.join(_tmpDir, Go.str("file"));
-	var _path:GoString = stdgo.path.filepath.Filepath.join(_tmpDir, Go.str("_TestRemoveAll_"));
-	var _fpath:GoString = stdgo.path.filepath.Filepath.join(_path, Go.str("file"));
-	var _dpath:GoString = stdgo.path.filepath.Filepath.join(_path, Go.str("dir"));
+	var _file:GoString = stdgo.path.filepath.Filepath.join(_tmpDir, ("file" : GoString));
+	var _path:GoString = stdgo.path.filepath.Filepath.join(_tmpDir, ("_TestRemoveAll_" : GoString));
+	var _fpath:GoString = stdgo.path.filepath.Filepath.join(_path, ("file" : GoString));
+	var _dpath:GoString = stdgo.path.filepath.Filepath.join(_path, ("dir" : GoString));
 	var __tmp__ = create(_file),
 		_fd:Ref<File> = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		_t.fatalf(Go.str("create %q: %s"), Go.toInterface(_file), Go.toInterface(_err));
+		_t.fatalf(("create %q: %s" : GoString), Go.toInterface(_file), Go.toInterface(_err));
 	};
 	_fd.close();
 	{
 		_err = removeAll(_file);
 		if (_err != null) {
-			_t.fatalf(Go.str("RemoveAll %q (first): %s"), Go.toInterface(_file), Go.toInterface(_err));
+			_t.fatalf(("RemoveAll %q (first): %s" : GoString), Go.toInterface(_file), Go.toInterface(_err));
 		};
 	};
 	{
@@ -6886,13 +6903,13 @@ function testRemoveAll(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_err = __tmp__._1;
 		};
 		if (_err == null) {
-			_t.fatalf(Go.str("Lstat %q succeeded after RemoveAll (first)"), Go.toInterface(_file));
+			_t.fatalf(("Lstat %q succeeded after RemoveAll (first)" : GoString), Go.toInterface(_file));
 		};
 	};
 	{
 		var _err:Error = mkdirAll(_path, (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 		if (_err != null) {
-			_t.fatalf(Go.str("MkdirAll %q: %s"), Go.toInterface(_path), Go.toInterface(_err));
+			_t.fatalf(("MkdirAll %q: %s" : GoString), Go.toInterface(_path), Go.toInterface(_err));
 		};
 	};
 	{
@@ -6901,13 +6918,13 @@ function testRemoveAll(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_err = __tmp__._1;
 	};
 	if (_err != null) {
-		_t.fatalf(Go.str("create %q: %s"), Go.toInterface(_fpath), Go.toInterface(_err));
+		_t.fatalf(("create %q: %s" : GoString), Go.toInterface(_fpath), Go.toInterface(_err));
 	};
 	_fd.close();
 	{
 		_err = removeAll(_path);
 		if (_err != null) {
-			_t.fatalf(Go.str("RemoveAll %q (second): %s"), Go.toInterface(_path), Go.toInterface(_err));
+			_t.fatalf(("RemoveAll %q (second): %s" : GoString), Go.toInterface(_path), Go.toInterface(_err));
 		};
 	};
 	{
@@ -6916,13 +6933,13 @@ function testRemoveAll(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_err = __tmp__._1;
 		};
 		if (_err == null) {
-			_t.fatalf(Go.str("Lstat %q succeeded after RemoveAll (second)"), Go.toInterface(_path));
+			_t.fatalf(("Lstat %q succeeded after RemoveAll (second)" : GoString), Go.toInterface(_path));
 		};
 	};
 	{
 		_err = mkdirAll(_dpath, (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 		if (_err != null) {
-			_t.fatalf(Go.str("MkdirAll %q: %s"), Go.toInterface(_dpath), Go.toInterface(_err));
+			_t.fatalf(("MkdirAll %q: %s" : GoString), Go.toInterface(_dpath), Go.toInterface(_err));
 		};
 	};
 	{
@@ -6931,22 +6948,22 @@ function testRemoveAll(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_err = __tmp__._1;
 	};
 	if (_err != null) {
-		_t.fatalf(Go.str("create %q: %s"), Go.toInterface(_fpath), Go.toInterface(_err));
+		_t.fatalf(("create %q: %s" : GoString), Go.toInterface(_fpath), Go.toInterface(_err));
 	};
 	_fd.close();
 	{
-		var __tmp__ = create(_dpath + Go.str("/file"));
+		var __tmp__ = create(_dpath + ("/file" : GoString));
 		_fd = __tmp__._0;
 		_err = __tmp__._1;
 	};
 	if (_err != null) {
-		_t.fatalf(Go.str("create %q: %s"), Go.toInterface(_fpath), Go.toInterface(_err));
+		_t.fatalf(("create %q: %s" : GoString), Go.toInterface(_fpath), Go.toInterface(_err));
 	};
 	_fd.close();
 	{
 		_err = removeAll(_path);
 		if (_err != null) {
-			_t.fatalf(Go.str("RemoveAll %q (third): %s"), Go.toInterface(_path), Go.toInterface(_err));
+			_t.fatalf(("RemoveAll %q (third): %s" : GoString), Go.toInterface(_path), Go.toInterface(_err));
 		};
 	};
 	{
@@ -6954,43 +6971,43 @@ function testRemoveAll(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_0:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err == null) {
-			_t.fatalf(Go.str("Lstat %q succeeded after RemoveAll (third)"), Go.toInterface(_path));
+			_t.fatalf(("Lstat %q succeeded after RemoveAll (third)" : GoString), Go.toInterface(_path));
 		};
 	};
 	if (true && (getuid() != (0 : GoInt))) {
 		{
 			_err = mkdirAll(_dpath, (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 			if (_err != null) {
-				_t.fatalf(Go.str("MkdirAll %q: %s"), Go.toInterface(_dpath), Go.toInterface(_err));
+				_t.fatalf(("MkdirAll %q: %s" : GoString), Go.toInterface(_dpath), Go.toInterface(_err));
 			};
 		};
-		for (_1 => _s in (new Slice<GoString>(0, 0, _fpath, _dpath + Go.str("/file1"), _path + Go.str("/zzz")) : Slice<GoString>)) {
+		for (_1 => _s in (new Slice<GoString>(0, 0, _fpath, _dpath + ("/file1" : GoString), _path + ("/zzz" : GoString)) : Slice<GoString>)) {
 			{
 				var __tmp__ = create(_s);
 				_fd = __tmp__._0;
 				_err = __tmp__._1;
 			};
 			if (_err != null) {
-				_t.fatalf(Go.str("create %q: %s"), Go.toInterface(_s), Go.toInterface(_err));
+				_t.fatalf(("create %q: %s" : GoString), Go.toInterface(_s), Go.toInterface(_err));
 			};
 			_fd.close();
 		};
 		{
 			_err = chmod(_dpath, (("0" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 			if (_err != null) {
-				_t.fatalf(Go.str("Chmod %q 0: %s"), Go.toInterface(_dpath), Go.toInterface(_err));
+				_t.fatalf(("Chmod %q 0: %s" : GoString), Go.toInterface(_dpath), Go.toInterface(_err));
 			};
 		};
 		removeAll(_path);
 		chmod(_dpath, (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
-		for (_2 => _s in (new Slice<GoString>(0, 0, _fpath, _path + Go.str("/zzz")) : Slice<GoString>)) {
+		for (_2 => _s in (new Slice<GoString>(0, 0, _fpath, _path + ("/zzz" : GoString)) : Slice<GoString>)) {
 			{
 				{
 					var __tmp__ = lstat(_s);
 					_err = __tmp__._1;
 				};
 				if (_err == null) {
-					_t.fatalf(Go.str("Lstat %q succeeded after partial RemoveAll"), Go.toInterface(_s));
+					_t.fatalf(("Lstat %q succeeded after partial RemoveAll" : GoString), Go.toInterface(_s));
 				};
 			};
 		};
@@ -6998,7 +7015,7 @@ function testRemoveAll(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		_err = removeAll(_path);
 		if (_err != null) {
-			_t.fatalf(Go.str("RemoveAll %q after partial RemoveAll: %s"), Go.toInterface(_path), Go.toInterface(_err));
+			_t.fatalf(("RemoveAll %q after partial RemoveAll: %s" : GoString), Go.toInterface(_path), Go.toInterface(_err));
 		};
 	};
 	{
@@ -7007,7 +7024,7 @@ function testRemoveAll(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_err = __tmp__._1;
 		};
 		if (_err == null) {
-			_t.fatalf(Go.str("Lstat %q succeeded after RemoveAll (final)"), Go.toInterface(_path));
+			_t.fatalf(("Lstat %q succeeded after RemoveAll (final)" : GoString), Go.toInterface(_path));
 		};
 	};
 }
@@ -7017,25 +7034,25 @@ function testRemoveAll(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testRemoveAllLarge(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (stdgo.testing.Testing.short()) {
-		_t.skip(Go.toInterface(Go.str("skipping in short mode")));
+		_t.skip(Go.toInterface(("skipping in short mode" : GoString)));
 	};
 	var _tmpDir:GoString = _t.tempDir();
-	var _path:GoString = stdgo.path.filepath.Filepath.join(_tmpDir, Go.str("_TestRemoveAllLarge_"));
+	var _path:GoString = stdgo.path.filepath.Filepath.join(_tmpDir, ("_TestRemoveAllLarge_" : GoString));
 	{
 		var _err:Error = mkdirAll(_path, (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 		if (_err != null) {
-			_t.fatalf(Go.str("MkdirAll %q: %s"), Go.toInterface(_path), Go.toInterface(_err));
+			_t.fatalf(("MkdirAll %q: %s" : GoString), Go.toInterface(_path), Go.toInterface(_err));
 		};
 	};
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (1000:GoInt), _i++, {
-			var _fpath:GoString = stdgo.fmt.Fmt.sprintf(Go.str("%s/file%d"), Go.toInterface(_path), Go.toInterface(_i));
+			var _fpath:GoString = stdgo.fmt.Fmt.sprintf(("%s/file%d" : GoString), Go.toInterface(_path), Go.toInterface(_i));
 			var __tmp__ = create(_fpath),
 				_fd:Ref<File> = __tmp__._0,
 				_err:Error = __tmp__._1;
 			if (_err != null) {
-				_t.fatalf(Go.str("create %q: %s"), Go.toInterface(_fpath), Go.toInterface(_err));
+				_t.fatalf(("create %q: %s" : GoString), Go.toInterface(_fpath), Go.toInterface(_err));
 			};
 			_fd.close();
 		});
@@ -7043,7 +7060,7 @@ function testRemoveAllLarge(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _err:Error = removeAll(_path);
 		if (_err != null) {
-			_t.fatalf(Go.str("RemoveAll %q: %s"), Go.toInterface(_path), Go.toInterface(_err));
+			_t.fatalf(("RemoveAll %q: %s" : GoString), Go.toInterface(_path), Go.toInterface(_err));
 		};
 	};
 	{
@@ -7051,7 +7068,7 @@ function testRemoveAllLarge(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_0:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err == null) {
-			_t.fatalf(Go.str("Lstat %q succeeded after RemoveAll"), Go.toInterface(_path));
+			_t.fatalf(("Lstat %q succeeded after RemoveAll" : GoString), Go.toInterface(_path));
 		};
 	};
 }
@@ -7061,20 +7078,20 @@ function testRemoveAllLongPath(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var __switchIndex__ = -1;
 		while (true) {
-			if (Go.str("js") == (Go.str("aix"))
-				|| Go.str("js") == (Go.str("darwin"))
-				|| Go.str("js") == (Go.str("ios"))
-				|| Go.str("js") == (Go.str("dragonfly"))
-				|| Go.str("js") == (Go.str("freebsd"))
-				|| Go.str("js") == (Go.str("linux"))
-				|| Go.str("js") == (Go.str("netbsd"))
-				|| Go.str("js") == (Go.str("openbsd"))
-				|| Go.str("js") == (Go.str("illumos"))
-				|| Go.str("js") == (Go.str("solaris"))) {
+			if (("js" : GoString) == (("aix" : GoString))
+				|| ("js" : GoString) == (("darwin" : GoString))
+					|| ("js" : GoString) == (("ios" : GoString))
+						|| ("js" : GoString) == (("dragonfly" : GoString))
+							|| ("js" : GoString) == (("freebsd" : GoString))
+								|| ("js" : GoString) == (("linux" : GoString))
+									|| ("js" : GoString) == (("netbsd" : GoString))
+										|| ("js" : GoString) == (("openbsd" : GoString))
+											|| ("js" : GoString) == (("illumos" : GoString))
+												|| ("js" : GoString) == (("solaris" : GoString))) {
 				break;
 				break;
 			} else {
-				_t.skip(Go.toInterface(Go.str("skipping for not implemented platforms")));
+				_t.skip(Go.toInterface(("skipping for not implemented platforms" : GoString)));
 			};
 			break;
 		};
@@ -7084,13 +7101,13 @@ function testRemoveAllLongPath(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_prevDir:GoString = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("Could not get wd: %s"), Go.toInterface(_err));
+			_t.fatalf(("Could not get wd: %s" : GoString), Go.toInterface(_err));
 		};
-		var __tmp__ = stdgo.os.Os.mkdirTemp(Go.str(), Go.str("TestRemoveAllLongPath-")),
+		var __tmp__ = stdgo.os.Os.mkdirTemp(Go.str(), ("TestRemoveAllLongPath-" : GoString)),
 			_startPath:GoString = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("Could not create TempDir: %s"), Go.toInterface(_err));
+			_t.fatalf(("Could not create TempDir: %s" : GoString), Go.toInterface(_err));
 		};
 		{
 			var _a0 = _startPath;
@@ -7098,29 +7115,29 @@ function testRemoveAllLongPath(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 		_err = chdir(_startPath);
 		if (_err != null) {
-			_t.fatalf(Go.str("Could not chdir %s: %s"), Go.toInterface(_startPath), Go.toInterface(_err));
+			_t.fatalf(("Could not chdir %s: %s" : GoString), Go.toInterface(_startPath), Go.toInterface(_err));
 		};
 		{
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_i < (41:GoInt), _i++, {
-				var _name:GoString = stdgo.strings.Strings.repeat(Go.str("a"), (100 : GoInt));
+				var _name:GoString = stdgo.strings.Strings.repeat(("a" : GoString), (100 : GoInt));
 				_err = mkdir(_name, (("493" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 				if (_err != null) {
-					_t.fatalf(Go.str("Could not mkdir %s: %s"), Go.toInterface(_name), Go.toInterface(_err));
+					_t.fatalf(("Could not mkdir %s: %s" : GoString), Go.toInterface(_name), Go.toInterface(_err));
 				};
 				_err = chdir(_name);
 				if (_err != null) {
-					_t.fatalf(Go.str("Could not chdir %s: %s"), Go.toInterface(_name), Go.toInterface(_err));
+					_t.fatalf(("Could not chdir %s: %s" : GoString), Go.toInterface(_name), Go.toInterface(_err));
 				};
 			});
 		};
 		_err = chdir(_prevDir);
 		if (_err != null) {
-			_t.fatalf(Go.str("Could not chdir %s: %s"), Go.toInterface(_prevDir), Go.toInterface(_err));
+			_t.fatalf(("Could not chdir %s: %s" : GoString), Go.toInterface(_prevDir), Go.toInterface(_err));
 		};
 		_err = removeAll(_startPath);
 		if (_err != null) {
-			_t.errorf(Go.str("RemoveAll could not remove long file path %s: %s"), Go.toInterface(_startPath), Go.toInterface(_err));
+			_t.errorf(("RemoveAll could not remove long file path %s: %s" : GoString), Go.toInterface(_startPath), Go.toInterface(_err));
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -7153,13 +7170,13 @@ function testRemoveAllDot(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_err:Error = __tmp__._1;
 	try {
 		if (_err != null) {
-			_t.fatalf(Go.str("Could not get wd: %s"), Go.toInterface(_err));
+			_t.fatalf(("Could not get wd: %s" : GoString), Go.toInterface(_err));
 		};
-		var __tmp__ = stdgo.os.Os.mkdirTemp(Go.str(), Go.str("TestRemoveAllDot-")),
+		var __tmp__ = stdgo.os.Os.mkdirTemp(Go.str(), ("TestRemoveAllDot-" : GoString)),
 			_tempDir:GoString = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
-			_t.fatalf(Go.str("Could not create TempDir: %s"), Go.toInterface(_err));
+			_t.fatalf(("Could not create TempDir: %s" : GoString), Go.toInterface(_err));
 		};
 		{
 			var _a0 = _tempDir;
@@ -7167,15 +7184,15 @@ function testRemoveAllDot(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 		_err = chdir(_tempDir);
 		if (_err != null) {
-			_t.fatalf(Go.str("Could not chdir to tempdir: %s"), Go.toInterface(_err));
+			_t.fatalf(("Could not chdir to tempdir: %s" : GoString), Go.toInterface(_err));
 		};
-		_err = removeAll(Go.str("."));
+		_err = removeAll(("." : GoString));
 		if (_err == null) {
-			_t.errorf(Go.str("RemoveAll succeed to remove ."));
+			_t.errorf(("RemoveAll succeed to remove ." : GoString));
 		};
 		_err = chdir(_prevDir);
 		if (_err != null) {
-			_t.fatalf(Go.str("Could not chdir %s: %s"), Go.toInterface(_prevDir), Go.toInterface(_err));
+			_t.fatalf(("Could not chdir %s: %s" : GoString), Go.toInterface(_prevDir), Go.toInterface(_err));
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -7204,8 +7221,8 @@ function testRemoveAllDot(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testRemoveAllDotDot(_t:Ref<stdgo.testing.Testing.T>):Void {
 	_t.parallel();
 	var _tempDir:GoString = _t.tempDir();
-	var _subdir:GoString = stdgo.path.filepath.Filepath.join(_tempDir, Go.str("x"));
-	var _subsubdir:GoString = stdgo.path.filepath.Filepath.join(_subdir, Go.str("y"));
+	var _subdir:GoString = stdgo.path.filepath.Filepath.join(_tempDir, ("x" : GoString));
+	var _subsubdir:GoString = stdgo.path.filepath.Filepath.join(_subdir, ("y" : GoString));
 	{
 		var _err:Error = mkdirAll(_subsubdir, (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 		if (_err != null) {
@@ -7213,7 +7230,7 @@ function testRemoveAllDotDot(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 	};
 	{
-		var _err:Error = removeAll(stdgo.path.filepath.Filepath.join(_subsubdir, Go.str("..")));
+		var _err:Error = removeAll(stdgo.path.filepath.Filepath.join(_subsubdir, (".." : GoString)));
 		if (_err != null) {
 			_t.error(Go.toInterface(_err));
 		};
@@ -7224,7 +7241,7 @@ function testRemoveAllDotDot(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_1:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 				_err:Error = __tmp__._1;
 			if (_err == null) {
-				_t.errorf(Go.str("%s: exists after RemoveAll"), Go.toInterface(_dir));
+				_t.errorf(("%s: exists after RemoveAll" : GoString), Go.toInterface(_dir));
 			};
 		};
 	};
@@ -7238,7 +7255,7 @@ function testRemoveReadOnlyDir(_t:Ref<stdgo.testing.Testing.T>):Void {
 	_t.parallel();
 	try {
 		var _tempDir:GoString = _t.tempDir();
-		var _subdir:GoString = stdgo.path.filepath.Filepath.join(_tempDir, Go.str("x"));
+		var _subdir:GoString = stdgo.path.filepath.Filepath.join(_tempDir, ("x" : GoString));
 		{
 			var _err:Error = mkdir(_subdir, (("0" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 			if (_err != null) {
@@ -7261,7 +7278,7 @@ function testRemoveReadOnlyDir(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_0:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 				_err:Error = __tmp__._1;
 			if (_err == null) {
-				_t.error(Go.toInterface(Go.str("subdirectory was not removed")));
+				_t.error(Go.toInterface(("subdirectory was not removed" : GoString)));
 			};
 		};
 		for (defer in __deferstack__) {
@@ -7293,18 +7310,18 @@ function testRemoveReadOnlyDir(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testRemoveAllButReadOnlyAndPathError(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	if (Go.str("js") == (Go.str("js")) || Go.str("js") == (Go.str("windows"))) {
-		_t.skipf(Go.str("skipping test on %s"), Go.toInterface(Go.str("js")));
+	if (("js" : GoString) == (("js" : GoString)) || ("js" : GoString) == (("windows" : GoString))) {
+		_t.skipf(("skipping test on %s" : GoString), Go.toInterface(("js" : GoString)));
 	};
 	try {
 		if (getuid() == ((0 : GoInt))) {
-			_t.skip(Go.toInterface(Go.str("skipping test when running as root")));
+			_t.skip(Go.toInterface(("skipping test when running as root" : GoString)));
 		};
 		_t.parallel();
 		var _tempDir:GoString = _t.tempDir();
-		var _dirs = (new Slice<GoString>(0, 0, Go.str("a"), Go.str("a/x"), Go.str("a/x/1"), Go.str("b"), Go.str("b/y"), Go.str("b/y/2"), Go.str("c"),
-			Go.str("c/z"), Go.str("c/z/3")) : Slice<GoString>);
-		var _readonly = (new Slice<GoString>(0, 0, Go.str("b")) : Slice<GoString>);
+		var _dirs = (new Slice<GoString>(0, 0, ("a" : GoString), ("a/x" : GoString), ("a/x/1" : GoString), ("b" : GoString), ("b/y" : GoString),
+			("b/y/2" : GoString), ("c" : GoString), ("c/z" : GoString), ("c/z/3" : GoString)) : Slice<GoString>);
+		var _readonly = (new Slice<GoString>(0, 0, ("b" : GoString)) : Slice<GoString>);
 		var _inReadonly:GoString->Bool = function(_d:GoString):Bool {
 			for (_0 => _ro in _readonly) {
 				if (_d == (_ro)) {
@@ -7341,7 +7358,7 @@ function testRemoveAllButReadOnlyAndPathError(_t:Ref<stdgo.testing.Testing.T>):V
 		};
 		var _err:Error = removeAll(_tempDir);
 		if (_err == null) {
-			_t.fatal(Go.toInterface(Go.str("RemoveAll succeeded unexpectedly")));
+			_t.fatal(Go.toInterface(("RemoveAll succeeded unexpectedly" : GoString)));
 		};
 		{
 			var __tmp__ = try {
@@ -7350,12 +7367,13 @@ function testRemoveAllButReadOnlyAndPathError(_t:Ref<stdgo.testing.Testing.T>):V
 				{value: (null : Ref<stdgo.io.fs.Fs.PathError>), ok: false};
 			}, _pathErr = __tmp__.value, _ok = __tmp__.ok;
 			if (_ok) {
-				var _want:GoString = stdgo.path.filepath.Filepath.join(_tempDir, Go.str("b"), Go.str("y"));
+				var _want:GoString = stdgo.path.filepath.Filepath.join(_tempDir, ("b" : GoString), ("y" : GoString));
 				if (_pathErr.path != (_want)) {
-					_t.errorf(Go.str("RemoveAll(%q): err.Path=%q, want %q"), Go.toInterface(_tempDir), Go.toInterface(_pathErr.path), Go.toInterface(_want));
+					_t.errorf(("RemoveAll(%q): err.Path=%q, want %q" : GoString), Go.toInterface(_tempDir), Go.toInterface(_pathErr.path),
+						Go.toInterface(_want));
 				};
 			} else {
-				_t.errorf(Go.str("RemoveAll(%q): error has type %T, want *fs.PathError"), Go.toInterface(_tempDir), Go.toInterface(_err));
+				_t.errorf(("RemoveAll(%q): error has type %T, want *fs.PathError" : GoString), Go.toInterface(_tempDir), Go.toInterface(_err));
 			};
 		};
 		for (_2 => _dir in _dirs) {
@@ -7364,11 +7382,11 @@ function testRemoveAllButReadOnlyAndPathError(_t:Ref<stdgo.testing.Testing.T>):V
 				_err:Error = __tmp__._1;
 			if (_inReadonly(_dir)) {
 				if (_err != null) {
-					_t.errorf(Go.str("file %q was deleted but should still exist"), Go.toInterface(_dir));
+					_t.errorf(("file %q was deleted but should still exist" : GoString), Go.toInterface(_dir));
 				};
 			} else {
 				if (_err == null) {
-					_t.errorf(Go.str("file %q still exists but should have been deleted"), Go.toInterface(_dir));
+					_t.errorf(("file %q still exists but should have been deleted" : GoString), Go.toInterface(_dir));
 				};
 			};
 		};
@@ -7397,15 +7415,15 @@ function testRemoveAllButReadOnlyAndPathError(_t:Ref<stdgo.testing.Testing.T>):V
 }
 
 function testRemoveUnreadableDir(_t:Ref<stdgo.testing.Testing.T>):Void {
-	if (Go.str("js") == (Go.str("js"))) {
-		_t.skipf(Go.str("skipping test on %s"), Go.toInterface(Go.str("js")));
+	if (("js" : GoString) == (("js" : GoString))) {
+		_t.skipf(("skipping test on %s" : GoString), Go.toInterface(("js" : GoString)));
 	};
 	if (getuid() == ((0 : GoInt))) {
-		_t.skip(Go.toInterface(Go.str("skipping test when running as root")));
+		_t.skip(Go.toInterface(("skipping test when running as root" : GoString)));
 	};
 	_t.parallel();
 	var _tempDir:GoString = _t.tempDir();
-	var _target:GoString = stdgo.path.filepath.Filepath.join(_tempDir, Go.str("d0"), Go.str("d1"), Go.str("d2"));
+	var _target:GoString = stdgo.path.filepath.Filepath.join(_tempDir, ("d0" : GoString), ("d1" : GoString), ("d2" : GoString));
 	{
 		var _err:Error = mkdirAll(_target, (("493" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 		if (_err != null) {
@@ -7419,7 +7437,7 @@ function testRemoveUnreadableDir(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 	};
 	{
-		var _err:Error = removeAll(stdgo.path.filepath.Filepath.join(_tempDir, Go.str("d0")));
+		var _err:Error = removeAll(stdgo.path.filepath.Filepath.join(_tempDir, ("d0" : GoString)));
 		if (_err != null) {
 			_t.fatal(Go.toInterface(_err));
 		};
@@ -7432,26 +7450,26 @@ function testRemoveUnreadableDir(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testRemoveAllWithMoreErrorThanReqSize(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	if (stdgo.testing.Testing.short()) {
-		_t.skip(Go.toInterface(Go.str("skipping in short mode")));
+		_t.skip(Go.toInterface(("skipping in short mode" : GoString)));
 	};
 	try {
 		var _tmpDir:GoString = _t.tempDir();
-		var _path:GoString = stdgo.path.filepath.Filepath.join(_tmpDir, Go.str("_TestRemoveAllWithMoreErrorThanReqSize_"));
+		var _path:GoString = stdgo.path.filepath.Filepath.join(_tmpDir, ("_TestRemoveAllWithMoreErrorThanReqSize_" : GoString));
 		{
 			var _err:Error = mkdirAll(_path, (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 			if (_err != null) {
-				_t.fatalf(Go.str("MkdirAll %q: %s"), Go.toInterface(_path), Go.toInterface(_err));
+				_t.fatalf(("MkdirAll %q: %s" : GoString), Go.toInterface(_path), Go.toInterface(_err));
 			};
 		};
 		{
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_i < (1025:GoInt), _i++, {
-				var _fpath:GoString = stdgo.path.filepath.Filepath.join(_path, stdgo.fmt.Fmt.sprintf(Go.str("file%d"), Go.toInterface(_i)));
+				var _fpath:GoString = stdgo.path.filepath.Filepath.join(_path, stdgo.fmt.Fmt.sprintf(("file%d" : GoString), Go.toInterface(_i)));
 				var __tmp__ = create(_fpath),
 					_fd:Ref<File> = __tmp__._0,
 					_err:Error = __tmp__._1;
 				if (_err != null) {
-					_t.fatalf(Go.str("create %q: %s"), Go.toInterface(_fpath), Go.toInterface(_err));
+					_t.fatalf(("create %q: %s" : GoString), Go.toInterface(_fpath), Go.toInterface(_err));
 				};
 				_fd.close();
 			});
@@ -7485,7 +7503,7 @@ function testRemoveAllWithMoreErrorThanReqSize(_t:Ref<stdgo.testing.Testing.T>):
 					return;
 				};
 			};
-			_t.fatal(Go.toInterface(Go.str("RemoveAll(<read-only directory>) = nil; want error")));
+			_t.fatal(Go.toInterface(("RemoveAll(<read-only directory>) = nil; want error" : GoString)));
 		};
 		var __tmp__ = open(_path),
 			_dir:Ref<File> = __tmp__._0,
@@ -7498,7 +7516,7 @@ function testRemoveAllWithMoreErrorThanReqSize(_t:Ref<stdgo.testing.Testing.T>):
 			_names:Slice<GoString> = __tmp__._0,
 			_0:Error = __tmp__._1;
 		if ((_names.length) < (1025 : GoInt)) {
-			_t.fatalf(Go.str("RemoveAll(<read-only directory>) unexpectedly removed %d read-only files from that directory"),
+			_t.fatalf(("RemoveAll(<read-only directory>) unexpectedly removed %d read-only files from that directory" : GoString),
 				Go.toInterface((1025 : GoInt) - (_names.length)));
 		};
 		for (defer in __deferstack__) {
@@ -7534,7 +7552,7 @@ function testOpenFileLimit(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < _fileCount, _i++, {
-			var __tmp__ = open(Go.str("rlimit.go")),
+			var __tmp__ = open(("rlimit.go" : GoString)),
 				_f:Ref<File> = __tmp__._0,
 				_err:Error = __tmp__._1;
 			if (_err != null) {
@@ -7552,7 +7570,7 @@ function testOpenFileLimit(_t:Ref<stdgo.testing.Testing.T>):Void {
 /**
 	// testStatAndLstat verifies that all os.Stat, os.Lstat os.File.Stat and os.Readdir work.
 **/
-function _testStatAndLstat(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _isLink:Bool,
+private function _testStatAndLstat(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _isLink:Bool,
 		_statCheck:(Ref<stdgo.testing.Testing.T>, GoString, stdgo.io.fs.Fs.FileInfo) -> Void,
 		_lstatCheck:(Ref<stdgo.testing.Testing.T>, GoString, stdgo.io.fs.Fs.FileInfo) -> Void):Void {
 	var __deferstack__:Array<Void->Void> = [];
@@ -7575,11 +7593,11 @@ function _testStatAndLstat(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _isL
 		_lstatCheck(_t, _path, _lsfi);
 		if (_isLink) {
 			if (stdgo.os.Os.sameFile(_sfi, _lsfi)) {
-				_t.errorf(Go.str("stat and lstat of %q should not be the same"), Go.toInterface(_path));
+				_t.errorf(("stat and lstat of %q should not be the same" : GoString), Go.toInterface(_path));
 			};
 		} else {
 			if (!stdgo.os.Os.sameFile(_sfi, _lsfi)) {
-				_t.errorf(Go.str("stat and lstat of %q should be the same"), Go.toInterface(_path));
+				_t.errorf(("stat and lstat of %q should be the same" : GoString), Go.toInterface(_path));
 			};
 		};
 		var __tmp__ = stdgo.os.Os.open(_path),
@@ -7604,15 +7622,15 @@ function _testStatAndLstat(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _isL
 		};
 		_statCheck(_t, _path, _sfi2);
 		if (!stdgo.os.Os.sameFile(_sfi, _sfi2)) {
-			_t.errorf(Go.str("stat of open %q file and stat of %q should be the same"), Go.toInterface(_path), Go.toInterface(_path));
+			_t.errorf(("stat of open %q file and stat of %q should be the same" : GoString), Go.toInterface(_path), Go.toInterface(_path));
 		};
 		if (_isLink) {
 			if (stdgo.os.Os.sameFile(_sfi2, _lsfi)) {
-				_t.errorf(Go.str("stat of opened %q file and lstat of %q should not be the same"), Go.toInterface(_path), Go.toInterface(_path));
+				_t.errorf(("stat of opened %q file and lstat of %q should not be the same" : GoString), Go.toInterface(_path), Go.toInterface(_path));
 			};
 		} else {
 			if (!stdgo.os.Os.sameFile(_sfi2, _lsfi)) {
-				_t.errorf(Go.str("stat of opened %q file and lstat of %q should be the same"), Go.toInterface(_path), Go.toInterface(_path));
+				_t.errorf(("stat of opened %q file and lstat of %q should be the same" : GoString), Go.toInterface(_path), Go.toInterface(_path));
 			};
 		};
 		if ((_path.length > (0 : GoInt)) && stdgo.os.Os.isPathSeparator(_path[((_path.length) - (1 : GoInt) : GoInt)])) {
@@ -7658,7 +7676,7 @@ function _testStatAndLstat(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _isL
 			};
 		};
 		if (_lsfi2 == null) {
-			_t.errorf(Go.str("failed to find %q in its parent"), Go.toInterface(_path));
+			_t.errorf(("failed to find %q in its parent" : GoString), Go.toInterface(_path));
 			{
 				for (defer in __deferstack__) {
 					defer();
@@ -7668,7 +7686,7 @@ function _testStatAndLstat(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _isL
 		};
 		_lstatCheck(_t, _path, _lsfi2);
 		if (!stdgo.os.Os.sameFile(_lsfi, _lsfi2)) {
-			_t.errorf(Go.str("lstat of %q file in %q directory and %q should be the same"), Go.toInterface(_lsfi2.name()), Go.toInterface(_parentdir),
+			_t.errorf(("lstat of %q file in %q directory and %q should be the same" : GoString), Go.toInterface(_lsfi2.name()), Go.toInterface(_parentdir),
 				Go.toInterface(_path));
 		};
 		for (defer in __deferstack__) {
@@ -7698,51 +7716,51 @@ function _testStatAndLstat(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _isL
 /**
 	// testIsDir verifies that fi refers to directory.
 **/
-function _testIsDir(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _fi:stdgo.io.fs.Fs.FileInfo):Void {
+private function _testIsDir(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _fi:stdgo.io.fs.Fs.FileInfo):Void {
 	_t.helper();
 	if (!_fi.isDir()) {
-		_t.errorf(Go.str("%q should be a directory"), Go.toInterface(_path));
+		_t.errorf(("%q should be a directory" : GoString), Go.toInterface(_path));
 	};
 	if (_fi.mode() & (("134217728" : GoUInt32) : stdgo.io.fs.Fs.FileMode) != ((("0" : GoUInt32) : stdgo.io.fs.Fs.FileMode))) {
-		_t.errorf(Go.str("%q should not be a symlink"), Go.toInterface(_path));
+		_t.errorf(("%q should not be a symlink" : GoString), Go.toInterface(_path));
 	};
 }
 
 /**
 	// testIsSymlink verifies that fi refers to symlink.
 **/
-function _testIsSymlink(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _fi:stdgo.io.fs.Fs.FileInfo):Void {
+private function _testIsSymlink(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _fi:stdgo.io.fs.Fs.FileInfo):Void {
 	_t.helper();
 	if (_fi.isDir()) {
-		_t.errorf(Go.str("%q should not be a directory"), Go.toInterface(_path));
+		_t.errorf(("%q should not be a directory" : GoString), Go.toInterface(_path));
 	};
 	if (_fi.mode() & (("134217728" : GoUInt32) : stdgo.io.fs.Fs.FileMode) == ((("0" : GoUInt32) : stdgo.io.fs.Fs.FileMode))) {
-		_t.errorf(Go.str("%q should be a symlink"), Go.toInterface(_path));
+		_t.errorf(("%q should be a symlink" : GoString), Go.toInterface(_path));
 	};
 }
 
 /**
 	// testIsFile verifies that fi refers to file.
 **/
-function _testIsFile(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _fi:stdgo.io.fs.Fs.FileInfo):Void {
+private function _testIsFile(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _fi:stdgo.io.fs.Fs.FileInfo):Void {
 	_t.helper();
 	if (_fi.isDir()) {
-		_t.errorf(Go.str("%q should not be a directory"), Go.toInterface(_path));
+		_t.errorf(("%q should not be a directory" : GoString), Go.toInterface(_path));
 	};
 	if (_fi.mode() & (("134217728" : GoUInt32) : stdgo.io.fs.Fs.FileMode) != ((("0" : GoUInt32) : stdgo.io.fs.Fs.FileMode))) {
-		_t.errorf(Go.str("%q should not be a symlink"), Go.toInterface(_path));
+		_t.errorf(("%q should not be a symlink" : GoString), Go.toInterface(_path));
 	};
 }
 
-function _testDirStats(_t:Ref<stdgo.testing.Testing.T>, _path:GoString):Void {
+private function _testDirStats(_t:Ref<stdgo.testing.Testing.T>, _path:GoString):Void {
 	_testStatAndLstat(_t, _path, false, _testIsDir, _testIsDir);
 }
 
-function _testFileStats(_t:Ref<stdgo.testing.Testing.T>, _path:GoString):Void {
+private function _testFileStats(_t:Ref<stdgo.testing.Testing.T>, _path:GoString):Void {
 	_testStatAndLstat(_t, _path, false, _testIsFile, _testIsFile);
 }
 
-function _testSymlinkStats(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _isdir:Bool):Void {
+private function _testSymlinkStats(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _isdir:Bool):Void {
 	if (_isdir) {
 		_testStatAndLstat(_t, _path, true, _testIsDir, _testIsSymlink);
 	} else {
@@ -7750,7 +7768,7 @@ function _testSymlinkStats(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _isd
 	};
 }
 
-function _testSymlinkSameFile(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _link:GoString):Void {
+private function _testSymlinkSameFile(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _link:GoString):Void {
 	var __tmp__ = stdgo.os.Os.stat(_path),
 		_pathfi:stdgo.io.fs.Fs.FileInfo = __tmp__._0,
 		_err:Error = __tmp__._1;
@@ -7766,7 +7784,7 @@ function _testSymlinkSameFile(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _
 		return;
 	};
 	if (!stdgo.os.Os.sameFile(_pathfi, _linkfi)) {
-		_t.errorf(Go.str("os.Stat(%q) and os.Stat(%q) are not the same file"), Go.toInterface(_path), Go.toInterface(_link));
+		_t.errorf(("os.Stat(%q) and os.Stat(%q) are not the same file" : GoString), Go.toInterface(_path), Go.toInterface(_link));
 	};
 	{
 		var __tmp__ = stdgo.os.Os.lstat(_link);
@@ -7778,14 +7796,14 @@ function _testSymlinkSameFile(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _
 		return;
 	};
 	if (stdgo.os.Os.sameFile(_pathfi, _linkfi)) {
-		_t.errorf(Go.str("os.Stat(%q) and os.Lstat(%q) are the same file"), Go.toInterface(_path), Go.toInterface(_link));
+		_t.errorf(("os.Stat(%q) and os.Lstat(%q) are the same file" : GoString), Go.toInterface(_path), Go.toInterface(_link));
 	};
 }
 
 function testDirAndSymlinkStats(_t:Ref<stdgo.testing.Testing.T>):Void {
 	stdgo.internal.testenv.Testenv.mustHaveSymlink(Go.asInterface(_t));
 	var _tmpdir:GoString = _t.tempDir();
-	var _dir:GoString = stdgo.path.filepath.Filepath.join(_tmpdir, Go.str("dir"));
+	var _dir:GoString = stdgo.path.filepath.Filepath.join(_tmpdir, ("dir" : GoString));
 	{
 		var _err:Error = stdgo.os.Os.mkdir(_dir, (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 		if (_err != null) {
@@ -7793,7 +7811,7 @@ function testDirAndSymlinkStats(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 	};
 	_testDirStats(_t, _dir);
-	var _dirlink:GoString = stdgo.path.filepath.Filepath.join(_tmpdir, Go.str("link"));
+	var _dirlink:GoString = stdgo.path.filepath.Filepath.join(_tmpdir, ("link" : GoString));
 	{
 		var _err:Error = stdgo.os.Os.symlink(_dir, _dirlink);
 		if (_err != null) {
@@ -7802,7 +7820,7 @@ function testDirAndSymlinkStats(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	_testSymlinkStats(_t, _dirlink, true);
 	_testSymlinkSameFile(_t, _dir, _dirlink);
-	var _linklink:GoString = stdgo.path.filepath.Filepath.join(_tmpdir, Go.str("linklink"));
+	var _linklink:GoString = stdgo.path.filepath.Filepath.join(_tmpdir, ("linklink" : GoString));
 	{
 		var _err:Error = stdgo.os.Os.symlink(_dirlink, _linklink);
 		if (_err != null) {
@@ -7816,7 +7834,7 @@ function testDirAndSymlinkStats(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testFileAndSymlinkStats(_t:Ref<stdgo.testing.Testing.T>):Void {
 	stdgo.internal.testenv.Testenv.mustHaveSymlink(Go.asInterface(_t));
 	var _tmpdir:GoString = _t.tempDir();
-	var _file:GoString = stdgo.path.filepath.Filepath.join(_tmpdir, Go.str("file"));
+	var _file:GoString = stdgo.path.filepath.Filepath.join(_tmpdir, ("file" : GoString));
 	{
 		var _err:Error = stdgo.os.Os.writeFile(_file, (Go.str() : Slice<GoByte>), (("420" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 		if (_err != null) {
@@ -7824,7 +7842,7 @@ function testFileAndSymlinkStats(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 	};
 	_testFileStats(_t, _file);
-	var _filelink:GoString = stdgo.path.filepath.Filepath.join(_tmpdir, Go.str("link"));
+	var _filelink:GoString = stdgo.path.filepath.Filepath.join(_tmpdir, ("link" : GoString));
 	{
 		var _err:Error = stdgo.os.Os.symlink(_file, _filelink);
 		if (_err != null) {
@@ -7833,7 +7851,7 @@ function testFileAndSymlinkStats(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	_testSymlinkStats(_t, _filelink, false);
 	_testSymlinkSameFile(_t, _file, _filelink);
-	var _linklink:GoString = stdgo.path.filepath.Filepath.join(_tmpdir, Go.str("linklink"));
+	var _linklink:GoString = stdgo.path.filepath.Filepath.join(_tmpdir, ("linklink" : GoString));
 	{
 		var _err:Error = stdgo.os.Os.symlink(_filelink, _linklink);
 		if (_err != null) {
@@ -7850,14 +7868,14 @@ function testFileAndSymlinkStats(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testSymlinkWithTrailingSlash(_t:Ref<stdgo.testing.Testing.T>):Void {
 	stdgo.internal.testenv.Testenv.mustHaveSymlink(Go.asInterface(_t));
 	var _tmpdir:GoString = _t.tempDir();
-	var _dir:GoString = stdgo.path.filepath.Filepath.join(_tmpdir, Go.str("dir"));
+	var _dir:GoString = stdgo.path.filepath.Filepath.join(_tmpdir, ("dir" : GoString));
 	{
 		var _err:Error = stdgo.os.Os.mkdir(_dir, (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
 		if (_err != null) {
 			_t.fatal(Go.toInterface(_err));
 		};
 	};
-	var _dirlink:GoString = stdgo.path.filepath.Filepath.join(_tmpdir, Go.str("link"));
+	var _dirlink:GoString = stdgo.path.filepath.Filepath.join(_tmpdir, ("link" : GoString));
 	{
 		var _err:Error = stdgo.os.Os.symlink(_dir, _dirlink);
 		if (_err != null) {
@@ -7885,13 +7903,13 @@ function testSymlinkWithTrailingSlash(_t:Ref<stdgo.testing.Testing.T>):Void {
 		return;
 	};
 	if (!stdgo.os.Os.sameFile(_fi1, _fi2)) {
-		_t.errorf(Go.str("os.Stat(%q) and os.Stat(%q) are not the same file"), Go.toInterface(_dir), Go.toInterface(_dirlinkWithSlash));
+		_t.errorf(("os.Stat(%q) and os.Stat(%q) are not the same file" : GoString), Go.toInterface(_dir), Go.toInterface(_dirlinkWithSlash));
 	};
 }
 
 function testCreateTemp(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	var __tmp__ = mkdirTemp(Go.str(), Go.str("TestCreateTempBadDir")),
+	var __tmp__ = mkdirTemp(Go.str(), ("TestCreateTempBadDir" : GoString)),
 		_dir:GoString = __tmp__._0,
 		_err:Error = __tmp__._1;
 	try {
@@ -7902,12 +7920,13 @@ function testCreateTemp(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _a0 = _dir;
 			__deferstack__.unshift(() -> removeAll(_a0));
 		};
-		var _nonexistentDir:GoString = stdgo.path.filepath.Filepath.join(_dir, Go.str("_not_exists_"));
-		var __tmp__ = createTemp(_nonexistentDir, Go.str("foo")),
+		var _nonexistentDir:GoString = stdgo.path.filepath.Filepath.join(_dir, ("_not_exists_" : GoString));
+		var __tmp__ = createTemp(_nonexistentDir, ("foo" : GoString)),
 			_f:Ref<File> = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if ((_f != null) || (_err == null)) {
-			_t.errorf(Go.str("CreateTemp(%q, `foo`) = %v, %v"), Go.toInterface(_nonexistentDir), Go.toInterface(_f), Go.toInterface(_err));
+			_t.errorf(("CreateTemp(%q, `foo`) = %v, %v" : GoString), Go.toInterface(_nonexistentDir), Go.toInterface(Go.asInterface(_f)),
+				Go.toInterface(_err));
 		};
 		for (defer in __deferstack__) {
 			defer();
@@ -7935,16 +7954,17 @@ function testCreateTemp(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testCreateTempPattern(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	var _tests = (new Slice<T__struct_6>(0, 0, ({_pattern: Go.str("tempfile_test"), _prefix: Go.str("tempfile_test"), _suffix: Go.str()} : T__struct_6),
-		({_pattern: Go.str("tempfile_test*"), _prefix: Go.str("tempfile_test"), _suffix: Go.str()} : T__struct_6),
-		({_pattern: Go.str("tempfile_test*xyz"), _prefix: Go.str("tempfile_test"), _suffix: Go.str("xyz")} : T__struct_6)) : Slice<T__struct_6>);
+	var _tests = (new Slice<T__struct_6>(0, 0,
+		({_pattern: ("tempfile_test" : GoString), _prefix: ("tempfile_test" : GoString), _suffix: Go.str()} : T__struct_6),
+		({_pattern: ("tempfile_test*" : GoString), _prefix: ("tempfile_test" : GoString), _suffix: Go.str()} : T__struct_6),
+		({_pattern: ("tempfile_test*xyz" : GoString), _prefix: ("tempfile_test" : GoString), _suffix: ("xyz" : GoString)} : T__struct_6)) : Slice<T__struct_6>);
 	try {
 		for (_0 => _test in _tests) {
 			var __tmp__ = createTemp(Go.str(), _test._pattern),
 				_f:Ref<File> = __tmp__._0,
 				_err:Error = __tmp__._1;
 			if (_err != null) {
-				_t.errorf(Go.str("CreateTemp(..., %q) error: %v"), Go.toInterface(_test._pattern), Go.toInterface(_err));
+				_t.errorf(("CreateTemp(..., %q) error: %v" : GoString), Go.toInterface(_test._pattern), Go.toInterface(_err));
 				continue;
 			};
 			{
@@ -7954,7 +7974,7 @@ function testCreateTempPattern(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _base:GoString = stdgo.path.filepath.Filepath.base(_f.name());
 			_f.close();
 			if (!(stdgo.strings.Strings.hasPrefix(_base, _test._prefix) && stdgo.strings.Strings.hasSuffix(_base, _test._suffix))) {
-				_t.errorf(Go.str("CreateTemp pattern %q created bad name %q; want prefix %q & suffix %q"), Go.toInterface(_test._pattern),
+				_t.errorf(("CreateTemp pattern %q created bad name %q; want prefix %q & suffix %q" : GoString), Go.toInterface(_test._pattern),
 					Go.toInterface(_base), Go.toInterface(_test._prefix), Go.toInterface(_test._suffix));
 			};
 		};
@@ -7996,12 +8016,13 @@ function testCreateTempBadPattern(_t:Ref<stdgo.testing.Testing.T>):Void {
 			__deferstack__.unshift(() -> removeAll(_a0));
 		};
 		{};
-		var _tests = (new Slice<T__struct_7>(0, 0, ({_pattern: Go.str("ioutil*test"), _wantErr: false} : T__struct_7),
-			({_pattern: Go.str("tempfile_test*foo"), _wantErr: false} : T__struct_7), ({_pattern: Go.str("tempfile_test/foo"), _wantErr: true} : T__struct_7),
-			({_pattern: Go.str("tempfile_test*/foo"), _wantErr: true} : T__struct_7),
-			({_pattern: Go.str("tempfile_test/*foo"), _wantErr: true} : T__struct_7),
-			({_pattern: Go.str("/tempfile_test/*foo"), _wantErr: true} : T__struct_7),
-			({_pattern: Go.str("tempfile_test*foo/"), _wantErr: true} : T__struct_7)) : Slice<T__struct_7>);
+		var _tests = (new Slice<T__struct_7>(0, 0, ({_pattern: ("ioutil*test" : GoString), _wantErr: false} : T__struct_7),
+			({_pattern: ("tempfile_test*foo" : GoString), _wantErr: false} : T__struct_7),
+			({_pattern: ("tempfile_test/foo" : GoString), _wantErr: true} : T__struct_7),
+			({_pattern: ("tempfile_test*/foo" : GoString), _wantErr: true} : T__struct_7),
+			({_pattern: ("tempfile_test/*foo" : GoString), _wantErr: true} : T__struct_7),
+			({_pattern: ("/tempfile_test/*foo" : GoString), _wantErr: true} : T__struct_7),
+			({_pattern: ("tempfile_test*foo/" : GoString), _wantErr: true} : T__struct_7)) : Slice<T__struct_7>);
 		for (_0 => _tt in _tests) {
 			_t.run(_tt._pattern, function(_t:Ref<stdgo.testing.Testing.T>):Void {
 				var __deferstack__:Array<Void->Void> = [];
@@ -8014,13 +8035,14 @@ function testCreateTempBadPattern(_t:Ref<stdgo.testing.Testing.T>):Void {
 					};
 					if (_tt._wantErr) {
 						if (_err == null) {
-							_t.errorf(Go.str("CreateTemp(..., %#q) succeeded, expected error"), Go.toInterface(_tt._pattern));
+							_t.errorf(("CreateTemp(..., %#q) succeeded, expected error" : GoString), Go.toInterface(_tt._pattern));
 						};
 						if (!stdgo.errors.Errors.is_(_err, errPatternHasSeparator)) {
-							_t.errorf(Go.str("CreateTemp(..., %#q): %v, expected ErrPatternHasSeparator"), Go.toInterface(_tt._pattern), Go.toInterface(_err));
+							_t.errorf(("CreateTemp(..., %#q): %v, expected ErrPatternHasSeparator" : GoString), Go.toInterface(_tt._pattern),
+								Go.toInterface(_err));
 						};
 					} else if (_err != null) {
-						_t.errorf(Go.str("CreateTemp(..., %#q): %v"), Go.toInterface(_tt._pattern), Go.toInterface(_err));
+						_t.errorf(("CreateTemp(..., %#q): %v" : GoString), Go.toInterface(_tt._pattern), Go.toInterface(_err));
 					};
 					for (defer in __deferstack__) {
 						defer();
@@ -8071,23 +8093,24 @@ function testCreateTempBadPattern(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 
 function testMkdirTemp(_t:Ref<stdgo.testing.Testing.T>):Void {
-	var __tmp__ = mkdirTemp(Go.str("/_not_exists_"), Go.str("foo")),
+	var __tmp__ = mkdirTemp(("/_not_exists_" : GoString), ("foo" : GoString)),
 		_name:GoString = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if ((_name != Go.str()) || (_err == null)) {
-		_t.errorf(Go.str("MkdirTemp(`/_not_exists_`, `foo`) = %v, %v"), Go.toInterface(_name), Go.toInterface(_err));
+		_t.errorf(("MkdirTemp(`/_not_exists_`, `foo`) = %v, %v" : GoString), Go.toInterface(_name), Go.toInterface(_err));
 	};
 	var _tests = (new Slice<T__struct_8>(0, 0,
-		({_pattern: Go.str("tempfile_test"), _wantPrefix: Go.str("tempfile_test"), _wantSuffix: Go.str()} : T__struct_8),
-		({_pattern: Go.str("tempfile_test*"), _wantPrefix: Go.str("tempfile_test"), _wantSuffix: Go.str()} : T__struct_8),
-		({_pattern: Go.str("tempfile_test*xyz"), _wantPrefix: Go.str("tempfile_test"), _wantSuffix: Go.str("xyz")} : T__struct_8)) : Slice<T__struct_8>);
+		({_pattern: ("tempfile_test" : GoString), _wantPrefix: ("tempfile_test" : GoString), _wantSuffix: Go.str()} : T__struct_8),
+		({_pattern: ("tempfile_test*" : GoString), _wantPrefix: ("tempfile_test" : GoString), _wantSuffix: Go.str()} : T__struct_8),
+		({_pattern: ("tempfile_test*xyz" : GoString), _wantPrefix: ("tempfile_test" : GoString),
+			_wantSuffix: ("xyz" : GoString)} : T__struct_8)) : Slice<T__struct_8>);
 	var _dir:GoString = stdgo.path.filepath.Filepath.clean(tempDir());
 	var _runTestMkdirTemp = function(_t:Ref<stdgo.testing.Testing.T>, _pattern:GoString, _wantRePat:GoString):Void {
 		var __deferstack__:Array<Void->Void> = [];
 		var __tmp__ = mkdirTemp(_dir, _pattern), _name:GoString = __tmp__._0, _err:Error = __tmp__._1;
 		try {
 			if ((_name == Go.str()) || (_err != null)) {
-				_t.fatalf(Go.str("MkdirTemp(dir, `tempfile_test`) = %v, %v"), Go.toInterface(_name), Go.toInterface(_err));
+				_t.fatalf(("MkdirTemp(dir, `tempfile_test`) = %v, %v" : GoString), Go.toInterface(_name), Go.toInterface(_err));
 			};
 			{
 				var _a0 = _name;
@@ -8095,8 +8118,8 @@ function testMkdirTemp(_t:Ref<stdgo.testing.Testing.T>):Void {
 			};
 			var _re = stdgo.regexp.Regexp.mustCompile(_wantRePat);
 			if (!_re.matchString(_name)) {
-				_t.errorf(Go.str("MkdirTemp(%q, %q) created bad name\n\t%q\ndid not match pattern\n\t%q"), Go.toInterface(_dir), Go.toInterface(_pattern),
-					Go.toInterface(_name), Go.toInterface(_wantRePat));
+				_t.errorf(("MkdirTemp(%q, %q) created bad name\n\t%q\ndid not match pattern\n\t%q" : GoString), Go.toInterface(_dir),
+					Go.toInterface(_pattern), Go.toInterface(_name), Go.toInterface(_wantRePat));
 			};
 			for (defer in __deferstack__) {
 				defer();
@@ -8123,18 +8146,18 @@ function testMkdirTemp(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	for (_0 => _tt in _tests) {
 		_t.run(_tt._pattern, function(_t:Ref<stdgo.testing.Testing.T>):Void {
-			var _wantRePat:GoString = (((Go.str("^") + stdgo.regexp.Regexp.quoteMeta(stdgo.path.filepath.Filepath.join(_dir, _tt._wantPrefix)))
-				+ Go.str("[0-9]+"))
+			var _wantRePat:GoString = (((("^" : GoString) + stdgo.regexp.Regexp.quoteMeta(stdgo.path.filepath.Filepath.join(_dir, _tt._wantPrefix)))
+				+ ("[0-9]+" : GoString))
 				+ stdgo.regexp.Regexp.quoteMeta(_tt._wantSuffix))
-				+ Go.str("$$");
+				+ ("$$" : GoString);
 			_runTestMkdirTemp(_t, _tt._pattern, _wantRePat);
 		});
 	};
-	_t.run(Go.str("*xyz"), function(_t:Ref<stdgo.testing.Testing.T>):Void {
-		var _wantRePat:GoString = ((Go.str("^") + stdgo.regexp.Regexp.quoteMeta(stdgo.path.filepath.Filepath.join(_dir)))
+	_t.run(("*xyz" : GoString), function(_t:Ref<stdgo.testing.Testing.T>):Void {
+		var _wantRePat:GoString = ((("^" : GoString) + stdgo.regexp.Regexp.quoteMeta(stdgo.path.filepath.Filepath.join(_dir)))
 			+ stdgo.regexp.Regexp.quoteMeta(((47 : GoInt32) : GoString)))
-			+ Go.str("[0-9]+xyz$$");
-		_runTestMkdirTemp(_t, Go.str("*xyz"), _wantRePat);
+			+ ("[0-9]+xyz$$" : GoString);
+		_runTestMkdirTemp(_t, ("*xyz" : GoString), _wantRePat);
 	});
 }
 
@@ -8144,7 +8167,7 @@ function testMkdirTemp(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testMkdirTempBadDir(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var __deferstack__:Array<Void->Void> = [];
-	var __tmp__ = mkdirTemp(Go.str(), Go.str("MkdirTempBadDir")),
+	var __tmp__ = mkdirTemp(Go.str(), ("MkdirTempBadDir" : GoString)),
 		_dir:GoString = __tmp__._0,
 		_err:Error = __tmp__._1;
 	try {
@@ -8155,9 +8178,9 @@ function testMkdirTempBadDir(_t:Ref<stdgo.testing.Testing.T>):Void {
 			var _a0 = _dir;
 			__deferstack__.unshift(() -> removeAll(_a0));
 		};
-		var _badDir:GoString = stdgo.path.filepath.Filepath.join(_dir, Go.str("not-exist"));
+		var _badDir:GoString = stdgo.path.filepath.Filepath.join(_dir, ("not-exist" : GoString));
 		{
-			var __tmp__ = mkdirTemp(_badDir, Go.str("foo"));
+			var __tmp__ = mkdirTemp(_badDir, ("foo" : GoString));
 			_err = __tmp__._1;
 		};
 		{
@@ -8167,7 +8190,7 @@ function testMkdirTempBadDir(_t:Ref<stdgo.testing.Testing.T>):Void {
 				{value: (null : Ref<stdgo.io.fs.Fs.PathError>), ok: false};
 			}, _pe = __tmp__.value, _ok = __tmp__.ok;
 			if ((!_ok || !isNotExist(_err)) || (_pe.path != _badDir)) {
-				_t.errorf(Go.str("TempDir error = %#v; want PathError for path %q satisfying IsNotExist"), Go.toInterface(_err), Go.toInterface(_badDir));
+				_t.errorf(("TempDir error = %#v; want PathError for path %q satisfying IsNotExist" : GoString), Go.toInterface(_err), Go.toInterface(_badDir));
 			};
 		};
 		for (defer in __deferstack__) {
@@ -8208,12 +8231,13 @@ function testMkdirTempBadPattern(_t:Ref<stdgo.testing.Testing.T>):Void {
 			__deferstack__.unshift(() -> removeAll(_a0));
 		};
 		{};
-		var _tests = (new Slice<T__struct_7>(0, 0, ({_pattern: Go.str("ioutil*test"), _wantErr: false} : T__struct_7),
-			({_pattern: Go.str("tempfile_test*foo"), _wantErr: false} : T__struct_7), ({_pattern: Go.str("tempfile_test/foo"), _wantErr: true} : T__struct_7),
-			({_pattern: Go.str("tempfile_test*/foo"), _wantErr: true} : T__struct_7),
-			({_pattern: Go.str("tempfile_test/*foo"), _wantErr: true} : T__struct_7),
-			({_pattern: Go.str("/tempfile_test/*foo"), _wantErr: true} : T__struct_7),
-			({_pattern: Go.str("tempfile_test*foo/"), _wantErr: true} : T__struct_7)) : Slice<T__struct_7>);
+		var _tests = (new Slice<T__struct_7>(0, 0, ({_pattern: ("ioutil*test" : GoString), _wantErr: false} : T__struct_7),
+			({_pattern: ("tempfile_test*foo" : GoString), _wantErr: false} : T__struct_7),
+			({_pattern: ("tempfile_test/foo" : GoString), _wantErr: true} : T__struct_7),
+			({_pattern: ("tempfile_test*/foo" : GoString), _wantErr: true} : T__struct_7),
+			({_pattern: ("tempfile_test/*foo" : GoString), _wantErr: true} : T__struct_7),
+			({_pattern: ("/tempfile_test/*foo" : GoString), _wantErr: true} : T__struct_7),
+			({_pattern: ("tempfile_test*foo/" : GoString), _wantErr: true} : T__struct_7)) : Slice<T__struct_7>);
 		for (_0 => _tt in _tests) {
 			_t.run(_tt._pattern, function(_t:Ref<stdgo.testing.Testing.T>):Void {
 				var __tmp__ = mkdirTemp(_tmpDir, _tt._pattern),
@@ -8221,13 +8245,13 @@ function testMkdirTempBadPattern(_t:Ref<stdgo.testing.Testing.T>):Void {
 					_err:Error = __tmp__._1;
 				if (_tt._wantErr) {
 					if (_err == null) {
-						_t.errorf(Go.str("MkdirTemp(..., %#q) succeeded, expected error"), Go.toInterface(_tt._pattern));
+						_t.errorf(("MkdirTemp(..., %#q) succeeded, expected error" : GoString), Go.toInterface(_tt._pattern));
 					};
 					if (!stdgo.errors.Errors.is_(_err, errPatternHasSeparator)) {
-						_t.errorf(Go.str("MkdirTemp(..., %#q): %v, expected ErrPatternHasSeparator"), Go.toInterface(_tt._pattern), Go.toInterface(_err));
+						_t.errorf(("MkdirTemp(..., %#q): %v, expected ErrPatternHasSeparator" : GoString), Go.toInterface(_tt._pattern), Go.toInterface(_err));
 					};
 				} else if (_err != null) {
-					_t.errorf(Go.str("MkdirTemp(..., %#q): %v"), Go.toInterface(_tt._pattern), Go.toInterface(_err));
+					_t.errorf(("MkdirTemp(..., %#q): %v" : GoString), Go.toInterface(_tt._pattern), Go.toInterface(_err));
 				};
 			});
 		};
@@ -8258,39 +8282,39 @@ function testMkdirTempBadPattern(_t:Ref<stdgo.testing.Testing.T>):Void {
 @:keep var _ = {
 	try {
 		_isExistTests = _isExistTests.__appendref__(({_err: Go.asInterface((({err: Go.asInterface((17 : stdgo.syscall.Syscall.Errno))} : stdgo.io.fs.Fs.PathError) : Ref<stdgo.io.fs.Fs.PathError>)),
-			_is: true, _isnot: false} : stdgo.os_test.Os_test.T_isExistTest),
+			_is: true, _isnot: false} : T_isExistTest),
 			({_err: Go.asInterface((({err: Go.asInterface((39 : stdgo.syscall.Syscall.Errno))} : stdgo.io.fs.Fs.PathError) : Ref<stdgo.io.fs.Fs.PathError>)),
-				_is: true, _isnot: false} : stdgo.os_test.Os_test.T_isExistTest),
+				_is: true, _isnot: false} : T_isExistTest),
 			({_err: Go.asInterface((({err: Go.asInterface((17 : stdgo.syscall.Syscall.Errno))} : LinkError) : Ref<LinkError>)), _is: true,
-				_isnot: false} : stdgo.os_test.Os_test.T_isExistTest),
+				_isnot: false} : T_isExistTest),
 			({_err: Go.asInterface((({err: Go.asInterface((39 : stdgo.syscall.Syscall.Errno))} : LinkError) : Ref<LinkError>)), _is: true,
-				_isnot: false} : stdgo.os_test.Os_test.T_isExistTest),
+				_isnot: false} : T_isExistTest),
 			({_err: Go.asInterface((({err: Go.asInterface((17 : stdgo.syscall.Syscall.Errno))} : SyscallError) : Ref<SyscallError>)), _is: true,
-				_isnot: false} : stdgo.os_test.Os_test.T_isExistTest),
+				_isnot: false} : T_isExistTest),
 			({_err: Go.asInterface((({err: Go.asInterface((39 : stdgo.syscall.Syscall.Errno))} : SyscallError) : Ref<SyscallError>)), _is: true,
-				_isnot: false} : stdgo.os_test.Os_test.T_isExistTest));
+				_isnot: false} : T_isExistTest));
 		_isPermissionTests = _isPermissionTests.__appendref__(({_err: Go.asInterface((({err: Go.asInterface((13 : stdgo.syscall.Syscall.Errno))} : stdgo.io.fs.Fs.PathError) : Ref<stdgo.io.fs.Fs.PathError>)),
-			_want: true} : stdgo.os_test.Os_test.T_isPermissionTest),
+			_want: true} : T_isPermissionTest),
 			({_err: Go.asInterface((({err: Go.asInterface((1 : stdgo.syscall.Syscall.Errno))} : stdgo.io.fs.Fs.PathError) : Ref<stdgo.io.fs.Fs.PathError>)),
-				_want: true} : stdgo.os_test.Os_test.T_isPermissionTest),
+				_want: true} : T_isPermissionTest),
 			({_err: Go.asInterface((({err: Go.asInterface((17 : stdgo.syscall.Syscall.Errno))} : stdgo.io.fs.Fs.PathError) : Ref<stdgo.io.fs.Fs.PathError>)),
-				_want: false} : stdgo.os_test.Os_test.T_isPermissionTest),
+				_want: false} : T_isPermissionTest),
 			({_err: Go.asInterface((({err: Go.asInterface((13 : stdgo.syscall.Syscall.Errno))} : LinkError) : Ref<LinkError>)),
-				_want: true} : stdgo.os_test.Os_test.T_isPermissionTest),
+				_want: true} : T_isPermissionTest),
 			({_err: Go.asInterface((({err: Go.asInterface((1 : stdgo.syscall.Syscall.Errno))} : LinkError) : Ref<LinkError>)),
-				_want: true} : stdgo.os_test.Os_test.T_isPermissionTest),
+				_want: true} : T_isPermissionTest),
 			({_err: Go.asInterface((({err: Go.asInterface((17 : stdgo.syscall.Syscall.Errno))} : LinkError) : Ref<LinkError>)),
-				_want: false} : stdgo.os_test.Os_test.T_isPermissionTest),
+				_want: false} : T_isPermissionTest),
 			({_err: Go.asInterface((({err: Go.asInterface((13 : stdgo.syscall.Syscall.Errno))} : SyscallError) : Ref<SyscallError>)),
-				_want: true} : stdgo.os_test.Os_test.T_isPermissionTest),
+				_want: true} : T_isPermissionTest),
 			({_err: Go.asInterface((({err: Go.asInterface((1 : stdgo.syscall.Syscall.Errno))} : SyscallError) : Ref<SyscallError>)),
-				_want: true} : stdgo.os_test.Os_test.T_isPermissionTest),
+				_want: true} : T_isPermissionTest),
 			({_err: Go.asInterface((({err: Go.asInterface((17 : stdgo.syscall.Syscall.Errno))} : SyscallError) : Ref<SyscallError>)),
-				_want: false} : stdgo.os_test.Os_test.T_isPermissionTest));
+				_want: false} : T_isPermissionTest));
 		{
-			var _e:GoString = stdgo.os.Os.getenv(Go.str("OSTEST_OUTPUT_EXECPATH"));
+			var _e:GoString = stdgo.os.Os.getenv(("OSTEST_OUTPUT_EXECPATH" : GoString));
 			if (_e != (Go.str())) {
-				var _dir:GoString = Go.str("/");
+				var _dir:GoString = ("/" : GoString);
 				if (false) {
 					var __tmp__ = stdgo.os.Os.getwd(), _cwd:GoString = __tmp__._0, _err:Error = __tmp__._1;
 					if (_err != null) {
@@ -8302,7 +8326,7 @@ function testMkdirTempBadPattern(_t:Ref<stdgo.testing.Testing.T>):Void {
 				{
 					var __tmp__ = stdgo.os.Os.executable(), _ep:GoString = __tmp__._0, _err:Error = __tmp__._1;
 					if (_err != null) {
-						stdgo.fmt.Fmt.fprint(Go.asInterface(stdgo.os.Os.stderr), Go.toInterface(Go.str("ERROR: ")), Go.toInterface(_err));
+						stdgo.fmt.Fmt.fprint(Go.asInterface(stdgo.os.Os.stderr), Go.toInterface(("ERROR: " : GoString)), Go.toInterface(_err));
 					} else {
 						stdgo.fmt.Fmt.fprint(Go.asInterface(stdgo.os.Os.stderr), Go.toInterface(_ep));
 					};

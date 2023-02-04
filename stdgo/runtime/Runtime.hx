@@ -286,9 +286,6 @@ typedef T_error = StructType & {
 	// A StackRecord describes a single execution stack.
 **/
 @:structInit @:using(stdgo.runtime.Runtime.StackRecord_static_extension) class StackRecord {
-	/**
-		// stack trace for this record; ends at first 0 entry
-	**/
 	public var stack0:GoArray<GoUIntptr> = new GoArray<GoUIntptr>(...[for (i in 0...32) (0 : GoUIntptr)]);
 
 	public function new(?stack0:GoArray<GoUIntptr>) {
@@ -309,21 +306,9 @@ typedef T_error = StructType & {
 	// by a particular call sequence (stack trace).
 **/
 @:structInit @:using(stdgo.runtime.Runtime.MemProfileRecord_static_extension) class MemProfileRecord {
-	/**
-		// number of bytes allocated, freed
-	**/
 	public var allocBytes:GoInt64 = 0;
-
-	/**
-		// number of objects allocated, freed
-	**/
 	public var freeBytes:GoInt64 = 0;
-
-	/**
-		// stack trace for this record; ends at first 0 entry
-	**/
 	public var allocObjects:GoInt64 = 0;
-
 	public var freeObjects:GoInt64 = 0;
 	public var stack0:GoArray<GoUIntptr> = new GoArray<GoUIntptr>(...[for (i in 0...32) (0 : GoUIntptr)]);
 

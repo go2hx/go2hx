@@ -60,13 +60,10 @@ final effectiveFloatRegSize:GoUInt64 = (0 : GoUInt64);
 		// be in the top bits of the slot. Floats are usually just
 		// directly represented, but some architectures treat narrow
 		// width floating point values specially (e.g. they're promoted
-		// first, or they need to be NaN-boxed).// untyped integer registers
+		// first, or they need to be NaN-boxed).
 	**/
 	public var ints:GoArray<GoUIntptr> = new GoArray<GoUIntptr>(...[for (i in 0...0) (0 : GoUIntptr)]);
 
-	/**
-		// untyped float registers
-	**/
 	public var floats:GoArray<GoUInt64> = new GoArray<GoUInt64>(...[for (i in 0...0) (0 : GoUInt64)]);
 
 	/**

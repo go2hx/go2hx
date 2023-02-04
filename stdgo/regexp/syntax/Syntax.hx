@@ -462,19 +462,8 @@ private final _meta:GoString = ("" : GoString);
 	// A frag represents a compiled program fragment.
 **/
 @:structInit private class T_frag {
-	/**
-		// index of first instruction
-	**/
 	public var _i:GoUInt32 = 0;
-
-	/**
-		// where to record end instruction
-	**/
 	public var _out:T_patchList = ({} : T_patchList);
-
-	/**
-		// whether fragment can match empty string
-	**/
 	public var _nullable:Bool = false;
 
 	public function new(?_i:GoUInt32, ?_out:T_patchList, ?_nullable:Bool) {
@@ -534,38 +523,13 @@ private final _meta:GoString = ("" : GoString);
 }
 
 @:structInit @:using(stdgo.regexp.syntax.Syntax.T_parser_static_extension) private class T_parser {
-	/**
-		// parse mode flags
-	**/
 	public var _flags:Flags = ((0 : GoUInt16) : Flags);
-
-	/**
-		// stack of parsed expressions
-	**/
 	public var _stack:Slice<Ref<Regexp>> = (null : Slice<Ref<Regexp>>);
-
 	public var _free:Ref<Regexp> = (null : Ref<Regexp>);
-
-	/**
-		// number of capturing groups seen
-	**/
 	public var _numCap:GoInt = 0;
-
 	public var _wholeRegexp:GoString = "";
-
-	/**
-		// temporary char class work space
-	**/
 	public var _tmpClass:Slice<GoInt32> = (null : Slice<GoInt32>);
-
-	/**
-		// number of regexps allocated
-	**/
 	public var _numRegexp:GoInt = 0;
-
-	/**
-		// regexp height for height limit check
-	**/
 	public var _height:GoMap<Ref<Regexp>, GoInt> = (null : GoMap<Ref<Regexp>, GoInt>);
 
 	public function new(?_flags:Flags, ?_stack:Slice<Ref<Regexp>>, ?_free:Ref<Regexp>, ?_numCap:GoInt, ?_wholeRegexp:GoString, ?_tmpClass:Slice<GoInt32>,
@@ -661,15 +625,7 @@ private final _meta:GoString = ("" : GoString);
 **/
 @:structInit @:using(stdgo.regexp.syntax.Syntax.Prog_static_extension) class Prog {
 	public var inst:Slice<Inst> = (null : Slice<Inst>);
-
-	/**
-		// index of start instruction
-	**/
 	public var start:GoInt = 0;
-
-	/**
-		// number of InstCapture insts in re
-	**/
 	public var numCap:GoInt = 0;
 
 	public function new(?inst:Slice<Inst>, ?start:GoInt, ?numCap:GoInt) {
@@ -694,17 +650,8 @@ private final _meta:GoString = ("" : GoString);
 **/
 @:structInit @:using(stdgo.regexp.syntax.Syntax.Inst_static_extension) class Inst {
 	public var op:InstOp = ((0 : GoUInt8) : InstOp);
-
-	/**
-		// all but InstMatch, InstFail
-	**/
 	public var out:GoUInt32 = 0;
-
-	/**
-		// InstAlt, InstAltMatch, InstCapture, InstEmptyWidth
-	**/
 	public var arg:GoUInt32 = 0;
-
 	public var rune:Slice<GoInt32> = (null : Slice<GoInt32>);
 
 	public function new(?op:InstOp, ?out:GoUInt32, ?arg:GoUInt32, ?rune:Slice<GoInt32>) {
@@ -730,48 +677,15 @@ private final _meta:GoString = ("" : GoString);
 	// A Regexp is a node in a regular expression syntax tree.
 **/
 @:structInit @:using(stdgo.regexp.syntax.Syntax.Regexp_static_extension) class Regexp {
-	/**
-		// operator
-	**/
 	public var op:Op = ((0 : GoUInt8) : Op);
-
 	public var flags:Flags = ((0 : GoUInt16) : Flags);
-
-	/**
-		// subexpressions, if any
-	**/
 	public var sub:Slice<Ref<Regexp>> = (null : Slice<Ref<Regexp>>);
-
-	/**
-		// storage for short Sub
-	**/
 	public var sub0:GoArray<Ref<Regexp>> = new GoArray<Ref<Regexp>>(...[for (i in 0...1) (null : Ref<Regexp>)]);
-
-	/**
-		// matched runes, for OpLiteral, OpCharClass
-	**/
 	public var rune:Slice<GoInt32> = (null : Slice<GoInt32>);
-
-	/**
-		// storage for short Rune
-	**/
 	public var rune0:GoArray<GoInt32> = new GoArray<GoInt32>(...[for (i in 0...2) (0 : GoInt32)]);
-
-	/**
-		// min, max for OpRepeat
-	**/
 	public var min:GoInt = 0;
-
-	/**
-		// capturing index, for OpCapture
-	**/
 	public var max:GoInt = 0;
-
-	/**
-		// capturing name, for OpCapture
-	**/
 	public var cap:GoInt = 0;
-
 	public var name:GoString = "";
 
 	public function new(?op:Op, ?flags:Flags, ?sub:Slice<Ref<Regexp>>, ?sub0:GoArray<Ref<Regexp>>, ?rune:Slice<GoInt32>, ?rune0:GoArray<GoInt32>, ?min:GoInt,
@@ -875,7 +789,7 @@ class T__struct_1_asInterface {
 **/
 @:named @:using(stdgo.regexp.syntax.Syntax.Op_static_extension) typedef Op = GoUInt8;
 
-function _makePatchList(_n:GoUInt32):T_patchList
+private function _makePatchList(_n:GoUInt32):T_patchList
 	throw "regexp.syntax._makePatchList is not yet implemented";
 
 /**
@@ -888,7 +802,7 @@ function compile(_re:Ref<Regexp>):{var _0:Ref<Prog>; var _1:Error;}
 /**
 	// minFoldRune returns the minimum rune fold-equivalent to r.
 **/
-function _minFoldRune(_r:GoRune):GoRune
+private function _minFoldRune(_r:GoRune):GoRune
 	throw "regexp.syntax._minFoldRune is not yet implemented";
 
 /**
@@ -902,16 +816,16 @@ function _minFoldRune(_r:GoRune):GoRune
 	// In that case the depth of any >= 2 nesting can only get to 9 without
 	// triggering a parse error, so each subtree can only be rewalked 9 times.
 **/
-function _repeatIsValid(_re:Ref<Regexp>, _n:GoInt):Bool
+private function _repeatIsValid(_re:Ref<Regexp>, _n:GoInt):Bool
 	throw "regexp.syntax._repeatIsValid is not yet implemented";
 
 /**
 	// cleanAlt cleans re for eventual inclusion in an alternation.
 **/
-function _cleanAlt(_re:Ref<Regexp>):Void
+private function _cleanAlt(_re:Ref<Regexp>):Void
 	throw "regexp.syntax._cleanAlt is not yet implemented";
 
-function _literalRegexp(_s:GoString, _flags:Flags):Ref<Regexp>
+private function _literalRegexp(_s:GoString, _flags:Flags):Ref<Regexp>
 	throw "regexp.syntax._literalRegexp is not yet implemented";
 
 /**
@@ -922,7 +836,7 @@ function _literalRegexp(_s:GoString, _flags:Flags):Ref<Regexp>
 function parse(_s:GoString, _flags:Flags):{var _0:Ref<Regexp>; var _1:Error;}
 	throw "regexp.syntax.parse is not yet implemented";
 
-function _parse(_s:GoString, _flags:Flags):{var _0:Ref<Regexp>; var _1:Error;}
+private function _parse(_s:GoString, _flags:Flags):{var _0:Ref<Regexp>; var _1:Error;}
 	throw "regexp.syntax._parse is not yet implemented";
 
 /**
@@ -932,20 +846,20 @@ function _parse(_s:GoString, _flags:Flags):{var _0:Ref<Regexp>; var _1:Error;}
 	// Python rejects names starting with digits.
 	// We don't enforce either of those.
 **/
-function _isValidCaptureName(_name:GoString):Bool
+private function _isValidCaptureName(_name:GoString):Bool
 	throw "regexp.syntax._isValidCaptureName is not yet implemented";
 
 /**
 	// can this be represented as a character class?
 	// single-rune literal string, char class, ., and .|\n.
 **/
-function _isCharClass(_re:Ref<Regexp>):Bool
+private function _isCharClass(_re:Ref<Regexp>):Bool
 	throw "regexp.syntax._isCharClass is not yet implemented";
 
 /**
 	// does re match r?
 **/
-function _matchRune(_re:Ref<Regexp>, _r:GoRune):Bool
+private function _matchRune(_re:Ref<Regexp>, _r:GoRune):Bool
 	throw "regexp.syntax._matchRune is not yet implemented";
 
 /**
@@ -953,91 +867,91 @@ function _matchRune(_re:Ref<Regexp>, _r:GoRune):Bool
 	// The caller must ensure that dst.Op >= src.Op,
 	// to reduce the amount of copying.
 **/
-function _mergeCharClass(_dst:Ref<Regexp>, _src:Ref<Regexp>):Void
+private function _mergeCharClass(_dst:Ref<Regexp>, _src:Ref<Regexp>):Void
 	throw "regexp.syntax._mergeCharClass is not yet implemented";
 
 /**
 	// unicodeTable returns the unicode.RangeTable identified by name
 	// and the table of additional fold-equivalent code points.
 **/
-function _unicodeTable(_name:GoString):{var _0:Ref<stdgo.unicode.Unicode.RangeTable>; var _1:Ref<stdgo.unicode.Unicode.RangeTable>;}
+private function _unicodeTable(_name:GoString):{var _0:Ref<stdgo.unicode.Unicode.RangeTable>; var _1:Ref<stdgo.unicode.Unicode.RangeTable>;}
 	throw "regexp.syntax._unicodeTable is not yet implemented";
 
 /**
 	// cleanClass sorts the ranges (pairs of elements of r),
 	// merges them, and eliminates duplicates.
 **/
-function _cleanClass(_rp:Ref<Slice<GoRune>>):Slice<GoRune>
+private function _cleanClass(_rp:Ref<Slice<GoRune>>):Slice<GoRune>
 	throw "regexp.syntax._cleanClass is not yet implemented";
 
 /**
 	// appendLiteral returns the result of appending the literal x to the class r.
 **/
-function _appendLiteral(_r:Slice<GoRune>, _x:GoRune, _flags:Flags):Slice<GoRune>
+private function _appendLiteral(_r:Slice<GoRune>, _x:GoRune, _flags:Flags):Slice<GoRune>
 	throw "regexp.syntax._appendLiteral is not yet implemented";
 
 /**
 	// appendRange returns the result of appending the range lo-hi to the class r.
 **/
-function _appendRange(_r:Slice<GoRune>, _lo:GoRune, _hi:GoRune):Slice<GoRune>
+private function _appendRange(_r:Slice<GoRune>, _lo:GoRune, _hi:GoRune):Slice<GoRune>
 	throw "regexp.syntax._appendRange is not yet implemented";
 
 /**
 	// appendFoldedRange returns the result of appending the range lo-hi
 	// and its case folding-equivalent runes to the class r.
 **/
-function _appendFoldedRange(_r:Slice<GoRune>, _lo:GoRune, _hi:GoRune):Slice<GoRune>
+private function _appendFoldedRange(_r:Slice<GoRune>, _lo:GoRune, _hi:GoRune):Slice<GoRune>
 	throw "regexp.syntax._appendFoldedRange is not yet implemented";
 
 /**
 	// appendClass returns the result of appending the class x to the class r.
 	// It assume x is clean.
 **/
-function _appendClass(_r:Slice<GoRune>, _x:Slice<GoRune>):Slice<GoRune>
+private function _appendClass(_r:Slice<GoRune>, _x:Slice<GoRune>):Slice<GoRune>
 	throw "regexp.syntax._appendClass is not yet implemented";
 
 /**
 	// appendFolded returns the result of appending the case folding of the class x to the class r.
 **/
-function _appendFoldedClass(_r:Slice<GoRune>, _x:Slice<GoRune>):Slice<GoRune>
+private function _appendFoldedClass(_r:Slice<GoRune>, _x:Slice<GoRune>):Slice<GoRune>
 	throw "regexp.syntax._appendFoldedClass is not yet implemented";
 
 /**
 	// appendNegatedClass returns the result of appending the negation of the class x to the class r.
 	// It assumes x is clean.
 **/
-function _appendNegatedClass(_r:Slice<GoRune>, _x:Slice<GoRune>):Slice<GoRune>
+private function _appendNegatedClass(_r:Slice<GoRune>, _x:Slice<GoRune>):Slice<GoRune>
 	throw "regexp.syntax._appendNegatedClass is not yet implemented";
 
 /**
 	// appendTable returns the result of appending x to the class r.
 **/
-function _appendTable(_r:Slice<GoRune>, _x:Ref<stdgo.unicode.Unicode.RangeTable>):Slice<GoRune>
+private function _appendTable(_r:Slice<GoRune>, _x:Ref<stdgo.unicode.Unicode.RangeTable>):Slice<GoRune>
 	throw "regexp.syntax._appendTable is not yet implemented";
 
 /**
 	// appendNegatedTable returns the result of appending the negation of x to the class r.
 **/
-function _appendNegatedTable(_r:Slice<GoRune>, _x:Ref<stdgo.unicode.Unicode.RangeTable>):Slice<GoRune>
+private function _appendNegatedTable(_r:Slice<GoRune>, _x:Ref<stdgo.unicode.Unicode.RangeTable>):Slice<GoRune>
 	throw "regexp.syntax._appendNegatedTable is not yet implemented";
 
 /**
 	// negateClass overwrites r and returns r's negation.
 	// It assumes the class r is already clean.
 **/
-function _negateClass(_r:Slice<GoRune>):Slice<GoRune>
+private function _negateClass(_r:Slice<GoRune>):Slice<GoRune>
 	throw "regexp.syntax._negateClass is not yet implemented";
 
-function _checkUTF8(_s:GoString):Error
+private function _checkUTF8(_s:GoString):Error
 	throw "regexp.syntax._checkUTF8 is not yet implemented";
 
-function _nextRune(_s:GoString):{var _0:GoRune; var _1:GoString; var _2:Error;}
+private function _nextRune(_s:GoString):{var _0:GoRune; var _1:GoString; var _2:Error;}
 	throw "regexp.syntax._nextRune is not yet implemented";
 
-function _isalnum(_c:GoRune):Bool
+private function _isalnum(_c:GoRune):Bool
 	throw "regexp.syntax._isalnum is not yet implemented";
 
-function _unhex(_c:GoRune):GoRune
+private function _unhex(_c:GoRune):GoRune
 	throw "regexp.syntax._unhex is not yet implemented";
 
 function testParseSimple(_t:Ref<stdgo.testing.Testing.T>):Void
@@ -1058,14 +972,14 @@ function testParseNoMatchNL(_t:Ref<stdgo.testing.Testing.T>):Void
 /**
 	// Test Parse -> Dump.
 **/
-function _testParseDump(_t:Ref<stdgo.testing.Testing.T>, _tests:Slice<T_parseTest>, _flags:Flags):Void
+private function _testParseDump(_t:Ref<stdgo.testing.Testing.T>, _tests:Slice<T_parseTest>, _flags:Flags):Void
 	throw "regexp.syntax._testParseDump is not yet implemented";
 
 /**
 	// dump prints a string representation of the regexp showing
 	// the structure explicitly.
 **/
-function _dump(_re:Ref<Regexp>):GoString
+private function _dump(_re:Ref<Regexp>):GoString
 	throw "regexp.syntax._dump is not yet implemented";
 
 /**
@@ -1073,13 +987,13 @@ function _dump(_re:Ref<Regexp>):GoString
 	// It is used during testing to distinguish between parses that might print
 	// the same using re's String method.
 **/
-function _dumpRegexp(_b:Ref<stdgo.strings.Strings.Builder>, _re:Ref<Regexp>):Void
+private function _dumpRegexp(_b:Ref<stdgo.strings.Strings.Builder>, _re:Ref<Regexp>):Void
 	throw "regexp.syntax._dumpRegexp is not yet implemented";
 
-function _mkCharClass(_f:GoRune->Bool):GoString
+private function _mkCharClass(_f:GoRune->Bool):GoString
 	throw "regexp.syntax._mkCharClass is not yet implemented";
 
-function _isUpperFold(_r:GoRune):Bool
+private function _isUpperFold(_r:GoRune):Bool
 	throw "regexp.syntax._isUpperFold is not yet implemented";
 
 function testFoldConstants(_t:Ref<stdgo.testing.Testing.T>):Void
@@ -1113,16 +1027,16 @@ function emptyOpContext(_r1:GoRune, _r2:GoRune):EmptyOp
 function isWordChar(_r:GoRune):Bool
 	throw "regexp.syntax.isWordChar is not yet implemented";
 
-function _bw(_b:Ref<stdgo.strings.Strings.Builder>, _args:haxe.Rest<GoString>):Void
+private function _bw(_b:Ref<stdgo.strings.Strings.Builder>, _args:haxe.Rest<GoString>):Void
 	throw "regexp.syntax._bw is not yet implemented";
 
-function _dumpProg(_b:Ref<stdgo.strings.Strings.Builder>, _p:Ref<Prog>):Void
+private function _dumpProg(_b:Ref<stdgo.strings.Strings.Builder>, _p:Ref<Prog>):Void
 	throw "regexp.syntax._dumpProg is not yet implemented";
 
-function _u32(_i:GoUInt32):GoString
+private function _u32(_i:GoUInt32):GoString
 	throw "regexp.syntax._u32 is not yet implemented";
 
-function _dumpInst(_b:Ref<stdgo.strings.Strings.Builder>, _i:Ref<Inst>):Void
+private function _dumpInst(_b:Ref<stdgo.strings.Strings.Builder>, _i:Ref<Inst>):Void
 	throw "regexp.syntax._dumpInst is not yet implemented";
 
 function testCompile(_t:Ref<stdgo.testing.Testing.T>):Void
@@ -1134,10 +1048,10 @@ function benchmarkEmptyOpContext(_b:Ref<stdgo.testing.Testing.B>):Void
 /**
 	// writeRegexp writes the Perl syntax for the regular expression re to b.
 **/
-function _writeRegexp(_b:Ref<stdgo.strings.Strings.Builder>, _re:Ref<Regexp>):Void
+private function _writeRegexp(_b:Ref<stdgo.strings.Strings.Builder>, _re:Ref<Regexp>):Void
 	throw "regexp.syntax._writeRegexp is not yet implemented";
 
-function _escape(_b:Ref<stdgo.strings.Strings.Builder>, _r:GoRune, _force:Bool):Void
+private function _escape(_b:Ref<stdgo.strings.Strings.Builder>, _r:GoRune, _force:Bool):Void
 	throw "regexp.syntax._escape is not yet implemented";
 
 /**
@@ -1157,7 +1071,7 @@ function _escape(_b:Ref<stdgo.strings.Strings.Builder>, _r:GoRune, _force:Bool):
 	// Letting them call simplify1 makes sure the expressions they
 	// generate are simple.
 **/
-function _simplify1(_op:Op, _flags:Flags, _sub:Ref<Regexp>, _re:Ref<Regexp>):Ref<Regexp>
+private function _simplify1(_op:Op, _flags:Flags, _sub:Ref<Regexp>, _re:Ref<Regexp>):Ref<Regexp>
 	throw "regexp.syntax._simplify1 is not yet implemented";
 
 function testSimplify(_t:Ref<stdgo.testing.Testing.T>):Void

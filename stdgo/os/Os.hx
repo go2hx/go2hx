@@ -465,19 +465,8 @@ typedef Signal = StructType & {
 	// Auxiliary information if the File describes a directory
 **/
 @:structInit @:using(stdgo.os.Os.T_dirInfo_static_extension) private class T_dirInfo {
-	/**
-		// buffer for directory I/O
-	**/
 	public var _buf:Ref<Slice<GoUInt8>> = null;
-
-	/**
-		// length of buf; return value from Getdirentries
-	**/
 	public var _nbuf:GoInt = 0;
-
-	/**
-		// location of next record in buf.
-	**/
 	public var _bufp:GoInt = 0;
 
 	public function new(?_buf:Ref<Slice<GoUInt8>>, ?_nbuf:GoInt, ?_bufp:GoInt) {
@@ -524,20 +513,8 @@ typedef Signal = StructType & {
 **/
 @:structInit @:using(stdgo.os.Os.Process_static_extension) class Process {
 	public var pid:GoInt = 0;
-
-	/**
-		// handle is accessed atomically on Windows
-	**/
 	public var _handle:GoUIntptr = 0;
-
-	/**
-		// process has been successfully waited on, non zero if true
-	**/
 	public var _isdone:GoUInt32 = 0;
-
-	/**
-		// avoid race between wait and signal
-	**/
 	public var _sigMu:stdgo.sync.Sync.RWMutex = ({} : stdgo.sync.Sync.RWMutex);
 
 	public function new(?pid:GoInt, ?_handle:GoUIntptr, ?_isdone:GoUInt32, ?_sigMu:stdgo.sync.Sync.RWMutex) {
@@ -620,16 +597,8 @@ typedef Signal = StructType & {
 	// ProcessState stores information about a process, as reported by Wait.
 **/
 @:structInit @:using(stdgo.os.Os.ProcessState_static_extension) class ProcessState {
-	/**
-		// The process's id.
-	**/
 	public var _pid:GoInt = 0;
-
-	/**
-		// System-dependent status info.
-	**/
 	public var _status:stdgo.syscall.Syscall.WaitStatus = ((0 : GoUInt32) : stdgo.syscall.Syscall.WaitStatus);
-
 	public var _rusage:Ref<stdgo.syscall.Syscall.Rusage> = (null : Ref<stdgo.syscall.Syscall.Rusage>);
 
 	public function new(?_pid:GoInt, ?_status:stdgo.syscall.Syscall.WaitStatus, ?_rusage:Ref<stdgo.syscall.Syscall.Rusage>) {
@@ -708,25 +677,9 @@ typedef Signal = StructType & {
 @:structInit @:using(stdgo.os.Os.T_file_static_extension) private class T_file {
 	public var _pfd:stdgo.internal.poll.Poll.FD = ({} : stdgo.internal.poll.Poll.FD);
 	public var _name:GoString = "";
-
-	/**
-		// nil unless directory being read
-	**/
 	public var _dirinfo:Ref<T_dirInfo> = (null : Ref<T_dirInfo>);
-
-	/**
-		// whether we set nonblocking mode
-	**/
 	public var _nonblock:Bool = false;
-
-	/**
-		// whether this is stdout or stderr
-	**/
 	public var _stdoutOrErr:Bool = false;
-
-	/**
-		// whether file is opened for appending
-	**/
 	public var _appendMode:Bool = false;
 
 	public function new(?_pfd:stdgo.internal.poll.Poll.FD, ?_name:GoString, ?_dirinfo:Ref<T_dirInfo>, ?_nonblock:Bool, ?_stdoutOrErr:Bool, ?_appendMode:Bool) {
@@ -800,9 +753,6 @@ typedef Signal = StructType & {
 	// File represents an open file descriptor.
 **/
 @:structInit @:using(stdgo.os.Os.File_static_extension) class File {
-	/**
-		// os specific
-	**/
 	@:embedded
 	public var _file:Ref<T_file> = (null : Ref<T_file>);
 
@@ -974,25 +924,25 @@ function readDir(_name:GoString):{var _0:Slice<DirEntry>; var _1:Error;}
 /**
 	// readInt returns the size-bytes unsigned integer in native byte order at offset off.
 **/
-function _readInt(_b:Slice<GoByte>, _off:GoUIntptr, _size:GoUIntptr):{var _0:GoUInt64; var _1:Bool;}
+private function _readInt(_b:Slice<GoByte>, _off:GoUIntptr, _size:GoUIntptr):{var _0:GoUInt64; var _1:Bool;}
 	throw "os._readInt is not yet implemented";
 
-function _readIntBE(_b:Slice<GoByte>, _size:GoUIntptr):GoUInt64
+private function _readIntBE(_b:Slice<GoByte>, _size:GoUIntptr):GoUInt64
 	throw "os._readIntBE is not yet implemented";
 
-function _readIntLE(_b:Slice<GoByte>, _size:GoUIntptr):GoUInt64
+private function _readIntLE(_b:Slice<GoByte>, _size:GoUIntptr):GoUInt64
 	throw "os._readIntLE is not yet implemented";
 
-function _direntIno(_buf:Slice<GoByte>):{var _0:GoUInt64; var _1:Bool;}
+private function _direntIno(_buf:Slice<GoByte>):{var _0:GoUInt64; var _1:Bool;}
 	throw "os._direntIno is not yet implemented";
 
-function _direntReclen(_buf:Slice<GoByte>):{var _0:GoUInt64; var _1:Bool;}
+private function _direntReclen(_buf:Slice<GoByte>):{var _0:GoUInt64; var _1:Bool;}
 	throw "os._direntReclen is not yet implemented";
 
-function _direntNamlen(_buf:Slice<GoByte>):{var _0:GoUInt64; var _1:Bool;}
+private function _direntNamlen(_buf:Slice<GoByte>):{var _0:GoUInt64; var _1:Bool;}
 	throw "os._direntNamlen is not yet implemented";
 
-function _direntType(_buf:Slice<GoByte>):FileMode
+private function _direntType(_buf:Slice<GoByte>):FileMode
 	throw "os._direntType is not yet implemented";
 
 /**
@@ -1014,13 +964,13 @@ function expandEnv(_s:GoString):GoString
 	// isShellSpecialVar reports whether the character identifies a special
 	// shell variable such as $*.
 **/
-function _isShellSpecialVar(_c:GoUInt8):Bool
+private function _isShellSpecialVar(_c:GoUInt8):Bool
 	throw "os._isShellSpecialVar is not yet implemented";
 
 /**
 	// isAlphaNum reports whether the byte is an ASCII letter, number, or underscore
 **/
-function _isAlphaNum(_c:GoUInt8):Bool
+private function _isAlphaNum(_c:GoUInt8):Bool
 	throw "os._isAlphaNum is not yet implemented";
 
 /**
@@ -1028,7 +978,7 @@ function _isAlphaNum(_c:GoUInt8):Bool
 	// consumed to extract it. If the name is enclosed in {}, it's part of a ${}
 	// expansion and two more bytes are needed than the length of the name.
 **/
-function _getShellName(_s:GoString):{var _0:GoString; var _1:GoInt;}
+private function _getShellName(_s:GoString):{var _0:GoString; var _1:GoInt;}
 	throw "os._getShellName is not yet implemented";
 
 /**
@@ -1075,10 +1025,10 @@ function clearenv():Void
 function environ():Slice<GoString>
 	throw "os.environ is not yet implemented";
 
-function _errClosed():Error
+private function _errClosed():Error
 	throw "os._errClosed is not yet implemented";
 
-function _errNoDeadline():Error
+private function _errNoDeadline():Error
 	throw "os._errNoDeadline is not yet implemented";
 
 /**
@@ -1090,7 +1040,7 @@ function _errNoDeadline():Error
 	// work in the net package and without requiring the internal/poll
 	// package to import os (which it can't, because that would be circular).
 **/
-function _errDeadlineExceeded():Error
+private function _errDeadlineExceeded():Error
 	throw "os._errDeadlineExceeded is not yet implemented";
 
 /**
@@ -1147,23 +1097,23 @@ function isPermission(_err:Error):Bool
 function isTimeout(_err:Error):Bool
 	throw "os.isTimeout is not yet implemented";
 
-function _underlyingErrorIs(_err:Error, _target:Error):Bool
+private function _underlyingErrorIs(_err:Error, _target:Error):Bool
 	throw "os._underlyingErrorIs is not yet implemented";
 
 /**
 	// underlyingError returns the underlying error for known os error types.
 **/
-function _underlyingError(_err:Error):Error
+private function _underlyingError(_err:Error):Error
 	throw "os._underlyingError is not yet implemented";
 
 /**
 	// wrapSyscallError takes an error and a syscall name. If the error is
 	// a syscall.Errno, it wraps it in a os.SyscallError using the syscall name.
 **/
-function _wrapSyscallError(_name:GoString, _err:Error):Error
+private function _wrapSyscallError(_name:GoString, _err:Error):Error
 	throw "os._wrapSyscallError is not yet implemented";
 
-function _newProcess(_pid:GoInt, _handle:GoUIntptr):Ref<Process>
+private function _newProcess(_pid:GoInt, _handle:GoUIntptr):Ref<Process>
 	throw "os._newProcess is not yet implemented";
 
 /**
@@ -1208,10 +1158,10 @@ function findProcess(_pid:GoInt):{var _0:Ref<Process>; var _1:Error;}
 function startProcess(_name:GoString, _argv:Slice<GoString>, _attr:Ref<ProcAttr>):{var _0:Ref<Process>; var _1:Error;}
 	throw "os.startProcess is not yet implemented";
 
-function _startProcess(_name:GoString, _argv:Slice<GoString>, _attr:Ref<ProcAttr>):{var _0:Ref<Process>; var _1:Error;}
+private function _startProcess(_name:GoString, _argv:Slice<GoString>, _attr:Ref<ProcAttr>):{var _0:Ref<Process>; var _1:Error;}
 	throw "os._startProcess is not yet implemented";
 
-function _findProcess(_pid:GoInt):{var _0:Ref<Process>; var _1:Error;}
+private function _findProcess(_pid:GoInt):{var _0:Ref<Process>; var _1:Error;}
 	throw "os._findProcess is not yet implemented";
 
 /**
@@ -1230,16 +1180,16 @@ function _findProcess(_pid:GoInt):{var _0:Ref<Process>; var _1:Error;}
 function executable():{var _0:GoString; var _1:Error;}
 	throw "os.executable is not yet implemented";
 
-function _executable():{var _0:GoString; var _1:Error;}
+private function _executable():{var _0:GoString; var _1:Error;}
 	throw "os._executable is not yet implemented";
 
 /**
 	// stringsTrimSuffix is the same as strings.TrimSuffix.
 **/
-function _stringsTrimSuffix(_s:GoString, _suffix:GoString):GoString
+private function _stringsTrimSuffix(_s:GoString, _suffix:GoString):GoString
 	throw "os._stringsTrimSuffix is not yet implemented";
 
-function _genericReadFrom(_f:Ref<File>, _r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:Error;}
+private function _genericReadFrom(_f:Ref<File>, _r:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:Error;}
 	throw "os._genericReadFrom is not yet implemented";
 
 /**
@@ -1253,7 +1203,7 @@ function mkdir(_name:GoString, _perm:FileMode):Error
 /**
 	// setStickyBit adds ModeSticky to the permission bits of path, non atomic.
 **/
-function _setStickyBit(_name:GoString):Error
+private function _setStickyBit(_name:GoString):Error
 	throw "os._setStickyBit is not yet implemented";
 
 /**
@@ -1310,7 +1260,7 @@ function rename(_oldpath:GoString, _newpath:GoString):Error
 	// Many functions in package syscall return a count of -1 instead of 0.
 	// Using fixCount(call()) instead of call() corrects the count.
 **/
-function _fixCount(_n:GoInt, _err:Error):{var _0:GoInt; var _1:Error;}
+private function _fixCount(_n:GoInt, _err:Error):{var _0:GoInt; var _1:Error;}
 	throw "os._fixCount is not yet implemented";
 
 /**
@@ -1400,7 +1350,7 @@ function chmod(_name:GoString, _mode:FileMode):Error
 	// isWindowsNulName reports whether name is os.DevNull ('NUL') on Windows.
 	// True is returned if name is 'NUL' whatever the case.
 **/
-function _isWindowsNulName(_name:GoString):Bool
+private function _isWindowsNulName(_name:GoString):Bool
 	throw "os._isWindowsNulName is not yet implemented";
 
 /**
@@ -1420,7 +1370,7 @@ function _isWindowsNulName(_name:GoString):Bool
 function dirFS(_dir:GoString):stdgo.io.fs.Fs.FS
 	throw "os.dirFS is not yet implemented";
 
-function _containsAny(_s:GoString, _chars:GoString):Bool
+private function _containsAny(_s:GoString, _chars:GoString):Bool
 	throw "os._containsAny is not yet implemented";
 
 /**
@@ -1440,19 +1390,19 @@ function readFile(_name:GoString):{var _0:Slice<GoByte>; var _1:Error;}
 function writeFile(_name:GoString, _data:Slice<GoByte>, _perm:FileMode):Error
 	throw "os.writeFile is not yet implemented";
 
-function _sigpipe():Void
+private function _sigpipe():Void
 	throw "os._sigpipe is not yet implemented";
 
 /**
 	// syscallMode returns the syscall-specific mode bits from Go's portable mode bits.
 **/
-function _syscallMode(_i:FileMode):GoUInt32
+private function _syscallMode(_i:FileMode):GoUInt32
 	throw "os._syscallMode is not yet implemented";
 
 /**
 	// See docs in file.go:Chmod.
 **/
-function _chmod(_name:GoString, _mode:FileMode):Error
+private function _chmod(_name:GoString, _mode:FileMode):Error
 	throw "os._chmod is not yet implemented";
 
 /**
@@ -1498,16 +1448,16 @@ function chtimes(_name:GoString, _atime:stdgo.time.Time.Time, _mtime:stdgo.time.
 	// but there are enough of them that it seems that we can't avoid
 	// an EINTR loop.
 **/
-function _ignoringEINTR(_fn:() -> Error):Error
+private function _ignoringEINTR(_fn:() -> Error):Error
 	throw "os._ignoringEINTR is not yet implemented";
 
 /**
 	// fixLongPath is a noop on non-Windows platforms.
 **/
-function _fixLongPath(_path:GoString):GoString
+private function _fixLongPath(_path:GoString):GoString
 	throw "os._fixLongPath is not yet implemented";
 
-function _rename(_oldname:GoString, _newname:GoString):Error
+private function _rename(_oldname:GoString, _newname:GoString):Error
 	throw "os._rename is not yet implemented";
 
 /**
@@ -1529,7 +1479,7 @@ function newFile(_fd:GoUIntptr, _name:GoString):Ref<File>
 	// (as passed in the kind parameter) it tries to add the file to
 	// the runtime poller.
 **/
-function _newFile(_fd:GoUIntptr, _name:GoString, _kind:T_newFileKind):Ref<File>
+private function _newFile(_fd:GoUIntptr, _name:GoString, _kind:T_newFileKind):Ref<File>
 	throw "os._newFile is not yet implemented";
 
 /**
@@ -1537,14 +1487,14 @@ function _newFile(_fd:GoUIntptr, _name:GoString, _kind:T_newFileKind):Ref<File>
 	// output or standard error. See the SIGPIPE docs in os/signal, and
 	// issue 11845.
 **/
-function _epipecheck(_file:Ref<File>, _e:Error):Void
+private function _epipecheck(_file:Ref<File>, _e:Error):Void
 	throw "os._epipecheck is not yet implemented";
 
 /**
 	// openFileNolog is the Unix implementation of OpenFile.
 	// Changes here should be reflected in openFdAt, if relevant.
 **/
-function _openFileNolog(_name:GoString, _flag:GoInt, _perm:FileMode):{var _0:Ref<File>; var _1:Error;}
+private function _openFileNolog(_name:GoString, _flag:GoInt, _perm:FileMode):{var _0:Ref<File>; var _1:Error;}
 	throw "os._openFileNolog is not yet implemented";
 
 /**
@@ -1562,7 +1512,7 @@ function truncate(_name:GoString, _size:GoInt64):Error
 function remove(_name:GoString):Error
 	throw "os.remove is not yet implemented";
 
-function _tempDir():GoString
+private function _tempDir():GoString
 	throw "os._tempDir is not yet implemented";
 
 /**
@@ -1588,7 +1538,7 @@ function symlink(_oldname:GoString, _newname:GoString):Error
 function readlink(_name:GoString):{var _0:GoString; var _1:Error;}
 	throw "os.readlink is not yet implemented";
 
-function _newUnixDirent(_parent:GoString, _name:GoString, _typ:FileMode):{var _0:DirEntry; var _1:Error;}
+private function _newUnixDirent(_parent:GoString, _name:GoString, _typ:FileMode):{var _0:DirEntry; var _1:Error;}
 	throw "os._newUnixDirent is not yet implemented";
 
 /**
@@ -1625,7 +1575,7 @@ function removeAll(_path:GoString):Error
 /**
 	// endsWithDot reports whether the final component of path is ".".
 **/
-function _endsWithDot(_path:GoString):Bool
+private function _endsWithDot(_path:GoString):Bool
 	throw "os._endsWithDot is not yet implemented";
 
 /**
@@ -1637,16 +1587,16 @@ function isPathSeparator(_c:GoUInt8):Bool
 /**
 	// basename removes trailing slashes and the leading directory name from path name.
 **/
-function _basename(_name:GoString):GoString
+private function _basename(_name:GoString):GoString
 	throw "os._basename is not yet implemented";
 
 /**
 	// splitPath returns the base name and parent directory.
 **/
-function _splitPath(_path:GoString):{var _0:GoString; var _1:GoString;}
+private function _splitPath(_path:GoString):{var _0:GoString; var _1:GoString;}
 	throw "os._splitPath is not yet implemented";
 
-function _fixRootDirectory(_p:GoString):GoString
+private function _fixRootDirectory(_p:GoString):GoString
 	throw "os._fixRootDirectory is not yet implemented";
 
 /**
@@ -1656,7 +1606,7 @@ function _fixRootDirectory(_p:GoString):GoString
 function pipe():{var _0:Ref<File>; var _1:Ref<File>; var _2:Error;}
 	throw "os.pipe is not yet implemented";
 
-function _runtime_args():Slice<GoString> {
+private function _runtime_args():Slice<GoString> {
 	#if js return new Slice<GoString>(0, 0) #else null #end;
 	#if sys {
 		final args:Array<GoString> = Sys.args().map(arg -> (arg : GoString));
@@ -1716,13 +1666,13 @@ function getgroups():{var _0:Slice<GoInt>; var _1:Error;}
 function exit(_code:GoInt):Void
 	throw "os.exit is not yet implemented";
 
-function _runtime_beforeExit():Void
+private function _runtime_beforeExit():Void
 	throw "os._runtime_beforeExit is not yet implemented";
 
-function _newRawConn(_file:Ref<File>):{var _0:Ref<T_rawConn>; var _1:Error;}
+private function _newRawConn(_file:Ref<File>):{var _0:Ref<T_rawConn>; var _1:Error;}
 	throw "os._newRawConn is not yet implemented";
 
-function _removeAll(_path:GoString):Error
+private function _removeAll(_path:GoString):Error
 	throw "os._removeAll is not yet implemented";
 
 /**
@@ -1741,37 +1691,37 @@ function stat(_name:GoString):{var _0:FileInfo; var _1:Error;}
 function lstat(_name:GoString):{var _0:FileInfo; var _1:Error;}
 	throw "os.lstat is not yet implemented";
 
-function _fillFileStatFromSys(_fs:Ref<T_fileStat>, _name:GoString):Void
+private function _fillFileStatFromSys(_fs:Ref<T_fileStat>, _name:GoString):Void
 	throw "os._fillFileStatFromSys is not yet implemented";
 
 /**
 	// For testing.
 **/
-function _atime(_fi:FileInfo):stdgo.time.Time.Time
+private function _atime(_fi:FileInfo):stdgo.time.Time.Time
 	throw "os._atime is not yet implemented";
 
 /**
 	// statNolog stats a file with no test logging.
 **/
-function _statNolog(_name:GoString):{var _0:FileInfo; var _1:Error;}
+private function _statNolog(_name:GoString):{var _0:FileInfo; var _1:Error;}
 	throw "os._statNolog is not yet implemented";
 
 /**
 	// lstatNolog lstats a file with no test logging.
 **/
-function _lstatNolog(_name:GoString):{var _0:FileInfo; var _1:Error;}
+private function _lstatNolog(_name:GoString):{var _0:FileInfo; var _1:Error;}
 	throw "os._lstatNolog is not yet implemented";
 
 /**
 	// itox converts val (an int) to a hexdecimal string.
 **/
-function _itox(_val:GoInt):GoString
+private function _itox(_val:GoInt):GoString
 	throw "os._itox is not yet implemented";
 
 /**
 	// uitox converts val (a uint) to a hexdecimal string.
 **/
-function _uitox(_val:GoUInt):GoString
+private function _uitox(_val:GoUInt):GoString
 	throw "os._uitox is not yet implemented";
 
 /**
@@ -1780,7 +1730,7 @@ function _uitox(_val:GoUInt):GoString
 function hostname():{var _0:GoString; var _1:Error;}
 	throw "os.hostname is not yet implemented";
 
-function _hostname():{var _0:GoString; var _1:Error;}
+private function _hostname():{var _0:GoString; var _1:Error;}
 	throw "os._hostname is not yet implemented";
 
 /**
@@ -1789,10 +1739,10 @@ function _hostname():{var _0:GoString; var _1:Error;}
 	// chance the file doesn't exist yet - keeps the number of tries in
 	// TempFile to a minimum.
 **/
-function _fastrand():GoUInt32
+private function _fastrand():GoUInt32
 	return Std.random(1) > 0 ? -Std.random(2147483647) - 1 : Std.random(2147483647);
 
-function _nextRandom():GoString
+private function _nextRandom():GoString
 	throw "os._nextRandom is not yet implemented";
 
 /**
@@ -1812,7 +1762,7 @@ function createTemp(_dir:GoString, _pattern:GoString):{var _0:Ref<File>; var _1:
 	// prefixAndSuffix splits pattern by the last wildcard "*", if applicable,
 	// returning prefix as the part before "*" and suffix as the part after "*".
 **/
-function _prefixAndSuffix(_pattern:GoString):{var _0:GoString; var _1:GoString; var _2:Error;}
+private function _prefixAndSuffix(_pattern:GoString):{var _0:GoString; var _1:GoString; var _2:Error;}
 	throw "os._prefixAndSuffix is not yet implemented";
 
 /**
@@ -1827,13 +1777,13 @@ function _prefixAndSuffix(_pattern:GoString):{var _0:GoString; var _1:GoString; 
 function mkdirTemp(_dir:GoString, _pattern:GoString):{var _0:GoString; var _1:Error;}
 	throw "os.mkdirTemp is not yet implemented";
 
-function _joinPath(_dir:GoString, _name:GoString):GoString
+private function _joinPath(_dir:GoString, _name:GoString):GoString
 	throw "os._joinPath is not yet implemented";
 
 /**
 	// LastIndexByte from the strings package.
 **/
-function _lastIndex(_s:GoString, _sep:GoByte):GoInt
+private function _lastIndex(_s:GoString, _sep:GoByte):GoInt
 	throw "os._lastIndex is not yet implemented";
 
 /**
@@ -1853,7 +1803,7 @@ function getpagesize():GoInt
 function sameFile(_fi1:FileInfo, _fi2:FileInfo):Bool
 	throw "os.sameFile is not yet implemented";
 
-function _sameFile(_fs1:Ref<T_fileStat>, _fs2:Ref<T_fileStat>):Bool
+private function _sameFile(_fs1:Ref<T_fileStat>, _fs2:Ref<T_fileStat>):Bool
 	throw "os._sameFile is not yet implemented";
 
 @:keep var _ = {
@@ -3154,6 +3104,8 @@ class File_asInterface {
 	**/
 	@:keep
 	static public function write(_f:Ref<File>, _b:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
+		if (_b.length == 0)
+			return {_0: 0, _1: null};
 		final i = @:privateAccess _f._output.writeBytes(_b.toBytes(), 0, _b.length.toBasic());
 		if (i != _b.length.toBasic())
 			return {_0: i, _1: stdgo.errors.Errors.new_("invalid write")};

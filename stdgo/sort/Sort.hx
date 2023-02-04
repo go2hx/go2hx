@@ -345,7 +345,7 @@ function sort(_data:Interface):Void {
 	_pdqsort(_data, (0 : GoInt), _n, _limit);
 }
 
-function _nextPowerOfTwo(_length:GoInt):GoUInt {
+private function _nextPowerOfTwo(_length:GoInt):GoUInt {
 	var _shift:GoUInt = (stdgo.math.bits.Bits.len((_length : GoUInt)) : GoUInt);
 	return (("1" : GoUInt) << _shift : GoUInt);
 }
@@ -376,7 +376,7 @@ function isSorted(_data:Interface):Bool {
 /**
 	// isNaN is a copy of math.IsNaN to avoid a dependency on the math package.
 **/
-function _isNaN(_f:GoFloat64):Bool {
+private function _isNaN(_f:GoFloat64):Bool {
 	return _f != (_f);
 }
 
@@ -438,7 +438,7 @@ function stable(_data:Interface):Void {
 /**
 	// insertionSort_func sorts data[a:b] using insertion sort.
 **/
-function _insertionSort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Void {
+private function _insertionSort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Void {
 	{
 		var _i:GoInt = _a + (1 : GoInt);
 		Go.cfor(_i < _b, _i++, {
@@ -456,7 +456,7 @@ function _insertionSort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Void {
 	// siftDown_func implements the heap property on data[lo:hi].
 	// first is an offset into the array where the root of the heap lies.
 **/
-function _siftDown_func(_data:T_lessSwap, _lo:GoInt, _hi:GoInt, _first:GoInt):Void {
+private function _siftDown_func(_data:T_lessSwap, _lo:GoInt, _hi:GoInt, _first:GoInt):Void {
 	var _root:GoInt = _lo;
 	while (true) {
 		var _child:GoInt = ((2 : GoInt) * _root) + (1 : GoInt);
@@ -474,7 +474,7 @@ function _siftDown_func(_data:T_lessSwap, _lo:GoInt, _hi:GoInt, _first:GoInt):Vo
 	};
 }
 
-function _heapSort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Void {
+private function _heapSort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Void {
 	var _first:GoInt = _a;
 	var _lo:GoInt = (0 : GoInt);
 	var _hi:GoInt = _b - _a;
@@ -501,7 +501,7 @@ function _heapSort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Void {
 	// Rust implementation: https://docs.rs/pdqsort/latest/pdqsort/
 	// limit is the number of allowed bad (very unbalanced) pivots before falling back to heapsort.
 **/
-function _pdqsort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _limit:GoInt):Void {
+private function _pdqsort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _limit:GoInt):Void {
 	{};
 	var _0:Bool = true,
 		_1:Bool = true,
@@ -566,7 +566,7 @@ function _pdqsort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _limit:GoInt):Void 
 	// Moves elements in data[a:b] around, so that data[i]<p and data[j]>=p for i<newpivot and j>newpivot.
 	// On return, data[newpivot] = p
 **/
-function _partition_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _pivot:GoInt):{var _0:GoInt; var _1:Bool;} {
+private function _partition_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _pivot:GoInt):{var _0:GoInt; var _1:Bool;} {
 	var _newpivot:GoInt = (0 : GoInt), _alreadyPartitioned:Bool = false;
 	_data.swap(_a, _pivot);
 	var _0:GoInt = _a + (1 : GoInt),
@@ -608,7 +608,7 @@ function _partition_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _pivot:GoInt):{va
 	// partitionEqual_func partitions data[a:b] into elements equal to data[pivot] followed by elements greater than data[pivot].
 	// It assumed that data[a:b] does not contain elements smaller than the data[pivot].
 **/
-function _partitionEqual_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _pivot:GoInt):GoInt {
+private function _partitionEqual_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _pivot:GoInt):GoInt {
 	var _newpivot:GoInt = (0 : GoInt);
 	_data.swap(_a, _pivot);
 	var _0:GoInt = _a + (1 : GoInt),
@@ -635,7 +635,7 @@ function _partitionEqual_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _pivot:GoInt
 /**
 	// partialInsertionSort_func partially sorts a slice, returns true if the slice is sorted at the end.
 **/
-function _partialInsertionSort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Bool {
+private function _partialInsertionSort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Bool {
 	{};
 	var _i:GoInt = _a + (1 : GoInt);
 	{
@@ -682,7 +682,7 @@ function _partialInsertionSort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Bool {
 	// breakPatterns_func scatters some elements around in an attempt to break some patterns
 	// that might cause imbalanced partitions in quicksort.
 **/
-function _breakPatterns_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Void {
+private function _breakPatterns_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Void {
 	var _length:GoInt = _b - _a;
 	if (_length >= (8 : GoInt)) {
 		var _random:T_xorshift = (_length : T_xorshift);
@@ -707,7 +707,7 @@ function _breakPatterns_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Void {
 	// [8,shortestNinther): uses the simple median-of-three method.
 	// [shortestNinther,∞): uses the Tukey ninther method.
 **/
-function _choosePivot_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):{var _0:GoInt; var _1:T_sortedHint;} {
+private function _choosePivot_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):{var _0:GoInt; var _1:T_sortedHint;} {
 	var _pivot:GoInt = (0 : GoInt),
 		_hint:T_sortedHint = ((0 : GoInt) : T_sortedHint);
 	{};
@@ -740,7 +740,7 @@ function _choosePivot_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):{var _0:GoInt; 
 /**
 	// order2_func returns x,y where data[x] <= data[y], where x,y=a,b or x,y=b,a.
 **/
-function _order2_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _swaps:Pointer<GoInt>):{var _0:GoInt; var _1:GoInt;} {
+private function _order2_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _swaps:Pointer<GoInt>):{var _0:GoInt; var _1:GoInt;} {
 	if (_data.less(_b, _a)) {
 		_swaps.value++;
 		return {_0: _b, _1: _a};
@@ -751,7 +751,7 @@ function _order2_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _swaps:Pointer<GoInt
 /**
 	// median_func returns x where data[x] is the median of data[a],data[b],data[c], where x is a, b, or c.
 **/
-function _median_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _c:GoInt, _swaps:Pointer<GoInt>):GoInt {
+private function _median_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _c:GoInt, _swaps:Pointer<GoInt>):GoInt {
 	{
 		var __tmp__ = _order2_func((_data == null ? null : _data.__copy__()), _a, _b, _swaps);
 		_a = __tmp__._0;
@@ -773,11 +773,11 @@ function _median_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _c:GoInt, _swaps:Poi
 /**
 	// medianAdjacent_func finds the median of data[a - 1], data[a], data[a + 1] and stores the index into a.
 **/
-function _medianAdjacent_func(_data:T_lessSwap, _a:GoInt, _swaps:Pointer<GoInt>):GoInt {
+private function _medianAdjacent_func(_data:T_lessSwap, _a:GoInt, _swaps:Pointer<GoInt>):GoInt {
 	return _median_func((_data == null ? null : _data.__copy__()), _a - (1 : GoInt), _a, _a + (1 : GoInt), _swaps);
 }
 
-function _reverseRange_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Void {
+private function _reverseRange_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Void {
 	var _i:GoInt = _a;
 	var _j:GoInt = _b - (1 : GoInt);
 	while (_i < _j) {
@@ -787,7 +787,7 @@ function _reverseRange_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Void {
 	};
 }
 
-function _swapRange_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _n:GoInt):Void {
+private function _swapRange_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _n:GoInt):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < _n, _i++, {
@@ -796,7 +796,7 @@ function _swapRange_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _n:GoInt):Void {
 	};
 }
 
-function _stable_func(_data:T_lessSwap, _n:GoInt):Void {
+private function _stable_func(_data:T_lessSwap, _n:GoInt):Void {
 	var _blockSize:GoInt = (20 : GoInt);
 	var _0:GoInt = (0 : GoInt),
 		_1:GoInt = _blockSize,
@@ -851,7 +851,7 @@ function _stable_func(_data:T_lessSwap, _n:GoInt):Void {
 	// Having the caller check this condition eliminates many leaf recursion calls,
 	// which improves performance.
 **/
-function _symMerge_func(_data:T_lessSwap, _a:GoInt, _m:GoInt, _b:GoInt):Void {
+private function _symMerge_func(_data:T_lessSwap, _a:GoInt, _m:GoInt, _b:GoInt):Void {
 	if (_m - _a == ((1 : GoInt))) {
 		var _i:GoInt = _m;
 		var _j:GoInt = _b;
@@ -930,7 +930,7 @@ function _symMerge_func(_data:T_lessSwap, _a:GoInt, _m:GoInt, _b:GoInt):Void {
 	// rotate performs at most b-a many calls to data.Swap,
 	// and it assumes non-degenerate arguments: a < m && m < b.
 **/
-function _rotate_func(_data:T_lessSwap, _a:GoInt, _m:GoInt, _b:GoInt):Void {
+private function _rotate_func(_data:T_lessSwap, _a:GoInt, _m:GoInt, _b:GoInt):Void {
 	var _i:GoInt = _m - _a;
 	var _j:GoInt = _b - _m;
 	while (_i != (_j)) {
@@ -948,7 +948,7 @@ function _rotate_func(_data:T_lessSwap, _a:GoInt, _m:GoInt, _b:GoInt):Void {
 /**
 	// insertionSort sorts data[a:b] using insertion sort.
 **/
-function _insertionSort(_data:Interface, _a:GoInt, _b:GoInt):Void {
+private function _insertionSort(_data:Interface, _a:GoInt, _b:GoInt):Void {
 	{
 		var _i:GoInt = _a + (1 : GoInt);
 		Go.cfor(_i < _b, _i++, {
@@ -966,7 +966,7 @@ function _insertionSort(_data:Interface, _a:GoInt, _b:GoInt):Void {
 	// siftDown implements the heap property on data[lo:hi].
 	// first is an offset into the array where the root of the heap lies.
 **/
-function _siftDown(_data:Interface, _lo:GoInt, _hi:GoInt, _first:GoInt):Void {
+private function _siftDown(_data:Interface, _lo:GoInt, _hi:GoInt, _first:GoInt):Void {
 	var _root:GoInt = _lo;
 	while (true) {
 		var _child:GoInt = ((2 : GoInt) * _root) + (1 : GoInt);
@@ -984,7 +984,7 @@ function _siftDown(_data:Interface, _lo:GoInt, _hi:GoInt, _first:GoInt):Void {
 	};
 }
 
-function _heapSort(_data:Interface, _a:GoInt, _b:GoInt):Void {
+private function _heapSort(_data:Interface, _a:GoInt, _b:GoInt):Void {
 	var _first:GoInt = _a;
 	var _lo:GoInt = (0 : GoInt);
 	var _hi:GoInt = _b - _a;
@@ -1011,7 +1011,7 @@ function _heapSort(_data:Interface, _a:GoInt, _b:GoInt):Void {
 	// Rust implementation: https://docs.rs/pdqsort/latest/pdqsort/
 	// limit is the number of allowed bad (very unbalanced) pivots before falling back to heapsort.
 **/
-function _pdqsort(_data:Interface, _a:GoInt, _b:GoInt, _limit:GoInt):Void {
+private function _pdqsort(_data:Interface, _a:GoInt, _b:GoInt, _limit:GoInt):Void {
 	{};
 	var _0:Bool = true,
 		_1:Bool = true,
@@ -1076,7 +1076,7 @@ function _pdqsort(_data:Interface, _a:GoInt, _b:GoInt, _limit:GoInt):Void {
 	// Moves elements in data[a:b] around, so that data[i]<p and data[j]>=p for i<newpivot and j>newpivot.
 	// On return, data[newpivot] = p
 **/
-function _partition(_data:Interface, _a:GoInt, _b:GoInt, _pivot:GoInt):{var _0:GoInt; var _1:Bool;} {
+private function _partition(_data:Interface, _a:GoInt, _b:GoInt, _pivot:GoInt):{var _0:GoInt; var _1:Bool;} {
 	var _newpivot:GoInt = (0 : GoInt), _alreadyPartitioned:Bool = false;
 	_data.swap(_a, _pivot);
 	var _0:GoInt = _a + (1 : GoInt),
@@ -1118,7 +1118,7 @@ function _partition(_data:Interface, _a:GoInt, _b:GoInt, _pivot:GoInt):{var _0:G
 	// partitionEqual partitions data[a:b] into elements equal to data[pivot] followed by elements greater than data[pivot].
 	// It assumed that data[a:b] does not contain elements smaller than the data[pivot].
 **/
-function _partitionEqual(_data:Interface, _a:GoInt, _b:GoInt, _pivot:GoInt):GoInt {
+private function _partitionEqual(_data:Interface, _a:GoInt, _b:GoInt, _pivot:GoInt):GoInt {
 	var _newpivot:GoInt = (0 : GoInt);
 	_data.swap(_a, _pivot);
 	var _0:GoInt = _a + (1 : GoInt),
@@ -1145,7 +1145,7 @@ function _partitionEqual(_data:Interface, _a:GoInt, _b:GoInt, _pivot:GoInt):GoIn
 /**
 	// partialInsertionSort partially sorts a slice, returns true if the slice is sorted at the end.
 **/
-function _partialInsertionSort(_data:Interface, _a:GoInt, _b:GoInt):Bool {
+private function _partialInsertionSort(_data:Interface, _a:GoInt, _b:GoInt):Bool {
 	{};
 	var _i:GoInt = _a + (1 : GoInt);
 	{
@@ -1192,7 +1192,7 @@ function _partialInsertionSort(_data:Interface, _a:GoInt, _b:GoInt):Bool {
 	// breakPatterns scatters some elements around in an attempt to break some patterns
 	// that might cause imbalanced partitions in quicksort.
 **/
-function _breakPatterns(_data:Interface, _a:GoInt, _b:GoInt):Void {
+private function _breakPatterns(_data:Interface, _a:GoInt, _b:GoInt):Void {
 	var _length:GoInt = _b - _a;
 	if (_length >= (8 : GoInt)) {
 		var _random:T_xorshift = (_length : T_xorshift);
@@ -1217,7 +1217,7 @@ function _breakPatterns(_data:Interface, _a:GoInt, _b:GoInt):Void {
 	// [8,shortestNinther): uses the simple median-of-three method.
 	// [shortestNinther,∞): uses the Tukey ninther method.
 **/
-function _choosePivot(_data:Interface, _a:GoInt, _b:GoInt):{var _0:GoInt; var _1:T_sortedHint;} {
+private function _choosePivot(_data:Interface, _a:GoInt, _b:GoInt):{var _0:GoInt; var _1:T_sortedHint;} {
 	var _pivot:GoInt = (0 : GoInt),
 		_hint:T_sortedHint = ((0 : GoInt) : T_sortedHint);
 	{};
@@ -1250,7 +1250,7 @@ function _choosePivot(_data:Interface, _a:GoInt, _b:GoInt):{var _0:GoInt; var _1
 /**
 	// order2 returns x,y where data[x] <= data[y], where x,y=a,b or x,y=b,a.
 **/
-function _order2(_data:Interface, _a:GoInt, _b:GoInt, _swaps:Pointer<GoInt>):{var _0:GoInt; var _1:GoInt;} {
+private function _order2(_data:Interface, _a:GoInt, _b:GoInt, _swaps:Pointer<GoInt>):{var _0:GoInt; var _1:GoInt;} {
 	if (_data.less(_b, _a)) {
 		_swaps.value++;
 		return {_0: _b, _1: _a};
@@ -1261,7 +1261,7 @@ function _order2(_data:Interface, _a:GoInt, _b:GoInt, _swaps:Pointer<GoInt>):{va
 /**
 	// median returns x where data[x] is the median of data[a],data[b],data[c], where x is a, b, or c.
 **/
-function _median(_data:Interface, _a:GoInt, _b:GoInt, _c:GoInt, _swaps:Pointer<GoInt>):GoInt {
+private function _median(_data:Interface, _a:GoInt, _b:GoInt, _c:GoInt, _swaps:Pointer<GoInt>):GoInt {
 	{
 		var __tmp__ = _order2(_data, _a, _b, _swaps);
 		_a = __tmp__._0;
@@ -1283,11 +1283,11 @@ function _median(_data:Interface, _a:GoInt, _b:GoInt, _c:GoInt, _swaps:Pointer<G
 /**
 	// medianAdjacent finds the median of data[a - 1], data[a], data[a + 1] and stores the index into a.
 **/
-function _medianAdjacent(_data:Interface, _a:GoInt, _swaps:Pointer<GoInt>):GoInt {
+private function _medianAdjacent(_data:Interface, _a:GoInt, _swaps:Pointer<GoInt>):GoInt {
 	return _median(_data, _a - (1 : GoInt), _a, _a + (1 : GoInt), _swaps);
 }
 
-function _reverseRange(_data:Interface, _a:GoInt, _b:GoInt):Void {
+private function _reverseRange(_data:Interface, _a:GoInt, _b:GoInt):Void {
 	var _i:GoInt = _a;
 	var _j:GoInt = _b - (1 : GoInt);
 	while (_i < _j) {
@@ -1297,7 +1297,7 @@ function _reverseRange(_data:Interface, _a:GoInt, _b:GoInt):Void {
 	};
 }
 
-function _swapRange(_data:Interface, _a:GoInt, _b:GoInt, _n:GoInt):Void {
+private function _swapRange(_data:Interface, _a:GoInt, _b:GoInt, _n:GoInt):Void {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < _n, _i++, {
@@ -1306,7 +1306,7 @@ function _swapRange(_data:Interface, _a:GoInt, _b:GoInt, _n:GoInt):Void {
 	};
 }
 
-function _stable(_data:Interface, _n:GoInt):Void {
+private function _stable(_data:Interface, _n:GoInt):Void {
 	var _blockSize:GoInt = (20 : GoInt);
 	var _0:GoInt = (0 : GoInt),
 		_1:GoInt = _blockSize,
@@ -1361,7 +1361,7 @@ function _stable(_data:Interface, _n:GoInt):Void {
 	// Having the caller check this condition eliminates many leaf recursion calls,
 	// which improves performance.
 **/
-function _symMerge(_data:Interface, _a:GoInt, _m:GoInt, _b:GoInt):Void {
+private function _symMerge(_data:Interface, _a:GoInt, _m:GoInt, _b:GoInt):Void {
 	if (_m - _a == ((1 : GoInt))) {
 		var _i:GoInt = _m;
 		var _j:GoInt = _b;
@@ -1440,7 +1440,7 @@ function _symMerge(_data:Interface, _a:GoInt, _m:GoInt, _b:GoInt):Void {
 	// rotate performs at most b-a many calls to data.Swap,
 	// and it assumes non-degenerate arguments: a < m && m < b.
 **/
-function _rotate(_data:Interface, _a:GoInt, _m:GoInt, _b:GoInt):Void {
+private function _rotate(_data:Interface, _a:GoInt, _m:GoInt, _b:GoInt):Void {
 	var _i:GoInt = _m - _a;
 	var _j:GoInt = _b - _m;
 	while (_i != (_j)) {

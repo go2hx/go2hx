@@ -506,10 +506,6 @@ typedef Source64 = StructType & {
 **/
 @:structInit @:using(stdgo.math.rand.Rand.Rand_static_extension) class Rand {
 	public var _src:Source = (null : Source);
-
-	/**
-		// non-nil if src is source64
-	**/
 	public var _s64:Source64 = (null : Source64);
 
 	/**
@@ -565,19 +561,8 @@ typedef Source64 = StructType & {
 }
 
 @:structInit @:using(stdgo.math.rand.Rand.T_rngSource_static_extension) private class T_rngSource {
-	/**
-		// index into vec
-	**/
 	public var _tap:GoInt = 0;
-
-	/**
-		// index into vec
-	**/
 	public var _feed:GoInt = 0;
-
-	/**
-		// current feedback register
-	**/
 	public var _vec:GoArray<GoInt64> = new GoArray<GoInt64>(...[for (i in 0...607) (0 : GoInt64)]);
 
 	public function new(?_tap:GoInt, ?_feed:GoInt, ?_vec:GoArray<GoInt64>) {
@@ -673,7 +658,7 @@ function getExponentialDistributionParameters():{
 	};
 }
 
-function _absInt32(_i:GoInt32):GoUInt32 {
+private function _absInt32(_i:GoInt32):GoUInt32 {
 	if (_i < (0:GoInt32)) {
 		return (-_i : GoUInt32);
 	};
@@ -704,7 +689,7 @@ function new_(_src:Source):Ref<Rand> {
 	return (({_src: _src, _s64: _s64} : Rand) : Ref<Rand>);
 }
 
-function _read(_p:Slice<GoByte>, _src:Source, _readVal:Pointer<GoInt64>, _readPos:Pointer<GoInt8>):{var _0:GoInt; var _1:Error;} {
+private function _read(_p:Slice<GoByte>, _src:Source, _readVal:Pointer<GoInt64>, _readPos:Pointer<GoInt8>):{var _0:GoInt; var _1:Error;} {
 	var _n:GoInt = (0 : GoInt), _err:Error = (null : Error);
 	var _pos:GoInt8 = _readPos.value;
 	var _val:GoInt64 = _readVal.value;
@@ -883,7 +868,7 @@ function expFloat64():GoFloat64 {
 /**
 	// seed rng x[n+1] = 48271 * x[n] mod (2**31 - 1)
 **/
-function _seedrand(_x:GoInt32):GoInt32 {
+private function _seedrand(_x:GoInt32):GoInt32 {
 	{};
 	var _hi:GoInt32 = _x / (44488 : GoInt32);
 	var _lo:GoInt32 = _x % (44488 : GoInt32);
@@ -1110,7 +1095,7 @@ class Rand_asInterface {
 	@:keep
 	static public function shuffle(_r:Ref<Rand>, _n:GoInt, _swap:(_i:GoInt, _j:GoInt) -> Void):Void {
 		if (_n < (0:GoInt)) {
-			throw Go.toInterface(Go.str("invalid argument to Shuffle"));
+			throw Go.toInterface(("invalid argument to Shuffle" : GoString));
 		};
 		var _i:GoInt = _n - (1 : GoInt);
 		Go.cfor(_i > (2147483646 : GoInt), _i--, {
@@ -1176,7 +1161,7 @@ class Rand_asInterface {
 	@:keep
 	static public function intn(_r:Ref<Rand>, _n:GoInt):GoInt {
 		if (_n <= (0 : GoInt)) {
-			throw Go.toInterface(Go.str("invalid argument to Intn"));
+			throw Go.toInterface(("invalid argument to Intn" : GoString));
 		};
 		if (_n <= (2147483647 : GoInt)) {
 			return (_r.int31n((_n : GoInt32)) : GoInt);
@@ -1218,7 +1203,7 @@ class Rand_asInterface {
 	@:keep
 	static public function int31n(_r:Ref<Rand>, _n:GoInt32):GoInt32 {
 		if (_n <= (0 : GoInt32)) {
-			throw Go.toInterface(Go.str("invalid argument to Int31n"));
+			throw Go.toInterface(("invalid argument to Int31n" : GoString));
 		};
 		if (_n & (_n - (1 : GoInt32)) == ((0 : GoInt32))) {
 			return _r.int31() & (_n - (1 : GoInt32));
@@ -1238,7 +1223,7 @@ class Rand_asInterface {
 	@:keep
 	static public function int63n(_r:Ref<Rand>, _n:GoInt64):GoInt64 {
 		if (_n <= ("0" : GoInt64)) {
-			throw Go.toInterface(Go.str("invalid argument to Int63n"));
+			throw Go.toInterface(("invalid argument to Int63n" : GoString));
 		};
 		if (_n & (_n - (("1" : GoInt64) : GoInt64)) == (("0" : GoInt64))) {
 			return _r.int63() & (_n - (("1" : GoInt64) : GoInt64));
@@ -1615,7 +1600,7 @@ class Zipf_asInterface {
 	@:keep
 	static public function uint64(_z:Ref<Zipf>):GoUInt64 {
 		if (_z == null) {
-			throw Go.toInterface(Go.str("rand: nil Zipf"));
+			throw Go.toInterface(("rand: nil Zipf" : GoString));
 		};
 		var _k:GoFloat64 = (0 : GoFloat64);
 		while (true) {

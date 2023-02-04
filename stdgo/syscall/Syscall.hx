@@ -1620,12 +1620,7 @@ typedef Conn = StructType & {
 @:structInit private class T_jsFile {
 	public var _path:GoString = "";
 	public var _entries:Slice<GoString> = (null : Slice<GoString>);
-
-	/**
-		// entries[:dirIdx] have already been returned in ReadDirent
-	**/
 	public var _dirIdx:GoInt = 0;
-
 	public var _pos:GoInt64 = 0;
 	public var _seeked:Bool = false;
 
@@ -1929,22 +1924,22 @@ typedef Conn = StructType & {
 
 @:named @:using(stdgo.syscall.Syscall.WaitStatus_static_extension) typedef WaitStatus = GoUInt32;
 
-function _asanRead(_addr:stdgo.unsafe.Unsafe.UnsafePointer, _len:GoInt):Void
+private function _asanRead(_addr:stdgo.unsafe.Unsafe.UnsafePointer, _len:GoInt):Void
 	throw "syscall._asanRead is not yet implemented";
 
-function _asanWrite(_addr:stdgo.unsafe.Unsafe.UnsafePointer, _len:GoInt):Void
+private function _asanWrite(_addr:stdgo.unsafe.Unsafe.UnsafePointer, _len:GoInt):Void
 	throw "syscall._asanWrite is not yet implemented";
 
 /**
 	// readInt returns the size-bytes unsigned integer in native byte order at offset off.
 **/
-function _readInt(_b:Slice<GoByte>, _off:GoUIntptr, _size:GoUIntptr):{var _0:GoUInt64; var _1:Bool;}
+private function _readInt(_b:Slice<GoByte>, _off:GoUIntptr, _size:GoUIntptr):{var _0:GoUInt64; var _1:Bool;}
 	throw "syscall._readInt is not yet implemented";
 
-function _readIntBE(_b:Slice<GoByte>, _size:GoUIntptr):GoUInt64
+private function _readIntBE(_b:Slice<GoByte>, _size:GoUIntptr):GoUInt64
 	throw "syscall._readIntBE is not yet implemented";
 
-function _readIntLE(_b:Slice<GoByte>, _size:GoUIntptr):GoUInt64
+private function _readIntLE(_b:Slice<GoByte>, _size:GoUIntptr):GoUInt64
 	throw "syscall._readIntLE is not yet implemented";
 
 /**
@@ -1956,20 +1951,20 @@ function _readIntLE(_b:Slice<GoByte>, _size:GoUIntptr):GoUInt64
 function parseDirent(_buf:Slice<GoByte>, _max:GoInt, _names:Slice<GoString>):{var _0:GoInt; var _1:GoInt; var _2:Slice<GoString>;}
 	throw "syscall.parseDirent is not yet implemented";
 
-function _runtime_envs():Slice<GoString>
+private function _runtime_envs():Slice<GoString>
 	throw "syscall._runtime_envs is not yet implemented";
 
 /**
 	// setenv_c and unsetenv_c are provided by the runtime but are no-ops
 	// if cgo isn't loaded.
 **/
-function _setenv_c(_k:GoString, _v:GoString):Void
+private function _setenv_c(_k:GoString, _v:GoString):Void
 	throw "syscall._setenv_c is not yet implemented";
 
-function _unsetenv_c(_k:GoString):Void
+private function _unsetenv_c(_k:GoString):Void
 	throw "syscall._unsetenv_c is not yet implemented";
 
-function _copyenv():Void
+private function _copyenv():Void
 	throw "syscall._copyenv is not yet implemented";
 
 function unsetenv(_key:GoString):Error
@@ -1990,10 +1985,10 @@ function environ():Slice<GoString>
 /**
 	// Provided by package runtime.
 **/
-function _now():{var _0:GoInt64; var _1:GoInt32;}
+private function _now():{var _0:GoInt64; var _1:GoInt32;}
 	throw "syscall._now is not yet implemented";
 
-function _fdToFile(_fd:GoInt):{var _0:Ref<T_jsFile>; var _1:Error;}
+private function _fdToFile(_fd:GoInt):{var _0:Ref<T_jsFile>; var _1:Error;}
 	throw "syscall._fdToFile is not yet implemented";
 
 function open(_path:GoString, _openmode:GoInt, _perm:GoUInt32):{var _0:GoInt; var _1:Error;}
@@ -2011,7 +2006,7 @@ function mkdir(_path:GoString, _perm:GoUInt32):Error
 function readDirent(_fd:GoInt, _buf:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
 	throw "syscall.readDirent is not yet implemented";
 
-function _setStat(_st:Ref<Stat_t>, _jsSt:stdgo.syscall.js.Js.Value):Void
+private function _setStat(_st:Ref<Stat_t>, _jsSt:stdgo.syscall.js.Js.Value):Void
 	throw "syscall._setStat is not yet implemented";
 
 function stat(_path:GoString, _st:Ref<Stat_t>):Error
@@ -2101,28 +2096,28 @@ function dup2(_fd:GoInt, _newfd:GoInt):Error
 function pipe(_fd:Slice<GoInt>):Error
 	throw "syscall.pipe is not yet implemented";
 
-function _fsCall(_name:GoString, _args:haxe.Rest<AnyInterface>):{var _0:stdgo.syscall.js.Js.Value; var _1:Error;}
+private function _fsCall(_name:GoString, _args:haxe.Rest<AnyInterface>):{var _0:stdgo.syscall.js.Js.Value; var _1:Error;}
 	throw "syscall._fsCall is not yet implemented";
 
 /**
 	// checkPath checks that the path is not empty and that it contains no null characters.
 **/
-function _checkPath(_path:GoString):Error
+private function _checkPath(_path:GoString):Error
 	throw "syscall._checkPath is not yet implemented";
 
-function _recoverErr(_errPtr:Ref<Error>):Void
+private function _recoverErr(_errPtr:Ref<Error>):Void
 	throw "syscall._recoverErr is not yet implemented";
 
 /**
 	// mapJSError maps an error given by Node.js to the appropriate Go error
 **/
-function _mapJSError(_jsErr:stdgo.syscall.js.Js.Value):Error
+private function _mapJSError(_jsErr:stdgo.syscall.js.Js.Value):Error
 	throw "syscall._mapJSError is not yet implemented";
 
-function _msanRead(_addr:stdgo.unsafe.Unsafe.UnsafePointer, _len:GoInt):Void
+private function _msanRead(_addr:stdgo.unsafe.Unsafe.UnsafePointer, _len:GoInt):Void
 	throw "syscall._msanRead is not yet implemented";
 
-function _msanWrite(_addr:stdgo.unsafe.Unsafe.UnsafePointer, _len:GoInt):Void
+private function _msanWrite(_addr:stdgo.unsafe.Unsafe.UnsafePointer, _len:GoInt):Void
 	throw "syscall._msanWrite is not yet implemented";
 
 function socket(_proto:GoInt, _sotype:GoInt, _unused:GoInt):{var _0:GoInt; var _1:Error;}
@@ -2221,13 +2216,13 @@ function getpagesize():GoInt
 function exit(_code:GoInt):Void
 	throw "syscall.exit is not yet implemented";
 
-function _direntIno(_buf:Slice<GoByte>):{var _0:GoUInt64; var _1:Bool;}
+private function _direntIno(_buf:Slice<GoByte>):{var _0:GoUInt64; var _1:Bool;}
 	throw "syscall._direntIno is not yet implemented";
 
-function _direntReclen(_buf:Slice<GoByte>):{var _0:GoUInt64; var _1:Bool;}
+private function _direntReclen(_buf:Slice<GoByte>):{var _0:GoUInt64; var _1:Bool;}
 	throw "syscall._direntReclen is not yet implemented";
 
-function _direntNamlen(_buf:Slice<GoByte>):{var _0:GoUInt64; var _1:Bool;}
+private function _direntNamlen(_buf:Slice<GoByte>):{var _0:GoUInt64; var _1:Bool;}
 	throw "syscall._direntNamlen is not yet implemented";
 
 function syscall(_trap:GoUIntptr, _a1:GoUIntptr, _a2:GoUIntptr, _a3:GoUIntptr):{var _0:GoUIntptr; var _1:GoUIntptr; var _2:Errno;}
@@ -2289,20 +2284,20 @@ function startProcess(_argv0:GoString, _argv:Slice<GoString>, _attr:Ref<ProcAttr
 function wait4(_pid:GoInt, _wstatus:Pointer<WaitStatus>, _options:GoInt, _rusage:Ref<Rusage>):{var _0:GoInt; var _1:Error;}
 	throw "syscall.wait4 is not yet implemented";
 
-function _setTimespec(_sec:GoInt64, _nsec:GoInt64):Timespec
+private function _setTimespec(_sec:GoInt64, _nsec:GoInt64):Timespec
 	throw "syscall._setTimespec is not yet implemented";
 
-function _setTimeval(_sec:GoInt64, _usec:GoInt64):Timeval
+private function _setTimeval(_sec:GoInt64, _usec:GoInt64):Timeval
 	throw "syscall._setTimeval is not yet implemented";
 
 /**
 	// errnoErr returns common boxed Errno values, to prevent
 	// allocations at runtime.
 **/
-function _errnoErr(_e:Errno):Error
+private function _errnoErr(_e:Errno):Error
 	throw "syscall._errnoErr is not yet implemented";
 
-function _faketimeWrite(_fd:GoInt, _p:Slice<GoByte>):GoInt
+private function _faketimeWrite(_fd:GoInt, _p:Slice<GoByte>):GoInt
 	throw "syscall._faketimeWrite is not yet implemented";
 
 /**

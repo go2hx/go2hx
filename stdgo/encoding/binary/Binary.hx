@@ -31,7 +31,7 @@ import stdgo.Chan;
 **/
 private var __go2hxdoc__package:Bool;
 
-private var _overflow:Error = stdgo.errors.Errors.new_(Go.str("binary: varint overflows a 64-bit integer"));
+private var _overflow:Error = stdgo.errors.Errors.new_(("binary: varint overflows a 64-bit integer" : GoString));
 
 private var _s:Struct = (new Struct((1 : GoInt8), (515 : GoInt16), (67438087 : GoInt32), ("579005069656919567" : GoInt64), (16 : GoUInt8), (4370 : GoUInt16),
 	("320083222" : GoUInt32), ("1664107662228069662" : GoUInt64), stdgo.math.Math.float32frombits(("522199330" : GoUInt32)),
@@ -691,7 +691,7 @@ function read(_r:stdgo.io.Io.Reader, _order:ByteOrder, _data:AnyInterface):Error
 		_size = _dataSize((_v == null ? null : _v.__copy__()));
 	};
 	if (_size < (0:GoInt)) {
-		return stdgo.errors.Errors.new_(Go.str("binary.Read: invalid type ") + (stdgo.reflect.Reflect.typeOf(_data).string() : GoString));
+		return stdgo.errors.Errors.new_(("binary.Read: invalid type " : GoString) + (stdgo.reflect.Reflect.typeOf(_data).string() : GoString));
 	};
 	var _d = (({_order: _order, _buf: new Slice<GoUInt8>((_size : GoInt).toBasic(), 0,
 		...[for (i in 0...(_size : GoInt).toBasic()) (0 : GoUInt8)])} : T_decoder) : Ref<T_decoder>);
@@ -892,7 +892,7 @@ function write(_w:stdgo.io.Io.Writer, _order:ByteOrder, _data:AnyInterface):Erro
 		.__copy__());
 	var _size:GoInt = _dataSize((_v == null ? null : _v.__copy__()));
 	if (_size < (0:GoInt)) {
-		return stdgo.errors.Errors.new_(Go.str("binary.Write: invalid type ") + (stdgo.reflect.Reflect.typeOf(_data).string() : GoString));
+		return stdgo.errors.Errors.new_(("binary.Write: invalid type " : GoString) + (stdgo.reflect.Reflect.typeOf(_data).string() : GoString));
 	};
 	var _buf = new Slice<GoUInt8>((_size : GoInt).toBasic(), 0, ...[for (i in 0...(_size : GoInt).toBasic()) (0 : GoUInt8)]);
 	var _e = (({_order: _order, _buf: _buf} : T_encoder) : Ref<T_encoder>);
@@ -921,7 +921,7 @@ function size(_v:AnyInterface):GoInt {
 	// it returns the length of the slice times the element size and does not count the memory
 	// occupied by the header. If the type of v is not acceptable, dataSize returns -1.
 **/
-function _dataSize(_v:stdgo.reflect.Reflect.Value):GoInt {
+private function _dataSize(_v:stdgo.reflect.Reflect.Value):GoInt {
 	if (_v.kind() == ((("23" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
 		{
 			var _s:GoInt = _sizeof(_v.type().elem());
@@ -951,7 +951,7 @@ function _dataSize(_v:stdgo.reflect.Reflect.Value):GoInt {
 /**
 	// sizeof returns the size >= 0 of variables for the given type or -1 if the type is not acceptable.
 **/
-function _sizeof(_t:stdgo.reflect.Reflect.Type):GoInt {
+private function _sizeof(_t:stdgo.reflect.Reflect.Type):GoInt {
 	if (_t.kind() == ((("17" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
 		{
 			var _s:GoInt = _sizeof(_t.elem());
@@ -997,7 +997,7 @@ function _sizeof(_t:stdgo.reflect.Reflect.Type):GoInt {
 	// intDataSize returns the size of the data required to represent the data when encoded.
 	// It returns zero if the type cannot be implemented by the fast path in Read or Write.
 **/
-function _intDataSize(_data:AnyInterface):GoInt {
+private function _intDataSize(_data:AnyInterface):GoInt {
 	{
 		final __type__ = _data;
 		if (Go.typeEquals((__type__ : Bool))
@@ -1081,26 +1081,26 @@ function _intDataSize(_data:AnyInterface):GoInt {
 	return (0 : GoInt);
 }
 
-function _checkResult(_t:Ref<stdgo.testing.Testing.T>, _dir:GoString, _order:ByteOrder, _err:Error, _have:AnyInterface, _want:AnyInterface):Void {
+private function _checkResult(_t:Ref<stdgo.testing.Testing.T>, _dir:GoString, _order:ByteOrder, _err:Error, _have:AnyInterface, _want:AnyInterface):Void {
 	if (_err != null) {
-		_t.errorf(Go.str("%v %v: %v"), Go.toInterface(_dir), Go.toInterface(_order), Go.toInterface(_err));
+		_t.errorf(("%v %v: %v" : GoString), Go.toInterface(_dir), Go.toInterface(_order), Go.toInterface(_err));
 		return;
 	};
 	if (!stdgo.reflect.Reflect.deepEqual(_have, _want)) {
-		_t.errorf(Go.str("%v %v:\n\thave %+v\n\twant %+v"), Go.toInterface(_dir), Go.toInterface(_order), _have, _want);
+		_t.errorf(("%v %v:\n\thave %+v\n\twant %+v" : GoString), Go.toInterface(_dir), Go.toInterface(_order), _have, _want);
 	};
 }
 
-function _testRead(_t:Ref<stdgo.testing.Testing.T>, _order:ByteOrder, _b:Slice<GoByte>, _s1:AnyInterface):Void {
+private function _testRead(_t:Ref<stdgo.testing.Testing.T>, _order:ByteOrder, _b:Slice<GoByte>, _s1:AnyInterface):Void {
 	var _s2:Struct = ({} : Struct);
 	var _err:Error = read(Go.asInterface(stdgo.bytes.Bytes.newReader(_b)), _order, Go.toInterface((_s2 : Ref<Struct>)));
-	_checkResult(_t, Go.str("Read"), _order, _err, Go.toInterface(_s2), _s1);
+	_checkResult(_t, ("Read" : GoString), _order, _err, Go.toInterface(_s2), _s1);
 }
 
-function _testWrite(_t:Ref<stdgo.testing.Testing.T>, _order:ByteOrder, _b:Slice<GoByte>, _s1:AnyInterface):Void {
+private function _testWrite(_t:Ref<stdgo.testing.Testing.T>, _order:ByteOrder, _b:Slice<GoByte>, _s1:AnyInterface):Void {
 	var _buf = ({} : stdgo.bytes.Bytes.Buffer);
 	var _err:Error = write(Go.asInterface(_buf), _order, _s1);
-	_checkResult(_t, Go.str("Write"), _order, _err, Go.toInterface(_buf.bytes()), Go.toInterface(_b));
+	_checkResult(_t, ("Write" : GoString), _order, _err, Go.toInterface(_buf.bytes()), Go.toInterface(_b));
 }
 
 function testLittleEndianRead(_t:Ref<stdgo.testing.Testing.T>):Void {
@@ -1130,13 +1130,13 @@ function testBigEndianPtrWrite(_t:Ref<stdgo.testing.Testing.T>):Void {
 function testReadSlice(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _slice = new Slice<GoInt32>((2 : GoInt).toBasic(), 0, ...[for (i in 0...(2 : GoInt).toBasic()) (0 : GoInt32)]);
 	var _err:Error = read(Go.asInterface(stdgo.bytes.Bytes.newReader(_src)), Go.asInterface(bigEndian), Go.toInterface(_slice));
-	_checkResult(_t, Go.str("ReadSlice"), Go.asInterface(bigEndian), _err, Go.toInterface(_slice), Go.toInterface(_res));
+	_checkResult(_t, ("ReadSlice" : GoString), Go.asInterface(bigEndian), _err, Go.toInterface(_slice), Go.toInterface(_res));
 }
 
 function testWriteSlice(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _buf = ({} : stdgo.bytes.Bytes.Buffer);
 	var _err:Error = write(Go.asInterface(_buf), Go.asInterface(bigEndian), Go.toInterface(_res));
-	_checkResult(_t, Go.str("WriteSlice"), Go.asInterface(bigEndian), _err, Go.toInterface(_buf.bytes()), Go.toInterface(_src));
+	_checkResult(_t, ("WriteSlice" : GoString), Go.asInterface(bigEndian), _err, Go.toInterface(_buf.bytes()), Go.toInterface(_src));
 }
 
 function testReadBool(_t:Ref<stdgo.testing.Testing.T>):Void {
@@ -1144,15 +1144,15 @@ function testReadBool(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _err:Error = (null : Error);
 	_err = read(Go.asInterface(stdgo.bytes.Bytes.newReader((new Slice<GoUInt8>(0, 0, (0 : GoUInt8)) : Slice<GoUInt8>))), Go.asInterface(bigEndian),
 		Go.toInterface(Go.pointer(_res)));
-	_checkResult(_t, Go.str("ReadBool"), Go.asInterface(bigEndian), _err, Go.toInterface(_res), Go.toInterface(false));
+	_checkResult(_t, ("ReadBool" : GoString), Go.asInterface(bigEndian), _err, Go.toInterface(_res), Go.toInterface(false));
 	_res = false;
 	_err = read(Go.asInterface(stdgo.bytes.Bytes.newReader((new Slice<GoUInt8>(0, 0, (1 : GoUInt8)) : Slice<GoUInt8>))), Go.asInterface(bigEndian),
 		Go.toInterface(Go.pointer(_res)));
-	_checkResult(_t, Go.str("ReadBool"), Go.asInterface(bigEndian), _err, Go.toInterface(_res), Go.toInterface(true));
+	_checkResult(_t, ("ReadBool" : GoString), Go.asInterface(bigEndian), _err, Go.toInterface(_res), Go.toInterface(true));
 	_res = false;
 	_err = read(Go.asInterface(stdgo.bytes.Bytes.newReader((new Slice<GoUInt8>(0, 0, (2 : GoUInt8)) : Slice<GoUInt8>))), Go.asInterface(bigEndian),
 		Go.toInterface(Go.pointer(_res)));
-	_checkResult(_t, Go.str("ReadBool"), Go.asInterface(bigEndian), _err, Go.toInterface(_res), Go.toInterface(true));
+	_checkResult(_t, ("ReadBool" : GoString), Go.asInterface(bigEndian), _err, Go.toInterface(_res), Go.toInterface(true));
 }
 
 function testReadBoolSlice(_t:Ref<stdgo.testing.Testing.T>):Void {
@@ -1160,7 +1160,7 @@ function testReadBoolSlice(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _err:Error = read(Go.asInterface(stdgo.bytes.Bytes.newReader((new Slice<GoUInt8>(0, 0, (0 : GoUInt8), (1 : GoUInt8), (2 : GoUInt8),
 		(255 : GoUInt8)) : Slice<GoUInt8>))),
 		Go.asInterface(bigEndian), Go.toInterface(_slice));
-	_checkResult(_t, Go.str("ReadBoolSlice"), Go.asInterface(bigEndian), _err, Go.toInterface(_slice),
+	_checkResult(_t, ("ReadBoolSlice" : GoString), Go.asInterface(bigEndian), _err, Go.toInterface(_slice),
 		Go.toInterface((new Slice<Bool>(0, 0, false, true, true, true) : Slice<Bool>)));
 }
 
@@ -1215,7 +1215,7 @@ function testWriteT(_t:Ref<stdgo.testing.Testing.T>):Void {
 	{
 		var _err:Error = write(Go.asInterface(_buf), Go.asInterface(bigEndian), Go.toInterface(_ts));
 		if (_err == null) {
-			_t.errorf(Go.str("WriteT: have err == nil, want non-nil"));
+			_t.errorf(("WriteT: have err == nil, want non-nil" : GoString));
 		};
 	};
 	var _tv:stdgo.reflect.Reflect.Value = (stdgo.reflect.Reflect.indirect((stdgo.reflect.Reflect.valueOf(Go.toInterface(_ts)) == null ? null : stdgo.reflect.Reflect.valueOf(Go.toInterface(_ts))
@@ -1229,15 +1229,15 @@ function testWriteT(_t:Ref<stdgo.testing.Testing.T>):Void {
 			_i:GoInt = _0;
 		Go.cfor(_i < _n, _i++, {
 			var _typ:GoString = (_tv.field(_i).type().string() : GoString);
-			if (_typ == (Go.str("[4]int"))) {
-				_typ = Go.str("int");
+			if (_typ == (("[4]int" : GoString))) {
+				_typ = ("int" : GoString);
 			};
 			{
 				var _err:Error = write(Go.asInterface(_buf), Go.asInterface(bigEndian), _tv.field(_i).interface_());
 				if (_err == null) {
-					_t.errorf(Go.str("WriteT.%v: have err == nil, want non-nil"), Go.toInterface(_tv.field(_i).type()));
+					_t.errorf(("WriteT.%v: have err == nil, want non-nil" : GoString), Go.toInterface(_tv.field(_i).type()));
 				} else if (!stdgo.strings.Strings.contains(_err.error(), _typ)) {
-					_t.errorf(Go.str("WriteT: have err == %q, want it to mention %s"), Go.toInterface(_err), Go.toInterface(_typ));
+					_t.errorf(("WriteT: have err == %q, want it to mention %s" : GoString), Go.toInterface(_err), Go.toInterface(_typ));
 				};
 			};
 		});
@@ -1262,7 +1262,7 @@ function testBlankFields(_t:Ref<stdgo.testing.Testing.T>):Void {
 	};
 	if ((((_p.p0 != (0 : GoInt32)) || (_p.p1[(0 : GoInt)] != (0 : GoInt16))) || (_p.p2[(0 : GoInt)] != (0 : GoUInt8)))
 		|| (_p.p3.f[(0 : GoInt)] != (0 : GoFloat64))) {
-		_t.errorf(Go.str("non-zero values for originally blank fields: %#v"), Go.toInterface(_p));
+		_t.errorf(("non-zero values for originally blank fields: %#v" : GoString), Go.toInterface(_p));
 	};
 	{
 		var _err:Error = write(Go.asInterface(_buf), Go.asInterface(littleEndian), Go.toInterface((_p : Ref<BlankFieldsProbe>)));
@@ -1278,7 +1278,7 @@ function testBlankFields(_t:Ref<stdgo.testing.Testing.T>):Void {
 		};
 	};
 	if (((_b1.a != _b2.a) || (_b1.b != _b2.b)) || (_b1.c != _b2.c)) {
-		_t.errorf(Go.str("%#v != %#v"), Go.toInterface(_b1), Go.toInterface(_b2));
+		_t.errorf(("%#v != %#v" : GoString), Go.toInterface(_b1), Go.toInterface(_b2));
 	};
 }
 
@@ -1341,16 +1341,16 @@ function testSizeStructCache(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _testcases = (new Slice<T__struct_2>(0, 0, ({_val: Go.toInterface(({} : T_foo_testSizeStructCache_0)), _want: (1 : GoInt)} : T__struct_2),
 		({_val: Go.toInterface(({} : T_bar_testSizeStructCache_1)), _want: (1 : GoInt)} : T__struct_2),
 		({_val: Go.toInterface(({} : T_bar_testSizeStructCache_1)), _want: (0 : GoInt)} : T__struct_2),
-		({_val: Go.toInterface(({a: ({} : Struct)} : T__struct_3)), _want: (1 : GoInt)} : T__struct_2),
-		({_val: Go.toInterface(({a: ({} : Struct)} : T__struct_3)), _want: (0 : GoInt)} : T__struct_2)) : Slice<T__struct_2>);
+		({_val: Go.toInterface(Go.asInterface(({a: ({} : Struct)} : T__struct_3))), _want: (1 : GoInt)} : T__struct_2),
+		({_val: Go.toInterface(Go.asInterface(({a: ({} : Struct)} : T__struct_3))), _want: (0 : GoInt)} : T__struct_2)) : Slice<T__struct_2>);
 	for (_0 => _tc in _testcases) {
 		if (size(_tc._val) == ((-1 : GoInt))) {
-			_t.fatalf(Go.str("Can\'t get the size of %T"), _tc._val);
+			_t.fatalf(("Can\'t get the size of %T" : GoString), _tc._val);
 		};
 		{
 			var _n:GoInt = _added();
 			if (_n != (_tc._want)) {
-				_t.errorf(Go.str("Sizing %T added %d entries to the cache, want %d"), _tc._val, Go.toInterface(_n), Go.toInterface(_tc._want));
+				_t.errorf(("Sizing %T added %d entries to the cache, want %d" : GoString), _tc._val, Go.toInterface(_n), Go.toInterface(_tc._want));
 			};
 		};
 	};
@@ -1375,7 +1375,7 @@ function testUnexportedRead(_t:Ref<stdgo.testing.Testing.T>):Void {
 					Go.recover_exception = null;
 					r;
 				}) == null) {
-					_t.fatal(Go.toInterface(Go.str("did not panic")));
+					_t.fatal(Go.toInterface(("did not panic" : GoString)));
 				};
 			};
 			a();
@@ -1410,15 +1410,15 @@ function testReadErrorMsg(_t:Ref<stdgo.testing.Testing.T>):Void {
 	var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
 	var _read:AnyInterface->Void = function(_data:AnyInterface):Void {
 		var _err:Error = read(Go.asInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>)), Go.asInterface(littleEndian), _data);
-		var _want:GoString = Go.str("binary.Read: invalid type ") + (stdgo.reflect.Reflect.typeOf(_data).string() : GoString);
+		var _want:GoString = ("binary.Read: invalid type " : GoString) + (stdgo.reflect.Reflect.typeOf(_data).string() : GoString);
 		if (_err == null) {
-			_t.errorf(Go.str("%T: got no error; want %q"), _data, Go.toInterface(_want));
+			_t.errorf(("%T: got no error; want %q" : GoString), _data, Go.toInterface(_want));
 			return;
 		};
 		{
 			var _got:GoString = _err.error();
 			if (_got != (_want)) {
-				_t.errorf(Go.str("%T: got %q; want %q"), _data, Go.toInterface(_got), Go.toInterface(_want));
+				_t.errorf(("%T: got %q; want %q" : GoString), _data, Go.toInterface(_got), Go.toInterface(_want));
 			};
 		};
 	};
@@ -1442,34 +1442,34 @@ function testReadTruncated(_t:Ref<stdgo.testing.Testing.T>):Void {
 	} : T__struct_5);
 	{
 		var _i:GoInt = (0 : GoInt);
-		Go.cfor(_i <= (Go.str("0123456789abcdef").length), _i++, {
+		Go.cfor(_i <= (("0123456789abcdef" : GoString).length), _i++, {
 			var _errWant:Error = (null : Error);
 			if (_i == ((0 : GoInt))) {
 				_errWant = stdgo.io.Io.eof;
-			} else if (_i == ((Go.str("0123456789abcdef").length))) {
+			} else if (_i == ((("0123456789abcdef" : GoString).length))) {
 				_errWant = (null : Error);
 			} else {
 				_errWant = stdgo.io.Io.errUnexpectedEOF;
 			};
 			{
-				var _err:Error = read(Go.asInterface(stdgo.strings.Strings.newReader((Go.str("0123456789abcdef").__slice__(0, _i) : GoString))),
+				var _err:Error = read(Go.asInterface(stdgo.strings.Strings.newReader((("0123456789abcdef" : GoString).__slice__(0, _i) : GoString))),
 					Go.asInterface(littleEndian), Go.toInterface((_b1 : Ref<Slice<GoInt32>>)));
 				if (Go.toInterface(_err) != (Go.toInterface(_errWant))) {
-					_t.errorf(Go.str("Read(%d) with slice: got %v, want %v"), Go.toInterface(_i), Go.toInterface(_err), Go.toInterface(_errWant));
+					_t.errorf(("Read(%d) with slice: got %v, want %v" : GoString), Go.toInterface(_i), Go.toInterface(_err), Go.toInterface(_errWant));
 				};
 			};
 			{
-				var _err:Error = read(Go.asInterface(stdgo.strings.Strings.newReader((Go.str("0123456789abcdef").__slice__(0, _i) : GoString))),
-					Go.asInterface(littleEndian), Go.toInterface((_b2 : Ref<T__struct_5>)));
+				var _err:Error = read(Go.asInterface(stdgo.strings.Strings.newReader((("0123456789abcdef" : GoString).__slice__(0, _i) : GoString))),
+					Go.asInterface(littleEndian), Go.toInterface(Go.asInterface((_b2 : Ref<T__struct_5>))));
 				if (Go.toInterface(_err) != (Go.toInterface(_errWant))) {
-					_t.errorf(Go.str("Read(%d) with struct: got %v, want %v"), Go.toInterface(_i), Go.toInterface(_err), Go.toInterface(_errWant));
+					_t.errorf(("Read(%d) with struct: got %v, want %v" : GoString), Go.toInterface(_i), Go.toInterface(_err), Go.toInterface(_errWant));
 				};
 			};
 		});
 	};
 }
 
-function _testUint64SmallSliceLengthPanics():Bool {
+private function _testUint64SmallSliceLengthPanics():Bool {
 	var __deferstack__:Array<Void->Void> = [];
 	var _panicked:Bool = false;
 	__deferstack__.unshift(() -> {
@@ -1516,7 +1516,7 @@ function _testUint64SmallSliceLengthPanics():Bool {
 	};
 }
 
-function _testPutUint64SmallSliceLengthPanics():Bool {
+private function _testPutUint64SmallSliceLengthPanics():Bool {
 	var __deferstack__:Array<Void->Void> = [];
 	var _panicked:Bool = false;
 	__deferstack__.unshift(() -> {
@@ -1581,54 +1581,54 @@ function testByteOrder(_t:Ref<stdgo.testing.Testing.T>):Void {
 			{
 				var _got:GoUInt16 = _order.uint16((_buf.__slice__(0, (2 : GoInt)) : Slice<GoUInt8>));
 				if (_got != (_want16)) {
-					_t.errorf(Go.str("PutUint16: Uint16 = %v, want %v"), Go.toInterface(_got), Go.toInterface(_want16));
+					_t.errorf(("PutUint16: Uint16 = %v, want %v" : GoString), Go.toInterface(_got), Go.toInterface(_want16));
 				};
 			};
 			_buf = _order.appendUint16((_buf.__slice__(0, (3 : GoInt)) : Slice<GoUInt8>), _want16);
 			{
 				var _got:GoUInt16 = _order.uint16((_buf.__slice__((3 : GoInt)) : Slice<GoUInt8>));
 				if (_got != (_want16)) {
-					_t.errorf(Go.str("AppendUint16: Uint16 = %v, want %v"), Go.toInterface(_got), Go.toInterface(_want16));
+					_t.errorf(("AppendUint16: Uint16 = %v, want %v" : GoString), Go.toInterface(_got), Go.toInterface(_want16));
 				};
 			};
 			if ((_buf.length) != ((5 : GoInt))) {
-				_t.errorf(Go.str("AppendUint16: len(buf) = %d, want %d"), Go.toInterface((_buf.length)), Go.toInterface((5 : GoInt)));
+				_t.errorf(("AppendUint16: len(buf) = %d, want %d" : GoString), Go.toInterface((_buf.length)), Go.toInterface((5 : GoInt)));
 			};
 			var _want32:GoUInt32 = (_value : GoUInt32);
 			_order.putUint32((_buf.__slice__(0, (4 : GoInt)) : Slice<GoUInt8>), _want32);
 			{
 				var _got:GoUInt32 = _order.uint32((_buf.__slice__(0, (4 : GoInt)) : Slice<GoUInt8>));
 				if (_got != (_want32)) {
-					_t.errorf(Go.str("PutUint32: Uint32 = %v, want %v"), Go.toInterface(_got), Go.toInterface(_want32));
+					_t.errorf(("PutUint32: Uint32 = %v, want %v" : GoString), Go.toInterface(_got), Go.toInterface(_want32));
 				};
 			};
 			_buf = _order.appendUint32((_buf.__slice__(0, (3 : GoInt)) : Slice<GoUInt8>), _want32);
 			{
 				var _got:GoUInt32 = _order.uint32((_buf.__slice__((3 : GoInt)) : Slice<GoUInt8>));
 				if (_got != (_want32)) {
-					_t.errorf(Go.str("AppendUint32: Uint32 = %v, want %v"), Go.toInterface(_got), Go.toInterface(_want32));
+					_t.errorf(("AppendUint32: Uint32 = %v, want %v" : GoString), Go.toInterface(_got), Go.toInterface(_want32));
 				};
 			};
 			if ((_buf.length) != ((7 : GoInt))) {
-				_t.errorf(Go.str("AppendUint32: len(buf) = %d, want %d"), Go.toInterface((_buf.length)), Go.toInterface((7 : GoInt)));
+				_t.errorf(("AppendUint32: len(buf) = %d, want %d" : GoString), Go.toInterface((_buf.length)), Go.toInterface((7 : GoInt)));
 			};
 			var _want64:GoUInt64 = (_value : GoUInt64);
 			_order.putUint64((_buf.__slice__(0, (8 : GoInt)) : Slice<GoUInt8>), _want64);
 			{
 				var _got:GoUInt64 = _order.uint64((_buf.__slice__(0, (8 : GoInt)) : Slice<GoUInt8>));
 				if (_got != (_want64)) {
-					_t.errorf(Go.str("PutUint64: Uint64 = %v, want %v"), Go.toInterface(_got), Go.toInterface(_want64));
+					_t.errorf(("PutUint64: Uint64 = %v, want %v" : GoString), Go.toInterface(_got), Go.toInterface(_want64));
 				};
 			};
 			_buf = _order.appendUint64((_buf.__slice__(0, (3 : GoInt)) : Slice<GoUInt8>), _want64);
 			{
 				var _got:GoUInt64 = _order.uint64((_buf.__slice__((3 : GoInt)) : Slice<GoUInt8>));
 				if (_got != (_want64)) {
-					_t.errorf(Go.str("AppendUint64: Uint64 = %v, want %v"), Go.toInterface(_got), Go.toInterface(_want64));
+					_t.errorf(("AppendUint64: Uint64 = %v, want %v" : GoString), Go.toInterface(_got), Go.toInterface(_want64));
 				};
 			};
 			if ((_buf.length) != ((11 : GoInt))) {
-				_t.errorf(Go.str("AppendUint64: len(buf) = %d, want %d"), Go.toInterface((_buf.length)), Go.toInterface((11 : GoInt)));
+				_t.errorf(("AppendUint64: len(buf) = %d, want %d" : GoString), Go.toInterface((_buf.length)), Go.toInterface((11 : GoInt)));
 			};
 		};
 	};
@@ -1636,10 +1636,10 @@ function testByteOrder(_t:Ref<stdgo.testing.Testing.T>):Void {
 
 function testEarlyBoundsChecks(_t:Ref<stdgo.testing.Testing.T>):Void {
 	if (_testUint64SmallSliceLengthPanics() != (true)) {
-		_t.errorf(Go.str("binary.LittleEndian.Uint64 expected to panic for small slices, but didn\'t"));
+		_t.errorf(("binary.LittleEndian.Uint64 expected to panic for small slices, but didn\'t" : GoString));
 	};
 	if (_testPutUint64SmallSliceLengthPanics() != (true)) {
-		_t.errorf(Go.str("binary.LittleEndian.PutUint64 expected to panic for small slices, but didn\'t"));
+		_t.errorf(("binary.LittleEndian.PutUint64 expected to panic for small slices, but didn\'t" : GoString));
 	};
 }
 
@@ -1648,7 +1648,7 @@ function testReadInvalidDestination(_t:Ref<stdgo.testing.Testing.T>):Void {
 	_testReadInvalidDestination(_t, Go.asInterface(littleEndian));
 }
 
-function _testReadInvalidDestination(_t:Ref<stdgo.testing.Testing.T>, _order:ByteOrder):Void {
+private function _testReadInvalidDestination(_t:Ref<stdgo.testing.Testing.T>, _order:ByteOrder):Void {
 	var _destinations = (new Slice<AnyInterface>(0, 0, Go.toInterface((0 : GoInt8)), Go.toInterface((0 : GoInt16)), Go.toInterface((0 : GoInt32)),
 		Go.toInterface((("0" : GoInt64) : GoInt64)), Go.toInterface((0 : GoUInt8)), Go.toInterface((0 : GoUInt16)),
 		Go.toInterface((("0" : GoUInt32) : GoUInt32)), Go.toInterface((("0" : GoUInt64) : GoUInt64)), Go.toInterface((false : Bool))) : Slice<AnyInterface>);
@@ -1656,9 +1656,9 @@ function _testReadInvalidDestination(_t:Ref<stdgo.testing.Testing.T>, _order:Byt
 		var _err:Error = read(Go.asInterface(stdgo.bytes.Bytes.newReader((new Slice<GoUInt8>(0, 0, (1 : GoUInt8), (2 : GoUInt8), (3 : GoUInt8), (4 : GoUInt8),
 			(5 : GoUInt8), (6 : GoUInt8), (7 : GoUInt8), (8 : GoUInt8)) : Slice<GoUInt8>))),
 			_order, _dst);
-		var _want:GoString = stdgo.fmt.Fmt.sprintf(Go.str("binary.Read: invalid type %T"), _dst);
+		var _want:GoString = stdgo.fmt.Fmt.sprintf(("binary.Read: invalid type %T" : GoString), _dst);
 		if ((_err == null) || (_err.error() != _want)) {
-			_t.fatalf(Go.str("for type %T: got %q; want %q"), _dst, Go.toInterface(_err), Go.toInterface(_want));
+			_t.fatalf(("for type %T: got %q; want %q" : GoString), _dst, Go.toInterface(_err), Go.toInterface(_want));
 		};
 	};
 }
@@ -1696,7 +1696,7 @@ function benchmarkReadStruct(_b:Ref<stdgo.testing.Testing.B>):Void {
 	};
 	_b.stopTimer();
 	if ((_b.n > (0 : GoInt)) && !stdgo.reflect.Reflect.deepEqual(Go.toInterface(_s), Go.toInterface(_t))) {
-		_b.fatalf(Go.str("struct doesn\'t match:\ngot  %v;\nwant %v"), Go.toInterface(_t), Go.toInterface(_s));
+		_b.fatalf(("struct doesn\'t match:\ngot  %v;\nwant %v" : GoString), Go.toInterface(_t), Go.toInterface(_s));
 	};
 }
 
@@ -1741,7 +1741,7 @@ function benchmarkReadInts(_b:Ref<stdgo.testing.Testing.B>):Void {
 	_want.bool_ = false;
 	_want.boolArray = (new GoArray<Bool>(false, false, false, false) : GoArray<Bool>);
 	if ((_b.n > (0 : GoInt)) && !stdgo.reflect.Reflect.deepEqual(Go.toInterface(_ls), Go.toInterface(_want))) {
-		_b.fatalf(Go.str("struct doesn\'t match:\ngot  %v;\nwant %v"), Go.toInterface(_ls), Go.toInterface(_want));
+		_b.fatalf(("struct doesn\'t match:\ngot  %v;\nwant %v" : GoString), Go.toInterface(_ls), Go.toInterface(_want));
 	};
 }
 
@@ -1766,7 +1766,7 @@ function benchmarkWriteInts(_b:Ref<stdgo.testing.Testing.B>):Void {
 	};
 	_b.stopTimer();
 	if ((_b.n > (0 : GoInt)) && !stdgo.bytes.Bytes.equal(_buf.bytes(), (_big.__slice__(0, (30 : GoInt)) : Slice<GoUInt8>))) {
-		_b.fatalf(Go.str("first half doesn\'t match: %x %x"), Go.toInterface(_buf.bytes()),
+		_b.fatalf(("first half doesn\'t match: %x %x" : GoString), Go.toInterface(_buf.bytes()),
 			Go.toInterface((_big.__slice__(0, (30 : GoInt)) : Slice<GoUInt8>)));
 	};
 }
@@ -1937,7 +1937,7 @@ function benchmarkReadFloats(_b:Ref<stdgo.testing.Testing.B>):Void {
 	_want.bool_ = false;
 	_want.boolArray = (new GoArray<Bool>(false, false, false, false) : GoArray<Bool>);
 	if ((_b.n > (0 : GoInt)) && !stdgo.reflect.Reflect.deepEqual(Go.toInterface(_ls), Go.toInterface(_want))) {
-		_b.fatalf(Go.str("struct doesn\'t match:\ngot  %v;\nwant %v"), Go.toInterface(_ls), Go.toInterface(_want));
+		_b.fatalf(("struct doesn\'t match:\ngot  %v;\nwant %v" : GoString), Go.toInterface(_ls), Go.toInterface(_want));
 	};
 }
 
@@ -1956,7 +1956,7 @@ function benchmarkWriteFloats(_b:Ref<stdgo.testing.Testing.B>):Void {
 	};
 	_b.stopTimer();
 	if ((_b.n > (0 : GoInt)) && !stdgo.bytes.Bytes.equal(_buf.bytes(), (_big.__slice__((30 : GoInt), (42 : GoInt)) : Slice<GoUInt8>))) {
-		_b.fatalf(Go.str("first half doesn\'t match: %x %x"), Go.toInterface(_buf.bytes()),
+		_b.fatalf(("first half doesn\'t match: %x %x" : GoString), Go.toInterface(_buf.bytes()),
 			Go.toInterface((_big.__slice__((30 : GoInt), (42 : GoInt)) : Slice<GoUInt8>)));
 	};
 }
@@ -2164,11 +2164,11 @@ function readVarint(_r:stdgo.io.Io.ByteReader):{var _0:GoInt64; var _1:Error;} {
 	return {_0: _x, _1: _err};
 }
 
-function _testConstant(_t:Ref<stdgo.testing.Testing.T>, _w:GoUInt, _max:GoInt):Void {
+private function _testConstant(_t:Ref<stdgo.testing.Testing.T>, _w:GoUInt, _max:GoInt):Void {
 	var _buf = new Slice<GoUInt8>((10 : GoInt).toBasic(), 0, ...[for (i in 0...(10 : GoInt).toBasic()) (0 : GoUInt8)]);
 	var _n:GoInt = putUvarint(_buf, ((("1" : GoUInt64) : GoUInt64) << _w) - ("1" : GoUInt64));
 	if (_n != (_max)) {
-		_t.errorf(Go.str("MaxVarintLen%d = %d; want %d"), Go.toInterface(_w), Go.toInterface(_max), Go.toInterface(_n));
+		_t.errorf(("MaxVarintLen%d = %d; want %d" : GoString), Go.toInterface(_w), Go.toInterface(_max), Go.toInterface(_n));
 	};
 }
 
@@ -2178,61 +2178,61 @@ function testConstants(_t:Ref<stdgo.testing.Testing.T>):Void {
 	_testConstant(_t, ("64" : GoUInt), (10 : GoInt));
 }
 
-function _testVarint(_t:Ref<stdgo.testing.Testing.T>, _x:GoInt64):Void {
+private function _testVarint(_t:Ref<stdgo.testing.Testing.T>, _x:GoInt64):Void {
 	var _buf = new Slice<GoUInt8>((10 : GoInt).toBasic(), 0, ...[for (i in 0...(10 : GoInt).toBasic()) (0 : GoUInt8)]);
 	var _n:GoInt = putVarint(_buf, _x);
 	var __tmp__ = varint((_buf.__slice__((0 : GoInt), _n) : Slice<GoUInt8>)),
 		_y:GoInt64 = __tmp__._0,
 		_m:GoInt = __tmp__._1;
 	if (_x != (_y)) {
-		_t.errorf(Go.str("Varint(%d): got %d"), Go.toInterface(_x), Go.toInterface(_y));
+		_t.errorf(("Varint(%d): got %d" : GoString), Go.toInterface(_x), Go.toInterface(_y));
 	};
 	if (_n != (_m)) {
-		_t.errorf(Go.str("Varint(%d): got n = %d; want %d"), Go.toInterface(_x), Go.toInterface(_m), Go.toInterface(_n));
+		_t.errorf(("Varint(%d): got n = %d; want %d" : GoString), Go.toInterface(_x), Go.toInterface(_m), Go.toInterface(_n));
 	};
-	var _buf2 = (Go.str("prefix") : Slice<GoByte>);
+	var _buf2 = (("prefix" : GoString) : Slice<GoByte>);
 	_buf2 = appendVarint(_buf2, _x);
-	if ((_buf2 : GoString) != (Go.str("prefix") + ((_buf.__slice__(0, _n) : Slice<GoUInt8>) : GoString))) {
-		_t.errorf(Go.str("AppendVarint(%d): got %q, want %q"), Go.toInterface(_x), Go.toInterface(_buf2),
-			Go.toInterface(Go.str("prefix") + ((_buf.__slice__(0, _n) : Slice<GoUInt8>) : GoString)));
+	if ((_buf2 : GoString) != (("prefix" : GoString) + ((_buf.__slice__(0, _n) : Slice<GoUInt8>) : GoString))) {
+		_t.errorf(("AppendVarint(%d): got %q, want %q" : GoString), Go.toInterface(_x), Go.toInterface(_buf2),
+			Go.toInterface(("prefix" : GoString) + ((_buf.__slice__(0, _n) : Slice<GoUInt8>) : GoString)));
 	};
 	var __tmp__ = readVarint(Go.asInterface(stdgo.bytes.Bytes.newReader(_buf))),
 		_y:GoInt64 = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		_t.errorf(Go.str("ReadVarint(%d): %s"), Go.toInterface(_x), Go.toInterface(_err));
+		_t.errorf(("ReadVarint(%d): %s" : GoString), Go.toInterface(_x), Go.toInterface(_err));
 	};
 	if (_x != (_y)) {
-		_t.errorf(Go.str("ReadVarint(%d): got %d"), Go.toInterface(_x), Go.toInterface(_y));
+		_t.errorf(("ReadVarint(%d): got %d" : GoString), Go.toInterface(_x), Go.toInterface(_y));
 	};
 }
 
-function _testUvarint(_t:Ref<stdgo.testing.Testing.T>, _x:GoUInt64):Void {
+private function _testUvarint(_t:Ref<stdgo.testing.Testing.T>, _x:GoUInt64):Void {
 	var _buf = new Slice<GoUInt8>((10 : GoInt).toBasic(), 0, ...[for (i in 0...(10 : GoInt).toBasic()) (0 : GoUInt8)]);
 	var _n:GoInt = putUvarint(_buf, _x);
 	var __tmp__ = uvarint((_buf.__slice__((0 : GoInt), _n) : Slice<GoUInt8>)),
 		_y:GoUInt64 = __tmp__._0,
 		_m:GoInt = __tmp__._1;
 	if (_x != (_y)) {
-		_t.errorf(Go.str("Uvarint(%d): got %d"), Go.toInterface(_x), Go.toInterface(_y));
+		_t.errorf(("Uvarint(%d): got %d" : GoString), Go.toInterface(_x), Go.toInterface(_y));
 	};
 	if (_n != (_m)) {
-		_t.errorf(Go.str("Uvarint(%d): got n = %d; want %d"), Go.toInterface(_x), Go.toInterface(_m), Go.toInterface(_n));
+		_t.errorf(("Uvarint(%d): got n = %d; want %d" : GoString), Go.toInterface(_x), Go.toInterface(_m), Go.toInterface(_n));
 	};
-	var _buf2 = (Go.str("prefix") : Slice<GoByte>);
+	var _buf2 = (("prefix" : GoString) : Slice<GoByte>);
 	_buf2 = appendUvarint(_buf2, _x);
-	if ((_buf2 : GoString) != (Go.str("prefix") + ((_buf.__slice__(0, _n) : Slice<GoUInt8>) : GoString))) {
-		_t.errorf(Go.str("AppendUvarint(%d): got %q, want %q"), Go.toInterface(_x), Go.toInterface(_buf2),
-			Go.toInterface(Go.str("prefix") + ((_buf.__slice__(0, _n) : Slice<GoUInt8>) : GoString)));
+	if ((_buf2 : GoString) != (("prefix" : GoString) + ((_buf.__slice__(0, _n) : Slice<GoUInt8>) : GoString))) {
+		_t.errorf(("AppendUvarint(%d): got %q, want %q" : GoString), Go.toInterface(_x), Go.toInterface(_buf2),
+			Go.toInterface(("prefix" : GoString) + ((_buf.__slice__(0, _n) : Slice<GoUInt8>) : GoString)));
 	};
 	var __tmp__ = readUvarint(Go.asInterface(stdgo.bytes.Bytes.newReader(_buf))),
 		_y:GoUInt64 = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if (_err != null) {
-		_t.errorf(Go.str("ReadUvarint(%d): %s"), Go.toInterface(_x), Go.toInterface(_err));
+		_t.errorf(("ReadUvarint(%d): %s" : GoString), Go.toInterface(_x), Go.toInterface(_err));
 	};
 	if (_x != (_y)) {
-		_t.errorf(Go.str("ReadUvarint(%d): got %d"), Go.toInterface(_x), Go.toInterface(_y));
+		_t.errorf(("ReadUvarint(%d): got %d" : GoString), Go.toInterface(_x), Go.toInterface(_y));
 	};
 }
 
@@ -2272,13 +2272,13 @@ function testBufferTooSmall(_t:Ref<stdgo.testing.Testing.T>):Void {
 				_x:GoUInt64 = __tmp__._0,
 				_n:GoInt = __tmp__._1;
 			if ((_x != ("0" : GoUInt64)) || (_n != (0 : GoInt))) {
-				_t.errorf(Go.str("Uvarint(%v): got x = %d, n = %d"), Go.toInterface(_buf), Go.toInterface(_x), Go.toInterface(_n));
+				_t.errorf(("Uvarint(%v): got x = %d, n = %d" : GoString), Go.toInterface(_buf), Go.toInterface(_x), Go.toInterface(_n));
 			};
 			var __tmp__ = readUvarint(Go.asInterface(stdgo.bytes.Bytes.newReader(_buf))),
 				_x:GoUInt64 = __tmp__._0,
 				_err:Error = __tmp__._1;
 			if ((_x != ("0" : GoUInt64)) || (Go.toInterface(_err) != Go.toInterface(stdgo.io.Io.eof))) {
-				_t.errorf(Go.str("ReadUvarint(%v): got x = %d, err = %s"), Go.toInterface(_buf), Go.toInterface(_x), Go.toInterface(_err));
+				_t.errorf(("ReadUvarint(%v): got x = %d, err = %s" : GoString), Go.toInterface(_buf), Go.toInterface(_x), Go.toInterface(_err));
 			};
 		});
 	};
@@ -2301,25 +2301,25 @@ function testBufferTooBigWithOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
 			};
 			a();
 		},
-		_name: Go.str("invalid: 1000 bytes"),
+		_name: ("invalid: 1000 bytes" : GoString),
 		_wantN: (-11 : GoInt),
 		_wantValue: ("0" : GoUInt64)
 	} : T__struct_6), ({
 		_in: (new Slice<GoUInt8>(0, 0, (215 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8),
 			(255 : GoUInt8), (255 : GoUInt8), (1 : GoUInt8)) : Slice<GoUInt8>),
-		_name: Go.str("valid: math.MaxUint64-40"),
+		_name: ("valid: math.MaxUint64-40" : GoString),
 		_wantN: (10 : GoInt),
 		_wantValue: ("18446744073709551575" : GoUInt64)
 		} : T__struct_6), ({
 		_in: (new Slice<GoUInt8>(0, 0, (215 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8),
 			(255 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8), (1 : GoUInt8)) : Slice<GoUInt8>),
-		_name: Go.str("invalid: with more than MaxVarintLen64 bytes"),
+		_name: ("invalid: with more than MaxVarintLen64 bytes" : GoString),
 		_wantN: (-11 : GoInt),
 		_wantValue: ("0" : GoUInt64)
 		} : T__struct_6), ({
 		_in: (new Slice<GoUInt8>(0, 0, (215 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8), (255 : GoUInt8),
 			(255 : GoUInt8), (255 : GoUInt8), (127 : GoUInt8)) : Slice<GoUInt8>),
-		_name: Go.str("invalid: 10th byte"),
+		_name: ("invalid: 10th byte" : GoString),
 		_wantN: (-10 : GoInt),
 		_wantValue: ("0" : GoUInt64)
 		} : T__struct_6)) : Slice<T__struct_6>);
@@ -2343,7 +2343,7 @@ function testBufferTooBigWithOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
 					_w:GoInt = _1,
 					_g:GoInt = _0;
 				if (_g != (_w)) {
-					_t.errorf(Go.str("bytes returned=%d, want=%d"), Go.toInterface(_g), Go.toInterface(_w));
+					_t.errorf(("bytes returned=%d, want=%d" : GoString), Go.toInterface(_g), Go.toInterface(_w));
 				};
 			};
 			{
@@ -2352,19 +2352,20 @@ function testBufferTooBigWithOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
 					_w:GoUInt64 = _1,
 					_g:GoUInt64 = _0;
 				if (_g != (_w)) {
-					_t.errorf(Go.str("value=%d, want=%d"), Go.toInterface(_g), Go.toInterface(_w));
+					_t.errorf(("value=%d, want=%d" : GoString), Go.toInterface(_g), Go.toInterface(_w));
 				};
 			};
 		});
 	};
 }
 
-function _testOverflow(_t:Ref<stdgo.testing.Testing.T>, _buf:Slice<GoByte>, _x0:GoUInt64, _n0:GoInt, _err0:Error):Void {
+private function _testOverflow(_t:Ref<stdgo.testing.Testing.T>, _buf:Slice<GoByte>, _x0:GoUInt64, _n0:GoInt, _err0:Error):Void {
 	var __tmp__ = uvarint(_buf),
 		_x:GoUInt64 = __tmp__._0,
 		_n:GoInt = __tmp__._1;
 	if ((_x != ("0" : GoUInt64)) || (_n != _n0)) {
-		_t.errorf(Go.str("Uvarint(% X): got x = %d, n = %d; want 0, %d"), Go.toInterface(_buf), Go.toInterface(_x), Go.toInterface(_n), Go.toInterface(_n0));
+		_t.errorf(("Uvarint(% X): got x = %d, n = %d; want 0, %d" : GoString), Go.toInterface(_buf), Go.toInterface(_x), Go.toInterface(_n),
+			Go.toInterface(_n0));
 	};
 	var _r = stdgo.bytes.Bytes.newReader(_buf);
 	var _len:GoInt = _r.len();
@@ -2372,13 +2373,13 @@ function _testOverflow(_t:Ref<stdgo.testing.Testing.T>, _buf:Slice<GoByte>, _x0:
 		_x:GoUInt64 = __tmp__._0,
 		_err:Error = __tmp__._1;
 	if ((_x != _x0) || (Go.toInterface(_err) != Go.toInterface(_err0))) {
-		_t.errorf(Go.str("ReadUvarint(%v): got x = %d, err = %s; want %d, %s"), Go.toInterface(_buf), Go.toInterface(_x), Go.toInterface(_err),
+		_t.errorf(("ReadUvarint(%v): got x = %d, err = %s; want %d, %s" : GoString), Go.toInterface(_buf), Go.toInterface(_x), Go.toInterface(_err),
 			Go.toInterface(_x0), Go.toInterface(_err0));
 	};
 	{
 		var _read:GoInt = _len - _r.len();
 		if (_read > (10 : GoInt)) {
-			_t.errorf(Go.str("ReadUvarint(%v): read more than MaxVarintLen64 bytes, got %d"), Go.toInterface(_buf), Go.toInterface(_read));
+			_t.errorf(("ReadUvarint(%v): read more than MaxVarintLen64 bytes, got %d" : GoString), Go.toInterface(_buf), Go.toInterface(_read));
 		};
 	};
 }
@@ -2405,7 +2406,7 @@ function testNonCanonicalZero(_t:Ref<stdgo.testing.Testing.T>):Void {
 		_x:GoUInt64 = __tmp__._0,
 		_n:GoInt = __tmp__._1;
 	if ((_x != ("0" : GoUInt64)) || (_n != (4 : GoInt))) {
-		_t.errorf(Go.str("Uvarint(%v): got x = %d, n = %d; want 0, 4"), Go.toInterface(_buf), Go.toInterface(_x), Go.toInterface(_n));
+		_t.errorf(("Uvarint(%v): got x = %d, n = %d; want 0, 4" : GoString), Go.toInterface(_buf), Go.toInterface(_x), Go.toInterface(_n));
 	};
 }
 
@@ -2503,12 +2504,12 @@ class T_littleEndian_asInterface {
 @:keep @:allow(stdgo.encoding.binary.Binary.T_littleEndian_asInterface) class T_littleEndian_static_extension {
 	@:keep
 	static public function goString(_:T_littleEndian):GoString {
-		return Go.str("binary.LittleEndian");
+		return ("binary.LittleEndian" : GoString);
 	}
 
 	@:keep
 	static public function string(_:T_littleEndian):GoString {
-		return Go.str("LittleEndian");
+		return ("LittleEndian" : GoString);
 	}
 
 	@:keep
@@ -2639,12 +2640,12 @@ class T_bigEndian_asInterface {
 @:keep @:allow(stdgo.encoding.binary.Binary.T_bigEndian_asInterface) class T_bigEndian_static_extension {
 	@:keep
 	static public function goString(_:T_bigEndian):GoString {
-		return Go.str("binary.BigEndian");
+		return ("binary.BigEndian" : GoString);
 	}
 
 	@:keep
 	static public function string(_:T_bigEndian):GoString {
-		return Go.str("BigEndian");
+		return ("BigEndian" : GoString);
 	}
 
 	@:keep
@@ -2825,7 +2826,7 @@ class T_decoder_asInterface {
 				Go.cfor(_i < _l, _i++, {
 					{
 						var _v:stdgo.reflect.Reflect.Value = (_v.field(_i) == null ? null : _v.field(_i).__copy__());
-						if (_v.canSet() || (_t.field(_i).name != Go.str("_"))) {
+						if (_v.canSet() || (_t.field(_i).name != ("_" : GoString))) {
 							_d._value((_v == null ? null : _v.__copy__()));
 						} else {
 							_d._skip((_v == null ? null : _v.__copy__()));
@@ -3015,7 +3016,7 @@ class T_encoder_asInterface {
 				Go.cfor(_i < _l, _i++, {
 					{
 						var _v:stdgo.reflect.Reflect.Value = (_v.field(_i) == null ? null : _v.field(_i).__copy__());
-						if (_v.canSet() || (_t.field(_i).name != Go.str("_"))) {
+						if (_v.canSet() || (_t.field(_i).name != ("_" : GoString))) {
 							_e._value((_v == null ? null : _v.__copy__()));
 						} else {
 							_e._skip((_v == null ? null : _v.__copy__()));

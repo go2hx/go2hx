@@ -894,7 +894,7 @@ function acosh(_x:GoFloat64):GoFloat64 {
 	return _acosh(_x);
 }
 
-function _acosh(_x:GoFloat64):GoFloat64 {
+private function _acosh(_x:GoFloat64):GoFloat64 {
 	{};
 	if ((_x < (1:GoFloat64)) || isNaN(_x)) {
 		return naN();
@@ -920,7 +920,7 @@ function _acosh(_x:GoFloat64):GoFloat64 {
 function asin(_x:GoFloat64):GoFloat64
 	return std.Math.asin(_x.toBasic());
 
-function _asin(_x:GoFloat64):GoFloat64 {
+private function _asin(_x:GoFloat64):GoFloat64 {
 	if (_x == (0 : GoFloat64)) {
 		return _x;
 	};
@@ -954,7 +954,7 @@ function _asin(_x:GoFloat64):GoFloat64 {
 function acos(_x:GoFloat64):GoFloat64
 	return std.Math.acos(_x.toBasic());
 
-function _acos(_x:GoFloat64):GoFloat64 {
+private function _acos(_x:GoFloat64):GoFloat64 {
 	return (1.5707963267948966 : GoFloat64) - asin(_x);
 }
 
@@ -974,7 +974,7 @@ function asinh(_x:GoFloat64):GoFloat64 {
 	return _asinh(_x);
 }
 
-function _asinh(_x:GoFloat64):GoFloat64 {
+private function _asinh(_x:GoFloat64):GoFloat64 {
 	{};
 	if (isNaN(_x) || isInf(_x, (0 : GoInt))) {
 		return _x;
@@ -1003,7 +1003,7 @@ function _asinh(_x:GoFloat64):GoFloat64 {
 /**
 	// xatan evaluates a series valid in the range [0, 0.66].
 **/
-function _xatan(_x:GoFloat64):GoFloat64 {
+private function _xatan(_x:GoFloat64):GoFloat64 {
 	{};
 	var _z:GoFloat64 = _x * _x;
 	_z = (_z * (((((((((-0.8750608600031904 : GoFloat64) * _z) + (-16.157537187333652 : GoFloat64)) * _z) + (-75.00855792314705 : GoFloat64)) * _z)
@@ -1020,7 +1020,7 @@ function _xatan(_x:GoFloat64):GoFloat64 {
 	// satan reduces its argument (known to be positive)
 	// to the range [0, 0.66] and calls xatan.
 **/
-function _satan(_x:GoFloat64):GoFloat64 {
+private function _satan(_x:GoFloat64):GoFloat64 {
 	{};
 	if (_x <= (0.66 : GoFloat64)) {
 		return _xatan(_x);
@@ -1042,7 +1042,7 @@ function _satan(_x:GoFloat64):GoFloat64 {
 function atan(_x:GoFloat64):GoFloat64
 	return std.Math.atan(_x.toBasic());
 
-function _atan(_x:GoFloat64):GoFloat64 {
+private function _atan(_x:GoFloat64):GoFloat64 {
 	if (_x == (0 : GoFloat64)) {
 		return _x;
 	};
@@ -1080,7 +1080,7 @@ function _atan(_x:GoFloat64):GoFloat64 {
 function atan2(_y:GoFloat64, _x:GoFloat64):GoFloat64
 	return std.Math.atan2(_y.toBasic(), _x.toBasic());
 
-function _atan2(_y:GoFloat64, _x:GoFloat64):GoFloat64 {
+private function _atan2(_y:GoFloat64, _x:GoFloat64):GoFloat64 {
 	if (isNaN(_y) || isNaN(_x)) {
 		return naN();
 	} else if (_y == (0 : GoFloat64)) {
@@ -1134,7 +1134,7 @@ function atanh(_x:GoFloat64):GoFloat64 {
 	return _atanh(_x);
 }
 
-function _atanh(_x:GoFloat64):GoFloat64 {
+private function _atanh(_x:GoFloat64):GoFloat64 {
 	{};
 	if (((_x < (-1:GoFloat64)) || (_x > (1 : GoFloat64))) || isNaN(_x)) {
 		return naN();
@@ -1197,7 +1197,7 @@ function isInf(_f:GoFloat64, _sign:GoInt):Bool
 	// normalize returns a normal number y and exponent exp
 	// satisfying x == y × 2**exp. It assumes x is finite and non-zero.
 **/
-function _normalize(_x:GoFloat64):{var _0:GoFloat64; var _1:GoInt;} {
+private function _normalize(_x:GoFloat64):{var _0:GoFloat64; var _1:GoInt;} {
 	var _y:GoFloat64 = (0 : GoFloat64), _exp:GoInt = (0 : GoInt);
 	{};
 	if (abs(_x) < (2.2250738585072014e-308:GoFloat64)) {
@@ -1222,7 +1222,7 @@ function cbrt(_x:GoFloat64):GoFloat64 {
 	return _cbrt(_x);
 }
 
-function _cbrt(_x:GoFloat64):GoFloat64 {
+private function _cbrt(_x:GoFloat64):GoFloat64 {
 	{};
 	if (((_x == (0 : GoFloat64)) || isNaN(_x)) || isInf(_x, (0 : GoInt))) {
 		return _x;
@@ -1301,7 +1301,7 @@ function max(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
 	return std.Math.max(_x.toBasic(), _y.toBasic());
 }
 
-function _max(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
+private function _max(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
 	if (isInf(_x, (1 : GoInt)) || isInf(_y, (1 : GoInt))) {
 		return inf((1 : GoInt));
 	} else if (isNaN(_x) || isNaN(_y)) {
@@ -1337,7 +1337,7 @@ function min(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
 	return std.Math.min(_x.toBasic(), _y.toBasic());
 }
 
-function _min(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
+private function _min(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
 	if (isInf(_x, (-1 : GoInt)) || isInf(_y, (-1 : GoInt))) {
 		return inf((-1 : GoInt));
 	} else if (isNaN(_x) || isNaN(_y)) {
@@ -1354,12 +1354,12 @@ function _min(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
 	return _y;
 }
 
-function _archMax(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archMax(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
-function _archMin(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archMin(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
 /**
@@ -1378,7 +1378,7 @@ function erf(_x:GoFloat64):GoFloat64 {
 	return _erf(_x);
 }
 
-function _erf(_x:GoFloat64):GoFloat64 {
+private function _erf(_x:GoFloat64):GoFloat64 {
 	{};
 	if (isNaN(_x)) {
 		return naN();
@@ -1504,7 +1504,7 @@ function erfc(_x:GoFloat64):GoFloat64 {
 	return _erfc(_x);
 }
 
-function _erfc(_x:GoFloat64):GoFloat64 {
+private function _erfc(_x:GoFloat64):GoFloat64 {
 	{};
 	if (isNaN(_x)) {
 		return naN();
@@ -1731,7 +1731,7 @@ function erfcinv(_x:GoFloat64):GoFloat64 {
 function exp(_x:GoFloat64):GoFloat64
 	return std.Math.exp(_x.toBasic());
 
-function _exp(_x:GoFloat64):GoFloat64 {
+private function _exp(_x:GoFloat64):GoFloat64 {
 	{};
 	if (isNaN(_x) || isInf(_x, (1 : GoInt))) {
 		return _x;
@@ -1767,7 +1767,7 @@ function exp2(_x:GoFloat64):GoFloat64 {
 	return _exp2(_x);
 }
 
-function _exp2(_x:GoFloat64):GoFloat64 {
+private function _exp2(_x:GoFloat64):GoFloat64 {
 	{};
 	if (isNaN(_x) || isInf(_x, (1 : GoInt))) {
 		return _x;
@@ -1793,7 +1793,7 @@ function _exp2(_x:GoFloat64):GoFloat64 {
 /**
 	// exp1 returns e**r × 2**k where r = hi - lo and |r| ≤ ln(2)/2.
 **/
-function _expmulti(_hi:GoFloat64, _lo:GoFloat64, _k:GoInt):GoFloat64 {
+private function _expmulti(_hi:GoFloat64, _lo:GoFloat64, _k:GoInt):GoFloat64 {
 	{};
 	var _r:GoFloat64 = _hi - _lo;
 	var _t:GoFloat64 = _r * _r;
@@ -1806,12 +1806,12 @@ function _expmulti(_hi:GoFloat64, _lo:GoFloat64, _k:GoInt):GoFloat64 {
 	return ldexp(_y, _k);
 }
 
-function _archExp2(_x:GoFloat64):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archExp2(_x:GoFloat64):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
-function _archExp(_x:GoFloat64):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archExp(_x:GoFloat64):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
 /**
@@ -1833,7 +1833,7 @@ function expm1(_x:GoFloat64):GoFloat64 {
 	return _expm1(_x);
 }
 
-function _expm1(_x:GoFloat64):GoFloat64 {
+private function _expm1(_x:GoFloat64):GoFloat64 {
 	{};
 	if (isInf(_x, (1 : GoInt)) || isNaN(_x)) {
 		return _x;
@@ -1942,7 +1942,7 @@ function floor(_x:GoFloat64):GoFloat64 {
 	return std.Math.ffloor(_x.toBasic());
 }
 
-function _floor(_x:GoFloat64):GoFloat64 {
+private function _floor(_x:GoFloat64):GoFloat64 {
 	if (((_x == (0 : GoFloat64)) || isNaN(_x)) || isInf(_x, (0 : GoInt))) {
 		return _x;
 	};
@@ -1981,7 +1981,7 @@ function ceil(_x:GoFloat64):GoFloat64 {
 	return std.Math.ceil(_x.toBasic());
 }
 
-function _ceil(_x:GoFloat64):GoFloat64 {
+private function _ceil(_x:GoFloat64):GoFloat64 {
 	return -floor(-_x);
 }
 
@@ -1997,7 +1997,7 @@ function _ceil(_x:GoFloat64):GoFloat64 {
 function trunc(_x:GoFloat64):GoFloat64
 	return _x > 0 ? floor(_x) : ceil(_x);
 
-function _trunc(_x:GoFloat64):GoFloat64 {
+private function _trunc(_x:GoFloat64):GoFloat64 {
 	if (((_x == (0 : GoFloat64)) || isNaN(_x)) || isInf(_x, (0 : GoInt))) {
 		return _x;
 	};
@@ -2059,37 +2059,37 @@ function roundToEven(_x:GoFloat64):GoFloat64 {
 	return float64frombits(_bits);
 }
 
-inline function _archFloor(_x:GoFloat64):GoFloat64
+inline private function _archFloor(_x:GoFloat64):GoFloat64
 	return floor(_x);
 
-inline function _archCeil(_x:GoFloat64):GoFloat64
+inline private function _archCeil(_x:GoFloat64):GoFloat64
 	return ceil(_x);
 
-inline function _archTrunc(_x:GoFloat64):GoFloat64
+inline private function _archTrunc(_x:GoFloat64):GoFloat64
 	return trunc(_x);
 
-function _zero(_x:GoUInt64):GoUInt64 {
+private function _zero(_x:GoUInt64):GoUInt64 {
 	if (_x == (("0" : GoUInt64))) {
 		return ("1" : GoUInt64);
 	};
 	return ("0" : GoUInt64);
 }
 
-function _nonzero(_x:GoUInt64):GoUInt64 {
+private function _nonzero(_x:GoUInt64):GoUInt64 {
 	if (_x != (("0" : GoUInt64))) {
 		return ("1" : GoUInt64);
 	};
 	return ("0" : GoUInt64);
 }
 
-function _shl(_u1:GoUInt64, _u2:GoUInt64, _n:GoUInt):{var _0:GoUInt64; var _1:GoUInt64;} {
+private function _shl(_u1:GoUInt64, _u2:GoUInt64, _n:GoUInt):{var _0:GoUInt64; var _1:GoUInt64;} {
 	var _r1:GoUInt64 = (0 : GoUInt64), _r2:GoUInt64 = (0 : GoUInt64);
 	_r1 = ((_u1 << _n) | (_u2 >> ((("64" : GoUInt) : GoUInt) - _n))) | (_u2 << (_n - (("64" : GoUInt) : GoUInt)));
 	_r2 = _u2 << _n;
 	return {_0: _r1, _1: _r2};
 }
 
-function _shr(_u1:GoUInt64, _u2:GoUInt64, _n:GoUInt):{var _0:GoUInt64; var _1:GoUInt64;} {
+private function _shr(_u1:GoUInt64, _u2:GoUInt64, _n:GoUInt):{var _0:GoUInt64; var _1:GoUInt64;} {
 	var _r1:GoUInt64 = (0 : GoUInt64), _r2:GoUInt64 = (0 : GoUInt64);
 	_r2 = ((_u2 >> _n) | (_u1 << ((("64" : GoUInt) : GoUInt) - _n))) | (_u1 >> (_n - (("64" : GoUInt) : GoUInt)));
 	_r1 = _u1 >> _n;
@@ -2102,7 +2102,7 @@ function _shr(_u1:GoUInt64, _u2:GoUInt64, _n:GoUInt):{var _0:GoUInt64; var _1:Go
 	// shifted to the right by n, except the result's 0th bit is
 	// set to the bitwise OR of the bottom n+1 bits.
 **/
-function _shrcompress(_u1:GoUInt64, _u2:GoUInt64, _n:GoUInt):{var _0:GoUInt64; var _1:GoUInt64;} {
+private function _shrcompress(_u1:GoUInt64, _u2:GoUInt64, _n:GoUInt):{var _0:GoUInt64; var _1:GoUInt64;} {
 	var _r1:GoUInt64 = (0 : GoUInt64), _r2:GoUInt64 = (0 : GoUInt64);
 	if (_n == (("0" : GoUInt))) {
 		return {_0: _u1, _1: _u2};
@@ -2128,7 +2128,7 @@ function _shrcompress(_u1:GoUInt64, _u2:GoUInt64, _n:GoUInt):{var _0:GoUInt64; v
 	return {_0: _r1, _1: _r2};
 }
 
-function _lz(_u1:GoUInt64, _u2:GoUInt64):GoInt32 {
+private function _lz(_u1:GoUInt64, _u2:GoUInt64):GoInt32 {
 	var _l:GoInt32 = (0 : GoInt32);
 	_l = (stdgo.math.bits.Bits.leadingZeros64(_u1) : GoInt32);
 	if (_l == ((64 : GoInt32))) {
@@ -2142,7 +2142,7 @@ function _lz(_u1:GoUInt64, _u2:GoUInt64):GoInt32 {
 	// It adds the implicit 1 bit to the mantissa for normal values,
 	// and normalizes subnormal values.
 **/
-function _split(_b:GoUInt64):{var _0:GoUInt32; var _1:GoInt32; var _2:GoUInt64;} {
+private function _split(_b:GoUInt64):{var _0:GoUInt32; var _1:GoInt32; var _2:GoUInt64;} {
 	var _sign:GoUInt32 = (0 : GoUInt32),
 		_exp:GoInt32 = (0 : GoInt32),
 		_mantissa:GoUInt64 = (0 : GoUInt64);
@@ -2306,7 +2306,7 @@ function frexp(_f:GoFloat64):{var _0:GoFloat64; var _1:GoInt;} {
 	return _frexp(_f);
 }
 
-function _frexp(_f:GoFloat64):{var _0:GoFloat64; var _1:GoInt;} {
+private function _frexp(_f:GoFloat64):{var _0:GoFloat64; var _1:GoInt;} {
 	var _frac:GoFloat64 = (0 : GoFloat64), _exp:GoInt = (0 : GoInt);
 	if (_f == (0 : GoFloat64)) {
 		return {_0: _f, _1: (0 : GoInt)};
@@ -2335,7 +2335,7 @@ function _frexp(_f:GoFloat64):{var _0:GoFloat64; var _1:GoInt;} {
 	// in reciprocal and produce denormalized floats. The lower precision there
 	// masks any imprecision in the polynomial.
 **/
-function _stirling(_x:GoFloat64):{var _0:GoFloat64; var _1:GoFloat64;} {
+private function _stirling(_x:GoFloat64):{var _0:GoFloat64; var _1:GoFloat64;} {
 	if (_x > (200 : GoFloat64)) {
 		return {_0: inf((1 : GoInt)), _1: (1 : GoFloat64)};
 	};
@@ -2462,7 +2462,7 @@ function gamma(_x:GoFloat64):GoFloat64 {
 	});
 }
 
-function _isNegInt(_x:GoFloat64):Bool {
+private function _isNegInt(_x:GoFloat64):Bool {
 	if (_x < (0:GoFloat64)) {
 		var __tmp__ = modf(_x),
 			_0:GoFloat64 = __tmp__._0,
@@ -2490,7 +2490,7 @@ function hypot(_p:GoFloat64, _q:GoFloat64):GoFloat64 {
 	return _hypot(_p, _q);
 }
 
-function _hypot(_p:GoFloat64, _q:GoFloat64):GoFloat64 {
+private function _hypot(_p:GoFloat64, _q:GoFloat64):GoFloat64 {
 	if (isInf(_p, (0 : GoInt)) || isInf(_q, (0 : GoInt))) {
 		return inf((1 : GoInt));
 	} else if (isNaN(_p) || isNaN(_q)) {
@@ -2517,8 +2517,8 @@ function _hypot(_p:GoFloat64, _q:GoFloat64):GoFloat64 {
 	return _p * sqrt((1 : GoFloat64) + (_q * _q));
 }
 
-function _archHypot(_p:GoFloat64, _q:GoFloat64):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archHypot(_p:GoFloat64, _q:GoFloat64):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
 /**
@@ -2642,7 +2642,7 @@ function y0(_x:GoFloat64):GoFloat64 {
 	return (_u / _v) + (((0.6366197723675814 : GoFloat64) * j0(_x)) * log(_x));
 }
 
-function _pzero(_x:GoFloat64):GoFloat64 {
+private function _pzero(_x:GoFloat64):GoFloat64 {
 	var _p:Ref<GoArray<GoFloat64>> = null;
 	var _q:Ref<GoArray<GoFloat64>> = null;
 	if (_x >= (8 : GoFloat64)) {
@@ -2666,7 +2666,7 @@ function _pzero(_x:GoFloat64):GoFloat64 {
 	return (1 : GoFloat64) + (_r / _s);
 }
 
-function _qzero(_x:GoFloat64):GoFloat64 {
+private function _qzero(_x:GoFloat64):GoFloat64 {
 	var _0:Ref<GoArray<GoFloat64>> = null,
 		_1:Ref<GoArray<GoFloat64>> = null,
 		_q:Ref<GoArray<GoFloat64>> = _1,
@@ -2817,7 +2817,7 @@ function y1(_x:GoFloat64):GoFloat64 {
 	return (_x * (_u / _v)) + ((0.6366197723675814 : GoFloat64) * ((j1(_x) * log(_x)) - ((1 : GoFloat64) / _x)));
 }
 
-function _pone(_x:GoFloat64):GoFloat64 {
+private function _pone(_x:GoFloat64):GoFloat64 {
 	var _p:Ref<GoArray<GoFloat64>> = null;
 	var _q:Ref<GoArray<GoFloat64>> = null;
 	if (_x >= (8 : GoFloat64)) {
@@ -2841,7 +2841,7 @@ function _pone(_x:GoFloat64):GoFloat64 {
 	return (1 : GoFloat64) + (_r / _s);
 }
 
-function _qone(_x:GoFloat64):GoFloat64 {
+private function _qone(_x:GoFloat64):GoFloat64 {
 	var _0:Ref<GoArray<GoFloat64>> = null,
 		_1:Ref<GoArray<GoFloat64>> = null,
 		_q:Ref<GoArray<GoFloat64>> = _1,
@@ -3127,7 +3127,7 @@ function ldexp(_frac:GoFloat64, _exp:GoInt):GoFloat64 {
 	return _ldexp(_frac, _exp);
 }
 
-function _ldexp(_frac:GoFloat64, _exp:GoInt):GoFloat64 {
+private function _ldexp(_frac:GoFloat64, _exp:GoInt):GoFloat64 {
 	if (_frac == (0 : GoFloat64)) {
 		return _frac;
 	} else if (isInf(_frac, (0 : GoInt)) || isNaN(_frac)) {
@@ -3293,35 +3293,35 @@ function lgamma(_x:GoFloat64):{var _0:GoFloat64; var _1:GoInt;} {
 				{
 					var __switchIndex__ = -1;
 					while (true) {
-						if (__switchIndex__ == 0 || (__switchIndex__ == -1 && _i == ((7 : GoInt)))) {
+						if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (_i == (7 : GoInt)))) {
 							_z = _z * ((_y + (6 : GoFloat64)));
 							@:fallthrough {
 								__switchIndex__ = 1;
 								continue;
 							};
 							break;
-						} else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && _i == ((6 : GoInt)))) {
+						} else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && (_i == (6 : GoInt)))) {
 							_z = _z * ((_y + (5 : GoFloat64)));
 							@:fallthrough {
 								__switchIndex__ = 2;
 								continue;
 							};
 							break;
-						} else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && _i == ((5 : GoInt)))) {
+						} else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (_i == (5 : GoInt)))) {
 							_z = _z * ((_y + (4 : GoFloat64)));
 							@:fallthrough {
 								__switchIndex__ = 3;
 								continue;
 							};
 							break;
-						} else if (__switchIndex__ == 3 || (__switchIndex__ == -1 && _i == ((4 : GoInt)))) {
+						} else if (__switchIndex__ == 3 || (__switchIndex__ == -1 && (_i == (4 : GoInt)))) {
 							_z = _z * ((_y + (3 : GoFloat64)));
 							@:fallthrough {
 								__switchIndex__ = 4;
 								continue;
 							};
 							break;
-						} else if (__switchIndex__ == 4 || (__switchIndex__ == -1 && _i == ((3 : GoInt)))) {
+						} else if (__switchIndex__ == 4 || (__switchIndex__ == -1 && (_i == (3 : GoInt)))) {
 							_z = _z * ((_y + (2 : GoFloat64)));
 							_lgamma = _lgamma + (log(_z));
 							break;
@@ -3356,7 +3356,7 @@ function lgamma(_x:GoFloat64):{var _0:GoFloat64; var _1:GoInt;} {
 /**
 	// sinPi(x) is a helper function for negative x
 **/
-function _sinPi(_x:GoFloat64):GoFloat64 {
+private function _sinPi(_x:GoFloat64):GoFloat64 {
 	{};
 	if (_x < (0.25:GoFloat64)) {
 		return -sin((3.141592653589793 : GoFloat64) * _x);
@@ -3406,7 +3406,7 @@ function _sinPi(_x:GoFloat64):GoFloat64 {
 function log(_x:GoFloat64):GoFloat64
 	return std.Math.log(_x.toBasic());
 
-function _log(_x:GoFloat64):GoFloat64 {
+private function _log(_x:GoFloat64):GoFloat64 {
 	{};
 	if (isNaN(_x) || isInf(_x, (1 : GoInt))) {
 		return _x;
@@ -3446,7 +3446,7 @@ function log10(_x:GoFloat64):GoFloat64 {
 	return _log10(_x);
 }
 
-function _log10(_x:GoFloat64):GoFloat64 {
+private function _log10(_x:GoFloat64):GoFloat64 {
 	return log(_x) * (0.4342944819032518 : GoFloat64);
 }
 
@@ -3461,7 +3461,7 @@ function log2(_x:GoFloat64):GoFloat64 {
 	return _log2(_x);
 }
 
-function _log2(_x:GoFloat64):GoFloat64 {
+private function _log2(_x:GoFloat64):GoFloat64 {
 	var __tmp__ = frexp(_x),
 		_frac:GoFloat64 = __tmp__._0,
 		_exp:GoInt = __tmp__._1;
@@ -3490,7 +3490,7 @@ function log1p(_x:GoFloat64):GoFloat64 {
 	return _log1p(_x);
 }
 
-function _log1p(_x:GoFloat64):GoFloat64 {
+private function _log1p(_x:GoFloat64):GoFloat64 {
 	{};
 	if ((_x < (-1:GoFloat64)) || isNaN(_x)) {
 		return naN();
@@ -3580,8 +3580,8 @@ function _log1p(_x:GoFloat64):GoFloat64 {
 		- ((_hfsq - ((_s * (_hfsq + r)) + (((_k : GoFloat64) * (1.9082149292705877e-10 : GoFloat64)) + _c))) - _f);
 }
 
-function _archLog(_x:GoFloat64):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archLog(_x:GoFloat64):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
 /**
@@ -3628,7 +3628,7 @@ function ilogb(_x:GoFloat64):GoInt {
 	// logb returns the binary exponent of x. It assumes x is finite and
 	// non-zero.
 **/
-function _ilogb(_x:GoFloat64):GoInt {
+private function _ilogb(_x:GoFloat64):GoInt {
 	var __tmp__ = _normalize(_x),
 		_x:GoFloat64 = __tmp__._0,
 		_exp:GoInt = __tmp__._1;
@@ -3651,7 +3651,7 @@ function _ilogb(_x:GoFloat64):GoInt {
 function mod(_x:GoFloat64, _y:GoFloat64):GoFloat64
 	return _x.toBasic() % _y.toBasic();
 
-function _mod(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
+private function _mod(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
 	if ((((_y == (0 : GoFloat64)) || isInf(_x, (0 : GoInt))) || isNaN(_x)) || isNaN(_y)) {
 		return naN();
 	};
@@ -3695,7 +3695,7 @@ function modf(_f:GoFloat64):{var _0:GoFloat64; var _1:GoFloat64;} {
 	return _modf(_f);
 }
 
-function _modf(_f:GoFloat64):{var _0:GoFloat64; var _1:GoFloat64;} {
+private function _modf(_f:GoFloat64):{var _0:GoFloat64; var _1:GoFloat64;} {
 	var _int:GoFloat64 = (0 : GoFloat64), _frac:GoFloat64 = (0 : GoFloat64);
 	if (_f < (1:GoFloat64)) {
 		if (_f < (0:GoFloat64)) {
@@ -3720,9 +3720,9 @@ function _modf(_f:GoFloat64):{var _0:GoFloat64; var _1:GoFloat64;} {
 	return {_0: _int, _1: _frac};
 }
 
-function _archModf(_f:GoFloat64):{var _0:GoFloat64; var _1:GoFloat64;} {
+private function _archModf(_f:GoFloat64):{var _0:GoFloat64; var _1:GoFloat64;} {
 	var _int:GoFloat64 = (0 : GoFloat64), _frac:GoFloat64 = (0 : GoFloat64);
-	throw Go.toInterface(Go.str("not implemented"));
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
 /**
@@ -3775,7 +3775,7 @@ function nextafter(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
 	return _r;
 }
 
-function _isOddInt(_x:GoFloat64):Bool {
+private function _isOddInt(_x:GoFloat64):Bool {
 	var __tmp__ = modf(_x),
 		_xi:GoFloat64 = __tmp__._0,
 		_xf:GoFloat64 = __tmp__._1;
@@ -3811,7 +3811,7 @@ function _isOddInt(_x:GoFloat64):Bool {
 function pow(_x:GoFloat64, _y:GoFloat64):GoFloat64
 	return std.Math.pow(_x.toBasic(), _y.toBasic());
 
-function _pow(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
+private function _pow(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
 	if ((_y == (0 : GoFloat64)) || (_x == (1 : GoFloat64))) {
 		return (1 : GoFloat64);
 	} else if (_y == (1 : GoFloat64)) {
@@ -3944,7 +3944,7 @@ function remainder(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
 	return _remainder(_x, _y);
 }
 
-function _remainder(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
+private function _remainder(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
 	{};
 	if (((isNaN(_x) || isNaN(_y)) || isInf(_x, (0 : GoInt))) || (_y == (0 : GoFloat64))) {
 		return naN();
@@ -4011,7 +4011,7 @@ function signbit(_x:GoFloat64):Bool {
 function cos(_x:GoFloat64):GoFloat64
 	return std.Math.cos(_x.toBasic());
 
-inline function _cos(_x:GoFloat64):GoFloat64
+inline private function _cos(_x:GoFloat64):GoFloat64
 	return cos(_x);
 
 /**
@@ -4026,7 +4026,7 @@ inline function _cos(_x:GoFloat64):GoFloat64
 function sin(_x:GoFloat64):GoFloat64
 	return std.Math.sin(_x.toBasic());
 
-inline function _sin(_x:GoFloat64):GoFloat64
+inline private function _sin(_x:GoFloat64):GoFloat64
 	return sin(_x);
 
 /**
@@ -4130,7 +4130,7 @@ function sinh(_x:GoFloat64):GoFloat64 {
 	return _sinh(_x);
 }
 
-function _sinh(_x:GoFloat64):GoFloat64 {
+private function _sinh(_x:GoFloat64):GoFloat64 {
 	{};
 	var _sign:Bool = false;
 	if (_x < (0:GoFloat64)) {
@@ -4171,7 +4171,7 @@ function cosh(_x:GoFloat64):GoFloat64 {
 	return _cosh(_x);
 }
 
-function _cosh(_x:GoFloat64):GoFloat64 {
+private function _cosh(_x:GoFloat64):GoFloat64 {
 	_x = abs(_x);
 	if (_x > (21 : GoFloat64)) {
 		return exp(_x) * (0.5 : GoFloat64);
@@ -4193,110 +4193,110 @@ function _cosh(_x:GoFloat64):GoFloat64 {
 function sqrt(_x:GoFloat64):GoFloat64
 	return _sqrt(_x);
 
-inline function _sqrt(_x:GoFloat64):GoFloat64
+inline private function _sqrt(_x:GoFloat64):GoFloat64
 	return std.Math.sqrt(_x.toBasic());
 
-function _archSqrt(_x:GoFloat64):GoFloat64
-	throw "not implemented";
+private function _archSqrt(_x:GoFloat64):GoFloat64
+	throw "not implemented: _archSqrt";
 
-function _archAcos(_x:GoFloat64):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archAcos(_x:GoFloat64):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
-function _archAcosh(_x:GoFloat64):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archAcosh(_x:GoFloat64):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
-function _archAsin(_x:GoFloat64):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archAsin(_x:GoFloat64):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
-function _archAsinh(_x:GoFloat64):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archAsinh(_x:GoFloat64):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
-function _archAtan(_x:GoFloat64):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archAtan(_x:GoFloat64):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
-function _archAtan2(_y:GoFloat64, _x:GoFloat64):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archAtan2(_y:GoFloat64, _x:GoFloat64):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
-function _archAtanh(_x:GoFloat64):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archAtanh(_x:GoFloat64):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
-function _archCbrt(_x:GoFloat64):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archCbrt(_x:GoFloat64):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
-function _archCos(_x:GoFloat64):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archCos(_x:GoFloat64):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
-function _archCosh(_x:GoFloat64):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archCosh(_x:GoFloat64):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
-function _archErf(_x:GoFloat64):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archErf(_x:GoFloat64):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
-function _archErfc(_x:GoFloat64):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archErfc(_x:GoFloat64):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
-function _archExpm1(_x:GoFloat64):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archExpm1(_x:GoFloat64):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
-function _archFrexp(_x:GoFloat64):{var _0:GoFloat64; var _1:GoInt;} {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archFrexp(_x:GoFloat64):{var _0:GoFloat64; var _1:GoInt;} {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
-function _archLdexp(_frac:GoFloat64, _exp:GoInt):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archLdexp(_frac:GoFloat64, _exp:GoInt):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
-function _archLog10(_x:GoFloat64):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archLog10(_x:GoFloat64):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
-function _archLog2(_x:GoFloat64):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archLog2(_x:GoFloat64):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
-function _archLog1p(_x:GoFloat64):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archLog1p(_x:GoFloat64):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
-function _archMod(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archMod(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
-function _archPow(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archPow(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
-function _archRemainder(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archRemainder(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
-function _archSin(_x:GoFloat64):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archSin(_x:GoFloat64):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
-function _archSinh(_x:GoFloat64):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archSinh(_x:GoFloat64):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
-function _archTan(_x:GoFloat64):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archTan(_x:GoFloat64):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
-function _archTanh(_x:GoFloat64):GoFloat64 {
-	throw Go.toInterface(Go.str("not implemented"));
+private function _archTanh(_x:GoFloat64):GoFloat64 {
+	throw Go.toInterface(("not implemented" : GoString));
 }
 
 /**
@@ -4311,7 +4311,7 @@ function _archTanh(_x:GoFloat64):GoFloat64 {
 function tan(_x:GoFloat64):GoFloat64
 	return std.Math.tan(_x.toBasic());
 
-function _tan(_x:GoFloat64):GoFloat64 {
+private function _tan(_x:GoFloat64):GoFloat64 {
 	{};
 	if ((_x == (0 : GoFloat64)) || isNaN(_x)) {
 		return _x;
@@ -4377,7 +4377,7 @@ function tanh(_x:GoFloat64):GoFloat64 {
 	return _tanh(_x);
 }
 
-function _tanh(_x:GoFloat64):GoFloat64 {
+private function _tanh(_x:GoFloat64):GoFloat64 {
 	{};
 	var _z:GoFloat64 = abs(_x);
 	if (_z > (44.014845965556525 : GoFloat64)) {
@@ -4412,7 +4412,7 @@ function _tanh(_x:GoFloat64):GoFloat64 {
 	// K. C. Ng et al, March 24, 1992
 	// The simulated multi-precision calculation of x*B uses 64-bit integer arithmetic.
 **/
-function _trigReduce(_x:GoFloat64):{var _0:GoUInt64; var _1:GoFloat64;} {
+private function _trigReduce(_x:GoFloat64):{var _0:GoUInt64; var _1:GoFloat64;} {
 	var _j:GoUInt64 = (0 : GoUInt64), _z:GoFloat64 = (0 : GoFloat64);
 	{};
 	if (_x < (0.7853981633974483:GoFloat64)) {

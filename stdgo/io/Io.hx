@@ -26,17 +26,17 @@ private var __go2hxdoc__package:Bool;
 	// ErrShortWrite means that a write accepted fewer bytes than requested
 	// but failed to return an explicit error.
 **/
-var errShortWrite:Error = stdgo.errors.Errors.new_(Go.str("short write"));
+var errShortWrite:Error = stdgo.errors.Errors.new_(("short write" : GoString));
 
 /**
 	// errInvalidWrite means that a write returned an impossible count.
 **/
-private var _errInvalidWrite:Error = stdgo.errors.Errors.new_(Go.str("invalid write result"));
+private var _errInvalidWrite:Error = stdgo.errors.Errors.new_(("invalid write result" : GoString));
 
 /**
 	// ErrShortBuffer means that a read required a longer buffer than was provided.
 **/
-var errShortBuffer:Error = stdgo.errors.Errors.new_(Go.str("short buffer"));
+var errShortBuffer:Error = stdgo.errors.Errors.new_(("short buffer" : GoString));
 
 /**
 	// EOF is the error returned by Read when no more input is available.
@@ -47,23 +47,23 @@ var errShortBuffer:Error = stdgo.errors.Errors.new_(Go.str("short buffer"));
 	// the appropriate error is either ErrUnexpectedEOF or some other error
 	// giving more detail.
 **/
-var eof:Error = stdgo.errors.Errors.new_(Go.str("EOF"));
+var eof:Error = stdgo.errors.Errors.new_(("EOF" : GoString));
 
 /**
 	// ErrUnexpectedEOF means that EOF was encountered in the
 	// middle of reading a fixed-size block or data structure.
 **/
-var errUnexpectedEOF:Error = stdgo.errors.Errors.new_(Go.str("unexpected EOF"));
+var errUnexpectedEOF:Error = stdgo.errors.Errors.new_(("unexpected EOF" : GoString));
 
 /**
 	// ErrNoProgress is returned by some clients of a Reader when
 	// many calls to Read have failed to return any data or error,
 	// usually the sign of a broken Reader implementation.
 **/
-var errNoProgress:Error = stdgo.errors.Errors.new_(Go.str("multiple Read calls return no data or error"));
+var errNoProgress:Error = stdgo.errors.Errors.new_(("multiple Read calls return no data or error" : GoString));
 
-private var _errWhence:Error = stdgo.errors.Errors.new_(Go.str("Seek: invalid whence"));
-private var _errOffset:Error = stdgo.errors.Errors.new_(Go.str("Seek: invalid offset"));
+private var _errWhence:Error = stdgo.errors.Errors.new_(("Seek: invalid whence" : GoString));
+private var _errOffset:Error = stdgo.errors.Errors.new_(("Seek: invalid offset" : GoString));
 
 /**
 	// Discard is a Writer on which all Write calls succeed
@@ -81,7 +81,7 @@ private var _blackHolePool:stdgo.sync.Sync.Pool = ({
 /**
 	// ErrClosedPipe is the error used for read or write operations on a closed pipe.
 **/
-var errClosedPipe:Error = stdgo.errors.Errors.new_(Go.str("io: read/write on closed pipe"));
+var errClosedPipe:Error = stdgo.errors.Errors.new_(("io: read/write on closed pipe" : GoString));
 
 /**
 	// exported for test
@@ -416,14 +416,7 @@ typedef StringWriter = StructType & {
 	// Read returns EOF when N <= 0 or when the underlying R returns EOF.
 **/
 @:structInit @:using(stdgo.io.Io.LimitedReader_static_extension) class LimitedReader {
-	/**
-		// underlying reader
-	**/
 	public var r:Reader = (null : Reader);
-
-	/**
-		// max bytes remaining
-	**/
 	public var n:GoInt64 = 0;
 
 	public function new(?r:Reader, ?n:GoInt64) {
@@ -589,12 +582,8 @@ typedef StringWriter = StructType & {
 	// onceError is an object that will only store an error once.
 **/
 @:structInit @:using(stdgo.io.Io.T_onceError_static_extension) private class T_onceError {
-	/**
-		// guards following
-	**/
 	@:embedded
 	public var mutex:stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
-
 	public var _err:Error = (null : Error);
 
 	public function new(?mutex:stdgo.sync.Sync.Mutex, ?_err:Error) {
@@ -636,19 +625,10 @@ typedef StringWriter = StructType & {
 	// A pipe is the shared pipe structure underlying PipeReader and PipeWriter.
 **/
 @:structInit @:using(stdgo.io.Io.T_pipe_static_extension) private class T_pipe {
-	/**
-		// Serializes Write operations
-	**/
 	public var _wrMu:stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
-
 	public var _wrCh:Chan<Slice<GoUInt8>> = (null : Chan<Slice<GoUInt8>>);
 	public var _rdCh:Chan<GoInt> = (null : Chan<GoInt>);
-
-	/**
-		// Protects closing done
-	**/
 	public var _once:stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
-
 	public var _done:Chan<T_discard> = (null : Chan<T_discard>);
 	public var _rerr:T_onceError = ({} : T_onceError);
 	public var _werr:T_onceError = ({} : T_onceError);
@@ -857,7 +837,7 @@ function copy(_dst:Writer, _src:Reader):{var _0:GoInt64; var _1:Error;} {
 function copyBuffer(_dst:Writer, _src:Reader, _buf:Slice<GoByte>):{var _0:GoInt64; var _1:Error;} {
 	var _written:GoInt64 = (0 : GoInt64), _err:Error = (null : Error);
 	if ((_buf != null) && (_buf.length == (0 : GoInt))) {
-		throw Go.toInterface(Go.str("empty buffer in CopyBuffer"));
+		throw Go.toInterface(("empty buffer in CopyBuffer" : GoString));
 	};
 	return _copyBuffer(_dst, _src, _buf);
 }
@@ -866,7 +846,7 @@ function copyBuffer(_dst:Writer, _src:Reader, _buf:Slice<GoByte>):{var _0:GoInt6
 	// copyBuffer is the actual implementation of Copy and CopyBuffer.
 	// if buf is nil, one is allocated.
 **/
-function _copyBuffer(_dst:Writer, _src:Reader, _buf:Slice<GoByte>):{var _0:GoInt64; var _1:Error;} {
+private function _copyBuffer(_dst:Writer, _src:Reader, _buf:Slice<GoByte>):{var _0:GoInt64; var _1:Error;} {
 	var _written:GoInt64 = (0 : GoInt64), _err:Error = (null : Error);
 	{
 		var __tmp__ = try {

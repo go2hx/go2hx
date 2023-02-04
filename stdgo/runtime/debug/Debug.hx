@@ -20,31 +20,11 @@ private var __go2hxdoc__package:Bool;
 	// GCStats collect information about recent garbage collections.
 **/
 @:structInit class GCStats {
-	/**
-		// time of last collection
-	**/
 	public var lastGC:stdgo.time.Time.Time = ({} : stdgo.time.Time.Time);
-
-	/**
-		// number of garbage collections
-	**/
 	public var numGC:GoInt64 = 0;
-
-	/**
-		// total pause for all collections
-	**/
 	public var pauseTotal:stdgo.time.Time.Duration = ((0 : GoInt64) : stdgo.time.Time.Duration);
-
-	/**
-		// pause history, most recent first
-	**/
 	public var pause:Slice<stdgo.time.Time.Duration> = (null : Slice<stdgo.time.Time.Duration>);
-
-	/**
-		// pause end times history, most recent first
-	**/
 	public var pauseEnd:Slice<stdgo.time.Time.Time> = (null : Slice<stdgo.time.Time.Time>);
-
 	public var pauseQuantiles:Slice<stdgo.time.Time.Duration> = (null : Slice<stdgo.time.Time.Duration>);
 
 	public function new(?lastGC:stdgo.time.Time.Time, ?numGC:GoInt64, ?pauseTotal:stdgo.time.Time.Duration, ?pause:Slice<stdgo.time.Time.Duration>,
@@ -75,29 +55,10 @@ private var __go2hxdoc__package:Bool;
 	// BuildInfo represents the build information read from a Go binary.
 **/
 @:structInit @:using(stdgo.runtime.debug.Debug.BuildInfo_static_extension) class BuildInfo {
-	/**
-		// Version of Go that produced this binary.
-	**/
 	public var goVersion:GoString = "";
-
-	/**
-		// The main package path
-	**/
 	public var path:GoString = "";
-
-	/**
-		// The module containing the main package
-	**/
 	public var _Main:Module = ({} : Module);
-
-	/**
-		// Module dependencies
-	**/
 	public var deps:Slice<Ref<Module>> = (null : Slice<Ref<Module>>);
-
-	/**
-		// Other information about the build.
-	**/
 	public var settings:Slice<BuildSetting> = (null : Slice<BuildSetting>);
 
 	public function new(?goVersion:GoString, ?path:GoString, ?_Main:Module, ?deps:Slice<Ref<Module>>, ?settings:Slice<BuildSetting>) {
@@ -125,24 +86,9 @@ private var __go2hxdoc__package:Bool;
 	// Module represents a module.
 **/
 @:structInit class Module {
-	/**
-		// module path
-	**/
 	public var path:GoString = "";
-
-	/**
-		// module version
-	**/
 	public var version:GoString = "";
-
-	/**
-		// checksum
-	**/
 	public var sum:GoString = "";
-
-	/**
-		// replaced by this module
-	**/
 	public var replace:Ref<Module> = (null : Ref<Module>);
 
 	public function new(?path:GoString, ?version:GoString, ?sum:GoString, ?replace:Ref<Module>) {

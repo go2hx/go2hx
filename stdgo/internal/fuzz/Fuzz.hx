@@ -842,10 +842,6 @@ private typedef T_mutatorRand = StructType & {
 
 @:structInit @:using(internal.fuzz.Fuzz.T_mutator_static_extension) private class T_mutator {
 	public var _r:T_mutatorRand = (null : T_mutatorRand);
-
-	/**
-		// scratch slice to avoid additional allocations
-	**/
 	public var _scratch:Slice<GoUInt8> = (null : Slice<GoUInt8>);
 
 	public function new(?_r:T_mutatorRand, ?_scratch:Slice<GoUInt8>) {
@@ -868,11 +864,7 @@ private typedef T_mutatorRand = StructType & {
 	// concurrency safe.
 **/
 @:structInit @:using(internal.fuzz.Fuzz.T_pcgRand_static_extension) private class T_pcgRand {
-	/**
-		// help avoid mistakes: ask vet to ensure that we don't make a copy
-	**/
 	public var _noCopy:T_noCopy = ({} : T_noCopy);
-
 	public var _state:GoUInt64 = 0;
 	public var _inc:GoUInt64 = 0;
 
@@ -967,56 +959,16 @@ private typedef T_mutatorRand = StructType & {
 	// which handles them with workerServer.
 **/
 @:structInit @:using(internal.fuzz.Fuzz.T_worker_static_extension) private class T_worker {
-	/**
-		// working directory, same as package directory
-	**/
 	public var _dir:GoString = "";
-
-	/**
-		// path to test executable
-	**/
 	public var _binPath:GoString = "";
-
-	/**
-		// arguments for test executable
-	**/
 	public var _args:Slice<GoString> = (null : Slice<GoString>);
-
-	/**
-		// environment for test executable
-	**/
 	public var _env:Slice<GoString> = (null : Slice<GoString>);
-
 	public var _coordinator:Ref<T_coordinator> = (null : Ref<T_coordinator>);
-
-	/**
-		// mutex guarding shared memory with worker; persists across processes.
-	**/
 	public var _memMu:Chan<Ref<T_sharedMem>> = (null : Chan<Ref<T_sharedMem>>);
-
-	/**
-		// current worker process
-	**/
 	public var _cmd:Ref<stdgo.os.exec.Exec.Cmd> = (null : Ref<stdgo.os.exec.Exec.Cmd>);
-
-	/**
-		// used to communicate with worker process
-	**/
 	public var _client:Ref<T_workerClient> = (null : Ref<T_workerClient>);
-
-	/**
-		// last error returned by wait, set before termC is closed.
-	**/
 	public var _waitErr:Error = (null : Error);
-
-	/**
-		// true after stop interrupts a running worker.
-	**/
 	public var _interrupted:Bool = false;
-
-	/**
-		// closed by wait when worker process terminates
-	**/
 	public var _termC:Chan<T_noCopy> = (null : Chan<T_noCopy>);
 
 	public function new(?_dir:GoString, ?_binPath:GoString, ?_args:Slice<GoString>, ?_env:Slice<GoString>, ?_coordinator:Ref<T_coordinator>,
@@ -1333,12 +1285,7 @@ private typedef T_mutatorRand = StructType & {
 **/
 @:structInit private class T_workerComm {
 	public var _fuzzIn:Ref<stdgo.os.Os.File> = (null : Ref<stdgo.os.Os.File>);
-
-	/**
-		// mutex guarding shared memory
-	**/
 	public var _fuzzOut:Ref<stdgo.os.Os.File> = (null : Ref<stdgo.os.Os.File>);
-
 	public var _memMu:Chan<Ref<T_sharedMem>> = (null : Chan<Ref<T_sharedMem>>);
 
 	public function new(?_fuzzIn:Ref<stdgo.os.Os.File>, ?_fuzzOut:Ref<stdgo.os.Os.File>, ?_memMu:Chan<Ref<T_sharedMem>>) {
@@ -1501,7 +1448,7 @@ class T__struct_0_asInterface {
 	// `-d=libfuzzer` is set at build time. This can be used to understand the code
 	// coverage of a test execution.
 **/
-function _coverage():Slice<GoByte>
+private function _coverage():Slice<GoByte>
 	throw "internal.fuzz._coverage is not yet implemented";
 
 /**
@@ -1524,59 +1471,59 @@ function snapshotCoverage():Void
 	// diffCoverage returns a set of bits set in snapshot but not in base.
 	// If there are no new bits set, diffCoverage returns nil.
 **/
-function _diffCoverage(_base:Slice<GoByte>, _snapshot:Slice<GoByte>):Slice<GoByte>
+private function _diffCoverage(_base:Slice<GoByte>, _snapshot:Slice<GoByte>):Slice<GoByte>
 	throw "internal.fuzz._diffCoverage is not yet implemented";
 
 /**
 	// countNewCoverageBits returns the number of bits set in snapshot that are not
 	// set in base.
 **/
-function _countNewCoverageBits(_base:Slice<GoByte>, _snapshot:Slice<GoByte>):GoInt
+private function _countNewCoverageBits(_base:Slice<GoByte>, _snapshot:Slice<GoByte>):GoInt
 	throw "internal.fuzz._countNewCoverageBits is not yet implemented";
 
 /**
 	// isCoverageSubset returns true if all the base coverage bits are set in
 	// snapshot
 **/
-function _isCoverageSubset(_base:Slice<GoByte>, _snapshot:Slice<GoByte>):Bool
+private function _isCoverageSubset(_base:Slice<GoByte>, _snapshot:Slice<GoByte>):Bool
 	throw "internal.fuzz._isCoverageSubset is not yet implemented";
 
 /**
 	// hasCoverageBit returns true if snapshot has at least one bit set that is
 	// also set in base.
 **/
-function _hasCoverageBit(_base:Slice<GoByte>, _snapshot:Slice<GoByte>):Bool
+private function _hasCoverageBit(_base:Slice<GoByte>, _snapshot:Slice<GoByte>):Bool
 	throw "internal.fuzz._hasCoverageBit is not yet implemented";
 
-function _countBits(_cov:Slice<GoByte>):GoInt
+private function _countBits(_cov:Slice<GoByte>):GoInt
 	throw "internal.fuzz._countBits is not yet implemented";
 
 /**
 	// marshalCorpusFile encodes an arbitrary number of arguments into the file format for the
 	// corpus.
 **/
-function _marshalCorpusFile(_vals:haxe.Rest<AnyInterface>):Slice<GoByte>
+private function _marshalCorpusFile(_vals:haxe.Rest<AnyInterface>):Slice<GoByte>
 	throw "internal.fuzz._marshalCorpusFile is not yet implemented";
 
 /**
 	// unmarshalCorpusFile decodes corpus bytes into their respective values.
 **/
-function _unmarshalCorpusFile(_b:Slice<GoByte>):{var _0:Slice<AnyInterface>; var _1:Error;}
+private function _unmarshalCorpusFile(_b:Slice<GoByte>):{var _0:Slice<AnyInterface>; var _1:Error;}
 	throw "internal.fuzz._unmarshalCorpusFile is not yet implemented";
 
-function _parseCorpusValue(_line:Slice<GoByte>):{var _0:AnyInterface; var _1:Error;}
+private function _parseCorpusValue(_line:Slice<GoByte>):{var _0:AnyInterface; var _1:Error;}
 	throw "internal.fuzz._parseCorpusValue is not yet implemented";
 
 /**
 	// parseInt returns an integer of value val and type typ.
 **/
-function _parseInt(_val:GoString, _typ:GoString):{var _0:AnyInterface; var _1:Error;}
+private function _parseInt(_val:GoString, _typ:GoString):{var _0:AnyInterface; var _1:Error;}
 	throw "internal.fuzz._parseInt is not yet implemented";
 
 /**
 	// parseInt returns an unsigned integer of value val and type typ.
 **/
-function _parseUint(_val:GoString, _typ:GoString):{var _0:AnyInterface; var _1:Error;}
+private function _parseUint(_val:GoString, _typ:GoString):{var _0:AnyInterface; var _1:Error;}
 	throw "internal.fuzz._parseUint is not yet implemented";
 
 /**
@@ -1597,10 +1544,10 @@ function coordinateFuzzing(_ctx:stdgo.context.Context.Context, _opts:CoordinateF
 	// corpusEntryData returns the raw input bytes, either from the data struct
 	// field, or from disk.
 **/
-function _corpusEntryData(_ce:CorpusEntry):{var _0:Slice<GoByte>; var _1:Error;}
+private function _corpusEntryData(_ce:CorpusEntry):{var _0:Slice<GoByte>; var _1:Error;}
 	throw "internal.fuzz._corpusEntryData is not yet implemented";
 
-function _newCoordinator(_opts:CoordinateFuzzingOpts):{var _0:Ref<T_coordinator>; var _1:Error;}
+private function _newCoordinator(_opts:CoordinateFuzzingOpts):{var _0:Ref<T_coordinator>; var _1:Error;}
 	throw "internal.fuzz._newCoordinator is not yet implemented";
 
 /**
@@ -1612,7 +1559,7 @@ function _newCoordinator(_opts:CoordinateFuzzingOpts):{var _0:Ref<T_coordinator>
 function readCorpus(_dir:GoString, _types:Slice<stdgo.reflect.Reflect.Type>):{var _0:Slice<CorpusEntry>; var _1:Error;}
 	throw "internal.fuzz.readCorpus is not yet implemented";
 
-function _readCorpusData(_data:Slice<GoByte>, _types:Slice<stdgo.reflect.Reflect.Type>):{var _0:Slice<AnyInterface>; var _1:Error;}
+private function _readCorpusData(_data:Slice<GoByte>, _types:Slice<stdgo.reflect.Reflect.Type>):{var _0:Slice<AnyInterface>; var _1:Error;}
 	throw "internal.fuzz._readCorpusData is not yet implemented";
 
 /**
@@ -1628,215 +1575,216 @@ function checkCorpus(_vals:Slice<AnyInterface>, _types:Slice<stdgo.reflect.Refle
 	// writeToCorpus will not rewrite it. writeToCorpus sets entry.Path to the new
 	// file that was just written or an error if it failed.
 **/
-function _writeToCorpus(_entry:Ref<CorpusEntry>, _dir:GoString):Error
+private function _writeToCorpus(_entry:Ref<CorpusEntry>, _dir:GoString):Error
 	throw "internal.fuzz._writeToCorpus is not yet implemented";
 
-function _testName(_path:GoString):GoString
+private function _testName(_path:GoString):GoString
 	throw "internal.fuzz._testName is not yet implemented";
 
-function _zeroValue(_t:stdgo.reflect.Reflect.Type):AnyInterface
+private function _zeroValue(_t:stdgo.reflect.Reflect.Type):AnyInterface
 	throw "internal.fuzz._zeroValue is not yet implemented";
 
-function _shouldPrintDebugInfo():Bool
+private function _shouldPrintDebugInfo():Bool
 	throw "internal.fuzz._shouldPrintDebugInfo is not yet implemented";
 
 /**
 	// sharedMemSize returns the size needed for a shared memory buffer that can
 	// contain values of the given size.
 **/
-function _sharedMemSize(_valueSize:GoInt):GoInt
+private function _sharedMemSize(_valueSize:GoInt):GoInt
 	throw "internal.fuzz._sharedMemSize is not yet implemented";
 
 /**
 	// sharedMemTempFile creates a new temporary file of the given size, then maps
 	// it into memory. The file will be removed when the Close method is called.
 **/
-function _sharedMemTempFile(_size:GoInt):{var _0:Ref<T_sharedMem>; var _1:Error;}
+private function _sharedMemTempFile(_size:GoInt):{var _0:Ref<T_sharedMem>; var _1:Error;}
 	throw "internal.fuzz._sharedMemTempFile is not yet implemented";
 
-function _isMinimizable(_t:stdgo.reflect.Reflect.Type):Bool
+private function _isMinimizable(_t:stdgo.reflect.Reflect.Type):Bool
 	throw "internal.fuzz._isMinimizable is not yet implemented";
 
-function _minimizeBytes(_v:Slice<GoByte>, _try:Slice<GoByte>->Bool, _shouldStop:() -> Bool):Void
+private function _minimizeBytes(_v:Slice<GoByte>, _try:Slice<GoByte>->Bool, _shouldStop:() -> Bool):Void
 	throw "internal.fuzz._minimizeBytes is not yet implemented";
 
-function _newMutator():Ref<T_mutator>
+private function _newMutator():Ref<T_mutator>
 	throw "internal.fuzz._newMutator is not yet implemented";
 
-function _min(_a:GoInt, _b:GoInt):GoInt
+private function _min(_a:GoInt, _b:GoInt):GoInt
 	throw "internal.fuzz._min is not yet implemented";
 
 /**
 	// byteSliceRemoveBytes removes a random chunk of bytes from b.
 **/
-function _byteSliceRemoveBytes(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
+private function _byteSliceRemoveBytes(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
 	throw "internal.fuzz._byteSliceRemoveBytes is not yet implemented";
 
 /**
 	// byteSliceInsertRandomBytes inserts a chunk of random bytes into b at a random
 	// position.
 **/
-function _byteSliceInsertRandomBytes(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
+private function _byteSliceInsertRandomBytes(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
 	throw "internal.fuzz._byteSliceInsertRandomBytes is not yet implemented";
 
 /**
 	// byteSliceDuplicateBytes duplicates a chunk of bytes in b and inserts it into
 	// a random position.
 **/
-function _byteSliceDuplicateBytes(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
+private function _byteSliceDuplicateBytes(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
 	throw "internal.fuzz._byteSliceDuplicateBytes is not yet implemented";
 
 /**
 	// byteSliceOverwriteBytes overwrites a chunk of b with another chunk of b.
 **/
-function _byteSliceOverwriteBytes(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
+private function _byteSliceOverwriteBytes(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
 	throw "internal.fuzz._byteSliceOverwriteBytes is not yet implemented";
 
 /**
 	// byteSliceBitFlip flips a random bit in a random byte in b.
 **/
-function _byteSliceBitFlip(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
+private function _byteSliceBitFlip(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
 	throw "internal.fuzz._byteSliceBitFlip is not yet implemented";
 
 /**
 	// byteSliceXORByte XORs a random byte in b with a random value.
 **/
-function _byteSliceXORByte(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
+private function _byteSliceXORByte(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
 	throw "internal.fuzz._byteSliceXORByte is not yet implemented";
 
 /**
 	// byteSliceSwapByte swaps two random bytes in b.
 **/
-function _byteSliceSwapByte(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
+private function _byteSliceSwapByte(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
 	throw "internal.fuzz._byteSliceSwapByte is not yet implemented";
 
 /**
 	// byteSliceArithmeticUint8 adds/subtracts from a random byte in b.
 **/
-function _byteSliceArithmeticUint8(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
+private function _byteSliceArithmeticUint8(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
 	throw "internal.fuzz._byteSliceArithmeticUint8 is not yet implemented";
 
 /**
 	// byteSliceArithmeticUint16 adds/subtracts from a random uint16 in b.
 **/
-function _byteSliceArithmeticUint16(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
+private function _byteSliceArithmeticUint16(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
 	throw "internal.fuzz._byteSliceArithmeticUint16 is not yet implemented";
 
 /**
 	// byteSliceArithmeticUint32 adds/subtracts from a random uint32 in b.
 **/
-function _byteSliceArithmeticUint32(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
+private function _byteSliceArithmeticUint32(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
 	throw "internal.fuzz._byteSliceArithmeticUint32 is not yet implemented";
 
 /**
 	// byteSliceArithmeticUint64 adds/subtracts from a random uint64 in b.
 **/
-function _byteSliceArithmeticUint64(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
+private function _byteSliceArithmeticUint64(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
 	throw "internal.fuzz._byteSliceArithmeticUint64 is not yet implemented";
 
 /**
 	// byteSliceOverwriteInterestingUint8 overwrites a random byte in b with an interesting
 	// value.
 **/
-function _byteSliceOverwriteInterestingUint8(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
+private function _byteSliceOverwriteInterestingUint8(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
 	throw "internal.fuzz._byteSliceOverwriteInterestingUint8 is not yet implemented";
 
 /**
 	// byteSliceOverwriteInterestingUint16 overwrites a random uint16 in b with an interesting
 	// value.
 **/
-function _byteSliceOverwriteInterestingUint16(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
+private function _byteSliceOverwriteInterestingUint16(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
 	throw "internal.fuzz._byteSliceOverwriteInterestingUint16 is not yet implemented";
 
 /**
 	// byteSliceOverwriteInterestingUint32 overwrites a random uint16 in b with an interesting
 	// value.
 **/
-function _byteSliceOverwriteInterestingUint32(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
+private function _byteSliceOverwriteInterestingUint32(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
 	throw "internal.fuzz._byteSliceOverwriteInterestingUint32 is not yet implemented";
 
 /**
 	// byteSliceInsertConstantBytes inserts a chunk of constant bytes into a random position in b.
 **/
-function _byteSliceInsertConstantBytes(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
+private function _byteSliceInsertConstantBytes(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
 	throw "internal.fuzz._byteSliceInsertConstantBytes is not yet implemented";
 
 /**
 	// byteSliceOverwriteConstantBytes overwrites a chunk of b with constant bytes.
 **/
-function _byteSliceOverwriteConstantBytes(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
+private function _byteSliceOverwriteConstantBytes(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
 	throw "internal.fuzz._byteSliceOverwriteConstantBytes is not yet implemented";
 
 /**
 	// byteSliceShuffleBytes shuffles a chunk of bytes in b.
 **/
-function _byteSliceShuffleBytes(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
+private function _byteSliceShuffleBytes(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
 	throw "internal.fuzz._byteSliceShuffleBytes is not yet implemented";
 
 /**
 	// byteSliceSwapBytes swaps two chunks of bytes in b.
 **/
-function _byteSliceSwapBytes(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
+private function _byteSliceSwapBytes(_m:Ref<T_mutator>, _b:Slice<GoByte>):Slice<GoByte>
 	throw "internal.fuzz._byteSliceSwapBytes is not yet implemented";
 
-function _godebugSeed():Pointer<GoInt>
+private function _godebugSeed():Pointer<GoInt>
 	throw "internal.fuzz._godebugSeed is not yet implemented";
 
 /**
 	// newPcgRand generates a new, seeded Rand, ready for use.
 **/
-function _newPcgRand():Ref<T_pcgRand>
+private function _newPcgRand():Ref<T_pcgRand>
 	throw "internal.fuzz._newPcgRand is not yet implemented";
 
-function _sharedMemMapFile(_f:Ref<stdgo.os.Os.File>, _size:GoInt, _removeOnClose:Bool):{var _0:Ref<T_sharedMem>; var _1:Error;}
+private function _sharedMemMapFile(_f:Ref<stdgo.os.Os.File>, _size:GoInt, _removeOnClose:Bool):{var _0:Ref<T_sharedMem>; var _1:Error;}
 	throw "internal.fuzz._sharedMemMapFile is not yet implemented";
 
-function _setWorkerComm(_cmd:Ref<stdgo.os.exec.Exec.Cmd>, _comm:T_workerComm):Void
+private function _setWorkerComm(_cmd:Ref<stdgo.os.exec.Exec.Cmd>, _comm:T_workerComm):Void
 	throw "internal.fuzz._setWorkerComm is not yet implemented";
 
-function _getWorkerComm():{var _0:T_workerComm; var _1:Error;}
+private function _getWorkerComm():{var _0:T_workerComm; var _1:Error;}
 	throw "internal.fuzz._getWorkerComm is not yet implemented";
 
-function _isInterruptError(_err:Error):Bool
+private function _isInterruptError(_err:Error):Bool
 	throw "internal.fuzz._isInterruptError is not yet implemented";
 
-function _terminationSignal(_err:Error):{var _0:stdgo.os.Os.Signal; var _1:Bool;}
+private function _terminationSignal(_err:Error):{var _0:stdgo.os.Os.Signal; var _1:Bool;}
 	throw "internal.fuzz._terminationSignal is not yet implemented";
 
-function _isCrashSignal(_signal:stdgo.os.Os.Signal):Bool
+private function _isCrashSignal(_signal:stdgo.os.Os.Signal):Bool
 	throw "internal.fuzz._isCrashSignal is not yet implemented";
 
-function _libfuzzerTraceCmp1(_arg0:GoUInt8, _arg1:GoUInt8, _fakePC:GoInt):Void
+private function _libfuzzerTraceCmp1(_arg0:GoUInt8, _arg1:GoUInt8, _fakePC:GoInt):Void
 	throw "internal.fuzz._libfuzzerTraceCmp1 is not yet implemented";
 
-function _libfuzzerTraceCmp2(_arg0:GoUInt16, _arg1:GoUInt16, _fakePC:GoInt):Void
+private function _libfuzzerTraceCmp2(_arg0:GoUInt16, _arg1:GoUInt16, _fakePC:GoInt):Void
 	throw "internal.fuzz._libfuzzerTraceCmp2 is not yet implemented";
 
-function _libfuzzerTraceCmp4(_arg0:GoUInt32, _arg1:GoUInt32, _fakePC:GoInt):Void
+private function _libfuzzerTraceCmp4(_arg0:GoUInt32, _arg1:GoUInt32, _fakePC:GoInt):Void
 	throw "internal.fuzz._libfuzzerTraceCmp4 is not yet implemented";
 
-function _libfuzzerTraceCmp8(_arg0:GoUInt64, _arg1:GoUInt64, _fakePC:GoInt):Void
+private function _libfuzzerTraceCmp8(_arg0:GoUInt64, _arg1:GoUInt64, _fakePC:GoInt):Void
 	throw "internal.fuzz._libfuzzerTraceCmp8 is not yet implemented";
 
-function _libfuzzerTraceConstCmp1(_arg0:GoUInt8, _arg1:GoUInt8, _fakePC:GoInt):Void
+private function _libfuzzerTraceConstCmp1(_arg0:GoUInt8, _arg1:GoUInt8, _fakePC:GoInt):Void
 	throw "internal.fuzz._libfuzzerTraceConstCmp1 is not yet implemented";
 
-function _libfuzzerTraceConstCmp2(_arg0:GoUInt16, _arg1:GoUInt16, _fakePC:GoInt):Void
+private function _libfuzzerTraceConstCmp2(_arg0:GoUInt16, _arg1:GoUInt16, _fakePC:GoInt):Void
 	throw "internal.fuzz._libfuzzerTraceConstCmp2 is not yet implemented";
 
-function _libfuzzerTraceConstCmp4(_arg0:GoUInt32, _arg1:GoUInt32, _fakePC:GoInt):Void
+private function _libfuzzerTraceConstCmp4(_arg0:GoUInt32, _arg1:GoUInt32, _fakePC:GoInt):Void
 	throw "internal.fuzz._libfuzzerTraceConstCmp4 is not yet implemented";
 
-function _libfuzzerTraceConstCmp8(_arg0:GoUInt64, _arg1:GoUInt64, _fakePC:GoInt):Void
+private function _libfuzzerTraceConstCmp8(_arg0:GoUInt64, _arg1:GoUInt64, _fakePC:GoInt):Void
 	throw "internal.fuzz._libfuzzerTraceConstCmp8 is not yet implemented";
 
-function _libfuzzerHookStrCmp(_arg0:GoString, _arg1:GoString, _fakePC:GoInt):Void
+private function _libfuzzerHookStrCmp(_arg0:GoString, _arg1:GoString, _fakePC:GoInt):Void
 	throw "internal.fuzz._libfuzzerHookStrCmp is not yet implemented";
 
-function _libfuzzerHookEqualFold(_arg0:GoString, _arg1:GoString, _fakePC:GoInt):Void
+private function _libfuzzerHookEqualFold(_arg0:GoString, _arg1:GoString, _fakePC:GoInt):Void
 	throw "internal.fuzz._libfuzzerHookEqualFold is not yet implemented";
 
-function _newWorker(_c:Ref<T_coordinator>, _dir:GoString, _binPath:GoString, _args:Slice<GoString>, _env:Slice<GoString>):{var _0:Ref<T_worker>; var _1:Error;}
+private function _newWorker(_c:Ref<T_coordinator>, _dir:GoString, _binPath:GoString, _args:Slice<GoString>,
+		_env:Slice<GoString>):{var _0:Ref<T_worker>; var _1:Error;}
 	throw "internal.fuzz._newWorker is not yet implemented";
 
 /**
@@ -1854,10 +1802,10 @@ function _newWorker(_c:Ref<T_coordinator>, _dir:GoString, _binPath:GoString, _ar
 function runFuzzWorker(_ctx:stdgo.context.Context.Context, _fn:CorpusEntry->Error):Error
 	throw "internal.fuzz.runFuzzWorker is not yet implemented";
 
-function _writeToMem(_vals:Slice<AnyInterface>, _mem:Ref<T_sharedMem>):Void
+private function _writeToMem(_vals:Slice<AnyInterface>, _mem:Ref<T_sharedMem>):Void
 	throw "internal.fuzz._writeToMem is not yet implemented";
 
-function _newWorkerClient(_comm:T_workerComm, _m:Ref<T_mutator>):Ref<T_workerClient>
+private function _newWorkerClient(_comm:T_workerComm, _m:Ref<T_mutator>):Ref<T_workerClient>
 	throw "internal.fuzz._newWorkerClient is not yet implemented";
 
 class T_crashError_asInterface {

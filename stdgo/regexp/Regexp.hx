@@ -484,36 +484,12 @@ private typedef T_input = StructType & {
 	// A machine holds all the state during an NFA simulation for p.
 **/
 @:structInit @:using(stdgo.regexp.Regexp.T_machine_static_extension) private class T_machine {
-	/**
-		// corresponding Regexp
-	**/
 	public var _re:Ref<Regexp> = (null : Ref<Regexp>);
-
-	/**
-		// compiled program
-	**/
 	public var _p:Ref<stdgo.regexp.syntax.Syntax.Prog> = (null : Ref<stdgo.regexp.syntax.Syntax.Prog>);
-
-	/**
-		// two queues for runq, nextq
-	**/
 	public var _q0:T_queue = ({} : T_queue);
-
-	/**
-		// pool of available threads
-	**/
 	public var _q1:T_queue = ({} : T_queue);
-
-	/**
-		// whether a match was found
-	**/
 	public var _pool:Slice<Ref<T_thread>> = (null : Slice<Ref<T_thread>>);
-
-	/**
-		// capture information for the match
-	**/
 	public var _matched:Bool = false;
-
 	public var _matchcap:Slice<GoInt> = (null : Slice<GoInt>);
 	public var _inputs:T_inputs = ({} : T_inputs);
 
@@ -625,15 +601,7 @@ private typedef T_input = StructType & {
 **/
 @:structInit private class T_onePassProg {
 	public var inst:Slice<T_onePassInst> = (null : Slice<T_onePassInst>);
-
-	/**
-		// index of start instruction
-	**/
 	public var start:GoInt = 0;
-
-	/**
-		// number of InstCapture insts in re
-	**/
 	public var numCap:GoInt = 0;
 
 	public function new(?inst:Slice<T_onePassInst>, ?start:GoInt, ?numCap:GoInt) {
@@ -731,73 +699,25 @@ private typedef T_input = StructType & {
 	// except for configuration methods, such as Longest.
 **/
 @:structInit @:using(stdgo.regexp.Regexp.Regexp_static_extension) class Regexp {
-	/**
-		// as passed to Compile
-	**/
 	public var _expr:GoString = "";
-
-	/**
-		// compiled program
-	**/
 	public var _prog:Ref<stdgo.regexp.syntax.Syntax.Prog> = (null : Ref<stdgo.regexp.syntax.Syntax.Prog>);
-
-	/**
-		// onepass program or nil
-	**/
 	public var _onepass:Ref<T_onePassProg> = (null : Ref<T_onePassProg>);
-
 	public var _numSubexp:GoInt = 0;
 	public var _maxBitStateLen:GoInt = 0;
 	public var _subexpNames:Slice<GoString> = (null : Slice<GoString>);
-
-	/**
-		// required prefix in unanchored matches
-	**/
 	public var _prefix:GoString = "";
-
-	/**
-		// prefix, as a []byte
-	**/
 	public var _prefixBytes:Slice<GoUInt8> = (null : Slice<GoUInt8>);
-
-	/**
-		// first rune in prefix
-	**/
 	public var _prefixRune:GoInt32 = 0;
-
-	/**
-		// pc for last rune in prefix
-	**/
 	public var _prefixEnd:GoUInt32 = 0;
-
-	/**
-		// pool for machines
-	**/
 	public var _mpool:GoInt = 0;
-
-	/**
-		// size of recorded match lengths
-	**/
 	public var _matchcap:GoInt = 0;
-
-	/**
-		// prefix is the entire regexp
-	**/
 	public var _prefixComplete:Bool = false;
-
-	/**
-		// empty-width conditions required at start of match
-	**/
 	public var _cond:stdgo.regexp.syntax.Syntax.EmptyOp = ((0 : GoUInt8) : stdgo.regexp.syntax.Syntax.EmptyOp);
-
-	/**
-		// minimum length of the input in bytes
-	**/
 	public var _minInputLen:GoInt = 0;
 
 	/**
 		// This field can be modified by the Longest method,
-		// but it is otherwise read-only.// whether regexp prefers leftmost-longest match
+		// but it is otherwise read-only.
 	**/
 	public var _longest:Bool = false;
 
@@ -1084,7 +1004,7 @@ class T__struct_6_asInterface {
 **/
 @:named @:using(stdgo.regexp.Regexp.T_runeSlice_static_extension) private typedef T_runeSlice = Slice<GoInt32>;
 
-function _compileTest(_t:Ref<stdgo.testing.Testing.T>, _expr:GoString, _error:GoString):Ref<Regexp>
+private function _compileTest(_t:Ref<stdgo.testing.Testing.T>, _expr:GoString, _error:GoString):Ref<Regexp>
 	throw "regexp._compileTest is not yet implemented";
 
 function testGoodCompile(_t:Ref<stdgo.testing.Testing.T>):Void
@@ -1093,19 +1013,19 @@ function testGoodCompile(_t:Ref<stdgo.testing.Testing.T>):Void
 function testBadCompile(_t:Ref<stdgo.testing.Testing.T>):Void
 	throw "regexp.testBadCompile is not yet implemented";
 
-function _matchTest(_t:Ref<stdgo.testing.Testing.T>, _test:Ref<FindTest>):Void
+private function _matchTest(_t:Ref<stdgo.testing.Testing.T>, _test:Ref<FindTest>):Void
 	throw "regexp._matchTest is not yet implemented";
 
 function testMatch(_t:Ref<stdgo.testing.Testing.T>):Void
 	throw "regexp.testMatch is not yet implemented";
 
-function _matchFunctionTest(_t:Ref<stdgo.testing.Testing.T>, _test:Ref<FindTest>):Void
+private function _matchFunctionTest(_t:Ref<stdgo.testing.Testing.T>, _test:Ref<FindTest>):Void
 	throw "regexp._matchFunctionTest is not yet implemented";
 
 function testMatchFunction(_t:Ref<stdgo.testing.Testing.T>):Void
 	throw "regexp.testMatchFunction is not yet implemented";
 
-function _copyMatchTest(_t:Ref<stdgo.testing.Testing.T>, _test:Ref<FindTest>):Void
+private function _copyMatchTest(_t:Ref<stdgo.testing.Testing.T>, _test:Ref<FindTest>):Void
 	throw "regexp._copyMatchTest is not yet implemented";
 
 function testCopyMatch(_t:Ref<stdgo.testing.Testing.T>):Void
@@ -1232,33 +1152,33 @@ function testDeepEqual(_t:Ref<stdgo.testing.Testing.T>):Void
 function testMinInputLen(_t:Ref<stdgo.testing.Testing.T>):Void
 	throw "regexp.testMinInputLen is not yet implemented";
 
-function _newBitState():Ref<T_bitState>
+private function _newBitState():Ref<T_bitState>
 	throw "regexp._newBitState is not yet implemented";
 
-function _freeBitState(_b:Ref<T_bitState>):Void
+private function _freeBitState(_b:Ref<T_bitState>):Void
 	throw "regexp._freeBitState is not yet implemented";
 
 /**
 	// maxBitStateLen returns the maximum length of a string to search with
 	// the backtracker using prog.
 **/
-function _maxBitStateLen(_prog:Ref<stdgo.regexp.syntax.Syntax.Prog>):GoInt
+private function _maxBitStateLen(_prog:Ref<stdgo.regexp.syntax.Syntax.Prog>):GoInt
 	throw "regexp._maxBitStateLen is not yet implemented";
 
 /**
 	// shouldBacktrack reports whether the program is too
 	// long for the backtracker to run.
 **/
-function _shouldBacktrack(_prog:Ref<stdgo.regexp.syntax.Syntax.Prog>):Bool
+private function _shouldBacktrack(_prog:Ref<stdgo.regexp.syntax.Syntax.Prog>):Bool
 	throw "regexp._shouldBacktrack is not yet implemented";
 
-function _newLazyFlag(_r1:GoRune, _r2:GoRune):T_lazyFlag
+private function _newLazyFlag(_r1:GoRune, _r2:GoRune):T_lazyFlag
 	throw "regexp._newLazyFlag is not yet implemented";
 
-function _newOnePassMachine():Ref<T_onePassMachine>
+private function _newOnePassMachine():Ref<T_onePassMachine>
 	throw "regexp._newOnePassMachine is not yet implemented";
 
-function _freeOnePassMachine(_m:Ref<T_onePassMachine>):Void
+private function _freeOnePassMachine(_m:Ref<T_onePassMachine>):Void
 	throw "regexp._freeOnePassMachine is not yet implemented";
 
 /**
@@ -1316,43 +1236,43 @@ function testRE2Exhaustive(_t:Ref<stdgo.testing.Testing.T>):Void
 function testRE2Search(_t:Ref<stdgo.testing.Testing.T>):Void
 	throw "regexp.testRE2Search is not yet implemented";
 
-function _testRE2(_t:Ref<stdgo.testing.Testing.T>, _file:GoString):Void
+private function _testRE2(_t:Ref<stdgo.testing.Testing.T>, _file:GoString):Void
 	throw "regexp._testRE2 is not yet implemented";
 
-function _runFull(_re:Ref<Regexp>, _refull:Ref<Regexp>, _text:GoString):{var _0:Slice<GoInt>; var _1:GoString;}
+private function _runFull(_re:Ref<Regexp>, _refull:Ref<Regexp>, _text:GoString):{var _0:Slice<GoInt>; var _1:GoString;}
 	throw "regexp._runFull is not yet implemented";
 
-function _runPartial(_re:Ref<Regexp>, _refull:Ref<Regexp>, _text:GoString):{var _0:Slice<GoInt>; var _1:GoString;}
+private function _runPartial(_re:Ref<Regexp>, _refull:Ref<Regexp>, _text:GoString):{var _0:Slice<GoInt>; var _1:GoString;}
 	throw "regexp._runPartial is not yet implemented";
 
-function _runFullLongest(_re:Ref<Regexp>, _refull:Ref<Regexp>, _text:GoString):{var _0:Slice<GoInt>; var _1:GoString;}
+private function _runFullLongest(_re:Ref<Regexp>, _refull:Ref<Regexp>, _text:GoString):{var _0:Slice<GoInt>; var _1:GoString;}
 	throw "regexp._runFullLongest is not yet implemented";
 
-function _runPartialLongest(_re:Ref<Regexp>, _refull:Ref<Regexp>, _text:GoString):{var _0:Slice<GoInt>; var _1:GoString;}
+private function _runPartialLongest(_re:Ref<Regexp>, _refull:Ref<Regexp>, _text:GoString):{var _0:Slice<GoInt>; var _1:GoString;}
 	throw "regexp._runPartialLongest is not yet implemented";
 
-function _matchFull(_re:Ref<Regexp>, _refull:Ref<Regexp>, _text:GoString):{var _0:Bool; var _1:GoString;}
+private function _matchFull(_re:Ref<Regexp>, _refull:Ref<Regexp>, _text:GoString):{var _0:Bool; var _1:GoString;}
 	throw "regexp._matchFull is not yet implemented";
 
-function _matchPartial(_re:Ref<Regexp>, _refull:Ref<Regexp>, _text:GoString):{var _0:Bool; var _1:GoString;}
+private function _matchPartial(_re:Ref<Regexp>, _refull:Ref<Regexp>, _text:GoString):{var _0:Bool; var _1:GoString;}
 	throw "regexp._matchPartial is not yet implemented";
 
-function _matchFullLongest(_re:Ref<Regexp>, _refull:Ref<Regexp>, _text:GoString):{var _0:Bool; var _1:GoString;}
+private function _matchFullLongest(_re:Ref<Regexp>, _refull:Ref<Regexp>, _text:GoString):{var _0:Bool; var _1:GoString;}
 	throw "regexp._matchFullLongest is not yet implemented";
 
-function _matchPartialLongest(_re:Ref<Regexp>, _refull:Ref<Regexp>, _text:GoString):{var _0:Bool; var _1:GoString;}
+private function _matchPartialLongest(_re:Ref<Regexp>, _refull:Ref<Regexp>, _text:GoString):{var _0:Bool; var _1:GoString;}
 	throw "regexp._matchPartialLongest is not yet implemented";
 
-function _isSingleBytes(_s:GoString):Bool
+private function _isSingleBytes(_s:GoString):Bool
 	throw "regexp._isSingleBytes is not yet implemented";
 
-function _tryCompile(_s:GoString):{var _0:Ref<Regexp>; var _1:Error;}
+private function _tryCompile(_s:GoString):{var _0:Ref<Regexp>; var _1:Error;}
 	throw "regexp._tryCompile is not yet implemented";
 
-function _parseResult(_t:Ref<stdgo.testing.Testing.T>, _file:GoString, _lineno:GoInt, _res:GoString):Slice<GoInt>
+private function _parseResult(_t:Ref<stdgo.testing.Testing.T>, _file:GoString, _lineno:GoInt, _res:GoString):Slice<GoInt>
 	throw "regexp._parseResult is not yet implemented";
 
-function _same(_x:Slice<GoInt>, _y:Slice<GoInt>):Bool
+private function _same(_x:Slice<GoInt>, _y:Slice<GoInt>):Bool
 	throw "regexp._same is not yet implemented";
 
 /**
@@ -1363,10 +1283,10 @@ function _same(_x:Slice<GoInt>, _y:Slice<GoInt>):Bool
 function testFowler(_t:Ref<stdgo.testing.Testing.T>):Void
 	throw "regexp.testFowler is not yet implemented";
 
-function _testFowler(_t:Ref<stdgo.testing.Testing.T>, _file:GoString):Void
+private function _testFowler(_t:Ref<stdgo.testing.Testing.T>, _file:GoString):Void
 	throw "regexp._testFowler is not yet implemented";
 
-function _parseFowlerResult(_s:GoString):{
+private function _parseFowlerResult(_s:GoString):{
 	var _0:Bool;
 	var _1:Bool;
 	var _2:Bool;
@@ -1374,7 +1294,7 @@ function _parseFowlerResult(_s:GoString):{
 }
 	throw "regexp._parseFowlerResult is not yet implemented";
 
-function _makeText(_n:GoInt):Slice<GoByte>
+private function _makeText(_n:GoInt):Slice<GoByte>
 	throw "regexp._makeText is not yet implemented";
 
 function benchmarkMatch(_b:Ref<stdgo.testing.Testing.B>):Void
@@ -1397,7 +1317,7 @@ function testProgramTooLongForBacktrack(_t:Ref<stdgo.testing.Testing.T>):Void
 	// build is a helper to construct a [][]int by extracting n sequences from x.
 	// This represents n matches with len(x)/n submatches each.
 **/
-function _build(_n:GoInt, _x:haxe.Rest<GoInt>):Slice<Slice<GoInt>>
+private function _build(_n:GoInt, _x:haxe.Rest<GoInt>):Slice<Slice<GoInt>>
 	throw "regexp._build is not yet implemented";
 
 function testFind(_t:Ref<stdgo.testing.Testing.T>):Void
@@ -1406,7 +1326,7 @@ function testFind(_t:Ref<stdgo.testing.Testing.T>):Void
 function testFindString(_t:Ref<stdgo.testing.Testing.T>):Void
 	throw "regexp.testFindString is not yet implemented";
 
-function _testFindIndex(_test:Ref<FindTest>, _result:Slice<GoInt>, _t:Ref<stdgo.testing.Testing.T>):Void
+private function _testFindIndex(_test:Ref<FindTest>, _result:Slice<GoInt>, _t:Ref<stdgo.testing.Testing.T>):Void
 	throw "regexp._testFindIndex is not yet implemented";
 
 function testFindIndex(_t:Ref<stdgo.testing.Testing.T>):Void
@@ -1424,7 +1344,7 @@ function testFindAll(_t:Ref<stdgo.testing.Testing.T>):Void
 function testFindAllString(_t:Ref<stdgo.testing.Testing.T>):Void
 	throw "regexp.testFindAllString is not yet implemented";
 
-function _testFindAllIndex(_test:Ref<FindTest>, _result:Slice<Slice<GoInt>>, _t:Ref<stdgo.testing.Testing.T>):Void
+private function _testFindAllIndex(_test:Ref<FindTest>, _result:Slice<Slice<GoInt>>, _t:Ref<stdgo.testing.Testing.T>):Void
 	throw "regexp._testFindAllIndex is not yet implemented";
 
 function testFindAllIndex(_t:Ref<stdgo.testing.Testing.T>):Void
@@ -1433,22 +1353,23 @@ function testFindAllIndex(_t:Ref<stdgo.testing.Testing.T>):Void
 function testFindAllStringIndex(_t:Ref<stdgo.testing.Testing.T>):Void
 	throw "regexp.testFindAllStringIndex is not yet implemented";
 
-function _testSubmatchBytes(_test:Ref<FindTest>, _n:GoInt, _submatches:Slice<GoInt>, _result:Slice<Slice<GoByte>>, _t:Ref<stdgo.testing.Testing.T>):Void
+private function _testSubmatchBytes(_test:Ref<FindTest>, _n:GoInt, _submatches:Slice<GoInt>, _result:Slice<Slice<GoByte>>,
+		_t:Ref<stdgo.testing.Testing.T>):Void
 	throw "regexp._testSubmatchBytes is not yet implemented";
 
 function testFindSubmatch(_t:Ref<stdgo.testing.Testing.T>):Void
 	throw "regexp.testFindSubmatch is not yet implemented";
 
-function _testSubmatchString(_test:Ref<FindTest>, _n:GoInt, _submatches:Slice<GoInt>, _result:Slice<GoString>, _t:Ref<stdgo.testing.Testing.T>):Void
+private function _testSubmatchString(_test:Ref<FindTest>, _n:GoInt, _submatches:Slice<GoInt>, _result:Slice<GoString>, _t:Ref<stdgo.testing.Testing.T>):Void
 	throw "regexp._testSubmatchString is not yet implemented";
 
 function testFindStringSubmatch(_t:Ref<stdgo.testing.Testing.T>):Void
 	throw "regexp.testFindStringSubmatch is not yet implemented";
 
-function _testSubmatchIndices(_test:Ref<FindTest>, _n:GoInt, _expect:Slice<GoInt>, _result:Slice<GoInt>, _t:Ref<stdgo.testing.Testing.T>):Void
+private function _testSubmatchIndices(_test:Ref<FindTest>, _n:GoInt, _expect:Slice<GoInt>, _result:Slice<GoInt>, _t:Ref<stdgo.testing.Testing.T>):Void
 	throw "regexp._testSubmatchIndices is not yet implemented";
 
-function _testFindSubmatchIndex(_test:Ref<FindTest>, _result:Slice<GoInt>, _t:Ref<stdgo.testing.Testing.T>):Void
+private function _testFindSubmatchIndex(_test:Ref<FindTest>, _result:Slice<GoInt>, _t:Ref<stdgo.testing.Testing.T>):Void
 	throw "regexp._testFindSubmatchIndex is not yet implemented";
 
 function testFindSubmatchIndex(_t:Ref<stdgo.testing.Testing.T>):Void
@@ -1466,7 +1387,7 @@ function testFindAllSubmatch(_t:Ref<stdgo.testing.Testing.T>):Void
 function testFindAllStringSubmatch(_t:Ref<stdgo.testing.Testing.T>):Void
 	throw "regexp.testFindAllStringSubmatch is not yet implemented";
 
-function _testFindAllSubmatchIndex(_test:Ref<FindTest>, _result:Slice<Slice<GoInt>>, _t:Ref<stdgo.testing.Testing.T>):Void
+private function _testFindAllSubmatchIndex(_test:Ref<FindTest>, _result:Slice<Slice<GoInt>>, _t:Ref<stdgo.testing.Testing.T>):Void
 	throw "regexp._testFindAllSubmatchIndex is not yet implemented";
 
 function testFindAllSubmatchIndex(_t:Ref<stdgo.testing.Testing.T>):Void
@@ -1482,7 +1403,7 @@ function testFindAllStringSubmatchIndex(_t:Ref<stdgo.testing.Testing.T>):Void
 	// in the string. The OnePassPrefix skips over the mandatory
 	// EmptyBeginText
 **/
-function _onePassPrefix(_p:Ref<stdgo.regexp.syntax.Syntax.Prog>):{var _0:GoString; var _1:Bool; var _2:GoUInt32;}
+private function _onePassPrefix(_p:Ref<stdgo.regexp.syntax.Syntax.Prog>):{var _0:GoString; var _1:Bool; var _2:GoUInt32;}
 	throw "regexp._onePassPrefix is not yet implemented";
 
 /**
@@ -1491,29 +1412,29 @@ function _onePassPrefix(_p:Ref<stdgo.regexp.syntax.Syntax.Prog>):{var _0:GoStrin
 	// One of the alternates may ultimately lead without input to end of line. If the instruction
 	// is InstAltMatch the path to the InstMatch is in i.Out, the normal node in i.Next.
 **/
-function _onePassNext(_i:Ref<T_onePassInst>, _r:GoRune):GoUInt32
+private function _onePassNext(_i:Ref<T_onePassInst>, _r:GoRune):GoUInt32
 	throw "regexp._onePassNext is not yet implemented";
 
-function _iop(_i:Ref<stdgo.regexp.syntax.Syntax.Inst>):stdgo.regexp.syntax.Syntax.InstOp
+private function _iop(_i:Ref<stdgo.regexp.syntax.Syntax.Inst>):stdgo.regexp.syntax.Syntax.InstOp
 	throw "regexp._iop is not yet implemented";
 
-function _newQueue(_size:GoInt):Ref<T_queueOnePass>
+private function _newQueue(_size:GoInt):Ref<T_queueOnePass>
 	throw "regexp._newQueue is not yet implemented";
 
-function _mergeRuneSets(_leftRunes:Ref<Slice<GoRune>>, _rightRunes:Ref<Slice<GoRune>>, _leftPC:GoUInt32,
+private function _mergeRuneSets(_leftRunes:Ref<Slice<GoRune>>, _rightRunes:Ref<Slice<GoRune>>, _leftPC:GoUInt32,
 		_rightPC:GoUInt32):{var _0:Slice<GoRune>; var _1:Slice<GoUInt32>;}
 	throw "regexp._mergeRuneSets is not yet implemented";
 
 /**
 	// cleanupOnePass drops working memory, and restores certain shortcut instructions.
 **/
-function _cleanupOnePass(_prog:Ref<T_onePassProg>, _original:Ref<stdgo.regexp.syntax.Syntax.Prog>):Void
+private function _cleanupOnePass(_prog:Ref<T_onePassProg>, _original:Ref<stdgo.regexp.syntax.Syntax.Prog>):Void
 	throw "regexp._cleanupOnePass is not yet implemented";
 
 /**
 	// onePassCopy creates a copy of the original Prog, as we'll be modifying it
 **/
-function _onePassCopy(_prog:Ref<stdgo.regexp.syntax.Syntax.Prog>):Ref<T_onePassProg>
+private function _onePassCopy(_prog:Ref<stdgo.regexp.syntax.Syntax.Prog>):Ref<T_onePassProg>
 	throw "regexp._onePassCopy is not yet implemented";
 
 /**
@@ -1523,7 +1444,7 @@ function _onePassCopy(_prog:Ref<stdgo.regexp.syntax.Syntax.Prog>):Ref<T_onePassP
 	// onepass Prog, the Prog nil is returned. makeOnePass is recursive
 	// to the size of the Prog.
 **/
-function _makeOnePass(_p:Ref<T_onePassProg>):Ref<T_onePassProg>
+private function _makeOnePass(_p:Ref<T_onePassProg>):Ref<T_onePassProg>
 	throw "regexp._makeOnePass is not yet implemented";
 
 /**
@@ -1532,7 +1453,7 @@ function _makeOnePass(_p:Ref<T_onePassProg>):Ref<T_onePassProg>
 	// Prog cannot be converted. For a one pass prog, the fundamental condition that must
 	// be true is: at any InstAlt, there must be no ambiguity about what branch to  take.
 **/
-function _compileOnePass(_prog:Ref<stdgo.regexp.syntax.Syntax.Prog>):Ref<T_onePassProg>
+private function _compileOnePass(_prog:Ref<stdgo.regexp.syntax.Syntax.Prog>):Ref<T_onePassProg>
 	throw "regexp._compileOnePass is not yet implemented";
 
 function testMergeRuneSet(_t:Ref<stdgo.testing.Testing.T>):Void
@@ -1583,13 +1504,13 @@ function compile(_expr:GoString):{var _0:Ref<Regexp>; var _1:Error;}
 function compilePOSIX(_expr:GoString):{var _0:Ref<Regexp>; var _1:Error;}
 	throw "regexp.compilePOSIX is not yet implemented";
 
-function _compile(_expr:GoString, _mode:stdgo.regexp.syntax.Syntax.Flags, _longest:Bool):{var _0:Ref<Regexp>; var _1:Error;}
+private function _compile(_expr:GoString, _mode:stdgo.regexp.syntax.Syntax.Flags, _longest:Bool):{var _0:Ref<Regexp>; var _1:Error;}
 	throw "regexp._compile is not yet implemented";
 
 /**
 	// minInputLen walks the regexp to find the minimum length of any matchable input
 **/
-function _minInputLen(_re:Ref<stdgo.regexp.syntax.Syntax.Regexp>):GoInt
+private function _minInputLen(_re:Ref<stdgo.regexp.syntax.Syntax.Regexp>):GoInt
 	throw "regexp._minInputLen is not yet implemented";
 
 /**
@@ -1608,7 +1529,7 @@ function mustCompile(_str:GoString):Ref<Regexp>
 function mustCompilePOSIX(_str:GoString):Ref<Regexp>
 	throw "regexp.mustCompilePOSIX is not yet implemented";
 
-function _quote(_s:GoString):GoString
+private function _quote(_s:GoString):GoString
 	throw "regexp._quote is not yet implemented";
 
 /**
@@ -1638,7 +1559,7 @@ function match(_pattern:GoString, _b:Slice<GoByte>):{var _0:Bool; var _1:Error;}
 /**
 	// special reports whether byte b needs to be escaped by QuoteMeta.
 **/
-function _special(_b:GoByte):Bool
+private function _special(_b:GoByte):Bool
 	throw "regexp._special is not yet implemented";
 
 /**
@@ -1654,7 +1575,7 @@ function quoteMeta(_s:GoString):GoString
 	// (The $ has already been removed by the caller.)
 	// If it is a number, extract returns num set to that number; otherwise num = -1.
 **/
-function _extract(_str:GoString):{
+private function _extract(_str:GoString):{
 	var _0:GoString;
 	var _1:GoInt;
 	var _2:GoString;

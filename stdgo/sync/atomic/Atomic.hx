@@ -491,16 +491,16 @@ function storePointer(_addr:Pointer<stdgo.unsafe.Unsafe.UnsafePointer>, _val:std
 /**
 	// b32 returns a uint32 0 or 1 representing b.
 **/
-function _b32(_b:Bool):GoUInt32
+private function _b32(_b:Bool):GoUInt32
 	throw "sync.atomic._b32 is not yet implemented";
 
 /**
 	// Disable/enable preemption, implemented in runtime.
 **/
-function _runtime_procPin():Void
+private function _runtime_procPin():Void
 	throw "sync.atomic._runtime_procPin is not yet implemented";
 
-function _runtime_procUnpin():Void
+private function _runtime_procUnpin():Void
 	throw "sync.atomic._runtime_procUnpin is not yet implemented";
 
 class Bool__asInterface {
@@ -621,405 +621,25 @@ class Pointer__asInterface<T> {
 	**/
 	@:keep
 	macro static public function compareAndSwap<T>(_x:haxe.macro.Expr.ExprOf<Ref<Pointer_<T>>>, _old:haxe.macro.Expr.ExprOf<Ref<T>>,
-			_new:haxe.macro.Expr.ExprOf<Ref<T>>):haxe.macro.Expr.ExprOf<Bool> {
-		final tds = [];
-		final block = macro throw "sync.atomic.compareAndSwap is not yet implemented";
-		var className = "T__compareAndSwap_";
-		{
-			className += haxe.macro.Context.signature(haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(_x))) + "_";
-			className += haxe.macro.Context.signature(haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(_old))) + "_";
-			className += haxe.macro.Context.signature(haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(_new))) + "_";
-		};
-		final pack = ["stdgo", "internal", "generic", className.toLowerCase()];
-		try {
-			haxe.macro.Context.getType(className);
-		} catch (____exec____) {
-			final td:haxe.macro.Expr.TypeDefinition = {
-				name: className,
-				pos: haxe.macro.Context.currentPos(),
-				pack: [],
-				fields: [
-					{
-						name: "compareAndSwap",
-						pos: haxe.macro.Context.currentPos(),
-						kind: FFun({
-							expr: block,
-							args: [
-								{
-									var ct = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(_x));
-									switch ct {
-										case TPath(p):
-											if (p.name == "StdTypes" && p.sub == "Null" && p.pack.length == 0) {
-												switch p.params[0] {
-													case TPType(t):
-														ct = t;
-													default:
-														var _ = false;
-												};
-											};
-										default:
-											var _ = false;
-									};
-									{name: "_x", type: ct};
-								},
-								{
-									var ct = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(_old));
-									switch ct {
-										case TPath(p):
-											if (p.name == "StdTypes" && p.sub == "Null" && p.pack.length == 0) {
-												switch p.params[0] {
-													case TPType(t):
-														ct = t;
-													default:
-														var _ = false;
-												};
-											};
-										default:
-											var _ = false;
-									};
-									{name: "_old", type: ct};
-								},
-								{
-									var ct = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(_new));
-									switch ct {
-										case TPath(p):
-											if (p.name == "StdTypes" && p.sub == "Null" && p.pack.length == 0) {
-												switch p.params[0] {
-													case TPType(t):
-														ct = t;
-													default:
-														var _ = false;
-												};
-											};
-										default:
-											var _ = false;
-									};
-									{name: "_new", type: ct};
-								}
-							],
-							ret: haxe.macro.Context.getExpectedType() == null ? null : haxe.macro.Context.toComplexType(haxe.macro.Context.getExpectedType())
-						}),
-						access: [APublic, AStatic]
-					}
-				],
-				kind: TDClass()
-			};
-			{
-				{
-					final t:haxe.macro.Expr.ComplexType = switch haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(_x)) {
-						case TPath(p):
-							switch p.params[0] {
-								case TPType(t):
-									t;
-								default:
-									throw "invalid param t";
-							};
-						default:
-							throw "invalid e";
-					};
-					final pos = haxe.macro.Context.currentPos();
-					final td:haxe.macro.Expr.TypeDefinition = {
-						name: "T",
-						pos: pos,
-						pack: [],
-						fields: [],
-						meta: [{name: ":follow", pos: pos}],
-						kind: TDAlias(t)
-					};
-					tds.push(td);
-				};
-			};
-			{};
-			tds.push(td);
-			haxe.macro.Context.defineModule(pack.concat([className]).join("."), tds, haxe.macro.Context.getLocalImports());
-		};
-		return macro $p{pack.concat([className])}.compareAndSwap($_x, $_old, $_new);
-	}
+		_new:haxe.macro.Expr.ExprOf<Ref<T>>):haxe.macro.Expr.ExprOf<Bool>;
 
 	/**
 		// Swap atomically stores new into x and returns the previous value.
 	**/
 	@:keep
-	macro static public function swap<T>(_x:haxe.macro.Expr.ExprOf<Ref<Pointer_<T>>>, _new:haxe.macro.Expr.ExprOf<Ref<T>>):haxe.macro.Expr.ExprOf<Ref<T>> {
-		final tds = [];
-		final block = macro throw "sync.atomic.swap is not yet implemented";
-		var className = "T__swap_";
-		{
-			className += haxe.macro.Context.signature(haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(_x))) + "_";
-			className += haxe.macro.Context.signature(haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(_new))) + "_";
-		};
-		final pack = ["stdgo", "internal", "generic", className.toLowerCase()];
-		try {
-			haxe.macro.Context.getType(className);
-		} catch (____exec____) {
-			final td:haxe.macro.Expr.TypeDefinition = {
-				name: className,
-				pos: haxe.macro.Context.currentPos(),
-				pack: [],
-				fields: [
-					{
-						name: "swap",
-						pos: haxe.macro.Context.currentPos(),
-						kind: FFun({
-							expr: block,
-							args: [
-								{
-									var ct = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(_x));
-									switch ct {
-										case TPath(p):
-											if (p.name == "StdTypes" && p.sub == "Null" && p.pack.length == 0) {
-												switch p.params[0] {
-													case TPType(t):
-														ct = t;
-													default:
-														var _ = false;
-												};
-											};
-										default:
-											var _ = false;
-									};
-									{name: "_x", type: ct};
-								},
-								{
-									var ct = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(_new));
-									switch ct {
-										case TPath(p):
-											if (p.name == "StdTypes" && p.sub == "Null" && p.pack.length == 0) {
-												switch p.params[0] {
-													case TPType(t):
-														ct = t;
-													default:
-														var _ = false;
-												};
-											};
-										default:
-											var _ = false;
-									};
-									{name: "_new", type: ct};
-								}
-							],
-							ret: haxe.macro.Context.getExpectedType() == null ? null : haxe.macro.Context.toComplexType(haxe.macro.Context.getExpectedType())
-						}),
-						access: [APublic, AStatic]
-					}
-				],
-				kind: TDClass()
-			};
-			{
-				{
-					final t:haxe.macro.Expr.ComplexType = switch haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(_x)) {
-						case TPath(p):
-							switch p.params[0] {
-								case TPType(t):
-									t;
-								default:
-									throw "invalid param t";
-							};
-						default:
-							throw "invalid e";
-					};
-					final pos = haxe.macro.Context.currentPos();
-					final td:haxe.macro.Expr.TypeDefinition = {
-						name: "T",
-						pos: pos,
-						pack: [],
-						fields: [],
-						meta: [{name: ":follow", pos: pos}],
-						kind: TDAlias(t)
-					};
-					tds.push(td);
-				};
-			};
-			{};
-			tds.push(td);
-			haxe.macro.Context.defineModule(pack.concat([className]).join("."), tds, haxe.macro.Context.getLocalImports());
-		};
-		return macro $p{pack.concat([className])}.swap($_x, $_new);
-	}
+	macro static public function swap<T>(_x:haxe.macro.Expr.ExprOf<Ref<Pointer_<T>>>, _new:haxe.macro.Expr.ExprOf<Ref<T>>):haxe.macro.Expr.ExprOf<Ref<T>>;
 
 	/**
 		// Store atomically stores val into x.
 	**/
 	@:keep
-	macro static public function store<T>(_x:haxe.macro.Expr.ExprOf<Ref<Pointer_<T>>>, _val:haxe.macro.Expr.ExprOf<Ref<T>>):haxe.macro.Expr.ExprOf<Void> {
-		final tds = [];
-		final block = macro throw "sync.atomic.store is not yet implemented";
-		var className = "T__store_";
-		{
-			className += haxe.macro.Context.signature(haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(_x))) + "_";
-			className += haxe.macro.Context.signature(haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(_val))) + "_";
-		};
-		final pack = ["stdgo", "internal", "generic", className.toLowerCase()];
-		try {
-			haxe.macro.Context.getType(className);
-		} catch (____exec____) {
-			final td:haxe.macro.Expr.TypeDefinition = {
-				name: className,
-				pos: haxe.macro.Context.currentPos(),
-				pack: [],
-				fields: [
-					{
-						name: "store",
-						pos: haxe.macro.Context.currentPos(),
-						kind: FFun({
-							expr: block,
-							args: [
-								{
-									var ct = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(_x));
-									switch ct {
-										case TPath(p):
-											if (p.name == "StdTypes" && p.sub == "Null" && p.pack.length == 0) {
-												switch p.params[0] {
-													case TPType(t):
-														ct = t;
-													default:
-														var _ = false;
-												};
-											};
-										default:
-											var _ = false;
-									};
-									{name: "_x", type: ct};
-								},
-								{
-									var ct = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(_val));
-									switch ct {
-										case TPath(p):
-											if (p.name == "StdTypes" && p.sub == "Null" && p.pack.length == 0) {
-												switch p.params[0] {
-													case TPType(t):
-														ct = t;
-													default:
-														var _ = false;
-												};
-											};
-										default:
-											var _ = false;
-									};
-									{name: "_val", type: ct};
-								}
-							],
-							ret: haxe.macro.Context.getExpectedType() == null ? null : haxe.macro.Context.toComplexType(haxe.macro.Context.getExpectedType())
-						}),
-						access: [APublic, AStatic]
-					}
-				],
-				kind: TDClass()
-			};
-			{
-				{
-					final t:haxe.macro.Expr.ComplexType = switch haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(_x)) {
-						case TPath(p):
-							switch p.params[0] {
-								case TPType(t):
-									t;
-								default:
-									throw "invalid param t";
-							};
-						default:
-							throw "invalid e";
-					};
-					final pos = haxe.macro.Context.currentPos();
-					final td:haxe.macro.Expr.TypeDefinition = {
-						name: "T",
-						pos: pos,
-						pack: [],
-						fields: [],
-						meta: [{name: ":follow", pos: pos}],
-						kind: TDAlias(t)
-					};
-					tds.push(td);
-				};
-			};
-			{};
-			tds.push(td);
-			haxe.macro.Context.defineModule(pack.concat([className]).join("."), tds, haxe.macro.Context.getLocalImports());
-		};
-		return macro $p{pack.concat([className])}.store($_x, $_val);
-	}
+	macro static public function store<T>(_x:haxe.macro.Expr.ExprOf<Ref<Pointer_<T>>>, _val:haxe.macro.Expr.ExprOf<Ref<T>>):haxe.macro.Expr.ExprOf<Void>;
 
 	/**
 		// Load atomically loads and returns the value stored in x.
 	**/
 	@:keep
-	macro static public function load<T>(_x:haxe.macro.Expr.ExprOf<Ref<Pointer_<T>>>):haxe.macro.Expr.ExprOf<Ref<T>> {
-		final tds = [];
-		final block = macro throw "sync.atomic.load is not yet implemented";
-		var className = "T__load_";
-		{
-			className += haxe.macro.Context.signature(haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(_x))) + "_";
-		};
-		final pack = ["stdgo", "internal", "generic", className.toLowerCase()];
-		try {
-			haxe.macro.Context.getType(className);
-		} catch (____exec____) {
-			final td:haxe.macro.Expr.TypeDefinition = {
-				name: className,
-				pos: haxe.macro.Context.currentPos(),
-				pack: [],
-				fields: [
-					{
-						name: "load",
-						pos: haxe.macro.Context.currentPos(),
-						kind: FFun({
-							expr: block,
-							args: [
-								{
-									var ct = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(_x));
-									switch ct {
-										case TPath(p):
-											if (p.name == "StdTypes" && p.sub == "Null" && p.pack.length == 0) {
-												switch p.params[0] {
-													case TPType(t):
-														ct = t;
-													default:
-														var _ = false;
-												};
-											};
-										default:
-											var _ = false;
-									};
-									{name: "_x", type: ct};
-								}
-							],
-							ret: haxe.macro.Context.getExpectedType() == null ? null : haxe.macro.Context.toComplexType(haxe.macro.Context.getExpectedType())
-						}),
-						access: [APublic, AStatic]
-					}
-				],
-				kind: TDClass()
-			};
-			{
-				{
-					final t:haxe.macro.Expr.ComplexType = switch haxe.macro.Context.toComplexType(haxe.macro.Context.typeof(_x)) {
-						case TPath(p):
-							switch p.params[0] {
-								case TPType(t):
-									t;
-								default:
-									throw "invalid param t";
-							};
-						default:
-							throw "invalid e";
-					};
-					final pos = haxe.macro.Context.currentPos();
-					final td:haxe.macro.Expr.TypeDefinition = {
-						name: "T",
-						pos: pos,
-						pack: [],
-						fields: [],
-						meta: [{name: ":follow", pos: pos}],
-						kind: TDAlias(t)
-					};
-					tds.push(td);
-				};
-			};
-			{};
-			tds.push(td);
-			haxe.macro.Context.defineModule(pack.concat([className]).join("."), tds, haxe.macro.Context.getLocalImports());
-		};
-		return macro $p{pack.concat([className])}.load($_x);
-	}
+	macro static public function load<T>(_x:haxe.macro.Expr.ExprOf<Ref<Pointer_<T>>>):haxe.macro.Expr.ExprOf<Ref<T>>;
 }
 
 class Int32_asInterface {

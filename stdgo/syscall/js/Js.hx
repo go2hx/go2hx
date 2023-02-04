@@ -66,12 +66,8 @@ final typeFunction:Type = ((0 : GoInt) : Type);
 	// Func is a wrapped Go function to be called by JavaScript.
 **/
 @:structInit @:using(stdgo.syscall.js.Js.Func_static_extension) class Func {
-	/**
-		// the JavaScript function that invokes the Go function
-	**/
 	@:embedded
 	public var value:Value = ({} : Value);
-
 	public var _id:GoUInt32 = 0;
 
 	public function new(?value:Value, ?_id:GoUInt32) {
@@ -182,25 +178,14 @@ final typeFunction:Type = ((0 : GoInt) : Type);
 	// Values can be checked for equality with the Equal method.
 **/
 @:structInit @:using(stdgo.syscall.js.Js.Value_static_extension) class Value {
-	/**
-		// uncomparable; to make == not compile
-	**/
 	@:optional
-	public var _9:GoArray<() -> Void> = new GoArray<() -> Void>(...[for (i in 0...0) null]);
-
-	/**
-		// identifies a JavaScript value, see ref type
-	**/
+	public var _10:GoArray<() -> Void> = new GoArray<() -> Void>(...[for (i in 0...0) null]);
 	public var _ref:T_ref = ((0 : GoUInt64) : T_ref);
-
-	/**
-		// used to trigger the finalizer when the Value is not referenced any more
-	**/
 	public var _gcPtr:Pointer<T_ref> = (null : Pointer<T_ref>);
 
-	public function new(?_9:GoArray<() -> Void>, ?_ref:T_ref, ?_gcPtr:Pointer<T_ref>) {
-		if (_9 != null)
-			this._9 = _9;
+	public function new(?_10:GoArray<() -> Void>, ?_ref:T_ref, ?_gcPtr:Pointer<T_ref>) {
+		if (_10 != null)
+			this._10 = _10;
 		if (_ref != null)
 			this._ref = _ref;
 		if (_gcPtr != null)
@@ -211,7 +196,7 @@ final typeFunction:Type = ((0 : GoInt) : Type);
 		return Go.toInterface(this);
 
 	public function __copy__() {
-		return new Value(_9, _ref, _gcPtr);
+		return new Value(_10, _ref, _gcPtr);
 	}
 }
 
@@ -391,22 +376,22 @@ function funcOf(_fn:(_this:Value, _args:Slice<Value>) -> AnyInterface):Func
 /**
 	// setEventHandler is defined in the runtime package.
 **/
-function _setEventHandler(_fn:() -> Void):Void
+private function _setEventHandler(_fn:() -> Void):Void
 	throw "syscall.js._setEventHandler is not yet implemented";
 
-function _handleEvent():Void
+private function _handleEvent():Void
 	throw "syscall.js._handleEvent is not yet implemented";
 
-function _makeValue(_r:T_ref):Value
+private function _makeValue(_r:T_ref):Value
 	throw "syscall.js._makeValue is not yet implemented";
 
-function _finalizeRef(_r:T_ref):Void
+private function _finalizeRef(_r:T_ref):Void
 	throw "syscall.js._finalizeRef is not yet implemented";
 
-function _predefValue(_id:GoUInt32, _typeFlag:GoByte):Value
+private function _predefValue(_id:GoUInt32, _typeFlag:GoByte):Value
 	throw "syscall.js._predefValue is not yet implemented";
 
-function _floatValue(_f:GoFloat64):Value
+private function _floatValue(_f:GoFloat64):Value
 	throw "syscall.js._floatValue is not yet implemented";
 
 /**
@@ -446,49 +431,49 @@ function global():Value
 function valueOf(_x:AnyInterface):Value
 	throw "syscall.js.valueOf is not yet implemented";
 
-function _stringVal(_x:GoString):T_ref
+private function _stringVal(_x:GoString):T_ref
 	throw "syscall.js._stringVal is not yet implemented";
 
-function _valueGet(_v:T_ref, _p:GoString):T_ref
+private function _valueGet(_v:T_ref, _p:GoString):T_ref
 	throw "syscall.js._valueGet is not yet implemented";
 
-function _valueSet(_v:T_ref, _p:GoString, _x:T_ref):Void
+private function _valueSet(_v:T_ref, _p:GoString, _x:T_ref):Void
 	throw "syscall.js._valueSet is not yet implemented";
 
-function _valueDelete(_v:T_ref, _p:GoString):Void
+private function _valueDelete(_v:T_ref, _p:GoString):Void
 	throw "syscall.js._valueDelete is not yet implemented";
 
-function _valueIndex(_v:T_ref, _i:GoInt):T_ref
+private function _valueIndex(_v:T_ref, _i:GoInt):T_ref
 	throw "syscall.js._valueIndex is not yet implemented";
 
-function _valueSetIndex(_v:T_ref, _i:GoInt, _x:T_ref):Void
+private function _valueSetIndex(_v:T_ref, _i:GoInt, _x:T_ref):Void
 	throw "syscall.js._valueSetIndex is not yet implemented";
 
-function _makeArgs(_args:Slice<AnyInterface>):{var _0:Slice<Value>; var _1:Slice<T_ref>;}
+private function _makeArgs(_args:Slice<AnyInterface>):{var _0:Slice<Value>; var _1:Slice<T_ref>;}
 	throw "syscall.js._makeArgs is not yet implemented";
 
-function _valueLength(_v:T_ref):GoInt
+private function _valueLength(_v:T_ref):GoInt
 	throw "syscall.js._valueLength is not yet implemented";
 
-function _valueCall(_v:T_ref, _m:GoString, _args:Slice<T_ref>):{var _0:T_ref; var _1:Bool;}
+private function _valueCall(_v:T_ref, _m:GoString, _args:Slice<T_ref>):{var _0:T_ref; var _1:Bool;}
 	throw "syscall.js._valueCall is not yet implemented";
 
-function _valueInvoke(_v:T_ref, _args:Slice<T_ref>):{var _0:T_ref; var _1:Bool;}
+private function _valueInvoke(_v:T_ref, _args:Slice<T_ref>):{var _0:T_ref; var _1:Bool;}
 	throw "syscall.js._valueInvoke is not yet implemented";
 
-function _valueNew(_v:T_ref, _args:Slice<T_ref>):{var _0:T_ref; var _1:Bool;}
+private function _valueNew(_v:T_ref, _args:Slice<T_ref>):{var _0:T_ref; var _1:Bool;}
 	throw "syscall.js._valueNew is not yet implemented";
 
-function _jsString(_v:Value):GoString
+private function _jsString(_v:Value):GoString
 	throw "syscall.js._jsString is not yet implemented";
 
-function _valuePrepareString(_v:T_ref):{var _0:T_ref; var _1:GoInt;}
+private function _valuePrepareString(_v:T_ref):{var _0:T_ref; var _1:GoInt;}
 	throw "syscall.js._valuePrepareString is not yet implemented";
 
-function _valueLoadString(_v:T_ref, _b:Slice<GoByte>):Void
+private function _valueLoadString(_v:T_ref, _b:Slice<GoByte>):Void
 	throw "syscall.js._valueLoadString is not yet implemented";
 
-function _valueInstanceOf(_v:T_ref, _t:T_ref):Bool
+private function _valueInstanceOf(_v:T_ref, _t:T_ref):Bool
 	throw "syscall.js._valueInstanceOf is not yet implemented";
 
 /**
@@ -499,7 +484,7 @@ function _valueInstanceOf(_v:T_ref, _t:T_ref):Bool
 function copyBytesToGo(_dst:Slice<GoByte>, _src:Value):GoInt
 	throw "syscall.js.copyBytesToGo is not yet implemented";
 
-function _copyBytesToGo(_dst:Slice<GoByte>, _src:T_ref):{var _0:GoInt; var _1:Bool;}
+private function _copyBytesToGo(_dst:Slice<GoByte>, _src:T_ref):{var _0:GoInt; var _1:Bool;}
 	throw "syscall.js._copyBytesToGo is not yet implemented";
 
 /**
@@ -510,7 +495,7 @@ function _copyBytesToGo(_dst:Slice<GoByte>, _src:T_ref):{var _0:GoInt; var _1:Bo
 function copyBytesToJS(_dst:Value, _src:Slice<GoByte>):GoInt
 	throw "syscall.js.copyBytesToJS is not yet implemented";
 
-function _copyBytesToJS(_dst:T_ref, _src:Slice<GoByte>):{var _0:GoInt; var _1:Bool;}
+private function _copyBytesToJS(_dst:T_ref, _src:Slice<GoByte>):{var _0:GoInt; var _1:Bool;}
 	throw "syscall.js._copyBytesToJS is not yet implemented";
 
 class Func_asInterface {

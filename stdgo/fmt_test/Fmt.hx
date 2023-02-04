@@ -173,7 +173,7 @@ private var _examples:Slice<stdgo.testing.Testing.InternalExample> = (new Slice<
 	(new stdgo.testing.Testing.InternalExample(("ExampleStringer" : GoString), stdgo.fmt_test.Fmt_test.exampleStringer, ("Gopher (2)\n" : GoString),
 		false) : stdgo.testing.Testing.InternalExample)) : Slice<stdgo.testing.Testing.InternalExample>);
 
-function main():Void {
+private function main():Void {
 	var _m = stdgo.testing.Testing.mainStart(Go.asInterface((new stdgo.testing.internal.testdeps.Testdeps.TestDeps() : stdgo.testing.internal.testdeps.Testdeps.TestDeps)),
 		_tests, _benchmarks,
 		_fuzzTargets, _examples);

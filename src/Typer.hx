@@ -861,8 +861,10 @@ private function typeGoStmt(stmt:Ast.GoStmt, info:Info):ExprDef {
 
 private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, isFunc:Bool):ExprDef {
 	if (stmt.list == null) {
-		if (isFunc && info.returnTypes.length > 0)
-			return (macro throw "not implemented").expr;
+		if (isFunc && info.returnTypes.length > 0) {
+			final s = makeString("not implemented: " + info.funcName);
+			return (macro $s).expr;
+		}
 		return (macro {}).expr;
 	}
 	return typeStmtList(stmt.list, info, isFunc);
@@ -1316,7 +1318,6 @@ private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTyp
 }
 
 private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef { // a switch statement of a type
-
 	var init:Expr = stmt.init == null ? null : typeStmt(stmt.init, info);
 	var assign:Expr = null;
 	var assignType:GoType = null;
@@ -1382,16 +1383,17 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 				case EBlock(exprs):
 					var type:ComplexType = toComplexType(assignType, info);
 					var defValue = defaultValue(assignType,info,false);
+
 					var set = macro __type__ == null ? null : __type__.__underlying__();
 					if (types.length == 1) {
 						type = toComplexType(types[0], info);
 						defValue = defaultValue(types[0],info,false);
 						set = macro __type__ == null ? $defValue : __type__.__underlying__();
 						if (!isAnyInterface(types[0]))
-							set = macro $set == null ? $defValue : $set.value;
+							set = macro __type__ == null ? $defValue : cast __type__;
 					} else {
 						if (!isAnyInterface(assignType))
-							set = macro $set == null ? null : $set.value;
+							set = macro __type__ == null ? $defValue : cast __type__;
 					}
 
 					exprs.unshift(macro var $setVar:$type = $set);
@@ -6684,7 +6686,8 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 								final t = typeof(struct.methods.list[i].type, info, false, []);
 								switch t {
 									case signature(_, _, _.get() => results, _, _):
-										f.expr = macro throw "not implemented";
+										final s = makeString("not implemented: " + field.name);
+										f.expr = macro throw $s;
 									default:
 								}
 							}

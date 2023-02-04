@@ -153,6 +153,7 @@
     "unicode/utf8",
     "unsafe",
     "internal/testenv",
+    "internal/types/errors",
     "internal",
     "internal/bytealg",
     "internal/cpu",
@@ -161,6 +162,7 @@
     "internal/reflectlite",
     "internal/poll",
     "internal/fmtsort",
+    "internal/godebug",
     "net/netip",
     "go/doc/comment"
 ]

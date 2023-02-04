@@ -16,7 +16,15 @@ function main() {
 	for (data in list) {
 		libs.push(data.split("-")[0]);
 	}
-	//libs = ["internal/cpu","internal/bytealg","strings"];
+	//libs = ["internal/fmtsort","fmt","internal/cpu"];
+	//libs = ["fmt","reflect","strconv"];
+	//libs = ["errors","reflect","fmt"];
+	//libs = ["internal/types/errors","go/ast"];
+	//libs = ["errors","reflect","strconv"];
+	// libs = ["go/types"];
+	//libs = ["reflect","sync/atomic"];
+	//libs = ["sync","fmt","os","strconv","math/bits","errors"];
+	//libs = ["fmt", "internal/fmtsort","reflect"];
 	trace(libs);
 	libCount = libs.length;
 	Main.setup(0, 1); // amount of processes to spawn
@@ -93,10 +101,11 @@ final noMain = [
 	"reflect",
 	"internal/bytealg",
 	"internal/cpu",
+	"internal/types/errors",
 ];
 
 final externs = [
-	"syscall/js", "syscall", "os", "os/exec", "context", "testing", "testing/quick", "testing/iotest", "testing/fstest", "testing/internal/testdeps",
+	"syscall/js", "syscall", "os", "os/exec", "context", "testing", "testing/iotest", "testing/fstest", "testing/internal/testdeps",
 	"regexp/syntax", "regexp", "runtime", "runtime/debug", "reflect", "sync", "sync/atomic",
 ];
 

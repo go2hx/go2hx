@@ -45,5 +45,13 @@
     "crypto/sha1",
     "crypto/rand",
     "fmt",
-    "internal/fmtsort"
+    "internal/fmtsort",
+    "go/ast",
+    "go/types",
+    "go/token",
+    "go/printer",
+    "go/constant",
+    "go/importer",
+    "compress/zlib",
+    "internal/types/errors"
 ]

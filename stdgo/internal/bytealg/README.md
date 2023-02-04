@@ -16,12 +16,6 @@
 
 - [Variables](<#variables>)
 
-- [`function _abigen_runtime_cmpstring(_a:stdgo.GoString, _b:stdgo.GoString):stdgo.GoInt`](<#function-_abigen_runtime_cmpstring>)
-
-- [`function _abigen_runtime_memequal(_a:stdgo.unsafe.UnsafePointer, _b:stdgo.unsafe.UnsafePointer, _size:stdgo.GoUIntptr):Bool`](<#function-_abigen_runtime_memequal>)
-
-- [`function _abigen_runtime_memequal_varlen(_a:stdgo.unsafe.UnsafePointer, _b:stdgo.unsafe.UnsafePointer):Bool`](<#function-_abigen_runtime_memequal_varlen>)
-
 - [`function compare(_a:stdgo.Slice<stdgo.GoByte>, _b:stdgo.Slice<stdgo.GoByte>):stdgo.GoInt`](<#function-compare>)
 
 - [`function count(_b:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.GoInt`](<#function-count>)
@@ -95,48 +89,6 @@ MaxLen is the maximum length of the string to be searched for \(argument b\) in 
 ```haxe
 import stdgo.internal.bytealg.Bytealg
 ```
-
-
-## function \_abigen\_runtime\_cmpstring
-
-
-```haxe
-function _abigen_runtime_cmpstring(_a:stdgo.GoString, _b:stdgo.GoString):stdgo.GoInt
-```
-
-
-go:linkname abigen\_runtime\_cmpstring runtime.cmpstring 
-
-
-[\(view code\)](<./Bytealg.hx#L268>)
-
-
-## function \_abigen\_runtime\_memequal
-
-
-```haxe
-function _abigen_runtime_memequal(_a:stdgo.unsafe.UnsafePointer, _b:stdgo.unsafe.UnsafePointer, _size:stdgo.GoUIntptr):Bool
-```
-
-
-go:linkname abigen\_runtime\_memequal runtime.memequal 
-
-
-[\(view code\)](<./Bytealg.hx#L310>)
-
-
-## function \_abigen\_runtime\_memequal\_varlen
-
-
-```haxe
-function _abigen_runtime_memequal_varlen(_a:stdgo.unsafe.UnsafePointer, _b:stdgo.unsafe.UnsafePointer):Bool
-```
-
-
-go:linkname abigen\_runtime\_memequal\_varlen runtime.memequal\_varlen 
-
-
-[\(view code\)](<./Bytealg.hx#L316>)
 
 
 ## function compare

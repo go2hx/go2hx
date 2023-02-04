@@ -27,82 +27,82 @@ import stdgo.internal.goexperiment.Goexperiment
 
 
 ```haxe
-final boringCrypto:stdgo.InvalidType = null
+final boringCrypto:stdgo.InvalidType = false
 ```
 
 
 ```haxe
-final boringCryptoInt:stdgo.GoUInt64 = ((0 : GoUInt64))
+final boringCryptoInt:stdgo.GoUInt64 = (("0" : GoUInt64))
 ```
 
 
 ```haxe
-final fieldTrack:stdgo.InvalidType = null
+final fieldTrack:stdgo.InvalidType = false
 ```
 
 
 ```haxe
-final fieldTrackInt:stdgo.GoUInt64 = ((0 : GoUInt64))
+final fieldTrackInt:stdgo.GoUInt64 = (("0" : GoUInt64))
 ```
 
 
 ```haxe
-final heapMinimum512KiB:stdgo.InvalidType = null
+final heapMinimum512KiB:stdgo.InvalidType = false
 ```
 
 
 ```haxe
-final heapMinimum512KiBInt:stdgo.GoUInt64 = ((0 : GoUInt64))
+final heapMinimum512KiBInt:stdgo.GoUInt64 = (("0" : GoUInt64))
 ```
 
 
 ```haxe
-final preemptibleLoops:stdgo.InvalidType = null
+final preemptibleLoops:stdgo.InvalidType = false
 ```
 
 
 ```haxe
-final preemptibleLoopsInt:stdgo.GoUInt64 = ((0 : GoUInt64))
+final preemptibleLoopsInt:stdgo.GoUInt64 = (("0" : GoUInt64))
 ```
 
 
 ```haxe
-final regabiArgs:stdgo.InvalidType = null
+final regabiArgs:stdgo.InvalidType = false
 ```
 
 
 ```haxe
-final regabiArgsInt:stdgo.GoUInt64 = ((0 : GoUInt64))
+final regabiArgsInt:stdgo.GoUInt64 = (("0" : GoUInt64))
 ```
 
 
 ```haxe
-final regabiWrappers:stdgo.InvalidType = null
+final regabiWrappers:stdgo.InvalidType = false
 ```
 
 
 ```haxe
-final regabiWrappersInt:stdgo.GoUInt64 = ((0 : GoUInt64))
+final regabiWrappersInt:stdgo.GoUInt64 = (("0" : GoUInt64))
 ```
 
 
 ```haxe
-final staticLockRanking:stdgo.InvalidType = null
+final staticLockRanking:stdgo.InvalidType = false
 ```
 
 
 ```haxe
-final staticLockRankingInt:stdgo.GoUInt64 = ((0 : GoUInt64))
+final staticLockRankingInt:stdgo.GoUInt64 = (("0" : GoUInt64))
 ```
 
 
 ```haxe
-final unified:stdgo.InvalidType = null
+final unified:stdgo.InvalidType = false
 ```
 
 
 ```haxe
-final unifiedInt:stdgo.GoUInt64 = ((0 : GoUInt64))
+final unifiedInt:stdgo.GoUInt64 = (("0" : GoUInt64))
 ```
 
 

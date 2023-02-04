@@ -13,18 +13,24 @@ Package errors implements functions to manipulate errors.    The New function cr
 <p>
 
 ```
-=== RUN   TestNewEqual
---- PASS: TestNewEqual (9.918212890625e-05)
-=== RUN   TestErrorMethod
---- PASS: TestErrorMethod (1.09672546386719e-05)
-=== RUN   TestIs
---- PASS: TestIs (5.88893890380859e-05)
-=== RUN   TestAs
---- PASS: TestAs (0.00123786926269531)
-=== RUN   TestAsValidation
---- PASS: TestAsValidation (6.98566436767578e-05)
-=== RUN   TestUnwrap
---- PASS: TestUnwrap (0.000111103057861328)
+=== RUN  TestNewEqual
+--- PASS: TestNewEqual (%!s(float64=9.083747863769531e-05))
+
+=== RUN  TestErrorMethod
+--- PASS: TestErrorMethod (%!s(float64=7.152557373046875e-06))
+
+=== RUN  TestIs
+--- PASS: TestIs (%!s(float64=4.410743713378906e-05))
+
+=== RUN  TestAs
+--- PASS: TestAs (%!s(float64=0.007941007614135742))
+
+=== RUN  TestAsValidation
+--- PASS: TestAsValidation (%!s(float64=0.0006079673767089844))
+
+=== RUN  TestUnwrap
+--- PASS: TestUnwrap (%!s(float64=9.298324584960938e-05))
+
 ```
 </p>
 </details>
@@ -33,18 +39,24 @@ Package errors implements functions to manipulate errors.    The New function cr
 <p>
 
 ```
-=== RUN   TestNewEqual
---- PASS: TestNewEqual (0.00014591217041015625)
-=== RUN   TestErrorMethod
---- PASS: TestErrorMethod (2.002716064453125e-05)
-=== RUN   TestIs
---- PASS: TestIs (0.0001430511474609375)
-=== RUN   TestAs
---- PASS: TestAs (0.00082683563232421875)
-=== RUN   TestAsValidation
---- PASS: TestAsValidation (8.32080841064453125e-05)
-=== RUN   TestUnwrap
---- PASS: TestUnwrap (0.000260114669799804688)
+=== RUN  TestNewEqual
+--- PASS: TestNewEqual (%!s(float64=0.00011801719665527344))
+
+=== RUN  TestErrorMethod
+--- PASS: TestErrorMethod (%!s(float64=2.09808349609375e-05))
+
+=== RUN  TestIs
+--- PASS: TestIs (%!s(float64=0.0001709461212158203))
+
+=== RUN  TestAs
+--- PASS: TestAs (%!s(float64=0.01238107681274414))
+
+=== RUN  TestAsValidation
+--- PASS: TestAsValidation (%!s(float64=0.0015299320220947266))
+
+=== RUN  TestUnwrap
+--- PASS: TestUnwrap (%!s(float64=0.0002219676971435547))
+
 ```
 </p>
 </details>
@@ -54,6 +66,7 @@ Package errors implements functions to manipulate errors.    The New function cr
 
 ```
 IO.Overflow("write_ui16")
+stdgo/internal/Macro.macro.hx:35: define
 ```
 </p>
 </details>
@@ -110,13 +123,13 @@ As finds the first error in err's chain that matches target, and if one is found
 ```haxe
 function exampleAs():Void {
 	{
-		var __tmp__ = stdgo.os.Os.open(Go.str("non-existing")),
+		var __tmp__ = stdgo.os.Os.open(("non-existing" : GoString)),
 			_0:Ref<stdgo.os.Os.File> = __tmp__._0,
 			_err:Error = __tmp__._1;
 		if (_err != null) {
 			var _pathError:Ref<stdgo.io.fs.Fs.PathError> = (null : Ref<stdgo.io.fs.Fs.PathError>);
 			if (stdgo.errors.Errors.as(_err, Go.toInterface((_pathError : Ref<Ref<stdgo.io.fs.Fs.PathError>>)))) {
-				stdgo.fmt.Fmt.println(Go.toInterface(Go.str("Failed at path:")), Go.toInterface(_pathError.path));
+				stdgo.fmt.Fmt.println(Go.toInterface(("Failed at path:" : GoString)), Go.toInterface(_pathError.path));
 			} else {
 				stdgo.fmt.Fmt.println(Go.toInterface(_err));
 			};
@@ -130,7 +143,7 @@ function exampleAs():Void {
 </details>
 
 
-[\(view code\)](<./Errors.hx#L189>)
+[\(view code\)](<./Errors.hx#L188>)
 
 
 ## function is\_
@@ -144,7 +157,7 @@ function is_(_err:stdgo.Error, _target:stdgo.Error):Bool
 Is reports whether any error in err's chain matches target.    The chain consists of err itself followed by the sequence of errors obtained by  repeatedly calling Unwrap.    An error is considered to match a target if it is equal to that target or if  it implements a method Is\(error\) bool such that Is\(target\) returns true.    An error type might provide an Is method so it can be treated as equivalent  to an existing error. For example, if MyError defines     func \(m MyError\) Is\(target error\) bool \{ return target == fs.ErrExist \}    then Is\(MyError\{\}, fs.ErrExist\) returns true. See syscall.Errno.Is for  an example in the standard library. An Is method should only shallowly  compare err and the target and not call Unwrap on either. 
 
 
-[\(view code\)](<./Errors.hx#L143>)
+[\(view code\)](<./Errors.hx#L142>)
 
 
 ## function new\_
@@ -158,7 +171,7 @@ function new_(_text:stdgo.GoString):stdgo.Error
 New returns an error that formats as the given text.  Each call to New returns a distinct error value even if the text is identical. 
 
 
-[\(view code\)](<./Errors.hx#L104>)
+[\(view code\)](<./Errors.hx#L103>)
 
 
 ## function unwrap
@@ -181,8 +194,8 @@ Unwrap returns the result of calling the Unwrap method on err, if err's  type co
 
 ```haxe
 function exampleUnwrap():Void {
-	var _err1:Error = stdgo.errors.Errors.new_(Go.str("error1"));
-	var _err2:Error = stdgo.fmt.Fmt.errorf(Go.str("error2: [%w]"), Go.toInterface(_err1));
+	var _err1:Error = stdgo.errors.Errors.new_(("error1" : GoString));
+	var _err2:Error = stdgo.fmt.Fmt.errorf(("error2: [%w]" : GoString), Go.toInterface(_err1));
 	stdgo.fmt.Fmt.println(Go.toInterface(_err2));
 	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.errors.Errors.unwrap(_err2)));
 }
@@ -193,7 +206,7 @@ function exampleUnwrap():Void {
 </details>
 
 
-[\(view code\)](<./Errors.hx#L113>)
+[\(view code\)](<./Errors.hx#L112>)
 
 
 # Classes
@@ -221,6 +234,6 @@ function error(_e:stdgo.Ref<stdgo.errors._Errors.T_errorString>):stdgo.GoString
  
 
 
-[\(view code\)](<./Errors.hx#L246>)
+[\(view code\)](<./Errors.hx#L245>)
 
 

@@ -13,60 +13,87 @@ Package sort provides primitives for sorting slices and user\-defined collection
 <p>
 
 ```
-=== RUN   TestSearch
---- PASS: TestSearch (0.000256061553955078)
-=== RUN   TestFind
---- PASS: TestFind (4.1961669921875e-05)
-=== RUN   TestSearchEfficiency
---- PASS: TestSearchEfficiency (0.01863694190979)
-=== RUN   TestSearchWrappers
---- PASS: TestSearchWrappers (1.09672546386719e-05)
-=== RUN   TestSearchWrappersDontAlloc
---- PASS: TestSearchWrappersDontAlloc (1.00135803222656e-05)
-=== RUN   TestSearchExhaustive
---- PASS: TestSearchExhaustive (0.0387020111083984)
-=== RUN   TestFindExhaustive
---- PASS: TestFindExhaustive (0.0789670944213867)
-=== RUN   TestSortIntSlice
---- PASS: TestSortIntSlice (6.89029693603516e-05)
-=== RUN   TestSortFloat64Slice
---- PASS: TestSortFloat64Slice (4.60147857666016e-05)
-=== RUN   TestSortStringSlice
---- PASS: TestSortStringSlice (6.50882720947266e-05)
-=== RUN   TestInts
---- PASS: TestInts (3.60012054443359e-05)
-=== RUN   TestFloat64s
---- PASS: TestFloat64s (3.98159027099609e-05)
-=== RUN   TestStrings
---- PASS: TestStrings (8.20159912109375e-05)
-=== RUN   TestSlice
---- PASS: TestSlice (0.000161886215209961)
-=== RUN   TestSortLarge_Random
---- PASS: TestSortLarge_Random (0.0154430866241455)
-=== RUN   TestReverseSortIntSlice
---- PASS: TestReverseSortIntSlice (9.60826873779297e-05)
-=== RUN   TestBreakPatterns
---- PASS: TestBreakPatterns (0.000121116638183594)
-=== RUN   TestReverseRange
---- PASS: TestReverseRange (2.59876251220703e-05)
-=== RUN   TestNonDeterministicComparison
---- PASS: TestNonDeterministicComparison (5.3303279876709)
-=== RUN   TestSortBM
---- PASS: TestSortBM (0.217036962509155)
-=== RUN   TestHeapsortBM
---- PASS: TestHeapsortBM (0.366336107254028)
-=== RUN   TestStableBM
---- PASS: TestStableBM (0.579779863357544)
-=== RUN   TestAdversary
---- PASS: TestAdversary (0.0230851173400879)
-=== RUN   TestStableInts
---- PASS: TestStableInts (5.19752502441406e-05)
-=== RUN   TestStability
---- PASS: TestStability (0.0264580249786377)
-=== RUN   TestCountStableOps
---- PASS: TestCountStableOps (0.394124984741211)
-=== RUN   TestCountSortOps
---- PASS: TestCountSortOps (0.0376880168914795)
+=== RUN  TestSearch
+--- PASS: TestSearch (%!s(float64=0.0002880096435546875))
+
+=== RUN  TestFind
+--- PASS: TestFind (%!s(float64=2.9087066650390625e-05))
+
+=== RUN  TestSearchEfficiency
+--- PASS: TestSearchEfficiency (%!s(float64=0.018810033798217773))
+
+=== RUN  TestSearchWrappers
+--- PASS: TestSearchWrappers (%!s(float64=1.0967254638671875e-05))
+
+=== RUN  TestSearchWrappersDontAlloc
+--- PASS: TestSearchWrappersDontAlloc (%!s(float64=5.9604644775390625e-06))
+
+=== RUN  TestSearchExhaustive
+--- PASS: TestSearchExhaustive (%!s(float64=0.04069709777832031))
+
+=== RUN  TestFindExhaustive
+--- PASS: TestFindExhaustive (%!s(float64=0.08221197128295898))
+
+=== RUN  TestSortIntSlice
+--- PASS: TestSortIntSlice (%!s(float64=5.507469177246094e-05))
+
+=== RUN  TestSortFloat64Slice
+--- PASS: TestSortFloat64Slice (%!s(float64=4.00543212890625e-05))
+
+=== RUN  TestSortStringSlice
+--- PASS: TestSortStringSlice (%!s(float64=7.390975952148438e-05))
+
+=== RUN  TestInts
+--- PASS: TestInts (%!s(float64=3.504753112792969e-05))
+
+=== RUN  TestFloat64s
+--- PASS: TestFloat64s (%!s(float64=3.886222839355469e-05))
+
+=== RUN  TestStrings
+--- PASS: TestStrings (%!s(float64=6.413459777832031e-05))
+
+=== RUN  TestSlice
+--- PASS: TestSlice (%!s(float64=0.0001780986785888672))
+
+=== RUN  TestSortLarge_Random
+--- PASS: TestSortLarge_Random (%!s(float64=0.015144109725952148))
+
+=== RUN  TestReverseSortIntSlice
+--- PASS: TestReverseSortIntSlice (%!s(float64=7.295608520507812e-05))
+
+=== RUN  TestBreakPatterns
+--- PASS: TestBreakPatterns (%!s(float64=7.605552673339844e-05))
+
+=== RUN  TestReverseRange
+--- PASS: TestReverseRange (%!s(float64=2.3126602172851562e-05))
+
+=== RUN  TestNonDeterministicComparison
+--- PASS: TestNonDeterministicComparison (%!s(float64=5.579363107681274))
+
+=== RUN  TestSortBM
+--- PASS: TestSortBM (%!s(float64=0.6576910018920898))
+
+=== RUN  TestHeapsortBM
+--- PASS: TestHeapsortBM (%!s(float64=0.799583911895752))
+
+=== RUN  TestStableBM
+--- PASS: TestStableBM (%!s(float64=1.0415639877319336))
+
+=== RUN  TestAdversary
+--- PASS: TestAdversary (%!s(float64=0.0224459171295166))
+
+=== RUN  TestStableInts
+--- PASS: TestStableInts (%!s(float64=4.506111145019531e-05))
+
+=== RUN  TestStability
+--- PASS: TestStability (%!s(float64=0.027524948120117188))
+
+=== RUN  TestCountStableOps
+--- PASS: TestCountStableOps (%!s(float64=0.40042614936828613))
+
+=== RUN  TestCountSortOps
+--- PASS: TestCountSortOps (%!s(float64=0.035386085510253906))
+
 ```
 </p>
 </details>
@@ -75,60 +102,87 @@ Package sort provides primitives for sorting slices and user\-defined collection
 <p>
 
 ```
-=== RUN   TestSearch
---- PASS: TestSearch (0.00185799598693847656)
-=== RUN   TestFind
---- PASS: TestFind (9.1075897216796875e-05)
-=== RUN   TestSearchEfficiency
---- PASS: TestSearchEfficiency (0.0801630020141601562)
-=== RUN   TestSearchWrappers
---- PASS: TestSearchWrappers (1.88350677490234375e-05)
-=== RUN   TestSearchWrappersDontAlloc
---- PASS: TestSearchWrappersDontAlloc (1.69277191162109375e-05)
-=== RUN   TestSearchExhaustive
---- PASS: TestSearchExhaustive (0.17021489143371582)
-=== RUN   TestFindExhaustive
---- PASS: TestFindExhaustive (0.368036985397338867)
-=== RUN   TestSortIntSlice
---- PASS: TestSortIntSlice (0.00024890899658203125)
-=== RUN   TestSortFloat64Slice
---- PASS: TestSortFloat64Slice (0.000235080718994140625)
-=== RUN   TestSortStringSlice
---- PASS: TestSortStringSlice (0.000157833099365234375)
-=== RUN   TestInts
---- PASS: TestInts (0.000176906585693359375)
-=== RUN   TestFloat64s
---- PASS: TestFloat64s (0.000291109085083007812)
-=== RUN   TestStrings
---- PASS: TestStrings (0.000118970870971679688)
-=== RUN   TestSlice
---- PASS: TestSlice (0.000469923019409179688)
-=== RUN   TestSortLarge_Random
---- PASS: TestSortLarge_Random (0.16659998893737793)
-=== RUN   TestReverseSortIntSlice
---- PASS: TestReverseSortIntSlice (0.0003871917724609375)
-=== RUN   TestBreakPatterns
---- PASS: TestBreakPatterns (0.00055694580078125)
-=== RUN   TestReverseRange
---- PASS: TestReverseRange (5.88893890380859375e-05)
-=== RUN   TestNonDeterministicComparison
---- PASS: TestNonDeterministicComparison (31.6123049259185791)
-=== RUN   TestSortBM
---- PASS: TestSortBM (1.61770105361938477)
-=== RUN   TestHeapsortBM
---- PASS: TestHeapsortBM (3.67026400566101074)
-=== RUN   TestStableBM
---- PASS: TestStableBM (3.85938811302185059)
-=== RUN   TestAdversary
---- PASS: TestAdversary (0.230609893798828125)
-=== RUN   TestStableInts
---- PASS: TestStableInts (0.000200033187866210938)
-=== RUN   TestStability
---- PASS: TestStability (0.16827702522277832)
-=== RUN   TestCountStableOps
---- PASS: TestCountStableOps (2.40595102310180664)
-=== RUN   TestCountSortOps
---- PASS: TestCountSortOps (0.354944944381713867)
+=== RUN  TestSearch
+--- PASS: TestSearch (%!s(float64=0.0014929771423339844))
+
+=== RUN  TestFind
+--- PASS: TestFind (%!s(float64=8.392333984375e-05))
+
+=== RUN  TestSearchEfficiency
+--- PASS: TestSearchEfficiency (%!s(float64=0.08394193649291992))
+
+=== RUN  TestSearchWrappers
+--- PASS: TestSearchWrappers (%!s(float64=3.504753112792969e-05))
+
+=== RUN  TestSearchWrappersDontAlloc
+--- PASS: TestSearchWrappersDontAlloc (%!s(float64=1.6927719116210938e-05))
+
+=== RUN  TestSearchExhaustive
+--- PASS: TestSearchExhaustive (%!s(float64=0.17931914329528809))
+
+=== RUN  TestFindExhaustive
+--- PASS: TestFindExhaustive (%!s(float64=0.3873281478881836))
+
+=== RUN  TestSortIntSlice
+--- PASS: TestSortIntSlice (%!s(float64=0.0002810955047607422))
+
+=== RUN  TestSortFloat64Slice
+--- PASS: TestSortFloat64Slice (%!s(float64=0.0003120899200439453))
+
+=== RUN  TestSortStringSlice
+--- PASS: TestSortStringSlice (%!s(float64=0.00017499923706054688))
+
+=== RUN  TestInts
+--- PASS: TestInts (%!s(float64=0.000225067138671875))
+
+=== RUN  TestFloat64s
+--- PASS: TestFloat64s (%!s(float64=0.00027298927307128906))
+
+=== RUN  TestStrings
+--- PASS: TestStrings (%!s(float64=0.00014090538024902344))
+
+=== RUN  TestSlice
+--- PASS: TestSlice (%!s(float64=0.0005478858947753906))
+
+=== RUN  TestSortLarge_Random
+--- PASS: TestSortLarge_Random (%!s(float64=0.17407488822937012))
+
+=== RUN  TestReverseSortIntSlice
+--- PASS: TestReverseSortIntSlice (%!s(float64=0.0004630088806152344))
+
+=== RUN  TestBreakPatterns
+--- PASS: TestBreakPatterns (%!s(float64=0.0005991458892822266))
+
+=== RUN  TestReverseRange
+--- PASS: TestReverseRange (%!s(float64=8.702278137207031e-05))
+
+=== RUN  TestNonDeterministicComparison
+--- PASS: TestNonDeterministicComparison (%!s(float64=32.77565598487854))
+
+=== RUN  TestSortBM
+--- PASS: TestSortBM (%!s(float64=2.4945528507232666))
+
+=== RUN  TestHeapsortBM
+--- PASS: TestHeapsortBM (%!s(float64=4.921475887298584))
+
+=== RUN  TestStableBM
+--- PASS: TestStableBM (%!s(float64=5.126147985458374))
+
+=== RUN  TestAdversary
+--- PASS: TestAdversary (%!s(float64=0.2645909786224365))
+
+=== RUN  TestStableInts
+--- PASS: TestStableInts (%!s(float64=0.00022792816162109375))
+
+=== RUN  TestStability
+--- PASS: TestStability (%!s(float64=0.1934349536895752))
+
+=== RUN  TestCountStableOps
+--- PASS: TestCountStableOps (%!s(float64=2.652635097503662))
+
+=== RUN  TestCountSortOps
+--- PASS: TestCountSortOps (%!s(float64=0.3994319438934326))
+
 ```
 </p>
 </details>
@@ -138,6 +192,7 @@ Package sort provides primitives for sorting slices and user\-defined collection
 
 ```
 IO.Overflow("write_ui16")
+stdgo/internal/Macro.macro.hx:35: define
 ```
 </p>
 </details>
@@ -145,78 +200,6 @@ IO.Overflow("write_ui16")
 
 # Index
 
-
-- [`function _breakPatterns(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):Void`](<#function-_breakpatterns>)
-
-- [`function _breakPatterns_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):Void`](<#function-_breakpatterns_func>)
-
-- [`function _choosePivot(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):{_1:stdgo.sort._Sort.T_sortedHint, _0:stdgo.GoInt}`](<#function-_choosepivot>)
-
-- [`function _choosePivot_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):{_1:stdgo.sort._Sort.T_sortedHint, _0:stdgo.GoInt}`](<#function-_choosepivot_func>)
-
-- [`function _heapSort(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):Void`](<#function-_heapsort>)
-
-- [`function _heapSort_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):Void`](<#function-_heapsort_func>)
-
-- [`function _insertionSort(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):Void`](<#function-_insertionsort>)
-
-- [`function _insertionSort_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):Void`](<#function-_insertionsort_func>)
-
-- [`function _isNaN(_f:stdgo.GoFloat64):Bool`](<#function-_isnan>)
-
-- [`function _median(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _c:stdgo.GoInt, _swaps:stdgo.Pointer<stdgo.GoInt>):stdgo.GoInt`](<#function-_median>)
-
-- [`function _medianAdjacent(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _swaps:stdgo.Pointer<stdgo.GoInt>):stdgo.GoInt`](<#function-_medianadjacent>)
-
-- [`function _medianAdjacent_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _swaps:stdgo.Pointer<stdgo.GoInt>):stdgo.GoInt`](<#function-_medianadjacent_func>)
-
-- [`function _median_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _c:stdgo.GoInt, _swaps:stdgo.Pointer<stdgo.GoInt>):stdgo.GoInt`](<#function-_median_func>)
-
-- [`function _nextPowerOfTwo(_length:stdgo.GoInt):stdgo.GoUInt`](<#function-_nextpoweroftwo>)
-
-- [`function _order2(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _swaps:stdgo.Pointer<stdgo.GoInt>):{_1:stdgo.GoInt, _0:stdgo.GoInt}`](<#function-_order2>)
-
-- [`function _order2_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _swaps:stdgo.Pointer<stdgo.GoInt>):{_1:stdgo.GoInt, _0:stdgo.GoInt}`](<#function-_order2_func>)
-
-- [`function _partialInsertionSort(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):Bool`](<#function-_partialinsertionsort>)
-
-- [`function _partialInsertionSort_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):Bool`](<#function-_partialinsertionsort_func>)
-
-- [`function _partition(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _pivot:stdgo.GoInt):{_1:Bool, _0:stdgo.GoInt}`](<#function-_partition>)
-
-- [`function _partitionEqual(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _pivot:stdgo.GoInt):stdgo.GoInt`](<#function-_partitionequal>)
-
-- [`function _partitionEqual_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _pivot:stdgo.GoInt):stdgo.GoInt`](<#function-_partitionequal_func>)
-
-- [`function _partition_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _pivot:stdgo.GoInt):{_1:Bool, _0:stdgo.GoInt}`](<#function-_partition_func>)
-
-- [`function _pdqsort(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _limit:stdgo.GoInt):Void`](<#function-_pdqsort>)
-
-- [`function _pdqsort_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _limit:stdgo.GoInt):Void`](<#function-_pdqsort_func>)
-
-- [`function _reverseRange(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):Void`](<#function-_reverserange>)
-
-- [`function _reverseRange_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):Void`](<#function-_reverserange_func>)
-
-- [`function _rotate(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _m:stdgo.GoInt, _b:stdgo.GoInt):Void`](<#function-_rotate>)
-
-- [`function _rotate_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _m:stdgo.GoInt, _b:stdgo.GoInt):Void`](<#function-_rotate_func>)
-
-- [`function _siftDown(_data:stdgo.sort.Interface, _lo:stdgo.GoInt, _hi:stdgo.GoInt, _first:stdgo.GoInt):Void`](<#function-_siftdown>)
-
-- [`function _siftDown_func(_data:stdgo.sort._Sort.T_lessSwap, _lo:stdgo.GoInt, _hi:stdgo.GoInt, _first:stdgo.GoInt):Void`](<#function-_siftdown_func>)
-
-- [`function _stable(_data:stdgo.sort.Interface, _n:stdgo.GoInt):Void`](<#function-_stable>)
-
-- [`function _stable_func(_data:stdgo.sort._Sort.T_lessSwap, _n:stdgo.GoInt):Void`](<#function-_stable_func>)
-
-- [`function _swapRange(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _n:stdgo.GoInt):Void`](<#function-_swaprange>)
-
-- [`function _swapRange_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _n:stdgo.GoInt):Void`](<#function-_swaprange_func>)
-
-- [`function _symMerge(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _m:stdgo.GoInt, _b:stdgo.GoInt):Void`](<#function-_symmerge>)
-
-- [`function _symMerge_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _m:stdgo.GoInt, _b:stdgo.GoInt):Void`](<#function-_symmerge_func>)
 
 - [`function find(_n:stdgo.GoInt, _cmp:()):{_1:Bool, _0:stdgo.GoInt}`](<#function-find>)
 
@@ -377,510 +360,6 @@ IO.Overflow("write_ui16")
 ```haxe
 import stdgo.sort.Sort
 ```
-
-
-## function \_breakPatterns
-
-
-```haxe
-function _breakPatterns(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):Void
-```
-
-
-breakPatterns scatters some elements around in an attempt to break some patterns  that might cause imbalanced partitions in quicksort. 
-
-
-[\(view code\)](<./Sort.hx#L1195>)
-
-
-## function \_breakPatterns\_func
-
-
-```haxe
-function _breakPatterns_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):Void
-```
-
-
-breakPatterns\_func scatters some elements around in an attempt to break some patterns  that might cause imbalanced partitions in quicksort. 
-
-
-[\(view code\)](<./Sort.hx#L685>)
-
-
-## function \_choosePivot
-
-
-```haxe
-function _choosePivot(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):{_1:stdgo.sort._Sort.T_sortedHint, _0:stdgo.GoInt}
-```
-
-
-choosePivot chooses a pivot in data\[a:b\].    \[0,8\): chooses a static pivot.  \[8,shortestNinther\): uses the simple median\-of\-three method.  \[shortestNinther,∞\): uses the Tukey ninther method. 
-
-
-[\(view code\)](<./Sort.hx#L1220>)
-
-
-## function \_choosePivot\_func
-
-
-```haxe
-function _choosePivot_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):{_1:stdgo.sort._Sort.T_sortedHint, _0:stdgo.GoInt}
-```
-
-
-choosePivot\_func chooses a pivot in data\[a:b\].    \[0,8\): chooses a static pivot.  \[8,shortestNinther\): uses the simple median\-of\-three method.  \[shortestNinther,∞\): uses the Tukey ninther method. 
-
-
-[\(view code\)](<./Sort.hx#L710>)
-
-
-## function \_heapSort
-
-
-```haxe
-function _heapSort(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):Void
-```
-
-
- 
-
-
-[\(view code\)](<./Sort.hx#L987>)
-
-
-## function \_heapSort\_func
-
-
-```haxe
-function _heapSort_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):Void
-```
-
-
- 
-
-
-[\(view code\)](<./Sort.hx#L477>)
-
-
-## function \_insertionSort
-
-
-```haxe
-function _insertionSort(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):Void
-```
-
-
-insertionSort sorts data\[a:b\] using insertion sort. 
-
-
-[\(view code\)](<./Sort.hx#L951>)
-
-
-## function \_insertionSort\_func
-
-
-```haxe
-function _insertionSort_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):Void
-```
-
-
-insertionSort\_func sorts data\[a:b\] using insertion sort. 
-
-
-[\(view code\)](<./Sort.hx#L441>)
-
-
-## function \_isNaN
-
-
-```haxe
-function _isNaN(_f:stdgo.GoFloat64):Bool
-```
-
-
-isNaN is a copy of math.IsNaN to avoid a dependency on the math package. 
-
-
-[\(view code\)](<./Sort.hx#L379>)
-
-
-## function \_median
-
-
-```haxe
-function _median(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _c:stdgo.GoInt, _swaps:stdgo.Pointer<stdgo.GoInt>):stdgo.GoInt
-```
-
-
-median returns x where data\[x\] is the median of data\[a\],data\[b\],data\[c\], where x is a, b, or c. 
-
-
-[\(view code\)](<./Sort.hx#L1264>)
-
-
-## function \_medianAdjacent
-
-
-```haxe
-function _medianAdjacent(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _swaps:stdgo.Pointer<stdgo.GoInt>):stdgo.GoInt
-```
-
-
-medianAdjacent finds the median of data\[a \- 1\], data\[a\], data\[a \+ 1\] and stores the index into a. 
-
-
-[\(view code\)](<./Sort.hx#L1286>)
-
-
-## function \_medianAdjacent\_func
-
-
-```haxe
-function _medianAdjacent_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _swaps:stdgo.Pointer<stdgo.GoInt>):stdgo.GoInt
-```
-
-
-medianAdjacent\_func finds the median of data\[a \- 1\], data\[a\], data\[a \+ 1\] and stores the index into a. 
-
-
-[\(view code\)](<./Sort.hx#L776>)
-
-
-## function \_median\_func
-
-
-```haxe
-function _median_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _c:stdgo.GoInt, _swaps:stdgo.Pointer<stdgo.GoInt>):stdgo.GoInt
-```
-
-
-median\_func returns x where data\[x\] is the median of data\[a\],data\[b\],data\[c\], where x is a, b, or c. 
-
-
-[\(view code\)](<./Sort.hx#L754>)
-
-
-## function \_nextPowerOfTwo
-
-
-```haxe
-function _nextPowerOfTwo(_length:stdgo.GoInt):stdgo.GoUInt
-```
-
-
- 
-
-
-[\(view code\)](<./Sort.hx#L348>)
-
-
-## function \_order2
-
-
-```haxe
-function _order2(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _swaps:stdgo.Pointer<stdgo.GoInt>):{_1:stdgo.GoInt, _0:stdgo.GoInt}
-```
-
-
-order2 returns x,y where data\[x\] \<= data\[y\], where x,y=a,b or x,y=b,a. 
-
-
-[\(view code\)](<./Sort.hx#L1253>)
-
-
-## function \_order2\_func
-
-
-```haxe
-function _order2_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _swaps:stdgo.Pointer<stdgo.GoInt>):{_1:stdgo.GoInt, _0:stdgo.GoInt}
-```
-
-
-order2\_func returns x,y where data\[x\] \<= data\[y\], where x,y=a,b or x,y=b,a. 
-
-
-[\(view code\)](<./Sort.hx#L743>)
-
-
-## function \_partialInsertionSort
-
-
-```haxe
-function _partialInsertionSort(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):Bool
-```
-
-
-partialInsertionSort partially sorts a slice, returns true if the slice is sorted at the end. 
-
-
-[\(view code\)](<./Sort.hx#L1148>)
-
-
-## function \_partialInsertionSort\_func
-
-
-```haxe
-function _partialInsertionSort_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):Bool
-```
-
-
-partialInsertionSort\_func partially sorts a slice, returns true if the slice is sorted at the end. 
-
-
-[\(view code\)](<./Sort.hx#L638>)
-
-
-## function \_partition
-
-
-```haxe
-function _partition(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _pivot:stdgo.GoInt):{_1:Bool, _0:stdgo.GoInt}
-```
-
-
-partition does one quicksort partition.  Let p = data\[pivot\]  Moves elements in data\[a:b\] around, so that data\[i\]\<p and data\[j\]\>=p for i\<newpivot and j\>newpivot.  On return, data\[newpivot\] = p 
-
-
-[\(view code\)](<./Sort.hx#L1079>)
-
-
-## function \_partitionEqual
-
-
-```haxe
-function _partitionEqual(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _pivot:stdgo.GoInt):stdgo.GoInt
-```
-
-
-partitionEqual partitions data\[a:b\] into elements equal to data\[pivot\] followed by elements greater than data\[pivot\].  It assumed that data\[a:b\] does not contain elements smaller than the data\[pivot\]. 
-
-
-[\(view code\)](<./Sort.hx#L1121>)
-
-
-## function \_partitionEqual\_func
-
-
-```haxe
-function _partitionEqual_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _pivot:stdgo.GoInt):stdgo.GoInt
-```
-
-
-partitionEqual\_func partitions data\[a:b\] into elements equal to data\[pivot\] followed by elements greater than data\[pivot\].  It assumed that data\[a:b\] does not contain elements smaller than the data\[pivot\]. 
-
-
-[\(view code\)](<./Sort.hx#L611>)
-
-
-## function \_partition\_func
-
-
-```haxe
-function _partition_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _pivot:stdgo.GoInt):{_1:Bool, _0:stdgo.GoInt}
-```
-
-
-partition\_func does one quicksort partition.  Let p = data\[pivot\]  Moves elements in data\[a:b\] around, so that data\[i\]\<p and data\[j\]\>=p for i\<newpivot and j\>newpivot.  On return, data\[newpivot\] = p 
-
-
-[\(view code\)](<./Sort.hx#L569>)
-
-
-## function \_pdqsort
-
-
-```haxe
-function _pdqsort(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _limit:stdgo.GoInt):Void
-```
-
-
-pdqsort sorts data\[a:b\].  The algorithm based on pattern\-defeating quicksort\(pdqsort\), but without the optimizations from BlockQuicksort.  pdqsort paper: https://arxiv.org/pdf/2106.05123.pdf  C\+\+ implementation: https://github.com/orlp/pdqsort  Rust implementation: https://docs.rs/pdqsort/latest/pdqsort/  limit is the number of allowed bad \(very unbalanced\) pivots before falling back to heapsort. 
-
-
-[\(view code\)](<./Sort.hx#L1014>)
-
-
-## function \_pdqsort\_func
-
-
-```haxe
-function _pdqsort_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _limit:stdgo.GoInt):Void
-```
-
-
-pdqsort\_func sorts data\[a:b\].  The algorithm based on pattern\-defeating quicksort\(pdqsort\), but without the optimizations from BlockQuicksort.  pdqsort paper: https://arxiv.org/pdf/2106.05123.pdf  C\+\+ implementation: https://github.com/orlp/pdqsort  Rust implementation: https://docs.rs/pdqsort/latest/pdqsort/  limit is the number of allowed bad \(very unbalanced\) pivots before falling back to heapsort. 
-
-
-[\(view code\)](<./Sort.hx#L504>)
-
-
-## function \_reverseRange
-
-
-```haxe
-function _reverseRange(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):Void
-```
-
-
- 
-
-
-[\(view code\)](<./Sort.hx#L1290>)
-
-
-## function \_reverseRange\_func
-
-
-```haxe
-function _reverseRange_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):Void
-```
-
-
- 
-
-
-[\(view code\)](<./Sort.hx#L780>)
-
-
-## function \_rotate
-
-
-```haxe
-function _rotate(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _m:stdgo.GoInt, _b:stdgo.GoInt):Void
-```
-
-
-rotate rotates two consecutive blocks u = data\[a:m\] and v = data\[m:b\] in data:  Data of the form 'x u v y' is changed to 'x v u y'.  rotate performs at most b\-a many calls to data.Swap,  and it assumes non\-degenerate arguments: a \< m && m \< b. 
-
-
-[\(view code\)](<./Sort.hx#L1443>)
-
-
-## function \_rotate\_func
-
-
-```haxe
-function _rotate_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _m:stdgo.GoInt, _b:stdgo.GoInt):Void
-```
-
-
-rotate\_func rotates two consecutive blocks u = data\[a:m\] and v = data\[m:b\] in data:  Data of the form 'x u v y' is changed to 'x v u y'.  rotate performs at most b\-a many calls to data.Swap,  and it assumes non\-degenerate arguments: a \< m && m \< b. 
-
-
-[\(view code\)](<./Sort.hx#L933>)
-
-
-## function \_siftDown
-
-
-```haxe
-function _siftDown(_data:stdgo.sort.Interface, _lo:stdgo.GoInt, _hi:stdgo.GoInt, _first:stdgo.GoInt):Void
-```
-
-
-siftDown implements the heap property on data\[lo:hi\].  first is an offset into the array where the root of the heap lies. 
-
-
-[\(view code\)](<./Sort.hx#L969>)
-
-
-## function \_siftDown\_func
-
-
-```haxe
-function _siftDown_func(_data:stdgo.sort._Sort.T_lessSwap, _lo:stdgo.GoInt, _hi:stdgo.GoInt, _first:stdgo.GoInt):Void
-```
-
-
-siftDown\_func implements the heap property on data\[lo:hi\].  first is an offset into the array where the root of the heap lies. 
-
-
-[\(view code\)](<./Sort.hx#L459>)
-
-
-## function \_stable
-
-
-```haxe
-function _stable(_data:stdgo.sort.Interface, _n:stdgo.GoInt):Void
-```
-
-
- 
-
-
-[\(view code\)](<./Sort.hx#L1309>)
-
-
-## function \_stable\_func
-
-
-```haxe
-function _stable_func(_data:stdgo.sort._Sort.T_lessSwap, _n:stdgo.GoInt):Void
-```
-
-
- 
-
-
-[\(view code\)](<./Sort.hx#L799>)
-
-
-## function \_swapRange
-
-
-```haxe
-function _swapRange(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _n:stdgo.GoInt):Void
-```
-
-
- 
-
-
-[\(view code\)](<./Sort.hx#L1300>)
-
-
-## function \_swapRange\_func
-
-
-```haxe
-function _swapRange_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _n:stdgo.GoInt):Void
-```
-
-
- 
-
-
-[\(view code\)](<./Sort.hx#L790>)
-
-
-## function \_symMerge
-
-
-```haxe
-function _symMerge(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _m:stdgo.GoInt, _b:stdgo.GoInt):Void
-```
-
-
-symMerge merges the two sorted subsequences data\[a:m\] and data\[m:b\] using  the SymMerge algorithm from Pok\-Son Kim and Arne Kutzner, "Stable Minimum  Storage Merging by Symmetric Comparisons", in Susanne Albers and Tomasz  Radzik, editors, Algorithms \- ESA 2004, volume 3221 of Lecture Notes in  Computer Science, pages 714\-723. Springer, 2004.    Let M = m\-a and N = b\-n. Wolog M \< N.  The recursion depth is bound by ceil\(log\(N\+M\)\).  The algorithm needs O\(M\*log\(N/M \+ 1\)\) calls to data.Less.  The algorithm needs O\(\(M\+N\)\*log\(M\)\) calls to data.Swap.    The paper gives O\(\(M\+N\)\*log\(M\)\) as the number of assignments assuming a  rotation algorithm which uses O\(M\+N\+gcd\(M\+N\)\) assignments. The argumentation  in the paper carries through for Swap operations, especially as the block  swapping rotate uses only O\(M\+N\) Swaps.    symMerge assumes non\-degenerate arguments: a \< m && m \< b.  Having the caller check this condition eliminates many leaf recursion calls,  which improves performance. 
-
-
-[\(view code\)](<./Sort.hx#L1364>)
-
-
-## function \_symMerge\_func
-
-
-```haxe
-function _symMerge_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _m:stdgo.GoInt, _b:stdgo.GoInt):Void
-```
-
-
-symMerge\_func merges the two sorted subsequences data\[a:m\] and data\[m:b\] using  the SymMerge algorithm from Pok\-Son Kim and Arne Kutzner, "Stable Minimum  Storage Merging by Symmetric Comparisons", in Susanne Albers and Tomasz  Radzik, editors, Algorithms \- ESA 2004, volume 3221 of Lecture Notes in  Computer Science, pages 714\-723. Springer, 2004.    Let M = m\-a and N = b\-n. Wolog M \< N.  The recursion depth is bound by ceil\(log\(N\+M\)\).  The algorithm needs O\(M\*log\(N/M \+ 1\)\) calls to data.Less.  The algorithm needs O\(\(M\+N\)\*log\(M\)\) calls to data.Swap.    The paper gives O\(\(M\+N\)\*log\(M\)\) as the number of assignments assuming a  rotation algorithm which uses O\(M\+N\+gcd\(M\+N\)\) assignments. The argumentation  in the paper carries through for Swap operations, especially as the block  swapping rotate uses only O\(M\+N\) Swaps.    symMerge assumes non\-degenerate arguments: a \< m && m \< b.  Having the caller check this condition eliminates many leaf recursion calls,  which improves performance. 
-
-
-[\(view code\)](<./Sort.hx#L854>)
 
 
 ## function find
@@ -1146,9 +625,9 @@ function exampleSearch():Void {
 		return _a[(_i : GoInt)] >= _x;
 	});
 	if ((_i < _a.length) && (_a[(_i : GoInt)] == _x)) {
-		stdgo.fmt.Fmt.printf(Go.str("found %d at index %d in %v\n"), Go.toInterface(_x), Go.toInterface(_i), Go.toInterface(_a));
+		stdgo.fmt.Fmt.printf(("found %d at index %d in %v\n" : GoString), Go.toInterface(_x), Go.toInterface(_i), Go.toInterface(_a));
 	} else {
-		stdgo.fmt.Fmt.printf(Go.str("%d not found in %v\n"), Go.toInterface(_x), Go.toInterface(_a));
+		stdgo.fmt.Fmt.printf(("%d not found in %v\n" : GoString), Go.toInterface(_x), Go.toInterface(_a));
 	};
 }
 ```
@@ -1174,9 +653,9 @@ function exampleSearch_descendingOrder():Void {
 		return _a[(_i : GoInt)] <= _x;
 	});
 	if ((_i < _a.length) && (_a[(_i : GoInt)] == _x)) {
-		stdgo.fmt.Fmt.printf(Go.str("found %d at index %d in %v\n"), Go.toInterface(_x), Go.toInterface(_i), Go.toInterface(_a));
+		stdgo.fmt.Fmt.printf(("found %d at index %d in %v\n" : GoString), Go.toInterface(_x), Go.toInterface(_i), Go.toInterface(_a));
 	} else {
-		stdgo.fmt.Fmt.printf(Go.str("%d not found in %v\n"), Go.toInterface(_x), Go.toInterface(_a));
+		stdgo.fmt.Fmt.printf(("%d not found in %v\n" : GoString), Go.toInterface(_x), Go.toInterface(_a));
 	};
 }
 ```
@@ -1213,10 +692,10 @@ function exampleSearchFloat64s():Void {
 		(8 : GoFloat64)) : Slice<GoFloat64>);
 	var _x:GoFloat64 = (2 : GoFloat64);
 	var _i:GoInt = stdgo.sort.Sort.searchFloat64s(_a, _x);
-	stdgo.fmt.Fmt.printf(Go.str("found %g at index %d in %v\n"), Go.toInterface(_x), Go.toInterface(_i), Go.toInterface(_a));
+	stdgo.fmt.Fmt.printf(("found %g at index %d in %v\n" : GoString), Go.toInterface(_x), Go.toInterface(_i), Go.toInterface(_a));
 	_x = (0.5 : GoFloat64);
 	_i = stdgo.sort.Sort.searchFloat64s(_a, _x);
-	stdgo.fmt.Fmt.printf(Go.str("%g not found, can be inserted at index %d in %v\n"), Go.toInterface(_x), Go.toInterface(_i), Go.toInterface(_a));
+	stdgo.fmt.Fmt.printf(("%g not found, can be inserted at index %d in %v\n" : GoString), Go.toInterface(_x), Go.toInterface(_i), Go.toInterface(_a));
 }
 ```
 
@@ -1251,10 +730,10 @@ function exampleSearchInts():Void {
 	var _a = (new Slice<GoInt>(0, 0, (1 : GoInt), (2 : GoInt), (3 : GoInt), (4 : GoInt), (6 : GoInt), (7 : GoInt), (8 : GoInt)) : Slice<GoInt>);
 	var _x:GoInt = (2 : GoInt);
 	var _i:GoInt = stdgo.sort.Sort.searchInts(_a, _x);
-	stdgo.fmt.Fmt.printf(Go.str("found %d at index %d in %v\n"), Go.toInterface(_x), Go.toInterface(_i), Go.toInterface(_a));
+	stdgo.fmt.Fmt.printf(("found %d at index %d in %v\n" : GoString), Go.toInterface(_x), Go.toInterface(_i), Go.toInterface(_a));
 	_x = (5 : GoInt);
 	_i = stdgo.sort.Sort.searchInts(_a, _x);
-	stdgo.fmt.Fmt.printf(Go.str("%d not found, can be inserted at index %d in %v\n"), Go.toInterface(_x), Go.toInterface(_i), Go.toInterface(_a));
+	stdgo.fmt.Fmt.printf(("%d not found, can be inserted at index %d in %v\n" : GoString), Go.toInterface(_x), Go.toInterface(_i), Go.toInterface(_a));
 }
 ```
 
@@ -1300,16 +779,17 @@ Slice sorts the slice x given the provided less function.  It panics if x is not
 
 ```haxe
 function exampleSlice():Void {
-	var _people = (new Slice<Person>(0, 0, (new Person(Go.str("Gopher"), (7 : GoInt)) : Person), (new Person(Go.str("Alice"), (55 : GoInt)) : Person),
-		(new Person(Go.str("Vera"), (24 : GoInt)) : Person), (new Person(Go.str("Bob"), (75 : GoInt)) : Person)) : Slice<Person>);
+	var _people = (new Slice<Person>(0, 0, (new Person(("Gopher" : GoString), (7 : GoInt)) : Person),
+		(new Person(("Alice" : GoString), (55 : GoInt)) : Person), (new Person(("Vera" : GoString), (24 : GoInt)) : Person),
+		(new Person(("Bob" : GoString), (75 : GoInt)) : Person)) : Slice<Person>);
 	stdgo.sort.Sort.slice(Go.toInterface(_people), function(_i:GoInt, _j:GoInt):Bool {
 		return _people[(_i : GoInt)].name < _people[(_j : GoInt)].name;
 	});
-	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("By name:")), Go.toInterface(_people));
+	stdgo.fmt.Fmt.println(Go.toInterface(("By name:" : GoString)), Go.toInterface(_people));
 	stdgo.sort.Sort.slice(Go.toInterface(_people), function(_i:GoInt, _j:GoInt):Bool {
 		return _people[(_i : GoInt)].age < _people[(_j : GoInt)].age;
 	});
-	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("By age:")), Go.toInterface(_people));
+	stdgo.fmt.Fmt.println(Go.toInterface(("By age:" : GoString)), Go.toInterface(_people));
 }
 ```
 
@@ -1355,18 +835,19 @@ SliceStable sorts the slice x using the provided less  function, keeping equal e
 
 ```haxe
 function exampleSliceStable():Void {
-	var _people = (new Slice<Person>(0, 0, (new Person(Go.str("Alice"), (25 : GoInt)) : Person), (new Person(Go.str("Elizabeth"), (75 : GoInt)) : Person),
-		(new Person(Go.str("Alice"), (75 : GoInt)) : Person), (new Person(Go.str("Bob"), (75 : GoInt)) : Person),
-		(new Person(Go.str("Alice"), (75 : GoInt)) : Person), (new Person(Go.str("Bob"), (25 : GoInt)) : Person),
-		(new Person(Go.str("Colin"), (25 : GoInt)) : Person), (new Person(Go.str("Elizabeth"), (25 : GoInt)) : Person)) : Slice<Person>);
+	var _people = (new Slice<Person>(0, 0, (new Person(("Alice" : GoString), (25 : GoInt)) : Person),
+		(new Person(("Elizabeth" : GoString), (75 : GoInt)) : Person), (new Person(("Alice" : GoString), (75 : GoInt)) : Person),
+		(new Person(("Bob" : GoString), (75 : GoInt)) : Person), (new Person(("Alice" : GoString), (75 : GoInt)) : Person),
+		(new Person(("Bob" : GoString), (25 : GoInt)) : Person), (new Person(("Colin" : GoString), (25 : GoInt)) : Person),
+		(new Person(("Elizabeth" : GoString), (25 : GoInt)) : Person)) : Slice<Person>);
 	stdgo.sort.Sort.sliceStable(Go.toInterface(_people), function(_i:GoInt, _j:GoInt):Bool {
 		return _people[(_i : GoInt)].name < _people[(_j : GoInt)].name;
 	});
-	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("By name:")), Go.toInterface(_people));
+	stdgo.fmt.Fmt.println(Go.toInterface(("By name:" : GoString)), Go.toInterface(_people));
 	stdgo.sort.Sort.sliceStable(Go.toInterface(_people), function(_i:GoInt, _j:GoInt):Bool {
 		return _people[(_i : GoInt)].age < _people[(_j : GoInt)].age;
 	});
-	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("By age,name:")), Go.toInterface(_people));
+	stdgo.fmt.Fmt.println(Go.toInterface(("By age,name:" : GoString)), Go.toInterface(_people));
 }
 ```
 
@@ -1426,7 +907,8 @@ Strings sorts a slice of strings in increasing order.
 
 ```haxe
 function exampleStrings():Void {
-	var _s = (new Slice<GoString>(0, 0, Go.str("Go"), Go.str("Bravo"), Go.str("Gopher"), Go.str("Alpha"), Go.str("Grin"), Go.str("Delta")) : Slice<GoString>);
+	var _s = (new Slice<GoString>(0, 0, ("Go" : GoString), ("Bravo" : GoString), ("Gopher" : GoString), ("Alpha" : GoString), ("Grin" : GoString),
+		("Delta" : GoString)) : Slice<GoString>);
 	stdgo.sort.Sort.strings(_s);
 	stdgo.fmt.Fmt.println(Go.toInterface(_s));
 }

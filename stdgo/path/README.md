@@ -9,23 +9,72 @@
 Package path implements utility routines for manipulating slash\-separated  paths.    The path package should only be used for paths separated by forward  slashes, such as the paths in URLs. This package does not deal with  Windows paths with drive letters or backslashes; to manipulate  operating system paths, use the path/filepath package. 
 
 
-<details><summary>hl tests failed</summary>
+<details><summary>hl tests passed</summary>
 <p>
 
 ```
-Error: Command failed with error 1
-=== RUN   TestMatch
-Match(*c, abc) = false, null want true, null
+=== RUN  TestMatch
+--- PASS: TestMatch (%!s(float64=0.0012271404266357422))
+
+=== RUN  TestClean
+--- PASS: TestClean (%!s(float64=0.00015807151794433594))
+
+=== RUN  TestCleanMallocs
+--- PASS: TestCleanMallocs (%!s(float64=9.059906005859375e-06))
+
+=== RUN  TestSplit
+--- PASS: TestSplit (%!s(float64=1.4066696166992188e-05))
+
+=== RUN  TestJoin
+--- PASS: TestJoin (%!s(float64=0.00011301040649414062))
+
+=== RUN  TestExt
+--- PASS: TestExt (%!s(float64=1.1920928955078125e-05))
+
+=== RUN  TestBase
+--- PASS: TestBase (%!s(float64=1.811981201171875e-05))
+
+=== RUN  TestDir
+--- PASS: TestDir (%!s(float64=4.100799560546875e-05))
+
+=== RUN  TestIsAbs
+--- PASS: TestIsAbs (%!s(float64=5.0067901611328125e-06))
+
 ```
 </p>
 </details>
 
-<details><summary>interp tests failed</summary>
+<details><summary>interp tests passed</summary>
 <p>
 
 ```
-=== RUN   TestMatch
-Match(*c, abc) = false, null want true, null
+=== RUN  TestMatch
+--- PASS: TestMatch (%!s(float64=0.003751993179321289))
+
+=== RUN  TestClean
+--- PASS: TestClean (%!s(float64=0.0010499954223632812))
+
+=== RUN  TestCleanMallocs
+--- PASS: TestCleanMallocs (%!s(float64=4.792213439941406e-05))
+
+=== RUN  TestSplit
+--- PASS: TestSplit (%!s(float64=4.100799560546875e-05))
+
+=== RUN  TestJoin
+--- PASS: TestJoin (%!s(float64=0.00028395652770996094))
+
+=== RUN  TestExt
+--- PASS: TestExt (%!s(float64=3.2901763916015625e-05))
+
+=== RUN  TestBase
+--- PASS: TestBase (%!s(float64=7.605552673339844e-05))
+
+=== RUN  TestDir
+--- PASS: TestDir (%!s(float64=0.0001499652862548828))
+
+=== RUN  TestIsAbs
+--- PASS: TestIsAbs (%!s(float64=2.002716064453125e-05))
+
 ```
 </p>
 </details>
@@ -35,6 +84,7 @@ Match(*c, abc) = false, null want true, null
 
 ```
 IO.Overflow("write_ui16")
+stdgo/internal/Macro.macro.hx:35: define
 ```
 </p>
 </details>
@@ -44,14 +94,6 @@ IO.Overflow("write_ui16")
 
 
 - [Variables](<#variables>)
-
-- [`function _getEsc(_chunk:stdgo.GoString):{_2:stdgo.Error, _1:stdgo.GoString, _0:stdgo.GoRune}`](<#function-_getesc>)
-
-- [`function _lastSlash(_s:stdgo.GoString):stdgo.GoInt`](<#function-_lastslash>)
-
-- [`function _matchChunk(_chunk:stdgo.GoString, _s:stdgo.GoString):{_2:stdgo.Error, _1:Bool, _0:stdgo.GoString}`](<#function-_matchchunk>)
-
-- [`function _scanChunk(_pattern:stdgo.GoString):{_2:stdgo.GoString, _1:stdgo.GoString, _0:Bool}`](<#function-_scanchunk>)
 
 - [`function base(_path:stdgo.GoString):stdgo.GoString`](<#function-base>)
 
@@ -120,62 +162,6 @@ import stdgo.path.Path
 ```
 
 
-## function \_getEsc
-
-
-```haxe
-function _getEsc(_chunk:stdgo.GoString):{_2:stdgo.Error, _1:stdgo.GoString, _0:stdgo.GoRune}
-```
-
-
-getEsc gets a possibly\-escaped character from chunk, for a character class. 
-
-
-[\(view code\)](<./Path.hx#L322>)
-
-
-## function \_lastSlash
-
-
-```haxe
-function _lastSlash(_s:stdgo.GoString):stdgo.GoInt
-```
-
-
-lastSlash\(s\) is strings.LastIndex\(s, "/"\) but we can't import strings. 
-
-
-[\(view code\)](<./Path.hx#L431>)
-
-
-## function \_matchChunk
-
-
-```haxe
-function _matchChunk(_chunk:stdgo.GoString, _s:stdgo.GoString):{_2:stdgo.Error, _1:Bool, _0:stdgo.GoString}
-```
-
-
-matchChunk checks whether chunk matches the beginning of s.  If so, it returns the remainder of s \(after the match\).  Chunk is all single\-character operators: literals, char classes, and ?. 
-
-
-[\(view code\)](<./Path.hx#L201>)
-
-
-## function \_scanChunk
-
-
-```haxe
-function _scanChunk(_pattern:stdgo.GoString):{_2:stdgo.GoString, _1:stdgo.GoString, _0:Bool}
-```
-
-
-scanChunk gets the next segment of pattern, which is a non\-star string  possibly preceded by a star. 
-
-
-[\(view code\)](<./Path.hx#L153>)
-
-
 ## function base
 
 
@@ -196,8 +182,8 @@ Base returns the last element of path.  Trailing slashes are removed before extr
 
 ```haxe
 function exampleBase():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.base(Go.str("/a/b"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.base(Go.str("/"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.base(("/a/b" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.base(("/" : GoString))));
 	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.base(Go.str())));
 }
 ```
@@ -230,10 +216,10 @@ Clean returns the shortest path name equivalent to path  by purely lexical proce
 
 ```haxe
 function exampleClean():Void {
-	var _paths = (new Slice<GoString>(0, 0, Go.str("a/c"), Go.str("a//c"), Go.str("a/c/."), Go.str("a/c/b/.."), Go.str("/../a/c"),
-		Go.str("/../a/b/../././/c"), Go.str()) : Slice<GoString>);
+	var _paths = (new Slice<GoString>(0, 0, ("a/c" : GoString), ("a//c" : GoString), ("a/c/." : GoString), ("a/c/b/.." : GoString), ("/../a/c" : GoString),
+		("/../a/b/../././/c" : GoString), Go.str()) : Slice<GoString>);
 	for (_0 => _p in _paths) {
-		stdgo.fmt.Fmt.printf(Go.str("Clean(%q) = %q\n"), Go.toInterface(_p), Go.toInterface(stdgo.path.Path.clean(_p)));
+		stdgo.fmt.Fmt.printf(("Clean(%q) = %q\n" : GoString), Go.toInterface(_p), Go.toInterface(stdgo.path.Path.clean(_p)));
 	};
 }
 ```
@@ -266,11 +252,11 @@ Dir returns all but the last element of path, typically the path's directory.  A
 
 ```haxe
 function exampleDir():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(Go.str("/a/b/c"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(Go.str("a/b/c"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(Go.str("/a/"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(Go.str("a/"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(Go.str("/"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(("/a/b/c" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(("a/b/c" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(("/a/" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(("a/" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(("/" : GoString))));
 	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(Go.str())));
 }
 ```
@@ -303,8 +289,8 @@ Ext returns the file name extension used by path.  The extension is the suffix b
 
 ```haxe
 function exampleExt():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.ext(Go.str("/a/b/c/bar.css"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.ext(Go.str("/"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.ext(("/a/b/c/bar.css" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.ext(("/" : GoString))));
 	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.ext(Go.str())));
 }
 ```
@@ -337,7 +323,7 @@ IsAbs reports whether the path is absolute.
 
 ```haxe
 function exampleIsAbs():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.isAbs(Go.str("/dev/null"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.isAbs(("/dev/null" : GoString))));
 }
 ```
 
@@ -369,13 +355,13 @@ Join joins any number of path elements into a single path,  separating them with
 
 ```haxe
 function exampleJoin():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str("a"), Go.str("b"), Go.str("c"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str("a"), Go.str("b/c"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str("a/b"), Go.str("c"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str("a/b"), Go.str("../../../xyz"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(("a" : GoString), ("b" : GoString), ("c" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(("a" : GoString), ("b/c" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(("a/b" : GoString), ("c" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(("a/b" : GoString), ("../../../xyz" : GoString))));
 	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str(), Go.str())));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str("a"), Go.str())));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str(), Go.str("a"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(("a" : GoString), Go.str())));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str(), ("a" : GoString))));
 }
 ```
 
@@ -408,15 +394,15 @@ Match reports whether name matches the shell pattern.  The pattern syntax is:   
 ```haxe
 function exampleMatch():Void {
 	{
-		var __tmp__ = stdgo.path.Path.match(Go.str("abc"), Go.str("abc"));
+		var __tmp__ = stdgo.path.Path.match(("abc" : GoString), ("abc" : GoString));
 		stdgo.fmt.Fmt.println(Go.toInterface((__tmp__._0 : Bool)), Go.toInterface((__tmp__._1 : Error)));
 	};
 	{
-		var __tmp__ = stdgo.path.Path.match(Go.str("a*"), Go.str("abc"));
+		var __tmp__ = stdgo.path.Path.match(("a*" : GoString), ("abc" : GoString));
 		stdgo.fmt.Fmt.println(Go.toInterface((__tmp__._0 : Bool)), Go.toInterface((__tmp__._1 : Error)));
 	};
 	{
-		var __tmp__ = stdgo.path.Path.match(Go.str("a*/b"), Go.str("a/c/b"));
+		var __tmp__ = stdgo.path.Path.match(("a*/b" : GoString), ("a/c/b" : GoString));
 		stdgo.fmt.Fmt.println(Go.toInterface((__tmp__._0 : Bool)), Go.toInterface((__tmp__._1 : Error)));
 	};
 }
@@ -452,10 +438,10 @@ Split splits path immediately following the final slash,  separating it into a d
 function exampleSplit():Void {
 	var _split:GoString->Void = function(_s:GoString):Void {
 		var __tmp__ = stdgo.path.Path.split(_s), _dir:GoString = __tmp__._0, _file:GoString = __tmp__._1;
-		stdgo.fmt.Fmt.printf(Go.str("path.Split(%q) = dir: %q, file: %q\n"), Go.toInterface(_s), Go.toInterface(_dir), Go.toInterface(_file));
+		stdgo.fmt.Fmt.printf(("path.Split(%q) = dir: %q, file: %q\n" : GoString), Go.toInterface(_s), Go.toInterface(_dir), Go.toInterface(_file));
 	};
-	_split(Go.str("static/myfile.css"));
-	_split(Go.str("myfile.css"));
+	_split(("static/myfile.css" : GoString));
+	_split(("myfile.css" : GoString));
 	_split(Go.str());
 }
 ```

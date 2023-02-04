@@ -48,8 +48,6 @@
 
 - [`function testSplit(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testsplit>)
 
-- [`function main():Void`](<#function-main>)
-
 - [class ExtTest](<#class-exttest>)
 
   - [`function new(?_path:stdgo.GoString, ?_ext:stdgo.GoString):Void`](<#exttest-function-new>)
@@ -106,7 +104,7 @@ function exampleBase():Void
  
 
 
-[\(view code\)](<./Path.hx#L312>)
+[\(view code\)](<./Path.hx#L320>)
 
 
 ## function exampleClean
@@ -120,7 +118,7 @@ function exampleClean():Void
  
 
 
-[\(view code\)](<./Path.hx#L318>)
+[\(view code\)](<./Path.hx#L326>)
 
 
 ## function exampleDir
@@ -134,7 +132,7 @@ function exampleDir():Void
  
 
 
-[\(view code\)](<./Path.hx#L326>)
+[\(view code\)](<./Path.hx#L334>)
 
 
 ## function exampleExt
@@ -148,7 +146,7 @@ function exampleExt():Void
  
 
 
-[\(view code\)](<./Path.hx#L335>)
+[\(view code\)](<./Path.hx#L343>)
 
 
 ## function exampleIsAbs
@@ -162,7 +160,7 @@ function exampleIsAbs():Void
  
 
 
-[\(view code\)](<./Path.hx#L341>)
+[\(view code\)](<./Path.hx#L349>)
 
 
 ## function exampleJoin
@@ -176,7 +174,7 @@ function exampleJoin():Void
  
 
 
-[\(view code\)](<./Path.hx#L345>)
+[\(view code\)](<./Path.hx#L353>)
 
 
 ## function exampleMatch
@@ -190,7 +188,7 @@ function exampleMatch():Void
  
 
 
-[\(view code\)](<./Path.hx#L355>)
+[\(view code\)](<./Path.hx#L363>)
 
 
 ## function exampleSplit
@@ -204,7 +202,7 @@ function exampleSplit():Void
  
 
 
-[\(view code\)](<./Path.hx#L370>)
+[\(view code\)](<./Path.hx#L378>)
 
 
 ## function testBase
@@ -218,7 +216,7 @@ function testBase(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Path.hx#L463>)
+[\(view code\)](<./Path.hx#L471>)
 
 
 ## function testClean
@@ -232,7 +230,7 @@ function testClean(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Path.hx#L392>)
+[\(view code\)](<./Path.hx#L400>)
 
 
 ## function testCleanMallocs
@@ -246,7 +244,7 @@ function testCleanMallocs(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Path.hx#L409>)
+[\(view code\)](<./Path.hx#L417>)
 
 
 ## function testDir
@@ -260,7 +258,7 @@ function testDir(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Path.hx#L474>)
+[\(view code\)](<./Path.hx#L482>)
 
 
 ## function testExt
@@ -274,7 +272,7 @@ function testExt(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Path.hx#L452>)
+[\(view code\)](<./Path.hx#L460>)
 
 
 ## function testIsAbs
@@ -288,7 +286,7 @@ function testIsAbs(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Path.hx#L485>)
+[\(view code\)](<./Path.hx#L493>)
 
 
 ## function testJoin
@@ -302,7 +300,7 @@ function testJoin(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Path.hx#L441>)
+[\(view code\)](<./Path.hx#L449>)
 
 
 ## function testMatch
@@ -316,7 +314,7 @@ function testMatch(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Path.hx#L380>)
+[\(view code\)](<./Path.hx#L388>)
 
 
 ## function testSplit
@@ -330,21 +328,7 @@ function testSplit(_t:stdgo.Ref<stdgo.testing.T>):Void
  
 
 
-[\(view code\)](<./Path.hx#L427>)
-
-
-## function main
-
-
-```haxe
-function main():Void
-```
-
-
- 
-
-
-[\(view code\)](<./Path.hx#L51>)
+[\(view code\)](<./Path.hx#L435>)
 
 
 # Classes
@@ -382,7 +366,7 @@ function new(?_path:stdgo.GoString, ?_ext:stdgo.GoString):Void
  
 
 
-[\(view code\)](<./Path_test.hx#L278>)
+[\(view code\)](<./Path_test.hx#L286>)
 
 
 ## class IsAbsTest
@@ -412,7 +396,7 @@ function new(?_path:stdgo.GoString, ?_isAbs:Bool):Void
  
 
 
-[\(view code\)](<./Path_test.hx#L297>)
+[\(view code\)](<./Path_test.hx#L305>)
 
 
 ## class JoinTest
@@ -442,7 +426,7 @@ function new(?_elem:stdgo.Slice<stdgo.GoString>, ?_path:stdgo.GoString):Void
  
 
 
-[\(view code\)](<./Path_test.hx#L259>)
+[\(view code\)](<./Path_test.hx#L267>)
 
 
 ## class MatchTest
@@ -482,7 +466,7 @@ function new(?_pattern:stdgo.GoString, ?_s:stdgo.GoString, ?_match:Bool, ?_err:N
  
 
 
-[\(view code\)](<./Path_test.hx#L195>)
+[\(view code\)](<./Path_test.hx#L203>)
 
 
 ## class PathTest
@@ -512,7 +496,7 @@ function new(?_path:stdgo.GoString, ?_result:stdgo.GoString):Void
  
 
 
-[\(view code\)](<./Path_test.hx#L218>)
+[\(view code\)](<./Path_test.hx#L226>)
 
 
 ## class SplitTest
@@ -547,6 +531,6 @@ function new(?_path:stdgo.GoString, ?_dir:stdgo.GoString, ?_file:stdgo.GoString)
  
 
 
-[\(view code\)](<./Path_test.hx#L238>)
+[\(view code\)](<./Path_test.hx#L246>)
 
 

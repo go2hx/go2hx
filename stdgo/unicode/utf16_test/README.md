@@ -38,8 +38,6 @@
 
 - [`function testIsSurrogate(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testissurrogate>)
 
-- [`function main():Void`](<#function-main>)
-
 - [class T\_\_struct\_0\_static\_extension](<#class-t__struct_0_static_extension>)
 
 - [class T\_\_struct\_1\_static\_extension](<#class-t__struct_1_static_extension>)
@@ -231,20 +229,6 @@ function testIsSurrogate(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 [\(view code\)](<./Utf16.hx#L220>)
-
-
-## function main
-
-
-```haxe
-function main():Void
-```
-
-
- 
-
-
-[\(view code\)](<./Utf16.hx#L44>)
 
 
 # Classes

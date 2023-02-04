@@ -14,12 +14,6 @@
 
 - [Variables](<#variables>)
 
-- [`function _runtimeDecodeRune(_s:stdgo.GoString):stdgo.GoRune`](<#function-_runtimedecoderune>)
-
-- [`function _runtimeRuneCount(_s:stdgo.GoString):stdgo.GoInt`](<#function-_runtimerunecount>)
-
-- [`function _testSequence(_t:stdgo.Ref<stdgo.testing.T>, _s:stdgo.GoString):Void`](<#function-_testsequence>)
-
 - [`function benchmarkAppendASCIIRune(_b:stdgo.Ref<stdgo.testing.B>):Void`](<#function-benchmarkappendasciirune>)
 
 - [`function benchmarkAppendJapaneseRune(_b:stdgo.Ref<stdgo.testing.B>):Void`](<#function-benchmarkappendjapaneserune>)
@@ -122,8 +116,6 @@
 
 - [`function testValidRune(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testvalidrune>)
 
-- [`function main():Void`](<#function-main>)
-
 - [class RuneCountTest](<#class-runecounttest>)
 
   - [`function new(?_in:stdgo.GoString, ?_out:Null<stdgo.GoInt>):Void`](<#runecounttest-function-new>)
@@ -170,48 +162,6 @@ var _:Bool
 ```haxe
 import stdgo.unicode.utf8_test.Utf8
 ```
-
-
-## function \_runtimeDecodeRune
-
-
-```haxe
-function _runtimeDecodeRune(_s:stdgo.GoString):stdgo.GoRune
-```
-
-
- 
-
-
-[\(view code\)](<./Utf8.hx#L627>)
-
-
-## function \_runtimeRuneCount
-
-
-```haxe
-function _runtimeRuneCount(_s:stdgo.GoString):stdgo.GoInt
-```
-
-
- 
-
-
-[\(view code\)](<./Utf8.hx#L586>)
-
-
-## function \_testSequence
-
-
-```haxe
-function _testSequence(_t:stdgo.Ref<stdgo.testing.T>, _s:stdgo.GoString):Void
-```
-
-
- 
-
-
-[\(view code\)](<./Utf8.hx#L689>)
 
 
 ## function benchmarkAppendASCIIRune
@@ -926,20 +876,6 @@ function testValidRune(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 [\(view code\)](<./Utf8.hx#L818>)
-
-
-## function main
-
-
-```haxe
-function main():Void
-```
-
-
- 
-
-
-[\(view code\)](<./Utf8.hx#L115>)
 
 
 # Classes

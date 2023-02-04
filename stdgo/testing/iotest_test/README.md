@@ -16,8 +16,6 @@
 
 - [`function exampleErrReader():Void`](<#function-exampleerrreader>)
 
-- [`function main():Void`](<#function-main>)
-
 # Variables
 
 
@@ -51,19 +49,5 @@ function exampleErrReader():Void
 
 
 [\(view code\)](<./Iotest.hx#L13>)
-
-
-## function main
-
-
-```haxe
-function main():Void
-```
-
-
- 
-
-
-[\(view code\)](<./Iotest.hx#L51>)
 
 

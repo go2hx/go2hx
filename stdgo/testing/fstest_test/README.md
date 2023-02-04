@@ -14,8 +14,6 @@
 
 - [Variables](<#variables>)
 
-- [`function main():Void`](<#function-main>)
-
 # Variables
 
 
@@ -27,27 +25,5 @@ import stdgo.testing.fstest_test.Fstest
 ```haxe
 var _:Bool
 ```
-
-
-# Functions
-
-
-```haxe
-import stdgo.testing.fstest_test.Fstest
-```
-
-
-## function main
-
-
-```haxe
-function main():Void
-```
-
-
- 
-
-
-[\(view code\)](<./Fstest.hx#L29>)
 
 

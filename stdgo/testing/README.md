@@ -60,7 +60,7 @@
 
   - [`function run(name:stdgo.GoString, f:()):Bool`](<#b-function-run>)
 
-  - [`function runParallel(body:()):{<unknown>}`](<#b-function-runparallel>)
+  - [`function runParallel(body:()):Null<Dynamic>`](<#b-function-runparallel>)
 
   - [`function setBytes(n:stdgo.GoInt64):Void`](<#b-function-setbytes>)
 
@@ -90,7 +90,7 @@
 
   - [`function memString():stdgo.GoString`](<#benchmarkresult-function-memstring>)
 
-  - [`function new(?n:stdgo.GoInt, ?t:{<unknown>}, ?bytes:stdgo.GoInt64, ?memAllocs:stdgo.GoUInt64, ?memBytes:stdgo.GoUInt64, ?extra:stdgo.GoMap<stdgo.GoString, stdgo.GoFloat64>):Void`](<#benchmarkresult-function-new>)
+  - [`function new(?n:stdgo.GoInt, ?t:Dynamic, ?bytes:stdgo.GoInt64, ?memAllocs:stdgo.GoUInt64, ?memBytes:stdgo.GoUInt64, ?extra:stdgo.GoMap<stdgo.GoString, stdgo.GoFloat64>):Void`](<#benchmarkresult-function-new>)
 
   - [`function nsPerOp():stdgo.GoInt64`](<#benchmarkresult-function-nsperop>)
 
@@ -245,7 +245,7 @@ function allocsPerRun(_runs:stdgo.GoInt, f:():Void):stdgo.GoFloat64
  
 
 
-[\(view code\)](<./Testing.hx#L509>)
+[\(view code\)](<./Testing.hx#L511>)
 
 
 ## function benchmark
@@ -259,7 +259,7 @@ function benchmark(f:()):stdgo.testing.BenchmarkResult
  
 
 
-[\(view code\)](<./Testing.hx#L501>)
+[\(view code\)](<./Testing.hx#L503>)
 
 
 ## function coverMode
@@ -273,7 +273,7 @@ function coverMode():stdgo.GoString
  
 
 
-[\(view code\)](<./Testing.hx#L499>)
+[\(view code\)](<./Testing.hx#L501>)
 
 
 ## function mainStart
@@ -287,7 +287,7 @@ function mainStart(deps:stdgo.testing.T_testDeps, tests:stdgo.Slice<stdgo.testin
  
 
 
-[\(view code\)](<./Testing.hx#L464>)
+[\(view code\)](<./Testing.hx#L466>)
 
 
 ## function short
@@ -301,7 +301,7 @@ function short():Bool
  
 
 
-[\(view code\)](<./Testing.hx#L506>)
+[\(view code\)](<./Testing.hx#L508>)
 
 
 ## function verbose
@@ -315,7 +315,7 @@ function verbose():Bool
  
 
 
-[\(view code\)](<./Testing.hx#L512>)
+[\(view code\)](<./Testing.hx#L514>)
 
 
 # Classes
@@ -579,7 +579,7 @@ function run(name:stdgo.GoString, f:()):Bool
 
 
 ```haxe
-function runParallel(body:()):{<unknown>}
+function runParallel(body:()):Null<Dynamic>
 ```
 
 
@@ -811,7 +811,7 @@ function memString():stdgo.GoString
 
 
 ```haxe
-function new(?n:stdgo.GoInt, ?t:{<unknown>}, ?bytes:stdgo.GoInt64, ?memAllocs:stdgo.GoUInt64, ?memBytes:stdgo.GoUInt64, ?extra:stdgo.GoMap<stdgo.GoString, stdgo.GoFloat64>):Void
+function new(?n:stdgo.GoInt, ?t:Dynamic, ?bytes:stdgo.GoInt64, ?memAllocs:stdgo.GoUInt64, ?memBytes:stdgo.GoUInt64, ?extra:stdgo.GoMap<stdgo.GoString, stdgo.GoFloat64>):Void
 ```
 
 
@@ -1168,7 +1168,7 @@ function new(?name:stdgo.GoString, ?f:()):Void
  
 
 
-[\(view code\)](<./Testing.hx#L389>)
+[\(view code\)](<./Testing.hx#L391>)
 
 
 ## class InternalExample
@@ -1214,7 +1214,7 @@ function new(?name:stdgo.GoString, ?f:():Void, ?output:stdgo.GoString, ?unordere
  
 
 
-[\(view code\)](<./Testing.hx#L429>)
+[\(view code\)](<./Testing.hx#L431>)
 
 
 ## class InternalFuzzTarget
@@ -1250,7 +1250,7 @@ function new(?name:stdgo.GoString, ?f:():Void):Void
  
 
 
-[\(view code\)](<./Testing.hx#L408>)
+[\(view code\)](<./Testing.hx#L410>)
 
 
 ## class InternalTest
@@ -1286,7 +1286,7 @@ function new(name:stdgo.GoString, f:()):Void
  
 
 
-[\(view code\)](<./Testing.hx#L452>)
+[\(view code\)](<./Testing.hx#L454>)
 
 
 ## class M

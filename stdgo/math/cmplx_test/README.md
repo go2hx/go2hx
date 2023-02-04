@@ -20,8 +20,6 @@
 
 - [`function examplePolar():Void`](<#function-examplepolar>)
 
-- [`function main():Void`](<#function-main>)
-
 # Variables
 
 
@@ -83,19 +81,5 @@ function examplePolar():Void
 
 
 [\(view code\)](<./Cmplx.hx#L25>)
-
-
-## function main
-
-
-```haxe
-function main():Void
-```
-
-
- 
-
-
-[\(view code\)](<./Cmplx.hx#L77>)
 
 

@@ -14,10 +14,11 @@ Package iotest implements Readers and Writers useful mainly for testing.
 
 ```
 Error: Command failed with error 1
-=== RUN   TestWriteLogger
+stdgo/internal/Macro.macro.hx:35: define
+=== RUN  TestWriteLogger
 Exception: testing.iotest.testWriteLogger is not yet implemented
-Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 353)
-Called from stdgo.testing.iotest_test._Iotest.$Iotest_Fields_.main (stdgo/testing/iotest_test/Iotest.hx line 55)
+Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 355)
+Called from stdgo.testing.iotest_test._Iotest.$Iotest_Fields_.main (stdgo/testing/iotest_test/Iotest.hx line 56)
 ```
 </p>
 </details>
@@ -26,7 +27,8 @@ Called from stdgo.testing.iotest_test._Iotest.$Iotest_Fields_.main (stdgo/testin
 <p>
 
 ```
-=== RUN   TestWriteLogger
+stdgo/internal/Macro.macro.hx:35: define
+=== RUN  TestWriteLogger
 Exception: testing.iotest.testWriteLogger is not yet implemented
 Called from stdgo.testing.iotest._Iotest.Iotest_Fields_.testWriteLogger (stdgo/testing/iotest/Iotest.hx line 250 column 2)
 ```
@@ -38,6 +40,7 @@ Called from stdgo.testing.iotest._Iotest.Iotest_Fields_.testWriteLogger (stdgo/t
 
 ```
 IO.Overflow("write_ui16")
+stdgo/internal/Macro.macro.hx:35: define
 ```
 </p>
 </details>
@@ -201,11 +204,11 @@ ErrReader returns an io.Reader that returns 0, err from all Read calls.
 
 ```haxe
 function exampleErrReader():Void {
-	var _r:stdgo.io.Io.Reader = stdgo.testing.iotest.Iotest.errReader(stdgo.errors.Errors.new_(Go.str("custom error")));
+	var _r:stdgo.io.Io.Reader = stdgo.testing.iotest.Iotest.errReader(stdgo.errors.Errors.new_(("custom error" : GoString)));
 	var __tmp__ = _r.read((null : Slice<GoUInt8>)),
 		_n:GoInt = __tmp__._0,
 		_err:Error = __tmp__._1;
-	stdgo.fmt.Fmt.printf(Go.str("n:   %d\nerr: %q\n"), Go.toInterface(_n), Go.toInterface(_err));
+	stdgo.fmt.Fmt.printf(("n:   %d\nerr: %q\n" : GoString), Go.toInterface(_n), Go.toInterface(_err));
 }
 ```
 

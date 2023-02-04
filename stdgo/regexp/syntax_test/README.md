@@ -14,8 +14,6 @@
 
 - [Variables](<#variables>)
 
-- [`function main():Void`](<#function-main>)
-
 # Variables
 
 
@@ -27,27 +25,5 @@ import stdgo.regexp.syntax_test.Syntax
 ```haxe
 var _:Bool
 ```
-
-
-# Functions
-
-
-```haxe
-import stdgo.regexp.syntax_test.Syntax
-```
-
-
-## function main
-
-
-```haxe
-function main():Void
-```
-
-
- 
-
-
-[\(view code\)](<./Syntax.hx#L40>)
 
 

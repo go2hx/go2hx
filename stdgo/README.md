@@ -42,7 +42,7 @@
 
   - [`function copySlice(dst:Dynamic, src:Dynamic):Dynamic`](<#go-function-copyslice>)
 
-  - [`function expectedValue():Dynamic`](<#go-function-expectedvalue>)
+  - [`function expectedValue(value:Dynamic):Dynamic`](<#go-function-expectedvalue>)
 
   - [`function map(exprs:Dynamic):Dynamic`](<#go-function-map>)
 
@@ -56,7 +56,7 @@
 
   - [`function setKeys(expr:Dynamic):Dynamic`](<#go-function-setkeys>)
 
-  - [`function str(exprs:Dynamic):Dynamic`](<#go-function-str>)
+  - [`function str(expr:Dynamic):Dynamic`](<#go-function-str>)
 
   - [`function string(s:Dynamic):String`](<#go-function-string>)
 
@@ -122,7 +122,7 @@
 
   - [`function get():stdgo.PointerData.T`](<#pointerdata-function-get>)
 
-  - [`function new(?get:():stdgo.PointerData.T, ?set:(value:stdgo.PointerData.T):stdgo.PointerData.T, ?hasSet:Bool, ?previous:stdgo.Pointer<Any>, ?underlying:Any, ?underlyingIndex:Any):Void`](<#pointerdata-function-new>)
+  - [`function new(?get:():Null<stdgo.PointerData.T>, ?set:(value:stdgo.PointerData.T):stdgo.PointerData.T, ?hasSet:Bool, ?previous:stdgo.Pointer<Any>, ?underlying:Any, ?underlyingIndex:Any):Void`](<#pointerdata-function-new>)
 
   - [`function set()`](<#pointerdata-function-set>)
 
@@ -221,7 +221,7 @@ function new(value:Any, type:stdgo.internal.reflect._Type):Void
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L1763>)
+[\(view code\)](<./StdGoTypes.hx#L1762>)
 
 
 ### AnyInterfaceData function toString
@@ -235,7 +235,7 @@ function toString():String
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L1769>)
+[\(view code\)](<./StdGoTypes.hx#L1768>)
 
 
 ## class ChanData
@@ -337,7 +337,7 @@ function new(r:stdgo.Complex.T, i:stdgo.Complex.T):Void
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L233>)
+[\(view code\)](<./StdGoTypes.hx#L232>)
 
 
 ### Complex function toString
@@ -351,7 +351,7 @@ function toString():String
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L239>)
+[\(view code\)](<./StdGoTypes.hx#L238>)
 
 
 ## class Go
@@ -402,7 +402,7 @@ function copySlice(dst:Dynamic, src:Dynamic):Dynamic
 
 
 ```haxe
-function expectedValue():Dynamic
+function expectedValue(value:Dynamic):Dynamic
 ```
 
 
@@ -453,7 +453,7 @@ function routine(func:():Void):Void
  
 
 
-[\(view code\)](<./Go.hx#L169>)
+[\(view code\)](<./Go.hx#L23>)
 
 
 ### Go function select
@@ -482,7 +482,7 @@ function setKeys(expr:Dynamic):Dynamic
 
 
 ```haxe
-function str(exprs:Dynamic):Dynamic
+function str(expr:Dynamic):Dynamic
 ```
 
 
@@ -500,7 +500,7 @@ function string(s:Dynamic):String
  
 
 
-[\(view code\)](<./Go.hx#L153>)
+[\(view code\)](<./Go.hx#L8>)
 
 
 ### Go function toInterface
@@ -575,7 +575,7 @@ function hasNext():Bool
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L1923>)
+[\(view code\)](<./StdGoTypes.hx#L1918>)
 
 
 ### GoIntIterator function new
@@ -589,7 +589,7 @@ function new(min:stdgo.GoInt, max:stdgo.GoInt):Void
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L1918>)
+[\(view code\)](<./StdGoTypes.hx#L1913>)
 
 
 ### GoIntIterator function next
@@ -603,7 +603,7 @@ function next():stdgo.GoInt
  
 
 
-[\(view code\)](<./StdGoTypes.hx#L1927>)
+[\(view code\)](<./StdGoTypes.hx#L1922>)
 
 
 ## class GoObjectMap
@@ -915,14 +915,14 @@ function get():stdgo.PointerData.T
 
 
 ```haxe
-function new(?get:():stdgo.PointerData.T, ?set:(value:stdgo.PointerData.T):stdgo.PointerData.T, ?hasSet:Bool, ?previous:stdgo.Pointer<Any>, ?underlying:Any, ?underlyingIndex:Any):Void
+function new(?get:():Null<stdgo.PointerData.T>, ?set:(value:stdgo.PointerData.T):stdgo.PointerData.T, ?hasSet:Bool, ?previous:stdgo.Pointer<Any>, ?underlying:Any, ?underlyingIndex:Any):Void
 ```
 
 
  
 
 
-[\(view code\)](<./Pointer.hx#L87>)
+[\(view code\)](<./Pointer.hx#L86>)
 
 
 ### PointerData function set
@@ -947,7 +947,7 @@ function toString():String
  
 
 
-[\(view code\)](<./Pointer.hx#L102>)
+[\(view code\)](<./Pointer.hx#L101>)
 
 
 ## class SliceData
@@ -987,7 +987,7 @@ function get(index:Int):stdgo.SliceData.T
  
 
 
-[\(view code\)](<./Slice.hx#L241>)
+[\(view code\)](<./Slice.hx#L248>)
 
 
 ### SliceData function grow
@@ -1001,7 +1001,7 @@ function grow():Void
  
 
 
-[\(view code\)](<./Slice.hx#L267>)
+[\(view code\)](<./Slice.hx#L274>)
 
 
 ### SliceData function new
@@ -1015,7 +1015,7 @@ function new(length:Int, capacity:Int, args:haxe.Rest<stdgo.SliceData.T>):Void
  
 
 
-[\(view code\)](<./Slice.hx#L218>)
+[\(view code\)](<./Slice.hx#L225>)
 
 
 ### SliceData function set
@@ -1029,7 +1029,7 @@ function set(index:Int, value:stdgo.SliceData.T):stdgo.SliceData.T
  
 
 
-[\(view code\)](<./Slice.hx#L246>)
+[\(view code\)](<./Slice.hx#L253>)
 
 
 ### SliceData function toArray
@@ -1043,7 +1043,7 @@ function toArray():Array<stdgo.SliceData.T>
  
 
 
-[\(view code\)](<./Slice.hx#L251>)
+[\(view code\)](<./Slice.hx#L258>)
 
 
 ### SliceData function toString
@@ -1057,7 +1057,7 @@ function toString():String
  
 
 
-[\(view code\)](<./Slice.hx#L259>)
+[\(view code\)](<./Slice.hx#L266>)
 
 
 ### SliceData function toVector
@@ -1071,7 +1071,7 @@ function toVector():haxe.ds.Vector<stdgo.SliceData.T>
  
 
 
-[\(view code\)](<./Slice.hx#L255>)
+[\(view code\)](<./Slice.hx#L262>)
 
 
 ## class T\_errorString\_static\_extension

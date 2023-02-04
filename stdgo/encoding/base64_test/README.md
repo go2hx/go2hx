@@ -26,8 +26,6 @@
 
 - [`function exampleNewEncoder():Void`](<#function-examplenewencoder>)
 
-- [`function main():Void`](<#function-main>)
-
 # Variables
 
 
@@ -131,19 +129,5 @@ function exampleNewEncoder():Void
 
 
 [\(view code\)](<./Base64.hx#L70>)
-
-
-## function main
-
-
-```haxe
-function main():Void
-```
-
-
- 
-
-
-[\(view code\)](<./Base64.hx#L64>)
 
 

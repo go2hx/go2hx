@@ -280,7 +280,9 @@ Package reflect implements run\-time reflection, allowing a program to  manipula
 
 - [class ValueError](<#class-valueerror>)
 
-  - [`function new(?method:stdgo.GoString, ?kind:Null<stdgo.reflect.Kind>):Void`](<#valueerror-function-new>)
+  - [`function new(?method:stdgo.GoString, ?kind:Null<stdgo.reflect.Kind>, ?toString:():String):Void`](<#valueerror-function-new>)
+
+  - [`function toString():String`](<#valueerror-function-tostring>)
 
   - [`function error():stdgo.GoString`](<#valueerror-function-error>)
 
@@ -666,7 +668,7 @@ function append(_s:stdgo.reflect.Value, _x:haxe.Rest<stdgo.reflect.Value>):stdgo
 Append appends the values x to a slice s and returns the resulting slice.  As in Go, each x's value must be assignable to the slice's element type. 
 
 
-[\(view code\)](<./Reflect.hx#L877>)
+[\(view code\)](<./Reflect.hx#L842>)
 
 
 ## function appendSlice
@@ -680,7 +682,7 @@ function appendSlice(_s:stdgo.reflect.Value, _t:stdgo.reflect.Value):stdgo.refle
 AppendSlice appends a slice t to a slice s and returns the resulting slice.  The slices s and t must have the same element type. 
 
 
-[\(view code\)](<./Reflect.hx#L884>)
+[\(view code\)](<./Reflect.hx#L849>)
 
 
 ## function arrayOf
@@ -694,7 +696,7 @@ function arrayOf(_length:stdgo.GoInt, _elem:stdgo.reflect.Type):stdgo.reflect.Ty
 ArrayOf returns the array type with the given length and element type.  For example, if t represents int, ArrayOf\(5, t\) represents \[5\]int.    If the resulting type would be larger than the available address space,  ArrayOf panics. 
 
 
-[\(view code\)](<./Reflect.hx#L870>)
+[\(view code\)](<./Reflect.hx#L835>)
 
 
 ## function chanOf
@@ -708,7 +710,7 @@ function chanOf(_dir:stdgo.reflect.ChanDir, _t:stdgo.reflect.Type):stdgo.reflect
 ChanOf returns the channel type with the given direction and element type.  For example, if t represents int, ChanOf\(RecvDir, t\) represents \<\-chan int.    The gc runtime imposes a limit of 64 kB on channel element types.  If t's size is equal to or exceeds this limit, ChanOf panics. 
 
 
-[\(view code\)](<./Reflect.hx#L818>)
+[\(view code\)](<./Reflect.hx#L783>)
 
 
 ## function copy
@@ -722,7 +724,7 @@ function copy(_dst:stdgo.reflect.Value, _src:stdgo.reflect.Value):stdgo.GoInt
 Copy copies the contents of src into dst until either  dst has been filled or src has been exhausted.  It returns the number of elements copied.  Dst and src each must have kind Slice or Array, and  dst and src must have the same element type.    As a special case, src can have kind String if the element type of dst is kind Uint8. 
 
 
-[\(view code\)](<./Reflect.hx#L896>)
+[\(view code\)](<./Reflect.hx#L861>)
 
 
 ## function deepEqual
@@ -736,7 +738,7 @@ function deepEqual(_x:stdgo.AnyInterface, _y:stdgo.AnyInterface):Bool
 DeepEqual reports whether x and y are “deeply equal,” defined as follows.  Two values of identical type are deeply equal if one of the following cases applies.  Values of distinct types are never deeply equal.    Array values are deeply equal when their corresponding elements are deeply equal.    Struct values are deeply equal if their corresponding fields,  both exported and unexported, are deeply equal.    Func values are deeply equal if both are nil; otherwise they are not deeply equal.    Interface values are deeply equal if they hold deeply equal concrete values.    Map values are deeply equal when all of the following are true:  they are both nil or both non\-nil, they have the same length,  and either they are the same map object or their corresponding keys  \(matched using Go equality\) map to deeply equal values.    Pointer values are deeply equal if they are equal using Go's == operator  or if they point to deeply equal values.    Slice values are deeply equal when all of the following are true:  they are both nil or both non\-nil, they have the same length,  and either they point to the same initial entry of the same underlying array  \(that is, &x\[0\] == &y\[0\]\) or their corresponding elements \(up to length\) are deeply equal.  Note that a non\-nil empty slice and a nil slice \(for example, \[\]byte\{\} and \[\]byte\(nil\)\)  are not deeply equal.    Other values \- numbers, bools, strings, and channels \- are deeply equal  if they are equal using Go's == operator.    In general DeepEqual is a recursive relaxation of Go's == operator.  However, this idea is impossible to implement without some inconsistency.  Specifically, it is possible for a value to be unequal to itself,  either because it is of func type \(uncomparable in general\)  or because it is a floating\-point NaN value \(not equal to itself in floating\-point comparison\),  or because it is an array, struct, or interface containing  such a value.  On the other hand, pointer values are always equal to themselves,  even if they point at or contain such problematic values,  because they compare equal using Go's == operator, and that  is a sufficient condition to be deeply equal, regardless of content.  DeepEqual has been defined so that the same short\-cut applies  to slices and maps: if x and y are the same slice or the same map,  they are deeply equal regardless of content.    As DeepEqual traverses the data values it may find a cycle. The  second and subsequent times that DeepEqual compares two pointer  values that have been compared before, it treats the values as  equal rather than examining the values to which they point.  This ensures that DeepEqual terminates. 
 
 
-[\(view code\)](<./Reflect.hx#L736>)
+[\(view code\)](<./Reflect.hx#L701>)
 
 
 ## function funcOf
@@ -750,7 +752,7 @@ function funcOf(_in:stdgo.Slice<stdgo.reflect.Type>, _out:stdgo.Slice<stdgo.refl
 FuncOf returns the function type with the given argument and result types.  For example if k represents int and e represents string,  FuncOf\(\[\]Type\{k\}, \[\]Type\{e\}, false\) represents func\(int\) string.    The variadic argument controls whether the function is variadic. FuncOf  panics if the in\[len\(in\)\-1\] does not represent a slice and variadic is  true. 
 
 
-[\(view code\)](<./Reflect.hx#L841>)
+[\(view code\)](<./Reflect.hx#L806>)
 
 
 ## function indirect
@@ -764,7 +766,7 @@ function indirect(_v:stdgo.reflect.Value):stdgo.reflect.Value
 Indirect returns the value that v points to.  If v is a nil pointer, Indirect returns a zero Value.  If v is not a pointer, Indirect returns v. 
 
 
-[\(view code\)](<./Reflect.hx#L943>)
+[\(view code\)](<./Reflect.hx#L908>)
 
 
 ## function makeChan
@@ -778,7 +780,7 @@ function makeChan(_typ:stdgo.reflect.Type, _buffer:stdgo.GoInt):stdgo.reflect.Va
 MakeChan creates a new channel with the specified type and buffer size. 
 
 
-[\(view code\)](<./Reflect.hx#L922>)
+[\(view code\)](<./Reflect.hx#L887>)
 
 
 ## function makeFunc
@@ -792,7 +794,7 @@ function makeFunc(_typ:stdgo.reflect.Type, _fn:(_args:stdgo.Slice<stdgo.reflect.
 MakeFunc returns a new function of the given Type  that wraps the function fn. When called, that new function  does the following:    \- converts its arguments to a slice of Values.  \- runs results := fn\(args\).  \- returns the results as a slice of Values, one per formal result.    The implementation fn can assume that the argument Value slice  has the number and type of arguments given by typ.  If typ describes a variadic function, the final Value is itself  a slice representing the variadic arguments, as in the  body of a variadic function. The result Value slice returned by fn  must have the number and type of results given by typ.    The Value.Call method allows the caller to invoke a typed function  in terms of Values; in contrast, MakeFunc allows the caller to implement  a typed function in terms of Values.    The Examples section of the documentation includes an illustration  of how to use MakeFunc to build a swap function for different types. 
 
 
-[\(view code\)](<./Reflect.hx#L771>)
+[\(view code\)](<./Reflect.hx#L736>)
 
 
 ## function makeMap
@@ -806,7 +808,7 @@ function makeMap(_typ:stdgo.reflect.Type):stdgo.reflect.Value
 MakeMap creates a new map with the specified type. 
 
 
-[\(view code\)](<./Reflect.hx#L928>)
+[\(view code\)](<./Reflect.hx#L893>)
 
 
 ## function makeMapWithSize
@@ -820,7 +822,7 @@ function makeMapWithSize(_typ:stdgo.reflect.Type, _n:stdgo.GoInt):stdgo.reflect.
 MakeMapWithSize creates a new map with the specified type  and initial space for approximately n elements. 
 
 
-[\(view code\)](<./Reflect.hx#L935>)
+[\(view code\)](<./Reflect.hx#L900>)
 
 
 ## function makeSlice
@@ -834,7 +836,7 @@ function makeSlice(_typ:stdgo.reflect.Type, _len:stdgo.GoInt, _cap:stdgo.GoInt):
 MakeSlice creates a new zero\-initialized slice value  for the specified slice type, length, and capacity. 
 
 
-[\(view code\)](<./Reflect.hx#L916>)
+[\(view code\)](<./Reflect.hx#L881>)
 
 
 ## function mapOf
@@ -848,7 +850,7 @@ function mapOf(_key:stdgo.reflect.Type, _elem:stdgo.reflect.Type):stdgo.reflect.
 MapOf returns the map type with the given key and element types.  For example, if k represents int and e represents string,  MapOf\(k, e\) represents map\[int\]string.    If the key type is not a valid map key type \(that is, if it does  not implement Go's == operator\), MapOf panics. 
 
 
-[\(view code\)](<./Reflect.hx#L829>)
+[\(view code\)](<./Reflect.hx#L794>)
 
 
 ## function newAt
@@ -862,7 +864,7 @@ function newAt(_typ:stdgo.reflect.Type, _p:stdgo.unsafe.UnsafePointer):stdgo.ref
 NewAt returns a Value representing a pointer to a value of the  specified type, using p as that pointer. 
 
 
-[\(view code\)](<./Reflect.hx#L979>)
+[\(view code\)](<./Reflect.hx#L944>)
 
 
 ## function new\_
@@ -876,7 +878,7 @@ function new_(_typ:stdgo.reflect.Type):stdgo.reflect.Value
 New returns a Value representing a pointer to a new zero value  for the specified type. That is, the returned Value's Type is PointerTo\(typ\). 
 
 
-[\(view code\)](<./Reflect.hx#L967>)
+[\(view code\)](<./Reflect.hx#L932>)
 
 
 ## function pointerTo
@@ -890,7 +892,7 @@ function pointerTo(_t:stdgo.reflect.Type):stdgo.reflect.Type
 PointerTo returns the pointer type with element t.  For example, if t represents type Foo, PointerTo\(t\) represents \*Foo. 
 
 
-[\(view code\)](<./Reflect.hx#L808>)
+[\(view code\)](<./Reflect.hx#L773>)
 
 
 ## function ptrTo
@@ -904,7 +906,7 @@ function ptrTo(_t:stdgo.reflect.Type):stdgo.reflect.Type
 PtrTo returns the pointer type with element t.  For example, if t represents type Foo, PtrTo\(t\) represents \*Foo.    PtrTo is the old spelling of PointerTo.  The two functions behave identically. 
 
 
-[\(view code\)](<./Reflect.hx#L801>)
+[\(view code\)](<./Reflect.hx#L766>)
 
 
 ## function select
@@ -918,7 +920,7 @@ function select(_cases:stdgo.Slice<stdgo.reflect.SelectCase>):{_2:Bool, _1:stdgo
 Select executes a select operation described by the list of cases.  Like the Go select statement, it blocks until at least one of the cases  can proceed, makes a uniform pseudo\-random choice,  and then executes that case. It returns the index of the chosen case  and, if that case was a receive operation, the value received and a  boolean indicating whether the value corresponds to a send on the channel  \(as opposed to a zero value received because the channel is closed\).  Select supports a maximum of 65536 cases. 
 
 
-[\(view code\)](<./Reflect.hx#L909>)
+[\(view code\)](<./Reflect.hx#L874>)
 
 
 ## function sliceOf
@@ -932,7 +934,7 @@ function sliceOf(_t:stdgo.reflect.Type):stdgo.reflect.Type
 SliceOf returns the slice type with element type t.  For example, if t represents int, SliceOf\(t\) represents \[\]int. 
 
 
-[\(view code\)](<./Reflect.hx#L848>)
+[\(view code\)](<./Reflect.hx#L813>)
 
 
 ## function structOf
@@ -946,7 +948,7 @@ function structOf(_fields:stdgo.Slice<stdgo.reflect.StructField>):stdgo.reflect.
 StructOf returns the struct type containing fields.  The Offset and Index fields are ignored and computed as they would be  by the compiler.    StructOf currently does not generate wrapper methods for embedded  fields and panics if passed unexported StructFields.  These limitations may be lifted in a future version. 
 
 
-[\(view code\)](<./Reflect.hx#L860>)
+[\(view code\)](<./Reflect.hx#L825>)
 
 
 ## function swapper
@@ -960,7 +962,7 @@ function swapper(_slice:stdgo.AnyInterface):(_i:stdgo.GoInt, _j:stdgo.GoInt):Voi
 Swapper returns a function that swaps the elements in the provided  slice.    Swapper panics if the provided interface is not a slice. 
 
 
-[\(view code\)](<./Reflect.hx#L780>)
+[\(view code\)](<./Reflect.hx#L745>)
 
 
 ## function typeOf
@@ -974,7 +976,7 @@ function typeOf(_i:stdgo.AnyInterface):stdgo.reflect.Type
 TypeOf returns the reflection Type that represents the dynamic type of i.  If i is a nil interface value, TypeOf returns nil. 
 
 
-[\(view code\)](<./Reflect.hx#L786>)
+[\(view code\)](<./Reflect.hx#L751>)
 
 
 ## function valueOf
@@ -988,7 +990,7 @@ function valueOf(_i:stdgo.AnyInterface):stdgo.reflect.Value
 ValueOf returns a new Value initialized to the concrete value  stored in the interface i. ValueOf\(nil\) returns the zero Value. 
 
 
-[\(view code\)](<./Reflect.hx#L949>)
+[\(view code\)](<./Reflect.hx#L914>)
 
 
 ## function visibleFields
@@ -1002,7 +1004,7 @@ function visibleFields(_t:stdgo.reflect.Type):stdgo.Slice<stdgo.reflect.StructFi
 VisibleFields returns all the visible fields in t, which must be a  struct type. A field is defined as visible if it's accessible  directly with a FieldByName call. The returned fields include fields  inside anonymous struct members and unexported fields. They follow  the same order found in the struct, with anonymous fields followed  immediately by their promoted fields.    For each element e of the returned slice, the corresponding field  can be retrieved from a value v of type t by calling v.FieldByIndex\(e.Index\). 
 
 
-[\(view code\)](<./Reflect.hx#L993>)
+[\(view code\)](<./Reflect.hx#L958>)
 
 
 ## function zero
@@ -1016,7 +1018,7 @@ function zero(_typ:stdgo.reflect.Type):stdgo.reflect.Value
 Zero returns a Value representing the zero value for the specified type.  The result is different from the zero value of the Value struct,  which represents no value at all.  For example, Zero\(TypeOf\(42\)\) returns a Value with Kind Int and value 0.  The returned value is neither addressable nor settable. 
 
 
-[\(view code\)](<./Reflect.hx#L961>)
+[\(view code\)](<./Reflect.hx#L926>)
 
 
 # Classes
@@ -1044,7 +1046,7 @@ function string():stdgo.GoString
  
 
 
-[\(view code\)](<./Reflect.hx#L2839>)
+[\(view code\)](<./Reflect.hx#L3055>)
 
 
 ## class Kind\_static\_extension
@@ -1064,7 +1066,7 @@ function string():stdgo.GoString
 String returns the name of k. 
 
 
-[\(view code\)](<./Reflect.hx#L2754>)
+[\(view code\)](<./Reflect.hx#L2970>)
 
 
 ## class MapIter
@@ -1084,7 +1086,7 @@ function new():Void
  
 
 
-[\(view code\)](<./Reflect.hx#L537>)
+[\(view code\)](<./Reflect.hx#L513>)
 
 
 ### MapIter function key
@@ -1098,7 +1100,7 @@ function key():stdgo.reflect.Value
 Key returns the key of iter's current map entry. 
 
 
-[\(view code\)](<./Reflect.hx#L2724>)
+[\(view code\)](<./Reflect.hx#L2940>)
 
 
 ### MapIter function next
@@ -1112,7 +1114,7 @@ function next():Bool
 Next advances the map iterator and reports whether there is another   entry. It returns false when iter is exhausted; subsequent   calls to Key, Value, or Next will panic. 
 
 
-[\(view code\)](<./Reflect.hx#L2710>)
+[\(view code\)](<./Reflect.hx#L2926>)
 
 
 ### MapIter function reset
@@ -1126,7 +1128,7 @@ function reset( _v:stdgo.reflect.Value):Void
 Reset modifies iter to iterate over v.   It panics if v's Kind is not Map and v is not the zero Value.   Reset\(Value\{\}\) causes iter to not to refer to any map,   which may allow the previously iterated\-over map to be garbage collected. 
 
 
-[\(view code\)](<./Reflect.hx#L2701>)
+[\(view code\)](<./Reflect.hx#L2917>)
 
 
 ### MapIter function value
@@ -1140,7 +1142,7 @@ function value():stdgo.reflect.Value
 Value returns the value of iter's current map entry. 
 
 
-[\(view code\)](<./Reflect.hx#L2717>)
+[\(view code\)](<./Reflect.hx#L2933>)
 
 
 ## class MapIter\_static\_extension
@@ -1160,7 +1162,7 @@ function key():stdgo.reflect.Value
 Key returns the key of iter's current map entry. 
 
 
-[\(view code\)](<./Reflect.hx#L2724>)
+[\(view code\)](<./Reflect.hx#L2940>)
 
 
 ### MapIter\_static\_extension function next
@@ -1174,7 +1176,7 @@ function next():Bool
 Next advances the map iterator and reports whether there is another   entry. It returns false when iter is exhausted; subsequent   calls to Key, Value, or Next will panic. 
 
 
-[\(view code\)](<./Reflect.hx#L2710>)
+[\(view code\)](<./Reflect.hx#L2926>)
 
 
 ### MapIter\_static\_extension function reset
@@ -1188,7 +1190,7 @@ function reset( _v:stdgo.reflect.Value):Void
 Reset modifies iter to iterate over v.   It panics if v's Kind is not Map and v is not the zero Value.   Reset\(Value\{\}\) causes iter to not to refer to any map,   which may allow the previously iterated\-over map to be garbage collected. 
 
 
-[\(view code\)](<./Reflect.hx#L2701>)
+[\(view code\)](<./Reflect.hx#L2917>)
 
 
 ### MapIter\_static\_extension function value
@@ -1202,7 +1204,7 @@ function value():stdgo.reflect.Value
 Value returns the value of iter's current map entry. 
 
 
-[\(view code\)](<./Reflect.hx#L2717>)
+[\(view code\)](<./Reflect.hx#L2933>)
 
 
 ## class Method
@@ -1216,15 +1218,9 @@ var func:stdgo.reflect.Value
 ```
 
 
-func with receiver as first argument 
-
-
 ```haxe
 var index:stdgo.GoInt
 ```
-
-
-index for Type.Method 
 
 
 ```haxe
@@ -1248,9 +1244,6 @@ var type:stdgo.reflect.Type
 ```
 
 
-method type 
-
-
 ### Method function new
 
 
@@ -1262,7 +1255,7 @@ function new(?name:stdgo.GoString, ?pkgPath:stdgo.GoString, ?type:Null<stdgo.ref
  
 
 
-[\(view code\)](<./Reflect.hx#L364>)
+[\(view code\)](<./Reflect.hx#L353>)
 
 
 ### Method function isExported
@@ -1276,7 +1269,7 @@ function isExported():Bool
 IsExported reports whether the method is exported. 
 
 
-[\(view code\)](<./Reflect.hx#L1023>)
+[\(view code\)](<./Reflect.hx#L988>)
 
 
 ## class Method\_static\_extension
@@ -1296,7 +1289,7 @@ function isExported():Bool
 IsExported reports whether the method is exported. 
 
 
-[\(view code\)](<./Reflect.hx#L1023>)
+[\(view code\)](<./Reflect.hx#L988>)
 
 
 ## class SelectCase
@@ -1310,23 +1303,14 @@ var chan:stdgo.reflect.Value
 ```
 
 
-channel to use \(for send or receive\) 
-
-
 ```haxe
 var dir:stdgo.reflect.SelectDir
 ```
 
 
-direction of case 
-
-
 ```haxe
 var send:stdgo.reflect.Value
 ```
-
-
-value to send \(for send\) 
 
 
 ### SelectCase function new
@@ -1340,7 +1324,7 @@ function new(?dir:Null<stdgo.reflect.SelectDir>, ?chan:stdgo.reflect.Value, ?sen
  
 
 
-[\(view code\)](<./Reflect.hx#L638>)
+[\(view code\)](<./Reflect.hx#L603>)
 
 
 ## class SliceHeader
@@ -1375,7 +1359,7 @@ function new(?data:stdgo.GoUIntptr, ?len:Null<stdgo.GoInt>, ?cap:Null<stdgo.GoIn
  
 
 
-[\(view code\)](<./Reflect.hx#L587>)
+[\(view code\)](<./Reflect.hx#L563>)
 
 
 ## class StringHeader
@@ -1405,7 +1389,7 @@ function new(?data:stdgo.GoUIntptr, ?len:Null<stdgo.GoInt>):Void
  
 
 
-[\(view code\)](<./Reflect.hx#L559>)
+[\(view code\)](<./Reflect.hx#L535>)
 
 
 ## class StructField
@@ -1419,15 +1403,9 @@ var anonymous:Bool
 ```
 
 
-is an embedded field 
-
-
 ```haxe
 var index:stdgo.Slice<stdgo.GoInt>
 ```
-
-
-index sequence for Type.FieldByIndex 
 
 
 ```haxe
@@ -1443,9 +1421,6 @@ var offset:stdgo.GoUIntptr
 ```
 
 
-offset within struct, in bytes 
-
-
 ```haxe
 var pkgPath:stdgo.GoString
 ```
@@ -1459,15 +1434,9 @@ var tag:stdgo.reflect.StructTag
 ```
 
 
-field tag string 
-
-
 ```haxe
 var type:stdgo.reflect.Type
 ```
-
-
-field type 
 
 
 ### StructField function new
@@ -1481,7 +1450,7 @@ function new(?name:stdgo.GoString, ?pkgPath:stdgo.GoString, ?type:Null<stdgo.ref
  
 
 
-[\(view code\)](<./Reflect.hx#L426>)
+[\(view code\)](<./Reflect.hx#L396>)
 
 
 ### StructField function isExported
@@ -1495,7 +1464,7 @@ function isExported():Bool
 IsExported reports whether the field is exported. 
 
 
-[\(view code\)](<./Reflect.hx#L1054>)
+[\(view code\)](<./Reflect.hx#L1019>)
 
 
 ## class StructField\_static\_extension
@@ -1515,7 +1484,7 @@ function isExported():Bool
 IsExported reports whether the field is exported. 
 
 
-[\(view code\)](<./Reflect.hx#L1054>)
+[\(view code\)](<./Reflect.hx#L1019>)
 
 
 ## class StructTag\_static\_extension
@@ -1535,7 +1504,7 @@ function get( _key:stdgo.GoString):stdgo.GoString
 Get returns the value associated with key in the tag string.   If there is no such key in the tag, Get returns the empty string.   If the tag does not have the conventional format, the value   returned by Get is unspecified. To determine whether a tag is   explicitly set to the empty string, use Lookup. 
 
 
-[\(view code\)](<./Reflect.hx#L2902>)
+[\(view code\)](<./Reflect.hx#L3118>)
 
 
 ### StructTag\_static\_extension function lookup
@@ -1549,7 +1518,7 @@ function lookup( _key:stdgo.GoString):{_1:Bool, _0:stdgo.GoString}
 Lookup returns the value associated with key in the tag string.   If the key is present in the tag the value \(which may be empty\)   is returned. Otherwise the returned value will be the empty string.   The ok return value reports whether the value was explicitly set in   the tag string. If the tag does not have the conventional format,   the value returned by Lookup is unspecified. 
 
 
-[\(view code\)](<./Reflect.hx#L2891>)
+[\(view code\)](<./Reflect.hx#L3107>)
 
 
 ## class Value
@@ -1569,7 +1538,7 @@ function new(?value:stdgo.AnyInterface, ?underlyingValue:Dynamic, ?underlyingInd
  
 
 
-[\(view code\)](<./Reflect.hx#L484>)
+[\(view code\)](<./Reflect.hx#L454>)
 
 
 ### Value function addr
@@ -1583,7 +1552,7 @@ function addr():stdgo.reflect.Value
 Addr returns a pointer value representing the address of v.   It panics if CanAddr\(\) returns false.   Addr is typically used to obtain a pointer to a struct field   or slice element in order to call a method that requires a   pointer receiver. 
 
 
-[\(view code\)](<./Reflect.hx#L2616>)
+[\(view code\)](<./Reflect.hx#L2832>)
 
 
 ### Value function bool\_
@@ -1597,7 +1566,7 @@ function bool_():Bool
 Bool returns v's underlying value.   It panics if v's kind is not Bool. 
 
 
-[\(view code\)](<./Reflect.hx#L2605>)
+[\(view code\)](<./Reflect.hx#L2797>)
 
 
 ### Value function bytes
@@ -1611,7 +1580,7 @@ function bytes():stdgo.Slice<stdgo.GoByte>
 Bytes returns v's underlying value.   It panics if v's underlying value is not a slice of bytes or   an addressable array of bytes. 
 
 
-[\(view code\)](<./Reflect.hx#L2597>)
+[\(view code\)](<./Reflect.hx#L2754>)
 
 
 ### Value function call
@@ -1625,7 +1594,7 @@ function call( _in:stdgo.Slice<stdgo.reflect.Value>):stdgo.Slice<stdgo.reflect.V
 Call calls the function v with the input arguments in.   For example, if len\(in\) == 3, v.Call\(in\) represents the Go call v\(in\[0\], in\[1\], in\[2\]\).   Call panics if v's Kind is not Func.   It returns the output results as Values.   As in Go, each input argument must be assignable to the   type of the function's corresponding input parameter.   If v is a variadic function, Call creates the variadic slice parameter   itself, copying in the corresponding values. 
 
 
-[\(view code\)](<./Reflect.hx#L2566>)
+[\(view code\)](<./Reflect.hx#L2723>)
 
 
 ### Value function callSlice
@@ -1639,7 +1608,7 @@ function callSlice( _in:stdgo.Slice<stdgo.reflect.Value>):stdgo.Slice<stdgo.refl
 CallSlice calls the variadic function v with the input arguments in,   assigning the slice in\[len\(in\)\-1\] to v's final variadic argument.   For example, if len\(in\) == 3, v.CallSlice\(in\) represents the Go call v\(in\[0\], in\[1\], in\[2\]...\).   CallSlice panics if v's Kind is not Func or if v is not variadic.   It returns the output results as Values.   As in Go, each input argument must be assignable to the   type of the function's corresponding input parameter. 
 
 
-[\(view code\)](<./Reflect.hx#L2552>)
+[\(view code\)](<./Reflect.hx#L2709>)
 
 
 ### Value function canAddr
@@ -1653,7 +1622,7 @@ function canAddr():Bool
 CanAddr reports whether the value's address can be obtained with Addr.   Such values are called addressable. A value is addressable if it is   an element of a slice, an element of an addressable array,   a field of an addressable struct, or the result of dereferencing a pointer.   If CanAddr returns false, calling Addr will panic. 
 
 
-[\(view code\)](<./Reflect.hx#L2588>)
+[\(view code\)](<./Reflect.hx#L2744>)
 
 
 ### Value function canComplex
@@ -1667,7 +1636,7 @@ function canComplex():Bool
 CanComplex reports whether Complex can be used without panicking. 
 
 
-[\(view code\)](<./Reflect.hx#L2523>)
+[\(view code\)](<./Reflect.hx#L2680>)
 
 
 ### Value function canConvert
@@ -1681,7 +1650,7 @@ function canConvert( _t:stdgo.reflect.Type):Bool
 CanConvert reports whether the value v can be converted to type t.   If v.CanConvert\(t\) returns true then v.Convert\(t\) will not panic. 
 
 
-[\(view code\)](<./Reflect.hx#L1758>)
+[\(view code\)](<./Reflect.hx#L1723>)
 
 
 ### Value function canFloat
@@ -1695,7 +1664,7 @@ function canFloat():Bool
 CanFloat reports whether Float can be used without panicking. 
 
 
-[\(view code\)](<./Reflect.hx#L2410>)
+[\(view code\)](<./Reflect.hx#L2551>)
 
 
 ### Value function canInt
@@ -1709,7 +1678,7 @@ function canInt():Bool
 CanInt reports whether Int can be used without panicking. 
 
 
-[\(view code\)](<./Reflect.hx#L2362>)
+[\(view code\)](<./Reflect.hx#L2462>)
 
 
 ### Value function canInterface
@@ -1723,7 +1692,7 @@ function canInterface():Bool
 CanInterface reports whether Interface can be used without panicking. 
 
 
-[\(view code\)](<./Reflect.hx#L2347>)
+[\(view code\)](<./Reflect.hx#L2414>)
 
 
 ### Value function canSet
@@ -1737,7 +1706,7 @@ function canSet():Bool
 CanSet reports whether the value of v can be changed.   A Value can be changed only if it is addressable and was not   obtained by the use of unexported struct fields.   If CanSet returns false, calling Set or any type\-specific   setter \(e.g., SetBool, SetInt\) will panic. 
 
 
-[\(view code\)](<./Reflect.hx#L2577>)
+[\(view code\)](<./Reflect.hx#L2734>)
 
 
 ### Value function canUint
@@ -1751,7 +1720,7 @@ function canUint():Bool
 CanUint reports whether Uint can be used without panicking. 
 
 
-[\(view code\)](<./Reflect.hx#L1810>)
+[\(view code\)](<./Reflect.hx#L1807>)
 
 
 ### Value function cap
@@ -1765,7 +1734,7 @@ function cap():stdgo.GoInt
 Cap returns v's capacity.   It panics if v's Kind is not Array, Chan, Slice or pointer to Array. 
 
 
-[\(view code\)](<./Reflect.hx#L2539>)
+[\(view code\)](<./Reflect.hx#L2696>)
 
 
 ### Value function close
@@ -1779,7 +1748,7 @@ function close():Void
 Close closes the channel v.   It panics if v's Kind is not Chan. 
 
 
-[\(view code\)](<./Reflect.hx#L2531>)
+[\(view code\)](<./Reflect.hx#L2688>)
 
 
 ### Value function complex
@@ -1793,7 +1762,7 @@ function complex():stdgo.GoComplex128
 Complex returns v's underlying value, as a complex128.   It panics if v's Kind is not Complex64 or Complex128 
 
 
-[\(view code\)](<./Reflect.hx#L2516>)
+[\(view code\)](<./Reflect.hx#L2673>)
 
 
 ### Value function convert
@@ -1807,7 +1776,7 @@ function convert( _t:stdgo.reflect.Type):stdgo.reflect.Value
 Convert returns the value v converted to type t.   If the usual Go conversion rules do not allow conversion   of the value v to type t, or if converting v to type t panics, Convert panics. 
 
 
-[\(view code\)](<./Reflect.hx#L1767>)
+[\(view code\)](<./Reflect.hx#L1732>)
 
 
 ### Value function elem
@@ -1821,7 +1790,7 @@ function elem():stdgo.reflect.Value
 Elem returns the value that the interface v contains   or that the pointer v points to.   It panics if v's Kind is not Interface or Pointer.   It returns the zero Value if v is nil. 
 
 
-[\(view code\)](<./Reflect.hx#L2478>)
+[\(view code\)](<./Reflect.hx#L2620>)
 
 
 ### Value function field
@@ -1835,7 +1804,7 @@ function field( _i:stdgo.GoInt):stdgo.reflect.Value
 Field returns the i'th field of the struct v.   It panics if v's Kind is not Struct or i is out of range. 
 
 
-[\(view code\)](<./Reflect.hx#L2455>)
+[\(view code\)](<./Reflect.hx#L2596>)
 
 
 ### Value function fieldByIndex
@@ -1849,7 +1818,7 @@ function fieldByIndex( _index:stdgo.Slice<stdgo.GoInt>):stdgo.reflect.Value
 FieldByIndex returns the nested field corresponding to index.   It panics if evaluation requires stepping through a nil   pointer or a field that is not a struct. 
 
 
-[\(view code\)](<./Reflect.hx#L2448>)
+[\(view code\)](<./Reflect.hx#L2589>)
 
 
 ### Value function fieldByIndexErr
@@ -1863,7 +1832,7 @@ function fieldByIndexErr( _index:stdgo.Slice<stdgo.GoInt>):{_1:stdgo.Error, _0:s
 FieldByIndexErr returns the nested field corresponding to index.   It returns an error if evaluation requires stepping through a nil   pointer, but panics if it must step through a field that   is not a struct. 
 
 
-[\(view code\)](<./Reflect.hx#L2439>)
+[\(view code\)](<./Reflect.hx#L2580>)
 
 
 ### Value function fieldByName
@@ -1877,7 +1846,7 @@ function fieldByName( _name:stdgo.GoString):stdgo.reflect.Value
 FieldByName returns the struct field with the given name.   It returns the zero Value if no field was found.   It panics if v's Kind is not struct. 
 
 
-[\(view code\)](<./Reflect.hx#L2429>)
+[\(view code\)](<./Reflect.hx#L2570>)
 
 
 ### Value function fieldByNameFunc
@@ -1891,7 +1860,7 @@ function fieldByNameFunc( _match:()):stdgo.reflect.Value
 FieldByNameFunc returns the struct field with a name   that satisfies the match function.   It panics if v's Kind is not struct.   It returns the zero Value if no field was found. 
 
 
-[\(view code\)](<./Reflect.hx#L2420>)
+[\(view code\)](<./Reflect.hx#L2561>)
 
 
 ### Value function float\_
@@ -1905,7 +1874,7 @@ function float_():stdgo.GoFloat64
 Float returns v's underlying value, as a float64.   It panics if v's Kind is not Float32 or Float64 
 
 
-[\(view code\)](<./Reflect.hx#L2403>)
+[\(view code\)](<./Reflect.hx#L2518>)
 
 
 ### Value function index
@@ -1919,7 +1888,7 @@ function index( _i:stdgo.GoInt):stdgo.reflect.Value
 Index returns v's i'th element.   It panics if v's Kind is not Array, Slice, or String or i is out of range. 
 
 
-[\(view code\)](<./Reflect.hx#L2369>)
+[\(view code\)](<./Reflect.hx#L2469>)
 
 
 ### Value function int\_
@@ -1933,7 +1902,7 @@ function int_():stdgo.GoInt64
 Int returns v's underlying value, as an int64.   It panics if v's Kind is not Int, Int8, Int16, Int32, or Int64. 
 
 
-[\(view code\)](<./Reflect.hx#L2355>)
+[\(view code\)](<./Reflect.hx#L2423>)
 
 
 ### Value function interfaceData
@@ -1947,7 +1916,7 @@ function interfaceData():stdgo.GoArray<stdgo.GoUIntptr>
 InterfaceData returns a pair of unspecified uintptr values.   It panics if v's Kind is not Interface.      In earlier versions of Go, this function returned the interface's   value as a uintptr pair. As of Go 1.4, the implementation of   interface values precludes any defined use of InterfaceData.      Deprecated: The memory representation of interface values is not   compatible with InterfaceData. 
 
 
-[\(view code\)](<./Reflect.hx#L2327>)
+[\(view code\)](<./Reflect.hx#L2395>)
 
 
 ### Value function interface\_
@@ -1961,7 +1930,7 @@ function interface_():stdgo.AnyInterface
 Interface returns v's current value as an interface\{\}.   It is equivalent to:       var i interface\{\} = \(v's underlying value\)      It panics if the Value was obtained by accessing   unexported struct fields. 
 
 
-[\(view code\)](<./Reflect.hx#L2340>)
+[\(view code\)](<./Reflect.hx#L2408>)
 
 
 ### Value function isNil
@@ -1975,7 +1944,7 @@ function isNil():Bool
 IsNil reports whether its argument v is nil. The argument must be   a chan, func, interface, map, pointer, or slice value; if it is   not, IsNil panics. Note that IsNil is not always equivalent to a   regular comparison with nil in Go. For example, if v was created   by calling ValueOf with an uninitialized interface variable i,   i==nil will be true but v.IsNil will panic as v will be the zero   Value. 
 
 
-[\(view code\)](<./Reflect.hx#L2281>)
+[\(view code\)](<./Reflect.hx#L2347>)
 
 
 ### Value function isValid
@@ -1989,7 +1958,7 @@ function isValid():Bool
 IsValid reports whether v represents a value.   It returns false if v is the zero Value.   If IsValid returns false, all other methods except String panic.   Most functions and methods never return an invalid Value.   If one does, its documentation states the conditions explicitly. 
 
 
-[\(view code\)](<./Reflect.hx#L2269>)
+[\(view code\)](<./Reflect.hx#L2324>)
 
 
 ### Value function isZero
@@ -2003,7 +1972,7 @@ function isZero():Bool
 IsZero reports whether v is the zero value for its type.   It panics if the argument is invalid. 
 
 
-[\(view code\)](<./Reflect.hx#L2258>)
+[\(view code\)](<./Reflect.hx#L2314>)
 
 
 ### Value function kind
@@ -2017,7 +1986,7 @@ function kind():stdgo.reflect.Kind
 Kind returns v's Kind.   If v is the zero Value \(IsValid returns false\), Kind returns Invalid. 
 
 
-[\(view code\)](<./Reflect.hx#L2250>)
+[\(view code\)](<./Reflect.hx#L2306>)
 
 
 ### Value function len
@@ -2031,7 +2000,7 @@ function len():stdgo.GoInt
 Len returns v's length.   It panics if v's Kind is not Array, Chan, Map, Slice, String, or pointer to Array. 
 
 
-[\(view code\)](<./Reflect.hx#L2216>)
+[\(view code\)](<./Reflect.hx#L2264>)
 
 
 ### Value function mapIndex
@@ -2045,7 +2014,7 @@ function mapIndex( _key:stdgo.reflect.Value):stdgo.reflect.Value
 MapIndex returns the value associated with key in the map v.   It panics if v's Kind is not Map.   It returns the zero Value if key is not found in the map or if v represents a nil map.   As in Go, the key's value must be assignable to the map's key type. 
 
 
-[\(view code\)](<./Reflect.hx#L2209>)
+[\(view code\)](<./Reflect.hx#L2257>)
 
 
 ### Value function mapKeys
@@ -2059,7 +2028,7 @@ function mapKeys():stdgo.Slice<stdgo.reflect.Value>
 MapKeys returns a slice containing all the keys present in the map,   in unspecified order.   It panics if v's Kind is not Map.   It returns an empty slice if v represents a nil map. 
 
 
-[\(view code\)](<./Reflect.hx#L2199>)
+[\(view code\)](<./Reflect.hx#L2247>)
 
 
 ### Value function mapRange
@@ -2073,7 +2042,7 @@ function mapRange():stdgo.Ref<stdgo.reflect.MapIter>
 MapRange returns a range iterator for a map.   It panics if v's Kind is not Map.      Call Next to advance the iterator, and Key/Value to access each entry.   Next returns false when the iterator is exhausted.   MapRange follows the same iteration semantics as a range statement.      Example:       iter := reflect.ValueOf\(m\).MapRange\(\)    for iter.Next\(\) \{     k := iter.Key\(\)     v := iter.Value\(\)     ...    \} 
 
 
-[\(view code\)](<./Reflect.hx#L2171>)
+[\(view code\)](<./Reflect.hx#L2219>)
 
 
 ### Value function method
@@ -2087,7 +2056,7 @@ function method( _i:stdgo.GoInt):stdgo.reflect.Value
 Method returns a function value corresponding to v's i'th method.   The arguments to a Call on the returned function should not include   a receiver; the returned function will always use v as the receiver.   Method panics if i is out of range or if v is a nil interface value. 
 
 
-[\(view code\)](<./Reflect.hx#L2150>)
+[\(view code\)](<./Reflect.hx#L2198>)
 
 
 ### Value function methodByName
@@ -2101,7 +2070,7 @@ function methodByName( _name:stdgo.GoString):stdgo.reflect.Value
 MethodByName returns a function value corresponding to the method   of v with the given name.   The arguments to a Call on the returned function should not include   a receiver; the returned function will always use v as the receiver.   It returns the zero Value if no method was found. 
 
 
-[\(view code\)](<./Reflect.hx#L2129>)
+[\(view code\)](<./Reflect.hx#L2177>)
 
 
 ### Value function numField
@@ -2115,7 +2084,7 @@ function numField():stdgo.GoInt
 NumField returns the number of fields in the struct v.   It panics if v's Kind is not Struct. 
 
 
-[\(view code\)](<./Reflect.hx#L2118>)
+[\(view code\)](<./Reflect.hx#L2164>)
 
 
 ### Value function numMethod
@@ -2129,7 +2098,7 @@ function numMethod():stdgo.GoInt
 NumMethod returns the number of methods in the value's method set.      For a non\-interface type, it returns the number of exported methods.      For an interface type, it returns the number of exported and unexported methods. 
 
 
-[\(view code\)](<./Reflect.hx#L2140>)
+[\(view code\)](<./Reflect.hx#L2188>)
 
 
 ### Value function overflowComplex
@@ -2143,7 +2112,7 @@ function overflowComplex( _x:stdgo.GoComplex128):Bool
 OverflowComplex reports whether the complex128 x cannot be represented by v's type.   It panics if v's Kind is not Complex64 or Complex128. 
 
 
-[\(view code\)](<./Reflect.hx#L2110>)
+[\(view code\)](<./Reflect.hx#L2157>)
 
 
 ### Value function overflowFloat
@@ -2157,7 +2126,7 @@ function overflowFloat( _x:stdgo.GoFloat64):Bool
 OverflowFloat reports whether the float64 x cannot be represented by v's type.   It panics if v's Kind is not Float32 or Float64. 
 
 
-[\(view code\)](<./Reflect.hx#L2102>)
+[\(view code\)](<./Reflect.hx#L2149>)
 
 
 ### Value function overflowInt
@@ -2171,7 +2140,7 @@ function overflowInt( _x:stdgo.GoInt64):Bool
 OverflowInt reports whether the int64 x cannot be represented by v's type.   It panics if v's Kind is not Int, Int8, Int16, Int32, or Int64. 
 
 
-[\(view code\)](<./Reflect.hx#L2094>)
+[\(view code\)](<./Reflect.hx#L2141>)
 
 
 ### Value function overflowUint
@@ -2185,7 +2154,7 @@ function overflowUint( _x:stdgo.GoUInt64):Bool
 OverflowUint reports whether the uint64 x cannot be represented by v's type.   It panics if v's Kind is not Uint, Uintptr, Uint8, Uint16, Uint32, or Uint64. 
 
 
-[\(view code\)](<./Reflect.hx#L2086>)
+[\(view code\)](<./Reflect.hx#L2133>)
 
 
 ### Value function pointer
@@ -2199,7 +2168,7 @@ function pointer():stdgo.GoUIntptr
 Pointer returns v's value as a uintptr.   It returns uintptr instead of unsafe.Pointer so that   code using reflect cannot obtain unsafe.Pointers   without importing the unsafe package explicitly.   It panics if v's Kind is not Chan, Func, Map, Pointer, Slice, or UnsafePointer.      If v's Kind is Func, the returned pointer is an underlying   code pointer, but not necessarily enough to identify a   single function uniquely. The only guarantee is that the   result is zero if and only if v is a nil func Value.      If v's Kind is Slice, the returned pointer is to the first   element of the slice. If the slice is nil the returned value   is 0.  If the slice is empty but non\-nil the return value is non\-zero.      It's preferred to use uintptr\(Value.UnsafePointer\(\)\) to get the equivalent result. 
 
 
-[\(view code\)](<./Reflect.hx#L2073>)
+[\(view code\)](<./Reflect.hx#L2122>)
 
 
 ### Value function recv
@@ -2213,7 +2182,7 @@ function recv():{_1:Bool, _0:stdgo.reflect.Value}
 Recv receives and returns a value from the channel v.   It panics if v's Kind is not Chan.   The receive blocks until a value is ready.   The boolean value ok is true if the value x corresponds to a send   on the channel, false if it is a zero value received because the channel is closed. 
 
 
-[\(view code\)](<./Reflect.hx#L2052>)
+[\(view code\)](<./Reflect.hx#L2101>)
 
 
 ### Value function send
@@ -2227,7 +2196,7 @@ function send( _x:stdgo.reflect.Value):Void
 Send sends x on the channel v.   It panics if v's kind is not Chan or if x's type is not the same type as v's element type.   As in Go, x's value must be assignable to the channel's element type. 
 
 
-[\(view code\)](<./Reflect.hx#L2041>)
+[\(view code\)](<./Reflect.hx#L2090>)
 
 
 ### Value function set
@@ -2241,7 +2210,7 @@ function set( _x:stdgo.reflect.Value):Void
 Set assigns x to the value v.   It panics if CanSet returns false.   As in Go, x's value must be assignable to v's type. 
 
 
-[\(view code\)](<./Reflect.hx#L1985>)
+[\(view code\)](<./Reflect.hx#L2034>)
 
 
 ### Value function setBool
@@ -2255,7 +2224,7 @@ function setBool( _x:Bool):Void
 SetBool sets v's underlying value.   It panics if v's Kind is not Bool or if CanSet\(\) is false. 
 
 
-[\(view code\)](<./Reflect.hx#L1977>)
+[\(view code\)](<./Reflect.hx#L2026>)
 
 
 ### Value function setBytes
@@ -2269,7 +2238,7 @@ function setBytes( _x:stdgo.Slice<stdgo.GoByte>):Void
 SetBytes sets v's underlying value.   It panics if v's underlying value is not a slice of bytes. 
 
 
-[\(view code\)](<./Reflect.hx#L1969>)
+[\(view code\)](<./Reflect.hx#L2018>)
 
 
 ### Value function setCap
@@ -2283,7 +2252,7 @@ function setCap( _n:stdgo.GoInt):Void
 SetCap sets v's capacity to n.   It panics if v's Kind is not Slice or if n is smaller than the length or   greater than the capacity of the slice. 
 
 
-[\(view code\)](<./Reflect.hx#L1928>)
+[\(view code\)](<./Reflect.hx#L1977>)
 
 
 ### Value function setComplex
@@ -2297,7 +2266,7 @@ function setComplex( _x:stdgo.GoComplex128):Void
 SetComplex sets v's underlying value to x.   It panics if v's Kind is not Complex64 or Complex128, or if CanSet\(\) is false. 
 
 
-[\(view code\)](<./Reflect.hx#L1961>)
+[\(view code\)](<./Reflect.hx#L2010>)
 
 
 ### Value function setFloat
@@ -2311,7 +2280,7 @@ function setFloat( _x:stdgo.GoFloat64):Void
 SetFloat sets v's underlying value to x.   It panics if v's Kind is not Float32 or Float64, or if CanSet\(\) is false. 
 
 
-[\(view code\)](<./Reflect.hx#L1953>)
+[\(view code\)](<./Reflect.hx#L2002>)
 
 
 ### Value function setInt
@@ -2325,7 +2294,7 @@ function setInt( _x:stdgo.GoInt64):Void
 SetInt sets v's underlying value to x.   It panics if v's Kind is not Int, Int8, Int16, Int32, or Int64, or if CanSet\(\) is false. 
 
 
-[\(view code\)](<./Reflect.hx#L1945>)
+[\(view code\)](<./Reflect.hx#L1994>)
 
 
 ### Value function setIterKey
@@ -2339,7 +2308,7 @@ function setIterKey( _iter:stdgo.Ref<stdgo.reflect.MapIter>):Void
 SetIterKey assigns to v the key of iter's current map entry.   It is equivalent to v.Set\(iter.Key\(\)\), but it avoids allocating a new Value.   As in Go, the key must be assignable to v's type. 
 
 
-[\(view code\)](<./Reflect.hx#L2189>)
+[\(view code\)](<./Reflect.hx#L2237>)
 
 
 ### Value function setIterValue
@@ -2353,7 +2322,7 @@ function setIterValue( _iter:stdgo.Ref<stdgo.reflect.MapIter>):Void
 SetIterValue assigns to v the value of iter's current map entry.   It is equivalent to v.Set\(iter.Value\(\)\), but it avoids allocating a new Value.   As in Go, the value must be assignable to v's type. 
 
 
-[\(view code\)](<./Reflect.hx#L2180>)
+[\(view code\)](<./Reflect.hx#L2228>)
 
 
 ### Value function setLen
@@ -2367,7 +2336,7 @@ function setLen( _n:stdgo.GoInt):Void
 SetLen sets v's length to n.   It panics if v's Kind is not Slice or if n is negative or   greater than the capacity of the slice. 
 
 
-[\(view code\)](<./Reflect.hx#L1937>)
+[\(view code\)](<./Reflect.hx#L1986>)
 
 
 ### Value function setMapIndex
@@ -2381,7 +2350,7 @@ function setMapIndex( _key:stdgo.reflect.Value, _elem:stdgo.reflect.Value):Void
 SetMapIndex sets the element associated with key in the map v to elem.   It panics if v's Kind is not Map.   If elem is the zero Value, SetMapIndex deletes the key from the map.   Otherwise if v holds a nil map, SetMapIndex will panic.   As in Go, key's elem must be assignable to the map's key type,   and elem's value must be assignable to the map's elem type. 
 
 
-[\(view code\)](<./Reflect.hx#L1919>)
+[\(view code\)](<./Reflect.hx#L1968>)
 
 
 ### Value function setPointer
@@ -2395,7 +2364,7 @@ function setPointer( _x:stdgo.unsafe.UnsafePointer):Void
 SetPointer sets the unsafe.Pointer value v to x.   It panics if v's Kind is not UnsafePointer. 
 
 
-[\(view code\)](<./Reflect.hx#L1899>)
+[\(view code\)](<./Reflect.hx#L1948>)
 
 
 ### Value function setString
@@ -2409,7 +2378,7 @@ function setString( _x:stdgo.GoString):Void
 SetString sets v's underlying value to x.   It panics if v's Kind is not String or if CanSet\(\) is false. 
 
 
-[\(view code\)](<./Reflect.hx#L1891>)
+[\(view code\)](<./Reflect.hx#L1940>)
 
 
 ### Value function setUint
@@ -2423,7 +2392,7 @@ function setUint( _x:stdgo.GoUInt64):Void
 SetUint sets v's underlying value to x.   It panics if v's Kind is not Uint, Uintptr, Uint8, Uint16, Uint32, or Uint64, or if CanSet\(\) is false. 
 
 
-[\(view code\)](<./Reflect.hx#L1907>)
+[\(view code\)](<./Reflect.hx#L1956>)
 
 
 ### Value function slice
@@ -2437,7 +2406,7 @@ function slice( _i:stdgo.GoInt, _j:stdgo.GoInt):stdgo.reflect.Value
 Slice returns v\[i:j\].   It panics if v's Kind is not Array, Slice or String, or if v is an unaddressable array,   or if the indexes are out of bounds. 
 
 
-[\(view code\)](<./Reflect.hx#L1883>)
+[\(view code\)](<./Reflect.hx#L1901>)
 
 
 ### Value function slice3
@@ -2451,7 +2420,7 @@ function slice3( _i:stdgo.GoInt, _j:stdgo.GoInt, _k:stdgo.GoInt):stdgo.reflect.V
 Slice3 is the 3\-index form of the slice operation: it returns v\[i:j:k\].   It panics if v's Kind is not Array or Slice, or if v is an unaddressable array,   or if the indexes are out of bounds. 
 
 
-[\(view code\)](<./Reflect.hx#L1874>)
+[\(view code\)](<./Reflect.hx#L1893>)
 
 
 ### Value function string
@@ -2465,7 +2434,7 @@ function string():stdgo.GoString
 String returns the string v's underlying value, as a string.   String is a special case because of Go's String method convention.   Unlike the other getters, it does not panic if v's Kind is not String.   Instead, it returns a string of the form "\<T value\>" where T is v's type.   The fmt package treats Values specially. It does not call their String   method implicitly but instead prints the concrete values they hold. 
 
 
-[\(view code\)](<./Reflect.hx#L1849>)
+[\(view code\)](<./Reflect.hx#L1854>)
 
 
 ### Value function tryRecv
@@ -2479,7 +2448,7 @@ function tryRecv():{_1:Bool, _0:stdgo.reflect.Value}
 TryRecv attempts to receive a value from the channel v but will not block.   It panics if v's Kind is not Chan.   If the receive delivers a value, x is the transferred value and ok is true.   If the receive cannot finish without blocking, x is the zero Value and ok is false.   If the channel is closed, x is the zero value for the channel's element type and ok is false. 
 
 
-[\(view code\)](<./Reflect.hx#L1838>)
+[\(view code\)](<./Reflect.hx#L1843>)
 
 
 ### Value function trySend
@@ -2493,7 +2462,7 @@ function trySend( _x:stdgo.reflect.Value):Bool
 TrySend attempts to send x on the channel v but will not block.   It panics if v's Kind is not Chan.   It reports whether the value was sent.   As in Go, x's value must be assignable to the channel's element type. 
 
 
-[\(view code\)](<./Reflect.hx#L1827>)
+[\(view code\)](<./Reflect.hx#L1832>)
 
 
 ### Value function type
@@ -2507,7 +2476,7 @@ function type():stdgo.reflect.Type
 Type returns v's type. 
 
 
-[\(view code\)](<./Reflect.hx#L1817>)
+[\(view code\)](<./Reflect.hx#L1822>)
 
 
 ### Value function uint
@@ -2521,7 +2490,7 @@ function uint():stdgo.GoUInt64
 Uint returns v's underlying value, as a uint64.   It panics if v's Kind is not Uint, Uintptr, Uint8, Uint16, Uint32, or Uint64. 
 
 
-[\(view code\)](<./Reflect.hx#L1803>)
+[\(view code\)](<./Reflect.hx#L1767>)
 
 
 ### Value function unsafeAddr
@@ -2535,7 +2504,7 @@ function unsafeAddr():stdgo.GoUIntptr
 UnsafeAddr returns a pointer to v's data, as a uintptr.   It is for advanced clients that also import the "unsafe" package.   It panics if v is not addressable.      It's preferred to use uintptr\(Value.Addr\(\).UnsafePointer\(\)\) to get the equivalent result. 
 
 
-[\(view code\)](<./Reflect.hx#L1795>)
+[\(view code\)](<./Reflect.hx#L1760>)
 
 
 ### Value function unsafePointer
@@ -2549,7 +2518,7 @@ function unsafePointer():stdgo.unsafe.UnsafePointer
 UnsafePointer returns v's value as a unsafe.Pointer.   It panics if v's Kind is not Chan, Func, Map, Pointer, Slice, or UnsafePointer.      If v's Kind is Func, the returned pointer is an underlying   code pointer, but not necessarily enough to identify a   single function uniquely. The only guarantee is that the   result is zero if and only if v is a nil func Value.      If v's Kind is Slice, the returned pointer is to the first   element of the slice. If the slice is nil the returned value   is nil.  If the slice is empty but non\-nil the return value is non\-nil. 
 
 
-[\(view code\)](<./Reflect.hx#L1784>)
+[\(view code\)](<./Reflect.hx#L1749>)
 
 
 ## class ValueError
@@ -2572,14 +2541,28 @@ var method:stdgo.GoString
 
 
 ```haxe
-function new(?method:stdgo.GoString, ?kind:Null<stdgo.reflect.Kind>):Void
+function new(?method:stdgo.GoString, ?kind:Null<stdgo.reflect.Kind>, ?toString:():String):Void
 ```
 
 
  
 
 
-[\(view code\)](<./Reflect.hx#L517>)
+[\(view code\)](<./Reflect.hx#L491>)
+
+
+### ValueError function toString
+
+
+```haxe
+function toString():String
+```
+
+
+ 
+
+
+[\(view code\)](<./Reflect.hx#L487>)
 
 
 ### ValueError function error
@@ -2593,7 +2576,7 @@ function error():stdgo.GoString
  
 
 
-[\(view code\)](<./Reflect.hx#L2641>)
+[\(view code\)](<./Reflect.hx#L2857>)
 
 
 ## class ValueError\_static\_extension
@@ -2613,7 +2596,7 @@ function error():stdgo.GoString
  
 
 
-[\(view code\)](<./Reflect.hx#L2641>)
+[\(view code\)](<./Reflect.hx#L2857>)
 
 
 ## class Value\_static\_extension
@@ -2633,7 +2616,7 @@ function addr():stdgo.reflect.Value
 Addr returns a pointer value representing the address of v.   It panics if CanAddr\(\) returns false.   Addr is typically used to obtain a pointer to a struct field   or slice element in order to call a method that requires a   pointer receiver. 
 
 
-[\(view code\)](<./Reflect.hx#L2616>)
+[\(view code\)](<./Reflect.hx#L2832>)
 
 
 ### Value\_static\_extension function bool\_
@@ -2647,7 +2630,7 @@ function bool_():Bool
 Bool returns v's underlying value.   It panics if v's kind is not Bool. 
 
 
-[\(view code\)](<./Reflect.hx#L2605>)
+[\(view code\)](<./Reflect.hx#L2797>)
 
 
 ### Value\_static\_extension function bytes
@@ -2661,7 +2644,7 @@ function bytes():stdgo.Slice<stdgo.GoByte>
 Bytes returns v's underlying value.   It panics if v's underlying value is not a slice of bytes or   an addressable array of bytes. 
 
 
-[\(view code\)](<./Reflect.hx#L2597>)
+[\(view code\)](<./Reflect.hx#L2754>)
 
 
 ### Value\_static\_extension function call
@@ -2675,7 +2658,7 @@ function call( _in:stdgo.Slice<stdgo.reflect.Value>):stdgo.Slice<stdgo.reflect.V
 Call calls the function v with the input arguments in.   For example, if len\(in\) == 3, v.Call\(in\) represents the Go call v\(in\[0\], in\[1\], in\[2\]\).   Call panics if v's Kind is not Func.   It returns the output results as Values.   As in Go, each input argument must be assignable to the   type of the function's corresponding input parameter.   If v is a variadic function, Call creates the variadic slice parameter   itself, copying in the corresponding values. 
 
 
-[\(view code\)](<./Reflect.hx#L2566>)
+[\(view code\)](<./Reflect.hx#L2723>)
 
 
 ### Value\_static\_extension function callSlice
@@ -2689,7 +2672,7 @@ function callSlice( _in:stdgo.Slice<stdgo.reflect.Value>):stdgo.Slice<stdgo.refl
 CallSlice calls the variadic function v with the input arguments in,   assigning the slice in\[len\(in\)\-1\] to v's final variadic argument.   For example, if len\(in\) == 3, v.CallSlice\(in\) represents the Go call v\(in\[0\], in\[1\], in\[2\]...\).   CallSlice panics if v's Kind is not Func or if v is not variadic.   It returns the output results as Values.   As in Go, each input argument must be assignable to the   type of the function's corresponding input parameter. 
 
 
-[\(view code\)](<./Reflect.hx#L2552>)
+[\(view code\)](<./Reflect.hx#L2709>)
 
 
 ### Value\_static\_extension function canAddr
@@ -2703,7 +2686,7 @@ function canAddr():Bool
 CanAddr reports whether the value's address can be obtained with Addr.   Such values are called addressable. A value is addressable if it is   an element of a slice, an element of an addressable array,   a field of an addressable struct, or the result of dereferencing a pointer.   If CanAddr returns false, calling Addr will panic. 
 
 
-[\(view code\)](<./Reflect.hx#L2588>)
+[\(view code\)](<./Reflect.hx#L2744>)
 
 
 ### Value\_static\_extension function canComplex
@@ -2717,7 +2700,7 @@ function canComplex():Bool
 CanComplex reports whether Complex can be used without panicking. 
 
 
-[\(view code\)](<./Reflect.hx#L2523>)
+[\(view code\)](<./Reflect.hx#L2680>)
 
 
 ### Value\_static\_extension function canConvert
@@ -2731,7 +2714,7 @@ function canConvert( _t:stdgo.reflect.Type):Bool
 CanConvert reports whether the value v can be converted to type t.   If v.CanConvert\(t\) returns true then v.Convert\(t\) will not panic. 
 
 
-[\(view code\)](<./Reflect.hx#L1758>)
+[\(view code\)](<./Reflect.hx#L1723>)
 
 
 ### Value\_static\_extension function canFloat
@@ -2745,7 +2728,7 @@ function canFloat():Bool
 CanFloat reports whether Float can be used without panicking. 
 
 
-[\(view code\)](<./Reflect.hx#L2410>)
+[\(view code\)](<./Reflect.hx#L2551>)
 
 
 ### Value\_static\_extension function canInt
@@ -2759,7 +2742,7 @@ function canInt():Bool
 CanInt reports whether Int can be used without panicking. 
 
 
-[\(view code\)](<./Reflect.hx#L2362>)
+[\(view code\)](<./Reflect.hx#L2462>)
 
 
 ### Value\_static\_extension function canInterface
@@ -2773,7 +2756,7 @@ function canInterface():Bool
 CanInterface reports whether Interface can be used without panicking. 
 
 
-[\(view code\)](<./Reflect.hx#L2347>)
+[\(view code\)](<./Reflect.hx#L2414>)
 
 
 ### Value\_static\_extension function canSet
@@ -2787,7 +2770,7 @@ function canSet():Bool
 CanSet reports whether the value of v can be changed.   A Value can be changed only if it is addressable and was not   obtained by the use of unexported struct fields.   If CanSet returns false, calling Set or any type\-specific   setter \(e.g., SetBool, SetInt\) will panic. 
 
 
-[\(view code\)](<./Reflect.hx#L2577>)
+[\(view code\)](<./Reflect.hx#L2734>)
 
 
 ### Value\_static\_extension function canUint
@@ -2801,7 +2784,7 @@ function canUint():Bool
 CanUint reports whether Uint can be used without panicking. 
 
 
-[\(view code\)](<./Reflect.hx#L1810>)
+[\(view code\)](<./Reflect.hx#L1807>)
 
 
 ### Value\_static\_extension function cap
@@ -2815,7 +2798,7 @@ function cap():stdgo.GoInt
 Cap returns v's capacity.   It panics if v's Kind is not Array, Chan, Slice or pointer to Array. 
 
 
-[\(view code\)](<./Reflect.hx#L2539>)
+[\(view code\)](<./Reflect.hx#L2696>)
 
 
 ### Value\_static\_extension function close
@@ -2829,7 +2812,7 @@ function close():Void
 Close closes the channel v.   It panics if v's Kind is not Chan. 
 
 
-[\(view code\)](<./Reflect.hx#L2531>)
+[\(view code\)](<./Reflect.hx#L2688>)
 
 
 ### Value\_static\_extension function complex
@@ -2843,7 +2826,7 @@ function complex():stdgo.GoComplex128
 Complex returns v's underlying value, as a complex128.   It panics if v's Kind is not Complex64 or Complex128 
 
 
-[\(view code\)](<./Reflect.hx#L2516>)
+[\(view code\)](<./Reflect.hx#L2673>)
 
 
 ### Value\_static\_extension function convert
@@ -2857,7 +2840,7 @@ function convert( _t:stdgo.reflect.Type):stdgo.reflect.Value
 Convert returns the value v converted to type t.   If the usual Go conversion rules do not allow conversion   of the value v to type t, or if converting v to type t panics, Convert panics. 
 
 
-[\(view code\)](<./Reflect.hx#L1767>)
+[\(view code\)](<./Reflect.hx#L1732>)
 
 
 ### Value\_static\_extension function elem
@@ -2871,7 +2854,7 @@ function elem():stdgo.reflect.Value
 Elem returns the value that the interface v contains   or that the pointer v points to.   It panics if v's Kind is not Interface or Pointer.   It returns the zero Value if v is nil. 
 
 
-[\(view code\)](<./Reflect.hx#L2478>)
+[\(view code\)](<./Reflect.hx#L2620>)
 
 
 ### Value\_static\_extension function field
@@ -2885,7 +2868,7 @@ function field( _i:stdgo.GoInt):stdgo.reflect.Value
 Field returns the i'th field of the struct v.   It panics if v's Kind is not Struct or i is out of range. 
 
 
-[\(view code\)](<./Reflect.hx#L2455>)
+[\(view code\)](<./Reflect.hx#L2596>)
 
 
 ### Value\_static\_extension function fieldByIndex
@@ -2899,7 +2882,7 @@ function fieldByIndex( _index:stdgo.Slice<stdgo.GoInt>):stdgo.reflect.Value
 FieldByIndex returns the nested field corresponding to index.   It panics if evaluation requires stepping through a nil   pointer or a field that is not a struct. 
 
 
-[\(view code\)](<./Reflect.hx#L2448>)
+[\(view code\)](<./Reflect.hx#L2589>)
 
 
 ### Value\_static\_extension function fieldByIndexErr
@@ -2913,7 +2896,7 @@ function fieldByIndexErr( _index:stdgo.Slice<stdgo.GoInt>):{_1:stdgo.Error, _0:s
 FieldByIndexErr returns the nested field corresponding to index.   It returns an error if evaluation requires stepping through a nil   pointer, but panics if it must step through a field that   is not a struct. 
 
 
-[\(view code\)](<./Reflect.hx#L2439>)
+[\(view code\)](<./Reflect.hx#L2580>)
 
 
 ### Value\_static\_extension function fieldByName
@@ -2927,7 +2910,7 @@ function fieldByName( _name:stdgo.GoString):stdgo.reflect.Value
 FieldByName returns the struct field with the given name.   It returns the zero Value if no field was found.   It panics if v's Kind is not struct. 
 
 
-[\(view code\)](<./Reflect.hx#L2429>)
+[\(view code\)](<./Reflect.hx#L2570>)
 
 
 ### Value\_static\_extension function fieldByNameFunc
@@ -2941,7 +2924,7 @@ function fieldByNameFunc( _match:()):stdgo.reflect.Value
 FieldByNameFunc returns the struct field with a name   that satisfies the match function.   It panics if v's Kind is not struct.   It returns the zero Value if no field was found. 
 
 
-[\(view code\)](<./Reflect.hx#L2420>)
+[\(view code\)](<./Reflect.hx#L2561>)
 
 
 ### Value\_static\_extension function float\_
@@ -2955,7 +2938,7 @@ function float_():stdgo.GoFloat64
 Float returns v's underlying value, as a float64.   It panics if v's Kind is not Float32 or Float64 
 
 
-[\(view code\)](<./Reflect.hx#L2403>)
+[\(view code\)](<./Reflect.hx#L2518>)
 
 
 ### Value\_static\_extension function index
@@ -2969,7 +2952,7 @@ function index( _i:stdgo.GoInt):stdgo.reflect.Value
 Index returns v's i'th element.   It panics if v's Kind is not Array, Slice, or String or i is out of range. 
 
 
-[\(view code\)](<./Reflect.hx#L2369>)
+[\(view code\)](<./Reflect.hx#L2469>)
 
 
 ### Value\_static\_extension function int\_
@@ -2983,7 +2966,7 @@ function int_():stdgo.GoInt64
 Int returns v's underlying value, as an int64.   It panics if v's Kind is not Int, Int8, Int16, Int32, or Int64. 
 
 
-[\(view code\)](<./Reflect.hx#L2355>)
+[\(view code\)](<./Reflect.hx#L2423>)
 
 
 ### Value\_static\_extension function interfaceData
@@ -2997,7 +2980,7 @@ function interfaceData():stdgo.GoArray<stdgo.GoUIntptr>
 InterfaceData returns a pair of unspecified uintptr values.   It panics if v's Kind is not Interface.      In earlier versions of Go, this function returned the interface's   value as a uintptr pair. As of Go 1.4, the implementation of   interface values precludes any defined use of InterfaceData.      Deprecated: The memory representation of interface values is not   compatible with InterfaceData. 
 
 
-[\(view code\)](<./Reflect.hx#L2327>)
+[\(view code\)](<./Reflect.hx#L2395>)
 
 
 ### Value\_static\_extension function interface\_
@@ -3011,7 +2994,7 @@ function interface_():stdgo.AnyInterface
 Interface returns v's current value as an interface\{\}.   It is equivalent to:       var i interface\{\} = \(v's underlying value\)      It panics if the Value was obtained by accessing   unexported struct fields. 
 
 
-[\(view code\)](<./Reflect.hx#L2340>)
+[\(view code\)](<./Reflect.hx#L2408>)
 
 
 ### Value\_static\_extension function isNil
@@ -3025,7 +3008,7 @@ function isNil():Bool
 IsNil reports whether its argument v is nil. The argument must be   a chan, func, interface, map, pointer, or slice value; if it is   not, IsNil panics. Note that IsNil is not always equivalent to a   regular comparison with nil in Go. For example, if v was created   by calling ValueOf with an uninitialized interface variable i,   i==nil will be true but v.IsNil will panic as v will be the zero   Value. 
 
 
-[\(view code\)](<./Reflect.hx#L2281>)
+[\(view code\)](<./Reflect.hx#L2347>)
 
 
 ### Value\_static\_extension function isValid
@@ -3039,7 +3022,7 @@ function isValid():Bool
 IsValid reports whether v represents a value.   It returns false if v is the zero Value.   If IsValid returns false, all other methods except String panic.   Most functions and methods never return an invalid Value.   If one does, its documentation states the conditions explicitly. 
 
 
-[\(view code\)](<./Reflect.hx#L2269>)
+[\(view code\)](<./Reflect.hx#L2324>)
 
 
 ### Value\_static\_extension function isZero
@@ -3053,7 +3036,7 @@ function isZero():Bool
 IsZero reports whether v is the zero value for its type.   It panics if the argument is invalid. 
 
 
-[\(view code\)](<./Reflect.hx#L2258>)
+[\(view code\)](<./Reflect.hx#L2314>)
 
 
 ### Value\_static\_extension function kind
@@ -3067,7 +3050,7 @@ function kind():stdgo.reflect.Kind
 Kind returns v's Kind.   If v is the zero Value \(IsValid returns false\), Kind returns Invalid. 
 
 
-[\(view code\)](<./Reflect.hx#L2250>)
+[\(view code\)](<./Reflect.hx#L2306>)
 
 
 ### Value\_static\_extension function len
@@ -3081,7 +3064,7 @@ function len():stdgo.GoInt
 Len returns v's length.   It panics if v's Kind is not Array, Chan, Map, Slice, String, or pointer to Array. 
 
 
-[\(view code\)](<./Reflect.hx#L2216>)
+[\(view code\)](<./Reflect.hx#L2264>)
 
 
 ### Value\_static\_extension function mapIndex
@@ -3095,7 +3078,7 @@ function mapIndex( _key:stdgo.reflect.Value):stdgo.reflect.Value
 MapIndex returns the value associated with key in the map v.   It panics if v's Kind is not Map.   It returns the zero Value if key is not found in the map or if v represents a nil map.   As in Go, the key's value must be assignable to the map's key type. 
 
 
-[\(view code\)](<./Reflect.hx#L2209>)
+[\(view code\)](<./Reflect.hx#L2257>)
 
 
 ### Value\_static\_extension function mapKeys
@@ -3109,7 +3092,7 @@ function mapKeys():stdgo.Slice<stdgo.reflect.Value>
 MapKeys returns a slice containing all the keys present in the map,   in unspecified order.   It panics if v's Kind is not Map.   It returns an empty slice if v represents a nil map. 
 
 
-[\(view code\)](<./Reflect.hx#L2199>)
+[\(view code\)](<./Reflect.hx#L2247>)
 
 
 ### Value\_static\_extension function mapRange
@@ -3123,7 +3106,7 @@ function mapRange():stdgo.Ref<stdgo.reflect.MapIter>
 MapRange returns a range iterator for a map.   It panics if v's Kind is not Map.      Call Next to advance the iterator, and Key/Value to access each entry.   Next returns false when the iterator is exhausted.   MapRange follows the same iteration semantics as a range statement.      Example:       iter := reflect.ValueOf\(m\).MapRange\(\)    for iter.Next\(\) \{     k := iter.Key\(\)     v := iter.Value\(\)     ...    \} 
 
 
-[\(view code\)](<./Reflect.hx#L2171>)
+[\(view code\)](<./Reflect.hx#L2219>)
 
 
 ### Value\_static\_extension function method
@@ -3137,7 +3120,7 @@ function method( _i:stdgo.GoInt):stdgo.reflect.Value
 Method returns a function value corresponding to v's i'th method.   The arguments to a Call on the returned function should not include   a receiver; the returned function will always use v as the receiver.   Method panics if i is out of range or if v is a nil interface value. 
 
 
-[\(view code\)](<./Reflect.hx#L2150>)
+[\(view code\)](<./Reflect.hx#L2198>)
 
 
 ### Value\_static\_extension function methodByName
@@ -3151,7 +3134,7 @@ function methodByName( _name:stdgo.GoString):stdgo.reflect.Value
 MethodByName returns a function value corresponding to the method   of v with the given name.   The arguments to a Call on the returned function should not include   a receiver; the returned function will always use v as the receiver.   It returns the zero Value if no method was found. 
 
 
-[\(view code\)](<./Reflect.hx#L2129>)
+[\(view code\)](<./Reflect.hx#L2177>)
 
 
 ### Value\_static\_extension function numField
@@ -3165,7 +3148,7 @@ function numField():stdgo.GoInt
 NumField returns the number of fields in the struct v.   It panics if v's Kind is not Struct. 
 
 
-[\(view code\)](<./Reflect.hx#L2118>)
+[\(view code\)](<./Reflect.hx#L2164>)
 
 
 ### Value\_static\_extension function numMethod
@@ -3179,7 +3162,7 @@ function numMethod():stdgo.GoInt
 NumMethod returns the number of methods in the value's method set.      For a non\-interface type, it returns the number of exported methods.      For an interface type, it returns the number of exported and unexported methods. 
 
 
-[\(view code\)](<./Reflect.hx#L2140>)
+[\(view code\)](<./Reflect.hx#L2188>)
 
 
 ### Value\_static\_extension function overflowComplex
@@ -3193,7 +3176,7 @@ function overflowComplex( _x:stdgo.GoComplex128):Bool
 OverflowComplex reports whether the complex128 x cannot be represented by v's type.   It panics if v's Kind is not Complex64 or Complex128. 
 
 
-[\(view code\)](<./Reflect.hx#L2110>)
+[\(view code\)](<./Reflect.hx#L2157>)
 
 
 ### Value\_static\_extension function overflowFloat
@@ -3207,7 +3190,7 @@ function overflowFloat( _x:stdgo.GoFloat64):Bool
 OverflowFloat reports whether the float64 x cannot be represented by v's type.   It panics if v's Kind is not Float32 or Float64. 
 
 
-[\(view code\)](<./Reflect.hx#L2102>)
+[\(view code\)](<./Reflect.hx#L2149>)
 
 
 ### Value\_static\_extension function overflowInt
@@ -3221,7 +3204,7 @@ function overflowInt( _x:stdgo.GoInt64):Bool
 OverflowInt reports whether the int64 x cannot be represented by v's type.   It panics if v's Kind is not Int, Int8, Int16, Int32, or Int64. 
 
 
-[\(view code\)](<./Reflect.hx#L2094>)
+[\(view code\)](<./Reflect.hx#L2141>)
 
 
 ### Value\_static\_extension function overflowUint
@@ -3235,7 +3218,7 @@ function overflowUint( _x:stdgo.GoUInt64):Bool
 OverflowUint reports whether the uint64 x cannot be represented by v's type.   It panics if v's Kind is not Uint, Uintptr, Uint8, Uint16, Uint32, or Uint64. 
 
 
-[\(view code\)](<./Reflect.hx#L2086>)
+[\(view code\)](<./Reflect.hx#L2133>)
 
 
 ### Value\_static\_extension function pointer
@@ -3249,7 +3232,7 @@ function pointer():stdgo.GoUIntptr
 Pointer returns v's value as a uintptr.   It returns uintptr instead of unsafe.Pointer so that   code using reflect cannot obtain unsafe.Pointers   without importing the unsafe package explicitly.   It panics if v's Kind is not Chan, Func, Map, Pointer, Slice, or UnsafePointer.      If v's Kind is Func, the returned pointer is an underlying   code pointer, but not necessarily enough to identify a   single function uniquely. The only guarantee is that the   result is zero if and only if v is a nil func Value.      If v's Kind is Slice, the returned pointer is to the first   element of the slice. If the slice is nil the returned value   is 0.  If the slice is empty but non\-nil the return value is non\-zero.      It's preferred to use uintptr\(Value.UnsafePointer\(\)\) to get the equivalent result. 
 
 
-[\(view code\)](<./Reflect.hx#L2073>)
+[\(view code\)](<./Reflect.hx#L2122>)
 
 
 ### Value\_static\_extension function recv
@@ -3263,7 +3246,7 @@ function recv():{_1:Bool, _0:stdgo.reflect.Value}
 Recv receives and returns a value from the channel v.   It panics if v's Kind is not Chan.   The receive blocks until a value is ready.   The boolean value ok is true if the value x corresponds to a send   on the channel, false if it is a zero value received because the channel is closed. 
 
 
-[\(view code\)](<./Reflect.hx#L2052>)
+[\(view code\)](<./Reflect.hx#L2101>)
 
 
 ### Value\_static\_extension function send
@@ -3277,7 +3260,7 @@ function send( _x:stdgo.reflect.Value):Void
 Send sends x on the channel v.   It panics if v's kind is not Chan or if x's type is not the same type as v's element type.   As in Go, x's value must be assignable to the channel's element type. 
 
 
-[\(view code\)](<./Reflect.hx#L2041>)
+[\(view code\)](<./Reflect.hx#L2090>)
 
 
 ### Value\_static\_extension function set
@@ -3291,7 +3274,7 @@ function set( _x:stdgo.reflect.Value):Void
 Set assigns x to the value v.   It panics if CanSet returns false.   As in Go, x's value must be assignable to v's type. 
 
 
-[\(view code\)](<./Reflect.hx#L1985>)
+[\(view code\)](<./Reflect.hx#L2034>)
 
 
 ### Value\_static\_extension function setBool
@@ -3305,7 +3288,7 @@ function setBool( _x:Bool):Void
 SetBool sets v's underlying value.   It panics if v's Kind is not Bool or if CanSet\(\) is false. 
 
 
-[\(view code\)](<./Reflect.hx#L1977>)
+[\(view code\)](<./Reflect.hx#L2026>)
 
 
 ### Value\_static\_extension function setBytes
@@ -3319,7 +3302,7 @@ function setBytes( _x:stdgo.Slice<stdgo.GoByte>):Void
 SetBytes sets v's underlying value.   It panics if v's underlying value is not a slice of bytes. 
 
 
-[\(view code\)](<./Reflect.hx#L1969>)
+[\(view code\)](<./Reflect.hx#L2018>)
 
 
 ### Value\_static\_extension function setCap
@@ -3333,7 +3316,7 @@ function setCap( _n:stdgo.GoInt):Void
 SetCap sets v's capacity to n.   It panics if v's Kind is not Slice or if n is smaller than the length or   greater than the capacity of the slice. 
 
 
-[\(view code\)](<./Reflect.hx#L1928>)
+[\(view code\)](<./Reflect.hx#L1977>)
 
 
 ### Value\_static\_extension function setComplex
@@ -3347,7 +3330,7 @@ function setComplex( _x:stdgo.GoComplex128):Void
 SetComplex sets v's underlying value to x.   It panics if v's Kind is not Complex64 or Complex128, or if CanSet\(\) is false. 
 
 
-[\(view code\)](<./Reflect.hx#L1961>)
+[\(view code\)](<./Reflect.hx#L2010>)
 
 
 ### Value\_static\_extension function setFloat
@@ -3361,7 +3344,7 @@ function setFloat( _x:stdgo.GoFloat64):Void
 SetFloat sets v's underlying value to x.   It panics if v's Kind is not Float32 or Float64, or if CanSet\(\) is false. 
 
 
-[\(view code\)](<./Reflect.hx#L1953>)
+[\(view code\)](<./Reflect.hx#L2002>)
 
 
 ### Value\_static\_extension function setInt
@@ -3375,7 +3358,7 @@ function setInt( _x:stdgo.GoInt64):Void
 SetInt sets v's underlying value to x.   It panics if v's Kind is not Int, Int8, Int16, Int32, or Int64, or if CanSet\(\) is false. 
 
 
-[\(view code\)](<./Reflect.hx#L1945>)
+[\(view code\)](<./Reflect.hx#L1994>)
 
 
 ### Value\_static\_extension function setIterKey
@@ -3389,7 +3372,7 @@ function setIterKey( _iter:stdgo.Ref<stdgo.reflect.MapIter>):Void
 SetIterKey assigns to v the key of iter's current map entry.   It is equivalent to v.Set\(iter.Key\(\)\), but it avoids allocating a new Value.   As in Go, the key must be assignable to v's type. 
 
 
-[\(view code\)](<./Reflect.hx#L2189>)
+[\(view code\)](<./Reflect.hx#L2237>)
 
 
 ### Value\_static\_extension function setIterValue
@@ -3403,7 +3386,7 @@ function setIterValue( _iter:stdgo.Ref<stdgo.reflect.MapIter>):Void
 SetIterValue assigns to v the value of iter's current map entry.   It is equivalent to v.Set\(iter.Value\(\)\), but it avoids allocating a new Value.   As in Go, the value must be assignable to v's type. 
 
 
-[\(view code\)](<./Reflect.hx#L2180>)
+[\(view code\)](<./Reflect.hx#L2228>)
 
 
 ### Value\_static\_extension function setLen
@@ -3417,7 +3400,7 @@ function setLen( _n:stdgo.GoInt):Void
 SetLen sets v's length to n.   It panics if v's Kind is not Slice or if n is negative or   greater than the capacity of the slice. 
 
 
-[\(view code\)](<./Reflect.hx#L1937>)
+[\(view code\)](<./Reflect.hx#L1986>)
 
 
 ### Value\_static\_extension function setMapIndex
@@ -3431,7 +3414,7 @@ function setMapIndex( _key:stdgo.reflect.Value, _elem:stdgo.reflect.Value):Void
 SetMapIndex sets the element associated with key in the map v to elem.   It panics if v's Kind is not Map.   If elem is the zero Value, SetMapIndex deletes the key from the map.   Otherwise if v holds a nil map, SetMapIndex will panic.   As in Go, key's elem must be assignable to the map's key type,   and elem's value must be assignable to the map's elem type. 
 
 
-[\(view code\)](<./Reflect.hx#L1919>)
+[\(view code\)](<./Reflect.hx#L1968>)
 
 
 ### Value\_static\_extension function setPointer
@@ -3445,7 +3428,7 @@ function setPointer( _x:stdgo.unsafe.UnsafePointer):Void
 SetPointer sets the unsafe.Pointer value v to x.   It panics if v's Kind is not UnsafePointer. 
 
 
-[\(view code\)](<./Reflect.hx#L1899>)
+[\(view code\)](<./Reflect.hx#L1948>)
 
 
 ### Value\_static\_extension function setString
@@ -3459,7 +3442,7 @@ function setString( _x:stdgo.GoString):Void
 SetString sets v's underlying value to x.   It panics if v's Kind is not String or if CanSet\(\) is false. 
 
 
-[\(view code\)](<./Reflect.hx#L1891>)
+[\(view code\)](<./Reflect.hx#L1940>)
 
 
 ### Value\_static\_extension function setUint
@@ -3473,7 +3456,7 @@ function setUint( _x:stdgo.GoUInt64):Void
 SetUint sets v's underlying value to x.   It panics if v's Kind is not Uint, Uintptr, Uint8, Uint16, Uint32, or Uint64, or if CanSet\(\) is false. 
 
 
-[\(view code\)](<./Reflect.hx#L1907>)
+[\(view code\)](<./Reflect.hx#L1956>)
 
 
 ### Value\_static\_extension function slice
@@ -3487,7 +3470,7 @@ function slice( _i:stdgo.GoInt, _j:stdgo.GoInt):stdgo.reflect.Value
 Slice returns v\[i:j\].   It panics if v's Kind is not Array, Slice or String, or if v is an unaddressable array,   or if the indexes are out of bounds. 
 
 
-[\(view code\)](<./Reflect.hx#L1883>)
+[\(view code\)](<./Reflect.hx#L1901>)
 
 
 ### Value\_static\_extension function slice3
@@ -3501,7 +3484,7 @@ function slice3( _i:stdgo.GoInt, _j:stdgo.GoInt, _k:stdgo.GoInt):stdgo.reflect.V
 Slice3 is the 3\-index form of the slice operation: it returns v\[i:j:k\].   It panics if v's Kind is not Array or Slice, or if v is an unaddressable array,   or if the indexes are out of bounds. 
 
 
-[\(view code\)](<./Reflect.hx#L1874>)
+[\(view code\)](<./Reflect.hx#L1893>)
 
 
 ### Value\_static\_extension function string
@@ -3515,7 +3498,7 @@ function string():stdgo.GoString
 String returns the string v's underlying value, as a string.   String is a special case because of Go's String method convention.   Unlike the other getters, it does not panic if v's Kind is not String.   Instead, it returns a string of the form "\<T value\>" where T is v's type.   The fmt package treats Values specially. It does not call their String   method implicitly but instead prints the concrete values they hold. 
 
 
-[\(view code\)](<./Reflect.hx#L1849>)
+[\(view code\)](<./Reflect.hx#L1854>)
 
 
 ### Value\_static\_extension function tryRecv
@@ -3529,7 +3512,7 @@ function tryRecv():{_1:Bool, _0:stdgo.reflect.Value}
 TryRecv attempts to receive a value from the channel v but will not block.   It panics if v's Kind is not Chan.   If the receive delivers a value, x is the transferred value and ok is true.   If the receive cannot finish without blocking, x is the zero Value and ok is false.   If the channel is closed, x is the zero value for the channel's element type and ok is false. 
 
 
-[\(view code\)](<./Reflect.hx#L1838>)
+[\(view code\)](<./Reflect.hx#L1843>)
 
 
 ### Value\_static\_extension function trySend
@@ -3543,7 +3526,7 @@ function trySend( _x:stdgo.reflect.Value):Bool
 TrySend attempts to send x on the channel v but will not block.   It panics if v's Kind is not Chan.   It reports whether the value was sent.   As in Go, x's value must be assignable to the channel's element type. 
 
 
-[\(view code\)](<./Reflect.hx#L1827>)
+[\(view code\)](<./Reflect.hx#L1832>)
 
 
 ### Value\_static\_extension function type
@@ -3557,7 +3540,7 @@ function type():stdgo.reflect.Type
 Type returns v's type. 
 
 
-[\(view code\)](<./Reflect.hx#L1817>)
+[\(view code\)](<./Reflect.hx#L1822>)
 
 
 ### Value\_static\_extension function uint
@@ -3571,7 +3554,7 @@ function uint():stdgo.GoUInt64
 Uint returns v's underlying value, as a uint64.   It panics if v's Kind is not Uint, Uintptr, Uint8, Uint16, Uint32, or Uint64. 
 
 
-[\(view code\)](<./Reflect.hx#L1803>)
+[\(view code\)](<./Reflect.hx#L1767>)
 
 
 ### Value\_static\_extension function unsafeAddr
@@ -3585,7 +3568,7 @@ function unsafeAddr():stdgo.GoUIntptr
 UnsafeAddr returns a pointer to v's data, as a uintptr.   It is for advanced clients that also import the "unsafe" package.   It panics if v is not addressable.      It's preferred to use uintptr\(Value.Addr\(\).UnsafePointer\(\)\) to get the equivalent result. 
 
 
-[\(view code\)](<./Reflect.hx#L1795>)
+[\(view code\)](<./Reflect.hx#L1760>)
 
 
 ### Value\_static\_extension function unsafePointer
@@ -3599,7 +3582,7 @@ function unsafePointer():stdgo.unsafe.UnsafePointer
 UnsafePointer returns v's value as a unsafe.Pointer.   It panics if v's Kind is not Chan, Func, Map, Pointer, Slice, or UnsafePointer.      If v's Kind is Func, the returned pointer is an underlying   code pointer, but not necessarily enough to identify a   single function uniquely. The only guarantee is that the   result is zero if and only if v is a nil func Value.      If v's Kind is Slice, the returned pointer is to the first   element of the slice. If the slice is nil the returned value   is nil.  If the slice is empty but non\-nil the return value is non\-nil. 
 
 
-[\(view code\)](<./Reflect.hx#L1784>)
+[\(view code\)](<./Reflect.hx#L1749>)
 
 
 # Typedefs
@@ -3632,7 +3615,7 @@ function string():stdgo.GoString
  
 
 
-[\(view code\)](<./Reflect.hx#L2839>)
+[\(view code\)](<./Reflect.hx#L3055>)
 
 
 ## typedef Kind
@@ -3657,7 +3640,7 @@ function string():stdgo.GoString
 String returns the name of k. 
 
 
-[\(view code\)](<./Reflect.hx#L2754>)
+[\(view code\)](<./Reflect.hx#L2970>)
 
 
 ## typedef SelectDir
@@ -3693,7 +3676,7 @@ function get( _key:stdgo.GoString):stdgo.GoString
 Get returns the value associated with key in the tag string.   If there is no such key in the tag, Get returns the empty string.   If the tag does not have the conventional format, the value   returned by Get is unspecified. To determine whether a tag is   explicitly set to the empty string, use Lookup. 
 
 
-[\(view code\)](<./Reflect.hx#L2902>)
+[\(view code\)](<./Reflect.hx#L3118>)
 
 
 ### StructTag function lookup
@@ -3707,7 +3690,7 @@ function lookup( _key:stdgo.GoString):{_1:Bool, _0:stdgo.GoString}
 Lookup returns the value associated with key in the tag string.   If the key is present in the tag the value \(which may be empty\)   is returned. Otherwise the returned value will be the empty string.   The ok return value reports whether the value was explicitly set in   the tag string. If the tag does not have the conventional format,   the value returned by Lookup is unspecified. 
 
 
-[\(view code\)](<./Reflect.hx#L2891>)
+[\(view code\)](<./Reflect.hx#L3107>)
 
 
 ## typedef Type

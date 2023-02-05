@@ -1,5 +1,6 @@
 package;
 
+import haxe.macro.Compiler;
 import haxe.Json;
 import sys.FileSystem;
 import sys.io.File;
@@ -16,15 +17,14 @@ function main() {
 	for (data in list) {
 		libs.push(data.split("-")[0]);
 	}
-	//libs = ["internal/fmtsort","fmt","internal/cpu"];
-	//libs = ["fmt","reflect","strconv"];
-	//libs = ["errors","reflect","fmt"];
-	//libs = ["internal/types/errors","go/ast"];
-	//libs = ["errors","reflect","strconv"];
-	// libs = ["go/types"];
-	//libs = ["reflect","sync/atomic"];
-	//libs = ["sync","fmt","os","strconv","math/bits","errors"];
-	//libs = ["fmt", "internal/fmtsort","reflect"];
+	final defineLib = Compiler.getDefine("lib");
+	if (defineLib != null) {
+		libs = [defineLib];
+	}
+	final defineLibs = Compiler.getDefine("libs");
+	if (defineLibs != null) {
+		libs = defineLibs.split(",");
+	}
 	trace(libs);
 	libCount = libs.length;
 	Main.setup(0, 1); // amount of processes to spawn

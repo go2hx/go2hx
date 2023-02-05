@@ -282,9 +282,15 @@ class Go {
 	}
 	public static macro function asInterface(expr) {
 		// trace(new haxe.macro.Printer().printExpr(expr));
-		final gt = gtDecode(Context.typeof(expr), expr, []);
-		final rt = macro new stdgo.internal.reflect.Reflect._Type($gt);
 		var t = Context.typeof(expr);
+		switch t {
+			case TInst(_.get() => t, _):
+				if (t.name == "Value" && t.pack.join(".") == "stdgo.reflect")
+					return expr;
+			default:
+		}
+		final gt = gtDecode(t, expr, []);
+		final rt = macro new stdgo.internal.reflect.Reflect._Type($gt);
 		var self:Expr = {expr: expr.expr, pos: expr.pos};
 		var selfPointer = false;
 		function f(ct:{name:String,pack:Array<String>,module:String,},params:Array<haxe.macro.Type>):Expr {

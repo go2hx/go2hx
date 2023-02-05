@@ -1882,7 +1882,11 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 				var t:Dynamic = new stdgo.internal.reflect.Reflect._Type(elem);
 				if (a.length != b.length)
 					return false;
-				a.__toVector__() == b.__toVector__();
+				if (a == null || b == null) {
+					a == b;
+				}else{
+					a.__toVector__() == b.__toVector__();
+				}
 			case interfaceType(_, _):
 				aValue == bValue;
 			case arrayType(_.get() => elem, _):

@@ -195,7 +195,14 @@ function directlyAssignable(t:Type, v:Type):Bool {
 						return false;
 					if (output.length != output2.length)
 						return false;
-
+					for (i in 0...input.length) {
+						if (!identicalType(input[i],input2[i]))
+							return false;
+					}
+					for (i in 0...output.length) {
+						if (!identicalType(output[i],output2[i]))
+							return false;
+					}
 					true;
 				default:
 					false;
@@ -286,8 +293,26 @@ private function identicalType(t:GoType,v:GoType):Bool {
 				default:
 					false;
 			}
+		case interfaceType(empty,methods):
+			switch v {
+				case interfaceType(empty2,methods2):
+					if (empty == true && empty2 == true)
+						return true;
+					if (methods.length != methods2.length)
+						return false;
+					for (i in 0...methods.length) {
+						if (methods[i].name != methods2[i].name)
+							return false;
+						if (identicalType(methods[i].type.get(),methods2[i].type.get()))
+							return false;
+					}
+					true;
+				default:
+					false;
+			}
 		default:
 			trace(t);
+			throw "identical type not supported";
 			false;
 	}
 }
@@ -893,7 +918,7 @@ class _Type {
 	}
 
 	static public function elem(t:_Type):Type {
-		final gt:GoType = getUnderlying(cast t._common());
+		final gt:GoType = getUnderlying(t._common());
 		switch (gt) {
 			case chanType(_, _.get() => elem), refType(_.get() => elem), pointerType(elem), sliceType(_.get() => elem), arrayType(_.get() => elem, _):
 				var t = new _Type(elem);
@@ -1221,8 +1246,9 @@ class _Type_asInterface {
 	public function field(_i:GoInt):StructField
 		return __self__.value.field(_i);
 
-	public function elem():Type
+	public function elem():Type {
 		return __self__.value.elem();
+	}
 
 	public function isVariadic():Bool
 		return __self__.value.isVariadic();

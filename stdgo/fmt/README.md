@@ -16,10 +16,10 @@
 Error: Command failed with error 1
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestErrorf
---- PASS: TestErrorf (%!s(float64=0.005368947982788086))
+--- PASS: TestErrorf (%!s(float64=0.0049970149993896484))
 
 === RUN  TestFmtInterface
---- PASS: TestFmtInterface (%!s(float64=0.00013780593872070312))
+--- PASS: TestFmtInterface (%!s(float64=0.00013303756713867188))
 
 === RUN  TestSprintf
 Exception: Can't cast stdgo.reflect.Value_asInterface to stdgo.reflect.Value
@@ -38,10 +38,10 @@ Called from stdgo.fmt_test._Fmt.$Fmt_Fields_.main (stdgo/fmt_test/Fmt.hx line 18
 ```
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestErrorf
---- PASS: TestErrorf (%!s(float64=0.00755620002746582))
+--- PASS: TestErrorf (%!s(float64=0.008713006973266602))
 
 === RUN  TestFmtInterface
---- PASS: TestFmtInterface (%!s(float64=0.00028395652770996094))
+--- PASS: TestFmtInterface (%!s(float64=0.00028014183044433594))
 
 === RUN  TestSprintf
 Exception: Unexpected value VFunction(#fun), expected instance

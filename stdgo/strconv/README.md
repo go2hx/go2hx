@@ -14,171 +14,171 @@ Package strconv implements conversions to and from string representations  of ba
 
 ```
 === RUN  TestParseBool
---- PASS: TestParseBool (%!s(float64=0.00014090538024902344))
+--- PASS: TestParseBool (%!s(float64=0.00011897087097167969))
 
 === RUN  TestFormatBool
---- PASS: TestFormatBool (%!s(float64=2.9802322387695312e-05))
+--- PASS: TestFormatBool (%!s(float64=2.5033950805664062e-05))
 
 === RUN  TestAppendBool
---- PASS: TestAppendBool (%!s(float64=2.6941299438476562e-05))
+--- PASS: TestAppendBool (%!s(float64=1.2874603271484375e-05))
 
 === RUN  TestParseComplex
---- PASS: TestParseComplex (%!s(float64=0.46695494651794434))
+--- PASS: TestParseComplex (%!s(float64=0.4315450191497803))
 
 === RUN  TestParseComplexIncorrectBitSize
---- PASS: TestParseComplexIncorrectBitSize (%!s(float64=0.0005791187286376953))
+--- PASS: TestParseComplexIncorrectBitSize (%!s(float64=0.0005590915679931641))
 
 === RUN  TestParseFloatPrefix
---- PASS: TestParseFloatPrefix (%!s(float64=2.3995020389556885))
+--- PASS: TestParseFloatPrefix (%!s(float64=2.2299399375915527))
 
 === RUN  TestAtof
---- PASS: TestAtof (%!s(float64=1.7386479377746582))
+--- PASS: TestAtof (%!s(float64=1.6039609909057617))
 
 === RUN  TestAtofSlow
---- PASS: TestAtofSlow (%!s(float64=5.177594184875488))
+--- PASS: TestAtofSlow (%!s(float64=4.771898984909058))
 
 === RUN  TestAtofRandom
---- PASS: TestAtofRandom (%!s(float64=0.010380029678344727))
+--- PASS: TestAtofRandom (%!s(float64=0.008862018585205078))
 
 === RUN  TestRoundTrip
---- PASS: TestRoundTrip (%!s(float64=0.008147954940795898))
+--- PASS: TestRoundTrip (%!s(float64=0.006356000900268555))
 
 === RUN  TestRoundTrip32
---- PASS: TestRoundTrip32 (%!s(float64=9.526250123977661))
+--- PASS: TestRoundTrip32 (%!s(float64=8.776675939559937))
 
 === RUN  TestParseFloatIncorrectBitSize
---- PASS: TestParseFloatIncorrectBitSize (%!s(float64=0.0002739429473876953))
+--- PASS: TestParseFloatIncorrectBitSize (%!s(float64=0.00027489662170410156))
 
 === RUN  TestParseUint32
---- PASS: TestParseUint32 (%!s(float64=0.00029397010803222656))
+--- PASS: TestParseUint32 (%!s(float64=0.0003008842468261719))
 
 === RUN  TestParseUint64
---- PASS: TestParseUint64 (%!s(float64=0.00037789344787597656))
+--- PASS: TestParseUint64 (%!s(float64=0.0014421939849853516))
 
 === RUN  TestParseUint64Base
---- PASS: TestParseUint64Base (%!s(float64=0.008563041687011719))
+--- PASS: TestParseUint64Base (%!s(float64=0.006804943084716797))
 
 === RUN  TestParseInt32
---- PASS: TestParseInt32 (%!s(float64=0.0008521080017089844))
+--- PASS: TestParseInt32 (%!s(float64=0.0007538795471191406))
 
 === RUN  TestParseInt64
---- PASS: TestParseInt64 (%!s(float64=0.0007250308990478516))
+--- PASS: TestParseInt64 (%!s(float64=0.0006430149078369141))
 
 === RUN  TestParseInt64Base
---- PASS: TestParseInt64Base (%!s(float64=0.0056989192962646484))
+--- PASS: TestParseInt64Base (%!s(float64=0.00541996955871582))
 
 === RUN  TestParseUint
---- PASS: TestParseUint (%!s(float64=0.00030517578125))
+--- PASS: TestParseUint (%!s(float64=0.00027108192443847656))
 
 === RUN  TestParseInt
---- PASS: TestParseInt (%!s(float64=0.0007679462432861328))
+--- PASS: TestParseInt (%!s(float64=0.0006921291351318359))
 
 === RUN  TestAtoi
---- PASS: TestAtoi (%!s(float64=0.0005559921264648438))
+--- PASS: TestAtoi (%!s(float64=0.0005600452423095703))
 
 === RUN  TestParseIntBitSize
---- PASS: TestParseIntBitSize (%!s(float64=0.0004417896270751953))
+--- PASS: TestParseIntBitSize (%!s(float64=0.00042700767517089844))
 
 === RUN  TestParseUintBitSize
---- PASS: TestParseUintBitSize (%!s(float64=0.00031185150146484375))
+--- PASS: TestParseUintBitSize (%!s(float64=0.00030922889709472656))
 
 === RUN  TestParseIntBase
---- PASS: TestParseIntBase (%!s(float64=0.0005581378936767578))
+--- PASS: TestParseIntBase (%!s(float64=0.0005390644073486328))
 
 === RUN  TestParseUintBase
---- PASS: TestParseUintBase (%!s(float64=0.0004699230194091797))
+--- PASS: TestParseUintBase (%!s(float64=0.0004639625549316406))
 
 === RUN  TestNumError
---- PASS: TestNumError (%!s(float64=0.0013320446014404297))
+--- PASS: TestNumError (%!s(float64=4.696846008300781e-05))
 
 === RUN  TestNumErrorUnwrap
 --- PASS: TestNumErrorUnwrap (%!s(float64=6.794929504394531e-05))
 
 === RUN  TestFormatComplex
---- PASS: TestFormatComplex (%!s(float64=0.005139827728271484))
+--- PASS: TestFormatComplex (%!s(float64=0.0047740936279296875))
 
 === RUN  TestFormatComplexInvalidBitSize
---- PASS: TestFormatComplexInvalidBitSize (%!s(float64=4.696846008300781e-05))
+--- PASS: TestFormatComplexInvalidBitSize (%!s(float64=4.601478576660156e-05))
 
 === RUN  TestDecimalShift
---- PASS: TestDecimalShift (%!s(float64=0.002696990966796875))
+--- PASS: TestDecimalShift (%!s(float64=0.0013298988342285156))
 
 === RUN  TestDecimalRound
---- PASS: TestDecimalRound (%!s(float64=0.008382081985473633))
+--- PASS: TestDecimalRound (%!s(float64=0.007597923278808594))
 
 === RUN  TestDecimalRoundedInteger
---- PASS: TestDecimalRoundedInteger (%!s(float64=0.0024509429931640625))
+--- PASS: TestDecimalRoundedInteger (%!s(float64=0.0010709762573242188))
 
 === RUN  TestFp
 strconv_test/Strconv_test.hx:4189: testFp skip function
---- PASS: TestFp (%!s(float64=2.5033950805664062e-05))
+--- PASS: TestFp (%!s(float64=5.2928924560546875e-05))
 
 === RUN  TestFtoa
---- PASS: TestFtoa (%!s(float64=0.08028006553649902))
+--- PASS: TestFtoa (%!s(float64=0.07387995719909668))
 
 === RUN  TestFtoaPowersOfTwo
 strconv_test/Strconv_test.hx:4315: testFtoaPowersOfTwo skip function
---- PASS: TestFtoaPowersOfTwo (%!s(float64=2.4080276489257812e-05))
+--- PASS: TestFtoaPowersOfTwo (%!s(float64=3.1948089599609375e-05))
 
 === RUN  TestFtoaRandom
---- PASS: TestFtoaRandom (%!s(float64=3.221813917160034))
+--- PASS: TestFtoaRandom (%!s(float64=2.7366669178009033))
 
 === RUN  TestFormatFloatInvalidBitSize
---- PASS: TestFormatFloatInvalidBitSize (%!s(float64=5.507469177246094e-05))
+--- PASS: TestFormatFloatInvalidBitSize (%!s(float64=4.506111145019531e-05))
 
 === RUN  TestMulByLog2Log10
---- PASS: TestMulByLog2Log10 (%!s(float64=0.005759000778198242))
+--- PASS: TestMulByLog2Log10 (%!s(float64=0.005178928375244141))
 
 === RUN  TestMulByLog10Log2
---- PASS: TestMulByLog10Log2 (%!s(float64=0.0014789104461669922))
+--- PASS: TestMulByLog10Log2 (%!s(float64=0.0012798309326171875))
 
 === RUN  TestItoa
---- PASS: TestItoa (%!s(float64=0.0059049129486083984))
+--- PASS: TestItoa (%!s(float64=0.005364894866943359))
 
 === RUN  TestUitoa
---- PASS: TestUitoa (%!s(float64=0.0011188983917236328))
+--- PASS: TestUitoa (%!s(float64=0.0021429061889648438))
 
 === RUN  TestFormatUintVarlen
---- PASS: TestFormatUintVarlen (%!s(float64=0.0008230209350585938))
+--- PASS: TestFormatUintVarlen (%!s(float64=0.0007700920104980469))
 
 === RUN  TestIsPrint
---- PASS: TestIsPrint (%!s(float64=29.509024143218994))
+--- PASS: TestIsPrint (%!s(float64=26.98966693878174))
 
 === RUN  TestIsGraphic
---- PASS: TestIsGraphic (%!s(float64=29.594465970993042))
+--- PASS: TestIsGraphic (%!s(float64=27.02088499069214))
 
 === RUN  TestQuote
---- PASS: TestQuote (%!s(float64=0.00046706199645996094))
+--- PASS: TestQuote (%!s(float64=0.0004069805145263672))
 
 === RUN  TestQuoteToASCII
---- PASS: TestQuoteToASCII (%!s(float64=0.00029921531677246094))
+--- PASS: TestQuoteToASCII (%!s(float64=0.0013210773468017578))
 
 === RUN  TestQuoteToGraphic
---- PASS: TestQuoteToGraphic (%!s(float64=0.0018160343170166016))
+--- PASS: TestQuoteToGraphic (%!s(float64=0.0005609989166259766))
 
 === RUN  TestQuoteRune
---- PASS: TestQuoteRune (%!s(float64=0.0004229545593261719))
+--- PASS: TestQuoteRune (%!s(float64=0.0003879070281982422))
 
 === RUN  TestQuoteRuneToASCII
---- PASS: TestQuoteRuneToASCII (%!s(float64=0.00018095970153808594))
+--- PASS: TestQuoteRuneToASCII (%!s(float64=0.00015997886657714844))
 
 === RUN  TestQuoteRuneToGraphic
---- PASS: TestQuoteRuneToGraphic (%!s(float64=0.0004649162292480469))
+--- PASS: TestQuoteRuneToGraphic (%!s(float64=0.0014629364013671875))
 
 === RUN  TestCanBackquote
---- PASS: TestCanBackquote (%!s(float64=0.0004818439483642578))
+--- PASS: TestCanBackquote (%!s(float64=0.00046896934509277344))
 
 === RUN  TestUnquote
---- PASS: TestUnquote (%!s(float64=0.002087831497192383))
+--- PASS: TestUnquote (%!s(float64=0.0022428035736083984))
 
 === RUN  TestUnquoteInvalidUTF8
---- PASS: TestUnquoteInvalidUTF8 (%!s(float64=0.00019097328186035156))
+--- PASS: TestUnquoteInvalidUTF8 (%!s(float64=0.00017881393432617188))
 
 === RUN  TestCountMallocs
---- PASS: TestCountMallocs (%!s(float64=0.2831110954284668))
+--- PASS: TestCountMallocs (%!s(float64=0.25803613662719727))
 
 === RUN  TestErrorPrefixes
---- PASS: TestErrorPrefixes (%!s(float64=0.00018095970153808594))
+--- PASS: TestErrorPrefixes (%!s(float64=0.00015997886657714844))
 
 ```
 </p>
@@ -190,34 +190,34 @@ strconv_test/Strconv_test.hx:4315: testFtoaPowersOfTwo skip function
 ```
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestParseBool
---- PASS: TestParseBool (%!s(float64=0.0002899169921875))
+--- PASS: TestParseBool (%!s(float64=0.00026798248291015625))
 
 === RUN  TestFormatBool
---- PASS: TestFormatBool (%!s(float64=8.702278137207031e-05))
+--- PASS: TestFormatBool (%!s(float64=7.796287536621094e-05))
 
 === RUN  TestAppendBool
---- PASS: TestAppendBool (%!s(float64=6.890296936035156e-05))
+--- PASS: TestAppendBool (%!s(float64=6.389617919921875e-05))
 
 === RUN  TestParseComplex
---- PASS: TestParseComplex (%!s(float64=2.500977039337158))
+--- PASS: TestParseComplex (%!s(float64=2.3961269855499268))
 
 === RUN  TestParseComplexIncorrectBitSize
---- PASS: TestParseComplexIncorrectBitSize (%!s(float64=0.0038099288940429688))
+--- PASS: TestParseComplexIncorrectBitSize (%!s(float64=0.0038039684295654297))
 
 === RUN  TestParseFloatPrefix
---- PASS: TestParseFloatPrefix (%!s(float64=11.70828104019165))
+--- PASS: TestParseFloatPrefix (%!s(float64=11.203228950500488))
 
 === RUN  TestAtof
---- PASS: TestAtof (%!s(float64=8.791921854019165))
+--- PASS: TestAtof (%!s(float64=8.631734132766724))
 
 === RUN  TestAtofSlow
---- PASS: TestAtofSlow (%!s(float64=25.04518699645996))
+--- PASS: TestAtofSlow (%!s(float64=23.403039932250977))
 
 === RUN  TestAtofRandom
---- PASS: TestAtofRandom (%!s(float64=0.0549771785736084))
+--- PASS: TestAtofRandom (%!s(float64=0.05433201789855957))
 
 === RUN  TestRoundTrip
---- PASS: TestRoundTrip (%!s(float64=0.03228592872619629))
+--- PASS: TestRoundTrip (%!s(float64=0.03125810623168945))
 
 === RUN  TestRoundTrip32
 ParseFloat("-2.44997e-05", 32) = -2.44997e-05, not a float32 (nearest is -2.44997e-05)

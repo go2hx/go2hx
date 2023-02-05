@@ -14,22 +14,22 @@ Package errors implements functions to manipulate errors.    The New function cr
 
 ```
 === RUN  TestNewEqual
---- PASS: TestNewEqual (%!s(float64=9.083747863769531e-05))
+--- PASS: TestNewEqual (%!s(float64=9.107589721679688e-05))
 
 === RUN  TestErrorMethod
---- PASS: TestErrorMethod (%!s(float64=7.152557373046875e-06))
+--- PASS: TestErrorMethod (%!s(float64=8.106231689453125e-06))
 
 === RUN  TestIs
---- PASS: TestIs (%!s(float64=4.410743713378906e-05))
+--- PASS: TestIs (%!s(float64=4.100799560546875e-05))
 
 === RUN  TestAs
---- PASS: TestAs (%!s(float64=0.007941007614135742))
+--- PASS: TestAs (%!s(float64=0.007745981216430664))
 
 === RUN  TestAsValidation
---- PASS: TestAsValidation (%!s(float64=0.0006079673767089844))
+--- PASS: TestAsValidation (%!s(float64=0.0005888938903808594))
 
 === RUN  TestUnwrap
---- PASS: TestUnwrap (%!s(float64=9.298324584960938e-05))
+--- PASS: TestUnwrap (%!s(float64=8.893013000488281e-05))
 
 ```
 </p>
@@ -40,22 +40,22 @@ Package errors implements functions to manipulate errors.    The New function cr
 
 ```
 === RUN  TestNewEqual
---- PASS: TestNewEqual (%!s(float64=0.00011801719665527344))
+--- PASS: TestNewEqual (%!s(float64=0.00010013580322265625))
 
 === RUN  TestErrorMethod
---- PASS: TestErrorMethod (%!s(float64=2.09808349609375e-05))
+--- PASS: TestErrorMethod (%!s(float64=2.002716064453125e-05))
 
 === RUN  TestIs
---- PASS: TestIs (%!s(float64=0.0001709461212158203))
+--- PASS: TestIs (%!s(float64=0.0001499652862548828))
 
 === RUN  TestAs
---- PASS: TestAs (%!s(float64=0.01238107681274414))
+--- PASS: TestAs (%!s(float64=0.01162409782409668))
 
 === RUN  TestAsValidation
---- PASS: TestAsValidation (%!s(float64=0.0015299320220947266))
+--- PASS: TestAsValidation (%!s(float64=0.001519918441772461))
 
 === RUN  TestUnwrap
---- PASS: TestUnwrap (%!s(float64=0.0002219676971435547))
+--- PASS: TestUnwrap (%!s(float64=0.00022101402282714844))
 
 ```
 </p>

@@ -16,7 +16,7 @@ Package cmplx provides basic constants and mathematical functions for  complex n
 Error: Command failed with error 1
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestAbs
---- PASS: TestAbs (%!s(float64=5.888938903808594e-05))
+--- PASS: TestAbs (%!s(float64=5.817413330078125e-05))
 
 === RUN  TestAcos
 Acos((0+0i)) = (1.5707963267948966+0i), want (1.5707963267948966-0i)
@@ -30,7 +30,7 @@ Acos((0+0i)) = (1.5707963267948966+0i), want (1.5707963267948966-0i)
 ```
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestAbs
---- PASS: TestAbs (%!s(float64=8.893013000488281e-05))
+--- PASS: TestAbs (%!s(float64=7.700920104980469e-05))
 
 === RUN  TestAcos
 Acos((0+0i)) = (1.5707963267948966+0i), want (1.5707963267948966-0i)

@@ -4,7 +4,6 @@
 #--interp
 -D debug
 -D nolinkstd
-extraParams.hxml
 -D watch.run=hl rnd.hl
 -D no-deprecation-warnings
 -D watch.excludes=golibs

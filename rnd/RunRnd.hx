@@ -9,12 +9,9 @@ function main() {
 		if (modules.length == 0)
 			throw "no exported path";
 		final mainPath = mainPath(modules);
-		final command = 'haxe -cp golibs extraParams.hxml -main $mainPath -hl runrnd.hl';
+		final command = 'haxe -cp golibs extraParams.hxml -main $mainPath --interp';
 		Sys.println(command);
 		Sys.command(command);
-		final runCommand = 'hl runrnd.hl';
-		Sys.println(runCommand);
-		Sys.command(runCommand);
 		Sys.println("\n~~~~~~~~~~~~expected~~~~~~~~~~~~");
 		var command = testBool ? "test" : "run";
 		final wasm = false;

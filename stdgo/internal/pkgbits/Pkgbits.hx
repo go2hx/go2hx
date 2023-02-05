@@ -398,7 +398,7 @@ typedef Code = StructType & {
 	}
 }
 
-class T__struct_1_asInterface {
+class T__struct_0_asInterface {
 	public function new(__self__, __type__) {
 		this.__self__ = __self__;
 		this.__type__ = __type__;
@@ -409,12 +409,12 @@ class T__struct_1_asInterface {
 			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
-	var __self__:Pointer<T__struct_1>;
+	var __self__:Pointer<T__struct_0>;
 	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:keep @:allow(internal.pkgbits.Pkgbits.T__struct_1_asInterface) class T__struct_1_static_extension {}
-@:local @:using(internal.pkgbits.Pkgbits.T__struct_1_static_extension) private typedef T__struct_1 = {};
+@:keep @:allow(internal.pkgbits.Pkgbits.T__struct_0_asInterface) class T__struct_0_static_extension {}
+@:local @:using(internal.pkgbits.Pkgbits.T__struct_0_static_extension) private typedef T__struct_0 = {};
 
 /**
 	// A CodeVal distinguishes among go/constant.Value encodings.

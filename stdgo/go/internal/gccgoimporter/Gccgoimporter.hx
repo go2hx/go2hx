@@ -22,7 +22,7 @@ private var __go2hxdoc__package:Bool;
 	// the actual type must replace a reserved entry (or we have an internal
 	// error). Used for self-verification only - not required for correctness.
 **/
-private var _reserved:Ref<T__struct_0> = ({type: (null : stdgo.go.types.Types.Type)} : T__struct_0);
+private var _reserved:Ref<T__struct_1> = ({type: (null : stdgo.go.types.Types.Type)} : T__struct_1);
 
 /**
 	// Magic strings for different archive file formats.
@@ -360,7 +360,7 @@ private typedef T__interface_0 = StructType & {
 	}
 }
 
-class T__struct_0_asInterface {
+class T__struct_1_asInterface {
 	@:embedded
 	public function underlying():stdgo.go.types.Types.Type
 		return __self__.value.underlying();
@@ -379,21 +379,21 @@ class T__struct_0_asInterface {
 			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 
-	var __self__:Pointer<T__struct_0>;
+	var __self__:Pointer<T__struct_1>;
 	var __type__:stdgo.internal.reflect.Reflect._Type;
 }
 
-@:keep @:allow(go.internal.gccgoimporter.Gccgoimporter.T__struct_0_asInterface) class T__struct_0_static_extension {
+@:keep @:allow(go.internal.gccgoimporter.Gccgoimporter.T__struct_1_asInterface) class T__struct_1_static_extension {
 	@:embedded
-	public static function underlying(__self__:T__struct_0):stdgo.go.types.Types.Type
+	public static function underlying(__self__:T__struct_1):stdgo.go.types.Types.Type
 		return return __self__.type.underlying();
 
 	@:embedded
-	public static function string(__self__:T__struct_0):GoString
+	public static function string(__self__:T__struct_1):GoString
 		return return __self__.type.string();
 }
 
-@:local @:using(go.internal.gccgoimporter.Gccgoimporter.T__struct_0_static_extension) private typedef T__struct_0 = {
+@:local @:using(go.internal.gccgoimporter.Gccgoimporter.T__struct_1_static_extension) private typedef T__struct_1 = {
 	@:embedded
 	public var type:stdgo.go.types.Types.Type;
 };

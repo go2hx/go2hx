@@ -46,10 +46,14 @@ class ProcessPool {
 				final stamp = haxe.Timer.stamp() - pool[i].stamp;
 				if (stamp > 60 * 25) {
 					trace(pool[i].command);
-					throw "process killed";
+					throw "process timed out";
 				} else {
 					continue;
 				}
+			}
+			if (code != 0) {
+				Sys.println(pool[i].proc.stdout.readAll().toString());
+				Sys.println(pool[i].proc.stderr.readAll().toString());
 			}
 			complete(code, pool[i].proc, pool[i].data, pool[i].command, pool[i].runtimeBool);
 			removal.push(pool[i]);

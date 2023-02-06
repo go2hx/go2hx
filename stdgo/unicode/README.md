@@ -14,88 +14,88 @@ Package unicode provides data and functions to test some properties of  Unicode 
 
 ```
 === RUN  TestDigit
---- PASS: TestDigit (%!s(float64=0.00010704994201660156))
+--- PASS: TestDigit (%!s(float64=0.00013518333435058594))
 
 === RUN  TestDigitOptimization
---- PASS: TestDigitOptimization (%!s(float64=3.0994415283203125e-05))
+--- PASS: TestDigitOptimization (%!s(float64=4.100799560546875e-05))
 
 === RUN  TestIsControlLatin1
---- PASS: TestIsControlLatin1 (%!s(float64=0.0001289844512939453))
+--- PASS: TestIsControlLatin1 (%!s(float64=0.00016999244689941406))
 
 === RUN  TestIsLetterLatin1
---- PASS: TestIsLetterLatin1 (%!s(float64=0.0001621246337890625))
+--- PASS: TestIsLetterLatin1 (%!s(float64=0.00020599365234375))
 
 === RUN  TestIsUpperLatin1
---- PASS: TestIsUpperLatin1 (%!s(float64=0.00015401840209960938))
+--- PASS: TestIsUpperLatin1 (%!s(float64=0.00019502639770507812))
 
 === RUN  TestIsLowerLatin1
---- PASS: TestIsLowerLatin1 (%!s(float64=0.00015306472778320312))
+--- PASS: TestIsLowerLatin1 (%!s(float64=0.00019407272338867188))
 
 === RUN  TestNumberLatin1
---- PASS: TestNumberLatin1 (%!s(float64=0.00015616416931152344))
+--- PASS: TestNumberLatin1 (%!s(float64=0.00020194053649902344))
 
 === RUN  TestIsPrintLatin1
---- PASS: TestIsPrintLatin1 (%!s(float64=0.0006000995635986328))
+--- PASS: TestIsPrintLatin1 (%!s(float64=0.0007069110870361328))
 
 === RUN  TestIsGraphicLatin1
---- PASS: TestIsGraphicLatin1 (%!s(float64=0.000762939453125))
+--- PASS: TestIsGraphicLatin1 (%!s(float64=0.0009300708770751953))
 
 === RUN  TestIsPunctLatin1
---- PASS: TestIsPunctLatin1 (%!s(float64=0.0001819133758544922))
+--- PASS: TestIsPunctLatin1 (%!s(float64=0.00023484230041503906))
 
 === RUN  TestIsSpaceLatin1
---- PASS: TestIsSpaceLatin1 (%!s(float64=0.00013709068298339844))
+--- PASS: TestIsSpaceLatin1 (%!s(float64=0.0001780986785888672))
 
 === RUN  TestIsSymbolLatin1
---- PASS: TestIsSymbolLatin1 (%!s(float64=0.00017213821411132812))
+--- PASS: TestIsSymbolLatin1 (%!s(float64=0.00021982192993164062))
 
 === RUN  TestIsLetter
---- PASS: TestIsLetter (%!s(float64=8.821487426757812e-05))
+--- PASS: TestIsLetter (%!s(float64=0.00011491775512695312))
 
 === RUN  TestIsUpper
---- PASS: TestIsUpper (%!s(float64=5.0067901611328125e-05))
+--- PASS: TestIsUpper (%!s(float64=6.580352783203125e-05))
 
 === RUN  TestTo
---- PASS: TestTo (%!s(float64=0.0006530284881591797))
+--- PASS: TestTo (%!s(float64=0.000843048095703125))
 
 === RUN  TestToUpperCase
---- PASS: TestToUpperCase (%!s(float64=0.0001900196075439453))
+--- PASS: TestToUpperCase (%!s(float64=0.00024390220642089844))
 
 === RUN  TestToLowerCase
---- PASS: TestToLowerCase (%!s(float64=0.00017595291137695312))
+--- PASS: TestToLowerCase (%!s(float64=0.00021696090698242188))
 
 === RUN  TestToTitleCase
---- PASS: TestToTitleCase (%!s(float64=0.00017905235290527344))
+--- PASS: TestToTitleCase (%!s(float64=0.00023603439331054688))
 
 === RUN  TestIsSpace
---- PASS: TestIsSpace (%!s(float64=2.8848648071289062e-05))
+--- PASS: TestIsSpace (%!s(float64=3.910064697265625e-05))
 
 === RUN  TestLetterOptimizations
---- PASS: TestLetterOptimizations (%!s(float64=0.013773918151855469))
+--- PASS: TestLetterOptimizations (%!s(float64=0.01947498321533203))
 
 === RUN  TestTurkishCase
---- PASS: TestTurkishCase (%!s(float64=0.0009419918060302734))
+--- PASS: TestTurkishCase (%!s(float64=0.0011489391326904297))
 
 === RUN  TestSimpleFold
---- PASS: TestSimpleFold (%!s(float64=0.00023221969604492188))
+--- PASS: TestSimpleFold (%!s(float64=0.00026488304138183594))
 
 === RUN  TestCalibrate
---- PASS: TestCalibrate (%!s(float64=5.0067901611328125e-06))
+--- PASS: TestCalibrate (%!s(float64=5.9604644775390625e-06))
 
 === RUN  TestLatinOffset
---- PASS: TestLatinOffset (%!s(float64=0.06014394760131836))
+--- PASS: TestLatinOffset (%!s(float64=0.07779288291931152))
 
 === RUN  TestSpecialCaseNoMapping
---- PASS: TestSpecialCaseNoMapping (%!s(float64=4.601478576660156e-05))
+--- PASS: TestSpecialCaseNoMapping (%!s(float64=5.507469177246094e-05))
 
 === RUN  TestNegativeRune
---- PASS: TestNegativeRune (%!s(float64=0.0025501251220703125))
+--- PASS: TestNegativeRune (%!s(float64=0.0032699108123779297))
 
 === RUN  TestCategories
---- PASS: TestCategories (%!s(float64=0.011603116989135742))
+--- PASS: TestCategories (%!s(float64=0.015015125274658203))
 
 === RUN  TestProperties
---- PASS: TestProperties (%!s(float64=0.011094808578491211))
+--- PASS: TestProperties (%!s(float64=0.013195991516113281))
 
 ```
 </p>
@@ -106,88 +106,88 @@ Package unicode provides data and functions to test some properties of  Unicode 
 
 ```
 === RUN  TestDigit
---- PASS: TestDigit (%!s(float64=0.0008029937744140625))
+--- PASS: TestDigit (%!s(float64=0.0011439323425292969))
 
 === RUN  TestDigitOptimization
---- PASS: TestDigitOptimization (%!s(float64=0.0007829666137695312))
+--- PASS: TestDigitOptimization (%!s(float64=0.0010390281677246094))
 
 === RUN  TestIsControlLatin1
---- PASS: TestIsControlLatin1 (%!s(float64=0.0009710788726806641))
+--- PASS: TestIsControlLatin1 (%!s(float64=0.0012869834899902344))
 
 === RUN  TestIsLetterLatin1
---- PASS: TestIsLetterLatin1 (%!s(float64=0.001814126968383789))
+--- PASS: TestIsLetterLatin1 (%!s(float64=0.0022771358489990234))
 
 === RUN  TestIsUpperLatin1
---- PASS: TestIsUpperLatin1 (%!s(float64=0.0016188621520996094))
+--- PASS: TestIsUpperLatin1 (%!s(float64=0.0020711421966552734))
 
 === RUN  TestIsLowerLatin1
---- PASS: TestIsLowerLatin1 (%!s(float64=0.001645803451538086))
+--- PASS: TestIsLowerLatin1 (%!s(float64=0.002154111862182617))
 
 === RUN  TestNumberLatin1
---- PASS: TestNumberLatin1 (%!s(float64=0.0017230510711669922))
+--- PASS: TestNumberLatin1 (%!s(float64=0.002151012420654297))
 
 === RUN  TestIsPrintLatin1
---- PASS: TestIsPrintLatin1 (%!s(float64=0.004659175872802734))
+--- PASS: TestIsPrintLatin1 (%!s(float64=0.00708317756652832))
 
 === RUN  TestIsGraphicLatin1
---- PASS: TestIsGraphicLatin1 (%!s(float64=0.004971981048583984))
+--- PASS: TestIsGraphicLatin1 (%!s(float64=0.0065419673919677734))
 
 === RUN  TestIsPunctLatin1
---- PASS: TestIsPunctLatin1 (%!s(float64=0.0024368762969970703))
+--- PASS: TestIsPunctLatin1 (%!s(float64=0.0033478736877441406))
 
 === RUN  TestIsSpaceLatin1
---- PASS: TestIsSpaceLatin1 (%!s(float64=0.0016260147094726562))
+--- PASS: TestIsSpaceLatin1 (%!s(float64=0.002123117446899414))
 
 === RUN  TestIsSymbolLatin1
---- PASS: TestIsSymbolLatin1 (%!s(float64=0.0021309852600097656))
+--- PASS: TestIsSymbolLatin1 (%!s(float64=0.0027790069580078125))
 
 === RUN  TestIsLetter
---- PASS: TestIsLetter (%!s(float64=0.0009210109710693359))
+--- PASS: TestIsLetter (%!s(float64=0.0011701583862304688))
 
 === RUN  TestIsUpper
---- PASS: TestIsUpper (%!s(float64=0.0005109310150146484))
+--- PASS: TestIsUpper (%!s(float64=0.0006058216094970703))
 
 === RUN  TestTo
---- PASS: TestTo (%!s(float64=0.0018949508666992188))
+--- PASS: TestTo (%!s(float64=0.002276897430419922))
 
 === RUN  TestToUpperCase
---- PASS: TestToUpperCase (%!s(float64=0.0006160736083984375))
+--- PASS: TestToUpperCase (%!s(float64=0.0007338523864746094))
 
 === RUN  TestToLowerCase
---- PASS: TestToLowerCase (%!s(float64=0.0005538463592529297))
+--- PASS: TestToLowerCase (%!s(float64=0.0007240772247314453))
 
 === RUN  TestToTitleCase
---- PASS: TestToTitleCase (%!s(float64=0.0005450248718261719))
+--- PASS: TestToTitleCase (%!s(float64=0.0006668567657470703))
 
 === RUN  TestIsSpace
---- PASS: TestIsSpace (%!s(float64=0.0002658367156982422))
+--- PASS: TestIsSpace (%!s(float64=0.0002880096435546875))
 
 === RUN  TestLetterOptimizations
---- PASS: TestLetterOptimizations (%!s(float64=0.03383493423461914))
+--- PASS: TestLetterOptimizations (%!s(float64=0.04416298866271973))
 
 === RUN  TestTurkishCase
---- PASS: TestTurkishCase (%!s(float64=0.0035469532012939453))
+--- PASS: TestTurkishCase (%!s(float64=0.0043010711669921875))
 
 === RUN  TestSimpleFold
---- PASS: TestSimpleFold (%!s(float64=0.0009560585021972656))
+--- PASS: TestSimpleFold (%!s(float64=0.0012898445129394531))
 
 === RUN  TestCalibrate
---- PASS: TestCalibrate (%!s(float64=9.059906005859375e-06))
+--- PASS: TestCalibrate (%!s(float64=1.0013580322265625e-05))
 
 === RUN  TestLatinOffset
---- PASS: TestLatinOffset (%!s(float64=0.08738899230957031))
+--- PASS: TestLatinOffset (%!s(float64=0.10809111595153809))
 
 === RUN  TestSpecialCaseNoMapping
---- PASS: TestSpecialCaseNoMapping (%!s(float64=0.0002129077911376953))
+--- PASS: TestSpecialCaseNoMapping (%!s(float64=0.000247955322265625))
 
 === RUN  TestNegativeRune
---- PASS: TestNegativeRune (%!s(float64=0.01994609832763672))
+--- PASS: TestNegativeRune (%!s(float64=0.026767969131469727))
 
 === RUN  TestCategories
---- PASS: TestCategories (%!s(float64=0.018360137939453125))
+--- PASS: TestCategories (%!s(float64=0.02225804328918457))
 
 === RUN  TestProperties
---- PASS: TestProperties (%!s(float64=0.01698589324951172))
+--- PASS: TestProperties (%!s(float64=0.02061009407043457))
 
 ```
 </p>

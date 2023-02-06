@@ -14,22 +14,22 @@ Package utf16 implements encoding and decoding of UTF\-16 sequences.
 
 ```
 === RUN  TestConstants
---- PASS: TestConstants (%!s(float64=5.4836273193359375e-05))
+--- PASS: TestConstants (%!s(float64=4.792213439941406e-05))
 
 === RUN  TestEncode
---- PASS: TestEncode (%!s(float64=0.001132965087890625))
+--- PASS: TestEncode (%!s(float64=0.0015058517456054688))
 
 === RUN  TestEncodeRune
---- PASS: TestEncodeRune (%!s(float64=3.0040740966796875e-05))
+--- PASS: TestEncodeRune (%!s(float64=4.220008850097656e-05))
 
 === RUN  TestDecode
---- PASS: TestDecode (%!s(float64=0.0003190040588378906))
+--- PASS: TestDecode (%!s(float64=0.0003790855407714844))
 
 === RUN  TestDecodeRune
---- PASS: TestDecodeRune (%!s(float64=9.059906005859375e-06))
+--- PASS: TestDecodeRune (%!s(float64=1.0967254638671875e-05))
 
 === RUN  TestIsSurrogate
---- PASS: TestIsSurrogate (%!s(float64=1.0013580322265625e-05))
+--- PASS: TestIsSurrogate (%!s(float64=1.1920928955078125e-05))
 
 ```
 </p>
@@ -40,22 +40,22 @@ Package utf16 implements encoding and decoding of UTF\-16 sequences.
 
 ```
 === RUN  TestConstants
---- PASS: TestConstants (%!s(float64=2.09808349609375e-05))
+--- PASS: TestConstants (%!s(float64=3.2901763916015625e-05))
 
 === RUN  TestEncode
---- PASS: TestEncode (%!s(float64=0.0008311271667480469))
+--- PASS: TestEncode (%!s(float64=0.001157999038696289))
 
 === RUN  TestEncodeRune
---- PASS: TestEncodeRune (%!s(float64=0.00011682510375976562))
+--- PASS: TestEncodeRune (%!s(float64=0.0001418590545654297))
 
 === RUN  TestDecode
---- PASS: TestDecode (%!s(float64=0.0005640983581542969))
+--- PASS: TestDecode (%!s(float64=0.000885009765625))
 
 === RUN  TestDecodeRune
---- PASS: TestDecodeRune (%!s(float64=5.0067901611328125e-05))
+--- PASS: TestDecodeRune (%!s(float64=6.103515625e-05))
 
 === RUN  TestIsSurrogate
---- PASS: TestIsSurrogate (%!s(float64=2.002716064453125e-05))
+--- PASS: TestIsSurrogate (%!s(float64=3.0994415283203125e-05))
 
 ```
 </p>

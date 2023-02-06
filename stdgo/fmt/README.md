@@ -16,18 +16,13 @@
 Error: Command failed with error 1
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestErrorf
---- PASS: TestErrorf (%!s(float64=0.0049970149993896484))
+--- PASS: TestErrorf (%!s(float64=0.006299018859863281))
 
 === RUN  TestFmtInterface
---- PASS: TestFmtInterface (%!s(float64=0.00013303756713867188))
+--- PASS: TestFmtInterface (%!s(float64=0.00018310546875))
 
 === RUN  TestSprintf
-Exception: Can't cast stdgo.reflect.Value_asInterface to stdgo.reflect.Value
-Called from stdgo.fmt.$T_pp_static_extension._doPrintf (stdgo/fmt/Fmt.hx line 2571)
-Called from stdgo.fmt._Fmt.$Fmt_Fields_.sprintf (stdgo/fmt/Fmt.hx line 1073)
-Called from stdgo.fmt_test._Fmt_test.$Fmt_test_Fields_.testSprintf (stdgo/fmt_test/Fmt_test.hx line 3224)
-Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 355)
-Called from stdgo.fmt_test._Fmt.$Fmt_Fields_.main (stdgo/fmt_test/Fmt.hx line 180)
+Sprintf("%#v", {1 2 a [1 2]}) = "A{i:1, j:0x2, s:\"a\", x:[]int{1, 2}}" want "fmt_test.A{i:1, j:0x2, s:\"a\", x:[]int{1, 2}}"
 ```
 </p>
 </details>
@@ -38,19 +33,13 @@ Called from stdgo.fmt_test._Fmt.$Fmt_Fields_.main (stdgo/fmt_test/Fmt.hx line 18
 ```
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestErrorf
---- PASS: TestErrorf (%!s(float64=0.008713006973266602))
+--- PASS: TestErrorf (%!s(float64=0.00902700424194336))
 
 === RUN  TestFmtInterface
---- PASS: TestFmtInterface (%!s(float64=0.00028014183044433594))
+--- PASS: TestFmtInterface (%!s(float64=0.0003399848937988281))
 
 === RUN  TestSprintf
-Exception: Unexpected value VFunction(#fun), expected instance
-Called from stdgo.fmt_test._Fmt_test.Fmt_test_Fields_.testSprintf (stdgo/fmt_test/Fmt_test.hx line 3224 column 21)
-Called from stdgo.fmt._Fmt.Fmt_Fields_.sprintf (stdgo/fmt/Fmt.hx line 1073 column 2)
-Called from stdgo.fmt.T_pp_static_extension._doPrintf (stdgo/internal/Macro.macro.hx line 316 column 76095)
-Called from stdgo.fmt.T_pp_static_extension._printArg (stdgo/fmt/Fmt.hx line 3115 column 9)
-Called from stdgo.reflect.Value_static_extension.isValid (stdgo/reflect/Reflect.hx line 2327 column 23)
-Called from stdgo.internal.reflect._Type._common (stdgo/internal/reflect/Reflect.hx line 1 column 1)
+Sprintf("%#v", {1 2 a [1 2]}) = "A{i:1, j:0x2, s:\"a\", x:[]int{1, 2}}" want "fmt_test.A{i:1, j:0x2, s:\"a\", x:[]int{1, 2}}"
 ```
 </p>
 </details>

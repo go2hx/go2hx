@@ -510,13 +510,27 @@ typedef Type = StructType & {
 	// See Value.MapRange.
 **/
 @:structInit @:using(stdgo.reflect.Reflect.MapIter_static_extension) class MapIter {
-	public function new() {}
+	@:local
+	var map:stdgo.GoMap<Dynamic, Dynamic>;
+	@:local
+	var keys:Array<Dynamic>;
+	@:local
+	var index:Int = 0;
+
+	public function new(?map:stdgo.GoMap<Dynamic, Dynamic>, ?keys:Array<Dynamic>, ?index:Int) {
+		if (map != null)
+			this.map = map;
+		if (keys != null)
+			this.keys = keys;
+		if (index != null)
+			this.index = index;
+	}
 
 	public function __underlying__()
 		return Go.toInterface(this);
 
 	public function __copy__() {
-		return new MapIter();
+		return new MapIter(map, keys, index);
 	}
 }
 
@@ -2215,8 +2229,9 @@ class Value_asInterface {
 		//	}
 	**/
 	@:keep
-	static public function mapRange(_v:Value):Ref<MapIter>
-		throw "reflect.mapRange is not yet implemented";
+	static public function mapRange(_v:Value):Ref<MapIter> {
+		return new MapIter(@:privateAccess _v.value.value);
+	}
 
 	/**
 		// SetIterValue assigns to v the value of iter's current map entry.
@@ -2913,8 +2928,10 @@ class MapIter_asInterface {
 		// which may allow the previously iterated-over map to be garbage collected.
 	**/
 	@:keep
-	static public function reset(_iter:Ref<MapIter>, _v:Value):Void
-		throw "reflect.reset is not yet implemented";
+	static public function reset(_iter:Ref<MapIter>, _v:Value):Void {
+		@:privateAccess _iter.index = 0;
+		@:privateAccess _iter.map = _v.value.value;
+	}
 
 	/**
 		// Next advances the map iterator and reports whether there is another
@@ -2922,22 +2939,48 @@ class MapIter_asInterface {
 		// calls to Key, Value, or Next will panic.
 	**/
 	@:keep
-	static public function next(_iter:Ref<MapIter>):Bool
-		throw "reflect.next is not yet implemented";
+	static public function next(_iter:Ref<MapIter>):Bool {
+		@:privateAccess if (_iter.keys == null) {
+			@:privateAccess _iter.keys = _iter.map.__keyArray__();
+		} else {
+			@:privateAccess _iter.index++;
+		};
+		return @:privateAccess _iter.index < @:privateAccess _iter.keys.length;
+	}
 
 	/**
 		// Value returns the value of iter's current map entry.
 	**/
 	@:keep
-	static public function value(_iter:Ref<MapIter>):Value
-		throw "reflect.value is not yet implemented";
+	static public function value(_iter:Ref<MapIter>):Value {
+		@:privateAccess if (_iter.keys == null)
+			@:privateAccess _iter.keys = _iter.map.__keyArray__();
+		final gt = stdgo.internal.reflect.Reflect.getUnderlying(@:privateAccess _iter.map.__type__._common());
+		final value = switch gt {
+			case mapType(_, _.get() => valueType):
+				new stdgo.internal.reflect.Reflect._Type(valueType);
+			default:
+				throw "invalid mapType: " + gt;
+		};
+		return new Value(new AnyInterface(@:privateAccess _iter.map.__get__(_iter.keys[_iter.index]), value));
+	}
 
 	/**
 		// Key returns the key of iter's current map entry.
 	**/
 	@:keep
-	static public function key(_iter:Ref<MapIter>):Value
-		throw "reflect.key is not yet implemented";
+	static public function key(_iter:Ref<MapIter>):Value {
+		@:privateAccess if (_iter.keys == null)
+			@:privateAccess _iter.keys = _iter.map.__keyArray__();
+		final gt = stdgo.internal.reflect.Reflect.getUnderlying(@:privateAccess _iter.map.__type__._common());
+		final key = switch gt {
+			case mapType(_.get() => keyType, _):
+				new stdgo.internal.reflect.Reflect._Type(keyType);
+			default:
+				throw "invalid mapType: " + gt;
+		};
+		return new Value(new AnyInterface(@:privateAccess _iter.keys[_iter.index], key));
+	}
 }
 
 class Kind_asInterface {

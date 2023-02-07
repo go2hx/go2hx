@@ -1036,7 +1036,6 @@ class _Type {
 		var cl = list.pop();
 		if (cl.indexOf("T_") == 0)
 			cl = cl.substr(2);
-		list.pop(); // FileName, not needed only pkg
 		list.push(cl);
 		return list.join(".");
 	}
@@ -1271,8 +1270,9 @@ class _Type_asInterface {
 	public function implements_(_u:Type):Bool
 		return __self__.value.implements_(_u);
 
-	public function kind():Kind
+	public function kind():Kind {
 		return __self__.value.kind();
+	}
 
 	public function string():GoString
 		return __self__.value.string();

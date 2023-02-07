@@ -9,8 +9,11 @@ import stdgo.internal.reflect.Reflect._Type;
 
 @:transitive
 @:multiType(@:followWithAbstracts K)
-abstract GoMap<K, V>(IMap<K, V>) {
+abstract GoMap<K, V>(GoObjectMap<K, V>) {
 	public var length(get, never):GoInt;
+	public var __type__(get,never):_Type;
+	function get___type__():_Type
+		return this.t;
 
 	function get_length():GoInt
 		return Lambda.count(this);
@@ -31,6 +34,9 @@ abstract GoMap<K, V>(IMap<K, V>) {
 
 	public inline function __keys__():Iterator<K>
 		return this.keys();
+
+	public inline function __keyArray__():Array<K>
+		return [for (key in this.keys()) key];
 
 	public inline function iterator():Iterator<V>
 		return this.iterator();

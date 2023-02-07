@@ -280,6 +280,45 @@ final list = [
 	"reflect.Value:canInterface" => macro {
 		return true;
 	},
+	"reflect.Value:mapRange" => macro {
+		return new MapIter(@:privateAccess _v.value.value);
+	},
+	"reflect.MapIter:key" => macro {
+		@:privateAccess if (_iter.keys == null)
+			@:privateAccess	_iter.keys = _iter.map.__keyArray__();
+		final gt = stdgo.internal.reflect.Reflect.getUnderlying(@:privateAccess _iter.map.__type__._common());
+		final key = switch gt {
+			case mapType(_.get() => keyType,_):
+				new stdgo.internal.reflect.Reflect._Type(keyType);
+			default:
+				throw "invalid mapType: " + gt;
+		}
+		return new Value(new AnyInterface(@:privateAccess _iter.keys[_iter.index],key));
+	},
+	"reflect.MapIter:value" => macro {
+		@:privateAccess if (_iter.keys == null)
+			@:privateAccess	_iter.keys = _iter.map.__keyArray__();
+			final gt = stdgo.internal.reflect.Reflect.getUnderlying(@:privateAccess _iter.map.__type__._common());
+		final value = switch gt {
+			case mapType(_,_.get() => valueType):
+				new stdgo.internal.reflect.Reflect._Type(valueType);
+			default:
+				throw "invalid mapType: " + gt;
+		}
+		return new Value(new AnyInterface(@:privateAccess _iter.map.__get__(_iter.keys[_iter.index]),value));
+	},
+	"reflect.MapIter:next" => macro {
+		@:privateAccess if (_iter.keys == null) {
+			@:privateAccess	_iter.keys = _iter.map.__keyArray__();
+		}else{
+			@:privateAccess _iter.index++;
+		}
+		return @:privateAccess _iter.index < @:privateAccess _iter.keys.length;
+	},
+	"reflect.MapIter:reset" => macro {
+		@:privateAccess _iter.index = 0;
+		@:privateAccess _iter.map = _v.value.value;
+	},
 	"reflect.Value:canAddr" => macro {
 		return @:privateAccess _v.canAddrBool;
 	},
@@ -891,6 +930,7 @@ final list = [
 ];
 
 final skipTargets = [
+	"unicode.utf8:testReaderCopyNothing" => [], // Segmentation fault (core dumped)
 	"math_test:testFloatMinima" => ["interp"],
 	"math_test:testNextafter32" => ["interp"],
 	// "math_test:testSignbit" => ["interp"],
@@ -919,6 +959,14 @@ final structs = [
 		var _output:haxe.io.Output = null;
 		// FileInput + FileOutput: seek, tell
 		// FileInput only: eof
+	},
+	"reflect:MapIter" => macro {
+		@:local
+		var map:stdgo.GoMap<Dynamic,Dynamic>;
+		@:local
+		var keys:Array<Dynamic>;
+		@:local
+		var index:Int = 0;
 	},
 	"reflect:Value" => macro {
 		var value:stdgo.StdGoTypes.AnyInterface;

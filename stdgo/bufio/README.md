@@ -1,5 +1,6 @@
 # Module stdgo.bufio has compilation errors, please do not use:
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 stdgo/bufio_test/Bufio_test.hx:1048: characters 12-18 : Unknown identifier : reader
 stdgo/bufio_test/Bufio_test.hx:1048: characters 12-18 : ... For function argument 'args'
 stdgo/bufio_test/Bufio_test.hx:1055: characters 24-32 : You can't iterate on a Dynamic value, please specify KeyValueIterator or KeyValueIterable

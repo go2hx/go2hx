@@ -13,16 +13,11 @@
 <p>
 
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 Error: Command failed with error 1
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestErrorf
---- PASS: TestErrorf (%!s(float64=0.006299018859863281))
-
-=== RUN  TestFmtInterface
---- PASS: TestFmtInterface (%!s(float64=0.00018310546875))
-
-=== RUN  TestSprintf
-Sprintf("%#v", {1 2 a [1 2]}) = "A{i:1, j:0x2, s:\"a\", x:[]int{1, 2}}" want "fmt_test.A{i:1, j:0x2, s:\"a\", x:[]int{1, 2}}"
+err.Error() = "wrapped two errors: 1 %!w(fmt_test._Fmt_test.errString=2)", want "wrapped two errors: 1 %!w(fmt_test.errString=2)"
 ```
 </p>
 </details>
@@ -31,15 +26,10 @@ Sprintf("%#v", {1 2 a [1 2]}) = "A{i:1, j:0x2, s:\"a\", x:[]int{1, 2}}" want "fm
 <p>
 
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestErrorf
---- PASS: TestErrorf (%!s(float64=0.00902700424194336))
-
-=== RUN  TestFmtInterface
---- PASS: TestFmtInterface (%!s(float64=0.0003399848937988281))
-
-=== RUN  TestSprintf
-Sprintf("%#v", {1 2 a [1 2]}) = "A{i:1, j:0x2, s:\"a\", x:[]int{1, 2}}" want "fmt_test.A{i:1, j:0x2, s:\"a\", x:[]int{1, 2}}"
+err.Error() = "wrapped two errors: 1 %!w(fmt_test._Fmt_test.errString=2)", want "wrapped two errors: 1 %!w(fmt_test.errString=2)"
 ```
 </p>
 </details>
@@ -48,6 +38,7 @@ Sprintf("%#v", {1 2 a [1 2]}) = "A{i:1, j:0x2, s:\"a\", x:[]int{1, 2}}" want "fm
 <p>
 
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 IO.Overflow("write_ui16")
 stdgo/internal/Macro.macro.hx:35: define
 ```

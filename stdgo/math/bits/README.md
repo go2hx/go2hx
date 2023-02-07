@@ -14,82 +14,82 @@ Package bits implements bit counting and manipulation  functions for the predecl
 
 ```
 === RUN  TestUintSize
---- PASS: TestUintSize (%!s(float64=6.985664367675781e-05))
+--- PASS: TestUintSize (%!s(float64=4.792213439941406e-05))
 
 === RUN  TestLeadingZeros
---- PASS: TestLeadingZeros (%!s(float64=0.8917889595031738))
+--- PASS: TestLeadingZeros (%!s(float64=0.6691670417785645))
 
 === RUN  TestTrailingZeros
---- PASS: TestTrailingZeros (%!s(float64=0.7536909580230713))
+--- PASS: TestTrailingZeros (%!s(float64=0.5789699554443359))
 
 === RUN  TestOnesCount
---- PASS: TestOnesCount (%!s(float64=2.070044994354248))
+--- PASS: TestOnesCount (%!s(float64=1.5178139209747314))
 
 === RUN  TestRotateLeft
---- PASS: TestRotateLeft (%!s(float64=0.003863811492919922))
+--- PASS: TestRotateLeft (%!s(float64=0.002994060516357422))
 
 === RUN  TestReverse
---- PASS: TestReverse (%!s(float64=0.026422977447509766))
+--- PASS: TestReverse (%!s(float64=0.021534204483032227))
 
 === RUN  TestReverseBytes
---- PASS: TestReverseBytes (%!s(float64=0.0011839866638183594))
+--- PASS: TestReverseBytes (%!s(float64=0.001065969467163086))
 
 === RUN  TestLen
---- PASS: TestLen (%!s(float64=0.8172590732574463))
+--- PASS: TestLen (%!s(float64=0.6530358791351318))
 
 === RUN  TestAddSubUint
---- PASS: TestAddSubUint (%!s(float64=0.0002741813659667969))
+--- PASS: TestAddSubUint (%!s(float64=0.00023603439331054688))
 
 === RUN  TestAddSubUint32
---- PASS: TestAddSubUint32 (%!s(float64=0.00014090538024902344))
+--- PASS: TestAddSubUint32 (%!s(float64=0.0001220703125))
 
 === RUN  TestAddSubUint64
---- PASS: TestAddSubUint64 (%!s(float64=0.0009140968322753906))
+--- PASS: TestAddSubUint64 (%!s(float64=0.0003581047058105469))
 
 === RUN  TestAdd64OverflowPanic
---- PASS: TestAdd64OverflowPanic (%!s(float64=0.002008199691772461))
+--- PASS: TestAdd64OverflowPanic (%!s(float64=0.0013821125030517578))
 
 === RUN  TestSub64OverflowPanic
---- PASS: TestSub64OverflowPanic (%!s(float64=0.000576019287109375))
+--- PASS: TestSub64OverflowPanic (%!s(float64=0.0004420280456542969))
 
 === RUN  TestMulDiv
---- PASS: TestMulDiv (%!s(float64=0.0004999637603759766))
+--- PASS: TestMulDiv (%!s(float64=0.00033020973205566406))
 
 === RUN  TestMulDiv32
---- PASS: TestMulDiv32 (%!s(float64=0.0002551078796386719))
+--- PASS: TestMulDiv32 (%!s(float64=0.0002269744873046875))
 
 === RUN  TestMulDiv64
---- PASS: TestMulDiv64 (%!s(float64=0.001886129379272461))
+--- PASS: TestMulDiv64 (%!s(float64=0.0016181468963623047))
 
 === RUN  TestDivPanicOverflow
---- PASS: TestDivPanicOverflow (%!s(float64=6.890296936035156e-05))
+--- PASS: TestDivPanicOverflow (%!s(float64=6.079673767089844e-05))
 
 === RUN  TestDiv32PanicOverflow
---- PASS: TestDiv32PanicOverflow (%!s(float64=4.982948303222656e-05))
+--- PASS: TestDiv32PanicOverflow (%!s(float64=3.886222839355469e-05))
 
 === RUN  TestDiv64PanicOverflow
---- PASS: TestDiv64PanicOverflow (%!s(float64=0.00010991096496582031))
+--- PASS: TestDiv64PanicOverflow (%!s(float64=4.601478576660156e-05))
 
 === RUN  TestDivPanicZero
---- PASS: TestDivPanicZero (%!s(float64=0.00013208389282226562))
+--- PASS: TestDivPanicZero (%!s(float64=4.315376281738281e-05))
 
 === RUN  TestDiv32PanicZero
---- PASS: TestDiv32PanicZero (%!s(float64=6.389617919921875e-05))
+--- PASS: TestDiv32PanicZero (%!s(float64=5.793571472167969e-05))
 
 === RUN  TestDiv64PanicZero
---- PASS: TestDiv64PanicZero (%!s(float64=4.9114227294921875e-05))
+--- PASS: TestDiv64PanicZero (%!s(float64=3.981590270996094e-05))
 
 === RUN  TestRem32
---- PASS: TestRem32 (%!s(float64=0.06714892387390137))
+--- PASS: TestRem32 (%!s(float64=0.05526995658874512))
 
 === RUN  TestRem32Overflow
---- PASS: TestRem32Overflow (%!s(float64=0.15911293029785156))
+--- PASS: TestRem32Overflow (%!s(float64=0.13189005851745605))
 
 === RUN  TestRem64
---- PASS: TestRem64 (%!s(float64=0.4349641799926758))
+--- PASS: TestRem64 (%!s(float64=0.35746097564697266))
 
 === RUN  TestRem64Overflow
---- PASS: TestRem64Overflow (%!s(float64=0.0008978843688964844))
+--- PASS: TestRem64Overflow (%!s(float64=0.0007741451263427734))
 
 ```
 </p>
@@ -100,82 +100,82 @@ Package bits implements bit counting and manipulation  functions for the predecl
 
 ```
 === RUN  TestUintSize
---- PASS: TestUintSize (%!s(float64=3.910064697265625e-05))
+--- PASS: TestUintSize (%!s(float64=2.8133392333984375e-05))
 
 === RUN  TestLeadingZeros
---- PASS: TestLeadingZeros (%!s(float64=3.817697048187256))
+--- PASS: TestLeadingZeros (%!s(float64=3.071866989135742))
 
 === RUN  TestTrailingZeros
---- PASS: TestTrailingZeros (%!s(float64=3.5458879470825195))
+--- PASS: TestTrailingZeros (%!s(float64=2.8503079414367676))
 
 === RUN  TestOnesCount
---- PASS: TestOnesCount (%!s(float64=9.525609016418457))
+--- PASS: TestOnesCount (%!s(float64=7.6869659423828125))
 
 === RUN  TestRotateLeft
---- PASS: TestRotateLeft (%!s(float64=0.018337011337280273))
+--- PASS: TestRotateLeft (%!s(float64=0.015076875686645508))
 
 === RUN  TestReverse
---- PASS: TestReverse (%!s(float64=0.11054277420043945))
+--- PASS: TestReverse (%!s(float64=0.08974289894104004))
 
 === RUN  TestReverseBytes
---- PASS: TestReverseBytes (%!s(float64=0.008606195449829102))
+--- PASS: TestReverseBytes (%!s(float64=0.006721019744873047))
 
 === RUN  TestLen
---- PASS: TestLen (%!s(float64=3.7759289741516113))
+--- PASS: TestLen (%!s(float64=3.03096604347229))
 
 === RUN  TestAddSubUint
---- PASS: TestAddSubUint (%!s(float64=0.001825094223022461))
+--- PASS: TestAddSubUint (%!s(float64=0.0014150142669677734))
 
 === RUN  TestAddSubUint32
---- PASS: TestAddSubUint32 (%!s(float64=0.0009307861328125))
+--- PASS: TestAddSubUint32 (%!s(float64=0.0007989406585693359))
 
 === RUN  TestAddSubUint64
---- PASS: TestAddSubUint64 (%!s(float64=0.0026230812072753906))
+--- PASS: TestAddSubUint64 (%!s(float64=0.002288818359375))
 
 === RUN  TestAdd64OverflowPanic
---- PASS: TestAdd64OverflowPanic (%!s(float64=0.0030710697174072266))
+--- PASS: TestAdd64OverflowPanic (%!s(float64=0.002521991729736328))
 
 === RUN  TestSub64OverflowPanic
---- PASS: TestSub64OverflowPanic (%!s(float64=0.0024330615997314453))
+--- PASS: TestSub64OverflowPanic (%!s(float64=0.0021028518676757812))
 
 === RUN  TestMulDiv
---- PASS: TestMulDiv (%!s(float64=0.0019989013671875))
+--- PASS: TestMulDiv (%!s(float64=0.0016689300537109375))
 
 === RUN  TestMulDiv32
---- PASS: TestMulDiv32 (%!s(float64=0.001363992691040039))
+--- PASS: TestMulDiv32 (%!s(float64=0.0011739730834960938))
 
 === RUN  TestMulDiv64
---- PASS: TestMulDiv64 (%!s(float64=0.012199163436889648))
+--- PASS: TestMulDiv64 (%!s(float64=0.01026606559753418))
 
 === RUN  TestDivPanicOverflow
---- PASS: TestDivPanicOverflow (%!s(float64=0.00017189979553222656))
+--- PASS: TestDivPanicOverflow (%!s(float64=0.00015091896057128906))
 
 === RUN  TestDiv32PanicOverflow
---- PASS: TestDiv32PanicOverflow (%!s(float64=0.00016307830810546875))
+--- PASS: TestDiv32PanicOverflow (%!s(float64=0.0001049041748046875))
 
 === RUN  TestDiv64PanicOverflow
---- PASS: TestDiv64PanicOverflow (%!s(float64=0.00014781951904296875))
+--- PASS: TestDiv64PanicOverflow (%!s(float64=0.00010609626770019531))
 
 === RUN  TestDivPanicZero
---- PASS: TestDivPanicZero (%!s(float64=0.00013208389282226562))
+--- PASS: TestDivPanicZero (%!s(float64=0.00011801719665527344))
 
 === RUN  TestDiv32PanicZero
---- PASS: TestDiv32PanicZero (%!s(float64=0.00012493133544921875))
+--- PASS: TestDiv32PanicZero (%!s(float64=0.00010895729064941406))
 
 === RUN  TestDiv64PanicZero
---- PASS: TestDiv64PanicZero (%!s(float64=0.0001220703125))
+--- PASS: TestDiv64PanicZero (%!s(float64=0.00010204315185546875))
 
 === RUN  TestRem32
---- PASS: TestRem32 (%!s(float64=0.28096699714660645))
+--- PASS: TestRem32 (%!s(float64=0.22060394287109375))
 
 === RUN  TestRem32Overflow
---- PASS: TestRem32Overflow (%!s(float64=0.8143088817596436))
+--- PASS: TestRem32Overflow (%!s(float64=0.6382298469543457))
 
 === RUN  TestRem64
---- PASS: TestRem64 (%!s(float64=2.0447869300842285))
+--- PASS: TestRem64 (%!s(float64=1.6160709857940674))
 
 === RUN  TestRem64Overflow
---- PASS: TestRem64Overflow (%!s(float64=0.006134033203125))
+--- PASS: TestRem64Overflow (%!s(float64=0.0050470829010009766))
 
 ```
 </p>
@@ -185,6 +185,7 @@ Package bits implements bit counting and manipulation  functions for the predecl
 <p>
 
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 IO.Overflow("write_ui16")
 stdgo/internal/Macro.macro.hx:35: define
 ```

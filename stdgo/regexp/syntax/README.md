@@ -13,6 +13,7 @@
 <p>
 
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 Error: Command failed with error 1
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestParseSimple
@@ -27,6 +28,7 @@ Called from stdgo.regexp.syntax_test._Syntax.$Syntax_Fields_.main (stdgo/regexp/
 <p>
 
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestParseSimple
 Exception: regexp.syntax.testParseSimple is not yet implemented
@@ -39,6 +41,7 @@ Called from stdgo.regexp.syntax._Syntax.Syntax_Fields_.testParseSimple (stdgo/re
 <p>
 
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 IO.Overflow("write_ui16")
 stdgo/internal/Macro.macro.hx:35: define
 ```

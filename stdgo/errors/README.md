@@ -14,22 +14,22 @@ Package errors implements functions to manipulate errors.    The New function cr
 
 ```
 === RUN  TestNewEqual
---- PASS: TestNewEqual (%!s(float64=0.00012803077697753906))
+--- PASS: TestNewEqual (%!s(float64=8.821487426757812e-05))
 
 === RUN  TestErrorMethod
---- PASS: TestErrorMethod (%!s(float64=1.0967254638671875e-05))
+--- PASS: TestErrorMethod (%!s(float64=8.106231689453125e-06))
 
 === RUN  TestIs
---- PASS: TestIs (%!s(float64=5.1021575927734375e-05))
+--- PASS: TestIs (%!s(float64=4.291534423828125e-05))
 
 === RUN  TestAs
---- PASS: TestAs (%!s(float64=0.010016918182373047))
+--- PASS: TestAs (%!s(float64=0.008021116256713867))
 
 === RUN  TestAsValidation
---- PASS: TestAsValidation (%!s(float64=0.0007748603820800781))
+--- PASS: TestAsValidation (%!s(float64=0.0006089210510253906))
 
 === RUN  TestUnwrap
---- PASS: TestUnwrap (%!s(float64=0.00012302398681640625))
+--- PASS: TestUnwrap (%!s(float64=9.393692016601562e-05))
 
 ```
 </p>
@@ -40,22 +40,22 @@ Package errors implements functions to manipulate errors.    The New function cr
 
 ```
 === RUN  TestNewEqual
---- PASS: TestNewEqual (%!s(float64=0.00013685226440429688))
+--- PASS: TestNewEqual (%!s(float64=0.00011992454528808594))
 
 === RUN  TestErrorMethod
---- PASS: TestErrorMethod (%!s(float64=2.47955322265625e-05))
+--- PASS: TestErrorMethod (%!s(float64=2.09808349609375e-05))
 
 === RUN  TestIs
---- PASS: TestIs (%!s(float64=0.00019693374633789062))
+--- PASS: TestIs (%!s(float64=0.000164031982421875))
 
 === RUN  TestAs
---- PASS: TestAs (%!s(float64=0.014815092086791992))
+--- PASS: TestAs (%!s(float64=0.012224912643432617))
 
 === RUN  TestAsValidation
---- PASS: TestAsValidation (%!s(float64=0.002076864242553711))
+--- PASS: TestAsValidation (%!s(float64=0.0016210079193115234))
 
 === RUN  TestUnwrap
---- PASS: TestUnwrap (%!s(float64=0.0002779960632324219))
+--- PASS: TestUnwrap (%!s(float64=0.00022602081298828125))
 
 ```
 </p>
@@ -65,6 +65,7 @@ Package errors implements functions to manipulate errors.    The New function cr
 <p>
 
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 IO.Overflow("write_ui16")
 stdgo/internal/Macro.macro.hx:35: define
 ```

@@ -14,31 +14,31 @@ Package path implements utility routines for manipulating slash\-separated  path
 
 ```
 === RUN  TestMatch
---- PASS: TestMatch (%!s(float64=0.0018122196197509766))
+--- PASS: TestMatch (%!s(float64=0.001094818115234375))
 
 === RUN  TestClean
---- PASS: TestClean (%!s(float64=0.00018405914306640625))
+--- PASS: TestClean (%!s(float64=0.00015997886657714844))
 
 === RUN  TestCleanMallocs
---- PASS: TestCleanMallocs (%!s(float64=1.2874603271484375e-05))
+--- PASS: TestCleanMallocs (%!s(float64=1.0013580322265625e-05))
 
 === RUN  TestSplit
---- PASS: TestSplit (%!s(float64=1.71661376953125e-05))
+--- PASS: TestSplit (%!s(float64=1.3113021850585938e-05))
 
 === RUN  TestJoin
---- PASS: TestJoin (%!s(float64=0.0001289844512939453))
+--- PASS: TestJoin (%!s(float64=0.00011110305786132812))
 
 === RUN  TestExt
---- PASS: TestExt (%!s(float64=1.5974044799804688e-05))
+--- PASS: TestExt (%!s(float64=1.1920928955078125e-05))
 
 === RUN  TestBase
---- PASS: TestBase (%!s(float64=2.09808349609375e-05))
+--- PASS: TestBase (%!s(float64=1.7881393432617188e-05))
 
 === RUN  TestDir
---- PASS: TestDir (%!s(float64=4.601478576660156e-05))
+--- PASS: TestDir (%!s(float64=3.981590270996094e-05))
 
 === RUN  TestIsAbs
---- PASS: TestIsAbs (%!s(float64=5.9604644775390625e-06))
+--- PASS: TestIsAbs (%!s(float64=5.0067901611328125e-06))
 
 ```
 </p>
@@ -49,31 +49,31 @@ Package path implements utility routines for manipulating slash\-separated  path
 
 ```
 === RUN  TestMatch
---- PASS: TestMatch (%!s(float64=0.004570960998535156))
+--- PASS: TestMatch (%!s(float64=0.0037589073181152344))
 
 === RUN  TestClean
---- PASS: TestClean (%!s(float64=0.0011789798736572266))
+--- PASS: TestClean (%!s(float64=0.001055002212524414))
 
 === RUN  TestCleanMallocs
---- PASS: TestCleanMallocs (%!s(float64=5.793571472167969e-05))
+--- PASS: TestCleanMallocs (%!s(float64=4.696846008300781e-05))
 
 === RUN  TestSplit
---- PASS: TestSplit (%!s(float64=4.9114227294921875e-05))
+--- PASS: TestSplit (%!s(float64=4.315376281738281e-05))
 
 === RUN  TestJoin
---- PASS: TestJoin (%!s(float64=0.0003380775451660156))
+--- PASS: TestJoin (%!s(float64=0.00026798248291015625))
 
 === RUN  TestExt
---- PASS: TestExt (%!s(float64=4.7206878662109375e-05))
+--- PASS: TestExt (%!s(float64=3.2901763916015625e-05))
 
 === RUN  TestBase
---- PASS: TestBase (%!s(float64=0.00010085105895996094))
+--- PASS: TestBase (%!s(float64=7.915496826171875e-05))
 
 === RUN  TestDir
---- PASS: TestDir (%!s(float64=0.000186920166015625))
+--- PASS: TestDir (%!s(float64=0.00014495849609375))
 
 === RUN  TestIsAbs
---- PASS: TestIsAbs (%!s(float64=0.0014209747314453125))
+--- PASS: TestIsAbs (%!s(float64=2.002716064453125e-05))
 
 ```
 </p>
@@ -83,6 +83,7 @@ Package path implements utility routines for manipulating slash\-separated  path
 <p>
 
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 IO.Overflow("write_ui16")
 stdgo/internal/Macro.macro.hx:35: define
 ```

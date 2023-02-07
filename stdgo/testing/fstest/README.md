@@ -13,6 +13,7 @@ Package fstest implements support for testing implementations and users of file 
 <p>
 
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 Error: Command failed with error 1
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestMapFS
@@ -27,6 +28,7 @@ Called from stdgo.testing.fstest_test._Fstest.$Fstest_Fields_.main (stdgo/testin
 <p>
 
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestMapFS
 Exception: testing.fstest.testMapFS is not yet implemented
@@ -39,6 +41,7 @@ Called from stdgo.testing.fstest._Fstest.Fstest_Fields_.testMapFS (stdgo/testing
 <p>
 
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 IO.Overflow("write_ui16")
 stdgo/internal/Macro.macro.hx:35: define
 ```

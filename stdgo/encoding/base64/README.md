@@ -13,6 +13,7 @@ Package base64 implements base64 encoding as specified by RFC 4648.
 <p>
 
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 Error: Command failed with error 1
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestEncode
@@ -25,6 +26,7 @@ Encode("\x14\xfb\x9c\x03\xd9") = "FPucA9k", want "FPucA9k="
 <p>
 
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestEncode
 Encode("\x14\xfb\x9c\x03\xd9") = "FPucA9k", want "FPucA9k="
@@ -36,6 +38,7 @@ Encode("\x14\xfb\x9c\x03\xd9") = "FPucA9k", want "FPucA9k="
 <p>
 
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 IO.Overflow("write_ui16")
 stdgo/internal/Macro.macro.hx:35: define
 ```

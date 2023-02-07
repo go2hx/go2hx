@@ -14,22 +14,22 @@ Package utf16 implements encoding and decoding of UTF\-16 sequences.
 
 ```
 === RUN  TestConstants
---- PASS: TestConstants (%!s(float64=4.792213439941406e-05))
+--- PASS: TestConstants (%!s(float64=4.9114227294921875e-05))
 
 === RUN  TestEncode
---- PASS: TestEncode (%!s(float64=0.0015058517456054688))
+--- PASS: TestEncode (%!s(float64=0.0012288093566894531))
 
 === RUN  TestEncodeRune
---- PASS: TestEncodeRune (%!s(float64=4.220008850097656e-05))
+--- PASS: TestEncodeRune (%!s(float64=2.5987625122070312e-05))
 
 === RUN  TestDecode
---- PASS: TestDecode (%!s(float64=0.0003790855407714844))
+--- PASS: TestDecode (%!s(float64=0.0003139972686767578))
 
 === RUN  TestDecodeRune
---- PASS: TestDecodeRune (%!s(float64=1.0967254638671875e-05))
+--- PASS: TestDecodeRune (%!s(float64=9.059906005859375e-06))
 
 === RUN  TestIsSurrogate
---- PASS: TestIsSurrogate (%!s(float64=1.1920928955078125e-05))
+--- PASS: TestIsSurrogate (%!s(float64=2.288818359375e-05))
 
 ```
 </p>
@@ -40,22 +40,22 @@ Package utf16 implements encoding and decoding of UTF\-16 sequences.
 
 ```
 === RUN  TestConstants
---- PASS: TestConstants (%!s(float64=3.2901763916015625e-05))
+--- PASS: TestConstants (%!s(float64=2.9087066650390625e-05))
 
 === RUN  TestEncode
---- PASS: TestEncode (%!s(float64=0.001157999038696289))
+--- PASS: TestEncode (%!s(float64=0.0008759498596191406))
 
 === RUN  TestEncodeRune
---- PASS: TestEncodeRune (%!s(float64=0.0001418590545654297))
+--- PASS: TestEncodeRune (%!s(float64=0.00011610984802246094))
 
 === RUN  TestDecode
---- PASS: TestDecode (%!s(float64=0.000885009765625))
+--- PASS: TestDecode (%!s(float64=0.0005879402160644531))
 
 === RUN  TestDecodeRune
---- PASS: TestDecodeRune (%!s(float64=6.103515625e-05))
+--- PASS: TestDecodeRune (%!s(float64=5.221366882324219e-05))
 
 === RUN  TestIsSurrogate
---- PASS: TestIsSurrogate (%!s(float64=3.0994415283203125e-05))
+--- PASS: TestIsSurrogate (%!s(float64=2.2172927856445312e-05))
 
 ```
 </p>
@@ -65,6 +65,7 @@ Package utf16 implements encoding and decoding of UTF\-16 sequences.
 <p>
 
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 IO.Overflow("write_ui16")
 stdgo/internal/Macro.macro.hx:35: define
 ```

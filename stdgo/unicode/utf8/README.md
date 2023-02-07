@@ -14,46 +14,46 @@ Package utf8 implements functions and constants to support text encoded in  UTF\
 
 ```
 === RUN  TestConstants
---- PASS: TestConstants (%!s(float64=7.700920104980469e-05))
+--- PASS: TestConstants (%!s(float64=6.794929504394531e-05))
 
 === RUN  TestFullRune
---- PASS: TestFullRune (%!s(float64=0.00021409988403320312))
+--- PASS: TestFullRune (%!s(float64=0.000186920166015625))
 
 === RUN  TestEncodeRune
---- PASS: TestEncodeRune (%!s(float64=0.0003077983856201172))
+--- PASS: TestEncodeRune (%!s(float64=0.0002689361572265625))
 
 === RUN  TestAppendRune
---- PASS: TestAppendRune (%!s(float64=0.0005009174346923828))
+--- PASS: TestAppendRune (%!s(float64=0.00038814544677734375))
 
 === RUN  TestDecodeRune
---- PASS: TestDecodeRune (%!s(float64=0.0010609626770019531))
+--- PASS: TestDecodeRune (%!s(float64=0.0009410381317138672))
 
 === RUN  TestDecodeSurrogateRune
---- PASS: TestDecodeSurrogateRune (%!s(float64=2.7894973754882812e-05))
+--- PASS: TestDecodeSurrogateRune (%!s(float64=2.2172927856445312e-05))
 
 === RUN  TestSequencing
---- PASS: TestSequencing (%!s(float64=0.43982720375061035))
+--- PASS: TestSequencing (%!s(float64=0.3272068500518799))
 
 === RUN  TestRuntimeConversion
---- PASS: TestRuntimeConversion (%!s(float64=0.0016510486602783203))
+--- PASS: TestRuntimeConversion (%!s(float64=0.0014200210571289062))
 
 === RUN  TestDecodeInvalidSequence
---- PASS: TestDecodeInvalidSequence (%!s(float64=0.00038909912109375))
+--- PASS: TestDecodeInvalidSequence (%!s(float64=0.00033402442932128906))
 
 === RUN  TestNegativeRune
---- PASS: TestNegativeRune (%!s(float64=2.384185791015625e-05))
+--- PASS: TestNegativeRune (%!s(float64=2.002716064453125e-05))
 
 === RUN  TestRuneCount
---- PASS: TestRuneCount (%!s(float64=9.799003601074219e-05))
+--- PASS: TestRuneCount (%!s(float64=3.0994415283203125e-05))
 
 === RUN  TestRuneLen
---- PASS: TestRuneLen (%!s(float64=6.9141387939453125e-06))
+--- PASS: TestRuneLen (%!s(float64=5.0067901611328125e-06))
 
 === RUN  TestValid
---- PASS: TestValid (%!s(float64=0.00016617774963378906))
+--- PASS: TestValid (%!s(float64=0.0001399517059326172))
 
 === RUN  TestValidRune
---- PASS: TestValidRune (%!s(float64=6.9141387939453125e-06))
+--- PASS: TestValidRune (%!s(float64=5.9604644775390625e-06))
 
 ```
 </p>
@@ -67,43 +67,43 @@ Package utf8 implements functions and constants to support text encoded in  UTF\
 --- PASS: TestConstants (%!s(float64=3.218650817871094e-05))
 
 === RUN  TestFullRune
---- PASS: TestFullRune (%!s(float64=0.0013608932495117188))
+--- PASS: TestFullRune (%!s(float64=0.0011630058288574219))
 
 === RUN  TestEncodeRune
---- PASS: TestEncodeRune (%!s(float64=0.001497030258178711))
+--- PASS: TestEncodeRune (%!s(float64=0.0011920928955078125))
 
 === RUN  TestAppendRune
---- PASS: TestAppendRune (%!s(float64=0.0025238990783691406))
+--- PASS: TestAppendRune (%!s(float64=0.0020258426666259766))
 
 === RUN  TestDecodeRune
---- PASS: TestDecodeRune (%!s(float64=0.006854057312011719))
+--- PASS: TestDecodeRune (%!s(float64=0.005450010299682617))
 
 === RUN  TestDecodeSurrogateRune
---- PASS: TestDecodeSurrogateRune (%!s(float64=0.00010204315185546875))
+--- PASS: TestDecodeSurrogateRune (%!s(float64=9.083747863769531e-05))
 
 === RUN  TestSequencing
---- PASS: TestSequencing (%!s(float64=2.0347678661346436))
+--- PASS: TestSequencing (%!s(float64=1.6105589866638184))
 
 === RUN  TestRuntimeConversion
---- PASS: TestRuntimeConversion (%!s(float64=0.010900020599365234))
+--- PASS: TestRuntimeConversion (%!s(float64=0.008903026580810547))
 
 === RUN  TestDecodeInvalidSequence
---- PASS: TestDecodeInvalidSequence (%!s(float64=0.0024280548095703125))
+--- PASS: TestDecodeInvalidSequence (%!s(float64=0.002073049545288086))
 
 === RUN  TestNegativeRune
---- PASS: TestNegativeRune (%!s(float64=0.00011897087097167969))
+--- PASS: TestNegativeRune (%!s(float64=9.799003601074219e-05))
 
 === RUN  TestRuneCount
---- PASS: TestRuneCount (%!s(float64=0.0002079010009765625))
+--- PASS: TestRuneCount (%!s(float64=0.00019407272338867188))
 
 === RUN  TestRuneLen
---- PASS: TestRuneLen (%!s(float64=3.0994415283203125e-05))
+--- PASS: TestRuneLen (%!s(float64=2.5987625122070312e-05))
 
 === RUN  TestValid
---- PASS: TestValid (%!s(float64=0.0012140274047851562))
+--- PASS: TestValid (%!s(float64=0.0009799003601074219))
 
 === RUN  TestValidRune
---- PASS: TestValidRune (%!s(float64=2.8848648071289062e-05))
+--- PASS: TestValidRune (%!s(float64=2.5033950805664062e-05))
 
 ```
 </p>
@@ -113,6 +113,7 @@ Package utf8 implements functions and constants to support text encoded in  UTF\
 <p>
 
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 IO.Overflow("write_ui16")
 stdgo/internal/Macro.macro.hx:35: define
 ```

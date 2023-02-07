@@ -1,5 +1,6 @@
 # Module stdgo.time has compilation errors, please do not use:
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 stdgo/time_test/Time_test.hx:4449: characters 57-122 : invalid type: TAbstract(stdgo.GoInt64,[])
 stdgo/time_test/Time_test.hx:4449: characters 57-122 : ... For function argument '_a'
 stdgo/time_test/Time_test.hx:4407: lines 4407-4415 : ... Called from macro here

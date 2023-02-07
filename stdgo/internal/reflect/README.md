@@ -832,7 +832,7 @@ function align():stdgo.GoInt
  
 
 
-[\(view code\)](<./Reflect.hx#L1206>)
+[\(view code\)](<./Reflect.hx#L1205>)
 
 
 ### \_Type function assignableTo
@@ -944,7 +944,7 @@ function fieldAlign():stdgo.GoInt
  
 
 
-[\(view code\)](<./Reflect.hx#L1203>)
+[\(view code\)](<./Reflect.hx#L1202>)
 
 
 ### \_Type function fieldByIndex
@@ -1098,7 +1098,7 @@ function method( _0:stdgo.GoInt):stdgo.reflect.Method
  
 
 
-[\(view code\)](<./Reflect.hx#L1200>)
+[\(view code\)](<./Reflect.hx#L1199>)
 
 
 ### \_Type function name
@@ -1112,7 +1112,7 @@ function name():stdgo.GoString
  
 
 
-[\(view code\)](<./Reflect.hx#L1176>)
+[\(view code\)](<./Reflect.hx#L1175>)
 
 
 ### \_Type function numField
@@ -1154,7 +1154,7 @@ function numMethod():stdgo.GoInt
  
 
 
-[\(view code\)](<./Reflect.hx#L1178>)
+[\(view code\)](<./Reflect.hx#L1177>)
 
 
 ### \_Type function numOut
@@ -1196,7 +1196,7 @@ function pkgPath():stdgo.GoString
  
 
 
-[\(view code\)](<./Reflect.hx#L1173>)
+[\(view code\)](<./Reflect.hx#L1172>)
 
 
 ### \_Type function size
@@ -1210,7 +1210,7 @@ function size():stdgo.GoUIntptr
  
 
 
-[\(view code\)](<./Reflect.hx#L1170>)
+[\(view code\)](<./Reflect.hx#L1169>)
 
 
 ### \_Type function string
@@ -1224,7 +1224,7 @@ function string():stdgo.GoString
  
 
 
-[\(view code\)](<./Reflect.hx#L1044>)
+[\(view code\)](<./Reflect.hx#L1043>)
 
 
 ## class \_Type\_static\_extension
@@ -1272,7 +1272,7 @@ function align():stdgo.GoInt
  
 
 
-[\(view code\)](<./Reflect.hx#L1206>)
+[\(view code\)](<./Reflect.hx#L1205>)
 
 
 ### \_Type\_static\_extension function assignableTo
@@ -1384,7 +1384,7 @@ function fieldAlign():stdgo.GoInt
  
 
 
-[\(view code\)](<./Reflect.hx#L1203>)
+[\(view code\)](<./Reflect.hx#L1202>)
 
 
 ### \_Type\_static\_extension function fieldByIndex
@@ -1524,7 +1524,7 @@ function method( _0:stdgo.GoInt):stdgo.reflect.Method
  
 
 
-[\(view code\)](<./Reflect.hx#L1200>)
+[\(view code\)](<./Reflect.hx#L1199>)
 
 
 ### \_Type\_static\_extension function methodByName
@@ -1538,7 +1538,7 @@ function methodByName( _0:stdgo.GoString):{_1:Bool, _0:stdgo.reflect.Method}
  
 
 
-[\(view code\)](<./Reflect.hx#L1197>)
+[\(view code\)](<./Reflect.hx#L1196>)
 
 
 ### \_Type\_static\_extension function name
@@ -1552,7 +1552,7 @@ function name():stdgo.GoString
  
 
 
-[\(view code\)](<./Reflect.hx#L1176>)
+[\(view code\)](<./Reflect.hx#L1175>)
 
 
 ### \_Type\_static\_extension function numField
@@ -1594,7 +1594,7 @@ function numMethod():stdgo.GoInt
  
 
 
-[\(view code\)](<./Reflect.hx#L1178>)
+[\(view code\)](<./Reflect.hx#L1177>)
 
 
 ### \_Type\_static\_extension function numOut
@@ -1636,7 +1636,7 @@ function pkgPath():stdgo.GoString
  
 
 
-[\(view code\)](<./Reflect.hx#L1173>)
+[\(view code\)](<./Reflect.hx#L1172>)
 
 
 ### \_Type\_static\_extension function size
@@ -1650,7 +1650,7 @@ function size():stdgo.GoUIntptr
  
 
 
-[\(view code\)](<./Reflect.hx#L1170>)
+[\(view code\)](<./Reflect.hx#L1169>)
 
 
 ### \_Type\_static\_extension function string
@@ -1664,6 +1664,6 @@ function string():stdgo.GoString
  
 
 
-[\(view code\)](<./Reflect.hx#L1044>)
+[\(view code\)](<./Reflect.hx#L1043>)
 
 

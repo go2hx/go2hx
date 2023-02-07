@@ -13,6 +13,7 @@ Package quick implements utility functions to help with black box testing.    Th
 <p>
 
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 Error: Command failed with error 1
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestCheckEqual
@@ -29,12 +30,13 @@ Called from stdgo.testing.quick_test._Quick.$Quick_Fields_.main (stdgo/testing/q
 <p>
 
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestCheckEqual
 Exception: reflect.call is not yet implemented
 Called from stdgo.testing.quick._Quick.Quick_Fields_.testCheckEqual (stdgo/testing/quick/Quick.hx line 805 column 38)
 Called from stdgo.testing.quick._Quick.Quick_Fields_.checkEqual (stdgo/testing/quick/Quick.hx line 548 column 30)
-Called from stdgo.reflect.Value_static_extension.call (stdgo/reflect/Reflect.hx line 2723 column 3)
+Called from stdgo.reflect.Value_static_extension.call (stdgo/reflect/Reflect.hx line 2738 column 3)
 ```
 </p>
 </details>
@@ -43,6 +45,7 @@ Called from stdgo.reflect.Value_static_extension.call (stdgo/reflect/Reflect.hx 
 <p>
 
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 IO.Overflow("write_ui16")
 stdgo/internal/Macro.macro.hx:35: define
 ```

@@ -1,5 +1,6 @@
 # Module stdgo.encoding.binary has compilation errors, please do not use:
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 Type not found : T_littleEndian
 stdgo/encoding/binary_test/Binary_test.hx:40: characters 76-133 : ... Called from macro here
 stdgo/Go.macro.hx:368: characters 20-37 : ... Called from macro here

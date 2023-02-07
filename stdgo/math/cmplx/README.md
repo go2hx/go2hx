@@ -13,10 +13,11 @@ Package cmplx provides basic constants and mathematical functions for  complex n
 <p>
 
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 Error: Command failed with error 1
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestAbs
---- PASS: TestAbs (%!s(float64=7.200241088867188e-05))
+--- PASS: TestAbs (%!s(float64=5.91278076171875e-05))
 
 === RUN  TestAcos
 Acos((0+0i)) = (1.5707963267948966+0i), want (1.5707963267948966-0i)
@@ -28,9 +29,10 @@ Acos((0+0i)) = (1.5707963267948966+0i), want (1.5707963267948966-0i)
 <p>
 
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestAbs
---- PASS: TestAbs (%!s(float64=0.00010585784912109375))
+--- PASS: TestAbs (%!s(float64=9.202957153320312e-05))
 
 === RUN  TestAcos
 Acos((0+0i)) = (1.5707963267948966+0i), want (1.5707963267948966-0i)
@@ -42,6 +44,7 @@ Acos((0+0i)) = (1.5707963267948966+0i), want (1.5707963267948966-0i)
 <p>
 
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 IO.Overflow("write_ui16")
 stdgo/internal/Macro.macro.hx:35: define
 ```

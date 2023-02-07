@@ -13,6 +13,7 @@ Package iotest implements Readers and Writers useful mainly for testing.
 <p>
 
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 Error: Command failed with error 1
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestWriteLogger
@@ -27,6 +28,7 @@ Called from stdgo.testing.iotest_test._Iotest.$Iotest_Fields_.main (stdgo/testin
 <p>
 
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestWriteLogger
 Exception: testing.iotest.testWriteLogger is not yet implemented
@@ -39,6 +41,7 @@ Called from stdgo.testing.iotest._Iotest.Iotest_Fields_.testWriteLogger (stdgo/t
 <p>
 
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 IO.Overflow("write_ui16")
 stdgo/internal/Macro.macro.hx:35: define
 ```

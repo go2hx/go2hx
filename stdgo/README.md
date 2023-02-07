@@ -628,7 +628,7 @@ function clear():Void
  
 
 
-[\(view code\)](<./GoMap.hx#L162>)
+[\(view code\)](<./GoMap.hx#L168>)
 
 
 ### GoObjectMap function copy
@@ -642,7 +642,7 @@ function copy():stdgo.GoObjectMap<stdgo.GoObjectMap.K, stdgo.GoObjectMap.V>
  
 
 
-[\(view code\)](<./GoMap.hx#L148>)
+[\(view code\)](<./GoMap.hx#L154>)
 
 
 ### GoObjectMap function defaultValue
@@ -656,7 +656,7 @@ function defaultValue():stdgo.GoObjectMap.V
  
 
 
-[\(view code\)](<./GoMap.hx#L103>)
+[\(view code\)](<./GoMap.hx#L109>)
 
 
 ### GoObjectMap function exists
@@ -670,7 +670,7 @@ function exists(key:stdgo.GoObjectMap.K):Bool
  
 
 
-[\(view code\)](<./GoMap.hx#L119>)
+[\(view code\)](<./GoMap.hx#L125>)
 
 
 ### GoObjectMap function get
@@ -684,7 +684,7 @@ function get(key:stdgo.GoObjectMap.K):Null<stdgo.GoObjectMap.V>
  
 
 
-[\(view code\)](<./GoMap.hx#L111>)
+[\(view code\)](<./GoMap.hx#L117>)
 
 
 ### GoObjectMap function iterator
@@ -698,7 +698,7 @@ function iterator():Iterator<stdgo.GoObjectMap.V>
  
 
 
-[\(view code\)](<./GoMap.hx#L142>)
+[\(view code\)](<./GoMap.hx#L148>)
 
 
 ### GoObjectMap function keyValueIterator
@@ -712,7 +712,7 @@ function keyValueIterator():KeyValueIterator<stdgo.GoObjectMap.K, stdgo.GoObject
  
 
 
-[\(view code\)](<./GoMap.hx#L144>)
+[\(view code\)](<./GoMap.hx#L150>)
 
 
 ### GoObjectMap function keys
@@ -726,7 +726,7 @@ function keys():Iterator<stdgo.GoObjectMap.K>
  
 
 
-[\(view code\)](<./GoMap.hx#L139>)
+[\(view code\)](<./GoMap.hx#L145>)
 
 
 ### GoObjectMap function new
@@ -740,7 +740,7 @@ function new(t:stdgo.internal.reflect._Type):Void
  
 
 
-[\(view code\)](<./GoMap.hx#L71>)
+[\(view code\)](<./GoMap.hx#L77>)
 
 
 ### GoObjectMap function remove
@@ -754,7 +754,7 @@ function remove(key:stdgo.GoObjectMap.K):Bool
  
 
 
-[\(view code\)](<./GoMap.hx#L127>)
+[\(view code\)](<./GoMap.hx#L133>)
 
 
 ### GoObjectMap function set
@@ -768,7 +768,7 @@ function set(key:stdgo.GoObjectMap.K, value:stdgo.GoObjectMap.V):Void
  
 
 
-[\(view code\)](<./GoMap.hx#L75>)
+[\(view code\)](<./GoMap.hx#L81>)
 
 
 ### GoObjectMap function toString
@@ -782,7 +782,7 @@ function toString():String
  
 
 
-[\(view code\)](<./GoMap.hx#L155>)
+[\(view code\)](<./GoMap.hx#L161>)
 
 
 ## class GoStringTools

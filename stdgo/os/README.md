@@ -1,5 +1,6 @@
 # Module stdgo.os has compilation errors, please do not use:
 ```
+stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 stdgo/os_test/Os_test.hx:904: characters 23-51 : Type not found : stdgo.path.filepath.Filepath
 stdgo/os_test/Os_test.hx:912: characters 10-38 : Type not found : stdgo.path.filepath.Filepath
 stdgo/os_test/Os_test.hx:1488: characters 2-32 : Module stdgo.internal.testenv.Testenv does not define type Testenv

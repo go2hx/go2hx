@@ -288,7 +288,7 @@ final list = [
 			@:privateAccess	_iter.keys = _iter.map.__keyArray__();
 		final gt = stdgo.internal.reflect.Reflect.getUnderlying(@:privateAccess _iter.map.__type__._common());
 		final key = switch gt {
-			case mapType(_.get() => keyType,_):
+			case mapType(_.get() => var keyType,_):
 				new stdgo.internal.reflect.Reflect._Type(keyType);
 			default:
 				throw "invalid mapType: " + gt;

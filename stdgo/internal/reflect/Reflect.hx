@@ -605,8 +605,10 @@ function pointerUnwrap(type:GoType):GoType {
 function asInterface(value:Dynamic, gt:GoType):Dynamic {
 	switch gt {
 		case named(path,_,_,_,_):
-			final cl = std.Type.resolveClass(path + "_asInterface");
-			if (cl == null)
+			final pack = path.split(".");
+			pack.remove(pack[pack.length - 2]);
+			final cl = std.Type.resolveClass(pack.join(".") + "_asInterface");
+			if (cl == null) // named type does not have asInterface class
 				return value;
 			return std.Type.createInstance(cl,[Go.pointer(value),new stdgo.internal.reflect.Reflect._Type(gt)]);
 			
@@ -1091,13 +1093,17 @@ class _Type {
 								"unknown";
 						}
 				}
-			case previouslyNamed(name):
-				formatGoPath(name);
+			case previouslyNamed(path):
+				final pack = path.split(".");
+				pack.remove(pack[pack.length - 2]);
+				formatGoPath(pack.join("."));
 			case named(path, _, type, alias,_):
 				if (alias) {
 					new _Type(type).string();
 				} else {
-					formatGoPath(path);
+					final pack = path.split(".");
+					pack.remove(pack[pack.length - 2]);
+					formatGoPath(pack.join("."));
 				}
 			case pointerType(elem), refType(_.get() => elem):
 				"*" + new _Type(elem).string();

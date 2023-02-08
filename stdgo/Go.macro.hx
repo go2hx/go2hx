@@ -735,7 +735,7 @@ class Go {
 						final ref = t.get();
 						switch ref.type {
 							case TAnonymous(a):
-								final path = createPath(ref.pack, ref.name);
+								final path = createPath(ref.module, ref.name);
 								// TODO - path cache
 								if (nameTypes.exists(path))
 									return macro stdgo.internal.TypeInfo.names[$v{path}];
@@ -800,7 +800,7 @@ class Go {
 										final underlyingType = gtDecode(type, expr, marked);
 										final methods:Array<Expr> = [];
 										final extensionPath = ref.module + "." + ref.name + "_asInterface";
-										final path = createPath(ref.pack, ref.name);
+										final path = createPath(ref.module, ref.name);
 										// TODO - path cache
 										// if (nameTypes.exists(path))
 										//	return macro stdgo.internal.TypeInfo.names[$v{path}];
@@ -959,7 +959,7 @@ class Go {
 					} else {
 						final methods:Array<Expr> = [];
 
-						final path = createPath(ref.pack, ref.name);
+						final path = createPath(ref.module, ref.name);
 						if (ref.meta.has(":using")) {
 							final s = new haxe.macro.Printer().printExpr(ref.meta.extract(":using")[0].params[0]);
 							switch Context.getType(s) {
@@ -1110,8 +1110,8 @@ class Go {
 		return false;
 	}
 
-	static function createPath(pack:Array<String>, name:String):String {
-		return pack.join(".") + "." + name;
+	static function createPath(module:String, name:String):String {
+		return module + "." + name;
 	}
 
 	static function gtDecodeClassType(ref:haxe.macro.Type.ClassType, methods:Array<Expr>, marked:Map<String, Bool>, expr:Expr):Expr {
@@ -1119,7 +1119,7 @@ class Go {
 		var fs = ref.fields.get();
 		var underlyingType:haxe.macro.Type = null;
 		var module = parseModule(ref.module);
-		final path = createPath(ref.pack, ref.name);
+		final path = createPath(ref.module, ref.name);
 		// TODO - path cache
 		if (nameTypes.exists(path))
 			return macro stdgo.internal.TypeInfo.names[$v{path}];

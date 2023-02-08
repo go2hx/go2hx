@@ -537,7 +537,7 @@ private function createWrapper(wrapperName:String, ct:ComplexType) {
 		}
 
 		public function __underlying__()
-			return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
+			return new AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer
 				&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 				__type__);
 
@@ -4557,10 +4557,11 @@ private function compositeLitMapList(keyType:GoType,valueType:GoType,underlying:
 	final values:Array<Expr> = [];
 	function run(elt:Ast.Expr) {
 		if (elt.id == "CompositeLit") {
-			switch underlying {
-				case mapType(_.get() => var keyType, _.get() => valueType):
-					trace(keyType);
-					trace(valueType);
+			switch getUnderlying(valueType) {
+				case interfaceType(empty,_):
+					if (empty) {
+						return typeExpr(elt,info);
+					}
 				default:
 			}
 			return toExpr(compositeLit(valueType, complexTypeElem(ct,1), elt, info));

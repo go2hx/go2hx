@@ -6573,6 +6573,8 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				return def;
 				//meta.push({name: ":local", pos: null});
 			}
+			if (!externBool)
+				meta.push({name: ":private", pos: null});
 			var cl:TypeDefinition = {
 				name: name,
 				pos: null,
@@ -6580,7 +6582,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				pack: [],
 				params: params,
 				doc: doc,
-				isExtern: externBool,
+				isExtern: true,
 				meta: meta,
 				kind: TDClass(),
 			};

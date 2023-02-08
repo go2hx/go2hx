@@ -577,7 +577,7 @@ function isRef(type:GoType):Bool {
 }
 
 function isReflectTypeRef(type:_Type):Bool {
-	return isRef((type : Dynamic)._common());
+	return isRef(type._common());
 }
 
 function isRefValue(type:GoType):Bool {
@@ -756,7 +756,9 @@ function defaultValue(typ:Type):Any {
 		case named(path, methods, type,_,_):
 			switch type {
 				case structType(_):
-					var cl = std.Type.resolveClass(path);
+					final pack = path.split(".");
+					pack.remove(pack[pack.length - 2]);
+					var cl = std.Type.resolveClass(pack.join("."));
 					std.Type.createInstance(cl, []);
 				default:
 					var t = new _Type(type);
@@ -803,7 +805,9 @@ function defaultValueInternal(typ:_Type):Any {
 		case named(path, methods, type,_,_):
 			switch type {
 				case structType(_):
-					var cl = std.Type.resolveClass(path);
+					final pack = path.split(".");
+					pack.remove(pack[pack.length - 2]);
+					var cl = std.Type.resolveClass(pack.join("."));
 					std.Type.createInstance(cl, []);
 				default:
 					var t = new _Type(type);

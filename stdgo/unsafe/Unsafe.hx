@@ -3,6 +3,7 @@ package stdgo.unsafe;
 import stdgo.Pointer;
 import stdgo.StdGoTypes;
 import stdgo.internal.reflect.Reflect.GoType;
+using GoString.GoStringTools;
 
 @:follow typedef Pointer_ = UnsafePointer;
 
@@ -66,3 +67,12 @@ function offsetof_(x:AnyInterface):GoUIntptr {
 function alignof_(x:AnyInterface):GoUIntptr {
 	return 0;
 }
+
+function stringData(s:GoString):GoString
+	return s;
+
+function sliceData<T>(s:Slice<T>):Slice<T>
+	return s;
+
+function string(s:GoString, len:GoInt):GoString
+	return s.substr(0,len);

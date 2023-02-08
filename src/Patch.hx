@@ -949,7 +949,7 @@ final list = [
 		}
 		return samebytes();
 	},
-	"strings:string" => macro {
+	"strings.Builder:string" => macro {
 		return ((Go.toInterface((_b._buf : Ref<Slice<GoUInt8>>)) : stdgo.unsafe.Unsafe.UnsafePointer)
 			.__convert__(stdgo.internal.reflect.Reflect.GoType.pointerType(stdgo.internal.reflect.Reflect.GoType.basic(string_kind))) : Pointer<GoString>)
 			.value;

@@ -16,7 +16,7 @@ abstract GoMap<K, V>(GoObjectMap<K, V>) {
 		return this.t;
 
 	function get_length():GoInt
-		return Lambda.count(this);
+		return this == null ? 0 : Lambda.count(this);
 
 	public function new();
 

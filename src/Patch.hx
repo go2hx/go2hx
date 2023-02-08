@@ -360,24 +360,25 @@ final list = [
 	"reflect.Value:bytes" => macro {
 		final _v = _v.__copy__();
 		var value = @:privateAccess _v.value.value;
-		final t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
+		var t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
 		if (stdgo.internal.reflect.Reflect.isNamed(t)) {
+			t = stdgo.internal.reflect.Reflect.getUnderlying(t);
 			switch std.Type.typeof(value) {
 				case TClass(c):
 					final name = std.Type.getClassName(c);
-					if (StringTools.endsWith(name,"_asInterface"))
+					if (StringTools.endsWith(name, "_asInterface"))
 						value = (value : Dynamic).__underlying__().value;
 				default:
 					final _ = false;
-	
-			}
-		}
+			};
+		};
 		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
 			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
 			value = (value : Dynamic).value;
+			t = @:privateAccess _v.value.type._common();
 		};
 		switch t {
-			case stdgo.internal.reflect.Reflect.GoType.arrayType(_.get() => elem,_):
+			case stdgo.internal.reflect.Reflect.GoType.arrayType(_.get() => elem, _):
 				switch elem {
 					case stdgo.internal.reflect.Reflect.GoType.basic(stdgo.internal.reflect.Reflect.BasicKind.uint8_kind):
 						return (value : GoArray<GoByte>).__slice__(0);
@@ -385,6 +386,7 @@ final list = [
 						throw new ValueError("reflect.Value.Bytes", @:privateAccess _v.kind());
 				};
 			case stdgo.internal.reflect.Reflect.GoType.sliceType(_.get() => elem):
+				elem = stdgo.internal.reflect.Reflect.getUnderlying(elem);
 				switch elem {
 					case stdgo.internal.reflect.Reflect.GoType.basic(stdgo.internal.reflect.Reflect.BasicKind.uint8_kind):
 						return value;
@@ -498,6 +500,32 @@ final list = [
 				value;
 			default:
 				throw new ValueError("reflect.Value.Bool",_v.kind());
+		}
+		return value;
+	},
+	"reflect.Value:complex" => macro {
+		var value = @:privateAccess _v.value.value;
+		final t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
+		if (stdgo.internal.reflect.Reflect.isNamed(t)) {
+			switch std.Type.typeof(value) {
+				case TClass(c):
+					final name = std.Type.getClassName(c);
+					if (StringTools.endsWith(name,"_asInterface"))
+						value = (value : Dynamic).__underlying__().value;
+				default:
+					final _ = false;
+	
+			}
+		}
+		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
+			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
+			value = (value : Dynamic).value;
+		};
+		final value:GoComplex128 = switch _v.kind() {
+			case stdgo.internal.reflect.Reflect.KindType.complex128, stdgo.internal.reflect.Reflect.KindType.complex64:
+				value;
+			default:
+				throw new ValueError("Value.Complex",_v.kind());
 		}
 		return value;
 	},
@@ -930,6 +958,7 @@ final list = [
 ];
 
 final skipTargets = [
+	"strings:testReaderZero" => [], // Segmentation fault (core dumped)
 	"unicode.utf8:testReaderCopyNothing" => [], // Segmentation fault (core dumped)
 	"math_test:testFloatMinima" => ["interp"],
 	"math_test:testNextafter32" => ["interp"],

@@ -3536,8 +3536,6 @@ private function toReflectType(t:GoType, info:Info, paths:Array<String>, equalit
 			namedPath.pack.push(namedPath.name);
 			final path = makeString(namedPath.pack.join("."));
 			final methodExprs:Array<Expr> = [];
-			if (equalityBool)
-				return macro stdgo.internal.reflect.Reflect.GoType.named($path,[],null,false,{get: () -> null});
 			var t = macro stdgo.internal.reflect.Reflect.GoType.invalidType;
 			if (!paths.contains(path2)) {
 				paths.push(path2);
@@ -4547,46 +4545,41 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 		case arrayType(_.get() => elem, len):
 			return compositeLitList(elem,keyValueBool,len,underlying,toComplexType(type,info),expr,info).expr;
 		case mapType(_.get() => var keyType, _.get() => valueType):
-			var t = toReflectType(type, info, [], true);
-			var params:Array<Expr> = [];
-			final keys:Array<Expr> = [];
-			final values:Array<Expr> = [];
-			for (elt in expr.elts) {
-				if (elt.id != "KeyValueExpr")
-					throw "not a KeyValueExpr for Map CompositeLit";
-				var elt:Ast.KeyValueExpr = elt;
-				var key = typeExpr(elt.key, info);
-				var value = typeExpr(elt.value, info);
-
-				var fromValueType = typeof(elt.value, info, false);
-				if (fromValueType == invalidType) {
-					fromValueType = valueType;
-					value = defaultValue(valueType, info, true);
-				}
-				key = assignTranslate(typeof(elt.key, info, false), keyType, key, info);
-				value = assignTranslate(fromValueType, valueType, value, info);
-
-				keys.push(key);
-				values.push(value);
-
-				params.push(macro $key => $value);
-			}
-			final keyType = toComplexType(keyType, info);
-			final valueType = toComplexType(valueType, info);
-			final t = toReflectType(type, info, [], true);
-			if (params.length == 0) {
-				return (macro (new stdgo.GoMap.GoObjectMap<$keyType, $valueType>(new stdgo.internal.reflect.Reflect._Type($t)) : stdgo.GoMap<$keyType,$valueType>)).expr;
-			}
-			return (macro ({
-				final x = new stdgo.GoMap.GoObjectMap<$keyType, $valueType>(new stdgo.internal.reflect.Reflect._Type($t));
-				@:privateAccess x._keys = $a{keys};
-				@:privateAccess x._values = $a{values};
-				x;
-			} : stdgo.GoMap<$keyType,$valueType>)).expr;
-		// return (macro Go.map($a{params})).expr;
+			return compositeLitMapList(keyType,valueType,underlying,toComplexType(type,info),expr,info).expr;
 		default:
 			throw "not supported CompositeLit type: " + type;
 	}
+}
+
+private function compositeLitMapList(keyType:GoType,valueType:GoType,underlying:GoType,ct:ComplexType,expr:Ast.CompositeLit,info:Info):Expr {
+	var params:Array<Expr> = [];
+	final keys:Array<Expr> = [];
+	final values:Array<Expr> = [];
+	function run(elt:Ast.Expr) {
+		if (elt.id == "CompositeLit") {
+			switch underlying {
+				case mapType(_.get() => var keyType, _.get() => valueType):
+					trace(keyType);
+					trace(valueType);
+				default:
+			}
+			return toExpr(compositeLit(valueType, complexTypeElem(ct,1), elt, info));
+		}
+		return typeExpr(elt,info);
+	}
+	for (elt in expr.elts) {
+		keys.push(run(elt.key));
+		values.push(run(elt.value));
+	}
+	final t = toReflectType(underlying, info, [], true);
+	final keyType = toComplexType(keyType, info);
+	final valueType = toComplexType(valueType, info);
+	return macro ({
+		final x = new stdgo.GoMap.GoObjectMap<$keyType, $valueType>(new stdgo.internal.reflect.Reflect._Type($t));
+		@:privateAccess x._keys = $a{keys};
+		@:privateAccess x._values = $a{values};
+		x;
+	} : stdgo.GoMap<$keyType,$valueType>);
 }
 
 private function compositeLitList(elem:GoType,keyValueBool:Bool, len:Int, underlying:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:Info):Expr {
@@ -4661,11 +4654,11 @@ private function compositeLitList(elem:GoType,keyValueBool:Bool, len:Int, underl
 	}
 }
 
-private function complexTypeElem(ct:ComplexType):ComplexType {
+private function complexTypeElem(ct:ComplexType,index:Int=0):ComplexType {
 	return switch ct {
 		case TPath(p):
 			if (p.params != null && p.params.length > 0) {
-				switch p.params[0] {
+				switch p.params[index] {
 					case TPType(t):
 						t;
 					default:

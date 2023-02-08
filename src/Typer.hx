@@ -4562,6 +4562,8 @@ private function compositeLitMapList(keyType:GoType,valueType:GoType,underlying:
 					if (empty) {
 						return typeExpr(elt,info);
 					}
+				case basic(_):
+					return typeExpr(elt,info);
 				default:
 			}
 			return toExpr(compositeLit(valueType, complexTypeElem(ct,1), elt, info));

@@ -4060,8 +4060,7 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 		case _var(_, _.get() => type):
 			toComplexType(type, info);
 		case typeParam(name, params):
-			final p = namedTypePath(name, info);
-			TPath(p);
+			return TPath({name: "Unknown", pack: []});
 		default:
 			throw "unknown goType to complexType: " + e;
 	}
@@ -4160,11 +4159,7 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 				EConst(CInt(expr.value));
 		});
 		final ct = toComplexType(t, info);
-		if (hasTypeParam(ct)) {
-			e.expr;
-		} else {
-			(macro($e : $ct)).expr;
-		}
+		(macro($e : $ct)).expr;
 	} else if (expr.info & Ast.BasicInfo.isComplex != 0) {
 		final index = expr.value.indexOf("i");
 		final real = toExpr(EConst(CFloat(expr.value.substr(0, index))));
@@ -4443,15 +4438,6 @@ private function title(name:String):String {
 	return name.charAt(0).toUpperCase() + name.substring(1);
 }
 
-private function hasTypeParam(ct:ComplexType):Bool {
-	if (ct == null)
-		return false;
-	return switch ct {
-		case TPath(p): p.params != null && p.params.length > 0;
-		default: false;
-	}
-}
-
 function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:Info):ExprDef {
 	final keyValueBool:Bool = hasKeyValueExpr(expr.elts);
 	final underlying = getUnderlying(type);
@@ -4514,7 +4500,7 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 					for (i in 0...expr.elts.length)
 						assignTranslate(typeof(expr.elts[i], info, false), fields[i].type.get(), typeExpr(expr.elts[i], info), info)
 				];
-				if ((isAlias || hasTypeParam(ct)) && args.length < fields.length) {
+				if (isAlias && args.length < fields.length) {
 					for (i in args.length...fields.length) {
 						args.push(defaultValue(fields[i].type.get(), info, true));
 					}
@@ -4531,13 +4517,8 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 					return (macro($e : $ct)).expr;
 				} else {
 					final p = getTypePath(ct);
-					final b = hasTypeParam(ct);
 					final e = macro new $p($a{args});
-					if (b) {
-						return e.expr;
-					} else {
-						return (macro($e : $ct)).expr;
-					}
+					return (macro ($e : $ct)).expr;
 				}
 			}
 		case sliceType(_.get() => elem):
@@ -5647,11 +5628,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			macro null;
 		case refType(_.get() => elem):
 			final ct = toComplexType(elem, info);
-			if (hasTypeParam(ct)) {
-				macro null;
-			} else {
-				macro(null : Ref<$ct>); // pointer can be nil
-			}
+			macro(null : Ref<$ct>); // pointer can be nil
 		case named(path, _, underlying, alias,_):
 			switch underlying {
 				case named(_, _, type,_,_):
@@ -5661,19 +5638,11 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			switch underlying {
 				case pointerType(_), interfaceType(_), mapType(_, _), signature(_, _):
 					final ct = ct();
-					if (hasTypeParam(ct)) {
-						macro null;
-					} else {
-						macro(null : $ct);
-					}
+					macro(null : $ct);
 				case basic(_):
 					final ct = ct();
 					final e = defaultValue(underlying, info);
-					if (hasTypeParam(ct)) {
-						e;
-					} else {
-						macro($e : $ct);
-					}
+					macro($e : $ct);
 				case structType(fields):
 					final ct = ct();
 					final fs:Array<ObjectField> = [];
@@ -5681,11 +5650,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 					if (alias) {
 						e = createNamedObjectDecl(fields, (_, type) -> defaultValue(type, info), info);
 					}
-					if (hasTypeParam(ct)) {
-						e;
-					} else {
-						macro($e : $ct);
-					}
+					macro($e : $ct);
 				case sliceType(_):
 					var t = namedTypePath(path, info);
 					macro new $t(0, 0);
@@ -6777,6 +6742,7 @@ private function typeImport(imp:Ast.ImportSpec, info:Info) {
 }
 
 private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<TypeDefinition> {
+	final elem = hashTypeToExprType(value.names[0].type.elem,info);
 	var type:ComplexType = null;
 	var interfaceBool = false;
 	if (value.type.id != null) {
@@ -6825,7 +6791,6 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 					} else {
 						expr = defaultValue(info.lastType, info);
 					}
-					type = toComplexType(info.lastType, info);
 				}
 			} else {
 				info.lastValue = value.values[i];
@@ -6844,10 +6809,6 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 			}
 			if (expr == null)
 				continue;
-			var type = type; // set local type
-			if (type == null) {
-				type = toComplexType(typeof(value.values[i], info, false), info);
-			}
 			var name = nameIdent(value.names[i].name, false, true, info);
 			var doc:String = getComment(value) + getDoc(value); // + getSource(value, info);
 			var access = [];

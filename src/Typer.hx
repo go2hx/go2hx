@@ -3830,7 +3830,6 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 		case "IndexListExpr":
 			final e:Ast.IndexListExpr = e;
 			typeof(e.type, info, false, paths.copy());
-
 		case "BinaryExpr":
 			final e:Ast.BinaryExpr = e;
 			typeof(e.type, info, false, paths.copy());
@@ -4059,8 +4058,9 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 			TFunction(args, ret);
 		case _var(_, _.get() => type):
 			toComplexType(type, info);
-		case typeParam(name, params):
-			return TPath({name: "Unknown", pack: []});
+		case typeParam(name, _):
+			final p = namedTypePath(name, info);
+			return TPath(p);
 		default:
 			throw "unknown goType to complexType: " + e;
 	}

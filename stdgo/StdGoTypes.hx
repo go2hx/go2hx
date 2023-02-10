@@ -1928,11 +1928,6 @@ class GoIntIterator {
 	}
 }
 
-// thanks Gama11
-#if !macro
-@:genericBuild(stdgo.internal.Macro.buildUnknown()) class Unknown {}
-#end
-
 typedef MapAccess<K, V> = {
 	function get(k:K):Null<V>;
 	function set(k:K, v:V):Void;

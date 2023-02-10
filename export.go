@@ -812,9 +812,9 @@ func parseType(node interface{}, marked2 map[string]bool) map[string]interface{}
 				data["methods"] = parseMethods(named, &methodCache, 0, marked)
 				marked[path] = true
 				data["underlying"] = parseType(named.Underlying(), marked)
-				params := make([]map[string]interface{}, named.TypeParams().Len())
+				params := make([]map[string]interface{}, named.TypeArgs().Len())
 				for i := 0; i < len(params); i++ {
-					params[i] = parseType(named.TypeParams().At(i), marked)
+					params[i] = parseType(named.TypeArgs().At(i), marked)
 				}
 				data["params"] = params
 			}
@@ -1102,10 +1102,14 @@ func parseIdent(value *ast.Ident) map[string]interface{} {
 	if value.Obj != nil {
 		data["kind"] = int(value.Obj.Kind)
 	}
-
-	obj := checker.ObjectOf(value)
-	if obj != nil {
-		data["type"] = parseType(obj.Type(), map[string]bool{})
+	instance := checker.Instances[value]
+	if instance.Type != nil {
+		data["type"] = parseType(instance.Type, map[string]bool{})
+	} else {
+		obj := checker.ObjectOf(value)
+		if obj != nil {
+			data["type"] = parseType(obj.Type(), map[string]bool{})
+		}
 	}
 	return data
 }

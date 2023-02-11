@@ -2275,7 +2275,7 @@ private function replaceInvalidType(t:GoType, replace:GoType):GoType {
 
 private function isTypeParam(t:GoType):Bool {
 	return switch t {
-		case _var(_,_.get() => t):
+		case _var(n,_.get() => t):
 			isTypeParam(t);
 		case typeParam(_,_):
 			true;
@@ -3404,49 +3404,6 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 
 private function genericIndices(indices:Array<Ast.Expr>, params:Array<GoType>, typeParams:Array<GoType>, info:Info):Array<Expr> {
 	var genericExprs:Array<Ast.Expr> = indices; // genericTypes but exprs
-	var removalGenericExprs:Array<Ast.Expr> = [];
-	for (i in 0...typeParams.length) {
-		switch typeParams[i] {
-			case typeParam(_, _):
-
-			default:
-				if (genericExprs.length > i)
-					removalGenericExprs.push(genericExprs[i]);
-		}
-	}
-	for (expr in removalGenericExprs) {
-		genericExprs.remove(expr);
-	}
-	final argTypes = params.map(p -> toComplexType(p, info)); // params are args
-	for (i in 0...argTypes.length) {
-		for (genericExpr in genericExprs) {
-			final a = argTypes[i];
-			final b = typeExprType(genericExpr,info);
-			switch a {
-				case TPath(p):
-					if (isTypeParam(params[i])) {
-						if (p.params == null) {
-							genericExprs.remove(genericExpr);
-							break;
-						}
-						var next = false;
-						for (param in p.params) {
-							switch param {
-								case TPType(a):
-									if (compareComplexType(a, b)) { // checking if arg already has type matching for macro to use
-										genericExprs.remove(genericExpr);
-										break;
-									}
-								default:
-							}
-						}
-						if (next)
-							break;
-					}
-				default:
-			}
-		}
-	}
 	final args:Array<Expr> = [];
 	if (genericExprs.length > 0) {
 		for (genericExpr in genericExprs) {
@@ -5290,7 +5247,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 						final typeName = genericName;
 						identifierNames.push(typeName);
 						genericTypes.push(macro final $typeName:haxe.macro.Expr.ComplexType = $e);
-						genericNames.remove(genericName);
+						//genericNames.remove(genericName);
 					}
 				default:
 			}

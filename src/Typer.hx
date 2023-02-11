@@ -5477,6 +5477,8 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 				macro $i{"$" + arg.name}
 		];
 		var call = macro f($a{nameArgs});
+		if (!isVoid(ret))
+			call = macro return $call;
 		block = macro $b{genericTypes.concat(nonGenericTypes).concat([macro {
 			return @:macro {
 				$func;

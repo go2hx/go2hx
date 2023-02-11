@@ -2146,9 +2146,6 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 
 	if (fromType == null)
 		return expr;
-	if (isGeneric(toType)) {
-		y = macro Go.typeFunction($y);
-	}
 
 	switch fromType {
 		case basic(kind):
@@ -2942,12 +2939,9 @@ private function typeIndexListExpr(expr:Ast.IndexListExpr, info:Info):ExprDef {
 	final x = typeExpr(expr.x, info);
 	final t = typeof(expr.x, info, false);
 	switch t {
-		case signature(_, _.get() => params, _, _, _.get() => typeParams):
+		case signature(_, _.get() => params, _.get() => results, _, _.get() => typeParams):
 			final args = genericIndices(expr.indices, params, typeParams, info);
-			if (args.length > 0) {
-				return return (macro Go.typeFunction($x($a{args}))).expr;
-			}
-			return (macro Go.typeFunction($x)).expr;
+			return typeFunctionLiteral(args,params,results,x,info).expr;
 		default:
 	}
 	return (macro $x).expr;
@@ -2976,12 +2970,9 @@ private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
 			index = macro ($index : GoInt); // explicit casting needed for macro typeParam system otherwise compilation breaks
 		case mapType(_.get() => indexType, _):
 			index = assignTranslate(typeof(expr.index, info, false), indexType, index, info);
-		case signature(_, _.get() => params, _, _, _.get() => typeParams): // generic param
+		case signature(variadic, _.get() => params, _.get() => results, recv, _.get() => typeParams): // generic param
 			final args = genericIndices([expr.index], params, typeParams, info);
-			if (args.length > 0) {
-				return return (macro Go.typeFunction($x($a{args}))).expr;
-			}
-			return (macro Go.typeFunction($x)).expr;
+			return typeFunctionLiteral(args,params,results,x,info).expr;
 		case typeParam(_, _):
 			// nothing
 			index = macro @:param_index $index;
@@ -3451,11 +3442,6 @@ private function genericIndices(indices:Array<Ast.Expr>, params:Array<GoType>, t
 						}
 						if (next)
 							break;
-					}else{
-						if (compareComplexType(a, b)) { // checking if arg already has type matching for macro to use
-							genericExprs.remove(genericExpr);
-							break;
-						}
 					}
 				default:
 			}
@@ -3470,6 +3456,28 @@ private function genericIndices(indices:Array<Ast.Expr>, params:Array<GoType>, t
 		}
 	}
 	return args;
+}
+
+function typeFunctionLiteral(args:Array<Expr>,params:Array<GoType>,results:Array<GoType>,x:Expr, info:Info):Expr {
+	final funcArgs = params.map(param -> switch param {
+		case _var(name,_.get() => type):
+			({
+				name: name,
+				type: toComplexType(type,info),
+			} : FunctionArg);
+		default:
+			throw "param not var: " + param;
+	});
+	final exprArgs = funcArgs.map(arg -> macro $i{arg.name});
+	final ret = getReturn(results, info);
+	var expr = macro $x($a{args.concat(exprArgs)});
+	if (!isVoid(ret))
+		expr = macro $expr;
+	return toExpr(EFunction(FAnonymous,{
+		ret: ret,
+		args: funcArgs,
+		expr: expr,
+	}));
 }
 
 private function toAnyInterface(x:Expr, t:GoType, info:Info):Expr {

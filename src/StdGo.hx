@@ -102,11 +102,12 @@ final noMain = [
 	"internal/bytealg",
 	"internal/cpu",
 	"internal/types/errors",
+	"internal/godebug",
 ];
 
 final externs = [
 	"syscall/js", "syscall", "os", "os/exec", "context", "testing", "testing/iotest", "testing/fstest", "testing/internal/testdeps",
-	"regexp/syntax", "regexp", "runtime", "runtime/debug", "reflect", "sync", "sync/atomic",
+	"regexp/syntax", "regexp", "runtime", "runtime/debug", "reflect", "sync", "sync/atomic", "internal/godebug",
 ];
 
 final exports = ["runtime", "runtime/debug", "reflect"];

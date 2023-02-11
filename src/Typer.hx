@@ -3472,7 +3472,7 @@ function typeFunctionLiteral(args:Array<Expr>,params:Array<GoType>,results:Array
 	final ret = getReturn(results, info);
 	var expr = macro $x($a{args.concat(exprArgs)});
 	if (!isVoid(ret))
-		expr = macro $expr;
+		expr = macro return $expr;
 	return toExpr(EFunction(FAnonymous,{
 		ret: ret,
 		args: funcArgs,
@@ -5477,8 +5477,6 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 				macro $i{"$" + arg.name}
 		];
 		var call = macro f($a{nameArgs});
-		if (!isVoid(ret))
-			call = macro return $call;
 		block = macro $b{genericTypes.concat(nonGenericTypes).concat([macro {
 			return @:macro {
 				$func;

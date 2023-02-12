@@ -1105,6 +1105,10 @@ func parseIdent(value *ast.Ident) map[string]interface{} {
 	instance := checker.Instances[value]
 	if instance.Type != nil {
 		data["type"] = parseType(instance.Type, map[string]bool{})
+		obj := checker.ObjectOf(value)
+		if obj != nil {
+			data["objType"] = parseType(obj.Type(), map[string]bool{})
+		}
 	} else {
 		obj := checker.ObjectOf(value)
 		if obj != nil {

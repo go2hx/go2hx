@@ -2940,7 +2940,15 @@ private function typeIndexListExpr(expr:Ast.IndexListExpr, info:Info):ExprDef {
 	final t = typeof(expr.x, info, false);
 	switch t {
 		case signature(_, _.get() => params, _.get() => results, _, _.get() => typeParams):
-			final args = genericIndices(expr.indices, params, typeParams, info);
+			final objType = expr.x.objType;
+			var args = [];
+			if (objType != null) {
+				switch typeof(objType,info,false,[]) {
+					case signature(_, _.get() => params,_.get() => results,_,_.get() => typeParams):
+						args = genericIndices(expr.indices, params, typeParams, info);
+					default:
+				}
+			}
 			return typeFunctionLiteral(args,params,results,x,info).expr;
 		default:
 	}
@@ -2970,8 +2978,16 @@ private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
 			index = macro ($index : GoInt); // explicit casting needed for macro typeParam system otherwise compilation breaks
 		case mapType(_.get() => indexType, _):
 			index = assignTranslate(typeof(expr.index, info, false), indexType, index, info);
-		case signature(variadic, _.get() => params, _.get() => results, recv, _.get() => typeParams): // generic param
-			final args = genericIndices([expr.index], params, typeParams, info);
+		case signature(_, _.get() => params, _.get() => results, _, _.get() => typeParams): // generic param
+			final objType = expr.x.objType;
+			var args = [];
+			if (objType != null) {
+				switch typeof(objType,info,false,[]) {
+					case signature(_, _.get() => params,_.get() => results,_,_.get() => typeParams):
+						args = genericIndices([expr.index], params, typeParams, info);
+					default:
+				}
+			}
 			return typeFunctionLiteral(args,params,results,x,info).expr;
 		case typeParam(_, _):
 			// nothing
@@ -3130,7 +3146,15 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						var skip = 0;
 						if (setGenerics) { // could need to set generics
 							// trace(expr.fun.indices[0].id);
-							final defaultArgs = genericIndices(expr.fun.id == "IndexExpr" ? [expr.fun.index] : expr.fun.indices, params, typeParams, info);
+							final objType = expr.fun.x.objType;
+							var defaultArgs = [];
+							if (objType != null) {
+								switch typeof(objType,info,false,[]) {
+									case signature(_, _.get() => params,_.get() => results,_,_.get() => typeParams):
+										defaultArgs =  genericIndices(expr.fun.id == "IndexExpr" ? [expr.fun.index] : expr.fun.indices, params, typeParams, info);
+									default:
+								}
+							}
 							skip = defaultArgs.length;
 							args = defaultArgs.concat(args);
 						}

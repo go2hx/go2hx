@@ -4548,8 +4548,15 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 				} else {
 					final p = getTypePath(ct);
 					// generic named type needs fields filled in
-					for (i in args.length...fields.length) {
-						args.push(defaultValue(fields[i].type.get(), info, true));
+					switch type {
+						case named(_,_,_,_,_.get() => params):
+							// guard against extern package named types without params such as reflect.Value
+							if (params != null && params.length > 0) {
+								for (i in args.length...fields.length) {
+									args.push(defaultValue(fields[i].type.get(), info, true));
+								}
+							}
+						default:
 					}
 					final e = macro new $p($a{args});
 					return (macro ($e : $ct)).expr;

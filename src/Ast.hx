@@ -250,6 +250,7 @@ typedef CallExpr = {
 	ellipsis:Pos,
 	rparen:Pos,
 	type:ExprType,
+	objType:ExprType,
 };
 
 typedef StarExpr = {

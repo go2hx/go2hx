@@ -157,7 +157,7 @@ class Go {
 		try {
 			t = Context.typeof(e);
 		} catch (e) {
-			// trace(e);
+			trace(e);
 		}
 		var selfType:ComplexType = null;
 		var selfExpr:Expr = null;
@@ -435,10 +435,9 @@ class Go {
 					follow = false;
 				} else if (t.pack.length == 1
 					&& t.pack[0] == "stdgo"
-					&& (t.name != "GoByte" && t.name != "GoRune" && t.name != "GoFloat" && t.name != "GoUInt" && t.name != "GoInt")) {
+					&& (t.name != "GoByte" && t.name != "GoRune" && t.name != "GoFloat")) {
 					if (t.name == "Error") {
 						follow = true;
-						// trace(t.pack, t.name);
 					} else {
 						follow = false;
 					}
@@ -541,7 +540,14 @@ class Go {
 					final t = Go.toInterface($e).type;
 					var t2 = new stdgo.internal.reflect.Reflect._Type(${t2});
 					try {
-						t.assignableTo(new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(t2), t2));
+						final b = t.assignableTo(new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(t2), t2));
+						if (b) {
+							if (t.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(t)) {
+								final gt = stdgo.internal.reflect.Reflect.getElem(t._common());
+								untyped ($e : Dynamic).value = stdgo.internal.reflect.Reflect.asInterface(($e.value : Pointer<Dynamic>).value,gt);
+							}
+						}
+						b;
 					} catch (_) {
 						false;
 					}

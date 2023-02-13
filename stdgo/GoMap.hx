@@ -37,6 +37,8 @@ abstract GoMap<K, V>(GoObjectMap<K, V>) {
 
 	public inline function __keyArray__():Array<K>
 		return [for (key in this.keys()) key];
+	public inline function __valueArray__():Array<V>
+		return [for (value in this.iterator()) value];
 
 	public inline function iterator():Iterator<V>
 		return this.iterator();

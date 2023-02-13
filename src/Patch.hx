@@ -284,8 +284,10 @@ final list = [
 		return new MapIter(@:privateAccess _v.value.value);
 	},
 	"reflect.MapIter:key" => macro {
-		@:privateAccess if (_iter.keys == null)
+		@:privateAccess if (_iter.keys == null) {
 			@:privateAccess	_iter.keys = _iter.map.__keyArray__();
+			@:privateAccess	_iter.values = _iter.map.__valueArray__();
+		}
 		final gt = stdgo.internal.reflect.Reflect.getUnderlying(@:privateAccess _iter.map.__type__._common());
 		final key = switch gt {
 			case mapType(_.get() => var keyType,_):
@@ -296,8 +298,10 @@ final list = [
 		return new Value(new AnyInterface(@:privateAccess _iter.keys[_iter.index],key));
 	},
 	"reflect.MapIter:value" => macro {
-		@:privateAccess if (_iter.keys == null)
+		@:privateAccess if (_iter.keys == null) {
 			@:privateAccess	_iter.keys = _iter.map.__keyArray__();
+			@:privateAccess	_iter.values = _iter.map.__valueArray__();
+		}
 			final gt = stdgo.internal.reflect.Reflect.getUnderlying(@:privateAccess _iter.map.__type__._common());
 		final value = switch gt {
 			case mapType(_,_.get() => valueType):
@@ -305,11 +309,12 @@ final list = [
 			default:
 				throw "invalid mapType: " + gt;
 		}
-		return new Value(new AnyInterface(@:privateAccess _iter.map.__get__(_iter.keys[_iter.index]),value));
+		return new Value(new AnyInterface(@:privateAccess _iter.map.__get__(_iter.values[_iter.index]),value));
 	},
 	"reflect.MapIter:next" => macro {
 		@:privateAccess if (_iter.keys == null) {
 			@:privateAccess	_iter.keys = _iter.map.__keyArray__();
+			@:privateAccess	_iter.values = _iter.map.__valueArray__();
 		}else{
 			@:privateAccess _iter.index++;
 		}
@@ -318,6 +323,8 @@ final list = [
 	"reflect.MapIter:reset" => macro {
 		@:privateAccess _iter.index = 0;
 		@:privateAccess _iter.map = _v.value.value;
+		@:privateAccess	_iter.keys = null;
+		@:privateAccess	_iter.values = null;
 	},
 	"reflect.Value:canAddr" => macro {
 		return @:privateAccess _v.canAddrBool;
@@ -994,6 +1001,8 @@ final structs = [
 		var map:stdgo.GoMap<Dynamic,Dynamic>;
 		@:local
 		var keys:Array<Dynamic>;
+		@:local
+		var values:Array<Dynamic>;
 		@:local
 		var index:Int = 0;
 	},

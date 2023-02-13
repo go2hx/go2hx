@@ -170,7 +170,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 			info.locals.clear();
 			info.localUnderlyingNames.clear();
 			info.data = data;
-			final pkgDoc = getDoc(file);
+			final pkgDoc = getDocComment(file);
 			var declFuncs:Array<Ast.FuncDecl> = [];
 			var declGens:Array<Ast.GenDecl> = [];
 			for (decl in file.decls) {
@@ -5176,7 +5176,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 			$e;
 		};
 	}
-	var doc = getDoc(decl);
+	var doc = getDocComment(decl);
 	var preamble = "// #go2hx ";
 	var index = doc.indexOf(preamble);
 	var finalDoc = doc + getSource(decl, info);
@@ -5918,7 +5918,7 @@ private function typeFieldListMethods(list:Ast.FieldList, info:Info):Array<Field
 		var params = typeFieldListArgs(expr.params, info);
 		if (ret == null || params == null)
 			continue;
-		final doc = getDoc(field) + getComment(field);
+		final doc = getDocComment(field,field);
 		for (n in field.names) {
 			var name = n.name;
 			fields.push({
@@ -5953,7 +5953,7 @@ private function typeFields(list:Array<FieldType>, info:Info, access:Array<Acces
 			meta.push({name: ":tag", pos: null, params: [makeString(field.tag)]});
 		if (field.optional)
 			meta.push({name: ":optional", pos: null});
-		var doc:String = getDoc({doc: docs == null ? null : docs[i]}) + getComment({comment: comments == null ? null : comments[i]});
+		var doc:String = getDocComment({doc: docs == null ? null : docs[i]},{comment: comments == null ? null : comments[i]});
 		fields.push({
 			name: name,
 			pos: null,
@@ -6049,7 +6049,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	info.classNames[spec.name.name] = name + "_static_extension";
 	var externBool = isTitle(spec.name.name);
 	info.className = name;
-	var doc:String = getComment(spec) + getDoc(spec) + getSource(spec, info);
+	var doc:String = getDocComment(spec,spec) + getSource(spec, info);
 	var ct = TPath({name: name, pack: []});
 	var t = typeof(spec.type, info, false);
 	switch t {
@@ -6083,7 +6083,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				default:
 			}
 			td.meta = meta;
-			td.doc = getDoc(spec);
+			td.doc = getDocComment(spec);
 			td.isExtern = isTitle(spec.name.name);
 			td.kind = TDClass(superClass);
 			return td;
@@ -6098,7 +6098,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 					params: params,
 					isExtern: isTitle(spec.name.name),
 					fields: [],
-					doc: getDoc(spec),
+					doc: getDocComment(spec),
 					meta: meta,
 					kind: TDAlias(TPath({
 						pack: [],
@@ -6114,7 +6114,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				pos: null,
 				params: params,
 				pack: [],
-				doc: getDoc(spec),
+				doc: getDocComment(spec),
 				isExtern: isTitle(spec.name.name),
 				fields: [],
 				meta: meta,
@@ -6134,7 +6134,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 		pack: [],
 		fields: [],
 		isExtern: isTitle(spec.name.name),
-		doc: getDoc(spec),
+		doc: getDocComment(spec),
 		params: params,
 		meta: meta,
 		kind: TDAlias(uct),
@@ -6185,7 +6185,7 @@ private function typeSpec(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 				pos: null,
 				pack: [],
 				isExtern: isTitle(spec.name.name),
-				doc: getDoc(spec),
+				doc: getDocComment(spec),
 				meta: [{name: ":follow", pos: null}],
 				fields: [],
 				kind: TDAlias(type),
@@ -6256,7 +6256,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 	var name = className(spec.name.name, info);
 	var externBool = isTitle(spec.name.name);
 	info.className = name;
-	var doc:String = getComment(spec) + getDoc(spec) + getSource(spec, info);
+	var doc:String = getDocComment(spec,spec) + getSource(spec, info);
 	switch spec.type.id {
 		case "StructType":
 			var struct:Ast.StructType = spec.type;
@@ -6614,7 +6614,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 					pos: null,
 					fields: [],
 					pack: [],
-					doc: getDoc(spec),
+					doc: getDocComment(spec),
 					params: params,
 					isExtern: externBool,
 					meta: meta,
@@ -6755,7 +6755,7 @@ private function errorType()
 	return TPath({name: "Error", pack: []});
 
 private function typeImport(imp:Ast.ImportSpec, info:Info) {
-	var doc = getDoc(imp);
+	var doc = getDocComment(imp);
 	imp.path = imp.path.substr(1, imp.path.length - 2); // remove quotes
 	final path = normalizePath(imp.path);
 	final pack = path.split("/");
@@ -6851,7 +6851,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 			if (expr == null)
 				continue;
 			var name = nameIdent(value.names[i].name, false, true, info);
-			var doc:String = getComment(value) + getDoc(value); // + getSource(value, info);
+			var doc:String = getDocComment(value,value); // + getSource(value, info);
 			var access = [];
 			if (!isTitle(value.names[i].name))
 				access.push(APrivate);
@@ -6886,20 +6886,19 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 	return values;
 }
 
-private function getComment(value:{comment:Ast.CommentGroup}):String {
-	if (value.comment == null || value.comment.list == null)
-		return "";
-	var source = value.comment.list.join("\n");
-	source = sanatizeComment(source);
-	return source;
-}
-
-private function getDoc(value:{doc:Ast.CommentGroup}):String {
-	if (value.doc == null || value.doc.list == null)
-		return "";
-	var source = value.doc.list.join("\n");
-	source = sanatizeComment(source);
-	return source;
+private function getDocComment(doc:{doc:Ast.CommentGroup},?comment:{comment:Ast.CommentGroup}):String {
+	var list:Array<String> = [];
+	if (doc.doc != null && doc.doc.list != null) {
+		var source = doc.doc.list.join("\n");
+		source = sanatizeComment(source);
+		list.push(source);
+	}
+	if (comment != null && comment.comment != null && comment.comment.list != null) {
+		var source = comment.comment.list.join("\n");
+		source = sanatizeComment(source);
+		list.push(source);
+	}
+	return list.join("\n\n");
 }
 
 private function getSource(value:{pos:Int, end:Int}, info:Info):String {

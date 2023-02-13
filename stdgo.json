@@ -161,6 +161,7 @@
     "crypto/internal/randutil",
     "crypto/internal/boring",
     "go/internal/gcimporter",
+    "go/internal/typeparams",
     "internal/abi",
     "internal/fuzz",
     "internal/pkgbits",

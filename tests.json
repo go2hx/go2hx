@@ -4,6 +4,7 @@
     "unicode/utf16",
     "math",
     "math/bits",
+    "math/big",
     "math/rand",
     "sort",
     "strings",

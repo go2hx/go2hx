@@ -28,6 +28,7 @@
     "runtime/debug",
     "log",
     "encoding/base64",
+    "internal/godebug",
     "internal/oserror",
     "encoding",
     "bufio",

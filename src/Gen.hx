@@ -99,10 +99,14 @@ private function runFormatter(path:String) {
 			}
 		}
 	}
-	var cmd = 'haxelib run formatter -s $path';
-	if (typeFormatter > 1)
-		cmd = "npx " + cmd;
-	final code = runCmd(cmd);
+	try {
+		var cmd = 'haxelib run formatter -s $path';
+		if (typeFormatter > 1)
+			cmd = "npx " + cmd;
+		final code = runCmd(cmd);
+	}catch(_) {
+
+	}
 	//if (code != 0)
 	//	throw "formatter failed: " + code;
 }

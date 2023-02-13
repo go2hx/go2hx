@@ -3,7 +3,6 @@ import sys.io.File;
 import sys.io.FileInput;
 import sys.io.FileOutput;
 import sys.io.Process;
-import sys.thread.Lock;
 
 using haxe.io.Path;
 using sys.FileSystem;

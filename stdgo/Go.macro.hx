@@ -285,8 +285,8 @@ class Go {
 		var t = Context.typeof(expr);
 		switch t {
 			case TInst(_.get() => t, _):
-				if (t.name == "Value" && t.pack.join(".") == "stdgo.reflect")
-					return expr;
+				//if (t.name == "Value" && t.pack.join(".") == "stdgo.reflect")
+				//	return expr;
 			default:
 		}
 		final gt = gtDecode(t, expr, []);

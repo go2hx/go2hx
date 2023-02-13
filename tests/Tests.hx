@@ -136,7 +136,12 @@ private function update() {
 			break;
 		tasks.remove(task);
 	}
-	if (timeout++ > 2 * 60 * 5) {
+	if (timeout++ > 2 * 60 * 7) {
+		for (data in processPool.pool) {
+			trace(data.command);
+			trace(data.proc.stdout.readAll());
+			data.proc.close();
+		}
 		trace("TIMEOUT");
 		close();
 	}

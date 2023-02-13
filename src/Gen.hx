@@ -103,8 +103,8 @@ private function runFormatter(path:String) {
 	if (typeFormatter > 1)
 		cmd = "npx " + cmd;
 	final code = runCmd(cmd);
-	if (code != 0)
-		throw "formatter failed: " + code;
+	//if (code != 0)
+	//	throw "formatter failed: " + code;
 }
 
 private function runCmd(cmd:String) {

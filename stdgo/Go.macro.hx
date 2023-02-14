@@ -817,9 +817,6 @@ class Go {
 										final methods:Array<Expr> = [];
 										final extensionPath = ref.module + "." + ref.name + "_asInterface";
 										final path = createPath(ref.module, ref.name);
-										// path cache
-										if (nameTypes.exists(path))
-											return macro stdgo.internal.TypeInfo.names[$v{path}];
 										try {
 											final extensionType = Context.getType(extensionPath);
 											final extension = switch extensionType {
@@ -859,9 +856,7 @@ class Go {
 											// trace(extensionPath);
 											// trace(e);
 										}
-										//return macro stdgo.internal.reflect.Reflect.GoType.named($v{path}, $a{methods}, $underlyingType,false, {get: () -> null});
-										Go.nameTypes[path] = macro stdgo.internal.reflect.Reflect.GoType.named($v{path}, $a{methods}, $underlyingType, false, {get: () -> null});
-										return macro stdgo.internal.TypeInfo.names[$v{path}];
+										return macro stdgo.internal.reflect.Reflect.GoType.named($v{path}, $a{methods}, $underlyingType,false, {get: () -> null});
 									}
 								} else {
 									Context.error("go unknown typedef: " + name, Context.currentPos());

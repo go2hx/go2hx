@@ -326,6 +326,9 @@ class Go {
 		p.params = null;
 		switch t {
 			case TInst(_.get() => t, params):
+				final typePath = t.pack.join(".") + "." + t.name;
+				if (nameTypes.exists(typePath))
+					return macro stdgo.internal.TypeInfo.names[$v{typePath}];
 				final asInterfacePointer = t.meta.has(":pointer");
 				if (params != null && params.length > 0) { // has params
 					final p = createTypePath();
@@ -365,8 +368,8 @@ class Go {
 						}
 					}
 					exprs.push(macro __self__);
-					Go.nameTypes[path] = macro $b{exprs};
-					return macro $b{exprs};
+					Go.nameTypes[typePath] = macro $b{exprs};
+					return macro stdgo.internal.TypeInfo.names[$v{typePath}];
 				} else {
 					final p = createTypePath();
 					if (!selfPointer)

@@ -58,8 +58,9 @@ class Go {
 		// TODO: look for GoInt to become Map<Int,Value> for better performance
 		final e = macro new stdgo.GoMap<$keyType, $valueType>();
 		final t = gtDecode(Context.typeof(e), e, []);
+		final t = macro new stdgo.internal.reflect.Reflect._Type($t);
 		final e = macro {
-			final x = new stdgo.GoMap.GoObjectMap<$keyType, $valueType>(Go.asInterface(new stdgo.internal.reflect.Reflect._Type($t)));
+			final x = new stdgo.GoMap.GoObjectMap<$keyType, $valueType>(new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(t), t));
 			@:privateAccess x._keys = $a{keys};
 			@:privateAccess x._values = $a{values};
 			x;
@@ -202,6 +203,8 @@ class Go {
 				var block:Expr = macro null;
 				funArgs = funArgs.concat(args.map(arg -> macro $i{arg.name}));
 				final path = modulePath.copy();
+				if (Go.nameTypes.exists(path.join(".")))
+					return macro stdgo.internal.TypeInfo.names[$v{path.join(".")}];
 				if (selfType != null) {
 					final p:TypePath = {name: path.pop(), sub: name, pack: path};
 					e = macro new $p($selfExpr).f;
@@ -278,7 +281,8 @@ class Go {
 			default:
 		}
 		final t = gtDecode(t, null, []);
-		return macro stdgo.internal.reflect.Reflect.defaultValue(Go.asInterface(new stdgo.internal.reflect.Reflect._Type($t)));
+		final t = macro new stdgo.internal.reflect.Reflect._Type($t);
+		return macro stdgo.internal.reflect.Reflect.defaultValue(new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer($t),$t));
 	}
 	public static macro function asInterface(expr) {
 		// trace(new haxe.macro.Printer().printExpr(expr));
@@ -293,7 +297,7 @@ class Go {
 		final rt = macro new stdgo.internal.reflect.Reflect._Type($gt);
 		var self:Expr = {expr: expr.expr, pos: expr.pos};
 		var selfPointer = false;
-		function f(ct:{name:String,pack:Array<String>,module:String,},params:Array<haxe.macro.Type>):Expr {
+		function f(ct:{name:String,pack:Array<String>,module:String},params:Array<haxe.macro.Type>):Expr {
 			function createTypePath(s:String = "_asInterface") {
 				final module = ct.module.split(".");
 				final p:TypePath = {
@@ -361,6 +365,7 @@ class Go {
 						}
 					}
 					exprs.push(macro __self__);
+					Go.nameTypes[path] = macro $b{exprs};
 					return macro $b{exprs};
 				} else {
 					final p = createTypePath();
@@ -809,9 +814,9 @@ class Go {
 										final methods:Array<Expr> = [];
 										final extensionPath = ref.module + "." + ref.name + "_asInterface";
 										final path = createPath(ref.module, ref.name);
-										// TODO - path cache
-										// if (nameTypes.exists(path))
-										//	return macro stdgo.internal.TypeInfo.names[$v{path}];
+										// path cache
+										if (nameTypes.exists(path))
+											return macro stdgo.internal.TypeInfo.names[$v{path}];
 										try {
 											final extensionType = Context.getType(extensionPath);
 											final extension = switch extensionType {
@@ -851,9 +856,9 @@ class Go {
 											// trace(extensionPath);
 											// trace(e);
 										}
-										return macro stdgo.internal.reflect.Reflect.GoType.named($v{path}, $a{methods}, $underlyingType,false, {get: () -> null});
-										//Go.nameTypes[path] = macro stdgo.internal.reflect.Reflect.GoType.named($v{path}, $a{methods}, $underlyingType);
-										//return macro stdgo.internal.TypeInfo.names[$v{path}];
+										//return macro stdgo.internal.reflect.Reflect.GoType.named($v{path}, $a{methods}, $underlyingType,false, {get: () -> null});
+										Go.nameTypes[path] = macro stdgo.internal.reflect.Reflect.GoType.named($v{path}, $a{methods}, $underlyingType, false, {get: () -> null});
+										return macro stdgo.internal.TypeInfo.names[$v{path}];
 									}
 								} else {
 									Context.error("go unknown typedef: " + name, Context.currentPos());
@@ -1128,8 +1133,8 @@ class Go {
 		var underlyingType:haxe.macro.Type = null;
 		var module = parseModule(ref.module);
 		final path = createPath(ref.module, ref.name);
-		// TODO - path cache
-		if (nameTypes.exists(path))
+		// patch cache
+		if (Go.nameTypes.exists(path))
 			return macro stdgo.internal.TypeInfo.names[$v{path}];
 		for (field in fs) {
 			if (field.meta.has(":local"))

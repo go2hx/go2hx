@@ -237,7 +237,7 @@ final list = [
 		return {_0: i, _1: null};
 	},
 	"os:_fastrand" => macro return Std.random(1) > 0 ? -Std.random(2147483647) - 1 : Std.random(2147483647),
-	"rand:_fastrand64" => macro return haxe.Int64.make(Std.random(1) > 0 ? -Std.random(2147483647) - 1 : Std.random(2147483647),
+	"math.rand:_fastrand64" => macro return haxe.Int64.make(Std.random(1) > 0 ? -Std.random(2147483647) - 1 : Std.random(2147483647),
 		Std.random(1) > 0 ? -Std.random(2147483647) - 1 : Std.random(2147483647)),
 	// stdgo/math_bits
 	"math.bits:_overflowError" => macro @:privateAccess stdgo.Error._overflowError,
@@ -861,6 +861,14 @@ final list = [
 			default: throw "unknown kind string: " + idx;
 		}
 	},
+	// stdgo/atomic/sync
+	"sync.atomic:storeUint32" => macro {
+		_addr.value = _val;
+	},
+	"sync.atomic:storeUint64" => macro {
+		_addr.value = _val;
+	},
+	"sync.atomic.Bool_:store" => macro storeUint32(Go.pointer(_x._v), _val ? 1 : 0),
 	// stdgo/sync
 	"sync.Pool:get" => macro {
 		var obj = @:define("!js", @:privateAccess _p.pool.pop()) @:privateAccess _p.pool.pop(false);

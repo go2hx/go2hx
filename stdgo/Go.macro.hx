@@ -746,7 +746,7 @@ class Go {
 						switch ref.type {
 							case TAnonymous(a):
 								final path = createPath(ref.module, ref.name);
-								// TODO - path cache
+								// path cache
 								if (nameTypes.exists(path))
 									return macro stdgo.internal.TypeInfo.names[$v{path}];
 								if (marked.exists(path)) {
@@ -800,21 +800,25 @@ class Go {
 								if (ref.meta.has(":follow"))
 									return gtDecode(Context.follow(ref.type, true), expr, marked);
 								if (ref.meta.has(":named") || ref.meta.has(":param")) {
-									final path = ref.pack.concat([ref.name]).join(".");
+									final path = createPath(ref.module, ref.name);
 									if (marked.exists(path)) {
 										ret = macro stdgo.internal.reflect.Reflect.GoType.named($v{path}, [],
 											stdgo.internal.reflect.Reflect.GoType.invalidType, false, {get: () -> null});
 									} else {
 										marked[path] = true;
-										final path = createPath(ref.module, ref.name);
 										if (Go.nameTypes.exists(path))
 											return macro stdgo.internal.TypeInfo.names[$v{path}];
 										var type:haxe.macro.Type = ref.type;
 										final underlyingType = gtDecode(type, expr, marked);
 										final methods:Array<Expr> = [];
 										final extensionPath = ref.module + "." + ref.name + "_asInterface";
+										var extensionType = null;
 										try {
-											final extensionType = Context.getType(extensionPath);
+											extensionType = Context.getType(extensionPath);
+										}catch(_) {
+
+										}
+										if (extensionType != null) {
 											final extension = switch extensionType {
 												case TInst(_.get() => t, _):
 													t;
@@ -848,12 +852,22 @@ class Go {
 													default:
 												}
 											}
-										} catch (e) {
-											// trace(extensionPath);
-											// trace(e);
 										}
-										Go.nameTypes[path] = macro stdgo.internal.reflect.Reflect.GoType.named($v{path}, $a{methods}, $underlyingType,false, {get: () -> null});
-										return macro stdgo.internal.TypeInfo.names[$v{path}];
+										var isNamedNamed = false;
+										switch type {
+											case TInst(_,_):
+												isNamedNamed = true;
+											case TType(_.get() => t,_):
+												isNamedNamed = t.meta.has(":named") || t.meta.has(":param");
+											default:
+										}
+										final e = macro stdgo.internal.reflect.Reflect.GoType.named($v{path}, $a{methods}, $underlyingType,false, {get: () -> null});
+										if (isNamedNamed) {
+											return e;
+										}else{
+											Go.nameTypes[path] = e;
+											return macro stdgo.internal.TypeInfo.names[$v{path}];
+										}
 									}
 								} else {
 									Context.error("go unknown typedef: " + name, Context.currentPos());
@@ -899,7 +913,7 @@ class Go {
 							$len); // TODO go2hx does not store the length in the type
 					case "stdgo.Pointer":
 						final param = gtParams(params, marked)[0];
-						ret = macro stdgo.internal.reflect.Reflect.GoType.pointerType($param);
+						ret = macro stdgo.internal.reflect.Reflect.GoType.pointerType({get: () -> $param});
 					case "stdgo.UnsafePointer", "stdgo.Unsafe.UnsafePointer", "stdgo.unsafe.UnsafePointer":
 						return macro stdgo.internal.reflect.Reflect.GoType.basic(unsafepointer_kind);
 					case "stdgo.GoMap":

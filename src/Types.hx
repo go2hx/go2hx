@@ -12,7 +12,7 @@ enum GoType {
 	named(path:String, methods:Array<MethodType>, type:GoType, alias:Bool, params:Ref<Array<GoType>>);
 	previouslyNamed(path:String);
 	structType(fields:Array<FieldType>);
-	pointerType(elem:GoType);
+	pointerType(elem:Ref<GoType>);
 	arrayType(elem:Ref<GoType>, len:Int);
 	mapType(key:Ref<GoType>, value:Ref<GoType>);
 	chanType(dir:Int, elem:Ref<GoType>);
@@ -43,13 +43,14 @@ class FieldType {
 	public var embedded:Bool;
 	public var optional:Bool;
 
-	public function new(name, type, tag, embedded,optional) {
+	public function new(name, type, tag, embedded, optional) {
 		this.name = name;
 		this.type = type;
 		this.tag = tag;
 		this.embedded = embedded;
 		this.optional = optional;
 	}
+
 	public function toString():String {
 		return '$name opt: $optional';
 	}
@@ -61,7 +62,6 @@ private typedef Ref<T> = {
 
 // modular functions
 
-
 function isTitle(string:String):Bool {
 	return string.charAt(0) == "_" ? false : string.charAt(0) == string.charAt(0).toUpperCase();
 }
@@ -70,7 +70,7 @@ function isStruct(type:GoType):Bool {
 	return switch type {
 		case refType(_.get() => type):
 			isStruct(type);
-		case named(_, _, underlying,_,_):
+		case named(_, _, underlying, _, _):
 			isStruct(underlying);
 		case structType(_):
 			true;
@@ -80,7 +80,7 @@ function isStruct(type:GoType):Bool {
 
 function isPointerStruct(type:GoType):Bool {
 	return switch type {
-		case pointerType(elem): isStruct(elem);
+		case pointerType(_.get() => elem): isStruct(elem);
 		default: false;
 	}
 }
@@ -98,7 +98,7 @@ function isInvalid(type:GoType):Bool {
 				default:
 					false;
 			}
-		case named(_, _, underlying,_,_):
+		case named(_, _, underlying, _, _):
 			isInvalid(underlying);
 		default:
 			false;
@@ -109,11 +109,11 @@ function getElem(type:GoType):GoType {
 	if (type == null)
 		return type;
 	return switch type {
-		case named(_, _, type,_,_):
+		case named(_, _, type, _, _):
 			type;
 		case _var(_, _.get() => type):
 			getElem(type);
-		case arrayType(_.get() => elem, _), sliceType(_.get() => elem), pointerType(elem), refType(_.get() => elem):
+		case arrayType(_.get() => elem, _), sliceType(_.get() => elem), pointerType(_.get() => elem), refType(_.get() => elem):
 			elem;
 		default:
 			type;
@@ -137,7 +137,7 @@ function getSignature(type:GoType):GoType {
 	return switch type {
 		case signature(_, _, _):
 			type;
-		case named(_, _, underlying,_,_):
+		case named(_, _, underlying, _, _):
 			getSignature(underlying);
 		default:
 			null;
@@ -146,7 +146,7 @@ function getSignature(type:GoType):GoType {
 
 function isUnsafePointer(type:GoType):Bool {
 	return switch type {
-		case named(_, _, elem,_,_):
+		case named(_, _, elem, _, _):
 			isUnsafePointer(elem);
 		case basic(kind):
 			switch kind {
@@ -158,12 +158,11 @@ function isUnsafePointer(type:GoType):Bool {
 	}
 }
 
-
 function isPointer(type:GoType):Bool {
 	return switch type {
 		case _var(_, _.get() => elem):
 			isPointer(elem);
-		case named(_, _, elem,_,_):
+		case named(_, _, elem, _, _):
 			isPointer(elem);
 		case pointerType(_):
 			true;
@@ -198,17 +197,16 @@ function pointerUnwrap(type:GoType):GoType {
 	if (type == null)
 		return type;
 	return switch type {
-		case pointerType(elem):
+		case pointerType(_.get() => elem):
 			pointerUnwrap(elem);
 		default:
 			type;
 	}
 }
 
-
 function getUnderlyingRefNamed(gt:GoType, once:Bool = false) {
 	return switch gt {
-		case named(_, _, type,_,_), refType(_.get() => type):
+		case named(_, _, type, _, _), refType(_.get() => type):
 			if (once) {
 				type;
 			} else {
@@ -223,7 +221,7 @@ function getUnderlying(gt:GoType, once:Bool = false) {
 	if (gt == null)
 		return null;
 	return switch gt {
-		case named(_, _, type,_,_):
+		case named(_, _, type, _, _):
 			if (once) {
 				type;
 			} else {
@@ -234,10 +232,9 @@ function getUnderlying(gt:GoType, once:Bool = false) {
 	}
 }
 
-
 function isAnyInterface(type:GoType):Bool {
 	return switch type {
-		case named(_, _, elem,_,_):
+		case named(_, _, elem, _, _):
 			isAnyInterface(elem);
 		case interfaceType(empty, _):
 			empty;
@@ -250,7 +247,7 @@ function isInterface(type:GoType):Bool {
 	return switch type {
 		case refType(_.get() => elem):
 			isInterface(elem);
-		case named(_, _, elem,_,_):
+		case named(_, _, elem, _, _):
 			isInterface(elem);
 		case interfaceType(_):
 			true;
@@ -259,14 +256,13 @@ function isInterface(type:GoType):Bool {
 	}
 }
 
-
 function isSignature(type:GoType, underlyingBool:Bool = true):Bool {
 	if (type == null)
 		return false;
 	return switch type {
 		case signature(_, _, _):
 			true;
-		case named(_, _, underlying,_,_):
+		case named(_, _, underlying, _, _):
 			if (underlyingBool) {
 				isSignature(underlying, underlyingBool);
 			} else {
@@ -282,11 +278,11 @@ function isNamed(type:GoType):Bool {
 	return switch type {
 		case refType(_.get() => underlying):
 			isNamed(underlying);
-		case named(_, _, underlying,_,_):
+		case named(_, _, underlying, _, _):
 			switch underlying {
 				case structType(_): true;
 				case interfaceType(_, _): false;
-				case named(_, _, underlying,_,_): isNamed(underlying);
+				case named(_, _, underlying, _, _): isNamed(underlying);
 				default:
 					true;
 			}

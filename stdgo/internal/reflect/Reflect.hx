@@ -237,9 +237,9 @@ function directlyAssignable(t:Type, v:Type):Bool {
 				default:
 					false;
 			}
-		case pointerType(e), refType(_.get() => e):
+		case pointerType(_.get() => e), refType(_.get() => e):
 			switch vgt {
-				case pointerType(e2), refType(_.get() => e2):
+				case pointerType(_.get() => e2), refType(_.get() => e2):
 					identicalType(e,e2);
 				default:
 					false;
@@ -272,9 +272,9 @@ private function identicalType(t:GoType,v:GoType):Bool {
 				default:
 					false;
 			}
-		case pointerType(t), refType(_.get() => t), sliceType(_.get() => t):
+		case pointerType(_.get() => t), refType(_.get() => t), sliceType(_.get() => t):
 			switch v {
-				case pointerType(t2), refType(_.get() => t2), sliceType(_.get() => t2):
+				case pointerType(_.get() => t2), refType(_.get() => t2), sliceType(_.get() => t2):
 					t.getIndex() == t2.getIndex() && identicalType(t,t2);
 				default:
 					false;
@@ -411,7 +411,7 @@ enum GoType {
 	named(path:String, methods:Array<MethodType>, type:GoType, alias:Bool, params:Ref<Array<GoType>>);
 	previouslyNamed(path:String);
 	structType(fields:Array<FieldType>);
-	pointerType(elem:GoType);
+	pointerType(elem:Ref<GoType>);
 	arrayType(elem:Ref<GoType>, len:Int);
 	mapType(key:Ref<GoType>, value:Ref<GoType>);
 	chanType(dir:Int, elem:Ref<GoType>);
@@ -474,7 +474,7 @@ function isStruct(type:GoType):Bool {
 
 function isPointerStruct(type:GoType):Bool {
 	return switch type {
-		case pointerType(elem): isStruct(elem);
+		case pointerType(_.get() => elem): isStruct(elem);
 		default: false;
 	}
 }
@@ -507,7 +507,7 @@ function getElem(type:GoType):GoType {
 			type;
 		case _var(_, _.get() => type):
 			getElem(type);
-		case arrayType(_.get() => elem, _), sliceType(_.get() => elem), pointerType(elem), refType(_.get() => elem):
+		case arrayType(_.get() => elem, _), sliceType(_.get() => elem), pointerType(_.get() => elem), refType(_.get() => elem):
 			elem;
 		default:
 			type;
@@ -595,7 +595,7 @@ function pointerUnwrap(type:GoType):GoType {
 	if (type == null)
 		return type;
 	return switch type {
-		case pointerType(elem):
+		case pointerType(_.get() => elem):
 			pointerUnwrap(elem);
 		default:
 			type;
@@ -653,8 +653,8 @@ private function unroll(parent:GoType, child:GoType):GoType {
 	return switch child {
 		case previouslyNamed(childName):
 			childName == parentName ? parent : child;
-		case pointerType(elem):
-			pointerType(unroll(parent, elem));
+		case pointerType(_.get() => elem):
+			pointerType({get: () -> unroll(parent, elem)});
 		case mapType(_.get() => key, _.get() => value):
 			mapType({get: () -> unroll(parent, key)}, {get: () -> unroll(parent, value)});
 		case basic(_):
@@ -926,7 +926,7 @@ class _Type {
 	static public function elem(t:_Type):Type {
 		final gt:GoType = getUnderlying(t._common());
 		switch (gt) {
-			case chanType(_, _.get() => elem), refType(_.get() => elem), pointerType(elem), sliceType(_.get() => elem), arrayType(_.get() => elem, _):
+			case chanType(_, _.get() => elem), refType(_.get() => elem), pointerType(_.get() => elem), sliceType(_.get() => elem), arrayType(_.get() => elem, _):
 				var t = new _Type(elem);
 				// set internal Type
 				return new _Type_asInterface(new Pointer(() -> t, value -> t = value), t);
@@ -1109,7 +1109,7 @@ class _Type {
 					pack.remove(pack[pack.length - 2]);
 					formatGoPath(pack.join("."));
 				}
-			case pointerType(elem), refType(_.get() => elem):
+			case pointerType(_.get() => elem), refType(_.get() => elem):
 				"*" + new _Type(elem).string();
 			case structType(fields):
 				"struct { " + [

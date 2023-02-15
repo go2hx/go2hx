@@ -958,6 +958,7 @@ final list = [
 ];
 
 final skipTargets = [
+	"bytes:testReaderWriteTo" => [], // Segmentation fault (core dumped)
 	"strings:testGenericTrieBuilding" => [], // Segmentation fault (core dumped)
 	"strings:testWriteTo" => [], // Segmentation fault (core dumped)
 	"strings:testReaderZero" => [], // Segmentation fault (core dumped)

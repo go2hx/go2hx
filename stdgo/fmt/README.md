@@ -6,18 +6,882 @@
 # Overview
 
 
-|\*  Package fmt implements formatted I/O with functions analogous  to C's printf and scanf.  The format 'verbs' are derived from C's but  are simpler.   \# Printing   The verbs:   General:    %v the value in a default format    when printing structs, the plus flag \(%\+v\) adds field names   %\#v a Go\-syntax representation of the value   %T a Go\-syntax representation of the type of the value   %% a literal percent sign; consumes no value   Boolean:    %t the word true or false   Integer:    %b base 2   %c the character represented by the corresponding Unicode code point   %d base 10   %o base 8   %O base 8 with 0o prefix   %q a single\-quoted character literal safely escaped with Go syntax.   %x base 16, with lower\-case letters for a\-f   %X base 16, with upper\-case letters for A\-F   %U Unicode format: U\+1234; same as "U\+%04X"   Floating\-point and complex constituents:    %b decimalless scientific notation with exponent a power of two,    in the manner of strconv.FormatFloat with the 'b' format,    e.g. \-123456p\-78   %e scientific notation, e.g. \-1.234456e\+78   %E scientific notation, e.g. \-1.234456E\+78   %f decimal point but no exponent, e.g. 123.456   %F synonym for %f   %g %e for large exponents, %f otherwise. Precision is discussed below.   %G %E for large exponents, %F otherwise   %x hexadecimal notation \(with decimal power of two exponent\), e.g. \-0x1.23abcp\+20   %X upper\-case hexadecimal notation, e.g. \-0X1.23ABCP\+20   String and slice of bytes \(treated equivalently with these verbs\):    %s the uninterpreted bytes of the string or slice   %q a double\-quoted string safely escaped with Go syntax   %x base 16, lower\-case, two characters per byte   %X base 16, upper\-case, two characters per byte   Slice:    %p address of 0th element in base 16 notation, with leading 0x   Pointer:    %p base 16 notation, with leading 0x   The %b, %d, %o, %x and %X verbs also work with pointers,   formatting the value exactly as if it were an integer.   The default format for %v is:    bool:                    %t   int, int8 etc.:          %d   uint, uint8 etc.:        %d, %\#x if printed with %\#v   float32, complex64, etc: %g   string:                  %s   chan:                    %p   pointer:                 %p   For compound objects, the elements are printed using these rules, recursively,  laid out like this:    struct:             \{field0 field1 ...\}   array, slice:       \[elem0 elem1 ...\]   maps:               map\[key1:value1 key2:value2 ...\]   pointer to above:   &\{\}, &\[\], &map\[\]   Width is specified by an optional decimal number immediately preceding the verb.  If absent, the width is whatever is necessary to represent the value.  Precision is specified after the \(optional\) width by a period followed by a  decimal number. If no period is present, a default precision is used.  A period with no following number specifies a precision of zero.  Examples:    %f     default width, default precision   %9f    width 9, default precision   %.2f   default width, precision 2   %9.2f  width 9, precision 2   %9.f   width 9, precision 0   Width and precision are measured in units of Unicode code points,  that is, runes. \(This differs from C's printf where the  units are always measured in bytes.\) Either or both of the flags  may be replaced with the character '\*', causing their values to be  obtained from the next operand \(preceding the one to format\),  which must be of type int.   For most values, width is the minimum number of runes to output,  padding the formatted form with spaces if necessary.   For strings, byte slices and byte arrays, however, precision  limits the length of the input to be formatted \(not the size of  the output\), truncating if necessary. Normally it is measured in  runes, but for these types when formatted with the %x or %X format  it is measured in bytes.   For floating\-point values, width sets the minimum width of the field and  precision sets the number of places after the decimal, if appropriate,  except that for %g/%G precision sets the maximum number of significant  digits \(trailing zeros are removed\). For example, given 12.345 the format  %6.3f prints 12.345 while %.3g prints 12.3. The default precision for %e, %f  and %\#g is 6; for %g it is the smallest number of digits necessary to identify  the value uniquely.   For complex numbers, the width and precision apply to the two  components independently and the result is parenthesized, so %f applied  to 1.2\+3.4i produces \(1.200000\+3.400000i\).   When formatting a single integer code point or a rune string \(type \[\]rune\)  with %q, invalid Unicode code points are changed to the Unicode replacement  character, U\+FFFD, as in strconv.QuoteRune.   Other flags:    '\+' always print a sign for numeric values;    guarantee ASCII\-only output for %q \(%\+q\)   '\-' pad with spaces on the right rather than the left \(left\-justify the field\)   '\#' alternate format: add leading 0b for binary \(%\#b\), 0 for octal \(%\#o\),    0x or 0X for hex \(%\#x or %\#X\); suppress 0x for %p \(%\#p\);    for %q, print a raw \(backquoted\) string if strconv.CanBackquote    returns true;    always print a decimal point for %e, %E, %f, %F, %g and %G;    do not remove trailing zeros for %g and %G;    write e.g. U\+0078 'x' if the character is printable for %U \(%\#U\).   ' ' \(space\) leave a space for elided sign in numbers \(% d\);    put spaces between bytes printing strings or slices in hex \(% x, % X\)   '0' pad with leading zeros rather than spaces;    for numbers, this moves the padding after the sign;    ignored for strings, byte slices and byte arrays   Flags are ignored by verbs that do not expect them.  For example there is no alternate decimal format, so %\#d and %d  behave identically.   For each Printf\-like function, there is also a Print function  that takes no format and is equivalent to saying %v for every  operand.  Another variant Println inserts blanks between  operands and appends a newline.   Regardless of the verb, if an operand is an interface value,  the internal concrete value is used, not the interface itself.  Thus:    var i interface\{\} = 23   fmt.Printf\("%v\\n", i\)   will print 23.   Except when printed using the verbs %T and %p, special  formatting considerations apply for operands that implement  certain interfaces. In order of application:   1. If the operand is a reflect.Value, the operand is replaced by the  concrete value that it holds, and printing continues with the next rule.   2. If an operand implements the Formatter interface, it will  be invoked. In this case the interpretation of verbs and flags is  controlled by that implementation.   3. If the %v verb is used with the \# flag \(%\#v\) and the operand  implements the GoStringer interface, that will be invoked.   If the format \(which is implicitly %v for Println etc.\) is valid  for a string \(%s %q %v %x %X\), the following two rules apply:   4. If an operand implements the error interface, the Error method  will be invoked to convert the object to a string, which will then  be formatted as required by the verb \(if any\).   5. If an operand implements method String\(\) string, that method  will be invoked to convert the object to a string, which will then  be formatted as required by the verb \(if any\).   For compound operands such as slices and structs, the format  applies to the elements of each operand, recursively, not to the  operand as a whole. Thus %q will quote each element of a slice  of strings, and %6.2f will control formatting for each element  of a floating\-point array.   However, when printing a byte slice with a string\-like verb  \(%s %q %x %X\), it is treated identically to a string, as a single item.   To avoid recursion in cases such as    type X string   func \(x X\) String\(\) string \{ return Sprintf\("\<%s\>", x\) \}   convert the value before recurring:    func \(x X\) String\(\) string \{ return Sprintf\("\<%s\>", string\(x\)\) \}   Infinite recursion can also be triggered by self\-referential data  structures, such as a slice that contains itself as an element, if  that type has a String method. Such pathologies are rare, however,  and the package does not protect against them.   When printing a struct, fmt cannot and therefore does not invoke  formatting methods such as Error or String on unexported fields.   \# Explicit argument indexes   In Printf, Sprintf, and Fprintf, the default behavior is for each  formatting verb to format successive arguments passed in the call.  However, the notation \[n\] immediately before the verb indicates that the  nth one\-indexed argument is to be formatted instead. The same notation  before a '\*' for a width or precision selects the argument index holding  the value. After processing a bracketed expression \[n\], subsequent verbs  will use arguments n\+1, n\+2, etc. unless otherwise directed.   For example,    fmt.Sprintf\("%\[2\]d %\[1\]d\\n", 11, 22\)   will yield "22 11", while    fmt.Sprintf\("%\[3\]\*.\[2\]\*\[1\]f", 12.0, 2, 6\)   equivalent to    fmt.Sprintf\("%6.2f", 12.0\)   will yield " 12.00". Because an explicit index affects subsequent verbs,  this notation can be used to print the same values multiple times  by resetting the index for the first argument to be repeated:    fmt.Sprintf\("%d %d %\#\[1\]x %\#x", 16, 17\)   will yield "16 17 0x10 0x11".   \# Format errors   If an invalid argument is given for a verb, such as providing  a string to %d, the generated string will contain a  description of the problem, as in these examples:    Wrong type or unknown verb: %\!verb\(type=value\)    Printf\("%d", "hi"\):        %\!d\(string=hi\)   Too many arguments: %\!\(EXTRA type=value\)    Printf\("hi", "guys"\):      hi%\!\(EXTRA string=guys\)   Too few arguments: %\!verb\(MISSING\)    Printf\("hi%d"\):            hi%\!d\(MISSING\)   Non\-int for width or precision: %\!\(BADWIDTH\) or %\!\(BADPREC\)    Printf\("%\*s", 4.5, "hi"\):  %\!\(BADWIDTH\)hi    Printf\("%.\*s", 4.5, "hi"\): %\!\(BADPREC\)hi   Invalid or invalid use of argument index: %\!\(BADINDEX\)    Printf\("%\*\[2\]d", 7\):       %\!d\(BADINDEX\)    Printf\("%.\[2\]d", 7\):       %\!d\(BADINDEX\)   All errors begin with the string "%\!" followed sometimes  by a single character \(the verb\) and end with a parenthesized  description.   If an Error or String method triggers a panic when called by a  print routine, the fmt package reformats the error message  from the panic, decorating it with an indication that it came  through the fmt package.  For example, if a String method  calls panic\("bad"\), the resulting formatted message will look  like    %\!s\(PANIC=bad\)   The %\!s just shows the print verb in use when the failure  occurred. If the panic is caused by a nil receiver to an Error  or String method, however, the output is the undecorated  string, "\<nil\>".   \# Scanning   An analogous set of functions scans formatted text to yield  values.  Scan, Scanf and Scanln read from os.Stdin; Fscan,  Fscanf and Fscanln read from a specified io.Reader; Sscan,  Sscanf and Sscanln read from an argument string.   Scan, Fscan, Sscan treat newlines in the input as spaces.   Scanln, Fscanln and Sscanln stop scanning at a newline and  require that the items be followed by a newline or EOF.   Scanf, Fscanf, and Sscanf parse the arguments according to a  format string, analogous to that of Printf. In the text that  follows, 'space' means any Unicode whitespace character  except newline.   In the format string, a verb introduced by the % character  consumes and parses input; these verbs are described in more  detail below. A character other than %, space, or newline in  the format consumes exactly that input character, which must  be present. A newline with zero or more spaces before it in  the format string consumes zero or more spaces in the input  followed by a single newline or the end of the input. A space  following a newline in the format string consumes zero or more  spaces in the input. Otherwise, any run of one or more spaces  in the format string consumes as many spaces as possible in  the input. Unless the run of spaces in the format string  appears adjacent to a newline, the run must consume at least  one space from the input or find the end of the input.   The handling of spaces and newlines differs from that of C's  scanf family: in C, newlines are treated as any other space,  and it is never an error when a run of spaces in the format  string finds no spaces to consume in the input.   The verbs behave analogously to those of Printf.  For example, %x will scan an integer as a hexadecimal number,  and %v will scan the default representation format for the value.  The Printf verbs %p and %T and the flags \# and \+ are not implemented.  For floating\-point and complex values, all valid formatting verbs  \(%b %e %E %f %F %g %G %x %X and %v\) are equivalent and accept  both decimal and hexadecimal notation \(for example: "2.3e\+7", "0x4.5p\-8"\)  and digit\-separating underscores \(for example: "3.14159\_26535\_89793"\).   Input processed by verbs is implicitly space\-delimited: the  implementation of every verb except %c starts by discarding  leading spaces from the remaining input, and the %s verb  \(and %v reading into a string\) stops consuming input at the first  space or newline character.   The familiar base\-setting prefixes 0b \(binary\), 0o and 0 \(octal\),  and 0x \(hexadecimal\) are accepted when scanning integers  without a format or with the %v verb, as are digit\-separating  underscores.   Width is interpreted in the input text but there is no  syntax for scanning with a precision \(no %5.2f, just %5f\).  If width is provided, it applies after leading spaces are  trimmed and specifies the maximum number of runes to read  to satisfy the verb. For example,    Sscanf\(" 1234567 ", "%5s%d", &s, &i\)   will set s to "12345" and i to 67 while    Sscanf\(" 12 34 567 ", "%5s%d", &s, &i\)   will set s to "12" and i to 34.   In all the scanning functions, a carriage return followed  immediately by a newline is treated as a plain newline  \(\\r\\n means the same as \\n\).   In all the scanning functions, if an operand implements method  Scan \(that is, it implements the Scanner interface\) that  method will be used to scan the text for that operand.  Also,  if the number of arguments scanned is less than the number of  arguments provided, an error is returned.   All arguments to be scanned must be either pointers to basic  types or implementations of the Scanner interface.   Like Scanf and Fscanf, Sscanf need not consume its entire input.  There is no way to recover how much of the input string Sscanf used.   Note: Fscan etc. can read one character \(rune\) past the input  they return, which means that a loop calling a scan routine  may skip some of the input.  This is usually a problem only  when there is no space between input values.  If the reader  provided to Fscan implements ReadRune, that method will be used  to read characters.  If the reader also implements UnreadRune,  that method will be used to save the character and successive  calls will not lose data.  To attach ReadRune and UnreadRune  methods to a reader without that capability, use  bufio.NewReader.  \*|/ 
+
+
+
+Package fmt implements formatted I/O with functions analogous  
+to C's printf and scanf.  The format 'verbs' are derived from C's but  
+are simpler.  
+
+
+
+\# Printing  
+
+
+
+The verbs:  
+
+
+
+General:  
+
+
+
+
+
+
+%v  
+the value in a default format  
+
+
+
+when printing structs, the plus flag \(%\+v\) adds field names  
+
+
+
+%\#v  
+a Go\-syntax representation of the value  
+
+
+
+%T  
+a Go\-syntax representation of the type of the value  
+
+
+
+%%  
+a literal percent sign; consumes no value  
+
+
+
+Boolean:  
+
+
+
+
+
+
+%t  
+the word true or false  
+
+
+
+Integer:  
+
+
+
+
+
+
+%b  
+base 2  
+
+
+
+%c  
+the character represented by the corresponding Unicode code point  
+
+
+
+%d  
+base 10  
+
+
+
+%o  
+base 8  
+
+
+
+%O  
+base 8 with 0o prefix  
+
+
+
+%q  
+a single\-quoted character literal safely escaped with Go syntax.  
+
+
+
+%x  
+base 16, with lower\-case letters for a\-f  
+
+
+
+%X  
+base 16, with upper\-case letters for A\-F  
+
+
+
+%U  
+Unicode format: U\+1234; same as "U\+%04X"  
+
+
+
+Floating\-point and complex constituents:  
+
+
+
+
+
+
+%b  
+decimalless scientific notation with exponent a power of two,  
+
+
+
+in the manner of strconv.FormatFloat with the 'b' format,  
+
+
+
+e.g. \-123456p\-78  
+
+
+
+%e  
+scientific notation, e.g. \-1.234456e\+78  
+
+
+
+%E  
+scientific notation, e.g. \-1.234456E\+78  
+
+
+
+%f  
+decimal point but no exponent, e.g. 123.456  
+
+
+
+%F  
+synonym for %f  
+
+
+
+%g  
+%e for large exponents, %f otherwise. Precision is discussed below.  
+
+
+
+%G  
+%E for large exponents, %F otherwise  
+
+
+
+%x  
+hexadecimal notation \(with decimal power of two exponent\), e.g. \-0x1.23abcp\+20  
+
+
+
+%X  
+upper\-case hexadecimal notation, e.g. \-0X1.23ABCP\+20  
+
+
+
+String and slice of bytes \(treated equivalently with these verbs\):  
+
+
+
+
+
+
+%s  
+the uninterpreted bytes of the string or slice  
+
+
+
+%q  
+a double\-quoted string safely escaped with Go syntax  
+
+
+
+%x  
+base 16, lower\-case, two characters per byte  
+
+
+
+%X  
+base 16, upper\-case, two characters per byte  
+
+
+
+Slice:  
+
+
+
+
+
+
+%p  
+address of 0th element in base 16 notation, with leading 0x  
+
+
+
+Pointer:  
+
+
+
+
+
+
+%p  
+base 16 notation, with leading 0x  
+
+
+
+The %b, %d, %o, %x and %X verbs also work with pointers,  
+
+
+
+formatting the value exactly as if it were an integer.  
+
+
+
+The default format for %v is:  
+
+
+
+
+
+
+bool:                    %t  
+
+
+
+int, int8 etc.:          %d  
+
+
+
+uint, uint8 etc.:        %d, %\#x if printed with %\#v  
+
+
+
+float32, complex64, etc: %g  
+
+
+
+string:                  %s  
+
+
+
+chan:                    %p  
+
+
+
+pointer:                 %p  
+
+
+
+For compound objects, the elements are printed using these rules, recursively,  
+laid out like this:  
+
+
+
+
+
+
+struct:             \{field0 field1 ...\}  
+
+
+
+array, slice:       \[elem0 elem1 ...\]  
+
+
+
+maps:               map\[key1:value1 key2:value2 ...\]  
+
+
+
+pointer to above:   &\{\}, &\[\], &map\[\]  
+
+
+
+Width is specified by an optional decimal number immediately preceding the verb.  
+If absent, the width is whatever is necessary to represent the value.  
+Precision is specified after the \(optional\) width by a period followed by a  
+decimal number. If no period is present, a default precision is used.  
+A period with no following number specifies a precision of zero.  
+Examples:  
+
+
+
+
+
+
+%f     default width, default precision  
+
+
+
+%9f    width 9, default precision  
+
+
+
+%.2f   default width, precision 2  
+
+
+
+%9.2f  width 9, precision 2  
+
+
+
+%9.f   width 9, precision 0  
+
+
+
+Width and precision are measured in units of Unicode code points,  
+that is, runes. \(This differs from C's printf where the  
+units are always measured in bytes.\) Either or both of the flags  
+may be replaced with the character '\*', causing their values to be  
+obtained from the next operand \(preceding the one to format\),  
+which must be of type int.  
+
+
+
+For most values, width is the minimum number of runes to output,  
+padding the formatted form with spaces if necessary.  
+
+
+
+For strings, byte slices and byte arrays, however, precision  
+limits the length of the input to be formatted \(not the size of  
+the output\), truncating if necessary. Normally it is measured in  
+runes, but for these types when formatted with the %x or %X format  
+it is measured in bytes.  
+
+
+
+For floating\-point values, width sets the minimum width of the field and  
+precision sets the number of places after the decimal, if appropriate,  
+except that for %g/%G precision sets the maximum number of significant  
+digits \(trailing zeros are removed\). For example, given 12.345 the format  
+%6.3f prints 12.345 while %.3g prints 12.3. The default precision for %e, %f  
+and %\#g is 6; for %g it is the smallest number of digits necessary to identify  
+the value uniquely.  
+
+
+
+For complex numbers, the width and precision apply to the two  
+components independently and the result is parenthesized, so %f applied  
+to 1.2\+3.4i produces \(1.200000\+3.400000i\).  
+
+
+
+When formatting a single integer code point or a rune string \(type \[\]rune\)  
+with %q, invalid Unicode code points are changed to the Unicode replacement  
+character, U\+FFFD, as in strconv.QuoteRune.  
+
+
+
+Other flags:  
+
+
+
+
+
+
+'\+'  
+always print a sign for numeric values;  
+
+
+
+guarantee ASCII\-only output for %q \(%\+q\)  
+
+
+
+'\-'  
+pad with spaces on the right rather than the left \(left\-justify the field\)  
+
+
+
+'\#'  
+alternate format: add leading 0b for binary \(%\#b\), 0 for octal \(%\#o\),  
+
+
+
+0x or 0X for hex \(%\#x or %\#X\); suppress 0x for %p \(%\#p\);  
+
+
+
+for %q, print a raw \(backquoted\) string if strconv.CanBackquote  
+
+
+
+returns true;  
+
+
+
+always print a decimal point for %e, %E, %f, %F, %g and %G;  
+
+
+
+do not remove trailing zeros for %g and %G;  
+
+
+
+write e.g. U\+0078 'x' if the character is printable for %U \(%\#U\).  
+
+
+
+' '  
+\(space\) leave a space for elided sign in numbers \(% d\);  
+
+
+
+put spaces between bytes printing strings or slices in hex \(% x, % X\)  
+
+
+
+'0'  
+pad with leading zeros rather than spaces;  
+
+
+
+for numbers, this moves the padding after the sign;  
+
+
+
+ignored for strings, byte slices and byte arrays  
+
+
+
+Flags are ignored by verbs that do not expect them.  
+For example there is no alternate decimal format, so %\#d and %d  
+behave identically.  
+
+
+
+For each Printf\-like function, there is also a Print function  
+that takes no format and is equivalent to saying %v for every  
+operand.  Another variant Println inserts blanks between  
+operands and appends a newline.  
+
+
+
+Regardless of the verb, if an operand is an interface value,  
+the internal concrete value is used, not the interface itself.  
+Thus:  
+
+
+
+
+
+
+var i interface\{\} = 23  
+
+
+
+fmt.Printf\("%v\\n", i\)  
+
+
+
+will print 23.  
+
+
+
+Except when printed using the verbs %T and %p, special  
+formatting considerations apply for operands that implement  
+certain interfaces. In order of application:  
+
+
+
+1. If the operand is a reflect.Value, the operand is replaced by the  
+concrete value that it holds, and printing continues with the next rule.  
+
+
+
+2. If an operand implements the Formatter interface, it will  
+be invoked. In this case the interpretation of verbs and flags is  
+controlled by that implementation.  
+
+
+
+3. If the %v verb is used with the \# flag \(%\#v\) and the operand  
+implements the GoStringer interface, that will be invoked.  
+
+
+
+If the format \(which is implicitly %v for Println etc.\) is valid  
+for a string \(%s %q %v %x %X\), the following two rules apply:  
+
+
+
+4. If an operand implements the error interface, the Error method  
+will be invoked to convert the object to a string, which will then  
+be formatted as required by the verb \(if any\).  
+
+
+
+5. If an operand implements method String\(\) string, that method  
+will be invoked to convert the object to a string, which will then  
+be formatted as required by the verb \(if any\).  
+
+
+
+For compound operands such as slices and structs, the format  
+applies to the elements of each operand, recursively, not to the  
+operand as a whole. Thus %q will quote each element of a slice  
+of strings, and %6.2f will control formatting for each element  
+of a floating\-point array.  
+
+
+
+However, when printing a byte slice with a string\-like verb  
+\(%s %q %x %X\), it is treated identically to a string, as a single item.  
+
+
+
+To avoid recursion in cases such as  
+
+
+
+
+
+
+type X string  
+
+
+
+func \(x X\) String\(\) string \{ return Sprintf\("\<%s\>", x\) \}  
+
+
+
+convert the value before recurring:  
+
+
+
+
+
+
+func \(x X\) String\(\) string \{ return Sprintf\("\<%s\>", string\(x\)\) \}  
+
+
+
+Infinite recursion can also be triggered by self\-referential data  
+structures, such as a slice that contains itself as an element, if  
+that type has a String method. Such pathologies are rare, however,  
+and the package does not protect against them.  
+
+
+
+When printing a struct, fmt cannot and therefore does not invoke  
+formatting methods such as Error or String on unexported fields.  
+
+
+
+\# Explicit argument indexes  
+
+
+
+In Printf, Sprintf, and Fprintf, the default behavior is for each  
+formatting verb to format successive arguments passed in the call.  
+However, the notation \[n\] immediately before the verb indicates that the  
+nth one\-indexed argument is to be formatted instead. The same notation  
+before a '\*' for a width or precision selects the argument index holding  
+the value. After processing a bracketed expression \[n\], subsequent verbs  
+will use arguments n\+1, n\+2, etc. unless otherwise directed.  
+
+
+
+For example,  
+
+
+
+
+
+
+fmt.Sprintf\("%\[2\]d %\[1\]d\\n", 11, 22\)  
+
+
+
+will yield "22 11", while  
+
+
+
+
+
+
+fmt.Sprintf\("%\[3\]\*.\[2\]\*\[1\]f", 12.0, 2, 6\)  
+
+
+
+equivalent to  
+
+
+
+
+
+
+fmt.Sprintf\("%6.2f", 12.0\)  
+
+
+
+will yield " 12.00". Because an explicit index affects subsequent verbs,  
+this notation can be used to print the same values multiple times  
+by resetting the index for the first argument to be repeated:  
+
+
+
+
+
+
+fmt.Sprintf\("%d %d %\#\[1\]x %\#x", 16, 17\)  
+
+
+
+will yield "16 17 0x10 0x11".  
+
+
+
+\# Format errors  
+
+
+
+If an invalid argument is given for a verb, such as providing  
+a string to %d, the generated string will contain a  
+description of the problem, as in these examples:  
+
+
+
+
+
+
+Wrong type or unknown verb: %\!verb\(type=value\)  
+
+
+
+Printf\("%d", "hi"\):        %\!d\(string=hi\)  
+
+
+
+Too many arguments: %\!\(EXTRA type=value\)  
+
+
+
+Printf\("hi", "guys"\):      hi%\!\(EXTRA string=guys\)  
+
+
+
+Too few arguments: %\!verb\(MISSING\)  
+
+
+
+Printf\("hi%d"\):            hi%\!d\(MISSING\)  
+
+
+
+Non\-int for width or precision: %\!\(BADWIDTH\) or %\!\(BADPREC\)  
+
+
+
+Printf\("%\*s", 4.5, "hi"\):  %\!\(BADWIDTH\)hi  
+
+
+
+Printf\("%.\*s", 4.5, "hi"\): %\!\(BADPREC\)hi  
+
+
+
+Invalid or invalid use of argument index: %\!\(BADINDEX\)  
+
+
+
+Printf\("%\*\[2\]d", 7\):       %\!d\(BADINDEX\)  
+
+
+
+Printf\("%.\[2\]d", 7\):       %\!d\(BADINDEX\)  
+
+
+
+All errors begin with the string "%\!" followed sometimes  
+by a single character \(the verb\) and end with a parenthesized  
+description.  
+
+
+
+If an Error or String method triggers a panic when called by a  
+print routine, the fmt package reformats the error message  
+from the panic, decorating it with an indication that it came  
+through the fmt package.  For example, if a String method  
+calls panic\("bad"\), the resulting formatted message will look  
+like  
+
+
+
+
+
+
+%\!s\(PANIC=bad\)  
+
+
+
+The %\!s just shows the print verb in use when the failure  
+occurred. If the panic is caused by a nil receiver to an Error  
+or String method, however, the output is the undecorated  
+string, "\<nil\>".  
+
+
+
+\# Scanning  
+
+
+
+An analogous set of functions scans formatted text to yield  
+values.  Scan, Scanf and Scanln read from os.Stdin; Fscan,  
+Fscanf and Fscanln read from a specified io.Reader; Sscan,  
+Sscanf and Sscanln read from an argument string.  
+
+
+
+Scan, Fscan, Sscan treat newlines in the input as spaces.  
+
+
+
+Scanln, Fscanln and Sscanln stop scanning at a newline and  
+require that the items be followed by a newline or EOF.  
+
+
+
+Scanf, Fscanf, and Sscanf parse the arguments according to a  
+format string, analogous to that of Printf. In the text that  
+follows, 'space' means any Unicode whitespace character  
+except newline.  
+
+
+
+In the format string, a verb introduced by the % character  
+consumes and parses input; these verbs are described in more  
+detail below. A character other than %, space, or newline in  
+the format consumes exactly that input character, which must  
+be present. A newline with zero or more spaces before it in  
+the format string consumes zero or more spaces in the input  
+followed by a single newline or the end of the input. A space  
+following a newline in the format string consumes zero or more  
+spaces in the input. Otherwise, any run of one or more spaces  
+in the format string consumes as many spaces as possible in  
+the input. Unless the run of spaces in the format string  
+appears adjacent to a newline, the run must consume at least  
+one space from the input or find the end of the input.  
+
+
+
+The handling of spaces and newlines differs from that of C's  
+scanf family: in C, newlines are treated as any other space,  
+and it is never an error when a run of spaces in the format  
+string finds no spaces to consume in the input.  
+
+
+
+The verbs behave analogously to those of Printf.  
+For example, %x will scan an integer as a hexadecimal number,  
+and %v will scan the default representation format for the value.  
+The Printf verbs %p and %T and the flags \# and \+ are not implemented.  
+For floating\-point and complex values, all valid formatting verbs  
+\(%b %e %E %f %F %g %G %x %X and %v\) are equivalent and accept  
+both decimal and hexadecimal notation \(for example: "2.3e\+7", "0x4.5p\-8"\)  
+and digit\-separating underscores \(for example: "3.14159\_26535\_89793"\).  
+
+
+
+Input processed by verbs is implicitly space\-delimited: the  
+implementation of every verb except %c starts by discarding  
+leading spaces from the remaining input, and the %s verb  
+\(and %v reading into a string\) stops consuming input at the first  
+space or newline character.  
+
+
+
+The familiar base\-setting prefixes 0b \(binary\), 0o and 0 \(octal\),  
+and 0x \(hexadecimal\) are accepted when scanning integers  
+without a format or with the %v verb, as are digit\-separating  
+underscores.  
+
+
+
+Width is interpreted in the input text but there is no  
+syntax for scanning with a precision \(no %5.2f, just %5f\).  
+If width is provided, it applies after leading spaces are  
+trimmed and specifies the maximum number of runes to read  
+to satisfy the verb. For example,  
+
+
+
+
+
+
+Sscanf\(" 1234567 ", "%5s%d", &s, &i\)  
+
+
+
+will set s to "12345" and i to 67 while  
+
+
+
+
+
+
+Sscanf\(" 12 34 567 ", "%5s%d", &s, &i\)  
+
+
+
+will set s to "12" and i to 34.  
+
+
+
+In all the scanning functions, a carriage return followed  
+immediately by a newline is treated as a plain newline  
+\(\\r\\n means the same as \\n\).  
+
+
+
+In all the scanning functions, if an operand implements method  
+Scan \(that is, it implements the Scanner interface\) that  
+method will be used to scan the text for that operand.  Also,  
+if the number of arguments scanned is less than the number of  
+arguments provided, an error is returned.  
+
+
+
+All arguments to be scanned must be either pointers to basic  
+types or implementations of the Scanner interface.  
+
+
+
+Like Scanf and Fscanf, Sscanf need not consume its entire input.  
+There is no way to recover how much of the input string Sscanf used.  
+
+
+
+Note: Fscan etc. can read one character \(rune\) past the input  
+they return, which means that a loop calling a scan routine  
+may skip some of the input.  This is usually a problem only  
+when there is no space between input values.  If the reader  
+provided to Fscan implements ReadRune, that method will be used  
+to read characters.  If the reader also implements UnreadRune,  
+that method will be used to save the character and successive  
+calls will not lose data.  To attach ReadRune and UnreadRune  
+methods to a reader without that capability, use  
+bufio.NewReader.  
+
+
+
+
 
 
 <details><summary>hl tests failed</summary>
 <p>
 
 ```
-stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 Error: Command failed with error 1
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestErrorf
-err.Error() = "wrapped two errors: 1 %!w(fmt_test._Fmt_test.errString=2)", want "wrapped two errors: 1 %!w(fmt_test.errString=2)"
+--- PASS: TestErrorf (%!s(float64=0.009526968002319336))
+
+=== RUN  TestFmtInterface
+--- PASS: TestFmtInterface (%!s(float64=0.00012803077697753906))
+
+=== RUN  TestSprintf
+Sprintf("%#+-6v", [1 11 111]) = "[-1]uint8{0x1   , 0xb   , 0x6f  }" want "[3]uint8{0x1   , 0xb   , 0x6f  }"
 ```
 </p>
 </details>
@@ -26,10 +890,15 @@ err.Error() = "wrapped two errors: 1 %!w(fmt_test._Fmt_test.errString=2)", want 
 <p>
 
 ```
-stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestErrorf
-err.Error() = "wrapped two errors: 1 %!w(fmt_test._Fmt_test.errString=2)", want "wrapped two errors: 1 %!w(fmt_test.errString=2)"
+--- PASS: TestErrorf (%!s(float64=0.011999130249023438))
+
+=== RUN  TestFmtInterface
+--- PASS: TestFmtInterface (%!s(float64=0.0002617835998535156))
+
+=== RUN  TestSprintf
+Sprintf("%#+-6v", [1 11 111]) = "[-1]uint8{0x1   , 0xb   , 0x6f  }" want "[3]uint8{0x1   , 0xb   , 0x6f  }"
 ```
 </p>
 </details>
@@ -38,7 +907,6 @@ err.Error() = "wrapped two errors: 1 %!w(fmt_test._Fmt_test.errString=2)", want 
 <p>
 
 ```
-stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 IO.Overflow("write_ui16")
 stdgo/internal/Macro.macro.hx:35: define
 ```
@@ -57,6 +925,8 @@ stdgo/internal/Macro.macro.hx:35: define
 
 - [`function errorf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Error`](<#function-errorf>)
 
+- [`function formatString(_state:stdgo.fmt.State, _verb:stdgo.GoRune):stdgo.GoString`](<#function-formatstring>)
+
 - [`function fprint(_w:stdgo.io.Writer, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#function-fprint>)
 
 - [`function fprintf(_w:stdgo.io.Writer, _format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#function-fprintf>)
@@ -69,9 +939,9 @@ stdgo/internal/Macro.macro.hx:35: define
 
 - [`function fscanln(_r:stdgo.io.Reader, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#function-fscanln>)
 
-- [`function isSpace()`](<#function-isspace>)
+- [`function isSpace(_r:stdgo.GoRune):Bool`](<#function-isspace>)
 
-- [`function parsenum(:stdgo.GoString, :stdgo.GoInt, :stdgo.GoInt):{_2:stdgo.GoInt, _1:Bool, _0:stdgo.GoInt}`](<#function-parsenum>)
+- [`function parsenum(_s:stdgo.GoString, _start:stdgo.GoInt, _end:stdgo.GoInt):{_2:stdgo.GoInt, _1:Bool, _0:stdgo.GoInt}`](<#function-parsenum>)
 
 - [`function print(_a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#function-print>)
 
@@ -97,203 +967,219 @@ stdgo/internal/Macro.macro.hx:35: define
 
 - [`function sscanln(_str:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#function-sscanln>)
 
-- [class T\_buffer\_static\_extension](<#class-t_buffer_static_extension>)
+- [class T\_fmt](<#class-t_fmt>)
 
-  - [`function _write(_b:stdgo.Ref<stdgo.fmt._Fmt.T_buffer>, _p:stdgo.Slice<stdgo.GoByte>):Void`](<#t_buffer_static_extension-function-_write>)
+  - [`function new(?_buf:Null<stdgo.Ref<stdgo.fmt._Fmt.T_buffer>>, ?_fmtFlags:stdgo.fmt.T_fmtFlags, ?_wid:Null<stdgo.GoInt>, ?_prec:Null<stdgo.GoInt>, ?_intbuf:stdgo.GoArray<stdgo.GoUInt8>):Void`](<#t_fmt-function-new>)
 
-  - [`function _writeByte(_b:stdgo.Ref<stdgo.fmt._Fmt.T_buffer>, _c:stdgo.GoByte):Void`](<#t_buffer_static_extension-function-_writebyte>)
+  - [`function _clearflags():Void`](<#t_fmt-function-_clearflags>)
 
-  - [`function _writeRune(_bp:stdgo.Ref<stdgo.fmt._Fmt.T_buffer>, _r:stdgo.GoRune):Void`](<#t_buffer_static_extension-function-_writerune>)
+  - [`function _fmtBoolean( _v:Bool):Void`](<#t_fmt-function-_fmtboolean>)
 
-  - [`function _writeString(_b:stdgo.Ref<stdgo.fmt._Fmt.T_buffer>, _s:stdgo.GoString):Void`](<#t_buffer_static_extension-function-_writestring>)
+  - [`function _fmtBs( _b:stdgo.Slice<stdgo.GoByte>):Void`](<#t_fmt-function-_fmtbs>)
 
-- [class T\_fmt\_static\_extension](<#class-t_fmt_static_extension>)
+  - [`function _fmtBx( _b:stdgo.Slice<stdgo.GoByte>, _digits:stdgo.GoString):Void`](<#t_fmt-function-_fmtbx>)
 
-  - [`function _clearflags(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>):Void`](<#t_fmt_static_extension-function-_clearflags>)
+  - [`function _fmtC( _c:stdgo.GoUInt64):Void`](<#t_fmt-function-_fmtc>)
 
-  - [`function _fmtBoolean(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _v:Bool):Void`](<#t_fmt_static_extension-function-_fmtboolean>)
+  - [`function _fmtFloat( _v:stdgo.GoFloat64, _size:stdgo.GoInt, _verb:stdgo.GoRune, _prec:stdgo.GoInt):Void`](<#t_fmt-function-_fmtfloat>)
 
-  - [`function _fmtBs(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _b:stdgo.Slice<stdgo.GoByte>):Void`](<#t_fmt_static_extension-function-_fmtbs>)
+  - [`function _fmtInteger( _u:stdgo.GoUInt64, _base:stdgo.GoInt, _isSigned:Bool, _verb:stdgo.GoRune, _digits:stdgo.GoString):Void`](<#t_fmt-function-_fmtinteger>)
 
-  - [`function _fmtBx(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _b:stdgo.Slice<stdgo.GoByte>, _digits:stdgo.GoString):Void`](<#t_fmt_static_extension-function-_fmtbx>)
+  - [`function _fmtQ( _s:stdgo.GoString):Void`](<#t_fmt-function-_fmtq>)
 
-  - [`function _fmtC(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _c:stdgo.GoUInt64):Void`](<#t_fmt_static_extension-function-_fmtc>)
+  - [`function _fmtQc( _c:stdgo.GoUInt64):Void`](<#t_fmt-function-_fmtqc>)
 
-  - [`function _fmtFloat(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _v:stdgo.GoFloat64, _size:stdgo.GoInt, _verb:stdgo.GoRune, _prec:stdgo.GoInt):Void`](<#t_fmt_static_extension-function-_fmtfloat>)
+  - [`function _fmtS( _s:stdgo.GoString):Void`](<#t_fmt-function-_fmts>)
 
-  - [`function _fmtInteger(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _u:stdgo.GoUInt64, _base:stdgo.GoInt, _isSigned:Bool, _verb:stdgo.GoRune, _digits:stdgo.GoString):Void`](<#t_fmt_static_extension-function-_fmtinteger>)
+  - [`function _fmtSbx( _s:stdgo.GoString, _b:stdgo.Slice<stdgo.GoByte>, _digits:stdgo.GoString):Void`](<#t_fmt-function-_fmtsbx>)
 
-  - [`function _fmtQ(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _s:stdgo.GoString):Void`](<#t_fmt_static_extension-function-_fmtq>)
+  - [`function _fmtSx( _s:stdgo.GoString, _digits:stdgo.GoString):Void`](<#t_fmt-function-_fmtsx>)
 
-  - [`function _fmtQc(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _c:stdgo.GoUInt64):Void`](<#t_fmt_static_extension-function-_fmtqc>)
+  - [`function _fmtUnicode( _u:stdgo.GoUInt64):Void`](<#t_fmt-function-_fmtunicode>)
 
-  - [`function _fmtS(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _s:stdgo.GoString):Void`](<#t_fmt_static_extension-function-_fmts>)
+  - [`function _init( _buf:stdgo.Ref<stdgo.fmt._Fmt.T_buffer>):Void`](<#t_fmt-function-_init>)
 
-  - [`function _fmtSbx(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _s:stdgo.GoString, _b:stdgo.Slice<stdgo.GoByte>, _digits:stdgo.GoString):Void`](<#t_fmt_static_extension-function-_fmtsbx>)
+  - [`function _pad( _b:stdgo.Slice<stdgo.GoByte>):Void`](<#t_fmt-function-_pad>)
 
-  - [`function _fmtSx(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _s:stdgo.GoString, _digits:stdgo.GoString):Void`](<#t_fmt_static_extension-function-_fmtsx>)
+  - [`function _padString( _s:stdgo.GoString):Void`](<#t_fmt-function-_padstring>)
 
-  - [`function _fmtUnicode(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _u:stdgo.GoUInt64):Void`](<#t_fmt_static_extension-function-_fmtunicode>)
+  - [`function _truncate( _b:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>`](<#t_fmt-function-_truncate>)
 
-  - [`function _init(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _buf:stdgo.Ref<stdgo.fmt._Fmt.T_buffer>):Void`](<#t_fmt_static_extension-function-_init>)
+  - [`function _truncateString( _s:stdgo.GoString):stdgo.GoString`](<#t_fmt-function-_truncatestring>)
 
-  - [`function _pad(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _b:stdgo.Slice<stdgo.GoByte>):Void`](<#t_fmt_static_extension-function-_pad>)
+  - [`function _writePadding( _n:stdgo.GoInt):Void`](<#t_fmt-function-_writepadding>)
 
-  - [`function _padString(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _s:stdgo.GoString):Void`](<#t_fmt_static_extension-function-_padstring>)
+- [class T\_fmtFlags](<#class-t_fmtflags>)
 
-  - [`function _truncate(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _b:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>`](<#t_fmt_static_extension-function-_truncate>)
+  - [`function new(?_widPresent:Bool, ?_precPresent:Bool, ?_minus:Bool, ?_plus:Bool, ?_sharp:Bool, ?_space:Bool, ?_zero:Bool, ?_plusV:Bool, ?_sharpV:Bool):Void`](<#t_fmtflags-function-new>)
 
-  - [`function _truncateString(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _s:stdgo.GoString):stdgo.GoString`](<#t_fmt_static_extension-function-_truncatestring>)
+- [class T\_pp](<#class-t_pp>)
 
-  - [`function _writePadding(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _n:stdgo.GoInt):Void`](<#t_fmt_static_extension-function-_writepadding>)
+  - [`function new(?_buf:Null<stdgo.fmt._Fmt.T_buffer>, ?_arg:stdgo.AnyInterface, ?_value:stdgo.reflect.Value, ?_fmt:stdgo.fmt.T_fmt, ?_reordered:Bool, ?_goodArgNum:Bool, ?_panicking:Bool, ?_erroring:Bool, ?_wrapErrs:Bool, ?_wrappedErrs:stdgo.Slice<stdgo.GoInt>):Void`](<#t_pp-function-new>)
 
-- [class T\_pp\_static\_extension](<#class-t_pp_static_extension>)
+  - [`function _argNumber( _argNum:stdgo.GoInt, _format:stdgo.GoString, _i:stdgo.GoInt, _numArgs:stdgo.GoInt):{_2:Bool, _1:stdgo.GoInt, _0:stdgo.GoInt}`](<#t_pp-function-_argnumber>)
 
-  - [`function _argNumber(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _argNum:stdgo.GoInt, _format:stdgo.GoString, _i:stdgo.GoInt, _numArgs:stdgo.GoInt):{_2:Bool, _1:stdgo.GoInt, _0:stdgo.GoInt}`](<#t_pp_static_extension-function-_argnumber>)
+  - [`function _badArgNum( _verb:stdgo.GoRune):Void`](<#t_pp-function-_badargnum>)
 
-  - [`function _badArgNum(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _verb:stdgo.GoRune):Void`](<#t_pp_static_extension-function-_badargnum>)
+  - [`function _badVerb( _verb:stdgo.GoRune):Void`](<#t_pp-function-_badverb>)
 
-  - [`function _badVerb(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _verb:stdgo.GoRune):Void`](<#t_pp_static_extension-function-_badverb>)
+  - [`function _catchPanic( _arg:stdgo.AnyInterface, _verb:stdgo.GoRune, _method:stdgo.GoString):Void`](<#t_pp-function-_catchpanic>)
 
-  - [`function _catchPanic(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _arg:stdgo.AnyInterface, _verb:stdgo.GoRune, _method:stdgo.GoString):Void`](<#t_pp_static_extension-function-_catchpanic>)
+  - [`function _doPrint( _a:stdgo.Slice<stdgo.AnyInterface>):Void`](<#t_pp-function-_doprint>)
 
-  - [`function _doPrint(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _a:stdgo.Slice<stdgo.AnyInterface>):Void`](<#t_pp_static_extension-function-_doprint>)
+  - [`function _doPrintf( _format:stdgo.GoString, _a:stdgo.Slice<stdgo.AnyInterface>):Void`](<#t_pp-function-_doprintf>)
 
-  - [`function _doPrintf(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _format:stdgo.GoString, _a:stdgo.Slice<stdgo.AnyInterface>):Void`](<#t_pp_static_extension-function-_doprintf>)
+  - [`function _doPrintln( _a:stdgo.Slice<stdgo.AnyInterface>):Void`](<#t_pp-function-_doprintln>)
 
-  - [`function _doPrintln(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _a:stdgo.Slice<stdgo.AnyInterface>):Void`](<#t_pp_static_extension-function-_doprintln>)
+  - [`function _fmt0x64( _v:stdgo.GoUInt64, _leading0x:Bool):Void`](<#t_pp-function-_fmt0x64>)
 
-  - [`function _fmt0x64(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _v:stdgo.GoUInt64, _leading0x:Bool):Void`](<#t_pp_static_extension-function-_fmt0x64>)
+  - [`function _fmtBool( _v:Bool, _verb:stdgo.GoRune):Void`](<#t_pp-function-_fmtbool>)
 
-  - [`function _fmtBool(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _v:Bool, _verb:stdgo.GoRune):Void`](<#t_pp_static_extension-function-_fmtbool>)
+  - [`function _fmtBytes( _v:stdgo.Slice<stdgo.GoByte>, _verb:stdgo.GoRune, _typeString:stdgo.GoString):Void`](<#t_pp-function-_fmtbytes>)
 
-  - [`function _fmtBytes(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _v:stdgo.Slice<stdgo.GoByte>, _verb:stdgo.GoRune, _typeString:stdgo.GoString):Void`](<#t_pp_static_extension-function-_fmtbytes>)
+  - [`function _fmtComplex( _v:stdgo.GoComplex128, _size:stdgo.GoInt, _verb:stdgo.GoRune):Void`](<#t_pp-function-_fmtcomplex>)
 
-  - [`function _fmtComplex(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _v:stdgo.GoComplex128, _size:stdgo.GoInt, _verb:stdgo.GoRune):Void`](<#t_pp_static_extension-function-_fmtcomplex>)
+  - [`function _fmtFloat( _v:stdgo.GoFloat64, _size:stdgo.GoInt, _verb:stdgo.GoRune):Void`](<#t_pp-function-_fmtfloat>)
 
-  - [`function _fmtFloat(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _v:stdgo.GoFloat64, _size:stdgo.GoInt, _verb:stdgo.GoRune):Void`](<#t_pp_static_extension-function-_fmtfloat>)
+  - [`function _fmtInteger( _v:stdgo.GoUInt64, _isSigned:Bool, _verb:stdgo.GoRune):Void`](<#t_pp-function-_fmtinteger>)
 
-  - [`function _fmtInteger(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _v:stdgo.GoUInt64, _isSigned:Bool, _verb:stdgo.GoRune):Void`](<#t_pp_static_extension-function-_fmtinteger>)
+  - [`function _fmtPointer( _value:stdgo.reflect.Value, _verb:stdgo.GoRune):Void`](<#t_pp-function-_fmtpointer>)
 
-  - [`function _fmtPointer(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _value:stdgo.reflect.Value, _verb:stdgo.GoRune):Void`](<#t_pp_static_extension-function-_fmtpointer>)
+  - [`function _fmtString( _v:stdgo.GoString, _verb:stdgo.GoRune):Void`](<#t_pp-function-_fmtstring>)
 
-  - [`function _fmtString(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _v:stdgo.GoString, _verb:stdgo.GoRune):Void`](<#t_pp_static_extension-function-_fmtstring>)
+  - [`function _free():Void`](<#t_pp-function-_free>)
 
-  - [`function _free(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>):Void`](<#t_pp_static_extension-function-_free>)
+  - [`function _handleMethods( _verb:stdgo.GoRune):Bool`](<#t_pp-function-_handlemethods>)
 
-  - [`function _handleMethods(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _verb:stdgo.GoRune):Bool`](<#t_pp_static_extension-function-_handlemethods>)
+  - [`function _missingArg( _verb:stdgo.GoRune):Void`](<#t_pp-function-_missingarg>)
 
-  - [`function _missingArg(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _verb:stdgo.GoRune):Void`](<#t_pp_static_extension-function-_missingarg>)
+  - [`function _printArg( _arg:stdgo.AnyInterface, _verb:stdgo.GoRune):Void`](<#t_pp-function-_printarg>)
 
-  - [`function _printArg(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _arg:stdgo.AnyInterface, _verb:stdgo.GoRune):Void`](<#t_pp_static_extension-function-_printarg>)
+  - [`function _printValue( _value:stdgo.reflect.Value, _verb:stdgo.GoRune, _depth:stdgo.GoInt):Void`](<#t_pp-function-_printvalue>)
 
-  - [`function _printValue(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _value:stdgo.reflect.Value, _verb:stdgo.GoRune, _depth:stdgo.GoInt):Void`](<#t_pp_static_extension-function-_printvalue>)
+  - [`function _unknownType( _v:stdgo.reflect.Value):Void`](<#t_pp-function-_unknowntype>)
 
-  - [`function _unknownType(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _v:stdgo.reflect.Value):Void`](<#t_pp_static_extension-function-_unknowntype>)
+  - [`function flag( _b:stdgo.GoInt):Bool`](<#t_pp-function-flag>)
 
-  - [`function flag(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _b:stdgo.GoInt):Bool`](<#t_pp_static_extension-function-flag>)
+  - [`function precision():{_1:Bool, _0:stdgo.GoInt}`](<#t_pp-function-precision>)
 
-  - [`function precision(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>):{_1:Bool, _0:stdgo.GoInt}`](<#t_pp_static_extension-function-precision>)
+  - [`function width():{_1:Bool, _0:stdgo.GoInt}`](<#t_pp-function-width>)
 
-  - [`function width(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>):{_1:Bool, _0:stdgo.GoInt}`](<#t_pp_static_extension-function-width>)
+  - [`function write( _b:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_pp-function-write>)
 
-  - [`function write(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _b:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_pp_static_extension-function-write>)
+  - [`function writeString( _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_pp-function-writestring>)
 
-  - [`function writeString(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_pp_static_extension-function-writestring>)
+- [class T\_readRune](<#class-t_readrune>)
 
-- [class T\_readRune\_static\_extension](<#class-t_readrune_static_extension>)
+  - [`function new(?_reader:Null<stdgo.io.Reader>, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_pending:Null<stdgo.GoInt>, ?_pendBuf:stdgo.GoArray<stdgo.GoUInt8>, ?_peekRune:stdgo.GoInt32):Void`](<#t_readrune-function-new>)
 
-  - [`function _readByte(_r:stdgo.Ref<stdgo.fmt._Fmt.T_readRune>):{_1:stdgo.Error, _0:stdgo.GoByte}`](<#t_readrune_static_extension-function-_readbyte>)
+  - [`function _readByte():{_1:stdgo.Error, _0:stdgo.GoByte}`](<#t_readrune-function-_readbyte>)
 
-  - [`function readRune(_r:stdgo.Ref<stdgo.fmt._Fmt.T_readRune>):{_2:stdgo.Error, _1:stdgo.GoInt, _0:stdgo.GoRune}`](<#t_readrune_static_extension-function-readrune>)
+  - [`function readRune():{_2:stdgo.Error, _1:stdgo.GoInt, _0:stdgo.GoRune}`](<#t_readrune-function-readrune>)
 
-  - [`function unreadRune(_r:stdgo.Ref<stdgo.fmt._Fmt.T_readRune>):stdgo.Error`](<#t_readrune_static_extension-function-unreadrune>)
+  - [`function unreadRune():stdgo.Error`](<#t_readrune-function-unreadrune>)
 
-- [class T\_ss\_static\_extension](<#class-t_ss_static_extension>)
+- [class T\_scanError](<#class-t_scanerror>)
 
-  - [`function _accept(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _ok:stdgo.GoString):Bool`](<#t_ss_static_extension-function-_accept>)
+  - [`function new(?_err:Null<stdgo.Error>):Void`](<#t_scanerror-function-new>)
 
-  - [`function _advance(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _format:stdgo.GoString):stdgo.GoInt`](<#t_ss_static_extension-function-_advance>)
+- [class T\_ss](<#class-t_ss>)
 
-  - [`function _complexTokens(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>):{_1:stdgo.GoString, _0:stdgo.GoString}`](<#t_ss_static_extension-function-_complextokens>)
+  - [`function new(?_rs:Null<stdgo.io.RuneScanner>, ?_buf:Null<stdgo.fmt._Fmt.T_buffer>, ?_count:Null<stdgo.GoInt>, ?_atEOF:Bool, ?_ssave:stdgo.fmt.T_ssave):Void`](<#t_ss-function-new>)
 
-  - [`function _consume(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _ok:stdgo.GoString, _accept:Bool):Bool`](<#t_ss_static_extension-function-_consume>)
+  - [`function _accept( _ok:stdgo.GoString):Bool`](<#t_ss-function-_accept>)
 
-  - [`function _convertFloat(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _str:stdgo.GoString, _n:stdgo.GoInt):stdgo.GoFloat64`](<#t_ss_static_extension-function-_convertfloat>)
+  - [`function _advance( _format:stdgo.GoString):stdgo.GoInt`](<#t_ss-function-_advance>)
 
-  - [`function _convertString(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _verb:stdgo.GoRune):stdgo.GoString`](<#t_ss_static_extension-function-_convertstring>)
+  - [`function _complexTokens():{_1:stdgo.GoString, _0:stdgo.GoString}`](<#t_ss-function-_complextokens>)
 
-  - [`function _doScan(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _a:stdgo.Slice<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_ss_static_extension-function-_doscan>)
+  - [`function _consume( _ok:stdgo.GoString, _accept:Bool):Bool`](<#t_ss-function-_consume>)
 
-  - [`function _doScanf(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _format:stdgo.GoString, _a:stdgo.Slice<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_ss_static_extension-function-_doscanf>)
+  - [`function _convertFloat( _str:stdgo.GoString, _n:stdgo.GoInt):stdgo.GoFloat64`](<#t_ss-function-_convertfloat>)
 
-  - [`function _error(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _err:stdgo.Error):Void`](<#t_ss_static_extension-function-_error>)
+  - [`function _convertString( _verb:stdgo.GoRune):stdgo.GoString`](<#t_ss-function-_convertstring>)
 
-  - [`function _errorString(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _err:stdgo.GoString):Void`](<#t_ss_static_extension-function-_errorstring>)
+  - [`function _doScan( _a:stdgo.Slice<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_ss-function-_doscan>)
 
-  - [`function _floatToken(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>):stdgo.GoString`](<#t_ss_static_extension-function-_floattoken>)
+  - [`function _doScanf( _format:stdgo.GoString, _a:stdgo.Slice<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_ss-function-_doscanf>)
 
-  - [`function _free(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _old:stdgo.fmt._Fmt.T_ssave):Void`](<#t_ss_static_extension-function-_free>)
+  - [`function _error( _err:stdgo.Error):Void`](<#t_ss-function-_error>)
 
-  - [`function _getBase(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _verb:stdgo.GoRune):{_1:stdgo.GoString, _0:stdgo.GoInt}`](<#t_ss_static_extension-function-_getbase>)
+  - [`function _errorString( _err:stdgo.GoString):Void`](<#t_ss-function-_errorstring>)
 
-  - [`function _getRune(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>):stdgo.GoRune`](<#t_ss_static_extension-function-_getrune>)
+  - [`function _floatToken():stdgo.GoString`](<#t_ss-function-_floattoken>)
 
-  - [`function _hexByte(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>):{_1:Bool, _0:stdgo.GoByte}`](<#t_ss_static_extension-function-_hexbyte>)
+  - [`function _free( _old:stdgo.fmt.T_ssave):Void`](<#t_ss-function-_free>)
 
-  - [`function _hexString(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>):stdgo.GoString`](<#t_ss_static_extension-function-_hexstring>)
+  - [`function _getBase( _verb:stdgo.GoRune):{_1:stdgo.GoString, _0:stdgo.GoInt}`](<#t_ss-function-_getbase>)
 
-  - [`function _mustReadRune(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>):stdgo.GoRune`](<#t_ss_static_extension-function-_mustreadrune>)
+  - [`function _getRune():stdgo.GoRune`](<#t_ss-function-_getrune>)
 
-  - [`function _notEOF(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>):Void`](<#t_ss_static_extension-function-_noteof>)
+  - [`function _hexByte():{_1:Bool, _0:stdgo.GoByte}`](<#t_ss-function-_hexbyte>)
 
-  - [`function _okVerb(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _verb:stdgo.GoRune, _okVerbs:stdgo.GoString, _typ:stdgo.GoString):Bool`](<#t_ss_static_extension-function-_okverb>)
+  - [`function _hexString():stdgo.GoString`](<#t_ss-function-_hexstring>)
 
-  - [`function _peek(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _ok:stdgo.GoString):Bool`](<#t_ss_static_extension-function-_peek>)
+  - [`function _mustReadRune():stdgo.GoRune`](<#t_ss-function-_mustreadrune>)
 
-  - [`function _quotedString(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>):stdgo.GoString`](<#t_ss_static_extension-function-_quotedstring>)
+  - [`function _notEOF():Void`](<#t_ss-function-_noteof>)
 
-  - [`function _scanBasePrefix(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>):{_2:Bool, _1:stdgo.GoString, _0:stdgo.GoInt}`](<#t_ss_static_extension-function-_scanbaseprefix>)
+  - [`function _okVerb( _verb:stdgo.GoRune, _okVerbs:stdgo.GoString, _typ:stdgo.GoString):Bool`](<#t_ss-function-_okverb>)
 
-  - [`function _scanBool(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _verb:stdgo.GoRune):Bool`](<#t_ss_static_extension-function-_scanbool>)
+  - [`function _peek( _ok:stdgo.GoString):Bool`](<#t_ss-function-_peek>)
 
-  - [`function _scanComplex(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _verb:stdgo.GoRune, _n:stdgo.GoInt):stdgo.GoComplex128`](<#t_ss_static_extension-function-_scancomplex>)
+  - [`function _quotedString():stdgo.GoString`](<#t_ss-function-_quotedstring>)
 
-  - [`function _scanInt(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _verb:stdgo.GoRune, _bitSize:stdgo.GoInt):stdgo.GoInt64`](<#t_ss_static_extension-function-_scanint>)
+  - [`function _scanBasePrefix():{_2:Bool, _1:stdgo.GoString, _0:stdgo.GoInt}`](<#t_ss-function-_scanbaseprefix>)
 
-  - [`function _scanNumber(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _digits:stdgo.GoString, _haveDigits:Bool):stdgo.GoString`](<#t_ss_static_extension-function-_scannumber>)
+  - [`function _scanBool( _verb:stdgo.GoRune):Bool`](<#t_ss-function-_scanbool>)
 
-  - [`function _scanOne(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _verb:stdgo.GoRune, _arg:stdgo.AnyInterface):Void`](<#t_ss_static_extension-function-_scanone>)
+  - [`function _scanComplex( _verb:stdgo.GoRune, _n:stdgo.GoInt):stdgo.GoComplex128`](<#t_ss-function-_scancomplex>)
 
-  - [`function _scanPercent(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>):Void`](<#t_ss_static_extension-function-_scanpercent>)
+  - [`function _scanInt( _verb:stdgo.GoRune, _bitSize:stdgo.GoInt):stdgo.GoInt64`](<#t_ss-function-_scanint>)
 
-  - [`function _scanRune(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _bitSize:stdgo.GoInt):stdgo.GoInt64`](<#t_ss_static_extension-function-_scanrune>)
+  - [`function _scanNumber( _digits:stdgo.GoString, _haveDigits:Bool):stdgo.GoString`](<#t_ss-function-_scannumber>)
 
-  - [`function _scanUint(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _verb:stdgo.GoRune, _bitSize:stdgo.GoInt):stdgo.GoUInt64`](<#t_ss_static_extension-function-_scanuint>)
+  - [`function _scanOne( _verb:stdgo.GoRune, _arg:stdgo.AnyInterface):Void`](<#t_ss-function-_scanone>)
 
-  - [`function _token(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _skipSpace:Bool, _f:()):stdgo.Slice<stdgo.GoByte>`](<#t_ss_static_extension-function-_token>)
+  - [`function _scanPercent():Void`](<#t_ss-function-_scanpercent>)
 
-  - [`function read(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _buf:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_ss_static_extension-function-read>)
+  - [`function _scanRune( _bitSize:stdgo.GoInt):stdgo.GoInt64`](<#t_ss-function-_scanrune>)
 
-  - [`function readRune(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>):{_2:stdgo.Error, _1:stdgo.GoInt, _0:stdgo.GoRune}`](<#t_ss_static_extension-function-readrune>)
+  - [`function _scanUint( _verb:stdgo.GoRune, _bitSize:stdgo.GoInt):stdgo.GoUInt64`](<#t_ss-function-_scanuint>)
 
-  - [`function skipSpace(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>):Void`](<#t_ss_static_extension-function-skipspace>)
+  - [`function _token( _skipSpace:Bool, _f:()):stdgo.Slice<stdgo.GoByte>`](<#t_ss-function-_token>)
 
-  - [`function token(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _skipSpace:Bool, _f:()):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoByte>}`](<#t_ss_static_extension-function-token>)
+  - [`function read( _buf:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_ss-function-read>)
 
-  - [`function unreadRune(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>):stdgo.Error`](<#t_ss_static_extension-function-unreadrune>)
+  - [`function readRune():{_2:stdgo.Error, _1:stdgo.GoInt, _0:stdgo.GoRune}`](<#t_ss-function-readrune>)
 
-  - [`function width(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>):{_1:Bool, _0:stdgo.GoInt}`](<#t_ss_static_extension-function-width>)
+  - [`function skipSpace():Void`](<#t_ss-function-skipspace>)
 
-- [class T\_stringReader\_static\_extension](<#class-t_stringreader_static_extension>)
+  - [`function token( _skipSpace:Bool, _f:()):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoByte>}`](<#t_ss-function-token>)
 
-  - [`function read(____:stdgo.fmt._Fmt.T_stringReader, _r:stdgo.Pointer<stdgo.fmt._Fmt.T_stringReader>, _b:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_stringreader_static_extension-function-read>)
+  - [`function unreadRune():stdgo.Error`](<#t_ss-function-unreadrune>)
 
-- [class T\_wrapError\_static\_extension](<#class-t_wraperror_static_extension>)
+  - [`function width():{_1:Bool, _0:stdgo.GoInt}`](<#t_ss-function-width>)
 
-  - [`function error(_e:stdgo.Ref<stdgo.fmt._Fmt.T_wrapError>):stdgo.GoString`](<#t_wraperror_static_extension-function-error>)
+- [class T\_ssave](<#class-t_ssave>)
 
-  - [`function unwrap(_e:stdgo.Ref<stdgo.fmt._Fmt.T_wrapError>):stdgo.Error`](<#t_wraperror_static_extension-function-unwrap>)
+  - [`function new(?_validSave:Bool, ?_nlIsEnd:Bool, ?_nlIsSpace:Bool, ?_argLimit:Null<stdgo.GoInt>, ?_limit:Null<stdgo.GoInt>, ?_maxWid:Null<stdgo.GoInt>):Void`](<#t_ssave-function-new>)
+
+- [class T\_wrapError](<#class-t_wraperror>)
+
+  - [`function new(?_msg:stdgo.GoString, ?_err:Null<stdgo.Error>):Void`](<#t_wraperror-function-new>)
+
+  - [`function error():stdgo.GoString`](<#t_wraperror-function-error>)
+
+  - [`function unwrap():stdgo.Error`](<#t_wraperror-function-unwrap>)
+
+- [class T\_wrapErrors](<#class-t_wraperrors>)
+
+  - [`function new(?_msg:stdgo.GoString, ?_errs:stdgo.Slice<stdgo.Error>):Void`](<#t_wraperrors-function-new>)
+
+  - [`function error():stdgo.GoString`](<#t_wraperrors-function-error>)
+
+  - [`function unwrap():stdgo.Slice<stdgo.Error>`](<#t_wraperrors-function-unwrap>)
 
 - [typedef Formatter](<#typedef-formatter>)
 
@@ -356,10 +1242,12 @@ function append(_b:stdgo.Slice<stdgo.GoByte>, _a:haxe.Rest<stdgo.AnyInterface>):
 ```
 
 
-Append formats using the default formats for its operands, appends the result to  the byte slice, and returns the updated slice. 
+Append formats using the default formats for its operands, appends the result to  
+the byte slice, and returns the updated slice.  
 
 
-[\(view code\)](<./Fmt.hx#L1139>)
+
+[\(view code\)](<./Fmt.hx#L1250>)
 
 
 ## function appendf
@@ -370,10 +1258,12 @@ function appendf(_b:stdgo.Slice<stdgo.GoByte>, _format:stdgo.GoString, _a:haxe.R
 ```
 
 
-Appendf formats according to a format specifier, appends the result to the byte  slice, and returns the updated slice. 
+Appendf formats according to a format specifier, appends the result to the byte  
+slice, and returns the updated slice.  
 
 
-[\(view code\)](<./Fmt.hx#L1083>)
+
+[\(view code\)](<./Fmt.hx#L1198>)
 
 
 ## function appendln
@@ -384,10 +1274,13 @@ function appendln(_b:stdgo.Slice<stdgo.GoByte>, _a:haxe.Rest<stdgo.AnyInterface>
 ```
 
 
-Appendln formats using the default formats for its operands, appends the result  to the byte slice, and returns the updated slice. Spaces are always added  between operands and a newline is appended. 
+Appendln formats using the default formats for its operands, appends the result  
+to the byte slice, and returns the updated slice. Spaces are always added  
+between operands and a newline is appended.  
 
 
-[\(view code\)](<./Fmt.hx#L1196>)
+
+[\(view code\)](<./Fmt.hx#L1303>)
 
 
 ## function errorf
@@ -398,7 +1291,19 @@ function errorf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.
 ```
 
 
-Errorf formats according to a format specifier and returns the string as a  value that satisfies error.    If the format specifier includes a %w verb with an error operand,  the returned error will implement an Unwrap method returning the operand. It is  invalid to include more than one %w verb or to supply it with an operand  that does not implement the error interface. The %w verb is otherwise  a synonym for %v. 
+Errorf formats according to a format specifier and returns the string as a  
+value that satisfies error.  
+
+
+
+If the format specifier includes a %w verb with an error operand,  
+the returned error will implement an Unwrap method returning the operand.  
+If there is more than one %w verb, the returned error will implement an  
+Unwrap method returning a \[\]error containing all the %w operands in the  
+order they appear in the arguments.  
+It is invalid to supply the %w verb with an operand that does not implement  
+the error interface. The %w verb is otherwise a synonym for %v.  
+
 
 
 ### exampleErrorf
@@ -410,10 +1315,10 @@ Errorf formats according to a format specifier and returns the string as a  valu
 
 ```haxe
 function exampleErrorf():Void {
-	{};
-	var _err:Error = stdgo.fmt.Fmt.errorf(("user %q (id %d) not found" : GoString), Go.toInterface(("bueller" : GoString)), Go.toInterface((17 : GoInt)));
-	stdgo.fmt.Fmt.println(Go.toInterface(_err.error()));
-}
+        {};
+        var _err:Error = stdgo.fmt.Fmt.errorf(("user %q (id %d) not found" : GoString), Go.toInterface(("bueller" : GoString)), Go.toInterface((17 : GoInt)));
+        stdgo.fmt.Fmt.println(Go.toInterface(_err.error()));
+    }
 ```
 
 
@@ -421,7 +1326,27 @@ function exampleErrorf():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L1011>)
+[\(view code\)](<./Fmt.hx#L1069>)
+
+
+## function formatString
+
+
+```haxe
+function formatString(_state:stdgo.fmt.State, _verb:stdgo.GoRune):stdgo.GoString
+```
+
+
+FormatString returns a string representing the fully qualified formatting  
+directive captured by the State, followed by the argument verb. \(State does not  
+itself contain the verb.\) The result has a leading percent sign followed by any  
+flags, the width, and the precision. Missing flags, width, and precision are  
+omitted. This function allows a Formatter to reconstruct the original  
+directive triggering the call to Format.  
+
+
+
+[\(view code\)](<./Fmt.hx#L1122>)
 
 
 ## function fprint
@@ -432,7 +1357,10 @@ function fprint(_w:stdgo.io.Writer, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.
 ```
 
 
-Fprint formats using the default formats for its operands and writes to w.  Spaces are added between operands when neither is a string.  It returns the number of bytes written and any write error encountered. 
+Fprint formats using the default formats for its operands and writes to w.  
+Spaces are added between operands when neither is a string.  
+It returns the number of bytes written and any write error encountered.  
+
 
 
 ### exampleFprint
@@ -444,16 +1372,13 @@ Fprint formats using the default formats for its operands and writes to w.  Spac
 
 ```haxe
 function exampleFprint():Void {
-	{};
-	var __tmp__ = stdgo.fmt.Fmt.fprint(Go.asInterface(stdgo.os.Os.stdout), Go.toInterface(("Kim" : GoString)), Go.toInterface((" is " : GoString)),
-		Go.toInterface((22 : GoInt)), Go.toInterface((" years old.\n" : GoString))),
-		_n:GoInt = __tmp__._0,
-		_err:Error = __tmp__._1;
-	if (_err != null) {
-		stdgo.fmt.Fmt.fprintf(Go.asInterface(stdgo.os.Os.stderr), ("Fprint: %v\n" : GoString), Go.toInterface(_err));
-	};
-	stdgo.fmt.Fmt.print(Go.toInterface(_n), Go.toInterface((" bytes written.\n" : GoString)));
-}
+        {};
+        var __tmp__ = stdgo.fmt.Fmt.fprint(Go.asInterface(stdgo.os.Os.stdout), Go.toInterface(("Kim" : GoString)), Go.toInterface((" is " : GoString)), Go.toInterface((22 : GoInt)), Go.toInterface((" years old.\n" : GoString))), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+        if (_err != null) {
+            stdgo.fmt.Fmt.fprintf(Go.asInterface(stdgo.os.Os.stderr), ("Fprint: %v\n" : GoString), Go.toInterface(_err));
+        };
+        stdgo.fmt.Fmt.print(Go.toInterface(_n), Go.toInterface((" bytes written.\n" : GoString)));
+    }
 ```
 
 
@@ -461,7 +1386,7 @@ function exampleFprint():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L1097>)
+[\(view code\)](<./Fmt.hx#L1211>)
 
 
 ## function fprintf
@@ -472,7 +1397,9 @@ function fprintf(_w:stdgo.io.Writer, _format:stdgo.GoString, _a:haxe.Rest<stdgo.
 ```
 
 
-Fprintf formats according to a format specifier and writes to w.  It returns the number of bytes written and any write error encountered. 
+Fprintf formats according to a format specifier and writes to w.  
+It returns the number of bytes written and any write error encountered.  
+
 
 
 ### exampleFprintf
@@ -484,16 +1411,13 @@ Fprintf formats according to a format specifier and writes to w.  It returns the
 
 ```haxe
 function exampleFprintf():Void {
-	{};
-	var __tmp__ = stdgo.fmt.Fmt.fprintf(Go.asInterface(stdgo.os.Os.stdout), ("%s is %d years old.\n" : GoString), Go.toInterface(("Kim" : GoString)),
-		Go.toInterface((22 : GoInt))),
-		_n:GoInt = __tmp__._0,
-		_err:Error = __tmp__._1;
-	if (_err != null) {
-		stdgo.fmt.Fmt.fprintf(Go.asInterface(stdgo.os.Os.stderr), ("Fprintf: %v\n" : GoString), Go.toInterface(_err));
-	};
-	stdgo.fmt.Fmt.printf(("%d bytes written.\n" : GoString), Go.toInterface(_n));
-}
+        {};
+        var __tmp__ = stdgo.fmt.Fmt.fprintf(Go.asInterface(stdgo.os.Os.stdout), ("%s is %d years old.\n" : GoString), Go.toInterface(("Kim" : GoString)), Go.toInterface((22 : GoInt))), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+        if (_err != null) {
+            stdgo.fmt.Fmt.fprintf(Go.asInterface(stdgo.os.Os.stderr), ("Fprintf: %v\n" : GoString), Go.toInterface(_err));
+        };
+        stdgo.fmt.Fmt.printf(("%d bytes written.\n" : GoString), Go.toInterface(_n));
+    }
 ```
 
 
@@ -501,7 +1425,7 @@ function exampleFprintf():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L1043>)
+[\(view code\)](<./Fmt.hx#L1161>)
 
 
 ## function fprintln
@@ -512,7 +1436,10 @@ function fprintln(_w:stdgo.io.Writer, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdg
 ```
 
 
-Fprintln formats using the default formats for its operands and writes to w.  Spaces are always added between operands and a newline is appended.  It returns the number of bytes written and any write error encountered. 
+Fprintln formats using the default formats for its operands and writes to w.  
+Spaces are always added between operands and a newline is appended.  
+It returns the number of bytes written and any write error encountered.  
+
 
 
 ### exampleFprintln
@@ -524,16 +1451,13 @@ Fprintln formats using the default formats for its operands and writes to w.  Sp
 
 ```haxe
 function exampleFprintln():Void {
-	{};
-	var __tmp__ = stdgo.fmt.Fmt.fprintln(Go.asInterface(stdgo.os.Os.stdout), Go.toInterface(("Kim" : GoString)), Go.toInterface(("is" : GoString)),
-		Go.toInterface((22 : GoInt)), Go.toInterface(("years old." : GoString))),
-		_n:GoInt = __tmp__._0,
-		_err:Error = __tmp__._1;
-	if (_err != null) {
-		stdgo.fmt.Fmt.fprintf(Go.asInterface(stdgo.os.Os.stderr), ("Fprintln: %v\n" : GoString), Go.toInterface(_err));
-	};
-	stdgo.fmt.Fmt.println(Go.toInterface(_n), Go.toInterface(("bytes written." : GoString)));
-}
+        {};
+        var __tmp__ = stdgo.fmt.Fmt.fprintln(Go.asInterface(stdgo.os.Os.stdout), Go.toInterface(("Kim" : GoString)), Go.toInterface(("is" : GoString)), Go.toInterface((22 : GoInt)), Go.toInterface(("years old." : GoString))), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+        if (_err != null) {
+            stdgo.fmt.Fmt.fprintf(Go.asInterface(stdgo.os.Os.stderr), ("Fprintln: %v\n" : GoString), Go.toInterface(_err));
+        };
+        stdgo.fmt.Fmt.println(Go.toInterface(_n), Go.toInterface(("bytes written." : GoString)));
+    }
 ```
 
 
@@ -541,7 +1465,7 @@ function exampleFprintln():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L1153>)
+[\(view code\)](<./Fmt.hx#L1263>)
 
 
 ## function fscan
@@ -552,10 +1476,14 @@ function fscan(_r:stdgo.io.Reader, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.E
 ```
 
 
-Fscan scans text read from r, storing successive space\-separated  values into successive arguments. Newlines count as space. It  returns the number of items successfully scanned. If that is less  than the number of arguments, err will report why. 
+Fscan scans text read from r, storing successive space\-separated  
+values into successive arguments. Newlines count as space. It  
+returns the number of items successfully scanned. If that is less  
+than the number of arguments, err will report why.  
 
 
-[\(view code\)](<./Fmt.hx#L1419>)
+
+[\(view code\)](<./Fmt.hx#L1491>)
 
 
 ## function fscanf
@@ -566,7 +1494,11 @@ function fscanf(_r:stdgo.io.Reader, _format:stdgo.GoString, _a:haxe.Rest<stdgo.A
 ```
 
 
-Fscanf scans text read from r, storing successive space\-separated  values into successive arguments as determined by the format. It  returns the number of items successfully parsed.  Newlines in the input must match newlines in the format. 
+Fscanf scans text read from r, storing successive space\-separated  
+values into successive arguments as determined by the format. It  
+returns the number of items successfully parsed.  
+Newlines in the input must match newlines in the format.  
+
 
 
 ### exampleFscanf
@@ -578,23 +1510,15 @@ Fscanf scans text read from r, storing successive space\-separated  values into 
 
 ```haxe
 function exampleFscanf():Void {
-	var _0:GoInt = (0 : GoInt),
-		_1:Bool = false,
-		_2:GoString = ("" : GoString),
-		_s:GoString = _2,
-		_b:Bool = _1,
-		_i:GoInt = _0;
-	var _r = stdgo.strings.Strings.newReader(("5 true gophers" : GoString));
-	var __tmp__ = stdgo.fmt.Fmt.fscanf(Go.asInterface(_r), ("%d %t %s" : GoString), Go.toInterface(Go.pointer(_i)), Go.toInterface(Go.pointer(_b)),
-		Go.toInterface(Go.pointer(_s))),
-		_n:GoInt = __tmp__._0,
-		_err:Error = __tmp__._1;
-	if (_err != null) {
-		stdgo.fmt.Fmt.fprintf(Go.asInterface(stdgo.os.Os.stderr), ("Fscanf: %v\n" : GoString), Go.toInterface(_err));
-	};
-	stdgo.fmt.Fmt.println(Go.toInterface(_i), Go.toInterface(_b), Go.toInterface(_s));
-	stdgo.fmt.Fmt.println(Go.toInterface(_n));
-}
+        var _0:GoInt = (0 : GoInt), _1:Bool = false, _2:GoString = ("" : GoString), _s:GoString = _2, _b:Bool = _1, _i:GoInt = _0;
+        var _r = stdgo.strings.Strings.newReader(("5 true gophers" : GoString));
+        var __tmp__ = stdgo.fmt.Fmt.fscanf(Go.asInterface(_r), ("%d %t %s" : GoString), Go.toInterface(Go.pointer(_i)), Go.toInterface(Go.pointer(_b)), Go.toInterface(Go.pointer(_s))), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+        if (_err != null) {
+            stdgo.fmt.Fmt.fprintf(Go.asInterface(stdgo.os.Os.stderr), ("Fscanf: %v\n" : GoString), Go.toInterface(_err));
+        };
+        stdgo.fmt.Fmt.println(Go.toInterface(_i), Go.toInterface(_b), Go.toInterface(_s));
+        stdgo.fmt.Fmt.println(Go.toInterface(_n));
+    }
 ```
 
 
@@ -602,7 +1526,7 @@ function exampleFscanf():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L1459>)
+[\(view code\)](<./Fmt.hx#L1525>)
 
 
 ## function fscanln
@@ -613,7 +1537,9 @@ function fscanln(_r:stdgo.io.Reader, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo
 ```
 
 
-Fscanln is similar to Fscan, but stops scanning at a newline and  after the final item there must be a newline or EOF. 
+Fscanln is similar to Fscan, but stops scanning at a newline and  
+after the final item there must be a newline or EOF.  
+
 
 
 ### exampleFscanln
@@ -625,25 +1551,22 @@ Fscanln is similar to Fscan, but stops scanning at a newline and  after the fina
 
 ```haxe
 function exampleFscanln():Void {
-	var _s:GoString = ("dmr 1771 1.61803398875\n\tken 271828 3.14159" : GoString);
-	var _r = stdgo.strings.Strings.newReader(_s);
-	var _a:GoString = ("" : GoString);
-	var _b:GoInt = (0 : GoInt);
-	var _c:GoFloat64 = (0 : GoFloat64);
-	while (true) {
-		var __tmp__ = stdgo.fmt.Fmt.fscanln(Go.asInterface(_r), Go.toInterface(Go.pointer(_a)), Go.toInterface(Go.pointer(_b)),
-			Go.toInterface(Go.pointer(_c))),
-			_n:GoInt = __tmp__._0,
-			_err:Error = __tmp__._1;
-		if (Go.toInterface(_err) == (Go.toInterface(stdgo.io.Io.eof))) {
-			break;
-		};
-		if (_err != null) {
-			throw Go.toInterface(_err);
-		};
-		stdgo.fmt.Fmt.printf(("%d: %s, %d, %f\n" : GoString), Go.toInterface(_n), Go.toInterface(_a), Go.toInterface(_b), Go.toInterface(_c));
-	};
-}
+        var _s:GoString = ("dmr 1771 1.61803398875\n\tken 271828 3.14159" : GoString);
+        var _r = stdgo.strings.Strings.newReader(_s);
+        var _a:GoString = ("" : GoString);
+        var _b:GoInt = (0 : GoInt);
+        var _c:GoFloat64 = (0 : GoFloat64);
+        while (true) {
+            var __tmp__ = stdgo.fmt.Fmt.fscanln(Go.asInterface(_r), Go.toInterface(Go.pointer(_a)), Go.toInterface(Go.pointer(_b)), Go.toInterface(Go.pointer(_c))), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+            if (Go.toInterface(_err) == (Go.toInterface(stdgo.io.Io.eof))) {
+                break;
+            };
+            if (_err != null) {
+                throw Go.toInterface(_err);
+            };
+            stdgo.fmt.Fmt.printf(("%d: %s, %d, %f\n" : GoString), Go.toInterface(_n), Go.toInterface(_a), Go.toInterface(_b), Go.toInterface(_c));
+        };
+    }
 ```
 
 
@@ -651,35 +1574,35 @@ function exampleFscanln():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L1438>)
+[\(view code\)](<./Fmt.hx#L1507>)
 
 
 ## function isSpace
 
 
 ```haxe
-function isSpace()
+function isSpace(_r:stdgo.GoRune):Bool
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L425>)
+
+[\(view code\)](<./Fmt.hx#L444>)
 
 
 ## function parsenum
 
 
 ```haxe
-function parsenum(:stdgo.GoString, :stdgo.GoInt, :stdgo.GoInt):{_2:stdgo.GoInt, _1:Bool, _0:stdgo.GoInt}
+function parsenum(_s:stdgo.GoString, _start:stdgo.GoInt, _end:stdgo.GoInt):{_2:stdgo.GoInt, _1:Bool, _0:stdgo.GoInt}
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L431>)
+
+[\(view code\)](<./Fmt.hx#L450>)
 
 
 ## function print
@@ -690,7 +1613,10 @@ function print(_a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt
 ```
 
 
-Print formats using the default formats for its operands and writes to standard output.  Spaces are added between operands when neither is a string.  It returns the number of bytes written and any write error encountered. 
+Print formats using the default formats for its operands and writes to standard output.  
+Spaces are added between operands when neither is a string.  
+It returns the number of bytes written and any write error encountered.  
+
 
 
 ### examplePrint
@@ -702,10 +1628,9 @@ Print formats using the default formats for its operands and writes to standard 
 
 ```haxe
 function examplePrint():Void {
-	{};
-	stdgo.fmt.Fmt.print(Go.toInterface(("Kim" : GoString)), Go.toInterface((" is " : GoString)), Go.toInterface((22 : GoInt)),
-		Go.toInterface((" years old.\n" : GoString)));
-}
+        {};
+        stdgo.fmt.Fmt.print(Go.toInterface(("Kim" : GoString)), Go.toInterface((" is " : GoString)), Go.toInterface((22 : GoInt)), Go.toInterface((" years old.\n" : GoString)));
+    }
 ```
 
 
@@ -713,7 +1638,7 @@ function examplePrint():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L1116>)
+[\(view code\)](<./Fmt.hx#L1229>)
 
 
 ## function printf
@@ -724,7 +1649,9 @@ function printf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{_1:st
 ```
 
 
-Printf formats according to a format specifier and writes to standard output.  It returns the number of bytes written and any write error encountered. 
+Printf formats according to a format specifier and writes to standard output.  
+It returns the number of bytes written and any write error encountered.  
+
 
 
 ### examplePrintf
@@ -736,9 +1663,9 @@ Printf formats according to a format specifier and writes to standard output.  I
 
 ```haxe
 function examplePrintf():Void {
-	{};
-	stdgo.fmt.Fmt.printf(("%s is %d years old.\n" : GoString), Go.toInterface(("Kim" : GoString)), Go.toInterface((22 : GoInt)));
-}
+        {};
+        stdgo.fmt.Fmt.printf(("%s is %d years old.\n" : GoString), Go.toInterface(("Kim" : GoString)), Go.toInterface((22 : GoInt)));
+    }
 ```
 
 
@@ -746,7 +1673,7 @@ function examplePrintf():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L1061>)
+[\(view code\)](<./Fmt.hx#L1178>)
 
 
 ## function println
@@ -757,7 +1684,10 @@ function println(_a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoI
 ```
 
 
-Println formats using the default formats for its operands and writes to standard output.  Spaces are always added between operands and a newline is appended.  It returns the number of bytes written and any write error encountered. 
+Println formats using the default formats for its operands and writes to standard output.  
+Spaces are always added between operands and a newline is appended.  
+It returns the number of bytes written and any write error encountered.  
+
 
 
 ### examplePrintln
@@ -769,10 +1699,9 @@ Println formats using the default formats for its operands and writes to standar
 
 ```haxe
 function examplePrintln():Void {
-	{};
-	stdgo.fmt.Fmt.println(Go.toInterface(("Kim" : GoString)), Go.toInterface(("is" : GoString)), Go.toInterface((22 : GoInt)),
-		Go.toInterface(("years old." : GoString)));
-}
+        {};
+        stdgo.fmt.Fmt.println(Go.toInterface(("Kim" : GoString)), Go.toInterface(("is" : GoString)), Go.toInterface((22 : GoInt)), Go.toInterface(("years old." : GoString)));
+    }
 ```
 
 
@@ -780,7 +1709,7 @@ function examplePrintln():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L1172>)
+[\(view code\)](<./Fmt.hx#L1281>)
 
 
 ## function scan
@@ -791,10 +1720,14 @@ function scan(_a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}
 ```
 
 
-Scan scans text read from standard input, storing successive  space\-separated values into successive arguments. Newlines count  as space. It returns the number of items successfully scanned.  If that is less than the number of arguments, err will report why. 
+Scan scans text read from standard input, storing successive  
+space\-separated values into successive arguments. Newlines count  
+as space. It returns the number of items successfully scanned.  
+If that is less than the number of arguments, err will report why.  
 
 
-[\(view code\)](<./Fmt.hx#L1342>)
+
+[\(view code\)](<./Fmt.hx#L1426>)
 
 
 ## function scanf
@@ -805,10 +1738,17 @@ function scanf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{_1:std
 ```
 
 
-Scanf scans text read from standard input, storing successive  space\-separated values into successive arguments as determined by  the format. It returns the number of items successfully scanned.  If that is less than the number of arguments, err will report why.  Newlines in the input must match newlines in the format.  The one exception: the verb %c always scans the next rune in the  input, even if it is a space \(or tab etc.\) or newline. 
+Scanf scans text read from standard input, storing successive  
+space\-separated values into successive arguments as determined by  
+the format. It returns the number of items successfully scanned.  
+If that is less than the number of arguments, err will report why.  
+Newlines in the input must match newlines in the format.  
+The one exception: the verb %c always scans the next rune in the  
+input, even if it is a space \(or tab etc.\) or newline.  
 
 
-[\(view code\)](<./Fmt.hx#L1367>)
+
+[\(view code\)](<./Fmt.hx#L1449>)
 
 
 ## function scanln
@@ -819,10 +1759,12 @@ function scanln(_a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoIn
 ```
 
 
-Scanln is similar to Scan, but stops scanning at a newline and  after the final item there must be a newline or EOF. 
+Scanln is similar to Scan, but stops scanning at a newline and  
+after the final item there must be a newline or EOF.  
 
 
-[\(view code\)](<./Fmt.hx#L1352>)
+
+[\(view code\)](<./Fmt.hx#L1435>)
 
 
 ## function sprint
@@ -833,7 +1775,9 @@ function sprint(_a:haxe.Rest<stdgo.AnyInterface>):stdgo.GoString
 ```
 
 
-Sprint formats using the default formats for its operands and returns the resulting string.  Spaces are added between operands when neither is a string. 
+Sprint formats using the default formats for its operands and returns the resulting string.  
+Spaces are added between operands when neither is a string.  
+
 
 
 ### exampleSprint
@@ -845,11 +1789,10 @@ Sprint formats using the default formats for its operands and returns the result
 
 ```haxe
 function exampleSprint():Void {
-	{};
-	var _s:GoString = stdgo.fmt.Fmt.sprint(Go.toInterface(("Kim" : GoString)), Go.toInterface((" is " : GoString)), Go.toInterface((22 : GoInt)),
-		Go.toInterface((" years old.\n" : GoString)));
-	stdgo.io.Io.writeString(Go.asInterface(stdgo.os.Os.stdout), _s);
-}
+        {};
+        var _s:GoString = stdgo.fmt.Fmt.sprint(Go.toInterface(("Kim" : GoString)), Go.toInterface((" is " : GoString)), Go.toInterface((22 : GoInt)), Go.toInterface((" years old.\n" : GoString)));
+        stdgo.io.Io.writeString(Go.asInterface(stdgo.os.Os.stdout), _s);
+    }
 ```
 
 
@@ -857,7 +1800,7 @@ function exampleSprint():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L1126>)
+[\(view code\)](<./Fmt.hx#L1238>)
 
 
 ## function sprintf
@@ -868,7 +1811,8 @@ function sprintf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):stdgo
 ```
 
 
-Sprintf formats according to a format specifier and returns the resulting string. 
+Sprintf formats according to a format specifier and returns the resulting string.  
+
 
 
 ### exampleSprintf
@@ -880,10 +1824,10 @@ Sprintf formats according to a format specifier and returns the resulting string
 
 ```haxe
 function exampleSprintf():Void {
-	{};
-	var _s:GoString = stdgo.fmt.Fmt.sprintf(("%s is %d years old.\n" : GoString), Go.toInterface(("Kim" : GoString)), Go.toInterface((22 : GoInt)));
-	stdgo.io.Io.writeString(Go.asInterface(stdgo.os.Os.stdout), _s);
-}
+        {};
+        var _s:GoString = stdgo.fmt.Fmt.sprintf(("%s is %d years old.\n" : GoString), Go.toInterface(("Kim" : GoString)), Go.toInterface((22 : GoInt)));
+        stdgo.io.Io.writeString(Go.asInterface(stdgo.os.Os.stdout), _s);
+    }
 ```
 
 
@@ -891,7 +1835,7 @@ function exampleSprintf():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L1070>)
+[\(view code\)](<./Fmt.hx#L1186>)
 
 
 ## function sprintln
@@ -902,7 +1846,9 @@ function sprintln(_a:haxe.Rest<stdgo.AnyInterface>):stdgo.GoString
 ```
 
 
-Sprintln formats using the default formats for its operands and returns the resulting string.  Spaces are always added between operands and a newline is appended. 
+Sprintln formats using the default formats for its operands and returns the resulting string.  
+Spaces are always added between operands and a newline is appended.  
+
 
 
 ### exampleSprintln
@@ -914,11 +1860,10 @@ Sprintln formats using the default formats for its operands and returns the resu
 
 ```haxe
 function exampleSprintln():Void {
-	{};
-	var _s:GoString = stdgo.fmt.Fmt.sprintln(Go.toInterface(("Kim" : GoString)), Go.toInterface(("is" : GoString)), Go.toInterface((22 : GoInt)),
-		Go.toInterface(("years old." : GoString)));
-	stdgo.io.Io.writeString(Go.asInterface(stdgo.os.Os.stdout), _s);
-}
+        {};
+        var _s:GoString = stdgo.fmt.Fmt.sprintln(Go.toInterface(("Kim" : GoString)), Go.toInterface(("is" : GoString)), Go.toInterface((22 : GoInt)), Go.toInterface(("years old." : GoString)));
+        stdgo.io.Io.writeString(Go.asInterface(stdgo.os.Os.stdout), _s);
+    }
 ```
 
 
@@ -926,7 +1871,7 @@ function exampleSprintln():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L1182>)
+[\(view code\)](<./Fmt.hx#L1290>)
 
 
 ## function sscan
@@ -937,10 +1882,14 @@ function sscan(_str:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.
 ```
 
 
-Sscan scans the argument string, storing successive space\-separated  values into successive arguments. Newlines count as space. It  returns the number of items successfully scanned. If that is less  than the number of arguments, err will report why. 
+Sscan scans the argument string, storing successive space\-separated  
+values into successive arguments. Newlines count as space. It  
+returns the number of items successfully scanned. If that is less  
+than the number of arguments, err will report why.  
 
 
-[\(view code\)](<./Fmt.hx#L1379>)
+
+[\(view code\)](<./Fmt.hx#L1460>)
 
 
 ## function sscanf
@@ -951,7 +1900,11 @@ function sscanf(_str:stdgo.GoString, _format:stdgo.GoString, _a:haxe.Rest<stdgo.
 ```
 
 
-Sscanf scans the argument string, storing successive space\-separated  values into successive arguments as determined by the format. It  returns the number of items successfully parsed.  Newlines in the input must match newlines in the format. 
+Sscanf scans the argument string, storing successive space\-separated  
+values into successive arguments as determined by the format. It  
+returns the number of items successfully parsed.  
+Newlines in the input must match newlines in the format.  
+
 
 
 ### exampleSscanf
@@ -963,17 +1916,14 @@ Sscanf scans the argument string, storing successive space\-separated  values in
 
 ```haxe
 function exampleSscanf():Void {
-	var _name:GoString = ("" : GoString);
-	var _age:GoInt = (0 : GoInt);
-	var __tmp__ = stdgo.fmt.Fmt.sscanf(("Kim is 22 years old" : GoString), ("%s is %d years old" : GoString), Go.toInterface(Go.pointer(_name)),
-		Go.toInterface(Go.pointer(_age))),
-		_n:GoInt = __tmp__._0,
-		_err:Error = __tmp__._1;
-	if (_err != null) {
-		throw Go.toInterface(_err);
-	};
-	stdgo.fmt.Fmt.printf(("%d: %s, %d\n" : GoString), Go.toInterface(_n), Go.toInterface(_name), Go.toInterface(_age));
-}
+        var _name:GoString = ("" : GoString);
+        var _age:GoInt = (0 : GoInt);
+        var __tmp__ = stdgo.fmt.Fmt.sscanf(("Kim is 22 years old" : GoString), ("%s is %d years old" : GoString), Go.toInterface(Go.pointer(_name)), Go.toInterface(Go.pointer(_age))), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+        if (_err != null) {
+            throw Go.toInterface(_err);
+        };
+        stdgo.fmt.Fmt.printf(("%d: %s, %d\n" : GoString), Go.toInterface(_n), Go.toInterface(_name), Go.toInterface(_age));
+    }
 ```
 
 
@@ -981,7 +1931,7 @@ function exampleSscanf():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L1405>)
+[\(view code\)](<./Fmt.hx#L1480>)
 
 
 ## function sscanln
@@ -992,10 +1942,12 @@ function sscanln(_str:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdg
 ```
 
 
-Sscanln is similar to Sscan, but stops scanning at a newline and  after the final item there must be a newline or EOF. 
+Sscanln is similar to Sscan, but stops scanning at a newline and  
+after the final item there must be a newline or EOF.  
 
 
-[\(view code\)](<./Fmt.hx#L1391>)
+
+[\(view code\)](<./Fmt.hx#L1469>)
 
 
 # Classes
@@ -1006,1334 +1958,1823 @@ import stdgo.fmt.*
 ```
 
 
-## class T\_buffer\_static\_extension
+## class T\_fmt
 
 
- 
+A fmt is the raw formatter used by Printf etc.  
+It prints into a buffer that must be set up separately.  
 
-
-### T\_buffer\_static\_extension function \_write
-
-
-```haxe
-function _write(_b:stdgo.Ref<stdgo.fmt._Fmt.T_buffer>, _p:stdgo.Slice<stdgo.GoByte>):Void
-```
-
-
- 
-
-
-[\(view code\)](<./Fmt.hx#L5253>)
-
-
-### T\_buffer\_static\_extension function \_writeByte
 
 
 ```haxe
-function _writeByte(_b:stdgo.Ref<stdgo.fmt._Fmt.T_buffer>, _c:stdgo.GoByte):Void
+var _buf:stdgo.Ref<stdgo.fmt._Fmt.T_buffer>
 ```
-
-
- 
-
-
-[\(view code\)](<./Fmt.hx#L5243>)
-
-
-### T\_buffer\_static\_extension function \_writeRune
 
 
 ```haxe
-function _writeRune(_bp:stdgo.Ref<stdgo.fmt._Fmt.T_buffer>, _r:stdgo.GoRune):Void
+var _fmtFlags:stdgo.fmt.T_fmtFlags
 ```
-
-
- 
-
-
-[\(view code\)](<./Fmt.hx#L5228>)
-
-
-### T\_buffer\_static\_extension function \_writeString
 
 
 ```haxe
-function _writeString(_b:stdgo.Ref<stdgo.fmt._Fmt.T_buffer>, _s:stdgo.GoString):Void
+var _intbuf:stdgo.GoArray<stdgo.GoUInt8>
 ```
 
 
- 
+intbuf is large enough to store %b of an int64 with a sign and  
+avoids padding at the end of the struct on 32 bit architectures.  
 
-
-[\(view code\)](<./Fmt.hx#L5248>)
-
-
-## class T\_fmt\_static\_extension
-
-
- 
-
-
-### T\_fmt\_static\_extension function \_clearflags
 
 
 ```haxe
-function _clearflags(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>):Void
+var _prec:stdgo.GoInt
 ```
-
-
- 
-
-
-[\(view code\)](<./Fmt.hx#L2325>)
-
-
-### T\_fmt\_static\_extension function \_fmtBoolean
 
 
 ```haxe
-function _fmtBoolean(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _v:Bool):Void
+var _wid:stdgo.GoInt
 ```
 
 
-fmtBoolean formats a boolean. 
-
-
-[\(view code\)](<./Fmt.hx#L2244>)
-
-
-### T\_fmt\_static\_extension function \_fmtBs
+### T\_fmt function new
 
 
 ```haxe
-function _fmtBs(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _b:stdgo.Slice<stdgo.GoByte>):Void
+function new(?_buf:Null<stdgo.Ref<stdgo.fmt._Fmt.T_buffer>>, ?_fmtFlags:stdgo.fmt.T_fmtFlags, ?_wid:Null<stdgo.GoInt>, ?_prec:Null<stdgo.GoInt>, ?_intbuf:stdgo.GoArray<stdgo.GoUInt8>):Void
 ```
 
 
-fmtBs formats the byte slice b as if it was formatted as string with fmtS. 
 
 
-[\(view code\)](<./Fmt.hx#L2025>)
+
+[\(view code\)](<./Fmt.hx#L889>)
 
 
-### T\_fmt\_static\_extension function \_fmtBx
+### T\_fmt function \_clearflags
 
 
 ```haxe
-function _fmtBx(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _b:stdgo.Slice<stdgo.GoByte>, _digits:stdgo.GoString):Void
+function _clearflags():Void
 ```
 
 
-fmtBx formats a byte slice as a hexadecimal encoding of its bytes. 
 
 
-[\(view code\)](<./Fmt.hx#L1950>)
+
+[\(view code\)](<./Fmt.hx#L2320>)
 
 
-### T\_fmt\_static\_extension function \_fmtC
+### T\_fmt function \_fmtBoolean
 
 
 ```haxe
-function _fmtC(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _c:stdgo.GoUInt64):Void
+function _fmtBoolean( _v:Bool):Void
 ```
 
 
-fmtC formats an integer as a Unicode character.   If the character is not valid Unicode, it will print '\\ufffd'. 
+fmtBoolean formats a boolean.  
 
 
-[\(view code\)](<./Fmt.hx#L1916>)
+
+[\(view code\)](<./Fmt.hx#L2246>)
 
 
-### T\_fmt\_static\_extension function \_fmtFloat
+### T\_fmt function \_fmtBs
 
 
 ```haxe
-function _fmtFloat(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _v:stdgo.GoFloat64, _size:stdgo.GoInt, _verb:stdgo.GoRune, _prec:stdgo.GoInt):Void
+function _fmtBs( _b:stdgo.Slice<stdgo.GoByte>):Void
 ```
 
 
-fmtFloat formats a float64. It assumes that verb is a valid format specifier   for strconv.AppendFloat and therefore fits into a byte. 
+fmtBs formats the byte slice b as if it was formatted as string with fmtS.  
 
 
-[\(view code\)](<./Fmt.hx#L1789>)
+
+[\(view code\)](<./Fmt.hx#L2033>)
 
 
-### T\_fmt\_static\_extension function \_fmtInteger
+### T\_fmt function \_fmtBx
 
 
 ```haxe
-function _fmtInteger(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _u:stdgo.GoUInt64, _base:stdgo.GoInt, _isSigned:Bool, _verb:stdgo.GoRune, _digits:stdgo.GoString):Void
+function _fmtBx( _b:stdgo.Slice<stdgo.GoByte>, _digits:stdgo.GoString):Void
 ```
 
 
-fmtInteger formats signed and unsigned integers. 
+fmtBx formats a byte slice as a hexadecimal encoding of its bytes.  
 
 
-[\(view code\)](<./Fmt.hx#L2088>)
+
+[\(view code\)](<./Fmt.hx#L1961>)
 
 
-### T\_fmt\_static\_extension function \_fmtQ
+### T\_fmt function \_fmtC
 
 
 ```haxe
-function _fmtQ(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _s:stdgo.GoString):Void
+function _fmtC( _c:stdgo.GoUInt64):Void
 ```
 
 
-fmtQ formats a string as a double\-quoted, escaped Go string constant.   If f.sharp is set a raw \(backquoted\) string may be returned instead   if the string does not contain any control characters other than tab. 
+fmtC formats an integer as a Unicode character.  
+If the character is not valid Unicode, it will print '\\ufffd'.  
 
 
-[\(view code\)](<./Fmt.hx#L1932>)
+
+[\(view code\)](<./Fmt.hx#L1930>)
 
 
-### T\_fmt\_static\_extension function \_fmtQc
+### T\_fmt function \_fmtFloat
 
 
 ```haxe
-function _fmtQc(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _c:stdgo.GoUInt64):Void
+function _fmtFloat( _v:stdgo.GoFloat64, _size:stdgo.GoInt, _verb:stdgo.GoRune, _prec:stdgo.GoInt):Void
 ```
 
 
-fmtQc formats an integer as a single\-quoted, escaped Go character constant.   If the character is not valid Unicode, it will print '\\ufffd'. 
+fmtFloat formats a float64. It assumes that verb is a valid format specifier  
+for strconv.AppendFloat and therefore fits into a byte.  
 
 
-[\(view code\)](<./Fmt.hx#L1898>)
+
+[\(view code\)](<./Fmt.hx#L1809>)
 
 
-### T\_fmt\_static\_extension function \_fmtS
+### T\_fmt function \_fmtInteger
 
 
 ```haxe
-function _fmtS(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _s:stdgo.GoString):Void
+function _fmtInteger( _u:stdgo.GoUInt64, _base:stdgo.GoInt, _isSigned:Bool, _verb:stdgo.GoRune, _digits:stdgo.GoString):Void
 ```
 
 
-fmtS formats a string. 
+fmtInteger formats signed and unsigned integers.  
 
 
-[\(view code\)](<./Fmt.hx#L2034>)
+
+[\(view code\)](<./Fmt.hx#L2092>)
 
 
-### T\_fmt\_static\_extension function \_fmtSbx
+### T\_fmt function \_fmtQ
 
 
 ```haxe
-function _fmtSbx(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _s:stdgo.GoString, _b:stdgo.Slice<stdgo.GoByte>, _digits:stdgo.GoString):Void
+function _fmtQ( _s:stdgo.GoString):Void
 ```
 
 
-fmtSbx formats a string or byte slice as a hexadecimal encoding of its bytes. 
+fmtQ formats a string as a double\-quoted, escaped Go string constant.  
+If f.sharp is set a raw \(backquoted\) string may be returned instead  
+if the string does not contain any control characters other than tab.  
 
 
-[\(view code\)](<./Fmt.hx#L1966>)
+
+[\(view code\)](<./Fmt.hx#L1944>)
 
 
-### T\_fmt\_static\_extension function \_fmtSx
+### T\_fmt function \_fmtQc
 
 
 ```haxe
-function _fmtSx(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _s:stdgo.GoString, _digits:stdgo.GoString):Void
+function _fmtQc( _c:stdgo.GoUInt64):Void
 ```
 
 
-fmtSx formats a string as a hexadecimal encoding of its bytes. 
+fmtQc formats an integer as a single\-quoted, escaped Go character constant.  
+If the character is not valid Unicode, it will print '\\ufffd'.  
 
 
-[\(view code\)](<./Fmt.hx#L1958>)
+
+[\(view code\)](<./Fmt.hx#L1913>)
 
 
-### T\_fmt\_static\_extension function \_fmtUnicode
+### T\_fmt function \_fmtS
 
 
 ```haxe
-function _fmtUnicode(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _u:stdgo.GoUInt64):Void
+function _fmtS( _s:stdgo.GoString):Void
 ```
 
 
-fmtUnicode formats a uint64 as "U\+0078" or with f.sharp set as "U\+0078 'x'". 
+fmtS formats a string.  
 
 
-[\(view code\)](<./Fmt.hx#L2195>)
+
+[\(view code\)](<./Fmt.hx#L2041>)
 
 
-### T\_fmt\_static\_extension function \_init
+### T\_fmt function \_fmtSbx
 
 
 ```haxe
-function _init(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _buf:stdgo.Ref<stdgo.fmt._Fmt.T_buffer>):Void
+function _fmtSbx( _s:stdgo.GoString, _b:stdgo.Slice<stdgo.GoByte>, _digits:stdgo.GoString):Void
 ```
 
 
- 
+fmtSbx formats a string or byte slice as a hexadecimal encoding of its bytes.  
 
 
-[\(view code\)](<./Fmt.hx#L2319>)
+
+[\(view code\)](<./Fmt.hx#L1975>)
 
 
-### T\_fmt\_static\_extension function \_pad
+### T\_fmt function \_fmtSx
 
 
 ```haxe
-function _pad(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _b:stdgo.Slice<stdgo.GoByte>):Void
+function _fmtSx( _s:stdgo.GoString, _digits:stdgo.GoString):Void
 ```
 
 
-pad appends b to f.buf, padded on left \(\!f.minus\) or right \(f.minus\). 
+fmtSx formats a string as a hexadecimal encoding of its bytes.  
+
+
+
+[\(view code\)](<./Fmt.hx#L1968>)
+
+
+### T\_fmt function \_fmtUnicode
+
+
+```haxe
+function _fmtUnicode( _u:stdgo.GoUInt64):Void
+```
+
+
+fmtUnicode formats a uint64 as "U\+0078" or with f.sharp set as "U\+0078 'x'".  
+
+
+
+[\(view code\)](<./Fmt.hx#L2198>)
+
+
+### T\_fmt function \_init
+
+
+```haxe
+function _init( _buf:stdgo.Ref<stdgo.fmt._Fmt.T_buffer>):Void
+```
+
+
+
+
+
+[\(view code\)](<./Fmt.hx#L2315>)
+
+
+### T\_fmt function \_pad
+
+
+```haxe
+function _pad( _b:stdgo.Slice<stdgo.GoByte>):Void
+```
+
+
+pad appends b to f.buf, padded on left \(\!f.minus\) or right \(f.minus\).  
+
 
 
 [\(view code\)](<./Fmt.hx#L2275>)
 
 
-### T\_fmt\_static\_extension function \_padString
+### T\_fmt function \_padString
 
 
 ```haxe
-function _padString(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _s:stdgo.GoString):Void
+function _padString( _s:stdgo.GoString):Void
 ```
 
 
-padString appends s to f.buf, padded on left \(\!f.minus\) or right \(f.minus\). 
+padString appends s to f.buf, padded on left \(\!f.minus\) or right \(f.minus\).  
 
 
-[\(view code\)](<./Fmt.hx#L2256>)
+
+[\(view code\)](<./Fmt.hx#L2257>)
 
 
-### T\_fmt\_static\_extension function \_truncate
+### T\_fmt function \_truncate
 
 
 ```haxe
-function _truncate(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _b:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>
+function _truncate( _b:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>
 ```
 
 
-truncate truncates the byte slice b as a string of the specified precision, if present. 
+truncate truncates the byte slice b as a string of the specified precision, if present.  
 
 
-[\(view code\)](<./Fmt.hx#L2043>)
+
+[\(view code\)](<./Fmt.hx#L2049>)
 
 
-### T\_fmt\_static\_extension function \_truncateString
+### T\_fmt function \_truncateString
 
 
 ```haxe
-function _truncateString(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _s:stdgo.GoString):stdgo.GoString
+function _truncateString( _s:stdgo.GoString):stdgo.GoString
 ```
 
 
-truncateString truncates the string s to the specified precision, if present. 
+truncateString truncates the string s to the specified precision, if present.  
 
 
-[\(view code\)](<./Fmt.hx#L2071>)
+
+[\(view code\)](<./Fmt.hx#L2076>)
 
 
-### T\_fmt\_static\_extension function \_writePadding
+### T\_fmt function \_writePadding
 
 
 ```haxe
-function _writePadding(_f:stdgo.Ref<stdgo.fmt._Fmt.T_fmt>, _n:stdgo.GoInt):Void
+function _writePadding( _n:stdgo.GoInt):Void
 ```
 
 
-writePadding generates n bytes of padding. 
+writePadding generates n bytes of padding.  
 
 
-[\(view code\)](<./Fmt.hx#L2294>)
+
+[\(view code\)](<./Fmt.hx#L2293>)
 
 
-## class T\_pp\_static\_extension
+## class T\_fmtFlags
 
 
- 
+flags placed in a separate struct for easy clearing.  
 
-
-### T\_pp\_static\_extension function \_argNumber
 
 
 ```haxe
-function _argNumber(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _argNum:stdgo.GoInt, _format:stdgo.GoString, _i:stdgo.GoInt, _numArgs:stdgo.GoInt):{_2:Bool, _1:stdgo.GoInt, _0:stdgo.GoInt}
+var _minus:Bool
 ```
-
-
-argNumber returns the next argument to evaluate, which is either the value of the passed\-in   argNum or the value of the bracketed integer that begins format\[i:\]. It also returns   the new value of i, that is, the index of the next byte of the format to process. 
-
-
-[\(view code\)](<./Fmt.hx#L2755>)
-
-
-### T\_pp\_static\_extension function \_badArgNum
 
 
 ```haxe
-function _badArgNum(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _verb:stdgo.GoRune):Void
+var _plus:Bool
 ```
-
-
- 
-
-
-[\(view code\)](<./Fmt.hx#L2743>)
-
-
-### T\_pp\_static\_extension function \_badVerb
 
 
 ```haxe
-function _badVerb(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _verb:stdgo.GoRune):Void
+var _plusV:Bool
 ```
 
 
- 
+For the formats %\+v %\#v, we set the plusV/sharpV flags  
+and clear the plus/sharp flags since %\+v and %\#v are in effect  
+different, flagless formats set at the top level.  
 
-
-[\(view code\)](<./Fmt.hx#L3509>)
-
-
-### T\_pp\_static\_extension function \_catchPanic
 
 
 ```haxe
-function _catchPanic(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _arg:stdgo.AnyInterface, _verb:stdgo.GoRune, _method:stdgo.GoString):Void
+var _precPresent:Bool
 ```
-
-
- 
-
-
-[\(view code\)](<./Fmt.hx#L3275>)
-
-
-### T\_pp\_static\_extension function \_doPrint
 
 
 ```haxe
-function _doPrint(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _a:stdgo.Slice<stdgo.AnyInterface>):Void
+var _sharp:Bool
 ```
-
-
- 
-
-
-[\(view code\)](<./Fmt.hx#L2506>)
-
-
-### T\_pp\_static\_extension function \_doPrintf
 
 
 ```haxe
-function _doPrintf(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _format:stdgo.GoString, _a:stdgo.Slice<stdgo.AnyInterface>):Void
+var _sharpV:Bool
 ```
-
-
- 
-
-
-[\(view code\)](<./Fmt.hx#L2520>)
-
-
-### T\_pp\_static\_extension function \_doPrintln
 
 
 ```haxe
-function _doPrintln(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _a:stdgo.Slice<stdgo.AnyInterface>):Void
+var _space:Bool
 ```
-
-
-doPrintln is like doPrint but always adds a space between arguments   and a newline after the last argument. 
-
-
-[\(view code\)](<./Fmt.hx#L2495>)
-
-
-### T\_pp\_static\_extension function \_fmt0x64
 
 
 ```haxe
-function _fmt0x64(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _v:stdgo.GoUInt64, _leading0x:Bool):Void
+var _widPresent:Bool
 ```
-
-
-fmt0x64 formats a uint64 in hexadecimal and prefixes it with 0x or   not, as requested, by temporarily setting the sharp flag. 
-
-
-[\(view code\)](<./Fmt.hx#L3492>)
-
-
-### T\_pp\_static\_extension function \_fmtBool
 
 
 ```haxe
-function _fmtBool(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _v:Bool, _verb:stdgo.GoRune):Void
+var _zero:Bool
 ```
 
 
- 
-
-
-[\(view code\)](<./Fmt.hx#L3500>)
-
-
-### T\_pp\_static\_extension function \_fmtBytes
+### T\_fmtFlags function new
 
 
 ```haxe
-function _fmtBytes(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _v:stdgo.Slice<stdgo.GoByte>, _verb:stdgo.GoRune, _typeString:stdgo.GoString):Void
+function new(?_widPresent:Bool, ?_precPresent:Bool, ?_minus:Bool, ?_plus:Bool, ?_sharp:Bool, ?_space:Bool, ?_zero:Bool, ?_plusV:Bool, ?_sharpV:Bool):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3352>)
+
+[\(view code\)](<./Fmt.hx#L856>)
 
 
-### T\_pp\_static\_extension function \_fmtComplex
+## class T\_pp
+
+
+pp is used to store a printer's state and is reused with sync.Pool to avoid allocations.  
+
 
 
 ```haxe
-function _fmtComplex(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _v:stdgo.GoComplex128, _size:stdgo.GoInt, _verb:stdgo.GoRune):Void
+var _arg:stdgo.AnyInterface
 ```
 
 
-fmtComplex formats a complex number v with   r = real\(v\) and j = imag\(v\) as \(r\+ji\) using   fmtFloat for r and j formatting. 
+arg holds the current item, as an interface\{\}.  
 
-
-[\(view code\)](<./Fmt.hx#L3419>)
-
-
-### T\_pp\_static\_extension function \_fmtFloat
 
 
 ```haxe
-function _fmtFloat(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _v:stdgo.GoFloat64, _size:stdgo.GoInt, _verb:stdgo.GoRune):Void
+var _buf:stdgo.fmt._Fmt.T_buffer
 ```
-
-
-fmtFloat formats a float. The default precision for each verb   is specified as last argument in the call to fmt\_float. 
-
-
-[\(view code\)](<./Fmt.hx#L3440>)
-
-
-### T\_pp\_static\_extension function \_fmtInteger
 
 
 ```haxe
-function _fmtInteger(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _v:stdgo.GoUInt64, _isSigned:Bool, _verb:stdgo.GoRune):Void
+var _erroring:Bool
 ```
 
 
-fmtInteger formats a signed or unsigned integer. 
+erroring is set when printing an error string to guard against calling handleMethods.  
 
-
-[\(view code\)](<./Fmt.hx#L3459>)
-
-
-### T\_pp\_static\_extension function \_fmtPointer
 
 
 ```haxe
-function _fmtPointer(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _value:stdgo.reflect.Value, _verb:stdgo.GoRune):Void
+var _fmt:stdgo.fmt.T_fmt
 ```
 
 
- 
+fmt is used to format basic items such as integers or strings.  
 
-
-[\(view code\)](<./Fmt.hx#L3310>)
-
-
-### T\_pp\_static\_extension function \_fmtString
 
 
 ```haxe
-function _fmtString(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _v:stdgo.GoString, _verb:stdgo.GoRune):Void
+var _goodArgNum:Bool
 ```
 
 
- 
+goodArgNum records whether the most recent reordering directive was valid.  
 
-
-[\(view code\)](<./Fmt.hx#L3393>)
-
-
-### T\_pp\_static\_extension function \_free
 
 
 ```haxe
-function _free(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>):Void
+var _panicking:Bool
 ```
 
 
-free saves used pp structs in ppFree; avoids an allocation per invocation. 
+panicking is set by catchPanic to avoid infinite panic, recover, panic, ... recursion.  
 
-
-[\(view code\)](<./Fmt.hx#L3594>)
-
-
-### T\_pp\_static\_extension function \_handleMethods
 
 
 ```haxe
-function _handleMethods(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _verb:stdgo.GoRune):Bool
+var _reordered:Bool
 ```
 
 
- 
+reordered records whether the format string used argument reordering.  
 
-
-[\(view code\)](<./Fmt.hx#L3132>)
-
-
-### T\_pp\_static\_extension function \_missingArg
 
 
 ```haxe
-function _missingArg(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _verb:stdgo.GoRune):Void
+var _value:stdgo.reflect.Value
 ```
 
 
- 
+value is used instead of arg for reflect values.  
 
-
-[\(view code\)](<./Fmt.hx#L2736>)
-
-
-### T\_pp\_static\_extension function \_printArg
 
 
 ```haxe
-function _printArg(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _arg:stdgo.AnyInterface, _verb:stdgo.GoRune):Void
+var _wrapErrs:Bool
 ```
 
 
- 
+wrapErrs is set when the format string may contain a %w verb.  
 
-
-[\(view code\)](<./Fmt.hx#L3032>)
-
-
-### T\_pp\_static\_extension function \_printValue
 
 
 ```haxe
-function _printValue(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _value:stdgo.reflect.Value, _verb:stdgo.GoRune, _depth:stdgo.GoInt):Void
+var _wrappedErrs:stdgo.Slice<stdgo.GoInt>
 ```
 
 
-printValue is similar to printArg but starts with a reflect value, not an interface\{\} value.   It does not handle 'p' and 'T' verbs because these should have been already handled by printArg. 
+wrappedErrs records the targets of the %w verb.  
 
 
-[\(view code\)](<./Fmt.hx#L2779>)
 
-
-### T\_pp\_static\_extension function \_unknownType
+### T\_pp function new
 
 
 ```haxe
-function _unknownType(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _v:stdgo.reflect.Value):Void
+function new(?_buf:Null<stdgo.fmt._Fmt.T_buffer>, ?_arg:stdgo.AnyInterface, ?_value:stdgo.reflect.Value, ?_fmt:stdgo.fmt.T_fmt, ?_reordered:Bool, ?_goodArgNum:Bool, ?_panicking:Bool, ?_erroring:Bool, ?_wrapErrs:Bool, ?_wrappedErrs:stdgo.Slice<stdgo.GoInt>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3530>)
+
+[\(view code\)](<./Fmt.hx#L944>)
 
 
-### T\_pp\_static\_extension function flag
+### T\_pp function \_argNumber
 
 
 ```haxe
-function flag(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _b:stdgo.GoInt):Bool
+function _argNumber( _argNum:stdgo.GoInt, _format:stdgo.GoString, _i:stdgo.GoInt, _numArgs:stdgo.GoInt):{_2:Bool, _1:stdgo.GoInt, _0:stdgo.GoInt}
 ```
 
 
- 
+argNumber returns the next argument to evaluate, which is either the value of the passed\-in  
+argNum or the value of the bracketed integer that begins format\[i:\]. It also returns  
+the new value of i, that is, the index of the next byte of the format to process.  
 
 
-[\(view code\)](<./Fmt.hx#L3563>)
+
+[\(view code\)](<./Fmt.hx#L2704>)
 
 
-### T\_pp\_static\_extension function precision
+### T\_pp function \_badArgNum
 
 
 ```haxe
-function precision(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>):{_1:Bool, _0:stdgo.GoInt}
+function _badArgNum( _verb:stdgo.GoRune):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3579>)
+
+[\(view code\)](<./Fmt.hx#L2693>)
 
 
-### T\_pp\_static\_extension function width
+### T\_pp function \_badVerb
 
 
 ```haxe
-function width(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>):{_1:Bool, _0:stdgo.GoInt}
+function _badVerb( _verb:stdgo.GoRune):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3585>)
+
+[\(view code\)](<./Fmt.hx#L3376>)
 
 
-### T\_pp\_static\_extension function write
+### T\_pp function \_catchPanic
 
 
 ```haxe
-function write(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _b:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function _catchPanic( _arg:stdgo.AnyInterface, _verb:stdgo.GoRune, _method:stdgo.GoString):Void
 ```
 
 
-Implement Write so we can call Fprintf on a pp \(through State\), for   recursive use in custom verbs. 
 
 
-[\(view code\)](<./Fmt.hx#L3556>)
+
+[\(view code\)](<./Fmt.hx#L3161>)
 
 
-### T\_pp\_static\_extension function writeString
+### T\_pp function \_doPrint
 
 
 ```haxe
-function writeString(_p:stdgo.Ref<stdgo.fmt._Fmt.T_pp>, _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}
+function _doPrint( _a:stdgo.Slice<stdgo.AnyInterface>):Void
 ```
 
 
-Implement WriteString so that we can call io.WriteString   on a pp \(through state\), for efficiency. 
 
 
-[\(view code\)](<./Fmt.hx#L3545>)
+
+[\(view code\)](<./Fmt.hx#L2441>)
 
 
-## class T\_readRune\_static\_extension
-
-
- 
-
-
-### T\_readRune\_static\_extension function \_readByte
+### T\_pp function \_doPrintf
 
 
 ```haxe
-function _readByte(_r:stdgo.Ref<stdgo.fmt._Fmt.T_readRune>):{_1:stdgo.Error, _0:stdgo.GoByte}
+function _doPrintf( _format:stdgo.GoString, _a:stdgo.Slice<stdgo.AnyInterface>):Void
 ```
 
 
-readByte returns the next byte from the input, which may be   left over from a previous read if the UTF\-8 was ill\-formed. 
 
 
-[\(view code\)](<./Fmt.hx#L5177>)
+
+[\(view code\)](<./Fmt.hx#L2453>)
 
 
-### T\_readRune\_static\_extension function readRune
+### T\_pp function \_doPrintln
 
 
 ```haxe
-function readRune(_r:stdgo.Ref<stdgo.fmt._Fmt.T_readRune>):{_2:stdgo.Error, _1:stdgo.GoInt, _0:stdgo.GoRune}
+function _doPrintln( _a:stdgo.Slice<stdgo.AnyInterface>):Void
 ```
 
 
-ReadRune returns the next UTF\-8 encoded code point from the   io.Reader inside r. 
+doPrintln is like doPrint but always adds a space between arguments  
+and a newline after the last argument.  
 
 
-[\(view code\)](<./Fmt.hx#L5117>)
+
+[\(view code\)](<./Fmt.hx#L2431>)
 
 
-### T\_readRune\_static\_extension function unreadRune
+### T\_pp function \_fmt0x64
 
 
 ```haxe
-function unreadRune(_r:stdgo.Ref<stdgo.fmt._Fmt.T_readRune>):stdgo.Error
+function _fmt0x64( _v:stdgo.GoUInt64, _leading0x:Bool):Void
 ```
 
 
- 
+fmt0x64 formats a uint64 in hexadecimal and prefixes it with 0x or  
+not, as requested, by temporarily setting the sharp flag.  
 
 
-[\(view code\)](<./Fmt.hx#L5104>)
+
+[\(view code\)](<./Fmt.hx#L3361>)
 
 
-## class T\_ss\_static\_extension
-
-
- 
-
-
-### T\_ss\_static\_extension function \_accept
+### T\_pp function \_fmtBool
 
 
 ```haxe
-function _accept(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _ok:stdgo.GoString):Bool
+function _fmtBool( _v:Bool, _verb:stdgo.GoRune):Void
 ```
 
 
-accept checks the next rune in the input. If it's a byte \(sic\) in the string, it puts it in the   buffer and returns true. Otherwise it return false. 
 
 
-[\(view code\)](<./Fmt.hx#L4781>)
+
+[\(view code\)](<./Fmt.hx#L3368>)
 
 
-### T\_ss\_static\_extension function \_advance
+### T\_pp function \_fmtBytes
 
 
 ```haxe
-function _advance(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _format:stdgo.GoString):stdgo.GoInt
+function _fmtBytes( _v:stdgo.Slice<stdgo.GoByte>, _verb:stdgo.GoRune, _typeString:stdgo.GoString):Void
 ```
 
 
-advance determines whether the next characters in the input match   those of the format. It returns the number of bytes \(sic\) consumed   in the format. All runs of space characters in either input or   format behave as a single space. Newlines are special, though:   newlines in the format must match those in the input and vice versa.   This routine also handles the %% case. If the return value is zero,   either format starts with a % \(with no following %\) or the input   is empty. If it is negative, the input did not match the string. 
 
 
-[\(view code\)](<./Fmt.hx#L4004>)
+
+[\(view code\)](<./Fmt.hx#L3230>)
 
 
-### T\_ss\_static\_extension function \_complexTokens
+### T\_pp function \_fmtComplex
 
 
 ```haxe
-function _complexTokens(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>):{_1:stdgo.GoString, _0:stdgo.GoString}
+function _fmtComplex( _v:stdgo.GoComplex128, _size:stdgo.GoInt, _verb:stdgo.GoRune):Void
 ```
 
 
-complexTokens returns the real and imaginary parts of the complex number starting here.   The number might be parenthesized and has the format \(N\+Ni\) where N is a floating\-point   number and there are no spaces within. 
+fmtComplex formats a complex number v with  
+r = real\(v\) and j = imag\(v\) as \(r\+ji\) using  
+fmtFloat for r and j formatting.  
 
 
-[\(view code\)](<./Fmt.hx#L4515>)
+
+[\(view code\)](<./Fmt.hx#L3294>)
 
 
-### T\_ss\_static\_extension function \_consume
+### T\_pp function \_fmtFloat
 
 
 ```haxe
-function _consume(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _ok:stdgo.GoString, _accept:Bool):Bool
+function _fmtFloat( _v:stdgo.GoFloat64, _size:stdgo.GoInt, _verb:stdgo.GoRune):Void
 ```
 
 
-consume reads the next rune in the input and reports whether it is in the ok string.   If accept is true, it puts the character into the input token. 
+fmtFloat formats a float. The default precision for each verb  
+is specified as last argument in the call to fmt\_float.  
 
 
-[\(view code\)](<./Fmt.hx#L4813>)
+
+[\(view code\)](<./Fmt.hx#L3312>)
 
 
-### T\_ss\_static\_extension function \_convertFloat
+### T\_pp function \_fmtInteger
 
 
 ```haxe
-function _convertFloat(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _str:stdgo.GoString, _n:stdgo.GoInt):stdgo.GoFloat64
+function _fmtInteger( _v:stdgo.GoUInt64, _isSigned:Bool, _verb:stdgo.GoRune):Void
 ```
 
 
-convertFloat converts the string to a float64value. 
+fmtInteger formats a signed or unsigned integer.  
 
 
-[\(view code\)](<./Fmt.hx#L4459>)
+
+[\(view code\)](<./Fmt.hx#L3329>)
 
 
-### T\_ss\_static\_extension function \_convertString
+### T\_pp function \_fmtPointer
 
 
 ```haxe
-function _convertString(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _verb:stdgo.GoRune):stdgo.GoString
+function _fmtPointer( _value:stdgo.reflect.Value, _verb:stdgo.GoRune):Void
 ```
 
 
-convertString returns the string represented by the next input characters.   The format of the input is determined by the verb. 
 
 
-[\(view code\)](<./Fmt.hx#L4417>)
+
+[\(view code\)](<./Fmt.hx#L3195>)
 
 
-### T\_ss\_static\_extension function \_doScan
+### T\_pp function \_fmtString
 
 
 ```haxe
-function _doScan(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _a:stdgo.Slice<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function _fmtString( _v:stdgo.GoString, _verb:stdgo.GoRune):Void
 ```
 
 
-doScan does the real work for scanning without a format string. 
 
 
-[\(view code\)](<./Fmt.hx#L4084>)
+
+[\(view code\)](<./Fmt.hx#L3269>)
 
 
-### T\_ss\_static\_extension function \_doScanf
+### T\_pp function \_free
 
 
 ```haxe
-function _doScanf(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _format:stdgo.GoString, _a:stdgo.Slice<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function _free():Void
 ```
 
 
-doScanf does the real work when scanning with a format string.   At the moment, it handles only pointers to basic types. 
+free saves used pp structs in ppFree; avoids an allocation per invocation.  
 
 
-[\(view code\)](<./Fmt.hx#L3898>)
+
+[\(view code\)](<./Fmt.hx#L3454>)
 
 
-### T\_ss\_static\_extension function \_error
+### T\_pp function \_handleMethods
 
 
 ```haxe
-function _error(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _err:stdgo.Error):Void
+function _handleMethods( _verb:stdgo.GoRune):Bool
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L4973>)
+
+[\(view code\)](<./Fmt.hx#L3028>)
 
 
-### T\_ss\_static\_extension function \_errorString
+### T\_pp function \_missingArg
 
 
 ```haxe
-function _errorString(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _err:stdgo.GoString):Void
+function _missingArg( _verb:stdgo.GoRune):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L4968>)
+
+[\(view code\)](<./Fmt.hx#L2687>)
 
 
-### T\_ss\_static\_extension function \_floatToken
+### T\_pp function \_printArg
 
 
 ```haxe
-function _floatToken(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>):stdgo.GoString
+function _printArg( _arg:stdgo.AnyInterface, _verb:stdgo.GoRune):Void
 ```
 
 
-floatToken returns the floating\-point number starting here, no longer than swid   if the width is specified. It's not rigorous about syntax because it doesn't check that   we have at least some digits, but Atof will do that. 
 
 
-[\(view code\)](<./Fmt.hx#L4540>)
+
+[\(view code\)](<./Fmt.hx#L2936>)
 
 
-### T\_ss\_static\_extension function \_free
+### T\_pp function \_printValue
 
 
 ```haxe
-function _free(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _old:stdgo.fmt._Fmt.T_ssave):Void
+function _printValue( _value:stdgo.reflect.Value, _verb:stdgo.GoRune, _depth:stdgo.GoInt):Void
 ```
 
 
-free saves used ss structs in ssFree; avoid an allocation per invocation. 
+printValue is similar to printArg but starts with a reflect value, not an interface\{\} value.  
+It does not handle 'p' and 'T' verbs because these should have been already handled by printArg.  
 
 
-[\(view code\)](<./Fmt.hx#L4887>)
+
+[\(view code\)](<./Fmt.hx#L2722>)
 
 
-### T\_ss\_static\_extension function \_getBase
+### T\_pp function \_unknownType
 
 
 ```haxe
-function _getBase(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _verb:stdgo.GoRune):{_1:stdgo.GoString, _0:stdgo.GoInt}
+function _unknownType( _v:stdgo.reflect.Value):Void
 ```
 
 
-getBase returns the numeric base represented by the verb and its digit string. 
 
 
-[\(view code\)](<./Fmt.hx#L4715>)
+
+[\(view code\)](<./Fmt.hx#L3396>)
 
 
-### T\_ss\_static\_extension function \_getRune
+### T\_pp function flag
 
 
 ```haxe
-function _getRune(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>):stdgo.GoRune
+function flag( _b:stdgo.GoInt):Bool
 ```
 
 
-The public method returns an error; this private one panics.   If getRune reaches EOF, the return value is EOF \(\-1\). 
 
 
-[\(view code\)](<./Fmt.hx#L5005>)
+
+[\(view code\)](<./Fmt.hx#L3426>)
 
 
-### T\_ss\_static\_extension function \_hexByte
+### T\_pp function precision
 
 
 ```haxe
-function _hexByte(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>):{_1:Bool, _0:stdgo.GoByte}
+function precision():{_1:Bool, _0:stdgo.GoInt}
 ```
 
 
-hexByte returns the next hex\-encoded \(two\-character\) byte from the input.   It returns ok==false if the next bytes in the input do not encode a hex byte.   If the first byte is hex and the second is not, processing stops. 
 
 
-[\(view code\)](<./Fmt.hx#L4341>)
+
+[\(view code\)](<./Fmt.hx#L3441>)
 
 
-### T\_ss\_static\_extension function \_hexString
+### T\_pp function width
 
 
 ```haxe
-function _hexString(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>):stdgo.GoString
+function width():{_1:Bool, _0:stdgo.GoInt}
 ```
 
 
-hexString returns the space\-delimited hexpair\-encoded string. 
 
 
-[\(view code\)](<./Fmt.hx#L4317>)
+
+[\(view code\)](<./Fmt.hx#L3446>)
 
 
-### T\_ss\_static\_extension function \_mustReadRune
+### T\_pp function write
 
 
 ```haxe
-function _mustReadRune(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>):stdgo.GoRune
+function write( _b:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}
 ```
 
 
-mustReadRune turns io.EOF into a panic\(io.ErrUnexpectedEOF\).   It is called in cases such as string scanning where an EOF is a   syntax error. 
+Implement Write so we can call Fprintf on a pp \(through State\), for  
+recursive use in custom verbs.  
 
 
-[\(view code\)](<./Fmt.hx#L4991>)
+
+[\(view code\)](<./Fmt.hx#L3420>)
 
 
-### T\_ss\_static\_extension function \_notEOF
+### T\_pp function writeString
 
 
 ```haxe
-function _notEOF(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>):Void
+function writeString( _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}
 ```
 
 
- 
+Implement WriteString so that we can call io.WriteString  
+on a pp \(through state\), for efficiency.  
 
 
-[\(view code\)](<./Fmt.hx#L4786>)
+
+[\(view code\)](<./Fmt.hx#L3410>)
 
 
-### T\_ss\_static\_extension function \_okVerb
+## class T\_readRune
+
+
+readRune is a structure to enable reading UTF\-8 encoded code points  
+from an io.Reader. It is used if the Reader given to the scanner does  
+not already implement io.RuneScanner.  
+
 
 
 ```haxe
-function _okVerb(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _verb:stdgo.GoRune, _okVerbs:stdgo.GoString, _typ:stdgo.GoString):Bool
+var _buf:stdgo.GoArray<stdgo.GoUInt8>
 ```
-
-
-okVerb verifies that the verb is present in the list, setting s.err appropriately if not. 
-
-
-[\(view code\)](<./Fmt.hx#L4766>)
-
-
-### T\_ss\_static\_extension function \_peek
 
 
 ```haxe
-function _peek(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _ok:stdgo.GoString):Bool
+var _peekRune:stdgo.GoInt32
 ```
-
-
-peek reports whether the next character is in the ok string, without consuming it. 
-
-
-[\(view code\)](<./Fmt.hx#L4800>)
-
-
-### T\_ss\_static\_extension function \_quotedString
 
 
 ```haxe
-function _quotedString(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>):stdgo.GoString
+var _pendBuf:stdgo.GoArray<stdgo.GoUInt8>
 ```
-
-
-quotedString returns the double\- or back\-quoted string represented by the next input characters. 
-
-
-[\(view code\)](<./Fmt.hx#L4368>)
-
-
-### T\_ss\_static\_extension function \_scanBasePrefix
 
 
 ```haxe
-function _scanBasePrefix(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>):{_2:Bool, _1:stdgo.GoString, _0:stdgo.GoInt}
+var _pending:stdgo.GoInt
 ```
-
-
-scanBasePrefix reports whether the integer begins with a base prefix   and returns the base, digit string, and whether a zero was found.   It is called only if the verb is %v. 
-
-
-[\(view code\)](<./Fmt.hx#L4659>)
-
-
-### T\_ss\_static\_extension function \_scanBool
 
 
 ```haxe
-function _scanBool(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _verb:stdgo.GoRune):Bool
+var _reader:stdgo.io.Reader
 ```
 
 
-scanBool returns the value of the boolean represented by the next token. 
-
-
-[\(view code\)](<./Fmt.hx#L4737>)
-
-
-### T\_ss\_static\_extension function \_scanComplex
+### T\_readRune function new
 
 
 ```haxe
-function _scanComplex(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _verb:stdgo.GoRune, _n:stdgo.GoInt):stdgo.GoComplex128
+function new(?_reader:Null<stdgo.io.Reader>, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_pending:Null<stdgo.GoInt>, ?_pendBuf:stdgo.GoArray<stdgo.GoUInt8>, ?_peekRune:stdgo.GoInt32):Void
 ```
 
 
-convertComplex converts the next token to a complex128 value.   The atof argument is a type\-specific reader for the underlying type.   If we're reading complex64, atof will parse float32s and convert them   to float64's to avoid reproducing this code for each complex type. 
 
 
-[\(view code\)](<./Fmt.hx#L4441>)
+
+[\(view code\)](<./Fmt.hx#L1040>)
 
 
-### T\_ss\_static\_extension function \_scanInt
+### T\_readRune function \_readByte
 
 
 ```haxe
-function _scanInt(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _verb:stdgo.GoRune, _bitSize:stdgo.GoInt):stdgo.GoInt64
+function _readByte():{_1:stdgo.Error, _0:stdgo.GoByte}
 ```
 
 
-scanInt returns the value of the integer represented by the next   token, checking for overflow. Any error is stored in s.err. 
+readByte returns the next byte from the input, which may be  
+left over from a previous read if the UTF\-8 was ill\-formed.  
 
 
-[\(view code\)](<./Fmt.hx#L4613>)
+
+[\(view code\)](<./Fmt.hx#L4827>)
 
 
-### T\_ss\_static\_extension function \_scanNumber
+### T\_readRune function readRune
 
 
 ```haxe
-function _scanNumber(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _digits:stdgo.GoString, _haveDigits:Bool):stdgo.GoString
+function readRune():{_2:stdgo.Error, _1:stdgo.GoInt, _0:stdgo.GoRune}
 ```
 
 
-scanNumber returns the numerical string with specified digits starting here. 
+ReadRune returns the next UTF\-8 encoded code point from the  
+io.Reader inside r.  
 
 
-[\(view code\)](<./Fmt.hx#L4700>)
+
+[\(view code\)](<./Fmt.hx#L4770>)
 
 
-### T\_ss\_static\_extension function \_scanOne
+### T\_readRune function unreadRune
 
 
 ```haxe
-function _scanOne(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _verb:stdgo.GoRune, _arg:stdgo.AnyInterface):Void
+function unreadRune():stdgo.Error
 ```
 
 
-scanOne scans a single value, deriving the scanner from the type of the argument. 
+
+
+
+[\(view code\)](<./Fmt.hx#L4758>)
+
+
+## class T\_scanError
+
+
+scanError represents an error generated by the scanning software.  
+It's used as a unique signature to identify such errors when recovering.  
+
+
+
+```haxe
+var _err:stdgo.Error
+```
+
+
+### T\_scanError function new
+
+
+```haxe
+function new(?_err:Null<stdgo.Error>):Void
+```
+
+
+
+
+
+[\(view code\)](<./Fmt.hx#L969>)
+
+
+## class T\_ss
+
+
+ss is the internal implementation of ScanState.  
+
+
+
+```haxe
+var _atEOF:Bool
+```
+
+
+```haxe
+var _buf:stdgo.fmt._Fmt.T_buffer
+```
+
+
+```haxe
+var _count:stdgo.GoInt
+```
+
+
+```haxe
+var _rs:stdgo.io.RuneScanner
+```
+
+
+```haxe
+var _ssave:stdgo.fmt.T_ssave
+```
+
+
+### T\_ss function new
+
+
+```haxe
+function new(?_rs:Null<stdgo.io.RuneScanner>, ?_buf:Null<stdgo.fmt._Fmt.T_buffer>, ?_count:Null<stdgo.GoInt>, ?_atEOF:Bool, ?_ssave:stdgo.fmt.T_ssave):Void
+```
+
+
+
+
+
+[\(view code\)](<./Fmt.hx#L989>)
+
+
+### T\_ss function \_accept
+
+
+```haxe
+function _accept( _ok:stdgo.GoString):Bool
+```
+
+
+accept checks the next rune in the input. If it's a byte \(sic\) in the string, it puts it in the  
+buffer and returns true. Otherwise it return false.  
+
+
+
+[\(view code\)](<./Fmt.hx#L4472>)
+
+
+### T\_ss function \_advance
+
+
+```haxe
+function _advance( _format:stdgo.GoString):stdgo.GoInt
+```
+
+
+advance determines whether the next characters in the input match  
+those of the format. It returns the number of bytes \(sic\) consumed  
+in the format. All runs of space characters in either input or  
+format behave as a single space. Newlines are special, though:  
+newlines in the format must match those in the input and vice versa.  
+This routine also handles the %% case. If the return value is zero,  
+either format starts with a % \(with no following %\) or the input  
+is empty. If it is negative, the input did not match the string.  
+
+
+
+[\(view code\)](<./Fmt.hx#L3781>)
+
+
+### T\_ss function \_complexTokens
+
+
+```haxe
+function _complexTokens():{_1:stdgo.GoString, _0:stdgo.GoString}
+```
+
+
+complexTokens returns the real and imaginary parts of the complex number starting here.  
+The number might be parenthesized and has the format \(N\+Ni\) where N is a floating\-point  
+number and there are no spaces within.  
+
+
+
+[\(view code\)](<./Fmt.hx#L4227>)
+
+
+### T\_ss function \_consume
+
+
+```haxe
+function _consume( _ok:stdgo.GoString, _accept:Bool):Bool
+```
+
+
+consume reads the next rune in the input and reports whether it is in the ok string.  
+If accept is true, it puts the character into the input token.  
+
+
+
+[\(view code\)](<./Fmt.hx#L4501>)
+
+
+### T\_ss function \_convertFloat
+
+
+```haxe
+function _convertFloat( _str:stdgo.GoString, _n:stdgo.GoInt):stdgo.GoFloat64
+```
+
+
+convertFloat converts the string to a float64value.  
+
+
+
+[\(view code\)](<./Fmt.hx#L4180>)
+
+
+### T\_ss function \_convertString
+
+
+```haxe
+function _convertString( _verb:stdgo.GoRune):stdgo.GoString
+```
+
+
+convertString returns the string represented by the next input characters.  
+The format of the input is determined by the verb.  
+
 
 
 [\(view code\)](<./Fmt.hx#L4142>)
 
 
-### T\_ss\_static\_extension function \_scanPercent
+### T\_ss function \_doScan
 
 
 ```haxe
-function _scanPercent(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>):Void
+function _doScan( _a:stdgo.Slice<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}
 ```
 
 
-scanPercent scans a literal percent character. 
+doScan does the real work for scanning without a format string.  
 
 
-[\(view code\)](<./Fmt.hx#L4305>)
+
+[\(view code\)](<./Fmt.hx#L3856>)
 
 
-### T\_ss\_static\_extension function \_scanRune
+### T\_ss function \_doScanf
 
 
 ```haxe
-function _scanRune(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _bitSize:stdgo.GoInt):stdgo.GoInt64
+function _doScanf( _format:stdgo.GoString, _a:stdgo.Slice<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}
 ```
 
 
-scanRune returns the next rune value in the input. 
+doScanf does the real work when scanning with a format string.  
+At the moment, it handles only pointers to basic types.  
 
 
-[\(view code\)](<./Fmt.hx#L4685>)
+
+[\(view code\)](<./Fmt.hx#L3681>)
 
 
-### T\_ss\_static\_extension function \_scanUint
+### T\_ss function \_error
 
 
 ```haxe
-function _scanUint(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _verb:stdgo.GoRune, _bitSize:stdgo.GoInt):stdgo.GoUInt64
+function _error( _err:stdgo.Error):Void
 ```
 
 
-scanUint returns the value of the unsigned integer represented   by the next token, checking for overflow. Any error is stored in s.err. 
 
 
-[\(view code\)](<./Fmt.hx#L4571>)
+
+[\(view code\)](<./Fmt.hx#L4651>)
 
 
-### T\_ss\_static\_extension function \_token
+### T\_ss function \_errorString
 
 
 ```haxe
-function _token(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _skipSpace:Bool, _f:()):stdgo.Slice<stdgo.GoByte>
+function _errorString( _err:stdgo.GoString):Void
 ```
 
 
-token returns the next space\-delimited string from the input. It   skips white space. For Scanln, it stops at newlines. For Scan,   newlines are treated as spaces. 
 
 
-[\(view code\)](<./Fmt.hx#L4836>)
+
+[\(view code\)](<./Fmt.hx#L4647>)
 
 
-### T\_ss\_static\_extension function read
+### T\_ss function \_floatToken
 
 
 ```haxe
-function read(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _buf:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function _floatToken():stdgo.GoString
 ```
 
 
-The Read method is only in ScanState so that ScanState   satisfies io.Reader. It will never be called when used as   intended, so there is no need to make it actually work. 
+floatToken returns the floating\-point number starting here, no longer than swid  
+if the width is specified. It's not rigorous about syntax because it doesn't check that  
+we have at least some digits, but Atof will do that.  
 
 
-[\(view code\)](<./Fmt.hx#L5061>)
+
+[\(view code\)](<./Fmt.hx#L4251>)
 
 
-### T\_ss\_static\_extension function readRune
+### T\_ss function \_free
 
 
 ```haxe
-function readRune(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>):{_2:stdgo.Error, _1:stdgo.GoInt, _0:stdgo.GoRune}
+function _free( _old:stdgo.fmt.T_ssave):Void
 ```
 
 
- 
+free saves used ss structs in ssFree; avoid an allocation per invocation.  
 
 
-[\(view code\)](<./Fmt.hx#L5030>)
+
+[\(view code\)](<./Fmt.hx#L4572>)
 
 
-### T\_ss\_static\_extension function skipSpace
+### T\_ss function \_getBase
 
 
 ```haxe
-function skipSpace(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>):Void
+function _getBase( _verb:stdgo.GoRune):{_1:stdgo.GoString, _0:stdgo.GoInt}
 ```
 
 
-SkipSpace provides Scan methods the ability to skip space and newline   characters in keeping with the current scanning mode set by format strings   and Scan/Scanln. 
+getBase returns the numeric base represented by the verb and its digit string.  
 
 
-[\(view code\)](<./Fmt.hx#L4860>)
+
+[\(view code\)](<./Fmt.hx#L4410>)
 
 
-### T\_ss\_static\_extension function token
+### T\_ss function \_getRune
 
 
 ```haxe
-function token(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>, _skipSpace:Bool, _f:()):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoByte>}
+function _getRune():stdgo.GoRune
 ```
 
 
- 
+The public method returns an error; this private one panics.  
+If getRune reaches EOF, the return value is EOF \(\-1\).  
 
 
-[\(view code\)](<./Fmt.hx#L4901>)
+
+[\(view code\)](<./Fmt.hx#L4680>)
 
 
-### T\_ss\_static\_extension function unreadRune
+### T\_ss function \_hexByte
 
 
 ```haxe
-function unreadRune(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>):stdgo.Error
+function _hexByte():{_1:Bool, _0:stdgo.GoByte}
 ```
 
 
- 
+hexByte returns the next hex\-encoded \(two\-character\) byte from the input.  
+It returns ok==false if the next bytes in the input do not encode a hex byte.  
+If the first byte is hex and the second is not, processing stops.  
 
 
-[\(view code\)](<./Fmt.hx#L4978>)
+
+[\(view code\)](<./Fmt.hx#L4074>)
 
 
-### T\_ss\_static\_extension function width
+### T\_ss function \_hexString
 
 
 ```haxe
-function width(_s:stdgo.Ref<stdgo.fmt._Fmt.T_ss>):{_1:Bool, _0:stdgo.GoInt}
+function _hexString():stdgo.GoString
 ```
 
 
- 
+hexString returns the space\-delimited hexpair\-encoded string.  
 
 
-[\(view code\)](<./Fmt.hx#L5021>)
+
+[\(view code\)](<./Fmt.hx#L4053>)
 
 
-## class T\_stringReader\_static\_extension
-
-
- 
-
-
-### T\_stringReader\_static\_extension function read
+### T\_ss function \_mustReadRune
 
 
 ```haxe
-function read(____:stdgo.fmt._Fmt.T_stringReader, _r:stdgo.Pointer<stdgo.fmt._Fmt.T_stringReader>, _b:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function _mustReadRune():stdgo.GoRune
 ```
 
 
- 
+mustReadRune turns io.EOF into a panic\(io.ErrUnexpectedEOF\).  
+It is called in cases such as string scanning where an EOF is a  
+syntax error.  
 
 
-[\(view code\)](<./Fmt.hx#L5281>)
+
+[\(view code\)](<./Fmt.hx#L4667>)
 
 
-## class T\_wrapError\_static\_extension
-
-
- 
-
-
-### T\_wrapError\_static\_extension function error
+### T\_ss function \_notEOF
 
 
 ```haxe
-function error(_e:stdgo.Ref<stdgo.fmt._Fmt.T_wrapError>):stdgo.GoString
+function _notEOF():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L1631>)
+
+[\(view code\)](<./Fmt.hx#L4476>)
 
 
-### T\_wrapError\_static\_extension function unwrap
+### T\_ss function \_okVerb
 
 
 ```haxe
-function unwrap(_e:stdgo.Ref<stdgo.fmt._Fmt.T_wrapError>):stdgo.Error
+function _okVerb( _verb:stdgo.GoRune, _okVerbs:stdgo.GoString, _typ:stdgo.GoString):Bool
 ```
 
 
- 
+okVerb verifies that the verb is present in the list, setting s.err appropriately if not.  
 
 
-[\(view code\)](<./Fmt.hx#L1626>)
+
+[\(view code\)](<./Fmt.hx#L4458>)
+
+
+### T\_ss function \_peek
+
+
+```haxe
+function _peek( _ok:stdgo.GoString):Bool
+```
+
+
+peek reports whether the next character is in the ok string, without consuming it.  
+
+
+
+[\(view code\)](<./Fmt.hx#L4489>)
+
+
+### T\_ss function \_quotedString
+
+
+```haxe
+function _quotedString():stdgo.GoString
+```
+
+
+quotedString returns the double\- or back\-quoted string represented by the next input characters.  
+
+
+
+[\(view code\)](<./Fmt.hx#L4096>)
+
+
+### T\_ss function \_scanBasePrefix
+
+
+```haxe
+function _scanBasePrefix():{_2:Bool, _1:stdgo.GoString, _0:stdgo.GoInt}
+```
+
+
+scanBasePrefix reports whether the integer begins with a base prefix  
+and returns the base, digit string, and whether a zero was found.  
+It is called only if the verb is %v.  
+
+
+
+[\(view code\)](<./Fmt.hx#L4359>)
+
+
+### T\_ss function \_scanBool
+
+
+```haxe
+function _scanBool( _verb:stdgo.GoRune):Bool
+```
+
+
+scanBool returns the value of the boolean represented by the next token.  
+
+
+
+[\(view code\)](<./Fmt.hx#L4431>)
+
+
+### T\_ss function \_scanComplex
+
+
+```haxe
+function _scanComplex( _verb:stdgo.GoRune, _n:stdgo.GoInt):stdgo.GoComplex128
+```
+
+
+convertComplex converts the next token to a complex128 value.  
+The atof argument is a type\-specific reader for the underlying type.  
+If we're reading complex64, atof will parse float32s and convert them  
+to float64's to avoid reproducing this code for each complex type.  
+
+
+
+[\(view code\)](<./Fmt.hx#L4165>)
+
+
+### T\_ss function \_scanInt
+
+
+```haxe
+function _scanInt( _verb:stdgo.GoRune, _bitSize:stdgo.GoInt):stdgo.GoInt64
+```
+
+
+scanInt returns the value of the integer represented by the next  
+token, checking for overflow. Any error is stored in s.err.  
+
+
+
+[\(view code\)](<./Fmt.hx#L4318>)
+
+
+### T\_ss function \_scanNumber
+
+
+```haxe
+function _scanNumber( _digits:stdgo.GoString, _haveDigits:Bool):stdgo.GoString
+```
+
+
+scanNumber returns the numerical string with specified digits starting here.  
+
+
+
+[\(view code\)](<./Fmt.hx#L4396>)
+
+
+### T\_ss function \_scanOne
+
+
+```haxe
+function _scanOne( _verb:stdgo.GoRune, _arg:stdgo.AnyInterface):Void
+```
+
+
+scanOne scans a single value, deriving the scanner from the type of the argument.  
+
+
+
+[\(view code\)](<./Fmt.hx#L3910>)
+
+
+### T\_ss function \_scanPercent
+
+
+```haxe
+function _scanPercent():Void
+```
+
+
+scanPercent scans a literal percent character.  
+
+
+
+[\(view code\)](<./Fmt.hx#L4042>)
+
+
+### T\_ss function \_scanRune
+
+
+```haxe
+function _scanRune( _bitSize:stdgo.GoInt):stdgo.GoInt64
+```
+
+
+scanRune returns the next rune value in the input.  
+
+
+
+[\(view code\)](<./Fmt.hx#L4382>)
+
+
+### T\_ss function \_scanUint
+
+
+```haxe
+function _scanUint( _verb:stdgo.GoRune, _bitSize:stdgo.GoInt):stdgo.GoUInt64
+```
+
+
+scanUint returns the value of the unsigned integer represented  
+by the next token, checking for overflow. Any error is stored in s.err.  
+
+
+
+[\(view code\)](<./Fmt.hx#L4281>)
+
+
+### T\_ss function \_token
+
+
+```haxe
+function _token( _skipSpace:Bool, _f:()):stdgo.Slice<stdgo.GoByte>
+```
+
+
+token returns the next space\-delimited string from the input. It  
+skips white space. For Scanln, it stops at newlines. For Scan,  
+newlines are treated as spaces.  
+
+
+
+[\(view code\)](<./Fmt.hx#L4523>)
+
+
+### T\_ss function read
+
+
+```haxe
+function read( _buf:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}
+```
+
+
+The Read method is only in ScanState so that ScanState  
+satisfies io.Reader. It will never be called when used as  
+intended, so there is no need to make it actually work.  
+
+
+
+[\(view code\)](<./Fmt.hx#L4728>)
+
+
+### T\_ss function readRune
+
+
+```haxe
+function readRune():{_2:stdgo.Error, _1:stdgo.GoInt, _0:stdgo.GoRune}
+```
+
+
+
+
+
+[\(view code\)](<./Fmt.hx#L4700>)
+
+
+### T\_ss function skipSpace
+
+
+```haxe
+function skipSpace():Void
+```
+
+
+SkipSpace provides Scan methods the ability to skip space and newline  
+characters in keeping with the current scanning mode set by format strings  
+and Scan/Scanln.  
+
+
+
+[\(view code\)](<./Fmt.hx#L4546>)
+
+
+### T\_ss function token
+
+
+```haxe
+function token( _skipSpace:Bool, _f:()):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoByte>}
+```
+
+
+
+
+
+[\(view code\)](<./Fmt.hx#L4585>)
+
+
+### T\_ss function unreadRune
+
+
+```haxe
+function unreadRune():stdgo.Error
+```
+
+
+
+
+
+[\(view code\)](<./Fmt.hx#L4655>)
+
+
+### T\_ss function width
+
+
+```haxe
+function width():{_1:Bool, _0:stdgo.GoInt}
+```
+
+
+
+
+
+[\(view code\)](<./Fmt.hx#L4692>)
+
+
+## class T\_ssave
+
+
+ssave holds the parts of ss that need to be  
+saved and restored on recursive scans.  
+
+
+
+```haxe
+var _argLimit:stdgo.GoInt
+```
+
+
+```haxe
+var _limit:stdgo.GoInt
+```
+
+
+```haxe
+var _maxWid:stdgo.GoInt
+```
+
+
+```haxe
+var _nlIsEnd:Bool
+```
+
+
+```haxe
+var _nlIsSpace:Bool
+```
+
+
+```haxe
+var _validSave:Bool
+```
+
+
+### T\_ssave function new
+
+
+```haxe
+function new(?_validSave:Bool, ?_nlIsEnd:Bool, ?_nlIsSpace:Bool, ?_argLimit:Null<stdgo.GoInt>, ?_limit:Null<stdgo.GoInt>, ?_maxWid:Null<stdgo.GoInt>):Void
+```
+
+
+
+
+
+[\(view code\)](<./Fmt.hx#L1014>)
+
+
+## class T\_wrapError
+
+
+
+
+
+```haxe
+var _err:stdgo.Error
+```
+
+
+```haxe
+var _msg:stdgo.GoString
+```
+
+
+### T\_wrapError function new
+
+
+```haxe
+function new(?_msg:stdgo.GoString, ?_err:Null<stdgo.Error>):Void
+```
+
+
+
+
+
+[\(view code\)](<./Fmt.hx#L810>)
+
+
+### T\_wrapError function error
+
+
+```haxe
+function error():stdgo.GoString
+```
+
+
+
+
+
+[\(view code\)](<./Fmt.hx#L1673>)
+
+
+### T\_wrapError function unwrap
+
+
+```haxe
+function unwrap():stdgo.Error
+```
+
+
+
+
+
+[\(view code\)](<./Fmt.hx#L1669>)
+
+
+## class T\_wrapErrors
+
+
+
+
+
+```haxe
+var _errs:stdgo.Slice<stdgo.Error>
+```
+
+
+```haxe
+var _msg:stdgo.GoString
+```
+
+
+### T\_wrapErrors function new
+
+
+```haxe
+function new(?_msg:stdgo.GoString, ?_errs:stdgo.Slice<stdgo.Error>):Void
+```
+
+
+
+
+
+[\(view code\)](<./Fmt.hx#L827>)
+
+
+### T\_wrapErrors function error
+
+
+```haxe
+function error():stdgo.GoString
+```
+
+
+
+
+
+[\(view code\)](<./Fmt.hx#L1696>)
+
+
+### T\_wrapErrors function unwrap
+
+
+```haxe
+function unwrap():stdgo.Slice<stdgo.Error>
+```
+
+
+
+
+
+[\(view code\)](<./Fmt.hx#L1692>)
 
 
 # Typedefs
@@ -2348,22 +3789,29 @@ import stdgo.fmt.*
 
 
 ```haxe
-typedef Formatter = var a:{<__underlying__> | (_f:stdgo.fmt.State, _verb:stdgo.GoRune):Void | ():stdgo.AnyInterface}
+typedef Formatter = var a:{<__underlying__> | (_f:stdgo.fmt.State, _verb:stdgo.GoRune):Void | {<haxe_doc>} | ():stdgo.AnyInterface}
 ```
 
 
-Formatter is implemented by any value that has a Format method.  The implementation controls how State and rune are interpreted,  and may call Sprint\(f\) or Fprint\(f\) etc. to generate its output. 
+Formatter is implemented by any value that has a Format method.  
+The implementation controls how State and rune are interpreted,  
+and may call Sprint\(f\) or Fprint\(f\) etc. to generate its output.  
+
 
 
 ## typedef GoStringer
 
 
 ```haxe
-typedef GoStringer = var a:{<__underlying__> | ():stdgo.GoString | ():stdgo.AnyInterface}
+typedef GoStringer = var a:{<__underlying__> | ():stdgo.GoString | {<haxe_doc>} | ():stdgo.AnyInterface}
 ```
 
 
-GoStringer is implemented by any value that has a GoString method,  which defines the Go syntax for that value.  The GoString method is used to print values passed as an operand  to a %\#v format. 
+GoStringer is implemented by any value that has a GoString method,  
+which defines the Go syntax for that value.  
+The GoString method is used to print values passed as an operand  
+to a %\#v format.  
+
 
 
 ### exampleGoStringer
@@ -2375,12 +3823,11 @@ GoStringer is implemented by any value that has a GoString method,  which define
 
 ```haxe
 function exampleGoStringer():Void {
-	var _p1:stdgo.fmt_test.Fmt_test.Person = ({name: ("Warren" : GoString), age: ("31" : GoUInt), addr: (({city: ("Denver" : GoString),
-		state: ("CO" : GoString), country: ("U.S.A." : GoString)} : Address) : Ref<stdgo.fmt_test.Fmt_test.Address>)} : Person);
-	stdgo.fmt.Fmt.printf(("%#v\n" : GoString), Go.toInterface(Go.asInterface(_p1)));
-	var _p2:stdgo.fmt_test.Fmt_test.Person = ({name: ("Theia" : GoString), age: ("4" : GoUInt)} : Person);
-	stdgo.fmt.Fmt.printf(("%#v\n" : GoString), Go.toInterface(Go.asInterface(_p2)));
-}
+        var _p1:stdgo.fmt_test.Fmt_test.Person = ({ name : ("Warren" : GoString), age : ("31" : GoUInt), addr : (({ city : ("Denver" : GoString), state : ("CO" : GoString), country : ("U.S.A." : GoString) } : Address) : Ref<stdgo.fmt_test.Fmt_test.Address>) } : Person);
+        stdgo.fmt.Fmt.printf(("%#v\n" : GoString), Go.toInterface(Go.asInterface(_p1)));
+        var _p2:stdgo.fmt_test.Fmt_test.Person = ({ name : ("Theia" : GoString), age : ("4" : GoUInt) } : Person);
+        stdgo.fmt.Fmt.printf(("%#v\n" : GoString), Go.toInterface(Go.asInterface(_p2)));
+    }
 ```
 
 
@@ -2396,18 +3843,25 @@ typedef ScanState = var a:{<__underlying__> | ():{_1:Bool, _0:stdgo.GoInt} | {<h
 ```
 
 
-ScanState represents the scanner state passed to custom scanners.  Scanners may do rune\-at\-a\-time scanning or ask the ScanState  to discover the next space\-delimited token. 
+ScanState represents the scanner state passed to custom scanners.  
+Scanners may do rune\-at\-a\-time scanning or ask the ScanState  
+to discover the next space\-delimited token.  
+
 
 
 ## typedef Scanner
 
 
 ```haxe
-typedef Scanner = var a:{<__underlying__> | (_state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error | ():stdgo.AnyInterface}
+typedef Scanner = var a:{<__underlying__> | (_state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error | {<haxe_doc>} | ():stdgo.AnyInterface}
 ```
 
 
-Scanner is implemented by any value that has a Scan method, which scans  the input for the representation of a value and stores the result in the  receiver, which must be a pointer to be useful. The Scan method is called  for any argument to Scan, Scanf, or Scanln that implements it. 
+Scanner is implemented by any value that has a Scan method, which scans  
+the input for the representation of a value and stores the result in the  
+receiver, which must be a pointer to be useful. The Scan method is called  
+for any argument to Scan, Scanf, or Scanln that implements it.  
+
 
 
 ## typedef State
@@ -2418,18 +3872,26 @@ typedef State = var a:{<__underlying__> | (_b:stdgo.Slice<stdgo.GoByte>):{_1:std
 ```
 
 
-State represents the printer state passed to custom formatters.  It provides access to the io.Writer interface plus information about  the flags and options for the operand's format specifier. 
+State represents the printer state passed to custom formatters.  
+It provides access to the io.Writer interface plus information about  
+the flags and options for the operand's format specifier.  
+
 
 
 ## typedef Stringer
 
 
 ```haxe
-typedef Stringer = var a:{<__underlying__> | ():stdgo.GoString | ():stdgo.AnyInterface}
+typedef Stringer = var a:{<__underlying__> | ():stdgo.GoString | {<haxe_doc>} | ():stdgo.AnyInterface}
 ```
 
 
-Stringer is implemented by any value that has a String method,  which defines the “native” format for that value.  The String method is used to print values passed as an operand  to any format that accepts a string or to an unformatted printer  such as Print. 
+Stringer is implemented by any value that has a String method,  
+which defines the “native” format for that value.  
+The String method is used to print values passed as an operand  
+to any format that accepts a string or to an unformatted printer  
+such as Print.  
+
 
 
 ### exampleStringer
@@ -2441,9 +3903,9 @@ Stringer is implemented by any value that has a String method,  which defines th
 
 ```haxe
 function exampleStringer():Void {
-	var _a:stdgo.fmt_test.Fmt_test.Animal = ({name: ("Gopher" : GoString), age: ("2" : GoUInt)} : Animal);
-	stdgo.fmt.Fmt.println(Go.toInterface(Go.asInterface(_a)));
-}
+        var _a:stdgo.fmt_test.Fmt_test.Animal = ({ name : ("Gopher" : GoString), age : ("2" : GoUInt) } : Animal);
+        stdgo.fmt.Fmt.println(Go.toInterface(Go.asInterface(_a)));
+    }
 ```
 
 

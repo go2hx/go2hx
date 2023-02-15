@@ -6,7 +6,7 @@
 # Overview
 
 
- 
+
 
 
 # Index
@@ -27,7 +27,7 @@ import
 ## class FD
 
 
- 
+
 
 
 ### FD function new
@@ -38,7 +38,7 @@ function new():Void
 ```
 
 
- 
+
 
 
 [\(view code\)](<./Poll.hx#L5>)

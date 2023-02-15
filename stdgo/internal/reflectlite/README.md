@@ -6,7 +6,7 @@
 # Overview
 
 
- 
+
 
 
 # Index
@@ -40,7 +40,7 @@ function swapper(_x:stdgo.AnyInterface):(:stdgo.GoInt, :stdgo.GoInt):Void
 ```
 
 
- 
+
 
 
 [\(view code\)](<./Reflectlite.hx#L13>)
@@ -54,7 +54,7 @@ function typeOf(_x:stdgo.AnyInterface):stdgo.reflect.Type
 ```
 
 
- 
+
 
 
 [\(view code\)](<./Reflectlite.hx#L9>)
@@ -68,7 +68,7 @@ function valueOf(_0:stdgo.AnyInterface):stdgo.internal.reflectlite.Value
 ```
 
 
- 
+
 
 
 [\(view code\)](<./Reflectlite.hx#L30>)
@@ -90,7 +90,7 @@ typedef Kind = var t:{<>}
 ```
 
 
- 
+
 
 
 ## typedef Type
@@ -101,7 +101,7 @@ typedef Type = var t:{<>}
 ```
 
 
- 
+
 
 
 ## typedef Value
@@ -112,6 +112,6 @@ typedef Value = var c:{<>}
 ```
 
 
- 
+
 
 

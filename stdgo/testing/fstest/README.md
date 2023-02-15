@@ -6,20 +6,20 @@
 # Overview
 
 
-Package fstest implements support for testing implementations and users of file systems. 
+Package fstest implements support for testing implementations and users of file systems.  
+
 
 
 <details><summary>hl tests failed</summary>
 <p>
 
 ```
-stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 Error: Command failed with error 1
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestMapFS
 Exception: testing.fstest.testMapFS is not yet implemented
 Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 355)
-Called from stdgo.testing.fstest_test._Fstest.$Fstest_Fields_.main (stdgo/testing/fstest_test/Fstest.hx line 34)
+Called from stdgo.testing.fstest_test._Fstest.$Fstest_Fields_.main (stdgo/testing/fstest_test/Fstest.hx line 37)
 ```
 </p>
 </details>
@@ -28,11 +28,10 @@ Called from stdgo.testing.fstest_test._Fstest.$Fstest_Fields_.main (stdgo/testin
 <p>
 
 ```
-stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestMapFS
 Exception: testing.fstest.testMapFS is not yet implemented
-Called from stdgo.testing.fstest._Fstest.Fstest_Fields_.testMapFS (stdgo/testing/fstest/Fstest.hx line 306 column 2)
+Called from stdgo.testing.fstest._Fstest.Fstest_Fields_.testMapFS (stdgo/testing/fstest/Fstest.hx line 229 column 58)
 ```
 </p>
 </details>
@@ -41,7 +40,6 @@ Called from stdgo.testing.fstest._Fstest.Fstest_Fields_.testMapFS (stdgo/testing
 <p>
 
 ```
-stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 IO.Overflow("write_ui16")
 stdgo/internal/Macro.macro.hx:35: define
 ```
@@ -62,135 +60,177 @@ stdgo/internal/Macro.macro.hx:35: define
 
 - [`function testSymlink(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testsymlink>)
 
-- [class MapFS\_static\_extension](<#class-mapfs_static_extension>)
-
-  - [`function glob( _pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoString>}`](<#mapfs_static_extension-function-glob>)
-
-  - [`function open( _name:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.File}`](<#mapfs_static_extension-function-open>)
-
-  - [`function readDir( _name:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.io.fs.DirEntry>}`](<#mapfs_static_extension-function-readdir>)
-
-  - [`function readFile( _name:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoByte>}`](<#mapfs_static_extension-function-readfile>)
-
-  - [`function stat( _name:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}`](<#mapfs_static_extension-function-stat>)
-
-  - [`function sub( _dir:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.FS}`](<#mapfs_static_extension-function-sub>)
-
 - [class MapFile](<#class-mapfile>)
 
   - [`function new(?data:stdgo.Slice<stdgo.GoUInt8>, ?mode:Null<stdgo.io.fs.FileMode>, ?modTime:stdgo.time.Time, ?sys:stdgo.AnyInterface):Void`](<#mapfile-function-new>)
 
-- [class T\_fsOnly\_static\_extension](<#class-t_fsonly_static_extension>)
+- [class T\_fsOnly](<#class-t_fsonly>)
 
-  - [`function open(__self__:stdgo.testing.fstest._Fstest.T_fsOnly, _pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.File}`](<#t_fsonly_static_extension-function-open>)
+  - [`function new(?fs:Null<stdgo.io.fs.FS>):Void`](<#t_fsonly-function-new>)
 
-- [class T\_fsTester\_static\_extension](<#class-t_fstester_static_extension>)
+  - [`function open(_pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.File}`](<#t_fsonly-function-open>)
 
-  - [`function _checkBadPath(_t:stdgo.Ref<stdgo.testing.fstest._Fstest.T_fsTester>, _file:stdgo.GoString, _desc:stdgo.GoString, _open:()):Void`](<#t_fstester_static_extension-function-_checkbadpath>)
+  - [`function open( _pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.File}`](<#t_fsonly-function-open>)
 
-  - [`function _checkDir(_t:stdgo.Ref<stdgo.testing.fstest._Fstest.T_fsTester>, _dir:stdgo.GoString):Void`](<#t_fstester_static_extension-function-_checkdir>)
+- [class T\_fsTester](<#class-t_fstester>)
 
-  - [`function _checkDirList(_t:stdgo.Ref<stdgo.testing.fstest._Fstest.T_fsTester>, _dir:stdgo.GoString, _desc:stdgo.GoString, _list1:stdgo.Slice<stdgo.io.fs.DirEntry>, _list2:stdgo.Slice<stdgo.io.fs.DirEntry>):Void`](<#t_fstester_static_extension-function-_checkdirlist>)
+  - [`function new(?_fsys:Null<stdgo.io.fs.FS>, ?_errText:stdgo.Slice<stdgo.GoUInt8>, ?_dirs:stdgo.Slice<stdgo.GoString>, ?_files:stdgo.Slice<stdgo.GoString>):Void`](<#t_fstester-function-new>)
 
-  - [`function _checkFile(_t:stdgo.Ref<stdgo.testing.fstest._Fstest.T_fsTester>, _file:stdgo.GoString):Void`](<#t_fstester_static_extension-function-_checkfile>)
+  - [`function _checkBadPath( _file:stdgo.GoString, _desc:stdgo.GoString, _open:()):Void`](<#t_fstester-function-_checkbadpath>)
 
-  - [`function _checkFileRead(_t:stdgo.Ref<stdgo.testing.fstest._Fstest.T_fsTester>, _file:stdgo.GoString, _desc:stdgo.GoString, _data1:stdgo.Slice<stdgo.GoByte>, _data2:stdgo.Slice<stdgo.GoByte>):Void`](<#t_fstester_static_extension-function-_checkfileread>)
+  - [`function _checkDir( _dir:stdgo.GoString):Void`](<#t_fstester-function-_checkdir>)
 
-  - [`function _checkGlob(_t:stdgo.Ref<stdgo.testing.fstest._Fstest.T_fsTester>, _dir:stdgo.GoString, _list:stdgo.Slice<stdgo.io.fs.DirEntry>):Void`](<#t_fstester_static_extension-function-_checkglob>)
+  - [`function _checkDirList( _dir:stdgo.GoString, _desc:stdgo.GoString, _list1:stdgo.Slice<stdgo.io.fs.DirEntry>, _list2:stdgo.Slice<stdgo.io.fs.DirEntry>):Void`](<#t_fstester-function-_checkdirlist>)
 
-  - [`function _checkOpen(_t:stdgo.Ref<stdgo.testing.fstest._Fstest.T_fsTester>, _file:stdgo.GoString):Void`](<#t_fstester_static_extension-function-_checkopen>)
+  - [`function _checkFile( _file:stdgo.GoString):Void`](<#t_fstester-function-_checkfile>)
 
-  - [`function _checkStat(_t:stdgo.Ref<stdgo.testing.fstest._Fstest.T_fsTester>, _path:stdgo.GoString, _entry:stdgo.io.fs.DirEntry):Void`](<#t_fstester_static_extension-function-_checkstat>)
+  - [`function _checkFileRead( _file:stdgo.GoString, _desc:stdgo.GoString, _data1:stdgo.Slice<stdgo.GoByte>, _data2:stdgo.Slice<stdgo.GoByte>):Void`](<#t_fstester-function-_checkfileread>)
 
-  - [`function _errorf(_t:stdgo.Ref<stdgo.testing.fstest._Fstest.T_fsTester>, _format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void`](<#t_fstester_static_extension-function-_errorf>)
+  - [`function _checkGlob( _dir:stdgo.GoString, _list:stdgo.Slice<stdgo.io.fs.DirEntry>):Void`](<#t_fstester-function-_checkglob>)
 
-  - [`function _openDir(_t:stdgo.Ref<stdgo.testing.fstest._Fstest.T_fsTester>, _dir:stdgo.GoString):stdgo.io.fs.ReadDirFile`](<#t_fstester_static_extension-function-_opendir>)
+  - [`function _checkOpen( _file:stdgo.GoString):Void`](<#t_fstester-function-_checkopen>)
 
-- [class T\_mapDir\_static\_extension](<#class-t_mapdir_static_extension>)
+  - [`function _checkStat( _path:stdgo.GoString, _entry:stdgo.io.fs.DirEntry):Void`](<#t_fstester-function-_checkstat>)
 
-  - [`function close(_d:stdgo.Ref<stdgo.testing.fstest._Fstest.T_mapDir>):stdgo.Error`](<#t_mapdir_static_extension-function-close>)
+  - [`function _errorf( _format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void`](<#t_fstester-function-_errorf>)
 
-  - [`function info(__self__:stdgo.testing.fstest._Fstest.T_mapDir):{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}`](<#t_mapdir_static_extension-function-info>)
+  - [`function _openDir( _dir:stdgo.GoString):stdgo.io.fs.ReadDirFile`](<#t_fstester-function-_opendir>)
 
-  - [`function isDir(__self__:stdgo.testing.fstest._Fstest.T_mapDir):Bool`](<#t_mapdir_static_extension-function-isdir>)
+- [class T\_mapDir](<#class-t_mapdir>)
 
-  - [`function modTime(__self__:stdgo.testing.fstest._Fstest.T_mapDir):stdgo.time.Time`](<#t_mapdir_static_extension-function-modtime>)
+  - [`function info():{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}`](<#t_mapdir-function-info>)
 
-  - [`function mode(__self__:stdgo.testing.fstest._Fstest.T_mapDir):stdgo.io.fs.FileMode`](<#t_mapdir_static_extension-function-mode>)
+  - [`function isDir():Bool`](<#t_mapdir-function-isdir>)
 
-  - [`function name(__self__:stdgo.testing.fstest._Fstest.T_mapDir):stdgo.GoString`](<#t_mapdir_static_extension-function-name>)
+  - [`function modTime():stdgo.time.Time`](<#t_mapdir-function-modtime>)
 
-  - [`function read(_d:stdgo.Ref<stdgo.testing.fstest._Fstest.T_mapDir>, _b:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_mapdir_static_extension-function-read>)
+  - [`function mode():stdgo.io.fs.FileMode`](<#t_mapdir-function-mode>)
 
-  - [`function readDir(_d:stdgo.Ref<stdgo.testing.fstest._Fstest.T_mapDir>, _count:stdgo.GoInt):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.io.fs.DirEntry>}`](<#t_mapdir_static_extension-function-readdir>)
+  - [`function name():stdgo.GoString`](<#t_mapdir-function-name>)
 
-  - [`function size(__self__:stdgo.testing.fstest._Fstest.T_mapDir):stdgo.GoInt64`](<#t_mapdir_static_extension-function-size>)
+  - [`function new(?_path:stdgo.GoString, ?_mapFileInfo:stdgo.testing.fstest.T_mapFileInfo, ?_entry:stdgo.Slice<stdgo.testing.fstest.T_mapFileInfo>, ?_offset:Null<stdgo.GoInt>):Void`](<#t_mapdir-function-new>)
 
-  - [`function stat(_d:stdgo.Ref<stdgo.testing.fstest._Fstest.T_mapDir>):{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}`](<#t_mapdir_static_extension-function-stat>)
+  - [`function size():stdgo.GoInt64`](<#t_mapdir-function-size>)
 
-  - [`function sys(__self__:stdgo.testing.fstest._Fstest.T_mapDir):stdgo.AnyInterface`](<#t_mapdir_static_extension-function-sys>)
+  - [`function sys():stdgo.AnyInterface`](<#t_mapdir-function-sys>)
 
-  - [`function type(__self__:stdgo.testing.fstest._Fstest.T_mapDir):stdgo.io.fs.FileMode`](<#t_mapdir_static_extension-function-type>)
+  - [`function type():stdgo.io.fs.FileMode`](<#t_mapdir-function-type>)
 
-- [class T\_mapFileInfo\_static\_extension](<#class-t_mapfileinfo_static_extension>)
+  - [`function close():stdgo.Error`](<#t_mapdir-function-close>)
 
-  - [`function info(_i:stdgo.Ref<stdgo.testing.fstest._Fstest.T_mapFileInfo>):{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}`](<#t_mapfileinfo_static_extension-function-info>)
+  - [`function info():{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}`](<#t_mapdir-function-info>)
 
-  - [`function isDir(_i:stdgo.Ref<stdgo.testing.fstest._Fstest.T_mapFileInfo>):Bool`](<#t_mapfileinfo_static_extension-function-isdir>)
+  - [`function isDir():Bool`](<#t_mapdir-function-isdir>)
 
-  - [`function modTime(_i:stdgo.Ref<stdgo.testing.fstest._Fstest.T_mapFileInfo>):stdgo.time.Time`](<#t_mapfileinfo_static_extension-function-modtime>)
+  - [`function modTime():stdgo.time.Time`](<#t_mapdir-function-modtime>)
 
-  - [`function mode(_i:stdgo.Ref<stdgo.testing.fstest._Fstest.T_mapFileInfo>):stdgo.io.fs.FileMode`](<#t_mapfileinfo_static_extension-function-mode>)
+  - [`function mode():stdgo.io.fs.FileMode`](<#t_mapdir-function-mode>)
 
-  - [`function name(_i:stdgo.Ref<stdgo.testing.fstest._Fstest.T_mapFileInfo>):stdgo.GoString`](<#t_mapfileinfo_static_extension-function-name>)
+  - [`function name():stdgo.GoString`](<#t_mapdir-function-name>)
 
-  - [`function size(_i:stdgo.Ref<stdgo.testing.fstest._Fstest.T_mapFileInfo>):stdgo.GoInt64`](<#t_mapfileinfo_static_extension-function-size>)
+  - [`function read( _b:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_mapdir-function-read>)
 
-  - [`function sys(_i:stdgo.Ref<stdgo.testing.fstest._Fstest.T_mapFileInfo>):stdgo.AnyInterface`](<#t_mapfileinfo_static_extension-function-sys>)
+  - [`function readDir( _count:stdgo.GoInt):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.io.fs.DirEntry>}`](<#t_mapdir-function-readdir>)
 
-  - [`function type(_i:stdgo.Ref<stdgo.testing.fstest._Fstest.T_mapFileInfo>):stdgo.io.fs.FileMode`](<#t_mapfileinfo_static_extension-function-type>)
+  - [`function size():stdgo.GoInt64`](<#t_mapdir-function-size>)
 
-- [class T\_noSub\_static\_extension](<#class-t_nosub_static_extension>)
+  - [`function stat():{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}`](<#t_mapdir-function-stat>)
 
-  - [`function glob(__self__:stdgo.testing.fstest._Fstest.T_noSub, _pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoString>}`](<#t_nosub_static_extension-function-glob>)
+  - [`function sys():stdgo.AnyInterface`](<#t_mapdir-function-sys>)
 
-  - [`function open(__self__:stdgo.testing.fstest._Fstest.T_noSub, _pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.File}`](<#t_nosub_static_extension-function-open>)
+  - [`function type():stdgo.io.fs.FileMode`](<#t_mapdir-function-type>)
 
-  - [`function readDir(__self__:stdgo.testing.fstest._Fstest.T_noSub, _pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.io.fs.DirEntry>}`](<#t_nosub_static_extension-function-readdir>)
+- [class T\_mapFileInfo](<#class-t_mapfileinfo>)
 
-  - [`function readFile(__self__:stdgo.testing.fstest._Fstest.T_noSub, _pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoUInt8>}`](<#t_nosub_static_extension-function-readfile>)
+  - [`function new(?_name:stdgo.GoString, ?_f:stdgo.Ref<stdgo.testing.fstest.MapFile>):Void`](<#t_mapfileinfo-function-new>)
 
-  - [`function stat(__self__:stdgo.testing.fstest._Fstest.T_noSub, _pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}`](<#t_nosub_static_extension-function-stat>)
+  - [`function info():{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}`](<#t_mapfileinfo-function-info>)
 
-  - [`function sub(_:stdgo.testing.fstest._Fstest.T_noSub):Void`](<#t_nosub_static_extension-function-sub>)
+  - [`function isDir():Bool`](<#t_mapfileinfo-function-isdir>)
 
-- [class T\_openMapFile\_static\_extension](<#class-t_openmapfile_static_extension>)
+  - [`function modTime():stdgo.time.Time`](<#t_mapfileinfo-function-modtime>)
 
-  - [`function close(_f:stdgo.Ref<stdgo.testing.fstest._Fstest.T_openMapFile>):stdgo.Error`](<#t_openmapfile_static_extension-function-close>)
+  - [`function mode():stdgo.io.fs.FileMode`](<#t_mapfileinfo-function-mode>)
 
-  - [`function info(__self__:stdgo.testing.fstest._Fstest.T_openMapFile):{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}`](<#t_openmapfile_static_extension-function-info>)
+  - [`function name():stdgo.GoString`](<#t_mapfileinfo-function-name>)
 
-  - [`function isDir(__self__:stdgo.testing.fstest._Fstest.T_openMapFile):Bool`](<#t_openmapfile_static_extension-function-isdir>)
+  - [`function size():stdgo.GoInt64`](<#t_mapfileinfo-function-size>)
 
-  - [`function modTime(__self__:stdgo.testing.fstest._Fstest.T_openMapFile):stdgo.time.Time`](<#t_openmapfile_static_extension-function-modtime>)
+  - [`function sys():stdgo.AnyInterface`](<#t_mapfileinfo-function-sys>)
 
-  - [`function mode(__self__:stdgo.testing.fstest._Fstest.T_openMapFile):stdgo.io.fs.FileMode`](<#t_openmapfile_static_extension-function-mode>)
+  - [`function type():stdgo.io.fs.FileMode`](<#t_mapfileinfo-function-type>)
 
-  - [`function name(__self__:stdgo.testing.fstest._Fstest.T_openMapFile):stdgo.GoString`](<#t_openmapfile_static_extension-function-name>)
+- [class T\_noSub](<#class-t_nosub>)
 
-  - [`function read(_f:stdgo.Ref<stdgo.testing.fstest._Fstest.T_openMapFile>, _b:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_openmapfile_static_extension-function-read>)
+  - [`function glob(_pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoString>}`](<#t_nosub-function-glob>)
 
-  - [`function readAt(_f:stdgo.Ref<stdgo.testing.fstest._Fstest.T_openMapFile>, _b:stdgo.Slice<stdgo.GoByte>, _offset:stdgo.GoInt64):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_openmapfile_static_extension-function-readat>)
+  - [`function new(?mapFS:Null<stdgo.testing.fstest.MapFS>):Void`](<#t_nosub-function-new>)
 
-  - [`function seek(_f:stdgo.Ref<stdgo.testing.fstest._Fstest.T_openMapFile>, _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{_1:stdgo.Error, _0:stdgo.GoInt64}`](<#t_openmapfile_static_extension-function-seek>)
+  - [`function open(_pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.File}`](<#t_nosub-function-open>)
 
-  - [`function size(__self__:stdgo.testing.fstest._Fstest.T_openMapFile):stdgo.GoInt64`](<#t_openmapfile_static_extension-function-size>)
+  - [`function readDir(_pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.io.fs.DirEntry>}`](<#t_nosub-function-readdir>)
 
-  - [`function stat(_f:stdgo.Ref<stdgo.testing.fstest._Fstest.T_openMapFile>):{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}`](<#t_openmapfile_static_extension-function-stat>)
+  - [`function readFile(_pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoUInt8>}`](<#t_nosub-function-readfile>)
 
-  - [`function sys(__self__:stdgo.testing.fstest._Fstest.T_openMapFile):stdgo.AnyInterface`](<#t_openmapfile_static_extension-function-sys>)
+  - [`function stat(_pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}`](<#t_nosub-function-stat>)
 
-  - [`function type(__self__:stdgo.testing.fstest._Fstest.T_openMapFile):stdgo.io.fs.FileMode`](<#t_openmapfile_static_extension-function-type>)
+  - [`function glob( _pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoString>}`](<#t_nosub-function-glob>)
+
+  - [`function open( _pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.File}`](<#t_nosub-function-open>)
+
+  - [`function readDir( _pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.io.fs.DirEntry>}`](<#t_nosub-function-readdir>)
+
+  - [`function readFile( _pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoUInt8>}`](<#t_nosub-function-readfile>)
+
+  - [`function stat( _pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}`](<#t_nosub-function-stat>)
+
+  - [`function sub():Void`](<#t_nosub-function-sub>)
+
+- [class T\_openMapFile](<#class-t_openmapfile>)
+
+  - [`function info():{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}`](<#t_openmapfile-function-info>)
+
+  - [`function isDir():Bool`](<#t_openmapfile-function-isdir>)
+
+  - [`function modTime():stdgo.time.Time`](<#t_openmapfile-function-modtime>)
+
+  - [`function mode():stdgo.io.fs.FileMode`](<#t_openmapfile-function-mode>)
+
+  - [`function name():stdgo.GoString`](<#t_openmapfile-function-name>)
+
+  - [`function new(?_path:stdgo.GoString, ?_mapFileInfo:stdgo.testing.fstest.T_mapFileInfo, ?_offset:stdgo.GoInt64):Void`](<#t_openmapfile-function-new>)
+
+  - [`function size():stdgo.GoInt64`](<#t_openmapfile-function-size>)
+
+  - [`function sys():stdgo.AnyInterface`](<#t_openmapfile-function-sys>)
+
+  - [`function type():stdgo.io.fs.FileMode`](<#t_openmapfile-function-type>)
+
+  - [`function close():stdgo.Error`](<#t_openmapfile-function-close>)
+
+  - [`function info():{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}`](<#t_openmapfile-function-info>)
+
+  - [`function isDir():Bool`](<#t_openmapfile-function-isdir>)
+
+  - [`function modTime():stdgo.time.Time`](<#t_openmapfile-function-modtime>)
+
+  - [`function mode():stdgo.io.fs.FileMode`](<#t_openmapfile-function-mode>)
+
+  - [`function name():stdgo.GoString`](<#t_openmapfile-function-name>)
+
+  - [`function read( _b:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_openmapfile-function-read>)
+
+  - [`function readAt( _b:stdgo.Slice<stdgo.GoByte>, _offset:stdgo.GoInt64):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_openmapfile-function-readat>)
+
+  - [`function seek( _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{_1:stdgo.Error, _0:stdgo.GoInt64}`](<#t_openmapfile-function-seek>)
+
+  - [`function size():stdgo.GoInt64`](<#t_openmapfile-function-size>)
+
+  - [`function stat():{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}`](<#t_openmapfile-function-stat>)
+
+  - [`function sys():stdgo.AnyInterface`](<#t_openmapfile-function-sys>)
+
+  - [`function type():stdgo.io.fs.FileMode`](<#t_openmapfile-function-type>)
 
 - [typedef MapFS](<#typedef-mapfs>)
 
@@ -222,10 +262,10 @@ function testDash(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L357>)
+
+[\(view code\)](<./Fstest.hx#L264>)
 
 
 ## function testFS
@@ -236,10 +276,41 @@ function testFS(_fsys:stdgo.io.fs.FS, _expected:haxe.Rest<stdgo.GoString>):stdgo
 ```
 
 
-TestFS tests a file system implementation.  It walks the entire tree of files in fsys,  opening and checking that each file behaves correctly.  It also checks that the file system contains at least the expected files.  As a special case, if no expected files are listed, fsys must be empty.  Otherwise, fsys must contain at least the listed files; it can also contain others.  The contents of fsys must not change concurrently with TestFS.    If TestFS finds any misbehaviors, it returns an error reporting all of them.  The error text spans multiple lines, one per detected misbehavior.    Typical usage inside a test is:     if err := fstest.TestFS\(myFS, "file/that/should/be/present"\); err \!= nil \{    t.Fatal\(err\)   \} 
+TestFS tests a file system implementation.  
+It walks the entire tree of files in fsys,  
+opening and checking that each file behaves correctly.  
+It also checks that the file system contains at least the expected files.  
+As a special case, if no expected files are listed, fsys must be empty.  
+Otherwise, fsys must contain at least the listed files; it can also contain others.  
+The contents of fsys must not change concurrently with TestFS.  
 
 
-[\(view code\)](<./Fstest.hx#L330>)
+
+If TestFS finds any misbehaviors, it returns an error reporting all of them.  
+The error text spans multiple lines, one per detected misbehavior.  
+
+
+
+Typical usage inside a test is:  
+
+
+
+
+
+
+if err := fstest.TestFS\(myFS, "file/that/should/be/present"\); err \!= nil \{  
+
+
+
+t.Fatal\(err\)  
+
+
+
+\}  
+
+
+
+[\(view code\)](<./Fstest.hx#L249>)
 
 
 ## function testMapFS
@@ -250,10 +321,10 @@ function testMapFS(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L306>)
+
+[\(view code\)](<./Fstest.hx#L229>)
 
 
 ## function testMapFSChmodDot
@@ -264,10 +335,10 @@ function testMapFSChmodDot(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L309>)
+
+[\(view code\)](<./Fstest.hx#L230>)
 
 
 ## function testSymlink
@@ -278,10 +349,10 @@ function testSymlink(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L354>)
+
+[\(view code\)](<./Fstest.hx#L263>)
 
 
 # Classes
@@ -292,100 +363,11 @@ import stdgo.testing.fstest.*
 ```
 
 
-## class MapFS\_static\_extension
-
-
- 
-
-
-### MapFS\_static\_extension function glob
-
-
-```haxe
-function glob( _pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoString>}
-```
-
-
- 
-
-
-[\(view code\)](<./Fstest.hx#L965>)
-
-
-### MapFS\_static\_extension function open
-
-
-```haxe
-function open( _name:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.File}
-```
-
-
-Open opens the named file. 
-
-
-[\(view code\)](<./Fstest.hx#L984>)
-
-
-### MapFS\_static\_extension function readDir
-
-
-```haxe
-function readDir( _name:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.io.fs.DirEntry>}
-```
-
-
- 
-
-
-[\(view code\)](<./Fstest.hx#L969>)
-
-
-### MapFS\_static\_extension function readFile
-
-
-```haxe
-function readFile( _name:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoByte>}
-```
-
-
- 
-
-
-[\(view code\)](<./Fstest.hx#L977>)
-
-
-### MapFS\_static\_extension function stat
-
-
-```haxe
-function stat( _name:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}
-```
-
-
- 
-
-
-[\(view code\)](<./Fstest.hx#L973>)
-
-
-### MapFS\_static\_extension function sub
-
-
-```haxe
-function sub( _dir:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.FS}
-```
-
-
- 
-
-
-[\(view code\)](<./Fstest.hx#L961>)
-
-
 ## class MapFile
 
 
-A MapFile describes a single file in a MapFS. 
+A MapFile describes a single file in a MapFS.  
+
 
 
 ```haxe
@@ -416,746 +398,1234 @@ function new(?data:stdgo.Slice<stdgo.GoUInt8>, ?mode:Null<stdgo.io.fs.FileMode>,
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L30>)
+
+[\(view code\)](<./Fstest.hx#L37>)
 
 
-## class T\_fsOnly\_static\_extension
+## class T\_fsOnly
 
 
- 
+fsOnly is a wrapper that hides all but the fs.FS methods,  
+to avoid an infinite recursion when implementing special  
+methods in terms of helpers that would use them.  
+\(In general, implementing these methods using the package fs helpers  
+is redundant and unnecessary, but having the methods may make  
+MapFS exercise more code paths when used in tests.\)  
 
-
-### T\_fsOnly\_static\_extension function open
-
-
-```haxe
-function open(__self__:stdgo.testing.fstest._Fstest.T_fsOnly, _pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.File}
-```
-
-
- 
-
-
-[\(view code\)](<./Fstest.hx#L381>)
-
-
-## class T\_fsTester\_static\_extension
-
-
- 
-
-
-### T\_fsTester\_static\_extension function \_checkBadPath
 
 
 ```haxe
-function _checkBadPath(_t:stdgo.Ref<stdgo.testing.fstest._Fstest.T_fsTester>, _file:stdgo.GoString, _desc:stdgo.GoString, _open:()):Void
+var fs:stdgo.io.fs.FS
 ```
 
 
-checkBadPath checks that various invalid forms of file's name cannot be opened using open. 
-
-
-[\(view code\)](<./Fstest.hx#L852>)
-
-
-### T\_fsTester\_static\_extension function \_checkDir
+### T\_fsOnly function new
 
 
 ```haxe
-function _checkDir(_t:stdgo.Ref<stdgo.testing.fstest._Fstest.T_fsTester>, _dir:stdgo.GoString):Void
+function new(?fs:Null<stdgo.io.fs.FS>):Void
 ```
 
 
-checkDir checks the directory dir, which is expected to exist   \(it is either the root or was found in a directory listing with IsDir true\). 
 
 
-[\(view code\)](<./Fstest.hx#L902>)
+
+[\(view code\)](<./Fstest.hx#L61>)
 
 
-### T\_fsTester\_static\_extension function \_checkDirList
+### T\_fsOnly function open
 
 
 ```haxe
-function _checkDirList(_t:stdgo.Ref<stdgo.testing.fstest._Fstest.T_fsTester>, _dir:stdgo.GoString, _desc:stdgo.GoString, _list1:stdgo.Slice<stdgo.io.fs.DirEntry>, _list2:stdgo.Slice<stdgo.io.fs.DirEntry>):Void
+function open(_pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.File}
 ```
 
 
-checkDirList checks that two directory lists contain the same files and file info.   The order of the lists need not match. 
 
 
-[\(view code\)](<./Fstest.hx#L879>)
+
+[\(view code\)](<./Fstest.hx#L66>)
 
 
-### T\_fsTester\_static\_extension function \_checkFile
+### T\_fsOnly function open
 
 
 ```haxe
-function _checkFile(_t:stdgo.Ref<stdgo.testing.fstest._Fstest.T_fsTester>, _file:stdgo.GoString):Void
+function open( _pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.File}
 ```
 
 
-checkFile checks that basic file reading works correctly. 
 
 
-[\(view code\)](<./Fstest.hx#L870>)
+
+[\(view code\)](<./Fstest.hx#L278>)
 
 
-### T\_fsTester\_static\_extension function \_checkFileRead
+## class T\_fsTester
+
+
+An fsTester holds state for running the test.  
+
 
 
 ```haxe
-function _checkFileRead(_t:stdgo.Ref<stdgo.testing.fstest._Fstest.T_fsTester>, _file:stdgo.GoString, _desc:stdgo.GoString, _data1:stdgo.Slice<stdgo.GoByte>, _data2:stdgo.Slice<stdgo.GoByte>):Void
+var _dirs:stdgo.Slice<stdgo.GoString>
 ```
-
-
- 
-
-
-[\(view code\)](<./Fstest.hx#L863>)
-
-
-### T\_fsTester\_static\_extension function \_checkGlob
 
 
 ```haxe
-function _checkGlob(_t:stdgo.Ref<stdgo.testing.fstest._Fstest.T_fsTester>, _dir:stdgo.GoString, _list:stdgo.Slice<stdgo.io.fs.DirEntry>):Void
+var _errText:stdgo.Slice<stdgo.GoUInt8>
 ```
-
-
-checkGlob checks that various glob patterns work if the file system implements GlobFS. 
-
-
-[\(view code\)](<./Fstest.hx#L894>)
-
-
-### T\_fsTester\_static\_extension function \_checkOpen
 
 
 ```haxe
-function _checkOpen(_t:stdgo.Ref<stdgo.testing.fstest._Fstest.T_fsTester>, _file:stdgo.GoString):Void
+var _files:stdgo.Slice<stdgo.GoString>
 ```
-
-
-checkBadPath checks that various invalid forms of file's name cannot be opened using t.fsys.Open. 
-
-
-[\(view code\)](<./Fstest.hx#L859>)
-
-
-### T\_fsTester\_static\_extension function \_checkStat
 
 
 ```haxe
-function _checkStat(_t:stdgo.Ref<stdgo.testing.fstest._Fstest.T_fsTester>, _path:stdgo.GoString, _entry:stdgo.io.fs.DirEntry):Void
+var _fsys:stdgo.io.fs.FS
 ```
 
 
-checkStat checks that a direct stat of path matches entry,   which was found in the parent's directory listing. 
-
-
-[\(view code\)](<./Fstest.hx#L887>)
-
-
-### T\_fsTester\_static\_extension function \_errorf
+### T\_fsTester function new
 
 
 ```haxe
-function _errorf(_t:stdgo.Ref<stdgo.testing.fstest._Fstest.T_fsTester>, _format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void
+function new(?_fsys:Null<stdgo.io.fs.FS>, ?_errText:stdgo.Slice<stdgo.GoUInt8>, ?_dirs:stdgo.Slice<stdgo.GoString>, ?_files:stdgo.Slice<stdgo.GoString>):Void
 ```
 
 
-errorf adds an error line to errText. 
 
 
-[\(view code\)](<./Fstest.hx#L913>)
+
+[\(view code\)](<./Fstest.hx#L198>)
 
 
-### T\_fsTester\_static\_extension function \_openDir
+### T\_fsTester function \_checkBadPath
 
 
 ```haxe
-function _openDir(_t:stdgo.Ref<stdgo.testing.fstest._Fstest.T_fsTester>, _dir:stdgo.GoString):stdgo.io.fs.ReadDirFile
+function _checkBadPath( _file:stdgo.GoString, _desc:stdgo.GoString, _open:()):Void
 ```
 
 
- 
+checkBadPath checks that various invalid forms of file's name cannot be opened using open.  
 
 
-[\(view code\)](<./Fstest.hx#L906>)
+
+[\(view code\)](<./Fstest.hx#L541>)
 
 
-## class T\_mapDir\_static\_extension
-
-
- 
-
-
-### T\_mapDir\_static\_extension function close
+### T\_fsTester function \_checkDir
 
 
 ```haxe
-function close(_d:stdgo.Ref<stdgo.testing.fstest._Fstest.T_mapDir>):stdgo.Error
+function _checkDir( _dir:stdgo.GoString):Void
 ```
 
 
- 
+checkDir checks the directory dir, which is expected to exist  
+\(it is either the root or was found in a directory listing with IsDir true\).  
 
 
-[\(view code\)](<./Fstest.hx#L725>)
+
+[\(view code\)](<./Fstest.hx#L576>)
 
 
-### T\_mapDir\_static\_extension function info
+### T\_fsTester function \_checkDirList
 
 
 ```haxe
-function info(__self__:stdgo.testing.fstest._Fstest.T_mapDir):{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}
+function _checkDirList( _dir:stdgo.GoString, _desc:stdgo.GoString, _list1:stdgo.Slice<stdgo.io.fs.DirEntry>, _list2:stdgo.Slice<stdgo.io.fs.DirEntry>):Void
 ```
 
 
- 
+checkDirList checks that two directory lists contain the same files and file info.  
+The order of the lists need not match.  
 
 
-[\(view code\)](<./Fstest.hx#L761>)
+
+[\(view code\)](<./Fstest.hx#L559>)
 
 
-### T\_mapDir\_static\_extension function isDir
+### T\_fsTester function \_checkFile
 
 
 ```haxe
-function isDir(__self__:stdgo.testing.fstest._Fstest.T_mapDir):Bool
+function _checkFile( _file:stdgo.GoString):Void
 ```
 
 
- 
+checkFile checks that basic file reading works correctly.  
 
 
-[\(view code\)](<./Fstest.hx#L757>)
+
+[\(view code\)](<./Fstest.hx#L553>)
 
 
-### T\_mapDir\_static\_extension function modTime
+### T\_fsTester function \_checkFileRead
 
 
 ```haxe
-function modTime(__self__:stdgo.testing.fstest._Fstest.T_mapDir):stdgo.time.Time
+function _checkFileRead( _file:stdgo.GoString, _desc:stdgo.GoString, _data1:stdgo.Slice<stdgo.GoByte>, _data2:stdgo.Slice<stdgo.GoByte>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L753>)
+
+[\(view code\)](<./Fstest.hx#L548>)
 
 
-### T\_mapDir\_static\_extension function mode
+### T\_fsTester function \_checkGlob
 
 
 ```haxe
-function mode(__self__:stdgo.testing.fstest._Fstest.T_mapDir):stdgo.io.fs.FileMode
+function _checkGlob( _dir:stdgo.GoString, _list:stdgo.Slice<stdgo.io.fs.DirEntry>):Void
 ```
 
 
- 
+checkGlob checks that various glob patterns work if the file system implements GlobFS.  
 
 
-[\(view code\)](<./Fstest.hx#L749>)
+
+[\(view code\)](<./Fstest.hx#L570>)
 
 
-### T\_mapDir\_static\_extension function name
+### T\_fsTester function \_checkOpen
 
 
 ```haxe
-function name(__self__:stdgo.testing.fstest._Fstest.T_mapDir):stdgo.GoString
+function _checkOpen( _file:stdgo.GoString):Void
 ```
 
 
- 
+checkBadPath checks that various invalid forms of file's name cannot be opened using t.fsys.Open.  
 
 
-[\(view code\)](<./Fstest.hx#L745>)
+
+[\(view code\)](<./Fstest.hx#L546>)
 
 
-### T\_mapDir\_static\_extension function read
+### T\_fsTester function \_checkStat
 
 
 ```haxe
-function read(_d:stdgo.Ref<stdgo.testing.fstest._Fstest.T_mapDir>, _b:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function _checkStat( _path:stdgo.GoString, _entry:stdgo.io.fs.DirEntry):Void
 ```
 
 
- 
+checkStat checks that a direct stat of path matches entry,  
+which was found in the parent's directory listing.  
 
 
-[\(view code\)](<./Fstest.hx#L721>)
+
+[\(view code\)](<./Fstest.hx#L565>)
 
 
-### T\_mapDir\_static\_extension function readDir
+### T\_fsTester function \_errorf
 
 
 ```haxe
-function readDir(_d:stdgo.Ref<stdgo.testing.fstest._Fstest.T_mapDir>, _count:stdgo.GoInt):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.io.fs.DirEntry>}
+function _errorf( _format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void
 ```
 
 
- 
+errorf adds an error line to errText.  
 
 
-[\(view code\)](<./Fstest.hx#L717>)
+
+[\(view code\)](<./Fstest.hx#L583>)
 
 
-### T\_mapDir\_static\_extension function size
+### T\_fsTester function \_openDir
 
 
 ```haxe
-function size(__self__:stdgo.testing.fstest._Fstest.T_mapDir):stdgo.GoInt64
+function _openDir( _dir:stdgo.GoString):stdgo.io.fs.ReadDirFile
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L741>)
+
+[\(view code\)](<./Fstest.hx#L578>)
 
 
-### T\_mapDir\_static\_extension function stat
+## class T\_mapDir
+
+
+A mapDir is a directory fs.File \(so also an fs.ReadDirFile\) open for reading.  
+
 
 
 ```haxe
-function stat(_d:stdgo.Ref<stdgo.testing.fstest._Fstest.T_mapDir>):{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}
+var _entry:stdgo.Slice<stdgo.testing.fstest.T_mapFileInfo>
 ```
-
-
- 
-
-
-[\(view code\)](<./Fstest.hx#L729>)
-
-
-### T\_mapDir\_static\_extension function sys
 
 
 ```haxe
-function sys(__self__:stdgo.testing.fstest._Fstest.T_mapDir):stdgo.AnyInterface
+var _mapFileInfo:stdgo.testing.fstest.T_mapFileInfo
 ```
-
-
- 
-
-
-[\(view code\)](<./Fstest.hx#L737>)
-
-
-### T\_mapDir\_static\_extension function type
 
 
 ```haxe
-function type(__self__:stdgo.testing.fstest._Fstest.T_mapDir):stdgo.io.fs.FileMode
+var _offset:stdgo.GoInt
 ```
-
-
- 
-
-
-[\(view code\)](<./Fstest.hx#L733>)
-
-
-## class T\_mapFileInfo\_static\_extension
-
-
- 
-
-
-### T\_mapFileInfo\_static\_extension function info
 
 
 ```haxe
-function info(_i:stdgo.Ref<stdgo.testing.fstest._Fstest.T_mapFileInfo>):{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}
+var _path:stdgo.GoString
 ```
 
 
- 
-
-
-[\(view code\)](<./Fstest.hx#L499>)
-
-
-### T\_mapFileInfo\_static\_extension function isDir
+### T\_mapDir function info
 
 
 ```haxe
-function isDir(_i:stdgo.Ref<stdgo.testing.fstest._Fstest.T_mapFileInfo>):Bool
+function info():{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L507>)
+
+[\(view code\)](<./Fstest.hx#L169>)
 
 
-### T\_mapFileInfo\_static\_extension function modTime
+### T\_mapDir function isDir
 
 
 ```haxe
-function modTime(_i:stdgo.Ref<stdgo.testing.fstest._Fstest.T_mapFileInfo>):stdgo.time.Time
+function isDir():Bool
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L511>)
+
+[\(view code\)](<./Fstest.hx#L171>)
 
 
-### T\_mapFileInfo\_static\_extension function mode
+### T\_mapDir function modTime
 
 
 ```haxe
-function mode(_i:stdgo.Ref<stdgo.testing.fstest._Fstest.T_mapFileInfo>):stdgo.io.fs.FileMode
+function modTime():stdgo.time.Time
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L519>)
+
+[\(view code\)](<./Fstest.hx#L173>)
 
 
-### T\_mapFileInfo\_static\_extension function name
+### T\_mapDir function mode
 
 
 ```haxe
-function name(_i:stdgo.Ref<stdgo.testing.fstest._Fstest.T_mapFileInfo>):stdgo.GoString
+function mode():stdgo.io.fs.FileMode
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L527>)
+
+[\(view code\)](<./Fstest.hx#L175>)
 
 
-### T\_mapFileInfo\_static\_extension function size
+### T\_mapDir function name
 
 
 ```haxe
-function size(_i:stdgo.Ref<stdgo.testing.fstest._Fstest.T_mapFileInfo>):stdgo.GoInt64
+function name():stdgo.GoString
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L523>)
+
+[\(view code\)](<./Fstest.hx#L177>)
 
 
-### T\_mapFileInfo\_static\_extension function sys
+### T\_mapDir function new
 
 
 ```haxe
-function sys(_i:stdgo.Ref<stdgo.testing.fstest._Fstest.T_mapFileInfo>):stdgo.AnyInterface
+function new(?_path:stdgo.GoString, ?_mapFileInfo:stdgo.testing.fstest.T_mapFileInfo, ?_entry:stdgo.Slice<stdgo.testing.fstest.T_mapFileInfo>, ?_offset:Null<stdgo.GoInt>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L503>)
+
+[\(view code\)](<./Fstest.hx#L161>)
 
 
-### T\_mapFileInfo\_static\_extension function type
+### T\_mapDir function size
 
 
 ```haxe
-function type(_i:stdgo.Ref<stdgo.testing.fstest._Fstest.T_mapFileInfo>):stdgo.io.fs.FileMode
+function size():stdgo.GoInt64
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L515>)
+
+[\(view code\)](<./Fstest.hx#L179>)
 
 
-## class T\_noSub\_static\_extension
-
-
- 
-
-
-### T\_noSub\_static\_extension function glob
+### T\_mapDir function sys
 
 
 ```haxe
-function glob(__self__:stdgo.testing.fstest._Fstest.T_noSub, _pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoString>}
+function sys():stdgo.AnyInterface
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L446>)
+
+[\(view code\)](<./Fstest.hx#L181>)
 
 
-### T\_noSub\_static\_extension function open
+### T\_mapDir function type
 
 
 ```haxe
-function open(__self__:stdgo.testing.fstest._Fstest.T_noSub, _pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.File}
+function type():stdgo.io.fs.FileMode
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L442>)
+
+[\(view code\)](<./Fstest.hx#L183>)
 
 
-### T\_noSub\_static\_extension function readDir
+### T\_mapDir function close
 
 
 ```haxe
-function readDir(__self__:stdgo.testing.fstest._Fstest.T_noSub, _pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.io.fs.DirEntry>}
+function close():stdgo.Error
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L438>)
+
+[\(view code\)](<./Fstest.hx#L460>)
 
 
-### T\_noSub\_static\_extension function readFile
+### T\_mapDir function info
 
 
 ```haxe
-function readFile(__self__:stdgo.testing.fstest._Fstest.T_noSub, _pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoUInt8>}
+function info():{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L434>)
+
+[\(view code\)](<./Fstest.hx#L478>)
 
 
-### T\_noSub\_static\_extension function stat
+### T\_mapDir function isDir
 
 
 ```haxe
-function stat(__self__:stdgo.testing.fstest._Fstest.T_noSub, _pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}
+function isDir():Bool
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L430>)
+
+[\(view code\)](<./Fstest.hx#L476>)
 
 
-### T\_noSub\_static\_extension function sub
+### T\_mapDir function modTime
 
 
 ```haxe
-function sub(_:stdgo.testing.fstest._Fstest.T_noSub):Void
+function modTime():stdgo.time.Time
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L426>)
+
+[\(view code\)](<./Fstest.hx#L474>)
 
 
-## class T\_openMapFile\_static\_extension
-
-
- 
-
-
-### T\_openMapFile\_static\_extension function close
+### T\_mapDir function mode
 
 
 ```haxe
-function close(_f:stdgo.Ref<stdgo.testing.fstest._Fstest.T_openMapFile>):stdgo.Error
+function mode():stdgo.io.fs.FileMode
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L612>)
+
+[\(view code\)](<./Fstest.hx#L472>)
 
 
-### T\_openMapFile\_static\_extension function info
+### T\_mapDir function name
 
 
 ```haxe
-function info(__self__:stdgo.testing.fstest._Fstest.T_openMapFile):{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}
+function name():stdgo.GoString
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L648>)
+
+[\(view code\)](<./Fstest.hx#L470>)
 
 
-### T\_openMapFile\_static\_extension function isDir
+### T\_mapDir function read
 
 
 ```haxe
-function isDir(__self__:stdgo.testing.fstest._Fstest.T_openMapFile):Bool
+function read( _b:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L644>)
+
+[\(view code\)](<./Fstest.hx#L458>)
 
 
-### T\_openMapFile\_static\_extension function modTime
+### T\_mapDir function readDir
 
 
 ```haxe
-function modTime(__self__:stdgo.testing.fstest._Fstest.T_openMapFile):stdgo.time.Time
+function readDir( _count:stdgo.GoInt):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.io.fs.DirEntry>}
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L640>)
+
+[\(view code\)](<./Fstest.hx#L456>)
 
 
-### T\_openMapFile\_static\_extension function mode
+### T\_mapDir function size
 
 
 ```haxe
-function mode(__self__:stdgo.testing.fstest._Fstest.T_openMapFile):stdgo.io.fs.FileMode
+function size():stdgo.GoInt64
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L636>)
+
+[\(view code\)](<./Fstest.hx#L468>)
 
 
-### T\_openMapFile\_static\_extension function name
+### T\_mapDir function stat
 
 
 ```haxe
-function name(__self__:stdgo.testing.fstest._Fstest.T_openMapFile):stdgo.GoString
+function stat():{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L632>)
+
+[\(view code\)](<./Fstest.hx#L462>)
 
 
-### T\_openMapFile\_static\_extension function read
+### T\_mapDir function sys
 
 
 ```haxe
-function read(_f:stdgo.Ref<stdgo.testing.fstest._Fstest.T_openMapFile>, _b:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function sys():stdgo.AnyInterface
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L608>)
+
+[\(view code\)](<./Fstest.hx#L466>)
 
 
-### T\_openMapFile\_static\_extension function readAt
+### T\_mapDir function type
 
 
 ```haxe
-function readAt(_f:stdgo.Ref<stdgo.testing.fstest._Fstest.T_openMapFile>, _b:stdgo.Slice<stdgo.GoByte>, _offset:stdgo.GoInt64):{_1:stdgo.Error, _0:stdgo.GoInt}
+function type():stdgo.io.fs.FileMode
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L600>)
+
+[\(view code\)](<./Fstest.hx#L464>)
 
 
-### T\_openMapFile\_static\_extension function seek
+## class T\_mapFileInfo
+
+
+A mapFileInfo implements fs.FileInfo and fs.DirEntry for a given map file.  
+
 
 
 ```haxe
-function seek(_f:stdgo.Ref<stdgo.testing.fstest._Fstest.T_openMapFile>, _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{_1:stdgo.Error, _0:stdgo.GoInt64}
+var _f:stdgo.Ref<stdgo.testing.fstest.MapFile>
 ```
-
-
- 
-
-
-[\(view code\)](<./Fstest.hx#L604>)
-
-
-### T\_openMapFile\_static\_extension function size
 
 
 ```haxe
-function size(__self__:stdgo.testing.fstest._Fstest.T_openMapFile):stdgo.GoInt64
+var _name:stdgo.GoString
 ```
 
 
- 
-
-
-[\(view code\)](<./Fstest.hx#L628>)
-
-
-### T\_openMapFile\_static\_extension function stat
+### T\_mapFileInfo function new
 
 
 ```haxe
-function stat(_f:stdgo.Ref<stdgo.testing.fstest._Fstest.T_openMapFile>):{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}
+function new(?_name:stdgo.GoString, ?_f:stdgo.Ref<stdgo.testing.fstest.MapFile>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L616>)
+
+[\(view code\)](<./Fstest.hx#L105>)
 
 
-### T\_openMapFile\_static\_extension function sys
+### T\_mapFileInfo function info
 
 
 ```haxe
-function sys(__self__:stdgo.testing.fstest._Fstest.T_openMapFile):stdgo.AnyInterface
+function info():{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L624>)
+
+[\(view code\)](<./Fstest.hx#L342>)
 
 
-### T\_openMapFile\_static\_extension function type
+### T\_mapFileInfo function isDir
 
 
 ```haxe
-function type(__self__:stdgo.testing.fstest._Fstest.T_openMapFile):stdgo.io.fs.FileMode
+function isDir():Bool
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L620>)
+
+[\(view code\)](<./Fstest.hx#L346>)
+
+
+### T\_mapFileInfo function modTime
+
+
+```haxe
+function modTime():stdgo.time.Time
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L348>)
+
+
+### T\_mapFileInfo function mode
+
+
+```haxe
+function mode():stdgo.io.fs.FileMode
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L352>)
+
+
+### T\_mapFileInfo function name
+
+
+```haxe
+function name():stdgo.GoString
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L356>)
+
+
+### T\_mapFileInfo function size
+
+
+```haxe
+function size():stdgo.GoInt64
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L354>)
+
+
+### T\_mapFileInfo function sys
+
+
+```haxe
+function sys():stdgo.AnyInterface
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L344>)
+
+
+### T\_mapFileInfo function type
+
+
+```haxe
+function type():stdgo.io.fs.FileMode
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L350>)
+
+
+## class T\_noSub
+
+
+
+
+
+```haxe
+var mapFS:stdgo.testing.fstest.MapFS
+```
+
+
+### T\_noSub function glob
+
+
+```haxe
+function glob(_pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoString>}
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L84>)
+
+
+### T\_noSub function new
+
+
+```haxe
+function new(?mapFS:Null<stdgo.testing.fstest.MapFS>):Void
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L79>)
+
+
+### T\_noSub function open
+
+
+```haxe
+function open(_pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.File}
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L86>)
+
+
+### T\_noSub function readDir
+
+
+```haxe
+function readDir(_pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.io.fs.DirEntry>}
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L88>)
+
+
+### T\_noSub function readFile
+
+
+```haxe
+function readFile(_pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoUInt8>}
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L90>)
+
+
+### T\_noSub function stat
+
+
+```haxe
+function stat(_pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L92>)
+
+
+### T\_noSub function glob
+
+
+```haxe
+function glob( _pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoString>}
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L313>)
+
+
+### T\_noSub function open
+
+
+```haxe
+function open( _pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.File}
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L311>)
+
+
+### T\_noSub function readDir
+
+
+```haxe
+function readDir( _pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.io.fs.DirEntry>}
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L309>)
+
+
+### T\_noSub function readFile
+
+
+```haxe
+function readFile( _pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoUInt8>}
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L307>)
+
+
+### T\_noSub function stat
+
+
+```haxe
+function stat( _pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L305>)
+
+
+### T\_noSub function sub
+
+
+```haxe
+function sub():Void
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L303>)
+
+
+## class T\_openMapFile
+
+
+An openMapFile is a regular \(non\-directory\) fs.File open for reading.  
+
+
+
+```haxe
+var _mapFileInfo:stdgo.testing.fstest.T_mapFileInfo
+```
+
+
+```haxe
+var _offset:stdgo.GoInt64
+```
+
+
+```haxe
+var _path:stdgo.GoString
+```
+
+
+### T\_openMapFile function info
+
+
+```haxe
+function info():{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L131>)
+
+
+### T\_openMapFile function isDir
+
+
+```haxe
+function isDir():Bool
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L133>)
+
+
+### T\_openMapFile function modTime
+
+
+```haxe
+function modTime():stdgo.time.Time
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L135>)
+
+
+### T\_openMapFile function mode
+
+
+```haxe
+function mode():stdgo.io.fs.FileMode
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L137>)
+
+
+### T\_openMapFile function name
+
+
+```haxe
+function name():stdgo.GoString
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L139>)
+
+
+### T\_openMapFile function new
+
+
+```haxe
+function new(?_path:stdgo.GoString, ?_mapFileInfo:stdgo.testing.fstest.T_mapFileInfo, ?_offset:stdgo.GoInt64):Void
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L124>)
+
+
+### T\_openMapFile function size
+
+
+```haxe
+function size():stdgo.GoInt64
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L141>)
+
+
+### T\_openMapFile function sys
+
+
+```haxe
+function sys():stdgo.AnyInterface
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L143>)
+
+
+### T\_openMapFile function type
+
+
+```haxe
+function type():stdgo.io.fs.FileMode
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L145>)
+
+
+### T\_openMapFile function close
+
+
+```haxe
+function close():stdgo.Error
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L401>)
+
+
+### T\_openMapFile function info
+
+
+```haxe
+function info():{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L419>)
+
+
+### T\_openMapFile function isDir
+
+
+```haxe
+function isDir():Bool
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L417>)
+
+
+### T\_openMapFile function modTime
+
+
+```haxe
+function modTime():stdgo.time.Time
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L415>)
+
+
+### T\_openMapFile function mode
+
+
+```haxe
+function mode():stdgo.io.fs.FileMode
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L413>)
+
+
+### T\_openMapFile function name
+
+
+```haxe
+function name():stdgo.GoString
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L411>)
+
+
+### T\_openMapFile function read
+
+
+```haxe
+function read( _b:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L399>)
+
+
+### T\_openMapFile function readAt
+
+
+```haxe
+function readAt( _b:stdgo.Slice<stdgo.GoByte>, _offset:stdgo.GoInt64):{_1:stdgo.Error, _0:stdgo.GoInt}
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L395>)
+
+
+### T\_openMapFile function seek
+
+
+```haxe
+function seek( _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{_1:stdgo.Error, _0:stdgo.GoInt64}
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L397>)
+
+
+### T\_openMapFile function size
+
+
+```haxe
+function size():stdgo.GoInt64
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L409>)
+
+
+### T\_openMapFile function stat
+
+
+```haxe
+function stat():{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L403>)
+
+
+### T\_openMapFile function sys
+
+
+```haxe
+function sys():stdgo.AnyInterface
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L407>)
+
+
+### T\_openMapFile function type
+
+
+```haxe
+function type():stdgo.io.fs.FileMode
+```
+
+
+
+
+
+[\(view code\)](<./Fstest.hx#L405>)
 
 
 # Typedefs
@@ -1174,7 +1644,28 @@ typedef MapFS = var x:stdgo.Ref<stdgo.testing.fstest.MapFile>
 ```
 
 
-A MapFS is a simple in\-memory file system for use in tests,  represented as a map from path names \(arguments to Open\)  to information about the files or directories they represent.    The map need not include parent directories for files contained  in the map; those will be synthesized if needed.  But a directory can still be included by setting the MapFile.Mode's ModeDir bit;  this may be necessary for detailed control over the directory's FileInfo  or to create an empty directory.    File system operations read directly from the map,  so that the file system can be changed by editing the map as needed.  An implication is that file system operations must not run concurrently  with changes to the map, which would be a race.  Another implication is that opening or reading a directory requires  iterating over the entire map, so a MapFS should typically be used with not more  than a few hundred entries or directory reads. 
+A MapFS is a simple in\-memory file system for use in tests,  
+represented as a map from path names \(arguments to Open\)  
+to information about the files or directories they represent.  
+
+
+
+The map need not include parent directories for files contained  
+in the map; those will be synthesized if needed.  
+But a directory can still be included by setting the MapFile.Mode's ModeDir bit;  
+this may be necessary for detailed control over the directory's FileInfo  
+or to create an empty directory.  
+
+
+
+File system operations read directly from the map,  
+so that the file system can be changed by editing the map as needed.  
+An implication is that file system operations must not run concurrently  
+with changes to the map, which would be a race.  
+Another implication is that opening or reading a directory requires  
+iterating over the entire map, so a MapFS should typically be used with not more  
+than a few hundred entries or directory reads.  
+
 
 
 ### MapFS function glob
@@ -1185,10 +1676,10 @@ function glob( _pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.Go
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L965>)
+
+[\(view code\)](<./Fstest.hx#L613>)
 
 
 ### MapFS function open
@@ -1199,10 +1690,11 @@ function open( _name:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.File}
 ```
 
 
-Open opens the named file. 
+Open opens the named file.  
 
 
-[\(view code\)](<./Fstest.hx#L984>)
+
+[\(view code\)](<./Fstest.hx#L624>)
 
 
 ### MapFS function readDir
@@ -1213,10 +1705,10 @@ function readDir( _name:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.io
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L969>)
+
+[\(view code\)](<./Fstest.hx#L615>)
 
 
 ### MapFS function readFile
@@ -1227,10 +1719,10 @@ function readFile( _name:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.G
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L977>)
+
+[\(view code\)](<./Fstest.hx#L619>)
 
 
 ### MapFS function stat
@@ -1241,10 +1733,10 @@ function stat( _name:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L973>)
+
+[\(view code\)](<./Fstest.hx#L617>)
 
 
 ### MapFS function sub
@@ -1255,9 +1747,9 @@ function sub( _dir:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.FS}
 ```
 
 
- 
 
 
-[\(view code\)](<./Fstest.hx#L961>)
+
+[\(view code\)](<./Fstest.hx#L611>)
 
 

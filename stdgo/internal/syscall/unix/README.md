@@ -6,13 +6,15 @@
 # Overview
 
 
- 
+
 
 
 # Index
 
 
 - [`function isNonblock(_fd:stdgo.GoInt):{_1:stdgo.Error, _0:Bool}`](<#function-isnonblock>)
+
+- [`function kernelVersion():{_1:stdgo.GoInt, _0:stdgo.GoInt}`](<#function-kernelversion>)
 
 - [`function recvfromInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _from:stdgo.Ref<stdgo.syscall.SockaddrInet4>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#function-recvfrominet4>)
 
@@ -46,10 +48,24 @@ function isNonblock(_fd:stdgo.GoInt):{_1:stdgo.Error, _0:Bool}
 ```
 
 
- 
 
 
-[\(view code\)](<./Unix.hx#L50>)
+
+[\(view code\)](<./Unix.hx#L20>)
+
+
+## function kernelVersion
+
+
+```haxe
+function kernelVersion():{_1:stdgo.GoInt, _0:stdgo.GoInt}
+```
+
+
+
+
+
+[\(view code\)](<./Unix.hx#L11>)
 
 
 ## function recvfromInet4
@@ -60,10 +76,10 @@ function recvfromInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:std
 ```
 
 
- 
 
 
-[\(view code\)](<./Unix.hx#L14>)
+
+[\(view code\)](<./Unix.hx#L12>)
 
 
 ## function recvfromInet6
@@ -74,10 +90,10 @@ function recvfromInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:std
 ```
 
 
- 
 
 
-[\(view code\)](<./Unix.hx#L17>)
+
+[\(view code\)](<./Unix.hx#L13>)
 
 
 ## function recvmsgInet4
@@ -88,10 +104,10 @@ function recvmsgInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.
 ```
 
 
- 
 
 
-[\(view code\)](<./Unix.hx#L39>)
+
+[\(view code\)](<./Unix.hx#L18>)
 
 
 ## function recvmsgInet6
@@ -102,10 +118,10 @@ function recvmsgInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.
 ```
 
 
- 
 
 
-[\(view code\)](<./Unix.hx#L47>)
+
+[\(view code\)](<./Unix.hx#L19>)
 
 
 ## function sendmsgNInet4
@@ -116,10 +132,10 @@ function sendmsgNInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo
 ```
 
 
- 
 
 
-[\(view code\)](<./Unix.hx#L27>)
+
+[\(view code\)](<./Unix.hx#L16>)
 
 
 ## function sendmsgNInet6
@@ -130,10 +146,10 @@ function sendmsgNInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo
 ```
 
 
- 
 
 
-[\(view code\)](<./Unix.hx#L31>)
+
+[\(view code\)](<./Unix.hx#L17>)
 
 
 ## function sendtoInet4
@@ -144,10 +160,10 @@ function sendtoInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo
 ```
 
 
- 
 
 
-[\(view code\)](<./Unix.hx#L20>)
+
+[\(view code\)](<./Unix.hx#L14>)
 
 
 ## function sendtoInet6
@@ -158,9 +174,9 @@ function sendtoInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo
 ```
 
 
- 
 
 
-[\(view code\)](<./Unix.hx#L23>)
+
+[\(view code\)](<./Unix.hx#L15>)
 
 

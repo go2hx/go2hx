@@ -6,18 +6,20 @@
 # Overview
 
 
-Package cmplx provides basic constants and mathematical functions for  complex numbers. Special case handling conforms to the C99 standard  Annex G IEC 60559\-compatible complex arithmetic. 
+Package cmplx provides basic constants and mathematical functions for  
+complex numbers. Special case handling conforms to the C99 standard  
+Annex G IEC 60559\-compatible complex arithmetic.  
+
 
 
 <details><summary>hl tests failed</summary>
 <p>
 
 ```
-stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 Error: Command failed with error 1
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestAbs
---- PASS: TestAbs (%!s(float64=5.91278076171875e-05))
+--- PASS: TestAbs (%!s(float64=5.1975250244140625e-05))
 
 === RUN  TestAcos
 Acos((0+0i)) = (1.5707963267948966+0i), want (1.5707963267948966-0i)
@@ -29,10 +31,9 @@ Acos((0+0i)) = (1.5707963267948966+0i), want (1.5707963267948966-0i)
 <p>
 
 ```
-stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestAbs
---- PASS: TestAbs (%!s(float64=9.202957153320312e-05))
+--- PASS: TestAbs (%!s(float64=7.915496826171875e-05))
 
 === RUN  TestAcos
 Acos((0+0i)) = (1.5707963267948966+0i), want (1.5707963267948966-0i)
@@ -44,7 +45,6 @@ Acos((0+0i)) = (1.5707963267948966+0i), want (1.5707963267948966-0i)
 <p>
 
 ```
-stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 IO.Overflow("write_ui16")
 stdgo/internal/Macro.macro.hx:35: define
 ```
@@ -201,7 +201,9 @@ stdgo/internal/Macro.macro.hx:35: define
 
 - [`function testTanh(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testtanh>)
 
-- [class T\_\_struct\_0\_static\_extension](<#class-t__struct_0_static_extension>)
+- [class T\_ff](<#class-t_ff>)
+
+  - [`function new(?_r:stdgo.GoFloat64, ?_theta:stdgo.GoFloat64):Void`](<#t_ff-function-new>)
 
 # Examples
 
@@ -228,7 +230,8 @@ function abs(_x:stdgo.GoComplex128):stdgo.GoFloat64
 ```
 
 
-Abs returns the absolute value \(also called the modulus\) of x. 
+Abs returns the absolute value \(also called the modulus\) of x.  
+
 
 
 ### exampleAbs
@@ -240,8 +243,8 @@ Abs returns the absolute value \(also called the modulus\) of x.
 
 ```haxe
 function exampleAbs():Void {
-	stdgo.fmt.Fmt.printf(("%.1f" : GoString), Go.toInterface(stdgo.math.cmplx.Cmplx.abs(((3 : GoFloat64) + new GoComplex128(0, 4)))));
-}
+        stdgo.fmt.Fmt.printf(("%.1f" : GoString), Go.toInterface(stdgo.math.cmplx.Cmplx.abs(((3 : GoFloat64) + new GoComplex128(0, 4)))));
+    }
 ```
 
 
@@ -249,7 +252,7 @@ function exampleAbs():Void {
 </details>
 
 
-[\(view code\)](<./Cmplx.hx#L571>)
+[\(view code\)](<./Cmplx.hx#L923>)
 
 
 ## function acos
@@ -260,10 +263,11 @@ function acos(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-Acos returns the inverse cosine of x. 
+Acos returns the inverse cosine of x.  
 
 
-[\(view code\)](<./Cmplx.hx#L657>)
+
+[\(view code\)](<./Cmplx.hx#L1000>)
 
 
 ## function acosh
@@ -274,10 +278,11 @@ function acosh(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-Acosh returns the inverse hyperbolic cosine of x. 
+Acosh returns the inverse hyperbolic cosine of x.  
 
 
-[\(view code\)](<./Cmplx.hx#L665>)
+
+[\(view code\)](<./Cmplx.hx#L1007>)
 
 
 ## function asin
@@ -288,10 +293,11 @@ function asin(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-Asin returns the inverse sine of x. 
+Asin returns the inverse sine of x.  
 
 
-[\(view code\)](<./Cmplx.hx#L578>)
+
+[\(view code\)](<./Cmplx.hx#L929>)
 
 
 ## function asinh
@@ -302,10 +308,11 @@ function asinh(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-Asinh returns the inverse hyperbolic sine of x. 
+Asinh returns the inverse hyperbolic sine of x.  
 
 
-[\(view code\)](<./Cmplx.hx#L619>)
+
+[\(view code\)](<./Cmplx.hx#L966>)
 
 
 ## function atan
@@ -316,10 +323,11 @@ function atan(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-Atan returns the inverse tangent of x. 
+Atan returns the inverse tangent of x.  
 
 
-[\(view code\)](<./Cmplx.hx#L679>)
+
+[\(view code\)](<./Cmplx.hx#L1020>)
 
 
 ## function atanh
@@ -330,10 +338,11 @@ function atanh(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-Atanh returns the inverse hyperbolic tangent of x. 
+Atanh returns the inverse hyperbolic tangent of x.  
 
 
-[\(view code\)](<./Cmplx.hx#L718>)
+
+[\(view code\)](<./Cmplx.hx#L1055>)
 
 
 ## function benchmarkAbs
@@ -344,10 +353,10 @@ function benchmarkAbs(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1677>)
+
+[\(view code\)](<./Cmplx.hx#L1918>)
 
 
 ## function benchmarkAcos
@@ -358,10 +367,10 @@ function benchmarkAcos(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1686>)
+
+[\(view code\)](<./Cmplx.hx#L1926>)
 
 
 ## function benchmarkAcosh
@@ -372,10 +381,10 @@ function benchmarkAcosh(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1695>)
+
+[\(view code\)](<./Cmplx.hx#L1934>)
 
 
 ## function benchmarkAsin
@@ -386,10 +395,10 @@ function benchmarkAsin(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1704>)
+
+[\(view code\)](<./Cmplx.hx#L1942>)
 
 
 ## function benchmarkAsinh
@@ -400,10 +409,10 @@ function benchmarkAsinh(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1713>)
+
+[\(view code\)](<./Cmplx.hx#L1950>)
 
 
 ## function benchmarkAtan
@@ -414,10 +423,10 @@ function benchmarkAtan(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1722>)
+
+[\(view code\)](<./Cmplx.hx#L1958>)
 
 
 ## function benchmarkAtanh
@@ -428,10 +437,10 @@ function benchmarkAtanh(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1731>)
+
+[\(view code\)](<./Cmplx.hx#L1966>)
 
 
 ## function benchmarkConj
@@ -442,10 +451,10 @@ function benchmarkConj(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1740>)
+
+[\(view code\)](<./Cmplx.hx#L1974>)
 
 
 ## function benchmarkCos
@@ -456,10 +465,10 @@ function benchmarkCos(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1749>)
+
+[\(view code\)](<./Cmplx.hx#L1982>)
 
 
 ## function benchmarkCosh
@@ -470,10 +479,10 @@ function benchmarkCosh(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1758>)
+
+[\(view code\)](<./Cmplx.hx#L1990>)
 
 
 ## function benchmarkExp
@@ -484,10 +493,10 @@ function benchmarkExp(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1767>)
+
+[\(view code\)](<./Cmplx.hx#L1998>)
 
 
 ## function benchmarkLog
@@ -498,10 +507,10 @@ function benchmarkLog(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1776>)
+
+[\(view code\)](<./Cmplx.hx#L2006>)
 
 
 ## function benchmarkLog10
@@ -512,10 +521,10 @@ function benchmarkLog10(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1785>)
+
+[\(view code\)](<./Cmplx.hx#L2014>)
 
 
 ## function benchmarkPhase
@@ -526,10 +535,10 @@ function benchmarkPhase(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1794>)
+
+[\(view code\)](<./Cmplx.hx#L2022>)
 
 
 ## function benchmarkPolar
@@ -540,10 +549,10 @@ function benchmarkPolar(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1803>)
+
+[\(view code\)](<./Cmplx.hx#L2030>)
 
 
 ## function benchmarkPow
@@ -554,10 +563,10 @@ function benchmarkPow(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1812>)
+
+[\(view code\)](<./Cmplx.hx#L2038>)
 
 
 ## function benchmarkRect
@@ -568,10 +577,10 @@ function benchmarkRect(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1821>)
+
+[\(view code\)](<./Cmplx.hx#L2046>)
 
 
 ## function benchmarkSin
@@ -582,10 +591,10 @@ function benchmarkSin(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1830>)
+
+[\(view code\)](<./Cmplx.hx#L2054>)
 
 
 ## function benchmarkSinh
@@ -596,10 +605,10 @@ function benchmarkSinh(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1839>)
+
+[\(view code\)](<./Cmplx.hx#L2062>)
 
 
 ## function benchmarkSqrt
@@ -610,10 +619,10 @@ function benchmarkSqrt(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1848>)
+
+[\(view code\)](<./Cmplx.hx#L2070>)
 
 
 ## function benchmarkTan
@@ -624,10 +633,10 @@ function benchmarkTan(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1857>)
+
+[\(view code\)](<./Cmplx.hx#L2078>)
 
 
 ## function benchmarkTanh
@@ -638,10 +647,10 @@ function benchmarkTanh(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1866>)
+
+[\(view code\)](<./Cmplx.hx#L2086>)
 
 
 ## function conj
@@ -652,10 +661,11 @@ function conj(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-Conj returns the complex conjugate of x. 
+Conj returns the complex conjugate of x.  
 
 
-[\(view code\)](<./Cmplx.hx#L1878>)
+
+[\(view code\)](<./Cmplx.hx#L2097>)
 
 
 ## function cos
@@ -666,10 +676,11 @@ function cos(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-Cos returns the cosine of x. 
+Cos returns the cosine of x.  
 
 
-[\(view code\)](<./Cmplx.hx#L2115>)
+
+[\(view code\)](<./Cmplx.hx#L2293>)
 
 
 ## function cosh
@@ -680,10 +691,11 @@ function cosh(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-Cosh returns the hyperbolic cosine of x. 
+Cosh returns the hyperbolic cosine of x.  
 
 
-[\(view code\)](<./Cmplx.hx#L2145>)
+
+[\(view code\)](<./Cmplx.hx#L2315>)
 
 
 ## function cot
@@ -694,10 +706,11 @@ function cot(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-Cot returns the cotangent of x. 
+Cot returns the cotangent of x.  
 
 
-[\(view code\)](<./Cmplx.hx#L2402>)
+
+[\(view code\)](<./Cmplx.hx#L2552>)
 
 
 ## function exp
@@ -708,7 +721,8 @@ function exp(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-Exp returns e\*\*x, the base\-e exponential of x. 
+Exp returns e\*\*x, the base\-e exponential of x.  
+
 
 
 ### exampleExp
@@ -720,9 +734,8 @@ Exp returns e\*\*x, the base\-e exponential of x.
 
 ```haxe
 function exampleExp():Void {
-	stdgo.fmt.Fmt.printf(("%.1f" : GoString),
-		Go.toInterface(stdgo.math.cmplx.Cmplx.exp(((0 : GoFloat64) + new GoComplex128(0, 3.141592653589793))) + ((1 : GoFloat64) + new GoComplex128(0, 0))));
-}
+        stdgo.fmt.Fmt.printf(("%.1f" : GoString), Go.toInterface(stdgo.math.cmplx.Cmplx.exp(((0 : GoFloat64) + new GoComplex128(0, 3.141592653589793))) + ((1 : GoFloat64) + new GoComplex128(0, 0))));
+    }
 ```
 
 
@@ -730,7 +743,7 @@ function exampleExp():Void {
 </details>
 
 
-[\(view code\)](<./Cmplx.hx#L1885>)
+[\(view code\)](<./Cmplx.hx#L2103>)
 
 
 ## function inf
@@ -741,10 +754,11 @@ function inf():stdgo.GoComplex128
 ```
 
 
-Inf returns a complex infinity, complex\(\+Inf, \+Inf\). 
+Inf returns a complex infinity, complex\(\+Inf, \+Inf\).  
 
 
-[\(view code\)](<./Cmplx.hx#L1938>)
+
+[\(view code\)](<./Cmplx.hx#L2148>)
 
 
 ## function isInf
@@ -755,10 +769,11 @@ function isInf(_x:stdgo.GoComplex128):Bool
 ```
 
 
-IsInf reports whether either real\(x\) or imag\(x\) is an infinity. 
+IsInf reports whether either real\(x\) or imag\(x\) is an infinity.  
 
 
-[\(view code\)](<./Cmplx.hx#L1928>)
+
+[\(view code\)](<./Cmplx.hx#L2139>)
 
 
 ## function isNaN
@@ -769,10 +784,12 @@ function isNaN(_x:stdgo.GoComplex128):Bool
 ```
 
 
-IsNaN reports whether either real\(x\) or imag\(x\) is NaN  and neither is an infinity. 
+IsNaN reports whether either real\(x\) or imag\(x\) is NaN  
+and neither is an infinity.  
 
 
-[\(view code\)](<./Cmplx.hx#L1947>)
+
+[\(view code\)](<./Cmplx.hx#L2156>)
 
 
 ## function log
@@ -783,10 +800,11 @@ function log(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-Log returns the natural logarithm of x. 
+Log returns the natural logarithm of x.  
 
 
-[\(view code\)](<./Cmplx.hx#L1967>)
+
+[\(view code\)](<./Cmplx.hx#L2174>)
 
 
 ## function log10
@@ -797,10 +815,11 @@ function log10(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-Log10 returns the decimal logarithm of x. 
+Log10 returns the decimal logarithm of x.  
 
 
-[\(view code\)](<./Cmplx.hx#L1974>)
+
+[\(view code\)](<./Cmplx.hx#L2180>)
 
 
 ## function naN
@@ -811,10 +830,11 @@ function naN():stdgo.GoComplex128
 ```
 
 
-NaN returns a complex “not\-a\-number” value. 
+NaN returns a complex “not\-a\-number” value.  
 
 
-[\(view code\)](<./Cmplx.hx#L1959>)
+
+[\(view code\)](<./Cmplx.hx#L2167>)
 
 
 ## function phase
@@ -825,10 +845,12 @@ function phase(_x:stdgo.GoComplex128):stdgo.GoFloat64
 ```
 
 
-Phase returns the phase \(also called the argument\) of x.  The returned value is in the range \[\-Pi, Pi\]. 
+Phase returns the phase \(also called the argument\) of x.  
+The returned value is in the range \[\-Pi, Pi\].  
 
 
-[\(view code\)](<./Cmplx.hx#L1983>)
+
+[\(view code\)](<./Cmplx.hx#L2188>)
 
 
 ## function polar
@@ -839,7 +861,10 @@ function polar(_x:stdgo.GoComplex128):{_1:stdgo.GoFloat64, _0:stdgo.GoFloat64}
 ```
 
 
-Polar returns the absolute value r and phase θ of x,  such that x = r \* e\*\*θi.  The phase is in the range \[\-Pi, Pi\]. 
+Polar returns the absolute value r and phase θ of x,  
+such that x = r \* e\*\*θi.  
+The phase is in the range \[\-Pi, Pi\].  
+
 
 
 ### examplePolar
@@ -851,11 +876,9 @@ Polar returns the absolute value r and phase θ of x,  such that x = r \* e\*\*�
 
 ```haxe
 function examplePolar():Void {
-	var __tmp__ = stdgo.math.cmplx.Cmplx.polar(((0 : GoFloat64) + new GoComplex128(0, 2))),
-		_r:GoFloat64 = __tmp__._0,
-		_theta:GoFloat64 = __tmp__._1;
-	stdgo.fmt.Fmt.printf(("r: %.1f, θ: %.1f*π" : GoString), Go.toInterface(_r), Go.toInterface(_theta / (3.141592653589793 : GoFloat64)));
-}
+        var __tmp__ = stdgo.math.cmplx.Cmplx.polar(((0 : GoFloat64) + new GoComplex128(0, 2))), _r:GoFloat64 = __tmp__._0, _theta:GoFloat64 = __tmp__._1;
+        stdgo.fmt.Fmt.printf(("r: %.1f, θ: %.1f*π" : GoString), Go.toInterface(_r), Go.toInterface(_theta / (3.141592653589793 : GoFloat64)));
+    }
 ```
 
 
@@ -863,7 +886,7 @@ function examplePolar():Void {
 </details>
 
 
-[\(view code\)](<./Cmplx.hx#L1992>)
+[\(view code\)](<./Cmplx.hx#L2196>)
 
 
 ## function pow
@@ -874,10 +897,23 @@ function pow(_x:stdgo.GoComplex128, _y:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-Pow returns x\*\*y, the base\-x exponential of y.  For generalized compatibility with math.Pow:     Pow\(0, ±0\) returns 1\+0i   Pow\(0, c\) for real\(c\)\<0 returns Inf\+0i if imag\(c\) is zero, otherwise Inf\+Inf i. 
+Pow returns x\*\*y, the base\-x exponential of y.  
+For generalized compatibility with math.Pow:  
 
 
-[\(view code\)](<./Cmplx.hx#L2004>)
+
+
+
+
+Pow\(0, ±0\) returns 1\+0i  
+
+
+
+Pow\(0, c\) for real\(c\)\<0 returns Inf\+0i if imag\(c\) is zero, otherwise Inf\+Inf i.  
+
+
+
+[\(view code\)](<./Cmplx.hx#L2207>)
 
 
 ## function rect
@@ -888,10 +924,11 @@ function rect(_r:stdgo.GoFloat64, __952:stdgo.GoFloat64):stdgo.GoComplex128
 ```
 
 
-Rect returns the complex number x with polar coordinates r, θ. 
+Rect returns the complex number x with polar coordinates r, θ.  
 
 
-[\(view code\)](<./Cmplx.hx#L2045>)
+
+[\(view code\)](<./Cmplx.hx#L2242>)
 
 
 ## function sin
@@ -902,10 +939,11 @@ function sin(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-Sin returns the sine of x. 
+Sin returns the sine of x.  
 
 
-[\(view code\)](<./Cmplx.hx#L2055>)
+
+[\(view code\)](<./Cmplx.hx#L2249>)
 
 
 ## function sinh
@@ -916,10 +954,11 @@ function sinh(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-Sinh returns the hyperbolic sine of x. 
+Sinh returns the hyperbolic sine of x.  
 
 
-[\(view code\)](<./Cmplx.hx#L2085>)
+
+[\(view code\)](<./Cmplx.hx#L2271>)
 
 
 ## function sqrt
@@ -930,10 +969,12 @@ function sqrt(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-Sqrt returns the square root of x.  The result r is chosen so that real\(r\) ≥ 0 and imag\(r\) has the same sign as imag\(x\). 
+Sqrt returns the square root of x.  
+The result r is chosen so that real\(r\) ≥ 0 and imag\(r\) has the same sign as imag\(x\).  
 
 
-[\(view code\)](<./Cmplx.hx#L2190>)
+
+[\(view code\)](<./Cmplx.hx#L2351>)
 
 
 ## function tan
@@ -944,10 +985,11 @@ function tan(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-Tan returns the tangent of x. 
+Tan returns the tangent of x.  
 
 
-[\(view code\)](<./Cmplx.hx#L2242>)
+
+[\(view code\)](<./Cmplx.hx#L2402>)
 
 
 ## function tanh
@@ -958,10 +1000,11 @@ function tanh(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-Tanh returns the hyperbolic tangent of x. 
+Tanh returns the hyperbolic tangent of x.  
 
 
-[\(view code\)](<./Cmplx.hx#L2271>)
+
+[\(view code\)](<./Cmplx.hx#L2426>)
 
 
 ## function testAbs
@@ -972,10 +1015,10 @@ function testAbs(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L797>)
+
+[\(view code\)](<./Cmplx.hx#L1120>)
 
 
 ## function testAcos
@@ -986,10 +1029,10 @@ function testAcos(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L823>)
+
+[\(view code\)](<./Cmplx.hx#L1144>)
 
 
 ## function testAcosh
@@ -1000,10 +1043,10 @@ function testAcosh(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L866>)
+
+[\(view code\)](<./Cmplx.hx#L1182>)
 
 
 ## function testAsin
@@ -1014,10 +1057,10 @@ function testAsin(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L909>)
+
+[\(view code\)](<./Cmplx.hx#L1220>)
 
 
 ## function testAsinh
@@ -1028,10 +1071,10 @@ function testAsinh(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L961>)
+
+[\(view code\)](<./Cmplx.hx#L1267>)
 
 
 ## function testAtan
@@ -1042,10 +1085,10 @@ function testAtan(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1013>)
+
+[\(view code\)](<./Cmplx.hx#L1314>)
 
 
 ## function testAtanh
@@ -1056,10 +1099,10 @@ function testAtanh(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1065>)
+
+[\(view code\)](<./Cmplx.hx#L1361>)
 
 
 ## function testConj
@@ -1070,10 +1113,10 @@ function testConj(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1117>)
+
+[\(view code\)](<./Cmplx.hx#L1408>)
 
 
 ## function testCos
@@ -1084,10 +1127,10 @@ function testCos(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1144>)
+
+[\(view code\)](<./Cmplx.hx#L1432>)
 
 
 ## function testCosh
@@ -1098,10 +1141,10 @@ function testCosh(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1184>)
+
+[\(view code\)](<./Cmplx.hx#L1471>)
 
 
 ## function testExp
@@ -1112,10 +1155,10 @@ function testExp(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1225>)
+
+[\(view code\)](<./Cmplx.hx#L1510>)
 
 
 ## function testInfiniteLoopIntanSeries
@@ -1126,10 +1169,11 @@ function testInfiniteLoopIntanSeries(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-See issue 17577 
+See issue 17577  
 
 
-[\(view code\)](<./Cmplx.hx#L1667>)
+
+[\(view code\)](<./Cmplx.hx#L1909>)
 
 
 ## function testIsNaN
@@ -1140,10 +1184,10 @@ function testIsNaN(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1256>)
+
+[\(view code\)](<./Cmplx.hx#L1540>)
 
 
 ## function testLog
@@ -1154,10 +1198,10 @@ function testLog(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1271>)
+
+[\(view code\)](<./Cmplx.hx#L1553>)
 
 
 ## function testLog10
@@ -1168,10 +1212,10 @@ function testLog10(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1313>)
+
+[\(view code\)](<./Cmplx.hx#L1591>)
 
 
 ## function testPolar
@@ -1182,10 +1226,10 @@ function testPolar(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1345>)
+
+[\(view code\)](<./Cmplx.hx#L1621>)
 
 
 ## function testPow
@@ -1196,10 +1240,10 @@ function testPow(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1376>)
+
+[\(view code\)](<./Cmplx.hx#L1645>)
 
 
 ## function testRect
@@ -1210,10 +1254,10 @@ function testRect(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1432>)
+
+[\(view code\)](<./Cmplx.hx#L1688>)
 
 
 ## function testSin
@@ -1224,10 +1268,10 @@ function testSin(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1459>)
+
+[\(view code\)](<./Cmplx.hx#L1712>)
 
 
 ## function testSinh
@@ -1238,10 +1282,10 @@ function testSinh(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1499>)
+
+[\(view code\)](<./Cmplx.hx#L1751>)
 
 
 ## function testSqrt
@@ -1252,10 +1296,10 @@ function testSqrt(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1540>)
+
+[\(view code\)](<./Cmplx.hx#L1790>)
 
 
 ## function testTan
@@ -1266,10 +1310,10 @@ function testTan(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1583>)
+
+[\(view code\)](<./Cmplx.hx#L1828>)
 
 
 ## function testTanHuge
@@ -1280,10 +1324,10 @@ function testTanHuge(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1914>)
+
+[\(view code\)](<./Cmplx.hx#L2126>)
 
 
 ## function testTanh
@@ -1294,10 +1338,10 @@ function testTanh(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L1623>)
+
+[\(view code\)](<./Cmplx.hx#L1867>)
 
 
 # Classes
@@ -1308,9 +1352,33 @@ import stdgo.math.cmplx.*
 ```
 
 
-## class T\_\_struct\_0\_static\_extension
+## class T\_ff
 
 
- 
+
+
+
+```haxe
+var _r:stdgo.GoFloat64
+```
+
+
+```haxe
+var _theta:stdgo.GoFloat64
+```
+
+
+### T\_ff function new
+
+
+```haxe
+function new(?_r:stdgo.GoFloat64, ?_theta:stdgo.GoFloat64):Void
+```
+
+
+
+
+
+[\(view code\)](<./Cmplx.hx#L895>)
 
 

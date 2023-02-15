@@ -1,6 +1,6 @@
 # Module stdgo.go.importer has compilation errors, please do not use:
 ```
-stdgo/go/token/Token.hx:231: characters 8-9 : Unexpected /
+stdgo/go/types/Types.hx:10724: characters 76-125 : Type not found : stdgo.go.internal.typeparams.Typeparams
 
 ```
 

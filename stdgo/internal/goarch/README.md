@@ -6,7 +6,8 @@
 # Overview
 
 
-package goarch contains GOARCH\-specific constants. 
+package goarch contains GOARCH\-specific constants.  
+
 
 
 # Index
@@ -34,7 +35,8 @@ final archFamily:stdgo.internal.goarch.ArchFamilyType = ((((0 : GoInt)) : ArchFa
 ```
 
 
-ArchFamily is the architecture family \(AMD64, ARM, ...\) 
+ArchFamily is the architecture family \(AMD64, ARM, ...\)  
+
 
 
 ```haxe
@@ -48,11 +50,12 @@ final arm64:stdgo.internal.goarch.ArchFamilyType = ((((0 : GoInt)) : ArchFamilyT
 
 
 ```haxe
-final bigEndian:stdgo.InvalidType = null
+final bigEndian:Null<Dynamic> = null
 ```
 
 
-BigEndian reports whether the architecture is big\-endian. 
+BigEndian reports whether the architecture is big\-endian.  
+
 
 
 ```haxe
@@ -60,7 +63,8 @@ final defaultPhysPageSize:stdgo.GoUInt64 = ((0 : GoUInt64))
 ```
 
 
-DefaultPhysPageSize is the default physical page size. 
+DefaultPhysPageSize is the default physical page size.  
+
 
 
 ```haxe
@@ -78,7 +82,8 @@ final int64Align:stdgo.GoUInt64 = ((0 : GoUInt64))
 ```
 
 
-Int64Align is the required alignment for a 64\-bit integer \(4 on 32\-bit systems, 8 on 64\-bit\). 
+Int64Align is the required alignment for a 64\-bit integer \(4 on 32\-bit systems, 8 on 64\-bit\).  
+
 
 
 ```haxe
@@ -211,7 +216,12 @@ final minFrameSize:stdgo.GoUInt64 = ((0 : GoUInt64))
 ```
 
 
-MinFrameSize is the size of the system\-reserved words at the bottom  of a frame \(just above the architectural stack pointer\).  It is zero on x86 and PtrSize on most non\-x86 \(LR\-based\) systems.  On PowerPC it is larger, to cover three more reserved words:  the compiler word, the link editor word, and the TOC save word. 
+MinFrameSize is the size of the system\-reserved words at the bottom  
+of a frame \(just above the architectural stack pointer\).  
+It is zero on x86 and PtrSize on most non\-x86 \(LR\-based\) systems.  
+On PowerPC it is larger, to cover three more reserved words:  
+the compiler word, the link editor word, and the TOC save word.  
+
 
 
 ```haxe
@@ -229,7 +239,9 @@ final pcquantum:stdgo.GoUInt64 = ((0 : GoUInt64))
 ```
 
 
-PCQuantum is the minimal unit for a program counter \(1 on x86, 4 on most other systems\).  The various PC tables record PC deltas pre\-divided by PCQuantum. 
+PCQuantum is the minimal unit for a program counter \(1 on x86, 4 on most other systems\).  
+The various PC tables record PC deltas pre\-divided by PCQuantum.  
+
 
 
 ```haxe
@@ -242,7 +254,9 @@ final ptrSize:stdgo.GoUInt64 = ((0 : GoUInt64))
 ```
 
 
-PtrSize is the size of a pointer in bytes \- unsafe.Sizeof\(uintptr\(0\)\) but as an ideal constant.  It is also the size of the machine's native word size \(that is, 4 on 32\-bit systems, 8 on 64\-bit\). 
+PtrSize is the size of a pointer in bytes \- unsafe.Sizeof\(uintptr\(0\)\) but as an ideal constant.  
+It is also the size of the machine's native word size \(that is, 4 on 32\-bit systems, 8 on 64\-bit\).  
+
 
 
 ```haxe
@@ -260,7 +274,9 @@ final stackAlign:stdgo.GoUInt64 = ((0 : GoUInt64))
 ```
 
 
-StackAlign is the required alignment of the SP register.  The stack must be at least word aligned, but some architectures require more. 
+StackAlign is the required alignment of the SP register.  
+The stack must be at least word aligned, but some architectures require more.  
+
 
 
 ```haxe
@@ -284,6 +300,6 @@ typedef ArchFamilyType = var t:{<>}
 ```
 
 
- 
+
 
 

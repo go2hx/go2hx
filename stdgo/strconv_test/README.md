@@ -6,7 +6,7 @@
 # Overview
 
 
- 
+
 
 
 # Index
@@ -132,6 +132,8 @@
 
 - [`function exampleUnquoteChar():Void`](<#function-exampleunquotechar>)
 
+- [`function testAllocationsFromBytes(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testallocationsfrombytes>)
+
 - [`function testAppendBool(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testappendbool>)
 
 - [`function testAtof(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testatof>)
@@ -242,19 +244,103 @@
 
 - [`function testUnquoteInvalidUTF8(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testunquoteinvalidutf8>)
 
-- [class T\_\_struct\_0\_static\_extension](<#class-t__struct_0_static_extension>)
+- [class T\_appendBoolTest](<#class-t_appendbooltest>)
 
-- [class T\_\_struct\_1\_static\_extension](<#class-t__struct_1_static_extension>)
+  - [`function new(?_b:Bool, ?_in:stdgo.Slice<stdgo.GoUInt8>, ?_out:stdgo.Slice<stdgo.GoUInt8>):Void`](<#t_appendbooltest-function-new>)
 
-- [class T\_\_struct\_2\_static\_extension](<#class-t__struct_2_static_extension>)
+- [class T\_atobTest](<#class-t_atobtest>)
 
-- [class T\_\_struct\_3\_static\_extension](<#class-t__struct_3_static_extension>)
+  - [`function new(?_in:stdgo.GoString, ?_out:Bool, ?_err:Null<stdgo.Error>):Void`](<#t_atobtest-function-new>)
 
-- [class T\_\_struct\_4\_static\_extension](<#class-t__struct_4_static_extension>)
+- [class T\_atocTest](<#class-t_atoctest>)
 
-- [class T\_\_struct\_5\_static\_extension](<#class-t__struct_5_static_extension>)
+  - [`function new(?_in:stdgo.GoString, ?_out:stdgo.GoComplex128, ?_err:Null<stdgo.Error>):Void`](<#t_atoctest-function-new>)
 
-- [class T\_\_struct\_6\_static\_extension](<#class-t__struct_6_static_extension>)
+- [class T\_atofSimpleTest](<#class-t_atofsimpletest>)
+
+  - [`function new(?_x:stdgo.GoFloat64, ?_s:stdgo.GoString):Void`](<#t_atofsimpletest-function-new>)
+
+- [class T\_atofTest](<#class-t_atoftest>)
+
+  - [`function new(?_in:stdgo.GoString, ?_out:stdgo.GoString, ?_err:Null<stdgo.Error>):Void`](<#t_atoftest-function-new>)
+
+- [class T\_benchCase](<#class-t_benchcase>)
+
+  - [`function new(?_name:stdgo.GoString, ?_num:stdgo.GoInt64):Void`](<#t_benchcase-function-new>)
+
+- [class T\_canBackquoteTest](<#class-t_canbackquotetest>)
+
+  - [`function new(?_in:stdgo.GoString, ?_out:Bool):Void`](<#t_canbackquotetest-function-new>)
+
+- [class T\_ftoaTest](<#class-t_ftoatest>)
+
+  - [`function new(?_f:stdgo.GoFloat64, ?_fmt:stdgo.GoUInt8, ?_prec:Null<stdgo.GoInt>, ?_s:stdgo.GoString):Void`](<#t_ftoatest-function-new>)
+
+- [class T\_itob64Test](<#class-t_itob64test>)
+
+  - [`function new(?_in:stdgo.GoInt64, ?_base:Null<stdgo.GoInt>, ?_out:stdgo.GoString):Void`](<#t_itob64test-function-new>)
+
+- [class T\_numErrorTest](<#class-t_numerrortest>)
+
+  - [`function new(?_num:stdgo.GoString, ?_want:stdgo.GoString):Void`](<#t_numerrortest-function-new>)
+
+- [class T\_parseErrorTest](<#class-t_parseerrortest>)
+
+  - [`function _errStub(:stdgo.GoString, :stdgo.GoInt):stdgo.Error`](<#t_parseerrortest-function-_errstub>)
+
+  - [`function new(?_arg:Null<stdgo.GoInt>, ?_errStub:(:stdgo.GoString, :stdgo.GoInt):stdgo.Error):Void`](<#t_parseerrortest-function-new>)
+
+- [class T\_parseInt32Test](<#class-t_parseint32test>)
+
+  - [`function new(?_in:stdgo.GoString, ?_out:stdgo.GoInt32, ?_err:Null<stdgo.Error>):Void`](<#t_parseint32test-function-new>)
+
+- [class T\_parseInt64BaseTest](<#class-t_parseint64basetest>)
+
+  - [`function new(?_in:stdgo.GoString, ?_base:Null<stdgo.GoInt>, ?_out:stdgo.GoInt64, ?_err:Null<stdgo.Error>):Void`](<#t_parseint64basetest-function-new>)
+
+- [class T\_parseInt64Test](<#class-t_parseint64test>)
+
+  - [`function new(?_in:stdgo.GoString, ?_out:stdgo.GoInt64, ?_err:Null<stdgo.Error>):Void`](<#t_parseint64test-function-new>)
+
+- [class T\_parseUint32Test](<#class-t_parseuint32test>)
+
+  - [`function new(?_in:stdgo.GoString, ?_out:stdgo.GoUInt32, ?_err:Null<stdgo.Error>):Void`](<#t_parseuint32test-function-new>)
+
+- [class T\_parseUint64BaseTest](<#class-t_parseuint64basetest>)
+
+  - [`function new(?_in:stdgo.GoString, ?_base:Null<stdgo.GoInt>, ?_out:stdgo.GoUInt64, ?_err:Null<stdgo.Error>):Void`](<#t_parseuint64basetest-function-new>)
+
+- [class T\_parseUint64Test](<#class-t_parseuint64test>)
+
+  - [`function new(?_in:stdgo.GoString, ?_out:stdgo.GoUInt64, ?_err:Null<stdgo.Error>):Void`](<#t_parseuint64test-function-new>)
+
+- [class T\_quoteRuneTest](<#class-t_quoterunetest>)
+
+  - [`function new(?_in:stdgo.GoInt32, ?_out:stdgo.GoString, ?_ascii:stdgo.GoString, ?_graphic:stdgo.GoString):Void`](<#t_quoterunetest-function-new>)
+
+- [class T\_quoteTest](<#class-t_quotetest>)
+
+  - [`function new(?_in:stdgo.GoString, ?_out:stdgo.GoString, ?_ascii:stdgo.GoString, ?_graphic:stdgo.GoString):Void`](<#t_quotetest-function-new>)
+
+- [class T\_roundIntTest](<#class-t_roundinttest>)
+
+  - [`function new(?_i:stdgo.GoUInt64, ?_shift:Null<stdgo.GoInt>, ?_int:stdgo.GoUInt64):Void`](<#t_roundinttest-function-new>)
+
+- [class T\_roundTest](<#class-t_roundtest>)
+
+  - [`function new(?_i:stdgo.GoUInt64, ?_nd:Null<stdgo.GoInt>, ?_down:stdgo.GoString, ?_round:stdgo.GoString, ?_up:stdgo.GoString, ?_int:stdgo.GoUInt64):Void`](<#t_roundtest-function-new>)
+
+- [class T\_shiftTest](<#class-t_shifttest>)
+
+  - [`function new(?_i:stdgo.GoUInt64, ?_shift:Null<stdgo.GoInt>, ?_out:stdgo.GoString):Void`](<#t_shifttest-function-new>)
+
+- [class T\_uitob64Test](<#class-t_uitob64test>)
+
+  - [`function new(?_in:stdgo.GoUInt64, ?_base:Null<stdgo.GoInt>, ?_out:stdgo.GoString):Void`](<#t_uitob64test-function-new>)
+
+- [class T\_unQuoteTest](<#class-t_unquotetest>)
+
+  - [`function new(?_in:stdgo.GoString, ?_out:stdgo.GoString):Void`](<#t_unquotetest-function-new>)
 
 # Variables
 
@@ -274,7 +360,17 @@ var benchSink:stdgo.GoInt
 ```
 
 
-make sure compiler cannot optimize away benchmarks 
+make sure compiler cannot optimize away benchmarks  
+
+
+
+```haxe
+var sink:stdgo.strconv_test._Strconv_test.T__struct_6
+```
+
+
+Sink makes sure the compiler cannot optimize away the benchmarks.  
+
 
 
 ```haxe
@@ -298,10 +394,10 @@ function benchmarkAppendFloat(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4434>)
+
+[\(view code\)](<./Strconv.hx#L3401>)
 
 
 ## function benchmarkAppendInt
@@ -312,10 +408,10 @@ function benchmarkAppendInt(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4543>)
+
+[\(view code\)](<./Strconv.hx#L3534>)
 
 
 ## function benchmarkAppendIntSmall
@@ -326,10 +422,10 @@ function benchmarkAppendIntSmall(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4596>)
+
+[\(view code\)](<./Strconv.hx#L3583>)
 
 
 ## function benchmarkAppendQuote
@@ -340,10 +436,10 @@ function benchmarkAppendQuote(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4733>)
+
+[\(view code\)](<./Strconv.hx#L3708>)
 
 
 ## function benchmarkAppendQuoteRune
@@ -354,10 +450,10 @@ function benchmarkAppendQuoteRune(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4743>)
+
+[\(view code\)](<./Strconv.hx#L3716>)
 
 
 ## function benchmarkAppendUint
@@ -368,10 +464,10 @@ function benchmarkAppendUint(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4568>)
+
+[\(view code\)](<./Strconv.hx#L3557>)
 
 
 ## function benchmarkAppendUintVarlen
@@ -382,10 +478,10 @@ function benchmarkAppendUintVarlen(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4608>)
+
+[\(view code\)](<./Strconv.hx#L3594>)
 
 
 ## function benchmarkAtof32Decimal
@@ -396,10 +492,10 @@ function benchmarkAtof32Decimal(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3149>)
+
+[\(view code\)](<./Strconv.hx#L2380>)
 
 
 ## function benchmarkAtof32Float
@@ -410,10 +506,10 @@ function benchmarkAtof32Float(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3158>)
+
+[\(view code\)](<./Strconv.hx#L2388>)
 
 
 ## function benchmarkAtof32FloatExp
@@ -424,10 +520,10 @@ function benchmarkAtof32FloatExp(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3167>)
+
+[\(view code\)](<./Strconv.hx#L2396>)
 
 
 ## function benchmarkAtof32Random
@@ -438,10 +534,10 @@ function benchmarkAtof32Random(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3176>)
+
+[\(view code\)](<./Strconv.hx#L2404>)
 
 
 ## function benchmarkAtof32RandomLong
@@ -452,10 +548,10 @@ function benchmarkAtof32RandomLong(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3192>)
+
+[\(view code\)](<./Strconv.hx#L2419>)
 
 
 ## function benchmarkAtof64Big
@@ -466,10 +562,10 @@ function benchmarkAtof64Big(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3097>)
+
+[\(view code\)](<./Strconv.hx#L2333>)
 
 
 ## function benchmarkAtof64Decimal
@@ -480,10 +576,10 @@ function benchmarkAtof64Decimal(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3070>)
+
+[\(view code\)](<./Strconv.hx#L2309>)
 
 
 ## function benchmarkAtof64Float
@@ -494,10 +590,10 @@ function benchmarkAtof64Float(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3079>)
+
+[\(view code\)](<./Strconv.hx#L2317>)
 
 
 ## function benchmarkAtof64FloatExp
@@ -508,10 +604,10 @@ function benchmarkAtof64FloatExp(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3088>)
+
+[\(view code\)](<./Strconv.hx#L2325>)
 
 
 ## function benchmarkAtof64RandomBits
@@ -522,10 +618,10 @@ function benchmarkAtof64RandomBits(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3106>)
+
+[\(view code\)](<./Strconv.hx#L2341>)
 
 
 ## function benchmarkAtof64RandomFloats
@@ -536,10 +632,10 @@ function benchmarkAtof64RandomFloats(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3117>)
+
+[\(view code\)](<./Strconv.hx#L2351>)
 
 
 ## function benchmarkAtof64RandomLongFloats
@@ -550,10 +646,10 @@ function benchmarkAtof64RandomLongFloats(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3128>)
+
+[\(view code\)](<./Strconv.hx#L2361>)
 
 
 ## function benchmarkAtoi
@@ -564,10 +660,10 @@ function benchmarkAtoi(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3501>)
+
+[\(view code\)](<./Strconv.hx#L2651>)
 
 
 ## function benchmarkFormatFloat
@@ -578,10 +674,10 @@ function benchmarkFormatFloat(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4421>)
+
+[\(view code\)](<./Strconv.hx#L3389>)
 
 
 ## function benchmarkFormatInt
@@ -592,10 +688,10 @@ function benchmarkFormatInt(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4531>)
+
+[\(view code\)](<./Strconv.hx#L3523>)
 
 
 ## function benchmarkFormatIntSmall
@@ -606,10 +702,10 @@ function benchmarkFormatIntSmall(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4581>)
+
+[\(view code\)](<./Strconv.hx#L3569>)
 
 
 ## function benchmarkFormatUint
@@ -620,10 +716,10 @@ function benchmarkFormatUint(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4556>)
+
+[\(view code\)](<./Strconv.hx#L3546>)
 
 
 ## function benchmarkParseInt
@@ -634,10 +730,10 @@ function benchmarkParseInt(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3468>)
+
+[\(view code\)](<./Strconv.hx#L2628>)
 
 
 ## function benchmarkQuote
@@ -648,10 +744,10 @@ function benchmarkQuote(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4715>)
+
+[\(view code\)](<./Strconv.hx#L3692>)
 
 
 ## function benchmarkQuoteRune
@@ -662,10 +758,10 @@ function benchmarkQuoteRune(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4724>)
+
+[\(view code\)](<./Strconv.hx#L3700>)
 
 
 ## function benchmarkUnquoteEasy
@@ -676,10 +772,10 @@ function benchmarkUnquoteEasy(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4877>)
+
+[\(view code\)](<./Strconv.hx#L3831>)
 
 
 ## function benchmarkUnquoteHard
@@ -690,10 +786,10 @@ function benchmarkUnquoteHard(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4886>)
+
+[\(view code\)](<./Strconv.hx#L3839>)
 
 
 ## function exampleAppendBool
@@ -704,10 +800,10 @@ function exampleAppendBool():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3710>)
+
+[\(view code\)](<./Strconv.hx#L2790>)
 
 
 ## function exampleAppendFloat
@@ -718,10 +814,10 @@ function exampleAppendFloat():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3716>)
+
+[\(view code\)](<./Strconv.hx#L2795>)
 
 
 ## function exampleAppendInt
@@ -732,10 +828,10 @@ function exampleAppendInt():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3725>)
+
+[\(view code\)](<./Strconv.hx#L2803>)
 
 
 ## function exampleAppendQuote
@@ -746,10 +842,10 @@ function exampleAppendQuote():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3734>)
+
+[\(view code\)](<./Strconv.hx#L2811>)
 
 
 ## function exampleAppendQuoteRune
@@ -760,10 +856,10 @@ function exampleAppendQuoteRune():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3740>)
+
+[\(view code\)](<./Strconv.hx#L2816>)
 
 
 ## function exampleAppendQuoteRuneToASCII
@@ -774,10 +870,10 @@ function exampleAppendQuoteRuneToASCII():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3746>)
+
+[\(view code\)](<./Strconv.hx#L2821>)
 
 
 ## function exampleAppendQuoteToASCII
@@ -788,10 +884,10 @@ function exampleAppendQuoteToASCII():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3752>)
+
+[\(view code\)](<./Strconv.hx#L2826>)
 
 
 ## function exampleAppendUint
@@ -802,10 +898,10 @@ function exampleAppendUint():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3758>)
+
+[\(view code\)](<./Strconv.hx#L2831>)
 
 
 ## function exampleAtoi
@@ -816,10 +912,10 @@ function exampleAtoi():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3767>)
+
+[\(view code\)](<./Strconv.hx#L2839>)
 
 
 ## function exampleCanBackquote
@@ -830,10 +926,10 @@ function exampleCanBackquote():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3779>)
+
+[\(view code\)](<./Strconv.hx#L2848>)
 
 
 ## function exampleFormatBool
@@ -844,10 +940,10 @@ function exampleFormatBool():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3784>)
+
+[\(view code\)](<./Strconv.hx#L2852>)
 
 
 ## function exampleFormatFloat
@@ -858,10 +954,10 @@ function exampleFormatFloat():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3790>)
+
+[\(view code\)](<./Strconv.hx#L2857>)
 
 
 ## function exampleFormatInt
@@ -872,10 +968,10 @@ function exampleFormatInt():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3798>)
+
+[\(view code\)](<./Strconv.hx#L2864>)
 
 
 ## function exampleFormatUint
@@ -886,10 +982,10 @@ function exampleFormatUint():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3806>)
+
+[\(view code\)](<./Strconv.hx#L2871>)
 
 
 ## function exampleIsGraphic
@@ -900,10 +996,10 @@ function exampleIsGraphic():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3814>)
+
+[\(view code\)](<./Strconv.hx#L2878>)
 
 
 ## function exampleIsPrint
@@ -914,10 +1010,10 @@ function exampleIsPrint():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3823>)
+
+[\(view code\)](<./Strconv.hx#L2886>)
 
 
 ## function exampleItoa
@@ -928,10 +1024,10 @@ function exampleItoa():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3830>)
+
+[\(view code\)](<./Strconv.hx#L2892>)
 
 
 ## function exampleNumError
@@ -942,10 +1038,10 @@ function exampleNumError():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4066>)
+
+[\(view code\)](<./Strconv.hx#L3077>)
 
 
 ## function exampleParseBool
@@ -956,10 +1052,10 @@ function exampleParseBool():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3836>)
+
+[\(view code\)](<./Strconv.hx#L2897>)
 
 
 ## function exampleParseFloat
@@ -970,10 +1066,10 @@ function exampleParseFloat():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3848>)
+
+[\(view code\)](<./Strconv.hx#L2906>)
 
 
 ## function exampleParseInt
@@ -984,10 +1080,10 @@ function exampleParseInt():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3924>)
+
+[\(view code\)](<./Strconv.hx#L2963>)
 
 
 ## function exampleParseUint
@@ -998,10 +1094,10 @@ function exampleParseUint():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3961>)
+
+[\(view code\)](<./Strconv.hx#L2991>)
 
 
 ## function exampleQuote
@@ -1012,10 +1108,10 @@ function exampleQuote():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3981>)
+
+[\(view code\)](<./Strconv.hx#L3006>)
 
 
 ## function exampleQuoteRune
@@ -1026,10 +1122,10 @@ function exampleQuoteRune():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3986>)
+
+[\(view code\)](<./Strconv.hx#L3010>)
 
 
 ## function exampleQuoteRuneToASCII
@@ -1040,10 +1136,10 @@ function exampleQuoteRuneToASCII():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3991>)
+
+[\(view code\)](<./Strconv.hx#L3014>)
 
 
 ## function exampleQuoteRuneToGraphic
@@ -1054,10 +1150,10 @@ function exampleQuoteRuneToGraphic():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3996>)
+
+[\(view code\)](<./Strconv.hx#L3018>)
 
 
 ## function exampleQuoteToASCII
@@ -1068,10 +1164,10 @@ function exampleQuoteToASCII():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4007>)
+
+[\(view code\)](<./Strconv.hx#L3028>)
 
 
 ## function exampleQuoteToGraphic
@@ -1082,10 +1178,10 @@ function exampleQuoteToGraphic():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4012>)
+
+[\(view code\)](<./Strconv.hx#L3032>)
 
 
 ## function exampleUnquote
@@ -1096,10 +1192,10 @@ function exampleUnquote():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4021>)
+
+[\(view code\)](<./Strconv.hx#L3040>)
 
 
 ## function exampleUnquoteChar
@@ -1110,10 +1206,24 @@ function exampleUnquoteChar():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4052>)
+
+[\(view code\)](<./Strconv.hx#L3068>)
+
+
+## function testAllocationsFromBytes
+
+
+```haxe
+function testAllocationsFromBytes(_t:stdgo.Ref<stdgo.testing.T>):Void
+```
+
+
+
+
+
+[\(view code\)](<./Strconv.hx#L3868>)
 
 
 ## function testAppendBool
@@ -1124,10 +1234,10 @@ function testAppendBool(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L2549>)
+
+[\(view code\)](<./Strconv.hx#L1931>)
 
 
 ## function testAtof
@@ -1138,10 +1248,10 @@ function testAtof(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L2963>)
+
+[\(view code\)](<./Strconv.hx#L2220>)
 
 
 ## function testAtofRandom
@@ -1152,10 +1262,10 @@ function testAtofRandom(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L2971>)
+
+[\(view code\)](<./Strconv.hx#L2226>)
 
 
 ## function testAtofSlow
@@ -1166,10 +1276,10 @@ function testAtofSlow(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L2967>)
+
+[\(view code\)](<./Strconv.hx#L2223>)
 
 
 ## function testAtoi
@@ -1180,10 +1290,10 @@ function testAtoi(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3338>)
+
+[\(view code\)](<./Strconv.hx#L2526>)
 
 
 ## function testCanBackquote
@@ -1194,10 +1304,10 @@ function testCanBackquote(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4806>)
+
+[\(view code\)](<./Strconv.hx#L3772>)
 
 
 ## function testCountMallocs
@@ -1208,10 +1318,10 @@ function testCountMallocs(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4895>)
+
+[\(view code\)](<./Strconv.hx#L3847>)
 
 
 ## function testDecimalRound
@@ -1222,10 +1332,10 @@ function testDecimalRound(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3664>)
+
+[\(view code\)](<./Strconv.hx#L2750>)
 
 
 ## function testDecimalRoundedInteger
@@ -1236,10 +1346,10 @@ function testDecimalRoundedInteger(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3694>)
+
+[\(view code\)](<./Strconv.hx#L2776>)
 
 
 ## function testDecimalShift
@@ -1250,10 +1360,10 @@ function testDecimalShift(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3648>)
+
+[\(view code\)](<./Strconv.hx#L2736>)
 
 
 ## function testErrorPrefixes
@@ -1264,10 +1374,10 @@ function testErrorPrefixes(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4917>)
+
+[\(view code\)](<./Strconv.hx#L3937>)
 
 
 ## function testFormatBool
@@ -1278,10 +1388,10 @@ function testFormatBool(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L2538>)
+
+[\(view code\)](<./Strconv.hx#L1921>)
 
 
 ## function testFormatComplex
@@ -1292,10 +1402,10 @@ function testFormatComplex(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3540>)
+
+[\(view code\)](<./Strconv.hx#L2677>)
 
 
 ## function testFormatComplexInvalidBitSize
@@ -1306,10 +1416,10 @@ function testFormatComplexInvalidBitSize(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3605>)
+
+[\(view code\)](<./Strconv.hx#L2697>)
 
 
 ## function testFormatFloatInvalidBitSize
@@ -1320,10 +1430,10 @@ function testFormatFloatInvalidBitSize(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4378>)
+
+[\(view code\)](<./Strconv.hx#L3350>)
 
 
 ## function testFormatUintVarlen
@@ -1334,10 +1444,10 @@ function testFormatUintVarlen(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4522>)
+
+[\(view code\)](<./Strconv.hx#L3515>)
 
 
 ## function testFp
@@ -1348,10 +1458,10 @@ function testFp(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4188>)
+
+[\(view code\)](<./Strconv.hx#L3175>)
 
 
 ## function testFtoa
@@ -1362,10 +1472,10 @@ function testFtoa(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4279>)
+
+[\(view code\)](<./Strconv.hx#L3266>)
 
 
 ## function testFtoaPowersOfTwo
@@ -1376,10 +1486,10 @@ function testFtoaPowersOfTwo(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4314>)
+
+[\(view code\)](<./Strconv.hx#L3292>)
 
 
 ## function testFtoaRandom
@@ -1390,10 +1500,10 @@ function testFtoaRandom(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4348>)
+
+[\(view code\)](<./Strconv.hx#L3321>)
 
 
 ## function testIsGraphic
@@ -1404,10 +1514,11 @@ function testIsGraphic(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-Verify that our IsGraphic agrees with unicode.IsGraphic. 
+Verify that our IsGraphic agrees with unicode.IsGraphic.  
 
 
-[\(view code\)](<./Strconv.hx#L4645>)
+
+[\(view code\)](<./Strconv.hx#L3629>)
 
 
 ## function testIsPrint
@@ -1418,10 +1529,11 @@ function testIsPrint(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-Verify that our IsPrint agrees with unicode.IsPrint. 
+Verify that our IsPrint agrees with unicode.IsPrint.  
 
 
-[\(view code\)](<./Strconv.hx#L4626>)
+
+[\(view code\)](<./Strconv.hx#L3611>)
 
 
 ## function testItoa
@@ -1432,10 +1544,10 @@ function testItoa(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4474>)
+
+[\(view code\)](<./Strconv.hx#L3438>)
 
 
 ## function testMulByLog10Log2
@@ -1446,10 +1558,10 @@ function testMulByLog10Log2(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4461>)
+
+[\(view code\)](<./Strconv.hx#L3426>)
 
 
 ## function testMulByLog2Log10
@@ -1460,10 +1572,10 @@ function testMulByLog2Log10(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4448>)
+
+[\(view code\)](<./Strconv.hx#L3414>)
 
 
 ## function testNumError
@@ -1474,10 +1586,10 @@ function testNumError(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3448>)
+
+[\(view code\)](<./Strconv.hx#L2611>)
 
 
 ## function testNumErrorUnwrap
@@ -1488,10 +1600,10 @@ function testNumErrorUnwrap(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3461>)
+
+[\(view code\)](<./Strconv.hx#L2622>)
 
 
 ## function testParseBool
@@ -1502,10 +1614,10 @@ function testParseBool(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L2514>)
+
+[\(view code\)](<./Strconv.hx#L1900>)
 
 
 ## function testParseComplex
@@ -1516,10 +1628,10 @@ function testParseComplex(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L2559>)
+
+[\(view code\)](<./Strconv.hx#L1939>)
 
 
 ## function testParseComplexIncorrectBitSize
@@ -1530,10 +1642,11 @@ function testParseComplexIncorrectBitSize(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-Issue 42297: allow ParseComplex\(s, not\_32\_or\_64\) for legacy reasons 
+Issue 42297: allow ParseComplex\(s, not\_32\_or\_64\) for legacy reasons  
 
 
-[\(view code\)](<./Strconv.hx#L2825>)
+
+[\(view code\)](<./Strconv.hx#L2099>)
 
 
 ## function testParseFloatIncorrectBitSize
@@ -1544,10 +1657,12 @@ function testParseFloatIncorrectBitSize(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-Issue 42297: a lot of code in the wild accidentally calls ParseFloat\(s, 10\)  or ParseFloat\(s, 0\), so allow bitSize values other than 32 and 64. 
+Issue 42297: a lot of code in the wild accidentally calls ParseFloat\(s, 10\)  
+or ParseFloat\(s, 0\), so allow bitSize values other than 32 and 64.  
 
 
-[\(view code\)](<./Strconv.hx#L3053>)
+
+[\(view code\)](<./Strconv.hx#L2296>)
 
 
 ## function testParseFloatPrefix
@@ -1558,10 +1673,10 @@ function testParseFloatPrefix(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L2887>)
+
+[\(view code\)](<./Strconv.hx#L2149>)
 
 
 ## function testParseInt
@@ -1572,10 +1687,10 @@ function testParseInt(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3312>)
+
+[\(view code\)](<./Strconv.hx#L2507>)
 
 
 ## function testParseInt32
@@ -1586,10 +1701,10 @@ function testParseInt32(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3247>)
+
+[\(view code\)](<./Strconv.hx#L2461>)
 
 
 ## function testParseInt64
@@ -1600,10 +1715,10 @@ function testParseInt64(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3260>)
+
+[\(view code\)](<./Strconv.hx#L2470>)
 
 
 ## function testParseInt64Base
@@ -1614,10 +1729,10 @@ function testParseInt64Base(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3273>)
+
+[\(view code\)](<./Strconv.hx#L2479>)
 
 
 ## function testParseIntBase
@@ -1628,10 +1743,10 @@ function testParseIntBase(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3422>)
+
+[\(view code\)](<./Strconv.hx#L2591>)
 
 
 ## function testParseIntBitSize
@@ -1642,10 +1757,10 @@ function testParseIntBitSize(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3396>)
+
+[\(view code\)](<./Strconv.hx#L2571>)
 
 
 ## function testParseUint
@@ -1656,10 +1771,10 @@ function testParseUint(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3286>)
+
+[\(view code\)](<./Strconv.hx#L2488>)
 
 
 ## function testParseUint32
@@ -1670,10 +1785,10 @@ function testParseUint32(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3208>)
+
+[\(view code\)](<./Strconv.hx#L2434>)
 
 
 ## function testParseUint64
@@ -1684,10 +1799,10 @@ function testParseUint64(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3221>)
+
+[\(view code\)](<./Strconv.hx#L2443>)
 
 
 ## function testParseUint64Base
@@ -1698,10 +1813,10 @@ function testParseUint64Base(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3234>)
+
+[\(view code\)](<./Strconv.hx#L2452>)
 
 
 ## function testParseUintBase
@@ -1712,10 +1827,10 @@ function testParseUintBase(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3435>)
+
+[\(view code\)](<./Strconv.hx#L2601>)
 
 
 ## function testParseUintBitSize
@@ -1726,10 +1841,10 @@ function testParseUintBitSize(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3409>)
+
+[\(view code\)](<./Strconv.hx#L2581>)
 
 
 ## function testQuote
@@ -1740,10 +1855,10 @@ function testQuote(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4661>)
+
+[\(view code\)](<./Strconv.hx#L3644>)
 
 
 ## function testQuoteRune
@@ -1754,10 +1869,10 @@ function testQuoteRune(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4752>)
+
+[\(view code\)](<./Strconv.hx#L3724>)
 
 
 ## function testQuoteRuneToASCII
@@ -1768,10 +1883,10 @@ function testQuoteRuneToASCII(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4770>)
+
+[\(view code\)](<./Strconv.hx#L3740>)
 
 
 ## function testQuoteRuneToGraphic
@@ -1782,10 +1897,10 @@ function testQuoteRuneToGraphic(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4788>)
+
+[\(view code\)](<./Strconv.hx#L3756>)
 
 
 ## function testQuoteToASCII
@@ -1796,10 +1911,10 @@ function testQuoteToASCII(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4679>)
+
+[\(view code\)](<./Strconv.hx#L3660>)
 
 
 ## function testQuoteToGraphic
@@ -1810,10 +1925,10 @@ function testQuoteToGraphic(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4697>)
+
+[\(view code\)](<./Strconv.hx#L3676>)
 
 
 ## function testRoundTrip
@@ -1824,10 +1939,10 @@ function testRoundTrip(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L2982>)
+
+[\(view code\)](<./Strconv.hx#L2234>)
 
 
 ## function testRoundTrip32
@@ -1838,10 +1953,11 @@ function testRoundTrip32(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-TestRoundTrip32 tries a fraction of all finite positive float32 values. 
+TestRoundTrip32 tries a fraction of all finite positive float32 values.  
 
 
-[\(view code\)](<./Strconv.hx#L3017>)
+
+[\(view code\)](<./Strconv.hx#L2264>)
 
 
 ## function testUitoa
@@ -1852,10 +1968,10 @@ function testUitoa(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4507>)
+
+[\(view code\)](<./Strconv.hx#L3503>)
 
 
 ## function testUnquote
@@ -1866,10 +1982,10 @@ function testUnquote(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4817>)
+
+[\(view code\)](<./Strconv.hx#L3782>)
 
 
 ## function testUnquoteInvalidUTF8
@@ -1880,10 +1996,11 @@ function testUnquoteInvalidUTF8(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-Issue 23685: invalid UTF\-8 should not go through the fast path. 
+Issue 23685: invalid UTF\-8 should not go through the fast path.  
 
 
-[\(view code\)](<./Strconv.hx#L4832>)
+
+[\(view code\)](<./Strconv.hx#L3796>)
 
 
 # Classes
@@ -1894,45 +2011,859 @@ import stdgo.strconv_test.*
 ```
 
 
-## class T\_\_struct\_0\_static\_extension
+## class T\_appendBoolTest
 
 
- 
 
 
-## class T\_\_struct\_1\_static\_extension
+
+```haxe
+var _b:Bool
+```
 
 
- 
+```haxe
+var _in:stdgo.Slice<stdgo.GoUInt8>
+```
 
 
-## class T\_\_struct\_2\_static\_extension
+```haxe
+var _out:stdgo.Slice<stdgo.GoUInt8>
+```
 
 
- 
+### T\_appendBoolTest function new
 
 
-## class T\_\_struct\_3\_static\_extension
+```haxe
+function new(?_b:Bool, ?_in:stdgo.Slice<stdgo.GoUInt8>, ?_out:stdgo.Slice<stdgo.GoUInt8>):Void
+```
 
 
- 
 
 
-## class T\_\_struct\_4\_static\_extension
+
+[\(view code\)](<./Strconv_test.hx#L1305>)
 
 
- 
+## class T\_atobTest
 
 
-## class T\_\_struct\_5\_static\_extension
 
 
- 
+
+```haxe
+var _err:stdgo.Error
+```
 
 
-## class T\_\_struct\_6\_static\_extension
+```haxe
+var _in:stdgo.GoString
+```
 
 
- 
+```haxe
+var _out:Bool
+```
+
+
+### T\_atobTest function new
+
+
+```haxe
+function new(?_in:stdgo.GoString, ?_out:Bool, ?_err:Null<stdgo.Error>):Void
+```
+
+
+
+
+
+[\(view code\)](<./Strconv_test.hx#L1286>)
+
+
+## class T\_atocTest
+
+
+
+
+
+```haxe
+var _err:stdgo.Error
+```
+
+
+```haxe
+var _in:stdgo.GoString
+```
+
+
+```haxe
+var _out:stdgo.GoComplex128
+```
+
+
+### T\_atocTest function new
+
+
+```haxe
+function new(?_in:stdgo.GoString, ?_out:stdgo.GoComplex128, ?_err:Null<stdgo.Error>):Void
+```
+
+
+
+
+
+[\(view code\)](<./Strconv_test.hx#L1324>)
+
+
+## class T\_atofSimpleTest
+
+
+
+
+
+```haxe
+var _s:stdgo.GoString
+```
+
+
+```haxe
+var _x:stdgo.GoFloat64
+```
+
+
+### T\_atofSimpleTest function new
+
+
+```haxe
+function new(?_x:stdgo.GoFloat64, ?_s:stdgo.GoString):Void
+```
+
+
+
+
+
+[\(view code\)](<./Strconv_test.hx#L1361>)
+
+
+## class T\_atofTest
+
+
+
+
+
+```haxe
+var _err:stdgo.Error
+```
+
+
+```haxe
+var _in:stdgo.GoString
+```
+
+
+```haxe
+var _out:stdgo.GoString
+```
+
+
+### T\_atofTest function new
+
+
+```haxe
+function new(?_in:stdgo.GoString, ?_out:stdgo.GoString, ?_err:Null<stdgo.Error>):Void
+```
+
+
+
+
+
+[\(view code\)](<./Strconv_test.hx#L1343>)
+
+
+## class T\_benchCase
+
+
+
+
+
+```haxe
+var _name:stdgo.GoString
+```
+
+
+```haxe
+var _num:stdgo.GoInt64
+```
+
+
+### T\_benchCase function new
+
+
+```haxe
+function new(?_name:stdgo.GoString, ?_num:stdgo.GoInt64):Void
+```
+
+
+
+
+
+[\(view code\)](<./Strconv_test.hx#L1530>)
+
+
+## class T\_canBackquoteTest
+
+
+
+
+
+```haxe
+var _in:stdgo.GoString
+```
+
+
+```haxe
+var _out:Bool
+```
+
+
+### T\_canBackquoteTest function new
+
+
+```haxe
+function new(?_in:stdgo.GoString, ?_out:Bool):Void
+```
+
+
+
+
+
+[\(view code\)](<./Strconv_test.hx#L1711>)
+
+
+## class T\_ftoaTest
+
+
+
+
+
+```haxe
+var _f:stdgo.GoFloat64
+```
+
+
+```haxe
+var _fmt:stdgo.GoUInt8
+```
+
+
+```haxe
+var _prec:stdgo.GoInt
+```
+
+
+```haxe
+var _s:stdgo.GoString
+```
+
+
+### T\_ftoaTest function new
+
+
+```haxe
+function new(?_f:stdgo.GoFloat64, ?_fmt:stdgo.GoUInt8, ?_prec:Null<stdgo.GoInt>, ?_s:stdgo.GoString):Void
+```
+
+
+
+
+
+[\(view code\)](<./Strconv_test.hx#L1612>)
+
+
+## class T\_itob64Test
+
+
+
+
+
+```haxe
+var _base:stdgo.GoInt
+```
+
+
+```haxe
+var _in:stdgo.GoInt64
+```
+
+
+```haxe
+var _out:stdgo.GoString
+```
+
+
+### T\_itob64Test function new
+
+
+```haxe
+function new(?_in:stdgo.GoInt64, ?_base:Null<stdgo.GoInt>, ?_out:stdgo.GoString):Void
+```
+
+
+
+
+
+[\(view code\)](<./Strconv_test.hx#L1632>)
+
+
+## class T\_numErrorTest
+
+
+
+
+
+```haxe
+var _num:stdgo.GoString
+```
+
+
+```haxe
+var _want:stdgo.GoString
+```
+
+
+### T\_numErrorTest function new
+
+
+```haxe
+function new(?_num:stdgo.GoString, ?_want:stdgo.GoString):Void
+```
+
+
+
+
+
+[\(view code\)](<./Strconv_test.hx#L1496>)
+
+
+## class T\_parseErrorTest
+
+
+
+
+
+```haxe
+var _arg:stdgo.GoInt
+```
+
+
+### T\_parseErrorTest function \_errStub
+
+
+```haxe
+function _errStub(:stdgo.GoString, :stdgo.GoInt):stdgo.Error
+```
+
+
+
+
+
+### T\_parseErrorTest function new
+
+
+```haxe
+function new(?_arg:Null<stdgo.GoInt>, ?_errStub:(:stdgo.GoString, :stdgo.GoInt):stdgo.Error):Void
+```
+
+
+
+
+
+[\(view code\)](<./Strconv_test.hx#L1513>)
+
+
+## class T\_parseInt32Test
+
+
+
+
+
+```haxe
+var _err:stdgo.Error
+```
+
+
+```haxe
+var _in:stdgo.GoString
+```
+
+
+```haxe
+var _out:stdgo.GoInt32
+```
+
+
+### T\_parseInt32Test function new
+
+
+```haxe
+function new(?_in:stdgo.GoString, ?_out:stdgo.GoInt32, ?_err:Null<stdgo.Error>):Void
+```
+
+
+
+
+
+[\(view code\)](<./Strconv_test.hx#L1478>)
+
+
+## class T\_parseInt64BaseTest
+
+
+
+
+
+```haxe
+var _base:stdgo.GoInt
+```
+
+
+```haxe
+var _err:stdgo.Error
+```
+
+
+```haxe
+var _in:stdgo.GoString
+```
+
+
+```haxe
+var _out:stdgo.GoInt64
+```
+
+
+### T\_parseInt64BaseTest function new
+
+
+```haxe
+function new(?_in:stdgo.GoString, ?_base:Null<stdgo.GoInt>, ?_out:stdgo.GoInt64, ?_err:Null<stdgo.Error>):Void
+```
+
+
+
+
+
+[\(view code\)](<./Strconv_test.hx#L1439>)
+
+
+## class T\_parseInt64Test
+
+
+
+
+
+```haxe
+var _err:stdgo.Error
+```
+
+
+```haxe
+var _in:stdgo.GoString
+```
+
+
+```haxe
+var _out:stdgo.GoInt64
+```
+
+
+### T\_parseInt64Test function new
+
+
+```haxe
+function new(?_in:stdgo.GoString, ?_out:stdgo.GoInt64, ?_err:Null<stdgo.Error>):Void
+```
+
+
+
+
+
+[\(view code\)](<./Strconv_test.hx#L1419>)
+
+
+## class T\_parseUint32Test
+
+
+
+
+
+```haxe
+var _err:stdgo.Error
+```
+
+
+```haxe
+var _in:stdgo.GoString
+```
+
+
+```haxe
+var _out:stdgo.GoUInt32
+```
+
+
+### T\_parseUint32Test function new
+
+
+```haxe
+function new(?_in:stdgo.GoString, ?_out:stdgo.GoUInt32, ?_err:Null<stdgo.Error>):Void
+```
+
+
+
+
+
+[\(view code\)](<./Strconv_test.hx#L1459>)
+
+
+## class T\_parseUint64BaseTest
+
+
+
+
+
+```haxe
+var _base:stdgo.GoInt
+```
+
+
+```haxe
+var _err:stdgo.Error
+```
+
+
+```haxe
+var _in:stdgo.GoString
+```
+
+
+```haxe
+var _out:stdgo.GoUInt64
+```
+
+
+### T\_parseUint64BaseTest function new
+
+
+```haxe
+function new(?_in:stdgo.GoString, ?_base:Null<stdgo.GoInt>, ?_out:stdgo.GoUInt64, ?_err:Null<stdgo.Error>):Void
+```
+
+
+
+
+
+[\(view code\)](<./Strconv_test.hx#L1399>)
+
+
+## class T\_parseUint64Test
+
+
+
+
+
+```haxe
+var _err:stdgo.Error
+```
+
+
+```haxe
+var _in:stdgo.GoString
+```
+
+
+```haxe
+var _out:stdgo.GoUInt64
+```
+
+
+### T\_parseUint64Test function new
+
+
+```haxe
+function new(?_in:stdgo.GoString, ?_out:stdgo.GoUInt64, ?_err:Null<stdgo.Error>):Void
+```
+
+
+
+
+
+[\(view code\)](<./Strconv_test.hx#L1379>)
+
+
+## class T\_quoteRuneTest
+
+
+
+
+
+```haxe
+var _ascii:stdgo.GoString
+```
+
+
+```haxe
+var _graphic:stdgo.GoString
+```
+
+
+```haxe
+var _in:stdgo.GoInt32
+```
+
+
+```haxe
+var _out:stdgo.GoString
+```
+
+
+### T\_quoteRuneTest function new
+
+
+```haxe
+function new(?_in:stdgo.GoInt32, ?_out:stdgo.GoString, ?_ascii:stdgo.GoString, ?_graphic:stdgo.GoString):Void
+```
+
+
+
+
+
+[\(view code\)](<./Strconv_test.hx#L1692>)
+
+
+## class T\_quoteTest
+
+
+
+
+
+```haxe
+var _ascii:stdgo.GoString
+```
+
+
+```haxe
+var _graphic:stdgo.GoString
+```
+
+
+```haxe
+var _in:stdgo.GoString
+```
+
+
+```haxe
+var _out:stdgo.GoString
+```
+
+
+### T\_quoteTest function new
+
+
+```haxe
+function new(?_in:stdgo.GoString, ?_out:stdgo.GoString, ?_ascii:stdgo.GoString, ?_graphic:stdgo.GoString):Void
+```
+
+
+
+
+
+[\(view code\)](<./Strconv_test.hx#L1671>)
+
+
+## class T\_roundIntTest
+
+
+
+
+
+```haxe
+var _i:stdgo.GoUInt64
+```
+
+
+```haxe
+var _int:stdgo.GoUInt64
+```
+
+
+```haxe
+var _shift:stdgo.GoInt
+```
+
+
+### T\_roundIntTest function new
+
+
+```haxe
+function new(?_i:stdgo.GoUInt64, ?_shift:Null<stdgo.GoInt>, ?_int:stdgo.GoUInt64):Void
+```
+
+
+
+
+
+[\(view code\)](<./Strconv_test.hx#L1592>)
+
+
+## class T\_roundTest
+
+
+
+
+
+```haxe
+var _down:stdgo.GoString
+```
+
+
+```haxe
+var _i:stdgo.GoUInt64
+```
+
+
+```haxe
+var _int:stdgo.GoUInt64
+```
+
+
+```haxe
+var _nd:stdgo.GoInt
+```
+
+
+```haxe
+var _round:stdgo.GoString
+```
+
+
+```haxe
+var _up:stdgo.GoString
+```
+
+
+### T\_roundTest function new
+
+
+```haxe
+function new(?_i:stdgo.GoUInt64, ?_nd:Null<stdgo.GoInt>, ?_down:stdgo.GoString, ?_round:stdgo.GoString, ?_up:stdgo.GoString, ?_int:stdgo.GoUInt64):Void
+```
+
+
+
+
+
+[\(view code\)](<./Strconv_test.hx#L1570>)
+
+
+## class T\_shiftTest
+
+
+
+
+
+```haxe
+var _i:stdgo.GoUInt64
+```
+
+
+```haxe
+var _out:stdgo.GoString
+```
+
+
+```haxe
+var _shift:stdgo.GoInt
+```
+
+
+### T\_shiftTest function new
+
+
+```haxe
+function new(?_i:stdgo.GoUInt64, ?_shift:Null<stdgo.GoInt>, ?_out:stdgo.GoString):Void
+```
+
+
+
+
+
+[\(view code\)](<./Strconv_test.hx#L1548>)
+
+
+## class T\_uitob64Test
+
+
+
+
+
+```haxe
+var _base:stdgo.GoInt
+```
+
+
+```haxe
+var _in:stdgo.GoUInt64
+```
+
+
+```haxe
+var _out:stdgo.GoString
+```
+
+
+### T\_uitob64Test function new
+
+
+```haxe
+function new(?_in:stdgo.GoUInt64, ?_base:Null<stdgo.GoInt>, ?_out:stdgo.GoString):Void
+```
+
+
+
+
+
+[\(view code\)](<./Strconv_test.hx#L1651>)
+
+
+## class T\_unQuoteTest
+
+
+
+
+
+```haxe
+var _in:stdgo.GoString
+```
+
+
+```haxe
+var _out:stdgo.GoString
+```
+
+
+### T\_unQuoteTest function new
+
+
+```haxe
+function new(?_in:stdgo.GoString, ?_out:stdgo.GoString):Void
+```
+
+
+
+
+
+[\(view code\)](<./Strconv_test.hx#L1728>)
 
 

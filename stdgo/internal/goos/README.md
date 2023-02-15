@@ -6,7 +6,8 @@
 # Overview
 
 
-package goos contains GOOS\-specific constants. 
+package goos contains GOOS\-specific constants.  
+
 
 
 # Index
@@ -99,6 +100,11 @@ final isPlan9:stdgo.GoUInt64 = ((0 : GoUInt64))
 
 ```haxe
 final isSolaris:stdgo.GoUInt64 = ((0 : GoUInt64))
+```
+
+
+```haxe
+final isUnix:Null<Dynamic> = null
 ```
 
 

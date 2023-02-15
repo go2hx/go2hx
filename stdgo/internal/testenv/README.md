@@ -6,7 +6,7 @@
 # Overview
 
 
- 
+
 
 
 # Index
@@ -32,7 +32,7 @@ function builder():stdgo.GoString
 ```
 
 
- 
+
 
 
 [\(view code\)](<./Testenv.hx#L6>)
@@ -46,7 +46,7 @@ function skipFlaky(t:stdgo.testing.TB, issue:stdgo.GoInt):Void
 ```
 
 
- 
+
 
 
 [\(view code\)](<./Testenv.hx#L8>)

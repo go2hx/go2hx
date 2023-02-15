@@ -6,7 +6,7 @@
 # Overview
 
 
- 
+
 
 
 # Index
@@ -19,6 +19,8 @@
 - [`function exampleAs():Void`](<#function-exampleas>)
 
 - [`function exampleIs():Void`](<#function-exampleis>)
+
+- [`function exampleJoin():Void`](<#function-examplejoin>)
 
 - [`function exampleNew():Void`](<#function-examplenew>)
 
@@ -34,6 +36,12 @@
 
 - [`function testIs(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testis>)
 
+- [`function testJoin(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testjoin>)
+
+- [`function testJoinErrorMethod(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testjoinerrormethod>)
+
+- [`function testJoinReturnsNil(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testjoinreturnsnil>)
+
 - [`function testNewEqual(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testnewequal>)
 
 - [`function testUnwrap(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testunwrap>)
@@ -44,39 +52,39 @@
 
   - [`function error():stdgo.GoString`](<#myerror-function-error>)
 
-- [class MyError\_static\_extension](<#class-myerror_static_extension>)
+- [class T\_errorT](<#class-t_errort>)
 
-  - [`function error():stdgo.GoString`](<#myerror_static_extension-function-error>)
+  - [`function new(?_s:stdgo.GoString):Void`](<#t_errort-function-new>)
 
-- [class T\_\_struct\_0\_static\_extension](<#class-t__struct_0_static_extension>)
+  - [`function error():stdgo.GoString`](<#t_errort-function-error>)
 
-- [class T\_\_struct\_1\_static\_extension](<#class-t__struct_1_static_extension>)
+- [class T\_errorUncomparable](<#class-t_erroruncomparable>)
 
-- [class T\_\_struct\_2\_static\_extension](<#class-t__struct_2_static_extension>)
+  - [`function new(?_f:stdgo.Slice<stdgo.GoString>):Void`](<#t_erroruncomparable-function-new>)
 
-- [class T\_errorT\_static\_extension](<#class-t_errort_static_extension>)
+  - [`function error():stdgo.GoString`](<#t_erroruncomparable-function-error>)
 
-  - [`function error(_e:stdgo.errors_test._Errors_test.T_errorT):stdgo.GoString`](<#t_errort_static_extension-function-error>)
+  - [`function is_( _target:stdgo.Error):Bool`](<#terroruncomparable-function-is>)
 
-- [class T\_errorUncomparable\_static\_extension](<#class-t_erroruncomparable_static_extension>)
+- [class T\_poser](<#class-t_poser>)
 
-  - [`function error(_:stdgo.errors_test._Errors_test.T_errorUncomparable):stdgo.GoString`](<#t_erroruncomparable_static_extension-function-error>)
+  - [`function _f()`](<#t_poser-function-_f>)
 
-  - [`function is_(_:stdgo.errors_test._Errors_test.T_errorUncomparable, _target:stdgo.Error):Bool`](<#t_erroruncomparable_staticextension-function-is>)
+  - [`function new(?_msg:stdgo.GoString, ?_f:()):Void`](<#t_poser-function-new>)
 
-- [class T\_poser\_static\_extension](<#class-t_poser_static_extension>)
+  - [`function as( _err:stdgo.AnyInterface):Bool`](<#t_poser-function-as>)
 
-  - [`function as(_p:stdgo.Ref<stdgo.errors_test._Errors_test.T_poser>, _err:stdgo.AnyInterface):Bool`](<#t_poser_static_extension-function-as>)
+  - [`function error():stdgo.GoString`](<#t_poser-function-error>)
 
-  - [`function error(_p:stdgo.Ref<stdgo.errors_test._Errors_test.T_poser>):stdgo.GoString`](<#t_poser_static_extension-function-error>)
+  - [`function is_( _err:stdgo.Error):Bool`](<#tposer-function-is>)
 
-  - [`function is_(_p:stdgo.Ref<stdgo.errors_test._Errors_test.T_poser>, _err:stdgo.Error):Bool`](<#t_poser_staticextension-function-is>)
+- [class T\_wrapped](<#class-t_wrapped>)
 
-- [class T\_wrapped\_static\_extension](<#class-t_wrapped_static_extension>)
+  - [`function new(?_msg:stdgo.GoString, ?_err:Null<stdgo.Error>):Void`](<#t_wrapped-function-new>)
 
-  - [`function error(_e:stdgo.errors_test._Errors_test.T_wrapped):stdgo.GoString`](<#t_wrapped_static_extension-function-error>)
+  - [`function error():stdgo.GoString`](<#t_wrapped-function-error>)
 
-  - [`function unwrap(_e:stdgo.errors_test._Errors_test.T_wrapped):stdgo.Error`](<#t_wrapped_static_extension-function-unwrap>)
+  - [`function unwrap():stdgo.Error`](<#t_wrapped-function-unwrap>)
 
 # Variables
 
@@ -107,10 +115,10 @@ function example():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Errors.hx#L228>)
+
+[\(view code\)](<./Errors.hx#L258>)
 
 
 ## function exampleAs
@@ -121,10 +129,10 @@ function exampleAs():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Errors.hx#L459>)
+
+[\(view code\)](<./Errors.hx#L484>)
 
 
 ## function exampleIs
@@ -135,10 +143,24 @@ function exampleIs():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Errors.hx#L444>)
+
+[\(view code\)](<./Errors.hx#L472>)
+
+
+## function exampleJoin
+
+
+```haxe
+function exampleJoin():Void
+```
+
+
+
+
+
+[\(view code\)](<./Errors.hx#L243>)
 
 
 ## function exampleNew
@@ -149,10 +171,10 @@ function exampleNew():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Errors.hx#L200>)
+
+[\(view code\)](<./Errors.hx#L226>)
 
 
 ## function exampleNew\_errorf
@@ -163,10 +185,12 @@ function exampleNew_errorf():Void
 ```
 
 
-The fmt package's Errorf function lets us use the package's formatting  features to create descriptive error messages. 
+The fmt package's Errorf function lets us use the package's formatting  
+features to create descriptive error messages.  
 
 
-[\(view code\)](<./Errors.hx#L211>)
+
+[\(view code\)](<./Errors.hx#L236>)
 
 
 ## function exampleUnwrap
@@ -177,10 +201,10 @@ function exampleUnwrap():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Errors.hx#L475>)
+
+[\(view code\)](<./Errors.hx#L497>)
 
 
 ## function testAs
@@ -191,10 +215,10 @@ function testAs(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Errors.hx#L281>)
+
+[\(view code\)](<./Errors.hx#L360>)
 
 
 ## function testAsValidation
@@ -205,10 +229,10 @@ function testAsValidation(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Errors.hx#L371>)
+
+[\(view code\)](<./Errors.hx#L409>)
 
 
 ## function testErrorMethod
@@ -219,10 +243,10 @@ function testErrorMethod(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Errors.hx#L193>)
+
+[\(view code\)](<./Errors.hx#L220>)
 
 
 ## function testIs
@@ -233,10 +257,52 @@ function testIs(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Errors.hx#L237>)
+
+[\(view code\)](<./Errors.hx#L309>)
+
+
+## function testJoin
+
+
+```haxe
+function testJoin(_t:stdgo.Ref<stdgo.testing.T>):Void
+```
+
+
+
+
+
+[\(view code\)](<./Errors.hx#L286>)
+
+
+## function testJoinErrorMethod
+
+
+```haxe
+function testJoinErrorMethod(_t:stdgo.Ref<stdgo.testing.T>):Void
+```
+
+
+
+
+
+[\(view code\)](<./Errors.hx#L299>)
+
+
+## function testJoinReturnsNil
+
+
+```haxe
+function testJoinReturnsNil(_t:stdgo.Ref<stdgo.testing.T>):Void
+```
+
+
+
+
+
+[\(view code\)](<./Errors.hx#L266>)
 
 
 ## function testNewEqual
@@ -247,10 +313,10 @@ function testNewEqual(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Errors.hx#L180>)
+
+[\(view code\)](<./Errors.hx#L208>)
 
 
 ## function testUnwrap
@@ -261,10 +327,10 @@ function testUnwrap(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Errors.hx#L426>)
+
+[\(view code\)](<./Errors.hx#L459>)
 
 
 # Classes
@@ -278,7 +344,8 @@ import stdgo.errors_test.*
 ## class MyError
 
 
-MyError is an error implementation that includes a time and message. 
+MyError is an error implementation that includes a time and message.  
+
 
 
 ```haxe
@@ -299,10 +366,10 @@ function new(?when:stdgo.time.Time, ?what:stdgo.GoString):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Errors_test.hx#L26>)
+
+[\(view code\)](<./Errors_test.hx#L51>)
 
 
 ### MyError function error
@@ -313,19 +380,38 @@ function error():stdgo.GoString
 ```
 
 
- 
 
 
-[\(view code\)](<./Errors_test.hx#L503>)
+
+[\(view code\)](<./Errors_test.hx#L516>)
 
 
-## class MyError\_static\_extension
+## class T\_errorT
 
 
- 
 
 
-### MyError\_static\_extension function error
+
+```haxe
+var _s:stdgo.GoString
+```
+
+
+### T\_errorT function new
+
+
+```haxe
+function new(?_s:stdgo.GoString):Void
+```
+
+
+
+
+
+[\(view code\)](<./Errors_test.hx#L84>)
+
+
+### T\_errorT function error
 
 
 ```haxe
@@ -333,163 +419,198 @@ function error():stdgo.GoString
 ```
 
 
- 
 
 
-[\(view code\)](<./Errors_test.hx#L503>)
+
+[\(view code\)](<./Errors_test.hx#L581>)
 
 
-## class T\_\_struct\_0\_static\_extension
+## class T\_errorUncomparable
 
 
- 
 
-
-## class T\_\_struct\_1\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_2\_static\_extension
-
-
- 
-
-
-## class T\_errorT\_static\_extension
-
-
- 
-
-
-### T\_errorT\_static\_extension function error
 
 
 ```haxe
-function error(_e:stdgo.errors_test._Errors_test.T_errorT):stdgo.GoString
+var _f:stdgo.Slice<stdgo.GoString>
 ```
 
 
- 
-
-
-[\(view code\)](<./Errors_test.hx#L595>)
-
-
-## class T\_errorUncomparable\_static\_extension
-
-
- 
-
-
-### T\_errorUncomparable\_static\_extension function error
+### T\_errorUncomparable function new
 
 
 ```haxe
-function error(_:stdgo.errors_test._Errors_test.T_errorUncomparable):stdgo.GoString
+function new(?_f:stdgo.Slice<stdgo.GoString>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Errors_test.hx#L670>)
+
+[\(view code\)](<./Errors_test.hx#L116>)
 
 
-### T\_errorUncomparable\_static\_extension function is\_
+### T\_errorUncomparable function error
 
 
 ```haxe
-function is_(_:stdgo.errors_test._Errors_test.T_errorUncomparable, _target:stdgo.Error):Bool
+function error():stdgo.GoString
 ```
 
 
- 
 
 
-[\(view code\)](<./Errors_test.hx#L660>)
+
+[\(view code\)](<./Errors_test.hx#L632>)
 
 
-## class T\_poser\_static\_extension
-
-
- 
-
-
-### T\_poser\_static\_extension function as
+### T\_errorUncomparable function is\_
 
 
 ```haxe
-function as(_p:stdgo.Ref<stdgo.errors_test._Errors_test.T_poser>, _err:stdgo.AnyInterface):Bool
+function is_( _target:stdgo.Error):Bool
 ```
 
 
- 
+
+
+
+[\(view code\)](<./Errors_test.hx#L623>)
+
+
+## class T\_poser
+
+
+
+
+
+```haxe
+var _msg:stdgo.GoString
+```
+
+
+### T\_poser function \_f
+
+
+```haxe
+function _f()
+```
+
+
+
+
+
+### T\_poser function new
+
+
+```haxe
+function new(?_msg:stdgo.GoString, ?_f:()):Void
+```
+
+
+
+
+
+[\(view code\)](<./Errors_test.hx#L68>)
+
+
+### T\_poser function as
+
+
+```haxe
+function as( _err:stdgo.AnyInterface):Bool
+```
+
+
+
 
 
 [\(view code\)](<./Errors_test.hx#L537>)
 
 
-### T\_poser\_static\_extension function error
+### T\_poser function error
 
 
 ```haxe
-function error(_p:stdgo.Ref<stdgo.errors_test._Errors_test.T_poser>):stdgo.GoString
+function error():stdgo.GoString
 ```
 
 
- 
 
-
-[\(view code\)](<./Errors_test.hx#L569>)
-
-
-### T\_poser\_static\_extension function is\_
-
-
-```haxe
-function is_(_p:stdgo.Ref<stdgo.errors_test._Errors_test.T_poser>, _err:stdgo.Error):Bool
-```
-
-
- 
 
 
 [\(view code\)](<./Errors_test.hx#L564>)
 
 
-## class T\_wrapped\_static\_extension
-
-
- 
-
-
-### T\_wrapped\_static\_extension function error
+### T\_poser function is\_
 
 
 ```haxe
-function error(_e:stdgo.errors_test._Errors_test.T_wrapped):stdgo.GoString
+function is_( _err:stdgo.Error):Bool
 ```
 
 
- 
 
 
-[\(view code\)](<./Errors_test.hx#L630>)
+
+[\(view code\)](<./Errors_test.hx#L560>)
 
 
-### T\_wrapped\_static\_extension function unwrap
+## class T\_wrapped
+
+
+
 
 
 ```haxe
-function unwrap(_e:stdgo.errors_test._Errors_test.T_wrapped):stdgo.Error
+var _err:stdgo.Error
 ```
 
 
- 
+```haxe
+var _msg:stdgo.GoString
+```
 
 
-[\(view code\)](<./Errors_test.hx#L625>)
+### T\_wrapped function new
+
+
+```haxe
+function new(?_msg:stdgo.GoString, ?_err:Null<stdgo.Error>):Void
+```
+
+
+
+
+
+[\(view code\)](<./Errors_test.hx#L100>)
+
+
+### T\_wrapped function error
+
+
+```haxe
+function error():stdgo.GoString
+```
+
+
+
+
+
+[\(view code\)](<./Errors_test.hx#L604>)
+
+
+### T\_wrapped function unwrap
+
+
+```haxe
+function unwrap():stdgo.Error
+```
+
+
+
+
+
+[\(view code\)](<./Errors_test.hx#L600>)
 
 

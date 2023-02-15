@@ -6,7 +6,7 @@
 # Overview
 
 
- 
+
 
 
 # Index
@@ -49,10 +49,10 @@ function exampleAbs():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L13>)
+
+[\(view code\)](<./Cmplx.hx#L11>)
 
 
 ## function exampleExp
@@ -63,10 +63,11 @@ function exampleExp():Void
 ```
 
 
-ExampleExp computes Euler's identity. 
+ExampleExp computes Euler's identity.  
 
 
-[\(view code\)](<./Cmplx.hx#L20>)
+
+[\(view code\)](<./Cmplx.hx#L17>)
 
 
 ## function examplePolar
@@ -77,9 +78,9 @@ function examplePolar():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Cmplx.hx#L25>)
+
+[\(view code\)](<./Cmplx.hx#L20>)
 
 

@@ -6,11 +6,13 @@
 # Overview
 
 
- 
+
 
 
 # Index
 
+
+- [Constants](<#constants>)
 
 - [Variables](<#variables>)
 
@@ -128,6 +130,8 @@
 
 - [`function testFmtInterface(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testfmtinterface>)
 
+- [`function testFormatString(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testformatstring>)
+
 - [`function testFormatterFlags(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testformatterflags>)
 
 - [`function testFormatterPrintln(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testformatterprintln>)
@@ -216,10 +220,6 @@
 
   - [`function string():stdgo.GoString`](<#animal-function-string>)
 
-- [class Animal\_static\_extension](<#class-animal_static_extension>)
-
-  - [`function string():stdgo.GoString`](<#animal_static_extension-function-string>)
-
 - [class B](<#class-b>)
 
   - [`function new(?i:Null<stdgo.fmt_test.I>, ?_j:Null<stdgo.GoInt>):Void`](<#b-function-new>)
@@ -232,33 +232,11 @@
 
   - [`function new(?_i:Null<stdgo.GoInt>, ?b:stdgo.fmt_test.B):Void`](<#c-function-new>)
 
-- [class C\_static\_extension](<#class-c_static_extension>)
-
-- [class F\_static\_extension](<#class-f_static_extension>)
-
-  - [`function format(_f:stdgo.fmt_test.F, _s:stdgo.fmt.State, _c:stdgo.GoRune):Void`](<#f_static_extension-function-format>)
-
-- [class G\_static\_extension](<#class-g_static_extension>)
-
-  - [`function goString():stdgo.GoString`](<#g_static_extension-function-gostring>)
-
-- [class I\_static\_extension](<#class-i_static_extension>)
-
-  - [`function string():stdgo.GoString`](<#i_static_extension-function-string>)
-
 - [class IntString](<#class-intstring>)
 
   - [`function new(?_i:Null<stdgo.GoInt>, ?_s:stdgo.GoString):Void`](<#intstring-function-new>)
 
   - [`function scan( _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error`](<#intstring-function-scan>)
-
-- [class IntString\_static\_extension](<#class-intstring_static_extension>)
-
-  - [`function scan( _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error`](<#intstring_static_extension-function-scan>)
-
-- [class P\_static\_extension](<#class-p_static_extension>)
-
-  - [`function string( _p:stdgo.Pointer<stdgo.fmt_test.P>):stdgo.GoString`](<#p_static_extension-function-string>)
 
 - [class PanicF](<#class-panicf>)
 
@@ -266,19 +244,11 @@
 
   - [`function format( _f:stdgo.fmt.State, _c:stdgo.GoRune):Void`](<#panicf-function-format>)
 
-- [class PanicF\_static\_extension](<#class-panicf_static_extension>)
-
-  - [`function format( _f:stdgo.fmt.State, _c:stdgo.GoRune):Void`](<#panicf_static_extension-function-format>)
-
 - [class PanicGo](<#class-panicgo>)
 
   - [`function new(?_message:stdgo.AnyInterface):Void`](<#panicgo-function-new>)
 
   - [`function goString():stdgo.GoString`](<#panicgo-function-gostring>)
-
-- [class PanicGo\_static\_extension](<#class-panicgo_static_extension>)
-
-  - [`function goString():stdgo.GoString`](<#panicgo_static_extension-function-gostring>)
 
 - [class PanicS](<#class-panics>)
 
@@ -286,19 +256,11 @@
 
   - [`function string():stdgo.GoString`](<#panics-function-string>)
 
-- [class PanicS\_static\_extension](<#class-panics_static_extension>)
-
-  - [`function string():stdgo.GoString`](<#panics_static_extension-function-string>)
-
 - [class Person](<#class-person>)
 
   - [`function new(?name:stdgo.GoString, ?age:Null<stdgo.GoUInt>, ?addr:stdgo.Ref<stdgo.fmt_test.Address>):Void`](<#person-function-new>)
 
   - [`function goString():stdgo.GoString`](<#person-function-gostring>)
-
-- [class Person\_static\_extension](<#class-person_static_extension>)
-
-  - [`function goString():stdgo.GoString`](<#person_static_extension-function-gostring>)
 
 - [class Recur](<#class-recur>)
 
@@ -306,19 +268,11 @@
 
   - [`function string():stdgo.GoString`](<#recur-function-string>)
 
-- [class Recur\_static\_extension](<#class-recur_static_extension>)
-
-  - [`function string():stdgo.GoString`](<#recur_static_extension-function-string>)
-
 - [class RecursiveInt](<#class-recursiveint>)
 
   - [`function new(?_i:Null<stdgo.GoInt>, ?_next:stdgo.Ref<stdgo.fmt_test.RecursiveInt>):Void`](<#recursiveint-function-new>)
 
   - [`function scan( _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error`](<#recursiveint-function-scan>)
-
-- [class RecursiveInt\_static\_extension](<#class-recursiveint_static_extension>)
-
-  - [`function scan( _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error`](<#recursiveint_static_extension-function-scan>)
 
 - [class S](<#class-s>)
 
@@ -340,149 +294,39 @@
 
   - [`function new(?_format:stdgo.GoString, ?_text:stdgo.GoString, ?_in:stdgo.AnyInterface, ?_out:stdgo.AnyInterface):Void`](<#scanftest-function-new>)
 
-- [class TB\_static\_extension](<#class-tb_static_extension>)
+- [class T\_eofCounter](<#class-t_eofcounter>)
 
-  - [`function string():stdgo.GoString`](<#tb_static_extension-function-string>)
+  - [`function new(?_reader:stdgo.Ref<stdgo.strings.Reader>, ?_eofCount:Null<stdgo.GoInt>):Void`](<#t_eofcounter-function-new>)
 
-- [class TF32\_static\_extension](<#class-tf32_static_extension>)
+  - [`function read( _b:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_eofcounter-function-read>)
 
-  - [`function string():stdgo.GoString`](<#tf32_static_extension-function-string>)
+- [class T\_flagPrinter](<#class-t_flagprinter>)
 
-- [class TF64\_static\_extension](<#class-tf64_static_extension>)
+  - [`function new():Void`](<#t_flagprinter-function-new>)
 
-  - [`function string():stdgo.GoString`](<#tf64_static_extension-function-string>)
+  - [`function format( _f:stdgo.fmt.State, _c:stdgo.GoRune):Void`](<#t_flagprinter-function-format>)
 
-- [class TF\_static\_extension](<#class-tf_static_extension>)
+- [class T\_runeScanner](<#class-t_runescanner>)
 
-  - [`function string():stdgo.GoString`](<#tf_static_extension-function-string>)
+  - [`function new(?_rune:stdgo.GoInt32, ?_size:Null<stdgo.GoInt>):Void`](<#t_runescanner-function-new>)
 
-- [class TI16\_static\_extension](<#class-ti16_static_extension>)
+  - [`function scan( _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error`](<#t_runescanner-function-scan>)
 
-  - [`function string():stdgo.GoString`](<#ti16_static_extension-function-string>)
+- [class T\_testState](<#class-t_teststate>)
 
-- [class TI32\_static\_extension](<#class-ti32_static_extension>)
+  - [`function new(?_width:Null<stdgo.GoInt>, ?_widthOK:Bool, ?_prec:Null<stdgo.GoInt>, ?_precOK:Bool, ?_flag:stdgo.GoMap<stdgo.GoInt, Bool>):Void`](<#t_teststate-function-new>)
 
-  - [`function string():stdgo.GoString`](<#ti32_static_extension-function-string>)
+  - [`function flag( _c:stdgo.GoInt):Bool`](<#t_teststate-function-flag>)
 
-- [class TI64\_static\_extension](<#class-ti64_static_extension>)
+  - [`function precision():{_1:Bool, _0:stdgo.GoInt}`](<#t_teststate-function-precision>)
 
-  - [`function string():stdgo.GoString`](<#ti64_static_extension-function-string>)
+  - [`function width():{_1:Bool, _0:stdgo.GoInt}`](<#t_teststate-function-width>)
 
-- [class TI8\_static\_extension](<#class-ti8_static_extension>)
-
-  - [`function string():stdgo.GoString`](<#ti8_static_extension-function-string>)
-
-- [class TI\_static\_extension](<#class-ti_static_extension>)
-
-  - [`function string():stdgo.GoString`](<#ti_static_extension-function-string>)
-
-- [class TS\_static\_extension](<#class-ts_static_extension>)
-
-  - [`function string():stdgo.GoString`](<#ts_static_extension-function-string>)
-
-- [class TU16\_static\_extension](<#class-tu16_static_extension>)
-
-  - [`function string():stdgo.GoString`](<#tu16_static_extension-function-string>)
-
-- [class TU32\_static\_extension](<#class-tu32_static_extension>)
-
-  - [`function string():stdgo.GoString`](<#tu32_static_extension-function-string>)
-
-- [class TU64\_static\_extension](<#class-tu64_static_extension>)
-
-  - [`function string():stdgo.GoString`](<#tu64_static_extension-function-string>)
-
-- [class TU8\_static\_extension](<#class-tu8_static_extension>)
-
-  - [`function string():stdgo.GoString`](<#tu8_static_extension-function-string>)
-
-- [class TUI\_static\_extension](<#class-tui_static_extension>)
-
-  - [`function string():stdgo.GoString`](<#tui_static_extension-function-string>)
-
-- [class TU\_static\_extension](<#class-tu_static_extension>)
-
-  - [`function string():stdgo.GoString`](<#tu_static_extension-function-string>)
-
-- [class T\_\_struct\_0\_static\_extension](<#class-t__struct_0_static_extension>)
-
-- [class T\_\_struct\_10\_static\_extension](<#class-t__struct_10_static_extension>)
-
-- [class T\_\_struct\_11\_static\_extension](<#class-t__struct_11_static_extension>)
-
-- [class T\_\_struct\_12\_static\_extension](<#class-t__struct_12_static_extension>)
-
-  - [`function read(__self__:stdgo.fmt_test._Fmt_test.T__struct_12, __0:stdgo.Slice<stdgo.GoUInt8>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t__struct_12_static_extension-function-read>)
-
-- [class T\_\_struct\_13\_static\_extension](<#class-t__struct_13_static_extension>)
-
-- [class T\_\_struct\_14\_static\_extension](<#class-t__struct_14_static_extension>)
-
-- [class T\_\_struct\_15\_static\_extension](<#class-t__struct_15_static_extension>)
-
-- [class T\_\_struct\_16\_static\_extension](<#class-t__struct_16_static_extension>)
-
-- [class T\_\_struct\_1\_static\_extension](<#class-t__struct_1_static_extension>)
-
-- [class T\_\_struct\_2\_static\_extension](<#class-t__struct_2_static_extension>)
-
-- [class T\_\_struct\_3\_static\_extension](<#class-t__struct_3_static_extension>)
-
-- [class T\_\_struct\_4\_static\_extension](<#class-t__struct_4_static_extension>)
-
-- [class T\_\_struct\_5\_static\_extension](<#class-t__struct_5_static_extension>)
-
-- [class T\_\_struct\_6\_static\_extension](<#class-t__struct_6_static_extension>)
-
-- [class T\_\_struct\_7\_static\_extension](<#class-t__struct_7_static_extension>)
-
-- [class T\_\_struct\_8\_static\_extension](<#class-t__struct_8_static_extension>)
-
-- [class T\_\_struct\_9\_static\_extension](<#class-t__struct_9_static_extension>)
-
-- [class T\_byteFormatter\_static\_extension](<#class-t_byteformatter_static_extension>)
-
-  - [`function format(_:stdgo.fmt_test._Fmt_test.T_byteFormatter, _f:stdgo.fmt.State, _0:stdgo.GoRune):Void`](<#t_byteformatter_static_extension-function-format>)
-
-- [class T\_byteStringer\_static\_extension](<#class-t_bytestringer_static_extension>)
-
-  - [`function string(_:stdgo.fmt_test._Fmt_test.T_byteStringer):stdgo.GoString`](<#t_bytestringer_static_extension-function-string>)
-
-- [class T\_eofCounter\_static\_extension](<#class-t_eofcounter_static_extension>)
-
-  - [`function read(_ec:stdgo.Ref<stdgo.fmt_test._Fmt_test.T_eofCounter>, _b:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_eofcounter_static_extension-function-read>)
-
-- [class T\_errString\_static\_extension](<#class-t_errstring_static_extension>)
-
-  - [`function error(_e:stdgo.fmt_test._Fmt_test.T_errString):stdgo.GoString`](<#t_errstring_static_extension-function-error>)
-
-- [class T\_flagPrinter\_static\_extension](<#class-t_flagprinter_static_extension>)
-
-  - [`function format(_:stdgo.fmt_test._Fmt_test.T_flagPrinter, _f:stdgo.fmt.State, _c:stdgo.GoRune):Void`](<#t_flagprinter_static_extension-function-format>)
-
-- [class T\_hexBytes\_static\_extension](<#class-t_hexbytes_static_extension>)
-
-  - [`function scan(_h:stdgo.Ref<stdgo.fmt_test._Fmt_test.T_hexBytes>, _ss:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error`](<#t_hexbytes_static_extension-function-scan>)
-
-- [class T\_runeScanner\_static\_extension](<#class-t_runescanner_static_extension>)
-
-  - [`function scan(_rs:stdgo.Ref<stdgo.fmt_test._Fmt_test.T_runeScanner>, _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error`](<#t_runescanner_static_extension-function-scan>)
+  - [`function write( _b:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_teststate-function-write>)
 
 - [class T\_testStructPrinter\_0](<#class-t_teststructprinter_0>)
 
   - [`function new(?_a:stdgo.GoString, ?_b:stdgo.GoString, ?_c:Null<stdgo.GoInt>):Void`](<#t_teststructprinter_0-function-new>)
-
-- [class T\_writeStringFormatter\_static\_extension](<#class-t_writestringformatter_static_extension>)
-
-  - [`function format(_sf:stdgo.fmt_test._Fmt_test.T_writeStringFormatter, _f:stdgo.fmt.State, _c:stdgo.GoRune):Void`](<#t_writestringformatter_static_extension-function-format>)
-
-- [class TwoLines\_static\_extension](<#class-twolines_static_extension>)
-
-  - [`function scan( _t:stdgo.Pointer<stdgo.fmt_test.TwoLines>, _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error`](<#twolines_static_extension-function-scan>)
-
-- [class Xs\_static\_extension](<#class-xs_static_extension>)
-
-  - [`function scan( _x:stdgo.Pointer<stdgo.fmt_test.Xs>, _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error`](<#xs_static_extension-function-scan>)
 
 - [typedef F](<#typedef-f>)
 
@@ -574,6 +418,19 @@
 
   - [`function scan( _x:stdgo.Pointer<stdgo.fmt_test.Xs>, _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error`](<#xs-function-scan>)
 
+# Constants
+
+
+```haxe
+import stdgo.fmt_test.Fmt
+```
+
+
+```haxe
+final no:stdgo.GoUInt64 = (("0" : GoUInt64))
+```
+
+
 # Variables
 
 
@@ -608,10 +465,10 @@ function benchmarkFprintInt(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3504>)
+
+[\(view code\)](<./Fmt.hx#L3075>)
 
 
 ## function benchmarkFprintIntNoAlloc
@@ -622,10 +479,10 @@ function benchmarkFprintIntNoAlloc(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3527>)
+
+[\(view code\)](<./Fmt.hx#L3096>)
 
 
 ## function benchmarkFprintfBytes
@@ -636,10 +493,10 @@ function benchmarkFprintfBytes(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3515>)
+
+[\(view code\)](<./Fmt.hx#L3085>)
 
 
 ## function benchmarkManyArgs
@@ -650,10 +507,10 @@ function benchmarkManyArgs(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3492>)
+
+[\(view code\)](<./Fmt.hx#L3066>)
 
 
 ## function benchmarkScanInts
@@ -664,10 +521,10 @@ function benchmarkScanInts(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L4586>)
+
+[\(view code\)](<./Fmt.hx#L3965>)
 
 
 ## function benchmarkScanRecursiveInt
@@ -678,10 +535,10 @@ function benchmarkScanRecursiveInt(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L4601>)
+
+[\(view code\)](<./Fmt.hx#L3979>)
 
 
 ## function benchmarkScanRecursiveIntReaderWrapper
@@ -692,10 +549,10 @@ function benchmarkScanRecursiveIntReaderWrapper(_b:stdgo.Ref<stdgo.testing.B>):V
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L4616>)
+
+[\(view code\)](<./Fmt.hx#L3993>)
 
 
 ## function benchmarkSprintfBoolean
@@ -706,10 +563,10 @@ function benchmarkSprintfBoolean(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3433>)
+
+[\(view code\)](<./Fmt.hx#L3015>)
 
 
 ## function benchmarkSprintfBytes
@@ -720,10 +577,10 @@ function benchmarkSprintfBytes(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3458>)
+
+[\(view code\)](<./Fmt.hx#L3037>)
 
 
 ## function benchmarkSprintfComplex
@@ -734,10 +591,10 @@ function benchmarkSprintfComplex(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3425>)
+
+[\(view code\)](<./Fmt.hx#L3008>)
 
 
 ## function benchmarkSprintfEmpty
@@ -748,10 +605,10 @@ function benchmarkSprintfEmpty(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3344>)
+
+[\(view code\)](<./Fmt.hx#L2937>)
 
 
 ## function benchmarkSprintfFloat
@@ -762,10 +619,10 @@ function benchmarkSprintfFloat(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3417>)
+
+[\(view code\)](<./Fmt.hx#L3001>)
 
 
 ## function benchmarkSprintfHexBytes
@@ -776,10 +633,10 @@ function benchmarkSprintfHexBytes(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3449>)
+
+[\(view code\)](<./Fmt.hx#L3029>)
 
 
 ## function benchmarkSprintfHexString
@@ -790,10 +647,10 @@ function benchmarkSprintfHexString(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3441>)
+
+[\(view code\)](<./Fmt.hx#L3022>)
 
 
 ## function benchmarkSprintfInt
@@ -804,10 +661,10 @@ function benchmarkSprintfInt(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3393>)
+
+[\(view code\)](<./Fmt.hx#L2980>)
 
 
 ## function benchmarkSprintfIntInt
@@ -818,10 +675,10 @@ function benchmarkSprintfIntInt(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3401>)
+
+[\(view code\)](<./Fmt.hx#L2987>)
 
 
 ## function benchmarkSprintfPadding
@@ -832,10 +689,10 @@ function benchmarkSprintfPadding(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3336>)
+
+[\(view code\)](<./Fmt.hx#L2930>)
 
 
 ## function benchmarkSprintfPrefixedInt
@@ -846,10 +703,10 @@ function benchmarkSprintfPrefixedInt(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3409>)
+
+[\(view code\)](<./Fmt.hx#L2994>)
 
 
 ## function benchmarkSprintfQuoteString
@@ -860,10 +717,10 @@ function benchmarkSprintfQuoteString(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3385>)
+
+[\(view code\)](<./Fmt.hx#L2973>)
 
 
 ## function benchmarkSprintfSlowParsingPath
@@ -874,10 +731,10 @@ function benchmarkSprintfSlowParsingPath(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3377>)
+
+[\(view code\)](<./Fmt.hx#L2966>)
 
 
 ## function benchmarkSprintfString
@@ -888,10 +745,10 @@ function benchmarkSprintfString(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3352>)
+
+[\(view code\)](<./Fmt.hx#L2944>)
 
 
 ## function benchmarkSprintfStringer
@@ -902,10 +759,10 @@ function benchmarkSprintfStringer(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3467>)
+
+[\(view code\)](<./Fmt.hx#L3045>)
 
 
 ## function benchmarkSprintfStructure
@@ -916,10 +773,10 @@ function benchmarkSprintfStructure(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3476>)
+
+[\(view code\)](<./Fmt.hx#L3053>)
 
 
 ## function benchmarkSprintfTruncateBytes
@@ -930,10 +787,10 @@ function benchmarkSprintfTruncateBytes(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3368>)
+
+[\(view code\)](<./Fmt.hx#L2958>)
 
 
 ## function benchmarkSprintfTruncateString
@@ -944,10 +801,10 @@ function benchmarkSprintfTruncateString(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3360>)
+
+[\(view code\)](<./Fmt.hx#L2951>)
 
 
 ## function exampleErrorf
@@ -958,10 +815,12 @@ function exampleErrorf():Void
 ```
 
 
-The Errorf function lets us use formatting features  to create descriptive error messages. 
+The Errorf function lets us use formatting features  
+to create descriptive error messages.  
 
 
-[\(view code\)](<./Fmt.hx#L2990>)
+
+[\(view code\)](<./Fmt.hx#L2654>)
 
 
 ## function exampleFprint
@@ -972,10 +831,10 @@ function exampleFprint():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3086>)
+
+[\(view code\)](<./Fmt.hx#L2722>)
 
 
 ## function exampleFprintf
@@ -986,10 +845,10 @@ function exampleFprintf():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3110>)
+
+[\(view code\)](<./Fmt.hx#L2738>)
 
 
 ## function exampleFprintln
@@ -1000,10 +859,10 @@ function exampleFprintln():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3098>)
+
+[\(view code\)](<./Fmt.hx#L2730>)
 
 
 ## function exampleFscanf
@@ -1014,10 +873,10 @@ function exampleFscanf():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L2996>)
+
+[\(view code\)](<./Fmt.hx#L2659>)
 
 
 ## function exampleFscanln
@@ -1028,10 +887,10 @@ function exampleFscanln():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3015>)
+
+[\(view code\)](<./Fmt.hx#L2669>)
 
 
 ## function exampleGoStringer
@@ -1042,10 +901,10 @@ function exampleGoStringer():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3932>)
+
+[\(view code\)](<./Fmt.hx#L3413>)
 
 
 ## function examplePrint
@@ -1056,10 +915,10 @@ function examplePrint():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3049>)
+
+[\(view code\)](<./Fmt.hx#L2695>)
 
 
 ## function examplePrintf
@@ -1070,10 +929,10 @@ function examplePrintf():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3061>)
+
+[\(view code\)](<./Fmt.hx#L2703>)
 
 
 ## function examplePrintln
@@ -1084,10 +943,10 @@ function examplePrintln():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3055>)
+
+[\(view code\)](<./Fmt.hx#L2699>)
 
 
 ## function exampleSprint
@@ -1098,10 +957,10 @@ function exampleSprint():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3066>)
+
+[\(view code\)](<./Fmt.hx#L2707>)
 
 
 ## function exampleSprintf
@@ -1112,10 +971,10 @@ function exampleSprintf():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3080>)
+
+[\(view code\)](<./Fmt.hx#L2717>)
 
 
 ## function exampleSprintln
@@ -1126,10 +985,10 @@ function exampleSprintln():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3073>)
+
+[\(view code\)](<./Fmt.hx#L2712>)
 
 
 ## function exampleSscanf
@@ -1140,10 +999,10 @@ function exampleSscanf():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3036>)
+
+[\(view code\)](<./Fmt.hx#L2686>)
 
 
 ## function exampleStringer
@@ -1154,10 +1013,10 @@ function exampleStringer():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L5062>)
+
+[\(view code\)](<./Fmt.hx#L4223>)
 
 
 ## function example\_formats
@@ -1168,10 +1027,19 @@ function example_formats():Void
 ```
 
 
-These examples demonstrate the basics of printing using a format string. Printf,  Sprintf, and Fprintf all take a format string that specifies how to format the  subsequent arguments. For example, %d \(we call that a 'verb'\) says to print the  corresponding argument, which must be an integer \(or something containing an  integer, such as a slice of ints\) in decimal. The verb %v \('v' for 'value'\)  always formats the argument in its default form, just how Print or Println would  show it. The special verb %T \('T' for 'Type'\) prints the type of the argument  rather than its value. The examples are not exhaustive; see the package comment  for all the details. 
+These examples demonstrate the basics of printing using a format string. Printf,  
+Sprintf, and Fprintf all take a format string that specifies how to format the  
+subsequent arguments. For example, %d \(we call that a 'verb'\) says to print the  
+corresponding argument, which must be an integer \(or something containing an  
+integer, such as a slice of ints\) in decimal. The verb %v \('v' for 'value'\)  
+always formats the argument in its default form, just how Print or Println would  
+show it. The special verb %T \('T' for 'Type'\) prints the type of the argument  
+rather than its value. The examples are not exhaustive; see the package comment  
+for all the details.  
 
 
-[\(view code\)](<./Fmt.hx#L3154>)
+
+[\(view code\)](<./Fmt.hx#L2772>)
 
 
 ## function example\_printers
@@ -1182,10 +1050,16 @@ function example_printers():Void
 ```
 
 
-Print, Println, and Printf lay out their arguments differently. In this example  we can compare their behaviors. Println always adds blanks between the items it  prints, while Print adds blanks only between non\-string arguments and Printf  does exactly what it is told.  Sprint, Sprintln, Sprintf, Fprint, Fprintln, and Fprintf behave the same as  their corresponding Print, Println, and Printf functions shown here. 
+Print, Println, and Printf lay out their arguments differently. In this example  
+we can compare their behaviors. Println always adds blanks between the items it  
+prints, while Print adds blanks only between non\-string arguments and Printf  
+does exactly what it is told.  
+Sprint, Sprintln, Sprintf, Fprint, Fprintln, and Fprintf behave the same as  
+their corresponding Print, Println, and Printf functions shown here.  
 
 
-[\(view code\)](<./Fmt.hx#L3130>)
+
+[\(view code\)](<./Fmt.hx#L2754>)
 
 
 ## function testAppend
@@ -1196,10 +1070,10 @@ function testAppend(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3908>)
+
+[\(view code\)](<./Fmt.hx#L3391>)
 
 
 ## function testAppendf
@@ -1210,10 +1084,10 @@ function testAppendf(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3896>)
+
+[\(view code\)](<./Fmt.hx#L3380>)
 
 
 ## function testAppendln
@@ -1224,10 +1098,10 @@ function testAppendln(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3920>)
+
+[\(view code\)](<./Fmt.hx#L3402>)
 
 
 ## function testBadVerbRecursion
@@ -1238,10 +1112,10 @@ function testBadVerbRecursion(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3763>)
+
+[\(view code\)](<./Fmt.hx#L3301>)
 
 
 ## function testBlank
@@ -1252,10 +1126,12 @@ function testBlank(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-TestBlank checks that Sprint \(and hence Print, Fprint\) puts spaces in the  right places, that is, between arg pairs in which neither is a string. 
+TestBlank checks that Sprint \(and hence Print, Fprint\) puts spaces in the  
+right places, that is, between arg pairs in which neither is a string.  
 
 
-[\(view code\)](<./Fmt.hx#L3698>)
+
+[\(view code\)](<./Fmt.hx#L3244>)
 
 
 ## function testBlankln
@@ -1266,10 +1142,12 @@ function testBlankln(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-TestBlankln checks that Sprintln \(and hence Println, Fprintln\) puts spaces in  the right places, that is, between all arg pairs. 
+TestBlankln checks that Sprintln \(and hence Println, Fprintln\) puts spaces in  
+the right places, that is, between all arg pairs.  
 
 
-[\(view code\)](<./Fmt.hx#L3711>)
+
+[\(view code\)](<./Fmt.hx#L3255>)
 
 
 ## function testComplexFormatting
@@ -1280,10 +1158,12 @@ function testComplexFormatting(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-TestComplexFormatting checks that a complex always formats to the same  thing as if done by hand with two singleton prints. 
+TestComplexFormatting checks that a complex always formats to the same  
+thing as if done by hand with two singleton prints.  
 
 
-[\(view code\)](<./Fmt.hx#L3284>)
+
+[\(view code\)](<./Fmt.hx#L2882>)
 
 
 ## function testCountMallocs
@@ -1294,10 +1174,10 @@ function testCountMallocs(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3539>)
+
+[\(view code\)](<./Fmt.hx#L3107>)
 
 
 ## function testEOF
@@ -1308,10 +1188,12 @@ function testEOF(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-TestEOF verifies that when we scan, we see at most EOF once per call to a  Scan function, and then only when it's really an EOF. 
+TestEOF verifies that when we scan, we see at most EOF once per call to a  
+Scan function, and then only when it's really an EOF.  
 
 
-[\(view code\)](<./Fmt.hx#L4276>)
+
+[\(view code\)](<./Fmt.hx#L3702>)
 
 
 ## function testEOFAllTypes
@@ -1322,10 +1204,10 @@ function testEOFAllTypes(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L4351>)
+
+[\(view code\)](<./Fmt.hx#L3767>)
 
 
 ## function testEOFAtEndOfInput
@@ -1336,10 +1218,12 @@ function testEOFAtEndOfInput(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-TestEOFAtEndOfInput verifies that we see an EOF error if we run out of input.  This was a buglet: we used to get "expected integer". 
+TestEOFAtEndOfInput verifies that we see an EOF error if we run out of input.  
+This was a buglet: we used to get "expected integer".  
 
 
-[\(view code\)](<./Fmt.hx#L4313>)
+
+[\(view code\)](<./Fmt.hx#L3735>)
 
 
 ## function testEmptyMap
@@ -1350,10 +1234,10 @@ function testEmptyMap(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3678>)
+
+[\(view code\)](<./Fmt.hx#L3227>)
 
 
 ## function testErrorf
@@ -1364,10 +1248,10 @@ function testErrorf(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L2932>)
+
+[\(view code\)](<./Fmt.hx#L2595>)
 
 
 ## function testFlagParser
@@ -1378,10 +1262,10 @@ function testFlagParser(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3561>)
+
+[\(view code\)](<./Fmt.hx#L3125>)
 
 
 ## function testFmtInterface
@@ -1392,10 +1276,24 @@ function testFmtInterface(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3205>)
+
+[\(view code\)](<./Fmt.hx#L2810>)
+
+
+## function testFormatString
+
+
+```haxe
+function testFormatString(_t:stdgo.Ref<stdgo.testing.T>):Void
+```
+
+
+
+
+
+[\(view code\)](<./Fmt.hx#L4202>)
 
 
 ## function testFormatterFlags
@@ -1406,10 +1304,10 @@ function testFormatterFlags(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3830>)
+
+[\(view code\)](<./Fmt.hx#L3363>)
 
 
 ## function testFormatterPrintln
@@ -1420,10 +1318,11 @@ function testFormatterPrintln(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-TestFormatterPrintln checks Formatter with Sprint, Sprintln, Sprintf. 
+TestFormatterPrintln checks Formatter with Sprint, Sprintln, Sprintf.  
 
 
-[\(view code\)](<./Fmt.hx#L3723>)
+
+[\(view code\)](<./Fmt.hx#L3265>)
 
 
 ## function testHexByte
@@ -1434,10 +1333,10 @@ function testHexByte(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L5046>)
+
+[\(view code\)](<./Fmt.hx#L4173>)
 
 
 ## function testHexBytes
@@ -1448,10 +1347,12 @@ function testHexBytes(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-Issue 9124.  %x on bytes couldn't handle non\-space bytes terminating the scan. 
+Issue 9124.  
+%x on bytes couldn't handle non\-space bytes terminating the scan.  
 
 
-[\(view code\)](<./Fmt.hx#L4635>)
+
+[\(view code\)](<./Fmt.hx#L4011>)
 
 
 ## function testInf
@@ -1462,10 +1363,10 @@ function testInf(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L4095>)
+
+[\(view code\)](<./Fmt.hx#L3546>)
 
 
 ## function testIsSpace
@@ -1476,10 +1377,10 @@ function testIsSpace(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3778>)
+
+[\(view code\)](<./Fmt.hx#L3315>)
 
 
 ## function testLineByLineFscanf
@@ -1490,10 +1391,12 @@ function testLineByLineFscanf(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-TestLineByLineFscanf tests that Fscanf does not read past newline. Issue  3481. 
+TestLineByLineFscanf tests that Fscanf does not read past newline. Issue  
+3481.  
 
 
-[\(view code\)](<./Fmt.hx#L4454>)
+
+[\(view code\)](<./Fmt.hx#L3857>)
 
 
 ## function testMapPrinter
@@ -1504,10 +1407,10 @@ function testMapPrinter(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3652>)
+
+[\(view code\)](<./Fmt.hx#L3206>)
 
 
 ## function testMultiLine
@@ -1518,10 +1421,10 @@ function testMultiLine(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L4404>)
+
+[\(view code\)](<./Fmt.hx#L3810>)
 
 
 ## function testNaN
@@ -1532,10 +1435,10 @@ function testNaN(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L4063>)
+
+[\(view code\)](<./Fmt.hx#L3521>)
 
 
 ## function testNilDoesNotBecomeTyped
@@ -1546,10 +1449,10 @@ function testNilDoesNotBecomeTyped(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3816>)
+
+[\(view code\)](<./Fmt.hx#L3352>)
 
 
 ## function testPanics
@@ -1560,10 +1463,10 @@ function testPanics(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3754>)
+
+[\(view code\)](<./Fmt.hx#L3293>)
 
 
 ## function testParsenum
@@ -1574,10 +1477,10 @@ function testParsenum(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3839>)
+
+[\(view code\)](<./Fmt.hx#L3371>)
 
 
 ## function testReorder
@@ -1588,10 +1491,10 @@ function testReorder(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3326>)
+
+[\(view code\)](<./Fmt.hx#L2922>)
 
 
 ## function testScan
@@ -1602,10 +1505,10 @@ function testScan(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3975>)
+
+[\(view code\)](<./Fmt.hx#L3448>)
 
 
 ## function testScanEmpty
@@ -1616,10 +1519,11 @@ function testScanEmpty(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-Empty strings are not valid input when scanning a string. 
+Empty strings are not valid input when scanning a string.  
 
 
-[\(view code\)](<./Fmt.hx#L4190>)
+
+[\(view code\)](<./Fmt.hx#L3634>)
 
 
 ## function testScanInts
@@ -1630,10 +1534,10 @@ function testScanInts(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L4554>)
+
+[\(view code\)](<./Fmt.hx#L3935>)
 
 
 ## function testScanMultiple
@@ -1644,10 +1548,10 @@ function testScanMultiple(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L4156>)
+
+[\(view code\)](<./Fmt.hx#L3603>)
 
 
 ## function testScanNewlinesAreSpaces
@@ -1658,10 +1562,10 @@ function testScanNewlinesAreSpaces(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L4704>)
+
+[\(view code\)](<./Fmt.hx#L4072>)
 
 
 ## function testScanNotPointer
@@ -1672,10 +1576,10 @@ function testScanNotPointer(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L4231>)
+
+[\(view code\)](<./Fmt.hx#L3669>)
 
 
 ## function testScanOverflow
@@ -1686,10 +1590,10 @@ function testScanOverflow(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L4026>)
+
+[\(view code\)](<./Fmt.hx#L3492>)
 
 
 ## function testScanStateCount
@@ -1700,10 +1604,10 @@ function testScanStateCount(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L4479>)
+
+[\(view code\)](<./Fmt.hx#L3876>)
 
 
 ## function testScanf
@@ -1714,10 +1618,10 @@ function testScanf(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3991>)
+
+[\(view code\)](<./Fmt.hx#L3462>)
 
 
 ## function testScanfMulti
@@ -1728,10 +1632,10 @@ function testScanfMulti(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L4148>)
+
+[\(view code\)](<./Fmt.hx#L3596>)
 
 
 ## function testScanfNewlineMatchFormat
@@ -1742,10 +1646,10 @@ function testScanfNewlineMatchFormat(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L4771>)
+
+[\(view code\)](<./Fmt.hx#L4101>)
 
 
 ## function testScanln
@@ -1756,10 +1660,10 @@ function testScanln(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3983>)
+
+[\(view code\)](<./Fmt.hx#L3455>)
 
 
 ## function testScanlnNewlinesTerminate
@@ -1770,10 +1674,10 @@ function testScanlnNewlinesTerminate(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L4728>)
+
+[\(view code\)](<./Fmt.hx#L4085>)
 
 
 ## function testScanlnNoNewline
@@ -1784,10 +1688,10 @@ function testScanlnNoNewline(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L4244>)
+
+[\(view code\)](<./Fmt.hx#L3679>)
 
 
 ## function testScanlnWithMiddleNewline
@@ -1798,10 +1702,10 @@ function testScanlnWithMiddleNewline(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L4256>)
+
+[\(view code\)](<./Fmt.hx#L3688>)
 
 
 ## function testSlicePrinter
@@ -1812,10 +1716,10 @@ function testSlicePrinter(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3615>)
+
+[\(view code\)](<./Fmt.hx#L3171>)
 
 
 ## function testSprintf
@@ -1826,10 +1730,10 @@ function testSprintf(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3222>)
+
+[\(view code\)](<./Fmt.hx#L2825>)
 
 
 ## function testStringer
@@ -1840,10 +1744,10 @@ function testStringer(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L5073>)
+
+[\(view code\)](<./Fmt.hx#L4232>)
 
 
 ## function testStructPrinter
@@ -1854,10 +1758,10 @@ function testStructPrinter(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3593>)
+
+[\(view code\)](<./Fmt.hx#L3153>)
 
 
 ## function testUnreadRuneWithBufio
@@ -1868,10 +1772,12 @@ function testUnreadRuneWithBufio(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-TestUnreadRuneWithBufio verifies that, at least when using bufio, successive  calls to Fscan do not lose runes. 
+TestUnreadRuneWithBufio verifies that, at least when using bufio, successive  
+calls to Fscan do not lose runes.  
 
 
-[\(view code\)](<./Fmt.hx#L4378>)
+
+[\(view code\)](<./Fmt.hx#L3787>)
 
 
 ## function testWidthAndPrecision
@@ -1882,10 +1788,10 @@ function testWidthAndPrecision(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt.hx#L3745>)
+
+[\(view code\)](<./Fmt.hx#L3285>)
 
 
 # Classes
@@ -1899,7 +1805,7 @@ import stdgo.fmt_test.*
 ## class A
 
 
- 
+
 
 
 ```haxe
@@ -1930,16 +1836,16 @@ function new(?_i:Null<stdgo.GoInt>, ?_j:Null<stdgo.GoUInt>, ?_s:stdgo.GoString, 
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L2058>)
+
+[\(view code\)](<./Fmt_test.hx#L1868>)
 
 
 ## class A\_testNilDoesNotBecomeTyped\_0
 
 
- 
+
 
 
 ### A\_testNilDoesNotBecomeTyped\_0 function new
@@ -1950,16 +1856,17 @@ function new():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L3795>)
+
+[\(view code\)](<./Fmt_test.hx#L3334>)
 
 
 ## class Address
 
 
-Address has a City, State and a Country. 
+Address has a City, State and a Country.  
+
 
 
 ```haxe
@@ -1985,16 +1892,17 @@ function new(?city:stdgo.GoString, ?state:stdgo.GoString, ?country:stdgo.GoStrin
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L2246>)
+
+[\(view code\)](<./Fmt_test.hx#L2029>)
 
 
 ## class Animal
 
 
-Animal has a Name and an Age to represent an animal. 
+Animal has a Name and an Age to represent an animal.  
+
 
 
 ```haxe
@@ -2015,10 +1923,10 @@ function new(?name:stdgo.GoString, ?age:Null<stdgo.GoUInt>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L2461>)
+
+[\(view code\)](<./Fmt_test.hx#L2223>)
 
 
 ### Animal function string
@@ -2029,36 +1937,17 @@ function string():stdgo.GoString
 ```
 
 
-String makes Animal satisfy the Stringer interface. 
+String makes Animal satisfy the Stringer interface.  
 
 
-[\(view code\)](<./Fmt_test.hx#L5511>)
 
-
-## class Animal\_static\_extension
-
-
- 
-
-
-### Animal\_static\_extension function string
-
-
-```haxe
-function string():stdgo.GoString
-```
-
-
-String makes Animal satisfy the Stringer interface. 
-
-
-[\(view code\)](<./Fmt_test.hx#L5511>)
+[\(view code\)](<./Fmt_test.hx#L4582>)
 
 
 ## class B
 
 
- 
+
 
 
 ```haxe
@@ -2079,16 +1968,16 @@ function new(?i:Null<stdgo.fmt_test.I>, ?_j:Null<stdgo.GoInt>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L2081>)
+
+[\(view code\)](<./Fmt_test.hx#L1887>)
 
 
 ## class B\_testNilDoesNotBecomeTyped\_1
 
 
- 
+
 
 
 ### B\_testNilDoesNotBecomeTyped\_1 function new
@@ -2099,16 +1988,16 @@ function new():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L3806>)
+
+[\(view code\)](<./Fmt_test.hx#L3346>)
 
 
 ## class C
 
 
- 
+
 
 
 ```haxe
@@ -2129,82 +2018,18 @@ function new(?_i:Null<stdgo.GoInt>, ?b:stdgo.fmt_test.B):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L2101>)
 
-
-## class C\_static\_extension
-
-
- 
-
-
-## class F\_static\_extension
-
-
- 
-
-
-### F\_static\_extension function format
-
-
-```haxe
-function format(_f:stdgo.fmt_test.F, _s:stdgo.fmt.State, _c:stdgo.GoRune):Void
-```
-
-
- 
-
-
-[\(view code\)](<./Fmt_test.hx#L5589>)
-
-
-## class G\_static\_extension
-
-
- 
-
-
-### G\_static\_extension function goString
-
-
-```haxe
-function goString():stdgo.GoString
-```
-
-
- 
-
-
-[\(view code\)](<./Fmt_test.hx#L5615>)
-
-
-## class I\_static\_extension
-
-
- 
-
-
-### I\_static\_extension function string
-
-
-```haxe
-function string():stdgo.GoString
-```
-
-
- 
-
-
-[\(view code\)](<./Fmt_test.hx#L5563>)
+[\(view code\)](<./Fmt_test.hx#L1905>)
 
 
 ## class IntString
 
 
-IntString accepts an integer followed immediately by a string.  It tests the embedding of a scan within a scan. 
+IntString accepts an integer followed immediately by a string.  
+It tests the embedding of a scan within a scan.  
+
 
 
 ```haxe
@@ -2225,10 +2050,10 @@ function new(?_i:Null<stdgo.GoInt>, ?_s:stdgo.GoString):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L2371>)
+
+[\(view code\)](<./Fmt_test.hx#L2130>)
 
 
 ### IntString function scan
@@ -2239,56 +2064,17 @@ function scan( _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L5351>)
 
-
-## class IntString\_static\_extension
-
-
- 
-
-
-### IntString\_static\_extension function scan
-
-
-```haxe
-function scan( _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error
-```
-
-
- 
-
-
-[\(view code\)](<./Fmt_test.hx#L5351>)
-
-
-## class P\_static\_extension
-
-
- 
-
-
-### P\_static\_extension function string
-
-
-```haxe
-function string( _p:stdgo.Pointer<stdgo.fmt_test.P>):stdgo.GoString
-```
-
-
- 
-
-
-[\(view code\)](<./Fmt_test.hx#L5643>)
+[\(view code\)](<./Fmt_test.hx#L4427>)
 
 
 ## class PanicF
 
 
-PanicF is a type that panics in Format. 
+PanicF is a type that panics in Format.  
+
 
 
 ```haxe
@@ -2304,10 +2090,10 @@ function new(?_message:stdgo.AnyInterface):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L2206>)
+
+[\(view code\)](<./Fmt_test.hx#L1995>)
 
 
 ### PanicF function format
@@ -2318,36 +2104,18 @@ function format( _f:stdgo.fmt.State, _c:stdgo.GoRune):Void
 ```
 
 
-Value receiver. 
+Value receiver.  
 
 
-[\(view code\)](<./Fmt_test.hx#L5254>)
 
-
-## class PanicF\_static\_extension
-
-
- 
-
-
-### PanicF\_static\_extension function format
-
-
-```haxe
-function format( _f:stdgo.fmt.State, _c:stdgo.GoRune):Void
-```
-
-
-Value receiver. 
-
-
-[\(view code\)](<./Fmt_test.hx#L5254>)
+[\(view code\)](<./Fmt_test.hx#L4358>)
 
 
 ## class PanicGo
 
 
-PanicGo is a type that panics in GoString. 
+PanicGo is a type that panics in GoString.  
+
 
 
 ```haxe
@@ -2363,10 +2131,10 @@ function new(?_message:stdgo.AnyInterface):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L2187>)
+
+[\(view code\)](<./Fmt_test.hx#L1980>)
 
 
 ### PanicGo function goString
@@ -2377,36 +2145,18 @@ function goString():stdgo.GoString
 ```
 
 
-Value receiver. 
+Value receiver.  
 
 
-[\(view code\)](<./Fmt_test.hx#L5222>)
 
-
-## class PanicGo\_static\_extension
-
-
- 
-
-
-### PanicGo\_static\_extension function goString
-
-
-```haxe
-function goString():stdgo.GoString
-```
-
-
-Value receiver. 
-
-
-[\(view code\)](<./Fmt_test.hx#L5222>)
+[\(view code\)](<./Fmt_test.hx#L4335>)
 
 
 ## class PanicS
 
 
-PanicS is a type that panics in String. 
+PanicS is a type that panics in String.  
+
 
 
 ```haxe
@@ -2422,10 +2172,10 @@ function new(?_message:stdgo.AnyInterface):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L2168>)
+
+[\(view code\)](<./Fmt_test.hx#L1965>)
 
 
 ### PanicS function string
@@ -2436,36 +2186,18 @@ function string():stdgo.GoString
 ```
 
 
-Value receiver. 
+Value receiver.  
 
 
-[\(view code\)](<./Fmt_test.hx#L5190>)
 
-
-## class PanicS\_static\_extension
-
-
- 
-
-
-### PanicS\_static\_extension function string
-
-
-```haxe
-function string():stdgo.GoString
-```
-
-
-Value receiver. 
-
-
-[\(view code\)](<./Fmt_test.hx#L5190>)
+[\(view code\)](<./Fmt_test.hx#L4312>)
 
 
 ## class Person
 
 
-Person has a Name, Age and Address. 
+Person has a Name, Age and Address.  
+
 
 
 ```haxe
@@ -2491,10 +2223,10 @@ function new(?name:stdgo.GoString, ?age:Null<stdgo.GoUInt>, ?addr:stdgo.Ref<stdg
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L2271>)
+
+[\(view code\)](<./Fmt_test.hx#L2048>)
 
 
 ### Person function goString
@@ -2505,36 +2237,18 @@ function goString():stdgo.GoString
 ```
 
 
-GoString makes Person satisfy the GoStringer interface.   The return value is valid Go code that can be used to reproduce the Person struct. 
+GoString makes Person satisfy the GoStringer interface.  
+The return value is valid Go code that can be used to reproduce the Person struct.  
 
 
-[\(view code\)](<./Fmt_test.hx#L5321>)
 
-
-## class Person\_static\_extension
-
-
- 
-
-
-### Person\_static\_extension function goString
-
-
-```haxe
-function goString():stdgo.GoString
-```
-
-
-GoString makes Person satisfy the GoStringer interface.   The return value is valid Go code that can be used to reproduce the Person struct. 
-
-
-[\(view code\)](<./Fmt_test.hx#L5321>)
+[\(view code\)](<./Fmt_test.hx#L4407>)
 
 
 ## class Recur
 
 
- 
+
 
 
 ```haxe
@@ -2555,10 +2269,10 @@ function new(?_i:Null<stdgo.GoInt>, ?_failed:stdgo.Pointer<Bool>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L2223>)
+
+[\(view code\)](<./Fmt_test.hx#L2011>)
 
 
 ### Recur function string
@@ -2569,36 +2283,19 @@ function string():stdgo.GoString
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L5280>)
 
-
-## class Recur\_static\_extension
-
-
- 
-
-
-### Recur\_static\_extension function string
-
-
-```haxe
-function string():stdgo.GoString
-```
-
-
- 
-
-
-[\(view code\)](<./Fmt_test.hx#L5280>)
+[\(view code\)](<./Fmt_test.hx#L4375>)
 
 
 ## class RecursiveInt
 
 
-RecursiveInt accepts a string matching %d.%d.%d....  and parses it into a linked list.  It allows us to benchmark recursive descent style scanners. 
+RecursiveInt accepts a string matching %d.%d.%d....  
+and parses it into a linked list.  
+It allows us to benchmark recursive descent style scanners.  
+
 
 
 ```haxe
@@ -2619,10 +2316,10 @@ function new(?_i:Null<stdgo.GoInt>, ?_next:stdgo.Ref<stdgo.fmt_test.RecursiveInt
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L2439>)
+
+[\(view code\)](<./Fmt_test.hx#L2183>)
 
 
 ### RecursiveInt function scan
@@ -2633,36 +2330,16 @@ function scan( _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L5459>)
 
-
-## class RecursiveInt\_static\_extension
-
-
- 
-
-
-### RecursiveInt\_static\_extension function scan
-
-
-```haxe
-function scan( _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error
-```
-
-
- 
-
-
-[\(view code\)](<./Fmt_test.hx#L5459>)
+[\(view code\)](<./Fmt_test.hx#L4501>)
 
 
 ## class S
 
 
- 
+
 
 
 ```haxe
@@ -2683,16 +2360,16 @@ function new(?f:Null<stdgo.fmt_test.F>, ?g:Null<stdgo.fmt_test.G>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L2120>)
+
+[\(view code\)](<./Fmt_test.hx#L1922>)
 
 
 ## class SI
 
 
- 
+
 
 
 ```haxe
@@ -2708,16 +2385,16 @@ function new(?i:stdgo.AnyInterface):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L2138>)
+
+[\(view code\)](<./Fmt_test.hx#L1938>)
 
 
 ## class ScanTest
 
 
- 
+
 
 
 ```haxe
@@ -2743,16 +2420,16 @@ function new(?_text:stdgo.GoString, ?_in:stdgo.AnyInterface, ?_out:stdgo.AnyInte
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L2293>)
+
+[\(view code\)](<./Fmt_test.hx#L2067>)
 
 
 ## class ScanfMultiTest
 
 
- 
+
 
 
 ```haxe
@@ -2788,16 +2465,16 @@ function new(?_format:stdgo.GoString, ?_text:stdgo.GoString, ?_in:stdgo.Slice<st
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L2342>)
+
+[\(view code\)](<./Fmt_test.hx#L2109>)
 
 
 ## class ScanfTest
 
 
- 
+
 
 
 ```haxe
@@ -2828,592 +2505,241 @@ function new(?_format:stdgo.GoString, ?_text:stdgo.GoString, ?_in:stdgo.AnyInter
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L2316>)
+
+[\(view code\)](<./Fmt_test.hx#L2087>)
 
 
-## class TB\_static\_extension
+## class T\_eofCounter
 
 
- 
+eofCounter is a special Reader that counts reads at end of file.  
 
-
-### TB\_static\_extension function string
 
 
 ```haxe
-function string():stdgo.GoString
+var _eofCount:stdgo.GoInt
 ```
-
-
- 
-
-
-[\(view code\)](<./Fmt_test.hx#L6247>)
-
-
-## class TF32\_static\_extension
-
-
- 
-
-
-### TF32\_static\_extension function string
 
 
 ```haxe
-function string():stdgo.GoString
+var _reader:stdgo.Ref<stdgo.strings.Reader>
 ```
 
 
- 
-
-
-[\(view code\)](<./Fmt_test.hx#L6195>)
-
-
-## class TF64\_static\_extension
-
-
- 
-
-
-### TF64\_static\_extension function string
+### T\_eofCounter function new
 
 
 ```haxe
-function string():stdgo.GoString
+function new(?_reader:stdgo.Ref<stdgo.strings.Reader>, ?_eofCount:Null<stdgo.GoInt>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L6221>)
+
+[\(view code\)](<./Fmt_test.hx#L2147>)
 
 
-## class TF\_static\_extension
-
-
- 
-
-
-### TF\_static\_extension function string
+### T\_eofCounter function read
 
 
 ```haxe
-function string():stdgo.GoString
+function read( _b:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L6169>)
+
+[\(view code\)](<./Fmt_test.hx#L4455>)
 
 
-## class TI16\_static\_extension
+## class T\_flagPrinter
 
 
- 
 
 
-### TI16\_static\_extension function string
+
+### T\_flagPrinter function new
 
 
 ```haxe
-function string():stdgo.GoString
+function new():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L5935>)
+
+[\(view code\)](<./Fmt_test.hx#L1952>)
 
 
-## class TI32\_static\_extension
-
-
- 
-
-
-### TI32\_static\_extension function string
+### T\_flagPrinter function format
 
 
 ```haxe
-function string():stdgo.GoString
+function format( _f:stdgo.fmt.State, _c:stdgo.GoRune):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L5961>)
+
+[\(view code\)](<./Fmt_test.hx#L4267>)
 
 
-## class TI64\_static\_extension
+## class T\_runeScanner
 
 
- 
+runeScanner implements the Scanner interface for TestScanStateCount.  
 
-
-### TI64\_static\_extension function string
 
 
 ```haxe
-function string():stdgo.GoString
+var _rune:stdgo.GoInt32
 ```
-
-
- 
-
-
-[\(view code\)](<./Fmt_test.hx#L5987>)
-
-
-## class TI8\_static\_extension
-
-
- 
-
-
-### TI8\_static\_extension function string
 
 
 ```haxe
-function string():stdgo.GoString
+var _size:stdgo.GoInt
 ```
 
 
- 
-
-
-[\(view code\)](<./Fmt_test.hx#L5909>)
-
-
-## class TI\_static\_extension
-
-
- 
-
-
-### TI\_static\_extension function string
+### T\_runeScanner function new
 
 
 ```haxe
-function string():stdgo.GoString
+function new(?_rune:stdgo.GoInt32, ?_size:Null<stdgo.GoInt>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L5883>)
+
+[\(view code\)](<./Fmt_test.hx#L2164>)
 
 
-## class TS\_static\_extension
-
-
- 
-
-
-### TS\_static\_extension function string
+### T\_runeScanner function scan
 
 
 ```haxe
-function string():stdgo.GoString
+function scan( _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L6273>)
+
+[\(view code\)](<./Fmt_test.hx#L4481>)
 
 
-## class TU16\_static\_extension
+## class T\_testState
 
 
- 
 
-
-### TU16\_static\_extension function string
 
 
 ```haxe
-function string():stdgo.GoString
+var _flag:stdgo.GoMap<stdgo.GoInt, Bool>
 ```
-
-
- 
-
-
-[\(view code\)](<./Fmt_test.hx#L6065>)
-
-
-## class TU32\_static\_extension
-
-
- 
-
-
-### TU32\_static\_extension function string
 
 
 ```haxe
-function string():stdgo.GoString
+var _prec:stdgo.GoInt
 ```
-
-
- 
-
-
-[\(view code\)](<./Fmt_test.hx#L6091>)
-
-
-## class TU64\_static\_extension
-
-
- 
-
-
-### TU64\_static\_extension function string
 
 
 ```haxe
-function string():stdgo.GoString
+var _precOK:Bool
 ```
-
-
- 
-
-
-[\(view code\)](<./Fmt_test.hx#L6117>)
-
-
-## class TU8\_static\_extension
-
-
- 
-
-
-### TU8\_static\_extension function string
 
 
 ```haxe
-function string():stdgo.GoString
+var _width:stdgo.GoInt
 ```
-
-
- 
-
-
-[\(view code\)](<./Fmt_test.hx#L6039>)
-
-
-## class TUI\_static\_extension
-
-
- 
-
-
-### TUI\_static\_extension function string
 
 
 ```haxe
-function string():stdgo.GoString
+var _widthOK:Bool
 ```
 
 
- 
-
-
-[\(view code\)](<./Fmt_test.hx#L6143>)
-
-
-## class TU\_static\_extension
-
-
- 
-
-
-### TU\_static\_extension function string
+### T\_testState function new
 
 
 ```haxe
-function string():stdgo.GoString
+function new(?_width:Null<stdgo.GoInt>, ?_widthOK:Bool, ?_prec:Null<stdgo.GoInt>, ?_precOK:Bool, ?_flag:stdgo.GoMap<stdgo.GoInt, Bool>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L6013>)
+
+[\(view code\)](<./Fmt_test.hx#L2203>)
 
 
-## class T\_\_struct\_0\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_10\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_11\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_12\_static\_extension
-
-
- 
-
-
-### T\_\_struct\_12\_static\_extension function read
+### T\_testState function flag
 
 
 ```haxe
-function read(__self__:stdgo.fmt_test._Fmt_test.T__struct_12, __0:stdgo.Slice<stdgo.GoUInt8>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function flag( _c:stdgo.GoInt):Bool
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L2773>)
+
+[\(view code\)](<./Fmt_test.hx#L4544>)
 
 
-## class T\_\_struct\_13\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_14\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_15\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_16\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_1\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_2\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_3\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_4\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_5\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_6\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_7\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_8\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_9\_static\_extension
-
-
- 
-
-
-## class T\_byteFormatter\_static\_extension
-
-
- 
-
-
-### T\_byteFormatter\_static\_extension function format
+### T\_testState function precision
 
 
 ```haxe
-function format(_:stdgo.fmt_test._Fmt_test.T_byteFormatter, _f:stdgo.fmt.State, _0:stdgo.GoRune):Void
+function precision():{_1:Bool, _0:stdgo.GoInt}
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L5695>)
+
+[\(view code\)](<./Fmt_test.hx#L4548>)
 
 
-## class T\_byteStringer\_static\_extension
-
-
- 
-
-
-### T\_byteStringer\_static\_extension function string
+### T\_testState function width
 
 
 ```haxe
-function string(_:stdgo.fmt_test._Fmt_test.T_byteStringer):stdgo.GoString
+function width():{_1:Bool, _0:stdgo.GoInt}
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L5669>)
+
+[\(view code\)](<./Fmt_test.hx#L4553>)
 
 
-## class T\_eofCounter\_static\_extension
-
-
- 
-
-
-### T\_eofCounter\_static\_extension function read
+### T\_testState function write
 
 
 ```haxe
-function read(_ec:stdgo.Ref<stdgo.fmt_test._Fmt_test.T_eofCounter>, _b:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function write( _b:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L5392>)
 
-
-## class T\_errString\_static\_extension
-
-
- 
-
-
-### T\_errString\_static\_extension function error
-
-
-```haxe
-function error(_e:stdgo.fmt_test._Fmt_test.T_errString):stdgo.GoString
-```
-
-
- 
-
-
-[\(view code\)](<./Fmt_test.hx#L5537>)
-
-
-## class T\_flagPrinter\_static\_extension
-
-
- 
-
-
-### T\_flagPrinter\_static\_extension function format
-
-
-```haxe
-function format(_:stdgo.fmt_test._Fmt_test.T_flagPrinter, _f:stdgo.fmt.State, _c:stdgo.GoRune):Void
-```
-
-
- 
-
-
-[\(view code\)](<./Fmt_test.hx#L5132>)
-
-
-## class T\_hexBytes\_static\_extension
-
-
- 
-
-
-### T\_hexBytes\_static\_extension function scan
-
-
-```haxe
-function scan(_h:stdgo.Ref<stdgo.fmt_test._Fmt_test.T_hexBytes>, _ss:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error
-```
-
-
- 
-
-
-[\(view code\)](<./Fmt_test.hx#L5849>)
-
-
-## class T\_runeScanner\_static\_extension
-
-
- 
-
-
-### T\_runeScanner\_static\_extension function scan
-
-
-```haxe
-function scan(_rs:stdgo.Ref<stdgo.fmt_test._Fmt_test.T_runeScanner>, _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error
-```
-
-
- 
-
-
-[\(view code\)](<./Fmt_test.hx#L5427>)
+[\(view code\)](<./Fmt_test.hx#L4558>)
 
 
 ## class T\_testStructPrinter\_0
 
 
- 
+
 
 
 ```haxe
@@ -3439,70 +2765,10 @@ function new(?_a:stdgo.GoString, ?_b:stdgo.GoString, ?_c:Null<stdgo.GoInt>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L3576>)
 
-
-## class T\_writeStringFormatter\_static\_extension
-
-
- 
-
-
-### T\_writeStringFormatter\_static\_extension function format
-
-
-```haxe
-function format(_sf:stdgo.fmt_test._Fmt_test.T_writeStringFormatter, _f:stdgo.fmt.State, _c:stdgo.GoRune):Void
-```
-
-
- 
-
-
-[\(view code\)](<./Fmt_test.hx#L5721>)
-
-
-## class TwoLines\_static\_extension
-
-
- 
-
-
-### TwoLines\_static\_extension function scan
-
-
-```haxe
-function scan( _t:stdgo.Pointer<stdgo.fmt_test.TwoLines>, _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error
-```
-
-
-Scan attempts to read two lines into the object. Scanln should prevent this   because it stops at newline; Scan and Scanf should be fine. 
-
-
-[\(view code\)](<./Fmt_test.hx#L5805>)
-
-
-## class Xs\_static\_extension
-
-
- 
-
-
-### Xs\_static\_extension function scan
-
-
-```haxe
-function scan( _x:stdgo.Pointer<stdgo.fmt_test.Xs>, _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error
-```
-
-
- 
-
-
-[\(view code\)](<./Fmt_test.hx#L5758>)
+[\(view code\)](<./Fmt_test.hx#L3143>)
 
 
 # Typedefs
@@ -3521,7 +2787,7 @@ typedef F = var t:{<>}
 ```
 
 
- 
+
 
 
 ### F function format
@@ -3532,10 +2798,11 @@ function format( _f:stdgo.fmt.State, _c:stdgo.GoRune):Void
 ```
 
 
-Value receiver. 
+Value receiver.  
 
 
-[\(view code\)](<./Fmt_test.hx#L5254>)
+
+[\(view code\)](<./Fmt_test.hx#L4358>)
 
 
 ## typedef G
@@ -3546,7 +2813,7 @@ typedef G = var t:{<>}
 ```
 
 
- 
+
 
 
 ### G function goString
@@ -3557,10 +2824,10 @@ function goString():stdgo.GoString
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L5615>)
+
+[\(view code\)](<./Fmt_test.hx#L4650>)
 
 
 ## typedef I
@@ -3571,7 +2838,7 @@ typedef I = var t:{<>}
 ```
 
 
- 
+
 
 
 ### I function string
@@ -3582,10 +2849,10 @@ function string():stdgo.GoString
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L5563>)
+
+[\(view code\)](<./Fmt_test.hx#L4616>)
 
 
 ## typedef P
@@ -3596,7 +2863,8 @@ typedef P = var t:{<>}
 ```
 
 
-P is a type with a String method with pointer receiver for testing %p. 
+P is a type with a String method with pointer receiver for testing %p.  
+
 
 
 ### P function string
@@ -3607,10 +2875,10 @@ function string( _p:stdgo.Pointer<stdgo.fmt_test.P>):stdgo.GoString
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L5643>)
+
+[\(view code\)](<./Fmt_test.hx#L4669>)
 
 
 ## typedef SE
@@ -3621,7 +2889,7 @@ typedef SE = var x:stdgo.AnyInterface
 ```
 
 
- 
+
 
 
 ## typedef TB
@@ -3632,7 +2900,7 @@ typedef TB = var x:{<>}
 ```
 
 
- 
+
 
 
 ### TB function string
@@ -3643,10 +2911,10 @@ function string():stdgo.GoString
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L6247>)
+
+[\(view code\)](<./Fmt_test.hx#L5079>)
 
 
 ## typedef TF
@@ -3657,7 +2925,7 @@ typedef TF = var x:{<>}
 ```
 
 
- 
+
 
 
 ### TF function string
@@ -3668,10 +2936,10 @@ function string():stdgo.GoString
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L6169>)
+
+[\(view code\)](<./Fmt_test.hx#L5028>)
 
 
 ## typedef TF32
@@ -3682,7 +2950,7 @@ typedef TF32 = var x:{<>}
 ```
 
 
- 
+
 
 
 ### TF32 function string
@@ -3693,10 +2961,10 @@ function string():stdgo.GoString
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L6195>)
+
+[\(view code\)](<./Fmt_test.hx#L5045>)
 
 
 ## typedef TF64
@@ -3707,7 +2975,7 @@ typedef TF64 = var x:{<>}
 ```
 
 
- 
+
 
 
 ### TF64 function string
@@ -3718,10 +2986,10 @@ function string():stdgo.GoString
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L6221>)
+
+[\(view code\)](<./Fmt_test.hx#L5062>)
 
 
 ## typedef TI
@@ -3732,7 +3000,7 @@ typedef TI = var t:{<>}
 ```
 
 
- 
+
 
 
 ### TI function string
@@ -3743,10 +3011,10 @@ function string():stdgo.GoString
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L5883>)
+
+[\(view code\)](<./Fmt_test.hx#L4841>)
 
 
 ## typedef TI16
@@ -3757,7 +3025,7 @@ typedef TI16 = var x:{<>}
 ```
 
 
- 
+
 
 
 ### TI16 function string
@@ -3768,10 +3036,10 @@ function string():stdgo.GoString
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L5935>)
+
+[\(view code\)](<./Fmt_test.hx#L4875>)
 
 
 ## typedef TI32
@@ -3782,7 +3050,7 @@ typedef TI32 = var x:{<>}
 ```
 
 
- 
+
 
 
 ### TI32 function string
@@ -3793,10 +3061,10 @@ function string():stdgo.GoString
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L5961>)
+
+[\(view code\)](<./Fmt_test.hx#L4892>)
 
 
 ## typedef TI64
@@ -3807,7 +3075,7 @@ typedef TI64 = var x:{<>}
 ```
 
 
- 
+
 
 
 ### TI64 function string
@@ -3818,10 +3086,10 @@ function string():stdgo.GoString
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L5987>)
+
+[\(view code\)](<./Fmt_test.hx#L4909>)
 
 
 ## typedef TI8
@@ -3832,7 +3100,7 @@ typedef TI8 = var x:{<>}
 ```
 
 
- 
+
 
 
 ### TI8 function string
@@ -3843,10 +3111,10 @@ function string():stdgo.GoString
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L5909>)
+
+[\(view code\)](<./Fmt_test.hx#L4858>)
 
 
 ## typedef TS
@@ -3857,7 +3125,7 @@ typedef TS = var x:{<>}
 ```
 
 
- 
+
 
 
 ### TS function string
@@ -3868,10 +3136,10 @@ function string():stdgo.GoString
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L6273>)
+
+[\(view code\)](<./Fmt_test.hx#L5096>)
 
 
 ## typedef TU
@@ -3882,7 +3150,7 @@ typedef TU = var t:{<>}
 ```
 
 
- 
+
 
 
 ### TU function string
@@ -3893,10 +3161,10 @@ function string():stdgo.GoString
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L6013>)
+
+[\(view code\)](<./Fmt_test.hx#L4926>)
 
 
 ## typedef TU16
@@ -3907,7 +3175,7 @@ typedef TU16 = var x:{<>}
 ```
 
 
- 
+
 
 
 ### TU16 function string
@@ -3918,10 +3186,10 @@ function string():stdgo.GoString
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L6065>)
+
+[\(view code\)](<./Fmt_test.hx#L4960>)
 
 
 ## typedef TU32
@@ -3932,7 +3200,7 @@ typedef TU32 = var x:{<>}
 ```
 
 
- 
+
 
 
 ### TU32 function string
@@ -3943,10 +3211,10 @@ function string():stdgo.GoString
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L6091>)
+
+[\(view code\)](<./Fmt_test.hx#L4977>)
 
 
 ## typedef TU64
@@ -3957,7 +3225,7 @@ typedef TU64 = var x:{<>}
 ```
 
 
- 
+
 
 
 ### TU64 function string
@@ -3968,10 +3236,10 @@ function string():stdgo.GoString
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L6117>)
+
+[\(view code\)](<./Fmt_test.hx#L4994>)
 
 
 ## typedef TU8
@@ -3982,7 +3250,7 @@ typedef TU8 = var x:{<>}
 ```
 
 
- 
+
 
 
 ### TU8 function string
@@ -3993,10 +3261,10 @@ function string():stdgo.GoString
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L6039>)
+
+[\(view code\)](<./Fmt_test.hx#L4943>)
 
 
 ## typedef TUI
@@ -4007,7 +3275,7 @@ typedef TUI = var x:{<>}
 ```
 
 
- 
+
 
 
 ### TUI function string
@@ -4018,10 +3286,10 @@ function string():stdgo.GoString
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L6143>)
+
+[\(view code\)](<./Fmt_test.hx#L5011>)
 
 
 ## typedef TwoLines
@@ -4032,7 +3300,7 @@ typedef TwoLines = var x:{<>}
 ```
 
 
- 
+
 
 
 ### TwoLines function scan
@@ -4043,10 +3311,12 @@ function scan( _t:stdgo.Pointer<stdgo.fmt_test.TwoLines>, _state:stdgo.fmt.ScanS
 ```
 
 
-Scan attempts to read two lines into the object. Scanln should prevent this   because it stops at newline; Scan and Scanf should be fine. 
+Scan attempts to read two lines into the object. Scanln should prevent this  
+because it stops at newline; Scan and Scanf should be fine.  
 
 
-[\(view code\)](<./Fmt_test.hx#L5805>)
+
+[\(view code\)](<./Fmt_test.hx#L4786>)
 
 
 ## typedef Xs
@@ -4057,7 +3327,8 @@ typedef Xs = var x:{<>}
 ```
 
 
-Xs accepts any non\-empty run of the verb character 
+Xs accepts any non\-empty run of the verb character  
+
 
 
 ### Xs function scan
@@ -4068,9 +3339,9 @@ function scan( _x:stdgo.Pointer<stdgo.fmt_test.Xs>, _state:stdgo.fmt.ScanState, 
 ```
 
 
- 
 
 
-[\(view code\)](<./Fmt_test.hx#L5758>)
+
+[\(view code\)](<./Fmt_test.hx#L4748>)
 
 

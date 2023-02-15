@@ -6,7 +6,138 @@
 # Overview
 
 
-Package strconv implements conversions to and from string representations  of basic data types.    \# Numeric Conversions    The most common numeric conversions are Atoi \(string to int\) and Itoa \(int to string\).     i, err := strconv.Atoi\("\-42"\)   s := strconv.Itoa\(\-42\)    These assume decimal and the Go int type.    ParseBool, ParseFloat, ParseInt, and ParseUint convert strings to values:     b, err := strconv.ParseBool\("true"\)   f, err := strconv.ParseFloat\("3.1415", 64\)   i, err := strconv.ParseInt\("\-42", 10, 64\)   u, err := strconv.ParseUint\("42", 10, 64\)    The parse functions return the widest type \(float64, int64, and uint64\),  but if the size argument specifies a narrower width the result can be  converted to that narrower type without data loss:     s := "2147483647" // biggest int32   i64, err := strconv.ParseInt\(s, 10, 32\)   ...   i := int32\(i64\)    FormatBool, FormatFloat, FormatInt, and FormatUint convert values to strings:     s := strconv.FormatBool\(true\)   s := strconv.FormatFloat\(3.1415, 'E', \-1, 64\)   s := strconv.FormatInt\(\-42, 16\)   s := strconv.FormatUint\(42, 16\)    AppendBool, AppendFloat, AppendInt, and AppendUint are similar but  append the formatted value to a destination slice.    \# String Conversions    Quote and QuoteToASCII convert strings to quoted Go string literals.  The latter guarantees that the result is an ASCII string, by escaping  any non\-ASCII Unicode with \\u:     q := strconv.Quote\("Hello, 世界"\)   q := strconv.QuoteToASCII\("Hello, 世界"\)    QuoteRune and QuoteRuneToASCII are similar but accept runes and  return quoted Go rune literals.    Unquote and UnquoteChar unquote Go string and rune literals. 
+Package strconv implements conversions to and from string representations  
+of basic data types.  
+
+
+
+\# Numeric Conversions  
+
+
+
+The most common numeric conversions are Atoi \(string to int\) and Itoa \(int to string\).  
+
+
+
+
+
+
+i, err := strconv.Atoi\("\-42"\)  
+
+
+
+s := strconv.Itoa\(\-42\)  
+
+
+
+These assume decimal and the Go int type.  
+
+
+
+ParseBool, ParseFloat, ParseInt, and ParseUint convert strings to values:  
+
+
+
+
+
+
+b, err := strconv.ParseBool\("true"\)  
+
+
+
+f, err := strconv.ParseFloat\("3.1415", 64\)  
+
+
+
+i, err := strconv.ParseInt\("\-42", 10, 64\)  
+
+
+
+u, err := strconv.ParseUint\("42", 10, 64\)  
+
+
+
+The parse functions return the widest type \(float64, int64, and uint64\),  
+but if the size argument specifies a narrower width the result can be  
+converted to that narrower type without data loss:  
+
+
+
+
+
+
+s := "2147483647" // biggest int32  
+
+
+
+i64, err := strconv.ParseInt\(s, 10, 32\)  
+
+
+
+...  
+
+
+
+i := int32\(i64\)  
+
+
+
+FormatBool, FormatFloat, FormatInt, and FormatUint convert values to strings:  
+
+
+
+
+
+
+s := strconv.FormatBool\(true\)  
+
+
+
+s := strconv.FormatFloat\(3.1415, 'E', \-1, 64\)  
+
+
+
+s := strconv.FormatInt\(\-42, 16\)  
+
+
+
+s := strconv.FormatUint\(42, 16\)  
+
+
+
+AppendBool, AppendFloat, AppendInt, and AppendUint are similar but  
+append the formatted value to a destination slice.  
+
+
+
+\# String Conversions  
+
+
+
+Quote and QuoteToASCII convert strings to quoted Go string literals.  
+The latter guarantees that the result is an ASCII string, by escaping  
+any non\-ASCII Unicode with \\u:  
+
+
+
+
+
+
+q := strconv.Quote\("Hello, 世界"\)  
+
+
+
+q := strconv.QuoteToASCII\("Hello, 世界"\)  
+
+
+
+QuoteRune and QuoteRuneToASCII are similar but accept runes and  
+return quoted Go rune literals.  
+
+
+
+Unquote and UnquoteChar unquote Go string and rune literals.  
+
 
 
 <details><summary>hl tests passed</summary>
@@ -14,171 +145,174 @@ Package strconv implements conversions to and from string representations  of ba
 
 ```
 === RUN  TestParseBool
---- PASS: TestParseBool (%!s(float64=0.00014400482177734375))
+--- PASS: TestParseBool (%!s(float64=0.000125885009765625))
 
 === RUN  TestFormatBool
---- PASS: TestFormatBool (%!s(float64=2.288818359375e-05))
+--- PASS: TestFormatBool (%!s(float64=3.1948089599609375e-05))
 
 === RUN  TestAppendBool
 --- PASS: TestAppendBool (%!s(float64=1.4066696166992188e-05))
 
 === RUN  TestParseComplex
---- PASS: TestParseComplex (%!s(float64=0.46482110023498535))
+--- PASS: TestParseComplex (%!s(float64=0.4752531051635742))
 
 === RUN  TestParseComplexIncorrectBitSize
---- PASS: TestParseComplexIncorrectBitSize (%!s(float64=0.0005609989166259766))
+--- PASS: TestParseComplexIncorrectBitSize (%!s(float64=0.0005619525909423828))
 
 === RUN  TestParseFloatPrefix
---- PASS: TestParseFloatPrefix (%!s(float64=2.381273031234741))
+--- PASS: TestParseFloatPrefix (%!s(float64=2.3653759956359863))
 
 === RUN  TestAtof
---- PASS: TestAtof (%!s(float64=1.719161033630371))
+--- PASS: TestAtof (%!s(float64=1.725841999053955))
 
 === RUN  TestAtofSlow
---- PASS: TestAtofSlow (%!s(float64=5.139861822128296))
+--- PASS: TestAtofSlow (%!s(float64=5.193403005599976))
 
 === RUN  TestAtofRandom
---- PASS: TestAtofRandom (%!s(float64=0.009108781814575195))
+--- PASS: TestAtofRandom (%!s(float64=0.010378122329711914))
 
 === RUN  TestRoundTrip
---- PASS: TestRoundTrip (%!s(float64=0.006830930709838867))
+--- PASS: TestRoundTrip (%!s(float64=0.00812220573425293))
 
 === RUN  TestRoundTrip32
---- PASS: TestRoundTrip32 (%!s(float64=9.422297954559326))
+--- PASS: TestRoundTrip32 (%!s(float64=9.448898792266846))
 
 === RUN  TestParseFloatIncorrectBitSize
---- PASS: TestParseFloatIncorrectBitSize (%!s(float64=0.00030303001403808594))
+--- PASS: TestParseFloatIncorrectBitSize (%!s(float64=0.0003108978271484375))
 
 === RUN  TestParseUint32
---- PASS: TestParseUint32 (%!s(float64=0.0002999305725097656))
+--- PASS: TestParseUint32 (%!s(float64=0.0003101825714111328))
 
 === RUN  TestParseUint64
---- PASS: TestParseUint64 (%!s(float64=0.0016620159149169922))
+--- PASS: TestParseUint64 (%!s(float64=0.00038504600524902344))
 
 === RUN  TestParseUint64Base
---- PASS: TestParseUint64Base (%!s(float64=0.007275104522705078))
+--- PASS: TestParseUint64Base (%!s(float64=0.008488893508911133))
 
 === RUN  TestParseInt32
---- PASS: TestParseInt32 (%!s(float64=0.0007431507110595703))
+--- PASS: TestParseInt32 (%!s(float64=0.0008981227874755859))
 
 === RUN  TestParseInt64
---- PASS: TestParseInt64 (%!s(float64=0.0006580352783203125))
+--- PASS: TestParseInt64 (%!s(float64=0.0019631385803222656))
 
 === RUN  TestParseInt64Base
---- PASS: TestParseInt64Base (%!s(float64=0.0058100223541259766))
+--- PASS: TestParseInt64Base (%!s(float64=0.005757808685302734))
 
 === RUN  TestParseUint
---- PASS: TestParseUint (%!s(float64=0.0002799034118652344))
+--- PASS: TestParseUint (%!s(float64=0.0002970695495605469))
 
 === RUN  TestParseInt
---- PASS: TestParseInt (%!s(float64=0.0007300376892089844))
+--- PASS: TestParseInt (%!s(float64=0.0007660388946533203))
 
 === RUN  TestAtoi
---- PASS: TestAtoi (%!s(float64=0.0005738735198974609))
+--- PASS: TestAtoi (%!s(float64=0.0006139278411865234))
 
 === RUN  TestParseIntBitSize
---- PASS: TestParseIntBitSize (%!s(float64=0.00043702125549316406))
+--- PASS: TestParseIntBitSize (%!s(float64=0.00039005279541015625))
 
 === RUN  TestParseUintBitSize
---- PASS: TestParseUintBitSize (%!s(float64=0.00033593177795410156))
+--- PASS: TestParseUintBitSize (%!s(float64=0.00032591819763183594))
 
 === RUN  TestParseIntBase
---- PASS: TestParseIntBase (%!s(float64=0.0005741119384765625))
+--- PASS: TestParseIntBase (%!s(float64=0.0005669593811035156))
 
 === RUN  TestParseUintBase
---- PASS: TestParseUintBase (%!s(float64=0.0004649162292480469))
+--- PASS: TestParseUintBase (%!s(float64=0.0004630088806152344))
 
 === RUN  TestNumError
---- PASS: TestNumError (%!s(float64=4.792213439941406e-05))
+--- PASS: TestNumError (%!s(float64=4.696846008300781e-05))
 
 === RUN  TestNumErrorUnwrap
---- PASS: TestNumErrorUnwrap (%!s(float64=6.604194641113281e-05))
+--- PASS: TestNumErrorUnwrap (%!s(float64=6.103515625e-05))
 
 === RUN  TestFormatComplex
---- PASS: TestFormatComplex (%!s(float64=0.005099058151245117))
+--- PASS: TestFormatComplex (%!s(float64=0.0050220489501953125))
 
 === RUN  TestFormatComplexInvalidBitSize
---- PASS: TestFormatComplexInvalidBitSize (%!s(float64=4.982948303222656e-05))
+--- PASS: TestFormatComplexInvalidBitSize (%!s(float64=4.7206878662109375e-05))
 
 === RUN  TestDecimalShift
---- PASS: TestDecimalShift (%!s(float64=0.0014259815216064453))
+--- PASS: TestDecimalShift (%!s(float64=0.0027010440826416016))
 
 === RUN  TestDecimalRound
---- PASS: TestDecimalRound (%!s(float64=0.008297920227050781))
+--- PASS: TestDecimalRound (%!s(float64=0.008331060409545898))
 
 === RUN  TestDecimalRoundedInteger
---- PASS: TestDecimalRoundedInteger (%!s(float64=0.0011467933654785156))
+--- PASS: TestDecimalRoundedInteger (%!s(float64=0.002480030059814453))
 
 === RUN  TestFp
-strconv_test/Strconv_test.hx:4189: testFp skip function
---- PASS: TestFp (%!s(float64=1.6927719116210938e-05))
+strconv_test/Strconv_test.hx:3176: testFp skip function
+--- PASS: TestFp (%!s(float64=2.5033950805664062e-05))
 
 === RUN  TestFtoa
---- PASS: TestFtoa (%!s(float64=0.07964611053466797))
+--- PASS: TestFtoa (%!s(float64=0.07994508743286133))
 
 === RUN  TestFtoaPowersOfTwo
-strconv_test/Strconv_test.hx:4315: testFtoaPowersOfTwo skip function
---- PASS: TestFtoaPowersOfTwo (%!s(float64=3.814697265625e-05))
+strconv_test/Strconv_test.hx:3293: testFtoaPowersOfTwo skip function
+--- PASS: TestFtoaPowersOfTwo (%!s(float64=2.5033950805664062e-05))
 
 === RUN  TestFtoaRandom
---- PASS: TestFtoaRandom (%!s(float64=3.2202649116516113))
+--- PASS: TestFtoaRandom (%!s(float64=3.2827138900756836))
 
 === RUN  TestFormatFloatInvalidBitSize
---- PASS: TestFormatFloatInvalidBitSize (%!s(float64=5.1975250244140625e-05))
+--- PASS: TestFormatFloatInvalidBitSize (%!s(float64=4.601478576660156e-05))
 
 === RUN  TestMulByLog2Log10
---- PASS: TestMulByLog2Log10 (%!s(float64=0.005567073822021484))
+--- PASS: TestMulByLog2Log10 (%!s(float64=0.005535125732421875))
 
 === RUN  TestMulByLog10Log2
---- PASS: TestMulByLog10Log2 (%!s(float64=0.002579927444458008))
+--- PASS: TestMulByLog10Log2 (%!s(float64=0.0013689994812011719))
 
 === RUN  TestItoa
---- PASS: TestItoa (%!s(float64=0.0058171749114990234))
+--- PASS: TestItoa (%!s(float64=0.005889892578125))
 
 === RUN  TestUitoa
---- PASS: TestUitoa (%!s(float64=0.0011429786682128906))
+--- PASS: TestUitoa (%!s(float64=0.0023648738861083984))
 
 === RUN  TestFormatUintVarlen
---- PASS: TestFormatUintVarlen (%!s(float64=0.0008039474487304688))
+--- PASS: TestFormatUintVarlen (%!s(float64=0.000843048095703125))
 
 === RUN  TestIsPrint
---- PASS: TestIsPrint (%!s(float64=29.07871913909912))
+--- PASS: TestIsPrint (%!s(float64=28.975203037261963))
 
 === RUN  TestIsGraphic
---- PASS: TestIsGraphic (%!s(float64=29.141305923461914))
+--- PASS: TestIsGraphic (%!s(float64=29.55793595314026))
 
 === RUN  TestQuote
---- PASS: TestQuote (%!s(float64=0.0012059211730957031))
+--- PASS: TestQuote (%!s(float64=0.000431060791015625))
 
 === RUN  TestQuoteToASCII
---- PASS: TestQuoteToASCII (%!s(float64=0.00031185150146484375))
+--- PASS: TestQuoteToASCII (%!s(float64=0.0002818107604980469))
 
 === RUN  TestQuoteToGraphic
---- PASS: TestQuoteToGraphic (%!s(float64=0.0018050670623779297))
+--- PASS: TestQuoteToGraphic (%!s(float64=0.0005548000335693359))
 
 === RUN  TestQuoteRune
---- PASS: TestQuoteRune (%!s(float64=0.000431060791015625))
+--- PASS: TestQuoteRune (%!s(float64=0.00044083595275878906))
 
 === RUN  TestQuoteRuneToASCII
---- PASS: TestQuoteRuneToASCII (%!s(float64=0.00021195411682128906))
+--- PASS: TestQuoteRuneToASCII (%!s(float64=0.00022292137145996094))
 
 === RUN  TestQuoteRuneToGraphic
---- PASS: TestQuoteRuneToGraphic (%!s(float64=0.0004630088806152344))
+--- PASS: TestQuoteRuneToGraphic (%!s(float64=0.00045299530029296875))
 
 === RUN  TestCanBackquote
---- PASS: TestCanBackquote (%!s(float64=0.0004680156707763672))
+--- PASS: TestCanBackquote (%!s(float64=0.0004589557647705078))
 
 === RUN  TestUnquote
---- PASS: TestUnquote (%!s(float64=0.002048969268798828))
+--- PASS: TestUnquote (%!s(float64=0.003492116928100586))
 
 === RUN  TestUnquoteInvalidUTF8
---- PASS: TestUnquoteInvalidUTF8 (%!s(float64=0.00018978118896484375))
+--- PASS: TestUnquoteInvalidUTF8 (%!s(float64=0.00018310546875))
 
 === RUN  TestCountMallocs
---- PASS: TestCountMallocs (%!s(float64=0.2781028747558594))
+--- PASS: TestCountMallocs (%!s(float64=0.27462196350097656))
+
+=== RUN  TestAllocationsFromBytes
+--- PASS: TestAllocationsFromBytes (%!s(float64=0.00011396408081054688))
 
 === RUN  TestErrorPrefixes
---- PASS: TestErrorPrefixes (%!s(float64=0.00017189979553222656))
+--- PASS: TestErrorPrefixes (%!s(float64=0.00017309188842773438))
 
 ```
 </p>
@@ -188,37 +322,36 @@ strconv_test/Strconv_test.hx:4315: testFtoaPowersOfTwo skip function
 <p>
 
 ```
-stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestParseBool
---- PASS: TestParseBool (%!s(float64=0.0002849102020263672))
+--- PASS: TestParseBool (%!s(float64=0.0002899169921875))
 
 === RUN  TestFormatBool
---- PASS: TestFormatBool (%!s(float64=6.914138793945312e-05))
+--- PASS: TestFormatBool (%!s(float64=6.604194641113281e-05))
 
 === RUN  TestAppendBool
---- PASS: TestAppendBool (%!s(float64=6.508827209472656e-05))
+--- PASS: TestAppendBool (%!s(float64=6.198883056640625e-05))
 
 === RUN  TestParseComplex
---- PASS: TestParseComplex (%!s(float64=2.504178047180176))
+--- PASS: TestParseComplex (%!s(float64=2.497873067855835))
 
 === RUN  TestParseComplexIncorrectBitSize
---- PASS: TestParseComplexIncorrectBitSize (%!s(float64=0.0037899017333984375))
+--- PASS: TestParseComplexIncorrectBitSize (%!s(float64=0.003774881362915039))
 
 === RUN  TestParseFloatPrefix
---- PASS: TestParseFloatPrefix (%!s(float64=11.667803049087524))
+--- PASS: TestParseFloatPrefix (%!s(float64=11.605694055557251))
 
 === RUN  TestAtof
---- PASS: TestAtof (%!s(float64=8.906248092651367))
+--- PASS: TestAtof (%!s(float64=8.908051013946533))
 
 === RUN  TestAtofSlow
---- PASS: TestAtofSlow (%!s(float64=25.073071002960205))
+--- PASS: TestAtofSlow (%!s(float64=25.039573907852173))
 
 === RUN  TestAtofRandom
---- PASS: TestAtofRandom (%!s(float64=0.05398988723754883))
+--- PASS: TestAtofRandom (%!s(float64=0.05392813682556152))
 
 === RUN  TestRoundTrip
---- PASS: TestRoundTrip (%!s(float64=0.03244900703430176))
+--- PASS: TestRoundTrip (%!s(float64=0.031826019287109375))
 
 === RUN  TestRoundTrip32
 ParseFloat("-2.44997e-05", 32) = -2.44997e-05, not a float32 (nearest is -2.44997e-05)
@@ -230,7 +363,6 @@ ParseFloat("-2.44997e-05", 32) = -2.44997e-05, not a float32 (nearest is -2.4499
 <p>
 
 ```
-stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
 IO.Overflow("write_ui16")
 stdgo/internal/Macro.macro.hx:35: define
 ```
@@ -267,9 +399,9 @@ stdgo/internal/Macro.macro.hx:35: define
 
 - [`function atoi(_s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#function-atoi>)
 
-- [`function baseError(:stdgo.GoString, :stdgo.GoString, :stdgo.GoInt):stdgo.Ref<stdgo.strconv.NumError>`](<#function-baseerror>)
+- [`function baseError(_fn:stdgo.GoString, _str:stdgo.GoString, _base:stdgo.GoInt):stdgo.Ref<stdgo.strconv.NumError>`](<#function-baseerror>)
 
-- [`function bitSizeError(:stdgo.GoString, :stdgo.GoString, :stdgo.GoInt):stdgo.Ref<stdgo.strconv.NumError>`](<#function-bitsizeerror>)
+- [`function bitSizeError(_fn:stdgo.GoString, _str:stdgo.GoString, _bitSize:stdgo.GoInt):stdgo.Ref<stdgo.strconv.NumError>`](<#function-bitsizeerror>)
 
 - [`function canBackquote(_s:stdgo.GoString):Bool`](<#function-canbackquote>)
 
@@ -293,7 +425,7 @@ stdgo/internal/Macro.macro.hx:35: define
 
 - [`function mulByLog2Log10(_x:stdgo.GoInt):stdgo.GoInt`](<#function-mulbylog2log10>)
 
-- [`function newDecimal(_i:stdgo.GoUInt64):stdgo.Ref<stdgo.strconv._Strconv.T_decimal>`](<#function-newdecimal>)
+- [`function newDecimal(_i:stdgo.GoUInt64):stdgo.Ref<stdgo.strconv.T_decimal>`](<#function-newdecimal>)
 
 - [`function parseBool(_str:stdgo.GoString):{_1:stdgo.Error, _0:Bool}`](<#function-parsebool>)
 
@@ -335,31 +467,39 @@ stdgo/internal/Macro.macro.hx:35: define
 
   - [`function unwrap():stdgo.Error`](<#numerror-function-unwrap>)
 
-- [class NumError\_static\_extension](<#class-numerror_static_extension>)
+- [class T\_decimal](<#class-t_decimal>)
 
-  - [`function error():stdgo.GoString`](<#numerror_static_extension-function-error>)
+  - [`function new(?_d:stdgo.GoArray<stdgo.GoUInt8>, ?_nd:Null<stdgo.GoInt>, ?_dp:Null<stdgo.GoInt>, ?_neg:Bool, ?_trunc:Bool):Void`](<#t_decimal-function-new>)
 
-  - [`function unwrap():stdgo.Error`](<#numerror_static_extension-function-unwrap>)
+  - [`function _floatBits( _flt:stdgo.Ref<stdgo.strconv.T_floatInfo>):{_1:Bool, _0:stdgo.GoUInt64}`](<#t_decimal-function-_floatbits>)
 
-- [class T\_decimal\_static\_extension](<#class-t_decimal_static_extension>)
+  - [`function _set( _s:stdgo.GoString):Bool`](<#t_decimal-function-_set>)
 
-  - [`function _floatBits(_d:stdgo.Ref<stdgo.strconv._Strconv.T_decimal>, _flt:stdgo.Ref<stdgo.strconv._Strconv.T_floatInfo>):{_1:Bool, _0:stdgo.GoUInt64}`](<#t_decimal_static_extension-function-_floatbits>)
+  - [`function assign( _v:stdgo.GoUInt64):Void`](<#t_decimal-function-assign>)
 
-  - [`function _set(_b:stdgo.Ref<stdgo.strconv._Strconv.T_decimal>, _s:stdgo.GoString):Bool`](<#t_decimal_static_extension-function-_set>)
+  - [`function round( _nd:stdgo.GoInt):Void`](<#t_decimal-function-round>)
 
-  - [`function assign(_a:stdgo.Ref<stdgo.strconv._Strconv.T_decimal>, _v:stdgo.GoUInt64):Void`](<#t_decimal_static_extension-function-assign>)
+  - [`function roundDown( _nd:stdgo.GoInt):Void`](<#t_decimal-function-rounddown>)
 
-  - [`function round(_a:stdgo.Ref<stdgo.strconv._Strconv.T_decimal>, _nd:stdgo.GoInt):Void`](<#t_decimal_static_extension-function-round>)
+  - [`function roundUp( _nd:stdgo.GoInt):Void`](<#t_decimal-function-roundup>)
 
-  - [`function roundDown(_a:stdgo.Ref<stdgo.strconv._Strconv.T_decimal>, _nd:stdgo.GoInt):Void`](<#t_decimal_static_extension-function-rounddown>)
+  - [`function roundedInteger():stdgo.GoUInt64`](<#t_decimal-function-roundedinteger>)
 
-  - [`function roundUp(_a:stdgo.Ref<stdgo.strconv._Strconv.T_decimal>, _nd:stdgo.GoInt):Void`](<#t_decimal_static_extension-function-roundup>)
+  - [`function shift( _k:stdgo.GoInt):Void`](<#t_decimal-function-shift>)
 
-  - [`function roundedInteger(_a:stdgo.Ref<stdgo.strconv._Strconv.T_decimal>):stdgo.GoUInt64`](<#t_decimal_static_extension-function-roundedinteger>)
+  - [`function string():stdgo.GoString`](<#t_decimal-function-string>)
 
-  - [`function shift(_a:stdgo.Ref<stdgo.strconv._Strconv.T_decimal>, _k:stdgo.GoInt):Void`](<#t_decimal_static_extension-function-shift>)
+- [class T\_decimalSlice](<#class-t_decimalslice>)
 
-  - [`function string(_a:stdgo.Ref<stdgo.strconv._Strconv.T_decimal>):stdgo.GoString`](<#t_decimal_static_extension-function-string>)
+  - [`function new(?_d:stdgo.Slice<stdgo.GoUInt8>, ?_nd:Null<stdgo.GoInt>, ?_dp:Null<stdgo.GoInt>):Void`](<#t_decimalslice-function-new>)
+
+- [class T\_floatInfo](<#class-t_floatinfo>)
+
+  - [`function new(?_mantbits:Null<stdgo.GoUInt>, ?_expbits:Null<stdgo.GoUInt>, ?_bias:Null<stdgo.GoInt>):Void`](<#t_floatinfo-function-new>)
+
+- [class T\_leftCheat](<#class-t_leftcheat>)
+
+  - [`function new(?_delta:Null<stdgo.GoInt>, ?_cutoff:stdgo.GoString):Void`](<#t_leftcheat-function-new>)
 
 # Examples
 
@@ -435,7 +575,8 @@ final intSize:stdgo.GoUInt64 = (("32" : GoUInt64))
 ```
 
 
-IntSize is the size in bits of an int or uint value. 
+IntSize is the size in bits of an int or uint value.  
+
 
 
 # Variables
@@ -451,7 +592,8 @@ var errRange:stdgo.Error
 ```
 
 
-ErrRange indicates that a value is out of range for the target type. 
+ErrRange indicates that a value is out of range for the target type.  
+
 
 
 ```haxe
@@ -459,7 +601,8 @@ var errSyntax:stdgo.Error
 ```
 
 
-ErrSyntax indicates that a value does not have the right syntax for the target type. 
+ErrSyntax indicates that a value does not have the right syntax for the target type.  
+
 
 
 # Functions
@@ -478,7 +621,9 @@ function appendBool(_dst:stdgo.Slice<stdgo.GoByte>, _b:Bool):stdgo.Slice<stdgo.G
 ```
 
 
-AppendBool appends "true" or "false", according to the value of b,  to dst and returns the extended buffer. 
+AppendBool appends "true" or "false", according to the value of b,  
+to dst and returns the extended buffer.  
+
 
 
 ### exampleAppendBool
@@ -490,10 +635,10 @@ AppendBool appends "true" or "false", according to the value of b,  to dst and r
 
 ```haxe
 function exampleAppendBool():Void {
-	var _b = (("bool:" : GoString) : Slice<GoByte>);
-	_b = stdgo.strconv.Strconv.appendBool(_b, true);
-	stdgo.fmt.Fmt.println(Go.toInterface((_b : GoString)));
-}
+        var _b = (("bool:" : GoString) : Slice<GoByte>);
+        _b = stdgo.strconv.Strconv.appendBool(_b, true);
+        stdgo.fmt.Fmt.println(Go.toInterface((_b : GoString)));
+    }
 ```
 
 
@@ -501,7 +646,7 @@ function exampleAppendBool():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L1242>)
+[\(view code\)](<./Strconv.hx#L2388>)
 
 
 ## function appendFloat
@@ -512,7 +657,9 @@ function appendFloat(_dst:stdgo.Slice<stdgo.GoByte>, _f:stdgo.GoFloat64, _fmt:st
 ```
 
 
-AppendFloat appends the string form of the floating\-point number f,  as generated by FormatFloat, to dst and returns the extended buffer. 
+AppendFloat appends the string form of the floating\-point number f,  
+as generated by FormatFloat, to dst and returns the extended buffer.  
+
 
 
 ### exampleAppendFloat
@@ -524,13 +671,13 @@ AppendFloat appends the string form of the floating\-point number f,  as generat
 
 ```haxe
 function exampleAppendFloat():Void {
-	var _b32 = (("float32:" : GoString) : Slice<GoByte>);
-	_b32 = stdgo.strconv.Strconv.appendFloat(_b32, (3.1415926535 : GoFloat64), (69 : GoUInt8), (-1 : GoInt), (32 : GoInt));
-	stdgo.fmt.Fmt.println(Go.toInterface((_b32 : GoString)));
-	var _b64 = (("float64:" : GoString) : Slice<GoByte>);
-	_b64 = stdgo.strconv.Strconv.appendFloat(_b64, (3.1415926535 : GoFloat64), (69 : GoUInt8), (-1 : GoInt), (64 : GoInt));
-	stdgo.fmt.Fmt.println(Go.toInterface((_b64 : GoString)));
-}
+        var _b32 = (("float32:" : GoString) : Slice<GoByte>);
+        _b32 = stdgo.strconv.Strconv.appendFloat(_b32, (3.1415926535 : GoFloat64), (69 : GoUInt8), (-1 : GoInt), (32 : GoInt));
+        stdgo.fmt.Fmt.println(Go.toInterface((_b32 : GoString)));
+        var _b64 = (("float64:" : GoString) : Slice<GoByte>);
+        _b64 = stdgo.strconv.Strconv.appendFloat(_b64, (3.1415926535 : GoFloat64), (69 : GoUInt8), (-1 : GoInt), (64 : GoInt));
+        stdgo.fmt.Fmt.println(Go.toInterface((_b64 : GoString)));
+    }
 ```
 
 
@@ -538,7 +685,7 @@ function exampleAppendFloat():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L2594>)
+[\(view code\)](<./Strconv.hx#L3558>)
 
 
 ## function appendInt
@@ -549,7 +696,9 @@ function appendInt(_dst:stdgo.Slice<stdgo.GoByte>, _i:stdgo.GoInt64, _base:stdgo
 ```
 
 
-AppendInt appends the string form of the integer i,  as generated by FormatInt, to dst and returns the extended buffer. 
+AppendInt appends the string form of the integer i,  
+as generated by FormatInt, to dst and returns the extended buffer.  
+
 
 
 ### exampleAppendInt
@@ -561,13 +710,13 @@ AppendInt appends the string form of the integer i,  as generated by FormatInt, 
 
 ```haxe
 function exampleAppendInt():Void {
-	var _b10 = (("int (base 10):" : GoString) : Slice<GoByte>);
-	_b10 = stdgo.strconv.Strconv.appendInt(_b10, ("-42" : GoInt64), (10 : GoInt));
-	stdgo.fmt.Fmt.println(Go.toInterface((_b10 : GoString)));
-	var _b16 = (("int (base 16):" : GoString) : Slice<GoByte>);
-	_b16 = stdgo.strconv.Strconv.appendInt(_b16, ("-42" : GoInt64), (16 : GoInt));
-	stdgo.fmt.Fmt.println(Go.toInterface((_b16 : GoString)));
-}
+        var _b10 = (("int (base 10):" : GoString) : Slice<GoByte>);
+        _b10 = stdgo.strconv.Strconv.appendInt(_b10, ("-42" : GoInt64), (10 : GoInt));
+        stdgo.fmt.Fmt.println(Go.toInterface((_b10 : GoString)));
+        var _b16 = (("int (base 16):" : GoString) : Slice<GoByte>);
+        _b16 = stdgo.strconv.Strconv.appendInt(_b16, ("-42" : GoInt64), (16 : GoInt));
+        stdgo.fmt.Fmt.println(Go.toInterface((_b16 : GoString)));
+    }
 ```
 
 
@@ -575,7 +724,7 @@ function exampleAppendInt():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L3735>)
+[\(view code\)](<./Strconv.hx#L4536>)
 
 
 ## function appendQuote
@@ -586,7 +735,9 @@ function appendQuote(_dst:stdgo.Slice<stdgo.GoByte>, _s:stdgo.GoString):stdgo.Sl
 ```
 
 
-AppendQuote appends a double\-quoted Go string literal representing s,  as generated by Quote, to dst and returns the extended buffer. 
+AppendQuote appends a double\-quoted Go string literal representing s,  
+as generated by Quote, to dst and returns the extended buffer.  
+
 
 
 ### exampleAppendQuote
@@ -598,10 +749,10 @@ AppendQuote appends a double\-quoted Go string literal representing s,  as gener
 
 ```haxe
 function exampleAppendQuote():Void {
-	var _b = (("quote:" : GoString) : Slice<GoByte>);
-	_b = stdgo.strconv.Strconv.appendQuote(_b, ("\"Fran & Freddie\'s Diner\"" : GoString));
-	stdgo.fmt.Fmt.println(Go.toInterface((_b : GoString)));
-}
+        var _b = (("quote:" : GoString) : Slice<GoByte>);
+        _b = stdgo.strconv.Strconv.appendQuote(_b, ("\"Fran & Freddie\'s Diner\"" : GoString));
+        stdgo.fmt.Fmt.println(Go.toInterface((_b : GoString)));
+    }
 ```
 
 
@@ -609,7 +760,7 @@ function exampleAppendQuote():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4037>)
+[\(view code\)](<./Strconv.hx#L4809>)
 
 
 ## function appendQuoteRune
@@ -620,7 +771,9 @@ function appendQuoteRune(_dst:stdgo.Slice<stdgo.GoByte>, _r:stdgo.GoRune):stdgo.
 ```
 
 
-AppendQuoteRune appends a single\-quoted Go character literal representing the rune,  as generated by QuoteRune, to dst and returns the extended buffer. 
+AppendQuoteRune appends a single\-quoted Go character literal representing the rune,  
+as generated by QuoteRune, to dst and returns the extended buffer.  
+
 
 
 ### exampleAppendQuoteRune
@@ -632,10 +785,10 @@ AppendQuoteRune appends a single\-quoted Go character literal representing the r
 
 ```haxe
 function exampleAppendQuoteRune():Void {
-	var _b = (("rune:" : GoString) : Slice<GoByte>);
-	_b = stdgo.strconv.Strconv.appendQuoteRune(_b, (9786 : GoInt32));
-	stdgo.fmt.Fmt.println(Go.toInterface((_b : GoString)));
-}
+        var _b = (("rune:" : GoString) : Slice<GoByte>);
+        _b = stdgo.strconv.Strconv.appendQuoteRune(_b, (9786 : GoInt32));
+        stdgo.fmt.Fmt.println(Go.toInterface((_b : GoString)));
+    }
 ```
 
 
@@ -643,7 +796,7 @@ function exampleAppendQuoteRune():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4091>)
+[\(view code\)](<./Strconv.hx#L4857>)
 
 
 ## function appendQuoteRuneToASCII
@@ -654,7 +807,9 @@ function appendQuoteRuneToASCII(_dst:stdgo.Slice<stdgo.GoByte>, _r:stdgo.GoRune)
 ```
 
 
-AppendQuoteRuneToASCII appends a single\-quoted Go character literal representing the rune,  as generated by QuoteRuneToASCII, to dst and returns the extended buffer. 
+AppendQuoteRuneToASCII appends a single\-quoted Go character literal representing the rune,  
+as generated by QuoteRuneToASCII, to dst and returns the extended buffer.  
+
 
 
 ### exampleAppendQuoteRuneToASCII
@@ -666,10 +821,10 @@ AppendQuoteRuneToASCII appends a single\-quoted Go character literal representin
 
 ```haxe
 function exampleAppendQuoteRuneToASCII():Void {
-	var _b = (("rune (ascii):" : GoString) : Slice<GoByte>);
-	_b = stdgo.strconv.Strconv.appendQuoteRuneToASCII(_b, (9786 : GoInt32));
-	stdgo.fmt.Fmt.println(Go.toInterface((_b : GoString)));
-}
+        var _b = (("rune (ascii):" : GoString) : Slice<GoByte>);
+        _b = stdgo.strconv.Strconv.appendQuoteRuneToASCII(_b, (9786 : GoInt32));
+        stdgo.fmt.Fmt.println(Go.toInterface((_b : GoString)));
+    }
 ```
 
 
@@ -677,7 +832,7 @@ function exampleAppendQuoteRuneToASCII():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4111>)
+[\(view code\)](<./Strconv.hx#L4875>)
 
 
 ## function appendQuoteRuneToGraphic
@@ -688,10 +843,12 @@ function appendQuoteRuneToGraphic(_dst:stdgo.Slice<stdgo.GoByte>, _r:stdgo.GoRun
 ```
 
 
-AppendQuoteRuneToGraphic appends a single\-quoted Go character literal representing the rune,  as generated by QuoteRuneToGraphic, to dst and returns the extended buffer. 
+AppendQuoteRuneToGraphic appends a single\-quoted Go character literal representing the rune,  
+as generated by QuoteRuneToGraphic, to dst and returns the extended buffer.  
 
 
-[\(view code\)](<./Strconv.hx#L4131>)
+
+[\(view code\)](<./Strconv.hx#L4893>)
 
 
 ## function appendQuoteToASCII
@@ -702,7 +859,9 @@ function appendQuoteToASCII(_dst:stdgo.Slice<stdgo.GoByte>, _s:stdgo.GoString):s
 ```
 
 
-AppendQuoteToASCII appends a double\-quoted Go string literal representing s,  as generated by QuoteToASCII, to dst and returns the extended buffer. 
+AppendQuoteToASCII appends a double\-quoted Go string literal representing s,  
+as generated by QuoteToASCII, to dst and returns the extended buffer.  
+
 
 
 ### exampleAppendQuoteToASCII
@@ -714,10 +873,10 @@ AppendQuoteToASCII appends a double\-quoted Go string literal representing s,  a
 
 ```haxe
 function exampleAppendQuoteToASCII():Void {
-	var _b = (("quote (ascii):" : GoString) : Slice<GoByte>);
-	_b = stdgo.strconv.Strconv.appendQuoteToASCII(_b, ("\"Fran & Freddie\'s Diner\"" : GoString));
-	stdgo.fmt.Fmt.println(Go.toInterface((_b : GoString)));
-}
+        var _b = (("quote (ascii):" : GoString) : Slice<GoByte>);
+        _b = stdgo.strconv.Strconv.appendQuoteToASCII(_b, ("\"Fran & Freddie\'s Diner\"" : GoString));
+        stdgo.fmt.Fmt.println(Go.toInterface((_b : GoString)));
+    }
 ```
 
 
@@ -725,7 +884,7 @@ function exampleAppendQuoteToASCII():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4054>)
+[\(view code\)](<./Strconv.hx#L4824>)
 
 
 ## function appendQuoteToGraphic
@@ -736,10 +895,12 @@ function appendQuoteToGraphic(_dst:stdgo.Slice<stdgo.GoByte>, _s:stdgo.GoString)
 ```
 
 
-AppendQuoteToGraphic appends a double\-quoted Go string literal representing s,  as generated by QuoteToGraphic, to dst and returns the extended buffer. 
+AppendQuoteToGraphic appends a double\-quoted Go string literal representing s,  
+as generated by QuoteToGraphic, to dst and returns the extended buffer.  
 
 
-[\(view code\)](<./Strconv.hx#L4072>)
+
+[\(view code\)](<./Strconv.hx#L4840>)
 
 
 ## function appendUint
@@ -750,7 +911,9 @@ function appendUint(_dst:stdgo.Slice<stdgo.GoByte>, _i:stdgo.GoUInt64, _base:std
 ```
 
 
-AppendUint appends the string form of the unsigned integer i,  as generated by FormatUint, to dst and returns the extended buffer. 
+AppendUint appends the string form of the unsigned integer i,  
+as generated by FormatUint, to dst and returns the extended buffer.  
+
 
 
 ### exampleAppendUint
@@ -762,13 +925,13 @@ AppendUint appends the string form of the unsigned integer i,  as generated by F
 
 ```haxe
 function exampleAppendUint():Void {
-	var _b10 = (("uint (base 10):" : GoString) : Slice<GoByte>);
-	_b10 = stdgo.strconv.Strconv.appendUint(_b10, ("42" : GoUInt64), (10 : GoInt));
-	stdgo.fmt.Fmt.println(Go.toInterface((_b10 : GoString)));
-	var _b16 = (("uint (base 16):" : GoString) : Slice<GoByte>);
-	_b16 = stdgo.strconv.Strconv.appendUint(_b16, ("42" : GoUInt64), (16 : GoInt));
-	stdgo.fmt.Fmt.println(Go.toInterface((_b16 : GoString)));
-}
+        var _b10 = (("uint (base 10):" : GoString) : Slice<GoByte>);
+        _b10 = stdgo.strconv.Strconv.appendUint(_b10, ("42" : GoUInt64), (10 : GoInt));
+        stdgo.fmt.Fmt.println(Go.toInterface((_b10 : GoString)));
+        var _b16 = (("uint (base 16):" : GoString) : Slice<GoByte>);
+        _b16 = stdgo.strconv.Strconv.appendUint(_b16, ("42" : GoUInt64), (16 : GoInt));
+        stdgo.fmt.Fmt.println(Go.toInterface((_b16 : GoString)));
+    }
 ```
 
 
@@ -776,7 +939,7 @@ function exampleAppendUint():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L3750>)
+[\(view code\)](<./Strconv.hx#L4550>)
 
 
 ## function atoi
@@ -787,7 +950,8 @@ function atoi(_s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}
 ```
 
 
-Atoi is equivalent to ParseInt\(s, 10, 0\), converted to type int. 
+Atoi is equivalent to ParseInt\(s, 10, 0\), converted to type int.  
+
 
 
 ### exampleAtoi
@@ -799,16 +963,14 @@ Atoi is equivalent to ParseInt\(s, 10, 0\), converted to type int.
 
 ```haxe
 function exampleAtoi():Void {
-	var _v:GoString = ("10" : GoString);
-	{
-		var __tmp__ = stdgo.strconv.Strconv.atoi(_v),
-			_s:GoInt = __tmp__._0,
-			_err:Error = __tmp__._1;
-		if (_err == null) {
-			stdgo.fmt.Fmt.printf(("%T, %v" : GoString), Go.toInterface(_s), Go.toInterface(_s));
-		};
-	};
-}
+        var _v:GoString = ("10" : GoString);
+        {
+            var __tmp__ = stdgo.strconv.Strconv.atoi(_v), _s:GoInt = __tmp__._0, _err:Error = __tmp__._1;
+            if (_err == null) {
+                stdgo.fmt.Fmt.printf(("%T, %v" : GoString), Go.toInterface(_s), Go.toInterface(_s));
+            };
+        };
+    }
 ```
 
 
@@ -816,35 +978,35 @@ function exampleAtoi():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L2177>)
+[\(view code\)](<./Strconv.hx#L3181>)
 
 
 ## function baseError
 
 
 ```haxe
-function baseError(:stdgo.GoString, :stdgo.GoString, :stdgo.GoInt):stdgo.Ref<stdgo.strconv.NumError>
+function baseError(_fn:stdgo.GoString, _str:stdgo.GoString, _base:stdgo.GoInt):stdgo.Ref<stdgo.strconv.NumError>
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L1046>)
+
+[\(view code\)](<./Strconv.hx#L2165>)
 
 
 ## function bitSizeError
 
 
 ```haxe
-function bitSizeError(:stdgo.GoString, :stdgo.GoString, :stdgo.GoInt):stdgo.Ref<stdgo.strconv.NumError>
+function bitSizeError(_fn:stdgo.GoString, _str:stdgo.GoString, _bitSize:stdgo.GoInt):stdgo.Ref<stdgo.strconv.NumError>
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L1045>)
+
+[\(view code\)](<./Strconv.hx#L2159>)
 
 
 ## function canBackquote
@@ -855,7 +1017,10 @@ function canBackquote(_s:stdgo.GoString):Bool
 ```
 
 
-CanBackquote reports whether the string s can be represented  unchanged as a single\-line backquoted string without control  characters other than tab. 
+CanBackquote reports whether the string s can be represented  
+unchanged as a single\-line backquoted string without control  
+characters other than tab.  
+
 
 
 ### exampleCanBackquote
@@ -867,9 +1032,9 @@ CanBackquote reports whether the string s can be represented  unchanged as a sin
 
 ```haxe
 function exampleCanBackquote():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strconv.Strconv.canBackquote(("Fran & Freddie\'s Diner ☺" : GoString))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strconv.Strconv.canBackquote(("`can\'t backquote this`" : GoString))));
-}
+        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strconv.Strconv.canBackquote(("Fran & Freddie\'s Diner ☺" : GoString))));
+        stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strconv.Strconv.canBackquote(("`can\'t backquote this`" : GoString))));
+    }
 ```
 
 
@@ -877,7 +1042,7 @@ function exampleCanBackquote():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4140>)
+[\(view code\)](<./Strconv.hx#L4901>)
 
 
 ## function formatBool
@@ -888,7 +1053,8 @@ function formatBool(_b:Bool):stdgo.GoString
 ```
 
 
-FormatBool returns "true" or "false" according to the value of b. 
+FormatBool returns "true" or "false" according to the value of b.  
+
 
 
 ### exampleFormatBool
@@ -900,10 +1066,10 @@ FormatBool returns "true" or "false" according to the value of b.
 
 ```haxe
 function exampleFormatBool():Void {
-	var _v:Bool = true;
-	var _s:GoString = stdgo.strconv.Strconv.formatBool(_v);
-	stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
-}
+        var _v:Bool = true;
+        var _s:GoString = stdgo.strconv.Strconv.formatBool(_v);
+        stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
+    }
 ```
 
 
@@ -911,7 +1077,7 @@ function exampleFormatBool():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L1231>)
+[\(view code\)](<./Strconv.hx#L2378>)
 
 
 ## function formatComplex
@@ -922,10 +1088,19 @@ function formatComplex(_c:stdgo.GoComplex128, _fmt:stdgo.GoByte, _prec:stdgo.GoI
 ```
 
 
-FormatComplex converts the complex number c to a string of the  form \(a\+bi\) where a and b are the real and imaginary parts,  formatted according to the format fmt and precision prec.    The format fmt and precision prec have the same meaning as in FormatFloat.  It rounds the result assuming that the original was obtained from a complex  value of bitSize bits, which must be 64 for complex64 and 128 for complex128. 
+FormatComplex converts the complex number c to a string of the  
+form \(a\+bi\) where a and b are the real and imaginary parts,  
+formatted according to the format fmt and precision prec.  
 
 
-[\(view code\)](<./Strconv.hx#L2273>)
+
+The format fmt and precision prec have the same meaning as in FormatFloat.  
+It rounds the result assuming that the original was obtained from a complex  
+value of bitSize bits, which must be 64 for complex64 and 128 for complex128.  
+
+
+
+[\(view code\)](<./Strconv.hx#L3269>)
 
 
 ## function formatFloat
@@ -936,7 +1111,33 @@ function formatFloat(_f:stdgo.GoFloat64, _fmt:stdgo.GoByte, _prec:stdgo.GoInt, _
 ```
 
 
-FormatFloat converts the floating\-point number f to a string,  according to the format fmt and precision prec. It rounds the  result assuming that the original was obtained from a floating\-point  value of bitSize bits \(32 for float32, 64 for float64\).    The format fmt is one of  'b' \(\-ddddp±ddd, a binary exponent\),  'e' \(\-d.dddde±dd, a decimal exponent\),  'E' \(\-d.ddddE±dd, a decimal exponent\),  'f' \(\-ddd.dddd, no exponent\),  'g' \('e' for large exponents, 'f' otherwise\),  'G' \('E' for large exponents, 'f' otherwise\),  'x' \(\-0xd.ddddp±ddd, a hexadecimal fraction and binary exponent\), or  'X' \(\-0Xd.ddddP±ddd, a hexadecimal fraction and binary exponent\).    The precision prec controls the number of digits \(excluding the exponent\)  printed by the 'e', 'E', 'f', 'g', 'G', 'x', and 'X' formats.  For 'e', 'E', 'f', 'x', and 'X', it is the number of digits after the decimal point.  For 'g' and 'G' it is the maximum number of significant digits \(trailing  zeros are removed\).  The special precision \-1 uses the smallest number of digits  necessary such that ParseFloat will return f exactly. 
+FormatFloat converts the floating\-point number f to a string,  
+according to the format fmt and precision prec. It rounds the  
+result assuming that the original was obtained from a floating\-point  
+value of bitSize bits \(32 for float32, 64 for float64\).  
+
+
+
+The format fmt is one of  
+'b' \(\-ddddp±ddd, a binary exponent\),  
+'e' \(\-d.dddde±dd, a decimal exponent\),  
+'E' \(\-d.ddddE±dd, a decimal exponent\),  
+'f' \(\-ddd.dddd, no exponent\),  
+'g' \('e' for large exponents, 'f' otherwise\),  
+'G' \('E' for large exponents, 'f' otherwise\),  
+'x' \(\-0xd.ddddp±ddd, a hexadecimal fraction and binary exponent\), or  
+'X' \(\-0Xd.ddddP±ddd, a hexadecimal fraction and binary exponent\).  
+
+
+
+The precision prec controls the number of digits \(excluding the exponent\)  
+printed by the 'e', 'E', 'f', 'g', 'G', 'x', and 'X' formats.  
+For 'e', 'E', 'f', 'x', and 'X', it is the number of digits after the decimal point.  
+For 'g' and 'G' it is the maximum number of significant digits \(trailing  
+zeros are removed\).  
+The special precision \-1 uses the smallest number of digits  
+necessary such that ParseFloat will return f exactly.  
+
 
 
 ### exampleFormatFloat
@@ -948,12 +1149,12 @@ FormatFloat converts the floating\-point number f to a string,  according to the
 
 ```haxe
 function exampleFormatFloat():Void {
-	var _v:GoFloat64 = (3.1415926535 : GoFloat64);
-	var _s32:GoString = stdgo.strconv.Strconv.formatFloat(_v, (69 : GoUInt8), (-1 : GoInt), (32 : GoInt));
-	stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s32), Go.toInterface(_s32));
-	var _s64:GoString = stdgo.strconv.Strconv.formatFloat(_v, (69 : GoUInt8), (-1 : GoInt), (64 : GoInt));
-	stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s64), Go.toInterface(_s64));
-}
+        var _v:GoFloat64 = (3.1415926535 : GoFloat64);
+        var _s32:GoString = stdgo.strconv.Strconv.formatFloat(_v, (69 : GoUInt8), (-1 : GoInt), (32 : GoInt));
+        stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s32), Go.toInterface(_s32));
+        var _s64:GoString = stdgo.strconv.Strconv.formatFloat(_v, (69 : GoUInt8), (-1 : GoInt), (64 : GoInt));
+        stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s64), Go.toInterface(_s64));
+    }
 ```
 
 
@@ -961,7 +1162,7 @@ function exampleFormatFloat():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L2584>)
+[\(view code\)](<./Strconv.hx#L3551>)
 
 
 ## function formatInt
@@ -972,7 +1173,10 @@ function formatInt(_i:stdgo.GoInt64, _base:stdgo.GoInt):stdgo.GoString
 ```
 
 
-FormatInt returns the string representation of i in the given base,  for 2 \<= base \<= 36. The result uses the lower\-case letters 'a' to 'z'  for digit values \>= 10. 
+FormatInt returns the string representation of i in the given base,  
+for 2 \<= base \<= 36. The result uses the lower\-case letters 'a' to 'z'  
+for digit values \>= 10.  
+
 
 
 ### exampleFormatInt
@@ -984,12 +1188,12 @@ FormatInt returns the string representation of i in the given base,  for 2 \<= b
 
 ```haxe
 function exampleFormatInt():Void {
-	var _v:GoInt64 = (("-42" : GoInt64) : GoInt64);
-	var _s10:GoString = stdgo.strconv.Strconv.formatInt(_v, (10 : GoInt));
-	stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s10), Go.toInterface(_s10));
-	var _s16:GoString = stdgo.strconv.Strconv.formatInt(_v, (16 : GoInt));
-	stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s16), Go.toInterface(_s16));
-}
+        var _v:GoInt64 = (("-42" : GoInt64) : GoInt64);
+        var _s10:GoString = stdgo.strconv.Strconv.formatInt(_v, (10 : GoInt));
+        stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s10), Go.toInterface(_s10));
+        var _s16:GoString = stdgo.strconv.Strconv.formatInt(_v, (16 : GoInt));
+        stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s16), Go.toInterface(_s16));
+    }
 ```
 
 
@@ -997,7 +1201,7 @@ function exampleFormatInt():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L3714>)
+[\(view code\)](<./Strconv.hx#L4519>)
 
 
 ## function formatUint
@@ -1008,7 +1212,10 @@ function formatUint(_i:stdgo.GoUInt64, _base:stdgo.GoInt):stdgo.GoString
 ```
 
 
-FormatUint returns the string representation of i in the given base,  for 2 \<= base \<= 36. The result uses the lower\-case letters 'a' to 'z'  for digit values \>= 10. 
+FormatUint returns the string representation of i in the given base,  
+for 2 \<= base \<= 36. The result uses the lower\-case letters 'a' to 'z'  
+for digit values \>= 10.  
+
 
 
 ### exampleFormatUint
@@ -1020,12 +1227,12 @@ FormatUint returns the string representation of i in the given base,  for 2 \<= 
 
 ```haxe
 function exampleFormatUint():Void {
-	var _v:GoUInt64 = (("42" : GoUInt64) : GoUInt64);
-	var _s10:GoString = stdgo.strconv.Strconv.formatUint(_v, (10 : GoInt));
-	stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s10), Go.toInterface(_s10));
-	var _s16:GoString = stdgo.strconv.Strconv.formatUint(_v, (16 : GoInt));
-	stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s16), Go.toInterface(_s16));
-}
+        var _v:GoUInt64 = (("42" : GoUInt64) : GoUInt64);
+        var _s10:GoString = stdgo.strconv.Strconv.formatUint(_v, (10 : GoInt));
+        stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s10), Go.toInterface(_s10));
+        var _s16:GoString = stdgo.strconv.Strconv.formatUint(_v, (16 : GoInt));
+        stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s16), Go.toInterface(_s16));
+    }
 ```
 
 
@@ -1033,7 +1240,7 @@ function exampleFormatUint():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L3699>)
+[\(view code\)](<./Strconv.hx#L4507>)
 
 
 ## function isGraphic
@@ -1044,7 +1251,10 @@ function isGraphic(_r:stdgo.GoRune):Bool
 ```
 
 
-IsGraphic reports whether the rune is defined as a Graphic by Unicode. Such  characters include letters, marks, numbers, punctuation, symbols, and  spaces, from categories L, M, N, P, S, and Zs. 
+IsGraphic reports whether the rune is defined as a Graphic by Unicode. Such  
+characters include letters, marks, numbers, punctuation, symbols, and  
+spaces, from categories L, M, N, P, S, and Zs.  
+
 
 
 ### exampleIsGraphic
@@ -1056,13 +1266,13 @@ IsGraphic reports whether the rune is defined as a Graphic by Unicode. Such  cha
 
 ```haxe
 function exampleIsGraphic():Void {
-	var _shamrock:Bool = stdgo.strconv.Strconv.isGraphic((9752 : GoInt32));
-	stdgo.fmt.Fmt.println(Go.toInterface(_shamrock));
-	var _a:Bool = stdgo.strconv.Strconv.isGraphic((97 : GoInt32));
-	stdgo.fmt.Fmt.println(Go.toInterface(_a));
-	var _bel:Bool = stdgo.strconv.Strconv.isGraphic((7 : GoInt32));
-	stdgo.fmt.Fmt.println(Go.toInterface(_bel));
-}
+        var _shamrock:Bool = stdgo.strconv.Strconv.isGraphic((9752 : GoInt32));
+        stdgo.fmt.Fmt.println(Go.toInterface(_shamrock));
+        var _a:Bool = stdgo.strconv.Strconv.isGraphic((97 : GoInt32));
+        stdgo.fmt.Fmt.println(Go.toInterface(_a));
+        var _bel:Bool = stdgo.strconv.Strconv.isGraphic((7 : GoInt32));
+        stdgo.fmt.Fmt.println(Go.toInterface(_bel));
+    }
 ```
 
 
@@ -1070,7 +1280,7 @@ function exampleIsGraphic():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4642>)
+[\(view code\)](<./Strconv.hx#L5270>)
 
 
 ## function isPrint
@@ -1081,7 +1291,10 @@ function isPrint(_r:stdgo.GoRune):Bool
 ```
 
 
-IsPrint reports whether the rune is defined as printable by Go, with  the same definition as unicode.IsPrint: letters, numbers, punctuation,  symbols and ASCII space. 
+IsPrint reports whether the rune is defined as printable by Go, with  
+the same definition as unicode.IsPrint: letters, numbers, punctuation,  
+symbols and ASCII space.  
+
 
 
 ### exampleIsPrint
@@ -1093,11 +1306,11 @@ IsPrint reports whether the rune is defined as printable by Go, with  the same d
 
 ```haxe
 function exampleIsPrint():Void {
-	var _c:Bool = stdgo.strconv.Strconv.isPrint((9786 : GoInt32));
-	stdgo.fmt.Fmt.println(Go.toInterface(_c));
-	var _bel:Bool = stdgo.strconv.Strconv.isPrint((7 : GoInt32));
-	stdgo.fmt.Fmt.println(Go.toInterface(_bel));
-}
+        var _c:Bool = stdgo.strconv.Strconv.isPrint((9786 : GoInt32));
+        stdgo.fmt.Fmt.println(Go.toInterface(_c));
+        var _bel:Bool = stdgo.strconv.Strconv.isPrint((7 : GoInt32));
+        stdgo.fmt.Fmt.println(Go.toInterface(_bel));
+    }
 ```
 
 
@@ -1105,7 +1318,7 @@ function exampleIsPrint():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4593>)
+[\(view code\)](<./Strconv.hx#L5234>)
 
 
 ## function itoa
@@ -1116,7 +1329,8 @@ function itoa(_i:stdgo.GoInt):stdgo.GoString
 ```
 
 
-Itoa is equivalent to FormatInt\(int64\(i\), 10\). 
+Itoa is equivalent to FormatInt\(int64\(i\), 10\).  
+
 
 
 ### exampleItoa
@@ -1128,10 +1342,10 @@ Itoa is equivalent to FormatInt\(int64\(i\), 10\).
 
 ```haxe
 function exampleItoa():Void {
-	var _i:GoInt = (10 : GoInt);
-	var _s:GoString = stdgo.strconv.Strconv.itoa(_i);
-	stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
-}
+        var _i:GoInt = (10 : GoInt);
+        var _s:GoString = stdgo.strconv.Strconv.itoa(_i);
+        stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
+    }
 ```
 
 
@@ -1139,7 +1353,7 @@ function exampleItoa():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L3727>)
+[\(view code\)](<./Strconv.hx#L4529>)
 
 
 ## function mulByLog10Log2
@@ -1150,10 +1364,10 @@ function mulByLog10Log2(_x:stdgo.GoInt):stdgo.GoInt
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3690>)
+
+[\(view code\)](<./Strconv.hx#L4499>)
 
 
 ## function mulByLog2Log10
@@ -1164,24 +1378,24 @@ function mulByLog2Log10(_x:stdgo.GoInt):stdgo.GoInt
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3686>)
+
+[\(view code\)](<./Strconv.hx#L4496>)
 
 
 ## function newDecimal
 
 
 ```haxe
-function newDecimal(_i:stdgo.GoUInt64):stdgo.Ref<stdgo.strconv._Strconv.T_decimal>
+function newDecimal(_i:stdgo.GoUInt64):stdgo.Ref<stdgo.strconv.T_decimal>
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3670>)
+
+[\(view code\)](<./Strconv.hx#L4483>)
 
 
 ## function parseBool
@@ -1192,7 +1406,10 @@ function parseBool(_str:stdgo.GoString):{_1:stdgo.Error, _0:Bool}
 ```
 
 
-ParseBool returns the boolean value represented by the string.  It accepts 1, t, T, TRUE, true, True, 0, f, F, FALSE, false, False.  Any other value returns an error. 
+ParseBool returns the boolean value represented by the string.  
+It accepts 1, t, T, TRUE, true, True, 0, f, F, FALSE, false, False.  
+Any other value returns an error.  
+
 
 
 ### exampleParseBool
@@ -1204,16 +1421,14 @@ ParseBool returns the boolean value represented by the string.  It accepts 1, t,
 
 ```haxe
 function exampleParseBool():Void {
-	var _v:GoString = ("true" : GoString);
-	{
-		var __tmp__ = stdgo.strconv.Strconv.parseBool(_v),
-			_s:Bool = __tmp__._0,
-			_err:Error = __tmp__._1;
-		if (_err == null) {
-			stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
-		};
-	};
-}
+        var _v:GoString = ("true" : GoString);
+        {
+            var __tmp__ = stdgo.strconv.Strconv.parseBool(_v), _s:Bool = __tmp__._0, _err:Error = __tmp__._1;
+            if (_err == null) {
+                stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
+            };
+        };
+    }
 ```
 
 
@@ -1221,7 +1436,7 @@ function exampleParseBool():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L1217>)
+[\(view code\)](<./Strconv.hx#L2367>)
 
 
 ## function parseComplex
@@ -1232,10 +1447,38 @@ function parseComplex(_s:stdgo.GoString, _bitSize:stdgo.GoInt):{_1:stdgo.Error, 
 ```
 
 
-ParseComplex converts the string s to a complex number  with the precision specified by bitSize: 64 for complex64, or 128 for complex128.  When bitSize=64, the result still has type complex128, but it will be  convertible to complex64 without changing its value.    The number represented by s must be of the form N, Ni, or N±Ni, where N stands  for a floating\-point number as recognized by ParseFloat, and i is the imaginary  component. If the second N is unsigned, a \+ sign is required between the two components  as indicated by the ±. If the second N is NaN, only a \+ sign is accepted.  The form may be parenthesized and cannot contain any spaces.  The resulting complex number consists of the two components converted by ParseFloat.    The errors that ParseComplex returns have concrete type \*NumError  and include err.Num = s.    If s is not syntactically well\-formed, ParseComplex returns err.Err = ErrSyntax.    If s is syntactically well\-formed but either component is more than 1/2 ULP  away from the largest floating point number of the given component's size,  ParseComplex returns err.Err = ErrRange and c = ±Inf for the respective component. 
+ParseComplex converts the string s to a complex number  
+with the precision specified by bitSize: 64 for complex64, or 128 for complex128.  
+When bitSize=64, the result still has type complex128, but it will be  
+convertible to complex64 without changing its value.  
 
 
-[\(view code\)](<./Strconv.hx#L1294>)
+
+The number represented by s must be of the form N, Ni, or N±Ni, where N stands  
+for a floating\-point number as recognized by ParseFloat, and i is the imaginary  
+component. If the second N is unsigned, a \+ sign is required between the two components  
+as indicated by the ±. If the second N is NaN, only a \+ sign is accepted.  
+The form may be parenthesized and cannot contain any spaces.  
+The resulting complex number consists of the two components converted by ParseFloat.  
+
+
+
+The errors that ParseComplex returns have concrete type \*NumError  
+and include err.Num = s.  
+
+
+
+If s is not syntactically well\-formed, ParseComplex returns err.Err = ErrSyntax.  
+
+
+
+If s is syntactically well\-formed but either component is more than 1/2 ULP  
+away from the largest floating point number of the given component's size,  
+ParseComplex returns err.Err = ErrRange and c = ±Inf for the respective component.  
+
+
+
+[\(view code\)](<./Strconv.hx#L2438>)
 
 
 ## function parseFloat
@@ -1246,7 +1489,46 @@ function parseFloat(_s:stdgo.GoString, _bitSize:stdgo.GoInt):{_1:stdgo.Error, _0
 ```
 
 
-ParseFloat converts the string s to a floating\-point number  with the precision specified by bitSize: 32 for float32, or 64 for float64.  When bitSize=32, the result still has type float64, but it will be  convertible to float32 without changing its value.    ParseFloat accepts decimal and hexadecimal floating\-point numbers  as defined by the Go syntax for \[floating\-point literals\].  If s is well\-formed and near a valid floating\-point number,  ParseFloat returns the nearest floating\-point number rounded  using IEEE754 unbiased rounding.  \(Parsing a hexadecimal floating\-point value only rounds when  there are more bits in the hexadecimal representation than  will fit in the mantissa.\)    The errors that ParseFloat returns have concrete type \*NumError  and include err.Num = s.    If s is not syntactically well\-formed, ParseFloat returns err.Err = ErrSyntax.    If s is syntactically well\-formed but is more than 1/2 ULP  away from the largest floating point number of the given size,  ParseFloat returns f = ±Inf, err.Err = ErrRange.    ParseFloat recognizes the string "NaN", and the \(possibly signed\) strings "Inf" and "Infinity"  as their respective special floating point values. It ignores case when matching.    \[floating\-point literals\]: https://go.dev/ref/spec#Floating-point_literals 
+ParseFloat converts the string s to a floating\-point number  
+with the precision specified by bitSize: 32 for float32, or 64 for float64.  
+When bitSize=32, the result still has type float64, but it will be  
+convertible to float32 without changing its value.  
+
+
+
+ParseFloat accepts decimal and hexadecimal floating\-point numbers  
+as defined by the Go syntax for \[floating\-point literals\].  
+If s is well\-formed and near a valid floating\-point number,  
+ParseFloat returns the nearest floating\-point number rounded  
+using IEEE754 unbiased rounding.  
+\(Parsing a hexadecimal floating\-point value only rounds when  
+there are more bits in the hexadecimal representation than  
+will fit in the mantissa.\)  
+
+
+
+The errors that ParseFloat returns have concrete type \*NumError  
+and include err.Num = s.  
+
+
+
+If s is not syntactically well\-formed, ParseFloat returns err.Err = ErrSyntax.  
+
+
+
+If s is syntactically well\-formed but is more than 1/2 ULP  
+away from the largest floating point number of the given size,  
+ParseFloat returns f = ±Inf, err.Err = ErrRange.  
+
+
+
+ParseFloat recognizes the string "NaN", and the \(possibly signed\) strings "Inf" and "Infinity"  
+as their respective special floating point values. It ignores case when matching.  
+
+
+
+\[floating\-point literals\]: https://go.dev/ref/spec#Floating-point_literals  
+
 
 
 ### exampleParseFloat
@@ -1258,80 +1540,62 @@ ParseFloat converts the string s to a floating\-point number  with the precision
 
 ```haxe
 function exampleParseFloat():Void {
-	var _v:GoString = ("3.1415926535" : GoString);
-	{
-		var __tmp__ = stdgo.strconv.Strconv.parseFloat(_v, (32 : GoInt)),
-			_s:GoFloat64 = __tmp__._0,
-			_err:Error = __tmp__._1;
-		if (_err == null) {
-			stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
-		};
-	};
-	{
-		var __tmp__ = stdgo.strconv.Strconv.parseFloat(_v, (64 : GoInt)),
-			_s:GoFloat64 = __tmp__._0,
-			_err:Error = __tmp__._1;
-		if (_err == null) {
-			stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
-		};
-	};
-	{
-		var __tmp__ = stdgo.strconv.Strconv.parseFloat(("NaN" : GoString), (32 : GoInt)),
-			_s:GoFloat64 = __tmp__._0,
-			_err:Error = __tmp__._1;
-		if (_err == null) {
-			stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
-		};
-	};
-	{
-		var __tmp__ = stdgo.strconv.Strconv.parseFloat(("nan" : GoString), (32 : GoInt)),
-			_s:GoFloat64 = __tmp__._0,
-			_err:Error = __tmp__._1;
-		if (_err == null) {
-			stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
-		};
-	};
-	{
-		var __tmp__ = stdgo.strconv.Strconv.parseFloat(("inf" : GoString), (32 : GoInt)),
-			_s:GoFloat64 = __tmp__._0,
-			_err:Error = __tmp__._1;
-		if (_err == null) {
-			stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
-		};
-	};
-	{
-		var __tmp__ = stdgo.strconv.Strconv.parseFloat(("+Inf" : GoString), (32 : GoInt)),
-			_s:GoFloat64 = __tmp__._0,
-			_err:Error = __tmp__._1;
-		if (_err == null) {
-			stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
-		};
-	};
-	{
-		var __tmp__ = stdgo.strconv.Strconv.parseFloat(("-Inf" : GoString), (32 : GoInt)),
-			_s:GoFloat64 = __tmp__._0,
-			_err:Error = __tmp__._1;
-		if (_err == null) {
-			stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
-		};
-	};
-	{
-		var __tmp__ = stdgo.strconv.Strconv.parseFloat(("-0" : GoString), (32 : GoInt)),
-			_s:GoFloat64 = __tmp__._0,
-			_err:Error = __tmp__._1;
-		if (_err == null) {
-			stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
-		};
-	};
-	{
-		var __tmp__ = stdgo.strconv.Strconv.parseFloat(("+0" : GoString), (32 : GoInt)),
-			_s:GoFloat64 = __tmp__._0,
-			_err:Error = __tmp__._1;
-		if (_err == null) {
-			stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
-		};
-	};
-}
+        var _v:GoString = ("3.1415926535" : GoString);
+        {
+            var __tmp__ = stdgo.strconv.Strconv.parseFloat(_v, (32 : GoInt)), _s:GoFloat64 = __tmp__._0, _err:Error = __tmp__._1;
+            if (_err == null) {
+                stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
+            };
+        };
+        {
+            var __tmp__ = stdgo.strconv.Strconv.parseFloat(_v, (64 : GoInt)), _s:GoFloat64 = __tmp__._0, _err:Error = __tmp__._1;
+            if (_err == null) {
+                stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
+            };
+        };
+        {
+            var __tmp__ = stdgo.strconv.Strconv.parseFloat(("NaN" : GoString), (32 : GoInt)), _s:GoFloat64 = __tmp__._0, _err:Error = __tmp__._1;
+            if (_err == null) {
+                stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
+            };
+        };
+        {
+            var __tmp__ = stdgo.strconv.Strconv.parseFloat(("nan" : GoString), (32 : GoInt)), _s:GoFloat64 = __tmp__._0, _err:Error = __tmp__._1;
+            if (_err == null) {
+                stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
+            };
+        };
+        {
+            var __tmp__ = stdgo.strconv.Strconv.parseFloat(("inf" : GoString), (32 : GoInt)), _s:GoFloat64 = __tmp__._0, _err:Error = __tmp__._1;
+            if (_err == null) {
+                stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
+            };
+        };
+        {
+            var __tmp__ = stdgo.strconv.Strconv.parseFloat(("+Inf" : GoString), (32 : GoInt)), _s:GoFloat64 = __tmp__._0, _err:Error = __tmp__._1;
+            if (_err == null) {
+                stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
+            };
+        };
+        {
+            var __tmp__ = stdgo.strconv.Strconv.parseFloat(("-Inf" : GoString), (32 : GoInt)), _s:GoFloat64 = __tmp__._0, _err:Error = __tmp__._1;
+            if (_err == null) {
+                stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
+            };
+        };
+        {
+            var __tmp__ = stdgo.strconv.Strconv.parseFloat(("-0" : GoString), (32 : GoInt)), _s:GoFloat64 = __tmp__._0, _err:Error = __tmp__._1;
+            if (_err == null) {
+                stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
+            };
+        };
+        {
+            var __tmp__ = stdgo.strconv.Strconv.parseFloat(("+0" : GoString), (32 : GoInt)), _s:GoFloat64 = __tmp__._0, _err:Error = __tmp__._1;
+            if (_err == null) {
+                stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
+            };
+        };
+    }
 ```
 
 
@@ -1339,7 +1603,7 @@ function exampleParseFloat():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L1975>)
+[\(view code\)](<./Strconv.hx#L2978>)
 
 
 ## function parseFloatPrefix
@@ -1350,10 +1614,10 @@ function parseFloatPrefix(_s:stdgo.GoString, _bitSize:stdgo.GoInt):{_2:stdgo.Err
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3682>)
+
+[\(view code\)](<./Strconv.hx#L4493>)
 
 
 ## function parseInt
@@ -1364,7 +1628,42 @@ function parseInt(_s:stdgo.GoString, _base:stdgo.GoInt, _bitSize:stdgo.GoInt):{_
 ```
 
 
-ParseInt interprets a string s in the given base \(0, 2 to 36\) and  bit size \(0 to 64\) and returns the corresponding value i.    The string may begin with a leading sign: "\+" or "\-".    If the base argument is 0, the true base is implied by the string's  prefix following the sign \(if present\): 2 for "0b", 8 for "0" or "0o",  16 for "0x", and 10 otherwise. Also, for argument base 0 only,  underscore characters are permitted as defined by the Go syntax for  \[integer literals\].    The bitSize argument specifies the integer type  that the result must fit into. Bit sizes 0, 8, 16, 32, and 64  correspond to int, int8, int16, int32, and int64.  If bitSize is below 0 or above 64, an error is returned.    The errors that ParseInt returns have concrete type \*NumError  and include err.Num = s. If s is empty or contains invalid  digits, err.Err = ErrSyntax and the returned value is 0;  if the value corresponding to s cannot be represented by a  signed integer of the given size, err.Err = ErrRange and the  returned value is the maximum magnitude integer of the  appropriate bitSize and sign.    \[integer literals\]: https://go.dev/ref/spec#Integer_literals 
+ParseInt interprets a string s in the given base \(0, 2 to 36\) and  
+bit size \(0 to 64\) and returns the corresponding value i.  
+
+
+
+The string may begin with a leading sign: "\+" or "\-".  
+
+
+
+If the base argument is 0, the true base is implied by the string's  
+prefix following the sign \(if present\): 2 for "0b", 8 for "0" or "0o",  
+16 for "0x", and 10 otherwise. Also, for argument base 0 only,  
+underscore characters are permitted as defined by the Go syntax for  
+\[integer literals\].  
+
+
+
+The bitSize argument specifies the integer type  
+that the result must fit into. Bit sizes 0, 8, 16, 32, and 64  
+correspond to int, int8, int16, int32, and int64.  
+If bitSize is below 0 or above 64, an error is returned.  
+
+
+
+The errors that ParseInt returns have concrete type \*NumError  
+and include err.Num = s. If s is empty or contains invalid  
+digits, err.Err = ErrSyntax and the returned value is 0;  
+if the value corresponding to s cannot be represented by a  
+signed integer of the given size, err.Err = ErrRange and the  
+returned value is the maximum magnitude integer of the  
+appropriate bitSize and sign.  
+
+
+
+\[integer literals\]: https://go.dev/ref/spec#Integer_literals  
+
 
 
 ### exampleParseInt
@@ -1376,41 +1675,33 @@ ParseInt interprets a string s in the given base \(0, 2 to 36\) and  bit size \(
 
 ```haxe
 function exampleParseInt():Void {
-	var _v32:GoString = ("-354634382" : GoString);
-	{
-		var __tmp__ = stdgo.strconv.Strconv.parseInt(_v32, (10 : GoInt), (32 : GoInt)),
-			_s:GoInt64 = __tmp__._0,
-			_err:Error = __tmp__._1;
-		if (_err == null) {
-			stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
-		};
-	};
-	{
-		var __tmp__ = stdgo.strconv.Strconv.parseInt(_v32, (16 : GoInt), (32 : GoInt)),
-			_s:GoInt64 = __tmp__._0,
-			_err:Error = __tmp__._1;
-		if (_err == null) {
-			stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
-		};
-	};
-	var _v64:GoString = ("-3546343826724305832" : GoString);
-	{
-		var __tmp__ = stdgo.strconv.Strconv.parseInt(_v64, (10 : GoInt), (64 : GoInt)),
-			_s:GoInt64 = __tmp__._0,
-			_err:Error = __tmp__._1;
-		if (_err == null) {
-			stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
-		};
-	};
-	{
-		var __tmp__ = stdgo.strconv.Strconv.parseInt(_v64, (16 : GoInt), (64 : GoInt)),
-			_s:GoInt64 = __tmp__._0,
-			_err:Error = __tmp__._1;
-		if (_err == null) {
-			stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
-		};
-	};
-}
+        var _v32:GoString = ("-354634382" : GoString);
+        {
+            var __tmp__ = stdgo.strconv.Strconv.parseInt(_v32, (10 : GoInt), (32 : GoInt)), _s:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+            if (_err == null) {
+                stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
+            };
+        };
+        {
+            var __tmp__ = stdgo.strconv.Strconv.parseInt(_v32, (16 : GoInt), (32 : GoInt)), _s:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+            if (_err == null) {
+                stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
+            };
+        };
+        var _v64:GoString = ("-3546343826724305832" : GoString);
+        {
+            var __tmp__ = stdgo.strconv.Strconv.parseInt(_v64, (10 : GoInt), (64 : GoInt)), _s:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+            if (_err == null) {
+                stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
+            };
+        };
+        {
+            var __tmp__ = stdgo.strconv.Strconv.parseInt(_v64, (16 : GoInt), (64 : GoInt)), _s:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
+            if (_err == null) {
+                stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
+            };
+        };
+    }
 ```
 
 
@@ -1418,7 +1709,7 @@ function exampleParseInt():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L2131>)
+[\(view code\)](<./Strconv.hx#L3137>)
 
 
 ## function parseUint
@@ -1429,7 +1720,12 @@ function parseUint(_s:stdgo.GoString, _base:stdgo.GoInt, _bitSize:stdgo.GoInt):{
 ```
 
 
-ParseUint is like ParseInt but for unsigned numbers.    A sign prefix is not permitted. 
+ParseUint is like ParseInt but for unsigned numbers.  
+
+
+
+A sign prefix is not permitted.  
+
 
 
 ### exampleParseUint
@@ -1441,24 +1737,20 @@ ParseUint is like ParseInt but for unsigned numbers.    A sign prefix is not per
 
 ```haxe
 function exampleParseUint():Void {
-	var _v:GoString = ("42" : GoString);
-	{
-		var __tmp__ = stdgo.strconv.Strconv.parseUint(_v, (10 : GoInt), (32 : GoInt)),
-			_s:GoUInt64 = __tmp__._0,
-			_err:Error = __tmp__._1;
-		if (_err == null) {
-			stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
-		};
-	};
-	{
-		var __tmp__ = stdgo.strconv.Strconv.parseUint(_v, (10 : GoInt), (64 : GoInt)),
-			_s:GoUInt64 = __tmp__._0,
-			_err:Error = __tmp__._1;
-		if (_err == null) {
-			stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
-		};
-	};
-}
+        var _v:GoString = ("42" : GoString);
+        {
+            var __tmp__ = stdgo.strconv.Strconv.parseUint(_v, (10 : GoInt), (32 : GoInt)), _s:GoUInt64 = __tmp__._0, _err:Error = __tmp__._1;
+            if (_err == null) {
+                stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
+            };
+        };
+        {
+            var __tmp__ = stdgo.strconv.Strconv.parseUint(_v, (10 : GoInt), (64 : GoInt)), _s:GoUInt64 = __tmp__._0, _err:Error = __tmp__._1;
+            if (_err == null) {
+                stdgo.fmt.Fmt.printf(("%T, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_s));
+            };
+        };
+    }
 ```
 
 
@@ -1466,7 +1758,7 @@ function exampleParseUint():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L2030>)
+[\(view code\)](<./Strconv.hx#L3037>)
 
 
 ## function quote
@@ -1477,7 +1769,11 @@ function quote(_s:stdgo.GoString):stdgo.GoString
 ```
 
 
-Quote returns a double\-quoted Go string literal representing s. The  returned string uses Go escape sequences \(\\t, \\n, \\xFF, \\u0100\) for  control characters and non\-printable characters as defined by  IsPrint. 
+Quote returns a double\-quoted Go string literal representing s. The  
+returned string uses Go escape sequences \(\\t, \\n, \\xFF, \\u0100\) for  
+control characters and non\-printable characters as defined by  
+IsPrint.  
+
 
 
 ### exampleQuote
@@ -1489,9 +1785,9 @@ Quote returns a double\-quoted Go string literal representing s. The  returned s
 
 ```haxe
 function exampleQuote():Void {
-	var _s:GoString = stdgo.strconv.Strconv.quote(("\"Fran & Freddie\'s Diner\t☺\"" : GoString));
-	stdgo.fmt.Fmt.println(Go.toInterface(_s));
-}
+        var _s:GoString = stdgo.strconv.Strconv.quote(("\"Fran & Freddie\'s Diner\t☺\"" : GoString));
+        stdgo.fmt.Fmt.println(Go.toInterface(_s));
+    }
 ```
 
 
@@ -1499,7 +1795,7 @@ function exampleQuote():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4029>)
+[\(view code\)](<./Strconv.hx#L4802>)
 
 
 ## function quoteRune
@@ -1510,7 +1806,12 @@ function quoteRune(_r:stdgo.GoRune):stdgo.GoString
 ```
 
 
-QuoteRune returns a single\-quoted Go character literal representing the  rune. The returned string uses Go escape sequences \(\\t, \\n, \\xFF, \\u0100\)  for control characters and non\-printable characters as defined by IsPrint.  If r is not a valid Unicode code point, it is interpreted as the Unicode  replacement character U\+FFFD. 
+QuoteRune returns a single\-quoted Go character literal representing the  
+rune. The returned string uses Go escape sequences \(\\t, \\n, \\xFF, \\u0100\)  
+for control characters and non\-printable characters as defined by IsPrint.  
+If r is not a valid Unicode code point, it is interpreted as the Unicode  
+replacement character U\+FFFD.  
+
 
 
 ### exampleQuoteRune
@@ -1522,9 +1823,9 @@ QuoteRune returns a single\-quoted Go character literal representing the  rune. 
 
 ```haxe
 function exampleQuoteRune():Void {
-	var _s:GoString = stdgo.strconv.Strconv.quoteRune((9786 : GoInt32));
-	stdgo.fmt.Fmt.println(Go.toInterface(_s));
-}
+        var _s:GoString = stdgo.strconv.Strconv.quoteRune((9786 : GoInt32));
+        stdgo.fmt.Fmt.println(Go.toInterface(_s));
+    }
 ```
 
 
@@ -1532,7 +1833,7 @@ function exampleQuoteRune():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4083>)
+[\(view code\)](<./Strconv.hx#L4850>)
 
 
 ## function quoteRuneToASCII
@@ -1543,7 +1844,13 @@ function quoteRuneToASCII(_r:stdgo.GoRune):stdgo.GoString
 ```
 
 
-QuoteRuneToASCII returns a single\-quoted Go character literal representing  the rune. The returned string uses Go escape sequences \(\\t, \\n, \\xFF,  \\u0100\) for non\-ASCII characters and non\-printable characters as defined  by IsPrint.  If r is not a valid Unicode code point, it is interpreted as the Unicode  replacement character U\+FFFD. 
+QuoteRuneToASCII returns a single\-quoted Go character literal representing  
+the rune. The returned string uses Go escape sequences \(\\t, \\n, \\xFF,  
+\\u0100\) for non\-ASCII characters and non\-printable characters as defined  
+by IsPrint.  
+If r is not a valid Unicode code point, it is interpreted as the Unicode  
+replacement character U\+FFFD.  
+
 
 
 ### exampleQuoteRuneToASCII
@@ -1555,9 +1862,9 @@ QuoteRuneToASCII returns a single\-quoted Go character literal representing  the
 
 ```haxe
 function exampleQuoteRuneToASCII():Void {
-	var _s:GoString = stdgo.strconv.Strconv.quoteRuneToASCII((9786 : GoInt32));
-	stdgo.fmt.Fmt.println(Go.toInterface(_s));
-}
+        var _s:GoString = stdgo.strconv.Strconv.quoteRuneToASCII((9786 : GoInt32));
+        stdgo.fmt.Fmt.println(Go.toInterface(_s));
+    }
 ```
 
 
@@ -1565,7 +1872,7 @@ function exampleQuoteRuneToASCII():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4103>)
+[\(view code\)](<./Strconv.hx#L4868>)
 
 
 ## function quoteRuneToGraphic
@@ -1576,7 +1883,13 @@ function quoteRuneToGraphic(_r:stdgo.GoRune):stdgo.GoString
 ```
 
 
-QuoteRuneToGraphic returns a single\-quoted Go character literal representing  the rune. If the rune is not a Unicode graphic character,  as defined by IsGraphic, the returned string will use a Go escape sequence  \(\\t, \\n, \\xFF, \\u0100\).  If r is not a valid Unicode code point, it is interpreted as the Unicode  replacement character U\+FFFD. 
+QuoteRuneToGraphic returns a single\-quoted Go character literal representing  
+the rune. If the rune is not a Unicode graphic character,  
+as defined by IsGraphic, the returned string will use a Go escape sequence  
+\(\\t, \\n, \\xFF, \\u0100\).  
+If r is not a valid Unicode code point, it is interpreted as the Unicode  
+replacement character U\+FFFD.  
+
 
 
 ### exampleQuoteRuneToGraphic
@@ -1588,15 +1901,15 @@ QuoteRuneToGraphic returns a single\-quoted Go character literal representing  t
 
 ```haxe
 function exampleQuoteRuneToGraphic():Void {
-	var _s:GoString = stdgo.strconv.Strconv.quoteRuneToGraphic((9786 : GoInt32));
-	stdgo.fmt.Fmt.println(Go.toInterface(_s));
-	_s = stdgo.strconv.Strconv.quoteRuneToGraphic((9786 : GoInt32));
-	stdgo.fmt.Fmt.println(Go.toInterface(_s));
-	_s = stdgo.strconv.Strconv.quoteRuneToGraphic((10 : GoInt32));
-	stdgo.fmt.Fmt.println(Go.toInterface(_s));
-	_s = stdgo.strconv.Strconv.quoteRuneToGraphic((9 : GoInt32));
-	stdgo.fmt.Fmt.println(Go.toInterface(_s));
-}
+        var _s:GoString = stdgo.strconv.Strconv.quoteRuneToGraphic((9786 : GoInt32));
+        stdgo.fmt.Fmt.println(Go.toInterface(_s));
+        _s = stdgo.strconv.Strconv.quoteRuneToGraphic((9786 : GoInt32));
+        stdgo.fmt.Fmt.println(Go.toInterface(_s));
+        _s = stdgo.strconv.Strconv.quoteRuneToGraphic((10 : GoInt32));
+        stdgo.fmt.Fmt.println(Go.toInterface(_s));
+        _s = stdgo.strconv.Strconv.quoteRuneToGraphic((9 : GoInt32));
+        stdgo.fmt.Fmt.println(Go.toInterface(_s));
+    }
 ```
 
 
@@ -1604,7 +1917,7 @@ function exampleQuoteRuneToGraphic():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4123>)
+[\(view code\)](<./Strconv.hx#L4886>)
 
 
 ## function quoteToASCII
@@ -1615,7 +1928,10 @@ function quoteToASCII(_s:stdgo.GoString):stdgo.GoString
 ```
 
 
-QuoteToASCII returns a double\-quoted Go string literal representing s.  The returned string uses Go escape sequences \(\\t, \\n, \\xFF, \\u0100\) for  non\-ASCII characters and non\-printable characters as defined by IsPrint. 
+QuoteToASCII returns a double\-quoted Go string literal representing s.  
+The returned string uses Go escape sequences \(\\t, \\n, \\xFF, \\u0100\) for  
+non\-ASCII characters and non\-printable characters as defined by IsPrint.  
+
 
 
 ### exampleQuoteToASCII
@@ -1627,9 +1943,9 @@ QuoteToASCII returns a double\-quoted Go string literal representing s.  The ret
 
 ```haxe
 function exampleQuoteToASCII():Void {
-	var _s:GoString = stdgo.strconv.Strconv.quoteToASCII(("\"Fran & Freddie\'s Diner\t☺\"" : GoString));
-	stdgo.fmt.Fmt.println(Go.toInterface(_s));
-}
+        var _s:GoString = stdgo.strconv.Strconv.quoteToASCII(("\"Fran & Freddie\'s Diner\t☺\"" : GoString));
+        stdgo.fmt.Fmt.println(Go.toInterface(_s));
+    }
 ```
 
 
@@ -1637,7 +1953,7 @@ function exampleQuoteToASCII():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4046>)
+[\(view code\)](<./Strconv.hx#L4817>)
 
 
 ## function quoteToGraphic
@@ -1648,7 +1964,11 @@ function quoteToGraphic(_s:stdgo.GoString):stdgo.GoString
 ```
 
 
-QuoteToGraphic returns a double\-quoted Go string literal representing s.  The returned string leaves Unicode graphic characters, as defined by  IsGraphic, unchanged and uses Go escape sequences \(\\t, \\n, \\xFF, \\u0100\)  for non\-graphic characters. 
+QuoteToGraphic returns a double\-quoted Go string literal representing s.  
+The returned string leaves Unicode graphic characters, as defined by  
+IsGraphic, unchanged and uses Go escape sequences \(\\t, \\n, \\xFF, \\u0100\)  
+for non\-graphic characters.  
+
 
 
 ### exampleQuoteToGraphic
@@ -1660,13 +1980,13 @@ QuoteToGraphic returns a double\-quoted Go string literal representing s.  The r
 
 ```haxe
 function exampleQuoteToGraphic():Void {
-	var _s:GoString = stdgo.strconv.Strconv.quoteToGraphic(("☺" : GoString));
-	stdgo.fmt.Fmt.println(Go.toInterface(_s));
-	_s = stdgo.strconv.Strconv.quoteToGraphic(("This is a ☺\t\n" : GoString));
-	stdgo.fmt.Fmt.println(Go.toInterface(_s));
-	_s = stdgo.strconv.Strconv.quoteToGraphic(("\" This is a ☺ \\n \"" : GoString));
-	stdgo.fmt.Fmt.println(Go.toInterface(_s));
-}
+        var _s:GoString = stdgo.strconv.Strconv.quoteToGraphic(("☺" : GoString));
+        stdgo.fmt.Fmt.println(Go.toInterface(_s));
+        _s = stdgo.strconv.Strconv.quoteToGraphic(("This is a ☺\t\n" : GoString));
+        stdgo.fmt.Fmt.println(Go.toInterface(_s));
+        _s = stdgo.strconv.Strconv.quoteToGraphic(("\" This is a ☺ \\n \"" : GoString));
+        stdgo.fmt.Fmt.println(Go.toInterface(_s));
+    }
 ```
 
 
@@ -1674,7 +1994,7 @@ function exampleQuoteToGraphic():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4064>)
+[\(view code\)](<./Strconv.hx#L4833>)
 
 
 ## function quotedPrefix
@@ -1685,10 +2005,12 @@ function quotedPrefix(_s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoString}
 ```
 
 
-QuotedPrefix returns the quoted string \(as understood by Unquote\) at the prefix of s.  If s does not start with a valid quoted string, QuotedPrefix returns an error. 
+QuotedPrefix returns the quoted string \(as understood by Unquote\) at the prefix of s.  
+If s does not start with a valid quoted string, QuotedPrefix returns an error.  
 
 
-[\(view code\)](<./Strconv.hx#L4408>)
+
+[\(view code\)](<./Strconv.hx#L5081>)
 
 
 ## function setOptimize
@@ -1699,10 +2021,10 @@ function setOptimize(_b:Bool):Bool
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L3676>)
+
+[\(view code\)](<./Strconv.hx#L4488>)
 
 
 ## function unquote
@@ -1713,7 +2035,12 @@ function unquote(_s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoString}
 ```
 
 
-Unquote interprets s as a single\-quoted, double\-quoted,  or backquoted Go string literal, returning the string value  that s quotes.  \(If s is single\-quoted, it would be a Go  character literal; Unquote returns the corresponding  one\-character string.\) 
+Unquote interprets s as a single\-quoted, double\-quoted,  
+or backquoted Go string literal, returning the string value  
+that s quotes.  \(If s is single\-quoted, it would be a Go  
+character literal; Unquote returns the corresponding  
+one\-character string.\)  
+
 
 
 ### exampleUnquote
@@ -1725,35 +2052,33 @@ Unquote interprets s as a single\-quoted, double\-quoted,  or backquoted Go stri
 
 ```haxe
 function exampleUnquote():Void {
-	var __tmp__ = stdgo.strconv.Strconv.unquote(("You can\'t unquote a string without quotes" : GoString)),
-		_s:GoString = __tmp__._0,
-		_err:Error = __tmp__._1;
-	stdgo.fmt.Fmt.printf(("%q, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_err));
-	{
-		var __tmp__ = stdgo.strconv.Strconv.unquote(("\"The string must be either double-quoted\"" : GoString));
-		_s = __tmp__._0;
-		_err = __tmp__._1;
-	};
-	stdgo.fmt.Fmt.printf(("%q, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_err));
-	{
-		var __tmp__ = stdgo.strconv.Strconv.unquote(("`or backquoted.`" : GoString));
-		_s = __tmp__._0;
-		_err = __tmp__._1;
-	};
-	stdgo.fmt.Fmt.printf(("%q, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_err));
-	{
-		var __tmp__ = stdgo.strconv.Strconv.unquote(("\'☺\'" : GoString));
-		_s = __tmp__._0;
-		_err = __tmp__._1;
-	};
-	stdgo.fmt.Fmt.printf(("%q, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_err));
-	{
-		var __tmp__ = stdgo.strconv.Strconv.unquote(("\'☹☹\'" : GoString));
-		_s = __tmp__._0;
-		_err = __tmp__._1;
-	};
-	stdgo.fmt.Fmt.printf(("%q, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_err));
-}
+        var __tmp__ = stdgo.strconv.Strconv.unquote(("You can\'t unquote a string without quotes" : GoString)), _s:GoString = __tmp__._0, _err:Error = __tmp__._1;
+        stdgo.fmt.Fmt.printf(("%q, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_err));
+        {
+            var __tmp__ = stdgo.strconv.Strconv.unquote(("\"The string must be either double-quoted\"" : GoString));
+            _s = __tmp__._0;
+            _err = __tmp__._1;
+        };
+        stdgo.fmt.Fmt.printf(("%q, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_err));
+        {
+            var __tmp__ = stdgo.strconv.Strconv.unquote(("`or backquoted.`" : GoString));
+            _s = __tmp__._0;
+            _err = __tmp__._1;
+        };
+        stdgo.fmt.Fmt.printf(("%q, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_err));
+        {
+            var __tmp__ = stdgo.strconv.Strconv.unquote(("\'☺\'" : GoString));
+            _s = __tmp__._0;
+            _err = __tmp__._1;
+        };
+        stdgo.fmt.Fmt.printf(("%q, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_err));
+        {
+            var __tmp__ = stdgo.strconv.Strconv.unquote(("\'☹☹\'" : GoString));
+            _s = __tmp__._0;
+            _err = __tmp__._1;
+        };
+        stdgo.fmt.Fmt.printf(("%q, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_err));
+    }
 ```
 
 
@@ -1761,7 +2086,7 @@ function exampleUnquote():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4423>)
+[\(view code\)](<./Strconv.hx#L5092>)
 
 
 ## function unquoteChar
@@ -1772,7 +2097,25 @@ function unquoteChar(_s:stdgo.GoString, _quote:stdgo.GoByte):{_3:stdgo.Error, _2
 ```
 
 
-UnquoteChar decodes the first character or byte in the escaped string  or character literal represented by the string s.  It returns four values:    1. value, the decoded Unicode code point or byte value;  2. multibyte, a boolean indicating whether the decoded character requires a multibyte UTF\-8 representation;  3. tail, the remainder of the string after the character; and  4. an error that will be nil if the character is syntactically valid.    The second argument, quote, specifies the type of literal being parsed  and therefore which escaped quote character is permitted.  If set to a single quote, it permits the sequence \\' and disallows unescaped '.  If set to a double quote, it permits \\" and disallows unescaped ".  If set to zero, it does not permit either escape and allows both quote characters to appear unescaped. 
+UnquoteChar decodes the first character or byte in the escaped string  
+or character literal represented by the string s.  
+It returns four values:  
+
+
+
+1. value, the decoded Unicode code point or byte value;  
+2. multibyte, a boolean indicating whether the decoded character requires a multibyte UTF\-8 representation;  
+3. tail, the remainder of the string after the character; and  
+4. an error that will be nil if the character is syntactically valid.  
+
+
+
+The second argument, quote, specifies the type of literal being parsed  
+and therefore which escaped quote character is permitted.  
+If set to a single quote, it permits the sequence \\' and disallows unescaped '.  
+If set to a double quote, it permits \\" and disallows unescaped ".  
+If set to zero, it does not permit either escape and allows both quote characters to appear unescaped.  
+
 
 
 ### exampleUnquoteChar
@@ -1784,18 +2127,14 @@ UnquoteChar decodes the first character or byte in the escaped string  or charac
 
 ```haxe
 function exampleUnquoteChar():Void {
-	var __tmp__ = stdgo.strconv.Strconv.unquoteChar(("\\\"Fran & Freddie\'s Diner\\\"" : GoString), (34 : GoUInt8)),
-		_v:GoInt32 = __tmp__._0,
-		_mb:Bool = __tmp__._1,
-		_t:GoString = __tmp__._2,
-		_err:Error = __tmp__._3;
-	if (_err != null) {
-		stdgo.log.Log.fatal(Go.toInterface(_err));
-	};
-	stdgo.fmt.Fmt.println(Go.toInterface(("value:" : GoString)), Go.toInterface((_v : GoString)));
-	stdgo.fmt.Fmt.println(Go.toInterface(("multibyte:" : GoString)), Go.toInterface(_mb));
-	stdgo.fmt.Fmt.println(Go.toInterface(("tail:" : GoString)), Go.toInterface(_t));
-}
+        var __tmp__ = stdgo.strconv.Strconv.unquoteChar(("\\\"Fran & Freddie\'s Diner\\\"" : GoString), (34 : GoUInt8)), _v:GoInt32 = __tmp__._0, _mb:Bool = __tmp__._1, _t:GoString = __tmp__._2, _err:Error = __tmp__._3;
+        if (_err != null) {
+            stdgo.log.Log.fatal(Go.toInterface(_err));
+        };
+        stdgo.fmt.Fmt.println(Go.toInterface(("value:" : GoString)), Go.toInterface((_v : GoString)));
+        stdgo.fmt.Fmt.println(Go.toInterface(("multibyte:" : GoString)), Go.toInterface(_mb));
+        stdgo.fmt.Fmt.println(Go.toInterface(("tail:" : GoString)), Go.toInterface(_t));
+    }
 ```
 
 
@@ -1803,7 +2142,7 @@ function exampleUnquoteChar():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4196>)
+[\(view code\)](<./Strconv.hx#L4948>)
 
 
 # Classes
@@ -1817,7 +2156,8 @@ import stdgo.strconv.*
 ## class NumError
 
 
-A NumError records a failed conversion. 
+A NumError records a failed conversion.  
+
 
 
 ```haxe
@@ -1843,10 +2183,10 @@ function new(?func:stdgo.GoString, ?num:stdgo.GoString, ?err:Null<stdgo.Error>):
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L1098>)
+
+[\(view code\)](<./Strconv.hx#L2274>)
 
 
 ### NumError function error
@@ -1857,10 +2197,10 @@ function error():stdgo.GoString
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4693>)
+
+[\(view code\)](<./Strconv.hx#L5308>)
 
 
 ### NumError function unwrap
@@ -1871,175 +2211,291 @@ function unwrap():stdgo.Error
 ```
 
 
- 
 
 
-[\(view code\)](<./Strconv.hx#L4688>)
+
+[\(view code\)](<./Strconv.hx#L5304>)
 
 
-## class NumError\_static\_extension
+## class T\_decimal
 
 
- 
 
-
-### NumError\_static\_extension function error
 
 
 ```haxe
-function error():stdgo.GoString
+var _d:stdgo.GoArray<stdgo.GoUInt8>
 ```
-
-
- 
-
-
-[\(view code\)](<./Strconv.hx#L4693>)
-
-
-### NumError\_static\_extension function unwrap
 
 
 ```haxe
-function unwrap():stdgo.Error
+var _dp:stdgo.GoInt
 ```
-
-
- 
-
-
-[\(view code\)](<./Strconv.hx#L4688>)
-
-
-## class T\_decimal\_static\_extension
-
-
- 
-
-
-### T\_decimal\_static\_extension function \_floatBits
 
 
 ```haxe
-function _floatBits(_d:stdgo.Ref<stdgo.strconv._Strconv.T_decimal>, _flt:stdgo.Ref<stdgo.strconv._Strconv.T_floatInfo>):{_1:Bool, _0:stdgo.GoUInt64}
+var _nd:stdgo.GoInt
 ```
-
-
- 
-
-
-[\(view code\)](<./Strconv.hx#L4931>)
-
-
-### T\_decimal\_static\_extension function \_set
 
 
 ```haxe
-function _set(_b:stdgo.Ref<stdgo.strconv._Strconv.T_decimal>, _s:stdgo.GoString):Bool
+var _neg:Bool
 ```
-
-
- 
-
-
-[\(view code\)](<./Strconv.hx#L5005>)
-
-
-### T\_decimal\_static\_extension function assign
 
 
 ```haxe
-function assign(_a:stdgo.Ref<stdgo.strconv._Strconv.T_decimal>, _v:stdgo.GoUInt64):Void
+var _trunc:Bool
 ```
 
 
-Assign v to a. 
-
-
-[\(view code\)](<./Strconv.hx#L4876>)
-
-
-### T\_decimal\_static\_extension function round
+### T\_decimal function new
 
 
 ```haxe
-function round(_a:stdgo.Ref<stdgo.strconv._Strconv.T_decimal>, _nd:stdgo.GoInt):Void
+function new(?_d:stdgo.GoArray<stdgo.GoUInt8>, ?_nd:Null<stdgo.GoInt>, ?_dp:Null<stdgo.GoInt>, ?_neg:Bool, ?_trunc:Bool):Void
 ```
 
 
-Round a to nd digits \(or fewer\).   If nd is zero, it means we're rounding   just to the left of the digits, as in   0.09 \-\> 0.1. 
 
 
-[\(view code\)](<./Strconv.hx#L4841>)
+
+[\(view code\)](<./Strconv.hx#L2295>)
 
 
-### T\_decimal\_static\_extension function roundDown
+### T\_decimal function \_floatBits
 
 
 ```haxe
-function roundDown(_a:stdgo.Ref<stdgo.strconv._Strconv.T_decimal>, _nd:stdgo.GoInt):Void
+function _floatBits( _flt:stdgo.Ref<stdgo.strconv.T_floatInfo>):{_1:Bool, _0:stdgo.GoUInt64}
 ```
 
 
-Round a down to nd digits \(or fewer\). 
 
 
-[\(view code\)](<./Strconv.hx#L4826>)
+
+[\(view code\)](<./Strconv.hx#L5514>)
 
 
-### T\_decimal\_static\_extension function roundUp
+### T\_decimal function \_set
 
 
 ```haxe
-function roundUp(_a:stdgo.Ref<stdgo.strconv._Strconv.T_decimal>, _nd:stdgo.GoInt):Void
+function _set( _s:stdgo.GoString):Bool
 ```
 
 
-Round a up to nd digits \(or fewer\). 
 
 
-[\(view code\)](<./Strconv.hx#L4802>)
+
+[\(view code\)](<./Strconv.hx#L5587>)
 
 
-### T\_decimal\_static\_extension function roundedInteger
+### T\_decimal function assign
 
 
 ```haxe
-function roundedInteger(_a:stdgo.Ref<stdgo.strconv._Strconv.T_decimal>):stdgo.GoUInt64
+function assign( _v:stdgo.GoUInt64):Void
 ```
 
 
-Extract integer part, rounded appropriately.   No guarantees about overflow. 
+Assign v to a.  
 
 
-[\(view code\)](<./Strconv.hx#L4777>)
+
+[\(view code\)](<./Strconv.hx#L5461>)
 
 
-### T\_decimal\_static\_extension function shift
+### T\_decimal function round
 
 
 ```haxe
-function shift(_a:stdgo.Ref<stdgo.strconv._Strconv.T_decimal>, _k:stdgo.GoInt):Void
+function round( _nd:stdgo.GoInt):Void
 ```
 
 
-Binary shift left \(k \> 0\) or right \(k \< 0\). 
+Round a to nd digits \(or fewer\).  
+If nd is zero, it means we're rounding  
+just to the left of the digits, as in  
+0.09 \-\> 0.1.  
 
 
-[\(view code\)](<./Strconv.hx#L4856>)
+
+[\(view code\)](<./Strconv.hx#L5428>)
 
 
-### T\_decimal\_static\_extension function string
+### T\_decimal function roundDown
 
 
 ```haxe
-function string(_a:stdgo.Ref<stdgo.strconv._Strconv.T_decimal>):stdgo.GoString
+function roundDown( _nd:stdgo.GoInt):Void
 ```
 
 
- 
+Round a down to nd digits \(or fewer\).  
 
 
-[\(view code\)](<./Strconv.hx#L4899>)
+
+[\(view code\)](<./Strconv.hx#L5414>)
+
+
+### T\_decimal function roundUp
+
+
+```haxe
+function roundUp( _nd:stdgo.GoInt):Void
+```
+
+
+Round a up to nd digits \(or fewer\).  
+
+
+
+[\(view code\)](<./Strconv.hx#L5391>)
+
+
+### T\_decimal function roundedInteger
+
+
+```haxe
+function roundedInteger():stdgo.GoUInt64
+```
+
+
+Extract integer part, rounded appropriately.  
+No guarantees about overflow.  
+
+
+
+[\(view code\)](<./Strconv.hx#L5367>)
+
+
+### T\_decimal function shift
+
+
+```haxe
+function shift( _k:stdgo.GoInt):Void
+```
+
+
+Binary shift left \(k \> 0\) or right \(k \< 0\).  
+
+
+
+[\(view code\)](<./Strconv.hx#L5442>)
+
+
+### T\_decimal function string
+
+
+```haxe
+function string():stdgo.GoString
+```
+
+
+
+
+
+[\(view code\)](<./Strconv.hx#L5483>)
+
+
+## class T\_decimalSlice
+
+
+
+
+
+```haxe
+var _d:stdgo.Slice<stdgo.GoUInt8>
+```
+
+
+```haxe
+var _dp:stdgo.GoInt
+```
+
+
+```haxe
+var _nd:stdgo.GoInt
+```
+
+
+### T\_decimalSlice function new
+
+
+```haxe
+function new(?_d:stdgo.Slice<stdgo.GoUInt8>, ?_nd:Null<stdgo.GoInt>, ?_dp:Null<stdgo.GoInt>):Void
+```
+
+
+
+
+
+[\(view code\)](<./Strconv.hx#L2352>)
+
+
+## class T\_floatInfo
+
+
+TODO: move elsewhere?  
+
+
+
+```haxe
+var _bias:stdgo.GoInt
+```
+
+
+```haxe
+var _expbits:stdgo.GoUInt
+```
+
+
+```haxe
+var _mantbits:stdgo.GoUInt
+```
+
+
+### T\_floatInfo function new
+
+
+```haxe
+function new(?_mantbits:Null<stdgo.GoUInt>, ?_expbits:Null<stdgo.GoUInt>, ?_bias:Null<stdgo.GoInt>):Void
+```
+
+
+
+
+
+[\(view code\)](<./Strconv.hx#L2333>)
+
+
+## class T\_leftCheat
+
+
+
+
+
+```haxe
+var _cutoff:stdgo.GoString
+```
+
+
+```haxe
+var _delta:stdgo.GoInt
+```
+
+
+### T\_leftCheat function new
+
+
+```haxe
+function new(?_delta:Null<stdgo.GoInt>, ?_cutoff:stdgo.GoString):Void
+```
+
+
+
+
+
+[\(view code\)](<./Strconv.hx#L2315>)
 
 

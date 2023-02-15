@@ -6,7 +6,7 @@
 # Overview
 
 
- 
+
 
 
 # Index
@@ -99,6 +99,8 @@
 - [`function benchmarkReadString(_b:stdgo.Ref<stdgo.testing.B>):Void`](<#function-benchmarkreadstring>)
 
 - [`function benchmarkRepeat(_b:stdgo.Ref<stdgo.testing.B>):Void`](<#function-benchmarkrepeat>)
+
+- [`function benchmarkRepeatLarge(_b:stdgo.Ref<stdgo.testing.B>):Void`](<#function-benchmarkrepeatlarge>)
 
 - [`function benchmarkSplitEmptySeparator(_b:stdgo.Ref<stdgo.testing.B>):Void`](<#function-benchmarksplitemptyseparator>)
 
@@ -254,6 +256,8 @@
 
 - [`function testCapWithSliceAndWrittenData(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testcapwithsliceandwrittendata>)
 
+- [`function testClone(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testclone>)
+
 - [`function testCompare(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testcompare>)
 
 - [`function testCompareBytes(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testcomparebytes>)
@@ -271,6 +275,10 @@
 - [`function testCountByteNoMatch(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testcountbytenomatch>)
 
 - [`function testCut(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testcut>)
+
+- [`function testCutPrefix(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testcutprefix>)
+
+- [`function testCutSuffix(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testcutsuffix>)
 
 - [`function testEmptyReaderConcurrent(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testemptyreaderconcurrent>)
 
@@ -414,7 +422,7 @@
 
 - [class IndexFuncTest](<#class-indexfunctest>)
 
-  - [`function new(?_in:stdgo.GoString, ?_f:stdgo.bytes_test._Bytes_test.T_predicate, ?_first:Null<stdgo.GoInt>, ?_last:Null<stdgo.GoInt>):Void`](<#indexfunctest-function-new>)
+  - [`function new(?_in:stdgo.GoString, ?_f:stdgo.bytes_test.T_predicate, ?_first:Null<stdgo.GoInt>, ?_last:Null<stdgo.GoInt>):Void`](<#indexfunctest-function-new>)
 
 - [class RepeatTest](<#class-repeattest>)
 
@@ -436,53 +444,43 @@
 
   - [`function new(?_in:stdgo.GoString, ?_out:stdgo.Slice<stdgo.GoUInt8>):Void`](<#stringtest-function-new>)
 
-- [class T\_\_struct\_0\_static\_extension](<#class-t__struct_0_static_extension>)
+- [class T\_justReader\_testReaderCopyNothing\_1](<#class-t_justreader_testreadercopynothing_1>)
 
-- [class T\_\_struct\_10\_static\_extension](<#class-t__struct_10_static_extension>)
+  - [`function new(?reader:Null<stdgo.io.Reader>):Void`](<#t_justreader_testreadercopynothing_1-function-new>)
 
-- [class T\_\_struct\_11\_static\_extension](<#class-t__struct_11_static_extension>)
+  - [`function read(__0:stdgo.Slice<stdgo.GoUInt8>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_justreader_testreadercopynothing_1-function-read>)
 
-- [class T\_\_struct\_12\_static\_extension](<#class-t__struct_12_static_extension>)
+  - [`function read( __0:stdgo.Slice<stdgo.GoUInt8>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_justreader_testreadercopynothing_1-function-read>)
 
-- [class T\_\_struct\_13\_static\_extension](<#class-t__struct_13_static_extension>)
+- [class T\_justWriter\_testReaderCopyNothing\_2](<#class-t_justwriter_testreadercopynothing_2>)
 
-- [class T\_\_struct\_14\_static\_extension](<#class-t__struct_14_static_extension>)
+  - [`function new(?writer:Null<stdgo.io.Writer>):Void`](<#t_justwriter_testreadercopynothing_2-function-new>)
 
-- [class T\_\_struct\_15\_static\_extension](<#class-t__struct_15_static_extension>)
+  - [`function write(__0:stdgo.Slice<stdgo.GoUInt8>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_justwriter_testreadercopynothing_2-function-write>)
 
-- [class T\_\_struct\_1\_static\_extension](<#class-t__struct_1_static_extension>)
+  - [`function write( __0:stdgo.Slice<stdgo.GoUInt8>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_justwriter_testreadercopynothing_2-function-write>)
 
-- [class T\_\_struct\_2\_static\_extension](<#class-t__struct_2_static_extension>)
+- [class T\_nErr\_testReaderCopyNothing\_0](<#class-t_nerr_testreadercopynothing_0>)
 
-- [class T\_\_struct\_3\_static\_extension](<#class-t__struct_3_static_extension>)
+  - [`function new(?_n:stdgo.GoInt64, ?_err:Null<stdgo.Error>):Void`](<#t_nerr_testreadercopynothing_0-function-new>)
 
-- [class T\_\_struct\_4\_static\_extension](<#class-t__struct_4_static_extension>)
+- [class T\_negativeReader](<#class-t_negativereader>)
 
-- [class T\_\_struct\_5\_static\_extension](<#class-t__struct_5_static_extension>)
+  - [`function new():Void`](<#t_negativereader-function-new>)
 
-- [class T\_\_struct\_6\_static\_extension](<#class-t__struct_6_static_extension>)
+  - [`function read( _0:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_negativereader-function-read>)
 
-- [class T\_\_struct\_7\_static\_extension](<#class-t__struct_7_static_extension>)
+- [class T\_panicReader](<#class-t_panicreader>)
 
-- [class T\_\_struct\_8\_static\_extension](<#class-t__struct_8_static_extension>)
+  - [`function new(?_panic:Bool):Void`](<#t_panicreader-function-new>)
 
-- [class T\_\_struct\_9\_static\_extension](<#class-t__struct_9_static_extension>)
+  - [`function read( _p:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_panicreader-function-read>)
 
-- [class T\_justReader\_testReaderCopyNothing\_1\_static\_extension](<#class-t_justreader_testreadercopynothing_1_static_extension>)
+- [class T\_predicate](<#class-t_predicate>)
 
-  - [`function read(__self__:stdgo.bytes_test._Bytes_test.T_justReader_testReaderCopyNothing_1, __0:stdgo.Slice<stdgo.GoUInt8>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_justreader_testreadercopynothing_1_static_extension-function-read>)
+  - [`function _f()`](<#t_predicate-function-_f>)
 
-- [class T\_justWriter\_testReaderCopyNothing\_2\_static\_extension](<#class-t_justwriter_testreadercopynothing_2_static_extension>)
-
-  - [`function write(__self__:stdgo.bytes_test._Bytes_test.T_justWriter_testReaderCopyNothing_2, __0:stdgo.Slice<stdgo.GoUInt8>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_justwriter_testreadercopynothing_2_static_extension-function-write>)
-
-- [class T\_negativeReader\_static\_extension](<#class-t_negativereader_static_extension>)
-
-  - [`function read(_r:stdgo.Ref<stdgo.bytes_test._Bytes_test.T_negativeReader>, _0:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_negativereader_static_extension-function-read>)
-
-- [class T\_panicReader\_static\_extension](<#class-t_panicreader_static_extension>)
-
-  - [`function read(_r:stdgo.bytes_test._Bytes_test.T_panicReader, _p:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_panicreader_static_extension-function-read>)
+  - [`function new(?_f:(), ?_name:stdgo.GoString):Void`](<#t_predicate-function-new>)
 
 - [class TitleTest](<#class-titletest>)
 
@@ -490,7 +488,7 @@
 
 - [class TrimFuncTest](<#class-trimfunctest>)
 
-  - [`function new(?_f:stdgo.bytes_test._Bytes_test.T_predicate, ?_in:stdgo.GoString, ?_trimOut:stdgo.Slice<stdgo.GoUInt8>, ?_leftOut:stdgo.Slice<stdgo.GoUInt8>, ?_rightOut:stdgo.Slice<stdgo.GoUInt8>):Void`](<#trimfunctest-function-new>)
+  - [`function new(?_f:stdgo.bytes_test.T_predicate, ?_in:stdgo.GoString, ?_trimOut:stdgo.Slice<stdgo.GoUInt8>, ?_leftOut:stdgo.Slice<stdgo.GoUInt8>, ?_rightOut:stdgo.Slice<stdgo.GoUInt8>):Void`](<#trimfunctest-function-new>)
 
 - [class TrimNilTest](<#class-trimniltest>)
 
@@ -513,7 +511,8 @@ final n:stdgo.GoUInt64 = (("10000" : GoUInt64))
 ```
 
 
-make this bigger for a larger \(and slower\) test 
+make this bigger for a larger \(and slower\) test  
+
 
 
 # Variables
@@ -530,12 +529,12 @@ var _:Bool
 
 
 ```haxe
-var containsAnyTests:stdgo.Slice<stdgo.bytes_test._Bytes_test.T__struct_9>
+var containsAnyTests:stdgo.Slice<stdgo.bytes_test._Bytes_test.T__struct_10>
 ```
 
 
 ```haxe
-var containsRuneTests:stdgo.Slice<stdgo.bytes_test._Bytes_test.T__struct_10>
+var containsRuneTests:stdgo.Slice<stdgo.bytes_test._Bytes_test.T__struct_11>
 ```
 
 
@@ -570,7 +569,7 @@ var toTitleTests:stdgo.Slice<stdgo.bytes_test.TitleTest>
 
 
 ```haxe
-var unreadRuneErrorTests:stdgo.Slice<stdgo.bytes_test._Bytes_test.T__struct_15>
+var unreadRuneErrorTests:stdgo.Slice<stdgo.bytes_test._Bytes_test.T__struct_16>
 ```
 
 
@@ -595,10 +594,11 @@ function benchmarkBufferFullSmallReads(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-Check that we don't compact too often. From Issue 5154. 
+Check that we don't compact too often. From Issue 5154.  
 
 
-[\(view code\)](<./Bytes.hx#L2438>)
+
+[\(view code\)](<./Bytes.hx#L2087>)
 
 
 ## function benchmarkBufferNotEmptyWriteRead
@@ -609,10 +609,11 @@ function benchmarkBufferNotEmptyWriteRead(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
-From Issue 5154. 
+From Issue 5154.  
 
 
-[\(view code\)](<./Bytes.hx#L2417>)
+
+[\(view code\)](<./Bytes.hx#L2067>)
 
 
 ## function benchmarkBufferWriteBlock
@@ -623,10 +624,10 @@ function benchmarkBufferWriteBlock(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L2459>)
+
+[\(view code\)](<./Bytes.hx#L2107>)
 
 
 ## function benchmarkBytesCompare
@@ -637,10 +638,10 @@ function benchmarkBytesCompare(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4236>)
+
+[\(view code\)](<./Bytes.hx#L3774>)
 
 
 ## function benchmarkCompareBytesBig
@@ -651,10 +652,10 @@ function benchmarkCompareBytesBig(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4647>)
+
+[\(view code\)](<./Bytes.hx#L4187>)
 
 
 ## function benchmarkCompareBytesBigIdentical
@@ -665,10 +666,10 @@ function benchmarkCompareBytesBigIdentical(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4666>)
+
+[\(view code\)](<./Bytes.hx#L4205>)
 
 
 ## function benchmarkCompareBytesBigUnaligned
@@ -679,10 +680,10 @@ function benchmarkCompareBytesBigUnaligned(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4628>)
+
+[\(view code\)](<./Bytes.hx#L4177>)
 
 
 ## function benchmarkCompareBytesDifferentLength
@@ -693,10 +694,10 @@ function benchmarkCompareBytesDifferentLength(_b:stdgo.Ref<stdgo.testing.B>):Voi
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4615>)
+
+[\(view code\)](<./Bytes.hx#L4147>)
 
 
 ## function benchmarkCompareBytesEmpty
@@ -707,10 +708,10 @@ function benchmarkCompareBytesEmpty(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4576>)
+
+[\(view code\)](<./Bytes.hx#L4111>)
 
 
 ## function benchmarkCompareBytesEqual
@@ -721,10 +722,10 @@ function benchmarkCompareBytesEqual(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4550>)
+
+[\(view code\)](<./Bytes.hx#L4087>)
 
 
 ## function benchmarkCompareBytesIdentical
@@ -735,10 +736,10 @@ function benchmarkCompareBytesIdentical(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4589>)
+
+[\(view code\)](<./Bytes.hx#L4123>)
 
 
 ## function benchmarkCompareBytesSameLength
@@ -749,10 +750,10 @@ function benchmarkCompareBytesSameLength(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4602>)
+
+[\(view code\)](<./Bytes.hx#L4135>)
 
 
 ## function benchmarkCompareBytesToNil
@@ -763,10 +764,10 @@ function benchmarkCompareBytesToNil(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4563>)
+
+[\(view code\)](<./Bytes.hx#L4099>)
 
 
 ## function benchmarkCount
@@ -777,10 +778,10 @@ function benchmarkCount(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3147>)
+
+[\(view code\)](<./Bytes.hx#L2777>)
 
 
 ## function benchmarkCountEasy
@@ -791,10 +792,10 @@ function benchmarkCountEasy(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3164>)
+
+[\(view code\)](<./Bytes.hx#L2793>)
 
 
 ## function benchmarkCountHard1
@@ -805,10 +806,10 @@ function benchmarkCountHard1(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4166>)
+
+[\(view code\)](<./Bytes.hx#L3689>)
 
 
 ## function benchmarkCountHard2
@@ -819,10 +820,10 @@ function benchmarkCountHard2(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4170>)
+
+[\(view code\)](<./Bytes.hx#L3692>)
 
 
 ## function benchmarkCountHard3
@@ -833,10 +834,10 @@ function benchmarkCountHard3(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4174>)
+
+[\(view code\)](<./Bytes.hx#L3695>)
 
 
 ## function benchmarkCountSingle
@@ -847,10 +848,10 @@ function benchmarkCountSingle(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3183>)
+
+[\(view code\)](<./Bytes.hx#L2811>)
 
 
 ## function benchmarkEqual
@@ -861,10 +862,10 @@ function benchmarkEqual(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3068>)
+
+[\(view code\)](<./Bytes.hx#L2691>)
 
 
 ## function benchmarkFields
@@ -875,10 +876,10 @@ function benchmarkFields(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4015>)
+
+[\(view code\)](<./Bytes.hx#L3560>)
 
 
 ## function benchmarkFieldsFunc
@@ -889,10 +890,10 @@ function benchmarkFieldsFunc(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4038>)
+
+[\(view code\)](<./Bytes.hx#L3582>)
 
 
 ## function benchmarkIndex
@@ -903,10 +904,10 @@ function benchmarkIndex(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3111>)
+
+[\(view code\)](<./Bytes.hx#L2743>)
 
 
 ## function benchmarkIndexAnyASCII
@@ -917,10 +918,10 @@ function benchmarkIndexAnyASCII(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4267>)
+
+[\(view code\)](<./Bytes.hx#L3804>)
 
 
 ## function benchmarkIndexAnyUTF8
@@ -931,10 +932,10 @@ function benchmarkIndexAnyUTF8(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4291>)
+
+[\(view code\)](<./Bytes.hx#L3826>)
 
 
 ## function benchmarkIndexByte
@@ -945,10 +946,10 @@ function benchmarkIndexByte(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L2999>)
+
+[\(view code\)](<./Bytes.hx#L2629>)
 
 
 ## function benchmarkIndexBytePortable
@@ -959,10 +960,10 @@ function benchmarkIndexBytePortable(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3003>)
+
+[\(view code\)](<./Bytes.hx#L2632>)
 
 
 ## function benchmarkIndexEasy
@@ -973,10 +974,10 @@ function benchmarkIndexEasy(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3128>)
+
+[\(view code\)](<./Bytes.hx#L2759>)
 
 
 ## function benchmarkIndexHard1
@@ -987,10 +988,10 @@ function benchmarkIndexHard1(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4138>)
+
+[\(view code\)](<./Bytes.hx#L3668>)
 
 
 ## function benchmarkIndexHard2
@@ -1001,10 +1002,10 @@ function benchmarkIndexHard2(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4142>)
+
+[\(view code\)](<./Bytes.hx#L3671>)
 
 
 ## function benchmarkIndexHard3
@@ -1015,10 +1016,10 @@ function benchmarkIndexHard3(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4146>)
+
+[\(view code\)](<./Bytes.hx#L3674>)
 
 
 ## function benchmarkIndexHard4
@@ -1029,10 +1030,10 @@ function benchmarkIndexHard4(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4150>)
+
+[\(view code\)](<./Bytes.hx#L3677>)
 
 
 ## function benchmarkIndexPeriodic
@@ -1043,10 +1044,10 @@ function benchmarkIndexPeriodic(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4397>)
+
+[\(view code\)](<./Bytes.hx#L3923>)
 
 
 ## function benchmarkIndexRune
@@ -1057,10 +1058,10 @@ function benchmarkIndexRune(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3024>)
+
+[\(view code\)](<./Bytes.hx#L2651>)
 
 
 ## function benchmarkIndexRuneASCII
@@ -1071,10 +1072,10 @@ function benchmarkIndexRuneASCII(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3028>)
+
+[\(view code\)](<./Bytes.hx#L2654>)
 
 
 ## function benchmarkLastIndexAnyASCII
@@ -1085,10 +1086,10 @@ function benchmarkLastIndexAnyASCII(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4315>)
+
+[\(view code\)](<./Bytes.hx#L3848>)
 
 
 ## function benchmarkLastIndexAnyUTF8
@@ -1099,10 +1100,10 @@ function benchmarkLastIndexAnyUTF8(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4339>)
+
+[\(view code\)](<./Bytes.hx#L3870>)
 
 
 ## function benchmarkLastIndexHard1
@@ -1113,10 +1114,10 @@ function benchmarkLastIndexHard1(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4154>)
+
+[\(view code\)](<./Bytes.hx#L3680>)
 
 
 ## function benchmarkLastIndexHard2
@@ -1127,10 +1128,10 @@ function benchmarkLastIndexHard2(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4158>)
+
+[\(view code\)](<./Bytes.hx#L3683>)
 
 
 ## function benchmarkLastIndexHard3
@@ -1141,10 +1142,10 @@ function benchmarkLastIndexHard3(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4162>)
+
+[\(view code\)](<./Bytes.hx#L3686>)
 
 
 ## function benchmarkReadString
@@ -1155,10 +1156,10 @@ function benchmarkReadString(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L2179>)
+
+[\(view code\)](<./Bytes.hx#L1854>)
 
 
 ## function benchmarkRepeat
@@ -1169,10 +1170,24 @@ function benchmarkRepeat(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4227>)
+
+[\(view code\)](<./Bytes.hx#L3742>)
+
+
+## function benchmarkRepeatLarge
+
+
+```haxe
+function benchmarkRepeatLarge(_b:stdgo.Ref<stdgo.testing.B>):Void
+```
+
+
+
+
+
+[\(view code\)](<./Bytes.hx#L3750>)
 
 
 ## function benchmarkSplitEmptySeparator
@@ -1183,10 +1198,10 @@ function benchmarkSplitEmptySeparator(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4178>)
+
+[\(view code\)](<./Bytes.hx#L3698>)
 
 
 ## function benchmarkSplitMultiByteSeparator
@@ -1197,10 +1212,10 @@ function benchmarkSplitMultiByteSeparator(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4197>)
+
+[\(view code\)](<./Bytes.hx#L3715>)
 
 
 ## function benchmarkSplitNMultiByteSeparator
@@ -1211,10 +1226,10 @@ function benchmarkSplitNMultiByteSeparator(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4217>)
+
+[\(view code\)](<./Bytes.hx#L3733>)
 
 
 ## function benchmarkSplitNSingleByteSeparator
@@ -1225,10 +1240,10 @@ function benchmarkSplitNSingleByteSeparator(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4207>)
+
+[\(view code\)](<./Bytes.hx#L3724>)
 
 
 ## function benchmarkSplitSingleByteSeparator
@@ -1239,10 +1254,10 @@ function benchmarkSplitSingleByteSeparator(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4187>)
+
+[\(view code\)](<./Bytes.hx#L3706>)
 
 
 ## function benchmarkToLower
@@ -1253,10 +1268,10 @@ function benchmarkToLower(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3480>)
+
+[\(view code\)](<./Bytes.hx#L3079>)
 
 
 ## function benchmarkToUpper
@@ -1267,10 +1282,10 @@ function benchmarkToUpper(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3463>)
+
+[\(view code\)](<./Bytes.hx#L3063>)
 
 
 ## function benchmarkToValidUTF8
@@ -1281,10 +1296,10 @@ function benchmarkToValidUTF8(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4079>)
+
+[\(view code\)](<./Bytes.hx#L3617>)
 
 
 ## function benchmarkTrimASCII
@@ -1295,10 +1310,10 @@ function benchmarkTrimASCII(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4363>)
+
+[\(view code\)](<./Bytes.hx#L3892>)
 
 
 ## function benchmarkTrimByte
@@ -1309,10 +1324,10 @@ function benchmarkTrimByte(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4387>)
+
+[\(view code\)](<./Bytes.hx#L3914>)
 
 
 ## function benchmarkTrimSpace
@@ -1323,10 +1338,10 @@ function benchmarkTrimSpace(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4061>)
+
+[\(view code\)](<./Bytes.hx#L3604>)
 
 
 ## function benchmarkWriteByte
@@ -1337,10 +1352,10 @@ function benchmarkWriteByte(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L2377>)
+
+[\(view code\)](<./Bytes.hx#L2029>)
 
 
 ## function benchmarkWriteRune
@@ -1351,10 +1366,10 @@ function benchmarkWriteRune(_b:stdgo.Ref<stdgo.testing.B>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L2395>)
+
+[\(view code\)](<./Bytes.hx#L2046>)
 
 
 ## function exampleBuffer
@@ -1365,10 +1380,10 @@ function exampleBuffer():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4685>)
+
+[\(view code\)](<./Bytes.hx#L4223>)
 
 
 ## function exampleBuffer\_Bytes
@@ -1379,10 +1394,10 @@ function exampleBuffer_Bytes():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4698>)
+
+[\(view code\)](<./Bytes.hx#L4234>)
 
 
 ## function exampleBuffer\_Cap
@@ -1393,10 +1408,10 @@ function exampleBuffer_Cap():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4705>)
+
+[\(view code\)](<./Bytes.hx#L4252>)
 
 
 ## function exampleBuffer\_Grow
@@ -1407,10 +1422,10 @@ function exampleBuffer_Grow():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4712>)
+
+[\(view code\)](<./Bytes.hx#L4258>)
 
 
 ## function exampleBuffer\_Len
@@ -1421,10 +1436,10 @@ function exampleBuffer_Len():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4720>)
+
+[\(view code\)](<./Bytes.hx#L4265>)
 
 
 ## function exampleBuffer\_Next
@@ -1435,10 +1450,10 @@ function exampleBuffer_Next():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4727>)
+
+[\(view code\)](<./Bytes.hx#L4271>)
 
 
 ## function exampleBuffer\_Read
@@ -1449,10 +1464,10 @@ function exampleBuffer_Read():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4736>)
+
+[\(view code\)](<./Bytes.hx#L4279>)
 
 
 ## function exampleBuffer\_ReadByte
@@ -1463,10 +1478,10 @@ function exampleBuffer_ReadByte():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4752>)
+
+[\(view code\)](<./Bytes.hx#L4292>)
 
 
 ## function exampleBuffer\_reader
@@ -1477,10 +1492,10 @@ function exampleBuffer_reader():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4692>)
+
+[\(view code\)](<./Bytes.hx#L4229>)
 
 
 ## function exampleCompare
@@ -1491,10 +1506,10 @@ function exampleCompare():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4766>)
+
+[\(view code\)](<./Bytes.hx#L4303>)
 
 
 ## function exampleCompare\_search
@@ -1505,10 +1520,10 @@ function exampleCompare_search():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4779>)
+
+[\(view code\)](<./Bytes.hx#L4312>)
 
 
 ## function exampleContains
@@ -1519,10 +1534,10 @@ function exampleContains():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4788>)
+
+[\(view code\)](<./Bytes.hx#L4320>)
 
 
 ## function exampleContainsAny
@@ -1533,10 +1548,10 @@ function exampleContainsAny():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4795>)
+
+[\(view code\)](<./Bytes.hx#L4326>)
 
 
 ## function exampleContainsRune
@@ -1547,10 +1562,10 @@ function exampleContainsRune():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4802>)
+
+[\(view code\)](<./Bytes.hx#L4332>)
 
 
 ## function exampleCount
@@ -1561,10 +1576,10 @@ function exampleCount():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4810>)
+
+[\(view code\)](<./Bytes.hx#L4339>)
 
 
 ## function exampleCut
@@ -1575,10 +1590,10 @@ function exampleCut():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4815>)
+
+[\(view code\)](<./Bytes.hx#L4343>)
 
 
 ## function exampleEqual
@@ -1589,10 +1604,10 @@ function exampleEqual():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4828>)
+
+[\(view code\)](<./Bytes.hx#L4353>)
 
 
 ## function exampleEqualFold
@@ -1603,10 +1618,10 @@ function exampleEqualFold():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4833>)
+
+[\(view code\)](<./Bytes.hx#L4357>)
 
 
 ## function exampleFields
@@ -1617,10 +1632,10 @@ function exampleFields():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4837>)
+
+[\(view code\)](<./Bytes.hx#L4360>)
 
 
 ## function exampleFieldsFunc
@@ -1631,10 +1646,10 @@ function exampleFieldsFunc():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4841>)
+
+[\(view code\)](<./Bytes.hx#L4363>)
 
 
 ## function exampleHasPrefix
@@ -1645,10 +1660,10 @@ function exampleHasPrefix():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4849>)
+
+[\(view code\)](<./Bytes.hx#L4369>)
 
 
 ## function exampleHasSuffix
@@ -1659,10 +1674,10 @@ function exampleHasSuffix():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4855>)
+
+[\(view code\)](<./Bytes.hx#L4374>)
 
 
 ## function exampleIndex
@@ -1673,10 +1688,10 @@ function exampleIndex():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4862>)
+
+[\(view code\)](<./Bytes.hx#L4380>)
 
 
 ## function exampleIndexAny
@@ -1687,10 +1702,10 @@ function exampleIndexAny():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4880>)
+
+[\(view code\)](<./Bytes.hx#L4395>)
 
 
 ## function exampleIndexByte
@@ -1701,10 +1716,10 @@ function exampleIndexByte():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4867>)
+
+[\(view code\)](<./Bytes.hx#L4384>)
 
 
 ## function exampleIndexFunc
@@ -1715,10 +1730,10 @@ function exampleIndexFunc():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4872>)
+
+[\(view code\)](<./Bytes.hx#L4388>)
 
 
 ## function exampleIndexRune
@@ -1729,10 +1744,10 @@ function exampleIndexRune():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4885>)
+
+[\(view code\)](<./Bytes.hx#L4399>)
 
 
 ## function exampleJoin
@@ -1743,10 +1758,10 @@ function exampleJoin():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4890>)
+
+[\(view code\)](<./Bytes.hx#L4403>)
 
 
 ## function exampleLastIndex
@@ -1757,10 +1772,10 @@ function exampleLastIndex():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4896>)
+
+[\(view code\)](<./Bytes.hx#L4407>)
 
 
 ## function exampleLastIndexAny
@@ -1771,10 +1786,10 @@ function exampleLastIndexAny():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4902>)
+
+[\(view code\)](<./Bytes.hx#L4412>)
 
 
 ## function exampleLastIndexByte
@@ -1785,10 +1800,10 @@ function exampleLastIndexByte():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4908>)
+
+[\(view code\)](<./Bytes.hx#L4417>)
 
 
 ## function exampleLastIndexFunc
@@ -1799,10 +1814,10 @@ function exampleLastIndexFunc():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4914>)
+
+[\(view code\)](<./Bytes.hx#L4422>)
 
 
 ## function exampleReader\_Len
@@ -1813,10 +1828,10 @@ function exampleReader_Len():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4920>)
+
+[\(view code\)](<./Bytes.hx#L4427>)
 
 
 ## function exampleRepeat
@@ -1827,10 +1842,10 @@ function exampleRepeat():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4925>)
+
+[\(view code\)](<./Bytes.hx#L4431>)
 
 
 ## function exampleReplace
@@ -1841,10 +1856,10 @@ function exampleReplace():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4929>)
+
+[\(view code\)](<./Bytes.hx#L4434>)
 
 
 ## function exampleReplaceAll
@@ -1855,10 +1870,10 @@ function exampleReplaceAll():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4938>)
+
+[\(view code\)](<./Bytes.hx#L4438>)
 
 
 ## function exampleRunes
@@ -1869,10 +1884,10 @@ function exampleRunes():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4944>)
+
+[\(view code\)](<./Bytes.hx#L4441>)
 
 
 ## function exampleSplit
@@ -1883,10 +1898,10 @@ function exampleSplit():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4951>)
+
+[\(view code\)](<./Bytes.hx#L4447>)
 
 
 ## function exampleSplitAfter
@@ -1897,10 +1912,10 @@ function exampleSplitAfter():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4968>)
+
+[\(view code\)](<./Bytes.hx#L4458>)
 
 
 ## function exampleSplitAfterN
@@ -1911,10 +1926,10 @@ function exampleSplitAfterN():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4973>)
+
+[\(view code\)](<./Bytes.hx#L4461>)
 
 
 ## function exampleSplitN
@@ -1925,10 +1940,10 @@ function exampleSplitN():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4961>)
+
+[\(view code\)](<./Bytes.hx#L4453>)
 
 
 ## function exampleTitle
@@ -1939,10 +1954,10 @@ function exampleTitle():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4978>)
+
+[\(view code\)](<./Bytes.hx#L4464>)
 
 
 ## function exampleToLower
@@ -1953,10 +1968,10 @@ function exampleToLower():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L5054>)
+
+[\(view code\)](<./Bytes.hx#L4518>)
 
 
 ## function exampleToLowerSpecial
@@ -1967,10 +1982,10 @@ function exampleToLowerSpecial():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L5058>)
+
+[\(view code\)](<./Bytes.hx#L4521>)
 
 
 ## function exampleToTitle
@@ -1981,10 +1996,10 @@ function exampleToTitle():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4982>)
+
+[\(view code\)](<./Bytes.hx#L4467>)
 
 
 ## function exampleToTitleSpecial
@@ -1995,10 +2010,10 @@ function exampleToTitleSpecial():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4987>)
+
+[\(view code\)](<./Bytes.hx#L4471>)
 
 
 ## function exampleToUpper
@@ -2009,10 +2024,10 @@ function exampleToUpper():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L5065>)
+
+[\(view code\)](<./Bytes.hx#L4527>)
 
 
 ## function exampleToUpperSpecial
@@ -2023,10 +2038,10 @@ function exampleToUpperSpecial():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L5069>)
+
+[\(view code\)](<./Bytes.hx#L4530>)
 
 
 ## function exampleTrim
@@ -2037,10 +2052,10 @@ function exampleTrim():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4994>)
+
+[\(view code\)](<./Bytes.hx#L4477>)
 
 
 ## function exampleTrimFunc
@@ -2051,10 +2066,10 @@ function exampleTrimFunc():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4999>)
+
+[\(view code\)](<./Bytes.hx#L4480>)
 
 
 ## function exampleTrimLeft
@@ -2065,10 +2080,10 @@ function exampleTrimLeft():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L5009>)
+
+[\(view code\)](<./Bytes.hx#L4486>)
 
 
 ## function exampleTrimLeftFunc
@@ -2079,10 +2094,10 @@ function exampleTrimLeftFunc():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L5013>)
+
+[\(view code\)](<./Bytes.hx#L4489>)
 
 
 ## function exampleTrimPrefix
@@ -2093,10 +2108,10 @@ function exampleTrimPrefix():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L5022>)
+
+[\(view code\)](<./Bytes.hx#L4494>)
 
 
 ## function exampleTrimRight
@@ -2107,10 +2122,10 @@ function exampleTrimRight():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L5041>)
+
+[\(view code\)](<./Bytes.hx#L4510>)
 
 
 ## function exampleTrimRightFunc
@@ -2121,10 +2136,10 @@ function exampleTrimRightFunc():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L5045>)
+
+[\(view code\)](<./Bytes.hx#L4513>)
 
 
 ## function exampleTrimSpace
@@ -2135,10 +2150,10 @@ function exampleTrimSpace():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L5029>)
+
+[\(view code\)](<./Bytes.hx#L4500>)
 
 
 ## function exampleTrimSuffix
@@ -2149,10 +2164,10 @@ function exampleTrimSuffix():Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L5033>)
+
+[\(view code\)](<./Bytes.hx#L4503>)
 
 
 ## function testBasicOperations
@@ -2163,10 +2178,10 @@ function testBasicOperations(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L1671>)
+
+[\(view code\)](<./Bytes.hx#L1420>)
 
 
 ## function testBufferGrowNegative
@@ -2177,10 +2192,10 @@ function testBufferGrowNegative(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3852>)
+
+[\(view code\)](<./Bytes.hx#L3415>)
 
 
 ## function testBufferGrowth
@@ -2191,10 +2206,11 @@ function testBufferGrowth(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-Tests that we occasionally compact. Issue 5154. 
+Tests that we occasionally compact. Issue 5154.  
 
 
-[\(view code\)](<./Bytes.hx#L2356>)
+
+[\(view code\)](<./Bytes.hx#L2009>)
 
 
 ## function testBufferTruncateNegative
@@ -2205,10 +2221,10 @@ function testBufferTruncateNegative(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3896>)
+
+[\(view code\)](<./Bytes.hx#L3455>)
 
 
 ## function testBufferTruncateOutOfRange
@@ -2219,10 +2235,10 @@ function testBufferTruncateOutOfRange(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3940>)
+
+[\(view code\)](<./Bytes.hx#L3495>)
 
 
 ## function testCapWithPreallocatedSlice
@@ -2233,10 +2249,10 @@ function testCapWithPreallocatedSlice(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L1829>)
+
+[\(view code\)](<./Bytes.hx#L1549>)
 
 
 ## function testCapWithSliceAndWrittenData
@@ -2247,10 +2263,24 @@ function testCapWithSliceAndWrittenData(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L1837>)
+
+[\(view code\)](<./Bytes.hx#L1556>)
+
+
+## function testClone
+
+
+```haxe
+function testClone(_t:stdgo.Ref<stdgo.testing.T>):Void
+```
+
+
+
+
+
+[\(view code\)](<./Bytes.hx#L3943>)
 
 
 ## function testCompare
@@ -2261,10 +2291,10 @@ function testCompare(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4418>)
+
+[\(view code\)](<./Bytes.hx#L3961>)
 
 
 ## function testCompareBytes
@@ -2275,10 +2305,10 @@ function testCompareBytes(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4448>)
+
+[\(view code\)](<./Bytes.hx#L3987>)
 
 
 ## function testCompareIdenticalSlice
@@ -2289,10 +2319,10 @@ function testCompareIdenticalSlice(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4438>)
+
+[\(view code\)](<./Bytes.hx#L3978>)
 
 
 ## function testContains
@@ -2303,10 +2333,10 @@ function testContains(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3985>)
+
+[\(view code\)](<./Bytes.hx#L3536>)
 
 
 ## function testContainsAny
@@ -2317,10 +2347,10 @@ function testContainsAny(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3997>)
+
+[\(view code\)](<./Bytes.hx#L3546>)
 
 
 ## function testContainsRune
@@ -2331,10 +2361,10 @@ function testContainsRune(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4006>)
+
+[\(view code\)](<./Bytes.hx#L3553>)
 
 
 ## function testCountByte
@@ -2345,10 +2375,11 @@ function testCountByte(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-test count of a single byte across page offsets 
+test count of a single byte across page offsets  
 
 
-[\(view code\)](<./Bytes.hx#L2878>)
+
+[\(view code\)](<./Bytes.hx#L2484>)
 
 
 ## function testCountByteNoMatch
@@ -2359,10 +2390,11 @@ function testCountByteNoMatch(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-Make sure we don't count bytes outside our window 
+Make sure we don't count bytes outside our window  
 
 
-[\(view code\)](<./Bytes.hx#L2935>)
+
+[\(view code\)](<./Bytes.hx#L2554>)
 
 
 ## function testCut
@@ -2373,10 +2405,38 @@ function testCut(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3837>)
+
+[\(view code\)](<./Bytes.hx#L3385>)
+
+
+## function testCutPrefix
+
+
+```haxe
+function testCutPrefix(_t:stdgo.Ref<stdgo.testing.T>):Void
+```
+
+
+
+
+
+[\(view code\)](<./Bytes.hx#L3395>)
+
+
+## function testCutSuffix
+
+
+```haxe
+function testCutSuffix(_t:stdgo.Ref<stdgo.testing.T>):Void
+```
+
+
+
+
+
+[\(view code\)](<./Bytes.hx#L3405>)
 
 
 ## function testEmptyReaderConcurrent
@@ -2387,10 +2447,10 @@ function testEmptyReaderConcurrent(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L5293>)
+
+[\(view code\)](<./Bytes.hx#L4645>)
 
 
 ## function testEndianBaseCompare
@@ -2401,10 +2461,10 @@ function testEndianBaseCompare(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L4513>)
+
+[\(view code\)](<./Bytes.hx#L4051>)
 
 
 ## function testEqual
@@ -2415,10 +2475,10 @@ function testEqual(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L2500>)
+
+[\(view code\)](<./Bytes.hx#L2145>)
 
 
 ## function testEqualExhaustive
@@ -2429,10 +2489,10 @@ function testEqualExhaustive(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L2514>)
+
+[\(view code\)](<./Bytes.hx#L2158>)
 
 
 ## function testEqualFold
@@ -2443,10 +2503,10 @@ function testEqualFold(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3818>)
+
+[\(view code\)](<./Bytes.hx#L3369>)
 
 
 ## function testFields
@@ -2457,10 +2517,10 @@ function testFields(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3291>)
+
+[\(view code\)](<./Bytes.hx#L2908>)
 
 
 ## function testFieldsFunc
@@ -2471,10 +2531,10 @@ function testFieldsFunc(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3318>)
+
+[\(view code\)](<./Bytes.hx#L2934>)
 
 
 ## function testGrow
@@ -2485,10 +2545,10 @@ function testGrow(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L2198>)
+
+[\(view code\)](<./Bytes.hx#L1870>)
 
 
 ## function testGrowOverflow
@@ -2499,10 +2559,10 @@ function testGrowOverflow(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L2229>)
+
+[\(view code\)](<./Bytes.hx#L1898>)
 
 
 ## function testIndex
@@ -2513,10 +2573,10 @@ function testIndex(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L2646>)
+
+[\(view code\)](<./Bytes.hx#L2272>)
 
 
 ## function testIndexAny
@@ -2527,10 +2587,10 @@ function testIndexAny(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L2654>)
+
+[\(view code\)](<./Bytes.hx#L2278>)
 
 
 ## function testIndexByte
@@ -2541,10 +2601,10 @@ function testIndexByte(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L2662>)
+
+[\(view code\)](<./Bytes.hx#L2284>)
 
 
 ## function testIndexByteBig
@@ -2555,10 +2615,11 @@ function testIndexByteBig(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-test a larger buffer with different sizes and alignments 
+test a larger buffer with different sizes and alignments  
 
 
-[\(view code\)](<./Bytes.hx#L2703>)
+
+[\(view code\)](<./Bytes.hx#L2313>)
 
 
 ## function testIndexByteSmall
@@ -2569,10 +2630,11 @@ function testIndexByteSmall(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-test a small index across all page offsets 
+test a small index across all page offsets  
 
 
-[\(view code\)](<./Bytes.hx#L2767>)
+
+[\(view code\)](<./Bytes.hx#L2376>)
 
 
 ## function testIndexFunc
@@ -2583,10 +2645,10 @@ function testIndexFunc(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3750>)
+
+[\(view code\)](<./Bytes.hx#L3312>)
 
 
 ## function testIndexRune
@@ -2597,10 +2659,10 @@ function testIndexRune(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L2825>)
+
+[\(view code\)](<./Bytes.hx#L2431>)
 
 
 ## function testLargeByteReads
@@ -2611,10 +2673,10 @@ function testLargeByteReads(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L1789>)
+
+[\(view code\)](<./Bytes.hx#L1518>)
 
 
 ## function testLargeByteWrites
@@ -2625,10 +2687,10 @@ function testLargeByteWrites(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L1757>)
+
+[\(view code\)](<./Bytes.hx#L1492>)
 
 
 ## function testLargeStringReads
@@ -2639,10 +2701,10 @@ function testLargeStringReads(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L1775>)
+
+[\(view code\)](<./Bytes.hx#L1507>)
 
 
 ## function testLargeStringWrites
@@ -2653,10 +2715,10 @@ function testLargeStringWrites(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L1739>)
+
+[\(view code\)](<./Bytes.hx#L1477>)
 
 
 ## function testLastIndex
@@ -2667,10 +2729,10 @@ function testLastIndex(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L2650>)
+
+[\(view code\)](<./Bytes.hx#L2275>)
 
 
 ## function testLastIndexAny
@@ -2681,10 +2743,10 @@ function testLastIndexAny(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L2658>)
+
+[\(view code\)](<./Bytes.hx#L2281>)
 
 
 ## function testLastIndexByte
@@ -2695,10 +2757,10 @@ function testLastIndexByte(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L2680>)
+
+[\(view code\)](<./Bytes.hx#L2301>)
 
 
 ## function testMap
@@ -2709,10 +2771,10 @@ function testMap(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3406>)
+
+[\(view code\)](<./Bytes.hx#L3009>)
 
 
 ## function testMixedReadsAndWrites
@@ -2723,10 +2785,10 @@ function testMixedReadsAndWrites(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L1803>)
+
+[\(view code\)](<./Bytes.hx#L1529>)
 
 
 ## function testNewBuffer
@@ -2737,10 +2799,10 @@ function testNewBuffer(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L1639>)
+
+[\(view code\)](<./Bytes.hx#L1393>)
 
 
 ## function testNewBufferString
@@ -2751,10 +2813,10 @@ function testNewBufferString(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L1644>)
+
+[\(view code\)](<./Bytes.hx#L1397>)
 
 
 ## function testNext
@@ -2765,10 +2827,10 @@ function testNext(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L2089>)
+
+[\(view code\)](<./Bytes.hx#L1771>)
 
 
 ## function testNil
@@ -2779,10 +2841,10 @@ function testNil(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L1846>)
+
+[\(view code\)](<./Bytes.hx#L1564>)
 
 
 ## function testNotEqual
@@ -2793,10 +2855,12 @@ function testNotEqual(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-make sure Equal returns false for minimally different strings. The data  is all zeros except for a single one in one location. 
+make sure Equal returns false for minimally different strings. The data  
+is all zeros except for a single one in one location.  
 
 
-[\(view code\)](<./Bytes.hx#L2556>)
+
+[\(view code\)](<./Bytes.hx#L2198>)
 
 
 ## function testReadAfterBigSeek
@@ -2807,10 +2871,10 @@ function testReadAfterBigSeek(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L5181>)
+
+[\(view code\)](<./Bytes.hx#L4575>)
 
 
 ## function testReadBytes
@@ -2821,10 +2885,10 @@ function testReadBytes(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L2131>)
+
+[\(view code\)](<./Bytes.hx#L1808>)
 
 
 ## function testReadEmptyAtEOF
@@ -2835,10 +2899,11 @@ function testReadEmptyAtEOF(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-Was a bug: used to give EOF reading empty slice at EOF. 
+Was a bug: used to give EOF reading empty slice at EOF.  
 
 
-[\(view code\)](<./Bytes.hx#L2277>)
+
+[\(view code\)](<./Bytes.hx#L1942>)
 
 
 ## function testReadFrom
@@ -2849,10 +2914,10 @@ function testReadFrom(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L1853>)
+
+[\(view code\)](<./Bytes.hx#L1570>)
 
 
 ## function testReadFromNegativeReader
@@ -2863,10 +2928,10 @@ function testReadFromNegativeReader(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L1923>)
+
+[\(view code\)](<./Bytes.hx#L1631>)
 
 
 ## function testReadFromPanicReader
@@ -2877,10 +2942,12 @@ function testReadFromPanicReader(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-Make sure that an empty Buffer remains empty when  it is "grown" before a Read that panics 
+Make sure that an empty Buffer remains empty when  
+it is "grown" before a Read that panics  
 
 
-[\(view code\)](<./Bytes.hx#L1872>)
+
+[\(view code\)](<./Bytes.hx#L1586>)
 
 
 ## function testReadString
@@ -2891,10 +2958,10 @@ function testReadString(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L2155>)
+
+[\(view code\)](<./Bytes.hx#L1831>)
 
 
 ## function testReader
@@ -2905,10 +2972,10 @@ function testReader(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L5076>)
+
+[\(view code\)](<./Bytes.hx#L4536>)
 
 
 ## function testReaderAt
@@ -2919,10 +2986,10 @@ function testReaderAt(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L5201>)
+
+[\(view code\)](<./Bytes.hx#L4590>)
 
 
 ## function testReaderAtConcurrent
@@ -2933,10 +3000,10 @@ function testReaderAtConcurrent(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L5249>)
+
+[\(view code\)](<./Bytes.hx#L4605>)
 
 
 ## function testReaderCopyNothing
@@ -2947,10 +3014,12 @@ function testReaderCopyNothing(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-verify that copying from an empty reader always has the same results,  regardless of the presence of a WriteTo method. 
+verify that copying from an empty reader always has the same results,  
+regardless of the presence of a WriteTo method.  
 
 
-[\(view code\)](<./Bytes.hx#L5559>)
+
+[\(view code\)](<./Bytes.hx#L4871>)
 
 
 ## function testReaderDoubleUnreadRune
@@ -2961,10 +3030,10 @@ function testReaderDoubleUnreadRune(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L5469>)
+
+[\(view code\)](<./Bytes.hx#L4793>)
 
 
 ## function testReaderLen
@@ -2975,10 +3044,10 @@ function testReaderLen(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L5401>)
+
+[\(view code\)](<./Bytes.hx#L4743>)
 
 
 ## function testReaderLenSize
@@ -2989,10 +3058,11 @@ function testReaderLenSize(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-tests that Len is affected by reads, but Size is not. 
+tests that Len is affected by reads, but Size is not.  
 
 
-[\(view code\)](<./Bytes.hx#L5587>)
+
+[\(view code\)](<./Bytes.hx#L4894>)
 
 
 ## function testReaderReset
@@ -3003,10 +3073,10 @@ function testReaderReset(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L5600>)
+
+[\(view code\)](<./Bytes.hx#L4906>)
 
 
 ## function testReaderWriteTo
@@ -3017,10 +3087,10 @@ function testReaderWriteTo(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L5368>)
+
+[\(view code\)](<./Bytes.hx#L4713>)
 
 
 ## function testReaderZero
@@ -3031,10 +3101,10 @@ function testReaderZero(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L5633>)
+
+[\(view code\)](<./Bytes.hx#L4933>)
 
 
 ## function testRepeat
@@ -3045,10 +3115,10 @@ function testRepeat(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3511>)
+
+[\(view code\)](<./Bytes.hx#L3106>)
 
 
 ## function testRepeatCatchesOverflow
@@ -3059,10 +3129,11 @@ function testRepeatCatchesOverflow(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
-See Issue golang.org/issue/16237 
+See Issue golang.org/issue/16237  
 
 
-[\(view code\)](<./Bytes.hx#L3587>)
+
+[\(view code\)](<./Bytes.hx#L3175>)
 
 
 ## function testReplace
@@ -3073,10 +3144,10 @@ function testReplace(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3765>)
+
+[\(view code\)](<./Bytes.hx#L3324>)
 
 
 ## function testRuneIO
@@ -3087,10 +3158,10 @@ function testRuneIO(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L1993>)
+
+[\(view code\)](<./Bytes.hx#L1693>)
 
 
 ## function testRunes
@@ -3101,10 +3172,10 @@ function testRunes(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3631>)
+
+[\(view code\)](<./Bytes.hx#L3211>)
 
 
 ## function testSplit
@@ -3115,10 +3186,10 @@ function testSplit(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3212>)
+
+[\(view code\)](<./Bytes.hx#L2839>)
 
 
 ## function testSplitAfter
@@ -3129,10 +3200,10 @@ function testSplitAfter(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3257>)
+
+[\(view code\)](<./Bytes.hx#L2878>)
 
 
 ## function testTitle
@@ -3143,10 +3214,10 @@ function testTitle(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3796>)
+
+[\(view code\)](<./Bytes.hx#L3349>)
 
 
 ## function testToLower
@@ -3157,10 +3228,10 @@ function testToLower(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3459>)
+
+[\(view code\)](<./Bytes.hx#L3060>)
 
 
 ## function testToTitle
@@ -3171,10 +3242,10 @@ function testToTitle(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3807>)
+
+[\(view code\)](<./Bytes.hx#L3359>)
 
 
 ## function testToUpper
@@ -3185,10 +3256,10 @@ function testToUpper(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3455>)
+
+[\(view code\)](<./Bytes.hx#L3057>)
 
 
 ## function testToValidUTF8
@@ -3199,10 +3270,10 @@ function testToValidUTF8(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3497>)
+
+[\(view code\)](<./Bytes.hx#L3095>)
 
 
 ## function testTrim
@@ -3213,10 +3284,10 @@ function testTrim(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3648>)
+
+[\(view code\)](<./Bytes.hx#L3227>)
 
 
 ## function testTrimFunc
@@ -3227,10 +3298,10 @@ function testTrimFunc(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3727>)
+
+[\(view code\)](<./Bytes.hx#L3295>)
 
 
 ## function testTrimSpace
@@ -3241,10 +3312,10 @@ function testTrimSpace(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L3507>)
+
+[\(view code\)](<./Bytes.hx#L3103>)
 
 
 ## function testUnreadByte
@@ -3255,10 +3326,10 @@ function testUnreadByte(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L2291>)
+
+[\(view code\)](<./Bytes.hx#L1953>)
 
 
 ## function testUnreadRuneError
@@ -3269,10 +3340,10 @@ function testUnreadRuneError(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L5449>)
+
+[\(view code\)](<./Bytes.hx#L4777>)
 
 
 ## function testWriteInvalidRune
@@ -3283,10 +3354,10 @@ function testWriteInvalidRune(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L2081>)
+
+[\(view code\)](<./Bytes.hx#L1764>)
 
 
 ## function testWriteTo
@@ -3297,10 +3368,10 @@ function testWriteTo(_t:stdgo.Ref<stdgo.testing.T>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes.hx#L1978>)
+
+[\(view code\)](<./Bytes.hx#L1681>)
 
 
 # Classes
@@ -3314,7 +3385,7 @@ import stdgo.bytes_test.*
 ## class BinOpTest
 
 
- 
+
 
 
 ```haxe
@@ -3340,16 +3411,16 @@ function new(?_a:stdgo.GoString, ?_b:stdgo.GoString, ?_i:Null<stdgo.GoInt>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes_test.hx#L900>)
+
+[\(view code\)](<./Bytes_test.hx#L792>)
 
 
 ## class FieldsTest
 
 
- 
+
 
 
 ```haxe
@@ -3370,20 +3441,20 @@ function new(?_s:stdgo.GoString, ?_a:stdgo.Slice<stdgo.GoString>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes_test.hx#L946>)
+
+[\(view code\)](<./Bytes_test.hx#L831>)
 
 
 ## class IndexFuncTest
 
 
- 
+
 
 
 ```haxe
-var _f:stdgo.bytes_test._Bytes_test.T_predicate
+var _f:stdgo.bytes_test.T_predicate
 ```
 
 
@@ -3406,20 +3477,20 @@ var _last:stdgo.GoInt
 
 
 ```haxe
-function new(?_in:stdgo.GoString, ?_f:stdgo.bytes_test._Bytes_test.T_predicate, ?_first:Null<stdgo.GoInt>, ?_last:Null<stdgo.GoInt>):Void
+function new(?_in:stdgo.GoString, ?_f:stdgo.bytes_test.T_predicate, ?_first:Null<stdgo.GoInt>, ?_last:Null<stdgo.GoInt>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes_test.hx#L1132>)
+
+[\(view code\)](<./Bytes_test.hx#L988>)
 
 
 ## class RepeatTest
 
 
- 
+
 
 
 ```haxe
@@ -3445,16 +3516,16 @@ function new(?_in:stdgo.GoString, ?_out:stdgo.GoString, ?_count:Null<stdgo.GoInt
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes_test.hx#L989>)
+
+[\(view code\)](<./Bytes_test.hx#L867>)
 
 
 ## class ReplaceTest
 
 
- 
+
 
 
 ```haxe
@@ -3490,16 +3561,16 @@ function new(?_in:stdgo.GoString, ?_old:stdgo.GoString, ?_new:stdgo.GoString, ?_
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes_test.hx#L1158>)
+
+[\(view code\)](<./Bytes_test.hx#L1010>)
 
 
 ## class RunesTest
 
 
- 
+
 
 
 ```haxe
@@ -3525,16 +3596,16 @@ function new(?_in:stdgo.GoString, ?_out:stdgo.Slice<stdgo.GoInt32>, ?_lossy:Bool
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes_test.hx#L1011>)
+
+[\(view code\)](<./Bytes_test.hx#L886>)
 
 
 ## class SplitTest
 
 
- 
+
 
 
 ```haxe
@@ -3565,16 +3636,18 @@ function new(?_s:stdgo.GoString, ?_sep:stdgo.GoString, ?_n:Null<stdgo.GoInt>, ?_
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes_test.hx#L923>)
+
+[\(view code\)](<./Bytes_test.hx#L812>)
 
 
 ## class StringTest
 
 
-Test case for any function which accepts and returns a byte slice.  For ease of creation, we write the input byte slice as a string. 
+Test case for any function which accepts and returns a byte slice.  
+For ease of creation, we write the input byte slice as a string.  
+
 
 
 ```haxe
@@ -3595,192 +3668,261 @@ function new(?_in:stdgo.GoString, ?_out:stdgo.Slice<stdgo.GoUInt8>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes_test.hx#L969>)
 
+[\(view code\)](<./Bytes_test.hx#L849>)
 
-## class T\_\_struct\_0\_static\_extension
 
+## class T\_justReader\_testReaderCopyNothing\_1
 
- 
 
 
-## class T\_\_struct\_10\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_11\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_12\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_13\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_14\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_15\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_1\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_2\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_3\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_4\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_5\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_6\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_7\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_8\_static\_extension
-
-
- 
-
-
-## class T\_\_struct\_9\_static\_extension
-
-
- 
-
-
-## class T\_justReader\_testReaderCopyNothing\_1\_static\_extension
-
-
- 
-
-
-### T\_justReader\_testReaderCopyNothing\_1\_static\_extension function read
 
 
 ```haxe
-function read(__self__:stdgo.bytes_test._Bytes_test.T_justReader_testReaderCopyNothing_1, __0:stdgo.Slice<stdgo.GoUInt8>):{_1:stdgo.Error, _0:stdgo.GoInt}
+var reader:stdgo.io.Reader
 ```
 
 
- 
-
-
-[\(view code\)](<./Bytes_test.hx#L5796>)
-
-
-## class T\_justWriter\_testReaderCopyNothing\_2\_static\_extension
-
-
- 
-
-
-### T\_justWriter\_testReaderCopyNothing\_2\_static\_extension function write
+### T\_justReader\_testReaderCopyNothing\_1 function new
 
 
 ```haxe
-function write(__self__:stdgo.bytes_test._Bytes_test.T_justWriter_testReaderCopyNothing_2, __0:stdgo.Slice<stdgo.GoUInt8>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function new(?reader:Null<stdgo.io.Reader>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes_test.hx#L5821>)
+
+[\(view code\)](<./Bytes_test.hx#L4839>)
 
 
-## class T\_negativeReader\_static\_extension
-
-
- 
-
-
-### T\_negativeReader\_static\_extension function read
+### T\_justReader\_testReaderCopyNothing\_1 function read
 
 
 ```haxe
-function read(_r:stdgo.Ref<stdgo.bytes_test._Bytes_test.T_negativeReader>, _0:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function read(__0:stdgo.Slice<stdgo.GoUInt8>):{_1:stdgo.Error, _0:stdgo.GoInt}
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes_test.hx#L5740>)
+
+[\(view code\)](<./Bytes_test.hx#L4844>)
 
 
-## class T\_panicReader\_static\_extension
-
-
- 
-
-
-### T\_panicReader\_static\_extension function read
+### T\_justReader\_testReaderCopyNothing\_1 function read
 
 
 ```haxe
-function read(_r:stdgo.bytes_test._Bytes_test.T_panicReader, _p:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function read( __0:stdgo.Slice<stdgo.GoUInt8>):{_1:stdgo.Error, _0:stdgo.GoInt}
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes_test.hx#L5766>)
+
+[\(view code\)](<./Bytes_test.hx#L5052>)
+
+
+## class T\_justWriter\_testReaderCopyNothing\_2
+
+
+
+
+
+```haxe
+var writer:stdgo.io.Writer
+```
+
+
+### T\_justWriter\_testReaderCopyNothing\_2 function new
+
+
+```haxe
+function new(?writer:Null<stdgo.io.Writer>):Void
+```
+
+
+
+
+
+[\(view code\)](<./Bytes_test.hx#L4857>)
+
+
+### T\_justWriter\_testReaderCopyNothing\_2 function write
+
+
+```haxe
+function write(__0:stdgo.Slice<stdgo.GoUInt8>):{_1:stdgo.Error, _0:stdgo.GoInt}
+```
+
+
+
+
+
+[\(view code\)](<./Bytes_test.hx#L4862>)
+
+
+### T\_justWriter\_testReaderCopyNothing\_2 function write
+
+
+```haxe
+function write( __0:stdgo.Slice<stdgo.GoUInt8>):{_1:stdgo.Error, _0:stdgo.GoInt}
+```
+
+
+
+
+
+[\(view code\)](<./Bytes_test.hx#L5067>)
+
+
+## class T\_nErr\_testReaderCopyNothing\_0
+
+
+
+
+
+```haxe
+var _err:stdgo.Error
+```
+
+
+```haxe
+var _n:stdgo.GoInt64
+```
+
+
+### T\_nErr\_testReaderCopyNothing\_0 function new
+
+
+```haxe
+function new(?_n:stdgo.GoInt64, ?_err:Null<stdgo.Error>):Void
+```
+
+
+
+
+
+[\(view code\)](<./Bytes_test.hx#L4822>)
+
+
+## class T\_negativeReader
+
+
+
+
+
+### T\_negativeReader function new
+
+
+```haxe
+function new():Void
+```
+
+
+
+
+
+[\(view code\)](<./Bytes_test.hx#L762>)
+
+
+### T\_negativeReader function read
+
+
+```haxe
+function read( _0:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}
+```
+
+
+
+
+
+[\(view code\)](<./Bytes_test.hx#L5015>)
+
+
+## class T\_panicReader
+
+
+
+
+
+```haxe
+var _panic:Bool
+```
+
+
+### T\_panicReader function new
+
+
+```haxe
+function new(?_panic:Bool):Void
+```
+
+
+
+
+
+[\(view code\)](<./Bytes_test.hx#L775>)
+
+
+### T\_panicReader function read
+
+
+```haxe
+function read( _p:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}
+```
+
+
+
+
+
+[\(view code\)](<./Bytes_test.hx#L5032>)
+
+
+## class T\_predicate
+
+
+
+
+
+```haxe
+var _name:stdgo.GoString
+```
+
+
+### T\_predicate function \_f
+
+
+```haxe
+function _f()
+```
+
+
+
+
+
+### T\_predicate function new
+
+
+```haxe
+function new(?_f:(), ?_name:stdgo.GoString):Void
+```
+
+
+
+
+
+[\(view code\)](<./Bytes_test.hx#L946>)
 
 
 ## class TitleTest
 
 
- 
+
 
 
 ```haxe
@@ -3801,20 +3943,20 @@ function new(?_in:stdgo.GoString, ?_out:stdgo.GoString):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes_test.hx#L1183>)
+
+[\(view code\)](<./Bytes_test.hx#L1030>)
 
 
 ## class TrimFuncTest
 
 
- 
+
 
 
 ```haxe
-var _f:stdgo.bytes_test._Bytes_test.T_predicate
+var _f:stdgo.bytes_test.T_predicate
 ```
 
 
@@ -3842,20 +3984,20 @@ var _trimOut:stdgo.Slice<stdgo.GoUInt8>
 
 
 ```haxe
-function new(?_f:stdgo.bytes_test._Bytes_test.T_predicate, ?_in:stdgo.GoString, ?_trimOut:stdgo.Slice<stdgo.GoUInt8>, ?_leftOut:stdgo.Slice<stdgo.GoUInt8>, ?_rightOut:stdgo.Slice<stdgo.GoUInt8>):Void
+function new(?_f:stdgo.bytes_test.T_predicate, ?_in:stdgo.GoString, ?_trimOut:stdgo.Slice<stdgo.GoUInt8>, ?_leftOut:stdgo.Slice<stdgo.GoUInt8>, ?_rightOut:stdgo.Slice<stdgo.GoUInt8>):Void
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes_test.hx#L1104>)
+
+[\(view code\)](<./Bytes_test.hx#L966>)
 
 
 ## class TrimNilTest
 
 
- 
+
 
 
 ```haxe
@@ -3886,16 +4028,16 @@ function new(?_f:stdgo.GoString, ?_in:stdgo.Slice<stdgo.GoUInt8>, ?_arg:stdgo.Go
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes_test.hx#L1059>)
+
+[\(view code\)](<./Bytes_test.hx#L927>)
 
 
 ## class TrimTest
 
 
- 
+
 
 
 ```haxe
@@ -3926,9 +4068,9 @@ function new(?_f:stdgo.GoString, ?_in:stdgo.GoString, ?_arg:stdgo.GoString, ?_ou
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytes_test.hx#L1034>)
+
+[\(view code\)](<./Bytes_test.hx#L906>)
 
 

@@ -6,7 +6,7 @@
 # Overview
 
 
- 
+
 
 
 # Index
@@ -64,7 +64,8 @@ final primeRK:stdgo.GoUInt64 = (("16777619" : GoUInt64))
 ```
 
 
-PrimeRK is the prime base used in Rabin\-Karp algorithm. 
+PrimeRK is the prime base used in Rabin\-Karp algorithm.  
+
 
 
 # Variables
@@ -80,7 +81,9 @@ var maxLen:stdgo.GoInt
 ```
 
 
-MaxLen is the maximum length of the string to be searched for \(argument b\) in Index.  If MaxLen is not 0, make sure MaxLen \>= 4. 
+MaxLen is the maximum length of the string to be searched for \(argument b\) in Index.  
+If MaxLen is not 0, make sure MaxLen \>= 4.  
+
 
 
 # Functions
@@ -99,10 +102,11 @@ function compare(_a:stdgo.Slice<stdgo.GoByte>, _b:stdgo.Slice<stdgo.GoByte>):std
 ```
 
 
-go:noescape 
+go:noescape  
 
 
-[\(view code\)](<./Bytealg.hx#L234>)
+
+[\(view code\)](<./Bytealg.hx#L221>)
 
 
 ## function count
@@ -113,10 +117,10 @@ function count(_b:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.GoInt
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytealg.hx#L270>)
+
+[\(view code\)](<./Bytealg.hx#L254>)
 
 
 ## function countString
@@ -127,10 +131,10 @@ function countString(_s:stdgo.GoString, _c:stdgo.GoByte):stdgo.GoInt
 ```
 
 
- 
 
 
-[\(view code\)](<./Bytealg.hx#L280>)
+
+[\(view code\)](<./Bytealg.hx#L263>)
 
 
 ## function cutover
@@ -141,10 +145,14 @@ function cutover(_n:stdgo.GoInt):stdgo.GoInt
 ```
 
 
-Cutover reports the number of failures of IndexByte we should tolerate  before switching over to Index.  n is the number of bytes processed so far.  See the bytes.Index implementation for details. 
+Cutover reports the number of failures of IndexByte we should tolerate  
+before switching over to Index.  
+n is the number of bytes processed so far.  
+See the bytes.Index implementation for details.  
 
 
-[\(view code\)](<./Bytealg.hx#L340>)
+
+[\(view code\)](<./Bytealg.hx#L315>)
 
 
 ## function equal
@@ -155,10 +163,19 @@ function equal(_a:stdgo.Slice<stdgo.GoByte>, _b:stdgo.Slice<stdgo.GoByte>):Bool
 ```
 
 
-Equal reports whether a and b  are the same length and contain the same bytes.  A nil argument is equivalent to an empty slice.    Equal is equivalent to bytes.Equal.  It is provided here for convenience,  because some packages cannot depend on bytes. 
+Equal reports whether a and b  
+are the same length and contain the same bytes.  
+A nil argument is equivalent to an empty slice.  
 
 
-[\(view code\)](<./Bytealg.hx#L302>)
+
+Equal is equivalent to bytes.Equal.  
+It is provided here for convenience,  
+because some packages cannot depend on bytes.  
+
+
+
+[\(view code\)](<./Bytealg.hx#L284>)
 
 
 ## function hashStr
@@ -169,10 +186,12 @@ function hashStr(_sep:stdgo.GoString):{_1:stdgo.GoUInt32, _0:stdgo.GoUInt32}
 ```
 
 
-HashStr returns the hash and the appropriate multiplicative  factor for use in Rabin\-Karp algorithm. 
+HashStr returns the hash and the appropriate multiplicative  
+factor for use in Rabin\-Karp algorithm.  
 
 
-[\(view code\)](<./Bytealg.hx#L83>)
+
+[\(view code\)](<./Bytealg.hx#L88>)
 
 
 ## function hashStrBytes
@@ -183,10 +202,12 @@ function hashStrBytes(_sep:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.GoUInt32, _0:std
 ```
 
 
-HashStrBytes returns the hash and the appropriate multiplicative  factor for use in Rabin\-Karp algorithm. 
+HashStrBytes returns the hash and the appropriate multiplicative  
+factor for use in Rabin\-Karp algorithm.  
 
 
-[\(view code\)](<./Bytealg.hx#L55>)
+
+[\(view code\)](<./Bytealg.hx#L64>)
 
 
 ## function hashStrRev
@@ -197,10 +218,12 @@ function hashStrRev(_sep:stdgo.GoString):{_1:stdgo.GoUInt32, _0:stdgo.GoUInt32}
 ```
 
 
-HashStrRev returns the hash of the reverse of sep and the  appropriate multiplicative factor for use in Rabin\-Karp algorithm. 
+HashStrRev returns the hash of the reverse of sep and the  
+appropriate multiplicative factor for use in Rabin\-Karp algorithm.  
 
 
-[\(view code\)](<./Bytealg.hx#L139>)
+
+[\(view code\)](<./Bytealg.hx#L136>)
 
 
 ## function hashStrRevBytes
@@ -211,10 +234,12 @@ function hashStrRevBytes(_sep:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.GoUInt32, _0:
 ```
 
 
-HashStrRevBytes returns the hash of the reverse of sep and the  appropriate multiplicative factor for use in Rabin\-Karp algorithm. 
+HashStrRevBytes returns the hash of the reverse of sep and the  
+appropriate multiplicative factor for use in Rabin\-Karp algorithm.  
 
 
-[\(view code\)](<./Bytealg.hx#L111>)
+
+[\(view code\)](<./Bytealg.hx#L112>)
 
 
 ## function index
@@ -225,10 +250,12 @@ function index(_a:stdgo.Slice<stdgo.GoByte>, _b:stdgo.Slice<stdgo.GoByte>):stdgo
 ```
 
 
-Index returns the index of the first instance of b in a, or \-1 if b is not present in a.  Requires 2 \<= len\(b\) \<= MaxLen. 
+Index returns the index of the first instance of b in a, or \-1 if b is not present in a.  
+Requires 2 \<= len\(b\) \<= MaxLen.  
 
 
-[\(view code\)](<./Bytealg.hx#L322>)
+
+[\(view code\)](<./Bytealg.hx#L299>)
 
 
 ## function indexByte
@@ -239,10 +266,11 @@ function indexByte(_b:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.GoInt
 ```
 
 
-go:noescape 
+go:noescape  
 
 
-[\(view code\)](<./Bytealg.hx#L347>)
+
+[\(view code\)](<./Bytealg.hx#L321>)
 
 
 ## function indexByteString
@@ -253,10 +281,11 @@ function indexByteString(_s:stdgo.GoString, _c:stdgo.GoByte):stdgo.GoInt
 ```
 
 
-go:noescape 
+go:noescape  
 
 
-[\(view code\)](<./Bytealg.hx#L358>)
+
+[\(view code\)](<./Bytealg.hx#L330>)
 
 
 ## function indexRabinKarp
@@ -267,10 +296,12 @@ function indexRabinKarp(_s:stdgo.GoString, _substr:stdgo.GoString):stdgo.GoInt
 ```
 
 
-IndexRabinKarp uses the Rabin\-Karp search algorithm to return the index of the  first occurrence of substr in s, or \-1 if not present. 
+IndexRabinKarp uses the Rabin\-Karp search algorithm to return the index of the  
+first occurrence of substr in s, or \-1 if not present.  
 
 
-[\(view code\)](<./Bytealg.hx#L201>)
+
+[\(view code\)](<./Bytealg.hx#L191>)
 
 
 ## function indexRabinKarpBytes
@@ -281,10 +312,12 @@ function indexRabinKarpBytes(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdg
 ```
 
 
-IndexRabinKarpBytes uses the Rabin\-Karp search algorithm to return the index of the  first occurrence of substr in s, or \-1 if not present. 
+IndexRabinKarpBytes uses the Rabin\-Karp search algorithm to return the index of the  
+first occurrence of substr in s, or \-1 if not present.  
 
 
-[\(view code\)](<./Bytealg.hx#L167>)
+
+[\(view code\)](<./Bytealg.hx#L160>)
 
 
 ## function indexString
@@ -295,9 +328,11 @@ function indexString(_a:stdgo.GoString, _b:stdgo.GoString):stdgo.GoInt
 ```
 
 
-IndexString returns the index of the first instance of b in a, or \-1 if b is not present in a.  Requires 2 \<= len\(b\) \<= MaxLen. 
+IndexString returns the index of the first instance of b in a, or \-1 if b is not present in a.  
+Requires 2 \<= len\(b\) \<= MaxLen.  
 
 
-[\(view code\)](<./Bytealg.hx#L330>)
+
+[\(view code\)](<./Bytealg.hx#L306>)
 
 

@@ -888,7 +888,7 @@ class Go {
 								case TFun(_):
 								case TAbstract(_.get() => ct,_):
 										if (ct.pack != null && ct.pack[0] == "stdgo" && ct.name == "GoArray") {
-											len = macro($expr : GoArray<Dynamic>).length.toBasic();
+											len = macro -1;
 										}
 								default:
 									

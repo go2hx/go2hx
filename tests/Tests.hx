@@ -170,6 +170,7 @@ private function completeProcess(code:Int, proc:Process, task:TaskData, command:
 	} else {
 		if (runtimeBool) {
 			log(task.data.name + '.go `$command` runtime error: $code');
+			log(proc.stdout.readAll().toString());
 			log(proc.stderr.readAll().toString());
 			suites[task.data.type].runtimeError(task);
 		} else {

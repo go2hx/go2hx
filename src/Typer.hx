@@ -3516,6 +3516,12 @@ private function toAnyInterface(x:Expr, t:GoType, info:Info):Expr {
 		case named(_, _, _, _):
 			if (!isInterface(t) && !isAnyInterface(t))
 				x = wrapper(t, x, info);
+		case basic(kind):
+			switch kind {
+				case untyped_nil_kind:
+					return macro (null : AnyInterface);
+				default:
+			}
 		default:
 	}
 	return macro Go.toInterface($x);

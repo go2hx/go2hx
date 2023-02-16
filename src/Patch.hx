@@ -310,7 +310,7 @@ final list = [
 				default:
 					throw "invalid mapType: " + gt;
 			}
-		return new Value(new AnyInterface(@:privateAccess _iter.map.__get__(_iter.values[_iter.index]), value));
+		return new Value(new AnyInterface(@:privateAccess _iter.values[_iter.index], value));
 	},
 	"reflect.MapIter:next" => macro {
 		@:privateAccess if (_iter.keys == null) {
@@ -331,7 +331,13 @@ final list = [
 		return @:privateAccess _v.canAddrBool;
 	},
 	"reflect:zero" => macro return new Value(new AnyInterface(stdgo.internal.reflect.Reflect.defaultValue(_typ), _typ.__underlying__().value)),
-	"reflect.Value:type" => macro return @:privateAccess new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(_v.value.type), _v.value.type),
+	"reflect.Value:type" => macro {
+		if (@:privateAccess _v.value == null) {
+			var t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.invalidType);
+			return @:privateAccess new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(t), t);
+		}
+		return @:privateAccess new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(_v.value.type), _v.value.type);
+	},
 	"reflect.Value:kind" => macro return _v.type().kind(),
 	"reflect.Value:isValid" => macro {
 		if (@:privateAccess _v.value == null)
@@ -346,6 +352,8 @@ final list = [
 		};
 	},
 	"reflect.Value:pointer" => macro {
+		if (@:privateAccess _v.value == null)
+			return 0;
 		var value = @:privateAccess _v.value.value;
 		return value != null ? 1 : 0;
 	},
@@ -641,12 +649,13 @@ final list = [
 		final gt = stdgo.internal.reflect.Reflect.getUnderlying(@:privateAccess _v.value.type._common());
 		return switch gt {
 			case stdgo.internal.reflect.Reflect.GoType.arrayType(_.get() => elem, _):
-				@:privateAccess new Value(new AnyInterface((value : GoArray<Dynamic>)[_i],
-					new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.unroll(gt, elem))));
+				final t = @:privateAccess new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.unroll(gt, elem));
+				final value = stdgo.internal.reflect.Reflect.asInterface((value : GoArray<Dynamic>)[_i], t._common());
+				new Value(new AnyInterface(value,t));
 			case stdgo.internal.reflect.Reflect.GoType.sliceType(_.get() => elem):
-				final value = @:privateAccess new Value(new AnyInterface((value : Slice<Dynamic>)[_i],
-					new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.unroll(gt, elem))),
-					value, _i);
+				final t = @:privateAccess new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.unroll(gt, elem));
+				final value = stdgo.internal.reflect.Reflect.asInterface((value : Slice<Dynamic>)[_i], t._common());
+				final value = new Value(new AnyInterface(value,t),value, _i);
 				@:privateAccess value.canAddrBool = true;
 				value;
 			case stdgo.internal.reflect.Reflect.GoType.basic(kind):
@@ -718,6 +727,9 @@ final list = [
 		}
 	},
 	"reflect.Value:string" => macro {
+		if (@:privateAccess _v.value == null) {
+			return "<invalid Value>";
+		}
 		var value = @:privateAccess _v.value.value;
 		final t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
 		if (stdgo.internal.reflect.Reflect.isNamed(t)) {
@@ -745,7 +757,7 @@ final list = [
 			default:
 				final _ = false;
 		};
-		return "<" + _v.type().string() + ">";
+		return "<" + _v.type().string() + " Value>";
 	},
 	"reflect.Value:interface_" => macro return @:privateAccess _v.value,
 	"reflect.Value:isNil" => macro {
@@ -1011,6 +1023,40 @@ final structs = [
 		var underlyingKey:Dynamic = null;
 		var canAddrBool:Bool = false;
 		var notSetBool:Bool = false;
+		function string():GoString {
+			var _v = this;
+			if (@:privateAccess _v.value == null) {
+				return "<invalid Value>";
+			}
+			var value = @:privateAccess _v.value.value;
+			final t:stdgo.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
+			if (stdgo.internal.reflect.Reflect.isNamed(t)) {
+				switch std.Type.typeof(value) {
+					case TClass(c):
+						final name = std.Type.getClassName(c);
+						if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__underlying__().value;
+					default:
+						final _ = false;
+				}
+			}
+			if (stdgo.internal.reflect.Reflect.isPointer(t)) {
+				@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
+				value = (value : Dynamic).value;
+			};
+			final underlyingType = stdgo.internal.reflect.Reflect.getUnderlying(t);
+			switch (underlyingType) {
+				case stdgo.internal.reflect.Reflect.GoType.basic(kind):
+					switch kind {
+						case string_kind:
+							return value;
+						default:
+							final _ = false;
+					};
+				default:
+					final _ = false;
+			};
+			return "<" + _v.type().string() + " Value>";
+		}
 	},
 	"sync:WaitGroup" => macro {
 		@:local

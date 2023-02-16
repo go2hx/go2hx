@@ -23,7 +23,7 @@ abstract GoMap<K, V>(GoObjectMap<K, V>) {
 	@:arrayAccess public inline function __set__(key:K, value:V)
 		this.set(key, value);
 
-	@:arrayAccess public inline function __get__(key:K)
+	@:arrayAccess public inline function __get__(key:K):V
 		return this.get(key);
 
 	public inline function __exists__(key:K)
@@ -84,9 +84,11 @@ class GoObjectMap<K, V> implements haxe.Constraints.IMap<K, V> {
 		for (i in 0..._keys.length) {
 			if (equals(key, _keys[i])) {
 				_values[i] = value;
-				break;
+				return;
 			}
 		}
+		_keys.push(key);
+		_values.push(value);
 	}
 
 	function equals(key:K, objKey:K):Bool {

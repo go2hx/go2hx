@@ -28,7 +28,7 @@ class Macro {
 						try {
 							names = $e;
 						}catch(e) {
-							trace(e.details());
+							throw e.details();
 						}
 					}
 				}

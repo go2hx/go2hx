@@ -7,6 +7,8 @@ class TypeInfo {
 private abstract TypeInternalMap(Map<String,stdgo.internal.reflect.Reflect.GoType>) from Map<String,stdgo.internal.reflect.Reflect.GoType> {
     @:op([])
     private function get(s:String) {
+        if (this == null)
+            throw "TypeInternalMap null";
         final value = this[s];
         if (value == null)
             trace("null value: " + s);

@@ -406,6 +406,12 @@ class Go {
 
 	public static macro function toInterface(expr) {
 		final expectedType = Context.getExpectedType();
+		switch expr.expr {
+			case EConst(CIdent(s)):
+				if (s == "null")
+					return macro new AnyInterface(null,new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.invalidType));
+				default:
+		}
 		if (expectedType != null) {
 			var error = false;
 			switch expectedType {
@@ -853,16 +859,18 @@ class Go {
 												}
 											}
 										}
-										var isNamedNamed = false;
+										var isInvalidNamed = false;
 										switch type {
 											case TInst(_,_):
-												isNamedNamed = true;
+												isInvalidNamed = true;
 											case TType(_.get() => t,_):
-												isNamedNamed = t.meta.has(":named") || t.meta.has(":param");
+												isInvalidNamed = t.meta.has(":named") || t.meta.has(":param");
+											case TAbstract(_.get() => t,_):
+												isInvalidNamed = t.module == "stdgo.GoArray";
 											default:
 										}
 										final e = macro stdgo.internal.reflect.Reflect.GoType.named($v{path}, $a{methods}, $underlyingType,false, {get: () -> null});
-										if (isNamedNamed) {
+										if (isInvalidNamed) {
 											return e;
 										}else{
 											Go.nameTypes[path] = e;
@@ -891,18 +899,16 @@ class Go {
 					case "stdgo.GoArray":
 						var len = macro - 1;
 						if (expr != null) { // check for stdgo.reflect.Value
-							len = macro -1;
 							final t = Context.follow(Context.typeof(expr));
 							switch t {
 								case TInst(_.get() => ct,_):
 									if (ct.pack != null && ct.pack[0] == "stdgo" && ct.pack[1] == "reflect" && ct.name == "Value") {
-										//len = macro $expr.len().toBasic();
-										len = macro -1;
+										len = macro $expr.len().toBasic();
 									}
 								case TFun(_):
 								case TAbstract(_.get() => ct,_):
 										if (ct.pack != null && ct.pack[0] == "stdgo" && ct.name == "GoArray") {
-											len = macro -1;
+											len = macro $expr.length.toBasic();
 										}
 								default:
 									
@@ -910,7 +916,7 @@ class Go {
 						}
 						final param = gtParams(params, marked)[0];
 						ret = macro stdgo.internal.reflect.Reflect.GoType.arrayType({get: () -> $param},
-							$len); // TODO go2hx does not store the length in the type
+							$len);
 					case "stdgo.Pointer":
 						final param = gtParams(params, marked)[0];
 						ret = macro stdgo.internal.reflect.Reflect.GoType.pointerType({get: () -> $param});

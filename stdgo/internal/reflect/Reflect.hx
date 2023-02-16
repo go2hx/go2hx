@@ -310,6 +310,40 @@ private function identicalType(t:GoType,v:GoType):Bool {
 				default:
 					false;
 			}
+		case previouslyNamed(path):
+			switch v {
+				case previouslyNamed(path2), named(path2, _, _, _, _):
+					path == path2;
+				default:
+					false;
+			}
+		case signature(variadic, _.get() => params, _.get() => results, _.get() => recv, _.get() => typeParams):
+			switch v {
+				case signature(variadic2, _.get() => params2, _.get() => results2, _.get() => recv2, _.get() => typeParams2):
+					if (variadic != variadic2)
+						return false;
+					if (params.length != params2.length)
+						return false;
+					if (results.length != results2.length)
+						return false;
+					if (typeParams.length != typeParams2.length)
+						return false;
+					for (i in 0...params.length) {
+						if (!identicalType(params[i],params2[i]))
+							return false;
+					}
+					for (i in 0...results.length) {
+						if (!identicalType(results[i], results2[i]))
+							return false;
+					}
+					for (i in 0...typeParams.length) {
+						if (!identicalType(typeParams[i],typeParams2[i]))
+							return false;
+					}
+					true;
+				default:
+					false;
+			}
 		default:
 			trace(t);
 			throw "identical type not supported";
@@ -1019,7 +1053,7 @@ class _Type {
 			case chanType(_, _): 18;
 			case interfaceType(_, _): 20;
 			case arrayType(_, _): 17;
-			case invalidType: KindType.unsafePointer;
+			case invalidType: KindType.invalid;
 			case mapType(_, _): 21;
 			case named(_, _, type,_,_), _var(_, _.get() => type): new _Type(type).kind();
 			case pointerType(_), refType(_): 22;

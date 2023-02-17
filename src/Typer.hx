@@ -895,11 +895,10 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 	if (list != null && info.deferBool && isFunc) { // defer system
 		final ret = toExpr(typeReturnStmt({returnPos: 0, results: []}, info));
 		final e = ret;
-		var catchBlock:Array<Expr> = [
-			macro if (!(__exception__.native is AnyInterfaceData))
-				throw __exception__,
-			macro Go.recover_exception = __exception__.native
-		];
+		var catchBlock:Array<Expr> = [macro var exe:Dynamic = __exception__.native];
+		catchBlock.push(macro if ((exe is haxe.ValueException))
+				exe = exe.value);
+		catchBlock.push(macro Go.recover_exception = exe);
 		switch e.expr {
 			case EBlock(exprs):
 				final last = exprs.pop();

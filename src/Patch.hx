@@ -338,6 +338,7 @@ final list = [
 		}
 		return @:privateAccess new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(_v.value.type), _v.value.type);
 	},
+	"reflect.Value:setString" => macro @:privateAccess _v.value.value = _x,
 	"reflect.Value:kind" => macro return _v.type().kind(),
 	"reflect.Value:isValid" => macro {
 		if (@:privateAccess _v.value == null)
@@ -721,6 +722,8 @@ final list = [
 				_v.setFloat((value : GoFloat32));
 			case stdgo.internal.reflect.Reflect.KindType.float64:
 				_v.setFloat((value : GoFloat64));
+			case stdgo.internal.reflect.Reflect.KindType.string:
+				_v.setString(value);
 			default:
 				@:privateAccess _v.value = _x.value;
 				stdgo.internal.reflect.Reflect._set(_v);

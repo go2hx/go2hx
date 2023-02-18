@@ -338,7 +338,10 @@ final list = [
 		}
 		return @:privateAccess new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(_v.value.type), _v.value.type);
 	},
-	"reflect.Value:setString" => macro @:privateAccess _v.value.value = _x,
+	"reflect.Value:setString" => macro {
+		@:privateAccess _v.value.value = _x;
+		stdgo.internal.reflect.Reflect._set(_v);
+	},
 	"reflect.Value:kind" => macro return _v.type().kind(),
 	"reflect.Value:isValid" => macro {
 		if (@:privateAccess _v.value == null)
@@ -651,12 +654,12 @@ final list = [
 		return switch gt {
 			case stdgo.internal.reflect.Reflect.GoType.arrayType(_.get() => elem, _):
 				final t = @:privateAccess new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.unroll(gt, elem));
-				final value = stdgo.internal.reflect.Reflect.asInterface((value : GoArray<Dynamic>)[_i], t._common());
-				new Value(new AnyInterface(value,t));
+				final valueInterface = stdgo.internal.reflect.Reflect.asInterface((value : GoArray<Dynamic>)[_i], t._common());
+				new Value(new AnyInterface(valueInterface,t),value, _i);
 			case stdgo.internal.reflect.Reflect.GoType.sliceType(_.get() => elem):
 				final t = @:privateAccess new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.unroll(gt, elem));
-				final value = stdgo.internal.reflect.Reflect.asInterface((value : Slice<Dynamic>)[_i], t._common());
-				final value = new Value(new AnyInterface(value,t),value, _i);
+				final valueInterface = stdgo.internal.reflect.Reflect.asInterface((value : Slice<Dynamic>)[_i], t._common());
+				final value = new Value(new AnyInterface(valueInterface,t),value, _i);
 				@:privateAccess value.canAddrBool = true;
 				value;
 			case stdgo.internal.reflect.Reflect.GoType.basic(kind):

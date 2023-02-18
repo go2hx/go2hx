@@ -532,8 +532,9 @@ function testFuncOf(_t:Ref<stdgo.testing.Testing.T>):Void {
                 return;
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
@@ -573,8 +574,9 @@ function testInvokeFunction(_t:Ref<stdgo.testing.Testing.T>):Void {
                         return (null : AnyInterface);
                     };
                 } catch(__exception__) {
-                    if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                    Go.recover_exception = __exception__.native;
+                    var exe:Dynamic = __exception__.native;
+                    if ((exe is haxe.ValueException)) exe = exe.value;
+                    Go.recover_exception = exe;
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -609,8 +611,9 @@ function testInvokeFunction(_t:Ref<stdgo.testing.Testing.T>):Void {
                         return (null : AnyInterface);
                     };
                 } catch(__exception__) {
-                    if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                    Go.recover_exception = __exception__.native;
+                    var exe:Dynamic = __exception__.native;
+                    if ((exe is haxe.ValueException)) exe = exe.value;
+                    Go.recover_exception = exe;
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -639,8 +642,9 @@ function testInvokeFunction(_t:Ref<stdgo.testing.Testing.T>):Void {
                 return;
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
@@ -777,8 +781,9 @@ private function _expectValueError(_t:Ref<stdgo.testing.Testing.T>, _fn:() -> Vo
                 return;
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
@@ -814,8 +819,9 @@ private function _expectPanic(_t:Ref<stdgo.testing.Testing.T>, _fn:() -> Void):V
                 return;
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
@@ -942,8 +948,9 @@ function testGlobal(_t:Ref<stdgo.testing.Testing.T>):Void {
                 return;
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };

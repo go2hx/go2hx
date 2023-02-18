@@ -774,8 +774,9 @@ class Logger_asInterface {
                 return (null : stdgo.io.Io.Writer);
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
@@ -804,8 +805,9 @@ class Logger_asInterface {
                 return;
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
@@ -839,8 +841,9 @@ class Logger_asInterface {
                 return ("" : GoString);
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
@@ -870,8 +873,9 @@ class Logger_asInterface {
                 return;
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
@@ -906,8 +910,9 @@ class Logger_asInterface {
                 return (0 : GoInt);
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
@@ -1064,8 +1069,9 @@ class Logger_asInterface {
                 return (null : Error);
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
@@ -1157,8 +1163,9 @@ class Logger_asInterface {
                 return;
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };

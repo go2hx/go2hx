@@ -3148,8 +3148,9 @@ class T_pp_asInterface {
                 return _handled;
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
@@ -3758,8 +3759,9 @@ class T_ss_asInterface {
                 return { _0 : _numProcessed, _1 : _err };
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
@@ -3894,8 +3896,9 @@ class T_ss_asInterface {
                 return { _0 : _numProcessed, _1 : _err };
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
@@ -4634,8 +4637,9 @@ class T_ss_asInterface {
                 return { _0 : _tok, _1 : _err };
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };

@@ -858,7 +858,7 @@ private var _fmtTests = (new Slice<T__struct_2>(
 ({ _fmt : ("%v" : GoString), _val : Go.toInterface(Go.asInterface(((new stdgo.reflect.Reflect.Value() : stdgo.reflect.Reflect.Value) : Ref<stdgo.reflect.Reflect.Value>))), _out : ("<invalid Value>" : GoString) } : T__struct_2),
 ({ _fmt : ("%v" : GoString), _val : Go.toInterface((new SI(Go.toInterface(Go.asInterface((new stdgo.reflect.Reflect.Value() : stdgo.reflect.Reflect.Value)))) : SI)), _out : ("{<invalid Value>}" : GoString) } : T__struct_2),
 ({ _fmt : ("%☠" : GoString), _val : (null : AnyInterface), _out : ("%!☠(<nil>)" : GoString) } : T__struct_2),
-({ _fmt : ("%☠" : GoString), _val : Go.toInterface(null), _out : ("%!☠(<nil>)" : GoString) } : T__struct_2),
+({ _fmt : ("%☠" : GoString), _val : (null : AnyInterface), _out : ("%!☠(<nil>)" : GoString) } : T__struct_2),
 ({ _fmt : ("%☠" : GoString), _val : Go.toInterface((0 : GoInt)), _out : ("%!☠(int=0)" : GoString) } : T__struct_2),
 ({ _fmt : ("%☠" : GoString), _val : Go.toInterface((("0" : GoUInt) : GoUInt)), _out : ("%!☠(uint=0)" : GoString) } : T__struct_2),
 ({ _fmt : ("%☠" : GoString), _val : Go.toInterface((new Slice<GoUInt8>(0, 0, (0 : GoUInt8), (1 : GoUInt8)) : Slice<GoUInt8>)), _out : ("[%!☠(uint8=0) %!☠(uint8=1)]" : GoString) } : T__struct_2),

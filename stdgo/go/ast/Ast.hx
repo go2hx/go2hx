@@ -2746,8 +2746,9 @@ private function _fprint(_w:stdgo.io.Io.Writer, _fset:Ref<stdgo.go.token.Token.F
                 return _err;
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };

@@ -1619,8 +1619,9 @@ function testReadFromPanicReader(_t:Ref<stdgo.testing.Testing.T>):Void {
                 return;
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
@@ -1669,8 +1670,9 @@ function testReadFromNegativeReader(_t:Ref<stdgo.testing.Testing.T>):Void {
                 return;
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
@@ -1927,8 +1929,9 @@ function testGrowOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
                 return;
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
@@ -3160,8 +3163,9 @@ private function _repeat(_b:Slice<GoByte>, _count:GoInt):Error {
                 return _err;
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
@@ -3443,8 +3447,9 @@ function testBufferGrowNegative(_t:Ref<stdgo.testing.Testing.T>):Void {
                 return;
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
@@ -3483,8 +3488,9 @@ function testBufferTruncateNegative(_t:Ref<stdgo.testing.Testing.T>):Void {
                 return;
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
@@ -3524,8 +3530,9 @@ function testBufferTruncateOutOfRange(_t:Ref<stdgo.testing.Testing.T>):Void {
                 return;
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
@@ -4627,8 +4634,9 @@ function testReaderAtConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void {
                                 return;
                             };
                         } catch(__exception__) {
-                            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                            Go.recover_exception = __exception__.native;
+                            var exe:Dynamic = __exception__.native;
+                            if ((exe is haxe.ValueException)) exe = exe.value;
+                            Go.recover_exception = exe;
                             for (defer in __deferstack__) {
                                 defer();
                             };
@@ -4667,8 +4675,9 @@ function testEmptyReaderConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void {
                                 return;
                             };
                         } catch(__exception__) {
-                            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                            Go.recover_exception = __exception__.native;
+                            var exe:Dynamic = __exception__.native;
+                            if ((exe is haxe.ValueException)) exe = exe.value;
+                            Go.recover_exception = exe;
                             for (defer in __deferstack__) {
                                 defer();
                             };
@@ -4695,8 +4704,9 @@ function testEmptyReaderConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void {
                                 return;
                             };
                         } catch(__exception__) {
-                            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                            Go.recover_exception = __exception__.native;
+                            var exe:Dynamic = __exception__.native;
+                            if ((exe is haxe.ValueException)) exe = exe.value;
+                            Go.recover_exception = exe;
                             for (defer in __deferstack__) {
                                 defer();
                             };
@@ -5031,7 +5041,7 @@ class T_panicReader_asInterface {
     @:keep
     static public function read( _r:T_panicReader, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         if (_r._panic) {
-            throw Go.toInterface(null);
+            throw (null : AnyInterface);
         };
         return { _0 : (0 : GoInt), _1 : stdgo.io.Io.eof };
     }

@@ -4652,8 +4652,9 @@ function checkRuntimeTimerPeriodOverflow():Void {
                 return;
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
@@ -6158,8 +6159,9 @@ private function _loadTzinfoFromZip(_zipfile:GoString, _name:GoString):{ var _0 
                 return { _0 : (null : Slice<GoUInt8>), _1 : (null : Error) };
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
@@ -6305,8 +6307,9 @@ private function _readFile(_name:GoString):{ var _0 : Slice<GoByte>; var _1 : Er
                 return { _0 : (null : Slice<GoUInt8>), _1 : (null : Error) };
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };

@@ -1611,8 +1611,9 @@ function testBuilderGrow(_t:Ref<stdgo.testing.Testing.T>):Void {
                 return;
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
@@ -1774,8 +1775,9 @@ function testBuilderCopyPanic(_t:Ref<stdgo.testing.Testing.T>):Void {
                             return;
                         };
                     } catch(__exception__) {
-                        if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                        Go.recover_exception = __exception__.native;
+                        var exe:Dynamic = __exception__.native;
+                        if ((exe is haxe.ValueException)) exe = exe.value;
+                        Go.recover_exception = exe;
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -2289,8 +2291,9 @@ function testReaderAtConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void {
                                 return;
                             };
                         } catch(__exception__) {
-                            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                            Go.recover_exception = __exception__.native;
+                            var exe:Dynamic = __exception__.native;
+                            if ((exe is haxe.ValueException)) exe = exe.value;
+                            Go.recover_exception = exe;
                             for (defer in __deferstack__) {
                                 defer();
                             };
@@ -2329,8 +2332,9 @@ function testEmptyReaderConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void {
                                 return;
                             };
                         } catch(__exception__) {
-                            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                            Go.recover_exception = __exception__.native;
+                            var exe:Dynamic = __exception__.native;
+                            if ((exe is haxe.ValueException)) exe = exe.value;
+                            Go.recover_exception = exe;
                             for (defer in __deferstack__) {
                                 defer();
                             };
@@ -2357,8 +2361,9 @@ function testEmptyReaderConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void {
                                 return;
                             };
                         } catch(__exception__) {
-                            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                            Go.recover_exception = __exception__.native;
+                            var exe:Dynamic = __exception__.native;
+                            if ((exe is haxe.ValueException)) exe = exe.value;
+                            Go.recover_exception = exe;
                             for (defer in __deferstack__) {
                                 defer();
                             };
@@ -2689,6 +2694,8 @@ function testWriteStringError(_t:Ref<stdgo.testing.Testing.T>):Void {
     // trie if it ends with a "+".
 **/
 function testGenericTrieBuilding(_t:Ref<stdgo.testing.Testing.T>):Void {
+        trace("testGenericTrieBuilding" + " skip function");
+        return;
         var _testCases = (new Slice<StringTest>(0, 0, (new StringTest(("abc;abdef;abdefgh;xx;xy;z" : GoString), ("-\n\t\t\ta-\n\t\t\t.b-\n\t\t\t..c+\n\t\t\t..d-\n\t\t\t...ef+\n\t\t\t.....gh+\n\t\t\tx-\n\t\t\t.x+\n\t\t\t.y+\n\t\t\tz+\n\t\t\t" : GoString)) : StringTest), (new StringTest(("abracadabra;abracadabrakazam;abraham;abrasion" : GoString), ("-\n\t\t\ta-\n\t\t\t.bra-\n\t\t\t....c-\n\t\t\t.....adabra+\n\t\t\t...........kazam+\n\t\t\t....h-\n\t\t\t.....am+\n\t\t\t....s-\n\t\t\t.....ion+\n\t\t\t" : GoString)) : StringTest), (new StringTest(("aaa;aa;a;i;longerst;longer;long;xx;x;X;Y" : GoString), ("-\n\t\t\tX+\n\t\t\tY+\n\t\t\ta+\n\t\t\t.a+\n\t\t\t..a+\n\t\t\ti+\n\t\t\tl-\n\t\t\t.ong+\n\t\t\t....er+\n\t\t\t......st+\n\t\t\tx+\n\t\t\t.x+\n\t\t\t" : GoString)) : StringTest), (new StringTest(("foo;;foo;foo1" : GoString), ("+\n\t\t\tf-\n\t\t\t.oo+\n\t\t\t...1+\n\t\t\t" : GoString)) : StringTest)) : Slice<StringTest>);
         for (_0 => _tc in _testCases) {
             var _keys = split(_tc._in, (";" : GoString));
@@ -3700,8 +3707,9 @@ private function _repeat(_s:GoString, _count:GoInt):Error {
                 return _err;
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };

@@ -2038,8 +2038,9 @@ function testLookupFieldOrMethodOnNil(_t:Ref<stdgo.testing.Testing.T>):Void {
                 return;
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
@@ -3097,8 +3098,9 @@ private function _testFiles(_t:Ref<stdgo.testing.Testing.T>, _sizes:Sizes, _file
                     return;
                 };
             } catch(__exception__) {
-                if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                Go.recover_exception = __exception__.native;
+                var exe:Dynamic = __exception__.native;
+                if ((exe is haxe.ValueException)) exe = exe.value;
+                Go.recover_exception = exe;
                 for (defer in __deferstack__) {
                     defer();
                 };
@@ -4026,8 +4028,9 @@ function testIssue34921(_t:Ref<stdgo.testing.Testing.T>):Void {
                 return;
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };
@@ -5011,8 +5014,9 @@ private function _firstComment(_filename:GoString):GoString {
                 return ("" : GoString);
             };
         } catch(__exception__) {
-            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-            Go.recover_exception = __exception__.native;
+            var exe:Dynamic = __exception__.native;
+            if ((exe is haxe.ValueException)) exe = exe.value;
+            Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
             };

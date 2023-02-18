@@ -1786,6 +1786,8 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 
 		if (gt.match(invalidType) || gt2.match(invalidType))
 			return gt.match(invalidType) && gt2.match(invalidType);
+		if (gt.match(basic(untyped_nil_kind)) || gt2.match(basic(untyped_nil_kind)))
+			return gt.match(basic(untyped_nil_kind)) && gt2.match(basic(untyped_nil_kind));
 		// set internal Type
 		if (!a.type.assignableTo(cast new stdgo.internal.reflect.Reflect._Type_asInterface(new Pointer(() -> b.type, value -> b.type = value), b.type))) {
 			trace(gt);

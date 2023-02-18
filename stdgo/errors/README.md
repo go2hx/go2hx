@@ -136,7 +136,7 @@ because the former will succeed if err wraps an \*fs.PathError.
 
 ```
 === RUN  TestNewEqual
---- PASS: TestNewEqual (%!s(float64=9.107589721679688e-05))
+--- PASS: TestNewEqual (%!s(float64=8.893013000488281e-05))
 
 === RUN  TestErrorMethod
 --- PASS: TestErrorMethod (%!s(float64=1.0013580322265625e-05))
@@ -145,22 +145,22 @@ because the former will succeed if err wraps an \*fs.PathError.
 --- PASS: TestJoinReturnsNil (%!s(float64=8.106231689453125e-06))
 
 === RUN  TestJoin
---- PASS: TestJoin (%!s(float64=0.00021195411682128906))
+--- PASS: TestJoin (%!s(float64=0.00023698806762695312))
 
 === RUN  TestJoinErrorMethod
---- PASS: TestJoinErrorMethod (%!s(float64=3.814697265625e-05))
+--- PASS: TestJoinErrorMethod (%!s(float64=3.719329833984375e-05))
 
 === RUN  TestIs
---- PASS: TestIs (%!s(float64=8.487701416015625e-05))
+--- PASS: TestIs (%!s(float64=6.890296936035156e-05))
 
 === RUN  TestAs
---- PASS: TestAs (%!s(float64=0.01617908477783203))
+--- PASS: TestAs (%!s(float64=0.01557302474975586))
 
 === RUN  TestAsValidation
---- PASS: TestAsValidation (%!s(float64=0.0006430149078369141))
+--- PASS: TestAsValidation (%!s(float64=0.0006339550018310547))
 
 === RUN  TestUnwrap
---- PASS: TestUnwrap (%!s(float64=0.00010180473327636719))
+--- PASS: TestUnwrap (%!s(float64=0.0009431838989257812))
 
 ```
 </p>
@@ -171,31 +171,31 @@ because the former will succeed if err wraps an \*fs.PathError.
 
 ```
 === RUN  TestNewEqual
---- PASS: TestNewEqual (%!s(float64=0.00011491775512695312))
+--- PASS: TestNewEqual (%!s(float64=0.00010514259338378906))
 
 === RUN  TestErrorMethod
---- PASS: TestErrorMethod (%!s(float64=2.288818359375e-05))
+--- PASS: TestErrorMethod (%!s(float64=2.002716064453125e-05))
 
 === RUN  TestJoinReturnsNil
---- PASS: TestJoinReturnsNil (%!s(float64=3.409385681152344e-05))
+--- PASS: TestJoinReturnsNil (%!s(float64=2.8848648071289062e-05))
 
 === RUN  TestJoin
---- PASS: TestJoin (%!s(float64=0.0006098747253417969))
+--- PASS: TestJoin (%!s(float64=0.00061798095703125))
 
 === RUN  TestJoinErrorMethod
---- PASS: TestJoinErrorMethod (%!s(float64=0.00015306472778320312))
+--- PASS: TestJoinErrorMethod (%!s(float64=0.00014400482177734375))
 
 === RUN  TestIs
---- PASS: TestIs (%!s(float64=0.00023102760314941406))
+--- PASS: TestIs (%!s(float64=0.00021910667419433594))
 
 === RUN  TestAs
---- PASS: TestAs (%!s(float64=0.020750045776367188))
+--- PASS: TestAs (%!s(float64=0.021200895309448242))
 
 === RUN  TestAsValidation
---- PASS: TestAsValidation (%!s(float64=0.0015778541564941406))
+--- PASS: TestAsValidation (%!s(float64=0.0015599727630615234))
 
 === RUN  TestUnwrap
---- PASS: TestUnwrap (%!s(float64=0.00023603439331054688))
+--- PASS: TestUnwrap (%!s(float64=0.000225067138671875))
 
 ```
 </p>
@@ -224,20 +224,6 @@ stdgo/internal/Macro.macro.hx:35: define
 - [`function new_(_text:stdgo.GoString):stdgo.Error`](<#function-new_>)
 
 - [`function unwrap(_err:stdgo.Error):stdgo.Error`](<#function-unwrap>)
-
-- [class T\_errorString](<#class-t_errorstring>)
-
-  - [`function new(?_s:stdgo.GoString):Void`](<#t_errorstring-function-new>)
-
-  - [`function error():stdgo.GoString`](<#t_errorstring-function-error>)
-
-- [class T\_joinError](<#class-t_joinerror>)
-
-  - [`function new(?_errs:stdgo.Slice<stdgo.Error>):Void`](<#t_joinerror-function-new>)
-
-  - [`function error():stdgo.GoString`](<#t_joinerror-function-error>)
-
-  - [`function unwrap():stdgo.Slice<stdgo.Error>`](<#t_joinerror-function-unwrap>)
 
 # Examples
 
@@ -470,106 +456,5 @@ function exampleUnwrap():Void {
 
 
 [\(view code\)](<./Errors.hx#L195>)
-
-
-# Classes
-
-
-```haxe
-import stdgo.errors.*
-```
-
-
-## class T\_errorString
-
-
-errorString is a trivial implementation of error.  
-
-
-
-```haxe
-var _s:stdgo.GoString
-```
-
-
-### T\_errorString function new
-
-
-```haxe
-function new(?_s:stdgo.GoString):Void
-```
-
-
-
-
-
-[\(view code\)](<./Errors.hx#L131>)
-
-
-### T\_errorString function error
-
-
-```haxe
-function error():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Errors.hx#L353>)
-
-
-## class T\_joinError
-
-
-
-
-
-```haxe
-var _errs:stdgo.Slice<stdgo.Error>
-```
-
-
-### T\_joinError function new
-
-
-```haxe
-function new(?_errs:stdgo.Slice<stdgo.Error>):Void
-```
-
-
-
-
-
-[\(view code\)](<./Errors.hx#L146>)
-
-
-### T\_joinError function error
-
-
-```haxe
-function error():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Errors.hx#L376>)
-
-
-### T\_joinError function unwrap
-
-
-```haxe
-function unwrap():stdgo.Slice<stdgo.Error>
-```
-
-
-
-
-
-[\(view code\)](<./Errors.hx#L372>)
 
 

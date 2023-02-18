@@ -567,7 +567,7 @@ function hasNext():Bool
 
 
 
-[\(view code\)](<./StdGoTypes.hx#L1922>)
+[\(view code\)](<./StdGoTypes.hx#L1924>)
 
 
 ### GoIntIterator function new
@@ -581,7 +581,7 @@ function new(min:stdgo.GoInt, max:stdgo.GoInt):Void
 
 
 
-[\(view code\)](<./StdGoTypes.hx#L1917>)
+[\(view code\)](<./StdGoTypes.hx#L1919>)
 
 
 ### GoIntIterator function next
@@ -595,7 +595,7 @@ function next():stdgo.GoInt
 
 
 
-[\(view code\)](<./StdGoTypes.hx#L1926>)
+[\(view code\)](<./StdGoTypes.hx#L1928>)
 
 
 ## class GoObjectMap
@@ -620,7 +620,7 @@ function clear():Void
 
 
 
-[\(view code\)](<./GoMap.hx#L170>)
+[\(view code\)](<./GoMap.hx#L172>)
 
 
 ### GoObjectMap function copy
@@ -634,7 +634,7 @@ function copy():stdgo.GoObjectMap<stdgo.GoObjectMap.K, stdgo.GoObjectMap.V>
 
 
 
-[\(view code\)](<./GoMap.hx#L156>)
+[\(view code\)](<./GoMap.hx#L158>)
 
 
 ### GoObjectMap function defaultValue
@@ -648,7 +648,7 @@ function defaultValue():stdgo.GoObjectMap.V
 
 
 
-[\(view code\)](<./GoMap.hx#L111>)
+[\(view code\)](<./GoMap.hx#L113>)
 
 
 ### GoObjectMap function exists
@@ -662,7 +662,7 @@ function exists(key:stdgo.GoObjectMap.K):Bool
 
 
 
-[\(view code\)](<./GoMap.hx#L127>)
+[\(view code\)](<./GoMap.hx#L129>)
 
 
 ### GoObjectMap function get
@@ -676,7 +676,7 @@ function get(key:stdgo.GoObjectMap.K):Null<stdgo.GoObjectMap.V>
 
 
 
-[\(view code\)](<./GoMap.hx#L119>)
+[\(view code\)](<./GoMap.hx#L121>)
 
 
 ### GoObjectMap function iterator
@@ -690,7 +690,7 @@ function iterator():Iterator<stdgo.GoObjectMap.V>
 
 
 
-[\(view code\)](<./GoMap.hx#L150>)
+[\(view code\)](<./GoMap.hx#L152>)
 
 
 ### GoObjectMap function keyValueIterator
@@ -704,7 +704,7 @@ function keyValueIterator():KeyValueIterator<stdgo.GoObjectMap.K, stdgo.GoObject
 
 
 
-[\(view code\)](<./GoMap.hx#L152>)
+[\(view code\)](<./GoMap.hx#L154>)
 
 
 ### GoObjectMap function keys
@@ -718,7 +718,7 @@ function keys():Iterator<stdgo.GoObjectMap.K>
 
 
 
-[\(view code\)](<./GoMap.hx#L147>)
+[\(view code\)](<./GoMap.hx#L149>)
 
 
 ### GoObjectMap function new
@@ -746,7 +746,7 @@ function remove(key:stdgo.GoObjectMap.K):Bool
 
 
 
-[\(view code\)](<./GoMap.hx#L135>)
+[\(view code\)](<./GoMap.hx#L137>)
 
 
 ### GoObjectMap function set
@@ -774,7 +774,7 @@ function toString():String
 
 
 
-[\(view code\)](<./GoMap.hx#L163>)
+[\(view code\)](<./GoMap.hx#L165>)
 
 
 ## class GoStringTools

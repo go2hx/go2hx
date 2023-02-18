@@ -26,10 +26,6 @@ used by the Go standard library.
 
   - [`function new(?_1:stdgo.GoArray<stdgo.GoUInt8>):Void`](<#cachelinepad-function-new>)
 
-- [class T\_option](<#class-t_option>)
-
-  - [`function new(?name:stdgo.GoString, ?feature:stdgo.Pointer<Bool>, ?specified:Bool, ?enable:Bool):Void`](<#t_option-function-new>)
-
 # Constants
 
 
@@ -208,46 +204,5 @@ function new(?_1:stdgo.GoArray<stdgo.GoUInt8>):Void
 
 
 [\(view code\)](<./Cpu.hx#L100>)
-
-
-## class T\_option
-
-
-Option names should be lower case. e.g. avx instead of AVX.  
-
-
-
-```haxe
-var enable:Bool
-```
-
-
-```haxe
-var feature:stdgo.Pointer<Bool>
-```
-
-
-```haxe
-var name:stdgo.GoString
-```
-
-
-```haxe
-var specified:Bool
-```
-
-
-### T\_option function new
-
-
-```haxe
-function new(?name:stdgo.GoString, ?feature:stdgo.Pointer<Bool>, ?specified:Bool, ?enable:Bool):Void
-```
-
-
-
-
-
-[\(view code\)](<./Cpu.hx#L118>)
 
 

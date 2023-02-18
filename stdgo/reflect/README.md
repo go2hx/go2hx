@@ -119,7 +119,9 @@ https://golang.org/doc/articles/laws_of_reflection.html
 
 - [class Value](<#class-value>)
 
-  - [`function new(?value:stdgo.AnyInterface, ?underlyingValue:Dynamic, ?underlyingIndex:Null<stdgo.GoInt>, ?underlyingKey:Dynamic, ?canAddrBool:Bool, ?notSetBool:Bool):Void`](<#value-function-new>)
+  - [`function new(?value:stdgo.AnyInterface, ?underlyingValue:Dynamic, ?underlyingIndex:Null<stdgo.GoInt>, ?underlyingKey:Dynamic, ?canAddrBool:Bool, ?notSetBool:Bool, ?string:():stdgo.GoString):Void`](<#value-function-new>)
+
+  - [`function string():stdgo.GoString`](<#value-function-string>)
 
   - [`function addr():stdgo.reflect.Value`](<#value-function-addr>)
 
@@ -522,7 +524,7 @@ As in Go, each x's value must be assignable to the slice's element type.
 
 
 
-[\(view code\)](<./Reflect.hx#L941>)
+[\(view code\)](<./Reflect.hx#L976>)
 
 
 ## function appendSlice
@@ -538,7 +540,7 @@ The slices s and t must have the same element type.
 
 
 
-[\(view code\)](<./Reflect.hx#L946>)
+[\(view code\)](<./Reflect.hx#L981>)
 
 
 ## function arrayOf
@@ -559,7 +561,7 @@ ArrayOf panics.
 
 
 
-[\(view code\)](<./Reflect.hx#L936>)
+[\(view code\)](<./Reflect.hx#L971>)
 
 
 ## function chanOf
@@ -580,7 +582,7 @@ If t's size is equal to or exceeds this limit, ChanOf panics.
 
 
 
-[\(view code\)](<./Reflect.hx#L894>)
+[\(view code\)](<./Reflect.hx#L929>)
 
 
 ## function copy
@@ -603,7 +605,7 @@ As a special case, src can have kind String if the element type of dst is kind U
 
 
 
-[\(view code\)](<./Reflect.hx#L956>)
+[\(view code\)](<./Reflect.hx#L991>)
 
 
 ## function deepEqual
@@ -688,7 +690,7 @@ This ensures that DeepEqual terminates.
 
 
 
-[\(view code\)](<./Reflect.hx#L825>)
+[\(view code\)](<./Reflect.hx#L860>)
 
 
 ## function funcOf
@@ -711,7 +713,7 @@ true.
 
 
 
-[\(view code\)](<./Reflect.hx#L913>)
+[\(view code\)](<./Reflect.hx#L948>)
 
 
 ## function indirect
@@ -728,7 +730,7 @@ If v is not a pointer, Indirect returns v.
 
 
 
-[\(view code\)](<./Reflect.hx#L991>)
+[\(view code\)](<./Reflect.hx#L1026>)
 
 
 ## function makeChan
@@ -743,7 +745,7 @@ MakeChan creates a new channel with the specified type and buffer size.
 
 
 
-[\(view code\)](<./Reflect.hx#L976>)
+[\(view code\)](<./Reflect.hx#L1011>)
 
 
 ## function makeFunc
@@ -786,7 +788,7 @@ of how to use MakeFunc to build a swap function for different types.
 
 
 
-[\(view code\)](<./Reflect.hx#L858>)
+[\(view code\)](<./Reflect.hx#L893>)
 
 
 ## function makeMap
@@ -801,7 +803,7 @@ MakeMap creates a new map with the specified type.
 
 
 
-[\(view code\)](<./Reflect.hx#L980>)
+[\(view code\)](<./Reflect.hx#L1015>)
 
 
 ## function makeMapWithSize
@@ -817,7 +819,7 @@ and initial space for approximately n elements.
 
 
 
-[\(view code\)](<./Reflect.hx#L985>)
+[\(view code\)](<./Reflect.hx#L1020>)
 
 
 ## function makeSlice
@@ -833,7 +835,7 @@ for the specified slice type, length, and capacity.
 
 
 
-[\(view code\)](<./Reflect.hx#L972>)
+[\(view code\)](<./Reflect.hx#L1007>)
 
 
 ## function mapOf
@@ -855,7 +857,7 @@ not implement Go's == operator\), MapOf panics.
 
 
 
-[\(view code\)](<./Reflect.hx#L903>)
+[\(view code\)](<./Reflect.hx#L938>)
 
 
 ## function newAt
@@ -871,7 +873,7 @@ specified type, using p as that pointer.
 
 
 
-[\(view code\)](<./Reflect.hx#L1020>)
+[\(view code\)](<./Reflect.hx#L1055>)
 
 
 ## function new\_
@@ -887,7 +889,7 @@ for the specified type. That is, the returned Value's Type is PointerTo\(typ\).
 
 
 
-[\(view code\)](<./Reflect.hx#L1011>)
+[\(view code\)](<./Reflect.hx#L1046>)
 
 
 ## function pointerTo
@@ -903,7 +905,7 @@ For example, if t represents type Foo, PointerTo\(t\) represents \*Foo.
 
 
 
-[\(view code\)](<./Reflect.hx#L886>)
+[\(view code\)](<./Reflect.hx#L921>)
 
 
 ## function ptrTo
@@ -924,7 +926,7 @@ The two functions behave identically.
 
 
 
-[\(view code\)](<./Reflect.hx#L881>)
+[\(view code\)](<./Reflect.hx#L916>)
 
 
 ## function select
@@ -946,7 +948,7 @@ Select supports a maximum of 65536 cases.
 
 
 
-[\(view code\)](<./Reflect.hx#L967>)
+[\(view code\)](<./Reflect.hx#L1002>)
 
 
 ## function sliceOf
@@ -962,7 +964,7 @@ For example, if t represents int, SliceOf\(t\) represents \[\]int.
 
 
 
-[\(view code\)](<./Reflect.hx#L918>)
+[\(view code\)](<./Reflect.hx#L953>)
 
 
 ## function structOf
@@ -985,7 +987,7 @@ These limitations may be lifted in a future version.
 
 
 
-[\(view code\)](<./Reflect.hx#L928>)
+[\(view code\)](<./Reflect.hx#L963>)
 
 
 ## function swapper
@@ -1005,7 +1007,7 @@ Swapper panics if the provided interface is not a slice.
 
 
 
-[\(view code\)](<./Reflect.hx#L865>)
+[\(view code\)](<./Reflect.hx#L900>)
 
 
 ## function typeOf
@@ -1021,7 +1023,7 @@ If i is a nil interface value, TypeOf returns nil.
 
 
 
-[\(view code\)](<./Reflect.hx#L870>)
+[\(view code\)](<./Reflect.hx#L905>)
 
 
 ## function valueOf
@@ -1037,7 +1039,7 @@ stored in the interface i. ValueOf\(nil\) returns the zero Value.
 
 
 
-[\(view code\)](<./Reflect.hx#L996>)
+[\(view code\)](<./Reflect.hx#L1031>)
 
 
 ## function visibleFields
@@ -1062,7 +1064,7 @@ can be retrieved from a value v of type t by calling v.FieldByIndex\(e.Index\).
 
 
 
-[\(view code\)](<./Reflect.hx#L1032>)
+[\(view code\)](<./Reflect.hx#L1067>)
 
 
 ## function zero
@@ -1081,7 +1083,7 @@ The returned value is neither addressable nor settable.
 
 
 
-[\(view code\)](<./Reflect.hx#L1006>)
+[\(view code\)](<./Reflect.hx#L1041>)
 
 
 # Classes
@@ -1111,7 +1113,7 @@ function new(?map:stdgo.GoMap<Dynamic, Dynamic>, ?keys:Array<Dynamic>, ?values:A
 
 
 
-[\(view code\)](<./Reflect.hx#L653>)
+[\(view code\)](<./Reflect.hx#L688>)
 
 
 ### MapIter function key
@@ -1126,7 +1128,7 @@ Key returns the key of iter's current map entry.
 
 
 
-[\(view code\)](<./Reflect.hx#L2799>)
+[\(view code\)](<./Reflect.hx#L2853>)
 
 
 ### MapIter function next
@@ -1143,7 +1145,7 @@ calls to Key, Value, or Next will panic.
 
 
 
-[\(view code\)](<./Reflect.hx#L2768>)
+[\(view code\)](<./Reflect.hx#L2822>)
 
 
 ### MapIter function reset
@@ -1161,7 +1163,7 @@ which may allow the previously iterated\-over map to be garbage collected.
 
 
 
-[\(view code\)](<./Reflect.hx#L2756>)
+[\(view code\)](<./Reflect.hx#L2810>)
 
 
 ### MapIter function value
@@ -1176,7 +1178,7 @@ Value returns the value of iter's current map entry.
 
 
 
-[\(view code\)](<./Reflect.hx#L2781>)
+[\(view code\)](<./Reflect.hx#L2835>)
 
 
 ## class Method
@@ -1249,7 +1251,7 @@ IsExported reports whether the method is exported.
 
 
 
-[\(view code\)](<./Reflect.hx#L1052>)
+[\(view code\)](<./Reflect.hx#L1087>)
 
 
 ## class SelectCase
@@ -1306,7 +1308,7 @@ function new(?dir:Null<stdgo.reflect.SelectDir>, ?chan:stdgo.reflect.Value, ?sen
 
 
 
-[\(view code\)](<./Reflect.hx#L738>)
+[\(view code\)](<./Reflect.hx#L773>)
 
 
 ## class SliceHeader
@@ -1351,7 +1353,7 @@ function new(?data:stdgo.GoUIntptr, ?len:Null<stdgo.GoInt>, ?cap:Null<stdgo.GoIn
 
 
 
-[\(view code\)](<./Reflect.hx#L704>)
+[\(view code\)](<./Reflect.hx#L739>)
 
 
 ## class StringHeader
@@ -1391,7 +1393,7 @@ function new(?data:stdgo.GoUIntptr, ?len:Null<stdgo.GoInt>):Void
 
 
 
-[\(view code\)](<./Reflect.hx#L679>)
+[\(view code\)](<./Reflect.hx#L714>)
 
 
 ## class StructField
@@ -1472,7 +1474,7 @@ IsExported reports whether the field is exported.
 
 
 
-[\(view code\)](<./Reflect.hx#L1073>)
+[\(view code\)](<./Reflect.hx#L1108>)
 
 
 ## class Value
@@ -1514,7 +1516,21 @@ they represent.
 
 
 ```haxe
-function new(?value:stdgo.AnyInterface, ?underlyingValue:Dynamic, ?underlyingIndex:Null<stdgo.GoInt>, ?underlyingKey:Dynamic, ?canAddrBool:Bool, ?notSetBool:Bool):Void
+function new(?value:stdgo.AnyInterface, ?underlyingValue:Dynamic, ?underlyingIndex:Null<stdgo.GoInt>, ?underlyingKey:Dynamic, ?canAddrBool:Bool, ?notSetBool:Bool, ?string:():stdgo.GoString):Void
+```
+
+
+
+
+
+[\(view code\)](<./Reflect.hx#L636>)
+
+
+### Value function string
+
+
+```haxe
+function string():stdgo.GoString
 ```
 
 
@@ -1540,7 +1556,7 @@ pointer receiver.
 
 
 
-[\(view code\)](<./Reflect.hx#L2697>)
+[\(view code\)](<./Reflect.hx#L2751>)
 
 
 ### Value function bool\_
@@ -1556,7 +1572,7 @@ It panics if v's kind is not Bool.
 
 
 
-[\(view code\)](<./Reflect.hx#L2665>)
+[\(view code\)](<./Reflect.hx#L2719>)
 
 
 ### Value function bytes
@@ -1573,7 +1589,7 @@ an addressable array of bytes.
 
 
 
-[\(view code\)](<./Reflect.hx#L2621>)
+[\(view code\)](<./Reflect.hx#L2675>)
 
 
 ### Value function call
@@ -1595,7 +1611,7 @@ itself, copying in the corresponding values.
 
 
 
-[\(view code\)](<./Reflect.hx#L2594>)
+[\(view code\)](<./Reflect.hx#L2648>)
 
 
 ### Value function callSlice
@@ -1616,7 +1632,7 @@ type of the function's corresponding input parameter.
 
 
 
-[\(view code\)](<./Reflect.hx#L2582>)
+[\(view code\)](<./Reflect.hx#L2636>)
 
 
 ### Value function canAddr
@@ -1635,7 +1651,7 @@ If CanAddr returns false, calling Addr will panic.
 
 
 
-[\(view code\)](<./Reflect.hx#L2612>)
+[\(view code\)](<./Reflect.hx#L2666>)
 
 
 ### Value function canComplex
@@ -1650,7 +1666,7 @@ CanComplex reports whether Complex can be used without panicking.
 
 
 
-[\(view code\)](<./Reflect.hx#L2559>)
+[\(view code\)](<./Reflect.hx#L2613>)
 
 
 ### Value function canConvert
@@ -1666,7 +1682,7 @@ If v.CanConvert\(t\) returns true then v.Convert\(t\) will not panic.
 
 
 
-[\(view code\)](<./Reflect.hx#L1684>)
+[\(view code\)](<./Reflect.hx#L1719>)
 
 
 ### Value function canFloat
@@ -1681,7 +1697,7 @@ CanFloat reports whether Float can be used without panicking.
 
 
 
-[\(view code\)](<./Reflect.hx#L2425>)
+[\(view code\)](<./Reflect.hx#L2479>)
 
 
 ### Value function canInt
@@ -1696,7 +1712,7 @@ CanInt reports whether Int can be used without panicking.
 
 
 
-[\(view code\)](<./Reflect.hx#L2346>)
+[\(view code\)](<./Reflect.hx#L2396>)
 
 
 ### Value function canInterface
@@ -1711,7 +1727,7 @@ CanInterface reports whether Interface can be used without panicking.
 
 
 
-[\(view code\)](<./Reflect.hx#L2302>)
+[\(view code\)](<./Reflect.hx#L2352>)
 
 
 ### Value function canSet
@@ -1730,7 +1746,7 @@ setter \(e.g., SetBool, SetInt\) will panic.
 
 
 
-[\(view code\)](<./Reflect.hx#L2603>)
+[\(view code\)](<./Reflect.hx#L2657>)
 
 
 ### Value function canUint
@@ -1745,7 +1761,7 @@ CanUint reports whether Uint can be used without panicking.
 
 
 
-[\(view code\)](<./Reflect.hx#L1768>)
+[\(view code\)](<./Reflect.hx#L1803>)
 
 
 ### Value function cap
@@ -1761,7 +1777,7 @@ It panics if v's Kind is not Array, Chan, Slice or pointer to Array.
 
 
 
-[\(view code\)](<./Reflect.hx#L2571>)
+[\(view code\)](<./Reflect.hx#L2625>)
 
 
 ### Value function close
@@ -1777,7 +1793,7 @@ It panics if v's Kind is not Chan.
 
 
 
-[\(view code\)](<./Reflect.hx#L2565>)
+[\(view code\)](<./Reflect.hx#L2619>)
 
 
 ### Value function comparable
@@ -1795,7 +1811,7 @@ nor will v.Equal\(u\) for any Value u.
 
 
 
-[\(view code\)](<./Reflect.hx#L1678>)
+[\(view code\)](<./Reflect.hx#L1713>)
 
 
 ### Value function complex
@@ -1811,7 +1827,7 @@ It panics if v's Kind is not Complex64 or Complex128
 
 
 
-[\(view code\)](<./Reflect.hx#L2531>)
+[\(view code\)](<./Reflect.hx#L2585>)
 
 
 ### Value function convert
@@ -1828,7 +1844,7 @@ of the value v to type t, or if converting v to type t panics, Convert panics.
 
 
 
-[\(view code\)](<./Reflect.hx#L1691>)
+[\(view code\)](<./Reflect.hx#L1726>)
 
 
 ### Value function elem
@@ -1846,7 +1862,7 @@ It returns the zero Value if v is nil.
 
 
 
-[\(view code\)](<./Reflect.hx#L2483>)
+[\(view code\)](<./Reflect.hx#L2537>)
 
 
 ### Value function equal
@@ -1868,7 +1884,7 @@ and the type is not comparable, Equal will panic.
 
 
 
-[\(view code\)](<./Reflect.hx#L1670>)
+[\(view code\)](<./Reflect.hx#L1705>)
 
 
 ### Value function field
@@ -1884,7 +1900,7 @@ It panics if v's Kind is not Struct or i is out of range.
 
 
 
-[\(view code\)](<./Reflect.hx#L2461>)
+[\(view code\)](<./Reflect.hx#L2515>)
 
 
 ### Value function fieldByIndex
@@ -1901,7 +1917,7 @@ pointer or a field that is not a struct.
 
 
 
-[\(view code\)](<./Reflect.hx#L2455>)
+[\(view code\)](<./Reflect.hx#L2509>)
 
 
 ### Value function fieldByIndexErr
@@ -1919,7 +1935,7 @@ is not a struct.
 
 
 
-[\(view code\)](<./Reflect.hx#L2448>)
+[\(view code\)](<./Reflect.hx#L2502>)
 
 
 ### Value function fieldByName
@@ -1936,7 +1952,7 @@ It panics if v's Kind is not struct.
 
 
 
-[\(view code\)](<./Reflect.hx#L2440>)
+[\(view code\)](<./Reflect.hx#L2494>)
 
 
 ### Value function fieldByNameFunc
@@ -1954,7 +1970,7 @@ It returns the zero Value if no field was found.
 
 
 
-[\(view code\)](<./Reflect.hx#L2433>)
+[\(view code\)](<./Reflect.hx#L2487>)
 
 
 ### Value function float\_
@@ -1970,7 +1986,7 @@ It panics if v's Kind is not Float32 or Float64
 
 
 
-[\(view code\)](<./Reflect.hx#L2395>)
+[\(view code\)](<./Reflect.hx#L2449>)
 
 
 ### Value function grow
@@ -1992,7 +2008,7 @@ allocate the memory.
 
 
 
-[\(view code\)](<./Reflect.hx#L1701>)
+[\(view code\)](<./Reflect.hx#L1736>)
 
 
 ### Value function index
@@ -2008,7 +2024,7 @@ It panics if v's Kind is not Array, Slice, or String or i is out of range.
 
 
 
-[\(view code\)](<./Reflect.hx#L2352>)
+[\(view code\)](<./Reflect.hx#L2402>)
 
 
 ### Value function int\_
@@ -2024,7 +2040,7 @@ It panics if v's Kind is not Int, Int8, Int16, Int32, or Int64.
 
 
 
-[\(view code\)](<./Reflect.hx#L2310>)
+[\(view code\)](<./Reflect.hx#L2360>)
 
 
 ### Value function interfaceData
@@ -2051,7 +2067,7 @@ compatible with InterfaceData.
 
 
 
-[\(view code\)](<./Reflect.hx#L2286>)
+[\(view code\)](<./Reflect.hx#L2336>)
 
 
 ### Value function interface\_
@@ -2079,7 +2095,7 @@ unexported struct fields.
 
 
 
-[\(view code\)](<./Reflect.hx#L2297>)
+[\(view code\)](<./Reflect.hx#L2347>)
 
 
 ### Value function isNil
@@ -2100,7 +2116,7 @@ Value.
 
 
 
-[\(view code\)](<./Reflect.hx#L2240>)
+[\(view code\)](<./Reflect.hx#L2290>)
 
 
 ### Value function isValid
@@ -2119,7 +2135,7 @@ If one does, its documentation states the conditions explicitly.
 
 
 
-[\(view code\)](<./Reflect.hx#L2220>)
+[\(view code\)](<./Reflect.hx#L2270>)
 
 
 ### Value function isZero
@@ -2135,7 +2151,7 @@ It panics if the argument is invalid.
 
 
 
-[\(view code\)](<./Reflect.hx#L2211>)
+[\(view code\)](<./Reflect.hx#L2261>)
 
 
 ### Value function kind
@@ -2151,7 +2167,7 @@ If v is the zero Value \(IsValid returns false\), Kind returns Invalid.
 
 
 
-[\(view code\)](<./Reflect.hx#L2199>)
+[\(view code\)](<./Reflect.hx#L2249>)
 
 
 ### Value function len
@@ -2167,7 +2183,7 @@ It panics if v's Kind is not Array, Chan, Map, Slice, String, or pointer to Arra
 
 
 
-[\(view code\)](<./Reflect.hx#L2160>)
+[\(view code\)](<./Reflect.hx#L2210>)
 
 
 ### Value function mapIndex
@@ -2185,7 +2201,7 @@ As in Go, the key's value must be assignable to the map's key type.
 
 
 
-[\(view code\)](<./Reflect.hx#L2154>)
+[\(view code\)](<./Reflect.hx#L2204>)
 
 
 ### Value function mapKeys
@@ -2203,7 +2219,7 @@ It returns an empty slice if v represents a nil map.
 
 
 
-[\(view code\)](<./Reflect.hx#L2146>)
+[\(view code\)](<./Reflect.hx#L2196>)
 
 
 ### Value function mapRange
@@ -2256,7 +2272,7 @@ v := iter.Value\(\)
 
 
 
-[\(view code\)](<./Reflect.hx#L2120>)
+[\(view code\)](<./Reflect.hx#L2170>)
 
 
 ### Value function method
@@ -2274,7 +2290,7 @@ Method panics if i is out of range or if v is a nil interface value.
 
 
 
-[\(view code\)](<./Reflect.hx#L2101>)
+[\(view code\)](<./Reflect.hx#L2151>)
 
 
 ### Value function methodByName
@@ -2293,7 +2309,7 @@ It returns the zero Value if no method was found.
 
 
 
-[\(view code\)](<./Reflect.hx#L2084>)
+[\(view code\)](<./Reflect.hx#L2134>)
 
 
 ### Value function numField
@@ -2309,7 +2325,7 @@ It panics if v's Kind is not Struct.
 
 
 
-[\(view code\)](<./Reflect.hx#L2073>)
+[\(view code\)](<./Reflect.hx#L2123>)
 
 
 ### Value function numMethod
@@ -2332,7 +2348,7 @@ For an interface type, it returns the number of exported and unexported methods.
 
 
 
-[\(view code\)](<./Reflect.hx#L2093>)
+[\(view code\)](<./Reflect.hx#L2143>)
 
 
 ### Value function overflowComplex
@@ -2348,7 +2364,7 @@ It panics if v's Kind is not Complex64 or Complex128.
 
 
 
-[\(view code\)](<./Reflect.hx#L2067>)
+[\(view code\)](<./Reflect.hx#L2117>)
 
 
 ### Value function overflowFloat
@@ -2364,7 +2380,7 @@ It panics if v's Kind is not Float32 or Float64.
 
 
 
-[\(view code\)](<./Reflect.hx#L2061>)
+[\(view code\)](<./Reflect.hx#L2111>)
 
 
 ### Value function overflowInt
@@ -2380,7 +2396,7 @@ It panics if v's Kind is not Int, Int8, Int16, Int32, or Int64.
 
 
 
-[\(view code\)](<./Reflect.hx#L2055>)
+[\(view code\)](<./Reflect.hx#L2105>)
 
 
 ### Value function overflowUint
@@ -2396,7 +2412,7 @@ It panics if v's Kind is not Uint, Uintptr, Uint8, Uint16, Uint32, or Uint64.
 
 
 
-[\(view code\)](<./Reflect.hx#L2049>)
+[\(view code\)](<./Reflect.hx#L2099>)
 
 
 ### Value function pointer
@@ -2429,7 +2445,7 @@ It's preferred to use uintptr\(Value.UnsafePointer\(\)\) to get the equivalent r
 
 
 
-[\(view code\)](<./Reflect.hx#L2040>)
+[\(view code\)](<./Reflect.hx#L2089>)
 
 
 ### Value function recv
@@ -2448,7 +2464,7 @@ on the channel, false if it is a zero value received because the channel is clos
 
 
 
-[\(view code\)](<./Reflect.hx#L2023>)
+[\(view code\)](<./Reflect.hx#L2072>)
 
 
 ### Value function send
@@ -2465,7 +2481,7 @@ As in Go, x's value must be assignable to the channel's element type.
 
 
 
-[\(view code\)](<./Reflect.hx#L2014>)
+[\(view code\)](<./Reflect.hx#L2063>)
 
 
 ### Value function set
@@ -2483,7 +2499,7 @@ must not be derived from an unexported field.
 
 
 
-[\(view code\)](<./Reflect.hx#L1960>)
+[\(view code\)](<./Reflect.hx#L2007>)
 
 
 ### Value function setBool
@@ -2499,7 +2515,7 @@ It panics if v's Kind is not Bool or if CanSet\(\) is false.
 
 
 
-[\(view code\)](<./Reflect.hx#L1952>)
+[\(view code\)](<./Reflect.hx#L1999>)
 
 
 ### Value function setBytes
@@ -2515,7 +2531,7 @@ It panics if v's underlying value is not a slice of bytes.
 
 
 
-[\(view code\)](<./Reflect.hx#L1946>)
+[\(view code\)](<./Reflect.hx#L1993>)
 
 
 ### Value function setCap
@@ -2532,7 +2548,7 @@ greater than the capacity of the slice.
 
 
 
-[\(view code\)](<./Reflect.hx#L1915>)
+[\(view code\)](<./Reflect.hx#L1962>)
 
 
 ### Value function setComplex
@@ -2548,7 +2564,7 @@ It panics if v's Kind is not Complex64 or Complex128, or if CanSet\(\) is false.
 
 
 
-[\(view code\)](<./Reflect.hx#L1940>)
+[\(view code\)](<./Reflect.hx#L1987>)
 
 
 ### Value function setFloat
@@ -2564,7 +2580,7 @@ It panics if v's Kind is not Float32 or Float64, or if CanSet\(\) is false.
 
 
 
-[\(view code\)](<./Reflect.hx#L1934>)
+[\(view code\)](<./Reflect.hx#L1981>)
 
 
 ### Value function setInt
@@ -2580,7 +2596,7 @@ It panics if v's Kind is not Int, Int8, Int16, Int32, or Int64, or if CanSet\(\)
 
 
 
-[\(view code\)](<./Reflect.hx#L1928>)
+[\(view code\)](<./Reflect.hx#L1975>)
 
 
 ### Value function setIterKey
@@ -2598,7 +2614,7 @@ must not be derived from an unexported field.
 
 
 
-[\(view code\)](<./Reflect.hx#L2138>)
+[\(view code\)](<./Reflect.hx#L2188>)
 
 
 ### Value function setIterValue
@@ -2616,7 +2632,7 @@ must not be derived from an unexported field.
 
 
 
-[\(view code\)](<./Reflect.hx#L2130>)
+[\(view code\)](<./Reflect.hx#L2180>)
 
 
 ### Value function setLen
@@ -2633,7 +2649,7 @@ greater than the capacity of the slice.
 
 
 
-[\(view code\)](<./Reflect.hx#L1922>)
+[\(view code\)](<./Reflect.hx#L1969>)
 
 
 ### Value function setMapIndex
@@ -2653,7 +2669,7 @@ and elem's value must be assignable to the map's elem type.
 
 
 
-[\(view code\)](<./Reflect.hx#L1908>)
+[\(view code\)](<./Reflect.hx#L1955>)
 
 
 ### Value function setPointer
@@ -2669,7 +2685,7 @@ It panics if v's Kind is not UnsafePointer.
 
 
 
-[\(view code\)](<./Reflect.hx#L1892>)
+[\(view code\)](<./Reflect.hx#L1939>)
 
 
 ### Value function setString
@@ -2685,7 +2701,7 @@ It panics if v's Kind is not String or if CanSet\(\) is false.
 
 
 
-[\(view code\)](<./Reflect.hx#L1886>)
+[\(view code\)](<./Reflect.hx#L1930>)
 
 
 ### Value function setUint
@@ -2701,7 +2717,7 @@ It panics if v's Kind is not Uint, Uintptr, Uint8, Uint16, Uint32, or Uint64, or
 
 
 
-[\(view code\)](<./Reflect.hx#L1898>)
+[\(view code\)](<./Reflect.hx#L1945>)
 
 
 ### Value function setZero
@@ -2717,7 +2733,7 @@ It panics if CanSet returns false.
 
 
 
-[\(view code\)](<./Reflect.hx#L2205>)
+[\(view code\)](<./Reflect.hx#L2255>)
 
 
 ### Value function slice
@@ -2734,7 +2750,7 @@ or if the indexes are out of bounds.
 
 
 
-[\(view code\)](<./Reflect.hx#L1850>)
+[\(view code\)](<./Reflect.hx#L1894>)
 
 
 ### Value function slice3
@@ -2751,7 +2767,7 @@ or if the indexes are out of bounds.
 
 
 
-[\(view code\)](<./Reflect.hx#L1843>)
+[\(view code\)](<./Reflect.hx#L1887>)
 
 
 ### Value function string
@@ -2771,7 +2787,7 @@ method implicitly but instead prints the concrete values they hold.
 
 
 
-[\(view code\)](<./Reflect.hx#L1807>)
+[\(view code\)](<./Reflect.hx#L1848>)
 
 
 ### Value function tryRecv
@@ -2790,7 +2806,7 @@ If the channel is closed, x is the zero value for the channel's element type and
 
 
 
-[\(view code\)](<./Reflect.hx#L1797>)
+[\(view code\)](<./Reflect.hx#L1838>)
 
 
 ### Value function trySend
@@ -2808,7 +2824,7 @@ As in Go, x's value must be assignable to the channel's element type.
 
 
 
-[\(view code\)](<./Reflect.hx#L1788>)
+[\(view code\)](<./Reflect.hx#L1829>)
 
 
 ### Value function type
@@ -2823,7 +2839,7 @@ Type returns v's type.
 
 
 
-[\(view code\)](<./Reflect.hx#L1780>)
+[\(view code\)](<./Reflect.hx#L1815>)
 
 
 ### Value function uint
@@ -2839,7 +2855,7 @@ It panics if v's Kind is not Uint, Uintptr, Uint8, Uint16, Uint32, or Uint64.
 
 
 
-[\(view code\)](<./Reflect.hx#L1730>)
+[\(view code\)](<./Reflect.hx#L1765>)
 
 
 ### Value function unsafeAddr
@@ -2859,7 +2875,7 @@ It's preferred to use uintptr\(Value.Addr\(\).UnsafePointer\(\)\) to get the equ
 
 
 
-[\(view code\)](<./Reflect.hx#L1724>)
+[\(view code\)](<./Reflect.hx#L1759>)
 
 
 ### Value function unsafePointer
@@ -2888,7 +2904,7 @@ is nil.  If the slice is empty but non\-nil the return value is non\-nil.
 
 
 
-[\(view code\)](<./Reflect.hx#L1716>)
+[\(view code\)](<./Reflect.hx#L1751>)
 
 
 ## class ValueError
@@ -2921,7 +2937,7 @@ function new(?method:stdgo.GoString, ?kind:Null<stdgo.reflect.Kind>, ?toString:(
 
 
 
-[\(view code\)](<./Reflect.hx#L628>)
+[\(view code\)](<./Reflect.hx#L663>)
 
 
 ### ValueError function toString
@@ -2935,7 +2951,7 @@ function toString():String
 
 
 
-[\(view code\)](<./Reflect.hx#L625>)
+[\(view code\)](<./Reflect.hx#L660>)
 
 
 ### ValueError function error
@@ -2949,7 +2965,7 @@ function error():stdgo.GoString
 
 
 
-[\(view code\)](<./Reflect.hx#L2712>)
+[\(view code\)](<./Reflect.hx#L2766>)
 
 
 # Typedefs
@@ -2983,7 +2999,7 @@ function string():stdgo.GoString
 
 
 
-[\(view code\)](<./Reflect.hx#L2908>)
+[\(view code\)](<./Reflect.hx#L2962>)
 
 
 ## typedef Kind
@@ -3011,7 +3027,7 @@ String returns the name of k.
 
 
 
-[\(view code\)](<./Reflect.hx#L2833>)
+[\(view code\)](<./Reflect.hx#L2887>)
 
 
 ## typedef SelectDir
@@ -3063,7 +3079,7 @@ explicitly set to the empty string, use Lookup.
 
 
 
-[\(view code\)](<./Reflect.hx#L2957>)
+[\(view code\)](<./Reflect.hx#L3011>)
 
 
 ### StructTag function lookup
@@ -3083,7 +3099,7 @@ the value returned by Lookup is unspecified.
 
 
 
-[\(view code\)](<./Reflect.hx#L2948>)
+[\(view code\)](<./Reflect.hx#L3002>)
 
 
 ## typedef Type

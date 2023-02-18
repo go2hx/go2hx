@@ -124,10 +124,6 @@
 
   - [`function new(?_r:stdgo.GoInt32, ?_size:Null<stdgo.GoInt>):Void`](<#runelentest-function-new>)
 
-- [class T\_info\_\_testSequence\_0](<#class-t_info__testsequence_0>)
-
-  - [`function new(?_index:Null<stdgo.GoInt>, ?_r:stdgo.GoInt32):Void`](<#t_info__testsequence_0-function-new>)
-
 - [class Utf8Map](<#class-utf8map>)
 
   - [`function new(?_r:stdgo.GoInt32, ?_str:stdgo.GoString):Void`](<#utf8map-function-new>)
@@ -954,36 +950,6 @@ function new(?_r:stdgo.GoInt32, ?_size:Null<stdgo.GoInt>):Void
 
 
 [\(view code\)](<./Utf8_test.hx#L246>)
-
-
-## class T\_info\_\_testSequence\_0
-
-
-
-
-
-```haxe
-var _index:stdgo.GoInt
-```
-
-
-```haxe
-var _r:stdgo.GoInt32
-```
-
-
-### T\_info\_\_testSequence\_0 function new
-
-
-```haxe
-function new(?_index:Null<stdgo.GoInt>, ?_r:stdgo.GoInt32):Void
-```
-
-
-
-
-
-[\(view code\)](<./Utf8_test.hx#L661>)
 
 
 ## class Utf8Map

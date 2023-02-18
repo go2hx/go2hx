@@ -44,14 +44,6 @@
 
 - [`function testIsSurrogate(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testissurrogate>)
 
-- [class T\_decodeTest](<#class-t_decodetest>)
-
-  - [`function new(?_in:stdgo.Slice<stdgo.GoUInt16>, ?_out:stdgo.Slice<stdgo.GoInt32>):Void`](<#t_decodetest-function-new>)
-
-- [class T\_encodeTest](<#class-t_encodetest>)
-
-  - [`function new(?_in:stdgo.Slice<stdgo.GoInt32>, ?_out:stdgo.Slice<stdgo.GoUInt16>):Void`](<#t_encodetest-function-new>)
-
 # Variables
 
 
@@ -282,73 +274,5 @@ function testIsSurrogate(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 [\(view code\)](<./Utf16.hx#L218>)
-
-
-# Classes
-
-
-```haxe
-import stdgo.unicode.utf16_test.*
-```
-
-
-## class T\_decodeTest
-
-
-
-
-
-```haxe
-var _in:stdgo.Slice<stdgo.GoUInt16>
-```
-
-
-```haxe
-var _out:stdgo.Slice<stdgo.GoInt32>
-```
-
-
-### T\_decodeTest function new
-
-
-```haxe
-function new(?_in:stdgo.Slice<stdgo.GoUInt16>, ?_out:stdgo.Slice<stdgo.GoInt32>):Void
-```
-
-
-
-
-
-[\(view code\)](<./Utf16_test.hx#L96>)
-
-
-## class T\_encodeTest
-
-
-
-
-
-```haxe
-var _in:stdgo.Slice<stdgo.GoInt32>
-```
-
-
-```haxe
-var _out:stdgo.Slice<stdgo.GoUInt16>
-```
-
-
-### T\_encodeTest function new
-
-
-```haxe
-function new(?_in:stdgo.Slice<stdgo.GoInt32>, ?_out:stdgo.Slice<stdgo.GoUInt16>):Void
-```
-
-
-
-
-
-[\(view code\)](<./Utf16_test.hx#L79>)
 
 

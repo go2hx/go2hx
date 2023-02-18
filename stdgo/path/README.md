@@ -23,25 +23,25 @@ operating system paths, use the path/filepath package.
 
 ```
 === RUN  TestMatch
---- PASS: TestMatch (%!s(float64=0.001149892807006836))
+--- PASS: TestMatch (%!s(float64=0.0011730194091796875))
 
 === RUN  TestClean
---- PASS: TestClean (%!s(float64=0.00014901161193847656))
+--- PASS: TestClean (%!s(float64=0.0001480579376220703))
 
 === RUN  TestCleanMallocs
 --- PASS: TestCleanMallocs (%!s(float64=9.059906005859375e-06))
 
 === RUN  TestSplit
---- PASS: TestSplit (%!s(float64=1.811981201171875e-05))
+--- PASS: TestSplit (%!s(float64=1.7881393432617188e-05))
 
 === RUN  TestJoin
---- PASS: TestJoin (%!s(float64=5.888938903808594e-05))
+--- PASS: TestJoin (%!s(float64=5.698204040527344e-05))
 
 === RUN  TestExt
---- PASS: TestExt (%!s(float64=7.867813110351562e-06))
+--- PASS: TestExt (%!s(float64=9.059906005859375e-06))
 
 === RUN  TestBase
---- PASS: TestBase (%!s(float64=2.288818359375e-05))
+--- PASS: TestBase (%!s(float64=2.8848648071289062e-05))
 
 === RUN  TestDir
 --- PASS: TestDir (%!s(float64=4.1961669921875e-05))
@@ -58,31 +58,31 @@ operating system paths, use the path/filepath package.
 
 ```
 === RUN  TestMatch
---- PASS: TestMatch (%!s(float64=0.004240989685058594))
+--- PASS: TestMatch (%!s(float64=0.004126071929931641))
 
 === RUN  TestClean
---- PASS: TestClean (%!s(float64=0.0010838508605957031))
+--- PASS: TestClean (%!s(float64=0.0010569095611572266))
 
 === RUN  TestCleanMallocs
---- PASS: TestCleanMallocs (%!s(float64=6.29425048828125e-05))
+--- PASS: TestCleanMallocs (%!s(float64=4.1961669921875e-05))
 
 === RUN  TestSplit
---- PASS: TestSplit (%!s(float64=3.886222839355469e-05))
+--- PASS: TestSplit (%!s(float64=4.100799560546875e-05))
 
 === RUN  TestJoin
---- PASS: TestJoin (%!s(float64=0.0002548694610595703))
+--- PASS: TestJoin (%!s(float64=0.0002498626708984375))
 
 === RUN  TestExt
---- PASS: TestExt (%!s(float64=3.0994415283203125e-05))
+--- PASS: TestExt (%!s(float64=3.1948089599609375e-05))
 
 === RUN  TestBase
---- PASS: TestBase (%!s(float64=7.390975952148438e-05))
+--- PASS: TestBase (%!s(float64=7.104873657226562e-05))
 
 === RUN  TestDir
---- PASS: TestDir (%!s(float64=0.0001270771026611328))
+--- PASS: TestDir (%!s(float64=0.00013303756713867188))
 
 === RUN  TestIsAbs
---- PASS: TestIsAbs (%!s(float64=2.09808349609375e-05))
+--- PASS: TestIsAbs (%!s(float64=1.9073486328125e-05))
 
 ```
 </p>
@@ -119,16 +119,6 @@ stdgo/internal/Macro.macro.hx:35: define
 - [`function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{_1:stdgo.Error, _0:Bool}`](<#function-match>)
 
 - [`function split(_path:stdgo.GoString):{_1:stdgo.GoString, _0:stdgo.GoString}`](<#function-split>)
-
-- [class T\_lazybuf](<#class-t_lazybuf>)
-
-  - [`function new(?_s:stdgo.GoString, ?_buf:stdgo.Slice<stdgo.GoUInt8>, ?_w:Null<stdgo.GoInt>):Void`](<#t_lazybuf-function-new>)
-
-  - [`function _append( _c:stdgo.GoByte):Void`](<#t_lazybuf-function-_append>)
-
-  - [`function _index( _i:stdgo.GoInt):stdgo.GoByte`](<#t_lazybuf-function-_index>)
-
-  - [`function _string():stdgo.GoString`](<#t_lazybuf-function-_string>)
 
 # Examples
 
@@ -582,94 +572,5 @@ function exampleSplit():Void {
 
 
 [\(view code\)](<./Path.hx#L405>)
-
-
-# Classes
-
-
-```haxe
-import stdgo.path.*
-```
-
-
-## class T\_lazybuf
-
-
-A lazybuf is a lazily constructed path buffer.  
-It supports append, reading previously appended bytes,  
-and retrieving the final string. It does not allocate a buffer  
-to hold the output until that output diverges from s.  
-
-
-
-```haxe
-var _buf:stdgo.Slice<stdgo.GoUInt8>
-```
-
-
-```haxe
-var _s:stdgo.GoString
-```
-
-
-```haxe
-var _w:stdgo.GoInt
-```
-
-
-### T\_lazybuf function new
-
-
-```haxe
-function new(?_s:stdgo.GoString, ?_buf:stdgo.Slice<stdgo.GoUInt8>, ?_w:Null<stdgo.GoInt>):Void
-```
-
-
-
-
-
-[\(view code\)](<./Path.hx#L39>)
-
-
-### T\_lazybuf function \_append
-
-
-```haxe
-function _append( _c:stdgo.GoByte):Void
-```
-
-
-
-
-
-[\(view code\)](<./Path.hx#L521>)
-
-
-### T\_lazybuf function \_index
-
-
-```haxe
-function _index( _i:stdgo.GoInt):stdgo.GoByte
-```
-
-
-
-
-
-[\(view code\)](<./Path.hx#L534>)
-
-
-### T\_lazybuf function \_string
-
-
-```haxe
-function _string():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Path.hx#L514>)
 
 

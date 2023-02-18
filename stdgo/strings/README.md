@@ -19,211 +19,212 @@ For information about UTF\-8 strings in Go, see https://blog.golang.org/strings.
 
 ```
 === RUN  TestBuilder
---- PASS: TestBuilder (%!s(float64=7.295608520507812e-05))
+--- PASS: TestBuilder (%!s(float64=0.0001418590545654297))
 
 === RUN  TestBuilderString
---- PASS: TestBuilderString (%!s(float64=3.600120544433594e-05))
+--- PASS: TestBuilderString (%!s(float64=3.1948089599609375e-05))
 
 === RUN  TestBuilderReset
 --- PASS: TestBuilderReset (%!s(float64=2.5033950805664062e-05))
 
 === RUN  TestBuilderGrow
 strings_test/Strings_test.hx:1557: testBuilderGrow skip function
---- PASS: TestBuilderGrow (%!s(float64=2.9087066650390625e-05))
+--- PASS: TestBuilderGrow (%!s(float64=6.318092346191406e-05))
 
 === RUN  TestBuilderWrite2
---- PASS: TestBuilderWrite2 (%!s(float64=1.0967254638671875e-05))
+--- PASS: TestBuilderWrite2 (%!s(float64=1.0013580322265625e-05))
 
 === RUN  TestBuilderWriteByte
 --- PASS: TestBuilderWriteByte (%!s(float64=1.0013580322265625e-05))
 
 === RUN  TestBuilderAllocs
-strings_test/Strings_test.hx:1676: testBuilderAllocs skip function
---- PASS: TestBuilderAllocs (%!s(float64=1.621246337890625e-05))
+strings_test/Strings_test.hx:1677: testBuilderAllocs skip function
+--- PASS: TestBuilderAllocs (%!s(float64=3.695487976074219e-05))
 
 === RUN  TestBuilderCopyPanic
-strings_test/Strings_test.hx:1689: testBuilderCopyPanic skip function
---- PASS: TestBuilderCopyPanic (%!s(float64=1.0013580322265625e-05))
+strings_test/Strings_test.hx:1690: testBuilderCopyPanic skip function
+--- PASS: TestBuilderCopyPanic (%!s(float64=1.0967254638671875e-05))
 
 === RUN  TestBuilderWriteInvalidRune
---- PASS: TestBuilderWriteInvalidRune (%!s(float64=2.5033950805664062e-05))
+--- PASS: TestBuilderWriteInvalidRune (%!s(float64=2.6941299438476562e-05))
 
 === RUN  TestClone
-strings_test/Strings_test.hx:1858: testClone skip function
---- PASS: TestClone (%!s(float64=1.7881393432617188e-05))
+strings_test/Strings_test.hx:1860: testClone skip function
+--- PASS: TestClone (%!s(float64=3.695487976074219e-05))
 
 === RUN  TestCompare
---- PASS: TestCompare (%!s(float64=2.002716064453125e-05))
+--- PASS: TestCompare (%!s(float64=2.193450927734375e-05))
 
 === RUN  TestCompareIdenticalString
---- PASS: TestCompareIdenticalString (%!s(float64=8.106231689453125e-06))
+--- PASS: TestCompareIdenticalString (%!s(float64=7.867813110351562e-06))
 
 === RUN  TestCompareStrings
-strings_test/Strings_test.hx:1902: testCompareStrings skip function
---- PASS: TestCompareStrings (%!s(float64=1.621246337890625e-05))
+strings_test/Strings_test.hx:1904: testCompareStrings skip function
+--- PASS: TestCompareStrings (%!s(float64=1.1205673217773438e-05))
 
 === RUN  TestReader
---- PASS: TestReader (%!s(float64=9.512901306152344e-05))
+--- PASS: TestReader (%!s(float64=8.702278137207031e-05))
 
 === RUN  TestReadAfterBigSeek
---- PASS: TestReadAfterBigSeek (%!s(float64=1.6927719116210938e-05))
+--- PASS: TestReadAfterBigSeek (%!s(float64=1.5974044799804688e-05))
 
 === RUN  TestReaderAt
---- PASS: TestReaderAt (%!s(float64=0.0020830631256103516))
+--- PASS: TestReaderAt (%!s(float64=0.0019390583038330078))
 
 === RUN  TestReaderAtConcurrent
---- PASS: TestReaderAtConcurrent (%!s(float64=0.0003669261932373047))
+--- PASS: TestReaderAtConcurrent (%!s(float64=0.0006861686706542969))
 
 === RUN  TestEmptyReaderConcurrent
---- PASS: TestEmptyReaderConcurrent (%!s(float64=0.0005011558532714844))
+--- PASS: TestEmptyReaderConcurrent (%!s(float64=0.0005340576171875))
 
 === RUN  TestWriteTo
---- PASS: TestWriteTo (%!s(float64=0.0002460479736328125))
+--- PASS: TestWriteTo (%!s(float64=0.0002410411834716797))
 
 === RUN  TestReaderLenSize
-strings_test/Strings_test.hx:2406: testReaderLenSize skip function
---- PASS: TestReaderLenSize (%!s(float64=1.811981201171875e-05))
+strings_test/Strings_test.hx:2411: testReaderLenSize skip function
+--- PASS: TestReaderLenSize (%!s(float64=1.5974044799804688e-05))
 
 === RUN  TestReaderReset
---- PASS: TestReaderReset (%!s(float64=7.796287536621094e-05))
+--- PASS: TestReaderReset (%!s(float64=7.104873657226562e-05))
 
 === RUN  TestReaderZero
---- PASS: TestReaderZero (%!s(float64=3.910064697265625e-05))
+--- PASS: TestReaderZero (%!s(float64=3.719329833984375e-05))
 
 === RUN  TestReplacer
-strings_test/Strings_test.hx:2534: testReplacer skip function
---- PASS: TestReplacer (%!s(float64=1.5974044799804688e-05))
+strings_test/Strings_test.hx:2539: testReplacer skip function
+--- PASS: TestReplacer (%!s(float64=4.696846008300781e-05))
 
 === RUN  TestPickAlgorithm
-strings_test/Strings_test.hx:2665: testPickAlgorithm skip function
---- PASS: TestPickAlgorithm (%!s(float64=1.0967254638671875e-05))
+strings_test/Strings_test.hx:2670: testPickAlgorithm skip function
+--- PASS: TestPickAlgorithm (%!s(float64=3.314018249511719e-05))
 
 === RUN  TestWriteStringError
---- PASS: TestWriteStringError (%!s(float64=0.0014340877532958984))
+--- PASS: TestWriteStringError (%!s(float64=0.0024390220642089844))
 
 === RUN  TestGenericTrieBuilding
---- PASS: TestGenericTrieBuilding (%!s(float64=0.003339052200317383))
+strings_test/Strings_test.hx:2697: testGenericTrieBuilding skip function
+--- PASS: TestGenericTrieBuilding (%!s(float64=4.887580871582031e-05))
 
 === RUN  TestFinderNext
---- PASS: TestFinderNext (%!s(float64=0.0008549690246582031))
+--- PASS: TestFinderNext (%!s(float64=0.0008368492126464844))
 
 === RUN  TestFinderCreation
---- PASS: TestFinderCreation (%!s(float64=0.0008449554443359375))
+--- PASS: TestFinderCreation (%!s(float64=0.0009279251098632812))
 
 === RUN  TestIndex
---- PASS: TestIndex (%!s(float64=0.00035691261291503906))
+--- PASS: TestIndex (%!s(float64=0.0013341903686523438))
 
 === RUN  TestLastIndex
---- PASS: TestLastIndex (%!s(float64=2.8133392333984375e-05))
+--- PASS: TestLastIndex (%!s(float64=6.699562072753906e-05))
 
 === RUN  TestIndexAny
---- PASS: TestIndexAny (%!s(float64=0.00021314620971679688))
+--- PASS: TestIndexAny (%!s(float64=0.00020194053649902344))
 
 === RUN  TestLastIndexAny
---- PASS: TestLastIndexAny (%!s(float64=0.0001418590545654297))
+--- PASS: TestLastIndexAny (%!s(float64=0.00013518333435058594))
 
 === RUN  TestIndexByte
---- PASS: TestIndexByte (%!s(float64=1.5020370483398438e-05))
+--- PASS: TestIndexByte (%!s(float64=8.106231689453125e-06))
 
 === RUN  TestLastIndexByte
---- PASS: TestLastIndexByte (%!s(float64=1.5020370483398438e-05))
+--- PASS: TestLastIndexByte (%!s(float64=1.2874603271484375e-05))
 
 === RUN  TestIndexRandom
---- PASS: TestIndexRandom (%!s(float64=0.25266408920288086))
+--- PASS: TestIndexRandom (%!s(float64=0.25518298149108887))
 
 === RUN  TestIndexRune
---- PASS: TestIndexRune (%!s(float64=0.00011205673217773438))
+--- PASS: TestIndexRune (%!s(float64=0.00012803077697753906))
 
 === RUN  TestSplit
---- PASS: TestSplit (%!s(float64=0.0011861324310302734))
+--- PASS: TestSplit (%!s(float64=0.0021779537200927734))
 
 === RUN  TestSplitAfter
---- PASS: TestSplitAfter (%!s(float64=0.0008370876312255859))
+--- PASS: TestSplitAfter (%!s(float64=0.0007781982421875))
 
 === RUN  TestFields
---- PASS: TestFields (%!s(float64=0.0017118453979492188))
+--- PASS: TestFields (%!s(float64=0.00030803680419921875))
 
 === RUN  TestFieldsFunc
---- PASS: TestFieldsFunc (%!s(float64=0.0005559921264648438))
+--- PASS: TestFieldsFunc (%!s(float64=0.0005190372467041016))
 
 === RUN  TestMap
-strings_test/Strings_test.hx:3337: testMap skip function
---- PASS: TestMap (%!s(float64=1.5020370483398438e-05))
+strings_test/Strings_test.hx:3344: testMap skip function
+--- PASS: TestMap (%!s(float64=4.601478576660156e-05))
 
 === RUN  TestToUpper
---- PASS: TestToUpper (%!s(float64=0.00043082237243652344))
+--- PASS: TestToUpper (%!s(float64=0.0004191398620605469))
 
 === RUN  TestToLower
---- PASS: TestToLower (%!s(float64=0.00043702125549316406))
+--- PASS: TestToLower (%!s(float64=0.00039196014404296875))
 
 === RUN  TestToValidUTF8
---- PASS: TestToValidUTF8 (%!s(float64=0.0004420280456542969))
+--- PASS: TestToValidUTF8 (%!s(float64=0.00039005279541015625))
 
 === RUN  TestSpecialCase
---- PASS: TestSpecialCase (%!s(float64=0.002229928970336914))
+--- PASS: TestSpecialCase (%!s(float64=0.0009829998016357422))
 
 === RUN  TestTrimSpace
---- PASS: TestTrimSpace (%!s(float64=0.00021505355834960938))
+--- PASS: TestTrimSpace (%!s(float64=0.00023221969604492188))
 
 === RUN  TestTrim
---- PASS: TestTrim (%!s(float64=0.00016999244689941406))
+--- PASS: TestTrim (%!s(float64=0.00016498565673828125))
 
 === RUN  TestTrimFunc
---- PASS: TestTrimFunc (%!s(float64=0.0007219314575195312))
+--- PASS: TestTrimFunc (%!s(float64=0.0007350444793701172))
 
 === RUN  TestIndexFunc
---- PASS: TestIndexFunc (%!s(float64=0.0002498626708984375))
+--- PASS: TestIndexFunc (%!s(float64=0.0002319812774658203))
 
 === RUN  TestCaseConsistency
---- PASS: TestCaseConsistency (%!s(float64=0.11977887153625488))
+--- PASS: TestCaseConsistency (%!s(float64=0.11369705200195312))
 
 === RUN  TestRepeat
---- PASS: TestRepeat (%!s(float64=0.07468104362487793))
+--- PASS: TestRepeat (%!s(float64=0.06616806983947754))
 
 === RUN  TestRepeatCatchesOverflow
---- PASS: TestRepeatCatchesOverflow (%!s(float64=0.0008699893951416016))
+--- PASS: TestRepeatCatchesOverflow (%!s(float64=0.0007231235504150391))
 
 === RUN  TestRunes
---- PASS: TestRunes (%!s(float64=0.00011587142944335938))
+--- PASS: TestRunes (%!s(float64=0.00010704994201660156))
 
 === RUN  TestReadByte
---- PASS: TestReadByte (%!s(float64=0.00010585784912109375))
+--- PASS: TestReadByte (%!s(float64=0.000102996826171875))
 
 === RUN  TestReadRune
---- PASS: TestReadRune (%!s(float64=0.00011301040649414062))
+--- PASS: TestReadRune (%!s(float64=0.00010704994201660156))
 
 === RUN  TestUnreadRuneError
---- PASS: TestUnreadRuneError (%!s(float64=7.104873657226562e-05))
+--- PASS: TestUnreadRuneError (%!s(float64=5.984306335449219e-05))
 
 === RUN  TestReplace
---- PASS: TestReplace (%!s(float64=0.0005950927734375))
+--- PASS: TestReplace (%!s(float64=0.0017919540405273438))
 
 === RUN  TestTitle
---- PASS: TestTitle (%!s(float64=0.0020999908447265625))
+--- PASS: TestTitle (%!s(float64=0.00047707557678222656))
 
 === RUN  TestContains
---- PASS: TestContains (%!s(float64=8.296966552734375e-05))
+--- PASS: TestContains (%!s(float64=7.295608520507812e-05))
 
 === RUN  TestContainsAny
---- PASS: TestContainsAny (%!s(float64=9.417533874511719e-05))
+--- PASS: TestContainsAny (%!s(float64=8.702278137207031e-05))
 
 === RUN  TestContainsRune
---- PASS: TestContainsRune (%!s(float64=1.0013580322265625e-05))
+--- PASS: TestContainsRune (%!s(float64=1.0967254638671875e-05))
 
 === RUN  TestEqualFold
---- PASS: TestEqualFold (%!s(float64=0.00020599365234375))
+--- PASS: TestEqualFold (%!s(float64=0.00019216537475585938))
 
 === RUN  TestCount
---- PASS: TestCount (%!s(float64=1.811981201171875e-05))
+--- PASS: TestCount (%!s(float64=1.6927719116210938e-05))
 
 === RUN  TestCut
---- PASS: TestCut (%!s(float64=2.09808349609375e-05))
+--- PASS: TestCut (%!s(float64=1.8835067749023438e-05))
 
 === RUN  TestCutPrefix
---- PASS: TestCutPrefix (%!s(float64=1.5020370483398438e-05))
+--- PASS: TestCutPrefix (%!s(float64=1.4066696166992188e-05))
 
 === RUN  TestCutSuffix
---- PASS: TestCutSuffix (%!s(float64=1.4066696166992188e-05))
+--- PASS: TestCutSuffix (%!s(float64=2.002716064453125e-05))
 
 ```
 </p>
@@ -234,211 +235,212 @@ strings_test/Strings_test.hx:3337: testMap skip function
 
 ```
 === RUN  TestBuilder
---- PASS: TestBuilder (%!s(float64=0.0001239776611328125))
+--- PASS: TestBuilder (%!s(float64=0.00012683868408203125))
 
 === RUN  TestBuilderString
---- PASS: TestBuilderString (%!s(float64=0.0001289844512939453))
+--- PASS: TestBuilderString (%!s(float64=0.00015091896057128906))
 
 === RUN  TestBuilderReset
---- PASS: TestBuilderReset (%!s(float64=7.295608520507812e-05))
+--- PASS: TestBuilderReset (%!s(float64=7.796287536621094e-05))
 
 === RUN  TestBuilderGrow
 strings_test/Strings_test.hx:1557: testBuilderGrow skip function
---- PASS: TestBuilderGrow (%!s(float64=1.5020370483398438e-05))
+--- PASS: TestBuilderGrow (%!s(float64=1.9073486328125e-05))
 
 === RUN  TestBuilderWrite2
---- PASS: TestBuilderWrite2 (%!s(float64=3.314018249511719e-05))
+--- PASS: TestBuilderWrite2 (%!s(float64=3.0994415283203125e-05))
 
 === RUN  TestBuilderWriteByte
---- PASS: TestBuilderWriteByte (%!s(float64=2.7894973754882812e-05))
+--- PASS: TestBuilderWriteByte (%!s(float64=3.3855438232421875e-05))
 
 === RUN  TestBuilderAllocs
-strings_test/Strings_test.hx:1676: testBuilderAllocs skip function
---- PASS: TestBuilderAllocs (%!s(float64=1.1920928955078125e-05))
+strings_test/Strings_test.hx:1677: testBuilderAllocs skip function
+--- PASS: TestBuilderAllocs (%!s(float64=1.5974044799804688e-05))
 
 === RUN  TestBuilderCopyPanic
-strings_test/Strings_test.hx:1689: testBuilderCopyPanic skip function
+strings_test/Strings_test.hx:1690: testBuilderCopyPanic skip function
 --- PASS: TestBuilderCopyPanic (%!s(float64=1.0967254638671875e-05))
 
 === RUN  TestBuilderWriteInvalidRune
---- PASS: TestBuilderWriteInvalidRune (%!s(float64=0.00011181831359863281))
+--- PASS: TestBuilderWriteInvalidRune (%!s(float64=0.00011992454528808594))
 
 === RUN  TestClone
-strings_test/Strings_test.hx:1858: testClone skip function
---- PASS: TestClone (%!s(float64=1.1920928955078125e-05))
+strings_test/Strings_test.hx:1860: testClone skip function
+--- PASS: TestClone (%!s(float64=1.0013580322265625e-05))
 
 === RUN  TestCompare
---- PASS: TestCompare (%!s(float64=7.796287536621094e-05))
+--- PASS: TestCompare (%!s(float64=4.601478576660156e-05))
 
 === RUN  TestCompareIdenticalString
---- PASS: TestCompareIdenticalString (%!s(float64=1.6927719116210938e-05))
+--- PASS: TestCompareIdenticalString (%!s(float64=1.5974044799804688e-05))
 
 === RUN  TestCompareStrings
-strings_test/Strings_test.hx:1902: testCompareStrings skip function
+strings_test/Strings_test.hx:1904: testCompareStrings skip function
 --- PASS: TestCompareStrings (%!s(float64=1.0967254638671875e-05))
 
 === RUN  TestReader
---- PASS: TestReader (%!s(float64=0.0004792213439941406))
+--- PASS: TestReader (%!s(float64=0.0004718303680419922))
 
 === RUN  TestReadAfterBigSeek
---- PASS: TestReadAfterBigSeek (%!s(float64=9.393692016601562e-05))
+--- PASS: TestReadAfterBigSeek (%!s(float64=7.796287536621094e-05))
 
 === RUN  TestReaderAt
---- PASS: TestReaderAt (%!s(float64=0.00392603874206543))
+--- PASS: TestReaderAt (%!s(float64=0.0037970542907714844))
 
 === RUN  TestReaderAtConcurrent
---- PASS: TestReaderAtConcurrent (%!s(float64=0.0006999969482421875))
+--- PASS: TestReaderAtConcurrent (%!s(float64=0.0007388591766357422))
 
 === RUN  TestEmptyReaderConcurrent
---- PASS: TestEmptyReaderConcurrent (%!s(float64=0.001619100570678711))
+--- PASS: TestEmptyReaderConcurrent (%!s(float64=0.0010209083557128906))
 
 === RUN  TestWriteTo
---- PASS: TestWriteTo (%!s(float64=0.0007290840148925781))
+--- PASS: TestWriteTo (%!s(float64=0.0008788108825683594))
 
 === RUN  TestReaderLenSize
-strings_test/Strings_test.hx:2406: testReaderLenSize skip function
---- PASS: TestReaderLenSize (%!s(float64=2.9087066650390625e-05))
+strings_test/Strings_test.hx:2411: testReaderLenSize skip function
+--- PASS: TestReaderLenSize (%!s(float64=1.5974044799804688e-05))
 
 === RUN  TestReaderReset
---- PASS: TestReaderReset (%!s(float64=0.000164031982421875))
+--- PASS: TestReaderReset (%!s(float64=0.00015783309936523438))
 
 === RUN  TestReaderZero
---- PASS: TestReaderZero (%!s(float64=0.0001819133758544922))
+--- PASS: TestReaderZero (%!s(float64=0.00015807151794433594))
 
 === RUN  TestReplacer
-strings_test/Strings_test.hx:2534: testReplacer skip function
---- PASS: TestReplacer (%!s(float64=1.1205673217773438e-05))
+strings_test/Strings_test.hx:2539: testReplacer skip function
+--- PASS: TestReplacer (%!s(float64=1.5974044799804688e-05))
 
 === RUN  TestPickAlgorithm
-strings_test/Strings_test.hx:2665: testPickAlgorithm skip function
---- PASS: TestPickAlgorithm (%!s(float64=1.0967254638671875e-05))
+strings_test/Strings_test.hx:2670: testPickAlgorithm skip function
+--- PASS: TestPickAlgorithm (%!s(float64=1.0013580322265625e-05))
 
 === RUN  TestWriteStringError
---- PASS: TestWriteStringError (%!s(float64=0.003484964370727539))
+--- PASS: TestWriteStringError (%!s(float64=0.0029921531677246094))
 
 === RUN  TestGenericTrieBuilding
---- PASS: TestGenericTrieBuilding (%!s(float64=0.0054018497467041016))
+strings_test/Strings_test.hx:2697: testGenericTrieBuilding skip function
+--- PASS: TestGenericTrieBuilding (%!s(float64=1.0967254638671875e-05))
 
 === RUN  TestFinderNext
---- PASS: TestFinderNext (%!s(float64=0.0034818649291992188))
+--- PASS: TestFinderNext (%!s(float64=0.002913951873779297))
 
 === RUN  TestFinderCreation
---- PASS: TestFinderCreation (%!s(float64=0.0037779808044433594))
+--- PASS: TestFinderCreation (%!s(float64=0.0030961036682128906))
 
 === RUN  TestIndex
---- PASS: TestIndex (%!s(float64=0.0021390914916992188))
+--- PASS: TestIndex (%!s(float64=0.0020220279693603516))
 
 === RUN  TestLastIndex
---- PASS: TestLastIndex (%!s(float64=0.00020003318786621094))
+--- PASS: TestLastIndex (%!s(float64=0.00015807151794433594))
 
 === RUN  TestIndexAny
---- PASS: TestIndexAny (%!s(float64=0.0013740062713623047))
+--- PASS: TestIndexAny (%!s(float64=0.0013339519500732422))
 
 === RUN  TestLastIndexAny
---- PASS: TestLastIndexAny (%!s(float64=0.0007889270782470703))
+--- PASS: TestLastIndexAny (%!s(float64=0.0007688999176025391))
 
 === RUN  TestIndexByte
---- PASS: TestIndexByte (%!s(float64=8.106231689453125e-05))
+--- PASS: TestIndexByte (%!s(float64=7.486343383789062e-05))
 
 === RUN  TestLastIndexByte
---- PASS: TestLastIndexByte (%!s(float64=4.506111145019531e-05))
+--- PASS: TestLastIndexByte (%!s(float64=4.1961669921875e-05))
 
 === RUN  TestIndexRandom
---- PASS: TestIndexRandom (%!s(float64=0.5860259532928467))
+--- PASS: TestIndexRandom (%!s(float64=0.5854690074920654))
 
 === RUN  TestIndexRune
---- PASS: TestIndexRune (%!s(float64=0.0005900859832763672))
+--- PASS: TestIndexRune (%!s(float64=0.0005521774291992188))
 
 === RUN  TestSplit
---- PASS: TestSplit (%!s(float64=0.0038940906524658203))
+--- PASS: TestSplit (%!s(float64=0.0037679672241210938))
 
 === RUN  TestSplitAfter
---- PASS: TestSplitAfter (%!s(float64=0.0025467872619628906))
+--- PASS: TestSplitAfter (%!s(float64=0.002482175827026367))
 
 === RUN  TestFields
---- PASS: TestFields (%!s(float64=0.002215862274169922))
+--- PASS: TestFields (%!s(float64=0.002054929733276367))
 
 === RUN  TestFieldsFunc
---- PASS: TestFieldsFunc (%!s(float64=0.0033638477325439453))
+--- PASS: TestFieldsFunc (%!s(float64=0.003139019012451172))
 
 === RUN  TestMap
-strings_test/Strings_test.hx:3337: testMap skip function
---- PASS: TestMap (%!s(float64=1.5974044799804688e-05))
+strings_test/Strings_test.hx:3344: testMap skip function
+--- PASS: TestMap (%!s(float64=1.9073486328125e-05))
 
 === RUN  TestToUpper
---- PASS: TestToUpper (%!s(float64=0.002370119094848633))
+--- PASS: TestToUpper (%!s(float64=0.0022988319396972656))
 
 === RUN  TestToLower
---- PASS: TestToLower (%!s(float64=0.0021860599517822266))
+--- PASS: TestToLower (%!s(float64=0.0021209716796875))
 
 === RUN  TestToValidUTF8
---- PASS: TestToValidUTF8 (%!s(float64=0.0020890235900878906))
+--- PASS: TestToValidUTF8 (%!s(float64=0.002090930938720703))
 
 === RUN  TestSpecialCase
---- PASS: TestSpecialCase (%!s(float64=0.004775047302246094))
+--- PASS: TestSpecialCase (%!s(float64=0.004671812057495117))
 
 === RUN  TestTrimSpace
---- PASS: TestTrimSpace (%!s(float64=0.0011529922485351562))
+--- PASS: TestTrimSpace (%!s(float64=0.001154184341430664))
 
 === RUN  TestTrim
---- PASS: TestTrim (%!s(float64=0.0009610652923583984))
+--- PASS: TestTrim (%!s(float64=0.0009410381317138672))
 
 === RUN  TestTrimFunc
---- PASS: TestTrimFunc (%!s(float64=0.004359006881713867))
+--- PASS: TestTrimFunc (%!s(float64=0.004243135452270508))
 
 === RUN  TestIndexFunc
---- PASS: TestIndexFunc (%!s(float64=0.0013849735260009766))
+--- PASS: TestIndexFunc (%!s(float64=0.0013689994812011719))
 
 === RUN  TestCaseConsistency
---- PASS: TestCaseConsistency (%!s(float64=0.30657315254211426))
+--- PASS: TestCaseConsistency (%!s(float64=0.2814788818359375))
 
 === RUN  TestRepeat
---- PASS: TestRepeat (%!s(float64=0.49352502822875977))
+--- PASS: TestRepeat (%!s(float64=0.49619007110595703))
 
 === RUN  TestRepeatCatchesOverflow
---- PASS: TestRepeatCatchesOverflow (%!s(float64=0.0020198822021484375))
+--- PASS: TestRepeatCatchesOverflow (%!s(float64=0.001987934112548828))
 
 === RUN  TestRunes
---- PASS: TestRunes (%!s(float64=0.0005600452423095703))
+--- PASS: TestRunes (%!s(float64=0.0005688667297363281))
 
 === RUN  TestReadByte
---- PASS: TestReadByte (%!s(float64=0.000476837158203125))
+--- PASS: TestReadByte (%!s(float64=0.0005130767822265625))
 
 === RUN  TestReadRune
---- PASS: TestReadRune (%!s(float64=0.0005419254302978516))
+--- PASS: TestReadRune (%!s(float64=0.0005650520324707031))
 
 === RUN  TestUnreadRuneError
---- PASS: TestUnreadRuneError (%!s(float64=0.00020503997802734375))
+--- PASS: TestUnreadRuneError (%!s(float64=0.0002110004425048828))
 
 === RUN  TestReplace
---- PASS: TestReplace (%!s(float64=0.002288818359375))
+--- PASS: TestReplace (%!s(float64=0.002293109893798828))
 
 === RUN  TestTitle
---- PASS: TestTitle (%!s(float64=0.002557992935180664))
+--- PASS: TestTitle (%!s(float64=0.002562999725341797))
 
 === RUN  TestContains
---- PASS: TestContains (%!s(float64=0.00037288665771484375))
+--- PASS: TestContains (%!s(float64=0.00036215782165527344))
 
 === RUN  TestContainsAny
---- PASS: TestContainsAny (%!s(float64=0.0005769729614257812))
+--- PASS: TestContainsAny (%!s(float64=0.0005700588226318359))
 
 === RUN  TestContainsRune
---- PASS: TestContainsRune (%!s(float64=5.602836608886719e-05))
+--- PASS: TestContainsRune (%!s(float64=5.412101745605469e-05))
 
 === RUN  TestEqualFold
---- PASS: TestEqualFold (%!s(float64=0.0011739730834960938))
+--- PASS: TestEqualFold (%!s(float64=0.0011959075927734375))
 
 === RUN  TestCount
---- PASS: TestCount (%!s(float64=8.392333984375e-05))
+--- PASS: TestCount (%!s(float64=8.416175842285156e-05))
 
 === RUN  TestCut
---- PASS: TestCut (%!s(float64=5.698204040527344e-05))
+--- PASS: TestCut (%!s(float64=5.507469177246094e-05))
 
 === RUN  TestCutPrefix
---- PASS: TestCutPrefix (%!s(float64=3.790855407714844e-05))
+--- PASS: TestCutPrefix (%!s(float64=3.695487976074219e-05))
 
 === RUN  TestCutSuffix
---- PASS: TestCutSuffix (%!s(float64=4.100799560546875e-05))
+--- PASS: TestCutSuffix (%!s(float64=3.790855407714844e-05))
 
 ```
 </p>
@@ -631,56 +633,6 @@ stdgo/internal/Macro.macro.hx:35: define
   - [`function replacer():stdgo.AnyInterface`](<#replacer-function-replacer>)
 
   - [`function writeString( _w:stdgo.io.Writer, _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#replacer-function-writestring>)
-
-- [class T\_byteStringReplacer](<#class-t_bytestringreplacer>)
-
-  - [`function new(?_replacements:stdgo.GoArray<stdgo.Slice<stdgo.GoUInt8>>, ?_toReplace:stdgo.Slice<stdgo.GoString>):Void`](<#t_bytestringreplacer-function-new>)
-
-  - [`function replace( _s:stdgo.GoString):stdgo.GoString`](<#t_bytestringreplacer-function-replace>)
-
-  - [`function writeString( _w:stdgo.io.Writer, _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_bytestringreplacer-function-writestring>)
-
-- [class T\_genericReplacer](<#class-t_genericreplacer>)
-
-  - [`function new(?_root:stdgo.strings.T_trieNode, ?_tableSize:Null<stdgo.GoInt>, ?_mapping:stdgo.GoArray<stdgo.GoUInt8>):Void`](<#t_genericreplacer-function-new>)
-
-  - [`function _lookup( _s:stdgo.GoString, _ignoreRoot:Bool):{_2:Bool, _1:stdgo.GoInt, _0:stdgo.GoString}`](<#t_genericreplacer-function-_lookup>)
-
-  - [`function _printNode( _t:stdgo.Ref<stdgo.strings.T_trieNode>, _depth:stdgo.GoInt):stdgo.GoString`](<#t_genericreplacer-function-_printnode>)
-
-  - [`function replace( _s:stdgo.GoString):stdgo.GoString`](<#t_genericreplacer-function-replace>)
-
-  - [`function writeString( _w:stdgo.io.Writer, _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_genericreplacer-function-writestring>)
-
-- [class T\_singleStringReplacer](<#class-t_singlestringreplacer>)
-
-  - [`function new(?_finder:stdgo.Ref<stdgo.strings.T_stringFinder>, ?_value:stdgo.GoString):Void`](<#t_singlestringreplacer-function-new>)
-
-  - [`function replace( _s:stdgo.GoString):stdgo.GoString`](<#t_singlestringreplacer-function-replace>)
-
-  - [`function writeString( _w:stdgo.io.Writer, _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_singlestringreplacer-function-writestring>)
-
-- [class T\_span\_fieldsFunc\_0](<#class-t_span_fieldsfunc_0>)
-
-  - [`function new(?_start:Null<stdgo.GoInt>, ?_end:Null<stdgo.GoInt>):Void`](<#t_span_fieldsfunc_0-function-new>)
-
-- [class T\_stringFinder](<#class-t_stringfinder>)
-
-  - [`function new(?_pattern:stdgo.GoString, ?_badCharSkip:stdgo.GoArray<stdgo.GoInt>, ?_goodSuffixSkip:stdgo.Slice<stdgo.GoInt>):Void`](<#t_stringfinder-function-new>)
-
-  - [`function _next( _text:stdgo.GoString):stdgo.GoInt`](<#t_stringfinder-function-_next>)
-
-- [class T\_stringWriter](<#class-t_stringwriter>)
-
-  - [`function new(?_w:Null<stdgo.io.Writer>):Void`](<#t_stringwriter-function-new>)
-
-  - [`function writeString( _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_stringwriter-function-writestring>)
-
-- [class T\_trieNode](<#class-t_trienode>)
-
-  - [`function new(?_value:stdgo.GoString, ?_priority:Null<stdgo.GoInt>, ?_prefix:stdgo.GoString, ?_next:stdgo.Ref<stdgo.strings.T_trieNode>, ?_table:stdgo.Slice<stdgo.Ref<stdgo.strings.T_trieNode>>):Void`](<#t_trienode-function-new>)
-
-  - [`function _add( _key:stdgo.GoString, _val:stdgo.GoString, _priority:stdgo.GoInt, _r:stdgo.Ref<stdgo.strings.T_genericReplacer>):Void`](<#t_trienode-function-_add>)
 
 # Examples
 
@@ -3213,545 +3165,5 @@ WriteString writes s to w with all replacements performed.
 
 
 [\(view code\)](<./Strings.hx#L2270>)
-
-
-## class T\_byteStringReplacer
-
-
-byteStringReplacer is the implementation that's used when all the  
-"old" values are single ASCII bytes but the "new" values vary in size.  
-
-
-
-```haxe
-var _replacements:stdgo.GoArray<stdgo.Slice<stdgo.GoUInt8>>
-```
-
-
-replacements contains replacement byte slices indexed by old byte.  
-A nil \[\]byte means that the old byte should not be replaced.  
-
-
-
-```haxe
-var _toReplace:stdgo.Slice<stdgo.GoString>
-```
-
-
-toReplace keeps a list of bytes to replace. Depending on length of toReplace  
-and length of target string it may be faster to use Count, or a plain loop.  
-We store single byte as a string, because Count takes a string.  
-
-
-
-### T\_byteStringReplacer function new
-
-
-```haxe
-function new(?_replacements:stdgo.GoArray<stdgo.Slice<stdgo.GoUInt8>>, ?_toReplace:stdgo.Slice<stdgo.GoString>):Void
-```
-
-
-
-
-
-[\(view code\)](<./Strings.hx#L269>)
-
-
-### T\_byteStringReplacer function replace
-
-
-```haxe
-function replace( _s:stdgo.GoString):stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Strings.hx#L2689>)
-
-
-### T\_byteStringReplacer function writeString
-
-
-```haxe
-function writeString( _w:stdgo.io.Writer, _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}
-```
-
-
-
-
-
-[\(view code\)](<./Strings.hx#L2651>)
-
-
-## class T\_genericReplacer
-
-
-genericReplacer is the fully generic algorithm.  
-It's used as a fallback when nothing faster can be used.  
-
-
-
-```haxe
-var _mapping:stdgo.GoArray<stdgo.GoUInt8>
-```
-
-
-mapping maps from key bytes to a dense index for trieNode.table.  
-
-
-
-```haxe
-var _root:stdgo.strings.T_trieNode
-```
-
-
-```haxe
-var _tableSize:stdgo.GoInt
-```
-
-
-tableSize is the size of a trie node's lookup table. It is the number  
-of unique key bytes.  
-
-
-
-### T\_genericReplacer function new
-
-
-```haxe
-function new(?_root:stdgo.strings.T_trieNode, ?_tableSize:Null<stdgo.GoInt>, ?_mapping:stdgo.GoArray<stdgo.GoUInt8>):Void
-```
-
-
-
-
-
-[\(view code\)](<./Strings.hx#L205>)
-
-
-### T\_genericReplacer function \_lookup
-
-
-```haxe
-function _lookup( _s:stdgo.GoString, _ignoreRoot:Bool):{_2:Bool, _1:stdgo.GoInt, _0:stdgo.GoString}
-```
-
-
-
-
-
-[\(view code\)](<./Strings.hx#L2489>)
-
-
-### T\_genericReplacer function \_printNode
-
-
-```haxe
-function _printNode( _t:stdgo.Ref<stdgo.strings.T_trieNode>, _depth:stdgo.GoInt):stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Strings.hx#L2523>)
-
-
-### T\_genericReplacer function replace
-
-
-```haxe
-function replace( _s:stdgo.GoString):stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Strings.hx#L2483>)
-
-
-### T\_genericReplacer function writeString
-
-
-```haxe
-function writeString( _w:stdgo.io.Writer, _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}
-```
-
-
-
-
-
-[\(view code\)](<./Strings.hx#L2429>)
-
-
-## class T\_singleStringReplacer
-
-
-singleStringReplacer is the implementation that's used when there is only  
-one string to replace \(and that string has more than one byte\).  
-
-
-
-```haxe
-var _finder:stdgo.Ref<stdgo.strings.T_stringFinder>
-```
-
-
-```haxe
-var _value:stdgo.GoString
-```
-
-
-value is the new string that replaces that pattern when it's found.  
-
-
-
-### T\_singleStringReplacer function new
-
-
-```haxe
-function new(?_finder:stdgo.Ref<stdgo.strings.T_stringFinder>, ?_value:stdgo.GoString):Void
-```
-
-
-
-
-
-[\(view code\)](<./Strings.hx#L242>)
-
-
-### T\_singleStringReplacer function replace
-
-
-```haxe
-function replace( _s:stdgo.GoString):stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Strings.hx#L2615>)
-
-
-### T\_singleStringReplacer function writeString
-
-
-```haxe
-function writeString( _w:stdgo.io.Writer, _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}
-```
-
-
-
-
-
-[\(view code\)](<./Strings.hx#L2577>)
-
-
-## class T\_span\_fieldsFunc\_0
-
-
-A span is used to record a slice of s of the form s\[start:end\].  
-The start index is inclusive and the end index is exclusive.  
-
-
-
-```haxe
-var _end:stdgo.GoInt
-```
-
-
-```haxe
-var _start:stdgo.GoInt
-```
-
-
-### T\_span\_fieldsFunc\_0 function new
-
-
-```haxe
-function new(?_start:Null<stdgo.GoInt>, ?_end:Null<stdgo.GoInt>):Void
-```
-
-
-
-
-
-[\(view code\)](<./Strings.hx#L927>)
-
-
-## class T\_stringFinder
-
-
-stringFinder efficiently finds strings in a source text. It's implemented  
-using the Boyer\-Moore string search algorithm:  
-https://en.wikipedia.org/wiki/Boyer-Moore_string_search_algorithm  
-https://www.cs.utexas.edu/~moore/publications/fstrpos.pdf \(note: this aged  
-document uses 1\-based indexing\)  
-
-
-
-```haxe
-var _badCharSkip:stdgo.GoArray<stdgo.GoInt>
-```
-
-
-badCharSkip\[b\] contains the distance between the last byte of pattern  
-and the rightmost occurrence of b in pattern. If b is not in pattern,  
-badCharSkip\[b\] is len\(pattern\).  
-
-
-
-Whenever a mismatch is found with byte b in the text, we can safely  
-shift the matching frame at least badCharSkip\[b\] until the next time  
-the matching char could be in alignment.  
-
-
-
-```haxe
-var _goodSuffixSkip:stdgo.Slice<stdgo.GoInt>
-```
-
-
-goodSuffixSkip\[i\] defines how far we can shift the matching frame given  
-that the suffix pattern\[i\+1:\] matches, but the byte pattern\[i\] does  
-not. There are two cases to consider:  
-
-
-
-1. The matched suffix occurs elsewhere in pattern \(with a different  
-byte preceding it that we might possibly match\). In this case, we can  
-shift the matching frame to align with the next suffix chunk. For  
-example, the pattern "mississi" has the suffix "issi" next occurring  
-\(in right\-to\-left order\) at index 1, so goodSuffixSkip\[3\] ==  
-shift\+len\(suffix\) == 3\+4 == 7.  
-
-
-
-2. If the matched suffix does not occur elsewhere in pattern, then the  
-matching frame may share part of its prefix with the end of the  
-matching suffix. In this case, goodSuffixSkip\[i\] will contain how far  
-to shift the frame to align this portion of the prefix to the  
-suffix. For example, in the pattern "abcxxxabc", when the first  
-mismatch from the back is found to be in position 3, the matching  
-suffix "xxabc" is not found elsewhere in the pattern. However, its  
-rightmost "abc" \(at position 6\) is a prefix of the whole pattern, so  
-goodSuffixSkip\[3\] == shift\+len\(suffix\) == 6\+5 == 11.  
-
-
-
-```haxe
-var _pattern:stdgo.GoString
-```
-
-
-pattern is the string that we are searching for in the text.  
-
-
-
-### T\_stringFinder function new
-
-
-```haxe
-function new(?_pattern:stdgo.GoString, ?_badCharSkip:stdgo.GoArray<stdgo.GoInt>, ?_goodSuffixSkip:stdgo.Slice<stdgo.GoInt>):Void
-```
-
-
-
-
-
-[\(view code\)](<./Strings.hx#L325>)
-
-
-### T\_stringFinder function \_next
-
-
-```haxe
-function _next( _text:stdgo.GoString):stdgo.GoInt
-```
-
-
-next returns the index in text of the first occurrence of the pattern. If  
-the pattern is not found, it returns \-1.  
-
-
-
-[\(view code\)](<./Strings.hx#L2755>)
-
-
-## class T\_stringWriter
-
-
-
-
-
-```haxe
-var _w:stdgo.io.Writer
-```
-
-
-### T\_stringWriter function new
-
-
-```haxe
-function new(?_w:Null<stdgo.io.Writer>):Void
-```
-
-
-
-
-
-[\(view code\)](<./Strings.hx#L222>)
-
-
-### T\_stringWriter function writeString
-
-
-```haxe
-function writeString( _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}
-```
-
-
-
-
-
-[\(view code\)](<./Strings.hx#L2558>)
-
-
-## class T\_trieNode
-
-
-trieNode is a node in a lookup trie for prioritized key/value pairs. Keys  
-and values may be empty. For example, the trie containing keys "ax", "ay",  
-"bcbc", "x" and "xy" could have eight nodes:  
-
-
-
-
-
-
-n0  \-  
-
-
-
-n1  a\-  
-
-
-
-n2  .x\+  
-
-
-
-n3  .y\+  
-
-
-
-n4  b\-  
-
-
-
-n5  .cbc\+  
-
-
-
-n6  x\+  
-
-
-
-n7  .y\+  
-
-
-
-n0 is the root node, and its children are n1, n4 and n6; n1's children are  
-n2 and n3; n4's child is n5; n6's child is n7. Nodes n0, n1 and n4 \(marked  
-with a trailing "\-"\) are partial keys, and nodes n2, n3, n5, n6 and n7  
-\(marked with a trailing "\+"\) are complete keys.  
-
-
-
-```haxe
-var _next:stdgo.Ref<stdgo.strings.T_trieNode>
-```
-
-
-```haxe
-var _prefix:stdgo.GoString
-```
-
-
-prefix is the difference in keys between this trie node and the next.  
-In the example above, node n4 has prefix "cbc" and n4's next node is n5.  
-Node n5 has no children and so has zero prefix, next and table fields.  
-
-
-
-```haxe
-var _priority:stdgo.GoInt
-```
-
-
-priority is the priority \(higher is more important\) of the trie node's  
-key/value pair; keys are not necessarily matched shortest\- or longest\-  
-first. Priority is positive if this node is a complete key, and zero  
-otherwise. In the example above, positive/zero priorities are marked  
-with a trailing "\+" or "\-".  
-
-
-
-```haxe
-var _table:stdgo.Slice<stdgo.Ref<stdgo.strings.T_trieNode>>
-```
-
-
-table is a lookup table indexed by the next byte in the key, after  
-remapping that byte through genericReplacer.mapping to create a dense  
-index. In the example above, the keys only use 'a', 'b', 'c', 'x' and  
-'y', which remap to 0, 1, 2, 3 and 4. All other bytes remap to 5, and  
-genericReplacer.tableSize will be 5. Node n0's table will be  
-\[\]\*trieNode\{ 0:n1, 1:n4, 3:n6 \}, where the 0, 1 and 3 are the remapped  
-'a', 'b' and 'x'.  
-
-
-
-```haxe
-var _value:stdgo.GoString
-```
-
-
-value is the value of the trie node's key/value pair. It is empty if  
-this node is not a complete key.  
-
-
-
-### T\_trieNode function new
-
-
-```haxe
-function new(?_value:stdgo.GoString, ?_priority:Null<stdgo.GoInt>, ?_prefix:stdgo.GoString, ?_next:stdgo.Ref<stdgo.strings.T_trieNode>, ?_table:stdgo.Slice<stdgo.Ref<stdgo.strings.T_trieNode>>):Void
-```
-
-
-
-
-
-[\(view code\)](<./Strings.hx#L176>)
-
-
-### T\_trieNode function \_add
-
-
-```haxe
-function _add( _key:stdgo.GoString, _val:stdgo.GoString, _priority:stdgo.GoInt, _r:stdgo.Ref<stdgo.strings.T_genericReplacer>):Void
-```
-
-
-
-
-
-[\(view code\)](<./Strings.hx#L2360>)
 
 

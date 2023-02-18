@@ -102,10 +102,6 @@
 
   - [`function new(?_rune:stdgo.GoInt32, ?_script:stdgo.GoString):Void`](<#t-function-new>)
 
-- [class T\_caseT](<#class-t_caset>)
-
-  - [`function new(?_cas:Null<stdgo.GoInt>, ?_in:stdgo.GoInt32, ?_out:stdgo.GoInt32):Void`](<#t_caset-function-new>)
-
 # Variables
 
 
@@ -756,40 +752,5 @@ function new(?_rune:stdgo.GoInt32, ?_script:stdgo.GoString):Void
 
 
 [\(view code\)](<./Unicode_test.hx#L465>)
-
-
-## class T\_caseT
-
-
-
-
-
-```haxe
-var _cas:stdgo.GoInt
-```
-
-
-```haxe
-var _in:stdgo.GoInt32
-```
-
-
-```haxe
-var _out:stdgo.GoInt32
-```
-
-
-### T\_caseT function new
-
-
-```haxe
-function new(?_cas:Null<stdgo.GoInt>, ?_in:stdgo.GoInt32, ?_out:stdgo.GoInt32):Void
-```
-
-
-
-
-
-[\(view code\)](<./Unicode_test.hx#L447>)
 
 

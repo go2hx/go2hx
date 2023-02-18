@@ -14,10 +14,6 @@
 
 - [`function diff(_oldName:stdgo.GoString, _old:stdgo.Slice<stdgo.GoByte>, _newName:stdgo.GoString, _new:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte>`](<#function-diff>)
 
-- [class T\_pair](<#class-t_pair>)
-
-  - [`function new(?_x:Null<stdgo.GoInt>, ?_y:Null<stdgo.GoInt>):Void`](<#t_pair-function-new>)
-
 # Functions
 
 
@@ -72,45 +68,5 @@ when in fact the algorithm is faster than the standard one.
 
 
 [\(view code\)](<./Diff.hx#L59>)
-
-
-# Classes
-
-
-```haxe
-import stdgo.internal.diff.*
-```
-
-
-## class T\_pair
-
-
-A pair is a pair of values tracked for both the x and y side of a diff.  
-It is typically a pair of line indexes.  
-
-
-
-```haxe
-var _x:stdgo.GoInt
-```
-
-
-```haxe
-var _y:stdgo.GoInt
-```
-
-
-### T\_pair function new
-
-
-```haxe
-function new(?_x:Null<stdgo.GoInt>, ?_y:Null<stdgo.GoInt>):Void
-```
-
-
-
-
-
-[\(view code\)](<./Diff.hx#L20>)
 
 

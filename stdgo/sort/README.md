@@ -15,85 +15,85 @@ Package sort provides primitives for sorting slices and user\-defined collection
 
 ```
 === RUN  TestSearch
---- PASS: TestSearch (%!s(float64=0.00026106834411621094))
+--- PASS: TestSearch (%!s(float64=0.0002529621124267578))
 
 === RUN  TestFind
 --- PASS: TestFind (%!s(float64=4.00543212890625e-05))
 
 === RUN  TestSearchEfficiency
---- PASS: TestSearchEfficiency (%!s(float64=0.019855022430419922))
+--- PASS: TestSearchEfficiency (%!s(float64=0.01903986930847168))
 
 === RUN  TestSearchWrappers
---- PASS: TestSearchWrappers (%!s(float64=3.695487976074219e-05))
+--- PASS: TestSearchWrappers (%!s(float64=1.1920928955078125e-05))
 
 === RUN  TestSearchWrappersDontAlloc
---- PASS: TestSearchWrappersDontAlloc (%!s(float64=4.291534423828125e-05))
+--- PASS: TestSearchWrappersDontAlloc (%!s(float64=5.9604644775390625e-06))
 
 === RUN  TestSearchExhaustive
---- PASS: TestSearchExhaustive (%!s(float64=0.04111194610595703))
+--- PASS: TestSearchExhaustive (%!s(float64=0.03955793380737305))
 
 === RUN  TestFindExhaustive
---- PASS: TestFindExhaustive (%!s(float64=0.08335089683532715))
+--- PASS: TestFindExhaustive (%!s(float64=0.08128499984741211))
 
 === RUN  TestSortIntSlice
---- PASS: TestSortIntSlice (%!s(float64=7.891654968261719e-05))
+--- PASS: TestSortIntSlice (%!s(float64=3.3855438232421875e-05))
 
 === RUN  TestSortFloat64Slice
---- PASS: TestSortFloat64Slice (%!s(float64=7.104873657226562e-05))
+--- PASS: TestSortFloat64Slice (%!s(float64=3.695487976074219e-05))
 
 === RUN  TestSortStringSlice
---- PASS: TestSortStringSlice (%!s(float64=9.298324584960938e-05))
+--- PASS: TestSortStringSlice (%!s(float64=5.1021575927734375e-05))
 
 === RUN  TestInts
---- PASS: TestInts (%!s(float64=7.319450378417969e-05))
+--- PASS: TestInts (%!s(float64=2.384185791015625e-05))
 
 === RUN  TestFloat64s
---- PASS: TestFloat64s (%!s(float64=7.009506225585938e-05))
+--- PASS: TestFloat64s (%!s(float64=4.100799560546875e-05))
 
 === RUN  TestStrings
---- PASS: TestStrings (%!s(float64=9.298324584960938e-05))
+--- PASS: TestStrings (%!s(float64=5.793571472167969e-05))
 
 === RUN  TestSlice
---- PASS: TestSlice (%!s(float64=0.0003020763397216797))
+--- PASS: TestSlice (%!s(float64=0.00017905235290527344))
 
 === RUN  TestSortLarge_Random
---- PASS: TestSortLarge_Random (%!s(float64=0.015146017074584961))
+--- PASS: TestSortLarge_Random (%!s(float64=0.014808893203735352))
 
 === RUN  TestReverseSortIntSlice
---- PASS: TestReverseSortIntSlice (%!s(float64=9.489059448242188e-05))
+--- PASS: TestReverseSortIntSlice (%!s(float64=5.1021575927734375e-05))
 
 === RUN  TestBreakPatterns
---- PASS: TestBreakPatterns (%!s(float64=0.00011801719665527344))
+--- PASS: TestBreakPatterns (%!s(float64=7.295608520507812e-05))
 
 === RUN  TestReverseRange
---- PASS: TestReverseRange (%!s(float64=5.602836608886719e-05))
+--- PASS: TestReverseRange (%!s(float64=1.1920928955078125e-05))
 
 === RUN  TestNonDeterministicComparison
---- PASS: TestNonDeterministicComparison (%!s(float64=5.655557870864868))
+--- PASS: TestNonDeterministicComparison (%!s(float64=5.367734909057617))
 
 === RUN  TestSortBM
---- PASS: TestSortBM (%!s(float64=0.6424009799957275))
+--- PASS: TestSortBM (%!s(float64=0.6072349548339844))
 
 === RUN  TestHeapsortBM
---- PASS: TestHeapsortBM (%!s(float64=0.797072172164917))
+--- PASS: TestHeapsortBM (%!s(float64=0.7611658573150635))
 
 === RUN  TestStableBM
---- PASS: TestStableBM (%!s(float64=1.053765058517456))
+--- PASS: TestStableBM (%!s(float64=0.9910252094268799))
 
 === RUN  TestAdversary
---- PASS: TestAdversary (%!s(float64=0.02242588996887207))
+--- PASS: TestAdversary (%!s(float64=0.0213620662689209))
 
 === RUN  TestStableInts
---- PASS: TestStableInts (%!s(float64=4.1961669921875e-05))
+--- PASS: TestStableInts (%!s(float64=3.0040740966796875e-05))
 
 === RUN  TestStability
---- PASS: TestStability (%!s(float64=0.028074979782104492))
+--- PASS: TestStability (%!s(float64=0.02584385871887207))
 
 === RUN  TestCountStableOps
---- PASS: TestCountStableOps (%!s(float64=0.4068939685821533))
+--- PASS: TestCountStableOps (%!s(float64=0.37839508056640625))
 
 === RUN  TestCountSortOps
---- PASS: TestCountSortOps (%!s(float64=0.03790593147277832))
+--- PASS: TestCountSortOps (%!s(float64=0.03610706329345703))
 
 ```
 </p>
@@ -104,85 +104,85 @@ Package sort provides primitives for sorting slices and user\-defined collection
 
 ```
 === RUN  TestSearch
---- PASS: TestSearch (%!s(float64=0.002020120620727539))
+--- PASS: TestSearch (%!s(float64=0.0018398761749267578))
 
 === RUN  TestFind
---- PASS: TestFind (%!s(float64=7.200241088867188e-05))
+--- PASS: TestFind (%!s(float64=6.604194641113281e-05))
 
 === RUN  TestSearchEfficiency
---- PASS: TestSearchEfficiency (%!s(float64=0.0870809555053711))
+--- PASS: TestSearchEfficiency (%!s(float64=0.0820150375366211))
 
 === RUN  TestSearchWrappers
---- PASS: TestSearchWrappers (%!s(float64=1.6927719116210938e-05))
+--- PASS: TestSearchWrappers (%!s(float64=1.5020370483398438e-05))
 
 === RUN  TestSearchWrappersDontAlloc
 --- PASS: TestSearchWrappersDontAlloc (%!s(float64=1.2874603271484375e-05))
 
 === RUN  TestSearchExhaustive
---- PASS: TestSearchExhaustive (%!s(float64=0.18102002143859863))
+--- PASS: TestSearchExhaustive (%!s(float64=0.1731090545654297))
 
 === RUN  TestFindExhaustive
---- PASS: TestFindExhaustive (%!s(float64=0.39151692390441895))
+--- PASS: TestFindExhaustive (%!s(float64=0.37192702293395996))
 
 === RUN  TestSortIntSlice
---- PASS: TestSortIntSlice (%!s(float64=0.00022983551025390625))
+--- PASS: TestSortIntSlice (%!s(float64=0.00022292137145996094))
 
 === RUN  TestSortFloat64Slice
---- PASS: TestSortFloat64Slice (%!s(float64=0.0002701282501220703))
+--- PASS: TestSortFloat64Slice (%!s(float64=0.00024700164794921875))
 
 === RUN  TestSortStringSlice
---- PASS: TestSortStringSlice (%!s(float64=0.0001380443572998047))
+--- PASS: TestSortStringSlice (%!s(float64=0.0001327991485595703))
 
 === RUN  TestInts
---- PASS: TestInts (%!s(float64=0.0001819133758544922))
+--- PASS: TestInts (%!s(float64=0.0001728534698486328))
 
 === RUN  TestFloat64s
---- PASS: TestFloat64s (%!s(float64=0.00029206275939941406))
+--- PASS: TestFloat64s (%!s(float64=0.0002300739288330078))
 
 === RUN  TestStrings
---- PASS: TestStrings (%!s(float64=0.00017595291137695312))
+--- PASS: TestStrings (%!s(float64=0.0001239776611328125))
 
 === RUN  TestSlice
---- PASS: TestSlice (%!s(float64=0.0005578994750976562))
+--- PASS: TestSlice (%!s(float64=0.0005559921264648438))
 
 === RUN  TestSortLarge_Random
---- PASS: TestSortLarge_Random (%!s(float64=0.17948389053344727))
+--- PASS: TestSortLarge_Random (%!s(float64=0.17056608200073242))
 
 === RUN  TestReverseSortIntSlice
---- PASS: TestReverseSortIntSlice (%!s(float64=0.00042891502380371094))
+--- PASS: TestReverseSortIntSlice (%!s(float64=0.0003800392150878906))
 
 === RUN  TestBreakPatterns
---- PASS: TestBreakPatterns (%!s(float64=0.0005829334259033203))
+--- PASS: TestBreakPatterns (%!s(float64=0.0005600452423095703))
 
 === RUN  TestReverseRange
 --- PASS: TestReverseRange (%!s(float64=5.1021575927734375e-05))
 
 === RUN  TestNonDeterministicComparison
---- PASS: TestNonDeterministicComparison (%!s(float64=32.601097106933594))
+--- PASS: TestNonDeterministicComparison (%!s(float64=32.650245904922485))
 
 === RUN  TestSortBM
---- PASS: TestSortBM (%!s(float64=2.6305599212646484))
+--- PASS: TestSortBM (%!s(float64=2.406829833984375))
 
 === RUN  TestHeapsortBM
---- PASS: TestHeapsortBM (%!s(float64=4.906935930252075))
+--- PASS: TestHeapsortBM (%!s(float64=4.50872802734375))
 
 === RUN  TestStableBM
---- PASS: TestStableBM (%!s(float64=4.88960599899292))
+--- PASS: TestStableBM (%!s(float64=4.660267114639282))
 
 === RUN  TestAdversary
---- PASS: TestAdversary (%!s(float64=0.2513248920440674))
+--- PASS: TestAdversary (%!s(float64=0.24206805229187012))
 
 === RUN  TestStableInts
---- PASS: TestStableInts (%!s(float64=0.00021219253540039062))
+--- PASS: TestStableInts (%!s(float64=0.00018715858459472656))
 
 === RUN  TestStability
---- PASS: TestStability (%!s(float64=0.18187499046325684))
+--- PASS: TestStability (%!s(float64=0.17490196228027344))
 
 === RUN  TestCountStableOps
---- PASS: TestCountStableOps (%!s(float64=2.594040870666504))
+--- PASS: TestCountStableOps (%!s(float64=2.4515631198883057))
 
 === RUN  TestCountSortOps
---- PASS: TestCountSortOps (%!s(float64=0.37711000442504883))
+--- PASS: TestCountSortOps (%!s(float64=0.3642458915710449))
 
 ```
 </p>
@@ -241,28 +241,6 @@ stdgo/internal/Macro.macro.hx:35: define
 - [`function strings(_x:stdgo.Slice<stdgo.GoString>):Void`](<#function-strings>)
 
 - [`function stringsAreSorted(_x:stdgo.Slice<stdgo.GoString>):Bool`](<#function-stringsaresorted>)
-
-- [class T\_lessSwap](<#class-t_lessswap>)
-
-  - [`function less(:stdgo.GoInt, :stdgo.GoInt):Bool`](<#t_lessswap-function-less>)
-
-  - [`function new(?less:(:stdgo.GoInt, :stdgo.GoInt):Bool, ?swap:(:stdgo.GoInt, :stdgo.GoInt):Void):Void`](<#t_lessswap-function-new>)
-
-  - [`function swap(:stdgo.GoInt, :stdgo.GoInt):Void`](<#t_lessswap-function-swap>)
-
-- [class T\_reverse](<#class-t_reverse>)
-
-  - [`function len():stdgo.GoInt`](<#t_reverse-function-len>)
-
-  - [`function new(?interface_:Null<stdgo.sort.Interface>):Void`](<#t_reverse-function-new>)
-
-  - [`function swap(_i_:stdgo.GoInt, _j_:stdgo.GoInt):Void`](<#t_reverse-function-swap>)
-
-  - [`function len():stdgo.GoInt`](<#t_reverse-function-len>)
-
-  - [`function less( _i:stdgo.GoInt, _j:stdgo.GoInt):Bool`](<#t_reverse-function-less>)
-
-  - [`function swap( _i_:stdgo.GoInt, _j_:stdgo.GoInt):Void`](<#t_reverse-function-swap>)
 
 - [typedef Float64Slice](<#typedef-float64slice>)
 
@@ -1148,160 +1126,6 @@ StringsAreSorted reports whether the slice x is sorted in increasing order.
 
 
 [\(view code\)](<./Sort.hx#L402>)
-
-
-# Classes
-
-
-```haxe
-import stdgo.sort.*
-```
-
-
-## class T\_lessSwap
-
-
-lessSwap is a pair of Less and Swap function for use with the  
-auto\-generated func\-optimized variant of sort.go in  
-zfuncversion.go.  
-
-
-
-### T\_lessSwap function less
-
-
-```haxe
-function less(:stdgo.GoInt, :stdgo.GoInt):Bool
-```
-
-
-
-
-
-### T\_lessSwap function new
-
-
-```haxe
-function new(?less:(:stdgo.GoInt, :stdgo.GoInt):Bool, ?swap:(:stdgo.GoInt, :stdgo.GoInt):Void):Void
-```
-
-
-
-
-
-[\(view code\)](<./Sort.hx#L83>)
-
-
-### T\_lessSwap function swap
-
-
-```haxe
-function swap(:stdgo.GoInt, :stdgo.GoInt):Void
-```
-
-
-
-
-
-## class T\_reverse
-
-
-
-
-
-```haxe
-var interface_:stdgo.sort.Interface
-```
-
-
-This embedded Interface permits Reverse to use the methods of  
-another Interface implementation.  
-
-
-
-### T\_reverse function len
-
-
-```haxe
-function len():stdgo.GoInt
-```
-
-
-
-
-
-[\(view code\)](<./Sort.hx#L109>)
-
-
-### T\_reverse function new
-
-
-```haxe
-function new(?interface_:Null<stdgo.sort.Interface>):Void
-```
-
-
-
-
-
-[\(view code\)](<./Sort.hx#L104>)
-
-
-### T\_reverse function swap
-
-
-```haxe
-function swap(_i_:stdgo.GoInt, _j_:stdgo.GoInt):Void
-```
-
-
-
-
-
-[\(view code\)](<./Sort.hx#L111>)
-
-
-### T\_reverse function len
-
-
-```haxe
-function len():stdgo.GoInt
-```
-
-
-
-
-
-[\(view code\)](<./Sort.hx#L1370>)
-
-
-### T\_reverse function less
-
-
-```haxe
-function less( _i:stdgo.GoInt, _j:stdgo.GoInt):Bool
-```
-
-
-Less returns the opposite of the embedded implementation's Less method.  
-
-
-
-[\(view code\)](<./Sort.hx#L1364>)
-
-
-### T\_reverse function swap
-
-
-```haxe
-function swap( _i_:stdgo.GoInt, _j_:stdgo.GoInt):Void
-```
-
-
-
-
-
-[\(view code\)](<./Sort.hx#L1368>)
 
 
 # Typedefs

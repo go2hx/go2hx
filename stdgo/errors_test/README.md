@@ -52,40 +52,6 @@
 
   - [`function error():stdgo.GoString`](<#myerror-function-error>)
 
-- [class T\_errorT](<#class-t_errort>)
-
-  - [`function new(?_s:stdgo.GoString):Void`](<#t_errort-function-new>)
-
-  - [`function error():stdgo.GoString`](<#t_errort-function-error>)
-
-- [class T\_errorUncomparable](<#class-t_erroruncomparable>)
-
-  - [`function new(?_f:stdgo.Slice<stdgo.GoString>):Void`](<#t_erroruncomparable-function-new>)
-
-  - [`function error():stdgo.GoString`](<#t_erroruncomparable-function-error>)
-
-  - [`function is_( _target:stdgo.Error):Bool`](<#terroruncomparable-function-is>)
-
-- [class T\_poser](<#class-t_poser>)
-
-  - [`function _f()`](<#t_poser-function-_f>)
-
-  - [`function new(?_msg:stdgo.GoString, ?_f:()):Void`](<#t_poser-function-new>)
-
-  - [`function as( _err:stdgo.AnyInterface):Bool`](<#t_poser-function-as>)
-
-  - [`function error():stdgo.GoString`](<#t_poser-function-error>)
-
-  - [`function is_( _err:stdgo.Error):Bool`](<#tposer-function-is>)
-
-- [class T\_wrapped](<#class-t_wrapped>)
-
-  - [`function new(?_msg:stdgo.GoString, ?_err:Null<stdgo.Error>):Void`](<#t_wrapped-function-new>)
-
-  - [`function error():stdgo.GoString`](<#t_wrapped-function-error>)
-
-  - [`function unwrap():stdgo.Error`](<#t_wrapped-function-unwrap>)
-
 # Variables
 
 
@@ -132,7 +98,7 @@ function exampleAs():Void
 
 
 
-[\(view code\)](<./Errors.hx#L484>)
+[\(view code\)](<./Errors.hx#L485>)
 
 
 ## function exampleIs
@@ -146,7 +112,7 @@ function exampleIs():Void
 
 
 
-[\(view code\)](<./Errors.hx#L472>)
+[\(view code\)](<./Errors.hx#L473>)
 
 
 ## function exampleJoin
@@ -204,7 +170,7 @@ function exampleUnwrap():Void
 
 
 
-[\(view code\)](<./Errors.hx#L497>)
+[\(view code\)](<./Errors.hx#L498>)
 
 
 ## function testAs
@@ -330,7 +296,7 @@ function testUnwrap(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 
-[\(view code\)](<./Errors.hx#L459>)
+[\(view code\)](<./Errors.hx#L460>)
 
 
 # Classes
@@ -383,234 +349,6 @@ function error():stdgo.GoString
 
 
 
-[\(view code\)](<./Errors_test.hx#L516>)
-
-
-## class T\_errorT
-
-
-
-
-
-```haxe
-var _s:stdgo.GoString
-```
-
-
-### T\_errorT function new
-
-
-```haxe
-function new(?_s:stdgo.GoString):Void
-```
-
-
-
-
-
-[\(view code\)](<./Errors_test.hx#L84>)
-
-
-### T\_errorT function error
-
-
-```haxe
-function error():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Errors_test.hx#L581>)
-
-
-## class T\_errorUncomparable
-
-
-
-
-
-```haxe
-var _f:stdgo.Slice<stdgo.GoString>
-```
-
-
-### T\_errorUncomparable function new
-
-
-```haxe
-function new(?_f:stdgo.Slice<stdgo.GoString>):Void
-```
-
-
-
-
-
-[\(view code\)](<./Errors_test.hx#L116>)
-
-
-### T\_errorUncomparable function error
-
-
-```haxe
-function error():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Errors_test.hx#L632>)
-
-
-### T\_errorUncomparable function is\_
-
-
-```haxe
-function is_( _target:stdgo.Error):Bool
-```
-
-
-
-
-
-[\(view code\)](<./Errors_test.hx#L623>)
-
-
-## class T\_poser
-
-
-
-
-
-```haxe
-var _msg:stdgo.GoString
-```
-
-
-### T\_poser function \_f
-
-
-```haxe
-function _f()
-```
-
-
-
-
-
-### T\_poser function new
-
-
-```haxe
-function new(?_msg:stdgo.GoString, ?_f:()):Void
-```
-
-
-
-
-
-[\(view code\)](<./Errors_test.hx#L68>)
-
-
-### T\_poser function as
-
-
-```haxe
-function as( _err:stdgo.AnyInterface):Bool
-```
-
-
-
-
-
-[\(view code\)](<./Errors_test.hx#L537>)
-
-
-### T\_poser function error
-
-
-```haxe
-function error():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Errors_test.hx#L564>)
-
-
-### T\_poser function is\_
-
-
-```haxe
-function is_( _err:stdgo.Error):Bool
-```
-
-
-
-
-
-[\(view code\)](<./Errors_test.hx#L560>)
-
-
-## class T\_wrapped
-
-
-
-
-
-```haxe
-var _err:stdgo.Error
-```
-
-
-```haxe
-var _msg:stdgo.GoString
-```
-
-
-### T\_wrapped function new
-
-
-```haxe
-function new(?_msg:stdgo.GoString, ?_err:Null<stdgo.Error>):Void
-```
-
-
-
-
-
-[\(view code\)](<./Errors_test.hx#L100>)
-
-
-### T\_wrapped function error
-
-
-```haxe
-function error():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Errors_test.hx#L604>)
-
-
-### T\_wrapped function unwrap
-
-
-```haxe
-function unwrap():stdgo.Error
-```
-
-
-
-
-
-[\(view code\)](<./Errors_test.hx#L600>)
+[\(view code\)](<./Errors_test.hx#L517>)
 
 

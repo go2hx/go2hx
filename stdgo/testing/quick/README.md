@@ -39,7 +39,7 @@ stdgo/internal/Macro.macro.hx:35: define
 Exception: reflect.call is not yet implemented
 Called from stdgo.testing.quick._Quick.Quick_Fields_.testCheckEqual (stdgo/testing/quick/Quick.hx line 683 column 45)
 Called from stdgo.testing.quick._Quick.Quick_Fields_.checkEqual (stdgo/testing/quick/Quick.hx line 481 column 43)
-Called from stdgo.reflect.Value_static_extension.call (stdgo/reflect/Reflect.hx line 2594 column 75)
+Called from stdgo.reflect.Value_static_extension.call (stdgo/reflect/Reflect.hx line 2648 column 75)
 ```
 </p>
 </details>
@@ -117,12 +117,6 @@ stdgo/internal/Macro.macro.hx:35: define
 - [class R\_testRecursive\_0](<#class-r_testrecursive_0>)
 
   - [`function new(?ptr:stdgo.Ref<stdgo.testing.quick.R_testRecursive_0>, ?sliceP:stdgo.Slice<stdgo.Ref<stdgo.testing.quick.R_testRecursive_0>>, ?slice:stdgo.Slice<stdgo.testing.quick.R_testRecursive_0>, ?map:stdgo.GoMap<stdgo.GoInt, stdgo.testing.quick.R_testRecursive_0>, ?mapP:stdgo.GoMap<stdgo.GoInt, stdgo.Ref<stdgo.testing.quick.R_testRecursive_0>>, ?mapR:stdgo.GoMap<stdgo.Ref<stdgo.testing.quick.R_testRecursive_0>, stdgo.Ref<stdgo.testing.quick.R_testRecursive_0>>, ?sliceMap:stdgo.Slice<stdgo.GoMap<stdgo.GoInt, stdgo.testing.quick.R_testRecursive_0>>):Void`](<#r_testrecursive_0-function-new>)
-
-- [class T\_myStruct](<#class-t_mystruct>)
-
-  - [`function new(?_x:Null<stdgo.GoInt>):Void`](<#t_mystruct-function-new>)
-
-  - [`function generate( _r:stdgo.Ref<stdgo.math.rand.Rand>, _0:stdgo.GoInt):stdgo.reflect.Value`](<#t_mystruct-function-generate>)
 
 - [class TestStruct](<#class-teststruct>)
 
@@ -731,47 +725,6 @@ function new(?ptr:stdgo.Ref<stdgo.testing.quick.R_testRecursive_0>, ?sliceP:stdg
 
 
 [\(view code\)](<./Quick.hx#L814>)
-
-
-## class T\_myStruct
-
-
-This tests that ArbitraryValue is working by checking that all the arbitrary  
-values of type MyStruct have x = 42.  
-
-
-
-```haxe
-var _x:stdgo.GoInt
-```
-
-
-### T\_myStruct function new
-
-
-```haxe
-function new(?_x:Null<stdgo.GoInt>):Void
-```
-
-
-
-
-
-[\(view code\)](<./Quick.hx#L153>)
-
-
-### T\_myStruct function generate
-
-
-```haxe
-function generate( _r:stdgo.Ref<stdgo.math.rand.Rand>, _0:stdgo.GoInt):stdgo.reflect.Value
-```
-
-
-
-
-
-[\(view code\)](<./Quick.hx#L996>)
 
 
 ## class TestStruct

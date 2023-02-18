@@ -971,7 +971,8 @@ class Go {
 						ret = macro stdgo.internal.reflect.Reflect.GoType.signature(false, {get: () -> []}, {get: () -> []},
 							{get: () -> stdgo.internal.reflect.Reflect.GoType.invalidType});
 					case "Null":
-						ret = macro stdgo.internal.reflect.Reflect.GoType.invalidType;
+						final param = gtParams(params, marked)[0];
+						ret = param;
 					case "Void":
 						ret = macro stdgo.internal.reflect.Reflect.GoType.invalidType; // Currently no value is supported for Void however in the future, there will be a runtime value to match to it. HaxeFoundation/haxe-evolution#76
 					default: // used internally such as reflect.Kind
@@ -1128,7 +1129,8 @@ class Go {
 			default:
 				Context.error('reflect.cast_AnyInterface - unhandled typeof $t', Context.currentPos());
 		}
-
+		// if (new haxe.macro.Printer().printExpr(ret) == "stdgo.internal.reflect.Reflect.GoType.invalidType")
+		//	trace(t);
 		return ret;
 	}
 

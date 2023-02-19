@@ -875,25 +875,25 @@ bufio.NewReader.
 Error: Command failed with error 1
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestErrorf
---- PASS: TestErrorf (%!s(float64=0.009032011032104492))
+--- PASS: TestErrorf (%!s(float64=0.013379812240600586))
 
 === RUN  TestFmtInterface
---- PASS: TestFmtInterface (%!s(float64=0.00013589859008789062))
+--- PASS: TestFmtInterface (%!s(float64=0.00016689300537109375))
 
 === RUN  TestSprintf
---- PASS: TestSprintf (%!s(float64=0.24769306182861328))
+--- PASS: TestSprintf (%!s(float64=0.34318089485168457))
 
 === RUN  TestComplexFormatting
---- PASS: TestComplexFormatting (%!s(float64=1.10329008102417))
+--- PASS: TestComplexFormatting (%!s(float64=1.6011979579925537))
 
 === RUN  TestReorder
---- PASS: TestReorder (%!s(float64=0.009433984756469727))
+--- PASS: TestReorder (%!s(float64=0.01529383659362793))
 
 === RUN  TestCountMallocs
---- PASS: TestCountMallocs (%!s(float64=1.1920928955078125e-05))
+--- PASS: TestCountMallocs (%!s(float64=2.09808349609375e-05))
 
 === RUN  TestFlagParser
---- PASS: TestFlagParser (%!s(float64=0.006718873977661133))
+--- PASS: TestFlagParser (%!s(float64=0.01184391975402832))
 
 === RUN  TestStructPrinter
 Sprintf("%#v", s) = `fmt_test.testStructPrinter_0{a:"abc", b:"def", c:123}`, want `fmt_test.T{a:"abc", b:"def", c:123}`
@@ -907,25 +907,25 @@ Sprintf("%#v", s) = `fmt_test.testStructPrinter_0{a:"abc", b:"def", c:123}`, wan
 ```
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestErrorf
---- PASS: TestErrorf (%!s(float64=0.011963844299316406))
+--- PASS: TestErrorf (%!s(float64=0.01604485511779785))
 
 === RUN  TestFmtInterface
---- PASS: TestFmtInterface (%!s(float64=0.0002620220184326172))
+--- PASS: TestFmtInterface (%!s(float64=0.000308990478515625))
 
 === RUN  TestSprintf
---- PASS: TestSprintf (%!s(float64=0.6338198184967041))
+--- PASS: TestSprintf (%!s(float64=0.8701419830322266))
 
 === RUN  TestComplexFormatting
---- PASS: TestComplexFormatting (%!s(float64=3.88008713722229))
+--- PASS: TestComplexFormatting (%!s(float64=5.152858018875122))
 
 === RUN  TestReorder
---- PASS: TestReorder (%!s(float64=0.025752782821655273))
+--- PASS: TestReorder (%!s(float64=0.03284001350402832))
 
 === RUN  TestCountMallocs
---- PASS: TestCountMallocs (%!s(float64=3.1948089599609375e-05))
+--- PASS: TestCountMallocs (%!s(float64=4.00543212890625e-05))
 
 === RUN  TestFlagParser
---- PASS: TestFlagParser (%!s(float64=0.00962519645690918))
+--- PASS: TestFlagParser (%!s(float64=0.012188911437988281))
 
 === RUN  TestStructPrinter
 Sprintf("%#v", s) = `fmt_test.testStructPrinter_0{a:"abc", b:"def", c:123}`, want `fmt_test.T{a:"abc", b:"def", c:123}`

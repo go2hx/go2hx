@@ -3521,7 +3521,7 @@ function testProgWideChdir(_t:Ref<stdgo.testing.Testing.T>):Void {
     
     
 **/
-@:structInit @:private class T_test_testSeek_0 {
+@:structInit class T_testSeek_0___localname___test {
     public var _in : GoInt64 = 0;
     public var _whence : GoInt = 0;
     public var _out : GoInt64 = 0;
@@ -3532,7 +3532,7 @@ function testProgWideChdir(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
     public function __underlying__() return Go.toInterface(this);
     public function __copy__() {
-        return new T_test_testSeek_0(_in, _whence, _out);
+        return new T_testSeek_0___localname___test(_in, _whence, _out);
     }
 }
 function testSeek(_t:Ref<stdgo.testing.Testing.T>):Void {
@@ -3547,21 +3547,21 @@ function testSeek(_t:Ref<stdgo.testing.Testing.T>):Void {
             {};
             stdgo.io.Io.writeString(Go.asInterface(_f), ("hello, world\n" : GoString));
             {};
-            var _tests:Slice<stdgo.os_test.Os_test.T_test_testSeek_0> = (new Slice<stdgo.os_test.Os_test.T_test_testSeek_0>(
+            var _tests:Slice<stdgo.os_test.Os_test.T_testSeek_0___localname___test> = (new Slice<stdgo.os_test.Os_test.T_testSeek_0___localname___test>(
 0,
 0,
-(new stdgo.os_test.Os_test.T_test_testSeek_0(("0" : GoInt64), (1 : GoInt), (("hello, world\n" : GoString).length : GoInt64)) : stdgo.os_test.Os_test.T_test_testSeek_0),
-(new stdgo.os_test.Os_test.T_test_testSeek_0(("0" : GoInt64), (0 : GoInt), ("0" : GoInt64)) : stdgo.os_test.Os_test.T_test_testSeek_0),
-(new stdgo.os_test.Os_test.T_test_testSeek_0(("5" : GoInt64), (0 : GoInt), ("5" : GoInt64)) : stdgo.os_test.Os_test.T_test_testSeek_0),
-(new stdgo.os_test.Os_test.T_test_testSeek_0(("0" : GoInt64), (2 : GoInt), (("hello, world\n" : GoString).length : GoInt64)) : stdgo.os_test.Os_test.T_test_testSeek_0),
-(new stdgo.os_test.Os_test.T_test_testSeek_0(("0" : GoInt64), (0 : GoInt), ("0" : GoInt64)) : stdgo.os_test.Os_test.T_test_testSeek_0),
-(new stdgo.os_test.Os_test.T_test_testSeek_0(("-1" : GoInt64), (2 : GoInt), ("12" : GoInt64)) : stdgo.os_test.Os_test.T_test_testSeek_0),
-(new stdgo.os_test.Os_test.T_test_testSeek_0(("8589934592" : GoInt64), (0 : GoInt), ("8589934592" : GoInt64)) : stdgo.os_test.Os_test.T_test_testSeek_0),
-(new stdgo.os_test.Os_test.T_test_testSeek_0(("8589934592" : GoInt64), (2 : GoInt), ("8589934605" : GoInt64)) : stdgo.os_test.Os_test.T_test_testSeek_0),
-(new stdgo.os_test.Os_test.T_test_testSeek_0(("4294967295" : GoInt64), (0 : GoInt), ("4294967295" : GoInt64)) : stdgo.os_test.Os_test.T_test_testSeek_0),
-(new stdgo.os_test.Os_test.T_test_testSeek_0(("0" : GoInt64), (1 : GoInt), ("4294967295" : GoInt64)) : stdgo.os_test.Os_test.T_test_testSeek_0),
-(new stdgo.os_test.Os_test.T_test_testSeek_0(("8589934591" : GoInt64), (0 : GoInt), ("8589934591" : GoInt64)) : stdgo.os_test.Os_test.T_test_testSeek_0),
-(new stdgo.os_test.Os_test.T_test_testSeek_0(("0" : GoInt64), (1 : GoInt), ("8589934591" : GoInt64)) : stdgo.os_test.Os_test.T_test_testSeek_0)) : Slice<stdgo.os_test.Os_test.T_test_testSeek_0>);
+(new stdgo.os_test.Os_test.T_testSeek_0___localname___test(("0" : GoInt64), (1 : GoInt), (("hello, world\n" : GoString).length : GoInt64)) : stdgo.os_test.Os_test.T_testSeek_0___localname___test),
+(new stdgo.os_test.Os_test.T_testSeek_0___localname___test(("0" : GoInt64), (0 : GoInt), ("0" : GoInt64)) : stdgo.os_test.Os_test.T_testSeek_0___localname___test),
+(new stdgo.os_test.Os_test.T_testSeek_0___localname___test(("5" : GoInt64), (0 : GoInt), ("5" : GoInt64)) : stdgo.os_test.Os_test.T_testSeek_0___localname___test),
+(new stdgo.os_test.Os_test.T_testSeek_0___localname___test(("0" : GoInt64), (2 : GoInt), (("hello, world\n" : GoString).length : GoInt64)) : stdgo.os_test.Os_test.T_testSeek_0___localname___test),
+(new stdgo.os_test.Os_test.T_testSeek_0___localname___test(("0" : GoInt64), (0 : GoInt), ("0" : GoInt64)) : stdgo.os_test.Os_test.T_testSeek_0___localname___test),
+(new stdgo.os_test.Os_test.T_testSeek_0___localname___test(("-1" : GoInt64), (2 : GoInt), ("12" : GoInt64)) : stdgo.os_test.Os_test.T_testSeek_0___localname___test),
+(new stdgo.os_test.Os_test.T_testSeek_0___localname___test(("8589934592" : GoInt64), (0 : GoInt), ("8589934592" : GoInt64)) : stdgo.os_test.Os_test.T_testSeek_0___localname___test),
+(new stdgo.os_test.Os_test.T_testSeek_0___localname___test(("8589934592" : GoInt64), (2 : GoInt), ("8589934605" : GoInt64)) : stdgo.os_test.Os_test.T_testSeek_0___localname___test),
+(new stdgo.os_test.Os_test.T_testSeek_0___localname___test(("4294967295" : GoInt64), (0 : GoInt), ("4294967295" : GoInt64)) : stdgo.os_test.Os_test.T_testSeek_0___localname___test),
+(new stdgo.os_test.Os_test.T_testSeek_0___localname___test(("0" : GoInt64), (1 : GoInt), ("4294967295" : GoInt64)) : stdgo.os_test.Os_test.T_testSeek_0___localname___test),
+(new stdgo.os_test.Os_test.T_testSeek_0___localname___test(("8589934591" : GoInt64), (0 : GoInt), ("8589934591" : GoInt64)) : stdgo.os_test.Os_test.T_testSeek_0___localname___test),
+(new stdgo.os_test.Os_test.T_testSeek_0___localname___test(("0" : GoInt64), (1 : GoInt), ("8589934591" : GoInt64)) : stdgo.os_test.Os_test.T_testSeek_0___localname___test)) : Slice<stdgo.os_test.Os_test.T_testSeek_0___localname___test>);
             for (_i => _tt in _tests) {
                 var __tmp__ = _f.seek(_tt._in, _tt._whence), _off:GoInt64 = __tmp__._0, _err:Error = __tmp__._1;
                 if ((_off != _tt._out) || (_err != null)) {

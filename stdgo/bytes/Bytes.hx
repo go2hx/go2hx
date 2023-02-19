@@ -751,7 +751,7 @@ function fields(_s:Slice<GoByte>):Slice<Slice<GoByte>> {
     
     
 **/
-@:structInit @:private class T_span_fieldsFunc_0 {
+@:structInit class T_fieldsFunc_0___localname___span {
     public var _start : GoInt = 0;
     public var _end : GoInt = 0;
     public function new(?_start:GoInt, ?_end:GoInt) {
@@ -760,7 +760,7 @@ function fields(_s:Slice<GoByte>):Slice<Slice<GoByte>> {
     }
     public function __underlying__() return Go.toInterface(this);
     public function __copy__() {
-        return new T_span_fieldsFunc_0(_start, _end);
+        return new T_fieldsFunc_0___localname___span(_start, _end);
     }
 }
 /**
@@ -774,7 +774,7 @@ function fields(_s:Slice<GoByte>):Slice<Slice<GoByte>> {
 **/
 function fieldsFunc(_s:Slice<GoByte>, _f:GoRune -> Bool):Slice<Slice<GoByte>> {
         {};
-        var _spans = new Slice<T_span_fieldsFunc_0>((0 : GoInt).toBasic(), (32 : GoInt), ...[for (i in 0 ... (0 : GoInt).toBasic()) ({} : T_span_fieldsFunc_0)]);
+        var _spans = new Slice<T_fieldsFunc_0___localname___span>((0 : GoInt).toBasic(), (32 : GoInt), ...[for (i in 0 ... (0 : GoInt).toBasic()) ({} : T_fieldsFunc_0___localname___span)]);
         var _start:GoInt = (-1 : GoInt);
         {
             var _i:GoInt = (0 : GoInt);
@@ -790,7 +790,7 @@ function fieldsFunc(_s:Slice<GoByte>, _f:GoRune -> Bool):Slice<Slice<GoByte>> {
                 };
                 if (_f(_r)) {
                     if (_start >= (0 : GoInt)) {
-                        _spans = _spans.__appendref__((new T_span_fieldsFunc_0(_start, _i) : T_span_fieldsFunc_0));
+                        _spans = _spans.__appendref__((new T_fieldsFunc_0___localname___span(_start, _i) : T_fieldsFunc_0___localname___span));
                         _start = (-1 : GoInt);
                     };
                 } else {
@@ -802,7 +802,7 @@ function fieldsFunc(_s:Slice<GoByte>, _f:GoRune -> Bool):Slice<Slice<GoByte>> {
             };
         };
         if (_start >= (0 : GoInt)) {
-            _spans = _spans.__appendref__((new T_span_fieldsFunc_0(_start, (_s.length)) : T_span_fieldsFunc_0));
+            _spans = _spans.__appendref__((new T_fieldsFunc_0___localname___span(_start, (_s.length)) : T_fieldsFunc_0___localname___span));
         };
         var _a = new Slice<Slice<GoUInt8>>((_spans.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_spans.length : GoInt).toBasic()) (null : Slice<GoUInt8>)]);
         for (_i => _span in _spans) {

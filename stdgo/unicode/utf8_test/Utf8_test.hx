@@ -655,7 +655,7 @@ function testDecodeInvalidSequence(_t:Ref<stdgo.testing.Testing.T>):Void {
     
     
 **/
-@:structInit @:private class T_info__testSequence_0 {
+@:structInit class T__testSequence_0___localname___info {
     public var _index : GoInt = 0;
     public var _r : GoInt32 = 0;
     public function new(?_index:GoInt, ?_r:GoInt32) {
@@ -664,12 +664,12 @@ function testDecodeInvalidSequence(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
     public function __underlying__() return Go.toInterface(this);
     public function __copy__() {
-        return new T_info__testSequence_0(_index, _r);
+        return new T__testSequence_0___localname___info(_index, _r);
     }
 }
 private function _testSequence(_t:Ref<stdgo.testing.Testing.T>, _s:GoString):Void {
         {};
-        var _index = new Slice<stdgo.unicode.utf8_test.Utf8_test.T_info__testSequence_0>((_s.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_s.length : GoInt).toBasic()) ({} : stdgo.unicode.utf8_test.Utf8_test.T_info__testSequence_0)]);
+        var _index = new Slice<stdgo.unicode.utf8_test.Utf8_test.T__testSequence_0___localname___info>((_s.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_s.length : GoInt).toBasic()) ({} : stdgo.unicode.utf8_test.Utf8_test.T__testSequence_0___localname___info)]);
         var _b = (_s : Slice<GoByte>);
         var _si:GoInt = (0 : GoInt);
         var _j:GoInt = (0 : GoInt);
@@ -678,7 +678,7 @@ private function _testSequence(_t:Ref<stdgo.testing.Testing.T>, _s:GoString):Voi
                 _t.errorf(("Sequence(%q) mismatched index %d, want %d" : GoString), Go.toInterface(_s), Go.toInterface(_si), Go.toInterface(_i));
                 return;
             };
-            _index[(_j : GoInt)] = (new T_info__testSequence_0(_i, _r) : T_info__testSequence_0);
+            _index[(_j : GoInt)] = (new T__testSequence_0___localname___info(_i, _r) : T__testSequence_0___localname___info);
             _j++;
             var __tmp__ = decodeRune((_b.__slice__(_i) : Slice<GoUInt8>)), _r1:GoInt32 = __tmp__._0, _size1:GoInt = __tmp__._1;
             if (_r != (_r1)) {

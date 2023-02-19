@@ -3136,7 +3136,7 @@ function testFlagParser(_t:Ref<stdgo.testing.Testing.T>):Void {
     
     
 **/
-@:structInit class T_testStructPrinter_0 {
+@:structInit class T_testStructPrinter_0___localname___T {
     public var _a : GoString = "";
     public var _b : GoString = "";
     public var _c : GoInt = 0;
@@ -3147,12 +3147,12 @@ function testFlagParser(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
     public function __underlying__() return Go.toInterface(this);
     public function __copy__() {
-        return new T_testStructPrinter_0(_a, _b, _c);
+        return new T_testStructPrinter_0___localname___T(_a, _b, _c);
     }
 }
 function testStructPrinter(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
-        var _s:T_testStructPrinter_0 = ({} : stdgo.fmt_test.Fmt_test.T_testStructPrinter_0);
+        var _s:T_testStructPrinter_0___localname___T = ({} : stdgo.fmt_test.Fmt_test.T_testStructPrinter_0___localname___T);
         _s._a = ("abc" : GoString);
         _s._b = ("def" : GoString);
         _s._c = (123 : GoInt);
@@ -3162,7 +3162,7 @@ function testStructPrinter(_t:Ref<stdgo.testing.Testing.T>):Void {
             if (_out != (_tt._out)) {
                 _t.errorf(("Sprintf(%q, s) = %#q, want %#q" : GoString), Go.toInterface(_tt._fmt), Go.toInterface(_out), Go.toInterface(_tt._out));
             };
-            _out = sprintf(_tt._fmt, Go.toInterface((_s : Ref<stdgo.fmt_test.Fmt_test.T_testStructPrinter_0>)));
+            _out = sprintf(_tt._fmt, Go.toInterface((_s : Ref<stdgo.fmt_test.Fmt_test.T_testStructPrinter_0___localname___T>)));
             if (_out != (("&" : GoString) + _tt._out)) {
                 _t.errorf(("Sprintf(%q, &s) = %#q, want %#q" : GoString), Go.toInterface(_tt._fmt), Go.toInterface(_out), Go.toInterface(("&" : GoString) + _tt._out));
             };
@@ -3330,11 +3330,11 @@ private function _hideFromVet(_s:GoString):GoString {
     
     
 **/
-@:structInit class A_testNilDoesNotBecomeTyped_0 {
+@:structInit class T_testNilDoesNotBecomeTyped_0___localname___A {
     public function new() {}
     public function __underlying__() return Go.toInterface(this);
     public function __copy__() {
-        return new A_testNilDoesNotBecomeTyped_0();
+        return new T_testNilDoesNotBecomeTyped_0___localname___A();
     }
 }
 /**
@@ -3342,18 +3342,18 @@ private function _hideFromVet(_s:GoString):GoString {
     
     
 **/
-@:structInit class B_testNilDoesNotBecomeTyped_1 {
+@:structInit class T_testNilDoesNotBecomeTyped_1___localname___B {
     public function new() {}
     public function __underlying__() return Go.toInterface(this);
     public function __copy__() {
-        return new B_testNilDoesNotBecomeTyped_1();
+        return new T_testNilDoesNotBecomeTyped_1___localname___B();
     }
 }
 function testNilDoesNotBecomeTyped(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
         {};
-        var _a:Ref<A_testNilDoesNotBecomeTyped_0> = null;
-        var _b:B_testNilDoesNotBecomeTyped_1 = (new B_testNilDoesNotBecomeTyped_1() : B_testNilDoesNotBecomeTyped_1);
+        var _a:Ref<T_testNilDoesNotBecomeTyped_0___localname___A> = null;
+        var _b:T_testNilDoesNotBecomeTyped_1___localname___B = (new T_testNilDoesNotBecomeTyped_1___localname___B() : T_testNilDoesNotBecomeTyped_1___localname___B);
         var _got:GoString = sprintf(_hideFromVet(("%s %s %s %s %s" : GoString)), (null : AnyInterface), Go.toInterface(_a), (null : AnyInterface), Go.toInterface(_b), (null : AnyInterface));
         {};
         if (_got != (("%!s(<nil>) %!s(*fmt_test.A=<nil>) %!s(<nil>) {} %!s(<nil>)" : GoString))) {

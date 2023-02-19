@@ -2518,7 +2518,7 @@ private function _oldHTMLEscape(_s:GoString):GoString {
     
     
 **/
-@:structInit @:private class T_testCase_testReplacer_0 {
+@:structInit class T_testReplacer_0___localname___testCase {
     public var _r : Ref<Replacer> = (null : Ref<Replacer>);
     public var _in : GoString = "";
     public var _out : GoString = "";
@@ -2529,7 +2529,7 @@ private function _oldHTMLEscape(_s:GoString):GoString {
     }
     public function __underlying__() return Go.toInterface(this);
     public function __copy__() {
-        return new T_testCase_testReplacer_0(_r, _in, _out);
+        return new T_testReplacer_0___localname___testCase(_r, _in, _out);
     }
 }
 /**
@@ -2539,7 +2539,7 @@ function testReplacer(_t:Ref<stdgo.testing.Testing.T>):Void {
         trace("testReplacer" + " skip function");
         return;
         {};
-        var _testCases:Slice<T_testCase_testReplacer_0> = (null : Slice<stdgo.strings_test.Strings_test.T_testCase_testReplacer_0>);
+        var _testCases:Slice<T_testReplacer_0___localname___testCase> = (null : Slice<stdgo.strings_test.Strings_test.T_testReplacer_0___localname___testCase>);
         var _str:GoUInt8 -> GoString = function(_b:GoByte):GoString {
             return ((new Slice<GoUInt8>(0, 0, _b) : Slice<GoUInt8>) : GoString);
         };
@@ -2552,7 +2552,7 @@ function testReplacer(_t:Ref<stdgo.testing.Testing.T>):Void {
             });
         };
         var _inc = newReplacer(..._s.__toArray__());
-        _testCases = _testCases.__appendref__((new T_testCase_testReplacer_0(_capitalLetters, ("brad" : GoString), ("BrAd" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_capitalLetters, repeat(("a" : GoString), (32891 : GoInt)), repeat(("A" : GoString), (32891 : GoInt))) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_capitalLetters, Go.str(), Go.str()) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_inc, ("brad" : GoString), ("csbe" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_inc, Go.str(0, 255), Go.str(1, 0)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_inc, Go.str(), Go.str()) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(newReplacer(("a" : GoString), ("1" : GoString), ("a" : GoString), ("2" : GoString)), ("brad" : GoString), ("br1d" : GoString)) : T_testCase_testReplacer_0));
+        _testCases = _testCases.__appendref__((new T_testReplacer_0___localname___testCase(_capitalLetters, ("brad" : GoString), ("BrAd" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_capitalLetters, repeat(("a" : GoString), (32891 : GoInt)), repeat(("A" : GoString), (32891 : GoInt))) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_capitalLetters, Go.str(), Go.str()) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_inc, ("brad" : GoString), ("csbe" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_inc, Go.str(0, 255), Go.str(1, 0)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_inc, Go.str(), Go.str()) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(newReplacer(("a" : GoString), ("1" : GoString), ("a" : GoString), ("2" : GoString)), ("brad" : GoString), ("br1d" : GoString)) : T_testReplacer_0___localname___testCase));
         _s = (null : Slice<GoString>);
         {
             var _i:GoInt = (0 : GoInt);
@@ -2565,8 +2565,8 @@ function testReplacer(_t:Ref<stdgo.testing.Testing.T>):Void {
             });
         };
         var _repeat = newReplacer(..._s.__toArray__());
-        _testCases = _testCases.__appendref__((new T_testCase_testReplacer_0(_htmlEscaper, ("No changes" : GoString), ("No changes" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_htmlEscaper, ("I <3 escaping & stuff" : GoString), ("I &lt;3 escaping &amp; stuff" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_htmlEscaper, ("&&&" : GoString), ("&amp;&amp;&amp;" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_htmlEscaper, Go.str(), Go.str()) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_repeat, ("brad" : GoString), ("bbrrrrrrrrrrrrrrrrrradddd" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_repeat, ("abba" : GoString), ("abbbba" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_repeat, Go.str(), Go.str()) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(newReplacer(("a" : GoString), ("11" : GoString), ("a" : GoString), ("22" : GoString)), ("brad" : GoString), ("br11d" : GoString)) : T_testCase_testReplacer_0));
-        _testCases = _testCases.__appendref__((new T_testCase_testReplacer_0(_htmlUnescaper, ("&amp;amp;" : GoString), ("&amp;" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_htmlUnescaper, ("&lt;b&gt;HTML&apos;s neat&lt;/b&gt;" : GoString), ("<b>HTML\'s neat</b>" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_htmlUnescaper, Go.str(), Go.str()) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(newReplacer(("a" : GoString), ("1" : GoString), ("a" : GoString), ("2" : GoString), ("xxx" : GoString), ("xxx" : GoString)), ("brad" : GoString), ("br1d" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(newReplacer(("a" : GoString), ("1" : GoString), ("aa" : GoString), ("2" : GoString), ("aaa" : GoString), ("3" : GoString)), ("aaaa" : GoString), ("1111" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(newReplacer(("aaa" : GoString), ("3" : GoString), ("aa" : GoString), ("2" : GoString), ("a" : GoString), ("1" : GoString)), ("aaaa" : GoString), ("31" : GoString)) : T_testCase_testReplacer_0));
+        _testCases = _testCases.__appendref__((new T_testReplacer_0___localname___testCase(_htmlEscaper, ("No changes" : GoString), ("No changes" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_htmlEscaper, ("I <3 escaping & stuff" : GoString), ("I &lt;3 escaping &amp; stuff" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_htmlEscaper, ("&&&" : GoString), ("&amp;&amp;&amp;" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_htmlEscaper, Go.str(), Go.str()) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_repeat, ("brad" : GoString), ("bbrrrrrrrrrrrrrrrrrradddd" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_repeat, ("abba" : GoString), ("abbbba" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_repeat, Go.str(), Go.str()) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(newReplacer(("a" : GoString), ("11" : GoString), ("a" : GoString), ("22" : GoString)), ("brad" : GoString), ("br11d" : GoString)) : T_testReplacer_0___localname___testCase));
+        _testCases = _testCases.__appendref__((new T_testReplacer_0___localname___testCase(_htmlUnescaper, ("&amp;amp;" : GoString), ("&amp;" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_htmlUnescaper, ("&lt;b&gt;HTML&apos;s neat&lt;/b&gt;" : GoString), ("<b>HTML\'s neat</b>" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_htmlUnescaper, Go.str(), Go.str()) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(newReplacer(("a" : GoString), ("1" : GoString), ("a" : GoString), ("2" : GoString), ("xxx" : GoString), ("xxx" : GoString)), ("brad" : GoString), ("br1d" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(newReplacer(("a" : GoString), ("1" : GoString), ("aa" : GoString), ("2" : GoString), ("aaa" : GoString), ("3" : GoString)), ("aaaa" : GoString), ("1111" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(newReplacer(("aaa" : GoString), ("3" : GoString), ("aa" : GoString), ("2" : GoString), ("a" : GoString), ("1" : GoString)), ("aaaa" : GoString), ("31" : GoString)) : T_testReplacer_0___localname___testCase));
         var _gen1 = newReplacer(("aaa" : GoString),
 ("3[aaa]" : GoString),
 ("aa" : GoString),
@@ -2589,23 +2589,23 @@ function testReplacer(_t:Ref<stdgo.testing.Testing.T>):Void {
 ("Y" : GoString),
 ("Y" : GoString),
 ("Z" : GoString));
-        _testCases = _testCases.__appendref__((new T_testCase_testReplacer_0(_gen1, ("fooaaabar" : GoString), ("foo3[aaa]b1[a]r" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_gen1, ("long, longerst, longer" : GoString), ("short, most long, medium" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_gen1, ("xxxxx" : GoString), ("xxxxX" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_gen1, ("XiX" : GoString), ("YiY" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_gen1, Go.str(), Go.str()) : T_testCase_testReplacer_0));
+        _testCases = _testCases.__appendref__((new T_testReplacer_0___localname___testCase(_gen1, ("fooaaabar" : GoString), ("foo3[aaa]b1[a]r" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_gen1, ("long, longerst, longer" : GoString), ("short, most long, medium" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_gen1, ("xxxxx" : GoString), ("xxxxX" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_gen1, ("XiX" : GoString), ("YiY" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_gen1, Go.str(), Go.str()) : T_testReplacer_0___localname___testCase));
         var _gen2 = newReplacer(("roses" : GoString), ("red" : GoString), ("violets" : GoString), ("blue" : GoString), ("sugar" : GoString), ("sweet" : GoString));
-        _testCases = _testCases.__appendref__((new T_testCase_testReplacer_0(_gen2, ("roses are red, violets are blue..." : GoString), ("red are red, blue are blue..." : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_gen2, Go.str(), Go.str()) : T_testCase_testReplacer_0));
+        _testCases = _testCases.__appendref__((new T_testReplacer_0___localname___testCase(_gen2, ("roses are red, violets are blue..." : GoString), ("red are red, blue are blue..." : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_gen2, Go.str(), Go.str()) : T_testReplacer_0___localname___testCase));
         var _gen3 = newReplacer(("abracadabra" : GoString), ("poof" : GoString), ("abracadabrakazam" : GoString), ("splat" : GoString), ("abraham" : GoString), ("lincoln" : GoString), ("abrasion" : GoString), ("scrape" : GoString), ("abraham" : GoString), ("isaac" : GoString));
-        _testCases = _testCases.__appendref__((new T_testCase_testReplacer_0(_gen3, ("abracadabrakazam abraham" : GoString), ("poofkazam lincoln" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_gen3, ("abrasion abracad" : GoString), ("scrape abracad" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_gen3, ("abba abram abrasive" : GoString), ("abba abram abrasive" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_gen3, Go.str(), Go.str()) : T_testCase_testReplacer_0));
+        _testCases = _testCases.__appendref__((new T_testReplacer_0___localname___testCase(_gen3, ("abracadabrakazam abraham" : GoString), ("poofkazam lincoln" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_gen3, ("abrasion abracad" : GoString), ("scrape abracad" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_gen3, ("abba abram abrasive" : GoString), ("abba abram abrasive" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_gen3, Go.str(), Go.str()) : T_testReplacer_0___localname___testCase));
         var _foo1 = newReplacer(("foo1" : GoString), ("A" : GoString), ("foo2" : GoString), ("B" : GoString), ("foo3" : GoString), ("C" : GoString));
         var _foo2 = newReplacer(("foo1" : GoString), ("A" : GoString), ("foo2" : GoString), ("B" : GoString), ("foo31" : GoString), ("C" : GoString), ("foo32" : GoString), ("D" : GoString));
         var _foo3 = newReplacer(("foo11" : GoString), ("A" : GoString), ("foo12" : GoString), ("B" : GoString), ("foo31" : GoString), ("C" : GoString), ("foo32" : GoString), ("D" : GoString));
         var _foo4 = newReplacer(("foo12" : GoString), ("B" : GoString), ("foo32" : GoString), ("D" : GoString));
-        _testCases = _testCases.__appendref__((new T_testCase_testReplacer_0(_foo1, ("fofoofoo12foo32oo" : GoString), ("fofooA2C2oo" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_foo1, Go.str(), Go.str()) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_foo2, ("fofoofoo12foo32oo" : GoString), ("fofooA2Doo" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_foo2, Go.str(), Go.str()) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_foo3, ("fofoofoo12foo32oo" : GoString), ("fofooBDoo" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_foo3, Go.str(), Go.str()) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_foo4, ("fofoofoo12foo32oo" : GoString), ("fofooBDoo" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_foo4, Go.str(), Go.str()) : T_testCase_testReplacer_0));
+        _testCases = _testCases.__appendref__((new T_testReplacer_0___localname___testCase(_foo1, ("fofoofoo12foo32oo" : GoString), ("fofooA2C2oo" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_foo1, Go.str(), Go.str()) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_foo2, ("fofoofoo12foo32oo" : GoString), ("fofooA2Doo" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_foo2, Go.str(), Go.str()) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_foo3, ("fofoofoo12foo32oo" : GoString), ("fofooBDoo" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_foo3, Go.str(), Go.str()) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_foo4, ("fofoofoo12foo32oo" : GoString), ("fofooBDoo" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_foo4, Go.str(), Go.str()) : T_testReplacer_0___localname___testCase));
         var _allBytes = new Slice<GoUInt8>((256 : GoInt).toBasic(), 0, ...[for (i in 0 ... (256 : GoInt).toBasic()) (0 : GoUInt8)]);
         for (_i in 0 ... _allBytes.length.toBasic()) {
             _allBytes[(_i : GoInt)] = (_i : GoByte);
         };
         var _allString:GoString = (_allBytes : GoString);
         var _genAll = newReplacer(_allString, ("[all]" : GoString), Go.str(255), ("[ff]" : GoString), Go.str(0), ("[00]" : GoString));
-        _testCases = _testCases.__appendref__((new T_testCase_testReplacer_0(_genAll, _allString, ("[all]" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_genAll, (Go.str("a", 255) + _allString) + Go.str(0), ("a[ff][all][00]" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_genAll, Go.str(), Go.str()) : T_testCase_testReplacer_0));
+        _testCases = _testCases.__appendref__((new T_testReplacer_0___localname___testCase(_genAll, _allString, ("[all]" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_genAll, (Go.str("a", 255) + _allString) + Go.str(0), ("a[ff][all][00]" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_genAll, Go.str(), Go.str()) : T_testReplacer_0___localname___testCase));
         var _blankToX1 = newReplacer(Go.str(), ("X" : GoString));
         var _blankToX2 = newReplacer(Go.str(), ("X" : GoString), Go.str(), Go.str());
         var _blankHighPriority = newReplacer(Go.str(), ("X" : GoString), ("o" : GoString), ("O" : GoString));
@@ -2613,33 +2613,33 @@ function testReplacer(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _blankNoOp1 = newReplacer(Go.str(), Go.str());
         var _blankNoOp2 = newReplacer(Go.str(), Go.str(), Go.str(), ("A" : GoString));
         var _blankFoo = newReplacer(Go.str(), ("X" : GoString), ("foobar" : GoString), ("R" : GoString), ("foobaz" : GoString), ("Z" : GoString));
-        _testCases = _testCases.__appendref__((new T_testCase_testReplacer_0(_blankToX1, ("foo" : GoString), ("XfXoXoX" : GoString)) : T_testCase_testReplacer_0),
-(new T_testCase_testReplacer_0(_blankToX1, Go.str(), ("X" : GoString)) : T_testCase_testReplacer_0),
-(new T_testCase_testReplacer_0(_blankToX2, ("foo" : GoString), ("XfXoXoX" : GoString)) : T_testCase_testReplacer_0),
-(new T_testCase_testReplacer_0(_blankToX2, Go.str(), ("X" : GoString)) : T_testCase_testReplacer_0),
-(new T_testCase_testReplacer_0(_blankHighPriority, ("oo" : GoString), ("XOXOX" : GoString)) : T_testCase_testReplacer_0),
-(new T_testCase_testReplacer_0(_blankHighPriority, ("ii" : GoString), ("XiXiX" : GoString)) : T_testCase_testReplacer_0),
-(new T_testCase_testReplacer_0(_blankHighPriority, ("oiio" : GoString), ("XOXiXiXOX" : GoString)) : T_testCase_testReplacer_0),
-(new T_testCase_testReplacer_0(_blankHighPriority, ("iooi" : GoString), ("XiXOXOXiX" : GoString)) : T_testCase_testReplacer_0),
-(new T_testCase_testReplacer_0(_blankHighPriority, Go.str(), ("X" : GoString)) : T_testCase_testReplacer_0),
-(new T_testCase_testReplacer_0(_blankLowPriority, ("oo" : GoString), ("OOX" : GoString)) : T_testCase_testReplacer_0),
-(new T_testCase_testReplacer_0(_blankLowPriority, ("ii" : GoString), ("XiXiX" : GoString)) : T_testCase_testReplacer_0),
-(new T_testCase_testReplacer_0(_blankLowPriority, ("oiio" : GoString), ("OXiXiOX" : GoString)) : T_testCase_testReplacer_0),
-(new T_testCase_testReplacer_0(_blankLowPriority, ("iooi" : GoString), ("XiOOXiX" : GoString)) : T_testCase_testReplacer_0),
-(new T_testCase_testReplacer_0(_blankLowPriority, Go.str(), ("X" : GoString)) : T_testCase_testReplacer_0),
-(new T_testCase_testReplacer_0(_blankNoOp1, ("foo" : GoString), ("foo" : GoString)) : T_testCase_testReplacer_0),
-(new T_testCase_testReplacer_0(_blankNoOp1, Go.str(), Go.str()) : T_testCase_testReplacer_0),
-(new T_testCase_testReplacer_0(_blankNoOp2, ("foo" : GoString), ("foo" : GoString)) : T_testCase_testReplacer_0),
-(new T_testCase_testReplacer_0(_blankNoOp2, Go.str(), Go.str()) : T_testCase_testReplacer_0),
-(new T_testCase_testReplacer_0(_blankFoo, ("foobarfoobaz" : GoString), ("XRXZX" : GoString)) : T_testCase_testReplacer_0),
-(new T_testCase_testReplacer_0(_blankFoo, ("foobar-foobaz" : GoString), ("XRX-XZX" : GoString)) : T_testCase_testReplacer_0),
-(new T_testCase_testReplacer_0(_blankFoo, Go.str(), ("X" : GoString)) : T_testCase_testReplacer_0));
+        _testCases = _testCases.__appendref__((new T_testReplacer_0___localname___testCase(_blankToX1, ("foo" : GoString), ("XfXoXoX" : GoString)) : T_testReplacer_0___localname___testCase),
+(new T_testReplacer_0___localname___testCase(_blankToX1, Go.str(), ("X" : GoString)) : T_testReplacer_0___localname___testCase),
+(new T_testReplacer_0___localname___testCase(_blankToX2, ("foo" : GoString), ("XfXoXoX" : GoString)) : T_testReplacer_0___localname___testCase),
+(new T_testReplacer_0___localname___testCase(_blankToX2, Go.str(), ("X" : GoString)) : T_testReplacer_0___localname___testCase),
+(new T_testReplacer_0___localname___testCase(_blankHighPriority, ("oo" : GoString), ("XOXOX" : GoString)) : T_testReplacer_0___localname___testCase),
+(new T_testReplacer_0___localname___testCase(_blankHighPriority, ("ii" : GoString), ("XiXiX" : GoString)) : T_testReplacer_0___localname___testCase),
+(new T_testReplacer_0___localname___testCase(_blankHighPriority, ("oiio" : GoString), ("XOXiXiXOX" : GoString)) : T_testReplacer_0___localname___testCase),
+(new T_testReplacer_0___localname___testCase(_blankHighPriority, ("iooi" : GoString), ("XiXOXOXiX" : GoString)) : T_testReplacer_0___localname___testCase),
+(new T_testReplacer_0___localname___testCase(_blankHighPriority, Go.str(), ("X" : GoString)) : T_testReplacer_0___localname___testCase),
+(new T_testReplacer_0___localname___testCase(_blankLowPriority, ("oo" : GoString), ("OOX" : GoString)) : T_testReplacer_0___localname___testCase),
+(new T_testReplacer_0___localname___testCase(_blankLowPriority, ("ii" : GoString), ("XiXiX" : GoString)) : T_testReplacer_0___localname___testCase),
+(new T_testReplacer_0___localname___testCase(_blankLowPriority, ("oiio" : GoString), ("OXiXiOX" : GoString)) : T_testReplacer_0___localname___testCase),
+(new T_testReplacer_0___localname___testCase(_blankLowPriority, ("iooi" : GoString), ("XiOOXiX" : GoString)) : T_testReplacer_0___localname___testCase),
+(new T_testReplacer_0___localname___testCase(_blankLowPriority, Go.str(), ("X" : GoString)) : T_testReplacer_0___localname___testCase),
+(new T_testReplacer_0___localname___testCase(_blankNoOp1, ("foo" : GoString), ("foo" : GoString)) : T_testReplacer_0___localname___testCase),
+(new T_testReplacer_0___localname___testCase(_blankNoOp1, Go.str(), Go.str()) : T_testReplacer_0___localname___testCase),
+(new T_testReplacer_0___localname___testCase(_blankNoOp2, ("foo" : GoString), ("foo" : GoString)) : T_testReplacer_0___localname___testCase),
+(new T_testReplacer_0___localname___testCase(_blankNoOp2, Go.str(), Go.str()) : T_testReplacer_0___localname___testCase),
+(new T_testReplacer_0___localname___testCase(_blankFoo, ("foobarfoobaz" : GoString), ("XRXZX" : GoString)) : T_testReplacer_0___localname___testCase),
+(new T_testReplacer_0___localname___testCase(_blankFoo, ("foobar-foobaz" : GoString), ("XRX-XZX" : GoString)) : T_testReplacer_0___localname___testCase),
+(new T_testReplacer_0___localname___testCase(_blankFoo, Go.str(), ("X" : GoString)) : T_testReplacer_0___localname___testCase));
         var _abcMatcher = newReplacer(("abc" : GoString), ("[match]" : GoString));
-        _testCases = _testCases.__appendref__((new T_testCase_testReplacer_0(_abcMatcher, Go.str(), Go.str()) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_abcMatcher, ("ab" : GoString), ("ab" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_abcMatcher, ("abc" : GoString), ("[match]" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_abcMatcher, ("abcd" : GoString), ("[match]d" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_abcMatcher, ("cabcabcdabca" : GoString), ("c[match][match]d[match]a" : GoString)) : T_testCase_testReplacer_0));
+        _testCases = _testCases.__appendref__((new T_testReplacer_0___localname___testCase(_abcMatcher, Go.str(), Go.str()) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_abcMatcher, ("ab" : GoString), ("ab" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_abcMatcher, ("abc" : GoString), ("[match]" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_abcMatcher, ("abcd" : GoString), ("[match]d" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_abcMatcher, ("cabcabcdabca" : GoString), ("c[match][match]d[match]a" : GoString)) : T_testReplacer_0___localname___testCase));
         var _noHello = newReplacer(("Hello" : GoString), Go.str());
-        _testCases = _testCases.__appendref__((new T_testCase_testReplacer_0(_noHello, ("Hello" : GoString), Go.str()) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_noHello, ("Hellox" : GoString), ("x" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_noHello, ("xHello" : GoString), ("x" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_noHello, ("xHellox" : GoString), ("xx" : GoString)) : T_testCase_testReplacer_0));
+        _testCases = _testCases.__appendref__((new T_testReplacer_0___localname___testCase(_noHello, ("Hello" : GoString), Go.str()) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_noHello, ("Hellox" : GoString), ("x" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_noHello, ("xHello" : GoString), ("x" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_noHello, ("xHellox" : GoString), ("xx" : GoString)) : T_testReplacer_0___localname___testCase));
         var _nop = newReplacer();
-        _testCases = _testCases.__appendref__((new T_testCase_testReplacer_0(_nop, ("abc" : GoString), ("abc" : GoString)) : T_testCase_testReplacer_0), (new T_testCase_testReplacer_0(_nop, Go.str(), Go.str()) : T_testCase_testReplacer_0));
+        _testCases = _testCases.__appendref__((new T_testReplacer_0___localname___testCase(_nop, ("abc" : GoString), ("abc" : GoString)) : T_testReplacer_0___localname___testCase), (new T_testReplacer_0___localname___testCase(_nop, Go.str(), Go.str()) : T_testReplacer_0___localname___testCase));
         for (_i => _tc in _testCases) {
             {
                 var _s:GoString = _tc._r.replace(_tc._in);

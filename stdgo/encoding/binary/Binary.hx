@@ -1323,14 +1323,14 @@ function testBlankFields(_t:Ref<stdgo.testing.Testing.T>):Void {
     
     
 **/
-@:structInit @:private class T_foo_testSizeStructCache_0 {
+@:structInit class T_testSizeStructCache_0___localname___foo {
     public var a : GoUInt32 = 0;
     public function new(?a:GoUInt32) {
         if (a != null) this.a = a;
     }
     public function __underlying__() return Go.toInterface(this);
     public function __copy__() {
-        return new T_foo_testSizeStructCache_0(a);
+        return new T_testSizeStructCache_0___localname___foo(a);
     }
 }
 /**
@@ -1338,18 +1338,18 @@ function testBlankFields(_t:Ref<stdgo.testing.Testing.T>):Void {
     
     
 **/
-@:structInit @:private class T_bar_testSizeStructCache_1 {
+@:structInit class T_testSizeStructCache_1___localname___bar {
     public var a : Struct = ({} : Struct);
-    public var b : T_foo_testSizeStructCache_0 = ({} : T_foo_testSizeStructCache_0);
+    public var b : T_testSizeStructCache_0___localname___foo = ({} : T_testSizeStructCache_0___localname___foo);
     public var c : Struct = ({} : Struct);
-    public function new(?a:Struct, ?b:T_foo_testSizeStructCache_0, ?c:Struct) {
+    public function new(?a:Struct, ?b:T_testSizeStructCache_0___localname___foo, ?c:Struct) {
         if (a != null) this.a = a;
         if (b != null) this.b = b;
         if (c != null) this.c = c;
     }
     public function __underlying__() return Go.toInterface(this);
     public function __copy__() {
-        return new T_bar_testSizeStructCache_1(a, b, c);
+        return new T_testSizeStructCache_1___localname___bar(a, b, c);
     }
 }
 function testSizeStructCache(_t:Ref<stdgo.testing.Testing.T>):Void {
@@ -1370,7 +1370,7 @@ function testSizeStructCache(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
         {};
         {};
-        var _testcases = (new Slice<T__struct_2>(0, 0, ({ _val : Go.toInterface(({} : T_foo_testSizeStructCache_0)), _want : (1 : GoInt) } : T__struct_2), ({ _val : Go.toInterface(({} : T_bar_testSizeStructCache_1)), _want : (1 : GoInt) } : T__struct_2), ({ _val : Go.toInterface(({} : T_bar_testSizeStructCache_1)), _want : (0 : GoInt) } : T__struct_2), ({ _val : Go.toInterface(Go.asInterface(({ a : ({} : Struct) } : T__struct_3))), _want : (1 : GoInt) } : T__struct_2), ({ _val : Go.toInterface(Go.asInterface(({ a : ({} : Struct) } : T__struct_3))), _want : (0 : GoInt) } : T__struct_2)) : Slice<T__struct_2>);
+        var _testcases = (new Slice<T__struct_2>(0, 0, ({ _val : Go.toInterface(({} : T_testSizeStructCache_0___localname___foo)), _want : (1 : GoInt) } : T__struct_2), ({ _val : Go.toInterface(({} : T_testSizeStructCache_1___localname___bar)), _want : (1 : GoInt) } : T__struct_2), ({ _val : Go.toInterface(({} : T_testSizeStructCache_1___localname___bar)), _want : (0 : GoInt) } : T__struct_2), ({ _val : Go.toInterface(Go.asInterface(({ a : ({} : Struct) } : T__struct_3))), _want : (1 : GoInt) } : T__struct_2), ({ _val : Go.toInterface(Go.asInterface(({ a : ({} : Struct) } : T__struct_3))), _want : (0 : GoInt) } : T__struct_2)) : Slice<T__struct_2>);
         for (_0 => _tc in _testcases) {
             if (size(_tc._val) == ((-1 : GoInt))) {
                 _t.fatalf(("Can\'t get the size of %T" : GoString), _tc._val);
@@ -1572,14 +1572,14 @@ private function _testPutUint64SmallSliceLengthPanics():Bool {
     
     
 **/
-private typedef T_byteOrder_testByteOrder_0 = StructType & {
+typedef T_testByteOrder_0___localname___byteOrder = StructType & {
     > ByteOrder,
     > AppendByteOrder,
 };
 function testByteOrder(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
         var _buf = new Slice<GoUInt8>((8 : GoInt).toBasic(), 0, ...[for (i in 0 ... (8 : GoInt).toBasic()) (0 : GoUInt8)]);
-        for (_0 => _order in (new Slice<T_byteOrder_testByteOrder_0>(0, 0, Go.asInterface(littleEndian), Go.asInterface(bigEndian)) : Slice<T_byteOrder_testByteOrder_0>)) {
+        for (_0 => _order in (new Slice<T_testByteOrder_0___localname___byteOrder>(0, 0, Go.asInterface(littleEndian), Go.asInterface(bigEndian)) : Slice<T_testByteOrder_0___localname___byteOrder>)) {
             {};
             for (_1 => _value in (new Slice<GoUInt64>(0, 0, ("0" : GoUInt64), ("81985529216486895" : GoUInt64), ("18364758544493064720" : GoUInt64), ("18446744073709551615" : GoUInt64), ("12297829382473034410" : GoUInt64), stdgo.math.Math.float64bits((3.141592653589793 : GoFloat64)), stdgo.math.Math.float64bits((2.718281828459045 : GoFloat64))) : Slice<GoUInt64>)) {
                 var _want16:GoUInt16 = (_value : GoUInt16);

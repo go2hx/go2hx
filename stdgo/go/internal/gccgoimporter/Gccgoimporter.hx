@@ -1660,13 +1660,13 @@ class T_parser_asInterface {
             var _exportedp1:GoInt = _p._parseInt();
             _p._typeList = new Slice<stdgo.go.types.Types.Type>((_maxp1 : GoInt).toBasic(), _maxp1, ...[for (i in 0 ... (_maxp1 : GoInt).toBasic()) (null : stdgo.go.types.Types.Type)]);
             {};
-            var _typeOffsets:Slice<T_typeOffset__parseTypes_0> = (null : Slice<T_typeOffset__parseTypes_0>);
+            var _typeOffsets:Slice<T__parseTypes_0___localname___typeOffset> = (null : Slice<T__parseTypes_0___localname___typeOffset>);
             var _total:GoInt = (0 : GoInt);
             {
                 var _i:GoInt = (1 : GoInt);
                 Go.cfor(_i < _maxp1, _i++, {
                     var _len:GoInt = _p._parseInt();
-                    _typeOffsets = _typeOffsets.__appendref__((new T_typeOffset__parseTypes_0(_total, _len) : T_typeOffset__parseTypes_0));
+                    _typeOffsets = _typeOffsets.__appendref__((new T__parseTypes_0___localname___typeOffset(_total, _len) : T__parseTypes_0___localname___typeOffset));
                     _total = _total + (_len);
                 });
             };
@@ -2668,7 +2668,7 @@ class T_parser_asInterface {
     
     
 **/
-@:structInit @:private class T_typeOffset__parseTypes_0 {
+@:structInit class T__parseTypes_0___localname___typeOffset {
     public var _offset : GoInt = 0;
     public var _length : GoInt = 0;
     public function new(?_offset:GoInt, ?_length:GoInt) {
@@ -2677,7 +2677,7 @@ class T_parser_asInterface {
     }
     public function __underlying__() return Go.toInterface(this);
     public function __copy__() {
-        return new T_typeOffset__parseTypes_0(_offset, _length);
+        return new T__parseTypes_0___localname___typeOffset(_offset, _length);
     }
 }
 class T_importError_asInterface {

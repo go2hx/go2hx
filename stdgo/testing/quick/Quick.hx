@@ -803,15 +803,15 @@ function testFailure(_t:Ref<stdgo.testing.Testing.T>):Void {
     
     
 **/
-@:structInit class R_testRecursive_0 {
-    public var ptr : Ref<R_testRecursive_0> = (null : Ref<R_testRecursive_0>);
-    public var sliceP : Slice<Ref<R_testRecursive_0>> = (null : Slice<Ref<R_testRecursive_0>>);
-    public var slice : Slice<R_testRecursive_0> = (null : Slice<R_testRecursive_0>);
-    public var map : GoMap<GoInt, R_testRecursive_0> = (null : GoMap<GoInt, R_testRecursive_0>);
-    public var mapP : GoMap<GoInt, Ref<R_testRecursive_0>> = (null : GoMap<GoInt, Ref<R_testRecursive_0>>);
-    public var mapR : GoMap<Ref<R_testRecursive_0>, Ref<R_testRecursive_0>> = (null : GoMap<Ref<R_testRecursive_0>, Ref<R_testRecursive_0>>);
-    public var sliceMap : Slice<GoMap<GoInt, R_testRecursive_0>> = (null : Slice<GoMap<GoInt, R_testRecursive_0>>);
-    public function new(?ptr:Ref<R_testRecursive_0>, ?sliceP:Slice<Ref<R_testRecursive_0>>, ?slice:Slice<R_testRecursive_0>, ?map:GoMap<GoInt, R_testRecursive_0>, ?mapP:GoMap<GoInt, Ref<R_testRecursive_0>>, ?mapR:GoMap<Ref<R_testRecursive_0>, Ref<R_testRecursive_0>>, ?sliceMap:Slice<GoMap<GoInt, R_testRecursive_0>>) {
+@:structInit class T_testRecursive_0___localname___R {
+    public var ptr : Ref<T_testRecursive_0___localname___R> = (null : Ref<T_testRecursive_0___localname___R>);
+    public var sliceP : Slice<Ref<T_testRecursive_0___localname___R>> = (null : Slice<Ref<T_testRecursive_0___localname___R>>);
+    public var slice : Slice<T_testRecursive_0___localname___R> = (null : Slice<T_testRecursive_0___localname___R>);
+    public var map : GoMap<GoInt, T_testRecursive_0___localname___R> = (null : GoMap<GoInt, T_testRecursive_0___localname___R>);
+    public var mapP : GoMap<GoInt, Ref<T_testRecursive_0___localname___R>> = (null : GoMap<GoInt, Ref<T_testRecursive_0___localname___R>>);
+    public var mapR : GoMap<Ref<T_testRecursive_0___localname___R>, Ref<T_testRecursive_0___localname___R>> = (null : GoMap<Ref<T_testRecursive_0___localname___R>, Ref<T_testRecursive_0___localname___R>>);
+    public var sliceMap : Slice<GoMap<GoInt, T_testRecursive_0___localname___R>> = (null : Slice<GoMap<GoInt, T_testRecursive_0___localname___R>>);
+    public function new(?ptr:Ref<T_testRecursive_0___localname___R>, ?sliceP:Slice<Ref<T_testRecursive_0___localname___R>>, ?slice:Slice<T_testRecursive_0___localname___R>, ?map:GoMap<GoInt, T_testRecursive_0___localname___R>, ?mapP:GoMap<GoInt, Ref<T_testRecursive_0___localname___R>>, ?mapR:GoMap<Ref<T_testRecursive_0___localname___R>, Ref<T_testRecursive_0___localname___R>>, ?sliceMap:Slice<GoMap<GoInt, T_testRecursive_0___localname___R>>) {
         if (ptr != null) this.ptr = ptr;
         if (sliceP != null) this.sliceP = sliceP;
         if (slice != null) this.slice = slice;
@@ -822,7 +822,7 @@ function testFailure(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
     public function __underlying__() return Go.toInterface(this);
     public function __copy__() {
-        return new R_testRecursive_0(ptr, sliceP, slice, map, mapP, mapR, sliceMap);
+        return new T_testRecursive_0___localname___R(ptr, sliceP, slice, map, mapP, mapR, sliceMap);
     }
 }
 /**
@@ -831,7 +831,7 @@ function testFailure(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testRecursive(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
-        var _f:R_testRecursive_0 -> Bool = function(_r:R_testRecursive_0):Bool {
+        var _f:T_testRecursive_0___localname___R -> Bool = function(_r:T_testRecursive_0___localname___R):Bool {
             return true;
         };
         check(Go.toInterface(_f), null);
@@ -853,7 +853,7 @@ function testMutuallyRecursive(_t:Ref<stdgo.testing.Testing.T>):Void {
     
     
 **/
-@:structInit class Q_testNonZeroSliceAndMap_0 {
+@:structInit class T_testNonZeroSliceAndMap_0___localname___Q {
     public var m : GoMap<GoInt, GoInt> = (null : GoMap<GoInt, GoInt>);
     public var s : Slice<GoInt> = (null : Slice<GoInt>);
     public function new(?m:GoMap<GoInt, GoInt>, ?s:Slice<GoInt>) {
@@ -862,7 +862,7 @@ function testMutuallyRecursive(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
     public function __underlying__() return Go.toInterface(this);
     public function __copy__() {
-        return new Q_testNonZeroSliceAndMap_0(m, s);
+        return new T_testNonZeroSliceAndMap_0___localname___Q(m, s);
     }
 }
 /**
@@ -872,7 +872,7 @@ function testMutuallyRecursive(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testNonZeroSliceAndMap(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
-        var _f:Q_testNonZeroSliceAndMap_0 -> Bool = function(_q:Q_testNonZeroSliceAndMap_0):Bool {
+        var _f:T_testNonZeroSliceAndMap_0___localname___Q -> Bool = function(_q:T_testNonZeroSliceAndMap_0___localname___Q):Bool {
             return (_q.m != null) && (_q.s != null);
         };
         var _err:Error = check(Go.toInterface(_f), null);

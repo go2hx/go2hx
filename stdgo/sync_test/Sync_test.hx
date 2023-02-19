@@ -1719,7 +1719,7 @@ function testMutexFairness(_t:Ref<stdgo.testing.Testing.T>):Void {
     
     
 **/
-@:structInit @:using(stdgo.sync_test.Sync_test.PaddedMutex_benchmarkMutexUncontended_0_static_extension) class PaddedMutex_benchmarkMutexUncontended_0 {
+@:structInit @:using(stdgo.sync_test.Sync_test.T_benchmarkMutexUncontended_0___localname___PaddedMutex_static_extension) class T_benchmarkMutexUncontended_0___localname___PaddedMutex {
     @:embedded
     public var mutex : Mutex = ({} : Mutex);
     public var _pad : GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0 ... 128) (0 : GoUInt8)]);
@@ -1739,13 +1739,13 @@ function testMutexFairness(_t:Ref<stdgo.testing.Testing.T>):Void {
     @:embedded
     public function _unlockSlow(__0:GoInt32) mutex._unlockSlow(__0);
     public function __copy__() {
-        return new PaddedMutex_benchmarkMutexUncontended_0(mutex, _pad);
+        return new T_benchmarkMutexUncontended_0___localname___PaddedMutex(mutex, _pad);
     }
 }
 function benchmarkMutexUncontended(_b:Ref<stdgo.testing.Testing.B>):Void {
         {};
         _b.runParallel(function(_pb:Ref<stdgo.testing.Testing.PB>):Void {
-            var _mu:PaddedMutex_benchmarkMutexUncontended_0 = ({} : stdgo.sync_test.Sync_test.PaddedMutex_benchmarkMutexUncontended_0);
+            var _mu:T_benchmarkMutexUncontended_0___localname___PaddedMutex = ({} : stdgo.sync_test.Sync_test.T_benchmarkMutexUncontended_0___localname___PaddedMutex);
             while (_pb.next()) {
                 _mu.lock();
                 _mu.unlock();
@@ -2424,7 +2424,7 @@ function benchmarkPoolExpensiveNew(_b:Ref<stdgo.testing.Testing.B>):Void {
     
     
 **/
-@:structInit class PaddedSem_benchmarkSemaUncontended_0 {
+@:structInit class T_benchmarkSemaUncontended_0___localname___PaddedSem {
     public var _sem : GoUInt32 = 0;
     public var _pad : GoArray<GoUInt32> = new GoArray<GoUInt32>(...[for (i in 0 ... 32) (0 : GoUInt32)]);
     public function new(?_sem:GoUInt32, ?_pad:GoArray<GoUInt32>) {
@@ -2433,7 +2433,7 @@ function benchmarkPoolExpensiveNew(_b:Ref<stdgo.testing.Testing.B>):Void {
     }
     public function __underlying__() return Go.toInterface(this);
     public function __copy__() {
-        return new PaddedSem_benchmarkSemaUncontended_0(_sem, _pad);
+        return new T_benchmarkSemaUncontended_0___localname___PaddedSem(_sem, _pad);
     }
 }
 function benchmarkSemaUncontended(_b:Ref<stdgo.testing.Testing.B>):Void {
@@ -2768,7 +2768,7 @@ function testRLocker(_t:Ref<stdgo.testing.Testing.T>):Void {
     
     
 **/
-@:structInit @:using(stdgo.sync_test.Sync_test.PaddedRWMutex_benchmarkRWMutexUncontended_0_static_extension) class PaddedRWMutex_benchmarkRWMutexUncontended_0 {
+@:structInit @:using(stdgo.sync_test.Sync_test.T_benchmarkRWMutexUncontended_0___localname___PaddedRWMutex_static_extension) class T_benchmarkRWMutexUncontended_0___localname___PaddedRWMutex {
     @:embedded
     public var rwmutex : RWMutex = ({} : RWMutex);
     public var _pad : GoArray<GoUInt32> = new GoArray<GoUInt32>(...[for (i in 0 ... 32) (0 : GoUInt32)]);
@@ -2794,13 +2794,13 @@ function testRLocker(_t:Ref<stdgo.testing.Testing.T>):Void {
     @:embedded
     public function _rUnlockSlow(__0:GoInt32) rwmutex._rUnlockSlow(__0);
     public function __copy__() {
-        return new PaddedRWMutex_benchmarkRWMutexUncontended_0(rwmutex, _pad);
+        return new T_benchmarkRWMutexUncontended_0___localname___PaddedRWMutex(rwmutex, _pad);
     }
 }
 function benchmarkRWMutexUncontended(_b:Ref<stdgo.testing.Testing.B>):Void {
         {};
         _b.runParallel(function(_pb:Ref<stdgo.testing.Testing.PB>):Void {
-            var _rwm:PaddedRWMutex_benchmarkRWMutexUncontended_0 = ({} : stdgo.sync_test.Sync_test.PaddedRWMutex_benchmarkRWMutexUncontended_0);
+            var _rwm:T_benchmarkRWMutexUncontended_0___localname___PaddedRWMutex = ({} : stdgo.sync_test.Sync_test.T_benchmarkRWMutexUncontended_0___localname___PaddedRWMutex);
             while (_pb.next()) {
                 _rwm.rlock();
                 _rwm.rlock();
@@ -2968,7 +2968,7 @@ function testWaitGroupRace(_t:Ref<stdgo.testing.Testing.T>):Void {
     
     
 **/
-@:structInit class X_testWaitGroupAlign_0 {
+@:structInit class T_testWaitGroupAlign_0___localname___X {
     public var _x : GoUInt8 = 0;
     public var _wg : WaitGroup = ({} : WaitGroup);
     public function new(?_x:GoUInt8, ?_wg:WaitGroup) {
@@ -2977,18 +2977,18 @@ function testWaitGroupRace(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
     public function __underlying__() return Go.toInterface(this);
     public function __copy__() {
-        return new X_testWaitGroupAlign_0(_x, _wg);
+        return new T_testWaitGroupAlign_0___localname___X(_x, _wg);
     }
 }
 function testWaitGroupAlign(_t:Ref<stdgo.testing.Testing.T>):Void {
         {};
-        var _x:X_testWaitGroupAlign_0 = ({} : stdgo.sync_test.Sync_test.X_testWaitGroupAlign_0);
+        var _x:T_testWaitGroupAlign_0___localname___X = ({} : stdgo.sync_test.Sync_test.T_testWaitGroupAlign_0___localname___X);
         _x._wg.add((1 : GoInt));
         Go.routine(() -> {
-            var a = function(_x:Ref<X_testWaitGroupAlign_0>):Void {
+            var a = function(_x:Ref<T_testWaitGroupAlign_0___localname___X>):Void {
                 _x._wg.done();
             };
-            a((_x : Ref<stdgo.sync_test.Sync_test.X_testWaitGroupAlign_0>));
+            a((_x : Ref<stdgo.sync_test.Sync_test.T_testWaitGroupAlign_0___localname___X>));
         });
         _x._wg.wait_();
     }
@@ -2997,7 +2997,7 @@ function testWaitGroupAlign(_t:Ref<stdgo.testing.Testing.T>):Void {
     
     
 **/
-@:structInit @:using(stdgo.sync_test.Sync_test.PaddedWaitGroup_benchmarkWaitGroupUncontended_0_static_extension) class PaddedWaitGroup_benchmarkWaitGroupUncontended_0 {
+@:structInit @:using(stdgo.sync_test.Sync_test.T_benchmarkWaitGroupUncontended_0___localname___PaddedWaitGroup_static_extension) class T_benchmarkWaitGroupUncontended_0___localname___PaddedWaitGroup {
     @:embedded
     public var waitGroup : WaitGroup = ({} : WaitGroup);
     public var _pad : GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0 ... 128) (0 : GoUInt8)]);
@@ -3013,13 +3013,13 @@ function testWaitGroupAlign(_t:Ref<stdgo.testing.Testing.T>):Void {
     @:embedded
     public function wait_() waitGroup.wait_();
     public function __copy__() {
-        return new PaddedWaitGroup_benchmarkWaitGroupUncontended_0(waitGroup, _pad);
+        return new T_benchmarkWaitGroupUncontended_0___localname___PaddedWaitGroup(waitGroup, _pad);
     }
 }
 function benchmarkWaitGroupUncontended(_b:Ref<stdgo.testing.Testing.B>):Void {
         {};
         _b.runParallel(function(_pb:Ref<stdgo.testing.Testing.PB>):Void {
-            var _wg:PaddedWaitGroup_benchmarkWaitGroupUncontended_0 = ({} : stdgo.sync_test.Sync_test.PaddedWaitGroup_benchmarkWaitGroupUncontended_0);
+            var _wg:T_benchmarkWaitGroupUncontended_0___localname___PaddedWaitGroup = ({} : stdgo.sync_test.Sync_test.T_benchmarkWaitGroupUncontended_0___localname___PaddedWaitGroup);
             while (_pb.next()) {
                 _wg.add((1 : GoInt));
                 _wg.done();
@@ -3728,7 +3728,7 @@ class T_one_asInterface {
         _o.value++;
     }
 }
-class PaddedMutex_benchmarkMutexUncontended_0_asInterface {
+class T_benchmarkMutexUncontended_0___localname___PaddedMutex_asInterface {
     @:embedded
     public function _unlockSlow(__0:GoInt32):Void __self__.value._unlockSlow(__0);
     @:embedded
@@ -3744,22 +3744,22 @@ class PaddedMutex_benchmarkMutexUncontended_0_asInterface {
         this.__type__ = __type__;
     }
     public function __underlying__() return new AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : Pointer<PaddedMutex_benchmarkMutexUncontended_0>;
+    var __self__ : Pointer<T_benchmarkMutexUncontended_0___localname___PaddedMutex>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
-@:keep @:allow(stdgo.sync_test.Sync_test.PaddedMutex_benchmarkMutexUncontended_0_asInterface) class PaddedMutex_benchmarkMutexUncontended_0_static_extension {
+@:keep @:allow(stdgo.sync_test.Sync_test.T_benchmarkMutexUncontended_0___localname___PaddedMutex_asInterface) class T_benchmarkMutexUncontended_0___localname___PaddedMutex_static_extension {
     @:embedded
-    public static function _unlockSlow( __self__:PaddedMutex_benchmarkMutexUncontended_0, __0:GoInt32) __self__._unlockSlow(__0);
+    public static function _unlockSlow( __self__:T_benchmarkMutexUncontended_0___localname___PaddedMutex, __0:GoInt32) __self__._unlockSlow(__0);
     @:embedded
-    public static function _lockSlow( __self__:PaddedMutex_benchmarkMutexUncontended_0) __self__._lockSlow();
+    public static function _lockSlow( __self__:T_benchmarkMutexUncontended_0___localname___PaddedMutex) __self__._lockSlow();
     @:embedded
-    public static function unlock( __self__:PaddedMutex_benchmarkMutexUncontended_0) __self__.unlock();
+    public static function unlock( __self__:T_benchmarkMutexUncontended_0___localname___PaddedMutex) __self__.unlock();
     @:embedded
-    public static function tryLock( __self__:PaddedMutex_benchmarkMutexUncontended_0):Bool return __self__.tryLock();
+    public static function tryLock( __self__:T_benchmarkMutexUncontended_0___localname___PaddedMutex):Bool return __self__.tryLock();
     @:embedded
-    public static function lock( __self__:PaddedMutex_benchmarkMutexUncontended_0) __self__.lock();
+    public static function lock( __self__:T_benchmarkMutexUncontended_0___localname___PaddedMutex) __self__.lock();
 }
-class PaddedRWMutex_benchmarkRWMutexUncontended_0_asInterface {
+class T_benchmarkRWMutexUncontended_0___localname___PaddedRWMutex_asInterface {
     @:embedded
     public function _rUnlockSlow(__0:GoInt32):Void __self__.value._rUnlockSlow(__0);
     @:embedded
@@ -3781,28 +3781,28 @@ class PaddedRWMutex_benchmarkRWMutexUncontended_0_asInterface {
         this.__type__ = __type__;
     }
     public function __underlying__() return new AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : Pointer<PaddedRWMutex_benchmarkRWMutexUncontended_0>;
+    var __self__ : Pointer<T_benchmarkRWMutexUncontended_0___localname___PaddedRWMutex>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
-@:keep @:allow(stdgo.sync_test.Sync_test.PaddedRWMutex_benchmarkRWMutexUncontended_0_asInterface) class PaddedRWMutex_benchmarkRWMutexUncontended_0_static_extension {
+@:keep @:allow(stdgo.sync_test.Sync_test.T_benchmarkRWMutexUncontended_0___localname___PaddedRWMutex_asInterface) class T_benchmarkRWMutexUncontended_0___localname___PaddedRWMutex_static_extension {
     @:embedded
-    public static function _rUnlockSlow( __self__:PaddedRWMutex_benchmarkRWMutexUncontended_0, __0:GoInt32) __self__._rUnlockSlow(__0);
+    public static function _rUnlockSlow( __self__:T_benchmarkRWMutexUncontended_0___localname___PaddedRWMutex, __0:GoInt32) __self__._rUnlockSlow(__0);
     @:embedded
-    public static function unlock( __self__:PaddedRWMutex_benchmarkRWMutexUncontended_0) __self__.unlock();
+    public static function unlock( __self__:T_benchmarkRWMutexUncontended_0___localname___PaddedRWMutex) __self__.unlock();
     @:embedded
-    public static function tryRLock( __self__:PaddedRWMutex_benchmarkRWMutexUncontended_0):Bool return __self__.tryRLock();
+    public static function tryRLock( __self__:T_benchmarkRWMutexUncontended_0___localname___PaddedRWMutex):Bool return __self__.tryRLock();
     @:embedded
-    public static function tryLock( __self__:PaddedRWMutex_benchmarkRWMutexUncontended_0):Bool return __self__.tryLock();
+    public static function tryLock( __self__:T_benchmarkRWMutexUncontended_0___localname___PaddedRWMutex):Bool return __self__.tryLock();
     @:embedded
-    public static function runlock( __self__:PaddedRWMutex_benchmarkRWMutexUncontended_0) __self__.runlock();
+    public static function runlock( __self__:T_benchmarkRWMutexUncontended_0___localname___PaddedRWMutex) __self__.runlock();
     @:embedded
-    public static function rlocker( __self__:PaddedRWMutex_benchmarkRWMutexUncontended_0):Locker return __self__.rlocker();
+    public static function rlocker( __self__:T_benchmarkRWMutexUncontended_0___localname___PaddedRWMutex):Locker return __self__.rlocker();
     @:embedded
-    public static function rlock( __self__:PaddedRWMutex_benchmarkRWMutexUncontended_0) __self__.rlock();
+    public static function rlock( __self__:T_benchmarkRWMutexUncontended_0___localname___PaddedRWMutex) __self__.rlock();
     @:embedded
-    public static function lock( __self__:PaddedRWMutex_benchmarkRWMutexUncontended_0) __self__.lock();
+    public static function lock( __self__:T_benchmarkRWMutexUncontended_0___localname___PaddedRWMutex) __self__.lock();
 }
-class PaddedWaitGroup_benchmarkWaitGroupUncontended_0_asInterface {
+class T_benchmarkWaitGroupUncontended_0___localname___PaddedWaitGroup_asInterface {
     @:embedded
     public function wait_():Void __self__.value.wait_();
     @:embedded
@@ -3814,14 +3814,14 @@ class PaddedWaitGroup_benchmarkWaitGroupUncontended_0_asInterface {
         this.__type__ = __type__;
     }
     public function __underlying__() return new AnyInterface((__type__.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : Pointer<PaddedWaitGroup_benchmarkWaitGroupUncontended_0>;
+    var __self__ : Pointer<T_benchmarkWaitGroupUncontended_0___localname___PaddedWaitGroup>;
     var __type__ : stdgo.internal.reflect.Reflect._Type;
 }
-@:keep @:allow(stdgo.sync_test.Sync_test.PaddedWaitGroup_benchmarkWaitGroupUncontended_0_asInterface) class PaddedWaitGroup_benchmarkWaitGroupUncontended_0_static_extension {
+@:keep @:allow(stdgo.sync_test.Sync_test.T_benchmarkWaitGroupUncontended_0___localname___PaddedWaitGroup_asInterface) class T_benchmarkWaitGroupUncontended_0___localname___PaddedWaitGroup_static_extension {
     @:embedded
-    public static function wait_( __self__:PaddedWaitGroup_benchmarkWaitGroupUncontended_0) __self__.wait_();
+    public static function wait_( __self__:T_benchmarkWaitGroupUncontended_0___localname___PaddedWaitGroup) __self__.wait_();
     @:embedded
-    public static function done( __self__:PaddedWaitGroup_benchmarkWaitGroupUncontended_0) __self__.done();
+    public static function done( __self__:T_benchmarkWaitGroupUncontended_0___localname___PaddedWaitGroup) __self__.done();
     @:embedded
-    public static function add( __self__:PaddedWaitGroup_benchmarkWaitGroupUncontended_0, __0:GoInt) __self__.add(__0);
+    public static function add( __self__:T_benchmarkWaitGroupUncontended_0___localname___PaddedWaitGroup, __0:GoInt) __self__.add(__0);
 }

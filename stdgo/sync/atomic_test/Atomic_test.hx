@@ -2790,7 +2790,7 @@ function testStoreLoadSeqCst64(_t:Ref<stdgo.testing.Testing.T>):Void {
     
     
 **/
-@:structInit class Data_testStoreLoadRelAcq32_0 {
+@:structInit class T_testStoreLoadRelAcq32_0___localname___Data {
     public var _signal : GoInt32 = 0;
     public var _pad1 : GoArray<GoInt8> = new GoArray<GoInt8>(...[for (i in 0 ... 128) (0 : GoInt8)]);
     public var _data1 : GoInt32 = 0;
@@ -2805,7 +2805,7 @@ function testStoreLoadSeqCst64(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
     public function __underlying__() return Go.toInterface(this);
     public function __copy__() {
-        return new Data_testStoreLoadRelAcq32_0(_signal, _pad1, _data1, _pad2, _data2);
+        return new T_testStoreLoadRelAcq32_0___localname___Data(_signal, _pad1, _data1, _pad2, _data2);
     }
 }
 function testStoreLoadRelAcq32(_t:Ref<stdgo.testing.Testing.T>):Void {
@@ -2824,7 +2824,7 @@ function testStoreLoadRelAcq32(_t:Ref<stdgo.testing.Testing.T>):Void {
             };
             var _c = new Chan<Bool>((2 : GoInt).toBasic(), () -> false);
             {};
-            var x:Data_testStoreLoadRelAcq32_0 = ({} : stdgo.sync.atomic_test.Atomic_test.Data_testStoreLoadRelAcq32_0);
+            var x:T_testStoreLoadRelAcq32_0___localname___Data = ({} : stdgo.sync.atomic_test.Atomic_test.T_testStoreLoadRelAcq32_0___localname___Data);
             {
                 var _p:GoInt32 = (0 : GoInt32);
                 Go.cfor(_p < (2 : GoInt32), _p++, {
@@ -2889,7 +2889,7 @@ function testStoreLoadRelAcq32(_t:Ref<stdgo.testing.Testing.T>):Void {
     
     
 **/
-@:structInit class Data_testStoreLoadRelAcq64_0 {
+@:structInit class T_testStoreLoadRelAcq64_0___localname___Data {
     public var _signal : GoInt64 = 0;
     public var _pad1 : GoArray<GoInt8> = new GoArray<GoInt8>(...[for (i in 0 ... 128) (0 : GoInt8)]);
     public var _data1 : GoInt64 = 0;
@@ -2904,7 +2904,7 @@ function testStoreLoadRelAcq32(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
     public function __underlying__() return Go.toInterface(this);
     public function __copy__() {
-        return new Data_testStoreLoadRelAcq64_0(_signal, _pad1, _data1, _pad2, _data2);
+        return new T_testStoreLoadRelAcq64_0___localname___Data(_signal, _pad1, _data1, _pad2, _data2);
     }
 }
 function testStoreLoadRelAcq64(_t:Ref<stdgo.testing.Testing.T>):Void {
@@ -2923,7 +2923,7 @@ function testStoreLoadRelAcq64(_t:Ref<stdgo.testing.Testing.T>):Void {
             };
             var _c = new Chan<Bool>((2 : GoInt).toBasic(), () -> false);
             {};
-            var x:Data_testStoreLoadRelAcq64_0 = ({} : stdgo.sync.atomic_test.Atomic_test.Data_testStoreLoadRelAcq64_0);
+            var x:T_testStoreLoadRelAcq64_0___localname___Data = ({} : stdgo.sync.atomic_test.Atomic_test.T_testStoreLoadRelAcq64_0___localname___Data);
             {
                 var _p:GoInt64 = (("0" : GoInt64) : GoInt64);
                 Go.cfor(_p < ("2" : GoInt64), _p++, {
@@ -3349,7 +3349,7 @@ function exampleValue_config():Void {
             });
         };
     }
-@:named typedef Map_exampleValue_readMostly_0 = GoMap<GoString, GoString>;
+@:named typedef T_exampleValue_readMostly_0___localname___Map = GoMap<GoString, GoString>;
 /**
     // The following example shows how to maintain a scalable frequently read,
     // but infrequently updated data structure using copy-on-write idiom.
@@ -3357,11 +3357,11 @@ function exampleValue_config():Void {
 function exampleValue_readMostly():Void {
         {};
         var _m:Value = ({} : Value);
-        _m.store(Go.toInterface((new GoObjectMap<GoString, GoString>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_test.Atomic_test.Map_exampleValue_readMostly_0", [], stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }), false, { get : () -> null }))) : stdgo.sync.atomic_test.Atomic_test.Map_exampleValue_readMostly_0)));
+        _m.store(Go.toInterface((new GoObjectMap<GoString, GoString>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_0___localname___Map", [], stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }), false, { get : () -> null }))) : stdgo.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_0___localname___Map)));
         var _mu:stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
         var _read:GoString -> GoString = function(_key:GoString):GoString {
             var _val:GoString = ("" : GoString);
-            var _m1:stdgo.sync.atomic_test.Atomic_test.Map_exampleValue_readMostly_0 = (Go.typeAssert((_m.load() : Map_exampleValue_readMostly_0)) : Map_exampleValue_readMostly_0);
+            var _m1:stdgo.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_0___localname___Map = (Go.typeAssert((_m.load() : T_exampleValue_readMostly_0___localname___Map)) : T_exampleValue_readMostly_0___localname___Map);
             return _m1[_key];
         };
         var _insert:(GoString, GoString) -> Void = function(_key:GoString, _val:GoString):Void {
@@ -3369,8 +3369,8 @@ function exampleValue_readMostly():Void {
             _mu.lock();
             try {
                 __deferstack__.unshift(() -> _mu.unlock());
-                var _m1:stdgo.sync.atomic_test.Atomic_test.Map_exampleValue_readMostly_0 = (Go.typeAssert((_m.load() : Map_exampleValue_readMostly_0)) : Map_exampleValue_readMostly_0);
-                var _m2:stdgo.sync.atomic_test.Atomic_test.Map_exampleValue_readMostly_0 = (new GoObjectMap<GoString, GoString>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_test.Atomic_test.Map_exampleValue_readMostly_0", [], stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }), false, { get : () -> null }))) : stdgo.sync.atomic_test.Atomic_test.Map_exampleValue_readMostly_0);
+                var _m1:stdgo.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_0___localname___Map = (Go.typeAssert((_m.load() : T_exampleValue_readMostly_0___localname___Map)) : T_exampleValue_readMostly_0___localname___Map);
+                var _m2:stdgo.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_0___localname___Map = (new GoObjectMap<GoString, GoString>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_0___localname___Map", [], stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }), false, { get : () -> null }))) : stdgo.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_0___localname___Map);
                 for (_k => _v in _m1) {
                     _m2[_k] = _v;
                 };

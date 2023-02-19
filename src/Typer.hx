@@ -1081,7 +1081,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 				case "TypeSpec":
 					var spec:Ast.TypeSpec = spec;
 					final name = spec.name.name;
-					spec.name.name += "_" + info.funcName + "_" + (info.count++);
+					spec.name.name = "T_" + info.funcName + "_" + (info.count++) + "___localname___" + name;
 					info.renameClasses[name] = className(spec.name.name, info);
 					info.data.defs.push(typeSpec(spec, info));
 				case "ValueSpec": // typeValue

@@ -407,7 +407,8 @@ func parseLocalTypes(file *ast.File, pkg *packages.Package) {
 					if t == nil {
 						return false
 					}
-					name := node.Name.Name + "_" + funcName + "_" + strconv.Itoa(count)
+					// local type
+					name := funcName + "_" + strconv.Itoa(count) + "___localname___" + node.Name.Name
 					_ = name
 					count++
 					cursor.Replace(node)

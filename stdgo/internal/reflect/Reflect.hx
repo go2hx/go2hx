@@ -1076,6 +1076,12 @@ class _Type {
 		var cl = list.pop();
 		if (cl.indexOf("T_") == 0)
 			cl = cl.substr(2);
+
+		final localName = "___localname___";
+		index = cl.indexOf(localName);
+		if (index != -1) {
+			cl = cl.substr(index + localName.length);
+		}
 		list.push(cl);
 		return list.join(".");
 	}

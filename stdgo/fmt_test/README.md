@@ -206,10 +206,6 @@
 
   - [`function new(?_i:Null<stdgo.GoInt>, ?_j:Null<stdgo.GoUInt>, ?_s:stdgo.GoString, ?_x:stdgo.Slice<stdgo.GoInt>):Void`](<#a-function-new>)
 
-- [class A\_testNilDoesNotBecomeTyped\_0](<#class-a_testnildoesnotbecometyped_0>)
-
-  - [`function new():Void`](<#a_testnildoesnotbecometyped_0-function-new>)
-
 - [class Address](<#class-address>)
 
   - [`function new(?city:stdgo.GoString, ?state:stdgo.GoString, ?country:stdgo.GoString):Void`](<#address-function-new>)
@@ -223,10 +219,6 @@
 - [class B](<#class-b>)
 
   - [`function new(?i:Null<stdgo.fmt_test.I>, ?_j:Null<stdgo.GoInt>):Void`](<#b-function-new>)
-
-- [class B\_testNilDoesNotBecomeTyped\_1](<#class-b_testnildoesnotbecometyped_1>)
-
-  - [`function new():Void`](<#b_testnildoesnotbecometyped_1-function-new>)
 
 - [class C](<#class-c>)
 
@@ -294,9 +286,17 @@
 
   - [`function new(?_format:stdgo.GoString, ?_text:stdgo.GoString, ?_in:stdgo.AnyInterface, ?_out:stdgo.AnyInterface):Void`](<#scanftest-function-new>)
 
-- [class T\_testStructPrinter\_0](<#class-t_teststructprinter_0>)
+- [class T\_testNilDoesNotBecomeTyped\_0\_\_\_localname\_\_\_A](<#class-t_testnildoesnotbecometyped_0localnamea>)
 
-  - [`function new(?_a:stdgo.GoString, ?_b:stdgo.GoString, ?_c:Null<stdgo.GoInt>):Void`](<#t_teststructprinter_0-function-new>)
+  - [`function new():Void`](<#t_testnildoesnotbecometyped_0localnamea-function-new>)
+
+- [class T\_testNilDoesNotBecomeTyped\_1\_\_\_localname\_\_\_B](<#class-t_testnildoesnotbecometyped_1localnameb>)
+
+  - [`function new():Void`](<#t_testnildoesnotbecometyped_1localnameb-function-new>)
+
+- [class T\_testStructPrinter\_0\_\_\_localname\_\_\_T](<#class-t_teststructprinter_0localnamet>)
+
+  - [`function new(?_a:stdgo.GoString, ?_b:stdgo.GoString, ?_c:Null<stdgo.GoInt>):Void`](<#t_teststructprinter_0localnamet-function-new>)
 
 - [typedef F](<#typedef-f>)
 
@@ -1812,26 +1812,6 @@ function new(?_i:Null<stdgo.GoInt>, ?_j:Null<stdgo.GoUInt>, ?_s:stdgo.GoString, 
 [\(view code\)](<./Fmt_test.hx#L1868>)
 
 
-## class A\_testNilDoesNotBecomeTyped\_0
-
-
-
-
-
-### A\_testNilDoesNotBecomeTyped\_0 function new
-
-
-```haxe
-function new():Void
-```
-
-
-
-
-
-[\(view code\)](<./Fmt_test.hx#L3334>)
-
-
 ## class Address
 
 
@@ -1942,26 +1922,6 @@ function new(?i:Null<stdgo.fmt_test.I>, ?_j:Null<stdgo.GoInt>):Void
 
 
 [\(view code\)](<./Fmt_test.hx#L1887>)
-
-
-## class B\_testNilDoesNotBecomeTyped\_1
-
-
-
-
-
-### B\_testNilDoesNotBecomeTyped\_1 function new
-
-
-```haxe
-function new():Void
-```
-
-
-
-
-
-[\(view code\)](<./Fmt_test.hx#L3346>)
 
 
 ## class C
@@ -2481,7 +2441,47 @@ function new(?_format:stdgo.GoString, ?_text:stdgo.GoString, ?_in:stdgo.AnyInter
 [\(view code\)](<./Fmt_test.hx#L2087>)
 
 
-## class T\_testStructPrinter\_0
+## class T\_testNilDoesNotBecomeTyped\_0\_\_\_localname\_\_\_A
+
+
+
+
+
+### T\_testNilDoesNotBecomeTyped\_0\_\_\_localname\_\_\_A function new
+
+
+```haxe
+function new():Void
+```
+
+
+
+
+
+[\(view code\)](<./Fmt_test.hx#L3334>)
+
+
+## class T\_testNilDoesNotBecomeTyped\_1\_\_\_localname\_\_\_B
+
+
+
+
+
+### T\_testNilDoesNotBecomeTyped\_1\_\_\_localname\_\_\_B function new
+
+
+```haxe
+function new():Void
+```
+
+
+
+
+
+[\(view code\)](<./Fmt_test.hx#L3346>)
+
+
+## class T\_testStructPrinter\_0\_\_\_localname\_\_\_T
 
 
 
@@ -2502,7 +2502,7 @@ var _c:stdgo.GoInt
 ```
 
 
-### T\_testStructPrinter\_0 function new
+### T\_testStructPrinter\_0\_\_\_localname\_\_\_T function new
 
 
 ```haxe

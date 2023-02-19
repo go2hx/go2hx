@@ -875,28 +875,45 @@ bufio.NewReader.
 Error: Command failed with error 1
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestErrorf
---- PASS: TestErrorf (%!s(float64=0.013379812240600586))
+--- PASS: TestErrorf (%!s(float64=0.009672164916992188))
 
 === RUN  TestFmtInterface
---- PASS: TestFmtInterface (%!s(float64=0.00016689300537109375))
+--- PASS: TestFmtInterface (%!s(float64=0.00013685226440429688))
 
 === RUN  TestSprintf
---- PASS: TestSprintf (%!s(float64=0.34318089485168457))
+--- PASS: TestSprintf (%!s(float64=0.2683990001678467))
 
 === RUN  TestComplexFormatting
---- PASS: TestComplexFormatting (%!s(float64=1.6011979579925537))
+--- PASS: TestComplexFormatting (%!s(float64=1.2105889320373535))
 
 === RUN  TestReorder
---- PASS: TestReorder (%!s(float64=0.01529383659362793))
+--- PASS: TestReorder (%!s(float64=0.010335922241210938))
 
 === RUN  TestCountMallocs
---- PASS: TestCountMallocs (%!s(float64=2.09808349609375e-05))
+--- PASS: TestCountMallocs (%!s(float64=1.6927719116210938e-05))
 
 === RUN  TestFlagParser
---- PASS: TestFlagParser (%!s(float64=0.01184391975402832))
+--- PASS: TestFlagParser (%!s(float64=0.00726008415222168))
 
 === RUN  TestStructPrinter
-Sprintf("%#v", s) = `fmt_test.testStructPrinter_0{a:"abc", b:"def", c:123}`, want `fmt_test.T{a:"abc", b:"def", c:123}`
+--- PASS: TestStructPrinter (%!s(float64=0.004384040832519531))
+
+=== RUN  TestSlicePrinter
+--- PASS: TestSlicePrinter (%!s(float64=0.0008370876312255859))
+
+=== RUN  TestMapPrinter
+--- PASS: TestMapPrinter (%!s(float64=0.004538059234619141))
+
+=== RUN  TestEmptyMap
+Exception: Null access
+Called from stdgo.internal.fmtsort._Fmtsort.$Fmtsort_Fields_.sort (stdgo/internal/fmtsort/Fmtsort.hx line 67)
+Called from stdgo.fmt.$T_pp_static_extension._printValue (stdgo/fmt/Fmt.hx line 2791)
+Called from stdgo.fmt.$T_pp_static_extension._printArg (stdgo/fmt/Fmt.hx line 3022)
+Called from stdgo.fmt.$T_pp_static_extension._doPrint (stdgo/fmt/Fmt.hx line 2448)
+Called from stdgo.fmt._Fmt.$Fmt_Fields_.sprint (stdgo/fmt/Fmt.hx line 1241)
+Called from stdgo.fmt_test._Fmt_test.$Fmt_test_Fields_.testEmptyMap (stdgo/fmt_test/Fmt_test.hx line 3230)
+Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 355)
+Called from stdgo.fmt_test._Fmt.$Fmt_Fields_.main (stdgo/fmt_test/Fmt.hx line 136)
 ```
 </p>
 </details>
@@ -907,28 +924,44 @@ Sprintf("%#v", s) = `fmt_test.testStructPrinter_0{a:"abc", b:"def", c:123}`, wan
 ```
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestErrorf
---- PASS: TestErrorf (%!s(float64=0.01604485511779785))
+--- PASS: TestErrorf (%!s(float64=0.012037992477416992))
 
 === RUN  TestFmtInterface
---- PASS: TestFmtInterface (%!s(float64=0.000308990478515625))
+--- PASS: TestFmtInterface (%!s(float64=0.0002651214599609375))
 
 === RUN  TestSprintf
---- PASS: TestSprintf (%!s(float64=0.8701419830322266))
+--- PASS: TestSprintf (%!s(float64=0.6354689598083496))
 
 === RUN  TestComplexFormatting
---- PASS: TestComplexFormatting (%!s(float64=5.152858018875122))
+--- PASS: TestComplexFormatting (%!s(float64=3.9502580165863037))
 
 === RUN  TestReorder
---- PASS: TestReorder (%!s(float64=0.03284001350402832))
+--- PASS: TestReorder (%!s(float64=0.02660679817199707))
 
 === RUN  TestCountMallocs
---- PASS: TestCountMallocs (%!s(float64=4.00543212890625e-05))
+--- PASS: TestCountMallocs (%!s(float64=3.1948089599609375e-05))
 
 === RUN  TestFlagParser
---- PASS: TestFlagParser (%!s(float64=0.012188911437988281))
+--- PASS: TestFlagParser (%!s(float64=0.009654045104980469))
 
 === RUN  TestStructPrinter
-Sprintf("%#v", s) = `fmt_test.testStructPrinter_0{a:"abc", b:"def", c:123}`, want `fmt_test.T{a:"abc", b:"def", c:123}`
+--- PASS: TestStructPrinter (%!s(float64=0.007037162780761719))
+
+=== RUN  TestSlicePrinter
+--- PASS: TestSlicePrinter (%!s(float64=0.0019099712371826172))
+
+=== RUN  TestMapPrinter
+--- PASS: TestMapPrinter (%!s(float64=0.006736040115356445))
+
+=== RUN  TestEmptyMap
+Exception: Null Access
+Called from stdgo.fmt_test._Fmt_test.Fmt_test_Fields_.testEmptyMap (stdgo/fmt_test/Fmt_test.hx line 3230 column 27)
+Called from stdgo.fmt._Fmt.Fmt_Fields_.sprint (stdgo/fmt/Fmt.hx line 1241 column 9)
+Called from stdgo.fmt.T_pp_static_extension._doPrint (stdgo/fmt/Fmt.hx line 2448 column 13)
+Called from stdgo.fmt.T_pp_static_extension._printArg (stdgo/fmt/Fmt.hx line 3022 column 21)
+Called from stdgo.fmt.T_pp_static_extension._printValue (stdgo/fmt/Fmt.hx line 2791 column 39)
+Called from stdgo.internal.fmtsort._Fmtsort.Fmtsort_Fields_.sort (stdgo/internal/fmtsort/Fmtsort.hx line 67 column 16)
+Called from stdgo.reflect.MapIter_static_extension.next (stdgo/reflect/Reflect.hx line 35 column 4)
 ```
 </p>
 </details>

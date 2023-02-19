@@ -228,6 +228,14 @@ stdgo/internal/Macro.macro.hx:35: define
 
   - [`function new(?int_:Null<stdgo.GoInt>, ?uint:Null<stdgo.GoUInt>, ?uintptr:stdgo.GoUIntptr, ?array:stdgo.GoArray<stdgo.GoInt>):Void`](<#t-function-new>)
 
+- [class T\_testSizeStructCache\_0\_\_\_localname\_\_\_foo](<#class-t_testsizestructcache_0localnamefoo>)
+
+  - [`function new(?a:stdgo.GoUInt32):Void`](<#t_testsizestructcache_0localnamefoo-function-new>)
+
+- [class T\_testSizeStructCache\_1\_\_\_localname\_\_\_bar](<#class-t_testsizestructcache_1localnamebar>)
+
+  - [`function new(?a:stdgo.encoding.binary.Struct, ?b:stdgo.encoding.binary.T_testSizeStructCache_0___localname___foo, ?c:stdgo.encoding.binary.Struct):Void`](<#t_testsizestructcache_1localnamebar-function-new>)
+
 - [class Unexported](<#class-unexported>)
 
   - [`function new(?_a:stdgo.GoInt32):Void`](<#unexported-function-new>)
@@ -235,6 +243,8 @@ stdgo/internal/Macro.macro.hx:35: define
 - [typedef AppendByteOrder](<#typedef-appendbyteorder>)
 
 - [typedef ByteOrder](<#typedef-byteorder>)
+
+- [typedef T\_testByteOrder\_0\_\_\_localname\_\_\_byteOrder](<#typedef-t_testbyteorder_0localnamebyteorder>)
 
 # Examples
 
@@ -1797,6 +1807,66 @@ function new(?int_:Null<stdgo.GoInt>, ?uint:Null<stdgo.GoUInt>, ?uintptr:stdgo.G
 [\(view code\)](<./Binary.hx#L503>)
 
 
+## class T\_testSizeStructCache\_0\_\_\_localname\_\_\_foo
+
+
+
+
+
+```haxe
+var a:stdgo.GoUInt32
+```
+
+
+### T\_testSizeStructCache\_0\_\_\_localname\_\_\_foo function new
+
+
+```haxe
+function new(?a:stdgo.GoUInt32):Void
+```
+
+
+
+
+
+[\(view code\)](<./Binary.hx#L1328>)
+
+
+## class T\_testSizeStructCache\_1\_\_\_localname\_\_\_bar
+
+
+
+
+
+```haxe
+var a:stdgo.encoding.binary.Struct
+```
+
+
+```haxe
+var b:stdgo.encoding.binary.T_testSizeStructCache_0___localname___foo
+```
+
+
+```haxe
+var c:stdgo.encoding.binary.Struct
+```
+
+
+### T\_testSizeStructCache\_1\_\_\_localname\_\_\_bar function new
+
+
+```haxe
+function new(?a:stdgo.encoding.binary.Struct, ?b:stdgo.encoding.binary.T_testSizeStructCache_0___localname___foo, ?c:stdgo.encoding.binary.Struct):Void
+```
+
+
+
+
+
+[\(view code\)](<./Binary.hx#L1345>)
+
+
 ## class Unexported
 
 
@@ -1896,5 +1966,16 @@ function exampleByteOrder_put():Void {
 
 </p>
 </details>
+
+
+## typedef T\_testByteOrder\_0\_\_\_localname\_\_\_byteOrder
+
+
+```haxe
+typedef T_testByteOrder_0___localname___byteOrder = var a:{<__underlying__> | (_0:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt64 | {<haxe_doc>} | (_0:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt32 | {<haxe_doc>} | (_0:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt16 | {<haxe_doc>} | ():stdgo.GoString | {<haxe_doc>} | (_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt64):Void | {<haxe_doc>} | (_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt32):Void | {<haxe_doc>} | (_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt16):Void | {<haxe_doc>} | (_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt64):stdgo.Slice<stdgo.GoByte> | {<haxe_doc>} | (_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt32):stdgo.Slice<stdgo.GoByte> | {<haxe_doc>} | (_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt16):stdgo.Slice<stdgo.GoByte> | {<haxe_doc>} | ():stdgo.AnyInterface}
+```
+
+
+
 
 

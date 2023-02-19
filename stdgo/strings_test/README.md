@@ -384,6 +384,10 @@
 
   - [`function new(?_in:stdgo.GoString, ?_out:stdgo.GoString):Void`](<#stringtest-function-new>)
 
+- [class T\_testReplacer\_0\_\_\_localname\_\_\_testCase](<#class-t_testreplacer_0localnametestcase>)
+
+  - [`function new(?_r:stdgo.Ref<stdgo.strings.Replacer>, ?_in:stdgo.GoString, ?_out:stdgo.GoString):Void`](<#t_testreplacer_0localnametestcase-function-new>)
+
 # Variables
 
 
@@ -3091,5 +3095,40 @@ function new(?_in:stdgo.GoString, ?_out:stdgo.GoString):Void
 
 
 [\(view code\)](<./Strings_test.hx#L952>)
+
+
+## class T\_testReplacer\_0\_\_\_localname\_\_\_testCase
+
+
+
+
+
+```haxe
+var _in:stdgo.GoString
+```
+
+
+```haxe
+var _out:stdgo.GoString
+```
+
+
+```haxe
+var _r:stdgo.Ref<stdgo.strings.Replacer>
+```
+
+
+### T\_testReplacer\_0\_\_\_localname\_\_\_testCase function new
+
+
+```haxe
+function new(?_r:stdgo.Ref<stdgo.strings.Replacer>, ?_in:stdgo.GoString, ?_out:stdgo.GoString):Void
+```
+
+
+
+
+
+[\(view code\)](<./Strings_test.hx#L2525>)
 
 

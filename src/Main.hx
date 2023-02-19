@@ -537,10 +537,20 @@ function compile(instance:InstanceData):Bool {
 
 		if (Path.extension(path) == "go" || path.charAt(0) == "." || path.indexOf("/") == -1)
 			continue;
-		if (Typer.stdgoList.indexOf(path) != -1) 
+		if (Typer.stdgoList.indexOf(path) != -1)
 			continue;
 		var command = 'go get $path';
+		Sys.setCwd(instance.localPath);
+		#if (target.threaded)
+		final proc = new sys.io.Process("go mod init go2hxlib");
+		proc.exitCode();
+		proc.close();
+		#else
+		Sys.command("go mod init go2hxlib");
+		#end
+		Sys.println(command);
 		Sys.command(command);
+		Sys.setCwd(cwd);
 	}
 	return write(instance.args, instance);
 }

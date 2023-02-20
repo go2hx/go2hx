@@ -898,6 +898,9 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 		var catchBlock:Array<Expr> = [macro var exe:Dynamic = __exception__.native];
 		catchBlock.push(macro if ((exe is haxe.ValueException))
 				exe = exe.value);
+		catchBlock.push(macro if (!(exe is AnyInterfaceData)) {
+			exe = Go.toInterface(__exception__.message);
+		});
 		catchBlock.push(macro Go.recover_exception = exe);
 		switch e.expr {
 			case EBlock(exprs):
@@ -913,8 +916,8 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 		exprs.push(typeDeferReturn(info, true));
 		exprs.push(ret);
 		// recover
-		var pos = 2 + info.returnNames.length;
-		var trydef = macro try
+		final pos = 1 + info.returnNames.length;
+		final trydef = macro try
 			$b{exprs.slice(pos)} catch (__exception__)
 			$b{catchBlock};
 		// don't include recover and defer stack

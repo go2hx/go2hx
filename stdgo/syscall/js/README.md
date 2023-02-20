@@ -7,11 +7,11 @@ stdgo/syscall/js_test/Js_test.hx:184: characters 16-21 : Type not found : Value
 stdgo/syscall/js_test/Js_test.hx:206: characters 20-25 : Type not found : Value
 stdgo/syscall/js_test/Js_test.hx:207: characters 16-21 : Type not found : Value
 stdgo/syscall/js_test/Js_test.hx:213: characters 16-21 : Type not found : Value
-stdgo/syscall/js_test/Js_test.hx:760: characters 82-92 : Type not found : ValueError
-stdgo/syscall/js_test/Js_test.hx:762: characters 47-57 : Type not found : ValueError
-stdgo/syscall/js_test/Js_test.hx:763: characters 37-42 : Void has no field value
-stdgo/syscall/js_test/Js_test.hx:763: characters 58-60 : Void has no field ok
-stdgo/syscall/js_test/Js_test.hx:759: characters 25-32 : Variables of type Void are not allowed
+stdgo/syscall/js_test/Js_test.hx:773: characters 86-96 : Type not found : ValueError
+stdgo/syscall/js_test/Js_test.hx:775: characters 51-61 : Type not found : ValueError
+stdgo/syscall/js_test/Js_test.hx:776: characters 41-46 : Void has no field value
+stdgo/syscall/js_test/Js_test.hx:776: characters 62-64 : Void has no field ok
+stdgo/syscall/js_test/Js_test.hx:772: characters 29-36 : Variables of type Void are not allowed
 stdgo/syscall/js_test/Js_test.hx:386: characters 24-29 : Type not found : Value
 stdgo/syscall/js_test/Js_test.hx:402: characters 13-121 : stdgo.syscall.js.Type should be Type
 stdgo/syscall/js_test/Js_test.hx:402: characters 77-87 : Int should be Type
@@ -55,25 +55,25 @@ stdgo/syscall/js_test/Js_test.hx:493: characters 16-21 : Type not found : Value
 stdgo/syscall/js_test/Js_test.hx:502: characters 21-25 : Type not found : Func
 stdgo/syscall/js_test/Js_test.hx:522: characters 89-108 : invalid type: TDynamic(null)
 stdgo/syscall/js_test/Js_test.hx:522: characters 89-108 : ... For function argument '_args'
-stdgo/syscall/js_test/Js_test.hx:549: characters 21-25 : Type not found : Func
-stdgo/syscall/js_test/Js_test.hx:658: characters 148-153 : Type not found : Value
-stdgo/syscall/js_test/Js_test.hx:658: characters 148-153 : ... For function argument '_args'
-stdgo/syscall/js_test/Js_test.hx:665: characters 16-20 : Type not found : Func
-stdgo/syscall/js_test/Js_test.hx:835: characters 26-31 : Type not found : Value
-stdgo/syscall/js_test/Js_test.hx:864: characters 26-31 : Type not found : Value
-stdgo/syscall/js_test/Js_test.hx:927: characters 20-24 : Type not found : Func
-stdgo/syscall/js_test/Js_test.hx:935: characters 26-31 : Type not found : Value
-stdgo/syscall/js_test/Js_test.hx:937: characters 80-100 : invalid type: TDynamic(null)
-stdgo/syscall/js_test/Js_test.hx:937: characters 80-100 : ... For function argument 'args'
-stdgo/syscall/js_test/Js_test.hx:902: characters 23-28 : Type not found : Value
-stdgo/syscall/js_test/Js_test.hx:910: characters 26-31 : Type not found : Value
-stdgo/syscall/js_test/Js_test.hx:912: characters 100-120 : invalid type: TDynamic(null)
-stdgo/syscall/js_test/Js_test.hx:913: characters 28-33 : Type not found : Value
-stdgo/syscall/js_test/Js_test.hx:921: characters 100-120 : invalid type: TDynamic(null)
-stdgo/syscall/js_test/Js_test.hx:673: characters 17-21 : Type not found : Func
-stdgo/syscall/js_test/Js_test.hx:674: characters 58-63 : Type not found : Value
-stdgo/syscall/js_test/Js_test.hx:683: characters 235-254 : invalid type: TDynamic(null)
-stdgo/syscall/js_test/Js_test.hx:683: characters 235-254 : ... For function argument '_args'
+stdgo/syscall/js_test/Js_test.hx:552: characters 21-25 : Type not found : Func
+stdgo/syscall/js_test/Js_test.hx:670: characters 148-153 : Type not found : Value
+stdgo/syscall/js_test/Js_test.hx:670: characters 148-153 : ... For function argument '_args'
+stdgo/syscall/js_test/Js_test.hx:677: characters 16-20 : Type not found : Func
+stdgo/syscall/js_test/Js_test.hx:853: characters 26-31 : Type not found : Value
+stdgo/syscall/js_test/Js_test.hx:882: characters 26-31 : Type not found : Value
+stdgo/syscall/js_test/Js_test.hx:946: characters 24-28 : Type not found : Func
+stdgo/syscall/js_test/Js_test.hx:953: characters 26-31 : Type not found : Value
+stdgo/syscall/js_test/Js_test.hx:955: characters 80-100 : invalid type: TDynamic(null)
+stdgo/syscall/js_test/Js_test.hx:955: characters 80-100 : ... For function argument 'args'
+stdgo/syscall/js_test/Js_test.hx:920: characters 23-28 : Type not found : Value
+stdgo/syscall/js_test/Js_test.hx:928: characters 26-31 : Type not found : Value
+stdgo/syscall/js_test/Js_test.hx:930: characters 100-120 : invalid type: TDynamic(null)
+stdgo/syscall/js_test/Js_test.hx:931: characters 28-33 : Type not found : Value
+stdgo/syscall/js_test/Js_test.hx:939: characters 100-120 : invalid type: TDynamic(null)
+stdgo/syscall/js_test/Js_test.hx:685: characters 17-21 : Type not found : Func
+stdgo/syscall/js_test/Js_test.hx:686: characters 58-63 : Type not found : Value
+stdgo/syscall/js_test/Js_test.hx:695: characters 235-254 : invalid type: TDynamic(null)
+stdgo/syscall/js_test/Js_test.hx:695: characters 235-254 : ... For function argument '_args'
 stdgo/internal/Macro.macro.hx:35: define
 
 ```

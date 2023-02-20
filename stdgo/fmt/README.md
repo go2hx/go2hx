@@ -875,43 +875,95 @@ bufio.NewReader.
 Error: Command failed with error 1
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestErrorf
---- PASS: TestErrorf (%!s(float64=0.009672164916992188))
+--- PASS: TestErrorf (%!s(float64=0.012622833251953125))
 
 === RUN  TestFmtInterface
---- PASS: TestFmtInterface (%!s(float64=0.00013685226440429688))
+--- PASS: TestFmtInterface (%!s(float64=0.00019693374633789062))
 
 === RUN  TestSprintf
---- PASS: TestSprintf (%!s(float64=0.2683990001678467))
+--- PASS: TestSprintf (%!s(float64=0.3504350185394287))
 
 === RUN  TestComplexFormatting
---- PASS: TestComplexFormatting (%!s(float64=1.2105889320373535))
+--- PASS: TestComplexFormatting (%!s(float64=1.4901790618896484))
 
 === RUN  TestReorder
---- PASS: TestReorder (%!s(float64=0.010335922241210938))
+--- PASS: TestReorder (%!s(float64=0.012159109115600586))
 
 === RUN  TestCountMallocs
---- PASS: TestCountMallocs (%!s(float64=1.6927719116210938e-05))
+--- PASS: TestCountMallocs (%!s(float64=2.5033950805664062e-05))
 
 === RUN  TestFlagParser
---- PASS: TestFlagParser (%!s(float64=0.00726008415222168))
+--- PASS: TestFlagParser (%!s(float64=0.015655994415283203))
 
 === RUN  TestStructPrinter
---- PASS: TestStructPrinter (%!s(float64=0.004384040832519531))
+--- PASS: TestStructPrinter (%!s(float64=0.0056438446044921875))
 
 === RUN  TestSlicePrinter
---- PASS: TestSlicePrinter (%!s(float64=0.0008370876312255859))
+--- PASS: TestSlicePrinter (%!s(float64=0.0009779930114746094))
 
 === RUN  TestMapPrinter
---- PASS: TestMapPrinter (%!s(float64=0.004538059234619141))
+--- PASS: TestMapPrinter (%!s(float64=0.00560307502746582))
 
 === RUN  TestEmptyMap
+--- PASS: TestEmptyMap (%!s(float64=0.0020940303802490234))
+
+=== RUN  TestBlank
+--- PASS: TestBlank (%!s(float64=0.0005130767822265625))
+
+=== RUN  TestBlankln
+--- PASS: TestBlankln (%!s(float64=0.0006229877471923828))
+
+=== RUN  TestFormatterPrintln
+--- PASS: TestFormatterPrintln (%!s(float64=0.0019061565399169922))
+
+=== RUN  TestWidthAndPrecision
+--- PASS: TestWidthAndPrecision (%!s(float64=0.0050580501556396484))
+
+=== RUN  TestPanics
+fmt_test/Fmt_test.hx:3294: testPanics skip function
+--- PASS: TestPanics (%!s(float64=2.2172927856445312e-05))
+
+=== RUN  TestBadVerbRecursion
+--- PASS: TestBadVerbRecursion (%!s(float64=0.0002429485321044922))
+
+=== RUN  TestIsSpace
+--- PASS: TestIsSpace (%!s(float64=1.0349030494689941))
+
+=== RUN  TestNilDoesNotBecomeTyped
+--- PASS: TestNilDoesNotBecomeTyped (%!s(float64=0.002167940139770508))
+
+=== RUN  TestFormatterFlags
+--- PASS: TestFormatterFlags (%!s(float64=0.03492093086242676))
+
+=== RUN  TestParsenum
+--- PASS: TestParsenum (%!s(float64=1.9073486328125e-05))
+
+=== RUN  TestAppendf
+--- PASS: TestAppendf (%!s(float64=0.00013494491577148438))
+
+=== RUN  TestAppend
+--- PASS: TestAppend (%!s(float64=0.0004611015319824219))
+
+=== RUN  TestAppendln
+--- PASS: TestAppendln (%!s(float64=0.002147197723388672))
+
+=== RUN  TestScan
+--- PASS: TestScan (%!s(float64=1.4066696166992188e-05))
+
+=== RUN  TestScanln
+--- PASS: TestScanln (%!s(float64=5.0067901611328125e-06))
+
+=== RUN  TestScanf
 Exception: Null access
-Called from stdgo.internal.fmtsort._Fmtsort.$Fmtsort_Fields_.sort (stdgo/internal/fmtsort/Fmtsort.hx line 67)
-Called from stdgo.fmt.$T_pp_static_extension._printValue (stdgo/fmt/Fmt.hx line 2791)
-Called from stdgo.fmt.$T_pp_static_extension._printArg (stdgo/fmt/Fmt.hx line 3022)
-Called from stdgo.fmt.$T_pp_static_extension._doPrint (stdgo/fmt/Fmt.hx line 2448)
-Called from stdgo.fmt._Fmt.$Fmt_Fields_.sprint (stdgo/fmt/Fmt.hx line 1241)
-Called from stdgo.fmt_test._Fmt_test.$Fmt_test_Fields_.testEmptyMap (stdgo/fmt_test/Fmt_test.hx line 3230)
+Called from stdgo.internal.reflect._Reflect.$Reflect_Fields_.directlyAssignable (stdgo/internal/reflect/Reflect.hx line 199)
+Called from stdgo.internal.reflect.$_Type_static_extension.assignableTo (stdgo/internal/reflect/Reflect.hx line 1010)
+Called from stdgo.internal.reflect._Reflect.$Reflect_Fields_.implementsMethod (stdgo/internal/reflect/Reflect.hx line 377)
+Called from stdgo.internal.reflect.$_Type_static_extension.implements_ (stdgo/internal/reflect/Reflect.hx line 1021)
+Called from stdgo.internal.reflect.$_Type_static_extension.assignableTo (stdgo/internal/reflect/Reflect.hx line 1010)
+Called from stdgo.fmt._Fmt.$Fmt_Fields_._newScanState (stdgo/Go.macro.hx line 507)
+Called from stdgo.fmt._Fmt.$Fmt_Fields_.fscanf (stdgo/fmt/Fmt.hx line 1528)
+Called from stdgo.fmt._Fmt.$Fmt_Fields_.sscanf (stdgo/fmt/Fmt.hx line 1483)
+Called from stdgo.fmt_test._Fmt_test.$Fmt_test_Fields_.testScanf (stdgo/fmt_test/Fmt_test.hx line 3466)
 Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 355)
 Called from stdgo.fmt_test._Fmt.$Fmt_Fields_.main (stdgo/fmt_test/Fmt.hx line 136)
 ```
@@ -924,44 +976,96 @@ Called from stdgo.fmt_test._Fmt.$Fmt_Fields_.main (stdgo/fmt_test/Fmt.hx line 13
 ```
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestErrorf
---- PASS: TestErrorf (%!s(float64=0.012037992477416992))
+--- PASS: TestErrorf (%!s(float64=0.014117002487182617))
 
 === RUN  TestFmtInterface
---- PASS: TestFmtInterface (%!s(float64=0.0002651214599609375))
+--- PASS: TestFmtInterface (%!s(float64=0.00029397010803222656))
 
 === RUN  TestSprintf
---- PASS: TestSprintf (%!s(float64=0.6354689598083496))
+--- PASS: TestSprintf (%!s(float64=0.7727541923522949))
 
 === RUN  TestComplexFormatting
---- PASS: TestComplexFormatting (%!s(float64=3.9502580165863037))
+--- PASS: TestComplexFormatting (%!s(float64=4.842864036560059))
 
 === RUN  TestReorder
---- PASS: TestReorder (%!s(float64=0.02660679817199707))
+--- PASS: TestReorder (%!s(float64=0.03319907188415527))
 
 === RUN  TestCountMallocs
---- PASS: TestCountMallocs (%!s(float64=3.1948089599609375e-05))
+--- PASS: TestCountMallocs (%!s(float64=4.9114227294921875e-05))
 
 === RUN  TestFlagParser
---- PASS: TestFlagParser (%!s(float64=0.009654045104980469))
+--- PASS: TestFlagParser (%!s(float64=0.010946035385131836))
 
 === RUN  TestStructPrinter
---- PASS: TestStructPrinter (%!s(float64=0.007037162780761719))
+--- PASS: TestStructPrinter (%!s(float64=0.009213924407958984))
 
 === RUN  TestSlicePrinter
---- PASS: TestSlicePrinter (%!s(float64=0.0019099712371826172))
+--- PASS: TestSlicePrinter (%!s(float64=0.0021810531616210938))
 
 === RUN  TestMapPrinter
---- PASS: TestMapPrinter (%!s(float64=0.006736040115356445))
+--- PASS: TestMapPrinter (%!s(float64=0.00755000114440918))
 
 === RUN  TestEmptyMap
+--- PASS: TestEmptyMap (%!s(float64=0.0009121894836425781))
+
+=== RUN  TestBlank
+--- PASS: TestBlank (%!s(float64=0.0009701251983642578))
+
+=== RUN  TestBlankln
+--- PASS: TestBlankln (%!s(float64=0.0009272098541259766))
+
+=== RUN  TestFormatterPrintln
+--- PASS: TestFormatterPrintln (%!s(float64=0.0032639503479003906))
+
+=== RUN  TestWidthAndPrecision
+--- PASS: TestWidthAndPrecision (%!s(float64=0.008601903915405273))
+
+=== RUN  TestPanics
+fmt_test/Fmt_test.hx:3294: testPanics skip function
+--- PASS: TestPanics (%!s(float64=5.0067901611328125e-05))
+
+=== RUN  TestBadVerbRecursion
+--- PASS: TestBadVerbRecursion (%!s(float64=0.0008478164672851562))
+
+=== RUN  TestIsSpace
+--- PASS: TestIsSpace (%!s(float64=7.542510032653809))
+
+=== RUN  TestNilDoesNotBecomeTyped
+--- PASS: TestNilDoesNotBecomeTyped (%!s(float64=0.0012640953063964844))
+
+=== RUN  TestFormatterFlags
+--- PASS: TestFormatterFlags (%!s(float64=0.05070304870605469))
+
+=== RUN  TestParsenum
+--- PASS: TestParsenum (%!s(float64=5.507469177246094e-05))
+
+=== RUN  TestAppendf
+--- PASS: TestAppendf (%!s(float64=0.0004010200500488281))
+
+=== RUN  TestAppend
+--- PASS: TestAppend (%!s(float64=0.0006761550903320312))
+
+=== RUN  TestAppendln
+--- PASS: TestAppendln (%!s(float64=0.0005118846893310547))
+
+=== RUN  TestScan
+--- PASS: TestScan (%!s(float64=1.5020370483398438e-05))
+
+=== RUN  TestScanln
+--- PASS: TestScanln (%!s(float64=1.5020370483398438e-05))
+
+=== RUN  TestScanf
 Exception: Null Access
-Called from stdgo.fmt_test._Fmt_test.Fmt_test_Fields_.testEmptyMap (stdgo/fmt_test/Fmt_test.hx line 3230 column 27)
-Called from stdgo.fmt._Fmt.Fmt_Fields_.sprint (stdgo/fmt/Fmt.hx line 1241 column 9)
-Called from stdgo.fmt.T_pp_static_extension._doPrint (stdgo/fmt/Fmt.hx line 2448 column 13)
-Called from stdgo.fmt.T_pp_static_extension._printArg (stdgo/fmt/Fmt.hx line 3022 column 21)
-Called from stdgo.fmt.T_pp_static_extension._printValue (stdgo/fmt/Fmt.hx line 2791 column 39)
-Called from stdgo.internal.fmtsort._Fmtsort.Fmtsort_Fields_.sort (stdgo/internal/fmtsort/Fmtsort.hx line 67 column 16)
-Called from stdgo.reflect.MapIter_static_extension.next (stdgo/reflect/Reflect.hx line 35 column 4)
+Called from stdgo.fmt_test._Fmt_test.Fmt_test_Fields_.testScanf (stdgo/fmt_test/Fmt_test.hx line 3466 column 27)
+Called from stdgo.fmt._Fmt.Fmt_Fields_.sscanf (stdgo/fmt/Fmt.hx line 1483 column 16)
+Called from stdgo.fmt._Fmt.Fmt_Fields_.fscanf (stdgo/fmt/Fmt.hx line 1528 column 23)
+Called from stdgo.fmt._Fmt.Fmt_Fields_._newScanState (stdgo/fmt/Fmt.hx line 341 column 19)
+Called from stdgo.internal.reflect._Type_static_extension.assignableTo (stdgo/internal/reflect/Reflect.hx line 1010 column 42)
+Called from stdgo.internal.reflect._Type_static_extension.implements_ (stdgo/internal/reflect/Reflect.hx line 1021 column 10)
+Called from stdgo.internal.reflect._Reflect.Reflect_Fields_.implementsMethod (stdgo/internal/reflect/Reflect.hx line 377 column 13)
+Called from stdgo.internal.reflect._Type_static_extension.assignableTo (stdgo/internal/reflect/Reflect.hx line 1010 column 13)
+Called from stdgo.internal.reflect._Reflect.Reflect_Fields_.directlyAssignable (stdgo/internal/reflect/Reflect.hx line 199 column 12)
+Called from stdgo.internal.reflect._Reflect.Reflect_Fields_.identicalType (stdgo/internal/reflect/Reflect.hx line 320 column 84)
 ```
 </p>
 </details>

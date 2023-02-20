@@ -41,9 +41,9 @@ stdgo/io/fs_test/Fs_test.hx:474: characters 57-82 : ... For function argument '_
 stdgo/io/fs_test/Fs_test.hx:477: characters 62-87 : invalid type: TAbstract(stdgo.GoMap,[TAbstract(stdgo.GoString,[]),TType(stdgo.Ref,[TInst(<...>,[])])])
 stdgo/io/fs_test/Fs_test.hx:477: characters 62-87 : ... For optional function argument 'fs'
 stdgo/io/fs_test/Fs_test.hx:477: characters 62-87 : ... For function argument '_fsys'
-stdgo/io/fs_test/Fs_test.hx:606: characters 77-105 : Type not found : stdgo.path.filepath.Filepath
-stdgo/io/fs_test/Fs_test.hx:614: characters 33-61 : Type not found : stdgo.path.filepath.Filepath
-stdgo/io/fs_test/Fs_test.hx:629: characters 28-56 : Type not found : stdgo.path.filepath.Filepath
+stdgo/io/fs_test/Fs_test.hx:609: characters 77-105 : Type not found : stdgo.path.filepath.Filepath
+stdgo/io/fs_test/Fs_test.hx:617: characters 33-61 : Type not found : stdgo.path.filepath.Filepath
+stdgo/io/fs_test/Fs_test.hx:632: characters 28-56 : Type not found : stdgo.path.filepath.Filepath
 stdgo/internal/Macro.macro.hx:35: define
 
 ```

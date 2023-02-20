@@ -1128,7 +1128,7 @@ Key returns the key of iter's current map entry.
 
 
 
-[\(view code\)](<./Reflect.hx#L2853>)
+[\(view code\)](<./Reflect.hx#L2854>)
 
 
 ### MapIter function next
@@ -1178,7 +1178,7 @@ Value returns the value of iter's current map entry.
 
 
 
-[\(view code\)](<./Reflect.hx#L2835>)
+[\(view code\)](<./Reflect.hx#L2836>)
 
 
 ## class Method
@@ -2999,7 +2999,7 @@ function string():stdgo.GoString
 
 
 
-[\(view code\)](<./Reflect.hx#L2962>)
+[\(view code\)](<./Reflect.hx#L2963>)
 
 
 ## typedef Kind
@@ -3027,7 +3027,7 @@ String returns the name of k.
 
 
 
-[\(view code\)](<./Reflect.hx#L2887>)
+[\(view code\)](<./Reflect.hx#L2888>)
 
 
 ## typedef SelectDir
@@ -3079,7 +3079,7 @@ explicitly set to the empty string, use Lookup.
 
 
 
-[\(view code\)](<./Reflect.hx#L3011>)
+[\(view code\)](<./Reflect.hx#L3012>)
 
 
 ### StructTag function lookup
@@ -3099,7 +3099,7 @@ the value returned by Lookup is unspecified.
 
 
 
-[\(view code\)](<./Reflect.hx#L3002>)
+[\(view code\)](<./Reflect.hx#L3003>)
 
 
 ## typedef Type

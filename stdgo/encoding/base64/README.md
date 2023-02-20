@@ -223,7 +223,7 @@ function benchmarkDecodeString(_b:stdgo.Ref<stdgo.testing.B>):Void
 
 
 
-[\(view code\)](<./Base64.hx#L1337>)
+[\(view code\)](<./Base64.hx#L1340>)
 
 
 ## function benchmarkEncodeToString
@@ -237,7 +237,7 @@ function benchmarkEncodeToString(_b:stdgo.Ref<stdgo.testing.B>):Void
 
 
 
-[\(view code\)](<./Base64.hx#L1327>)
+[\(view code\)](<./Base64.hx#L1330>)
 
 
 ## function benchmarkNewEncoding
@@ -251,7 +251,7 @@ function benchmarkNewEncoding(_b:stdgo.Ref<stdgo.testing.B>):Void
 
 
 
-[\(view code\)](<./Base64.hx#L1356>)
+[\(view code\)](<./Base64.hx#L1359>)
 
 
 ## function newDecoder
@@ -339,7 +339,7 @@ function testBig(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 
-[\(view code\)](<./Base64.hx#L1181>)
+[\(view code\)](<./Base64.hx#L1184>)
 
 
 ## function testDecode
@@ -395,7 +395,7 @@ function testDecodedLen(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 
-[\(view code\)](<./Base64.hx#L1171>)
+[\(view code\)](<./Base64.hx#L1174>)
 
 
 ## function testDecoder
@@ -437,7 +437,7 @@ function testDecoderIssue15656(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 
-[\(view code\)](<./Base64.hx#L1306>)
+[\(view code\)](<./Base64.hx#L1309>)
 
 
 ## function testDecoderIssue3577
@@ -452,7 +452,7 @@ tests that we don't ignore errors from our underlying reader
 
 
 
-[\(view code\)](<./Base64.hx#L1251>)
+[\(view code\)](<./Base64.hx#L1254>)
 
 
 ## function testDecoderIssue4779
@@ -466,7 +466,7 @@ function testDecoderIssue4779(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 
-[\(view code\)](<./Base64.hx#L1274>)
+[\(view code\)](<./Base64.hx#L1277>)
 
 
 ## function testDecoderIssue7733
@@ -480,7 +480,7 @@ function testDecoderIssue7733(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 
-[\(view code\)](<./Base64.hx#L1296>)
+[\(view code\)](<./Base64.hx#L1299>)
 
 
 ## function testDecoderRaw
@@ -494,7 +494,7 @@ function testDecoderRaw(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 
-[\(view code\)](<./Base64.hx#L1368>)
+[\(view code\)](<./Base64.hx#L1371>)
 
 
 ## function testEncode
@@ -522,7 +522,7 @@ function testEncodedLen(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 
-[\(view code\)](<./Base64.hx#L1148>)
+[\(view code\)](<./Base64.hx#L1151>)
 
 
 ## function testEncoder
@@ -564,7 +564,7 @@ function testNewLineCharacters(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 
-[\(view code\)](<./Base64.hx#L1218>)
+[\(view code\)](<./Base64.hx#L1221>)
 
 
 # Classes
@@ -636,7 +636,7 @@ to dst, and an error, if any.
 
 
 
-[\(view code\)](<./Base64.hx#L1569>)
+[\(view code\)](<./Base64.hx#L1572>)
 
 
 ### Encoding function decode
@@ -655,7 +655,7 @@ New line characters \(\\r and \\n\) are ignored.
 
 
 
-[\(view code\)](<./Base64.hx#L1484>)
+[\(view code\)](<./Base64.hx#L1487>)
 
 
 ### Encoding function decodeString
@@ -670,7 +670,7 @@ DecodeString returns the bytes represented by the base64 string s.
 
 
 
-[\(view code\)](<./Base64.hx#L1556>)
+[\(view code\)](<./Base64.hx#L1559>)
 
 
 ### Encoding function decodedLen
@@ -686,7 +686,7 @@ corresponding to n bytes of base64\-encoded data.
 
 
 
-[\(view code\)](<./Base64.hx#L1470>)
+[\(view code\)](<./Base64.hx#L1473>)
 
 
 ### Encoding function encode
@@ -708,7 +708,7 @@ of a large data stream. Use NewEncoder\(\) instead.
 
 
 
-[\(view code\)](<./Base64.hx#L1697>)
+[\(view code\)](<./Base64.hx#L1700>)
 
 
 ### Encoding function encodeToString
@@ -723,7 +723,7 @@ EncodeToString returns the base64 encoding of src.
 
 
 
-[\(view code\)](<./Base64.hx#L1683>)
+[\(view code\)](<./Base64.hx#L1686>)
 
 
 ### Encoding function encodedLen
@@ -739,7 +739,7 @@ of an input buffer of length n.
 
 
 
-[\(view code\)](<./Base64.hx#L1673>)
+[\(view code\)](<./Base64.hx#L1676>)
 
 
 ### Encoding function strict
@@ -761,7 +761,7 @@ Note that the input is still malleable, as new line characters
 
 
 
-[\(view code\)](<./Base64.hx#L1744>)
+[\(view code\)](<./Base64.hx#L1747>)
 
 
 ### Encoding function withPadding
@@ -780,7 +780,7 @@ below '\\xff'.
 
 
 
-[\(view code\)](<./Base64.hx#L1756>)
+[\(view code\)](<./Base64.hx#L1759>)
 
 
 # Typedefs
@@ -813,6 +813,6 @@ function error():stdgo.GoString
 
 
 
-[\(view code\)](<./Base64.hx#L2022>)
+[\(view code\)](<./Base64.hx#L2025>)
 
 

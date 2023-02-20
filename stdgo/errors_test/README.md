@@ -98,7 +98,7 @@ function exampleAs():Void
 
 
 
-[\(view code\)](<./Errors.hx#L485>)
+[\(view code\)](<./Errors.hx#L488>)
 
 
 ## function exampleIs
@@ -112,7 +112,7 @@ function exampleIs():Void
 
 
 
-[\(view code\)](<./Errors.hx#L473>)
+[\(view code\)](<./Errors.hx#L476>)
 
 
 ## function exampleJoin
@@ -170,7 +170,7 @@ function exampleUnwrap():Void
 
 
 
-[\(view code\)](<./Errors.hx#L498>)
+[\(view code\)](<./Errors.hx#L501>)
 
 
 ## function testAs
@@ -296,7 +296,7 @@ function testUnwrap(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 
-[\(view code\)](<./Errors.hx#L460>)
+[\(view code\)](<./Errors.hx#L463>)
 
 
 # Classes
@@ -349,6 +349,6 @@ function error():stdgo.GoString
 
 
 
-[\(view code\)](<./Errors_test.hx#L517>)
+[\(view code\)](<./Errors_test.hx#L520>)
 
 

@@ -41,47 +41,47 @@ stdgo/io/fs_test/Fs_test.hx:474: characters 57-82 : ... For function argument '_
 stdgo/io/fs_test/Fs_test.hx:477: characters 62-87 : invalid type: TAbstract(stdgo.GoMap,[TAbstract(stdgo.GoString,[]),TType(stdgo.Ref,[TInst(<...>,[])])])
 stdgo/io/fs_test/Fs_test.hx:477: characters 62-87 : ... For optional function argument 'fs'
 stdgo/io/fs_test/Fs_test.hx:477: characters 62-87 : ... For function argument '_fsys'
-stdgo/io/fs_test/Fs_test.hx:606: characters 77-105 : Type not found : stdgo.path.filepath.Filepath
-stdgo/io/fs_test/Fs_test.hx:614: characters 33-61 : Type not found : stdgo.path.filepath.Filepath
-stdgo/io/fs_test/Fs_test.hx:629: characters 28-56 : Type not found : stdgo.path.filepath.Filepath
-stdgo/io_test/Io_test.hx:1800: characters 26-32 : Unknown identifier : reader
-stdgo/io_test/Io_test.hx:1843: characters 26-32 : Unknown identifier : writer
-stdgo/math/big/Big.hx:7635: characters 20-42 : Type not found : stdgo.encoding.gob.Gob
-stdgo/math/big/Big.hx:7636: characters 20-42 : Type not found : stdgo.encoding.gob.Gob
-stdgo/math/big/Big.hx:7689: characters 30-52 : Type not found : stdgo.encoding.gob.Gob
-stdgo/math/big/Big.hx:7697: characters 30-52 : Type not found : stdgo.encoding.gob.Gob
+stdgo/io/fs_test/Fs_test.hx:609: characters 77-105 : Type not found : stdgo.path.filepath.Filepath
+stdgo/io/fs_test/Fs_test.hx:617: characters 33-61 : Type not found : stdgo.path.filepath.Filepath
+stdgo/io/fs_test/Fs_test.hx:632: characters 28-56 : Type not found : stdgo.path.filepath.Filepath
+stdgo/io_test/Io_test.hx:1815: characters 26-32 : Unknown identifier : reader
+stdgo/io_test/Io_test.hx:1858: characters 26-32 : Unknown identifier : writer
+stdgo/math/big/Big.hx:7641: characters 20-42 : Type not found : stdgo.encoding.gob.Gob
+stdgo/math/big/Big.hx:7642: characters 20-42 : Type not found : stdgo.encoding.gob.Gob
+stdgo/math/big/Big.hx:7695: characters 30-52 : Type not found : stdgo.encoding.gob.Gob
 stdgo/math/big/Big.hx:7703: characters 30-52 : Type not found : stdgo.encoding.gob.Gob
-stdgo/math/big/Big.hx:7710: characters 30-52 : Type not found : stdgo.encoding.gob.Gob
-stdgo/math/big/Big.hx:7730: characters 35-59 : Type not found : stdgo.encoding.json.Json
-stdgo/math/big/Big.hx:7738: characters 42-66 : Type not found : stdgo.encoding.json.Json
-stdgo/math/big/Big.hx:8517: characters 30-52 : Type not found : stdgo.encoding.hex.Hex
-stdgo/math/big/Big.hx:8518: characters 30-52 : Type not found : stdgo.encoding.hex.Hex
-stdgo/math/big/Big.hx:9781: characters 9-39 : Module stdgo.internal.testenv.Testenv does not define type Testenv
-stdgo/math/big/Big.hx:9989: characters 20-42 : Type not found : stdgo.encoding.gob.Gob
-stdgo/math/big/Big.hx:9990: characters 20-42 : Type not found : stdgo.encoding.gob.Gob
-stdgo/math/big/Big.hx:10024: characters 20-42 : Type not found : stdgo.encoding.gob.Gob
-stdgo/math/big/Big.hx:10025: characters 20-42 : Type not found : stdgo.encoding.gob.Gob
-stdgo/math/big/Big.hx:10050: characters 31-55 : Type not found : stdgo.encoding.json.Json
-stdgo/math/big/Big.hx:10057: characters 38-62 : Type not found : stdgo.encoding.json.Json
-stdgo/math/big/Big.hx:10087: characters 31-54 : Type not found : stdgo.encoding.xml.Xml_
-stdgo/math/big/Big.hx:10094: characters 38-61 : Type not found : stdgo.encoding.xml.Xml_
-stdgo/math/big/Big.hx:10116: characters 31-61 : Module stdgo.internal.testenv.Testenv does not define type Testenv
-stdgo/math/big/Big.hx:10117: characters 32-60 : Type not found : stdgo.path.filepath.Filepath
-stdgo/math/big/Big.hx:10125: characters 20-38 : Type not found : stdgo.os.exec.Exec
-stdgo/math/big/Big.hx:10133: characters 16-34 : Type not found : stdgo.os.exec.Exec
-stdgo/math/big/Big.hx:10696: characters 12-16 : stdgo.Ref<stdgo.testing.F> has no field fuzz
-stdgo/math/big/Big.hx:12687: characters 20-42 : Type not found : stdgo.encoding.gob.Gob
-stdgo/math/big/Big.hx:12688: characters 20-42 : Type not found : stdgo.encoding.gob.Gob
-stdgo/math/big/Big.hx:12719: characters 20-42 : Type not found : stdgo.encoding.gob.Gob
-stdgo/math/big/Big.hx:12720: characters 20-42 : Type not found : stdgo.encoding.gob.Gob
-stdgo/math/big/Big.hx:12744: characters 31-55 : Type not found : stdgo.encoding.json.Json
-stdgo/math/big/Big.hx:12751: characters 38-62 : Type not found : stdgo.encoding.json.Json
-stdgo/math/big/Big.hx:12768: characters 31-54 : Type not found : stdgo.encoding.xml.Xml_
-stdgo/math/big/Big.hx:12775: characters 38-61 : Type not found : stdgo.encoding.xml.Xml_
+stdgo/math/big/Big.hx:7709: characters 30-52 : Type not found : stdgo.encoding.gob.Gob
+stdgo/math/big/Big.hx:7716: characters 30-52 : Type not found : stdgo.encoding.gob.Gob
+stdgo/math/big/Big.hx:7736: characters 35-59 : Type not found : stdgo.encoding.json.Json
+stdgo/math/big/Big.hx:7744: characters 42-66 : Type not found : stdgo.encoding.json.Json
+stdgo/math/big/Big.hx:8523: characters 30-52 : Type not found : stdgo.encoding.hex.Hex
+stdgo/math/big/Big.hx:8524: characters 30-52 : Type not found : stdgo.encoding.hex.Hex
+stdgo/math/big/Big.hx:9793: characters 9-39 : Module stdgo.internal.testenv.Testenv does not define type Testenv
+stdgo/math/big/Big.hx:10001: characters 20-42 : Type not found : stdgo.encoding.gob.Gob
+stdgo/math/big/Big.hx:10002: characters 20-42 : Type not found : stdgo.encoding.gob.Gob
+stdgo/math/big/Big.hx:10036: characters 20-42 : Type not found : stdgo.encoding.gob.Gob
+stdgo/math/big/Big.hx:10037: characters 20-42 : Type not found : stdgo.encoding.gob.Gob
+stdgo/math/big/Big.hx:10062: characters 31-55 : Type not found : stdgo.encoding.json.Json
+stdgo/math/big/Big.hx:10069: characters 38-62 : Type not found : stdgo.encoding.json.Json
+stdgo/math/big/Big.hx:10099: characters 31-54 : Type not found : stdgo.encoding.xml.Xml_
+stdgo/math/big/Big.hx:10106: characters 38-61 : Type not found : stdgo.encoding.xml.Xml_
+stdgo/math/big/Big.hx:10128: characters 31-61 : Module stdgo.internal.testenv.Testenv does not define type Testenv
+stdgo/math/big/Big.hx:10129: characters 32-60 : Type not found : stdgo.path.filepath.Filepath
+stdgo/math/big/Big.hx:10137: characters 20-38 : Type not found : stdgo.os.exec.Exec
+stdgo/math/big/Big.hx:10145: characters 16-34 : Type not found : stdgo.os.exec.Exec
+stdgo/math/big/Big.hx:10711: characters 12-16 : stdgo.Ref<stdgo.testing.F> has no field fuzz
+stdgo/math/big/Big.hx:12711: characters 20-42 : Type not found : stdgo.encoding.gob.Gob
+stdgo/math/big/Big.hx:12712: characters 20-42 : Type not found : stdgo.encoding.gob.Gob
+stdgo/math/big/Big.hx:12743: characters 20-42 : Type not found : stdgo.encoding.gob.Gob
+stdgo/math/big/Big.hx:12744: characters 20-42 : Type not found : stdgo.encoding.gob.Gob
+stdgo/math/big/Big.hx:12768: characters 31-55 : Type not found : stdgo.encoding.json.Json
+stdgo/math/big/Big.hx:12775: characters 38-62 : Type not found : stdgo.encoding.json.Json
+stdgo/math/big/Big.hx:12792: characters 31-54 : Type not found : stdgo.encoding.xml.Xml_
+stdgo/math/big/Big.hx:12799: characters 38-61 : Type not found : stdgo.encoding.xml.Xml_
 stdgo/crypto/rand/Rand.hx:97: characters 23-49 : Type not found : stdgo.compress.flate.Flate
 stdgo/crypto/rand/Rand.hx:97: characters 135-168 : Type not found : stdgo.compress.flate.Flate
 stdgo/crypto/rand/Rand.hx:126: characters 9-48 : Type not found : stdgo.crypto.internal.randutil.Randutil
-stdgo/crypto/sha1/Sha1.hx:2960: characters 13-32 : Type not found : stdgo.crypto.Crypto
+stdgo/crypto/sha1/Sha1.hx:2963: characters 13-32 : Type not found : stdgo.crypto.Crypto
 stdgo/internal/Macro.macro.hx:35: define
 
 ```

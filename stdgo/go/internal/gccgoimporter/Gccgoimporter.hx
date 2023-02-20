@@ -671,8 +671,8 @@ private function _openExportFile(_fpath:GoString):{ var _0 : stdgo.io.Io.ReadSee
         if (_err != null) {
             return { _0 : _reader, _1 : _closer, _2 : _err };
         };
-        _closer = Go.asInterface(_f);
         try {
+            _closer = Go.asInterface(_f);
             __deferstack__.unshift(() -> {
                 var a = function():Void {
                     if ((_err != null) && (_closer != null)) {
@@ -778,6 +778,9 @@ private function _openExportFile(_fpath:GoString):{ var _0 : stdgo.io.Io.ReadSee
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -793,8 +796,8 @@ function getImporter(_searchpaths:Slice<GoString>, _initmap:GoMap<Ref<stdgo.go.t
             if (_pkgpath == (("unsafe" : GoString))) {
                 return { _0 : stdgo.go.types.Types.unsafe, _1 : (null : Error) };
             };
-            var _reader:stdgo.io.Io.ReadSeeker = (null : stdgo.io.Io.ReadSeeker);
             try {
+                var _reader:stdgo.io.Io.ReadSeeker = (null : stdgo.io.Io.ReadSeeker);
                 var _fpath:GoString = ("" : GoString);
                 var _rc:stdgo.io.Io.ReadCloser = (null : stdgo.io.Io.ReadCloser);
                 if (_lookup != null) {
@@ -939,6 +942,9 @@ function getImporter(_searchpaths:Slice<GoString>, _initmap:GoMap<Ref<stdgo.go.t
             } catch(__exception__) {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
+                if (!(exe is AnyInterfaceData)) {
+                    exe = Go.toInterface(__exception__.message);
+                };
                 Go.recover_exception = exe;
                 for (defer in __deferstack__) {
                     defer();
@@ -1505,10 +1511,10 @@ class T_parser_asInterface {
     @:keep
     static public function _parseInitDataDirective( _p:Ref<T_parser>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        if (_p._tok != ((-2 : GoInt32))) {
-            _p._expect((-2 : GoInt32));
-        };
         try {
+            if (_p._tok != ((-2 : GoInt32))) {
+                _p._expect((-2 : GoInt32));
+            };
             if (_p._lit == (("v1" : GoString)) || _p._lit == (("v2" : GoString)) || _p._lit == (("v3" : GoString))) {
                 _p._version = _p._lit;
                 _p._next();
@@ -1561,6 +1567,9 @@ class T_parser_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1597,20 +1606,20 @@ class T_parser_asInterface {
     @:keep
     static public function _parseSavedType( _p:Ref<T_parser>, _pkg:Ref<stdgo.go.types.Types.Package>, _i:GoInt, _nlist:Slice<AnyInterface>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        {
-            var _a0 = _p._scanner;
-            var _a1 = _p._tok;
-            var _a2 = _p._lit;
-            __deferstack__.unshift(() -> {
-                var a = function(_s:Ref<stdgo.text.scanner.Scanner.Scanner>, _tok:GoRune, _lit:GoString):Void {
-                    _p._scanner = _s;
-                    _p._tok = _tok;
-                    _p._lit = _lit;
-                };
-                a(_a0, _a1, _a2);
-            });
-        };
         try {
+            {
+                var _a0 = _p._scanner;
+                var _a1 = _p._tok;
+                var _a2 = _p._lit;
+                __deferstack__.unshift(() -> {
+                    var a = function(_s:Ref<stdgo.text.scanner.Scanner.Scanner>, _tok:GoRune, _lit:GoString):Void {
+                        _p._scanner = _s;
+                        _p._tok = _tok;
+                        _p._lit = _lit;
+                    };
+                    a(_a0, _a1, _a2);
+                });
+            };
             _p._scanner = ({} : stdgo.text.scanner.Scanner.Scanner);
             _p._initScanner(_p._scanner.position.filename, Go.asInterface(stdgo.strings.Strings.newReader(_p._typeData[(_i : GoInt)])));
             _p._expectKeyword(("type" : GoString));
@@ -1641,6 +1650,9 @@ class T_parser_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1655,8 +1667,8 @@ class T_parser_asInterface {
     @:keep
     static public function _parseTypes( _p:Ref<T_parser>, _pkg:Ref<stdgo.go.types.Types.Package>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _maxp1:GoInt = _p._parseInt();
         try {
+            var _maxp1:GoInt = _p._parseInt();
             var _exportedp1:GoInt = _p._parseInt();
             _p._typeList = new Slice<stdgo.go.types.Types.Type>((_maxp1 : GoInt).toBasic(), _maxp1, ...[for (i in 0 ... (_maxp1 : GoInt).toBasic()) (null : stdgo.go.types.Types.Type)]);
             {};
@@ -1712,6 +1724,9 @@ class T_parser_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1727,15 +1742,15 @@ class T_parser_asInterface {
     @:keep
     static public function _skipInlineBody( _p:Ref<T_parser>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        if (_p._tok == ((60 : GoInt32))) {
-            _p._next();
-            _p._expectKeyword(("inl" : GoString));
-        } else if ((_p._tok != (-2 : GoInt32)) || (_p._lit != ("inl" : GoString))) {
-            return;
-        } else {
-            _p._next();
-        };
         try {
+            if (_p._tok == ((60 : GoInt32))) {
+                _p._next();
+                _p._expectKeyword(("inl" : GoString));
+            } else if ((_p._tok != (-2 : GoInt32)) || (_p._lit != ("inl" : GoString))) {
+                return;
+            } else {
+                _p._next();
+            };
             _p._expect((58 : GoInt32));
             var _want:GoInt = _p._parseInt();
             _p._expect((62 : GoInt32));
@@ -1770,6 +1785,9 @@ class T_parser_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

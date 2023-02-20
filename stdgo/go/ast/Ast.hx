@@ -2701,8 +2701,8 @@ function fprint(_w:stdgo.io.Io.Writer, _fset:Ref<stdgo.go.token.Token.FileSet>, 
 private function _fprint(_w:stdgo.io.Io.Writer, _fset:Ref<stdgo.go.token.Token.FileSet>, _x:AnyInterface, _f:FieldFilter):Error {
         var __deferstack__:Array<Void -> Void> = [];
         var _err:Error = (null : Error);
-        var _p:T_printer = ({ _output : _w, _fset : _fset, _filter : _f, _ptrmap : (new GoObjectMap<AnyInterface, GoInt>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }))) : GoMap<AnyInterface, GoInt>), _last : (10 : GoUInt8) } : T_printer);
         try {
+            var _p:T_printer = ({ _output : _w, _fset : _fset, _filter : _f, _ptrmap : (new GoObjectMap<AnyInterface, GoInt>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.interfaceType(true, []) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }))) : GoMap<AnyInterface, GoInt>), _last : (10 : GoUInt8) } : T_printer);
             __deferstack__.unshift(() -> {
                 var a = function():Void {
                     {
@@ -2748,6 +2748,9 @@ private function _fprint(_w:stdgo.io.Io.Writer, _fset:Ref<stdgo.go.token.Token.F
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

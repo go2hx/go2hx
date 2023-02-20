@@ -2181,11 +2181,11 @@ private function _panicHandler(_v:Ref<Value>):Void {
 private function _doOp(_x:Value, _op:stdgo.go.token.Token.Token, _y:Value):Value {
         var __deferstack__:Array<Void -> Void> = [];
         var _z:Value = (null : Value);
-        {
-            var _a0 = (_z : Ref<Value>);
-            __deferstack__.unshift(() -> _panicHandler(_a0));
-        };
         try {
+            {
+                var _a0 = (_z : Ref<Value>);
+                __deferstack__.unshift(() -> _panicHandler(_a0));
+            };
             if (_x == null) {
                 {
                     for (defer in __deferstack__) {
@@ -2230,6 +2230,9 @@ private function _doOp(_x:Value, _op:stdgo.go.token.Token.Token, _y:Value):Value
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

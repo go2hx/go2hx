@@ -755,8 +755,8 @@ class Logger_asInterface {
     static public function writer( _l:Ref<Logger>):stdgo.io.Io.Writer {
         var __deferstack__:Array<Void -> Void> = [];
         _l._mu.lock();
-        __deferstack__.unshift(() -> _l._mu.unlock());
         try {
+            __deferstack__.unshift(() -> _l._mu.unlock());
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -776,6 +776,9 @@ class Logger_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -790,8 +793,8 @@ class Logger_asInterface {
     @:keep
     static public function setPrefix( _l:Ref<Logger>, _prefix:GoString):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        _l._mu.lock();
         try {
+            _l._mu.lock();
             __deferstack__.unshift(() -> _l._mu.unlock());
             _l._prefix = _prefix;
             for (defer in __deferstack__) {
@@ -807,6 +810,9 @@ class Logger_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -822,8 +828,8 @@ class Logger_asInterface {
     static public function prefix( _l:Ref<Logger>):GoString {
         var __deferstack__:Array<Void -> Void> = [];
         _l._mu.lock();
-        __deferstack__.unshift(() -> _l._mu.unlock());
         try {
+            __deferstack__.unshift(() -> _l._mu.unlock());
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -843,6 +849,9 @@ class Logger_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -858,8 +867,8 @@ class Logger_asInterface {
     @:keep
     static public function setFlags( _l:Ref<Logger>, _flag:GoInt):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        _l._mu.lock();
         try {
+            _l._mu.lock();
             __deferstack__.unshift(() -> _l._mu.unlock());
             _l._flag = _flag;
             for (defer in __deferstack__) {
@@ -875,6 +884,9 @@ class Logger_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -891,8 +903,8 @@ class Logger_asInterface {
     static public function flags( _l:Ref<Logger>):GoInt {
         var __deferstack__:Array<Void -> Void> = [];
         _l._mu.lock();
-        __deferstack__.unshift(() -> _l._mu.unlock());
         try {
+            __deferstack__.unshift(() -> _l._mu.unlock());
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -912,6 +924,9 @@ class Logger_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1025,8 +1040,8 @@ class Logger_asInterface {
     static public function output( _l:Ref<Logger>, _calldepth:GoInt, _s:GoString):Error {
         var __deferstack__:Array<Void -> Void> = [];
         var _now:stdgo.time.Time.Time = (stdgo.time.Time.now() == null ? null : stdgo.time.Time.now().__copy__());
-        var _file:GoString = ("" : GoString);
         try {
+            var _file:GoString = ("" : GoString);
             var _line:GoInt = (0 : GoInt);
             _l._mu.lock();
             __deferstack__.unshift(() -> _l._mu.unlock());
@@ -1071,6 +1086,9 @@ class Logger_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1147,8 +1165,8 @@ class Logger_asInterface {
     @:keep
     static public function setOutput( _l:Ref<Logger>, _w:stdgo.io.Io.Writer):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        _l._mu.lock();
         try {
+            _l._mu.lock();
             __deferstack__.unshift(() -> _l._mu.unlock());
             _l._out = _w;
             _l._isDiscard.store(Go.toInterface(_w) == (Go.toInterface(stdgo.io.Io.discard)));
@@ -1165,6 +1183,9 @@ class Logger_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

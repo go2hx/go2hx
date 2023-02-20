@@ -803,10 +803,10 @@ function readDir(_fsys:FS, _name:GoString):{ var _0 : Slice<DirEntry>; var _1 : 
             };
         };
         var __tmp__ = _fsys.open(_name), _file:File = __tmp__._0, _err:Error = __tmp__._1;
-        if (_err != null) {
-            return { _0 : (null : Slice<DirEntry>), _1 : _err };
-        };
         try {
+            if (_err != null) {
+                return { _0 : (null : Slice<DirEntry>), _1 : _err };
+            };
             __deferstack__.unshift(() -> _file.close());
             var __tmp__ = try {
                 { value : (Go.typeAssert((Go.toInterface(_file) : ReadDirFile)) : ReadDirFile), ok : true };
@@ -844,6 +844,9 @@ function readDir(_fsys:FS, _name:GoString):{ var _0 : Slice<DirEntry>; var _1 : 
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -885,10 +888,10 @@ function readFile(_fsys:FS, _name:GoString):{ var _0 : Slice<GoByte>; var _1 : E
             };
         };
         var __tmp__ = _fsys.open(_name), _file:File = __tmp__._0, _err:Error = __tmp__._1;
-        if (_err != null) {
-            return { _0 : (null : Slice<GoUInt8>), _1 : _err };
-        };
         try {
+            if (_err != null) {
+                return { _0 : (null : Slice<GoUInt8>), _1 : _err };
+            };
             __deferstack__.unshift(() -> _file.close());
             var _size:GoInt = (0 : GoInt);
             {
@@ -933,6 +936,9 @@ function readFile(_fsys:FS, _name:GoString):{ var _0 : Slice<GoByte>; var _1 : E
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -960,10 +966,10 @@ function stat(_fsys:FS, _name:GoString):{ var _0 : FileInfo; var _1 : Error; } {
             };
         };
         var __tmp__ = _fsys.open(_name), _file:File = __tmp__._0, _err:Error = __tmp__._1;
-        if (_err != null) {
-            return { _0 : (null : FileInfo), _1 : _err };
-        };
         try {
+            if (_err != null) {
+                return { _0 : (null : FileInfo), _1 : _err };
+            };
             __deferstack__.unshift(() -> _file.close());
             {
                 for (defer in __deferstack__) {
@@ -984,6 +990,9 @@ function stat(_fsys:FS, _name:GoString):{ var _0 : FileInfo; var _1 : Error; } {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

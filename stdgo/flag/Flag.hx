@@ -460,8 +460,8 @@ private function _isZeroValue(_flag:Ref<Flag>, _value:GoString):{ var _0 : Bool;
         var __deferstack__:Array<Void -> Void> = [];
         var _ok:Bool = false, _err:Error = (null : Error);
         var _typ:stdgo.reflect.Reflect.Type = stdgo.reflect.Reflect.typeOf(Go.toInterface(_flag.value));
-        var _z:stdgo.reflect.Reflect.Value = ({} : stdgo.reflect.Reflect.Value);
         try {
+            var _z:stdgo.reflect.Reflect.Value = ({} : stdgo.reflect.Reflect.Value);
             if (_typ.kind() == ((("22" : GoUInt) : stdgo.reflect.Reflect.Kind))) {
                 _z = (stdgo.reflect.Reflect.new_(_typ.elem()) == null ? null : stdgo.reflect.Reflect.new_(_typ.elem()).__copy__());
             } else {
@@ -504,6 +504,9 @@ private function _isZeroValue(_flag:Ref<Flag>, _value:GoString):{ var _0 : Bool;
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

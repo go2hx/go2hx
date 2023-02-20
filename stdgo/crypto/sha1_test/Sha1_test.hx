@@ -20,8 +20,8 @@ function exampleSum():Void {
     }
 function exampleNew_file():Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var __tmp__ = stdgo.os.Os.open(("file.txt" : GoString)), _f:Ref<stdgo.os.Os.File> = __tmp__._0, _err:Error = __tmp__._1;
         try {
+            var __tmp__ = stdgo.os.Os.open(("file.txt" : GoString)), _f:Ref<stdgo.os.Os.File> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 stdgo.log.Log.fatal(Go.toInterface(_err));
             };
@@ -47,6 +47,9 @@ function exampleNew_file():Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

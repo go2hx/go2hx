@@ -1557,31 +1557,31 @@ function testBuilderGrow(_t:Ref<stdgo.testing.Testing.T>):Void {
         trace("testBuilderGrow" + " skip function");
         return;
         var __deferstack__:Array<Void -> Void> = [];
-        for (_0 => _growLen in (new Slice<GoInt>(0, 0, (0 : GoInt), (100 : GoInt), (1000 : GoInt), (10000 : GoInt), (100000 : GoInt)) : Slice<GoInt>)) {
-            var _p = stdgo.bytes.Bytes.repeat((new Slice<GoUInt8>(0, 0, (97 : GoUInt8)) : Slice<GoUInt8>), _growLen);
-            var _allocs:GoFloat64 = stdgo.testing.Testing.allocsPerRun((100 : GoInt), function():Void {
-                var _b:Builder = ({} : Builder);
-                _b.grow(_growLen);
-                if (_b.cap() < _growLen) {
-                    _t.fatalf(("growLen=%d: Cap() is lower than growLen" : GoString), Go.toInterface(_growLen));
-                };
-                _b.write(_p);
-                if ((_b.string() : GoString) != ((_p : GoString))) {
-                    _t.fatalf(("growLen=%d: bad data written after Grow" : GoString), Go.toInterface(_growLen));
-                };
-            });
-            var _wantAllocs:GoInt = (1 : GoInt);
-            if (_growLen == ((0 : GoInt))) {
-                _wantAllocs = (0 : GoInt);
-            };
-            {
-                var _0:GoInt = (_allocs : GoInt), _1:GoInt = _wantAllocs, _w:GoInt = _1, _g:GoInt = _0;
-                if (_g != (_w)) {
-                    _t.errorf(("growLen=%d: got %d allocs during Write; want %v" : GoString), Go.toInterface(_growLen), Go.toInterface(_g), Go.toInterface(_w));
-                };
-            };
-        };
         try {
+            for (_0 => _growLen in (new Slice<GoInt>(0, 0, (0 : GoInt), (100 : GoInt), (1000 : GoInt), (10000 : GoInt), (100000 : GoInt)) : Slice<GoInt>)) {
+                var _p = stdgo.bytes.Bytes.repeat((new Slice<GoUInt8>(0, 0, (97 : GoUInt8)) : Slice<GoUInt8>), _growLen);
+                var _allocs:GoFloat64 = stdgo.testing.Testing.allocsPerRun((100 : GoInt), function():Void {
+                    var _b:Builder = ({} : Builder);
+                    _b.grow(_growLen);
+                    if (_b.cap() < _growLen) {
+                        _t.fatalf(("growLen=%d: Cap() is lower than growLen" : GoString), Go.toInterface(_growLen));
+                    };
+                    _b.write(_p);
+                    if ((_b.string() : GoString) != ((_p : GoString))) {
+                        _t.fatalf(("growLen=%d: bad data written after Grow" : GoString), Go.toInterface(_growLen));
+                    };
+                });
+                var _wantAllocs:GoInt = (1 : GoInt);
+                if (_growLen == ((0 : GoInt))) {
+                    _wantAllocs = (0 : GoInt);
+                };
+                {
+                    var _0:GoInt = (_allocs : GoInt), _1:GoInt = _wantAllocs, _w:GoInt = _1, _g:GoInt = _0;
+                    if (_g != (_w)) {
+                        _t.errorf(("growLen=%d: got %d allocs during Write; want %v" : GoString), Go.toInterface(_growLen), Go.toInterface(_g), Go.toInterface(_w));
+                    };
+                };
+            };
             var _a:Builder = ({} : Builder);
             var _n:GoInt = (-1 : GoInt);
             __deferstack__.unshift(() -> {
@@ -1613,6 +1613,9 @@ function testBuilderGrow(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1752,17 +1755,17 @@ function testBuilderCopyPanic(_t:Ref<stdgo.testing.Testing.T>):Void {
             Go.routine(() -> {
                 var a = function():Void {
                     var __deferstack__:Array<Void -> Void> = [];
-                    __deferstack__.unshift(() -> {
-                        var a = function():Void {
-                            _didPanic.__send__(({
-                                final r = Go.recover_exception;
-                                Go.recover_exception = null;
-                                r;
-                            }) != null);
-                        };
-                        a();
-                    });
                     try {
+                        __deferstack__.unshift(() -> {
+                            var a = function():Void {
+                                _didPanic.__send__(({
+                                    final r = Go.recover_exception;
+                                    Go.recover_exception = null;
+                                    r;
+                                }) != null);
+                            };
+                            a();
+                        });
                         _tt._fn();
                         for (defer in __deferstack__) {
                             defer();
@@ -1777,6 +1780,9 @@ function testBuilderCopyPanic(_t:Ref<stdgo.testing.Testing.T>):Void {
                     } catch(__exception__) {
                         var exe:Dynamic = __exception__.native;
                         if ((exe is haxe.ValueException)) exe = exe.value;
+                        if (!(exe is AnyInterfaceData)) {
+                            exe = Go.toInterface(__exception__.message);
+                        };
                         Go.recover_exception = exe;
                         for (defer in __deferstack__) {
                             defer();
@@ -2276,8 +2282,8 @@ function testReaderAtConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void {
                 Go.routine(() -> {
                     var a = function(_i:GoInt):Void {
                         var __deferstack__:Array<Void -> Void> = [];
-                        __deferstack__.unshift(() -> _wg.done());
                         try {
+                            __deferstack__.unshift(() -> _wg.done());
                             var _buf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0 ... 1) (0 : GoUInt8)]);
                             _r.readAt((_buf.__slice__(0) : Slice<GoUInt8>), (_i : GoInt64));
                             for (defer in __deferstack__) {
@@ -2293,6 +2299,9 @@ function testReaderAtConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void {
                         } catch(__exception__) {
                             var exe:Dynamic = __exception__.native;
                             if ((exe is haxe.ValueException)) exe = exe.value;
+                            if (!(exe is AnyInterfaceData)) {
+                                exe = Go.toInterface(__exception__.message);
+                            };
                             Go.recover_exception = exe;
                             for (defer in __deferstack__) {
                                 defer();
@@ -2317,8 +2326,8 @@ function testEmptyReaderConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void {
                 Go.routine(() -> {
                     var a = function():Void {
                         var __deferstack__:Array<Void -> Void> = [];
-                        __deferstack__.unshift(() -> _wg.done());
                         try {
+                            __deferstack__.unshift(() -> _wg.done());
                             var _buf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0 ... 1) (0 : GoUInt8)]);
                             _r.read((_buf.__slice__(0) : Slice<GoUInt8>));
                             for (defer in __deferstack__) {
@@ -2334,6 +2343,9 @@ function testEmptyReaderConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void {
                         } catch(__exception__) {
                             var exe:Dynamic = __exception__.native;
                             if ((exe is haxe.ValueException)) exe = exe.value;
+                            if (!(exe is AnyInterfaceData)) {
+                                exe = Go.toInterface(__exception__.message);
+                            };
                             Go.recover_exception = exe;
                             for (defer in __deferstack__) {
                                 defer();
@@ -2347,8 +2359,8 @@ function testEmptyReaderConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void {
                 Go.routine(() -> {
                     var a = function():Void {
                         var __deferstack__:Array<Void -> Void> = [];
-                        __deferstack__.unshift(() -> _wg.done());
                         try {
+                            __deferstack__.unshift(() -> _wg.done());
                             _r.read((null : Slice<GoUInt8>));
                             for (defer in __deferstack__) {
                                 defer();
@@ -2363,6 +2375,9 @@ function testEmptyReaderConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void {
                         } catch(__exception__) {
                             var exe:Dynamic = __exception__.native;
                             if ((exe is haxe.ValueException)) exe = exe.value;
+                            if (!(exe is AnyInterfaceData)) {
+                                exe = Go.toInterface(__exception__.message);
+                            };
                             Go.recover_exception = exe;
                             for (defer in __deferstack__) {
                                 defer();
@@ -3664,31 +3679,31 @@ function testRepeat(_t:Ref<stdgo.testing.Testing.T>):Void {
 private function _repeat(_s:GoString, _count:GoInt):Error {
         var __deferstack__:Array<Void -> Void> = [];
         var _err:Error = (null : Error);
-        __deferstack__.unshift(() -> {
-            var a = function():Void {
-                {
-                    var _r:AnyInterface = ({
-                        final r = Go.recover_exception;
-                        Go.recover_exception = null;
-                        r;
-                    });
-                    if (_r != null) {
-                        {
-                            final __type__ = _r;
-                            if (Go.typeEquals((__type__ : Error))) {
-                                var _v:Error = __type__ == null ? (null : Error) : __type__.__underlying__() == null ? (null : Error) : __type__ == null ? (null : Error) : __type__.__underlying__().value;
-                                _err = _v;
-                            } else {
-                                var _v:AnyInterface = __type__ == null ? null : __type__.__underlying__();
-                                _err = stdgo.fmt.Fmt.errorf(("%s" : GoString), _v);
+        try {
+            __deferstack__.unshift(() -> {
+                var a = function():Void {
+                    {
+                        var _r:AnyInterface = ({
+                            final r = Go.recover_exception;
+                            Go.recover_exception = null;
+                            r;
+                        });
+                        if (_r != null) {
+                            {
+                                final __type__ = _r;
+                                if (Go.typeEquals((__type__ : Error))) {
+                                    var _v:Error = __type__ == null ? (null : Error) : __type__.__underlying__() == null ? (null : Error) : __type__ == null ? (null : Error) : __type__.__underlying__().value;
+                                    _err = _v;
+                                } else {
+                                    var _v:AnyInterface = __type__ == null ? null : __type__.__underlying__();
+                                    _err = stdgo.fmt.Fmt.errorf(("%s" : GoString), _v);
+                                };
                             };
                         };
                     };
                 };
-            };
-            a();
-        });
-        try {
+                a();
+            });
             repeat(_s, _count);
             {
                 for (defer in __deferstack__) {
@@ -3709,6 +3724,9 @@ private function _repeat(_s:GoString, _count:GoInt):Error {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

@@ -2696,22 +2696,22 @@ function testFormatComplex(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testFormatComplexInvalidBitSize(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        __deferstack__.unshift(() -> {
-            var a = function():Void {
-                {
-                    var _r:AnyInterface = ({
-                        final r = Go.recover_exception;
-                        Go.recover_exception = null;
-                        r;
-                    });
-                    if (_r == null) {
-                        _t.fatalf(("expected panic due to invalid bitSize" : GoString));
+        try {
+            __deferstack__.unshift(() -> {
+                var a = function():Void {
+                    {
+                        var _r:AnyInterface = ({
+                            final r = Go.recover_exception;
+                            Go.recover_exception = null;
+                            r;
+                        });
+                        if (_r == null) {
+                            _t.fatalf(("expected panic due to invalid bitSize" : GoString));
+                        };
                     };
                 };
-            };
-            a();
-        });
-        try {
+                a();
+            });
             formatComplex(((1 : GoFloat64) + new GoComplex128(0, 2)), (103 : GoUInt8), (-1 : GoInt), (100 : GoInt));
             for (defer in __deferstack__) {
                 defer();
@@ -2726,6 +2726,9 @@ function testFormatComplexInvalidBitSize(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3177,8 +3180,8 @@ function testFp(_t:Ref<stdgo.testing.Testing.T>):Void {
         trace("testFp" + " skip function");
         return;
         var __deferstack__:Array<Void -> Void> = [];
-        var __tmp__ = stdgo.os.Os.open(("testdata/testfp.txt" : GoString)), _f:Ref<stdgo.os.Os.File> = __tmp__._0, _err:Error = __tmp__._1;
         try {
+            var __tmp__ = stdgo.os.Os.open(("testdata/testfp.txt" : GoString)), _f:Ref<stdgo.os.Os.File> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(Go.toInterface(("testfp: open testdata/testfp.txt:" : GoString)), Go.toInterface(_err));
             };
@@ -3254,6 +3257,9 @@ Go.toInterface(_s));
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3351,22 +3357,22 @@ function testFtoaRandom(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testFormatFloatInvalidBitSize(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        __deferstack__.unshift(() -> {
-            var a = function():Void {
-                {
-                    var _r:AnyInterface = ({
-                        final r = Go.recover_exception;
-                        Go.recover_exception = null;
-                        r;
-                    });
-                    if (_r == null) {
-                        _t.fatalf(("expected panic due to invalid bitSize" : GoString));
+        try {
+            __deferstack__.unshift(() -> {
+                var a = function():Void {
+                    {
+                        var _r:AnyInterface = ({
+                            final r = Go.recover_exception;
+                            Go.recover_exception = null;
+                            r;
+                        });
+                        if (_r == null) {
+                            _t.fatalf(("expected panic due to invalid bitSize" : GoString));
+                        };
                     };
                 };
-            };
-            a();
-        });
-        try {
+                a();
+            });
             formatFloat((3.14 : GoFloat64), (103 : GoUInt8), (-1 : GoInt), (100 : GoInt));
             for (defer in __deferstack__) {
                 defer();
@@ -3381,6 +3387,9 @@ function testFormatFloatInvalidBitSize(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3440,33 +3449,33 @@ function testMulByLog10Log2(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testItoa(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        for (_0 => _test in _itob64tests) {
-            var _s:GoString = formatInt(_test._in, _test._base);
-            if (_s != (_test._out)) {
-                _t.errorf(("FormatInt(%v, %v) = %v want %v" : GoString), Go.toInterface(_test._in), Go.toInterface(_test._base), Go.toInterface(_s), Go.toInterface(_test._out));
-            };
-            var _x = appendInt((("abc" : GoString) : Slice<GoByte>), _test._in, _test._base);
-            if ((_x : GoString) != (("abc" : GoString) + _test._out)) {
-                _t.errorf(("AppendInt(%q, %v, %v) = %q want %v" : GoString), Go.toInterface(("abc" : GoString)), Go.toInterface(_test._in), Go.toInterface(_test._base), Go.toInterface(_x), Go.toInterface(_test._out));
-            };
-            if (_test._in >= ("0" : GoInt64)) {
-                var _s:GoString = formatUint((_test._in : GoUInt64), _test._base);
-                if (_s != (_test._out)) {
-                    _t.errorf(("FormatUint(%v, %v) = %v want %v" : GoString), Go.toInterface(_test._in), Go.toInterface(_test._base), Go.toInterface(_s), Go.toInterface(_test._out));
-                };
-                var _x = appendUint((null : Slice<GoUInt8>), (_test._in : GoUInt64), _test._base);
-                if ((_x : GoString) != (_test._out)) {
-                    _t.errorf(("AppendUint(%q, %v, %v) = %q want %v" : GoString), Go.toInterface(("abc" : GoString)), Go.toInterface((_test._in : GoUInt64)), Go.toInterface(_test._base), Go.toInterface(_x), Go.toInterface(_test._out));
-                };
-            };
-            if ((_test._base == (10 : GoInt)) && (((_test._in : GoInt) : GoInt64) == _test._in)) {
-                var _s:GoString = itoa((_test._in : GoInt));
-                if (_s != (_test._out)) {
-                    _t.errorf(("Itoa(%v) = %v want %v" : GoString), Go.toInterface(_test._in), Go.toInterface(_s), Go.toInterface(_test._out));
-                };
-            };
-        };
         try {
+            for (_0 => _test in _itob64tests) {
+                var _s:GoString = formatInt(_test._in, _test._base);
+                if (_s != (_test._out)) {
+                    _t.errorf(("FormatInt(%v, %v) = %v want %v" : GoString), Go.toInterface(_test._in), Go.toInterface(_test._base), Go.toInterface(_s), Go.toInterface(_test._out));
+                };
+                var _x = appendInt((("abc" : GoString) : Slice<GoByte>), _test._in, _test._base);
+                if ((_x : GoString) != (("abc" : GoString) + _test._out)) {
+                    _t.errorf(("AppendInt(%q, %v, %v) = %q want %v" : GoString), Go.toInterface(("abc" : GoString)), Go.toInterface(_test._in), Go.toInterface(_test._base), Go.toInterface(_x), Go.toInterface(_test._out));
+                };
+                if (_test._in >= ("0" : GoInt64)) {
+                    var _s:GoString = formatUint((_test._in : GoUInt64), _test._base);
+                    if (_s != (_test._out)) {
+                        _t.errorf(("FormatUint(%v, %v) = %v want %v" : GoString), Go.toInterface(_test._in), Go.toInterface(_test._base), Go.toInterface(_s), Go.toInterface(_test._out));
+                    };
+                    var _x = appendUint((null : Slice<GoUInt8>), (_test._in : GoUInt64), _test._base);
+                    if ((_x : GoString) != (_test._out)) {
+                        _t.errorf(("AppendUint(%q, %v, %v) = %q want %v" : GoString), Go.toInterface(("abc" : GoString)), Go.toInterface((_test._in : GoUInt64)), Go.toInterface(_test._base), Go.toInterface(_x), Go.toInterface(_test._out));
+                    };
+                };
+                if ((_test._base == (10 : GoInt)) && (((_test._in : GoInt) : GoInt64) == _test._in)) {
+                    var _s:GoString = itoa((_test._in : GoInt));
+                    if (_s != (_test._out)) {
+                        _t.errorf(("Itoa(%v) = %v want %v" : GoString), Go.toInterface(_test._in), Go.toInterface(_s), Go.toInterface(_test._out));
+                    };
+                };
+            };
             __deferstack__.unshift(() -> {
                 var a = function():Void {
                     {
@@ -3496,6 +3505,9 @@ function testItoa(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

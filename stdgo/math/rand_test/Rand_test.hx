@@ -617,8 +617,8 @@ function example():Void {
 **/
 function example_rand():Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _r = stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource(("99" : GoInt64)));
         try {
+            var _r = stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource(("99" : GoInt64)));
             var _w = stdgo.text.tabwriter.Tabwriter.newWriter(Go.asInterface(stdgo.os.Os.stdout), (1 : GoInt), (1 : GoInt), (1 : GoInt), (32 : GoUInt8), ("0" : GoUInt));
             __deferstack__.unshift(() -> _w.flush());
             var _show:(GoString, AnyInterface, AnyInterface, AnyInterface) -> Void = function(_name:GoString, _v1:AnyInterface, _v2:AnyInterface, _v3:AnyInterface):Void {
@@ -648,6 +648,9 @@ function example_rand():Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -705,8 +708,8 @@ function exampleIntn():Void {
 **/
 function testConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        {};
         try {
+            {};
             var _wg:stdgo.sync.Sync.WaitGroup = ({} : stdgo.sync.Sync.WaitGroup);
             __deferstack__.unshift(() -> _wg.wait_());
             _wg.add((10 : GoInt));
@@ -716,8 +719,8 @@ function testConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void {
                     Go.routine(() -> {
                         var a = function(_i:GoInt):Void {
                             var __deferstack__:Array<Void -> Void> = [];
-                            __deferstack__.unshift(() -> _wg.done());
                             try {
+                                __deferstack__.unshift(() -> _wg.done());
                                 var _buf = new Slice<GoUInt8>((997 : GoInt).toBasic(), 0, ...[for (i in 0 ... (997 : GoInt).toBasic()) (0 : GoUInt8)]);
                                 {
                                     var _j:GoInt = (0 : GoInt);
@@ -755,6 +758,9 @@ function testConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void {
                             } catch(__exception__) {
                                 var exe:Dynamic = __exception__.native;
                                 if ((exe is haxe.ValueException)) exe = exe.value;
+                                if (!(exe is AnyInterfaceData)) {
+                                    exe = Go.toInterface(__exception__.message);
+                                };
                                 Go.recover_exception = exe;
                                 for (defer in __deferstack__) {
                                     defer();
@@ -780,6 +786,9 @@ function testConcurrent(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

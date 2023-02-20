@@ -194,8 +194,8 @@ private function _growSlice(_b:Slice<GoByte>, _n:GoInt):Slice<GoByte> {
             };
             a();
         });
-        var _c:GoInt = (_b.length) + _n;
         try {
+            var _c:GoInt = (_b.length) + _n;
             if (_c < ((2 : GoInt) * _b.capacity)) {
                 _c = (2 : GoInt) * _b.capacity;
             };
@@ -220,6 +220,9 @@ private function _growSlice(_b:Slice<GoByte>, _n:GoInt):Slice<GoByte> {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

@@ -497,8 +497,8 @@ function testZeroValue(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testFuncOf(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _c = new Chan<T__struct_0>(0, () -> ({  } : T__struct_0));
         try {
+            var _c = new Chan<T__struct_0>(0, () -> ({  } : T__struct_0));
             var _cb:Func = (stdgo.syscall.js.Js.funcOf(function(_this:Value, _args:Slice<Value>):AnyInterface {
                 {
                     var _got:GoInt = _args[(0 : GoInt)].int_();
@@ -534,6 +534,9 @@ function testFuncOf(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -544,8 +547,8 @@ function testFuncOf(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testInvokeFunction(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _called:Bool = false;
         try {
+            var _called:Bool = false;
             var _cb:Func = (stdgo.syscall.js.Js.funcOf(function(_this:Value, _args:Slice<Value>):AnyInterface {
                 var __deferstack__:Array<Void -> Void> = [];
                 var _cb2:Func = (stdgo.syscall.js.Js.funcOf(function(_this:Value, _args:Slice<Value>):AnyInterface {
@@ -555,8 +558,8 @@ function testInvokeFunction(_t:Ref<stdgo.testing.Testing.T>):Void {
                     _called = true;
                     return Go.toInterface((42 : GoInt));
                 }).__copy__());
-                __deferstack__.unshift(() -> _cb2.release());
                 try {
+                    __deferstack__.unshift(() -> _cb2.release());
                     {
                         for (defer in __deferstack__) {
                             defer();
@@ -576,6 +579,9 @@ function testInvokeFunction(_t:Ref<stdgo.testing.Testing.T>):Void {
                 } catch(__exception__) {
                     var exe:Dynamic = __exception__.native;
                     if ((exe is haxe.ValueException)) exe = exe.value;
+                    if (!(exe is AnyInterfaceData)) {
+                        exe = Go.toInterface(__exception__.message);
+                    };
                     Go.recover_exception = exe;
                     for (defer in __deferstack__) {
                         defer();
@@ -592,8 +598,8 @@ function testInvokeFunction(_t:Ref<stdgo.testing.Testing.T>):Void {
                     _called = true;
                     return Go.toInterface((42 : GoInt));
                 }).__copy__());
-                __deferstack__.unshift(() -> _cb2.release());
                 try {
+                    __deferstack__.unshift(() -> _cb2.release());
                     {
                         for (defer in __deferstack__) {
                             defer();
@@ -613,6 +619,9 @@ function testInvokeFunction(_t:Ref<stdgo.testing.Testing.T>):Void {
                 } catch(__exception__) {
                     var exe:Dynamic = __exception__.native;
                     if ((exe is haxe.ValueException)) exe = exe.value;
+                    if (!(exe is AnyInterfaceData)) {
+                        exe = Go.toInterface(__exception__.message);
+                    };
                     Go.recover_exception = exe;
                     for (defer in __deferstack__) {
                         defer();
@@ -644,6 +653,9 @@ function testInvokeFunction(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -748,27 +760,27 @@ function testTruthy(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 private function _expectValueError(_t:Ref<stdgo.testing.Testing.T>, _fn:() -> Void):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        __deferstack__.unshift(() -> {
-            var a = function():Void {
-                var _err:AnyInterface = ({
-                    final r = Go.recover_exception;
-                    Go.recover_exception = null;
-                    r;
-                });
-                {
-                    var __tmp__ = try {
-                        { value : (Go.typeAssert((_err : Ref<ValueError>)) : Ref<ValueError>), ok : true };
-                    } catch(_) {
-                        { value : (null : Ref<ValueError>), ok : false };
-                    }, _0 = __tmp__.value, _ok = __tmp__.ok;
-                    if (!_ok) {
-                        _t.errorf(("expected *js.ValueError, got %T" : GoString), _err);
+        try {
+            __deferstack__.unshift(() -> {
+                var a = function():Void {
+                    var _err:AnyInterface = ({
+                        final r = Go.recover_exception;
+                        Go.recover_exception = null;
+                        r;
+                    });
+                    {
+                        var __tmp__ = try {
+                            { value : (Go.typeAssert((_err : Ref<ValueError>)) : Ref<ValueError>), ok : true };
+                        } catch(_) {
+                            { value : (null : Ref<ValueError>), ok : false };
+                        }, _0 = __tmp__.value, _ok = __tmp__.ok;
+                        if (!_ok) {
+                            _t.errorf(("expected *js.ValueError, got %T" : GoString), _err);
+                        };
                     };
                 };
-            };
-            a();
-        });
-        try {
+                a();
+            });
             _fn();
             for (defer in __deferstack__) {
                 defer();
@@ -783,6 +795,9 @@ private function _expectValueError(_t:Ref<stdgo.testing.Testing.T>, _fn:() -> Vo
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -793,20 +808,20 @@ private function _expectValueError(_t:Ref<stdgo.testing.Testing.T>, _fn:() -> Vo
     }
 private function _expectPanic(_t:Ref<stdgo.testing.Testing.T>, _fn:() -> Void):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        __deferstack__.unshift(() -> {
-            var a = function():Void {
-                var _err:AnyInterface = ({
-                    final r = Go.recover_exception;
-                    Go.recover_exception = null;
-                    r;
-                });
-                if (_err == null) {
-                    _t.errorf(("expected panic" : GoString));
-                };
-            };
-            a();
-        });
         try {
+            __deferstack__.unshift(() -> {
+                var a = function():Void {
+                    var _err:AnyInterface = ({
+                        final r = Go.recover_exception;
+                        Go.recover_exception = null;
+                        r;
+                    });
+                    if (_err == null) {
+                        _t.errorf(("expected panic" : GoString));
+                    };
+                };
+                a();
+            });
             _fn();
             for (defer in __deferstack__) {
                 defer();
@@ -821,6 +836,9 @@ private function _expectPanic(_t:Ref<stdgo.testing.Testing.T>, _fn:() -> Void):V
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -924,12 +942,12 @@ function benchmarkDOM(_b:Ref<stdgo.testing.Testing.B>):Void {
     }
 function testGlobal(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _ident:Func = (stdgo.syscall.js.Js.funcOf(function(_this:Value, _args:Slice<Value>):AnyInterface {
-            return Go.toInterface(Go.asInterface(_args[(0 : GoInt)]));
-        }) == null ? null : stdgo.syscall.js.Js.funcOf(function(_this:Value, _args:Slice<Value>):AnyInterface {
-            return Go.toInterface(Go.asInterface(_args[(0 : GoInt)]));
-        }).__copy__());
         try {
+            var _ident:Func = (stdgo.syscall.js.Js.funcOf(function(_this:Value, _args:Slice<Value>):AnyInterface {
+                return Go.toInterface(Go.asInterface(_args[(0 : GoInt)]));
+            }) == null ? null : stdgo.syscall.js.Js.funcOf(function(_this:Value, _args:Slice<Value>):AnyInterface {
+                return Go.toInterface(Go.asInterface(_args[(0 : GoInt)]));
+            }).__copy__());
             __deferstack__.unshift(() -> _ident.release());
             {
                 var _got:Value = (_ident.invoke(Go.toInterface(Go.asInterface(stdgo.syscall.js.Js.global()))) == null ? null : _ident.invoke(Go.toInterface(Go.asInterface(stdgo.syscall.js.Js.global()))).__copy__());
@@ -950,6 +968,9 @@ function testGlobal(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

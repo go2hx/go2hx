@@ -3028,10 +3028,10 @@ class T_pp_asInterface {
     static public function _handleMethods( _p:Ref<T_pp>, _verb:GoRune):Bool {
         var __deferstack__:Array<Void -> Void> = [];
         var _handled:Bool = false;
-        if (_p._erroring) {
-            return _handled;
-        };
         try {
+            if (_p._erroring) {
+                return _handled;
+            };
             if (_verb == ((119 : GoInt32))) {
                 var __tmp__ = try {
                     { value : (Go.typeAssert((_p._arg : Error)) : Error), ok : true };
@@ -3150,6 +3150,9 @@ class T_pp_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3686,8 +3689,8 @@ class T_ss_asInterface {
             var _a0 = (_err : Ref<Error>);
             __deferstack__.unshift(() -> _errorHandler(_a0));
         };
-        var _end:GoInt = (_format.length) - (1 : GoInt);
         try {
+            var _end:GoInt = (_format.length) - (1 : GoInt);
             {
                 var _i:GoInt = (0 : GoInt);
                 while (_i <= _end) {
@@ -3761,6 +3764,9 @@ class T_ss_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3862,11 +3868,11 @@ class T_ss_asInterface {
             var _a0 = (_err : Ref<Error>);
             __deferstack__.unshift(() -> _errorHandler(_a0));
         };
-        for (_0 => _arg in _a) {
-            _s._scanOne((118 : GoInt32), _arg);
-            _numProcessed++;
-        };
         try {
+            for (_0 => _arg in _a) {
+                _s._scanOne((118 : GoInt32), _arg);
+                _numProcessed++;
+            };
             if (_s._ssave._nlIsEnd) {
                 while (true) {
                     var _r:GoInt32 = _s._getRune();
@@ -3898,6 +3904,9 @@ class T_ss_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -4614,10 +4623,10 @@ class T_ss_asInterface {
             };
             a();
         });
-        if (_f == null) {
-            _f = _notSpace;
-        };
         try {
+            if (_f == null) {
+                _f = _notSpace;
+            };
             _s._buf = (_s._buf.__slice__(0, (0 : GoInt)) : T_buffer);
             _tok = _s._token(_skipSpace, _f);
             {
@@ -4639,6 +4648,9 @@ class T_ss_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

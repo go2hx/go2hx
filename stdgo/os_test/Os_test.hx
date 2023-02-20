@@ -560,8 +560,8 @@ function testUnsetenv(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testClearenv(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        {};
         try {
+            {};
             {};
             {
                 var _a0 = environ();
@@ -612,6 +612,9 @@ function testClearenv(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -622,8 +625,8 @@ function testClearenv(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testLookupEnv(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        {};
         try {
+            {};
             var __tmp__ = lookupEnv(("SMALLPOX" : GoString)), _value:GoString = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok || (_value != Go.str())) {
                 _t.fatalf(("%s=%q" : GoString), Go.toInterface(("SMALLPOX" : GoString)), Go.toInterface(_value));
@@ -656,6 +659,9 @@ function testLookupEnv(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -698,8 +704,8 @@ function testEnvironConsistency(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testErrIsExist(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var __tmp__ = stdgo.os.Os.createTemp(Go.str(), ("_Go_ErrIsExist" : GoString)), _f:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
         try {
+            var __tmp__ = stdgo.os.Os.createTemp(Go.str(), ("_Go_ErrIsExist" : GoString)), _f:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatalf(("open ErrIsExist tempfile: %s" : GoString), Go.toInterface(_err));
                 return;
@@ -745,6 +751,9 @@ function testErrIsExist(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -861,8 +870,8 @@ function testIsPermission(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testErrPathNUL(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var __tmp__ = stdgo.os.Os.createTemp(Go.str(), Go.str("_Go_ErrPathNUL", 0)), _f:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
         try {
+            var __tmp__ = stdgo.os.Os.createTemp(Go.str(), Go.str("_Go_ErrPathNUL", 0)), _f:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err == null) {
                 _f.close();
                 _t.fatal(Go.toInterface(("TempFile should have failed" : GoString)));
@@ -907,6 +916,9 @@ function testErrPathNUL(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1041,8 +1053,8 @@ function exampleGetenv():Void {
     }
 function exampleUnsetenv():Void {
         var __deferstack__:Array<Void -> Void> = [];
-        stdgo.os.Os.setenv(("TMPDIR" : GoString), ("/my/tmp" : GoString));
         try {
+            stdgo.os.Os.setenv(("TMPDIR" : GoString), ("/my/tmp" : GoString));
             {
                 var _a0 = ("TMPDIR" : GoString);
                 __deferstack__.unshift(() -> stdgo.os.Os.unsetenv(_a0));
@@ -1060,6 +1072,9 @@ function exampleUnsetenv():Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1079,8 +1094,8 @@ function exampleReadDir():Void {
     }
 function exampleMkdirTemp():Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var __tmp__ = stdgo.os.Os.mkdirTemp(Go.str(), ("example" : GoString)), _dir:GoString = __tmp__._0, _err:Error = __tmp__._1;
         try {
+            var __tmp__ = stdgo.os.Os.mkdirTemp(Go.str(), ("example" : GoString)), _dir:GoString = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 stdgo.log.Log.fatal(Go.toInterface(_err));
             };
@@ -1108,6 +1123,9 @@ function exampleMkdirTemp():Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1118,8 +1136,8 @@ function exampleMkdirTemp():Void {
     }
 function exampleMkdirTemp_suffix():Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var __tmp__ = stdgo.os.Os.mkdirTemp(Go.str(), ("*-logs" : GoString)), _logsDir:GoString = __tmp__._0, _err:Error = __tmp__._1;
         try {
+            var __tmp__ = stdgo.os.Os.mkdirTemp(Go.str(), ("*-logs" : GoString)), _logsDir:GoString = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 stdgo.log.Log.fatal(Go.toInterface(_err));
             };
@@ -1153,6 +1171,9 @@ function exampleMkdirTemp_suffix():Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1163,8 +1184,8 @@ function exampleMkdirTemp_suffix():Void {
     }
 function exampleCreateTemp():Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var __tmp__ = stdgo.os.Os.createTemp(Go.str(), ("example" : GoString)), _f:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
         try {
+            var __tmp__ = stdgo.os.Os.createTemp(Go.str(), ("example" : GoString)), _f:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 stdgo.log.Log.fatal(Go.toInterface(_err));
             };
@@ -1197,6 +1218,9 @@ function exampleCreateTemp():Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1207,8 +1231,8 @@ function exampleCreateTemp():Void {
     }
 function exampleCreateTemp_suffix():Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var __tmp__ = stdgo.os.Os.createTemp(Go.str(), ("example.*.txt" : GoString)), _f:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
         try {
+            var __tmp__ = stdgo.os.Os.createTemp(Go.str(), ("example.*.txt" : GoString)), _f:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 stdgo.log.Log.fatal(Go.toInterface(_err));
             };
@@ -1242,6 +1266,9 @@ function exampleCreateTemp_suffix():Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1365,10 +1392,10 @@ function testMain(_m:Ref<stdgo.testing.Testing.M>):Void {
 private function _size(_name:GoString, _t:Ref<stdgo.testing.Testing.T>):GoInt64 {
         var __deferstack__:Array<Void -> Void> = [];
         var __tmp__ = open(_name), _file:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
-        if (_err != null) {
-            _t.fatal(Go.toInterface(("open failed:" : GoString)), Go.toInterface(_err));
-        };
         try {
+            if (_err != null) {
+                _t.fatal(Go.toInterface(("open failed:" : GoString)), Go.toInterface(_err));
+            };
             __deferstack__.unshift(() -> {
                 var a = function():Void {
                     {
@@ -1403,6 +1430,9 @@ private function _size(_name:GoString, _t:Ref<stdgo.testing.Testing.T>):GoInt64 
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1461,8 +1491,8 @@ function testStat(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testStatError(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        __deferstack__.unshift(() -> _chtmpdir(_t)());
         try {
+            __deferstack__.unshift(() -> _chtmpdir(_t)());
             var _path:GoString = ("no-such-file" : GoString);
             var __tmp__ = stat(_path), _fi:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:Error = __tmp__._1;
             if (_err == null) {
@@ -1521,6 +1551,9 @@ function testStatError(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1531,8 +1564,8 @@ function testStatError(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testStatSymlinkLoop(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        stdgo.internal.testenv.Testenv.mustHaveSymlink(Go.asInterface(_t));
         try {
+            stdgo.internal.testenv.Testenv.mustHaveSymlink(Go.asInterface(_t));
             __deferstack__.unshift(() -> _chtmpdir(_t)());
             var _err:Error = stdgo.os.Os.symlink(("x" : GoString), ("y" : GoString));
             if (_err != null) {
@@ -1577,6 +1610,9 @@ function testStatSymlinkLoop(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1587,8 +1623,8 @@ function testStatSymlinkLoop(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testFstat(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _path:GoString = (_sfdir + ("/" : GoString)) + _sfname;
         try {
+            var _path:GoString = (_sfdir + ("/" : GoString)) + _sfname;
             var __tmp__ = open(_path), _file:Ref<File> = __tmp__._0, _err1:Error = __tmp__._1;
             if (_err1 != null) {
                 _t.fatal(Go.toInterface(("open failed:" : GoString)), Go.toInterface(_err1));
@@ -1618,6 +1654,9 @@ function testFstat(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1647,8 +1686,8 @@ function testLstat(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testRead0(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _path:GoString = (_sfdir + ("/" : GoString)) + _sfname;
         try {
+            var _path:GoString = (_sfdir + ("/" : GoString)) + _sfname;
             var __tmp__ = open(_path), _f:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(Go.toInterface(("open failed:" : GoString)), Go.toInterface(_err));
@@ -1681,6 +1720,9 @@ function testRead0(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1715,8 +1757,8 @@ function testReadClosed(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 private function _testReaddirnames(_dir:GoString, _contents:Slice<GoString>, _t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var __tmp__ = open(_dir), _file:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
         try {
+            var __tmp__ = open(_dir), _file:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatalf(("open %q failed: %v" : GoString), Go.toInterface(_dir), Go.toInterface(_err));
             };
@@ -1759,6 +1801,9 @@ private function _testReaddirnames(_dir:GoString, _contents:Slice<GoString>, _t:
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1769,8 +1814,8 @@ private function _testReaddirnames(_dir:GoString, _contents:Slice<GoString>, _t:
     }
 private function _testReaddir(_dir:GoString, _contents:Slice<GoString>, _t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var __tmp__ = open(_dir), _file:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
         try {
+            var __tmp__ = open(_dir), _file:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatalf(("open %q failed: %v" : GoString), Go.toInterface(_dir), Go.toInterface(_err));
             };
@@ -1813,6 +1858,9 @@ private function _testReaddir(_dir:GoString, _contents:Slice<GoString>, _t:Ref<s
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1823,8 +1871,8 @@ private function _testReaddir(_dir:GoString, _contents:Slice<GoString>, _t:Ref<s
     }
 private function _testReadDir(_dir:GoString, _contents:Slice<GoString>, _t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var __tmp__ = open(_dir), _file:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
         try {
+            var __tmp__ = open(_dir), _file:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatalf(("open %q failed: %v" : GoString), Go.toInterface(_dir), Go.toInterface(_err));
             };
@@ -1885,6 +1933,9 @@ private function _testReadDir(_dir:GoString, _contents:Slice<GoString>, _t:Ref<s
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2044,8 +2095,8 @@ private function _smallReaddirnames(_file:Ref<File>, _length:GoInt, _t:Ref<stdgo
 **/
 function testReaddirnamesOneAtATime(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _dir:GoString = ("/usr/bin" : GoString);
         try {
+            var _dir:GoString = ("/usr/bin" : GoString);
             if (("js" : GoString) == (("android" : GoString))) {
                 _dir = ("/system/bin" : GoString);
             } else if (("js" : GoString) == (("ios" : GoString))) {
@@ -2095,6 +2146,9 @@ function testReaddirnamesOneAtATime(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2202,10 +2256,10 @@ private function _touch(_t:Ref<stdgo.testing.Testing.T>, _name:GoString):Void {
     }
 function testReaddirStatFailures(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        if (("js" : GoString) == (("windows" : GoString)) || ("js" : GoString) == (("plan9" : GoString))) {
-            _t.skipf(("skipping test on %v" : GoString), Go.toInterface(("js" : GoString)));
-        };
         try {
+            if (("js" : GoString) == (("windows" : GoString)) || ("js" : GoString) == (("plan9" : GoString))) {
+                _t.skipf(("skipping test on %v" : GoString), Go.toInterface(("js" : GoString)));
+            };
             var _dir:GoString = _t.tempDir();
             _touch(_t, stdgo.path.filepath.Filepath.join(_dir, ("good1" : GoString)));
             _touch(_t, stdgo.path.filepath.Filepath.join(_dir, ("x" : GoString)));
@@ -2229,8 +2283,8 @@ function testReaddirStatFailures(_t:Ref<stdgo.testing.Testing.T>):Void {
                 if (_err != null) {
                     _t.fatal(Go.toInterface(_err));
                 };
-                __deferstack__.unshift(() -> _d.close());
                 try {
+                    __deferstack__.unshift(() -> _d.close());
                     {
                         for (defer in __deferstack__) {
                             defer();
@@ -2250,6 +2304,9 @@ function testReaddirStatFailures(_t:Ref<stdgo.testing.Testing.T>):Void {
                 } catch(__exception__) {
                     var exe:Dynamic = __exception__.native;
                     if ((exe is haxe.ValueException)) exe = exe.value;
+                    if (!(exe is AnyInterfaceData)) {
+                        exe = Go.toInterface(__exception__.message);
+                    };
                     Go.recover_exception = exe;
                     for (defer in __deferstack__) {
                         defer();
@@ -2306,6 +2363,9 @@ function testReaddirStatFailures(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2319,8 +2379,8 @@ function testReaddirStatFailures(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testReaddirOfFile(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var __tmp__ = stdgo.os.Os.createTemp(Go.str(), ("_Go_ReaddirOfFile" : GoString)), _f:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
         try {
+            var __tmp__ = stdgo.os.Os.createTemp(Go.str(), ("_Go_ReaddirOfFile" : GoString)), _f:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(Go.toInterface(_err));
             };
@@ -2359,6 +2419,9 @@ function testReaddirOfFile(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2369,8 +2432,8 @@ function testReaddirOfFile(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testHardLink(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        stdgo.internal.testenv.Testenv.mustHaveLink(Go.asInterface(_t));
         try {
+            stdgo.internal.testenv.Testenv.mustHaveLink(Go.asInterface(_t));
             __deferstack__.unshift(() -> _chtmpdir(_t)());
             var _0:GoString = ("hardlinktestfrom" : GoString), _1:GoString = ("hardlinktestto" : GoString), _to:GoString = _1, _from:GoString = _0;
             var __tmp__ = create(_to), _file:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
@@ -2448,6 +2511,9 @@ function testHardLink(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2487,8 +2553,8 @@ private function _chtmpdir(_t:Ref<stdgo.testing.Testing.T>):() -> Void {
     }
 function testSymlink(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        stdgo.internal.testenv.Testenv.mustHaveSymlink(Go.asInterface(_t));
         try {
+            stdgo.internal.testenv.Testenv.mustHaveSymlink(Go.asInterface(_t));
             __deferstack__.unshift(() -> _chtmpdir(_t)());
             var _0:GoString = ("symlinktestfrom" : GoString), _1:GoString = ("symlinktestto" : GoString), _to:GoString = _1, _from:GoString = _0;
             var __tmp__ = create(_to), _file:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
@@ -2573,6 +2639,9 @@ function testSymlink(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2583,8 +2652,8 @@ function testSymlink(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testLongSymlink(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        stdgo.internal.testenv.Testenv.mustHaveSymlink(Go.asInterface(_t));
         try {
+            stdgo.internal.testenv.Testenv.mustHaveSymlink(Go.asInterface(_t));
             __deferstack__.unshift(() -> _chtmpdir(_t)());
             var _s:GoString = ("0123456789abcdef" : GoString);
             _s = (((((((((((((_s + _s) + _s) + _s) + _s) + _s) + _s) + _s) + _s) + _s) + _s) + _s) + _s) + _s) + _s;
@@ -2613,6 +2682,9 @@ function testLongSymlink(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2623,8 +2695,8 @@ function testLongSymlink(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testRename(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        __deferstack__.unshift(() -> _chtmpdir(_t)());
         try {
+            __deferstack__.unshift(() -> _chtmpdir(_t)());
             var _0:GoString = ("renamefrom" : GoString), _1:GoString = ("renameto" : GoString), _to:GoString = _1, _from:GoString = _0;
             var __tmp__ = create(_from), _file:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
@@ -2660,6 +2732,9 @@ function testRename(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2670,8 +2745,8 @@ function testRename(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testRenameOverwriteDest(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        __deferstack__.unshift(() -> _chtmpdir(_t)());
         try {
+            __deferstack__.unshift(() -> _chtmpdir(_t)());
             var _0:GoString = ("renamefrom" : GoString), _1:GoString = ("renameto" : GoString), _to:GoString = _1, _from:GoString = _0;
             var _toData = (("to" : GoString) : Slice<GoByte>);
             var _fromData = (("from" : GoString) : Slice<GoByte>);
@@ -2717,6 +2792,9 @@ function testRenameOverwriteDest(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2727,8 +2805,8 @@ function testRenameOverwriteDest(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testRenameFailed(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        __deferstack__.unshift(() -> _chtmpdir(_t)());
         try {
+            __deferstack__.unshift(() -> _chtmpdir(_t)());
             var _0:GoString = ("renamefrom" : GoString), _1:GoString = ("renameto" : GoString), _to:GoString = _1, _from:GoString = _0;
             var _err:Error = rename(_from, _to);
             {
@@ -2765,6 +2843,9 @@ function testRenameFailed(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2775,8 +2856,8 @@ function testRenameFailed(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testRenameNotExisting(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        __deferstack__.unshift(() -> _chtmpdir(_t)());
         try {
+            __deferstack__.unshift(() -> _chtmpdir(_t)());
             var _0:GoString = ("doesnt-exist" : GoString), _1:GoString = ("dest" : GoString), _to:GoString = _1, _from:GoString = _0;
             mkdir(_to, (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
             {
@@ -2798,6 +2879,9 @@ function testRenameNotExisting(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2808,8 +2892,8 @@ function testRenameNotExisting(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testRenameToDirFailed(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        __deferstack__.unshift(() -> _chtmpdir(_t)());
         try {
+            __deferstack__.unshift(() -> _chtmpdir(_t)());
             var _0:GoString = ("renamefrom" : GoString), _1:GoString = ("renameto" : GoString), _to:GoString = _1, _from:GoString = _0;
             mkdir(_from, (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
             mkdir(_to, (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
@@ -2848,6 +2932,9 @@ function testRenameToDirFailed(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2870,8 +2957,8 @@ function testRenameCaseDifference(_pt:Ref<stdgo.testing.Testing.T>):Void {
         for (_0 => _test in _tests) {
             _pt.run(_test._name, function(_t:Ref<stdgo.testing.Testing.T>):Void {
                 var __deferstack__:Array<Void -> Void> = [];
-                __deferstack__.unshift(() -> _chtmpdir(_t)());
                 try {
+                    __deferstack__.unshift(() -> _chtmpdir(_t)());
                     {
                         var _err:Error = _test._create();
                         if (_err != null) {
@@ -2923,6 +3010,9 @@ function testRenameCaseDifference(_pt:Ref<stdgo.testing.Testing.T>):Void {
                 } catch(__exception__) {
                     var exe:Dynamic = __exception__.native;
                     if ((exe is haxe.ValueException)) exe = exe.value;
+                    if (!(exe is AnyInterfaceData)) {
+                        exe = Go.toInterface(__exception__.message);
+                    };
                     Go.recover_exception = exe;
                     for (defer in __deferstack__) {
                         defer();
@@ -2935,8 +3025,8 @@ function testRenameCaseDifference(_pt:Ref<stdgo.testing.Testing.T>):Void {
     }
 private function _exec(_t:Ref<stdgo.testing.Testing.T>, _dir:GoString, _cmd:GoString, _args:Slice<GoString>, _expect:GoString):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var __tmp__ = pipe(), _r:Ref<File> = __tmp__._0, _w:Ref<File> = __tmp__._1, _err:Error = __tmp__._2;
         try {
+            var __tmp__ = pipe(), _r:Ref<File> = __tmp__._0, _w:Ref<File> = __tmp__._1, _err:Error = __tmp__._2;
             if (_err != null) {
                 _t.fatalf(("Pipe: %v" : GoString), Go.toInterface(_err));
             };
@@ -2969,6 +3059,9 @@ private function _exec(_t:Ref<stdgo.testing.Testing.T>, _dir:GoString, _cmd:GoSt
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3017,8 +3110,8 @@ private function _checkMode(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _mo
     }
 function testChmod(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _f = _newFile(("TestChmod" : GoString), _t);
         try {
+            var _f = _newFile(("TestChmod" : GoString), _t);
             {
                 var _a0 = _f.name();
                 __deferstack__.unshift(() -> remove(_a0));
@@ -3059,6 +3152,9 @@ function testChmod(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3079,8 +3175,8 @@ private function _checkSize(_t:Ref<stdgo.testing.Testing.T>, _f:Ref<File>, _size
     }
 function testFTruncate(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _f = _newFile(("TestFTruncate" : GoString), _t);
         try {
+            var _f = _newFile(("TestFTruncate" : GoString), _t);
             {
                 var _a0 = _f.name();
                 __deferstack__.unshift(() -> remove(_a0));
@@ -3112,6 +3208,9 @@ function testFTruncate(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3122,8 +3221,8 @@ function testFTruncate(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testTruncate(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _f = _newFile(("TestTruncate" : GoString), _t);
         try {
+            var _f = _newFile(("TestTruncate" : GoString), _t);
             {
                 var _a0 = _f.name();
                 __deferstack__.unshift(() -> remove(_a0));
@@ -3155,6 +3254,9 @@ function testTruncate(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3171,8 +3273,8 @@ function testTruncate(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testChtimes(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _f = _newFile(("TestChtimes" : GoString), _t);
         try {
+            var _f = _newFile(("TestChtimes" : GoString), _t);
             {
                 var _a0 = _f.name();
                 __deferstack__.unshift(() -> remove(_a0));
@@ -3193,6 +3295,9 @@ function testChtimes(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3209,8 +3314,8 @@ function testChtimes(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testChtimesDir(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _name:GoString = _newDir(("TestChtimes" : GoString), _t);
         try {
+            var _name:GoString = _newDir(("TestChtimes" : GoString), _t);
             {
                 var _a0 = _name;
                 __deferstack__.unshift(() -> removeAll(_a0));
@@ -3229,6 +3334,9 @@ function testChtimesDir(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3278,10 +3386,10 @@ private function _testChtimes(_t:Ref<stdgo.testing.Testing.T>, _name:GoString):V
     }
 function testFileChdir(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        if (false) {
-            return;
-        };
         try {
+            if (false) {
+                return;
+            };
             var __tmp__ = getwd(), _wd:GoString = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatalf(("Getwd: %s" : GoString), Go.toInterface(_err));
@@ -3327,6 +3435,9 @@ function testFileChdir(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3414,8 +3525,8 @@ function testChdirAndGetwd(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testProgWideChdir(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        {};
         try {
+            {};
             {};
             var _c = new Chan<Bool>(0, () -> false);
             var _cpwd = new Chan<GoString>((10 : GoInt).toBasic(), () -> ("" : GoString));
@@ -3508,6 +3619,9 @@ function testProgWideChdir(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3537,8 +3651,8 @@ function testProgWideChdir(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 function testSeek(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _f = _newFile(("TestSeek" : GoString), _t);
         try {
+            var _f = _newFile(("TestSeek" : GoString), _t);
             {
                 var _a0 = _f.name();
                 __deferstack__.unshift(() -> remove(_a0));
@@ -3594,6 +3708,9 @@ function testSeek(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3692,10 +3809,10 @@ function testOpenNoName(_t:Ref<stdgo.testing.Testing.T>):Void {
 private function _runBinHostname(_t:Ref<stdgo.testing.Testing.T>):GoString {
         var __deferstack__:Array<Void -> Void> = [];
         var __tmp__ = pipe(), _r:Ref<File> = __tmp__._0, _w:Ref<File> = __tmp__._1, _err:Error = __tmp__._2;
-        if (_err != null) {
-            _t.fatal(Go.toInterface(_err));
-        };
         try {
+            if (_err != null) {
+                _t.fatal(Go.toInterface(_err));
+            };
             __deferstack__.unshift(() -> _r.close());
             var __tmp__ = stdgo.os.exec.Exec.lookPath(("hostname" : GoString)), _path:GoString = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
@@ -3755,6 +3872,9 @@ private function _runBinHostname(_t:Ref<stdgo.testing.Testing.T>):GoString {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3802,8 +3922,8 @@ function testHostname(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testReadAt(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _f = _newFile(("TestReadAt" : GoString), _t);
         try {
+            var _f = _newFile(("TestReadAt" : GoString), _t);
             {
                 var _a0 = _f.name();
                 __deferstack__.unshift(() -> remove(_a0));
@@ -3832,6 +3952,9 @@ function testReadAt(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3848,8 +3971,8 @@ function testReadAt(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testReadAtOffset(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _f = _newFile(("TestReadAtOffset" : GoString), _t);
         try {
+            var _f = _newFile(("TestReadAtOffset" : GoString), _t);
             {
                 var _a0 = _f.name();
                 __deferstack__.unshift(() -> remove(_a0));
@@ -3890,6 +4013,9 @@ function testReadAtOffset(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3903,8 +4029,8 @@ function testReadAtOffset(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testReadAtNegativeOffset(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _f = _newFile(("TestReadAtNegativeOffset" : GoString), _t);
         try {
+            var _f = _newFile(("TestReadAtNegativeOffset" : GoString), _t);
             {
                 var _a0 = _f.name();
                 __deferstack__.unshift(() -> remove(_a0));
@@ -3932,6 +4058,9 @@ function testReadAtNegativeOffset(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3942,8 +4071,8 @@ function testReadAtNegativeOffset(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testWriteAt(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _f = _newFile(("TestWriteAt" : GoString), _t);
         try {
+            var _f = _newFile(("TestWriteAt" : GoString), _t);
             {
                 var _a0 = _f.name();
                 __deferstack__.unshift(() -> remove(_a0));
@@ -3975,6 +4104,9 @@ function testWriteAt(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3988,8 +4120,8 @@ function testWriteAt(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testWriteAtNegativeOffset(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _f = _newFile(("TestWriteAtNegativeOffset" : GoString), _t);
         try {
+            var _f = _newFile(("TestWriteAtNegativeOffset" : GoString), _t);
             {
                 var _a0 = _f.name();
                 __deferstack__.unshift(() -> remove(_a0));
@@ -4013,6 +4145,9 @@ function testWriteAtNegativeOffset(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -4026,8 +4161,8 @@ function testWriteAtNegativeOffset(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testWriteAtInAppendMode(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        __deferstack__.unshift(() -> _chtmpdir(_t)());
         try {
+            __deferstack__.unshift(() -> _chtmpdir(_t)());
             var __tmp__ = openFile(("write_at_in_append_mode.txt" : GoString), (1088 : GoInt), (("438" : GoUInt32) : stdgo.io.fs.Fs.FileMode)), _f:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatalf(("OpenFile: %v" : GoString), Go.toInterface(_err));
@@ -4053,6 +4188,9 @@ function testWriteAtInAppendMode(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -4079,8 +4217,8 @@ private function _writeFile(_t:Ref<stdgo.testing.Testing.T>, _fname:GoString, _f
     }
 function testAppend(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        __deferstack__.unshift(() -> _chtmpdir(_t)());
         try {
+            __deferstack__.unshift(() -> _chtmpdir(_t)());
             {};
             var _s:GoString = _writeFile(_t, ("append.txt" : GoString), (578 : GoInt), ("new" : GoString));
             if (_s != (("new" : GoString))) {
@@ -4123,6 +4261,9 @@ function testAppend(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -4156,8 +4297,8 @@ function testNilProcessStateString(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testSameFile(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        __deferstack__.unshift(() -> _chtmpdir(_t)());
         try {
+            __deferstack__.unshift(() -> _chtmpdir(_t)());
             var __tmp__ = create(("a" : GoString)), _fa:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatalf(("Create(a): %v" : GoString), Go.toInterface(_err));
@@ -4199,6 +4340,9 @@ function testSameFile(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -4224,8 +4368,8 @@ private function _testDevNullFileInfo(_t:Ref<stdgo.testing.Testing.T>, _statname
     }
 private function _testDevNullFile(_t:Ref<stdgo.testing.Testing.T>, _devNullName:GoString):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var __tmp__ = open(_devNullName), _f:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
         try {
+            var __tmp__ = open(_devNullName), _f:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatalf(("Open(%s): %v" : GoString), Go.toInterface(_devNullName), Go.toInterface(_err));
             };
@@ -4257,6 +4401,9 @@ private function _testDevNullFile(_t:Ref<stdgo.testing.Testing.T>, _devNullName:
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -4357,8 +4504,8 @@ function testStatStdin(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testStatRelativeSymlink(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        stdgo.internal.testenv.Testenv.mustHaveSymlink(Go.asInterface(_t));
         try {
+            stdgo.internal.testenv.Testenv.mustHaveSymlink(Go.asInterface(_t));
             var _tmpdir:GoString = _t.tempDir();
             var _target:GoString = stdgo.path.filepath.Filepath.join(_tmpdir, ("target" : GoString));
             var __tmp__ = create(_target), _f:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
@@ -4409,6 +4556,9 @@ function testStatRelativeSymlink(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -4419,8 +4569,8 @@ function testStatRelativeSymlink(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testReadAtEOF(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _f = _newFile(("TestReadAtEOF" : GoString), _t);
         try {
+            var _f = _newFile(("TestReadAtEOF" : GoString), _t);
             {
                 var _a0 = _f.name();
                 __deferstack__.unshift(() -> remove(_a0));
@@ -4445,6 +4595,9 @@ function testReadAtEOF(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -4455,8 +4608,8 @@ function testReadAtEOF(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testLongPath(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _tmpdir:GoString = _newDir(("TestLongPath" : GoString), _t);
         try {
+            var _tmpdir:GoString = _newDir(("TestLongPath" : GoString), _t);
             {
                 var _a0 = _tmpdir;
                 __deferstack__.unshift(() -> {
@@ -4561,6 +4714,9 @@ function testLongPath(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -4571,8 +4727,8 @@ function testLongPath(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 private function _testKillProcess(_t:Ref<stdgo.testing.Testing.T>, _processKiller:(_p:Ref<Process>) -> Void):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        stdgo.internal.testenv.Testenv.mustHaveExec(Go.asInterface(_t));
         try {
+            stdgo.internal.testenv.Testenv.mustHaveExec(Go.asInterface(_t));
             _t.parallel();
             var _cmd = stdgo.internal.testenv.Testenv.command(Go.asInterface(_t), args[(0 : GoInt)]);
             _cmd.env = (stdgo.os.Os.environ().__append__(("GO_OS_TEST_DRAIN_STDIN=1" : GoString)));
@@ -4615,6 +4771,9 @@ private function _testKillProcess(_t:Ref<stdgo.testing.Testing.T>, _processKille
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -4701,10 +4860,10 @@ private function _mkdirTree(_t:Ref<stdgo.testing.Testing.T>, _root:GoString, _le
 **/
 function testRemoveAllRace(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        if (false) {
-            _t.skip(Go.toInterface(("skipping on windows" : GoString)));
-        };
         try {
+            if (false) {
+                _t.skip(Go.toInterface(("skipping on windows" : GoString)));
+            };
             if (false) {
                 stdgo.internal.testenv.Testenv.skipFlaky(Go.asInterface(_t), (52301 : GoInt));
             };
@@ -4727,8 +4886,8 @@ function testRemoveAllRace(_t:Ref<stdgo.testing.Testing.T>):Void {
                     Go.routine(() -> {
                         var a = function():Void {
                             var __deferstack__:Array<Void -> Void> = [];
-                            __deferstack__.unshift(() -> _wg.done());
                             try {
+                                __deferstack__.unshift(() -> _wg.done());
                                 _hold.__get__();
                                 var _err:Error = removeAll(_root);
                                 if (_err != null) {
@@ -4747,6 +4906,9 @@ function testRemoveAllRace(_t:Ref<stdgo.testing.Testing.T>):Void {
                             } catch(__exception__) {
                                 var exe:Dynamic = __exception__.native;
                                 if ((exe is haxe.ValueException)) exe = exe.value;
+                                if (!(exe is AnyInterfaceData)) {
+                                    exe = Go.toInterface(__exception__.message);
+                                };
                                 Go.recover_exception = exe;
                                 for (defer in __deferstack__) {
                                     defer();
@@ -4774,6 +4936,9 @@ function testRemoveAllRace(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -4787,16 +4952,16 @@ function testRemoveAllRace(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testPipeThreads(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        if (("js" : GoString) == (("illumos" : GoString)) || ("js" : GoString) == (("solaris" : GoString))) {
-            _t.skip(Go.toInterface(("skipping on Solaris and illumos; issue 19111" : GoString)));
-        } else if (("js" : GoString) == (("windows" : GoString))) {
-            _t.skip(Go.toInterface(("skipping on Windows; issue 19098" : GoString)));
-        } else if (("js" : GoString) == (("plan9" : GoString))) {
-            _t.skip(Go.toInterface(("skipping on Plan 9; does not support runtime poller" : GoString)));
-        } else if (("js" : GoString) == (("js" : GoString))) {
-            _t.skip(Go.toInterface(("skipping on js; no support for os.Pipe" : GoString)));
-        };
         try {
+            if (("js" : GoString) == (("illumos" : GoString)) || ("js" : GoString) == (("solaris" : GoString))) {
+                _t.skip(Go.toInterface(("skipping on Solaris and illumos; issue 19111" : GoString)));
+            } else if (("js" : GoString) == (("windows" : GoString))) {
+                _t.skip(Go.toInterface(("skipping on Windows; issue 19098" : GoString)));
+            } else if (("js" : GoString) == (("plan9" : GoString))) {
+                _t.skip(Go.toInterface(("skipping on Plan 9; does not support runtime poller" : GoString)));
+            } else if (("js" : GoString) == (("js" : GoString))) {
+                _t.skip(Go.toInterface(("skipping on js; no support for os.Pipe" : GoString)));
+            };
             var _threads:GoInt = (100 : GoInt);
             if (false) {
                 _threads = (50 : GoInt);
@@ -4889,6 +5054,9 @@ function testPipeThreads(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -5213,10 +5381,10 @@ function testReadFileProc(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testWriteStringAlloc(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        if (true) {
-            _t.skip(Go.toInterface(("js allocates a lot during File.WriteString" : GoString)));
-        };
         try {
+            if (true) {
+                _t.skip(Go.toInterface(("js allocates a lot during File.WriteString" : GoString)));
+            };
             var _d:GoString = _t.tempDir();
             var __tmp__ = create(stdgo.path.filepath.Filepath.join(_d, ("whiteboard.txt" : GoString))), _f:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
@@ -5242,6 +5410,9 @@ function testWriteStringAlloc(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -5266,8 +5437,8 @@ function testPipeIOCloseRace(_t:Ref<stdgo.testing.Testing.T>):Void {
         Go.routine(() -> {
             var a = function():Void {
                 var __deferstack__:Array<Void -> Void> = [];
-                __deferstack__.unshift(() -> _wg.done());
                 try {
+                    __deferstack__.unshift(() -> _wg.done());
                     while (true) {
                         var __tmp__ = _w.write((("hi" : GoString) : Slice<GoByte>)), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
                         if (_err != null) {
@@ -5304,6 +5475,9 @@ function testPipeIOCloseRace(_t:Ref<stdgo.testing.Testing.T>):Void {
                 } catch(__exception__) {
                     var exe:Dynamic = __exception__.native;
                     if ((exe is haxe.ValueException)) exe = exe.value;
+                    if (!(exe is AnyInterfaceData)) {
+                        exe = Go.toInterface(__exception__.message);
+                    };
                     Go.recover_exception = exe;
                     for (defer in __deferstack__) {
                         defer();
@@ -5317,8 +5491,8 @@ function testPipeIOCloseRace(_t:Ref<stdgo.testing.Testing.T>):Void {
         Go.routine(() -> {
             var a = function():Void {
                 var __deferstack__:Array<Void -> Void> = [];
-                __deferstack__.unshift(() -> _wg.done());
                 try {
+                    __deferstack__.unshift(() -> _wg.done());
                     while (true) {
                         var _buf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0 ... 2) (0 : GoUInt8)]);
                         var __tmp__ = _r.read((_buf.__slice__(0) : Slice<GoUInt8>)), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
@@ -5350,6 +5524,9 @@ function testPipeIOCloseRace(_t:Ref<stdgo.testing.Testing.T>):Void {
                 } catch(__exception__) {
                     var exe:Dynamic = __exception__.native;
                     if ((exe is haxe.ValueException)) exe = exe.value;
+                    if (!(exe is AnyInterfaceData)) {
+                        exe = Go.toInterface(__exception__.message);
+                    };
                     Go.recover_exception = exe;
                     for (defer in __deferstack__) {
                         defer();
@@ -5363,8 +5540,8 @@ function testPipeIOCloseRace(_t:Ref<stdgo.testing.Testing.T>):Void {
         Go.routine(() -> {
             var a = function():Void {
                 var __deferstack__:Array<Void -> Void> = [];
-                __deferstack__.unshift(() -> _wg.done());
                 try {
+                    __deferstack__.unshift(() -> _wg.done());
                     stdgo.time.Time.sleep((("1000000" : GoInt64) : stdgo.time.Time.Duration));
                     {
                         var _err:Error = _r.close();
@@ -5391,6 +5568,9 @@ function testPipeIOCloseRace(_t:Ref<stdgo.testing.Testing.T>):Void {
                 } catch(__exception__) {
                     var exe:Dynamic = __exception__.native;
                     if ((exe is haxe.ValueException)) exe = exe.value;
+                    if (!(exe is AnyInterfaceData)) {
+                        exe = Go.toInterface(__exception__.message);
+                    };
                     Go.recover_exception = exe;
                     for (defer in __deferstack__) {
                         defer();
@@ -5418,8 +5598,8 @@ function testPipeCloseRace(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _c = new Chan<Error>((4 : GoInt).toBasic(), () -> (null : Error));
         var _f:() -> Void = function():Void {
             var __deferstack__:Array<Void -> Void> = [];
-            __deferstack__.unshift(() -> _wg.done());
             try {
+                __deferstack__.unshift(() -> _wg.done());
                 _c.__send__(_r.close());
                 _c.__send__(_w.close());
                 for (defer in __deferstack__) {
@@ -5435,6 +5615,9 @@ function testPipeCloseRace(_t:Ref<stdgo.testing.Testing.T>):Void {
             } catch(__exception__) {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
+                if (!(exe is AnyInterfaceData)) {
+                    exe = Go.toInterface(__exception__.message);
+                };
                 Go.recover_exception = exe;
                 for (defer in __deferstack__) {
                     defer();
@@ -5477,8 +5660,8 @@ private function _checkUidGid(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _
     }
 function testChown(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _f = _newFile(("TestChown" : GoString), _t);
         try {
+            var _f = _newFile(("TestChown" : GoString), _t);
             {
                 var _a0 = _f.name();
                 __deferstack__.unshift(() -> remove(_a0));
@@ -5532,6 +5715,9 @@ function testChown(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -5542,8 +5728,8 @@ function testChown(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testFileChown(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _f = _newFile(("TestFileChown" : GoString), _t);
         try {
+            var _f = _newFile(("TestFileChown" : GoString), _t);
             {
                 var _a0 = _f.name();
                 __deferstack__.unshift(() -> remove(_a0));
@@ -5597,6 +5783,9 @@ function testFileChown(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -5607,8 +5796,8 @@ function testFileChown(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testLchown(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _f = _newFile(("TestLchown" : GoString), _t);
         try {
+            var _f = _newFile(("TestLchown" : GoString), _t);
             {
                 var _a0 = _f.name();
                 __deferstack__.unshift(() -> remove(_a0));
@@ -5680,6 +5869,9 @@ function testLchown(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -5693,8 +5885,8 @@ function testLchown(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testReaddirRemoveRace(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _oldStat:GoString -> { var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } = lstatP;
         try {
+            var _oldStat:GoString -> { var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } = lstatP;
             __deferstack__.unshift(() -> {
                 var a = function():Void {
                     lstatP = _oldStat;
@@ -5747,6 +5939,9 @@ function testReaddirRemoveRace(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -5760,8 +5955,8 @@ function testReaddirRemoveRace(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testMkdirStickyUmask(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        {};
         try {
+            {};
             var _dir:GoString = _newDir(("TestMkdirStickyUmask" : GoString), _t);
             {
                 var _a0 = _dir;
@@ -5802,6 +5997,9 @@ function testMkdirStickyUmask(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -5815,10 +6013,10 @@ function testMkdirStickyUmask(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 private function _newFileTest(_t:Ref<stdgo.testing.Testing.T>, _blocking:Bool):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        if (true) {
-            _t.skipf(("syscall.Pipe is not available on %s." : GoString), Go.toInterface(("js" : GoString)));
-        };
         try {
+            if (true) {
+                _t.skipf(("syscall.Pipe is not available on %s." : GoString), Go.toInterface(("js" : GoString)));
+            };
             var _p = new Slice<GoInt>((2 : GoInt).toBasic(), 0, ...[for (i in 0 ... (2 : GoInt).toBasic()) (0 : GoInt)]);
             {
                 var _err:Error = stdgo.syscall.Syscall.pipe(_p);
@@ -5879,6 +6077,9 @@ private function _newFileTest(_t:Ref<stdgo.testing.Testing.T>, _blocking:Bool):V
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -5925,8 +6126,8 @@ function testSplitPath(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testMkdirAll(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _tmpDir:GoString = tempDir();
         try {
+            var _tmpDir:GoString = tempDir();
             var _path:GoString = _tmpDir + ("/_TestMkdirAll_/dir/./dir2" : GoString);
             var _err:Error = mkdirAll(_path, (("511" : GoUInt32) : stdgo.io.fs.Fs.FileMode));
             if (_err != null) {
@@ -6001,6 +6202,9 @@ function testMkdirAll(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -6082,8 +6286,8 @@ function testReadFile(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testWriteFile(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var __tmp__ = createTemp(Go.str(), ("ioutil-test" : GoString)), _f:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
         try {
+            var __tmp__ = createTemp(Go.str(), ("ioutil-test" : GoString)), _f:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(Go.toInterface(_err));
             };
@@ -6119,6 +6323,9 @@ function testWriteFile(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -6129,10 +6336,10 @@ function testWriteFile(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testReadOnlyWriteFile(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        if (getuid() == ((0 : GoInt))) {
-            _t.skipf(("Root can write to read-only files anyway, so skip the read-only test." : GoString));
-        };
         try {
+            if (getuid() == ((0 : GoInt))) {
+                _t.skipf(("Root can write to read-only files anyway, so skip the read-only test." : GoString));
+            };
             var __tmp__ = mkdirTemp(Go.str(), _t.name()), _tempDir:GoString = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(Go.toInterface(_err));
@@ -6172,6 +6379,9 @@ function testReadOnlyWriteFile(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -6400,19 +6610,19 @@ function testRemoveAllLarge(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testRemoveAllLongPath(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        {
-            var __switchIndex__ = -1;
-            while (true) {
-                if (("js" : GoString) == (("aix" : GoString)) || ("js" : GoString) == (("darwin" : GoString)) || ("js" : GoString) == (("ios" : GoString)) || ("js" : GoString) == (("dragonfly" : GoString)) || ("js" : GoString) == (("freebsd" : GoString)) || ("js" : GoString) == (("linux" : GoString)) || ("js" : GoString) == (("netbsd" : GoString)) || ("js" : GoString) == (("openbsd" : GoString)) || ("js" : GoString) == (("illumos" : GoString)) || ("js" : GoString) == (("solaris" : GoString))) {
-                    break;
-                    break;
-                } else {
-                    _t.skip(Go.toInterface(("skipping for not implemented platforms" : GoString)));
-                };
-                break;
-            };
-        };
         try {
+            {
+                var __switchIndex__ = -1;
+                while (true) {
+                    if (("js" : GoString) == (("aix" : GoString)) || ("js" : GoString) == (("darwin" : GoString)) || ("js" : GoString) == (("ios" : GoString)) || ("js" : GoString) == (("dragonfly" : GoString)) || ("js" : GoString) == (("freebsd" : GoString)) || ("js" : GoString) == (("linux" : GoString)) || ("js" : GoString) == (("netbsd" : GoString)) || ("js" : GoString) == (("openbsd" : GoString)) || ("js" : GoString) == (("illumos" : GoString)) || ("js" : GoString) == (("solaris" : GoString))) {
+                        break;
+                        break;
+                    } else {
+                        _t.skip(Go.toInterface(("skipping for not implemented platforms" : GoString)));
+                    };
+                    break;
+                };
+            };
             var __tmp__ = getwd(), _prevDir:GoString = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatalf(("Could not get wd: %s" : GoString), Go.toInterface(_err));
@@ -6464,6 +6674,9 @@ function testRemoveAllLongPath(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -6474,8 +6687,8 @@ function testRemoveAllLongPath(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testRemoveAllDot(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var __tmp__ = getwd(), _prevDir:GoString = __tmp__._0, _err:Error = __tmp__._1;
         try {
+            var __tmp__ = getwd(), _prevDir:GoString = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatalf(("Could not get wd: %s" : GoString), Go.toInterface(_err));
             };
@@ -6512,6 +6725,9 @@ function testRemoveAllDot(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -6551,8 +6767,8 @@ function testRemoveAllDotDot(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testRemoveReadOnlyDir(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        _t.parallel();
         try {
+            _t.parallel();
             var _tempDir:GoString = _t.tempDir();
             var _subdir:GoString = stdgo.path.filepath.Filepath.join(_tempDir, ("x" : GoString));
             {
@@ -6591,6 +6807,9 @@ function testRemoveReadOnlyDir(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -6604,10 +6823,10 @@ function testRemoveReadOnlyDir(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testRemoveAllButReadOnlyAndPathError(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        if (("js" : GoString) == (("js" : GoString)) || ("js" : GoString) == (("windows" : GoString))) {
-            _t.skipf(("skipping test on %s" : GoString), Go.toInterface(("js" : GoString)));
-        };
         try {
+            if (("js" : GoString) == (("js" : GoString)) || ("js" : GoString) == (("windows" : GoString))) {
+                _t.skipf(("skipping test on %s" : GoString), Go.toInterface(("js" : GoString)));
+            };
             if (getuid() == ((0 : GoInt))) {
                 _t.skip(Go.toInterface(("skipping test when running as root" : GoString)));
             };
@@ -6704,6 +6923,9 @@ function testRemoveAllButReadOnlyAndPathError(_t:Ref<stdgo.testing.Testing.T>):V
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -6746,10 +6968,10 @@ function testRemoveUnreadableDir(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testRemoveAllWithMoreErrorThanReqSize(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        if (stdgo.testing.Testing.short()) {
-            _t.skip(Go.toInterface(("skipping in short mode" : GoString)));
-        };
         try {
+            if (stdgo.testing.Testing.short()) {
+                _t.skip(Go.toInterface(("skipping in short mode" : GoString)));
+            };
             var _tmpDir:GoString = _t.tempDir();
             var _path:GoString = stdgo.path.filepath.Filepath.join(_tmpDir, ("_TestRemoveAllWithMoreErrorThanReqSize_" : GoString));
             {
@@ -6822,6 +7044,9 @@ function testRemoveAllWithMoreErrorThanReqSize(_t:Ref<stdgo.testing.Testing.T>):
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -6856,8 +7081,8 @@ function testOpenFileLimit(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 private function _testStatAndLstat(_t:Ref<stdgo.testing.Testing.T>, _path:GoString, _isLink:Bool, _statCheck:(Ref<stdgo.testing.Testing.T>, GoString, stdgo.io.fs.Fs.FileInfo) -> Void, _lstatCheck:(Ref<stdgo.testing.Testing.T>, GoString, stdgo.io.fs.Fs.FileInfo) -> Void):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var __tmp__ = stdgo.os.Os.stat(_path), _sfi:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:Error = __tmp__._1;
         try {
+            var __tmp__ = stdgo.os.Os.stat(_path), _sfi:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.error(Go.toInterface(_err));
                 return;
@@ -6971,6 +7196,9 @@ private function _testStatAndLstat(_t:Ref<stdgo.testing.Testing.T>, _path:GoStri
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -7157,8 +7385,8 @@ function testSymlinkWithTrailingSlash(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testCreateTemp(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var __tmp__ = mkdirTemp(Go.str(), ("TestCreateTempBadDir" : GoString)), _dir:GoString = __tmp__._0, _err:Error = __tmp__._1;
         try {
+            var __tmp__ = mkdirTemp(Go.str(), ("TestCreateTempBadDir" : GoString)), _dir:GoString = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(Go.toInterface(_err));
             };
@@ -7184,6 +7412,9 @@ function testCreateTemp(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -7194,8 +7425,8 @@ function testCreateTemp(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testCreateTempPattern(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _tests = (new Slice<T__struct_6>(0, 0, ({ _pattern : ("tempfile_test" : GoString), _prefix : ("tempfile_test" : GoString), _suffix : Go.str() } : T__struct_6), ({ _pattern : ("tempfile_test*" : GoString), _prefix : ("tempfile_test" : GoString), _suffix : Go.str() } : T__struct_6), ({ _pattern : ("tempfile_test*xyz" : GoString), _prefix : ("tempfile_test" : GoString), _suffix : ("xyz" : GoString) } : T__struct_6)) : Slice<T__struct_6>);
         try {
+            var _tests = (new Slice<T__struct_6>(0, 0, ({ _pattern : ("tempfile_test" : GoString), _prefix : ("tempfile_test" : GoString), _suffix : Go.str() } : T__struct_6), ({ _pattern : ("tempfile_test*" : GoString), _prefix : ("tempfile_test" : GoString), _suffix : Go.str() } : T__struct_6), ({ _pattern : ("tempfile_test*xyz" : GoString), _prefix : ("tempfile_test" : GoString), _suffix : ("xyz" : GoString) } : T__struct_6)) : Slice<T__struct_6>);
             for (_0 => _test in _tests) {
                 var __tmp__ = createTemp(Go.str(), _test._pattern), _f:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
                 if (_err != null) {
@@ -7225,6 +7456,9 @@ function testCreateTempPattern(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -7235,8 +7469,8 @@ function testCreateTempPattern(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testCreateTempBadPattern(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var __tmp__ = mkdirTemp(Go.str(), _t.name()), _tmpDir:GoString = __tmp__._0, _err:Error = __tmp__._1;
         try {
+            var __tmp__ = mkdirTemp(Go.str(), _t.name()), _tmpDir:GoString = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(Go.toInterface(_err));
             };
@@ -7249,8 +7483,8 @@ function testCreateTempBadPattern(_t:Ref<stdgo.testing.Testing.T>):Void {
             for (_0 => _tt in _tests) {
                 _t.run(_tt._pattern, function(_t:Ref<stdgo.testing.Testing.T>):Void {
                     var __deferstack__:Array<Void -> Void> = [];
-                    var __tmp__ = createTemp(_tmpDir, _tt._pattern), _tmpfile:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
                     try {
+                        var __tmp__ = createTemp(_tmpDir, _tt._pattern), _tmpfile:Ref<File> = __tmp__._0, _err:Error = __tmp__._1;
                         if (_tmpfile != null) {
                             __deferstack__.unshift(() -> _tmpfile.close());
                         };
@@ -7277,6 +7511,9 @@ function testCreateTempBadPattern(_t:Ref<stdgo.testing.Testing.T>):Void {
                     } catch(__exception__) {
                         var exe:Dynamic = __exception__.native;
                         if ((exe is haxe.ValueException)) exe = exe.value;
+                        if (!(exe is AnyInterfaceData)) {
+                            exe = Go.toInterface(__exception__.message);
+                        };
                         Go.recover_exception = exe;
                         for (defer in __deferstack__) {
                             defer();
@@ -7299,6 +7536,9 @@ function testCreateTempBadPattern(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -7316,8 +7556,8 @@ function testMkdirTemp(_t:Ref<stdgo.testing.Testing.T>):Void {
         var _dir:GoString = stdgo.path.filepath.Filepath.clean(tempDir());
         var _runTestMkdirTemp = function(_t:Ref<stdgo.testing.Testing.T>, _pattern:GoString, _wantRePat:GoString):Void {
             var __deferstack__:Array<Void -> Void> = [];
-            var __tmp__ = mkdirTemp(_dir, _pattern), _name:GoString = __tmp__._0, _err:Error = __tmp__._1;
             try {
+                var __tmp__ = mkdirTemp(_dir, _pattern), _name:GoString = __tmp__._0, _err:Error = __tmp__._1;
                 if ((_name == Go.str()) || (_err != null)) {
                     _t.fatalf(("MkdirTemp(dir, `tempfile_test`) = %v, %v" : GoString), Go.toInterface(_name), Go.toInterface(_err));
                 };
@@ -7342,6 +7582,9 @@ function testMkdirTemp(_t:Ref<stdgo.testing.Testing.T>):Void {
             } catch(__exception__) {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
+                if (!(exe is AnyInterfaceData)) {
+                    exe = Go.toInterface(__exception__.message);
+                };
                 Go.recover_exception = exe;
                 for (defer in __deferstack__) {
                     defer();
@@ -7367,8 +7610,8 @@ function testMkdirTemp(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testMkdirTempBadDir(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var __tmp__ = mkdirTemp(Go.str(), ("MkdirTempBadDir" : GoString)), _dir:GoString = __tmp__._0, _err:Error = __tmp__._1;
         try {
+            var __tmp__ = mkdirTemp(Go.str(), ("MkdirTempBadDir" : GoString)), _dir:GoString = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(Go.toInterface(_err));
             };
@@ -7404,6 +7647,9 @@ function testMkdirTempBadDir(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -7414,8 +7660,8 @@ function testMkdirTempBadDir(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testMkdirTempBadPattern(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var __tmp__ = mkdirTemp(Go.str(), _t.name()), _tmpDir:GoString = __tmp__._0, _err:Error = __tmp__._1;
         try {
+            var __tmp__ = mkdirTemp(Go.str(), _t.name()), _tmpDir:GoString = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(Go.toInterface(_err));
             };
@@ -7453,6 +7699,9 @@ function testMkdirTempBadPattern(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

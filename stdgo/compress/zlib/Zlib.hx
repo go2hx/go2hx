@@ -383,8 +383,8 @@ function newReaderDict(_r:stdgo.io.Io.Reader, _dict:Slice<GoByte>):{ var _0 : st
     }
 function testDecompressor(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _b = ({} : stdgo.bytes.Bytes.Buffer);
         try {
+            var _b = ({} : stdgo.bytes.Bytes.Buffer);
             for (_0 => _tt in _zlibTests) {
                 var _in = stdgo.bytes.Bytes.newReader(_tt._compressed);
                 var __tmp__ = newReaderDict(Go.asInterface(_in), _tt._dict), _zr:stdgo.io.Io.ReadCloser = __tmp__._0, _err:Error = __tmp__._1;
@@ -433,6 +433,9 @@ function testDecompressor(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -482,8 +485,8 @@ function newWriterLevelDict(_w:stdgo.io.Io.Writer, _level:GoInt, _dict:Slice<GoB
 **/
 private function _testFileLevelDict(_t:Ref<stdgo.testing.Testing.T>, _fn:GoString, _level:GoInt, _d:GoString):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var __tmp__ = stdgo.os.Os.open(_fn), _golden:Ref<stdgo.os.Os.File> = __tmp__._0, _err:Error = __tmp__._1;
         try {
+            var __tmp__ = stdgo.os.Os.open(_fn), _golden:Ref<stdgo.os.Os.File> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.errorf(("%s (level=%d, dict=%q): %v" : GoString), Go.toInterface(_fn), Go.toInterface(_level), Go.toInterface(_d), Go.toInterface(_err));
                 return;
@@ -513,6 +516,9 @@ private function _testFileLevelDict(_t:Ref<stdgo.testing.Testing.T>, _fn:GoStrin
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -523,8 +529,8 @@ private function _testFileLevelDict(_t:Ref<stdgo.testing.Testing.T>, _fn:GoStrin
     }
 private function _testLevelDict(_t:Ref<stdgo.testing.Testing.T>, _fn:GoString, _b0:Slice<GoByte>, _level:GoInt, _d:GoString):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _dict:Slice<GoByte> = (null : Slice<GoUInt8>);
         try {
+            var _dict:Slice<GoByte> = (null : Slice<GoUInt8>);
             if (_d != (Go.str())) {
                 _dict = (_d : Slice<GoByte>);
             };
@@ -533,8 +539,8 @@ private function _testLevelDict(_t:Ref<stdgo.testing.Testing.T>, _fn:GoString, _
             Go.routine(() -> {
                 var a = function():Void {
                     var __deferstack__:Array<Void -> Void> = [];
-                    __deferstack__.unshift(() -> _pipew.close());
                     try {
+                        __deferstack__.unshift(() -> _pipew.close());
                         var __tmp__ = newWriterLevelDict(Go.asInterface(_pipew), _level, _dict), _zlibw:Ref<Writer> = __tmp__._0, _err:Error = __tmp__._1;
                         if (_err != null) {
                             _t.errorf(("%s (level=%d, dict=%q): %v" : GoString), Go.toInterface(_fn), Go.toInterface(_level), Go.toInterface(_d), Go.toInterface(_err));
@@ -572,6 +578,9 @@ private function _testLevelDict(_t:Ref<stdgo.testing.Testing.T>, _fn:GoString, _
                     } catch(__exception__) {
                         var exe:Dynamic = __exception__.native;
                         if ((exe is haxe.ValueException)) exe = exe.value;
+                        if (!(exe is AnyInterfaceData)) {
+                            exe = Go.toInterface(__exception__.message);
+                        };
                         Go.recover_exception = exe;
                         for (defer in __deferstack__) {
                             defer();
@@ -639,6 +648,9 @@ private function _testLevelDict(_t:Ref<stdgo.testing.Testing.T>, _fn:GoString, _
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

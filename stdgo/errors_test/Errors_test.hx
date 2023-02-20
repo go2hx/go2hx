@@ -413,17 +413,17 @@ function testAsValidation(_t:Ref<stdgo.testing.Testing.T>):Void {
         for (_0 => _tc in _testCases) {
             _t.run(stdgo.fmt.Fmt.sprintf(("%T(%v)" : GoString), _tc, _tc), function(_t:Ref<stdgo.testing.Testing.T>):Void {
                 var __deferstack__:Array<Void -> Void> = [];
-                __deferstack__.unshift(() -> {
-                    var a = function():Void {
-                        ({
-                            final r = Go.recover_exception;
-                            Go.recover_exception = null;
-                            r;
-                        });
-                    };
-                    a();
-                });
                 try {
+                    __deferstack__.unshift(() -> {
+                        var a = function():Void {
+                            ({
+                                final r = Go.recover_exception;
+                                Go.recover_exception = null;
+                                r;
+                            });
+                        };
+                        a();
+                    });
                     if (stdgo.errors.Errors.as(_err, _tc)) {
                         _t.errorf(("As(err, %T(%v)) = true, want false" : GoString), _tc, _tc);
                         {
@@ -447,6 +447,9 @@ function testAsValidation(_t:Ref<stdgo.testing.Testing.T>):Void {
                 } catch(__exception__) {
                     var exe:Dynamic = __exception__.native;
                     if ((exe is haxe.ValueException)) exe = exe.value;
+                    if (!(exe is AnyInterfaceData)) {
+                        exe = Go.toInterface(__exception__.message);
+                    };
                     Go.recover_exception = exe;
                     for (defer in __deferstack__) {
                         defer();

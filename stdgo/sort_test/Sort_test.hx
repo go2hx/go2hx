@@ -1168,22 +1168,22 @@ function testReverseRange(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testNonDeterministicComparison(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        __deferstack__.unshift(() -> {
-            var a = function():Void {
-                {
-                    var _r:AnyInterface = ({
-                        final r = Go.recover_exception;
-                        Go.recover_exception = null;
-                        r;
-                    });
-                    if (_r != null) {
-                        _t.error(_r);
+        try {
+            __deferstack__.unshift(() -> {
+                var a = function():Void {
+                    {
+                        var _r:AnyInterface = ({
+                            final r = Go.recover_exception;
+                            Go.recover_exception = null;
+                            r;
+                        });
+                        if (_r != null) {
+                            _t.error(_r);
+                        };
                     };
                 };
-            };
-            a();
-        });
-        try {
+                a();
+            });
             var _td = (({ _r : stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource(("0" : GoInt64))) } : T_nonDeterministicTestingData) : Ref<stdgo.sort_test.Sort_test.T_nonDeterministicTestingData>);
             {
                 var _i:GoInt = (0 : GoInt);
@@ -1204,6 +1204,9 @@ function testNonDeterministicComparison(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

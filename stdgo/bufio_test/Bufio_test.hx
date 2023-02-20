@@ -1724,8 +1724,8 @@ function testWriterReadFromCounts(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testNegativeRead(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _b = newReader(Go.asInterface(Go.pointer(((0 : GoInt) : stdgo.bufio_test.Bufio_test.T_negativeReader))));
         try {
+            var _b = newReader(Go.asInterface(Go.pointer(((0 : GoInt) : stdgo.bufio_test.Bufio_test.T_negativeReader))));
             __deferstack__.unshift(() -> {
                 var a = function():Void {
                     {
@@ -1764,6 +1764,9 @@ function testNegativeRead(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2914,8 +2917,8 @@ private function _loopAtEOFSplit(_data:Slice<GoByte>, _atEOF:Bool):{ var _0 : Go
     }
 function testDontLoopForever(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _s = newScanner(Go.asInterface(stdgo.strings.Strings.newReader(("abc" : GoString))));
         try {
+            var _s = newScanner(Go.asInterface(stdgo.strings.Strings.newReader(("abc" : GoString))));
             _s.split(_loopAtEOFSplit);
             __deferstack__.unshift(() -> {
                 var a = function():Void {
@@ -2964,6 +2967,9 @@ function testDontLoopForever(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

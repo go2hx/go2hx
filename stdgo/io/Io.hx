@@ -1643,8 +1643,8 @@ class T_onceError_asInterface {
     static public function load( _a:Ref<T_onceError>):Error {
         var __deferstack__:Array<Void -> Void> = [];
         _a.lock();
-        __deferstack__.unshift(() -> _a.unlock());
         try {
+            __deferstack__.unshift(() -> _a.unlock());
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -1664,6 +1664,9 @@ class T_onceError_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1675,8 +1678,8 @@ class T_onceError_asInterface {
     @:keep
     static public function store( _a:Ref<T_onceError>, _err:Error):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        _a.lock();
         try {
+            _a.lock();
             __deferstack__.unshift(() -> _a.unlock());
             if (_a._err != null) {
                 {
@@ -1700,6 +1703,9 @@ class T_onceError_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1796,24 +1802,24 @@ class T_pipe_asInterface {
             _p._wrMu.lock();
             __deferstack__.unshift(() -> _p._wrMu.unlock());
         }]);
-        {
-            var _once:Bool = true;
-            Go.cfor(_once || (_b.length > (0 : GoInt)), _once = false, {
-                Go.select([_p._done.__get__() => {
-                    {
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        return { _0 : _n, _1 : _p._writeCloseError() };
-                    };
-                }, _p._wrCh.__send__(_b) => {
-                    var _nw:GoInt = _p._rdCh.__get__();
-                    _b = (_b.__slice__(_nw) : Slice<GoUInt8>);
-                    _n = _n + (_nw);
-                }]);
-            });
-        };
         try {
+            {
+                var _once:Bool = true;
+                Go.cfor(_once || (_b.length > (0 : GoInt)), _once = false, {
+                    Go.select([_p._done.__get__() => {
+                        {
+                            for (defer in __deferstack__) {
+                                defer();
+                            };
+                            return { _0 : _n, _1 : _p._writeCloseError() };
+                        };
+                    }, _p._wrCh.__send__(_b) => {
+                        var _nw:GoInt = _p._rdCh.__get__();
+                        _b = (_b.__slice__(_nw) : Slice<GoUInt8>);
+                        _n = _n + (_nw);
+                    }]);
+                });
+            };
             {
                 for (defer in __deferstack__) {
                     defer();
@@ -1833,6 +1839,9 @@ class T_pipe_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

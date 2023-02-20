@@ -4633,8 +4633,8 @@ private function _empty(_arg:AnyInterface, _seq:GoUIntptr):Void {}
 **/
 function checkRuntimeTimerPeriodOverflow():Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _r = (({ _when : _runtimeNano(), _period : ("9223372036854775807" : GoInt64), _f : _empty, _arg : (null : AnyInterface) } : T_runtimeTimer) : Ref<T_runtimeTimer>);
         try {
+            var _r = (({ _when : _runtimeNano(), _period : ("9223372036854775807" : GoInt64), _f : _empty, _arg : (null : AnyInterface) } : T_runtimeTimer) : Ref<T_runtimeTimer>);
             _startTimer(_r);
             {
                 var _a0 = _r;
@@ -4654,6 +4654,9 @@ function checkRuntimeTimerPeriodOverflow():Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -6051,11 +6054,11 @@ private function _loadTzinfoFromZip(_zipfile:GoString, _name:GoString):{ var _0 
         if (_err != null) {
             return { _0 : (null : Slice<GoUInt8>), _1 : _err };
         };
-        {
-            var _a0 = _fd;
-            __deferstack__.unshift(() -> _closefd(_a0));
-        };
         try {
+            {
+                var _a0 = _fd;
+                __deferstack__.unshift(() -> _closefd(_a0));
+            };
             {};
             var _buf = new Slice<GoUInt8>((22 : GoInt).toBasic(), 0, ...[for (i in 0 ... (22 : GoInt).toBasic()) (0 : GoUInt8)]);
             {
@@ -6161,6 +6164,9 @@ private function _loadTzinfoFromZip(_zipfile:GoString, _name:GoString):{ var _0 
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -6263,11 +6269,11 @@ private function _readFile(_name:GoString):{ var _0 : Slice<GoByte>; var _1 : Er
         if (_err != null) {
             return { _0 : (null : Slice<GoUInt8>), _1 : _err };
         };
-        {
-            var _a0 = _f;
-            __deferstack__.unshift(() -> _closefd(_a0));
-        };
         try {
+            {
+                var _a0 = _f;
+                __deferstack__.unshift(() -> _closefd(_a0));
+            };
             var _0:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0 ... 4096) (0 : GoUInt8)]), _1:Slice<GoByte> = (null : Slice<GoUInt8>), _2:GoInt = (0 : GoInt), _n:GoInt = _2, _ret:Slice<GoByte> = _1, _buf:GoArray<GoByte> = _0;
             while (true) {
                 {
@@ -6309,6 +6315,9 @@ private function _readFile(_name:GoString):{ var _0 : Slice<GoByte>; var _1 : Er
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

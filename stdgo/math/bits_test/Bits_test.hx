@@ -1097,22 +1097,22 @@ function testAdd64OverflowPanic(_t:Ref<stdgo.testing.Testing.T>):Void {
         for (_0 => _test in _tests) {
             var _shouldPanic:(() -> Void) -> Void = function(_f:() -> Void):Void {
                 var __deferstack__:Array<Void -> Void> = [];
-                __deferstack__.unshift(() -> {
-                    var a = function():Void {
-                        {
-                            var _err:AnyInterface = ({
-                                final r = Go.recover_exception;
-                                Go.recover_exception = null;
-                                r;
-                            });
-                            if (_err == null) {
-                                _t.fatalf(("expected panic" : GoString));
+                try {
+                    __deferstack__.unshift(() -> {
+                        var a = function():Void {
+                            {
+                                var _err:AnyInterface = ({
+                                    final r = Go.recover_exception;
+                                    Go.recover_exception = null;
+                                    r;
+                                });
+                                if (_err == null) {
+                                    _t.fatalf(("expected panic" : GoString));
+                                };
                             };
                         };
-                    };
-                    a();
-                });
-                try {
+                        a();
+                    });
                     _f();
                     for (defer in __deferstack__) {
                         defer();
@@ -1127,6 +1127,9 @@ function testAdd64OverflowPanic(_t:Ref<stdgo.testing.Testing.T>):Void {
                 } catch(__exception__) {
                     var exe:Dynamic = __exception__.native;
                     if ((exe is haxe.ValueException)) exe = exe.value;
+                    if (!(exe is AnyInterfaceData)) {
+                        exe = Go.toInterface(__exception__.message);
+                    };
                     Go.recover_exception = exe;
                     for (defer in __deferstack__) {
                         defer();
@@ -1184,22 +1187,22 @@ function testSub64OverflowPanic(_t:Ref<stdgo.testing.Testing.T>):Void {
         for (_0 => _test in _tests) {
             var _shouldPanic:(() -> Void) -> Void = function(_f:() -> Void):Void {
                 var __deferstack__:Array<Void -> Void> = [];
-                __deferstack__.unshift(() -> {
-                    var a = function():Void {
-                        {
-                            var _err:AnyInterface = ({
-                                final r = Go.recover_exception;
-                                Go.recover_exception = null;
-                                r;
-                            });
-                            if (_err == null) {
-                                _t.fatalf(("expected panic" : GoString));
+                try {
+                    __deferstack__.unshift(() -> {
+                        var a = function():Void {
+                            {
+                                var _err:AnyInterface = ({
+                                    final r = Go.recover_exception;
+                                    Go.recover_exception = null;
+                                    r;
+                                });
+                                if (_err == null) {
+                                    _t.fatalf(("expected panic" : GoString));
+                                };
                             };
                         };
-                    };
-                    a();
-                });
-                try {
+                        a();
+                    });
                     _f();
                     for (defer in __deferstack__) {
                         defer();
@@ -1214,6 +1217,9 @@ function testSub64OverflowPanic(_t:Ref<stdgo.testing.Testing.T>):Void {
                 } catch(__exception__) {
                     var exe:Dynamic = __exception__.native;
                     if ((exe is haxe.ValueException)) exe = exe.value;
+                    if (!(exe is AnyInterfaceData)) {
+                        exe = Go.toInterface(__exception__.message);
+                    };
                     Go.recover_exception = exe;
                     for (defer in __deferstack__) {
                         defer();
@@ -1322,31 +1328,31 @@ function testMulDiv64(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testDivPanicOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        __deferstack__.unshift(() -> {
-            var a = function():Void {
-                {
-                    var _err:AnyInterface = ({
-                        final r = Go.recover_exception;
-                        Go.recover_exception = null;
-                        r;
-                    });
-                    if (_err == null) {
-                        _t.error(Go.toInterface(("Div should have panicked when y<=hi" : GoString)));
-                    } else {
-                        var __tmp__ = try {
-                            { value : (Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), ok : true };
-                        } catch(_) {
-                            { value : (null : stdgo.runtime.Runtime.T_error), ok : false };
-                        }, _e = __tmp__.value, _ok = __tmp__.ok;
-                        if (!_ok || (_e.error() != ("runtime error: integer overflow" : GoString))) {
-                            _t.errorf(("Div expected panic: %q, got: %q " : GoString), Go.toInterface(("runtime error: integer overflow" : GoString)), Go.toInterface(_e.error()));
+        try {
+            __deferstack__.unshift(() -> {
+                var a = function():Void {
+                    {
+                        var _err:AnyInterface = ({
+                            final r = Go.recover_exception;
+                            Go.recover_exception = null;
+                            r;
+                        });
+                        if (_err == null) {
+                            _t.error(Go.toInterface(("Div should have panicked when y<=hi" : GoString)));
+                        } else {
+                            var __tmp__ = try {
+                                { value : (Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), ok : true };
+                            } catch(_) {
+                                { value : (null : stdgo.runtime.Runtime.T_error), ok : false };
+                            }, _e = __tmp__.value, _ok = __tmp__.ok;
+                            if (!_ok || (_e.error() != ("runtime error: integer overflow" : GoString))) {
+                                _t.errorf(("Div expected panic: %q, got: %q " : GoString), Go.toInterface(("runtime error: integer overflow" : GoString)), Go.toInterface(_e.error()));
+                            };
                         };
                     };
                 };
-            };
-            a();
-        });
-        try {
+                a();
+            });
             var __tmp__ = div(("1" : GoUInt), ("0" : GoUInt), ("1" : GoUInt)), _q:GoUInt = __tmp__._0, _r:GoUInt = __tmp__._1;
             _t.errorf(("undefined q, r = %v, %v calculated when Div should have panicked" : GoString), Go.toInterface(_q), Go.toInterface(_r));
             for (defer in __deferstack__) {
@@ -1362,6 +1368,9 @@ function testDivPanicOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1372,31 +1381,31 @@ function testDivPanicOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testDiv32PanicOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        __deferstack__.unshift(() -> {
-            var a = function():Void {
-                {
-                    var _err:AnyInterface = ({
-                        final r = Go.recover_exception;
-                        Go.recover_exception = null;
-                        r;
-                    });
-                    if (_err == null) {
-                        _t.error(Go.toInterface(("Div32 should have panicked when y<=hi" : GoString)));
-                    } else {
-                        var __tmp__ = try {
-                            { value : (Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), ok : true };
-                        } catch(_) {
-                            { value : (null : stdgo.runtime.Runtime.T_error), ok : false };
-                        }, _e = __tmp__.value, _ok = __tmp__.ok;
-                        if (!_ok || (_e.error() != ("runtime error: integer overflow" : GoString))) {
-                            _t.errorf(("Div32 expected panic: %q, got: %q " : GoString), Go.toInterface(("runtime error: integer overflow" : GoString)), Go.toInterface(_e.error()));
+        try {
+            __deferstack__.unshift(() -> {
+                var a = function():Void {
+                    {
+                        var _err:AnyInterface = ({
+                            final r = Go.recover_exception;
+                            Go.recover_exception = null;
+                            r;
+                        });
+                        if (_err == null) {
+                            _t.error(Go.toInterface(("Div32 should have panicked when y<=hi" : GoString)));
+                        } else {
+                            var __tmp__ = try {
+                                { value : (Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), ok : true };
+                            } catch(_) {
+                                { value : (null : stdgo.runtime.Runtime.T_error), ok : false };
+                            }, _e = __tmp__.value, _ok = __tmp__.ok;
+                            if (!_ok || (_e.error() != ("runtime error: integer overflow" : GoString))) {
+                                _t.errorf(("Div32 expected panic: %q, got: %q " : GoString), Go.toInterface(("runtime error: integer overflow" : GoString)), Go.toInterface(_e.error()));
+                            };
                         };
                     };
                 };
-            };
-            a();
-        });
-        try {
+                a();
+            });
             var __tmp__ = div32(("1" : GoUInt32), ("0" : GoUInt32), ("1" : GoUInt32)), _q:GoUInt32 = __tmp__._0, _r:GoUInt32 = __tmp__._1;
             _t.errorf(("undefined q, r = %v, %v calculated when Div32 should have panicked" : GoString), Go.toInterface(_q), Go.toInterface(_r));
             for (defer in __deferstack__) {
@@ -1412,6 +1421,9 @@ function testDiv32PanicOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1422,31 +1434,31 @@ function testDiv32PanicOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testDiv64PanicOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        __deferstack__.unshift(() -> {
-            var a = function():Void {
-                {
-                    var _err:AnyInterface = ({
-                        final r = Go.recover_exception;
-                        Go.recover_exception = null;
-                        r;
-                    });
-                    if (_err == null) {
-                        _t.error(Go.toInterface(("Div64 should have panicked when y<=hi" : GoString)));
-                    } else {
-                        var __tmp__ = try {
-                            { value : (Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), ok : true };
-                        } catch(_) {
-                            { value : (null : stdgo.runtime.Runtime.T_error), ok : false };
-                        }, _e = __tmp__.value, _ok = __tmp__.ok;
-                        if (!_ok || (_e.error() != ("runtime error: integer overflow" : GoString))) {
-                            _t.errorf(("Div64 expected panic: %q, got: %q " : GoString), Go.toInterface(("runtime error: integer overflow" : GoString)), Go.toInterface(_e.error()));
+        try {
+            __deferstack__.unshift(() -> {
+                var a = function():Void {
+                    {
+                        var _err:AnyInterface = ({
+                            final r = Go.recover_exception;
+                            Go.recover_exception = null;
+                            r;
+                        });
+                        if (_err == null) {
+                            _t.error(Go.toInterface(("Div64 should have panicked when y<=hi" : GoString)));
+                        } else {
+                            var __tmp__ = try {
+                                { value : (Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), ok : true };
+                            } catch(_) {
+                                { value : (null : stdgo.runtime.Runtime.T_error), ok : false };
+                            }, _e = __tmp__.value, _ok = __tmp__.ok;
+                            if (!_ok || (_e.error() != ("runtime error: integer overflow" : GoString))) {
+                                _t.errorf(("Div64 expected panic: %q, got: %q " : GoString), Go.toInterface(("runtime error: integer overflow" : GoString)), Go.toInterface(_e.error()));
+                            };
                         };
                     };
                 };
-            };
-            a();
-        });
-        try {
+                a();
+            });
             var __tmp__ = div64(("1" : GoUInt64), ("0" : GoUInt64), ("1" : GoUInt64)), _q:GoUInt64 = __tmp__._0, _r:GoUInt64 = __tmp__._1;
             _t.errorf(("undefined q, r = %v, %v calculated when Div64 should have panicked" : GoString), Go.toInterface(_q), Go.toInterface(_r));
             for (defer in __deferstack__) {
@@ -1462,6 +1474,9 @@ function testDiv64PanicOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1472,31 +1487,31 @@ function testDiv64PanicOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testDivPanicZero(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        __deferstack__.unshift(() -> {
-            var a = function():Void {
-                {
-                    var _err:AnyInterface = ({
-                        final r = Go.recover_exception;
-                        Go.recover_exception = null;
-                        r;
-                    });
-                    if (_err == null) {
-                        _t.error(Go.toInterface(("Div should have panicked when y==0" : GoString)));
-                    } else {
-                        var __tmp__ = try {
-                            { value : (Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), ok : true };
-                        } catch(_) {
-                            { value : (null : stdgo.runtime.Runtime.T_error), ok : false };
-                        }, _e = __tmp__.value, _ok = __tmp__.ok;
-                        if (!_ok || (_e.error() != ("runtime error: integer divide by zero" : GoString))) {
-                            _t.errorf(("Div expected panic: %q, got: %q " : GoString), Go.toInterface(("runtime error: integer divide by zero" : GoString)), Go.toInterface(_e.error()));
+        try {
+            __deferstack__.unshift(() -> {
+                var a = function():Void {
+                    {
+                        var _err:AnyInterface = ({
+                            final r = Go.recover_exception;
+                            Go.recover_exception = null;
+                            r;
+                        });
+                        if (_err == null) {
+                            _t.error(Go.toInterface(("Div should have panicked when y==0" : GoString)));
+                        } else {
+                            var __tmp__ = try {
+                                { value : (Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), ok : true };
+                            } catch(_) {
+                                { value : (null : stdgo.runtime.Runtime.T_error), ok : false };
+                            }, _e = __tmp__.value, _ok = __tmp__.ok;
+                            if (!_ok || (_e.error() != ("runtime error: integer divide by zero" : GoString))) {
+                                _t.errorf(("Div expected panic: %q, got: %q " : GoString), Go.toInterface(("runtime error: integer divide by zero" : GoString)), Go.toInterface(_e.error()));
+                            };
                         };
                     };
                 };
-            };
-            a();
-        });
-        try {
+                a();
+            });
             var __tmp__ = div(("1" : GoUInt), ("1" : GoUInt), ("0" : GoUInt)), _q:GoUInt = __tmp__._0, _r:GoUInt = __tmp__._1;
             _t.errorf(("undefined q, r = %v, %v calculated when Div should have panicked" : GoString), Go.toInterface(_q), Go.toInterface(_r));
             for (defer in __deferstack__) {
@@ -1512,6 +1527,9 @@ function testDivPanicZero(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1522,31 +1540,31 @@ function testDivPanicZero(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testDiv32PanicZero(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        __deferstack__.unshift(() -> {
-            var a = function():Void {
-                {
-                    var _err:AnyInterface = ({
-                        final r = Go.recover_exception;
-                        Go.recover_exception = null;
-                        r;
-                    });
-                    if (_err == null) {
-                        _t.error(Go.toInterface(("Div32 should have panicked when y==0" : GoString)));
-                    } else {
-                        var __tmp__ = try {
-                            { value : (Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), ok : true };
-                        } catch(_) {
-                            { value : (null : stdgo.runtime.Runtime.T_error), ok : false };
-                        }, _e = __tmp__.value, _ok = __tmp__.ok;
-                        if (!_ok || (_e.error() != ("runtime error: integer divide by zero" : GoString))) {
-                            _t.errorf(("Div32 expected panic: %q, got: %q " : GoString), Go.toInterface(("runtime error: integer divide by zero" : GoString)), Go.toInterface(_e.error()));
+        try {
+            __deferstack__.unshift(() -> {
+                var a = function():Void {
+                    {
+                        var _err:AnyInterface = ({
+                            final r = Go.recover_exception;
+                            Go.recover_exception = null;
+                            r;
+                        });
+                        if (_err == null) {
+                            _t.error(Go.toInterface(("Div32 should have panicked when y==0" : GoString)));
+                        } else {
+                            var __tmp__ = try {
+                                { value : (Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), ok : true };
+                            } catch(_) {
+                                { value : (null : stdgo.runtime.Runtime.T_error), ok : false };
+                            }, _e = __tmp__.value, _ok = __tmp__.ok;
+                            if (!_ok || (_e.error() != ("runtime error: integer divide by zero" : GoString))) {
+                                _t.errorf(("Div32 expected panic: %q, got: %q " : GoString), Go.toInterface(("runtime error: integer divide by zero" : GoString)), Go.toInterface(_e.error()));
+                            };
                         };
                     };
                 };
-            };
-            a();
-        });
-        try {
+                a();
+            });
             var __tmp__ = div32(("1" : GoUInt32), ("1" : GoUInt32), ("0" : GoUInt32)), _q:GoUInt32 = __tmp__._0, _r:GoUInt32 = __tmp__._1;
             _t.errorf(("undefined q, r = %v, %v calculated when Div32 should have panicked" : GoString), Go.toInterface(_q), Go.toInterface(_r));
             for (defer in __deferstack__) {
@@ -1562,6 +1580,9 @@ function testDiv32PanicZero(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1572,31 +1593,31 @@ function testDiv32PanicZero(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testDiv64PanicZero(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        __deferstack__.unshift(() -> {
-            var a = function():Void {
-                {
-                    var _err:AnyInterface = ({
-                        final r = Go.recover_exception;
-                        Go.recover_exception = null;
-                        r;
-                    });
-                    if (_err == null) {
-                        _t.error(Go.toInterface(("Div64 should have panicked when y==0" : GoString)));
-                    } else {
-                        var __tmp__ = try {
-                            { value : (Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), ok : true };
-                        } catch(_) {
-                            { value : (null : stdgo.runtime.Runtime.T_error), ok : false };
-                        }, _e = __tmp__.value, _ok = __tmp__.ok;
-                        if (!_ok || (_e.error() != ("runtime error: integer divide by zero" : GoString))) {
-                            _t.errorf(("Div64 expected panic: %q, got: %q " : GoString), Go.toInterface(("runtime error: integer divide by zero" : GoString)), Go.toInterface(_e.error()));
+        try {
+            __deferstack__.unshift(() -> {
+                var a = function():Void {
+                    {
+                        var _err:AnyInterface = ({
+                            final r = Go.recover_exception;
+                            Go.recover_exception = null;
+                            r;
+                        });
+                        if (_err == null) {
+                            _t.error(Go.toInterface(("Div64 should have panicked when y==0" : GoString)));
+                        } else {
+                            var __tmp__ = try {
+                                { value : (Go.typeAssert((_err : stdgo.runtime.Runtime.T_error)) : stdgo.runtime.Runtime.T_error), ok : true };
+                            } catch(_) {
+                                { value : (null : stdgo.runtime.Runtime.T_error), ok : false };
+                            }, _e = __tmp__.value, _ok = __tmp__.ok;
+                            if (!_ok || (_e.error() != ("runtime error: integer divide by zero" : GoString))) {
+                                _t.errorf(("Div64 expected panic: %q, got: %q " : GoString), Go.toInterface(("runtime error: integer divide by zero" : GoString)), Go.toInterface(_e.error()));
+                            };
                         };
                     };
                 };
-            };
-            a();
-        });
-        try {
+                a();
+            });
             var __tmp__ = div64(("1" : GoUInt64), ("1" : GoUInt64), ("0" : GoUInt64)), _q:GoUInt64 = __tmp__._0, _r:GoUInt64 = __tmp__._1;
             _t.errorf(("undefined q, r = %v, %v calculated when Div64 should have panicked" : GoString), Go.toInterface(_q), Go.toInterface(_r));
             for (defer in __deferstack__) {
@@ -1612,6 +1633,9 @@ function testDiv64PanicZero(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

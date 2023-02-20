@@ -1409,8 +1409,8 @@ private function _equal(_p:Ref<FileSet>, _q:Ref<FileSet>):Error {
         if (_p == (_q)) {
             return (null : Error);
         };
-        _p._mutex.lock();
         try {
+            _p._mutex.lock();
             _q._mutex.lock();
             __deferstack__.unshift(() -> _q._mutex.unlock());
             __deferstack__.unshift(() -> _p._mutex.unlock());
@@ -1498,6 +1498,9 @@ private function _equal(_p:Ref<FileSet>, _q:Ref<FileSet>):Error {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1986,8 +1989,8 @@ class File_asInterface {
         if (_line < (1 : GoInt)) {
             throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("invalid line number %d (should be >= 1)" : GoString), Go.toInterface(_line)));
         };
-        _f._mutex.lock();
         try {
+            _f._mutex.lock();
             __deferstack__.unshift(() -> _f._mutex.unlock());
             if (_line > (_f._lines.length)) {
                 throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("invalid line number %d (should be < %d)" : GoString), Go.toInterface(_line), Go.toInterface((_f._lines.length))));
@@ -2011,6 +2014,9 @@ class File_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2072,10 +2078,10 @@ class File_asInterface {
     @:keep
     static public function mergeLine( _f:Ref<File>, _line:GoInt):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        if (_line < (1 : GoInt)) {
-            throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("invalid line number %d (should be >= 1)" : GoString), Go.toInterface(_line)));
-        };
         try {
+            if (_line < (1 : GoInt)) {
+                throw Go.toInterface(stdgo.fmt.Fmt.sprintf(("invalid line number %d (should be >= 1)" : GoString), Go.toInterface(_line)));
+            };
             _f._mutex.lock();
             __deferstack__.unshift(() -> _f._mutex.unlock());
             if (_line >= (_f._lines.length)) {
@@ -2096,6 +2102,9 @@ class File_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2331,8 +2340,8 @@ class FileSet_asInterface {
                 return _f;
             };
         };
-        _s._mutex.rlock();
         try {
+            _s._mutex.rlock();
             __deferstack__.unshift(() -> _s._mutex.runlock());
             {
                 var _i:GoInt = _searchFiles(_s._files, (_p : GoInt));
@@ -2368,6 +2377,9 @@ class FileSet_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2408,8 +2420,8 @@ class FileSet_asInterface {
     @:keep
     static public function removeFile( _s:Ref<FileSet>, _file:Ref<File>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        _s._last.compareAndSwap(_file, null);
         try {
+            _s._last.compareAndSwap(_file, null);
             _s._mutex.lock();
             __deferstack__.unshift(() -> _s._mutex.unlock());
             {
@@ -2433,6 +2445,9 @@ class FileSet_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2462,8 +2477,8 @@ class FileSet_asInterface {
     static public function addFile( _s:Ref<FileSet>, _filename:GoString, _base:GoInt, _size:GoInt):Ref<File> {
         var __deferstack__:Array<Void -> Void> = [];
         var _f = (({ _name : _filename, _size : _size, _lines : (new Slice<GoInt>(0, 0, (0 : GoInt)) : Slice<GoInt>) } : File) : Ref<File>);
-        _s._mutex.lock();
         try {
+            _s._mutex.lock();
             __deferstack__.unshift(() -> _s._mutex.unlock());
             if (_base < (0 : GoInt)) {
                 _base = _s._base;
@@ -2501,6 +2516,9 @@ class FileSet_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

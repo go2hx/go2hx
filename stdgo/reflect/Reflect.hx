@@ -2820,6 +2820,7 @@ class MapIter_asInterface {
     **/
     @:keep
     static public function next( _iter:Ref<MapIter>):Bool {
+        if (@:privateAccess _iter.map == null) return false;
         @:privateAccess if (_iter.keys == null) {
             @:privateAccess _iter.keys = _iter.map.__keyArray__();
             @:privateAccess _iter.values = _iter.map.__valueArray__();

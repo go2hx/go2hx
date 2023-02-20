@@ -123,11 +123,11 @@ class Importer_asInterface {
         if (_err != null) {
             return { _0 : null, _1 : _err };
         };
-        {
-            var _a0 = _tmpdir;
-            __deferstack__.unshift(() -> stdgo.os.Os.removeAll(_a0));
-        };
         try {
+            {
+                var _a0 = _tmpdir;
+                __deferstack__.unshift(() -> stdgo.os.Os.removeAll(_a0));
+            };
             var _goCmd:GoString = ("go" : GoString);
             if (_p._ctxt.goroot != (Go.str())) {
                 _goCmd = stdgo.path.filepath.Filepath.join(_p._ctxt.goroot, ("bin" : GoString), ("go" : GoString));
@@ -192,6 +192,9 @@ class Importer_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -216,8 +219,8 @@ class Importer_asInterface {
             Go.routine(() -> {
                 var a = function(_i:GoInt, _filepath:GoString):Void {
                     var __deferstack__:Array<Void -> Void> = [];
-                    __deferstack__.unshift(() -> _wg.done());
                     try {
+                        __deferstack__.unshift(() -> _wg.done());
                         var __tmp__ = _open(_filepath), _src:stdgo.io.Io.ReadCloser = __tmp__._0, _err:Error = __tmp__._1;
                         if (_err != null) {
                             _errors[(_i : GoInt)] = _err;
@@ -247,6 +250,9 @@ class Importer_asInterface {
                     } catch(__exception__) {
                         var exe:Dynamic = __exception__.native;
                         if ((exe is haxe.ValueException)) exe = exe.value;
+                        if (!(exe is AnyInterfaceData)) {
+                            exe = Go.toInterface(__exception__.message);
+                        };
                         Go.recover_exception = exe;
                         for (defer in __deferstack__) {
                             defer();
@@ -286,8 +292,8 @@ class Importer_asInterface {
                 _srcDir = _abs;
             };
         };
-        var __tmp__ = _p._ctxt.import_(_path, _srcDir, (("0" : GoUInt) : stdgo.go.build.Build.ImportMode)), _bp:Ref<stdgo.go.build.Build.Package> = __tmp__._0, _err:Error = __tmp__._1;
         try {
+            var __tmp__ = _p._ctxt.import_(_path, _srcDir, (("0" : GoUInt) : stdgo.go.build.Build.ImportMode)), _bp:Ref<stdgo.go.build.Build.Package> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : null, _1 : _err };
             };
@@ -388,6 +394,9 @@ class Importer_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

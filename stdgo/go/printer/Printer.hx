@@ -2760,8 +2760,8 @@ class T_printer_asInterface {
     @:keep
     static public function _writeComment( _p:Ref<T_printer>, _comment:Ref<stdgo.go.ast.Ast.Comment>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _text:GoString = _comment.text;
         try {
+            var _text:GoString = _comment.text;
             var _pos:stdgo.go.token.Token.Position = (_p._posFor(_comment.pos()) == null ? null : _p._posFor(_comment.pos()).__copy__());
             {};
             if (stdgo.strings.Strings.hasPrefix(_text, ("//line " : GoString)) && (!_pos.isValid() || (_pos.column == (1 : GoInt)))) {
@@ -2819,6 +2819,9 @@ class T_printer_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3084,8 +3087,8 @@ class T_printer_asInterface {
                 a((_a0 == null ? null : _a0.__copy__()));
             });
         };
-        var _size:GoInt = (0 : GoInt);
         try {
+            var _size:GoInt = (0 : GoInt);
             while (_p._commentBefore((_next == null ? null : _next.__copy__()))) {
                 for (_8 => _c in _p._commentInfo._comment.list) {
                     _size = _size + ((_c.text.length));
@@ -3111,6 +3114,9 @@ class T_printer_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3257,10 +3263,10 @@ class T_printer_asInterface {
     @:keep
     static public function _funcBody( _p:Ref<T_printer>, _headerSize:GoInt, _sep:T_whiteSpace, _b:Ref<stdgo.go.ast.Ast.BlockStmt>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        if (_b == null) {
-            return;
-        };
         try {
+            if (_b == null) {
+                return;
+            };
             {
                 var _a0 = _p._level;
                 __deferstack__.unshift(() -> {
@@ -3313,6 +3319,9 @@ class T_printer_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -4941,8 +4950,8 @@ class Config_asInterface {
     static public function _fprint( _cfg:Ref<Config>, _output:stdgo.io.Io.Writer, _fset:Ref<stdgo.go.token.Token.FileSet>, _node:AnyInterface, _nodeSizes:GoMap<stdgo.go.ast.Ast.Node, GoInt>):Error {
         var __deferstack__:Array<Void -> Void> = [];
         var _err:Error = (null : Error);
-        var _p = _newPrinter(_cfg, _fset, _nodeSizes);
         try {
+            var _p = _newPrinter(_cfg, _fset, _nodeSizes);
             __deferstack__.unshift(() -> _p._free());
             {
                 _err = _p._printNode(_node);
@@ -5015,6 +5024,9 @@ class Config_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

@@ -2004,28 +2004,28 @@ function testIssue8518(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testLookupFieldOrMethodOnNil(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        __deferstack__.unshift(() -> {
-            var a = function():Void {
-                {};
-                var _p:AnyInterface = ({
-                    final r = Go.recover_exception;
-                    Go.recover_exception = null;
-                    r;
-                });
-                {
-                    var __tmp__ = try {
-                        { value : (Go.typeAssert((_p : GoString)) : GoString), ok : true };
-                    } catch(_) {
-                        { value : ("" : GoString), ok : false };
-                    }, _s = __tmp__.value, _ok = __tmp__.ok;
-                    if (!_ok || (_s != ("LookupFieldOrMethod on nil type" : GoString))) {
-                        _t.fatalf(("got %v, want %s" : GoString), _p, Go.toInterface(("LookupFieldOrMethod on nil type" : GoString)));
+        try {
+            __deferstack__.unshift(() -> {
+                var a = function():Void {
+                    {};
+                    var _p:AnyInterface = ({
+                        final r = Go.recover_exception;
+                        Go.recover_exception = null;
+                        r;
+                    });
+                    {
+                        var __tmp__ = try {
+                            { value : (Go.typeAssert((_p : GoString)) : GoString), ok : true };
+                        } catch(_) {
+                            { value : ("" : GoString), ok : false };
+                        }, _s = __tmp__.value, _ok = __tmp__.ok;
+                        if (!_ok || (_s != ("LookupFieldOrMethod on nil type" : GoString))) {
+                            _t.fatalf(("got %v, want %s" : GoString), _p, Go.toInterface(("LookupFieldOrMethod on nil type" : GoString)));
+                        };
                     };
                 };
-            };
-            a();
-        });
-        try {
+                a();
+            });
             lookupFieldOrMethod((null : Type), false, null, Go.str());
             for (defer in __deferstack__) {
                 defer();
@@ -2040,6 +2040,9 @@ function testLookupFieldOrMethodOnNil(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3068,13 +3071,13 @@ private function _testFiles(_t:Ref<stdgo.testing.Testing.T>, _sizes:Sizes, _file
         _conf.importer = _imp;
         _conf.error = function(_err:Error):Void {
             var __deferstack__:Array<Void -> Void> = [];
-            if (_haltOnError.value) {
-                {
-                    var _a0 = _err;
-                    __deferstack__.unshift(() -> throw Go.toInterface(_a0));
-                };
-            };
             try {
+                if (_haltOnError.value) {
+                    {
+                        var _a0 = _err;
+                        __deferstack__.unshift(() -> throw Go.toInterface(_a0));
+                    };
+                };
                 if (_listErrors) {
                     _t.error(Go.toInterface(_err));
                     {
@@ -3100,6 +3103,9 @@ private function _testFiles(_t:Ref<stdgo.testing.Testing.T>, _sizes:Sizes, _file
             } catch(__exception__) {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
+                if (!(exe is AnyInterfaceData)) {
+                    exe = Go.toInterface(__exception__.message);
+                };
                 Go.recover_exception = exe;
                 for (defer in __deferstack__) {
                     defer();
@@ -3990,22 +3996,22 @@ function testIssue34151(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testIssue34921(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        __deferstack__.unshift(() -> {
-            var a = function():Void {
-                {
-                    var _r:AnyInterface = ({
-                        final r = Go.recover_exception;
-                        Go.recover_exception = null;
-                        r;
-                    });
-                    if (_r != null) {
-                        _t.error(_r);
+        try {
+            __deferstack__.unshift(() -> {
+                var a = function():Void {
+                    {
+                        var _r:AnyInterface = ({
+                            final r = Go.recover_exception;
+                            Go.recover_exception = null;
+                            r;
+                        });
+                        if (_r != null) {
+                            _t.error(_r);
+                        };
                     };
                 };
-            };
-            a();
-        });
-        try {
+                a();
+            });
             var _sources:Slice<GoString> = (new Slice<GoString>(0, 0, ("package a; type T int" : GoString), ("package b; import \"a\"; type T a.T" : GoString)) : Slice<GoString>);
             var _pkg:Ref<Package> = (null : Ref<Package>);
             for (_0 => _src in _sources) {
@@ -4030,6 +4036,9 @@ function testIssue34921(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -4966,10 +4975,10 @@ function testStdlib(_t:Ref<stdgo.testing.Testing.T>):Void {
 private function _firstComment(_filename:GoString):GoString {
         var __deferstack__:Array<Void -> Void> = [];
         var __tmp__ = stdgo.os.Os.open(_filename), _f:Ref<stdgo.os.Os.File> = __tmp__._0, _err:Error = __tmp__._1;
-        if (_err != null) {
-            return Go.str();
-        };
         try {
+            if (_err != null) {
+                return Go.str();
+            };
             __deferstack__.unshift(() -> _f.close());
             var _src:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0 ... 4096) (0 : GoUInt8)]);
             var __tmp__ = _f.read((_src.__slice__(0) : Slice<GoUInt8>)), _n:GoInt = __tmp__._0, _0:Error = __tmp__._1;
@@ -5016,6 +5025,9 @@ private function _firstComment(_filename:GoString):GoString {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

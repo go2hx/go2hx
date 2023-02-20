@@ -543,8 +543,8 @@ private function _mark(_entry:DirEntry, _err:Error, _errors:Ref<Slice<Error>>, _
     }
 function testWalkDir(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _tmpDir:GoString = _t.tempDir();
         try {
+            var _tmpDir:GoString = _t.tempDir();
             var __tmp__ = stdgo.os.Os.getwd(), _origDir:GoString = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(Go.toInterface(("finding working dir:" : GoString)), Go.toInterface(_err));
@@ -591,6 +591,9 @@ function testWalkDir(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -601,8 +604,8 @@ function testWalkDir(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testIssue51617(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _dir:GoString = _t.tempDir();
         try {
+            var _dir:GoString = _t.tempDir();
             for (_0 => _sub in (new Slice<GoString>(0, 0, ("a" : GoString), stdgo.path.filepath.Filepath.join(("a" : GoString), ("bad" : GoString)), stdgo.path.filepath.Filepath.join(("a" : GoString), ("next" : GoString))) : Slice<GoString>)) {
                 {
                     var _err:Error = stdgo.os.Os.mkdir(stdgo.path.filepath.Filepath.join(_dir, _sub), (("493" : GoUInt32) : FileMode));
@@ -653,6 +656,9 @@ function testIssue51617(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

@@ -555,10 +555,10 @@ function testSetOutput(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testChangingArgs(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        resetForTesting(function():Void {
-            _t.fatal(Go.toInterface(("bad parse" : GoString)));
-        });
         try {
+            resetForTesting(function():Void {
+                _t.fatal(Go.toInterface(("bad parse" : GoString)));
+            });
             var _oldArgs = stdgo.os.Os.args;
             __deferstack__.unshift(() -> {
                 var a = function():Void {
@@ -595,6 +595,9 @@ function testChangingArgs(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -699,8 +702,8 @@ function testIntFlagOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testUsageOutput(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        resetForTesting(defaultUsage);
         try {
+            resetForTesting(defaultUsage);
             var _buf:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
             commandLine.setOutput(Go.asInterface((_buf : Ref<stdgo.strings.Strings.Builder>)));
             {
@@ -734,6 +737,9 @@ function testUsageOutput(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -841,8 +847,8 @@ function testExitCode(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 private function _mustPanic(_t:Ref<stdgo.testing.Testing.T>, _testName:GoString, _expected:GoString, _f:() -> Void):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        _t.helper();
         try {
+            _t.helper();
             __deferstack__.unshift(() -> {
                 var a = function():Void {
                     {
@@ -881,6 +887,9 @@ private function _mustPanic(_t:Ref<stdgo.testing.Testing.T>, _testName:GoString,
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

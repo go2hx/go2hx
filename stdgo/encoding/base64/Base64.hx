@@ -1102,8 +1102,8 @@ function testDecodeCorrupt(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testDecodeBounds(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _buf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0 ... 32) (0 : GoUInt8)]);
         try {
+            var _buf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0 ... 32) (0 : GoUInt8)]);
             var _s:GoString = stdEncoding.encodeToString((_buf.__slice__(0) : Slice<GoUInt8>));
             __deferstack__.unshift(() -> {
                 var a = function():Void {
@@ -1137,6 +1137,9 @@ function testDecodeBounds(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

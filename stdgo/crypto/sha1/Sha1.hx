@@ -2726,13 +2726,13 @@ private function _safeSum(_h:stdgo.hash.Hash.Hash):{ var _0 : Slice<GoByte>; var
             };
             a();
         });
-        {
-            for (defer in __deferstack__) {
-                defer();
-            };
-            return { _0 : _h.sum((null : Slice<GoUInt8>)), _1 : (null : Error) };
-        };
         try {
+            {
+                for (defer in __deferstack__) {
+                    defer();
+                };
+                return { _0 : _h.sum((null : Slice<GoUInt8>)), _1 : (null : Error) };
+            };
             for (defer in __deferstack__) {
                 defer();
             };
@@ -2746,6 +2746,9 @@ private function _safeSum(_h:stdgo.hash.Hash.Hash):{ var _0 : Slice<GoByte>; var
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

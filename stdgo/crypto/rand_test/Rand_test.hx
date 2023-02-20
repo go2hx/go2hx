@@ -159,22 +159,22 @@ function testIntMask(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 private function _testIntPanics(_t:Ref<stdgo.testing.Testing.T>, _b:Ref<stdgo.math.big.Big.Int_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        __deferstack__.unshift(() -> {
-            var a = function():Void {
-                {
-                    var _err:AnyInterface = ({
-                        final r = Go.recover_exception;
-                        Go.recover_exception = null;
-                        r;
-                    });
-                    if (_err == null) {
-                        _t.errorf(("Int should panic when called with max <= 0: %v" : GoString), Go.toInterface(Go.asInterface(_b)));
+        try {
+            __deferstack__.unshift(() -> {
+                var a = function():Void {
+                    {
+                        var _err:AnyInterface = ({
+                            final r = Go.recover_exception;
+                            Go.recover_exception = null;
+                            r;
+                        });
+                        if (_err == null) {
+                            _t.errorf(("Int should panic when called with max <= 0: %v" : GoString), Go.toInterface(Go.asInterface(_b)));
+                        };
                     };
                 };
-            };
-            a();
-        });
-        try {
+                a();
+            });
             stdgo.crypto.rand.Rand.int_(stdgo.crypto.rand.Rand.reader, _b);
             for (defer in __deferstack__) {
                 defer();
@@ -189,6 +189,9 @@ private function _testIntPanics(_t:Ref<stdgo.testing.Testing.T>, _b:Ref<stdgo.ma
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

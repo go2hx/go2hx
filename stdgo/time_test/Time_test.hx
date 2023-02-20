@@ -2018,8 +2018,8 @@ function exampleDate():Void {
     }
 function exampleNewTicker():Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _ticker = stdgo.time.Time.newTicker((("1000000000" : GoInt64) : Duration));
         try {
+            var _ticker = stdgo.time.Time.newTicker((("1000000000" : GoInt64) : Duration));
             __deferstack__.unshift(() -> _ticker.stop());
             var _done = new Chan<Bool>(0, () -> false);
             Go.routine(() -> {
@@ -2055,6 +2055,9 @@ function exampleNewTicker():Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2554,8 +2557,8 @@ function testParseInLocation(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testLoadLocationZipFile(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _undo:() -> Void = disablePlatformSources();
         try {
+            var _undo:() -> Void = disablePlatformSources();
             __deferstack__.unshift(() -> _undo());
             var __tmp__ = loadLocation(("Australia/Sydney" : GoString)), _0:Ref<Location> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
@@ -2574,6 +2577,9 @@ function testLoadLocationZipFile(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3313,8 +3319,8 @@ private function _benchmark(_b:Ref<stdgo.testing.Testing.B>, _bench:(_n:GoInt) -
             Go.routine(() -> {
                 var a = function(_i:GoInt):Void {
                     var __deferstack__:Array<Void -> Void> = [];
-                    __deferstack__.unshift(() -> _wg.done());
                     try {
+                        __deferstack__.unshift(() -> _wg.done());
                         var _garbage = new Slice<Ref<Timer>>((32768 : GoInt).toBasic(), 0, ...[for (i in 0 ... (32768 : GoInt).toBasic()) (null : Ref<Timer>)]);
                         for (_j in 0 ... _garbage.length.toBasic()) {
                             _garbage[(_j : GoInt)] = afterFunc((("3600000000000" : GoInt64) : Duration), null);
@@ -3333,6 +3339,9 @@ private function _benchmark(_b:Ref<stdgo.testing.Testing.B>, _bench:(_n:GoInt) -
                     } catch(__exception__) {
                         var exe:Dynamic = __exception__.native;
                         if ((exe is haxe.ValueException)) exe = exe.value;
+                        if (!(exe is AnyInterfaceData)) {
+                            exe = Go.toInterface(__exception__.message);
+                        };
                         Go.recover_exception = exe;
                         for (defer in __deferstack__) {
                             defer();
@@ -3618,11 +3627,11 @@ function testTimerStopStress(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testSleepZeroDeadlock(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        {
-            var _a0 = stdgo.runtime.Runtime.gomaxprocs((4 : GoInt));
-            __deferstack__.unshift(() -> stdgo.runtime.Runtime.gomaxprocs(_a0));
-        };
         try {
+            {
+                var _a0 = stdgo.runtime.Runtime.gomaxprocs((4 : GoInt));
+                __deferstack__.unshift(() -> stdgo.runtime.Runtime.gomaxprocs(_a0));
+            };
             var _c = new Chan<Bool>(0, () -> false);
             Go.routine(() -> {
                 var a = function():Void {
@@ -3659,6 +3668,9 @@ function testSleepZeroDeadlock(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3729,8 +3741,8 @@ function testOverflowSleep(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testIssue5745(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _ticker = newTicker((("3600000000000" : GoInt64) : Duration));
         try {
+            var _ticker = newTicker((("3600000000000" : GoInt64) : Duration));
             __deferstack__.unshift(() -> {
                 var a = function():Void {
                     _ticker.stop();
@@ -3763,6 +3775,9 @@ function testIssue5745(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3794,11 +3809,11 @@ private function _checkZeroPanicString(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testZeroTimerResetPanics(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        {
-            var _a0 = _t;
-            __deferstack__.unshift(() -> _checkZeroPanicString(_a0));
-        };
         try {
+            {
+                var _a0 = _t;
+                __deferstack__.unshift(() -> _checkZeroPanicString(_a0));
+            };
             var _tr:Timer = ({} : Timer);
             _tr.reset((("1" : GoInt64) : Duration));
             for (defer in __deferstack__) {
@@ -3814,6 +3829,9 @@ function testZeroTimerResetPanics(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3824,11 +3842,11 @@ function testZeroTimerResetPanics(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testZeroTimerStopPanics(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        {
-            var _a0 = _t;
-            __deferstack__.unshift(() -> _checkZeroPanicString(_a0));
-        };
         try {
+            {
+                var _a0 = _t;
+                __deferstack__.unshift(() -> _checkZeroPanicString(_a0));
+            };
             var _tr:Timer = ({} : Timer);
             _tr.stop();
             for (defer in __deferstack__) {
@@ -3844,6 +3862,9 @@ function testZeroTimerStopPanics(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3880,10 +3901,10 @@ function testZeroTimer(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testTimerModifiedEarlier(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        if (false) {
-            stdgo.internal.testenv.Testenv.skipFlaky(Go.asInterface(_t), (50470 : GoInt));
-        };
         try {
+            if (false) {
+                stdgo.internal.testenv.Testenv.skipFlaky(Go.asInterface(_t), (50470 : GoInt));
+            };
             var _past:Duration = until((unix(("0" : GoInt64), ("0" : GoInt64)) == null ? null : unix(("0" : GoInt64), ("0" : GoInt64)).__copy__()));
             var _count:GoInt = (1000 : GoInt);
             var _fail:GoInt = (0 : GoInt);
@@ -3932,6 +3953,9 @@ function testTimerModifiedEarlier(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -4089,8 +4113,8 @@ function benchmarkStaggeredTickerLatency(_b:Ref<stdgo.testing.Testing.B>):Void {
                                     Go.routine(() -> {
                                         var a = function(_c:GoInt, _ticker:Ref<Ticker>, _firstWake:Time):Void {
                                             var __deferstack__:Array<Void -> Void> = [];
-                                            __deferstack__.unshift(() -> _ticker.stop());
                                             try {
+                                                __deferstack__.unshift(() -> _ticker.stop());
                                                 Go.cfor(_c > (0 : GoInt), _c--, {
                                                     _ticker.c.__get__();
                                                     var _late:Duration = since((_expectedWakeup == null ? null : _expectedWakeup.__copy__()));
@@ -4119,6 +4143,9 @@ function benchmarkStaggeredTickerLatency(_b:Ref<stdgo.testing.Testing.B>):Void {
                                             } catch(__exception__) {
                                                 var exe:Dynamic = __exception__.native;
                                                 if ((exe is haxe.ValueException)) exe = exe.value;
+                                                if (!(exe is AnyInterfaceData)) {
+                                                    exe = Go.toInterface(__exception__.message);
+                                                };
                                                 Go.recover_exception = exe;
                                                 for (defer in __deferstack__) {
                                                     defer();
@@ -4276,22 +4303,22 @@ function testTick(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testNewTickerLtZeroDuration(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        __deferstack__.unshift(() -> {
-            var a = function():Void {
-                {
-                    var _err:AnyInterface = ({
-                        final r = Go.recover_exception;
-                        Go.recover_exception = null;
-                        r;
-                    });
-                    if (_err == null) {
-                        _t.errorf(("NewTicker(-1) should have panicked" : GoString));
+        try {
+            __deferstack__.unshift(() -> {
+                var a = function():Void {
+                    {
+                        var _err:AnyInterface = ({
+                            final r = Go.recover_exception;
+                            Go.recover_exception = null;
+                            r;
+                        });
+                        if (_err == null) {
+                            _t.errorf(("NewTicker(-1) should have panicked" : GoString));
+                        };
                     };
                 };
-            };
-            a();
-        });
-        try {
+                a();
+            });
             newTicker((("-1" : GoInt64) : Duration));
             for (defer in __deferstack__) {
                 defer();
@@ -4306,6 +4333,9 @@ function testNewTickerLtZeroDuration(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -4319,22 +4349,22 @@ function testNewTickerLtZeroDuration(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testTickerResetLtZeroDuration(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        __deferstack__.unshift(() -> {
-            var a = function():Void {
-                {
-                    var _err:AnyInterface = ({
-                        final r = Go.recover_exception;
-                        Go.recover_exception = null;
-                        r;
-                    });
-                    if (_err == null) {
-                        _t.errorf(("Ticker.Reset(0) should have panicked" : GoString));
+        try {
+            __deferstack__.unshift(() -> {
+                var a = function():Void {
+                    {
+                        var _err:AnyInterface = ({
+                            final r = Go.recover_exception;
+                            Go.recover_exception = null;
+                            r;
+                        });
+                        if (_err == null) {
+                            _t.errorf(("Ticker.Reset(0) should have panicked" : GoString));
+                        };
                     };
                 };
-            };
-            a();
-        });
-        try {
+                a();
+            });
             var _tk = newTicker((("1000000000" : GoInt64) : Duration));
             _tk.reset((("0" : GoInt64) : Duration));
             for (defer in __deferstack__) {
@@ -4350,6 +4380,9 @@ function testTickerResetLtZeroDuration(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -5414,8 +5447,8 @@ function testConcurrentTimerReset(_t:Ref<stdgo.testing.Testing.T>):Void {
                 Go.routine(() -> {
                     var a = function(_i:GoInt):Void {
                         var __deferstack__:Array<Void -> Void> = [];
-                        __deferstack__.unshift(() -> _wg.done());
                         try {
+                            __deferstack__.unshift(() -> _wg.done());
                             {
                                 var _j:GoInt = (0 : GoInt);
                                 Go.cfor(_j < (1000 : GoInt), _j++, {
@@ -5435,6 +5468,9 @@ function testConcurrentTimerReset(_t:Ref<stdgo.testing.Testing.T>):Void {
                         } catch(__exception__) {
                             var exe:Dynamic = __exception__.native;
                             if ((exe is haxe.ValueException)) exe = exe.value;
+                            if (!(exe is AnyInterfaceData)) {
+                                exe = Go.toInterface(__exception__.message);
+                            };
                             Go.recover_exception = exe;
                             for (defer in __deferstack__) {
                                 defer();
@@ -5464,8 +5500,8 @@ function testConcurrentTimerResetStop(_t:Ref<stdgo.testing.Testing.T>):Void {
                 Go.routine(() -> {
                     var a = function(_i:GoInt):Void {
                         var __deferstack__:Array<Void -> Void> = [];
-                        __deferstack__.unshift(() -> _wg.done());
                         try {
+                            __deferstack__.unshift(() -> _wg.done());
                             {
                                 var _j:GoInt = (0 : GoInt);
                                 Go.cfor(_j < (1000 : GoInt), _j++, {
@@ -5485,6 +5521,9 @@ function testConcurrentTimerResetStop(_t:Ref<stdgo.testing.Testing.T>):Void {
                         } catch(__exception__) {
                             var exe:Dynamic = __exception__.native;
                             if ((exe is haxe.ValueException)) exe = exe.value;
+                            if (!(exe is AnyInterfaceData)) {
+                                exe = Go.toInterface(__exception__.message);
+                            };
                             Go.recover_exception = exe;
                             for (defer in __deferstack__) {
                                 defer();
@@ -5498,8 +5537,8 @@ function testConcurrentTimerResetStop(_t:Ref<stdgo.testing.Testing.T>):Void {
                 Go.routine(() -> {
                     var a = function(_i:GoInt):Void {
                         var __deferstack__:Array<Void -> Void> = [];
-                        __deferstack__.unshift(() -> _wg.done());
                         try {
+                            __deferstack__.unshift(() -> _wg.done());
                             _timer.stop();
                             for (defer in __deferstack__) {
                                 defer();
@@ -5514,6 +5553,9 @@ function testConcurrentTimerResetStop(_t:Ref<stdgo.testing.Testing.T>):Void {
                         } catch(__exception__) {
                             var exe:Dynamic = __exception__.native;
                             if ((exe is haxe.ValueException)) exe = exe.value;
+                            if (!(exe is AnyInterfaceData)) {
+                                exe = Go.toInterface(__exception__.message);
+                            };
                             Go.recover_exception = exe;
                             for (defer in __deferstack__) {
                                 defer();
@@ -5530,8 +5572,8 @@ function testConcurrentTimerResetStop(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testTimeIsDST(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _undo:() -> Void = disablePlatformSources();
         try {
+            var _undo:() -> Void = disablePlatformSources();
             __deferstack__.unshift(() -> _undo());
             var __tmp__ = loadLocation(("Australia/Sydney" : GoString)), _tzWithDST:Ref<Location> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
@@ -5573,6 +5615,9 @@ function testTimeIsDST(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -5619,8 +5664,8 @@ function testTimeAddSecOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testTimeWithZoneTransition(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _undo:() -> Void = disablePlatformSources();
         try {
+            var _undo:() -> Void = disablePlatformSources();
             __deferstack__.unshift(() -> _undo());
             var __tmp__ = loadLocation(("Asia/Shanghai" : GoString)), _loc:Ref<Location> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
@@ -5656,6 +5701,9 @@ function testTimeWithZoneTransition(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -5666,8 +5714,8 @@ function testTimeWithZoneTransition(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testZoneBounds(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _undo:() -> Void = disablePlatformSources();
         try {
+            var _undo:() -> Void = disablePlatformSources();
             __deferstack__.unshift(() -> _undo());
             var __tmp__ = loadLocation(("Asia/Shanghai" : GoString)), _loc:Ref<Location> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
@@ -5740,6 +5788,9 @@ function testZoneBounds(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -5750,8 +5801,8 @@ function testZoneBounds(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testEmbeddedTZData(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _undo:() -> Void = stdgo.time.Time.disablePlatformSources();
         try {
+            var _undo:() -> Void = stdgo.time.Time.disablePlatformSources();
             __deferstack__.unshift(() -> _undo());
             for (_0 => _zone in _zones) {
                 var __tmp__ = stdgo.time.Time.loadLocation(_zone), _ref:Ref<Location> = __tmp__._0, _err:Error = __tmp__._1;
@@ -5804,6 +5855,9 @@ function testEmbeddedTZData(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -5856,8 +5910,8 @@ private function _equal(_t:Ref<stdgo.testing.Testing.T>, _f1:stdgo.reflect.Refle
     }
 function testEnvVarUsage(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        stdgo.time.Time.resetZoneinfoForTesting();
         try {
+            stdgo.time.Time.resetZoneinfoForTesting();
             {};
             {};
             _t.setenv(("ZONEINFO" : GoString), ("foo.zip" : GoString));
@@ -5882,6 +5936,9 @@ function testEnvVarUsage(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -5913,8 +5970,8 @@ function testLoadLocationValidatesNames(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testVersion3(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _undo:() -> Void = stdgo.time.Time.disablePlatformSources();
         try {
+            var _undo:() -> Void = stdgo.time.Time.disablePlatformSources();
             __deferstack__.unshift(() -> _undo());
             var __tmp__ = stdgo.time.Time.loadLocation(("Asia/Jerusalem" : GoString)), _0:Ref<Location> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
@@ -5933,6 +5990,9 @@ function testVersion3(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -5948,8 +6008,8 @@ function testVersion3(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testFirstZone(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _undo:() -> Void = stdgo.time.Time.disablePlatformSources();
         try {
+            var _undo:() -> Void = stdgo.time.Time.disablePlatformSources();
             __deferstack__.unshift(() -> _undo());
             {};
             var _tests:Slice<T__struct_31> = (new Slice<T__struct_31>(0, 0, ({ _zone : ("PST8PDT" : GoString), _unix : ("-1633269601" : GoInt64), _want1 : ("Sun, 31 Mar 1918 01:59:59 -0800 (PST)" : GoString), _want2 : ("Sun, 31 Mar 1918 03:00:00 -0700 (PDT)" : GoString) } : T__struct_31), ({ _zone : ("Pacific/Fakaofo" : GoString), _unix : ("1325242799" : GoInt64), _want1 : ("Thu, 29 Dec 2011 23:59:59 -1100 (-11)" : GoString), _want2 : ("Sat, 31 Dec 2011 00:00:00 +1300 (+13)" : GoString) } : T__struct_31)) : Slice<T__struct_31>);
@@ -5980,6 +6040,9 @@ function testFirstZone(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -5998,8 +6061,8 @@ function testLocationNames(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testLoadLocationFromTZData(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _undo:() -> Void = stdgo.time.Time.disablePlatformSources();
         try {
+            var _undo:() -> Void = stdgo.time.Time.disablePlatformSources();
             __deferstack__.unshift(() -> _undo());
             {};
             var __tmp__ = stdgo.time.Time.loadLocation(("Asia/Jerusalem" : GoString)), _reference:Ref<Location> = __tmp__._0, _err:Error = __tmp__._1;
@@ -6034,6 +6097,9 @@ function testLoadLocationFromTZData(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -6047,8 +6113,8 @@ function testLoadLocationFromTZData(_t:Ref<stdgo.testing.Testing.T>):Void {
 **/
 function testEarlyLocation(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _undo:() -> Void = stdgo.time.Time.disablePlatformSources();
         try {
+            var _undo:() -> Void = stdgo.time.Time.disablePlatformSources();
             __deferstack__.unshift(() -> _undo());
             {};
             var __tmp__ = stdgo.time.Time.loadLocation(("America/New_York" : GoString)), _loc:Ref<Location> = __tmp__._0, _err:Error = __tmp__._1;
@@ -6082,6 +6148,9 @@ function testEarlyLocation(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

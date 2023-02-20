@@ -1385,8 +1385,8 @@ function testSizeStructCache(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testUnexportedRead(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
         try {
+            var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
             var _u1:Unexported = ({ _a : (1 : GoInt32) } : Unexported);
             {
                 var _err:Error = write(Go.asInterface((_buf : Ref<stdgo.bytes.Bytes.Buffer>)), Go.asInterface(littleEndian), Go.toInterface((_u1 : Ref<Unexported>)));
@@ -1421,6 +1421,9 @@ function testUnexportedRead(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1484,17 +1487,17 @@ function testReadTruncated(_t:Ref<stdgo.testing.Testing.T>):Void {
 private function _testUint64SmallSliceLengthPanics():Bool {
         var __deferstack__:Array<Void -> Void> = [];
         var _panicked:Bool = false;
-        __deferstack__.unshift(() -> {
-            var a = function():Void {
-                _panicked = ({
-                    final r = Go.recover_exception;
-                    Go.recover_exception = null;
-                    r;
-                }) != null;
-            };
-            a();
-        });
         try {
+            __deferstack__.unshift(() -> {
+                var a = function():Void {
+                    _panicked = ({
+                        final r = Go.recover_exception;
+                        Go.recover_exception = null;
+                        r;
+                    }) != null;
+                };
+                a();
+            });
             var _b = (new GoArray<GoUInt8>((1 : GoUInt8), (2 : GoUInt8), (3 : GoUInt8), (4 : GoUInt8), (5 : GoUInt8), (6 : GoUInt8), (7 : GoUInt8), (8 : GoUInt8)) : GoArray<GoUInt8>);
             littleEndian.uint64((_b.__slice__(0, (4 : GoInt)) : Slice<GoUInt8>));
             {
@@ -1516,6 +1519,9 @@ private function _testUint64SmallSliceLengthPanics():Bool {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1527,17 +1533,17 @@ private function _testUint64SmallSliceLengthPanics():Bool {
 private function _testPutUint64SmallSliceLengthPanics():Bool {
         var __deferstack__:Array<Void -> Void> = [];
         var _panicked:Bool = false;
-        __deferstack__.unshift(() -> {
-            var a = function():Void {
-                _panicked = ({
-                    final r = Go.recover_exception;
-                    Go.recover_exception = null;
-                    r;
-                }) != null;
-            };
-            a();
-        });
         try {
+            __deferstack__.unshift(() -> {
+                var a = function():Void {
+                    _panicked = ({
+                        final r = Go.recover_exception;
+                        Go.recover_exception = null;
+                        r;
+                    }) != null;
+                };
+                a();
+            });
             var _b = (new GoArray<GoUInt8>(...([].concat([for (i in 0 ... 8) (0 : GoUInt8)]))) : GoArray<GoUInt8>);
             littleEndian.putUint64((_b.__slice__(0, (4 : GoInt)) : Slice<GoUInt8>), ("72623859790382856" : GoUInt64));
             {
@@ -1559,6 +1565,9 @@ private function _testPutUint64SmallSliceLengthPanics():Bool {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

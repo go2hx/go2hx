@@ -1923,8 +1923,8 @@ private function _hammerCompareAndSwapUintptr32Method(_uaddr:Pointer<GoUInt32>, 
     }
 function testHammer32(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        {};
         try {
+            {};
             var _n:GoInt = (100000 : GoInt);
             if (stdgo.testing.Testing.short()) {
                 _n = (1000 : GoInt);
@@ -1942,23 +1942,23 @@ function testHammer32(_t:Ref<stdgo.testing.Testing.T>):Void {
                         Go.routine(() -> {
                             var a = function():Void {
                                 var __deferstack__:Array<Void -> Void> = [];
-                                __deferstack__.unshift(() -> {
-                                    var a = function():Void {
-                                        {
-                                            var _err:AnyInterface = ({
-                                                final r = Go.recover_exception;
-                                                Go.recover_exception = null;
-                                                r;
-                                            });
-                                            if (_err != null) {
-                                                _t.error(Go.toInterface((Go.typeAssert((_err : GoString)) : GoString)));
-                                            };
-                                        };
-                                        _c.__send__((1 : GoInt));
-                                    };
-                                    a();
-                                });
                                 try {
+                                    __deferstack__.unshift(() -> {
+                                        var a = function():Void {
+                                            {
+                                                var _err:AnyInterface = ({
+                                                    final r = Go.recover_exception;
+                                                    Go.recover_exception = null;
+                                                    r;
+                                                });
+                                                if (_err != null) {
+                                                    _t.error(Go.toInterface((Go.typeAssert((_err : GoString)) : GoString)));
+                                                };
+                                            };
+                                            _c.__send__((1 : GoInt));
+                                        };
+                                        a();
+                                    });
                                     _testf(Go.pointer(_val), _n);
                                     for (defer in __deferstack__) {
                                         defer();
@@ -1973,6 +1973,9 @@ function testHammer32(_t:Ref<stdgo.testing.Testing.T>):Void {
                                 } catch(__exception__) {
                                     var exe:Dynamic = __exception__.native;
                                     if ((exe is haxe.ValueException)) exe = exe.value;
+                                    if (!(exe is AnyInterfaceData)) {
+                                        exe = Go.toInterface(__exception__.message);
+                                    };
                                     Go.recover_exception = exe;
                                     for (defer in __deferstack__) {
                                         defer();
@@ -2008,6 +2011,9 @@ function testHammer32(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2241,8 +2247,8 @@ private function _hammerCompareAndSwapUintptr64Method(_uaddr:Pointer<GoUInt64>, 
     }
 function testHammer64(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        {};
         try {
+            {};
             var _n:GoInt = (100000 : GoInt);
             if (stdgo.testing.Testing.short()) {
                 _n = (1000 : GoInt);
@@ -2260,23 +2266,23 @@ function testHammer64(_t:Ref<stdgo.testing.Testing.T>):Void {
                         Go.routine(() -> {
                             var a = function():Void {
                                 var __deferstack__:Array<Void -> Void> = [];
-                                __deferstack__.unshift(() -> {
-                                    var a = function():Void {
-                                        {
-                                            var _err:AnyInterface = ({
-                                                final r = Go.recover_exception;
-                                                Go.recover_exception = null;
-                                                r;
-                                            });
-                                            if (_err != null) {
-                                                _t.error(Go.toInterface((Go.typeAssert((_err : GoString)) : GoString)));
-                                            };
-                                        };
-                                        _c.__send__((1 : GoInt));
-                                    };
-                                    a();
-                                });
                                 try {
+                                    __deferstack__.unshift(() -> {
+                                        var a = function():Void {
+                                            {
+                                                var _err:AnyInterface = ({
+                                                    final r = Go.recover_exception;
+                                                    Go.recover_exception = null;
+                                                    r;
+                                                });
+                                                if (_err != null) {
+                                                    _t.error(Go.toInterface((Go.typeAssert((_err : GoString)) : GoString)));
+                                                };
+                                            };
+                                            _c.__send__((1 : GoInt));
+                                        };
+                                        a();
+                                    });
                                     _testf(Go.pointer(_val), _n);
                                     for (defer in __deferstack__) {
                                         defer();
@@ -2291,6 +2297,9 @@ function testHammer64(_t:Ref<stdgo.testing.Testing.T>):Void {
                                 } catch(__exception__) {
                                     var exe:Dynamic = __exception__.native;
                                     if ((exe is haxe.ValueException)) exe = exe.value;
+                                    if (!(exe is AnyInterfaceData)) {
+                                        exe = Go.toInterface(__exception__.message);
+                                    };
                                     Go.recover_exception = exe;
                                     for (defer in __deferstack__) {
                                         defer();
@@ -2326,6 +2335,9 @@ function testHammer64(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2551,7 +2563,8 @@ private function _hammerStoreLoadPointerMethod(_t:Ref<stdgo.testing.Testing.T>, 
     }
 function testHammerStoreLoad(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _tests = (new Slice<(Ref<stdgo.testing.Testing.T>, stdgo.unsafe.Unsafe.UnsafePointer) -> Void>(
+        try {
+            var _tests = (new Slice<(Ref<stdgo.testing.Testing.T>, stdgo.unsafe.Unsafe.UnsafePointer) -> Void>(
 0,
 0,
 _hammerStoreLoadInt32,
@@ -2566,7 +2579,6 @@ _hammerStoreLoadInt64,
 _hammerStoreLoadUint64,
 _hammerStoreLoadInt64Method,
 _hammerStoreLoadUint64Method) : Slice<(Ref<stdgo.testing.Testing.T>, stdgo.unsafe.Unsafe.UnsafePointer) -> Void>);
-        try {
             var _n:GoInt = (1000000 : GoInt);
             if (stdgo.testing.Testing.short()) {
                 _n = (10000 : GoInt);
@@ -2621,6 +2633,9 @@ _hammerStoreLoadUint64Method) : Slice<(Ref<stdgo.testing.Testing.T>, stdgo.unsaf
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2631,10 +2646,10 @@ _hammerStoreLoadUint64Method) : Slice<(Ref<stdgo.testing.Testing.T>, stdgo.unsaf
     }
 function testStoreLoadSeqCst32(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        if (stdgo.runtime.Runtime.numCPU() == ((1 : GoInt))) {
-            _t.skipf(("Skipping test on %v processor machine" : GoString), Go.toInterface(stdgo.runtime.Runtime.numCPU()));
-        };
         try {
+            if (stdgo.runtime.Runtime.numCPU() == ((1 : GoInt))) {
+                _t.skipf(("Skipping test on %v processor machine" : GoString), Go.toInterface(stdgo.runtime.Runtime.numCPU()));
+            };
             {
                 var _a0 = stdgo.runtime.Runtime.gomaxprocs((4 : GoInt));
                 __deferstack__.unshift(() -> stdgo.runtime.Runtime.gomaxprocs(_a0));
@@ -2699,6 +2714,9 @@ function testStoreLoadSeqCst32(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2709,10 +2727,10 @@ function testStoreLoadSeqCst32(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testStoreLoadSeqCst64(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        if (stdgo.runtime.Runtime.numCPU() == ((1 : GoInt))) {
-            _t.skipf(("Skipping test on %v processor machine" : GoString), Go.toInterface(stdgo.runtime.Runtime.numCPU()));
-        };
         try {
+            if (stdgo.runtime.Runtime.numCPU() == ((1 : GoInt))) {
+                _t.skipf(("Skipping test on %v processor machine" : GoString), Go.toInterface(stdgo.runtime.Runtime.numCPU()));
+            };
             {
                 var _a0 = stdgo.runtime.Runtime.gomaxprocs((4 : GoInt));
                 __deferstack__.unshift(() -> stdgo.runtime.Runtime.gomaxprocs(_a0));
@@ -2777,6 +2795,9 @@ function testStoreLoadSeqCst64(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2810,10 +2831,10 @@ function testStoreLoadSeqCst64(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 function testStoreLoadRelAcq32(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        if (stdgo.runtime.Runtime.numCPU() == ((1 : GoInt))) {
-            _t.skipf(("Skipping test on %v processor machine" : GoString), Go.toInterface(stdgo.runtime.Runtime.numCPU()));
-        };
         try {
+            if (stdgo.runtime.Runtime.numCPU() == ((1 : GoInt))) {
+                _t.skipf(("Skipping test on %v processor machine" : GoString), Go.toInterface(stdgo.runtime.Runtime.numCPU()));
+            };
             {
                 var _a0 = stdgo.runtime.Runtime.gomaxprocs((4 : GoInt));
                 __deferstack__.unshift(() -> stdgo.runtime.Runtime.gomaxprocs(_a0));
@@ -2876,6 +2897,9 @@ function testStoreLoadRelAcq32(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2909,10 +2933,10 @@ function testStoreLoadRelAcq32(_t:Ref<stdgo.testing.Testing.T>):Void {
 }
 function testStoreLoadRelAcq64(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        if (stdgo.runtime.Runtime.numCPU() == ((1 : GoInt))) {
-            _t.skipf(("Skipping test on %v processor machine" : GoString), Go.toInterface(stdgo.runtime.Runtime.numCPU()));
-        };
         try {
+            if (stdgo.runtime.Runtime.numCPU() == ((1 : GoInt))) {
+                _t.skipf(("Skipping test on %v processor machine" : GoString), Go.toInterface(stdgo.runtime.Runtime.numCPU()));
+            };
             {
                 var _a0 = stdgo.runtime.Runtime.gomaxprocs((4 : GoInt));
                 __deferstack__.unshift(() -> stdgo.runtime.Runtime.gomaxprocs(_a0));
@@ -2975,6 +2999,9 @@ function testStoreLoadRelAcq64(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2985,31 +3012,31 @@ function testStoreLoadRelAcq64(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 private function _shouldPanic(_t:Ref<stdgo.testing.Testing.T>, _name:GoString, _f:() -> Void):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        __deferstack__.unshift(() -> {
-            var a = function():Void {
-                stdgo.runtime.Runtime.gc();
-                var _err:AnyInterface = ({
-                    final r = Go.recover_exception;
-                    Go.recover_exception = null;
-                    r;
-                });
-                var _want:GoString = ("unaligned 64-bit atomic operation" : GoString);
-                if (_err == null) {
-                    _t.errorf(("%s did not panic" : GoString), Go.toInterface(_name));
-                } else {
-                    var __tmp__ = try {
-                        { value : (Go.typeAssert((_err : GoString)) : GoString), ok : true };
-                    } catch(_) {
-                        { value : ("" : GoString), ok : false };
-                    }, _s = __tmp__.value, _0 = __tmp__.ok;
-                    if (_s != (_want)) {
-                        _t.errorf(("%s: wanted panic %q, got %q" : GoString), Go.toInterface(_name), Go.toInterface(_want), _err);
+        try {
+            __deferstack__.unshift(() -> {
+                var a = function():Void {
+                    stdgo.runtime.Runtime.gc();
+                    var _err:AnyInterface = ({
+                        final r = Go.recover_exception;
+                        Go.recover_exception = null;
+                        r;
+                    });
+                    var _want:GoString = ("unaligned 64-bit atomic operation" : GoString);
+                    if (_err == null) {
+                        _t.errorf(("%s did not panic" : GoString), Go.toInterface(_name));
+                    } else {
+                        var __tmp__ = try {
+                            { value : (Go.typeAssert((_err : GoString)) : GoString), ok : true };
+                        } catch(_) {
+                            { value : ("" : GoString), ok : false };
+                        }, _s = __tmp__.value, _0 = __tmp__.ok;
+                        if (_s != (_want)) {
+                            _t.errorf(("%s: wanted panic %q, got %q" : GoString), Go.toInterface(_name), Go.toInterface(_want), _err);
+                        };
                     };
                 };
-            };
-            a();
-        });
-        try {
+                a();
+            });
             _f();
             for (defer in __deferstack__) {
                 defer();
@@ -3024,6 +3051,9 @@ private function _shouldPanic(_t:Ref<stdgo.testing.Testing.T>, _name:GoString, _
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3271,18 +3301,18 @@ function():Void {
             {
                 var a = function():Void {
                     var __deferstack__:Array<Void -> Void> = [];
-                    __deferstack__.unshift(() -> {
-                        var a = function():Void {
-                            stdgo.runtime.Runtime.gc();
-                            ({
-                                final r = Go.recover_exception;
-                                Go.recover_exception = null;
-                                r;
-                            });
-                        };
-                        a();
-                    });
                     try {
+                        __deferstack__.unshift(() -> {
+                            var a = function():Void {
+                                stdgo.runtime.Runtime.gc();
+                                ({
+                                    final r = Go.recover_exception;
+                                    Go.recover_exception = null;
+                                    r;
+                                });
+                            };
+                            a();
+                        });
                         _f();
                         for (defer in __deferstack__) {
                             defer();
@@ -3297,6 +3327,9 @@ function():Void {
                     } catch(__exception__) {
                         var exe:Dynamic = __exception__.native;
                         if ((exe is haxe.ValueException)) exe = exe.value;
+                        if (!(exe is AnyInterfaceData)) {
+                            exe = Go.toInterface(__exception__.message);
+                        };
                         Go.recover_exception = exe;
                         for (defer in __deferstack__) {
                             defer();
@@ -3366,8 +3399,8 @@ function exampleValue_readMostly():Void {
         };
         var _insert:(GoString, GoString) -> Void = function(_key:GoString, _val:GoString):Void {
             var __deferstack__:Array<Void -> Void> = [];
-            _mu.lock();
             try {
+                _mu.lock();
                 __deferstack__.unshift(() -> _mu.unlock());
                 var _m1:stdgo.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_0___localname___Map = (Go.typeAssert((_m.load() : T_exampleValue_readMostly_0___localname___Map)) : T_exampleValue_readMostly_0___localname___Map);
                 var _m2:stdgo.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_0___localname___Map = (new GoObjectMap<GoString, GoString>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.named("stdgo.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_0___localname___Map", [], stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }), false, { get : () -> null }))) : stdgo.sync.atomic_test.Atomic_test.T_exampleValue_readMostly_0___localname___Map);
@@ -3389,6 +3422,9 @@ function exampleValue_readMostly():Void {
             } catch(__exception__) {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
+                if (!(exe is AnyInterfaceData)) {
+                    exe = Go.toInterface(__exception__.message);
+                };
                 Go.recover_exception = exe;
                 for (defer in __deferstack__) {
                     defer();
@@ -3466,20 +3502,20 @@ function testValuePanic(_t:Ref<stdgo.testing.Testing.T>):Void {
         {
             var a = function():Void {
                 var __deferstack__:Array<Void -> Void> = [];
-                __deferstack__.unshift(() -> {
-                    var a = function():Void {
-                        var _err:AnyInterface = ({
-                            final r = Go.recover_exception;
-                            Go.recover_exception = null;
-                            r;
-                        });
-                        if (Go.toInterface(_err) != (Go.toInterface(("sync/atomic: store of nil value into Value" : GoString)))) {
-                            _t.fatalf(("inconsistent store panic: got \'%v\', want \'%v\'" : GoString), _err, Go.toInterface(("sync/atomic: store of nil value into Value" : GoString)));
-                        };
-                    };
-                    a();
-                });
                 try {
+                    __deferstack__.unshift(() -> {
+                        var a = function():Void {
+                            var _err:AnyInterface = ({
+                                final r = Go.recover_exception;
+                                Go.recover_exception = null;
+                                r;
+                            });
+                            if (Go.toInterface(_err) != (Go.toInterface(("sync/atomic: store of nil value into Value" : GoString)))) {
+                                _t.fatalf(("inconsistent store panic: got \'%v\', want \'%v\'" : GoString), _err, Go.toInterface(("sync/atomic: store of nil value into Value" : GoString)));
+                            };
+                        };
+                        a();
+                    });
                     _v.store((null : AnyInterface));
                     for (defer in __deferstack__) {
                         defer();
@@ -3494,6 +3530,9 @@ function testValuePanic(_t:Ref<stdgo.testing.Testing.T>):Void {
                 } catch(__exception__) {
                     var exe:Dynamic = __exception__.native;
                     if ((exe is haxe.ValueException)) exe = exe.value;
+                    if (!(exe is AnyInterfaceData)) {
+                        exe = Go.toInterface(__exception__.message);
+                    };
                     Go.recover_exception = exe;
                     for (defer in __deferstack__) {
                         defer();
@@ -3508,20 +3547,20 @@ function testValuePanic(_t:Ref<stdgo.testing.Testing.T>):Void {
         {
             var a = function():Void {
                 var __deferstack__:Array<Void -> Void> = [];
-                __deferstack__.unshift(() -> {
-                    var a = function():Void {
-                        var _err:AnyInterface = ({
-                            final r = Go.recover_exception;
-                            Go.recover_exception = null;
-                            r;
-                        });
-                        if (Go.toInterface(_err) != (Go.toInterface(("sync/atomic: store of inconsistently typed value into Value" : GoString)))) {
-                            _t.fatalf(("inconsistent store panic: got \'%v\', want \'%v\'" : GoString), _err, Go.toInterface(("sync/atomic: store of inconsistently typed value into Value" : GoString)));
-                        };
-                    };
-                    a();
-                });
                 try {
+                    __deferstack__.unshift(() -> {
+                        var a = function():Void {
+                            var _err:AnyInterface = ({
+                                final r = Go.recover_exception;
+                                Go.recover_exception = null;
+                                r;
+                            });
+                            if (Go.toInterface(_err) != (Go.toInterface(("sync/atomic: store of inconsistently typed value into Value" : GoString)))) {
+                                _t.fatalf(("inconsistent store panic: got \'%v\', want \'%v\'" : GoString), _err, Go.toInterface(("sync/atomic: store of inconsistently typed value into Value" : GoString)));
+                            };
+                        };
+                        a();
+                    });
                     _v.store(Go.toInterface(("foo" : GoString)));
                     for (defer in __deferstack__) {
                         defer();
@@ -3536,6 +3575,9 @@ function testValuePanic(_t:Ref<stdgo.testing.Testing.T>):Void {
                 } catch(__exception__) {
                     var exe:Dynamic = __exception__.native;
                     if ((exe is haxe.ValueException)) exe = exe.value;
+                    if (!(exe is AnyInterfaceData)) {
+                        exe = Go.toInterface(__exception__.message);
+                    };
                     Go.recover_exception = exe;
                     for (defer in __deferstack__) {
                         defer();
@@ -3549,20 +3591,20 @@ function testValuePanic(_t:Ref<stdgo.testing.Testing.T>):Void {
         {
             var a = function():Void {
                 var __deferstack__:Array<Void -> Void> = [];
-                __deferstack__.unshift(() -> {
-                    var a = function():Void {
-                        var _err:AnyInterface = ({
-                            final r = Go.recover_exception;
-                            Go.recover_exception = null;
-                            r;
-                        });
-                        if (Go.toInterface(_err) != (Go.toInterface(("sync/atomic: store of nil value into Value" : GoString)))) {
-                            _t.fatalf(("inconsistent store panic: got \'%v\', want \'%v\'" : GoString), _err, Go.toInterface(("sync/atomic: store of nil value into Value" : GoString)));
-                        };
-                    };
-                    a();
-                });
                 try {
+                    __deferstack__.unshift(() -> {
+                        var a = function():Void {
+                            var _err:AnyInterface = ({
+                                final r = Go.recover_exception;
+                                Go.recover_exception = null;
+                                r;
+                            });
+                            if (Go.toInterface(_err) != (Go.toInterface(("sync/atomic: store of nil value into Value" : GoString)))) {
+                                _t.fatalf(("inconsistent store panic: got \'%v\', want \'%v\'" : GoString), _err, Go.toInterface(("sync/atomic: store of nil value into Value" : GoString)));
+                            };
+                        };
+                        a();
+                    });
                     _v.store((null : AnyInterface));
                     for (defer in __deferstack__) {
                         defer();
@@ -3577,6 +3619,9 @@ function testValuePanic(_t:Ref<stdgo.testing.Testing.T>):Void {
                 } catch(__exception__) {
                     var exe:Dynamic = __exception__.native;
                     if ((exe is haxe.ValueException)) exe = exe.value;
+                    if (!(exe is AnyInterfaceData)) {
+                        exe = Go.toInterface(__exception__.message);
+                    };
                     Go.recover_exception = exe;
                     for (defer in __deferstack__) {
                         defer();
@@ -3654,8 +3699,8 @@ function testValue_Swap(_t:Ref<stdgo.testing.Testing.T>):Void {
         for (_i => _tt in value_SwapTests) {
             _t.run(stdgo.strconv.Strconv.itoa(_i), function(_t:Ref<stdgo.testing.Testing.T>):Void {
                 var __deferstack__:Array<Void -> Void> = [];
-                var _v:Value = ({} : Value);
                 try {
+                    var _v:Value = ({} : Value);
                     if (_tt._init != null) {
                         _v.store(_tt._init);
                     };
@@ -3699,6 +3744,9 @@ function testValue_Swap(_t:Ref<stdgo.testing.Testing.T>):Void {
                 } catch(__exception__) {
                     var exe:Dynamic = __exception__.native;
                     if ((exe is haxe.ValueException)) exe = exe.value;
+                    if (!(exe is AnyInterfaceData)) {
+                        exe = Go.toInterface(__exception__.message);
+                    };
                     Go.recover_exception = exe;
                     for (defer in __deferstack__) {
                         defer();
@@ -3756,8 +3804,8 @@ function testValue_CompareAndSwap(_t:Ref<stdgo.testing.Testing.T>):Void {
         for (_i => _tt in value_CompareAndSwapTests) {
             _t.run(stdgo.strconv.Strconv.itoa(_i), function(_t:Ref<stdgo.testing.Testing.T>):Void {
                 var __deferstack__:Array<Void -> Void> = [];
-                var _v:Value = ({} : Value);
                 try {
+                    var _v:Value = ({} : Value);
                     if (_tt._init != null) {
                         _v.store(_tt._init);
                     };
@@ -3795,6 +3843,9 @@ function testValue_CompareAndSwap(_t:Ref<stdgo.testing.Testing.T>):Void {
                 } catch(__exception__) {
                     var exe:Dynamic = __exception__.native;
                     if ((exe is haxe.ValueException)) exe = exe.value;
+                    if (!(exe is AnyInterfaceData)) {
+                        exe = Go.toInterface(__exception__.message);
+                    };
                     Go.recover_exception = exe;
                     for (defer in __deferstack__) {
                         defer();

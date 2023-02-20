@@ -581,20 +581,20 @@ function testCondSignalStealing(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testCondCopy(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        __deferstack__.unshift(() -> {
-            var a = function():Void {
-                var _err:AnyInterface = ({
-                    final r = Go.recover_exception;
-                    Go.recover_exception = null;
-                    r;
-                });
-                if ((_err == null) || ((Go.typeAssert((_err : GoString)) : GoString) != ("sync.Cond is copied" : GoString))) {
-                    _t.fatalf(("got %v, expect sync.Cond is copied" : GoString), _err);
-                };
-            };
-            a();
-        });
         try {
+            __deferstack__.unshift(() -> {
+                var a = function():Void {
+                    var _err:AnyInterface = ({
+                        final r = Go.recover_exception;
+                        Go.recover_exception = null;
+                        r;
+                    });
+                    if ((_err == null) || ((Go.typeAssert((_err : GoString)) : GoString) != ("sync.Cond is copied" : GoString))) {
+                        _t.fatalf(("got %v, expect sync.Cond is copied" : GoString), _err);
+                    };
+                };
+                a();
+            });
             var _c:Cond = ({ l : Go.asInterface(((new Mutex() : Mutex) : Ref<Mutex>)) } : Cond);
             _c.signal();
             var _c2:Cond = ({} : Cond);
@@ -613,6 +613,9 @@ function testCondCopy(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -715,8 +718,8 @@ function exampleWaitGroup():Void {
             Go.routine(() -> {
                 var a = function(_url:GoString):Void {
                     var __deferstack__:Array<Void -> Void> = [];
-                    __deferstack__.unshift(() -> _wg.done());
                     try {
+                        __deferstack__.unshift(() -> _wg.done());
                         _http.get(_url);
                         for (defer in __deferstack__) {
                             defer();
@@ -731,6 +734,9 @@ function exampleWaitGroup():Void {
                     } catch(__exception__) {
                         var exe:Dynamic = __exception__.native;
                         if ((exe is haxe.ValueException)) exe = exe.value;
+                        if (!(exe is AnyInterfaceData)) {
+                            exe = Go.toInterface(__exception__.message);
+                        };
                         Go.recover_exception = exe;
                         for (defer in __deferstack__) {
                             defer();
@@ -1320,8 +1326,8 @@ function testMapMatchesDeepCopy(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testConcurrentRange(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        {};
         try {
+            {};
             var _m = _new(stdgo.sync.Sync.map);
             {
                 var _n:GoInt64 = (("1" : GoInt64) : GoInt64);
@@ -1346,8 +1352,8 @@ function testConcurrentRange(_t:Ref<stdgo.testing.Testing.T>):Void {
                     Go.routine(() -> {
                         var a = function(_g:GoInt64):Void {
                             var __deferstack__:Array<Void -> Void> = [];
-                            __deferstack__.unshift(() -> _wg.done());
                             try {
+                                __deferstack__.unshift(() -> _wg.done());
                                 {
                                     var _i:GoInt64 = (("0" : GoInt64) : GoInt64);
                                     Go.cfor(true, _i++, {
@@ -1384,6 +1390,9 @@ function testConcurrentRange(_t:Ref<stdgo.testing.Testing.T>):Void {
                             } catch(__exception__) {
                                 var exe:Dynamic = __exception__.native;
                                 if ((exe is haxe.ValueException)) exe = exe.value;
+                                if (!(exe is AnyInterfaceData)) {
+                                    exe = Go.toInterface(__exception__.message);
+                                };
                                 Go.recover_exception = exe;
                                 for (defer in __deferstack__) {
                                     defer();
@@ -1433,6 +1442,9 @@ function testConcurrentRange(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1536,8 +1548,8 @@ function benchmarkUncontendedSemaphore(_b:Ref<stdgo.testing.Testing.B>):Void {
     }
 function benchmarkContendedSemaphore(_b:Ref<stdgo.testing.Testing.B>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        _b.stopTimer();
         try {
+            _b.stopTimer();
             var _s = _new(_uint32);
             _s.value = ("1" : GoUInt32);
             var _c = new Chan<Bool>(0, () -> false);
@@ -1563,6 +1575,9 @@ function benchmarkContendedSemaphore(_b:Ref<stdgo.testing.Testing.B>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1589,13 +1604,13 @@ function hammerMutex(_m:Ref<Mutex>, _loops:GoInt, _cdone:Chan<Bool>):Void {
     }
 function testMutex(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        {
-            var _n:GoInt = stdgo.runtime.Runtime.setMutexProfileFraction((1 : GoInt));
-            if (_n != ((0 : GoInt))) {
-                _t.logf(("got mutexrate %d expected 0" : GoString), Go.toInterface(_n));
-            };
-        };
         try {
+            {
+                var _n:GoInt = stdgo.runtime.Runtime.setMutexProfileFraction((1 : GoInt));
+                if (_n != ((0 : GoInt))) {
+                    _t.logf(("got mutexrate %d expected 0" : GoString), Go.toInterface(_n));
+                };
+            };
             {
                 var _a0 = (0 : GoInt);
                 __deferstack__.unshift(() -> stdgo.runtime.Runtime.setMutexProfileFraction(_a0));
@@ -1636,6 +1651,9 @@ function testMutex(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1655,8 +1673,8 @@ function testMutexMisuse(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testMutexFairness(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _mu:Mutex = ({} : Mutex);
         try {
+            var _mu:Mutex = ({} : Mutex);
             var _stop = new Chan<Bool>(0, () -> false);
             {
                 var _a0 = _stop;
@@ -1706,6 +1724,9 @@ function testMutexFairness(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1881,22 +1902,22 @@ function testOncePanic(_t:Ref<stdgo.testing.Testing.T>):Void {
         {
             var a = function():Void {
                 var __deferstack__:Array<Void -> Void> = [];
-                __deferstack__.unshift(() -> {
-                    var a = function():Void {
-                        {
-                            var _r:AnyInterface = ({
-                                final r = Go.recover_exception;
-                                Go.recover_exception = null;
-                                r;
-                            });
-                            if (_r == null) {
-                                _t.fatalf(("Once.Do did not panic" : GoString));
+                try {
+                    __deferstack__.unshift(() -> {
+                        var a = function():Void {
+                            {
+                                var _r:AnyInterface = ({
+                                    final r = Go.recover_exception;
+                                    Go.recover_exception = null;
+                                    r;
+                                });
+                                if (_r == null) {
+                                    _t.fatalf(("Once.Do did not panic" : GoString));
+                                };
                             };
                         };
-                    };
-                    a();
-                });
-                try {
+                        a();
+                    });
                     _once.do_(function():Void {
                         throw Go.toInterface(("failed" : GoString));
                     });
@@ -1913,6 +1934,9 @@ function testOncePanic(_t:Ref<stdgo.testing.Testing.T>):Void {
                 } catch(__exception__) {
                     var exe:Dynamic = __exception__.native;
                     if ((exe is haxe.ValueException)) exe = exe.value;
+                    if (!(exe is AnyInterfaceData)) {
+                        exe = Go.toInterface(__exception__.message);
+                    };
                     Go.recover_exception = exe;
                     for (defer in __deferstack__) {
                         defer();
@@ -1938,11 +1962,11 @@ function benchmarkOnce(_b:Ref<stdgo.testing.Testing.B>):Void {
     }
 function testPool(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        {
-            var _a0 = stdgo.runtime.debug.Debug.setGCPercent((-1 : GoInt));
-            __deferstack__.unshift(() -> stdgo.runtime.debug.Debug.setGCPercent(_a0));
-        };
         try {
+            {
+                var _a0 = stdgo.runtime.debug.Debug.setGCPercent((-1 : GoInt));
+                __deferstack__.unshift(() -> stdgo.runtime.debug.Debug.setGCPercent(_a0));
+            };
             var _p:Pool = ({} : Pool);
             if (_p.get() != null) {
                 _t.fatal(Go.toInterface(("expected empty" : GoString)));
@@ -2002,6 +2026,9 @@ function testPool(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2012,11 +2039,11 @@ function testPool(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testPoolNew(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        {
-            var _a0 = stdgo.runtime.debug.Debug.setGCPercent((-1 : GoInt));
-            __deferstack__.unshift(() -> stdgo.runtime.debug.Debug.setGCPercent(_a0));
-        };
         try {
+            {
+                var _a0 = stdgo.runtime.debug.Debug.setGCPercent((-1 : GoInt));
+                __deferstack__.unshift(() -> stdgo.runtime.debug.Debug.setGCPercent(_a0));
+            };
             var _i:GoInt = (0 : GoInt);
             var _p:Pool = ({ new_ : function():AnyInterface {
                 _i++;
@@ -2062,6 +2089,9 @@ function testPoolNew(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2306,11 +2336,11 @@ function benchmarkPoolStarvation(_b:Ref<stdgo.testing.Testing.B>):Void {
     }
 function benchmarkPoolSTW(_b:Ref<stdgo.testing.Testing.B>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        {
-            var _a0 = stdgo.runtime.debug.Debug.setGCPercent((-1 : GoInt));
-            __deferstack__.unshift(() -> stdgo.runtime.debug.Debug.setGCPercent(_a0));
-        };
         try {
+            {
+                var _a0 = stdgo.runtime.debug.Debug.setGCPercent((-1 : GoInt));
+                __deferstack__.unshift(() -> stdgo.runtime.debug.Debug.setGCPercent(_a0));
+            };
             var _mstats:stdgo.runtime.Runtime.MemStats = ({} : stdgo.runtime.Runtime.MemStats);
             var _pauses:Slice<GoUInt64> = (null : Slice<GoUInt64>);
             var _p:Pool = ({} : Pool);
@@ -2353,6 +2383,9 @@ function benchmarkPoolSTW(_b:Ref<stdgo.testing.Testing.B>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2363,8 +2396,8 @@ function benchmarkPoolSTW(_b:Ref<stdgo.testing.Testing.B>):Void {
     }
 function benchmarkPoolExpensiveNew(_b:Ref<stdgo.testing.Testing.B>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        _globalSink = Go.toInterface(new Slice<GoUInt8>((8388608 : GoInt).toBasic(), 0, ...[for (i in 0 ... (8388608 : GoInt).toBasic()) (0 : GoUInt8)]));
         try {
+            _globalSink = Go.toInterface(new Slice<GoUInt8>((8388608 : GoInt).toBasic(), 0, ...[for (i in 0 ... (8388608 : GoInt).toBasic()) (0 : GoUInt8)]));
             __deferstack__.unshift(() -> {
                 var a = function():Void {
                     _globalSink = (null : AnyInterface);
@@ -2411,6 +2444,9 @@ function benchmarkPoolExpensiveNew(_b:Ref<stdgo.testing.Testing.B>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2448,10 +2484,10 @@ function benchmarkSemaUncontended(_b:Ref<stdgo.testing.Testing.B>):Void {
     }
 private function _benchmarkSema(_b:Ref<stdgo.testing.Testing.B>, _block:Bool, _work:Bool):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        if (_b.n == ((0 : GoInt))) {
-            return;
-        };
         try {
+            if (_b.n == ((0 : GoInt))) {
+                return;
+            };
             var _sem:GoUInt32 = (("0" : GoUInt32) : GoUInt32);
             if (_block) {
                 var _done = new Chan<Bool>(0, () -> false);
@@ -2505,6 +2541,9 @@ private function _benchmarkSema(_b:Ref<stdgo.testing.Testing.B>, _block:Bool, _w
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2565,11 +2604,11 @@ private function _doTestParallelReaders(_numReaders:GoInt, _gomaxprocs:GoInt):Vo
     }
 function testParallelReaders(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        {
-            var _a0 = stdgo.runtime.Runtime.gomaxprocs((-1 : GoInt));
-            __deferstack__.unshift(() -> stdgo.runtime.Runtime.gomaxprocs(_a0));
-        };
         try {
+            {
+                var _a0 = stdgo.runtime.Runtime.gomaxprocs((-1 : GoInt));
+                __deferstack__.unshift(() -> stdgo.runtime.Runtime.gomaxprocs(_a0));
+            };
             _doTestParallelReaders((1 : GoInt), (4 : GoInt));
             _doTestParallelReaders((3 : GoInt), (4 : GoInt));
             _doTestParallelReaders((4 : GoInt), (2 : GoInt));
@@ -2586,6 +2625,9 @@ function testParallelReaders(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2660,8 +2702,8 @@ function hammerRWMutex(_gomaxprocs:GoInt, _numReaders:GoInt, _num_iterations:GoI
     }
 function testRWMutex(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _m:RWMutex = ({} : RWMutex);
         try {
+            var _m:RWMutex = ({} : RWMutex);
             _m.lock();
             if (_m.tryLock()) {
                 _t.fatalf(("TryLock succeeded with mutex locked" : GoString));
@@ -2716,6 +2758,9 @@ function testRWMutex(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -2894,20 +2939,20 @@ function testWaitGroup(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testWaitGroupMisuse(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        __deferstack__.unshift(() -> {
-            var a = function():Void {
-                var _err:AnyInterface = ({
-                    final r = Go.recover_exception;
-                    Go.recover_exception = null;
-                    r;
-                });
-                if (Go.toInterface(_err) != (Go.toInterface(("sync: negative WaitGroup counter" : GoString)))) {
-                    _t.fatalf(("Unexpected panic: %#v" : GoString), _err);
-                };
-            };
-            a();
-        });
         try {
+            __deferstack__.unshift(() -> {
+                var a = function():Void {
+                    var _err:AnyInterface = ({
+                        final r = Go.recover_exception;
+                        Go.recover_exception = null;
+                        r;
+                    });
+                    if (Go.toInterface(_err) != (Go.toInterface(("sync: negative WaitGroup counter" : GoString)))) {
+                        _t.fatalf(("Unexpected panic: %#v" : GoString), _err);
+                    };
+                };
+                a();
+            });
             var _wg = ((new WaitGroup() : WaitGroup) : Ref<WaitGroup>);
             _wg.add((1 : GoInt));
             _wg.done();
@@ -2926,6 +2971,9 @@ function testWaitGroupMisuse(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3098,8 +3146,8 @@ function benchmarkWaitGroupActuallyWait(_b:Ref<stdgo.testing.Testing.B>):Void {
                         {
                             var a = function():Void {
                                 var __deferstack__:Array<Void -> Void> = [];
-                                __deferstack__.unshift(() -> @:implicitReturn throw "__return__");
                                 try {
+                                    __deferstack__.unshift(() -> @:implicitReturn throw "__return__");
                                     _test._f();
                                     for (defer in __deferstack__) {
                                         defer();
@@ -3114,6 +3162,9 @@ function benchmarkWaitGroupActuallyWait(_b:Ref<stdgo.testing.Testing.B>):Void {
                                 } catch(__exception__) {
                                     var exe:Dynamic = __exception__.native;
                                     if ((exe is haxe.ValueException)) exe = exe.value;
+                                    if (!(exe is AnyInterfaceData)) {
+                                        exe = Go.toInterface(__exception__.message);
+                                    };
                                     Go.recover_exception = exe;
                                     for (defer in __deferstack__) {
                                         defer();
@@ -3199,8 +3250,8 @@ class RWMutexMap_asInterface {
     static public function compareAndDelete( _m:Ref<RWMutexMap>, _key:AnyInterface, _old:AnyInterface):Bool {
         var __deferstack__:Array<Void -> Void> = [];
         var _deleted:Bool = false;
-        _m._mu.lock();
         try {
+            _m._mu.lock();
             __deferstack__.unshift(() -> _m._mu.unlock());
             if (_m._dirty == null) {
                 {
@@ -3239,6 +3290,9 @@ class RWMutexMap_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3251,8 +3305,8 @@ class RWMutexMap_asInterface {
     static public function compareAndSwap( _m:Ref<RWMutexMap>, _key:AnyInterface, _old:AnyInterface, _new:AnyInterface):Bool {
         var __deferstack__:Array<Void -> Void> = [];
         var _swapped:Bool = false;
-        _m._mu.lock();
         try {
+            _m._mu.lock();
             __deferstack__.unshift(() -> _m._mu.unlock());
             if (_m._dirty == null) {
                 {
@@ -3291,6 +3345,9 @@ class RWMutexMap_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3439,12 +3496,12 @@ class DeepCopyMap_asInterface {
     static public function compareAndDelete( _m:Ref<DeepCopyMap>, _key:AnyInterface, _old:AnyInterface):Bool {
         var __deferstack__:Array<Void -> Void> = [];
         var _deleted:Bool = false;
-        var __tmp__ = try {
-            { value : (Go.typeAssert((_m._clean.load() : GoMap<AnyInterface, AnyInterface>)) : GoMap<AnyInterface, AnyInterface>), ok : true };
-        } catch(_) {
-            { value : (null : GoMap<AnyInterface, AnyInterface>), ok : false };
-        }, _clean = __tmp__.value, _0 = __tmp__.ok;
         try {
+            var __tmp__ = try {
+                { value : (Go.typeAssert((_m._clean.load() : GoMap<AnyInterface, AnyInterface>)) : GoMap<AnyInterface, AnyInterface>), ok : true };
+            } catch(_) {
+                { value : (null : GoMap<AnyInterface, AnyInterface>), ok : false };
+            }, _clean = __tmp__.value, _0 = __tmp__.ok;
             {
                 var __tmp__ = (_clean != null && _clean.__exists__(_key) ? { value : _clean[_key], ok : true } : { value : (null : AnyInterface), ok : false }), _previous:AnyInterface = __tmp__.value, _ok:Bool = __tmp__.ok;
                 if (!_ok || (Go.toInterface(_previous) != Go.toInterface(_old))) {
@@ -3484,6 +3541,9 @@ class DeepCopyMap_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -3496,12 +3556,12 @@ class DeepCopyMap_asInterface {
     static public function compareAndSwap( _m:Ref<DeepCopyMap>, _key:AnyInterface, _old:AnyInterface, _new:AnyInterface):Bool {
         var __deferstack__:Array<Void -> Void> = [];
         var _swapped:Bool = false;
-        var __tmp__ = try {
-            { value : (Go.typeAssert((_m._clean.load() : GoMap<AnyInterface, AnyInterface>)) : GoMap<AnyInterface, AnyInterface>), ok : true };
-        } catch(_) {
-            { value : (null : GoMap<AnyInterface, AnyInterface>), ok : false };
-        }, _clean = __tmp__.value, _0 = __tmp__.ok;
         try {
+            var __tmp__ = try {
+                { value : (Go.typeAssert((_m._clean.load() : GoMap<AnyInterface, AnyInterface>)) : GoMap<AnyInterface, AnyInterface>), ok : true };
+            } catch(_) {
+                { value : (null : GoMap<AnyInterface, AnyInterface>), ok : false };
+            }, _clean = __tmp__.value, _0 = __tmp__.ok;
             {
                 var __tmp__ = (_clean != null && _clean.__exists__(_key) ? { value : _clean[_key], ok : true } : { value : (null : AnyInterface), ok : false }), _previous:AnyInterface = __tmp__.value, _ok:Bool = __tmp__.ok;
                 if (!_ok || (Go.toInterface(_previous) != Go.toInterface(_old))) {
@@ -3541,6 +3601,9 @@ class DeepCopyMap_asInterface {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();

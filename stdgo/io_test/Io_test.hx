@@ -1171,8 +1171,8 @@ function testNopCloserWriterToForwarding(_t:Ref<stdgo.testing.Testing.T>):Void {
     }
 function testOffsetWriter_Seek(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
-        var _tmpfilename:GoString = ("TestOffsetWriter_Seek" : GoString);
         try {
+            var _tmpfilename:GoString = ("TestOffsetWriter_Seek" : GoString);
             var __tmp__ = stdgo.os.Os.createTemp(_t.tempDir(), _tmpfilename), _tmpfile:Ref<stdgo.os.Os.File> = __tmp__._0, _err:Error = __tmp__._1;
             if ((_err != null) || (_tmpfile == null)) {
                 _t.fatalf(("CreateTemp(%s) failed: %v" : GoString), Go.toInterface(_tmpfilename), Go.toInterface(_err));
@@ -1223,6 +1223,9 @@ function testOffsetWriter_Seek(_t:Ref<stdgo.testing.Testing.T>):Void {
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
             if ((exe is haxe.ValueException)) exe = exe.value;
+            if (!(exe is AnyInterfaceData)) {
+                exe = Go.toInterface(__exception__.message);
+            };
             Go.recover_exception = exe;
             for (defer in __deferstack__) {
                 defer();
@@ -1240,8 +1243,8 @@ function testOffsetWriter_WriteAt(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
         var _work:(GoInt64, GoInt64) -> Void = function(_off:GoInt64, _at:GoInt64):Void {
             var __deferstack__:Array<Void -> Void> = [];
-            var _position:GoString = stdgo.fmt.Fmt.sprintf(("off_%d_at_%d" : GoString), Go.toInterface(_off), Go.toInterface(_at));
             try {
+                var _position:GoString = stdgo.fmt.Fmt.sprintf(("off_%d_at_%d" : GoString), Go.toInterface(_off), Go.toInterface(_at));
                 var __tmp__ = stdgo.os.Os.createTemp(_tmpdir, _position), _tmpfile:Ref<stdgo.os.Os.File> = __tmp__._0, _err:Error = __tmp__._1;
                 if ((_err != null) || (_tmpfile == null)) {
                     _t.fatalf(("CreateTemp(%s) failed: %v" : GoString), Go.toInterface(_position), Go.toInterface(_err));
@@ -1254,8 +1257,8 @@ function testOffsetWriter_WriteAt(_t:Ref<stdgo.testing.Testing.T>):Void {
                     Go.routine(() -> {
                         var a = function(_wg:Ref<stdgo.sync.Sync.WaitGroup>, _tmpfile:Ref<stdgo.os.Os.File>, _value:GoByte, _off:GoInt64, _at:GoInt64, _step:GoInt):Void {
                             var __deferstack__:Array<Void -> Void> = [];
-                            __deferstack__.unshift(() -> _wg.done());
                             try {
+                                __deferstack__.unshift(() -> _wg.done());
                                 var _w = newOffsetWriter(Go.asInterface(_tmpfile), _off);
                                 var __tmp__ = _w.writeAt((new Slice<GoUInt8>(0, 0, _value) : Slice<GoUInt8>), _at + (_step : GoInt64)), _n:GoInt = __tmp__._0, _e:Error = __tmp__._1;
                                 if (_e != null) {
@@ -1275,6 +1278,9 @@ function testOffsetWriter_WriteAt(_t:Ref<stdgo.testing.Testing.T>):Void {
                             } catch(__exception__) {
                                 var exe:Dynamic = __exception__.native;
                                 if ((exe is haxe.ValueException)) exe = exe.value;
+                                if (!(exe is AnyInterfaceData)) {
+                                    exe = Go.toInterface(__exception__.message);
+                                };
                                 Go.recover_exception = exe;
                                 for (defer in __deferstack__) {
                                     defer();
@@ -1309,6 +1315,9 @@ function testOffsetWriter_WriteAt(_t:Ref<stdgo.testing.Testing.T>):Void {
             } catch(__exception__) {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
+                if (!(exe is AnyInterfaceData)) {
+                    exe = Go.toInterface(__exception__.message);
+                };
                 Go.recover_exception = exe;
                 for (defer in __deferstack__) {
                     defer();
@@ -1356,8 +1365,8 @@ function testOffsetWriter_Write(_t:Ref<stdgo.testing.Testing.T>):Void {
         _name = ("Write" : GoString);
         _t.run(_name, function(_t:Ref<stdgo.testing.Testing.T>):Void {
             var __deferstack__:Array<Void -> Void> = [];
-            var __tmp__ = _makeOffsetWriter(_name), _w:Ref<OffsetWriter> = __tmp__._0, _f:Ref<stdgo.os.Os.File> = __tmp__._1;
             try {
+                var __tmp__ = _makeOffsetWriter(_name), _w:Ref<OffsetWriter> = __tmp__._0, _f:Ref<stdgo.os.Os.File> = __tmp__._1;
                 __deferstack__.unshift(() -> _f.close());
                 for (_0 => _value in (("0123456789ABCDEF" : GoString) : Slice<GoByte>)) {
                     var __tmp__ = _w.write((new Slice<GoUInt8>(0, 0, _value) : Slice<GoUInt8>)), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
@@ -1384,6 +1393,9 @@ function testOffsetWriter_Write(_t:Ref<stdgo.testing.Testing.T>):Void {
             } catch(__exception__) {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
+                if (!(exe is AnyInterfaceData)) {
+                    exe = Go.toInterface(__exception__.message);
+                };
                 Go.recover_exception = exe;
                 for (defer in __deferstack__) {
                     defer();
@@ -1395,8 +1407,8 @@ function testOffsetWriter_Write(_t:Ref<stdgo.testing.Testing.T>):Void {
         _name = ("Write_Of_Copy_WriteTo" : GoString);
         _t.run(_name, function(_t:Ref<stdgo.testing.Testing.T>):Void {
             var __deferstack__:Array<Void -> Void> = [];
-            var __tmp__ = _makeOffsetWriter(_name), _w:Ref<OffsetWriter> = __tmp__._0, _f:Ref<stdgo.os.Os.File> = __tmp__._1;
             try {
+                var __tmp__ = _makeOffsetWriter(_name), _w:Ref<OffsetWriter> = __tmp__._0, _f:Ref<stdgo.os.Os.File> = __tmp__._1;
                 __deferstack__.unshift(() -> _f.close());
                 copy(Go.asInterface(_w), Go.asInterface(stdgo.strings.Strings.newReader(("0123456789ABCDEF" : GoString))));
                 _checkContent(_name, _f);
@@ -1413,6 +1425,9 @@ function testOffsetWriter_Write(_t:Ref<stdgo.testing.Testing.T>):Void {
             } catch(__exception__) {
                 var exe:Dynamic = __exception__.native;
                 if ((exe is haxe.ValueException)) exe = exe.value;
+                if (!(exe is AnyInterfaceData)) {
+                    exe = Go.toInterface(__exception__.message);
+                };
                 Go.recover_exception = exe;
                 for (defer in __deferstack__) {
                     defer();

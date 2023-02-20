@@ -313,6 +313,8 @@ final list = [
 		return new Value(new AnyInterface(@:privateAccess _iter.values[_iter.index], value));
 	},
 	"reflect.MapIter:next" => macro {
+		if (@:privateAccess _iter.map == null)
+            return false;
 		@:privateAccess if (_iter.keys == null) {
 			@:privateAccess _iter.keys = _iter.map.__keyArray__();
 			@:privateAccess _iter.values = _iter.map.__valueArray__();
@@ -976,6 +978,7 @@ final list = [
 ];
 
 final skipTargets = [
+	"fmt_test:testPanics" => [], // keep Haxe specific throws, no need to replicate
 	"strings_test:testGenericTrieBuilding" => [], // Segmentation fault (core dumped)
 	"math_test:testFloatMinima" => ["interp"],
 	"math_test:testNextafter32" => ["interp"],

@@ -551,7 +551,7 @@ class Go {
 					try {
 						final b = t.assignableTo(new stdgo.internal.reflect.Reflect._Type_asInterface(Go.pointer(t2), t2));
 						if (b) {
-							if (t.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(t)) {
+							if (t2.kind() != stdgo.internal.reflect.Reflect.KindType.pointer && t.kind() == stdgo.internal.reflect.Reflect.KindType.pointer && !stdgo.internal.reflect.Reflect.isReflectTypeRef(t)) {
 								if ((untyped ($e : Dynamic).value is PointerData)) {
 									final gt = stdgo.internal.reflect.Reflect.getElem(t._common());
 									untyped $e.value = stdgo.internal.reflect.Reflect.asInterface(($e.value : Pointer<Dynamic>).value,gt);

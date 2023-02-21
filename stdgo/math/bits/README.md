@@ -24,82 +24,82 @@ architecture and the Go release.
 
 ```
 === RUN  TestUintSize
---- PASS: TestUintSize (%!s(float64=4.315376281738281e-05))
+--- PASS: TestUintSize (%!s(float64=6.198883056640625e-05))
 
 === RUN  TestLeadingZeros
---- PASS: TestLeadingZeros (%!s(float64=0.5868289470672607))
+--- PASS: TestLeadingZeros (%!s(float64=0.7943289279937744))
 
 === RUN  TestTrailingZeros
---- PASS: TestTrailingZeros (%!s(float64=0.49263906478881836))
+--- PASS: TestTrailingZeros (%!s(float64=0.6751070022583008))
 
 === RUN  TestOnesCount
---- PASS: TestOnesCount (%!s(float64=1.298403024673462))
+--- PASS: TestOnesCount (%!s(float64=1.7955210208892822))
 
 === RUN  TestRotateLeft
---- PASS: TestRotateLeft (%!s(float64=0.0019021034240722656))
+--- PASS: TestRotateLeft (%!s(float64=0.003559112548828125))
 
 === RUN  TestReverse
---- PASS: TestReverse (%!s(float64=0.017904043197631836))
+--- PASS: TestReverse (%!s(float64=0.024292945861816406))
 
 === RUN  TestReverseBytes
---- PASS: TestReverseBytes (%!s(float64=0.0009300708770751953))
+--- PASS: TestReverseBytes (%!s(float64=0.002404928207397461))
 
 === RUN  TestLen
---- PASS: TestLen (%!s(float64=0.5769150257110596))
+--- PASS: TestLen (%!s(float64=0.7759008407592773))
 
 === RUN  TestAddSubUint
---- PASS: TestAddSubUint (%!s(float64=0.00019216537475585938))
+--- PASS: TestAddSubUint (%!s(float64=0.00029206275939941406))
 
 === RUN  TestAddSubUint32
---- PASS: TestAddSubUint32 (%!s(float64=0.00010180473327636719))
+--- PASS: TestAddSubUint32 (%!s(float64=0.0001380443572998047))
 
 === RUN  TestAddSubUint64
---- PASS: TestAddSubUint64 (%!s(float64=0.00041604042053222656))
+--- PASS: TestAddSubUint64 (%!s(float64=0.0015099048614501953))
 
 === RUN  TestAdd64OverflowPanic
---- PASS: TestAdd64OverflowPanic (%!s(float64=0.0012907981872558594))
+--- PASS: TestAdd64OverflowPanic (%!s(float64=0.0005919933319091797))
 
 === RUN  TestSub64OverflowPanic
---- PASS: TestSub64OverflowPanic (%!s(float64=0.00037407875061035156))
+--- PASS: TestSub64OverflowPanic (%!s(float64=0.0005438327789306641))
 
 === RUN  TestMulDiv
---- PASS: TestMulDiv (%!s(float64=0.00026988983154296875))
+--- PASS: TestMulDiv (%!s(float64=0.0003910064697265625))
 
 === RUN  TestMulDiv32
---- PASS: TestMulDiv32 (%!s(float64=0.00019693374633789062))
+--- PASS: TestMulDiv32 (%!s(float64=0.00026488304138183594))
 
 === RUN  TestMulDiv64
---- PASS: TestMulDiv64 (%!s(float64=0.0014350414276123047))
+--- PASS: TestMulDiv64 (%!s(float64=0.0030732154846191406))
 
 === RUN  TestDivPanicOverflow
---- PASS: TestDivPanicOverflow (%!s(float64=5.412101745605469e-05))
+--- PASS: TestDivPanicOverflow (%!s(float64=7.200241088867188e-05))
 
 === RUN  TestDiv32PanicOverflow
---- PASS: TestDiv32PanicOverflow (%!s(float64=3.3855438232421875e-05))
+--- PASS: TestDiv32PanicOverflow (%!s(float64=4.601478576660156e-05))
 
 === RUN  TestDiv64PanicOverflow
---- PASS: TestDiv64PanicOverflow (%!s(float64=3.600120544433594e-05))
+--- PASS: TestDiv64PanicOverflow (%!s(float64=8.702278137207031e-05))
 
 === RUN  TestDivPanicZero
---- PASS: TestDivPanicZero (%!s(float64=5.817413330078125e-05))
+--- PASS: TestDivPanicZero (%!s(float64=5.1021575927734375e-05))
 
 === RUN  TestDiv32PanicZero
---- PASS: TestDiv32PanicZero (%!s(float64=3.600120544433594e-05))
+--- PASS: TestDiv32PanicZero (%!s(float64=7.700920104980469e-05))
 
 === RUN  TestDiv64PanicZero
---- PASS: TestDiv64PanicZero (%!s(float64=3.719329833984375e-05))
+--- PASS: TestDiv64PanicZero (%!s(float64=5.817413330078125e-05))
 
 === RUN  TestRem32
---- PASS: TestRem32 (%!s(float64=0.04976010322570801))
+--- PASS: TestRem32 (%!s(float64=0.06598019599914551))
 
 === RUN  TestRem32Overflow
---- PASS: TestRem32Overflow (%!s(float64=0.05976390838623047))
+--- PASS: TestRem32Overflow (%!s(float64=0.08104205131530762))
 
 === RUN  TestRem64
---- PASS: TestRem64 (%!s(float64=0.31516599655151367))
+--- PASS: TestRem64 (%!s(float64=0.43100714683532715))
 
 === RUN  TestRem64Overflow
---- PASS: TestRem64Overflow (%!s(float64=0.0006299018859863281))
+--- PASS: TestRem64Overflow (%!s(float64=0.0008730888366699219))
 
 ```
 </p>
@@ -110,82 +110,82 @@ architecture and the Go release.
 
 ```
 === RUN  TestUintSize
---- PASS: TestUintSize (%!s(float64=2.5987625122070312e-05))
+--- PASS: TestUintSize (%!s(float64=3.0040740966796875e-05))
 
 === RUN  TestLeadingZeros
---- PASS: TestLeadingZeros (%!s(float64=2.7183191776275635))
+--- PASS: TestLeadingZeros (%!s(float64=3.678241014480591))
 
 === RUN  TestTrailingZeros
---- PASS: TestTrailingZeros (%!s(float64=2.537956953048706))
+--- PASS: TestTrailingZeros (%!s(float64=3.44270396232605))
 
 === RUN  TestOnesCount
---- PASS: TestOnesCount (%!s(float64=6.648803949356079))
+--- PASS: TestOnesCount (%!s(float64=8.985043048858643))
 
 === RUN  TestRotateLeft
---- PASS: TestRotateLeft (%!s(float64=0.013802051544189453))
+--- PASS: TestRotateLeft (%!s(float64=0.018399953842163086))
 
 === RUN  TestReverse
---- PASS: TestReverse (%!s(float64=0.08274602890014648))
+--- PASS: TestReverse (%!s(float64=0.11075305938720703))
 
 === RUN  TestReverseBytes
---- PASS: TestReverseBytes (%!s(float64=0.00621485710144043))
+--- PASS: TestReverseBytes (%!s(float64=0.008329153060913086))
 
 === RUN  TestLen
---- PASS: TestLen (%!s(float64=2.729889154434204))
+--- PASS: TestLen (%!s(float64=3.680624008178711))
 
 === RUN  TestAddSubUint
---- PASS: TestAddSubUint (%!s(float64=0.0014379024505615234))
+--- PASS: TestAddSubUint (%!s(float64=0.001789093017578125))
 
 === RUN  TestAddSubUint32
---- PASS: TestAddSubUint32 (%!s(float64=0.0006899833679199219))
+--- PASS: TestAddSubUint32 (%!s(float64=0.0009601116180419922))
 
 === RUN  TestAddSubUint64
---- PASS: TestAddSubUint64 (%!s(float64=0.0021162033081054688))
+--- PASS: TestAddSubUint64 (%!s(float64=0.0028638839721679688))
 
 === RUN  TestAdd64OverflowPanic
---- PASS: TestAdd64OverflowPanic (%!s(float64=0.0024399757385253906))
+--- PASS: TestAdd64OverflowPanic (%!s(float64=0.0032100677490234375))
 
 === RUN  TestSub64OverflowPanic
---- PASS: TestSub64OverflowPanic (%!s(float64=0.0019559860229492188))
+--- PASS: TestSub64OverflowPanic (%!s(float64=0.0026137828826904297))
 
 === RUN  TestMulDiv
---- PASS: TestMulDiv (%!s(float64=0.0016300678253173828))
+--- PASS: TestMulDiv (%!s(float64=0.0020911693572998047))
 
 === RUN  TestMulDiv32
---- PASS: TestMulDiv32 (%!s(float64=0.0010750293731689453))
+--- PASS: TestMulDiv32 (%!s(float64=0.001397848129272461))
 
 === RUN  TestMulDiv64
---- PASS: TestMulDiv64 (%!s(float64=0.009428977966308594))
+--- PASS: TestMulDiv64 (%!s(float64=0.012778043746948242))
 
 === RUN  TestDivPanicOverflow
---- PASS: TestDivPanicOverflow (%!s(float64=0.0002448558807373047))
+--- PASS: TestDivPanicOverflow (%!s(float64=0.000720977783203125))
 
 === RUN  TestDiv32PanicOverflow
---- PASS: TestDiv32PanicOverflow (%!s(float64=9.012222290039062e-05))
+--- PASS: TestDiv32PanicOverflow (%!s(float64=0.0001327991485595703))
 
 === RUN  TestDiv64PanicOverflow
---- PASS: TestDiv64PanicOverflow (%!s(float64=9.703636169433594e-05))
+--- PASS: TestDiv64PanicOverflow (%!s(float64=0.00015091896057128906))
 
 === RUN  TestDivPanicZero
---- PASS: TestDivPanicZero (%!s(float64=0.00010800361633300781))
+--- PASS: TestDivPanicZero (%!s(float64=0.00015783309936523438))
 
 === RUN  TestDiv32PanicZero
---- PASS: TestDiv32PanicZero (%!s(float64=9.989738464355469e-05))
+--- PASS: TestDiv32PanicZero (%!s(float64=0.0001399517059326172))
 
 === RUN  TestDiv64PanicZero
---- PASS: TestDiv64PanicZero (%!s(float64=9.298324584960938e-05))
+--- PASS: TestDiv64PanicZero (%!s(float64=0.00013899803161621094))
 
 === RUN  TestRem32
---- PASS: TestRem32 (%!s(float64=0.20076799392700195))
+--- PASS: TestRem32 (%!s(float64=0.2709779739379883))
 
 === RUN  TestRem32Overflow
---- PASS: TestRem32Overflow (%!s(float64=0.24091100692749023))
+--- PASS: TestRem32Overflow (%!s(float64=0.3241448402404785))
 
 === RUN  TestRem64
---- PASS: TestRem64 (%!s(float64=1.4923820495605469))
+--- PASS: TestRem64 (%!s(float64=1.980323076248169))
 
 === RUN  TestRem64Overflow
---- PASS: TestRem64Overflow (%!s(float64=0.0040929317474365234))
+--- PASS: TestRem64Overflow (%!s(float64=0.005532026290893555))
 
 ```
 </p>
@@ -207,17 +207,35 @@ stdgo/internal/Macro.macro.hx:35: define
 
 - [Constants](<#constants>)
 
-- [`function add(_x:stdgo.GoUInt, _y:stdgo.GoUInt, _carry:stdgo.GoUInt):{_1:stdgo.GoUInt, _0:stdgo.GoUInt}`](<#function-add>)
+- [`function add(_x:stdgo.GoUInt, _y:stdgo.GoUInt, _carry:stdgo.GoUInt):{
+	_1:stdgo.GoUInt;
+	_0:stdgo.GoUInt;
+}`](<#function-add>)
 
-- [`function add32(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32, _carry:stdgo.GoUInt32):{_1:stdgo.GoUInt32, _0:stdgo.GoUInt32}`](<#function-add32>)
+- [`function add32(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32, _carry:stdgo.GoUInt32):{
+	_1:stdgo.GoUInt32;
+	_0:stdgo.GoUInt32;
+}`](<#function-add32>)
 
-- [`function add64(_x:stdgo.GoUInt64, _y:stdgo.GoUInt64, _carry:stdgo.GoUInt64):{_1:stdgo.GoUInt64, _0:stdgo.GoUInt64}`](<#function-add64>)
+- [`function add64(_x:stdgo.GoUInt64, _y:stdgo.GoUInt64, _carry:stdgo.GoUInt64):{
+	_1:stdgo.GoUInt64;
+	_0:stdgo.GoUInt64;
+}`](<#function-add64>)
 
-- [`function div(_hi:stdgo.GoUInt, _lo:stdgo.GoUInt, _y:stdgo.GoUInt):{_1:stdgo.GoUInt, _0:stdgo.GoUInt}`](<#function-div>)
+- [`function div(_hi:stdgo.GoUInt, _lo:stdgo.GoUInt, _y:stdgo.GoUInt):{
+	_1:stdgo.GoUInt;
+	_0:stdgo.GoUInt;
+}`](<#function-div>)
 
-- [`function div32(_hi:stdgo.GoUInt32, _lo:stdgo.GoUInt32, _y:stdgo.GoUInt32):{_1:stdgo.GoUInt32, _0:stdgo.GoUInt32}`](<#function-div32>)
+- [`function div32(_hi:stdgo.GoUInt32, _lo:stdgo.GoUInt32, _y:stdgo.GoUInt32):{
+	_1:stdgo.GoUInt32;
+	_0:stdgo.GoUInt32;
+}`](<#function-div32>)
 
-- [`function div64(_hi:stdgo.GoUInt64, _lo:stdgo.GoUInt64, _y:stdgo.GoUInt64):{_1:stdgo.GoUInt64, _0:stdgo.GoUInt64}`](<#function-div64>)
+- [`function div64(_hi:stdgo.GoUInt64, _lo:stdgo.GoUInt64, _y:stdgo.GoUInt64):{
+	_1:stdgo.GoUInt64;
+	_0:stdgo.GoUInt64;
+}`](<#function-div64>)
 
 - [`function leadingZeros(_x:stdgo.GoUInt):stdgo.GoInt`](<#function-leadingzeros>)
 
@@ -239,11 +257,20 @@ stdgo/internal/Macro.macro.hx:35: define
 
 - [`function len8(_x:stdgo.GoUInt8):stdgo.GoInt`](<#function-len8>)
 
-- [`function mul(_x:stdgo.GoUInt, _y:stdgo.GoUInt):{_1:stdgo.GoUInt, _0:stdgo.GoUInt}`](<#function-mul>)
+- [`function mul(_x:stdgo.GoUInt, _y:stdgo.GoUInt):{
+	_1:stdgo.GoUInt;
+	_0:stdgo.GoUInt;
+}`](<#function-mul>)
 
-- [`function mul32(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32):{_1:stdgo.GoUInt32, _0:stdgo.GoUInt32}`](<#function-mul32>)
+- [`function mul32(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32):{
+	_1:stdgo.GoUInt32;
+	_0:stdgo.GoUInt32;
+}`](<#function-mul32>)
 
-- [`function mul64(_x:stdgo.GoUInt64, _y:stdgo.GoUInt64):{_1:stdgo.GoUInt64, _0:stdgo.GoUInt64}`](<#function-mul64>)
+- [`function mul64(_x:stdgo.GoUInt64, _y:stdgo.GoUInt64):{
+	_1:stdgo.GoUInt64;
+	_0:stdgo.GoUInt64;
+}`](<#function-mul64>)
 
 - [`function onesCount(_x:stdgo.GoUInt):stdgo.GoInt`](<#function-onescount>)
 
@@ -289,11 +316,20 @@ stdgo/internal/Macro.macro.hx:35: define
 
 - [`function rotateLeft8(_x:stdgo.GoUInt8, _k:stdgo.GoInt):stdgo.GoUInt8`](<#function-rotateleft8>)
 
-- [`function sub(_x:stdgo.GoUInt, _y:stdgo.GoUInt, _borrow:stdgo.GoUInt):{_1:stdgo.GoUInt, _0:stdgo.GoUInt}`](<#function-sub>)
+- [`function sub(_x:stdgo.GoUInt, _y:stdgo.GoUInt, _borrow:stdgo.GoUInt):{
+	_1:stdgo.GoUInt;
+	_0:stdgo.GoUInt;
+}`](<#function-sub>)
 
-- [`function sub32(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32, _borrow:stdgo.GoUInt32):{_1:stdgo.GoUInt32, _0:stdgo.GoUInt32}`](<#function-sub32>)
+- [`function sub32(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32, _borrow:stdgo.GoUInt32):{
+	_1:stdgo.GoUInt32;
+	_0:stdgo.GoUInt32;
+}`](<#function-sub32>)
 
-- [`function sub64(_x:stdgo.GoUInt64, _y:stdgo.GoUInt64, _borrow:stdgo.GoUInt64):{_1:stdgo.GoUInt64, _0:stdgo.GoUInt64}`](<#function-sub64>)
+- [`function sub64(_x:stdgo.GoUInt64, _y:stdgo.GoUInt64, _borrow:stdgo.GoUInt64):{
+	_1:stdgo.GoUInt64;
+	_0:stdgo.GoUInt64;
+}`](<#function-sub64>)
 
 - [`function trailingZeros(_x:stdgo.GoUInt):stdgo.GoInt`](<#function-trailingzeros>)
 
@@ -414,7 +450,10 @@ import stdgo.math.bits.Bits
 
 
 ```haxe
-function add(_x:stdgo.GoUInt, _y:stdgo.GoUInt, _carry:stdgo.GoUInt):{_1:stdgo.GoUInt, _0:stdgo.GoUInt}
+function add(_x:stdgo.GoUInt, _y:stdgo.GoUInt, _carry:stdgo.GoUInt):{
+	_1:stdgo.GoUInt;
+	_0:stdgo.GoUInt;
+}
 ```
 
 
@@ -435,7 +474,10 @@ This function's execution time does not depend on the inputs.
 
 
 ```haxe
-function add32(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32, _carry:stdgo.GoUInt32):{_1:stdgo.GoUInt32, _0:stdgo.GoUInt32}
+function add32(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32, _carry:stdgo.GoUInt32):{
+	_1:stdgo.GoUInt32;
+	_0:stdgo.GoUInt32;
+}
 ```
 
 
@@ -492,7 +534,10 @@ function exampleAdd32():Void {
 
 
 ```haxe
-function add64(_x:stdgo.GoUInt64, _y:stdgo.GoUInt64, _carry:stdgo.GoUInt64):{_1:stdgo.GoUInt64, _0:stdgo.GoUInt64}
+function add64(_x:stdgo.GoUInt64, _y:stdgo.GoUInt64, _carry:stdgo.GoUInt64):{
+	_1:stdgo.GoUInt64;
+	_0:stdgo.GoUInt64;
+}
 ```
 
 
@@ -549,7 +594,10 @@ function exampleAdd64():Void {
 
 
 ```haxe
-function div(_hi:stdgo.GoUInt, _lo:stdgo.GoUInt, _y:stdgo.GoUInt):{_1:stdgo.GoUInt, _0:stdgo.GoUInt}
+function div(_hi:stdgo.GoUInt, _lo:stdgo.GoUInt, _y:stdgo.GoUInt):{
+	_1:stdgo.GoUInt;
+	_0:stdgo.GoUInt;
+}
 ```
 
 
@@ -567,7 +615,10 @@ Div panics for y == 0 \(division by zero\) or y \<= hi \(quotient overflow\).
 
 
 ```haxe
-function div32(_hi:stdgo.GoUInt32, _lo:stdgo.GoUInt32, _y:stdgo.GoUInt32):{_1:stdgo.GoUInt32, _0:stdgo.GoUInt32}
+function div32(_hi:stdgo.GoUInt32, _lo:stdgo.GoUInt32, _y:stdgo.GoUInt32):{
+	_1:stdgo.GoUInt32;
+	_0:stdgo.GoUInt32;
+}
 ```
 
 
@@ -616,7 +667,10 @@ function exampleDiv32():Void {
 
 
 ```haxe
-function div64(_hi:stdgo.GoUInt64, _lo:stdgo.GoUInt64, _y:stdgo.GoUInt64):{_1:stdgo.GoUInt64, _0:stdgo.GoUInt64}
+function div64(_hi:stdgo.GoUInt64, _lo:stdgo.GoUInt64, _y:stdgo.GoUInt64):{
+	_1:stdgo.GoUInt64;
+	_0:stdgo.GoUInt64;
+}
 ```
 
 
@@ -959,7 +1013,10 @@ function exampleLen8():Void {
 
 
 ```haxe
-function mul(_x:stdgo.GoUInt, _y:stdgo.GoUInt):{_1:stdgo.GoUInt, _0:stdgo.GoUInt}
+function mul(_x:stdgo.GoUInt, _y:stdgo.GoUInt):{
+	_1:stdgo.GoUInt;
+	_0:stdgo.GoUInt;
+}
 ```
 
 
@@ -980,7 +1037,10 @@ This function's execution time does not depend on the inputs.
 
 
 ```haxe
-function mul32(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32):{_1:stdgo.GoUInt32, _0:stdgo.GoUInt32}
+function mul32(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32):{
+	_1:stdgo.GoUInt32;
+	_0:stdgo.GoUInt32;
+}
 ```
 
 
@@ -1032,7 +1092,10 @@ function exampleMul32():Void {
 
 
 ```haxe
-function mul64(_x:stdgo.GoUInt64, _y:stdgo.GoUInt64):{_1:stdgo.GoUInt64, _0:stdgo.GoUInt64}
+function mul64(_x:stdgo.GoUInt64, _y:stdgo.GoUInt64):{
+	_1:stdgo.GoUInt64;
+	_0:stdgo.GoUInt64;
+}
 ```
 
 
@@ -1764,7 +1827,10 @@ function exampleRotateLeft8():Void {
 
 
 ```haxe
-function sub(_x:stdgo.GoUInt, _y:stdgo.GoUInt, _borrow:stdgo.GoUInt):{_1:stdgo.GoUInt, _0:stdgo.GoUInt}
+function sub(_x:stdgo.GoUInt, _y:stdgo.GoUInt, _borrow:stdgo.GoUInt):{
+	_1:stdgo.GoUInt;
+	_0:stdgo.GoUInt;
+}
 ```
 
 
@@ -1785,7 +1851,10 @@ This function's execution time does not depend on the inputs.
 
 
 ```haxe
-function sub32(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32, _borrow:stdgo.GoUInt32):{_1:stdgo.GoUInt32, _0:stdgo.GoUInt32}
+function sub32(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32, _borrow:stdgo.GoUInt32):{
+	_1:stdgo.GoUInt32;
+	_0:stdgo.GoUInt32;
+}
 ```
 
 
@@ -1842,7 +1911,10 @@ function exampleSub32():Void {
 
 
 ```haxe
-function sub64(_x:stdgo.GoUInt64, _y:stdgo.GoUInt64, _borrow:stdgo.GoUInt64):{_1:stdgo.GoUInt64, _0:stdgo.GoUInt64}
+function sub64(_x:stdgo.GoUInt64, _y:stdgo.GoUInt64, _borrow:stdgo.GoUInt64):{
+	_1:stdgo.GoUInt64;
+	_0:stdgo.GoUInt64;
+}
 ```
 
 

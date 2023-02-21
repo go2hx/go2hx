@@ -13,7 +13,10 @@ Package safefilepath manipulates operating\-system file paths.
 # Index
 
 
-- [`function fromFS(_path:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoString}`](<#function-fromfs>)
+- [`function fromFS(_path:stdgo.GoString):{
+	_1:stdgo.Error;
+	_0:stdgo.GoString;
+}`](<#function-fromfs>)
 
 # Functions
 
@@ -27,7 +30,10 @@ import stdgo.internal.safefilepath.Safefilepath
 
 
 ```haxe
-function fromFS(_path:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoString}
+function fromFS(_path:stdgo.GoString):{
+	_1:stdgo.Error;
+	_0:stdgo.GoString;
+}
 ```
 
 

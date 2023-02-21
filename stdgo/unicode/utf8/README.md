@@ -17,46 +17,46 @@ See https://en.wikipedia.org/wiki/UTF-8
 
 ```
 === RUN  TestConstants
---- PASS: TestConstants (%!s(float64=6.389617919921875e-05))
+--- PASS: TestConstants (%!s(float64=6.413459777832031e-05))
 
 === RUN  TestFullRune
---- PASS: TestFullRune (%!s(float64=0.0001609325408935547))
+--- PASS: TestFullRune (%!s(float64=0.0002219676971435547))
 
 === RUN  TestEncodeRune
---- PASS: TestEncodeRune (%!s(float64=0.00023508071899414062))
+--- PASS: TestEncodeRune (%!s(float64=0.0003018379211425781))
 
 === RUN  TestAppendRune
---- PASS: TestAppendRune (%!s(float64=0.0003349781036376953))
+--- PASS: TestAppendRune (%!s(float64=0.0004229545593261719))
 
 === RUN  TestDecodeRune
---- PASS: TestDecodeRune (%!s(float64=0.002053976058959961))
+--- PASS: TestDecodeRune (%!s(float64=0.0028989315032958984))
 
 === RUN  TestDecodeSurrogateRune
---- PASS: TestDecodeSurrogateRune (%!s(float64=2.193450927734375e-05))
+--- PASS: TestDecodeSurrogateRune (%!s(float64=3.0040740966796875e-05))
 
 === RUN  TestSequencing
---- PASS: TestSequencing (%!s(float64=0.2960360050201416))
+--- PASS: TestSequencing (%!s(float64=0.40305495262145996))
 
 === RUN  TestRuntimeConversion
---- PASS: TestRuntimeConversion (%!s(float64=0.001280069351196289))
+--- PASS: TestRuntimeConversion (%!s(float64=0.002969980239868164))
 
 === RUN  TestDecodeInvalidSequence
---- PASS: TestDecodeInvalidSequence (%!s(float64=0.0003249645233154297))
+--- PASS: TestDecodeInvalidSequence (%!s(float64=0.00042891502380371094))
 
 === RUN  TestNegativeRune
---- PASS: TestNegativeRune (%!s(float64=2.09808349609375e-05))
+--- PASS: TestNegativeRune (%!s(float64=2.4080276489257812e-05))
 
 === RUN  TestRuneCount
---- PASS: TestRuneCount (%!s(float64=2.4080276489257812e-05))
+--- PASS: TestRuneCount (%!s(float64=3.600120544433594e-05))
 
 === RUN  TestRuneLen
---- PASS: TestRuneLen (%!s(float64=5.0067901611328125e-06))
+--- PASS: TestRuneLen (%!s(float64=5.9604644775390625e-06))
 
 === RUN  TestValid
---- PASS: TestValid (%!s(float64=0.0001437664031982422))
+--- PASS: TestValid (%!s(float64=0.00019216537475585938))
 
 === RUN  TestValidRune
---- PASS: TestValidRune (%!s(float64=5.0067901611328125e-06))
+--- PASS: TestValidRune (%!s(float64=5.9604644775390625e-06))
 
 ```
 </p>
@@ -67,46 +67,46 @@ See https://en.wikipedia.org/wiki/UTF-8
 
 ```
 === RUN  TestConstants
---- PASS: TestConstants (%!s(float64=2.5033950805664062e-05))
+--- PASS: TestConstants (%!s(float64=2.5987625122070312e-05))
 
 === RUN  TestFullRune
---- PASS: TestFullRune (%!s(float64=0.00102996826171875))
+--- PASS: TestFullRune (%!s(float64=0.0014400482177734375))
 
 === RUN  TestEncodeRune
---- PASS: TestEncodeRune (%!s(float64=0.0010378360748291016))
+--- PASS: TestEncodeRune (%!s(float64=0.0013768672943115234))
 
 === RUN  TestAppendRune
---- PASS: TestAppendRune (%!s(float64=0.001795053482055664))
+--- PASS: TestAppendRune (%!s(float64=0.0024900436401367188))
 
 === RUN  TestDecodeRune
---- PASS: TestDecodeRune (%!s(float64=0.004762887954711914))
+--- PASS: TestDecodeRune (%!s(float64=0.00621485710144043))
 
 === RUN  TestDecodeSurrogateRune
---- PASS: TestDecodeSurrogateRune (%!s(float64=7.987022399902344e-05))
+--- PASS: TestDecodeSurrogateRune (%!s(float64=0.000102996826171875))
 
 === RUN  TestSequencing
---- PASS: TestSequencing (%!s(float64=1.403398036956787))
+--- PASS: TestSequencing (%!s(float64=1.9902031421661377))
 
 === RUN  TestRuntimeConversion
---- PASS: TestRuntimeConversion (%!s(float64=0.007773876190185547))
+--- PASS: TestRuntimeConversion (%!s(float64=0.011281013488769531))
 
 === RUN  TestDecodeInvalidSequence
---- PASS: TestDecodeInvalidSequence (%!s(float64=0.001817941665649414))
+--- PASS: TestDecodeInvalidSequence (%!s(float64=0.0029091835021972656))
 
 === RUN  TestNegativeRune
---- PASS: TestNegativeRune (%!s(float64=0.00010418891906738281))
+--- PASS: TestNegativeRune (%!s(float64=0.00011491775512695312))
 
 === RUN  TestRuneCount
---- PASS: TestRuneCount (%!s(float64=0.0001518726348876953))
+--- PASS: TestRuneCount (%!s(float64=0.0001990795135498047))
 
 === RUN  TestRuneLen
---- PASS: TestRuneLen (%!s(float64=2.3126602172851562e-05))
+--- PASS: TestRuneLen (%!s(float64=3.0040740966796875e-05))
 
 === RUN  TestValid
---- PASS: TestValid (%!s(float64=0.0008771419525146484))
+--- PASS: TestValid (%!s(float64=0.0011401176452636719))
 
 === RUN  TestValidRune
---- PASS: TestValidRune (%!s(float64=2.4080276489257812e-05))
+--- PASS: TestValidRune (%!s(float64=3.0040740966796875e-05))
 
 ```
 </p>
@@ -130,13 +130,25 @@ stdgo/internal/Macro.macro.hx:35: define
 
 - [`function appendRune(_p:stdgo.Slice<stdgo.GoByte>, _r:stdgo.GoRune):stdgo.Slice<stdgo.GoByte>`](<#function-appendrune>)
 
-- [`function decodeLastRune(_p:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.GoInt, _0:stdgo.GoRune}`](<#function-decodelastrune>)
+- [`function decodeLastRune(_p:stdgo.Slice<stdgo.GoByte>):{
+	_1:stdgo.GoInt;
+	_0:stdgo.GoRune;
+}`](<#function-decodelastrune>)
 
-- [`function decodeLastRuneInString(_s:stdgo.GoString):{_1:stdgo.GoInt, _0:stdgo.GoRune}`](<#function-decodelastruneinstring>)
+- [`function decodeLastRuneInString(_s:stdgo.GoString):{
+	_1:stdgo.GoInt;
+	_0:stdgo.GoRune;
+}`](<#function-decodelastruneinstring>)
 
-- [`function decodeRune(_p:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.GoInt, _0:stdgo.GoRune}`](<#function-decoderune>)
+- [`function decodeRune(_p:stdgo.Slice<stdgo.GoByte>):{
+	_1:stdgo.GoInt;
+	_0:stdgo.GoRune;
+}`](<#function-decoderune>)
 
-- [`function decodeRuneInString(_s:stdgo.GoString):{_1:stdgo.GoInt, _0:stdgo.GoRune}`](<#function-decoderuneinstring>)
+- [`function decodeRuneInString(_s:stdgo.GoString):{
+	_1:stdgo.GoInt;
+	_0:stdgo.GoRune;
+}`](<#function-decoderuneinstring>)
 
 - [`function encodeRune(_p:stdgo.Slice<stdgo.GoByte>, _r:stdgo.GoRune):stdgo.GoInt`](<#function-encoderune>)
 
@@ -303,7 +315,10 @@ function exampleAppendRune():Void {
 
 
 ```haxe
-function decodeLastRune(_p:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.GoInt, _0:stdgo.GoRune}
+function decodeLastRune(_p:stdgo.Slice<stdgo.GoByte>):{
+	_1:stdgo.GoInt;
+	_0:stdgo.GoRune;
+}
 ```
 
 
@@ -350,7 +365,10 @@ function exampleDecodeLastRune():Void {
 
 
 ```haxe
-function decodeLastRuneInString(_s:stdgo.GoString):{_1:stdgo.GoInt, _0:stdgo.GoRune}
+function decodeLastRuneInString(_s:stdgo.GoString):{
+	_1:stdgo.GoInt;
+	_0:stdgo.GoRune;
+}
 ```
 
 
@@ -397,7 +415,10 @@ function exampleDecodeLastRuneInString():Void {
 
 
 ```haxe
-function decodeRune(_p:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.GoInt, _0:stdgo.GoRune}
+function decodeRune(_p:stdgo.Slice<stdgo.GoByte>):{
+	_1:stdgo.GoInt;
+	_0:stdgo.GoRune;
+}
 ```
 
 
@@ -444,7 +465,10 @@ function exampleDecodeRune():Void {
 
 
 ```haxe
-function decodeRuneInString(_s:stdgo.GoString):{_1:stdgo.GoInt, _0:stdgo.GoRune}
+function decodeRuneInString(_s:stdgo.GoString):{
+	_1:stdgo.GoInt;
+	_0:stdgo.GoRune;
+}
 ```
 
 

@@ -39,7 +39,12 @@ import stdgo.encoding.*
 
 
 ```haxe
-typedef BinaryMarshaler = var a:{<__underlying__> | ():{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoByte>} | {<haxe_doc>} | ():stdgo.AnyInterface}
+typedef BinaryMarshaler = {
+	public function marshalBinary():{
+		_1:stdgo.Error;
+		_0:stdgo.Slice<stdgo.GoByte>;
+	};
+};
 ```
 
 
@@ -56,7 +61,9 @@ MarshalBinary encodes the receiver into a binary form and returns the result.
 
 
 ```haxe
-typedef BinaryUnmarshaler = var a:{<__underlying__> | (_data:stdgo.Slice<stdgo.GoByte>):stdgo.Error | {<haxe_doc>} | ():stdgo.AnyInterface}
+typedef BinaryUnmarshaler = {
+	public function unmarshalBinary(_data:stdgo.Slice<stdgo.GoByte>):stdgo.Error;
+};
 ```
 
 
@@ -75,7 +82,12 @@ after returning.
 
 
 ```haxe
-typedef TextMarshaler = var a:{<__underlying__> | ():{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoByte>} | {<haxe_doc>} | ():stdgo.AnyInterface}
+typedef TextMarshaler = {
+	public function marshalText():{
+		_1:stdgo.Error;
+		_0:stdgo.Slice<stdgo.GoByte>;
+	};
+};
 ```
 
 
@@ -92,7 +104,9 @@ MarshalText encodes the receiver into UTF\-8\-encoded text and returns the resul
 
 
 ```haxe
-typedef TextUnmarshaler = var a:{<__underlying__> | (_text:stdgo.Slice<stdgo.GoByte>):stdgo.Error | {<haxe_doc>} | ():stdgo.AnyInterface}
+typedef TextUnmarshaler = {
+	public function unmarshalText(_text:stdgo.Slice<stdgo.GoByte>):stdgo.Error;
+};
 ```
 
 

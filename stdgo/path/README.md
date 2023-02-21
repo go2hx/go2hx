@@ -23,31 +23,31 @@ operating system paths, use the path/filepath package.
 
 ```
 === RUN  TestMatch
---- PASS: TestMatch (%!s(float64=0.001016855239868164))
+--- PASS: TestMatch (%!s(float64=0.0013849735260009766))
 
 === RUN  TestClean
---- PASS: TestClean (%!s(float64=0.00012993812561035156))
+--- PASS: TestClean (%!s(float64=0.00029015541076660156))
 
 === RUN  TestCleanMallocs
---- PASS: TestCleanMallocs (%!s(float64=8.821487426757812e-06))
+--- PASS: TestCleanMallocs (%!s(float64=1.0967254638671875e-05))
 
 === RUN  TestSplit
---- PASS: TestSplit (%!s(float64=1.5974044799804688e-05))
+--- PASS: TestSplit (%!s(float64=2.193450927734375e-05))
 
 === RUN  TestJoin
---- PASS: TestJoin (%!s(float64=4.792213439941406e-05))
+--- PASS: TestJoin (%!s(float64=6.818771362304688e-05))
 
 === RUN  TestExt
---- PASS: TestExt (%!s(float64=7.867813110351562e-06))
+--- PASS: TestExt (%!s(float64=9.059906005859375e-06))
 
 === RUN  TestBase
 --- PASS: TestBase (%!s(float64=2.09808349609375e-05))
 
 === RUN  TestDir
---- PASS: TestDir (%!s(float64=3.600120544433594e-05))
+--- PASS: TestDir (%!s(float64=5.2928924560546875e-05))
 
 === RUN  TestIsAbs
---- PASS: TestIsAbs (%!s(float64=4.0531158447265625e-06))
+--- PASS: TestIsAbs (%!s(float64=5.9604644775390625e-06))
 
 ```
 </p>
@@ -58,31 +58,31 @@ operating system paths, use the path/filepath package.
 
 ```
 === RUN  TestMatch
---- PASS: TestMatch (%!s(float64=0.003888845443725586))
+--- PASS: TestMatch (%!s(float64=0.004601001739501953))
 
 === RUN  TestClean
---- PASS: TestClean (%!s(float64=0.0009598731994628906))
+--- PASS: TestClean (%!s(float64=0.0012540817260742188))
 
 === RUN  TestCleanMallocs
---- PASS: TestCleanMallocs (%!s(float64=5.2928924560546875e-05))
+--- PASS: TestCleanMallocs (%!s(float64=5.507469177246094e-05))
 
 === RUN  TestSplit
---- PASS: TestSplit (%!s(float64=4.00543212890625e-05))
+--- PASS: TestSplit (%!s(float64=4.792213439941406e-05))
 
 === RUN  TestJoin
---- PASS: TestJoin (%!s(float64=0.0002307891845703125))
+--- PASS: TestJoin (%!s(float64=0.0003159046173095703))
 
 === RUN  TestExt
---- PASS: TestExt (%!s(float64=3.218650817871094e-05))
+--- PASS: TestExt (%!s(float64=3.695487976074219e-05))
 
 === RUN  TestBase
---- PASS: TestBase (%!s(float64=6.699562072753906e-05))
+--- PASS: TestBase (%!s(float64=8.797645568847656e-05))
 
 === RUN  TestDir
---- PASS: TestDir (%!s(float64=0.00011706352233886719))
+--- PASS: TestDir (%!s(float64=0.0001571178436279297))
 
 === RUN  TestIsAbs
---- PASS: TestIsAbs (%!s(float64=1.811981201171875e-05))
+--- PASS: TestIsAbs (%!s(float64=2.288818359375e-05))
 
 ```
 </p>
@@ -116,9 +116,15 @@ stdgo/internal/Macro.macro.hx:35: define
 
 - [`function join(_elem:haxe.Rest<stdgo.GoString>):stdgo.GoString`](<#function-join>)
 
-- [`function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{_1:stdgo.Error, _0:Bool}`](<#function-match>)
+- [`function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{
+	_1:stdgo.Error;
+	_0:Bool;
+}`](<#function-match>)
 
-- [`function split(_path:stdgo.GoString):{_1:stdgo.GoString, _0:stdgo.GoString}`](<#function-split>)
+- [`function split(_path:stdgo.GoString):{
+	_1:stdgo.GoString;
+	_0:stdgo.GoString;
+}`](<#function-split>)
 
 # Examples
 
@@ -426,7 +432,10 @@ function exampleJoin():Void {
 
 
 ```haxe
-function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{_1:stdgo.Error, _0:Bool}
+function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{
+	_1:stdgo.Error;
+	_0:Bool;
+}
 ```
 
 
@@ -535,7 +544,10 @@ function exampleMatch():Void {
 
 
 ```haxe
-function split(_path:stdgo.GoString):{_1:stdgo.GoString, _0:stdgo.GoString}
+function split(_path:stdgo.GoString):{
+	_1:stdgo.GoString;
+	_0:stdgo.GoString;
+}
 ```
 
 

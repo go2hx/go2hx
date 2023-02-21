@@ -66,18 +66,6 @@ stdgo/internal/Macro.macro.hx:35: define
 
 - [typedef MapFS](<#typedef-mapfs>)
 
-  - [`function glob( _pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoString>}`](<#mapfs-function-glob>)
-
-  - [`function open( _name:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.File}`](<#mapfs-function-open>)
-
-  - [`function readDir( _name:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.io.fs.DirEntry>}`](<#mapfs-function-readdir>)
-
-  - [`function readFile( _name:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoByte>}`](<#mapfs-function-readfile>)
-
-  - [`function stat( _name:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}`](<#mapfs-function-stat>)
-
-  - [`function sub( _dir:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.FS}`](<#mapfs-function-sub>)
-
 # Functions
 
 
@@ -248,7 +236,7 @@ import stdgo.testing.fstest.*
 
 
 ```haxe
-typedef MapFS = var x:stdgo.Ref<stdgo.testing.fstest.MapFile>
+typedef MapFS = stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo.testing.fstest.MapFile>>;
 ```
 
 
@@ -274,90 +262,5 @@ Another implication is that opening or reading a directory requires
 iterating over the entire map, so a MapFS should typically be used with not more  
 than a few hundred entries or directory reads.  
 
-
-
-### MapFS function glob
-
-
-```haxe
-function glob( _pattern:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoString>}
-```
-
-
-
-
-
-[\(view code\)](<./Fstest.hx#L613>)
-
-
-### MapFS function open
-
-
-```haxe
-function open( _name:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.File}
-```
-
-
-Open opens the named file.  
-
-
-
-[\(view code\)](<./Fstest.hx#L624>)
-
-
-### MapFS function readDir
-
-
-```haxe
-function readDir( _name:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.io.fs.DirEntry>}
-```
-
-
-
-
-
-[\(view code\)](<./Fstest.hx#L615>)
-
-
-### MapFS function readFile
-
-
-```haxe
-function readFile( _name:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoByte>}
-```
-
-
-
-
-
-[\(view code\)](<./Fstest.hx#L619>)
-
-
-### MapFS function stat
-
-
-```haxe
-function stat( _name:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.FileInfo}
-```
-
-
-
-
-
-[\(view code\)](<./Fstest.hx#L617>)
-
-
-### MapFS function sub
-
-
-```haxe
-function sub( _dir:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.io.fs.FS}
-```
-
-
-
-
-
-[\(view code\)](<./Fstest.hx#L611>)
 
 

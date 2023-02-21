@@ -19,7 +19,7 @@ Annex G IEC 60559\-compatible complex arithmetic.
 Error: Command failed with error 1
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestAbs
---- PASS: TestAbs (%!s(float64=5.0067901611328125e-05))
+--- PASS: TestAbs (%!s(float64=6.4849853515625e-05))
 
 === RUN  TestAcos
 Acos((0+0i)) = (1.5707963267948966+0i), want (1.5707963267948966-0i)
@@ -33,7 +33,7 @@ Acos((0+0i)) = (1.5707963267948966+0i), want (1.5707963267948966-0i)
 ```
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestAbs
---- PASS: TestAbs (%!s(float64=7.891654968261719e-05))
+--- PASS: TestAbs (%!s(float64=0.0001609325408935547))
 
 === RUN  TestAcos
 Acos((0+0i)) = (1.5707963267948966+0i), want (1.5707963267948966-0i)
@@ -137,7 +137,10 @@ stdgo/internal/Macro.macro.hx:35: define
 
 - [`function phase(_x:stdgo.GoComplex128):stdgo.GoFloat64`](<#function-phase>)
 
-- [`function polar(_x:stdgo.GoComplex128):{_1:stdgo.GoFloat64, _0:stdgo.GoFloat64}`](<#function-polar>)
+- [`function polar(_x:stdgo.GoComplex128):{
+	_1:stdgo.GoFloat64;
+	_0:stdgo.GoFloat64;
+}`](<#function-polar>)
 
 - [`function pow(_x:stdgo.GoComplex128, _y:stdgo.GoComplex128):stdgo.GoComplex128`](<#function-pow>)
 
@@ -853,7 +856,10 @@ The returned value is in the range \[\-Pi, Pi\].
 
 
 ```haxe
-function polar(_x:stdgo.GoComplex128):{_1:stdgo.GoFloat64, _0:stdgo.GoFloat64}
+function polar(_x:stdgo.GoComplex128):{
+	_1:stdgo.GoFloat64;
+	_0:stdgo.GoFloat64;
+}
 ```
 
 

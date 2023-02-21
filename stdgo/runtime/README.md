@@ -659,11 +659,19 @@ of the run\-time system.
 
 - [Variables](<#variables>)
 
-- [`function blockProfile(_p:stdgo.Slice<stdgo.runtime.BlockProfileRecord>):{_1:Bool, _0:stdgo.GoInt}`](<#function-blockprofile>)
+- [`function blockProfile(_p:stdgo.Slice<stdgo.runtime.BlockProfileRecord>):{
+	_1:Bool;
+	_0:stdgo.GoInt;
+}`](<#function-blockprofile>)
 
 - [`function breakpoint():Void`](<#function-breakpoint>)
 
-- [`function caller(_skip:stdgo.GoInt):{_3:Bool, _2:stdgo.GoInt, _1:stdgo.GoString, _0:stdgo.GoUIntptr}`](<#function-caller>)
+- [`function caller(_skip:stdgo.GoInt):{
+	_3:Bool;
+	_2:stdgo.GoInt;
+	_1:stdgo.GoString;
+	_0:stdgo.GoUIntptr;
+}`](<#function-caller>)
 
 - [`function callers(_skip:stdgo.GoInt, _pc:stdgo.Slice<stdgo.GoUIntptr>):stdgo.GoInt`](<#function-callers>)
 
@@ -681,7 +689,10 @@ of the run\-time system.
 
 - [`function goroot():stdgo.GoString`](<#function-goroot>)
 
-- [`function goroutineProfile(_p:stdgo.Slice<stdgo.runtime.StackRecord>):{_1:Bool, _0:stdgo.GoInt}`](<#function-goroutineprofile>)
+- [`function goroutineProfile(_p:stdgo.Slice<stdgo.runtime.StackRecord>):{
+	_1:Bool;
+	_0:stdgo.GoInt;
+}`](<#function-goroutineprofile>)
 
 - [`function gosched():Void`](<#function-gosched>)
 
@@ -689,9 +700,15 @@ of the run\-time system.
 
 - [`function lockOSThread():Void`](<#function-lockosthread>)
 
-- [`function memProfile(_p:stdgo.Slice<stdgo.runtime.MemProfileRecord>, _inuseZero:Bool):{_1:Bool, _0:stdgo.GoInt}`](<#function-memprofile>)
+- [`function memProfile(_p:stdgo.Slice<stdgo.runtime.MemProfileRecord>, _inuseZero:Bool):{
+	_1:Bool;
+	_0:stdgo.GoInt;
+}`](<#function-memprofile>)
 
-- [`function mutexProfile(_p:stdgo.Slice<stdgo.runtime.BlockProfileRecord>):{_1:Bool, _0:stdgo.GoInt}`](<#function-mutexprofile>)
+- [`function mutexProfile(_p:stdgo.Slice<stdgo.runtime.BlockProfileRecord>):{
+	_1:Bool;
+	_0:stdgo.GoInt;
+}`](<#function-mutexprofile>)
 
 - [`function numCPU():stdgo.GoInt`](<#function-numcpu>)
 
@@ -719,7 +736,10 @@ of the run\-time system.
 
 - [`function stopTrace():Void`](<#function-stoptrace>)
 
-- [`function threadCreateProfile(_p:stdgo.Slice<stdgo.runtime.StackRecord>):{_1:Bool, _0:stdgo.GoInt}`](<#function-threadcreateprofile>)
+- [`function threadCreateProfile(_p:stdgo.Slice<stdgo.runtime.StackRecord>):{
+	_1:Bool;
+	_0:stdgo.GoInt;
+}`](<#function-threadcreateprofile>)
 
 - [`function unlockOSThread():Void`](<#function-unlockosthread>)
 
@@ -741,7 +761,7 @@ of the run\-time system.
 
   - [`function new():Void`](<#frames-function-new>)
 
-  - [`function next():{_1:Bool, _0:stdgo.runtime.Frame}`](<#frames-function-next>)
+  - [`function next():{ _1:Bool; _0:stdgo.runtime.Frame;}`](<#frames-function-next>)
 
 - [class Func](<#class-func>)
 
@@ -749,7 +769,7 @@ of the run\-time system.
 
   - [`function entry():stdgo.GoUIntptr`](<#func-function-entry>)
 
-  - [`function fileLine( _pc:stdgo.GoUIntptr):{_1:stdgo.GoInt, _0:stdgo.GoString}`](<#func-function-fileline>)
+  - [`function fileLine( _pc:stdgo.GoUIntptr):{ _1:stdgo.GoInt; _0:stdgo.GoString;}`](<#func-function-fileline>)
 
   - [`function name():stdgo.GoString`](<#func-function-name>)
 
@@ -765,7 +785,7 @@ of the run\-time system.
 
 - [class MemStats](<#class-memstats>)
 
-  - [`function new(?alloc:stdgo.GoUInt64, ?totalAlloc:stdgo.GoUInt64, ?sys:stdgo.GoUInt64, ?lookups:stdgo.GoUInt64, ?mallocs:stdgo.GoUInt64, ?frees:stdgo.GoUInt64, ?heapAlloc:stdgo.GoUInt64, ?heapSys:stdgo.GoUInt64, ?heapIdle:stdgo.GoUInt64, ?heapInuse:stdgo.GoUInt64, ?heapReleased:stdgo.GoUInt64, ?heapObjects:stdgo.GoUInt64, ?stackInuse:stdgo.GoUInt64, ?stackSys:stdgo.GoUInt64, ?mspanInuse:stdgo.GoUInt64, ?mspanSys:stdgo.GoUInt64, ?mcacheInuse:stdgo.GoUInt64, ?mcacheSys:stdgo.GoUInt64, ?buckHashSys:stdgo.GoUInt64, ?gcsys:stdgo.GoUInt64, ?otherSys:stdgo.GoUInt64, ?nextGC:stdgo.GoUInt64, ?lastGC:stdgo.GoUInt64, ?pauseTotalNs:stdgo.GoUInt64, ?pauseNs:stdgo.GoArray<stdgo.GoUInt64>, ?pauseEnd:stdgo.GoArray<stdgo.GoUInt64>, ?numGC:stdgo.GoUInt32, ?numForcedGC:stdgo.GoUInt32, ?gccpufraction:stdgo.GoFloat64, ?enableGC:Bool, ?debugGC:Bool, ?bySize:stdgo.GoArray<{size:stdgo.GoUInt32, mallocs:stdgo.GoUInt64, frees:stdgo.GoUInt64}>):Void`](<#memstats-function-new>)
+  - [`function new(?alloc:stdgo.GoUInt64, ?totalAlloc:stdgo.GoUInt64, ?sys:stdgo.GoUInt64, ?lookups:stdgo.GoUInt64, ?mallocs:stdgo.GoUInt64, ?frees:stdgo.GoUInt64, ?heapAlloc:stdgo.GoUInt64, ?heapSys:stdgo.GoUInt64, ?heapIdle:stdgo.GoUInt64, ?heapInuse:stdgo.GoUInt64, ?heapReleased:stdgo.GoUInt64, ?heapObjects:stdgo.GoUInt64, ?stackInuse:stdgo.GoUInt64, ?stackSys:stdgo.GoUInt64, ?mspanInuse:stdgo.GoUInt64, ?mspanSys:stdgo.GoUInt64, ?mcacheInuse:stdgo.GoUInt64, ?mcacheSys:stdgo.GoUInt64, ?buckHashSys:stdgo.GoUInt64, ?gcsys:stdgo.GoUInt64, ?otherSys:stdgo.GoUInt64, ?nextGC:stdgo.GoUInt64, ?lastGC:stdgo.GoUInt64, ?pauseTotalNs:stdgo.GoUInt64, ?pauseNs:stdgo.GoArray<stdgo.GoUInt64>, ?pauseEnd:stdgo.GoArray<stdgo.GoUInt64>, ?numGC:stdgo.GoUInt32, ?numForcedGC:stdgo.GoUInt32, ?gccpufraction:stdgo.GoFloat64, ?enableGC:Bool, ?debugGC:Bool, ?bySize:stdgo.GoArray<{ size:stdgo.GoUInt32; mallocs:stdgo.GoUInt64; frees:stdgo.GoUInt64;}>):Void`](<#memstats-function-new>)
 
 - [class StackRecord](<#class-stackrecord>)
 
@@ -879,7 +899,10 @@ import stdgo.runtime.Runtime
 
 
 ```haxe
-function blockProfile(_p:stdgo.Slice<stdgo.runtime.BlockProfileRecord>):{_1:Bool, _0:stdgo.GoInt}
+function blockProfile(_p:stdgo.Slice<stdgo.runtime.BlockProfileRecord>):{
+	_1:Bool;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -917,7 +940,12 @@ Breakpoint executes a breakpoint trap.
 
 
 ```haxe
-function caller(_skip:stdgo.GoInt):{_3:Bool, _2:stdgo.GoInt, _1:stdgo.GoString, _0:stdgo.GoUIntptr}
+function caller(_skip:stdgo.GoInt):{
+	_3:Bool;
+	_2:stdgo.GoInt;
+	_1:stdgo.GoString;
+	_0:stdgo.GoUIntptr;
+}
 ```
 
 
@@ -1106,7 +1134,10 @@ or else the root used during the Go build.
 
 
 ```haxe
-function goroutineProfile(_p:stdgo.Slice<stdgo.runtime.StackRecord>):{_1:Bool, _0:stdgo.GoInt}
+function goroutineProfile(_p:stdgo.Slice<stdgo.runtime.StackRecord>):{
+	_1:Bool;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -1252,7 +1283,10 @@ non\-Go library functions that depend on per\-thread state.
 
 
 ```haxe
-function memProfile(_p:stdgo.Slice<stdgo.runtime.MemProfileRecord>, _inuseZero:Bool):{_1:Bool, _0:stdgo.GoInt}
+function memProfile(_p:stdgo.Slice<stdgo.runtime.MemProfileRecord>, _inuseZero:Bool):{
+	_1:Bool;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -1295,7 +1329,10 @@ of calling MemProfile directly.
 
 
 ```haxe
-function mutexProfile(_p:stdgo.Slice<stdgo.runtime.BlockProfileRecord>):{_1:Bool, _0:stdgo.GoInt}
+function mutexProfile(_p:stdgo.Slice<stdgo.runtime.BlockProfileRecord>):{
+	_1:Bool;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -1989,7 +2026,10 @@ StopTrace only returns after all the reads for the trace have completed.
 
 
 ```haxe
-function threadCreateProfile(_p:stdgo.Slice<stdgo.runtime.StackRecord>):{_1:Bool, _0:stdgo.GoInt}
+function threadCreateProfile(_p:stdgo.Slice<stdgo.runtime.StackRecord>):{
+	_1:Bool;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -2236,7 +2276,10 @@ function new():Void
 
 
 ```haxe
-function next():{_1:Bool, _0:stdgo.runtime.Frame}
+function next():{
+	_1:Bool;
+	_0:stdgo.runtime.Frame;
+}
 ```
 
 
@@ -2299,7 +2342,10 @@ Entry returns the entry address of the function.
 
 
 ```haxe
-function fileLine( _pc:stdgo.GoUIntptr):{_1:stdgo.GoInt, _0:stdgo.GoString}
+function fileLine( _pc:stdgo.GoUIntptr):{
+	_1:stdgo.GoInt;
+	_0:stdgo.GoString;
+}
 ```
 
 
@@ -2451,7 +2497,11 @@ BuckHashSys is bytes of memory in profiling bucket hash tables.
 
 
 ```haxe
-var bySize:stdgo.GoArray<{size:stdgo.GoUInt32, mallocs:stdgo.GoUInt64, frees:stdgo.GoUInt64}>
+var bySize:stdgo.GoArray<{
+	size:stdgo.GoUInt32;
+	mallocs:stdgo.GoUInt64;
+	frees:stdgo.GoUInt64;
+}>
 ```
 
 
@@ -2886,7 +2936,11 @@ objects are freed.
 
 
 ```haxe
-function new(?alloc:stdgo.GoUInt64, ?totalAlloc:stdgo.GoUInt64, ?sys:stdgo.GoUInt64, ?lookups:stdgo.GoUInt64, ?mallocs:stdgo.GoUInt64, ?frees:stdgo.GoUInt64, ?heapAlloc:stdgo.GoUInt64, ?heapSys:stdgo.GoUInt64, ?heapIdle:stdgo.GoUInt64, ?heapInuse:stdgo.GoUInt64, ?heapReleased:stdgo.GoUInt64, ?heapObjects:stdgo.GoUInt64, ?stackInuse:stdgo.GoUInt64, ?stackSys:stdgo.GoUInt64, ?mspanInuse:stdgo.GoUInt64, ?mspanSys:stdgo.GoUInt64, ?mcacheInuse:stdgo.GoUInt64, ?mcacheSys:stdgo.GoUInt64, ?buckHashSys:stdgo.GoUInt64, ?gcsys:stdgo.GoUInt64, ?otherSys:stdgo.GoUInt64, ?nextGC:stdgo.GoUInt64, ?lastGC:stdgo.GoUInt64, ?pauseTotalNs:stdgo.GoUInt64, ?pauseNs:stdgo.GoArray<stdgo.GoUInt64>, ?pauseEnd:stdgo.GoArray<stdgo.GoUInt64>, ?numGC:stdgo.GoUInt32, ?numForcedGC:stdgo.GoUInt32, ?gccpufraction:stdgo.GoFloat64, ?enableGC:Bool, ?debugGC:Bool, ?bySize:stdgo.GoArray<{size:stdgo.GoUInt32, mallocs:stdgo.GoUInt64, frees:stdgo.GoUInt64}>):Void
+function new(?alloc:stdgo.GoUInt64, ?totalAlloc:stdgo.GoUInt64, ?sys:stdgo.GoUInt64, ?lookups:stdgo.GoUInt64, ?mallocs:stdgo.GoUInt64, ?frees:stdgo.GoUInt64, ?heapAlloc:stdgo.GoUInt64, ?heapSys:stdgo.GoUInt64, ?heapIdle:stdgo.GoUInt64, ?heapInuse:stdgo.GoUInt64, ?heapReleased:stdgo.GoUInt64, ?heapObjects:stdgo.GoUInt64, ?stackInuse:stdgo.GoUInt64, ?stackSys:stdgo.GoUInt64, ?mspanInuse:stdgo.GoUInt64, ?mspanSys:stdgo.GoUInt64, ?mcacheInuse:stdgo.GoUInt64, ?mcacheSys:stdgo.GoUInt64, ?buckHashSys:stdgo.GoUInt64, ?gcsys:stdgo.GoUInt64, ?otherSys:stdgo.GoUInt64, ?nextGC:stdgo.GoUInt64, ?lastGC:stdgo.GoUInt64, ?pauseTotalNs:stdgo.GoUInt64, ?pauseNs:stdgo.GoArray<stdgo.GoUInt64>, ?pauseEnd:stdgo.GoArray<stdgo.GoUInt64>, ?numGC:stdgo.GoUInt32, ?numForcedGC:stdgo.GoUInt32, ?gccpufraction:stdgo.GoFloat64, ?enableGC:Bool, ?debugGC:Bool, ?bySize:stdgo.GoArray<{
+	size:stdgo.GoUInt32;
+	mallocs:stdgo.GoUInt64;
+	frees:stdgo.GoUInt64;
+}>):Void
 ```
 
 
@@ -2999,7 +3053,10 @@ import stdgo.runtime.*
 
 
 ```haxe
-typedef T_error = var a:{<__underlying__> | ():Void | {<haxe_doc>} | ():stdgo.GoString | ():stdgo.AnyInterface}
+typedef T_error = {
+	public function runtimeError():Void;	//  RuntimeError is a no-op function but serves to distinguish types that are run time errors from ordinary errors: a type is a run time error if it has a RuntimeError method.
+	public function error():stdgo.GoString;
+};
 ```
 
 

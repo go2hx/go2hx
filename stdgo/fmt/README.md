@@ -875,97 +875,86 @@ bufio.NewReader.
 Error: Command failed with error 1
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestErrorf
---- PASS: TestErrorf (%!s(float64=0.00858306884765625))
+--- PASS: TestErrorf (%!s(float64=0.011215925216674805))
 
 === RUN  TestFmtInterface
---- PASS: TestFmtInterface (%!s(float64=0.0001399517059326172))
+--- PASS: TestFmtInterface (%!s(float64=0.00016999244689941406))
 
 === RUN  TestSprintf
---- PASS: TestSprintf (%!s(float64=0.24022293090820312))
+--- PASS: TestSprintf (%!s(float64=0.31804704666137695))
 
 === RUN  TestComplexFormatting
---- PASS: TestComplexFormatting (%!s(float64=1.0813097953796387))
+--- PASS: TestComplexFormatting (%!s(float64=1.4522430896759033))
 
 === RUN  TestReorder
---- PASS: TestReorder (%!s(float64=0.009246110916137695))
+--- PASS: TestReorder (%!s(float64=0.010593891143798828))
 
 === RUN  TestCountMallocs
---- PASS: TestCountMallocs (%!s(float64=1.3113021850585938e-05))
+--- PASS: TestCountMallocs (%!s(float64=1.5974044799804688e-05))
 
 === RUN  TestFlagParser
---- PASS: TestFlagParser (%!s(float64=0.006501913070678711))
+--- PASS: TestFlagParser (%!s(float64=0.0055999755859375))
 
 === RUN  TestStructPrinter
---- PASS: TestStructPrinter (%!s(float64=0.0039348602294921875))
+--- PASS: TestStructPrinter (%!s(float64=0.005030155181884766))
 
 === RUN  TestSlicePrinter
---- PASS: TestSlicePrinter (%!s(float64=0.0007390975952148438))
+--- PASS: TestSlicePrinter (%!s(float64=0.0027990341186523438))
 
 === RUN  TestMapPrinter
---- PASS: TestMapPrinter (%!s(float64=0.0040471553802490234))
+--- PASS: TestMapPrinter (%!s(float64=0.005049943923950195))
 
 === RUN  TestEmptyMap
---- PASS: TestEmptyMap (%!s(float64=0.0016689300537109375))
+--- PASS: TestEmptyMap (%!s(float64=0.00044608116149902344))
 
 === RUN  TestBlank
---- PASS: TestBlank (%!s(float64=0.0003829002380371094))
+--- PASS: TestBlank (%!s(float64=0.0005121231079101562))
 
 === RUN  TestBlankln
---- PASS: TestBlankln (%!s(float64=0.00041604042053222656))
+--- PASS: TestBlankln (%!s(float64=0.0006608963012695312))
 
 === RUN  TestFormatterPrintln
---- PASS: TestFormatterPrintln (%!s(float64=0.002689838409423828))
+--- PASS: TestFormatterPrintln (%!s(float64=0.0029540061950683594))
 
 === RUN  TestWidthAndPrecision
---- PASS: TestWidthAndPrecision (%!s(float64=0.003482818603515625))
+--- PASS: TestWidthAndPrecision (%!s(float64=0.0045070648193359375))
 
 === RUN  TestPanics
 fmt_test/Fmt_test.hx:3294: testPanics skip function
---- PASS: TestPanics (%!s(float64=1.8835067749023438e-05))
+--- PASS: TestPanics (%!s(float64=2.4080276489257812e-05))
 
 === RUN  TestBadVerbRecursion
---- PASS: TestBadVerbRecursion (%!s(float64=0.00019502639770507812))
+--- PASS: TestBadVerbRecursion (%!s(float64=0.00024890899658203125))
 
 === RUN  TestIsSpace
---- PASS: TestIsSpace (%!s(float64=0.7449870109558105))
+--- PASS: TestIsSpace (%!s(float64=1.034593105316162))
 
 === RUN  TestNilDoesNotBecomeTyped
---- PASS: TestNilDoesNotBecomeTyped (%!s(float64=0.00041604042053222656))
+--- PASS: TestNilDoesNotBecomeTyped (%!s(float64=0.0005781650543212891))
 
 === RUN  TestFormatterFlags
---- PASS: TestFormatterFlags (%!s(float64=0.02744317054748535))
+--- PASS: TestFormatterFlags (%!s(float64=0.027888059616088867))
 
 === RUN  TestParsenum
---- PASS: TestParsenum (%!s(float64=1.621246337890625e-05))
+--- PASS: TestParsenum (%!s(float64=2.3126602172851562e-05))
 
 === RUN  TestAppendf
---- PASS: TestAppendf (%!s(float64=9.608268737792969e-05))
+--- PASS: TestAppendf (%!s(float64=0.0018641948699951172))
 
 === RUN  TestAppend
---- PASS: TestAppend (%!s(float64=0.00024509429931640625))
+--- PASS: TestAppend (%!s(float64=0.0003230571746826172))
 
 === RUN  TestAppendln
---- PASS: TestAppendln (%!s(float64=0.00017404556274414062))
+--- PASS: TestAppendln (%!s(float64=0.00022792816162109375))
 
 === RUN  TestScan
---- PASS: TestScan (%!s(float64=3.814697265625e-06))
+--- PASS: TestScan (%!s(float64=5.9604644775390625e-06))
 
 === RUN  TestScanln
---- PASS: TestScanln (%!s(float64=4.0531158447265625e-06))
+--- PASS: TestScanln (%!s(float64=1.2874603271484375e-05))
 
 === RUN  TestScanf
-Exception: Null access
-Called from stdgo.internal.reflect._Reflect.$Reflect_Fields_.directlyAssignable (stdgo/internal/reflect/Reflect.hx line 199)
-Called from stdgo.internal.reflect.$_Type_static_extension.assignableTo (stdgo/internal/reflect/Reflect.hx line 1010)
-Called from stdgo.internal.reflect._Reflect.$Reflect_Fields_.implementsMethod (stdgo/internal/reflect/Reflect.hx line 377)
-Called from stdgo.internal.reflect.$_Type_static_extension.implements_ (stdgo/internal/reflect/Reflect.hx line 1021)
-Called from stdgo.internal.reflect.$_Type_static_extension.assignableTo (stdgo/internal/reflect/Reflect.hx line 1010)
-Called from stdgo.fmt._Fmt.$Fmt_Fields_._newScanState (stdgo/Go.macro.hx line 507)
-Called from stdgo.fmt._Fmt.$Fmt_Fields_.fscanf (stdgo/fmt/Fmt.hx line 1528)
-Called from stdgo.fmt._Fmt.$Fmt_Fields_.sscanf (stdgo/fmt/Fmt.hx line 1483)
-Called from stdgo.fmt_test._Fmt_test.$Fmt_test_Fields_.testScanf (stdgo/fmt_test/Fmt_test.hx line 3466)
-Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 355)
-Called from stdgo.fmt_test._Fmt.$Fmt_Fields_.main (stdgo/fmt_test/Fmt.hx line 136)
+Sscanf("TRUE\n", "%v"): parsed value bool(false), want bool(true)
 ```
 </p>
 </details>
@@ -976,96 +965,86 @@ Called from stdgo.fmt_test._Fmt.$Fmt_Fields_.main (stdgo/fmt_test/Fmt.hx line 13
 ```
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestErrorf
---- PASS: TestErrorf (%!s(float64=0.01093602180480957))
+--- PASS: TestErrorf (%!s(float64=0.014133930206298828))
 
 === RUN  TestFmtInterface
---- PASS: TestFmtInterface (%!s(float64=0.00023102760314941406))
+--- PASS: TestFmtInterface (%!s(float64=0.0003249645233154297))
 
 === RUN  TestSprintf
---- PASS: TestSprintf (%!s(float64=0.5660929679870605))
+--- PASS: TestSprintf (%!s(float64=0.7597370147705078))
 
 === RUN  TestComplexFormatting
---- PASS: TestComplexFormatting (%!s(float64=3.5619750022888184))
+--- PASS: TestComplexFormatting (%!s(float64=4.736257076263428))
 
 === RUN  TestReorder
---- PASS: TestReorder (%!s(float64=0.024225950241088867))
+--- PASS: TestReorder (%!s(float64=0.03122711181640625))
 
 === RUN  TestCountMallocs
---- PASS: TestCountMallocs (%!s(float64=3.0040740966796875e-05))
+--- PASS: TestCountMallocs (%!s(float64=3.600120544433594e-05))
 
 === RUN  TestFlagParser
---- PASS: TestFlagParser (%!s(float64=0.008374929428100586))
+--- PASS: TestFlagParser (%!s(float64=0.009763956069946289))
 
 === RUN  TestStructPrinter
---- PASS: TestStructPrinter (%!s(float64=0.006223917007446289))
+--- PASS: TestStructPrinter (%!s(float64=0.008498191833496094))
 
 === RUN  TestSlicePrinter
---- PASS: TestSlicePrinter (%!s(float64=0.0016698837280273438))
+--- PASS: TestSlicePrinter (%!s(float64=0.002270936965942383))
 
 === RUN  TestMapPrinter
---- PASS: TestMapPrinter (%!s(float64=0.005959987640380859))
+--- PASS: TestMapPrinter (%!s(float64=0.008051156997680664))
 
 === RUN  TestEmptyMap
---- PASS: TestEmptyMap (%!s(float64=0.0006940364837646484))
+--- PASS: TestEmptyMap (%!s(float64=0.0009889602661132812))
 
 === RUN  TestBlank
---- PASS: TestBlank (%!s(float64=0.0007538795471191406))
+--- PASS: TestBlank (%!s(float64=0.0010030269622802734))
 
 === RUN  TestBlankln
---- PASS: TestBlankln (%!s(float64=0.0007579326629638672))
+--- PASS: TestBlankln (%!s(float64=0.001007080078125))
 
 === RUN  TestFormatterPrintln
---- PASS: TestFormatterPrintln (%!s(float64=0.0025458335876464844))
+--- PASS: TestFormatterPrintln (%!s(float64=0.0026311874389648438))
 
 === RUN  TestWidthAndPrecision
---- PASS: TestWidthAndPrecision (%!s(float64=0.0058917999267578125))
+--- PASS: TestWidthAndPrecision (%!s(float64=0.008212089538574219))
 
 === RUN  TestPanics
 fmt_test/Fmt_test.hx:3294: testPanics skip function
---- PASS: TestPanics (%!s(float64=1.5020370483398438e-05))
+--- PASS: TestPanics (%!s(float64=2.002716064453125e-05))
 
 === RUN  TestBadVerbRecursion
---- PASS: TestBadVerbRecursion (%!s(float64=0.000598907470703125))
+--- PASS: TestBadVerbRecursion (%!s(float64=0.0008020401000976562))
 
 === RUN  TestIsSpace
---- PASS: TestIsSpace (%!s(float64=5.122519016265869))
+--- PASS: TestIsSpace (%!s(float64=7.000020980834961))
 
 === RUN  TestNilDoesNotBecomeTyped
---- PASS: TestNilDoesNotBecomeTyped (%!s(float64=0.0010819435119628906))
+--- PASS: TestNilDoesNotBecomeTyped (%!s(float64=0.0014510154724121094))
 
 === RUN  TestFormatterFlags
---- PASS: TestFormatterFlags (%!s(float64=0.0349431037902832))
+--- PASS: TestFormatterFlags (%!s(float64=0.04250192642211914))
 
 === RUN  TestParsenum
---- PASS: TestParsenum (%!s(float64=4.601478576660156e-05))
+--- PASS: TestParsenum (%!s(float64=6.723403930664062e-05))
 
 === RUN  TestAppendf
---- PASS: TestAppendf (%!s(float64=0.000308990478515625))
+--- PASS: TestAppendf (%!s(float64=0.00034689903259277344))
 
 === RUN  TestAppend
---- PASS: TestAppend (%!s(float64=0.0005249977111816406))
+--- PASS: TestAppend (%!s(float64=0.0007030963897705078))
 
 === RUN  TestAppendln
---- PASS: TestAppendln (%!s(float64=0.0003829002380371094))
+--- PASS: TestAppendln (%!s(float64=0.0005609989166259766))
 
 === RUN  TestScan
---- PASS: TestScan (%!s(float64=1.4066696166992188e-05))
+--- PASS: TestScan (%!s(float64=1.6927719116210938e-05))
 
 === RUN  TestScanln
---- PASS: TestScanln (%!s(float64=1.3113021850585938e-05))
+--- PASS: TestScanln (%!s(float64=1.3828277587890625e-05))
 
 === RUN  TestScanf
-Exception: Null Access
-Called from stdgo.fmt_test._Fmt_test.Fmt_test_Fields_.testScanf (stdgo/fmt_test/Fmt_test.hx line 3466 column 27)
-Called from stdgo.fmt._Fmt.Fmt_Fields_.sscanf (stdgo/fmt/Fmt.hx line 1483 column 16)
-Called from stdgo.fmt._Fmt.Fmt_Fields_.fscanf (stdgo/fmt/Fmt.hx line 1528 column 23)
-Called from stdgo.fmt._Fmt.Fmt_Fields_._newScanState (stdgo/fmt/Fmt.hx line 341 column 19)
-Called from stdgo.internal.reflect._Type_static_extension.assignableTo (stdgo/internal/reflect/Reflect.hx line 1010 column 42)
-Called from stdgo.internal.reflect._Type_static_extension.implements_ (stdgo/internal/reflect/Reflect.hx line 1021 column 10)
-Called from stdgo.internal.reflect._Reflect.Reflect_Fields_.implementsMethod (stdgo/internal/reflect/Reflect.hx line 377 column 13)
-Called from stdgo.internal.reflect._Type_static_extension.assignableTo (stdgo/internal/reflect/Reflect.hx line 1010 column 13)
-Called from stdgo.internal.reflect._Reflect.Reflect_Fields_.directlyAssignable (stdgo/internal/reflect/Reflect.hx line 199 column 12)
-Called from stdgo.internal.reflect._Reflect.Reflect_Fields_.identicalType (stdgo/internal/reflect/Reflect.hx line 320 column 84)
+Sscanf("TRUE\n", "%v"): parsed value bool(false), want bool(true)
 ```
 </p>
 </details>
@@ -1094,33 +1073,73 @@ stdgo/internal/Macro.macro.hx:35: define
 
 - [`function formatString(_state:stdgo.fmt.State, _verb:stdgo.GoRune):stdgo.GoString`](<#function-formatstring>)
 
-- [`function fprint(_w:stdgo.io.Writer, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#function-fprint>)
+- [`function fprint(_w:stdgo.io.Writer, _a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-fprint>)
 
-- [`function fprintf(_w:stdgo.io.Writer, _format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#function-fprintf>)
+- [`function fprintf(_w:stdgo.io.Writer, _format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-fprintf>)
 
-- [`function fprintln(_w:stdgo.io.Writer, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#function-fprintln>)
+- [`function fprintln(_w:stdgo.io.Writer, _a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-fprintln>)
 
-- [`function fscan(_r:stdgo.io.Reader, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#function-fscan>)
+- [`function fscan(_r:stdgo.io.Reader, _a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-fscan>)
 
-- [`function fscanf(_r:stdgo.io.Reader, _format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#function-fscanf>)
+- [`function fscanf(_r:stdgo.io.Reader, _format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-fscanf>)
 
-- [`function fscanln(_r:stdgo.io.Reader, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#function-fscanln>)
+- [`function fscanln(_r:stdgo.io.Reader, _a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-fscanln>)
 
 - [`function isSpace(_r:stdgo.GoRune):Bool`](<#function-isspace>)
 
-- [`function parsenum(_s:stdgo.GoString, _start:stdgo.GoInt, _end:stdgo.GoInt):{_2:stdgo.GoInt, _1:Bool, _0:stdgo.GoInt}`](<#function-parsenum>)
+- [`function parsenum(_s:stdgo.GoString, _start:stdgo.GoInt, _end:stdgo.GoInt):{
+	_2:stdgo.GoInt;
+	_1:Bool;
+	_0:stdgo.GoInt;
+}`](<#function-parsenum>)
 
-- [`function print(_a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#function-print>)
+- [`function print(_a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-print>)
 
-- [`function printf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#function-printf>)
+- [`function printf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-printf>)
 
-- [`function println(_a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#function-println>)
+- [`function println(_a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-println>)
 
-- [`function scan(_a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#function-scan>)
+- [`function scan(_a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-scan>)
 
-- [`function scanf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#function-scanf>)
+- [`function scanf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-scanf>)
 
-- [`function scanln(_a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#function-scanln>)
+- [`function scanln(_a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-scanln>)
 
 - [`function sprint(_a:haxe.Rest<stdgo.AnyInterface>):stdgo.GoString`](<#function-sprint>)
 
@@ -1128,11 +1147,20 @@ stdgo/internal/Macro.macro.hx:35: define
 
 - [`function sprintln(_a:haxe.Rest<stdgo.AnyInterface>):stdgo.GoString`](<#function-sprintln>)
 
-- [`function sscan(_str:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#function-sscan>)
+- [`function sscan(_str:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-sscan>)
 
-- [`function sscanf(_str:stdgo.GoString, _format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#function-sscanf>)
+- [`function sscanf(_str:stdgo.GoString, _format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-sscanf>)
 
-- [`function sscanln(_str:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#function-sscanln>)
+- [`function sscanln(_str:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-sscanln>)
 
 - [typedef Formatter](<#typedef-formatter>)
 
@@ -1306,7 +1334,10 @@ directive triggering the call to Format.
 
 
 ```haxe
-function fprint(_w:stdgo.io.Writer, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function fprint(_w:stdgo.io.Writer, _a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -1346,7 +1377,10 @@ function exampleFprint():Void {
 
 
 ```haxe
-function fprintf(_w:stdgo.io.Writer, _format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function fprintf(_w:stdgo.io.Writer, _format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -1385,7 +1419,10 @@ function exampleFprintf():Void {
 
 
 ```haxe
-function fprintln(_w:stdgo.io.Writer, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function fprintln(_w:stdgo.io.Writer, _a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -1425,7 +1462,10 @@ function exampleFprintln():Void {
 
 
 ```haxe
-function fscan(_r:stdgo.io.Reader, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function fscan(_r:stdgo.io.Reader, _a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -1443,7 +1483,10 @@ than the number of arguments, err will report why.
 
 
 ```haxe
-function fscanf(_r:stdgo.io.Reader, _format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function fscanf(_r:stdgo.io.Reader, _format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -1486,7 +1529,10 @@ function exampleFscanf():Void {
 
 
 ```haxe
-function fscanln(_r:stdgo.io.Reader, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function fscanln(_r:stdgo.io.Reader, _a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -1548,7 +1594,11 @@ function isSpace(_r:stdgo.GoRune):Bool
 
 
 ```haxe
-function parsenum(_s:stdgo.GoString, _start:stdgo.GoInt, _end:stdgo.GoInt):{_2:stdgo.GoInt, _1:Bool, _0:stdgo.GoInt}
+function parsenum(_s:stdgo.GoString, _start:stdgo.GoInt, _end:stdgo.GoInt):{
+	_2:stdgo.GoInt;
+	_1:Bool;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -1562,7 +1612,10 @@ function parsenum(_s:stdgo.GoString, _start:stdgo.GoInt, _end:stdgo.GoInt):{_2:s
 
 
 ```haxe
-function print(_a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function print(_a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -1598,7 +1651,10 @@ function examplePrint():Void {
 
 
 ```haxe
-function printf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function printf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -1633,7 +1689,10 @@ function examplePrintf():Void {
 
 
 ```haxe
-function println(_a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function println(_a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -1669,7 +1728,10 @@ function examplePrintln():Void {
 
 
 ```haxe
-function scan(_a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function scan(_a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -1687,7 +1749,10 @@ If that is less than the number of arguments, err will report why.
 
 
 ```haxe
-function scanf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function scanf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -1708,7 +1773,10 @@ input, even if it is a space \(or tab etc.\) or newline.
 
 
 ```haxe
-function scanln(_a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function scanln(_a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -1831,7 +1899,10 @@ function exampleSprintln():Void {
 
 
 ```haxe
-function sscan(_str:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function sscan(_str:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -1849,7 +1920,10 @@ than the number of arguments, err will report why.
 
 
 ```haxe
-function sscanf(_str:stdgo.GoString, _format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function sscanf(_str:stdgo.GoString, _format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -1891,7 +1965,10 @@ function exampleSscanf():Void {
 
 
 ```haxe
-function sscanln(_str:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function sscanln(_str:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -1915,7 +1992,9 @@ import stdgo.fmt.*
 
 
 ```haxe
-typedef Formatter = var a:{<__underlying__> | (_f:stdgo.fmt.State, _verb:stdgo.GoRune):Void | {<haxe_doc>} | ():stdgo.AnyInterface}
+typedef Formatter = {
+	public function format(_f:stdgo.fmt.State, _verb:stdgo.GoRune):Void;
+};
 ```
 
 
@@ -1929,7 +2008,9 @@ and may call Sprint\(f\) or Fprint\(f\) etc. to generate its output.
 
 
 ```haxe
-typedef GoStringer = var a:{<__underlying__> | ():stdgo.GoString | {<haxe_doc>} | ():stdgo.AnyInterface}
+typedef GoStringer = {
+	public function goString():stdgo.GoString;
+};
 ```
 
 
@@ -1940,32 +2021,31 @@ to a %\#v format.
 
 
 
-### exampleGoStringer
-
-
-<details><summary></summary>
-<p>
-
-
-```haxe
-function exampleGoStringer():Void {
-        var _p1:stdgo.fmt_test.Fmt_test.Person = ({ name : ("Warren" : GoString), age : ("31" : GoUInt), addr : (({ city : ("Denver" : GoString), state : ("CO" : GoString), country : ("U.S.A." : GoString) } : Address) : Ref<stdgo.fmt_test.Fmt_test.Address>) } : Person);
-        stdgo.fmt.Fmt.printf(("%#v\n" : GoString), Go.toInterface(Go.asInterface(_p1)));
-        var _p2:stdgo.fmt_test.Fmt_test.Person = ({ name : ("Theia" : GoString), age : ("4" : GoUInt) } : Person);
-        stdgo.fmt.Fmt.printf(("%#v\n" : GoString), Go.toInterface(Go.asInterface(_p2)));
-    }
-```
-
-
-</p>
-</details>
-
-
 ## typedef ScanState
 
 
 ```haxe
-typedef ScanState = var a:{<__underlying__> | ():{_1:Bool, _0:stdgo.GoInt} | {<haxe_doc>} | ():stdgo.Error | {<haxe_doc>} | (_skipSpace:Bool, _f:()):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoByte>} | {<haxe_doc>} | ():Void | {<haxe_doc>} | ():{_2:stdgo.Error, _1:stdgo.GoInt, _0:stdgo.GoRune} | {<haxe_doc>} | (_buf:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt} | {<haxe_doc>} | ():stdgo.AnyInterface}
+typedef ScanState = {
+	public function width():{
+		_1:Bool;
+		_0:stdgo.GoInt;
+	};	//  Width returns the value of the width option and whether it has been set. The unit is Unicode code points.
+	public function unreadRune():stdgo.Error;	//  UnreadRune causes the next call to ReadRune to return the same rune.
+	public function token(_skipSpace:Bool, _f:()):{
+		_1:stdgo.Error;
+		_0:stdgo.Slice<stdgo.GoByte>;
+	};	//  Token skips space in the input if skipSpace is true, then returns the run of Unicode code points c satisfying f(c). If f is nil, !unicode.IsSpace(c) is used; that is, the token will hold non-space characters. Newlines are treated appropriately for the operation being performed; see the package documentation for more information. The returned slice points to shared data that may be overwritten by the next call to Token, a call to a Scan function using the ScanState as input, or when the calling Scan method returns.
+	public function skipSpace():Void;	//  SkipSpace skips space in the input. Newlines are treated appropriately for the operation being performed; see the package documentation for more information.
+	public function readRune():{
+		_2:stdgo.Error;
+		_1:stdgo.GoInt;
+		_0:stdgo.GoRune;
+	};	//  ReadRune reads the next rune (Unicode code point) from the input. If invoked during Scanln, Fscanln, or Sscanln, ReadRune() will return EOF after returning the first '\n' or when reading beyond the specified width.
+	public function read(_buf:stdgo.Slice<stdgo.GoByte>):{
+		_1:stdgo.Error;
+		_0:stdgo.GoInt;
+	};	//  Because ReadRune is implemented by the interface, Read should never be called by the scanning routines and a valid implementation of ScanState may choose always to return an error from Read.
+};
 ```
 
 
@@ -1979,7 +2059,9 @@ to discover the next space\-delimited token.
 
 
 ```haxe
-typedef Scanner = var a:{<__underlying__> | (_state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error | {<haxe_doc>} | ():stdgo.AnyInterface}
+typedef Scanner = {
+	public function scan(_state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error;
+};
 ```
 
 
@@ -1994,7 +2076,21 @@ for any argument to Scan, Scanf, or Scanln that implements it.
 
 
 ```haxe
-typedef State = var a:{<__underlying__> | (_b:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt} | {<haxe_doc>} | ():{_1:Bool, _0:stdgo.GoInt} | {<haxe_doc>} | ():{_1:Bool, _0:stdgo.GoInt} | {<haxe_doc>} | (_c:stdgo.GoInt):Bool | {<haxe_doc>} | ():stdgo.AnyInterface}
+typedef State = {
+	public function write(_b:stdgo.Slice<stdgo.GoByte>):{
+		_1:stdgo.Error;
+		_0:stdgo.GoInt;
+	};	//  Write is the function to call to emit formatted output to be printed.
+	public function width():{
+		_1:Bool;
+		_0:stdgo.GoInt;
+	};	//  Width returns the value of the width option and whether it has been set.
+	public function precision():{
+		_1:Bool;
+		_0:stdgo.GoInt;
+	};	//  Precision returns the value of the precision option and whether it has been set.
+	public function flag(_c:stdgo.GoInt):Bool;	//  Flag reports whether the flag c, a character, has been set.
+};
 ```
 
 
@@ -2008,7 +2104,9 @@ the flags and options for the operand's format specifier.
 
 
 ```haxe
-typedef Stringer = var a:{<__underlying__> | ():stdgo.GoString | {<haxe_doc>} | ():stdgo.AnyInterface}
+typedef Stringer = {
+	public function string():stdgo.GoString;
+};
 ```
 
 
@@ -2018,24 +2116,5 @@ The String method is used to print values passed as an operand
 to any format that accepts a string or to an unformatted printer  
 such as Print.  
 
-
-
-### exampleStringer
-
-
-<details><summary></summary>
-<p>
-
-
-```haxe
-function exampleStringer():Void {
-        var _a:stdgo.fmt_test.Fmt_test.Animal = ({ name : ("Gopher" : GoString), age : ("2" : GoUInt) } : Animal);
-        stdgo.fmt.Fmt.println(Go.toInterface(Go.asInterface(_a)));
-    }
-```
-
-
-</p>
-</details>
 
 

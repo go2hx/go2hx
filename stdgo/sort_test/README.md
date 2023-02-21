@@ -188,25 +188,11 @@
 
 - [typedef By](<#typedef-by>)
 
-  - [`function sort( _planets:stdgo.Slice<stdgo.sort_test.Planet>):Void`](<#by-function-sort>)
-
 - [typedef ByAge](<#typedef-byage>)
-
-  - [`function len():stdgo.GoInt`](<#byage-function-len>)
-
-  - [`function less( _i:stdgo.GoInt, _j:stdgo.GoInt):Bool`](<#byage-function-less>)
-
-  - [`function swap( _i:stdgo.GoInt, _j:stdgo.GoInt):Void`](<#byage-function-swap>)
 
 - [typedef Grams](<#typedef-grams>)
 
-  - [`function string():stdgo.GoString`](<#grams-function-string>)
-
 - [typedef Organs](<#typedef-organs>)
-
-  - [`function len():stdgo.GoInt`](<#organs-function-len>)
-
-  - [`function swap( _i:stdgo.GoInt, _j:stdgo.GoInt):Void`](<#organs-function-swap>)
 
 # Variables
 
@@ -1487,7 +1473,7 @@ import stdgo.sort_test.*
 
 
 ```haxe
-typedef By = var f:Bool<stdgo.sort_test.Planet, stdgo.sort_test.Planet>
+typedef By = (:stdgo.Ref<stdgo.sort_test.Planet>, :stdgo.Ref<stdgo.sort_test.Planet>):Bool;
 ```
 
 
@@ -1495,26 +1481,11 @@ By is the type of a "less" function that defines the ordering of its Planet argu
 
 
 
-### By function sort
-
-
-```haxe
-function sort( _planets:stdgo.Slice<stdgo.sort_test.Planet>):Void
-```
-
-
-Sort is a method on the function type, By, that sorts the argument slice according to the function.  
-
-
-
-[\(view code\)](<./Sort_test.hx#L2125>)
-
-
 ## typedef ByAge
 
 
 ```haxe
-typedef ByAge = var x:stdgo.sort_test.Person
+typedef ByAge = stdgo.Slice<stdgo.sort_test.Person>;
 ```
 
 
@@ -1523,109 +1494,25 @@ the Age field.
 
 
 
-### ByAge function len
-
-
-```haxe
-function len():stdgo.GoInt
-```
-
-
-
-
-
-[\(view code\)](<./Sort_test.hx#L2102>)
-
-
-### ByAge function less
-
-
-```haxe
-function less( _i:stdgo.GoInt, _j:stdgo.GoInt):Bool
-```
-
-
-
-
-
-[\(view code\)](<./Sort_test.hx#L2089>)
-
-
-### ByAge function swap
-
-
-```haxe
-function swap( _i:stdgo.GoInt, _j:stdgo.GoInt):Void
-```
-
-
-
-
-
-[\(view code\)](<./Sort_test.hx#L2093>)
-
-
 ## typedef Grams
 
 
 ```haxe
-typedef Grams = var t:{<>}
+typedef Grams = stdgo.GoInt;
 ```
 
 
 
-
-
-### Grams function string
-
-
-```haxe
-function string():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Sort_test.hx#L2143>)
 
 
 ## typedef Organs
 
 
 ```haxe
-typedef Organs = var x:stdgo.Ref<stdgo.sort_test.Organ>
+typedef Organs = stdgo.Slice<stdgo.Ref<stdgo.sort_test.Organ>>;
 ```
 
 
 
-
-
-### Organs function len
-
-
-```haxe
-function len():stdgo.GoInt
-```
-
-
-
-
-
-[\(view code\)](<./Sort_test.hx#L2171>)
-
-
-### Organs function swap
-
-
-```haxe
-function swap( _i:stdgo.GoInt, _j:stdgo.GoInt):Void
-```
-
-
-
-
-
-[\(view code\)](<./Sort_test.hx#L2162>)
 
 

@@ -16,11 +16,17 @@ they are running.
 
 - [`function freeOSMemory():Void`](<#function-freeosmemory>)
 
-- [`function parseBuildInfo(_data:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Ref<stdgo.runtime.debug.BuildInfo>}`](<#function-parsebuildinfo>)
+- [`function parseBuildInfo(_data:stdgo.GoString):{
+	_1:stdgo.Error;
+	_0:stdgo.Ref<stdgo.runtime.debug.BuildInfo>;
+}`](<#function-parsebuildinfo>)
 
 - [`function printStack():Void`](<#function-printstack>)
 
-- [`function readBuildInfo():{_1:Bool, _0:stdgo.Ref<stdgo.runtime.debug.BuildInfo>}`](<#function-readbuildinfo>)
+- [`function readBuildInfo():{
+	_1:Bool;
+	_0:stdgo.Ref<stdgo.runtime.debug.BuildInfo>;
+}`](<#function-readbuildinfo>)
 
 - [`function readGCStats(_stats:stdgo.Ref<stdgo.runtime.debug.GCStats>):Void`](<#function-readgcstats>)
 
@@ -88,7 +94,10 @@ returns memory to the operating system in a background task.\)
 
 
 ```haxe
-function parseBuildInfo(_data:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Ref<stdgo.runtime.debug.BuildInfo>}
+function parseBuildInfo(_data:stdgo.GoString):{
+	_1:stdgo.Error;
+	_0:stdgo.Ref<stdgo.runtime.debug.BuildInfo>;
+}
 ```
 
 
@@ -117,7 +126,10 @@ PrintStack prints to standard error the stack trace returned by runtime.Stack.
 
 
 ```haxe
-function readBuildInfo():{_1:Bool, _0:stdgo.Ref<stdgo.runtime.debug.BuildInfo>}
+function readBuildInfo():{
+	_1:Bool;
+	_0:stdgo.Ref<stdgo.runtime.debug.BuildInfo>;
+}
 ```
 
 

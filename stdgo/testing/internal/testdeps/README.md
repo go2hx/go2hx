@@ -28,13 +28,13 @@ Direct dependencies of package testing are harder to write tests for.
 
   - [`function checkCorpus( _vals:stdgo.Slice<stdgo.AnyInterface>, _types:stdgo.Slice<stdgo.reflect.Type>):stdgo.Error`](<#testdeps-function-checkcorpus>)
 
-  - [`function coordinateFuzzing( _timeout:stdgo.time.Duration, _limit:stdgo.GoInt64, _minimizeTimeout:stdgo.time.Duration, _minimizeLimit:stdgo.GoInt64, _parallel:stdgo.GoInt, _seed:stdgo.Slice<{values:stdgo.Slice<stdgo.AnyInterface>, path:stdgo.GoString, parent:stdgo.GoString, isSeed:Bool, generation:stdgo.GoInt, data:stdgo.Slice<stdgo.GoUInt8>}>, _types:stdgo.Slice<stdgo.reflect.Type>, _corpusDir:stdgo.GoString, _cacheDir:stdgo.GoString):stdgo.Error`](<#testdeps-function-coordinatefuzzing>)
+  - [`function coordinateFuzzing( _timeout:stdgo.time.Duration, _limit:stdgo.GoInt64, _minimizeTimeout:stdgo.time.Duration, _minimizeLimit:stdgo.GoInt64, _parallel:stdgo.GoInt, _seed:stdgo.Slice<{ values:stdgo.Slice<stdgo.AnyInterface>; path:stdgo.GoString; parent:stdgo.GoString; isSeed:Bool; generation:stdgo.GoInt; data:stdgo.Slice<stdgo.GoUInt8>;}>, _types:stdgo.Slice<stdgo.reflect.Type>, _corpusDir:stdgo.GoString, _cacheDir:stdgo.GoString):stdgo.Error`](<#testdeps-function-coordinatefuzzing>)
 
   - [`function importPath():stdgo.GoString`](<#testdeps-function-importpath>)
 
-  - [`function matchString( _pat:stdgo.GoString, _str:stdgo.GoString):{_1:stdgo.Error, _0:Bool}`](<#testdeps-function-matchstring>)
+  - [`function matchString( _pat:stdgo.GoString, _str:stdgo.GoString):{ _1:stdgo.Error; _0:Bool;}`](<#testdeps-function-matchstring>)
 
-  - [`function readCorpus( _dir:stdgo.GoString, _types:stdgo.Slice<stdgo.reflect.Type>):{_1:stdgo.Error, _0:stdgo.Slice<{values:stdgo.Slice<stdgo.AnyInterface>, path:stdgo.GoString, parent:stdgo.GoString, isSeed:Bool, generation:stdgo.GoInt, data:stdgo.Slice<stdgo.GoUInt8>}>}`](<#testdeps-function-readcorpus>)
+  - [`function readCorpus( _dir:stdgo.GoString, _types:stdgo.Slice<stdgo.reflect.Type>):{ _1:stdgo.Error; _0:stdgo.Slice<{  values:stdgo.Slice<stdgo.AnyInterface>;  path:stdgo.GoString;  parent:stdgo.GoString;  isSeed:Bool;  generation:stdgo.GoInt;  data:stdgo.Slice<stdgo.GoUInt8>; }>;}`](<#testdeps-function-readcorpus>)
 
   - [`function resetCoverage():Void`](<#testdeps-function-resetcoverage>)
 
@@ -119,7 +119,14 @@ function checkCorpus( _vals:stdgo.Slice<stdgo.AnyInterface>, _types:stdgo.Slice<
 
 
 ```haxe
-function coordinateFuzzing( _timeout:stdgo.time.Duration, _limit:stdgo.GoInt64, _minimizeTimeout:stdgo.time.Duration, _minimizeLimit:stdgo.GoInt64, _parallel:stdgo.GoInt, _seed:stdgo.Slice<{values:stdgo.Slice<stdgo.AnyInterface>, path:stdgo.GoString, parent:stdgo.GoString, isSeed:Bool, generation:stdgo.GoInt, data:stdgo.Slice<stdgo.GoUInt8>}>, _types:stdgo.Slice<stdgo.reflect.Type>, _corpusDir:stdgo.GoString, _cacheDir:stdgo.GoString):stdgo.Error
+function coordinateFuzzing( _timeout:stdgo.time.Duration, _limit:stdgo.GoInt64, _minimizeTimeout:stdgo.time.Duration, _minimizeLimit:stdgo.GoInt64, _parallel:stdgo.GoInt, _seed:stdgo.Slice<{
+	values:stdgo.Slice<stdgo.AnyInterface>;
+	path:stdgo.GoString;
+	parent:stdgo.GoString;
+	isSeed:Bool;
+	generation:stdgo.GoInt;
+	data:stdgo.Slice<stdgo.GoUInt8>;
+}>, _types:stdgo.Slice<stdgo.reflect.Type>, _corpusDir:stdgo.GoString, _cacheDir:stdgo.GoString):stdgo.Error
 ```
 
 
@@ -147,7 +154,10 @@ function importPath():stdgo.GoString
 
 
 ```haxe
-function matchString( _pat:stdgo.GoString, _str:stdgo.GoString):{_1:stdgo.Error, _0:Bool}
+function matchString( _pat:stdgo.GoString, _str:stdgo.GoString):{
+	_1:stdgo.Error;
+	_0:Bool;
+}
 ```
 
 
@@ -161,7 +171,17 @@ function matchString( _pat:stdgo.GoString, _str:stdgo.GoString):{_1:stdgo.Error,
 
 
 ```haxe
-function readCorpus( _dir:stdgo.GoString, _types:stdgo.Slice<stdgo.reflect.Type>):{_1:stdgo.Error, _0:stdgo.Slice<{values:stdgo.Slice<stdgo.AnyInterface>, path:stdgo.GoString, parent:stdgo.GoString, isSeed:Bool, generation:stdgo.GoInt, data:stdgo.Slice<stdgo.GoUInt8>}>}
+function readCorpus( _dir:stdgo.GoString, _types:stdgo.Slice<stdgo.reflect.Type>):{
+	_1:stdgo.Error;
+	_0:stdgo.Slice<{
+		values:stdgo.Slice<stdgo.AnyInterface>;
+		path:stdgo.GoString;
+		parent:stdgo.GoString;
+		isSeed:Bool;
+		generation:stdgo.GoInt;
+		data:stdgo.Slice<stdgo.GoUInt8>;
+	}>;
+}
 ```
 
 

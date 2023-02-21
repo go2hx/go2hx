@@ -39,7 +39,7 @@ stdgo/internal/Macro.macro.hx:35: define
 Exception: reflect.call is not yet implemented
 Called from stdgo.testing.quick._Quick.Quick_Fields_.testCheckEqual (stdgo/testing/quick/Quick.hx line 683 column 45)
 Called from stdgo.testing.quick._Quick.Quick_Fields_.checkEqual (stdgo/testing/quick/Quick.hx line 481 column 43)
-Called from stdgo.reflect.Value_static_extension.call (stdgo/reflect/Reflect.hx line 2648 column 75)
+Called from stdgo.reflect.Value_static_extension.call (stdgo/reflect/Reflect.hx line 2650 column 75)
 ```
 </p>
 </details>
@@ -78,7 +78,10 @@ stdgo/internal/Macro.macro.hx:35: define
 
 - [`function testRecursive(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testrecursive>)
 
-- [`function value(_t:stdgo.reflect.Type, _rand:stdgo.Ref<stdgo.math.rand.Rand>):{_1:Bool, _0:stdgo.reflect.Value}`](<#function-value>)
+- [`function value(_t:stdgo.reflect.Type, _rand:stdgo.Ref<stdgo.math.rand.Rand>):{
+	_1:Bool;
+	_0:stdgo.reflect.Value;
+}`](<#function-value>)
 
 - [class A](<#class-a>)
 
@@ -125,8 +128,6 @@ stdgo/internal/Macro.macro.hx:35: define
 - [typedef Generator](<#typedef-generator>)
 
 - [typedef SetupError](<#typedef-setuperror>)
-
-  - [`function error():stdgo.GoString`](<#setuperror-function-error>)
 
 - [typedef TestArrayAlias](<#typedef-testarrayalias>)
 
@@ -377,7 +378,10 @@ Issues 8818 and 11148.
 
 
 ```haxe
-function value(_t:stdgo.reflect.Type, _rand:stdgo.Ref<stdgo.math.rand.Rand>):{_1:Bool, _0:stdgo.reflect.Value}
+function value(_t:stdgo.reflect.Type, _rand:stdgo.Ref<stdgo.math.rand.Rand>):{
+	_1:Bool;
+	_0:stdgo.reflect.Value;
+}
 ```
 
 
@@ -769,7 +773,9 @@ import stdgo.testing.quick.*
 
 
 ```haxe
-typedef Generator = var a:{<__underlying__> | (_rand:stdgo.Ref<stdgo.math.rand.Rand>, _size:stdgo.GoInt):stdgo.reflect.Value | {<haxe_doc>} | ():stdgo.AnyInterface}
+typedef Generator = {
+	public function generate(_rand:stdgo.Ref<stdgo.math.rand.Rand>, _size:stdgo.GoInt):stdgo.reflect.Value;	//  Generate returns a random instance of the type on which it is a method using the size as a size hint.
+};
 ```
 
 
@@ -781,7 +787,7 @@ A Generator can generate random values of its own type.
 
 
 ```haxe
-typedef SetupError = var x:{<>}
+typedef SetupError = stdgo.GoString;
 ```
 
 
@@ -790,25 +796,11 @@ used, independent of the functions being tested.
 
 
 
-### SetupError function error
-
-
-```haxe
-function error():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Quick.hx#L1013>)
-
-
 ## typedef TestArrayAlias
 
 
 ```haxe
-typedef TestArrayAlias = var x:stdgo.GoUInt8
+typedef TestArrayAlias = stdgo.GoArray<stdgo.GoUInt8>;
 ```
 
 
@@ -819,7 +811,7 @@ typedef TestArrayAlias = var x:stdgo.GoUInt8
 
 
 ```haxe
-typedef TestBoolAlias = var x:{<>}
+typedef TestBoolAlias = Bool;
 ```
 
 
@@ -830,7 +822,7 @@ typedef TestBoolAlias = var x:{<>}
 
 
 ```haxe
-typedef TestComplex128Alias = var x:{<>}
+typedef TestComplex128Alias = stdgo.GoComplex128;
 ```
 
 
@@ -841,7 +833,7 @@ typedef TestComplex128Alias = var x:{<>}
 
 
 ```haxe
-typedef TestComplex64Alias = var x:{<>}
+typedef TestComplex64Alias = stdgo.GoComplex64;
 ```
 
 
@@ -852,7 +844,7 @@ typedef TestComplex64Alias = var x:{<>}
 
 
 ```haxe
-typedef TestFloat32Alias = var x:{<>}
+typedef TestFloat32Alias = stdgo.GoFloat32;
 ```
 
 
@@ -863,7 +855,7 @@ typedef TestFloat32Alias = var x:{<>}
 
 
 ```haxe
-typedef TestFloat64Alias = var x:{<>}
+typedef TestFloat64Alias = stdgo.GoFloat64;
 ```
 
 
@@ -874,7 +866,7 @@ typedef TestFloat64Alias = var x:{<>}
 
 
 ```haxe
-typedef TestInt16Alias = var x:{<>}
+typedef TestInt16Alias = stdgo.GoInt16;
 ```
 
 
@@ -885,7 +877,7 @@ typedef TestInt16Alias = var x:{<>}
 
 
 ```haxe
-typedef TestInt32Alias = var x:{<>}
+typedef TestInt32Alias = stdgo.GoInt32;
 ```
 
 
@@ -896,7 +888,7 @@ typedef TestInt32Alias = var x:{<>}
 
 
 ```haxe
-typedef TestInt64Alias = var x:{<>}
+typedef TestInt64Alias = stdgo.GoInt64;
 ```
 
 
@@ -907,7 +899,7 @@ typedef TestInt64Alias = var x:{<>}
 
 
 ```haxe
-typedef TestInt8Alias = var x:{<>}
+typedef TestInt8Alias = stdgo.GoInt8;
 ```
 
 
@@ -918,7 +910,7 @@ typedef TestInt8Alias = var x:{<>}
 
 
 ```haxe
-typedef TestIntAlias = var t:{<>}
+typedef TestIntAlias = stdgo.GoInt;
 ```
 
 
@@ -929,7 +921,7 @@ typedef TestIntAlias = var t:{<>}
 
 
 ```haxe
-typedef TestMapAlias = var x:stdgo.GoInt
+typedef TestMapAlias = stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>;
 ```
 
 
@@ -940,7 +932,7 @@ typedef TestMapAlias = var x:stdgo.GoInt
 
 
 ```haxe
-typedef TestPtrAlias = var x:stdgo.GoInt
+typedef TestPtrAlias = stdgo.Pointer<stdgo.GoInt>;
 ```
 
 
@@ -951,7 +943,7 @@ typedef TestPtrAlias = var x:stdgo.GoInt
 
 
 ```haxe
-typedef TestSliceAlias = var x:stdgo.GoUInt8
+typedef TestSliceAlias = stdgo.Slice<stdgo.GoUInt8>;
 ```
 
 
@@ -962,7 +954,7 @@ typedef TestSliceAlias = var x:stdgo.GoUInt8
 
 
 ```haxe
-typedef TestStringAlias = var x:{<>}
+typedef TestStringAlias = stdgo.GoString;
 ```
 
 
@@ -973,7 +965,7 @@ typedef TestStringAlias = var x:{<>}
 
 
 ```haxe
-typedef TestStructAlias = var c:{<>}
+typedef TestStructAlias = stdgo.testing.quick.TestStruct;
 ```
 
 
@@ -984,7 +976,7 @@ typedef TestStructAlias = var c:{<>}
 
 
 ```haxe
-typedef TestUint16Alias = var x:{<>}
+typedef TestUint16Alias = stdgo.GoUInt16;
 ```
 
 
@@ -995,7 +987,7 @@ typedef TestUint16Alias = var x:{<>}
 
 
 ```haxe
-typedef TestUint32Alias = var x:{<>}
+typedef TestUint32Alias = stdgo.GoUInt32;
 ```
 
 
@@ -1006,7 +998,7 @@ typedef TestUint32Alias = var x:{<>}
 
 
 ```haxe
-typedef TestUint64Alias = var x:{<>}
+typedef TestUint64Alias = stdgo.GoUInt64;
 ```
 
 
@@ -1017,7 +1009,7 @@ typedef TestUint64Alias = var x:{<>}
 
 
 ```haxe
-typedef TestUint8Alias = var x:{<>}
+typedef TestUint8Alias = stdgo.GoUInt8;
 ```
 
 
@@ -1028,7 +1020,7 @@ typedef TestUint8Alias = var x:{<>}
 
 
 ```haxe
-typedef TestUintAlias = var t:{<>}
+typedef TestUintAlias = stdgo.GoUInt;
 ```
 
 
@@ -1039,7 +1031,7 @@ typedef TestUintAlias = var t:{<>}
 
 
 ```haxe
-typedef TestUintptrAlias = var x:{<>}
+typedef TestUintptrAlias = stdgo.GoUIntptr;
 ```
 
 

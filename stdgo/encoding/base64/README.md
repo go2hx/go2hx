@@ -101,11 +101,11 @@ stdgo/internal/Macro.macro.hx:35: define
 
   - [`function new(?_encode:stdgo.GoArray<stdgo.GoUInt8>, ?_decodeMap:stdgo.GoArray<stdgo.GoUInt8>, ?_padChar:stdgo.GoInt32, ?_strict:Bool):Void`](<#encoding-function-new>)
 
-  - [`function _decodeQuantum( _dst:stdgo.Slice<stdgo.GoByte>, _src:stdgo.Slice<stdgo.GoByte>, _si:stdgo.GoInt):{_2:stdgo.Error, _1:stdgo.GoInt, _0:stdgo.GoInt}`](<#encoding-function-_decodequantum>)
+  - [`function _decodeQuantum( _dst:stdgo.Slice<stdgo.GoByte>, _src:stdgo.Slice<stdgo.GoByte>, _si:stdgo.GoInt):{ _2:stdgo.Error; _1:stdgo.GoInt; _0:stdgo.GoInt;}`](<#encoding-function-_decodequantum>)
 
-  - [`function decode( _dst:stdgo.Slice<stdgo.GoByte>, _src:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#encoding-function-decode>)
+  - [`function decode( _dst:stdgo.Slice<stdgo.GoByte>, _src:stdgo.Slice<stdgo.GoByte>):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#encoding-function-decode>)
 
-  - [`function decodeString( _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoByte>}`](<#encoding-function-decodestring>)
+  - [`function decodeString( _s:stdgo.GoString):{ _1:stdgo.Error; _0:stdgo.Slice<stdgo.GoByte>;}`](<#encoding-function-decodestring>)
 
   - [`function decodedLen( _n:stdgo.GoInt):stdgo.GoInt`](<#encoding-function-decodedlen>)
 
@@ -120,8 +120,6 @@ stdgo/internal/Macro.macro.hx:35: define
   - [`function withPadding( _padding:stdgo.GoRune):stdgo.Ref<stdgo.encoding.base64.Encoding>`](<#encoding-function-withpadding>)
 
 - [typedef CorruptInputError](<#typedef-corruptinputerror>)
-
-  - [`function error():stdgo.GoString`](<#corruptinputerror-function-error>)
 
 # Examples
 
@@ -624,7 +622,11 @@ function new(?_encode:stdgo.GoArray<stdgo.GoUInt8>, ?_decodeMap:stdgo.GoArray<st
 
 
 ```haxe
-function _decodeQuantum( _dst:stdgo.Slice<stdgo.GoByte>, _src:stdgo.Slice<stdgo.GoByte>, _si:stdgo.GoInt):{_2:stdgo.Error, _1:stdgo.GoInt, _0:stdgo.GoInt}
+function _decodeQuantum( _dst:stdgo.Slice<stdgo.GoByte>, _src:stdgo.Slice<stdgo.GoByte>, _si:stdgo.GoInt):{
+	_2:stdgo.Error;
+	_1:stdgo.GoInt;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -643,7 +645,10 @@ to dst, and an error, if any.
 
 
 ```haxe
-function decode( _dst:stdgo.Slice<stdgo.GoByte>, _src:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function decode( _dst:stdgo.Slice<stdgo.GoByte>, _src:stdgo.Slice<stdgo.GoByte>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -662,7 +667,10 @@ New line characters \(\\r and \\n\) are ignored.
 
 
 ```haxe
-function decodeString( _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoByte>}
+function decodeString( _s:stdgo.GoString):{
+	_1:stdgo.Error;
+	_0:stdgo.Slice<stdgo.GoByte>;
+}
 ```
 
 
@@ -795,24 +803,10 @@ import stdgo.encoding.base64.*
 
 
 ```haxe
-typedef CorruptInputError = var x:{<>}
+typedef CorruptInputError = stdgo.GoInt64;
 ```
 
 
 
-
-
-### CorruptInputError function error
-
-
-```haxe
-function error():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Base64.hx#L2025>)
 
 

@@ -86,7 +86,7 @@ import stdgo.internal.reflectlite.*
 
 
 ```haxe
-typedef Kind = var t:{<>}
+typedef Kind = stdgo.reflect.Kind;
 ```
 
 
@@ -97,7 +97,7 @@ typedef Kind = var t:{<>}
 
 
 ```haxe
-typedef Type = var t:{<>}
+typedef Type = stdgo.reflect.Type;
 ```
 
 
@@ -108,7 +108,7 @@ typedef Type = var t:{<>}
 
 
 ```haxe
-typedef Value = var c:{<>}
+typedef Value = stdgo.reflect.Value;
 ```
 
 

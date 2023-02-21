@@ -17,9 +17,15 @@ untrustworthy attacker.
 # Index
 
 
-- [`function readData(_r:stdgo.io.Reader, _n:stdgo.GoUInt64):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoByte>}`](<#function-readdata>)
+- [`function readData(_r:stdgo.io.Reader, _n:stdgo.GoUInt64):{
+	_1:stdgo.Error;
+	_0:stdgo.Slice<stdgo.GoByte>;
+}`](<#function-readdata>)
 
-- [`function readDataAt(_r:stdgo.io.ReaderAt, _n:stdgo.GoUInt64, _off:stdgo.GoInt64):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoByte>}`](<#function-readdataat>)
+- [`function readDataAt(_r:stdgo.io.ReaderAt, _n:stdgo.GoUInt64, _off:stdgo.GoInt64):{
+	_1:stdgo.Error;
+	_0:stdgo.Slice<stdgo.GoByte>;
+}`](<#function-readdataat>)
 
 - [`function sliceCap(_v:stdgo.AnyInterface, _c:stdgo.GoUInt64):stdgo.GoInt`](<#function-slicecap>)
 
@@ -35,7 +41,10 @@ import stdgo.internal.saferio.Saferio
 
 
 ```haxe
-function readData(_r:stdgo.io.Reader, _n:stdgo.GoUInt64):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoByte>}
+function readData(_r:stdgo.io.Reader, _n:stdgo.GoUInt64):{
+	_1:stdgo.Error;
+	_0:stdgo.Slice<stdgo.GoByte>;
+}
 ```
 
 
@@ -58,7 +67,10 @@ ReadData returns io.ErrUnexpectedEOF.
 
 
 ```haxe
-function readDataAt(_r:stdgo.io.ReaderAt, _n:stdgo.GoUInt64, _off:stdgo.GoInt64):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoByte>}
+function readDataAt(_r:stdgo.io.ReaderAt, _n:stdgo.GoUInt64, _off:stdgo.GoInt64):{
+	_1:stdgo.Error;
+	_0:stdgo.Slice<stdgo.GoByte>;
+}
 ```
 
 

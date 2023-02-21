@@ -452,17 +452,17 @@
 
   - [`function new(?reader:Null<stdgo.io.Reader>):Void`](<#t_testreadercopynothing_1localnamejustreader-function-new>)
 
-  - [`function read(__0:stdgo.Slice<stdgo.GoUInt8>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_testreadercopynothing_1localnamejustreader-function-read>)
+  - [`function read(__0:stdgo.Slice<stdgo.GoUInt8>):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#t_testreadercopynothing_1localnamejustreader-function-read>)
 
-  - [`function read( __0:stdgo.Slice<stdgo.GoUInt8>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_testreadercopynothing_1localnamejustreader-function-read>)
+  - [`function read( __0:stdgo.Slice<stdgo.GoUInt8>):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#t_testreadercopynothing_1localnamejustreader-function-read>)
 
 - [class T\_testReaderCopyNothing\_2\_\_\_localname\_\_\_justWriter](<#class-t_testreadercopynothing_2localnamejustwriter>)
 
   - [`function new(?writer:Null<stdgo.io.Writer>):Void`](<#t_testreadercopynothing_2localnamejustwriter-function-new>)
 
-  - [`function write(__0:stdgo.Slice<stdgo.GoUInt8>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_testreadercopynothing_2localnamejustwriter-function-write>)
+  - [`function write(__0:stdgo.Slice<stdgo.GoUInt8>):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#t_testreadercopynothing_2localnamejustwriter-function-write>)
 
-  - [`function write( __0:stdgo.Slice<stdgo.GoUInt8>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#t_testreadercopynothing_2localnamejustwriter-function-write>)
+  - [`function write( __0:stdgo.Slice<stdgo.GoUInt8>):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#t_testreadercopynothing_2localnamejustwriter-function-write>)
 
 - [class TitleTest](<#class-titletest>)
 
@@ -3715,7 +3715,10 @@ function new(?reader:Null<stdgo.io.Reader>):Void
 
 
 ```haxe
-function read(__0:stdgo.Slice<stdgo.GoUInt8>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function read(__0:stdgo.Slice<stdgo.GoUInt8>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -3729,7 +3732,10 @@ function read(__0:stdgo.Slice<stdgo.GoUInt8>):{_1:stdgo.Error, _0:stdgo.GoInt}
 
 
 ```haxe
-function read( __0:stdgo.Slice<stdgo.GoUInt8>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function read( __0:stdgo.Slice<stdgo.GoUInt8>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -3768,7 +3774,10 @@ function new(?writer:Null<stdgo.io.Writer>):Void
 
 
 ```haxe
-function write(__0:stdgo.Slice<stdgo.GoUInt8>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function write(__0:stdgo.Slice<stdgo.GoUInt8>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -3782,7 +3791,10 @@ function write(__0:stdgo.Slice<stdgo.GoUInt8>):{_1:stdgo.Error, _0:stdgo.GoInt}
 
 
 ```haxe
-function write( __0:stdgo.Slice<stdgo.GoUInt8>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function write( __0:stdgo.Slice<stdgo.GoUInt8>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 

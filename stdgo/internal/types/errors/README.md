@@ -3106,7 +3106,7 @@ import stdgo.internal.types.errors.*
 
 
 ```haxe
-typedef Code = var t:{<>}
+typedef Code = stdgo.GoInt;
 ```
 
 

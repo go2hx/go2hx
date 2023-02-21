@@ -178,6 +178,46 @@
 
 - [typedef StructType](<#typedef-structtype>)
 
+- [abstract Chan](<#abstract-chan>)
+
+- [abstract GoArray](<#abstract-goarray>)
+
+- [abstract GoMap](<#abstract-gomap>)
+
+- [abstract GoString](<#abstract-gostring>)
+
+- [abstract Pointer](<#abstract-pointer>)
+
+- [abstract Slice](<#abstract-slice>)
+
+- [abstract GoUIntptr](<#abstract-gouintptr>)
+
+- [abstract GoFloat64](<#abstract-gofloat64>)
+
+- [abstract GoFloat32](<#abstract-gofloat32>)
+
+- [abstract GoComplex64](<#abstract-gocomplex64>)
+
+- [abstract GoComplex128](<#abstract-gocomplex128>)
+
+- [abstract GoInt32](<#abstract-goint32>)
+
+- [abstract GoUInt32](<#abstract-gouint32>)
+
+- [abstract GoInt8](<#abstract-goint8>)
+
+- [abstract GoInt16](<#abstract-goint16>)
+
+- [abstract GoInt64](<#abstract-goint64>)
+
+- [abstract GoUInt8](<#abstract-gouint8>)
+
+- [abstract GoUInt16](<#abstract-gouint16>)
+
+- [abstract GoUInt64](<#abstract-gouint64>)
+
+- [abstract AnyInterface](<#abstract-anyinterface>)
+
 # Classes
 
 
@@ -1155,7 +1195,7 @@ import stdgo.*
 
 
 ```haxe
-typedef Complex128 = var c:stdgo._StdGoTypes.Float64
+typedef Complex128 = stdgo.Complex<stdgo._StdGoTypes.Float64>;
 ```
 
 
@@ -1166,7 +1206,7 @@ typedef Complex128 = var c:stdgo._StdGoTypes.Float64
 
 
 ```haxe
-typedef Complex64 = var c:stdgo._StdGoTypes.Float32
+typedef Complex64 = stdgo.Complex<stdgo._StdGoTypes.Float32>;
 ```
 
 
@@ -1177,7 +1217,9 @@ typedef Complex64 = var c:stdgo._StdGoTypes.Float32
 
 
 ```haxe
-typedef Error = var a:{<__underlying__> | ():stdgo.GoString | ():stdgo.AnyInterface}
+typedef Error = {
+	public function error():stdgo.GoString;
+};
 ```
 
 
@@ -1188,7 +1230,7 @@ typedef Error = var a:{<__underlying__> | ():stdgo.GoString | ():stdgo.AnyInterf
 
 
 ```haxe
-typedef GoByte = var x:{<>}
+typedef GoByte = stdgo.GoUInt8;
 ```
 
 
@@ -1199,7 +1241,7 @@ typedef GoByte = var x:{<>}
 
 
 ```haxe
-typedef GoFloat = var x:{<>}
+typedef GoFloat = stdgo.GoFloat64;
 ```
 
 
@@ -1210,7 +1252,7 @@ typedef GoFloat = var x:{<>}
 
 
 ```haxe
-typedef GoInt = var x:{<>}
+typedef GoInt = stdgo.GoInt32;
 ```
 
 
@@ -1221,7 +1263,7 @@ typedef GoInt = var x:{<>}
 
 
 ```haxe
-typedef GoRune = var x:{<>}
+typedef GoRune = stdgo.GoInt32;
 ```
 
 
@@ -1232,7 +1274,7 @@ typedef GoRune = var x:{<>}
 
 
 ```haxe
-typedef GoUInt = var x:{<>}
+typedef GoUInt = stdgo.GoUInt32;
 ```
 
 
@@ -1243,7 +1285,7 @@ typedef GoUInt = var x:{<>}
 
 
 ```haxe
-typedef InvalidType = var d:{<>}
+typedef InvalidType = Dynamic;
 ```
 
 
@@ -1254,7 +1296,10 @@ typedef InvalidType = var d:{<>}
 
 
 ```haxe
-typedef MapAccess = var a:{<get> | (k:stdgo.MapAccess.K, v:stdgo.MapAccess.V):Void | (k:stdgo.MapAccess.K):Null<stdgo.MapAccess.V>}
+typedef MapAccess = {
+	public function set(k:stdgo.MapAccess.K, v:stdgo.MapAccess.V):Void;
+	public function get(k:stdgo.MapAccess.K):Null<stdgo.MapAccess.V>;
+};
 ```
 
 
@@ -1265,7 +1310,7 @@ typedef MapAccess = var a:{<get> | (k:stdgo.MapAccess.K, v:stdgo.MapAccess.V):Vo
 
 
 ```haxe
-typedef Ref = var c:{<>}
+typedef Ref = stdgo.Ref.T;
 ```
 
 
@@ -1276,10 +1321,134 @@ typedef Ref = var c:{<>}
 
 
 ```haxe
-typedef StructType = var a:__underlying__:():stdgo.AnyInterface
+typedef StructType = {
+};
 ```
 
 
 
+
+
+# Abstracts
+
+
+## abstract Chan
+
+
+[\(view file containing code\)](<./Chan.hx>)
+
+
+## abstract GoArray
+
+
+[\(view file containing code\)](<./GoArray.hx>)
+
+
+## abstract GoMap
+
+
+[\(view file containing code\)](<./GoMap.hx>)
+
+
+## abstract GoString
+
+
+[\(view file containing code\)](<./GoString.hx>)
+
+
+## abstract Pointer
+
+
+[\(view file containing code\)](<./Pointer.hx>)
+
+
+## abstract Slice
+
+
+[\(view file containing code\)](<./Slice.hx>)
+
+
+## abstract GoUIntptr
+
+
+[\(view file containing code\)](<./StdGoTypes.hx>)
+
+
+## abstract GoFloat64
+
+
+[\(view file containing code\)](<./StdGoTypes.hx>)
+
+
+## abstract GoFloat32
+
+
+[\(view file containing code\)](<./StdGoTypes.hx>)
+
+
+## abstract GoComplex64
+
+
+[\(view file containing code\)](<./StdGoTypes.hx>)
+
+
+## abstract GoComplex128
+
+
+[\(view file containing code\)](<./StdGoTypes.hx>)
+
+
+## abstract GoInt32
+
+
+[\(view file containing code\)](<./StdGoTypes.hx>)
+
+
+## abstract GoUInt32
+
+
+[\(view file containing code\)](<./StdGoTypes.hx>)
+
+
+## abstract GoInt8
+
+
+[\(view file containing code\)](<./StdGoTypes.hx>)
+
+
+## abstract GoInt16
+
+
+[\(view file containing code\)](<./StdGoTypes.hx>)
+
+
+## abstract GoInt64
+
+
+[\(view file containing code\)](<./StdGoTypes.hx>)
+
+
+## abstract GoUInt8
+
+
+[\(view file containing code\)](<./StdGoTypes.hx>)
+
+
+## abstract GoUInt16
+
+
+[\(view file containing code\)](<./StdGoTypes.hx>)
+
+
+## abstract GoUInt64
+
+
+[\(view file containing code\)](<./StdGoTypes.hx>)
+
+
+## abstract AnyInterface
+
+
+[\(view file containing code\)](<./StdGoTypes.hx>)
 
 

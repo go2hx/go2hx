@@ -12,21 +12,49 @@
 # Index
 
 
-- [`function isNonblock(_fd:stdgo.GoInt):{_1:stdgo.Error, _0:Bool}`](<#function-isnonblock>)
+- [`function isNonblock(_fd:stdgo.GoInt):{
+	_1:stdgo.Error;
+	_0:Bool;
+}`](<#function-isnonblock>)
 
-- [`function kernelVersion():{_1:stdgo.GoInt, _0:stdgo.GoInt}`](<#function-kernelversion>)
+- [`function kernelVersion():{
+	_1:stdgo.GoInt;
+	_0:stdgo.GoInt;
+}`](<#function-kernelversion>)
 
-- [`function recvfromInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _from:stdgo.Ref<stdgo.syscall.SockaddrInet4>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#function-recvfrominet4>)
+- [`function recvfromInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _from:stdgo.Ref<stdgo.syscall.SockaddrInet4>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-recvfrominet4>)
 
-- [`function recvfromInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _from:stdgo.Ref<stdgo.syscall.SockaddrInet6>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#function-recvfrominet6>)
+- [`function recvfromInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _from:stdgo.Ref<stdgo.syscall.SockaddrInet6>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-recvfrominet6>)
 
-- [`function recvmsgInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _from:stdgo.Ref<stdgo.syscall.SockaddrInet4>):{_3:stdgo.Error, _2:stdgo.GoInt, _1:stdgo.GoInt, _0:stdgo.GoInt}`](<#function-recvmsginet4>)
+- [`function recvmsgInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _from:stdgo.Ref<stdgo.syscall.SockaddrInet4>):{
+	_3:stdgo.Error;
+	_2:stdgo.GoInt;
+	_1:stdgo.GoInt;
+	_0:stdgo.GoInt;
+}`](<#function-recvmsginet4>)
 
-- [`function recvmsgInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _from:stdgo.Ref<stdgo.syscall.SockaddrInet6>):{_3:stdgo.Error, _2:stdgo.GoInt, _1:stdgo.GoInt, _0:stdgo.GoInt}`](<#function-recvmsginet6>)
+- [`function recvmsgInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _from:stdgo.Ref<stdgo.syscall.SockaddrInet6>):{
+	_3:stdgo.Error;
+	_2:stdgo.GoInt;
+	_1:stdgo.GoInt;
+	_0:stdgo.GoInt;
+}`](<#function-recvmsginet6>)
 
-- [`function sendmsgNInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slice<stdgo.GoByte>, _to:stdgo.Ref<stdgo.syscall.SockaddrInet4>, _flags:stdgo.GoInt):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#function-sendmsgninet4>)
+- [`function sendmsgNInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slice<stdgo.GoByte>, _to:stdgo.Ref<stdgo.syscall.SockaddrInet4>, _flags:stdgo.GoInt):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-sendmsgninet4>)
 
-- [`function sendmsgNInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slice<stdgo.GoByte>, _to:stdgo.Ref<stdgo.syscall.SockaddrInet6>, _flags:stdgo.GoInt):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#function-sendmsgninet6>)
+- [`function sendmsgNInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slice<stdgo.GoByte>, _to:stdgo.Ref<stdgo.syscall.SockaddrInet6>, _flags:stdgo.GoInt):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}`](<#function-sendmsgninet6>)
 
 - [`function sendtoInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _to:stdgo.Ref<stdgo.syscall.SockaddrInet4>):stdgo.Error`](<#function-sendtoinet4>)
 
@@ -44,7 +72,10 @@ import stdgo.internal.syscall.unix.Unix
 
 
 ```haxe
-function isNonblock(_fd:stdgo.GoInt):{_1:stdgo.Error, _0:Bool}
+function isNonblock(_fd:stdgo.GoInt):{
+	_1:stdgo.Error;
+	_0:Bool;
+}
 ```
 
 
@@ -58,7 +89,10 @@ function isNonblock(_fd:stdgo.GoInt):{_1:stdgo.Error, _0:Bool}
 
 
 ```haxe
-function kernelVersion():{_1:stdgo.GoInt, _0:stdgo.GoInt}
+function kernelVersion():{
+	_1:stdgo.GoInt;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -72,7 +106,10 @@ function kernelVersion():{_1:stdgo.GoInt, _0:stdgo.GoInt}
 
 
 ```haxe
-function recvfromInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _from:stdgo.Ref<stdgo.syscall.SockaddrInet4>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function recvfromInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _from:stdgo.Ref<stdgo.syscall.SockaddrInet4>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -86,7 +123,10 @@ function recvfromInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:std
 
 
 ```haxe
-function recvfromInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _from:stdgo.Ref<stdgo.syscall.SockaddrInet6>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function recvfromInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _from:stdgo.Ref<stdgo.syscall.SockaddrInet6>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -100,7 +140,12 @@ function recvfromInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:std
 
 
 ```haxe
-function recvmsgInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _from:stdgo.Ref<stdgo.syscall.SockaddrInet4>):{_3:stdgo.Error, _2:stdgo.GoInt, _1:stdgo.GoInt, _0:stdgo.GoInt}
+function recvmsgInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _from:stdgo.Ref<stdgo.syscall.SockaddrInet4>):{
+	_3:stdgo.Error;
+	_2:stdgo.GoInt;
+	_1:stdgo.GoInt;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -114,7 +159,12 @@ function recvmsgInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.
 
 
 ```haxe
-function recvmsgInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _from:stdgo.Ref<stdgo.syscall.SockaddrInet6>):{_3:stdgo.Error, _2:stdgo.GoInt, _1:stdgo.GoInt, _0:stdgo.GoInt}
+function recvmsgInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _from:stdgo.Ref<stdgo.syscall.SockaddrInet6>):{
+	_3:stdgo.Error;
+	_2:stdgo.GoInt;
+	_1:stdgo.GoInt;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -128,7 +178,10 @@ function recvmsgInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.
 
 
 ```haxe
-function sendmsgNInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slice<stdgo.GoByte>, _to:stdgo.Ref<stdgo.syscall.SockaddrInet4>, _flags:stdgo.GoInt):{_1:stdgo.Error, _0:stdgo.GoInt}
+function sendmsgNInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slice<stdgo.GoByte>, _to:stdgo.Ref<stdgo.syscall.SockaddrInet4>, _flags:stdgo.GoInt):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -142,7 +195,10 @@ function sendmsgNInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo
 
 
 ```haxe
-function sendmsgNInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slice<stdgo.GoByte>, _to:stdgo.Ref<stdgo.syscall.SockaddrInet6>, _flags:stdgo.GoInt):{_1:stdgo.Error, _0:stdgo.GoInt}
+function sendmsgNInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slice<stdgo.GoByte>, _to:stdgo.Ref<stdgo.syscall.SockaddrInet6>, _flags:stdgo.GoInt):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 

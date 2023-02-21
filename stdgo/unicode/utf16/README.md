@@ -15,25 +15,25 @@ Package utf16 implements encoding and decoding of UTF\-16 sequences.
 
 ```
 === RUN  TestConstants
---- PASS: TestConstants (%!s(float64=5.793571472167969e-05))
+--- PASS: TestConstants (%!s(float64=7.414817810058594e-05))
 
 === RUN  TestEncode
---- PASS: TestEncode (%!s(float64=0.00038123130798339844))
+--- PASS: TestEncode (%!s(float64=0.0005061626434326172))
 
 === RUN  TestAppendRune
---- PASS: TestAppendRune (%!s(float64=0.0012080669403076172))
+--- PASS: TestAppendRune (%!s(float64=0.0004410743713378906))
 
 === RUN  TestEncodeRune
---- PASS: TestEncodeRune (%!s(float64=2.288818359375e-05))
+--- PASS: TestEncodeRune (%!s(float64=2.5987625122070312e-05))
 
 === RUN  TestDecode
---- PASS: TestDecode (%!s(float64=0.00019598007202148438))
+--- PASS: TestDecode (%!s(float64=0.0002598762512207031))
 
 === RUN  TestDecodeRune
---- PASS: TestDecodeRune (%!s(float64=6.103515625e-05))
+--- PASS: TestDecodeRune (%!s(float64=1.0967254638671875e-05))
 
 === RUN  TestIsSurrogate
---- PASS: TestIsSurrogate (%!s(float64=6.198883056640625e-06))
+--- PASS: TestIsSurrogate (%!s(float64=1.2159347534179688e-05))
 
 ```
 </p>
@@ -44,25 +44,25 @@ Package utf16 implements encoding and decoding of UTF\-16 sequences.
 
 ```
 === RUN  TestConstants
---- PASS: TestConstants (%!s(float64=2.6941299438476562e-05))
+--- PASS: TestConstants (%!s(float64=3.0040740966796875e-05))
 
 === RUN  TestEncode
---- PASS: TestEncode (%!s(float64=0.0007860660552978516))
+--- PASS: TestEncode (%!s(float64=0.0010831356048583984))
 
 === RUN  TestAppendRune
---- PASS: TestAppendRune (%!s(float64=0.0007231235504150391))
+--- PASS: TestAppendRune (%!s(float64=0.0009469985961914062))
 
 === RUN  TestEncodeRune
---- PASS: TestEncodeRune (%!s(float64=0.00014901161193847656))
+--- PASS: TestEncodeRune (%!s(float64=0.0001239776611328125))
 
 === RUN  TestDecode
---- PASS: TestDecode (%!s(float64=0.0005731582641601562))
+--- PASS: TestDecode (%!s(float64=0.000698089599609375))
 
 === RUN  TestDecodeRune
---- PASS: TestDecodeRune (%!s(float64=4.696846008300781e-05))
+--- PASS: TestDecodeRune (%!s(float64=0.00013208389282226562))
 
 === RUN  TestIsSurrogate
---- PASS: TestIsSurrogate (%!s(float64=1.9073486328125e-05))
+--- PASS: TestIsSurrogate (%!s(float64=2.5987625122070312e-05))
 
 ```
 </p>
@@ -92,7 +92,10 @@ stdgo/internal/Macro.macro.hx:35: define
 
 - [`function encode(_s:stdgo.Slice<stdgo.GoRune>):stdgo.Slice<stdgo.GoUInt16>`](<#function-encode>)
 
-- [`function encodeRune(_r:stdgo.GoRune):{_1:stdgo.GoRune, _0:stdgo.GoRune}`](<#function-encoderune>)
+- [`function encodeRune(_r:stdgo.GoRune):{
+	_1:stdgo.GoRune;
+	_0:stdgo.GoRune;
+}`](<#function-encoderune>)
 
 - [`function isSurrogate(_r:stdgo.GoRune):Bool`](<#function-issurrogate>)
 
@@ -199,7 +202,10 @@ Encode returns the UTF\-16 encoding of the Unicode code point sequence s.
 
 
 ```haxe
-function encodeRune(_r:stdgo.GoRune):{_1:stdgo.GoRune, _0:stdgo.GoRune}
+function encodeRune(_r:stdgo.GoRune):{
+	_1:stdgo.GoRune;
+	_0:stdgo.GoRune;
+}
 ```
 
 

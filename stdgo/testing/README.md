@@ -1674,7 +1674,26 @@ import stdgo.testing.*
 
 
 ```haxe
-typedef TB = var a:{<__underlying__> | ():stdgo.GoString | ():Bool | (_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void | ():Void | (_args:haxe.Rest<stdgo.AnyInterface>):Void | (_key:stdgo.GoString, _value:stdgo.GoString):Void | ():stdgo.GoString | (_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void | (_args:haxe.Rest<stdgo.AnyInterface>):Void | ():Void | (_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void | (_args:haxe.Rest<stdgo.AnyInterface>):Void | ():Bool | ():Void | ():Void | (_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void | (_args:haxe.Rest<stdgo.AnyInterface>):Void | (_0:():Void):Void | ():stdgo.AnyInterface}
+typedef TB = {
+	public function tempDir():stdgo.GoString;
+	public function skipped():Bool;
+	public function skipf(_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void;
+	public function skipNow():Void;
+	public function skip(_args:haxe.Rest<stdgo.AnyInterface>):Void;
+	public function setenv(_key:stdgo.GoString, _value:stdgo.GoString):Void;
+	public function name():stdgo.GoString;
+	public function logf(_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void;
+	public function log(_args:haxe.Rest<stdgo.AnyInterface>):Void;
+	public function helper():Void;
+	public function fatalf(_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void;
+	public function fatal(_args:haxe.Rest<stdgo.AnyInterface>):Void;
+	public function failed():Bool;
+	public function failNow():Void;
+	public function fail():Void;
+	public function errorf(_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void;
+	public function error(_args:haxe.Rest<stdgo.AnyInterface>):Void;
+	public function cleanup(_0:():Void):Void;
+};
 ```
 
 
@@ -1685,7 +1704,7 @@ typedef TB = var a:{<__underlying__> | ():stdgo.GoString | ():Bool | (_format:st
 
 
 ```haxe
-typedef T_ = var c:{<>}
+typedef T_ = stdgo.testing.T;
 ```
 
 
@@ -1696,7 +1715,14 @@ typedef T_ = var c:{<>}
 
 
 ```haxe
-typedef T_corpusEntry = var a:{<data> | stdgo.Slice<stdgo.AnyInterface> | stdgo.GoString | stdgo.GoString | Bool | stdgo.GoInt | stdgo.Slice<stdgo.GoUInt8>}
+typedef T_corpusEntry = {
+	values:stdgo.Slice<stdgo.AnyInterface>;
+	path:stdgo.GoString;
+	parent:stdgo.GoString;
+	isSeed:Bool;
+	generation:stdgo.GoInt;
+	data:stdgo.Slice<stdgo.GoUInt8>;
+};
 ```
 
 
@@ -1707,7 +1733,28 @@ typedef T_corpusEntry = var a:{<data> | stdgo.Slice<stdgo.AnyInterface> | stdgo.
 
 
 ```haxe
-typedef T_testDeps = var a:{<__underlying__> | (_0:stdgo.GoString, _1:stdgo.io.Writer, _2:stdgo.GoInt):stdgo.Error | ():stdgo.Error | ():Void | (_0:stdgo.io.Writer):Void | (_0:stdgo.io.Writer):stdgo.Error | ():Void | (_0:Bool):Void | (_0:()):stdgo.Error | ():Void | (_0:stdgo.GoString, _1:stdgo.Slice<stdgo.reflect.Type>):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.testing.T_corpusEntry>} | (_pat:stdgo.GoString, _str:stdgo.GoString):{_1:stdgo.Error, _0:Bool} | ():stdgo.GoString | (_0:stdgo.time.Duration, _1:stdgo.GoInt64, _2:stdgo.time.Duration, _3:stdgo.GoInt64, _4:stdgo.GoInt, _5:stdgo.Slice<stdgo.testing.T_corpusEntry>, _6:stdgo.Slice<stdgo.reflect.Type>, _7:stdgo.GoString, _8:stdgo.GoString):stdgo.Error | (_0:stdgo.Slice<stdgo.AnyInterface>, _1:stdgo.Slice<stdgo.reflect.Type>):stdgo.Error | ():stdgo.AnyInterface}
+typedef T_testDeps = {
+	public function writeProfileTo(_0:stdgo.GoString, _1:stdgo.io.Writer, _2:stdgo.GoInt):stdgo.Error;
+	public function stopTestLog():stdgo.Error;
+	public function stopCPUProfile():Void;
+	public function startTestLog(_0:stdgo.io.Writer):Void;
+	public function startCPUProfile(_0:stdgo.io.Writer):stdgo.Error;
+	public function snapshotCoverage():Void;
+	public function setPanicOnExit0(_0:Bool):Void;
+	public function runFuzzWorker(_0:()):stdgo.Error;
+	public function resetCoverage():Void;
+	public function readCorpus(_0:stdgo.GoString, _1:stdgo.Slice<stdgo.reflect.Type>):{
+		_1:stdgo.Error;
+		_0:stdgo.Slice<stdgo.testing.T_corpusEntry>;
+	};
+	public function matchString(_pat:stdgo.GoString, _str:stdgo.GoString):{
+		_1:stdgo.Error;
+		_0:Bool;
+	};
+	public function importPath():stdgo.GoString;
+	public function coordinateFuzzing(_0:stdgo.time.Duration, _1:stdgo.GoInt64, _2:stdgo.time.Duration, _3:stdgo.GoInt64, _4:stdgo.GoInt, _5:stdgo.Slice<stdgo.testing.T_corpusEntry>, _6:stdgo.Slice<stdgo.reflect.Type>, _7:stdgo.GoString, _8:stdgo.GoString):stdgo.Error;
+	public function checkCorpus(_0:stdgo.Slice<stdgo.AnyInterface>, _1:stdgo.Slice<stdgo.reflect.Type>):stdgo.Error;
+};
 ```
 
 

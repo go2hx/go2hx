@@ -146,9 +146,15 @@ stdgo/internal/Macro.macro.hx:35: define
 
 - [`function read(_r:stdgo.io.Reader, _order:stdgo.encoding.binary.ByteOrder, _data:stdgo.AnyInterface):stdgo.Error`](<#function-read>)
 
-- [`function readUvarint(_r:stdgo.io.ByteReader):{_1:stdgo.Error, _0:stdgo.GoUInt64}`](<#function-readuvarint>)
+- [`function readUvarint(_r:stdgo.io.ByteReader):{
+	_1:stdgo.Error;
+	_0:stdgo.GoUInt64;
+}`](<#function-readuvarint>)
 
-- [`function readVarint(_r:stdgo.io.ByteReader):{_1:stdgo.Error, _0:stdgo.GoInt64}`](<#function-readvarint>)
+- [`function readVarint(_r:stdgo.io.ByteReader):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt64;
+}`](<#function-readvarint>)
 
 - [`function size(_v:stdgo.AnyInterface):stdgo.GoInt`](<#function-size>)
 
@@ -206,19 +212,25 @@ stdgo/internal/Macro.macro.hx:35: define
 
 - [`function testWriteT(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testwritet>)
 
-- [`function uvarint(_buf:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.GoInt, _0:stdgo.GoUInt64}`](<#function-uvarint>)
+- [`function uvarint(_buf:stdgo.Slice<stdgo.GoByte>):{
+	_1:stdgo.GoInt;
+	_0:stdgo.GoUInt64;
+}`](<#function-uvarint>)
 
-- [`function varint(_buf:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.GoInt, _0:stdgo.GoInt64}`](<#function-varint>)
+- [`function varint(_buf:stdgo.Slice<stdgo.GoByte>):{
+	_1:stdgo.GoInt;
+	_0:stdgo.GoInt64;
+}`](<#function-varint>)
 
 - [`function write(_w:stdgo.io.Writer, _order:stdgo.encoding.binary.ByteOrder, _data:stdgo.AnyInterface):stdgo.Error`](<#function-write>)
 
 - [class BlankFields](<#class-blankfields>)
 
-  - [`function new(?a:stdgo.GoUInt32, ?_4:stdgo.GoInt32, ?b:stdgo.GoFloat64, ?_5:stdgo.GoArray<stdgo.GoInt16>, ?c:stdgo.GoUInt8, ?_6:stdgo.GoArray<stdgo.GoUInt8>, ?_7:{_f:stdgo.GoArray<stdgo.GoFloat32>}):Void`](<#blankfields-function-new>)
+  - [`function new(?a:stdgo.GoUInt32, ?_4:stdgo.GoInt32, ?b:stdgo.GoFloat64, ?_5:stdgo.GoArray<stdgo.GoInt16>, ?c:stdgo.GoUInt8, ?_6:stdgo.GoArray<stdgo.GoUInt8>, ?_7:{ _f:stdgo.GoArray<stdgo.GoFloat32>;}):Void`](<#blankfields-function-new>)
 
 - [class BlankFieldsProbe](<#class-blankfieldsprobe>)
 
-  - [`function new(?a:stdgo.GoUInt32, ?p0:stdgo.GoInt32, ?b:stdgo.GoFloat64, ?p1:stdgo.GoArray<stdgo.GoInt16>, ?c:stdgo.GoUInt8, ?p2:stdgo.GoArray<stdgo.GoUInt8>, ?p3:{():stdgo.GoArray<stdgo.GoFloat32>}):Void`](<#blankfieldsprobe-function-new>)
+  - [`function new(?a:stdgo.GoUInt32, ?p0:stdgo.GoInt32, ?b:stdgo.GoFloat64, ?p1:stdgo.GoArray<stdgo.GoInt16>, ?c:stdgo.GoUInt8, ?p2:stdgo.GoArray<stdgo.GoUInt8>, ?p3:{ ():stdgo.GoArray<stdgo.GoFloat32>;}):Void`](<#blankfieldsprobe-function-new>)
 
 - [class Struct](<#class-struct>)
 
@@ -928,7 +940,10 @@ function exampleRead_multi():Void {
 
 
 ```haxe
-function readUvarint(_r:stdgo.io.ByteReader):{_1:stdgo.Error, _0:stdgo.GoUInt64}
+function readUvarint(_r:stdgo.io.ByteReader):{
+	_1:stdgo.Error;
+	_0:stdgo.GoUInt64;
+}
 ```
 
 
@@ -946,7 +961,10 @@ ReadUvarint returns io.ErrUnexpectedEOF.
 
 
 ```haxe
-function readVarint(_r:stdgo.io.ByteReader):{_1:stdgo.Error, _0:stdgo.GoInt64}
+function readVarint(_r:stdgo.io.ByteReader):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt64;
+}
 ```
 
 
@@ -1361,7 +1379,10 @@ function testWriteT(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 ```haxe
-function uvarint(_buf:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.GoInt, _0:stdgo.GoUInt64}
+function uvarint(_buf:stdgo.Slice<stdgo.GoByte>):{
+	_1:stdgo.GoInt;
+	_0:stdgo.GoUInt64;
+}
 ```
 
 
@@ -1418,7 +1439,10 @@ function exampleUvarint():Void {
 
 
 ```haxe
-function varint(_buf:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.GoInt, _0:stdgo.GoInt64}
+function varint(_buf:stdgo.Slice<stdgo.GoByte>):{
+	_1:stdgo.GoInt;
+	_0:stdgo.GoInt64;
+}
 ```
 
 
@@ -1510,7 +1534,7 @@ with blank \(\_\) field names.
 
 ```haxe
 function exampleWrite():Void {
-        var _buf = ({} : stdgo.bytes.Bytes.Buffer);
+        var _buf = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
         var _pi:GoFloat64 = (3.141592653589793 : GoFloat64);
         var _err:Error = stdgo.encoding.binary.Binary.write(Go.asInterface(_buf), Go.asInterface(stdgo.encoding.binary.Binary.littleEndian), Go.toInterface(_pi));
         if (_err != null) {
@@ -1534,7 +1558,7 @@ function exampleWrite():Void {
 
 ```haxe
 function exampleWrite_multi():Void {
-        var _buf = ({} : stdgo.bytes.Bytes.Buffer);
+        var _buf = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
         var _data:Slice<AnyInterface> = (new Slice<AnyInterface>(0, 0, Go.toInterface((61374 : GoUInt16)), Go.toInterface((-54 : GoInt8)), Go.toInterface((254 : GoUInt8))) : Slice<AnyInterface>);
         for (_0 => _v in _data) {
             var _err:Error = stdgo.encoding.binary.Binary.write(Go.asInterface(_buf), Go.asInterface(stdgo.encoding.binary.Binary.littleEndian), _v);
@@ -1584,7 +1608,9 @@ var _6:stdgo.GoArray<stdgo.GoUInt8>
 
 
 ```haxe
-var _7:{_f:stdgo.GoArray<stdgo.GoFloat32>}
+var _7:{
+	_f:stdgo.GoArray<stdgo.GoFloat32>;
+}
 ```
 
 
@@ -1607,7 +1633,9 @@ var c:stdgo.GoUInt8
 
 
 ```haxe
-function new(?a:stdgo.GoUInt32, ?_4:stdgo.GoInt32, ?b:stdgo.GoFloat64, ?_5:stdgo.GoArray<stdgo.GoInt16>, ?c:stdgo.GoUInt8, ?_6:stdgo.GoArray<stdgo.GoUInt8>, ?_7:{_f:stdgo.GoArray<stdgo.GoFloat32>}):Void
+function new(?a:stdgo.GoUInt32, ?_4:stdgo.GoInt32, ?b:stdgo.GoFloat64, ?_5:stdgo.GoArray<stdgo.GoInt16>, ?c:stdgo.GoUInt8, ?_6:stdgo.GoArray<stdgo.GoUInt8>, ?_7:{
+	_f:stdgo.GoArray<stdgo.GoFloat32>;
+}):Void
 ```
 
 
@@ -1654,7 +1682,9 @@ var p2:stdgo.GoArray<stdgo.GoUInt8>
 
 
 ```haxe
-var p3:{():stdgo.GoArray<stdgo.GoFloat32>}
+var p3:{
+	():stdgo.GoArray<stdgo.GoFloat32>;
+}
 ```
 
 
@@ -1662,7 +1692,9 @@ var p3:{():stdgo.GoArray<stdgo.GoFloat32>}
 
 
 ```haxe
-function new(?a:stdgo.GoUInt32, ?p0:stdgo.GoInt32, ?b:stdgo.GoFloat64, ?p1:stdgo.GoArray<stdgo.GoInt16>, ?c:stdgo.GoUInt8, ?p2:stdgo.GoArray<stdgo.GoUInt8>, ?p3:{():stdgo.GoArray<stdgo.GoFloat32>}):Void
+function new(?a:stdgo.GoUInt32, ?p0:stdgo.GoInt32, ?b:stdgo.GoFloat64, ?p1:stdgo.GoArray<stdgo.GoInt16>, ?c:stdgo.GoUInt8, ?p2:stdgo.GoArray<stdgo.GoUInt8>, ?p3:{
+	():stdgo.GoArray<stdgo.GoFloat32>;
+}):Void
 ```
 
 
@@ -1904,7 +1936,12 @@ import stdgo.encoding.binary.*
 
 
 ```haxe
-typedef AppendByteOrder = var a:{<__underlying__> | ():stdgo.GoString | {<haxe_doc>} | (_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt64):stdgo.Slice<stdgo.GoByte> | {<haxe_doc>} | (_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt32):stdgo.Slice<stdgo.GoByte> | {<haxe_doc>} | (_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt16):stdgo.Slice<stdgo.GoByte> | {<haxe_doc>} | ():stdgo.AnyInterface}
+typedef AppendByteOrder = {
+	public function string():stdgo.GoString;
+	public function appendUint64(_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt64):stdgo.Slice<stdgo.GoByte>;
+	public function appendUint32(_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt32):stdgo.Slice<stdgo.GoByte>;
+	public function appendUint16(_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt16):stdgo.Slice<stdgo.GoByte>;
+};
 ```
 
 
@@ -1917,7 +1954,15 @@ into a byte slice.
 
 
 ```haxe
-typedef ByteOrder = var a:{<__underlying__> | (_0:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt64 | {<haxe_doc>} | (_0:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt32 | {<haxe_doc>} | (_0:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt16 | {<haxe_doc>} | ():stdgo.GoString | {<haxe_doc>} | (_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt64):Void | {<haxe_doc>} | (_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt32):Void | {<haxe_doc>} | (_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt16):Void | {<haxe_doc>} | ():stdgo.AnyInterface}
+typedef ByteOrder = {
+	public function uint64(_0:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt64;
+	public function uint32(_0:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt32;
+	public function uint16(_0:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt16;
+	public function string():stdgo.GoString;
+	public function putUint64(_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt64):Void;
+	public function putUint32(_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt32):Void;
+	public function putUint16(_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt16):Void;
+};
 ```
 
 
@@ -1926,53 +1971,22 @@ A ByteOrder specifies how to convert byte slices into
 
 
 
-### exampleByteOrder\_get
-
-
-<details><summary></summary>
-<p>
-
-
-```haxe
-function exampleByteOrder_get():Void {
-        var _b = (new Slice<GoUInt8>(0, 0, (232 : GoUInt8), (3 : GoUInt8), (208 : GoUInt8), (7 : GoUInt8)) : Slice<GoUInt8>);
-        var _x1:GoUInt16 = stdgo.encoding.binary.Binary.littleEndian.uint16((_b.__slice__((0 : GoInt)) : Slice<GoUInt8>));
-        var _x2:GoUInt16 = stdgo.encoding.binary.Binary.littleEndian.uint16((_b.__slice__((2 : GoInt)) : Slice<GoUInt8>));
-        stdgo.fmt.Fmt.printf(("%#04x %#04x\n" : GoString), Go.toInterface(_x1), Go.toInterface(_x2));
-    }
-```
-
-
-</p>
-</details>
-
-
-### exampleByteOrder\_put
-
-
-<details><summary></summary>
-<p>
-
-
-```haxe
-function exampleByteOrder_put():Void {
-        var _b = new Slice<GoUInt8>((4 : GoInt).toBasic(), 0, ...[for (i in 0 ... (4 : GoInt).toBasic()) (0 : GoUInt8)]);
-        stdgo.encoding.binary.Binary.littleEndian.putUint16((_b.__slice__((0 : GoInt)) : Slice<GoUInt8>), (1000 : GoUInt16));
-        stdgo.encoding.binary.Binary.littleEndian.putUint16((_b.__slice__((2 : GoInt)) : Slice<GoUInt8>), (2000 : GoUInt16));
-        stdgo.fmt.Fmt.printf(("% x\n" : GoString), Go.toInterface(_b));
-    }
-```
-
-
-</p>
-</details>
-
-
 ## typedef T\_testByteOrder\_0\_\_\_localname\_\_\_byteOrder
 
 
 ```haxe
-typedef T_testByteOrder_0___localname___byteOrder = var a:{<__underlying__> | (_0:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt64 | {<haxe_doc>} | (_0:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt32 | {<haxe_doc>} | (_0:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt16 | {<haxe_doc>} | ():stdgo.GoString | {<haxe_doc>} | (_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt64):Void | {<haxe_doc>} | (_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt32):Void | {<haxe_doc>} | (_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt16):Void | {<haxe_doc>} | (_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt64):stdgo.Slice<stdgo.GoByte> | {<haxe_doc>} | (_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt32):stdgo.Slice<stdgo.GoByte> | {<haxe_doc>} | (_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt16):stdgo.Slice<stdgo.GoByte> | {<haxe_doc>} | ():stdgo.AnyInterface}
+typedef T_testByteOrder_0___localname___byteOrder = {
+	public function uint64(_0:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt64;
+	public function uint32(_0:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt32;
+	public function uint16(_0:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt16;
+	public function string():stdgo.GoString;
+	public function putUint64(_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt64):Void;
+	public function putUint32(_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt32):Void;
+	public function putUint16(_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt16):Void;
+	public function appendUint64(_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt64):stdgo.Slice<stdgo.GoByte>;
+	public function appendUint32(_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt32):stdgo.Slice<stdgo.GoByte>;
+	public function appendUint16(_0:stdgo.Slice<stdgo.GoByte>, _1:stdgo.GoUInt16):stdgo.Slice<stdgo.GoByte>;
+};
 ```
 
 

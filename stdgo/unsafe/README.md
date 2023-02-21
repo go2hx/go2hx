@@ -26,6 +26,8 @@
 
 - [typedef Pointer\_](<#typedef-pointer_>)
 
+- [abstract UnsafePointer](<#abstract-unsafepointer>)
+
 # Functions
 
 
@@ -130,10 +132,19 @@ import stdgo.unsafe.*
 
 
 ```haxe
-typedef Pointer_ = var x:{<>}
+typedef Pointer_ = stdgo.unsafe.UnsafePointer;
 ```
 
 
 
+
+
+# Abstracts
+
+
+## abstract UnsafePointer
+
+
+[\(view file containing code\)](<./Unsafe.hx>)
 
 

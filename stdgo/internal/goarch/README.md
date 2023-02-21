@@ -296,7 +296,7 @@ import stdgo.internal.goarch.*
 
 
 ```haxe
-typedef ArchFamilyType = var t:{<>}
+typedef ArchFamilyType = stdgo.GoInt;
 ```
 
 

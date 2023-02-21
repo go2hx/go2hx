@@ -26,13 +26,25 @@
 
 - [`function equal(_a:stdgo.Slice<stdgo.GoByte>, _b:stdgo.Slice<stdgo.GoByte>):Bool`](<#function-equal>)
 
-- [`function hashStr(_sep:stdgo.GoString):{_1:stdgo.GoUInt32, _0:stdgo.GoUInt32}`](<#function-hashstr>)
+- [`function hashStr(_sep:stdgo.GoString):{
+	_1:stdgo.GoUInt32;
+	_0:stdgo.GoUInt32;
+}`](<#function-hashstr>)
 
-- [`function hashStrBytes(_sep:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.GoUInt32, _0:stdgo.GoUInt32}`](<#function-hashstrbytes>)
+- [`function hashStrBytes(_sep:stdgo.Slice<stdgo.GoByte>):{
+	_1:stdgo.GoUInt32;
+	_0:stdgo.GoUInt32;
+}`](<#function-hashstrbytes>)
 
-- [`function hashStrRev(_sep:stdgo.GoString):{_1:stdgo.GoUInt32, _0:stdgo.GoUInt32}`](<#function-hashstrrev>)
+- [`function hashStrRev(_sep:stdgo.GoString):{
+	_1:stdgo.GoUInt32;
+	_0:stdgo.GoUInt32;
+}`](<#function-hashstrrev>)
 
-- [`function hashStrRevBytes(_sep:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.GoUInt32, _0:stdgo.GoUInt32}`](<#function-hashstrrevbytes>)
+- [`function hashStrRevBytes(_sep:stdgo.Slice<stdgo.GoByte>):{
+	_1:stdgo.GoUInt32;
+	_0:stdgo.GoUInt32;
+}`](<#function-hashstrrevbytes>)
 
 - [`function index(_a:stdgo.Slice<stdgo.GoByte>, _b:stdgo.Slice<stdgo.GoByte>):stdgo.GoInt`](<#function-index>)
 
@@ -182,7 +194,10 @@ because some packages cannot depend on bytes.
 
 
 ```haxe
-function hashStr(_sep:stdgo.GoString):{_1:stdgo.GoUInt32, _0:stdgo.GoUInt32}
+function hashStr(_sep:stdgo.GoString):{
+	_1:stdgo.GoUInt32;
+	_0:stdgo.GoUInt32;
+}
 ```
 
 
@@ -198,7 +213,10 @@ factor for use in Rabin\-Karp algorithm.
 
 
 ```haxe
-function hashStrBytes(_sep:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.GoUInt32, _0:stdgo.GoUInt32}
+function hashStrBytes(_sep:stdgo.Slice<stdgo.GoByte>):{
+	_1:stdgo.GoUInt32;
+	_0:stdgo.GoUInt32;
+}
 ```
 
 
@@ -214,7 +232,10 @@ factor for use in Rabin\-Karp algorithm.
 
 
 ```haxe
-function hashStrRev(_sep:stdgo.GoString):{_1:stdgo.GoUInt32, _0:stdgo.GoUInt32}
+function hashStrRev(_sep:stdgo.GoString):{
+	_1:stdgo.GoUInt32;
+	_0:stdgo.GoUInt32;
+}
 ```
 
 
@@ -230,7 +251,10 @@ appropriate multiplicative factor for use in Rabin\-Karp algorithm.
 
 
 ```haxe
-function hashStrRevBytes(_sep:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.GoUInt32, _0:stdgo.GoUInt32}
+function hashStrRevBytes(_sep:stdgo.Slice<stdgo.GoByte>):{
+	_1:stdgo.GoUInt32;
+	_0:stdgo.GoUInt32;
+}
 ```
 
 

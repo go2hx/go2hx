@@ -65,7 +65,11 @@ https://golang.org/doc/articles/laws_of_reflection.html
 
 - [`function ptrTo(_t:stdgo.reflect.Type):stdgo.reflect.Type`](<#function-ptrto>)
 
-- [`function select(_cases:stdgo.Slice<stdgo.reflect.SelectCase>):{_2:Bool, _1:stdgo.reflect.Value, _0:stdgo.GoInt}`](<#function-select>)
+- [`function select(_cases:stdgo.Slice<stdgo.reflect.SelectCase>):{
+	_2:Bool;
+	_1:stdgo.reflect.Value;
+	_0:stdgo.GoInt;
+}`](<#function-select>)
 
 - [`function sliceOf(_t:stdgo.reflect.Type):stdgo.reflect.Type`](<#function-sliceof>)
 
@@ -167,7 +171,7 @@ https://golang.org/doc/articles/laws_of_reflection.html
 
   - [`function fieldByIndex( _index:stdgo.Slice<stdgo.GoInt>):stdgo.reflect.Value`](<#value-function-fieldbyindex>)
 
-  - [`function fieldByIndexErr( _index:stdgo.Slice<stdgo.GoInt>):{_1:stdgo.Error, _0:stdgo.reflect.Value}`](<#value-function-fieldbyindexerr>)
+  - [`function fieldByIndexErr( _index:stdgo.Slice<stdgo.GoInt>):{ _1:stdgo.Error; _0:stdgo.reflect.Value;}`](<#value-function-fieldbyindexerr>)
 
   - [`function fieldByName( _name:stdgo.GoString):stdgo.reflect.Value`](<#value-function-fieldbyname>)
 
@@ -219,7 +223,7 @@ https://golang.org/doc/articles/laws_of_reflection.html
 
   - [`function pointer():stdgo.GoUIntptr`](<#value-function-pointer>)
 
-  - [`function recv():{_1:Bool, _0:stdgo.reflect.Value}`](<#value-function-recv>)
+  - [`function recv():{ _1:Bool; _0:stdgo.reflect.Value;}`](<#value-function-recv>)
 
   - [`function send( _x:stdgo.reflect.Value):Void`](<#value-function-send>)
 
@@ -259,7 +263,7 @@ https://golang.org/doc/articles/laws_of_reflection.html
 
   - [`function string():stdgo.GoString`](<#value-function-string>)
 
-  - [`function tryRecv():{_1:Bool, _0:stdgo.reflect.Value}`](<#value-function-tryrecv>)
+  - [`function tryRecv():{ _1:Bool; _0:stdgo.reflect.Value;}`](<#value-function-tryrecv>)
 
   - [`function trySend( _x:stdgo.reflect.Value):Bool`](<#value-function-trysend>)
 
@@ -281,19 +285,11 @@ https://golang.org/doc/articles/laws_of_reflection.html
 
 - [typedef ChanDir](<#typedef-chandir>)
 
-  - [`function string():stdgo.GoString`](<#chandir-function-string>)
-
 - [typedef Kind](<#typedef-kind>)
-
-  - [`function string():stdgo.GoString`](<#kind-function-string>)
 
 - [typedef SelectDir](<#typedef-selectdir>)
 
 - [typedef StructTag](<#typedef-structtag>)
-
-  - [`function get( _key:stdgo.GoString):stdgo.GoString`](<#structtag-function-get>)
-
-  - [`function lookup( _key:stdgo.GoString):{_1:Bool, _0:stdgo.GoString}`](<#structtag-function-lookup>)
 
 - [typedef Type](<#typedef-type>)
 
@@ -933,7 +929,11 @@ The two functions behave identically.
 
 
 ```haxe
-function select(_cases:stdgo.Slice<stdgo.reflect.SelectCase>):{_2:Bool, _1:stdgo.reflect.Value, _0:stdgo.GoInt}
+function select(_cases:stdgo.Slice<stdgo.reflect.SelectCase>):{
+	_2:Bool;
+	_1:stdgo.reflect.Value;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -1128,7 +1128,7 @@ Key returns the key of iter's current map entry.
 
 
 
-[\(view code\)](<./Reflect.hx#L2854>)
+[\(view code\)](<./Reflect.hx#L2856>)
 
 
 ### MapIter function next
@@ -1145,7 +1145,7 @@ calls to Key, Value, or Next will panic.
 
 
 
-[\(view code\)](<./Reflect.hx#L2822>)
+[\(view code\)](<./Reflect.hx#L2824>)
 
 
 ### MapIter function reset
@@ -1163,7 +1163,7 @@ which may allow the previously iterated\-over map to be garbage collected.
 
 
 
-[\(view code\)](<./Reflect.hx#L2810>)
+[\(view code\)](<./Reflect.hx#L2812>)
 
 
 ### MapIter function value
@@ -1178,7 +1178,7 @@ Value returns the value of iter's current map entry.
 
 
 
-[\(view code\)](<./Reflect.hx#L2836>)
+[\(view code\)](<./Reflect.hx#L2838>)
 
 
 ## class Method
@@ -1556,7 +1556,7 @@ pointer receiver.
 
 
 
-[\(view code\)](<./Reflect.hx#L2751>)
+[\(view code\)](<./Reflect.hx#L2753>)
 
 
 ### Value function bool\_
@@ -1572,7 +1572,7 @@ It panics if v's kind is not Bool.
 
 
 
-[\(view code\)](<./Reflect.hx#L2719>)
+[\(view code\)](<./Reflect.hx#L2721>)
 
 
 ### Value function bytes
@@ -1589,7 +1589,7 @@ an addressable array of bytes.
 
 
 
-[\(view code\)](<./Reflect.hx#L2675>)
+[\(view code\)](<./Reflect.hx#L2677>)
 
 
 ### Value function call
@@ -1611,7 +1611,7 @@ itself, copying in the corresponding values.
 
 
 
-[\(view code\)](<./Reflect.hx#L2648>)
+[\(view code\)](<./Reflect.hx#L2650>)
 
 
 ### Value function callSlice
@@ -1632,7 +1632,7 @@ type of the function's corresponding input parameter.
 
 
 
-[\(view code\)](<./Reflect.hx#L2636>)
+[\(view code\)](<./Reflect.hx#L2638>)
 
 
 ### Value function canAddr
@@ -1651,7 +1651,7 @@ If CanAddr returns false, calling Addr will panic.
 
 
 
-[\(view code\)](<./Reflect.hx#L2666>)
+[\(view code\)](<./Reflect.hx#L2668>)
 
 
 ### Value function canComplex
@@ -1666,7 +1666,7 @@ CanComplex reports whether Complex can be used without panicking.
 
 
 
-[\(view code\)](<./Reflect.hx#L2613>)
+[\(view code\)](<./Reflect.hx#L2615>)
 
 
 ### Value function canConvert
@@ -1697,7 +1697,7 @@ CanFloat reports whether Float can be used without panicking.
 
 
 
-[\(view code\)](<./Reflect.hx#L2479>)
+[\(view code\)](<./Reflect.hx#L2481>)
 
 
 ### Value function canInt
@@ -1712,7 +1712,7 @@ CanInt reports whether Int can be used without panicking.
 
 
 
-[\(view code\)](<./Reflect.hx#L2396>)
+[\(view code\)](<./Reflect.hx#L2398>)
 
 
 ### Value function canInterface
@@ -1727,7 +1727,7 @@ CanInterface reports whether Interface can be used without panicking.
 
 
 
-[\(view code\)](<./Reflect.hx#L2352>)
+[\(view code\)](<./Reflect.hx#L2354>)
 
 
 ### Value function canSet
@@ -1746,7 +1746,7 @@ setter \(e.g., SetBool, SetInt\) will panic.
 
 
 
-[\(view code\)](<./Reflect.hx#L2657>)
+[\(view code\)](<./Reflect.hx#L2659>)
 
 
 ### Value function canUint
@@ -1777,7 +1777,7 @@ It panics if v's Kind is not Array, Chan, Slice or pointer to Array.
 
 
 
-[\(view code\)](<./Reflect.hx#L2625>)
+[\(view code\)](<./Reflect.hx#L2627>)
 
 
 ### Value function close
@@ -1793,7 +1793,7 @@ It panics if v's Kind is not Chan.
 
 
 
-[\(view code\)](<./Reflect.hx#L2619>)
+[\(view code\)](<./Reflect.hx#L2621>)
 
 
 ### Value function comparable
@@ -1827,7 +1827,7 @@ It panics if v's Kind is not Complex64 or Complex128
 
 
 
-[\(view code\)](<./Reflect.hx#L2585>)
+[\(view code\)](<./Reflect.hx#L2587>)
 
 
 ### Value function convert
@@ -1862,7 +1862,7 @@ It returns the zero Value if v is nil.
 
 
 
-[\(view code\)](<./Reflect.hx#L2537>)
+[\(view code\)](<./Reflect.hx#L2539>)
 
 
 ### Value function equal
@@ -1900,7 +1900,7 @@ It panics if v's Kind is not Struct or i is out of range.
 
 
 
-[\(view code\)](<./Reflect.hx#L2515>)
+[\(view code\)](<./Reflect.hx#L2517>)
 
 
 ### Value function fieldByIndex
@@ -1917,14 +1917,17 @@ pointer or a field that is not a struct.
 
 
 
-[\(view code\)](<./Reflect.hx#L2509>)
+[\(view code\)](<./Reflect.hx#L2511>)
 
 
 ### Value function fieldByIndexErr
 
 
 ```haxe
-function fieldByIndexErr( _index:stdgo.Slice<stdgo.GoInt>):{_1:stdgo.Error, _0:stdgo.reflect.Value}
+function fieldByIndexErr( _index:stdgo.Slice<stdgo.GoInt>):{
+	_1:stdgo.Error;
+	_0:stdgo.reflect.Value;
+}
 ```
 
 
@@ -1935,7 +1938,7 @@ is not a struct.
 
 
 
-[\(view code\)](<./Reflect.hx#L2502>)
+[\(view code\)](<./Reflect.hx#L2504>)
 
 
 ### Value function fieldByName
@@ -1952,7 +1955,7 @@ It panics if v's Kind is not struct.
 
 
 
-[\(view code\)](<./Reflect.hx#L2494>)
+[\(view code\)](<./Reflect.hx#L2496>)
 
 
 ### Value function fieldByNameFunc
@@ -1970,7 +1973,7 @@ It returns the zero Value if no field was found.
 
 
 
-[\(view code\)](<./Reflect.hx#L2487>)
+[\(view code\)](<./Reflect.hx#L2489>)
 
 
 ### Value function float\_
@@ -1986,7 +1989,7 @@ It panics if v's Kind is not Float32 or Float64
 
 
 
-[\(view code\)](<./Reflect.hx#L2449>)
+[\(view code\)](<./Reflect.hx#L2451>)
 
 
 ### Value function grow
@@ -2024,7 +2027,7 @@ It panics if v's Kind is not Array, Slice, or String or i is out of range.
 
 
 
-[\(view code\)](<./Reflect.hx#L2402>)
+[\(view code\)](<./Reflect.hx#L2404>)
 
 
 ### Value function int\_
@@ -2040,7 +2043,7 @@ It panics if v's Kind is not Int, Int8, Int16, Int32, or Int64.
 
 
 
-[\(view code\)](<./Reflect.hx#L2360>)
+[\(view code\)](<./Reflect.hx#L2362>)
 
 
 ### Value function interfaceData
@@ -2067,7 +2070,7 @@ compatible with InterfaceData.
 
 
 
-[\(view code\)](<./Reflect.hx#L2336>)
+[\(view code\)](<./Reflect.hx#L2338>)
 
 
 ### Value function interface\_
@@ -2095,7 +2098,7 @@ unexported struct fields.
 
 
 
-[\(view code\)](<./Reflect.hx#L2347>)
+[\(view code\)](<./Reflect.hx#L2349>)
 
 
 ### Value function isNil
@@ -2452,7 +2455,10 @@ It's preferred to use uintptr\(Value.UnsafePointer\(\)\) to get the equivalent r
 
 
 ```haxe
-function recv():{_1:Bool, _0:stdgo.reflect.Value}
+function recv():{
+	_1:Bool;
+	_0:stdgo.reflect.Value;
+}
 ```
 
 
@@ -2794,7 +2800,10 @@ method implicitly but instead prints the concrete values they hold.
 
 
 ```haxe
-function tryRecv():{_1:Bool, _0:stdgo.reflect.Value}
+function tryRecv():{
+	_1:Bool;
+	_0:stdgo.reflect.Value;
+}
 ```
 
 
@@ -2965,7 +2974,7 @@ function error():stdgo.GoString
 
 
 
-[\(view code\)](<./Reflect.hx#L2766>)
+[\(view code\)](<./Reflect.hx#L2768>)
 
 
 # Typedefs
@@ -2980,7 +2989,7 @@ import stdgo.reflect.*
 
 
 ```haxe
-typedef ChanDir = var t:{<>}
+typedef ChanDir = stdgo.GoInt;
 ```
 
 
@@ -2988,25 +2997,11 @@ ChanDir represents a channel type's direction.
 
 
 
-### ChanDir function string
-
-
-```haxe
-function string():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Reflect.hx#L2963>)
-
-
 ## typedef Kind
 
 
 ```haxe
-typedef Kind = var t:{<>}
+typedef Kind = stdgo.GoUInt;
 ```
 
 
@@ -3015,26 +3010,11 @@ The zero Kind is not a valid kind.
 
 
 
-### Kind function string
-
-
-```haxe
-function string():stdgo.GoString
-```
-
-
-String returns the name of k.  
-
-
-
-[\(view code\)](<./Reflect.hx#L2888>)
-
-
 ## typedef SelectDir
 
 
 ```haxe
-typedef SelectDir = var t:{<>}
+typedef SelectDir = stdgo.GoInt;
 ```
 
 
@@ -3046,7 +3026,7 @@ A SelectDir describes the communication direction of a select case.
 
 
 ```haxe
-typedef StructTag = var x:{<>}
+typedef StructTag = stdgo.GoString;
 ```
 
 
@@ -3063,50 +3043,50 @@ characters and Go string literal syntax.
 
 
 
-### StructTag function get
-
-
-```haxe
-function get( _key:stdgo.GoString):stdgo.GoString
-```
-
-
-Get returns the value associated with key in the tag string.  
-If there is no such key in the tag, Get returns the empty string.  
-If the tag does not have the conventional format, the value  
-returned by Get is unspecified. To determine whether a tag is  
-explicitly set to the empty string, use Lookup.  
-
-
-
-[\(view code\)](<./Reflect.hx#L3012>)
-
-
-### StructTag function lookup
-
-
-```haxe
-function lookup( _key:stdgo.GoString):{_1:Bool, _0:stdgo.GoString}
-```
-
-
-Lookup returns the value associated with key in the tag string.  
-If the key is present in the tag the value \(which may be empty\)  
-is returned. Otherwise the returned value will be the empty string.  
-The ok return value reports whether the value was explicitly set in  
-the tag string. If the tag does not have the conventional format,  
-the value returned by Lookup is unspecified.  
-
-
-
-[\(view code\)](<./Reflect.hx#L3003>)
-
-
 ## typedef Type
 
 
 ```haxe
-typedef Type = var a:{<__underlying__> | ():stdgo.GoString | {<haxe_doc>} | ():stdgo.GoUIntptr | {<haxe_doc>} | ():stdgo.GoString | {<haxe_doc>} | (_i:stdgo.GoInt):stdgo.reflect.Type | {<haxe_doc>} | ():stdgo.GoInt | {<haxe_doc>} | ():stdgo.GoInt | {<haxe_doc>} | ():stdgo.GoInt | {<haxe_doc>} | ():stdgo.GoInt | {<haxe_doc>} | ():stdgo.GoString | {<haxe_doc>} | (_0:stdgo.GoString):{_1:Bool, _0:stdgo.reflect.Method} | {<haxe_doc>} | (_0:stdgo.GoInt):stdgo.reflect.Method | {<haxe_doc>} | ():stdgo.GoInt | {<haxe_doc>} | ():stdgo.reflect.Kind | {<haxe_doc>} | ():stdgo.reflect.Type | {<haxe_doc>} | ():Bool | {<haxe_doc>} | (_i:stdgo.GoInt):stdgo.reflect.Type | {<haxe_doc>} | (_u:stdgo.reflect.Type):Bool | {<haxe_doc>} | (_match:()):{_1:Bool, _0:stdgo.reflect.StructField} | {<haxe_doc>} | (_name:stdgo.GoString):{_1:Bool, _0:stdgo.reflect.StructField} | {<haxe_doc>} | (_index:stdgo.Slice<stdgo.GoInt>):stdgo.reflect.StructField | {<haxe_doc>} | ():stdgo.GoInt | {<haxe_doc>} | (_i:stdgo.GoInt):stdgo.reflect.StructField | {<haxe_doc>} | ():stdgo.reflect.Type | {<haxe_doc>} | (_u:stdgo.reflect.Type):Bool | {<haxe_doc>} | ():Bool | {<haxe_doc>} | ():stdgo.reflect.ChanDir | {<haxe_doc>} | ():stdgo.GoInt | {<haxe_doc>} | (_u:stdgo.reflect.Type):Bool | {<haxe_doc>} | ():stdgo.GoInt | {<haxe_doc>} | ():stdgo.AnyInterface}
+typedef Type = {
+	public function string():stdgo.GoString;	//  String returns a string representation of the type. The string representation may use shortened package names (e.g., base64 instead of "encoding/base64") and is not guaranteed to be unique among types. To test for type identity, compare the Types directly.
+	public function size():stdgo.GoUIntptr;	//  Size returns the number of bytes needed to store a value of the given type; it is analogous to unsafe.Sizeof.
+	public function pkgPath():stdgo.GoString;	//  PkgPath returns a defined type's package path, that is, the import path that uniquely identifies the package, such as "encoding/base64". If the type was predeclared (string, error) or not defined (*T, struct{}, []int, or A where A is an alias for a non-defined type), the package path will be the empty string.
+	public function out(_i:stdgo.GoInt):stdgo.reflect.Type;	//  Out returns the type of a function type's i'th output parameter. It panics if the type's Kind is not Func. It panics if i is not in the range [0, NumOut()).
+	public function numOut():stdgo.GoInt;	//  NumOut returns a function type's output parameter count. It panics if the type's Kind is not Func.
+	public function numMethod():stdgo.GoInt;	//  NumMethod returns the number of methods accessible using Method. For a non-interface type, it returns the number of exported methods. For an interface type, it returns the number of exported and unexported methods.
+	public function numIn():stdgo.GoInt;	//  NumIn returns a function type's input parameter count. It panics if the type's Kind is not Func.
+	public function numField():stdgo.GoInt;	//  NumField returns a struct type's field count. It panics if the type's Kind is not Struct.
+	public function name():stdgo.GoString;	//  Name returns the type's name within its package for a defined type. For other (non-defined) types it returns the empty string.
+	public function methodByName(_0:stdgo.GoString):{
+		_1:Bool;
+		_0:stdgo.reflect.Method;
+	};	//  MethodByName returns the method with that name in the type's method set and a boolean indicating if the method was found. For a non-interface type T or *T, the returned Method's Type and Func fields describe a function whose first argument is the receiver. For an interface type, the returned Method's Type field gives the method signature, without a receiver, and the Func field is nil.
+	public function method(_0:stdgo.GoInt):stdgo.reflect.Method;	//  Method returns the i'th method in the type's method set. It panics if i is not in the range [0, NumMethod()). For a non-interface type T or *T, the returned Method's Type and Func fields describe a function whose first argument is the receiver, and only exported methods are accessible. For an interface type, the returned Method's Type field gives the method signature, without a receiver, and the Func field is nil. Methods are sorted in lexicographic order.
+	public function len():stdgo.GoInt;	//  Len returns an array type's length. It panics if the type's Kind is not Array.
+	public function kind():stdgo.reflect.Kind;	//  Kind returns the specific kind of this type.
+	public function key():stdgo.reflect.Type;	//  Key returns a map type's key type. It panics if the type's Kind is not Map.
+	public function isVariadic():Bool;	//  IsVariadic reports whether a function type's final input parameter is a "..." parameter. If so, t.In(t.NumIn() - 1) returns the parameter's implicit actual type []T. For concreteness, if t represents func(x int, y ... float64), then t.NumIn() == 2 t.In(0) is the reflect.Type for "int" t.In(1) is the reflect.Type for "[]float64" t.IsVariadic() == true IsVariadic panics if the type's Kind is not Func.
+	public function in_(_i:stdgo.GoInt):stdgo.reflect.Type;	//  In returns the type of a function type's i'th input parameter. It panics if the type's Kind is not Func. It panics if i is not in the range [0, NumIn()).
+	public function implements_(_u:stdgo.reflect.Type):Bool;	//  Implements reports whether the type implements the interface type u.
+	public function fieldByNameFunc(_match:()):{
+		_1:Bool;
+		_0:stdgo.reflect.StructField;
+	};	//  FieldByNameFunc returns the struct field with a name that satisfies the match function and a boolean indicating if the field was found. FieldByNameFunc considers the fields in the struct itself and then the fields in any embedded structs, in breadth first order, stopping at the shallowest nesting depth containing one or more fields satisfying the match function. If multiple fields at that depth satisfy the match function, they cancel each other and FieldByNameFunc returns no match. This behavior mirrors Go's handling of name lookup in structs containing embedded fields.
+	public function fieldByName(_name:stdgo.GoString):{
+		_1:Bool;
+		_0:stdgo.reflect.StructField;
+	};	//  FieldByName returns the struct field with the given name and a boolean indicating if the field was found.
+	public function fieldByIndex(_index:stdgo.Slice<stdgo.GoInt>):stdgo.reflect.StructField;	//  FieldByIndex returns the nested field corresponding to the index sequence. It is equivalent to calling Field successively for each index i. It panics if the type's Kind is not Struct.
+	public function fieldAlign():stdgo.GoInt;	//  FieldAlign returns the alignment in bytes of a value of this type when used as a field in a struct.
+	public function field(_i:stdgo.GoInt):stdgo.reflect.StructField;	//  Field returns a struct type's i'th field. It panics if the type's Kind is not Struct. It panics if i is not in the range [0, NumField()).
+	public function elem():stdgo.reflect.Type;	//  Elem returns a type's element type. It panics if the type's Kind is not Array, Chan, Map, Pointer, or Slice.
+	public function convertibleTo(_u:stdgo.reflect.Type):Bool;	//  ConvertibleTo reports whether a value of the type is convertible to type u. Even if ConvertibleTo returns true, the conversion may still panic. For example, a slice of type []T is convertible to *[N]T, but the conversion will panic if its length is less than N.
+	public function comparable():Bool;	//  Comparable reports whether values of this type are comparable. Even if Comparable returns true, the comparison may still panic. For example, values of interface type are comparable, but the comparison will panic if their dynamic type is not comparable.
+	public function chanDir():stdgo.reflect.ChanDir;	//  ChanDir returns a channel type's direction. It panics if the type's Kind is not Chan.
+	public function bits():stdgo.GoInt;	//  Bits returns the size of the type in bits. It panics if the type's Kind is not one of the sized or unsized Int, Uint, Float, or Complex kinds.
+	public function assignableTo(_u:stdgo.reflect.Type):Bool;	//  AssignableTo reports whether a value of the type is assignable to type u.
+	public function align():stdgo.GoInt;	//  Align returns the alignment in bytes of a value of this type when allocated in memory.
+};
 ```
 
 

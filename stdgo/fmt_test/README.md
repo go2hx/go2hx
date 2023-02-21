@@ -300,93 +300,49 @@
 
 - [typedef F](<#typedef-f>)
 
-  - [`function format( _f:stdgo.fmt.State, _c:stdgo.GoRune):Void`](<#f-function-format>)
-
 - [typedef G](<#typedef-g>)
-
-  - [`function goString():stdgo.GoString`](<#g-function-gostring>)
 
 - [typedef I](<#typedef-i>)
 
-  - [`function string():stdgo.GoString`](<#i-function-string>)
-
 - [typedef P](<#typedef-p>)
-
-  - [`function string( _p:stdgo.Pointer<stdgo.fmt_test.P>):stdgo.GoString`](<#p-function-string>)
 
 - [typedef SE](<#typedef-se>)
 
 - [typedef TB](<#typedef-tb>)
 
-  - [`function string():stdgo.GoString`](<#tb-function-string>)
-
 - [typedef TF](<#typedef-tf>)
-
-  - [`function string():stdgo.GoString`](<#tf-function-string>)
 
 - [typedef TF32](<#typedef-tf32>)
 
-  - [`function string():stdgo.GoString`](<#tf32-function-string>)
-
 - [typedef TF64](<#typedef-tf64>)
-
-  - [`function string():stdgo.GoString`](<#tf64-function-string>)
 
 - [typedef TI](<#typedef-ti>)
 
-  - [`function string():stdgo.GoString`](<#ti-function-string>)
-
 - [typedef TI16](<#typedef-ti16>)
-
-  - [`function string():stdgo.GoString`](<#ti16-function-string>)
 
 - [typedef TI32](<#typedef-ti32>)
 
-  - [`function string():stdgo.GoString`](<#ti32-function-string>)
-
 - [typedef TI64](<#typedef-ti64>)
-
-  - [`function string():stdgo.GoString`](<#ti64-function-string>)
 
 - [typedef TI8](<#typedef-ti8>)
 
-  - [`function string():stdgo.GoString`](<#ti8-function-string>)
-
 - [typedef TS](<#typedef-ts>)
-
-  - [`function string():stdgo.GoString`](<#ts-function-string>)
 
 - [typedef TU](<#typedef-tu>)
 
-  - [`function string():stdgo.GoString`](<#tu-function-string>)
-
 - [typedef TU16](<#typedef-tu16>)
-
-  - [`function string():stdgo.GoString`](<#tu16-function-string>)
 
 - [typedef TU32](<#typedef-tu32>)
 
-  - [`function string():stdgo.GoString`](<#tu32-function-string>)
-
 - [typedef TU64](<#typedef-tu64>)
-
-  - [`function string():stdgo.GoString`](<#tu64-function-string>)
 
 - [typedef TU8](<#typedef-tu8>)
 
-  - [`function string():stdgo.GoString`](<#tu8-function-string>)
-
 - [typedef TUI](<#typedef-tui>)
-
-  - [`function string():stdgo.GoString`](<#tui-function-string>)
 
 - [typedef TwoLines](<#typedef-twolines>)
 
-  - [`function scan( _t:stdgo.Pointer<stdgo.fmt_test.TwoLines>, _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error`](<#twolines-function-scan>)
-
 - [typedef Xs](<#typedef-xs>)
-
-  - [`function scan( _x:stdgo.Pointer<stdgo.fmt_test.Xs>, _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error`](<#xs-function-scan>)
 
 # Constants
 
@@ -2528,83 +2484,40 @@ import stdgo.fmt_test.*
 
 
 ```haxe
-typedef F = var t:{<>}
+typedef F = stdgo.GoInt;
 ```
 
 
 
-
-
-### F function format
-
-
-```haxe
-function format( _f:stdgo.fmt.State, _c:stdgo.GoRune):Void
-```
-
-
-Value receiver.  
-
-
-
-[\(view code\)](<./Fmt_test.hx#L4360>)
 
 
 ## typedef G
 
 
 ```haxe
-typedef G = var t:{<>}
+typedef G = stdgo.GoInt;
 ```
 
 
 
-
-
-### G function goString
-
-
-```haxe
-function goString():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Fmt_test.hx#L4652>)
 
 
 ## typedef I
 
 
 ```haxe
-typedef I = var t:{<>}
+typedef I = stdgo.GoInt;
 ```
 
 
 
-
-
-### I function string
-
-
-```haxe
-function string():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Fmt_test.hx#L4618>)
 
 
 ## typedef P
 
 
 ```haxe
-typedef P = var t:{<>}
+typedef P = stdgo.GoInt;
 ```
 
 
@@ -2612,25 +2525,11 @@ P is a type with a String method with pointer receiver for testing %p.
 
 
 
-### P function string
-
-
-```haxe
-function string( _p:stdgo.Pointer<stdgo.fmt_test.P>):stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Fmt_test.hx#L4671>)
-
-
 ## typedef SE
 
 
 ```haxe
-typedef SE = var x:stdgo.AnyInterface
+typedef SE = stdgo.Slice<stdgo.AnyInterface>;
 ```
 
 
@@ -2641,452 +2540,198 @@ typedef SE = var x:stdgo.AnyInterface
 
 
 ```haxe
-typedef TB = var x:{<>}
+typedef TB = Bool;
 ```
 
 
 
-
-
-### TB function string
-
-
-```haxe
-function string():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Fmt_test.hx#L5081>)
 
 
 ## typedef TF
 
 
 ```haxe
-typedef TF = var x:{<>}
+typedef TF = stdgo.GoFloat64;
 ```
 
 
 
-
-
-### TF function string
-
-
-```haxe
-function string():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Fmt_test.hx#L5030>)
 
 
 ## typedef TF32
 
 
 ```haxe
-typedef TF32 = var x:{<>}
+typedef TF32 = stdgo.GoFloat32;
 ```
 
 
 
-
-
-### TF32 function string
-
-
-```haxe
-function string():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Fmt_test.hx#L5047>)
 
 
 ## typedef TF64
 
 
 ```haxe
-typedef TF64 = var x:{<>}
+typedef TF64 = stdgo.GoFloat64;
 ```
 
 
 
-
-
-### TF64 function string
-
-
-```haxe
-function string():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Fmt_test.hx#L5064>)
 
 
 ## typedef TI
 
 
 ```haxe
-typedef TI = var t:{<>}
+typedef TI = stdgo.GoInt;
 ```
 
 
 
-
-
-### TI function string
-
-
-```haxe
-function string():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Fmt_test.hx#L4843>)
 
 
 ## typedef TI16
 
 
 ```haxe
-typedef TI16 = var x:{<>}
+typedef TI16 = stdgo.GoInt16;
 ```
 
 
 
-
-
-### TI16 function string
-
-
-```haxe
-function string():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Fmt_test.hx#L4877>)
 
 
 ## typedef TI32
 
 
 ```haxe
-typedef TI32 = var x:{<>}
+typedef TI32 = stdgo.GoInt32;
 ```
 
 
 
-
-
-### TI32 function string
-
-
-```haxe
-function string():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Fmt_test.hx#L4894>)
 
 
 ## typedef TI64
 
 
 ```haxe
-typedef TI64 = var x:{<>}
+typedef TI64 = stdgo.GoInt64;
 ```
 
 
 
-
-
-### TI64 function string
-
-
-```haxe
-function string():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Fmt_test.hx#L4911>)
 
 
 ## typedef TI8
 
 
 ```haxe
-typedef TI8 = var x:{<>}
+typedef TI8 = stdgo.GoInt8;
 ```
 
 
 
-
-
-### TI8 function string
-
-
-```haxe
-function string():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Fmt_test.hx#L4860>)
 
 
 ## typedef TS
 
 
 ```haxe
-typedef TS = var x:{<>}
+typedef TS = stdgo.GoString;
 ```
 
 
 
-
-
-### TS function string
-
-
-```haxe
-function string():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Fmt_test.hx#L5098>)
 
 
 ## typedef TU
 
 
 ```haxe
-typedef TU = var t:{<>}
+typedef TU = stdgo.GoUInt;
 ```
 
 
 
-
-
-### TU function string
-
-
-```haxe
-function string():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Fmt_test.hx#L4928>)
 
 
 ## typedef TU16
 
 
 ```haxe
-typedef TU16 = var x:{<>}
+typedef TU16 = stdgo.GoUInt16;
 ```
 
 
 
-
-
-### TU16 function string
-
-
-```haxe
-function string():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Fmt_test.hx#L4962>)
 
 
 ## typedef TU32
 
 
 ```haxe
-typedef TU32 = var x:{<>}
+typedef TU32 = stdgo.GoUInt32;
 ```
 
 
 
-
-
-### TU32 function string
-
-
-```haxe
-function string():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Fmt_test.hx#L4979>)
 
 
 ## typedef TU64
 
 
 ```haxe
-typedef TU64 = var x:{<>}
+typedef TU64 = stdgo.GoUInt64;
 ```
 
 
 
-
-
-### TU64 function string
-
-
-```haxe
-function string():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Fmt_test.hx#L4996>)
 
 
 ## typedef TU8
 
 
 ```haxe
-typedef TU8 = var x:{<>}
+typedef TU8 = stdgo.GoUInt8;
 ```
 
 
 
-
-
-### TU8 function string
-
-
-```haxe
-function string():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Fmt_test.hx#L4945>)
 
 
 ## typedef TUI
 
 
 ```haxe
-typedef TUI = var x:{<>}
+typedef TUI = stdgo.GoUIntptr;
 ```
 
 
 
-
-
-### TUI function string
-
-
-```haxe
-function string():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Fmt_test.hx#L5013>)
 
 
 ## typedef TwoLines
 
 
 ```haxe
-typedef TwoLines = var x:{<>}
+typedef TwoLines = stdgo.GoString;
 ```
 
 
 
-
-
-### TwoLines function scan
-
-
-```haxe
-function scan( _t:stdgo.Pointer<stdgo.fmt_test.TwoLines>, _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error
-```
-
-
-Scan attempts to read two lines into the object. Scanln should prevent this  
-because it stops at newline; Scan and Scanf should be fine.  
-
-
-
-[\(view code\)](<./Fmt_test.hx#L4788>)
 
 
 ## typedef Xs
 
 
 ```haxe
-typedef Xs = var x:{<>}
+typedef Xs = stdgo.GoString;
 ```
 
 
 Xs accepts any non\-empty run of the verb character  
 
-
-
-### Xs function scan
-
-
-```haxe
-function scan( _x:stdgo.Pointer<stdgo.fmt_test.Xs>, _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error
-```
-
-
-
-
-
-[\(view code\)](<./Fmt_test.hx#L4750>)
 
 

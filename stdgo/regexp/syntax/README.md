@@ -501,13 +501,19 @@ stdgo/internal/Macro.macro.hx:35: define
 
 - [`function benchmarkEmptyOpContext(_b:stdgo.Ref<stdgo.testing.B>):Void`](<#function-benchmarkemptyopcontext>)
 
-- [`function compile(_re:stdgo.Ref<stdgo.regexp.syntax.Regexp>):{_1:stdgo.Error, _0:stdgo.Ref<stdgo.regexp.syntax.Prog>}`](<#function-compile>)
+- [`function compile(_re:stdgo.Ref<stdgo.regexp.syntax.Regexp>):{
+	_1:stdgo.Error;
+	_0:stdgo.Ref<stdgo.regexp.syntax.Prog>;
+}`](<#function-compile>)
 
 - [`function emptyOpContext(_r1:stdgo.GoRune, _r2:stdgo.GoRune):stdgo.regexp.syntax.EmptyOp`](<#function-emptyopcontext>)
 
 - [`function isWordChar(_r:stdgo.GoRune):Bool`](<#function-iswordchar>)
 
-- [`function parse(_s:stdgo.GoString, _flags:stdgo.regexp.syntax.Flags):{_1:stdgo.Error, _0:stdgo.Ref<stdgo.regexp.syntax.Regexp>}`](<#function-parse>)
+- [`function parse(_s:stdgo.GoString, _flags:stdgo.regexp.syntax.Flags):{
+	_1:stdgo.Error;
+	_0:stdgo.Ref<stdgo.regexp.syntax.Regexp>;
+}`](<#function-parse>)
 
 - [`function testAppendRangeCollapse(_t:stdgo.Ref<stdgo.testing.T>):Void`](<#function-testappendrangecollapse>)
 
@@ -551,7 +557,7 @@ stdgo/internal/Macro.macro.hx:35: define
 
   - [`function _skipNop( _pc:stdgo.GoUInt32):stdgo.Ref<stdgo.regexp.syntax.Inst>`](<#prog-function-_skipnop>)
 
-  - [`function prefix():{_1:Bool, _0:stdgo.GoString}`](<#prog-function-prefix>)
+  - [`function prefix():{ _1:Bool; _0:stdgo.GoString;}`](<#prog-function-prefix>)
 
   - [`function startCond():stdgo.regexp.syntax.EmptyOp`](<#prog-function-startcond>)
 
@@ -583,17 +589,11 @@ stdgo/internal/Macro.macro.hx:35: define
 
 - [typedef ErrorCode](<#typedef-errorcode>)
 
-  - [`function string():stdgo.GoString`](<#errorcode-function-string>)
-
 - [typedef Flags](<#typedef-flags>)
 
 - [typedef InstOp](<#typedef-instop>)
 
-  - [`function string():stdgo.GoString`](<#instop-function-string>)
-
 - [typedef Op](<#typedef-op>)
-
-  - [`function string():stdgo.GoString`](<#op-function-string>)
 
 # Constants
 
@@ -1086,7 +1086,10 @@ function benchmarkEmptyOpContext(_b:stdgo.Ref<stdgo.testing.B>):Void
 
 
 ```haxe
-function compile(_re:stdgo.Ref<stdgo.regexp.syntax.Regexp>):{_1:stdgo.Error, _0:stdgo.Ref<stdgo.regexp.syntax.Prog>}
+function compile(_re:stdgo.Ref<stdgo.regexp.syntax.Regexp>):{
+	_1:stdgo.Error;
+	_0:stdgo.Ref<stdgo.regexp.syntax.Prog>;
+}
 ```
 
 
@@ -1139,7 +1142,10 @@ These assertions are ASCII\-only: the word characters are \[A\-Za\-z0\-9\_\].
 
 
 ```haxe
-function parse(_s:stdgo.GoString, _flags:stdgo.regexp.syntax.Flags):{_1:stdgo.Error, _0:stdgo.Ref<stdgo.regexp.syntax.Regexp>}
+function parse(_s:stdgo.GoString, _flags:stdgo.regexp.syntax.Flags):{
+	_1:stdgo.Error;
+	_0:stdgo.Ref<stdgo.regexp.syntax.Regexp>;
+}
 ```
 
 
@@ -1491,7 +1497,10 @@ skipNop follows any no\-op or capturing instructions.
 
 
 ```haxe
-function prefix():{_1:Bool, _0:stdgo.GoString}
+function prefix():{
+	_1:Bool;
+	_0:stdgo.GoString;
+}
 ```
 
 
@@ -1757,7 +1766,7 @@ import stdgo.regexp.syntax.*
 
 
 ```haxe
-typedef EmptyOp = var x:{<>}
+typedef EmptyOp = stdgo.GoUInt8;
 ```
 
 
@@ -1769,7 +1778,7 @@ An EmptyOp specifies a kind or mixture of zero\-width assertions.
 
 
 ```haxe
-typedef ErrorCode = var x:{<>}
+typedef ErrorCode = stdgo.GoString;
 ```
 
 
@@ -1777,25 +1786,11 @@ An ErrorCode describes a failure to parse a regular expression.
 
 
 
-### ErrorCode function string
-
-
-```haxe
-function string():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Syntax.hx#L2104>)
-
-
 ## typedef Flags
 
 
 ```haxe
-typedef Flags = var x:{<>}
+typedef Flags = stdgo.GoUInt16;
 ```
 
 
@@ -1807,7 +1802,7 @@ Flags control the behavior of the parser and record information about regexp con
 
 
 ```haxe
-typedef InstOp = var x:{<>}
+typedef InstOp = stdgo.GoUInt8;
 ```
 
 
@@ -1815,43 +1810,15 @@ An InstOp is an instruction opcode.
 
 
 
-### InstOp function string
-
-
-```haxe
-function string():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Syntax.hx#L2119>)
-
-
 ## typedef Op
 
 
 ```haxe
-typedef Op = var x:{<>}
+typedef Op = stdgo.GoUInt8;
 ```
 
 
 An Op is a single regular expression operator.  
 
-
-
-### Op function string
-
-
-```haxe
-function string():stdgo.GoString
-```
-
-
-
-
-
-[\(view code\)](<./Syntax.hx#L2119>)
 
 

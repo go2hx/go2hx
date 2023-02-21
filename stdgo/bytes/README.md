@@ -16,262 +16,262 @@ It is analogous to the facilities of the strings package.
 
 ```
 === RUN  TestNewBuffer
---- PASS: TestNewBuffer (%!s(float64=0.0007970333099365234))
+--- PASS: TestNewBuffer (%!s(float64=0.0008978843688964844))
 
 === RUN  TestNewBufferString
---- PASS: TestNewBufferString (%!s(float64=0.0015869140625))
+--- PASS: TestNewBufferString (%!s(float64=0.0018880367279052734))
 
 === RUN  TestBasicOperations
---- PASS: TestBasicOperations (%!s(float64=0.00030803680419921875))
+--- PASS: TestBasicOperations (%!s(float64=0.0004630088806152344))
 
 === RUN  TestLargeStringWrites
---- PASS: TestLargeStringWrites (%!s(float64=0.18631291389465332))
+--- PASS: TestLargeStringWrites (%!s(float64=0.2350449562072754))
 
 === RUN  TestLargeByteWrites
---- PASS: TestLargeByteWrites (%!s(float64=0.19397306442260742))
+--- PASS: TestLargeByteWrites (%!s(float64=0.25080299377441406))
 
 === RUN  TestLargeStringReads
---- PASS: TestLargeStringReads (%!s(float64=0.05550384521484375))
+--- PASS: TestLargeStringReads (%!s(float64=0.07450103759765625))
 
 === RUN  TestLargeByteReads
---- PASS: TestLargeByteReads (%!s(float64=0.07495498657226562))
+--- PASS: TestLargeByteReads (%!s(float64=0.10979104042053223))
 
 === RUN  TestMixedReadsAndWrites
---- PASS: TestMixedReadsAndWrites (%!s(float64=0.18951797485351562))
+--- PASS: TestMixedReadsAndWrites (%!s(float64=0.5653200149536133))
 
 === RUN  TestCapWithPreallocatedSlice
---- PASS: TestCapWithPreallocatedSlice (%!s(float64=1.5974044799804688e-05))
+--- PASS: TestCapWithPreallocatedSlice (%!s(float64=4.410743713378906e-05))
 
 === RUN  TestCapWithSliceAndWrittenData
---- PASS: TestCapWithSliceAndWrittenData (%!s(float64=7.152557373046875e-06))
+--- PASS: TestCapWithSliceAndWrittenData (%!s(float64=1.9073486328125e-05))
 
 === RUN  TestNil
---- PASS: TestNil (%!s(float64=6.198883056640625e-06))
+--- PASS: TestNil (%!s(float64=5.9604644775390625e-06))
 
 === RUN  TestReadFrom
---- PASS: TestReadFrom (%!s(float64=0.11106514930725098))
+--- PASS: TestReadFrom (%!s(float64=0.17477703094482422))
 
 === RUN  TestReadFromPanicReader
---- PASS: TestReadFromPanicReader (%!s(float64=0.0004630088806152344))
+--- PASS: TestReadFromPanicReader (%!s(float64=0.0004978179931640625))
 
 === RUN  TestReadFromNegativeReader
---- PASS: TestReadFromNegativeReader (%!s(float64=0.00021696090698242188))
+--- PASS: TestReadFromNegativeReader (%!s(float64=0.0001971721649169922))
 
 === RUN  TestWriteTo
---- PASS: TestWriteTo (%!s(float64=0.1002190113067627))
+--- PASS: TestWriteTo (%!s(float64=0.13242006301879883))
 
 === RUN  TestRuneIO
---- PASS: TestRuneIO (%!s(float64=0.07379388809204102))
+--- PASS: TestRuneIO (%!s(float64=0.08805394172668457))
 
 === RUN  TestWriteInvalidRune
---- PASS: TestWriteInvalidRune (%!s(float64=0.00031113624572753906))
+--- PASS: TestWriteInvalidRune (%!s(float64=0.000370025634765625))
 
 === RUN  TestNext
---- PASS: TestNext (%!s(float64=0.00025582313537597656))
+--- PASS: TestNext (%!s(float64=0.00027298927307128906))
 
 === RUN  TestReadBytes
---- PASS: TestReadBytes (%!s(float64=7.987022399902344e-05))
+--- PASS: TestReadBytes (%!s(float64=0.00010204315185546875))
 
 === RUN  TestReadString
---- PASS: TestReadString (%!s(float64=5.602836608886719e-05))
+--- PASS: TestReadString (%!s(float64=6.699562072753906e-05))
 
 === RUN  TestGrow
 bytes_test/Bytes_test.hx:1879: testGrow skip function
---- PASS: TestGrow (%!s(float64=2.6941299438476562e-05))
+--- PASS: TestGrow (%!s(float64=2.002716064453125e-05))
 
 === RUN  TestGrowOverflow
---- PASS: TestGrowOverflow (%!s(float64=3.409385681152344e-05))
+--- PASS: TestGrowOverflow (%!s(float64=3.600120544433594e-05))
 
 === RUN  TestReadEmptyAtEOF
---- PASS: TestReadEmptyAtEOF (%!s(float64=6.198883056640625e-06))
+--- PASS: TestReadEmptyAtEOF (%!s(float64=5.9604644775390625e-06))
 
 === RUN  TestUnreadByte
---- PASS: TestUnreadByte (%!s(float64=2.002716064453125e-05))
+--- PASS: TestUnreadByte (%!s(float64=2.09808349609375e-05))
 
 === RUN  TestBufferGrowth
---- PASS: TestBufferGrowth (%!s(float64=1.6261200904846191))
+--- PASS: TestBufferGrowth (%!s(float64=2.0995678901672363))
 
 === RUN  TestEqual
---- PASS: TestEqual (%!s(float64=1.3113021850585938e-05))
+--- PASS: TestEqual (%!s(float64=1.9073486328125e-05))
 
 === RUN  TestEqualExhaustive
---- PASS: TestEqualExhaustive (%!s(float64=0.12231302261352539))
+--- PASS: TestEqualExhaustive (%!s(float64=0.16344618797302246))
 
 === RUN  TestNotEqual
---- PASS: TestNotEqual (%!s(float64=0.43034911155700684))
+--- PASS: TestNotEqual (%!s(float64=0.5668919086456299))
 
 === RUN  TestIndex
---- PASS: TestIndex (%!s(float64=0.0013289451599121094))
+--- PASS: TestIndex (%!s(float64=0.0015909671783447266))
 
 === RUN  TestLastIndex
---- PASS: TestLastIndex (%!s(float64=0.00021004676818847656))
+--- PASS: TestLastIndex (%!s(float64=0.0002498626708984375))
 
 === RUN  TestIndexAny
---- PASS: TestIndexAny (%!s(float64=0.0001518726348876953))
+--- PASS: TestIndexAny (%!s(float64=0.00018095970153808594))
 
 === RUN  TestLastIndexAny
---- PASS: TestLastIndexAny (%!s(float64=0.00018286705017089844))
+--- PASS: TestLastIndexAny (%!s(float64=0.0002219676971435547))
 
 === RUN  TestIndexByte
---- PASS: TestIndexByte (%!s(float64=3.1948089599609375e-05))
+--- PASS: TestIndexByte (%!s(float64=3.910064697265625e-05))
 
 === RUN  TestLastIndexByte
---- PASS: TestLastIndexByte (%!s(float64=2.002716064453125e-05))
+--- PASS: TestLastIndexByte (%!s(float64=2.5987625122070312e-05))
 
 === RUN  TestIndexByteBig
---- PASS: TestIndexByteBig (%!s(float64=0.0712890625))
+--- PASS: TestIndexByteBig (%!s(float64=0.08544397354125977))
 
 === RUN  TestIndexByteSmall
---- PASS: TestIndexByteSmall (%!s(float64=0.1459639072418213))
+--- PASS: TestIndexByteSmall (%!s(float64=0.17430901527404785))
 
 === RUN  TestIndexRune
---- PASS: TestIndexRune (%!s(float64=0.00023102760314941406))
+--- PASS: TestIndexRune (%!s(float64=0.0002830028533935547))
 
 === RUN  TestCountByte
---- PASS: TestCountByte (%!s(float64=2.2964730262756348))
+--- PASS: TestCountByte (%!s(float64=2.7363529205322266))
 
 === RUN  TestCountByteNoMatch
---- PASS: TestCountByteNoMatch (%!s(float64=0.8109240531921387))
+--- PASS: TestCountByteNoMatch (%!s(float64=0.9638650417327881))
 
 === RUN  TestSplit
---- PASS: TestSplit (%!s(float64=0.0018849372863769531))
+--- PASS: TestSplit (%!s(float64=0.0020799636840820312))
 
 === RUN  TestSplitAfter
---- PASS: TestSplitAfter (%!s(float64=0.0017819404602050781))
+--- PASS: TestSplitAfter (%!s(float64=0.0020990371704101562))
 
 === RUN  TestFields
---- PASS: TestFields (%!s(float64=0.0002751350402832031))
+--- PASS: TestFields (%!s(float64=0.00031185150146484375))
 
 === RUN  TestFieldsFunc
---- PASS: TestFieldsFunc (%!s(float64=0.0001919269561767578))
+--- PASS: TestFieldsFunc (%!s(float64=0.0002410411834716797))
 
 === RUN  TestMap
---- PASS: TestMap (%!s(float64=0.0003669261932373047))
+--- PASS: TestMap (%!s(float64=0.0006771087646484375))
 
 === RUN  TestToUpper
---- PASS: TestToUpper (%!s(float64=0.0005178451538085938))
+--- PASS: TestToUpper (%!s(float64=0.00041294097900390625))
 
 === RUN  TestToLower
---- PASS: TestToLower (%!s(float64=0.0002789497375488281))
+--- PASS: TestToLower (%!s(float64=0.0003578662872314453))
 
 === RUN  TestToValidUTF8
---- PASS: TestToValidUTF8 (%!s(float64=0.0002651214599609375))
+--- PASS: TestToValidUTF8 (%!s(float64=0.00029206275939941406))
 
 === RUN  TestTrimSpace
---- PASS: TestTrimSpace (%!s(float64=0.0003211498260498047))
+--- PASS: TestTrimSpace (%!s(float64=0.00038504600524902344))
 
 === RUN  TestRepeat
---- PASS: TestRepeat (%!s(float64=0.125291109085083))
+--- PASS: TestRepeat (%!s(float64=0.14681601524353027))
 
 === RUN  TestRepeatCatchesOverflow
---- PASS: TestRepeatCatchesOverflow (%!s(float64=0.0007491111755371094))
+--- PASS: TestRepeatCatchesOverflow (%!s(float64=0.0008950233459472656))
 
 === RUN  TestRunes
---- PASS: TestRunes (%!s(float64=0.00011706352233886719))
+--- PASS: TestRunes (%!s(float64=0.00014019012451171875))
 
 === RUN  TestTrim
---- PASS: TestTrim (%!s(float64=0.0003619194030761719))
+--- PASS: TestTrim (%!s(float64=0.000431060791015625))
 
 === RUN  TestTrimFunc
---- PASS: TestTrimFunc (%!s(float64=0.0005028247833251953))
+--- PASS: TestTrimFunc (%!s(float64=0.0005879402160644531))
 
 === RUN  TestIndexFunc
---- PASS: TestIndexFunc (%!s(float64=0.00016307830810546875))
+--- PASS: TestIndexFunc (%!s(float64=0.00019216537475585938))
 
 === RUN  TestReplace
---- PASS: TestReplace (%!s(float64=0.00047206878662109375))
+--- PASS: TestReplace (%!s(float64=0.0005359649658203125))
 
 === RUN  TestTitle
---- PASS: TestTitle (%!s(float64=0.0002110004425048828))
+--- PASS: TestTitle (%!s(float64=0.00024390220642089844))
 
 === RUN  TestToTitle
---- PASS: TestToTitle (%!s(float64=0.0001270771026611328))
+--- PASS: TestToTitle (%!s(float64=0.00015091896057128906))
 
 === RUN  TestEqualFold
---- PASS: TestEqualFold (%!s(float64=0.00021004676818847656))
+--- PASS: TestEqualFold (%!s(float64=0.00024008750915527344))
 
 === RUN  TestCut
---- PASS: TestCut (%!s(float64=2.5987625122070312e-05))
+--- PASS: TestCut (%!s(float64=2.9087066650390625e-05))
 
 === RUN  TestCutPrefix
---- PASS: TestCutPrefix (%!s(float64=1.9073486328125e-05))
+--- PASS: TestCutPrefix (%!s(float64=5.507469177246094e-05))
 
 === RUN  TestCutSuffix
---- PASS: TestCutSuffix (%!s(float64=1.9073486328125e-05))
+--- PASS: TestCutSuffix (%!s(float64=2.288818359375e-05))
 
 === RUN  TestBufferGrowNegative
---- PASS: TestBufferGrowNegative (%!s(float64=2.7894973754882812e-05))
+--- PASS: TestBufferGrowNegative (%!s(float64=2.8848648071289062e-05))
 
 === RUN  TestBufferTruncateNegative
---- PASS: TestBufferTruncateNegative (%!s(float64=1.7881393432617188e-05))
+--- PASS: TestBufferTruncateNegative (%!s(float64=1.6927719116210938e-05))
 
 === RUN  TestBufferTruncateOutOfRange
---- PASS: TestBufferTruncateOutOfRange (%!s(float64=2.288818359375e-05))
+--- PASS: TestBufferTruncateOutOfRange (%!s(float64=2.5033950805664062e-05))
 
 === RUN  TestContains
---- PASS: TestContains (%!s(float64=9.775161743164062e-06))
+--- PASS: TestContains (%!s(float64=1.1920928955078125e-05))
 
 === RUN  TestContainsAny
---- PASS: TestContainsAny (%!s(float64=7.700920104980469e-05))
+--- PASS: TestContainsAny (%!s(float64=9.107589721679688e-05))
 
 === RUN  TestContainsRune
---- PASS: TestContainsRune (%!s(float64=2.4080276489257812e-05))
+--- PASS: TestContainsRune (%!s(float64=2.2172927856445312e-05))
 
 === RUN  TestClone
---- PASS: TestClone (%!s(float64=0.0001780986785888672))
+--- PASS: TestClone (%!s(float64=0.00020599365234375))
 
 === RUN  TestCompare
---- PASS: TestCompare (%!s(float64=0.0007269382476806641))
+--- PASS: TestCompare (%!s(float64=0.0007388591766357422))
 
 === RUN  TestCompareIdenticalSlice
---- PASS: TestCompareIdenticalSlice (%!s(float64=1.1920928955078125e-05))
+--- PASS: TestCompareIdenticalSlice (%!s(float64=1.0967254638671875e-05))
 
 === RUN  TestCompareBytes
 bytes_test/Bytes_test.hx:4016: testCompareBytes skip function
---- PASS: TestCompareBytes (%!s(float64=2.09808349609375e-05))
+--- PASS: TestCompareBytes (%!s(float64=7.390975952148438e-05))
 
 === RUN  TestEndianBaseCompare
---- PASS: TestEndianBaseCompare (%!s(float64=0.10564589500427246))
+--- PASS: TestEndianBaseCompare (%!s(float64=0.08951091766357422))
 
 === RUN  TestReader
---- PASS: TestReader (%!s(float64=0.00011301040649414062))
+--- PASS: TestReader (%!s(float64=0.0001201629638671875))
 
 === RUN  TestReadAfterBigSeek
---- PASS: TestReadAfterBigSeek (%!s(float64=2.2172927856445312e-05))
+--- PASS: TestReadAfterBigSeek (%!s(float64=2.4080276489257812e-05))
 
 === RUN  TestReaderAt
---- PASS: TestReaderAt (%!s(float64=0.002112865447998047))
+--- PASS: TestReaderAt (%!s(float64=0.002457141876220703))
 
 === RUN  TestReaderAtConcurrent
---- PASS: TestReaderAtConcurrent (%!s(float64=0.0008840560913085938))
+--- PASS: TestReaderAtConcurrent (%!s(float64=0.0003349781036376953))
 
 === RUN  TestEmptyReaderConcurrent
---- PASS: TestEmptyReaderConcurrent (%!s(float64=0.00023889541625976562))
+--- PASS: TestEmptyReaderConcurrent (%!s(float64=0.00046896934509277344))
 
 === RUN  TestReaderWriteTo
---- PASS: TestReaderWriteTo (%!s(float64=0.0041468143463134766))
+--- PASS: TestReaderWriteTo (%!s(float64=0.004920005798339844))
 
 === RUN  TestReaderLen
---- PASS: TestReaderLen (%!s(float64=2.09808349609375e-05))
+--- PASS: TestReaderLen (%!s(float64=2.002716064453125e-05))
 
 === RUN  TestUnreadRuneError
---- PASS: TestUnreadRuneError (%!s(float64=5.1021575927734375e-05))
+--- PASS: TestUnreadRuneError (%!s(float64=0.00016188621520996094))
 
 === RUN  TestReaderDoubleUnreadRune
 --- PASS: TestReaderDoubleUnreadRune (%!s(float64=7.867813110351562e-06))
 
 === RUN  TestReaderCopyNothing
---- PASS: TestReaderCopyNothing (%!s(float64=0.0034270286560058594))
+--- PASS: TestReaderCopyNothing (%!s(float64=0.004075050354003906))
 
 === RUN  TestReaderLenSize
 bytes_test/Bytes_test.hx:4935: testReaderLenSize skip function
---- PASS: TestReaderLenSize (%!s(float64=1.5020370483398438e-05))
+--- PASS: TestReaderLenSize (%!s(float64=2.09808349609375e-05))
 
 === RUN  TestReaderReset
---- PASS: TestReaderReset (%!s(float64=4.1961669921875e-05))
+--- PASS: TestReaderReset (%!s(float64=4.38690185546875e-05))
 
 === RUN  TestReaderZero
---- PASS: TestReaderZero (%!s(float64=4.100799560546875e-05))
+--- PASS: TestReaderZero (%!s(float64=4.696846008300781e-05))
 
 ```
 </p>
@@ -284,249 +284,249 @@ bytes_test/Bytes_test.hx:4935: testReaderLenSize skip function
 Invalid_argument("index out of bounds")
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestNewBuffer
---- PASS: TestNewBuffer (%!s(float64=0.009409904479980469))
+--- PASS: TestNewBuffer (%!s(float64=0.012681961059570312))
 
 === RUN  TestNewBufferString
---- PASS: TestNewBufferString (%!s(float64=0.015831947326660156))
+--- PASS: TestNewBufferString (%!s(float64=0.020292997360229492))
 
 === RUN  TestBasicOperations
---- PASS: TestBasicOperations (%!s(float64=0.0016388893127441406))
+--- PASS: TestBasicOperations (%!s(float64=0.0021369457244873047))
 
 === RUN  TestLargeStringWrites
---- PASS: TestLargeStringWrites (%!s(float64=1.6988489627838135))
+--- PASS: TestLargeStringWrites (%!s(float64=2.1035079956054688))
 
 === RUN  TestLargeByteWrites
---- PASS: TestLargeByteWrites (%!s(float64=1.6427481174468994))
+--- PASS: TestLargeByteWrites (%!s(float64=2.1518430709838867))
 
 === RUN  TestLargeStringReads
---- PASS: TestLargeStringReads (%!s(float64=0.2803781032562256))
+--- PASS: TestLargeStringReads (%!s(float64=0.3573801517486572))
 
 === RUN  TestLargeByteReads
---- PASS: TestLargeByteReads (%!s(float64=0.2790210247039795))
+--- PASS: TestLargeByteReads (%!s(float64=0.3731520175933838))
 
 === RUN  TestMixedReadsAndWrites
---- PASS: TestMixedReadsAndWrites (%!s(float64=1.8938219547271729))
+--- PASS: TestMixedReadsAndWrites (%!s(float64=3.1396729946136475))
 
 === RUN  TestCapWithPreallocatedSlice
---- PASS: TestCapWithPreallocatedSlice (%!s(float64=1.5974044799804688e-05))
+--- PASS: TestCapWithPreallocatedSlice (%!s(float64=3.2901763916015625e-05))
 
 === RUN  TestCapWithSliceAndWrittenData
---- PASS: TestCapWithSliceAndWrittenData (%!s(float64=2.4080276489257812e-05))
+--- PASS: TestCapWithSliceAndWrittenData (%!s(float64=3.0994415283203125e-05))
 
 === RUN  TestNil
---- PASS: TestNil (%!s(float64=1.0967254638671875e-05))
+--- PASS: TestNil (%!s(float64=1.4066696166992188e-05))
 
 === RUN  TestReadFrom
---- PASS: TestReadFrom (%!s(float64=0.3950350284576416))
+--- PASS: TestReadFrom (%!s(float64=0.5159659385681152))
 
 === RUN  TestReadFromPanicReader
---- PASS: TestReadFromPanicReader (%!s(float64=0.0008449554443359375))
+--- PASS: TestReadFromPanicReader (%!s(float64=0.0011601448059082031))
 
 === RUN  TestReadFromNegativeReader
---- PASS: TestReadFromNegativeReader (%!s(float64=0.0005359649658203125))
+--- PASS: TestReadFromNegativeReader (%!s(float64=0.0006539821624755859))
 
 === RUN  TestWriteTo
---- PASS: TestWriteTo (%!s(float64=0.3381009101867676))
+--- PASS: TestWriteTo (%!s(float64=0.44287109375))
 
 === RUN  TestRuneIO
---- PASS: TestRuneIO (%!s(float64=0.11866998672485352))
+--- PASS: TestRuneIO (%!s(float64=0.14551496505737305))
 
 === RUN  TestWriteInvalidRune
---- PASS: TestWriteInvalidRune (%!s(float64=0.0010089874267578125))
+--- PASS: TestWriteInvalidRune (%!s(float64=0.0013380050659179688))
 
 === RUN  TestNext
---- PASS: TestNext (%!s(float64=0.0012540817260742188))
+--- PASS: TestNext (%!s(float64=0.0016939640045166016))
 
 === RUN  TestReadBytes
---- PASS: TestReadBytes (%!s(float64=0.0003058910369873047))
+--- PASS: TestReadBytes (%!s(float64=0.0003800392150878906))
 
 === RUN  TestReadString
---- PASS: TestReadString (%!s(float64=0.0002567768096923828))
+--- PASS: TestReadString (%!s(float64=0.00029778480529785156))
 
 === RUN  TestGrow
 bytes_test/Bytes_test.hx:1879: testGrow skip function
---- PASS: TestGrow (%!s(float64=1.5020370483398438e-05))
+--- PASS: TestGrow (%!s(float64=1.71661376953125e-05))
 
 === RUN  TestGrowOverflow
---- PASS: TestGrowOverflow (%!s(float64=6.198883056640625e-05))
+--- PASS: TestGrowOverflow (%!s(float64=8.416175842285156e-05))
 
 === RUN  TestReadEmptyAtEOF
---- PASS: TestReadEmptyAtEOF (%!s(float64=1.3113021850585938e-05))
+--- PASS: TestReadEmptyAtEOF (%!s(float64=2.8848648071289062e-05))
 
 === RUN  TestUnreadByte
---- PASS: TestUnreadByte (%!s(float64=6.389617919921875e-05))
+--- PASS: TestUnreadByte (%!s(float64=9.107589721679688e-05))
 
 === RUN  TestBufferGrowth
---- PASS: TestBufferGrowth (%!s(float64=5.827843904495239))
+--- PASS: TestBufferGrowth (%!s(float64=7.8128979206085205))
 
 === RUN  TestEqual
 --- PASS: TestEqual (%!s(float64=1.0967254638671875e-05))
 
 === RUN  TestEqualExhaustive
---- PASS: TestEqualExhaustive (%!s(float64=0.5515041351318359))
+--- PASS: TestEqualExhaustive (%!s(float64=0.7369730472564697))
 
 === RUN  TestNotEqual
---- PASS: TestNotEqual (%!s(float64=2.655996084213257))
+--- PASS: TestNotEqual (%!s(float64=3.507852077484131))
 
 === RUN  TestIndex
---- PASS: TestIndex (%!s(float64=0.008205890655517578))
+--- PASS: TestIndex (%!s(float64=0.011343955993652344))
 
 === RUN  TestLastIndex
---- PASS: TestLastIndex (%!s(float64=0.0003390312194824219))
+--- PASS: TestLastIndex (%!s(float64=0.0004761219024658203))
 
 === RUN  TestIndexAny
---- PASS: TestIndexAny (%!s(float64=0.0009081363677978516))
+--- PASS: TestIndexAny (%!s(float64=0.0010819435119628906))
 
 === RUN  TestLastIndexAny
---- PASS: TestLastIndexAny (%!s(float64=0.0010290145874023438))
+--- PASS: TestLastIndexAny (%!s(float64=0.0014162063598632812))
 
 === RUN  TestIndexByte
---- PASS: TestIndexByte (%!s(float64=0.00019407272338867188))
+--- PASS: TestIndexByte (%!s(float64=0.00023102760314941406))
 
 === RUN  TestLastIndexByte
---- PASS: TestLastIndexByte (%!s(float64=7.796287536621094e-05))
+--- PASS: TestLastIndexByte (%!s(float64=8.58306884765625e-05))
 
 === RUN  TestIndexByteBig
---- PASS: TestIndexByteBig (%!s(float64=0.9323978424072266))
+--- PASS: TestIndexByteBig (%!s(float64=1.2725989818572998))
 
 === RUN  TestIndexByteSmall
---- PASS: TestIndexByteSmall (%!s(float64=0.8408050537109375))
+--- PASS: TestIndexByteSmall (%!s(float64=1.1717569828033447))
 
 === RUN  TestIndexRune
---- PASS: TestIndexRune (%!s(float64=0.0008091926574707031))
+--- PASS: TestIndexRune (%!s(float64=0.001094818115234375))
 
 === RUN  TestCountByte
---- PASS: TestCountByte (%!s(float64=22.25726079940796))
+--- PASS: TestCountByte (%!s(float64=29.91741704940796))
 
 === RUN  TestCountByteNoMatch
---- PASS: TestCountByteNoMatch (%!s(float64=3.6787679195404053))
+--- PASS: TestCountByteNoMatch (%!s(float64=4.9206647872924805))
 
 === RUN  TestSplit
---- PASS: TestSplit (%!s(float64=0.0047149658203125))
+--- PASS: TestSplit (%!s(float64=0.005930900573730469))
 
 === RUN  TestSplitAfter
---- PASS: TestSplitAfter (%!s(float64=0.004266977310180664))
+--- PASS: TestSplitAfter (%!s(float64=0.005408048629760742))
 
 === RUN  TestFields
---- PASS: TestFields (%!s(float64=0.0010919570922851562))
+--- PASS: TestFields (%!s(float64=0.0014209747314453125))
 
 === RUN  TestFieldsFunc
---- PASS: TestFieldsFunc (%!s(float64=0.001024007797241211))
+--- PASS: TestFieldsFunc (%!s(float64=0.0013000965118408203))
 
 === RUN  TestMap
---- PASS: TestMap (%!s(float64=0.001361846923828125))
+--- PASS: TestMap (%!s(float64=0.0016951560974121094))
 
 === RUN  TestToUpper
---- PASS: TestToUpper (%!s(float64=0.0014100074768066406))
+--- PASS: TestToUpper (%!s(float64=0.0018088817596435547))
 
 === RUN  TestToLower
---- PASS: TestToLower (%!s(float64=0.0012230873107910156))
+--- PASS: TestToLower (%!s(float64=0.0016281604766845703))
 
 === RUN  TestToValidUTF8
---- PASS: TestToValidUTF8 (%!s(float64=0.0012590885162353516))
+--- PASS: TestToValidUTF8 (%!s(float64=0.0016520023345947266))
 
 === RUN  TestTrimSpace
---- PASS: TestTrimSpace (%!s(float64=0.0013148784637451172))
+--- PASS: TestTrimSpace (%!s(float64=0.0016908645629882812))
 
 === RUN  TestRepeat
---- PASS: TestRepeat (%!s(float64=0.5342068672180176))
+--- PASS: TestRepeat (%!s(float64=0.7654390335083008))
 
 === RUN  TestRepeatCatchesOverflow
---- PASS: TestRepeatCatchesOverflow (%!s(float64=0.0018360614776611328))
+--- PASS: TestRepeatCatchesOverflow (%!s(float64=0.002382993698120117))
 
 === RUN  TestRunes
---- PASS: TestRunes (%!s(float64=0.0005979537963867188))
+--- PASS: TestRunes (%!s(float64=0.0008499622344970703))
 
 === RUN  TestTrim
---- PASS: TestTrim (%!s(float64=0.0018889904022216797))
+--- PASS: TestTrim (%!s(float64=0.0025610923767089844))
 
 === RUN  TestTrimFunc
---- PASS: TestTrimFunc (%!s(float64=0.003097057342529297))
+--- PASS: TestTrimFunc (%!s(float64=0.0042459964752197266))
 
 === RUN  TestIndexFunc
---- PASS: TestIndexFunc (%!s(float64=0.0009469985961914062))
+--- PASS: TestIndexFunc (%!s(float64=0.00125885009765625))
 
 === RUN  TestReplace
---- PASS: TestReplace (%!s(float64=0.0023679733276367188))
+--- PASS: TestReplace (%!s(float64=0.003339052200317383))
 
 === RUN  TestTitle
---- PASS: TestTitle (%!s(float64=0.0009329319000244141))
+--- PASS: TestTitle (%!s(float64=0.0012989044189453125))
 
 === RUN  TestToTitle
---- PASS: TestToTitle (%!s(float64=0.0005171298980712891))
+--- PASS: TestToTitle (%!s(float64=0.0007100105285644531))
 
 === RUN  TestEqualFold
---- PASS: TestEqualFold (%!s(float64=0.0011119842529296875))
+--- PASS: TestEqualFold (%!s(float64=0.0016810894012451172))
 
 === RUN  TestCut
---- PASS: TestCut (%!s(float64=9.202957153320312e-05))
+--- PASS: TestCut (%!s(float64=0.00012612342834472656))
 
 === RUN  TestCutPrefix
---- PASS: TestCutPrefix (%!s(float64=8.296966552734375e-05))
+--- PASS: TestCutPrefix (%!s(float64=9.012222290039062e-05))
 
 === RUN  TestCutSuffix
---- PASS: TestCutSuffix (%!s(float64=7.104873657226562e-05))
+--- PASS: TestCutSuffix (%!s(float64=0.00011086463928222656))
 
 === RUN  TestBufferGrowNegative
---- PASS: TestBufferGrowNegative (%!s(float64=3.600120544433594e-05))
+--- PASS: TestBufferGrowNegative (%!s(float64=4.100799560546875e-05))
 
 === RUN  TestBufferTruncateNegative
---- PASS: TestBufferTruncateNegative (%!s(float64=3.0994415283203125e-05))
+--- PASS: TestBufferTruncateNegative (%!s(float64=3.314018249511719e-05))
 
 === RUN  TestBufferTruncateOutOfRange
---- PASS: TestBufferTruncateOutOfRange (%!s(float64=5.1975250244140625e-05))
+--- PASS: TestBufferTruncateOutOfRange (%!s(float64=5.698204040527344e-05))
 
 === RUN  TestContains
---- PASS: TestContains (%!s(float64=4.9114227294921875e-05))
+--- PASS: TestContains (%!s(float64=5.817413330078125e-05))
 
 === RUN  TestContainsAny
---- PASS: TestContainsAny (%!s(float64=0.00044798851013183594))
+--- PASS: TestContainsAny (%!s(float64=0.0005900859832763672))
 
 === RUN  TestContainsRune
---- PASS: TestContainsRune (%!s(float64=0.00011610984802246094))
+--- PASS: TestContainsRune (%!s(float64=0.00014591217041015625))
 
 === RUN  TestClone
---- PASS: TestClone (%!s(float64=0.0007338523864746094))
+--- PASS: TestClone (%!s(float64=0.0008800029754638672))
 
 === RUN  TestCompare
---- PASS: TestCompare (%!s(float64=0.0027000904083251953))
+--- PASS: TestCompare (%!s(float64=0.0036199092864990234))
 
 === RUN  TestCompareIdenticalSlice
---- PASS: TestCompareIdenticalSlice (%!s(float64=2.6941299438476562e-05))
+--- PASS: TestCompareIdenticalSlice (%!s(float64=3.2901763916015625e-05))
 
 === RUN  TestCompareBytes
 bytes_test/Bytes_test.hx:4016: testCompareBytes skip function
---- PASS: TestCompareBytes (%!s(float64=1.5974044799804688e-05))
+--- PASS: TestCompareBytes (%!s(float64=1.9073486328125e-05))
 
 === RUN  TestEndianBaseCompare
---- PASS: TestEndianBaseCompare (%!s(float64=0.274885892868042))
+--- PASS: TestEndianBaseCompare (%!s(float64=0.37370896339416504))
 
 === RUN  TestReader
---- PASS: TestReader (%!s(float64=0.000492095947265625))
+--- PASS: TestReader (%!s(float64=0.0006091594696044922))
 
 === RUN  TestReadAfterBigSeek
---- PASS: TestReadAfterBigSeek (%!s(float64=8.106231689453125e-05))
+--- PASS: TestReadAfterBigSeek (%!s(float64=0.00010395050048828125))
 
 === RUN  TestReaderAt
---- PASS: TestReaderAt (%!s(float64=0.0037648677825927734))
+--- PASS: TestReaderAt (%!s(float64=0.004991769790649414))
 
 === RUN  TestReaderAtConcurrent
---- PASS: TestReaderAtConcurrent (%!s(float64=0.0007069110870361328))
+--- PASS: TestReaderAtConcurrent (%!s(float64=0.0010349750518798828))
 
 === RUN  TestEmptyReaderConcurrent
---- PASS: TestEmptyReaderConcurrent (%!s(float64=0.001230001449584961))
+--- PASS: TestEmptyReaderConcurrent (%!s(float64=0.0021810531616210938))
 
 === RUN  TestReaderWriteTo
---- PASS: TestReaderWriteTo (%!s(float64=0.019336938858032227))
+--- PASS: TestReaderWriteTo (%!s(float64=0.027163982391357422))
 
 === RUN  TestReaderLen
---- PASS: TestReaderLen (%!s(float64=5.316734313964844e-05))
+--- PASS: TestReaderLen (%!s(float64=6.580352783203125e-05))
 
 === RUN  TestUnreadRuneError
---- PASS: TestUnreadRuneError (%!s(float64=0.00015997886657714844))
+--- PASS: TestUnreadRuneError (%!s(float64=0.0001971721649169922))
 
 === RUN  TestReaderDoubleUnreadRune
---- PASS: TestReaderDoubleUnreadRune (%!s(float64=1.6927719116210938e-05))
+--- PASS: TestReaderDoubleUnreadRune (%!s(float64=2.2172927856445312e-05))
 
 === RUN  TestReaderCopyNothing
 ```
@@ -563,11 +563,21 @@ stdgo/internal/Macro.macro.hx:35: define
 
 - [`function count(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):stdgo.GoInt`](<#function-count>)
 
-- [`function cut(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):{_2:Bool, _1:stdgo.Slice<stdgo.GoByte>, _0:stdgo.Slice<stdgo.GoByte>}`](<#function-cut>)
+- [`function cut(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):{
+	_2:Bool;
+	_1:stdgo.Slice<stdgo.GoByte>;
+	_0:stdgo.Slice<stdgo.GoByte>;
+}`](<#function-cut>)
 
-- [`function cutPrefix(_s:stdgo.Slice<stdgo.GoByte>, _prefix:stdgo.Slice<stdgo.GoByte>):{_1:Bool, _0:stdgo.Slice<stdgo.GoByte>}`](<#function-cutprefix>)
+- [`function cutPrefix(_s:stdgo.Slice<stdgo.GoByte>, _prefix:stdgo.Slice<stdgo.GoByte>):{
+	_1:Bool;
+	_0:stdgo.Slice<stdgo.GoByte>;
+}`](<#function-cutprefix>)
 
-- [`function cutSuffix(_s:stdgo.Slice<stdgo.GoByte>, _suffix:stdgo.Slice<stdgo.GoByte>):{_1:Bool, _0:stdgo.Slice<stdgo.GoByte>}`](<#function-cutsuffix>)
+- [`function cutSuffix(_s:stdgo.Slice<stdgo.GoByte>, _suffix:stdgo.Slice<stdgo.GoByte>):{
+	_1:Bool;
+	_0:stdgo.Slice<stdgo.GoByte>;
+}`](<#function-cutsuffix>)
 
 - [`function equal(_a:stdgo.Slice<stdgo.GoByte>, _b:stdgo.Slice<stdgo.GoByte>):Bool`](<#function-equal>)
 
@@ -669,9 +679,9 @@ stdgo/internal/Macro.macro.hx:35: define
 
   - [`function _grow( _n:stdgo.GoInt):stdgo.GoInt`](<#buffer-function-_grow>)
 
-  - [`function _readSlice( _delim:stdgo.GoByte):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoByte>}`](<#buffer-function-_readslice>)
+  - [`function _readSlice( _delim:stdgo.GoByte):{ _1:stdgo.Error; _0:stdgo.Slice<stdgo.GoByte>;}`](<#buffer-function-_readslice>)
 
-  - [`function _tryGrowByReslice( _n:stdgo.GoInt):{_1:Bool, _0:stdgo.GoInt}`](<#buffer-function-_trygrowbyreslice>)
+  - [`function _tryGrowByReslice( _n:stdgo.GoInt):{ _1:Bool; _0:stdgo.GoInt;}`](<#buffer-function-_trygrowbyreslice>)
 
   - [`function bytes():stdgo.Slice<stdgo.GoByte>`](<#buffer-function-bytes>)
 
@@ -683,17 +693,17 @@ stdgo/internal/Macro.macro.hx:35: define
 
   - [`function next( _n:stdgo.GoInt):stdgo.Slice<stdgo.GoByte>`](<#buffer-function-next>)
 
-  - [`function read( _p:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#buffer-function-read>)
+  - [`function read( _p:stdgo.Slice<stdgo.GoByte>):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#buffer-function-read>)
 
-  - [`function readByte():{_1:stdgo.Error, _0:stdgo.GoByte}`](<#buffer-function-readbyte>)
+  - [`function readByte():{ _1:stdgo.Error; _0:stdgo.GoByte;}`](<#buffer-function-readbyte>)
 
-  - [`function readBytes( _delim:stdgo.GoByte):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoByte>}`](<#buffer-function-readbytes>)
+  - [`function readBytes( _delim:stdgo.GoByte):{ _1:stdgo.Error; _0:stdgo.Slice<stdgo.GoByte>;}`](<#buffer-function-readbytes>)
 
-  - [`function readFrom( _r:stdgo.io.Reader):{_1:stdgo.Error, _0:stdgo.GoInt64}`](<#buffer-function-readfrom>)
+  - [`function readFrom( _r:stdgo.io.Reader):{ _1:stdgo.Error; _0:stdgo.GoInt64;}`](<#buffer-function-readfrom>)
 
-  - [`function readRune():{_2:stdgo.Error, _1:stdgo.GoInt, _0:stdgo.GoRune}`](<#buffer-function-readrune>)
+  - [`function readRune():{ _2:stdgo.Error; _1:stdgo.GoInt; _0:stdgo.GoRune;}`](<#buffer-function-readrune>)
 
-  - [`function readString( _delim:stdgo.GoByte):{_1:stdgo.Error, _0:stdgo.GoString}`](<#buffer-function-readstring>)
+  - [`function readString( _delim:stdgo.GoByte):{ _1:stdgo.Error; _0:stdgo.GoString;}`](<#buffer-function-readstring>)
 
   - [`function reset():Void`](<#buffer-function-reset>)
 
@@ -705,15 +715,15 @@ stdgo/internal/Macro.macro.hx:35: define
 
   - [`function unreadRune():stdgo.Error`](<#buffer-function-unreadrune>)
 
-  - [`function write( _p:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#buffer-function-write>)
+  - [`function write( _p:stdgo.Slice<stdgo.GoByte>):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#buffer-function-write>)
 
   - [`function writeByte( _c:stdgo.GoByte):stdgo.Error`](<#buffer-function-writebyte>)
 
-  - [`function writeRune( _r:stdgo.GoRune):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#buffer-function-writerune>)
+  - [`function writeRune( _r:stdgo.GoRune):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#buffer-function-writerune>)
 
-  - [`function writeString( _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#buffer-function-writestring>)
+  - [`function writeString( _s:stdgo.GoString):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#buffer-function-writestring>)
 
-  - [`function writeTo( _w:stdgo.io.Writer):{_1:stdgo.Error, _0:stdgo.GoInt64}`](<#buffer-function-writeto>)
+  - [`function writeTo( _w:stdgo.io.Writer):{ _1:stdgo.Error; _0:stdgo.GoInt64;}`](<#buffer-function-writeto>)
 
 - [class Reader](<#class-reader>)
 
@@ -721,17 +731,17 @@ stdgo/internal/Macro.macro.hx:35: define
 
   - [`function len():stdgo.GoInt`](<#reader-function-len>)
 
-  - [`function read( _b:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#reader-function-read>)
+  - [`function read( _b:stdgo.Slice<stdgo.GoByte>):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#reader-function-read>)
 
-  - [`function readAt( _b:stdgo.Slice<stdgo.GoByte>, _off:stdgo.GoInt64):{_1:stdgo.Error, _0:stdgo.GoInt}`](<#reader-function-readat>)
+  - [`function readAt( _b:stdgo.Slice<stdgo.GoByte>, _off:stdgo.GoInt64):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#reader-function-readat>)
 
-  - [`function readByte():{_1:stdgo.Error, _0:stdgo.GoByte}`](<#reader-function-readbyte>)
+  - [`function readByte():{ _1:stdgo.Error; _0:stdgo.GoByte;}`](<#reader-function-readbyte>)
 
-  - [`function readRune():{_2:stdgo.Error, _1:stdgo.GoInt, _0:stdgo.GoRune}`](<#reader-function-readrune>)
+  - [`function readRune():{ _2:stdgo.Error; _1:stdgo.GoInt; _0:stdgo.GoRune;}`](<#reader-function-readrune>)
 
   - [`function reset( _b:stdgo.Slice<stdgo.GoByte>):Void`](<#reader-function-reset>)
 
-  - [`function seek( _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{_1:stdgo.Error, _0:stdgo.GoInt64}`](<#reader-function-seek>)
+  - [`function seek( _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{ _1:stdgo.Error; _0:stdgo.GoInt64;}`](<#reader-function-seek>)
 
   - [`function size():stdgo.GoInt64`](<#reader-function-size>)
 
@@ -739,7 +749,7 @@ stdgo/internal/Macro.macro.hx:35: define
 
   - [`function unreadRune():stdgo.Error`](<#reader-function-unreadrune>)
 
-  - [`function writeTo( _w:stdgo.io.Writer):{_1:stdgo.Error, _0:stdgo.GoInt64}`](<#reader-function-writeto>)
+  - [`function writeTo( _w:stdgo.io.Writer):{ _1:stdgo.Error; _0:stdgo.GoInt64;}`](<#reader-function-writeto>)
 
 - [class T\_fieldsFunc\_0\_\_\_localname\_\_\_span](<#class-t_fieldsfunc_0localnamespan>)
 
@@ -1116,7 +1126,11 @@ function exampleCount():Void {
 
 
 ```haxe
-function cut(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):{_2:Bool, _1:stdgo.Slice<stdgo.GoByte>, _0:stdgo.Slice<stdgo.GoByte>}
+function cut(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):{
+	_2:Bool;
+	_1:stdgo.Slice<stdgo.GoByte>;
+	_0:stdgo.Slice<stdgo.GoByte>;
+}
 ```
 
 
@@ -1163,7 +1177,10 @@ function exampleCut():Void {
 
 
 ```haxe
-function cutPrefix(_s:stdgo.Slice<stdgo.GoByte>, _prefix:stdgo.Slice<stdgo.GoByte>):{_1:Bool, _0:stdgo.Slice<stdgo.GoByte>}
+function cutPrefix(_s:stdgo.Slice<stdgo.GoByte>, _prefix:stdgo.Slice<stdgo.GoByte>):{
+	_1:Bool;
+	_0:stdgo.Slice<stdgo.GoByte>;
+}
 ```
 
 
@@ -1185,7 +1202,10 @@ CutPrefix returns slices of the original slice s, not copies.
 
 
 ```haxe
-function cutSuffix(_s:stdgo.Slice<stdgo.GoByte>, _suffix:stdgo.Slice<stdgo.GoByte>):{_1:Bool, _0:stdgo.Slice<stdgo.GoByte>}
+function cutSuffix(_s:stdgo.Slice<stdgo.GoByte>, _suffix:stdgo.Slice<stdgo.GoByte>):{
+	_1:Bool;
+	_0:stdgo.Slice<stdgo.GoByte>;
+}
 ```
 
 
@@ -2889,7 +2909,10 @@ If the buffer can't grow it will panic with ErrTooLarge.
 
 
 ```haxe
-function _readSlice( _delim:stdgo.GoByte):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoByte>}
+function _readSlice( _delim:stdgo.GoByte):{
+	_1:stdgo.Error;
+	_0:stdgo.Slice<stdgo.GoByte>;
+}
 ```
 
 
@@ -2904,7 +2927,10 @@ readSlice is like ReadBytes but returns a reference to internal buffer data.
 
 
 ```haxe
-function _tryGrowByReslice( _n:stdgo.GoInt):{_1:Bool, _0:stdgo.GoInt}
+function _tryGrowByReslice( _n:stdgo.GoInt):{
+	_1:Bool;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -3009,7 +3035,10 @@ The slice is only valid until the next call to a read or write method.
 
 
 ```haxe
-function read( _p:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function read( _p:stdgo.Slice<stdgo.GoByte>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -3027,7 +3056,10 @@ otherwise it is nil.
 
 
 ```haxe
-function readByte():{_1:stdgo.Error, _0:stdgo.GoByte}
+function readByte():{
+	_1:stdgo.Error;
+	_0:stdgo.GoByte;
+}
 ```
 
 
@@ -3043,7 +3075,10 @@ If no byte is available, it returns error io.EOF.
 
 
 ```haxe
-function readBytes( _delim:stdgo.GoByte):{_1:stdgo.Error, _0:stdgo.Slice<stdgo.GoByte>}
+function readBytes( _delim:stdgo.GoByte):{
+	_1:stdgo.Error;
+	_0:stdgo.Slice<stdgo.GoByte>;
+}
 ```
 
 
@@ -3063,7 +3098,10 @@ delim.
 
 
 ```haxe
-function readFrom( _r:stdgo.io.Reader):{_1:stdgo.Error, _0:stdgo.GoInt64}
+function readFrom( _r:stdgo.io.Reader):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt64;
+}
 ```
 
 
@@ -3081,7 +3119,11 @@ buffer becomes too large, ReadFrom will panic with ErrTooLarge.
 
 
 ```haxe
-function readRune():{_2:stdgo.Error, _1:stdgo.GoInt, _0:stdgo.GoRune}
+function readRune():{
+	_2:stdgo.Error;
+	_1:stdgo.GoInt;
+	_0:stdgo.GoRune;
+}
 ```
 
 
@@ -3100,7 +3142,10 @@ consumes one byte and returns U\+FFFD, 1.
 
 
 ```haxe
-function readString( _delim:stdgo.GoByte):{_1:stdgo.Error, _0:stdgo.GoString}
+function readString( _delim:stdgo.GoByte):{
+	_1:stdgo.Error;
+	_0:stdgo.GoString;
+}
 ```
 
 
@@ -3211,7 +3256,10 @@ from any read operation.\)
 
 
 ```haxe
-function write( _p:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function write( _p:stdgo.Slice<stdgo.GoByte>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -3246,7 +3294,10 @@ ErrTooLarge.
 
 
 ```haxe
-function writeRune( _r:stdgo.GoRune):{_1:stdgo.Error, _0:stdgo.GoInt}
+function writeRune( _r:stdgo.GoRune):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -3264,7 +3315,10 @@ if it becomes too large, WriteRune will panic with ErrTooLarge.
 
 
 ```haxe
-function writeString( _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}
+function writeString( _s:stdgo.GoString):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -3281,7 +3335,10 @@ buffer becomes too large, WriteString will panic with ErrTooLarge.
 
 
 ```haxe
-function writeTo( _w:stdgo.io.Writer):{_1:stdgo.Error, _0:stdgo.GoInt64}
+function writeTo( _w:stdgo.io.Writer):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt64;
+}
 ```
 
 
@@ -3355,7 +3412,10 @@ slice.
 
 
 ```haxe
-function read( _b:stdgo.Slice<stdgo.GoByte>):{_1:stdgo.Error, _0:stdgo.GoInt}
+function read( _b:stdgo.Slice<stdgo.GoByte>):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -3370,7 +3430,10 @@ Read implements the io.Reader interface.
 
 
 ```haxe
-function readAt( _b:stdgo.Slice<stdgo.GoByte>, _off:stdgo.GoInt64):{_1:stdgo.Error, _0:stdgo.GoInt}
+function readAt( _b:stdgo.Slice<stdgo.GoByte>, _off:stdgo.GoInt64):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt;
+}
 ```
 
 
@@ -3385,7 +3448,10 @@ ReadAt implements the io.ReaderAt interface.
 
 
 ```haxe
-function readByte():{_1:stdgo.Error, _0:stdgo.GoByte}
+function readByte():{
+	_1:stdgo.Error;
+	_0:stdgo.GoByte;
+}
 ```
 
 
@@ -3400,7 +3466,11 @@ ReadByte implements the io.ByteReader interface.
 
 
 ```haxe
-function readRune():{_2:stdgo.Error, _1:stdgo.GoInt, _0:stdgo.GoRune}
+function readRune():{
+	_2:stdgo.Error;
+	_1:stdgo.GoInt;
+	_0:stdgo.GoRune;
+}
 ```
 
 
@@ -3430,7 +3500,10 @@ Reset resets the Reader to be reading from b.
 
 
 ```haxe
-function seek( _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{_1:stdgo.Error, _0:stdgo.GoInt64}
+function seek( _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt64;
+}
 ```
 
 
@@ -3492,7 +3565,10 @@ UnreadRune complements ReadRune in implementing the io.RuneScanner interface.
 
 
 ```haxe
-function writeTo( _w:stdgo.io.Writer):{_1:stdgo.Error, _0:stdgo.GoInt64}
+function writeTo( _w:stdgo.io.Writer):{
+	_1:stdgo.Error;
+	_0:stdgo.GoInt64;
+}
 ```
 
 

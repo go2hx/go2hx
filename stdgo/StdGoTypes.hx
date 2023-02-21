@@ -1790,9 +1790,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 			return gt.match(basic(untyped_nil_kind)) && gt2.match(basic(untyped_nil_kind));
 		// set internal Type
 		if (!a.type.assignableTo(cast new stdgo.internal.reflect.Reflect._Type_asInterface(new Pointer(() -> b.type, value -> b.type = value), b.type))) {
-			trace(gt);
-			trace(gt2);
-			throw "invalid operation: (mismatched types " + a.type + " and " + b.type + ")";
+			return false;
 		}
 		var aValue = a.value;
 		var bValue = b.value;

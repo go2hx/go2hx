@@ -796,9 +796,9 @@ final list = [
 				false;
 			case stdgo.internal.reflect.Reflect.KindType.invalid:
 				false;
-			case stdgo.internal.reflect.Reflect.KindType.unsafePointer:
+			case stdgo.internal.reflect.Reflect.KindType.unsafePointer, stdgo.internal.reflect.Reflect.KindType.uintptr:
 				value == null;
-			case stdgo.internal.reflect.Reflect.KindType.bool:
+			case stdgo.internal.reflect.Reflect.KindType.bool, stdgo.internal.reflect.Reflect.KindType.int, stdgo.internal.reflect.Reflect.KindType.int32, stdgo.internal.reflect.Reflect.KindType.int64, stdgo.internal.reflect.Reflect.KindType.float32, stdgo.internal.reflect.Reflect.KindType.float64, stdgo.internal.reflect.Reflect.KindType.int8, stdgo.internal.reflect.Reflect.KindType.int16, stdgo.internal.reflect.Reflect.KindType.uint, stdgo.internal.reflect.Reflect.KindType.uint8, stdgo.internal.reflect.Reflect.KindType.uint16, stdgo.internal.reflect.Reflect.KindType.uint32, stdgo.internal.reflect.Reflect.KindType.uint64:
 				false;
 			default:
 				throw "nil check not supported kind: " + _v.kind().string();
@@ -836,7 +836,7 @@ final list = [
 							@:privateAccess value.canAddrBool = true;
 							return value;
 						};
-						final ptrValue = null;
+						final ptrValue = (value : Pointer<Dynamic>).value;
 						final value = new Value(new AnyInterface(ptrValue, new stdgo.internal.reflect.Reflect._Type(elem)), value);
 						@:privateAccess value.canAddrBool = true;
 						return value;

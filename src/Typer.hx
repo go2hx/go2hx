@@ -1634,7 +1634,7 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 			return null;
 		var value = typeExpr(obj.list[i], info);
 		if (tag != null) {
-			value = translateEquals(tag, value, tagType, typeof(obj.list[i], info, false), OpEq, info);
+			value = translateEquals(macro __value__, value, tagType, typeof(obj.list[i], info, false), OpEq, info);
 		}
 		if (i + 1 >= obj.list.length)
 			return value;
@@ -1668,6 +1668,12 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 	}
 	info.global.hasBreak = false;
 	var expr = ifs();
+	if (tag != null) {
+		expr = macro {
+			final __value__ = $tag;
+			$expr;
+		};
+	}
 	if (hasFallThrough || info.global.hasBreak) {
 		if (info.global.hasBreak) {
 			function func(expr:Expr):Expr {

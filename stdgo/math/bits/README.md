@@ -24,82 +24,82 @@ architecture and the Go release.
 
 ```
 === RUN  TestUintSize
---- PASS: TestUintSize (%!s(float64=5.698204040527344e-05))
+--- PASS: TestUintSize (%!s(float64=4.315376281738281e-05))
 
 === RUN  TestLeadingZeros
---- PASS: TestLeadingZeros (%!s(float64=0.7553589344024658))
+--- PASS: TestLeadingZeros (%!s(float64=0.5868289470672607))
 
 === RUN  TestTrailingZeros
---- PASS: TestTrailingZeros (%!s(float64=0.6215782165527344))
+--- PASS: TestTrailingZeros (%!s(float64=0.49263906478881836))
 
 === RUN  TestOnesCount
---- PASS: TestOnesCount (%!s(float64=1.6903319358825684))
+--- PASS: TestOnesCount (%!s(float64=1.298403024673462))
 
 === RUN  TestRotateLeft
---- PASS: TestRotateLeft (%!s(float64=0.0022830963134765625))
+--- PASS: TestRotateLeft (%!s(float64=0.0019021034240722656))
 
 === RUN  TestReverse
---- PASS: TestReverse (%!s(float64=0.02331686019897461))
+--- PASS: TestReverse (%!s(float64=0.017904043197631836))
 
 === RUN  TestReverseBytes
---- PASS: TestReverseBytes (%!s(float64=0.0012090206146240234))
+--- PASS: TestReverseBytes (%!s(float64=0.0009300708770751953))
 
 === RUN  TestLen
---- PASS: TestLen (%!s(float64=0.7546219825744629))
+--- PASS: TestLen (%!s(float64=0.5769150257110596))
 
 === RUN  TestAddSubUint
---- PASS: TestAddSubUint (%!s(float64=0.00028014183044433594))
+--- PASS: TestAddSubUint (%!s(float64=0.00019216537475585938))
 
 === RUN  TestAddSubUint32
---- PASS: TestAddSubUint32 (%!s(float64=0.00016188621520996094))
+--- PASS: TestAddSubUint32 (%!s(float64=0.00010180473327636719))
 
 === RUN  TestAddSubUint64
---- PASS: TestAddSubUint64 (%!s(float64=0.0015168190002441406))
+--- PASS: TestAddSubUint64 (%!s(float64=0.00041604042053222656))
 
 === RUN  TestAdd64OverflowPanic
---- PASS: TestAdd64OverflowPanic (%!s(float64=0.0005710124969482422))
+--- PASS: TestAdd64OverflowPanic (%!s(float64=0.0012907981872558594))
 
 === RUN  TestSub64OverflowPanic
---- PASS: TestSub64OverflowPanic (%!s(float64=0.0005140304565429688))
+--- PASS: TestSub64OverflowPanic (%!s(float64=0.00037407875061035156))
 
 === RUN  TestMulDiv
---- PASS: TestMulDiv (%!s(float64=0.0005140304565429688))
+--- PASS: TestMulDiv (%!s(float64=0.00026988983154296875))
 
 === RUN  TestMulDiv32
---- PASS: TestMulDiv32 (%!s(float64=0.00035381317138671875))
+--- PASS: TestMulDiv32 (%!s(float64=0.00019693374633789062))
 
 === RUN  TestMulDiv64
---- PASS: TestMulDiv64 (%!s(float64=0.0032410621643066406))
+--- PASS: TestMulDiv64 (%!s(float64=0.0014350414276123047))
 
 === RUN  TestDivPanicOverflow
---- PASS: TestDivPanicOverflow (%!s(float64=8.416175842285156e-05))
+--- PASS: TestDivPanicOverflow (%!s(float64=5.412101745605469e-05))
 
 === RUN  TestDiv32PanicOverflow
---- PASS: TestDiv32PanicOverflow (%!s(float64=6.079673767089844e-05))
+--- PASS: TestDiv32PanicOverflow (%!s(float64=3.3855438232421875e-05))
 
 === RUN  TestDiv64PanicOverflow
---- PASS: TestDiv64PanicOverflow (%!s(float64=6.198883056640625e-05))
+--- PASS: TestDiv64PanicOverflow (%!s(float64=3.600120544433594e-05))
 
 === RUN  TestDivPanicZero
---- PASS: TestDivPanicZero (%!s(float64=8.177757263183594e-05))
+--- PASS: TestDivPanicZero (%!s(float64=5.817413330078125e-05))
 
 === RUN  TestDiv32PanicZero
---- PASS: TestDiv32PanicZero (%!s(float64=6.413459777832031e-05))
+--- PASS: TestDiv32PanicZero (%!s(float64=3.600120544433594e-05))
 
 === RUN  TestDiv64PanicZero
---- PASS: TestDiv64PanicZero (%!s(float64=6.508827209472656e-05))
+--- PASS: TestDiv64PanicZero (%!s(float64=3.719329833984375e-05))
 
 === RUN  TestRem32
---- PASS: TestRem32 (%!s(float64=0.08949899673461914))
+--- PASS: TestRem32 (%!s(float64=0.04976010322570801))
 
 === RUN  TestRem32Overflow
---- PASS: TestRem32Overflow (%!s(float64=0.09870195388793945))
+--- PASS: TestRem32Overflow (%!s(float64=0.05976390838623047))
 
 === RUN  TestRem64
---- PASS: TestRem64 (%!s(float64=0.5040590763092041))
+--- PASS: TestRem64 (%!s(float64=0.31516599655151367))
 
 === RUN  TestRem64Overflow
---- PASS: TestRem64Overflow (%!s(float64=0.0009920597076416016))
+--- PASS: TestRem64Overflow (%!s(float64=0.0006299018859863281))
 
 ```
 </p>
@@ -110,82 +110,82 @@ architecture and the Go release.
 
 ```
 === RUN  TestUintSize
---- PASS: TestUintSize (%!s(float64=2.8848648071289062e-05))
+--- PASS: TestUintSize (%!s(float64=2.5987625122070312e-05))
 
 === RUN  TestLeadingZeros
---- PASS: TestLeadingZeros (%!s(float64=3.7502970695495605))
+--- PASS: TestLeadingZeros (%!s(float64=2.7183191776275635))
 
 === RUN  TestTrailingZeros
---- PASS: TestTrailingZeros (%!s(float64=3.444031000137329))
+--- PASS: TestTrailingZeros (%!s(float64=2.537956953048706))
 
 === RUN  TestOnesCount
---- PASS: TestOnesCount (%!s(float64=8.692682981491089))
+--- PASS: TestOnesCount (%!s(float64=6.648803949356079))
 
 === RUN  TestRotateLeft
---- PASS: TestRotateLeft (%!s(float64=0.0164639949798584))
+--- PASS: TestRotateLeft (%!s(float64=0.013802051544189453))
 
 === RUN  TestReverse
---- PASS: TestReverse (%!s(float64=0.09993720054626465))
+--- PASS: TestReverse (%!s(float64=0.08274602890014648))
 
 === RUN  TestReverseBytes
---- PASS: TestReverseBytes (%!s(float64=0.0073909759521484375))
+--- PASS: TestReverseBytes (%!s(float64=0.00621485710144043))
 
 === RUN  TestLen
---- PASS: TestLen (%!s(float64=3.5169620513916016))
+--- PASS: TestLen (%!s(float64=2.729889154434204))
 
 === RUN  TestAddSubUint
---- PASS: TestAddSubUint (%!s(float64=0.0017189979553222656))
+--- PASS: TestAddSubUint (%!s(float64=0.0014379024505615234))
 
 === RUN  TestAddSubUint32
---- PASS: TestAddSubUint32 (%!s(float64=0.0008749961853027344))
+--- PASS: TestAddSubUint32 (%!s(float64=0.0006899833679199219))
 
 === RUN  TestAddSubUint64
---- PASS: TestAddSubUint64 (%!s(float64=0.0026099681854248047))
+--- PASS: TestAddSubUint64 (%!s(float64=0.0021162033081054688))
 
 === RUN  TestAdd64OverflowPanic
---- PASS: TestAdd64OverflowPanic (%!s(float64=0.003292083740234375))
+--- PASS: TestAdd64OverflowPanic (%!s(float64=0.0024399757385253906))
 
 === RUN  TestSub64OverflowPanic
---- PASS: TestSub64OverflowPanic (%!s(float64=0.002671957015991211))
+--- PASS: TestSub64OverflowPanic (%!s(float64=0.0019559860229492188))
 
 === RUN  TestMulDiv
---- PASS: TestMulDiv (%!s(float64=0.0019378662109375))
+--- PASS: TestMulDiv (%!s(float64=0.0016300678253173828))
 
 === RUN  TestMulDiv32
---- PASS: TestMulDiv32 (%!s(float64=0.0013120174407958984))
+--- PASS: TestMulDiv32 (%!s(float64=0.0010750293731689453))
 
 === RUN  TestMulDiv64
---- PASS: TestMulDiv64 (%!s(float64=0.011468172073364258))
+--- PASS: TestMulDiv64 (%!s(float64=0.009428977966308594))
 
 === RUN  TestDivPanicOverflow
---- PASS: TestDivPanicOverflow (%!s(float64=0.0003199577331542969))
+--- PASS: TestDivPanicOverflow (%!s(float64=0.0002448558807373047))
 
 === RUN  TestDiv32PanicOverflow
---- PASS: TestDiv32PanicOverflow (%!s(float64=8.511543273925781e-05))
+--- PASS: TestDiv32PanicOverflow (%!s(float64=9.012222290039062e-05))
 
 === RUN  TestDiv64PanicOverflow
---- PASS: TestDiv64PanicOverflow (%!s(float64=0.00018095970153808594))
+--- PASS: TestDiv64PanicOverflow (%!s(float64=9.703636169433594e-05))
 
 === RUN  TestDivPanicZero
---- PASS: TestDivPanicZero (%!s(float64=0.00014591217041015625))
+--- PASS: TestDivPanicZero (%!s(float64=0.00010800361633300781))
 
 === RUN  TestDiv32PanicZero
---- PASS: TestDiv32PanicZero (%!s(float64=0.00012111663818359375))
+--- PASS: TestDiv32PanicZero (%!s(float64=9.989738464355469e-05))
 
 === RUN  TestDiv64PanicZero
---- PASS: TestDiv64PanicZero (%!s(float64=0.0002720355987548828))
+--- PASS: TestDiv64PanicZero (%!s(float64=9.298324584960938e-05))
 
 === RUN  TestRem32
---- PASS: TestRem32 (%!s(float64=0.2600669860839844))
+--- PASS: TestRem32 (%!s(float64=0.20076799392700195))
 
 === RUN  TestRem32Overflow
---- PASS: TestRem32Overflow (%!s(float64=0.30104494094848633))
+--- PASS: TestRem32Overflow (%!s(float64=0.24091100692749023))
 
 === RUN  TestRem64
---- PASS: TestRem64 (%!s(float64=1.840881109237671))
+--- PASS: TestRem64 (%!s(float64=1.4923820495605469))
 
 === RUN  TestRem64Overflow
---- PASS: TestRem64Overflow (%!s(float64=0.004853010177612305))
+--- PASS: TestRem64Overflow (%!s(float64=0.0040929317474365234))
 
 ```
 </p>

@@ -23,31 +23,31 @@ operating system paths, use the path/filepath package.
 
 ```
 === RUN  TestMatch
---- PASS: TestMatch (%!s(float64=0.0027930736541748047))
+--- PASS: TestMatch (%!s(float64=0.001016855239868164))
 
 === RUN  TestClean
---- PASS: TestClean (%!s(float64=0.0001678466796875))
+--- PASS: TestClean (%!s(float64=0.00012993812561035156))
 
 === RUN  TestCleanMallocs
---- PASS: TestCleanMallocs (%!s(float64=2.193450927734375e-05))
+--- PASS: TestCleanMallocs (%!s(float64=8.821487426757812e-06))
 
 === RUN  TestSplit
---- PASS: TestSplit (%!s(float64=3.0994415283203125e-05))
+--- PASS: TestSplit (%!s(float64=1.5974044799804688e-05))
 
 === RUN  TestJoin
---- PASS: TestJoin (%!s(float64=8.606910705566406e-05))
+--- PASS: TestJoin (%!s(float64=4.792213439941406e-05))
 
 === RUN  TestExt
---- PASS: TestExt (%!s(float64=9.059906005859375e-06))
+--- PASS: TestExt (%!s(float64=7.867813110351562e-06))
 
 === RUN  TestBase
---- PASS: TestBase (%!s(float64=3.600120544433594e-05))
+--- PASS: TestBase (%!s(float64=2.09808349609375e-05))
 
 === RUN  TestDir
---- PASS: TestDir (%!s(float64=5.412101745605469e-05))
+--- PASS: TestDir (%!s(float64=3.600120544433594e-05))
 
 === RUN  TestIsAbs
---- PASS: TestIsAbs (%!s(float64=1.6927719116210938e-05))
+--- PASS: TestIsAbs (%!s(float64=4.0531158447265625e-06))
 
 ```
 </p>
@@ -58,31 +58,31 @@ operating system paths, use the path/filepath package.
 
 ```
 === RUN  TestMatch
---- PASS: TestMatch (%!s(float64=0.004865884780883789))
+--- PASS: TestMatch (%!s(float64=0.003888845443725586))
 
 === RUN  TestClean
---- PASS: TestClean (%!s(float64=0.0013370513916015625))
+--- PASS: TestClean (%!s(float64=0.0009598731994628906))
 
 === RUN  TestCleanMallocs
---- PASS: TestCleanMallocs (%!s(float64=5.1975250244140625e-05))
+--- PASS: TestCleanMallocs (%!s(float64=5.2928924560546875e-05))
 
 === RUN  TestSplit
---- PASS: TestSplit (%!s(float64=6.794929504394531e-05))
+--- PASS: TestSplit (%!s(float64=4.00543212890625e-05))
 
 === RUN  TestJoin
---- PASS: TestJoin (%!s(float64=0.00037789344787597656))
+--- PASS: TestJoin (%!s(float64=0.0002307891845703125))
 
 === RUN  TestExt
---- PASS: TestExt (%!s(float64=3.790855407714844e-05))
+--- PASS: TestExt (%!s(float64=3.218650817871094e-05))
 
 === RUN  TestBase
---- PASS: TestBase (%!s(float64=9.298324584960938e-05))
+--- PASS: TestBase (%!s(float64=6.699562072753906e-05))
 
 === RUN  TestDir
---- PASS: TestDir (%!s(float64=0.00014400482177734375))
+--- PASS: TestDir (%!s(float64=0.00011706352233886719))
 
 === RUN  TestIsAbs
---- PASS: TestIsAbs (%!s(float64=4.9114227294921875e-05))
+--- PASS: TestIsAbs (%!s(float64=1.811981201171875e-05))
 
 ```
 </p>

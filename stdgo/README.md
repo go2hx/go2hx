@@ -567,7 +567,7 @@ function hasNext():Bool
 
 
 
-[\(view code\)](<./StdGoTypes.hx#L1924>)
+[\(view code\)](<./StdGoTypes.hx#L1922>)
 
 
 ### GoIntIterator function new
@@ -581,7 +581,7 @@ function new(min:stdgo.GoInt, max:stdgo.GoInt):Void
 
 
 
-[\(view code\)](<./StdGoTypes.hx#L1919>)
+[\(view code\)](<./StdGoTypes.hx#L1917>)
 
 
 ### GoIntIterator function next
@@ -595,7 +595,7 @@ function next():stdgo.GoInt
 
 
 
-[\(view code\)](<./StdGoTypes.hx#L1928>)
+[\(view code\)](<./StdGoTypes.hx#L1926>)
 
 
 ## class GoObjectMap

@@ -875,83 +875,83 @@ bufio.NewReader.
 Error: Command failed with error 1
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestErrorf
---- PASS: TestErrorf (%!s(float64=0.012622833251953125))
+--- PASS: TestErrorf (%!s(float64=0.00858306884765625))
 
 === RUN  TestFmtInterface
---- PASS: TestFmtInterface (%!s(float64=0.00019693374633789062))
+--- PASS: TestFmtInterface (%!s(float64=0.0001399517059326172))
 
 === RUN  TestSprintf
---- PASS: TestSprintf (%!s(float64=0.3504350185394287))
+--- PASS: TestSprintf (%!s(float64=0.24022293090820312))
 
 === RUN  TestComplexFormatting
---- PASS: TestComplexFormatting (%!s(float64=1.4901790618896484))
+--- PASS: TestComplexFormatting (%!s(float64=1.0813097953796387))
 
 === RUN  TestReorder
---- PASS: TestReorder (%!s(float64=0.012159109115600586))
+--- PASS: TestReorder (%!s(float64=0.009246110916137695))
 
 === RUN  TestCountMallocs
---- PASS: TestCountMallocs (%!s(float64=2.5033950805664062e-05))
+--- PASS: TestCountMallocs (%!s(float64=1.3113021850585938e-05))
 
 === RUN  TestFlagParser
---- PASS: TestFlagParser (%!s(float64=0.015655994415283203))
+--- PASS: TestFlagParser (%!s(float64=0.006501913070678711))
 
 === RUN  TestStructPrinter
---- PASS: TestStructPrinter (%!s(float64=0.0056438446044921875))
+--- PASS: TestStructPrinter (%!s(float64=0.0039348602294921875))
 
 === RUN  TestSlicePrinter
---- PASS: TestSlicePrinter (%!s(float64=0.0009779930114746094))
+--- PASS: TestSlicePrinter (%!s(float64=0.0007390975952148438))
 
 === RUN  TestMapPrinter
---- PASS: TestMapPrinter (%!s(float64=0.00560307502746582))
+--- PASS: TestMapPrinter (%!s(float64=0.0040471553802490234))
 
 === RUN  TestEmptyMap
---- PASS: TestEmptyMap (%!s(float64=0.0020940303802490234))
+--- PASS: TestEmptyMap (%!s(float64=0.0016689300537109375))
 
 === RUN  TestBlank
---- PASS: TestBlank (%!s(float64=0.0005130767822265625))
+--- PASS: TestBlank (%!s(float64=0.0003829002380371094))
 
 === RUN  TestBlankln
---- PASS: TestBlankln (%!s(float64=0.0006229877471923828))
+--- PASS: TestBlankln (%!s(float64=0.00041604042053222656))
 
 === RUN  TestFormatterPrintln
---- PASS: TestFormatterPrintln (%!s(float64=0.0019061565399169922))
+--- PASS: TestFormatterPrintln (%!s(float64=0.002689838409423828))
 
 === RUN  TestWidthAndPrecision
---- PASS: TestWidthAndPrecision (%!s(float64=0.0050580501556396484))
+--- PASS: TestWidthAndPrecision (%!s(float64=0.003482818603515625))
 
 === RUN  TestPanics
 fmt_test/Fmt_test.hx:3294: testPanics skip function
---- PASS: TestPanics (%!s(float64=2.2172927856445312e-05))
+--- PASS: TestPanics (%!s(float64=1.8835067749023438e-05))
 
 === RUN  TestBadVerbRecursion
---- PASS: TestBadVerbRecursion (%!s(float64=0.0002429485321044922))
+--- PASS: TestBadVerbRecursion (%!s(float64=0.00019502639770507812))
 
 === RUN  TestIsSpace
---- PASS: TestIsSpace (%!s(float64=1.0349030494689941))
+--- PASS: TestIsSpace (%!s(float64=0.7449870109558105))
 
 === RUN  TestNilDoesNotBecomeTyped
---- PASS: TestNilDoesNotBecomeTyped (%!s(float64=0.002167940139770508))
+--- PASS: TestNilDoesNotBecomeTyped (%!s(float64=0.00041604042053222656))
 
 === RUN  TestFormatterFlags
---- PASS: TestFormatterFlags (%!s(float64=0.03492093086242676))
+--- PASS: TestFormatterFlags (%!s(float64=0.02744317054748535))
 
 === RUN  TestParsenum
---- PASS: TestParsenum (%!s(float64=1.9073486328125e-05))
+--- PASS: TestParsenum (%!s(float64=1.621246337890625e-05))
 
 === RUN  TestAppendf
---- PASS: TestAppendf (%!s(float64=0.00013494491577148438))
+--- PASS: TestAppendf (%!s(float64=9.608268737792969e-05))
 
 === RUN  TestAppend
---- PASS: TestAppend (%!s(float64=0.0004611015319824219))
+--- PASS: TestAppend (%!s(float64=0.00024509429931640625))
 
 === RUN  TestAppendln
---- PASS: TestAppendln (%!s(float64=0.002147197723388672))
+--- PASS: TestAppendln (%!s(float64=0.00017404556274414062))
 
 === RUN  TestScan
---- PASS: TestScan (%!s(float64=1.4066696166992188e-05))
+--- PASS: TestScan (%!s(float64=3.814697265625e-06))
 
 === RUN  TestScanln
---- PASS: TestScanln (%!s(float64=5.0067901611328125e-06))
+--- PASS: TestScanln (%!s(float64=4.0531158447265625e-06))
 
 === RUN  TestScanf
 Exception: Null access
@@ -976,83 +976,83 @@ Called from stdgo.fmt_test._Fmt.$Fmt_Fields_.main (stdgo/fmt_test/Fmt.hx line 13
 ```
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestErrorf
---- PASS: TestErrorf (%!s(float64=0.014117002487182617))
+--- PASS: TestErrorf (%!s(float64=0.01093602180480957))
 
 === RUN  TestFmtInterface
---- PASS: TestFmtInterface (%!s(float64=0.00029397010803222656))
+--- PASS: TestFmtInterface (%!s(float64=0.00023102760314941406))
 
 === RUN  TestSprintf
---- PASS: TestSprintf (%!s(float64=0.7727541923522949))
+--- PASS: TestSprintf (%!s(float64=0.5660929679870605))
 
 === RUN  TestComplexFormatting
---- PASS: TestComplexFormatting (%!s(float64=4.842864036560059))
+--- PASS: TestComplexFormatting (%!s(float64=3.5619750022888184))
 
 === RUN  TestReorder
---- PASS: TestReorder (%!s(float64=0.03319907188415527))
+--- PASS: TestReorder (%!s(float64=0.024225950241088867))
 
 === RUN  TestCountMallocs
---- PASS: TestCountMallocs (%!s(float64=4.9114227294921875e-05))
+--- PASS: TestCountMallocs (%!s(float64=3.0040740966796875e-05))
 
 === RUN  TestFlagParser
---- PASS: TestFlagParser (%!s(float64=0.010946035385131836))
+--- PASS: TestFlagParser (%!s(float64=0.008374929428100586))
 
 === RUN  TestStructPrinter
---- PASS: TestStructPrinter (%!s(float64=0.009213924407958984))
+--- PASS: TestStructPrinter (%!s(float64=0.006223917007446289))
 
 === RUN  TestSlicePrinter
---- PASS: TestSlicePrinter (%!s(float64=0.0021810531616210938))
+--- PASS: TestSlicePrinter (%!s(float64=0.0016698837280273438))
 
 === RUN  TestMapPrinter
---- PASS: TestMapPrinter (%!s(float64=0.00755000114440918))
+--- PASS: TestMapPrinter (%!s(float64=0.005959987640380859))
 
 === RUN  TestEmptyMap
---- PASS: TestEmptyMap (%!s(float64=0.0009121894836425781))
+--- PASS: TestEmptyMap (%!s(float64=0.0006940364837646484))
 
 === RUN  TestBlank
---- PASS: TestBlank (%!s(float64=0.0009701251983642578))
+--- PASS: TestBlank (%!s(float64=0.0007538795471191406))
 
 === RUN  TestBlankln
---- PASS: TestBlankln (%!s(float64=0.0009272098541259766))
+--- PASS: TestBlankln (%!s(float64=0.0007579326629638672))
 
 === RUN  TestFormatterPrintln
---- PASS: TestFormatterPrintln (%!s(float64=0.0032639503479003906))
+--- PASS: TestFormatterPrintln (%!s(float64=0.0025458335876464844))
 
 === RUN  TestWidthAndPrecision
---- PASS: TestWidthAndPrecision (%!s(float64=0.008601903915405273))
+--- PASS: TestWidthAndPrecision (%!s(float64=0.0058917999267578125))
 
 === RUN  TestPanics
 fmt_test/Fmt_test.hx:3294: testPanics skip function
---- PASS: TestPanics (%!s(float64=5.0067901611328125e-05))
+--- PASS: TestPanics (%!s(float64=1.5020370483398438e-05))
 
 === RUN  TestBadVerbRecursion
---- PASS: TestBadVerbRecursion (%!s(float64=0.0008478164672851562))
+--- PASS: TestBadVerbRecursion (%!s(float64=0.000598907470703125))
 
 === RUN  TestIsSpace
---- PASS: TestIsSpace (%!s(float64=7.542510032653809))
+--- PASS: TestIsSpace (%!s(float64=5.122519016265869))
 
 === RUN  TestNilDoesNotBecomeTyped
---- PASS: TestNilDoesNotBecomeTyped (%!s(float64=0.0012640953063964844))
+--- PASS: TestNilDoesNotBecomeTyped (%!s(float64=0.0010819435119628906))
 
 === RUN  TestFormatterFlags
---- PASS: TestFormatterFlags (%!s(float64=0.05070304870605469))
+--- PASS: TestFormatterFlags (%!s(float64=0.0349431037902832))
 
 === RUN  TestParsenum
---- PASS: TestParsenum (%!s(float64=5.507469177246094e-05))
+--- PASS: TestParsenum (%!s(float64=4.601478576660156e-05))
 
 === RUN  TestAppendf
---- PASS: TestAppendf (%!s(float64=0.0004010200500488281))
+--- PASS: TestAppendf (%!s(float64=0.000308990478515625))
 
 === RUN  TestAppend
---- PASS: TestAppend (%!s(float64=0.0006761550903320312))
+--- PASS: TestAppend (%!s(float64=0.0005249977111816406))
 
 === RUN  TestAppendln
---- PASS: TestAppendln (%!s(float64=0.0005118846893310547))
+--- PASS: TestAppendln (%!s(float64=0.0003829002380371094))
 
 === RUN  TestScan
---- PASS: TestScan (%!s(float64=1.5020370483398438e-05))
+--- PASS: TestScan (%!s(float64=1.4066696166992188e-05))
 
 === RUN  TestScanln
---- PASS: TestScanln (%!s(float64=1.5020370483398438e-05))
+--- PASS: TestScanln (%!s(float64=1.3113021850585938e-05))
 
 === RUN  TestScanf
 Exception: Null Access

@@ -211,7 +211,7 @@ private function _sprint(_data:AnyInterface):GoString {
         if (_om == null) {
             return ("nil" : GoString);
         };
-        var _b = ({} : stdgo.strings.Strings.Builder);
+        var _b = (({} : stdgo.strings.Strings.Builder) : Ref<stdgo.strings.Strings.Builder>);
         for (_i => _key in _om.key) {
             if (_i > (0 : GoInt)) {
                 _b.writeRune((32 : GoInt32));

@@ -3645,7 +3645,7 @@ private function _genericFtoa(_dst:Slice<GoByte>, _val:GoFloat64, _fmt:GoByte, _
     // bigFtoa uses multiprecision computations to format a float.
 **/
 private function _bigFtoa(_dst:Slice<GoByte>, _prec:GoInt, _fmt:GoByte, _neg:Bool, _mant:GoUInt64, _exp:GoInt, _flt:Ref<T_floatInfo>):Slice<GoByte> {
-        var _d = ({} : T_decimal);
+        var _d = (({} : T_decimal) : Ref<T_decimal>);
         _d.assign(_mant);
         _d.shift(_exp - (_flt._mantbits : GoInt));
         var _digs:T_decimalSlice = ({} : T_decimalSlice);
@@ -3715,7 +3715,7 @@ private function _roundShortest(_d:Ref<T_decimal>, _mant:GoUInt64, _exp:GoInt, _
         if ((_exp > _minexp) && (((332 : GoInt) * (_d._dp - _d._nd)) >= ((100 : GoInt) * (_exp - (_flt._mantbits : GoInt))))) {
             return;
         };
-        var _upper = ({} : T_decimal);
+        var _upper = (({} : T_decimal) : Ref<T_decimal>);
         _upper.assign((_mant * (("2" : GoUInt64) : GoUInt64)) + ("1" : GoUInt64));
         _upper.shift((_exp - (_flt._mantbits : GoInt)) - (1 : GoInt));
         var _mantlo:GoUInt64 = (0 : GoUInt64);
@@ -3727,7 +3727,7 @@ private function _roundShortest(_d:Ref<T_decimal>, _mant:GoUInt64, _exp:GoInt, _
             _mantlo = (_mant * (("2" : GoUInt64) : GoUInt64)) - ("1" : GoUInt64);
             _explo = _exp - (1 : GoInt);
         };
-        var _lower = ({} : T_decimal);
+        var _lower = (({} : T_decimal) : Ref<T_decimal>);
         _lower.assign((_mantlo * (("2" : GoUInt64) : GoUInt64)) + ("1" : GoUInt64));
         _lower.shift((_explo - (_flt._mantbits : GoInt)) - (1 : GoInt));
         var _inclusive:Bool = _mant % ("2" : GoUInt64) == (("0" : GoUInt64));
@@ -4481,7 +4481,7 @@ private function _divmod1e9(_x:GoUInt64):{ var _0 : GoUInt32; var _1 : GoUInt32;
         return { _0 : (_q : GoUInt32), _1 : (_x - (_q * (("1000000000" : GoUInt64) : GoUInt64)) : GoUInt32) };
     }
 function newDecimal(_i:GoUInt64):Ref<T_decimal> {
-        var _d = ({} : T_decimal);
+        var _d = (({} : T_decimal) : Ref<T_decimal>);
         _d.assign(_i);
         return _d;
     }

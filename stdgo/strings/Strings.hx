@@ -424,7 +424,7 @@ function newReplacer(_oldnew:haxe.Rest<GoString>):Ref<Replacer> {
         return (({ _oldnew : ((null : Slice<GoString>).__append__(..._oldnew.__toArray__())) } : Replacer) : Ref<Replacer>);
     }
 private function _makeGenericReplacer(_oldnew:Slice<GoString>):Ref<T_genericReplacer> {
-        var _r = ({} : T_genericReplacer);
+        var _r = (({} : T_genericReplacer) : Ref<T_genericReplacer>);
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < (_oldnew.length), _i = _i + ((2 : GoInt)), {
@@ -2381,7 +2381,7 @@ class T_trieNode_asInterface {
                 } else {
                     _prefixNode = (({ _prefix : (_t._prefix.__slice__((1 : GoInt)) : GoString), _next : _t._next } : T_trieNode) : Ref<T_trieNode>);
                 };
-                var _keyNode = ({} : T_trieNode);
+                var _keyNode = (({} : T_trieNode) : Ref<T_trieNode>);
                 _t._table = new Slice<Ref<T_trieNode>>((_r._tableSize : GoInt).toBasic(), 0, ...[for (i in 0 ... (_r._tableSize : GoInt).toBasic()) (null : Ref<T_trieNode>)]);
                 _t._table[(_r._mapping[(_t._prefix[(0 : GoInt)] : GoInt)] : GoInt)] = _prefixNode;
                 _t._table[(_r._mapping[(_key[(0 : GoInt)] : GoInt)] : GoInt)] = _keyNode;
@@ -2397,12 +2397,12 @@ class T_trieNode_asInterface {
         } else if (_t._table != null) {
             var _m:GoUInt8 = _r._mapping[(_key[(0 : GoInt)] : GoInt)];
             if (_t._table[(_m : GoInt)] == null) {
-                _t._table[(_m : GoInt)] = ({} : T_trieNode);
+                _t._table[(_m : GoInt)] = (({} : T_trieNode) : Ref<T_trieNode>);
             };
             _t._table[(_m : GoInt)]._add((_key.__slice__((1 : GoInt)) : GoString), _val, _priority, _r);
         } else {
             _t._prefix = _key;
-            _t._next = ({} : T_trieNode);
+            _t._next = (({} : T_trieNode) : Ref<T_trieNode>);
             _t._next._add(Go.str(), _val, _priority, _r);
         };
     }

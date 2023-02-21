@@ -811,7 +811,7 @@ private function _nearEqual(_a:GoFloat64, _b:GoFloat64, _closeEnough:GoFloat64, 
         return (_absDiff / _max(stdgo.math.Math.abs(_a), stdgo.math.Math.abs(_b))) < _maxError;
     }
 private function _getStatsResults(_samples:Slice<GoFloat64>):Ref<T_statsResults> {
-        var _res = ({} : stdgo.math.rand_test.Rand_test.T_statsResults);
+        var _res = (({} : stdgo.math.rand_test.Rand_test.T_statsResults) : Ref<stdgo.math.rand_test.Rand_test.T_statsResults>);
         var _0:GoFloat64 = (0 : GoFloat64), _1:GoFloat64 = (0 : GoFloat64), _squaresum:GoFloat64 = _1, _sum:GoFloat64 = _0;
         for (_0 => _s in _samples) {
             _sum = _sum + (_s);

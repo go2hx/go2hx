@@ -2317,6 +2317,8 @@ throw "not supported";
                 false;
             case stdgo.internal.reflect.Reflect.KindType.unsafePointer:
                 value == null;
+            case stdgo.internal.reflect.Reflect.KindType.bool:
+                false;
             default:
                 throw "nil check not supported kind: " + _v.kind().string();
         };

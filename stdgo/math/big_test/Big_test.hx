@@ -661,7 +661,7 @@ private function _generatePositiveInt(_rand:Ref<stdgo.math.rand.Rand.Rand>, _siz
     // overwritten to test for improper buffer reuse.
 **/
 private function _checkAliasingOneArg(_t:Ref<stdgo.testing.Testing.T>, _f:(_v:Ref<Int_>, _x:Ref<Int_>) -> Ref<Int_>, _v:Ref<Int_>, _x:Ref<Int_>):Bool {
-        var _0 = ({} : Int_).set(_x), _1 = ({} : Int_).set(_x), _v1 = _1, _x1 = _0;
+        var _0 = (({} : Int_) : Ref<Int_>).set(_x), _1 = (({} : Int_) : Ref<Int_>).set(_x), _v1 = _1, _x1 = _0;
         {
             var _out = _f(_v, _x);
             if (_out != (_v)) {
@@ -691,7 +691,7 @@ private function _checkAliasingOneArg(_t:Ref<stdgo.testing.Testing.T>, _f:(_v:Re
     // overwritten to test for improper buffer reuse.
 **/
 private function _checkAliasingTwoArgs(_t:Ref<stdgo.testing.Testing.T>, _f:(_v:Ref<Int_>, _x:Ref<Int_>, _y:Ref<Int_>) -> Ref<Int_>, _v:Ref<Int_>, _x:Ref<Int_>, _y:Ref<Int_>):Bool {
-        var _0 = ({} : Int_).set(_x), _1 = ({} : Int_).set(_y), _2 = ({} : Int_).set(_v), _v1 = _2, _y1 = _1, _x1 = _0;
+        var _0 = (({} : Int_) : Ref<Int_>).set(_x), _1 = (({} : Int_) : Ref<Int_>).set(_y), _2 = (({} : Int_) : Ref<Int_>).set(_v), _v1 = _2, _y1 = _1, _x1 = _0;
         {
             var _out = _f(_v, _x, _y);
             if (_out == null) {
@@ -717,7 +717,7 @@ private function _checkAliasingTwoArgs(_t:Ref<stdgo.testing.Testing.T>, _f:(_v:R
             };
         };
         _v1.set(_v);
-        var _y2 = ({} : Int_).set(_y);
+        var _y2 = (({} : Int_) : Ref<Int_>).set(_y);
         {
             var _out = _f(_v, _y, _y2);
             if (_out == null) {
@@ -812,14 +812,14 @@ function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
                 }, _v.int_, _x.int_, _y.int_);
             },
 function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
-                var _0 = ({} : Int_), _1 = ({} : Int_), _b = _1, _a = _0;
+                var _0 = (({} : Int_) : Ref<Int_>), _1 = (({} : Int_) : Ref<Int_>), _b = _1, _a = _0;
                 return _checkAliasingTwoArgs(_t, function(_v:Ref<Int_>, _x:Ref<Int_>, _y:Ref<Int_>):Ref<Int_> {
                     _a.gcd(_v, _b, _x, _y);
                     return _v;
                 }, _v.int_, _x.int_, _y.int_);
             },
 function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
-                var _0 = ({} : Int_), _1 = ({} : Int_), _b = _1, _a = _0;
+                var _0 = (({} : Int_) : Ref<Int_>), _1 = (({} : Int_) : Ref<Int_>), _b = _1, _a = _0;
                 return _checkAliasingTwoArgs(_t, function(_v:Ref<Int_>, _x:Ref<Int_>, _y:Ref<Int_>):Ref<Int_> {
                     _a.gcd(_b, _v, _x, _y);
                     return _v;
@@ -918,7 +918,7 @@ function(_v:T_bigInt, _x:T_bigInt, _y:T_bigInt):Bool {
     //	(n-1)/3 * 2   if   n mod 3 == 1
 **/
 private function _recur(_n:GoInt64, _lim:GoInt64):Ref<Rat> {
-        var _term = ({} : Rat);
+        var _term = (({} : Rat) : Ref<Rat>);
         if (_n % ("3" : GoInt64) != (("1" : GoInt64))) {
             _term.setInt64(("1" : GoInt64));
         } else {
@@ -927,7 +927,7 @@ private function _recur(_n:GoInt64, _lim:GoInt64):Ref<Rat> {
         if (_n > _lim) {
             return _term;
         };
-        var _frac = ({} : Rat).inv(_recur(_n + ("1" : GoInt64), _lim));
+        var _frac = (({} : Rat) : Ref<Rat>).inv(_recur(_n + ("1" : GoInt64), _lim));
         return _term.add(_term, _frac);
     }
 /**
@@ -945,22 +945,22 @@ function example_eConvergents():Void {
         };
     }
 function exampleRat_SetString():Void {
-        var _r = ({} : Rat);
+        var _r = (({} : Rat) : Ref<Rat>);
         _r.setString(("355/113" : GoString));
         stdgo.fmt.Fmt.println(Go.toInterface(_r.floatString((3 : GoInt))));
     }
 function exampleInt_SetString():Void {
-        var _i = ({} : Int_);
+        var _i = (({} : Int_) : Ref<Int_>);
         _i.setString(("644" : GoString), (8 : GoInt));
         stdgo.fmt.Fmt.println(Go.toInterface(Go.asInterface(_i)));
     }
 function exampleFloat_SetString():Void {
-        var _f = ({} : Float_);
+        var _f = (({} : Float_) : Ref<Float_>);
         _f.setString(("3.14159" : GoString));
         stdgo.fmt.Fmt.println(Go.toInterface(Go.asInterface(_f)));
     }
 function exampleRat_Scan():Void {
-        var _r = ({} : Rat);
+        var _r = (({} : Rat) : Ref<Rat>);
         var __tmp__ = stdgo.fmt.Fmt.sscan(("1.5000" : GoString), Go.toInterface(Go.asInterface(_r))), _0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             stdgo.log.Log.println(Go.toInterface(("error scanning value:" : GoString)), Go.toInterface(_err));
@@ -969,7 +969,7 @@ function exampleRat_Scan():Void {
         };
     }
 function exampleInt_Scan():Void {
-        var _i = ({} : Int_);
+        var _i = (({} : Int_) : Ref<Int_>);
         var __tmp__ = stdgo.fmt.Fmt.sscan(("18446744073709551617" : GoString), Go.toInterface(Go.asInterface(_i))), _0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             stdgo.log.Log.println(Go.toInterface(("error scanning value:" : GoString)), Go.toInterface(_err));
@@ -978,7 +978,7 @@ function exampleInt_Scan():Void {
         };
     }
 function exampleFloat_Scan():Void {
-        var _f = ({} : Float_);
+        var _f = (({} : Float_) : Ref<Float_>);
         var __tmp__ = stdgo.fmt.Fmt.sscan(("1.19282e99" : GoString), Go.toInterface(Go.asInterface(_f))), _0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
             stdgo.log.Log.println(Go.toInterface(("error scanning value:" : GoString)), Go.toInterface(_err));
@@ -1014,10 +1014,10 @@ function example_fibonacci():Void {
 function example_sqrt2():Void {
         {};
         var _steps:GoInt = (stdgo.math.Math.log2((200 : GoFloat64)) : GoInt);
-        var _two = ({} : Float_).setPrec(("200" : GoUInt)).setInt64(("2" : GoInt64));
-        var _half = ({} : Float_).setPrec(("200" : GoUInt)).setFloat64((0.5 : GoFloat64));
-        var _x = ({} : Float_).setPrec(("200" : GoUInt)).setInt64(("1" : GoInt64));
-        var _t = ({} : Float_);
+        var _two = (({} : Float_) : Ref<Float_>).setPrec(("200" : GoUInt)).setInt64(("2" : GoInt64));
+        var _half = (({} : Float_) : Ref<Float_>).setPrec(("200" : GoUInt)).setFloat64((0.5 : GoFloat64));
+        var _x = (({} : Float_) : Ref<Float_>).setPrec(("200" : GoUInt)).setInt64(("1" : GoInt64));
+        var _t = (({} : Float_) : Ref<Float_>);
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i <= _steps, _i++, {
@@ -1080,7 +1080,7 @@ function exampleRoundingMode():Void {
             {
                 var _mode:RoundingMode = (0 : RoundingMode);
                 Go.cfor(_mode <= (5 : RoundingMode), _mode++, {
-                    var _f = ({} : Float_).setPrec(("2" : GoUInt)).setMode(_mode).setFloat64(_f64);
+                    var _f = (({} : Float_) : Ref<Float_>).setPrec(("2" : GoUInt)).setMode(_mode).setFloat64(_f64);
                     stdgo.fmt.Fmt.printf(("  %*g" : GoString), Go.toInterface(((_mode.string() : GoString).length)), Go.toInterface(Go.asInterface(_f)));
                 });
             };

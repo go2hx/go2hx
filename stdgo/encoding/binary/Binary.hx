@@ -1170,7 +1170,7 @@ private function _testRead(_t:Ref<stdgo.testing.Testing.T>, _order:ByteOrder, _b
         _checkResult(_t, ("Read" : GoString), _order, _err, Go.toInterface(_s2), _s1);
     }
 private function _testWrite(_t:Ref<stdgo.testing.Testing.T>, _order:ByteOrder, _b:Slice<GoByte>, _s1:AnyInterface):Void {
-        var _buf = ({} : stdgo.bytes.Bytes.Buffer);
+        var _buf = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
         var _err:Error = write(Go.asInterface(_buf), _order, _s1);
         _checkResult(_t, ("Write" : GoString), _order, _err, Go.toInterface(_buf.bytes()), Go.toInterface(_b));
     }
@@ -1198,7 +1198,7 @@ function testReadSlice(_t:Ref<stdgo.testing.Testing.T>):Void {
         _checkResult(_t, ("ReadSlice" : GoString), Go.asInterface(bigEndian), _err, Go.toInterface(_slice), Go.toInterface(_res));
     }
 function testWriteSlice(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _buf = ({} : stdgo.bytes.Bytes.Buffer);
+        var _buf = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
         var _err:Error = write(Go.asInterface(_buf), Go.asInterface(bigEndian), Go.toInterface(_res));
         _checkResult(_t, ("WriteSlice" : GoString), Go.asInterface(bigEndian), _err, Go.toInterface(_buf.bytes()), Go.toInterface(_src));
     }
@@ -1220,7 +1220,7 @@ function testReadBoolSlice(_t:Ref<stdgo.testing.Testing.T>):Void {
         _checkResult(_t, ("ReadBoolSlice" : GoString), Go.asInterface(bigEndian), _err, Go.toInterface(_slice), Go.toInterface((new Slice<Bool>(0, 0, false, true, true, true) : Slice<Bool>)));
     }
 function testSliceRoundTrip(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _buf = ({} : stdgo.bytes.Bytes.Buffer);
+        var _buf = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
         for (_0 => _array in _intArrays) {
             var _src:stdgo.reflect.Reflect.Value = (stdgo.reflect.Reflect.valueOf(_array).elem() == null ? null : stdgo.reflect.Reflect.valueOf(_array).elem().__copy__());
             var _unsigned:Bool = false;
@@ -1255,7 +1255,7 @@ function testSliceRoundTrip(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testWriteT(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _buf = ({} : stdgo.bytes.Bytes.Buffer);
+        var _buf = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
         var _ts:T = (new T() : T);
         {
             var _err:Error = write(Go.asInterface(_buf), Go.asInterface(bigEndian), Go.toInterface(_ts));
@@ -1283,7 +1283,7 @@ function testWriteT(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testBlankFields(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _buf = ({} : stdgo.bytes.Bytes.Buffer);
+        var _buf = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
         var _b1:BlankFields = ({ a : ("1234567890" : GoUInt32), b : (2.718281828 : GoFloat64), c : (42 : GoUInt8) } : BlankFields);
         {
             var _err:Error = write(Go.asInterface(_buf), Go.asInterface(littleEndian), Go.toInterface((_b1 : Ref<BlankFields>)));
@@ -1370,7 +1370,7 @@ function testSizeStructCache(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
         {};
         {};
-        var _testcases = (new Slice<T__struct_2>(0, 0, ({ _val : Go.toInterface(({} : T_testSizeStructCache_0___localname___foo)), _want : (1 : GoInt) } : T__struct_2), ({ _val : Go.toInterface(({} : T_testSizeStructCache_1___localname___bar)), _want : (1 : GoInt) } : T__struct_2), ({ _val : Go.toInterface(({} : T_testSizeStructCache_1___localname___bar)), _want : (0 : GoInt) } : T__struct_2), ({ _val : Go.toInterface(Go.asInterface(({ a : ({} : Struct) } : T__struct_3))), _want : (1 : GoInt) } : T__struct_2), ({ _val : Go.toInterface(Go.asInterface(({ a : ({} : Struct) } : T__struct_3))), _want : (0 : GoInt) } : T__struct_2)) : Slice<T__struct_2>);
+        var _testcases = (new Slice<T__struct_2>(0, 0, ({ _val : Go.toInterface((({} : T_testSizeStructCache_0___localname___foo) : Ref<T_testSizeStructCache_0___localname___foo>)), _want : (1 : GoInt) } : T__struct_2), ({ _val : Go.toInterface((({} : T_testSizeStructCache_1___localname___bar) : Ref<T_testSizeStructCache_1___localname___bar>)), _want : (1 : GoInt) } : T__struct_2), ({ _val : Go.toInterface((({} : T_testSizeStructCache_1___localname___bar) : Ref<T_testSizeStructCache_1___localname___bar>)), _want : (0 : GoInt) } : T__struct_2), ({ _val : Go.toInterface(Go.asInterface((({ a : ({} : Struct) } : T__struct_3) : Ref<T__struct_3>))), _want : (1 : GoInt) } : T__struct_2), ({ _val : Go.toInterface(Go.asInterface((({ a : ({} : Struct) } : T__struct_3) : Ref<T__struct_3>))), _want : (0 : GoInt) } : T__struct_2)) : Slice<T__struct_2>);
         for (_0 => _tc in _testcases) {
             if (size(_tc._val) == ((-1 : GoInt))) {
                 _t.fatalf(("Can\'t get the size of %T" : GoString), _tc._val);
@@ -1449,7 +1449,7 @@ function testReadErrorMsg(_t:Ref<stdgo.testing.Testing.T>):Void {
             };
         };
         _read(Go.toInterface((0 : GoInt)));
-        var _s = ({} : T_littleEndian);
+        var _s = (({} : T_littleEndian) : Ref<T_littleEndian>);
         _read(Go.toInterface((_s : Ref<Ref<T_littleEndian>>)));
         var _p = (_s : Ref<Ref<T_littleEndian>>);
         _read(Go.toInterface((_p : Ref<Ref<Ref<T_littleEndian>>>)));
@@ -1758,7 +1758,7 @@ function benchmarkReadInts(_b:Ref<stdgo.testing.Testing.B>):Void {
         };
     }
 function benchmarkWriteInts(_b:Ref<stdgo.testing.Testing.B>):Void {
-        var _buf = ({} : stdgo.bytes.Bytes.Buffer);
+        var _buf = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
         var _w:stdgo.io.Io.Writer = Go.asInterface(_buf);
         _b.setBytes(("30" : GoInt64));
         _b.resetTimer();
@@ -1783,7 +1783,7 @@ function benchmarkWriteInts(_b:Ref<stdgo.testing.Testing.B>):Void {
     }
 function benchmarkWriteSlice1000Int32s(_b:Ref<stdgo.testing.Testing.B>):Void {
         var _slice = new Slice<GoInt32>((1000 : GoInt).toBasic(), 0, ...[for (i in 0 ... (1000 : GoInt).toBasic()) (0 : GoInt32)]);
-        var _buf = ({} : stdgo.bytes.Bytes.Buffer);
+        var _buf = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
         var _w:stdgo.io.Io.Writer = Go.asInterface(_buf);
         _b.setBytes(("4000" : GoInt64));
         _b.resetTimer();
@@ -1938,7 +1938,7 @@ function benchmarkReadFloats(_b:Ref<stdgo.testing.Testing.B>):Void {
         };
     }
 function benchmarkWriteFloats(_b:Ref<stdgo.testing.Testing.B>):Void {
-        var _buf = ({} : stdgo.bytes.Bytes.Buffer);
+        var _buf = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
         var _w:stdgo.io.Io.Writer = Go.asInterface(_buf);
         _b.setBytes(("12" : GoInt64));
         _b.resetTimer();
@@ -1971,7 +1971,7 @@ function benchmarkReadSlice1000Float32s(_b:Ref<stdgo.testing.Testing.B>):Void {
     }
 function benchmarkWriteSlice1000Float32s(_b:Ref<stdgo.testing.Testing.B>):Void {
         var _slice = new Slice<GoFloat32>((1000 : GoInt).toBasic(), 0, ...[for (i in 0 ... (1000 : GoInt).toBasic()) (0 : GoFloat32)]);
-        var _buf = ({} : stdgo.bytes.Bytes.Buffer);
+        var _buf = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
         var _w:stdgo.io.Io.Writer = Go.asInterface(_buf);
         _b.setBytes(("4000" : GoInt64));
         _b.resetTimer();
@@ -2000,7 +2000,7 @@ function benchmarkReadSlice1000Uint8s(_b:Ref<stdgo.testing.Testing.B>):Void {
     }
 function benchmarkWriteSlice1000Uint8s(_b:Ref<stdgo.testing.Testing.B>):Void {
         var _slice = new Slice<GoUInt8>((1000 : GoInt).toBasic(), 0, ...[for (i in 0 ... (1000 : GoInt).toBasic()) (0 : GoUInt8)]);
-        var _buf = ({} : stdgo.bytes.Bytes.Buffer);
+        var _buf = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
         var _w:stdgo.io.Io.Writer = Go.asInterface(_buf);
         _b.setBytes(("1000" : GoInt64));
         _b.resetTimer();

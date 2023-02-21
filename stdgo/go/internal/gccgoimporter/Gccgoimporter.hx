@@ -21,7 +21,7 @@ private var __go2hxdoc__package : Bool;
     
     
 **/
-private var _reserved = ({ type : (null : stdgo.go.types.Types.Type) } : T__struct_0);
+private var _reserved = (({ type : (null : stdgo.go.types.Types.Type) } : T__struct_0) : Ref<T__struct_0>);
 /**
     // Magic strings for different archive file formats.
     
@@ -1620,7 +1620,7 @@ class T_parser_asInterface {
                     a(_a0, _a1, _a2);
                 });
             };
-            _p._scanner = ({} : stdgo.text.scanner.Scanner.Scanner);
+            _p._scanner = (({} : stdgo.text.scanner.Scanner.Scanner) : Ref<stdgo.text.scanner.Scanner.Scanner>);
             _p._initScanner(_p._scanner.position.filename, Go.asInterface(stdgo.strings.Strings.newReader(_p._typeData[(_i : GoInt)])));
             _p._expectKeyword(("type" : GoString));
             var _id:GoInt = _p._parseInt();
@@ -1903,7 +1903,7 @@ class T_parser_asInterface {
             _p._update(Go.asInterface(_t), _nlist);
             return Go.asInterface(_t);
         };
-        var _t = ({} : stdgo.go.types.Types.Pointer_);
+        var _t = (({} : stdgo.go.types.Types.Pointer_) : Ref<stdgo.go.types.Types.Pointer_>);
         _p._update(Go.asInterface(_t), _nlist);
         {
             var __tmp__ = (stdgo.go.types.Types.newPointer(_p._parseType(_pkg, Go.toInterface(Go.asInterface(_t)))) == null ? null : stdgo.go.types.Types.newPointer(_p._parseType(_pkg, Go.toInterface(Go.asInterface(_t)))).__copy__());
@@ -1917,7 +1917,7 @@ class T_parser_asInterface {
     @:keep
     static public function _parseInterfaceType( _p:Ref<T_parser>, _pkg:Ref<stdgo.go.types.Types.Package>, _nlist:Slice<AnyInterface>):stdgo.go.types.Types.Type {
         _p._expectKeyword(("interface" : GoString));
-        var _t = ({} : stdgo.go.types.Types.Interface);
+        var _t = (({} : stdgo.go.types.Types.Interface) : Ref<stdgo.go.types.Types.Interface>);
         _p._update(Go.asInterface(_t), _nlist);
         var _methods:Slice<Ref<stdgo.go.types.Types.Func>> = (null : Slice<Ref<stdgo.go.types.Types.Func>>);
         var _embeddeds:Slice<stdgo.go.types.Types.Type> = (null : Slice<stdgo.go.types.Types.Type>);
@@ -1974,7 +1974,7 @@ class T_parser_asInterface {
     **/
     @:keep
     static public function _parseFunctionType( _p:Ref<T_parser>, _pkg:Ref<stdgo.go.types.Types.Package>, _nlist:Slice<AnyInterface>):Ref<stdgo.go.types.Types.Signature> {
-        var _t = ({} : stdgo.go.types.Types.Signature);
+        var _t = (({} : stdgo.go.types.Types.Signature) : Ref<stdgo.go.types.Types.Signature>);
         _p._update(Go.asInterface(_t), _nlist);
         var __tmp__ = _p._parseParamList(_pkg), _params:Ref<stdgo.go.types.Types.Tuple> = __tmp__._0, _isVariadic:Bool = __tmp__._1;
         var _results = _p._parseResultList(_pkg);
@@ -2039,7 +2039,7 @@ class T_parser_asInterface {
     @:keep
     static public function _parseStructType( _p:Ref<T_parser>, _pkg:Ref<stdgo.go.types.Types.Package>, _nlist:Slice<AnyInterface>):stdgo.go.types.Types.Type {
         _p._expectKeyword(("struct" : GoString));
-        var _t = ({} : stdgo.go.types.Types.Struct);
+        var _t = (({} : stdgo.go.types.Types.Struct) : Ref<stdgo.go.types.Types.Struct>);
         _p._update(Go.asInterface(_t), _nlist);
         var _fields:Slice<Ref<stdgo.go.types.Types.Var>> = (null : Slice<Ref<stdgo.go.types.Types.Var>>);
         var _tags:Slice<GoString> = (null : Slice<GoString>);
@@ -2064,7 +2064,7 @@ class T_parser_asInterface {
     @:keep
     static public function _parseChanType( _p:Ref<T_parser>, _pkg:Ref<stdgo.go.types.Types.Package>, _nlist:Slice<AnyInterface>):stdgo.go.types.Types.Type {
         _p._expectKeyword(("chan" : GoString));
-        var _t = ({} : stdgo.go.types.Types.Chan);
+        var _t = (({} : stdgo.go.types.Types.Chan) : Ref<stdgo.go.types.Types.Chan>);
         _p._update(Go.asInterface(_t), _nlist);
         var _dir:stdgo.go.types.Types.ChanDir = (0 : stdgo.go.types.Types.ChanDir);
         if (_p._tok == ((45 : GoInt32))) {
@@ -2091,7 +2091,7 @@ class T_parser_asInterface {
     @:keep
     static public function _parseMapType( _p:Ref<T_parser>, _pkg:Ref<stdgo.go.types.Types.Package>, _nlist:Slice<AnyInterface>):stdgo.go.types.Types.Type {
         _p._expectKeyword(("map" : GoString));
-        var _t = ({} : stdgo.go.types.Types.Map_);
+        var _t = (({} : stdgo.go.types.Types.Map_) : Ref<stdgo.go.types.Types.Map_>);
         _p._update(Go.asInterface(_t), _nlist);
         _p._expect((91 : GoInt32));
         var _key:stdgo.go.types.Types.Type = _p._parseType(_pkg);
@@ -2112,7 +2112,7 @@ class T_parser_asInterface {
         _p._expect((91 : GoInt32));
         if (_p._tok == ((93 : GoInt32))) {
             _p._next();
-            var _t = ({} : stdgo.go.types.Types.Slice_);
+            var _t = (({} : stdgo.go.types.Types.Slice_) : Ref<stdgo.go.types.Types.Slice_>);
             _p._update(Go.asInterface(_t), _nlist);
             {
                 var __tmp__ = (stdgo.go.types.Types.newSlice(_p._parseType(_pkg)) == null ? null : stdgo.go.types.Types.newSlice(_p._parseType(_pkg)).__copy__());
@@ -2120,7 +2120,7 @@ class T_parser_asInterface {
             };
             return Go.asInterface(_t);
         };
-        var _t = ({} : stdgo.go.types.Types.Array_);
+        var _t = (({} : stdgo.go.types.Types.Array_) : Ref<stdgo.go.types.Types.Array_>);
         _p._update(Go.asInterface(_t), _nlist);
         var _len:GoInt64 = _p._parseInt64();
         _p._expect((93 : GoInt32));
@@ -2674,7 +2674,7 @@ class T_parser_asInterface {
     }
     @:keep
     static public function _init( _p:Ref<T_parser>, _filename:GoString, _src:stdgo.io.Io.Reader, _imports:GoMap<GoString, Ref<stdgo.go.types.Types.Package>>):Void {
-        _p._scanner = ({} : stdgo.text.scanner.Scanner.Scanner);
+        _p._scanner = (({} : stdgo.text.scanner.Scanner.Scanner) : Ref<stdgo.text.scanner.Scanner.Scanner>);
         _p._initScanner(_filename, _src);
         _p._imports = _imports;
         _p._aliases = (new GoObjectMap<GoInt, GoString>(new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo.internal.reflect.Reflect.GoType.basic(int_kind) }, { get : () -> stdgo.internal.reflect.Reflect.GoType.basic(string_kind) }))) : GoMap<GoInt, GoString>);

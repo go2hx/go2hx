@@ -1217,7 +1217,7 @@ private var _fn = (new GoArray<GoFloat32>(
     
     
 **/
-private var _globalRand = new_(Go.asInterface(({} : T_lockedSource)));
+private var _globalRand = new_(Go.asInterface((({} : T_lockedSource) : Ref<T_lockedSource>)));
 /**
     
     
@@ -2256,7 +2256,7 @@ private function _seedrand(_x:GoInt32):GoInt32 {
     // Requirements: s > 1 and v >= 1.
 **/
 function newZipf(_r:Ref<Rand>, _s:GoFloat64, _v:GoFloat64, _imax:GoUInt64):Ref<Zipf> {
-        var _z = ({} : Zipf);
+        var _z = (({} : Zipf) : Ref<Zipf>);
         if ((_s <= (1 : GoFloat64)) || (_v < (1 : GoFloat64))) {
             return null;
         };

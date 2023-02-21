@@ -2830,7 +2830,7 @@ function benchmarkHTMLEscapeOld(_b:Ref<stdgo.testing.Testing.B>):Void {
     }
 function benchmarkByteStringReplacerWriteString(_b:Ref<stdgo.testing.Testing.B>):Void {
         var _str:GoString = repeat(("I <3 to escape HTML & other text too." : GoString), (100 : GoInt));
-        var _buf = ({} : stdgo.bytes.Bytes.Buffer);
+        var _buf = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _b.n, _i++, {
@@ -2841,7 +2841,7 @@ function benchmarkByteStringReplacerWriteString(_b:Ref<stdgo.testing.Testing.B>)
     }
 function benchmarkByteReplacerWriteString(_b:Ref<stdgo.testing.Testing.B>):Void {
         var _str:GoString = repeat(("abcdefghijklmnopqrstuvwxyz" : GoString), (100 : GoInt));
-        var _buf = ({} : stdgo.bytes.Bytes.Buffer);
+        var _buf = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i < _b.n, _i++, {

@@ -395,7 +395,7 @@ private var __go2hxdoc__package : Bool;
     
 **/
 private var _ppFree = ({ new_ : function():AnyInterface {
-        return Go.toInterface(Go.asInterface(({} : T_pp)));
+        return Go.toInterface(Go.asInterface((({} : T_pp) : Ref<T_pp>)));
     } } : stdgo.sync.Sync.Pool);
 /**
     // space is a copy of the unicode.White_Space ranges,
@@ -422,7 +422,7 @@ private var _space = (new Slice<GoArray<GoUInt16>>(
     
 **/
 private var _ssFree = ({ new_ : function():AnyInterface {
-        return Go.toInterface(Go.asInterface(({} : T_ss)));
+        return Go.toInterface(Go.asInterface((({} : T_ss) : Ref<T_ss>)));
     } } : stdgo.sync.Sync.Pool);
 /**
     

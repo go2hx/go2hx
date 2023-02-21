@@ -2579,7 +2579,7 @@ function new_():stdgo.hash.Hash.Hash {
         if (false) {
             return _boringNewSHA1();
         };
-        var _d = ({} : T_digest);
+        var _d = (({} : T_digest) : Ref<T_digest>);
         _d.reset();
         return Go.asInterface(_d);
     }

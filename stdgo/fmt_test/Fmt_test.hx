@@ -3916,7 +3916,7 @@ private function _scanInts(_r:Ref<RecursiveInt>, _b:Ref<stdgo.bytes.Bytes.Buffer
         if (_c != ((46 : GoInt32))) {
             return _err;
         };
-        var _next = ({} : stdgo.fmt_test.Fmt_test.RecursiveInt);
+        var _next = (({} : stdgo.fmt_test.Fmt_test.RecursiveInt) : Ref<stdgo.fmt_test.Fmt_test.RecursiveInt>);
         _err = _scanInts(_next, _b);
         if (_err == null) {
             _r._next = _next;
@@ -3946,7 +3946,7 @@ function testScanInts(_t:Ref<stdgo.testing.Testing.T>):Void {
         });
     }
 private function _testScanInts(_t:Ref<stdgo.testing.Testing.T>, _scan:(Ref<RecursiveInt>, Ref<stdgo.bytes.Bytes.Buffer>) -> Error):Void {
-        var _r = ({} : stdgo.fmt_test.Fmt_test.RecursiveInt);
+        var _r = (({} : stdgo.fmt_test.Fmt_test.RecursiveInt) : Ref<stdgo.fmt_test.Fmt_test.RecursiveInt>);
         var _ints = _makeInts((800 : GoInt));
         var _buf = stdgo.bytes.Bytes.newBuffer(_ints);
         var _err:Error = _scan(_r, _buf);
@@ -4509,7 +4509,7 @@ class RecursiveInt_asInterface {
         if (_err != null) {
             return _err;
         };
-        var _next = ({} : stdgo.fmt_test.Fmt_test.RecursiveInt);
+        var _next = (({} : stdgo.fmt_test.Fmt_test.RecursiveInt) : Ref<stdgo.fmt_test.Fmt_test.RecursiveInt>);
         {
             var __tmp__ = fscanf(_state, (".%v" : GoString), Go.toInterface(Go.asInterface(_next)));
             _err = __tmp__._1;

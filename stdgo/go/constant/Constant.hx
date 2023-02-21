@@ -675,13 +675,13 @@ private function _reverse(_x:Slice<GoString>):Slice<GoString> {
         return _x;
     }
 private function _newInt():Ref<stdgo.math.big.Big.Int_> {
-        return ({} : stdgo.math.big.Big.Int_);
+        return (({} : stdgo.math.big.Big.Int_) : Ref<stdgo.math.big.Big.Int_>);
     }
 private function _newRat():Ref<stdgo.math.big.Big.Rat> {
-        return ({} : stdgo.math.big.Big.Rat);
+        return (({} : stdgo.math.big.Big.Rat) : Ref<stdgo.math.big.Big.Rat>);
     }
 private function _newFloat():Ref<stdgo.math.big.Big.Float_> {
-        return ({} : stdgo.math.big.Big.Float_).setPrec(("512" : GoUInt));
+        return (({} : stdgo.math.big.Big.Float_) : Ref<stdgo.math.big.Big.Float_>).setPrec(("512" : GoUInt));
     }
 private function _i64toi(_x:T_int64Val):T_intVal {
         return (new T_intVal(_newInt().setInt64((_x : GoInt64))) : T_intVal);
@@ -2345,8 +2345,8 @@ function testMake(_t:Ref<stdgo.testing.Testing.T>):Void {
 (new T_makeTestCase((2 : Kind), Go.toInterface(("hello" : GoString)), Go.toInterface(("hello" : GoString))) : T_makeTestCase),
 (new T_makeTestCase((3 : Kind), Go.toInterface((("1" : GoInt64) : GoInt64)), Go.toInterface((("1" : GoInt64) : GoInt64))) : T_makeTestCase),
 (new T_makeTestCase((3 : Kind), Go.toInterface(Go.asInterface(stdgo.math.big.Big.newInt(("10" : GoInt64)))), Go.toInterface((("10" : GoInt64) : GoInt64))) : T_makeTestCase),
-(new T_makeTestCase((3 : Kind), Go.toInterface(Go.asInterface(({} : stdgo.math.big.Big.Int_).lsh(stdgo.math.big.Big.newInt(("1" : GoInt64)), ("62" : GoUInt)))), Go.toInterface((("4611686018427387904" : GoInt64) : GoInt64))) : T_makeTestCase),
-(_dup((3 : Kind), Go.toInterface(Go.asInterface(({} : stdgo.math.big.Big.Int_).lsh(stdgo.math.big.Big.newInt(("1" : GoInt64)), ("63" : GoUInt))))) == null ? null : _dup((3 : Kind), Go.toInterface(Go.asInterface(({} : stdgo.math.big.Big.Int_).lsh(stdgo.math.big.Big.newInt(("1" : GoInt64)), ("63" : GoUInt))))).__copy__()),
+(new T_makeTestCase((3 : Kind), Go.toInterface(Go.asInterface((({} : stdgo.math.big.Big.Int_) : Ref<stdgo.math.big.Big.Int_>).lsh(stdgo.math.big.Big.newInt(("1" : GoInt64)), ("62" : GoUInt)))), Go.toInterface((("4611686018427387904" : GoInt64) : GoInt64))) : T_makeTestCase),
+(_dup((3 : Kind), Go.toInterface(Go.asInterface((({} : stdgo.math.big.Big.Int_) : Ref<stdgo.math.big.Big.Int_>).lsh(stdgo.math.big.Big.newInt(("1" : GoInt64)), ("63" : GoUInt))))) == null ? null : _dup((3 : Kind), Go.toInterface(Go.asInterface((({} : stdgo.math.big.Big.Int_) : Ref<stdgo.math.big.Big.Int_>).lsh(stdgo.math.big.Big.newInt(("1" : GoInt64)), ("63" : GoUInt))))).__copy__()),
 (new T_makeTestCase((4 : Kind), Go.toInterface(Go.asInterface(stdgo.math.big.Big.newFloat((0 : GoFloat64)))), Go.toInterface(Go.asInterface(_floatVal0._val))) : T_makeTestCase),
 (_dup((4 : Kind), Go.toInterface(Go.asInterface(stdgo.math.big.Big.newFloat((2 : GoFloat64))))) == null ? null : _dup((4 : Kind), Go.toInterface(Go.asInterface(stdgo.math.big.Big.newFloat((2 : GoFloat64))))).__copy__()),
 (_dup((4 : Kind), Go.toInterface(Go.asInterface(stdgo.math.big.Big.newRat(("1" : GoInt64), ("3" : GoInt64))))) == null ? null : _dup((4 : Kind), Go.toInterface(Go.asInterface(stdgo.math.big.Big.newRat(("1" : GoInt64), ("3" : GoInt64))))).__copy__())) : Slice<T_makeTestCase>)) {

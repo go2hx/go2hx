@@ -95,7 +95,7 @@ function testInt(_t:Ref<stdgo.testing.Testing.T>):Void {
         {
             var _n:GoInt = (128 : GoInt);
             Go.cfor(_n < (140 : GoInt), _n++, {
-                var _b = ({} : stdgo.math.big.Big.Int_).setInt64((_n : GoInt64));
+                var _b = (({} : stdgo.math.big.Big.Int_) : Ref<stdgo.math.big.Big.Int_>).setInt64((_n : GoInt64));
                 {
                     var __tmp__ = stdgo.crypto.rand.Rand.int_(stdgo.crypto.rand.Rand.reader, _b), _i:Ref<stdgo.math.big.Big.Int_> = __tmp__._0, _err:Error = __tmp__._1;
                     if (_err != null) {
@@ -204,14 +204,14 @@ private function _testIntPanics(_t:Ref<stdgo.testing.Testing.T>, _b:Ref<stdgo.ma
     // Test that passing a new big.Int as max causes Int to panic
 **/
 function testIntEmptyMaxPanics(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _b = ({} : stdgo.math.big.Big.Int_);
+        var _b = (({} : stdgo.math.big.Big.Int_) : Ref<stdgo.math.big.Big.Int_>);
         _testIntPanics(_t, _b);
     }
 /**
     // Test that passing a negative value as max causes Int to panic
 **/
 function testIntNegativeMaxPanics(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _b = ({} : stdgo.math.big.Big.Int_).setInt64((("-1" : GoInt64) : GoInt64));
+        var _b = (({} : stdgo.math.big.Big.Int_) : Ref<stdgo.math.big.Big.Int_>).setInt64((("-1" : GoInt64) : GoInt64));
         _testIntPanics(_t, _b);
     }
 function benchmarkPrime(_b:Ref<stdgo.testing.Testing.B>):Void {

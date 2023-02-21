@@ -363,7 +363,7 @@ function newReaderSize(_rd:stdgo.io.Io.Reader, _size:GoInt):Ref<Reader> {
         if (_size < (16 : GoInt)) {
             _size = (16 : GoInt);
         };
-        var _r = ({} : Reader);
+        var _r = (({} : Reader) : Ref<Reader>);
         _r._reset(new Slice<GoUInt8>((_size : GoInt).toBasic(), 0, ...[for (i in 0 ... (_size : GoInt).toBasic()) (0 : GoUInt8)]), _rd);
         return _r;
     }

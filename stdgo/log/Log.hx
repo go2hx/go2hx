@@ -458,7 +458,7 @@ function output(_calldepth:GoInt, _s:GoString):Error {
     // Test using Println("hello", 23, "world") or using Printf("hello %d world", 23)
 **/
 private function _testPrint(_t:Ref<stdgo.testing.Testing.T>, _flag:GoInt, _prefix:GoString, _pattern:GoString, _useFormat:Bool):Void {
-        var _buf = ({} : stdgo.strings.Strings.Builder);
+        var _buf = (({} : stdgo.strings.Strings.Builder) : Ref<stdgo.strings.Strings.Builder>);
         setOutput(Go.asInterface(_buf));
         setFlags(_flag);
         setPrefix(_prefix);

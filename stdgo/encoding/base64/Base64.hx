@@ -599,7 +599,7 @@ function newEncoding(_encoder:GoString):Ref<Encoding> {
                 };
             });
         };
-        var _e = ({} : Encoding);
+        var _e = (({} : Encoding) : Ref<Encoding>);
         _e._padChar = (61 : GoInt32);
         Go.copySlice((_e._encode.__slice__(0) : Slice<GoUInt8>), _encoder);
         Go.copySlice((_e._decodeMap.__slice__(0) : Slice<GoUInt8>), Go.str(255,
@@ -1191,7 +1191,7 @@ function testBig(_t:Ref<stdgo.testing.Testing.T>):Void {
                 _raw[(_i : GoInt)] = ("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : GoString)[(_i % (("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : GoString).length) : GoInt)];
             });
         };
-        var _encoded = ({} : stdgo.bytes.Bytes.Buffer);
+        var _encoded = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
         var _w:stdgo.io.Io.WriteCloser = newEncoder(stdEncoding, Go.asInterface(_encoded));
         var __tmp__ = _w.write(_raw), _nn:GoInt = __tmp__._0, _err:Error = __tmp__._1;
         if ((_nn != _n) || (_err != null)) {

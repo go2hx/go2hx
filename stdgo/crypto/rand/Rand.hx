@@ -129,7 +129,7 @@ function prime(_rand:stdgo.io.Io.Reader, _bits:GoInt):{ var _0 : Ref<stdgo.math.
             _b = ("8" : GoUInt);
         };
         var _bytes = new Slice<GoUInt8>(((_bits + (7 : GoInt)) / (8 : GoInt) : GoInt).toBasic(), 0, ...[for (i in 0 ... ((_bits + (7 : GoInt)) / (8 : GoInt) : GoInt).toBasic()) (0 : GoUInt8)]);
-        var _p = ({} : stdgo.math.big.Big.Int_);
+        var _p = (({} : stdgo.math.big.Big.Int_) : Ref<stdgo.math.big.Big.Int_>);
         while (true) {
             {
                 var __tmp__ = stdgo.io.Io.readFull(_rand, _bytes), _0:GoInt = __tmp__._0, _err:Error = __tmp__._1;
@@ -161,7 +161,7 @@ function int_(_rand:stdgo.io.Io.Reader, _max:Ref<stdgo.math.big.Big.Int_>):{ var
         if (_max.sign() <= (0 : GoInt)) {
             throw Go.toInterface(("crypto/rand: argument to Int is <= 0" : GoString));
         };
-        _n = ({} : stdgo.math.big.Big.Int_);
+        _n = (({} : stdgo.math.big.Big.Int_) : Ref<stdgo.math.big.Big.Int_>);
         _n.sub(_max, _n.setUint64(("1" : GoUInt64)));
         var _bitLen:GoInt = _n.bitLen();
         if (_bitLen == ((0 : GoInt))) {

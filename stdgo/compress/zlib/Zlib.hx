@@ -374,7 +374,7 @@ function newReader(_r:stdgo.io.Io.Reader):{ var _0 : stdgo.io.Io.ReadCloser; var
     // The ReadCloser returned by NewReaderDict also implements Resetter.
 **/
 function newReaderDict(_r:stdgo.io.Io.Reader, _dict:Slice<GoByte>):{ var _0 : stdgo.io.Io.ReadCloser; var _1 : Error; } {
-        var _z = ({} : T_reader);
+        var _z = (({} : T_reader) : Ref<T_reader>);
         var _err:Error = _z.reset(_r, _dict);
         if (_err != null) {
             return { _0 : (null : stdgo.io.Io.ReadCloser), _1 : _err };
@@ -384,7 +384,7 @@ function newReaderDict(_r:stdgo.io.Io.Reader, _dict:Slice<GoByte>):{ var _0 : st
 function testDecompressor(_t:Ref<stdgo.testing.Testing.T>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            var _b = ({} : stdgo.bytes.Bytes.Buffer);
+            var _b = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
             for (_0 => _tt in _zlibTests) {
                 var _in = stdgo.bytes.Bytes.newReader(_tt._compressed);
                 var __tmp__ = newReaderDict(Go.asInterface(_in), _tt._dict), _zr:stdgo.io.Io.ReadCloser = __tmp__._0, _err:Error = __tmp__._1;
@@ -673,7 +673,7 @@ private function _testFileLevelDictReset(_t:Ref<stdgo.testing.Testing.T>, _fn:Go
                 return;
             };
         };
-        var _buf = ({} : stdgo.bytes.Bytes.Buffer);
+        var _buf = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
         var _zlibw:Ref<Writer> = (null : Ref<Writer>);
         if (_dict == null) {
             {
@@ -702,7 +702,7 @@ private function _testFileLevelDictReset(_t:Ref<stdgo.testing.Testing.T>, _fn:Go
             return;
         };
         var _out:GoString = (_buf.string() : GoString);
-        var _buf2 = ({} : stdgo.bytes.Bytes.Buffer);
+        var _buf2 = (({} : stdgo.bytes.Bytes.Buffer) : Ref<stdgo.bytes.Bytes.Buffer>);
         _zlibw.reset(Go.asInterface(_buf2));
         {
             var __tmp__ = _zlibw.write(_b0);

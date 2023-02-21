@@ -2495,7 +2495,7 @@ function testHardLink(_t:Ref<stdgo.testing.Testing.T>):Void {
                     _t.errorf(("link %q, %q: expected error, got nil" : GoString), Go.toInterface(_from), Go.toInterface(_to));
                 } else {
                     var _err:Error = __type__ == null ? (null : Error) : cast __type__;
-                    _t.errorf(("link %q, %q: expected %T, got %T %v" : GoString), Go.toInterface(_from), Go.toInterface(_to), Go.toInterface(Go.asInterface(({} : LinkError))), Go.toInterface(_err), Go.toInterface(_err));
+                    _t.errorf(("link %q, %q: expected %T, got %T %v" : GoString), Go.toInterface(_from), Go.toInterface(_to), Go.toInterface(Go.asInterface((({} : LinkError) : Ref<LinkError>))), Go.toInterface(_err), Go.toInterface(_err));
                 };
             };
             for (defer in __deferstack__) {
@@ -2827,7 +2827,7 @@ function testRenameFailed(_t:Ref<stdgo.testing.Testing.T>):Void {
                     _t.errorf(("rename %q, %q: expected error, got nil" : GoString), Go.toInterface(_from), Go.toInterface(_to));
                 } else {
                     var _err:Error = __type__ == null ? (null : Error) : cast __type__;
-                    _t.errorf(("rename %q, %q: expected %T, got %T %v" : GoString), Go.toInterface(_from), Go.toInterface(_to), Go.toInterface(Go.asInterface(({} : LinkError))), Go.toInterface(_err), Go.toInterface(_err));
+                    _t.errorf(("rename %q, %q: expected %T, got %T %v" : GoString), Go.toInterface(_from), Go.toInterface(_to), Go.toInterface(Go.asInterface((({} : LinkError) : Ref<LinkError>))), Go.toInterface(_err), Go.toInterface(_err));
                 };
             };
             for (defer in __deferstack__) {
@@ -2916,7 +2916,7 @@ function testRenameToDirFailed(_t:Ref<stdgo.testing.Testing.T>):Void {
                     _t.errorf(("rename %q, %q: expected error, got nil" : GoString), Go.toInterface(_from), Go.toInterface(_to));
                 } else {
                     var _err:Error = __type__ == null ? (null : Error) : cast __type__;
-                    _t.errorf(("rename %q, %q: expected %T, got %T %v" : GoString), Go.toInterface(_from), Go.toInterface(_to), Go.toInterface(Go.asInterface(({} : LinkError))), Go.toInterface(_err), Go.toInterface(_err));
+                    _t.errorf(("rename %q, %q: expected %T, got %T %v" : GoString), Go.toInterface(_from), Go.toInterface(_to), Go.toInterface(Go.asInterface((({} : LinkError) : Ref<LinkError>))), Go.toInterface(_err), Go.toInterface(_err));
                 };
             };
             for (defer in __deferstack__) {

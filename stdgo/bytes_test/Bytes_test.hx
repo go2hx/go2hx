@@ -1661,7 +1661,7 @@ function testReadFromNegativeReader(_t:Ref<stdgo.testing.Testing.T>):Void {
                 };
                 a();
             });
-            _b.readFrom(Go.asInterface(({} : stdgo.bytes_test.Bytes_test.T_negativeReader)));
+            _b.readFrom(Go.asInterface((({} : stdgo.bytes_test.Bytes_test.T_negativeReader) : Ref<stdgo.bytes_test.Bytes_test.T_negativeReader>)));
             for (defer in __deferstack__) {
                 defer();
             };
@@ -1952,7 +1952,7 @@ function testGrowOverflow(_t:Ref<stdgo.testing.Testing.T>):Void {
     // Was a bug: used to give EOF reading empty slice at EOF.
 **/
 function testReadEmptyAtEOF(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _b = ({} : Buffer);
+        var _b = (({} : Buffer) : Ref<Buffer>);
         var _slice = new Slice<GoUInt8>((0 : GoInt).toBasic(), 0, ...[for (i in 0 ... (0 : GoInt).toBasic()) (0 : GoUInt8)]);
         var __tmp__ = _b.read(_slice), _n:GoInt = __tmp__._0, _err:Error = __tmp__._1;
         if (_err != null) {
@@ -1963,7 +1963,7 @@ function testReadEmptyAtEOF(_t:Ref<stdgo.testing.Testing.T>):Void {
         };
     }
 function testUnreadByte(_t:Ref<stdgo.testing.Testing.T>):Void {
-        var _b = ({} : Buffer);
+        var _b = (({} : Buffer) : Ref<Buffer>);
         {
             var _err:Error = _b.unreadByte();
             if (_err == null) {

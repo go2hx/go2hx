@@ -490,7 +490,7 @@ function buildTarget(target:String, out:String, main:String):String {
 	if (index != -1)
 		main = main.substr(index + 1);
 	return switch target {
-		case "hl", "jvm", "cpp", "cs", "js":
+		case "hl", "jvm", "cpp", "cs", "js", "lua", "python", "php", "neko":
 			'--$target $out';
 		case "interp":
 			"--interp";
@@ -506,12 +506,18 @@ function runTarget(target:String, out:String, args:Array<String>, main:String):S
 	var s = switch target {
 		case "interp":
 			"";
-		case "hl":
-			'hl $out';
+		case "cpp", "cs":
+			"./" + out + "/" + main;
 		case "jvm":
 			'java -jar $out';
-		case "cpp":
-			"./" + out + "/" + main;
+		case "python":
+			if (Sys.systemName() == "Mac") {
+				'python3 $out';
+			}else{
+				'python $out';
+			}
+		case "hl", "neko", "lua", "php":
+			'$target $out';
 		case "js":
 			'node $out';
 		default:

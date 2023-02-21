@@ -3349,8 +3349,12 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							case TPath(_), TFunction(_, _), TAnonymous(_):
 								var t = typeof(expr.args[0], info, false);
 								var value = defaultValue(t, info);
-								if (!isRefValue(t))
+								if (!isRefValue(t)) {
 									value = macro Go.pointer($value);
+								}else{
+									final ct = TPath({name: "Ref", pack: [], params: [TPType(toComplexType(t,info))]});
+									value = macro ($value : $ct);
+								}
 								return returnExpr(value);
 							default:
 						}

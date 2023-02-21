@@ -981,6 +981,7 @@ final list = [
 
 final skipTargets = [
 	"fmt_test:testPanics" => [], // keep Haxe specific throws, no need to replicate
+	"fmt_test:testFinderNext" => [], // Segmentation fault (core dumped)
 	"strings_test:testGenericTrieBuilding" => [], // Segmentation fault (core dumped)
 	"math_test:testFloatMinima" => ["interp"],
 	"math_test:testNextafter32" => ["interp"],

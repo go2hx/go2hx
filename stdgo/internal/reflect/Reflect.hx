@@ -317,33 +317,8 @@ private function identicalType(t:GoType,v:GoType):Bool {
 				default:
 					false;
 			}
-		case signature(variadic, _.get() => params, _.get() => results, _.get() => recv, _.get() => typeParams):
-			switch v {
-				case signature(variadic2, _.get() => params2, _.get() => results2, _.get() => recv2, _.get() => typeParams2):
-					if (variadic != variadic2)
-						return false;
-					if (params.length != params2.length)
-						return false;
-					if (results.length != results2.length)
-						return false;
-					if (typeParams.length != typeParams2.length)
-						return false;
-					for (i in 0...params.length) {
-						if (!identicalType(params[i],params2[i]))
-							return false;
-					}
-					for (i in 0...results.length) {
-						if (!identicalType(results[i], results2[i]))
-							return false;
-					}
-					for (i in 0...typeParams.length) {
-						if (!identicalType(typeParams[i],typeParams2[i]))
-							return false;
-					}
-					true;
-				default:
-					false;
-			}
+		case signature(_, _, _, _):
+			return false;
 		default:
 			trace(t);
 			throw "identical type not supported";

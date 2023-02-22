@@ -173,7 +173,9 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		return this.toVector();
 	}
 
-	public function __setData__(data:SliceData<T>) {
+	public inline function __setData__(data:SliceData<T>) {
+		if (this == null)
+			this = new Slice<T>(0,0);
 		this.length = data.length;
 		this.capacity = data.capacity;
 		this.vector = data.vector;
@@ -271,7 +273,7 @@ class SliceData<T> {
 		#end
 	}
 
-	public function grow() {
+	public inline function grow() {
 		if (vector.length >= capacity)
 			return;
 		var dest = new haxe.ds.Vector<T>(capacity);

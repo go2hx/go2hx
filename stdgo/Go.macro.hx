@@ -890,8 +890,22 @@ class Go {
 				switch (sref) {
 					case "stdgo.Chan":
 						var len = macro(-1);
-						if (expr != null)
-							len = macro($expr : Chan<Dynamic>).length.toBasic();
+						if (expr != null) { // check for stdgo.reflect.Value
+							final t = Context.follow(Context.typeof(expr));
+							switch t {
+								case TInst(_.get() => ct,_):
+									if (ct.pack != null && ct.pack[0] == "stdgo" && ct.pack[1] == "reflect" && ct.name == "Value") {
+										len = macro $expr.len().toBasic();
+									}
+								case TFun(_):
+								case TAbstract(_.get() => ct,_):
+										if (ct.pack != null && ct.pack[0] == "stdgo" && ct.name == "Chan") {
+											len = macro $expr.length.toBasic();
+										}
+								default:
+									
+							}
+						}
 						final param = gtParams(params, marked)[0];
 						ret = macro stdgo.internal.reflect.Reflect.GoType.chanType($len, {get: () -> $param});
 					case "stdgo.Slice":

@@ -786,8 +786,12 @@ final list = [
 				}
 			case stdgo.internal.reflect.Reflect.KindType.func:
 				value == null;
-			case stdgo.internal.reflect.Reflect.KindType.map, stdgo.internal.reflect.Reflect.KindType.slice, stdgo.internal.reflect.Reflect.KindType.chan:
+			case stdgo.internal.reflect.Reflect.KindType.chan:
 				value == null;
+			case stdgo.internal.reflect.Reflect.KindType.map:
+				(value : GoMap<Dynamic,Dynamic>).__nil__();
+			case stdgo.internal.reflect.Reflect.KindType.slice:
+				(value : Slice<Dynamic>).__nil__();
 			case stdgo.internal.reflect.Reflect.KindType.interface_:
 				value == null;
 			case stdgo.internal.reflect.Reflect.KindType.array:
@@ -798,7 +802,7 @@ final list = [
 				false;
 			case stdgo.internal.reflect.Reflect.KindType.unsafePointer, stdgo.internal.reflect.Reflect.KindType.uintptr:
 				value == null;
-			case stdgo.internal.reflect.Reflect.KindType.bool, stdgo.internal.reflect.Reflect.KindType.int, stdgo.internal.reflect.Reflect.KindType.int32, stdgo.internal.reflect.Reflect.KindType.int64, stdgo.internal.reflect.Reflect.KindType.float32, stdgo.internal.reflect.Reflect.KindType.float64, stdgo.internal.reflect.Reflect.KindType.int8, stdgo.internal.reflect.Reflect.KindType.int16, stdgo.internal.reflect.Reflect.KindType.uint, stdgo.internal.reflect.Reflect.KindType.uint8, stdgo.internal.reflect.Reflect.KindType.uint16, stdgo.internal.reflect.Reflect.KindType.uint32, stdgo.internal.reflect.Reflect.KindType.uint64:
+			case stdgo.internal.reflect.Reflect.KindType.bool, stdgo.internal.reflect.Reflect.KindType.int, stdgo.internal.reflect.Reflect.KindType.int32, stdgo.internal.reflect.Reflect.KindType.int64, stdgo.internal.reflect.Reflect.KindType.float32, stdgo.internal.reflect.Reflect.KindType.float64, stdgo.internal.reflect.Reflect.KindType.int8, stdgo.internal.reflect.Reflect.KindType.int16, stdgo.internal.reflect.Reflect.KindType.uint, stdgo.internal.reflect.Reflect.KindType.uint8, stdgo.internal.reflect.Reflect.KindType.uint16, stdgo.internal.reflect.Reflect.KindType.uint32, stdgo.internal.reflect.Reflect.KindType.uint64, stdgo.internal.reflect.Reflect.KindType.string:
 				false;
 			default:
 				throw "nil check not supported kind: " + _v.kind().string();

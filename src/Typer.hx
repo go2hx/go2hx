@@ -1528,6 +1528,16 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 		}
 		if (isNamed(nilType))
 			nilType = getUnderlying(nilType);
+		switch nilType {
+			case sliceType(_), mapType(_,_):
+				switch op {
+					case OpEq:
+						return macro $value.__nil__();
+					default:
+						return macro !$value.__nil__();
+				}
+			default:
+		}
 		switch op {
 			case OpEq:
 				return macro $value == null;
@@ -1678,6 +1688,8 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 		if (info.global.hasBreak) {
 			function func(expr:Expr):Expr {
 				return switch expr.expr {
+					case EBlock(exprs):
+						toExpr(EBlock([for (i in 0...exprs.length) func(exprs[i])]));
 					case EIf(econd, eif, eelse):
 						switch eif.expr {
 							case EBlock(exprs):
@@ -1744,31 +1756,27 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 
 private function continueInsideSwitch(expr:Expr):Bool {
 	var hasContinue = false;
-	switch expr.expr {
-		case EIf(econd, eif, eelse):
-			var f = null;
-			f = expr -> return switch expr.expr {
-				case EMeta(s, _):
-					if (s.name == ":fallthrough" || s.name == ":jump") {
-						expr;
-					} else {
-						haxe.macro.ExprTools.map(expr, f);
-					}
-				case EWhile(_, _, _), EFor(_, _):
-					// new scope
-					expr;
-				case EContinue:
-					hasContinue = true;
-					macro {
-						__continue__ = true;
-						break;
-					};
-				default:
-					haxe.macro.ExprTools.map(expr, f);
+	var f = null;
+	f = expr -> return switch expr.expr {
+		case EMeta(s, _):
+			if (s.name == ":fallthrough" || s.name == ":jump") {
+				expr;
+			} else {
+				haxe.macro.ExprTools.map(expr, f);
 			}
-			expr.expr = f(expr).expr;
+		case EWhile(_, _, _), EFor(_, _):
+			// new scope
+			expr;
+		case EContinue:
+			hasContinue = true;
+			macro {
+				__continue__ = true;
+				break;
+			};
 		default:
+			haxe.macro.ExprTools.map(expr, f);
 	}
+	expr.expr = f(expr).expr;
 	return hasContinue;
 }
 
@@ -2443,7 +2451,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 						// set underlying not the ref
 						final underlyingType = getUnderlying(toType);
 						switch underlyingType {
-							case sliceType(_):
+							case sliceType(_), mapType(_,_):
 								return (macro $x.__setData__($y)).expr;
 							case structType(fields):
 								final exprs:Array<Expr> = [
@@ -5684,10 +5692,10 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 		case mapType(_.get() => key, _.get() => value):
 			final key = toComplexType(key, info);
 			final value = toComplexType(value, info);
-			macro(null : GoMap<$key, $value>);
+			macro (new GoObjectMap(null) : GoMap<$key,$value>);
 		case sliceType(_.get() => elem):
 			final t = toComplexType(elem, info);
-			macro(null : Slice<$t>);
+			macro new Slice<$t>(0,-1);
 		case arrayType(_.get() => elem, len):
 			final t = toComplexType(elem, info);
 			var value = defaultValue(elem, info);

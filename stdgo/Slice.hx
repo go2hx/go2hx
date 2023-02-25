@@ -122,6 +122,8 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		slice.vector = this.vector;
 		slice.nilBool = this.nilBool;
 		slice.offset = this.offset;
+		if (slice.capacity == -1)
+			slice.capacity = 0;
 		return slice;
 	}
 
@@ -151,9 +153,16 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 
 	public function __append__(args:Rest<T>):Slice<T> {
 		final slice:SliceData<T> = __ref__(); // no allocation
+		if (slice.capacity == -1) {
+			slice.capacity = 0;
+		}
 		final startOffset = slice.length;
 		final growCapacity = args.length - slice.capacity + slice.length + slice.offset + 1;
-		slice.vector = slice.vector.copy(); // allocation
+		if (slice.vector == null) {
+			slice.vector = new haxe.ds.Vector<T>(growCapacity);
+		}else{
+			slice.vector = slice.vector.copy(); // allocation
+		}
 		if (growCapacity <= 1) {
 			slice.length += args.length;
 			for (i in 0...args.length) {

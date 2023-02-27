@@ -51,7 +51,6 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		data.vector = vector;
 		data.length = vector.length;
 		data.capacity = vector.length;
-		data.nilBool = false;
 		return data;
 	}
 
@@ -73,9 +72,6 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		var slice = new SliceData<T>(vector.length, vector.length);
 		return slice;
 	}
-
-	public function __nil__():Bool
-		return this == null ? true : this.nilBool;
 
 	private function get_length():GoInt {
 		return this == null ? 0 : this.length;
@@ -120,7 +116,6 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		slice.length = this.length;
 		slice.capacity = this.capacity;
 		slice.vector = this.vector;
-		slice.nilBool = this.nilBool;
 		slice.offset = this.offset;
 		if (slice.capacity == -1)
 			slice.capacity = 0;
@@ -130,7 +125,6 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	public inline function __appendref__(args:Rest<T>):Slice<T> {
 		if (this == null)
 			this = new SliceData<T>(0, 0);
-		this.nilBool = false;
 		final startOffset = this.length;
 		final growCapacity = args.length - this.capacity + this.length + this.offset + 1;
 		if (growCapacity <= 1) {
@@ -193,7 +187,6 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 			this = new Slice<T>(0,0);
 		this.length = data.length;
 		this.capacity = data.capacity;
-		this.nilBool = data.nilBool;
 		this.vector = data.vector;
 		this.offset = data.offset;
 	}
@@ -239,7 +232,6 @@ class SliceData<T> {
 	public var offset:Int = 0;
 	public var length:Int = 0;
 	public var capacity:Int = 0;
-	public var nilBool:Bool = false;
 
 	public inline function new(length:Int, capacity:Int, args:Rest<T>) {
 		if (capacity != -1) {
@@ -253,8 +245,6 @@ class SliceData<T> {
 			vector = new haxe.ds.Vector<T>(vectorLength);
 			for (i in 0...args.length)
 				vector.set(i, args[i]);
-		}else{
-			nilBool = true;
 		}
 	}
 

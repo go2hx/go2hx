@@ -1523,20 +1523,20 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 	}
 	var value = nilExpr;
 	if (value != null) {
-		if (isInterface(typeX) || isInterface(typeY)) {
-			return toExpr(EBinop(op, x, y));
-		}
 		if (isNamed(nilType))
 			nilType = getUnderlying(nilType);
 		switch nilType {
-			case sliceType(_), mapType(_,_):
+			case refType(_):
 				switch op {
 					case OpEq:
-						return macro $value.__nil__();
+						return macro $value == null;
 					default:
-						return macro !$value.__nil__();
+						return macro $value != null;
 				}
 			default:
+		}
+		if (isInterface(typeX) || isInterface(typeY)) {
+			return toExpr(EBinop(op, x, y));
 		}
 		switch op {
 			case OpEq:
@@ -5695,7 +5695,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			macro (new GoObjectMap(null) : GoMap<$key,$value>);
 		case sliceType(_.get() => elem):
 			final t = toComplexType(elem, info);
-			macro new Slice<$t>(0,-1);
+			macro(null : Slice<$t>);
 		case arrayType(_.get() => elem, len):
 			final t = toComplexType(elem, info);
 			var value = defaultValue(elem, info);

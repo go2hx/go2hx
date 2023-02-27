@@ -789,9 +789,9 @@ final list = [
 			case stdgo.internal.reflect.Reflect.KindType.chan:
 				value == null;
 			case stdgo.internal.reflect.Reflect.KindType.map:
-				(value : GoMap<Dynamic,Dynamic>).__nil__();
+				value == null;
 			case stdgo.internal.reflect.Reflect.KindType.slice:
-				(value : Slice<Dynamic>).__nil__();
+				value == null;
 			case stdgo.internal.reflect.Reflect.KindType.interface_:
 				value == null;
 			case stdgo.internal.reflect.Reflect.KindType.array:

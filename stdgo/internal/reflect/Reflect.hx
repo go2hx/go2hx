@@ -127,8 +127,10 @@ function deepValueEqual(v1:Value, v2:Value, visited:GoMap<Visit, Bool>, depth:Go
 			return true;
 		}
 		return false;
+	} else if (v1.kind() == KindType.uintptr) {
+		return v1.pointer() == v2.pointer();
 	} else {
-		// trace(v1.kind().string(), v2.kind().string());
+		//trace(v1.kind().string(), v2.kind().string());
 		return v1.interface_() == v2.interface_();
 	}
 }
@@ -160,7 +162,7 @@ function directlyAssignable(t:Type, v:Type):Bool {
 		case arrayType(_.get() => elem, len):
 			switch vgt {
 				case arrayType(_.get() => elem2, len2):
-					if (len != len2)
+					if (len != -1 && len2 != -1 && len != len2)
 						return false;
 					identicalType(elem,elem2);
 				default: false;
@@ -282,14 +284,16 @@ private function identicalType(t:GoType,v:GoType):Bool {
 		case arrayType(_.get() => elem, len):
 			switch v {
 				case arrayType(_.get() => elem2, len2):
-					len == len2 && identicalType(elem,elem2);
+					if (len != -1 && len2 != -1 && len != len2)
+						return false;
+					identicalType(elem,elem2);
 				default:
 					false;
 			}
 		case chanType(len, _.get() => elem):
 			switch v {
 				case chanType(len2, _.get() => elem2):
-					len == len2 && identicalType(elem,elem2);
+					(len == -1 || len2 == -1 || len == len2) && identicalType(elem,elem2);
 				default:
 					false;
 			}
@@ -319,6 +323,13 @@ private function identicalType(t:GoType,v:GoType):Bool {
 			}
 		case signature(_, _, _, _):
 			return false;
+		case mapType(_.get() => key,_.get() => value):
+			switch v {
+				case mapType(_.get() => key2,_.get() => value2):
+					identicalType(key,key2) && identicalType(value,value2);
+				default:
+					false;
+			}
 		default:
 			trace(t);
 			throw "identical type not supported";

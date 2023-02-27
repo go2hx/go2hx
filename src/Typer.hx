@@ -5692,7 +5692,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 		case mapType(_.get() => key, _.get() => value):
 			final key = toComplexType(key, info);
 			final value = toComplexType(value, info);
-			macro (new GoObjectMap(null) : GoMap<$key,$value>);
+			macro (null : GoMap<$key,$value>);
 		case sliceType(_.get() => elem):
 			final t = toComplexType(elem, info);
 			macro(null : Slice<$t>);

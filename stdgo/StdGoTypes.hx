@@ -1809,7 +1809,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 		switch gt {
 			case named(path, _, _, _):
 				if (aValue != null) {
-					final cl = std.Type.getClassName(std.Type.getClass(aValue));
+					final cl = std.Type.getClassName(std.Type.getClass(path));
 					if (StringTools.endsWith(cl, "_asInterface")) {
 						aValue = (aValue : Dynamic).__underlying__().value;
 					}
@@ -1817,9 +1817,9 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 			default:
 		}
 		switch gt2 {
-			case named(_, _, _, _):
+			case named(path, _, _, _):
 				if (bValue != null) {
-					final cl = std.Type.getClassName(std.Type.getClass(bValue));
+					final cl = std.Type.getClassName(std.Type.getClass(path));
 					if (StringTools.endsWith(cl, "_asInterface")) {
 						bValue = (bValue : Dynamic).__underlying__().value;
 					}

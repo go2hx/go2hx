@@ -344,6 +344,38 @@ final list = [
 		@:privateAccess _v.value.value = _x;
 		stdgo.internal.reflect.Reflect._set(_v);
 	},
+	"reflect.Value:setBool" => macro {
+		@:privateAccess _v.value.value = _x;
+		stdgo.internal.reflect.Reflect._set(_v);
+	},
+	"reflect.Value:setInt" => macro {
+		final k = _v.kind();
+		@:privateAccess _v.value.value = switch k {
+			case stdgo.internal.reflect.Reflect.KindType.int8:
+				(_x : GoInt8);
+			case stdgo.internal.reflect.Reflect.KindType.int16:
+				(_x : GoInt16);
+			case stdgo.internal.reflect.Reflect.KindType.int32:
+				(_x : GoInt32);
+			case stdgo.internal.reflect.Reflect.KindType.int64:
+				(_x : GoInt64);
+			case stdgo.internal.reflect.Reflect.KindType.int:
+				(_x : GoInt);
+			case stdgo.internal.reflect.Reflect.KindType.uint8:
+				(_x : GoUInt8);
+			case stdgo.internal.reflect.Reflect.KindType.uint16:
+				(_x : GoUInt16);
+			case stdgo.internal.reflect.Reflect.KindType.uint32:
+				(_x : GoUInt32);
+			case stdgo.internal.reflect.Reflect.KindType.uint64:
+				(_x : GoUInt64);
+			case stdgo.internal.reflect.Reflect.KindType.uint:
+				(_x : GoUInt);
+			default:
+				(_x : GoInt64);
+		};
+		stdgo.internal.reflect.Reflect._set(_v);
+	},
 	"reflect.Value:kind" => macro return _v.type().kind(),
 	"reflect.Value:isValid" => macro {
 		if (@:privateAccess _v.value == null)

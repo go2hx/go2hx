@@ -625,7 +625,7 @@ private function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Arr
 
 	final field:Field = {
 		name: funcName,
-		access: [APublic],
+		access: hasParams ? [APublic] : [APublic, ADynamic],
 		meta: meta == null ? null : meta.copy(),
 		pos: pos,
 		doc: doc,
@@ -1529,9 +1529,9 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 			case refType(_):
 				switch op {
 					case OpEq:
-						return macro $value == null;
+						return macro $value == null || ($value : Dynamic).__nil__;
 					default:
-						return macro $value != null;
+						return macro $value != null && (($value : Dynamic).__nil__ == null || (!($value : Dynamic).__nil__));
 				}
 			default:
 		}
@@ -1550,8 +1550,10 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 			x = macro $x.value;
 		if (isPointer(typeY))
 			y = macro $y.value;
-		x = toAnyInterface(x, typeX, info);
-		y = toAnyInterface(y, typeY, info);
+		if (!isAnyInterface(getElem(typeX)))
+			x = toAnyInterface(x, typeX, info);
+		if (!isAnyInterface(getElem(typeY)))
+			y = toAnyInterface(y, typeY, info);
 	}
 	var t = getUnderlying(typeX);
 	switch t {
@@ -2451,6 +2453,19 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 						// set underlying not the ref
 						final underlyingType = getUnderlying(toType);
 						switch underlyingType {
+							case interfaceType(empty,methods):
+								if (empty) {
+									return (macro $x.__setData__($y)).expr;
+								}else{
+									final exprs:Array<Expr> = [
+										for (field in methods) {
+											final field = field.name;
+											macro $x.$field = __tmp__.$field;
+										}
+									];
+									exprs.unshift(macro var __tmp__ = $y);
+									return (macro $b{exprs}).expr;
+								}
 							case sliceType(_), mapType(_,_):
 								return (macro $x.__setData__($y)).expr;
 							case structType(fields):
@@ -3367,7 +3382,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 									value = macro Go.pointer($value);
 								}else{
 									final ct = TPath({name: "Ref", pack: [], params: [TPType(toComplexType(t,info))]});
-									value = macro ($value : $ct);
+									value = macro (Go.setRef($value) : $ct);
 								}
 								return returnExpr(value);
 							default:
@@ -4412,7 +4427,7 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr, info:Info):ExprDef {
 			case refType(_):
 				final t = typeof(expr, info, false);
 				final ct = toComplexType(t, info);
-				return (macro($x : $ct)).expr;
+				return (macro (Go.setRef($x) : $ct)).expr;
 			case pointerType(_):
 				return (macro Go.pointer($x)).expr;
 			default:
@@ -6671,6 +6686,8 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				}
 			}
 			final fields = typeFieldListMethods(struct.methods, info);
+			for (field in fields)
+				field.access.push(ADynamic);
 			var meta = [];
 			// embedded interfaces
 			final implicits:Array<TypePath> = [];

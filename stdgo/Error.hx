@@ -10,14 +10,14 @@ import stdgo.Pointer;
 import stdgo.Slice;
 import stdgo.StdGoTypes;
 
-private var _shiftError:Error = #if !macro Go.asInterface((Go.str("negative shift amount") : T_errorString)); #else null; #end
-private var _divideError:Error = #if !macro Go.asInterface((Go.str("integer divide by zero") : T_errorString)); #else null; #end
-private var _overflowError:Error = #if !macro Go.asInterface((Go.str("integer overflow") : T_errorString)); #else null; #end
-private var _floatError:Error = #if !macro Go.asInterface((Go.str("floating point error") : T_errorString)); #else null; #end
-private var _memoryError:Error = #if !macro Go.asInterface((Go.str("invalid memory address or nil pointer dereference") : T_errorString)); #else null; #end
+private var _shiftError:Error = Go.asInterface((Go.str("negative shift amount") : T_errorString));
+private var _divideError:Error = Go.asInterface((Go.str("integer divide by zero") : T_errorString));
+private var _overflowError:Error = Go.asInterface((Go.str("integer overflow") : T_errorString));
+private var _floatError:Error = Go.asInterface((Go.str("floating point error") : T_errorString));
+private var _memoryError:Error = Go.asInterface((Go.str("invalid memory address or nil pointer dereference") : T_errorString));
 
 typedef Error = StructType & {
-	public function error():GoString;
+	public dynamic function error():GoString;
 };
 
 /**
@@ -27,11 +27,11 @@ typedef Error = StructType & {
 
 class T_errorString_asInterface {
 	@:keep
-	public function error():GoString
+	public dynamic function error():GoString
 		return __self__.value.error();
 
 	@:keep
-	public function runtimeError():Void
+	public dynamic  function runtimeError():Void
 		__self__.value.runtimeError();
 
 	public function new(__self__, __type__) {

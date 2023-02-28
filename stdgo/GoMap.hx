@@ -18,6 +18,11 @@ abstract GoMap<K, V>(GoObjectMap<K, V>) {
 	function get_length():GoInt
 		return this == null ? 0 : Lambda.count(this);
 
+	public inline function __setNil__():GoMap<K,V> {
+		this.__nil__ = true;
+		return this;
+	}
+
 	public inline function __setData__(data:GoMap<K,V>) {
 		final data = data.toObjectMap();
 		@:privateAccess this._keys = data._keys;
@@ -83,6 +88,7 @@ abstract GoMap<K, V>(GoObjectMap<K, V>) {
 class GoObjectMap<K, V> implements haxe.Constraints.IMap<K, V> {
 	var _keys:Array<K> = [];
 	var _values:Array<V> = [];
+	public var __nil__:Bool = false;
 
 	public var t:_Type = null;
 

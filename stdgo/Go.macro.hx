@@ -404,6 +404,97 @@ class Go {
 		return run();
 }
 
+	public static macro function setRef(expr) {
+		var t = Context.typeof(expr);
+		function run() {
+			switch t {
+				case TType(_.get() => tt, _):
+					switch tt.type {
+						case TAnonymous(_):
+
+						default:
+							if (tt.meta.has(":named")) {
+								t = tt.type;
+								run();
+							}
+					}
+				default:
+			}
+		}
+		run();
+		switch t {
+			case TInst(_, _):
+				return expr;
+			case TAbstract(_.get() => at, _):
+				final path = at.pack.join(".") + "." + at.name;
+				switch path {
+					case "stdgo.GoArray":
+						return expr;
+				}
+			case TType(_.get() => at, _):
+				final path = at.pack.join(".") + "." + at.name;
+				switch path {
+					case "stdgo.Ref":
+						return expr;
+					default:
+				}
+			default:
+		}
+		function gen(isNull:Bool) {
+			return switch t {
+				case TAbstract(_.get() => at, _):
+					final path = at.pack.join(".") + "." + at.name;
+					var value:Expr = null;
+					switch path {
+						case "stdgo.GoMap":
+							final t = gtDecode(t,expr,[]);
+							value = macro new GoObjectMap(new stdgo.internal.reflect.Reflect._Type($t));
+						case "stdgo.Slice":
+							value = macro new Slice(0,-1);
+						case "stdgo.AnyInterface":
+							// force cast into
+							value = macro new AnyInterface(null,new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.invalidType));
+						default:
+							throw "invalid path tabstract setRef: " + path;
+					}
+					if (isNull)
+						value = macro $value.__setNil__();
+					value;
+				case TType(_.get() => t, _):
+					// create methods
+					final fields:Array<ObjectField> = [];
+					switch t.type {
+						case TAnonymous(_.get() => a):
+							for (field in a.fields) {
+								fields.push({field: field.name, expr: macro null});
+							}
+						default:
+							throw "invalid underlying type";
+					}
+					if (isNull)
+						fields.push({field: "__nil__", expr: macro true});
+					final obj:Expr = {expr: EObjectDecl(fields), pos: Context.currentPos()};
+					macro cast $obj;
+				default:
+					throw "invalid t of gen setRef: " + t;
+			}
+		}
+		switch expr.expr {
+			case EConst(CIdent(s)):
+				if (s == "null") 
+					return gen(true);
+			default:
+		}
+		final valueNull = gen(false);
+		return macro {
+			if ($expr == null) {
+				$valueNull;
+			}else{
+				$expr;
+			}
+		};
+	}
+
 	public static macro function toInterface(expr) {
 		final expectedType = Context.getExpectedType();
 		switch expr.expr {
@@ -800,7 +891,9 @@ class Go {
 										final empty = methods.length == 0;
 										Go.nameTypes[path] = macro stdgo.internal.reflect.Reflect.GoType.named($v{path}, $a{methods},
 											stdgo.internal.reflect.Reflect.GoType.interfaceType($v{empty}, $a{methods}), false, {get: () -> null});
-										return macro stdgo.internal.TypeInfo.names[$v{path}];
+										final e = macro stdgo.internal.TypeInfo.names[$v{path}];
+										e.pos = Context.currentPos();
+										return e;
 									}
 								}
 							default:

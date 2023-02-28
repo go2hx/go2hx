@@ -46,5 +46,5 @@ class Go {
     public static macro function setKeys(expr:Expr):Expr;
     public static macro function select(expr:Expr):Expr;
     public static macro function multireturn(expr:Expr):Expr;
-    
+	public static macro function setRef(expr:Expr):Expr;
 }

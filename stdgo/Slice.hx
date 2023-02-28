@@ -64,6 +64,11 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		return @:privateAccess this.vector = v;
 	}
 
+	public inline function __setNil__():Slice<T> {
+		this.__nil__ = true;
+		return this;
+	}
+
 	// Conversions from slice to array pointer go 1.17
 
 	@:from
@@ -184,11 +189,12 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 
 	public inline function __setData__(data:SliceData<T>) {
 		if (this == null)
-			this = new Slice<T>(0,0);
+			this = new Slice<T>(0,-1);
 		this.length = data.length;
 		this.capacity = data.capacity;
 		this.vector = data.vector;
 		this.offset = data.offset;
+		this.__nil__ = false;
 	}
 }
 
@@ -232,6 +238,7 @@ class SliceData<T> {
 	public var offset:Int = 0;
 	public var length:Int = 0;
 	public var capacity:Int = 0;
+	public var __nil__:Bool = false;
 
 	public inline function new(length:Int, capacity:Int, args:Rest<T>) {
 		if (capacity != -1) {

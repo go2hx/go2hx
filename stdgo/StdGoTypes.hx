@@ -1758,6 +1758,7 @@ typedef StructType = {
 class AnyInterfaceData {
 	public var value:Any;
 	public var type:stdgo.internal.reflect.Reflect._Type;
+	public var __nil__:Bool = false;
 
 	public function new(value, type) {
 		this.value = value;
@@ -1773,6 +1774,17 @@ class AnyInterfaceData {
 abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 	public function __underlying__():AnyInterface
 		return this;
+
+	public inline function __setNil__():AnyInterface {
+		this.__nil__ = true;
+		return this;
+	}
+
+	public inline function __setData__(data:AnyInterface) {
+		this.type = data.type;
+		this.value = data.value;
+		this.__nil__ = data.__nil__;
+	}
 
 	@:op(A != b) public static function notEquals(a:AnyInterface, b:AnyInterface):Bool {
 		return !equals(a, b);
@@ -1805,7 +1817,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 			default:
 		}
 		switch gt2 {
-			case named(_, _, type, _):
+			case named(_, _, _, _):
 				if (bValue != null) {
 					final cl = std.Type.getClassName(std.Type.getClass(bValue));
 					if (StringTools.endsWith(cl, "_asInterface")) {

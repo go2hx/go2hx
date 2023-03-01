@@ -1386,7 +1386,7 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 					var type:ComplexType = toComplexType(assignType, info);
 					var defValue = defaultValue(assignType, info, false);
 
-					var set = macro __type__ == null ? null : __type__.__underlying__();
+					var set = macro __type__?.__underlying__();
 					if (types.length == 1) {
 						type = toComplexType(types[0], info);
 						defValue = defaultValue(types[0], info, false);
@@ -1915,7 +1915,7 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
 			case interfaceType(_, _):
 			case sliceType(_), mapType(_, _), chanType(_, _): // pass by ref
 			case arrayType(_, _): // pass by copy
-				y = macro($y == null ? null : $y.__copy__());
+				y = macro $y?.__copy__();
 			case structType(fields):
 				final decl = createNamedObjectDecl(fields, (field, type) -> passByCopy(type, macro x.$field, info), info);
 				y = macro {
@@ -1939,7 +1939,7 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
 				}
 				// trace(printer.printExpr(y), type);
 				if (!isInterface(type) && !isAnyInterface(type)) {
-					y = macro($y == null ? null : $y.__copy__());
+					y = macro $y?.__copy__();
 				}
 			case invalidType, pointerType(_), previouslyNamed(_), refType(_), tuple(_, _):
 
@@ -2410,6 +2410,13 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 								callExpr = e;
 							default:
 						}
+						// remove checkType from x in x = y
+						x = escapeParens(x);
+						switch x.expr {
+							case ECheckType(e,_):
+								x = e;
+							default:
+						}
 						switch callExpr.expr {
 							case ECall({expr: EField(e, field), pos: _}, params):
 								if (field == "__append__"
@@ -2547,7 +2554,13 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				for (i in 0...stmt.lhs.length) {
 					if (stmt.lhs[i].id == "Ident" && stmt.lhs[i].name == "_")
 						continue;
-					final e = typeExpr(stmt.lhs[i], info);
+					var e = typeExpr(stmt.lhs[i], info);
+					e = escapeParens(e);
+					switch e.expr {
+						case ECheckType(e2,_):
+							e = e2;
+						default:
+					}
 					final fieldName = names[i];
 					var e2 = macro __tmp__.$fieldName;
 					e2 = assignTranslate(types[i], typeof(stmt.lhs[i], info, false), e2, info);

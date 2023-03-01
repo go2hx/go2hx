@@ -248,14 +248,14 @@ typedef Type = StructType & {
         
         
     **/
-    public function align():GoInt;
+    public dynamic function align():GoInt;
     /**
         // FieldAlign returns the alignment in bytes of a value of
         // this type when used as a field in a struct.
         
         
     **/
-    public function fieldAlign():GoInt;
+    public dynamic function fieldAlign():GoInt;
     /**
         // Method returns the i'th method in the type's method set.
         // It panics if i is not in the range [0, NumMethod()).
@@ -271,7 +271,7 @@ typedef Type = StructType & {
         
         
     **/
-    public function method(_0:GoInt):Method;
+    public dynamic function method(_0:GoInt):Method;
     /**
         // MethodByName returns the method with that name in the type's
         // method set and a boolean indicating if the method was found.
@@ -284,7 +284,7 @@ typedef Type = StructType & {
         
         
     **/
-    public function methodByName(_0:GoString):{ var _0 : Method; var _1 : Bool; };
+    public dynamic function methodByName(_0:GoString):{ var _0 : Method; var _1 : Bool; };
     /**
         // NumMethod returns the number of methods accessible using Method.
         //
@@ -294,14 +294,14 @@ typedef Type = StructType & {
         
         
     **/
-    public function numMethod():GoInt;
+    public dynamic function numMethod():GoInt;
     /**
         // Name returns the type's name within its package for a defined type.
         // For other (non-defined) types it returns the empty string.
         
         
     **/
-    public function name():GoString;
+    public dynamic function name():GoString;
     /**
         // PkgPath returns a defined type's package path, that is, the import path
         // that uniquely identifies the package, such as "encoding/base64".
@@ -311,14 +311,14 @@ typedef Type = StructType & {
         
         
     **/
-    public function pkgPath():GoString;
+    public dynamic function pkgPath():GoString;
     /**
         // Size returns the number of bytes needed to store
         // a value of the given type; it is analogous to unsafe.Sizeof.
         
         
     **/
-    public function size():GoUIntptr;
+    public dynamic function size():GoUIntptr;
     /**
         // String returns a string representation of the type.
         // The string representation may use shortened package names
@@ -328,25 +328,25 @@ typedef Type = StructType & {
         
         
     **/
-    public function string():GoString;
+    public dynamic function string():GoString;
     /**
         // Kind returns the specific kind of this type.
         
         
     **/
-    public function kind():Kind;
+    public dynamic function kind():Kind;
     /**
         // Implements reports whether the type implements the interface type u.
         
         
     **/
-    public function implements_(_u:Type):Bool;
+    public dynamic function implements_(_u:Type):Bool;
     /**
         // AssignableTo reports whether a value of the type is assignable to type u.
         
         
     **/
-    public function assignableTo(_u:Type):Bool;
+    public dynamic function assignableTo(_u:Type):Bool;
     /**
         // ConvertibleTo reports whether a value of the type is convertible to type u.
         // Even if ConvertibleTo returns true, the conversion may still panic.
@@ -355,7 +355,7 @@ typedef Type = StructType & {
         
         
     **/
-    public function convertibleTo(_u:Type):Bool;
+    public dynamic function convertibleTo(_u:Type):Bool;
     /**
         // Comparable reports whether values of this type are comparable.
         // Even if Comparable returns true, the comparison may still panic.
@@ -364,7 +364,7 @@ typedef Type = StructType & {
         
         
     **/
-    public function comparable():Bool;
+    public dynamic function comparable():Bool;
     /**
         // Bits returns the size of the type in bits.
         // It panics if the type's Kind is not one of the
@@ -372,14 +372,14 @@ typedef Type = StructType & {
         
         
     **/
-    public function bits():GoInt;
+    public dynamic function bits():GoInt;
     /**
         // ChanDir returns a channel type's direction.
         // It panics if the type's Kind is not Chan.
         
         
     **/
-    public function chanDir():ChanDir;
+    public dynamic function chanDir():ChanDir;
     /**
         // IsVariadic reports whether a function type's final input parameter
         // is a "..." parameter. If so, t.In(t.NumIn() - 1) returns the parameter's
@@ -396,14 +396,14 @@ typedef Type = StructType & {
         
         
     **/
-    public function isVariadic():Bool;
+    public dynamic function isVariadic():Bool;
     /**
         // Elem returns a type's element type.
         // It panics if the type's Kind is not Array, Chan, Map, Pointer, or Slice.
         
         
     **/
-    public function elem():Type;
+    public dynamic function elem():Type;
     /**
         // Field returns a struct type's i'th field.
         // It panics if the type's Kind is not Struct.
@@ -411,7 +411,7 @@ typedef Type = StructType & {
         
         
     **/
-    public function field(_i:GoInt):StructField;
+    public dynamic function field(_i:GoInt):StructField;
     /**
         // FieldByIndex returns the nested field corresponding
         // to the index sequence. It is equivalent to calling Field
@@ -420,14 +420,14 @@ typedef Type = StructType & {
         
         
     **/
-    public function fieldByIndex(_index:Slice<GoInt>):StructField;
+    public dynamic function fieldByIndex(_index:Slice<GoInt>):StructField;
     /**
         // FieldByName returns the struct field with the given name
         // and a boolean indicating if the field was found.
         
         
     **/
-    public function fieldByName(_name:GoString):{ var _0 : StructField; var _1 : Bool; };
+    public dynamic function fieldByName(_name:GoString):{ var _0 : StructField; var _1 : Bool; };
     /**
         // FieldByNameFunc returns the struct field with a name
         // that satisfies the match function and a boolean indicating if
@@ -444,7 +444,7 @@ typedef Type = StructType & {
         
         
     **/
-    public function fieldByNameFunc(_match:GoString -> Bool):{ var _0 : StructField; var _1 : Bool; };
+    public dynamic function fieldByNameFunc(_match:GoString -> Bool):{ var _0 : StructField; var _1 : Bool; };
     /**
         // In returns the type of a function type's i'th input parameter.
         // It panics if the type's Kind is not Func.
@@ -452,42 +452,42 @@ typedef Type = StructType & {
         
         
     **/
-    public function in_(_i:GoInt):Type;
+    public dynamic function in_(_i:GoInt):Type;
     /**
         // Key returns a map type's key type.
         // It panics if the type's Kind is not Map.
         
         
     **/
-    public function key():Type;
+    public dynamic function key():Type;
     /**
         // Len returns an array type's length.
         // It panics if the type's Kind is not Array.
         
         
     **/
-    public function len():GoInt;
+    public dynamic function len():GoInt;
     /**
         // NumField returns a struct type's field count.
         // It panics if the type's Kind is not Struct.
         
         
     **/
-    public function numField():GoInt;
+    public dynamic function numField():GoInt;
     /**
         // NumIn returns a function type's input parameter count.
         // It panics if the type's Kind is not Func.
         
         
     **/
-    public function numIn():GoInt;
+    public dynamic function numIn():GoInt;
     /**
         // NumOut returns a function type's output parameter count.
         // It panics if the type's Kind is not Func.
         
         
     **/
-    public function numOut():GoInt;
+    public dynamic function numOut():GoInt;
     /**
         // Out returns the type of a function type's i'th output parameter.
         // It panics if the type's Kind is not Func.
@@ -495,7 +495,7 @@ typedef Type = StructType & {
         
         
     **/
-    public function out(_i:GoInt):Type;
+    public dynamic function out(_i:GoInt):Type;
 };
 /**
     // Method represents a single method.
@@ -617,7 +617,7 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
         };
         if (stdgo.internal.reflect.Reflect.isPointer(t)) {
             @:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-            value = (value : Dynamic).value;
+            value = (value : Pointer<Dynamic>).value;
         };
         final underlyingType = stdgo.internal.reflect.Reflect.getUnderlying(t);
         switch (underlyingType) {
@@ -858,8 +858,6 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
     // This ensures that DeepEqual terminates.
 **/
 function deepEqual(_x:AnyInterface, _y:AnyInterface):Bool {
-        _x = stdgo.internal.reflect.Reflect.namedUnderlying(_x);
-        _y = stdgo.internal.reflect.Reflect.namedUnderlying(_y);
         if (new Value(_x).isNil() || new Value(_y).isNil()) {
             return (_x : AnyInterface) == (_y : AnyInterface);
         };
@@ -1004,7 +1002,12 @@ function select(_cases:Slice<SelectCase>):{ var _0 : GoInt; var _1 : Value; var 
     // MakeSlice creates a new zero-initialized slice value
     // for the specified slice type, length, and capacity.
 **/
-function makeSlice(_typ:Type, _len:GoInt, _cap:GoInt):Value throw "reflect.makeSlice is not yet implemented";
+function makeSlice(_typ:Type, _len:GoInt, _cap:GoInt):Value {
+        final value = stdgo.internal.reflect.Reflect.defaultValue(_typ);
+        final slice = new Slice(0, _cap.toBasic(), ...[for (i in 0 ... _len.toBasic()) value]);
+        final t = @:privateAccess (cast _typ : stdgo.internal.reflect.Reflect._Type_asInterface).__type__;
+        return new Value(new AnyInterface(slice, t));
+    }
 /**
     // MakeChan creates a new channel with the specified type and buffer size.
 **/
@@ -1038,7 +1041,9 @@ function valueOf(_i:AnyInterface):Value {
     // For example, Zero(TypeOf(42)) returns a Value with Kind Int and value 0.
     // The returned value is neither addressable nor settable.
 **/
-function zero(_typ:Type):Value return new Value(new AnyInterface(stdgo.internal.reflect.Reflect.defaultValue(_typ), _typ.__underlying__().value));
+function zero(_typ:Type):Value {
+        return new Value(new AnyInterface(stdgo.internal.reflect.Reflect.defaultValue(_typ), _typ.__underlying__().value));
+    }
 /**
     // New returns a Value representing a pointer to a new zero value
     // for the specified type. That is, the returned Value's Type is PointerTo(typ).
@@ -1070,7 +1075,7 @@ class Method_asInterface {
         // IsExported reports whether the method is exported.
     **/
     @:keep
-    public function isExported():Bool return __self__.value.isExported();
+    public dynamic function isExported():Bool return __self__.value.isExported();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1091,7 +1096,7 @@ class StructField_asInterface {
         // IsExported reports whether the field is exported.
     **/
     @:keep
-    public function isExported():Bool return __self__.value.isExported();
+    public dynamic function isExported():Bool return __self__.value.isExported();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1119,7 +1124,7 @@ class Value_asInterface {
         // and the type is not comparable, Equal will panic.
     **/
     @:keep
-    public function equal(_u:Value):Bool return __self__.value.equal(_u);
+    public dynamic function equal(_u:Value):Bool return __self__.value.equal(_u);
     /**
         // Comparable reports whether the value v is comparable.
         // If the type of v is an interface, this checks the dynamic type.
@@ -1127,20 +1132,20 @@ class Value_asInterface {
         // nor will v.Equal(u) for any Value u.
     **/
     @:keep
-    public function comparable():Bool return __self__.value.comparable();
+    public dynamic function comparable():Bool return __self__.value.comparable();
     /**
         // CanConvert reports whether the value v can be converted to type t.
         // If v.CanConvert(t) returns true then v.Convert(t) will not panic.
     **/
     @:keep
-    public function canConvert(_t:Type):Bool return __self__.value.canConvert(_t);
+    public dynamic function canConvert(_t:Type):Bool return __self__.value.canConvert(_t);
     /**
         // Convert returns the value v converted to type t.
         // If the usual Go conversion rules do not allow conversion
         // of the value v to type t, or if converting v to type t panics, Convert panics.
     **/
     @:keep
-    public function convert(_t:Type):Value return __self__.value.convert(_t);
+    public dynamic function convert(_t:Type):Value return __self__.value.convert(_t);
     /**
         // Grow increases the slice's capacity, if necessary, to guarantee space for
         // another n elements. After Grow(n), at least n elements can be appended
@@ -1150,7 +1155,7 @@ class Value_asInterface {
         // allocate the memory.
     **/
     @:keep
-    public function grow(_n:GoInt):Void __self__.value.grow(_n);
+    public dynamic function grow(_n:GoInt):Void __self__.value.grow(_n);
     /**
         // UnsafePointer returns v's value as a [unsafe.Pointer].
         // It panics if v's Kind is not Chan, Func, Map, Pointer, Slice, or UnsafePointer.
@@ -1165,7 +1170,7 @@ class Value_asInterface {
         // is nil.  If the slice is empty but non-nil the return value is non-nil.
     **/
     @:keep
-    public function unsafePointer():stdgo.unsafe.Unsafe.UnsafePointer return __self__.value.unsafePointer();
+    public dynamic function unsafePointer():stdgo.unsafe.Unsafe.UnsafePointer return __self__.value.unsafePointer();
     /**
         // UnsafeAddr returns a pointer to v's data, as a uintptr.
         // It panics if v is not addressable.
@@ -1173,23 +1178,23 @@ class Value_asInterface {
         // It's preferred to use uintptr(Value.Addr().UnsafePointer()) to get the equivalent result.
     **/
     @:keep
-    public function unsafeAddr():GoUIntptr return __self__.value.unsafeAddr();
+    public dynamic function unsafeAddr():GoUIntptr return __self__.value.unsafeAddr();
     /**
         // Uint returns v's underlying value, as a uint64.
         // It panics if v's Kind is not Uint, Uintptr, Uint8, Uint16, Uint32, or Uint64.
     **/
     @:keep
-    public function uint():GoUInt64 return __self__.value.uint();
+    public dynamic function uint():GoUInt64 return __self__.value.uint();
     /**
         // CanUint reports whether Uint can be used without panicking.
     **/
     @:keep
-    public function canUint():Bool return __self__.value.canUint();
+    public dynamic function canUint():Bool return __self__.value.canUint();
     /**
         // Type returns v's type.
     **/
     @:keep
-    public function type():Type return __self__.value.type();
+    public dynamic function type():Type return __self__.value.type();
     /**
         // TrySend attempts to send x on the channel v but will not block.
         // It panics if v's Kind is not Chan.
@@ -1197,7 +1202,7 @@ class Value_asInterface {
         // As in Go, x's value must be assignable to the channel's element type.
     **/
     @:keep
-    public function trySend(_x:Value):Bool return __self__.value.trySend(_x);
+    public dynamic function trySend(_x:Value):Bool return __self__.value.trySend(_x);
     /**
         // TryRecv attempts to receive a value from the channel v but will not block.
         // It panics if v's Kind is not Chan.
@@ -1206,7 +1211,7 @@ class Value_asInterface {
         // If the channel is closed, x is the zero value for the channel's element type and ok is false.
     **/
     @:keep
-    public function tryRecv():{ var _0 : Value; var _1 : Bool; } return __self__.value.tryRecv();
+    public dynamic function tryRecv():{ var _0 : Value; var _1 : Bool; } return __self__.value.tryRecv();
     /**
         // String returns the string v's underlying value, as a string.
         // String is a special case because of Go's String method convention.
@@ -1216,39 +1221,39 @@ class Value_asInterface {
         // method implicitly but instead prints the concrete values they hold.
     **/
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     /**
         // Slice3 is the 3-index form of the slice operation: it returns v[i:j:k].
         // It panics if v's Kind is not Array or Slice, or if v is an unaddressable array,
         // or if the indexes are out of bounds.
     **/
     @:keep
-    public function slice3(_i:GoInt, _j:GoInt, _k:GoInt):Value return __self__.value.slice3(_i, _j, _k);
+    public dynamic function slice3(_i:GoInt, _j:GoInt, _k:GoInt):Value return __self__.value.slice3(_i, _j, _k);
     /**
         // Slice returns v[i:j].
         // It panics if v's Kind is not Array, Slice or String, or if v is an unaddressable array,
         // or if the indexes are out of bounds.
     **/
     @:keep
-    public function slice(_i:GoInt, _j:GoInt):Value return __self__.value.slice(_i, _j);
+    public dynamic function slice(_i:GoInt, _j:GoInt):Value return __self__.value.slice(_i, _j);
     /**
         // SetString sets v's underlying value to x.
         // It panics if v's Kind is not String or if CanSet() is false.
     **/
     @:keep
-    public function setString(_x:GoString):Void __self__.value.setString(_x);
+    public dynamic function setString(_x:GoString):Void __self__.value.setString(_x);
     /**
         // SetPointer sets the [unsafe.Pointer] value v to x.
         // It panics if v's Kind is not UnsafePointer.
     **/
     @:keep
-    public function setPointer(_x:stdgo.unsafe.Unsafe.UnsafePointer):Void __self__.value.setPointer(_x);
+    public dynamic function setPointer(_x:stdgo.unsafe.Unsafe.UnsafePointer):Void __self__.value.setPointer(_x);
     /**
         // SetUint sets v's underlying value to x.
         // It panics if v's Kind is not Uint, Uintptr, Uint8, Uint16, Uint32, or Uint64, or if CanSet() is false.
     **/
     @:keep
-    public function setUint(_x:GoUInt64):Void __self__.value.setUint(_x);
+    public dynamic function setUint(_x:GoUInt64):Void __self__.value.setUint(_x);
     /**
         // SetMapIndex sets the element associated with key in the map v to elem.
         // It panics if v's Kind is not Map.
@@ -1258,51 +1263,51 @@ class Value_asInterface {
         // and elem's value must be assignable to the map's elem type.
     **/
     @:keep
-    public function setMapIndex(_key:Value, _elem:Value):Void __self__.value.setMapIndex(_key, _elem);
+    public dynamic function setMapIndex(_key:Value, _elem:Value):Void __self__.value.setMapIndex(_key, _elem);
     /**
         // SetCap sets v's capacity to n.
         // It panics if v's Kind is not Slice or if n is smaller than the length or
         // greater than the capacity of the slice.
     **/
     @:keep
-    public function setCap(_n:GoInt):Void __self__.value.setCap(_n);
+    public dynamic function setCap(_n:GoInt):Void __self__.value.setCap(_n);
     /**
         // SetLen sets v's length to n.
         // It panics if v's Kind is not Slice or if n is negative or
         // greater than the capacity of the slice.
     **/
     @:keep
-    public function setLen(_n:GoInt):Void __self__.value.setLen(_n);
+    public dynamic function setLen(_n:GoInt):Void __self__.value.setLen(_n);
     /**
         // SetInt sets v's underlying value to x.
         // It panics if v's Kind is not Int, Int8, Int16, Int32, or Int64, or if CanSet() is false.
     **/
     @:keep
-    public function setInt(_x:GoInt64):Void __self__.value.setInt(_x);
+    public dynamic function setInt(_x:GoInt64):Void __self__.value.setInt(_x);
     /**
         // SetFloat sets v's underlying value to x.
         // It panics if v's Kind is not Float32 or Float64, or if CanSet() is false.
     **/
     @:keep
-    public function setFloat(_x:GoFloat64):Void __self__.value.setFloat(_x);
+    public dynamic function setFloat(_x:GoFloat64):Void __self__.value.setFloat(_x);
     /**
         // SetComplex sets v's underlying value to x.
         // It panics if v's Kind is not Complex64 or Complex128, or if CanSet() is false.
     **/
     @:keep
-    public function setComplex(_x:GoComplex128):Void __self__.value.setComplex(_x);
+    public dynamic function setComplex(_x:GoComplex128):Void __self__.value.setComplex(_x);
     /**
         // SetBytes sets v's underlying value.
         // It panics if v's underlying value is not a slice of bytes.
     **/
     @:keep
-    public function setBytes(_x:Slice<GoByte>):Void __self__.value.setBytes(_x);
+    public dynamic function setBytes(_x:Slice<GoByte>):Void __self__.value.setBytes(_x);
     /**
         // SetBool sets v's underlying value.
         // It panics if v's Kind is not Bool or if CanSet() is false.
     **/
     @:keep
-    public function setBool(_x:Bool):Void __self__.value.setBool(_x);
+    public dynamic function setBool(_x:Bool):Void __self__.value.setBool(_x);
     /**
         // Set assigns x to the value v.
         // It panics if CanSet returns false.
@@ -1310,14 +1315,14 @@ class Value_asInterface {
         // must not be derived from an unexported field.
     **/
     @:keep
-    public function set(_x:Value):Void __self__.value.set(_x);
+    public dynamic function set(_x:Value):Void __self__.value.set(_x);
     /**
         // Send sends x on the channel v.
         // It panics if v's kind is not Chan or if x's type is not the same type as v's element type.
         // As in Go, x's value must be assignable to the channel's element type.
     **/
     @:keep
-    public function send(_x:Value):Void __self__.value.send(_x);
+    public dynamic function send(_x:Value):Void __self__.value.send(_x);
     /**
         // Recv receives and returns a value from the channel v.
         // It panics if v's Kind is not Chan.
@@ -1326,7 +1331,7 @@ class Value_asInterface {
         // on the channel, false if it is a zero value received because the channel is closed.
     **/
     @:keep
-    public function recv():{ var _0 : Value; var _1 : Bool; } return __self__.value.recv();
+    public dynamic function recv():{ var _0 : Value; var _1 : Bool; } return __self__.value.recv();
     /**
         // Pointer returns v's value as a uintptr.
         // It panics if v's Kind is not Chan, Func, Map, Pointer, Slice, or UnsafePointer.
@@ -1343,37 +1348,37 @@ class Value_asInterface {
         // It's preferred to use uintptr(Value.UnsafePointer()) to get the equivalent result.
     **/
     @:keep
-    public function pointer():GoUIntptr return __self__.value.pointer();
+    public dynamic function pointer():GoUIntptr return __self__.value.pointer();
     /**
         // OverflowUint reports whether the uint64 x cannot be represented by v's type.
         // It panics if v's Kind is not Uint, Uintptr, Uint8, Uint16, Uint32, or Uint64.
     **/
     @:keep
-    public function overflowUint(_x:GoUInt64):Bool return __self__.value.overflowUint(_x);
+    public dynamic function overflowUint(_x:GoUInt64):Bool return __self__.value.overflowUint(_x);
     /**
         // OverflowInt reports whether the int64 x cannot be represented by v's type.
         // It panics if v's Kind is not Int, Int8, Int16, Int32, or Int64.
     **/
     @:keep
-    public function overflowInt(_x:GoInt64):Bool return __self__.value.overflowInt(_x);
+    public dynamic function overflowInt(_x:GoInt64):Bool return __self__.value.overflowInt(_x);
     /**
         // OverflowFloat reports whether the float64 x cannot be represented by v's type.
         // It panics if v's Kind is not Float32 or Float64.
     **/
     @:keep
-    public function overflowFloat(_x:GoFloat64):Bool return __self__.value.overflowFloat(_x);
+    public dynamic function overflowFloat(_x:GoFloat64):Bool return __self__.value.overflowFloat(_x);
     /**
         // OverflowComplex reports whether the complex128 x cannot be represented by v's type.
         // It panics if v's Kind is not Complex64 or Complex128.
     **/
     @:keep
-    public function overflowComplex(_x:GoComplex128):Bool return __self__.value.overflowComplex(_x);
+    public dynamic function overflowComplex(_x:GoComplex128):Bool return __self__.value.overflowComplex(_x);
     /**
         // NumField returns the number of fields in the struct v.
         // It panics if v's Kind is not Struct.
     **/
     @:keep
-    public function numField():GoInt return __self__.value.numField();
+    public dynamic function numField():GoInt return __self__.value.numField();
     /**
         // MethodByName returns a function value corresponding to the method
         // of v with the given name.
@@ -1382,7 +1387,7 @@ class Value_asInterface {
         // It returns the zero Value if no method was found.
     **/
     @:keep
-    public function methodByName(_name:GoString):Value return __self__.value.methodByName(_name);
+    public dynamic function methodByName(_name:GoString):Value return __self__.value.methodByName(_name);
     /**
         // NumMethod returns the number of methods in the value's method set.
         //
@@ -1391,7 +1396,7 @@ class Value_asInterface {
         // For an interface type, it returns the number of exported and unexported methods.
     **/
     @:keep
-    public function numMethod():GoInt return __self__.value.numMethod();
+    public dynamic function numMethod():GoInt return __self__.value.numMethod();
     /**
         // Method returns a function value corresponding to v's i'th method.
         // The arguments to a Call on the returned function should not include
@@ -1399,7 +1404,7 @@ class Value_asInterface {
         // Method panics if i is out of range or if v is a nil interface value.
     **/
     @:keep
-    public function method(_i:GoInt):Value return __self__.value.method(_i);
+    public dynamic function method(_i:GoInt):Value return __self__.value.method(_i);
     /**
         // MapRange returns a range iterator for a map.
         // It panics if v's Kind is not Map.
@@ -1418,7 +1423,7 @@ class Value_asInterface {
         //	}
     **/
     @:keep
-    public function mapRange():Ref<MapIter> return __self__.value.mapRange();
+    public dynamic function mapRange():Ref<MapIter> return __self__.value.mapRange();
     /**
         // SetIterValue assigns to v the value of iter's current map entry.
         // It is equivalent to v.Set(iter.Value()), but it avoids allocating a new Value.
@@ -1426,7 +1431,7 @@ class Value_asInterface {
         // must not be derived from an unexported field.
     **/
     @:keep
-    public function setIterValue(_iter:Ref<MapIter>):Void __self__.value.setIterValue(_iter);
+    public dynamic function setIterValue(_iter:Ref<MapIter>):Void __self__.value.setIterValue(_iter);
     /**
         // SetIterKey assigns to v the key of iter's current map entry.
         // It is equivalent to v.Set(iter.Key()), but it avoids allocating a new Value.
@@ -1434,7 +1439,7 @@ class Value_asInterface {
         // must not be derived from an unexported field.
     **/
     @:keep
-    public function setIterKey(_iter:Ref<MapIter>):Void __self__.value.setIterKey(_iter);
+    public dynamic function setIterKey(_iter:Ref<MapIter>):Void __self__.value.setIterKey(_iter);
     /**
         // MapKeys returns a slice containing all the keys present in the map,
         // in unspecified order.
@@ -1442,7 +1447,7 @@ class Value_asInterface {
         // It returns an empty slice if v represents a nil map.
     **/
     @:keep
-    public function mapKeys():Slice<Value> return __self__.value.mapKeys();
+    public dynamic function mapKeys():Slice<Value> return __self__.value.mapKeys();
     /**
         // MapIndex returns the value associated with key in the map v.
         // It panics if v's Kind is not Map.
@@ -1450,31 +1455,31 @@ class Value_asInterface {
         // As in Go, the key's value must be assignable to the map's key type.
     **/
     @:keep
-    public function mapIndex(_key:Value):Value return __self__.value.mapIndex(_key);
+    public dynamic function mapIndex(_key:Value):Value return __self__.value.mapIndex(_key);
     /**
         // Len returns v's length.
         // It panics if v's Kind is not Array, Chan, Map, Slice, String, or pointer to Array.
     **/
     @:keep
-    public function len():GoInt return __self__.value.len();
+    public dynamic function len():GoInt return __self__.value.len();
     /**
         // Kind returns v's Kind.
         // If v is the zero Value (IsValid returns false), Kind returns Invalid.
     **/
     @:keep
-    public function kind():Kind return __self__.value.kind();
+    public dynamic function kind():Kind return __self__.value.kind();
     /**
         // SetZero sets v to be the zero value of v's type.
         // It panics if CanSet returns false.
     **/
     @:keep
-    public function setZero():Void __self__.value.setZero();
+    public dynamic function setZero():Void __self__.value.setZero();
     /**
         // IsZero reports whether v is the zero value for its type.
         // It panics if the argument is invalid.
     **/
     @:keep
-    public function isZero():Bool return __self__.value.isZero();
+    public dynamic function isZero():Bool return __self__.value.isZero();
     /**
         // IsValid reports whether v represents a value.
         // It returns false if v is the zero Value.
@@ -1483,7 +1488,7 @@ class Value_asInterface {
         // If one does, its documentation states the conditions explicitly.
     **/
     @:keep
-    public function isValid():Bool return __self__.value.isValid();
+    public dynamic function isValid():Bool return __self__.value.isValid();
     /**
         // IsNil reports whether its argument v is nil. The argument must be
         // a chan, func, interface, map, pointer, or slice value; if it is
@@ -1494,7 +1499,7 @@ class Value_asInterface {
         // Value.
     **/
     @:keep
-    public function isNil():Bool return __self__.value.isNil();
+    public dynamic function isNil():Bool return __self__.value.isNil();
     /**
         // InterfaceData returns a pair of unspecified uintptr values.
         // It panics if v's Kind is not Interface.
@@ -1507,7 +1512,7 @@ class Value_asInterface {
         // compatible with InterfaceData.
     **/
     @:keep
-    public function interfaceData():GoArray<GoUIntptr> return __self__.value.interfaceData();
+    public dynamic function interfaceData():GoArray<GoUIntptr> return __self__.value.interfaceData();
     /**
         // Interface returns v's current value as an interface{}.
         // It is equivalent to:
@@ -1518,40 +1523,40 @@ class Value_asInterface {
         // unexported struct fields.
     **/
     @:keep
-    public function interface_():AnyInterface return __self__.value.interface_();
+    public dynamic function interface_():AnyInterface return __self__.value.interface_();
     /**
         // CanInterface reports whether Interface can be used without panicking.
     **/
     @:keep
-    public function canInterface():Bool return __self__.value.canInterface();
+    public dynamic function canInterface():Bool return __self__.value.canInterface();
     /**
         // Int returns v's underlying value, as an int64.
         // It panics if v's Kind is not Int, Int8, Int16, Int32, or Int64.
     **/
     @:keep
-    public function int_():GoInt64 return __self__.value.int_();
+    public dynamic function int_():GoInt64 return __self__.value.int_();
     /**
         // CanInt reports whether Int can be used without panicking.
     **/
     @:keep
-    public function canInt():Bool return __self__.value.canInt();
+    public dynamic function canInt():Bool return __self__.value.canInt();
     /**
         // Index returns v's i'th element.
         // It panics if v's Kind is not Array, Slice, or String or i is out of range.
     **/
     @:keep
-    public function index(_i:GoInt):Value return __self__.value.index(_i);
+    public dynamic function index(_i:GoInt):Value return __self__.value.index(_i);
     /**
         // Float returns v's underlying value, as a float64.
         // It panics if v's Kind is not Float32 or Float64
     **/
     @:keep
-    public function float_():GoFloat64 return __self__.value.float_();
+    public dynamic function float_():GoFloat64 return __self__.value.float_();
     /**
         // CanFloat reports whether Float can be used without panicking.
     **/
     @:keep
-    public function canFloat():Bool return __self__.value.canFloat();
+    public dynamic function canFloat():Bool return __self__.value.canFloat();
     /**
         // FieldByNameFunc returns the struct field with a name
         // that satisfies the match function.
@@ -1559,14 +1564,14 @@ class Value_asInterface {
         // It returns the zero Value if no field was found.
     **/
     @:keep
-    public function fieldByNameFunc(_match:GoString -> Bool):Value return __self__.value.fieldByNameFunc(_match);
+    public dynamic function fieldByNameFunc(_match:GoString -> Bool):Value return __self__.value.fieldByNameFunc(_match);
     /**
         // FieldByName returns the struct field with the given name.
         // It returns the zero Value if no field was found.
         // It panics if v's Kind is not struct.
     **/
     @:keep
-    public function fieldByName(_name:GoString):Value return __self__.value.fieldByName(_name);
+    public dynamic function fieldByName(_name:GoString):Value return __self__.value.fieldByName(_name);
     /**
         // FieldByIndexErr returns the nested field corresponding to index.
         // It returns an error if evaluation requires stepping through a nil
@@ -1574,20 +1579,20 @@ class Value_asInterface {
         // is not a struct.
     **/
     @:keep
-    public function fieldByIndexErr(_index:Slice<GoInt>):{ var _0 : Value; var _1 : Error; } return __self__.value.fieldByIndexErr(_index);
+    public dynamic function fieldByIndexErr(_index:Slice<GoInt>):{ var _0 : Value; var _1 : Error; } return __self__.value.fieldByIndexErr(_index);
     /**
         // FieldByIndex returns the nested field corresponding to index.
         // It panics if evaluation requires stepping through a nil
         // pointer or a field that is not a struct.
     **/
     @:keep
-    public function fieldByIndex(_index:Slice<GoInt>):Value return __self__.value.fieldByIndex(_index);
+    public dynamic function fieldByIndex(_index:Slice<GoInt>):Value return __self__.value.fieldByIndex(_index);
     /**
         // Field returns the i'th field of the struct v.
         // It panics if v's Kind is not Struct or i is out of range.
     **/
     @:keep
-    public function field(_i:GoInt):Value return __self__.value.field(_i);
+    public dynamic function field(_i:GoInt):Value return __self__.value.field(_i);
     /**
         // Elem returns the value that the interface v contains
         // or that the pointer v points to.
@@ -1595,30 +1600,30 @@ class Value_asInterface {
         // It returns the zero Value if v is nil.
     **/
     @:keep
-    public function elem():Value return __self__.value.elem();
+    public dynamic function elem():Value return __self__.value.elem();
     /**
         // Complex returns v's underlying value, as a complex128.
         // It panics if v's Kind is not Complex64 or Complex128
     **/
     @:keep
-    public function complex():GoComplex128 return __self__.value.complex();
+    public dynamic function complex():GoComplex128 return __self__.value.complex();
     /**
         // CanComplex reports whether Complex can be used without panicking.
     **/
     @:keep
-    public function canComplex():Bool return __self__.value.canComplex();
+    public dynamic function canComplex():Bool return __self__.value.canComplex();
     /**
         // Close closes the channel v.
         // It panics if v's Kind is not Chan.
     **/
     @:keep
-    public function close():Void __self__.value.close();
+    public dynamic function close():Void __self__.value.close();
     /**
         // Cap returns v's capacity.
         // It panics if v's Kind is not Array, Chan, Slice or pointer to Array.
     **/
     @:keep
-    public function cap():GoInt return __self__.value.cap();
+    public dynamic function cap():GoInt return __self__.value.cap();
     /**
         // CallSlice calls the variadic function v with the input arguments in,
         // assigning the slice in[len(in)-1] to v's final variadic argument.
@@ -1629,7 +1634,7 @@ class Value_asInterface {
         // type of the function's corresponding input parameter.
     **/
     @:keep
-    public function callSlice(_in:Slice<Value>):Slice<Value> return __self__.value.callSlice(_in);
+    public dynamic function callSlice(_in:Slice<Value>):Slice<Value> return __self__.value.callSlice(_in);
     /**
         // Call calls the function v with the input arguments in.
         // For example, if len(in) == 3, v.Call(in) represents the Go call v(in[0], in[1], in[2]).
@@ -1641,7 +1646,7 @@ class Value_asInterface {
         // itself, copying in the corresponding values.
     **/
     @:keep
-    public function call(_in:Slice<Value>):Slice<Value> return __self__.value.call(_in);
+    public dynamic function call(_in:Slice<Value>):Slice<Value> return __self__.value.call(_in);
     /**
         // CanSet reports whether the value of v can be changed.
         // A Value can be changed only if it is addressable and was not
@@ -1650,7 +1655,7 @@ class Value_asInterface {
         // setter (e.g., SetBool, SetInt) will panic.
     **/
     @:keep
-    public function canSet():Bool return __self__.value.canSet();
+    public dynamic function canSet():Bool return __self__.value.canSet();
     /**
         // CanAddr reports whether the value's address can be obtained with Addr.
         // Such values are called addressable. A value is addressable if it is
@@ -1659,20 +1664,20 @@ class Value_asInterface {
         // If CanAddr returns false, calling Addr will panic.
     **/
     @:keep
-    public function canAddr():Bool return __self__.value.canAddr();
+    public dynamic function canAddr():Bool return __self__.value.canAddr();
     /**
         // Bytes returns v's underlying value.
         // It panics if v's underlying value is not a slice of bytes or
         // an addressable array of bytes.
     **/
     @:keep
-    public function bytes():Slice<GoByte> return __self__.value.bytes();
+    public dynamic function bytes():Slice<GoByte> return __self__.value.bytes();
     /**
         // Bool returns v's underlying value.
         // It panics if v's kind is not Bool.
     **/
     @:keep
-    public function bool_():Bool return __self__.value.bool_();
+    public dynamic function bool_():Bool return __self__.value.bool_();
     /**
         // Addr returns a pointer value representing the address of v.
         // It panics if CanAddr() returns false.
@@ -1681,7 +1686,7 @@ class Value_asInterface {
         // pointer receiver.
     **/
     @:keep
-    public function addr():Value return __self__.value.addr();
+    public dynamic function addr():Value return __self__.value.addr();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -1776,7 +1781,7 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
         };
         if (stdgo.internal.reflect.Reflect.isPointer(t)) {
             @:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-            value = (value : Dynamic).value;
+            value = (value : Pointer<Dynamic>).value;
         };
         final value:GoUInt64 = switch _v.kind() {
             case stdgo.internal.reflect.Reflect.KindType.uint:
@@ -1862,7 +1867,7 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
         };
         if (stdgo.internal.reflect.Reflect.isPointer(t)) {
             @:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-            value = (value : Dynamic).value;
+            value = (value : Pointer<Dynamic>).value;
         };
         final underlyingType = stdgo.internal.reflect.Reflect.getUnderlying(t);
         switch (underlyingType) {
@@ -1942,7 +1947,36 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
         // It panics if v's Kind is not Uint, Uintptr, Uint8, Uint16, Uint32, or Uint64, or if CanSet() is false.
     **/
     @:keep
-    static public function setUint( _v:Value, _x:GoUInt64):Void throw "reflect.setUint is not yet implemented";
+    static public function setUint( _v:Value, _x:GoUInt64):Void {
+        final k = _v.kind();
+        @:privateAccess _v.value.value = switch k {
+            case stdgo.internal.reflect.Reflect.KindType.int8:
+                (_x : GoInt8);
+            case stdgo.internal.reflect.Reflect.KindType.int16:
+                (_x : GoInt16);
+            case stdgo.internal.reflect.Reflect.KindType.int32:
+                (_x : GoInt32);
+            case stdgo.internal.reflect.Reflect.KindType.int64:
+                (_x : GoInt64);
+            case stdgo.internal.reflect.Reflect.KindType.int:
+                (_x : GoInt);
+            case stdgo.internal.reflect.Reflect.KindType.uint8:
+                (_x : GoUInt8);
+            case stdgo.internal.reflect.Reflect.KindType.uint16:
+                (_x : GoUInt16);
+            case stdgo.internal.reflect.Reflect.KindType.uint32:
+                (_x : GoUInt32);
+            case stdgo.internal.reflect.Reflect.KindType.uint64:
+                (_x : GoUInt64);
+            case stdgo.internal.reflect.Reflect.KindType.uint:
+                (_x : GoUInt);
+            case stdgo.internal.reflect.Reflect.KindType.uintptr:
+                (_x : GoUIntptr);
+            default:
+                throw "unknown setUInt kind: " + k.string();
+        };
+        stdgo.internal.reflect.Reflect._set(_v);
+    }
     /**
         // SetMapIndex sets the element associated with key in the map v to elem.
         // It panics if v's Kind is not Map.
@@ -1972,19 +2006,68 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
         // It panics if v's Kind is not Int, Int8, Int16, Int32, or Int64, or if CanSet() is false.
     **/
     @:keep
-    static public function setInt( _v:Value, _x:GoInt64):Void throw "reflect.setInt is not yet implemented";
+    static public function setInt( _v:Value, _x:GoInt64):Void {
+        final k = _v.kind();
+        @:privateAccess _v.value.value = switch k {
+            case stdgo.internal.reflect.Reflect.KindType.int8:
+                (_x : GoInt8);
+            case stdgo.internal.reflect.Reflect.KindType.int16:
+                (_x : GoInt16);
+            case stdgo.internal.reflect.Reflect.KindType.int32:
+                (_x : GoInt32);
+            case stdgo.internal.reflect.Reflect.KindType.int64:
+                (_x : GoInt64);
+            case stdgo.internal.reflect.Reflect.KindType.int:
+                (_x : GoInt);
+            case stdgo.internal.reflect.Reflect.KindType.uint8:
+                (_x : GoUInt8);
+            case stdgo.internal.reflect.Reflect.KindType.uint16:
+                (_x : GoUInt16);
+            case stdgo.internal.reflect.Reflect.KindType.uint32:
+                (_x : GoUInt32);
+            case stdgo.internal.reflect.Reflect.KindType.uint64:
+                (_x : GoUInt64);
+            case stdgo.internal.reflect.Reflect.KindType.uint:
+                (_x : GoUInt);
+            default:
+                throw "unknown setInt kind: " + k.string();
+        };
+        stdgo.internal.reflect.Reflect._set(_v);
+    }
     /**
         // SetFloat sets v's underlying value to x.
         // It panics if v's Kind is not Float32 or Float64, or if CanSet() is false.
     **/
     @:keep
-    static public function setFloat( _v:Value, _x:GoFloat64):Void throw "reflect.setFloat is not yet implemented";
+    static public function setFloat( _v:Value, _x:GoFloat64):Void {
+        final k = _v.kind();
+        @:privateAccess _v.value.value = switch k {
+            case stdgo.internal.reflect.Reflect.KindType.float32:
+                (_x : GoFloat32);
+            case stdgo.internal.reflect.Reflect.KindType.float64:
+                (_x : GoFloat64);
+            default:
+                throw "unknown setFloat kind: " + k.string();
+        };
+        stdgo.internal.reflect.Reflect._set(_v);
+    }
     /**
         // SetComplex sets v's underlying value to x.
         // It panics if v's Kind is not Complex64 or Complex128, or if CanSet() is false.
     **/
     @:keep
-    static public function setComplex( _v:Value, _x:GoComplex128):Void throw "reflect.setComplex is not yet implemented";
+    static public function setComplex( _v:Value, _x:GoComplex128):Void {
+        final k = _v.kind();
+        @:privateAccess _v.value.value = switch k {
+            case stdgo.internal.reflect.Reflect.KindType.complex64:
+                (_x : GoComplex64);
+            case stdgo.internal.reflect.Reflect.KindType.complex128:
+                (_x : GoComplex128);
+            default:
+                throw "unknown setFloat kind: " + k.string();
+        };
+        stdgo.internal.reflect.Reflect._set(_v);
+    }
     /**
         // SetBytes sets v's underlying value.
         // It panics if v's underlying value is not a slice of bytes.
@@ -1996,7 +2079,10 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
         // It panics if v's Kind is not Bool or if CanSet() is false.
     **/
     @:keep
-    static public function setBool( _v:Value, _x:Bool):Void throw "reflect.setBool is not yet implemented";
+    static public function setBool( _v:Value, _x:Bool):Void {
+        @:privateAccess _v.value.value = _x;
+        stdgo.internal.reflect.Reflect._set(_v);
+    }
     /**
         // Set assigns x to the value v.
         // It panics if CanSet returns false.
@@ -2049,6 +2135,16 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
                 _v.setFloat((value : GoFloat64));
             case stdgo.internal.reflect.Reflect.KindType.string:
                 _v.setString(value);
+            case stdgo.internal.reflect.Reflect.KindType.slice:
+                var value:Slice<Dynamic> = @:privateAccess _v.value.value;
+final x:Slice<Dynamic> = @:privateAccess _x.value.value;
+value.__setData__(x);
+stdgo.internal.reflect.Reflect._set(_v);
+            case stdgo.internal.reflect.Reflect.KindType.map:
+                var value:GoMap<Dynamic, Dynamic> = @:privateAccess _v.value.value;
+final x:GoMap<Dynamic, Dynamic> = @:privateAccess _x.value.value;
+value.__setData__(x);
+stdgo.internal.reflect.Reflect._set(_v);
             default:
                 @:privateAccess _v.value = _x.value;
 stdgo.internal.reflect.Reflect._set(_v);
@@ -2222,7 +2318,7 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
         };
         if (stdgo.internal.reflect.Reflect.isPointer(t)) {
             @:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-            value = (value : Dynamic).value;
+            value = (value : Pointer<Dynamic>).value;
         };
         final k = _v.kind();
         return switch k {
@@ -2305,7 +2401,11 @@ throw "not supported";
             };
             case stdgo.internal.reflect.Reflect.KindType.func:
                 value == null;
-            case stdgo.internal.reflect.Reflect.KindType.map, stdgo.internal.reflect.Reflect.KindType.slice, stdgo.internal.reflect.Reflect.KindType.chan:
+            case stdgo.internal.reflect.Reflect.KindType.chan:
+                value == null;
+            case stdgo.internal.reflect.Reflect.KindType.map:
+                value == null;
+            case stdgo.internal.reflect.Reflect.KindType.slice:
                 value == null;
             case stdgo.internal.reflect.Reflect.KindType.interface_:
                 value == null;
@@ -2315,9 +2415,9 @@ throw "not supported";
                 false;
             case stdgo.internal.reflect.Reflect.KindType.invalid:
                 false;
-            case stdgo.internal.reflect.Reflect.KindType.unsafePointer:
+            case stdgo.internal.reflect.Reflect.KindType.unsafePointer, stdgo.internal.reflect.Reflect.KindType.uintptr:
                 value == null;
-            case stdgo.internal.reflect.Reflect.KindType.bool:
+            case stdgo.internal.reflect.Reflect.KindType.bool, stdgo.internal.reflect.Reflect.KindType.int, stdgo.internal.reflect.Reflect.KindType.int32, stdgo.internal.reflect.Reflect.KindType.int64, stdgo.internal.reflect.Reflect.KindType.float32, stdgo.internal.reflect.Reflect.KindType.float64, stdgo.internal.reflect.Reflect.KindType.int8, stdgo.internal.reflect.Reflect.KindType.int16, stdgo.internal.reflect.Reflect.KindType.uint, stdgo.internal.reflect.Reflect.KindType.uint8, stdgo.internal.reflect.Reflect.KindType.uint16, stdgo.internal.reflect.Reflect.KindType.uint32, stdgo.internal.reflect.Reflect.KindType.uint64, stdgo.internal.reflect.Reflect.KindType.string, stdgo.internal.reflect.Reflect.KindType.complex64, stdgo.internal.reflect.Reflect.KindType.complex128:
                 false;
             default:
                 throw "nil check not supported kind: " + _v.kind().string();
@@ -2373,9 +2473,9 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
         };
         if (stdgo.internal.reflect.Reflect.isPointer(t)) {
             @:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-            value = (value : Dynamic).value;
+            value = (value : Pointer<Dynamic>).value;
         };
-        final value:GoUInt64 = switch _v.kind() {
+        final value:GoInt64 = switch _v.kind() {
             case stdgo.internal.reflect.Reflect.KindType.int:
                 (value : GoInt8);
             case stdgo.internal.reflect.Reflect.KindType.int8:
@@ -2416,7 +2516,7 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
         };
         if (stdgo.internal.reflect.Reflect.isPointer(t)) {
             @:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-            value = (value : Dynamic).value;
+            value = (value : Pointer<Dynamic>).value;
         };
         final gt = stdgo.internal.reflect.Reflect.getUnderlying(@:privateAccess _v.value.type._common());
         return switch gt {
@@ -2462,7 +2562,7 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
         };
         if (stdgo.internal.reflect.Reflect.isPointer(t)) {
             @:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-            value = (value : Dynamic).value;
+            value = (value : Pointer<Dynamic>).value;
         };
         final value:GoFloat64 = switch _v.kind() {
             case stdgo.internal.reflect.Reflect.KindType.float64:
@@ -2557,16 +2657,16 @@ if (StringTools.endsWith(name, "_asInterface")) {
                 final t = stdgo.internal.reflect.Reflect.getUnderlying(t);
 switch t {
                 case stdgo.internal.reflect.Reflect.GoType.refType(_.get() => elem):
-                    final value = new Value(new AnyInterface(value, new stdgo.internal.reflect.Reflect._Type(elem)), value);
+                    final value = new Value(new AnyInterface(value, new stdgo.internal.reflect.Reflect._Type(elem)), null);
 @:privateAccess value.canAddrBool = true;
 return value;
                 case stdgo.internal.reflect.Reflect.GoType.pointerType(_.get() => elem):
                     if (value == null) {
-                    final value = new Value(new AnyInterface(null, new stdgo.internal.reflect.Reflect._Type(elem)), null);
+                    final value = new Value(new AnyInterface(null, new stdgo.internal.reflect.Reflect._Type(elem)), value);
                     @:privateAccess value.canAddrBool = true;
                     return value;
                 };
-final ptrValue = null;
+final ptrValue = (value : Pointer<Dynamic>).value;
 final value = new Value(new AnyInterface(ptrValue, new stdgo.internal.reflect.Reflect._Type(elem)), value);
 @:privateAccess value.canAddrBool = true;
 return value;
@@ -2598,7 +2698,7 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
         };
         if (stdgo.internal.reflect.Reflect.isPointer(t)) {
             @:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-            value = (value : Dynamic).value;
+            value = (value : Pointer<Dynamic>).value;
         };
         final value:GoComplex128 = switch _v.kind() {
             case stdgo.internal.reflect.Reflect.KindType.complex128, stdgo.internal.reflect.Reflect.KindType.complex64:
@@ -2690,7 +2790,7 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
         };
         if (stdgo.internal.reflect.Reflect.isPointer(t)) {
             @:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-            value = (value : Dynamic).value;
+            value = (value : Pointer<Dynamic>).value;
             t = @:privateAccess _v.value.type._common();
         };
         switch t {
@@ -2732,7 +2832,7 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
         };
         if (stdgo.internal.reflect.Reflect.isPointer(t)) {
             @:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-            value = (value : Dynamic).value;
+            value = (value : Pointer<Dynamic>).value;
         };
         final value:Bool = switch _v.kind() {
             case stdgo.internal.reflect.Reflect.KindType.bool:
@@ -2754,7 +2854,7 @@ if (StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__unde
 }
 class ValueError_asInterface {
     @:keep
-    public function error():GoString return __self__.value.error();
+    public dynamic function error():GoString return __self__.value.error();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2775,24 +2875,24 @@ class MapIter_asInterface {
         // which may allow the previously iterated-over map to be garbage collected.
     **/
     @:keep
-    public function reset(_v:Value):Void __self__.value.reset(_v);
+    public dynamic function reset(_v:Value):Void __self__.value.reset(_v);
     /**
         // Next advances the map iterator and reports whether there is another
         // entry. It returns false when iter is exhausted; subsequent
         // calls to Key, Value, or Next will panic.
     **/
     @:keep
-    public function next():Bool return __self__.value.next();
+    public dynamic function next():Bool return __self__.value.next();
     /**
         // Value returns the value of iter's current map entry.
     **/
     @:keep
-    public function value():Value return __self__.value.value();
+    public dynamic function value():Value return __self__.value.value();
     /**
         // Key returns the key of iter's current map entry.
     **/
     @:keep
-    public function key():Value return __self__.value.key();
+    public dynamic function key():Value return __self__.value.key();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2873,7 +2973,7 @@ class Kind_asInterface {
         // String returns the name of k.
     **/
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2951,7 +3051,7 @@ class Kind_asInterface {
 }
 class ChanDir_asInterface {
     @:keep
-    public function string():GoString return __self__.value.string();
+    public dynamic function string():GoString return __self__.value.string();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
@@ -2974,7 +3074,7 @@ class StructTag_asInterface {
         // the value returned by Lookup is unspecified.
     **/
     @:keep
-    public function lookup(_key:GoString):{ var _0 : GoString; var _1 : Bool; } return __self__.value.lookup(_key);
+    public dynamic function lookup(_key:GoString):{ var _0 : GoString; var _1 : Bool; } return __self__.value.lookup(_key);
     /**
         // Get returns the value associated with key in the tag string.
         // If there is no such key in the tag, Get returns the empty string.
@@ -2983,7 +3083,7 @@ class StructTag_asInterface {
         // explicitly set to the empty string, use Lookup.
     **/
     @:keep
-    public function get(_key:GoString):GoString return __self__.value.get(_key);
+    public dynamic function get(_key:GoString):GoString return __self__.value.get(_key);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

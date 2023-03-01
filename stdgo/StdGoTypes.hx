@@ -374,6 +374,7 @@ abstract GoUIntptr(Dynamic) from Dynamic {
 		return a.toBasic() <= b.toBasic();
 }
 
+@:notNull
 abstract GoFloat64(Float) from Float {
 	public inline function new(x = 0.0)
 		this = x;
@@ -509,6 +510,7 @@ abstract GoFloat64(Float) from Float {
 		return this = this + 1;
 }
 
+@:notNull
 abstract GoFloat32(Float32) from Float32 {
 	public inline function new(x = 0)
 		this = x;
@@ -631,6 +633,7 @@ abstract GoFloat32(Float32) from Float32 {
 		return !eq(a, b);
 }
 
+@:notNull
 abstract GoComplex64(Complex64) from Complex64 {
 	public inline function new(?r:GoFloat32, ?i:GoFloat32) {
 		if (r == null || i == null) {
@@ -699,6 +702,7 @@ abstract GoComplex64(Complex64) from Complex64 {
 		return new GoComplex64(-t.real, -t.imag);
 }
 
+@:notNull
 abstract GoComplex128(Complex128) from Complex128 {
 	public inline function new(?r:GoFloat64, ?i:GoFloat64) {
 		if (r == null || i == null) {
@@ -778,6 +782,7 @@ abstract GoComplex128(Complex128) from Complex128 {
 		return a.real != b.real || a.imag != b.imag;
 }
 
+@:notNull
 abstract GoInt32(Int) from Int32 to Int32 to Int {
 	public inline function new(x:Int32 = 0)
 		this = x;
@@ -899,6 +904,7 @@ abstract GoInt32(Int) from Int32 to Int32 to Int {
 	}
 }
 
+@:notNull
 abstract GoUInt32(UInt) from UInt from Int to UInt to Int {
 	public inline function new(x = 0)
 		this = x;
@@ -1018,6 +1024,7 @@ abstract GoUInt32(UInt) from UInt from Int to UInt to Int {
 		return a.toBasic() <= b.toBasic();
 }
 
+@:notNull
 abstract GoInt8(Int8) from Int8 from Int to Int8 {
 	public inline function new(x = 0)
 		this = x;
@@ -1133,6 +1140,7 @@ abstract GoInt8(Int8) from Int8 from Int to Int8 {
 		return clampInt8(x);
 }
 
+@:notNull
 abstract GoInt16(Int16) from Int16 from Int to Int16 {
 	public inline function new(x = 0)
 		this = x;
@@ -1248,6 +1256,7 @@ abstract GoInt16(Int16) from Int16 from Int to Int16 {
 		return clampInt16(x);
 }
 
+@:notNull
 abstract GoInt64(Int64) from Int64 {
 	public inline function new(x = 0) {
 		this = x;
@@ -1299,7 +1308,7 @@ abstract GoInt64(Int64) from Int64 {
 	@:to inline function toUInt16():GoUInt16
 		return clampUInt16(toIntInt64(this));
 
-	@:to inline function toUInt64():GoUInt64 {
+	@:to function toUInt64():GoUInt64 {
 		return toUInt64Int64(this);
 	}
 
@@ -1379,13 +1388,14 @@ abstract GoInt64(Int64) from Int64 {
 	@:op(A <= B) private static function lte(a:GoInt64, b:GoInt64):Bool
 		return a.toBasic() <= b.toBasic();
 
-	@:op(A == B) private static function equals(a:GoInt64, b:GoInt64):Bool
+	@:op(A == B) private static function equals(a:GoInt64, b:GoInt64):Bool {
 		return a.toBasic() == b.toBasic();
-
+	}
 	@:op(A != B) private static function notEquals(a:GoInt64, b:GoInt64):Bool
 		return a.toBasic() != b.toBasic();
 }
 
+@:notNull
 abstract GoUInt8(UInt8) from UInt8 from Int to UInt8 {
 	public inline function new(x = 0)
 		this = x;
@@ -1500,6 +1510,7 @@ abstract GoUInt8(UInt8) from UInt8 from Int to UInt8 {
 		return clampUInt8(x);
 }
 
+@:notNull
 abstract GoUInt16(UInt16) from UInt16 from Int to UInt16 {
 	public inline function new(x = 0)
 		this = x;
@@ -1615,6 +1626,7 @@ abstract GoUInt16(UInt16) from UInt16 from Int to UInt16 {
 		return clampUInt16(x);
 }
 
+@:notNull
 abstract GoUInt64(UInt64) from UInt64 {
 	public inline function new(x = 0) {
 		this = x;

@@ -14,8 +14,6 @@ jobs:
       fail-fast: true
     runs-on: ${{ matrix.os }}
     steps:
-      - name: apt-get update
-        run: sudo apt-get update
       - uses: actions/checkout@v3
       - uses: pxshadow/setup-hashlink@v1.0.2 #hashlink
       - uses: actions/setup-go@v3

@@ -5,6 +5,7 @@ import sys.io.File;
 import sys.io.Process;
 
 function main() {
+	var index = 0;
 	final args = Sys.args();
 	final ci = if (args.length > 0 && args[0] == "ci") {
 		args.shift();
@@ -53,9 +54,8 @@ function main() {
 		}
 	}
 	File.saveContent("version.txt", version);
-	if (args.indexOf("-rebuild") != -1 || args.indexOf("--rebuild") != -1) { // used to rebuild the compiler each run
-		args.remove("-rebuild");
-		args.remove("--rebuild");
+	if ((index = args.indexOf("-rebuild")) != -1 || (index = args.indexOf("--rebuild")) != -1) { // used to rebuild the compiler each run
+		args.remove(args[index]);
 		Sys.println("rebuilding...");
 		rebuild = true;
 	}
@@ -67,6 +67,21 @@ function main() {
 		Sys.command("haxe build-interp.hxml --help");
 		return;
 	}
+	if ((index = args.indexOf("-compiler_hl")) != -1 || (index = args.indexOf("--compiler_hl")) != -1) {
+		args.remove(args[index]);
+		setupHashlink(rebuild,args);
+		return;
+	}
+	if ((index = args.indexOf("-compiler_interp")) != -1 || (index = args.indexOf("--compiler_interp")) != -1) {
+		args.remove(args[index]);
+		setupInterp(rebuild,args);
+		return;
+	}
+	if ((index = args.indexOf("-compiler_nodejs")) != -1 || (index = args.indexOf("--compiler_nodes")) != -1) {
+		args.remove(args[index]);
+		setupNodeJS(rebuild,args);
+		return;
+	}
 	code = 1;
 	try {
 		process = new Process("node -v");
@@ -75,14 +90,7 @@ function main() {
 	}catch(_) {}
 
 	if (code == 0) {
-		// run nodejs
-		if (!FileSystem.exists("build.js") || rebuild) {
-			Sys.command("haxe build-js.hxml");
-		}
-		args.unshift("build.js");
-		// 4gb = 4096, 2gb = 2048
-		args.unshift("--max-old-space-size=4096");
-		Sys.command("node", args);
+		setupNodeJS(rebuild,args);
 		return;
 	}
 	code = 1;
@@ -93,27 +101,9 @@ function main() {
 	}catch(_) {}
 
 	if (code == 0) {
-		// run hashlink
-		var no_uv = false;
-		var no_fmt = false;
-		if (args.indexOf("-no_uv") != -1 || args.indexOf("--no_uv") != -1) {
-			no_uv = true;
-		}
-		if (args.indexOf("-no_fmt") != -1 || args.indexOf("--no_fmt") != -1) {
-			no_fmt = true;
-		}
-		if (!FileSystem.exists("build.hl") || rebuild) {
-			var cmd = "haxe build-hl.hxml";
-			if (no_uv)
-				cmd += " -D no_uv";
-			if (no_fmt)
-				cmd += " -D no_fmt";
-			Sys.command(cmd);
-		}
-		args.unshift("build.hl");
-		Sys.command("hl", args);
+		setupHashlink(rebuild,args);
 	} else {
-		Sys.command("haxe build-interp.hxml " + args.join(" "));
+		setupInterp(rebuild,args);
 	}
 }
 
@@ -147,4 +137,44 @@ function deleteDirectoryRecursively(dir:String):Int {
 	#else
 	return 0;
 	#end
+}
+
+function setupNodeJS(rebuild:Bool,args:Array<String>) {
+	// run nodejs
+	if (!FileSystem.exists("build.js") || rebuild) {
+		Sys.command("haxe build-js.hxml");
+	}
+	args.unshift("build.js");
+	// 4gb = 4096, 2gb = 2048
+	args.unshift("--max-old-space-size=4096");
+	//args.unshift("--expose-gc");
+	Sys.command("node", args);
+}
+
+function setupHashlink(rebuild:Bool,args:Array<String>) {
+	var no_uv = false;
+	var no_fmt = false;
+	var index = 0;
+	if ((index = args.indexOf("-no_uv")) != -1 || (index = args.indexOf("--no_uv")) != -1) {
+		no_uv = true;
+		args.remove(args[index]);
+	}
+	if ((index = args.indexOf("-no_fmt")) != -1 || (index = args.indexOf("--no_fmt")) != -1) {
+		no_fmt = true;
+		args.remove(args[index]);
+	}
+	if (!FileSystem.exists("build.hl") || rebuild) {
+		var cmd = "haxe build-hl.hxml";
+		if (no_uv)
+			cmd += " -D no_uv";
+		if (no_fmt)
+			cmd += " -D no_fmt";
+		Sys.command(cmd);
+	}
+	args.unshift("build.hl");
+	Sys.command("hl", args);
+}
+
+function setupInterp(rebuild:Bool, args:Array<String>) {
+	Sys.command("haxe build-interp.hxml " + args.join(" "));
 }

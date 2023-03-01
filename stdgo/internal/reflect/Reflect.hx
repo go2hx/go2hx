@@ -48,7 +48,12 @@ function formatGoFieldName(name:String):String {
 function namedUnderlying(obj:AnyInterface):AnyInterface {
 	return switch @:privateAccess obj.type._common() {
 		case named(_, _, type,_,_):
-			new AnyInterface((obj.value : Dynamic).__t__, new _Type(type));
+			switch std.Type.typeof(obj.value) {
+				case TClass(_):
+					new AnyInterface((obj.value : Dynamic).__t__, new _Type(type));
+				default:
+					obj;
+			}
 		default:
 			obj;
 	}
@@ -64,74 +69,87 @@ function deepValueEqual(v1:Value, v2:Value, visited:GoMap<Visit, Bool>, depth:Go
 	if (!v1.isValid() || !v2.isValid()) {
 		return v1.isValid() == v2.isValid();
 	}
-	if (v1.kind() == KindType.array) {
-		for (i in 0...v1.len().toBasic()) {
-			if (!deepValueEqual(v1.index(i), v2.index(i), visited, depth + (1 : GoInt64))) {
+	switch v1.kind() {
+		case KindType.array:
+			for (i in 0...v1.len().toBasic()) {
+				if (!deepValueEqual(v1.index(i), v2.index(i), visited, depth + (1 : GoInt64))) {
+					return false;
+				}
+			}
+			return true;
+		case KindType.slice:
+			if (v1.isNil() != v2.isNil()) {
 				return false;
 			}
-		}
-		return true;
-	} else if (v1.kind() == KindType.slice) {
-		if (v1.isNil() != v2.isNil()) {
-			return false;
-		}
-		if (v1.len() != v2.len()) {
-			return false;
-		}
-		if (v1.pointer() != v2.pointer()) {
-			return true;
-		}
-		for (i in 0...v1.len().toBasic()) {
-			if (!deepValueEqual(v1.index(i), v2.index(i), visited, depth + (1 : GoInt64))) {
+			if (v1.len() != v2.len()) {
 				return false;
 			}
-		}
-		return true;
-	} else if (v1.kind() == KindType.interface_) {
-		if (v1.isNil() || v2.isNil()) {
-			return v1.isNil() == v2.isNil();
-		}
-		return true;
-	} else if (v1.kind() == KindType.pointer) {
-		if (v1.pointer() == v2.pointer()) {
+			if (v1.pointer() != v2.pointer()) {
+				return true;
+			}
+			for (i in 0...v1.len().toBasic()) {
+				if (!deepValueEqual(v1.index(i), v2.index(i), visited, depth + (1 : GoInt64))) {
+					return false;
+				}
+			}
 			return true;
-		};
-		return deepValueEqual(v1.elem(), v2.elem(), visited, depth + (1 : GoInt64));
-	} else if (v1.kind() == KindType.struct) {
-		for (i in 0...v1.numField().toBasic()) {
-			if (!deepValueEqual(v1.field(i), v2.field(i), visited, depth + (1 : GoInt64))) {
+		case KindType.interface_:
+			if (v1.isNil() || v2.isNil()) {
+				return v1.isNil() == v2.isNil();
+			}
+			return true;
+		case KindType.pointer:
+			if (v1.pointer() == v2.pointer()) {
+				return true;
+			};
+			return deepValueEqual(v1.elem(), v2.elem(), visited, depth + (1 : GoInt64));
+		case KindType.struct:
+			for (i in 0...v1.numField().toBasic()) {
+				if (!deepValueEqual(v1.field(i), v2.field(i), visited, depth + (1 : GoInt64))) {
+					return false;
+				}
+			}
+			return true;
+		case KindType.map:
+			if (v1.isNil() != v2.isNil()) {
 				return false;
 			}
-		}
-		return true;
-	} else if (v1.kind() == KindType.map) {
-		if (v1.isNil() != v2.isNil()) {
-			return false;
-		}
-		if (v1.len() != v2.len()) {
-			return false;
-		}
-		if (v1.pointer() == v2.pointer()) {
-			return true;
-		}
-		for (k in v1.mapKeys()) {
-			var val1 = v1.mapIndex(k);
-			var val2 = v2.mapIndex(k);
-			if (!val1.isValid() || !val2.isValid() || !deepValueEqual(val1, val2, visited, depth + (1 : GoInt64))) {
+			if (v1.len() != v2.len()) {
 				return false;
 			}
-		}
-		return true;
-	} else if (v1.kind() == KindType.func) {
-		if (v1.isNil() && v2.isNil()) {
+			if (v1.pointer() == v2.pointer()) {
+				return true;
+			}
+			for (k in v1.mapKeys()) {
+				var val1 = v1.mapIndex(k);
+				var val2 = v2.mapIndex(k);
+				if (!val1.isValid() || !val2.isValid() || !deepValueEqual(val1, val2, visited, depth + (1 : GoInt64))) {
+					return false;
+				}
+			}
 			return true;
-		}
-		return false;
-	} else if (v1.kind() == KindType.uintptr) {
-		return v1.pointer() == v2.pointer();
-	} else {
-		//trace(v1.kind().string(), v2.kind().string());
-		return v1.interface_() == v2.interface_();
+		case KindType.func:
+			if (v1.isNil() && v2.isNil()) {
+				return true;
+			}
+			return false;
+		case KindType.uintptr:
+			return v1.pointer() == v2.pointer();
+		case KindType.uint, KindType.uint8, KindType.uint16, KindType.uint32, KindType.uint64:
+			return v1.uint() == v2.uint();
+		case KindType.int, KindType.int8, KindType.int16, KindType.int32, KindType.int64:
+			return v1.int_() == v2.int_();
+		case KindType.float32, KindType.float64:
+			return v1.float_() == v2.float_();
+		case KindType.bool:
+			return v1.bool_() == v2.bool_();
+		case KindType.string:
+			return v1.string() == v2.string();
+		case KindType.complex64, KindType.complex128:
+			return v1.complex() == v2.complex();
+		default:
+			trace(v1.kind().string(), v2.kind().string());
+			throw "unsupported deepValueEqual kinds";
 	}
 }
 
@@ -244,7 +262,7 @@ function directlyAssignable(t:Type, v:Type):Bool {
 				case pointerType(_.get() => e2), refType(_.get() => e2):
 					identicalType(e,e2);
 				default:
-					false;
+					identicalType(e,vgt);
 			}
 		case previouslyNamed(path):
 			switch vgt {
@@ -861,16 +879,16 @@ class _Type {
 
 @:keep @:allow(github_com.go2hx.go4hx.rnd.Rnd._Type_asInterface) class _Type_static_extension {
 	static public function _uncommon(t:_Type):Ref<Dynamic>
-		throw "not implemented";
+		throw "not implemented _uncommon";
 
 	static public function _common(t:_Type):Ref<Dynamic>
-		throw "not implemented";
+		throw "not implemented _common";
 
 	static public function out(t:_Type, _i:GoInt):Type
-		throw "not implemented";
+		throw "not implemented _out";
 
 	static public function numOut(t:_Type):GoInt
-		throw "not implemented";
+		throw "not implemented numOut";
 
 	static public function numIn(t:_Type):GoInt {
 		final gt = t._common();
@@ -894,10 +912,10 @@ class _Type {
 	}
 
 	static public function len(t:_Type):GoInt
-		throw "not implemented";
+		throw "not implemented len";
 
 	static public function key(t:_Type):Type
-		throw "not implemented";
+		throw "not implemented key";
 
 	static public function in_(t:_Type, _i:GoInt):Type {
 		final gt = t._common();
@@ -911,13 +929,13 @@ class _Type {
 	}
 
 	static public function fieldByNameFunc(t:_Type, _match:GoString->Bool):{var _0:StructField; var _1:Bool;}
-		throw "not implemented";
+		throw "not implemented fieldByNameFunc";
 
 	static public function fieldByName(t:_Type, _name:GoString):{var _0:StructField; var _1:Bool;}
-		throw "not implemented";
+		throw "not implemented fieldByName";
 
 	static public function fieldByIndex(t:_Type, _index:Slice<GoInt>):StructField
-		throw "not implemented";
+		throw "not implemented fieldByIndex";
 
 	static public function field(t:_Type, _i:GoInt):StructField {
 			var module = "";
@@ -959,13 +977,21 @@ class _Type {
 	}
 
 	static public function isVariadic(t:_Type):Bool
-		throw "not implemented";
+		throw "not implemented isVariadic";
 
 	static public function chanDir(t:_Type):ChanDir
-		throw "not implemented";
+		throw "not implemented chanDir";
 
-	static public function bits(t:_Type):GoInt
-		throw "not implemented";
+	static public function bits(t:_Type):GoInt {
+		if (t == null) {
+			throw Go.toInterface("reflect: Bits of nil Type");
+		}
+		final k = t.kind();
+		if (k < KindType.int || k > KindType.complex128) {
+			throw Go.toInterface("reflect: Bits of non-arithmetic Type " + t.string());
+		}
+		return t.size() * 8;
+	}
 
 	static public function comparable(t:_Type):Bool {
 		return switch (t._common()) {
@@ -987,7 +1013,7 @@ class _Type {
 	}
 
 	static public function convertibleTo(t:_Type, _u:Type):Bool
-		throw "not implemented";
+		throw "not implemented convertibleTo";
 
 	static public function assignableTo(t:_Type, _u:Type):Bool {
 		if (_u == null)
@@ -1201,14 +1227,46 @@ class _Type {
 		}
 	}
 
-	static public function size(t:_Type):GoUIntptr
-		throw "not implemented";
+	static public function size(t:_Type):GoUIntptr {
+		final k = t.kind();
+		if (k == KindType.invalid)
+			return 0;
+		return switch k {
+			case KindType.bool, KindType.int8, KindType.uint8: 1;
+			case KindType.int16, KindType.uint16: 2;
+			case KindType.int32, KindType.uint32, KindType.int, KindType.uint: 4;
+			case KindType.int64, KindType.uint64: 8;
+			case KindType.float32: 4;
+			case KindType.float64: 8;
+			case KindType.complex64: 8;
+			case KindType.complex128: 16;
+			case KindType.string: 16; // TODO: this may be wrong
+			// TODO
+			case KindType.slice: 24;
+			case KindType.interface_: 16;
+			case KindType.func: 8;
+			case KindType.array:
+				final gt = t._common();
+				var gt = getUnderlying(gt);
+				return switch gt {
+					case arrayType(_.get() => elem, len):
+						((new _Type(elem).size().toBasic() * len) : GoUIntptr);
+					default:
+						0;
+				}
+			case KindType.struct: 0;
+			case KindType.pointer: 8;
+			case KindType.uintptr: 8;
+			default:
+				throw "unimplemented: size of type: " + k.string();
+		}
+	}
 
 	static public function pkgPath(t:_Type):GoString
-		throw "not implemented";
+		throw "not implemented pkgPath";
 
 	static public function name(t:_Type):GoString
-		throw "not implemented";
+		throw "not implemented name";
 
 	static public function numMethod(t:_Type):GoInt {
 		switch t._common() {
@@ -1229,120 +1287,120 @@ class _Type {
 	}
 
 	static public function methodByName(t:_Type, _0:GoString):{var _0:Method; var _1:Bool;}
-		throw "not implemented";
+		throw "not implemented methodByName";
 
 	static public function method(t:_Type, _0:GoInt):Method
-		throw "not implemented";
+		throw "not implemented method";
 
 	static public function fieldAlign(t:_Type):GoInt
-		throw "not implemented";
+		throw "not implemented fieldAlign";
 
 	static public function align(t:_Type):GoInt
-		throw "not implemented";
+		throw "not implemented align";
 }
 
 class _Type_asInterface {
-	public function _uncommon():Dynamic
+	public dynamic function _uncommon():Dynamic
 		return cast __self__.value._uncommon();
 
-	public function _common():Dynamic
+	public dynamic function _common():Dynamic
 		return cast __self__.value._common();
 
-	public function out(_i:GoInt):Type
+	public dynamic function out(_i:GoInt):Type
 		return __self__.value.out(_i);
 
-	public function numOut():GoInt
+	public dynamic function numOut():GoInt
 		return __self__.value.numOut();
 
-	public function numIn():GoInt
+	public dynamic function numIn():GoInt
 		return __self__.value.numIn();
 
-	public function numField():GoInt
+	public dynamic function numField():GoInt
 		return __self__.value.numField();
 
-	public function len():GoInt
+	public dynamic function len():GoInt
 		return __self__.value.len();
 
-	public function key():Type
+	public dynamic function key():Type
 		return __self__.value.key();
 
-	public function in_(_i:GoInt):Type
+	public dynamic function in_(_i:GoInt):Type
 		return __self__.value.in_(_i);
 
-	public function fieldByNameFunc(_match:GoString->Bool):{var _0:StructField; var _1:Bool;}
+	public dynamic function fieldByNameFunc(_match:GoString->Bool):{var _0:StructField; var _1:Bool;}
 		return __self__.value.fieldByNameFunc(_match);
 
-	public function fieldByName(_name:GoString):{var _0:StructField; var _1:Bool;}
+	public dynamic function fieldByName(_name:GoString):{var _0:StructField; var _1:Bool;}
 		return __self__.value.fieldByName(_name);
 
-	public function fieldByIndex(_index:Slice<GoInt>):StructField
+	public dynamic function fieldByIndex(_index:Slice<GoInt>):StructField
 		return __self__.value.fieldByIndex(_index);
 
-	public function field(_i:GoInt):StructField
+	public dynamic function field(_i:GoInt):StructField
 		return __self__.value.field(_i);
 
-	public function elem():Type {
+	public dynamic function elem():Type {
 		return __self__.value.elem();
 	}
 
-	public function isVariadic():Bool
+	public dynamic function isVariadic():Bool
 		return __self__.value.isVariadic();
 
-	public function chanDir():ChanDir
+	public dynamic function chanDir():ChanDir
 		return __self__.value.chanDir();
 
-	public function bits():GoInt
+	public dynamic function bits():GoInt
 		return __self__.value.bits();
 
-	public function comparable():Bool
+	public dynamic function comparable():Bool
 		return __self__.value.comparable();
 
-	public function convertibleTo(_u:Type):Bool
+	public dynamic function convertibleTo(_u:Type):Bool
 		return __self__.value.convertibleTo(_u);
 
-	public function assignableTo(_u:Type):Bool
+	public dynamic function assignableTo(_u:Type):Bool
 		return __self__.value.assignableTo(_u);
 
-	public function implements_(_u:Type):Bool
+	public dynamic function implements_(_u:Type):Bool
 		return __self__.value.implements_(_u);
 
-	public function kind():Kind {
+	public dynamic function kind():Kind {
 		return __self__.value.kind();
 	}
 
-	public function string():GoString
+	public dynamic function string():GoString
 		return __self__.value.string();
 
-	public function size():GoUIntptr
+	public dynamic function size():GoUIntptr
 		return __self__.value.size();
 
-	public function pkgPath():GoString
+	public dynamic function pkgPath():GoString
 		return __self__.value.pkgPath();
 
-	public function name():GoString
+	public dynamic function name():GoString
 		return __self__.value.name();
 
-	public function numMethod():GoInt
+	public dynamic function numMethod():GoInt
 		return __self__.value.numMethod();
 
-	public function methodByName(_0:GoString):{var _0:Method; var _1:Bool;}
+	public dynamic function methodByName(_0:GoString):{var _0:Method; var _1:Bool;}
 		return __self__.value.methodByName(_0);
 
-	public function method(_0:GoInt):Method
+	public dynamic function method(_0:GoInt):Method
 		return __self__.value.method(_0);
 
-	public function fieldAlign():GoInt
+	public dynamic function fieldAlign():GoInt
 		return __self__.value.fieldAlign();
 
-	public function align():GoInt
+	public dynamic function align():GoInt
 		return __self__.value.align();
 
-	public function new(__self__, __type__) {
+	public dynamic function new(__self__, __type__) {
 		this.__self__ = __self__;
 		this.__type__ = __type__;
 	}
 
-	public function __underlying__()
+	public dynamic function __underlying__()
 		return new AnyInterface((__type__.kind() == stdgo.reflect.Reflect.ptr
 			&& !stdgo.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);

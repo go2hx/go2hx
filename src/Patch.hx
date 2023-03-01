@@ -269,8 +269,8 @@ final list = [
 		return new Value(_i);
 	},
 	"reflect:deepEqual" => macro {
-		_x = stdgo.internal.reflect.Reflect.namedUnderlying(_x);
-		_y = stdgo.internal.reflect.Reflect.namedUnderlying(_y);
+		// _x = stdgo.internal.reflect.Reflect.namedUnderlying(_x);
+		// _y = stdgo.internal.reflect.Reflect.namedUnderlying(_y);
 		if (new Value(_x).isNil() || new Value(_y).isNil()) {
 			return (_x : AnyInterface) == (_y : AnyInterface);
 		};
@@ -371,8 +371,10 @@ final list = [
 				(_x : GoUInt64);
 			case stdgo.internal.reflect.Reflect.KindType.uint:
 				(_x : GoUInt);
+			case stdgo.internal.reflect.Reflect.KindType.uintptr:
+				(_x : GoUIntptr);
 			default:
-				(_x : GoInt64);
+				throw "unknown setUInt kind: " + k.string();
 		};
 		stdgo.internal.reflect.Reflect._set(_v);
 	},
@@ -400,7 +402,7 @@ final list = [
 			case stdgo.internal.reflect.Reflect.KindType.uint:
 				(_x : GoUInt);
 			default:
-				(_x : GoInt64);
+				throw "unknown setInt kind: " + k.string();
 		};
 		stdgo.internal.reflect.Reflect._set(_v);
 	},

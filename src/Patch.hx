@@ -268,6 +268,13 @@ final list = [
 	"reflect:valueOf" => macro {
 		return new Value(_i);
 	},
+	"reflect:makeSlice" => macro {
+		// (_typ:Type, _len:GoInt, _cap:GoInt)
+		final value = stdgo.internal.reflect.Reflect.defaultValue(_typ);
+		final slice = new Slice(0,_cap.toBasic(), ...[for (i in 0..._len.toBasic()) value]);
+		final t = @:privateAccess (cast _typ : stdgo.internal.reflect.Reflect._Type_asInterface).__type__;
+		return new Value(new AnyInterface(slice,t));
+	},
 	"reflect:deepEqual" => macro {
 		// _x = stdgo.internal.reflect.Reflect.namedUnderlying(_x);
 		// _y = stdgo.internal.reflect.Reflect.namedUnderlying(_y);
@@ -332,7 +339,9 @@ final list = [
 	"reflect.Value:canAddr" => macro {
 		return @:privateAccess _v.canAddrBool;
 	},
-	"reflect:zero" => macro return new Value(new AnyInterface(stdgo.internal.reflect.Reflect.defaultValue(_typ), _typ.__underlying__().value)),
+	"reflect:zero" => macro {
+		return new Value(new AnyInterface(stdgo.internal.reflect.Reflect.defaultValue(_typ), _typ.__underlying__().value));
+	},
 	"reflect.Value:type" => macro {
 		if (@:privateAccess _v.value == null) {
 			var t = new stdgo.internal.reflect.Reflect._Type(stdgo.internal.reflect.Reflect.GoType.invalidType);
@@ -376,6 +385,30 @@ final list = [
 			default:
 				throw "unknown setUInt kind: " + k.string();
 		};
+		stdgo.internal.reflect.Reflect._set(_v);
+	},
+	"reflect.Value:setComplex" => macro {
+		final k = _v.kind();
+		@:privateAccess _v.value.value = switch k {
+			case stdgo.internal.reflect.Reflect.KindType.complex64:
+				(_x : GoComplex64);
+			case stdgo.internal.reflect.Reflect.KindType.complex128:
+				(_x : GoComplex128);
+			default:
+				throw "unknown setFloat kind: " + k.string();
+		}
+		stdgo.internal.reflect.Reflect._set(_v);
+	},
+	"reflect.Value:setFloat" => macro {
+		final k = _v.kind();
+		@:privateAccess _v.value.value = switch k {
+			case stdgo.internal.reflect.Reflect.KindType.float32:
+				(_x : GoFloat32);
+			case stdgo.internal.reflect.Reflect.KindType.float64:
+				(_x : GoFloat64);
+			default:
+				throw "unknown setFloat kind: " + k.string();
+		}
 		stdgo.internal.reflect.Reflect._set(_v);
 	},
 	"reflect.Value:setInt" => macro {
@@ -791,6 +824,16 @@ final list = [
 				_v.setFloat((value : GoFloat64));
 			case stdgo.internal.reflect.Reflect.KindType.string:
 				_v.setString(value);
+			case stdgo.internal.reflect.Reflect.KindType.slice:
+				var value:Slice<Dynamic> = @:privateAccess _v.value.value;
+				final x:Slice<Dynamic> = @:privateAccess _x.value.value;
+				value.__setData__(x);
+				stdgo.internal.reflect.Reflect._set(_v);
+			case stdgo.internal.reflect.Reflect.KindType.map:
+				var value:GoMap<Dynamic,Dynamic> = @:privateAccess _v.value.value;
+				final x:GoMap<Dynamic,Dynamic> = @:privateAccess _x.value.value;
+				value.__setData__(x);
+				stdgo.internal.reflect.Reflect._set(_v);
 			default:
 				@:privateAccess _v.value = _x.value;
 				stdgo.internal.reflect.Reflect._set(_v);
@@ -864,7 +907,7 @@ final list = [
 				false;
 			case stdgo.internal.reflect.Reflect.KindType.unsafePointer, stdgo.internal.reflect.Reflect.KindType.uintptr:
 				value == null;
-			case stdgo.internal.reflect.Reflect.KindType.bool, stdgo.internal.reflect.Reflect.KindType.int, stdgo.internal.reflect.Reflect.KindType.int32, stdgo.internal.reflect.Reflect.KindType.int64, stdgo.internal.reflect.Reflect.KindType.float32, stdgo.internal.reflect.Reflect.KindType.float64, stdgo.internal.reflect.Reflect.KindType.int8, stdgo.internal.reflect.Reflect.KindType.int16, stdgo.internal.reflect.Reflect.KindType.uint, stdgo.internal.reflect.Reflect.KindType.uint8, stdgo.internal.reflect.Reflect.KindType.uint16, stdgo.internal.reflect.Reflect.KindType.uint32, stdgo.internal.reflect.Reflect.KindType.uint64, stdgo.internal.reflect.Reflect.KindType.string:
+			case stdgo.internal.reflect.Reflect.KindType.bool, stdgo.internal.reflect.Reflect.KindType.int, stdgo.internal.reflect.Reflect.KindType.int32, stdgo.internal.reflect.Reflect.KindType.int64, stdgo.internal.reflect.Reflect.KindType.float32, stdgo.internal.reflect.Reflect.KindType.float64, stdgo.internal.reflect.Reflect.KindType.int8, stdgo.internal.reflect.Reflect.KindType.int16, stdgo.internal.reflect.Reflect.KindType.uint, stdgo.internal.reflect.Reflect.KindType.uint8, stdgo.internal.reflect.Reflect.KindType.uint16, stdgo.internal.reflect.Reflect.KindType.uint32, stdgo.internal.reflect.Reflect.KindType.uint64, stdgo.internal.reflect.Reflect.KindType.string, stdgo.internal.reflect.Reflect.KindType.complex64, stdgo.internal.reflect.Reflect.KindType.complex128:
 				false;
 			default:
 				throw "nil check not supported kind: " + _v.kind().string();
@@ -893,12 +936,12 @@ final list = [
 				final t = stdgo.internal.reflect.Reflect.getUnderlying(t);
 				switch t {
 					case stdgo.internal.reflect.Reflect.GoType.refType(_.get() => elem):
-						final value = new Value(new AnyInterface(value, new stdgo.internal.reflect.Reflect._Type(elem)), value);
+						final value = new Value(new AnyInterface(value, new stdgo.internal.reflect.Reflect._Type(elem)), null);
 						@:privateAccess value.canAddrBool = true;
 						return value;
 					case stdgo.internal.reflect.Reflect.GoType.pointerType(_.get() => elem):
 						if (value == null) {
-							final value = new Value(new AnyInterface(null, new stdgo.internal.reflect.Reflect._Type(elem)), null);
+							final value = new Value(new AnyInterface(null, new stdgo.internal.reflect.Reflect._Type(elem)), value);
 							@:privateAccess value.canAddrBool = true;
 							return value;
 						};

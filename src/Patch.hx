@@ -348,6 +348,34 @@ final list = [
 		@:privateAccess _v.value.value = _x;
 		stdgo.internal.reflect.Reflect._set(_v);
 	},
+	"reflect.Value:setUint" => macro {
+		final k = _v.kind();
+		@:privateAccess _v.value.value = switch k {
+			case stdgo.internal.reflect.Reflect.KindType.int8:
+				(_x : GoInt8);
+			case stdgo.internal.reflect.Reflect.KindType.int16:
+				(_x : GoInt16);
+			case stdgo.internal.reflect.Reflect.KindType.int32:
+				(_x : GoInt32);
+			case stdgo.internal.reflect.Reflect.KindType.int64:
+				(_x : GoInt64);
+			case stdgo.internal.reflect.Reflect.KindType.int:
+				(_x : GoInt);
+			case stdgo.internal.reflect.Reflect.KindType.uint8:
+				(_x : GoUInt8);
+			case stdgo.internal.reflect.Reflect.KindType.uint16:
+				(_x : GoUInt16);
+			case stdgo.internal.reflect.Reflect.KindType.uint32:
+				(_x : GoUInt32);
+			case stdgo.internal.reflect.Reflect.KindType.uint64:
+				(_x : GoUInt64);
+			case stdgo.internal.reflect.Reflect.KindType.uint:
+				(_x : GoUInt);
+			default:
+				(_x : GoInt64);
+		};
+		stdgo.internal.reflect.Reflect._set(_v);
+	},
 	"reflect.Value:setInt" => macro {
 		final k = _v.kind();
 		@:privateAccess _v.value.value = switch k {
@@ -427,7 +455,7 @@ final list = [
 		};
 		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
 			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-			value = (value : Dynamic).value;
+			value = (value : Pointer<Dynamic>).value;
 			t = @:privateAccess _v.value.type._common();
 		};
 		switch t {
@@ -499,7 +527,7 @@ final list = [
 		}
 		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
 			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-			value = (value : Dynamic).value;
+			value = (value : Pointer<Dynamic>).value;
 		};
 		final k = _v.kind();
 		return switch k {
@@ -541,7 +569,7 @@ final list = [
 		}
 		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
 			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-			value = (value : Dynamic).value;
+			value = (value : Pointer<Dynamic>).value;
 		};
 		final value:Bool = switch _v.kind() {
 				case stdgo.internal.reflect.Reflect.KindType.bool:
@@ -565,7 +593,7 @@ final list = [
 		}
 		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
 			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-			value = (value : Dynamic).value;
+			value = (value : Pointer<Dynamic>).value;
 		};
 		final value:GoComplex128 = switch _v.kind() {
 				case stdgo.internal.reflect.Reflect.KindType.complex128, stdgo.internal.reflect.Reflect.KindType.complex64:
@@ -589,7 +617,7 @@ final list = [
 		}
 		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
 			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-			value = (value : Dynamic).value;
+			value = (value : Pointer<Dynamic>).value;
 		};
 		final value:GoUInt64 = switch _v.kind() {
 				case stdgo.internal.reflect.Reflect.KindType.uint:
@@ -623,7 +651,7 @@ final list = [
 		}
 		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
 			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-			value = (value : Dynamic).value;
+			value = (value : Pointer<Dynamic>).value;
 		};
 		final value:GoFloat64 = switch _v.kind() {
 				case stdgo.internal.reflect.Reflect.KindType.float64:
@@ -649,9 +677,9 @@ final list = [
 		}
 		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
 			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-			value = (value : Dynamic).value;
+			value = (value : Pointer<Dynamic>).value;
 		};
-		final value:GoUInt64 = switch _v.kind() {
+		final value:GoInt64 = switch _v.kind() {
 				case stdgo.internal.reflect.Reflect.KindType.int:
 					(value : GoInt8);
 				case stdgo.internal.reflect.Reflect.KindType.int8:
@@ -682,7 +710,7 @@ final list = [
 		}
 		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
 			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-			value = (value : Dynamic).value;
+			value = (value : Pointer<Dynamic>).value;
 		};
 		final gt = stdgo.internal.reflect.Reflect.getUnderlying(@:privateAccess _v.value.type._common());
 		return switch gt {
@@ -783,7 +811,7 @@ final list = [
 		}
 		if (stdgo.internal.reflect.Reflect.isPointer(t)) {
 			@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-			value = (value : Dynamic).value;
+			value = (value : Pointer<Dynamic>).value;
 		};
 		final underlyingType = stdgo.internal.reflect.Reflect.getUnderlying(t);
 		switch (underlyingType) {
@@ -1085,7 +1113,7 @@ final structs = [
 			}
 			if (stdgo.internal.reflect.Reflect.isPointer(t)) {
 				@:privateAccess _v.value.type.gt = stdgo.internal.reflect.Reflect.getElem(t);
-				value = (value : Dynamic).value;
+				value = (value : Pointer<Dynamic>).value;
 			};
 			final underlyingType = stdgo.internal.reflect.Reflect.getUnderlying(t);
 			switch (underlyingType) {

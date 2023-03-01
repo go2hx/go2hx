@@ -32,7 +32,7 @@ class Macro {
 						}
 					}
 				}
-				trace("define");
+				// trace("define cached macro GoType info");
 				Context.defineType(cl);
 			});
 	}

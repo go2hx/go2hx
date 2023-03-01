@@ -5087,7 +5087,9 @@ private function typeStarExpr(expr:Ast.StarExpr, info:Info):ExprDef {
 	var x = typeExpr(expr.x, info);
 	final t = typeof(expr.x, info, false);
 	if (!isPointer(t)) {
-		return x.expr;
+		final t = typeof(expr,info,false);
+		final ct = toComplexType(t,info);
+		return (macro ($x : $ct)).expr;
 	}
 	return (macro $x.value).expr; // pointer code
 }

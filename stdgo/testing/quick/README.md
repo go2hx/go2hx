@@ -19,11 +19,14 @@ The testing/quick package is frozen and is not accepting new features.
 
 ```
 Error: Command failed with error 1
-stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestCheckEqual
-Exception: reflect.call is not yet implemented
-Called from stdgo.testing.quick._Quick.$Quick_Fields_.checkEqual (stdgo/testing/quick/Quick.hx line 481)
-Called from stdgo.testing.quick._Quick.$Quick_Fields_.testCheckEqual (stdgo/testing/quick/Quick.hx line 683)
+Exception: Null access .__name__
+Called from stdgo.reflect.$Value_static_extension.set (stdgo/reflect/Reflect.hx line 2097)
+Called from stdgo.testing.quick._Quick.$Quick_Fields_._sizedValue (stdgo/testing/quick/Quick.hx line 367)
+Called from stdgo.testing.quick._Quick.$Quick_Fields_.value (stdgo/testing/quick/Quick.hx line 264)
+Called from stdgo.testing.quick._Quick.$Quick_Fields_._arbitraryValues (stdgo/testing/quick/Quick.hx line 508)
+Called from stdgo.testing.quick._Quick.$Quick_Fields_.checkEqual (stdgo/testing/quick/Quick.hx line 480)
+Called from stdgo.testing.quick._Quick.$Quick_Fields_.testCheckEqual (stdgo/testing/quick/Quick.hx line 686)
 Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 355)
 Called from stdgo.testing.quick_test._Quick.$Quick_Fields_.main (stdgo/testing/quick_test/Quick.hx line 37)
 ```
@@ -34,12 +37,15 @@ Called from stdgo.testing.quick_test._Quick.$Quick_Fields_.main (stdgo/testing/q
 <p>
 
 ```
-stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestCheckEqual
-Exception: reflect.call is not yet implemented
-Called from stdgo.testing.quick._Quick.Quick_Fields_.testCheckEqual (stdgo/testing/quick/Quick.hx line 683 column 45)
-Called from stdgo.testing.quick._Quick.Quick_Fields_.checkEqual (stdgo/testing/quick/Quick.hx line 481 column 43)
-Called from stdgo.reflect.Value_static_extension.call (stdgo/reflect/Reflect.hx line 2650 column 75)
+Exception: field access on null
+Called from stdgo.testing.quick._Quick.Quick_Fields_.testCheckEqual (stdgo/testing/quick/Quick.hx line 686 column 45)
+Called from stdgo.testing.quick._Quick.Quick_Fields_.checkEqual (stdgo/testing/quick/Quick.hx line 480 column 34)
+Called from stdgo.testing.quick._Quick.Quick_Fields_._arbitraryValues (stdgo/testing/quick/Quick.hx line 508 column 35)
+Called from stdgo.testing.quick._Quick.Quick_Fields_.value (stdgo/testing/quick/Quick.hx line 264 column 16)
+Called from stdgo.testing.quick._Quick.Quick_Fields_._sizedValue (stdgo/testing/quick/Quick.hx line 367 column 29)
+Called from stdgo.reflect.Value_static_extension.set (stdgo/reflect/Reflect.hx line 2098 column 17)
+Called from StringTools.endsWith (/home/runner/haxe/versions/1cbe856/std/StringTools.hx line 264 column 14)
 ```
 </p>
 </details>
@@ -49,7 +55,6 @@ Called from stdgo.reflect.Value_static_extension.call (stdgo/reflect/Reflect.hx 
 
 ```
 IO.Overflow("write_ui16")
-stdgo/internal/Macro.macro.hx:35: define
 ```
 </p>
 </details>
@@ -236,7 +241,7 @@ t.Error\(err\)
 
 
 
-[\(view code\)](<./Quick.hx#L419>)
+[\(view code\)](<./Quick.hx#L422>)
 
 
 ## function checkEqual
@@ -254,7 +259,7 @@ describing the input and the outputs.
 
 
 
-[\(view code\)](<./Quick.hx#L456>)
+[\(view code\)](<./Quick.hx#L459>)
 
 
 ## function testCheckEqual
@@ -268,7 +273,7 @@ function testCheckEqual(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 
-[\(view code\)](<./Quick.hx#L682>)
+[\(view code\)](<./Quick.hx#L685>)
 
 
 ## function testCheckProperty
@@ -282,7 +287,7 @@ function testCheckProperty(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 
-[\(view code\)](<./Quick.hx#L733>)
+[\(view code\)](<./Quick.hx#L736>)
 
 
 ## function testEmptyStruct
@@ -296,7 +301,7 @@ function testEmptyStruct(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 
-[\(view code\)](<./Quick.hx#L839>)
+[\(view code\)](<./Quick.hx#L842>)
 
 
 ## function testFailure
@@ -310,7 +315,7 @@ function testFailure(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 
-[\(view code\)](<./Quick.hx#L736>)
+[\(view code\)](<./Quick.hx#L739>)
 
 
 ## function testInt64
@@ -324,7 +329,7 @@ function testInt64(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 
-[\(view code\)](<./Quick.hx#L883>)
+[\(view code\)](<./Quick.hx#L886>)
 
 
 ## function testMutuallyRecursive
@@ -338,7 +343,7 @@ function testMutuallyRecursive(_t:stdgo.Ref<stdgo.testing.T>):Void
 
 
 
-[\(view code\)](<./Quick.hx#L845>)
+[\(view code\)](<./Quick.hx#L848>)
 
 
 ## function testNonZeroSliceAndMap
@@ -355,7 +360,7 @@ zero value for these.
 
 
 
-[\(view code\)](<./Quick.hx#L873>)
+[\(view code\)](<./Quick.hx#L876>)
 
 
 ## function testRecursive
@@ -371,7 +376,7 @@ Issues 8818 and 11148.
 
 
 
-[\(view code\)](<./Quick.hx#L832>)
+[\(view code\)](<./Quick.hx#L835>)
 
 
 ## function value
@@ -499,7 +504,7 @@ function error():stdgo.GoString
 
 
 
-[\(view code\)](<./Quick.hx#L979>)
+[\(view code\)](<./Quick.hx#L982>)
 
 
 ## class CheckError
@@ -544,7 +549,7 @@ function error():stdgo.GoString
 
 
 
-[\(view code\)](<./Quick.hx#L962>)
+[\(view code\)](<./Quick.hx#L965>)
 
 
 ## class Config
@@ -628,7 +633,7 @@ Config.
 
 
 
-[\(view code\)](<./Quick.hx#L926>)
+[\(view code\)](<./Quick.hx#L929>)
 
 
 ### Config function \_getRand
@@ -643,7 +648,7 @@ getRand returns the \*rand.Rand to use for a given Config.
 
 
 
-[\(view code\)](<./Quick.hx#L942>)
+[\(view code\)](<./Quick.hx#L945>)
 
 
 ## class T\_testNonZeroSliceAndMap\_0\_\_\_localname\_\_\_Q
@@ -673,7 +678,7 @@ function new(?m:stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>, ?s:stdgo.Slice<stdgo.GoIn
 
 
 
-[\(view code\)](<./Quick.hx#L859>)
+[\(view code\)](<./Quick.hx#L862>)
 
 
 ## class T\_testRecursive\_0\_\_\_localname\_\_\_R
@@ -728,7 +733,7 @@ function new(?ptr:stdgo.Ref<stdgo.testing.quick.T_testRecursive_0___localname___
 
 
 
-[\(view code\)](<./Quick.hx#L814>)
+[\(view code\)](<./Quick.hx#L817>)
 
 
 ## class TestStruct

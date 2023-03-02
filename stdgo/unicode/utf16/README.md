@@ -15,25 +15,25 @@ Package utf16 implements encoding and decoding of UTF\-16 sequences.
 
 ```
 === RUN  TestConstants
---- PASS: TestConstants (%!s(float64=7.414817810058594e-05))
+--- PASS: TestConstants (%!s(float64=0.00010800361633300781))
 
 === RUN  TestEncode
---- PASS: TestEncode (%!s(float64=0.0005061626434326172))
+--- PASS: TestEncode (%!s(float64=0.0005211830139160156))
 
 === RUN  TestAppendRune
---- PASS: TestAppendRune (%!s(float64=0.0004410743713378906))
+--- PASS: TestAppendRune (%!s(float64=0.0004379749298095703))
 
 === RUN  TestEncodeRune
---- PASS: TestEncodeRune (%!s(float64=2.5987625122070312e-05))
+--- PASS: TestEncodeRune (%!s(float64=4.792213439941406e-05))
 
 === RUN  TestDecode
---- PASS: TestDecode (%!s(float64=0.0002598762512207031))
+--- PASS: TestDecode (%!s(float64=0.000347137451171875))
 
 === RUN  TestDecodeRune
---- PASS: TestDecodeRune (%!s(float64=1.0967254638671875e-05))
+--- PASS: TestDecodeRune (%!s(float64=2.8133392333984375e-05))
 
 === RUN  TestIsSurrogate
---- PASS: TestIsSurrogate (%!s(float64=1.2159347534179688e-05))
+--- PASS: TestIsSurrogate (%!s(float64=1.7881393432617188e-05))
 
 ```
 </p>
@@ -44,25 +44,25 @@ Package utf16 implements encoding and decoding of UTF\-16 sequences.
 
 ```
 === RUN  TestConstants
---- PASS: TestConstants (%!s(float64=3.0040740966796875e-05))
+--- PASS: TestConstants (%!s(float64=3.0994415283203125e-05))
 
 === RUN  TestEncode
---- PASS: TestEncode (%!s(float64=0.0010831356048583984))
+--- PASS: TestEncode (%!s(float64=0.0007600784301757812))
 
 === RUN  TestAppendRune
---- PASS: TestAppendRune (%!s(float64=0.0009469985961914062))
+--- PASS: TestAppendRune (%!s(float64=0.0006341934204101562))
 
 === RUN  TestEncodeRune
---- PASS: TestEncodeRune (%!s(float64=0.0001239776611328125))
+--- PASS: TestEncodeRune (%!s(float64=0.00015497207641601562))
 
 === RUN  TestDecode
---- PASS: TestDecode (%!s(float64=0.000698089599609375))
+--- PASS: TestDecode (%!s(float64=0.0005249977111816406))
 
 === RUN  TestDecodeRune
---- PASS: TestDecodeRune (%!s(float64=0.00013208389282226562))
+--- PASS: TestDecodeRune (%!s(float64=5.5789947509765625e-05))
 
 === RUN  TestIsSurrogate
---- PASS: TestIsSurrogate (%!s(float64=2.5987625122070312e-05))
+--- PASS: TestIsSurrogate (%!s(float64=2.5033950805664062e-05))
 
 ```
 </p>
@@ -73,7 +73,6 @@ Package utf16 implements encoding and decoding of UTF\-16 sequences.
 
 ```
 IO.Overflow("write_ui16")
-stdgo/internal/Macro.macro.hx:35: define
 ```
 </p>
 </details>

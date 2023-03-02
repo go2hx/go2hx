@@ -873,88 +873,94 @@ bufio.NewReader.
 
 ```
 Error: Command failed with error 1
-stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestErrorf
---- PASS: TestErrorf (%!s(float64=0.011215925216674805))
+--- PASS: TestErrorf (%!s(float64=0.022413015365600586))
 
 === RUN  TestFmtInterface
---- PASS: TestFmtInterface (%!s(float64=0.00016999244689941406))
+--- PASS: TestFmtInterface (%!s(float64=0.00032711029052734375))
 
 === RUN  TestSprintf
---- PASS: TestSprintf (%!s(float64=0.31804704666137695))
+--- PASS: TestSprintf (%!s(float64=0.47234106063842773))
 
 === RUN  TestComplexFormatting
---- PASS: TestComplexFormatting (%!s(float64=1.4522430896759033))
+--- PASS: TestComplexFormatting (%!s(float64=1.8683269023895264))
 
 === RUN  TestReorder
---- PASS: TestReorder (%!s(float64=0.010593891143798828))
+--- PASS: TestReorder (%!s(float64=0.015828847885131836))
 
 === RUN  TestCountMallocs
---- PASS: TestCountMallocs (%!s(float64=1.5974044799804688e-05))
+--- PASS: TestCountMallocs (%!s(float64=1.621246337890625e-05))
 
 === RUN  TestFlagParser
---- PASS: TestFlagParser (%!s(float64=0.0055999755859375))
+--- PASS: TestFlagParser (%!s(float64=0.01118612289428711))
 
 === RUN  TestStructPrinter
---- PASS: TestStructPrinter (%!s(float64=0.005030155181884766))
+--- PASS: TestStructPrinter (%!s(float64=0.006011009216308594))
 
 === RUN  TestSlicePrinter
---- PASS: TestSlicePrinter (%!s(float64=0.0027990341186523438))
+--- PASS: TestSlicePrinter (%!s(float64=0.0016911029815673828))
 
 === RUN  TestMapPrinter
---- PASS: TestMapPrinter (%!s(float64=0.005049943923950195))
+--- PASS: TestMapPrinter (%!s(float64=0.008002996444702148))
 
 === RUN  TestEmptyMap
---- PASS: TestEmptyMap (%!s(float64=0.00044608116149902344))
+--- PASS: TestEmptyMap (%!s(float64=0.002577066421508789))
 
 === RUN  TestBlank
---- PASS: TestBlank (%!s(float64=0.0005121231079101562))
+--- PASS: TestBlank (%!s(float64=0.002794981002807617))
 
 === RUN  TestBlankln
---- PASS: TestBlankln (%!s(float64=0.0006608963012695312))
+--- PASS: TestBlankln (%!s(float64=0.0009031295776367188))
 
 === RUN  TestFormatterPrintln
---- PASS: TestFormatterPrintln (%!s(float64=0.0029540061950683594))
+--- PASS: TestFormatterPrintln (%!s(float64=0.003838062286376953))
 
 === RUN  TestWidthAndPrecision
---- PASS: TestWidthAndPrecision (%!s(float64=0.0045070648193359375))
+--- PASS: TestWidthAndPrecision (%!s(float64=0.007604122161865234))
 
 === RUN  TestPanics
 fmt_test/Fmt_test.hx:3294: testPanics skip function
---- PASS: TestPanics (%!s(float64=2.4080276489257812e-05))
+--- PASS: TestPanics (%!s(float64=3.4809112548828125e-05))
 
 === RUN  TestBadVerbRecursion
---- PASS: TestBadVerbRecursion (%!s(float64=0.00024890899658203125))
+--- PASS: TestBadVerbRecursion (%!s(float64=0.00036907196044921875))
 
 === RUN  TestIsSpace
---- PASS: TestIsSpace (%!s(float64=1.034593105316162))
+--- PASS: TestIsSpace (%!s(float64=1.0241811275482178))
 
 === RUN  TestNilDoesNotBecomeTyped
---- PASS: TestNilDoesNotBecomeTyped (%!s(float64=0.0005781650543212891))
+--- PASS: TestNilDoesNotBecomeTyped (%!s(float64=0.0008370876312255859))
 
 === RUN  TestFormatterFlags
---- PASS: TestFormatterFlags (%!s(float64=0.027888059616088867))
+--- PASS: TestFormatterFlags (%!s(float64=0.04867291450500488))
 
 === RUN  TestParsenum
---- PASS: TestParsenum (%!s(float64=2.3126602172851562e-05))
+--- PASS: TestParsenum (%!s(float64=1.9073486328125e-05))
 
 === RUN  TestAppendf
---- PASS: TestAppendf (%!s(float64=0.0018641948699951172))
+--- PASS: TestAppendf (%!s(float64=0.00017499923706054688))
 
 === RUN  TestAppend
---- PASS: TestAppend (%!s(float64=0.0003230571746826172))
+--- PASS: TestAppend (%!s(float64=0.002312898635864258))
 
 === RUN  TestAppendln
---- PASS: TestAppendln (%!s(float64=0.00022792816162109375))
+--- PASS: TestAppendln (%!s(float64=0.0003829002380371094))
 
 === RUN  TestScan
---- PASS: TestScan (%!s(float64=5.9604644775390625e-06))
+--- PASS: TestScan (%!s(float64=1.1920928955078125e-05))
 
 === RUN  TestScanln
---- PASS: TestScanln (%!s(float64=1.2874603271484375e-05))
+--- PASS: TestScanln (%!s(float64=1.7881393432617188e-05))
 
 === RUN  TestScanf
-Sscanf("TRUE\n", "%v"): parsed value bool(false), want bool(true)
+Exception: regexp.mustCompile is not yet implemented
+Called from stdgo.fmt.$T_ss_static_extension.~_doScanf.1 (stdgo/fmt/Fmt.hx line 3771)
+Called from stdgo.fmt.$T_ss_static_extension._doScanf (stdgo/fmt/Fmt.hx line 3853)
+Called from stdgo.fmt._Fmt.$Fmt_Fields_.fscanf (stdgo/fmt/Fmt.hx line 1536)
+Called from stdgo.fmt._Fmt.$Fmt_Fields_.sscanf (stdgo/fmt/Fmt.hx line 1489)
+Called from stdgo.fmt_test._Fmt_test.$Fmt_test_Fields_.testScanf (stdgo/fmt_test/Fmt_test.hx line 3466)
+Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 355)
+Called from stdgo.fmt_test._Fmt.$Fmt_Fields_.main (stdgo/fmt_test/Fmt.hx line 136)
 ```
 </p>
 </details>
@@ -963,88 +969,87 @@ Sscanf("TRUE\n", "%v"): parsed value bool(false), want bool(true)
 <p>
 
 ```
-stdgo/internal/Macro.macro.hx:35: define
+Invalid_argument("index out of bounds")
 === RUN  TestErrorf
---- PASS: TestErrorf (%!s(float64=0.014133930206298828))
+--- PASS: TestErrorf (%!s(float64=0.015045166015625))
 
 === RUN  TestFmtInterface
---- PASS: TestFmtInterface (%!s(float64=0.0003249645233154297))
+--- PASS: TestFmtInterface (%!s(float64=0.0003440380096435547))
 
 === RUN  TestSprintf
---- PASS: TestSprintf (%!s(float64=0.7597370147705078))
+--- PASS: TestSprintf (%!s(float64=0.8441100120544434))
 
 === RUN  TestComplexFormatting
---- PASS: TestComplexFormatting (%!s(float64=4.736257076263428))
+--- PASS: TestComplexFormatting (%!s(float64=4.574337005615234))
 
 === RUN  TestReorder
---- PASS: TestReorder (%!s(float64=0.03122711181640625))
+--- PASS: TestReorder (%!s(float64=0.029644012451171875))
 
 === RUN  TestCountMallocs
---- PASS: TestCountMallocs (%!s(float64=3.600120544433594e-05))
+--- PASS: TestCountMallocs (%!s(float64=3.2901763916015625e-05))
 
 === RUN  TestFlagParser
---- PASS: TestFlagParser (%!s(float64=0.009763956069946289))
+--- PASS: TestFlagParser (%!s(float64=0.009797096252441406))
 
 === RUN  TestStructPrinter
---- PASS: TestStructPrinter (%!s(float64=0.008498191833496094))
+--- PASS: TestStructPrinter (%!s(float64=0.006424903869628906))
 
 === RUN  TestSlicePrinter
---- PASS: TestSlicePrinter (%!s(float64=0.002270936965942383))
+--- PASS: TestSlicePrinter (%!s(float64=0.0020220279693603516))
 
 === RUN  TestMapPrinter
---- PASS: TestMapPrinter (%!s(float64=0.008051156997680664))
+--- PASS: TestMapPrinter (%!s(float64=0.006011009216308594))
 
 === RUN  TestEmptyMap
---- PASS: TestEmptyMap (%!s(float64=0.0009889602661132812))
+--- PASS: TestEmptyMap (%!s(float64=0.0009081363677978516))
 
 === RUN  TestBlank
---- PASS: TestBlank (%!s(float64=0.0010030269622802734))
+--- PASS: TestBlank (%!s(float64=0.001049041748046875))
 
 === RUN  TestBlankln
---- PASS: TestBlankln (%!s(float64=0.001007080078125))
+--- PASS: TestBlankln (%!s(float64=0.0009770393371582031))
 
 === RUN  TestFormatterPrintln
---- PASS: TestFormatterPrintln (%!s(float64=0.0026311874389648438))
+--- PASS: TestFormatterPrintln (%!s(float64=0.0025038719177246094))
 
 === RUN  TestWidthAndPrecision
---- PASS: TestWidthAndPrecision (%!s(float64=0.008212089538574219))
+--- PASS: TestWidthAndPrecision (%!s(float64=0.007822990417480469))
 
 === RUN  TestPanics
 fmt_test/Fmt_test.hx:3294: testPanics skip function
---- PASS: TestPanics (%!s(float64=2.002716064453125e-05))
+--- PASS: TestPanics (%!s(float64=2.4080276489257812e-05))
 
 === RUN  TestBadVerbRecursion
---- PASS: TestBadVerbRecursion (%!s(float64=0.0008020401000976562))
+--- PASS: TestBadVerbRecursion (%!s(float64=0.0008149147033691406))
 
 === RUN  TestIsSpace
---- PASS: TestIsSpace (%!s(float64=7.000020980834961))
+--- PASS: TestIsSpace (%!s(float64=7.024891138076782))
 
 === RUN  TestNilDoesNotBecomeTyped
---- PASS: TestNilDoesNotBecomeTyped (%!s(float64=0.0014510154724121094))
+--- PASS: TestNilDoesNotBecomeTyped (%!s(float64=0.0010950565338134766))
 
 === RUN  TestFormatterFlags
---- PASS: TestFormatterFlags (%!s(float64=0.04250192642211914))
+--- PASS: TestFormatterFlags (%!s(float64=0.039093017578125))
 
 === RUN  TestParsenum
---- PASS: TestParsenum (%!s(float64=6.723403930664062e-05))
+--- PASS: TestParsenum (%!s(float64=4.982948303222656e-05))
 
 === RUN  TestAppendf
---- PASS: TestAppendf (%!s(float64=0.00034689903259277344))
+--- PASS: TestAppendf (%!s(float64=0.0004100799560546875))
 
 === RUN  TestAppend
---- PASS: TestAppend (%!s(float64=0.0007030963897705078))
+--- PASS: TestAppend (%!s(float64=0.0006799697875976562))
 
 === RUN  TestAppendln
---- PASS: TestAppendln (%!s(float64=0.0005609989166259766))
+--- PASS: TestAppendln (%!s(float64=0.0005300045013427734))
 
 === RUN  TestScan
---- PASS: TestScan (%!s(float64=1.6927719116210938e-05))
+--- PASS: TestScan (%!s(float64=1.5020370483398438e-05))
 
 === RUN  TestScanln
---- PASS: TestScanln (%!s(float64=1.3828277587890625e-05))
+--- PASS: TestScanln (%!s(float64=2.5033950805664062e-05))
 
 === RUN  TestScanf
-Sscanf("TRUE\n", "%v"): parsed value bool(false), want bool(true)
 ```
 </p>
 </details>
@@ -1054,7 +1059,6 @@ Sscanf("TRUE\n", "%v"): parsed value bool(false), want bool(true)
 
 ```
 IO.Overflow("write_ui16")
-stdgo/internal/Macro.macro.hx:35: define
 ```
 </p>
 </details>
@@ -1228,7 +1232,7 @@ the byte slice, and returns the updated slice.
 
 
 
-[\(view code\)](<./Fmt.hx#L1250>)
+[\(view code\)](<./Fmt.hx#L1253>)
 
 
 ## function appendf
@@ -1244,7 +1248,7 @@ slice, and returns the updated slice.
 
 
 
-[\(view code\)](<./Fmt.hx#L1198>)
+[\(view code\)](<./Fmt.hx#L1201>)
 
 
 ## function appendln
@@ -1261,7 +1265,7 @@ between operands and a newline is appended.
 
 
 
-[\(view code\)](<./Fmt.hx#L1303>)
+[\(view code\)](<./Fmt.hx#L1306>)
 
 
 ## function errorf
@@ -1327,7 +1331,7 @@ directive triggering the call to Format.
 
 
 
-[\(view code\)](<./Fmt.hx#L1122>)
+[\(view code\)](<./Fmt.hx#L1125>)
 
 
 ## function fprint
@@ -1370,7 +1374,7 @@ function exampleFprint():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L1211>)
+[\(view code\)](<./Fmt.hx#L1214>)
 
 
 ## function fprintf
@@ -1412,7 +1416,7 @@ function exampleFprintf():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L1161>)
+[\(view code\)](<./Fmt.hx#L1164>)
 
 
 ## function fprintln
@@ -1455,7 +1459,7 @@ function exampleFprintln():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L1263>)
+[\(view code\)](<./Fmt.hx#L1266>)
 
 
 ## function fscan
@@ -1476,7 +1480,7 @@ than the number of arguments, err will report why.
 
 
 
-[\(view code\)](<./Fmt.hx#L1491>)
+[\(view code\)](<./Fmt.hx#L1497>)
 
 
 ## function fscanf
@@ -1522,7 +1526,7 @@ function exampleFscanf():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L1525>)
+[\(view code\)](<./Fmt.hx#L1531>)
 
 
 ## function fscanln
@@ -1573,7 +1577,7 @@ function exampleFscanln():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L1507>)
+[\(view code\)](<./Fmt.hx#L1513>)
 
 
 ## function isSpace
@@ -1644,7 +1648,7 @@ function examplePrint():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L1229>)
+[\(view code\)](<./Fmt.hx#L1232>)
 
 
 ## function printf
@@ -1682,7 +1686,7 @@ function examplePrintf():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L1178>)
+[\(view code\)](<./Fmt.hx#L1181>)
 
 
 ## function println
@@ -1721,7 +1725,7 @@ function examplePrintln():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L1281>)
+[\(view code\)](<./Fmt.hx#L1284>)
 
 
 ## function scan
@@ -1742,7 +1746,7 @@ If that is less than the number of arguments, err will report why.
 
 
 
-[\(view code\)](<./Fmt.hx#L1426>)
+[\(view code\)](<./Fmt.hx#L1432>)
 
 
 ## function scanf
@@ -1766,7 +1770,7 @@ input, even if it is a space \(or tab etc.\) or newline.
 
 
 
-[\(view code\)](<./Fmt.hx#L1449>)
+[\(view code\)](<./Fmt.hx#L1455>)
 
 
 ## function scanln
@@ -1785,7 +1789,7 @@ after the final item there must be a newline or EOF.
 
 
 
-[\(view code\)](<./Fmt.hx#L1435>)
+[\(view code\)](<./Fmt.hx#L1441>)
 
 
 ## function sprint
@@ -1821,7 +1825,7 @@ function exampleSprint():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L1238>)
+[\(view code\)](<./Fmt.hx#L1241>)
 
 
 ## function sprintf
@@ -1856,7 +1860,7 @@ function exampleSprintf():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L1186>)
+[\(view code\)](<./Fmt.hx#L1189>)
 
 
 ## function sprintln
@@ -1892,7 +1896,7 @@ function exampleSprintln():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L1290>)
+[\(view code\)](<./Fmt.hx#L1293>)
 
 
 ## function sscan
@@ -1913,7 +1917,7 @@ than the number of arguments, err will report why.
 
 
 
-[\(view code\)](<./Fmt.hx#L1460>)
+[\(view code\)](<./Fmt.hx#L1466>)
 
 
 ## function sscanf
@@ -1958,7 +1962,7 @@ function exampleSscanf():Void {
 </details>
 
 
-[\(view code\)](<./Fmt.hx#L1480>)
+[\(view code\)](<./Fmt.hx#L1486>)
 
 
 ## function sscanln
@@ -1977,7 +1981,7 @@ after the final item there must be a newline or EOF.
 
 
 
-[\(view code\)](<./Fmt.hx#L1469>)
+[\(view code\)](<./Fmt.hx#L1475>)
 
 
 # Typedefs

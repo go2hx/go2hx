@@ -169,7 +169,7 @@ to gather CPU information for display should be placed in internal/sysinfo.
 
 
 
-[\(view code\)](<./Cpu.hx#L400>)
+[\(view code\)](<./Cpu.hx#L403>)
 
 
 # Classes

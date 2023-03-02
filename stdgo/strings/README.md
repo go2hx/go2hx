@@ -19,209 +19,209 @@ For information about UTF\-8 strings in Go, see https://blog.golang.org/strings.
 
 ```
 === RUN  TestBuilder
---- PASS: TestBuilder (%!s(float64=0.0005350112915039062))
+--- PASS: TestBuilder (%!s(float64=9.703636169433594e-05))
 
 === RUN  TestBuilderString
---- PASS: TestBuilderString (%!s(float64=6.794929504394531e-05))
+--- PASS: TestBuilderString (%!s(float64=5.602836608886719e-05))
 
 === RUN  TestBuilderReset
---- PASS: TestBuilderReset (%!s(float64=3.409385681152344e-05))
+--- PASS: TestBuilderReset (%!s(float64=3.695487976074219e-05))
 
 === RUN  TestBuilderGrow
-strings_test/Strings_test.hx:1557: testBuilderGrow skip function
---- PASS: TestBuilderGrow (%!s(float64=0.00012993812561035156))
+strings_test/Strings_test.hx:1560: testBuilderGrow skip function
+--- PASS: TestBuilderGrow (%!s(float64=2.5987625122070312e-05))
 
 === RUN  TestBuilderWrite2
 --- PASS: TestBuilderWrite2 (%!s(float64=1.2874603271484375e-05))
 
 === RUN  TestBuilderWriteByte
---- PASS: TestBuilderWriteByte (%!s(float64=1.3113021850585938e-05))
+--- PASS: TestBuilderWriteByte (%!s(float64=1.5020370483398438e-05))
 
 === RUN  TestBuilderAllocs
-strings_test/Strings_test.hx:1680: testBuilderAllocs skip function
---- PASS: TestBuilderAllocs (%!s(float64=1.5974044799804688e-05))
+strings_test/Strings_test.hx:1683: testBuilderAllocs skip function
+--- PASS: TestBuilderAllocs (%!s(float64=1.3113021850585938e-05))
 
 === RUN  TestBuilderCopyPanic
-strings_test/Strings_test.hx:1693: testBuilderCopyPanic skip function
---- PASS: TestBuilderCopyPanic (%!s(float64=1.1920928955078125e-05))
+strings_test/Strings_test.hx:1696: testBuilderCopyPanic skip function
+--- PASS: TestBuilderCopyPanic (%!s(float64=1.71661376953125e-05))
 
 === RUN  TestBuilderWriteInvalidRune
---- PASS: TestBuilderWriteInvalidRune (%!s(float64=3.1948089599609375e-05))
+--- PASS: TestBuilderWriteInvalidRune (%!s(float64=3.2901763916015625e-05))
 
 === RUN  TestClone
-strings_test/Strings_test.hx:1866: testClone skip function
---- PASS: TestClone (%!s(float64=1.3828277587890625e-05))
+strings_test/Strings_test.hx:1869: testClone skip function
+--- PASS: TestClone (%!s(float64=1.4066696166992188e-05))
 
 === RUN  TestCompare
---- PASS: TestCompare (%!s(float64=3.1948089599609375e-05))
+--- PASS: TestCompare (%!s(float64=2.384185791015625e-05))
 
 === RUN  TestCompareIdenticalString
---- PASS: TestCompareIdenticalString (%!s(float64=8.821487426757812e-06))
+--- PASS: TestCompareIdenticalString (%!s(float64=1.0013580322265625e-05))
 
 === RUN  TestCompareStrings
-strings_test/Strings_test.hx:1910: testCompareStrings skip function
---- PASS: TestCompareStrings (%!s(float64=2.002716064453125e-05))
+strings_test/Strings_test.hx:1913: testCompareStrings skip function
+--- PASS: TestCompareStrings (%!s(float64=1.4066696166992188e-05))
 
 === RUN  TestReader
---- PASS: TestReader (%!s(float64=0.00011301040649414062))
+--- PASS: TestReader (%!s(float64=0.00012302398681640625))
 
 === RUN  TestReadAfterBigSeek
---- PASS: TestReadAfterBigSeek (%!s(float64=2.002716064453125e-05))
+--- PASS: TestReadAfterBigSeek (%!s(float64=2.6941299438476562e-05))
 
 === RUN  TestReaderAt
---- PASS: TestReaderAt (%!s(float64=0.002432107925415039))
+--- PASS: TestReaderAt (%!s(float64=0.004129886627197266))
 
 === RUN  TestReaderAtConcurrent
---- PASS: TestReaderAtConcurrent (%!s(float64=0.0003418922424316406))
+--- PASS: TestReaderAtConcurrent (%!s(float64=0.0005068778991699219))
 
 === RUN  TestEmptyReaderConcurrent
---- PASS: TestEmptyReaderConcurrent (%!s(float64=0.00044798851013183594))
+--- PASS: TestEmptyReaderConcurrent (%!s(float64=0.0006539821624755859))
 
 === RUN  TestWriteTo
---- PASS: TestWriteTo (%!s(float64=0.0002760887145996094))
+--- PASS: TestWriteTo (%!s(float64=0.0004642009735107422))
 
 === RUN  TestReaderLenSize
-strings_test/Strings_test.hx:2426: testReaderLenSize skip function
---- PASS: TestReaderLenSize (%!s(float64=1.6927719116210938e-05))
+strings_test/Strings_test.hx:2429: testReaderLenSize skip function
+--- PASS: TestReaderLenSize (%!s(float64=1.7881393432617188e-05))
 
 === RUN  TestReaderReset
---- PASS: TestReaderReset (%!s(float64=8.702278137207031e-05))
+--- PASS: TestReaderReset (%!s(float64=9.799003601074219e-05))
 
 === RUN  TestReaderZero
---- PASS: TestReaderZero (%!s(float64=4.887580871582031e-05))
+--- PASS: TestReaderZero (%!s(float64=6.914138793945312e-05))
 
 === RUN  TestReplacer
-strings_test/Strings_test.hx:2554: testReplacer skip function
---- PASS: TestReplacer (%!s(float64=1.9073486328125e-05))
+strings_test/Strings_test.hx:2557: testReplacer skip function
+--- PASS: TestReplacer (%!s(float64=2.09808349609375e-05))
 
 === RUN  TestPickAlgorithm
-strings_test/Strings_test.hx:2685: testPickAlgorithm skip function
---- PASS: TestPickAlgorithm (%!s(float64=1.7881393432617188e-05))
+strings_test/Strings_test.hx:2688: testPickAlgorithm skip function
+--- PASS: TestPickAlgorithm (%!s(float64=1.3113021850585938e-05))
 
 === RUN  TestWriteStringError
---- PASS: TestWriteStringError (%!s(float64=0.0037429332733154297))
+--- PASS: TestWriteStringError (%!s(float64=0.0021910667419433594))
 
 === RUN  TestGenericTrieBuilding
-strings_test/Strings_test.hx:2712: testGenericTrieBuilding skip function
---- PASS: TestGenericTrieBuilding (%!s(float64=2.384185791015625e-05))
+strings_test/Strings_test.hx:2715: testGenericTrieBuilding skip function
+--- PASS: TestGenericTrieBuilding (%!s(float64=2.47955322265625e-05))
 
 === RUN  TestFinderNext
---- PASS: TestFinderNext (%!s(float64=0.0010399818420410156))
+--- PASS: TestFinderNext (%!s(float64=0.0009429454803466797))
 
 === RUN  TestFinderCreation
---- PASS: TestFinderCreation (%!s(float64=0.0011241436004638672))
+--- PASS: TestFinderCreation (%!s(float64=0.0011708736419677734))
 
 === RUN  TestIndex
---- PASS: TestIndex (%!s(float64=0.0018639564514160156))
+--- PASS: TestIndex (%!s(float64=0.0004570484161376953))
 
 === RUN  TestLastIndex
---- PASS: TestLastIndex (%!s(float64=3.814697265625e-05))
+--- PASS: TestLastIndex (%!s(float64=3.600120544433594e-05))
 
 === RUN  TestIndexAny
---- PASS: TestIndexAny (%!s(float64=0.00024509429931640625))
+--- PASS: TestIndexAny (%!s(float64=0.00023603439331054688))
 
 === RUN  TestLastIndexAny
---- PASS: TestLastIndexAny (%!s(float64=0.00016498565673828125))
+--- PASS: TestLastIndexAny (%!s(float64=0.00015091896057128906))
 
 === RUN  TestIndexByte
---- PASS: TestIndexByte (%!s(float64=9.059906005859375e-06))
+--- PASS: TestIndexByte (%!s(float64=2.288818359375e-05))
 
 === RUN  TestLastIndexByte
---- PASS: TestLastIndexByte (%!s(float64=1.4066696166992188e-05))
+--- PASS: TestLastIndexByte (%!s(float64=2.09808349609375e-05))
 
 === RUN  TestIndexRandom
---- PASS: TestIndexRandom (%!s(float64=0.29082298278808594))
+--- PASS: TestIndexRandom (%!s(float64=0.29894304275512695))
 
 === RUN  TestIndexRune
---- PASS: TestIndexRune (%!s(float64=0.0001461505889892578))
+--- PASS: TestIndexRune (%!s(float64=0.00016999244689941406))
 
 === RUN  TestSplit
---- PASS: TestSplit (%!s(float64=0.0028870105743408203))
+--- PASS: TestSplit (%!s(float64=0.0034568309783935547))
 
 === RUN  TestSplitAfter
---- PASS: TestSplitAfter (%!s(float64=0.0010089874267578125))
+--- PASS: TestSplitAfter (%!s(float64=0.0010530948638916016))
 
 === RUN  TestFields
---- PASS: TestFields (%!s(float64=0.0004608631134033203))
+--- PASS: TestFields (%!s(float64=0.0003540515899658203))
 
 === RUN  TestFieldsFunc
---- PASS: TestFieldsFunc (%!s(float64=0.000720977783203125))
+--- PASS: TestFieldsFunc (%!s(float64=0.0007491111755371094))
 
 === RUN  TestMap
-strings_test/Strings_test.hx:3359: testMap skip function
---- PASS: TestMap (%!s(float64=1.71661376953125e-05))
+strings_test/Strings_test.hx:3365: testMap skip function
+--- PASS: TestMap (%!s(float64=2.3126602172851562e-05))
 
 === RUN  TestToUpper
---- PASS: TestToUpper (%!s(float64=0.0021178722381591797))
+--- PASS: TestToUpper (%!s(float64=0.0007660388946533203))
 
 === RUN  TestToLower
---- PASS: TestToLower (%!s(float64=0.00044608116149902344))
+--- PASS: TestToLower (%!s(float64=0.0004730224609375))
 
 === RUN  TestToValidUTF8
---- PASS: TestToValidUTF8 (%!s(float64=0.0005230903625488281))
+--- PASS: TestToValidUTF8 (%!s(float64=0.0004799365997314453))
 
 === RUN  TestSpecialCase
---- PASS: TestSpecialCase (%!s(float64=0.0012500286102294922))
+--- PASS: TestSpecialCase (%!s(float64=0.001619100570678711))
 
 === RUN  TestTrimSpace
---- PASS: TestTrimSpace (%!s(float64=0.00024700164794921875))
+--- PASS: TestTrimSpace (%!s(float64=0.00030803680419921875))
 
 === RUN  TestTrim
---- PASS: TestTrim (%!s(float64=0.00020885467529296875))
+--- PASS: TestTrim (%!s(float64=0.00019502639770507812))
 
 === RUN  TestTrimFunc
---- PASS: TestTrimFunc (%!s(float64=0.002135038375854492))
+--- PASS: TestTrimFunc (%!s(float64=0.0007929801940917969))
 
 === RUN  TestIndexFunc
---- PASS: TestIndexFunc (%!s(float64=0.0002980232238769531))
+--- PASS: TestIndexFunc (%!s(float64=0.0002658367156982422))
 
 === RUN  TestCaseConsistency
---- PASS: TestCaseConsistency (%!s(float64=0.14810895919799805))
+--- PASS: TestCaseConsistency (%!s(float64=0.1399829387664795))
 
 === RUN  TestRepeat
---- PASS: TestRepeat (%!s(float64=0.08711791038513184))
+--- PASS: TestRepeat (%!s(float64=0.09177517890930176))
 
 === RUN  TestRepeatCatchesOverflow
---- PASS: TestRepeatCatchesOverflow (%!s(float64=0.0010180473327636719))
+--- PASS: TestRepeatCatchesOverflow (%!s(float64=0.0016369819641113281))
 
 === RUN  TestRunes
---- PASS: TestRunes (%!s(float64=0.00013113021850585938))
+--- PASS: TestRunes (%!s(float64=0.00013494491577148438))
 
 === RUN  TestReadByte
---- PASS: TestReadByte (%!s(float64=0.00015091896057128906))
+--- PASS: TestReadByte (%!s(float64=0.00014090538024902344))
 
 === RUN  TestReadRune
---- PASS: TestReadRune (%!s(float64=0.00016498565673828125))
+--- PASS: TestReadRune (%!s(float64=0.00014495849609375))
 
 === RUN  TestUnreadRuneError
---- PASS: TestUnreadRuneError (%!s(float64=8.20159912109375e-05))
+--- PASS: TestUnreadRuneError (%!s(float64=0.0001049041748046875))
 
 === RUN  TestReplace
---- PASS: TestReplace (%!s(float64=0.0006649494171142578))
+--- PASS: TestReplace (%!s(float64=0.0006220340728759766))
 
 === RUN  TestTitle
---- PASS: TestTitle (%!s(float64=0.0005781650543212891))
+--- PASS: TestTitle (%!s(float64=0.0008509159088134766))
 
 === RUN  TestContains
---- PASS: TestContains (%!s(float64=7.581710815429688e-05))
+--- PASS: TestContains (%!s(float64=9.202957153320312e-05))
 
 === RUN  TestContainsAny
---- PASS: TestContainsAny (%!s(float64=0.0001201629638671875))
+--- PASS: TestContainsAny (%!s(float64=0.00011920928955078125))
 
 === RUN  TestContainsRune
---- PASS: TestContainsRune (%!s(float64=1.4066696166992188e-05))
+--- PASS: TestContainsRune (%!s(float64=1.2159347534179688e-05))
 
 === RUN  TestEqualFold
---- PASS: TestEqualFold (%!s(float64=0.00023603439331054688))
+--- PASS: TestEqualFold (%!s(float64=0.00024008750915527344))
 
 === RUN  TestCount
---- PASS: TestCount (%!s(float64=2.6226043701171875e-05))
+--- PASS: TestCount (%!s(float64=3.0040740966796875e-05))
 
 === RUN  TestCut
---- PASS: TestCut (%!s(float64=2.288818359375e-05))
+--- PASS: TestCut (%!s(float64=4.7206878662109375e-05))
 
 === RUN  TestCutPrefix
---- PASS: TestCutPrefix (%!s(float64=1.5974044799804688e-05))
+--- PASS: TestCutPrefix (%!s(float64=2.09808349609375e-05))
 
 === RUN  TestCutSuffix
 --- PASS: TestCutSuffix (%!s(float64=1.5974044799804688e-05))
@@ -235,212 +235,212 @@ strings_test/Strings_test.hx:3359: testMap skip function
 
 ```
 === RUN  TestBuilder
---- PASS: TestBuilder (%!s(float64=0.00013518333435058594))
+--- PASS: TestBuilder (%!s(float64=0.00014400482177734375))
 
 === RUN  TestBuilderString
---- PASS: TestBuilderString (%!s(float64=0.0001518726348876953))
+--- PASS: TestBuilderString (%!s(float64=0.00013899803161621094))
 
 === RUN  TestBuilderReset
---- PASS: TestBuilderReset (%!s(float64=0.00014090538024902344))
+--- PASS: TestBuilderReset (%!s(float64=8.320808410644531e-05))
 
 === RUN  TestBuilderGrow
-strings_test/Strings_test.hx:1557: testBuilderGrow skip function
---- PASS: TestBuilderGrow (%!s(float64=1.6927719116210938e-05))
+strings_test/Strings_test.hx:1560: testBuilderGrow skip function
+--- PASS: TestBuilderGrow (%!s(float64=1.5974044799804688e-05))
 
 === RUN  TestBuilderWrite2
---- PASS: TestBuilderWrite2 (%!s(float64=3.695487976074219e-05))
+--- PASS: TestBuilderWrite2 (%!s(float64=3.600120544433594e-05))
 
 === RUN  TestBuilderWriteByte
---- PASS: TestBuilderWriteByte (%!s(float64=3.2901763916015625e-05))
+--- PASS: TestBuilderWriteByte (%!s(float64=4.00543212890625e-05))
 
 === RUN  TestBuilderAllocs
-strings_test/Strings_test.hx:1680: testBuilderAllocs skip function
---- PASS: TestBuilderAllocs (%!s(float64=1.5020370483398438e-05))
+strings_test/Strings_test.hx:1683: testBuilderAllocs skip function
+--- PASS: TestBuilderAllocs (%!s(float64=1.71661376953125e-05))
 
 === RUN  TestBuilderCopyPanic
-strings_test/Strings_test.hx:1693: testBuilderCopyPanic skip function
---- PASS: TestBuilderCopyPanic (%!s(float64=1.2159347534179688e-05))
+strings_test/Strings_test.hx:1696: testBuilderCopyPanic skip function
+--- PASS: TestBuilderCopyPanic (%!s(float64=1.2874603271484375e-05))
 
 === RUN  TestBuilderWriteInvalidRune
---- PASS: TestBuilderWriteInvalidRune (%!s(float64=0.00013303756713867188))
+--- PASS: TestBuilderWriteInvalidRune (%!s(float64=0.0001380443572998047))
 
 === RUN  TestClone
-strings_test/Strings_test.hx:1866: testClone skip function
---- PASS: TestClone (%!s(float64=1.3113021850585938e-05))
+strings_test/Strings_test.hx:1869: testClone skip function
+--- PASS: TestClone (%!s(float64=1.1920928955078125e-05))
 
 === RUN  TestCompare
---- PASS: TestCompare (%!s(float64=5.2928924560546875e-05))
+--- PASS: TestCompare (%!s(float64=5.316734313964844e-05))
 
 === RUN  TestCompareIdenticalString
---- PASS: TestCompareIdenticalString (%!s(float64=1.8835067749023438e-05))
+--- PASS: TestCompareIdenticalString (%!s(float64=1.811981201171875e-05))
 
 === RUN  TestCompareStrings
-strings_test/Strings_test.hx:1910: testCompareStrings skip function
---- PASS: TestCompareStrings (%!s(float64=1.5020370483398438e-05))
+strings_test/Strings_test.hx:1913: testCompareStrings skip function
+--- PASS: TestCompareStrings (%!s(float64=1.3113021850585938e-05))
 
 === RUN  TestReader
---- PASS: TestReader (%!s(float64=0.0005559921264648438))
+--- PASS: TestReader (%!s(float64=0.0005440711975097656))
 
 === RUN  TestReadAfterBigSeek
---- PASS: TestReadAfterBigSeek (%!s(float64=9.298324584960938e-05))
+--- PASS: TestReadAfterBigSeek (%!s(float64=8.20159912109375e-05))
 
 === RUN  TestReaderAt
---- PASS: TestReaderAt (%!s(float64=0.005268096923828125))
+--- PASS: TestReaderAt (%!s(float64=0.004873037338256836))
 
 === RUN  TestReaderAtConcurrent
---- PASS: TestReaderAtConcurrent (%!s(float64=0.0008249282836914062))
+--- PASS: TestReaderAtConcurrent (%!s(float64=0.0007181167602539062))
 
 === RUN  TestEmptyReaderConcurrent
---- PASS: TestEmptyReaderConcurrent (%!s(float64=0.0021409988403320312))
+--- PASS: TestEmptyReaderConcurrent (%!s(float64=0.0014810562133789062))
 
 === RUN  TestWriteTo
---- PASS: TestWriteTo (%!s(float64=0.0018351078033447266))
+--- PASS: TestWriteTo (%!s(float64=0.0009419918060302734))
 
 === RUN  TestReaderLenSize
-strings_test/Strings_test.hx:2426: testReaderLenSize skip function
---- PASS: TestReaderLenSize (%!s(float64=1.5974044799804688e-05))
+strings_test/Strings_test.hx:2429: testReaderLenSize skip function
+--- PASS: TestReaderLenSize (%!s(float64=0.0004279613494873047))
 
 === RUN  TestReaderReset
---- PASS: TestReaderReset (%!s(float64=0.00015807151794433594))
+--- PASS: TestReaderReset (%!s(float64=0.0001919269561767578))
 
 === RUN  TestReaderZero
---- PASS: TestReaderZero (%!s(float64=0.00020194053649902344))
+--- PASS: TestReaderZero (%!s(float64=0.00021195411682128906))
 
 === RUN  TestReplacer
-strings_test/Strings_test.hx:2554: testReplacer skip function
---- PASS: TestReplacer (%!s(float64=1.3828277587890625e-05))
+strings_test/Strings_test.hx:2557: testReplacer skip function
+--- PASS: TestReplacer (%!s(float64=1.3113021850585938e-05))
 
 === RUN  TestPickAlgorithm
-strings_test/Strings_test.hx:2685: testPickAlgorithm skip function
---- PASS: TestPickAlgorithm (%!s(float64=1.5020370483398438e-05))
+strings_test/Strings_test.hx:2688: testPickAlgorithm skip function
+--- PASS: TestPickAlgorithm (%!s(float64=2.5033950805664062e-05))
 
 === RUN  TestWriteStringError
---- PASS: TestWriteStringError (%!s(float64=0.0036661624908447266))
+--- PASS: TestWriteStringError (%!s(float64=0.0036520957946777344))
 
 === RUN  TestGenericTrieBuilding
-strings_test/Strings_test.hx:2712: testGenericTrieBuilding skip function
---- PASS: TestGenericTrieBuilding (%!s(float64=1.4066696166992188e-05))
+strings_test/Strings_test.hx:2715: testGenericTrieBuilding skip function
+--- PASS: TestGenericTrieBuilding (%!s(float64=3.910064697265625e-05))
 
 === RUN  TestFinderNext
---- PASS: TestFinderNext (%!s(float64=0.003930091857910156))
+--- PASS: TestFinderNext (%!s(float64=0.004498958587646484))
 
 === RUN  TestFinderCreation
---- PASS: TestFinderCreation (%!s(float64=0.003757953643798828))
+--- PASS: TestFinderCreation (%!s(float64=0.003618955612182617))
 
 === RUN  TestIndex
---- PASS: TestIndex (%!s(float64=0.0023698806762695312))
+--- PASS: TestIndex (%!s(float64=0.0024518966674804688))
 
 === RUN  TestLastIndex
---- PASS: TestLastIndex (%!s(float64=0.0001900196075439453))
+--- PASS: TestLastIndex (%!s(float64=0.00020599365234375))
 
 === RUN  TestIndexAny
---- PASS: TestIndexAny (%!s(float64=0.0015571117401123047))
+--- PASS: TestIndexAny (%!s(float64=0.0015370845794677734))
 
 === RUN  TestLastIndexAny
---- PASS: TestLastIndexAny (%!s(float64=0.001013040542602539))
+--- PASS: TestLastIndexAny (%!s(float64=0.0009131431579589844))
 
 === RUN  TestIndexByte
---- PASS: TestIndexByte (%!s(float64=9.989738464355469e-05))
+--- PASS: TestIndexByte (%!s(float64=0.00011301040649414062))
 
 === RUN  TestLastIndexByte
 --- PASS: TestLastIndexByte (%!s(float64=5.0067901611328125e-05))
 
 === RUN  TestIndexRandom
---- PASS: TestIndexRandom (%!s(float64=0.7133338451385498))
+--- PASS: TestIndexRandom (%!s(float64=0.6983091831207275))
 
 === RUN  TestIndexRune
---- PASS: TestIndexRune (%!s(float64=0.0006401538848876953))
+--- PASS: TestIndexRune (%!s(float64=0.0005328655242919922))
 
 === RUN  TestSplit
---- PASS: TestSplit (%!s(float64=0.004335880279541016))
+--- PASS: TestSplit (%!s(float64=0.0032639503479003906))
 
 === RUN  TestSplitAfter
---- PASS: TestSplitAfter (%!s(float64=0.003144979476928711))
+--- PASS: TestSplitAfter (%!s(float64=0.003100872039794922))
 
 === RUN  TestFields
---- PASS: TestFields (%!s(float64=0.002479076385498047))
+--- PASS: TestFields (%!s(float64=0.0019791126251220703))
 
 === RUN  TestFieldsFunc
---- PASS: TestFieldsFunc (%!s(float64=0.0035479068756103516))
+--- PASS: TestFieldsFunc (%!s(float64=0.0035390853881835938))
 
 === RUN  TestMap
-strings_test/Strings_test.hx:3359: testMap skip function
---- PASS: TestMap (%!s(float64=1.811981201171875e-05))
+strings_test/Strings_test.hx:3365: testMap skip function
+--- PASS: TestMap (%!s(float64=1.71661376953125e-05))
 
 === RUN  TestToUpper
---- PASS: TestToUpper (%!s(float64=0.0027201175689697266))
+--- PASS: TestToUpper (%!s(float64=0.002504110336303711))
 
 === RUN  TestToLower
---- PASS: TestToLower (%!s(float64=0.0024399757385253906))
+--- PASS: TestToLower (%!s(float64=0.0023598670959472656))
 
 === RUN  TestToValidUTF8
---- PASS: TestToValidUTF8 (%!s(float64=0.0022878646850585938))
+--- PASS: TestToValidUTF8 (%!s(float64=0.0022552013397216797))
 
 === RUN  TestSpecialCase
---- PASS: TestSpecialCase (%!s(float64=0.005641937255859375))
+--- PASS: TestSpecialCase (%!s(float64=0.005480051040649414))
 
 === RUN  TestTrimSpace
---- PASS: TestTrimSpace (%!s(float64=0.0013670921325683594))
+--- PASS: TestTrimSpace (%!s(float64=0.0012469291687011719))
 
 === RUN  TestTrim
---- PASS: TestTrim (%!s(float64=0.001132965087890625))
+--- PASS: TestTrim (%!s(float64=0.001600027084350586))
 
 === RUN  TestTrimFunc
---- PASS: TestTrimFunc (%!s(float64=0.005053997039794922))
+--- PASS: TestTrimFunc (%!s(float64=0.004599094390869141))
 
 === RUN  TestIndexFunc
---- PASS: TestIndexFunc (%!s(float64=0.0015909671783447266))
+--- PASS: TestIndexFunc (%!s(float64=0.0013477802276611328))
 
 === RUN  TestCaseConsistency
---- PASS: TestCaseConsistency (%!s(float64=0.345897912979126))
+--- PASS: TestCaseConsistency (%!s(float64=0.350632905960083))
 
 === RUN  TestRepeat
---- PASS: TestRepeat (%!s(float64=0.6196589469909668))
+--- PASS: TestRepeat (%!s(float64=0.6965820789337158))
 
 === RUN  TestRepeatCatchesOverflow
---- PASS: TestRepeatCatchesOverflow (%!s(float64=0.0023479461669921875))
+--- PASS: TestRepeatCatchesOverflow (%!s(float64=0.0024089813232421875))
 
 === RUN  TestRunes
---- PASS: TestRunes (%!s(float64=0.00080108642578125))
+--- PASS: TestRunes (%!s(float64=0.0007028579711914062))
 
 === RUN  TestReadByte
---- PASS: TestReadByte (%!s(float64=0.00055694580078125))
+--- PASS: TestReadByte (%!s(float64=0.0005748271942138672))
 
 === RUN  TestReadRune
---- PASS: TestReadRune (%!s(float64=0.0006430149078369141))
+--- PASS: TestReadRune (%!s(float64=0.0005908012390136719))
 
 === RUN  TestUnreadRuneError
---- PASS: TestUnreadRuneError (%!s(float64=0.00026416778564453125))
+--- PASS: TestUnreadRuneError (%!s(float64=0.0002219676971435547))
 
 === RUN  TestReplace
---- PASS: TestReplace (%!s(float64=0.002727031707763672))
+--- PASS: TestReplace (%!s(float64=0.0024569034576416016))
 
 === RUN  TestTitle
---- PASS: TestTitle (%!s(float64=0.003032207489013672))
+--- PASS: TestTitle (%!s(float64=0.0026340484619140625))
 
 === RUN  TestContains
---- PASS: TestContains (%!s(float64=0.0004029273986816406))
+--- PASS: TestContains (%!s(float64=0.0004248619079589844))
 
 === RUN  TestContainsAny
---- PASS: TestContainsAny (%!s(float64=0.0006830692291259766))
+--- PASS: TestContainsAny (%!s(float64=0.0007140636444091797))
 
 === RUN  TestContainsRune
---- PASS: TestContainsRune (%!s(float64=7.081031799316406e-05))
+--- PASS: TestContainsRune (%!s(float64=8.106231689453125e-05))
 
 === RUN  TestEqualFold
---- PASS: TestEqualFold (%!s(float64=0.0014410018920898438))
+--- PASS: TestEqualFold (%!s(float64=0.0012660026550292969))
 
 === RUN  TestCount
---- PASS: TestCount (%!s(float64=9.989738464355469e-05))
+--- PASS: TestCount (%!s(float64=0.00011110305786132812))
 
 === RUN  TestCut
---- PASS: TestCut (%!s(float64=7.104873657226562e-05))
+--- PASS: TestCut (%!s(float64=7.510185241699219e-05))
 
 === RUN  TestCutPrefix
---- PASS: TestCutPrefix (%!s(float64=4.506111145019531e-05))
+--- PASS: TestCutPrefix (%!s(float64=4.00543212890625e-05))
 
 === RUN  TestCutSuffix
---- PASS: TestCutSuffix (%!s(float64=4.696846008300781e-05))
+--- PASS: TestCutSuffix (%!s(float64=4.506111145019531e-05))
 
 ```
 </p>
@@ -451,7 +451,6 @@ strings_test/Strings_test.hx:3359: testMap skip function
 
 ```
 IO.Overflow("write_ui16")
-stdgo/internal/Macro.macro.hx:35: define
 ```
 </p>
 </details>
@@ -1007,7 +1006,7 @@ function exampleCut():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1786>)
+[\(view code\)](<./Strings.hx#L1792>)
 
 
 ## function cutPrefix
@@ -1028,7 +1027,7 @@ If prefix is the empty string, CutPrefix returns s, true.
 
 
 
-[\(view code\)](<./Strings.hx#L1802>)
+[\(view code\)](<./Strings.hx#L1808>)
 
 
 ## function cutSuffix
@@ -1049,7 +1048,7 @@ If suffix is the empty string, CutSuffix returns s, true.
 
 
 
-[\(view code\)](<./Strings.hx#L1815>)
+[\(view code\)](<./Strings.hx#L1821>)
 
 
 ## function dumpTables
@@ -1103,7 +1102,7 @@ function exampleEqualFold():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1626>)
+[\(view code\)](<./Strings.hx#L1632>)
 
 
 ## function fields
@@ -1216,7 +1215,7 @@ function exampleHasPrefix():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L998>)
+[\(view code\)](<./Strings.hx#L1001>)
 
 
 ## function hasSuffix
@@ -1252,7 +1251,7 @@ function exampleHasSuffix():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1004>)
+[\(view code\)](<./Strings.hx#L1007>)
 
 
 ## function index
@@ -1286,7 +1285,7 @@ function exampleIndex():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1707>)
+[\(view code\)](<./Strings.hx#L1713>)
 
 
 ## function indexAny
@@ -1394,7 +1393,7 @@ function exampleIndexFunc():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1337>)
+[\(view code\)](<./Strings.hx#L1343>)
 
 
 ## function indexRune
@@ -1609,7 +1608,7 @@ function exampleLastIndexFunc():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1344>)
+[\(view code\)](<./Strings.hx#L1350>)
 
 
 ## function map
@@ -1652,7 +1651,7 @@ function exampleMap():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1012>)
+[\(view code\)](<./Strings.hx#L1015>)
 
 
 ## function newReader
@@ -1747,7 +1746,7 @@ function exampleRepeat():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1061>)
+[\(view code\)](<./Strings.hx#L1064>)
 
 
 ## function replace
@@ -1786,7 +1785,7 @@ function exampleReplace():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1576>)
+[\(view code\)](<./Strings.hx#L1582>)
 
 
 ## function replaceAll
@@ -1823,7 +1822,7 @@ function exampleReplaceAll():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1618>)
+[\(view code\)](<./Strings.hx#L1624>)
 
 
 ## function split
@@ -2103,7 +2102,7 @@ function exampleTitle():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1290>)
+[\(view code\)](<./Strings.hx#L1296>)
 
 
 ## function toLower
@@ -2136,7 +2135,7 @@ function exampleToLower():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1145>)
+[\(view code\)](<./Strings.hx#L1151>)
 
 
 ## function toLowerSpecial
@@ -2170,7 +2169,7 @@ function exampleToLowerSpecial():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1203>)
+[\(view code\)](<./Strings.hx#L1209>)
 
 
 ## function toTitle
@@ -2206,7 +2205,7 @@ function exampleToTitle():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1189>)
+[\(view code\)](<./Strings.hx#L1195>)
 
 
 ## function toTitleSpecial
@@ -2240,7 +2239,7 @@ function exampleToTitleSpecial():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1210>)
+[\(view code\)](<./Strings.hx#L1216>)
 
 
 ## function toUpper
@@ -2273,7 +2272,7 @@ function exampleToUpper():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1102>)
+[\(view code\)](<./Strings.hx#L1108>)
 
 
 ## function toUpperSpecial
@@ -2307,7 +2306,7 @@ function exampleToUpperSpecial():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1196>)
+[\(view code\)](<./Strings.hx#L1202>)
 
 
 ## function toValidUTF8
@@ -2323,7 +2322,7 @@ replaced by the replacement string, which may be empty.
 
 
 
-[\(view code\)](<./Strings.hx#L1217>)
+[\(view code\)](<./Strings.hx#L1223>)
 
 
 ## function trim
@@ -2357,7 +2356,7 @@ function exampleTrim():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1400>)
+[\(view code\)](<./Strings.hx#L1406>)
 
 
 ## function trimFunc
@@ -2393,7 +2392,7 @@ function exampleTrimFunc():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1330>)
+[\(view code\)](<./Strings.hx#L1336>)
 
 
 ## function trimLeft
@@ -2431,7 +2430,7 @@ function exampleTrimLeft():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1421>)
+[\(view code\)](<./Strings.hx#L1427>)
 
 
 ## function trimLeftFunc
@@ -2467,7 +2466,7 @@ function exampleTrimLeftFunc():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1305>)
+[\(view code\)](<./Strings.hx#L1311>)
 
 
 ## function trimPrefix
@@ -2504,7 +2503,7 @@ function exampleTrimPrefix():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1552>)
+[\(view code\)](<./Strings.hx#L1558>)
 
 
 ## function trimRight
@@ -2542,7 +2541,7 @@ function exampleTrimRight():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1474>)
+[\(view code\)](<./Strings.hx#L1480>)
 
 
 ## function trimRightFunc
@@ -2578,7 +2577,7 @@ function exampleTrimRightFunc():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1316>)
+[\(view code\)](<./Strings.hx#L1322>)
 
 
 ## function trimSpace
@@ -2612,7 +2611,7 @@ function exampleTrimSpace():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1525>)
+[\(view code\)](<./Strings.hx#L1531>)
 
 
 ## function trimSuffix
@@ -2649,7 +2648,7 @@ function exampleTrimSuffix():Void {
 </details>
 
 
-[\(view code\)](<./Strings.hx#L1562>)
+[\(view code\)](<./Strings.hx#L1568>)
 
 
 # Classes
@@ -2704,7 +2703,7 @@ function _copyCheck():Void
 
 
 
-[\(view code\)](<./Strings.hx#L1991>)
+[\(view code\)](<./Strings.hx#L1997>)
 
 
 ### Builder function \_grow
@@ -2720,7 +2719,7 @@ bytes of capacity beyond len\(b.buf\).
 
 
 
-[\(view code\)](<./Strings.hx#L1954>)
+[\(view code\)](<./Strings.hx#L1960>)
 
 
 ### Builder function cap
@@ -2737,7 +2736,7 @@ already written.
 
 
 
-[\(view code\)](<./Strings.hx#L1973>)
+[\(view code\)](<./Strings.hx#L1979>)
 
 
 ### Builder function grow
@@ -2754,7 +2753,7 @@ without another allocation. If n is negative, Grow panics.
 
 
 
-[\(view code\)](<./Strings.hx#L1940>)
+[\(view code\)](<./Strings.hx#L1946>)
 
 
 ### Builder function len
@@ -2769,7 +2768,7 @@ Len returns the number of accumulated bytes; b.Len\(\) == len\(b.String\(\)\).
 
 
 
-[\(view code\)](<./Strings.hx#L1980>)
+[\(view code\)](<./Strings.hx#L1986>)
 
 
 ### Builder function reset
@@ -2784,7 +2783,7 @@ Reset resets the Builder to be empty.
 
 
 
-[\(view code\)](<./Strings.hx#L1963>)
+[\(view code\)](<./Strings.hx#L1969>)
 
 
 ### Builder function string
@@ -2799,7 +2798,7 @@ String returns the accumulated string.
 
 
 
-[\(view code\)](<./Strings.hx#L1987>)
+[\(view code\)](<./Strings.hx#L1993>)
 
 
 ### Builder function write
@@ -2818,7 +2817,7 @@ Write always returns len\(p\), nil.
 
 
 
-[\(view code\)](<./Strings.hx#L1929>)
+[\(view code\)](<./Strings.hx#L1935>)
 
 
 ### Builder function writeByte
@@ -2834,7 +2833,7 @@ The returned error is always nil.
 
 
 
-[\(view code\)](<./Strings.hx#L1919>)
+[\(view code\)](<./Strings.hx#L1925>)
 
 
 ### Builder function writeRune
@@ -2853,7 +2852,7 @@ It returns the length of r and a nil error.
 
 
 
-[\(view code\)](<./Strings.hx#L1908>)
+[\(view code\)](<./Strings.hx#L1914>)
 
 
 ### Builder function writeString
@@ -2872,7 +2871,7 @@ It returns the length of s and a nil error.
 
 
 
-[\(view code\)](<./Strings.hx#L1898>)
+[\(view code\)](<./Strings.hx#L1904>)
 
 
 ## class Reader
@@ -2927,7 +2926,7 @@ string.
 
 
 
-[\(view code\)](<./Strings.hx#L2231>)
+[\(view code\)](<./Strings.hx#L2240>)
 
 
 ### Reader function read
@@ -2945,7 +2944,7 @@ Read implements the io.Reader interface.
 
 
 
-[\(view code\)](<./Strings.hx#L2206>)
+[\(view code\)](<./Strings.hx#L2215>)
 
 
 ### Reader function readAt
@@ -2963,7 +2962,7 @@ ReadAt implements the io.ReaderAt interface.
 
 
 
-[\(view code\)](<./Strings.hx#L2188>)
+[\(view code\)](<./Strings.hx#L2197>)
 
 
 ### Reader function readByte
@@ -2981,7 +2980,7 @@ ReadByte implements the io.ByteReader interface.
 
 
 
-[\(view code\)](<./Strings.hx#L2175>)
+[\(view code\)](<./Strings.hx#L2184>)
 
 
 ### Reader function readRune
@@ -3000,7 +2999,7 @@ ReadRune implements the io.RuneReader interface.
 
 
 
-[\(view code\)](<./Strings.hx#L2137>)
+[\(view code\)](<./Strings.hx#L2146>)
 
 
 ### Reader function reset
@@ -3015,7 +3014,7 @@ Reset resets the Reader to be reading from s.
 
 
 
-[\(view code\)](<./Strings.hx#L2066>)
+[\(view code\)](<./Strings.hx#L2072>)
 
 
 ### Reader function seek
@@ -3033,7 +3032,7 @@ Seek implements the io.Seeker interface.
 
 
 
-[\(view code\)](<./Strings.hx#L2100>)
+[\(view code\)](<./Strings.hx#L2106>)
 
 
 ### Reader function size
@@ -3051,7 +3050,7 @@ to any other method.
 
 
 
-[\(view code\)](<./Strings.hx#L2223>)
+[\(view code\)](<./Strings.hx#L2232>)
 
 
 ### Reader function unreadByte
@@ -3066,7 +3065,7 @@ UnreadByte implements the io.ByteScanner interface.
 
 
 
-[\(view code\)](<./Strings.hx#L2163>)
+[\(view code\)](<./Strings.hx#L2172>)
 
 
 ### Reader function unreadRune
@@ -3081,7 +3080,7 @@ UnreadRune implements the io.RuneScanner interface.
 
 
 
-[\(view code\)](<./Strings.hx#L2122>)
+[\(view code\)](<./Strings.hx#L2131>)
 
 
 ### Reader function writeTo
@@ -3099,7 +3098,7 @@ WriteTo implements the io.WriterTo interface.
 
 
 
-[\(view code\)](<./Strings.hx#L2078>)
+[\(view code\)](<./Strings.hx#L2084>)
 
 
 ## class Replacer
@@ -3150,7 +3149,7 @@ function _build():stdgo.strings._Strings.T_replacer
 
 
 
-[\(view code\)](<./Strings.hx#L2284>)
+[\(view code\)](<./Strings.hx#L2293>)
 
 
 ### Replacer function \_buildOnce
@@ -3164,7 +3163,7 @@ function _buildOnce():Void
 
 
 
-[\(view code\)](<./Strings.hx#L2331>)
+[\(view code\)](<./Strings.hx#L2340>)
 
 
 ### Replacer function printTrie
@@ -3178,7 +3177,7 @@ function printTrie():stdgo.GoString
 
 
 
-[\(view code\)](<./Strings.hx#L2336>)
+[\(view code\)](<./Strings.hx#L2345>)
 
 
 ### Replacer function replace
@@ -3193,7 +3192,7 @@ Replace returns a copy of s with all replacements performed.
 
 
 
-[\(view code\)](<./Strings.hx#L2279>)
+[\(view code\)](<./Strings.hx#L2288>)
 
 
 ### Replacer function replacer
@@ -3207,7 +3206,7 @@ function replacer():stdgo.AnyInterface
 
 
 
-[\(view code\)](<./Strings.hx#L2342>)
+[\(view code\)](<./Strings.hx#L2351>)
 
 
 ### Replacer function writeString
@@ -3225,7 +3224,7 @@ WriteString writes s to w with all replacements performed.
 
 
 
-[\(view code\)](<./Strings.hx#L2270>)
+[\(view code\)](<./Strings.hx#L2279>)
 
 
 ## class T\_fieldsFunc\_0\_\_\_localname\_\_\_span

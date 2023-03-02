@@ -1,6 +1,6 @@
 # Module stdgo.math.big has compilation errors, please do not use:
 ```
-stdgo/math/big_test/Big_test.hx:643: characters 32-36 : Type not found : Int_
+stdgo/math/big_test/Big_test.hx:780: characters 49-50 : Unexpected .
 
 ```
 

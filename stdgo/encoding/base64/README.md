@@ -15,7 +15,6 @@ Package base64 implements base64 encoding as specified by RFC 4648.
 
 ```
 Error: Command failed with error 1
-stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestEncode
 Encode("\x14\xfb\x9c\x03\xd9") = "FPucA9k", want "FPucA9k="
 ```
@@ -26,7 +25,6 @@ Encode("\x14\xfb\x9c\x03\xd9") = "FPucA9k", want "FPucA9k="
 <p>
 
 ```
-stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestEncode
 Encode("\x14\xfb\x9c\x03\xd9") = "FPucA9k", want "FPucA9k="
 ```
@@ -38,7 +36,6 @@ Encode("\x14\xfb\x9c\x03\xd9") = "FPucA9k", want "FPucA9k="
 
 ```
 IO.Overflow("write_ui16")
-stdgo/internal/Macro.macro.hx:35: define
 ```
 </p>
 </details>
@@ -716,7 +713,7 @@ of a large data stream. Use NewEncoder\(\) instead.
 
 
 
-[\(view code\)](<./Base64.hx#L1700>)
+[\(view code\)](<./Base64.hx#L1706>)
 
 
 ### Encoding function encodeToString
@@ -731,7 +728,7 @@ EncodeToString returns the base64 encoding of src.
 
 
 
-[\(view code\)](<./Base64.hx#L1686>)
+[\(view code\)](<./Base64.hx#L1692>)
 
 
 ### Encoding function encodedLen
@@ -747,7 +744,7 @@ of an input buffer of length n.
 
 
 
-[\(view code\)](<./Base64.hx#L1676>)
+[\(view code\)](<./Base64.hx#L1682>)
 
 
 ### Encoding function strict
@@ -769,7 +766,7 @@ Note that the input is still malleable, as new line characters
 
 
 
-[\(view code\)](<./Base64.hx#L1747>)
+[\(view code\)](<./Base64.hx#L1756>)
 
 
 ### Encoding function withPadding
@@ -788,7 +785,7 @@ below '\\xff'.
 
 
 
-[\(view code\)](<./Base64.hx#L1759>)
+[\(view code\)](<./Base64.hx#L1768>)
 
 
 # Typedefs

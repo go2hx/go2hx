@@ -49,7 +49,6 @@ stdgo/sync/atomic_test/Atomic_test.hx:3298: characters 13-70 : error: stdgo.GoBy
 stdgo/sync/atomic_test/Atomic_test.hx:3298: characters 13-70 : ... have: stdgo.Ref<stdgo.GoByte>
 stdgo/sync/atomic_test/Atomic_test.hx:3298: characters 13-70 : ... want: stdgo.Ref<stdgo.sync.atomic.Pointer_<...>>
 stdgo/sync/atomic_test/Atomic_test.hx:3298: characters 13-70 : ... For function argument '_x'
-stdgo/internal/Macro.macro.hx:35: define
 
 ```
 

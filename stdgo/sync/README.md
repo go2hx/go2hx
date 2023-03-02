@@ -75,7 +75,6 @@ stdgo/sync_test/Sync_test.hx:1897: characters 91-115 : ... For function argument
 stdgo/sync_test/Sync_test.hx:2129: characters 38-42 : Unknown identifier : _new
 stdgo/sync_test/Sync_test.hx:2478: characters 24-28 : Unknown identifier : _new
 stdgo/sync_test/Sync_test.hx:2990: characters 26-30 : Unknown identifier : _new
-stdgo/internal/Macro.macro.hx:35: define
 
 ```
 

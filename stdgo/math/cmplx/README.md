@@ -17,9 +17,8 @@ Annex G IEC 60559\-compatible complex arithmetic.
 
 ```
 Error: Command failed with error 1
-stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestAbs
---- PASS: TestAbs (%!s(float64=6.4849853515625e-05))
+--- PASS: TestAbs (%!s(float64=6.198883056640625e-05))
 
 === RUN  TestAcos
 Acos((0+0i)) = (1.5707963267948966+0i), want (1.5707963267948966-0i)
@@ -31,9 +30,8 @@ Acos((0+0i)) = (1.5707963267948966+0i), want (1.5707963267948966-0i)
 <p>
 
 ```
-stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestAbs
---- PASS: TestAbs (%!s(float64=0.0001609325408935547))
+--- PASS: TestAbs (%!s(float64=0.00010418891906738281))
 
 === RUN  TestAcos
 Acos((0+0i)) = (1.5707963267948966+0i), want (1.5707963267948966-0i)
@@ -46,7 +44,6 @@ Acos((0+0i)) = (1.5707963267948966+0i), want (1.5707963267948966-0i)
 
 ```
 IO.Overflow("write_ui16")
-stdgo/internal/Macro.macro.hx:35: define
 ```
 </p>
 </details>

@@ -56,6 +56,8 @@
 
   - [`function setKeys(expr:Dynamic):Dynamic`](<#go-function-setkeys>)
 
+  - [`function setRef(expr:Dynamic):Dynamic`](<#go-function-setref>)
+
   - [`function str(expr:Dynamic):Dynamic`](<#go-function-str>)
 
   - [`function string(s:Dynamic):String`](<#go-function-string>)
@@ -253,7 +255,7 @@ function new(value:Any, type:stdgo.internal.reflect._Type):Void
 
 
 
-[\(view code\)](<./StdGoTypes.hx#L1762>)
+[\(view code\)](<./StdGoTypes.hx#L1775>)
 
 
 ### AnyInterfaceData function toString
@@ -267,7 +269,7 @@ function toString():String
 
 
 
-[\(view code\)](<./StdGoTypes.hx#L1768>)
+[\(view code\)](<./StdGoTypes.hx#L1781>)
 
 
 ## class ChanData
@@ -510,6 +512,17 @@ function setKeys(expr:Dynamic):Dynamic
 
 
 
+### Go function setRef
+
+
+```haxe
+function setRef(expr:Dynamic):Dynamic
+```
+
+
+
+
+
 ### Go function str
 
 
@@ -607,7 +620,7 @@ function hasNext():Bool
 
 
 
-[\(view code\)](<./StdGoTypes.hx#L1922>)
+[\(view code\)](<./StdGoTypes.hx#L1946>)
 
 
 ### GoIntIterator function new
@@ -621,7 +634,7 @@ function new(min:stdgo.GoInt, max:stdgo.GoInt):Void
 
 
 
-[\(view code\)](<./StdGoTypes.hx#L1917>)
+[\(view code\)](<./StdGoTypes.hx#L1941>)
 
 
 ### GoIntIterator function next
@@ -635,7 +648,7 @@ function next():stdgo.GoInt
 
 
 
-[\(view code\)](<./StdGoTypes.hx#L1926>)
+[\(view code\)](<./StdGoTypes.hx#L1950>)
 
 
 ## class GoObjectMap
@@ -660,7 +673,7 @@ function clear():Void
 
 
 
-[\(view code\)](<./GoMap.hx#L172>)
+[\(view code\)](<./GoMap.hx#L188>)
 
 
 ### GoObjectMap function copy
@@ -674,7 +687,7 @@ function copy():stdgo.GoObjectMap<stdgo.GoObjectMap.K, stdgo.GoObjectMap.V>
 
 
 
-[\(view code\)](<./GoMap.hx#L158>)
+[\(view code\)](<./GoMap.hx#L174>)
 
 
 ### GoObjectMap function defaultValue
@@ -688,7 +701,7 @@ function defaultValue():stdgo.GoObjectMap.V
 
 
 
-[\(view code\)](<./GoMap.hx#L113>)
+[\(view code\)](<./GoMap.hx#L129>)
 
 
 ### GoObjectMap function exists
@@ -702,7 +715,7 @@ function exists(key:stdgo.GoObjectMap.K):Bool
 
 
 
-[\(view code\)](<./GoMap.hx#L129>)
+[\(view code\)](<./GoMap.hx#L145>)
 
 
 ### GoObjectMap function get
@@ -716,7 +729,7 @@ function get(key:stdgo.GoObjectMap.K):Null<stdgo.GoObjectMap.V>
 
 
 
-[\(view code\)](<./GoMap.hx#L121>)
+[\(view code\)](<./GoMap.hx#L137>)
 
 
 ### GoObjectMap function iterator
@@ -730,7 +743,7 @@ function iterator():Iterator<stdgo.GoObjectMap.V>
 
 
 
-[\(view code\)](<./GoMap.hx#L152>)
+[\(view code\)](<./GoMap.hx#L168>)
 
 
 ### GoObjectMap function keyValueIterator
@@ -744,7 +757,7 @@ function keyValueIterator():KeyValueIterator<stdgo.GoObjectMap.K, stdgo.GoObject
 
 
 
-[\(view code\)](<./GoMap.hx#L154>)
+[\(view code\)](<./GoMap.hx#L170>)
 
 
 ### GoObjectMap function keys
@@ -758,7 +771,7 @@ function keys():Iterator<stdgo.GoObjectMap.K>
 
 
 
-[\(view code\)](<./GoMap.hx#L149>)
+[\(view code\)](<./GoMap.hx#L165>)
 
 
 ### GoObjectMap function new
@@ -772,7 +785,7 @@ function new(t:stdgo.internal.reflect._Type):Void
 
 
 
-[\(view code\)](<./GoMap.hx#L79>)
+[\(view code\)](<./GoMap.hx#L95>)
 
 
 ### GoObjectMap function remove
@@ -786,7 +799,7 @@ function remove(key:stdgo.GoObjectMap.K):Bool
 
 
 
-[\(view code\)](<./GoMap.hx#L137>)
+[\(view code\)](<./GoMap.hx#L153>)
 
 
 ### GoObjectMap function set
@@ -800,7 +813,7 @@ function set(key:stdgo.GoObjectMap.K, value:stdgo.GoObjectMap.V):Void
 
 
 
-[\(view code\)](<./GoMap.hx#L83>)
+[\(view code\)](<./GoMap.hx#L99>)
 
 
 ### GoObjectMap function toString
@@ -814,7 +827,7 @@ function toString():String
 
 
 
-[\(view code\)](<./GoMap.hx#L165>)
+[\(view code\)](<./GoMap.hx#L181>)
 
 
 ## class GoStringTools
@@ -1019,7 +1032,7 @@ function get(index:Int):stdgo.SliceData.T
 
 
 
-[\(view code\)](<./Slice.hx#L248>)
+[\(view code\)](<./Slice.hx#L266>)
 
 
 ### SliceData function grow
@@ -1033,7 +1046,7 @@ function grow():Void
 
 
 
-[\(view code\)](<./Slice.hx#L274>)
+[\(view code\)](<./Slice.hx#L292>)
 
 
 ### SliceData function new
@@ -1047,7 +1060,7 @@ function new(length:Int, capacity:Int, args:haxe.Rest<stdgo.SliceData.T>):Void
 
 
 
-[\(view code\)](<./Slice.hx#L225>)
+[\(view code\)](<./Slice.hx#L243>)
 
 
 ### SliceData function set
@@ -1061,7 +1074,7 @@ function set(index:Int, value:stdgo.SliceData.T):stdgo.SliceData.T
 
 
 
-[\(view code\)](<./Slice.hx#L253>)
+[\(view code\)](<./Slice.hx#L271>)
 
 
 ### SliceData function toArray
@@ -1075,7 +1088,7 @@ function toArray():Array<stdgo.SliceData.T>
 
 
 
-[\(view code\)](<./Slice.hx#L258>)
+[\(view code\)](<./Slice.hx#L276>)
 
 
 ### SliceData function toString
@@ -1089,7 +1102,7 @@ function toString():String
 
 
 
-[\(view code\)](<./Slice.hx#L266>)
+[\(view code\)](<./Slice.hx#L284>)
 
 
 ### SliceData function toVector
@@ -1103,7 +1116,7 @@ function toVector():haxe.ds.Vector<stdgo.SliceData.T>
 
 
 
-[\(view code\)](<./Slice.hx#L262>)
+[\(view code\)](<./Slice.hx#L280>)
 
 
 ## class VectorData

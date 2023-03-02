@@ -15,7 +15,6 @@ Package iotest implements Readers and Writers useful mainly for testing.
 
 ```
 Error: Command failed with error 1
-stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestWriteLogger
 Exception: testing.iotest.testWriteLogger is not yet implemented
 Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 355)
@@ -28,7 +27,6 @@ Called from stdgo.testing.iotest_test._Iotest.$Iotest_Fields_.main (stdgo/testin
 <p>
 
 ```
-stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestWriteLogger
 Exception: testing.iotest.testWriteLogger is not yet implemented
 Called from stdgo.testing.iotest._Iotest.Iotest_Fields_.testWriteLogger (stdgo/testing/iotest/Iotest.hx line 223 column 64)
@@ -41,7 +39,6 @@ Called from stdgo.testing.iotest._Iotest.Iotest_Fields_.testWriteLogger (stdgo/t
 
 ```
 IO.Overflow("write_ui16")
-stdgo/internal/Macro.macro.hx:35: define
 ```
 </p>
 </details>

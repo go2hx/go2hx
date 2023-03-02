@@ -15,7 +15,6 @@ Package fstest implements support for testing implementations and users of file 
 
 ```
 Error: Command failed with error 1
-stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestMapFS
 Exception: testing.fstest.testMapFS is not yet implemented
 Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 355)
@@ -28,7 +27,6 @@ Called from stdgo.testing.fstest_test._Fstest.$Fstest_Fields_.main (stdgo/testin
 <p>
 
 ```
-stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestMapFS
 Exception: testing.fstest.testMapFS is not yet implemented
 Called from stdgo.testing.fstest._Fstest.Fstest_Fields_.testMapFS (stdgo/testing/fstest/Fstest.hx line 229 column 58)
@@ -41,7 +39,6 @@ Called from stdgo.testing.fstest._Fstest.Fstest_Fields_.testMapFS (stdgo/testing
 
 ```
 IO.Overflow("write_ui16")
-stdgo/internal/Macro.macro.hx:35: define
 ```
 </p>
 </details>

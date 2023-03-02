@@ -4,8 +4,7 @@ stdgo/math/rand_test/Rand_test.hx:622: characters 22-52 : Type not found : stdgo
 stdgo/math/rand_test/Rand_test.hx:625: characters 39-57 : invalid type: TDynamic(null)
 stdgo/math/rand_test/Rand_test.hx:933: characters 48-51 : Unknown identifier : _dn
 stdgo/math/rand_test/Rand_test.hx:959: characters 48-51 : Unknown identifier : _de
-stdgo/math/rand_test/Rand_test.hx:1096: characters 139-146 : Unknown identifier : _stddev
-stdgo/internal/Macro.macro.hx:35: define
+stdgo/math/rand_test/Rand_test.hx:1099: characters 139-146 : Unknown identifier : _stddev
 
 ```
 

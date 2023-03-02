@@ -462,7 +462,6 @@ Unicode character classes are those in unicode.Categories and unicode.Scripts.
 
 ```
 Error: Command failed with error 1
-stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestParseSimple
 Exception: regexp.syntax.testParseSimple is not yet implemented
 Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 355)
@@ -475,7 +474,6 @@ Called from stdgo.regexp.syntax_test._Syntax.$Syntax_Fields_.main (stdgo/regexp/
 <p>
 
 ```
-stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestParseSimple
 Exception: regexp.syntax.testParseSimple is not yet implemented
 Called from stdgo.regexp.syntax._Syntax.Syntax_Fields_.testParseSimple (stdgo/regexp/syntax/Syntax.hx line 1300 column 64)
@@ -488,7 +486,6 @@ Called from stdgo.regexp.syntax._Syntax.Syntax_Fields_.testParseSimple (stdgo/re
 
 ```
 IO.Overflow("write_ui16")
-stdgo/internal/Macro.macro.hx:35: define
 ```
 </p>
 </details>

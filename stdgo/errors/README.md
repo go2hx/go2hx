@@ -136,31 +136,31 @@ because the former will succeed if err wraps an \*fs.PathError.
 
 ```
 === RUN  TestNewEqual
---- PASS: TestNewEqual (%!s(float64=0.00015997886657714844))
+--- PASS: TestNewEqual (%!s(float64=0.0001049041748046875))
 
 === RUN  TestErrorMethod
---- PASS: TestErrorMethod (%!s(float64=1.5974044799804688e-05))
+--- PASS: TestErrorMethod (%!s(float64=2.09808349609375e-05))
 
 === RUN  TestJoinReturnsNil
---- PASS: TestJoinReturnsNil (%!s(float64=1.0967254638671875e-05))
+--- PASS: TestJoinReturnsNil (%!s(float64=2.5033950805664062e-05))
 
 === RUN  TestJoin
---- PASS: TestJoin (%!s(float64=0.000308990478515625))
+--- PASS: TestJoin (%!s(float64=0.0016338825225830078))
 
 === RUN  TestJoinErrorMethod
---- PASS: TestJoinErrorMethod (%!s(float64=4.506111145019531e-05))
+--- PASS: TestJoinErrorMethod (%!s(float64=6.914138793945312e-05))
 
 === RUN  TestIs
---- PASS: TestIs (%!s(float64=0.00012111663818359375))
+--- PASS: TestIs (%!s(float64=0.00011110305786132812))
 
 === RUN  TestAs
---- PASS: TestAs (%!s(float64=0.016067981719970703))
+--- PASS: TestAs (%!s(float64=0.029392004013061523))
 
 === RUN  TestAsValidation
---- PASS: TestAsValidation (%!s(float64=0.0006990432739257812))
+--- PASS: TestAsValidation (%!s(float64=0.0032241344451904297))
 
 === RUN  TestUnwrap
---- PASS: TestUnwrap (%!s(float64=0.00013589859008789062))
+--- PASS: TestUnwrap (%!s(float64=0.00021791458129882812))
 
 ```
 </p>
@@ -174,28 +174,28 @@ because the former will succeed if err wraps an \*fs.PathError.
 --- PASS: TestNewEqual (%!s(float64=0.0001380443572998047))
 
 === RUN  TestErrorMethod
---- PASS: TestErrorMethod (%!s(float64=2.288818359375e-05))
+--- PASS: TestErrorMethod (%!s(float64=1.8835067749023438e-05))
 
 === RUN  TestJoinReturnsNil
---- PASS: TestJoinReturnsNil (%!s(float64=5.1975250244140625e-05))
+--- PASS: TestJoinReturnsNil (%!s(float64=3.409385681152344e-05))
 
 === RUN  TestJoin
---- PASS: TestJoin (%!s(float64=0.0008060932159423828))
+--- PASS: TestJoin (%!s(float64=0.0008389949798583984))
 
 === RUN  TestJoinErrorMethod
---- PASS: TestJoinErrorMethod (%!s(float64=0.00017309188842773438))
+--- PASS: TestJoinErrorMethod (%!s(float64=0.00015401840209960938))
 
 === RUN  TestIs
---- PASS: TestIs (%!s(float64=0.0002980232238769531))
+--- PASS: TestIs (%!s(float64=0.00026106834411621094))
 
 === RUN  TestAs
---- PASS: TestAs (%!s(float64=0.023066043853759766))
+--- PASS: TestAs (%!s(float64=0.021588802337646484))
 
 === RUN  TestAsValidation
---- PASS: TestAsValidation (%!s(float64=0.0017778873443603516))
+--- PASS: TestAsValidation (%!s(float64=0.0017240047454833984))
 
 === RUN  TestUnwrap
---- PASS: TestUnwrap (%!s(float64=0.0002620220184326172))
+--- PASS: TestUnwrap (%!s(float64=0.00021886825561523438))
 
 ```
 </p>
@@ -206,7 +206,6 @@ because the former will succeed if err wraps an \*fs.PathError.
 
 ```
 IO.Overflow("write_ui16")
-stdgo/internal/Macro.macro.hx:35: define
 ```
 </p>
 </details>
@@ -291,7 +290,7 @@ function exampleAs():Void {
             var __tmp__ = stdgo.os.Os.open(("non-existing" : GoString)), _0:Ref<stdgo.os.Os.File> = __tmp__._0, _err:Error = __tmp__._1;
             if (_err != null) {
                 var _pathError:Ref<stdgo.io.fs.Fs.PathError> = (null : Ref<stdgo.io.fs.Fs.PathError>);
-                if (stdgo.errors.Errors.as(_err, Go.toInterface((_pathError : Ref<Ref<stdgo.io.fs.Fs.PathError>>)))) {
+                if (stdgo.errors.Errors.as(_err, Go.toInterface((Go.setRef(_pathError) : Ref<Ref<stdgo.io.fs.Fs.PathError>>)))) {
                     stdgo.fmt.Fmt.println(Go.toInterface(("Failed at path:" : GoString)), Go.toInterface(_pathError.path));
                 } else {
                     stdgo.fmt.Fmt.println(Go.toInterface(_err));

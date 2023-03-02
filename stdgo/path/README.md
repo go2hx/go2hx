@@ -23,31 +23,31 @@ operating system paths, use the path/filepath package.
 
 ```
 === RUN  TestMatch
---- PASS: TestMatch (%!s(float64=0.0013849735260009766))
+--- PASS: TestMatch (%!s(float64=0.0013189315795898438))
 
 === RUN  TestClean
---- PASS: TestClean (%!s(float64=0.00029015541076660156))
+--- PASS: TestClean (%!s(float64=0.00022101402282714844))
 
 === RUN  TestCleanMallocs
---- PASS: TestCleanMallocs (%!s(float64=1.0967254638671875e-05))
+--- PASS: TestCleanMallocs (%!s(float64=1.6927719116210938e-05))
 
 === RUN  TestSplit
---- PASS: TestSplit (%!s(float64=2.193450927734375e-05))
+--- PASS: TestSplit (%!s(float64=1.5974044799804688e-05))
 
 === RUN  TestJoin
---- PASS: TestJoin (%!s(float64=6.818771362304688e-05))
+--- PASS: TestJoin (%!s(float64=6.985664367675781e-05))
 
 === RUN  TestExt
---- PASS: TestExt (%!s(float64=9.059906005859375e-06))
+--- PASS: TestExt (%!s(float64=2.09808349609375e-05))
 
 === RUN  TestBase
---- PASS: TestBase (%!s(float64=2.09808349609375e-05))
+--- PASS: TestBase (%!s(float64=2.5033950805664062e-05))
 
 === RUN  TestDir
---- PASS: TestDir (%!s(float64=5.2928924560546875e-05))
+--- PASS: TestDir (%!s(float64=4.601478576660156e-05))
 
 === RUN  TestIsAbs
---- PASS: TestIsAbs (%!s(float64=5.9604644775390625e-06))
+--- PASS: TestIsAbs (%!s(float64=1.0013580322265625e-05))
 
 ```
 </p>
@@ -58,31 +58,31 @@ operating system paths, use the path/filepath package.
 
 ```
 === RUN  TestMatch
---- PASS: TestMatch (%!s(float64=0.004601001739501953))
+--- PASS: TestMatch (%!s(float64=0.004902839660644531))
 
 === RUN  TestClean
---- PASS: TestClean (%!s(float64=0.0012540817260742188))
+--- PASS: TestClean (%!s(float64=0.0012769699096679688))
 
 === RUN  TestCleanMallocs
---- PASS: TestCleanMallocs (%!s(float64=5.507469177246094e-05))
+--- PASS: TestCleanMallocs (%!s(float64=6.198883056640625e-05))
 
 === RUN  TestSplit
---- PASS: TestSplit (%!s(float64=4.792213439941406e-05))
+--- PASS: TestSplit (%!s(float64=5.7220458984375e-05))
 
 === RUN  TestJoin
---- PASS: TestJoin (%!s(float64=0.0003159046173095703))
+--- PASS: TestJoin (%!s(float64=0.0003058910369873047))
 
 === RUN  TestExt
---- PASS: TestExt (%!s(float64=3.695487976074219e-05))
+--- PASS: TestExt (%!s(float64=4.696846008300781e-05))
 
 === RUN  TestBase
---- PASS: TestBase (%!s(float64=8.797645568847656e-05))
+--- PASS: TestBase (%!s(float64=9.799003601074219e-05))
 
 === RUN  TestDir
---- PASS: TestDir (%!s(float64=0.0001571178436279297))
+--- PASS: TestDir (%!s(float64=0.00017404556274414062))
 
 === RUN  TestIsAbs
---- PASS: TestIsAbs (%!s(float64=2.288818359375e-05))
+--- PASS: TestIsAbs (%!s(float64=4.410743713378906e-05))
 
 ```
 </p>
@@ -93,7 +93,6 @@ operating system paths, use the path/filepath package.
 
 ```
 IO.Overflow("write_ui16")
-stdgo/internal/Macro.macro.hx:35: define
 ```
 </p>
 </details>
@@ -205,7 +204,7 @@ function exampleBase():Void {
 </details>
 
 
-[\(view code\)](<./Path.hx#L460>)
+[\(view code\)](<./Path.hx#L466>)
 
 
 ## function clean
@@ -267,7 +266,7 @@ function exampleClean():Void {
 </details>
 
 
-[\(view code\)](<./Path.hx#L337>)
+[\(view code\)](<./Path.hx#L343>)
 
 
 ## function dir
@@ -311,7 +310,7 @@ function exampleDir():Void {
 </details>
 
 
-[\(view code\)](<./Path.hx#L493>)
+[\(view code\)](<./Path.hx#L499>)
 
 
 ## function ext
@@ -349,7 +348,7 @@ function exampleExt():Void {
 </details>
 
 
-[\(view code\)](<./Path.hx#L443>)
+[\(view code\)](<./Path.hx#L449>)
 
 
 ## function isAbs
@@ -382,7 +381,7 @@ function exampleIsAbs():Void {
 </details>
 
 
-[\(view code\)](<./Path.hx#L481>)
+[\(view code\)](<./Path.hx#L487>)
 
 
 ## function join
@@ -425,7 +424,7 @@ function exampleJoin():Void {
 </details>
 
 
-[\(view code\)](<./Path.hx#L417>)
+[\(view code\)](<./Path.hx#L423>)
 
 
 ## function match
@@ -583,6 +582,6 @@ function exampleSplit():Void {
 </details>
 
 
-[\(view code\)](<./Path.hx#L405>)
+[\(view code\)](<./Path.hx#L411>)
 
 
